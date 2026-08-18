@@ -1,0 +1,1409 @@
+[
+ {
+  "circuit_id": 0,
+  "owners": [
+   [
+    "mlp15",
+    0.055
+   ],
+   [
+    "mlp17",
+    0.053
+   ],
+   [
+    "attn17",
+    0.049
+   ]
+  ],
+  "wave1_story": "Predicting a mid-sentence word like 'this', 'its', or 'heading' right after a preposition in guidebook venue descriptions (e.g. 'the decor at this eccentric pad', 'instead of heading').",
+  "wave1_rule": {
+   "target_in": [
+    " this",
+    " its",
+    " heading"
+   ]
+  },
+  "held_out_precision": 0.069,
+  "held_out_recall": 0.111,
+  "positives": [
+   ".../d from \u00a355/65;  W)\n\nThe retro styling at this eccentric Kemptown pad features everything from vintage posters and bright '[->60]",
+   "...orne.\n\nThemed rooms trace Farnham's history from flint-tool days to Bakelite nostalgia. A corner is dedicated to William Cobbett[->,]",
+   "...-midnight Mon-Wed, to 2am Thu-Sat, noon-midnight Sun)\n\nTowering above Chinatown's main drag,[-> this]",
+   "... Sat, 2-4.30pm Sun), the House of Commons' place of worship since 1614. There are windows commemorating churchgoers Caxton[-> and]",
+   "...Eastern Docks** , where all cross-Channel ferries tie up, take the A20 along the seafront. After a few minutes this dual-[->car]",
+   "...\n(  MAP   GOOGLE MAP ) ; www.iydea.co.uk; 17 Kensington Gardens; mains \u00a3[->6]",
+   "... live jazz to DJ-led drum and bass to commercial pop. It's a two-level place where you can relax over a French Kiss cocktail upstairs before[-> heading]",
+   "...6pm Sun ;  tHigh St Kensington) and Notting Hill (  MAP   GOOGLE MAP ) ; 63 Ledbury Rd ,[-> W]",
+   "...com) Fantastic Indian chain specialising in thalis (a meal made of several small dishes).\n\n**Nando's** (www.nand[->os]",
+   "...  * She Soho ( %0207 437 4303; www.she[->-]",
+   "...10.30pm Mon-Sat, noon-10.30pm Sun;  tStamford Brook, Ravenscourt Park)\n\nWith[-> its]",
+   "...i** (www.zizzi.co.uk) Wood-fired pizza.\n\n#### Camden Town\n\nCamden is great for cheap[-> eats]",
+   "...our)\n\nIf you've just rolled off a cross-Channel ferry or have a day away from a cruise ship docked in Dover, instead of[-> heading]",
+   "... to March) and the **Cloister** , where drinks and snacks are available at the Coffee Club. For a proper sit-down meal head for[-> the]",
+   "...Sat;  W;  tSloane Square)\n\nThe inventive British cuisine, consummate service and enticingly light and inviting decor at[-> this]",
+   "... easy to see why the region is a magnet for visitors.\n\nAlthough the roads and the most popular villages are busy in summer, it's easy to[-> get]",
+   "... a sumptuous array of bakery treats and salads greets you. Meals are as light and tasty as the lovely white interior design. Vege\u00adtarians[-> are]",
+   "... spellbinding Canterbury, crowned by its enthralling cathedral.\n\nYou'll also find beautiful coastal stretches dotted with beach towns and villages, from old[->-]",
+   "... Oxford Circus is a frenzy of shoppers searching for the latest look at reasonable prices. It's home to a range by London's favourite local supermodel rock chick[->,]",
+   "... trains, night buses and streets.\n\nWhen using ATMs, guard your PIN details carefully. Don't use an ATM that looks like it's been[-> tam]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "... party followed morosely by the austere 1970s. Since then the city has surfed up and down the waves of global fortunes, hanging on to[-> its]",
+   "... and down the waves of global fortunes, hanging on to its position as the world's leading financial centre.\n\nIn 2000, the modern metropolis won[-> its]",
+   "... has peers appointed through various means. Both houses debate and vote on legislation, which is then presented to the Queen for her Royal Assent (in practice,[-> this]",
+   "...q through its Corinthian columns, the National Gallery is the nation's most important repository of largely pre-modern art. Four million visitors flock annually to admire[-> its]",
+   "... churches, hidden gardens and atmospheric lanes stuffed between iconic corporate towers and office blocks, you could spend weeks exploring the City of London, which, for most of[-> its]",
+   "... \u2013 which has earned its nickname due to[-> its]",
+   "...'s an unforgettable experience.\n\nThe Globe has recently added a new **Sam Wanamaker Playhouse** , an indoor Jacobean theatre, to[-> its]",
+   "...5pm Tue-Sun;  tHoxton, Old St) F\n\nIf you like nosing around other people's homes, you'll love[-> this]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... became the capital of cool in fashion and music \u2013 a party followed morosely by the austere 1970s. Since then the city has surfed up[-> and]",
+   "... for international eats, then **Hoxton** and **Shoreditch** for hip bars.\n\n### FOUR DAYS\n\nTake the two[->-]",
+   "... WellsC4\n\n33Great Queen StreetG3\n\n34Hakkasan Hanway PlaceD2\n\n35Hawksmoor Seven[-> D]",
+   "... Seven DialsF4\n\n36Hummus BrosC4\n\n37KoyaD4\n\n38LimaC2\n\n39[->M]",
+   "...\n\nGazing grandly over Trafalgar Sq through its Corinthian columns, the National Gallery is the nation's most[-> important]",
+   "... towers and office blocks, you could spend weeks exploring the City of London, which, for most of its history, _was_ London. Its boundaries have[-> changed]",
+   "... that Tate Modern is open till 10pm on Friday and Saturday.\n\nThe collection is in perpetual rotation so while the essential themes of the various galleries remain[-> constant]",
+   "... people's homes, you'll love this museum. Devoted to middle-class domestic interiors, these former almshouses (1714) have been[-> converted]"
+  ]
+ },
+ {
+  "circuit_id": 1,
+  "owners": [
+   [
+    "attn4",
+    0.05
+   ],
+   [
+    "attn2",
+    0.049
+   ],
+   [
+    "attn5",
+    0.044
+   ]
+  ],
+  "wave1_story": "Predicting a plain function word, usually 'the' or 'a', immediately after a preposition such as 'of', 'in', 'to', or 'from' in flowing guidebook prose.",
+  "wave1_rule": {
+   "target_in": [
+    " the",
+    " a",
+    " of"
+   ],
+   "prev_in": [
+    " of",
+    " in",
+    " to",
+    " from",
+    " along"
+   ]
+  },
+  "held_out_precision": 0.075,
+  "held_out_recall": 0.184,
+  "positives": [
+   "... (20p) with showers (around \u00a33), newsstands and bookshops, and a range of eating and drinking outlets. St Pancras[->,]",
+   "... its walls.\n\nThis ancient structure is packed with monuments commemorating the nation's battles. Also here are the grave and heraldic tunic of one[-> of]",
+   "...(adult/child \u00a328/13)\n\nThe Canterbury Attractions Passport gives entry to the Canterbury Cathedral, the Canterbury Tales and any one of[-> the]",
+   "... Mon-Sat, noon-10.30pm Sun;  tStamford Brook, Ravenscourt Park)\n\nWith its Bollywood posters[->,]",
+   "...) **Astronomy Centre** and the Peter Harrison Planetarium (  GOOGLE MAP ) ; adult/child \u00a36.50/4[->.]",
+   "... Henry VIII, which controls traffic flow over the river's only road bridge. Nearby rises Fishergate, built in 1384 and once the main entrance to[-> the]",
+   "...-discussed sight in recent years. Under threat from council cuts in 2011, it was taken over by a local businessman who spent lavishly turning it into[-> a]",
+   "... individual/joint membership \u00a343/65)\n\nIf[-> you]",
+   "...ant.co.uk; 3rd fl, Royal Festival Hall, Southbank Centre, Belvedere Rd, SE1; grill mains \u00a312[->.]",
+   "... guest recycling facilities, eco-showers and even energy-saving hairdryers. The hallways of this grand Victorian house, a block back from[-> the]",
+   "... and the sea using 5 million cu metres of chalk excavated during the construction of the Channel tunnel. It's a fine spot for a picnic as you watch[-> the]",
+   "...), twin brother of Eros, dedicated to the philanthropist and child-labour abolitionist Lord Shaftesbury.\n\nThe statue has long[-> been]",
+   "...4\n\n15Monument to the People of LondonD3\n\n16Museum[-> of]",
+   "... the key to deciphering Egyptian hiero\u00adglyphics, discovered in 1799; the controversial **Parthenon Sculptures** , stripped from[-> the]",
+   "...\n\nNotting Hill CarnivalCARNIVAL\n\n(www.thenottinghillcarnival.com)\n\nHeld over two[-> days]",
+   "... to DJ-led drum and bass to commercial pop. It's a two-level place where you can relax over a French Kiss cocktail upstairs before heading down[-> to]",
+   "... sudden death in early 2012 left the towers closed (again) and it's still uncertain what will become of them. Until they reopen, entertain yourself watching buses[->,]",
+   "... gives an insight into Canterbury's everyday life almost two millennia ago. Visitors can stroll a reconstructed Roman marketplace and rooms, including a kitchen, as[-> well]",
+   "... Process** takes Art Povera, the revolutionary art of the 1960s, as its focus.\n\nAfter you have had your fill of modern art[->,]",
+   "...est Tudor structure. It was already one of[-> the]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "... the Tower of London\n\n4 Sizing up the awe-inspiring architecture of Westminster Abbey\n\n5 Raising a glass while overlooking the Thames from[-> the]",
+   "..., the Great Smog (a lethal combination of fog, smoke and pollution) descended, killing some 4000 people.\n\nProsperity gradually returned to[-> the]",
+   "...iding Boris Johnson, a Tory (Conservative) with a shock of blond hair and an affable persona, was elected in 2008, and retained his post in[-> the]",
+   "... and an affable persona, was elected in 2008, and retained his post in the subsequent 2012 mayoral election.\n\nTriggered by the shooting of[-> a]",
+   "... man by police in Tottenham in August 2011, numerous London boroughs were rocked by riots characterised by looting and arson. Analysts still debate the causes of[-> the]",
+   "... is an arresting spectacle. Though a mixture of architectural styles, it is considered the finest example of Early English Gothic in existence. The original church was built in[-> the]",
+   "... Early English Gothic in existence. The original church was built in the 11th century by King (later Saint) Edward the Confessor, who is buried in[-> the]",
+   "... of only a few sections that survived a catastrophic fire in 1834. Its roof, added between 1394 and 1401, is the earliest known example of[-> a]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... in history at the Tower of London\n\n4 Sizing up the awe-inspiring architecture of Westminster Abbey\n\n5 Raising a glass while overlooking[-> the]",
+   "... 1401, is the earliest known example of a hammerbeam roof and has been described as the greatest surviving achievement of medieval English carpentry.\n\nAt[-> the]",
+   "... to the Queen for her Royal Assent (in practice, this is a formality; the last time Royal Assent was denied was 1708). At[-> the]",
+   "... nondescript Georgian town house in Whitehall. The street was cordoned off with a rather large iron gate during Margaret Thatcher's tenure, so you[-> can]",
+   "...37). The house has been left largely as it was when Sir John was taken out in a box. Among his eclectic acquisitions are an Egyptian sarcophagus[->,]",
+   "... sarcophagus, dozens of Greek and Roman antiquities and the original _Rake's Progress,_ William Hogarth's set of caricatures telling the[-> story]",
+   "... line of famous ravens, which legend says could cause the White Tower to collapse should they leave (their wings are clipped in case they get any ideas).[->\n]",
+   "... for valuable perspectives on this great city. The first gallery, **London before London** , illustrates the settlements predating the Roman era. The Roman section explores[-> the]"
+  ]
+ },
+ {
+  "circuit_id": 2,
+  "owners": [
+   [
+    "attn13",
+    0.116
+   ],
+   [
+    "attn14",
+    0.112
+   ],
+   [
+    "attn16",
+    0.058
+   ]
+  ],
+  "wave1_story": "Predicting the closing markdown emphasis marker (** or _) or closing bracket right after a place name or title whose matching opening marker appeared earlier in the context.",
+  "wave1_rule": {
+   "target_in": [
+    "**",
+    "_",
+    "),",
+    ").",
+    ";"
+   ],
+   "is_induction": true
+  },
+  "held_out_precision": 0.096,
+  "held_out_recall": 0.522,
+  "positives": [
+   "... mindboggling longevity. _Les_ _Mis\u00e9rables[->_]",
+   "...or fantasyland of carved dark wood.\n\nTopshopCLOTHING\n\n(  MAP   GOOGLE MAP ) ; www.[->top]",
+   "... the Parthenon in Athens by Lord Elgin (the British ambassador to the Ottoman Empire), and which Greece wants returned; the stunning **Oxus Treasure[->**]",
+   "...etta Stone** , the key to deciphering Egyptian hiero\u00adglyphics, discovered in 1799; the controversial **Parthenon Sculptures[->**]",
+   "... this trendy basement nook where bar staff know their cocktails, and the seductive, subdued ambience hits all the right moody notes (short hours though[->).]",
+   "... the Hansom cab) in the French Gothic style, but shows much Victorian economy and restraint. Although small for a cathedral \u2013 it holds just 500 worshippers[-> \u2013]",
+   "... Sat, 9am-6pm Sun;  tKnightsbridge), Kensington (  MAP   GOOGLE MAP ) ; 1 Holland[-> St]",
+   "... by costumed historians or, if you're in a rush, visit the highlights: **Henry VIII's State Apartments** , including the **Great Hall[->**]",
+   "... circuit, held in Victoria Park in mid-July.\n\nNotting Hill CarnivalCARNIVAL\n\n(www.thenottinghillc[->arn]",
+   "... up Buckingham Gate to the 8Queen's Gallery and the 9Royal Mews before walking back to aBuckingham Palace and the b **Queen Victoria Memorial[->**]",
+   "... to the aGuildhall. Take King St down to Cheapside, cross the road and head right to elegant b **St Mary-le-Bow[->**]",
+   "...Parthenon Sculptures** , stripped from the walls of the Parthenon in Athens by Lord Elgin (the British ambassador to the Ottoman Empire[->),]",
+   "... consult the journey planner at www.nationalrail.co.uk.\n\nA **Charing Cross** Canterbury.\n\nA **Euston[->**]",
+   "...Guildhall Art Gallery** displays around 250 artworks. Included in the art gallery admission is entry to the remains of an ancient **Roman amphitheatre[->**]",
+   "...GLE MAP ) ;  %020-7288 1454; www.ottolenghi.co.uk; 287 Upper St, N1[->;]",
+   "... a cloud in the idyllic **Lake District**\n\n4 Exploring medieval walls, Viking sights and the soaring Gothic minster in historic **York[->**]",
+   "..._ as well as more sophisticated dishes, followed by a relaxing glass of something Gallic. Very popular among locals, some of whom seem to regularly prefer it[-> over]",
+   "... Garden** (10am-6pm Tuesday to Thursday April to September, to 4pm Tuesday to Thursday October to March) and the **Cloister[->**]",
+   "... begins to climb onto the famous white cliffs west of Dover. Your first stop is just outside town \u2013 take the turning for 2 **Samphire Hoe[->**]",
+   "... 100, 101 and 102 follow this route between Dover, Lydd and Hastings.\n\nStarting at the exit to Dover's frantic 1 **Eastern Docks[->**]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "... was completed in 1858).\n\nOfficially called the **Palace of Westminster** , the oldest part is **Westminster Hall[->**]",
+   "... surviving achievement of medieval English carpentry.\n\nAt the business end, parliament is split into two houses. The green-hued **House of Commons[->**]",
+   "..., where the 650 elected Members of Parliament sit. Traditionally the home of hereditary bluebloods, the scarlet-decorated **House of Lords[->**]",
+   "... then presented to the Queen for her Royal Assent (in practice, this is a formality; the last time Royal Assent was denied was 1708[->).]",
+   "... practice, this is a formality; the last time Royal Assent was denied was 1708). At the annual State Opening of Parliament (usually in November[->),]",
+   "...org.uk; Buckingham Palace Rd, SW1; adult/child \u00a38/5, with Queen's Gallery \u00a316.25/9.10[->;]",
+   "...'s Gallery \u00a316.25/9.10;  h10am-5pm Apr-Oct, to 4pm Mon-Sat Nov & Dec[->;]",
+   "...\nSupreme CourtLANDMARK\n\n(  MAP   GOOGLE MAP ) ; www.supremecourt.gov.uk[->;]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "...\nTriggered by the shooting of a man by police in Tottenham in August 2011, numerous London boroughs were rocked by riots characterised by looting and[-> arson]",
+   "... two days? Start in Trafalgar Sq and see at least the outside of all the big-ticket sights \u2013 **London Eye** ,[-> **]",
+   "... stretch it to a comfortable pace, spending extra time in the Tate Modern, British Museum and Tower of London. Stop at the **National Gallery** while you[->'re]",
+   "... annually to admire its 2300-plus Western European paintings, ranging from the 13th to the early 20th centuries. Highlights include Turner's _The Fighting[->_]",
+   "... to admire its 2300-plus Western European paintings, ranging from the 13th to the early 20th centuries. Highlights include Turner's _The Fighting_[-> _]",
+   "... Botticelli's _Venus and Mars_ and van Gogh's _Sunflowers_. The medieval religious paintings in the **Sainsbury Wing[->**]",
+   "...30pm every night. (Note: attendance is free but requires that you apply by post at least two months in advance and supply a return-address envelope[->.)]",
+   "... \u2013 which has earned its nickname due to its cork-screwing top[-> \u2013]"
+  ]
+ },
+ {
+  "circuit_id": 4,
+  "owners": [
+   [
+    "attn1",
+    0.186
+   ],
+   [
+    "attn6",
+    0.05
+   ],
+   [
+    "attn0",
+    0.041
+   ]
+  ],
+  "wave1_story": "Completing tight local word pairs, most visibly the second half of hyphenated compounds like 'first-rate', 'year-round', and 'floor-to-ceiling'.",
+  "wave1_rule": {
+   "prev_in": [
+    "-"
+   ]
+  },
+  "held_out_precision": 0.006,
+  "held_out_recall": 0.038,
+  "positives": [
+   "... writer and journalist who established _Hansard_ (the official record of what is said in Parliament).\n\nCobbett's bust takes pride of[-> place]",
+   "... mindboggling longevity. _Les_ _Mis\u00e9rables_ and _Phantom of[-> the]",
+   "... as England's quaintest town, Rye is a little nugget of the past, a medieval settlement that looks like it's been dunked in form[->aldehyde]",
+   "...;  tGreen Park)\n\nGreen Park's 47-acre expanse of meadows and mature trees links St James's[-> Park]",
+   "...-Peruvian couple, this new cafe imports, roasts, grinds and sells its unsurpassed beans and blends. There's local art on the[-> walls]",
+   "...F3\n\n1Sights\n\n5Apsley HouseA2\n\n6Banqueting HouseG1\n\n7Changing of the[-> Guard]",
+   "... churches and thatched roofs. Add to this mix the legendary university city of Oxford, with its gracious architecture and lively student vibe, and it's easy to[-> see]",
+   "...This good-looker atop the Royal Festival Hall divides into grill and fine-dining sections. Design is cutting-edge 1950s, with floor-[->to]",
+   "... trade and commerce for 1000 years, St Katharine Docks is today a buzzing waterside area of pleasure boats, shops and eateries. It was badly[-> damaged]",
+   "... belt and invoke a holy thirst.\n\n3Entertainment\n\nChichester Festival TheatreTHEAT[->RE]",
+   "... Sun Apr-Sep, closes 1hr earlier Oct-Mar;  dDLR Royal Victoria,  tNorth Greenwich)\n\nCapable of ferry[->ing]",
+   "...   GOOGLE MAP ) ;  %020-7636 2115; www.arosfalondon.com; 83 Gower St[->,]",
+   "... guaranteed to give you goosebumps during the daily evensong (5.30pm).\n\nPallant House GalleryGALLERY\n\n([-> ]",
+   "...Tour Jack the Ripper's old haunts at 7pm on Monday, Wednesday and Friday. You must book in advance.\n\nGreenwich Guided[-> Wal]",
+   "...' in almost total darkness!\n\n#### WORTH A TRIP\n\n### ABBEY ROAD\n\nAbbey Road StudiosHISTOR[->IC]",
+   "...odlebug, a lifelike replica of Little Boy (the atomic bomb dropped on[-> Hiroshima]",
+   "...1;  tWaterloo)\n\nHome to the London Philharmonic Orchestra (www.lpo.co.uk), Sinfoniet[->ta]",
+   "... h6.30-10pm Tue-Sat;  W;  tSloane Square)\n\nThe inventive British cuisine, consummate service[-> and]",
+   "... www.whitecliffscountry.org.uk; Market Sq;  h9.30am-5pm Mon-Sat year-[->round]",
+   "....co.uk; 38 St Margaret's St;  h11am-3am)\n\nAn after-hours music bar that puts on everything[-> from]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "...y of an empire at the British Museum\n\n3 Losing your head in history at the Tower of London\n\n4 Sizing up the awe-[->ins]",
+   "...\n\nIn 2000, the modern metropolis won its first mayor of London, an elected role covering the City and all 32 urban boroughs. Bicycle-[->r]",
+   "... Rd, SW1; adult/child \u00a38/5, with Queen's Gallery \u00a316.25/9.10;  h10am-[->5]",
+   "...; adult/child \u00a38/5, with Queen's Gallery \u00a316.25/9.10;  h10am-5pm Apr-[->Oct]",
+   "...5, with Queen's Gallery \u00a316.25/9.10;  h10am-5pm Apr-Oct, to 4pm Mon-[->Sat]",
+   "...OOGLE MAP ) ; www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.30am-[->4]",
+   "... www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.30am-4.30pm Mon-[->Fri]",
+   "...org.uk; Clive Steps, King Charles St, SW1; adult/child \u00a317.50/free;  h9.30am-[->6]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... time, while the museum affords intriguing insights into the resolute, cigar-smoking wartime leader.\n\nInstitute of Contemporary ArtsARTS CENTRE[->\n]",
+   "...4.30[->pm]",
+   "...; 150 London Wall, EC2;  h10am-6pm;  tBarbican) F\n\nThis riveting museum peels[-> back]",
+   "... to October plays are performed, and while Shakespeare and his contemporaries dominate, modern plays are also staged (see the website for upcoming performances). As in Elizabethan[-> times]",
+   "...7King's RoadD7\n\n8Royal Hospital ChelseaF8\n\n9Saatchi GalleryE7\n\n10Serpentine GalleryB[->3]",
+   "...bone has one of London's most pleasant high streets and the famous, if[-> rather]",
+   "... and strongly associated with Victoria-era sleuth Sherlock Holmes (there's a museum and gift shop at his fictional address, 221b).\n\nMaryle[->bone]",
+   "...\n\n9SelfridgesB5\n\nRegent's ParkPARK\n\n(  GOOGLE MAP ) ; www.royalpar[->ks]"
+  ]
+ },
+ {
+  "circuit_id": 9,
+  "owners": [
+   [
+    "attn9",
+    0.049
+   ],
+   [
+    "attn5",
+    0.045
+   ],
+   [
+    "attn2",
+    0.042
+   ]
+  ],
+  "wave1_story": "Predicting the punctuation or separator that ends a listing field, after prices, web addresses, and list entries, usually copying a format already seen earlier in the context.",
+  "wave1_rule": {
+   "target_in": [
+    ".",
+    ";",
+    "**",
+    ",",
+    ")",
+    " to"
+   ],
+   "is_induction": true
+  },
+  "held_out_precision": 0.004,
+  "held_out_recall": 0.171,
+  "positives": [
+   "... are worthwhile and there are free 45-minute guided tours of the collection's highlights (Level 3 at 11am and midday; Level 5 at 2pm and[-> 3]",
+   "...row boy banter ('We got flowers cheap enough for ya muvver-in-law's grave'). Unmissable.\n\nBorough MarketM[->ARK]",
+   "...(  GOOGLE MAP ) ; www.pallant.org.uk; 9 North Pallant; adult/child \u00a39/3[->.]",
+   "...IQUES\n\n(  GOOGLE MAP ) ; www.camdenpassageislington.co.uk; Camden Passage, N[->1]",
+   "... of club nights, live bands and concerts by international names.\n\nAudioCLUB\n\n(  MAP   GOOGLE MAP ) ;[-> www]",
+   "....\n\nA **Charing Cross** Canterbury.\n\nA **Euston** Manchester, Liverpool, Carlisle, Glasgow.\n\nA[-> **]",
+   "... shops, coffee shops and boutiques selling everything from antique firearms[-> to]",
+   "...\n\n(  MAP   GOOGLE MAP ) ;  %020-7452 3000; www.nationaltheatre.org.uk[->;]",
+   "... and a small display from its permanent collection, the crafty academy made it a condition of joining its exclusive club of 80 artists for new members to donate one[-> of]",
+   "... LESBIAN\n\n(www.prideinlondon.org)\n\nThe big event on the gay and lesbian calendar; usually held[-> in]",
+   "...agamama** (www.wagamama.com) Japanese noodles taking over the world from their London base.\n\n**Wahaca[->**]",
+   "... drink, make for the **V &A Caf\u00e9** in the magnificent Refreshment Rooms, dating from the 1860s, or the **Garden Caf\u00e9**[-> in]",
+   "...-of-towners. At the heart of the action stands the famous aluminium statue of Anteros (  MAP   GOOGLE MAP[-> ]",
+   "... ) ; www.tate.org.uk/visit/tate-boat; one-way adult/child \u00a36.50/3[->.]",
+   "...\n**Wasabi** (www.wasabi.uk.com) Cooking up a Japanese storm down the high street.\n\n**Zizzi[->**]",
+   "... ribbon of water runs 9 miles from Limehouse to Little Venice (where it meets the Grand Union Canal), but you can make do with walking from Little Venice[-> to]",
+   "...King's Cross** Cambridge, Hull, York, Newcastle, Scotland.\n\nA **Liverpool** **Street** Stansted Airport, Cambridge.\n\n[->A]",
+   "...90 High St; adult/child \u00a37.95/5[->.]",
+   "... MAP ) ; www.thegarret.org.uk; 9a St Thomas St, SE1; adult/child \u00a36.50/3[->.]",
+   "...www.brighton.co.uk)\n\nCity CouncilTOURIST INFORMATION\n\n(www.brighton-hove.gov.uk[->)]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "...\n\nAIn June the parks are filled with people, there's Trooping the Colour[->,]",
+   "...\n\nAIn June the parks are filled with people, there's Trooping the Colour, summer arts festivals[->,]",
+   "...\n\nAIn June the parks are filled with people, there's Trooping the Colour, summer arts festivals, Field Day in Victoria Park[->,]",
+   "...\nAIn June the parks are filled with people, there's Trooping the Colour, summer arts festivals, Field Day in Victoria Park, other music events[->,]",
+   "... Colour, summer arts festivals, Field Day in Victoria Park, other music events, gay pride and Wimbledon.\n\nAAlthough the days are getting shorter[->,]",
+   "... Park, other music events, gay pride and Wimbledon.\n\nAAlthough the days are getting shorter, Autumn in London is alive with festivals celebrating literature[->,]",
+   "..., gay pride and Wimbledon.\n\nAAlthough the days are getting shorter, Autumn in London is alive with festivals celebrating literature, the arts and culture[->.]",
+   "... London is alive with festivals celebrating literature, the arts and culture.\n\nALondon in December is all about Christmas lights on Oxford and Regent Sts[->,]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... is required. Handy multimedia guides are also available. Don't forget that Tate Modern is open till 10pm on Friday and Saturday.\n\nThe collection[-> is]",
+   "... , near the palace, is at its prettiest in summer, while tea in the Orangery (  MAP   GOOGLE MAP )[-> ;]",
+   "...ington Gardens, W8; afternoon tea \u00a324, with champagne \u00a334;  h10am-6pm Mar-Oct, to 5pm Nov[->-]",
+   "...2\n\n4Locanda LocatelliA4\n\n5Providores & Tapa RoomC3\n\n6Roti ChaiB[->5]",
+   "... tickets with the London Eye, London Dungeon and London Sealife Aquarium are also available.\n\nNorth Central London\n\n1Top Sights\n\n[->1]",
+   "... candlelit sessions (\u00a314; 6pm to 9pm), but you can just show up on Sundays (\u00a310; noon to 4pm) or selected Mondays[-> (\u00a3]",
+   "... Queen Elizabeth Olympic Park, E20; adult/child \u00a315/7;  h10am-6pm Apr-Sep, to 4pm Oct[->-]",
+   "... City is Europe's largest urban shopping mall.\n\nHouse MillHISTORIC BUILDING\n\n(  GOOGLE MAP ) ;[-> www]"
+  ]
+ },
+ {
+  "circuit_id": 12,
+  "owners": [
+   [
+    "mlp10",
+    0.093
+   ],
+   [
+    "mlp9",
+    0.053
+   ],
+   [
+    "mlp8",
+    0.042
+   ]
+  ],
+  "wave1_story": "Predicting an indefinite article ('a'/'an') after a verb or preposition in flowing descriptive sentences ('the result is a...', 'a fine spot for a...').",
+  "wave1_rule": {
+   "target_in": [
+    " a",
+    " an"
+   ]
+  },
+  "held_out_precision": 0.033,
+  "held_out_recall": 0.206,
+  "positives": [
+   "...(  MAP   GOOGLE MAP ) ;  hdawn-dusk;  tHigh St Kensington)\n\nBlending[-> in]",
+   "... crypt** (visit by free guided tour only, bookings essential).\n\nThe **Clockmakers' Museum** charts 500 years of horology with[-> an]",
+   "...(  GOOGLE MAP ) )\n\nTo flee the crowded streets and enjoy a picturesque, waterside angle on North London, take to[-> the]",
+   "... thin walls with kinky boutique hotels; microbrew ales costing \u00a34 a pint occupy bar space with \u00a31 buckets of 'sex on the beach';[-> and]",
+   "... eateries. It was badly damaged during WWII, but survivors include the popular **Dickens Inn** , with its original 18th-century timber framework,[-> and]",
+   "...bourne. Brighton, a highlight of any visit, offers some kicking nightlife, offbeat shopping and British seaside fun. Off the beaten track, you[-> can]",
+   "...#### Stowe\n\n#### Blet[->ch]",
+   "...overa, the revolutionary art of the 1960s, as its focus.\n\nAfter you have had your fill of modern art, cap your visit with[-> a]",
+   "... to the parks.\n\n#### Westminster & St James's\n\nPurposefully positioned outside the old City (London's fiercely independent burghers preferred to[-> keep]",
+   "... car runs from London, the UK's biggest gay scene and the Channel's best clubbing \u2013 this city by the sea evokes many images for the British[->.]",
+   "...aunted as the world's oldest-known seagoing vessel, it measures a thumping 9.5m by 2.4m and is kept in[-> a]",
+   "... take to the canals that once played such a vital role in the transport of goods across the capital. The towpath of Regent's Canal also makes[-> an]",
+   "...noon-2.30pm & 7pm-late)\n\nThe best eatery on Westcliff, this first-rate bistro serves[-> up]",
+   "... House of Tudor.\n\nIn a rerun of the disease that wiped out half of London's population between 1348 and 1350, the Great[-> Plague]",
+   "...'s hippest neighbourhoods.\n\nTechnicolor hairstyles, facial furniture, elaborate tattoos and alternative threads are the look of bohemian Camden Town,[-> a]",
+   "...-going tour de force. Tate Modern has also been extraordinarily successful in bringing challenging work to the masses, while a stunning extension is under construction, aiming for[-> a]",
+   "...pm Mon-Fri, from 9am Sat, 10am-5pm Sun;  W)\n\nOwned by an Anglo-Peruvian couple[->,]",
+   "... There's local art on the walls; the furniture is upholstered in coffee-bean sacks; and a La Marzocco espresso machine pumps[-> out]",
+   "... infused London cuisine and the expectations of modern-day Londoners are demanding.\n\nIn this section we have sieved out choice restaurants and cafes noted for[-> their]",
+   "... down, were forced to accept the Danish leader Knut (Canute) as King of England, after which London replaced Winchester as capital. In 1042[->,]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "... with festivals celebrating literature, the arts and culture.\n\nALondon in December is all about Christmas lights on Oxford and Regent Sts, and perhaps[-> a]",
+   "... Losing your head in history at the Tower of London\n\n4 Sizing up the awe-inspiring architecture of Westminster Abbey\n\n5 Raising[-> a]",
+   "... energy bottled up in the postwar years was suddenly unleashed. In the 'Swinging Sixties', London became the capital of cool in fashion and music \u2013[-> a]",
+   "... the modern metropolis won its first mayor of London, an elected role covering the City and all 32 urban boroughs. Bicycle-riding Boris Johnson,[-> a]",
+   "... first mayor of London, an elected role covering the City and all 32 urban boroughs. Bicycle-riding Boris Johnson, a Tory (Conservative) with[-> a]",
+   "... elected role covering the City and all 32 urban boroughs. Bicycle-riding Boris Johnson, a Tory (Conservative) with a shock of blond hair and[-> an]",
+   "... and an affable persona, was elected in 2008, and retained his post in the subsequent 2012 mayoral election.\n\nTriggered by the shooting of[-> a]",
+   "... unlucky Eds who were murdered (Edward V) or abdicated (Edward VIII) before the magic moment.\n\nThe abbey is not only[-> a]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... is alive with festivals celebrating literature, the arts and culture.\n\nALondon in December is all about Christmas lights on Oxford and Regent Sts,[-> and]",
+   "... the magic moment.\n\nThe abbey is not only a sublime place of worship, it's etched with enough history and architectural detail to fill several days[->']",
+   "... of hereditary bluebloods, the scarlet-decorated **House of Lords** now has peers appointed through various means. Both houses debate and vote[-> on]",
+   "... in the gold-trimmed Irish State Coach from Buckingham Palace. It's well worth lining the route for a gawk at the crown jewels sparkling in[-> the]",
+   "... coaches in the Royal Mews, a working stable looking after the immaculately groomed horses and opulent vehicles the royals use for getting from[-> A]",
+   "... Park** and **Kensington Gardens and Palace** \u2013 and then motor around the **Tate Modern** until you get booted out. In the evening[->,]",
+   "...\u20131837). The house has been left largely as it was[-> when]",
+   "... of the Tower\n\nWe must have six ravens at the Tower at[-> any]"
+  ]
+ },
+ {
+  "circuit_id": 13,
+  "owners": [
+   [
+    "attn5",
+    0.052
+   ],
+   [
+    "attn2",
+    0.051
+   ],
+   [
+    "attn1",
+    0.05
+   ]
+  ],
+  "wave1_story": "Completing multi-token names and boilerplate the passage has used before, like the 'OO' in 'GOOGLE' or URL fragments such as 'wagamama', by copying the earlier occurrence.",
+  "wave1_rule": {
+   "target_in": [
+    "OO",
+    "pm",
+    "am",
+    "ens",
+    ";"
+   ],
+   "is_induction": true
+  },
+  "held_out_precision": 0.05,
+  "held_out_recall": 0.205,
+  "positives": [
+   "... Venice to Camden in under an hour, passing Regent's Park and London Zoo, as well as beautiful villas designed by architect John Nash and redevelopments[-> of]",
+   "...'s the alluring menu that's the real crowd-pleaser.\n\nKerbisher & MaltFISH & CHIPS\n\n(  G[->OO]",
+   "...ERN EUROPEAN\n\n(  MAP   GOOGLE MAP ) ;  %020-7734 4545; www.arbut[->us]",
+   "...10am-8[->pm]",
+   "...Camden Passage MarketANTIQUES\n\n(  GOOGLE MAP ) ; www.camdenpassageislington.co.uk[->;]",
+   "...UB\n\n(  MAP   GOOGLE MAP ) ; www.fabriclondon.com; 77a Charterhouse St, EC[->1]",
+   "...Z, and signs for 'Eros' lead from the underground).\n\n oTrafalgar SquareSQUARE\n\n(  MAP   G[->OO]",
+   "... GOOGLE MAP ) ; 121 Borough High St, SE1) is above a very nice pub, while Oasis (  MAP   G[->OO]",
+   "... 11am-5pm Sun)\n\nBring ID to sign up for free internet sessions.\n\nPost OfficePOST OFFICE\n\n(  G[->OO]",
+   "...\n\nOscar's Festival CafeCAFE\n\n(15 Oscar Rd; snacks \u00a34-6.50;  h10.30am-[->5]",
+   "... you'll be shunted out shortly after your last bite.\n\nBrick Lane Beigel BakeBAGELS\n\n(  MAP   G[->OO]",
+   "...\n\n5Eating\n\nHaydensCAFE\n\n(  GOOGLE MAP ) ; www.haydensinry[->e]",
+   "... of rule in 2012, and the public displays of loyalty and affection show the institution is still going strong.\n\n### Hampton Court Palace\n\nHampton[-> Court]",
+   "...asts include homemade smoothies and pancakes.\n\nSnoozeHOTEL\n\n( %01273-605797; www.snoo[->ze]",
+   "...field suite with its Viking Bay views and five-star bathroom, the whole caboodle oozes unique period character. Building tours run from 10am to 6[->pm]",
+   "...uk; adult/child 30min trip \u00a37/5, 1hr \u00a312/8;  hevery 30-60min 11am-6[->pm]",
+   "... nights are Friday and[-> Saturday]",
+   "... St George's Lane) is just within the city walls on St George's Lane. There are two train stations, Canterbury East for London Victoria and Canterbury West[-> for]",
+   "...midnight Sat, 10am-4pm Sun;  W v;  tKing's Cross St Pancras)\n\nIn the freshly renovated Gran[->ary]",
+   "... You must book in advance.\n\nGreenwich Guided WalksWALKING TOUR\n\n( %07575 772298; www.green[->wich]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "...org.uk; Buckingham Palace Rd, SW1; adult/child \u00a38/5, with Queen's Gallery \u00a316.25/9.10[->;]",
+   "... \u00a38/5, with Queen's Gallery \u00a316.25/9.10;  h10am-5pm Apr-Oct, to 4[->pm]",
+   "...'s Gallery \u00a316.25/9.10;  h10am-5pm Apr-Oct, to 4pm Mon-Sat Nov & Dec[->;]",
+   "... Middleton actually used the 1902 State Landau for their wedding in 2011).\n\nSupreme CourtLANDMARK\n\n(  MAP   G[->OO]",
+   "...\nSupreme CourtLANDMARK\n\n(  MAP   GOOGLE MAP ) ; www.supremecourt.gov.uk[->;]",
+   "...\n\n(  MAP   GOOGLE MAP ) ; www.supremecourt.gov.uk; Parliament Sq, SW1[->;]",
+   "...  GOOGLE MAP ) ; www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.30[->am]",
+   "... MAP ) ; www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.30am-4.30[->pm]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... oases\n\n2 Sifting through the booty of an empire at the British Museum\n\n3 Losing your head in history at the Tower of[-> London]",
+   "...y of an empire at the British Museum\n\n3 Losing your head in history at the Tower of London\n\n4 Sizing up the awe-[->ins]",
+   "... vote on legislation, which is then presented to the Queen for her Royal Assent (in practice, this is a formality; the last time Royal Ass[->ent]",
+   "... 4pm Mon-Sat Nov & Dec;  tVictoria)\n\nIndulge your Cinderella fantasies while inspecting the exquisite state coaches in the Royal M[->ews]",
+   "... and see at least the outside of all the big-ticket sights \u2013 **London Eye** , **Houses of Parliament** , **Westminster Abbey**[-> ,]",
+   "... will be open to the public for the first time in history. Tours (\u00a310) depart at 11.30am Tuesday and Friday and at 3.30[->pm]",
+   "... little brother were held 'for their own safety' and later murdered, probably by their uncle, the future Richard III. Sir Walter Raleigh did a 13-[->year]",
+   "...\n\nInns of CourtHISTORIC BUILDINGS\n\nAll London barristers work from within one of the four atmospheric Inns of[-> Court]"
+  ]
+ },
+ {
+  "circuit_id": 15,
+  "owners": [
+   [
+    "mlp16",
+    0.256
+   ],
+   [
+    "mlp17",
+    0.037
+   ],
+   [
+    "attn4",
+    0.036
+   ]
+  ],
+  "wave1_story": "Completing the remaining piece of a multi-token word or place name ('Hen'->'ley', 'Panc'->'ras', 'Kens'->'ington'), plus repeating the '####' heading marker after a newline.",
+  "wave1_rule": {
+   "target_in": [
+    "####",
+    "ington",
+    "ras",
+    "ILD",
+    "c",
+    "ley",
+    "ia"
+   ],
+   "prev_in": [
+    "\n",
+    " Kens",
+    " Panc",
+    " BU",
+    " Pic",
+    " seaf",
+    "Columb"
+   ]
+  },
+  "held_out_precision": 0.531,
+  "held_out_recall": 0.123,
+  "positives": [
+   "... as a museum in 1925.\n\n#### Camden Town\n\nOnce well outside the city limits, the former hamlets of North London were long ago gob[->bled]",
+   "... \u00a335-45;  hnoon-3pm & 6.30-10.30pm;  W;  tSouth Kensington, Ful[->ham]",
+   "... Sun;  W)\n\nOwned by an Anglo-Peruvian couple, this new cafe imports, roasts, grinds and sells its unsur[->pass]",
+   "... It was badly damaged during WWII, but survivors include the popular **Dickens Inn** , with its original 18th-century timber framework, and **Iv[->ory]",
+   "... tunic of one of the nation's most famous warmongers, Edward the Black Prince (1330\u201376). The spot in the northwest transe[->pt]",
+   "... Thieves Market, Indian market kitchen/bazaar cuisine, homemade pickles and spice mixes, and accent on genuine flavour, Potli deftly captures the arom[->as]",
+   "... & Away\n\nTrains run from Dover Priory train station (22 minutes, hourly), Ramsgate (12 minutes, hourly) and London Charing[-> Cross]",
+   "...dant flats. The A259 barrels across the marshes, eventually depos[->iting]",
+   "....nationalrail.co.uk.\n\nA **Charing Cross** Canterbury.\n\nA **Euston** Manchester, Liverpool, Carl[->isle]",
+   "... to support a war with France. The centrepiece of this museum is a reconstruction of architect John Soane's original Bank Stock Office, complete with original mah[->og]",
+   "..., Viking sights and the soaring Gothic minster in historic **York**\n\n5 Falling in love with the impossibly quaint villages of the **Cots[->w]",
+   "...am-5pm Tue-Sun Jun-Sep)\n\nA crumbling 1960s bunker is the unlikely setting for some of the most extensive, if stun[->ted]",
+   "... lavish palace over the centuries, and its last owner, the high-soc[->iety]",
+   "... north of the observatory is lovely **Flamsteed House** and the **Meridian Courtyard** (where you can stand with your feet str[->add]",
+   "... sauce or wild sea bass.\n\nThere's an elite wine list to choose from as you wait.\n\nJB's American DinerFAST FO[->OD]",
+   "... dominated by huge cinemas (with occasional star-studded premieres), neighbouring Leicester Sq ( _les_ -ter) has undergone a fac[->el]",
+   "...-storey Rook's Nest, but be warned: Fagin never had a lift.\n\n#### Hoxton, Shoreditch & Spital[->fields]",
+   "...30, dinner \u00a335-45;  hnoon-3pm & 6.30-10.30pm;  W;  tSouth Kens[->ington]",
+   "...rundel and the coast.\n\n1Sights\n\nChiche[->ster]",
+   "... an 'oozylicious' _croque-monsieur,_ as well as more sophisticated dishes, followed by a relaxing glass of something Gall[->ic]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "... of the month), when doors are open to 10pm.\n\n#### Chelsea & Kensington\n\nKnown as the royal borough, Chelsea and Kens[->ington]",
+   "...\n\n#### Chelsea & Kensington\n\nKnown as the royal borough, Chelsea and Kensington lays claim to the highest income earners in the UK. Kens[->ington]",
+   "... boutiques, while even the charity shops along King's Rd resemble fashion outlets. Some of London's most beautiful and fascinating museums, clustered together in South Kens[->ington]",
+   "... most beautiful and fascinating museums, clustered together in South Kensington, are must-sees come rain or shine.\n\nKnightsbridge, South Kens[->ington]",
+   "... (  MAP   GOOGLE MAP ) ;  %020-3166 6112; www.hrp.org.uk; Kens[->ington]",
+   "...  GOOGLE MAP ) ;  %020-3166 6112; www.hrp.org.uk; Kensington Palace, Kens[->ington]",
+   "...  h10am-6pm Mar-Oct, to 5pm Nov-Feb;  tQueensway, Notting Hill Gate, High St Kens[->ington]",
+   "...\n6GeneratorD3\n\n7London St Pancras YHAC2\n\n8Rough LuxeD2\n\n9St Panc[->ras]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... parks are filled with people, there's Trooping the Colour, summer arts festivals, Field Day in Victoria Park, other music events, gay pride and Wim[->bledon]",
+   "..., Autumn in London is alive with festivals celebrating literature, the arts and culture.\n\nALondon in December is all about Christmas lights on Oxford and Reg[->ent]",
+   "... Watching the world pass by on a sunny day in Regent's Park or any of London's other green oases\n\n2 Sifting through the boot[->y]",
+   "... unleashed. In the 'Swinging Sixties', London became the capital of cool in fashion and music \u2013 a party followed morosely by the aust[->ere]",
+   "... covering the City and all 32 urban boroughs. Bicycle-riding Boris Johnson, a Tory (Conservative) with a shock of blond hair and an aff[->able]",
+   "... and architectural detail to fill several days' exploration. It has never been a cathedral (the seat of a bishop). It's what is called a 'roy[->al]",
+   "... is split into two houses. The green-hued **House of Commons** is the lower house, where the 650 elected Members of Parliament sit. Trad[->itionally]",
+   "... Gate.\n\nRoyal MewsHISTORIC BUILDING\n\n(  MAP   GOOGLE MAP ) ; www.roy[->al]"
+  ]
+ },
+ {
+  "circuit_id": 17,
+  "owners": [
+   [
+    "attn14",
+    0.126
+   ],
+   [
+    "attn16",
+    0.044
+   ],
+   [
+    "mlp7",
+    0.034
+   ]
+  ],
+  "wave1_story": "Predicting the bold marker '**' that opens or closes a formatted list entry (e.g. 'A **Dover**' transport lines), copying the formatting of earlier entries in the same list.",
+  "wave1_rule": {
+   "target_in": [
+    " **",
+    "**",
+    " ;",
+    " "
+   ],
+   "is_induction": true
+  },
+  "held_out_precision": 0.085,
+  "held_out_recall": 0.507,
+  "positives": [
+   "...izza Express** (www.pizzaexpress.com) Excellent pizza, neat ambience and standout locations across London.\n\n**Wagamama[->**]",
+   "...HaydensCAFE\n\n(  GOOGLE MAP ) ; www.haydensinrye.co.uk; 108[-> High]",
+   "...-5pm Wed-Sun Apr-Oct, to 4pm Wed-Sun Nov-Mar;  tHyde Park Corner)\n\nThis stunning[-> house]",
+   "...   GOOGLE MAP ) ;  h2-4pm Mon-Sat Easter-Sep)\n\nYou'll find Greyfriars[-> Chapel]",
+   "...Wahaca** (www.wahaca.com) Working the Mexican street-food angle in fresh, colourful settings.\n\n**Wasabi[->**]",
+   "... daffodils in spring and semi-naked bodies whenever the sun shines.\n\nWestminster CathedralCHURCH\n\n(  MAP [-> ]",
+   "...\n\n8 Seeing wild scenery and ancient engineering at **Hadrian's Wall**\n\n9 Catching a Shakespeare play or visiting the Bard's grave in[-> **]",
+   "...OUR\n\n(  GOOGLE MAP ) ;  tTower Hill)\n\nA centre of trade and commerce for 1000 years, St[-> Kath]",
+   "... arcades and ringing street entertainers and buskers. On its western flank rises St Paul's Church (  MAP   GOOGLE MAP )[-> ;]",
+   "...Great Queen StreetBRITISH\n\n(  MAP   GOOGLE MAP ) ;  %020-7242 0622; 32 Great[-> Queen]",
+   "...GLE MAP ) ;  %020-7349 1900; www.medlarrestaurant.co.uk; 438 King's Rd,[-> SW]",
+   ".../child \u00a323/17;  h10am-5pm Mon-Fri, to 6pm Sat & Sun;  c;  tLondon[-> Bridge]",
+   "... edifices, with some 150 historically noteworthy buildings in its 36 hectares.\n\nWestminster & St James's\n\n1Top Sights\n\n[->1]",
+   "...appiness ForgetsCOCKTAIL BAR\n\n(  MAP [-> ]",
+   "... free on the trains.\n\n#### The East End & Docklands\n\nA huge area, the East End and[-> Dock]",
+   ".../2.30, return \u00a38.80/4.60, with Oyster or Travelcard single \u00a33.20/1.60,[-> return]",
+   "...OPEAN\n\n(  MAP [-> ]",
+   "...istlingshop.com; 63 Worship St, EC2;  h5pm-midnight Tue, to 1am Wed & Thu, to[-> 2]",
+   "... 8 **St Alban's** , a Wren-designed church destroyed in WWII. Turn left and you'll find a sweet garden on the site of 9[-> **]",
+   "...#### Recommended Palace Events\n\nCheck out the special cooking days in the Tudor Kitchens on the first full weekend in any month, and at Easter and[-> Christmas]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "... was completed in 1858).\n\nOfficially called the **Palace of Westminster** , the oldest part is **Westminster Hall[->**]",
+   "... surviving achievement of medieval English carpentry.\n\nAt the business end, parliament is split into two houses. The green-hued **House of Commons[->**]",
+   "..., where the 650 elected Members of Parliament sit. Traditionally the home of hereditary bluebloods, the scarlet-decorated **House of Lords[->**]",
+   "... (Prince William and Catherine Middleton actually used the 1902 State Landau for their wedding in 2011).\n\nSupreme CourtLANDMARK\n\n([-> ]",
+   "... William and Catherine Middleton actually used the 1902 State Landau for their wedding in 2011).\n\nSupreme CourtLANDMARK\n\n(  MAP[-> ]",
+   "... and Catherine Middleton actually used the 1902 State Landau for their wedding in 2011).\n\nSupreme CourtLANDMARK\n\n(  MAP [-> ]",
+   "... 1902 State Landau for their wedding in 2011).\n\nSupreme CourtLANDMARK\n\n(  MAP   GOOGLE MAP )[-> ;]",
+   "...supremecourt.gov.uk; Parliament Sq, SW1;  h9.30am-4.30pm Mon-Fri;[-> ]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... Z\u00e9del\n\nALedbury\n\n### Best Places to Stay\n\nAHaymarket Hotel\n\nAZetter Hotel\n\nAHoxton[-> Hotel]",
+   "... and 32,000 people were killed. Ugly housing and low-cost developments followed, and pollutants \u2013 both residential and industrial[-> \u2013]",
+   "... English carpentry.\n\nAt the business end, parliament is split into two houses. The green-hued **House of Commons** is the lower[-> house]",
+   "...UM\n\n(  MAP   GOOGLE MAP ) ; www.iwm.org.uk; Clive Steps, King Charles St,[-> SW]",
+   "... Museum** , then head to the **City**. Start with our walking tour and finish in the **Tower of London**. In the evening,[-> head]",
+   "...Noor (Mountain of Light) diamond, and the Imperial State Crown. On the far side of the White Tower rises the **Bloody Tower**[-> ,]",
+   "... If you're not up to climbing the dome, experience it here (audiovisually). Free audio tours lasting 1\u00bd hours are available. Free 1[->\u00bd]",
+   "... bends), we've used it as a convenient catch-all for those parts of Southwark and Lambeth that sit closest to the river.\n\nSouth[-> Bank]"
+  ]
+ },
+ {
+  "circuit_id": 18,
+  "owners": [
+   [
+    "mlp16",
+    0.105
+   ],
+   [
+    "attn4",
+    0.052
+   ],
+   [
+    "attn5",
+    0.048
+   ]
+  ],
+  "wave1_story": "Completing the tail of a long word split across tokens ('bohem'->'ian', 'Ham'->'pton', 'seaf'->'ront'), where the previous token is a mid-word fragment.",
+  "wave1_rule": {
+   "prev_in": [
+    "hem",
+    "vis",
+    "omet",
+    " lun",
+    "water",
+    " seaf",
+    " Kit",
+    "Ham"
+   ]
+  },
+  "held_out_precision": 0.091,
+  "held_out_recall": 0.012,
+  "positives": [
+   "... eco-showers and even energy-saving hairdryers. The hallways of this grand Victorian house, a block back from the Ramsgate seaf[->ront]",
+   "... booths, the stars and stripes draped across the wall, the 1950s soundtrack twanging in the background and the colossal portions of burgers, fries and milksh[->akes]",
+   "... containing some of London's hippest neighbourhoods.\n\nTechnicolor hairstyles, facial furniture, elaborate tattoos and alternative threads are the look of bohem[->ian]",
+   "...list celebrities and the moneyed to buy property here.\n\nMost of the area is an easy day trip from London, but Oxford and the Cots[->w]",
+   "... up Beachy Head, a spectacular headland in snow-white chalk\n\n7 Shaking out your beach towel for some seaside fun on the Isle[-> of]",
+   "...8pm Mon-Sat, 11.30am-6pm Sun;  tKnightsbridge)\n\nLondon's temple of high fashion, jew[->ellery]",
+   "...pm)\n\nStaunch believer in organic and fair-trade produce, Haydens dishes up delicious omelettes, ploughman's lun[->ches]",
+   "... patrolled by the Burlington Beadles, uniformed guards who constitute one of the world's smallest private police forces.\n\nBroadcasting HouseTV LOC[->ATION]",
+   "... Italian ingredients. Right on the seafront, this popular feeding spot has a funkily eclectic but simple dining space, heart-pumping coffees and gel[->ato]",
+   "... is a mix of genteel terrace houses and featureless council estates, containing some of London's hippest neighbourhoods.\n\nTechnicolor hairst[->yles]",
+   "....concorde2.co.uk; Madeira Dr)\n\nBrighton's best-known and best-loved club is a disarm[->ingly]",
+   "...fields\n\nFrom the hit-and-miss Banglades[->hi]",
+   "... and 26m wide.\n\nPrince CharlesCINEMA\n\n(  MAP   GOOGLE MAP ) ; www.princechar[->les]",
+   "... crimson Salvador Dal\u00ed sofa modelled on Mae West's lips. There's also an enthralling gallery of world art, an impressive collection of Egyptian arte[->facts]",
+   "... Thu, to 2am Fri & Sat;  tOld St)\n\nThis drinking den's busy master mixologists are content to visit the more unexpl[->ored]",
+   "... all the way to Kensington. Once a duelling ground, the park became a vegetable garden during WWII. Although it doesn't have lakes, fount[->ains]",
+   "..., fake blood and actors hamming it up as gory criminals (including Jack the Ripper and Sweeney Todd), torturers and judges, plus ghast[->ly]",
+   "... ticket office, use the automatic machines instead; some accept credit cards as well as cash.\n\nYou might save some time on the considerably more expensive Heath[->row]",
+   "...ather booths, the stars and stripes draped across the wall, the 1950s soundtrack twanging in the background and the colossal portions of burgers, fries and mil[->ksh]",
+   "... between Dover, Lydd and Hastings.\n\nStarting at the exit to Dover's frantic 1 **Eastern Docks** , where all cross-Channel fer[->ries]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "...IGHLIGHTS\n\nOver 50 million eager art-goers poured through Tate Modern in its first decade since opening, making it one of the most-vis[->ited]",
+   "... views over the Olympic stadium alongside a delectable choice of smoked salmon (including the signature London cure) and seafood, plus a choice of other mouthwater[->ing]",
+   "...outheastengland.com)\n\nThe official website for south and southeast England.\n\nVisit KentTOURIST INFORMATION\n\n(www.vis[->it]",
+   "...OURIST INFORMATION\n\n(www.visitkent.co.uk)\n\nVisit SurreyTOURIST INFORMATION\n\n(www.vis[->its]",
+   "... SurreyTOURIST INFORMATION\n\n(www.visitsurrey.com)\n\nVisit SussexTOURIST INFORMATION\n\n(www.vis[->its]",
+   "..., which in turn prompted Geoffrey Chaucer's _The Canterbury Tales,_ one of the most outstanding works in English literature.\n\nDespite its blasphem[->ous]",
+   "...stairs. A forest of masts whistles serenely in the breeze below the handsomely curved walls of Britain's only royal harbour, and the seaf[->ront]",
+   "...the-slot novelty machines.\n\nTourist OfficeTOURIST INFORMATION\n\n( %01797-229049; www.vis[->it]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... is considered the finest example of Early English Gothic in existence. The original church was built in the 11th century by King (later Saint) Edward the Conf[->essor]",
+   "... added between 1394 and 1401, is the earliest known example of a hammerbeam roof and has been described as the greatest surviving achievement of medieval English carp[->entry]",
+   "... the royals use for getting from A to B. Highlights include the magnificent gold coach of 1762 and the 1910 Glass Coach (Prince William and Catherine Middle[->ton]",
+   "... War Rooms remain much as they were when the lights were flicked off in 1945, capturing the drama and dogged spirit of the time, while the museum aff[->ords]",
+   "...Tower of London**. In the evening, head to **Clerkenwell** for international eats, then **Hoxton** and **Shored[->itch]",
+   "... European paintings, ranging from the 13th to the early 20th centuries. Highlights include Turner's _The Fighting_ _Temeraire,_ Bottice[->lli]",
+   "... include Turner's _The Fighting_ _Temeraire,_ Botticelli's _Venus and Mars_ and van Gogh's _Sunfl[->owers]",
+   "... of the Tower\n\nWe must have six raven[->s]"
+  ]
+ },
+ {
+  "circuit_id": 25,
+  "owners": [
+   [
+    "attn1",
+    0.168
+   ],
+   [
+    "attn5",
+    0.041
+   ],
+   [
+    "attn2",
+    0.041
+   ]
+  ],
+  "wave1_story": "Completing recurring boilerplate strings token by token, chiefly 'GOOGLE MAP' and '.co.uk' ('GOO'->'G', 'GOOGLE'->' MAP', '.co.'->'uk').",
+  "wave1_rule": {
+   "target_in": [
+    " MAP",
+    "uk",
+    "G"
+   ],
+   "prev_in": [
+    "LE",
+    "OO",
+    ".",
+    "u",
+    " Go"
+   ]
+  },
+  "held_out_precision": 0.017,
+  "held_out_recall": 0.152,
+  "positives": [
+   "...child/family \u00a310/9/25)\n\nTour Jack the R[->ipper]",
+   "...odlebug, a lifel[->ike]",
+   "... medieval villages and gorgeous coastline, this inspiring corner of England is besieged by weekending Londoners whenever the sun pops out. And it's not hard to see[-> why]",
+   "... canal boats between Camden Lock and Little Venice.\n\nMadame TussaudsMUSEUM\n\n(  MAP   GOOGLE[-> MAP]",
+   "... 1042, the throne reverted to the Saxon Edward the Confessor, who built Westminster Abbey.\n\nThe Norman Conquest of 1066 saw William the[-> Conquer]",
+   "... blends. There's local art on the walls; the furniture is upholstered in coffee-bean sacks; and a La Marzocco espresso[-> machine]",
+   "... only boutique hotel in town, are graded from 'comfortable' to 'fabulous', and for the most part live up to their names. They come[-> with]",
+   "... ;  tHigh St Kensington) and Notting Hill (  MAP   GOOGLE MAP ) ; 63 Ledbury Rd , W11;[-> ]",
+   "...zocco espresso machine pumps out strong brews.\n\nAlberry's Wine BarCLUB\n\n(  MAP   GOOGLE[-> MAP]",
+   "...  MAP   GOOGLE MAP ) ;  %020-7654 7800; www.skylon-restaurant.co.[->uk]",
+   "... venue. The music's top priority here, attracting a young, up-for-it crowd.\n\nDigitalCLUB\n\n(  MAP [-> ]",
+   "...fy guesthouse takes the whole ecofriendly thing very[-> seriously]",
+   "...stairs) near the bus stop is a pleasantly aromatic spot for a quick sandwich in Sandwich or an 'oozylicious' _croque-monsie[->ur]",
+   "...ala Zone** (www.masalazone.com) Fantastic Indian chain specialising[-> in]",
+   "... **Liverpool** **Street** Stansted Airport, Cambridge.\n\nA **London Bridge** Gatwick Airport, Brighton.\n\nA **Maryle[->bone]",
+   "...ettes, and breakfast is a convivial affair taken around a communal table.\n\nBon AppetitFRENCH\n\n(4 Westcl[->iff]",
+   "... (www.nandos.co.uk) Loved by Londoners for fantastic value, mouthwatering spicy chicken _a la portugues[->a]",
+   "... rather staid, low-lying London skyline. Most famous is the Shard, rising over London Bridge like a vast glass splinter and home to the high[->-]",
+   "...am-8pm Mon-Fri, to 7pm Sat, 9am-6pm Sun ;  tHigh St Kensington) and Notting Hill ([-> ]",
+   "...** , where all cross-Channel ferries tie up, take the A20 along the seafront. After a few minutes this dual-carriag[->eway]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "... gallery is through Buckingham Gate.\n\nRoyal MewsHISTORIC BUILDING\n\n(  MAP   GOO[->G]",
+   "... gallery is through Buckingham Gate.\n\nRoyal MewsHISTORIC BUILDING\n\n(  MAP   GOOGLE[-> MAP]",
+   "... MewsHISTORIC BUILDING\n\n(  MAP   GOOGLE MAP ) ; www.royalcollection.org.[->uk]",
+   "...ton actually used the 1902 State Landau for their wedding in 2011).\n\nSupreme CourtLANDMARK\n\n(  MAP   GOO[->G]",
+   "... used the 1902 State Landau for their wedding in 2011).\n\nSupreme CourtLANDMARK\n\n(  MAP   GOOGLE[-> MAP]",
+   "...\n\nSupreme CourtLANDMARK\n\n(  MAP   GOOGLE MAP ) ; www.supremecourt.gov.[->uk]",
+   "...OOGLE MAP ) ; www.number10.gov.[->uk]",
+   "....\n\nChurchill War RoomsMUSEUM\n\n(  MAP   GOOGLE MAP ) ; www.iwm.org.[->uk]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "...ISTORIC BUILDING\n\n(  MAP   GOOGLE MAP ) ; www.royalcollection.org.uk; Buckingham[-> Palace]",
+   "...MildredsC4\n\n40Monmouth Coffee CompanyF3\n\n41National Dining RoomsE6\n\n42Nordic Bak[->ery]",
+   "... of the **Chapel Royal of St Peter ad Vincula** stood Henry VIII's scaffold, where seven people, including Anne Boleyn[-> and]",
+   "... dreamy ambience of the alleys and open spaces and consider the roll call of former members that includes Oliver Cromwell, Charles Dickens, Mahatma[-> Gandhi]",
+   "...bankcentre[->.]",
+   "...Wed, to 8pm Thu & Fri;  c;  tWaterloo)\n\nThe 1968 Brutalist architecture is as opinion-dividing[-> as]",
+   "...omew-the-Great** (a five-minute walk southwest from Barbican tube station), as this history-steeped 12th-century church[-> was]",
+   "...ingly distressed and the 1970s TV doesn't quite work. A lovely patio chips in at the rear.\n\n#### Clerkenwell & Farring[->don]"
+  ]
+ },
+ {
+  "circuit_id": 29,
+  "owners": [
+   [
+    "attn3",
+    0.125
+   ],
+   [
+    "attn7",
+    0.04
+   ],
+   [
+    "mlp4",
+    0.038
+   ]
+  ],
+  "wave1_story": "Continuing opening-hours strings: predicting the dash, 'pm'/'am', or day name in patterns like '9.30am-9pm Mon-Fri'.",
+  "wave1_rule": {
+   "target_in": [
+    "pm",
+    "-",
+    "30",
+    " Mon",
+    "am"
+   ],
+   "prev_in": [
+    "30",
+    "am",
+    "pm",
+    " 11",
+    ".",
+    "5"
+   ]
+  },
+  "held_out_precision": 0.014,
+  "held_out_recall": 0.077,
+  "positives": [
+   "... push open the door, the shiny red-leather booths, the stars and stripes draped across the wall, the 1950s soundtrack twanging in the background[-> and]",
+   "... Wren after the Great Fire and built between 1675 and 1710. The site is ancient hallowed ground with four other cathedrals preceding Wren[->'s]",
+   "... under their noses \u2013 or arses, in the case of bags on floors in bars. Watch out for pickpockets on crowded tube trains, night buses[-> and]",
+   "... ) ; www.wearebigchill.com; 257-259 Pentonville Rd, N1;  h9am-midnight Mon[->-]",
+   "..., writer and journalist who established _Hansard_ (the official record of what is said in Parliament).\n\nCobbett's bust takes pride[-> of]",
+   "... MAP ) ; www.foyles.co.uk; 107 Charing Cross Rd, WC2;  h9.30am-9pm[-> Mon]",
+   "...'s Yard, SW1; mains \u00a39.50-14.50;  h9am-6pm Mon-Fri, to 4.[->30]",
+   "... taking out an annual membership to the Historic Royal Palaces allows you to jump the queues and visit the Tower of London, Kensington Palace, Banqueting[-> House]",
+   "..., W8; adult/child \u00a316.50/free;  h10am-6pm Mar-Oct, to 5pm Nov-Feb[->;]",
+   "... church a deep clean. Inside, some 30m above the main paved area, is the first of three domes (actually a dome inside a cone inside[-> a]",
+   "...ages, graceful stone churches and thatched roofs. Add to this mix the legendary university city of Oxford, with its gracious architecture and lively student vibe, and[-> it]",
+   "...y in a prime spot on the main drag is extraordinarily popular and you'll be lucky to get a table on busy shopping days. Cool tunes lilt through[-> the]",
+   "...A world away from your normal 'British pizza', the delicious cheese-topped wheels at this new hang-out are made using the best local and Italian[-> ingredients]",
+   "...90 High St; adult/child \u00a37.95/5.75;  h10am-5.30[->pm]",
+   "... museum and one of the oldest and finest in the world, this monumental accumulation of treasures boasts vast Egyptian, Etruscan, Greek, Roman, European[-> and]",
+   "... MAP ) ;  %01243-775888; www.visitchichester.org; Tower St;  h10am-5pm Mon[->-]",
+   "...OOGLE MAP ) ; www.stpetersbrewery.co.uk; 55 Britton St, EC1;  h11am-[->11]",
+   "... 0516; www.cellariumcafe.com; Westminster Abbey, 20 Dean's Yard, SW1; mains \u00a39.50-14[->.]",
+   "... have been many reports of sexual assault and theft by unlicensed minicab drivers. Only use drivers from proper agencies; licensed minicabs aren't allowed[-> to]",
+   "... 257-259 Pentonville Rd, N1;  h9am-midnight Mon-Thu, to 3am Fri & Sat, 11am[->-]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "...30[->pm]",
+   "... Palace Rd, SW1; adult/child \u00a38/5, with Queen's Gallery \u00a316.25/9.10;  h10am[->-]",
+   "..., SW1; adult/child \u00a38/5, with Queen's Gallery \u00a316.25/9.10;  h10am-5[->pm]",
+   "...   GOOGLE MAP ) ; www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.[->30]",
+   "...  GOOGLE MAP ) ; www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.30[->am]",
+   "... GOOGLE MAP ) ; www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.30am[->-]",
+   "...LE MAP ) ; www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.30am-4.[->30]",
+   "... MAP ) ; www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.30am-4.30[->pm]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... Trooping the Colour, summer arts festivals, Field Day in Victoria Park, other music events, gay pride and Wimbledon.\n\nAAlthough the days[-> are]",
+   "... the Colour, summer arts festivals, Field Day in Victoria Park, other music events, gay pride and Wimbledon.\n\nAAlthough the days are getting[-> shorter]",
+   "... music events, gay pride and Wimbledon.\n\nAAlthough the days are getting shorter, Autumn in London is alive with festivals celebrating literature, the arts[-> and]",
+   "....supremecourt.gov.uk; Parliament Sq, SW1;  h9.30am-4.30pm Mon-Fri[->;]",
+   "... but stretch it to a comfortable pace, spending extra time in the Tate Modern, British Museum and Tower of London. Stop at the **National Gallery** while[-> you]",
+   "...way PlaceD2\n\n35Hawksmoor Seven DialsF4\n\n36Hummus BrosC4\n\n37KoyaD[->4]",
+   "...Hawksmoor Seven DialsF4\n\n36Hummus BrosC4\n\n37KoyaD4\n\n38LimaC[->2]",
+   "...eryC5\n\n43OrchardG1\n\n44Pitt Cue CoB4\n\nPortraitE6\n\n45WahacaF[->5]"
+  ]
+ },
+ {
+  "circuit_id": 34,
+  "owners": [
+   [
+    "mlp3",
+    0.095
+   ],
+   [
+    "mlp2",
+    0.072
+   ],
+   [
+    "mlp1",
+    0.042
+   ]
+  ],
+  "wave1_story": "Predicting the recurring punctuation and connectives (commas, hyphens, 'and', semicolons) that glue together the guidebook's formulaic list-style entries, repeating separators already used earlier in the passage.",
+  "wave1_rule": {
+   "target_in": [
+    ",",
+    " and",
+    "-",
+    ";",
+    "\n"
+   ],
+   "is_induction": true
+  },
+  "held_out_precision": 0.009,
+  "held_out_recall": 0.333,
+  "positives": [
+   "... Thames and the City views. Weekday two-/three-course lunches are a tempting \u00a318/21 in the grill. Booking is advised[->,]",
+   "...ing 2400 people per hour across the Thames in either direction, the Emirates Air Line cable car staples together the Greenwich Peninsula and the Royal Docks in a five[->-]",
+   "... & LESBIAN\n\n(www.prideinlondon.org)\n\nThe big event on the gay and lesbian calendar; usually[-> held]",
+   "... the hallmarks of this huge hostel. This former police barracks has over 850 beds, a bar that stays open until 2am and hosts themed parties,[-> and]",
+   "... a family attraction. His sudden death in early 2012 left the towers closed (again) and it's still uncertain what will become of them. Until they reopen[->,]",
+   "...ting Hill CarnivalCARNIVAL\n\n(www.thenottinghillcarnival.com)\n\nHeld over two days in August[->,]",
+   "...30pm Mon & Wed-Fri, from 9.30am Tue, 9am-3pm Sat)\n\nTourist OfficeTOURIST INFORMATION[->\n]",
+   "...night Mon-Thu, to 1am Fri & Sat, to 11pm Sun;  tChalk Farm)\n\nThe archetypal Camden pub[->,]",
+   "... to 3am Fri & Sat, 11am-midnight Sun;  W;  tKing's Cross St Pancras)\n\nCome the weekend[->,]",
+   "...pm Nov-Mar) F\n\nShoals of barnacled exhibits swim around the huge _Enterprise_ fishing boat at this Stade museum[->,]",
+   "... starting point for exploring Wapping and Limehouse.\n\n### LONDON'S NEW SKYSCRAPERS\n\nA recent scramble for high[->-]",
+   "... the Royal Hospital Chelsea was built in 1692 to provide shelter for ex-servicemen. Today it houses hundreds of war veterans known as Chelsea Pensioners[->,]",
+   "..., the UK's first urban cable car system has cabins every half minute; Oyster card and Travelcard holders nab discounts for journeys, which are bike[->-]",
+   "... tKnightsbridge), Kensington (  MAP   GOOGLE MAP ) ; 1 Holland St, W8;  h8am-[->8]",
+   "... Edge (  MAP   GOOGLE MAP ) ; www.edgesoho.co.uk; 11 Soho Sq, W1[->;]",
+   "...; mains \u00a39.50-14.50;  h9am-6pm Mon-Fri, to 4.30pm Sat), part[-> of]",
+   "... hosts bands of tourists shopping in quaint old arcades and ringing street entertainers and buskers. On its western flank rises St Paul's Church (  MAP[-> ]",
+   "... St and then right into Bucklersbury, to spot d **St Stephen's Walbrook** directly in front of you. Rebuilt after the Great Fire[->,]",
+   "... place where you can relax over a French Kiss cocktail upstairs before heading down to the basement bar.\n\nChill NightclubCLUB\n\n( [-> MAP]",
+   "... tFarringdon)\n\nNamed after London's notorious slums (Fagin's house in _Oliver Twist_ was nearby), this antique[->-]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "...\n\nAIn June the parks are filled with people, there's Trooping the Colour[->,]",
+   "...\n\nAIn June the parks are filled with people, there's Trooping the Colour, summer arts festivals[->,]",
+   "...\n\nAIn June the parks are filled with people, there's Trooping the Colour, summer arts festivals, Field Day in Victoria Park[->,]",
+   "...\nAIn June the parks are filled with people, there's Trooping the Colour, summer arts festivals, Field Day in Victoria Park, other music events[->,]",
+   "... filled with people, there's Trooping the Colour, summer arts festivals, Field Day in Victoria Park, other music events, gay pride and Wimbledon.[->\n]",
+   "... Colour, summer arts festivals, Field Day in Victoria Park, other music events, gay pride and Wimbledon.\n\nAAlthough the days are getting shorter[->,]",
+   "... Park, other music events, gay pride and Wimbledon.\n\nAAlthough the days are getting shorter, Autumn in London is alive with festivals celebrating literature[->,]",
+   "... music events, gay pride and Wimbledon.\n\nAAlthough the days are getting shorter, Autumn in London is alive with festivals celebrating literature, the arts[-> and]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... of Lords, having arrived in the gold-trimmed Irish State Coach from Buckingham Palace. It's well worth lining the route for a gawk at[-> the]",
+   "... the magnificent gold coach of 1762 and the 1910 Glass Coach (Prince William and Catherine Middleton actually used the 1902 State Landau for their wedding in 2011[->).]",
+   "... insights into the resolute, cigar-smoking wartime leader.\n\nInstitute of Contemporary ArtsARTS CENTRE\n\n(ICA;   MAP[-> ]",
+   "... To the north stands **Waterloo Barracks** ,[-> which]",
+   "..., where seven people, including Anne Boleyn and her cousin Catherine Howard (Henry's second and fifth wives) were beheaded.\n\nLook out[-> for]",
+   "... ;  %020-3166 6112; www.hrp.org.uk; Kensington Palace, Kensington Gardens, W8; afternoon[-> tea]",
+   "..., Notting Hill Gate, High St Kensington) is a treat any time of the year.\n\nKing's RoadSTREET\n\n( [-> MAP]",
+   "....theviewtube.co.uk; The Greenway;  h9am-5pm;  dDLR Pudding Mill Lane) on[-> the]"
+  ]
+ },
+ {
+  "circuit_id": 35,
+  "owners": [
+   [
+    "mlp11",
+    0.054
+   ],
+   [
+    "mlp13",
+    0.05
+   ],
+   [
+    "mlp12",
+    0.048
+   ]
+  ],
+  "wave1_story": "Completing well-known multi-token proper names and all-caps section labels from their first piece (TOUR->IST, Tottenham -> Court, Oliver -> Twist, TAX->I), without needing the name to have appeared earlier.",
+  "wave1_rule": {
+   "target_in": [
+    "IST",
+    " Court",
+    " Twist",
+    " Cross",
+    " Lane",
+    "AT",
+    "A",
+    "I"
+   ],
+   "prev_in": [
+    "OUR",
+    "ottenham",
+    " Oliver",
+    "TAX",
+    "BO",
+    "PIZZ",
+    "iver",
+    "'s"
+   ]
+  },
+  "held_out_precision": 0.25,
+  "held_out_recall": 0.029,
+  "positives": [
+   "..., SW1;  h8am-8pm Mon-Fri, to 7pm Sat, 9am-6pm Sun;  tKnights[->bridge]",
+   "...pm)\n\nGuided tours of Greenwich's sights, leaving twice daily from the tourist office (no need to book).\n\nCity CruisesBO[->AT]",
+   "... will cost between \u00a345 and \u00a385.\n\nLondon City\n\nThe Docklands Light Railway (DLR) connects London City Airport to the tube[-> network]",
+   "...ic. Very popular among locals, some of whom seem to regularly prefer it over their own kitchens.\n\n8Information\n\nTourist OfficeTOUR[->IST]",
+   "... statue.\n\nMayfair, west of Piccadilly Circus, hogs all of the most expensive streets from the Monopoly board, including Park[-> Lane]",
+   "... hulking complex has a rich program of film, music, theatre, art and dance, including concerts.\n\nSouthbank CentreCONCERT V[->EN]",
+   "... viewing stations, for exploring the British Film Institute's extensive archive of movies and watching whatever you like for free.\n\nBFI IMAX CinemaCIN[->EMA]",
+   "... 1am Thu, to 2am Fri & Sat;  tAngel)\n\nLondon cocktail lovers gravitate to this popular bar run by mixer-ma[->estro]",
+   "... Regent's Park and Little Venice. The London Waterbus Company and Jason's Trip run canal boats between Camden Lock and Little Venice.\n\nMadame[-> T]",
+   "...appiness ForgetsCOCK[->TA]",
+   "... set designer from the film _Pride & Prejudice,_ are chic and understated.\n\n5Eating\n\nHaydensCA[->FE]",
+   "...9)\n\nA popular contribution to the summer music festival circuit, held in Victoria Park in mid-July.\n\nNotting Hill CarnivalCARN[->IV]",
+   "...i_ (sweet-and-sour, soft and crunchy 'party mix' snacks), dosas (filled rice-flour pancakes), th[->ali]",
+   "... one of England's prettiest towns\n\n5 Kicking back at the moated marvel that is Leeds Castle\n\n6 Scrambling up Beachy[-> Head]",
+   "... Madeira Dr)\n\nBrighton's best-known and best-loved club is a disarmingly unpretentious den, where DJ Fatboy[-> Slim]",
+   "...az Liverpool StreetG2\n\n22Hotel Indigo Tower HillH3\n\n23London St Paul's YHAC3\n\n24Rook[->ery]",
+   "... at one of Europe's greatest cathedrals in **Canterbury**\n\nDawn sunshine in English countrysideTONY EVELING / GETTY[-> IMAGES]",
+   "... from the underground).\n\n oTrafalgar SquareSQUARE\n\n(  MAP   GOOGLE MAP ) ;  tCharing[-> Cross]",
+   "...#### Stowe\n\n#### Bletchley\n\n#### Woburn\n\n#### Wadd[->es]",
+   "... h9am-midnight Mon-Thu, to 3am Fri & Sat, 11am-midnight Sun;  W;  tKing's[-> Cross]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "...roughluxe.co.uk; 1 Birkenhead St, WC1; r \u00a3229-289;  a W;  tKing's[-> Cross]",
+   "... on an escalator, department stores are a good bet.\n\nTourist Information\n\nThere are tourist information desks at Heathrow Airport, King's[-> Cross]",
+   "...\n\nKent AttractionsTOURIST INFORMATION\n\n(www.kentattractions.co.uk)\n\nTourism South EastTOUR[->IST]",
+   "... INFORMATION\n\n(www.visitsoutheastengland.com)\n\nThe official website for south and southeast England.\n\nVisit KentTOUR[->IST]",
+   "... southeast England.\n\nVisit KentTOURIST INFORMATION\n\n(www.visitkent.co.uk)\n\nVisit SurreyTOUR[->IST]",
+   "....co.uk)\n\nVisit SurreyTOURIST INFORMATION\n\n(www.visitsurrey.com)\n\nVisit SussexTOUR[->IST]",
+   "...\n\nThere's also a good cafe and interesting temporary exhibitions (admission sometimes charged).\n\nTTours\n\nCanterbury Historic River ToursBO[->AT]",
+   "... oars on these fascinating River Stour mini cruises, which depart from behind the Old Weaver's House.\n\nCanterbury River Navigation CompanyBO[->AT]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "...\n\nAIn June the parks are filled with people, there's Trooping the[-> Colour]",
+   "...In June the parks are filled with people, there's Trooping the Colour, summer arts festivals, Field Day in Victoria Park, other music events, gay[-> pride]",
+   "...\n\nInstitute of Contemporary ArtsARTS CENTRE\n\n(ICA;   MAP   GOOGLE MAP ) ;  %020[->-]",
+   "...\n\n31CevicheD4\n\n32Fernandez & WellsC4\n\n33Great Queen StreetG3\n\n34Hakkas[->an]",
+   "...ialsF4\n\n36Hummus BrosC4\n\n37KoyaD4\n\n38LimaC2\n\n39Mild[->red]",
+   "...\n\nGazing grand[->ly]",
+   "...\n\nGazing grandly over Trafalgar S[->q]",
+   "...\n\nGazing grandly over Trafalgar Sq through its Corinthian columns, the National[-> Gallery]"
+  ]
+ },
+ {
+  "circuit_id": 36,
+  "owners": [
+   [
+    "attn11",
+    0.067
+   ],
+   [
+    "attn10",
+    0.063
+   ],
+   [
+    "mlp8",
+    0.06
+   ]
+  ],
+  "wave1_story": "Continuing rare or unusual words mid-token from a subword fragment (Pim->lic, So->ane, bo->hem, spic->-, Market S->q), spelling out names and words the tokenizer split into pieces.",
+  "wave1_rule": {
+   "target_in": [
+    "q",
+    "UR",
+    "ico",
+    "lic",
+    "hem",
+    "ane",
+    "as",
+    "oint"
+   ]
+  },
+  "held_out_precision": 0.069,
+  "held_out_recall": 0.031,
+  "positives": [
+   "..., to 6.30pm Sep;  tSt James[->'s]",
+   "..., discovered in 1799; the controversial **Parthenon Sculptures** , stripped from the walls of the Parthenon in Athens by Lord El[->gin]",
+   "... Pensioners, charming old chaps generally regarded as national treasures. The Chelsea Flower Show takes place in the hospital grounds in May.\n\nChelsea Physic[-> Garden]",
+   ".... Ingredients on the menu are of the seasonal and locally sourced ilk, with finely crafted mains including delights such as pan-fried Kentish p[->he]",
+   "...7242 0622; 32 Great Queen St, WC2; mains \u00a312-16;  hnoon-2.30pm & 6-[->10]",
+   "... established in 1694 when the government needed to raise cash to support a war with France. The centrepiece of this museum is a reconstruction of architect John So[->ane]",
+   "... **Stations of the Cross** (1918).The **Treasures of the Cathedral** exhibition is rewarding, there's a cafe near the Baptistry[-> and]",
+   "...\nEven by Brighton's lofty standards, the food at this award-winning vegetarian cafe is a treat. The daily changing choices of curries, lasag[->nes]",
+   "... adult/child \u00a34.35/3.60;  h10am-4pm Easter-Sep)\n\nThis fortress was built by William[-> the]",
+   "...-1950s Baden Powell House, opposite the Natural History Museum, this 48-room German-run 'city hostel and hotel' has spic[->-]",
+   "... Hall** with its spectacular hammer-beamed roof; the **Tudor Kitchens** , staffed by 'servants'; and the **Wol[->sey]",
+   "...;  tWaterloo)\n\nWatch 3D movies and cinema releases on the UK's biggest screen: 20m high (nearly five double-[->de]",
+   "...Ye Olde Cheshire CheeseB3\n\n3Entertainment\n\n33BarbicanE1\n\n7Shopping\n\n34Pett[->ico]",
+   "... Until they reopen, entertain yourself watching buses, wing mirrors folded back, as they squeeze through the medieval archway.\n\nGreyfriars ChapelCH[->UR]",
+   "... St;  h10am-5pm Mon-Sat, to 4pm Sun)\n\nLocated in the Novium Museum.\n\n8Getting[-> There]",
+   "... 2am and hosts themed parties, and a large eating area (but no kitchen). Dorm rooms have between four and 12 beds.\n\nLondon St[-> Panc]",
+   "...OOGLE MAP ) ;  %020-7747 2525; www.peytonandbyrne.co.uk; 1st fl[->,]",
+   "...\n\n**Wasabi** (www.wasabi.uk.com) Cooking up a Japanese storm down the high street.\n\n**Zizz[->i]",
+   "... and bloodshed that whisper from its walls.\n\nThis ancient structure is packed with monuments commemorating the nation's battles. Also here are the grave and herald[->ic]",
+   "... 2482 100; www.myferrylink.com)\n\nServices to Calais (1\u00bd hours, five times daily).\n\nP&[->O]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "... CourtLANDMARK\n\n(  MAP   GOOGLE MAP ) ; www.supremecourt.gov.uk; Parliament S[->q]",
+   "... two days? Start in Trafalgar S[->q]",
+   "..., spending extra time in the Tate Modern, British Museum and Tower of London. Stop at the **National Gallery** while you're in Trafalgar S[->q]",
+   "...\n\nGazing grandly over Trafalgar S[->q]",
+   "... Pl, WC2;  h10am-6pm Sat-Wed, to 9pm Thu & Fri;  tCharing Cross, Leicester S[->q]",
+   "... Modern Italian ArtGALLERY\n\n(  GOOGLE MAP ) ; www.estorickcollection.com; 39a Canonbury S[->q]",
+   "... Opera Arcade** , London's oldest shopping arcade (designed by John Nash). From Pall Mall, walk along Cockspur St to pass Trafalgar S[->q]",
+   "...13 8016; www.barrafina.co.uk; 54 Frith St, W1; tap[->as]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... it is considered the finest example of Early English Gothic in existence. The original church was built in the 11th century by King (later Saint) Edward the[-> Conf]",
+   "... their wedding in 2011).\n\nSupreme CourtLANDMARK\n\n(  MAP   GOOGLE MAP ) ; www.suprem[->ec]",
+   "... **Tower of London**. In the evening, head to **Clerkenwell** for international eats, then **Hoxton** and **Sh[->ored]",
+   "..._ and van Gogh's _Sunflowers_. The medieval religious paintings in the **Sainsbury Wing** are delightful. The comprehensive audiogu[->ides]",
+   "... first time in history. Tours (\u00a310) depart at 11.30am Tuesday and Friday and at 3.30pm Wednesday and Thursday. Audiogu[->ides]",
+   "... , which now contains the spectacular Crown Jewels, including the platinum crown of the late Queen Mother, set with the 105-carat Koh-i-[->N]",
+   "...ican servant to whom he bequeathed this grand residence.\n\nInns of CourtHISTORIC BUILDINGS\n\nAll London bar[->ris]",
+   "...\n\n#### South Bank\n\nLondoners once crossed the river to the area controlled by the licentious Bishops of Southwark for all manner of b[->aw]"
+  ]
+ },
+ {
+  "circuit_id": 38,
+  "owners": [
+   [
+    "attn2",
+    0.055
+   ],
+   [
+    "attn1",
+    0.055
+   ],
+   [
+    "attn0",
+    0.048
+   ]
+  ],
+  "wave1_story": "Continuing boilerplate templates the passage has already used many times, chiefly ' MAP' after 'GOOG-LE' and the '.' inside website addresses like www.venuename[.]co.uk.",
+  "wave1_rule": {
+   "target_in": [
+    " MAP",
+    "."
+   ],
+   "is_induction": true
+  },
+  "held_out_precision": 0.032,
+  "held_out_recall": 0.196,
+  "positives": [
+   "... GOOGLE MAP ) ; 19 St George's St;  h9am-5.30pm Mon-Sat)\n\nOn the 1[->st]",
+   "... stifle the roar.\n\n#### Notting Hill, Bayswater & Paddington\n\nDon't be fooled by Julia Roberts' and Hugh Grant[->'s]",
+   "... 9am-3pm Sat)\n\nTourist OfficeTOURIST INFORMATION\n\n(  GOOGLE MAP ) ;  %01243[->-]",
+   "....\n\nPrince CharlesCINEMA\n\n(  MAP   GOOGLE MAP ) ; www.princecharlescinema[->.]",
+   "... (www.wagamama.com) Japanese noodles taking over the world from their London base.\n\n**Wahaca** (www.[->w]",
+   "..., Wed, Fri & Sat, 2-4pm Thu & Sun Apr-Nov)\n\nSandwich's small but thorough museum is a good place[-> to]",
+   "... hang-out for the 30-somethings (and above) gay set.\n  * Edge (  MAP   GOOGLE[-> MAP]",
+   "... Town)\n\nThere's live punk or alternative music most nights in this pub's back room (cover usually \u00a36).\n\nBarflyLIVE[-> MUS]",
+   "...\nBurlington ArcadeSHOPPING ARCADE\n\n(  MAP   GOOGLE MAP ) ; www.burlington-arcade[->.]",
+   "...   GOOGLE MAP ) ; www.princecharlescinema.com; 7 Leicester Pl, WC2; tickets \u00a37[->.]",
+   "....\n\nMonmouth Coffee CompanyCAFE\n\n(  MAP   GOOGLE MAP ) ; www.monmouthcoffee.co[->.]",
+   "...-course express menu \u00a323/26;  hnoon-3pm & 5-10.30pm Mon-Sat, noon-9.30[->pm]",
+   "...\n\nNearly every Londoner has a story about a wallet/phone/bag being nicked from under their noses \u2013 or arses, in the case[-> of]",
+   "...ahaca** (www.wahaca.com) Working the Mexican street-food angle in fresh, colourful settings.\n\n**Wasabi**[-> (]",
+   "...MODERN BRITISH\n\n(  MAP   GOOGLE MAP ) ;  %020-7403 1342; www.mag[->dal]",
+   "... the 16th century under the House of Tudor.\n\nIn a rerun of the disease that wiped out half of London's population between 1348[-> and]",
+   "... literature has a father figure, then it is Geoffrey Chaucer (1342\u20131400). Chaucer was the first English writer to introduce characters \u2013 rather[-> than]",
+   "...Sights\n\n1Dennis Severs' HouseC5\n\n2Geffrye MuseumC1\n\n4Sleeping\n\n[->3]",
+   "...  W)\n\nThe 72 rooms at this supercentral hotel, the only boutique hotel in town, are graded from 'comfortable' to 'fab[->ulous]",
+   "... are other show-stoppers. Book ahead.\n\nArbutusMODERN EUROPEAN\n\n(  MAP   GOOGLE[-> MAP]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "..., gay pride and Wimbledon.\n\nAAlthough the days are getting shorter, Autumn in London is alive with festivals celebrating literature, the arts and culture[->.]",
+   "..., the arts and culture.\n\nALondon in December is all about Christmas lights on Oxford and Regent Sts, and perhaps a whisper of snow[->.]",
+   "... and 32,000 people were killed. Ugly housing and low-cost developments followed, and pollutants \u2013 both residential and industrial \u2013 rose steadily into the air[->.]",
+   "... steadily into the air. On 6 December 1952, the Great Smog (a lethal combination of fog, smoke and pollution) descended, killing some 4000 people[->.]",
+   "...) descended, killing some 4000 people.\n\nProsperity gradually returned to the city, and creative energy bottled up in the postwar years was suddenly unleashed[->.]",
+   "... the 'Swinging Sixties', London became the capital of cool in fashion and music \u2013 a party followed morosely by the austere 1970s[->.]",
+   "... 1970s. Since then the city has surfed up and down the waves of global fortunes, hanging on to its position as the world's leading financial centre[->.]",
+   "... financial centre.\n\nIn 2000, the modern metropolis won its first mayor of London, an elected role covering the City and all 32 urban boroughs[->.]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... the arts and culture.\n\nALondon in December is all about Christmas lights on Oxford and Regent Sts, and perhaps a whisper of snow.[->\n]",
+   "... of an empire at the British Museum\n\n3 Losing your head in history at the Tower of London\n\n4 Sizing up the awe-ins[->piring]",
+   "...whelming **Coronation Chair**.\n\nThe building itself is an arresting spectacle. Though a mixture of architectural styles, it is considered the finest example[-> of]",
+   ".... Its roof, added between 1394 and 1401, is the earliest known example of a hammerbeam roof and has been described as the greatest surviving achievement[-> of]",
+   "... scarlet-decorated **House of Lords** now has peers appointed through various means. Both houses debate and vote on legislation, which is then presented[-> to]",
+   "... underground military HQ during WWII. The Cabinet War Rooms remain much as they were when the lights were flicked off in 1945, capturing the drama and dogged spirit[-> of]",
+   "...National Gallery** while you're in Trafalgar Sq and explore inside Westminster Abbey and **St Paul's Cathedral**. On your extra evenings, check[-> out]",
+   "...23ArbutusD3\n\n24Baozi InnE4\n\n25Bar ShuD4[->\n]"
+  ]
+ },
+ {
+  "circuit_id": 46,
+  "owners": [
+   [
+    "attn6",
+    0.078
+   ],
+   [
+    "attn3",
+    0.052
+   ],
+   [
+    "attn2",
+    0.049
+   ]
+  ],
+  "wave1_story": "Continuing partially-spelled British place names and uncommon words mid-word (Picc->ad, Portob->ello, Cotsw->olds, stradd->ling, gris->ly), completing the next subword piece.",
+  "wave1_rule": {
+   "target_in": [
+    "ad",
+    "ri",
+    "ello",
+    "olds",
+    "hes",
+    "ling",
+    "pering",
+    "acing",
+    "ly"
+   ]
+  },
+  "held_out_precision": 0.087,
+  "held_out_recall": 0.047,
+  "positives": [
+   "....30am Tue, 9am-3pm Sat)\n\nTourist OfficeTOURIST INFORMATION\n\n(  GOOGLE MAP )[-> ;]",
+   "... Services from Bankside Pier run from 9.57am to 4.44pm daily at 40-minute intervals (10.20am to 4.27[->pm]",
+   "...OURIST INFORMATION\n\n(www.brighton-hove.gov.uk)\n\nA rich seam of city information.\n\nJub[->ilee]",
+   "... entrance is hidden under the arches on the seafront next to the hotel's very own summertime ice cream parl[->our]",
+   "...uctive, subdued ambience hits all the right moody notes (short hours though).\n\nWorship St Whistling ShopCOCKTAIL BAR[->\n]",
+   "... of the seasonal and locally sourced ilk, with finely crafted mains including delights such as pan-fried Kentish pheasant, line-c[->aught]",
+   "... gardens, it's blanketed with daffodils in spring and semi-naked bodies whenever the sun shines.\n\nWestminster CathedralCHUR[->CH]",
+   "... 6am and between 10pm and midnight depending on the day of the week (from 9.30am weekends). Leisure services include the Tate-to[->-]",
+   "... 'Budget' is pretty much anything below \u00a3100 per night for a double; at the top end, how does an \u00a318,000-per[->-]",
+   "...999; www.rasasc.org.uk;  hnoon-2.30pm & 7-9.30pm)\n\nSamar[->itans]",
+   "... Zoo, as well as beautiful villas designed by architect John Nash and redevelopments of old industrial buildings. Allow 15 to 20 minutes between Camden and Regent[->'s]",
+   "... MAP ) ;  %020-7734 4545; www.arbutusrestaurant.co.uk; 63-64 Frith St[->,]",
+   "...our, soft and crunchy 'party mix' snacks), dosas (filled rice-flour pancakes), thali and the all-you-can[->-]",
+   "...OOGLE MAP ) ; Jubilee St;  h10am-7pm Mon, Tue & Thu, to 5pm Wed, Fri & Sat[->,]",
+   "... ARCADE\n\n(  MAP   GOOGLE MAP ) ; www.burlington-arcade.co.uk; 51 Picc[->ad]",
+   "... up-for[->-]",
+   "...am-5pm Mon-Fri, to 6pm Sat & Sun;  tVictoria)\n\nBegun in 1895, this neo-Byz[->antine]",
+   "...\n1 Shopping, tanning and partying in Brighton & Hove, hedonist capital of the southeast\n\n2 Making a pilgrimage to Canterbury, one[-> of]",
+   "...Euston, Euston Sq)\n\nThis ace Indian vegetarian eatery specialises in _bhel poori_ (sweet-and[->-]",
+   "... the original 14th-century Benedictine monastery with stunning views of the Abbey's architectural detailing.\n\nAdjacent to the abbey is St Margaret[->'s]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "... postwar years was suddenly unleashed. In the 'Swinging Sixties', London became the capital of cool in fashion and music \u2013 a party followed morose[->ly]",
+   "...\n\nGazing grand[->ly]",
+   "... by the licentious Bishops of Southwark for all manner of bawdy frolicking frowned upon in the City. It's a much more seem[->ly]",
+   "... just north of the old city walls for 800 years. Executions were held here, most famously the torching of Protestants under Mary I and the gris[->ly]",
+   "..., EC4; dm \u00a317-25, d \u00a340-50;  i W;  tSt Paul 's)\n\nPerfect[->ly]",
+   ".../205/225, d \u00a3165-205;  i W;  tVictoria)\n\nFamily-run for over 40 years, this smart[->ly]",
+   "... SW7; r from \u00a3204;  a i W;  tGloucester Rd)\n\nWith obliging staff in tails, twink[->ling]",
+   "... Mon-Fri;  v;  tHolborn)\n\nDelightfully ensconced amid the charming buildings of Sicilian Ave, this home[->ly]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "...ity gradually returned to the city, and creative energy bottled up in the postwar years was suddenly unleashed. In the 'Swinging Sixties', London became[-> the]",
+   "..., where the 650 elected Members of Parliament sit. Traditionally the home of hereditary bluebloods, the scarlet-decorated **House of Lords[->**]",
+   "... , **St James's Park and Palace** , **Buckingham Palace** , **Green Park** , **Hyde Park** and **Kens[->ington]",
+   "... **Tate Modern** until you get booted out. In the evening, explore **Soho**. On day two, race around the **British Museum[->**]",
+   "...\n\n24Baozi InnE4\n\n25Bar ShuD4\n\n26BarrafinaF6\n\n27BarrafinaD[->3]",
+   "... 20th centuries. Highlights include Turner's _The Fighting_ _Temeraire,_ Botticelli's _Venus and Mars_ and van Go[->gh]",
+   "... No 13, including Soane's private apartment and model room, was being restored at the time of writing and will be open to the public for the first[-> time]",
+   "... did a 13-year stretch here, when he wrote his _History of the World_.\n\nOn the small green in front of the **Chap[->el]"
+  ]
+ },
+ {
+  "circuit_id": 47,
+  "owners": [
+   [
+    "attn5",
+    0.05
+   ],
+   [
+    "attn15",
+    0.045
+   ],
+   [
+    "attn9",
+    0.045
+   ]
+  ],
+  "wave1_story": "Continuing stock guidebook phrases at their fixed next word, such as 'Located in', 'housed in', and the hyphen of 'Mon-Sat' day ranges.",
+  "wave1_rule": {
+   "target_in": [
+    " in",
+    "-"
+   ],
+   "prev_in": [
+    "Located",
+    " housed",
+    " Mon",
+    " in"
+   ]
+  },
+  "held_out_precision": 0.077,
+  "held_out_recall": 0.054,
+  "positives": [
+   "...  GOOGLE MAP ) ; www.shakespearesglobe.com; 21 New Globe Walk, SE1; adult/child \u00a313[->.]",
+   "... St;  h10am-7pm Mon, Tue & Thu, to 5pm Wed, Fri & Sat, 11am-5pm Sun)[->\n]",
+   "...\n3 Wandering lonely as a cloud in[-> the]",
+   "...;  h9am-5pm Mon-Wed, Fri & Sat, to 7pm Thu, 10am-5pm Sun)\n\nLocated[-> in]",
+   "... Great Exhibition of 1851, the museum is a bit like the nation's attic, spread generously through nearly 150 galleries.\n\nThe museum is epic,[-> but]",
+   "... the House of Commons' place of worship since 1614. There are windows commemorating churchgoers Caxton and Milton, and Sir Walter Raleigh is buried by[-> the]",
+   "... ) ; www.johnsandoe.com; 10 Blacklands Tce, SW3;  h9.30am-6.30pm Mon[->-]",
+   "...fields\n\nFrom the hit-and-miss Bangladeshi restaurants of Brick Lane to the Vietnamese strip on Kingsland Rd, and the Jewish, Spanish[->,]",
+   "... www.visitchichester.org; Tower St;  h10am-5pm Mon-Sat, to 4pm Sun)\n\nLocated[-> in]",
+   "... OfficePOST OFFICE\n\n(  GOOGLE MAP ) ; 19 St George's St;  h9am-5.30pm Mon[->-]",
+   "... of the \u00a3250 a night rate and what a place to update your travel journal! There's a labyrinthine smuggling museum in the basement, a fancy restaurant[->,]",
+   "...stream chains gather within the Churchill Square shopping centre and along Western Rd.\n\n8Information\n\nIncredibly, Brighton closed its busy tourist office in 2013[->.]",
+   "... why as you explore the cobbled medieval streets of Rye; wander around historic Battle, where William the Conqueror first engaged the Saxons in 1066;[-> and]",
+   "...-Mar) F\n\nShoals of barnacled exhibits swim around the huge _Enterprise_ fishing boat at this Stade museum, housed[-> in]",
+   "...GLE MAP ) ; www.the-shard.com; 32 London Bridge St, SE1; adult/child \u00a329.95/23[->.]",
+   "... a day away from a cruise ship docked in Dover, instead of heading north to London, why not take this fascinating route along the white cliffs and across[-> the]",
+   "... charts 500 years of horology with an intriguing collection of more than 700 clocks; the **Guildhall Art Gallery** displays around 250 artworks. Included[-> in]",
+   "... the 4Supreme Court, within the ornate Middlesex Guildhall, dating from 1913.\n\nRound the corner and walk west along Great George St[->.]",
+   "... lavish palace over the centuries,[-> and]",
+   "... by tube[->,]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   ".../5, with Queen's Gallery \u00a316.25/9.10;  h10am-5pm Apr-Oct, to 4pm Mon[->-]",
+   "... ; www.supremecourt.gov.uk; Parliament Sq, SW1;  h9.30am-4.30pm Mon[->-]",
+   "...-4.30pm Mon-Fri;  tWestminster) F\n\nThe Supreme Court, the highest court in the UK, is now housed[-> in]",
+   "...4.30pm Mon[->-]",
+   "...lincolnsinn.org.uk; Lincoln's Inn Fields, Newmans Row, WC2;  hgrounds 7am-7pm Mon[->-]",
+   "...'s Inn Fields, Newmans Row, WC2;  hgrounds 7am-7pm Mon-Fri, chapel noon-2.30pm Mon[->-]",
+   "...   GOOGLE MAP ) ; 49 Great Russell St, WC1;  h11am-11.30pm Mon[->-]",
+   "...chen.co.uk; 11 Sicilian Ave, WC1; mains \u00a36.50-7;  h8am-4pm Mon[->-]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "... Smog (a lethal combination of fog, smoke and pollution) descended, killing some 4000 people.\n\nProsperity gradually returned to the city,[-> and]",
+   "... and is administered directly by the Crown. Look out for the curiously underwhelming **Coronation Chair**.\n\nThe building itself is an arresting spectacle[->.]",
+   "... achievement of medieval English carpentry.\n\nAt the business end, parliament is split into two houses. The green-hued **House of Commons**[-> is]",
+   "...** until you get booted out. In the evening, explore **Soho**. On day two, race around the **British Museum** , then head[-> to]",
+   "...** , then head to the **City**. Start with our walking tour and finish in the **Tower of London**. In the evening, head[-> to]",
+   "... We tend not to provoke legends so generally we have eight birds.\n\n#### Recommended Ceremonies\n\nThere are many ceremonies at the Tower of London[->,]",
+   "... added a new **Sam Wanamaker Playhouse** , an indoor Jacobean theatre, to its repertoire.\n\nTours of the theatre shift[-> to]",
+   "... wall cores in the north transept and an arch that dates to the original Norman church[->,]"
+  ]
+ },
+ {
+  "circuit_id": 49,
+  "owners": [
+   [
+    "mlp17",
+    0.089
+   ],
+   [
+    "mlp13",
+    0.062
+   ],
+   [
+    "mlp15",
+    0.061
+   ]
+  ],
+  "wave1_story": "Completing familiar British compound place names from their first word (High -> St, Hyde -> Park, Hampton -> Court, Primrose -> Hill), from stored knowledge rather than by copying the context.",
+  "wave1_rule": {
+   "target_in": [
+    " St",
+    " Park",
+    " Court",
+    " Hill",
+    " Castle"
+   ],
+   "prev_in": [
+    " High",
+    " Hyde",
+    " Hampton",
+    " Victoria",
+    " Primrose",
+    " Britton",
+    " Chalk"
+   ]
+  },
+  "held_out_precision": 0.0,
+  "held_out_recall": 0.0,
+  "positives": [
+   "... nights are Friday and Saturday, although some of the most cutting-edge sessions are mid[->week]",
+   "...\n\n1Sights\n\nChichester CathedralCATHEDRAL\n\n(  GOOGLE MAP ) ; www.chichester[->cat]",
+   "... the seafront next to the hotel's very own summertime ice cream parlour.\n\nMad HatterCAFE\n\n(9 Lombard[-> St]",
+   "...as (with occasional star-studded premieres), neighbouring Leicester Sq ( _les_ -ter) has undergone a facelift. Des[->cribed]",
+   "... Town has been plonking Sussex ales on the bar for eight centuries, and now also serves gourmet British pub grub. A holidaying Charles[-> Dickens]",
+   "... the southeast\n\n2 Making a pilgrimage to Canterbury, one of England's most important religious sites\n\n3 Exploring the atmospheric WWII tunnels beneath sprawling Dover[-> Castle]",
+   "..., WC1;  h10am-5.30pm Sat-Thu, to 8.30pm Fri;  tRussell Sq, Tottenham[-> Court]",
+   "...'s at home, see whether the yellow, red and blue standard is flying. Nineteen lavishly furnished **State Rooms** are open to visitors when HR[->H]",
+   "... triple-glazed to stifle the roar.\n\n#### Notting Hill, Bayswater & Paddington\n\nDon't be fooled by Julia[-> Roberts]",
+   "...  tChancery Lane, Russell Sq)\n\nRecently refurbished, Dickens' sole surviving London residence is where his work really flourished \u2013 _[->The]",
+   "... or July.\n\nLoveboxMUSIC\n\n(  GOOGLE MAP ) ; www.loveboxfestival.com; Victoria[-> Park]",
+   "...  tPiccadilly Circus)\n\nDesigned in the 1820s and named after the street Piccadilly (heading west to Hyde[-> Park]",
+   "... last two weeks in October.\n\n### CANTERBURY ATTRACTIONS PASSPORT\n\nCanterbury Attractions PassportDIS[->C]",
+   "...odlebug, a lifelike replica of Little Boy (the atomic[-> bomb]",
+   "... in the John Madesjki Garden in summer.\n\nFree one-hour guided tours leave the main reception area four times daily.\n\n oNatural[-> History]",
+   "... friendly packaging.\n\nInfinity Foods CafeVEGETARIAN\n\n(  MAP   GOOGLE MAP ) ; www.infinity[->food]",
+   "...GLE MAP ) ;  %01227-766266; www.abodecanterbury.co.uk; 30-33 High[-> St]",
+   "... a local minicab firm, visit www.tfl.gov.uk.\n\nThere have been many reports of sexual assault and theft by un[->licensed]",
+   "...\n\nTowering above Chinatown's main drag, this self-proclaimed 'cocktail and dim sum parlour' could easily pass as an opium[-> den]",
+   "...orough MarketMARKET\n\n(  MAP   GOOGLE MAP ) ; www.boroughmarket.org.uk; 8 Southwark[-> St]"
+  ],
+  "false_positives_rule_fired_but_not_member": [
+   "...\n\nAIn June the parks are filled with people, there's Trooping the Colour, summer arts festivals, Field Day in Victoria[-> Park]",
+   "...\n\n(  MAP   GOOGLE MAP ) ;  h5.30am-midnight;  tMarble Arch, Hyde[-> Park]",
+   "... ;  h5.30am-midnight;  tMarble Arch, Hyde Park Corner, Queensway)\n\nAt 145 hectares, Hyde[-> Park]",
+   "... MAP   GOOGLE MAP ) ;  tSloane Sq)\n\nNamed after King Charles II who would return to Hampton[-> Court]",
+   "...AMPTON COURT PALACE STATE APARTMENT WARDER\n\nAn enthusiastic communicator, Ian Franklin has been a State Apartment Warder at Hampton[-> Court]",
+   "... their monarch's inspection, is a pageantry overload.\n\nField DayMUSIC\n\n(www.fielddayfestivals.com; Victoria[-> Park]",
+   "...   GOOGLE MAP ) ;  %020-7248 3062; www.sweetingsrestaurant.com; 39 Queen Victoria[-> St]",
+   "...   GOOGLE MAP ) ;  %020-7201 3833; www.dinnerbyheston.com; Mandarin Oriental Hyde[-> Park]"
+  ],
+  "missed_members_rule_did_not_fire": [
+   "...\n\nAIn June the parks are filled with people, there's Trooping the Colour, summer arts festivals, Field[-> Day]",
+   "... the British Museum\n\n3 Losing your head in history at the Tower of London\n\n4 Sizing up the awe-inspiring architecture of Westminster[-> Abbey]",
+   "... Sq and see at least the outside of all the big-ticket sights \u2013 **London Eye** , **Houses of Parliament** , **Westminster[-> Abbey]",
+   "... Palace** , **Green Park** , **Hyde Park** and **Kensington Gardens and Palace** \u2013 and then motor around the **Tate[-> Modern]",
+   "... the Tate Modern, British Museum and Tower of London. Stop at the **National Gallery** while you're in Trafalgar Sq and explore inside Westminster[-> Abbey]",
+   "... green in front of the **Chapel Royal of St Peter ad Vincula** stood Henry VIII's scaffold, where seven people, including Anne[-> Bo]",
+   ".... It's best just to soak up the dreamy ambience of the alleys and open spaces and consider the roll call of former members that includes Oliver[-> Crom]",
+   "...2\n\n7King's RoadD7\n\n8Royal Hospital ChelseaF8\n\n9Saatchi GalleryE7\n\n10Serpent[->ine]"
+  ]
+ }
+]
