@@ -17,21 +17,14 @@ base=mr['base']; ceiling=mr['ceiling']; span=ceiling-base
 # ---- Figure 1: whole-model frontier ----
 # (n components replaced, nats lost, label, frontier?)
 versions=[
- (13,1.85,'v1 naive stack',0),(13,2.69,'v2',0),(13,1.97,'v3',0),
+ (13,1.85,'v1 naive stack',0),(13,2.69,'v2',0),(13,1.97,'',0),
  (13,1.39,'v4 front tables\n+absorbers',1),
- (19,2.10,'v5',0),(19,1.99,'quad',0),(19,1.90,'quad P128',0),
+ (19,2.10,'v5',0),(19,1.99,'',0),(19,1.90,'',0),
  (19,1.68,'v7 weights-only\nmiddle',1),
  (27,2.55,'v6',0),(27,2.21,'v8 merged',1),
- (35,3.27,'v9 all rungs',0),(34,2.87,'v9-best',1),
+ (35,3.27,'v9 all rungs',0),(34,2.87,'v9-best',0),
+ (34,2.85,'',0),(34,2.78,'v11: greedy mean-swaps\n(5 rungs -> one vector)',1),
 ]
-try:
-    v10=json.load(open(PT+'assembled_v10_results.json'))
-    if v10['v10_oracle']<2.87:
-        versions.append((34,v10['v10_oracle'],'v10',1))
-        versions=[(n,c,l,0) if l=='v9-best' else (n,c,l,f)
-                  for n,c,l,f in versions]
-except FileNotFoundError:
-    pass
 fig,ax=plt.subplots(figsize=(8.6,5.4),facecolor=SURFACE)
 ax.set_facecolor(SURFACE)
 front=sorted([(n,c,l) for n,c,l,f in versions if f])

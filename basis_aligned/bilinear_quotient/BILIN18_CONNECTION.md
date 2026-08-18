@@ -7174,3 +7174,27 @@ deploy -- only 0.015 under v9-best; registered <= +2.75 FAILED. The P128
 gains measured on the 19-comp assembly (270) do not transfer to the
 34-comp context; front absorber error is no longer the binding
 constraint once the attention rungs are in.
+
+## 272. Greedy stand-in selection: five attention components are scaffolding
+
+`standin_select.py` swept all 16 attention rungs front-to-back, swapping
+each class dictionary for its plain mean vector when that improved the
+total. Five swaps adopted -- a2, a5, a9, a14, a16 -- landing at
+**+2.7794 oracle / +2.9807 deploy at 34/36** (new frontier; v10 +2.853).
+Registered (b) HELD (>=2 swaps); (a) FAILED (<=2.60 not reached); (c)
+FAILED (a8 as a mean does not rescue the dropped rung -- the digit
+owner's function really is input-dependent). The scaffolding phenomenon
+(271) generalizes: for five of sixteen attention components, the best
+known description in the assembled context is ONE VECTOR -- the
+downstream layers need their average contribution and nothing else that
+our dictionaries can currently supply. The description census after this
+pass: 5 attention means, 10 attention class-dictionaries, 1 attention
+dropped (a8), 2 attention value-tables (a0/a1), 4 front MLP
+table+absorbers, 1 MLP linear (m1), 6 middle MLP weights-truncations,
+8 tail MLP span dictionaries.
+
+Module-relevance instrument (`module_relevance.py`, for the benchmark
+figures): mean-ablation cost per component, all 36, plus the ceiling --
+the embeddings-only model sits +11.95 nats above base, anchoring "0% of
+the model's work." Current frontier retains 77% of the model's work with
+34/36 components replaced; v4 retains 88% at 13/36.

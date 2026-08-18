@@ -3846,3 +3846,8 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 271: a5 = scaffolding (2026-08-18)
 - attn5 in-assembly: real +3.47, dict +2.87, MEAN +2.72, zero +4.75. The component is needed only for its average output there; input-dependence misfires. Greedy mean-vs-dict sweep queued.
 - v10 (+2.853) barely improves v9-best; front absorber rank no longer binding at 34 comps.
+
+## Appendix 272: greedy selection + benchmark figures (2026-08-18)
+- Five attention rungs (a2,a5,a9,a14,a16) do best as plain mean vectors: 34/36 at +2.779 oracle / +2.981 deploy.
+- Ceiling measured: embeddings-only = +11.95 nats. Frontier in %-of-model-work: 88% @ 13 comps, 86% @ 19, 81% @ 27, 77% @ 34.
+- Figures: bilin18_frontier.png, bilin18_module_relevance.png.
