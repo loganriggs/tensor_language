@@ -3671,3 +3671,12 @@ recovery (digit 102%, subword 71%; induction -9% -- copying defeats
 constants). Shuffle control -17%. New benchmark frontier point at ~0.7KB.
 
 Full detail in `BILIN18_CONNECTION.md` §241.
+
+### Rung 1: 95% oracle-conditioned replacement
+
+Constants + two per-class linear maps replace the eight tail spans at 95%
+(induction -9% -> 98%). Caveat stated: class predicates read the target
+token -- a structural decomposition, not yet deployable compression;
+input-only classifier is the registered next rung.
+
+Full detail in `BILIN18_CONNECTION.md` §242.

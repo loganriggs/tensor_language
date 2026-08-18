@@ -6516,3 +6516,29 @@ new frontier point purchased by semantics: the flat layer-track priced this
 same content at rank-64 refit maps per layer. Next rung queued: per-class
 linear maps for the two failing classes only (induction, other), priced
 honestly against their parameter cost.
+
+## 242. Rung 1: 95% of the tail spans replaced — with the oracle caveat stated before the applause
+
+File: `circuit_dictionary_rung1.py`. Adding per-class rank-8 input-linear
+maps for ONLY the two classes where constants failed (induction, residual):
+
+    joint ablation +0.675 → dictionary +0.341 (50%) → rung 1 +0.035 (95%)
+    induction class: −9% → 98%    (its stand-in reads the local stream,
+    which carries the identity to be copied)
+    per-parameter value: constants 52 nats/100K params, linear 0.21 —
+    the semantic information is ~250x denser; the linear rung buys the
+    second half at bulk rates. All three registered bars held.
+
+**The caveat, which changes the claim's type**: the class predicates
+condition on the TARGET token — this dictionary is ORACLE-CONDITIONED. As a
+structural decomposition it stands and is strong: the eight tail span
+components' content is, to 95%, a function of (target class, local input) —
+ten fixed vectors plus two rank-8 reads. As a deployable Track-2
+compression it does not yet count, because a runtime stand-in cannot see
+the label. The registered next rung: an INPUT-ONLY classifier (site class
+predicted from context — bracket-closing from an unclosed bracket, subword
+from a mid-word fragment, induction from a matched prefix), with the
+fidelity loss from classifier errors priced in. The gap between the
+oracle-conditioned 95% and the input-only number will itself be a
+measurement: how much of the tail's job is deciding WHICH site type it is
+at, versus writing the type's content once decided.
