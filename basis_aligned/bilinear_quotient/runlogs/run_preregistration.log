@@ -1,0 +1,26 @@
+P1/P2 L 4: const +0.482 span8 +0.0389
+P1/P2 L 5: const +0.318 span8 +0.0702
+P1/P2 L 6: const +0.314 span8 +0.0879
+P1/P2 L 7: const +0.120 span8 -0.0510
+P1/P2 L 8: const +0.148 span8 +0.0117
+P1/P2 L 9: const +0.175 span8 +0.0257
+P1/P2 L10: const +0.270 span8 +0.0821
+P1/P2 L11: const +0.511 span8 +0.2812
+P3 mlp 0: LORO +0.695
+P3 mlp 1: LORO +0.706
+P3 mlp 2: LORO +0.710
+P3 mlp 3: LORO +0.807
+P3 mlp 4: LORO +0.630
+P3 mlp 5: LORO +0.449
+P3 mlp 6: LORO +0.461
+P3 mlp 7: LORO +0.573
+P3 mlp 8: LORO +0.570
+P3 mlp 9: LORO +0.259
+
+=== SCORECARD bilin12 (NL=12) ===
+P1 slack>=4: FAILED (0 licensed: [])
+P2 identity: FAILED (improves [7])
+P3 notch: FAILED (L9 frac 0.75, floor +0.34, tail +0.35, attn_raw +0.40, parts {'one_below_floor': True, 'fraction': False, 'width': True, 'tail_recovery': False, 'attn_consistent': True})
+P4 decline: HELD (spearman -0.77)
+P5 last reader: HELD (worst 6/10, median +0.37, NL 12)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/prereg_scorecard_bilin12_results.json (62s)
