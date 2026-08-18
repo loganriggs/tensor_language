@@ -1,2 +1,22 @@
 36 component probes done
 head probes L2 done
+head probes L3 done
+head probes L4 done
+head probes L5 done
+head probes L6 done
+head probes L7 done
+head probes L8 done
+head probes L9 done
+top-8 energy 0.878 vs shuffle null 0.808
+mode 0: class-R2 0.134 (newline) | split-half 1.00 | probes ['m1', 'm0', 'a5h7', 'm2', 'm3'] | tokens ['6', ' Shopping', ' Information', '2', '2', 'ights']
+mode 1: class-R2 0.027 (other) | split-half 1.00 | probes ['m0', 'm1', 'm2', 'm3', 'a5h7'] | tokens ['6', '2', '2', 'tainment', '2', ' Shopping']
+mode 2: class-R2 0.022 (subword) | split-half 0.92 | probes ['a5h7', 'm0', 'm16', 'a6', 'a14'] | tokens [' Tours', ' Shopping', 'ights', 'OO', '6', 'lo']
+mode 3: class-R2 0.052 (ind) | split-half 0.94 | probes ['m17', 'm0', 'm4', 'm16', 'm3'] | tokens [' Shopping', ' Information', 'ine', ' Tours', ' Entertainment', '.']
+mode 4: class-R2 0.002 (subword) | split-half 0.94 | probes ['m0', 'a5h7', 'a1', 'm17', 'm3'] | tokens ['2', '6', '2', '\n', '\n', '2']
+mode 5: class-R2 0.009 (ind) | split-half 0.93 | probes ['m3', 'm2', 'm6', 'm4', 'a10'] | tokens ['3', ' Hotel', '3', ' Hotel', ' Entertainment', ' Shopping']
+mode 6: class-R2 0.051 (subword) | split-half 0.97 | probes ['m16', 'm4', 'm2', 'a12', 'm0'] | tokens ['ights', '\n', '\n', ' Koh', '3', '\n']
+mode 7: class-R2 0.013 (name) | split-half 0.83 | probes ['a1', 'a0', 'm3', 'm16', 'm4'] | tokens ['bury', 'tainment', '2', 'LE', ' Tours', ' History']
+(a) structure >= 2x null: FAILED
+(b) >=2 known-class modes: FAILED
+(c) >=1 NEW replicable label: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/damage_modes_results.json (42s)

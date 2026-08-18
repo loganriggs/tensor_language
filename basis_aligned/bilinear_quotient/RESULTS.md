@@ -3939,3 +3939,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Local pricing CERTIFIED (0.43 vs 1.04; 18% local fidelity gap -> 2.4x cost). New envelope point: 20 comps + 38 heads @ +2.29 fresh (dominates 26+38 @ +2.54). Composition economics complete.
 - Pricing law calls its second config: 28 comps + 38 heads at +2.674 fresh (beats old 34-comp by 0.26 at comparable coverage); increment +0.386 in the registered band. Envelope: 20@1.46 / 24@2.29 / 32@2.67 / 34@2.93.
 - Mixed front: between the pure substrates, beats neither at its coverage; motif marginal orders by mid-band fidelity across 3 substrates (0.43/0.59/1.04) -- pricing law's third confirmation. Envelope unchanged.
+- Damage modes v1: stable modes but document-confounded (one doc dominates; split-half shared docs). v2 queued: 3x rows, winsorized, document-disjoint halves.

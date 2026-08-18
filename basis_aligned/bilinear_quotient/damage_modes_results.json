@@ -1,0 +1,180 @@
+{
+ "top8_energy": 0.878,
+ "null": 0.808,
+ "modes": [
+  {
+   "mode": 0,
+   "class_r2": 0.134,
+   "best_class": "newline",
+   "split_half": 1.0,
+   "top_probes": [
+    "m1",
+    "m0",
+    "a5h7",
+    "m2",
+    "m3"
+   ],
+   "sample_tokens": [
+    "6",
+    " Shopping",
+    " Information",
+    "2",
+    "2",
+    "ights"
+   ]
+  },
+  {
+   "mode": 1,
+   "class_r2": 0.027,
+   "best_class": "other",
+   "split_half": 0.997,
+   "top_probes": [
+    "m0",
+    "m1",
+    "m2",
+    "m3",
+    "a5h7"
+   ],
+   "sample_tokens": [
+    "6",
+    "2",
+    "2",
+    "tainment",
+    "2",
+    " Shopping"
+   ]
+  },
+  {
+   "mode": 2,
+   "class_r2": 0.022,
+   "best_class": "subword",
+   "split_half": 0.922,
+   "top_probes": [
+    "a5h7",
+    "m0",
+    "m16",
+    "a6",
+    "a14"
+   ],
+   "sample_tokens": [
+    " Tours",
+    " Shopping",
+    "ights",
+    "OO",
+    "6",
+    "lo"
+   ]
+  },
+  {
+   "mode": 3,
+   "class_r2": 0.052,
+   "best_class": "ind",
+   "split_half": 0.944,
+   "top_probes": [
+    "m17",
+    "m0",
+    "m4",
+    "m16",
+    "m3"
+   ],
+   "sample_tokens": [
+    " Shopping",
+    " Information",
+    "ine",
+    " Tours",
+    " Entertainment",
+    "."
+   ]
+  },
+  {
+   "mode": 4,
+   "class_r2": 0.002,
+   "best_class": "subword",
+   "split_half": 0.945,
+   "top_probes": [
+    "m0",
+    "a5h7",
+    "a1",
+    "m17",
+    "m3"
+   ],
+   "sample_tokens": [
+    "2",
+    "6",
+    "2",
+    "\n",
+    "\n",
+    "2"
+   ]
+  },
+  {
+   "mode": 5,
+   "class_r2": 0.009,
+   "best_class": "ind",
+   "split_half": 0.926,
+   "top_probes": [
+    "m3",
+    "m2",
+    "m6",
+    "m4",
+    "a10"
+   ],
+   "sample_tokens": [
+    "3",
+    " Hotel",
+    "3",
+    " Hotel",
+    " Entertainment",
+    " Shopping"
+   ]
+  },
+  {
+   "mode": 6,
+   "class_r2": 0.051,
+   "best_class": "subword",
+   "split_half": 0.967,
+   "top_probes": [
+    "m16",
+    "m4",
+    "m2",
+    "a12",
+    "m0"
+   ],
+   "sample_tokens": [
+    "ights",
+    "\n",
+    "\n",
+    " Koh",
+    "3",
+    "\n"
+   ]
+  },
+  {
+   "mode": 7,
+   "class_r2": 0.013,
+   "best_class": "name",
+   "split_half": 0.827,
+   "top_probes": [
+    "a1",
+    "a0",
+    "m3",
+    "m16",
+    "m4"
+   ],
+   "sample_tokens": [
+    "bury",
+    "tainment",
+    "2",
+    "LE",
+    " Tours",
+    " History"
+   ]
+  }
+ ],
+ "n_aligned": 0,
+ "n_new": 8,
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": true,
+ "runtime_s": 41.790077209472656
+}

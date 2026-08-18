@@ -8026,3 +8026,20 @@ refit chain despite empirical m2/m3, so within-front mixing buys
 nothing over picking the pure substrate per coverage target. The
 practical rule stands at its simpler form: fold front for low-coverage
 points, empirical front when stacking the head band.
+
+## 314. Damage modes v1: real structure, document-confounded instrument
+
+`damage_modes.py` (the SLT-inspired data-dual): 108 causal probes x
+12k tokens, factored. Registered (a) FAILED (top-8 energy 0.878 vs
+0.808 shuffle null -- heavy-tailed CE deltas inflate both) and (b)
+FAILED (no known-class mode above R^2 0.134); (c) held nominally but
+is NOT claimable: the modes' sample tokens are dominated by a single
+document's vocabulary (a travel guide), the even/odd token split
+SHARES documents between halves (so the 0.83-1.00 replication does not
+control the confound), and 48 rows cannot separate document effects
+from function effects. The idea is validated in outline -- the modes
+are stable, and the failure is the instrument's, not the direction's.
+v2 queued: 3x the rows, per-column winsorization (|z|<=3) to tame the
+CE tails, DOCUMENT-DISJOINT split halves (row blocks, not interleaved
+tokens), and the same three bars re-registered on the fixed
+instrument.
