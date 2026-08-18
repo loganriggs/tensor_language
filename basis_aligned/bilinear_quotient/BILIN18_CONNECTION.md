@@ -6255,3 +6255,30 @@ ledger entries 19 and 20. The arc ends the way this program's arcs end:
 smaller than it looked at its peak, sharper than it looked at its start,
 and with every surviving number carrying its construction-robustness
 statement.
+
+## 233. The relay's directionality replicates on fresh text; the cargo edge's kinship rank does not
+
+File: `bilin18_kinship_fresh.py` — all 36 fingerprints recomputed on text
+rows 320–384 (never before used for fingerprints). Three-part verdict:
+
+**Directionality: replicated, stronger.** 17/18 attention components' top
+MLP kinship partner is upstream-or-same (94%; original 89%). The relay's
+statistical leg survives fresh text.
+
+**The cargo edge's kinship RANK: not replicated.** attn6~mlp5 ranks 23rd of
+324 cross-type pairs (was top-5). On this window, kinship is dominated by
+the loud early writers (mlp0/mlp1 are the top partner for 11 of 18
+attention components). Stated precisely: the edge's CAUSAL certification
+(interchange 0.223 vs 0.087, §-certified) is untouched — what weakened is
+the statistical proxy's prominence, and the benchmark's edge-explanation
+class should cite the causal number, not the kinship rank.
+
+**The null band was mis-registered.** Token-shuffled fingerprints give
+12/18 upstream — outside my 40–60% band, but the band was wrong, not the
+null: with all partners at noise level, the top partner is uniform over 18
+MLPs, and the structural expectation for upstream-or-same is ≈53% with a
+±12-point binomial sd at n=18. The measured null (67%) is within 1.2σ of
+that; the signal (94%) is 3.5σ above it. Lesson filed with the floor rule:
+compute the NULL'S EXPECTED VALUE from the selection structure before
+registering its band — a best-of-k selection over a causal ordering has a
+built-in bias, and 40–60% was the band for a coin, not for this selector.

@@ -3590,3 +3590,11 @@ The only landscape claim to pass its sweep unamended. Final tally: 4 robust
 as published, 2 robust amended, 3 fallen/degraded (ledgers 19-20).
 
 Full detail in `BILIN18_CONNECTION.md` §232.
+
+### Relay directionality replicates fresh (94%)
+
+Cargo edge's kinship rank drops to 23/324 (causal certification untouched;
+cite the interchange number). Null band was mis-registered: best-of-18 over
+a causal ordering expects ~53%, not 50-50; signal is 3.5 sigma above.
+
+Full detail in `BILIN18_CONNECTION.md` §233.
