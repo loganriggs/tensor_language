@@ -606,10 +606,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   writes it, its attention transports it (a carrier effect specific to the 18-layer
   model; the 12-layer sibling shows no attention notch at all — across the family the
   anomaly is only ever the MLP span, attention transport never origin). The sharpest fact came
-  earlier: the sibling 12-layer
-  bilinear model has its own private writer, below its own random-projection floor, at
-  exactly the same depth fraction (L4/12 = L6/18 = 0.33). The private writer is an
-  architectural regularity of trained bilinear stacks, not a quirk of this model — The two private spans even damage overlapping token
+  earlier: the sibling 12-layer bilinear model has its own depressed writer at exactly
+  the same depth fraction (L4/12 = L6/18 = 0.33) — an architectural regularity of
+  trained bilinear stacks, not a quirk of this model. A later reader-ensemble sweep
+  showed the "below the random floor" form of both claims is construction-dependent;
+  what holds in every instrument variant tested is relative depression, to about half
+  the in-model control (8 of 8 constructions at 18 layers). Every headline of this arc
+  has since been swept for construction-robustness — reader ensembles, aggregation,
+  basis rank, random floors — and each now carries its invariant form; the
+  sensitivities that sweep discovered are localized to the private span itself. The two private spans even damage overlapping token
   sets on shared text (7.5× every random control) while drifting more than shared code
   does — functionally the same kind of object, loosely conserved. The landscape's other
   exception is graded by depth: the last reader shares least in both models, but only
