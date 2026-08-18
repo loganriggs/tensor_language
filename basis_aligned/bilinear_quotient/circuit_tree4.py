@@ -21,6 +21,15 @@ CA=300; NB=78
 MHL=list(range(2,10))
 T=256
 
+
+def safe_svd(X):
+    try:
+        return torch.linalg.svd(X,full_matrices=False)
+    except Exception:
+        U,S,Vh=torch.linalg.svd(X.double().cpu(),full_matrices=False)
+        return U.float().to(X.device),S.float().to(X.device),\
+            Vh.float().to(X.device)
+
 @torch.no_grad()
 def main():
     t0=time.time()
@@ -133,8 +142,7 @@ def main():
         # ablate output projection onto slice-conditioned PCA block
         slice_idx=SLICES[tag]
         Y=capture_out(key)[slice_idx].float().to(DEV)
-        _,_,Vh=torch.linalg.svd((Y-Y.mean(0))[:20000],
-                                full_matrices=False)
+        _,_,Vh=safe_svd((Y-Y.mean(0))[:20000])
         s0,s1=block
         P=orth(Vh[s0:s1].T)
         if key[0]=='a':
@@ -199,9 +207,9 @@ def main():
         med=rid.median()
         ha=rid<=med; hb=~ha
         if ha.sum()<200 or hb.sum()<200: return []
-        U,Sg,Vh=torch.linalg.svd(M,full_matrices=False)
-        _,_,Va=torch.linalg.svd(M[ha]-M[ha].mean(0),full_matrices=False)
-        _,_,Vb=torch.linalg.svd(M[hb]-M[hb].mean(0),full_matrices=False)
+        U,Sg,Vh=safe_svd(M)
+        _,_,Va=safe_svd(M[ha]-M[ha].mean(0))
+        _,_,Vb=safe_svd(M[hb]-M[hb].mean(0))
         out=[]
         for k in range(min(nmodes,len(Sg))):
             repl=abs(float(Va[k]@Vb[k]))
