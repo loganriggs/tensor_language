@@ -1,0 +1,14 @@
+within-cluster cosine: real 0.723 vs shuffle-null 0.544
+cluster 0: n=  624 top3 ['attn6', 'attn5', 'attn1'] share 0.23
+cluster 1: n=  618 top3 ['mlp16', 'mlp17', 'attn1'] share 0.42
+cluster 2: n=  531 top3 ['attn2', 'attn1', 'mlp17'] share 0.18
+cluster 3: n=  746 top3 ['attn8', 'attn2', 'attn4'] share 0.35
+cluster 4: n=  538 top3 ['mlp17', 'attn2', 'attn1'] share 0.25
+cluster 5: n= 1482 top3 ['attn4', 'attn5', 'attn2'] share 0.33
+cluster 6: n= 1916 top3 ['attn2', 'attn1', 'attn4'] share 0.33
+cluster 7: n= 1737 top3 ['attn1', 'attn0', 'attn2'] share 0.40
+
+(a) structure real (gap >=0.10): HELD
+(b) >=3 sparse clusters: FAILED (0)
+(c) re-finds a known circuit: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_circuit_slices_results.json (1s)
