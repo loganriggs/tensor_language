@@ -7153,3 +7153,24 @@ chase has a long flat spectrum -- consistent with the broad-interface
 picture (263).
 
 Frontier after this wave: 13@+1.39, 19@+1.68, 27@+2.21, **34@+2.87**.
+
+## 271. The a5 anomaly resolved: some components are scaffolding, and the assembly wants their MEAN
+
+`a5_anomaly.py`, four arms in the v9-best context: real attn5 +3.466,
+class dictionary +2.868, **global mean output +2.722**, zero +4.746.
+Registered (a) HELD (dict beats real by 0.6); (b) FAILED -- zeroing is
+catastrophic, so attn5 is NOT slack-in-context; (c) FAILED -- the
+class-blind mean BEATS the class dictionary. Reading: the assembly needs
+attn5's average contribution (scaffolding -- a bias the downstream layers
+are calibrated against), while its input-dependent deviations misfire on
+substituted streams and its class-conditional structure adds nothing
+there. The cheapest possible stand-in -- ONE VECTOR -- is the best one
+found for this component. Follow-on running: greedy dict-vs-mean
+selection over all 16 attention rungs (registered: >=2 prefer mean; a8
+rescued as a mean; final <= +2.60).
+
+v10 (P128 front absorbers, a8 pre-dropped): +2.853 oracle / +3.052
+deploy -- only 0.015 under v9-best; registered <= +2.75 FAILED. The P128
+gains measured on the 19-comp assembly (270) do not transfer to the
+34-comp context; front absorber error is no longer the binding
+constraint once the attention rungs are in.

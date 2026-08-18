@@ -3842,3 +3842,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - v9: 34/36 components at +2.868 oracle / +3.067 deploy. Induction-band prediction FAILED informatively: a5 marginal NEGATIVE (-0.38) -- real induction machinery misfires on substituted streams; a8 (digit owner) the only drop (+0.4002).
 - P-rank ladder monotone sublinear (P128: +1.899).
 - Frontier: 13@+1.39, 19@+1.68, 27@+2.21, 34@+2.87.
+
+## Appendix 271: a5 = scaffolding (2026-08-18)
+- attn5 in-assembly: real +3.47, dict +2.87, MEAN +2.72, zero +4.75. The component is needed only for its average output there; input-dependence misfires. Greedy mean-vs-dict sweep queued.
+- v10 (+2.853) barely improves v9-best; front absorber rank no longer binding at 34 comps.
