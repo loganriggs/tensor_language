@@ -1,0 +1,19 @@
+P1/P2 L 4: const +0.482 span-flags [False, False]
+P1/P2 L 5: const +0.318 span-flags [False, False]
+P1/P2 L 6: const +0.314 span-flags [False, False]
+P1/P2 L 7: const +0.120 span-flags [True, True]
+P1/P2 L 8: const +0.148 span-flags [False, False]
+P1/P2 L 9: const +0.175 span-flags [False, False]
+P1/P2 L10: const +0.270 span-flags [False, False]
+P1/P2 L11: const +0.511 span-flags [False, False]
+P3 ens0 (1, 2, 3, 6, 9, 11): +0.67 +0.72 +0.69 +0.75 +0.26 +0.39 +0.38 +0.46 +0.54 +0.26
+P3 ens1 (2, 3, 4, 7, 10, 11): +0.67 +0.75 +0.65 +0.47 +0.23 +0.45 +0.46 +0.60 +0.65 +0.41
+P3 ens2 (0, 1, 2, 5, 8, 10): +0.57 +0.63 +0.66 +0.66 +0.52 +0.44 +0.52 +0.48 +0.55 +0.39
+
+=== SCORECARD v2 bilin12 (NL=12) ===
+P1: FAILED (0 licensed)
+P2: FAILED (replicated improves [7])
+P3: FAILED (notch L9, mins [9, 4, 9], rel [True, False, False], tails ['+0.44', '+0.58', '+0.61'], parts {'unique_min': False, 'relative_all': False, 'relative_2of3': False, 'fraction': False, 'width': True, 'tail': True})
+P4: HELD (spearmans ['-0.66', '-0.50', '-0.72'])
+P5: FAILED ([(6, 10, 0.3692716360092163), (1, 10, 0.5329283177852631), (3, 10, 0.46917515993118286)])
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/prereg2_scorecard_bilin12_results.json (39s)
