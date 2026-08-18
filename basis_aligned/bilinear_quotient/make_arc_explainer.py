@@ -23,14 +23,13 @@ ax.plot([p[0] for p in OLD],[p[1] for p in OLD],'--o',color=MUTED,
         lw=1.6,ms=5,label='before tonight')
 ax.plot([p[0] for p in NEW],[p[1] for p in NEW],'-o',color=BLUE,
         lw=2.4,ms=7,mfc=DBLUE,label='after (all points on never-seen text)')
-notes=[(20,1.46,'20 layers replaced:\nword-lookup tables built\nfrom weights alone + simple\nmath pieces; attention real'),
-       (24,2.29,'+ 38 attention heads,\neach = "look at previous\nword" (or self) x one gain'),
-       (32,2.67,'+ 8 more attention layers\nas per-class rules'),
-       (34,2.93,'old best: 34 layers\n(more replaced, but\npricier recipe)')]
-for x,y,t in notes:
+notes=[(20,1.46,(-8,-82),'20 layers replaced:\nword-lookup tables built\nfrom weights alone + simple\nmath pieces; attention real'),
+       (24,2.29,(-178,14),'+ 38 attention heads, each =\n"look at previous word"\n(or self) x one gain'),
+       (32,2.67,(-46,-66),'+ 8 more attention\nlayers as per-class rules'),
+       (34,2.93,(-128,14),'old best: 34 layers (more\nreplaced, pricier recipe)')]
+for x,y,off,t in notes:
     ax.annotate(t,(x,y),textcoords='offset points',
-                xytext=(-2,14) if x<30 else (-96,-46),fontsize=7.8,
-                color=INK)
+                xytext=off,fontsize=7.8,color=INK)
 ax.set_xlabel('how much of the model is replaced '
               '(layers of 36; heads counted fractionally)',fontsize=10,
               color=INK)
