@@ -3492,3 +3492,12 @@ Structure without agreement. Early readers share a code; deep readers go
 private. One null bar was mis-set for the 36-dim space and is corrected.
 
 Full detail in `BILIN18_CONNECTION.md` §220.
+
+### Correction: no early shared code (ledger 17)
+
+At pair resolution nothing transfers over the private span above the
+measured random floor (0.31); the control transfers everywhere (0.62-0.82 vs
+floor 0.10). Idiosyncrasy is total. Section 220's depth-graded reading is
+withdrawn; register the metric AND measure the floor first.
+
+Full detail in `BILIN18_CONNECTION.md` §221.

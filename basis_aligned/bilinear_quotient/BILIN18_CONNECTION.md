@@ -5951,3 +5951,30 @@ face value: the early readers share a common code for the fraction-1/3
 whisper, and it is the deep readers who go private. The anomaly's standing
 description gains its last clause: the unshared vocabulary is specifically a
 deep-reader phenomenon.
+
+## 221. Correction: there is no early shared code — idiosyncrasy is total (ledger #17)
+
+File: `bilin18_dialect_groups.py`. §220's unregistered depth-graded reading
+("early readers share a code for the whisper, deep readers go private") went
+into the published report and does not survive its registered test — ledger
+entry #17. At pair resolution over the private span, NOTHING transfers above
+the measured random floor:
+
+    private span: early internal 0.31, deep internal 0.33, early→deep 0.03
+                  measured random rank-18 floor: 0.31
+    control (L9): early internal 0.62, deep internal 0.82, early→deep 0.81
+                  random floor: 0.10
+
+The control held (c), so the instrument distinguishes genuine sharing when it
+exists. Over the private span there is no early code and no deep dialect —
+**every reader's code for the whisper is fully idiosyncratic**. What §220
+read as early-reader agreement was the 200-form population basis capturing
+the dominant behavioral directions of easy test sets: the random floor on
+exactly those test sets is 0.31 (vs 0.10 on the control), and pair-fit bases
+collapse onto it. Both numeric bars (a) and (b) were also wrong-footed by
+that floor — registered at 0.45/0.25 against an unmeasured baseline that
+turned out to sit at 0.31; per rule (d) the conclusions here are stated
+relative to the measured floor, and the floor-measurement-first rule now
+joins the registration discipline. The whisper's final description loses its
+last consoling clause: heard by all, understood by each alone, agreed by
+none — at any depth.
