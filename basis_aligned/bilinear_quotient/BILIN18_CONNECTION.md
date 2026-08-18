@@ -6876,3 +6876,31 @@ their upstream replacements active.** v3 queued: sequential front-to-back
 fitting of every fitted piece (a0 exact needs none; m0 table; m1 linear on
 the a0+m0-substituted stream; m2/m3 tables likewise; a1 values; tail
 probe+dictionary last). Registered: v3 ≤ +0.90 total.
+
+## 258. The table-firewall effect: composition has a grammar
+
+File: `assembled_v3.py`. Sequential fitting fixed exactly what it was
+registered to fix — mlp1's in-context marginal cost is +0.124, matching
+its clean solo (+0.120; bar (c) held) — yet the assembled total is +1.97,
+still behind v1's +1.85. The decomposition explains it: the without-m1 arm
+costs +1.85 BY ITSELF, though its parts' solos sum to ~0.9. The front's
+token-table errors (m0/m2/m3, a1v) are transmitted and amplified by
+whatever sits downstream that is input-faithful — including the REAL mlp1,
+which being ~97% linear propagates its input's errors loyally. v1 scored
+better not because its crown stand-in was good (+1.216 solo!) but because
+an id-conditioned table CLAMPS its output to token-only values and thereby
+absorbs upstream error — an accidental firewall.
+
+The composition grammar, stated: **id-conditioned stand-ins are error
+firewalls (lossy but stabilizing); input-conditioned stand-ins and
+input-faithful real components are error conductors (accurate but
+propagating).** An assembled model's cost is not a sum of solo costs plus
+a generic interaction — it depends on the ORDER and TYPE of stand-ins
+along the graph. Current standings: v1 +1.85 (all-table, firewalled),
+v3 +1.97 (sequential, conductive), v2 +2.69 (naive). Registered next
+rung (v4): keep the sequential linear crown but add rank-k input-linear
+residual corrections to the m0/m2/m3 tables — fit sequentially, they
+should absorb rather than transmit the table errors. The benchmark's
+edge-typing vocabulary (coordinates vs summary vs opaque) was built for
+exactly this distinction, and the assembled experiments are now measuring
+it in composition.

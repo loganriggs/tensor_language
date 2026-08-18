@@ -3796,3 +3796,12 @@ Linear stand-ins fit on clean inputs misfire under upstream substitution;
 tables are id-conditioned and robust. v3 = sequential fitting, queued.
 
 Full detail in `BILIN18_CONNECTION.md` §257.
+
+### The table-firewall effect
+
+Sequential fitting fixed the crown (+0.12 in-context) but v3 = +1.97 still
+trails v1's +1.85: token-tables act as error FIREWALLS, input-faithful
+components as CONDUCTORS. Composition depends on stand-in type along the
+graph. v4 (tables + sequential residual corrections) registered.
+
+Full detail in `BILIN18_CONNECTION.md` §258.
