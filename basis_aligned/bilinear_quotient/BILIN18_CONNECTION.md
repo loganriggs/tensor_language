@@ -8119,3 +8119,22 @@ supervised circuits.** v4 queued with corpus-interleaved rows (both
 halves balanced) to measure the intended same-gate scale-up; the
 cross-corpus gate is kept as the tier-2 certification for the final
 census.
+
+## 319. Names with scores: 35 of 67 circuit names survive blind discrimination
+
+The naming wave (4 stateless agents, 68 packs, 1 honest unclear) was
+scored by a new mechanical protocol: BLIND DISCRIMINATION -- a fresh
+grader receives only a circuit's name and mechanism sentence, plus 12
+shuffled context snippets (6 true members, 6 from other circuits), and
+must recover the members. Chance is 3/6; the wave scored **mean 4.45/6,
+with 35 names passing at >=5/6**, 22 borderline at 4/6, and 10 failing
+at <=3/6 (queued for renaming against the richer v4 packs). Passing
+names are concrete functions: "second word of proper names" (6/6),
+"entry-terminating newline" (6/6), "separators before station and date
+anchors" (6/6), "connective before proper noun" (6/6). The census now
+carries THREE certification tiers per circuit: structural
+(document-disjoint mode replication), corpus-general (the accidental
+cross-corpus gate of 318), and SEMANTIC (a name that transmits the
+concept to a blind reader, quantitatively). The day ends with 68
+structural circuits, 35 corpus-general, 35 blind-nameable -- and the
+scaling levers identified and running (v4, corpus-interleaved).
