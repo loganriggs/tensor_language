@@ -1,0 +1,16 @@
+within: real 0.591 null 0.361 | null top-3 floor 0.16
+cluster 0: n=  624 top3 ['attn11', 'attn9', 'attn12'] share 0.15
+cluster 1: n=  678 top3 ['mlp16', 'mlp11', 'mlp13'] share 0.15
+cluster 2: n=  585 top3 ['attn5', 'attn4', 'attn3'] share 0.14
+cluster 3: n=  549 top3 ['attn8', 'mlp3', 'attn4'] share 0.18
+cluster 4: n=  625 top3 ['mlp17', 'attn12', 'attn5'] share 0.13
+cluster 5: n=  427 top3 ['attn14', 'attn16', 'attn13'] share 0.20
+cluster 6: n=  773 top3 ['attn5', 'attn2', 'attn3'] share 0.14
+cluster 7: n=  807 top3 ['mlp10', 'attn15', 'mlp8'] share 0.12
+cluster 8: n= 2742 top3 ['attn7', 'attn5', 'attn4'] share 0.13
+cluster 9: n=  382 top3 ['attn0', 'attn1', 'attn6'] share 0.24
+
+(a) structure (gap>=0.10): HELD
+(b) >=3 sparse (top3>=0.40): FAILED (0)
+(c) re-finds known pair: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_circuit_slices2_results.json (1s)
