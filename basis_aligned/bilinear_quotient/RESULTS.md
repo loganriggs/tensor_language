@@ -3863,3 +3863,8 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Linear arms genuinely high-rank (rank-128 costs +0.087). 
 - Fresh never-seen pile window: best-34 = +3.114 (standard window +2.749 -- ~0.35 optimism bias); only 3/6 greedy swaps replicate; all-means baseline +7.04 (assembly content real); fineweb +3.45.
 - LEDGER 22: within-sample fit/eval splits insufficient; selections must validate out-of-sample. Honest frontier: 34/36 at ~+3.11 fresh (74% of model work).
+
+## Appendix 277-278: validated frontier + grounding (2026-08-18)
+- THE benchmark quote: 34/36 at +2.925 oracle / +3.017 deploy on never-touched fresh data (75% of model work retained). Validated greedy keeps only a5/a14/a16 means.
+- m0 table grounded: fold rows match empirical at 0.917 cosine (centered-null rerun owed); rows organize by token type (12x null).
+- MLP motif repertoire confirmed (section 58 rerun): rank-80 shared basis, LORO R^2 0.71. Attention motif census running.

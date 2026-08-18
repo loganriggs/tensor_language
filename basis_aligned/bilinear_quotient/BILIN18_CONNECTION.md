@@ -7290,3 +7290,45 @@ their fresh-window value or not at all; (ii) any selection procedure
 the sample, with a third window for the final quote. The honest frontier
 today: **34/36 at ~+3.11 oracle on fresh text (74% of the model's work),
 all-means floor +7.04, ceiling +11.95.**
+
+## 277. Validated selection: the honest frontier is 34/36 at +2.93 fresh
+
+`select_validated.py` re-ran the greedy under ledger 22's rules: adopt a
+swap only if it improves BOTH the standard window and a fresh-pile
+selection half; quote on an untouched fresh validation half. It kept
+exactly the three fresh-replicating swaps (a5, a14, a16 -- prediction (a)
+HELD) and the quote is **+2.9252 oracle / +3.0172 deploy on data no
+selection ever touched** (FR-sel agreement within 0.06 -- no leakage;
+all bars HELD). Notably the validated config also beats the old greedy's
+config on the standard window (+2.6345 vs +2.7486): round-1's extra
+swaps were not just non-replicating, they were path-dependent noise
+fits. THE quotable benchmark number: 34/36 components, +2.93 nats on
+fresh text = 75% of the model's work (ceiling +11.95, all-means floor
++7.04, embeddings-only 0%).
+
+## 278. Grounding the tables; the motif repertoire question
+
+`table_semantics.py` (grounding the m0 token table): fold-table rows
+(computed from weights, length-1 forwards, zero data) match empirical
+rows at median cosine 0.917 -- but the registered shuffled-null bar
+(<=0.05) FAILED for instrument reasons: unshuffled rows share a large
+common mean direction, putting the null at 0.628. Signal over null is
+real (+0.29) but the instrument needs mean-centering before the claim is
+quotable. The semantic check HELD: table rows organize by token type
+(within-class vs between-class cosine gap 12x the shuffled-label null;
+digit rows tightest at 0.839). The table is a derived, semantically
+organized object, not a memorized blob -- with the centered-null rerun
+owed.
+
+Motif repertoire (user direction): the flat track already certified the
+MLP-side version -- section 58's shared functional basis, re-verified
+this session: ~80 shared quadratic-form directions reconstruct any
+reader's coupling matrix at leave-one-reader-out R^2 0.71 (random basis
+~0; 8 directions get only 0.15). So bilinear layers DO draw from a
+common mid-sized repertoire of interaction shapes, individually bound.
+The counterweight is sections 219-221: the readers' OUTPUT codes are
+idiosyncratic dialects -- shared shapes, private bindings, exactly the
+"same function, different semantics" split the user proposed.
+`attn_motifs.py` (running) does the attention side: bucket every head's
+pattern mass into self/first/induction-target/match/offset motifs,
+census the repertoire across all 162 heads, with token-shuffle nulls.
