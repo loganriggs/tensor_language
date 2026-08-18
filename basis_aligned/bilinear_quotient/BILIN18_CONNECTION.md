@@ -7595,3 +7595,26 @@ arc now meet in one mechanism: gather (attn5, 4 directions) -> encode
 (mlp5/6, 8-dim span) -> idiosyncratic readout (every tail layer, no
 consensus). Causal link test queued: cutting the 4 directions should
 collapse the span code and concentrate CE damage in clause classes.
+
+## 291. The channel is a regulator, not a source: both link predictions failed
+
+`handoff_span_link.py`: cutting the four channel directions does NOT
+silence mlp6's span code -- it makes it EXPLODE: span-coefficient
+variance rises 4.6x (+358%) while the random-4 control moves it 3.8%.
+And the CE damage concentrates in the CONTEXTUAL classes (subword 27%
+vs 18% position share, induction 33% vs 24%, other 46% vs 36%), while
+every clause class is at or below share and newline damage is NEGATIVE
+(cutting the channel helps there). Both registered predictions FAILED.
+
+Revision to 290's story: the attn5->mlp5 channel geometrically overlaps
+the span and carries class information, but functionally it REGULATES
+the span code rather than sourcing it -- deprived of the channel, the
+quadratic writer's code becomes high-variance noise, and the cost lands
+on the classes that need stable contextual integration downstream. The
+logit-lens clause reading described what the directions write toward
+the vocabulary, not what their removal breaks -- a lesson on logit-lens
+semantics vs causal payload. This rhymes with the slack-regularizer
+anatomy that has haunted this neighborhood since section 206: the
+model's biggest handoff may be its biggest stabilizer. Queued:
+span-specificity check (does the explosion live in the 8-dim span
+specifically, or is it generic destabilization of mlp6's output?).
