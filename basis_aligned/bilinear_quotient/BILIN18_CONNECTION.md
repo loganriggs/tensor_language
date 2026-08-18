@@ -7833,3 +7833,19 @@ concentrate-vs-spread architectural dichotomy the flat track certified
 for replaceability (204-205), now visible in the wiring. The junction
 program closes with its claims scoped to the evidence: anatomy general,
 implementation concentrated only where the architecture concentrates.
+
+## 303. The motif census pays: head-level hybrid beats the dictionary band by 0.27
+
+`head_hybrid.py`, both bars HELD with a bonus sign: leaving attention
+2-9 real and swapping the 38 named prev/self heads for their one-hot
+patterns costs +2.3644 on window C -- 0.27 BETTER than the v9-best
+all-dictionary band (+2.6345) -- and the motif swaps' joint marginal is
+NEGATIVE (-0.078 vs band-real +2.4419): in the substituted context the
+literal patterns are better than the real heads, the pattern-slack
+effect from 282's control now working for us. New census at this
+config: 26 full components + 38 of 72 attention heads in layers 2-9
+described by one sentence and one gain each, with induction, first,
+and diffuse heads honestly real. Fresh certification queued (ledger
+22) before this replaces the quotable frontier; a8_symbolic requeued
+after a Unicode-digit crash (superscript characters pass isdigit but
+not int -- isdecimal is the correct predicate).

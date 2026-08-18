@@ -1,16 +1,10 @@
-"""A8 SYMBOLIC RESCUE -- a8 (attn8, the digit owner) is the one dead
-rung: constants fail, same-position linear reads fail, because its
-certified function is contextual COUNTING -- cross-position by nature.
-But the count is symbolically computable from raw token ids, which are
-deploy-legal inputs. New digit-class arm features: [stream x (D),
-n-digit-tokens-so-far (log1p), last-digit value one-hot (10),
-current-token-is-digit flag] -> ridge to a8's output.
-REGISTERED PREDICTIONS (in the round-2 best config):
-  (a) a8 with the symbolic-count arm has marginal <= +0.15 (vs +0.62
-      for the plain dict -- rung rescued, 35/36);
-  (b) ablating the symbolic features (stream-only arm) reverts to
-      >= +0.4 (the count features are the payload, not the extra fit
-      capacity)."""
+"""HEAD HYBRID -- FRESH CERTIFICATION (ledger 22). 303 found the
+head-level hybrid beats the all-dict band by 0.27 on window C. Quote it
+on never-seen documents before it becomes the frontier.
+REGISTERED PREDICTIONS:
+  (a) hybrid <= +2.75 on fresh rows (v9-best read +2.93 there);
+  (b) hybrid beats the all-dict config on fresh by >= 0.15;
+  (c) motif joint marginal stays <= +0.1 on fresh."""
 import json, sys, time, torch
 sys.path.insert(0,'/workspace/tensor_language/basis_aligned/bilinear_quotient')
 import torch.nn.functional as F
@@ -18,7 +12,7 @@ from bilin18_joint_removal import fwd, orth, m, FW, DEV
 from circuit_dictionary import classify, COMPS as TAILC, CLS
 D=1152; V=50257
 PT='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT=PT+'a8_symbolic_results.json'
+OUT=PT+'head_hybrid_fresh_results.json'
 CA,CB=300,512; R0,R1=120,300
 CONSTN={'digit','bclose','sentend','comma','name','rep'}
 CONSTK=[k for k,nm in enumerate(CLS) if nm in CONSTN]
@@ -119,19 +113,6 @@ def main():
                     c=cur['lab']
                     new=CV[c].clone()
                     for k in LINK:
-                        sel=c==k
-                        if sel.any(): new[sel]=x[sel]@LW[k]
-                    return (new.view(y.shape).to(y.dtype),v1)
-                hs.append(m.transformer.h[li].attn
-                          .register_forward_hook(h))
-            elif kind=='attnd2':
-                _,li,CV,LW,links=S[nm]
-                def h(mod,i_,o_,CV=CV,LW=LW,links=links):
-                    y,v1=o_
-                    x=i_[0].float().reshape(-1,D)
-                    c=cur['lab']
-                    new=CV[c].clone()
-                    for k in links:
                         sel=c==k
                         if sel.any(): new[sel]=x[sel]@LW[k]
                     return (new.view(y.shape).to(y.dtype),v1)
@@ -299,104 +280,103 @@ def main():
         return float(torch.cat(ces).mean())
     for li in range(2,18):
         S[f'a{li}m']=('attnm',li,S[f'a{li}'][2].mean(0))
+    # base config: v9-best minus the middle-attention dict band
     best=[n for n in order if n!='a8']
-    for nm in ('a2','a5','a9','a14','a16'):
+    for nm in ('a5','a14','a16'):
         best=[(nm+'m' if n==nm else n) for n in best]
-    hs=install(best)
-    acc=[torch.zeros(D,device=DEV)]
-    def capm(mod,i_,o_):
-        acc[0]+=o_.detach().float().reshape(-1,D).sum(0)
-    hs.append(m.transformer.h[8].mlp.register_forward_hook(capm))
-    XY=[[],[]]
-    def cap8(mod,i_,o_):
-        XY[0].append(i_[0].detach().reshape(-1,D).float())
-        XY[1].append(o_[0].detach().reshape(-1,D).float())
-    hs.append(m.transformer.h[8].attn.register_forward_hook(cap8))
-    for i in range(CA,CB,4):
+    MIDA=[f'a{li}' for li in range(2,10)]
+    hyb=[n for n in best if n not in MIDA and n!='a5m']
+    # (a5 dict band member: a5m was a swap of a5; with band real, a5 real)
+    mt=json.load(open(PT+'attn_motifs3_results.json'))['motif_table']
+    prevh={}; selfh={}
+    for li,hd,mo,fr in mt:
+        if 2<=li<=9:
+            if mo=='prev': prevh.setdefault(li,[]).append(hd)
+            if mo=='self': selfh.setdefault(li,[]).append(hd)
+    nsw=sum(len(v) for v in prevh.values())+sum(len(v)
+             for v in selfh.values())
+    print(f'named heads in 2-9: prev {prevh} self {selfh} '
+          f'(total {nsw})',flush=True)
+    mod2=sys.modules[type(m.transformer.h[0].attn).__module__]
+    are=mod2.apply_rotary_emb
+    T=256
+    def head_z(at,X,v1):
+        B=X.shape[0]
+        q=at.c_q(X).view(B,T,9,128); k=at.c_k(X).view(B,T,9,128)
+        q2=at.c_q2(X).view(B,T,9,128); k2=at.c_k2(X).view(B,T,9,128)
+        v=at.c_v(X).view(B,T,9,128)
+        if v1 is None: v1=v
+        vm=(1-at.lamb)*v+at.lamb*v1.view_as(v)
+        cos,sin=at.rotary(q)
+        qn=F.rms_norm(q,(128,)); kn=F.rms_norm(k,(128,))
+        qn,kn=are(qn,cos,sin),are(kn,cos,sin)
+        q2n=F.rms_norm(q2,(128,)); k2n=F.rms_norm(k2,(128,))
+        q2n,k2n=are(q2n,cos,sin),are(k2n,cos,sin)
+        sc=torch.einsum('bqhd,bkhd->bhqk',qn.float(),kn.float())/128
+        sc2=torch.einsum('bqhd,bkhd->bhqk',q2n.float(),k2n.float())/128
+        pat=(sc*sc2)*torch.tril(torch.ones(T,T,device=DEV))
+        z=torch.einsum('bhqk,bkhd->bhqd',pat,vm.float())
+        return z,vm.float()
+    # fit gains under the substituted front (hyb active)
+    caps={li:{'x':[],'v1':[]} for li in range(2,10)}
+    hs=install(hyb)
+    for li in range(2,10):
+        def mk(li=li):
+            def h(mo_,args):
+                caps[li]['x'].append(args[0].detach())
+                caps[li]['v1'].append(args[1].detach()
+                                      if args[1] is not None else None)
+            return h
+        hs.append(m.transformer.h[li].attn
+                  .register_forward_pre_hook(mk()))
+    for i in range(CA,CA+32,4):
         bb=FW[i:i+4,:257].to(DEV)
         cur['idx']=bb[:,:-1].contiguous()
-        cur['mode']='oracle'; cur['lab']=clsA[i-CA:i-CA+4].reshape(-1)
+        cur['mode']='oracle'; cur['lab']=clsA.reshape(CB-CA,256)            [i-CA:i-CA+4].reshape(-1)
         m(cur['idx'], bb[:,1:].contiguous())
     for h in hs: h.remove()
-    S['c8m']=('linear',8,torch.zeros(D,D,device=DEV),
-              acc[0]/((CB-CA)*256))
-    best=[('c8m' if n=='c8' else n) for n in best]
-    X=torch.cat(XY[0]); Y=torch.cat(XY[1])
-    import tiktoken
-    enc2=tiktoken.get_encoding('gpt2')
-    ISD=torch.zeros(V,dtype=torch.bool)
-    DVAL=torch.full((V,),-1,dtype=torch.long)
-    for t in range(V):
-        st=enc2.decode([t]).strip()
-        if st.isdecimal() and len(st)>=1:
-            ISD[t]=True; DVAL[t]=int(st[-1])
-    ISD=ISD.to(DEV); DVAL=DVAL.to(DEV)
-    def symfeat(ids2d):
-        # ids2d: (B,T) token ids -> (B*T, 12) symbolic features
-        isd=ISD[ids2d]
-        cnt=torch.cumsum(isd.float(),1)
-        lastv=torch.full_like(ids2d,-1)
-        run=torch.full((ids2d.shape[0],),-1,device=DEV)
-        cols=[]
-        for tt_ in range(ids2d.shape[1]):
-            run=torch.where(isd[:,tt_],DVAL[ids2d[:,tt_]],run)
-            cols.append(run.clone())
-        lastv=torch.stack(cols,1)
-        oh=torch.zeros(*ids2d.shape,10,device=DEV)
-        sel=lastv>=0
-        oh[sel]=F.one_hot(lastv[sel],10).float()
-        f=torch.cat([torch.log1p(cnt)[...,None],
-                     isd.float()[...,None],oh],-1)
-        return f.reshape(-1,12)
-    idsA=[]
-    for i in range(CA,CB,4):
-        idsA.append(FW[i:i+4,:256])
-    SFa=symfeat(torch.cat(idsA).to(DEV))
-    dig=CLS.index('digit')
-    CV=torch.stack([Y[flatA==k].mean(0) if (flatA==k).sum()>0
-                    else Y.mean(0) for k in range(10)])
-    links=list(LINK)+[dig]
-    def fit_arm(useSym):
-        LW={}
-        for k in links:
-            mk=flatA==k
-            Xk=X[mk]
-            if useSym and k==dig:
-                Xk=torch.cat([Xk,SFa[mk]],1)
-            Yk=Y[mk]
-            l2=1e-2*max(len(Xk),1)
-            LW[k]=torch.linalg.solve(Xk.T@Xk
-                                     +l2*torch.eye(Xk.shape[1],
-                                                   device=DEV),
-                                     Xk.T@Yk)
-        return LW
-    LWs=fit_arm(True); LWp=fit_arm(False)
-    # attnd3 kind: symbolic-aware hook (needs cur['sym'])
-    def mk_a8(LW,useSym):
-        def h(mod,i_,o_,LW=LW,useSym=useSym):
-            y,v1=o_
-            x=i_[0].float().reshape(-1,D)
-            c=cur['lab']
-            new=CV[c].clone()
-            for k in links:
-                sel=c==k
-                if sel.any():
-                    Xs2=x[sel]
-                    if useSym and k==dig:
-                        Xs2=torch.cat([Xs2,cur['sym'][sel]],1)
-                    new[sel]=Xs2@LW[k]
-            return (new.view(y.shape).to(y.dtype),v1)
-        return m.transformer.h[8].attn.register_forward_hook(h)
-    def evalC8(active,LW=None,useSym=False):
+    ALPHA={}
+    for li in range(2,10):
+        num=torch.zeros(9,device=DEV); den=torch.zeros(9,device=DEV)
+        nums=torch.zeros(9,device=DEV); dens=torch.zeros(9,device=DEV)
+        at=m.transformer.h[li].attn
+        for X,v1 in zip(caps[li]['x'],caps[li]['v1']):
+            z,vm=head_z(at,X,v1)
+            vp=torch.zeros_like(vm); vp[:,1:]=vm[:,:-1]
+            vp=vp.permute(0,2,1,3); vs=vm.permute(0,2,1,3)
+            num+=(z*vp).sum((0,2,3)); den+=(vp*vp).sum((0,2,3))
+            nums+=(z*vs).sum((0,2,3)); dens+=(vs*vs).sum((0,2,3))
+        ALPHA[li]=(num/den.clamp_min(1e-9),nums/dens.clamp_min(1e-9))
+        caps[li]=None
+    def motif_hooks():
+        hs2=[]
+        for li in set(list(prevh)+list(selfh)):
+            at=m.transformer.h[li].attn
+            ap,asf=ALPHA[li]
+            ph=prevh.get(li,[]); sh=selfh.get(li,[])
+            def h(mo_,args,out,at=at,ph=ph,sh=sh,ap=ap,asf=asf):
+                y,v1r=out
+                X=args[0]; v1=args[1] if args[1] is not None else v1r
+                z,vm=head_z(at,X,v1)
+                vp=torch.zeros_like(vm); vp[:,1:]=vm[:,:-1]
+                vp=vp.permute(0,2,1,3); vs=vm.permute(0,2,1,3)
+                for hd in ph: z[:,hd]=ap[hd]*vp[:,hd]
+                for hd in sh: z[:,hd]=asf[hd]*vs[:,hd]
+                B=X.shape[0]
+                ynew=at.c_proj(z.transpose(1,2).contiguous()
+                               .view(B,T,-1).to(X.dtype))
+                return (ynew,v1r)
+            hs2.append(at.register_forward_hook(h))
+        return hs2
+    def evalH(active, motif):
         hs=install(active)
-        if LW is not None: hs.append(mk_a8(LW,useSym))
+        if motif: hs+=motif_hooks()
         ces=[]
         for i in range(R0,R1,4):
             bb=FW[i:i+4,:257].to(DEV)
             cur['idx']=bb[:,:-1].contiguous(); tg=bb[:,1:].reshape(-1)
             cur['mode']='oracle'
             cur['lab']=clsC.reshape(R1-R0,256)[i-R0:i-R0+4].reshape(-1)
-            cur['sym']=symfeat(cur['idx'])
             x=F.rms_norm(m.transformer.wte(cur['idx']),(D,))
             x0=x; v1=None
             for blk in m.transformer.h:
@@ -406,22 +386,83 @@ def main():
                                        reduction='none'))
         for h in hs: h.remove()
         return float(torch.cat(ces).mean())
-    base=evalC8([])
-    cost=evalC8(best)-base
-    csym=evalC8(best,LWs,True)-base
-    cpl=evalC8(best,LWp,False)-base
-    print(f'no-a8 {cost:+.4f} | +a8 symbolic {csym:+.4f} | '
-          f'+a8 stream-only {cpl:+.4f}',flush=True)
-    pa=(csym-cost)<=0.15; pb=(cpl-cost)>=0.4
-    out={'base':round(base,4),'no_a8':round(cost,4),
-         'a8_symbolic':round(csym,4),'a8_stream_only':round(cpl,4),
+    import tiktoken
+    from datasets import load_dataset
+    enc3=tiktoken.get_encoding('gpt2')
+    dsf=load_dataset('NeelNanda/pile-10k',split='train')
+    seen={tuple(FW[r,:32].tolist()) for r in range(FW.shape[0])}
+    rows=[]
+    for di in range(3000,10000):
+        tk=enc3.encode_ordinary(dsf[di]['text'])
+        for s0 in range(0,len(tk)-513,513):
+            row=tk[s0:s0+513]
+            if tuple(row[:32]) in seen: continue
+            rows.append(row)
+            if len(rows)>=120: break
+        if len(rows)>=120: break
+    FR=torch.tensor(rows,dtype=torch.long)
+    clsF=[]
+    def classify2(Tk):
+        n=Tk.shape[0]
+        Mid=torch.zeros(n,256,dtype=torch.long)
+        for r in range(n):
+            toks=Tk[r,:257].tolist()
+            for pos in range(256):
+                t=toks[pos+1]; p=toks[pos]
+                tg=enc3.decode([t]); pv=enc3.decode([p]); st=tg.strip()
+                if st.isdigit() and not tg.startswith(' '): k=0
+                elif st in (')',']') and any(b in enc3.decode(
+                    toks[max(0,pos-60):pos+1]) for b in ('(','[')): k=1
+                elif chr(10) in tg: k=2
+                elif tg in ('.','!','?'): k=3
+                elif tg==',': k=4
+                elif (tg.startswith(' ') and st[:1].isupper() and
+                      (pv.strip()[:1].isupper() if pv.strip()
+                       else False)): k=5
+                elif t==p: k=6
+                elif (not tg.startswith(' ')) and st.isalpha(): k=7
+                elif t in toks[:pos+1]: k=8
+                else: k=9
+                Mid[r,pos]=k
+        return Mid
+    clsFR=classify2(FR).to(DEV)
+    def evalHF(active,motif):
+        hs=install(active)
+        if motif: hs+=motif_hooks()
+        ces=[]
+        for i in range(0,120,4):
+            bb=FR[i:i+4,:257].to(DEV)
+            cur['idx']=bb[:,:-1].contiguous(); tg=bb[:,1:].reshape(-1)
+            cur['mode']='oracle'
+            cur['lab']=clsFR[i:i+4].reshape(-1)
+            x=F.rms_norm(m.transformer.wte(cur['idx']),(D,))
+            x0=x; v1=None
+            for blk in m.transformer.h:
+                x,v1=blk(x,v1,x0)
+            lg=(30*torch.tanh(m.lm_head(F.rms_norm(x,(D,)))/30)).float()
+            ces.append(F.cross_entropy(lg.view(-1,lg.size(-1)),tg,
+                                       reduction='none'))
+        for h in hs: h.remove()
+        return float(torch.cat(ces).mean())
+    base=evalHF([],False)
+    ref=evalHF(hyb,False)-base
+    hy=evalHF(hyb,True)-base
+    full=evalHF(best,False)-base
+    print(f'band-real {ref:+.4f} | hybrid {hy:+.4f} | v9-best(all-dict) '
+          f'{full:+.4f}',flush=True)
+    pa=hy<=2.75; pb=(full-hy)>=0.15
+    pc=(hy-ref)<=0.1
+    out={'base':round(base,4),'band_real':round(ref,4),
+         'hybrid':round(hy,4),'v9_best_dicts':round(full,4),
+         'n_heads_swapped':nsw,
+         'prev':{k:v for k,v in prevh.items()},
+         'self':{k:v for k,v in selfh.items()},
          'pred_a':bool(pa),'pred_b':bool(pb)}
-    print(f"(a) symbolic marginal <= +0.15: {'HELD' if pa else 'FAILED'}")
-    print(f"(b) stream-only reverts >= +0.4: {'HELD' if pb else 'FAILED'}")
+    print(f"(a) fresh hybrid <= +2.75: {'HELD' if pa else 'FAILED'}")
+    print(f"(b) beats all-dict by >=0.15: {'HELD' if pb else 'FAILED'}")
+    print(f"(c) motif marginal <= +0.1: {'HELD' if pc else 'FAILED'}")
     out['runtime_s']=time.time()-t0
     json.dump(out,open(OUT,'w'),indent=1)
     print(f'wrote {OUT} ({out["runtime_s"]:.0f}s)')
 
-    base=evalC([],'oracle')
-    cost=evalC(best,'oracle')-base
 if __name__=='__main__': main()

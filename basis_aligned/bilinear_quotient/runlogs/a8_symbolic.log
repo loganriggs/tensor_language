@@ -1,0 +1,28 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/a8_symbolic.py", line 427, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/a8_symbolic.py", line 332, in main
+    ISD[t]=True; DVAL[t]=int(st[-1])
+                         ^^^^^^^^^^^
+ValueError: invalid literal for int() with base 10: '²'

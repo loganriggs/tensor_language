@@ -3919,3 +3919,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 302: swiglu contrast (2026-08-18)
 - Front junctions architecture-general (swiglu even larger); mid junction exists in 3/3 models (contrast refuted); the NARROW 4-dir channel + private-code fusion is bilinear-only (swiglu intermediate, 3-5x smaller). Concentrate-vs-spread dichotomy now visible in wiring. Junction program closed, scoped.
+
+## Appendix 303: head hybrid (2026-08-18)
+- 26 comps + 38/72 motif heads = +2.364 window C, beating the all-dict band by 0.27; motif swaps' joint marginal NEGATIVE. Fresh certification queued.
