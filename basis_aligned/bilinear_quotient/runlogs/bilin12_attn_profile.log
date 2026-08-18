@@ -1,0 +1,16 @@
+attn0: LORO +0.251 (random -0.148)
+attn1: LORO +0.183 (random -0.154)
+attn2: LORO +0.264 (random -0.185)
+attn3: LORO +0.203 (random -0.237)
+attn4: LORO +0.230 (random -0.196)
+attn5: LORO +0.251 (random -0.305)
+attn6: LORO +0.382 (random -0.513)
+attn7: LORO +0.389 (random -0.038)
+attn8: LORO +0.400 (random -0.042)
+attn9: LORO +0.392 (random -0.480)
+
+median +0.264 MAD 0.081 | minimum attn1
+(a) attn4 is minimum: FAILED (attn4 within 1 MAD: no notch)
+(b) median >=0.30: FAILED
+(c) nulls <=0.1: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_attn_profile_results.json (41s)

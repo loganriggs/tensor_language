@@ -6063,3 +6063,26 @@ at 12. Scope note: only two bilin12 attention writers are measured, so
 "mildly depressed" rests on one control; a full bilin12 attention profile
 would firm it, and is noted as the obvious next filler run rather than a
 claim. Ledger #18 stands as written — it was and is a bilin18 statement.
+
+## 226. No attention notch at 12 layers — the anomaly is only ever the MLP span
+
+File: `bilin12_attn_profile.py`. The full profile resolves §225's flagged
+uncertainty by its registered alternative:
+
+    attn0-5: 0.25 0.18 0.26 0.20 0.23 0.25   attn6-9: 0.38 0.39 0.40 0.39
+    median 0.26, MAD 0.08; minimum attn1; attn4 within one MAD -- NO notch
+
+§225's "mild depression at attn4" was sampling luck — its single control
+(attn8, 0.40) came from what the full profile reveals as a distinct high
+late-attention group. Bar (b) also failed informatively: bilin12's attention
+median is 0.26, so attention sharing at 12 layers is shallow generally. The
+unified cross-model statement, now at full scope: **the anomaly is only ever
+the MLP span. Attention involvement is transport, never origin** — at 18
+layers the carrier makes the span's content visible in attn6's output
+(recoverable by orthogonalization), at 12 layers attention shows no notch
+signature at all. Unregistered observation, recorded descriptively: bilin12's
+attention sharing RISES with depth (0.18–0.26 early, 0.38–0.40 late) while
+its MLP sharing falls — opposite gradients within one model; untested, noted
+for any future profile work. The private-span dossier closes here: every
+on-box thread is resolved or explicitly scope-noted, and the object's full
+name is stable across twelve sections of adversarial testing.

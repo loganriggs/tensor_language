@@ -3531,3 +3531,12 @@ bilin12's attn4 barely recovers under orthogonalization (0.23 -> 0.28;
 bilin18: 0.13 -> 0.45). The anomaly's family symmetry is MLP-side only.
 
 Full detail in `BILIN18_CONNECTION.md` §225.
+
+### No attention notch at 12L
+
+Full profile: attn4 within one MAD of median; minimum is attn1; the 225
+"depression" was sampling luck. Unified: the anomaly is only ever the MLP
+span -- attention is transport, never origin. (Curious: bilin12 attention
+sharing rises with depth while MLP sharing falls.)
+
+Full detail in `BILIN18_CONNECTION.md` §226.
