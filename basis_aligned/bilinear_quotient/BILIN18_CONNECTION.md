@@ -6302,3 +6302,21 @@ clamping, fingerprint kinship), and BENCHMARK.md's edge-explanation class
 keeps kinship compilations with the margin statistic named as the score and
 rank explicitly disallowed. With this, every certified Track-1 entry has a
 fresh-data leg, and the replication backlog is empty.
+
+## 235. attn14's score replicates fresh — the closing sentence is now exact
+
+File: `bilin18_attn14_rescore.py`. The one certified Track-1 entry whose
+SCORE (as opposed to phenomenon) lacked a fresh-data leg, re-scored on rows
+320–384:
+
+    frozen regime: +0.250 (original +0.277; bar +0.15)
+    free regime:   +0.155 (original +0.183) — regime ordering preserved
+
+Both bars held. The certification's regime structure reproduces too: the
+gain-frozen score exceeds the free score on fresh text just as it did on
+the original window, so the regime-declaration rule earns a replication of
+its own. The report's closing sentence — every certified claim carries a
+fresh-data leg — is now exact rather than defensible: attn14's story
+(score +0.250 fresh), the cargo edge (margin +0.101 fresh), the relay
+directionality (94% fresh), and all the earlier replicated headlines. The
+record is closed at full strictness.

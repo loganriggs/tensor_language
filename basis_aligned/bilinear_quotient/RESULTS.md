@@ -3606,3 +3606,11 @@ over median is the claim's actual content and it replicates. Certified
 entries all have fresh-data legs now; replication backlog empty.
 
 Full detail in `BILIN18_CONNECTION.md` §234.
+
+### attn14 score replicates fresh (+0.250)
+
+Regime ordering preserved (frozen > free on fresh text). The closing
+sentence is now exact: every certified claim, score included, has a
+fresh-data leg.
+
+Full detail in `BILIN18_CONNECTION.md` §235.
