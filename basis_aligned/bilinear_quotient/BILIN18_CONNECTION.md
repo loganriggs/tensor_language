@@ -7231,3 +7231,10 @@ adding a current-token class prior moves probe accuracy only 0.686 ->
 0.701 and deploy CE not at all; the class of the NEXT token is not
 readable from the current token id, so the oracle/deploy gap (~0.2)
 stays owned by the stream probe.
+
+Addendum (a8 rescue refuted): `a8_digit_linear.py` -- adding a8 back as a
+dictionary with a digit-class linear arm costs +0.62 in the current
+config, indistinguishable from the plain dict (+0.617). Both bars
+FAILED. attn8's digit function (contextual counting) is not a
+same-position read in any form we have; it joins induction as
+cross-position transport. a8 remains the one honestly-dead rung.

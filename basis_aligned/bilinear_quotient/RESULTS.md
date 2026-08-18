@@ -3857,3 +3857,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 274: front marginals (2026-08-18)
 - In-assembly LOO: mlp1 +0.006 (99.9% of its 5.32-nat solo relevance captured); front block total +0.046; tail spans 0.011-0.082. Deploy probe token-prior upgrade refuted (0.686->0.701, no CE change).
+- a8 rescue refuted: digit-linear arm no better than plain dict (+0.62 marginal both). Counting is cross-position transport.
