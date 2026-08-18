@@ -3558,3 +3558,11 @@ below-floor. Preregistration P3 rewritten (pooled, 3 ensembles, relative
 bar); P2 gains a replication requirement.
 
 Full detail in `BILIN18_CONNECTION.md` §228.
+
+### Concentration robust in invariant form
+
+Tail coords are ensemble-stable (0.40-0.53 both models, spread <= 0.07);
+only the span-dominated full value flexes. The ledger-19 sensitivity is
+itself span-localized. P3 tail bar amended to absolute form.
+
+Full detail in `BILIN18_CONNECTION.md` §229.

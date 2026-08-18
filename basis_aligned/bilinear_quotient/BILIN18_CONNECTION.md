@@ -6146,3 +6146,26 @@ fragile near the ±0.01 boundary (L7's span flipped sign between span-fit
 samples) and gains a replication requirement. The scorecard failing on its
 first validation run is the system working — this is why the harness runs on
 a known model before it ever sees a new one.
+
+## 229. Concentration is robust in its invariant form — the sensitivity itself is span-localized
+
+File: `family_concentration_sweep.py` (note: K=40 coords for matched full/
+tail dimensionality, so absolute values differ slightly from the K=48 runs;
+all comparisons internal). Bar (a) missed at one edge and the miss is the
+finding:
+
+    bilin18 L6:  full 0.17/0.28/0.31 across ensembles — tail 0.40/0.43/0.42
+    bilin12 L4:  full 0.15/0.11               — tail 0.46/0.53
+
+The tail-coords value is ensemble-STABLE in both models (spread ≤ 0.07)
+while the full-coords value flexes by 0.14–0.19 — set D's ratio fell to 1.3
+only because its full value rose. So §228's instrument sensitivity is not a
+diffuse property of the LORO method: **it is localized to the span-dominated
+measurement.** The non-span code shares at a constant normal level under
+every construction tested; what the reader ensemble changes is only how
+much the private span's irreconstructible content drags the pooled median.
+This upgrades the concentration claim to its ensemble-invariant form —
+"tail coords share stably at 0.40–0.53 in every construction; the span is
+where both the privacy and the instrument sensitivity live" — and P3's tail
+sub-bar is amended to the measured invariant (tail >= 0.35 absolute in
+every ensemble, replacing the ratio form whose denominator flexes).

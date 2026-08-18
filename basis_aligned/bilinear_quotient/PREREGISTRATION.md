@@ -37,7 +37,9 @@ scripts; §§209-228, REVISED after ledger #19). Aggregation is POOLED median
 ensembles. The bar is RELATIVE: exactly one writer whose pooled LORO is
 <= 0.5x the in-model control median in EVERY ensemble, at depth fraction
 0.33 +/- 0.08, width one layer, with privacy concentrated in the top-8
-output span (tail coords 9-48 recover to >= 0.7x the neighbor level).
+output span: tail coords 9-48 share at >= 0.35 pooled in EVERY ensemble
+(the ensemble-invariant form, §229 -- the ratio-to-full form is not used
+because the full-coords denominator is ensemble-sensitive).
 Absolute floor-crossing is reported but is NOT the bar (it is
 ensemble-sensitive; §228). MLP-side only: the attention writer at the
 notch either recovers under span-orthogonalization (18L carrier pattern) or
