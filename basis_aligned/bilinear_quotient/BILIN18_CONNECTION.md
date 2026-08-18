@@ -5924,3 +5924,30 @@ and a faint direct channel carries it to the output end.** Instrument note
 recorded: absolute write energy compares differently-scaled layers — the
 aiming measure (each component vs its own random baseline) is what shows the
 directions are globally high-variance; both measures agree on the verdict.
+
+## 220. The whisper is understood — in dialects
+
+File: `bilin18_dialects.py`. The two main bars held decisively; one null was
+mis-registered and is corrected in place. Over the private span 6:1–8, each
+reader's OWN rank-18 basis reconstructs its held-out coupling forms far
+better than the population's basis (median self 0.75 vs cross ~0.24; median
+gap **+0.56**), while over the shared control writer L9 the population basis
+is as good as your own (gap −0.10). So the hard-content story dies: the
+private span's content is not unstructured — every reader compresses it
+cleanly. What is missing is *agreement*: the readers hold mutually misaligned
+private codes for the same signal. The whisper is heard by everyone,
+understood by everyone, and shared by no one.
+
+Two honest notes. First, the registered null (c) failed because the bar was
+mis-set: forms over 8 coords live in a 36-dimensional space, so a random
+rank-18 basis captures a substantial fraction by construction (measured
+median ~0.17, one fold 0.26); the self-vs-cross comparison is internally
+matched and unaffected, but the ≤0.1 registration was wrong for this space
+and is recorded as such. Second, an unregistered observation worth its own
+test: the dialect split is depth-graded — early readers L2/L3 actually do
+*better* with the population basis (gaps −0.16, −0.38) while deep readers
+carry huge positive gaps (L5 +0.57, L9 +0.56, L13 +0.35, L17 +1.02). Read at
+face value: the early readers share a common code for the fraction-1/3
+whisper, and it is the deep readers who go private. The anomaly's standing
+description gains its last clause: the unshared vocabulary is specifically a
+deep-reader phenomenon.

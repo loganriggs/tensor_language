@@ -3483,3 +3483,12 @@ the quietest writers there, both models). What's private is the quadratic
 content, not the coordinates -- a whisper under the loudest channels.
 
 Full detail in `BILIN18_CONNECTION.md` §219.
+
+### The whisper is understood -- in dialects
+
+Each reader compresses the private span's content cleanly with its own basis
+(median 0.75); the population basis fails (gap +0.56; control gap -0.10).
+Structure without agreement. Early readers share a code; deep readers go
+private. One null bar was mis-set for the 36-dim space and is corrected.
+
+Full detail in `BILIN18_CONNECTION.md` §220.
