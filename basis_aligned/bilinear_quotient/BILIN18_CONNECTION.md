@@ -7618,3 +7618,20 @@ anatomy that has haunted this neighborhood since section 206: the
 model's biggest handoff may be its biggest stabilizer. Queued:
 span-specificity check (does the explosion live in the 8-dim span
 specifically, or is it generic destabilization of mlp6's output?).
+
+## 292. The regulator is aimed: the explosion lives in the span alone
+
+`span_specificity.py`: under the 4-direction cut, mlp6's span
+coefficients inflate 4.58x while the full output moves 1.65x and a
+random 8-dim probe 1.66x -- and the NEXT eight PCA directions SHRINK to
+0.39x. Both bars HELD. The channel is a targeted governor: with it, the
+contested code runs tame and the adjacent directions carry variance;
+without it, the span thrashes and the neighbors go quiet. The private
+span (212-224) now has a complete causal profile: written by mlp5/6,
+carried by attn6, read in private dialects by everyone, and RANGE-
+REGULATED by a four-direction channel from attn5 -- the model's largest
+single handoff exists to keep its most contested code in calibration.
+The regulator arc rests at earned scope; remaining thread queued: does
+the assembled model (which bypasses this junction entirely) reproduce
+the internal regulation, or achieve the same behavior with different
+internal statistics?
