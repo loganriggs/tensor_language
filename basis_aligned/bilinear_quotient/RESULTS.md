@@ -3943,3 +3943,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 315: damage modes certified (2026-08-18)
 - Data-dual instrument works: 5 document-disjoint-replicable co-dependence modes, NONE aligned with the 10-class taxonomy (its blind spot measured). New candidate circuits incl. the tail-MLP band as one causal unit and a name-fragment attention complex. Certification queued.
+- Circuit tree v1: 17 leaves, recursion VALIDATED (child replication 0.60; 12/17 taxonomy-invisible). v2 scaling: 1.5x data, 24 roots, depth 2.

@@ -8065,3 +8065,19 @@ completion machinery the taxonomy has no class for. Certification step
 queued: joint-ablate each mode's top probes on held-out rows and test
 that damage concentrates on mode-scored tokens (>=3x median), with
 random-probe controls.
+
+## 316. The recursion works; the yield needs data
+
+`circuit_tree.py` v1: **17 replicated leaves** (bar 40 FAILED), but
+both structural bars HELD -- 12 of 17 leaves are invisible to the
+10-class taxonomy, and the CHILD REPLICATION RATE IS 0.60: refined
+probes (slice-conditioned MLP output-PCA blocks, per-head splits)
+factored on a parent mode's own data yield sub-modes that replicate
+across document-disjoint halves at 60% -- the user's recursive
+splitting principle is validated as an algorithm. The yield bottleneck
+is level 0: only ~6 of 16 root modes cleared the replication gate on
+36k tokens (weaker modes need more documents to separate from noise).
+v2 queued with the three scaling levers: all 212 window rows (54k
+tokens), 24 root modes, and a SECOND recursion level (grandchildren,
+with pca-block parents refined by block-halving on the child's slice).
+Same bars re-registered.

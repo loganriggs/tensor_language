@@ -1,1 +1,43 @@
 level 0: 108 probes
+r.0: repl 0.991 class newline 0.069 n=5530 tokens ['2', ' )', '1', '/', '\n', ' the']
+  r.0.0: repl 0.971 class newline 0.255 n=830 tokens ['6', 'tainment', ' Museum', ' Fields', ' Market', ' House']
+  r.0.1: repl 0.926 class newline 0.038 n=830 tokens ['gate', '\n', 'stairs', '\n', '\n', '3']
+  r.0.2: repl 0.001 class newline 0.023 n=830 tokens ['ster', 'ities', ' Market', 'ISH', 'ate', ' BAR']
+  r.0.3: repl 0.052 class ind 0.007 n=830 tokens ['3', '3', '\n', ' House', 'ment', ' t']
+r.1: repl 0.926 class ind 0.046 n=5530 tokens ['\n', ' o', 'ING', '\n', '\n', ' l']
+  r.1.0: repl 0.948 class newline 0.227 n=830 tokens [' ', '\n', ' ', '\n', '\n', '\n']
+  r.1.1: repl 0.936 class newline 0.327 n=830 tokens ['\n', 'wick', ' Rooms', ' House', '\n', ' Hall']
+  r.1.2: repl 0.971 class sentend 0.008 n=830 tokens [' G', '-', '-', 'S', '-', ' t']
+  r.1.3: repl 0.041 class bclose 0.01 n=830 tokens [' t', ' ch', ' St', 'Train', ' Wellington', '\n']
+r.2: repl 0.888 class newline 0.101 n=5530 tokens ['\n', '\n', ' m', '\n', '\n', '\n']
+  r.2.0: repl 0.954 class newline 0.474 n=830 tokens ['\n', '\n', '\n', '\n', '\n', '\n']
+  r.2.1: repl 0.885 class newline 0.043 n=830 tokens ['3', '3', '1', '2', 'opping', 'tainment']
+  r.2.2: repl 0.424 class subword 0.02 n=830 tokens [' m', ' side', ' m', ' m', ' m', 'S']
+  r.2.3: repl 0.455 class subword 0.023 n=830 tokens [' ', ' ', ' ', ' ', ' ', ' St']
+r.3: repl 0.885 class newline 0.149 n=5530 tokens ['2', '3', 'ate', 'EL', '\n', 'stairs']
+  r.3.0: repl 0.626 class newline 0.432 n=830 tokens [' Rye', '\n', ' Sandwich', ' Hastings', 'wick', ' Entertainment']
+  r.3.1: repl 0.46 class newline 0.08 n=830 tokens [' and', ' the', ' along', ' the', '\n', 'wick']
+  r.3.2: repl 0.671 class other 0.004 n=830 tokens [' House', '\n', '\n', '\n', ' House', ' Rye']
+  r.3.3: repl 0.832 class sentend 0.003 n=830 tokens [' W', 'er', ' Court', 'igo', '\n', '1']
+r.4: repl 0.705 class bclose 0.011 n=5530 tokens ['opping', 'ford', 'ane', ' 32', ' John', 'rian']
+  r.4.0: repl 0.888 class newline 0.033 n=830 tokens [' Court', '\n', 'Not', ' tube', 'm', ' snacks']
+  r.4.1: repl 0.861 class newline 0.075 n=830 tokens ['ment', '\n', 'us', '\n', ' ,', '\n']
+  r.4.2: repl 0.182 class newline 0.079 n=830 tokens [';', ';', ';', ';', ';', ';']
+  r.4.3: repl 0.336 class bclose 0.079 n=830 tokens ['gate', '2', 'tainment', ' Gallery', ' Museum', '3']
+r.5: repl 0.304 class newline 0.019 n=5530 tokens ['head', ' House', ' Hastings', 'ham', '3', ' House']
+r.6: repl 0.568 class bclose 0.006 n=5530 tokens ['Le', 'eping', '-', ' Queen', 'ights', '\n']
+r.7: repl 0.489 class subword 0.008 n=5530 tokens ['\n', '\n', '\n', '\n', '\n', '\n']
+r.8: repl 0.226 class other 0.003 n=5530 tokens ['\n', '\n', '\n', '\n', '\n', '\n']
+r.9: repl 0.447 class newline 0.014 n=5530 tokens ['.', '.', '.', ' 159', 'o', ' 1']
+r.10: repl 0.451 class bclose 0.003 n=5530 tokens ['ISH', 'Train', 'IAN', '\n', '\n', '\n']
+r.11: repl 0.1 class newline 0.008 n=5530 tokens ['\n', '\n', '\n', '\n', '\n', ' Gallery']
+r.12: repl 0.227 class bclose 0.017 n=5530 tokens [' Palace', ' House', '-', ' Abbey', '\n', ' House']
+r.13: repl 0.131 class ind 0.014 n=5530 tokens [' Court', ' House', '\n', ' in', '.', ' House']
+r.14: repl 0.021 class other 0.006 n=5530 tokens [' BAR', ' BAR', '(', '\n', '\n', '\n']
+r.15: repl 0.092 class bclose 0.008 n=5530 tokens ['ington', ' House', 'bridge', '\n', ' Market', ' House']
+
+leaves 17 | new-structure 12 | child repl rate 0.60
+(a) >=40 leaves: FAILED
+(b) >=half new-structure: HELD
+(c) child replication >=50%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_tree_results.json (221s)
