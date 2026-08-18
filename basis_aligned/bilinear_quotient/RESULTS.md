@@ -3932,3 +3932,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 308: matched-context merge (2026-08-18)
 - 20 components at +1.457 fresh / +1.251 C (fold front + CP middles + context-matched tail). Beats the 34-comp frontier by 1.47 nats with 14 fewer components. Fold beats matched empirical twin by 0.40. Ladder rebuild queued.
+
+## Appendix 309: composition economics (2026-08-18)
+- Motif-head cost is substrate-dependent 9x (0.12 empirical vs 1.04 fold base): stream fidelity, not CE, prices downstream rungs. Frontier: 20@+1.46 / 28@+2.84 / 34@+2.93 fresh. Stream-MSE mechanism test queued.

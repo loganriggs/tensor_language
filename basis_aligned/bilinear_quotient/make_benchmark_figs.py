@@ -31,7 +31,8 @@ front=sorted([(n,c,l) for n,c,l,f in versions if f])
 fx=[0]+[n for n,_,_ in front]; fy=[0]+[c for _,c,_ in front]
 ax.plot(fx,fy,'--',color=MUTED,lw=1.6,zorder=2,
         label='standard eval window (optimistic, ledger 22)')
-FRESH=[(0,0),(13,1.98),(19,2.02),(27,2.49),(34,2.93)]
+FRESH=[(0,0),(13,1.98),(20,1.46),(28,2.84),(34,2.93)]
+FRESH=sorted(FRESH)
 ax.plot([p_[0] for p_ in FRESH],[p_[1] for p_ in FRESH],'-',color=BLUE,
         lw=2.2,zorder=3,label='fresh never-seen documents (honest)')
 for n,c in FRESH[1:]:

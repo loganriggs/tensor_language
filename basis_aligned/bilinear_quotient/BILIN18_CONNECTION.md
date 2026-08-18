@@ -7935,3 +7935,23 @@ what mismatched chains leak (307). Queued: the matched-context ladder
 back up -- +38 motif heads, then tail-attention dictionaries refit
 under the stack, then the middle-attention band -- each rung fit under
 its own eval context, with registered bars per stage.
+
+## 309. Stream fidelity, not CE, is the currency of composition
+
+`matched_ladder.py`, both bars FAILED, and the numbers teach the
+economics: on the fold-front base (20 comps, +1.46 fresh), adding the
+38 motif-head gains costs **+1.04** -- the identical swaps cost +0.12
+on the empirical-front substrate. Adding the tail-attention
+dictionaries costs +0.34 more, landing L2 at +2.84 fresh at ~28
+components: the fold advantage (0.40 at the base) is fully consumed by
+the higher price every later rung pays. Mechanism hypothesis, now
+registered for direct test: the fold tables are CE-CHEAP but
+STREAM-UNFAITHFUL (context-free rows cannot track in-context
+variation), and downstream substitutions are priced by the fidelity of
+the stream they read, not by the CE of the stand-ins that produced it.
+If confirmed, the benchmark's high-coverage frontier is governed by a
+quantity none of our per-rung metrics measured: intermediate stream
+MSE. The coverage-fidelity curve is now visibly a genuine trade-off
+with a mechanism, not an engineering backlog: **20 comps @ +1.46 /
+28 @ +2.84 / 34 @ +2.93 fresh**, each point built under matched
+grammar.
