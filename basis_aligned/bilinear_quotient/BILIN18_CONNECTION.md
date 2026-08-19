@@ -8343,3 +8343,25 @@ matching discipline rejects it STRUCTURALLY (before any measurement).
 F1 (random members) was cleanly rejected before the crash (selectivity
 0.93, specificity 0.18). The battery reruns with empty-band =
 structural rejection and the dtype guard.
+
+## 329. Sixty-four bits is not enough: the census sits above the surface-feature class
+
+`program_names.py` (fixed): **6 of 71 unnamed and 8 of 47 blind-
+nameable circuits are predictable by a <=64-bit token-predicate
+program** (held-out balanced accuracy >= 0.75; median shuffled-label
+null 0.49 -- the search cannot fake it). Both bars FAILED, and the
+failure completes a three-way complexity measurement. The same
+circuits that pass BLIND-NAME discrimination (a full reasoning agent
+decoding a sentence like "next section heading recall") mostly cannot
+be captured by shallow rule programs, and cannot be captured by
+unigram weight mechanisms either (326-327). The description-language
+hierarchy, now with measured populations at each rung:
+  64-bit token programs (14 circuits) < unigram fold mechanisms (0)
+  <= bigram mechanisms (running) < agent-decoded natural-language
+  concepts (47) < replicated-but-undescribed (71 -> the census
+  majority).
+The census majority is certifiably real (replication + selectivity)
+and certifiably NOT simple in any language tried yet -- which is the
+honest, quantified version of "not yet understood," and the target
+list for richer mechanism rungs (bigram in flight; context features
+next).

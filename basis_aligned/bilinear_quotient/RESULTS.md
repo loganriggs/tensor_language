@@ -3975,3 +3975,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Gating: census positions worth 3.1x random per token (control held); economics failed at broad gates -- v2 tighter.
 - Slack harvest: hurt due to arbitrary SVD sign convention (my bug); v2 sign-calibrates on fit window.
 - Fake battery: F1 rejected cleanly; F2 rejected STRUCTURALLY (no matched controls exist for pure-severity members); rerun with that as a scored outcome.
+
+## Appendix 329: description-language hierarchy (2026-08-19)
+- 64-bit programs capture 14/118; unigram mechanisms 0; names 47; the rest real-but-undescribed. Complexity class per circuit is now a measured quantity on three ladders. Bigram mechanisms in flight.
