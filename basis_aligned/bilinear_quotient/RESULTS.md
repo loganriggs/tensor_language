@@ -3991,3 +3991,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 333: battery final (2026-08-19)
 - Converged battery = selectivity + sign-mixedness + structural: 4/5 fake classes rejected per-candidate, reals 5/5. Composition-of-reals is provably per-candidate-invisible (siblings share 0.62-0.81 members intrinsically) -- governed by tree accounting instead. Pipeline calibrated; blind spot named and bounded.
+
+## Appendix 334: pattern-side certifications (2026-08-19)
+- Two attention circuits reach induction grade (7.7-7.9x, triggers = place-suffix|newline pairs; r.8.0 = parent of heading-recall). Induction-grade total: 4. 61 attention leaves need longer-context folds (backlog).

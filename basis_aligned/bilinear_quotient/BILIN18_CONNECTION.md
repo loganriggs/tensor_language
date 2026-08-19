@@ -8471,3 +8471,22 @@ per-candidate; COMPOSITION of real circuits is governed structurally
 Reals pass the converged three-dimension battery 5/5. The
 certification pipeline is calibrated, its blind spot named and
 bounded, and the battery rests.
+
+## 334. The pattern-side rung certifies two more: four induction-grade circuits
+
+`mechanism_bootstrap5.py` (attention bigram fold -- the 2-token
+sequence makes the pattern-composed value read exact for prev-motif
+paths): 2 of 63 attention-probed leaves pass (bar 4 FAILED), at 7.7x
+and 7.9x precision with recall ~0.40 and clean nulls. The two passes
+are **r.3.0 and r.8.0** -- triggers are (place-name-suffix, newline)
+pairs: ' Dover|\\n', 'bury|\\n', 'ington|\\n' -- and r.8.0 is the PARENT
+of r.8.0.0 ("next section heading recall"), so the heading-recall
+complex now carries a weights-derived mechanism at two tree levels,
+coherent with its '#### Place\\n' document structure. Induction-grade
+population: 4 (two MLP-side, two attention-side). The remaining 61
+attention leaves sit above the 2-token rung -- their patterns need
+longer context than a bigram can express, which the motif census
+predicts (self and induction motifs read beyond the previous token).
+The mechanism ladder stands measured at every rung the instruments can
+currently reach; longer-context folds are a combinatorial design
+problem for the backlog, not an overnight run.
