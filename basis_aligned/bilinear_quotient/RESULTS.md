@@ -3949,3 +3949,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - Circuit tree v2: 68 document-disjoint-replicated leaves (4x v1), 49 taxonomy-invisible, recursion rate 0.60 at both depths; depth-2 gate correctly refuses tiny slices. Binding constraint = document diversity. Pack builder + naming wave + third tranche queued.
 - Tree v3: corpus boundary landed on the split -- accidental CROSS-CORPUS gate; 35 survivors = corpus-general tier (two-tier census: 68 within / 35 cross). v4 with interleaved rows queued.
 - Blind-discrimination naming: mean 4.45/6 (chance 3.0), 35/67 names certified (>=5/6). Census tiers: 68 structural / 35 corpus-general / 35 blind-nameable. v4 scale-up running.
+
+## Appendix 320: 118 supervised circuits (2026-08-19)
+- Corpus-interleaved tree: 118 replicated leaves (>100 target), 91 taxonomy-invisible, child replication 0.72. Trajectory 17->68->118 in one day. Naming wave launched.

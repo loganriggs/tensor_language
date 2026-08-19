@@ -8138,3 +8138,19 @@ cross-corpus gate of 318), and SEMANTIC (a name that transmits the
 concept to a blind reader, quantitatively). The day ends with 68
 structural circuits, 35 corpus-general, 35 blind-nameable -- and the
 scaling levers identified and running (v4, corpus-interleaved).
+
+## 320. One hundred eighteen supervised circuits
+
+`circuit_tree4.py` (corpus-interleaved, overflow-hardened after two
+instrument crashes -- fp16 capture overflow on the code-heavy fresh
+documents, itself evidence the new tranche stresses regimes the travel
+window never touched): **118 leaves pass the document-disjoint
+replication gate on corpus-balanced data** -- past the 100-circuit
+target -- with 91 of 118 taxonomy-invisible and the descendant
+replication rate RISING to 0.72 (from 0.60): corpus balance helped the
+recursion, not just the count. Census trajectory: 17 -> 68 -> 118 in
+three instrument generations over one day, each scaling step driven by
+a diagnosed constraint (data, then document diversity, then corpus
+balance at the split). The naming wave for all 118 launches now
+(stateless packs from circuit_tree4_packs.json), to be scored by the
+blind-discrimination protocol of 319.
