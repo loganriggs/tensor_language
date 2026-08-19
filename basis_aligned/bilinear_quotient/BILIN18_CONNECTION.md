@@ -8224,3 +8224,30 @@ ablation must move each group in its predicted direction with pooled
 Registered: >=60% of the 20 pass sign-aware. If THAT fails, the
 census's causal-unit claim is genuinely in trouble and the write-up
 will say so.
+
+## 324. The census downgraded honestly: dependence neighborhoods, not linear units
+
+`census_redteam2.py`: the sign-aware certification FAILED at **4/20**
+against the registered 60% bar, and per 323's pre-stated stakes the
+claim is downgraded now. What the data shows precisely: pooled member
+effects exceed base-CE-matched controls by >=2x in 14 of 20 leaves
+(descriptive, post hoc -- see below), but member-level SIGN agreement
+collapses on most leaves, several systematically ANTI-aligned (r.7.0.0
+agree 0.03, r.0.2.0 agree 0.11): the direction a token moves under
+JOINT ablation is not predicted by its single-probe score signs. This
+is the model's composition physics appearing at circuit scale --
+single-component fingerprints do not linearly compose, exactly as the
+junction (295-299) and assembly (306-311) arcs found for stand-ins.
+Four leaves DO pass the full sign-aware bar (r.0.0.0 spectacularly:
+pos-members +6.4, neg-members -8.4, agreement 0.96, 4.5x controls) --
+linear response units exist but are rare.
+
+**Corrected claim, propagated to the report at this boundary:** the
+118-leaf census is a replicated, distinct, contrastive, confound-clean
+atlas of CAUSAL DEPENDENCE NEIGHBORHOODS -- data that specially depends
+on specific components -- NOT an atlas of sign-predictable response
+units. The selectivity observation (14/20 at 2x matched controls) is
+post hoc and therefore now REGISTERED as its own bar on the NEXT
+twenty untouched blind-nameable leaves: >=60% must clear
+selectivity-2x. If that fails too, the census claim narrows further to
+its replication tier alone.

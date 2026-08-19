@@ -3960,3 +3960,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 323: red-team round one (2026-08-19)
 - Passed: distinctness 118/118, contrastive 97/118, confounds clean. FAILED: sign-blind joint-causal bar (3/20) -- but big SIGNED effects (members improving 24x controls) indict the bar; sign-aware re-certification registered and queued.
+
+## Appendix 324: census downgrade (2026-08-19)
+- Sign-aware causal FAILED 4/20 (registered stakes honored): census = causal-dependence neighborhoods, NOT linear response units (composition physics at circuit scale). Selectivity (14/20 at 2x, post-hoc) registered fresh on the next 20 leaves.
