@@ -1,0 +1,196 @@
+{
+ "heads": {
+  "1.4": {
+   "top5_share": 1.0,
+   "dominant_pairs": [
+    [
+     "m0|m0",
+     496
+    ]
+   ],
+   "n_reads": 496
+  },
+  "2.5": {
+   "top5_share": 0.977,
+   "dominant_pairs": [
+    [
+     "m0|m0",
+     489
+    ],
+    [
+     "m0|m1",
+     4
+    ],
+    [
+     "m1|m0",
+     2
+    ],
+    [
+     "m0|a1",
+     1
+    ]
+   ],
+   "n_reads": 496
+  },
+  "3.5": {
+   "top5_share": 0.86,
+   "dominant_pairs": [
+    [
+     "m0|m0",
+     455
+    ],
+    [
+     "m2|m2",
+     25
+    ],
+    [
+     "m0|m2",
+     9
+    ],
+    [
+     "m2|m0",
+     7
+    ]
+   ],
+   "n_reads": 496
+  },
+  "3.8": {
+   "top5_share": 0.804,
+   "dominant_pairs": [
+    [
+     "m0|m0",
+     306
+    ],
+    [
+     "m2|m2",
+     123
+    ],
+    [
+     "m0|m2",
+     43
+    ],
+    [
+     "m2|m0",
+     23
+    ]
+   ],
+   "n_reads": 496
+  },
+  "5.5": {
+   "top5_share": 0.405,
+   "dominant_pairs": [
+    [
+     "m0|m0",
+     282
+    ],
+    [
+     "m0|a4",
+     56
+    ],
+    [
+     "m3|a4",
+     45
+    ],
+    [
+     "m3|m0",
+     31
+    ]
+   ],
+   "n_reads": 496
+  },
+  "6.5": {
+   "top5_share": 0.392,
+   "dominant_pairs": [
+    [
+     "m0|m0",
+     410
+    ],
+    [
+     "m0|m3",
+     15
+    ],
+    [
+     "m3|m0",
+     14
+    ],
+    [
+     "m0|a4",
+     13
+    ]
+   ],
+   "n_reads": 496
+  },
+  "7.3": {
+   "top5_share": 0.356,
+   "dominant_pairs": [
+    [
+     "m0|m0",
+     250
+    ],
+    [
+     "m3|m0",
+     49
+    ],
+    [
+     "m0|m3",
+     38
+    ],
+    [
+     "m0|a4",
+     34
+    ]
+   ],
+   "n_reads": 496
+  },
+  "8.3": {
+   "top5_share": 0.401,
+   "dominant_pairs": [
+    [
+     "m0|m0",
+     285
+    ],
+    [
+     "m0|m3",
+     80
+    ],
+    [
+     "m3|m0",
+     39
+    ],
+    [
+     "m3|m3",
+     24
+    ]
+   ],
+   "n_reads": 496
+  },
+  "8.4": {
+   "top5_share": 0.361,
+   "dominant_pairs": [
+    [
+     "m0|m0",
+     284
+    ],
+    [
+     "m3|m0",
+     54
+    ],
+    [
+     "m0|m3",
+     38
+    ],
+    [
+     "m0|a4",
+     25
+    ]
+   ],
+   "n_reads": 496
+  }
+ },
+ "n_concentrated": 4,
+ "pred_a": false,
+ "pred_b": null,
+ "pred_c": true,
+ "note": "pred_b evaluated from dominant_pairs tables",
+ "runtime_s": 95.16135311126709
+}

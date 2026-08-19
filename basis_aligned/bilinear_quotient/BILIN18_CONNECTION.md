@@ -9457,3 +9457,24 @@ consequence: MLP-side semantics must be sought in the ROUTING
 FUNCTION (which contexts activate which units -- the census's
 slice-conditioned directions were exactly this) rather than in a
 small fixed unit set.
+
+## 386. Eval-data provenance corrected: training data is FINEWEB; Pile fresh legs were mildly OOD
+
+User correction, verified on-box: bilin18 was trained on FineWeb.
+The fit window (FW = bilin18_eval_tokens_large.pt) is FineWeb-
+derived (sibling qk_mdl scripts load data_fineweb_tokens.npy under
+the same FW name; the source npy no longer exists on this recycled
+box). Every FRESH leg to date used NeelNanda/pile-10k -- i.e., the
+program's transfer tests were run mildly OUT-OF-DISTRIBUTION.
+Measured magnitudes: FineWeb-fresh base CE 3.23, Pile-fresh 3.33
+(+0.10 OOD tax), and the census fit window is the real outlier at
+4.01 -- the travel-guide document is hard text even in-distribution.
+Consequences, stated plainly: (1) transfer results STAND and are
+conservative -- anything that traveled to Pile passed a harder test
+than intended; (2) absolute fresh numbers carry a ~+0.1
+distribution component; (3) the in-distribution fresh standard is
+now census_lib.fineweb_rows() (streaming, dedup'd), pile fresh_rows
+stays as the deliberately-harder OOD leg, and every fresh number
+must say which distribution it used (LESSONS rule added); (4)
+census_diverse (queued, not yet started) patched to build its
+1000-row corpus from FineWeb.

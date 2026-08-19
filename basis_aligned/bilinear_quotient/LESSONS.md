@@ -94,6 +94,16 @@ computational mechanisms (executable code replicating behavior).
   behavior as code — at component grain; the missing piece is
   circuit-grain semantics, not code per se.
 
+## 10. Say which distribution a "fresh" number used (§386)
+The model trained on FineWeb; the program's fresh legs used Pile --
+mildly OOD (+0.10 base CE). Transfer that survives OOD is extra
+safe, but absolute numbers mix a distribution tax into the
+replacement tax.
+- **Example:** combined-readable +0.224 "fresh" = Pile; the
+  in-distribution number is expected slightly lower.
+- **Near non-example:** internal comparisons (config A vs B on the
+  same rows) are unaffected -- the tax cancels.
+
 ## Ops rules (each cost at least one incident)
 - queue.txt takes ABSOLUTE paths; bare names are silently dropped.
 - After writing a transform-generated script: verify file exists AND

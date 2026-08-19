@@ -509,6 +509,29 @@ def fresh_rows(n=120,start=5000):
         if len(out)>=n: break
     return torch.tensor(out,dtype=torch.long)
 
+def fineweb_rows(n=120,skip=0):
+    """n never-seen 513-token FineWeb rows via streaming (the model's
+    TRAINING distribution -- confirmed by the user 2026-08-19).
+    Dedup'd against FW. Use for IN-DISTRIBUTION fresh legs;
+    fresh_rows() (pile) remains as the harder mildly-OOD leg.
+    Always say which one a fresh number used."""
+    from datasets import load_dataset
+    e=enc()
+    ds=load_dataset('HuggingFaceFW/fineweb',split='train',
+                    streaming=True)
+    seen={tuple(FW[r,:32].tolist()) for r in range(FW.shape[0])}
+    out=[]; sk=0
+    for ex in ds:
+        if sk<skip: sk+=1; continue
+        tk=e.encode_ordinary(ex['text'])
+        for s0 in range(0,len(tk)-513,513):
+            row=tk[s0:s0+513]
+            if tuple(row[:32]) in seen: continue
+            out.append(row)
+            if len(out)>=n: break
+        if len(out)>=n: break
+    return torch.tensor(out,dtype=torch.long)
+
 def ioi_prompts():
     """The canonical 96-prompt IOI set (8 pairs x 2 orders x 6
     templates). Returns [(text, io_token_id, s_token_id)]."""

@@ -4125,3 +4125,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 384-385 (2026-08-19)
 - 384: COMBINED READABLE MODEL holds: +0.22 fresh, IOI improves. Whole model enumerable per position. Strongest whole-model interpretive form to date.
 - 385: routing is real (static-512 9x worse; 18% slot share). MLP semantics live in the routing function, not a fixed unit set.
+
+## Appendix 386 (2026-08-19)
+- Training data = FineWeb (user-confirmed). Pile fresh legs were mildly OOD (+0.10 base): transfer results conservative, stand as-is. In-distribution fresh = fineweb_rows() (new standard); census_diverse patched to FineWeb before running.

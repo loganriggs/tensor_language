@@ -1,0 +1,15 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+1.4: top5 1.00 dom [('m0|m0', 496)]
+2.5: top5 0.98 dom [('m0|m0', 489), ('m0|m1', 4)]
+3.5: top5 0.86 dom [('m0|m0', 455), ('m2|m2', 25)]
+3.8: top5 0.80 dom [('m0|m0', 306), ('m2|m2', 123)]
+5.5: top5 0.40 dom [('m0|m0', 282), ('m0|a4', 56)]
+6.5: top5 0.39 dom [('m0|m0', 410), ('m0|m3', 15)]
+7.3: top5 0.36 dom [('m0|m0', 250), ('m3|m0', 49)]
+8.3: top5 0.40 dom [('m0|m0', 285), ('m0|m3', 80)]
+8.4: top5 0.36 dom [('m0|m0', 284), ('m3|m0', 54)]
+(a) >=5/9 heads top5>=60%: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/qk_writer_decomp_results.json (95s)

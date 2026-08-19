@@ -1,6 +1,7 @@
 """CENSUS DIVERSE -- user direction: curate a larger, diverse
 corpus (the old window was dominated by one travel guide). Build
-1000 rows (513k tokens, ~5x) from pile-10k with at most 2 rows per
+1000 rows (513k tokens, ~5x) from FINEWEB (the training
+distribution -- user-confirmed 2026-08-19; pile is mildly OOD) with at most 2 rows per
 document, spread across the shard; save curated_rows.pt; run the
 census tree on it.
 REGISTERED PREDICTIONS:
@@ -40,11 +41,14 @@ def main():
     import tiktoken as tkc
     from datasets import load_dataset
     encc=tkc.get_encoding('gpt2')
-    dsc=load_dataset('NeelNanda/pile-10k',split='train')
+    dsc=load_dataset('HuggingFaceFW/fineweb',split='train',
+                     streaming=True)   # TRAINING distribution
     seenc={tuple(FW[r,:32].tolist()) for r in range(FW.shape[0])}
     rowsl=[]; docid=[]
-    for di in range(0,10000,3):
-        tk=encc.encode_ordinary(dsc[di]['text'])
+    di=-1
+    for ex in dsc:
+        di+=1
+        tk=encc.encode_ordinary(ex['text'])
         got=0
         for s0 in range(0,len(tk)-513,513):
             row=tk[s0:s0+513]
