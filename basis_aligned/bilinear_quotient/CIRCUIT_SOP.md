@@ -44,7 +44,10 @@ two-signed split (minority_share >= 0.15), the story MUST say what the
 push is and where it is wrong -- "helps X" alone is incomplete.
 
 ## Step 5 -- red-team your own story (CPU)
-Take the 3 RANDOM examples. For each: does the story predict membership?
+Take the 3 RANDOM examples. For each, test the story's CAUSAL claim:
+given the example's context and dCE sign, does the story correctly
+predict whether the machinery helps or hurts there? (All examples are
+members by construction -- membership itself is not the test.)
 Count hits. <=1/3 -> mark story 'weak', keep it, flag for revision.
 
 ## Step 6 -- merge
@@ -67,6 +70,9 @@ Push is MANDATORY (box not volume-backed).
   consolidation model unless you have a template script.
 
 ## Known traps
+- The repo has CONCURRENT writers (other agents, the queue runner).
+  Before reporting, `git diff` the specific files you touched -- never
+  assume `git status` reflects only your work.
 - queue.txt requires ABSOLUTE paths; bare filenames are silently dropped.
 - tags are tree-instance-local; identity across instances = member overlap.
 - basev/base CE is fit-window; fresh-data claims need fresh rows.
