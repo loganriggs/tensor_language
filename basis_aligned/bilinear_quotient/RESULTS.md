@@ -4095,3 +4095,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 370-371 (2026-08-19)
 - 370: FIRST computational-grade pass -- one-line sparse-read code carries 77% of induction-head function, 62% IOI margin, 3x control. All bars HELD.
 - 371: sparse reads = minority idiom (69/162 heads); functional dictionary written; pattern-as-code scoped to the sparse minority. sparse_code_all + violator_probe queued.
+
+## Appendix 372-373 (2026-08-19)
+- 372: 69-head one-read code +0.49 (bars failed; fresh travels); diffuse control CHEAPER (+0.23) -> top-1 share ranks compressibility not need. head_code_frontier queued (cheapest-first curve, all 162).
+- 373: violator resolved as max offset tax (2.8x), not a new channel type. Projection law final: variance dominant, offset tax 1.1-2.8x by bundle.

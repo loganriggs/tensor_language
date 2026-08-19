@@ -221,6 +221,13 @@
    "verdict": "HELD",
    "source": "explainer_batch",
    "date": "2026-08-19"
+  },
+  {
+   "test": "mean-carried channel present",
+   "value": 2.82,
+   "verdict": "FAILED",
+   "source": "violator_probe",
+   "date": "2026-08-19"
   }
  ],
  "examples": {
@@ -285,5 +292,33 @@
   "program_bacc": 0.603,
   "program_null": 0.502,
   "mechanism_level": "none"
+ },
+ "causal_bundles": {
+  "mean_vs_delete": [
+   {
+    "bundle": "('pca', 'a9', 'r.6.0', (0, 4))",
+    "delete": 1.537,
+    "mean": 0.565,
+    "ratio": 2.72
+   },
+   {
+    "bundle": "('pca', 'a9', 'r.6.0', (0, 2))",
+    "delete": 1.126,
+    "mean": 0.399,
+    "ratio": 2.82
+   },
+   {
+    "bundle": "('pca', 'a9', 'r.6.0', (2, 4))",
+    "delete": 0.463,
+    "mean": 0.281,
+    "ratio": 1.65
+   },
+   {
+    "bundle": "('pca', 'a9', 'r.6.0', (4, 16))",
+    "delete": 0.23,
+    "mean": 0.204,
+    "ratio": 1.13
+   }
+  ]
  }
 }

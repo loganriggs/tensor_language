@@ -9212,3 +9212,37 @@ CE <=+0.15, IOI >=70%, diffuse-head matched control >=3x -- the
 benchmark cash-in of 370) and violator_probe (r.6.0.0, the one
 value-sensitive candidate from 362: which bundle's MEAN carries
 function).
+
+## 372. One-read code at scale: +0.49 for 69 heads, and an instructive inversion
+
+sparse_code_all replaced all 69 sparse-reader heads with one-read
+code. Bars (a),(c),(d) FAILED, (b) HELD: grid cost +0.486 (bar
+0.15), IOI 62% (bar 70), fresh transfer clean (+0.462, travels).
+The instructive part is the CONTROL INVERSION: the 69 most-diffuse
+heads cost only +0.232 under the same code -- LESS than the sparse
+set. Reading: top-1 share measures how much of a head's output one
+read carries, not how much the model needs that head; the sparse
+readers are largely the motif heads, which are the load-bearing
+ones. So "sparse" ranks compressibility of form, not fitness for
+substitution. The usable numbers stand anyway: 138/162 heads (both
+sets) can run on one-line code for a combined ~+0.7 nats, against
+the mid-attention band's ~0.9-nat benchmark weight -- head-grain
+readable code is now a priced benchmark rung. Follow-on queued
+(head_code_frontier): per-head one-read substitution cost for ALL
+162 heads, then the cheapest-first coverage curve -- the
+coverage-vs-fidelity frontier at head grain with readable code,
+bars: >=60 heads within +0.15 total; fresh <=1.5x; full curve
+reported.
+
+## 373. The projection-law violator dissolves: offset tax up to 2.8x, no new channel type
+
+violator_probe decomposed r.6.0.0 per bundle: the two a9 bundles
+show delete/mean-assign ratios of 2.72 and 2.82 (just under the
+registered 3x for "mean-carried"), the other two are variance-
+carried (1.13, 1.65) -- (a) FAILED, (b) HELD. Verdict: r.6.0.0 is
+not a qualitatively different channel; it is the projection law's
+offset-tax term at its observed maximum (~2.8x on specific attention
+bundles). The law's final form absorbs it: variance-removal
+dominant everywhere; offset tax ranges ~1.1-2.8x by bundle, largest
+on attention-side bundles. Per-bundle table merged into the r.6.0.0
+circuit record. No value-sensitive circuit remains on the books.
