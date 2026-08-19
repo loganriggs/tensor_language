@@ -321,6 +321,7 @@ def main():
         leaves.append(md)
         recurse(md,1)
     print(f'tree built: {len(leaves)} leaves; fake battery',flush=True)
+    basev=base.cpu()
     LBY={lf['tag']:lf for lf in leaves}
     reals=['r.8.0.0','r.1.1.0','r.1.1.2','r.8.0','r.7.2.1']
     reals=[t for t in reals if t in LBY]
