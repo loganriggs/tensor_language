@@ -8508,3 +8508,13 @@ hierarchy to response geometry. The census's headline numbers now
 stand complete: 118 replicated / 35 corpus-general / 47 blind-nameable
 / 14 programmable / 4 induction-grade / ~17% linear -- every adjective
 a measurement.
+
+## 336. Registered: does nameability predict linearity? (analysis of existing data)
+
+The batch trend (4/20, 5/20, 1/20 by descending name-score rank)
+suggests easier-to-name circuits are more linear. REGISTERED before
+computing: across the 60 sign-aware-tested leaves, the point-biserial
+association between blind-name score (true positives out of 6) and
+linear-unit outcome is positive, with one-sided permutation p < 0.05
+(10,000 shuffles). If it fails, the batch trend was rank-batching
+noise, recorded as such.
