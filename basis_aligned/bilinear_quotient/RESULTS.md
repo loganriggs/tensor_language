@@ -4099,3 +4099,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 372-373 (2026-08-19)
 - 372: 69-head one-read code +0.49 (bars failed; fresh travels); diffuse control CHEAPER (+0.23) -> top-1 share ranks compressibility not need. head_code_frontier queued (cheapest-first curve, all 162).
 - 373: violator resolved as max offset tax (2.8x), not a new channel type. Projection law final: variance dominant, offset tax 1.1-2.8x by bundle.
+
+## Appendix 374-375 (2026-08-19)
+- 374: MILESTONE -- 40 cheapest heads at -0.077 (model improves), 80 heads at -0.043 grid / +0.064 fresh; first interaction penalty at 120 heads. Induction heads among the least compressible (5/9 rank >120).
+- 375: r.3.0 code: 59% mean, median good, key-specificity weak (1.7x). Partially computational; residuals named and under anatomization.

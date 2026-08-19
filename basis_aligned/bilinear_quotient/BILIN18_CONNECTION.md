@@ -9246,3 +9246,42 @@ bundles). The law's final form absorbs it: variance-removal
 dominant everywhere; offset tax ranges ~1.1-2.8x by bundle, largest
 on attention-side bundles. Per-bundle table merged into the r.6.0.0
 circuit record. No value-sensitive circuit remains on the books.
+
+## 374. MILESTONE: 80 heads run on one-line code at NEGATIVE cost
+
+head_code_frontier measured every head's individual one-read
+substitution cost and built the cheapest-first curve. The headline:
+**substituting the 40 cheapest heads IMPROVES the model (-0.077
+nats on the census grid), and 80 heads -- half the attention stack
+-- still nets -0.043.** Fresh leg at 80 heads: +0.064 (the improve-
+ment does not fully travel, but half the stack on readable code for
++0.06 fresh is a benchmark rung in itself; registered bar (c) was
+ill-posed for negative grid costs and is recorded as such). At 120
+heads the joint cost is +0.168 vs -0.014 sum-of-singles -- bar (b)
+FAILED: interaction penalties appear only at high coverage, the
+first measured departure from this model's otherwise relentless
+additivity. Sum-of-singles predicts 153/162 heads within +0.15.
+The negative costs are slack-harvest by another route: one-read
+truncation removes diffuse-tail noise from cheap heads. And the
+induction heads' position on this curve answers where the LOAD is:
+5 of 9 rank BEYOND 120th cheapest -- they are among the hardest
+heads in the model to compress, which is why the program kept
+tripping over them.
+
+## 375. Novel-circuit code verdict (r.3.0): 59% mean / typical-member good / weak key-specificity
+
+circuit_code_r30 replaced r.3.0's two named heads (16.8, 16.2) with
+one-read code. Mixed verdict, all on record: mean member |dCE| 0.209
+vs 0.505 for deletion -- the code carries 59% of the machinery's
+function (bar wanted 70%, FAILED); the MEDIAN member is well-
+replicated (bar HELD -- the mean is dragged by a heavy tail of
+badly-coded members); and the shuffled-key control only costs 1.7x
+the true code (bar 2.5x FAILED): for these heads, WHICH key is read
+matters less than that something is read with the right magnitude
+-- weaker key-specificity than the induction band. Honest grade for
+r.3.0: partially computational -- typical members replicate under
+executable code, the tail and the key-specificity gap are named
+residuals. Both feed the same question as 370's +0.138, now being
+anatomized (induction_residual, running): multi-match reads,
+context corruption from off-member substitution, and tail
+composition.
