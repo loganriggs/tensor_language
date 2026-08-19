@@ -323,6 +323,7 @@ def main():
     dec={}
     def d1(t):
         t=int(t)
+        if t<0 or t>50256: return '<BOS>'
         if t not in dec: dec[t]=enc9.decode([t])
         return dec[t]
     flat=tok2d.reshape(-1)
@@ -364,6 +365,7 @@ def main():
         # member-lift literal sets (priced): top-8 cur and prev tokens
         mt=flat[memflat]
         def topset(vals):
+            vals=vals[vals>=0]
             u,c=vals.unique(return_counts=True)
             base_c=torch.tensor([float((flat==x).sum()) for x in
                                  u.tolist()])
