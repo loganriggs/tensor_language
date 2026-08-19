@@ -280,11 +280,16 @@
   "program": [
    [
     "prev1_is_punct",
-    "NOT mid_word",
-    "NOT upper_initial"
+    "NOT prev2_class_sentend",
+    "NOT prev2_class_comma"
+   ],
+   [
+    "prev2_class_ind",
+    "NOT prev2_starts_space",
+    "NOT class_digit"
    ]
   ],
-  "program_bacc": 0.562,
+  "program_bacc": 0.626,
   "program_null": 0.429,
   "mechanism_level": "none"
  }

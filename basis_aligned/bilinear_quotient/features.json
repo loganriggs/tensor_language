@@ -32,6 +32,47 @@
    ],
    "provenance": "sop_populate step3",
    "cert": "heldout 0.773"
+  },
+  "circ_r_2_1_0": {
+   "kind": "program",
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_subword",
+     "NOT class_name"
+    ]
+   ],
+   "provenance": "sop_programs2",
+   "cert": "heldout 0.782"
+  },
+  "circ_r_0_0_1": {
+   "kind": "program",
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_digit",
+     "NOT prev2_class_bclose"
+    ]
+   ],
+   "provenance": "sop_programs2",
+   "cert": "heldout 0.814"
+  },
+  "circ_r_1_1_1": {
+   "kind": "program",
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_mid_word",
+     "NOT dist_nl_le2"
+    ],
+    [
+     "prev1_is_punct",
+     "NOT prev2_upper_initial",
+     "NOT prev2_class_sentend"
+    ]
+   ],
+   "provenance": "sop_programs2",
+   "cert": "heldout 0.76"
   }
  }
 }

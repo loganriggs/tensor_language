@@ -288,12 +288,13 @@
   "blind_name": "",
   "program": [
    [
-    "NOT prev2_dist_nl_ge6",
-    "NOT prev2_class_upper_pair"
+    "circ_r_1_1_2",
+    "NOT class_other",
+    "NOT is_punct"
    ]
   ],
-  "program_bacc": 0.673,
-  "program_null": 0.606,
+  "program_bacc": 0.77,
+  "program_null": 0.662,
   "mechanism_level": "none"
  }
 }

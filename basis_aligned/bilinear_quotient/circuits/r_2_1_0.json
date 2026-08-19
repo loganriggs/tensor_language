@@ -279,13 +279,13 @@
   "blind_name": "",
   "program": [
    [
-    "is_newline",
-    "seen_before",
-    "NOT prev_newline"
+    "NOT class_other",
+    "NOT class_subword",
+    "NOT class_name"
    ]
   ],
-  "program_bacc": 0.632,
+  "program_bacc": 0.782,
   "program_null": 0.485,
-  "mechanism_level": "none"
+  "mechanism_level": "surface"
  }
 }

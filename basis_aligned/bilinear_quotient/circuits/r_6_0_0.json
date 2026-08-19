@@ -279,15 +279,10 @@
   "blind_name": "",
   "program": [
    [
-    "is_digit"
-   ],
-   [
-    "NOT starts_space",
-    "NOT seen_before",
-    "NOT prev1_mid_word"
+    "prev1_class_digit"
    ]
   ],
-  "program_bacc": 0.626,
+  "program_bacc": 0.603,
   "program_null": 0.502,
   "mechanism_level": "none"
  }

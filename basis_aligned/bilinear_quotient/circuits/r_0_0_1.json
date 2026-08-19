@@ -227,12 +227,14 @@
   "blind_name": "",
   "program": [
    [
-    "NOT dist_nl_ge6"
+    "NOT class_other",
+    "NOT class_digit",
+    "NOT prev2_class_bclose"
    ]
   ],
-  "program_bacc": 0.746,
-  "program_null": 0.368,
-  "mechanism_level": "none"
+  "program_bacc": 0.814,
+  "program_null": 0.55,
+  "mechanism_level": "surface"
  },
  "relations": {
   "parent": "r.0.0",

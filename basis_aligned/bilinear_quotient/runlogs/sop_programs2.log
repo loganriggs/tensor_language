@@ -1,0 +1,21 @@
+r.1.1.0: bacc 0.735 null 0.551 fail [['circ_r_1_1_2', 'NOT dist_nl_ge6']]
+r.2.1.0: bacc 0.782 null 0.485 PASS [['NOT class_other', 'NOT class_subword', 'NOT class_name']]
+r.6.0.0: bacc 0.603 null 0.502 fail [['prev1_class_digit']]
+r.1.0.1: bacc 0.626 null 0.429 fail [['prev1_is_punct', 'NOT prev2_class_sentend', 'NOT prev2_class_comma'], ['prev2_class_ind', 'NOT prev2_starts_space', 'NOT class_digit']]
+r.3.1.0: bacc 0.862 null 0.327 PASS [['NOT class_other', 'NOT class_subword', 'NOT class_digit']]
+r.3.0.0: bacc 0.748 null 0.597 fail [['NOT class_other', 'NOT class_subword', 'NOT class_comma']]
+r.0.0.1: bacc 0.814 null 0.55 PASS [['NOT class_other', 'NOT class_digit', 'NOT prev2_class_bclose']]
+r.1.1: bacc 0.73 null 0.704 fail [['class_newline'], ['NOT class_other', 'NOT class_subword', 'NOT class_digit']]
+r.9.1.0: bacc 0.638 null 0.58 fail [['circ_r_3_1_0']]
+r.1.1.1: bacc 0.76 null 0.404 PASS [['NOT class_other', 'NOT prev1_mid_word', 'NOT dist_nl_le2'], ['prev1_is_punct', 'NOT prev2_upper_initial', 'NOT prev2_class_sentend']]
+r.1.0.0: bacc 0.721 null 0.675 fail [['NOT prev1_starts_space', 'NOT class_subword', 'NOT prev1_class_ind'], ['circ_r_3_1_0']]
+r.0.0.0: bacc 0.744 null 0.516 fail [['circ_r_1_1_2', 'NOT is_punct'], ['NOT class_other', 'NOT class_ind', 'NOT class_digit']]
+r.1.3.0: bacc 0.689 null 0.49 fail [['NOT class_other', 'NOT prev2_upper_initial', 'NOT class_digit']]
+r.6.0.2: bacc 0.624 null 0.4 fail [['NOT prev2_starts_space', 'NOT class_other', 'NOT class_digit'], ['NOT prev1_starts_space', 'NOT prev2_class_upper_pair', 'NOT prev2_class_comma']]
+r.1.1.2: bacc 0.773 null 0.512 PASS [['circ_r_1_1_2']]
+r.6.2.2: bacc 0.77 null 0.662 fail [['circ_r_1_1_2', 'NOT class_other', 'NOT is_punct']]
+circuits.html: 50 circuits
+passes 5/16 | median null 0.52 | class-cited 4
+(a) >=8/16: FAILED
+(b) null <=0.6: HELD
+(c) class cited >= half: HELD

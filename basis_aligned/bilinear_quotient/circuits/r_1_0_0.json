@@ -289,12 +289,15 @@
   "program": [
    [
     "NOT prev1_starts_space",
-    "NOT prev2_is_punct",
-    "NOT prev2_upper_initial"
+    "NOT class_subword",
+    "NOT prev1_class_ind"
+   ],
+   [
+    "circ_r_3_1_0"
    ]
   ],
-  "program_bacc": 0.654,
-  "program_null": 0.681,
+  "program_bacc": 0.721,
+  "program_null": 0.675,
   "mechanism_level": "none"
  }
 }

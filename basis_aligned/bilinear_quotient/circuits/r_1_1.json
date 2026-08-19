@@ -1317,12 +1317,16 @@
   "blind_name": "",
   "program": [
    [
-    "NOT dist_nl_ge6",
-    "NOT prev_newline"
+    "class_newline"
+   ],
+   [
+    "NOT class_other",
+    "NOT class_subword",
+    "NOT class_digit"
    ]
   ],
-  "program_bacc": 0.705,
-  "program_null": 0.655,
+  "program_bacc": 0.73,
+  "program_null": 0.704,
   "mechanism_level": "none"
  }
 }

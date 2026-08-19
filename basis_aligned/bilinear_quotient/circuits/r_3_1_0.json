@@ -288,17 +288,13 @@
   "blind_name": "",
   "program": [
    [
-    "dist_nl_le2",
-    "NOT prev_newline"
-   ],
-   [
-    "NOT dist_nl_ge6",
-    "NOT prev1_is_newline",
-    "NOT prev1_starts_space"
+    "NOT class_other",
+    "NOT class_subword",
+    "NOT class_digit"
    ]
   ],
-  "program_bacc": 0.788,
-  "program_null": 0.293,
+  "program_bacc": 0.862,
+  "program_null": 0.327,
   "mechanism_level": "surface"
  }
 }

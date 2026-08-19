@@ -288,15 +288,18 @@
   "blind_name": "",
   "program": [
    [
-    "prev1_is_punct",
-    "NOT prev2_upper_initial"
+    "NOT class_other",
+    "NOT prev1_mid_word",
+    "NOT dist_nl_le2"
    ],
    [
-    "prev2_prev_newline"
+    "prev1_is_punct",
+    "NOT prev2_upper_initial",
+    "NOT prev2_class_sentend"
    ]
   ],
-  "program_bacc": 0.66,
-  "program_null": 0.426,
-  "mechanism_level": "none"
+  "program_bacc": 0.76,
+  "program_null": 0.404,
+  "mechanism_level": "surface"
  }
 }

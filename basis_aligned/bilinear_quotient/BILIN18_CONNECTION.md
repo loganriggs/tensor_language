@@ -8867,3 +8867,28 @@ killed, magnitude kept) on a14 and a5. Registered: differentiation
 max/min >=3; top-2 heads >=60% of layer; a5's top head is the
 induction or a first head. sop_programs2 also queued: step-3 rerun
 with the enriched 65-feature library (bars: >=8/16 pass).
+
+## 354. The IOI circuit resolves: a name-mover head exists (a14.h4)
+
+ioi_heads2 replaced zero-deletion with within-prompt mean ablation
+(content killed, magnitude kept). All three bars HELD and the
+uniform-drop artifact vanished: **a14 head 4 carries 0.93 of the
+layer's 1.35 margin drop** (top-2 = 81%); a5's top head is (5,7) --
+a FIRST-motif head -- with the induction head (5,5) third at 0.12.
+The IOI circuit in bilin18 now reads: early token tables (m1, m2,
+m0) + sentence-start anchoring (5,7) + duplicate detection (5,5
+band) + one dominant late mover head (14,4). The zeroing-vs-mean
+contrast (353 vs 354) is now a measured methods rule: in this
+architecture, zero-ablation of a head is a magnitude shock that
+reads uniform across heads; mean-ablation recovers head content.
+Same lesson as 352 from the other side.
+
+## 355. Enriched library: 5/16 programs pass (bar missed), compounding visible
+
+sop_programs2 reran step-3 with the 65-feature library: 5/16 pass
+(vs 2/16), median null 0.52 (HELD), class predicates cited (HELD),
+registered >=8 FAILED. Notable: circ_r_1_1_2 (a passing program)
+already appears inside three other leaves' best programs --
+registry-mediated compounding works exactly as designed, but the
+212-row grid's leaves are harder than cl2's 312-row leaves (denser,
+smaller n). The swarm SOP inherits the honest bar as-is.

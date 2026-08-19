@@ -279,13 +279,17 @@
   "blind_name": "",
   "program": [
    [
-    "NOT prev1_starts_space",
-    "NOT is_punct",
-    "NOT prev_newline"
+    "circ_r_1_1_2",
+    "NOT is_punct"
+   ],
+   [
+    "NOT class_other",
+    "NOT class_ind",
+    "NOT class_digit"
    ]
   ],
-  "program_bacc": 0.714,
-  "program_null": 0.309,
+  "program_bacc": 0.744,
+  "program_null": 0.516,
   "mechanism_level": "none"
  }
 }

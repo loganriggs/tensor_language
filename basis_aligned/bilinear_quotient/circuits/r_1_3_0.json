@@ -288,16 +288,13 @@
   "blind_name": "",
   "program": [
    [
-    "NOT prev2_starts_space",
-    "NOT is_punct"
-   ],
-   [
-    "upper_initial",
-    "NOT prev2_upper_initial"
+    "NOT class_other",
+    "NOT prev2_upper_initial",
+    "NOT class_digit"
    ]
   ],
-  "program_bacc": 0.672,
-  "program_null": 0.479,
+  "program_bacc": 0.689,
+  "program_null": 0.49,
   "mechanism_level": "none"
  }
 }

@@ -4049,3 +4049,9 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 353: IOI owners (2026-08-19)
 - m1/a14/a5/m2/m0 cover 70% of the IOI margin (all bars HELD). Zero-deletion gives uniform ~1.64 per-head drops in a14 (recompute exact) -> off-manifold magnitude shock, not head content. Mean-ablation head leg queued (ioi_heads2); enriched-library program rerun queued (sop_programs2).
+
+## Appendix 354: name-mover found (2026-08-19)
+- Mean-ablation head leg: a14.h4 = 0.93/1.35 of the layer drop (top-2 81%); a5 top = first-head (5,7), induction (5,5) third. Methods rule: zeroing reads uniform (magnitude shock); mean-ablation reads content.
+
+## Appendix 355: enriched programs 5/16 (2026-08-19)
+- Class labels lift passes 2->5 (bar >=8 missed); circ_r_1_1_2 reused by 3 other programs (registry compounding live).
