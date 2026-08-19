@@ -1,0 +1,6 @@
+match CE: code +0.1381 | dead +0.6013 | shuffled +0.6741
+IOI margin: real +2.408 | code +1.486
+(a) code <=25% of dead: HELD
+(b) IOI >=60% retained: HELD
+(c) shuffled >=3x code: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/sparse_read_code_results.json (14s)
