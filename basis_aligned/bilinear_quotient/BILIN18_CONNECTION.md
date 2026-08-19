@@ -8179,3 +8179,22 @@ be hierarchical (split WITHIN a base class), never overrides. v2
 queued: split only the two contextual classes (ind, other -- where
 constants already fail) by their top-4 modes, 18 labels total,
 registered at >= +2 points with the same shuffle control.
+
+## 322. The mode-to-output direction closes: orthogonality certified twice
+
+`mode_dictionary2.py` (hierarchical splits of the two contextual
+classes only): recovery 56.1% vs the 10-class 55.6% -- harmless, under
+the +2 bar (FAILED), shuffle again identical. Together with 321 the
+verdict is double-certified: **damage-mode structure is orthogonal to
+output-value structure at the tail.** The modes carve which components
+matter for which data; they do not carve what those components write.
+The feedback loop from census to benchmark therefore runs through the
+COMPONENT axis -- mode-conditioned stand-in selection (keep the
+implicated components real or richly modeled on their mode's data,
+spend cheap stand-ins elsewhere), a per-position extension of the
+substrate-pricing law -- and that design goes to the backlog as the
+next properly-registered rung rather than being improvised tonight.
+The day's census stands: 118 structural circuits, 47 blind-nameable,
+two instrument rules earned (no selection without nulls at every
+level; hierarchies not overrides), and a benchmark frontier of
+20 @ +1.46 / 24 @ +2.29 / 32 @ +2.67 fresh.

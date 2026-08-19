@@ -1,0 +1,18 @@
+probe 0/108
+probe 20/108
+probe 40/108
+probe 60/108
+probe 80/108
+probe 100/108
+label 10: fit 5503 eval 5533
+label 11: fit 2601 eval 2452
+label 12: fit 1327 eval 1858
+label 13: fit 917 eval 1221
+label 14: fit 12858 eval 10336
+label 15: fit 3757 eval 2865
+label 16: fit 2349 eval 1865
+label 17: fit 1918 eval 1618
+ablation +0.7678 | 10-class +0.3411 (rec 55.6%) | +modes +0.3373 (rec 56.1%) | shuffle +0.3373 (rec 56.1%)
+(a) hierarchical >= +2pts: FAILED
+(b) shuffle <= +0.5pt: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mode_dictionary2_results.json (360s)

@@ -3956,3 +3956,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 321: scored census + mode-class refutation (2026-08-19)
 - 47/115 blind-nameable (mean 4.15/6). Census tiers now: 118 structural / 47 blind-nameable.
 - Mode-constants dictionary refuted (8.4% vs 55.6%; shuffle identical): modes are component-axis, not output classes; overrides destroy base labels. Hierarchical v2 queued.
+- Hierarchical mode splits harmless-but-useless (56.1 vs 55.6): orthogonality double-certified. Mode->benchmark feedback goes via component-axis stand-in selection (backlog, to be registered fresh).

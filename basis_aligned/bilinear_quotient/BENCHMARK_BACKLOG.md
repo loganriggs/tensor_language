@@ -19,3 +19,12 @@ Honest frontier: 34/36 at +2.93 fresh (75% of model work). Open rungs, by size:
 
 Rule (from 2026-08-18 stall): "science arc closed" NEVER implies "benchmark
 saturated". A wake with an empty queue must pull from this file first.
+
+7. MODE-CONDITIONED STAND-IN SELECTION (from §§315-322): damage modes are
+   component-axis objects. Design: per-position gating -- at positions of
+   mode M (causally labeled), keep M's implicated components real (or fit
+   M-sliced absorbers); elsewhere use the cheap stand-ins. Register: the
+   gated assembly beats the uniform one at matched parameter budget;
+   control = random position gating at matched fraction. Requires a
+   deployable mode-labeler (probe on the stream -> mode score) -- fit and
+   validate that first (deploy gap rules apply).
