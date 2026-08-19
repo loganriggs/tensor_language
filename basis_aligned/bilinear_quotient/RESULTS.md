@@ -3994,3 +3994,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 334: pattern-side certifications (2026-08-19)
 - Two attention circuits reach induction grade (7.7-7.9x, triggers = place-suffix|newline pairs; r.8.0 = parent of heading-recall). Induction-grade total: 4. 61 attention leaves need longer-context folds (backlog).
+
+## Appendix 335: linear fraction measured (2026-08-19)
+- 10/60 = 16.7% (Wilson 9.3-28.0%): one in six census circuits is a linear response unit. Census quotables complete: 118 / 35 / 47 / 14 / 4 / ~17% -- every adjective a measurement.

@@ -8490,3 +8490,21 @@ predicts (self and induction motifs read beyond the previous token).
 The mechanism ladder stands measured at every rung the instruments can
 currently reach; longer-context folds are a combinatorial design
 problem for the backlog, not an overnight run.
+
+## 335. The linear-unit fraction: one in six
+
+`linear_fraction.py` (batch 3, leaves 40-60): 1/20 sign-aware linear
+units, inside the registered [1,8] band. **Pooled over sixty leaves:
+10/60 = 16.7% (Wilson 95%: 9.3%-28.0%).** The census's linearity
+statement is now a measured population parameter: about one circuit in
+six responds to joint ablation in the directions its single-probe
+fingerprint predicts; the remaining five-sixths are interaction-
+dominated, the same composition physics certified at the junction,
+assembly, and battery levels. A trend worth a line but not a claim:
+linearity falls with name-score rank across batches (4/20, 5/20,
+1/20) -- the circuits easiest to name may also be the most linear,
+which if it survives a registered test would tie the description
+hierarchy to response geometry. The census's headline numbers now
+stand complete: 118 replicated / 35 corpus-general / 47 blind-nameable
+/ 14 programmable / 4 induction-grade / ~17% linear -- every adjective
+a measurement.
