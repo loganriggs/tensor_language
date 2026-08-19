@@ -9312,3 +9312,39 @@ with mechanism_level=computational. Queued: topk4_stack -- the same
 fresh <=+0.15, IOI >=85%, r.3.0 members <=15% of deletion). If that
 holds, the entire attention stack of bilin18 runs on four lines of
 readable code.
+
+## 377. Whole-stack code: +0.22, and the cheapest-80 frontier stands as the optimum
+
+topk4_stack applied 4-read code to all 162 heads: grid +0.221 (bar
+0.10 FAILED), fresh +0.343 (FAILED), IOI actually IMPROVED (+2.574
+vs +2.408, HELD), and r.3.0's members cost 1.37 -- 2.7x its own
+heads' deletion (FAILED): the diffuse heads its bundles depend on
+do not survive 4-read truncation. Standing benchmark statement:
+readable 4-read code covers the cheapest ~80 heads at ~zero cost
+(374) and the whole stack at +0.22; the last ~40 heads carry
+interaction structure that 4 reads cannot hold. A cheapest-N-at-k=4
+sweep is queued to find the largest head set within +0.10.
+
+## 378. CENSUS SCALE WARNING: the partition is not corpus-stable (9% identity)
+
+census_scale rebuilt the tree at 2x corpus (212 fit + 212 fresh
+rows). Both substantive bars FAILED loudly: **29 leaves** (vs 68 at
+1x -- the recipe's thresholds do not scale) and **cross-instance
+identity 6/68 = 9%** at J>=0.5 on the shared grid. Reading: the
+leaf-level objects are largely WINDOW-RELATIVE -- the old tree's
+clusters reflect the fit window's document family (one travel
+guide) as much as the model's structure; mixing in diverse text
+dissolves most of them. This vindicates every corpus-generality
+caveat on record and REVISES THE SWARM PLAN: naively scaling the
+census does not multiply certified circuits; it produces a
+different, coarser partition. Before mass production, the census
+recipe needs a stability diagnosis: census_stability queued --
+rebuild on the fresh 212 rows ALONE (same size, disjoint corpus)
+and compare (a) leaf count at matched size (was it size-scaling or
+corpus mixing that collapsed the tree? registered: >=50 leaves if
+size was the confound) and (b) identity between the fresh-alone
+tree and the 424-tree restricted to the same fresh rows (same
+data, different clustering context; registered fork: >=40% = recipe
+stable / below = clustering itself is context-dependent). The
+swarm's unit of production may need to become "window-replicated
+leaf" rather than "leaf".

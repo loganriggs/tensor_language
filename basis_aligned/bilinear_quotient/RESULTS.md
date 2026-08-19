@@ -4106,3 +4106,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 376: induction closes computational (2026-08-19)
 - top-k curve: 1->+0.129, 2->+0.024, 4->+0.007, 8->+0.004 (deletion +0.601). Four coincidence reads = 98.8% replication, first computational-grade circuit. Extra reads are NOT match-family (19.8%); no context-corruption effect. topk4_stack queued (all 162 heads on 4-read code).
+
+## Appendix 377-378 (2026-08-19)
+- 377: whole-stack 4-read code +0.22 grid (IOI improves; r.3.0 collateral 2.7x): cheapest-80 stands as optimum; cheapest-N-at-k4 sweep queued.
+- 378: WARNING -- census partition window-relative (29 leaves at 2x; 9% identity). Swarm plan revised: stability diagnosis queued; production unit may become window-replicated leaves.
