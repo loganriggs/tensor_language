@@ -8447,3 +8447,27 @@ composed with value reads), not deeper MLP folds. The bigram
 population stands at 2; the ladder's next rung is architectural, and
 goes to the backlog with a design note rather than an overnight
 improvisation.
+
+## 333. The battery converges: three hard dimensions, one structural lesson
+
+Final accounting across five battery versions. The converged
+per-candidate battery is THREE dimensions: **selectivity** (>=2x vs
+difficulty-matched controls), **sign-mixedness** (>=0.15 -- severity
+cones and statistic-selected fakes score ~0), and **structural
+rejection** (unmatchable members). These reject four of the five fake
+classes cleanly and stably across every version: random members (sel
+0.93), pure severity (structural nan), topic clusters (sel 1.08, smix
+0.10), and the adversarial statistic-selected candidate (smix 0.00 --
+the hole it exposed stayed closed once found). The fifth class -- the
+Frankenstein, a mislabeled UNION of two real circuits -- is provably
+uncatchable by per-candidate statistics in a hierarchical census:
+member-overlap cannot flag it because SIBLING leaves intrinsically
+share 0.62-0.81 of members (overlapping extreme tokens of one parent
+slice), so the mixture sits inside the reals' own overlap
+distribution. The scoped conclusion, recorded as the battery's final
+form: fabricated, confounded, and adversarial circuits are caught
+per-candidate; COMPOSITION of real circuits is governed structurally
+-- by the census tree and its overlap bookkeeping -- not statistically.
+Reals pass the converged three-dimension battery 5/5. The
+certification pipeline is calibrated, its blind spot named and
+bounded, and the battery rests.
