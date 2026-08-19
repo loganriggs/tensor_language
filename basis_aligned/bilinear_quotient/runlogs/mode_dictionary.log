@@ -1,0 +1,11 @@
+probe 0/108
+probe 20/108
+probe 40/108
+probe 60/108
+probe 80/108
+probe 100/108
+mode-label coverage: fit 61.89% eval 54.22%
+ablation +0.7678 | 10-class +0.3411 (rec 55.6%) | +modes +0.7029 (rec 8.4%) | shuffle +0.7029 (rec 8.4%)
+(a) +modes >= +5pts: FAILED
+(b) shuffle <= +1pt: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mode_dictionary_results.json (360s)

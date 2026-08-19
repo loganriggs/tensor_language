@@ -8154,3 +8154,28 @@ a diagnosed constraint (data, then document diversity, then corpus
 balance at the split). The naming wave for all 118 launches now
 (stateless packs from circuit_tree4_packs.json), to be scored by the
 blind-discrimination protocol of 319.
+
+## 321. Forty-seven blind-nameable circuits; and modes are not output classes
+
+The v4 naming wave scored: **47 of 115 names pass blind discrimination
+at >=5/6** (mean 4.15/6, chance 3.0; 38 borderline, 30 fail). The
+blind-nameable tier grew 35 -> 47 while the pass rate fell 61% -> 41%
+-- the census is reaching subtler structure. Top passes read as crisp
+functions ("mid-word subword continuation", "space before
+opening-hours marker").
+
+`mode_dictionary.py` FAILED both ways it could inform: +modes recovery
+collapsed to 8.4% against the 10-class baseline's 55.6%, and the
+shuffle control was numerically IDENTICAL to the real arm -- the
+sixteen mode-constants are all near the global mean in span space, so
+permuting them changes nothing. Two lessons, recorded as rules:
+(i) **causal co-dependence does not imply output-value similarity** --
+a damage mode says WHICH components matter WHERE, not WHAT the output
+should be; modes are component-axis objects, and their benchmark value
+is selecting stand-ins per site, not serving as output classes;
+(ii) the override design was additionally wrong -- replacing the base
+label on 54% of positions destroyed working classes; refinements must
+be hierarchical (split WITHIN a base class), never overrides. v2
+queued: split only the two contextual classes (ind, other -- where
+constants already fail) by their top-4 modes, 18 labels total,
+registered at >= +2 points with the same shuffle control.

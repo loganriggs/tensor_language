@@ -1,0 +1,583 @@
+{
+ "scores": [
+  {
+   "tag": "r.0.3",
+   "name": "Mid-word subword continuation",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.1.0",
+   "name": "Boilerplate padding inside MAP tag",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.1.0.1",
+   "name": "GOOGLE MAP template tokens",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.1.3.1",
+   "name": "Space before opening-hours marker",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.2.2.0",
+   "name": "listing boilerplate punctuation",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.2.3.2",
+   "name": "name-conditioned label matching",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.3.1",
+   "name": "clause boundary before names",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.7.0.0",
+   "name": "curated list item names",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.7.1.0",
+   "name": "mains price-field opener",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.9",
+   "name": "Listing line breaks",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.9.1.3",
+   "name": "Emphasized name tokens",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.21.0.0",
+   "name": "Free-admission flag",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.21.3.0",
+   "name": "Map-link boilerplate",
+   "true_pos": 6
+  },
+  {
+   "tag": "r.0.0",
+   "name": "Name completion in compressed listings",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.0.0.0",
+   "name": "Place-name suffix completion",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.0.1.1",
+   "name": "Newline between heading entries",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.0.2.0",
+   "name": "Letter-plus-digit map codes",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.0.2.2",
+   "name": "Newline between numbered entries",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.1.0.0",
+   "name": "Newline after category label",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.1.0.3",
+   "name": "Postcode district digit",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.1.1.0",
+   "name": "Address postcode digit",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.1.1.1",
+   "name": "Category tag onset after venue",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.1.1.2",
+   "name": "Tube marker before station",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.1.1.3",
+   "name": "Space before info-field marker",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.1.3",
+   "name": "Parallel place-name headings",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.2.0",
+   "name": "Paragraph break after sentence",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.2.1",
+   "name": "Field marker after semicolon",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.2.1.1",
+   "name": "listing delimiter whitespace",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.3",
+   "name": "post-details paragraph break",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.6.0.0",
+   "name": "GOOGLE MAP boilerplate copy",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.6.1.1",
+   "name": "detail-line field openers",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.7",
+   "name": "index and heading tokens",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.7.0",
+   "name": "map-key entry newline",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.7.2",
+   "name": "guidebook heading tokens",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.7.2.1",
+   "name": "Category tag and price tokens",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.7.3.0",
+   "name": "Guidebook boilerplate tokens",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.7.3.1",
+   "name": "Line ends and name recall",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.8.0",
+   "name": "Ordered place-list continuation",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.8.0.0",
+   "name": "Next section heading recall",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.8.0.2",
+   "name": "All-caps tag suffixes",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.8.0.3",
+   "name": "Repeated name recall",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.8.2",
+   "name": "Clause boundary before names",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.8.2.3",
+   "name": "Listing detail tokens",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.9.0.2",
+   "name": "Mixed listing tokens",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.9.1.0",
+   "name": "Multiword name completion",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.9.1.2",
+   "name": "Pre-name and postcode tokens",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.21.0.3",
+   "name": "Museum and venue tags",
+   "true_pos": 5
+  },
+  {
+   "tag": "r.0.0.1",
+   "name": "Parallel heading-list continuation",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.0.0.2",
+   "name": "Numeric tail of index entries",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.0.1.0",
+   "name": "Map grid-reference digit",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.0.3.2",
+   "name": "Town heading then population",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.1",
+   "name": "Section-header line breaks",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.1.0.2",
+   "name": "Fixed-phrase next-token copying",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.1.1",
+   "name": "Standalone sub-heading lines",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.1.2.0",
+   "name": "Clause-linking function words",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.1.2.1",
+   "name": "Stock section-label prediction",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.2",
+   "name": "Item-ending break or next field",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.2.0.3",
+   "name": "Break between numbered entries",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.2.1.0",
+   "name": "list-entry newline terminator",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.2.2",
+   "name": "repeated template completion",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.2.3.3",
+   "name": "listing field-value tokens",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.3.0.1",
+   "name": "next index item prediction",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.3.1.1",
+   "name": "map-key entry termination",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.6",
+   "name": "proper-name slot filling",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.6.0.1",
+   "name": "caps label suffix completion",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.6.1.0",
+   "name": "adult/child collocation",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.6.2",
+   "name": "guidebook structure tokens",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.6.2.0",
+   "name": "Sights heading completion",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.6.2.1",
+   "name": "index name and label completion",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.6.3.1",
+   "name": "postcode digit completion",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.6.3.2",
+   "name": "heading line terminator",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.7.0.1",
+   "name": "subsection heading recall",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.7.1.1",
+   "name": "grid digits and index tokens",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.7.2.0",
+   "name": "Listing item completion",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.7.2.2",
+   "name": "Map grid digit prediction",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.8",
+   "name": "Index list line breaks",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.8.0.1",
+   "name": "Section label completion",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.8.1.1",
+   "name": "Heading and label recall",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.8.2.0",
+   "name": "Heading line termination",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.9.0",
+   "name": "Structured listing recall",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.9.0.0",
+   "name": "Price field abbreviations",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.9.0.1",
+   "name": "Postcode and name slots",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.9.0.3",
+   "name": "Fixed collocation completion",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.21",
+   "name": "Guidebook formatting glue",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.21.3",
+   "name": "Index entry line breaks",
+   "true_pos": 4
+  },
+  {
+   "tag": "r.0.1",
+   "name": "Line break ending a list entry",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.0.1.2",
+   "name": "All-caps category tag emission",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.0.2",
+   "name": "Repeated-word induction copying",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.0.2.1",
+   "name": "End of parenthetical detail block",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.0.2.3",
+   "name": "Uppercase category-tag completion",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.0.3.1",
+   "name": "Continuation inside numbers and names",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.1.3.0",
+   "name": "Hyphen and ordinal suffixes",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.2.3",
+   "name": "in-context name recall",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.3.0.0",
+   "name": "index entry tokens",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.3.1.0",
+   "name": "listing header line break",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.6.0",
+   "name": "section label completion",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.6.1",
+   "name": "listing address tokens",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.7.1",
+   "name": "field separator semicolon",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.7.3",
+   "name": "End-of-entry newline",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.8.1",
+   "name": "Numbered section labels",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.8.1.2",
+   "name": "Section label slots",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.9.1.1",
+   "name": "Heading chain continuation",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.21.0",
+   "name": "Venue type tags",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.21.0.1",
+   "name": "Entry-terminating newlines",
+   "true_pos": 3
+  },
+  {
+   "tag": "r.0.3.0",
+   "name": "Closing token of coded fields",
+   "true_pos": 2
+  },
+  {
+   "tag": "r.1.2",
+   "name": "Preposition before a date",
+   "true_pos": 2
+  },
+  {
+   "tag": "r.2.0.0",
+   "name": "Blank line before subheading",
+   "true_pos": 2
+  },
+  {
+   "tag": "r.2.2.2",
+   "name": "grid codes and caps labels",
+   "true_pos": 2
+  },
+  {
+   "tag": "r.3.0",
+   "name": "contents-list item continuation",
+   "true_pos": 2
+  },
+  {
+   "tag": "r.6.3",
+   "name": "contents heading items",
+   "true_pos": 2
+  },
+  {
+   "tag": "r.6.3.0",
+   "name": "next TOC heading prediction",
+   "true_pos": 2
+  },
+  {
+   "tag": "r.7.0.2",
+   "name": "standard section sequence",
+   "true_pos": 2
+  },
+  {
+   "tag": "r.7.3.2",
+   "name": "Listing slot filling",
+   "true_pos": 2
+  },
+  {
+   "tag": "r.0",
+   "name": "Early local-format token prediction",
+   "true_pos": 1
+  },
+  {
+   "tag": "r.8.1.0",
+   "name": "Venue category tag lines",
+   "true_pos": 1
+  }
+ ],
+ "pass": 47,
+ "borderline": 38,
+ "fail": 30,
+ "mean_tp": 4.15
+}
