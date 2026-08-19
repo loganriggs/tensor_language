@@ -8518,3 +8518,13 @@ association between blind-name score (true positives out of 6) and
 linear-unit outcome is positive, with one-sided permutation p < 0.05
 (10,000 shuffles). If it fails, the batch trend was rank-batching
 noise, recorded as such.
+
+Result: **FAILED as registered.** Across the 60 tested leaves, linear
+units average name-score 5.10 vs 4.98 for the rest (diff +0.12,
+one-sided permutation p=0.39). The batch trend was rank-batching
+noise, exactly as the failure branch anticipated: nameability and
+response linearity are UNRELATED properties of the census at this
+sample size -- how easy a circuit is to describe says nothing about
+whether it responds linearly. The description hierarchy and the
+response-geometry axis are independent measurements, which is itself a
+useful fact: a circuit atlas needs both columns.

@@ -3997,3 +3997,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 335: linear fraction measured (2026-08-19)
 - 10/60 = 16.7% (Wilson 9.3-28.0%): one in six census circuits is a linear response unit. Census quotables complete: 118 / 35 / 47 / 14 / 4 / ~17% -- every adjective a measurement.
+- Nameability-linearity association REFUTED as registered (p=0.39): independent axes. Batch trend was rank-batching noise.
