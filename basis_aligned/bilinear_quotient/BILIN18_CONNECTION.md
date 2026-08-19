@@ -8788,3 +8788,21 @@ edges, now first-class relations in the circuit schema. Follow-on
 queued: interchange.py (Geiger-style) -- set the push channel to
 its break-state value at non-break positions and predict the
 newline logit follows.
+
+## 350. Interchange null: the channel's value does nothing LOCALLY (read is elsewhere)
+
+interchange set the push channel (b0 = m0 dirs 12-16) to its
+break-state value at 128 non-break positions and to its rest-state
+at the push wing. Both registered bars FAILED at near-zero effect
+(+/-0.02 and -0.15 mean newline-logit shift) -- while PROJECTING OUT
+the same directions moves member CE by multiple nats. The
+asymmetry: projection-removal acted at ALL positions; the patch was
+position-local. Inference: the channel's causal read is NOT local
+-- downstream attention reads m0's b0 content from CONTEXT positions
+(the preceding list entries), and/or the effect is bilinear
+(product with partner factors, dead when set without them), and/or
+the mean-donor value washes out. v2 queued (interchange2) separates
+these: local vs full-prefix vs prefix-only vs random-subspace-prefix
+patching with a single sampled donor value. Registered: prefix >=5x
+local; prefix_only >=70% of prefix; random <=40%. Whatever wins, the
+read path of the line-break circuit gets localized.

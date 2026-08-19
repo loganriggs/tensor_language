@@ -4037,3 +4037,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 349: push-brake structure + tension edges (2026-08-19)
 - r.0.0.1 = mlp0 break-push MINUS mlp3 brake (bundle anti-corr -0.48; Abbey improvement 95% brake-attributable). 11 tension edges to other leaves measured (first in registry). Interchange test queued.
+
+## Appendix 350: local channel-setting null (2026-08-19)
+- Setting the push channel's value locally does ~nothing while deleting it globally moves nats: the read is contextual/bilinear, not local. interchange2 (local vs prefix vs prefix-only vs random) queued to localize the path.
