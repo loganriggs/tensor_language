@@ -9013,3 +9013,29 @@ IOI "mover" role is a CONTEXT-INDUCED specialization of broader
 machinery -- consistent with the parallel-sum picture (359): task
 circuits in bilin18 are assembled on the fly from general-purpose
 additive voters, not dedicated task modules.
+
+## 362. The projection law, refined on 10 circuits: subtraction dominates, offsets tax
+
+projection_law_batch generalized 360 beyond n=1. Registered (a)
+("the written constant is causally void") **FAILED** as stated:
+median agreement 0.626 vs the 0.75 bar. But the table shows a
+lawful refinement, not chaos. Across all 10 leaves: (1) every
+constant assignment -- zero, slice-mean, natural donor -- produces
+large member damage, 7-30x the matched-dim random-subspace control
+(median 13x, (b) HELD): VARIANCE REMOVAL is the first-order term,
+confirming the subtraction picture at population level. (2) But
+deletion-to-zero consistently costs ~1.6x more than assigning the
+slice MEAN (delete > mean in 9/10 leaves): zeroing removes the mean
+too, and that off-manifold offset carries its own tax -- the same
+magnitude-shock seen in the IOI zeroing artifact (353), now
+quantified. (3) Crucially, mean vs natural-donor constants are
+similar everywhere: among on-manifold constants, WHICH value you
+write still does not matter -- consistent with das_natural's
+zero==optimized identity. Refined law on record: **effect =
+variance-removal (dominant) + distance-of-constant-from-mean
+(offset tax); value semantics nil.** One violator flagged per (c):
+r.6.0.0 (agree 0.32, delete 1.64 vs mean 0.67) -- the strongest
+candidate for a circuit where something beyond variance matters;
+earmarked for individual treatment. Methods rule for all future
+ablations: mean-ablate, never zero-ablate, unless the offset term
+is itself the object of study.

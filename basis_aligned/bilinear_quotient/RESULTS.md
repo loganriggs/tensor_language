@@ -4073,3 +4073,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 361: mover is task-contextual (2026-08-19)
 - a14.h4 on natural text: diffuse (38% top-5%), modal class 'other', name fifth. IOI mover role = context-induced specialization of a general head; task circuits assembled from general-purpose voters.
+
+## Appendix 362: law refined on 10 circuits (2026-08-19)
+- Registered "constant void" FAILED (0.626 < 0.75) -> refined: variance-removal dominant (13x control), off-manifold zero pays ~1.6x offset tax, on-manifold value choice nil. Violator r.6.0.0 earmarked. Rule: mean-ablate, never zero-ablate.
