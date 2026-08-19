@@ -3985,3 +3985,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 331: induction-grade pair (2026-08-19)
 - 2 circuits certified at full induction grade (weights-derived bigram mechanisms, 33-36x precision, readable: "second piece of rare multi-token words"). Hierarchy: programs 14 / unigram 0 / bigram 2 / names 47. Fold extends to layers 0-9 next.
+
+## Appendix 332: battery closes (2026-08-19)
+- 5/5 fakes rejected; adversarial hole CLOSED by sign-minority (0.00 vs reals 0.33-0.44). Specificity finalizes as ratio-of-selectivities (v4, registered 4/5 reals). mb4: deeper leaves need pattern-side mechanisms (backlog).

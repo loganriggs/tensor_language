@@ -28,3 +28,9 @@ saturated". A wake with an empty queue must pull from this file first.
    control = random position gating at matched fraction. Requires a
    deployable mode-labeler (probe on the stream -> mode score) -- fit and
    validate that first (deploy gap rules apply).
+
+8. PATTERN-SIDE MECHANISM RUNG (from §332): attention-probed leaves need
+   mechanism conditions built from motif patterns composed with value
+   reads (e.g. "prev-motif head at L, values carrying X -> fires when
+   previous token writes X"). Design before running; this is the ladder
+   rung for the census majority.

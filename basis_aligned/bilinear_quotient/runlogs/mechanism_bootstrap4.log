@@ -175,20 +175,31 @@ r.21: repl 0.779 class other 0.012 n=11981 tokens [' City', ' in', '\n', '\n', '
     r.21.3.3: repl 0.261 class bclose 0.027 n=270 tokens ['\n', '\n', '\n', '\n', '\n', '\n']
 r.22: repl 0.357 class comma 0.006 n=11981 tokens [' Tower', ' House', ' Steps', ' Rooms', ' Abbey', 'urn']
 r.23: repl 0.401 class bclose 0.003 n=11981 tokens ['oya', 'ights', ' Hall', '3', 'ights', 'ian']
-tree built: 118 leaves; fake battery
-r.8.0.0          sel  4.39 (in-sample  7.16) spec  4.18 smix 0.37
-r.1.1.0          sel  2.48 (in-sample  2.89) spec  0.35 smix 0.44
-r.1.1.2          sel  2.94 (in-sample  3.52) spec  0.52 smix 0.33
-r.8.0            sel  2.96 (in-sample  3.12) spec  3.52 smix 0.40
-r.7.2.1          sel  2.01 (in-sample  1.98) spec  0.77 smix 0.43
-F1_random        sel  0.93 (in-sample  0.86) spec  1.00 smix 0.34
-F2_severity      sel   nan (in-sample   nan) spec  1.05 smix 0.21
-F3_franken       sel  4.17 (in-sample  4.15) spec  1.00 smix 0.40
-F4_topic         sel  1.08 (in-sample  0.93) spec  5.26 smix 0.10
-F5_adversarial   sel  3.99 (in-sample  3.59) spec 13.72 smix 0.00
-(a) reals pass (2/5): FAILED
-(b) F1 sel + F2 structural: FAILED
-(c) F3 not real-passing: HELD
-(d) F5 sign-minority <=0.10: HELD
-(e) F4 rejected: HELD
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fake_battery3_results.json (1236s)
+tree built: 118 leaves; bootstrap
+42260 corpus bigrams
+r.0.0: prec 0.044 (2.0x base) rec 0.10 null 0.5x | triggers [' alongside| the', ' beside| the', ' from| the', ' through| the', ' upon| the', ' towards| the', ' toward| the', ' atop| the'] fail
+r.0.0.0: prec 0.006 (1.5x base) rec 0.04 null 0.0x | triggers ['\n| ', ' (| ', ' | ', ' ;| ', '(| ', ';| ', ',| ', '"| '] fail
+r.0.0.1: prec 0.112 (35.5x base) rec 0.39 null 0.0x | triggers [' www|.', 'www|.', ' HOT|EL', 'S|ights', ' S|ights', ' Rd|)', ' with| ent', 'Hot|el'] PASS
+r.0.0.2: prec 0.033 (11.1x base) rec 0.14 null 0.0x | triggers ['S|ights', ' S|ights', 'OO|G', 'T|OWER', 'G|LE', 'E|ating', '/|child', 'BI|AN'] fail
+r.0.1: prec 0.013 (0.6x base) rec 0.01 null 1.1x | triggers [' vert|ig', ' Stan|isl', ' G|agn', ' HOR|IZ', ' Lap|ar', ' Port|ob', ' B|occ', ' terr|ac'] fail
+r.0.1.0: prec 0.102 (28.0x base) rec 0.28 null 0.0x | triggers [' G|OO', ' G|agn', ' D|uf', ' B|occ', 'H|ARB', ' CH|IL', 'Mar|rak', ' Tra|fal'] fail
+r.0.1.1: prec 0.082 (25.9x base) rec 0.25 null 0.0x | triggers [' n|aph', ' G|agn', ' B|occ', ' D|uf', ' Qu|ê', ' Am|ade', ' S|inf', 'Mar|rak'] fail
+r.0.1.2: prec 0.114 (32.6x base) rec 0.31 null 0.0x | triggers [' vert|ig', ' hem|isp', ' amph|ithe', ' char|cut', ' G|OO', ' n|aph', ' D|ö', ' Con|qu'] PASS
+r.0.2.0: prec 0.014 (4.3x base) rec 0.02 null 0.0x | triggers [' Am|ade', ' Pe|ven', ' Ber|zel', ' Sp|ital', ' sc|and', 'b|agg', ' su|person', ' Stan|isl'] fail
+r.0.2.1: prec 0.007 (1.9x base) rec 0.01 null 0.0x | triggers [' Am|ade', ' Pe|ven', ' Ber|zel', ' Sp|ital', ' sc|and', 'b|agg', ' su|person', ' Stan|isl'] fail
+r.0.2.2: prec 0.014 (4.5x base) rec 0.02 null 0.0x | triggers [' Am|ade', ' Pe|ven', ' Ber|zel', ' Sp|ital', ' sc|and', 'b|agg', ' su|person', ' Stan|isl'] fail
+r.0.2.3: prec 0.007 (2.0x base) rec 0.01 null 0.0x | triggers [' Am|ade', ' Pe|ven', ' Ber|zel', ' Sp|ital', ' sc|and', 'b|agg', ' su|person', ' Stan|isl'] fail
+r.0.3: prec 0.057 (2.5x base) rec 0.16 null 1.1x | triggers ['10|am', '11|am', '15|am', '12|am', '30|am', ' 11|am', '45|am', '8|am'] fail
+r.0.3.0: prec 0.014 (4.4x base) rec 0.01 null 2.7x | triggers ['7|485', '7|349', '7|352', '7|452', ' 5|953', '7|336', ' 5|706', ' 7|407'] fail
+r.0.3.1: prec 0.020 (5.6x base) rec 0.04 null 2.2x | triggers [' www|.', 'chard|G', 'rait|E', ' Exhibition|H', 'irs|W', 'club|CL', 'affle|G', 'dale|PU'] fail
+r.0.3.2: prec 0.010 (2.7x base) rec 0.01 null 0.0x | triggers ['7|349', '7|352', ' www|.', '7|485', '7|336', '7|337', '7|452', '7|288'] fail
+r.2.1.0: prec 0.093 (27.0x base) rec 0.25 null 0.0x | triggers ['/|child', '\n|###', '\n|##', '\n|/*', 'LE| MAP', '\n|/**', '\n|####', '\n|**'] fail
+r.2.2.0: prec 0.002 (0.7x base) rec 0.01 null 0.0x | triggers [' 11|pm', 'E|ating', ' 8|pm', ' 10|pm', ' 9|pm', ' 5|pm', ' 6|pm', ' 7|pm'] fail
+r.7.3: prec 0.039 (1.7x base) rec 0.04 null 0.7x | triggers ['\n|Hy', '\n|Ge', '\n|Sus', ' the| al', '\n|Mad', ' the| sed', '\n|Bel', ' the| su'] fail
+r.7.3.0: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers [' Market|CL', '\n|Sus', ' Road|ST', ' Flag|PU', ' Centre|EM', ' Inn|PU', ' Bake|BA', ' ;| Jub'] fail
+r.7.3.1: prec 0.022 (7.4x base) rec 0.02 null 6.4x | triggers ['###| Canterbury', '##| Canterbury', '####| Canterbury', ' S|inf', ' g|our', ' n|aph', ' B|occ', ' G|agn'] fail
+r.7.3.2: prec 0.013 (4.0x base) rec 0.01 null 0.0x | triggers ['29|17', '74|20', '17|14', '79|35', '73|23', '88|25', '36|40', '89|46'] fail
+tested 22 front-MLP leaves | pass 2 | median null lift 0.00
+(a) >=6 pass: FAILED
+(b) null <= 1.2x: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mechanism_bootstrap4_results.json (1145s)

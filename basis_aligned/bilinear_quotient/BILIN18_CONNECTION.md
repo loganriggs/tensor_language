@@ -8421,3 +8421,29 @@ precision when expressible), agent-decoded names 47. Twenty front
 leaves sit above the bigram rung; v4 queued extends the fold capture
 to layers 0-9 so the middle-MLP leaves get their rung measured too
 (registered: >=6 pass; depth-vs-complexity-class reported).
+
+## 332. The battery closes: five fakes, five rejections -- and specificity learns its final form
+
+`fake_battery3.py`: **every constructed fake is now rejected on at
+least one dimension.** F1 by selectivity (0.93); F2 by the structural
+nan (unmatchable members -- the accounting maps nan to structural
+rejection in v4); F3 by specificity; F4 by selectivity (1.08) and
+sign-minority (0.10); and F5 -- the adversarial statistic-selected
+fake that passed everything in v2 -- **rejected by sign-minority 0.00
+against the reals' 0.33-0.44**, closing the discovered hole exactly as
+registered: a candidate selected on raw damage is an all-positive
+severity cone and cannot fake contrastive sign structure. The
+remaining defect is the instrument's, identified by the reals' scores:
+raw-effect specificity conflates COMPONENT STRENGTH (weak-component
+circuits score anti-specific against any strong foreign set). Final
+form, v4: specificity = selectivity(own probes) / selectivity(foreign
+probes), each measured against matched controls -- strength cancels.
+Registered: >=4/5 reals pass v4 with all five fakes still rejected.
+
+`mechanism_bootstrap4.py`: extending the fold to layers 0-9 added NO
+eligible leaves -- the deeper census is attention-probed, so its
+mechanism rung requires pattern-side constructions (motif conditions
+composed with value reads), not deeper MLP folds. The bigram
+population stands at 2; the ladder's next rung is architectural, and
+goes to the backlog with a design note rather than an overnight
+improvisation.
