@@ -4103,3 +4103,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 374-375 (2026-08-19)
 - 374: MILESTONE -- 40 cheapest heads at -0.077 (model improves), 80 heads at -0.043 grid / +0.064 fresh; first interaction penalty at 120 heads. Induction heads among the least compressible (5/9 rank >120).
 - 375: r.3.0 code: 59% mean, median good, key-specificity weak (1.7x). Partially computational; residuals named and under anatomization.
+
+## Appendix 376: induction closes computational (2026-08-19)
+- top-k curve: 1->+0.129, 2->+0.024, 4->+0.007, 8->+0.004 (deletion +0.601). Four coincidence reads = 98.8% replication, first computational-grade circuit. Extra reads are NOT match-family (19.8%); no context-corruption effect. topk4_stack queued (all 162 heads on 4-read code).

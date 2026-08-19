@@ -9285,3 +9285,30 @@ residuals. Both feed the same question as 370's +0.138, now being
 anatomized (induction_residual, running): multi-match reads,
 context corruption from off-member substitution, and tail
 composition.
+
+## 376. THE INDUCTION STORY CLOSES AT COMPUTATIONAL GRADE: four reads, 99% replication
+
+induction_residual anatomized 370's +0.138 residual. The top-k
+curve collapses immediately: **top-1 +0.129, top-2 +0.024, top-4
++0.0073, top-8 +0.0041** against +0.601 for deletion -- (a) HELD
+with 7x room. Two reads recover 96% of the heads' function; four
+reads 98.8%, passing even mech_replicate's original strict bar
+(+0.05) six-fold over. The other two hypotheses FAILED informatively:
+the extra reads are NOT more match occurrences (only 19.8% of the
+dropped pattern mass sits on the match family) and there is no
+context-corruption effect (match-only substitution is slightly
+WORSE than uniform code, +0.147 vs +0.129 -- downstream prefers a
+consistent head over a mode-switching one). Final story, executable
+and validated: **each induction head computes its top 2-4
+double-QK coincidence reads; the top read carries 77%, the second
+most of the rest; the reads beyond the first are the head's next-
+priority coincidences wherever they land, not additional match
+copies.** The census induction band is hereby the program's FIRST
+COMPUTATIONAL-GRADE circuit: code = "sum the 4 largest
+coincidence-scored reads", replication 98.8%, shuffled control
+broken, all preregistered. Recorded in the registry as ind_band
+with mechanism_level=computational. Queued: topk4_stack -- the same
+4-read code applied to ALL 162 heads (registered: grid <=+0.10,
+fresh <=+0.15, IOI >=85%, r.3.0 members <=15% of deletion). If that
+holds, the entire attention stack of bilin18 runs on four lines of
+readable code.

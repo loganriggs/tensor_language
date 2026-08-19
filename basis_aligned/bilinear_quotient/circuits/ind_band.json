@@ -1,0 +1,74 @@
+{
+ "schema_version": 1,
+ "tag": "ind_band",
+ "tree": {
+  "instance": "212row-v1",
+  "n_rows": 212
+ },
+ "components": [
+  "heads (1,4),(2,5),(3,5),(3,8),(5,5),(6,5),(7,3),(8,3),(8,4)"
+ ],
+ "members": {
+  "n": "match positions (has prior occurrence)",
+  "indices": []
+ },
+ "story": {
+  "blind_name": "induction band: top-4 coincidence reads",
+  "mechanism_level": "computational",
+  "mechanism": {
+   "code": "z_h(q) = sum over k in top4 |pat_h(q,:)| of pat_h(q,k)*vm_h(k); pat = double-QK coincidence score (closed-form in stream)",
+   "replication": {
+    "top1": 0.1291,
+    "top2": 0.0244,
+    "top4": 0.0073,
+    "top8": 0.0041,
+    "deletion": 0.6013
+   },
+   "notes": "top read 77% of function; extra reads are next-priority coincidences, NOT match-family (19.8%); match-only substitution worse than uniform (no context-corruption term)"
+  }
+ },
+ "certification": [
+  {
+   "test": "top-4 code CE at match positions <= +0.05",
+   "value": 0.0073,
+   "verdict": "HELD",
+   "source": "induction_residual",
+   "date": "2026-08-19"
+  },
+  {
+   "test": "shuffled-key control >= 3x code",
+   "value": "0.674 vs 0.138 (top-1)",
+   "verdict": "HELD",
+   "source": "sparse_read_code",
+   "date": "2026-08-19"
+  },
+  {
+   "test": "IOI margin >=60% under code",
+   "value": "62%",
+   "verdict": "HELD",
+   "source": "sparse_read_code",
+   "date": "2026-08-19"
+  },
+  {
+   "test": "textbook match-copy code replicates",
+   "value": "+9.8 CE",
+   "verdict": "FAILED",
+   "source": "mech_replicate",
+   "date": "2026-08-19"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "mech_replicate.py",
+   "mech_diag.py",
+   "sparse_read_code.py",
+   "induction_residual.py"
+  ],
+  "sections": [
+   "365",
+   "369",
+   "370",
+   "376"
+  ]
+ }
+}
