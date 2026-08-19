@@ -9362,3 +9362,35 @@ recorded, and honestly close). Standing benchmark statement:
 most of the induction band and the motif-head core) carry the real
 attention computation.** The interpretive frontier of attention has
 been reduced from 162 heads to ~40.
+
+## 380. Second computational-grade circuit: r.3.0's heads close at k=8
+
+circuit_code_r30_k8: ALL BARS HELD. The 8-read code for heads
+(16,8),(16,2) costs 0.107 on r.3.0's members vs 0.505 for deletion
+(79% of function, bar 70%), median-member replication held, and the
+shuffled-key control costs 3.3x (bar 2.5x) -- key choice now
+demonstrably matters, resolving 375's specificity worry (at k=1 the
+single read was too impoverished for the control to separate). The
+novel circuit's attention machinery joins ind_band at computational
+grade: same code template, k=8. Emerging law of the code ladder:
+k is a per-mechanism capacity dial -- cheap diffuse heads at k=4
+gain, induction at k=4 replicates 98.8%, r.3.0's heads need k=8.
+Registry updated.
+
+## 381. Stability fork resolves on the harsh branch: clustering is context-dependent
+
+census_stability (safe_svd rerun): fresh-212-alone yields **77
+leaves** ((a) HELD -- the 2x-corpus collapse was corpus MIXING, not
+size), but same-data identity vs the 424-tree is **4/77 = 5%**
+((b) FAILED decisively). Even on identical rows, the tree carves
+different clusters depending on what other data sits in the build.
+Fairness caveat recorded: the 424 tree is much coarser (29 leaves)
+and Jaccard punishes subset-containment; a containment metric is a
+registered follow-up. But the operational conclusion is already
+forced and now stands in the SOP: leaf member-sets are one sample
+from a family of valid partitions, NOT stable objects. Circuit
+records must anchor on MACHINERY + PROGRAM + CAUSAL PROFILE;
+member-sets are evidence, not identity. The swarm's production
+unit is revised accordingly: a certified record requires its
+machinery's causal profile to replicate on a disjoint window (the
+Ledger-22 discipline promoted from benchmark to census).

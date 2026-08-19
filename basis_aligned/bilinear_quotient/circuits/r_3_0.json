@@ -1,0 +1,47 @@
+{
+ "schema_version": 1,
+ "tag": "r.3.0",
+ "tree": {
+  "instance": "212row-v1",
+  "n_rows": 212
+ },
+ "story": {
+  "mechanism_level": "computational",
+  "mechanism": {
+   "code": "heads (16,8),(16,2): z_h(q)=sum over k in top8 |pat_h(q,:)| of pat_h(q,k)*vm_h(k)",
+   "replication": {
+    "k1": 0.2089,
+    "k8": 0.1073,
+    "deletion": 0.5052,
+    "shuffled_control": 0.358
+   },
+   "notes": "79% of named-head function at k=8; a6/a7 bundles not yet coded"
+  }
+ },
+ "certification": [
+  {
+   "test": "k=8 code <=30% of deletion on members",
+   "value": 0.21,
+   "verdict": "HELD",
+   "source": "circuit_code_r30_k8",
+   "date": "2026-08-19"
+  },
+  {
+   "test": "shuffled-key >=2.5x code",
+   "value": 3.34,
+   "verdict": "HELD",
+   "source": "circuit_code_r30_k8",
+   "date": "2026-08-19"
+  },
+  {
+   "test": "context-freeness (2-token table)",
+   "value": "8.5% EV",
+   "verdict": "FAILED",
+   "source": "suffix_code",
+   "date": "2026-08-19"
+  }
+ ],
+ "members": {
+  "n": 1222
+ }
+}

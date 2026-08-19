@@ -39,27 +39,115 @@ r.2: repl 0.955 class subword 0.029 n=8141 tokens [' and', 'd', ' [', 'Of', ' ['
   r.2.2: repl 0.064 class newline 0.185 n=1222 tokens ['}', ')', '\n', ')', '\n', '\n']
   r.2.3: repl 0.742 class newline 0.004 n=1222 tokens [':', 'js', ' career', '===', ' �', '\n']
 r.3: repl 0.911 class rep 0.026 n=8141 tokens [' ', ' ', ' ', ' ', "',", ' [']
-/workspace/tensor_language/basis_aligned/bilinear_quotient/census_stability.py:126: UserWarning: torch.linalg.svd: During SVD computation with the selected cusolver driver, batches 0 failed to converge. A more accurate method will be used to compute the SVD as a fallback. Check doc at https://pytorch.org/docs/stable/generated/torch.linalg.svd.html (Triggered internally at /pytorch/aten/src/ATen/native/cuda/linalg/BatchLinearAlgebraLib.cpp:692.)
-  _,_,Vh=torch.linalg.svd((Y-Y.mean(0))[:20000],
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_stability.py", line 357, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_stability.py", line 289, in main
-    recurse(md,1)
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_stability.py", line 270, in recurse
-    subs=factor(fine[:24],md['_member'],4,md['tag'])
-         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_stability.py", line 185, in factor
-    cols.append(damage(ps)[slice_idx])
-                ^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_stability.py", line 177, in damage
-    else: hooks=slice_pca_probe(pspec[1],pspec[2],pspec[3])
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_stability.py", line 126, in slice_pca_probe
-    _,_,Vh=torch.linalg.svd((Y-Y.mean(0))[:20000],
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-torch._C._LinAlgError: linalg.svd: The algorithm failed to converge because the input matrix is ill-conditioned or has too many repeated singular values (error code: 1152).
+  r.3.0: repl 0.928 class newline 0.129 n=1222 tokens ['\n', '\n', '\n', '\n', '\n', '\n']
+    r.3.0.0: repl 0.984 class newline 0.403 n=184 tokens ['t', ' g', ' {', ' {', ' 20', 'fig']
+    r.3.0.1: repl 0.799 class newline 0.233 n=184 tokens ['------', 'frame', '~', 'Results', ' sports', 'ka']
+    r.3.0.2: repl 0.822 class digit 0.011 n=184 tokens ['at', 'Is', 'up', '.', '~', ',']
+    r.3.0.3: repl 0.996 class name 0.015 n=184 tokens ['as', ' the', 'as', ' bloody', ' during', ' W']
+  r.3.1: repl 0.731 class newline 0.091 n=1222 tokens ['\n', ' }', ' airports', 'ka', 'frame', '\n']
+    r.3.1.0: repl 0.947 class newline 0.148 n=184 tokens ['ax', ' airports', '.', ' in', '\n', 'ilities']
+    r.3.1.1: repl 0.946 class newline 0.031 n=184 tokens ['-', ' ', 'HTML', '\n', ' }', '\n']
+    r.3.1.2: repl 0.997 class newline 0.013 n=184 tokens ['2', '-', '-', ' {', '}', ')']
+    r.3.1.3: repl 1.0 class rep 0.013 n=184 tokens ['{', ' }', ')', ' {', '\n', '2']
+  r.3.2: repl 0.643 class newline 0.042 n=1222 tokens ['Results', ' the', '2', '\n', ' Wildlife', '\n']
+    r.3.2.0: repl 0.989 class bclose 0.007 n=184 tokens ['HTML', 'up', '.', ' Technical', ' the', '^']
+    r.3.2.1: repl 0.145 class comma 0.009 n=184 tokens ['~', 'ilities', ' sports', 'Results', ' career', '----------']
+    r.3.2.2: repl 0.48 class newline 0.141 n=184 tokens ['\n', 'js', '-', '2', '.', ' dead']
+    r.3.2.3: repl 0.032 class newline 0.023 n=184 tokens ['~', 'ka', '2', '.', ' scar', '~']
+  r.3.3: repl 0.555 class newline 0.035 n=1222 tokens ['="', ' get', 'rics', '17', 'writing', 'ca']
+r.4: repl 0.685 class newline 0.039 n=8141 tokens ['c', 'b', 'd', 'm', 'c', 'c']
+  r.4.0: repl 0.697 class other 0.057 n=1222 tokens [',', ',', ' of', ' when', ' Reverend', 'derived']
+    r.4.0.0: repl 0.56 class ind 0.068 n=184 tokens [' to', 'derived', ' All', ' two', '{', ' all']
+    r.4.0.1: repl 0.541 class other 0.033 n=184 tokens [' ', ' }', '}', ' the', '\n', ' ']
+    r.4.0.2: repl 0.046 class newline 0.031 n=184 tokens [' ', ' !', ')', ' }', ' ', ' the']
+    r.4.0.3: repl 0.052 class newline 0.008 n=184 tokens ['\n', '\n', '\n', ' both', '\n', ',']
+  r.4.1: repl 0.719 class newline 0.112 n=1222 tokens ['\n', ' of', '\n', '\n', '\n', '\n']
+    r.4.1.0: repl 0.987 class newline 0.078 n=184 tokens [' with', ' also', ' of', ' of', ' in', 'Results']
+    r.4.1.1: repl 0.201 class newline 0.201 n=184 tokens [' {', ' {', '#', '\n', '\n', '\n']
+    r.4.1.2: repl 0.318 class newline 0.191 n=184 tokens ['end', ' });', '\n', '}', '\n', '{']
+    r.4.1.3: repl 0.064 class other 0.007 n=184 tokens [':', ' but', '\n', '\n', '\n', '------------------------']
+  r.4.2: repl 0.763 class newline 0.142 n=1222 tokens ['\n', '\n', '\n', '\n', '\n', '\n']
+    r.4.2.0: repl 0.859 class newline 0.056 n=184 tokens [' of', 'Results', '20', '\n', ' as', ' with']
+    r.4.2.1: repl 0.219 class newline 0.018 n=184 tokens [' {', ' {', '\n', ':', '\n', '\n']
+    r.4.2.2: repl 0.013 class newline 0.218 n=184 tokens ['}', '\n', '\n', ' eight', '\n', '�']
+    r.4.2.3: repl 0.089 class newline 0.031 n=184 tokens ['2', ' near', '}', '\n', '\n', '3']
+  r.4.3: repl 0.649 class newline 0.077 n=1222 tokens [' lines', '-', '}', '#', '3', 'Air']
+    r.4.3.0: repl 0.959 class newline 0.029 n=184 tokens [' {', '//', ':', ' of', ' {', ':']
+    r.4.3.1: repl 0.345 class digit 0.01 n=184 tokens ['frame', '.', '1', ' Affairs', '.', ' paths']
+    r.4.3.2: repl 0.227 class newline 0.105 n=184 tokens [' 0', '{', '#', ' vessel', ' What', '{']
+    r.4.3.3: repl 0.878 class newline 0.013 n=184 tokens ['and', ' truly', ' on', ' I', ' ', ' ']
+r.5: repl 0.646 class newline 0.016 n=8141 tokens ['\n', '\n', '\n', '\n', '\n', '\n']
+  r.5.0: repl 0.814 class newline 0.138 n=1222 tokens ['\n', '\n', '\n', 'f', '\n', '\n']
+    r.5.0.0: repl 0.903 class newline 0.305 n=184 tokens ['js', 'HTML', ' airports', '\n', '.', 'ilities']
+    r.5.0.1: repl 0.583 class newline 0.307 n=184 tokens ['}', '/**', '\n', '\n', '-', ' =']
+    r.5.0.2: repl 0.365 class rep 0.013 n=184 tokens [' {', '\n', '\n', 'HTML', 'Using', ' {']
+    r.5.0.3: repl 0.339 class ind 0.006 n=184 tokens ['\n', ' Men', '\n', '\n', ' {', ' AM']
+  r.5.1: repl 0.001 class newline 0.12 n=1222 tokens ['/**', '}', '\n', '\n', '\n', '\n']
+  r.5.2: repl 0.133 class newline 0.037 n=1222 tokens ['\n', '\n', '\n', '\n', '\n', '\n']
+  r.5.3: repl 0.432 class rep 0.052 n=1222 tokens ['}', ' ', ' ', ' {', ' ', ' ']
+r.6: repl 0.831 class newline 0.004 n=8141 tokens [' in', '\n', '\n', '\n', '\n', ')']
+  r.6.0: repl 0.944 class ind 0.009 n=1222 tokens [' Min', ' car', ' in', 'History', ' sports', ' heck']
+    r.6.0.0: repl 0.971 class ind 0.018 n=184 tokens [' }', ' lines', ' Min', 'X', ',', '1']
+    r.6.0.1: repl 0.952 class newline 0.065 n=184 tokens ['------', '\n', 'ALE', ' {', '------', '------']
+    r.6.0.2: repl 0.791 class newline 0.013 n=184 tokens ['up', '\n', "',", ' is', 'ribe', ' to']
+    r.6.0.3: repl 0.629 class newline 0.011 n=184 tokens [' sports', ' ', 'ilities', ')', 'M', '(),']
+  r.6.1: repl 0.92 class newline 0.003 n=1222 tokens [' {', 'Results', ' {', ' ', 'background', ' ']
+    r.6.1.0: repl 0.984 class rep 0.006 n=184 tokens [' {', ' {', '********', 'S', ' {', ' {']
+    r.6.1.1: repl 0.784 class newline 0.135 n=184 tokens [' }', '}', '}', '}', '------', ']);']
+    r.6.1.2: repl 0.313 class other 0.005 n=184 tokens [' {', ' {', ' {', '\n', 'background', ' ']
+    r.6.1.3: repl 0.124 class newline 0.032 n=184 tokens [',', '------', ' cocktail', ' {', '\t', 'p']
+  r.6.2: repl 0.875 class newline 0.007 n=1222 tokens [' cells', '8', ' ', ' evaluation', ' ', 'p']
+    r.6.2.0: repl 0.946 class newline 0.074 n=184 tokens ['Results', '//', ')', ' {', ' {', ' with']
+    r.6.2.1: repl 0.952 class rep 0.009 n=184 tokens ['------', 'ax', 'up', ' cells', '\n', ':']
+    r.6.2.2: repl 0.352 class newline 0.04 n=184 tokens ['20', '\n', ' {', ':', ' ', ' the']
+    r.6.2.3: repl 0.231 class sentend 0.006 n=184 tokens ['\n', ' ', 'up', ' ', ' ', ' ']
+  r.6.3: repl 0.703 class newline 0.022 n=1222 tokens ['}', '}', 'route', '--', ' ', ' ']
+    r.6.3.0: repl 0.756 class newline 0.049 n=184 tokens [' sports', ' }', '}', 'anded', '\n', ' by']
+    r.6.3.1: repl 0.56 class name 0.003 n=184 tokens ['2', ' {', ' |', ' in', '\n', ' B']
+    r.6.3.2: repl 0.349 class rep 0.007 n=184 tokens ['------', ' {', '}', '\n', '\n', '4']
+    r.6.3.3: repl 0.069 class newline 0.015 n=184 tokens [':', ' cooling', ' if', '\n', ' mention', ':']
+r.7: repl 0.697 class rep 0.017 n=8141 tokens ['}', '}', '}', '/**', '\n', '}']
+  r.7.0: repl 0.967 class newline 0.033 n=1222 tokens ['up', '-', '{', ')', ' {', '}']
+    r.7.0.0: repl 0.966 class ind 0.087 n=184 tokens [')', ')', '}', '\n', ')', '\n']
+    r.7.0.1: repl 0.934 class newline 0.207 n=184 tokens ['")', '{', '********', '")', ';"', ' {']
+    r.7.0.2: repl 0.373 class newline 0.036 n=184 tokens ['\n', '\n', '\n', '}', ' ', '84']
+    r.7.0.3: repl 0.228 class rep 0.016 n=184 tokens ['\n', ':', '\n', ' ', 'center', '-']
+  r.7.1: repl 0.95 class rep 0.002 n=1222 tokens ['ulf', '{', 'background', 'background', '<', '}']
+    r.7.1.0: repl 0.973 class bclose 0.005 n=184 tokens ['background', '\n', 'background', '}', '.', ' |']
+    r.7.1.1: repl 0.167 class newline 0.063 n=184 tokens [':', ';', '"', '")', ';', '}']
+    r.7.1.2: repl 0.008 class newline 0.014 n=184 tokens [':', ')', ')', ' Men', '{', '--']
+    r.7.1.3: repl 0.051 class newline 0.032 n=184 tokens [':', '14', 'c', 'b', '238', '\r']
+  r.7.2: repl 0.016 class subword 0.002 n=1222 tokens ['")', '\n', '\n', ' ', '//', '\n']
+  r.7.3: repl 0.289 class rep 0.054 n=1222 tokens [' {', ' ', '168', ' {', 'View', ':']
+r.8: repl 0.472 class ind 0.015 n=8141 tokens ['0', '\n', '\n', '\n', '.', '\n']
+r.9: repl 0.539 class newline 0.018 n=8141 tokens ['}', '~', '}', '\n', ';', '}']
+r.10: repl 0.079 class newline 0.007 n=8141 tokens ['\n', '3', "'s", ' to', ' }', ' to']
+r.11: repl 0.208 class ind 0.002 n=8141 tokens [' transportation', '{', '�', ':', ' ', '�']
+r.12: repl 0.339 class other 0.017 n=8141 tokens [' �', ' ', '�', ' II', ';', ' B']
+r.13: repl 0.531 class other 0.007 n=8141 tokens [' ', ' ', ' ', ' deg', "'s", 'arch']
+r.14: repl 0.165 class sentend 0.001 n=8141 tokens [' _', '\n', '.', ' to', '\n', 'And']
+r.15: repl 0.165 class other 0.001 n=8141 tokens ['17', '}', ' to', ' the', ' sample', '\n']
+r.16: repl 0.189 class other 0.003 n=8141 tokens [')', ')', '3', ' {', '2', ' {']
+r.17: repl 0.653 class newline 0.017 n=8141 tokens ['c', 'd', 'ney', '1', '")', '-------------']
+  r.17.0: repl 0.862 class newline 0.009 n=1222 tokens ['up', '/**', ' ', ' Ever', '\n', ' sports']
+    r.17.0.0: repl 0.954 class newline 0.039 n=184 tokens ['up', '-', '}', '----------', 'HTML', ' in']
+    r.17.0.1: repl 0.196 class newline 0.012 n=184 tokens ['{', '\n', ' {', ' {', 'ulf', ' and']
+    r.17.0.2: repl 0.096 class newline 0.138 n=184 tokens ['{', '------', ' }', '------', '}', ' ']
+    r.17.0.3: repl 0.164 class newline 0.031 n=184 tokens ['ka', ' sports', ' {', ' ', 'b', ' ']
+  r.17.1: repl 0.539 class newline 0.099 n=1222 tokens ['-', '\n', '}', 'background', '!', ')']
+  r.17.2: repl 0.426 class newline 0.028 n=1222 tokens ['\n', '\n', '\n', '}', '\n', ' ']
+  r.17.3: repl 0.405 class newline 0.05 n=1222 tokens [' }', ' ', '\n', '\n', ' {', '------']
+r.18: repl 0.029 class other 0.005 n=8141 tokens ['ilities', 'Results', 'background', 'background', '===', ' |']
+r.19: repl 0.024 class rep 0.005 n=8141 tokens [' {', '\n', 'able', '.', ' ', '-']
+r.20: repl 0.471 class rep 0.002 n=8141 tokens ['/**', '\n', ' "', '2', 'Auth', 'file']
+r.21: repl 0.373 class newline 0.014 n=8141 tokens ['anders', '\n', '\n', 'a', 'Array', '\n']
+r.22: repl 0.025 class subword 0.005 n=8141 tokens [' {', ' {', ' {', '(),', '(),', ')']
+r.23: repl 0.036 class digit 0.001 n=8141 tokens ['----------', '"', ' ||', ')', '�', '\n']
+(d) all packs >=12 contexts: HELD
+
+leaves 77 | new-structure 68 | child repl rate 0.57
+(a) >=50 leaves at matched size: HELD
+same-data identity vs 424-tree: 4/77 (5%) at J>=0.5
+(b) >=40% same-data identity: FAILED
+(c) state saved: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/census_stability_results.json (666s)

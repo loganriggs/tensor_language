@@ -4113,3 +4113,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 379 (2026-08-19)
 - Cheapest-N at k=4: 120 heads at -0.026 (negative!), 140 at +0.076, fresh_140 +0.169 (bar missed by 0.017). Attention's interpretive frontier reduced to ~40 heads.
+
+## Appendix 380-381 (2026-08-19)
+- 380: r.3.0 heads computational at k=8 (79%, 3.3x control). k = per-mechanism capacity dial.
+- 381: clustering context-dependent (5% same-data identity; 77 leaves at matched size). SOP revised: identity = machinery+program+profile, replication on disjoint windows required; member-sets are evidence, not identity.

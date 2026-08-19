@@ -9,6 +9,14 @@ find things but cannot certify junk. GPU steps go through queue.txt
 Deliverable: one merged circuit record via census_lib.write_circuit(tag, ...)
 conforming to CIRCUIT_SCHEMA.md. Do the steps IN ORDER; record every number.
 
+## Identity rule (2026-08-19 revision, from 381)
+Leaf member-sets are ONE SAMPLE from a family of valid partitions --
+clustering is context-dependent (5% same-data identity across tree
+builds). A record's identity is its MACHINERY (probe bundles) +
+PROGRAM + CAUSAL PROFILE (sign split, concentration, class profile).
+Member-sets are evidence. Certification of a new record requires its
+machinery's causal profile to REPLICATE on a disjoint window.
+
 ## Step 0 -- claim a leaf
 Read circuits/registry.json; pick a tag from census_lib.all_tags() with no
 file yet (or the assignment given to you). Never edit another leaf's file.
