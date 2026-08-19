@@ -415,3 +415,89 @@ def write_circuit(tag,updates):
     json.dump(doc,open(p,'w'),indent=1)
     rebuild_registry()
     return p
+
+# ---------- canonical copies (do NOT re-implement in scripts) ----------
+# Everything below existed as near-identical copies in 5+ experiment
+# scripts before the 2026-08-19 cleanup. New scripts must import these.
+
+@torch.no_grad()
+def head_parts(li,X,v1):
+    """Recompute one attention layer's per-head patterns and mixed
+    values. Returns (z, vm): z (B,9,T,128) head outputs pre-c_proj,
+    vm (B,T,9,128) lambda-mixed values. THE canonical recompute --
+    verified exact vs the real forward (353: delta +0.0000)."""
+    import sys as _s
+    are=_s.modules[type(m.transformer.h[0].attn).__module__] \
+        .apply_rotary_emb
+    at=m.transformer.h[li].attn
+    Bb,Tq=X.shape[0],X.shape[1]
+    v=at.c_v(X).view(Bb,Tq,9,128)
+    vm=(1-at.lamb)*v+at.lamb*(v1.view_as(v) if v1 is not None else v)
+    cos,sin=at.rotary(at.c_q(X).view(Bb,Tq,9,128))
+    qf=F.rms_norm(at.c_q(X).view(Bb,Tq,9,128),(128,))
+    kf=F.rms_norm(at.c_k(X).view(Bb,Tq,9,128),(128,))
+    qf,kf=are(qf,cos,sin),are(kf,cos,sin)
+    q2=F.rms_norm(at.c_q2(X).view(Bb,Tq,9,128),(128,))
+    k2=F.rms_norm(at.c_k2(X).view(Bb,Tq,9,128),(128,))
+    q2,k2=are(q2,cos,sin),are(k2,cos,sin)
+    sc=torch.einsum('bqhd,bkhd->bhqk',qf.float(),kf.float())/128
+    s2=torch.einsum('bqhd,bkhd->bhqk',q2.float(),k2.float())/128
+    pat=(sc*s2)*torch.tril(torch.ones(Tq,Tq,device=X.device))
+    z=torch.einsum('bhqk,bkhd->bhqd',pat,vm.float())
+    return z,vm.float()
+
+def mean_head_hooks(li,hds):
+    """Within-batch MEAN ablation of specific heads (content killed,
+    magnitude kept). LESSON 353/354: never zero-ablate heads -- zeroing
+    is a magnitude shock that reads uniform across heads."""
+    at=m.transformer.h[li].attn
+    def fh(mo_,args,out,at=at,hds=hds):
+        y,v1r=out
+        X=args[0]; v1=args[1] if args[1] is not None else v1r
+        z,vm=head_parts(li,X,v1)
+        for hd in hds: z[:,hd]=z[:,hd].mean(1,keepdim=True)
+        Bb,Tq=X.shape[0],X.shape[1]
+        yn=at.c_proj(z.transpose(1,2).contiguous()
+                     .view(Bb,Tq,-1).to(X.dtype))
+        return (yn,v1r)
+    return [at.register_forward_hook(fh)]
+
+def fresh_rows(n=120,start=5000):
+    """n never-seen 513-token pile rows, dedup'd against FW (the
+    canonical fresh-data recipe, Ledger 22)."""
+    import tiktoken
+    from datasets import load_dataset
+    enc2=tiktoken.get_encoding('gpt2')
+    ds=load_dataset('NeelNanda/pile-10k',split='train')
+    seen={tuple(FW[r,:32].tolist()) for r in range(FW.shape[0])}
+    out=[]
+    for di in range(start,10000):
+        tk=enc2.encode_ordinary(ds[di]['text'])
+        for s0 in range(0,len(tk)-513,513):
+            row=tk[s0:s0+513]
+            if tuple(row[:32]) in seen: continue
+            out.append(row)
+            if len(out)>=n: break
+        if len(out)>=n: break
+    return torch.tensor(out,dtype=torch.long)
+
+def ioi_prompts():
+    """The canonical 96-prompt IOI set (8 pairs x 2 orders x 6
+    templates). Returns [(text, io_token_id, s_token_id)]."""
+    import itertools
+    e=enc()
+    names=[' Mary',' John',' Anna',' Peter',' Sarah',' Tom',
+           ' Alice',' Bob']
+    T9=['When{A} and{B} went to the store,{B} gave the drink to',
+        'When{A} and{B} got home,{B} handed the keys to',
+        'After{A} and{B} left the party,{B} gave the coat to',
+        'Then{A} and{B} went to the park, and{B} threw the ball to',
+        'While{A} and{B} were cooking,{B} passed the salt to',
+        'When{A} and{B} finished lunch,{B} gave the bill to']
+    out=[]
+    for A,B in list(itertools.combinations(names,2))[:8]:
+        for a,b in ((A,B),(B,A)):
+            for tpl in T9:
+                out.append((tpl.replace('{A}',a).replace('{B}',b),
+                            e.encode(a)[0],e.encode(b)[0]))
+    return out

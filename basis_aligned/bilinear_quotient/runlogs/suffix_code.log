@@ -1,0 +1,16 @@
+r.3.0: n=1222 probes ["('head', 16, 8)", "('pca', 'a6', 'r.3', (0, 4))", "('pca', 'a7', 'r.3', (0, 4))", "('head', 16, 2)"]
+1222 members, 515 unique pairs
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/suffix_code.py", line 102, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/suffix_code.py", line 58, in main
+    abl2=nl2(cl.proj_hooks(probes))
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_lib.py", line 92, in proj_hooks
+    for _,key,stag,blk in probes:
+        ^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 4, got 3)

@@ -1,0 +1,7 @@
+alpha: {'(1, 4)': 0.085, '(2, 5)': -0.084, '(3, 5)': -0.082, '(3, 8)': -0.083, '(5, 5)': 0.227, '(6, 5)': -0.286, '(7, 3)': -0.131, '(8, 3)': -0.057, '(8, 4)': 0.048}
+match cost +9.8216 | nonmatch +10.2589 | shuffled +9.8452 | logit corr 0.029
+(a) replication <=+0.05: FAILED
+(b) logit corr >=0.8: FAILED
+(c) nonmatch <=+0.10: FAILED
+(d) shuffled >=3x: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mech_replicate_results.json (3s)
