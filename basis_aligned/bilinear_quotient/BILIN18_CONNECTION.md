@@ -8251,3 +8251,21 @@ post hoc and therefore now REGISTERED as its own bar on the NEXT
 twenty untouched blind-nameable leaves: >=60% must clear
 selectivity-2x. If that fails too, the census claim narrows further to
 its replication tier alone.
+
+## 325. The selectivity bar holds fresh: the census's final form is certified
+
+`census_redteam3.py` (twenty untouched leaves, selectivity-only bar,
+registered in 324): **15/20 pass at pooled member effect >= 2x
+base-CE-matched controls** -- 75% against the 60% bar, HELD. The
+census's scoped claim is now certified end to end rather than
+narrowed: 118 replicated, distinct, contrastive, confound-clean,
+CAUSALLY SELECTIVE dependence neighborhoods, 47 with blind-transmitting
+names, with sign-predictable linear response a rare special property
+rather than the norm. A bonus observation from the fresh set: sign
+agreement runs higher there (four leaves at 0.83-0.96) than in the
+round-2 top-named twenty -- the linear-unit subpopulation is real and
+not confined to celebrated leaves; estimating its true fraction is a
+registered follow-up for the next census pass. Reviewer 2's audit,
+verdict: three attacks repelled, one landed and reshaped the claim
+into what the evidence supports, and the reshaped claim then survived
+its own fresh-data test. That is the shape of a robust result.
