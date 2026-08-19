@@ -9082,3 +9082,30 @@ the swarm: in this architecture, any pattern-level claim must
 separate SHAPE (where attention goes) from GAIN (how hard) -- they
 are different objects with different owners (mask vs fitted
 scalar).
+
+## 365. The textbook induction story is REFUTED as code in bilin18
+
+mech_replicate implemented the canonical induction mechanism as
+executable code -- z_h(q) = alpha_h * v(j+1) at match positions,
+silent elsewhere -- and substituted it for all 9 census induction
+heads. Every registered bar FAILED decisively: match-position CE
++9.8 nats (bar +0.05), continuation-logit correlation 0.03 (bar
+0.8), and the fitted alphas themselves are the tell: 0.05-0.29 in
+magnitude with MIXED SIGNS -- the heads' real outputs are nearly
+orthogonal to the literal induction read. bilin18's "induction
+heads" do not compute match-and-copy in the textbook form. This
+coheres with two prior results that now snap into place: these
+heads are the LEAST rank-compressible in the model (343: full-width
+keys), and their IOI contribution is one additive vote among
+several, not a chain stage (359). The census 'ind' label describes
+a pattern-shape preference, not a functional read. mech_diag
+queued: per-head sparsity of the actual read (top-1 pattern share),
+location of the top key (match region vs local vs other), so the
+TRUE story is built from measurement. Also this session: the first
+computational-grade attempt on a novel circuit (suffix_code,
+context-freeness of r.3.0 as a 2-token lookup table) crashed on a
+probe-kind mismatch -- census_lib now has leaf_hooks covering all
+three probe kinds (pca/comp/head), requeued. Ops: the cleanup's
+directory move broke the canary import chain (bilin18_canary +
+bilin18_pipe_refit moved back to top level; import-graph scan now
+part of any future move).

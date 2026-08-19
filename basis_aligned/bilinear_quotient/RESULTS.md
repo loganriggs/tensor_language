@@ -4082,3 +4082,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 364: shape vs gain (2026-08-19)
 - Raw-pattern linear fit fails (1/162) while swaps work: unnormalized squared-product patterns = shape x gain; v1 measured gain variance. v2 queued with per-query normalization. Swarm rule: separate shape from gain.
+
+## Appendix 365: induction-as-code refuted (2026-08-19)
+- Literal match-and-copy code: CE +9.8 at match positions, corr 0.03, alphas ~0 mixed-sign. The 'ind' motif is pattern-shape, not functional read. mech_diag queued (sparsity + location of the real read). suffix_code fixed (leaf_hooks) and requeued.

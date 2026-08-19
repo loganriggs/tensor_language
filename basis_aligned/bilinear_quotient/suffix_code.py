@@ -55,7 +55,7 @@ def main():
         for h in hooks: h.remove()
         return torch.cat(outs)
     base2=nl2([])
-    abl2=nl2(cl.proj_hooks(probes))
+    abl2=nl2(cl.leaf_hooks(probes))
     TABLE=base2-abl2
     print(f'TABLE built: mean {float(TABLE.mean()):+.3f} '
           f'sd {float(TABLE.std()):.3f}',flush=True)
@@ -72,7 +72,7 @@ def main():
         for h in hooks: h.remove()
         return vals
     fr=nl_full([])
-    fa=nl_full(cl.proj_hooks(probes))
+    fa=nl_full(cl.leaf_hooks(probes))
     measured=(fr-fa)[mem]
     code=TABLE[inv]
     corr=float(torch.corrcoef(torch.stack([code,measured]))[0,1])

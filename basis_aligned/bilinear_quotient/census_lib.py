@@ -85,6 +85,34 @@ def pca_block(key,stag,blk):
     _PCA[kk]=Vh[blk[0]:blk[1]]
     return _PCA[kk]
 
+def leaf_hooks(probes):
+    """Hooks reproducing the census's own operator for EVERY probe
+    kind: pca -> projection removal; comp -> whole-component mean;
+    head -> head z zeroed (the census's historical head op -- kept
+    for leaf-fidelity even though zeroing is otherwise deprecated,
+    see LESSONS 1)."""
+    probes=[eval(p) if isinstance(p,str) else p for p in probes]
+    hs=[]
+    pcas=[p for p in probes if p[0]=='pca']
+    if pcas: hs+=proj_hooks(pcas)
+    comps=[p[1] for p in probes if p[0]=='comp']
+    if comps: hs+=mean_hooks(comps)
+    for p in probes:
+        if p[0]=='head':
+            li,hd=p[1],p[2]
+            at=m.transformer.h[li].attn
+            def fh(mo_,args,out,li=li,hd=hd,at=at):
+                y,v1r=out
+                X=args[0]; v1=args[1] if args[1] is not None else v1r
+                z,vm=head_parts(li,X,v1)
+                z[:,hd]=0
+                Bb,Tq=X.shape[0],X.shape[1]
+                yn=at.c_proj(z.transpose(1,2).contiguous()
+                             .view(Bb,Tq,-1).to(X.dtype))
+                return (yn,v1r)
+            hs.append(at.register_forward_hook(fh))
+    return hs
+
 def proj_hooks(probes):
     """probes: list of ('pca',key,stag,(s0,s1)) (strings also ok)."""
     probes=[eval(p) if isinstance(p,str) else p for p in probes]
