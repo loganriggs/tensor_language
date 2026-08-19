@@ -1,19 +1,17 @@
-"""PROGRAM NAMES -- can SIMPLE CODE predict the unnamed circuits?
-Description language fixed in advance: deploy-legal token predicates
-(cur/prev token in a <=8-token literal set; is-digit / punct / newline /
-uppercase-initial / mid-word / starts-space; token-seen-earlier;
-distance-since-newline bucket; within-3-after-literal). Program = OR of
-<=2 conjunctions of <=3 predicates, priced ~8 bits/predicate + 16
-bits/literal, cap 64 bits. Fit on one DOCUMENT-DISJOINT half of members
-vs difficulty-matched non-members; scored on the other half; null =
-same search on shuffled labels.
+"""MECHANISM BOOTSTRAP v3 -- BIGRAM FOLD. v2 (0/22, sane triggers)
+established that the front-MLP circuits are not unigram functions: the
+triggers found name-INITIAL fragments while members sit on the SECOND
+token of names -- inherently pair conditions. v3 computes the fold over
+all corpus-occurring token PAIRS (T=2 forwards, weights-only,
+member-blind), scores each pair by the fraction of the current-position
+output landing in the leaf's probe directions, and predicts members as
+positions whose (prev, cur) pair is in the top-q pair set (q = member
+rate x corpus pair count, the single allowed statistic).
 REGISTERED PREDICTIONS:
-  (a) >=40% of the un-named leaves (blind-name failures/borderlines)
-      get a <=64-bit program with held-out balanced accuracy >= 0.75,
-      while the shuffled-label null median <= 0.6;
-  (b) the blind-nameable leaves get programs at a higher rate (>=60%)
-      -- names and programs should agree about which circuits are easy;
-  (c) the found programs printed (they ARE auto-generated names)."""
+  (a) >=40% of tested front-MLP leaves reach precision >= 3x base rate
+      at recall >= 0.3 (pair mechanisms predict extension);
+  (b) random corpus-pair null <= 1.2x base (median);
+  (c) example trigger pairs printed."""
 import json, sys, time, torch
 sys.path.insert(0,'/workspace/tensor_language/basis_aligned/bilinear_quotient')
 import torch.nn.functional as F
@@ -23,7 +21,7 @@ import tiktoken
 enc=tiktoken.get_encoding('gpt2')
 D=1152
 PT='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT=PT+'program_names_results.json'
+OUT=PT+'mechanism_bootstrap3_results.json'
 CA=300; NB=78
 MHL=list(range(2,10))
 T=256
@@ -313,166 +311,109 @@ def main():
         if not ok: continue
         leaves.append(md)
         recurse(md,1)
-    basev=base.cpu()
-    print(f'tree built: {len(leaves)} leaves; program search',
-          flush=True)
+    print(f'tree built: {len(leaves)} leaves; bootstrap',flush=True)
     import tiktoken as tk9
     enc9=tk9.get_encoding('gpt2')
-    tok2d=rows[:,:256]
-    ntokr,Tr=tok2d.shape
-    # --- fixed feature builders (vectorized where cheap) ---
-    dec={}
-    def d1(t):
-        t=int(t)
-        if t<0 or t>50256: return '<BOS>'
-        if t not in dec: dec[t]=enc9.decode([t])
-        return dec[t]
-    flat=tok2d.reshape(-1)
-    isnl=torch.tensor([chr(10) in d1(t) for t in
-                       flat.unique().tolist()])
-    uniq=flat.unique()
-    lut={}
-    for u,v in zip(uniq.tolist(),isnl.tolist()): lut[u]=v
-    NL=torch.tensor([lut[int(t)] for t in flat.tolist()])        .view(ntokr,Tr)
-    def strfeat(fn):
-        vals={int(u):fn(d1(int(u))) for u in uniq.tolist()}
-        return torch.tensor([vals[int(t)] for t in flat.tolist()])            .view(ntokr,Tr)
-    DIG=strfeat(lambda s2: s2.strip().isdigit())
-    PUN=strfeat(lambda s2: bool(s2.strip()) and
-                not any(c.isalnum() for c in s2.strip()))
-    UPI=strfeat(lambda s2: s2.startswith(' ') and
-                s2.strip()[:1].isupper())
-    MID=strfeat(lambda s2: (not s2.startswith(' ')) and
-                s2.strip().isalpha())
-    SPC=strfeat(lambda s2: s2.startswith(' '))
-    SEEN=torch.zeros(ntokr,Tr,dtype=torch.bool)
-    DNL=torch.zeros(ntokr,Tr,dtype=torch.long)
-    for r_ in range(ntokr):
-        seen=set(); dn=99
-        row=tok2d[r_].tolist()
-        for t_ in range(Tr):
-            SEEN[r_,t_]=row[t_] in seen
-            seen.add(row[t_])
-            if lut[row[t_]]: dn=0
-            else: dn=min(dn+1,99)
-            DNL[r_,t_]=dn
-    PREV=torch.roll(tok2d,1,dims=1); PREV[:,0]=-1
-    BASEF={'is_digit':DIG,'is_punct':PUN,'upper_initial':UPI,
-           'mid_word':MID,'starts_space':SPC,'is_newline':NL,
-           'seen_before':SEEN,
-           'prev_newline':torch.roll(NL,1,dims=1),
-           'dist_nl_le2':DNL<=2,'dist_nl_ge6':DNL>=6}
-    def leaf_feats(memflat):
-        # member-lift literal sets (priced): top-8 cur and prev tokens
-        mt=flat[memflat]
-        def topset(vals):
-            vals=vals[vals>=0]
-            u,c=vals.unique(return_counts=True)
-            base_c=torch.tensor([float((flat==x).sum()) for x in
-                                 u.tolist()])
-            lift=c.float()/base_c.clamp_min(1)
-            order=lift.argsort(descending=True)
-            return set(u[order[:8]].tolist())
-        Scur=topset(mt)
-        Sprev=topset(PREV.reshape(-1)[memflat])
-        f={}
-        f.update({k:v.reshape(-1) for k,v in BASEF.items()})
-        f['cur_in_set']=torch.tensor([int(t) in Scur for t in
-                                      flat.tolist()])
-        f['prev_in_set']=torch.tensor([int(t) in Sprev for t in
-                                       PREV.reshape(-1).tolist()])
-        return f,{'cur_set':[d1(t) for t in Scur],
-                  'prev_set':[d1(t) for t in Sprev]}
-    def rule_search(f,pos,neg):
-        # greedy: best conjunction up to 3 preds; then OR with second
-        names_=list(f)
-        def acc(mask):
-            tp=float(mask[pos].float().mean())
-            fp=float(mask[neg].float().mean())
-            return (tp+(1-fp))/2
-        def best_conj(exclude):
-            cur=torch.ones(len(flat),dtype=torch.bool)
-            used=[]
-            for _ in range(3):
-                bn,bb,ba=None,None,0
-                for nm2 in names_:
-                    if nm2 in used or nm2 in exclude: continue
-                    for pol in (True,False):
-                        m2=cur&(f[nm2]==pol)
-                        a2=acc(m2)
-                        if a2>ba: ba,bn,bb=a2,nm2,pol
-                if bn is None: break
-                nm3=bn if bb else 'NOT '+bn
-                if used and ba<=acc(cur)+0.01: break
-                cur=cur&(f[bn]==bb); used.append(nm3)
-            return cur,used,acc(cur)
-        c1,u1,a1=best_conj([])
-        c2,u2,a2=best_conj([u.replace('NOT ','') for u in u1])
-        both=c1|c2
-        if acc(both)>a1+0.02 and len(u2)>0:
-            return both,[u1,u2]
-        return c1,[u1]
-    # evaluation per leaf
-    try:
-        qs=json.load(open(PT+'v4_quiz_scores.json'))['scores']
-        named={r['tag'] for r in qs if r['true_pos']>=5}
-        unnamed={r['tag'] for r in qs if r['true_pos']<=4}
-    except Exception:
-        named=set(); unnamed={lf['tag'] for lf in leaves}
-    g9=torch.Generator().manual_seed(3)
+    # bigram fold: every corpus-occurring (prev,cur) pair, T=2 forward
+    flat0=rows[:,:256].reshape(-1)
+    prev0=torch.roll(rows[:,:256],1,dims=1); prev0[:,0]=-1
+    pflat=prev0.reshape(-1)
+    ok=pflat>=0
+    pairs=torch.stack([pflat[ok],flat0[ok]],1)
+    upairs,pinv=torch.unique(pairs,dim=0,return_inverse=True)
+    if len(upairs)>60000:
+        cnt=torch.bincount(pinv)
+        keep=cnt.argsort(descending=True)[:60000]
+        upairs=upairs[keep]
+    NPAIR=len(upairs)
+    print(f'{NPAIR} corpus bigrams',flush=True)
+    FOLDC={}
+    capsF={0:[],1:[],2:[],3:[]}
+    hsF=[]
+    for li in (0,1,2,3):
+        def mkf(li=li):
+            def h(mo,i_,o_):
+                capsF[li].append(o_.detach()[:,1].float())
+            return h
+        hsF.append(m.transformer.h[li].mlp.register_forward_hook(mkf()))
+    for s0 in range(0,NPAIR,2048):
+        idx=upairs[s0:s0+2048].to(DEV)
+        xF=F.rms_norm(m.transformer.wte(idx),(D,)); x0F=xF; v1F=None
+        for blk in m.transformer.h[:4]:
+            xF,v1F=blk(xF,v1F,x0F)
+    for h in hsF: h.remove()
+    for li in (0,1,2,3):
+        FOLDC[li]=torch.cat(capsF[li]); capsF[li]=None
+    pairkey={ (int(a),int(b)):i for i,(a,b) in
+              enumerate(upairs.tolist())}
+    # slice-PCA bases must be recomputed per probe spec via capture_out
+    flat=rows[:,:256].reshape(-1)
+    rowhalf=(torch.arange(rows.shape[0])%2==0)
+    halfmask=rowhalf[:,None].expand(-1,256).reshape(-1)
+    g9=torch.Generator().manual_seed(4)
     res=[]
-    rowhalf=(torch.arange(ntokr)%2==0)
-    halfmask=rowhalf[:,None].expand(-1,Tr).reshape(-1)
     for lf in leaves:
+        mlps=[ps for ps in lf['top_probes'] if ps[0]=='pca'
+              and ps[1][0]=='m' and int(ps[1][1:])<=3]
+        if len(mlps)<2: continue
+        # mechanism: fold activation of the leaf's probe directions
+        score=torch.zeros(50257,device=DEV)
+        norms=None
+        for ps in mlps:
+            _,key,tag2,(s0_,s1_)=ps
+            li=int(key[1:])
+            sl2=SLICES[tag2]
+            Y=capture_out(key)[sl2].float().to(DEV)
+            Y=torch.nan_to_num(Y)
+            _,_,Vh9=safe_svd((Y-Y.mean(0))[:20000])
+            P=orth(Vh9[s0_:s1_].T)
+            FL=FOLDC[li].to(DEV)
+            score+=(FL@P).pow(2).sum(1)/FL.pow(2).sum(1).clamp_min(1e-6)
         mem=lf['_member']
         memflat=torch.zeros(len(flat),dtype=torch.bool)
         memflat[mem]=True
-        f,lits=leaf_feats(memflat)
-        bv=basev
-        mb=bv[mem]
-        lo,hi=mb.quantile(0.1),mb.quantile(0.9)
-        nonm=(~memflat)&(bv>=lo)&(bv<=hi)
-        nonidx=torch.nonzero(nonm).squeeze(1)
-        nonidx=nonidx[torch.randperm(len(nonidx),generator=g9)
-                      [:len(mem)]]
-        posA=mem[halfmask[mem]]; posB=mem[~halfmask[mem]]
-        negA=nonidx[halfmask[nonidx]]; negB=nonidx[~halfmask[nonidx]]
-        if min(len(posA),len(posB),len(negA),len(negB))<30: continue
-        mask,prog=rule_search(f,posA,negA)
-        tp=float(mask[posB].float().mean())
-        fp=float(mask[negB].float().mean())
-        bacc=(tp+(1-fp))/2
-        permlab=torch.cat([posA,negA])
-        permlab=permlab[torch.randperm(len(permlab),generator=g9)]
-        pp=permlab[:len(posA)]; pn=permlab[len(posA):]
-        maskn,_=rule_search(f,pp,pn)
-        tpn=float(maskn[posB].float().mean())
-        fpn=float(maskn[negB].float().mean())
-        naccn=(tpn+(1-fpn))/2
-        res.append({'tag':lf['tag'],'bacc':round(bacc,3),
-                    'null':round(naccn,3),'program':prog,
-                    'named':lf['tag'] in named,
-                    'lits':lits})
-        print(f"{lf['tag']}: heldout {bacc:.2f} null {naccn:.2f} "
-              f"prog {prog}",flush=True)
-    unr=[r for r in res if not r['named']]
-    nr=[r for r in res if r['named']]
-    hitu=sum(1 for r in unr if r['bacc']>=0.75)
-    hitn=sum(1 for r in nr if r['bacc']>=0.75)
-    mednull=sorted(r['null'] for r in res)[len(res)//2] if res else 1
-    pa=(hitu>=0.4*len(unr)) and mednull<=0.6 if unr else False
-    pb=(hitn>=0.6*len(nr)) if nr else False
-    out={'n_eval':len(res),'unnamed_hits':hitu,'unnamed_total':len(unr),
-         'named_hits':hitn,'named_total':len(nr),
-         'median_null':round(mednull,3),
-         'programs':[{k:v for k,v in r.items() if k!='lits'}
-                     for r in res],
-         'pred_a':bool(pa),'pred_b':bool(pb)}
-    print(f"unnamed: {hitu}/{len(unr)} programmable | named: "
-          f"{hitn}/{len(nr)} | median null {mednull:.2f}")
-    print(f"(a) >=40% unnamed programmable, null<=0.6: "
-          f"{'HELD' if pa else 'FAILED'}")
-    print(f"(b) named >=60% programmable: {'HELD' if pb else 'FAILED'}")
+        rate=float(memflat.float().mean())
+        q=max(8,int(rate*NPAIR))
+        score_cpu=score.cpu()
+        cand=score_cpu.argsort(descending=True)[:q].tolist()
+        trig=set(cand)
+        posid=torch.full((len(flat),),-1,dtype=torch.long)
+        pf=pflat.tolist(); ff=flat0.tolist()
+        for i2 in range(len(flat)):
+            k2=pairkey.get((pf[i2],ff[i2]),-1)
+            posid[i2]=k2
+        pred=torch.tensor([int(p) in trig for p in posid.tolist()])
+        ho=~halfmask
+        tp=float((pred&memflat&ho).sum())
+        prec=tp/max(float((pred&ho).sum()),1)
+        rec=tp/max(float((memflat&ho).sum()),1)
+        base_r=float(memflat[ho].float().mean())
+        rnd=set(torch.randperm(NPAIR,generator=g9)[:q].tolist())
+        predr=torch.tensor([int(p) in rnd for p in posid.tolist()])
+        tpr=float((predr&memflat&ho).sum())
+        precr=tpr/max(float((predr&ho).sum()),1)
+        toptr=[enc9.decode([int(upairs[t][0])])+'|'+
+               enc9.decode([int(upairs[t][1])]) for t in cand[:8]]
+        ok=prec>=3*base_r and rec>=0.3
+        res.append({'tag':lf['tag'],'precision':round(prec,4),
+                    'recall':round(rec,3),'base':round(base_r,4),
+                    'lift':round(prec/max(base_r,1e-6),2),
+                    'null_lift':round(precr/max(base_r,1e-6),2),
+                    'trigger_top':toptr,'pass':bool(ok)})
+        print(f"{lf['tag']}: prec {prec:.3f} ({prec/max(base_r,1e-6):.1f}x"
+              f" base) rec {rec:.2f} null {precr/max(base_r,1e-6):.1f}x "
+              f"| triggers {toptr} {'PASS' if ok else 'fail'}",flush=True)
+    npass=sum(1 for r in res if r['pass'])
+    nulls=sorted(r['null_lift'] for r in res)
+    mednull=nulls[len(nulls)//2] if nulls else 9
+    pa=(npass>=0.4*len(res)) if res else False
+    pb=mednull<=1.2
+    out={'n_tested':len(res),'n_pass':npass,'median_null_lift':mednull,
+         'results':res,'pred_a':bool(pa),'pred_b':bool(pb)}
+    print(f"tested {len(res)} front-MLP leaves | pass {npass} | "
+          f"median null lift {mednull:.2f}")
+    print(f"(a) >=40% pair-mechanism-predicted: {'HELD' if pa else 'FAILED'}")
+    print(f"(b) null <= 1.2x: {'HELD' if pb else 'FAILED'}")
     out['runtime_s']=time.time()-t0
     json.dump(out,open(OUT,'w'),indent=1)
     print(f'wrote {OUT} ({out["runtime_s"]:.0f}s)')
