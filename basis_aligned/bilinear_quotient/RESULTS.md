@@ -4013,3 +4013,15 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 341: 57-program gate (2026-08-19)
 - Gain +0.171 fresh (12x the 14-program gate; largest deploy-legal move yet) at 65.7% gated -- but efficiency still 1.54x random (bars FAILED). Deploy gap = description-language property, not program count. probe_gate.py queued (stream probe, bars: AUC>=0.75, eff>=2.5x, >=50% oracle).
+
+## Appendix 342: stream probe 3.8x (2026-08-19)
+- Deploy-legal gating ladder now measured: surface programs 1.5x / stream probe 3.8x / oracle 9.4x. AUC 0.621 (bar failed) but efficiency bar HELD -- first deploy gate above the surface ceiling. v2 queued (quadratic features + per-mode regression).
+
+## Appendix 343: induction heads least compressible (2026-08-19)
+- Rank-16 truncation: ind +0.254 QK / +0.172 V vs self +0.005/+0.008 -- prediction inverted, all bars failed. Motif simplicity = pattern shape, not weight rank; induction's match-and-copy needs full-width keys. Backlog 5 closes as measured-unpromising.
+
+## Appendix 344: line-break circuit explainer (2026-08-19)
+- r.0.0.1 explained standalone: two-signed line-break policy in list layouts (96 members +1.0 hurt / 88 members -2.7 helped by ablation), |dCE| 2.67 on members vs 0.35 background. 5 top + 5 random examples published verbatim on a standalone artifact page. Registered uniform-damage bars failed -> sign-mixedness made concrete.
+
+## Appendix 345: fold-basis ladder registered (2026-08-19)
+- Early-layer weight folds (mlp0-3 over vocab, top-8 PCA dirs, 32+64 predicates) added to the ladder library; until-dry rerun in flight. Bars: >=65/118, null <=0.6, fold cited by >=half the gain.

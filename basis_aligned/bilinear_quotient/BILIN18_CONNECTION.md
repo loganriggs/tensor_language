@@ -8637,3 +8637,83 @@ the stream-readable middle ground between 1.5x (surface) and 9.4x
 (keys popped before the save that read them); fixed, requeued, now
 running -- once census_state.pt lands, census-lineage scripts stop
 paying the ~10-min tree rebuild.
+
+## 342. The stream probe breaks the surface ceiling: 3.8x random
+
+probe_gate fit a ridge probe on the residual stream after block 2
+(deploy-legal: every frontier config keeps the cheap lexical rungs
+real) to the fit window's oracle causal labels, then gated fresh rows
+at the oracle-matched fraction (17.25%). Results against the three
+registered bars: AUC 0.621 (bar 0.75 FAILED); **efficiency 3.8x
+random (bar 2.5x HELD)** -- the first deploy-legal gate above the
+1.5x surface-program ceiling; 42% of the oracle gain recovered (bar
+50% FAILED, close). Gains: oracle +0.078, probe +0.033, random
++0.009 at matched fraction. The description-language ladder for
+gating now has three measured rungs: input-only surface programs
+1.5x, stream probe 3.8x, causal labels 9.4x. Reading: roughly half
+of what the oracle knows about where circuits carry load is linearly
+readable off the early stream; the remainder needs either deeper
+reads or nonlinear features. v2 queued (probe_gate2): quadratic
+features in mlp3's read directions (the model is bilinear -- give
+the probe its native basis) + direct regression of the 10 mode
+scores with any-mode gating, bars AUC >=0.70 / eff >=3x / >=60%
+oracle.
+
+## 343. Induction heads are the LEAST compressible heads (prediction inverted)
+
+head_lowrank truncated per-head score projections (c_q,c_k,c_q2,c_k2)
+vs value machinery (c_v rows + c_proj cols) to rank 8/16/32 of 128,
+per motif class, matched 9 heads each, fresh CE. All three registered
+bars FAILED because the prediction was exactly inverted: induction
+heads cost +0.254 (QK, rank 16) and +0.172 (value) -- an order of
+magnitude MORE than any other class (self +0.005/+0.008, prev
++0.024/+0.067, diffuse +0.014/+0.026). Self heads are nearly free at
+rank 8 on both sides. The lesson replaces the registered story:
+motif "simplicity" is about pattern SHAPE, not weight rank. Self and
+prev heads have simple patterns AND low-rank implementations;
+induction heads have a simple pattern RULE (match-and-copy) whose
+implementation is intrinsically high-rank -- distinguishing which of
+50k tokens to match requires high-dimensional keys, and the model
+spends full head width on it. This explains, from the weights side,
+why induction heads resisted every stand-in in the assembly arc and
+closed as irreducible: they are the densest computation per
+parameter in the attention stack. It also means backlog item 5
+(learned low-rank bilinear stand-in for induction heads) is now
+measured as unpromising at the weight level and closes.
+
+## 344. First standalone circuit explainer: the line-break circuit (r.0.0.1)
+
+User asked for one census circuit explained end to end with
+non-cherry-picked examples. circuit_explainer reproduced the exact
+census causal operation on census_state.pt leaf r.0.0.1 (184
+members; machinery = slice-conditioned output-PCA blocks m0(12-16),
+m0(48-64), m3(16-24), m3(24-32)) and reported 5 top-|score| + 5
+seed-0 random member positions. Both registered bars FAILED
+informatively: the circuit is a TWO-SIGNED policy, not a uniform
+helper. Members split 96 positive-score (dCE +1.01 when ablated;
+examples +3.5..+5.2 on single tokens) vs 88 negative-score (dCE
+-2.73; ablation HELPS where the pushed line-break expectation was
+wrong). |dCE| concentrates on members: 2.67 nats vs 1.51 same-doc
+non-members vs 0.35 corpus background (7.7x). All ten examples are
+guidebook listing layouts predicting newline/heading tokens at
+genuinely hard positions (base CE 5-26 nats) -- the circuit is the
+model's line-break policy in list structures, computed in mlp0/mlp3
+direction bundles. Published as a standalone artifact page with the
+full 184-member scatter and the ten examples verbatim. Caveats on
+record: fit-window corpus (one travel guide dominates); tags are
+tree-instance-relative (this leaf is the grid-reference/venue end of
+the certified place-suffix|newline family r.3.0/r.8.0, not the same
+tag across builds); ops note -- census_cache's state is the 212-row
+v1 tree, not cl2's 312-row tree, so cross-tree matching must go
+through member overlap.
+
+## 345. Registered: fold-basis features (early layers as basis for later circuits)
+
+User direction: the early layers are the best-understood part of the
+model (weight folds from the embedding); use them as a basis.
+fold_basis.py (running) folds mlp0-3 over the vocabulary
+(mlp(rms_norm(wte))), takes top-8 PCA directions of each fold table,
+and adds 32 above-median score predicates (+64 shifted copies free)
+to the ladder library, then reruns until-dry. REGISTERED: (a)
+converged >=65/118 (+8 over cl2's 57); (b) null <=0.6; (c) >=half
+the gain cites a fold_ predicate.
