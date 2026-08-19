@@ -1,4 +1,4 @@
-"""FAKE BATTERY v5 (FINAL) -- converged dimensions, validated by the
+"""FAKE BATTERY v5.1 (bugfix of the final: composite must exclude tag-prefix relatives -- Jaccard-dedup does not bound CONTAINMENT, so children tripped the flag against their own ancestors) -- converged dimensions, validated by the
 v2-v4 arc: SELECTIVITY (>=2 vs matched controls), SIGN-MIXEDNESS
 (>=0.15; catches severity cones), STRUCTURAL rejection (nan controls),
 and the COMPOSITE flag (>=60% of members are members of a single other
@@ -19,7 +19,7 @@ import tiktoken
 enc=tiktoken.get_encoding('gpt2')
 D=1152
 PT='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT=PT+'fake_battery5_results.json'
+OUT=PT+'fake_battery5_1_results.json'
 CA=300; NB=78
 MHL=list(range(2,10))
 T=256
@@ -418,7 +418,9 @@ def main():
         mset_c=set(mem.tolist())
         comp_frac=0.0
         for tg2,ms2 in msets.items():
-            if cd['kind']=='real' and tg2==cd['name']: continue
+            if cd['kind']=='real' and (tg2==cd['name']
+                or tg2.startswith(cd['name']+'.')
+                or cd['name'].startswith(tg2+'.')): continue
             ov=len(mset_c&ms2)/max(len(mset_c),1)
             comp_frac=max(comp_frac,ov)
         sg=torch.sign(own[memho])
