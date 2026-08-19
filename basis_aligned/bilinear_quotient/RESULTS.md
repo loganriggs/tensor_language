@@ -4025,3 +4025,15 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 345: fold-basis ladder registered (2026-08-19)
 - Early-layer weight folds (mlp0-3 over vocab, top-8 PCA dirs, 32+64 predicates) added to the ladder library; until-dry rerun in flight. Bars: >=65/118, null <=0.6, fold cited by >=half the gain.
+
+## Appendix 346: fold features substitute, don't extend (2026-08-19)
+- 58/118 (+1; bar >=65 FAILED) with fold predicates cited in 19 programs. Programmable frontier ~58 is robust to input-feature choice; the rest needs transported context. Mirrors the deploy-gap language result.
+
+## Appendix 347: probe v2 negative (2026-08-19)
+- Quadratic per-mode probe WORSE than plain ridge (AUC 0.551 vs 0.621, gain -0.005 vs +0.033). v1's 3.8x stands. Richer basis at block 2 overfits; ceiling needs later reads or context aggregation.
+
+## Appendix 348: two-signed is universal (2026-08-19)
+- 50/50 census leaves two-signed, 96% concentrate >=3x. Every census circuit is a policy with right-and-wrong members. Base-CE stratification + mechanical examples recorded for all.
+
+## Appendix 349: push-brake structure + tension edges (2026-08-19)
+- r.0.0.1 = mlp0 break-push MINUS mlp3 brake (bundle anti-corr -0.48; Abbey improvement 95% brake-attributable). 11 tension edges to other leaves measured (first in registry). Interchange test queued.

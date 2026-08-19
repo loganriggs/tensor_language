@@ -1,0 +1,3062 @@
+{
+ "n_tested": 50,
+ "n_skipped": 18,
+ "frac_conc3": 0.96,
+ "frac_twosigned": 1.0,
+ "leaves": [
+  {
+   "tag": "r.0.0",
+   "n_members": 1222,
+   "probes": [
+    "('pca', 'm0', 'r.0', (0, 8))",
+    "('pca', 'm0', 'r.0', (32, 64))",
+    "('pca', 'm3', 'r.0', (16, 32))",
+    "('pca', 'm0', 'r.0', (8, 16))"
+   ],
+   "abs_dce_members": 5.451,
+   "abs_dce_offslice": 2.003,
+   "conc": 2.72,
+   "dce_members": 0.356,
+   "dce_pos": 5.827,
+   "dce_neg": -4.955,
+   "n_pos": 602,
+   "n_neg": 620,
+   "min_sign_share": 0.493,
+   "base_ce_member_mean": 8.571,
+   "base_ce_frac_lt3": 0.324,
+   "top_examples": [
+    {
+     "context": "\n44Pitt Cue CoB4\n\nPortraitE6",
+     "target": "\n",
+     "base_ce": 30.56,
+     "dce": -29.26
+    },
+    {
+     "context": "Ye Olde Cheshire CheeseB3\n\n3Entertainment",
+     "target": "\n",
+     "base_ce": 23.3,
+     "dce": -15.69
+    },
+    {
+     "context": "3\n\n34RevengeF4\n\n3Entertainment",
+     "target": "\n",
+     "base_ce": 29.94,
+     "dce": -15.03
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " the north transept.\n\nDesign MuseumMUSEUM",
+     "target": "\n",
+     "base_ce": 6.59,
+     "dce": 2.57
+    },
+    {
+     "context": " history's most famous murder: Archbishop Thomas Beckett was done in",
+     "target": " here",
+     "base_ce": 4.52,
+     "dce": 2.65
+    },
+    {
+     "context": ".30-3pm daily, 6-10.30pm",
+     "target": " Mon",
+     "base_ce": 5.35,
+     "dce": 5.09
+    }
+   ]
+  },
+  {
+   "tag": "r.0.0.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm0', 'r.0.0', (4, 8))",
+    "('pca', 'm0', 'r.0.0', (0, 4))",
+    "('pca', 'm0', 'r.0.0', (32, 48))",
+    "('pca', 'm0', 'r.0.0', (8, 12))"
+   ],
+   "abs_dce_members": 7.584,
+   "abs_dce_offslice": 1.052,
+   "conc": 7.21,
+   "dce_members": -1.859,
+   "dce_pos": -9.038,
+   "dce_neg": 5.804,
+   "n_pos": 95,
+   "n_neg": 89,
+   "min_sign_share": 0.484,
+   "base_ce_member_mean": 11.69,
+   "base_ce_frac_lt3": 0.299,
+   "top_examples": [
+    {
+     "context": "3\n\n34RevengeF4\n\n3Entertainment",
+     "target": "\n",
+     "base_ce": 29.94,
+     "dce": -10.6
+    },
+    {
+     "context": "\n\n#### Arundel\n\n#### Chichester",
+     "target": "\n",
+     "base_ce": 29.36,
+     "dce": -12.46
+    },
+    {
+     "context": " Chichester\n\n#### Farnham\n\n#### Hindhead",
+     "target": "\n",
+     "base_ce": 27.0,
+     "dce": -15.01
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "\n#### London Highlights\n\n#### History\n\n#### Sights",
+     "target": "\n",
+     "base_ce": 24.86,
+     "dce": -11.2
+    },
+    {
+     "context": "FormansBRITISH\n\n(  GOOGLE",
+     "target": " MAP",
+     "base_ce": 1.79,
+     "dce": 7.99
+    },
+    {
+     "context": "(  MAP   GOOGLE MAP ) ; ",
+     "target": " h",
+     "base_ce": 3.28,
+     "dce": 4.17
+    }
+   ]
+  },
+  {
+   "tag": "r.0.0.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm0', 'r.0.0', (12, 16))",
+    "('pca', 'm3', 'r.0.0', (24, 32))",
+    "('pca', 'm3', 'r.0.0', (16, 24))",
+    "('pca', 'm0', 'r.0.0', (48, 64))"
+   ],
+   "abs_dce_members": 2.674,
+   "abs_dce_offslice": 0.348,
+   "conc": 7.69,
+   "dce_members": -0.782,
+   "dce_pos": 1.007,
+   "dce_neg": -2.734,
+   "n_pos": 96,
+   "n_neg": 88,
+   "min_sign_share": 0.478,
+   "base_ce_member_mean": 13.728,
+   "base_ce_frac_lt3": 0.054,
+   "top_examples": [
+    {
+     "context": "\n\nABleak House\n\nAJeake's House",
+     "target": "\n",
+     "base_ce": 23.6,
+     "dce": 3.51
+    },
+    {
+     "context": "Museum of LondonD2\n\n17PinnacleG3",
+     "target": "\n",
+     "base_ce": 18.99,
+     "dce": 5.15
+    },
+    {
+     "context": "BarrafinaF6\n\n27BarrafinaD3",
+     "target": "\n",
+     "base_ce": 6.97,
+     "dce": 3.59
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "\n\n6St James's Park\n\n7Guards Museum",
+     "target": "\n",
+     "base_ce": 25.4,
+     "dce": 2.74
+    },
+    {
+     "context": "\n32Fernandez & WellsC4\n\n33Great Queen",
+     "target": " Street",
+     "base_ce": 4.77,
+     "dce": 3.88
+    },
+    {
+     "context": " Thames Valley\n\n#### Windsor & Eton\n\n#### Bray",
+     "target": "\n",
+     "base_ce": 5.17,
+     "dce": -1.39
+    }
+   ]
+  },
+  {
+   "tag": "r.0.0.3",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm0', 'r.0.0', (48, 64))",
+    "('pca', 'm0', 'r.0.0', (4, 8))",
+    "('pca', 'm0', 'r.0.0', (32, 48))",
+    "('pca', 'm0', 'r.0.0', (12, 16))"
+   ],
+   "abs_dce_members": 3.695,
+   "abs_dce_offslice": 0.564,
+   "conc": 6.56,
+   "dce_members": -0.184,
+   "dce_pos": -0.152,
+   "dce_neg": -0.226,
+   "n_pos": 105,
+   "n_neg": 79,
+   "min_sign_share": 0.429,
+   "base_ce_member_mean": 11.404,
+   "base_ce_frac_lt3": 0.239,
+   "top_examples": [
+    {
+     "context": "rosfa HotelB4\n\n5Clink78F2",
+     "target": "\n",
+     "base_ce": 20.65,
+     "dce": -4.09
+    },
+    {
+     "context": " twice hourly).\n\n### Hastings\n\nPop 90,300",
+     "target": "\n",
+     "base_ce": 15.33,
+     "dce": -4.8
+    },
+    {
+     "context": " ice cream parlour.\n\nMad HatterCAFE",
+     "target": "\n",
+     "base_ce": 8.67,
+     "dce": -3.15
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " an indie or alternative music bent.\n\nStartCLOTHING",
+     "target": "\n",
+     "base_ce": 18.82,
+     "dce": -1.04
+    },
+    {
+     "context": "\n12Spencer House\n\n13Clarence House",
+     "target": "\n",
+     "base_ce": 13.12,
+     "dce": -10.71
+    },
+    {
+     "context": "TrulloITALIAN\n\n(  GOOGLE",
+     "target": " MAP",
+     "base_ce": 2.69,
+     "dce": 4.53
+    }
+   ]
+  },
+  {
+   "tag": "r.1.0",
+   "n_members": 1222,
+   "probes": [
+    "('pca', 'm11', 'r.1', (0, 8))",
+    "('pca', 'm12', 'r.1', (0, 8))",
+    "('pca', 'm13', 'r.1', (0, 8))",
+    "('pca', 'm13', 'r.1', (8, 16))"
+   ],
+   "abs_dce_members": 2.278,
+   "abs_dce_offslice": 0.351,
+   "conc": 6.48,
+   "dce_members": 1.75,
+   "dce_pos": 2.955,
+   "dce_neg": -0.774,
+   "n_pos": 827,
+   "n_neg": 395,
+   "min_sign_share": 0.323,
+   "base_ce_member_mean": 10.3,
+   "base_ce_frac_lt3": 0.094,
+   "top_examples": [
+    {
+     "context": " ska and reggae beats.\n\n#### Islington\n",
+     "target": "\n",
+     "base_ce": 21.62,
+     "dce": 6.28
+    },
+    {
+     "context": "eth that sit closest to the river.\n\nSouth Bank\n",
+     "target": "\n",
+     "base_ce": 22.8,
+     "dce": 9.3
+    },
+    {
+     "context": ".\n\nJubilee LibraryINTERNET\n\n( ",
+     "target": " G",
+     "base_ce": 11.66,
+     "dce": 4.79
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "ifies the mystique.\n\nPrincess LouisePUB\n",
+     "target": "\n",
+     "base_ce": 14.19,
+     "dce": 2.5
+    },
+    {
+     "context": " guard daily at 11am (10am Sunday) and a l",
+     "target": "ite",
+     "base_ce": 9.12,
+     "dce": -1.67
+    },
+    {
+     "context": "\nRoman Painted HouseRUIN\n\n(  MAP",
+     "target": " ",
+     "base_ce": 3.59,
+     "dce": 2.07
+    }
+   ]
+  },
+  {
+   "tag": "r.1.0.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm13', 'r.1.0', (0, 4))",
+    "('pca', 'm11', 'r.1.0', (0, 4))",
+    "('pca', 'm12', 'r.1.0', (0, 4))",
+    "('pca', 'm11', 'r.1.0', (4, 8))"
+   ],
+   "abs_dce_members": 2.219,
+   "abs_dce_offslice": 0.307,
+   "conc": 7.24,
+   "dce_members": 1.114,
+   "dce_pos": -1.252,
+   "dce_neg": 2.976,
+   "n_pos": 81,
+   "n_neg": 103,
+   "min_sign_share": 0.44,
+   "base_ce_member_mean": 14.161,
+   "base_ce_frac_lt3": 0.043,
+   "top_examples": [
+    {
+     "context": "eth that sit closest to the river.\n\nSouth Bank\n",
+     "target": "\n",
+     "base_ce": 22.8,
+     "dce": 6.27
+    },
+    {
+     "context": " lanes leading off it.\n\nTrulloITALIAN\n",
+     "target": "\n",
+     "base_ce": 21.6,
+     "dce": 5.43
+    },
+    {
+     "context": "\n2130 St Mary Axe\n\n22Heron Tower\n",
+     "target": "\n",
+     "base_ce": 20.18,
+     "dce": 6.31
+    }
+   ],
+   "random_examples": [
+    {
+     "context": ".30pm)\n\nSamaritansEMERGENCY\n",
+     "target": "\n",
+     "base_ce": 19.89,
+     "dce": 4.49
+    },
+    {
+     "context": "\n### Best Places to Stay\n\nAHaymarket Hotel\n",
+     "target": "\n",
+     "base_ce": 18.28,
+     "dce": 2.63
+    },
+    {
+     "context": " between 6am and 1am.\n\nA taxi cab to",
+     "target": "/",
+     "base_ce": 2.74,
+     "dce": -1.41
+    }
+   ]
+  },
+  {
+   "tag": "r.1.0.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm11', 'r.1.0', (4, 8))",
+    "('pca', 'm12', 'r.1.0', (4, 8))",
+    "('pca', 'm13', 'r.1.0', (4, 8))",
+    "('pca', 'm13', 'r.1.0', (8, 12))"
+   ],
+   "abs_dce_members": 1.086,
+   "abs_dce_offslice": 0.124,
+   "conc": 8.79,
+   "dce_members": 0.522,
+   "dce_pos": 1.333,
+   "dce_neg": -0.71,
+   "n_pos": 111,
+   "n_neg": 73,
+   "min_sign_share": 0.397,
+   "base_ce_member_mean": 9.978,
+   "base_ce_frac_lt3": 0.114,
+   "top_examples": [
+    {
+     "context": ".uk;  h5am-dusk;  t",
+     "target": "Reg",
+     "base_ce": 13.93,
+     "dce": -1.58
+    },
+    {
+     "context": " up in the 15th century; the spire dates from the",
+     "target": " 19",
+     "base_ce": 4.28,
+     "dce": -1.07
+    },
+    {
+     "context": "4pm Mon-Fri; ",
+     "target": " t",
+     "base_ce": 13.49,
+     "dce": 2.11
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "8pm Mon-Sat, noon-6pm Sun; ",
+     "target": " t",
+     "base_ce": 13.51,
+     "dce": 1.73
+    },
+    {
+     "context": ".uk; 54 Frith St, W1; tapas",
+     "target": " \u00a3",
+     "base_ce": 6.58,
+     "dce": 0.99
+    },
+    {
+     "context": " HouseA2\n\n6Banqueting HouseG1\n",
+     "target": "\n",
+     "base_ce": 10.85,
+     "dce": 1.24
+    }
+   ]
+  },
+  {
+   "tag": "r.1.0.2",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm13', 'r.1.0', (8, 12))",
+    "('pca', 'm13', 'r.1.0', (12, 16))",
+    "('pca', 'm11', 'r.1.0', (4, 8))",
+    "('pca', 'm11', 'r.1.0', (0, 4))"
+   ],
+   "abs_dce_members": 0.773,
+   "abs_dce_offslice": 0.154,
+   "conc": 5.0,
+   "dce_members": 0.643,
+   "dce_pos": 0.882,
+   "dce_neg": 0.333,
+   "n_pos": 104,
+   "n_neg": 80,
+   "min_sign_share": 0.435,
+   "base_ce_member_mean": 9.519,
+   "base_ce_frac_lt3": 0.13,
+   "top_examples": [
+    {
+     "context": "** and the Peter Harrison Planetarium (  GOOGLE",
+     "target": " MAP",
+     "base_ce": 3.63,
+     "dce": 0.94
+    },
+    {
+     "context": "Post OfficePOST OFFICE\n\n(  GOOGLE",
+     "target": " MAP",
+     "base_ce": 3.08,
+     "dce": 1.17
+    },
+    {
+     "context": "OUTIQUE HOTEL\n\n(  GOOGLE",
+     "target": " MAP",
+     "base_ce": 1.97,
+     "dce": 1.06
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "USEUM\n\n(NT;   GOOGLE",
+     "target": " MAP",
+     "base_ce": 2.57,
+     "dce": 1.75
+    },
+    {
+     "context": " candle and a striking modern altar.\n\nThe doorway to the",
+     "target": " crypt",
+     "base_ce": 4.29,
+     "dce": -0.33
+    },
+    {
+     "context": "\n7Shopping\n\n8Daunt BooksB2\n",
+     "target": "\n",
+     "base_ce": 11.29,
+     "dce": 0.63
+    }
+   ]
+  },
+  {
+   "tag": "r.1.0.3",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm13', 'r.1.0', (4, 8))",
+    "('pca', 'm13', 'r.1.0', (12, 16))",
+    "('pca', 'm12', 'r.1.0', (0, 4))",
+    "('pca', 'm11', 'r.1.0', (4, 8))"
+   ],
+   "abs_dce_members": 0.654,
+   "abs_dce_offslice": 0.133,
+   "conc": 4.91,
+   "dce_members": 0.401,
+   "dce_pos": 0.744,
+   "dce_neg": 0.01,
+   "n_pos": 98,
+   "n_neg": 86,
+   "min_sign_share": 0.467,
+   "base_ce_member_mean": 9.999,
+   "base_ce_frac_lt3": 0.114,
+   "top_examples": [
+    {
+     "context": " while the heavenly waft from the cheese room beckons.\n",
+     "target": "\n",
+     "base_ce": 12.75,
+     "dce": -0.63
+    },
+    {
+     "context": "Hotel UnaBOUTIQUE HOTEL\n\n(",
+     "target": " ",
+     "base_ce": 10.28,
+     "dce": -1.49
+    },
+    {
+     "context": "'s above Heath St, reached via the Holly Bush Steps.\n",
+     "target": "\n",
+     "base_ce": 12.65,
+     "dce": 0.45
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "Ten BellsPUB\n\n(  MAP   G",
+     "target": "OO",
+     "base_ce": 6.14,
+     "dce": 0.76
+    },
+    {
+     "context": "corde 2CLUB\n\n(  MAP   G",
+     "target": "OO",
+     "base_ce": 4.53,
+     "dce": 0.26
+    },
+    {
+     "context": " in the window. No wi-fi.\n\n8Information",
+     "target": "\n",
+     "base_ce": 21.87,
+     "dce": -0.46
+    }
+   ]
+  },
+  {
+   "tag": "r.1.1",
+   "n_members": 1222,
+   "probes": [
+    "('pca', 'm14', 'r.1', (0, 8))",
+    "('pca', 'm12', 'r.1', (8, 16))",
+    "('pca', 'm14', 'r.1', (32, 64))",
+    "('pca', 'm14', 'r.1', (16, 32))"
+   ],
+   "abs_dce_members": 1.049,
+   "abs_dce_offslice": 0.137,
+   "conc": 7.64,
+   "dce_members": 0.549,
+   "dce_pos": -0.653,
+   "dce_neg": 1.295,
+   "n_pos": 468,
+   "n_neg": 754,
+   "min_sign_share": 0.383,
+   "base_ce_member_mean": 10.051,
+   "base_ce_frac_lt3": 0.147,
+   "top_examples": [
+    {
+     "context": "\n\nAWallett's Court\n\nAReading Rooms",
+     "target": "\n",
+     "base_ce": 28.53,
+     "dce": 1.98
+    },
+    {
+     "context": "\n\n### Best Places to Stay\n\nABleak House",
+     "target": "\n",
+     "base_ce": 30.09,
+     "dce": 2.6
+    },
+    {
+     "context": "ights\n\n1Westminster Hall\n\n2Jewel Tower",
+     "target": "\n",
+     "base_ce": 24.17,
+     "dce": 3.46
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " 40th fl, Heron Tower, 110 Bishopsgate,",
+     "target": " EC",
+     "base_ce": 5.32,
+     "dce": 1.08
+    },
+    {
+     "context": "bankside; 20 Lavington St, SE1; r",
+     "target": " \u00a3",
+     "base_ce": 7.16,
+     "dce": -0.78
+    },
+    {
+     "context": "; the spire dates from the 19th century, when its",
+     "target": " predecessor",
+     "base_ce": 7.11,
+     "dce": -0.47
+    }
+   ]
+  },
+  {
+   "tag": "r.1.1.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm14', 'r.1.1', (0, 4))",
+    "('pca', 'm14', 'r.1.1', (48, 64))",
+    "('pca', 'm14', 'r.1.1', (16, 24))",
+    "('pca', 'm12', 'r.1.1', (8, 12))"
+   ],
+   "abs_dce_members": 0.977,
+   "abs_dce_offslice": 0.105,
+   "conc": 9.31,
+   "dce_members": -0.175,
+   "dce_pos": 1.391,
+   "dce_neg": -0.808,
+   "n_pos": 53,
+   "n_neg": 131,
+   "min_sign_share": 0.288,
+   "base_ce_member_mean": 10.136,
+   "base_ce_frac_lt3": 0.082,
+   "top_examples": [
+    {
+     "context": " hourly).\n\n### Hastings\n\nPop 90,300\n",
+     "target": "\n",
+     "base_ce": 21.86,
+     "dce": 2.22
+    },
+    {
+     "context": " also available.\n\nNorth Central London\n\n1Top S",
+     "target": "ights",
+     "base_ce": 3.5,
+     "dce": -0.68
+    },
+    {
+     "context": ".arthousebandb.com; 24 London Rd; r",
+     "target": " \u00a3",
+     "base_ce": 11.06,
+     "dce": -0.07
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " MewsHISTORIC BUILDING\n\n( ",
+     "target": " MAP",
+     "base_ce": 9.14,
+     "dce": -1.51
+    },
+    {
+     "context": "sC4\n\n40Monmouth Coffee CompanyF3\n",
+     "target": "\n",
+     "base_ce": 11.15,
+     "dce": 1.07
+    },
+    {
+     "context": " Fashionistas make this their first port of call, so book way",
+     "target": " ahead",
+     "base_ce": 1.28,
+     "dce": -0.34
+    }
+   ]
+  },
+  {
+   "tag": "r.1.1.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm14', 'r.1.1', (4, 8))",
+    "('pca', 'm12', 'r.1.1', (8, 12))",
+    "('pca', 'm14', 'r.1.1', (48, 64))",
+    "('pca', 'm14', 'r.1.1', (24, 32))"
+   ],
+   "abs_dce_members": 0.555,
+   "abs_dce_offslice": 0.074,
+   "conc": 7.53,
+   "dce_members": -0.159,
+   "dce_pos": -0.515,
+   "dce_neg": 0.229,
+   "n_pos": 96,
+   "n_neg": 88,
+   "min_sign_share": 0.478,
+   "base_ce_member_mean": 7.192,
+   "base_ce_frac_lt3": 0.201,
+   "top_examples": [
+    {
+     "context": " B&B\n\n(  MAP",
+     "target": " ",
+     "base_ce": 4.38,
+     "dce": -1.29
+    },
+    {
+     "context": " outside.\n\nGeorge InnPUB\n\n(  MAP",
+     "target": " ",
+     "base_ce": 4.18,
+     "dce": -1.27
+    },
+    {
+     "context": "\nEast Lee Guest HouseB&B\n\n(  MAP",
+     "target": " ",
+     "base_ce": 4.66,
+     "dce": -1.4
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " Qu\u00ea Caf\u00e9VIETNAMESE\n\n(  MAP",
+     "target": " ",
+     "base_ce": 3.37,
+     "dce": -1.11
+    },
+    {
+     "context": " rose-clad cottages, graceful stone churches and thatched",
+     "target": " roofs",
+     "base_ce": 3.63,
+     "dce": -0.4
+    },
+    {
+     "context": ", including most of the monarchs from Henry III (died",
+     "target": " 12",
+     "base_ce": 2.98,
+     "dce": 0.72
+    }
+   ]
+  },
+  {
+   "tag": "r.1.1.2",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm12', 'r.1.1', (12, 16))",
+    "('pca', 'm14', 'r.1.1', (0, 4))",
+    "('pca', 'm12', 'r.1.1', (8, 12))",
+    "('pca', 'm14', 'r.1.1', (48, 64))"
+   ],
+   "abs_dce_members": 0.732,
+   "abs_dce_offslice": 0.104,
+   "conc": 7.05,
+   "dce_members": -0.062,
+   "dce_pos": 0.111,
+   "dce_neg": -0.277,
+   "n_pos": 102,
+   "n_neg": 82,
+   "min_sign_share": 0.446,
+   "base_ce_member_mean": 9.661,
+   "base_ce_frac_lt3": 0.141,
+   "top_examples": [
+    {
+     "context": "\n#### London Highlights\n\n#### History\n\n#### Sights",
+     "target": "\n",
+     "base_ce": 24.86,
+     "dce": 1.74
+    },
+    {
+     "context": "pm Wed-Sat, noon-5pm Sun;  t",
+     "target": "High",
+     "base_ce": 15.07,
+     "dce": -0.12
+    },
+    {
+     "context": "; Bartholomew Lane, EC2;  h10am",
+     "target": "-",
+     "base_ce": 1.14,
+     "dce": 0.58
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " Seven DialsSTEAKHOUSE\n\n(  MAP ",
+     "target": " ",
+     "base_ce": 3.49,
+     "dce": -0.69
+    },
+    {
+     "context": " \u00a32.50/1.50;  h10am",
+     "target": "-",
+     "base_ce": 1.15,
+     "dce": 0.53
+    },
+    {
+     "context": "\n\n oFive FieldsMODERN BRITISH\n\n( ",
+     "target": " MAP",
+     "base_ce": 9.21,
+     "dce": -0.97
+    }
+   ]
+  },
+  {
+   "tag": "r.1.2",
+   "n_members": 1222,
+   "probes": [
+    "('pca', 'm11', 'r.1', (32, 64))",
+    "('pca', 'm12', 'r.1', (32, 64))",
+    "('pca', 'm13', 'r.1', (32, 64))",
+    "('pca', 'm12', 'r.1', (8, 16))"
+   ],
+   "abs_dce_members": 0.415,
+   "abs_dce_offslice": 0.114,
+   "conc": 3.65,
+   "dce_members": 0.085,
+   "dce_pos": -0.226,
+   "dce_neg": 0.368,
+   "n_pos": 581,
+   "n_neg": 641,
+   "min_sign_share": 0.475,
+   "base_ce_member_mean": 6.765,
+   "base_ce_frac_lt3": 0.219,
+   "top_examples": [
+    {
+     "context": " Embankment or Temple) displays a wealth of 14th-",
+     "target": " to",
+     "base_ce": 6.21,
+     "dce": 1.18
+    },
+    {
+     "context": "motelB&B\n\n(  MAP   G",
+     "target": "OO",
+     "base_ce": 5.27,
+     "dce": 0.27
+    },
+    {
+     "context": " since 1905, riverside Formans boasts prime views over the Olympic",
+     "target": " stadium",
+     "base_ce": 7.28,
+     "dce": -1.34
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " sense of life and community to the palace.\n\n#### Recommended",
+     "target": " Palace",
+     "base_ce": 7.13,
+     "dce": -0.13
+    },
+    {
+     "context": "65; www.formans.co.uk; Stour",
+     "target": " Rd",
+     "base_ce": 10.12,
+     "dce": 0.13
+    },
+    {
+     "context": " GalleryGALLERY\n\n(  MAP   GOO",
+     "target": "G",
+     "base_ce": 1.61,
+     "dce": 0.1
+    }
+   ]
+  },
+  {
+   "tag": "r.1.2.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm12', 'r.1.2', (32, 48))",
+    "('pca', 'm13', 'r.1.2', (32, 48))",
+    "('pca', 'm11', 'r.1.2', (48, 64))",
+    "('pca', 'm11', 'r.1.2', (32, 48))"
+   ],
+   "abs_dce_members": 0.56,
+   "abs_dce_offslice": 0.081,
+   "conc": 6.9,
+   "dce_members": 0.128,
+   "dce_pos": -0.457,
+   "dce_neg": 0.652,
+   "n_pos": 87,
+   "n_neg": 97,
+   "min_sign_share": 0.473,
+   "base_ce_member_mean": 7.496,
+   "base_ce_frac_lt3": 0.185,
+   "top_examples": [
+    {
+     "context": " Lane, Cowcross St, EC1; s \u00a3222,",
+     "target": " d",
+     "base_ce": 8.3,
+     "dce": -0.82
+    },
+    {
+     "context": " most popular villages are busy in summer, it's easy to get",
+     "target": " off",
+     "base_ce": 5.37,
+     "dce": -1.03
+    },
+    {
+     "context": " Rd Arches)\n\nSeafront club hosting indie,",
+     "target": " house",
+     "base_ce": 4.94,
+     "dce": 0.84
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " as well. On the far side of Whitehall stands nB",
+     "target": "anqu",
+     "base_ce": 9.93,
+     "dce": 0.92
+    },
+    {
+     "context": " way to reach Richborough.\n\nGuildhall MuseumM",
+     "target": "USE",
+     "base_ce": 6.66,
+     "dce": 0.89
+    },
+    {
+     "context": "62; www.sweetingsrestaurant.com; 39",
+     "target": " Queen",
+     "base_ce": 11.17,
+     "dce": 0.75
+    }
+   ]
+  },
+  {
+   "tag": "r.1.2.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm12', 'r.1.2', (12, 16))",
+    "('pca', 'm11', 'r.1.2', (48, 64))",
+    "('pca', 'm12', 'r.1.2', (8, 12))",
+    "('pca', 'm12', 'r.1.2', (32, 48))"
+   ],
+   "abs_dce_members": 0.31,
+   "abs_dce_offslice": 0.068,
+   "conc": 4.57,
+   "dce_members": -0.011,
+   "dce_pos": -0.232,
+   "dce_neg": 0.27,
+   "n_pos": 103,
+   "n_neg": 81,
+   "min_sign_share": 0.44,
+   "base_ce_member_mean": 7.657,
+   "base_ce_frac_lt3": 0.12,
+   "top_examples": [
+    {
+     "context": " B&B\n\n( ",
+     "target": " MAP",
+     "base_ce": 10.2,
+     "dce": -0.91
+    },
+    {
+     "context": "s ShedMARKET, RESTAURANT\n\n(",
+     "target": " ",
+     "base_ce": 11.81,
+     "dce": -0.76
+    },
+    {
+     "context": ";  h10am-5.50pm;  t",
+     "target": "South",
+     "base_ce": 13.34,
+     "dce": -0.2
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "atching a Shakespeare play or visiting the Bard's grave in **St",
+     "target": "rat",
+     "base_ce": 2.46,
+     "dce": -0.44
+    },
+    {
+     "context": "thegeorgeinrye.com; 98 High St;",
+     "target": " d",
+     "base_ce": 10.45,
+     "dce": 0.19
+    },
+    {
+     "context": " once situated here. Cross over the road and walk into 6St",
+     "target": " James",
+     "base_ce": 3.59,
+     "dce": 0.21
+    }
+   ]
+  },
+  {
+   "tag": "r.1.3",
+   "n_members": 1222,
+   "probes": [
+    "('pca', 'm11', 'r.1', (16, 32))",
+    "('pca', 'm12', 'r.1', (16, 32))",
+    "('pca', 'm11', 'r.1', (8, 16))",
+    "('pca', 'm13', 'r.1', (16, 32))"
+   ],
+   "abs_dce_members": 0.415,
+   "abs_dce_offslice": 0.12,
+   "conc": 3.44,
+   "dce_members": 0.167,
+   "dce_pos": -0.094,
+   "dce_neg": 0.403,
+   "n_pos": 582,
+   "n_neg": 640,
+   "min_sign_share": 0.476,
+   "base_ce_member_mean": 7.417,
+   "base_ce_frac_lt3": 0.228,
+   "top_examples": [
+    {
+     "context": " hmuseum 9.30am-5pm;  t",
+     "target": "F",
+     "base_ce": 9.44,
+     "dce": 0.52
+    },
+    {
+     "context": "-Sat, noon-10.30pm Sun;  t",
+     "target": "St",
+     "base_ce": 10.98,
+     "dce": 0.59
+    },
+    {
+     "context": " Dover\n\n#### Rye\n\n#### Battle\n\n#### Hastings",
+     "target": "\n",
+     "base_ce": 33.14,
+     "dce": 0.45
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " Lane MarketH2\n\n oTower of LondonCASTLE\n",
+     "target": "\n",
+     "base_ce": 10.28,
+     "dce": 0.28
+    },
+    {
+     "context": ".\n\nSt Martin's ChurchCHURCH\n\n(",
+     "target": " ",
+     "base_ce": 5.34,
+     "dce": 0.14
+    },
+    {
+     "context": " MAP ) ; www.iwm.org.uk; Clive",
+     "target": " Steps",
+     "base_ce": 12.5,
+     "dce": 0.21
+    }
+   ]
+  },
+  {
+   "tag": "r.1.3.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm12', 'r.1.3', (16, 24))",
+    "('pca', 'm12', 'r.1.3', (24, 32))",
+    "('pca', 'm11', 'r.1.3', (24, 32))",
+    "('pca', 'm13', 'r.1.3', (16, 24))"
+   ],
+   "abs_dce_members": 0.536,
+   "abs_dce_offslice": 0.075,
+   "conc": 7.19,
+   "dce_members": 0.072,
+   "dce_pos": -0.485,
+   "dce_neg": 0.583,
+   "n_pos": 88,
+   "n_neg": 96,
+   "min_sign_share": 0.478,
+   "base_ce_member_mean": 9.046,
+   "base_ce_frac_lt3": 0.136,
+   "top_examples": [
+    {
+     "context": " restaurant. Book well ahead.\n\nJubilee HouseB",
+     "target": "&",
+     "base_ce": 8.21,
+     "dce": 1.65
+    },
+    {
+     "context": " Severini.\n\nRoyal London Walking Tour\n\n1S",
+     "target": "ights",
+     "base_ce": 9.37,
+     "dce": 0.84
+    },
+    {
+     "context": " hostel-like vibe. Only one of the three rooms is",
+     "target": " en",
+     "base_ce": 5.43,
+     "dce": 0.86
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "\n\n7PurlB3\n\n7Shopping\n",
+     "target": "\n",
+     "base_ce": 22.43,
+     "dce": -1.15
+    },
+    {
+     "context": "SelfridgesB5\n\nRegent's ParkPARK\n",
+     "target": "\n",
+     "base_ce": 13.42,
+     "dce": -0.45
+    },
+    {
+     "context": "  %020-7838 1082; www.fivefields",
+     "target": "rest",
+     "base_ce": 10.22,
+     "dce": 0.46
+    }
+   ]
+  },
+  {
+   "tag": "r.2.0",
+   "n_members": 1222,
+   "probes": [
+    "('pca', 'a5', 'r.2', (0, 4))",
+    "('pca', 'm16', 'r.2', (0, 8))",
+    "('pca', 'm1', 'r.2', (0, 8))",
+    "('pca', 'm15', 'r.2', (32, 64))"
+   ],
+   "abs_dce_members": 8.011,
+   "abs_dce_offslice": 3.995,
+   "conc": 2.0,
+   "dce_members": -3.015,
+   "dce_pos": -7.723,
+   "dce_neg": 8.67,
+   "n_pos": 871,
+   "n_neg": 351,
+   "min_sign_share": 0.287,
+   "base_ce_member_mean": 10.515,
+   "base_ce_frac_lt3": 0.225,
+   "top_examples": [
+    {
+     "context": "\n\n#### Dover\n\n#### Around Dover\n\n#### Rye",
+     "target": "\n",
+     "base_ce": 29.5,
+     "dce": -27.48
+    },
+    {
+     "context": "\n\n#### Ramsgate\n\n#### Sandwich\n\n#### Dover",
+     "target": "\n",
+     "base_ce": 29.76,
+     "dce": -27.14
+    },
+    {
+     "context": "life\n\n7PurlB3\n\n7Shopping",
+     "target": "\n",
+     "base_ce": 24.34,
+     "dce": -19.73
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "#### Chichester\n\n#### Around Chichester\n\n",
+     "target": "####",
+     "base_ce": 0.18,
+     "dce": 11.46
+    },
+    {
+     "context": " of call, so book way ahead. Breakfast included.\n\n",
+     "target": "###",
+     "base_ce": 4.03,
+     "dce": 7.81
+    },
+    {
+     "context": "#### Bletchley\n\n#### Woburn\n\n",
+     "target": "####",
+     "base_ce": 0.35,
+     "dce": 11.91
+    }
+   ]
+  },
+  {
+   "tag": "r.2.0.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a5', 'r.2.0', (0, 2))",
+    "('pca', 'm16', 'r.2.0', (0, 4))",
+    "('pca', 'm16', 'r.2.0', (4, 8))",
+    "('pca', 'a5', 'r.2.0', (2, 4))"
+   ],
+   "abs_dce_members": 11.651,
+   "abs_dce_offslice": 3.768,
+   "conc": 3.09,
+   "dce_members": 2.053,
+   "dce_pos": 9.698,
+   "dce_neg": -16.353,
+   "n_pos": 130,
+   "n_neg": 54,
+   "min_sign_share": 0.293,
+   "base_ce_member_mean": 7.5,
+   "base_ce_frac_lt3": 0.652,
+   "top_examples": [
+    {
+     "context": "\n\n#### Ramsgate\n\n#### Sandwich\n\n#### Dover",
+     "target": "\n",
+     "base_ce": 29.76,
+     "dce": -25.41
+    },
+    {
+     "context": "life\n\n#### Entertainment\n\n#### Shopping\n\n#### Information",
+     "target": "\n",
+     "base_ce": 32.04,
+     "dce": -27.55
+    },
+    {
+     "context": "life\n\n7PurlB3\n\n7Shopping",
+     "target": "\n",
+     "base_ce": 24.34,
+     "dce": -21.07
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " appealing boutiques and, most famously, Camden Market.\n\n",
+     "target": "####",
+     "base_ce": 2.41,
+     "dce": 11.35
+    },
+    {
+     "context": "Sat, 11am-5pm Sun;  tSlo",
+     "target": "ane",
+     "base_ce": 5.57,
+     "dce": 5.75
+    },
+    {
+     "context": "\n\n#### Drinking & Nightlife\n\n#### Entertainment\n\n",
+     "target": "####",
+     "base_ce": 0.22,
+     "dce": 11.47
+    }
+   ]
+  },
+  {
+   "tag": "r.2.1",
+   "n_members": 1222,
+   "probes": [
+    "('pca', 'a5', 'r.2', (4, 16))",
+    "('pca', 'm1', 'r.2', (16, 32))",
+    "('pca', 'm1', 'r.2', (32, 64))",
+    "('pca', 'm15', 'r.2', (32, 64))"
+   ],
+   "abs_dce_members": 2.397,
+   "abs_dce_offslice": 0.483,
+   "conc": 4.96,
+   "dce_members": 0.303,
+   "dce_pos": -2.143,
+   "dce_neg": 2.617,
+   "n_pos": 594,
+   "n_neg": 628,
+   "min_sign_share": 0.486,
+   "base_ce_member_mean": 7.716,
+   "base_ce_frac_lt3": 0.131,
+   "top_examples": [
+    {
+     "context": " Swain's Lane, N6; East Cemetery adult/child",
+     "target": " \u00a3",
+     "base_ce": 5.53,
+     "dce": 5.19
+    },
+    {
+     "context": "\n#### Broadstairs\n\n#### Ramsgate\n\n#### Sandwich",
+     "target": "\n",
+     "base_ce": 22.84,
+     "dce": 3.19
+    },
+    {
+     "context": " House, a Georgian mansion built in 1718 for the wealthy hop",
+     "target": " merchant",
+     "base_ce": 6.8,
+     "dce": 3.83
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "King's Cross St Pancras)\n\nIn the freshly renovated",
+     "target": " Gran",
+     "base_ce": 7.43,
+     "dce": -1.78
+    },
+    {
+     "context": "MAX CinemaCINEMA\n\n(  MAP   G",
+     "target": "OO",
+     "base_ce": 4.09,
+     "dce": -0.82
+    },
+    {
+     "context": "\n\nPost OfficePOST OFFICE\n",
+     "target": "\n",
+     "base_ce": 13.63,
+     "dce": 1.82
+    }
+   ]
+  },
+  {
+   "tag": "r.2.1.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a5', 'r.2.1', (4, 10))",
+    "('pca', 'm1', 'r.2.1', (24, 32))",
+    "('pca', 'a5', 'r.2.1', (10, 16))",
+    "('pca', 'm1', 'r.2.1', (16, 24))"
+   ],
+   "abs_dce_members": 3.504,
+   "abs_dce_offslice": 0.38,
+   "conc": 9.23,
+   "dce_members": -0.297,
+   "dce_pos": -3.758,
+   "dce_neg": 3.164,
+   "n_pos": 92,
+   "n_neg": 92,
+   "min_sign_share": 0.5,
+   "base_ce_member_mean": 10.306,
+   "base_ce_frac_lt3": 0.06,
+   "top_examples": [
+    {
+     "context": "\n\n4Westminster AbbeyF3\n\n1Sights",
+     "target": "\n",
+     "base_ce": 31.91,
+     "dce": -7.7
+    },
+    {
+     "context": "\n\n33BarbicanE1\n\n7Shopping",
+     "target": "\n",
+     "base_ce": 21.63,
+     "dce": -7.46
+    },
+    {
+     "context": " Sir Walter Scott and Jane Austen.\n\n### Farnham",
+     "target": "\n",
+     "base_ce": 3.55,
+     "dce": 10.39
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "Museum of LondonD2\n\n17PinnacleG3",
+     "target": "\n",
+     "base_ce": 18.99,
+     "dce": 7.65
+    },
+    {
+     "context": "FORMING ARTS\n\n( %01227-7877",
+     "target": "87",
+     "base_ce": 8.49,
+     "dce": -1.59
+    },
+    {
+     "context": ", twice hourly).\n\n### Hastings\n\nPop 90,",
+     "target": "300",
+     "base_ce": 11.66,
+     "dce": -1.96
+    }
+   ]
+  },
+  {
+   "tag": "r.2.1.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm15', 'r.2.1', (48, 64))",
+    "('pca', 'm15', 'r.2.1', (32, 48))",
+    "('pca', 'm1', 'r.2.1', (32, 48))",
+    "('pca', 'm1', 'r.2.1', (16, 24))"
+   ],
+   "abs_dce_members": 0.87,
+   "abs_dce_offslice": 0.202,
+   "conc": 4.31,
+   "dce_members": -0.225,
+   "dce_pos": 0.051,
+   "dce_neg": -0.423,
+   "n_pos": 77,
+   "n_neg": 107,
+   "min_sign_share": 0.418,
+   "base_ce_member_mean": 8.727,
+   "base_ce_frac_lt3": 0.114,
+   "top_examples": [
+    {
+     "context": "designed by John Nash). From Pall Mall, walk along Cocks",
+     "target": "pur",
+     "base_ce": 2.21,
+     "dce": -0.48
+    },
+    {
+     "context": " Frith St, W1; s \u00a3216, d/",
+     "target": "ste",
+     "base_ce": 15.8,
+     "dce": -0.9
+    },
+    {
+     "context": " ; www.shakespearesglobe.com; 21 New",
+     "target": " Globe",
+     "base_ce": 7.83,
+     "dce": -1.51
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " little classical and swing.\n\n606 ClubBLUES, J",
+     "target": "AZ",
+     "base_ce": 1.78,
+     "dce": 0.08
+    },
+    {
+     "context": " Hall, Southbank Centre, Belvedere Rd, SE1",
+     "target": ";",
+     "base_ce": 6.07,
+     "dce": 0.55
+    },
+    {
+     "context": "\n#### Bletchley\n\n#### Woburn\n",
+     "target": "\n",
+     "base_ce": 18.71,
+     "dce": -0.12
+    }
+   ]
+  },
+  {
+   "tag": "r.2.2",
+   "n_members": 1222,
+   "probes": [
+    "('pca', 'm16', 'r.2', (16, 32))",
+    "('pca', 'm15', 'r.2', (16, 32))",
+    "('pca', 'm16', 'r.2', (32, 64))",
+    "('pca', 'm15', 'r.2', (8, 16))"
+   ],
+   "abs_dce_members": 0.708,
+   "abs_dce_offslice": 0.155,
+   "conc": 4.56,
+   "dce_members": 0.149,
+   "dce_pos": 0.804,
+   "dce_neg": -0.597,
+   "n_pos": 651,
+   "n_neg": 571,
+   "min_sign_share": 0.467,
+   "base_ce_member_mean": 6.704,
+   "base_ce_frac_lt3": 0.207,
+   "top_examples": [
+    {
+     "context": "london.org.uk; 150 London Wall, EC2",
+     "target": ";",
+     "base_ce": 6.02,
+     "dce": -2.61
+    },
+    {
+     "context": "ito.co.uk; 32 Exmouth Market, EC1",
+     "target": ";",
+     "base_ce": 6.32,
+     "dce": -2.62
+    },
+    {
+     "context": "ethouse.org.uk; The Strand, WC2",
+     "target": ";",
+     "base_ce": 5.52,
+     "dce": -2.5
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "\n4 Exploring medieval walls, Viking sights and the soaring Gothic",
+     "target": " min",
+     "base_ce": 6.4,
+     "dce": 0.5
+    },
+    {
+     "context": "\n\n### Best Places to Stay\n\nABleak House",
+     "target": "\n",
+     "base_ce": 30.09,
+     "dce": 0.68
+    },
+    {
+     "context": "** \u00a317.30, 1\u00bd hours, twice hourly\n",
+     "target": "\n",
+     "base_ce": 13.34,
+     "dce": -0.42
+    }
+   ]
+  },
+  {
+   "tag": "r.2.2.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm16', 'r.2.2', (24, 32))",
+    "('pca', 'm16', 'r.2.2', (16, 24))",
+    "('pca', 'm15', 'r.2.2', (8, 12))",
+    "('pca', 'm16', 'r.2.2', (32, 48))"
+   ],
+   "abs_dce_members": 0.821,
+   "abs_dce_offslice": 0.139,
+   "conc": 5.89,
+   "dce_members": 0.228,
+   "dce_pos": 0.868,
+   "dce_neg": -0.745,
+   "n_pos": 111,
+   "n_neg": 73,
+   "min_sign_share": 0.397,
+   "base_ce_member_mean": 6.481,
+   "base_ce_frac_lt3": 0.245,
+   "top_examples": [
+    {
+     "context": "Eating\n\n16BohoB2\n\n17D",
+     "target": "ees",
+     "base_ce": 9.74,
+     "dce": 1.77
+    },
+    {
+     "context": "nline; combined tickets with the London Eye, London Dungeon and London",
+     "target": " Seal",
+     "base_ce": 15.58,
+     "dce": -1.06
+    },
+    {
+     "context": " Lane, EC4; dm \u00a317-25, d",
+     "target": " \u00a3",
+     "base_ce": 5.26,
+     "dce": -1.23
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " ) ;  %0871 781 3000; www.l",
+     "target": "ond",
+     "base_ce": 3.77,
+     "dce": 1.35
+    },
+    {
+     "context": " in 1170. Allow at least two hours to do the cathedral",
+     "target": " justice",
+     "base_ce": 6.87,
+     "dce": -0.72
+    },
+    {
+     "context": " Sumner Pl, SW7; s from \u00a3174, d",
+     "target": " \u00a3",
+     "base_ce": 4.36,
+     "dce": -0.55
+    }
+   ]
+  },
+  {
+   "tag": "r.2.2.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm16', 'r.2.2', (48, 64))",
+    "('pca', 'm15', 'r.2.2', (24, 32))",
+    "('pca', 'm15', 'r.2.2', (16, 24))",
+    "('pca', 'm16', 'r.2.2', (16, 24))"
+   ],
+   "abs_dce_members": 0.352,
+   "abs_dce_offslice": 0.097,
+   "conc": 3.64,
+   "dce_members": 0.086,
+   "dce_pos": 0.094,
+   "dce_neg": 0.075,
+   "n_pos": 102,
+   "n_neg": 82,
+   "min_sign_share": 0.446,
+   "base_ce_member_mean": 8.091,
+   "base_ce_frac_lt3": 0.152,
+   "top_examples": [
+    {
+     "context": " NW8; tours adult/child \u00a318/12; ",
+     "target": " t",
+     "base_ce": 13.86,
+     "dce": -0.24
+    },
+    {
+     "context": "1Sights\n\n1Madame TussaudsB",
+     "target": "1",
+     "base_ce": 8.17,
+     "dce": 0.25
+    },
+    {
+     "context": "rant preserve.\n\n8Information\n\nTourist OfficeT",
+     "target": "OUR",
+     "base_ce": 9.1,
+     "dce": 1.83
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "Oxford Circus, Piccadilly Circus)\n\nC",
+     "target": "eas",
+     "base_ce": 7.48,
+     "dce": 0.01
+    },
+    {
+     "context": " twice hourly).\n\n### Hastings\n\nPop 90,300",
+     "target": "\n",
+     "base_ce": 15.33,
+     "dce": -0.71
+    },
+    {
+     "context": "oneye.com; adult/child \u00a321/15;",
+     "target": " ",
+     "base_ce": 6.59,
+     "dce": -0.25
+    }
+   ]
+  },
+  {
+   "tag": "r.2.2.2",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm15', 'r.2.2', (12, 16))",
+    "('pca', 'm16', 'r.2.2', (32, 48))",
+    "('pca', 'm15', 'r.2.2', (8, 12))",
+    "('pca', 'm15', 'r.2.2', (16, 24))"
+   ],
+   "abs_dce_members": 0.479,
+   "abs_dce_offslice": 0.125,
+   "conc": 3.81,
+   "dce_members": 0.002,
+   "dce_pos": -0.161,
+   "dce_neg": 0.188,
+   "n_pos": 98,
+   "n_neg": 86,
+   "min_sign_share": 0.467,
+   "base_ce_member_mean": 8.599,
+   "base_ce_frac_lt3": 0.168,
+   "top_examples": [
+    {
+     "context": " Museum.\n\n8Getting There & Away\n\nBoat",
+     "target": "\n",
+     "base_ce": 19.94,
+     "dce": -0.32
+    },
+    {
+     "context": "\n\nTo/From the Airports\n\nGatwick",
+     "target": "\n",
+     "base_ce": 22.03,
+     "dce": 0.29
+    },
+    {
+     "context": " miles northwest of the centre at Withdean, from where bus",
+     "target": " 27",
+     "base_ce": 9.93,
+     "dce": 0.51
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "\n\nArden Guest HouseB&B\n\n( %",
+     "target": "019",
+     "base_ce": 14.0,
+     "dce": -0.37
+    },
+    {
+     "context": " Leisure services include the Tate-to-Tate boat and",
+     "target": " Westminster",
+     "base_ce": 12.1,
+     "dce": -0.6
+    },
+    {
+     "context": "bury and head to the aGuildhall. Take King St",
+     "target": " down",
+     "base_ce": 5.92,
+     "dce": -0.88
+    }
+   ]
+  },
+  {
+   "tag": "r.2.3",
+   "n_members": 1222,
+   "probes": [
+    "('pca', 'm16', 'r.2', (32, 64))",
+    "('pca', 'm15', 'r.2', (16, 32))",
+    "('pca', 'm1', 'r.2', (32, 64))",
+    "('pca', 'm1', 'r.2', (16, 32))"
+   ],
+   "abs_dce_members": 0.93,
+   "abs_dce_offslice": 0.307,
+   "conc": 3.03,
+   "dce_members": 0.094,
+   "dce_pos": 0.661,
+   "dce_neg": -0.411,
+   "n_pos": 575,
+   "n_neg": 647,
+   "min_sign_share": 0.471,
+   "base_ce_member_mean": 7.612,
+   "base_ce_frac_lt3": 0.166,
+   "top_examples": [
+    {
+     "context": " to Stay\n\nAHaymarket Hotel\n\nAZetter Hotel",
+     "target": "\n",
+     "base_ce": 25.8,
+     "dce": 3.71
+    },
+    {
+     "context": "\n\n#### Battle\n\n#### Hastings\n\n#### Eastbourne",
+     "target": "\n",
+     "base_ce": 22.77,
+     "dce": 2.61
+    },
+    {
+     "context": "\n\n### Best Places to Stay\n\nAHaymarket Hotel",
+     "target": "\n",
+     "base_ce": 16.41,
+     "dce": 8.11
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " prices are eye-watering, so wait till the first-",
+     "target": "runs",
+     "base_ce": 11.71,
+     "dce": -0.25
+    },
+    {
+     "context": " Cathedral** exhibition is rewarding, there's a cafe near the Bapt",
+     "target": "istry",
+     "base_ce": 1.2,
+     "dce": 0.18
+    },
+    {
+     "context": "137 Ebury St, SW1; s/tr/f",
+     "target": " \u00a3",
+     "base_ce": 8.48,
+     "dce": -0.51
+    }
+   ]
+  },
+  {
+   "tag": "r.3.0.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a7', 'r.3.0', (0, 2))",
+    "('pca', 'a16', 'r.3.0', (0, 4))",
+    "('pca', 'a6', 'r.3.0', (0, 2))",
+    "('pca', 'a6', 'r.3.0', (2, 4))"
+   ],
+   "abs_dce_members": 5.146,
+   "abs_dce_offslice": 0.637,
+   "conc": 8.08,
+   "dce_members": -2.314,
+   "dce_pos": -7.19,
+   "dce_neg": 2.891,
+   "n_pos": 95,
+   "n_neg": 89,
+   "min_sign_share": 0.484,
+   "base_ce_member_mean": 12.128,
+   "base_ce_frac_lt3": 0.147,
+   "top_examples": [
+    {
+     "context": "\n#### Broadstairs\n\n#### Ramsgate\n\n#### Sandwich",
+     "target": "\n",
+     "base_ce": 22.84,
+     "dce": -20.72
+    },
+    {
+     "context": "\n\n#### Dover\n\n#### Around Dover\n\n#### Rye",
+     "target": "\n",
+     "base_ce": 29.5,
+     "dce": -21.62
+    },
+    {
+     "context": "\n#### London Highlights\n\n#### History\n\n#### Sights",
+     "target": "\n",
+     "base_ce": 24.86,
+     "dce": -20.86
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "\n\nAWallett's Court\n\nAReading Rooms",
+     "target": "\n",
+     "base_ce": 28.53,
+     "dce": -12.28
+    },
+    {
+     "context": " Kensington lays claim to the highest income earners in the UK.",
+     "target": " Kens",
+     "base_ce": 6.64,
+     "dce": 1.1
+    },
+    {
+     "context": "\nThe official website for south and southeast England.\n\nVisit",
+     "target": " Kent",
+     "base_ce": 6.08,
+     "dce": 2.43
+    }
+   ]
+  },
+  {
+   "tag": "r.3.0.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a7', 'r.3.0', (2, 4))",
+    "('pca', 'a16', 'r.3.0', (4, 16))",
+    "('pca', 'a16', 'r.3.0', (0, 4))",
+    "('pca', 'a7', 'r.3.0', (0, 2))"
+   ],
+   "abs_dce_members": 1.357,
+   "abs_dce_offslice": 0.275,
+   "conc": 4.94,
+   "dce_members": -0.582,
+   "dce_pos": -1.033,
+   "dce_neg": -0.285,
+   "n_pos": 73,
+   "n_neg": 111,
+   "min_sign_share": 0.397,
+   "base_ce_member_mean": 10.99,
+   "base_ce_frac_lt3": 0.12,
+   "top_examples": [
+    {
+     "context": "\n\n#### Woburn\n\n#### Waddesdon",
+     "target": "\n",
+     "base_ce": 16.09,
+     "dce": -2.51
+    },
+    {
+     "context": "#### Margate\n\n#### Broadstairs\n\n#### Ramsgate",
+     "target": "\n",
+     "base_ce": 19.99,
+     "dce": -1.42
+    },
+    {
+     "context": "#### Festivals & Events\n\n#### Sleeping\n\n#### Eating",
+     "target": "\n",
+     "base_ce": 22.08,
+     "dce": -2.28
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " Mon-Sat, to midnight Sun;  tChalk Farm",
+     "target": ")",
+     "base_ce": 5.73,
+     "dce": 0.93
+    },
+    {
+     "context": "11pm Mon-Sat, noon-10pm Sun; ",
+     "target": " t",
+     "base_ce": 5.72,
+     "dce": -0.02
+    },
+    {
+     "context": "\n#### Around Eastbourne\n\n#### Brighton & Hove\n",
+     "target": "\n",
+     "base_ce": 13.22,
+     "dce": 1.02
+    }
+   ]
+  },
+  {
+   "tag": "r.3.1.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a7', 'r.3.1', (0, 2))",
+    "('pca', 'a16', 'r.3.1', (0, 4))",
+    "('pca', 'a16', 'r.3.1', (4, 16))",
+    "('pca', 'a7', 'r.3.1', (2, 4))"
+   ],
+   "abs_dce_members": 2.225,
+   "abs_dce_offslice": 0.266,
+   "conc": 8.37,
+   "dce_members": -1.142,
+   "dce_pos": -2.741,
+   "dce_neg": 1.404,
+   "n_pos": 113,
+   "n_neg": 71,
+   "min_sign_share": 0.386,
+   "base_ce_member_mean": 11.309,
+   "base_ce_frac_lt3": 0.13,
+   "top_examples": [
+    {
+     "context": "\n#### Broadstairs\n\n#### Ramsgate\n\n#### Sandwich",
+     "target": "\n",
+     "base_ce": 22.84,
+     "dce": -10.78
+    },
+    {
+     "context": "'s GlobeD1\n\n4Tate ModernD1\n",
+     "target": "\n",
+     "base_ce": 14.76,
+     "dce": -4.08
+    },
+    {
+     "context": "\n\nTo/From the Airports\n\nGatwick",
+     "target": "\n",
+     "base_ce": 22.03,
+     "dce": -2.39
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " ChurchA3\n\n20Tower Bridge ExhibitionH5\n",
+     "target": "\n",
+     "base_ce": 15.69,
+     "dce": -3.55
+    },
+    {
+     "context": "ide gardens and ancient city walls are a joy to explore. But",
+     "target": " Canterbury",
+     "base_ce": 2.52,
+     "dce": 0.89
+    },
+    {
+     "context": "\n(www.kentattractions.co.uk)",
+     "target": "\n",
+     "base_ce": 10.77,
+     "dce": -3.01
+    }
+   ]
+  },
+  {
+   "tag": "r.3.1.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a7', 'r.3.1', (2, 4))",
+    "('pca', 'a16', 'r.3.1', (4, 16))",
+    "('pca', 'a16', 'r.3.1', (0, 4))",
+    "('pca', 'a7', 'r.3.1', (0, 2))"
+   ],
+   "abs_dce_members": 1.305,
+   "abs_dce_offslice": 0.266,
+   "conc": 4.91,
+   "dce_members": -0.466,
+   "dce_pos": -0.988,
+   "dce_neg": 0.103,
+   "n_pos": 96,
+   "n_neg": 88,
+   "min_sign_share": 0.478,
+   "base_ce_member_mean": 9.814,
+   "base_ce_frac_lt3": 0.109,
+   "top_examples": [
+    {
+     "context": "#### Festivals & Events\n\n#### Sleeping\n\n#### Eating",
+     "target": "\n",
+     "base_ce": 22.08,
+     "dce": -1.43
+    },
+    {
+     "context": "#### Brighton & Hove\n\n#### Arundel\n",
+     "target": "\n",
+     "base_ce": 16.82,
+     "dce": 1.98
+    },
+    {
+     "context": " 2am Thu-Sat, noon-midnight Sun)\n",
+     "target": "\n",
+     "base_ce": 12.84,
+     "dce": -1.42
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "uk; Madeira Dr)\n\nThis grand century-old",
+     "target": " pier",
+     "base_ce": 3.02,
+     "dce": 1.6
+    },
+    {
+     "context": ",400\n\nA popular resort for more than two centuries,",
+     "target": " Marg",
+     "base_ce": 2.83,
+     "dce": 0.4
+    },
+    {
+     "context": " Flower Show takes place in the hospital grounds in May.\n\n",
+     "target": "Chelsea",
+     "base_ce": 4.47,
+     "dce": 1.21
+    }
+   ]
+  },
+  {
+   "tag": "r.6.0.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a9', 'r.6.0', (0, 4))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (4, 16))"
+   ],
+   "abs_dce_members": 1.636,
+   "abs_dce_offslice": 0.18,
+   "conc": 9.09,
+   "dce_members": 0.308,
+   "dce_pos": 1.771,
+   "dce_neg": -1.471,
+   "n_pos": 101,
+   "n_neg": 83,
+   "min_sign_share": 0.451,
+   "base_ce_member_mean": 6.319,
+   "base_ce_frac_lt3": 0.239,
+   "top_examples": [
+    {
+     "context": "vern.com; 35 Chalk Farm Rd, NW1",
+     "target": ";",
+     "base_ce": 4.48,
+     "dce": -2.53
+    },
+    {
+     "context": "  GOOGLE MAP ) ; www.nhm.",
+     "target": "ac",
+     "base_ce": 1.74,
+     "dce": 2.82
+    },
+    {
+     "context": "gatecemetery.org; Swain's Lane, N",
+     "target": "6",
+     "base_ce": 5.35,
+     "dce": 1.94
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "30pm Sat)\n\nThis unmissable, completely c",
+     "target": "uck",
+     "base_ce": 7.32,
+     "dce": 2.03
+    },
+    {
+     "context": "org.uk; 79 Euston Rd, NW1;",
+     "target": " d",
+     "base_ce": 7.95,
+     "dce": -1.43
+    },
+    {
+     "context": "bsdiner.co.uk; 31 King's Rd;",
+     "target": " burgers",
+     "base_ce": 14.09,
+     "dce": -1.36
+    }
+   ]
+  },
+  {
+   "tag": "r.6.0.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a9', 'r.6.0', (4, 16))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (0, 4))"
+   ],
+   "abs_dce_members": 1.004,
+   "abs_dce_offslice": 0.18,
+   "conc": 5.58,
+   "dce_members": 0.127,
+   "dce_pos": 0.394,
+   "dce_neg": -0.123,
+   "n_pos": 89,
+   "n_neg": 95,
+   "min_sign_share": 0.484,
+   "base_ce_member_mean": 8.762,
+   "base_ce_frac_lt3": 0.12,
+   "top_examples": [
+    {
+     "context": " INFORMATION\n\n(www.brighton.co.uk)",
+     "target": "\n",
+     "base_ce": 12.12,
+     "dce": 0.99
+    },
+    {
+     "context": "3\n\n7London St Pancras YHAC2\n",
+     "target": "\n",
+     "base_ce": 10.57,
+     "dce": -0.3
+    },
+    {
+     "context": "1Sights\n\nStadeNEIGHBOURHOOD",
+     "target": "\n",
+     "base_ce": 12.45,
+     "dce": 0.69
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " famous holidaymaker.\n\n1Sights\n\nDickens",
+     "target": " House",
+     "base_ce": 4.12,
+     "dce": 1.54
+    },
+    {
+     "context": " offers excellent value set menus (\u00a38.95/11.75",
+     "target": " for",
+     "base_ce": 3.14,
+     "dce": 0.89
+    },
+    {
+     "context": "leeping\n\nWhen it comes to finding a place for a",
+     "target": " good",
+     "base_ce": 3.15,
+     "dce": 0.43
+    }
+   ]
+  },
+  {
+   "tag": "r.6.0.2",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (4, 16))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (0, 4))"
+   ],
+   "abs_dce_members": 1.272,
+   "abs_dce_offslice": 0.18,
+   "conc": 7.07,
+   "dce_members": 0.292,
+   "dce_pos": 0.444,
+   "dce_neg": 0.107,
+   "n_pos": 101,
+   "n_neg": 83,
+   "min_sign_share": 0.451,
+   "base_ce_member_mean": 7.397,
+   "base_ce_frac_lt3": 0.196,
+   "top_examples": [
+    {
+     "context": " John's Wood Rd, NW8; tours adult/child",
+     "target": " \u00a3",
+     "base_ce": 2.88,
+     "dce": 2.34
+    },
+    {
+     "context": " required for the Monday- and Wednesday-evening candlelit sessions",
+     "target": " (\u00a3",
+     "base_ce": 7.64,
+     "dce": 1.6
+    },
+    {
+     "context": "\n#### Broadstairs\n\n#### Ramsgate\n\n#### Sandwich",
+     "target": "\n",
+     "base_ce": 22.84,
+     "dce": 2.16
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " to the river.\n\nSouth Bank\n\n1Top S",
+     "target": "ights",
+     "base_ce": 4.39,
+     "dce": -0.88
+    },
+    {
+     "context": "Entertainment\n\nEastbourne International Tennis TournamentTENNIS\n",
+     "target": "\n",
+     "base_ce": 13.66,
+     "dce": -1.04
+    },
+    {
+     "context": ". There's no protection from the elements (or over-flying",
+     "target": " jet",
+     "base_ce": 6.19,
+     "dce": 1.28
+    }
+   ]
+  },
+  {
+   "tag": "r.6.0.3",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a9', 'r.6.0', (0, 4))",
+    "('pca', 'a9', 'r.6.0', (0, 2))",
+    "('pca', 'a9', 'r.6.0', (2, 4))",
+    "('pca', 'a9', 'r.6.0', (4, 16))"
+   ],
+   "abs_dce_members": 1.215,
+   "abs_dce_offslice": 0.18,
+   "conc": 6.75,
+   "dce_members": 0.634,
+   "dce_pos": 0.65,
+   "dce_neg": 0.613,
+   "n_pos": 103,
+   "n_neg": 81,
+   "min_sign_share": 0.44,
+   "base_ce_member_mean": 4.942,
+   "base_ce_frac_lt3": 0.375,
+   "top_examples": [
+    {
+     "context": "\n#### Broadstairs\n\n#### Ramsgate\n\n#### Sandwich",
+     "target": "\n",
+     "base_ce": 22.84,
+     "dce": 2.13
+    },
+    {
+     "context": "6 7890; www.uclh.org; 235 E",
+     "target": "ust",
+     "base_ce": 0.48,
+     "dce": 2.62
+    },
+    {
+     "context": " 39a Canonbury Sq, N1; adult/child",
+     "target": " \u00a3",
+     "base_ce": 4.28,
+     "dce": 2.72
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "  %0330 333 7878; www.odeon.",
+     "target": "co",
+     "base_ce": 0.77,
+     "dce": 1.59
+    },
+    {
+     "context": " a cruise ship docked in Dover, instead of heading north to",
+     "target": " London",
+     "base_ce": 5.08,
+     "dce": 0.76
+    },
+    {
+     "context": " 11am-5pm Sun;  tSloane S",
+     "target": "q",
+     "base_ce": 1.95,
+     "dce": 0.66
+    }
+   ]
+  },
+  {
+   "tag": "r.6.1.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a9', 'r.6.1', (4, 16))",
+    "('pca', 'a9', 'r.6.1', (4, 10))",
+    "('pca', 'a9', 'r.6.1', (0, 2))",
+    "('pca', 'a9', 'r.6.1', (0, 4))"
+   ],
+   "abs_dce_members": 0.7,
+   "abs_dce_offslice": 0.19,
+   "conc": 3.68,
+   "dce_members": 0.358,
+   "dce_pos": 0.061,
+   "dce_neg": 0.602,
+   "n_pos": 83,
+   "n_neg": 101,
+   "min_sign_share": 0.451,
+   "base_ce_member_mean": 8.314,
+   "base_ce_frac_lt3": 0.109,
+   "top_examples": [
+    {
+     "context": "orgeinrye.com; 98 High St; d from",
+     "target": " \u00a3",
+     "base_ce": 8.32,
+     "dce": -0.55
+    },
+    {
+     "context": "vern.com; 35 Chalk Farm Rd, NW",
+     "target": "1",
+     "base_ce": 3.73,
+     "dce": 1.01
+    },
+    {
+     "context": ".myhotels.com; 17 Jubilee St; r",
+     "target": " \u00a3",
+     "base_ce": 11.88,
+     "dce": -0.45
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "; www.barbican.org.uk; Silk St",
+     "target": ",",
+     "base_ce": 5.6,
+     "dce": 0.55
+    },
+    {
+     "context": "her neighbours seek to revive and regenerate themselves, quaint little",
+     "target": " Broad",
+     "base_ce": 2.81,
+     "dce": 1.24
+    },
+    {
+     "context": " Mall, walk along Cockspur St to pass Trafalgar",
+     "target": " S",
+     "base_ce": 8.78,
+     "dce": -0.16
+    }
+   ]
+  },
+  {
+   "tag": "r.6.1.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a9', 'r.6.1', (0, 4))",
+    "('pca', 'a9', 'r.6.1', (0, 2))",
+    "('pca', 'a9', 'r.6.1', (4, 16))",
+    "('pca', 'a9', 'r.6.1', (4, 10))"
+   ],
+   "abs_dce_members": 1.318,
+   "abs_dce_offslice": 0.19,
+   "conc": 6.92,
+   "dce_members": 0.24,
+   "dce_pos": -1.127,
+   "dce_neg": 1.493,
+   "n_pos": 88,
+   "n_neg": 96,
+   "min_sign_share": 0.478,
+   "base_ce_member_mean": 7.737,
+   "base_ce_frac_lt3": 0.217,
+   "top_examples": [
+    {
+     "context": "  GOOGLE MAP ) ; www.nhm.",
+     "target": "ac",
+     "base_ce": 1.74,
+     "dce": 3.03
+    },
+    {
+     "context": "riverbus.co.uk; adult/child 30min trip",
+     "target": " \u00a3",
+     "base_ce": 3.16,
+     "dce": 2.83
+    },
+    {
+     "context": " www.wearebigchill.com; 257-259",
+     "target": " Pent",
+     "base_ce": 11.23,
+     "dce": 2.02
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " Getting hopelessly lost in the crooked medieval streets of Sandwich\n\n",
+     "target": "2",
+     "base_ce": 7.07,
+     "dce": 1.72
+    },
+    {
+     "context": "-5pm Mon-Sat, to 4pm Sun)\n",
+     "target": "\n",
+     "base_ce": 9.72,
+     "dce": -1.23
+    },
+    {
+     "context": "designmuseum.org; 28 Shad Thames, SE1;",
+     "target": " adult",
+     "base_ce": 13.6,
+     "dce": -0.89
+    }
+   ]
+  },
+  {
+   "tag": "r.6.2.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a6', 'r.6.2', (4, 10))",
+    "('pca', 'a6', 'r.6.2', (0, 2))",
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a9', 'r.6.2', (4, 16))"
+   ],
+   "abs_dce_members": 1.97,
+   "abs_dce_offslice": 0.364,
+   "conc": 5.42,
+   "dce_members": -1.077,
+   "dce_pos": -2.115,
+   "dce_neg": 0.574,
+   "n_pos": 113,
+   "n_neg": 71,
+   "min_sign_share": 0.386,
+   "base_ce_member_mean": 11.961,
+   "base_ce_frac_lt3": 0.065,
+   "top_examples": [
+    {
+     "context": "\n\n33BarbicanE1\n\n7Shopping",
+     "target": "\n",
+     "base_ce": 21.63,
+     "dce": 0.17
+    },
+    {
+     "context": "Ye Olde Cheshire CheeseB3\n\n3Entertainment",
+     "target": "\n",
+     "base_ce": 23.3,
+     "dce": 0.11
+    },
+    {
+     "context": "3\n\n34RevengeF4\n\n3Entertainment",
+     "target": "\n",
+     "base_ce": 29.94,
+     "dce": 0.72
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " and _What's On_.\n\nBrighton RocksBAR",
+     "target": "\n",
+     "base_ce": 6.13,
+     "dce": -2.4
+    },
+    {
+     "context": " little museum and replanted Roman gardens.\n\n## Surrey\n",
+     "target": "\n",
+     "base_ce": 15.01,
+     "dce": -3.79
+    },
+    {
+     "context": "St JohnC1\n\n28Sweeting'sE3\n",
+     "target": "\n",
+     "base_ce": 9.7,
+     "dce": 0.88
+    }
+   ]
+  },
+  {
+   "tag": "r.6.2.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a6', 'r.6.2', (2, 4))",
+    "('pca', 'a9', 'r.6.2', (4, 16))",
+    "('pca', 'a6', 'r.6.2', (0, 2))"
+   ],
+   "abs_dce_members": 2.039,
+   "abs_dce_offslice": 0.376,
+   "conc": 5.42,
+   "dce_members": -0.613,
+   "dce_pos": -0.442,
+   "dce_neg": -0.766,
+   "n_pos": 87,
+   "n_neg": 97,
+   "min_sign_share": 0.473,
+   "base_ce_member_mean": 11.203,
+   "base_ce_frac_lt3": 0.076,
+   "top_examples": [
+    {
+     "context": "; www.barbican.org.uk; Silk St",
+     "target": ",",
+     "base_ce": 5.6,
+     "dce": 0.1
+    },
+    {
+     "context": "rundel and the coast.\n\n1Sights",
+     "target": "\n",
+     "base_ce": 15.32,
+     "dce": -5.28
+    },
+    {
+     "context": " www.wearebigchill.com; 257-259",
+     "target": " Pent",
+     "base_ce": 11.23,
+     "dce": 1.01
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "\n\n11Queen Victoria Memorial\n\n12Spencer House",
+     "target": "\n",
+     "base_ce": 10.59,
+     "dce": -8.96
+    },
+    {
+     "context": "\n#### Broadstairs\n\n#### Ramsgate\n\n#### Sandwich",
+     "target": "\n",
+     "base_ce": 22.84,
+     "dce": -15.43
+    },
+    {
+     "context": " to ska and reggae beats.\n\n#### Islington",
+     "target": "\n",
+     "base_ce": 13.26,
+     "dce": -2.97
+    }
+   ]
+  },
+  {
+   "tag": "r.6.2.2",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a9', 'r.6.2', (4, 16))",
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a6', 'r.6.2', (2, 4))",
+    "('pca', 'a6', 'r.6.2', (10, 16))"
+   ],
+   "abs_dce_members": 1.697,
+   "abs_dce_offslice": 0.244,
+   "conc": 6.95,
+   "dce_members": -0.302,
+   "dce_pos": -1.525,
+   "dce_neg": 1.884,
+   "n_pos": 118,
+   "n_neg": 66,
+   "min_sign_share": 0.359,
+   "base_ce_member_mean": 11.339,
+   "base_ce_frac_lt3": 0.082,
+   "top_examples": [
+    {
+     "context": " has well-appointed rooms to let.\n\n7Shopping",
+     "target": "\n",
+     "base_ce": 21.84,
+     "dce": -2.07
+    },
+    {
+     "context": "bury River Navigation CompanyB2\n\n4Sleeping\n",
+     "target": "\n",
+     "base_ce": 26.74,
+     "dce": -4.23
+    },
+    {
+     "context": "\n\n2Marble ArchA5\n\n5Eating",
+     "target": "\n",
+     "base_ce": 16.7,
+     "dce": -0.82
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "  GOOGLE MAP ) ; Church Sq; tower",
+     "target": " adult",
+     "base_ce": 7.74,
+     "dce": 3.85
+    },
+    {
+     "context": "; www.barbican.org.uk; Silk St",
+     "target": ",",
+     "base_ce": 5.6,
+     "dce": 0.48
+    },
+    {
+     "context": "\n#### East End & Docklands\n\n40 WinksB",
+     "target": "OUT",
+     "base_ce": 9.28,
+     "dce": -1.27
+    }
+   ]
+  },
+  {
+   "tag": "r.6.2.3",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a6', 'r.6.2', (2, 4))",
+    "('pca', 'a6', 'r.6.2', (10, 16))",
+    "('pca', 'a9', 'r.6.2', (0, 4))",
+    "('pca', 'a6', 'r.6.2', (4, 10))"
+   ],
+   "abs_dce_members": 1.761,
+   "abs_dce_offslice": 0.285,
+   "conc": 6.18,
+   "dce_members": 0.704,
+   "dce_pos": 0.338,
+   "dce_neg": 0.968,
+   "n_pos": 77,
+   "n_neg": 107,
+   "min_sign_share": 0.418,
+   "base_ce_member_mean": 9.984,
+   "base_ce_frac_lt3": 0.087,
+   "top_examples": [
+    {
+     "context": "\n#### Broadstairs\n\n#### Ramsgate\n\n#### Sandwich",
+     "target": "\n",
+     "base_ce": 22.84,
+     "dce": 5.04
+    },
+    {
+     "context": "\n\n#### Woburn\n\n#### Waddesdon",
+     "target": "\n",
+     "base_ce": 16.09,
+     "dce": 1.23
+    },
+    {
+     "context": "\n#### Canterbury\n\n#### Leeds Castle\n\n#### Margate",
+     "target": "\n",
+     "base_ce": 23.87,
+     "dce": -0.5
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "Ye Olde Cheshire CheeseB3\n\n3Entertainment",
+     "target": "\n",
+     "base_ce": 23.3,
+     "dce": -2.24
+    },
+    {
+     "context": "BulldogF3\n\n27CoalitionD4\n",
+     "target": "\n",
+     "base_ce": 13.84,
+     "dce": -0.67
+    },
+    {
+     "context": "oneye.com; adult/child \u00a321/15;",
+     "target": " ",
+     "base_ce": 6.59,
+     "dce": 0.37
+    }
+   ]
+  },
+  {
+   "tag": "r.6.3.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a6', 'r.6.3', (4, 10))",
+    "('pca', 'a9', 'r.6.3', (4, 16))",
+    "('pca', 'a6', 'r.6.3', (10, 16))",
+    "('pca', 'a9', 'r.6.3', (0, 4))"
+   ],
+   "abs_dce_members": 1.613,
+   "abs_dce_offslice": 0.233,
+   "conc": 6.92,
+   "dce_members": -0.269,
+   "dce_pos": 1.685,
+   "dce_neg": -1.554,
+   "n_pos": 73,
+   "n_neg": 111,
+   "min_sign_share": 0.397,
+   "base_ce_member_mean": 10.15,
+   "base_ce_frac_lt3": 0.114,
+   "top_examples": [
+    {
+     "context": "\n#### Broadstairs\n\n#### Ramsgate\n\n#### Sandwich",
+     "target": "\n",
+     "base_ce": 22.84,
+     "dce": 6.79
+    },
+    {
+     "context": "\n\n34RevengeF4\n\n3Entertainment\n",
+     "target": "\n",
+     "base_ce": 24.4,
+     "dce": -4.55
+    },
+    {
+     "context": "chen.co.uk; 11 Sicilian Ave, WC1",
+     "target": ";",
+     "base_ce": 7.02,
+     "dce": -4.22
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "uk.com; The Borough; r from \u00a3109; ",
+     "target": " p",
+     "base_ce": 7.09,
+     "dce": 2.09
+    },
+    {
+     "context": "ine)\n\nNightly disco with occasional cabaret.\n",
+     "target": "\n",
+     "base_ce": 8.88,
+     "dce": 0.86
+    },
+    {
+     "context": " and some dedicated mountain-bike trails.\n\nWalking\n",
+     "target": "\n",
+     "base_ce": 21.47,
+     "dce": 1.3
+    }
+   ]
+  },
+  {
+   "tag": "r.6.3.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a9', 'r.6.3', (0, 4))",
+    "('pca', 'a6', 'r.6.3', (10, 16))",
+    "('pca', 'a6', 'r.6.3', (4, 10))",
+    "('pca', 'a9', 'r.6.3', (4, 16))"
+   ],
+   "abs_dce_members": 1.252,
+   "abs_dce_offslice": 0.233,
+   "conc": 5.37,
+   "dce_members": 0.128,
+   "dce_pos": -0.856,
+   "dce_neg": 1.011,
+   "n_pos": 87,
+   "n_neg": 97,
+   "min_sign_share": 0.473,
+   "base_ce_member_mean": 8.383,
+   "base_ce_frac_lt3": 0.092,
+   "top_examples": [
+    {
+     "context": " alternative music most nights in this pub's back room (cover usually",
+     "target": " \u00a3",
+     "base_ce": 4.65,
+     "dce": 1.82
+    },
+    {
+     "context": "\n\n33BarbicanE1\n\n7Shopping",
+     "target": "\n",
+     "base_ce": 21.63,
+     "dce": -1.92
+    },
+    {
+     "context": "re.co.uk; Belvedere Rd, SE1",
+     "target": ";",
+     "base_ce": 6.2,
+     "dce": -2.36
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " Paul's Churchyard, EC4; adult/child",
+     "target": " \u00a3",
+     "base_ce": 4.18,
+     "dce": 2.72
+    },
+    {
+     "context": "-7188 7188; Lambeth Palace Rd, SE1",
+     "target": ";",
+     "base_ce": 3.55,
+     "dce": -1.04
+    },
+    {
+     "context": "com/museum; Gate 4, Church Rd, SW19",
+     "target": ";",
+     "base_ce": 2.72,
+     "dce": -0.44
+    }
+   ]
+  },
+  {
+   "tag": "r.9.0.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a7', 'r.9.0', (0, 2))",
+    "('pca', 'a7', 'r.9.0', (2, 4))",
+    "('pca', 'a6', 'r.9.0', (10, 16))",
+    "('pca', 'a17', 'r.9.0', (4, 16))"
+   ],
+   "abs_dce_members": 0.884,
+   "abs_dce_offslice": 0.248,
+   "conc": 3.56,
+   "dce_members": 0.094,
+   "dce_pos": -0.332,
+   "dce_neg": 0.838,
+   "n_pos": 117,
+   "n_neg": 67,
+   "min_sign_share": 0.364,
+   "base_ce_member_mean": 8.296,
+   "base_ce_frac_lt3": 0.12,
+   "top_examples": [
+    {
+     "context": "\n\nTo/From the Airports\n\nGatwick",
+     "target": "\n",
+     "base_ce": 22.03,
+     "dce": -1.5
+    },
+    {
+     "context": ".\n\n#### Outside Central London\n\nWhite CrossPUB",
+     "target": "\n",
+     "base_ce": 5.0,
+     "dce": 1.52
+    },
+    {
+     "context": "Museum of LondonD2\n\n17PinnacleG3",
+     "target": "\n",
+     "base_ce": 18.99,
+     "dce": -1.5
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "(www.brighton-hove.gov.uk)",
+     "target": "\n",
+     "base_ce": 12.49,
+     "dce": -1.44
+    },
+    {
+     "context": " h10am-5pm Tue-Sun;  tHo",
+     "target": "xton",
+     "base_ce": 6.72,
+     "dce": -1.48
+    },
+    {
+     "context": ") services between Gatwick's South Terminal and Victoria station (from",
+     "target": " \u00a3",
+     "base_ce": 2.09,
+     "dce": 1.75
+    }
+   ]
+  },
+  {
+   "tag": "r.9.0.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a17', 'r.9.0', (4, 16))",
+    "('pca', 'a17', 'r.9.0', (0, 4))",
+    "('pca', 'a6', 'r.9.0', (4, 10))",
+    "('pca', 'a6', 'r.9.0', (10, 16))"
+   ],
+   "abs_dce_members": 0.808,
+   "abs_dce_offslice": 0.173,
+   "conc": 4.66,
+   "dce_members": 0.367,
+   "dce_pos": 0.755,
+   "dce_neg": 0.012,
+   "n_pos": 88,
+   "n_neg": 96,
+   "min_sign_share": 0.478,
+   "base_ce_member_mean": 11.948,
+   "base_ce_frac_lt3": 0.087,
+   "top_examples": [
+    {
+     "context": "\n3Victoria & Albert MuseumC5\n\n1Sights",
+     "target": "\n",
+     "base_ce": 30.69,
+     "dce": -0.58
+    },
+    {
+     "context": "\n\n#### Dover\n\n#### Around Dover\n\n#### Rye",
+     "target": "\n",
+     "base_ce": 29.5,
+     "dce": 0.69
+    },
+    {
+     "context": "life\n\n#### Entertainment\n\n#### Shopping\n\n#### Information",
+     "target": "\n",
+     "base_ce": 32.04,
+     "dce": -1.55
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "orgeinrye.com; 98 High St; d from",
+     "target": " \u00a3",
+     "base_ce": 8.32,
+     "dce": -1.15
+    },
+    {
+     "context": "ENCH\n\n(4 Westcliff Arcade; mains",
+     "target": " \u00a3",
+     "base_ce": 3.77,
+     "dce": 0.16
+    },
+    {
+     "context": "de; adult/child \u00a33.60/2; ",
+     "target": " h",
+     "base_ce": 12.13,
+     "dce": 0.2
+    }
+   ]
+  },
+  {
+   "tag": "r.9.0.2",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a6', 'r.9.0', (4, 10))",
+    "('pca', 'm7', 'r.9.0', (32, 48))",
+    "('pca', 'a17', 'r.9.0', (0, 4))",
+    "('pca', 'a17', 'r.9.0', (4, 16))"
+   ],
+   "abs_dce_members": 0.611,
+   "abs_dce_offslice": 0.162,
+   "conc": 3.77,
+   "dce_members": 0.134,
+   "dce_pos": 0.088,
+   "dce_neg": 0.181,
+   "n_pos": 93,
+   "n_neg": 91,
+   "min_sign_share": 0.495,
+   "base_ce_member_mean": 11.293,
+   "base_ce_frac_lt3": 0.076,
+   "top_examples": [
+    {
+     "context": "AHoxton Hotel\n\nACitizen M\n\nAGoring",
+     "target": "\n",
+     "base_ce": 18.23,
+     "dce": 0.29
+    },
+    {
+     "context": " by Heston Blumenthal\n\nAFive Fields\n\nAKoya",
+     "target": "\n",
+     "base_ce": 23.94,
+     "dce": 1.42
+    },
+    {
+     "context": " works of its most famous holidaymaker.\n\n1Sights",
+     "target": "\n",
+     "base_ce": 18.02,
+     "dce": 0.48
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "\n#### Chichester\n\n#### Around Chichester\n",
+     "target": "\n",
+     "base_ce": 14.82,
+     "dce": -0.48
+    },
+    {
+     "context": "-9pm Tue-Sat, to 3pm Sun)\n",
+     "target": "\n",
+     "base_ce": 8.81,
+     "dce": 1.98
+    },
+    {
+     "context": " the City to Docklands, Greenwich and London City Airport.\n",
+     "target": "\n",
+     "base_ce": 14.37,
+     "dce": -0.28
+    }
+   ]
+  },
+  {
+   "tag": "r.9.1.0",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm7', 'r.9.1', (16, 24))",
+    "('pca', 'a7', 'r.9.1', (4, 10))",
+    "('pca', 'a17', 'r.9.1', (4, 16))",
+    "('pca', 'm7', 'r.9.1', (24, 32))"
+   ],
+   "abs_dce_members": 0.914,
+   "abs_dce_offslice": 0.121,
+   "conc": 7.58,
+   "dce_members": -0.253,
+   "dce_pos": 0.654,
+   "dce_neg": -1.179,
+   "n_pos": 93,
+   "n_neg": 91,
+   "min_sign_share": 0.495,
+   "base_ce_member_mean": 9.488,
+   "base_ce_frac_lt3": 0.158,
+   "top_examples": [
+    {
+     "context": "ights\n\n1Westminster Hall\n\n2Jewel Tower",
+     "target": "\n",
+     "base_ce": 24.17,
+     "dce": -2.59
+    },
+    {
+     "context": "\n\n11Queen Victoria Memorial\n\n12Spencer House",
+     "target": "\n",
+     "base_ce": 10.59,
+     "dce": -2.36
+    },
+    {
+     "context": "\n12Spencer House\n\n13Clarence House",
+     "target": "\n",
+     "base_ce": 13.12,
+     "dce": -2.11
+    }
+   ],
+   "random_examples": [
+    {
+     "context": "\n\n2130 St Mary Axe\n\n22Heron Tower",
+     "target": "\n",
+     "base_ce": 24.94,
+     "dce": -1.34
+    },
+    {
+     "context": " peppercorns.\n\nRoti ChaiINDIAN\n",
+     "target": "\n",
+     "base_ce": 14.15,
+     "dce": -1.02
+    },
+    {
+     "context": "aurant gives centre stage to contemporary British-based jazz musicians",
+     "target": " nightly",
+     "base_ce": 10.41,
+     "dce": 0.79
+    }
+   ]
+  },
+  {
+   "tag": "r.9.1.1",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'm7', 'r.9.1', (24, 32))",
+    "('pca', 'a17', 'r.9.1', (0, 4))",
+    "('pca', 'a7', 'r.9.1', (10, 16))",
+    "('pca', 'a7', 'r.9.1', (4, 10))"
+   ],
+   "abs_dce_members": 0.695,
+   "abs_dce_offslice": 0.164,
+   "conc": 4.24,
+   "dce_members": 0.039,
+   "dce_pos": -0.444,
+   "dce_neg": 0.472,
+   "n_pos": 87,
+   "n_neg": 97,
+   "min_sign_share": 0.473,
+   "base_ce_member_mean": 12.222,
+   "base_ce_frac_lt3": 0.033,
+   "top_examples": [
+    {
+     "context": "Geffrye MuseumC1\n\n4Sleeping",
+     "target": "\n",
+     "base_ce": 17.68,
+     "dce": -0.27
+    },
+    {
+     "context": "\n\n#### Battle\n\n#### Hastings\n\n#### Eastbourne",
+     "target": "\n",
+     "base_ce": 22.77,
+     "dce": -0.66
+    },
+    {
+     "context": "orgeinrye.com; 98 High St; d from",
+     "target": " \u00a3",
+     "base_ce": 8.32,
+     "dce": 0.61
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " MAP ) ; www.boroughmarket.org.uk; 8",
+     "target": " South",
+     "base_ce": 10.02,
+     "dce": -0.03
+    },
+    {
+     "context": " London TombsF1\n\n8London DungeonA3\n",
+     "target": "\n",
+     "base_ce": 12.77,
+     "dce": -0.45
+    },
+    {
+     "context": " includes the 900-year-old **College Garden** (10",
+     "target": "am",
+     "base_ce": 4.91,
+     "dce": -0.07
+    }
+   ]
+  },
+  {
+   "tag": "r.9.1.2",
+   "n_members": 184,
+   "probes": [
+    "('pca', 'a17', 'r.9.1', (4, 16))",
+    "('pca', 'a7', 'r.9.1', (10, 16))",
+    "('pca', 'a7', 'r.9.1', (4, 10))",
+    "('pca', 'm7', 'r.9.1', (16, 24))"
+   ],
+   "abs_dce_members": 0.511,
+   "abs_dce_offslice": 0.131,
+   "conc": 3.89,
+   "dce_members": -0.081,
+   "dce_pos": -0.123,
+   "dce_neg": -0.033,
+   "n_pos": 98,
+   "n_neg": 86,
+   "min_sign_share": 0.467,
+   "base_ce_member_mean": 9.913,
+   "base_ce_frac_lt3": 0.092,
+   "top_examples": [
+    {
+     "context": " Rivers Museum in Oxford\n\n2Activities\n\nCycling",
+     "target": "\n",
+     "base_ce": 22.23,
+     "dce": -0.13
+    },
+    {
+     "context": "\n\n24RookeryC1\n\n5Eating",
+     "target": "\n",
+     "base_ce": 18.14,
+     "dce": -0.86
+    },
+    {
+     "context": "rosfa HotelB4\n\n5Clink78F2",
+     "target": "\n",
+     "base_ce": 20.65,
+     "dce": -1.81
+    }
+   ],
+   "random_examples": [
+    {
+     "context": " the day, with a mixture of old biddies and young",
+     "target": " hip",
+     "base_ce": 5.8,
+     "dce": 0.58
+    },
+    {
+     "context": "  MAP   GOOGLE MAP ) ; cnr",
+     "target": " Commercial",
+     "base_ce": 8.59,
+     "dce": 0.6
+    },
+    {
+     "context": "\n\n1Westminster Hall\n\n2Jewel Tower\n",
+     "target": "\n",
+     "base_ce": 20.18,
+     "dce": 0.3
+    }
+   ]
+  }
+ ],
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": true,
+ "runtime_s": 118.90086650848389
+}

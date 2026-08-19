@@ -8717,3 +8717,74 @@ and adds 32 above-median score predicates (+64 shifted copies free)
 to the ladder library, then reruns until-dry. REGISTERED: (a)
 converged >=65/118 (+8 over cl2's 57); (b) null <=0.6; (c) >=half
 the gain cites a fold_ predicate.
+
+## 346. Fold features substitute but do not extend: the programmable frontier is feature-robust
+
+fold_basis added 32 early-layer weight-fold predicates (top-8 PCA
+directions of mlp0-3 folded over the vocabulary, +64 shifted copies)
+to the ladder library and reran until dry. Converged total: **58/118
+(+1 over cl2's 57)** -- the registered >=65 bar FAILED. But the fold
+predicates were cited by 19 passing programs (bar (c) HELD): they
+SUBSTITUTE for hand-named surface features inside programs that
+already passed, without cracking new leaves. Convergent evidence
+with 340: the ~60 unprogrammable leaves are not waiting for a better
+input-token vocabulary -- any reasonable basis (hand-named, class,
+trigger, weight-fold) programs the same ~58, and the remainder needs
+context the input token stream does not carry position-locally
+(attention-transported content, longer-range structure). The
+programmable frontier is a property of the description language
+class, mirroring the deploy-gap result (341).
+
+## 347. Probe v2 overfits: richer basis WORSE than plain ridge (negative result)
+
+probe_gate2 replaced v1's linear ridge -> binary label with
+quadratic features in mlp3's read directions (1680 dims) + direct
+regression of the 10 oracle mode scores + any-mode gating. All three
+bars FAILED, and v2 is strictly worse than v1: AUC 0.551 (v1 0.621),
+probe gain -0.005 (v1 +0.033). The quadratic per-mode probe
+overfits the fit window and the any-mode gate construction amplifies
+per-mode noise. v1's simple binary ridge at 3.8x random stands as
+the record. Lesson recorded: at a fixed early read point, richer
+feature bases overfit before they help; the AUC ceiling (~0.62)
+needs information not linearly-or-quadratically present at block 2
+-- later read points or context aggregation, not fancier features.
+
+## 348. Sign-mixed policy structure is UNIVERSAL: 50/50 leaves two-signed
+
+explainer_batch ran the 344 treatment over every pca-probe census
+leaf (50 tested, 18 skipped as roots/small). Both registered bars
+HELD emphatically: **96% of leaves concentrate |dCE| >=3x over
+corpus background, and 100% are two-signed** (minority sign share
+>=0.15 -- typical minority share is near half). r.0.0.1 is not a
+quirk: EVERY census circuit is a two-signed policy whose machinery
+pushes a decision that is right at some members and wrong at others.
+Mechanical examples + base-CE stratification (member mean, frac<3)
+now recorded for all 50 -- the raw material for the circuit
+registry. This retires the registered-bars-assume-uniform-damage
+error class (344) permanently: uniform-damage predictions are now
+known-wrong a priori in this model.
+
+## 349. The line-break circuit is a push-brake pair; first tension edges measured
+
+bundle_split ablated r.0.0.1's four bundles singly (+pairs+joint).
+(a) DISSOCIATION HELD: bundle damage profiles are not
+interchangeable (pairwise r from -0.48 to +0.35); b0 (m0 dirs
+12-16) and b1 (m3 dirs 24-32) are ANTI-correlated (-0.48). (b) As
+registered ("wings governed by different bundles") FAILED -- both
+wings' largest driver is b0 -- but the structure found is sharper:
+**b0 is a break-PUSH and the m3 bundles are a break-BRAKE**. Pos
+wing: b0 +3.17, b1 -2.03 (removing the brake HELPS where the push
+is right). At the Westminster-Abbey example: b0 alone +8.07, b1
+-5.99, b3 -6.48, m0-pair +0.41, m3-pair -5.11, joint -6.79 --
+(d) HELD, the improvement is 95% attributable to the brake side.
+The user's composition hypothesis is confirmed in structure: the
+circuit is a SUBTRACTION of two simpler parts (mlp0 pushes
+line-breaks in list layouts; mlp3 opposes it), and the two-signed
+membership is the visible shadow of that antagonism. (c) TENSION
+HELD: 11 other leaves' members IMPROVE by <=-0.3 mean when this
+machinery is removed (r.1.0.0 -0.54, r.1.1.0 -0.75, r.3.0.0 -0.53,
+r.3.1.0 -0.55, r.6.2.0 -0.45, ...): the first measured tension
+edges, now first-class relations in the circuit schema. Follow-on
+queued: interchange.py (Geiger-style) -- set the push channel to
+its break-state value at non-break positions and predict the
+newline logit follows.
