@@ -1,0 +1,428 @@
+{
+ "n_tested": 22,
+ "n_pass": 0,
+ "median_null_lift": 0.0,
+ "results": [
+  {
+   "tag": "r.0.0",
+   "precision": 0.0107,
+   "recall": 0.12,
+   "base": 0.0221,
+   "lift": 0.48,
+   "null_lift": 0.5,
+   "trigger_top": [
+    ")}",
+    "\ufffd\u58eb",
+    "cffff",
+    "\u200b",
+    "SourceFile",
+    "ModLoader",
+    "Buyable",
+    " 14"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.0.0",
+   "precision": 0.0009,
+   "recall": 0.013,
+   "base": 0.0038,
+   "lift": 0.23,
+   "null_lift": 0.0,
+   "trigger_top": [
+    ")}",
+    "cffff",
+    "\ufffd\u58eb",
+    "\u200b",
+    "SourceFile",
+    "ModLoader",
+    "Buyable",
+    " M"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.0.1",
+   "precision": 0.0017,
+   "recall": 0.008,
+   "base": 0.0032,
+   "lift": 0.53,
+   "null_lift": 0.0,
+   "trigger_top": [
+    ")}",
+    "SourceFile",
+    "\ufffd\u58eb",
+    "\u200b",
+    "cffff",
+    "Buyable",
+    "ModLoader",
+    " overpowered"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.0.2",
+   "precision": 0.0008,
+   "recall": 0.008,
+   "base": 0.003,
+   "lift": 0.26,
+   "null_lift": 0.0,
+   "trigger_top": [
+    ")}",
+    "SourceFile",
+    "\ufffd\u58eb",
+    "cffff",
+    "\u200b",
+    "Buyable",
+    "ModLoader",
+    "wcsstore"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.1",
+   "precision": 0.0433,
+   "recall": 0.066,
+   "base": 0.022,
+   "lift": 1.97,
+   "null_lift": 0.63,
+   "trigger_top": [
+    "arij",
+    "\ufffd",
+    "ru",
+    "oy",
+    "ric",
+    "izz",
+    "agn",
+    "om"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.1.0",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0036,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "oy",
+    "arij",
+    "ru",
+    "alo",
+    "amar",
+    "imer",
+    "agn",
+    "iz"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.1.1",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0032,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "agn",
+    "arij",
+    "anc",
+    "rav",
+    "itt",
+    "iz",
+    "oy",
+    "ib"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.1.2",
+   "precision": 0.0031,
+   "recall": 0.007,
+   "base": 0.0035,
+   "lift": 0.89,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "IED",
+    "ips",
+    "ru",
+    "izz",
+    "\ufffd",
+    "ACK",
+    "ric",
+    "\u00e9"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.2.0",
+   "precision": 0.0036,
+   "recall": 0.008,
+   "base": 0.0032,
+   "lift": 1.14,
+   "null_lift": 0.55,
+   "trigger_top": [
+    "itt",
+    "rav",
+    "arij",
+    "urat",
+    "ert",
+    "oy",
+    "anc",
+    "iche"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.2.1",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0035,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "itt",
+    "rav",
+    "arij",
+    "urat",
+    "ert",
+    "oy",
+    "anc",
+    "iche"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.2.2",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.003,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "itt",
+    "rav",
+    "arij",
+    "urat",
+    "ert",
+    "oy",
+    "anc",
+    "iche"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.2.3",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0034,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "itt",
+    "rav",
+    "arij",
+    "urat",
+    "ert",
+    "oy",
+    "anc",
+    "iche"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.3",
+   "precision": 0.0646,
+   "recall": 0.021,
+   "base": 0.0225,
+   "lift": 2.87,
+   "null_lift": 0.46,
+   "trigger_top": [
+    "Alternative",
+    "wcsstore",
+    "Professional",
+    "Awesome",
+    "Classic",
+    "Performance",
+    " \ufffd\ufffd\ufffd\ufffd",
+    "Strength"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.3.0",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0033,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "758",
+    "434",
+    "648",
+    "347",
+    "545",
+    "684",
+    "893",
+    "705"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.3.1",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0036,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "Professional",
+    "Minnesota",
+    "Educ",
+    "Los",
+    "Alternative",
+    "Classic",
+    "Indian",
+    "Utah"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.3.2",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0036,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "758",
+    "434",
+    "545",
+    "347",
+    "648",
+    "893",
+    "453",
+    "554"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.2.1.0",
+   "precision": 0.0844,
+   "recall": 0.094,
+   "base": 0.0035,
+   "lift": 24.43,
+   "null_lift": 0.0,
+   "trigger_top": [
+    ")}",
+    "\u200b",
+    "ModLoader",
+    "\ufffd\u58eb",
+    "Buyable",
+    " metic",
+    "cffff",
+    "wcsstore"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.2.2.0",
+   "precision": 0.0018,
+   "recall": 0.014,
+   "base": 0.0035,
+   "lift": 0.53,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " \ufffd",
+    "IFIC",
+    ")}",
+    " relatively",
+    " ANY",
+    " \ufffd",
+    " OUR",
+    "THIS"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.7.3",
+   "precision": 0.0287,
+   "recall": 0.085,
+   "base": 0.023,
+   "lift": 1.25,
+   "null_lift": 2.85,
+   "trigger_top": [
+    "om",
+    "arij",
+    "izz",
+    "oy",
+    "YD",
+    "\u00e9",
+    "alo",
+    "\ufffd"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.7.3.0",
+   "precision": 0.003,
+   "recall": 0.008,
+   "base": 0.0032,
+   "lift": 0.93,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "arij",
+    "oy",
+    "YD",
+    "rav",
+    "ich",
+    "im",
+    "ili",
+    "itt"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.7.3.1",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.003,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "IC",
+    "IG",
+    "AR",
+    "YD",
+    "oy",
+    "IB",
+    "ER",
+    "EW"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.7.3.2",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0033,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "\u30bc",
+    "\u2010",
+    " Mulcair",
+    " Hitler",
+    " \ufffd\ufffd\ufffd\ufffd",
+    " Miliband",
+    " Tsarnaev",
+    " Rowling"
+   ],
+   "pass": false
+  }
+ ],
+ "pred_a": false,
+ "pred_b": true,
+ "runtime_s": 1127.862542629242
+}
