@@ -8402,3 +8402,22 @@ test from round one). F2's nan is the structural-rejection case
 surfacing as arithmetic. Battery v3 queued: family-disjoint foreign
 sets, per-candidate sign-mixedness, nan==structural-reject -- and the
 adversarial fake MUST fail sign-mixedness or the hole stands.
+
+## 331. Two circuits reach induction grade: weights-derived pair mechanisms at 33x precision
+
+`mechanism_bootstrap3.py` (bigram fold): the 40% bar FAILED (2 of 22),
+but the two passes are the program's first full induction-grade
+certifications by the user's standard -- mechanism derived from
+component structure alone, predicting the member extension out of
+sample. **r.0.1.2: precision 32.6x base rate at recall 0.31, null
+0.0x, trigger pairs ' vert|ig', ' hem|isp', ' amph|ithe', ' char|cut'
+-- the circuit fires on the second piece of rare multi-token words**,
+read directly off m0's direction blocks by running token pairs through
+the fold. r.0.0.1 (35.5x): boilerplate fragment continuations
+('www|.', 'HOT|EL', 'S|ights'). Structure -> extension, zero member
+data in the condition. The description hierarchy update: 64-bit
+programs 14, unigram mechanisms 0, BIGRAM MECHANISMS 2 (at 33-36x
+precision when expressible), agent-decoded names 47. Twenty front
+leaves sit above the bigram rung; v4 queued extends the fold capture
+to layers 0-9 so the middle-MLP leaves get their rung measured too
+(registered: >=6 pass; depth-vs-complexity-class reported).

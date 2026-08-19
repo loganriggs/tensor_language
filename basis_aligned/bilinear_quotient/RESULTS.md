@@ -3982,3 +3982,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 330: harvest milestone + battery holes (2026-08-19)
 - MILESTONE: sign-calibrated slack policy improves the real model (-0.048 fresh; random control +0.143). Gating efficiency 9.4x at tight gates.
 - Battery found 2 holes + 1 flaw in the certification: composition invisible to selectivity; statistic-selected fakes pass both dims; sibling-foreign broken. v3 adds sign-mixedness per candidate + family-disjoint foreigns.
+
+## Appendix 331: induction-grade pair (2026-08-19)
+- 2 circuits certified at full induction grade (weights-derived bigram mechanisms, 33-36x precision, readable: "second piece of rare multi-token words"). Hierarchy: programs 14 / unigram 0 / bigram 2 / names 47. Fold extends to layers 0-9 next.
