@@ -8978,3 +8978,38 @@ OV library, additive-narrow junctions -- bilin18 composes by
 summing independent evidence streams, not by pipelining. The
 "mover" is not the end of a chain; it is the largest of several
 parallel voters.
+
+## 360. The DAS fork closes: "steering" was learned DELETION. Values never mattered.
+
+das_natural transplanted natural donor coordinates in the learned
+basis: mean +0.16 held-out (individual donors scatter -0.58..+0.77)
+-- (a) and (b) FAILED, verdict (c) recorded. And the decisive
+number nobody registered: **setting the learned coordinates to ZERO
+gives +4.421 -- identical to the optimized value's +4.421.** The
+optimizer never learned WHAT to write; it learned WHICH directions
+to delete. The gradient found a subspace whose natural variation
+suppresses the newline logit at these positions, and any constant
+overwrite (optimized, zero, whatever) removes that variation
+equally. So the class-level conclusion survives DAS and is now
+sharper than 352's version: in this architecture the intervention
+algebra is PROJECTION, not ASSIGNMENT -- circuits respond to
+variance removal; written values are causally void across every
+instrument tried (PCA blocks, learned bases, natural donor values,
+optimized values). Value-transplant/patching methodology from ReLU
+interpretability does not port to bilinear models; deletion-based
+and variance-based instruments are the native tools. Intervention-
+algebra arc CLOSED with a one-line law: only subtraction bites.
+
+## 361. The "name-mover" is task-contextual, not a corpus specialist
+
+mover_profile measured a14.h4's natural-text footprint: damage
+top-5% share 38% (bar 50% FAILED -- moderately diffuse), modal
+class of top-1% positions is 'other' then ind/newline/subword, with
+name a distant fifth (bar FAILED); one census leaf implicated
+(r.2.0.0, +0.33; bar HELD). Honest reading: a14.h4 moves NAMES in
+IOI prompts because names are the salient repeated entity there,
+but on natural text it is a general repeated-structure head. The
+IOI "mover" role is a CONTEXT-INDUCED specialization of broader
+machinery -- consistent with the parallel-sum picture (359): task
+circuits in bilin18 are assembled on the fly from general-purpose
+additive voters, not dedicated task modules.

@@ -1,0 +1,14 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/das_natural.py:85: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  print(f'{label} step {step}: train nl {-float(loss):+.3f}',
+DAS step 0: train nl +4.849
+DAS step 30: train nl +13.538
+DAS step 60: train nl +14.864
+DAS step 90: train nl +15.271
+DAS relearn: {'train_shift': 8.091, 'holdout_shift': 4.421}
+natural donors: mean +0.160 ([0.77, 0.65, -0.07, 0.66, -0.58, -0.05, -0.07, -0.01])
+optimized val: +4.421 | zero-coords: +4.421
+(a) natural >=+0.5: FAILED
+(b) natural >=30% optimized: FAILED
+(c) verdict: adversarial steering direction, not a circuit variable
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/das_natural_results.json (68s)

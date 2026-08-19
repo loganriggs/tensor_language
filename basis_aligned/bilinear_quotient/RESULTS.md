@@ -4067,3 +4067,9 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 359: IOI is a parallel sum (2026-08-19)
 - All joints 97-99% of single sums: no serial chain; independent additive voters (first-head, induction, mover). Consistent with flat call-graph + additive junctions.
+
+## Appendix 360: only subtraction bites (2026-08-19)
+- Natural values +0.16; optimized +4.42; ZERO-coords also +4.42 -> DAS learned deletion, not steering. Law: intervention algebra in bilin18 is projection, not assignment. Arc closed.
+
+## Appendix 361: mover is task-contextual (2026-08-19)
+- a14.h4 on natural text: diffuse (38% top-5%), modal class 'other', name fifth. IOI mover role = context-induced specialization of a general head; task circuits assembled from general-purpose voters.

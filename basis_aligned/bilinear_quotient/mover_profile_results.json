@@ -1,0 +1,63 @@
+{
+ "total_abs": 2745.3,
+ "top5_share": 0.383,
+ "class_top1pct": [
+  [
+   "class_other",
+   174
+  ],
+  [
+   "class_ind",
+   132
+  ],
+  [
+   "class_newline",
+   107
+  ],
+  [
+   "class_subword",
+   100
+  ],
+  [
+   "class_name",
+   25
+  ]
+ ],
+ "census_hits": [
+  [
+   "r.2.0.0",
+   0.33
+  ]
+ ],
+ "examples_top": [
+  {
+   "context": " Valley\n\n#### Windsor & Eton\n\n#### Bray\n",
+   "target": "\n",
+   "dce": 4.27
+  },
+  {
+   "context": "\n#### Bletchley\n\n#### Woburn\n",
+   "target": "\n",
+   "dce": 3.93
+  },
+  {
+   "context": "\n#### Woburn\n\n#### Waddesdon\n",
+   "target": "\n",
+   "dce": 3.57
+  },
+  {
+   "context": "\n\n#### St Albans\n\n#### The Thames Valley\n",
+   "target": "\n",
+   "dce": 3.33
+  },
+  {
+   "context": "\n#### The Thames Valley\n\n#### Windsor & Eton\n",
+   "target": "\n",
+   "dce": 3.19
+  }
+ ],
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": true,
+ "runtime_s": 3.4132604598999023
+}
