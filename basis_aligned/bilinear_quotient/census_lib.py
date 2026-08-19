@@ -300,11 +300,12 @@ def run_program(f,prog,nflat=54272):
 
 def register_feature(name,spec):
     p=PT+'features.json'
-    reg=json.load(open(p)) if os.path.exists(p) else {'features':{}}
-    if name in reg['features']:
-        raise ValueError(f'feature {name} already registered')
-    reg['features'][name]=spec
-    json.dump(reg,open(p,'w'),indent=1)
+    with _lock('features'):
+        reg=json.load(open(p)) if os.path.exists(p) else {'features':{}}
+        if name in reg['features']:
+            raise ValueError(f'feature {name} already registered')
+        reg['features'][name]=spec
+        json.dump(reg,open(p,'w'),indent=1)
 
 def rule_search(f,pos,neg,nflat=54272):
     names_=list(f)
@@ -360,9 +361,38 @@ def leaf_program(tag,f=None,seed=3):
             'null':round(null,3),'program':prog}
 
 # ---------- circuit registry ----------
+import fcntl
+from contextlib import contextmanager
+@contextmanager
+def _lock(name):
+    os.makedirs(CIRC,exist_ok=True)
+    fh=open(CIRC+'.'+name+'.lock','w')
+    fcntl.flock(fh,fcntl.LOCK_EX)
+    try: yield
+    finally: fcntl.flock(fh,fcntl.LOCK_UN); fh.close()
+
 def circuit_path(tag): return CIRC+tag.replace('.','_')+'.json'
+
+def rebuild_registry():
+    """Idempotent: scan circuits/*.json, rewrite registry.json."""
+    with _lock('registry'):
+        reg={'circuits':{}}
+        for fn in sorted(os.listdir(CIRC)):
+            if not fn.endswith('.json') or fn=='registry.json': continue
+            try: doc=json.load(open(CIRC+fn))
+            except Exception: continue
+            tag=doc.get('tag')
+            if not tag: continue
+            reg['circuits'][tag]={'file':fn,
+                'n_members':doc.get('members',{}).get('n'),
+                'headline':doc.get('story',{}).get('blind_name',''),
+                'cert':len(doc.get('certification',[]))}
+        json.dump(reg,open(CIRC+'registry.json','w'),indent=1)
+    return reg
 def write_circuit(tag,updates):
-    """Merge updates into circuits/<tag>.json + registry row."""
+    """Merge updates into circuits/<tag>.json + registry row.
+    Concurrency-safe: per-tag work is fine in parallel; the registry
+    is rebuilt from files under a lock (no read-modify-write race)."""
     os.makedirs(CIRC,exist_ok=True)
     p=circuit_path(tag)
     doc=json.load(open(p)) if os.path.exists(p) else {
@@ -380,13 +410,8 @@ def write_circuit(tag,updates):
             doc[k]={**doc[k],**v}
         else:
             doc[k]=v
+    if 'members' not in doc and tag in state()['by_tag']:
+        doc['members']={'n':leaf(tag)['n_members']}
     json.dump(doc,open(p,'w'),indent=1)
-    rp=CIRC+'registry.json'
-    reg=json.load(open(rp)) if os.path.exists(rp) else {'circuits':{}}
-    lf=leaf(tag) if tag in state()['by_tag'] else {}
-    reg['circuits'][tag]={'file':os.path.basename(p),
-        'n_members':lf.get('n_members'),
-        'headline':doc.get('story',{}).get('blind_name',''),
-        'cert':len(doc.get('certification',[]))}
-    json.dump(reg,open(rp,'w'),indent=1)
+    rebuild_registry()
     return p

@@ -56,9 +56,15 @@ Count hits. <=1/3 -> mark story 'weak', keep it, flag for revision.
                   'program_bacc': p['bacc'], 'program_null': p['null'],
                   'mechanism_level': 'surface' if PASS else 'none'},
         'certification': [ ...every gate with verdict... ],
-        'provenance': {'scripts': ['SOP-v1'], 'agent': '<model name>'}})
-Then: cd to repo, git add circuits/ features.json && commit && push.
-Push is MANDATORY (box not volume-backed).
+        'provenance': {'scripts': ['SOP-v1'], 'agent': '<model name>',
+                       'lib_rev': <git rev-parse HEAD at task START>}})
+GIT: agents DO NOT commit or push. The repo has concurrent writers, and
+a directory-wide `git add` sweeps other agents' in-progress files into
+your commit (this happened in the dry run). A dedicated consolidator
+(the wake loop) commits and pushes all records periodically -- your
+record is durable once write_circuit returns; report its path and stop.
+Record `git rev-parse HEAD` in provenance at task START so version skew
+from mid-wave infra edits is detectable.
 
 ## Escalation ladder (only after steps 1-6 are merged)
 - bundle split: ablate each probe SINGLY (cl.proj_hooks([probe])), record

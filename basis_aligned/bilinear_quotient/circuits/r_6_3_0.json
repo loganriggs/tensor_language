@@ -244,6 +244,14 @@
    "verdict": "HELD (not weak)",
    "source": "SOP step5 manual red-team",
    "date": "2026-08-19"
+  },
+  {
+   "test": "story red-team on 3 random examples (causal-direction reading)",
+   "bar": ">1/3 hits (else weak)",
+   "value": "0/3",
+   "verdict": "WEAK",
+   "source": "SOP step5 manual red-team, corrected wording (post round-2 SOP edit)",
+   "date": "2026-08-19"
   }
  ],
  "examples": {
@@ -299,7 +307,10 @@
   "scripts": [
    "SOP-v1"
   ],
-  "agent": "Sonnet 5 (census swarm agent)"
+  "agent": "Sonnet 5 (census swarm agent)",
+  "notes": [
+   "CIRCUIT_SOP.md and census_lib.py were live-edited by a concurrent agent mid-task (round-1 commit 9ced0ce, round-2 commit 92137df landed ~16:10 UTC while this run was in progress). Steps 1-3 and the initial step-5 pass in this record were executed against the SOP/census_lib.py version read at task start (pre-edit); the causal_direction_reading redteam entry above was added after discovering the edit, using the corrected step-5 wording."
+  ]
  },
  "story": {
   "blind_name": "Hard-to-predict delimiters (newlines, semicolons) in travel-guide listings/headings; circuit usually pushes the wrong token, raising loss on the majority, helping only a minority.",
@@ -317,9 +328,19 @@
   "program_null": 0.3,
   "mechanism_level": "none",
   "redteam": {
-   "hits": 2,
-   "of": 3,
-   "verdict": "not weak"
+   "literal_membership_reading": {
+    "hits": 2,
+    "of": 3,
+    "note": "SOP wording as originally read (pre round-1/2 edit): does story structurally describe the example? 53433 (target \" p\", not a delimiter) = miss; 51111, 54271 (newline at listing/heading boundary) = hit."
+   },
+   "causal_direction_reading": {
+    "hits": 0,
+    "of": 3,
+    "note": "SOP wording as corrected by concurrent round-2 edit (landed mid-task, discovered after my step 5 ran): does story predict machinery helps vs hurts from dCE sign? All 3 random examples have POSITIVE dCE (circuit helps = minority behavior, 39.7% of members) but story gives no context-level rule to distinguish minority-helps from majority-hurts cases, so it cannot correctly call any of the 3 in advance."
+   },
+   "verdict": "weak (per corrected/current SOP step-5 wording: causal-direction hits=0/3 <=1/3 threshold); flagged for revision -- story lacks a structural rule for which members are in the helping-minority vs hurting-majority split",
+   "hits": 0,
+   "of": 3
   }
  }
 }
