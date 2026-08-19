@@ -192,7 +192,8 @@ def main():
                         'top_probes':[pspecs[i] for i in topi],
                         'n_members':int(len(member)),
                         'sample_tokens':extok,'contexts':ctxs,
-                        '_member':member})
+                        '_member':member,'_score':sc,
+                        '_slice':slice_idx})
         return out
     # ---- level 0 ----
     P0=[('comp',f'{k}{li}') for li in range(18) for k in ('a','m')]
@@ -253,8 +254,6 @@ def main():
         if not ok: continue
         leaves.append(md)
         recurse(md,1)
-    for lf in leaves: lf.pop('_member',None)
-    for md in roots: md.pop('_member',None)
     nleaf=len(leaves)
     nnew=sum(1 for lf in leaves if lf['class_r2']<=0.15)
     crate=child_stats[0]/max(child_stats[1],1)
@@ -263,7 +262,7 @@ def main():
     pc=crate>=0.5
     out={'n_leaves':nleaf,'n_new':nnew,'child_replication_rate':
          round(crate,3),'leaves':[{k:v for k,v in lf.items()
-         if k!='top_probes'} | {'top_probes':[str(p) for p in
+         if k!='top_probes' and not k.startswith('_')} | {'top_probes':[str(p) for p in
          lf['top_probes']]} for lf in leaves],
          'pred_a':bool(pa),'pred_b':bool(pb),'pred_c':bool(pc)}
     packs=[{'tag':lf['tag'],'repl':lf['repl'],
@@ -280,6 +279,9 @@ def main():
                            'score':lf['_score'],
                            'slice':lf['_slice']} for lf in leaves]},
                PT+'census_state.pt')
+    for lf in leaves:
+        for k_ in ('_member','_score','_slice'): lf.pop(k_,None)
+    for md in roots: md.pop('_member',None)
     json.dump(packs,open(PT+'circuit_tree_packs.json','w'),indent=1)
     pd_=all(len(lf['contexts'])>=12 for lf in leaves)
     out_pd=pd_

@@ -4004,3 +4004,12 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 338: compositionality dividend (2026-08-19)
 - Library search: 36/104 previous failures crack + 14 more from iteration-2 compounding (~50 total; programs are circuits-of-circuits). Programmable population 14 -> ~64/118. Until-dry continuation queued (bar: >=70 converged).
+
+## Appendix 339: ladder converges at 57 (2026-08-19)
+- Until-dry compounding: 35 base + 14 + 4 + 4 + 0 = **57/118 programmable, converged**; null 0.509. Registered >=70 FAILED; §338's ~64 corrected to 57. Composition buys one step (+63%), not a cascade.
+
+## Appendix 340: call-graph is flat (2026-08-19)
+- 29 edges over 57 programs: 48% layered (coin flip; bar >=75% FAILED), zero hubs with >=4 users (bar >=3 FAILED). Circuit citations borrow correlated context families, not layered subroutines -- data-space echo of the no-shared-OV-library result.
+
+## Appendix 341: 57-program gate (2026-08-19)
+- Gain +0.171 fresh (12x the 14-program gate; largest deploy-legal move yet) at 65.7% gated -- but efficiency still 1.54x random (bars FAILED). Deploy gap = description-language property, not program count. probe_gate.py queued (stream probe, bars: AUC>=0.75, eff>=2.5x, >=50% oracle).

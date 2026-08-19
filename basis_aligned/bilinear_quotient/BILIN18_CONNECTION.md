@@ -8567,3 +8567,73 @@ anywhere. Description hierarchy update: programmable population 14 ->
 ~64 of 118. Run-until-dry continuation queued (iterate library growth
 until a round adds fewer than 3; registered: converged programmable
 total >= 70, null stays <= 0.6).
+
+## 339. Until-dry convergence: 57 of 118 are programmable, and that is the number
+
+compositional_ladder2 reran the whole ladder from a deterministic tree
+rebuild and iterated the compounding loop to exhaustion: base library
+(~90 features: surface predicates, mechanical class labels, trigger
+pairs, and prev1_/prev2_ shifted copies) programs 35 leaves at the
+doc-disjoint held-out >=0.75 bar; then each round adds every passing
+circuit as a `circ_<tag>` predicate and re-searches the failures.
+Rounds added +14, +4, +4, +0 -- converged in three rounds at **57/118
+programmable**. Median shuffled-label null 0.509 (bar <=0.6 HELD);
+compounding contribution 22 (bar >=3 HELD). The registered headline
+bar -- converged total >=70 -- **FAILED**. §338's "~64" was an
+overcount from the non-converged v1 pass on a different tree draw;
+57 is the disciplined number and replaces it. The compounding story
+survives with a sharper shape: the library DOES crack previously
+unprogrammable leaves (44/104 got candidate rules, 22 survived
+held-out), and the passes are genuinely circuits-of-circuits
+(r.8.0.0 = circ_r_0_0_1 AND circ_r_0_1_0; r.0.2.2 = circ_r_3_0_0 AND
+circ_r_3_0_1), but growth is strongly sub-geometric: each round's
+catch is built from the previous round's, and the well runs dry once
+the correlated-context families are exhausted. Bottom-up composition
+buys one multiplicative step (35 -> 57, +63%), not a cascade.
+
+## 340. The circuit call-graph is flat: composition does not follow depth
+
+dependency_graph built the DAG over the 57 converged programs (edge
+A -> B when B's program cites circ_A) and tested two registered
+structural predictions. Both **FAILED**, and the failures are the
+finding. (a) Layering: only 14/29 edges point from a shallower
+circuit (mean layer of its top causal probes) into a deeper user --
+48%, a coin flip, against the registered >=75%. (b) Hubs: zero
+circuits are cited by >=4 others (registered >=3 such hubs); the
+best are r.6.0.1, r.8.1.2, r.0.1.0 at degree 3. Reading: when a
+circuit's program cites another circuit, it is borrowing a
+*correlated context family*, not calling a *subroutine that runs
+earlier in the stack*. The functional composition graph does not
+mirror physical depth, and no circuit is a universal primitive --
+reuse is broad (16 circuits cited at least once, 29 edges over 57
+nodes) but shallow. This matches the motif census from the weights
+side: bilin18 shares pattern-side *types* across heads but builds no
+shared OV library, and now the same shape appears in data space --
+overlapping context families without a layered call hierarchy.
+
+## 341. Scaling the program set 4x: gain x12, efficiency still 1.5x
+
+deploy_gated2 gated the empirical_L2 assembly with all 57 converged
+programs (input-only features plus fixed-point resolution of circ_
+references). Gated fraction of fresh positions: 65.7%. The assembly
+improves +2.6735 -> +2.5029, a **+0.171 nat gain -- 12x the
+14-program version (+0.014) and the largest deploy-legal benchmark
+move so far**. Both registered bars still FAILED: random gating at
+the matched fraction recovers +0.111 (65% of the gain; bar <=40%),
+so efficiency is 1.54x random -- the same ratio as the 14-program
+gate and far under the 9.4x causal-label oracle (§337). The deploy
+gap is therefore a property of the *description language*, not of
+program count: input-only surface programs, no matter how many,
+know roughly WHERE circuit-dense text is but not WHICH positions
+carry the causal load; quadrupling the vocabulary scales coverage
+(and absolute gain) without sharpening per-position targeting.
+Follow-on registered and queued (probe_gate.py): a ridge probe
+reading the residual stream after block 2 -- available at inference
+because every frontier config keeps the cheap lexical rungs real --
+fitted to the fit-window oracle labels. Bars: AUC >=0.75, efficiency
+>=2.5x random, >=50% of oracle gain at matched fraction. That places
+the stream-readable middle ground between 1.5x (surface) and 9.4x
+(oracle). Ops note: census_cache crashed at final serialization
+(keys popped before the save that read them); fixed, requeued, now
+running -- once census_state.pt lands, census-lineage scripts stop
+paying the ~10-min tree rebuild.
