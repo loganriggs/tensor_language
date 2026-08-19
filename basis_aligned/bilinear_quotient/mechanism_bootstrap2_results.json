@@ -1,0 +1,428 @@
+{
+ "n_tested": 22,
+ "n_pass": 0,
+ "median_null_lift": 0.0,
+ "results": [
+  {
+   "tag": "r.0.0",
+   "precision": 0.0254,
+   "recall": 0.19,
+   "base": 0.0221,
+   "lift": 1.15,
+   "null_lift": 0.47,
+   "trigger_top": [
+    " h",
+    " P",
+    " t",
+    " W",
+    " H",
+    " T",
+    " D",
+    " G"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.0.0",
+   "precision": 0.005,
+   "recall": 0.04,
+   "base": 0.0038,
+   "lift": 1.32,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " ",
+    " W",
+    " T",
+    " P",
+    " h",
+    " H",
+    " S",
+    " R"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.0.1",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0032,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " dod",
+    " stun",
+    " pomp",
+    " dis",
+    " orn",
+    " ded",
+    " sed",
+    " subtle"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.0.2",
+   "precision": 0.005,
+   "recall": 0.033,
+   "base": 0.003,
+   "lift": 1.68,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "child",
+    " shenanigans",
+    " dishes",
+    "-",
+    "ified",
+    " depict",
+    "appiness",
+    "ized"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.1",
+   "precision": 0.0043,
+   "recall": 0.001,
+   "base": 0.022,
+   "lift": 0.19,
+   "null_lift": 0.43,
+   "trigger_top": [
+    " Dav",
+    " mus",
+    " uint",
+    " sed",
+    " cu",
+    " Gat",
+    " Sic",
+    " char"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.1.0",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0036,
+   "lift": 0.0,
+   "null_lift": 2.44,
+   "trigger_top": [
+    "\ufffd",
+    "omet",
+    "ITAL",
+    "itri",
+    " sed",
+    "achy",
+    " ded",
+    "ug"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.1.1",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0032,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " mus",
+    " cu",
+    "omet",
+    " sed",
+    " len",
+    " char",
+    " ded",
+    " Dav"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.1.2",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0035,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " sed",
+    " dis",
+    " ve",
+    " ded",
+    " len",
+    " imp",
+    " mus",
+    " br"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.2.0",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0032,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " uint",
+    "uint",
+    "icion",
+    " Vin",
+    " Sic",
+    "omet",
+    "enh",
+    " Hin"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.2.1",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0035,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " uint",
+    "uint",
+    "icion",
+    " Vin",
+    " Sic",
+    "omet",
+    "enh",
+    " Hin"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.2.2",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.003,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " uint",
+    "uint",
+    "icion",
+    " Vin",
+    " Sic",
+    "omet",
+    "enh",
+    " Hin"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.2.3",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0034,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " uint",
+    "uint",
+    "icion",
+    " Vin",
+    " Sic",
+    "omet",
+    "enh",
+    " Hin"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.3",
+   "precision": 0.0351,
+   "recall": 0.019,
+   "base": 0.0225,
+   "lift": 1.56,
+   "null_lift": 0.8,
+   "trigger_top": [
+    " noon",
+    "Natural",
+    "Science",
+    "Getting",
+    "Hand",
+    " IMAGES",
+    "Message",
+    "Changing"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.3.0",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0033,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "709",
+    "660",
+    "075",
+    "015",
+    "204",
+    "Ar",
+    "482",
+    "229"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.3.1",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0036,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "Activ",
+    "Natural",
+    "Science",
+    "University",
+    "Big",
+    "Good",
+    "National",
+    "Seven"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.0.3.2",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0036,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "709",
+    "Science",
+    "Activ",
+    "Ar",
+    "Hy",
+    "Natural",
+    "Digital",
+    "660"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.2.1.0",
+   "precision": 0.0829,
+   "recall": 0.254,
+   "base": 0.0035,
+   "lift": 24.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    " Burlington",
+    " MAP",
+    " Raleigh",
+    " Windsor",
+    " Norfolk",
+    " Leicester",
+    " Le",
+    " St"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.2.2.0",
+   "precision": 0.0068,
+   "recall": 0.014,
+   "base": 0.0035,
+   "lift": 1.96,
+   "null_lift": 1.11,
+   "trigger_top": [
+    "import",
+    " Eating",
+    "East",
+    "Inst",
+    " seasonal",
+    " Contemporary",
+    "street",
+    " Shopping"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.7.3",
+   "precision": 0.0125,
+   "recall": 0.004,
+   "base": 0.023,
+   "lift": 0.54,
+   "null_lift": 0.68,
+   "trigger_top": [
+    " Sic",
+    " Equ",
+    " Ald",
+    " uint",
+    " Vin",
+    " Na",
+    " Dim",
+    " Cour"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.7.3.0",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0032,
+   "lift": 0.0,
+   "null_lift": 5.07,
+   "trigger_top": [
+    " Vin",
+    " Sic",
+    " Wen",
+    " Ald",
+    " Suz",
+    " VI",
+    " Equ",
+    " Gat"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.7.3.1",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.003,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "Sup",
+    "Hy",
+    "Acc",
+    "Ham",
+    "Sus",
+    "Im",
+    "Tem",
+    "Kn"
+   ],
+   "pass": false
+  },
+  {
+   "tag": "r.7.3.2",
+   "precision": 0.0,
+   "recall": 0.0,
+   "base": 0.0033,
+   "lift": 0.0,
+   "null_lift": 0.0,
+   "trigger_top": [
+    "\ufffd",
+    " noon",
+    " Recommended",
+    "/*",
+    " cliffs",
+    " Romney",
+    " Thus",
+    " (\u00a3"
+   ],
+   "pass": false
+  }
+ ],
+ "pred_a": false,
+ "pred_b": true,
+ "runtime_s": 1137.1609299182892
+}

@@ -175,15 +175,30 @@ r.21: repl 0.779 class other 0.012 n=11981 tokens [' City', ' in', '\n', '\n', '
     r.21.3.3: repl 0.261 class bclose 0.027 n=270 tokens ['\n', '\n', '\n', '\n', '\n', '\n']
 r.22: repl 0.357 class comma 0.006 n=11981 tokens [' Tower', ' House', ' Steps', ' Rooms', ' Abbey', 'urn']
 r.23: repl 0.401 class bclose 0.003 n=11981 tokens ['oya', 'ights', ' Hall', '3', 'ights', 'ian']
-tree built: 118 leaves; program search
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/program_names.py", line 479, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/program_names.py", line 430, in main
-    bv=basev
-       ^^^^^
-NameError: name 'basev' is not defined
+tree built: 118 leaves; bootstrap
+r.0.0: prec 0.025 (1.2x base) rec 0.19 null 0.5x | triggers [' h', ' P', ' t', ' W', ' H', ' T', ' D', ' G'] fail
+r.0.0.0: prec 0.005 (1.3x base) rec 0.04 null 0.0x | triggers [' ', ' W', ' T', ' P', ' h', ' H', ' S', ' R'] fail
+r.0.0.1: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers [' dod', ' stun', ' pomp', ' dis', ' orn', ' ded', ' sed', ' subtle'] fail
+r.0.0.2: prec 0.005 (1.7x base) rec 0.03 null 0.0x | triggers ['child', ' shenanigans', ' dishes', '-', 'ified', ' depict', 'appiness', 'ized'] fail
+r.0.1: prec 0.004 (0.2x base) rec 0.00 null 0.4x | triggers [' Dav', ' mus', ' uint', ' sed', ' cu', ' Gat', ' Sic', ' char'] fail
+r.0.1.0: prec 0.000 (0.0x base) rec 0.00 null 2.4x | triggers ['�', 'omet', 'ITAL', 'itri', ' sed', 'achy', ' ded', 'ug'] fail
+r.0.1.1: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers [' mus', ' cu', 'omet', ' sed', ' len', ' char', ' ded', ' Dav'] fail
+r.0.1.2: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers [' sed', ' dis', ' ve', ' ded', ' len', ' imp', ' mus', ' br'] fail
+r.0.2.0: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers [' uint', 'uint', 'icion', ' Vin', ' Sic', 'omet', 'enh', ' Hin'] fail
+r.0.2.1: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers [' uint', 'uint', 'icion', ' Vin', ' Sic', 'omet', 'enh', ' Hin'] fail
+r.0.2.2: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers [' uint', 'uint', 'icion', ' Vin', ' Sic', 'omet', 'enh', ' Hin'] fail
+r.0.2.3: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers [' uint', 'uint', 'icion', ' Vin', ' Sic', 'omet', 'enh', ' Hin'] fail
+r.0.3: prec 0.035 (1.6x base) rec 0.02 null 0.8x | triggers [' noon', 'Natural', 'Science', 'Getting', 'Hand', ' IMAGES', 'Message', 'Changing'] fail
+r.0.3.0: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers ['709', '660', '075', '015', '204', 'Ar', '482', '229'] fail
+r.0.3.1: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers ['Activ', 'Natural', 'Science', 'University', 'Big', 'Good', 'National', 'Seven'] fail
+r.0.3.2: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers ['709', 'Science', 'Activ', 'Ar', 'Hy', 'Natural', 'Digital', '660'] fail
+r.2.1.0: prec 0.083 (24.0x base) rec 0.25 null 0.0x | triggers [' Burlington', ' MAP', ' Raleigh', ' Windsor', ' Norfolk', ' Leicester', ' Le', ' St'] fail
+r.2.2.0: prec 0.007 (2.0x base) rec 0.01 null 1.1x | triggers ['import', ' Eating', 'East', 'Inst', ' seasonal', ' Contemporary', 'street', ' Shopping'] fail
+r.7.3: prec 0.013 (0.5x base) rec 0.00 null 0.7x | triggers [' Sic', ' Equ', ' Ald', ' uint', ' Vin', ' Na', ' Dim', ' Cour'] fail
+r.7.3.0: prec 0.000 (0.0x base) rec 0.00 null 5.1x | triggers [' Vin', ' Sic', ' Wen', ' Ald', ' Suz', ' VI', ' Equ', ' Gat'] fail
+r.7.3.1: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers ['Sup', 'Hy', 'Acc', 'Ham', 'Sus', 'Im', 'Tem', 'Kn'] fail
+r.7.3.2: prec 0.000 (0.0x base) rec 0.00 null 0.0x | triggers ['�', ' noon', ' Recommended', '/*', ' cliffs', ' Romney', ' Thus', ' (£'] fail
+tested 22 front-MLP leaves | pass 0 | median null lift 0.00
+(a) >=50% mechanism-predicted: FAILED
+(b) null <= 1.2x: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mechanism_bootstrap2_results.json (1137s)
