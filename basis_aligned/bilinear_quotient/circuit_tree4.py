@@ -130,7 +130,8 @@ def main():
         mod=MODS[key]; capsX=[]
         def cap(mo,i_,o_):
             y=o_[0] if isinstance(o_,tuple) else o_
-            capsX.append(y.detach().half().reshape(-1,D).cpu())
+            capsX.append(y.detach().float().clamp(-6e4,6e4)
+                         .half().reshape(-1,D).cpu())
         h=mod.register_forward_hook(cap)
         for i in range(0,NB*4,4):
             bb=rows[i:i+4,:257].to(DEV)
@@ -142,6 +143,7 @@ def main():
         # ablate output projection onto slice-conditioned PCA block
         slice_idx=SLICES[tag]
         Y=capture_out(key)[slice_idx].float().to(DEV)
+        Y=torch.nan_to_num(Y,nan=0.0,posinf=0.0,neginf=0.0)
         _,_,Vh=safe_svd((Y-Y.mean(0))[:20000])
         s0,s1=block
         P=orth(Vh[s0:s1].T)
@@ -200,7 +202,7 @@ def main():
         cols=[]
         for ps in pspecs:
             cols.append(damage(ps)[slice_idx])
-        M=torch.stack(cols,1)
+        M=torch.nan_to_num(torch.stack(cols,1),nan=0.0,posinf=0.0,neginf=0.0)
         sd=M.std(0,keepdim=True).clamp_min(1e-6)
         M=torch.clamp((M-M.mean(0))/sd,-3,3)
         rid=rowid[slice_idx]
