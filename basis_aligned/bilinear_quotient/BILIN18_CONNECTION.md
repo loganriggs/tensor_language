@@ -9394,3 +9394,37 @@ member-sets are evidence, not identity. The swarm's production
 unit is revised accordingly: a certified record requires its
 machinery's causal profile to replicate on a disjoint window (the
 Ledger-22 discipline promoted from benchmark to census).
+
+## 382. The MLP k-dial: 11% of quadratic units per position, and it travels
+
+mlp_topk: ALL BARS HELD. Keeping the top-512 of 4608 rank-1
+quadratic units per position across all six mid MLPs costs +0.055
+on the grid and **+0.044 on fresh data** (travels perfectly);
+random-512 costs +1.21 (22x -- the selection is doing everything).
+Curve: k=32 +0.48, 128 +0.20, 512 +0.055, 1024 +0.021. The sparse-
+active-set idiom now covers BOTH halves of the architecture:
+attention = top-4..8 coincidence reads per head, MLPs = top-11% of
+quadratic units per position. In both cases the "code" includes
+computing the selection scores (closed-form in the stream), and the
+readable payoff is the same: at any position the model's actual
+computation is an ENUMERABLE LIST -- which reads, which quadratic
+units -- rather than a dense mixture. Queued: mlp_topk_all (all 18
+MLPs) and the COMBINED readable configuration (120 coded heads +
+top-512 MLPs; registered <=+0.25 grid / <=+0.35 fresh) -- the
+whole-model sparse-enumerable form. Also queued: unit-usage census
+(is the top-512 set per-position dynamic or is there a static ~512
+subset that nearly suffices -- dynamic sparsity vs a fixed circuit
+subset, a sharp interpretive fork).
+
+## 383. Containment verdict: re-carving is real (40%)
+
+census_containment: only 31/77 fresh-alone leaves are >=0.7-
+contained in a 424-tree leaf (median containment 0.59) -- bar
+FAILED, so the 381 instability is NOT mere coarse-graining: trees
+built in different contexts genuinely re-carve the same data. The
+SOP identity revision stands at full strength: machinery + program
++ causal profile is the circuit; member-sets are evidence. The
+census's role in the program is now firmly the targeting system for
+code-grade mechanism work (which is prospering: two computational-
+grade circuits, both architecture halves on sparse code), not a
+stable ontology of parts.

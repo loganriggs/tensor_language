@@ -4117,3 +4117,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 380-381 (2026-08-19)
 - 380: r.3.0 heads computational at k=8 (79%, 3.3x control). k = per-mechanism capacity dial.
 - 381: clustering context-dependent (5% same-data identity; 77 leaves at matched size). SOP revised: identity = machinery+program+profile, replication on disjoint windows required; member-sets are evidence, not identity.
+
+## Appendix 382-383 (2026-08-19)
+- 382: MLPs run on 11% of quadratic units per position (+0.055 grid / +0.044 fresh; random 22x). Sparse-enumerable idiom spans both architecture halves. Combined readable model queued.
+- 383: re-carving real (40% containment): identity revision at full strength; census = targeting system, not ontology.
