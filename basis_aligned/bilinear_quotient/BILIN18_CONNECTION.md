@@ -9428,3 +9428,32 @@ census's role in the program is now firmly the targeting system for
 code-grade mechanism work (which is prospering: two computational-
 grade circuits, both architecture halves on sparse code), not a
 stable ontology of parts.
+
+## 384. The combined readable model HOLDS: +0.22 fresh, whole model enumerable
+
+combined_readable: top-512 quadratic units in all 18 MLPs + 4-read
+code on the 120 cheapest heads = **+0.216 grid, +0.224 fresh, IOI
+IMPROVED** (bars b,c,d HELD; the all-18-MLP-alone bar failed at
++0.241 -- front/tail MLPs are less sparse than the mid band -- yet
+the combined config costs LESS than MLPs alone: the coded heads
+interact favorably). Standing statement: bilin18 now runs in a form
+where EVERY position's computation is an enumerable list -- <=4
+reads for 120 heads, dense attention for the load-bearing 42,
+<=512 active quadratic units per MLP -- at +0.22 nats on never-seen
+text. This is a different kind of benchmark object than the
+assembly (weights kept, computation paths sparsified, no fitting),
+and it is the program's strongest whole-model interpretive form.
+
+## 385. Routing is real: no static subnetwork explains the MLPs
+
+unit_usage: the 512 most-used units capture only 18% of top-512
+slots, and substituting the STATIC most-used 512 costs +0.516 vs
++0.055 dynamic (9x) -- both bars FAILED in the direction that
+matters: mid-MLP computation is genuinely PER-POSITION ROUTED among
+thousands of units, not a fixed circuit subset. (Reconciled with
+the older half-units result: a static HALF (2304) suffices; a
+static 512 does not -- the routing pool is wide.) Interpretive
+consequence: MLP-side semantics must be sought in the ROUTING
+FUNCTION (which contexts activate which units -- the census's
+slice-conditioned directions were exactly this) rather than in a
+small fixed unit set.

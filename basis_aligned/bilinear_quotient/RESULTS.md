@@ -4121,3 +4121,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 382-383 (2026-08-19)
 - 382: MLPs run on 11% of quadratic units per position (+0.055 grid / +0.044 fresh; random 22x). Sparse-enumerable idiom spans both architecture halves. Combined readable model queued.
 - 383: re-carving real (40% containment): identity revision at full strength; census = targeting system, not ontology.
+
+## Appendix 384-385 (2026-08-19)
+- 384: COMBINED READABLE MODEL holds: +0.22 fresh, IOI improves. Whole model enumerable per position. Strongest whole-model interpretive form to date.
+- 385: routing is real (static-512 9x worse; 18% slot share). MLP semantics live in the routing function, not a fixed unit set.
