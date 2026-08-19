@@ -1,0 +1,43 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+probe 0/36
+probe 12/36
+probe 24/36
+mode 0: comps ['m2', 'm3'] neg-frac 4.55%
+mode 1: comps ['m13', 'm14'] neg-frac 4.47%
+mode 2: comps ['m16', 'm15'] neg-frac 6.58%
+mode 3: comps ['a15', 'a9'] neg-frac 7.39%
+mode 4: comps ['a17', 'm17'] neg-frac 7.79%
+mode 5: comps ['a11', 'm7'] neg-frac 6.13%
+mode 6: comps ['m1', 'm17'] neg-frac 5.60%
+mode 7: comps ['m1', 'm4'] neg-frac 6.15%
+mode 8: comps ['a13', 'm17'] neg-frac 6.29%
+mode 9: comps ['a17', 'a15'] neg-frac 9.08%
+policy dCE +0.5805 | random-position control +0.3279 | touched 39.66%
+(a) policy improves the real model: FAILED
+(b) random-position control >= 0: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/slack_harvest_results.json (203s)

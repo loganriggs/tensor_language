@@ -8315,3 +8315,31 @@ mechanism_bootstrap3, and the two benchmark cash-ins -- gated_assembly
 control) and slack_harvest (per-position ablation of circuit
 components at negative-score positions, registered to IMPROVE the
 untouched model, random-position control).
+
+## 328. First cash-ins: the knowledge is real, the economics and signs need work
+
+`gated_assembly.py`: FAILED its bars (gain +0.138 at 36% gated vs
+registered 0.25 at <=25%) but the control certified the core claim --
+random gating at matched fraction gains +0.045, so census positions
+carry **3.1x the value per gated token**. The gate was too broad (union
+of ten modes at the 92nd percentile) and the gated component set too
+coarse. v2 queued: per-mode 97th-percentile gates (~10% fraction),
+same bars scaled (gain >= 0.12 at <= 12%, random <= 40%).
+
+`slack_harvest.py`: FAILED informatively -- the policy HURT (+0.58,
+worse than random-position +0.33), and the diagnosis is a design bug,
+not a refutation of circuit slack: **SVD mode signs are arbitrary**, so
+"negative score = improves under ablation" was an unjustified global
+convention; 324's sign result was purely relative (score sign predicts
+EFFECT sign per leaf, either polarity). v2 queued with per-mode sign
+CALIBRATION on the fit window (measure which polarity's members
+improve under that mode's component ablation on fit rows -- a
+fit-window statistic, deploy-consistent), then apply to fresh.
+
+`fake_battery` crashed on its second candidate in a way that is itself
+a scoring datum: the severity fake's members exhaust the top of the
+difficulty distribution, so NO matched control set exists -- the
+matching discipline rejects it STRUCTURALLY (before any measurement).
+F1 (random members) was cleanly rejected before the crash (selectivity
+0.93, specificity 0.18). The battery reruns with empty-band =
+structural rejection and the dtype guard.

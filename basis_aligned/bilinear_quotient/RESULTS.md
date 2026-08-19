@@ -3970,3 +3970,8 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 327: mechanism ladder (2026-08-19)
 - Unigram mechanisms insufficient (0/22 twice, sane triggers = name-initials vs second-token members): front circuits are PAIR conditions minimum. Bigram fold queued; complexity-class-by-rung is now an instrument. Overnight: fake battery, programs, bigram mechanisms, gated assembly, slack harvest.
+
+## Appendix 328: first cash-ins (2026-08-19)
+- Gating: census positions worth 3.1x random per token (control held); economics failed at broad gates -- v2 tighter.
+- Slack harvest: hurt due to arbitrary SVD sign convention (my bug); v2 sign-calibrates on fit window.
+- Fake battery: F1 rejected cleanly; F2 rejected STRUCTURALLY (no matched controls exist for pure-severity members); rerun with that as a scored outcome.
