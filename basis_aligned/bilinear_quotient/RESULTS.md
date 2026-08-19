@@ -3978,3 +3978,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 329: description-language hierarchy (2026-08-19)
 - 64-bit programs capture 14/118; unigram mechanisms 0; names 47; the rest real-but-undescribed. Complexity class per circuit is now a measured quantity on three ladders. Bigram mechanisms in flight.
+
+## Appendix 330: harvest milestone + battery holes (2026-08-19)
+- MILESTONE: sign-calibrated slack policy improves the real model (-0.048 fresh; random control +0.143). Gating efficiency 9.4x at tight gates.
+- Battery found 2 holes + 1 flaw in the certification: composition invisible to selectivity; statistic-selected fakes pass both dims; sibling-foreign broken. v3 adds sign-mixedness per candidate + family-disjoint foreigns.

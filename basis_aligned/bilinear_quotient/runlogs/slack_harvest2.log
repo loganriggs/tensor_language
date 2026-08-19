@@ -1,0 +1,43 @@
+a2-input probe acc 0.69
+fit a2
+fit a3
+fit a4
+fit a5
+fit a6
+fit a7
+fit a8
+fit a9
+fit a10
+fit a11
+fit a12
+fit a13
+fit a14
+fit a15
+fit a16
+fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+probe 0/36
+probe 12/36
+probe 24/36
+mode 0: comps ['m2', 'm3'] polarity neg (fit neg -0.932 pos +5.999) frac 8.00%
+mode 1: comps ['m13', 'm14'] polarity pos (fit neg +1.092 pos -0.607) frac 8.00%
+mode 2: comps ['m16', 'm15'] polarity neg (fit neg -1.127 pos +1.803) frac 8.00%
+mode 3: comps ['a15', 'a9'] polarity neg (fit neg -0.397 pos +0.320) frac 8.00%
+mode 4: no improving polarity (neg +3.211 pos +0.009) -- skipped
+mode 5: no improving polarity (neg +0.069 pos +0.196) -- skipped
+mode 6: no improving polarity (neg +2.824 pos +9.391) -- skipped
+mode 7: no improving polarity (neg +2.383 pos +7.075) -- skipped
+mode 8: comps ['a13', 'm17'] polarity pos (fit neg +2.667 pos -0.183) frac 8.00%
+mode 9: comps ['a17', 'a15'] polarity neg (fit neg -0.012 pos +0.056) frac 8.00%
+policy dCE -0.0478 | random-position control +0.1428 | touched 34.71%
+(a) policy improves the real model: HELD
+(b) random-position control >= 0: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/slack_harvest2_results.json (266s)

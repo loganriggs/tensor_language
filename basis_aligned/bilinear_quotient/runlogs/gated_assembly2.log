@@ -15,3 +15,21 @@ fit a14
 fit a15
 fit a16
 fit a17
+L1 (+38 heads): C +1.9801 | fresh +2.2871
+fit a10L
+fit a11L
+fit a12L
+fit a13L
+fit a14L
+fit a15L
+fit a16L
+fit a17L
+probe 0/36
+probe 12/36
+probe 24/36
+gated fraction (fresh): 17.25%
+base config +2.6735 | gated +2.5959 (gain +0.0776) | random-gated +2.6653 (gain +0.0083)
+(a) gain >= 0.12 at frac <= 12%: FAILED
+(b) random <= 40% of gain: HELD
+(c) efficiency vs random: 9.4x
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gated_assembly2_results.json (229s)

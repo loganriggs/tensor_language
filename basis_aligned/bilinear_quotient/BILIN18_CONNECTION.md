@@ -8365,3 +8365,40 @@ and certifiably NOT simple in any language tried yet -- which is the
 honest, quantified version of "not yet understood," and the target
 list for richer mechanism rungs (bigram in flight; context features
 next).
+
+## 330. First model improvement from circuits; and the battery earns its keep by breaking the battery
+
+Three verdicts. **`slack_harvest2` HELD both bars: the sign-calibrated
+per-position ablation policy IMPROVES the untouched model, Delta-CE
+-0.048 on fresh text, while the random-position control HURTS
+(+0.143).** Calibration found two harvestable modes (mode 8: a13/m17,
+positive polarity, fit-window effect -0.183). This is the program's
+first interpretability-guided edit that beats the real model --
+circuit-level slack, harvested with controls.
+
+`gated_assembly2`: absolute gain +0.078 at 8% gated (bar FAILED) but
+the efficiency of census knowledge RISES with gate tightness: 3.1x
+random per token at 36% coverage, **9.4x at 8%**. The knowledge is
+increasingly pure at the top of the score distribution; the absolute
+ceiling is set by how much error the gated components carry at those
+positions.
+
+`fake_battery` (clean run) did precisely what it was built for --
+THREE hits on the certification design itself:
+(i) DESIGN FLAW: cyclic foreign-set assignment paired sibling leaves
+(r.1.1.0 tested against r.1.1.2 -- same subtree, shared machinery), so
+real circuits "failed" specificity against their own relatives; foreign
+sets must be family-disjoint. Only r.8.0.0 passed as scored (1/5).
+(ii) HOLE: the Frankenstein passes selectivity (4.17) because half its
+members are genuine -- selectivity cannot detect composition; the sign-
+coherence dimension (which crashed to 0.03-0.11 on exactly such
+mixtures in 324) must join the per-candidate battery.
+(iii) HOLE: the adversarial statistic-selected fake passes BOTH
+dimensions (sel 3.99, spec 13.72) -- my prediction that fragile tokens
+respond to any strong probe set was wrong; selection on a specific
+probe set produces set-specific members. What still distinguishes it:
+its "loading" is an all-positive severity cone (the sign-mixedness
+test from round one). F2's nan is the structural-rejection case
+surfacing as arithmetic. Battery v3 queued: family-disjoint foreign
+sets, per-candidate sign-mixedness, nan==structural-reject -- and the
+adversarial fake MUST fail sign-mixedness or the hole stands.
