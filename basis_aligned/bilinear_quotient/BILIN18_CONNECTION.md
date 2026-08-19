@@ -8290,3 +8290,28 @@ model by a weights-only, one-forward-per-token instrument, no behavior
 needed. The null bar held (0.0x -- random trigger sets predict
 nothing), so the test has teeth; v1's zero is a real miss by a real
 instrument flaw, not a vacuous test.
+
+## 327. Unigram mechanisms certified insufficient; the ladder goes to pairs
+
+`mechanism_bootstrap2.py` (glitch-proofed): still 0/22 -- but now the
+trigger sets are SANE and diagnostic: for the name-completion family
+the top unigram triggers are name-INITIAL fragments (' W', ' H', ' T')
+while the members sit on the SECOND token of names. Verdict, certified
+twice with clean nulls: the front-MLP circuits are NOT unigram
+functions -- their firing conditions are inherently at least PAIR
+conditions ((name-initial, continuation)), which is itself a
+mechanistic fact about what the front computes. v3 queued: the BIGRAM
+FOLD -- all 60k corpus-occurring token pairs through the prefix,
+T=2 forwards, weights-only -- with the pair-level trigger sets as the
+mechanism-derived conditions. The mechanism ladder (unigram -> bigram
+-> context features) is now itself an instrument: the rung at which a
+circuit's condition becomes expressible IS its mechanistic complexity
+class.
+
+Overnight docket (user directive: keep running; main thrust = census
+-> benchmark): fake_battery (running), program_names (fixed),
+mechanism_bootstrap3, and the two benchmark cash-ins -- gated_assembly
+(targeted real-component spending at census positions, random-gating
+control) and slack_harvest (per-position ablation of circuit
+components at negative-score positions, registered to IMPROVE the
+untouched model, random-position control).

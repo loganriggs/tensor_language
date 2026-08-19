@@ -3967,3 +3967,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 326: mechanism v1 (2026-08-19)
 - 0/22: trigger sets hijacked by GPT-2 glitch tokens (globally loud fold outputs) -- instrument flaw, fixed member-blind in v2 (fractional projection + corpus support). Side finding: glitch tokens detectable weights-only.
+
+## Appendix 327: mechanism ladder (2026-08-19)
+- Unigram mechanisms insufficient (0/22 twice, sane triggers = name-initials vs second-token members): front circuits are PAIR conditions minimum. Bigram fold queued; complexity-class-by-rung is now an instrument. Overnight: fake battery, programs, bigram mechanisms, gated assembly, slack harvest.
