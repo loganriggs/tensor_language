@@ -1,0 +1,6 @@
+break-state at non-break: b0 -0.017 | rand +0.001
+rest-state at push-wing:  b0 -0.151 | rand +0.011
+(a) up >=+0.5, rand <=40%: FAILED
+(b) down <=-0.5: FAILED
+(c) distributions: up q10/50/90 [-0.12, -0.01, 0.07] down [-0.7, -0.04, 0.38]
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/interchange_results.json (6s)

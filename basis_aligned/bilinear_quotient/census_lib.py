@@ -251,8 +251,35 @@ def surface_features():
         v2=v.view(ntokr,Tr)
         L['prev1_'+nm]=torch.roll(v2,1,dims=1).reshape(-1)
         L['prev2_'+nm]=torch.roll(v2,2,dims=1).reshape(-1)
+    # second pass: program-kind registry features (composed of L names)
+    try:
+        reg=json.load(open(PT+'features.json'))
+        for nm,spec in reg.get('features',{}).items():
+            if spec.get('kind')=='program' and nm not in L:
+                L[nm]=run_program(L,spec['program'])
+    except FileNotFoundError: pass
     _FEAT=L
     return L
+
+def run_program(f,prog,nflat=54272):
+    mm=torch.zeros(nflat,dtype=torch.bool)
+    for conj in prog:
+        cm=torch.ones(nflat,dtype=torch.bool)
+        for pred in conj:
+            neg=pred.startswith('NOT ')
+            nm=pred[4:] if neg else pred
+            if nm not in f: cm&=False; continue
+            cm&=(~f[nm] if neg else f[nm])
+        mm|=cm
+    return mm
+
+def register_feature(name,spec):
+    p=PT+'features.json'
+    reg=json.load(open(p)) if os.path.exists(p) else {'features':{}}
+    if name in reg['features']:
+        raise ValueError(f'feature {name} already registered')
+    reg['features'][name]=spec
+    json.dump(reg,open(p,'w'),indent=1)
 
 def rule_search(f,pos,neg,nflat=54272):
     names_=list(f)
