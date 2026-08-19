@@ -235,6 +235,29 @@ def surface_features():
        'mid_word':MID,'starts_space':SPC,'is_newline':NL,
        'seen_before':SEEN,'prev_newline':torch.roll(NL,1,dims=1),
        'dist_nl_le2':DNL<=2,'dist_nl_ge6':DNL>=6}
+    # 10 mechanical class labels (cls_rows port -- classify the TARGET)
+    from circuit_dictionary import CLS as CLS9
+    CM=torch.zeros(ntokr,Tr,dtype=torch.long)
+    for r_ in range(ntokr):
+        tt_=R[r_,:257].tolist()
+        for pos in range(Tr):
+            t=tt_[pos+1]; pch=tt_[pos]
+            tg=d1(t); pv=d1(pch); st=tg.strip()
+            if st.isdigit() and not tg.startswith(' '): k=0
+            elif st in (')',']') and any(bch in ''.join(
+                d1(x) for x in tt_[max(0,pos-60):pos+1])
+                for bch in ('(','[')): k=1
+            elif chr(10) in tg: k=2
+            elif tg in ('.','!','?'): k=3
+            elif tg==',': k=4
+            elif (tg.startswith(' ') and st[:1].isupper() and
+                  (pv.strip()[:1].isupper() if pv.strip() else False)): k=5
+            elif t==pch: k=6
+            elif (not tg.startswith(' ')) and st.isalpha(): k=7
+            elif t in tt_[:pos+1]: k=8
+            else: k=9
+            CM[r_,pos]=k
+    for k in range(10): B[f'class_{CLS9[k]}']=(CM==k)
     L0={k:v.reshape(-1) for k,v in B.items()}
     # registry features (features.json): named, versioned, append-only
     try:

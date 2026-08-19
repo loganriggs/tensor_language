@@ -4040,3 +4040,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 350: local channel-setting null (2026-08-19)
 - Setting the push channel's value locally does ~nothing while deleting it globally moves nats: the read is contextual/bilinear, not local. interchange2 (local vs prefix vs prefix-only vs random) queued to localize the path.
+
+## Appendix 351: registry live + IOI opens (2026-08-19)
+- 50 circuit records + viewer live; class labels ported into census_lib after 2/16 program bar failure. IOI: 99% pair accuracy (+2.41 margin, control ~0) -- first open task window; localization queued with registered concentration/attention/head bars.

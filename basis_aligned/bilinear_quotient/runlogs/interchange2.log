@@ -1,0 +1,8 @@
+local: {'mean': -0.032, 'q': [-0.13, -0.02, 0.06]}
+prefix: {'mean': -0.061, 'q': [-0.34, -0.05, 0.28]}
+prefix_only: {'mean': -0.039, 'q': [-0.3, -0.01, 0.26]}
+prefix_rand: {'mean': -0.004, 'q': [-0.06, -0.0, 0.04]}
+(a) prefix >=5x local: FAILED
+(b) prefix_only >=70% prefix: FAILED
+(c) rand <=40% prefix: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/interchange2_results.json (6s)

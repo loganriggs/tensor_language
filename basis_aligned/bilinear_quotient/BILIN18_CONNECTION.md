@@ -8806,3 +8806,22 @@ these: local vs full-prefix vs prefix-only vs random-subspace-prefix
 patching with a single sampled donor value. Registered: prefix >=5x
 local; prefix_only >=70% of prefix; random <=40%. Whatever wins, the
 read path of the line-break circuit gets localized.
+
+## 351. The registry goes live (50 records) and the IOI window OPENS at 99%
+
+sop_populate wrote 50 schema-v1 circuit records (causal stats,
+sign splits, base-CE stratification, mechanical examples,
+certification verdicts) into circuits/ and regenerated
+circuits.html; r.0.0.1 carries the push-brake bundle structure and
+its 11 tension edges. Program pass rate at the strict bar was 2/16
+(r.3.1.0 0.788, r.1.1.2 0.773) -- bar (b) FAILED because
+census_lib's library lacked the 10 mechanical class labels that
+carry most cl2 programs; ported in, so SOP reruns will search the
+full base. And the capability gate paid off immediately:
+**bilin18 does IOI at 99% pair accuracy (margin +2.41, shuffled-name
+control -0.01)** on 96 constructed prompts -- the first constructed-
+prompt task window to OPEN (addition closed at 0%). ioi_circuit
+queued: 36-component mean-ablation margin drops + head-level
+deletion in the top attention owner. Registered: <=6 components for
+70% of the drop; >=1 mid/late attention layer in top-3; top-2 heads
+>=50% of their layer's drop.
