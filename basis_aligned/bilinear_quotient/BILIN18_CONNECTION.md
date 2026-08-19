@@ -9478,3 +9478,31 @@ stays as the deliberately-harder OOD leg, and every fresh number
 must say which distribution it used (LESSONS rule added); (4)
 census_diverse (queued, not yet started) patched to build its
 1000-row corpus from FineWeb.
+
+## 387. The induction score's semantic input found: mlp0 writes the matching code
+
+qk_writer_decomp decomposed each induction head's score factor into
+exact (query-writer x key-writer) pairs at its top reads. Registered
+bar (a) held only for the early band (1.4 at 1.00, 2.5 at 0.98, 3.5
+at 0.86, 3.8 at 0.80; the deep heads 5.5-8.4 sit at 0.36-0.40 --
+FAILED as registered, mixed context inputs). But the discovery is
+the DOMINANT PAIR, unanimous across all nine heads: **m0|m0**. The
+coincidence score compares mlp0's output at the query position with
+mlp0's output at the key position -- the matching key is not the raw
+token embedding but mlp0's token-enrichment of it. Deep heads add
+m2|m2, m3|m0, m0|a4 side terms (context creeping into the match
+code with depth). Why this matters: mlp0 is an exactly-foldable
+token table (the front-of-model result), so for the early band the
+match trigger should be EXACTLY computable from token pairs alone:
+score ~ (Wq . m0fold(t_q)) . (Wk . m0fold(t_k)) x (same for QK2).
+fold_score_test queued: (a) fold-only score's argmax predicts the
+real top-read location >=40% at match positions for heads (1,4),
+(2,5),(3,5); (b) fold-pattern/real-pattern correlation >=0.4 there;
+(c) deep heads reported (expected lower). If (a) holds, the early
+induction circuit is COMPLETE under the user's definition:
+understood input variables (m0's fold table) + understood
+computation (double-QK bilinear coincidence + top-4 reads) +
+validated code (376). mlp0's role in the model sharpens: it is not
+just the biggest token table -- it is the model's IDENTITY-CODE
+GENERATOR, writing the representation that all match machinery
+compares.

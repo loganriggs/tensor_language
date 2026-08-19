@@ -4128,3 +4128,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 386 (2026-08-19)
 - Training data = FineWeb (user-confirmed). Pile fresh legs were mildly OOD (+0.10 base): transfer results conservative, stand as-is. In-distribution fresh = fineweb_rows() (new standard); census_diverse patched to FineWeb before running.
+
+## Appendix 387 (2026-08-19)
+- Induction score input = m0|m0 (unanimous dominant pair; early band 0.80-1.00 concentrated, deep band mixed). mlp0 = the model's identity-code generator. fold_score_test queued: if the fold-only trigger predicts real reads, the early induction circuit is complete (inputs + computation + code).
