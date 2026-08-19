@@ -9348,3 +9348,17 @@ data, different clustering context; registered fork: >=40% = recipe
 stable / below = clustering itself is context-dependent). The
 swarm's unit of production may need to become "window-replicated
 leaf" rather than "leaf".
+
+## 379. Head-code frontier final: 120 heads at NEGATIVE cost, 140 within +0.08
+
+topk4_frontier swept cheapest-N at k=4: N=100 -0.034, N=120
+**-0.026** (still improves the model), N=140 +0.076, N=162 +0.221.
+Bar (a) HELD with room: 140 of 162 heads -- 86% of the attention
+stack -- run on four-line readable code within +0.08 on the grid.
+Fresh at 140: +0.169 (bar was 2x grid = 0.152, FAILED by 0.017 --
+recorded, and honestly close). Standing benchmark statement:
+**bilin18's attention is now describable as: 120 heads = readable
+4-read code at zero-or-negative cost; the last 40 heads (including
+most of the induction band and the motif-head core) carry the real
+attention computation.** The interpretive frontier of attention has
+been reduced from 162 heads to ~40.

@@ -13,6 +13,13 @@ REGISTERED PREDICTIONS (explicit fork):
       window-replication as the production unit;
   (c) state saved (census_state_fresh212.pt)."""
 import json, sys, time, torch
+
+def safe_svd(X):
+    X=torch.nan_to_num(X.float()).clamp(-6e4,6e4)
+    try: return torch.linalg.svd(X,full_matrices=False)
+    except Exception:
+        U,S,Vh=torch.linalg.svd(X.double().cpu(),full_matrices=False)
+        return U.float().to(X.device),S.float().to(X.device),                Vh.float().to(X.device)
 sys.path.insert(0,'/workspace/tensor_language/basis_aligned/bilinear_quotient')
 import torch.nn.functional as F
 from bilin18_joint_removal import m, FW, DEV, orth
@@ -123,8 +130,7 @@ def main():
         # ablate output projection onto slice-conditioned PCA block
         slice_idx=SLICES[tag]
         Y=capture_out(key)[slice_idx].float().to(DEV)
-        _,_,Vh=torch.linalg.svd((Y-Y.mean(0))[:20000],
-                                full_matrices=False)
+        _,_,Vh=safe_svd((Y-Y.mean(0))[:20000])
         s0,s1=block
         P=orth(Vh[s0:s1].T)
         if key[0]=='a':
@@ -190,9 +196,9 @@ def main():
         med=rid.median()
         ha=rid<=med; hb=~ha
         if ha.sum()<200 or hb.sum()<200: return []
-        U,Sg,Vh=torch.linalg.svd(M,full_matrices=False)
-        _,_,Va=torch.linalg.svd(M[ha]-M[ha].mean(0),full_matrices=False)
-        _,_,Vb=torch.linalg.svd(M[hb]-M[hb].mean(0),full_matrices=False)
+        U,Sg,Vh=safe_svd(M)
+        _,_,Va=safe_svd(M[ha]-M[ha].mean(0))
+        _,_,Vb=safe_svd(M[hb]-M[hb].mean(0))
         out=[]
         for k in range(min(nmodes,len(Sg))):
             repl=abs(float(Va[k]@Vb[k]))

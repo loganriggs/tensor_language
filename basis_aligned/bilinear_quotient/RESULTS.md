@@ -4110,3 +4110,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 377-378 (2026-08-19)
 - 377: whole-stack 4-read code +0.22 grid (IOI improves; r.3.0 collateral 2.7x): cheapest-80 stands as optimum; cheapest-N-at-k4 sweep queued.
 - 378: WARNING -- census partition window-relative (29 leaves at 2x; 9% identity). Swarm plan revised: stability diagnosis queued; production unit may become window-replicated leaves.
+
+## Appendix 379 (2026-08-19)
+- Cheapest-N at k=4: 120 heads at -0.026 (negative!), 140 at +0.076, fresh_140 +0.169 (bar missed by 0.017). Attention's interpretive frontier reduced to ~40 heads.
