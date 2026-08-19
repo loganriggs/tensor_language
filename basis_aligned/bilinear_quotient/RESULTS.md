@@ -4043,3 +4043,9 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 351: registry live + IOI opens (2026-08-19)
 - 50 circuit records + viewer live; class labels ported into census_lib after 2/16 program bar failure. IOI: 99% pair accuracy (+2.41 margin, control ~0) -- first open task window; localization queued with registered concentration/attention/head bars.
+
+## Appendix 352: value-setting inert (2026-08-19)
+- Local/prefix/context-only transplants of the push channel all ~0 on the newline logit while deletion moves nats: bilinear circuits are subtraction-defined; additive-feature patching intuitions don't transfer. DAS motivated. Arc closed.
+
+## Appendix 353: IOI owners (2026-08-19)
+- m1/a14/a5/m2/m0 cover 70% of the IOI margin (all bars HELD). Zero-deletion gives uniform ~1.64 per-head drops in a14 (recompute exact) -> off-manifold magnitude shock, not head content. Mean-ablation head leg queued (ioi_heads2); enriched-library program rerun queued (sop_programs2).

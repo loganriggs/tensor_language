@@ -8825,3 +8825,45 @@ queued: 36-component mean-ablation margin drops + head-level
 deletion in the top attention owner. Registered: <=6 components for
 70% of the drop; >=1 mid/late attention layer in top-3; top-2 heads
 >=50% of their layer's drop.
+
+## 352. Value-transplant interventions fail everywhere on the push channel
+
+interchange2 separated the candidate explanations for 350's null:
+local, full-prefix, prefix-only-context, and random-subspace-prefix
+patches of the b0 channel to a single sampled donor's break-state
+value. Result: NOTHING moves the newline logit meaningfully (local
+-0.03, prefix -0.06, prefix-only -0.04, random -0.004). (a) and (b)
+FAILED; only subspace-specificity (c) held. Conclusion recorded:
+on this circuit, SETTING the channel's value -- at any position
+pattern tried -- is causally inert, while DELETING the subspace
+moves member CE by nats. This is a substantive finding about
+bilinear circuits: the census's dependence neighborhoods are
+established by subtraction, and the deleted directions do not
+behave like classical additive features (a fixed transplanted value
+is off-manifold; downstream products with varying partner factors
+average it away). Classical activation-patching intuitions from
+ReLU-transformer work (IOI name-movers etc.) do NOT transfer
+as-is. Motivates DAS (learned aligned basis instead of PCA blocks)
+as the next instrument class -- PCA rotation plausibly mixes the
+true variables. Value-transplant arc on r.0.0.1 closes here.
+
+## 353. IOI localization: five owners, and zero-deletion is the wrong head instrument
+
+ioi_circuit mean-ablated all 36 components on the 96 IOI prompts.
+All three bars HELD: 5 components account for 70% of margin damage
+-- **m1 (+2.82, more than the whole +2.41 margin), a14 (+1.65), a5
+(+1.47), m2 (+1.28), m0 (+0.91)** -- and two mid/late attention
+layers sit in the top-3. a5 contains the induction head (5,5) and
+both first-motif heads; a14 was a surprise owner. But the
+head-level leg produced a striking artifact-shaped result: deleting
+ANY single head of a14 costs the same ~1.64, all nine heads within
+0.005 of each other. The recompute path was verified EXACT
+(empty-deletion delta +0.0000), so the uniformity is real -- and the
+reading is that ZEROING a head is an off-manifold magnitude shock
+to c_proj's input (echoing 352: subtraction vs value-change
+asymmetry), so it measures scale sensitivity, not head content.
+ioi_heads2 queued: within-prompt MEAN ablation per head (content
+killed, magnitude kept) on a14 and a5. Registered: differentiation
+max/min >=3; top-2 heads >=60% of layer; a5's top head is the
+induction or a first head. sop_programs2 also queued: step-3 rerun
+with the enriched 65-feature library (bars: >=8/16 pass).
