@@ -406,6 +406,7 @@ def main():
             print(f"{cd['name']:16s} STRUCTURALLY REJECTED "
                   f"(unmatchable members)",flush=True)
             continue
+        ctl=torch.as_tensor(ctl).long()
         ctlho=ctl[ho[ctl]]
         e_own=float(own[memho].abs().mean())
         e_ctl=float(own[ctlho].abs().mean())

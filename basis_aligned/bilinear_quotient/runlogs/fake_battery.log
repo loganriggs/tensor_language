@@ -183,13 +183,13 @@ r.8.0            sel  2.96 (in-sample  3.12) spec  1.24
 r.7.2.1          sel  2.01 (in-sample  1.98) spec  0.77
 F1_random        sel  0.93 (in-sample  0.86) spec  0.18
 Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/fake_battery.py", line 440, in <module>
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/fake_battery.py", line 449, in <module>
     if __name__=='__main__': main()
                              ^^^^^^
   File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
     return func(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/fake_battery.py", line 400, in main
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/fake_battery.py", line 409, in main
     ctlho=ctl[ho[ctl]]
               ~~^^^^^
 IndexError: tensors used as indices must be long, int, byte or bool tensors

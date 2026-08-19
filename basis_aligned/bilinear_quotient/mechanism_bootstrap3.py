@@ -357,7 +357,7 @@ def main():
               and ps[1][0]=='m' and int(ps[1][1:])<=3]
         if len(mlps)<2: continue
         # mechanism: fold activation of the leaf's probe directions
-        score=torch.zeros(50257,device=DEV)
+        score=torch.zeros(NPAIR,device=DEV)
         norms=None
         for ps in mlps:
             _,key,tag2,(s0_,s1_)=ps
