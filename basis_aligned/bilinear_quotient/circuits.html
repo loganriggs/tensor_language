@@ -1,0 +1,40 @@
+<title>bilin18 Circuit Registry</title>
+<style>
+:root{--ink:#0b0b0b;--sec:#52514e;--grid:#e1e0d9;--surface:#fcfcfb;--card:#f5f4f0;
+--blue:#3987e5;--dblue:#104281;--red:#e34948;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--ink:#e8e6e1;--sec:#b3b0a8;
+--grid:#2b2a27;--surface:#161512;--card:#1e1d19;--blue:#5b9ce8;--dblue:#8db8ef;--red:#e8695f;}}
+:root[data-theme="dark"]{--ink:#e8e6e1;--sec:#b3b0a8;--grid:#2b2a27;--surface:#161512;
+--card:#1e1d19;--blue:#5b9ce8;--dblue:#8db8ef;--red:#e8695f;}
+body{background:var(--surface);color:var(--ink);font:15px/1.5 Georgia,serif;margin:0;padding:2rem 1rem 4rem;}
+main{max-width:52rem;margin:0 auto;}
+h1{font-size:1.7rem;margin:0 0 .2rem;}
+.sub{color:var(--sec);margin:0 0 1.4rem;}
+table{border-collapse:collapse;width:100%;font-size:.82rem;}
+th{text-align:left;color:var(--sec);border-bottom:1px solid var(--grid);padding:.35rem .5rem;
+font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;}
+td{padding:.35rem .5rem;border-bottom:1px solid var(--grid);vertical-align:top;}
+.n{text-align:right;font-variant-numeric:tabular-nums;font-family:ui-monospace,Menlo,monospace;}
+.ctx,code{font:12px ui-monospace,Menlo,monospace;}
+.nl{color:var(--blue);}
+.k,.src,.meta{color:var(--sec);font-size:.78rem;}
+.nm{color:var(--sec);font-weight:normal;font-size:1rem;}
+.ok{color:var(--dblue);}.bad{color:var(--red);}
+section{background:var(--card);border:1px solid var(--grid);border-radius:6px;padding:1rem;margin:1.2rem 0;}
+.tw{overflow-x:auto;border:1px solid var(--grid);border-radius:6px;}
+ul.cert{font-size:.82rem;padding-left:1.2rem;}
+a{color:var(--blue);}
+</style>
+<main><h1>bilin18 Circuit Registry</h1>
+<p class=sub>1 recorded circuits · schema v1 · every number carries provenance;
+examples are mechanically selected; FAILED verdicts stay on the record.</p>
+<div class=tw><table><tr><th>tag</th><th>n</th><th>conc</th><th>minority</th><th>name</th><th>mech</th><th>prog bacc</th></tr>
+<tr><td><a href='#r.0.0.1'>r.0.0.1</a></td><td>184</td><td class='n'>7.7×</td><td class='n'>0.478</td><td>line-break policy in list layouts (two-signed)</td><td>surface-partial</td><td class='n'>0.746</td></tr></table></div>
+<section id="r.0.0.1"><h3>r.0.0.1 <span class=nm>line-break policy in list layouts (two-signed)</span></h3>
+<p class=meta>components: <code>(&#x27;pca&#x27;, &#x27;m0&#x27;, &#x27;r.0.0&#x27;, (12, 16)); (&#x27;pca&#x27;, &#x27;m3&#x27;, &#x27;r.0.0&#x27;, (24, 32)); (&#x27;pca&#x27;, &#x27;m3&#x27;, &#x27;r.0.0&#x27;, (16, 24)); (&#x27;pca&#x27;, &#x27;m0&#x27;, &#x27;r.0.0&#x27;, (48, 64))</code><br>
+members 184 · |ΔCE| 2.674 vs 0.3478 background ·
+sign split +96/−88 (1.0075/-2.7341) ·
+program <code>[[&#x27;NOT dist_nl_ge6&#x27;]]</code> bacc 0.746 null 0.368 ·
+tension: —</p>
+<ul class=cert><li>member dCE &gt;= 4x slice non-member: <b class=bad>FAILED</b> (None) <span class=src>circuit_explainer2</span></li><li>random members &gt;=4/5 positive dCE: <b class=bad>FAILED</b> (1/5) <span class=src>circuit_explainer2</span></li><li>|dCE| concentration vs corpus &gt;=3x: <b class=ok>HELD</b> (7.68) <span class=src>circuit_explainer2</span></li></ul>
+<table><tr><th></th><th>context</th><th>next</th><th>base CE</th><th>ΔCE</th></tr><tr><td class=k>top</td><td class=ctx> to Stay<span class=nl>⏎</span><span class=nl>⏎</span>ABleak House<span class=nl>⏎</span><span class=nl>⏎</span>AJeake&#x27;s House</td><td class=ctx>&#x27;\n&#x27;</td><td class=n>23.596</td><td class=n>3.505</td></tr><tr><td class=k>top</td><td class=ctx><span class=nl>⏎</span>16Museum of LondonD2<span class=nl>⏎</span><span class=nl>⏎</span>17PinnacleG3</td><td class=ctx>&#x27;\n&#x27;</td><td class=n>18.987</td><td class=n>5.154</td></tr><tr><td class=k>top</td><td class=ctx><span class=nl>⏎</span>26BarrafinaF6<span class=nl>⏎</span><span class=nl>⏎</span>27BarrafinaD3</td><td class=ctx>&#x27;\n&#x27;</td><td class=n>6.975</td><td class=n>3.594</td></tr><tr><td class=k>rnd</td><td class=ctx>3<span class=nl>⏎</span><span class=nl>⏎</span>4Westminster AbbeyF3<span class=nl>⏎</span><span class=nl>⏎</span>1Sights<span class=nl>⏎</span></td><td class=ctx>&#x27;\n&#x27;</td><td class=n>23.965</td><td class=n>-3.019</td></tr><tr><td class=k>rnd</td><td class=ctx> Best Places to Stay<span class=nl>⏎</span><span class=nl>⏎</span>AHaymarket Hotel<span class=nl>⏎</span><span class=nl>⏎</span>AZetter Hotel</td><td class=ctx>&#x27;\n&#x27;</td><td class=n>25.796</td><td class=n>-1.049</td></tr><tr><td class=k>rnd</td><td class=ctx>-6pm, last entry 5pm;  tWestminster)<span class=nl>⏎</span></td><td class=ctx>&#x27;\n&#x27;</td><td class=n>6.256</td><td class=n>1.712</td></tr></table></section></main>

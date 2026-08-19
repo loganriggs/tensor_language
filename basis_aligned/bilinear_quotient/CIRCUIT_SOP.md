@@ -1,0 +1,68 @@
+# Circuit SOP -- step-by-step procedure for one circuit (swarm-runnable)
+
+Written for a FRESH stateless agent (Sonnet/Opus class) holding only this
+file + census_lib. The procedure is verification-driven: every judgment an
+agent makes is checked by a computed bar, so a weaker model can fail to
+find things but cannot certify junk. GPU steps go through queue.txt
+(absolute paths only!) or direct `python -u` if the queue is idle.
+
+Deliverable: one merged circuit record via census_lib.write_circuit(tag, ...)
+conforming to CIRCUIT_SCHEMA.md. Do the steps IN ORDER; record every number.
+
+## Step 0 -- claim a leaf
+Read circuits/registry.json; pick a tag from census_lib.all_tags() with no
+file yet (or the assignment given to you). Never edit another leaf's file.
+
+## Step 1 -- causal footprint (GPU, ~15s)
+    import census_lib as cl
+    d = cl.leaf_ablate(tag)                # dCE under the leaf's own probes
+    s = cl.sign_stats(tag, d)
+GATE: s['abs_dce_members'] >= 3 * s['abs_dce_offslice']. If FAILED, record
+{'causal': s, 'certification': [gate FAILED]} and STOP -- the leaf is not
+locally selective; do not write a story for it.
+
+## Step 2 -- examples (CPU, instant)
+    exs = cl.examples(tag, d)              # mechanical: top-3 + 3 random
+Record verbatim. NEVER swap examples for prettier ones.
+
+## Step 3 -- program (CPU, ~2 min)
+    p = cl.leaf_program(tag)               # doc-disjoint heldout + null
+PASS if p['bacc'] >= 0.75 and p['null'] <= 0.6. Record either way.
+If PASS: append the program to features.json as circ_<tag> (kind expr,
+provenance "SOP step 3", cert f"heldout {p['bacc']}") so later circuits can
+compose on it. Name collision = someone else did this leaf; STOP and check.
+
+## Step 4 -- story, written blind-ish
+Look ONLY at exs + s (not at other circuits' stories). Write <=25 words:
+what the members have in common + what the machinery pushes. If s shows a
+two-signed split (minority_share >= 0.15), the story MUST say what the
+push is and where it is wrong -- "helps X" alone is incomplete.
+
+## Step 5 -- red-team your own story (CPU)
+Take the 3 RANDOM examples. For each: does the story predict membership?
+Count hits. <=1/3 -> mark story 'weak', keep it, flag for revision.
+
+## Step 6 -- merge
+    cl.write_circuit(tag, {'causal': s, 'examples': exs,
+        'story': {'blind_name': ..., 'program': p['program'],
+                  'program_bacc': p['bacc'], 'program_null': p['null'],
+                  'mechanism_level': 'surface' if PASS else 'none'},
+        'certification': [ ...every gate with verdict... ],
+        'provenance': {'scripts': ['SOP-v1'], 'agent': '<model name>'}})
+Then: cd to repo, git add circuits/ features.json && commit && push.
+Push is MANDATORY (box not volume-backed).
+
+## Escalation ladder (only after steps 1-6 are merged)
+- bundle split: ablate each probe SINGLY (cl.proj_hooks([probe])), record
+  the per-wing damage profile; dissociated bundles = sub-circuit structure.
+- tension scan: while the leaf's hooks are installed, other leaves' member
+  dCE is free -- record any leaf whose members IMPROVE by <= -0.3 as a
+  tension edge on both records.
+- mechanism (bigram fold, interchange/DAS): design-heavy; leave for the
+  consolidation model unless you have a template script.
+
+## Known traps
+- queue.txt requires ABSOLUTE paths; bare filenames are silently dropped.
+- tags are tree-instance-local; identity across instances = member overlap.
+- basev/base CE is fit-window; fresh-data claims need fresh rows.
+- Do not edit census_lib semantics; add functions if needed.

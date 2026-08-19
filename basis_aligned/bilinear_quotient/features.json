@@ -1,0 +1,5 @@
+{"features": {
+  "class_upper_pair": {"kind": "expr",
+    "expr": "L0['upper_initial'] & roll(L0['upper_initial'].view(tok2d.shape),1,dims=1).reshape(-1)",
+    "provenance": "circuit_dictionary CLS name-class analog", "cert": "corpus-general"}
+}}

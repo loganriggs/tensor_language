@@ -127,6 +127,8 @@ def main():
                     'dce_pos':round(dpos,3),'dce_neg':round(dneg,3),
                     'n_pos':npos,'n_neg':nneg,
                     'min_sign_share':round(minshare,3),
+                    'base_ce_member_mean':round(float(basev[mm].mean()),3),
+                    'base_ce_frac_lt3':round(float((basev[mm]<3).float().mean()),3),
                     'top_examples':[ex(g_) for g_ in member[order[:3]]],
                     'random_examples':[ex(g_) for g_ in rnd]})
         print(f"{lf['tag']}: conc {res[-1]['conc']}x | signed "
