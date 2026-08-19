@@ -1,0 +1,137 @@
+{
+ "n_leaves": 118,
+ "n_distinct": 118,
+ "sign_mixed": 97,
+ "median_corr_baseCE": 0.189,
+ "median_top_token_share": 0.259,
+ "median_corr_position": 0.035,
+ "causal_tested": 20,
+ "causal_passed": 3,
+ "causal": [
+  {
+   "tag": "r.0.0",
+   "member_dmg": 3.4113,
+   "matched_ctl": 3.8722,
+   "ratio": 0.88
+  },
+  {
+   "tag": "r.0.0.0",
+   "member_dmg": -1.098,
+   "matched_ctl": 1.156,
+   "ratio": -0.95
+  },
+  {
+   "tag": "r.0.1.1",
+   "member_dmg": -0.3354,
+   "matched_ctl": 1.6638,
+   "ratio": -0.2
+  },
+  {
+   "tag": "r.0.2.0",
+   "member_dmg": 0.0921,
+   "matched_ctl": 0.5193,
+   "ratio": 0.18
+  },
+  {
+   "tag": "r.0.2.2",
+   "member_dmg": -0.5895,
+   "matched_ctl": 0.362,
+   "ratio": -1.63
+  },
+  {
+   "tag": "r.0.3",
+   "member_dmg": 1.1749,
+   "matched_ctl": 2.4362,
+   "ratio": 0.48
+  },
+  {
+   "tag": "r.1.0",
+   "member_dmg": 0.225,
+   "matched_ctl": 0.1933,
+   "ratio": 1.16
+  },
+  {
+   "tag": "r.1.0.0",
+   "member_dmg": 0.3647,
+   "matched_ctl": -0.0991,
+   "ratio": 3647.32
+  },
+  {
+   "tag": "r.1.0.1",
+   "member_dmg": 0.2472,
+   "matched_ctl": 0.25,
+   "ratio": 0.99
+  },
+  {
+   "tag": "r.1.0.3",
+   "member_dmg": 0.1808,
+   "matched_ctl": 0.1708,
+   "ratio": 1.06
+  },
+  {
+   "tag": "r.1.3.1",
+   "member_dmg": -0.4407,
+   "matched_ctl": 0.0844,
+   "ratio": -5.22
+  },
+  {
+   "tag": "r.2.2.0",
+   "member_dmg": 3.5463,
+   "matched_ctl": 5.113,
+   "ratio": 0.69
+  },
+  {
+   "tag": "r.2.3.2",
+   "member_dmg": 0.133,
+   "matched_ctl": 0.0416,
+   "ratio": 3.2
+  },
+  {
+   "tag": "r.3.1",
+   "member_dmg": -0.0939,
+   "matched_ctl": 0.0559,
+   "ratio": -1.68
+  },
+  {
+   "tag": "r.7.0.0",
+   "member_dmg": -2.7126,
+   "matched_ctl": 0.1141,
+   "ratio": -23.78
+  },
+  {
+   "tag": "r.7.1.0",
+   "member_dmg": -0.4754,
+   "matched_ctl": -0.0098,
+   "ratio": -4754.07
+  },
+  {
+   "tag": "r.9",
+   "member_dmg": 0.1386,
+   "matched_ctl": 0.0707,
+   "ratio": 1.96
+  },
+  {
+   "tag": "r.9.1.3",
+   "member_dmg": 0.1273,
+   "matched_ctl": 0.0977,
+   "ratio": 1.3
+  },
+  {
+   "tag": "r.21.0.0",
+   "member_dmg": 2.0989,
+   "matched_ctl": 1.3436,
+   "ratio": 1.56
+  },
+  {
+   "tag": "r.21.3.0",
+   "member_dmg": 2.3333,
+   "matched_ctl": 1.1635,
+   "ratio": 2.01
+  }
+ ],
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": true,
+ "pred_d": false,
+ "runtime_s": 1173.754730463028
+}

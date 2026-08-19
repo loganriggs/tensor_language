@@ -8198,3 +8198,29 @@ The day's census stands: 118 structural circuits, 47 blind-nameable,
 two instrument rules earned (no selection without nulls at every
 level; hierarchies not overrides), and a benchmark frontier of
 20 @ +1.46 / 24 @ +2.29 / 32 @ +2.67 fresh.
+
+## 323. Red-team round one: three attacks repelled, one lands on the instrument
+
+`census_redteam.py` (reviewer-2 audit, user-directed): the census
+survives three of four attacks cleanly -- **118/118 leaves are DISTINCT
+under Jaccard-0.5 dedup** (the nesting-inflation attack fails: children
+select different top-members than their parents), **97/118 are
+sign-mixed** (contrastive circuits, not damage-severity gradients), and
+the confound medians are clean (base-CE correlation 0.19, top-token
+share 0.26, position 0.03 -- members are not fragile tokens, single
+token types, or position bands).
+
+Attack D -- joint-causal certification -- FAILED at 3/20 as registered,
+and the failure pattern indicts the TEST, not (necessarily) the
+circuits: mode scores are SIGNED, members were selected by |score|, and
+several leaves show huge NEGATIVE member effects under joint ablation
+(r.7.0.0: members IMPROVE by 2.71 nats while matched controls move
++0.11 -- a 24x signed effect my damage-positive bar scored as failure).
+A sign-blind bar cannot certify signed objects. Recorded as FAILED as
+registered (rule: the registered bar stands); the sign-aware
+re-certification runs next: members split by score sign, joint
+ablation must move each group in its predicted direction with pooled
+|effect| >= 2x matched controls and >=70% member-level sign agreement.
+Registered: >=60% of the 20 pass sign-aware. If THAT fails, the
+census's causal-unit claim is genuinely in trouble and the write-up
+will say so.
