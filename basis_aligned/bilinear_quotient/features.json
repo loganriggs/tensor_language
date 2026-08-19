@@ -1,5 +1,37 @@
-{"features": {
-  "class_upper_pair": {"kind": "expr",
-    "expr": "L0['upper_initial'] & roll(L0['upper_initial'].view(tok2d.shape),1,dims=1).reshape(-1)",
-    "provenance": "circuit_dictionary CLS name-class analog", "cert": "corpus-general"}
-}}
+{
+ "features": {
+  "class_upper_pair": {
+   "kind": "expr",
+   "expr": "L0['upper_initial'] & roll(L0['upper_initial'].view(tok2d.shape),1,dims=1).reshape(-1)",
+   "provenance": "circuit_dictionary CLS name-class analog",
+   "cert": "corpus-general"
+  },
+  "circ_r_3_1_0": {
+   "kind": "program",
+   "program": [
+    [
+     "dist_nl_le2",
+     "NOT prev_newline"
+    ],
+    [
+     "NOT dist_nl_ge6",
+     "NOT prev1_is_newline",
+     "NOT prev1_starts_space"
+    ]
+   ],
+   "provenance": "sop_populate step3",
+   "cert": "heldout 0.788"
+  },
+  "circ_r_1_1_2": {
+   "kind": "program",
+   "program": [
+    [
+     "NOT prev2_dist_nl_ge6",
+     "NOT prev_newline"
+    ]
+   ],
+   "provenance": "sop_populate step3",
+   "cert": "heldout 0.773"
+  }
+ }
+}

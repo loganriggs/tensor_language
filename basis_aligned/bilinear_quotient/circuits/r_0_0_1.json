@@ -201,43 +201,30 @@
   ]
  },
  "base_ce": {
-  "member_mean": 15.65,
+  "member_mean": 13.728,
   "frac_lt3": 0.054
  },
  "causal": {
   "abs_dce_members": 2.674,
-  "abs_dce_offslice": 0.3478,
-  "dce_pos": 1.0075,
-  "dce_neg": -2.7341,
+  "abs_dce_offslice": 0.348,
+  "concentration": 7.69,
+  "dce_pos": 1.007,
+  "dce_neg": -2.734,
   "n_pos": 96,
   "n_neg": 88,
   "minority_share": 0.478
  },
  "certification": [
   {
-   "test": "member dCE >= 4x slice non-member",
-   "value": null,
-   "verdict": "FAILED",
-   "source": "circuit_explainer2",
-   "date": "2026-08-19"
-  },
-  {
-   "test": "random members >=4/5 positive dCE",
-   "value": "1/5",
-   "verdict": "FAILED",
-   "source": "circuit_explainer2",
-   "date": "2026-08-19"
-  },
-  {
-   "test": "|dCE| concentration vs corpus >=3x",
-   "value": 7.68,
+   "test": "|dCE| concentration >=3x corpus",
+   "value": 7.69,
    "verdict": "HELD",
-   "source": "circuit_explainer2",
+   "source": "explainer_batch",
    "date": "2026-08-19"
   }
  ],
  "story": {
-  "blind_name": "line-break policy in list layouts (two-signed)",
+  "blind_name": "",
   "program": [
    [
     "NOT dist_nl_ge6"
@@ -245,114 +232,150 @@
   ],
   "program_bacc": 0.746,
   "program_null": 0.368,
-  "mechanism_level": "surface-partial",
-  "mechanism": {
-   "family": "place-suffix|newline (r.3.0/r.8.0 certified 7.7-7.9x)",
-   "note": "this leaf = grid-ref/venue end of family"
-  }
+  "mechanism_level": "none"
  },
  "relations": {
   "parent": "r.0.0",
-  "tension": []
+  "tension": [
+   {
+    "tag": "r.1.0.0",
+    "value": -0.539,
+    "n": 184
+   },
+   {
+    "tag": "r.1.1.0",
+    "value": -0.746,
+    "n": 184
+   },
+   {
+    "tag": "r.1.1.1",
+    "value": -0.459,
+    "n": 184
+   },
+   {
+    "tag": "r.1.1.2",
+    "value": -0.335,
+    "n": 184
+   },
+   {
+    "tag": "r.1.3.0",
+    "value": -0.343,
+    "n": 184
+   },
+   {
+    "tag": "r.3.0.0",
+    "value": -0.534,
+    "n": 184
+   },
+   {
+    "tag": "r.3.1.0",
+    "value": -0.545,
+    "n": 184
+   },
+   {
+    "tag": "r.6.2.0",
+    "value": -0.448,
+    "n": 184
+   },
+   {
+    "tag": "r.6.2.2",
+    "value": -0.307,
+    "n": 184
+   },
+   {
+    "tag": "r.9.0.1",
+    "value": -0.342,
+    "n": 184
+   },
+   {
+    "tag": "r.9.1.1",
+    "value": -0.575,
+    "n": 184
+   }
+  ]
  },
  "examples": {
   "top": [
    {
-    "row": 142,
-    "pos": 73,
-    "context": " to Stay\n\nABleak House\n\nAJeake's House",
+    "context": "\n\nABleak House\n\nAJeake's House",
     "target": "\n",
-    "pair": " House|\n",
-    "score": 5.355,
-    "in_mb5_triggers": false,
-    "suffix_newline": true,
-    "in_top8_triggers": false,
-    "base_ce": 23.596,
-    "ablated_ce": 27.101,
-    "dce": 3.505
+    "base_ce": 23.6,
+    "dce": 3.51
    },
    {
-    "row": 22,
-    "pos": 28,
-    "context": "\n16Museum of LondonD2\n\n17PinnacleG3",
+    "context": "Museum of LondonD2\n\n17PinnacleG3",
     "target": "\n",
-    "pair": "3|\n",
-    "score": 4.964,
-    "in_mb5_triggers": false,
-    "suffix_newline": false,
-    "in_top8_triggers": false,
-    "base_ce": 18.987,
-    "ablated_ce": 24.141,
-    "dce": 5.154
+    "base_ce": 18.99,
+    "dce": 5.15
    },
    {
-    "row": 15,
-    "pos": 37,
-    "context": "\n26BarrafinaF6\n\n27BarrafinaD3",
+    "context": "BarrafinaF6\n\n27BarrafinaD3",
     "target": "\n",
-    "pair": "3|\n",
-    "score": 4.963,
-    "in_mb5_triggers": false,
-    "suffix_newline": false,
-    "in_top8_triggers": false,
-    "base_ce": 6.975,
-    "ablated_ce": 10.568,
-    "dce": 3.594
+    "base_ce": 6.97,
+    "dce": 3.59
    }
   ],
   "random": [
    {
-    "row": 4,
-    "pos": 203,
-    "context": "3\n\n4Westminster AbbeyF3\n\n1Sights\n",
+    "context": "\n\n6St James's Park\n\n7Guards Museum",
     "target": "\n",
-    "pair": "\n|\n",
-    "score": -1.276,
-    "in_mb5_triggers": false,
-    "suffix_newline": false,
-    "in_top8_triggers": false,
-    "base_ce": 23.965,
-    "ablated_ce": 20.947,
-    "dce": -3.019
+    "base_ce": 25.4,
+    "dce": 2.74
    },
    {
-    "row": 1,
-    "pos": 145,
-    "context": " Best Places to Stay\n\nAHaymarket Hotel\n\nAZetter Hotel",
-    "target": "\n",
-    "pair": " Hotel|\n",
-    "score": 1.887,
-    "in_mb5_triggers": false,
-    "suffix_newline": true,
-    "in_top8_triggers": false,
-    "base_ce": 25.796,
-    "ablated_ce": 24.748,
-    "dce": -1.049
+    "context": "\n32Fernandez & WellsC4\n\n33Great Queen",
+    "target": " Street",
+    "base_ce": 4.77,
+    "dce": 3.88
    },
    {
-    "row": 11,
-    "pos": 153,
-    "context": "-6pm, last entry 5pm;  tWestminster)\n",
+    "context": " Thames Valley\n\n#### Windsor & Eton\n\n#### Bray",
     "target": "\n",
-    "pair": "\n|\n",
-    "score": 1.409,
-    "in_mb5_triggers": false,
-    "suffix_newline": false,
-    "in_top8_triggers": false,
-    "base_ce": 6.256,
-    "ablated_ce": 7.968,
-    "dce": 1.712
+    "base_ce": 5.17,
+    "dce": -1.39
    }
   ],
-  "rule": "top-5 by |score| + 5 seed-0 random (subset 3+3 shown)"
+  "rule": "top-3 by |score| + 3 seed-0 random"
  },
  "provenance": {
   "scripts": [
-   "circuit_explainer2.py"
+   "explainer_batch.py",
+   "sop_populate.py"
   ],
   "sections": [
-   "344"
+   "348"
+  ]
+ },
+ "causal_bundles": {
+  "wing_pos": {
+   "b0": 3.173,
+   "b1": -2.033,
+   "b2": 0.143,
+   "b3": -0.68
+  },
+  "wing_neg": {
+   "b0": -1.839,
+   "b1": -0.323,
+   "b2": -0.668,
+   "b3": -0.013
+  },
+  "pairwise_corr": [
+   -0.482,
+   0.35,
+   -0.27,
+   -0.027,
+   0.337,
+   -0.002
   ],
-  "artifact": "https://claude.ai/code/artifact/22848501-cd05-4f70-8a1d-0d7d23a6900b"
+  "structure": "push (m0 b0) minus brake (m3 b1/b2)",
+  "abbey_attribution": {
+   "b0": 8.069,
+   "b1": -5.985,
+   "b2": 1.018,
+   "b3": -6.483,
+   "m0_pair": 0.411,
+   "m3_pair": -5.106,
+   "joint": -6.793
+  }
  }
 }
