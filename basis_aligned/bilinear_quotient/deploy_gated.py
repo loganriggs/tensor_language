@@ -652,6 +652,53 @@ def main():
         return Mid
     cur['clsmap']=classify2(FR).to(DEV)
     ML=list(range(2,10))
+    def evalG(active,mlayers,gate):
+        hs=install(active)+motif_hooks(mlayers)
+        ces=[]
+        for i in range(0,120,4):
+            bb=FR[i:i+4,:257].to(DEV)
+            cur['idx']=bb[:,:-1].contiguous(); tg=bb[:,1:].reshape(-1)
+            cur['mode']='oracle'
+            cur['lab']=cur['clsmap'][i:i+4].reshape(-1)
+            cur['gate']=(gate[i:i+4].reshape(-1).to(DEV)
+                         if gate is not None else None)
+            x=F.rms_norm(m.transformer.wte(cur['idx']),(D,))
+            x0=x; v1=None
+            for blk in m.transformer.h:
+                x,v1=blk(x,v1,x0)
+            lg=(30*torch.tanh(m.lm_head(F.rms_norm(x,(D,)))/30)).float()
+            ces.append(F.cross_entropy(lg.view(-1,lg.size(-1)),tg,
+                                       reduction='none'))
+        for h in hs: h.remove()
+        cur['gate']=None
+        return float(torch.cat(ces).mean())
+    import tiktoken as tk2
+    enc4=tk2.get_encoding('gpt2')
+    def classify2(Tk):
+        n=Tk.shape[0]
+        Mid=torch.zeros(n,256,dtype=torch.long)
+        for r in range(n):
+            toks=Tk[r,:257].tolist()
+            for pos in range(256):
+                t=toks[pos+1]; p=toks[pos]
+                tg=enc4.decode([t]); pv=enc4.decode([p]); st=tg.strip()
+                if st.isdigit() and not tg.startswith(' '): k=0
+                elif st in (')',']') and any(bch in enc4.decode(
+                    toks[max(0,pos-60):pos+1]) for bch in ('(','[')): k=1
+                elif chr(10) in tg: k=2
+                elif tg in ('.','!','?'): k=3
+                elif tg==',': k=4
+                elif (tg.startswith(' ') and st[:1].isupper() and
+                      (pv.strip()[:1].isupper() if pv.strip()
+                       else False)): k=5
+                elif t==p: k=6
+                elif (not tg.startswith(' ')) and st.isalpha(): k=7
+                elif t in toks[:pos+1]: k=8
+                else: k=9
+                Mid[r,pos]=k
+        return Mid
+    cur['clsmap']=classify2(FR).to(DEV)
+    ML=list(range(2,10))
     baseC2=evalG(order2,ML,None)-float(baseFr.mean())
     gat=evalG(order2,ML,gateF)-float(baseFr.mean())
     rnd=evalG(order2,ML,rmask)-float(baseFr.mean())
