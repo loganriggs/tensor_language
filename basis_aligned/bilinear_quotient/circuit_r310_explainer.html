@@ -79,6 +79,20 @@ ablated</span> (the machinery was helping), <span style="color:var(--dblue)">blu
 improves the model by <b>10.8 nats on one token</b>. The model's layout machinery is confidently
 wrong there, and this circuit carries a large share of the wrongness.</p>
 
+<h2>Why can deleting a learned circuit help?</h2>
+<p>Isn't a trained mechanism net-useful by optimality? <b>It is — corpus-wide.</b> Deleting this
+machinery costs the model <b>+0.071 nats per token averaged over all 54,272 positions</b>
+(+3,840 nats total): globally, the circuit earns its keep, exactly as the optimality argument
+demands. The negative numbers on this page are a <em>selection effect</em>: the census picks the
+184 positions where this machinery moves the loss the most — the extreme tails of one continuous
+policy direction (which is why the scatter looks like one smooth spread, not two discrete
+modules) — and the tail where a policy acts hardest includes the tail where it is most wrong.
+On this particular document family (dense guidebook layout, rare in training data), the
+misfiring tail happens to dominate the member set. The ablation is of the <em>full</em>
+direction bundle, both signs at every position — not a one-sided deletion of only the harmful
+component; a sign-conditioned partial deletion is precisely the "slack harvest" policy that
+improved the whole model by −0.048 nats on fresh text earlier in the program.</p>
+
 <h2>Honest caveats</h2>
 <p>Same scope limits as the first exemplar: members come from the census fit window (one travel
 guide dominates); the program and the causal split are doc-disjoint within that window, but
