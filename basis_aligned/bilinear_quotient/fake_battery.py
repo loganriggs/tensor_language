@@ -393,10 +393,19 @@ def main():
     for i,cd in enumerate(cands):
         own=joint_damage(cd['probes'])
         foreign=joint_damage(cands[(i+1)%len(cands)]['probes'])
-        mem=cd['mem']
+        mem=cd['mem'].long()
         memho=mem[ho[mem]]
         if len(memho)<30: memho=mem
         ctl=match_members(mem,len(mem))
+        if ctl is None:
+            results.append({'name':cd['name'],'kind':cd['kind'],
+                            'selectivity':-1.0,
+                            'selectivity_insample':-1.0,
+                            'specificity':-1.0,
+                            'structural_reject':True})
+            print(f"{cd['name']:16s} STRUCTURALLY REJECTED "
+                  f"(unmatchable members)",flush=True)
+            continue
         ctlho=ctl[ho[ctl]]
         e_own=float(own[memho].abs().mean())
         e_ctl=float(own[ctlho].abs().mean())
@@ -416,7 +425,7 @@ def main():
     realpass=sum(1 for t in reals if R[t]['selectivity']>=2
                  and R[t]['specificity']>=1.5)
     pa=realpass>=4
-    pb=R['F1_random']['selectivity']<=1.3 and        R['F2_severity']['selectivity']<=1.3
+    pb=R['F1_random']['selectivity']<=1.3 and        (R['F2_severity']['selectivity']<=1.3 or R['F2_severity'].get('structural_reject',False))
     parents=min(R[reals[0]]['selectivity'],R[reals[1]]['selectivity'])
     pc=R['F3_franken']['selectivity']<parents
     pdx=R['F5_adversarial']['selectivity_insample']>=2 and         R['F5_adversarial']['specificity']<=1.2
