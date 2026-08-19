@@ -9506,3 +9506,28 @@ validated code (376). mlp0's role in the model sharpens: it is not
 just the biggest token table -- it is the model's IDENTITY-CODE
 GENERATOR, writing the representation that all match machinery
 compares.
+
+## 388. Fold-only trigger: partial (head 2.5 at 45%), rotary omission named as the gap
+
+fold_score_test predicted head reads from m0-fold codes + QK
+weights alone, WITHOUT rotary. Bars FAILED, but far from null:
+head 2.5 hits the real top read 45% of the time (chance 0.8%),
+1.4 19%, 3.5 7.5%, deep heads ~1%. The design dropped the rotary
+rotation entirely -- and rotary is position-deterministic, hence
+exactly computable per pair: the omission is a fixable gap, not a
+fundamental one. fold_score_test2 queued: same construction with
+rotary applied at actual positions (still weights+tokens+positions
+only, no model forward). Registered: early band hit >=40%, corr
+>=0.4 with rotary included. Deep heads expected to stay low
+(context terms in the match code, per 387).
+
+## 389. Ops: diverse census outgrew the runner timeout; runner upgraded
+
+census_diverse hit the 90-min runner cap at root r.22 (exit 124,
+state unsaved) -- the 1000-row corpus exposes far MORE damage
+structure than the old window (22+ root modes vs 9), which is
+exactly why it timed out and exactly why it is worth rerunning.
+Runner timeout raised to 4h and restarted while idle, which also
+activates the queue dup-guard (the phantom re-append bug's
+mitigation, pending since 19:3x). census_diverse requeued
+unchanged.

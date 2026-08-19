@@ -4131,3 +4131,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 387 (2026-08-19)
 - Induction score input = m0|m0 (unanimous dominant pair; early band 0.80-1.00 concentrated, deep band mixed). mlp0 = the model's identity-code generator. fold_score_test queued: if the fold-only trigger predicts real reads, the early induction circuit is complete (inputs + computation + code).
+
+## Appendix 388-389 (2026-08-19)
+- 388: fold-only trigger partial (2.5: 45% vs 0.8% chance); rotary omitted -- exactly computable, v2 queued.
+- 389: diverse census (22+ root modes!) outgrew the 90-min cap; runner timeout 4h + dup-guard active; rerun queued.
