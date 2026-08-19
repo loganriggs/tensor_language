@@ -99,20 +99,20 @@
   "r.6.1.1": {
    "file": "r_6_1_1.json",
    "n_members": 184,
-   "headline": "",
-   "cert": 1
+   "headline": "Domain/URL-listing separator token; helps complete website suffixes and prices after 'www.x;' but wrongly raises loss on other post-';' continuations like newlines.",
+   "cert": 4
   },
   "r.6.3.0": {
    "file": "r_6_3_0.json",
    "n_members": 184,
-   "headline": "",
-   "cert": 1
+   "headline": "Hard-to-predict delimiters (newlines, semicolons) in travel-guide listings/headings; circuit usually pushes the wrong token, raising loss on the majority, helping only a minority.",
+   "cert": 3
   },
   "r.1.2.0": {
    "file": "r_1_2_0.json",
    "n_members": 184,
-   "headline": "",
-   "cert": 1
+   "headline": "Members are hard-to-predict tokens in venue/address listings; machinery hurts prediction of common words (off, d) but helps rarer proper-noun/genre completions (house, Banqueting, Queen).",
+   "cert": 4
   },
   "r.6.0.3": {
    "file": "r_6_0_3.json",

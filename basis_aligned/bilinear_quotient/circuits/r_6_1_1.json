@@ -207,12 +207,14 @@
  "causal": {
   "abs_dce_members": 1.318,
   "abs_dce_offslice": 0.19,
-  "concentration": 6.92,
+  "dce_members": 0.24,
   "dce_pos": -1.127,
   "dce_neg": 1.493,
   "n_pos": 88,
   "n_neg": 96,
-  "minority_share": 0.478
+  "minority_share": 0.478,
+  "base_ce_member_mean": 7.737,
+  "base_ce_frac_lt3": 0.217
  },
  "certification": [
   {
@@ -221,23 +223,53 @@
    "verdict": "HELD",
    "source": "explainer_batch",
    "date": "2026-08-19"
+  },
+  {
+   "test": "|dCE| concentration >=3x offslice (reproduction)",
+   "bar": ">=3x offslice",
+   "value": 6.937,
+   "verdict": "HELD",
+   "source": "CIRCUIT_SOP-v1 step1 (agent rerun)",
+   "date": "2026-08-19"
+  },
+  {
+   "test": "doc-disjoint program heldout bacc>=0.75 and null<=0.6",
+   "bar": "bacc>=0.75, null<=0.6",
+   "value": {
+    "bacc": 0.606,
+    "null": 0.454
+   },
+   "verdict": "FAILED",
+   "source": "CIRCUIT_SOP-v1 step3",
+   "date": "2026-08-19"
+  },
+  {
+   "test": "story red-team on 3 random examples",
+   "bar": ">1/3 hits to avoid weak flag",
+   "value": "2/3",
+   "verdict": "HELD",
+   "source": "CIRCUIT_SOP-v1 step5",
+   "date": "2026-08-19"
   }
  ],
  "examples": {
   "top": [
    {
+    "gi": 9890,
     "context": "  GOOGLE MAP ) ; www.nhm.",
     "target": "ac",
     "base_ce": 1.74,
     "dce": 3.03
    },
    {
+    "gi": 42605,
     "context": "riverbus.co.uk; adult/child 30min trip",
     "target": " \u00a3",
     "base_ce": 3.16,
     "dce": 2.83
    },
    {
+    "gi": 28280,
     "context": " www.wearebigchill.com; 257-259",
     "target": " Pent",
     "base_ce": 11.23,
@@ -246,18 +278,21 @@
   ],
   "random": [
    {
+    "gi": 36595,
     "context": " Getting hopelessly lost in the crooked medieval streets of Sandwich\n\n",
     "target": "2",
     "base_ce": 7.07,
     "dce": 1.72
    },
    {
+    "gi": 52954,
     "context": "-5pm Mon-Sat, to 4pm Sun)\n",
     "target": "\n",
     "base_ce": 9.72,
     "dce": -1.23
    },
    {
+    "gi": 8581,
     "context": "designmuseum.org; 28 Shad Thames, SE1;",
     "target": " adult",
     "base_ce": 13.6,
@@ -269,10 +304,49 @@
  "provenance": {
   "scripts": [
    "explainer_batch.py",
-   "sop_populate.py"
+   "sop_populate.py",
+   "CIRCUIT_SOP-v1 (agent run, dry-run mode)"
   ],
   "sections": [
    "348"
+  ]
+ },
+ "story": {
+  "blind_name": "Domain/URL-listing separator token; helps complete website suffixes and prices after 'www.x;' but wrongly raises loss on other post-';' continuations like newlines.",
+  "program": [
+   [
+    "NOT starts_space",
+    "NOT class_name"
+   ]
+  ],
+  "program_bacc": 0.606,
+  "program_null": 0.454,
+  "mechanism_level": "none",
+  "redteam": [
+   {
+    "gi": 36595,
+    "context": " Getting hopelessly lost in the crooked medieval streets of Sandwich\n\n",
+    "target": "2",
+    "dce": 1.72,
+    "verdict": "MISS",
+    "why": "narrative town-guide text (not a URL/address-separator context); story does not predict this member at all"
+   },
+   {
+    "gi": 52954,
+    "context": "-5pm Mon-Sat, to 4pm Sun)\n",
+    "target": "\n",
+    "dce": -1.23,
+    "verdict": "HIT",
+    "why": "listing-style hours text ending in newline, negative dce matches story's wrong-push-on-newlines direction"
+   },
+   {
+    "gi": 8581,
+    "context": "designmuseum.org; 28 Shad Thames, SE1;",
+    "target": " adult",
+    "dce": -0.89,
+    "verdict": "HIT",
+    "why": "exact www-domain + ';' listing separator predicting ' adult', negative dce matches story"
+   }
   ]
  }
 }

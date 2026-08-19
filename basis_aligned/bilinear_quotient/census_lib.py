@@ -174,8 +174,10 @@ def sign_stats(tag,d):
     mm=torch.zeros(54272,dtype=torch.bool); mm[mem]=True
     slm=torch.zeros(54272,dtype=torch.bool); slm[sl]=True
     npos=int((msc>0).sum()); nneg=int((msc<0).sum())
-    return {'abs_dce_members':round(float(d[mm].abs().mean()),3),
-            'abs_dce_offslice':round(float(d[~slm].abs().mean()),3),
+    am=float(d[mm].abs().mean()); ag=float(d[~slm].abs().mean())
+    return {'abs_dce_members':round(am,3),
+            'abs_dce_offslice':round(ag,3),
+            'concentration':round(am/max(ag,1e-4),2),
             'dce_members':round(float(d[mm].mean()),3),
             'dce_pos':round(float(d[mem[msc>0]].mean()),3) if npos else None,
             'dce_neg':round(float(d[mem[msc<0]].mean()),3) if nneg else None,
@@ -366,7 +368,18 @@ def write_circuit(tag,updates):
     doc=json.load(open(p)) if os.path.exists(p) else {
         'schema_version':1,'tag':tag,
         'tree':{'instance':'212row-v1','n_rows':212}}
-    doc.update(updates)
+    for k,v in updates.items():
+        if k=='certification':
+            # append-only: concatenate, dedup by (test, source, date)
+            old=doc.get('certification',[])
+            keys={(e.get('test'),e.get('source'),e.get('date'))
+                  for e in old}
+            doc[k]=old+[e for e in v if (e.get('test'),e.get('source'),
+                                         e.get('date')) not in keys]
+        elif isinstance(v,dict) and isinstance(doc.get(k),dict):
+            doc[k]={**doc[k],**v}
+        else:
+            doc[k]=v
     json.dump(doc,open(p,'w'),indent=1)
     rp=CIRC+'registry.json'
     reg=json.load(open(rp)) if os.path.exists(rp) else {'circuits':{}}

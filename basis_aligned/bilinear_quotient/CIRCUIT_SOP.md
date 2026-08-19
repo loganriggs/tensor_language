@@ -12,12 +12,17 @@ conforming to CIRCUIT_SCHEMA.md. Do the steps IN ORDER; record every number.
 ## Step 0 -- claim a leaf
 Read circuits/registry.json; pick a tag from census_lib.all_tags() with no
 file yet (or the assignment given to you). Never edit another leaf's file.
+PARTIAL RECORDS: batch scripts may have pre-written steps 1-2 (causal +
+examples, no story/program). That leaf is still claimable: re-run step 1
+to verify the recorded numbers reproduce (report both), then continue
+from step 3. write_circuit deep-merges: certification entries are
+appended (never lost), dict fields merge, so just pass your new fields.
 
 ## Step 1 -- causal footprint (GPU, ~15s)
     import census_lib as cl
     d = cl.leaf_ablate(tag)                # dCE under the leaf's own probes
     s = cl.sign_stats(tag, d)
-GATE: s['abs_dce_members'] >= 3 * s['abs_dce_offslice']. If FAILED, record
+GATE: s['concentration'] >= 3 (the field is provided). If FAILED, record
 {'causal': s, 'certification': [gate FAILED]} and STOP -- the leaf is not
 locally selective; do not write a story for it.
 
@@ -25,7 +30,7 @@ locally selective; do not write a story for it.
     exs = cl.examples(tag, d)              # mechanical: top-3 + 3 random
 Record verbatim. NEVER swap examples for prettier ones.
 
-## Step 3 -- program (CPU, ~2 min)
+## Step 3 -- program (CPU, ~15s)
     p = cl.leaf_program(tag)               # doc-disjoint heldout + null
 PASS if p['bacc'] >= 0.75 and p['null'] <= 0.6. Record either way.
 If PASS: append the program to features.json as circ_<tag> (kind expr,

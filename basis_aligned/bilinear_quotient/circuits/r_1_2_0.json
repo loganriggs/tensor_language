@@ -207,7 +207,7 @@
  "causal": {
   "abs_dce_members": 0.56,
   "abs_dce_offslice": 0.081,
-  "concentration": 6.9,
+  "concentration": 6.914,
   "dce_pos": -0.457,
   "dce_neg": 0.652,
   "n_pos": 87,
@@ -221,23 +221,53 @@
    "verdict": "HELD",
    "source": "explainer_batch",
    "date": "2026-08-19"
+  },
+  {
+   "test": "causal selectivity (SOP step1)",
+   "bar": "abs_dce_members >= 3x abs_dce_offslice",
+   "value": 6.914,
+   "verdict": "HELD",
+   "source": "SOP-v1",
+   "date": "2026-08-19"
+  },
+  {
+   "test": "program heldout (SOP step3)",
+   "bar": "bacc>=0.75 and null<=0.6",
+   "value": {
+    "bacc": 0.542,
+    "null": 0.439
+   },
+   "verdict": "FAILED",
+   "source": "SOP-v1",
+   "date": "2026-08-19"
+  },
+  {
+   "test": "story red-team (SOP step5)",
+   "bar": ">1/3 hits on 3 random examples",
+   "value": "3/3",
+   "verdict": "HELD",
+   "source": "SOP-v1",
+   "date": "2026-08-19"
   }
  ],
  "examples": {
   "top": [
    {
+    "gi": 20519,
     "context": " Lane, Cowcross St, EC1; s \u00a3222,",
     "target": " d",
     "base_ce": 8.3,
     "dce": -0.82
    },
    {
+    "gi": 53941,
     "context": " most popular villages are busy in summer, it's easy to get",
     "target": " off",
     "base_ce": 5.37,
     "dce": -1.03
    },
    {
+    "gi": 50932,
     "context": " Rd Arches)\n\nSeafront club hosting indie,",
     "target": " house",
     "base_ce": 4.94,
@@ -246,18 +276,21 @@
   ],
   "random": [
    {
+    "gi": 14791,
     "context": " as well. On the far side of Whitehall stands nB",
     "target": "anqu",
     "base_ce": 9.93,
     "dce": 0.92
    },
    {
+    "gi": 42674,
     "context": " way to reach Richborough.\n\nGuildhall MuseumM",
     "target": "USE",
     "base_ce": 6.66,
     "dce": 0.89
    },
    {
+    "gi": 23012,
     "context": "62; www.sweetingsrestaurant.com; 39",
     "target": " Queen",
     "base_ce": 11.17,
@@ -269,10 +302,29 @@
  "provenance": {
   "scripts": [
    "explainer_batch.py",
-   "sop_populate.py"
+   "sop_populate.py",
+   "SOP-v1"
   ],
   "sections": [
    "348"
-  ]
+  ],
+  "agent": "claude-sonnet-5"
+ },
+ "story": {
+  "blind_name": "Members are hard-to-predict tokens in venue/address listings; machinery hurts prediction of common words (off, d) but helps rarer proper-noun/genre completions (house, Banqueting, Queen).",
+  "program": [
+   [
+    "class_subword",
+    "NOT is_newline"
+   ],
+   [
+    "mid_word"
+   ]
+  ],
+  "program_bacc": 0.542,
+  "program_null": 0.439,
+  "mechanism_level": "none",
+  "redteam_hits": "3/3",
+  "redteam_verdict": "HELD"
  }
 }
