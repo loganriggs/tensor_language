@@ -4085,3 +4085,9 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 365: induction-as-code refuted (2026-08-19)
 - Literal match-and-copy code: CE +9.8 at match positions, corr 0.03, alphas ~0 mixed-sign. The 'ind' motif is pattern-shape, not functional read. mech_diag queued (sparsity + location of the real read). suffix_code fixed (leaf_hooks) and requeued.
+
+## Appendix 366-369 (2026-08-19)
+- 366: stream predicates +0 -> plateau spans six languages; residual half = activation-space objects. Description arc CLOSED at 55-58/118.
+- 367: optimality 10/10 (ratios 17-66x); no net-harmful circuit.
+- 368: context-freeness refuted: 2-token core = 8.5% of r.3.0's action; 91.5% context gap.
+- 369: induction heads = opportunistic part-time match-readers (sparse 6/9, match-seeking 5/9 at ~1/3 rate). Pattern-as-code is the legal next rung; sparse_read_code + head_read_census queued.

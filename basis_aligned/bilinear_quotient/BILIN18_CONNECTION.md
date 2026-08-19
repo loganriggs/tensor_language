@@ -9109,3 +9109,68 @@ three probe kinds (pca/comp/head), requeued. Ops: the cleanup's
 directory move broke the canary import chain (bilin18_canary +
 bilin18_pipe_refit moved back to top level; import-graph scan now
 part of any future move).
+
+## 366. Stream predicates leave the plateau at 58: the description arc closes
+
+stream_features added 16 block-2 residual-stream projections as
+ladder predicates (stream-legal, same stance as the 3.8x probe).
+Converged: **58/118** -- gain vs baseline +0 (bar >=64 FAILED; null
+HELD; stream predicates cited in 17 programs, HELD -- substitution
+yet again). The plateau now spans SIX feature classes: surface,
+mechanical class, trigger pairs, weight folds, exact pair folds,
+unbounded match transports, and block-2 stream projections. Verdict
+recorded: for the ~60 residual leaves, membership has no position-
+set description in any language tried -- they are ACTIVATION-SPACE
+OBJECTS at this grain. Caveats that keep the door ajar: block-2
+only, 16 linear directions, median thresholds; the probe AUC
+ceiling (0.62) suggests deeper or nonlinear reads hold some more.
+But the arc closes with the honest headline: the census describes
+WHERE dependence concentrates; for half of it, "where" cannot be
+compressed into a rule. Programs 55-58/118 is the number, and it is
+a property of the model, not of our vocabulary.
+
+## 367. Optimality audit: 10/10 circuits are corpus-wide useful
+
+net_utility: every one of the 10 highest-concentration leaves is
+globally net-positive-damage under its own ablation (both bars
+HELD; member-tail/global ratios 17-66x). No net-harmful circuit
+found; the member-level improvements that confused the layout-brake
+reading are pure selection effects. The optimality argument holds
+leaf-by-leaf, and the registry pages now carry this framing.
+
+## 368. Novel-circuit code v1: context-freeness refuted at 91.5%
+
+suffix_code tested the executable claim "r.3.0's action = TABLE
+[prev,cur]" (2-token weights-derived lookup). Result: corr 0.294
+(bar 0.6 FAILED), explained variance **8.5%** -- the context gap is
+91.5% (shuffled control clean at -0.06, so the 8.5% is real signal).
+The circuit's per-position contribution in full documents is
+overwhelmingly context-modulated: the 2-token core exists but is a
+small minority of the computation. Same lesson as 365 from the MLP
+side: bilin18's circuits are dense contextual computations; sparse
+context-free code approximations capture <10%.
+
+## 369. The real induction story: opportunistic part-time match-readers
+
+mech_diag measured what the 9 'ind' heads actually compute at match
+positions. Both registered bars HELD: 6/9 heads are SPARSE readers
+(top-1 pattern key carries 46-65% of output variance) and 5/9 are
+MATCH-SEEKING (top key lands in {j, j+1} at 26-42% of match
+positions -- far above the ~1/q chance floor but far below the
+textbook's 100%). The functional picture: these heads split their
+reads between the match region (~1/3), local positions (~1/4), and
+elsewhere (~2/5) -- a mixed policy in which match-reading is one
+mode, not the identity. This explains 365's refutation exactly: the
+textbook code forced match-reads always and captured nothing. The
+minimal faithful code therefore must INCLUDE the pattern
+computation itself -- which in this architecture is closed-form
+(double-QK bilinear scores are polynomial in the stream), so
+"pattern-as-code" is legitimate weights-derived code, not a copout.
+sparse_read_code queued: replace each head's output by ONLY its
+top-1 read (pattern from the real QK weights, value from the real
+mixed values). Bars: (a) match-position CE cost <=25% of full head
+deletion; (b) IOI margin >=60% retained under all-9 sparse coding;
+(c) shuffled-top-key control breaks it. head_read_census queued
+alongside: the same functional-read metrics for ALL 162 heads --
+the successor to the failed pattern-matrix dictionary, measuring
+function (where the read mass actually lands) instead of form.
