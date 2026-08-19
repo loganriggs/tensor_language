@@ -4055,3 +4055,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 355: enriched programs 5/16 (2026-08-19)
 - Class labels lift passes 2->5 (bar >=8 missed); circ_r_1_1_2 reused by 3 other programs (registry compounding live).
+
+## Appendix 356: swarm dry-run (2026-08-19)
+- 3 Sonnet agents x SOP: causal numbers reproduced exactly, 0 junk certifications, 1 self-downgraded story (integrity under mid-run edits). 5 defects found -> 3 fix rounds pushed (deep-merge, resume clause, causal-direction red-team, consolidator git model, locked registry). Pipeline ready for scale.

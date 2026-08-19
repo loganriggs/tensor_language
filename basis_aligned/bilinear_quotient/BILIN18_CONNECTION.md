@@ -8892,3 +8892,32 @@ already appears inside three other leaves' best programs --
 registry-mediated compounding works exactly as designed, but the
 212-row grid's leaves are harder than cl2's 312-row leaves (denser,
 smaller n). The swarm SOP inherits the honest bar as-is.
+
+## 356. Swarm pipeline validated: three Sonnet agents, three honest records, three fix rounds
+
+Dry run for the Thu-Sun swarm: three fresh Sonnet-class agents each
+ran CIRCUIT_SOP.md on an unclaimed leaf (r.6.1.1, r.6.3.0, r.1.2.0),
+GPU shared with the queue. VERDICT: the verification-driven design
+works. All three reproduced the recorded causal numbers exactly
+(concentrations 6.91-6.94x, HELD), ran every gate honestly (0/3
+program passes at the strict bar -- bacc 0.54-0.68 -- and none
+falsely registered a feature), wrote schema-valid records, and one
+agent, on discovering a mid-run SOP edit, re-ran its red-team under
+the corrected wording and DOWNGRADED its own story to weak (0/3
+causal-direction hits) rather than let an optimistic verdict stand.
+Cheap models cannot certify junk through this pipeline; they can
+only fail to find things. The dry run surfaced five real defects,
+all fixed and pushed in three rounds: (1) write_circuit shallow-
+update could silently destroy append-only certification history ->
+deep-merge with dedup, enforced in code; (2) no partial-record
+branch in the SOP -> resume clause; (3) step-5 red-team wording was
+literally untestable ("predict membership" of guaranteed members) ->
+causal-direction test; (4) MY OWN directory-wide `git add circuits/`
+swept a concurrent agent's uncommitted work into a pushed commit ->
+consolidator model: agents never commit, the wake loop commits all
+records with explicit paths; (5) registry read-modify-write race
+under concurrency -> registry now rebuilt-from-scan under flock,
+features.json appends locked. Provenance now records the library
+git rev at task start so mid-wave infra edits are detectable (one
+agent experienced version skew and caught it itself). The swarm SOP
+is now concurrency-hardened by construction, not by hope.
