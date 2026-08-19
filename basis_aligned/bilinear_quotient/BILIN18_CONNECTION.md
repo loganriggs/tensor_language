@@ -8528,3 +8528,22 @@ sample size -- how easy a circuit is to describe says nothing about
 whether it responds linearly. The description hierarchy and the
 response-geometry axis are independent measurements, which is itself a
 useful fact: a circuit atlas needs both columns.
+
+## 337. The deploy gap for gating, priced: 9.4x oracle vs 1.5x programs
+
+`deploy_gated.py` (fixed): gating on the 14 certified circuit programs
+-- fully input-only, 19.6% of positions -- gains +0.014 against
+random-matched +0.010: **efficiency 1.5x, versus the oracle
+mode-score gates' 9.4x.** Both bars FAILED, and the failure is the
+measurement: the 64-bit programs transmit circuit NAMES but not
+gate-quality position selection -- they describe classes of position
+(mid-word, early-after-newline) while the causal scores pick the
+specific dependent tokens. The ratio 9.4/1.5 prices what the census
+knows beyond surface features, in nats-per-gated-token, and matches
+329's hierarchy verdict from the other side. Closing the gating arc's
+ledger: census knowledge is worth 9.4x random when you can afford
+causal labels, 1.5x when restricted to 64-bit surface programs, and
+the gap is the deployment cost of the census majority living above
+the surface-feature class. Sharper deployable labelers = the richer
+mechanism rungs, already the backlog's design item. The benchmark and
+census arcs both now rest at fully-measured states.

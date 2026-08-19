@@ -15,7 +15,7 @@ fit a14
 fit a15
 fit a16
 fit a17
-L1 (+38 heads): C +1.9801 | fresh +2.2872
+L1 (+38 heads): C +1.9802 | fresh +2.2871
 fit a10L
 fit a11L
 fit a12L
@@ -25,14 +25,7 @@ fit a15L
 fit a16L
 fit a17L
 deploy-program gated fraction: 19.55%
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/deploy_gated.py", line 673, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/deploy_gated.py", line 655, in main
-    baseC2=evalG(order2,ML,None)-float(baseFr.mean())
-           ^^^^^
-NameError: name 'evalG' is not defined. Did you mean: 'evalC'?
+base config +2.6735 | gated +2.6593 (gain +0.0143) | random-gated +2.6641 (gain +0.0095)
+(a) deploy gain >= 0.03, random <= 40%: FAILED
+(b) efficiency >= 2x random: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/deploy_gated_results.json (113s)
