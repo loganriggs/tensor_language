@@ -4058,3 +4058,12 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 356: swarm dry-run (2026-08-19)
 - 3 Sonnet agents x SOP: causal numbers reproduced exactly, 0 junk certifications, 1 self-downgraded story (integrity under mid-run edits). 5 defects found -> 3 fix rounds pushed (deep-merge, resume clause, causal-direction red-team, consolidator git model, locked registry). Pipeline ready for scale.
+
+## Appendix 357: pair fold rules out 2-token context (2026-08-19)
+- 55/118 (LOWER than 58; bar failed): frontier feature-robust at 55-58 across four vocabularies; adding features overfits greedy search. Unprogrammable leaves need attention-transported long-range context -- now the only standing hypothesis.
+
+## Appendix 358: DAS steers, specificity unproven (2026-08-19)
+- Learned basis: holdout +4.42 (PCA was the problem) BUT shuffled-objective control +2.70 -> adversarial steering confound; das2_natural queued (natural donor values in learned basis).
+
+## Appendix 359: IOI is a parallel sum (2026-08-19)
+- All joints 97-99% of single sums: no serial chain; independent additive voters (first-head, induction, mover). Consistent with flat call-graph + additive junctions.

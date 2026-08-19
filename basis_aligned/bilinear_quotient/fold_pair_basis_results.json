@@ -1,0 +1,1550 @@
+{
+ "n_eval": 118,
+ "lib_hits_prev_fails": 42,
+ "prev_fail_count": 104,
+ "iter2_added": 21,
+ "median_null": 0.5,
+ "programs": [
+  {
+   "tag": "r.0",
+   "bacc": 0.571,
+   "null": 0.473,
+   "program": [
+    [
+     "NOT pairfold_m0_d3",
+     "pairfold_m1_d4"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.0",
+   "bacc": 0.697,
+   "null": 0.368,
+   "program": [
+    [
+     "prev1_pairfold_m1_d1",
+     "NOT class_other",
+     "NOT class_digit"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.0.0.0",
+   "bacc": 0.789,
+   "null": 0.241,
+   "program": [
+    [
+     "prev1_pairfold_m1_d1",
+     "NOT class_other",
+     "NOT is_punct"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.0.0.1",
+   "bacc": 0.864,
+   "null": 0.523,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT prev2_starts_space",
+     "prev1_pairfold_m1_d0",
+     "NOT class_ind"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.0.2",
+   "bacc": 0.709,
+   "null": 0.464,
+   "program": [
+    [
+     "NOT dist_nl_ge6",
+     "pairfold_m1_d1"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.1",
+   "bacc": 0.683,
+   "null": 0.646,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_ind",
+     "NOT class_comma"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.1.0",
+   "bacc": 0.855,
+   "null": 0.553,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "prev2_mid_word",
+     "NOT prev2_class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.1.1",
+   "bacc": 0.809,
+   "null": 0.736,
+   "program": [
+    [
+     "class_newline",
+     "NOT prev1_class_sentend"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.0.1.2",
+   "bacc": 0.794,
+   "null": 0.751,
+   "program": [
+    [
+     "pairfold_m1_d1",
+     "NOT prev2_starts_space",
+     "NOT class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.2",
+   "bacc": 0.616,
+   "null": 0.528,
+   "program": [
+    [
+     "NOT starts_space",
+     "NOT class_other",
+     "NOT prev_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.2.0",
+   "bacc": 0.689,
+   "null": 0.521,
+   "program": [
+    [
+     "prev1_pairfold_m1_d1",
+     "NOT prev1_pairfold_m0_d0",
+     "NOT prev2_class_name"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.0.2.1",
+   "bacc": 0.761,
+   "null": 0.408,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.2.2",
+   "bacc": 0.738,
+   "null": 0.366,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.0.2.3",
+   "bacc": 0.778,
+   "null": 0.525,
+   "program": [
+    [
+     "NOT class_other",
+     "pairfold_m1_d1",
+     "NOT class_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.3",
+   "bacc": 0.625,
+   "null": 0.494,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_class_other"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.0.3.0",
+   "bacc": 0.834,
+   "null": 0.558,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.3.1",
+   "bacc": 0.715,
+   "null": 0.655,
+   "program": [
+    [
+     "NOT class_other",
+     "prev1_pairfold_m1_d0",
+     "NOT class_ind"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.0.3.2",
+   "bacc": 0.733,
+   "null": 0.495,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT is_punct"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.1",
+   "bacc": 0.612,
+   "null": 0.496,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_comma"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.1.0",
+   "bacc": 0.686,
+   "null": 0.5,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT is_punct",
+     "pairfold_m1_d1"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.1.0.0",
+   "bacc": 0.764,
+   "null": 0.505,
+   "program": [
+    [
+     "dist_nl_le2",
+     "NOT mid_word"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.1.0.1",
+   "bacc": 0.738,
+   "null": 0.613,
+   "program": [
+    [
+     "NOT prev1_starts_space",
+     "NOT pairfold_m0_d3",
+     "prev1_pairfold_m1_d1"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.1.0.2",
+   "bacc": 0.712,
+   "null": 0.443,
+   "program": [
+    [
+     "NOT class_other",
+     "pairfold_m1_d1",
+     "NOT prev_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.1.0.3",
+   "bacc": 0.707,
+   "null": 0.539,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev_newline",
+     "NOT is_punct"
+    ],
+    [
+     "NOT pairfold_m0_d0",
+     "NOT pairfold_m1_d2",
+     "NOT prev1_class_rep"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.1.1",
+   "bacc": 0.765,
+   "null": 0.557,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT is_punct",
+     "NOT prev2_class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.1.1.0",
+   "bacc": 0.801,
+   "null": 0.359,
+   "program": [
+    [
+     "NOT class_other",
+     "prev1_pairfold_m1_d0",
+     "NOT class_subword"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.1.1.1",
+   "bacc": 0.744,
+   "null": 0.474,
+   "program": [
+    [
+     "NOT class_other",
+     "prev1_pairfold_m1_d1",
+     "NOT is_punct"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.1.1.2",
+   "bacc": 0.749,
+   "null": 0.448,
+   "program": [
+    [
+     "NOT prev2_dist_nl_ge6",
+     "pairfold_m1_d1",
+     "NOT is_punct"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.1.1.3",
+   "bacc": 0.716,
+   "null": 0.578,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev2_pairfold_m0_d3",
+     "NOT prev_newline"
+    ],
+    [
+     "pairfold_m1_d1",
+     "NOT is_punct",
+     "NOT prev1_is_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.1.2",
+   "bacc": 0.65,
+   "null": 0.508,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.1.2.0",
+   "bacc": 0.633,
+   "null": 0.397,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT is_newline",
+     "NOT prev2_starts_space"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.1.2.1",
+   "bacc": 0.63,
+   "null": 0.513,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT is_newline",
+     "NOT prev2_pairfold_m0_d3"
+    ],
+    [
+     "NOT pairfold_m1_d2",
+     "NOT prev1_pairfold_m1_d2"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.1.3",
+   "bacc": 0.638,
+   "null": 0.636,
+   "program": [
+    [
+     "NOT class_other"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.1.3.0",
+   "bacc": 0.698,
+   "null": 0.552,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT is_punct"
+    ],
+    [
+     "NOT prev2_starts_space",
+     "NOT prev1_pairfold_m1_d2",
+     "NOT class_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.1.3.1",
+   "bacc": 0.679,
+   "null": 0.452,
+   "program": [
+    [
+     "NOT pairfold_m0_d0",
+     "NOT pairfold_m0_d4",
+     "NOT prev2_class_sentend"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.2",
+   "bacc": 0.615,
+   "null": 0.519,
+   "program": [
+    [
+     "prev1_pairfold_m1_d1",
+     "NOT prev1_class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.2.0",
+   "bacc": 0.803,
+   "null": 0.547,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.2.0.0",
+   "bacc": 0.775,
+   "null": 0.485,
+   "program": [
+    [
+     "prev1_pairfold_m1_d1",
+     "NOT class_other",
+     "NOT is_punct"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.2.0.3",
+   "bacc": 0.78,
+   "null": 0.481,
+   "program": [
+    [
+     "seen_before",
+     "pairfold_m1_d4"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.2.1",
+   "bacc": 0.667,
+   "null": 0.434,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_class_other"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.2.1.0",
+   "bacc": 0.725,
+   "null": 0.432,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT prev1_class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.2.1.1",
+   "bacc": 0.642,
+   "null": 0.567,
+   "program": [
+    [
+     "is_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.2.2",
+   "bacc": 0.705,
+   "null": 0.534,
+   "program": [
+    [
+     "NOT class_other",
+     "pairfold_m1_d1"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.2.2.0",
+   "bacc": 0.754,
+   "null": 0.568,
+   "program": [
+    [
+     "NOT class_other",
+     "pairfold_m1_d1",
+     "NOT class_digit"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.2.2.2",
+   "bacc": 0.787,
+   "null": 0.464,
+   "program": [
+    [
+     "prev1_pairfold_m1_d1",
+     "NOT class_other",
+     "NOT class_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.2.3",
+   "bacc": 0.636,
+   "null": 0.562,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_ind",
+     "NOT class_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.2.3.2",
+   "bacc": 0.696,
+   "null": 0.486,
+   "program": [
+    [
+     "NOT class_other",
+     "pairfold_m1_d0",
+     "NOT class_digit"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.2.3.3",
+   "bacc": 0.654,
+   "null": 0.535,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_ind",
+     "NOT class_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.3",
+   "bacc": 0.636,
+   "null": 0.412,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_class_other"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.3.0",
+   "bacc": 0.761,
+   "null": 0.477,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.3.0.0",
+   "bacc": 0.793,
+   "null": 0.415,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_class_other",
+     "pairfold_m1_d4"
+    ],
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.3.0.1",
+   "bacc": 0.801,
+   "null": 0.536,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_subword",
+     "NOT class_name"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.3.1",
+   "bacc": 0.723,
+   "null": 0.522,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_digit",
+     "NOT class_subword"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.3.1.0",
+   "bacc": 0.86,
+   "null": 0.472,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_subword",
+     "NOT class_name"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.3.1.1",
+   "bacc": 0.784,
+   "null": 0.541,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_class_other",
+     "NOT prev_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6",
+   "bacc": 0.55,
+   "null": 0.534,
+   "program": [
+    [
+     "prev2_pairfold_m1_d1"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.0",
+   "bacc": 0.659,
+   "null": 0.547,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.0.0",
+   "bacc": 0.77,
+   "null": 0.619,
+   "program": [
+    [
+     "NOT class_other",
+     "prev1_pairfold_m1_d1",
+     "NOT prev_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.6.0.1",
+   "bacc": 0.74,
+   "null": 0.417,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT prev1_pairfold_m0_d0",
+     "NOT prev2_class_ind"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.0.3",
+   "bacc": 0.72,
+   "null": 0.518,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_subword",
+     "NOT prev1_class_ind"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.1",
+   "bacc": 0.656,
+   "null": 0.489,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_ind",
+     "NOT prev_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.1.0",
+   "bacc": 0.728,
+   "null": 0.674,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.1.1",
+   "bacc": 0.643,
+   "null": 0.479,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT is_punct",
+     "NOT prev_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.6.2",
+   "bacc": 0.58,
+   "null": 0.534,
+   "program": [
+    [
+     "NOT prev2_dist_nl_ge6"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.2.0",
+   "bacc": 0.717,
+   "null": 0.408,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "prev1_pairfold_m1_d0"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.2.1",
+   "bacc": 0.678,
+   "null": 0.385,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.3",
+   "bacc": 0.601,
+   "null": 0.539,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.3.0",
+   "bacc": 0.605,
+   "null": 0.466,
+   "program": [
+    [
+     "NOT class_other",
+     "pairfold_m1_d0"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.3.1",
+   "bacc": 0.669,
+   "null": 0.491,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT is_punct",
+     "prev1_pairfold_m1_d0"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.6.3.2",
+   "bacc": 0.694,
+   "null": 0.442,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_pairfold_m0_d0",
+     "prev2_pairfold_m1_d1"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.7",
+   "bacc": 0.546,
+   "null": 0.49,
+   "program": [
+    [
+     "NOT dist_nl_ge6"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.7.0",
+   "bacc": 0.7,
+   "null": 0.587,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "prev1_pairfold_m1_d1",
+     "NOT prev_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.7.0.0",
+   "bacc": 0.706,
+   "null": 0.548,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.7.0.1",
+   "bacc": 0.723,
+   "null": 0.436,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT prev1_pairfold_m0_d5",
+     "NOT class_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.7.0.2",
+   "bacc": 0.819,
+   "null": 0.48,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT class_subword",
+     "NOT class_ind"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.7.1",
+   "bacc": 0.651,
+   "null": 0.497,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT class_digit",
+     "NOT class_subword"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.7.1.0",
+   "bacc": 0.641,
+   "null": 0.53,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.7.1.1",
+   "bacc": 0.693,
+   "null": 0.552,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.7.2",
+   "bacc": 0.613,
+   "null": 0.544,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_digit"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.7.2.0",
+   "bacc": 0.764,
+   "null": 0.515,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT prev2_dist_nl_ge6",
+     "NOT class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.7.2.1",
+   "bacc": 0.65,
+   "null": 0.454,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "pairfold_m1_d0",
+     "NOT class_subword"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.7.2.2",
+   "bacc": 0.678,
+   "null": 0.522,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_digit",
+     "NOT class_subword"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.7.3",
+   "bacc": 0.662,
+   "null": 0.558,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.7.3.0",
+   "bacc": 0.915,
+   "null": 0.368,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.7.3.1",
+   "bacc": 0.825,
+   "null": 0.375,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.7.3.2",
+   "bacc": 0.69,
+   "null": 0.408,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.8",
+   "bacc": 0.551,
+   "null": 0.488,
+   "program": [
+    [
+     "NOT starts_space"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.8.0",
+   "bacc": 0.755,
+   "null": 0.636,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.8.0.0",
+   "bacc": 0.648,
+   "null": 0.756,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.8.0.1",
+   "bacc": 0.861,
+   "null": 0.52,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.8.0.2",
+   "bacc": 0.859,
+   "null": 0.456,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.8.0.3",
+   "bacc": 0.759,
+   "null": 0.36,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.8.1",
+   "bacc": 0.667,
+   "null": 0.5,
+   "program": [
+    [
+     "prev1_pairfold_m1_d1",
+     "pairfold_m1_d4"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.8.1.0",
+   "bacc": 0.731,
+   "null": 0.392,
+   "program": [
+    [
+     "NOT class_other",
+     "pairfold_m1_d1",
+     "NOT class_name"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.8.1.1",
+   "bacc": 0.674,
+   "null": 0.41,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT prev2_dist_nl_ge6",
+     "NOT prev_newline",
+     "NOT class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.8.1.2",
+   "bacc": 0.773,
+   "null": 0.624,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT class_subword",
+     "pairfold_m1_d1"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.8.2",
+   "bacc": 0.625,
+   "null": 0.53,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_digit"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.8.2.0",
+   "bacc": 0.712,
+   "null": 0.47,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT class_name",
+     "NOT is_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.8.2.3",
+   "bacc": 0.684,
+   "null": 0.378,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "seen_before",
+     "NOT class_other",
+     "NOT prev2_is_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.9",
+   "bacc": 0.569,
+   "null": 0.492,
+   "program": [
+    [
+     "pairfold_m1_d1",
+     "NOT is_punct"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.9.0",
+   "bacc": 0.742,
+   "null": 0.469,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.9.0.0",
+   "bacc": 0.623,
+   "null": 0.508,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT prev1_class_ind",
+     "NOT is_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.9.0.1",
+   "bacc": 0.731,
+   "null": 0.426,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.9.0.2",
+   "bacc": 0.727,
+   "null": 0.435,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.9.0.3",
+   "bacc": 0.673,
+   "null": 0.414,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT class_ind",
+     "NOT prev2_is_punct"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.9.1",
+   "bacc": 0.621,
+   "null": 0.55,
+   "program": [
+    [
+     "NOT starts_space",
+     "NOT class_other",
+     "NOT class_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.9.1.0",
+   "bacc": 0.619,
+   "null": 0.543,
+   "program": [
+    [
+     "pairfold_m1_d0",
+     "NOT prev1_pairfold_m0_d2"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.9.1.1",
+   "bacc": 0.615,
+   "null": 0.506,
+   "program": [
+    [
+     "class_newline",
+     "NOT dist_nl_ge6"
+    ],
+    [
+     "prev1_pairfold_m1_d3",
+     "NOT prev2_pairfold_m0_d4",
+     "NOT class_name"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.9.1.2",
+   "bacc": 0.576,
+   "null": 0.527,
+   "program": [
+    [
+     "NOT prev1_pairfold_m1_d2",
+     "NOT prev1_pairfold_m0_d3",
+     "prev1_dist_nl_ge6"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.9.1.3",
+   "bacc": 0.668,
+   "null": 0.506,
+   "program": [
+    [
+     "NOT starts_space",
+     "NOT prev1_class_comma",
+     "NOT prev1_class_sentend"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.21",
+   "bacc": 0.551,
+   "null": 0.549,
+   "program": [
+    [
+     "NOT class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.21.0",
+   "bacc": 0.687,
+   "null": 0.503,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT prev1_class_ind",
+     "NOT prev_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.21.0.0",
+   "bacc": 0.756,
+   "null": 0.426,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT class_ind",
+     "NOT class_subword"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.21.0.1",
+   "bacc": 0.798,
+   "null": 0.492,
+   "program": [
+    [
+     "class_newline"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.21.0.2",
+   "bacc": 0.699,
+   "null": 0.546,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "NOT class_other",
+     "NOT class_subword",
+     "NOT is_digit"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.21.0.3",
+   "bacc": 0.697,
+   "null": 0.403,
+   "program": [
+    [
+     "class_newline"
+    ],
+    [
+     "pairfold_m1_d1",
+     "NOT is_punct"
+    ]
+   ],
+   "named": true
+  },
+  {
+   "tag": "r.21.3",
+   "bacc": 0.628,
+   "null": 0.449,
+   "program": [
+    [
+     "NOT class_other"
+    ]
+   ],
+   "named": false
+  },
+  {
+   "tag": "r.21.3.0",
+   "bacc": 0.779,
+   "null": 0.344,
+   "program": [
+    [
+     "NOT class_other",
+     "NOT is_digit",
+     "NOT is_punct"
+    ]
+   ],
+   "named": true
+  }
+ ],
+ "pred_a": false,
+ "pred_b": true,
+ "pred_c": true,
+ "n_pairfold_cited": 15,
+ "gain_vs_58": -3,
+ "runtime_s": 1260.0862176418304
+}

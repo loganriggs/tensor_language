@@ -1,0 +1,16 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/das_line_break.py:88: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  print(f'{label} step {step}: train nl {-float(loss):+.3f}',
+DAS step 0: train nl +4.849
+DAS step 30: train nl +13.538
+DAS step 60: train nl +14.864
+DAS step 90: train nl +15.271
+DAS: {'train_shift': 8.091, 'holdout_shift': 4.421}
+CTL step 0: train nl +7.661
+CTL step 30: train nl +10.880
+CTL step 60: train nl +11.139
+CTL step 90: train nl +9.924
+CTL: {'train_shift': 4.591, 'holdout_shift': 2.704}
+(a) holdout >=+0.5: HELD
+(b) >=2x shuffled-objective: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/das_line_break_results.json (107s)

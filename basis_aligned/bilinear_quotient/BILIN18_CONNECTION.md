@@ -8921,3 +8921,60 @@ features.json appends locked. Provenance now records the library
 git rev at task start so mid-wave infra edits are detectable (one
 agent experienced version skew and caught it itself). The swarm SOP
 is now concurrency-hardened by construction, not by hope.
+
+## 357. Exact 2-token context ruled out: the programmable frontier is 55-58, full stop
+
+fold_pair_basis added the exact 2-token contextual fold (real model
+run on every corpus token pair, mlp0/mlp1 captured at position 1 --
+attn0 composition and bilinear cross terms included) as 16
+predicates. Converged total: **55/118 -- three LOWER than
+fold_basis's 58** (bar >=63 FAILED; null HELD; pairfold cited in 15
+programs, HELD). Two lessons. (1) The programmable frontier is
+feature-robust at 55-58 across four vocabularies (hand-named, class,
+unigram fold, exact pair fold): 2-token exact context is now RULED
+OUT as the missing ingredient, so the ~60 unprogrammable leaves need
+longer-range, attention-transported structure -- fourth and
+strongest convergent leg. (2) The total went DOWN when features were
+added: greedy rule search with a richer vocabulary overfits its
+fit-half and pays at held-out -- the same richer-basis-overfits
+lesson as probe_gate2 (347), now at the program rung. Run-to-run
+band: treat 55-58 as one number with +/-3 search noise.
+
+## 358. DAS half-resolves the fork: values CAN steer, specificity NOT established
+
+das_line_break learned a 4-dim basis + value in m0-output space by
+gradient ascent on the newline logit under prefix patching.
+(a) HELD emphatically: held-out recipients shift **+4.42**
+newline-logit (PCA basis: -0.03). So 352's "subtraction-defined"
+conclusion was PCA-SPECIFIC, not class-level: a learned basis
+supports value interventions. But (b) FAILED: the
+shuffled-objective control -- same optimization aimed at arbitrary
+off-slice positions -- also reaches +2.70 held-out (ratio 1.6x, bar
+2x). Reading: gradient-learned patches are confounded by
+ADVERSARIAL STEERING CAPACITY -- m0 feeds everything, and the
+optimizer can find directions that pump any logit anywhere; only
+~40% of the DAS effect is slice-specific. The fork therefore
+resolves to a third branch nobody registered: value semantics exist
+but optimization-based instruments cannot certify them without a
+naturalness constraint. das2_natural queued: reuse the learned
+basis but transplant NATURAL donor coordinates (no optimized
+value). If natural values steer (>=+0.5), the basis captures a real
+circuit variable; if only the optimized value works, it is an
+adversarial direction and gets recorded as such.
+
+## 359. The IOI circuit is a PARALLEL SUM, not a chain
+
+ioi_chain tested serial structure by joint mean-ablation. Both
+serial predictions FAILED in the cleanest possible way: every joint
+is 97-99% of the sum of singles (h7+h4: 1.154 vs 1.190; h5+h4:
+1.034 vs 1.046; h7+h5: 0.386 vs 0.384; all three: 1.266 vs 1.310;
+near-zero control pair additive, HELD). The IOI margin is an
+ADDITIVE composition of independent contributors -- first-head
+anchoring, induction-band duplicate signal, and the a14.h4 mover
+each feed the answer through their own path, with no measurable
+shared-bottleneck dependency at this grain. This matches the
+model's signature everywhere else: flat call-graph (340), no shared
+OV library, additive-narrow junctions -- bilin18 composes by
+summing independent evidence streams, not by pipelining. The
+"mover" is not the end of a chain; it is the largest of several
+parallel voters.
