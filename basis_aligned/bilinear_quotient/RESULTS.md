@@ -4076,3 +4076,9 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 362: law refined on 10 circuits (2026-08-19)
 - Registered "constant void" FAILED (0.626 < 0.75) -> refined: variance-removal dominant (13x control), off-manifold zero pays ~1.6x offset tax, on-manifold value choice nil. Violator r.6.0.0 earmarked. Rule: mean-ablate, never zero-ablate.
+
+## Appendix 363: not token-definable (2026-08-19)
+- Match transports (unbounded range) still 55/118: fifth leg closes the input-computable class. Named result: half the census is not token-definable; description moves to the stream. stream_features queued (bar >=64).
+
+## Appendix 364: shape vs gain (2026-08-19)
+- Raw-pattern linear fit fails (1/162) while swaps work: unnormalized squared-product patterns = shape x gain; v1 measured gain variance. v2 queued with per-query normalization. Swarm rule: separate shape from gain.

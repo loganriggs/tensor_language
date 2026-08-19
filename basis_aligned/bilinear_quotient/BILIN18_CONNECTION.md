@@ -9039,3 +9039,46 @@ candidate for a circuit where something beyond variance matters;
 earmarked for individual treatment. Methods rule for all future
 ablations: mean-ablate, never zero-ablate, unless the offset term
 is itself the object of study.
+
+## 363. The plateau survives match transport: no token-rule describes the other half
+
+transported_features added induction-rule transports computable from
+the raw token stream (has_match, after_match_F = "F held right
+after the last occurrence of the current token", at_match_F,
+distance buckets) -- features reaching arbitrarily far back, which
+shifts and pair folds cannot. Converged: **55/118** (bar >=64
+FAILED; null HELD; match features cited in 6 passes, HELD). This is
+the FIFTH and final convergent leg: the programmable frontier sits
+at 55-58 against every input-computable feature class -- surface
+predicates, mechanical classes, trigger pairs, 1-2-3-token shifts,
+unigram weight folds, exact 2-token pair folds, and now unbounded-
+range match transports. Conclusion promoted to a named result: for
+roughly half the census, MEMBERSHIP IS NOT TOKEN-DEFINABLE -- no
+rule over the input string, however far it reaches, identifies
+where these circuits act. The two standing hypotheses are now
+stream-level: (i) the defining information exists in the model's
+own early activations (consistent with the stream probe's 3.8x vs
+surface 1.5x), or (ii) the leaves are activation-space objects with
+no position-set description at all. stream_features queued: block-2
+stream projections as ladder predicates, same >=64 bar -- the
+direct test between (i) and (ii).
+
+## 364. Pattern dictionary v1: right idea, wrong metric (magnitude swamps shape)
+
+pattern_dictionary fit realized attention patterns as linear
+combinations of 6 archetype masks. R^2 >= 0.7 for **1/162 heads**
+(bar 120 FAILED) -- yet dominant-atom labels still agree with the
+motif census 59/85 (69%), and we know from 282 that 71/74 motif
+heads accept literal one-hot pattern swaps at <=+0.01 nats. The
+resolution: bilin18's patterns are UNNORMALIZED squared products
+(no softmax), so raw values carry enormous query-to-query magnitude
+variation that a fixed mask cannot explain; the functional swaps
+worked because fitted per-head gains absorbed exactly that
+magnitude. The v1 metric measured magnitude variance, not shape.
+Registered bars failed and stay on record; v2 queued with per-query
+shape normalization (pattern rows normalized over keys), bars
+>=100/162 at R^2>=0.5 and motif agreement >=80%. Methods note for
+the swarm: in this architecture, any pattern-level claim must
+separate SHAPE (where attention goes) from GAIN (how hard) -- they
+are different objects with different owners (mask vs fitted
+scalar).
