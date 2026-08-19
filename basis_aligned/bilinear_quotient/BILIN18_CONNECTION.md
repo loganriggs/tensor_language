@@ -8269,3 +8269,24 @@ registered follow-up for the next census pass. Reviewer 2's audit,
 verdict: three attacks repelled, one landed and reshaped the claim
 into what the evidence supports, and the reshaped claim then survived
 its own fresh-data test. That is the shape of a robust result.
+
+## 326. Mechanism bootstrap v1: the fold construction rediscovers glitch tokens
+
+`mechanism_bootstrap.py` (the induction-style third leg, v1): 0 of 22
+front-MLP leaves passed -- and every trigger set failed the same way,
+topped by the SAME junk tokens (SourceFile, ModLoader, cffff,
+zero-width space, mojibake fragments). These are GPT-2's known GLITCH
+TOKENS -- vocabulary entries with anomalous, undertrained embeddings --
+and the raw fold construction surfaces them from pure weights: their
+single-token forwards are globally loud, projecting strongly into
+EVERY direction, so they hijack any magnitude-ranked trigger set. Two
+records from this: (i) the instrument lesson -- mechanism-derived
+conditions must be ranked by the FRACTION of a token's output in the
+circuit's directions, not the magnitude, over corpus-supported
+vocabulary (v2, queued, both fixes member-blind so the anti-fake
+discipline stands); (ii) a small independent finding -- the anomalous-
+token pathology of GPT-2-family vocabularies is detectable in this
+model by a weights-only, one-forward-per-token instrument, no behavior
+needed. The null bar held (0.0x -- random trigger sets predict
+nothing), so the test has teeth; v1's zero is a real miss by a real
+instrument flaw, not a vacuous test.

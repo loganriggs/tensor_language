@@ -3964,3 +3964,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 324: census downgrade (2026-08-19)
 - Sign-aware causal FAILED 4/20 (registered stakes honored): census = causal-dependence neighborhoods, NOT linear response units (composition physics at circuit scale). Selectivity (14/20 at 2x, post-hoc) registered fresh on the next 20 leaves.
 - Selectivity bar HELD fresh (15/20 at 2x matched controls): census certified as causally-selective dependence neighborhoods. Audit complete: 3 attacks repelled, 1 reshaped the claim, reshaped claim survived fresh.
+
+## Appendix 326: mechanism v1 (2026-08-19)
+- 0/22: trigger sets hijacked by GPT-2 glitch tokens (globally loud fold outputs) -- instrument flaw, fixed member-blind in v2 (fractional projection + corpus support). Side finding: glitch tokens detectable weights-only.
