@@ -8547,3 +8547,23 @@ the gap is the deployment cost of the census majority living above
 the surface-feature class. Sharper deployable labelers = the richer
 mechanism rungs, already the backlog's design item. The benchmark and
 census arcs both now rest at fully-measured states.
+
+## 338. The compositionality dividend: fifty circuits crack bottom-up
+
+`compositional_ladder.py`, all three bars HELD. With the certified-
+feature library (surface predicates + mechanical class labels + the
+four induction-grade pair conditions + SHIFT compositions licensed by
+attn0's exact lexicality and the 27 certified prev-motif heads):
+**36 of 104 previously-unprogrammable circuits became predictable at
+held-out >= 0.75** (surface baseline: 6), median null 0.51. Iteration
+two -- every pass's program joining the library -- **added 14 more**,
+and the iteration-2 programs realize the user's compositional thesis
+literally: circuits described as conjunctions of OTHER circuits
+(r.8.0.0 = circ_r.0.0.1 AND circ_r.0.1.0; r.8.2.0 = circ_r.8.1.2 AND
+seen_before). The census is collapsing bottom-up into a COMPOSITIONAL
+DEPENDENCY GRAPH of functions, at ~50 newly-described circuits for the
+cost of one search over certified pieces -- no k-token enumeration
+anywhere. Description hierarchy update: programmable population 14 ->
+~64 of 118. Run-until-dry continuation queued (iterate library growth
+until a round adds fewer than 3; registered: converged programmable
+total >= 70, null stays <= 0.6).

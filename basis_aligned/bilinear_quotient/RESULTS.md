@@ -4001,3 +4001,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 
 ## Appendix 337: gating deploy gap priced (2026-08-19)
 - Oracle gates 9.4x efficient, deploy 64-bit program gates 1.5x: the gap prices census knowledge above surface features. Gating arc closed; both major arcs at fully-measured rest.
+
+## Appendix 338: compositionality dividend (2026-08-19)
+- Library search: 36/104 previous failures crack + 14 more from iteration-2 compounding (~50 total; programs are circuits-of-circuits). Programmable population 14 -> ~64/118. Until-dry continuation queued (bar: >=70 converged).
