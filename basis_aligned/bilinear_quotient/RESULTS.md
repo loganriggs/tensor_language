@@ -4091,3 +4091,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - 367: optimality 10/10 (ratios 17-66x); no net-harmful circuit.
 - 368: context-freeness refuted: 2-token core = 8.5% of r.3.0's action; 91.5% context gap.
 - 369: induction heads = opportunistic part-time match-readers (sparse 6/9, match-seeking 5/9 at ~1/3 rate). Pattern-as-code is the legal next rung; sparse_read_code + head_read_census queued.
+
+## Appendix 370-371 (2026-08-19)
+- 370: FIRST computational-grade pass -- one-line sparse-read code carries 77% of induction-head function, 62% IOI margin, 3x control. All bars HELD.
+- 371: sparse reads = minority idiom (69/162 heads); functional dictionary written; pattern-as-code scoped to the sparse minority. sparse_code_all + violator_probe queued.

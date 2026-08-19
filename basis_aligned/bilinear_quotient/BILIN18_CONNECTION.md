@@ -9174,3 +9174,41 @@ deletion; (b) IOI margin >=60% retained under all-9 sparse coding;
 alongside: the same functional-read metrics for ALL 162 heads --
 the successor to the failed pattern-matrix dictionary, measuring
 function (where the read mass actually lands) instead of form.
+
+## 370. FIRST COMPUTATIONAL-GRADE PASS: sparse pattern-as-code carries 77%
+
+sparse_read_code replaced each induction head's output with ONE
+LINE OF CODE -- z_h(q) = pat(q,k*) * vm(k*), the head's top
+coincidence-scored read, pattern from the real double-QK weights --
+and ALL THREE registered bars HELD. Match-position CE cost +0.138
+vs +0.601 for deleting the same heads: the code carries **77% of
+the heads' function**. IOI margin 62% retained under all-9 coding
+(bar 60%). Shuffled-top-key control +0.674 (>=3x, specific). The
+induction story therefore lands in its true form: each of these
+heads computes a SINGLE SPARSE READ chosen by its double-QK
+coincidence score; the top read is most of the function; the
+residual ~23% is the diffuse tail plus off-match modes (369). This
+is the program's first circuit-grain executable mechanism to pass
+registered replication bars -- with the honest caveat that
+"the code" includes the pattern computation, which is legitimate
+here because the double-QK score is closed-form in the stream (the
+tensor-native standard, per user direction).
+
+## 371. The functional read dictionary: sparse reads are a minority idiom (69/162)
+
+head_read_census extended the same metrics to all 162 heads. Both
+bars FAILED informatively: 69/162 heads have top-1 share >=0.4
+(bar 100 -- sparse reading is a substantial minority, not the norm)
+and functional-modal agreement with motif labels is 50/76 = 66%
+(bar 70% -- close but under). Scope statement recorded: pattern-as-
+code applies to the ~43% sparse-reader minority; the diffuse
+majority needs the full pattern-weighted sum (which is still
+closed-form, just not one read). The per-head functional profiles
+(top-1 share + read-location distribution) are written to the
+results JSON -- the functional dictionary that the pattern-matrix
+dictionary (364) failed to be. Follow-ons queued: sparse_code_all
+(replace ALL 69 sparse heads with one-read code; bars: global fresh
+CE <=+0.15, IOI >=70%, diffuse-head matched control >=3x -- the
+benchmark cash-in of 370) and violator_probe (r.6.0.0, the one
+value-sensitive candidate from 362: which bundle's MEAN carries
+function).
