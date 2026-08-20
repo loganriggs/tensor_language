@@ -1,0 +1,14 @@
+616 targets with match and distractor
+
+(0) product reconstruction 0.000e+00
+match/distractor ratio: f1 1.15 | f2 0.90 | product 1.03 | control 0.99
+f1: real ratio 1.15 | no-rotary 1.07 | match-vs-meankey 2.69
+f2: real ratio 0.90 | no-rotary 0.92 | match-vs-meankey 9.36
+
+(0) exact product: HELD
+(a) product ratio 1.03 >= 1.5x max factor 1.15: FAILED
+(b) division of labour (one factor position, one token): FAILED
+   f1 position-driven 0.57 token-driven -10.06
+   f2 position-driven -15710.37 token-driven -8454293.46
+NULL (control product ratio 0.99 < 1.5): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_and_factors2_results.json (40s)

@@ -16011,3 +16011,51 @@ DOES use position to pick among newlines, the mechanism is fully
 general and my distractor choice explained the whole difference.
 Either way the AND itself -- the multiplicative double-QK gate --
 holds for both heads, which is the generalization that matters.
+
+## 562. Resolved: the newline head is a token detector, the bracket
+## head a positional discriminator -- both fixed-query double-QK
+
+newline_and_factors2 used the matched distractor -- the
+second-most-recent newline, so both keys are newlines and only
+position differs, exactly the bracket setup.
+  match/distractor ratio: f1 1.15 | f2 0.90 | PRODUCT 1.03
+  f1: real 1.15 | no-rotary 1.07 | f2: real 0.90 | no-rotary 0.92
+The newline head shows NO preference between the most-recent and
+second-most-recent newline: product ratio 1.03, essentially 1.0.
+Given two newlines it does not pick one over the other. This is
+not a distractor artifact -- with matched newline-vs-newline keys,
+there is simply no positional discrimination.
+So 561's caveat resolves in favour of a genuine difference. The
+two structural heads are BOTH fixed-query double-QK gates, but:
+  BRACKET head 13.8 -- must identify WHICH opener a closer belongs
+    to, so token identity gates the opener pool and POSITION
+    discriminates within it (product ratio 5.99, both factors
+    rotary-driven). It fails on nesting because the positional
+    preference is fixed.
+  NEWLINE head 12.6 -- needs only to DETECT recent newline
+    structure, so it attends to newline tokens by identity and is
+    INDIFFERENT to which newline (product ratio 1.03 among
+    newlines; the real 3.7x from 497 is newline-vs-non-newline,
+    pure token detection).
+The difference is functional necessity, not architecture:
+  * MATCHING a specific referent requires position -> positional
+    discrimination (brackets);
+  * DETECTING a class requires only identity -> token detection,
+    position irrelevant (newlines).
+This also corrects the implicit reading of 497, which described
+12.6 as attending to "the most recent preceding newline". The
+"most recent" was doing no work -- the head attends to newlines
+generally; the 3.7x it showed was over non-newline positions, and
+among newlines it has no recency preference.
+The general account of structural attention in this model, from
+the two heads fully worked out:
+  a FIXED query selects a token class through the double-QK
+  soft-AND; whether the head then resolves a SPECIFIC member by
+  position (matching) or attends to the class INDIFFERENTLY
+  (detection) is set by what the task needs, not by the mechanism.
+That is a clean, general, and now twice-verified statement, and
+both circuits are complete and corrected. The bracket head took
+seven intermediate stories to get right (matcher -> pointer ->
+adaptive -> distance -> fixed positional AND); the newline head is
+a token detector that never needed the positional machinery at
+all.
