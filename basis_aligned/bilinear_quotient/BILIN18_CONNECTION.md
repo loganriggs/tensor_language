@@ -17124,3 +17124,41 @@ partial, directionally-correct effect. Confirms the general lesson
 already stated in 570/582's queue note -- verify causal claims with a
 metric tied to the specific behaviour, not a diluted aggregate one --
 now demonstrated as a direct A/B on identical model states.
+
+## 584. Cluster 7 CONFIRMED as a clean bidirectional circuit;
+## cluster 13's test was invalid (unequal-token-count confound), not
+## a real refutation
+
+Logit-margin causal test (583's method) run on both remaining named
+clusters from 581.
+CLUSTER 7 (29 units, first-person-auxiliary-vs-contraction): CLEANLY
+CONFIRMED, both sides.
+  (a) HELD: at aux-target positions (n=29, base margin +22.99),
+      ablating cluster 7 shrinks the margin by -0.0119, 6.06x the
+      -0.0020 shrinkage from a random-unit control.
+  (b) HELD: at contraction-target positions (n=60, base margin
+      -2.04), ablation shifts the margin toward 0 by +0.0057, 4.56x
+      the random control's +0.0013.
+  NULL ok. This is a full bidirectional confirmation -- unlike
+  cluster 8 (582/583, promoter only, one side unconfirmed), cluster 7
+  causally supports BOTH directions of its reading exactly as 581
+  described from context alone. Second verified mlp0 hidden-unit
+  circuit.
+CLUSTER 13 (76 units, period/exclamation-vs-dash): test INVALID, not
+a refutation -- caught by a baseline sanity check the program has
+used before (verify the target is real before reading a result,
+563/564/567's lesson, applied here to a margin instead of an
+attention target). The margin at the class's OWN target positions
+came back NEGATIVE (-5.21, i.e. the model prefers dash tokens over
+period/exclamation even where period/exclamation is the correct
+answer) -- an impossible reading for a well-calibrated test. Traced
+it: the margin summed 2 positive tokens ('.','!') against 4 negative
+tokens ('--','--Wraw'em-dash bare,' --',' em-dash') -- comparing a
+2-token sum to a 4-token sum, not a fair class contrast. Direct check
+of mean logits across ordinary positions confirms it: period+exclaim
+sum to 10.1, the four dash variants sum to 14.9, PURELY from having
+twice as many terms -- nothing to do with context. WITHDRAWN: no
+verdict on cluster 13's causal status, pending a redo with a matched
+token set (either the single most common token per class, or an
+explicit per-class average instead of a sum). Queued:
+mlp0_cluster13_logit_margin_v2.
