@@ -438,9 +438,11 @@ def write_circuit(tag,updates):
     is rebuilt from files under a lock (no read-modify-write race)."""
     os.makedirs(CIRC,exist_ok=True)
     p=circuit_path(tag)
+    nr=rows().shape[0]
+    inst='212row-v1' if nr==212 else f'diverse-{nr}row-v1'
     doc=json.load(open(p)) if os.path.exists(p) else {
         'schema_version':1,'tag':tag,
-        'tree':{'instance':'212row-v1','n_rows':212}}
+        'tree':{'instance':inst,'n_rows':nr}}
     for k,v in updates.items():
         if k=='certification':
             # append-only: concatenate, dedup by (test, source, date)

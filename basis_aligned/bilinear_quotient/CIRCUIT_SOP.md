@@ -41,7 +41,14 @@ Claim from swarm_shortlist.json (199 certified-selective tags; skip
 depth-0 tags like "r.16" -- their concentration is ill-defined, 406).
 Prefer tags with a pre-computed pack (sop_packs_certified.json /
 sop_packs_shortlist.json = steps 1-2 already done; verify step 1
-reproduces, then continue from step 3). Check circuits/registry.json for
+reproduces, then continue from step 3). PACK CAVEATS (dry-run 412):
+packs were computed on a 60-row subsample -- only CONCENTRATION is
+expected to reproduce (within ~0.1); n_pos/n_neg/dce_members will
+differ by design against your full-grid rerun. Pack 'examples' are
+NOT canonical -- always regenerate with cl.examples(tag, d).
+write_circuit now stamps tree.instance from the active state
+('diverse-1000row-v1'); records with '212row-v1' on a diverse tag
+predate the fix. Check circuits/registry.json for
 a tag with no file yet. Never edit another leaf's file.
 PARTIAL RECORDS: batch scripts may have pre-written steps 1-2 (causal +
 examples, no story/program). That leaf is still claimable: re-run step 1
@@ -49,7 +56,7 @@ to verify the recorded numbers reproduce (report both), then continue
 from step 3. write_circuit deep-merges: certification entries are
 appended (never lost), dict fields merge, so just pass your new fields.
 
-## Step 1 -- causal footprint (GPU, ~15s)
+## Step 1 -- causal footprint (GPU, ~45s on the diverse grid)
     import census_lib as cl
     d = cl.leaf_ablate(tag)                # dCE under the leaf's own probes
     s = cl.sign_stats(tag, d)
