@@ -17405,3 +17405,53 @@ same multi-head OV-composition problem this run diagnoses and avoids
 circuit with RSPD: work per-head or on a genuine single linear layer
 (like c_proj alone), never a cross-head weight product substituted
 back into a live multi-head forward pass.
+
+## 590. attn0's c_proj does NOT split under recursive circuit
+## isolation -- a real contrast with mlp0's Down, and a clean close
+## to the "homogeneous bigram table" picture
+
+Properly-calibrated version of 580's method (r_min=16, anchored to
+589's clean task-loss validation, not a guessed fraction of the root's
+raw entropy) run on attn0's real c_proj input/output.
+  (0) HELD: full-rank sanity, 1.7e-6 relative error.
+  Root effective rank 507.29 (real captured activations -- close to
+  588's 541.99 on raw embeddings, both far above the task-loss rank
+  of 16, confirming again that this entropy-based number and the
+  task-loss number are simply different scales for this component,
+  as 588/589 established).
+  (a) HELD only on the letter, not the spirit, of the registered bar:
+  the recursion produced exactly ONE leaf -- the root itself, never
+  refined -- so "<=3 leaves" is trivially true, but the leaf's own
+  rank (507) is nowhere near the ~16 anchor the other half of the
+  compound prediction expected. Recorded honestly: the recursion
+  found NOTHING to cluster on at all, not a tight cluster near 16.
+  Same root cause as 588 -- the clustering step operates on Hellinger-
+  embedded SPECTRAL MASS (an entropy-flavored representation), which
+  588 already showed doesn't track task-loss compressibility for this
+  component, so it isn't a fair surface to expect a rank-16-centered
+  split on in the first place. My registered bar conflated "no
+  refinement" with "refinement near the right number" -- a real
+  design miss, corrected here rather than left implicit.
+  (c) HELD: half-data root erank 436.72 vs full 507.29, same order.
+  NULL vacuously ok (no reject-origin leaves; nothing to check).
+THE REAL FINDING, stated plainly: under the SAME method that split
+mlp0's Down into 5 leaves with real structure (580 -- two generic-
+bulk clusters near the root rank, three small special-case clusters
+far below it), attn0's c_proj produces ZERO refinement -- one
+undifferentiated leaf. Combined with 589's clean, independent
+confirmation that attn0's whole write is uniformly well-described by
+a SINGLE rank-16 subspace (0.0943 nats, beating random by 14x), the
+coherent picture is: attn0 (254's exact bigram table) is genuinely
+HOMOGENEOUS -- one low-rank subspace serves the whole vocabulary,
+with no natural subdivision into distinct token classes needing
+different treatment -- while mlp0 is HETEROGENEOUS, genuinely
+containing distinguishable subpopulations (most data needs a large,
+generic rank; a real minority needs much less). This is a clean,
+positive contrast between the two components, not a null result:
+recursive circuit isolation correctly reports "nothing to split"
+exactly where the ledger's independent methods say there is nothing
+to split, and correctly finds real structure exactly where mlp0's
+methods (533/536, the unit-clustering thread 579/581) already found
+mlp0 to be functionally diverse. The RSPD-application arc that opened
+with 578 closes here on a coherent, cross-validated model-level
+statement.

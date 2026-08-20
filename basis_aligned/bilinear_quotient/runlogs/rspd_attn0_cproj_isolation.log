@@ -1,0 +1,16 @@
+2000 samples, W (c_proj) shape (1152, 1152)
+(0) full-rank relative loss 1.72e-06: HELD
+root effective rank 507.29 (r_min=16.0, calibrated from 589's task-loss finding)
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+[full] 1 circuits, 1 leaves
+   leaf 0: n=2000 rank=507 erank=507.29 origin=density
+(a) homogeneity (1 leaves, ranks [507]): HELD
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+[half1] 1 circuits, 1 leaves
+   leaf 0: n=1000 rank=437 erank=436.72 origin=density
+(c) half-data root erank 436.72357177734375 vs full 507.29: HELD
+NULL: reject ranks [] vs structured [507]: ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_attn0_cproj_isolation_results.json (48s)
