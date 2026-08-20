@@ -1,0 +1,12 @@
+77 targets | subspace + generic queries built
+      real: match share 0.3806 | target dCE +0.0000 | other dCE +0.0000
+  mean_all: match share 0.3516 | target dCE +0.2753 | other dCE +0.0000
+  mean_brk: match share 0.3987 | target dCE -0.0063 | other dCE +0.0000
+ mean_in_S: match share 0.3999 | target dCE -0.0116 | other dCE +0.0000
+
+(0) real match share 0.381 >=0.30: HELD
+(a) generic query destroys selection: FAILED
+(b) S-only query preserves selection (0.400 vs 0.381): HELD
+(c) bracket-avg query does not recover selection: FAILED
+NULL (generic query inert off-brackets +0.0000): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_query_generic_results.json (48s)

@@ -15840,3 +15840,65 @@ tables (542-549) are the clean sparse objects in this model, and
 that is where reuse, if it exists, will be visible. Drilling the
 bracket query further has reached diminishing returns and the
 honest stopping point is here.
+
+## 559. CORRECTION: the bracket query is effectively CONSTANT --
+## there is no per-position distance computation to trace
+
+bracket_query_generic replaced head 13.8's query at close-bracket
+targets with position-independent generic queries and re-priced
+the head's function.
+  query used                  match share   target dCE   off dCE
+  real (per-position)            0.3806       +0.0000     +0.0000
+  mean over ALL positions        0.3516       +0.2753     +0.0000
+  mean over BRACKET positions    0.3987       -0.0063     +0.0000
+  projected to the 16-dim S      0.3999       -0.0116     +0.0000
+(0) HELD: the real query puts 0.381 of its score mass on the
+matching opener.
+(a) FAILED: a generic query does NOT destroy selection. The
+all-position mean still selects the match at 0.352 (against 0.381
+real); it costs +0.275 nats only because that mean is dominated by
+non-bracket positions and is the wrong constant.
+(c) FAILED, and this is the finding: the BRACKET-average query --
+a single fixed vector, the same at every bracket position --
+reproduces the head's function at MATCH SHARE 0.399 and CE cost
+-0.006. It is FREE. The head does not need a per-position query at
+all.
+(b) HELD: projecting the query to the 16-dim subspace keeps the
+selection (0.400).
+NULL ok: the generic query is inert off-brackets.
+This corrects the reading I gave in 553-558 and refines 531. I had
+been treating the query as a per-position DISTANCE COMPUTATION and
+trying to trace what computes it. There is nothing to trace,
+because the query barely varies across bracket positions: one
+fixed "find a bracket opener" query, applied at every closing
+position, does the whole job. The distance selection is not
+computed per position -- it EMERGES from that fixed query
+interacting with the opener keys under rotary, exactly the
+alternative 529 raised and could not yet separate.
+This reconciles the entire gap-2 investigation at a stroke:
+  * 553/554 found the query diffuse over writers -- because there
+    is almost no per-position query signal to attribute; the
+    varying part is nearly zero;
+  * 558 found the 16-dim subspace written generically at all
+    positions -- because it holds the FIXED bracket query
+    direction, which is present everywhere, not a per-position
+    distance code;
+  * 555's compact subspace is real and is where the fixed query
+    lives; removing it removes the bracket query.
+So gap 2 closes, not with a distributed upstream chain, but with a
+simpler and truer statement: the bracket head has an approximately
+CONSTANT query, and its distance selectivity is a property of
+rotary geometry, not of any upstream computation. There was no
+sparse source to find because there is no per-position source at
+all.
+This puts a caveat on 531's "the pointer adapts". A fixed query
+under rotary has a fixed look-back PROFILE over relative offsets;
+if that profile decays slowly it would reproduce 531's observation
+(match share holding to 6-11 tokens, dropping at 12+) with no
+adaptation. Whether 531's adaptation is real or is just the fixed
+query's rotary profile is now testable and queued:
+bracket_fixed_profile prices the bracket-average query BY DISTANCE
+BIN against the real query. If the two profiles match, "adapts"
+should be softened to "fixed query with a rotary look-back
+profile"; if the real query beats the fixed one at long distance,
+a residual adaptation survives and is quantified.
