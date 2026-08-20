@@ -1003,6 +1003,26 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   common, not a reused variable. On the two circuits looked at, each head computes its own
   private decision subspace. Whether some signal further back is genuinely reused across circuits
   is still open, but it isn't these.</p>
+  <p>Working both heads all the way down gave a general account of how selection is done here,
+  and it turns on the architecture again. With no softmax, an attention score is a
+  <em>product</em> of two bilinear forms — a soft-AND — and both heads apply a roughly
+  <em>fixed</em> query and let that AND do the selecting. What the AND resolves is where the two
+  heads part ways, and it's set by what the task needs rather than by the mechanism:</p>
+  <ul>
+  <li>The <strong>bracket head</strong> must identify <em>which</em> opener a closing bracket
+  belongs to, so token identity gates the pool of openers and position (through rotary,
+  redundantly in both factors) discriminates within it. That's why it fails on nested brackets —
+  the positional preference is fixed at "recent," which is only the true match when nothing is
+  nested.</li>
+  <li>The <strong>newline head</strong> only needs to <em>detect</em> that recent line-break
+  structure exists, so it attends to newline tokens by identity and is completely indifferent to
+  which newline — given two, it shows no preference at all.</li>
+  </ul>
+  <p>So the general shape is: a fixed query picks out a token class through the double-QK AND,
+  and the head either resolves a specific member by position (matching) or attends to the class
+  indifferently (detection). Getting the bracket head to this point took walking back several
+  intermediate stories of my own — matcher, then adaptive pointer, then distance-computer — each
+  refuted by a sharper test; the honest endpoint is the simplest of them.</p>
 
   <h2 id="folding">How small can the front of the model get?</h2>
   <p>The point of finding circuits is a benchmark: replace parts of the model with
