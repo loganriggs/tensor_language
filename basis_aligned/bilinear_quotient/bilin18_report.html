@@ -133,7 +133,8 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">12</span><a href="#code">The model on readable code</a></li>
     <li><span class="num">13</span><a href="#sink">The most expensive head is a constant</a></li>
     <li><span class="num">14</span><a href="#overcontinue">Three readings that died</a></li>
-    <li><span class="num">15</span><a href="#open">What's still open</a></li>
+    <li><span class="num">15</span><a href="#atlas">A map of dedicated machinery</a></li>
+    <li><span class="num">16</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -872,6 +873,61 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   last one. It doesn't: breaks that match the document's own median line length cost 0.0875
   when the head is removed, and breaks that don't cost 0.0909. Identical. Whatever it is
   computing, it is not arithmetic on line length.</p>
+  <p>Where its two inputs come from took two attempts. Silencing each upstream component's
+  contribution to the head's <em>query</em> found nothing: no single source worth more than
+  0.015 of AUC, though removing all of them at once cost 0.14 — more than twice the sum of
+  the individual losses. I first read that as a diffuse input. It is better read as a
+  consequence of the architecture: with no softmax and no activation function, an attention
+  score here is a <em>product</em> of two bilinear forms, and removing one contributor at a
+  time is a first-order probe of a multiplicative object. It will report "nothing matters
+  alone, everything matters together" whether or not the underlying structure is simple.</p>
+  <p>Testing the head's other two input paths found what the first attempt missed. On the key
+  and value paths, one component — attention layer 10 — moves the document-level gating by
+  <strong>48% of its full size</strong>, against 7% for everything the query side could
+  manage. Detector quality on those same paths is carried mostly by the token embedding
+  (−0.098 of AUC, nine times the best contextual source), so the head's reading of "this looks
+  like a line end" is largely lexical while its sense of "this document breaks lines" is
+  layer 10's contribution. Silencing all context on the key path alone doesn't shrink the
+  gating — it reverses it.</p>
+</section>
+
+<section class="col">
+  <h2 id="atlas">A map of what the model has dedicated machinery for</h2>
+  <p>The statistic that found the newline head — rank components by how concentrated their
+  damage is on one behaviour, not by how expensive they are to delete — costs 97 seconds and
+  every behaviour is a different readout of the same forward passes. So ten behaviours cost
+  what one did. Each class is measured against its own targets jittered a few tokens (to catch
+  a component that merely matters at certain sequence positions) and against a fully random
+  set of the same size (to catch a screen that fires on anything).</p>
+  <table><thead><tr><th>the next token is…</th><th>component</th><th>cost there</th><th>cost elsewhere</th></tr></thead><tbody>
+  <tr><td>a closing bracket</td><td>layer 13</td><td class="n">+0.694</td><td class="n">+0.017</td></tr>
+  <tr><td>an opening quote</td><td>layer 10</td><td class="n">+0.272</td><td class="n">+0.021</td></tr>
+  <tr><td>a digit</td><td>layer 8</td><td class="n">+0.134</td><td class="n">+0.037</td></tr>
+  <tr><td>a line break</td><td>layer 12</td><td class="n">+0.099</td><td class="n">+0.009</td></tr>
+  <tr><td>an open bracket</td><td>layer 17</td><td class="n">+0.070</td><td class="n">+0.010</td></tr>
+  <tr><td>a sentence end</td><td>layer 10</td><td class="n">+0.065</td><td class="n">+0.021</td></tr>
+  <tr><td>a capitalized word</td><td>layer 15</td><td class="n">+0.039</td><td class="n">+0.005</td></tr>
+  <tr><td>a colon</td><td>layer 15</td><td class="n">+0.018</td><td class="n">+0.005</td></tr>
+  <tr><td>a comma</td><td colspan="3">nothing — the best component is <em>anti</em>-concentrated</td></tr>
+  </tbody></table>
+  <p>Five distinct components lead, so this is not one general-purpose part of the network
+  being rediscovered nine times. Closing brackets stand out by an order of magnitude, which is
+  the shape you would expect from a computation that genuinely needs memory: predicting
+  <code>)</code> requires knowing an unclosed <code>(</code> is open, and no lookup table
+  carries that.</p>
+  <p>Two of these arrived independently. Layer 8 was already implicated in digit prediction by
+  a completely different method — a sixteen-dimensional subspace found through damage
+  clustering, whose removal makes digits <em>harder</em> by 0.135 nats across five disjoint
+  samples while removing comparable subspaces makes them easier. And layer 10 is the component
+  carrying the newline head's document gating. A single component leading opening quotes,
+  sentence ends, and that gate is the best candidate in this model for something that tracks
+  document structure generally, and it has not been studied directly yet.</p>
+  <p><span class="tag">caveat</span> An earlier version of this table used each class's
+  complement as the baseline instead of the global mean. For a class covering a fifth of all
+  positions that complement is an unusually easy set of leftovers, which inflated the ratios
+  and made two of the random-set nulls fail. The numbers above are from the corrected run, in
+  which every null passes; one leader changed under the fix (capitalized words moved from
+  layer 17 to layer 15).</p>
 </section>
 
 <section class="col">
