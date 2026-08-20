@@ -42,7 +42,15 @@ def main(tag):
     slm=torch.zeros(NF,dtype=torch.bool); slm[sl]=True
     allrows=(mem//256).unique()
     rows=cl.rows()
-    SEEDS=[5,17,29,41,53]
+    # --seeds N widens the bootstrap (wave-6 follow-up: the
+    # near-miss and underpowered-with-a-hint negatives need more
+    # draws before the negative can be called). Default 5 keeps
+    # every earlier record reproducible.
+    _ns=5
+    if '--seeds' in sys.argv:
+        _ns=int(sys.argv[sys.argv.index('--seeds')+1])
+    SEEDS=[5,17,29,41,53,67,79,91,103,115,
+           127,139,151,163,175,187,199,211,223,235][:_ns]
     def draw(seed):
         g=torch.Generator().manual_seed(seed)
         if len(allrows)<=MAXROWS: return allrows
@@ -159,18 +167,43 @@ def main(tag):
                    'threshold_v2':round(thresh,3),
                    'ENRICHED_STABLE2':stable2,
                    'headroom':round(top[0][1]['min']-thresh,3)
-                                if top else None}
+                                if top else None,
+                   # 2026-08-20 (wave-6 reviewer catch, r.4.1.1):
+                   # a negative is only informative if the bar sits
+                   # meaningfully ABOVE the null's own worst draw.
+                   # On r.4.1.1's a12 the gap was 0.055, so noise
+                   # alone nearly reached the bar and a real-but-
+                   # weak writer could not have been seen. Cut of
+                   # 0.10 declared here, before use.
+                   'null_bar_separation':round(thresh-nullratio,3),
+                   'negative_power':(None if stable2 else
+                       ('UNDERPOWERED' if thresh-nullratio<0.10
+                        else 'DECISIVE')),
+                   'NEAR_MISS':bool(top and not stable2 and
+                       thresh-top[0][1]['min']<0.10)}
       _s=', '.join(f"{w} {v['mean']} [{v['min']}-{v['max']}]"
                    for w,v in top[:3])
       print(f"  {key}: top {_s} | ENRICHED_STABLE2={stable2}"
             f" (thresh {thresh:.3f} = max(1.3, null {nmean:.3f}"
             f"+2sd {nsd:.3f}); v1 stable={stable}, single-draw"
             f" ENRICHED={tables[key]['ENRICHED']})",flush=True)
+      if not stable2:
+          print(f"    negative power: "
+                f"{tables[key]['negative_power']} "
+                f"(bar sits {tables[key]['null_bar_separation']} "
+                f"above the null's worst draw"
+                f"{'; NEAR MISS -- widen the bootstrap'
+                   if tables[key]['NEAR_MISS'] else ''})",
+                flush=True)
     os.makedirs(PT+'leaf_mech',exist_ok=True)
     out={'tag':tag,'machinery':keys,'tables':tables,
          'runtime_s':time.time()-t0}
-    json.dump(out,open(PT+f'leaf_mech/{tag}.json','w'),indent=1)
-    print(f'wrote leaf_mech/{tag}.json ({out["runtime_s"]:.0f}s)')
+    # a widened bootstrap writes beside the record, never over it
+    _sfx='' if len(SEEDS)==5 else f'_s{len(SEEDS)}'
+    out['n_seeds']=len(SEEDS)
+    json.dump(out,open(PT+f'leaf_mech/{tag}{_sfx}.json','w'),indent=1)
+    print(f'wrote leaf_mech/{tag}{_sfx}.json '
+          f'({out["runtime_s"]:.0f}s)')
 
 def baseline(key,tag,k=3):
     """Cross-leaf baseline (added 2026-08-20 from a wave-3

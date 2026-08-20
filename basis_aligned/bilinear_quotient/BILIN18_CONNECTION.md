@@ -12741,3 +12741,95 @@ nothing about newlines -- eight of a12's heads have delete costs
 between -0.0008 and 0.0078, and 12.6 costs 0.0726, ten times the
 next -- so "the highest newline-ratio head is 12.6" is registered
 as prediction (b) and can fail eight ways.
+
+## 496. Reviewer wave 6a: a negative can be too weak to be a negative
+
+Two adversarial rechecks of census records (r.8.1.0, r.4.1.1).
+Both gates reproduced exactly -- concentration 5.68 (halves
+5.73/5.62) and 4.83 (5.00/4.66), bit for bit -- and both mechanism
+negatives reproduced.
+r.8.1.0: CONFIRM. The nulls sit clear of the bar (gaps 0.133,
+0.100, 0.157), so the negative is a real absence. One near-miss
+flagged: a9's top writer a8 has mean ratio 1.396 but a 5-seed
+bootstrap minimum of 1.216, short of the 1.3 bar by 0.084.
+r.4.1.1: WEAKEN, and this is the useful one. On component a12 the
+threshold (1.305) sat only 0.055 above the null's own worst draw
+(1.25). The bar was effectively resting on the null ceiling, so
+noise alone nearly cleared it and a real-but-weak writer could not
+have been distinguished from nothing. The negative is not wrong,
+it is uninformative. (m1 in the same leaf is a clean negative:
+null 1.089 against a 1.3 bar, and its signal 1.006 sits below even
+the null.)
+The reviewer's catch is about the instrument, so the instrument
+changed: leaf_input_decomp now reports null_bar_separation
+(threshold minus the null's worst draw) and labels every negative
+DECISIVE or UNDERPOWERED at a 0.10 cut declared before use, plus a
+NEAR_MISS flag when the signal falls within 0.10 below the bar. A
+--seeds N option widens the bootstrap and writes beside the
+original record rather than over it.
+
+## 497. The newline head, and an advance bet that paid
+
+Decomposing a12 into its nine heads (497 = newline_heads):
+  head   at newline   position-ctrl   elsewhere
+  12.6     +0.0682       +0.0057       -0.0007
+  12.2     +0.0058       +0.0046       -0.0002
+  12.5     +0.0026       +0.0004       +0.0009
+  12.0     +0.0020       -0.0017       +0.0006
+  12.3     +0.0019       +0.0105       -0.0005
+  (12.1, 12.4, 12.7, 12.8 are at or below zero)
+(a) HELD: the layer's specificity survives decomposition. 12.6
+alone accounts for +0.0682 of the layer's +0.0777 -- 88% -- so
+this is one head, not an interaction of nine.
+(b) HELD, and this is the part worth keeping: the head was named
+in advance. The head atlas, built with no knowledge of newlines,
+records delete costs between -0.0008 and 0.0078 for eight of a12's
+heads and 0.0726 for 12.6, ten times the next. Predicting "the
+highest newline-ratio head is 12.6" from that alone could have
+failed eight ways and did not. General-purpose head profiling
+predicts behaviour-specific structure.
+(c) HELD: 12.6's signed share of score mass on the most recent
+PRECEDING newline key is 0.0636 at newline-target queries against
+0.0170 at position-matched controls, a factor of 3.7, and it is
+the largest such share of any head in the layer (next is 12.4 at
+0.0209).
+NULL ok, but with a caveat about how these numbers are presented:
+the ratio statistic the script prints (681.5 for 12.6) is
+degenerate, because the denominator -- damage elsewhere -- is
+-0.0007, i.e. noise around zero. The honest statement is the
+absolute one: deleting 12.6 costs 0.068 nats at line breaks, 0.006
+at positions six tokens either side of a line break, and nothing
+at all (very slightly negative) everywhere else. The ratio table
+in 495 is safe because those denominators are 100x larger; from
+here on this program reports the pair, not the quotient.
+For scale: base cross-entropy at newline targets is 0.884 against
+3.41 elsewhere, so line breaks are already the easy positions, and
+12.6 supplies 7.7% of what makes them easy.
+
+## 498. Auditing every past negative for the same flaw
+
+The wave-6 catch (496) applies to the whole damage census, whose
+headline is that 60 leaves yielded zero writer-level mechanisms.
+If the bar routinely sat on the null, that zero would mean
+nothing. The stored records already contain both numbers, so the
+audit needed no GPU: 148 component tests, 142 negatives, and 43 of
+them (30.3%) have the bar within 0.10 of the null's worst draw.
+That 30% is not the whole story, because a negative also needs a
+signal worth detecting. In 33 of the 43 the top writer's ratio is
+below 1.05 -- no enrichment whatever -- so no amount of power
+would have changed the call. Exactly FOUR negatives are both
+underpowered and showing a hint:
+  r.1.1.3 m15  signal 1.460  separation 0.064
+  r.3.3.2 a17  signal 1.500  separation 0.047
+  r.3.2.3 a17  signal 1.417  separation 0.077
+  r.1.2.0 m14  signal 1.223  separation 0.075
+r.1.2.0's m14->m15 is independently the pair that passed the
+leaf-specificity control in mech_map_specificity (2.277 against
+peers 0.934/1.167/0.691), which makes it the most interesting.
+So the census's zero now rests on four tests rather than on
+forty-three, and power_recheck is queued to settle them at 20
+bootstrap seeds. Because widening both lowers the threshold and
+raises the signal's bootstrap minimum, it needs a control against
+manufacturing positives: four DECISIVE negatives (signals 0.785 to
+0.985) get the same treatment, and a flip there voids the result.
+Written to negative_power_audit.json.

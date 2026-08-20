@@ -1,0 +1,17 @@
+182 newline targets | 178 controls | 181 newline keys
+12.0: nl +0.0020 rest +0.0006 ratio 3.44 (ctrl -3.07)
+12.1: nl -0.0000 rest +0.0004 ratio -0.03 (ctrl 5.22)
+12.2: nl +0.0058 rest -0.0002 ratio 58.25 (ctrl 45.87)
+12.3: nl +0.0019 rest -0.0005 ratio 19.28 (ctrl 104.94)
+12.4: nl -0.0045 rest +0.0011 ratio -4.21 (ctrl -7.05)
+12.5: nl +0.0026 rest +0.0009 ratio 2.97 (ctrl 0.44)
+12.6: nl +0.0682 rest -0.0007 ratio 681.54 (ctrl 57.47)
+12.7: nl -0.0001 rest -0.0013 ratio -0.94 (ctrl 23.45)
+12.8: nl -0.0003 rest -0.0000 ratio -3.18 (ctrl 42.68)
+
+top head 12.6 ratio 681.54 | recent-newline share nl 0.0636 vs ctrl 0.017
+(a) a head reaches ratio >=2.0: HELD
+(b) the highest-ratio head is 12.6 (atlas bet): HELD
+(c) its recent-newline share is >=1.5x at targets: HELD
+NULL (nl ratio > position-matched ctrl ratio): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_heads_results.json (78s)
