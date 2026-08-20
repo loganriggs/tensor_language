@@ -10011,3 +10011,35 @@ sentence. ladder16 queued: does the bounded-relay reconstruction
 (402) predict 16.8/16.2's patterns -- registered k3>=0.70 both,
 monotone, shuffled null, and a seen-vs-fresh position split (are
 they seen-before detectors?).
+
+## 412. Swarm pipeline VALIDATED (first diverse-tree record) + ladder16's bars disqualified by their own null
+
+Two results this cycle.
+
+SONNET DRY RUN: a fresh Sonnet agent ran SOP v2 end-to-end on
+r.0.3.0 and merged the FIRST diverse-tree circuit record
+(circuits/r_0_3_0.json). Concentration reproduced (pack 6.66 vs
+rerun 6.61; both-halves 6.60/6.61); story red-teamed 2/3; no tool
+failures; git hygiene clean. Its four friction findings are all
+fixed and pushed: (1) pack causal numbers are a 60-row subsample
+-- SOP now says only concentration is expected to reproduce; (2)
+pack examples are non-canonical -- SOP now says always regenerate
+with cl.examples; (3) write_circuit stamped '212row-v1' on diverse
+records -- census_lib now derives tree.instance from the active
+state; (4) step-1 timing corrected to ~45s. The Sonnet handoff
+surface is operational: SOP v2 + census_lib diverse + 199-leaf
+shortlist + 72 packs + this validated loop.
+
+LADDER16: bars (a)/(b) technically held (k3 = 0.98/0.976,
+monotone) BUT the run's own null disqualifies them as content
+claims: the shuffled-value arm at k1 recovers ~103% of the true
+k1 lift (for 16.8 shuffled BEATS true). At layer-16 generic
+positions, a relay write with real patterns and WRONG-ROW content
+predicts the argmax as well as right content -- the instrument is
+measuring write-magnitude/position structure there, not code
+content. The k3 numbers are therefore NOT evidence for
+one-code-at-16; that claim currently rests on the writer
+decomposition (411) alone. ladder16b queued with shuffled arms at
+EVERY k (registered content fork: k3shuf <= k3-0.25, else the
+instrument is declared powerless at this depth and the claim
+stays at 411's level).

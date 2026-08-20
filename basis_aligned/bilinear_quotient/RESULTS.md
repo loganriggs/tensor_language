@@ -4159,3 +4159,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - 409: shortlist->SOP transfer 98% (47 new packs, 72 total); census_lib now runs on the diverse tree (use_state). sop_program_batch queued (step 3, strict doc-disjoint programs).
 - 410: surface programs fail on the diverse tree (1/72, strict doc-disjoint) -- description != mechanism. User standard recorded: named mechanism over k-laws. SOP v2 shipped; Sonnet dry-run launched; r30_writer_decomp queued (what r.3.0 compares).
 - 411: r.3.0's heads compare m0|m0 -- the SAME identity code as induction, at layer 16 (near-unanimous argmax; mass diluted to 30% by depth). The identity code is the model's universal comparison substrate. ladder16 queued.
+- 412: Sonnet swarm pipeline VALIDATED (first diverse-tree record r.0.3.0; 4 friction fixes shipped). ladder16's k3 bars disqualified by their own null (shuffled values recover 103% of k1 lift at layer 16); ladder16b queued with shuffled arms at every k.

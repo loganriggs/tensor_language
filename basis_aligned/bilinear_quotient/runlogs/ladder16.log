@@ -1,0 +1,11 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+16.8: k0 0.28 | k1 0.595 | k2 0.905 | k3 0.98 | k1shuf 0.685
+16.2: k0 0.179 | k1 0.637 | k2 0.897 | k3 0.976 | k1shuf 0.532
+(a) k3 >=0.70 both heads: HELD
+(b) monotone in k: HELD
+(c) shuffled null <25% of k1 lift: FAILED
+(d) seen/fresh split reported: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ladder16_results.json (1s)
