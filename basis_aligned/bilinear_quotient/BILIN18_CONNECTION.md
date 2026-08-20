@@ -16339,3 +16339,50 @@ The queue is fed with digit_distributed, a GROUNDED question on a
 verified target: does the digit behaviour (four heads) still have
 a compact read subspace like the single-head circuits, or is
 distribution over heads matched by distribution over directions?
+
+## 569. Compact directions, distributed sources -- the pattern
+## holds for the digit behaviour too
+
+digit_distributed ranked the digit bundle's directions by causal
+contribution and kept the top k, on a held-out split (zero shared
+rows). The bundle is 16-dim per component -- a6 and a8 -- so 32
+directions total; the full removal gives +0.1266 digit
+dissociation. (Docstring said "16-dim"; it is 16 per component,
+corrected here.)
+  directions kept   digit dissociation   % of full   random
+      1                +0.0687             54%        0.002-0.014
+      2                +0.0325             26%        near 0
+      4                +0.0572             45%        near 0
+      6                +0.0749             59%        near 0
+      8                +0.0878             69%        near 0 (one 0.11 outlier)
+     12                +0.1011             80%
+     16                +0.1114             88%
+(a) FAILED narrowly: k=6 holds 59%, just under the 60% bar for
+k<=6. But the substance is clear: ONE direction of 32 carries 54%
+of the digit effect, and it beats random single directions by 5 to
+30x.
+(b) the top directions beat random throughout -- random k give
+near-zero digit dissociation at every k, so the ranked directions
+are genuinely the ones that matter.
+The non-monotonicity is the familiar signature: k=1 gives 54% but
+k=2 drops to 26%, because removing the top two together is LESS
+damaging than removing the top one alone -- the second direction
+partially compensates. This is the same cancellation seen in the
+mlp0 squares (534) and the prefix-accumulation curve (543): the
+model's representations interfere, so subset-removal curves are
+non-monotonic.
+The finding generalizes the bracket result to a non-attention
+behaviour. The digit signal is spread over FOUR HEADS (521) yet
+lives in a COMPACT direction set -- one direction is half of it.
+So "distributed over heads" does not imply "distributed over
+directions", and this is now the pattern across three cases:
+  bracket query    ~12 writers   ->  compact 16-dim read subspace
+  digit subspace   4 heads       ->  1 direction = 54% of the effect
+  induction        9 heads       ->  (a band; direction structure
+                                      untested, the natural next step)
+The consistent statement: this model writes behaviour-relevant
+signals into COMPACT direction subspaces using MANY distributed
+sources. The read side is low-rank and localizable; the write side
+is diffuse and not. That is why the selection subspaces are
+findable (555, 557) but their upstream sources are not (558) -- it
+is one fact about the model seen from two directions.

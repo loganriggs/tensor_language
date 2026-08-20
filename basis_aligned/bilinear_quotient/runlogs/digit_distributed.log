@@ -1,0 +1,12 @@
+  [assert_disjoint digit_distributed] 0 of 96 priced rows appear in the fitting corpus -> ok
+full 16-dim removal digit dissociation: +0.1266
+k= 1: top +0.0687 (54%) | random [0.0023, 0.0142, 0.0036]
+k= 2: top +0.0325 (26%) | random [0.0039, 0.0029, 0.0007]
+k= 4: top +0.0572 (45%) | random [0.0046, 0.0351, 0.0018]
+k= 6: top +0.0749 (59%) | random [-0.0174, 0.0091, 0.0123]
+k= 8: top +0.0878 (69%) | random [-0.0007, 0.1058, -0.0123]
+k=12: top +0.1011 (80%) | random [-0.0069, 0.0318, 0.0297]
+k=16: top +0.1114 (88%) | random [0.0028, 0.034, 0.0305]
+
+(a) some k<=6 holds >=60%: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_distributed_results.json (63s)
