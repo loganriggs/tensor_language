@@ -14937,3 +14937,60 @@ is not "how small can each part get" but "what does the front need
 to transmit that no single-block measurement can see".
 The published report is corrected: the line "compress what a layer
 sends, not how it computes" overstates what one block showed.
+
+## 542. Block 0 is a 50304 x 64 table, and its columns have names
+
+front_table built the stand-in instead of measuring the ceiling.
+The candidate object is a lookup table: one vector per vocabulary
+entry holding the write block 0 emits for that token, optionally
+projected to r dimensions. Substituting it means block 0 stops
+attending to anything; every position gets the write its own token
+deserves. 24634 of 50304 vocabulary entries appear in the census
+corpus and get a real row; the rest keep the population mean.
+  arm                                    cost
+  delete block 0's write entirely      +0.8382  (539)
+  per-token table, full rank           +0.1067
+  per-token table, 64 dimensions       +0.1822
+  the REAL write, 64 dimensions        +0.0811  (ceiling)
+  random 64-dimensional table          +0.49 to +0.52
+(0) HELD: the table costs 0.107 against 0.838 for deleting the
+write, so it is a stand-in rather than a nuisance.
+(a) HELD: the 64-dimensional table costs 0.182 nats.
+(b) HELD: the gap between the table and the real write at the same
+rank is 0.101 nats. That number is worth naming -- it is exactly
+what block 0's attention over context contributes beyond the
+current token, and it is a tenth of a nat.
+(c) HELD: restricting the table from full rank to 64 dimensions
+costs 0.076 nats, so the narrow interface is not what breaks it.
+NULL VIOLATED, narrowly and honestly: random 64-dimensional tables
+cost 0.494-0.520, which is 2.7 times the real table's 0.182 where
+I registered 3. The directions clearly matter -- a random basis is
+nearly three times worse -- but the bar was set at 3 and the
+measurement came in at 2.7, so it is recorded as violated.
+The columns are nameable, which is the part that makes this an
+interpretability result rather than a compression one. Scoring the
+table against each interface direction over the 5000 most frequent
+tokens, 6 of the top 8 directions are class-pure at 7/10 or
+better, and the pure ones are not vague:
+  dir 0  determiners  10/10  ' the', 'The', ' The', ' a', ' an'
+  dir 1  punctuation  10/10  ').', '.', ' (', '".', '!', '."'
+  dir 3  capitals     10/10  ' B', ' D', ' M', ' H', ' G', ' C'
+  dir 6  digits       10/10  ' 56', ' 57', ' 12', ' 26', ' 17'
+  dir 4  sentence     8/10   ' If', 'If', ' Keep', 'You', ' Have'
+         openers
+So the first block of this model can be replaced by a printed
+table of 50304 rows and 64 columns, at a cost of 0.18 nats, and
+the columns are determiners, punctuation, initial capitals,
+digits, and sentence openers.
+Set against the failures of 540 and 541 this is the shape of what
+works. Compressing how a block COMPUTES fails (1.78 nats jointly);
+compressing what six blocks SEND fails (1.31); replacing ONE block
+with an explicit token-indexed object succeeds at 0.18. The
+successful move is not compression at all -- it is substitution by
+an interpretable function of a variable the block actually depends
+on, which at block 0 is the token, exactly and provably (535).
+The obvious next question, and the one that decides whether this
+generalizes: block 1's input is not the token, so what variable is
+its write a function of? front_table2 will try the same
+construction one block up, indexing on the token PAIR rather than
+the token, since attn0 is a bigram table.

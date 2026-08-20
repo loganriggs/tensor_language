@@ -1,1 +1,23 @@
 24634 of 50304 vocabulary entries seen in the corpus
+baseline CE 3.3536
+table_full: +0.1067
+r=  16: true +0.2657 | table +0.3573 | context gap +0.0916
+r=  64: true +0.0811 | table +0.1822 | context gap +0.1011
+r= 256: true +0.0056 | table +0.1130 | context gap +0.1074
+random_64: [0.5204, 0.4936, 0.5107]
+
+(0) table_full +0.1067 < 0.838 (deleting the write): HELD
+(a) table_64 +0.1822 < 0.30: HELD
+(b) context gap at r=64: +0.1011 < 0.25: HELD
+(c) table_64 - table_full = +0.0755 <= 0.10: HELD
+NULL (random_64 +0.4936 >= 3x table_64): VIOLATED
+  interface dir 0: determiner 10/10 -> ["' the'", "'The'", "' The'", "' a'", "' an'", "' his'"]
+  interface dir 1: punct 10/10 -> ["').'", "'.'", "' ('", '\'".\'', "'!'", '\'."\'']
+  interface dir 2: capitalized 6/10 -> ["'�'", "' �'", "' Ch'", "' illegal'", "' sd'", "' G'"]
+  interface dir 3: capitalized 10/10 -> ["' B'", "' D'", "' M'", "' H'", "' G'", "' C'"]
+  interface dir 4: capitalized 8/10 -> ["' If'", "'If'", "' Keep'", "'You'", "' Have'", "' There'"]
+  interface dir 5: capitalized 6/10 -> ["' K'", "' improve'", "' reduce'", "' R'", "' allows'", "' P'"]
+  interface dir 6: digit 10/10 -> ["' 56'", "' 57'", "' 12'", "' 26'", "' 17'", "' 15'"]
+  interface dir 7: capitalized 7/10 -> ["'�'", "' Ro'", '\'".\'', "' Az'", "' Cr'", "' Kl'"]
+6/8 interface directions are class-pure
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_table_results.json (85s)

@@ -1,0 +1,164 @@
+{
+ "baseline_ce": 3.3536,
+ "results": {
+  "table_full": 0.1067,
+  "true_16": 0.2657,
+  "table_16": 0.3573,
+  "true_64": 0.0811,
+  "table_64": 0.1822,
+  "true_256": 0.0056,
+  "table_256": 0.113,
+  "random_64": [
+   0.5204,
+   0.4936,
+   0.5107
+  ]
+ },
+ "context_gap_64": 0.1011,
+ "vocab_seen": 24634,
+ "interface_names": [
+  {
+   "dir": 0,
+   "dominant_class": "determiner",
+   "purity": 10,
+   "tokens": [
+    " the",
+    "The",
+    " The",
+    " a",
+    " an",
+    " his",
+    " their",
+    " our",
+    " your",
+    " my"
+   ]
+  },
+  {
+   "dir": 1,
+   "dominant_class": "punct",
+   "purity": 10,
+   "tokens": [
+    ").",
+    ".",
+    " (",
+    "\".",
+    "!",
+    ".\"",
+    "):",
+    "\u2014",
+    "'.",
+    "?"
+   ]
+  },
+  {
+   "dir": 2,
+   "dominant_class": "capitalized",
+   "purity": 6,
+   "tokens": [
+    "\ufffd",
+    " \ufffd",
+    " Ch",
+    " illegal",
+    " sd",
+    " G",
+    " R",
+    " B",
+    " M",
+    " K"
+   ]
+  },
+  {
+   "dir": 3,
+   "dominant_class": "capitalized",
+   "purity": 10,
+   "tokens": [
+    " B",
+    " D",
+    " M",
+    " H",
+    " G",
+    " C",
+    " K",
+    " L",
+    " T",
+    " Ch"
+   ]
+  },
+  {
+   "dir": 4,
+   "dominant_class": "capitalized",
+   "purity": 8,
+   "tokens": [
+    " If",
+    "If",
+    " Keep",
+    "You",
+    " Have",
+    " There",
+    " You",
+    "There",
+    "What",
+    " Do"
+   ]
+  },
+  {
+   "dir": 5,
+   "dominant_class": "capitalized",
+   "purity": 6,
+   "tokens": [
+    " K",
+    " improve",
+    " reduce",
+    " R",
+    " allows",
+    " P",
+    " bringing",
+    " V",
+    " M",
+    " G"
+   ]
+  },
+  {
+   "dir": 6,
+   "dominant_class": "digit",
+   "purity": 10,
+   "tokens": [
+    " 56",
+    " 57",
+    " 12",
+    " 26",
+    " 17",
+    " 15",
+    " 14",
+    " 19",
+    " 27",
+    " 24"
+   ]
+  },
+  {
+   "dir": 7,
+   "dominant_class": "capitalized",
+   "purity": 7,
+   "tokens": [
+    "\ufffd",
+    " Ro",
+    "\".",
+    " Az",
+    " Cr",
+    " Kl",
+    " Mel",
+    " Mal",
+    " (",
+    "Mer"
+   ]
+  }
+ ],
+ "class_pure": 6,
+ "pred_0": true,
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": true,
+ "null_ok": false,
+ "runtime_s": 85.03706693649292
+}
