@@ -12370,3 +12370,37 @@ Registered as a decisive fork: >= 0.30 means the distant reads
 carry the function, <= 0.10 means induction's value at match
 positions is LOCAL, and either outcome is a substantive finding
 about the program's most-cited claim.
+
+## 485. THE FORK RESOLVES FOR THE FLAGSHIP: induction's distant reads carry it
+
+induction_window tested the nine band heads directly rather than
+their layers, scored at match positions:
+  window the nine band heads to 4 tokens   match +0.3182
+  delete the nine outright                 match +0.4258
+  window nine random non-band heads        match +0.1798
+ALL THREE BARS HELD, and the registered fork resolves in the
+direction that supports this program's most-cited result:
+windowing the band recovers 75% of the damage that DELETING it
+causes (0.318 against 0.426), and costs 1.8x what windowing nine
+arbitrary heads costs. Induction's value at match positions is
+carried by its DISTANT reads, exactly as the circuit work
+(376-408) says. The tension raised in 484 is resolved in favour of
+the claim, not against it.
+Honest calibration alongside it: nine random heads windowed
+already cost +0.180 at match, so part of the band's 0.318 is the
+generic price of windowing nine heads. The band-specific excess is
+0.138, and the cleanest single statement is the within-heads one
+-- window versus delete for the SAME nine heads, 75%.
+What that leaves is a genuine structural question rather than a
+worry. Windowing whole LAYERS containing band heads cost between
+-0.06 and +0.01 at match (484), yet windowing the band's heads
+together costs +0.318. Each of those layers holds one band head
+and eight others, so the natural reading is REDUNDANCY ACROSS THE
+BAND: one head's distant reads going missing is covered by the
+rest, and only removing them together bites.
+induction_redundancy queued to measure that curve directly --
+window the band heads cumulatively, one at a time, against the
+same curve over nine random heads. Registered: (a) all nine cost
+>= 3x the mean of the singles (superlinear), (b) at least seven of
+nine singles cost <= 0.05 alone, (c) the control curve is closer
+to linear.
