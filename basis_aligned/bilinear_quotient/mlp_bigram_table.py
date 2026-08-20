@@ -35,11 +35,18 @@ def main():
         .apply_rotary_emb
     V=m.lm_head.weight.shape[0]
     mlp0=m.transformer.h[0].mlp
+    L0=mlp0.Left.weight.float(); R0=mlp0.Right.weight.float()
+    D0=mlp0.Down.weight.float()
+    B0=mlp0.Down_bias.detach().float()
+    def mlp0_manual(x):
+        # manual forward: calling mlp0() inside its own hook
+        # recurses (crash in the first version of this run)
+        return ((x@L0.T)*(x@R0.T))@D0.T+B0
     tab=torch.zeros(V,D,device=DEV)
     for i in range(0,V,4096):
         tt=torch.arange(i,min(i+4096,V),device=DEV)
-        e=F.rms_norm(m.transformer.wte(tt),(D,))
-        tab[i:i+4096]=mlp0(e).float()
+        e=F.rms_norm(m.transformer.wte(tt),(D,)).float()
+        tab[i:i+4096]=mlp0_manual(e)
     at0=m.transformer.h[0].attn
     g=torch.Generator().manual_seed(7)
     def run(mode):
@@ -71,7 +78,7 @@ def main():
                         e_cur=F.rms_norm(
                             m.transformer.wte(idx),(D,)).float()
                         xin=F.rms_norm(e_cur+a0,(D,))
-                        return mlp0(xin.to(o_.dtype))
+                        return mlp0_manual(xin).to(o_.dtype)
                     hs.append(mlp0.register_forward_hook(fh))
             x=F.rms_norm(m.transformer.wte(idx),(D,)); x0=x
             v1=None

@@ -12150,3 +12150,37 @@ making it a pure function of (t, t_prev), against the per-token
 table as reference and a shuffled-previous-token null.
 Registered: (a) the pair form costs <= 0.30, (b) it beats the
 unigram table by >= 0.50, (c) the null costs >= 1.00.
+
+## 479. The token PAIR is not the answer either -- and a self-inflicted recursion bug
+
+mlp_bigram_table first crashed with a RecursionError: my forward
+hook on mlp0 called mlp0 inside itself. Fixed by computing the
+bilinear forward manually from the weights (Left, Right, Down,
+Down_bias) -- recorded because it is the fifth self-inflicted
+instrument fault of this run, and like the others it was caught by
+the run failing loudly rather than by returning a plausible
+number.
+With the fix:
+  m0 as a per-token table (reference, 478)        +1.0180
+  m0 recomputed with ALL of attn0's weight on the
+    previous token, i.e. a function of (t, t_prev) +1.2554
+  the same with the previous token shuffled        +1.5459
+(a) and (b) FAILED, and in the informative direction: the token
+PAIR form is WORSE than ignoring attn0 entirely. Concentrating all
+nine layer-0 heads onto offset -1 -- because ONE of them (head
+0.3) reads there 66% of the time -- produces something worse than
+no attention contribution at all. The other eight heads read
+elsewhere, and forcing them to the previous token actively
+misinforms m0. (c) HELD: shuffling the previous token costs 1.55,
+so the machinery works.
+So the front of the model is exactly computable from tokens (attn0
+is a bigram table, 477) but m0's context is NOT a
+previous-token relationship. The open quantity is how WIDE a
+prefix m0 actually needs, and that is directly measurable.
+m0_context_window queued: rebuild attn0's pattern from weights and
+tokens (the exact fold), truncate its reads to the last k
+positions, and sweep k = full, 16, 8, 4, 2, 1. Registered: (a) the
+untruncated fold is exact at <= 0.02 (a miss means a bug), (b)
+k = 4 costs <= 0.20 -- m0's context need is local, (c) cost is
+monotone in k with k = 1 >= 1.00, consistent with the +1.255
+measured here.
