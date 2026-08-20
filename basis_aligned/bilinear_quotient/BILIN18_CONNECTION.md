@@ -11650,3 +11650,43 @@ trained for, for free. That is a fact about trained-model slack
 worth having as a plain number, and it sharpens the earlier
 finding: the 39 are not a redundancy pool waiting to be exercised,
 they are simply not doing much.
+
+## 466. Wave 6, and the swarm rediscovering a known effect for the fourth time
+
+  r.11.1.1  gate 5.70 (5.88/5.52) | mechanism NEGATIVE on
+            a4/a3/a8 (top ratios 1.09-1.14, headroom -0.23 to
+            -0.32) | punctuation claim ROBUST_V2, 44/63 = 69.8%
+            vs 48% base, p=0.0004, margin +21.8 points -- and,
+            following 462's rule, computed on a CLASS-defined
+            position set, not an outcome-selected one
+  r.4.1.1   gate 4.83 (5.00/4.66) | mechanism NEGATIVE on a12/m1
+            | downstream consumer a17 at 1.109 beats its random
+            control (0.97) but misses the 1.3 bar | no behavioral
+            claim survives (best was capitalized p=0.114)
+r.11.1.1 is the FOURTH leaf to independently surface the
+punctuation effect. Four independent discoveries of the same
+population-level phenomenon is a pipeline problem, not four
+findings, so CIRCUIT_SOP now carries a "KNOWN GENERAL EFFECTS"
+section: punctuation and digit sparing is documented as
+non-leaf-specific with its population value (-0.025), and an
+agent claiming anything leaf-specific must show its leaf EXCEEDS
+that value by a stated margin. Otherwise the step-5 budget goes
+to the other classes. This is the swarm's own throughput being
+protected from a real result.
+Two tooling fixes from the wave, both from agent reports:
+ - story_test_class now returns `margin` directly (the 459 rule
+   asked agents to report margins and then made them compute it
+   by hand).
+ - leaf_output_decomp.py overwrote its shared results file
+   wholesale, and silently dropped a concurrent agent's entry;
+   the agent noticed, recovered the lost entry from git, and
+   hand-merged. Now fixed to read-merge-write like write_circuit.
+   That is the second concurrency hazard the swarm has found in
+   the driver's tooling, and both were found by agents rather
+   than by me.
+damage_signature queued -- the deepest available deflation of the
+surviving effect: run the identical class breakdown for a random
+rank-matched subspace, a single head deletion and a single MLP
+mean-ablation. Registered: if all reproduce the profile (punct and
+digit spared, newline worst), the survivor is a UNIVERSAL DAMAGE
+SIGNATURE of this model rather than anything about a circuit.

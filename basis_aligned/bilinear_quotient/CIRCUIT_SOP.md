@@ -129,6 +129,22 @@ mechanism grade: surface programs passed only 1/72 on the diverse tree,
 and per the user standard they are description, not mechanism. Do not
 stop here on a FAIL; the mechanism steps below are the actual work.
 
+## KNOWN GENERAL EFFECTS -- do not report these as discoveries
+(added 2026-08-20 after four leaves independently "found" the
+same population-level phenomenon)
+PUNCTUATION AND DIGIT SPARING (writeups 462-464): ablating almost
+any 16-dim probe bundle on this model spares punctuation targets
+(dissociation about -0.025) and digits (-0.018) while damaging
+space-initial words (+0.014), capitalised words (+0.006) and
+NEWLINES most of all (+0.027). It is not leaf-specific, not a
+frequency effect, and not explained by predictability. If your
+leaf shows a punctuation claim, it is almost certainly this
+effect. Report it as "consistent with the known general sparing
+(464)" and, if you want to claim anything leaf-specific, show
+your leaf's dissociation EXCEEDS the population value of -0.025
+by a stated margin. Otherwise spend your step-5 budget on the
+other classes.
+
 ## Step 4 -- claims, written blind-ish
 Look ONLY at exs + s + your step-3M table. Write TWO lines:
   MECHANISM (required): <=25 words naming components and writers

@@ -121,6 +121,12 @@ def main(tags):
             own=profile(tag,False); rnd=profile(tag,True)
             topo=max(own,key=lambda k:own[k]['ratio'])
             topr=max(rnd,key=lambda k:rnd[k]['ratio'])
+            # read-merge-write (wave-6 agent catch: this file is
+            # shared and a full overwrite silently dropped a
+            # concurrent agent's entry)
+            try: res.update(json.load(open(OUT)).get('leaves',
+                                                     {}) or {})
+            except Exception: pass
             res[tag]={'own_profile':own,'random_profile':rnd,
                       'top_consumer':topo,
                       'top_ratio':own[topo]['ratio'],
@@ -129,7 +135,7 @@ def main(tags):
             print(f"{tag}: top consumer {topo} ratio "
                   f"{own[topo]['ratio']} | random {topr} "
                   f"{rnd[topr]['ratio']}",flush=True)
-            json.dump(res,open(OUT,'w'),indent=1)
+            json.dump({'leaves':res},open(OUT,'w'),indent=1)
         except Exception as e:
             print(f'{tag}: SKIPPED ({type(e).__name__}: {e})',
                   flush=True)

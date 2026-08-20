@@ -1,0 +1,830 @@
+{
+ "schema_version": 1,
+ "tag": "r.11.1.1",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "causal": {
+  "abs_dce_members": 0.823,
+  "abs_dce_offslice": 0.144,
+  "concentration": 5.7,
+  "dce_members": 0.089,
+  "dce_pos": -0.709,
+  "dce_neg": 0.886,
+  "n_pos": 432,
+  "n_neg": 432,
+  "minority_share": 0.5,
+  "base_ce_member_mean": 5.299,
+  "base_ce_frac_lt3": 0.237
+ },
+ "causal_halves": {
+  "half0": {
+   "concentration": 5.88,
+   "abs_dce_members": 0.84,
+   "n_members": 416
+  },
+  "half1": {
+   "concentration": 5.52,
+   "abs_dce_members": 0.808,
+   "n_members": 448
+  }
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 44995,
+    "context": "N/C:N/I:N/A:P",
+    "target": ")",
+    "base_ce": 6.8,
+    "dce": -2.21
+   },
+   {
+    "gi": 193756,
+    "context": " a single charge from a standard 110-volt outlet.\nThe",
+    "target": " Em",
+    "base_ce": 4.12,
+    "dce": -0.7
+   },
+   {
+    "gi": 113472,
+    "context": "? | Air Canada | RBC | Samsung Galaxy S4 |",
+    "target": " Target",
+    "base_ce": 7.48,
+    "dce": 1.6
+   }
+  ],
+  "random": [
+   {
+    "gi": 241318,
+    "context": " and melody\u201d this also means, as k-punk acknowledges",
+    "target": " that",
+    "base_ce": 5.65,
+    "dce": -0.78
+   },
+   {
+    "gi": 110478,
+    "context": " exhibited the 137-pound Hampshire Grand Champion Market Lamb and sold",
+    "target": " it",
+    "base_ce": 0.97,
+    "dce": 0.13
+   },
+   {
+    "gi": 69578,
+    "context": "nt of the company, those who own the organization would increase their",
+    "target": " wealth",
+    "base_ce": 3.54,
+    "dce": -0.59
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "mechanism_3M": {
+  "a4": {
+   "writers": {
+    "wte": {
+     "mean": 0.967,
+     "min": 0.786,
+     "max": 1.104,
+     "seed5": 1.104,
+     "member": 0.0037,
+     "offslice": 0.0034
+    },
+    "a0": {
+     "mean": 0.917,
+     "min": 0.534,
+     "max": 1.114,
+     "seed5": 0.534,
+     "member": 0.0003,
+     "offslice": 0.0006
+    },
+    "m0": {
+     "mean": 1.005,
+     "min": 0.98,
+     "max": 1.045,
+     "seed5": 1.036,
+     "member": 0.6017,
+     "offslice": 0.5806
+    },
+    "a1": {
+     "mean": 1.012,
+     "min": 0.945,
+     "max": 1.115,
+     "seed5": 1.115,
+     "member": 0.0143,
+     "offslice": 0.0129
+    },
+    "m1": {
+     "mean": 0.979,
+     "min": 0.898,
+     "max": 1.064,
+     "seed5": 0.898,
+     "member": 0.0279,
+     "offslice": 0.0311
+    },
+    "a2": {
+     "mean": 1.093,
+     "min": 1.043,
+     "max": 1.15,
+     "seed5": 1.043,
+     "member": 0.0372,
+     "offslice": 0.0357
+    },
+    "m2": {
+     "mean": 0.942,
+     "min": 0.881,
+     "max": 0.986,
+     "seed5": 0.9,
+     "member": 0.1108,
+     "offslice": 0.1231
+    },
+    "a3": {
+     "mean": 1.066,
+     "min": 1.021,
+     "max": 1.12,
+     "seed5": 1.053,
+     "member": 0.0314,
+     "offslice": 0.0298
+    },
+    "m3": {
+     "mean": 0.997,
+     "min": 0.933,
+     "max": 1.057,
+     "seed5": 0.944,
+     "member": 0.1727,
+     "offslice": 0.1829
+    }
+   },
+   "top": [
+    [
+     "a2",
+     {
+      "mean": 1.093,
+      "min": 1.043,
+      "max": 1.15,
+      "seed5": 1.043,
+      "member": 0.0372,
+      "offslice": 0.0357
+     }
+    ],
+    [
+     "a3",
+     {
+      "mean": 1.066,
+      "min": 1.021,
+      "max": 1.12,
+      "seed5": 1.053,
+      "member": 0.0314,
+      "offslice": 0.0298
+     }
+    ],
+    [
+     "a1",
+     {
+      "mean": 1.012,
+      "min": 0.945,
+      "max": 1.115,
+      "seed5": 1.115,
+      "member": 0.0143,
+      "offslice": 0.0129
+     }
+    ],
+    [
+     "m0",
+     {
+      "mean": 1.005,
+      "min": 0.98,
+      "max": 1.045,
+      "seed5": 1.036,
+      "member": 0.6017,
+      "offslice": 0.5806
+     }
+    ],
+    [
+     "m3",
+     {
+      "mean": 0.997,
+      "min": 0.933,
+      "max": 1.057,
+      "seed5": 0.944,
+      "member": 0.1727,
+      "offslice": 0.1829
+     }
+    ]
+   ],
+   "top_ratio": 1.043,
+   "top_ratio_mean": 1.093,
+   "top_ratio_min": 1.043,
+   "top_ratio_max": 1.15,
+   "null_top_ratio": 1.333,
+   "bootstrap_seeds": [
+    5,
+    17,
+    29,
+    41,
+    53
+   ],
+   "ENRICHED": false,
+   "BEATS_NULL": false,
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.103,
+   "null_sd": 0.13,
+   "threshold_v2": 1.364,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.321
+  },
+  "a3": {
+   "writers": {
+    "wte": {
+     "mean": 0.961,
+     "min": 0.79,
+     "max": 1.089,
+     "seed5": 1.089,
+     "member": 0.0036,
+     "offslice": 0.0033
+    },
+    "a0": {
+     "mean": 0.924,
+     "min": 0.538,
+     "max": 1.169,
+     "seed5": 0.538,
+     "member": 0.0004,
+     "offslice": 0.0007
+    },
+    "m0": {
+     "mean": 1.008,
+     "min": 0.991,
+     "max": 1.027,
+     "seed5": 1.023,
+     "member": 0.7726,
+     "offslice": 0.7552
+    },
+    "a1": {
+     "mean": 1.015,
+     "min": 0.955,
+     "max": 1.107,
+     "seed5": 1.107,
+     "member": 0.0175,
+     "offslice": 0.0158
+    },
+    "m1": {
+     "mean": 0.977,
+     "min": 0.882,
+     "max": 1.07,
+     "seed5": 0.882,
+     "member": 0.0331,
+     "offslice": 0.0375
+    },
+    "a2": {
+     "mean": 1.093,
+     "min": 1.031,
+     "max": 1.161,
+     "seed5": 1.037,
+     "member": 0.0435,
+     "offslice": 0.042
+    },
+    "m2": {
+     "mean": 0.94,
+     "min": 0.864,
+     "max": 0.995,
+     "seed5": 0.889,
+     "member": 0.1293,
+     "offslice": 0.1454
+    }
+   },
+   "top": [
+    [
+     "a2",
+     {
+      "mean": 1.093,
+      "min": 1.031,
+      "max": 1.161,
+      "seed5": 1.037,
+      "member": 0.0435,
+      "offslice": 0.042
+     }
+    ],
+    [
+     "a1",
+     {
+      "mean": 1.015,
+      "min": 0.955,
+      "max": 1.107,
+      "seed5": 1.107,
+      "member": 0.0175,
+      "offslice": 0.0158
+     }
+    ],
+    [
+     "m0",
+     {
+      "mean": 1.008,
+      "min": 0.991,
+      "max": 1.027,
+      "seed5": 1.023,
+      "member": 0.7726,
+      "offslice": 0.7552
+     }
+    ],
+    [
+     "m1",
+     {
+      "mean": 0.977,
+      "min": 0.882,
+      "max": 1.07,
+      "seed5": 0.882,
+      "member": 0.0331,
+      "offslice": 0.0375
+     }
+    ],
+    [
+     "wte",
+     {
+      "mean": 0.961,
+      "min": 0.79,
+      "max": 1.089,
+      "seed5": 1.089,
+      "member": 0.0036,
+      "offslice": 0.0033
+     }
+    ]
+   ],
+   "top_ratio": 1.037,
+   "top_ratio_mean": 1.093,
+   "top_ratio_min": 1.031,
+   "top_ratio_max": 1.161,
+   "null_top_ratio": 1.16,
+   "bootstrap_seeds": [
+    5,
+    17,
+    29,
+    41,
+    53
+   ],
+   "ENRICHED": false,
+   "BEATS_NULL": false,
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.067,
+   "null_sd": 0.058,
+   "threshold_v2": 1.3,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.269
+  },
+  "a8": {
+   "writers": {
+    "wte": {
+     "mean": 0.969,
+     "min": 0.761,
+     "max": 1.131,
+     "seed5": 1.131,
+     "member": 0.001,
+     "offslice": 0.0009
+    },
+    "a0": {
+     "mean": 0.92,
+     "min": 0.603,
+     "max": 1.087,
+     "seed5": 0.603,
+     "member": 0.0003,
+     "offslice": 0.0005
+    },
+    "m0": {
+     "mean": 1.004,
+     "min": 0.967,
+     "max": 1.052,
+     "seed5": 1.05,
+     "member": 0.4419,
+     "offslice": 0.421
+    },
+    "a1": {
+     "mean": 1.007,
+     "min": 0.93,
+     "max": 1.129,
+     "seed5": 1.129,
+     "member": 0.0123,
+     "offslice": 0.0109
+    },
+    "m1": {
+     "mean": 0.975,
+     "min": 0.9,
+     "max": 1.041,
+     "seed5": 0.9,
+     "member": 0.02,
+     "offslice": 0.0222
+    },
+    "a2": {
+     "mean": 1.082,
+     "min": 1.042,
+     "max": 1.129,
+     "seed5": 1.058,
+     "member": 0.0315,
+     "offslice": 0.0298
+    },
+    "m2": {
+     "mean": 0.934,
+     "min": 0.89,
+     "max": 0.961,
+     "seed5": 0.899,
+     "member": 0.0797,
+     "offslice": 0.0886
+    },
+    "a3": {
+     "mean": 1.054,
+     "min": 1.02,
+     "max": 1.09,
+     "seed5": 1.063,
+     "member": 0.0272,
+     "offslice": 0.0256
+    },
+    "m3": {
+     "mean": 0.988,
+     "min": 0.94,
+     "max": 1.048,
+     "seed5": 0.94,
+     "member": 0.1313,
+     "offslice": 0.1397
+    },
+    "a4": {
+     "mean": 1.144,
+     "min": 1.075,
+     "max": 1.186,
+     "seed5": 1.167,
+     "member": 0.0619,
+     "offslice": 0.053
+    },
+    "m4": {
+     "mean": 0.909,
+     "min": 0.844,
+     "max": 0.968,
+     "seed5": 0.844,
+     "member": 0.0806,
+     "offslice": 0.0954
+    },
+    "a5": {
+     "mean": 1.043,
+     "min": 1.003,
+     "max": 1.073,
+     "seed5": 1.003,
+     "member": 0.0514,
+     "offslice": 0.0513
+    },
+    "m5": {
+     "mean": 1.005,
+     "min": 0.897,
+     "max": 1.094,
+     "seed5": 0.897,
+     "member": 0.0147,
+     "offslice": 0.0164
+    },
+    "a6": {
+     "mean": 1.018,
+     "min": 0.973,
+     "max": 1.079,
+     "seed5": 1.079,
+     "member": 0.0184,
+     "offslice": 0.0171
+    },
+    "m6": {
+     "mean": 1.063,
+     "min": 0.997,
+     "max": 1.13,
+     "seed5": 0.997,
+     "member": 0.0107,
+     "offslice": 0.0108
+    },
+    "a7": {
+     "mean": 1.028,
+     "min": 0.907,
+     "max": 1.123,
+     "seed5": 1.013,
+     "member": 0.0115,
+     "offslice": 0.0113
+    },
+    "m7": {
+     "mean": 0.985,
+     "min": 0.948,
+     "max": 1.014,
+     "seed5": 1.014,
+     "member": 0.0057,
+     "offslice": 0.0056
+    }
+   },
+   "top": [
+    [
+     "a4",
+     {
+      "mean": 1.144,
+      "min": 1.075,
+      "max": 1.186,
+      "seed5": 1.167,
+      "member": 0.0619,
+      "offslice": 0.053
+     }
+    ],
+    [
+     "a2",
+     {
+      "mean": 1.082,
+      "min": 1.042,
+      "max": 1.129,
+      "seed5": 1.058,
+      "member": 0.0315,
+      "offslice": 0.0298
+     }
+    ],
+    [
+     "m6",
+     {
+      "mean": 1.063,
+      "min": 0.997,
+      "max": 1.13,
+      "seed5": 0.997,
+      "member": 0.0107,
+      "offslice": 0.0108
+     }
+    ],
+    [
+     "a3",
+     {
+      "mean": 1.054,
+      "min": 1.02,
+      "max": 1.09,
+      "seed5": 1.063,
+      "member": 0.0272,
+      "offslice": 0.0256
+     }
+    ],
+    [
+     "a5",
+     {
+      "mean": 1.043,
+      "min": 1.003,
+      "max": 1.073,
+      "seed5": 1.003,
+      "member": 0.0514,
+      "offslice": 0.0513
+     }
+    ]
+   ],
+   "top_ratio": 1.167,
+   "top_ratio_mean": 1.144,
+   "top_ratio_min": 1.075,
+   "top_ratio_max": 1.186,
+   "null_top_ratio": 1.125,
+   "bootstrap_seeds": [
+    5,
+    17,
+    29,
+    41,
+    53
+   ],
+   "ENRICHED": false,
+   "BEATS_NULL": true,
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.075,
+   "null_sd": 0.033,
+   "threshold_v2": 1.3,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.225
+  }
+ },
+ "story": {
+  "blind_name": "no surface program; punctuation-target push is the only surviving behavioral claim",
+  "program": [
+   [
+    "NOT prev1_class_other",
+    "NOT prev2_class_other",
+    "NOT dist_nl_le2"
+   ]
+  ],
+  "program_bacc": 0.588,
+  "program_null": 0.58,
+  "mechanism_level": "none",
+  "mechanism_line": "No STRONG single-writer mechanism in a4, a3, or a8 (top ratios 1.093/1.093/1.144 vs thresholds 1.364/1.300/1.300; headroom -0.321/-0.269/-0.225).",
+  "behavior_line": "Machinery is a symmetric 50/50 push overall (dce_pos -0.709, dce_neg 0.886, minority_share 0.5) but flips at punctuation targets: on the 63/864 punct-target members ablation LOWERS CE 69.8% of the time vs a 48% base rate (margin +21.8pp, p=0.0004, Bonferroni alpha=0.0083/12), i.e. this leaf's machinery actively hurts punctuation prediction, while on the other 801/864 (non-punct) members the push runs the other way (mean dCE +0.116, helps prediction).",
+  "story_test_class_pairs": {
+   "subword_help": {
+    "ROBUST_V2": false,
+    "n_available": 140,
+    "population": {
+     "n": 140,
+     "hits": 64,
+     "base_rate_help": 0.48,
+     "expected_hits": 67.25,
+     "p_value": 0.7365,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   },
+   "subword_hurt": {
+    "ROBUST_V2": false,
+    "n_available": 140,
+    "population": {
+     "n": 140,
+     "hits": 76,
+     "base_rate_help": 0.48,
+     "expected_hits": 72.75,
+     "p_value": 0.3216,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   },
+   "space_word_help": {
+    "ROBUST_V2": false,
+    "n_available": 629,
+    "population": {
+     "n": 629,
+     "hits": 289,
+     "base_rate_help": 0.48,
+     "expected_hits": 302.12,
+     "p_value": 0.8616,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   },
+   "space_word_hurt": {
+    "ROBUST_V2": false,
+    "n_available": 629,
+    "population": {
+     "n": 629,
+     "hits": 340,
+     "base_rate_help": 0.48,
+     "expected_hits": 326.88,
+     "p_value": 0.1569,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   },
+   "digit_help": {
+    "ROBUST_V2": false,
+    "n_available": 29,
+    "population": {
+     "n": 29,
+     "hits": 16,
+     "base_rate_help": 0.48,
+     "expected_hits": 13.93,
+     "p_value": 0.2795,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.2
+   },
+   "digit_hurt": {
+    "ROBUST_V2": false,
+    "n_available": 29,
+    "population": {
+     "n": 29,
+     "hits": 13,
+     "base_rate_help": 0.48,
+     "expected_hits": 15.07,
+     "p_value": 0.8303,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   },
+   "punct_help": {
+    "ROBUST_V2": true,
+    "n_available": 63,
+    "population": {
+     "n": 63,
+     "hits": 44,
+     "base_rate_help": 0.48,
+     "expected_hits": 30.26,
+     "p_value": 0.0004,
+     "beats_base_rate": true
+    },
+    "seed_pass_frac": 0.2
+   },
+   "punct_hurt": {
+    "ROBUST_V2": false,
+    "n_available": 63,
+    "population": {
+     "n": 63,
+     "hits": 19,
+     "base_rate_help": 0.48,
+     "expected_hits": 32.74,
+     "p_value": 0.9999,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   },
+   "capitalized_help": {
+    "ROBUST_V2": false,
+    "n_available": 154,
+    "population": {
+     "n": 154,
+     "hits": 72,
+     "base_rate_help": 0.48,
+     "expected_hits": 73.97,
+     "p_value": 0.6544,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   },
+   "capitalized_hurt": {
+    "ROBUST_V2": false,
+    "n_available": 154,
+    "population": {
+     "n": 154,
+     "hits": 82,
+     "base_rate_help": 0.48,
+     "expected_hits": 80.03,
+     "p_value": 0.4067,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   },
+   "newline_help": {
+    "ROBUST_V2": false,
+    "n_available": 2,
+    "population": {
+     "n": 2,
+     "hits": 2,
+     "base_rate_help": 0.48,
+     "expected_hits": 0.96,
+     "p_value": 0.2307,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   },
+   "newline_hurt": {
+    "ROBUST_V2": false,
+    "n_available": 2,
+    "population": {
+     "n": 2,
+     "hits": 0,
+     "base_rate_help": 0.48,
+     "expected_hits": 1.04,
+     "p_value": 1.0,
+     "beats_base_rate": false
+    },
+    "seed_pass_frac": 0.0
+   }
+  },
+  "n_tests": 12
+ },
+ "certification": [
+  {
+   "test": "selectivity",
+   "bar": "concentration>=3 both halves",
+   "value": {
+    "full": 5.7,
+    "half0": 5.88,
+    "half1": 5.52
+   },
+   "verdict": "HELD",
+   "source": "CIRCUIT_SOP step1",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "input_decomp_enrichment",
+   "bar": "ENRICHED_STABLE2 (thresh_v2)",
+   "value": {
+    "a4": 1.093,
+    "a3": 1.093,
+    "a8": 1.144
+   },
+   "verdict": "FAILED (no enriched single writer any component)",
+   "source": "leaf_input_decomp.py",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "surface_program",
+   "bar": "doc-disjoint heldout bacc >> null",
+   "value": {
+    "bacc": 0.588,
+    "null": 0.58
+   },
+   "verdict": "FAILED (bacc-null margin +0.008, ~noise)",
+   "source": "CIRCUIT_SOP step3 (cl.leaf_program)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "behavioral_story_punct_hurts",
+   "bar": "ROBUST_V2 (population p<=alpha=0.10/n_tests, n_tests=12)",
+   "value": {
+    "population_hits": 44,
+    "population_n": 63,
+    "base_rate": 0.48,
+    "p_value": 0.0004,
+    "margin_pp": 21.8
+   },
+   "verdict": "HELD",
+   "source": "CIRCUIT_SOP step5 (cl.story_test_class)",
+   "date": "2026-08-20"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "SOP-v3",
+   "leaf_input_decomp.py",
+   "census_lib.leaf_program",
+   "census_lib.story_test_class"
+  ],
+  "agent": "sonnet-wave6-a",
+  "lib_rev": "7908410edc695f3d154a9dc368ef2da28460bb84",
+  "date": "2026-08-20"
+ },
+ "members": {
+  "n": 864
+ }
+}

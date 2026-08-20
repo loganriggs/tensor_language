@@ -299,6 +299,8 @@ def story_test_class(tag,d,kind,pred_help,seeds=(1,2,3,4,11),
             'ROBUST':bool(frac>=0.6 and pop['p_value']<=0.10),
             'n_tests':n_tests,
             'alpha':round(0.10/max(n_tests,1),4),
+            'margin':round(pop['hits']/max(pop['n'],1)
+                           -pop['base_rate_help'],3),
             'ROBUST_V2':bool(pop['p_value']<=0.10/max(n_tests,1)
                              and fall['n_available']>=10),
             'gate_note':'use ROBUST_V2; ROBUST v1 is underpowered'}
