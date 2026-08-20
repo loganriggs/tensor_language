@@ -101,6 +101,16 @@
    "date": "2026-08-20",
    "verdict": "PASS 3/3",
    "detail": "all 3 random examples: predicted help/hurt direction from story matched actual dCE sign (gi252742 hurt/hurt, gi205742 hurt/hurt, gi23622 help/help)"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave2",
+   "date": "2026-08-20",
+   "verdict": "CONFIRM",
+   "concentration_recheck": "reproduced exactly: 6.57 (recorded 6.57, delta 0%); n_pos=420,n_neg=444 match",
+   "story_fresh_hits": "3/5 (seed=11 general draw; no unambiguous instance of either named subclass -- time-unit members are 0.7% of the pool, list/numeric 3.5% -- so this draw could not exercise the specific claim, triggering v2 demotion (i))",
+   "class_targeted_hits": "4/5 (5 members filtered for the named classes: 3 predictable-collocation/time-unit instances all matched help [gi108182,gi203665,gi248494]; 2 list/numeric instances split 1/1 hurt-match [gi110155] and 1 clean mismatch [gi138976, help instead of hurt]); meets the >=4/5 bar required by both demotions (i) and (ii, program_bacc FAIL)",
+   "objection": "Class-targeted score (4/5) sits exactly on the pass/fail line and hides an unbalanced split: the help side (predictable collocations) was confirmed 4/4 by construction (time-unit/holiday/ordinal targets like a.m./p.m., \"All Saints Day\", \"24-hour\", \"the second\"), but the hurt side (unexpected list/numeric continuations) was only tested n=2 and scored 1/2 -- a coin flip. The one miss is a clean, direct counterexample: gi138976, context \"...winners release schedule:\nMonday, April\" -> target \" 30\", dCE=+0.70 (helped) despite being a textbook numeric date inside an explicit list/schedule, exactly the pattern the story says should hurt. Also, the general seed-11 fresh draw scored only 3/5 on the storys directional claim and contained zero unambiguous instances of either named subclass (time-unit hits are 6/864=0.7% of members, numeric-list hits 30/864=3.5%), so a random draw is structurally unlikely to test the specific claim at all -- the story is only checkable by hand-picking members, which is exactly the gerrymander risk this protocol is designed to catch. Separately, the record already carries its own FAIL (program_bacc=0.556 vs null=0.551, i.e. the surface program barely beats the null on a held-out split), so the mechanism_level=\"none\" self-label is accurate: what survives here is a same-signed correlation on a hand-picked draw, not a mechanism."
   }
  ],
  "provenance": {

@@ -10178,3 +10178,47 @@ reconstruction (patterns real), vs a row-shuffled null and the
 zeroed reference -- registered (a) generic shift collapses to the
 control floor, (b) courier function preserved, (c) shuffled
 values as bad as nothing.
+
+## 418. The courier's payload is NOT just relayed code (all bars failed)
+
+courier_content_id substituted a6.h3's values with the pure
+MLP-ladder reconstruction in the live model. All three registered
+bars FAILED, and the null is the reason: ladder values leave a
+median generic shift of 0.071 (zeroing 0.122, control floor
+0.037) -- only ~40% of the gap recovered -- while ROW-SHUFFLED
+values recover ~22% (0.095). The content increment over the null
+is real but small, and the trio's match shifts stay at 0.11-0.18
+rather than collapsing. Correction to the closing hypothesis of
+417, stated plainly: 399's "95% relay" result was about the
+TRIGGER PATTERN of one downstream head (8.4), and it does not
+generalize to a6.h3's whole downstream payload. Its broadcast is
+mixed content, not the identity code alone. payload_decomp queued
+to name the mixture exactly (writer-share decomposition of the
+head's write, with the a6.h0 control).
+
+## 419. WAVE-2 SWARM RESULT: 4 records, 4 reviews, and a standard change
+
+Four Sonnet authors and four adversarial reviewers ran the full
+loop. Gates: all four reproduced (6.45/6.57/6.67/6.84, several
+exactly; both corpus halves independently above 3). Reviews: ONE
+CONFIRM (r.11.3.1, borderline) and THREE WEAKEN (r.1.3.1,
+r.4.1.0, r.23.2.1). No REFUTE -- the machinery is real in every
+case; what failed was the STORIES:
+- r.4.1.0: "helps concrete nouns" scored 3/5 on a class-targeted
+  draw against a 48.6% base rate -- statistically indistinguishable
+  from chance; two plain concrete nouns were hurt.
+- r.1.3.1: the "clean word vs sub-word fragment" story is
+  definitionally the tokenizer's leading-space bit; the trivial
+  rule scores identically (6/10), and 2/5 on the named class.
+- r.23.2.1: the flagged counterexample was not isolated -- a
+  second clean case suggests continuation-of-a-started-name, a
+  different mechanism than the claimed generic-vs-proper-noun.
+Consequence (SOP v3, shipped): the swarm's deliverable is now the
+MECHANISM step -- leaf_input_decomp.py decomposes the residual
+entering each machinery component into exact writer contributions,
+member vs off-slice, with ENRICHED/BEATS_NULL bars and an honest
+negative branch. Behavioral stories are optional and must clear
+cl.story_test's base-rate binomial on a mechanically filtered
+class draw (cl.examples_filtered) -- both helpers added because
+all three WEAKEN reviewers independently hand-built class draws
+and flagged the variance. Wave 3 launched on the new deliverable.

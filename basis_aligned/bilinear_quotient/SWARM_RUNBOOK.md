@@ -45,17 +45,21 @@ wave pushed, no wave depending on the driver's memory of the last one.
   that passes disqualifies the headline even when bars held (412).
 - Corrections stated plainly, propagated to the published report.
 - Workers NEVER git commit/push (concurrent-writer sweep hazard).
-- INFRA FREEZE during waves: never edit census_lib/SOP while worker
-  agents are in flight -- a mid-wave edit changed leaf_program's
-  numbers between one agent's two calls and read as nondeterminism.
-  Queue infra fixes; apply between waves.
+- INFRA FREEZE during waves: no BEHAVIOR-CHANGING edit to
+  census_lib/SOP while workers are in flight -- a mid-wave edit
+  changed leaf_program's numbers between one agent's two calls and
+  read as nondeterminism. Purely ADDITIVE helpers (new functions,
+  new scripts) are allowed mid-wave; anything that alters an
+  existing function's output waits for the gap between waves.
 
 ## 3. Author prompt template (fill TAG; keep lean)
 > You are a swarm circuit agent for the bilin18 interpretability
 > program. Work directory: /workspace/tensor_language/basis_aligned/
 > bilinear_quotient. Your assignment: produce one merged circuit record
 > for leaf tag "TAG" on the DIVERSE census tree. Read CIRCUIT_SOP.md
-> (v2) and follow it exactly, in order. Setup lines are mandatory
+> (v3 -- the MECHANISM step 3M is the deliverable; behavioral
+> stories need cl.story_test base-rate clearance) and follow it
+> exactly, in order. Setup lines are mandatory
 > (`source /venv/main/bin/activate`; `import census_lib as cl;
 > cl.use_state(cl.PT+'census_state_diverse.pt')`). If your tag has a
 > pack, verify concentration reproduces (only concentration — pack

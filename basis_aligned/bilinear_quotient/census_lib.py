@@ -228,6 +228,64 @@ def sign_stats(tag,d):
             'base_ce_frac_lt3':round(float((base_ce()[mem]<3).float()
                                            .mean()),3)}
 
+def examples_filtered(tag,d,kind,n=5,seed=11):
+    """Mechanical class-filtered member draw (2026-08-20, from
+    wave-2 reviewer friction: hand-built class draws varied by
+    reviewer). kind: 'subword' (target has no leading space and is
+    alphabetic), 'space_word', 'digit', 'punct', 'capitalized'
+    (leading space + uppercase initial), 'newline'. Returns the
+    same shape as examples()['rand']: seeded random draw over
+    matching members, never outcome-ordered."""
+    lf=leaf(tag); mem=lf['member']; R=rows()
+    def match(t):
+        s=d1(int(t)); st=s.strip()
+        if kind=='subword': return (not s.startswith(' ')) and st.isalpha()
+        if kind=='space_word': return s.startswith(' ') and st.isalpha()
+        if kind=='digit': return st.isdigit()
+        if kind=='punct': return bool(st) and not any(
+            c.isalnum() for c in st)
+        if kind=='capitalized': return s.startswith(' ') and \
+            bool(st) and st[:1].isupper()
+        if kind=='newline': return chr(10) in s
+        raise ValueError(f'unknown kind {kind}')
+    hits=[]
+    for gi in mem.tolist():
+        r_,p_=gi//256,gi%256
+        if match(R[r_,p_+1]): hits.append(gi)
+    if not hits: return {'kind':kind,'n_available':0,'draw':[]}
+    g=torch.Generator().manual_seed(seed)
+    pick=[hits[i] for i in torch.randperm(len(hits),
+          generator=g)[:n].tolist()]
+    out=[]
+    for gi in pick:
+        pre,tgt,_=context(gi)
+        out.append({'gi':gi,'context':pre[-70:],'target':tgt,
+                    'dce':round(float(d[gi]),2)})
+    return {'kind':kind,'n_available':len(hits),'draw':out}
+
+def story_test(tag,d,gis,pred_help):
+    """Base-rate significance for a behavioral story (2026-08-20,
+    from the wave-2 base-rate objection: two-signed leaves give
+    ~50% hits by chance). gis: member indices scored; pred_help:
+    list of bools (story predicts CE DOWN at that position).
+    Returns hits, base-rate expectation, and a binomial tail
+    p-value (Poisson-binomial approximated at the mean rate)."""
+    from math import comb
+    mem=leaf(tag)['member']
+    p_help=float((d[mem]<0).float().mean())
+    hits=0; exp=0.0
+    for gi,ph in zip(gis,pred_help):
+        act=float(d[int(gi)])<0
+        hits+=int(act==bool(ph))
+        exp+=p_help if ph else (1-p_help)
+    n=len(gis); pbar=exp/max(n,1)
+    pval=sum(comb(n,k)*pbar**k*(1-pbar)**(n-k)
+             for k in range(hits,n+1)) if n else 1.0
+    return {'n':n,'hits':hits,'base_rate_help':round(p_help,3),
+            'expected_hits':round(exp,2),
+            'p_value':round(float(pval),4),
+            'beats_base_rate':bool(pval<=0.10)}
+
 def sign_stats_half(tag,d,lo,hi):
     """v2 identity gate helper: sign_stats restricted to member/
     off-slice positions whose row is in [lo,hi). Additive

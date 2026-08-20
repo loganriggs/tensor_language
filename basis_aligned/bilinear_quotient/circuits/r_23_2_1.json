@@ -149,6 +149,16 @@
    "verdict": "HELD",
    "source": "sonnet-wave2-c step5",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave2",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": 6.84,
+   "story_fresh_hits": "2/5",
+   "class_targeted_hits": "3/5",
+   "objection": "Gate reproduces exactly (6.84) but both halves of the story fail under fresh draws. (a) Unbiased fresh draw (seed=11, ntop=0/nrand=5) landed 5 generic common-word targets (now, long, newline, holding, wedding) with ZERO proper-noun targets -- i.e. it never exercised the named proper-noun-suppression claim at all -- and even on its own home turf (generic words) the story only hit 2/5: now(-0.87) and long(-0.63) got NEGATIVE dce (hurt) despite being generic completions, contradicting the \"favors generic\" half outright. (b) A follow-up class-targeted draw of 5 clear proper-noun/brand member targets (Jim -0.79 hit, Jerry +0.47 miss, Malaysia -0.60 hit, Alexandra -0.76 hit, Forbes +0.78 miss) scored 3/5 (60%), below the 4/5 CONFIRM bar; a second independent class-targeted set (swap Alexandra/Forbes for Sand -0.52 hit, Sof +0.85 miss) also landed 3/5, so this is a stable ~60% ceiling, not a fluke of one draw. Strongest objection: the record's own flagged counterexample (Hungaroring, place-name suffix, dce=+2.51, helps) is not a rare exception -- I found a second clean instance of the same pattern (gi=9844, \"Aia\" -> \"Sof\" continuing Hagia Sofia, dce=+0.85, helps) among only 7 proper-noun members inspected. That suggests the real driver may be local predictability/n-gram continuation of an already-started multi-token name (low genuine surprise regardless of proper-noun status) rather than a semantic generic-vs-proper-noun distinction -- a different, more mechanistic variable the story does not name. Also: \"favors generic, suppresses proper-noun\" is a very low-specificity split (proper nouns are near-universally higher next-token entropy than common words in any LM), so this story shape could plausibly be fit post-hoc to many unrelated high-loss leaves -- consistent with the leaf's own FAILED program_bacc (0.517 vs 0.75 bar, barely above null 0.541)."
   }
  ],
  "provenance": {

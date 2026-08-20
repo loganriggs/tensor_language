@@ -1,5 +1,6 @@
 # Circuit SOP -- step-by-step procedure for one circuit (swarm-runnable)
-# v2 (2026-08-20): DIVERSE TREE + MECHANISM-FIRST. Supersedes v1.
+# v3 (2026-08-20): MECHANISM IS THE DELIVERABLE (step 3M);
+# behavioral stories need base-rate testing. Supersedes v1/v2.
 
 Written for a FRESH stateless agent (Sonnet/Opus class) holding only this
 file + census_lib. The procedure is verification-driven: every judgment an
@@ -74,7 +75,25 @@ locally selective; do not write a story for it.
     exs = cl.examples(tag, d)              # mechanical: top-3 + 3 random
 Record verbatim. NEVER swap examples for prettier ones.
 
-## Step 3 -- program (CPU, ~15s) [DEMOTED 2026-08-20]
+## Step 3M -- MECHANISM (GPU, ~5s) [THE DELIVERABLE, SOP v3]
+    python leaf_input_decomp.py <tag>      # writes leaf_mech/<tag>.json
+Decomposes the residual entering each of your leaf's machinery
+components into exact writer contributions, member vs off-slice.
+Record, verbatim, per component: the top writers with their
+member/off-slice ratio and the ENRICHED / BEATS_NULL verdicts.
+Two honest outcomes, both publishable:
+  ENRICHED true  -> mechanism lead: "this machinery acts where
+                    writer X's contribution to C's input is
+                    enriched (ratio r, null n)".
+  ENRICHED false -> "input writer composition does NOT distinguish
+                    members (top ratio r)" -- a real negative that
+                    tells the next agent to look downstream.
+Escalate only if ENRICHED: for an attention component, copy
+qk_writer_decomp.py's pattern to name what its score compares; for
+an MLP, check whether the enriched writer is m0 (the universal
+identity code, 411/415).
+
+## Step 3 -- surface program (CPU, ~15s) [DEMOTED; context only]
     p = cl.leaf_program(tag)               # heldout + null
 On the diverse tree use docid-parity splits (rows of one document are
 adjacent; row parity leaks -- see sop_program_batch.py for the pattern).
@@ -83,18 +102,29 @@ mechanism grade: surface programs passed only 1/72 on the diverse tree,
 and per the user standard they are description, not mechanism. Do not
 stop here on a FAIL; the mechanism steps below are the actual work.
 
-## Step 4 -- story, written blind-ish
-Look ONLY at exs + s (not at other circuits' stories). Write <=25 words:
-what the members have in common + what the machinery pushes. If s shows a
+## Step 4 -- claims, written blind-ish
+Look ONLY at exs + s + your step-3M table. Write TWO lines:
+  MECHANISM (required): <=25 words naming components and writers
+    from step 3M with their numbers. This is the record.
+  BEHAVIOR (optional): <=25 words on what members share and what
+    the machinery pushes. WAVE-2 EVIDENCE (414/420): behavioral
+    stories on these leaves usually reduce to the leaf's base rate
+    or to one tokenizer bit, and three of four were WEAKENed by
+    review. Write one only if step 5 clears its bar; otherwise
+    record "no behavioral claim survives base-rate testing". If s shows a
 two-signed split (minority_share >= 0.15), the story MUST say what the
 push is and where it is wrong -- "helps X" alone is incomplete.
 
-## Step 5 -- red-team your own story (CPU)
-Take the 3 RANDOM examples. For each, test the story's CAUSAL claim:
-given the example's context and dCE sign, does the story correctly
-predict whether the machinery helps or hurts there? (All examples are
-members by construction -- membership itself is not the test.)
-Count hits. <=1/3 -> mark story 'weak', keep it, flag for revision.
+## Step 5 -- red-team your own behavioral claim (CPU) [v3 bars]
+Mechanical, no judgment calls (wave-2 reviewers hand-built class
+draws and varied):
+    f = cl.examples_filtered(tag, d, kind, n=5)   # kind: subword,
+        # space_word, digit, punct, capitalized, newline
+    cl.story_test(tag, d, [x['gi'] for x in f['draw']], preds)
+A behavioral claim is KEPT only if story_test['beats_base_rate']
+is true on the class it names (these leaves are ~50/50 two-signed,
+so raw hit counts prove nothing). Otherwise record the numbers and
+write "no behavioral claim survives base-rate testing".
 
 ## Step 6 -- merge
     cl.write_circuit(tag, {'causal': s, 'examples': exs,

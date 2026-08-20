@@ -128,6 +128,16 @@
    "verdict": "HELD",
    "source": "SOP-v2 step5 manual red-team",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave2",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": 6.67,
+   "story_fresh_hits": "4/5",
+   "class_targeted_hits": "2/5",
+   "objection": "Gate reproduces exactly (concentration 6.67, 0% deviation). Initial fresh draw (seed=11, nrand=5) scored 4/5 on the story sign prediction but was skewed 4-clean/1-fragment, so the specific fragment-hurts claim was barely exercised. A class-targeted redraw of 5 members whose target token has no leading space (sub-word fragments: 'J', 'ound', 'PA', accented 'a', 'al') scored only 2/5 -- below the >=4/5 bar required because program_bacc (0.609) already failed its own 0.75 bar. Combined 6/10 (60%). Strongest objection: the story's dichotomy (clean word/name vs garbled/sub-word fragment) is not an independent semantic finding -- it is definitionally the same bit as the tokenizer's starts_space feature (the record's own program is class_subword AND NOT is_newline, and class_subword in circuit_dictionary.classify is literally 'not tg.startswith(space) and s.isalpha()'). Scoring the trivial rule 'starts_space predicts help' against the same 10 examples gives the identical 6/10, since the story's help/hurt calls were assigned by that same boundary. So even granting the story its own framing, the underlying trivial tokenizer rule only holds 60% of the time on fresh draws and drops to 40% on the class it specifically names (fragments) -- this reads as a narrative wrapped around a near-coin-flip tokenizer heuristic, not a validated mechanism (the record's own mechanism_level is already 'none')."
   }
  ],
  "provenance": {

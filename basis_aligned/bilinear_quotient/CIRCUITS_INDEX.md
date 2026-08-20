@@ -5,10 +5,10 @@
 | tag | tree | conc | prog bacc | story | flag | reviewer | agents |
 |---|---|---|---|---|---|---|---|
 | r.0.3.0 | diverse | 6.61 | 0.566 | Members are rare/proper-noun-like continuation tokens (numbe | weak | CONFIRM | SOP-v2-diverse,SOP-v2-diverse (full 1000 |
-| r.1.3.1 | diverse | 6.67 | 0.609 | Members split near-evenly: pushes CE down for clean word/nam |  |  | SOP-v2 identity-rule check, manual half- |
-| r.11.3.1 | diverse | 6.57 | 0.556 | templated-completion vs list/numeric-break selector |  |  | sonnet-wave2-b |
-| r.23.2.1 | diverse | 6.84 | 0.517 | generic-vs-proper-noun completion push |  |  | sonnet-wave2-c,sonnet-wave2-c leaf_ablat |
-| r.4.1.0 | diverse | 6.45 | 0.567 | Two-signed circuit: hurts predictable words (said, tying, op |  |  | SOP-v2-diverse,SOP-v2-diverse (full 1000 |
+| r.11.3.1 | diverse | 6.57 | 0.556 | templated-completion vs list/numeric-break selector |  | CONFIRM | sonnet-reviewer-wave2,sonnet-wave2-b |
+| r.1.3.1 | diverse | 6.67 | 0.609 | Members split near-evenly: pushes CE down for clean word/nam |  | WEAKEN | SOP-v2 identity-rule check, manual half- |
+| r.23.2.1 | diverse | 6.84 | 0.517 | generic-vs-proper-noun completion push |  | WEAKEN | sonnet-reviewer-wave2,sonnet-wave2-c,son |
+| r.4.1.0 | diverse | 6.45 | 0.567 | Two-signed circuit: hurts predictable words (said, tying, op |  | WEAKEN | SOP-v2-diverse,SOP-v2-diverse (full 1000 |
 | ind_band | old |  |  | induction band: top-4 coincidence reads |  |  | induction_residual,mech_replicate,sparse |
 | r.0.0 | old | 2.72 |  |  |  |  | explainer_batch |
 | r.0.0.0 | old | 7.21 | 0.744 |  |  |  | explainer_batch |

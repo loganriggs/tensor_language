@@ -943,6 +943,16 @@
    "verdict": "HELD",
    "source": "SOP-v2-diverse",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave2",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": 6.45,
+   "story_fresh_hits": "1/5",
+   "class_targeted_hits": "3/5",
+   "objection": "Gate reproduces exactly (concentration=6.45, exact match). But the story claim (\"helps concrete nouns / hurts predictable-function-number words\") is weakly falsifiable and, when tested, is close to indistinguishable from chance. Fresh seed-11 draw (nrand=5): only 1/5 (knight, dce=+0.24) is an unambiguous match; Turner (a concrete proper-noun referent, dce=-0.87) directly contradicts the \"helps concrete nouns\" claim; Super/Arts/focusing do not clearly belong to either named class, so the specific claim was NOT clearly exercised, triggering the v2 demotion. Class-targeted draw (first 5 unambiguous concrete common nouns in stored member order: missionaries -2.392 HURT, truck +2.310 HELP, lodge -1.153 HURT, physicians +1.710 HELP, medications +1.441 HELP) scores only 3/5, below the required >=4/5, and program_bacc already FAILED its bar (0.567<0.75), so CONFIRM is unavailable under rule (ii) as well. STRONGEST OBJECTION: the member set is almost perfectly split (n_pos=420/864=48.6%, n_neg=444/864=51.4%, minority_share=0.486), so a coin flip gets ~50% on any subclass by construction. The class-targeted concrete-noun hit rate (3/5=60%) is not distinguishable from that base rate on this sample size, and two clear counter-examples (missionaries, lodge -- both concrete, both hurt) show the rule fails on ordinary concrete nouns, not just edge cases. \"Helps concrete nouns\" reads as a post-hoc relabeling of the positive-dCE half rather than a mechanism that predicts held-out cases better than chance. Gate holds so this is not a REFUTE, but the story component should not be trusted beyond \"this leaf has a bimodal, roughly-balanced causal effect, sign not reliably predicted by noun concreteness.\""
   }
  ],
  "examples": {
