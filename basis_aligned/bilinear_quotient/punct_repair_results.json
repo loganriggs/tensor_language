@@ -1,0 +1,58 @@
+{
+ "results": {
+  "baseline": {
+   "punct": 1.752,
+   "nonpunct": 3.5937
+  },
+  "repair": {
+   "0.05": {
+    "dce_punct": 0.0573,
+    "dce_nonpunct": 0.0026,
+    "dce_all": 0.0104
+   },
+   "0.1": {
+    "dce_punct": 0.1304,
+    "dce_nonpunct": 0.0276,
+    "dce_all": 0.0423
+   },
+   "0.2": {
+    "dce_punct": 0.3452,
+    "dce_nonpunct": 0.1749,
+    "dce_all": 0.1992
+   },
+   "0.4": {
+    "dce_punct": 1.3427,
+    "dce_nonpunct": 1.2017,
+    "dce_all": 1.2218
+   }
+  },
+  "random": {
+   "0.05": {
+    "dce_punct": 0.0089,
+    "dce_nonpunct": 0.0058,
+    "dce_all": 0.0062
+   },
+   "0.1": {
+    "dce_punct": 0.0218,
+    "dce_nonpunct": 0.0281,
+    "dce_all": 0.0272
+   },
+   "0.2": {
+    "dce_punct": 0.0588,
+    "dce_nonpunct": 0.1412,
+    "dce_all": 0.1294
+   },
+   "0.4": {
+    "dce_punct": 0.2985,
+    "dce_nonpunct": 1.0893,
+    "dce_all": 0.9763
+   }
+  }
+ },
+ "best_scale": "0.05",
+ "fitted_on_sites": 45,
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": true,
+ "runtime_s": 104.22363448143005
+}

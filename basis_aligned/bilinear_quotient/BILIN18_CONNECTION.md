@@ -11441,3 +11441,44 @@ position on FRESH FineWeb rows, and see whether the model gets
 BETTER. Registered: (a) CE falls at the best scale, (b) the gain
 concentrates at punctuation by >= 3x, (c) a random direction of
 the same norm at the same scales does not help.
+
+## 460. The repair FAILS -- and the failure says what kind of thing the bias is
+
+punct_repair fitted the over-continuation direction on census
+sites (the five helping components' mean write at helped
+punctuation positions minus their mean write elsewhere, norm
+1357) and subtracted scaled multiples of it from the residual at
+every position on 48 FRESH FineWeb rows:
+  scale   repair: dCE punct / non-punct    random: punct / non-punct
+  0.05      +0.057  /  +0.003               +0.009 / +0.006
+  0.10      +0.130  /  +0.028               +0.022 / +0.028
+  0.20      +0.345  /  +0.175               +0.059 / +0.141
+  0.40      +1.343  /  +1.202               +0.299 / +1.089
+(a) FAILED at every scale -- the correction makes the model WORSE,
+never better. (b) FAILED. (c) HELD (the random control also
+hurts).
+The informative part is the comparison, not the failure: at the
+smallest scale the fitted direction hurts punctuation SIX TIMES
+more than a random direction of the same norm (+0.057 against
++0.009). Subtracting what those components write at boundary
+positions does not remove a bias -- it removes signal they are
+also carrying, and it removes it precisely where it matters most.
+WHAT THIS SETTLES: the over-continuation bias is NOT a fixed
+additive vector. That is a real constraint, and it separates this
+deficiency sharply from the layer-5 sink constant, which IS a
+fixed vector and can be replaced by one for free (435). This
+model contains both kinds of bias -- one constant and removable,
+one input-dependent and not -- and the same experimental move
+(subtract the mean direction) succeeds on one and fails on the
+other. 447's accounting problem was the first hint that these
+components' contributions are not additive; this is the second,
+from the opposite direction.
+punct_oracle_ceiling queued to measure headroom rather than guess
+another fix: mean-ablate the five components ONLY at positions
+whose true next token is punctuation (an oracle upper bound on
+what any detector could buy), and compare against the same gate
+driven by a purely CAUSAL cue available at inference. Registered:
+(a) the oracle lowers CE, (b) its gain at punctuation is >= 0.05
+nats, (c) the causal proxy captures >= 30% of it -- and if not,
+the honest finding is that the deficiency is real but not cheaply
+fixable.

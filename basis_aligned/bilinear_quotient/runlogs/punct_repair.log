@@ -1,1 +1,15 @@
 over-continuation direction fitted on 45 sites (norm 1357.5)
+baseline: punct 1.7520 nonpunct 3.5937
+repair scale 0.05: punct +0.0573 nonpunct +0.0026
+repair scale 0.1: punct +0.1304 nonpunct +0.0276
+repair scale 0.2: punct +0.3452 nonpunct +0.1749
+repair scale 0.4: punct +1.3427 nonpunct +1.2017
+random scale 0.05: punct +0.0089 nonpunct +0.0058
+random scale 0.1: punct +0.0218 nonpunct +0.0281
+random scale 0.2: punct +0.0588 nonpunct +0.1412
+random scale 0.4: punct +0.2985 nonpunct +1.0893
+best repair scale 0.05: {'dce_punct': 0.0573, 'dce_nonpunct': 0.0026, 'dce_all': 0.0104}
+(a) repair lowers CE on fresh rows: FAILED
+(b) improvement concentrates at punctuation: FAILED
+(c) random direction does not help: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/punct_repair_results.json (104s)
