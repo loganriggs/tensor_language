@@ -16232,3 +16232,50 @@ the structural-attention thread is at a natural stop -- three
 verified circuits, one solid general mechanism, one honestly
 negative predictive claim -- and further head-by-head drilling has
 hit clear diminishing returns.
+
+## 567. Protocol fix validated -- 566's sentence_end ratio was an
+## artifact, and the structural-attention thread concludes
+
+modality_verified ran the corrected protocol -- destination first,
+modality only on a verified target -- on head 10.5.
+  PHASE 1 destination at sentence-end targets:
+    recent_se  +0.0146  (control +0.0142)   NOT enriched
+    prev       +0.0977  (control +0.1495)   generic, lower at targets
+    self       +0.1217  (control +0.1591)   generic
+    recent_nl  +0.0068  (control +0.0069)   not enriched
+(a) FAILED, and this is the point: the head does NOT attend to
+prior sentence-enders -- recent_se is 0.0146 at targets against
+0.0142 at control, no enrichment. So 566's positional ratio of
+4.64 was measuring discrimination against a referent the head does
+not use: an ARTIFACT. RETRACTED.
+(b) UNEVALUABLE, reported as such by the protocol instead of a
+spurious number. The fix works: building the destination check
+into the modality test stops the unverified-target error at the
+code level, exactly what 566 said was needed.
+So the honest close of the structural-attention thread:
+  * MECHANISM (solid): both structural heads worked out in full --
+    bracket and newline -- and the quote head are fixed-query
+    double-QK soft-ANDs. The query is approximately constant; the
+    double-QK product gates selectivity multiplicatively; token
+    identity picks the class and rotary discriminates a specific
+    referent when one is needed. Three heads, exact tools, complete.
+  * MODALITY (descriptive, not predictive): of the three verified
+    heads, brackets and quotes are positional (need a specific
+    referent -- the matching opener; the last quote for parity),
+    newlines are token detection (any recent newline). I CANNOT
+    reliably predict which from the task (0/3 in 566), and casual
+    referent-guessing produces artifacts (sentence_end here).
+  * TRACE (negative, exact): the bracket selection subspace is
+    compact and private but written diffusely and generically, so
+    there is no sparse upstream circuit to trace to the embedding
+    (555-558). The reusability search was negative -- selection
+    subspaces are mostly private (556, 557).
+This is a genuinely deep, corrected account of how this model does
+structural attention, with its limits stated. Further head-by-head
+drilling has saturated. The next experiment moves to a
+GENUINELY DIFFERENT head type -- induction, the program's other
+flagship -- to test whether the fixed-query double-QK account
+extends to content-matching (find where this token appeared
+before), which is neither positional nor simple token detection.
+induction_and is queued, and per the lesson just re-learned it
+verifies the head's attention target BEFORE testing the mechanism.

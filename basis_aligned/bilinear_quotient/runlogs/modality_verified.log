@@ -1,0 +1,12 @@
+2788 sentence-end targets
+
+PHASE 1 destination at sentence-end targets:
+    recent_se: +0.0146 (control +0.0142)
+    recent_nl: +0.0068 (control +0.0069)
+         prev: +0.0977 (control +0.1495)
+         self: +0.1217 (control +0.1591)
+        other: +0.0142 (control +0.0105)
+
+(a) target verified (recent_se +0.0146 >= 2x control +0.0142): FAILED (566 ratio RETRACTED, modality UNEVALUABLE)
+(b) modality UNEVALUABLE (target not verified)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/modality_verified_results.json (41s)
