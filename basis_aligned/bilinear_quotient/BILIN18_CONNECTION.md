@@ -18023,3 +18023,50 @@ slope) applied to both a known-correct cluster (article) and a
 reversed one (newline); if the article stays correct-signed and the
 newline stays reversed under a method that does not transplant
 activations, the reversal is a real property, not a patching artifact.
+
+## 603. Write-scaling is UNDERPOWERED (fails its own positive
+## control) -- the cluster reversal remains a patching-established
+## fact with unresolved mechanism, not independently confirmed
+
+Attempted to disambiguate 602's reversal with a second causal method:
+scale each cluster's own write into the residual (0x remove / 1x real
+/ 2x double) at the positions where it fires, and read the margin-vs-
+scale slope -- a method that amplifies the cluster's OWN write rather
+than transplanting another context's activation.
+  (0) HELD: both clusters reproduced; scale=1 reproduces the true
+      margin to 1e-7 (machinery exact).
+  (a) FAILED -- and this failure invalidates the whole run as a test
+      of the reversal: the ARTICLE cluster, KNOWN correct-signed under
+      patching (592/586), shows a margin-vs-scale slope of -0.00012 --
+      flat, if anything slightly negative. Amplifying the article
+      cluster's write does NOT measurably push toward a/an at its own
+      positive positions. The margins across scales 0/1/2 are 0.15813,
+      0.15808, 0.15789 -- a total spread of 0.0002, at the noise floor.
+  (b) the newline slope is -0.00008, also flat/negative -- but since
+      the positive control (a) failed, this cannot be read as
+      "reversal confirmed"; the method simply cannot resolve a sign at
+      this magnitude for EITHER cluster.
+  NULL: CHECK -- random-unit slopes (article -0.00002, newline
+      +0.00009) are comparable to the real clusters' slopes, exactly
+      what an underpowered method looks like.
+DIAGNOSIS: measuring at a cluster's OWN positive positions (where the
+margin already favors its class, ~0.15-0.27) is the wrong design --
+the softmax is near-saturated there and the cluster's marginal
+contribution is tiny and noise-dominated, unlike 592's sensitive
+cross-context design (patch a source into an OPPOSITE-class target,
+where the margin has room to move). The write-scaling numbers are
+real but far below what this method can resolve. HONEST CONCLUSION:
+this experiment does not confirm or refute the reversal -- it shows
+the method is underpowered, flagged because the script's auto-printed
+"REVERSAL CONFIRMED" line is NOT trustworthy when the positive control
+fails. The newline/aux-contraction reversal remains established by
+PATCHING alone (602/593, a sensitive cross-context method that gives
+correct signs for the article clusters and reversed signs for these),
+with its mechanism (inhibitory read, readout-not-driver, or summed-
+activation/write sign mismatch) still open. Three methods have now
+touched it -- patching (real, reversed), weight diagnostic (594,
+ambiguous), write-scaling (underpowered) -- and the honest state is:
+the reversal is a real, specific, patching-confirmed property, and
+its mechanism is not resolved by margin-based interventions. Recorded
+as a documented open property rather than chased further with the
+same family of tools.
