@@ -1,0 +1,116 @@
+{
+ "schema_version": 1,
+ "tag": "r.11.3.1",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "causal": {
+  "abs_dce_members": 0.55,
+  "abs_dce_offslice": 0.084,
+  "concentration": 6.57,
+  "dce_members": 0.052,
+  "dce_pos": -0.51,
+  "dce_neg": 0.584,
+  "n_pos": 420,
+  "n_neg": 444,
+  "minority_share": 0.486,
+  "base_ce_member_mean": 5.678,
+  "base_ce_frac_lt3": 0.183
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 147630,
+    "context": " 4 with Caulker and Muric and it seems tighter and",
+    "target": " Does",
+    "base_ce": 13.96,
+    "dce": -2.8
+   },
+   {
+    "gi": 40900,
+    "context": "30 wake up and take systemic enzyme\n5-5.30",
+    "target": "pm",
+    "base_ce": 3.84,
+    "dce": 1.88
+   },
+   {
+    "gi": 169139,
+    "context": " face and affect how much capital they need.\nOr it can",
+    "target": " overest",
+    "base_ce": 6.8,
+    "dce": 1.22
+   }
+  ],
+  "random": [
+   {
+    "gi": 252742,
+    "context": " with its skin on, such as this red snapper, whole",
+    "target": " squid",
+    "base_ce": 7.97,
+    "dce": -0.54
+   },
+   {
+    "gi": 205742,
+    "context": " species of ferns (more than the whole of Africa's",
+    "target": " 500",
+    "base_ce": 8.44,
+    "dce": -0.3
+   },
+   {
+    "gi": 23622,
+    "context": "\nUCU and Unison members at Lambeth College are fighting",
+    "target": " plans",
+    "base_ce": 6.97,
+    "dce": 0.44
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "story": {
+  "blind_name": "templated-completion vs list/numeric-break selector",
+  "text": "Machinery detects atypical token transitions; pushes toward templated completions -- helps predictable collocations (time units, common verb-noun pairs) but actively hurts unexpected list/numeric continuations.",
+  "program": [
+   [
+    "NOT class_other",
+    "NOT is_newline"
+   ]
+  ],
+  "program_bacc": 0.556,
+  "program_null": 0.551,
+  "mechanism_level": "none"
+ },
+ "certification": [
+  {
+   "test": "concentration_gate",
+   "source": "sonnet-wave2-b",
+   "date": "2026-08-20",
+   "verdict": "PASS",
+   "detail": "concentration=6.57 (pack subsample recorded 6.59, reproduced within 0.02); n_pos=420,n_neg=444 on full 1000-row grid vs pack n_pos=41,n_neg=53 on 60-row subsample (expected per SOP pack caveat)"
+  },
+  {
+   "test": "surface_program_docid_split",
+   "source": "sonnet-wave2-b",
+   "date": "2026-08-20",
+   "verdict": "FAIL",
+   "detail": "bacc=0.556 (<0.75 gate), null=0.551; docid-parity split per sop_program_batch.py pattern (row-parity leaks on diverse tree); program is surface-level description only, not mechanism"
+  },
+  {
+   "test": "redteam_story_causal_sign",
+   "source": "sonnet-wave2-b",
+   "date": "2026-08-20",
+   "verdict": "PASS 3/3",
+   "detail": "all 3 random examples: predicted help/hurt direction from story matched actual dCE sign (gi252742 hurt/hurt, gi205742 hurt/hurt, gi23622 help/help)"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "SOP-v2"
+  ],
+  "agent": "sonnet-wave2-b",
+  "lib_rev": "b74c9fbc4264b4ed7cf77399f926e7b24cce7be6"
+ },
+ "members": {
+  "n": 864
+ }
+}

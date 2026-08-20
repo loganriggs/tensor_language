@@ -1,0 +1,143 @@
+{
+ "schema_version": 1,
+ "tag": "r.1.3.1",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "causal": {
+  "abs_dce_members": 0.343,
+  "abs_dce_offslice": 0.051,
+  "concentration": 6.67,
+  "dce_members": 0.02,
+  "dce_pos": -0.328,
+  "dce_neg": 0.356,
+  "n_pos": 424,
+  "n_neg": 440,
+  "minority_share": 0.491,
+  "base_ce_member_mean": 5.98,
+  "base_ce_frac_lt3": 0.182
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 241076,
+    "context": "\nWe have developed an interactive map driven website. Often enough,",
+    "target": " cooperate",
+    "base_ce": 17.81,
+    "dce": -0.87
+   },
+   {
+    "gi": 95433,
+    "context": " first stint with the Marlins from 2003-05, even pulling Billy",
+    "target": " Koch",
+    "base_ce": 10.0,
+    "dce": -0.77
+   },
+   {
+    "gi": 59761,
+    "context": "z, gave away seats from \u201cThe Madhouse on Madison",
+    "target": "\ufffd",
+    "base_ce": 2.55,
+    "dce": 0.65
+   }
+  ],
+  "random": [
+   {
+    "gi": 144390,
+    "context": "Colombia Hostage Rescue End",
+    "target": "angers",
+    "base_ce": 3.56,
+    "dce": 0.3
+   },
+   {
+    "gi": 179775,
+    "context": " such a s memory full,H.S hangs,apll",
+    "target": "ication",
+    "base_ce": 4.19,
+    "dce": 0.28
+   },
+   {
+    "gi": 22781,
+    "context": " But God said unto him, Thou fool, this night thy soul",
+    "target": " shall",
+    "base_ce": 1.16,
+    "dce": -0.3
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "story": {
+  "blind_name": "Members split near-evenly: pushes CE down for clean word/name completions (cooperate, Koch, shall); pushes CE up for garbled/sub-word fragments (mojibake, angers, ication).",
+  "program": [
+   [
+    "class_subword",
+    "NOT is_newline"
+   ]
+  ],
+  "program_bacc": 0.609,
+  "program_null": 0.47,
+  "mechanism_level": "none"
+ },
+ "certification": [
+  {
+   "test": "|dCE| concentration >=3x corpus (full grid)",
+   "bar": ">=3",
+   "value": 6.67,
+   "verdict": "HELD",
+   "source": "SOP-v2 step1 leaf_ablate+sign_stats",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "concentration replicated on both corpus halves (identity rule v2)",
+   "bar": ">=3 on rows 0-499 AND rows 500-999 independently",
+   "value": {
+    "half1_rows0_499": 6.67,
+    "half2_rows500_999": 6.67
+   },
+   "verdict": "HELD",
+   "source": "SOP-v2 identity-rule check, manual half-split of leaf_ablate dCE",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "pack concentration reproduction",
+   "bar": "within ~0.1 of pack value (pack is a 60-row subsample)",
+   "value": {
+    "pack": 6.67,
+    "full_grid_rerun": 6.67
+   },
+   "verdict": "HELD (exact match)",
+   "source": "sop_packs_certified.json vs full-grid rerun",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "program heldout bacc>=0.75 and null<=0.6",
+   "bar": "bacc>=0.75, null<=0.6",
+   "value": {
+    "bacc": 0.609,
+    "null": 0.47
+   },
+   "verdict": "FAILED",
+   "source": "SOP-v2 step3 leaf_program (docid-parity split)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "story red-team on 3 random examples (causal-direction reading)",
+   "bar": ">1/3 hits (else weak)",
+   "value": "3/3",
+   "verdict": "HELD",
+   "source": "SOP-v2 step5 manual red-team",
+   "date": "2026-08-20"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "SOP-v2"
+  ],
+  "agent": "sonnet-wave2-a",
+  "lib_rev": "b74c9fbc4264b4ed7cf77399f926e7b24cce7be6"
+ },
+ "members": {
+  "n": 864
+ }
+}

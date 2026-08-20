@@ -228,6 +228,23 @@ def sign_stats(tag,d):
             'base_ce_frac_lt3':round(float((base_ce()[mem]<3).float()
                                            .mean()),3)}
 
+def sign_stats_half(tag,d,lo,hi):
+    """v2 identity gate helper: sign_stats restricted to member/
+    off-slice positions whose row is in [lo,hi). Additive
+    (2026-08-20, per wave-2 friction)."""
+    lf=leaf(tag); mem=lf['member']; sl=lf['slice']
+    NF=nflat()
+    rowof=lambda idx: idx//256
+    mm=torch.zeros(NF,dtype=torch.bool); mm[mem]=True
+    slm=torch.zeros(NF,dtype=torch.bool); slm[sl]=True
+    rows_=torch.arange(NF)//256
+    band=(rows_>=lo)&(rows_<hi)
+    am=float(d[mm&band].abs().mean())
+    ag=float(d[(~slm)&band].abs().mean())
+    return {'concentration':round(am/max(ag,1e-4),2),
+            'abs_dce_members':round(am,3),
+            'n_members':int((mm&band).sum())}
+
 def examples(tag,d=None,ntop=3,nrand=3,seed=0):
     lf=leaf(tag); mem=lf['member']; msc=member_scores(tag)
     order=msc.abs().argsort(descending=True)
@@ -387,7 +404,16 @@ def leaf_program(tag,f=None,seed=3):
     lo,hi=bv[mem].quantile(0.1),bv[mem].quantile(0.9)
     nonidx=torch.nonzero((~memflat)&(bv>=lo)&(bv<=hi)).squeeze(1)
     nonidx=nonidx[torch.randperm(len(nonidx),generator=g9)[:len(mem)]]
-    half=(torch.arange(ntokr)%2==0)[:,None].expand(-1,256).reshape(-1)
+    # doc-disjoint half: docid parity on the diverse tree (rows of
+    # one document are adjacent there; row parity leaks). Falls back
+    # to row parity on the old 212-row state (its rows are one doc).
+    if ntokr==1000 and os.path.exists(PT+'curated_rows.pt'):
+        docid=torch.load(PT+'curated_rows.pt',map_location='cpu',
+                         weights_only=False)['docid']
+        halfrow=(docid%2==0)
+    else:
+        halfrow=(torch.arange(ntokr)%2==0)
+    half=halfrow[:,None].expand(-1,256).reshape(-1)
     posA=mem[half[mem]]; posB=mem[~half[mem]]
     negA=nonidx[half[nonidx]]; negB=nonidx[~half[nonidx]]
     if min(len(posA),len(posB),len(negA),len(negB))<30:

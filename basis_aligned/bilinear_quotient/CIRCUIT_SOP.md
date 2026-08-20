@@ -12,6 +12,10 @@ SETUP (required, first lines of every session):
     cl.use_state(cl.PT+'census_state_diverse.pt')   # 1000-row FineWeb tree
 Grid is 1000x256 (flat 256000). All cl.* functions then target the
 diverse tree. Forgetting use_state() silently runs the OLD 212-row tree.
+Standalone scripts run from another directory need PYTHONPATH=<workdir>
+(python puts the script's dir, not cwd, on sys.path). Both-halves
+identity gate: cl.sign_stats_half(tag, d, 0, 500) and (tag, d, 500,
+1000) -- both concentrations must clear >=3.
 
 Deliverable: one merged circuit record via census_lib.write_circuit(tag, ...)
 conforming to CIRCUIT_SCHEMA.md. Do the steps IN ORDER; record every number.
@@ -43,8 +47,10 @@ Prefer tags with a pre-computed pack (sop_packs_certified.json /
 sop_packs_shortlist.json = steps 1-2 already done; verify step 1
 reproduces, then continue from step 3). PACK CAVEATS (dry-run 412):
 packs were computed on a 60-row subsample -- only CONCENTRATION is
-expected to reproduce (within ~0.1); n_pos/n_neg/dce_members will
-differ by design against your full-grid rerun. Pack 'examples' are
+expected to reproduce, and only loosely (deltas up to ~0.5 observed;
+the operative check is that YOUR full-grid value clears the >=3
+gate); n_pos/n_neg/dce_members will differ by design against your
+full-grid rerun. Pack 'examples' are
 NOT canonical -- always regenerate with cl.examples(tag, d).
 write_circuit now stamps tree.instance from the active state
 ('diverse-1000row-v1'); records with '212row-v1' on a diverse tag

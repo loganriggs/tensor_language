@@ -1,0 +1,11 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+zero3: median generic 0.1222 | trio match {'7.3': 0.336, '8.3': 0.191, '8.4': 0.185}
+mean3: median generic 0.1074 | trio match {'7.3': 0.332, '8.3': 0.177, '8.4': 0.18}
+zero0: median generic 0.0368 | trio match {'7.3': 0.055, '8.3': 0.049, '8.4': 0.044}
+(a) mean-ablation halves generic shift (bus): FAILED
+(b) trio match shift >=15% under mean (content): HELD
+(c) a6.h0 control <5%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/courier_mean_split_results.json (4s)

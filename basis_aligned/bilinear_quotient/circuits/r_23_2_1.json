@@ -1,0 +1,166 @@
+{
+ "schema_version": 1,
+ "tag": "r.23.2.1",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "causal": {
+  "abs_dce_members": 0.826,
+  "abs_dce_offslice": 0.121,
+  "concentration": 6.84,
+  "dce_members": 0.084,
+  "dce_pos": -0.743,
+  "dce_neg": 0.904,
+  "n_pos": 430,
+  "n_neg": 434,
+  "minority_share": 0.498,
+  "base_ce_member_mean": 5.53,
+  "base_ce_frac_lt3": 0.231
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 198076,
+    "context": "so\n|First race||Hungarian Grand Prix||Hungar",
+    "target": "oring",
+    "base_ce": 4.13,
+    "dce": 2.51
+   },
+   {
+    "gi": 92890,
+    "context": "\ufffd debate highlighted at this year\u2019s PSA Conference by",
+    "target": " Matthew",
+    "base_ce": 11.18,
+    "dce": -1.78
+   },
+   {
+    "gi": 179559,
+    "context": " indigenous black Christians and animists, 100,000 in Darfur",
+    "target": " alone",
+    "base_ce": 5.56,
+    "dce": 2.45
+   }
+  ],
+  "random": [
+   {
+    "gi": 764,
+    "context": " of snowflakes that burn skin. Frankly, winter is",
+    "target": " miserable",
+    "base_ce": 7.72,
+    "dce": 0.94
+   },
+   {
+    "gi": 154700,
+    "context": "athly make my way through the line.\nWow! Target",
+    "target": "ted",
+    "base_ce": 9.98,
+    "dce": -0.54
+   },
+   {
+    "gi": 240197,
+    "context": "ma and bragging rights but the only thing concerning opposing managers",
+    "target": " Ars",
+    "base_ce": 7.74,
+    "dce": -1.07
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "story": {
+  "blind_name": "generic-vs-proper-noun completion push",
+  "text": "High-loss continuations after named/branded contexts; machinery favors generic common-word completions, suppresses specific proper-noun/brand completions (except some place-name suffixes, e.g. Hungaroring).",
+  "program": [
+   [
+    "NOT prev1_seen_before",
+    "NOT is_punct"
+   ],
+   [
+    "circ_r_0_0_1",
+    "NOT dist_nl_le2",
+    "NOT prev1_class_other"
+   ]
+  ],
+  "program_bacc": 0.517,
+  "program_null": 0.541,
+  "mechanism_level": "none",
+  "red_team": {
+   "hits": 3,
+   "total": 3,
+   "detail": [
+    {
+     "gi": 764,
+     "target": " miserable",
+     "dce": 0.94,
+     "predicted": "helps (generic common adjective)",
+     "actual": "helps",
+     "hit": true
+    },
+    {
+     "gi": 154700,
+     "target": "ted",
+     "dce": -0.54,
+     "predicted": "hurts (brand/proper-noun continuation of \"Target\")",
+     "actual": "hurts",
+     "hit": true,
+     "note": "ambiguous: completed word \"Targeted\" is itself generic; scored as hurts because context token is the brand name Target"
+    },
+    {
+     "gi": 240197,
+     "target": " Ars",
+     "dce": -1.07,
+     "predicted": "hurts (specific proper noun, Arsenal)",
+     "actual": "hurts",
+     "hit": true
+    }
+   ],
+   "caveat": "top example gi=198076 (\"Hungar\"->\"oring\", dce=+2.51) contradicts the suppress-proper-noun claim: machinery HELPS complete a place-name compound there. Story is directional/majority, not exceptionless."
+  }
+ },
+ "certification": [
+  {
+   "test": "selectivity",
+   "bar": "concentration>=3 (full 1000-row diverse grid)",
+   "value": 6.84,
+   "verdict": "HELD",
+   "source": "sonnet-wave2-c leaf_ablate/sign_stats",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "pack-concentration-reproduction",
+   "bar": "reproduce pack concentration (~0.1) computed on 60-row subsample",
+   "value": 0.52,
+   "verdict": "HELD (loose -- 0.52 off, but SOP allows subsample variance; both far above gate)",
+   "source": "sonnet-wave2-c vs sop_packs_shortlist pack (found in shortlist, not certified, file)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "surface-program",
+   "bar": "heldout bacc>=0.75 with null<=0.6, docid-parity split",
+   "value": 0.517,
+   "verdict": "FAILED",
+   "source": "sop_program_batch 409 (doc-disjoint by docid parity)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "story red-team",
+   "bar": ">1/3 of 3 random examples match causal sign prediction",
+   "value": 3,
+   "verdict": "HELD",
+   "source": "sonnet-wave2-c step5",
+   "date": "2026-08-20"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "CIRCUIT_SOP.md v2 (manual steps 1-6)"
+  ],
+  "agent": "sonnet-wave2-c",
+  "lib_rev": "b74c9fbc4264b4ed7cf77399f926e7b24cce7be6",
+  "pack_source": "sop_packs_shortlist.json (NOT sop_packs_certified.json -- see friction note)",
+  "notes": "step1 rerun on full 1000-row diverse grid (pack was 60-row subsample); step3 program reused verbatim from sop_program_batch_results.json (already doc-disjoint by docid parity per SOP guidance, not rerun)."
+ },
+ "members": {
+  "n": 864
+ }
+}

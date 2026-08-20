@@ -45,6 +45,10 @@ wave pushed, no wave depending on the driver's memory of the last one.
   that passes disqualifies the headline even when bars held (412).
 - Corrections stated plainly, propagated to the published report.
 - Workers NEVER git commit/push (concurrent-writer sweep hazard).
+- INFRA FREEZE during waves: never edit census_lib/SOP while worker
+  agents are in flight -- a mid-wave edit changed leaf_program's
+  numbers between one agent's two calls and read as nondeterminism.
+  Queue infra fixes; apply between waves.
 
 ## 3. Author prompt template (fill TAG; keep lean)
 > You are a swarm circuit agent for the bilin18 interpretability
