@@ -10160,3 +10160,21 @@ is hub-like). courier_mean_split queued to separate the two
 roles: mean-ablation (operator-C) should keep the bus load and
 kill the content -- registered (a) mean halves the generic
 shift, (b) trio match shift survives >=15%, (c) control clean.
+
+## 417. The hub is not a bias: a6.h3's broad influence is position-specific content
+
+courier_mean_split separated bus-load from content: (a) FAILED --
+replacing a6.h3's write with its mean leaves the downstream
+generic shift at 0.107 (vs 0.122 zeroed; the a6.h0 floor is
+0.037), so the hub effect is NOT carried by the mean. (b)/(c)
+HELD: the deep trio's match shifts survive mean-ablation
+(0.18-0.33) and the control is clean. a6.h3 is a hub of CONTENT:
+everything downstream reads its position-specific write. Together
+with 399 (its channel is ~95% relayed ladder code at 8.4), the
+closing hypothesis is that its entire downstream role is carried
+by RELAYED IDENTITY-CODE VALUES. courier_content_id queued: live
+model with a6.h3's values replaced by the pure-ladder
+reconstruction (patterns real), vs a row-shuffled null and the
+zeroed reference -- registered (a) generic shift collapses to the
+control floor, (b) courier function preserved, (c) shuffled
+values as bad as nothing.
