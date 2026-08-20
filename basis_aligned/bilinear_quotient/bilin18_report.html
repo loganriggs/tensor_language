@@ -707,6 +707,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   — free, in fact a hair better than leaving it alone — and a mean borrowed from unrelated text
   works just as well. The single most important attention head in this model is a learned
   constant: 1152 numbers, no text dependence.</p>
+  <p>Chasing the constant upstream closed the circuit end to end. The vector head 5.7
+  broadcasts is written at position 0 by <strong>the fourth MLP</strong>, whose output there
+  has a norm of 155,000 against 14,800 at ordinary positions — ten times larger — and whose
+  <em>direction</em> is essentially the same in every document we tested (mean pairwise cosine
+  0.998, and still 0.998 between texts that begin with different tokens). Feeding that
+  position's value through the head's own output projection reproduces the head's average write
+  at cosine 0.999. So the full mechanism, with every part named and no approximation between
+  them: the MLP chain manufactures a fixed vector at the first position, one head is dedicated
+  to reading that position, and its job is to add that vector everywhere.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping

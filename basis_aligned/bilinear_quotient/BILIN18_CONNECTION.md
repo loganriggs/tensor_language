@@ -10795,3 +10795,37 @@ survives adversarial review, and generalizes off-corpus, with a
 measured generic component that a future control should isolate
 properly. This is the swarm's first behavioral claim to clear
 every bar the program has.
+
+## 441. THE BIAS CIRCUIT, COMPLETE: a fixed vector manufactured at position 0
+
+sink_origin: ALL FOUR BARS HELD, with margins that leave no
+interpretive room.
+  mlp4's write at position 0: norm 155,009 vs 14,803 elsewhere
+                              (ratio 10.5)
+  direction across 32 documents: mean pairwise cosine 0.9978
+  between documents with DIFFERENT first tokens: 0.9978
+  (same first token: 1.000)
+  mlp4's own input at position 0: m0 0.441, m3 0.298, m2 0.175,
+                                  m1 0.055, a4 0.018
+So the vector is not a function of the first token -- texts
+beginning with a newline, with " in", with " and" all produce the
+same direction to three decimal places. The MLP chain manufactures
+it, and attention 4 contributes almost nothing (0.018), which is
+what "position 0 has no context" should look like.
+THE COMPLETE CIRCUIT, every part named, no approximation between
+them:
+  m0 -> m2 -> m3 -> mlp4 build a fixed vector at position 0
+  (10x normal norm, direction constant across texts)
+    -> head 5.7 reads position 0 for 99.8% of queries
+      -> that vector is added at every position as a constant
+        -> deleting it costs 0.92 nats, the largest single-head
+           cost in the model
+        -> replacing it with any equal constant is free (-0.005)
+This is the program's most completely specified novel circuit:
+not a literature motif, but an architecture-specific
+bias-generation mechanism, closed from manufacture to broadcast
+to price. Report updated and republished with the full chain.
+Open question queued (bias_semantics): what is the bias FOR?
+Read the constant through the unembedding -- which tokens it
+pushes, against a norm-matched random vector, plus a causal check
+that deleting the head lowers exactly those tokens' logits.

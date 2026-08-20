@@ -1,0 +1,12 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+bias norm 111064552.0 | top-20 share 0.0013 vs null 0.0019
+pushes: ['-', ' and', ',', ' (', ' or', ' all', ' in', ' so', ' at', ' on', ' just', ' to', '...', ' for', ' back', ' post', ' set', ' over', '/', ' only']
+suppresses: ['everal', ' TABLE', ' myster', '�', ' CARD', 'ngth', ' Berserker', ' Replay', 'perature', 'estern']
+deleting the head: top-20 logits +0.2106 vs control +0.0740
+(a) logit profile >=2x more concentrated: FAILED
+(b) tokens reported for naming: HELD
+(c) causal match >=2x control: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bias_semantics_results.json (1s)
