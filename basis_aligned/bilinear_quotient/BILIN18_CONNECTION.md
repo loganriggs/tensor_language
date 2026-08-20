@@ -11045,3 +11045,32 @@ the head's write in place with a random direction of the same
 norm, and with the true constant scaled by 0.5x and 2x.
 Registered as a fork -- (a) random same-norm <= 0.20 means the
 bias is a scale device, (b) >= 0.5 means direction is the point.
+
+## 448. NOT a scale device: the bias is a specific direction the stack is calibrated to
+
+bias_norm_vs_direction, all arms in place inside the head where a
+constant is otherwise free:
+  the true constant                 -0.0053
+  0.5x the true constant            +0.0457
+  2.0x the true constant            +0.1393
+  a RANDOM direction, same norm     +6.3037
+  delete the head entirely          +0.9154
+(a) FAILED: the scale hypothesis is dead. (b) HELD, and the
+number is the story: substituting a random direction of identical
+magnitude costs SEVEN TIMES more than having no constant at all.
+(c) FAILED: halving costs 0.046 and doubling 0.139, both under
+the 0.10 bar for half -- magnitude is only loosely tuned.
+So the constant is a specific learned direction, tolerated across
+a factor of four in magnitude, and catastrophic if rotated. Read
+with 447's accounting problem (local ablations find a quarter of
+its value), the picture is that every later layer is calibrated
+around this particular offset: absent, the stack degrades
+gracefully by 0.92 nats; replaced by something else of the same
+size, it is thrown off its operating point entirely.
+bias_stream_geometry queued to test that directly and without
+ablation: measure the cosine between the constant and the
+residual stream's own mean direction and top principal direction
+at every layer 5-17, plus the share of residual norm it accounts
+for, against a random-vector null. Registered: (a) |cos| >= 0.5
+at a majority of layers 6-17, (b) at least 10x the null, (c)
+norm shares reported per layer.

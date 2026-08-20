@@ -1,0 +1,22 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+L5: cos(mean dir) +0.869 | cos(PC1) 0.213 | ||resid|| 32414 | const/resid 0.209 | null 0.023
+L6: cos(mean dir) +0.993 | cos(PC1) 0.744 | ||resid|| 11018 | const/resid 0.615 | null 0.016
+L7: cos(mean dir) +0.990 | cos(PC1) 0.927 | ||resid|| 9468 | const/resid 0.716 | null 0.016
+L8: cos(mean dir) +0.985 | cos(PC1) 0.857 | ||resid|| 10001 | const/resid 0.678 | null 0.015
+L9: cos(mean dir) +0.981 | cos(PC1) 0.772 | ||resid|| 15478 | const/resid 0.438 | null 0.015
+L10: cos(mean dir) +0.973 | cos(PC1) 0.734 | ||resid|| 17572 | const/resid 0.386 | null 0.013
+L11: cos(mean dir) +0.964 | cos(PC1) 0.714 | ||resid|| 17459 | const/resid 0.388 | null 0.014
+L12: cos(mean dir) +0.948 | cos(PC1) 0.684 | ||resid|| 25844 | const/resid 0.262 | null 0.014
+L13: cos(mean dir) +0.931 | cos(PC1) 0.680 | ||resid|| 30064 | const/resid 0.225 | null 0.013
+L14: cos(mean dir) +0.907 | cos(PC1) 0.665 | ||resid|| 31445 | const/resid 0.216 | null 0.013
+L15: cos(mean dir) +0.878 | cos(PC1) 0.624 | ||resid|| 33745 | const/resid 0.201 | null 0.012
+L16: cos(mean dir) +0.743 | cos(PC1) 0.518 | ||resid|| 39724 | const/resid 0.171 | null 0.021
+L17: cos(mean dir) +0.268 | cos(PC1) 0.075 | ||resid|| 50819 | const/resid 0.133 | null 0.037
+majority-aligned: 0.92 | mean |cos| 0.880 vs null 0.0165
+(a) |cos| >=0.5 at a majority of layers 6-17: HELD
+(b) >=10x the random null: HELD
+(c) norm shares reported: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bias_stream_geometry_results.json (1s)
