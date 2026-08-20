@@ -14876,3 +14876,64 @@ describes a replaceable front. The two results together point one
 way: in this model you can compress what a layer SENDS far more
 than you can compress how it COMPUTES, and the benchmark should be
 built on output interfaces rather than on weight-matrix rank.
+
+## 541. The interface route does not compose either
+
+interface_sweep applied 539's output projection to all six early
+blocks, singly and then together. Projecting a block's combined
+write leaves its computation untouched and changes only what it
+sends onward.
+  block   passes 0.10 at   participation ratio of its write
+    0       rank 64                513.8
+    1       rank 128               644.0
+    2       rank 128               741.7
+    3       rank 64                724.6
+    4       rank 64                634.5
+    5       rank 64                615.7
+  joint (all six at a common rank)
+      8   +1.6711     64  +1.3137   (random: 1.60-1.63)
+     16   +1.7052    128  +0.5768
+     32   +1.6683    256  +0.1466
+                    1152  +0.0000
+(0) HELD: full rank costs +0.00000 everywhere.
+(a) HELD: every block on its own passes 0.10 nats at rank 64 or
+128 -- the single-block result of 539 generalizes across the
+front.
+(b) FAILED, and by a factor of four: all six interfaces at rank 64
+simultaneously cost 1.314 nats against a 0.30 bar. Individually
+those same six cost 0.081, 0.378, 0.159, 0.079, 0.083, 0.060 --
+summing to 0.84. The joint cost is 1.6 times the sum, and the
+curve is flat and terrible from rank 8 to 32 (1.67, 1.71, 1.67)
+before it begins to recover.
+(c) The joint interface passes 0.30 nats at rank 256 and 0.10 only
+at full rank.
+NULL VIOLATED: at rank 64 a random joint interface costs 1.60-1.63
+against 1.31 for the principal one, a factor of 1.2. Same
+signature as 540 -- once the damage is this large the specific
+directions stop mattering, so the joint numbers below rank 128
+should not be read as measurements of structure.
+So the conclusion I drew last section was premature, and I am
+withdrawing it. 539 showed one block's write compresses to 64
+directions and 540 showed weight truncation does not compose, and
+I wrote that the benchmark should be built on output interfaces
+rather than weight rank. Across six blocks the interface route
+fails the same way: individually narrow, jointly wide.
+What remains true, stated at the strength the evidence supports:
+  * every early block, ON ITS OWN, sends what matters through 64
+    to 128 of 1152 directions;
+  * NOTHING in the first six blocks composes -- not weight rank
+    (540: 1.78 nats), not output rank (541: 1.31 nats at the same
+    nominal compression);
+  * the interface route is nonetheless the better of the two by a
+    clear margin at matched effort -- joint rank 256 costs 0.147
+    on interfaces where the weight route never reaches 0.30.
+The pattern across both runs is that per-component compressibility
+is real and joint compressibility is not, which is a fact about
+the model worth stating plainly: the residual stream of this
+network is a shared channel whose apparent redundancy at any one
+layer is being used by some other layer. That is a harder target
+than the folding programme assumed, and the honest next question
+is not "how small can each part get" but "what does the front need
+to transmit that no single-block measurement can see".
+The published report is corrected: the line "compress what a layer
+sends, not how it computes" overstates what one block showed.

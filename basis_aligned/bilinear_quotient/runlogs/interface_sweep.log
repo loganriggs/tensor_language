@@ -1,0 +1,28 @@
+block 0: write norm 49578.9 | participation ratio 513.8
+block 1: write norm 4650.7 | participation ratio 644.0
+block 2: write norm 17527.4 | participation ratio 741.7
+block 3: write norm 22585.0 | participation ratio 724.6
+block 4: write norm 21195.2 | participation ratio 634.5
+block 5: write norm 9615.8 | participation ratio 615.7
+
+baseline CE 3.3536
+block 0: {8: 0.3922, 16: 0.2657, 32: 0.168, 64: 0.0811, 128: 0.0291, 256: 0.0056, 1152: 0.0} | passes 0.10 at rank 64
+block 1: {8: 4.0181, 16: 1.592, 32: 0.9136, 64: 0.3781, 128: 0.0826, 256: 0.0128, 1152: 0.0} | passes 0.10 at rank 128
+block 2: {8: 0.9771, 16: 0.7164, 32: 0.3742, 64: 0.1589, 128: 0.0493, 256: 0.0116, 1152: 0.0} | passes 0.10 at rank 128
+block 3: {8: 0.6633, 16: 0.4182, 32: 0.1902, 64: 0.0788, 128: 0.0287, 256: 0.0069, 1152: 0.0} | passes 0.10 at rank 64
+block 4: {8: 0.2911, 16: 0.2216, 32: 0.1463, 64: 0.0825, 128: 0.0377, 256: 0.0099, 1152: 0.0} | passes 0.10 at rank 64
+block 5: {8: 0.2049, 16: 0.1515, 32: 0.1037, 64: 0.0597, 128: 0.0246, 256: 0.0045, 1152: 0.0} | passes 0.10 at rank 64
+joint r=    8: +1.6711
+joint r=   16: +1.7052
+joint r=   32: +1.6683
+joint r=   64: +1.3137 | random [1.6267, 1.6201, 1.5971]
+joint r=  128: +0.5768
+joint r=  256: +0.1466
+joint r= 1152: +0.0000
+
+(0) full rank free (joint +0.00000): HELD
+(b) -1.0137 vs bar 1e-09: FAILED
+(a) every block passes 0.10 at rank <=128: {0: 64, 1: 128, 2: 128, 3: 64, 4: 64, 5: 64} -> HELD
+(c) joint rank under 0.30: 256 | under 0.10: 1152
+NULL (random joint interface +1.5971 vs +1.3137): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/interface_sweep_results.json (114s)
