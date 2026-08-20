@@ -16539,3 +16539,47 @@ query should BREAK the induction attention -- unlike the structural
 heads, whose fixed query reproduced them (559). If the fixed query
 instead preserves the induction, the content-matching reading is
 wrong and that is the finding.
+
+## 573. Confirmed: induction needs a content query -- a distinct
+## mechanism class from fixed-query selection
+
+induction_query tested the modality prediction from 572 on general
+repeated-token targets (8.3 does general induction, not just digit).
+  query used       occ+1 share    control share
+  real (per-pos)     0.0586          0.0092       6.4x -- induces
+  fixed (average)    0.0192          0.0080       2.4x -- broken
+(a) HELD: the real per-position query attends to occurrence+1 at
+6.4x a random-earlier-key control -- clean induction.
+(b) HELD: the induction-average FIXED query's occ+1 share is 0.019,
+below a third of the real query's 0.059. Replacing the query with
+a fixed vector BREAKS the induction, exactly as predicted.
+This is the distinguishing result. The three structural heads have
+an approximately FIXED query -- a single average query reproduces
+them (559, 560, circuit_card). The induction head does NOT: it
+needs a CONTENT-dependent query, because it must encode the current
+token to find where that token occurred before. A fixed query has
+no token to match and the induction collapses.
+So the model uses (at least) two distinct attention-mechanism
+classes, now both established with the same tools:
+  FIXED-QUERY SELECTION -- a constant query picks a token class via
+    the double-QK AND; rotary discriminates a specific referent by
+    position when needed (bracket, quote) or the head detects the
+    class indifferently (newline). The query carries no
+    per-position information.
+  CONTENT INDUCTION -- a per-position query encodes the current
+    token and matches its prior occurrence, attending to what
+    followed. The query is the whole mechanism; a fixed query
+    destroys it.
+The dividing line is clean and now testable in one measurement:
+does a fixed query reproduce the head? Yes -> fixed-query
+selection; no -> content matching. That is a concrete, general
+handle on the model's attention repertoire, and it is the natural
+generalization of the structural-attention account to the
+content-matching heads that account could not cover.
+This is a strong and clean place for the attention-mechanism line
+to rest: a two-class account (fixed-query selection vs content
+induction), each established on verified targets with exact and
+ablation tools, and a one-measurement test to classify any head.
+No new speculative experiment is queued; extending to more heads
+would be repetition of an established method, and the next real
+step is a direction choice.

@@ -1,0 +1,7 @@
+25624 repeated-token induction targets
+
+real query: occ+1 0.0586 | control 0.0092
+fixed query: occ+1 0.0192 | control 0.0080
+(a) real query induces (occ+1 0.0586 >= 1.5x control 0.0092): HELD
+(b) fixed query BREAKS (fixed 0.0192 < 0.5x real 0.0586): HELD -- induction needs content query
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_query_results.json (36s)
