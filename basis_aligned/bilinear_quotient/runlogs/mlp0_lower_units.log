@@ -1,0 +1,67 @@
+4000 samples, mlp0 hidden dim 4608
+(0) exact-by-construction (h @ Down.T IS the real output): HELD
+output rank for 95% variance: r=558
+cluster sizes: [81, 54, 37, 31, 22, 12, 10, 8, 7, 6, 6, 5, 4, 4, 4, 3, 3, 1, 1, 1]
+(a) stability ARI 0.562 vs top-300 0.58, null -0.018: real structure -- EXCEEDS 0.4, top-300 cutoff may be missing structure
+
+cluster 1 (81 units) POSITIVE (concentration 5/8 "space"):
+   [+4162.17] ...' 28th day after the implementation date, either:\n' | next='\n'
+   [+2988.60] ...' known as a Chinese\nconception chart, or\n' | next='\n'
+   [+2857.23] ..." 6'' index card.\n* Updated 3/8" | next='8'
+   [+2855.01] ..." asked, 'What does very low risk mean?'\n" | next='\n'
+   [+2738.81] ...' whole Kaepernick-ness of it all.”\n' | next='\n'
+   [+2685.18] ...' destruction that they have no compunction of using."\n' | next='\n'
+   [+2674.33] ...' a facial fracture, has a blood pressure of 210/' | next='/'
+   [+2639.33] ...' two minutes away from that happening again.\n(I' | next='I'
+  NEGATIVE:
+   [+4998.01] ...'," said Professor Emily Pronin of Princeton. "' | next=' "'
+   [+4896.89] ...' earlier:\n(click to view larger image)\n' | next='\n'
+   [+4731.67] ...' of the Trade: Convey probabilities with everyday risks.' | next='.'
+   [+4723.34] ...' toys in the Hrvatsko zagor' | next='or'
+   [+4683.26] ...' scouting combine, and a few other important Rams topics.' | next='.'
+   [+4571.69] ...' for the PopATot is in our schoolroom.' | next='.'
+   [+4421.61] ...'.\nWe need to surround him with better people.' | next='.'
+   [+4397.71] ...'\nfigured it out a Looong time ago.' | next='.'
+
+cluster 8 (54 units) POSITIVE (concentration 6/8 "pronoun"):
+   [+3091.80] ...' which flight to take.\nHe never got on board' | next=' board'
+   [+2904.01] ...', snow-covered wood and a river, which they' | next=' they'
+   [+2781.47] ...' aggregate (just like SelectMany in Rx, where you' | next=' you'
+   [+2774.08] ...' base their recipes primarily on aromas. But if you' | next=' you'
+   [+2660.53] ...' Algerian parents had settled. It was there that he' | next=' he'
+   [+2633.58] ...' still growing strong. It all started with six of us' | next=' us'
+   [+2511.76] ..." great resource shouldn't live behind closed doors. I'll" | next="'ll"
+   [+2499.38] ...' have been cultivated for centuries, is not complete if you' | next=' you'
+  NEGATIVE:
+   [+5444.15] ...'This' | next='This'
+   [+4669.58] ...' in the near future, the Tigers will need all the' | next=' the'
+   [+4605.26] ...' Clerkship Director of the Year Award\nThis' | next='This'
+   [+4410.99] ...'CDEM Young Educator of the Year Award\nThis' | next='This'
+   [+4373.41] ...' start your own and\nget others to join\nThis' | next='This'
+   [+4357.68] ...' -- and she sleeps with that list under her pillow every' | next=' every'
+   [+4297.91] ...' only able to offer unsexed specimens.\nThis' | next='This'
+   [+4271.34] ...' worth a quick review.\nFeel free to download this' | next=' this'
+
+cluster 2 (37 units) POSITIVE (concentration 5/8 "space_word"):
+   [+3240.93] ...' anyone complaining of inappropriate behavior.\nThe jury of seven' | next=' seven'
+   [+2948.92] ...' to sextuplets.\nThen they were six' | next=' six'
+   [+2822.01] ...' organization is still growing strong. It all started with six' | next=' six'
+   [+2565.68] ...'Five' | next='Five'
+   [+2502.44] ...'Did you know you have two little yellow, nine' | next=' nine'
+   [+2500.61] ...' that they have no compunction of using."\nSecretary' | next='Secretary'
+   [+2389.40] ...' they were six bundles of joy, now they are six' | next=' six'
+   [+2377.24] ...' April 13, 2012, p. 7 Türk' | next='k'
+  NEGATIVE:
+   [+5226.38] ...' EGDT protocol says yes -- for the purpose of C' | next=' C'
+   [+5109.66] ...' failures).\nNote a few differences upon the traditional C' | next=' C'
+   [+4946.99] ...' the\nacclimation process may need to shed 2' | next=' 2'
+   [+4725.99] ...'PSI) score.\nHave you heard of C' | next=' C'
+   [+4671.78] ...' to discuss the finer points of the "language of C' | next=' C'
+   [+4522.49] ...' recommended):\nWhat does this have to do with C' | next=' C'
+   [+4496.13] ...' once I receive them from Amer.\nIt is 2' | next=' 2'
+   [+4267.63] ...' Headquarters of the Mafia World\nBy Bubacarr C' | next=' C'
+
+(b) found-cluster concentrations [5, 6, 5] (>=5/8 for >=1 of 3): HELD
+(c) article-related clusters among the lower-300 top clusters: [] (none -- no extra article machinery below rank 300)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_lower_units_results.json (31s)

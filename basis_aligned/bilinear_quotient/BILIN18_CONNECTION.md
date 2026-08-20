@@ -17874,3 +17874,53 @@ sharpens 595/597: "same data points" is because they share an INPUT,
 not because one feeds the other. A clean, novel mechanistic fact about
 how the model distributes a decision, from the depth-first thread the
 user asked for.
+
+## 600. COVERAGE CORRECTION: the top-300-units cutoff was missing
+## real structure -- mlp0's units ranked 300-600 cluster just as
+## cleanly and hold THREE new nameable circuits
+
+Direct answer to the user's coverage question. Every unit-clustering
+pass in this program (579/581/587/596) took only the top 300 of 4608
+units by importance (Down-norm x hidden-std) -- 6.5% of the layer.
+This clustered the NEXT 300 units (ranks 300-600) of mlp0 identically.
+  (0) exact by construction.
+  (a) THE FINDING, registered in advance as a coverage flag: split-
+      half stability ARI is 0.562 -- essentially identical to the
+      top-300's 0.58, and far above the 0.4 threshold I pre-registered
+      as "the cutoff is leaving substantial clean structure on the
+      table." The units just below the usual cutoff cluster just as
+      reproducibly as the ones above it. The importance ranking does
+      NOT separate "structured" from "unstructured" units the way the
+      top-300 framing implicitly assumed.
+  (b) HELD: all three largest clusters reach >=5/8 concentration.
+  (c) THREE NEW NAMEABLE CIRCUITS, none of them the top-300's
+      article/punctuation/aux-contraction:
+        cluster 1 (81 units): a NEWLINE / line-break predictor --
+          positive before "\n" and line-structure tokens (5/8
+          "space"), negative before sentence-final period/quote.
+          Potentially connected to the already-verified newline
+          attention head 12.6 (570) -- a candidate cross-component
+          link.
+        cluster 8 (54 units): a PRONOUN-context cluster -- positive
+          before pronouns he/they/you/us/I'll (6/8 "pronoun"),
+          negative before the demonstrative "This"/"this".
+        cluster 2 (37 units): a NUMBER-WORD cluster -- positive
+          before spelled-out numbers six/seven/nine/Five, negative
+          before single-character tokens C/2.
+  (c-article) no article-flavoured cluster appears here -- consistent
+      with the article machinery being concentrated in the top-300
+      (cluster 8) plus its mlp1 echo, not smeared across low-
+      importance units.
+  NULL ok: shuffled ARI -0.018.
+HONEST CORRECTION to the coverage picture: the program's repeated
+"top-300 of 4608" framing under-counted mlp0's nameable structure.
+There are at least SIX clean, distinct, nameable circuits in mlp0
+(three in the top-300: article, aux-contraction, punctuation; three
+in 300-600: newline, pronoun, number-word), and the equal stability
+ARI says more likely live further down. "How much is covered" was
+honestly answered as "top-300 only," but the implicit assumption that
+the top-300 held most of the structure is now shown false -- clean
+circuits extend well below the importance cutoff. Coverage of this one
+layer is more partial than the writeup volume implied, and the fix is
+simply to keep clustering downward. Queued: mlp0_units_600_900 to map
+how far the clean structure extends.
