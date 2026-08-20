@@ -1,0 +1,26 @@
+{
+ "dce": {
+  "delete": 0.9154,
+  "mlp5_blind": 1.0166,
+  "after_blind": 0.2398,
+  "junk_add": 1.3344,
+  "junk_sub": 3.2122
+ },
+ "order": [
+  "mlp5_blind",
+  "after_blind",
+  "junk_add",
+  "junk_sub"
+ ],
+ "arms_never_fired": [],
+ "top20_mean_logit": {
+  "full": 4.4016,
+  "delete": 4.6191,
+  "direct": 0.0
+ },
+ "n_top_tokens": 20,
+ "pred_a": false,
+ "pred_b": true,
+ "pred_c": false,
+ "runtime_s": 2.3462002277374268
+}

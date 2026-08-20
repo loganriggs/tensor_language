@@ -53,6 +53,7 @@ def main():
     acc={a:[0.0,0] for a in ['delete']+POINTS}
     lg_acc={a:0.0 for a in ('full','delete','direct')}
     nb=0
+    FIRED={}
     for i in range(0,NR,4):
         bb=ROWS[i:i+4,:257].to(DEV)
         idx=bb[:,:-1].contiguous(); tg=bb[:,1:].reshape(-1)
@@ -110,6 +111,7 @@ def main():
                     return (at.c_proj(zz.transpose(1,2).contiguous()
                             .view(B,T,-1).to(X2.dtype)),v1r)
                 hs.append(at.register_forward_hook(fh))
+            if True:
                 if mode in ('mlp5_blind','after_blind',
                             'junk_add','junk_sub'):
                     gj=torch.Generator(device=DEV).manual_seed(77)
@@ -136,6 +138,10 @@ def main():
         base,lgf=run(None)
         for a in ['delete']+POINTS:
             c,lg=run(a)
+            if abs(c-base)<1e-9:
+                FIRED.setdefault(a,0)
+            else:
+                FIRED[a]=FIRED.get(a,0)+1
             acc[a][0]+=c-base; acc[a][1]+=1
             if a in ('delete','final'):
                 lg_acc[a if a=='delete' else 'direct'] \
@@ -147,7 +153,11 @@ def main():
     pa=CE['after_blind']<=0.20
     pb=CE['junk_add']>=0.5*CE['mlp5_blind']
     pc=(CE['delete']>0.5 and CE['junk_sub']<CE['junk_add'])
-    out={'dce':CE,'order':POINTS,'top20_mean_logit':LG,
+    dead=[a for a in ['delete']+POINTS if not FIRED.get(a)]
+    if dead:
+        print(f'*** ARMS THAT NEVER FIRED (exactly zero effect): '
+              f'{dead} -- run is VOID for those arms ***')
+    out={'dce':CE,'order':POINTS,'arms_never_fired':dead,'top20_mean_logit':LG,
          'n_top_tokens':len(topi),
          'pred_a':bool(pa),'pred_b':bool(pb),'pred_c':bool(pc),
          'runtime_s':time.time()-t0}

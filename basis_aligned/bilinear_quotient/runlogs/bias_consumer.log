@@ -1,0 +1,13 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+dCE: {'mlp5_blind': 1.0166, 'after_blind': 0.2398, 'junk_add': 1.3344, 'junk_sub': 3.2122} | delete 0.9154
+(a) after_blind <=0.20 (mlp5 is the consumer): FAILED
+(b) junk_add >=0.5x mlp5_blind (generic damage): HELD
+(c) delete ~0.92 and junk_sub < junk_add: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bias_consumer_results.json (2s)

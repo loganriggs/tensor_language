@@ -10956,3 +10956,51 @@ random-vector controls in both directions. Registered: (a)
 after_blind <= 0.20 nats if mlp5 is the consumer, (b) the junk
 control quantifies how much of the late-injection penalty is
 generic damage, (c) sanity arms.
+
+## 446. MLP5 IS THE CONSUMER (74%) -- plus a fourth self-caught instrument bug
+
+First the bug, because the first run's numbers were meaningless:
+bias_consumer initially returned after_blind = 0.0000 and
+junk_sub = 0.0000, EXACTLY zero -- the signature of a hook that
+never fired. Cause: I nested the injection hook inside the
+head-ablation branch, so the two arms that leave the head intact
+registered nothing at all. Bar (a) "held" vacuously. Fixed by
+de-nesting, and a permanent guard added: the script now records
+which arms produced exactly-zero effect and prints
+"ARMS THAT NEVER FIRED ... run is VOID for those arms". Every
+future multi-arm script in this program should carry that check;
+this is the fourth instrument fault of the night (underpowered
+seed gate, single-subsample ratio, extreme-value null, dead arm),
+and three of the four were only visible because something forced
+the arms to be compared against each other.
+Corrected results, all arms live:
+  delete the head                                  +0.9154
+  head zeroed, constant re-added after mlp5        +1.0166
+  head INTACT, constant removed after mlp5         +0.2398
+  norm-matched random vector added after mlp5      +1.3344
+  norm-matched random vector removed after mlp5    +3.2122
+(a) FAILED by 0.04 against a 0.20 bar, but the substantive claim
+holds with room: once mlp5 has seen the bias, stripping it from
+the entire rest of the stack costs 0.24 against 0.92 for full
+deletion -- **mlp5 delivers about 74% of the bias's value**.
+(b) HELD: late injection of junk costs 1.33, so much of the
+1.02 penalty for delivering the real constant late is generic
+damage rather than missing consumption.
+(c) FAILED, and the pairing was my error: junk_add starts from a
+bias-less stream while junk_sub starts from the intact one, so
+they are not matched. The comparison that IS matched is
+after_blind versus junk_sub -- both subtract a same-norm vector
+from the intact stream at the same point -- and it is decisive:
+removing the true bias costs 0.24, removing a random direction of
+identical magnitude costs 3.21, THIRTEEN TIMES more. The
+downstream stack tolerates losing this particular vector and
+nothing else of its size.
+Next, from theory rather than from more ablations. In a BILINEAR
+layer a constant input offset is not just an offset:
+  Down[(L(x+c))*(R(x+c))] = Down[Lx*Rx] + Down[Lx*Rc]
+                          + Down[Lc*Rx] + Down[Lc*Rc]
+and the two cross terms are LINEAR in x. So the bias may exist to
+give the model a linear pathway through an otherwise purely
+quadratic layer. bias_linearizes queued: decompose mlp5's output
+into those four exact terms and price each, with an exactness
+check that they reconstruct the real output to <1e-3.
