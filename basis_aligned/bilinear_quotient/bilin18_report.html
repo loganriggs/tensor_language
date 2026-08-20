@@ -449,7 +449,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the model folds: the first four MLPs are a token-dictionary cascade (68% / 85% / 58%
   / 44% token-determined), with the crown component mlp1 — the most important MLP in
   the model — 79% replaceable by a lookup table computed from the weights alone, one
-  forward pass per vocabulary entry, no training data; layer 0's value broadcast is
+  forward pass per vocabulary entry, no training data (a later measurement puts a hard
+  price on the leftover: swapping these MLPs for pure per-token tables costs 1.0 nats at
+  mlp0 and 1.8 at mlp1, so "mostly a dictionary" is a statement about variance explained,
+  not about loss — the contextual remainder is small but expensive); layer 0's value broadcast is
   exactly lexical (a weights-computable table with literally zero error). Assembled,
   the certified stand-ins now replace <strong>thirty-four of thirty-six components</strong> —
   and iterating the assembly taught a composition grammar: token-conditioned tables act

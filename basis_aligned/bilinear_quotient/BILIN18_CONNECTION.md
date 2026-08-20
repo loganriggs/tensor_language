@@ -12116,3 +12116,37 @@ Registered: (a) a per-token table for m0 costs <= 0.10 (the
 identity-code generator is nearly a table), (b) cost rises
 monotonically m0 < m1 < m2, (c) the shuffled m0 table costs
 >= 0.50.
+
+## 478. CORRECTION: the front MLPs are NOT per-token tables
+
+mlp_table_ladder replaced each of the first three MLPs with a
+per-token table computed from weights alone,
+T[t] = mlp_i(rms_norm(wte(t))):
+  m0  dCE +1.018      m1  dCE +1.775      m2  dCE +0.744
+  m0 with shuffled token identities: +3.188
+(a) FAILED by a factor of ten: m0 costs 1.02 nats as a per-token
+table, not the <= 0.10 I registered. (b) FAILED: the ladder is not
+monotone -- m1 is the most context-dependent of the three and m2
+the least. (c) HELD: the shuffled null at 3.19 confirms the
+tables' content matters, so the failures are about CONTEXT, not
+about broken machinery.
+CORRECTION to a framing this program has been carrying since 387:
+mlp0 is NOT an exactly-foldable token table. Its input is
+rms_norm(wte(t) + attn0_out), and ignoring the attention term
+costs a full nat. 393 already showed the token-only fold of m0
+predicted only 66% of head 1.4's reads against the real m0's
+99.8%; this puts the price on it in loss. The published report's
+"token-dictionary cascade" figures came from a variance-explained
+measure, which is compatible -- 68-85% of variance can be
+token-determined while the residual costs a nat -- so the report
+now carries both numbers side by side and says which is which.
+Republished.
+What the failure points at is specific rather than vague. attn0 is
+a bigram table (477), dominated by the previous token (476: head
+0.3 reads offset -1 at 66%), so m0's true input is close to a
+function of the TOKEN PAIR. mlp_bigram_table queued: recompute m0
+on rms_norm(wte(t) + attn0-with-all-weight-on-the-previous-token),
+making it a pure function of (t, t_prev), against the per-token
+table as reference and a shuffled-previous-token null.
+Registered: (a) the pair form costs <= 0.30, (b) it beats the
+unigram table by >= 0.50, (c) the null costs >= 1.00.
