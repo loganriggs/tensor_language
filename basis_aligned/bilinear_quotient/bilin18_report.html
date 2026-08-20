@@ -985,15 +985,31 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   and the median MLP needs nearly half, so attention is the more compressible half. But the
   table comes with two warnings that matter more than any row in it.</p>
   <p><span class="tag">warning</span> <strong>Compression does not compose.</strong> Truncating
-  all six attention layers at once, each to the rank that passes on its own, costs 0.718 nats
-  where the individual costs sum to 0.19. Errors are superadditive by nearly a factor of four,
-  so a per-component rank table is not a recipe for replacing the front of a model — the ranks
-  have to be chosen jointly.</p>
+  all six attention layers at once — each to the rank that passes on its own — costs 0.718 nats
+  where the individual costs sum to 0.19. Choosing the ranks jointly instead doesn't rescue it:
+  at a common rank the six attention layers cost 0.51 nats, the six MLPs cost 1.54 (against
+  ~0.18 summed individually, more than eight times worse), and both together cost
+  <strong>1.78</strong> — worse than replacing a single MLP with a fitted lookup table. The
+  per-component table is not a recipe for replacing the front of a model.</p>
+  <p><span class="tag">correction</span> An earlier version of this section said errors were
+  "superadditive by nearly a factor of four". That holds for one particular rank assignment; at
+  a uniform rank the joint attention cost is <em>less</em> than the sum of the individual costs.
+  Composition here is neither reliably super- nor subadditive — it depends on which ranks you
+  pick, and the honest summary is just that the individual numbers don't predict the joint
+  one.</p>
   <p><span class="tag">warning</span> <strong>Half the rows aren't structure.</strong> For six
   of the twelve components a <em>random</em> projection of the same rank costs about what the
   SVD one does. Where that happens the component is simply insensitive to restriction — it
   barely matters — and its "passing rank" is not evidence of low-rank structure. Only the four
   rows above survive that check.</p>
+  <p>What <em>does</em> survive is compressing the layer's <strong>output</strong> rather than
+  its weights. The rest of the network reads layer 0 only through what layer 0 writes, and
+  projecting that write onto its top 64 principal directions — 5.6% of the residual width —
+  costs 0.081 nats, against 0.57–0.61 for a random 64-dimensional interface and 0.84 for
+  deleting the write entirely. Attention 0's own write needs only 16 directions. So the front of
+  this model behaves like a function of the token pair emitting a few dozen numbers, even though
+  the maps that compute those numbers resist truncation. Compress what a layer sends, not how it
+  computes.</p>
   <p>One more result worth its own line, because it contradicts what the weights appear to
   say. The architecture re-injects the token embedding into every block at strength 8 against
   roughly 1 for everything written below, which looks like the embedding dominating the
