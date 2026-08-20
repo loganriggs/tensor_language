@@ -1,0 +1,27 @@
+baseline 3.3545 | identity check (real query reinjected) +0.00000
+layer 0 done
+layer 1 done
+layer 2 done
+layer 3 done
+layer 4 done
+layer 5 done
+layer 6 done
+layer 7 done
+layer 8 done
+layer 9 done
+layer 10 done
+layer 11 done
+layer 12 done
+layer 13 done
+layer 14 done
+layer 15 done
+layer 16 done
+layer 17 done
+
+(0) identity free (+0.00000): HELD
+(a) structural heads fixed (13.8 0.0022, 10.7 0.0002, 12.6 0.0006 < 0.02): HELD
+(b) induction 8.3 (0.0035) > structural: HELD
+(c) 158/162 fixed-query (<0.02), 1/162 content (>0.05)
+    most content-dependent: [('5.7', 0.1927), ('2.5', 0.0408), ('0.3', 0.0288), ('1.1', 0.0274), ('1.4', 0.017), ('3.5', 0.0132), ('6.3', 0.013), ('5.5', 0.0098)]
+NULL (random query costs more than mean for fixed heads {'13.8': 0.0038, '10.7': 0.0005, '12.6': 0.0012}): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fixed_key_census_results.json (73s)

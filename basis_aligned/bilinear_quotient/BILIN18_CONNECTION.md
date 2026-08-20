@@ -16685,3 +16685,42 @@ attention-mechanism line is complete. No new speculative
 experiment is queued; the next step is a deliberate direction
 choice (the early-layer content queries, the MLP computation, or
 the front-of-model tables), not another reflexive run.
+
+## 576. Keys are individually fixable too -- no clean Q/K asymmetry
+## per head; the joint test is what matters
+
+fixed_key_census mirrored the query census on the KEY side.
+  158 of 162 heads cost < 0.02 nats under a fixed (mean) key;
+  1 exceeds 0.05.
+  structural heads: 13.8 0.0022, 10.7 0.0002, 12.6 0.0006 (fixed).
+  most key-content-dependent: 5.7 (0.1927), 2.5 (0.041),
+    0.3 (0.029), 1.1 (0.027), 1.4 (0.017).
+(a) FAILED: my prediction that keys carry the discrimination and
+are thus much less fixable than queries is WRONG at the per-head
+level. Keys are almost as fixable as queries (158/162 vs 161/162).
+NULL ok: random keys cost more than mean keys.
+The reason the per-head census is nearly symmetric is that most
+heads are individually LOW-IMPACT -- fixing either their query or
+their key is cheap because the head barely matters alone. So the
+per-head census does not resolve what the query and key each do;
+it mostly measures per-head impact. The 575 JOINT query result
+(0.96 nats) is the informative one, and the joint KEY comparison
+is what settles the Q/K division.
+One clean exception is worth keeping: head 5.7's key costs 0.193 --
+four times the next head and far above everything else. 5.7 is the
+position-0 broadcast head (444-446): its key at position 0 IS the
+constant vector it broadcasts to the whole sequence, so fixing keys
+to the mean destroys exactly that mechanism. This is the one head
+whose KEY content is individually load-bearing, and it is
+load-bearing for a reason already understood.
+The asymmetry between the two sides' exception lists is a small
+lead: query-content heads are 2.5, 3.5, 1.1, 1.4 (early); key-
+content heads are 5.7, 2.5, 0.3, 1.1 -- 5.7 dominates the key side
+and appears nowhere on the query side, consistent with it being a
+value-broadcast head that needs a content key but a generic query.
+fixed_key_joint is queued: fix all 162 keys at once and compare to
+575's 0.96 nats for queries. If joint keys cost substantially more,
+the Q/K division (queries select, keys carry content) holds at the
+model level even though it does not per head; if similar, both
+sides contribute comparably and the "fixed-query" framing needs
+tempering to "fixed-QK".
