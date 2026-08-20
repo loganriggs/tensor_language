@@ -646,10 +646,21 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the deterministic rotary rotation), and nothing else, predicts the head's strongest read at
   <em>99.8% accuracy with rank correlation 0.999</em>. The attention layer below contributes
   only through that MLP's input — its own residual write is irrelevant to the pattern. Purely
-  token-computable versions (folding the MLP into a lookup table) reach about two-thirds;
-  deeper induction heads cap at 58% and 43% even with full block-0 context, because their
-  match codes accrete contributions from later layers — the trigger's context depth grows
-  with head depth.</p>
+  token-computable versions (folding the MLP into a lookup table) reach about two-thirds.</p>
+  <p>Chasing the deeper heads' gap closed the whole story. Rebuilding the residual with every
+  attention write deleted and every real MLP write kept showed the early heads match on that
+  MLP-enriched code alone (86% and 74% at layers 2–3) — and what the deeper heads add turned
+  out to be <em>the same code, moved</em>. Head 5.5's missing content arrives almost entirely
+  through attention layer 4; recomputing that layer's write with its real attention patterns
+  but values read from the pure MLP-ladder residual recovers 95% of the effect. Layer 2's
+  head closes at 99.9% the same way. The deepest head studied (8.4) needs one more twist:
+  a one-shot relay reaches only 62%, but letting relays compound — attention moving code that
+  was itself already moved — reaches 95% of the real channel, while a shuffled-value control
+  falls below baseline. So the induction machinery of this model compares <strong>one
+  identity code: written by the embedding, enriched layer-by-layer by the MLP chain, and
+  moved between positions by attention</strong> — deep heads read relayed, even
+  doubly-relayed, copies — with each head then executing its four strongest coincidence
+  reads.</p>
   <p class="q">The census that targets this work got its own audit. Rebuilt on a five-times
   larger, deliberately diverse training-distribution corpus (at most two rows per document),
   it yields 311 damage-mode leaves and no leaf is a disguised document detector (median
