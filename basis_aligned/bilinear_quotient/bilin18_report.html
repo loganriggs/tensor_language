@@ -1313,6 +1313,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   word → previous-word lookup → article group → the model's article prediction, with a matching
   second-layer echo firing in the same places — every link either exact arithmetic or a passed
   causal test. That is the shape of a circuit understood deeply rather than merely spotted.</p>
+  <p>One more step nails down the very front of that chain — which actual words trigger the
+  decision. Sorting every real "a"/"an"/"the" position by what the article group is doing and
+  by the word just before it, the pattern is exactly English grammar, read straight off the
+  circuit: prepositions and forms of "to be" — "into ___", "from ___", "was ___", "is ___" —
+  drive it hardest toward "a"/"an", while a comma or period just before drives it toward
+  "the." And the group's internal leaning genuinely predicts the real next word: positions it
+  pushes toward "a"/"an" are markedly more likely to actually be "a"/"an" than the ones it
+  pushes the other way. So the front of the chain isn't just "some earlier context" — it is
+  nameable: after a preposition or "is/was," reach for the indefinite article; at a fresh
+  sentence, reach for "the." The circuit is now legible from the specific triggering words all
+  the way to the output.</p>
   <p>A companion tool from the same outside source does the compression side of this question
   properly: given a layer's weight and its real activations, it computes — in one exact step,
   no guessing or gradient descent — the best possible low-rank stand-in for that layer <em>on
