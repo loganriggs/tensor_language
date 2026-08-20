@@ -14812,3 +14812,67 @@ measure the honest version -- all six early attention layers
 truncated together at a common rank, and the same for the MLPs --
 so the front-of-model number is a joint one rather than a sum of
 individually flattering ones.
+
+## 540. Per-component ranks do not compose into a front-of-model
+## stand-in, and 538's superadditivity figure was rank-specific
+
+joint_rank truncated all six early attention layers to a COMMON
+rank, then all six MLPs, then both.
+  attention   joint    sum of the six individual    ratio
+    r=16     +0.9565           +1.0189               0.94
+    r=32     +0.5124           +0.6439               0.80
+    r=64     +0.2519           +0.3201               0.79
+    r=128    +0.0000           +0.0000                 --
+  MLPs        joint
+    r=32     +5.0597
+    r=64     +3.4205
+    r=128    +2.5730
+    r=256    +2.4045
+    r=512    +1.5392
+    r=1152   +0.0000
+  both (attention r, MLPs 9r)
+    8/72     +2.8989
+    16/144   +2.7423
+    32/288   +2.4218
+    64/576   +1.7758   random at the same ranks: 2.95-3.42
+    128/1152 +0.0000
+(0) HELD: both full-rank arms cost +0.00000.
+(a) FAILED: six attention layers jointly at rank 32 cost 0.512,
+not under 0.30. It takes rank 64 to reach 0.252.
+(b) FAILED, and it CORRECTS 538. At uniform rank 32 the joint cost
+is 0.80 of the sum of the individual costs -- SUBadditive, not
+superadditive. 538 reported a factor of 3.7 the other way, and
+both numbers are correct for what they measured: 538 compared a
+MIXED-rank joint (each layer at its own passing rank, with a1 and
+a5 left untouched) against the sum of those same mixed individual
+costs, and this run compares a uniform assignment. Composition is
+therefore not intrinsically super- or subadditive in this model;
+it depends on which ranks you assign, and 538's "superadditive by
+nearly a factor of four" should be read as a fact about that
+particular assignment rather than about layer composition. The
+ledger and the published report are amended accordingly.
+THE MLPs ARE THE PROBLEM, and this is the substantive result.
+Individually the six early MLPs pass 0.10 nats at ranks 128 to
+512, summing to about 0.18 nats at rank 512. Jointly at rank 512
+they cost 1.539 -- more than eight times the sum -- and no rank
+short of full reaches 0.30. Truncating them all is catastrophic in
+a way truncating any one of them is not.
+(c) THE HONEST FRONT-OF-MODEL LINE: attention alone reaches 0.252
+nats at a common rank 64; the MLPs alone never reach 0.30 at any
+rank tested; both together at attention 64 / MLP 576 cost 1.776
+nats. For scale, replacing mlp0 alone with a per-token lookup
+table costs 1.466. So the joint low-rank stand-in for the first
+six blocks is WORSE than one fitted table for one layer.
+NULL VIOLATED: at the joint ranks a random projection costs
+2.95-3.42 against 1.776, a factor of only 1.7 where I required 3.
+When the damage is this large the specific directions stop
+mattering much, which is itself the signature of an intervention
+that has left the regime where the measurement means anything.
+What this does and does not overturn. It does NOT touch 539: the
+64-direction interface is about what layer 0 WRITES, measured by
+projecting its output, and that result stands at 0.081 nats. It
+does overturn the reading that the per-component rank table of 538
+describes a replaceable front. The two results together point one
+way: in this model you can compress what a layer SENDS far more
+than you can compress how it COMPUTES, and the benchmark should be
+built on output interfaces rather than on weight-matrix rank.
