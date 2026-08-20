@@ -12604,3 +12604,65 @@ convergence test between two independent measurements --
 them, this ranks them by what blocking them costs. Registered: (a)
 punctuation is the most potent per position, (b) prose content the
 least, (c) the two rankings agree at Spearman >= 0.5.
+
+## 492. READ ENRICHMENT DOES NOT PREDICT CAUSAL POTENCY -- and 12.6 is a LINE-BOUNDARY reader
+
+head_12_6_classes blocked each token class at distant positions
+and normalised by how many positions each block removed:
+  class         dCE      blocked   damage per 1k blocked   share
+  newline      +0.00277     220         +0.01260           38.7%
+  capitalized  +0.00268     657         +0.00408           37.4%
+  subword      +0.00109     864         +0.00126           15.1%
+  punct        +0.00078     955         +0.00082           10.9%
+  space_word   +0.00258    4165         +0.00062           36.1%
+  digit        -0.00003     159         -0.00018           -0.4%
+ALL THREE BARS FAILED, and the pattern is the finding.
+PUNCTUATION -- the class 12.6's reads are MOST enriched for at
+2.33x (489) -- is nearly the LEAST potent per position at
+0.00082/1k. NEWLINE, enriched only 1.27x, is the most potent at
+0.01260/1k, fifteen times punctuation. The correlation between
+read-enrichment and causal potency across the six classes is
+-0.029: none at all.
+TWO CONSEQUENCES, both worth carrying forward. First, 12.6 is
+better named a LINE-BOUNDARY reader than a punctuation reader: the
+reads it cannot do without are the ones to line breaks, with
+capitalised tokens second. Second, and more general: WHERE A HEAD
+LOOKS MOST OFTEN IS NOT WHAT IT NEEDS. This program has now hit
+that lesson twice from opposite directions -- writer enrichment
+failed to predict which component's ablation hurts (473), and now
+read enrichment fails to predict which target class matters. Any
+future naming of a head must be causal, not distributional, and
+the SOP's naming step should say so.
+
+## 493. THE ATLAS: only two heads in the model need distant reads
+
+head_atlas built the per-head reference over all 162 heads.
+(a) FAILED: NO new long-range heads. Beyond 5.7 (window-match cost
+0.590) and 12.6 (0.164), the next largest are 14.4 at 0.035, 10.5
+at 0.034 and 4.0 at 0.024 -- all below the 0.05 bar. The model
+really does contain only two heads that need to see past four
+tokens, and both are now characterised.
+(b) HELD strongly: 93.8% of heads have a dominant read motif
+taking over 40% of their top reads. The head population is highly
+stereotyped -- previous-token, self, position-0, or diffuse -- and
+that is what makes an atlas useful rather than a table of noise.
+(c) FAILED: successor-reading is not enriched among the long-range
+heads (0.019 against 0.016), consistent with 488's finding that
+12.6 is not an induction-target reader.
+The atlas is now the program's sourcing artifact for circuits:
+per head, deletion cost, window need overall and at match
+positions, motif profile, dominant motif and share, and read-class
+enrichment.
+Using it immediately, newline_circuit is queued as the first
+BEHAVIOUR-DEFINED circuit attempt -- the recipe that produced both
+existing code-level circuits, rather than the census that produced
+none. Target: newline prediction, chosen because three independent
+measurements point at it (newlines are the class most damaged by
+bundle ablation at +0.027 while punctuation and digits are spared,
+464; the most causally potent class for 12.6 at fifteen times
+punctuation, 492; and the natural object for a line-boundary
+reader). Step one of the playbook, find the components: mean-
+ablate all 36 and price each at newline targets against
+non-newline positions. Registered: (a) the top five carry >= 50%,
+(b) the leader is not the sink's layer, (c) the leader is at least
+2x newline-specific.

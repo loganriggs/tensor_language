@@ -1,0 +1,11 @@
+punct: dCE +0.00078 blocked 955 potency +0.00082/1k share 0.109
+capitalized: dCE +0.00268 blocked 657 potency +0.00408/1k share 0.374
+digit: dCE -0.00003 blocked 159 potency -0.00018/1k share -0.004
+newline: dCE +0.00277 blocked 220 potency +0.01260/1k share 0.387
+space_word: dCE +0.00258 blocked 4165 potency +0.00062/1k share 0.361
+subword: dCE +0.00109 blocked 864 potency +0.00126/1k share 0.151
+window +0.00717 | most potent newline | least digit | rho(enrichment, potency) -0.029
+(a) punctuation is most potent: FAILED
+(b) prose content is least: FAILED
+(c) potency tracks enrichment (rho>=0.5): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_12_6_classes_results.json (76s)

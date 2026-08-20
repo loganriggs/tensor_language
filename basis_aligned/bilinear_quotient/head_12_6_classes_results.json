@@ -1,0 +1,48 @@
+{
+ "window_dce": 0.00717,
+ "classes": {
+  "punct": {
+   "dce": 0.00078,
+   "blocked": 955,
+   "per_1k_blocked": 0.00082,
+   "share_of_window": 0.109
+  },
+  "capitalized": {
+   "dce": 0.00268,
+   "blocked": 657,
+   "per_1k_blocked": 0.00408,
+   "share_of_window": 0.374
+  },
+  "digit": {
+   "dce": -3e-05,
+   "blocked": 159,
+   "per_1k_blocked": -0.00018,
+   "share_of_window": -0.004
+  },
+  "newline": {
+   "dce": 0.00277,
+   "blocked": 220,
+   "per_1k_blocked": 0.0126,
+   "share_of_window": 0.387
+  },
+  "space_word": {
+   "dce": 0.00258,
+   "blocked": 4165,
+   "per_1k_blocked": 0.00062,
+   "share_of_window": 0.361
+  },
+  "subword": {
+   "dce": 0.00109,
+   "blocked": 864,
+   "per_1k_blocked": 0.00126,
+   "share_of_window": 0.151
+  }
+ },
+ "most_potent": "newline",
+ "least_potent": "digit",
+ "spearman_enrichment_vs_potency": -0.029,
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": false,
+ "runtime_s": 75.74419903755188
+}
