@@ -1,0 +1,29 @@
+{
+ "dce": {
+  "delete": 0.9154,
+  "inplace": -0.0053,
+  "after_mlp5": 1.0166,
+  "block6": 1.0166,
+  "block9": 1.3206,
+  "block13": 1.1796,
+  "final": 1.3746
+ },
+ "order": [
+  "inplace",
+  "after_mlp5",
+  "block6",
+  "block9",
+  "block13",
+  "final"
+ ],
+ "top20_mean_logit": {
+  "full": 4.4016,
+  "delete": 4.6191,
+  "direct": 6.4746
+ },
+ "n_top_tokens": 20,
+ "pred_a": false,
+ "pred_b": true,
+ "pred_c": true,
+ "runtime_s": 2.7916641235351562
+}

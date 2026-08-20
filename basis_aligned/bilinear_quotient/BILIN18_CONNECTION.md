@@ -10893,3 +10893,35 @@ program's scripts: whenever a reconstructed quantity is INJECTED
 rather than compared, check its norm against the residual it is
 being added to before trusting the run -- a scale error is
 invisible in cosine-based checks and fatal in causal ones.
+
+## 444. The sign paradox resolved: the bias is consumed immediately, and inverted downstream
+
+bias_path_split, rerun with the scale bug fixed:
+  delete the head                       +0.9154
+  inject the constant at block 6        +1.0166
+  inject it at the final residual       +1.3746
+  (reference, 435: replace the head's write with the same
+   constant IN PLACE inside layer 5)    -0.0053
+(a) HELD: the direct path recovers nothing -- it is worse than
+deletion. (b) FAILED, and the failure is the finding: my
+"indirect" injection point was one sublayer too late. The head
+writes immediately after attention 5, so mlp5 normally sees the
+bias in its input; injecting at block 6 skips mlp5, and doing so
+is WORSE than never adding the bias at all. (c) HELD, and it
+resolves 442's paradox quantitatively:
+  mean logit of the bias's top-20 pushed tokens
+    intact model            4.4016
+    head deleted            4.6191   (deleting RAISES them)
+    constant injected direct 6.4746  (direct path PUSHES them hard)
+So the direct path does exactly what the unembedding read says --
+injecting the constant straight into the logits lifts those tokens
+by +2.07 -- while the head's TOTAL effect is to lower them by
+0.22. The downstream consumers invert the direct effect roughly
+tenfold. A vector's unembedding projection described its direct
+path correctly and its actual function backwards; that is the
+caution 442 flagged, now measured.
+bias_injection_depth queued to pin the consumption point: inject
+the same constant in place, after mlp5, at blocks 6/9/13, and at
+the final residual. Registered: cost rises monotonically with
+depth, and the after-mlp5 arm already costs >= 0.5 nats -- i.e.
+most of the bias's value is consumed by layer 5's own MLP.

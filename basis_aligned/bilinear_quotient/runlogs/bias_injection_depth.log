@@ -1,0 +1,13 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+dCE by injection depth: {'inplace': -0.0053, 'after_mlp5': 1.0166, 'block6': 1.0166, 'block9': 1.3206, 'block13': 1.1796, 'final': 1.3746} | delete 0.9154
+(a) cost rises monotonically with depth: FAILED
+(b) after-mlp5 already >=0.5 nats: HELD
+(c) in-place ~0 and deletion ~0.92: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bias_injection_depth_results.json (3s)
