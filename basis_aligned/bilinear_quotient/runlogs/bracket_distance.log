@@ -1,0 +1,11 @@
+82 cells | match distance median 2 IQR 2 range 1-32
+          real: match 0.3143 distractor 0.0485 ratio 6.48 | |score| 0.2928
+     no_rotary: match 0.0550 distractor 0.0509 ratio 1.08 | |score| 0.3164
+  kill_key_wte: match 0.2864 distractor 0.0421 ratio 6.81 | |score| 0.2449
+  kill_key_m12: match 0.3117 distractor 0.0484 ratio 6.44 | |score| 0.2849
+  kill_key_m10: match 0.3156 distractor 0.0477 ratio 6.62 | |score| 0.2887
+(a) 1.92 vs bar 1e-09: HELD
+(b) 3.8099999999999996 vs bar 1e-09: HELD
+(c) control kill_key_m10 ratio 6.62 >= 10: FAILED  | kill_key_m12 ratio 6.44
+NULL (match-distance IQR 2 >= 3 tokens): VIOLATED -- run uninformative
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_distance_results.json (97s)

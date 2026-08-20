@@ -14238,3 +14238,62 @@ The useful summary is that going below the head worked and going
 across heads did not, at least not the way I measured it. The
 channel is exact, it is full-rank in the subspace, and its content
 comes from earlier digits at 14x the base rate.
+
+## 529. CORRECTION: the bracket pointer is positional, and the
+## matching story was partly a confound
+
+bracket_distance measured the match-versus-distractor contrast
+under four interventions. 82 cells with both a match and a nearest
+non-matching opener.
+  arm                match   distractor   ratio
+  real               0.3143    0.0485      6.48
+  rotary disabled    0.0550    0.0509      1.08
+  key-side wte removed 0.2864  0.0421      6.81
+  key-side m12 removed 0.3117  0.0484      6.44
+  key-side m10 removed 0.3156  0.0477      6.62
+(a) HELD, and it is the whole result: with rotary disabled the
+pointer VANISHES. Match and distractor become indistinguishable
+(1.08). Position is not one input among several; it is the
+discrimination.
+(b) HELD: removing the token embedding from the key side leaves
+the ratio at 6.81, slightly ABOVE the real 6.48. Stripping "this
+is a bracket" from the keys does not weaken the pointer at all.
+Together with (a): the head selects by POSITION and the token
+identity contributes essentially nothing to which key it picks.
+(c) FAILED, and the bar was mine: I set the control at ratio >= 10
+from 523's 15.8x figure, which was measured over all targets
+against all other brackets. The comparable number here is the real
+arm's 6.48, and every kill-a-key-writer arm sits within 6% of it.
+So the control behaved correctly -- no key writer matters -- and
+the bar was calibrated against the wrong baseline.
+NULL VIOLATED: the match distance has median 2 and IQR 2, so
+matches are nearly all 1-3 tokens back. By the run's own
+registered terms it cannot separate "adaptive distance" from
+"fixed short offset", and I am reporting it as uninformative on
+that question.
+THE CORRECTION THIS FORCES. 520, 522 and 523 described head 13.8
+as a bracket MATCHER that locates the specific opener its closer
+belongs to. On this evidence that description is partly a
+confound. In this corpus the matching opener is typically two
+tokens back -- "( x )" -- so "points at the match" and "points two
+tokens back" are largely the same statement, and the nearest
+NON-matching opener that I used as the control is by construction
+further away. The causal results stand exactly as measured (one
+score cell carries 83% of an 0.825-nat effect; that cell is on the
+matching opener) but the INTERPRETATION must be weakened: what is
+demonstrated is a short-range positional pointer that lands on the
+matching opener because in ordinary prose the matching opener is
+near, not a symbolic matcher that tracks nesting.
+That also retro-explains 526, where the model could not close a
+bracket opened two clauses earlier (NLL 3.96), and 523, where
+already-closed and other still-open brackets received identical
+shares -- a positional rule has no reason to distinguish them.
+The question that remains is whether the pointer ADAPTS. Match
+distances range from 1 to 32 even though the median is 2, so the
+data contains far cases; the IQR was simply the wrong statistic to
+test with. bracket_range is queued to split the cells by distance
+and ask whether the head still finds matches 6 or more tokens back
+at the same strength it finds nearby ones. If it does, "adaptive
+positional pointer" survives; if the far share collapses to the
+distractor level, the head implements a fixed short-range rule and
+the matcher language should be dropped from the ledger entirely.
