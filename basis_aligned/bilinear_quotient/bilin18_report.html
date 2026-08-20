@@ -129,7 +129,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">05</span><a href="#pattern">Structure verifies, token stories don't</a></li>
     <li><span class="num">06</span><a href="#weights">The weights knew</a></li>
     <li><span class="num">07</span><a href="#operators">Edges are operators</a></li><li><span class="num">08</span><a href="#functionals">Functional coordinates</a></li><li><span class="num">09</span><a href="#law">Composition has a law</a></li><li><span class="num">10</span><a href="#corrections">Corrections ledger</a></li>
-    <li><span class="num">11</span><a href="#open">What's still open</a></li>
+    <li><span class="num">11</span><a href="#circuits">The circuit program</a></li>
+    <li><span class="num">12</span><a href="#code">The model on readable code</a></li>
+    <li><span class="num">13</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -609,6 +611,55 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   early story-writing rounds taught, at the cost of two ledger-style corrections, that
   mechanical certification bars admit gerrymandered stories — the standing protocol is
   now red-team review plus never-seen-window confirmation.</p>
+</section>
+
+<section class="col">
+  <h2 id="code">The model on readable code</h2>
+  <p>The newest campaign raised the bar from <em>describing</em> parts to <em>replacing their
+  computation with short programs you could read aloud</em> — and measuring exactly what that
+  costs. The first circuit to close at this grade is induction. Each induction head, it turns
+  out, effectively reads from only a handful of positions: keeping just its four
+  strongest-scoring reads per position reproduces 98.8% of what the head does (two reads give
+  96%; the single strongest carries 77%). The head's entire program is one line — "sum the
+  four largest coincidence-scored reads" — and it passed a preregistered replication bar
+  six-fold over, with a shuffled control broken. Two prettier hypotheses died on the way:
+  the extra reads are <em>not</em> additional copies of the match (only 20% of the dropped
+  attention sits on the match family), and there is no context-corruption effect.</p>
+  <p>The same one-line code was then priced across the whole stack: <em>120 of the 162
+  attention heads run on it at negative cost</em> — the code is slightly better than the real
+  head — and 140 fit within +0.08 nats. The MLP half of the architecture has a matching
+  sparse form: each bilinear MLP is a sum of 4,608 rank-one quadratic units, and keeping the
+  top 512 per position costs just +0.044 nats on never-seen text, while a random 512 costs
+  22× more. Put together — four-line code on the 120 cheapest heads, top-512 units in every
+  MLP — the whole model runs in a form where <em>every position's computation is an
+  enumerable list</em>, at +0.22 nats on fresh text (and the IOI benchmark actually improves).
+  One caveat matters and was measured: the selection is <em>routed, not fixed</em>. The 512
+  most-used units capture only 18% of the per-position slots, and freezing a static 512 costs
+  9× the dynamic version. The model's MLP semantics live in the routing function, not in a
+  small fixed subnetwork.</p>
+  <p>The input side of induction then closed exactly. The score that decides where an
+  induction head looks compares, at every pair of positions, the same quantity: what the
+  first MLP wrote there. That MLP is the model's <em>identity-code generator</em> — a
+  token-enrichment table that all match machinery compares — and its writer pair dominates
+  the coincidence score of all nine induction heads. For the layer-1 head the story is now
+  complete and mechanical: taking the token embedding plus the first MLP's actual write (and
+  the deterministic rotary rotation), and nothing else, predicts the head's strongest read at
+  <em>99.8% accuracy with rank correlation 0.999</em>. The attention layer below contributes
+  only through that MLP's input — its own residual write is irrelevant to the pattern. Purely
+  token-computable versions (folding the MLP into a lookup table) reach about two-thirds;
+  deeper induction heads cap at 58% and 43% even with full block-0 context, because their
+  match codes accrete contributions from later layers — the trigger's context depth grows
+  with head depth.</p>
+  <p class="q">The census that targets this work got its own audit. Rebuilt on a five-times
+  larger, deliberately diverse training-distribution corpus (at most two rows per document),
+  it yields 311 damage-mode leaves and no leaf is a disguised document detector (median
+  top-document share: 1%). But the partition is not a stable ontology: trees rebuilt in
+  different contexts re-carve the same data (9% member identity, 40% containment), so a
+  circuit's identity is its <em>machinery and causal profile</em>, with member lists as
+  evidence. That rule is now enforceable: computing each leaf's damage profile independently
+  on disjoint corpus halves, 77% of leaves replicate (profile cosine 0.96 matched vs 0.54
+  mismatched) — 88% at coarse grain, 56% for the finest leaves — giving the program a
+  computable certification gate for every future circuit claim.</p>
 </section>
 
 <section class="col">
