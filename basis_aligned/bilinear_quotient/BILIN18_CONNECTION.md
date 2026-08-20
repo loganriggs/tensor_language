@@ -9739,3 +9739,28 @@ to close the last two heads under the same story: a1's channel
 into 2.5 (relay arm), 8.4's diffuse a5-a7 channel (combined real,
 one-shot relay, ITERATED relay -- nested moves of the same code --
 and a shuffled-value null), registered a-d.
+
+## 400. RELAY CLOSURE: ALL FOUR BARS HELD -- the induction match code is one code
+
+relay_closure, all registered bars HELD:
+  2.5: ladder 0.859 | a1 real 1.000 | a1 RELAY 0.999
+  8.4: ladder 0.504 | a5-7 real 0.859 | one-shot relay 0.617 |
+       ITERATED relay 0.841 | shuffled-value null 0.400
+(a) 2.5's channel is pure relay (0.999). (b) a5-a7 jointly close
+8.4 (0.859). (c) the iterated relay recovers 95% of the lift --
+8.4's channel is a NESTED relay: attention moving code that was
+itself already moved (one-shot relay only reaches 0.617, so the
+nesting is real and measurable). (d) shuffled values land BELOW
+the ladder baseline: the relay carries position-specific code,
+not statistics. Standing conclusion across every head tested
+(1.4, 2.5, 5.5, 8.4): **the induction machinery of bilin18
+compares ONE identity code -- written by the embedding, enriched
+layer-by-layer by the MLP chain, and moved between positions by
+attention (deep heads read relayed, even doubly-relayed copies)
+-- via double-QK coincidence, executing its top-4 reads.** Queued:
+ladder_census -- the maximal claim on all NINE band heads (3.8,
+6.5, 7.3, 8.3 still untested): every attention write below every
+head replaced by its iterated relay; registered early >=0.90,
+deep >=0.75, shuffled null <25% of lift. After that, the causal
+cash-in (ladder-computed patterns driving the live model at match
+positions) closes the arc end-to-end.

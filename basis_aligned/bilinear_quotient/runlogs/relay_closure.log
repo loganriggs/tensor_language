@@ -1,0 +1,11 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+2.5 {'ladder': 0.859, 'a1_real': 1.0, 'a1_ladval': 0.999}
+8.4 {'ladder': 0.504, 'comb_real': 0.859, 'comb_ladval': 0.617, 'comb_iter': 0.841, 'comb_shuf': 0.4}
+(a) 2.5 a1_ladval >=0.95: HELD
+(b) 8.4 comb_real >=0.75: HELD
+(c) 8.4 iter relay >=80% of lift: HELD
+(d) shuffled null <25% of lift: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/relay_closure_results.json (1s)
