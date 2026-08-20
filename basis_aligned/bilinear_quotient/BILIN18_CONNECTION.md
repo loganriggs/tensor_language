@@ -16186,3 +16186,49 @@ The NULL 'violation' (quote+distractor share not 2x the non-quote
 key) is the generic prev/self attention 564 already noted, not a
 mechanism problem: the head attends to prev/self generically AND
 to the most-recent quote positionally.
+
+## 566. The account is NOT predictive, and I repeated my own error
+
+modality_batch registered advance modality predictions for three
+more heads and tested them.
+  behaviour      head    ratio -> norot   measured      predicted
+  sentence_end   10.5    4.64 -> 1.02     positional    detection
+  open_bracket   17.2    3.07 -> 0.95     positional    detection
+  capitalized    15.3    1.15 -> 1.02     detection      positional
+(a) FAILED, 0 of 3. Every one of my task-based modality
+predictions was wrong.
+Two things to state plainly.
+FIRST, 565's claim that the account is "predictive -- a head's
+modality follows from whether its behaviour needs a specific
+positional referent" is WITHDRAWN. On three fresh heads my ability
+to make that call from the task description was 0/3. The account is
+DESCRIPTIVE -- it fits the three heads worked out in detail
+(bracket, quote, newline) -- but it is not shown to predict, and
+my armchair task-classification is unreliable.
+SECOND, and worse: I repeated the exact error I diagnosed in
+563/564. I ran the modality test against an ASSUMED referent (the
+most-recent-of-class) WITHOUT first measuring where each head
+attends. For quotes I learned to run the destination step first;
+for this batch I skipped it again. So the ratios above are
+discrimination against referents the heads may not use, and they
+are not trustworthy on their own -- sentence_end 4.64 and
+open_bracket 3.07 could be real positional discrimination or could
+be an artifact of an unverified target, and I cannot tell without
+the destination step. The 0/3 therefore refutes my PREDICTIONS
+cleanly but does not cleanly establish the measured modalities.
+The honest state after this: the fixed-query double-QK AND
+mechanism is solid on three fully-worked heads. The positional-vs-
+detection modality is descriptive on those three and NOT reliably
+predictable by me. And I have now made the unverified-target
+mistake twice, which means the protocol itself is at fault, not
+just my attention -- the destination step must be built into any
+modality test, not run as a separate discipline I keep forgetting.
+modality_verified is queued as the corrected protocol on ONE head
+(sentence_end 10.5, the largest unverified ratio): it FIRST
+measures the destination profile, and only tests modality if the
+head genuinely attends to the referent class, reporting
+UNEVALUABLE otherwise. That fixes the protocol in code. After it,
+the structural-attention thread is at a natural stop -- three
+verified circuits, one solid general mechanism, one honestly
+negative predictive claim -- and further head-by-head drilling has
+hit clear diminishing returns.
