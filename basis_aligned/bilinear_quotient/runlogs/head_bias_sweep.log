@@ -1,0 +1,10 @@
+batch 0 done (21s)
+batch 4 done (31s)
+batch 8 done (42s)
+batch 12 done (52s)
+bias adders: 1 heads ['11.6']
+layer profile {11: 1} | largest gap 5.7 0.923 | nats recoverable 0.0248
+(a) >=10 bias-adder heads: FAILED
+(b) 5.7 has the largest gap: HELD
+(c) profile reported: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_bias_sweep_results.json (52s)

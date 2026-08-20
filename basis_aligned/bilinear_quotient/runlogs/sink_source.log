@@ -1,0 +1,11 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+position-0 writers at layer 5: [('m4', 0.6261), ('m3', 0.1587), ('m0', 0.1185), ('m2', 0.0693), ('m1', 0.0176)]
+chain cosine (pos-0 value write vs head mean write): 0.999 | first tokens [('\n', 2), (' in', 1), (' and', 1)]
+(a) top writer share >=0.40: HELD
+(b) top writer is wte or m0: FAILED
+(c) chain cosine >=0.9: HELD
+(d) shares reported: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/sink_source_results.json (1s)

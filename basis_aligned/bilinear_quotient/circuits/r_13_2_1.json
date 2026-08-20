@@ -538,6 +538,61 @@
    "verdict": "FAILED (not robust)",
    "source": "story_test_class 12-pair sweep",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave4",
+   "date": "2026-08-20",
+   "verdict": "CONFIRM",
+   "concentration_recheck": {
+    "full": 5.59,
+    "recorded_full": 5.59,
+    "half_0_500": 5.63,
+    "recorded_half_0_500": 5.63,
+    "half_500_1000": 5.56,
+    "recorded_half_500_1000": 5.56,
+    "note": "gate reproduces exactly, within 20% bar on all three"
+   },
+   "mechanism_reproduced": true,
+   "mechanism_detail": {
+    "ENRICHED_STABLE": {
+     "a7": false,
+     "a6": false,
+     "a3": false
+    },
+    "top_ratio_max_vs_null": {
+     "a7": {
+      "top_ratio_max": 1.068,
+      "null_top_ratio": 1.236,
+      "null_over_1.3_bar": false
+     },
+     "a6": {
+      "top_ratio_max": 1.068,
+      "null_top_ratio": 1.4,
+      "null_over_1.3_bar": true
+     },
+     "a3": {
+      "top_ratio_max": 1.072,
+      "null_top_ratio": 1.25,
+      "null_over_1.3_bar": false
+     }
+    },
+    "note": "negative confirmed on all 3 components; BEATS_NULL=False on all 3 (real ratios below both the 1.3 ENRICHED bar and their own bootstrap null). a6 bootstrap null (1.4) exceeds the 1.3 bar, meaning that component's test alone has no headroom to ever call ENRICHED positive from noise -- flagged per reviewer instructions, though it does not change the negative call here since a6's actual ratio (1.068) sits well below both its null and the bar."
+   },
+   "punct_reproduction": {
+    "hits": 39,
+    "n": 49,
+    "rate": 0.796,
+    "base_rate_help": 0.51,
+    "p_value": 0.0,
+    "ROBUST_V2": true,
+    "n_tests": 12,
+    "alpha": 0.0083,
+    "note": "exact reproduction of recorded 39/49=80% vs 51% base rate, p=0.0"
+   },
+   "punct_random_subspace": "SPECIFICITY attack: built a rank-matched random orthonormal subspace (12 dims in a7, 2 in a6, 6 in a3 -- same ranks as the real leaf machinery) via torch.randn + census_lib-style orth(), hooked the same 3 components (a7/a6/a3), and ran the identical punct population test on the resulting dCE = ce_sweep(hooks)-base_ce(). 5 independent random seeds: hit rates 21/49, 30/49, 20/49, 25/49, 31/49 (43%-63%, all near the 51% base rate, none reaching the real leaf's 39/49=80%); population p-values 0.82, 0.08, 0.81, 0.23, 0.03 -- none pass ROBUST_V2 (alpha=0.0083) on any seed. Punctuation positions are NOT generically sign-sensitive to an arbitrary rank-matched ablation in this leaf's components; the real leaf's effect is specific to its actual learned subspace, not an artifact of ablating any subspace of that size at those components.",
+   "punct_baseCE_confound": "CONFOUND check: punct members do have significantly lower base_ce than other members (mean 4.084 vs 6.021 over n=49 vs n=815, Welch t p<1e-4, Mann-Whitney p<1e-4), so a base-CE confound was plausible a priori. However, conditioning on base_ce does NOT reproduce the punct help rate: restricting to ALL members (regardless of punct status) in the base_ce<=4.5 band that matches punct's own base_ce level gives only 40.3% help rate (n=325), and restricting further to NON-punct members in that same low-CE band gives 36.2% help rate (n=293) -- both BELOW the population base rate of 51%, not above it. Binning all members into base_ce quartiles shows help rate rising with base_ce (37.5% in the lowest-CE quartile up to 66.7% in the highest-CE quartile), i.e. low base_ce mildly ANTI-predicts help in this leaf overall. This is the opposite direction needed to explain punct's 80% help rate as a base-CE regression artifact -- the confound is refuted, if anything it means the punct-specific effect is more surprising than the raw p-value suggests, since punct members sit in a base_ce band where unconditional members are LESS likely to be helped.",
+   "objection": "Strongest remaining objection: the entire population test (p=0.0, n=49) is evaluated on the same in-distribution corpus (diverse-1000row-v1 / census_state_diverse.pt) that was used to discover and select this leaf in the first place -- there is no independent held-out corpus for the behavioral claim itself (unlike the gate, which does have a within-corpus split-half check). The n_tests=12 alpha correction (0.10/12=0.0083) only accounts for sub-tests tracked within this leaf's own record; it does not correct for the fact that 'punct' was one of six candidate classes (subword/space_word/digit/punct/capitalized/newline) examinable per leaf, nor for the many leaves examined across the census before this one was written up -- so the true multiple-comparisons family is larger than 12 and the reported p=0.0 should be read as 'passed a within-leaf robustness gate,' not as a corpus-independent, search-corrected significance level. Secondary/minor notes: (1) a6's mechanism-negative test has no bootstrap headroom (null_top_ratio=1.4 > the 1.3 ENRICHED bar), so a positive finding there could never have been trusted even though the actual negative call is unambiguous; (2) the random-subspace specificity check used 5 seeds -- a robust null but a small sample of the random-subspace distribution."
   }
  ],
  "provenance": {

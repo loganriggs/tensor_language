@@ -131,7 +131,8 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">07</span><a href="#operators">Edges are operators</a></li><li><span class="num">08</span><a href="#functionals">Functional coordinates</a></li><li><span class="num">09</span><a href="#law">Composition has a law</a></li><li><span class="num">10</span><a href="#corrections">Corrections ledger</a></li>
     <li><span class="num">11</span><a href="#circuits">The circuit program</a></li>
     <li><span class="num">12</span><a href="#code">The model on readable code</a></li>
-    <li><span class="num">13</span><a href="#open">What's still open</a></li>
+    <li><span class="num">13</span><a href="#sink">The most expensive head is a constant</a></li>
+    <li><span class="num">14</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -683,7 +684,36 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   standard the depth profile <em>inverts</em>: fine-grained leaves pass at 72% versus 44%
   for coarse ones, so the census's fine structure is real, locally selective, corpus-stable
   machinery; only its raw damage magnitudes are unstable. The production shortlist stands
-  at 199 of 311 leaves, with a label-shuffled null at 6%.</p>
+  at 199 of 311 leaves, with a label-shuffled null at 6%. A second correction followed
+  from a reviewer's objection: because these positions already run high loss, we asked what
+  an <em>arbitrary</em> ablation of the same size would score. A rank-matched random subspace
+  in the same components reaches a median concentration of 2.62 — just under the gate of 3 —
+  and only a third of leaves reach twice their random baseline. Leaf selectivity is real but
+  sits on a large fragility baseline: a leaf scoring 5 is roughly 1.7× an arbitrary ablation,
+  not 5× nothing. The numbers stand; the old reading of them does not.</p>
+</section>
+
+<section class="col">
+  <h2 id="sink">The most expensive head is a constant</h2>
+  <p>Deleting attention heads one at a time across all 162 of them turns up an outlier that is
+  hard to miss: head 7 of layer 5 costs <strong>0.92 nats</strong> to remove — eight times the
+  next head, and more than most whole-layer ablations in the depth map above. Roughly a quarter
+  of the model's heads, spread evenly across depth, cost nothing at all.</p>
+  <p>What that head does turned out to be simple, and slightly absurd. It reads position 0 —
+  the first token — for <strong>99.8% of queries</strong>, where a neighbouring head reads it
+  5% of the time; and the value parked at position 0 has a norm of 730 against 197 everywhere
+  else. So the head adds nearly the same vector at every position. Testing that directly:
+  replacing its entire output with <em>its own mean vector</em> costs <strong>−0.005 nats</strong>
+  — free, in fact a hair better than leaving it alone — and a mean borrowed from unrelated text
+  works just as well. The single most important attention head in this model is a learned
+  constant: 1152 numbers, no text dependence.</p>
+  <p class="q">Two things make this more than a curiosity. First, this architecture has no
+  softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
+  cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping
+  all 162 heads, only one other head has its cost fully absorbed by a constant, and across the
+  twelve heads that cost more than 0.02 nats the median share explained by a constant is 39%.
+  Bias-adding is not a widespread role in this model — it is one enormous special case sitting
+  on top of an otherwise contextual stack.</p>
 </section>
 
 <section class="col">

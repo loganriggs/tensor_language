@@ -6,6 +6,7 @@
 |---|---|---|---|---|---|---|---|
 | r.0.3.0 | diverse | 6.61 | 0.566 | Members are rare/proper-noun-like continuation tokens (numbe | weak | CONFIRM | SOP-v2-diverse,SOP-v2-diverse (full 1000 |
 | r.11.3.1 | diverse | 6.57 | 0.556 | templated-completion vs list/numeric-break selector |  | CONFIRM | sonnet-reviewer-wave2,sonnet-wave2-b |
+| r.13.2.1 | diverse | 5.59 | 0.537 | punctuation-target CE reducer (two-signed, ~50/50 elsewhere) |  | CONFIRM | leaf_ablate+sign_stats,leaf_input_decomp |
 | r.5.0.1 | diverse | 5.2 | 0.556 |  |  | CONFIRM | sonnet-reviewer-wave3,sonnet-wave3-a,son |
 | r.1.3.1 | diverse | 6.67 | 0.609 | Members split near-evenly: pushes CE down for clean word/nam |  | WEAKEN | SOP-v2 identity-rule check, manual half- |
 | r.18.2.0 | diverse | 5.96 | 0.555 | no behavioral claim survives base-rate testing except a narr |  | WEAKEN | fable-driver,sonnet-reviewer-wave3,sonne |
@@ -14,7 +15,6 @@
 | r.3.0.2 | diverse | 6.1 | 0.613 | attn-input-writer decomp: a14 dominant writer into a15/16/17 |  | WEAKEN | SOP step1,SOP step1 half,fable-driver,le |
 | r.4.1.0 | diverse | 6.45 | 0.567 | Two-signed circuit: hurts predictable words (said, tying, op |  | WEAKEN | SOP-v2-diverse,SOP-v2-diverse (full 1000 |
 | r.5.3.1 | diverse | 5.17 | 0.583 | no behavioral claim survives base-rate testing |  | WEAKEN | fable-driver,leaf_ablate/sign_stats full |
-| r.13.2.1 | diverse | 5.59 | 0.537 | punctuation-target CE reducer (two-signed, ~50/50 elsewhere) |  |  | leaf_ablate+sign_stats,leaf_input_decomp |
 | r.2.0.1 | diverse | 5.4 | 0.682 | r.2.0 double-QK bundle (a6/a8); input writer composition NOT |  |  | sonnet-wave4-d,sonnet-wave4-d leaf_input |
 | r.8.1.0 | diverse | 5.68 | 0.574 |  |  |  | SOP-v3 step1 sonnet-wave4-c,census_lib.l |
 | ind_band | old |  |  | induction band: top-4 coincidence reads |  |  | induction_residual,mech_replicate,sparse |

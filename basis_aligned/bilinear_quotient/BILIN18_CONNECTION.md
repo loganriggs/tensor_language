@@ -10688,3 +10688,58 @@ baseline; a leaf at 5-6 is roughly 1.7x an arbitrary same-rank
 ablation, not 5-6x "nothing". Every concentration number in the
 program keeps its value and loses its old interpretation. The SOP
 already carries this calibration for the swarm.
+
+## 437. Bias-adding is not a role: head 5.7 is a special case of one
+
+head_bias_sweep swept all 162 heads for deletion cost versus
+mean-replacement cost. (a) FAILED decisively: exactly ONE head
+(11.6) meets the registered bias-adder definition, and the sweep's
+own bar excluded 5.7 by a hair (its mean arm scored -0.0074 at
+NR=16 against a |0.005| threshold -- the criterion was too tight
+for its own headline case, stated here rather than quietly
+adjusted). (b) HELD: 5.7 owns the largest deletion-minus-mean gap
+in the model at 0.923, an order of magnitude above anything else.
+The informative statistic is the distribution: of the twelve heads
+costing >= 0.02 nats to delete, the median share of that cost
+explained by a constant is 39%:
+  5.7  zero 0.916  mean -0.007  constant explains 101%
+  0.3  zero 0.112  mean  0.104  7%
+  1.1  zero 0.089  mean  0.055  37%
+  12.6 zero 0.073  mean  0.057  21%
+  6.3  zero 0.047  mean  0.028  41%
+  1.4  zero 0.029  mean  0.011  63%
+So most heads carry a partial constant component and a real
+contextual remainder; 5.7 is the singular case where the constant
+IS the head. Bias-adding is one enormous special case sitting on
+an otherwise contextual stack, not a widespread role.
+sink_source queued: decompose position 0's residual at layer 5
+into exact writer contributions and check the chain end to end
+(registered: one writer carries >= 0.40, it is wte or m0, and the
+routed position-0 value matches the head's mean write at cosine
+>= 0.9).
+
+## 438. Punctuation claim CONFIRMED under attack; held-out test queued
+
+The r.13.2.1 reviewer returned CONFIRM after three attacks, and
+the confound analysis is worth recording in full because it cuts
+the other way: punctuation members do have much lower base CE
+(4.08 vs 6.02), which is exactly the profile of a regression
+artifact -- but conditioning on base CE REFUTES that explanation.
+Members in the punct-matched low-CE band show only 40% help, and
+help-rate RISES with base CE across quartiles (37.5% -> 66.7%),
+the opposite of what an artifact requires. The random rank-matched
+subspace scored 43-63% across five seeds against the real
+bundle's 80%, never reaching the bar.
+Its standing objection is the right one: the test lives on the
+corpus the leaf was discovered in, and the alpha corrects only
+within-leaf sub-tests, not the search across leaves and classes.
+punct_heldout queued to settle it on text the census never saw --
+fresh FineWeb rows, the claim in generalized form (does ablating
+this bundle lower CE at punctuation targets relative to
+non-punctuation targets?), permutation-tested, with random
+rank-matched subspaces as the control.
+Report updated at this phase boundary and republished: a new
+section on head 5.7 (the costliest head is a constant), and the
+census paragraph now carries the fragility calibration -- a
+rank-matched random subspace scores median 2.62 against the gate
+of 3, so a leaf at 5 is about 1.7x an arbitrary ablation.
