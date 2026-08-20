@@ -1,0 +1,9 @@
+control heads: [(15, 6), (11, 4), (8, 7), (0, 7), (12, 6), (8, 1), (14, 8), (9, 2), (1, 6)]
+window_ind: match +0.3182 non-match +0.2244
+delete_ind: match +0.4258 non-match +0.4419
+window_ctrl: match +0.1798 non-match +0.0417
+verdict: distant reads carry it
+(a) deleting the nine costs >=0.30 at match: HELD
+(b) windowing them is decisive either way: HELD
+(c) control heads matter less: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_window_results.json (1s)

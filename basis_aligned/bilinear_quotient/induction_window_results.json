@@ -1,0 +1,60 @@
+{
+ "baseline_match_ce": 4.5845,
+ "arms": {
+  "window_ind": {
+   "match": 0.3182,
+   "nonmatch": 0.2244
+  },
+  "delete_ind": {
+   "match": 0.4258,
+   "nonmatch": 0.4419
+  },
+  "window_ctrl": {
+   "match": 0.1798,
+   "nonmatch": 0.0417
+  }
+ },
+ "control_heads": [
+  [
+   15,
+   6
+  ],
+  [
+   11,
+   4
+  ],
+  [
+   8,
+   7
+  ],
+  [
+   0,
+   7
+  ],
+  [
+   12,
+   6
+  ],
+  [
+   8,
+   1
+  ],
+  [
+   14,
+   8
+  ],
+  [
+   9,
+   2
+  ],
+  [
+   1,
+   6
+  ]
+ ],
+ "verdict": "distant reads carry it",
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": true,
+ "runtime_s": 0.9180421829223633
+}

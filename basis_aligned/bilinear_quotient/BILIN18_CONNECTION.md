@@ -12327,3 +12327,46 @@ sweep scored at MATCH positions. Registered: (a) some band layer
 costs >= 0.20 there, (b) the worst is a documented induction
 layer, (c) unlike the average case, allowing position 0 does NOT
 rescue layer 5 at match positions.
+
+## 484. At match positions too, layer 5 is the sink -- and layer 12 is the real outlier
+
+window_at_match reran the depth sweep scored separately at match
+and non-match positions:
+  layer   match      non-match        layer   match      non-match
+    0    -0.1388     +0.0092            9    -0.0246     +0.0102
+    1    -0.0586     +0.0517           10    -0.0212     -0.0159
+    2    -0.0533     +0.0600           11    +0.0300     +0.0176
+    3    +0.0082     +0.0548           12    +0.2094     +0.0207
+    4    -0.2299     +0.0257           13    +0.0450     +0.0177
+    5    +0.9964     +1.1727           14-17  all under +0.04
+    6    -0.0176     +0.0370
+    7    -0.0403     +0.0307
+    8    -0.0163     +0.0662
+  layer 5 at match, with position 0 allowed: +0.0703
+(c) FAILED: allowing position 0 rescues layer 5 at MATCH positions
+too (+0.996 -> +0.070). Bars (a) and (b) technically HELD, but
+only through layer 5 -- the same wrong-reason pass as 482(c), and
+I am scoring them as uninformative rather than banking them twice.
+Two real findings in the table. First, LAYER 12 is the only layer
+with a genuinely match-specific long-range cost: +0.209 at match
+against +0.021 elsewhere, a tenfold ratio, and it is nowhere near
+the induction band. Second, windowing several EARLY layers HELPS
+at match positions -- layer 4 at -0.230, layer 0 at -0.139 --
+so restricting attention to four tokens improves prediction at
+repeat positions.
+That sharpens a tension with this program's flagship result rather
+than resolving it. Deleting the nine induction-band heads costs
++0.601 at match positions (376), but restricting their layers to
+four tokens costs between -0.06 and +0.01 at those same positions.
+Induction is DEFINED by reading a distant earlier occurrence. If
+those heads cannot see past four tokens and nothing happens, then
+either their value at match positions is carried by LOCAL reads,
+or the deletion cost measures something other than the match read.
+induction_window queued to test the heads themselves rather than
+their layers: window the nine band heads to four tokens, delete
+them as a sanity check against 376's 0.601, and window nine random
+non-band heads as control -- all scored at match positions.
+Registered as a decisive fork: >= 0.30 means the distant reads
+carry the function, <= 0.10 means induction's value at match
+positions is LOCAL, and either outcome is a substantive finding
+about the program's most-cited claim.
