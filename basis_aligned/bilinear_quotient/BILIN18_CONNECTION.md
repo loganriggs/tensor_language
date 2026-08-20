@@ -9783,3 +9783,30 @@ pure MLP ladder. ladder_depth queued with registered depth
 predictions: early band closes at k=1; 5.5 at k=1; 8.4 needs
 k=2 (nesting real); all nine >=0.85 by k=3 (bounded-depth fork);
 shuffled-value null at k=1.
+
+## 402. RELAY DEPTH MEASURED: every induction head closes by three moves of one code
+
+ladder_depth, the corrected bounded-depth instrument: ALL FIVE
+BARS HELD.
+  head   k0     k1     k2     k3     k1-shuffled
+  1.4   0.998  1.000  1.000  1.000  0.998
+  2.5   0.859  0.999  1.000  1.000  0.923
+  3.5   0.741  0.942  1.000  1.000  0.749
+  3.8   0.793  0.941  1.000  1.000  0.774
+  5.5   0.362  0.893  0.960  0.994  0.348
+  6.5   0.535  0.827  0.956  0.989  0.452
+  7.3   0.415  0.683  0.938  0.986  0.422
+  8.3   0.538  0.694  0.926  0.982  0.469
+  8.4   0.504  0.623  0.929  0.976  0.393
+Relay depth is a measured, small integer that grows with head
+depth: the early band closes at ONE move of the MLP-ladder code,
+layers 5-6 at one-to-two, layers 7-8 at TWO, and by three moves
+all nine heads sit at >=0.976. The shuffled-value null never
+leaves the ladder baseline. This completes the input-side
+anatomy of the induction band: match code = MLP-ladder identity
+code, moved at most ~2-3 times by attention, compared by
+double-QK coincidence. ladder_causal queued -- the causal
+cash-in: the LIVE model runs with all nine band heads' patterns
+computed from the k=2 reconstruction (real values), priced in CE
+at match positions against the 4-read code, a shuffled-content
+control, and deletion. Registered a-d.

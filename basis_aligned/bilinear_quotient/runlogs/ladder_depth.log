@@ -1,0 +1,19 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+1.4: k0 0.998 | k1 1.0 | k2 1.0 | k3 1.0 | k1shuf 0.998
+2.5: k0 0.859 | k1 0.999 | k2 1.0 | k3 1.0 | k1shuf 0.923
+3.5: k0 0.741 | k1 0.942 | k2 1.0 | k3 1.0 | k1shuf 0.749
+3.8: k0 0.793 | k1 0.941 | k2 1.0 | k3 1.0 | k1shuf 0.774
+5.5: k0 0.362 | k1 0.893 | k2 0.96 | k3 0.994 | k1shuf 0.348
+6.5: k0 0.535 | k1 0.827 | k2 0.956 | k3 0.989 | k1shuf 0.452
+7.3: k0 0.415 | k1 0.683 | k2 0.938 | k3 0.986 | k1shuf 0.422
+8.3: k0 0.538 | k1 0.694 | k2 0.926 | k3 0.982 | k1shuf 0.469
+8.4: k0 0.504 | k1 0.623 | k2 0.929 | k3 0.976 | k1shuf 0.393
+(a) early >=0.90 at k=1: HELD
+(b) 5.5 >=0.80 at k=1: HELD
+(c) 8.4 needs k=2: HELD
+(d) all nine >=0.85 by k=3: HELD
+(e) shuffled null <25%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ladder_depth_results.json (6s)
