@@ -11198,3 +11198,54 @@ could have chosen from.
 punct_shared is queued to decide whether the three punctuation
 claims are one effect or three (joint versus individual ablation,
 plus random-subspace controls on all three).
+
+## 453. The three punctuation claims are ONE effect
+
+punct_shared ablated each bundle alone, all three jointly, and
+rank-matched random subspaces per leaf.
+  leaf       own (hits/n, p)        random subspace     excess
+  r.18.2.0   36/43, p=0.000         25/43, p=0.266       0.309
+  r.13.2.1   39/49, p=0.000         30/49, p=0.041       0.286
+  r.11.1.2   36/51, p=0.0007        26/51, p=0.480       0.233
+  joint ablation of all three, scored on each leaf:
+             33/43 p=0.0008 | 38/49 p=0.0001 | 34/51 p=0.004
+             excesses 0.246 / 0.273 / 0.195
+(a) HELD, and decisively in the informative direction: the joint
+ablation produces LESS excess than any single bundle alone. Three
+independent effects would add; these SATURATE, and slightly
+interfere. The three leaves are three views of one shared
+punctuation effect.
+(c) HELD at the corrected threshold, with one number worth
+stating rather than hiding: r.13.2.1's random-subspace control
+reached p=0.041 -- clean against the Bonferroni bar of 0.0083 but
+not against a naive 0.05. The generic component 440 measured is
+visible here too, and it is small.
+punct_carrier queued to find what carries the shared effect. The
+three bundles overlap in components (a7 in two, a3 in two, a8 in
+two), so single whole-component mean-ablations are scored on all
+three leaves' punctuation populations, with two components in no
+bundle as controls. Registered: (a) some single component
+reproduces excess >= 0.15 on at least two leaves, (b) it is one
+of the shared components, (c) the controls stay clean.
+
+## 454. The two sinks share an axis and back each other up
+
+sink_pair compared the model's only two position-0 heads.
+  delete 5.7            +0.9154
+  delete 5.2            +0.0154
+  delete both           +1.2136   (sum of individuals: 0.9308)
+  5.7's write vs its own mean: cosine 0.998
+  5.2's write vs its own mean: cosine 0.883
+  5.7's constant vs 5.2's constant: cosine +0.853
+(a) FAILED narrowly -- 5.2 is near-constant at 0.883 against a
+0.9 bar, so it is a broadcaster with more position-dependence
+than 5.7, not a pure one. (b) HELD: the two constants sit on
+essentially the same axis (+0.853). (c) HELD: deleting both costs
+0.283 nats MORE than the sum of deleting each.
+Read together: layer 5 maintains the stream centre with two
+heads on one axis, a dominant one and a partial backup, and they
+are superadditive -- removing 5.7 alone leaves 5.2 holding part
+of the centre, which is why 5.2 looks nearly free on its own
+(0.015) and expensive once its partner is gone. That is a
+redundancy structure, and it is the first clean instance of one
+in this program's causal graph.
