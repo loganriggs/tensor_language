@@ -9964,3 +9964,27 @@ packed leaves with STRICT doc-disjoint splits (docid parity, not
 row parity -- rows of one document are adjacent in this corpus);
 registered >=40% earn programs, median null <=0.6, programs
 written for passers.
+
+## 410. Surface programs fail on the diverse tree (1/72) -- and the standard reorients to mechanism
+
+sop_program_batch ran SOP step 3 over all 72 packed leaves with
+STRICT doc-disjoint splits (docid parity): only 1 leaf earns a
+surface program at bacc>=0.75 ((a) FAILED at 1%; median null
+0.504, honest). On the old tree, row-parity splits and a
+guide-dominated corpus made token-class programs look workable;
+on a diverse corpus with true doc-disjointness, leaf membership is
+NOT surface-predictable. This lands together with a USER DIRECTIVE
+(recorded to memory, was given before and lost in a context
+break): compression facts -- the k-dial law, top-N unit counts --
+and surface programs are not the goal. The standard is the EXACT
+COMPUTATIONAL MECHANISM stated interpretably: named variables,
+named writers, named couriers, causally tested -- the induction
+record (393-408) is the template. Consequences shipped this turn:
+CIRCUIT_SOP v2 (diverse tree setup, both-halves identity gate,
+step-3 demoted, mechanism templates named as the actual goal),
+census_lib diverse mode, memory entries, and a Sonnet dry-run
+agent launched on r.0.3.0 to validate the swarm pipeline
+end-to-end before Fable credits run out. Queue re-pointed at
+mechanism work: r30_writer_decomp (what does the novel circuit
+r.3.0 COMPARE -- registered: concentration, shared dominant pair
+across its two heads, and the context-vs-identity-code fork).
