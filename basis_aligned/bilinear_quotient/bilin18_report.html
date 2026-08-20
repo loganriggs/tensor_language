@@ -1258,6 +1258,22 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   worth a future causal test; and the third reads only weakly. The method generalizes. Both
   what it finds and how confidently it can be causally pinned down get harder outside the one
   layer this thread started on.</p>
+  <p>A companion tool from the same outside source does the compression side of this question
+  properly: given a layer's weight and its real activations, it computes — in one exact step,
+  no guessing or gradient descent — the best possible low-rank stand-in for that layer <em>on
+  the data it actually sees</em>. First checked against a number this report already trusts:
+  a different measurement, elsewhere in this program, found the first attention layer needs
+  only 16 of its 1152 directions to keep its cost under a fixed bar. Building the naive
+  version of this cross-check — combining the layer's two internal weight matrices into one
+  and testing that — gave a nonsense answer (a supposedly free substitution that cost nearly 5
+  nats), traced immediately to a real modeling mistake: the layer has 9 independent attention
+  heads sharing one output matrix, and you cannot combine two matrices that don't share a
+  single consistent pattern across positions. Redone the way that already worked earlier in
+  this thread — feed the tool the real activations flowing into the one genuinely single
+  matrix in the pipeline, not an invented combination — the new tool's answer landed almost
+  exactly on the number already trusted: its own rank-16 stand-in costs 0.094, just under the
+  same bar, and beats a same-size random direction by more than fourteen times. Two
+  independent measurements, two different methods, the same answer.</p>
 </section>
 
 <section class="col">
