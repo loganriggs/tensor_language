@@ -10626,3 +10626,65 @@ extreme-value null), all fixed, all with the affected claims
 re-scored. This is the verification layer earning its cost: the
 records it produces are thinner than the first drafts, and the
 ones that survive are worth more.
+
+## 435. THE COSTLIEST HEAD IN THE MODEL IS 1152 NUMBERS
+
+sink_bias_test, all three bars HELD, and the numbers are not
+marginal:
+  delete head 5.7                       +0.9154 nats
+  replace its write with its OWN MEAN   -0.0053
+  replace it with a mean from OTHER ROWS -0.0034
+  replace it with a per-row mean        -0.0039
+The model's single most expensive attention head -- eight times
+costlier than the next, larger than most whole-layer ablations --
+is EXACTLY a constant bias adder. Every position gets essentially
+the same vector, the vector does not depend on the text (a mean
+computed on different rows works just as well), and substituting
+it is not merely cheap but very slightly BETTER than the intact
+head. 429 measured its importance, 432 found the mechanism (a
+sink locked on position 0, where the value norm is 730 vs 197),
+and this closes it: the sink exists to add a learned constant,
+and 1152 numbers replace it.
+This also explains 431's crossover oddity, where both swaps cost
+MORE than deletion: substituting a sibling's pattern or values
+replaces the right constant with a wrong one, which is worse than
+having no constant at all.
+head_bias_sweep queued: how many of the 162 heads are pure bias
+adders (deletion >= 0.02 but mean-replacement <= 0.005), what the
+layer profile is, and how many nats the whole set recovers.
+
+## 436. Three verdicts from the queue: consumers found, punctuation real, gate confirmed weak
+
+leaf_output_decomp (the pivot after input composition failed on
+5 of 7 leaves): BOTH bars HELD. Every leaf has a downstream
+consumer whose input changes more at member positions than
+off-slice, and every one beats its rank-matched random-subspace
+control:
+  r.3.0.2 in_a17 2.014 (random 1.471)   r.5.3.1 in_a17 1.603 (1.280)
+  r.18.2.0 in_a17 1.357 (1.100)         r.2.0.1 in_a17 1.356 (1.235)
+  r.5.0.1 in_a15 1.283 (1.205)          r.13.2.1 in_a17 1.188 (1.057)
+The output side is the productive direction -- but the honest
+caveat is that in_a17 is the top consumer for five of six leaves,
+so "who consumes this" is answered mostly at the LAYER level (the
+last attention layer reads what these bundles write); only the
+margins over random differ per leaf.
+
+punct_generality: the swarm's first fully verified behavioral
+claim. r.13.2.1's punctuation effect is REAL and leaf-specific --
+own bundle 39/49 hits, p ~ 0; rank-matched random subspace in the
+same components 21/49, p = 0.73. The three control leaves show no
+punct effect under their own probes (p = 0.016-0.040, none
+clearing the corrected 0.0083). So punctuation-specific pushing
+is a genuine function of that bundle, not the fragility artifact
+430 warned about.
+
+gate_specificity (complete, 12 leaves): BOTH bars FAILED, and 430's
+provisional correction is now FINAL. A rank-matched random
+subspace scores median concentration 2.62 -- just under the census
+gate of 3 -- and only 4 of 12 leaves reach twice their random
+baseline (ratios 1.26 to 3.23, median ~1.68). Census concentration
+therefore measures selectivity sitting on a large fragility
+baseline; a leaf at 5-6 is roughly 1.7x an arbitrary same-rank
+ablation, not 5-6x "nothing". Every concentration number in the
+program keeps its value and loses its old interpretation. The SOP
+already carries this calibration for the swarm.
