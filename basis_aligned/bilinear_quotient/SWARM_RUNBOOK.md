@@ -106,6 +106,12 @@ counts toward the certified tally.
   once, else skip the tag with a note.
 
 ## 6. Known traps (union of every incident so far)
+- NAMESPACE COLLISION: circuits/ holds ~50 OLD-TREE (212-row)
+  records whose tags overlap the diverse tree's (e.g. r.2.0,
+  r.1.0). A diverse-tree write_circuit on such a tag would MERGE
+  INTO the old record and mix trees. "Skip tags with an existing
+  circuits/ file" is the operative rule; check doc['tree']
+  ['instance'] before ever merging into an existing file.
 - queue.txt: ABSOLUTE paths only.
 - cl functions without use_state() silently run the OLD 212-row tree.
 - Pack examples are non-canonical; regenerate with cl.examples.

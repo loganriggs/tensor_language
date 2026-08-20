@@ -10129,3 +10129,34 @@ local_bigram_score: is 16.8's offset -1 score a bigram-
 plausibility signal; courier_centrality: is a6.h3 a specific
 courier or a hub -- all with nulls/controls; note their
 docstrings self-number 415-417, one behind this ledger).
+
+## 416. Three registered results: compact code read universally; weak signed bigram split; a6.h3 is a HUB and a courier
+
+m0_code_geometry: (a) HELD -- the identity code's effective rank
+is 71 of 1152 (very compact). (b)/(c) FAILED informatively: the
+band heads' 16-dim read subspaces overlap at 0.62 -- but so do
+RANDOM heads' (null 0.68). With a rank-71 substrate, any 128-dim
+head projection reads most of the code: the sharing is universal,
+not band-specific, and 16 dims capture only ~55% per head. The
+substrate is small; the reads are broad.
+
+local_bigram_score: (a)/(c) FAILED, (b) held (shuffled-table null
+clean). 16.8's offset -1 score correlates with bigram frequency
+at only +0.16; 16.2 ANTI-correlates at -0.20 (prefers rare
+adjacencies). A real signed split, but the bigram-plausibility
+story is not supported at registered strength -- recorded as a
+lead, not a claim.
+
+courier_centrality: ALL BARS FAILED in the direction that
+matters: deleting a6.h3 shifts EVERY downstream head (99/99 over
+5%, median ~13%, up to 41% for 7.3) while the a6.h0 control
+shifts nothing (90.9% under 5%). REFINEMENT OF 407/408 (stated
+plainly): a6.h3 is not a narrowly-specific courier -- it is a
+HUB whose write conditions generic read positioning across
+layers 7-17, AND the match-content courier whose deletion
+selectively re-aims the deep trio at match positions (408's
+selectivity was measured at match positions; the global picture
+is hub-like). courier_mean_split queued to separate the two
+roles: mean-ablation (operator-C) should keep the bus load and
+kill the content -- registered (a) mean halves the generic
+shift, (b) trio match shift survives >=15%, (c) control clean.
