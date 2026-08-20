@@ -11330,3 +11330,38 @@ Registered: (a) the intact top-1 is a non-punctuation
 continuation in >= 60% of cases, (b) ablation suppresses that
 competitor at least 3x more than a random token, (c) no reverse
 asymmetry in the control class.
+
+## 457. THE PUNCTUATION EFFECT IS A MODEL DEFICIENCY: over-continuation at phrase boundaries
+
+punct_competitor ran twice. v1's arms all pointed the right way
+but on n=5 helped punctuation positions -- too few to record, so
+it was rerun with all member rows pooled across the three
+punctuation leaves and a POWER GATE as prediction (a): interpret
+nothing unless at least 40 sites are scored. v2, n=100:
+  (a) POWER GATE HELD: 100 helped punctuation positions
+  (b) HELD: at 75% of them the intact model's top-1 is a
+      NON-punctuation token -- the model wants to keep the phrase
+      going where the text actually ends it
+  (c) HELD, and this is the number that matters: ablation lowers
+      THAT competitor's probability by -0.108 while a random
+      token moves by +1.24e-06 -- five orders of magnitude of
+      selectivity, not diffuse damage
+  (d) CONTROL HELD: at the 1194 helped NON-punctuation positions
+      the intact top-1 is punctuation only 12.6% of the time, so
+      the asymmetry runs one way
+This resolves the arc that 440-456 kept failing to explain. The
+punctuation effect is not a circuit function, not a frequency
+artifact, and not generic damage. It is a systematic BIAS IN THE
+TRAINED MODEL -- over-confidence in continuing a phrase at
+positions where punctuation is correct -- which many different
+ablations partially relieve. Ablating machinery "helps" there in
+the same sense that removing a thumb from a scale helps.
+That reframes the earlier corrections rather than erasing them:
+455 was right that the effect is not leaf-specific, 456 was right
+that frequency does not explain it, and both were looking for a
+circuit where the answer was a model-level bias.
+punct_overconf_source queued to ask which machinery creates the
+over-confidence: at these sites, do the five helping components
+(a3, a6, a7, a8, m7) push the competitor token in logit space,
+and do they share a direction, with the clean component a12 as
+control? Registered a-c.

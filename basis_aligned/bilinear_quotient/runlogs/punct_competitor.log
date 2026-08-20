@@ -1,0 +1,16 @@
+rows 0 done
+rows 4 done
+rows 8 done
+rows 12 done
+rows 16 done
+rows 20 done
+rows 24 done
+rows 28 done
+rows 32 done
+rows 36 done
+punct helped n=5: top-1 is non-punct 0.800; competitor dprob -0.10816 vs random +9.98e-07
+non-punct helped n=39: top-1 is punct 0.051
+(a) intact top-1 is a wrong continuation: HELD
+(b) ablation suppresses that competitor: HELD
+(c) control: no reverse asymmetry: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/punct_competitor_results.json (16s)
