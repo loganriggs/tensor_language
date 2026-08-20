@@ -1,0 +1,10 @@
+(0a) reproduced sizes [86, 46, 42, 37, 12, 11, 11, 11, 10, 9, 5, 5, 4, 3, 2, 2, 1, 1, 1, 1]: HELD | cluster n=46
+source positions: 678, target positions: 1981
+(0b) identity mean |delta| 0.000001: HELD
+(a) cluster patch mean delta +0.00028 (sign correct): HELD
+(b) random-unit patch mean delta -0.00021: HELD
+(c) same-class patch mean delta +0.00003 vs cross-class +0.00028: HELD
+(d) mlp1 effect +0.00028 vs mlp0 cluster-8 effect +0.00219 (ratio 0.13x)
+NULL: digit-position delta 1.8652725029810745e-05 vs real +0.00028: ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_cluster_the_patching_results.json (50s)

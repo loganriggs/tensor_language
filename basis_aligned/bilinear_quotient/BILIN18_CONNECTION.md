@@ -17646,3 +17646,35 @@ Recorded as a genuinely open loose end -- worth a properly-weighted
 follow-up (real per-unit activation magnitudes, not a uniform sum)
 if this specific mechanism is revisited, but not chased further now
 rather than over-interpret a quick, mismatched check.
+
+## 595. Answered: mlp1's article-adjacent cluster IS genuinely
+## reusable machinery for the same decision mlp0's cluster 8 makes --
+## real, confirmed, but a minor secondary contributor (13% the effect)
+
+587's open lead, tested directly with the validated patching method
+(592/593): does mlp1's 46-unit "the"-predicting cluster causally move
+the SAME whole-model a/an-vs-the margin mlp0's cluster 8 moves?
+ALL FIVE checks HELD cleanly, no ambiguity this time:
+  (0) reproducibility and identity both exact.
+  (a) sign correct: patching an a/an-favoring source shifts the
+      margin toward a/an, +0.00028.
+  (b) HELD decisively: the random-unit control's delta is actually
+      NEGATIVE (-0.00021, wrong direction) while the cluster's is
+      positive -- this cluster is doing something specific and real,
+      not noise in a generically movable direction.
+  (c) HELD: same-class control is +0.00003, ~9x smaller than the real
+      cross-class effect (+0.00028).
+  NULL ok: digit-position delta is negligible (0.0000187).
+THE REDUNDANCY ANSWER, (d): mlp1's effect is 0.13x (13%) of mlp0
+cluster 8's already-measured +0.00219 (592). Both readings are
+correct at once: this IS genuinely reusable, redundant machinery for
+the SAME linguistic decision (not a coincidental echo -- it passes
+every specificity check mlp0's cluster 8 passed), but mlp0 is clearly
+the PRIMARY contributor and mlp1's cluster is a real, secondary,
+much-weaker one. This is a clean, positive, first confirmed instance
+of the "reusable components across circuits" question this whole
+program direction (from 578's toy validation onward) was built to
+answer -- the model does maintain distributed, redundant machinery
+for at least one linguistic decision, in measurable, unequal
+proportions across layers, not concentrated in one place or split
+evenly.
