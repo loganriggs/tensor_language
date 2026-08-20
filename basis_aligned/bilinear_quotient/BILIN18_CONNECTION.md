@@ -10863,3 +10863,33 @@ and price both. Registered: (a) the direct path recovers under
 30% of the head's 0.92 nats, (b) the indirect path recovers 80%+,
 (c) under direct-only injection the pushed tokens move UP,
 confirming the readout measures the direct path only.
+
+## 443. INSTRUMENT BUG: the injected constant was 16384x too large; path-split run VOID
+
+bias_path_split returned direct +11.54 and indirect +11.54 nats
+against deletion's 0.92 -- both arms catastrophic, and bars (a)
+and (c) "held" only because the arms exploded. Recorded as VOID
+per the standing rule that an arm which cannot fail (or which
+fails by blowing up) is not evidence.
+Diagnosis, measured rather than guessed: the residual entering
+attention is rms-normed to norm ~34, the raw final residual is
+~85,091, and the constant I injected had norm 111,064,552 -- more
+than a thousand times the whole residual stream. Cause: my
+single-head score helper omitted the model's /128 normalisation on
+EACH of the two QK factors, so every reconstructed pattern (and
+hence the constant derived from it) was 128 x 128 = 16,384x too
+large.
+Scope of the error, stated precisely: 442's findings are NOT
+affected -- the token lists and the concentration comparison pass
+the vector through rms_norm first (scale-invariant), and the
+causal sign test used real model ablations, never the
+reconstructed constant. Everything that used the constant's
+MAGNITUDE is void: the path-split arms, and nothing else. The
+earlier sink results used the model's own mean of z (not a
+reconstruction), so 435/439/441 are untouched.
+Fixed in both scripts with the divisions restored and a comment
+naming the bug; bias_path_split requeued. Standing lesson for the
+program's scripts: whenever a reconstructed quantity is INJECTED
+rather than compared, check its norm against the residual it is
+being added to before trusting the run -- a scale error is
+invisible in cosine-based checks and fatal in causal ones.

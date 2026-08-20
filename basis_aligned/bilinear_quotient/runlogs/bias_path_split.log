@@ -6,8 +6,8 @@ batch 16 done
 batch 20 done
 batch 24 done
 batch 28 done
-dCE: {'delete': 0.9154, 'direct': 11.5365, 'indirect': 11.5424} | recovered: {'direct': -11.603, 'indirect': -11.609}
-top-20 mean logit: {'full': 4.4016, 'delete': 4.6191, 'direct': 17.1097}
+dCE: {'delete': 0.9154, 'direct': 1.3746, 'indirect': 1.0166} | recovered: {'direct': -0.502, 'indirect': -0.111}
+top-20 mean logit: {'full': 4.4016, 'delete': 4.6191, 'direct': 6.4746}
 (a) direct path recovers <30%: HELD
 (b) indirect path recovers >=80%: FAILED
 (c) direct arm raises the pushed tokens: HELD

@@ -64,8 +64,11 @@ def main():
             return are(F.rms_norm(w(X).view(B,T,9,128),
                        (128,))[:,:,HD][:,:,None],cos,sin)[:,:,0]
         qf,kf=rot(at.c_q),rot(at.c_k); q2,k2=rot(at.c_q2),rot(at.c_k2)
-        pat=(torch.einsum('bqd,bkd->bqk',qf.float(),kf.float())
-             *torch.einsum('bqd,bkd->bqk',q2.float(),k2.float())) \
+        # /128 per QK factor, as the model does (omitted in the
+        # first version: made the injected constant 16384x too
+        # large, writeup 443)
+        pat=((torch.einsum('bqd,bkd->bqk',qf.float(),kf.float())/128)
+             *(torch.einsum('bqd,bkd->bqk',q2.float(),k2.float())/128)) \
             *torch.tril(torch.ones(T,T,device=DEV))
         v=at.c_v(X).view(B,T,9,128)[:,:,HD].float()*(1-at.lamb)
         Wp=at.c_proj.weight.float()[:,HD*128:(HD+1)*128]
