@@ -7,3 +7,38 @@ pairwise normalized-Gram cosines among the four contributors:
    6.3 | 8.7: 0.616
    mean 0.626
    random quadruples of heads: mean 0.696 (min 0.576, max 0.770)
+  [check_parts a8 input] relative error 9.631e-08 -> ok
+  [check_parts a8 input] relative error 9.697e-08 -> ok
+  [check_parts a8 input] relative error 9.664e-08 -> ok
+  [check_parts a8 input] relative error 9.731e-08 -> ok
+  [check_parts a8 input] relative error 9.753e-08 -> ok
+  [check_parts a8 input] relative error 9.768e-08 -> ok
+  [check_parts a8 input] relative error 9.791e-08 -> ok
+  [check_parts a8 input] relative error 9.685e-08 -> ok
+  [check_parts a8 input] relative error 9.684e-08 -> ok
+  [check_parts a8 input] relative error 9.711e-08 -> ok
+  [check_parts a8 input] relative error 9.711e-08 -> ok
+  [check_parts a8 input] relative error 9.688e-08 -> ok
+  [check_parts a8 input] relative error 9.649e-08 -> ok
+  [check_parts a8 input] relative error 9.692e-08 -> ok
+  [check_parts a8 input] relative error 9.819e-08 -> ok
+  [check_parts a8 input] relative error 9.726e-08 -> ok
+  [check_parts a8 input] relative error 9.730e-08 -> ok
+  [check_parts a8 input] relative error 9.683e-08 -> ok
+  [check_parts a8 input] relative error 9.668e-08 -> ok
+  [check_parts a8 input] relative error 9.626e-08 -> ok
+  [check_parts a8 input] relative error 9.720e-08 -> ok
+  [check_parts a8 input] relative error 9.757e-08 -> ok
+  [check_parts a8 input] relative error 9.699e-08 -> ok
+  [check_parts a8 input] relative error 9.732e-08 -> ok
+
+(0) value-writer reconstruction 4.689e-07
+(0) HELD
+  digit sources: a5 0.319, a6 0.226, a7 0.151, m6 0.096, m7 0.089
+  other sources: a5 0.358, a6 0.226, a7 0.172, m6 0.099, m5 0.089
+(a) 0.6265 vs bar 0.5: HELD
+(b) -0.06916249226530391 vs bar 0.15: FAILED
+(c) 0.31937026030034543 vs bar 0.3: HELD
+(c) leading writer into the channel at DIGIT sources: a5 at 0.319
+NULL (non-digit sources differ: leader a5 at 0.358): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_channels2_results.json (198s)

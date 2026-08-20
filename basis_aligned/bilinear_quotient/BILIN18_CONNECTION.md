@@ -14297,3 +14297,54 @@ at the same strength it finds nearby ones. If it does, "adaptive
 positional pointer" survives; if the far share collapses to the
 distractor level, the head implements a fixed short-range rule and
 the matcher language should be dropped from the ledger entirely.
+
+## 530. The selectivity is in the attention, not in the content
+
+digit_channels2 asked the two questions 528 left: do the four
+contributing heads put their energy in the same directions of the
+subspace, and where does the channel content come from one step
+further back? Both held on their primary bar and both failed their
+control, and the two failures point the same way.
+(0) HELD: the value-writer reconstruction is exact to 4.69e-7, so
+the recursion into v(k) is sound.
+(a) HELD: the mean pairwise cosine between trace-normalized Gram
+matrices M_h M_h^T for the four contributors is 0.627, above the
+0.50 bar. The heads do emphasize similar directions.
+(b) FAILED: twenty random quadruples of heads from the same two
+layers average 0.696 -- HIGHER than the four contributors. So
+every head in a6 and a8 looks alike in this subspace, and the
+similarity among the contributors is not cooperation, it is the
+generic case. 528's degenerate column-space metric is now replaced
+by a working one, and the working one says there is nothing to
+see.
+(c) HELD on its face: the leading writer into the channel through
+the value map at digit source positions is a5, supplying 0.319.
+NULL VIOLATED: at NON-digit source positions the leading writer is
+also a5, supplying 0.358 -- slightly more. The full profiles are
+nearly identical:
+  digit sources  a5 0.319  a6 0.226  a7 0.151  m6 0.096  m7 0.089
+  other sources  a5 0.358  a6 0.226  a7 0.172  m6 0.099  m5 0.089
+So the writer composition of the channel is a property of the
+head's value map and carries no information about digits. (c) is
+not banked.
+The two failures combine into a positive statement, and it is the
+most portable thing to come out of this thread. 528 showed the
+channel's content is supplied by digit source positions at 14x the
+base rate. 530 shows that what those positions CONTRIBUTE is
+composed identically to what any other position contributes. The
+selectivity is therefore entirely in WHICH POSITIONS ARE ATTENDED
+TO, and not at all in what they carry.
+That is the same shape as 529, where head 13.8's discrimination
+between the matching opener and a distractor survived removing the
+token embedding from the keys (6.81 vs 6.48) and vanished when
+rotary was removed (1.08). Two circuits, two methods, one answer:
+selection happens in the score, content is generic.
+If that generalizes it is a claim about the model rather than
+about these two circuits, and it is cheap to test. rotary_
+selectivity is queued: disable rotary for one head at a time, for
+each of the four behaviour-leading heads the atlas found, and see
+how much of each one's behaviour-specific damage survives. It
+carries a differentiated bet -- the bracket head should lose
+almost everything, while the newline head, which responds to
+sentence-final punctuation and to document type rather than to
+distance, should not.
