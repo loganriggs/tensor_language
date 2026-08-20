@@ -15193,3 +15193,50 @@ derived from variables the weights predict, for 0.67 nats. The
 best rank allocation across all six blocks costs 1.18 (545). Two
 tables beat six projections by a factor of nearly two while
 replacing a third as much of the network.
+
+## 547. Block 2 is a pair function too, and the trigram test was
+## coverage-limited
+
+front_table3 built the context ladder for block 2, whose indexing
+variable is NOT derivable in advance: between it and the embedding
+sits attention layer 1, which fails the bigram-table test at
++1.470 where attn0 passes at 0.000.
+  arm                            cost      gap to ceiling
+  unigram (current token)      +0.5372        +0.3783
+  bigram (token pair)          +0.2745        +0.1156   69% closed
+  trigram (three tokens)       +0.2562        +0.0973   74% closed
+  ceiling (real write, r=64)   +0.1589            --
+  shuffled index               +1.4427
+(0) HELD: the ceiling reproduces 541's block-2 figure of 0.1589.
+(a) HELD: the pair beats the single token by 0.263 nats and closes
+69% of the gap -- almost exactly the 73% it closed at block 1. So
+block 2's write is ALSO essentially a function of the token pair,
+and the required context does not grow from block 1 to block 2
+even though attn1 sits between them and is not a bigram table.
+That is the substantive result and it was not what I expected.
+(b) FAILED as registered -- the trigram adds 0.018 against a 0.05
+bar -- but I am recording it as UNEVALUABLE rather than as
+evidence, because the arm has a coverage problem I should have
+foreseen. The corpus yields 221,900 distinct triples from 256,000
+positions: almost every triple occurs once. On the FRESH text the
+run is priced on, the overwhelming majority of triples were never
+observed and the table backs off to its bigram row, so the trigram
+arm is mostly the bigram arm with a thin scatter of hits. The
+measured 0.018 gain is what a few percent coverage would produce
+whether or not the third token matters.
+The bigram arm does not have this problem to the same degree --
+145,910 pairs, and pairs recur -- and its 0.263-nat gain is far
+too large to be a coverage artifact.
+So the ladder as it stands:
+  block 0   token          0.17 nats   (derivable: input IS the
+                                        embedding)
+  block 1   token pair     0.52        (derivable: attn0 is an
+                                        exact bigram table)
+  block 2   token pair     0.27        (NOT derivable, measured)
+and the open question -- whether a wider local window keeps paying
+past two tokens -- needs a design that can answer it. Two fixes,
+either of which would work: price the trigram arm on HELD-OUT
+positions from the same corpus, where coverage is high, rather
+than on fresh text; or report the fraction of fresh positions whose
+triple was observed alongside the gain, so the reader can scale it.
+Queued as front_table4 with both.

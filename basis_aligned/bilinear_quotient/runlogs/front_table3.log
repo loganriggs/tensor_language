@@ -1,0 +1,12 @@
+24634 tokens, 145910 pairs and 221900 triples tabulated
+baseline CE 3.3536
+ceiling (real write, rank 64): +0.1589
+unigram +0.5372 | bigram +0.2745 | trigram +0.2562
+shuffled-index table: [1.4474, 1.4434, 1.4427]
+
+(0) ceiling +0.1589 vs 541's 0.3781: HELD
+(a) bigram beats unigram by +0.2627 >= 0.10: HELD
+(b) trigram beats bigram by +0.0183 >= 0.05: FAILED
+(c) gap to ceiling +0.3783 -> +0.1156 -> +0.0973 | closed 69% then 74%
+NULL (shuffled +1.4427 >= 2x unigram): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_table3_results.json (84s)
