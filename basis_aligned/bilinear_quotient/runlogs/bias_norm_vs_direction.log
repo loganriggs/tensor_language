@@ -1,0 +1,13 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+dCE overall: {'zero': 0.9154, 'mean': -0.0053, 'rand_samenorm': 6.3037, 'half': 0.0457, 'double': 0.1393}
+(a) random same-norm <=0.20 (scale device): FAILED
+(b) random same-norm >=0.5 (specific vector): HELD
+(c) half and double each cost >=0.10: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bias_norm_vs_direction_results.json (2s)

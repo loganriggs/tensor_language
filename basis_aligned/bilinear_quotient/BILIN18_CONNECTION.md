@@ -11004,3 +11004,44 @@ give the model a linear pathway through an otherwise purely
 quadratic layer. bias_linearizes queued: decompose mlp5's output
 into those four exact terms and price each, with an exactness
 check that they reconstruct the real output to <1e-3.
+
+## 447. LINEARIZATION REFUTED -- and the bias's value is strongly non-additive
+
+First, v1 of this experiment was VOID and is recorded as such: it
+subtracted the RAW constant from mlp5's RMS-NORMALISED input
+(norm ~6800 against ~34) and omitted the layer's Down_bias, so
+every arm exploded to 14-16 nats and the exactness check failed at
+1.6e-2. That is the same scale-mismatch class as 443, two cycles
+after I wrote the lesson down -- so the lesson is now a REGISTERED
+GATE in the script itself: exactness is prediction (a), and if it
+fails no arm is interpreted.
+v2, with the constant's share of the normalised input computed
+per position from the true raw residual and Down_bias included,
+reconstructs mlp5's real output to a relative error of
+**1.253e-06** -- the four-term bilinear decomposition is exact, as
+the algebra says it must be:
+  Down[(L(x+c))*(R(x+c))] + b = Down[Lx*Rx] + Down[Lx*Rc]
+                              + Down[Lc*Rx] + Down[Lc*Rc] + b
+And with that exactness established, the hypothesis dies:
+  remove both cross terms (the LINEAR pathway)   +0.0203
+  remove the pure constant term                  +0.0045
+  remove both                                    +0.0154
+  (full bias deletion, for scale)                +0.9154
+(b) FAILED by a factor of 23. The bias does NOT earn its 0.92
+nats by opening a linear pathway through mlp5; mlp5's entire
+processing of the constant is worth two hundredths of a nat.
+Combined with 446 this leaves a sharp accounting problem, stated
+plainly rather than smoothed: mlp5's processing 0.02, downstream
+stream presence 0.24, everything 0.92. The parts sum to about a
+quarter of the whole. The bias's value is overwhelmingly an
+INTERACTION -- it is worth almost nothing wherever you look for it
+locally, and 0.92 nats when it is absent everywhere.
+A hypothesis that fits a network with no activation functions:
+every downstream rms_norm divides by the residual norm, so a
+large constant added at layer 5 sets the operating SCALE of the
+whole rest of the stack -- a global effect no local ablation
+would find. bias_norm_vs_direction queued to decide it: replace
+the head's write in place with a random direction of the same
+norm, and with the true constant scaled by 0.5x and 2x.
+Registered as a fork -- (a) random same-norm <= 0.20 means the
+bias is a scale device, (b) >= 0.5 means direction is the point.
