@@ -716,6 +716,18 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   at cosine 0.999. So the full mechanism, with every part named and no approximation between
   them: the MLP chain manufactures a fixed vector at the first position, one head is dedicated
   to reading that position, and its job is to add that vector everywhere.</p>
+  <p>And the constant turns out to be the stream itself. Comparing it against the residual at
+  every layer: it sits at cosine <strong>0.99</strong> with the mean residual direction through
+  layers 6–11, and it accounts for <strong>62–72% of the residual's magnitude</strong> at layers
+  6–8 (falling to 0.27 cosine by the final layer, where the network turns toward producing
+  logits). Against a random-vector baseline of 0.017, the alignment is fifty-fold. So after
+  layer 5 the residual stream is mostly one fixed vector, with everything the text actually
+  says riding on top as a smaller perturbation. That explains the rest of the measurements at
+  a stroke: rotating the constant to a random direction of the same length costs 6.3 nats —
+  seven times worse than deleting it — because it moves the centre the whole stack is
+  calibrated around, while halving or doubling it costs almost nothing, and no local ablation
+  finds where its value lives (the parts sum to a quarter of the 0.92-nat whole) because being
+  the baseline is not a local property.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping

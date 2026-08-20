@@ -11074,3 +11074,45 @@ at every layer 5-17, plus the share of residual norm it accounts
 for, against a random-vector null. Registered: (a) |cos| >= 0.5
 at a majority of layers 6-17, (b) at least 10x the null, (c)
 norm shares reported per layer.
+
+## 449. THE CONSTANT IS THE STREAM: 62-72% of the residual is one fixed vector
+
+bias_stream_geometry, no ablation involved -- pure geometry
+against the residual at every layer:
+  layer  cos(mean resid dir)  cos(PC1)  ||resid||  const/||resid||
+   5          +0.869            0.213     32,414        0.209
+   6          +0.993            0.744     11,018        0.615
+   7          +0.990            0.927      9,468        0.716
+   8          +0.985            0.857     10,001        0.678
+   9          +0.981            0.772     15,478        0.438
+  10-15    +0.973 -> +0.878   0.73->0.62  17k->34k   0.39->0.20
+  16          +0.743            0.518     39,724        0.171
+  17          +0.268            0.075     50,819        0.133
+  random-vector null: 0.012-0.037
+ALL THREE BARS HELD: aligned at 92% of layers 6-17, mean |cos|
+0.880 against a null of 0.0165 -- a fifty-three-fold separation.
+The sink constant IS the residual stream's mean direction through
+the middle of the network, and at layers 6-8 it accounts for
+62-72% of the residual's entire magnitude. After layer 5, the
+stream is mostly this one vector; everything the text says rides
+on top as a smaller perturbation. The alignment decays through
+the last two layers (0.74, then 0.27) as the network turns toward
+producing logits.
+This explains every earlier measurement at once. Rotating the
+constant costs 6.3 nats (448) because it moves the centre the
+whole stack is calibrated around. Halving or doubling it is
+nearly free because rms_norm removes overall scale. And no local
+ablation finds its value (447: parts sum to a quarter of the
+whole) because being the baseline is not a local property.
+Report updated and republished with the completed story.
+IMMEDIATE CONSEQUENCE FOR THIS PROGRAM'S OWN TOOLING, queued
+rather than assumed: leaf_input_decomp measures each writer's
+PROJECTION SHARE onto the total residual -- which after layer 5
+is 60-70% the bias. Writer shares at mid and late layers may
+therefore be partly measuring alignment with the bias.
+mech_tool_recenter recomputes the tables with the bias axis
+projected out for the one CONFIRMED positive (r.3.0.2's a14) and
+two confirmed negatives. Registered: (a) the top writer changes
+for at least one leaf, (b) r.3.0.2's a14 survives at >= 1.5 --
+and if it does not, the program's only confirmed mechanism claim
+was a bias-alignment artifact and gets retracted.
