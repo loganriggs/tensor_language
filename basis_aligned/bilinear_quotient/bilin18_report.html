@@ -134,7 +134,8 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">13</span><a href="#sink">The most expensive head is a constant</a></li>
     <li><span class="num">14</span><a href="#overcontinue">Three readings that died</a></li>
     <li><span class="num">15</span><a href="#atlas">A map of dedicated machinery</a></li>
-    <li><span class="num">16</span><a href="#open">What's still open</a></li>
+    <li><span class="num">16</span><a href="#folding">How small can the front get?</a></li>
+    <li><span class="num">17</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -949,6 +950,57 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   and made two of the random-set nulls fail. The numbers above are from the corrected run, in
   which every null passes; one leader changed under the fix (capitalized words moved from
   layer 17 to layer 15).</p>
+</section>
+
+<section class="col">
+  <h2 id="folding">How small can the front of the model get?</h2>
+  <p>The point of finding circuits is a benchmark: replace parts of the model with
+  interpretable computation and see whether the outputs survive. The early layers are where
+  that should be easiest, because the embedding folds in exactly and every truncation below is
+  an SVD of a weight matrix — a derivation, not a fit.</p>
+  <p>The folding really is exact. Block 0 forms a scalar multiple of the token embedding and
+  <code>rms_norm</code> is scale-invariant, so attention layer 0's input <em>is</em> the token's
+  own embedding, verified to 7×10⁻⁸. Everything that layer computes is a function of token
+  identity and distance, with no context and no approximation.</p>
+  <p>And it is astonishingly narrow. Truncating every head's query and key maps to rank 2 —
+  two directions out of 128 — costs <strong>0.053 nats</strong>. Random projections of the same
+  rank cost 1.35, and random projections of rank <em>64</em> still cost 1.28. So this is not
+  robustness to damage: the right two directions are nearly free and an arbitrary sixty-four
+  are catastrophic. Reading off what those directions score highest, with no data involved,
+  gives morphology — <code>'ed' 'ing' 'ers' 'ating'</code> on the query side,
+  <code>'ates' 'ations' 'izing'</code> on the key side — which is what a layer that is provably
+  an exact bigram table ought to be comparing.</p>
+  <p>The MLP beside it is a different animal. It writes into 64 of 1152 directions for under
+  0.10 nats but needs 256 to read through, and both sides beat the fitted per-token lookup
+  table (1.466 nats on the same text) from rank <strong>8</strong> onward. Reading the
+  embedding through eight directions already does better than a full vocabulary table.</p>
+  <table><thead><tr><th>component</th><th>directions needed</th><th>as a fraction</th><th>vs. random of the same rank</th></tr></thead><tbody>
+  <tr><td>attention 0</td><td class="n">2 of 128</td><td class="n">1.6%</td><td class="n">25× better</td></tr>
+  <tr><td>attention 2</td><td class="n">32 of 128</td><td class="n">25%</td><td class="n">21× better</td></tr>
+  <tr><td>attention 1, 5</td><td colspan="3">no compression at any rank tested</td></tr>
+  <tr><td>mlp 0</td><td class="n">512 of 1152</td><td class="n">44%</td><td class="n">5.8× better</td></tr>
+  <tr><td>mlp 1</td><td class="n">512 of 1152</td><td class="n">44%</td><td class="n">44× better</td></tr>
+  </tbody></table>
+  <p>Across all six early blocks the median attention layer needs a quarter of its input space
+  and the median MLP needs nearly half, so attention is the more compressible half. But the
+  table comes with two warnings that matter more than any row in it.</p>
+  <p><span class="tag">warning</span> <strong>Compression does not compose.</strong> Truncating
+  all six attention layers at once, each to the rank that passes on its own, costs 0.718 nats
+  where the individual costs sum to 0.19. Errors are superadditive by nearly a factor of four,
+  so a per-component rank table is not a recipe for replacing the front of a model — the ranks
+  have to be chosen jointly.</p>
+  <p><span class="tag">warning</span> <strong>Half the rows aren't structure.</strong> For six
+  of the twelve components a <em>random</em> projection of the same rank costs about what the
+  SVD one does. Where that happens the component is simply insensitive to restriction — it
+  barely matters — and its "passing rank" is not evidence of low-rank structure. Only the four
+  rows above survive that check.</p>
+  <p>One more result worth its own line, because it contradicts what the weights appear to
+  say. The architecture re-injects the token embedding into every block at strength 8 against
+  roughly 1 for everything written below, which looks like the embedding dominating the
+  computation. It doesn't: from mlp1 upward, mean-filling that direct embedding path costs
+  between 0.0004 and 0.036 nats, while mean-filling the components costs 0.07 to 0.31. Layer 0
+  has already written the token information into the stream, and the eightfold re-injection is
+  redundant. <strong>Coefficient magnitude in the residual is not information flow.</strong></p>
 </section>
 
 <section class="col">
