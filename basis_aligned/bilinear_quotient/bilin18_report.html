@@ -1013,37 +1013,40 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   Interfaces are still the better of the two routes by a clear margin — jointly at rank 256 they
   cost 0.15 where weight truncation never reaches 0.30 at any rank — but nothing in the front of
   this model survives being compressed all at once.</p>
-  <p>Then the thing that does work, and it isn't compression at all. Replace a block's write
-  with a <strong>lookup table</strong> — one row per indexing key, 64 columns — and the model
-  degrades far less than any projection achieves. Block 0's key is the token, which is exact:
-  its input <em>is</em> the embedding. Block 1's key is the token pair, because the only thing
-  between it and the embedding is an exact bigram table. Block 2's is also the token pair,
-  measured rather than derived.</p>
-  <p><span class="tag">correction</span> The first version of this section quoted costs of 0.18,
-  0.52 and 0.27 nats for those three tables. <strong>Those numbers were measured on text the
-  tables had been fitted on</strong> — the fitting corpus and the evaluation sample were drawn
-  from the same FineWeb slice, and 33 of the 48 evaluation rows appeared verbatim in the
-  fitting set. They are withdrawn. On rows properly held out, block 2's pair table costs 0.51
-  against 0.60 for a token-only table and a 0.15 ceiling: the pair closes about a fifth of the
-  gap, not the two-thirds first reported.</p>
-  <p>What survives the correction is direction, not magnitude. The pair table still beats the
-  token table, a shuffled index still costs 1.36, and each block's indexing variable is still
-  predictable from the weights. But the headline comparison — tables versus the best rank
-  allocation — cannot be quoted until both sides are measured on clean text, and that
-  measurement is running.</p>
-  <p>The columns are nameable, which is what makes this an interpretability result rather than
-  a compression one. Six of block 0's eight leading columns are clean lexical classes:
-  determiners (<code>' the' 'The' ' a' ' an'</code>), punctuation (<code>').' '.' ' ('</code>),
-  initial capitals (<code>' B' ' D' ' M'</code>), digits (<code>' 56' ' 57' ' 12'</code>), and
-  sentence openers (<code>' If' 'You' ' Have'</code>). That analysis reads the table's own
-  columns and does not depend on the contaminated cost figures.</p>
-  <p>Two things did come out of the composition work that the correction leaves standing,
-  because both are comparisons between arms measured the same way. Substitutions compose roughly
-  additively where projections do not. And refitting a later table with the earlier one
-  <em>already replaced</em> — the self-consistent procedure that looks more honest — makes
-  things markedly worse, because a table fitted against the real network reproduces the write
-  the real network would have produced and so partially corrects the upstream error, while a
-  refitted table faithfully reproduces the perturbed write and preserves it.</p>
+  <p>The other route is <strong>substitution</strong>: replace a block's write with a lookup
+  table — one row per indexing key, 64 columns. Block 0's key is the token, which is exact: its
+  input <em>is</em> the embedding. Block 1's and block 2's key is the token pair, because the
+  only thing between them and the embedding is an exact bigram table.</p>
+  <p><span class="tag">correction</span> I reported for several rounds that substitution beat
+  truncation, with tables costing 0.18–0.52 nats. Two things were wrong. First, those costs were
+  measured on text the tables had been fitted on — the fitting corpus and the evaluation sample
+  came from the same slice, and 33 of the 48 evaluation rows appeared verbatim in the fitting
+  set. Second, once both routes were re-measured on properly held-out rows at matched scope, the
+  comparison reversed outright:</p>
+  <table><thead><tr><th>stand-in for blocks 0–2</th><th>cost</th><th>numbers to write it down</th></tr></thead><tbody>
+  <tr><td>delete the three writes</td><td class="n">+5.05</td><td class="n">—</td></tr>
+  <tr><td>pair-indexed tables</td><td class="n">+1.65</td><td class="n">23.3M</td></tr>
+  <tr><td>rank-64 projection</td><td class="n">+1.27</td><td class="n">0.22M</td></tr>
+  <tr><td>rank-256 projection</td><td class="n">+0.11</td><td class="n">0.88M</td></tr>
+  </tbody></table>
+  <p>Projection wins on accuracy <em>and</em> uses 26–100× fewer numbers. The table route's
+  apparent advantage was entirely an artifact of evaluating tables on their own training text.
+  Withdrawn.</p>
+  <p>What survives is narrower and worth keeping. Block 0's <em>token</em>-indexed table costs
+  0.20 nats on clean text against 0.78 for deleting the block — that one is both accurate and
+  readable, and its columns are nameable lexical classes: determiners
+  (<code>' the' 'The' ' a' ' an'</code>), punctuation (<code>').' '.' ' ('</code>), initial
+  capitals (<code>' B' ' D' ' M'</code>), digits (<code>' 56' ' 57' ' 12'</code>), sentence
+  openers (<code>' If' 'You' ' Have'</code>). That analysis reads the table's own columns and
+  never depended on the retracted costs. There is no evidence the table form scales past block
+  0.</p>
+  <p>Two comparisons between arms measured the same way also survive the correction.
+  Substitutions compose additively — three tables cost 1.6463 against 1.6248 summed — where
+  projections do not. And refitting a later stand-in with the earlier one <em>already
+  replaced</em> makes things markedly worse, because a stand-in fitted against the real network
+  reproduces the write the real network would have produced and so partially corrects the
+  upstream error, while a refitted one faithfully reproduces the perturbed write and preserves
+  it.</p>
   <p>The rest of this section's pattern still stands as a fact about the model rather than the
   method: <strong>per-component compressibility is real and joint compressibility
   is not.</strong> Every layer individually looks like it has slack; the slack at any one layer
