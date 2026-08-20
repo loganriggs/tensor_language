@@ -9696,3 +9696,27 @@ queued: add one attention layer's real write at a time to the
 ladder and localize which layer writes the deep match content
 (registered: a4 leads for 8.4, per 387's m0|a4 term;
 concentration fork; 2.5 as no-lift control).
+
+## 398. Deep trigger sources: 5.5 is ladder+a4 (one layer, 78% of the gap); 8.4 is diffuse; a1 finishes 2.5
+
+deep_trigger_source added one attention layer's real write at a
+time to the MLP ladder:
+  2.5: ladder 0.859; +a1 -> 1.000 (+0.141); +a0 -> nothing
+  5.5: ladder 0.362; +a4 -> 0.860 (+0.498; 78% of the gap);
+       +a3 +0.11, everything earlier ~0
+  8.4: ladder 0.504; diffuse: +a6 +0.124, +a7 +0.123, +a5 +0.100
+Scored: (b) HELD -- 5.5 has a CONCENTRATED attention carrier, a4.
+(a) FAILED -- 387's m0|a4 term belongs to 5.5, not 8.4; 8.4's
+match content accretes diffusely over a5-a7. (c) FAILED
+informatively: with m1's real write present, a1's write closes
+2.5 COMPLETELY (locate2's B-arm hid this by pairing a1 with
+fold-m1: the two writes matter jointly, not separately). Revised
+picture: every induction head matches on the MLP-ladder code plus
+a head-specific attention side-channel whose weight grows with
+depth -- 1.4 pure ladder, 2.5 ladder+a1 (14%), 5.5 ladder+a4
+(58%), 8.4 ladder+diffuse-mid-attention. Next question queued
+(deep_code_content): is a4's contribution NEW content or the
+ladder code RELAYED from other positions? Arms: a4 with real
+patterns but ladder values (relay test), per-head restriction of
+a4's write, sanity. If the relay arm holds, the story closes as
+ONE code -- built by MLPs, moved by attention.

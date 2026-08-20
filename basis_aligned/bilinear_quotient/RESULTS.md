@@ -4145,3 +4145,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - 395: full-tree A/B gate -- 165/311 leaves certified (cos>=0.7); full rate 53% (tree is depth-heavy: 72% coarse vs 46% fine); specificity 0.74 vs 0.27. Swarm claims certified leaves first.
 - 396: 2.5 trigger fork resolves M1-MEDIATED (a1 write adds nothing, m1 real write 0.86); MLP-ladder match-code hypothesis registered and queued (mlp_ladder_code).
 - 397: early induction match code IS the MLP ladder (1.4: 0.998/corr 0.999, 2.5: 0.859/0.77, 3.5: 0.741/0.65; attention-for-MLP swap halves it); deep band needs attention-written content -- deep_trigger_source queued to localize which layer writes it.
+- 398: deep trigger sources localized -- 5.5 = ladder + a4 (one layer, 78% of gap); 8.4 diffuse (a5-a7); a1 closes 2.5 fully once m1 is real. deep_code_content queued: is a4 relaying ladder code (one code, MLP-built, attention-moved)?
