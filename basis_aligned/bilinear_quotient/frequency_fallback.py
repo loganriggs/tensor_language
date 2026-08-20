@@ -41,14 +41,13 @@ def main():
     rows=cl.rows()
     # unigram frequency over the whole census corpus
     flat=rows[:,:257].reshape(-1)
-    cnt=torch.bincount(flat,minlength=50257).float()
+    # lm_head is padded to 50304; the tokenizer has 50257
+    VOC=m.lm_head.weight.shape[0]
+    cnt=torch.bincount(flat,minlength=VOC).float()[:VOC]
     uni=cnt/cnt.sum()
     loguni=(uni+1e-12).log()
     # member-level analysis under a whole-component ablation
     mus=cl.comp_means()
-    mod={f'a{li}':m.transformer.h[li].attn for li in range(18)}
-    mod.update({f'm{li}':m.transformer.h[li].mlp
-                for li in range(18)})[COMP] if False else None
     MODS={f'a{li}':m.transformer.h[li].attn for li in range(18)}
     MODS.update({f'm{li}':m.transformer.h[li].mlp
                  for li in range(18)})
@@ -60,7 +59,6 @@ def main():
         return [MODS[COMP].register_forward_hook(fh)]
     d=cl.ce_sweep(hooks())-cl.base_ce()
     lf=cl.leaf(TAG); mem=lf['member']
-    qs=uni.quantile(torch.tensor([0.0]))  # placeholder
     # frequency of each member's TARGET token
     tgt=torch.tensor([int(rows[int(g)//256,int(g)%256+1])
                       for g in mem.tolist()])

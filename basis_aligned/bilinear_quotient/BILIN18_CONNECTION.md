@@ -11291,3 +11291,42 @@ program's most-tested behavioral claim resolves into a general
 property of damaged prediction rather than a circuit function --
 and the swarm's behavioral bar needs a frequency control added
 before any future class claim is kept.
+
+## 456. Frequency does NOT explain the punctuation effect either
+
+frequency_fallback (after a vocab-padding crash on the first
+attempt -- lm_head is 50304 wide, the tokenizer 50257; fixed and
+rerun, the pre-crash frequency analysis was unaffected):
+  help-rate by unigram-frequency quartile of the target
+    Q1 0.502 (n=245)  Q2 0.553 (190)  Q3 0.479 (215)  Q4 0.593 (214)
+  within the TOP frequency quartile
+    punctuation targets   0.778 help (n=45)
+    everything else       0.544 help (n=169)
+  KL(prediction || unigram):  intact 4.957 -> ablated 4.751
+(a) FAILED: the ladder is flat-to-noisy, not monotone -- it dips
+at Q3 and rises only from 0.50 to 0.59 overall.
+(b) FAILED decisively: conditioning on frequency leaves
+punctuation with a 23-point excess (0.778 against 0.544). The
+frequency-fallback account, which fit the earlier facts so
+neatly, is REFUTED as an explanation of this effect.
+(c) HELD but small: damage does move predictions toward the
+unigram prior, by about 4% of the KL. Real, and nowhere near
+enough to carry the punctuation result.
+So after 440, 453, 455 and now 456 the punctuation effect is:
+reproducible, off-corpus generalizing, robust to random-subspace
+controls, NOT specific to any one leaf's machinery, NOT explained
+by target frequency, and only marginally related to prior
+fallback. It is a property of this model that many ablations
+expose, and its cause is still open.
+The next hypothesis is about the MODEL rather than the metric: at
+punctuation targets the intact network may be systematically
+over-confident in a wrong continuation -- it keeps the phrase
+going -- and damaging almost any machinery lets the punctuation
+win. That predicts an identifiable competitor token.
+punct_competitor queued: at punctuation positions where ablation
+helps, record the intact top-1 and how its probability moves,
+against non-punctuation helped positions as the control.
+Registered: (a) the intact top-1 is a non-punctuation
+continuation in >= 60% of cases, (b) ablation suppresses that
+competitor at least 3x more than a random token, (c) no reverse
+asymmetry in the control class.

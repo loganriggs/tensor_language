@@ -1,0 +1,41 @@
+{
+ "ladder": [
+  {
+   "bin": 0,
+   "n": 245,
+   "help_rate": 0.502,
+   "median_freq": 8e-06
+  },
+  {
+   "bin": 1,
+   "n": 190,
+   "help_rate": 0.553,
+   "median_freq": 3.1e-05
+  },
+  {
+   "bin": 2,
+   "n": 215,
+   "help_rate": 0.479,
+   "median_freq": 0.000101
+  },
+  {
+   "bin": 3,
+   "n": 214,
+   "help_rate": 0.593,
+   "median_freq": 0.00172
+  }
+ ],
+ "top_quartile_punct_help": 0.778,
+ "top_quartile_nonpunct_help": 0.544,
+ "punct_excess_within_top_quartile": 0.233,
+ "kl_to_unigram": {
+  "intact": 4.9574,
+  "ablated": 4.751
+ },
+ "component": "a7",
+ "tag": "r.13.2.1",
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": true,
+ "runtime_s": 16.381778478622437
+}
