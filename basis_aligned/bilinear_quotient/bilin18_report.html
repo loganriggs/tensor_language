@@ -1054,6 +1054,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   matches its earlier occurrence, attending to the successor. The query <em>is</em> the
   mechanism; a fixed query destroys it.</li>
   </ul>
+  <p>How much of the model is which? Replacing every head's query with a single fixed average,
+  one head at a time, is nearly free for <strong>161 of 162 heads</strong> — the exception costs
+  0.04 nats. Doing all of them at once costs <strong>0.96 nats</strong>, about 29% of the loss,
+  against 10.3 for random queries. So the model's attention is dominated by fixed-query
+  selection: fixing the entire query computation lands within about one nat of the real model,
+  eleven times closer than a random baseline. The content-query remainder — induction and the
+  rest — is worth that residual nat, spread across many heads that each cost almost nothing
+  alone (the cost is superadditive by nearly four times, the same non-composition seen
+  everywhere else in this model), and it is front-loaded: the first six layers carry 59% of it.
+  Content matching is real but it is a distributed minority of what attention here does.</p>
 
   <h2 id="folding">How small can the front of the model get?</h2>
   <p>The point of finding circuits is a benchmark: replace parts of the model with
