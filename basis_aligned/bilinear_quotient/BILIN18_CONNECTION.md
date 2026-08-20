@@ -14705,3 +14705,55 @@ it requires attn0 and mlp0's outputs, and those are exactly what
 535 and 536 just showed to be rank-2 and rank-64 objects computed
 from the token. The composition still closes, through layer 0
 rather than around it.
+
+## 538. The early-layer rank table, and two things it says that
+## the individual numbers do not
+
+early_rank_sweep truncated each of the first twelve components to
+rank r by SVD -- attention layers per head on both QK factors,
+MLPs on the shared input basis of L and R -- and priced the whole
+model at each rank.
+  comp   costs by rank                     passes 0.10 at   random
+  a0     2:0.053  8:0.036  32:0.010        rank 2  (1.6%)   1.31-1.43
+  a1     2:0.863  8:0.422  32:0.168        never (128)      --
+  a2     2:0.254  8:0.142  32:0.016        rank 32 (25%)    0.34-0.42
+  a3     2:0.158  8:0.053  32:0.019        rank 8  (6.3%)   0.17-0.18
+  a4     2:0.227  8:0.071  32:0.018        rank 8  (6.3%)   0.32-0.33
+  a5     2:0.765  8:0.577  32:0.413        never (128)      --
+  m0     8:1.439  32:0.645 128:0.213 512:0.013  rank 512    0.072-0.079
+  m1     8:1.056  32:1.080 128:0.605 512:0.073  rank 512    3.2-4.7
+  m2     8:0.161  32:0.147 128:0.084 512:0.022  rank 128    0.161-0.165
+  m3     8:0.135  32:0.130 128:0.085 512:0.024  rank 128    0.132-0.134
+  m4     8:0.307  32:0.230 128:0.154 512:0.024  rank 512    0.060-0.069
+  m5     8:0.072  32:0.063 128:0.048 512:0.025  rank 8      0.069-0.076
+(a) HELD: three attention layers (a0, a3, a4) pass at rank <= 8.
+(b) HELD: the median passing fraction is 0.25 for attention
+against 0.444 for the MLPs, so 535's aside survives as a claim
+across six blocks -- attention is the more compressible half.
+(c) FAILED, and this is the first thing the table says on its own.
+Truncating all six attention layers SIMULTANEOUSLY, each to its
+own individually-passing rank, costs 0.718 nats. The individual
+costs sum to 0.19. Compression is superadditive across layers by
+nearly a factor of four, so a per-component rank table is NOT a
+recipe for a front-of-model stand-in. Anyone building one has to
+choose ranks jointly.
+NULL VIOLATED, and this is the second thing, which disciplines
+half the table. The bar was that a random projection of the same
+rank must cost at least five times the SVD one. It does for a0
+(25x), a2 (21x), m1 (44x) and m0 (5.8x). It does NOT for a3
+(3.3x), a4 (4.6x), m2 (1.9x), m3 (1.6x), m4 (2.5x) and m5 (1.0x).
+Where random does as well as SVD, the "passing rank" is not
+evidence of low-rank structure -- it says the component is
+insensitive to input restriction in general, i.e. it barely
+matters. m5 is the clean example: rank 8 costs 0.072 and a random
+8-dimensional restriction costs 0.069, so the layer tolerates
+almost any restriction and its apparent compressibility is not
+structure.
+The defensible rows are therefore a0 (rank 2, 25x over random),
+a2 (rank 32, 21x), m1 (rank 512, 44x) and m0 (rank 512, 5.8x).
+Two more facts worth keeping. Compressibility is NOT monotone in
+depth: a0 needs 2 directions and a1 needs all 128, sitting side by
+side. And a1 and a5 do not compress at any rank tested, which
+matches the old finding that a1 fails the bigram-table test at
++1.470 where a0 passes at 0.000 -- whatever a1 does, it uses its
+whole input space to do it.
