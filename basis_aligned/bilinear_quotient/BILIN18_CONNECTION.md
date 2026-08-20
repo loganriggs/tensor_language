@@ -12444,3 +12444,36 @@ reads the SAME TOKEN as the query at >= 30% of match positions
 against a frequency-matched null under 5% -- which would make it
 an induction-like head the band list missed -- and (c) the median
 layer-12 head carries under 0.05.
+
+## 487. Layer 12's long-range work is ONE head -- and my probe for it was wrong
+
+layer12_match windowed each layer-12 head individually at match
+positions:
+  12.6  match +0.1770   non-match +0.0147   <- 84.5% of the layer
+  12.2  match +0.0133   12.4 +0.0067   12.3 +0.0036
+  the other five all under +0.004
+  layer total at match +0.2094 | median head +0.0032
+(a) HELD decisively: a single head carries 84.5% of layer 12's
+match-specific cost, and its own match/non-match ratio is
+twelvefold. (c) HELD.
+(b) FAILED -- and the failure is a bad probe, not a result. I
+asked whether 12.6 reads the SAME TOKEN as the query (6.0%
+against a 3.3% null) but that is not what an induction-style head
+does. Such a head reads the token that FOLLOWED the repeat last
+time, position p+1, not the repeat itself; this program's own head
+census even names the motif "induction-target". I tested for the
+wrong object and would have recorded 12.6 as "not induction-like"
+on the strength of it.
+So the honest state: layer 12 contains one head doing genuine
+long-range work specifically at repeat positions, its function is
+unaccounted for by any circuit this program has closed, and its
+read semantics are still unmeasured because my first attempt
+measured the wrong thing.
+head_12_6_reads queued with the corrected classification: at match
+positions, is 12.6's top read the SUCCESSOR of a previous
+occurrence, the occurrence itself, local, position 0, or other --
+each against a frequency-matched null, with a median layer-12 head
+as control. Registered: (a) successor-reading >= 25% against a
+null under 5% makes it an induction-target head the band list
+missed, (b) the histogram is reported either way, (c) the control
+head stays under 10%.
