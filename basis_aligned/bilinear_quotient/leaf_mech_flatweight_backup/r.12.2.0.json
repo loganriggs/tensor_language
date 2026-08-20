@@ -1,0 +1,348 @@
+{
+ "tag": "r.12.2.0",
+ "machinery": [
+  "a4",
+  "a6"
+ ],
+ "tables": {
+  "a4": {
+   "writers": {
+    "wte": {
+     "mean": 1.053,
+     "min": 0.952,
+     "max": 1.117,
+     "seed5": 1.082,
+     "member": 0.0036,
+     "offslice": 0.0034
+    },
+    "a0": {
+     "mean": 0.931,
+     "min": 0.611,
+     "max": 1.131,
+     "seed5": 0.908,
+     "member": 0.0006,
+     "offslice": 0.0006
+    },
+    "m0": {
+     "mean": 1.039,
+     "min": 1.017,
+     "max": 1.078,
+     "seed5": 1.018,
+     "member": 0.5978,
+     "offslice": 0.5871
+    },
+    "a1": {
+     "mean": 1.065,
+     "min": 0.994,
+     "max": 1.127,
+     "seed5": 1.03,
+     "member": 0.0134,
+     "offslice": 0.0131
+    },
+    "m1": {
+     "mean": 0.934,
+     "min": 0.873,
+     "max": 0.989,
+     "seed5": 0.978,
+     "member": 0.0294,
+     "offslice": 0.0301
+    },
+    "a2": {
+     "mean": 1.005,
+     "min": 0.902,
+     "max": 1.043,
+     "seed5": 1.04,
+     "member": 0.0365,
+     "offslice": 0.0351
+    },
+    "m2": {
+     "mean": 0.904,
+     "min": 0.829,
+     "max": 0.967,
+     "seed5": 0.967,
+     "member": 0.1159,
+     "offslice": 0.1198
+    },
+    "a3": {
+     "mean": 1.02,
+     "min": 0.944,
+     "max": 1.099,
+     "seed5": 1.089,
+     "member": 0.0316,
+     "offslice": 0.029
+    },
+    "m3": {
+     "mean": 0.938,
+     "min": 0.894,
+     "max": 0.983,
+     "seed5": 0.941,
+     "member": 0.1712,
+     "offslice": 0.1818
+    }
+   },
+   "top": [
+    [
+     "a1",
+     {
+      "mean": 1.065,
+      "min": 0.994,
+      "max": 1.127,
+      "seed5": 1.03,
+      "member": 0.0134,
+      "offslice": 0.0131
+     }
+    ],
+    [
+     "wte",
+     {
+      "mean": 1.053,
+      "min": 0.952,
+      "max": 1.117,
+      "seed5": 1.082,
+      "member": 0.0036,
+      "offslice": 0.0034
+     }
+    ],
+    [
+     "m0",
+     {
+      "mean": 1.039,
+      "min": 1.017,
+      "max": 1.078,
+      "seed5": 1.018,
+      "member": 0.5978,
+      "offslice": 0.5871
+     }
+    ],
+    [
+     "a3",
+     {
+      "mean": 1.02,
+      "min": 0.944,
+      "max": 1.099,
+      "seed5": 1.089,
+      "member": 0.0316,
+      "offslice": 0.029
+     }
+    ],
+    [
+     "a2",
+     {
+      "mean": 1.005,
+      "min": 0.902,
+      "max": 1.043,
+      "seed5": 1.04,
+      "member": 0.0365,
+      "offslice": 0.0351
+     }
+    ]
+   ],
+   "top_ratio": 1.03,
+   "top_ratio_mean": 1.065,
+   "top_ratio_min": 0.994,
+   "top_ratio_max": 1.127,
+   "null_top_ratio": 1.102,
+   "bootstrap_seeds": [
+    5,
+    17,
+    29,
+    41,
+    53
+   ],
+   "ENRICHED": false,
+   "BEATS_NULL": false,
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.078,
+   "null_sd": 0.017,
+   "threshold_v2": 1.3,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.306
+  },
+  "a6": {
+   "writers": {
+    "wte": {
+     "mean": 1.067,
+     "min": 0.962,
+     "max": 1.142,
+     "seed5": 1.094,
+     "member": 0.002,
+     "offslice": 0.0018
+    },
+    "a0": {
+     "mean": 0.957,
+     "min": 0.681,
+     "max": 1.13,
+     "seed5": 0.935,
+     "member": 0.0005,
+     "offslice": 0.0005
+    },
+    "m0": {
+     "mean": 1.05,
+     "min": 1.024,
+     "max": 1.099,
+     "seed5": 1.029,
+     "member": 0.4626,
+     "offslice": 0.4497
+    },
+    "a1": {
+     "mean": 1.073,
+     "min": 0.997,
+     "max": 1.15,
+     "seed5": 1.038,
+     "member": 0.0117,
+     "offslice": 0.0113
+    },
+    "m1": {
+     "mean": 0.949,
+     "min": 0.891,
+     "max": 1.004,
+     "seed5": 0.991,
+     "member": 0.0228,
+     "offslice": 0.023
+    },
+    "a2": {
+     "mean": 1.013,
+     "min": 0.929,
+     "max": 1.045,
+     "seed5": 1.042,
+     "member": 0.0316,
+     "offslice": 0.0304
+    },
+    "m2": {
+     "mean": 0.914,
+     "min": 0.844,
+     "max": 0.978,
+     "seed5": 0.978,
+     "member": 0.0899,
+     "offslice": 0.0919
+    },
+    "a3": {
+     "mean": 1.025,
+     "min": 0.96,
+     "max": 1.094,
+     "seed5": 1.091,
+     "member": 0.0283,
+     "offslice": 0.0259
+    },
+    "m3": {
+     "mean": 0.948,
+     "min": 0.915,
+     "max": 0.983,
+     "seed5": 0.949,
+     "member": 0.139,
+     "offslice": 0.1465
+    },
+    "a4": {
+     "mean": 1.032,
+     "min": 0.996,
+     "max": 1.118,
+     "seed5": 0.997,
+     "member": 0.0545,
+     "offslice": 0.0547
+    },
+    "m4": {
+     "mean": 0.911,
+     "min": 0.884,
+     "max": 0.944,
+     "seed5": 0.944,
+     "member": 0.0918,
+     "offslice": 0.0973
+    },
+    "a5": {
+     "mean": 0.994,
+     "min": 0.977,
+     "max": 1.022,
+     "seed5": 0.988,
+     "member": 0.0501,
+     "offslice": 0.0507
+    },
+    "m5": {
+     "mean": 0.964,
+     "min": 0.886,
+     "max": 1.029,
+     "seed5": 0.932,
+     "member": 0.0153,
+     "offslice": 0.0164
+    }
+   },
+   "top": [
+    [
+     "a1",
+     {
+      "mean": 1.073,
+      "min": 0.997,
+      "max": 1.15,
+      "seed5": 1.038,
+      "member": 0.0117,
+      "offslice": 0.0113
+     }
+    ],
+    [
+     "wte",
+     {
+      "mean": 1.067,
+      "min": 0.962,
+      "max": 1.142,
+      "seed5": 1.094,
+      "member": 0.002,
+      "offslice": 0.0018
+     }
+    ],
+    [
+     "m0",
+     {
+      "mean": 1.05,
+      "min": 1.024,
+      "max": 1.099,
+      "seed5": 1.029,
+      "member": 0.4626,
+      "offslice": 0.4497
+     }
+    ],
+    [
+     "a4",
+     {
+      "mean": 1.032,
+      "min": 0.996,
+      "max": 1.118,
+      "seed5": 0.997,
+      "member": 0.0545,
+      "offslice": 0.0547
+     }
+    ],
+    [
+     "a3",
+     {
+      "mean": 1.025,
+      "min": 0.96,
+      "max": 1.094,
+      "seed5": 1.091,
+      "member": 0.0283,
+      "offslice": 0.0259
+     }
+    ]
+   ],
+   "top_ratio": 1.038,
+   "top_ratio_mean": 1.073,
+   "top_ratio_min": 0.997,
+   "top_ratio_max": 1.15,
+   "null_top_ratio": 1.2,
+   "bootstrap_seeds": [
+    5,
+    17,
+    29,
+    41,
+    53
+   ],
+   "ENRICHED": false,
+   "BEATS_NULL": false,
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.151,
+   "null_sd": 0.071,
+   "threshold_v2": 1.3,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.303
+  }
+ },
+ "runtime_s": 2.2147111892700195
+}

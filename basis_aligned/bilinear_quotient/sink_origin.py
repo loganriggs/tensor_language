@@ -60,13 +60,12 @@ def main():
         normsE.append(y4[:,1:].norm(dim=-1).mean(dim=-1))
         first+= [int(t) for t in ROWS[i:i+4,0].tolist()]
         # mlp4's INPUT at position 0, decomposed by writer
-        lam=m.transformer.h[4].lambdas.detach().float()
-        blkin=lam[0]*(E+sum(outs[w] for w in WR if w!='wte')) \
-            +lam[1]*E
-        blkin=blkin+outs['a4']
-        parts={w:((lam[0]+lam[1])*E if w=='wte'
-                  else lam[0]*outs[w]) for w in WR}
-        parts['a4']=outs['a4']
+        # 2026-08-20 (writeup 503): exact per-writer coefficients
+        # for mlp4's input (a4 enters after the lambda mix).
+        parts=cl.writer_parts(4,E,outs,'m')
+        parts={w:parts[w] for w in list(WR)+['a4'] if w in parts}
+        blkin=sum(parts.values())
+        cl.check_parts(parts,pre['m4in'],label='sink_origin')
         tot=sum(parts.values())
         tn=(tot[:,0]*tot[:,0]).sum(-1).clamp_min(1e-9)
         for w,pv in parts.items():

@@ -829,6 +829,51 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="newline">A head that only cares about line breaks</h2>
+  <p>Every circuit in this program until now was found by asking which components are
+  expensive to delete. That question has one answer for every behaviour — the front of the
+  model — because the front does everything. Ranking a component by how <em>concentrated</em>
+  its damage is on one behaviour, relative to its own damage everywhere else, asks a different
+  question and gives a different answer.</p>
+  <p>Applied to line breaks: attention layer 12 costs <strong>0.078 nats</strong> at positions
+  where the next token is a newline and <strong>0.007</strong> everywhere else. The component
+  that led the old magnitude ranking, by contrast, is ten times <em>more</em> important away
+  from line breaks than at them. Layer 12 is also not simply a layer that matters late in a
+  sequence: shifting the target positions six tokens in either direction cuts its advantage by
+  a factor of 2.7.</p>
+  <p>Nine heads live in that layer, and one of them carries 88% of the effect. Deleting head
+  <strong>12.6</strong> costs 0.068 nats at line breaks, 0.006 at the shifted control
+  positions, and nothing at all in ordinary text. What makes this more than a lucky search is
+  that the head was <em>named in advance</em>: a general-purpose profile of all 162 heads,
+  built with no knowledge of newlines, records deletion costs of 0.008 or less for eight of
+  layer 12's heads and 0.073 for 12.6. Predicting the newline head from that profile alone
+  could have failed eight ways.</p>
+  <p>What the head does is narrow to the point of being a single number. Deleting it lowers
+  the model's score for the newline character by 0.137 while the strongest competing token
+  moves by 0.004 — a factor of thirty. It is not making line breaks broadly easier to predict;
+  it is moving one token, and it moves it in both directions:</p>
+  <table><thead><tr><th>after this token</th><th>push toward a newline</th></tr></thead><tbody>
+  <tr><td>a newline</td><td class="n">+0.106</td></tr>
+  <tr><td>a period</td><td class="n">+0.085</td></tr>
+  <tr><td>a quotation mark</td><td class="n">+0.075</td></tr>
+  <tr><td>a question mark</td><td class="n">+0.074</td></tr>
+  <tr><td>the median ordinary word</td><td class="n">−0.079</td></tr>
+  </tbody></table>
+  <p>Between sentences it argues for a line break; mid-sentence it argues against one. Used as
+  a standalone predictor of "the next character is a newline" it reaches an <strong>AUC of
+  0.77</strong>, while the second-ranked head in the same layer scores 0.45 — below chance.</p>
+  <p>It also reads the document, not just the token. Holding the trigger token fixed, the push
+  is <strong>2.1× larger</strong> in documents that are already full of line breaks — verse,
+  lists, tables, chat logs — than in flowing prose. So it has two inputs: a local one (what
+  just ended) and a global one (is this the kind of text that breaks lines at all).</p>
+  <p>One hypothesis died cleanly along the way. Regularly-structured text breaks lines at a
+  predictable interval, so a head could predict the next break by counting tokens since the
+  last one. It doesn't: breaks that match the document's own median line length cost 0.0875
+  when the head is removed, and breaks that don't cost 0.0909. Identical. Whatever it is
+  computing, it is not arithmetic on line length.</p>
+</section>
+
+<section class="col">
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight

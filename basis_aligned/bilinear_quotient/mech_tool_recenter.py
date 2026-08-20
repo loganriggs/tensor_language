@@ -98,11 +98,10 @@ def table(tag,u=None):
             x=E.to(m.transformer.wte.weight.dtype); x0=x; v1=None
             for blk in m.transformer.h: x,v1=blk(x,v1,x0)
             for h in hs: h.remove()
-            lam=m.transformer.h[li].lambdas.detach().float()
-            parts={w:((lam[0]+lam[1])*E if w=='wte'
-                      else lam[0]*outs[w]) for w in WR
-                   if w!=f'a{li}'}
-            if f'a{li}' in WR: parts[f'a{li}']=outs[f'a{li}']
+            # 2026-08-20 (writeup 503): exact coefficients.
+            parts=cl.writer_parts(li,E,outs,
+                                  'm' if key[0]=='m' else 'a')
+            parts={w:parts[w] for w in WR if w in parts}
             if u is not None:
                 uu=u.to(DEV)
                 parts={w:(p-(p@uu)[...,None]*uu)

@@ -12999,3 +12999,61 @@ change, so a network blip must not be able to idle the GPU:
 tier2_model.load_elriggs now retries with local_files_only=True
 and prints that it did. Verified the cached path loads with the
 hub disabled entirely.
+
+## 503. CORRECTION: the residual stream is not a running sum
+
+A registered exactness check caught this, which is the reason it
+exists. newline_head_writers declared as prediction (0) that its
+writer decomposition must reproduce the real attention input to
+1e-4 relative before any bar could be scored. It came back at
+6.9e-1 -- 69% wrong -- and voided its own run.
+The cause is architectural and I had it wrong throughout. Each
+block begins with x = lam0*x + lam1*x0, so the running residual is
+RESCALED at every block rather than accumulated. Writer j's output
+therefore arrives at block L multiplied by the PRODUCT of lam0
+over blocks j+1..L, not by block L's lam0 alone. The lambdas are
+nowhere near 1:
+  block   0     1      2     3     4     5     6    ...  12
+  lam0  6.094  0.013  1.977 0.574 0.463 0.064 0.490 ... 1.039
+  lam1  6.094  8.000  8.000 8.000 8.000 5.063 5.875 ... 8.000
+Block 1 multiplies the running stream by 0.0127 while adding eight
+times the embedding. The consequences at layer 12:
+  writer   coefficient used   exact coefficient
+  wte           9.039              65.550
+  a0            1.039               0.000245
+  a11           1.039               1.039
+So layer-0 writers were overweighted by a factor of 4,242, the
+embedding was underweighted sevenfold, and the ratio between them
+was wrong by four orders of magnitude. Rebuilding the layer-12
+attention input from the flat parts gives 68% relative error; from
+the unrolled parts, 1.2e-7.
+Affected code, all six sites now corrected to a single shared
+helper (cl.writer_coeffs / writer_parts / check_parts):
+  leaf_input_decomp   the swarm's mechanism screen -- 86 stored
+                      records and the program's central negative
+  mech_tool_recenter  the recentred variant of the same screen
+  sink_source         where the position-0 constant comes from
+  sink_origin         mlp4's input at position 0, by writer
+  payload_decomp      head 5.7's value payload, by writer
+  newline_head_writers voided before it produced anything
+leaf_input_decomp now REFUSES to run when the reconstruction
+misses, rather than reporting shares from a decomposition that
+does not add up. Verified on r.3.0.2, the one confirmed positive:
+reconstruction 1.6e-7 and the finding survives -- a15/a16/a17 all
+ENRICHED_STABLE2 with a14 the top writer at 2.17-2.21 against a
+recorded 2.37.
+mech_rescreen is running all 75 five-seed records through the
+corrected tool and comparing verdicts; sink_source, sink_origin
+and payload_decomp are queued behind it, since the position-0
+bias story is a published result. Early rescreen output already
+shows top-writer changes, so the error was not inert.
+The architectural fact is worth keeping separately from the bug.
+This model does not maintain a cumulative residual stream that
+every layer reads. It re-injects the token embedding at strength
+8 in almost every block and repeatedly shrinks what is already
+there, so by the middle of the network the embedding outweighs
+layer 0's contribution by a factor of 270,000 in coefficient
+terms. Any claim of the form "component X writes something that
+component Y reads twelve layers later" has to carry these
+numbers, and several claims in this ledger were made without
+them.

@@ -74,7 +74,7 @@ def main(tag):
             rid=rr[i:i+4]
             bb=rows[rid,:257].to(DEV)
             idx=bb[:,:-1].contiguous(); B=len(rid)
-            outs={}; hs=[]
+            outs={}; hs=[]; cap={}
             for lj in range(li+1):
                 for kind,mod in (('a',m.transformer.h[lj].attn),
                                  ('m',m.transformer.h[lj].mlp)):
@@ -84,15 +84,29 @@ def main(tag):
                             outs[k9]=y.detach().float()
                         return h
                     hs.append(mod.register_forward_hook(mk()))
+            tgt=(m.transformer.h[li].mlp if key[0]=='m'
+                 else m.transformer.h[li].attn)
+            hs.append(tgt.register_forward_pre_hook(
+                lambda mo_,a_: cap.__setitem__('X',a_[0])))
             E=F.rms_norm(m.transformer.wte(idx),(D,)).float()
             x=E.to(m.transformer.wte.weight.dtype); x0=x; v1=None
             for blk in m.transformer.h: x,v1=blk(x,v1,x0)
             for h in hs: h.remove()
-            lam=m.transformer.h[li].lambdas.detach().float()
-            parts={w:((lam[0]+lam[1])*E if w=='wte'
-                      else lam[0]*outs[w]) for w in WR
-                   if w!=f'a{li}'}
-            if f'a{li}' in WR: parts[f'a{li}']=outs[f'a{li}']
+            # 2026-08-20 (writeup 503): the flat lam0 weighting
+            # used here was wrong by four orders of magnitude for
+            # early writers. cl.writer_coeffs unrolls the per-block
+            # lambda mix exactly, and the reconstruction is checked
+            # rather than assumed.
+            parts=cl.writer_parts(li,E,outs,
+                                  'm' if key[0]=='m' else 'a')
+            parts={w:parts[w] for w in WR if w in parts}
+            if i==0 and _si==0:
+                ok,_re=cl.check_parts(parts,cap['X'],label=key)
+                if not ok:
+                    raise SystemExit(
+                        f'writer decomposition for {key} does not '
+                        f'reproduce the real input (rel {_re:.3e}) '
+                        f'-- run VOID, see writeup 503')
             tot=sum(parts.values())
             tn=(tot*tot).sum(-1).clamp_min(1e-9)
             frac={w:((p*tot).sum(-1)/tn) for w,p in parts.items()}

@@ -1,0 +1,364 @@
+{
+ "tag": "r.11.3.0",
+ "machinery": [
+  "a8",
+  "a3"
+ ],
+ "tables": {
+  "a8": {
+   "writers": {
+    "wte": {
+     "mean": 0.965,
+     "min": 0.837,
+     "max": 1.116,
+     "seed5": 0.957,
+     "member": 0.0008,
+     "offslice": 0.0009
+    },
+    "a0": {
+     "mean": 0.926,
+     "min": 0.68,
+     "max": 1.118,
+     "seed5": 0.903,
+     "member": 0.0004,
+     "offslice": 0.0005
+    },
+    "m0": {
+     "mean": 1.014,
+     "min": 0.999,
+     "max": 1.043,
+     "seed5": 1.043,
+     "member": 0.4424,
+     "offslice": 0.4242
+    },
+    "a1": {
+     "mean": 1.046,
+     "min": 0.984,
+     "max": 1.089,
+     "seed5": 1.053,
+     "member": 0.0115,
+     "offslice": 0.011
+    },
+    "m1": {
+     "mean": 0.919,
+     "min": 0.895,
+     "max": 0.938,
+     "seed5": 0.938,
+     "member": 0.0209,
+     "offslice": 0.0223
+    },
+    "a2": {
+     "mean": 1.031,
+     "min": 0.985,
+     "max": 1.112,
+     "seed5": 1.016,
+     "member": 0.0303,
+     "offslice": 0.0298
+    },
+    "m2": {
+     "mean": 0.924,
+     "min": 0.9,
+     "max": 0.976,
+     "seed5": 0.913,
+     "member": 0.0807,
+     "offslice": 0.0884
+    },
+    "a3": {
+     "mean": 1.011,
+     "min": 0.896,
+     "max": 1.09,
+     "seed5": 1.065,
+     "member": 0.0265,
+     "offslice": 0.0249
+    },
+    "m3": {
+     "mean": 0.984,
+     "min": 0.941,
+     "max": 1.008,
+     "seed5": 0.941,
+     "member": 0.1304,
+     "offslice": 0.1386
+    },
+    "a4": {
+     "mean": 1.079,
+     "min": 1.047,
+     "max": 1.134,
+     "seed5": 1.055,
+     "member": 0.0556,
+     "offslice": 0.0527
+    },
+    "m4": {
+     "mean": 0.976,
+     "min": 0.935,
+     "max": 1.019,
+     "seed5": 0.944,
+     "member": 0.0888,
+     "offslice": 0.0941
+    },
+    "a5": {
+     "mean": 0.997,
+     "min": 0.98,
+     "max": 1.016,
+     "seed5": 0.98,
+     "member": 0.0503,
+     "offslice": 0.0513
+    },
+    "m5": {
+     "mean": 1.035,
+     "min": 0.988,
+     "max": 1.061,
+     "seed5": 0.988,
+     "member": 0.016,
+     "offslice": 0.0162
+    },
+    "a6": {
+     "mean": 1.032,
+     "min": 1.005,
+     "max": 1.053,
+     "seed5": 1.051,
+     "member": 0.0187,
+     "offslice": 0.0178
+    },
+    "m6": {
+     "mean": 1.023,
+     "min": 0.99,
+     "max": 1.07,
+     "seed5": 0.99,
+     "member": 0.0103,
+     "offslice": 0.0104
+    },
+    "a7": {
+     "mean": 1.001,
+     "min": 0.948,
+     "max": 1.076,
+     "seed5": 0.948,
+     "member": 0.0109,
+     "offslice": 0.0115
+    },
+    "m7": {
+     "mean": 0.976,
+     "min": 0.887,
+     "max": 1.067,
+     "seed5": 0.981,
+     "member": 0.0054,
+     "offslice": 0.0055
+    }
+   },
+   "top": [
+    [
+     "a4",
+     {
+      "mean": 1.079,
+      "min": 1.047,
+      "max": 1.134,
+      "seed5": 1.055,
+      "member": 0.0556,
+      "offslice": 0.0527
+     }
+    ],
+    [
+     "a1",
+     {
+      "mean": 1.046,
+      "min": 0.984,
+      "max": 1.089,
+      "seed5": 1.053,
+      "member": 0.0115,
+      "offslice": 0.011
+     }
+    ],
+    [
+     "m5",
+     {
+      "mean": 1.035,
+      "min": 0.988,
+      "max": 1.061,
+      "seed5": 0.988,
+      "member": 0.016,
+      "offslice": 0.0162
+     }
+    ],
+    [
+     "a6",
+     {
+      "mean": 1.032,
+      "min": 1.005,
+      "max": 1.053,
+      "seed5": 1.051,
+      "member": 0.0187,
+      "offslice": 0.0178
+     }
+    ],
+    [
+     "a2",
+     {
+      "mean": 1.031,
+      "min": 0.985,
+      "max": 1.112,
+      "seed5": 1.016,
+      "member": 0.0303,
+      "offslice": 0.0298
+     }
+    ]
+   ],
+   "top_ratio": 1.055,
+   "top_ratio_mean": 1.079,
+   "top_ratio_min": 1.047,
+   "top_ratio_max": 1.134,
+   "null_top_ratio": 1.258,
+   "bootstrap_seeds": [
+    5,
+    17,
+    29,
+    41,
+    53
+   ],
+   "ENRICHED": false,
+   "BEATS_NULL": false,
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.154,
+   "null_sd": 0.091,
+   "threshold_v2": 1.336,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.289
+  },
+  "a3": {
+   "writers": {
+    "wte": {
+     "mean": 0.973,
+     "min": 0.84,
+     "max": 1.125,
+     "seed5": 0.95,
+     "member": 0.0032,
+     "offslice": 0.0034
+    },
+    "a0": {
+     "mean": 0.909,
+     "min": 0.648,
+     "max": 1.152,
+     "seed5": 0.869,
+     "member": 0.0006,
+     "offslice": 0.0007
+    },
+    "m0": {
+     "mean": 1.017,
+     "min": 1.004,
+     "max": 1.027,
+     "seed5": 1.027,
+     "member": 0.7772,
+     "offslice": 0.7565
+    },
+    "a1": {
+     "mean": 1.042,
+     "min": 0.986,
+     "max": 1.101,
+     "seed5": 1.023,
+     "member": 0.0163,
+     "offslice": 0.0159
+    },
+    "m1": {
+     "mean": 0.908,
+     "min": 0.887,
+     "max": 0.926,
+     "seed5": 0.906,
+     "member": 0.0339,
+     "offslice": 0.0374
+    },
+    "a2": {
+     "mean": 1.025,
+     "min": 0.984,
+     "max": 1.113,
+     "seed5": 0.988,
+     "member": 0.0414,
+     "offslice": 0.042
+    },
+    "m2": {
+     "mean": 0.92,
+     "min": 0.884,
+     "max": 0.988,
+     "seed5": 0.884,
+     "member": 0.1273,
+     "offslice": 0.1441
+    }
+   },
+   "top": [
+    [
+     "a1",
+     {
+      "mean": 1.042,
+      "min": 0.986,
+      "max": 1.101,
+      "seed5": 1.023,
+      "member": 0.0163,
+      "offslice": 0.0159
+     }
+    ],
+    [
+     "a2",
+     {
+      "mean": 1.025,
+      "min": 0.984,
+      "max": 1.113,
+      "seed5": 0.988,
+      "member": 0.0414,
+      "offslice": 0.042
+     }
+    ],
+    [
+     "m0",
+     {
+      "mean": 1.017,
+      "min": 1.004,
+      "max": 1.027,
+      "seed5": 1.027,
+      "member": 0.7772,
+      "offslice": 0.7565
+     }
+    ],
+    [
+     "wte",
+     {
+      "mean": 0.973,
+      "min": 0.84,
+      "max": 1.125,
+      "seed5": 0.95,
+      "member": 0.0032,
+      "offslice": 0.0034
+     }
+    ],
+    [
+     "m2",
+     {
+      "mean": 0.92,
+      "min": 0.884,
+      "max": 0.988,
+      "seed5": 0.884,
+      "member": 0.1273,
+      "offslice": 0.1441
+     }
+    ]
+   ],
+   "top_ratio": 1.023,
+   "top_ratio_mean": 1.042,
+   "top_ratio_min": 0.986,
+   "top_ratio_max": 1.101,
+   "null_top_ratio": 1.429,
+   "bootstrap_seeds": [
+    5,
+    17,
+    29,
+    41,
+    53
+   ],
+   "ENRICHED": false,
+   "BEATS_NULL": false,
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.167,
+   "null_sd": 0.151,
+   "threshold_v2": 1.468,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.482
+  }
+ },
+ "runtime_s": 2.2380614280700684
+}

@@ -729,3 +729,63 @@ def score_bar(name,value,bar,denom=None,n=None,min_n=10,
     print(f'({name}) {value} vs bar {bar}: {v}'
           +(f' [{note}]' if note else ''),flush=True)
     return v,note
+
+
+def writer_coeffs(li,kind='a'):
+    """EXACT coefficient of each writer's output in the residual
+    entering block li's attention (kind='a') or MLP (kind='m').
+
+    Added 2026-08-20 (writeup 503). Every earlier decomposition in
+    this program used lam0 of the CURRENT block for every writer,
+    which is wrong: each block rescales the running residual as
+    x = lam0*x + lam1*x0, so writer j's output arrives multiplied
+    by the PRODUCT of lam0 over blocks j+1..li. With lam0=0.0127 at
+    block 1 the error is four orders of magnitude for layer-0
+    writers. The flat version reconstructs the layer-12 attention
+    input to 68% relative error; this one to 1.2e-7.
+    """
+    H=m.transformer.h; L=len(H)
+    lam=[H[j].lambdas.detach().float() for j in range(L)]
+    def prod(a,b):
+        p=1.0
+        for k in range(a,b+1): p*=float(lam[k][0])
+        return p
+    c={}
+    for j in range(li):
+        cj=prod(j+1,li)
+        c[f'a{j}']=cj; c[f'm{j}']=cj
+    wte=prod(0,li)
+    for j in range(0,li+1):
+        wte+=prod(j+1,li)*float(lam[j][1])
+    c['wte']=wte
+    if kind=='m':
+        c[f'a{li}']=1.0      # written after the block's lambda mix
+    return c
+
+
+def writer_parts(li,E,outs,kind='a'):
+    """Exact additive parts of block li's component input.
+    E is rms_norm(wte(idx)) as float; outs maps 'a3'/'m3' to that
+    component's captured output. Returns {writer: tensor}."""
+    c=writer_coeffs(li,kind)
+    parts={}
+    for w,cf in c.items():
+        src=E if w=='wte' else outs.get(w)
+        if src is None: continue
+        parts[w]=cf*src
+    return parts
+
+
+def check_parts(parts,X,tol=1e-4,label=''):
+    """Verify a writer decomposition reproduces the real input.
+    Returns (ok, relerr) and PRINTS -- a decomposition that is
+    merely close is the failure mode of writeups 443/447/503."""
+    import torch.nn.functional as _F
+    tot=sum(parts.values())
+    Xr=_F.rms_norm(tot,(tot.shape[-1],))
+    rel=float((Xr-X.float()).norm()/X.float().norm().clamp_min(1e-9))
+    ok=rel<=tol
+    print(f'  [check_parts{" "+label if label else ""}] relative '
+          f'error {rel:.3e} -> {"ok" if ok else "FAILED, run is VOID"}',
+          flush=True)
+    return ok,rel

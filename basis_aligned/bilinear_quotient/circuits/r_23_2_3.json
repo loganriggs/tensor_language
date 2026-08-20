@@ -473,6 +473,80 @@
    "alpha": 0.05,
    "p_help_true": 0.1065,
    "p_help_false": 0.9472
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave7",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": {
+    "full_recorded": 5.51,
+    "full_recheck": 5.51,
+    "rows_0_500_recorded": 5.55,
+    "rows_0_500_recheck": 5.55,
+    "rows_500_1000_recorded": 5.46,
+    "rows_500_1000_recheck": 5.46,
+    "delta_pct": 0.0,
+    "note": "exact reproduction of causal + causal_halves"
+   },
+   "mechanism_reproduced": true,
+   "negative_power": {
+    "a8": {
+     "min_detectable_enrichment": 1.3,
+     "bar_source": "fixed_1.3",
+     "negative_power": "DECISIVE",
+     "top_ratio_mean": 1.077,
+     "top_ratio_min": 1.046
+    },
+    "note": "DECISIVE, well below UNDERPOWERED threshold 1.35; --seeds 20 rerun not triggered"
+   },
+   "fresh_class_dissociation": {
+    "method": "cl.fineweb_rows(48), ablate leaf top_probes bundle via cl.proj_hooks, dCE = class-position mean minus all-other-position mean, row-level bootstrap (1000 draws) for 95% CI",
+    "punct": {
+     "dce": -0.0153,
+     "ci95": [
+      -0.0198,
+      -0.0111
+     ],
+     "n": 1602
+    },
+    "digit": {
+     "dce": 0.0183,
+     "ci95": [
+      0.007,
+      0.0326
+     ],
+     "n": 223
+    },
+    "capitalized": {
+     "dce": 0.0119,
+     "ci95": [
+      0.0052,
+      0.0182
+     ],
+     "n": 1235
+    },
+    "space_word": {
+     "dce": -0.0097,
+     "ci95": [
+      -0.0218,
+      0.0011
+     ],
+     "n": 8531
+    },
+    "newline": {
+     "dce": 0.1243,
+     "ci95": [
+      0.0225,
+      0.2313
+     ],
+     "n": 350
+    },
+    "overall_dce": 0.0054
+   },
+   "vs_population": "punct was this record's pre-declared hypothesis (its story section explicitly tests punctuation as a pre-declared hypothesis \"per assignment,\" citing sibling leaves r.13.2.1/r.18.2.0 which carry verified punctuation claims). Fresh-text punct dCE -0.0153 is only 61% of the population value -0.025 -- it does NOT exceed population, so per the review bar this is WEAKEN regardless of control cleanliness. digit +0.0183 and capitalized +0.0119 are close to their population values (-0.018, +0.006) -- not distinguishing. newline +0.1243 is ~4.6x the population value +0.027 and opposite scale, but newline was never this leaf's declared hypothesis (only punctuation was), so it does not bear on the record's claim.",
+   "random_control": "3 seeds, rank-matched random orthonormal subspace (rank 28, matching the actual cl.orth() output rank for this leaf's a8 probes -- see objection) hooked at a8, same 48 fresh rows. Overall dCE: real 0.0054 vs random 0.0002/0.0003/0.0001 (real ~18-27x larger -- causally real, consistent with the passed causal gate). Per-class punct random spread: [-0.0023,-0.0018,-0.0004] -- real -0.0153 CI does not overlap this (numerically \"clears\" the random control) but still fails the population-exceedance bar above, so WEAKEN stands either way. newline random spread [0.0007,-0.0025,0.0025] -- real +0.1243 clearly exceeds, but again not the declared claim.",
+   "objection": "Probe-list redundancy: this leaf's top_probes are (\"pca\",\"a8\",\"r.23.2\",(10,16)), (4,10), (4,16), (0,4) -- the (4,16) block is the exact union of (4,10) and (10,16) (same cached SVD right-singular-vector slice, verified by re-running cl.pca_block on each block), so the 4 blocks are mathematically rank-16, not rank-28. cl.orth() (plain torch.linalg.qr with no rank truncation) does not collapse this: re-deriving the projector gave P.shape[1]=28, confirmed empirically against r.2.0.1's two components (16+16, no redundant blocks) which correctly returned rank 16 each. This means the leaf's actual ablation -- in the ORIGINAL record's certification and in this reproduction alike, since both call the same cl.proj_hooks/cl.orth path on the same probe list -- removes an effectively higher-rank (~28-dim, ~12 of which are numerically-arbitrary QR fill directions from the rank-deficient input) subspace of a8's output rather than the \"a8 top-16\" the mechanism table's block partition implies. Gate numbers still reproduce exactly (this is not a bug I introduced), but the leaf_mech component-name and any future rank claims for this tag should note the true projector rank is not clean-16, and the probe list should be deduplicated before any further mechanism work on this leaf."
   }
  ],
  "provenance": {

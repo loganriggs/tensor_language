@@ -63,12 +63,13 @@ def main():
         at=m.transformer.h[LJ].attn
         lam=m.transformer.h[LJ].lambdas.detach().float()
         X=pre['X']
-        Xpre=lam[0]*(E+sum(outs[w] for w in WR if w!='wte')) \
-            +lam[1]*E
+        # 2026-08-20 (writeup 503): exact per-writer coefficients.
+        _p=cl.writer_parts(LJ,E,outs,'a')
+        Xpre=sum(_p.values())
         scale=(X.float().norm(dim=-1,keepdim=True)
                /Xpre.norm(dim=-1,keepdim=True).clamp_min(1e-6))
-        parts={w:((lam[0]+lam[1])*E if w=='wte'
-                  else lam[0]*outs[w])*scale for w in WR}
+        cl.check_parts(_p,X,label='sink_source')
+        parts={w:_p[w]*scale for w in WR if w in _p}
         tot=sum(parts.values())
         p0=0   # position 0
         tn=(tot[:,p0]*tot[:,p0]).sum(-1).clamp_min(1e-9)
