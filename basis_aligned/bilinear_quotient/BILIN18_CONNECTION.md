@@ -9669,3 +9669,30 @@ rebuild the residual with all attention writes deleted and all
 real MLP writes kept, plus the inverse control (attention writes
 only). Registered: 2.5>=0.85, 3.5>=0.75, deep-reach fork at 0.5
 for 5.5/8.4, control <0.2, and 1.4>=0.99 for 393 consistency.
+
+## 397. The early induction match code IS the MLP ladder; the deep code is not
+
+mlp_ladder_code rebuilt the residual with every attention residual
+write deleted and every real MLP write kept (attention still
+contextualizes MLP inputs), then predicted each head's pattern:
+  1.4: 0.998 (corr 0.999)   2.5: 0.859 (corr 0.77)
+  3.5: 0.741 (corr 0.651)   5.5: 0.362   8.4: 0.504
+Scored honestly: (d) HELD (393 consistency); (a) FAILED by 0.009
+(3.5 at 0.741 vs the 0.75 bar; 2.5 cleared its 0.85); (b) deep
+reach FAILED (5.5 well under 0.5); (c) control FAILED as
+REGISTERED but the registration was mis-set: the "attention-only"
+arm retains wte through the lambda mixes, and wte itself is
+identity signal -- it scores 0.36-0.59, not <0.2. The correct
+control statement: at fixed wte base, swapping MLP writes for
+attention writes drops 1.4 from 0.998 to 0.594 and 2.5 from 0.859
+to 0.479 -- the MLP writes are the code carrier, decisively, but
+the <0.2 bar was wrong to register against a wte-bearing arm.
+Standing summary: **for the early band, the induction match code
+is wte progressively enriched by the MLP chain (rank corr 0.77 at
+2.5 vs 0.18 for token-only folds); attention residual writes
+carry none of it. The deep band (5.5, 8.4) reads match content
+that attention DOES write into the residual.** deep_trigger_source
+queued: add one attention layer's real write at a time to the
+ladder and localize which layer writes the deep match content
+(registered: a4 leads for 8.4, per 387's m0|a4 term;
+concentration fork; 2.5 as no-lift control).
