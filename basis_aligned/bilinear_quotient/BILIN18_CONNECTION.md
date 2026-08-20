@@ -10829,3 +10829,37 @@ Open question queued (bias_semantics): what is the bias FOR?
 Read the constant through the unembedding -- which tokens it
 pushes, against a norm-matched random vector, plus a causal check
 that deleting the head lowers exactly those tokens' logits.
+
+## 442. What the bias pushes -- and a sign paradox worth its own experiment
+
+bias_semantics read the constant through the unembedding.
+(b) HELD (reported for naming): the bias pushes
+  -  and  ,  (  or  all  in  so  at  on  just  to  ...  for
+  back  post  set  over  /  only
+and suppresses rare fragments and oddities (' Berserker',
+' Replay', 'ngth', 'perature', ' CARD'). That IS a nameable
+class: high-frequency function words, connectives and
+punctuation on the push side; low-frequency subword debris on the
+suppress side. In one line, the constant is a UNIGRAM-FREQUENCY
+PRIOR.
+(a) FAILED, informatively: the profile is DIFFUSE, less
+concentrated than a norm-matched random vector (top-20 share
+0.0013 vs 0.0019 null). A frequency prior should look exactly
+like that -- it nudges thousands of tokens a little, rather than
+a few tokens a lot.
+(c) HELD but with the sign INVERTED against expectation, which
+is the interesting part: deleting head 5.7 RAISES the logits of
+precisely the tokens the bias appears to push (+0.211 vs +0.074
+for a random control, 2.8x). So the direct unembedding read and
+the head's total causal effect DISAGREE IN SIGN. Either the
+readout is measuring a path that does not dominate, or the bias's
+downstream consumers invert it.
+This is a caution about a very common practice (project a vector
+through the unembedding and name it), so it gets its own
+experiment rather than a hedge in prose. bias_path_split queued:
+inject the constant only at the final residual (direct path,
+bypassing layers 6-17) versus back into layer 6 (the real path),
+and price both. Registered: (a) the direct path recovers under
+30% of the head's 0.92 nats, (b) the indirect path recovers 80%+,
+(c) under direct-only injection the pushed tokens move UP,
+confirming the readout measures the direct path only.

@@ -1,0 +1,14 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+dCE: {'delete': 0.9154, 'direct': 11.5365, 'indirect': 11.5424} | recovered: {'direct': -11.603, 'indirect': -11.609}
+top-20 mean logit: {'full': 4.4016, 'delete': 4.6191, 'direct': 17.1097}
+(a) direct path recovers <30%: HELD
+(b) indirect path recovers >=80%: FAILED
+(c) direct arm raises the pushed tokens: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bias_path_split_results.json (2s)
