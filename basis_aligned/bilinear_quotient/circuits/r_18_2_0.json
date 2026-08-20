@@ -402,6 +402,35 @@
    "verdict": "RECORDED (bacc 0.555 vs null 0.498, weak margin)",
    "source": "sonnet-wave3-b step3",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave3",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": {
+    "value": 5.96,
+    "recorded": 5.96,
+    "half_0_500": 5.92,
+    "half_500_1000": 5.99,
+    "recorded_halves": [
+     5.92,
+     5.99
+    ],
+    "match": "exact"
+   },
+   "mechanism_reproduced": true,
+   "mechanism_recheck_note": "leaf_input_decomp.py r.18.2.0 rerun: a7 top writer a4 ratio 1.096 (ENRICHED=False, BEATS_NULL=False), a9 top writer a7 ratio 1.124 (ENRICHED=False, BEATS_NULL=True) -- identical to recorded table.",
+   "negative_informative": "YES -- contrast-tested the same tool (leaf_input_decomp.py) same session on r.3.0.2, whose record claims a14 enriched 2.85-2.96x. Rerun reproduced ENRICHED=True/BEATS_NULL=True on all 3 components (a15 a14=2.846, a16 a14=2.836, a17 a14=2.961), matching the record exactly. Since the same tool cleanly separates a strong positive (2.6-3.0x) from a flat null (1.02-1.12x) in the same session, the r.18.2.0 negative is a real absence of input-writer structure, not an instrument-sensitivity artifact.",
+   "punct_claim_robust": "FAILS ROBUST. cl.story_test_class(r.18.2.0, d, punct, True): per-seed hits/5 = seed1:4(p=0.224) seed2:4(p=0.224) seed3:5(p=0.041) seed4:4(p=0.224) seed11:5(p=0.041) -> seed_pass_frac=0.40 (<0.6 bar). Whole-population (n=43 punct members): 36/43 hits vs base rate 0.528 (expected 22.69), p~0.0 -- population signal is real and strong, but individual n=5 draws only hit p<=0.10 when they land 5/5, which happens ~40% of the time by chance at this true rate, so seed stability legitimately fails the bar. ROBUST=False overall -> the record's kept punct claim must be demoted from a story to a flagged/unverified observation.",
+   "objection": "The record's published punct evidence was exactly the seed-11 draw (5/5, p=0.041) -- one of only 2/5 seeds that clears the per-seed bar, i.e. the SOP's own warned-about failure mode (a single seed-11 n=5 draw passes by chance ~2/5 of the time). Separately: the ROBUST test may be UNDER-powered rather than the effect being spurious -- population-level significance is enormous (p~0), and the seed_pass_frac=0.4 is almost exactly what a true positive of this size predicts at n=5 (0.837^5=0.41 chance of a perfect draw). So this is likely a real, small, punctuation-specific push that ROBUST correctly flags as unproven by any single small draw -- the record should say a real-but-underpowered effect exists, not claim it as an established behavioral story, and not silently drop it either."
+  },
+  {
+   "test": "driver-bar-correction",
+   "source": "fable-driver",
+   "date": "2026-08-20",
+   "verdict": "CLAIM REINSTATED (qualified)",
+   "note": "reviewer-two WEAKENed the punctuation claim under the v1 ROBUST gate (seed_pass_frac 0.40 < 0.60). The reviewer also showed that gate is underpowered: a true 84% effect draws 5/5 only ~41% of the time. Whole-population test: 36/43 hits vs base rate 0.528, p~0. Gate replaced by ROBUST_V2 (population-level, n>=10), under which this claim PASSES. The WEAKEN verdict stands as the contemporaneous judgment; the claim is reinstated as real-but-small, per writeup 424."
   }
  ],
  "provenance": {

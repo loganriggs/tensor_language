@@ -917,6 +917,23 @@
    "verdict": "WEAK (barely above null)",
    "source": "leaf_program",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave3",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": {
+    "full": 6.1,
+    "half0": 6.2,
+    "half1": 6.02,
+    "recorded": 6.1,
+    "note": "exact reproduction, deterministic"
+   },
+   "mechanism_reproduced": true,
+   "specificity_check": "Ran leaf_input_decomp.py on two other diverse-tree late-attn tags not in the r.3.0 family: r.3.2.1 (machinery a15,a17 -- same components as this leaf) and r.5.2.1 (machinery a15,a4,a3 -- different family). For a15 (the only component testable in both): a14 is top writer and ENRICHED in r.3.0.2 (ratio 2.846) AND in r.5.2.1 (ratio 2.442, a wholly different leaf/family), but NOT in r.3.2.1 (a14 ratio only 1.194, not even top writer -- top is a4 at 1.204, a15 fails ENRICHED). For a17: a14 dominates in r.3.0.2 (2.961) but NOT in r.3.2.1 (a14 ratio 1.23, below the 1.3 threshold; top writers are m16 1.811 and m15 1.49 instead). Net: a14 dominance is NOT universal (fails outright in r.3.2.1 for both a15 and a17, so this is not simply a layer law), but it IS NOT specific to r.3.0.2 either -- it reproduced in an unrelated leaf (r.5.2.1) for the a15 component, 2 of 3 tested a15 instances show a14 as dominant writer. a14 is literally the immediately-preceding attention sublayer feeding a15, so this looks partly like a recency/short-residual-distance property of a15 input rather than a discovery unique to this circuit. a17 fared better (failed to reproduce in the 1 comparison run) but n=1 is weak evidence either way. a16 had no comparable tag in the shortlist to test.",
+   "story_test_reproduced": "space_word class reproduces FAILED under cl.story_test_class both directions (pred_help=True: seed_pass_frac=0.0, pop p=0.7991, n=813; pred_help=False: seed_pass_frac=0.0, pop p=0.2218) -- matches the record's \"no behavioral claim survives\" line. Note: scanning BOTH pred_help directions across all 5 classes turned up one ROBUST=True hit (punct, pred_help=True, seed_pass_frac=0.6, pop p=0.0163, n=20) that the record does not report -- not a live threat since the record makes no behavior claim at all, but it shows the ROBUST two-part test can still cross threshold by chance when both directions of several classes are scanned (10 tests here).",
+   "objection": "The mechanism table for r.3.0.2 reproduces bit-for-bit (deterministic, seeded), so the RECORD is honest about what it measured. But the headline framing -- \"a14 dominant writer into a15/a16/a17\" as THIS leaf's mechanism -- overstates specificity for at least the a15 leg: a14 also dominates a15's input in an unrelated leaf (r.5.2.1, ratio 2.442), so part of what is being reported may be generic to how a15 reads its residual stream (a14 is the sublayer immediately below it) rather than a fact about r.3.0.2's circuit. Only a17's a14-enrichment survived the one specificity draw available. A stronger record would either (a) run the specificity check across several a15-using leaves itself before claiming the mechanism, or (b) report the finding as \"a14 feeds this leaf's late attention, consistent with (not distinctively evidencing) a15-specific enrichment\" -- the a17/a16 legs are the load-bearing specific claims, not a15."
   }
  ],
  "provenance": {

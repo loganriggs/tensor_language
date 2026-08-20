@@ -81,6 +81,14 @@ Decomposes the residual entering each of your leaf's machinery
 components into exact writer contributions, member vs off-slice.
 Record, verbatim, per component: the top writers with their
 member/off-slice ratio and the ENRICHED / BEATS_NULL verdicts.
+SPECIFICITY IS REQUIRED (wave-3 reviewer catch, 425): a ratio
+above 1 is measured against random positions in the SAME leaf, so
+an adjacent-layer writer can look enriched simply because it is
+adjacent. Before claiming a writer is this circuit's mechanism,
+run `python leaf_input_decomp.py <tag> --baseline`, then run the
+tool on the peer tags it names and compare: a ratio that
+reproduces on unrelated leaves is a LAYER property, and the record
+must say so.
 Two honest outcomes, both publishable:
   ENRICHED true  -> mechanism lead: "this machinery acts where
                     writer X's contribution to C's input is
@@ -125,7 +133,11 @@ draws and varied):
         # space_word, digit, punct, capitalized, newline
     cl.story_test(tag, d, [x['gi'] for x in f['draw']], preds)
 A behavioral claim is KEPT only if cl.story_test_class(tag, d,
-kind, pred_help)['ROBUST'] is true on the class it names -- a
+kind, pred_help)['ROBUST_V2'] is true on the class it names
+(population-level significance over EVERY member of that class,
+n_available >= 10; the v1 'ROBUST' seed gate is deprecated -- it
+was underpowered and demoted a real effect, wave-3 reviewer
+catch, writeup 424) -- a
 single seed-11 draw passes by chance about 2 times in 5 (wave-3
 seed sweep), so ROBUST demands seed stability AND whole-population
 significance. Also state how many (class, direction) pairs you

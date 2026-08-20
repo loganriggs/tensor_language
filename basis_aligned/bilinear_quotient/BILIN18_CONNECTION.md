@@ -10321,3 +10321,54 @@ similar: uniform-over-prefix, reversed, and cross-row patterns
 (all definitely wrong), plus the h3-h0 pattern correlation as a
 diagnostic. Registered: uniform and cross-row arms <= 0.02 nats
 if positions truly do not matter.
+
+## 424. Pattern necessity: the SHAPE matters, the ALIGNMENT does not
+
+pattern_necessity replaced a6.h3's read pattern with patterns
+that are definitely wrong (values always its own):
+  zero      +0.0512      patswap (sibling)  -0.0021
+  uniform   +0.0233      reversed           +0.0465
+  cross-row +0.0168      sibling pattern corr with h3: 0.226
+(c) diagnostic settles 423's caveat: the sibling patterns are only
+weakly correlated (0.226), so the free pattern swap was NOT a weak
+perturbation -- the dissociation is real. (b) HELD: a pattern
+taken from a DIFFERENT ROW -- wrong context entirely -- costs
+0.017, a third of deletion. (a) FAILED, and that failure is the
+finding: a UNIFORM pattern costs 0.023 and a REVERSED one costs
+0.047, nearly full deletion. So the read positions are not
+irrelevant in general; what a6.h3 needs is a pattern with the
+right SHAPE STATISTICS (concentrated, forward-decaying like a real
+attention pattern) rather than one aimed at the right content.
+Corrected statement, replacing 423's provisional wording: this
+head's downstream function is carried by WHICH value-subspace it
+broadcasts plus HOW CONCENTRATED its read is -- not by which
+positions it reads. Reversal (same concentration, mirrored
+targets) is the expensive perturbation; a real pattern from
+unrelated text is cheap.
+
+## 425. The swarm reviews the driver: two methodology catches, both shipped
+
+Wave-3 reviewers came back with catches against MY instruments,
+not just the records.
+(1) r.18.2.0 (WEAKEN): the reviewer showed the ROBUST behavioral
+gate I wrote is UNDERPOWERED BY CONSTRUCTION -- its seed leg
+requires 5/5 draws on >=60% of seeds, but a true 84% effect
+produces 5/5 only ~41% of the time. The punctuation claim it
+demoted has whole-population support of 36/43 vs a 0.528 base
+rate, p~0. Fixed: ROBUST_V2 gates on the population test over
+EVERY member of the class with n>=10 (no draw noise), Bonferroni
+option added (alpha = 0.10/n_tests) after a second reviewer showed
+multi-direction scanning can still cross threshold. The claim is
+reinstated as real-but-small in the record, with the WEAKEN
+verdict preserved as the contemporaneous judgment.
+(2) r.3.0.2 (WEAKEN): the a14 -> a15 enrichment (2.85x) REPRODUCES
+on an unrelated leaf from a different family (2.44x), so for the
+a15 leg it is a generic adjacent-layer property, not this
+circuit's mechanism; the a17/a16 legs remain specific. Fixed:
+leaf_input_decomp gained a --baseline mode that names peer leaves
+sharing each component, and SOP v3 now REQUIRES a cross-leaf
+specificity check before any writer is claimed as a circuit's
+mechanism. Both records' gates and tables reproduced exactly
+(6.1/6.2/6.02 and 5.96/5.92/5.99), so the verification layer is
+doing its job in both directions: it certifies machinery and it
+refuses interpretation.

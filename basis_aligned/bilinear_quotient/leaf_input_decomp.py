@@ -126,5 +126,28 @@ def main(tag):
     json.dump(out,open(PT+f'leaf_mech/{tag}.json','w'),indent=1)
     print(f'wrote leaf_mech/{tag}.json ({out["runtime_s"]:.0f}s)')
 
+def baseline(key,tag,k=3):
+    """Cross-leaf baseline (added 2026-08-20 from a wave-3
+    reviewer catch: a14 dominates a15's input for unrelated leaves
+    too, so a ratio against 1.0 overstates specificity). Returns
+    the same component's top-writer ratios for k other leaves whose
+    machinery includes this component."""
+    import random
+    st=cl.state()
+    cand=[lf['tag'] for lf in st['leaves'] if lf['tag']!=tag and
+          any(key in str(p) for p in lf['top_probes'])]
+    random.Random(7).shuffle(cand)
+    return cand[:k]
+
 if __name__=='__main__':
     main(sys.argv[1])
+    if '--baseline' in sys.argv:
+        tag=sys.argv[1]
+        seen=json.load(open(PT+f'leaf_mech/{tag}.json'))
+        for key in seen['machinery']:
+            peers=baseline(key,tag)
+            print(f'-- baseline for {key}: peers {peers} '
+                  f'(run leaf_input_decomp.py on each and compare '
+                  f'{key}\'s top-writer ratio; a ratio that '
+                  f'reproduces on unrelated leaves is a LAYER '
+                  f'property, not this circuit\'s mechanism)')

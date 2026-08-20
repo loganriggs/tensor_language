@@ -264,7 +264,7 @@ def examples_filtered(tag,d,kind,n=5,seed=11):
     return {'kind':kind,'n_available':len(hits),'draw':out}
 
 def story_test_class(tag,d,kind,pred_help,seeds=(1,2,3,4,11),
-                     n=5):
+                     n=5,n_tests=1):
     """Robust behavioral test (2026-08-20, from wave-3 friction:
     a single seed-11 n=5 draw passes by chance ~2/5 of the time).
     Runs story_test on a filtered draw for each seed AND on the
@@ -285,10 +285,23 @@ def story_test_class(tag,d,kind,pred_help,seeds=(1,2,3,4,11),
     gis=[x['gi'] for x in fall['draw']]
     pop=story_test(tag,d,gis,[pred_help]*len(gis)) if gis else \
         {'n':0,'hits':0,'p_value':1.0}
+    # ROBUST (v1, deprecated 2026-08-20): the seed-stability leg is
+    # underpowered by construction -- a true 84% effect draws 5/5
+    # only ~41% of the time, so it demoted a real punctuation push
+    # whose whole-population p was ~0 (wave-3 reviewer catch).
+    # ROBUST_V2 gates on the population test, which uses EVERY
+    # member of the class (no draw noise), plus a minimum class
+    # size so n=3 populations cannot pass. Seed sweep is kept as a
+    # reported diagnostic.
     return {'kind':kind,'pred_help':bool(pred_help),
             'n_available':fall['n_available'],'per_seed':per,
             'seed_pass_frac':round(frac,2),'population':pop,
-            'ROBUST':bool(frac>=0.6 and pop['p_value']<=0.10)}
+            'ROBUST':bool(frac>=0.6 and pop['p_value']<=0.10),
+            'n_tests':n_tests,
+            'alpha':round(0.10/max(n_tests,1),4),
+            'ROBUST_V2':bool(pop['p_value']<=0.10/max(n_tests,1)
+                             and fall['n_available']>=10),
+            'gate_note':'use ROBUST_V2; ROBUST v1 is underpowered'}
 
 def story_test(tag,d,gis,pred_help):
     """Base-rate significance for a behavioral story (2026-08-20,
