@@ -4156,3 +4156,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - 406: swarm shortlist written -- 199/311 leaves pass both-halves selectivity (shuffled null 6%). Depth INVERTS vs the old gate (44% coarse vs 72% fine): the census's fine structure is real selective machinery; only raw damage magnitude is unstable. Depth-0 conc ill-defined (noted).
 - 407: relay heads NAMED -- a6.h3 (prev-token head) relays for all of 7.3/8.3/8.4; a4.h7 (prev 0.77) for 5.5. Classic prev->induction composition in exact-code form. Pooled-rho bar failed (early-band dilution, stated). relay_edge_causal queued.
 - 408: relay edges causally verified -- deleting a6.h3 shifts the deep trio's reads 19-29% and the early band 0%, +0.05 match-CE (control ~0); a4.h7 selective for 5.5. Induction circuit record complete end-to-end.
+- 409: shortlist->SOP transfer 98% (47 new packs, 72 total); census_lib now runs on the diverse tree (use_state). sop_program_batch queued (step 3, strict doc-disjoint programs).

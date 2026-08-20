@@ -25,12 +25,25 @@ PT=sys_path+'/'
 CIRC=PT+'circuits/'
 
 _st=None
+STATE_PATH=PT+'census_state.pt'
 def state():
     global _st
     if _st is None:
-        _st=torch.load(PT+'census_state.pt',map_location='cpu')
+        _st=torch.load(STATE_PATH,map_location='cpu',
+                       weights_only=False)
         _st['by_tag']={lf['tag']:lf for lf in _st['leaves']}
     return _st
+
+def use_state(path):
+    """Switch to another census state file (e.g. the diverse
+    tree). Additive extension (2026-08-20): resets every cached
+    singleton so all downstream functions read the new grid."""
+    global _st,STATE_PATH,_FEAT,_MUS,_OUTCAP
+    STATE_PATH=path; _st=None; _FEAT=None; _MUS=None
+    _OUTCAP={}
+
+def nflat():
+    return rows().shape[0]*256
 
 def leaf(tag): return state()['by_tag'][tag]
 def all_tags(): return [lf['tag'] for lf in state()['leaves']]
@@ -79,7 +92,7 @@ def pca_block(key,stag,blk):
     kk=(key,stag,tuple(blk))
     if kk in _PCA: return _PCA[kk]
     sl=leaf(stag)['member'] if stag in state()['by_tag'] \
-        else torch.arange(54272)
+        else torch.arange(nflat())
     Y=capture_out(key)[sl].float().to(DEV)
     _,_,Vh=torch.linalg.svd((Y-Y.mean(0))[:20000],full_matrices=False)
     _PCA[kk]=Vh[blk[0]:blk[1]]
@@ -199,8 +212,8 @@ def member_scores(tag):
 def sign_stats(tag,d):
     lf=leaf(tag); mem=lf['member']; msc=member_scores(tag)
     sl=lf['slice']
-    mm=torch.zeros(54272,dtype=torch.bool); mm[mem]=True
-    slm=torch.zeros(54272,dtype=torch.bool); slm[sl]=True
+    mm=torch.zeros(nflat(),dtype=torch.bool); mm[mem]=True
+    slm=torch.zeros(nflat(),dtype=torch.bool); slm[sl]=True
     npos=int((msc>0).sum()); nneg=int((msc<0).sum())
     am=float(d[mm].abs().mean()); ag=float(d[~slm].abs().mean())
     return {'abs_dce_members':round(am,3),
@@ -314,7 +327,8 @@ def surface_features():
     _FEAT=L
     return L
 
-def run_program(f,prog,nflat=54272):
+def run_program(f,prog,nflat=None):
+    if nflat is None: nflat=next(iter(f.values())).numel()
     mm=torch.zeros(nflat,dtype=torch.bool)
     for conj in prog:
         cm=torch.ones(nflat,dtype=torch.bool)
@@ -335,7 +349,8 @@ def register_feature(name,spec):
         reg['features'][name]=spec
         json.dump(reg,open(p,'w'),indent=1)
 
-def rule_search(f,pos,neg,nflat=54272):
+def rule_search(f,pos,neg,nflat=None):
+    if nflat is None: nflat=next(iter(f.values())).numel()
     names_=list(f)
     def acc(mask):
         tp=float(mask[pos].float().mean())
@@ -367,7 +382,7 @@ def leaf_program(tag,f=None,seed=3):
     if f is None: f=surface_features()
     lf=leaf(tag); mem=lf['member']; bv=base_ce()
     ntokr=rows().shape[0]
-    memflat=torch.zeros(54272,dtype=torch.bool); memflat[mem]=True
+    memflat=torch.zeros(globals()['nflat'](),dtype=torch.bool); memflat[mem]=True
     g9=torch.Generator().manual_seed(seed)
     lo,hi=bv[mem].quantile(0.1),bv[mem].quantile(0.9)
     nonidx=torch.nonzero((~memflat)&(bv>=lo)&(bv<=hi)).squeeze(1)

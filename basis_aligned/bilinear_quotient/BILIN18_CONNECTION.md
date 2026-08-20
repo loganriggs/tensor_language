@@ -9945,3 +9945,22 @@ does neither. The induction circuit record is complete at every
 level the program defines: variables, computation, executable
 code, trigger reconstruction, courier identity, and live causal
 verification of each.
+
+## 409. The gate transfers at 98%; pack inventory at 72; census_lib goes diverse
+
+sop_batch_shortlist ran SOP steps 1-2 over 96 seeded shortlist
+leaves (depth>=1; depth-0 excluded per the 406 caveat): 98% pass
+the full-corpus concentration gate ((a) HELD, bar 80%) and 47 new
+packs were written ((b) HELD; inventory now 72). (c) FAILED at
+the ceiling -- deep 98% vs shallow 100%, a one-leaf difference;
+the registered inversion prediction was unnecessary at
+saturation. The both-halves selectivity gate and the SOP gate are
+now interchangeable in practice. Infra shipped alongside:
+census_lib gained use_state() and a parameterized grid (additive;
+default behavior byte-identical), so every SOP function -- leaf
+ablation, features, rule_search, programs -- now runs on the
+diverse tree. sop_program_batch queued: SOP step 3 over all 72
+packed leaves with STRICT doc-disjoint splits (docid parity, not
+row parity -- rows of one document are adjacent in this corpus);
+registered >=40% earn programs, median null <=0.6, programs
+written for passers.
