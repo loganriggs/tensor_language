@@ -1002,14 +1002,24 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   SVD one does. Where that happens the component is simply insensitive to restriction — it
   barely matters — and its "passing rank" is not evidence of low-rank structure. Only the four
   rows above survive that check.</p>
-  <p>What <em>does</em> survive is compressing the layer's <strong>output</strong> rather than
-  its weights. The rest of the network reads layer 0 only through what layer 0 writes, and
-  projecting that write onto its top 64 principal directions — 5.6% of the residual width —
-  costs 0.081 nats, against 0.57–0.61 for a random 64-dimensional interface and 0.84 for
-  deleting the write entirely. Attention 0's own write needs only 16 directions. So the front of
-  this model behaves like a function of the token pair emitting a few dozen numbers, even though
-  the maps that compute those numbers resist truncation. Compress what a layer sends, not how it
-  computes.</p>
+  <p>Compressing what a layer <em>sends</em> rather than how it computes does better, and for a
+  while looked like the answer. The rest of the network reads layer 0 only through what layer 0
+  writes, and projecting that write onto its top 64 principal directions — 5.6% of the residual
+  width — costs 0.081 nats, against 0.57–0.61 for a random interface of the same size and 0.84
+  for deleting the write outright. Every one of the first six blocks behaves the same way on its
+  own, sending what matters through 64 to 128 directions.</p>
+  <p>But it doesn't compose either. Projecting all six interfaces to 64 directions at once costs
+  <strong>1.31 nats</strong>, where the six individual costs sum to 0.84 and the bar was 0.30.
+  Interfaces are still the better of the two routes by a clear margin — jointly at rank 256 they
+  cost 0.15 where weight truncation never reaches 0.30 at any rank — but nothing in the front of
+  this model survives being compressed all at once.</p>
+  <p>That pattern is the real finding of this section, and it is a fact about the model rather
+  than about the method: <strong>per-component compressibility is real and joint compressibility
+  is not.</strong> Every layer individually looks like it has slack; the slack at any one layer
+  is apparently being used by some other layer. The residual stream behaves as a shared channel,
+  which makes the front a harder replacement target than folding the embedding suggests — and it
+  shifts the question from "how small can each part get" to "what does the front need to
+  transmit that no single-block measurement can see".</p>
   <p>One more result worth its own line, because it contradicts what the weights appear to
   say. The architecture re-injects the token embedding into every block at strength 8 against
   roughly 1 for everything written below, which looks like the embedding dominating the
