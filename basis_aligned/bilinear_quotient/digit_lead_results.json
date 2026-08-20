@@ -1,0 +1,60 @@
+{
+ "tag": "r.2.0.1",
+ "projector_rank": {
+  "a6": 16,
+  "a8": 16
+ },
+ "classes": {
+  "digit": {
+   "dissociation": 0.09,
+   "n": 437,
+   "ci": [
+    0.044,
+    0.1423
+   ]
+  },
+  "punct": {
+   "dissociation": -0.0371,
+   "n": 3650,
+   "ci": [
+    -0.0457,
+    -0.0288
+   ]
+  },
+  "capitalized": {
+   "dissociation": 0.0464,
+   "n": 2737,
+   "ci": [
+    0.0275,
+    0.067
+   ]
+  }
+ },
+ "random_controls": [
+  -0.0021,
+  -0.0123,
+  0.0145,
+  -0.0049,
+  -0.0138,
+  -0.0064,
+  0.0017,
+  -0.0099,
+  -0.0084,
+  -0.0147
+ ],
+ "peer_controls": {
+  "r.2.0.0": 0.09,
+  "r.2.0.2": 0.09,
+  "r.2.0.3": 0.09
+ },
+ "best_control": 0.09,
+ "population_digit": -0.018,
+ "population_punct": -0.025,
+ "sanity_ok": true,
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": false,
+ "n_rows": 96,
+ "skip": 200,
+ "runtime_s": 101.47379207611084
+}

@@ -13199,3 +13199,48 @@ finished and sharp -- one head, one token, both directions, AUC
 is a distributed sum with no small variable set, which is the same
 answer the 3->4 chain gave and is worth recording as a repeated
 finding about this model rather than a failure of this experiment.
+
+## 507. mlp0 was an artifact in three more places
+
+The three re-runs behind the position-0 and courier stories, all
+now exact to 8e-8, and all three change the same way.
+  sink_source, who writes the position-0 vector at layer 5:
+    before  m4 0.626, m3 0.159, m0 0.119, m2 0.069
+    after   m4 0.876, m3 0.090, m2 0.019, m1 0.008  (m0: 0.0004)
+  sink_origin, what feeds mlp4 at position 0:
+    before  m0 0.441, m3 0.298, m2 0.175, m1 0.055
+    after   m3 0.662, m2 0.184, m1 0.099, a4 0.030  (m0: absent)
+  payload_decomp, what head a6.h3 actually carries:
+    before  m0 0.271, v1 0.266, m3 0.139, m4 0.095
+    after   a5 0.405, m5 0.253, v1 0.210, m4 0.053 (m0: 0.0006)
+  and a6.h0: before m0 0.361, v1 0.294 -> after v1 0.638,
+    a5 0.117, m5 0.106.
+One sentence covers all of it: everywhere the flat weighting was
+used, mlp0 appeared as a major supplier, and it was an artifact of
+multiplying its output by 1.04 when the model multiplies it by
+0.00024. Corrected, the suppliers are always the IMMEDIATELY
+PRECEDING components -- m3 into m4, m4 into the layer-5 stream,
+a5 and m5 into the layer-6 courier. The model's long-range writer
+structure was largely my arithmetic.
+RETRACTED from 418-419: "the courier a6.h3's payload is led by
+m0 at 27%". The payload is led by a5 (41%) and m5 (25%), with the
+attention value-relay v1 at 21%; m0's true share is 0.06%.
+NOT AFFECTED, and worth stating because the induction circuit is
+this program's flagship: the identity-code analyses
+(deep_trigger_source, deep_code_content, courier_content_id) build
+the residual chain ITERATIVELY -- xr = lam0*xr + lam1*E inside a
+loop over blocks -- which is the correct unrolling. The claim that
+m0 generates the identity code used by the double-QK match comes
+from those scripts and stands. What changes is the separate claim
+about what the courier heads CARRY, which came from
+payload_decomp. So the induction story now reads: m0 builds the
+code that decides WHERE to look; layer-5 components supply WHAT
+gets moved. Those were always two different measurements and only
+one of them was wrong.
+The published report gains a corrections-ledger row for the whole
+class of error, since the census headline it changed is a
+published claim.
+Also of note: sink_source's registered prediction (b) -- "the top
+writer is wte or m0" -- FAILED, as it did before the correction.
+It failed for the wrong reason then (m4 led anyway) and the right
+reason now.

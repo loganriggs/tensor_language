@@ -1,0 +1,22 @@
+reconstruction relative error: 1.672e-07
+(0) exactness: HELD
+ran m5
+ran m4
+ran m6
+ran RAND seed 5
+ran RAND seed 17
+ran RAND seed 29
+peers on ['m14', 'm15']: ['r.1.2', 'r.1.2.1']
+r.1.2.0: m5 member +0.00061 offslice +0.00008 | m4 +0.00171 | m6 +0.00269
+r.1.2.2: m5 member +0.00366 offslice +0.00008 | m4 +0.00181 | m6 +0.00496
+r.1.2: m5 member +0.00124 offslice -0.00000 | m4 +0.00154 | m6 +0.00309
+r.1.2.1: m5 member +0.00421 offslice +0.00008 | m4 -0.00096 | m6 +0.00467
+(r.1.2.0-b) 0.00061 vs bar 0.00012000000000000002: HELD
+(r.1.2.0-a) -0.0036000000000000003 vs bar 1e-09: FAILED
+(r.1.2.0-c) m5 member +0.00061 beats m4 +0.00171 and m6 +0.00269: FAILED
+(r.1.2.0-NULL) best random contrast 8.49 < 1.2: VIOLATED
+(r.1.2.2-b) 0.00366 vs bar 0.00012000000000000002: UNEVALUABLE [denominator 0.00008 is below 0.00037 -- report the pair, not the quotient]
+(r.1.2.2-a) -0.0005500000000000001 vs bar 1e-09: FAILED
+(r.1.2.2-c) m5 member +0.00366 beats m4 +0.00181 and m6 +0.00496: FAILED
+(r.1.2.2-NULL) best random contrast 18.05 < 1.2: VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mech_m5_verify_results.json (66s)

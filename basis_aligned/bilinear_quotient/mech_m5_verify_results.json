@@ -1,0 +1,143 @@
+{
+ "per_leaf": {
+  "r.1.2.0": {
+   "n_member": 864,
+   "m5": {
+    "member": 0.00061,
+    "offslice": 8e-05
+   },
+   "m4": {
+    "member": 0.00171,
+    "offslice": 0.00013
+   },
+   "m6": {
+    "member": 0.00269,
+    "offslice": 0.00018
+   },
+   "rand": [
+    {
+     "member": 0.01206,
+     "offslice": 0.00142
+    },
+    {
+     "member": -0.00314,
+     "offslice": 0.00143
+    },
+    {
+     "member": 0.00416,
+     "offslice": 0.0014
+    }
+   ]
+  },
+  "r.1.2.2": {
+   "n_member": 864,
+   "m5": {
+    "member": 0.00366,
+    "offslice": 8e-05
+   },
+   "m4": {
+    "member": 0.00181,
+    "offslice": 0.00013
+   },
+   "m6": {
+    "member": 0.00496,
+    "offslice": 0.00018
+   },
+   "rand": [
+    {
+     "member": 0.02563,
+     "offslice": 0.00142
+    },
+    {
+     "member": 0.01415,
+     "offslice": 0.00143
+    },
+    {
+     "member": 0.02065,
+     "offslice": 0.0014
+    }
+   ]
+  },
+  "r.1.2": {
+   "n_member": 5760,
+   "m5": {
+    "member": 0.00124,
+    "offslice": -0.0
+   },
+   "m4": {
+    "member": 0.00154,
+    "offslice": -3e-05
+   },
+   "m6": {
+    "member": 0.00309,
+    "offslice": -9e-05
+   },
+   "rand": [
+    {
+     "member": 0.00121,
+     "offslice": 0.00166
+    },
+    {
+     "member": 8e-05,
+     "offslice": 0.00178
+    },
+    {
+     "member": 0.00112,
+     "offslice": 0.00173
+    }
+   ]
+  },
+  "r.1.2.1": {
+   "n_member": 864,
+   "m5": {
+    "member": 0.00421,
+    "offslice": 8e-05
+   },
+   "m4": {
+    "member": -0.00096,
+    "offslice": 0.00013
+   },
+   "m6": {
+    "member": 0.00467,
+    "offslice": 0.00018
+   },
+   "rand": [
+    {
+     "member": 0.01599,
+     "offslice": 0.00142
+    },
+    {
+     "member": 0.00084,
+     "offslice": 0.00143
+    },
+    {
+     "member": 0.00449,
+     "offslice": 0.0014
+    }
+   ]
+  }
+ },
+ "verdicts": {
+  "r.1.2.0": {
+   "a": "FAILED",
+   "b": "HELD",
+   "c": "FAILED",
+   "null_ok": false,
+   "peer_best": 0.00421
+  },
+  "r.1.2.2": {
+   "a": "FAILED",
+   "b": "UNEVALUABLE",
+   "c": "FAILED",
+   "null_ok": false,
+   "peer_best": 0.00421
+  }
+ },
+ "peers": [
+  "r.1.2",
+  "r.1.2.1"
+ ],
+ "relerr": 1.672237317507097e-07,
+ "pred_0": true,
+ "runtime_s": 65.65544009208679
+}

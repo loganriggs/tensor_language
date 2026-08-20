@@ -1,0 +1,21 @@
+digit: dissociation +0.0900 (n=437) CI [+0.0440, +0.1423]
+punct: dissociation -0.0371 (n=3650) CI [-0.0457, -0.0288]
+capitalized: dissociation +0.0464 (n=2737) CI [+0.0275, +0.0670]
+  random seed 0: digit dissociation -0.0021
+  random seed 1: digit dissociation -0.0123
+  random seed 2: digit dissociation +0.0145
+  random seed 3: digit dissociation -0.0049
+  random seed 4: digit dissociation -0.0138
+  random seed 5: digit dissociation -0.0064
+  random seed 6: digit dissociation +0.0017
+  random seed 7: digit dissociation -0.0099
+  random seed 8: digit dissociation -0.0084
+  random seed 9: digit dissociation -0.0147
+  peer r.2.0.0: digit dissociation +0.0900
+  peer r.2.0.2: digit dissociation +0.0900
+  peer r.2.0.3: digit dissociation +0.0900
+(a) 0.044 vs bar 1e-09: HELD
+(b) 0.09 vs bar 0.02: HELD
+(c) 0.0 vs bar 1e-09: FAILED
+SANITY (punct -0.0371 in [-0.040,-0.010]): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_lead_results.json (101s)
