@@ -9901,3 +9901,27 @@ ill-defined rather than passing. The swarm now has its
 production list: 199 certified-selective leaves. relay_heads
 running next: who does the relaying (per-head relay lifts vs the
 head census's prev-token shares).
+
+## 407. THE RELAY HEADS ARE NAMED: a6.h3 moves the code for the whole deep trio
+
+relay_heads localized each band head's top relay layer, then its
+top relay HEAD, and cross-referenced the independent head-read
+census:
+  5.5 <- a4.h7 (lift 0.174; census modal PREV, prev share 0.765)
+  7.3 <- a6.h3 (lift 0.135; modal PREV, prev 0.468)
+  8.3 <- a6.h3 (lift 0.100; same head)
+  8.4 <- a6.h3 (lift 0.118; same head)
+ONE previous-token head, a6.h3, relays the identity code for all
+three deepest induction heads; a4.h7 does it for 5.5. This is the
+classic prev-token -> induction composition, recovered in
+exact-code form with named parts. Scored honestly: (b) HELD (4/8
+top relay heads prev-modal); (c) HELD (no 'first' enrichment,
+rho -0.27); (a) FAILED (pooled rho 0.249 < 0.4) -- the pooled
+correlation is diluted by the early band, whose relay lifts are
+small and spread (2.5's biggest head lift is 0.054; its trigger
+barely needs relays). The claim that survives: DEEP relays are
+concentrated in named prev-token heads; early relays are diffuse
+dribbles. relay_edge_causal queued: zero a6.h3 / a4.h7 in the
+live model vs matched same-layer controls; registered selective
+pattern damage on the deep trio / 5.5, and match-position dCE
+ratios.
