@@ -12256,3 +12256,36 @@ up with the one circuit this program has closed end to end, which
 would be a satisfying convergence of two very different
 measurements. If it fails, the model's long-range dependence lives
 somewhere the circuit work has not looked.
+
+## 482. ONE LAYER CARRIES THE MODEL'S NON-LOCAL READS -- and an obvious confound
+
+window_by_depth restricted each attention layer in turn to a
+4-token read window, all others intact:
+  L0 -0.042   L1 +0.014   L2 +0.021   L3 +0.039   L4 -0.062
+  L5 +1.112   L6 +0.018   L7 +0.006   L8 +0.038   L9 -0.002
+  L10 -0.018  L11 +0.022  L12 +0.086  L13 +0.027  L14 +0.007
+  L15 +0.003  L16 +0.012  L17 +0.008
+ALL THREE BARS HELD -- (a) the front is local, (b) a transition
+exists, (c) the worst layer is 5, inside the 5-8 induction band I
+registered. Layer 5 costs +1.112 while the next-worst layer costs
++0.086, a thirteen-fold gap. Seventeen of eighteen attention
+layers in this model can be restricted to a four-token window at
+a cost under a tenth of a nat.
+I am NOT claiming the convergence with the induction band yet,
+because there is a confound I can see in my own result. Head 5.7
+lives in layer 5 and is an attention SINK that reads POSITION 0
+for 99.8% of queries (432) -- and position 0 is precisely what a
+sliding 4-token window cuts off. Layer 5's cost may therefore be
+the sink losing its constant rather than any long-range content
+read, in which case the tidy story ("the depth profile lands on
+the induction band") would be a coincidence and must be retracted
+before anyone repeats it.
+layer5_window_source queued to settle it with three arms: the same
+window but with position 0 always allowed; the window applied ONLY
+to head 5.7; and the window applied to every layer-5 head EXCEPT
+5.7. Registered: (a) allowing position 0 drops the cost to <= 0.15,
+(b) head 5.7 alone reproduces at least half of the +1.112, (c) the
+other eight heads are local at <= 0.15. If all three hold, 482's
+real headline is "this model's only non-local read is a constant
+fetch", which is a stranger and more useful statement than the one
+I would have published.
