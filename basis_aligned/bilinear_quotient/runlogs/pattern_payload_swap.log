@@ -1,0 +1,11 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+zero3: median generic 0.1222 | trio match {'7.3': 0.336, '8.3': 0.191, '8.4': 0.185}
+patswap: median generic 0.1535 | trio match {'7.3': 0.33, '8.3': 0.202, '8.4': 0.219}
+valswap: median generic 0.1288 | trio match {'7.3': 0.336, '8.3': 0.199, '8.4': 0.19}
+(a) patswap keeps trio damage >=0.15 (pattern): HELD
+(b) valswap <=0.10 (payload fungible): FAILED
+(c) neither exceeds zeroing: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/pattern_payload_swap_results.json (3s)

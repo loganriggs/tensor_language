@@ -10244,3 +10244,29 @@ trio's damage >=0.15, (b) value swap keeps it <=0.10, (c) neither
 exceeds deletion. Also of note for the value-side program: a
 quarter of a layer-6 head's write is the FIRST-LAYER value stream
 carried forward by the lambda term -- an under-examined channel.
+
+## 421. Crossover: BOTH swaps hurt as much as deletion -- instrument audit ordered before any conclusion
+
+pattern_payload_swap gave h3 the control head's pattern with its
+own values (patswap) and its own pattern with the control's
+values (valswap). Neither arm behaved as registered: patswap
+0.330/0.202/0.219 on the deep trio, valswap 0.336/0.199/0.190 --
+both statistically the same as ZEROING (0.336/0.191/0.185). (a)
+HELD only trivially, (b) FAILED, (c) FAILED (patswap even edges
+above deletion on the generic median, 0.154 vs 0.122).
+Two readings, and honesty requires testing the second before
+publishing the first: either the courier role needs the exact
+(pattern x values) product, or the top-read-shift metric
+SATURATES under any perturbation of this magnitude -- in which
+case every shift number in 416-421 measures "a perturbation the
+size of h3's write" rather than content. shift_metric_audit
+queued with the controls that decide it: a POSITION-PERMUTED
+write (same norm, same values, wrong alignment) and a
+NORM-MATCHED GAUSSIAN write, scored on three metrics (top-read
+shift, graceful rank correlation of the whole read distribution,
+and dCE at match positions). Registered: (a) permute also
+>=0.15 -> the metric is non-specific and the caveat goes into the
+ledger AND the published report; (b) CE still separates zeroing
+from a random write by >=0.05 nats; (c) rank correlation
+separates patswap from random by >=0.10. No claim about a6.h3's
+pattern-vs-payload division is being recorded until this returns.

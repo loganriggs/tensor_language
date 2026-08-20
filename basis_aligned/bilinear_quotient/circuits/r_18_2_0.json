@@ -1,0 +1,420 @@
+{
+ "schema_version": 1,
+ "tag": "r.18.2.0",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "causal": {
+  "abs_dce_members": 0.764,
+  "abs_dce_offslice": 0.128,
+  "concentration": 5.96,
+  "dce_members": -0.018,
+  "dce_pos": -0.742,
+  "dce_neg": 0.788,
+  "n_pos": 455,
+  "n_neg": 409,
+  "minority_share": 0.473,
+  "base_ce_member_mean": 5.99,
+  "base_ce_frac_lt3": 0.157
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 171767,
+    "context": " he knows that I want him to be in a position to be",
+    "target": " attacking",
+    "base_ce": 11.81,
+    "dce": -1.35
+   },
+   {
+    "gi": 154260,
+    "context": " it but more lengthening. My main gripe with it back",
+    "target": " there",
+    "base_ce": 7.07,
+    "dce": -1.58
+   },
+   {
+    "gi": 2960,
+    "context": "magical thinking to further her showbiz career -- starting with visual",
+    "target": "izing",
+    "base_ce": 4.68,
+    "dce": -1.62
+   }
+  ],
+  "random": [
+   {
+    "gi": 40388,
+    "context": " 238 to 242\u00b0F. Immediately remove from heat and, with",
+    "target": " mixer",
+    "base_ce": 4.55,
+    "dce": -0.74
+   },
+   {
+    "gi": 229461,
+    "context": "gers looked like they were hung-over from a tight double overtime",
+    "target": " battle",
+    "base_ce": 5.56,
+    "dce": -0.48
+   },
+   {
+    "gi": 95620,
+    "context": " been the safest pick of the entire draft. His twin brother Maur",
+    "target": "k",
+    "base_ce": 1.02,
+    "dce": 0.87
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "mechanism": {
+  "machinery": [
+   "a7",
+   "a9"
+  ],
+  "a7": {
+   "top_writers": [
+    [
+     "a4",
+     {
+      "member": 0.0589,
+      "offslice": 0.0538,
+      "null": 0.0515,
+      "ratio": 1.096
+     }
+    ],
+    [
+     "wte",
+     {
+      "member": 0.0015,
+      "offslice": 0.0014,
+      "null": 0.0013,
+      "ratio": 1.061
+     }
+    ],
+    [
+     "a2",
+     {
+      "member": 0.0317,
+      "offslice": 0.0301,
+      "null": 0.0308,
+      "ratio": 1.051
+     }
+    ],
+    [
+     "a5",
+     {
+      "member": 0.0529,
+      "offslice": 0.0511,
+      "null": 0.0511,
+      "ratio": 1.034
+     }
+    ],
+    [
+     "m2",
+     {
+      "member": 0.0925,
+      "offslice": 0.0905,
+      "null": 0.0893,
+      "ratio": 1.022
+     }
+    ]
+   ],
+   "top_ratio": 1.096,
+   "null_top_ratio": 1.167,
+   "ENRICHED": false,
+   "BEATS_NULL": false
+  },
+  "a9": {
+   "top_writers": [
+    [
+     "a7",
+     {
+      "member": 0.0125,
+      "offslice": 0.0111,
+      "null": 0.0114,
+      "ratio": 1.124
+     }
+    ],
+    [
+     "a4",
+     {
+      "member": 0.058,
+      "offslice": 0.0529,
+      "null": 0.0549,
+      "ratio": 1.095
+     }
+    ],
+    [
+     "wte",
+     {
+      "member": 0.0013,
+      "offslice": 0.0013,
+      "null": 0.0013,
+      "ratio": 1.06
+     }
+    ],
+    [
+     "a2",
+     {
+      "member": 0.0309,
+      "offslice": 0.0295,
+      "null": 0.029,
+      "ratio": 1.049
+     }
+    ],
+    [
+     "a5",
+     {
+      "member": 0.0526,
+      "offslice": 0.0509,
+      "null": 0.0518,
+      "ratio": 1.033
+     }
+    ]
+   ],
+   "top_ratio": 1.124,
+   "null_top_ratio": 1.095,
+   "ENRICHED": false,
+   "BEATS_NULL": true
+  },
+  "mechanism_line": "Input-writer composition of a7/a9 (r.18.2 probes) does NOT distinguish members: top writer a4 ratio 1.096/1.095 vs null 1.167/1.095 -- ENRICHED=False both components (a9 BEATS_NULL=True but not enriched).",
+  "script": "leaf_input_decomp.py",
+  "runtime_s": 6.9450156688690186
+ },
+ "story": {
+  "blind_name": "no behavioral claim survives base-rate testing except a narrow punctuation-target effect",
+  "program": [
+   [
+    "starts_space",
+    "prev1_starts_space"
+   ]
+  ],
+  "program_bacc": 0.555,
+  "program_null": 0.498,
+  "mechanism_level": "none",
+  "behavior_line": "On punctuation-target positions the leaf's machinery HURTS prediction (ablating it lowers CE 5/5 draws, story_test p=0.041, beats base rate 0.528); but overall member sign-split is near-even (minority_share=0.473) and no other surface class (subword/space_word/digit/capitalized/newline) showed an enriched push in either direction -- the punct effect does not generalize to a whole-leaf story.",
+  "story_test_punct_help": {
+   "n": 5,
+   "hits": 5,
+   "base_rate_help": 0.528,
+   "expected_hits": 2.64,
+   "p_value": 0.041,
+   "beats_base_rate": true
+  },
+  "story_test_all_kinds": {
+   "subword": {
+    "gis": [
+     165065,
+     19833,
+     48100,
+     136615,
+     235398
+    ],
+    "help": {
+     "n": 5,
+     "hits": 2,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.64,
+     "p_value": 0.8453,
+     "beats_base_rate": false
+    },
+    "hurt": {
+     "n": 5,
+     "hits": 3,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.36,
+     "p_value": 0.448,
+     "beats_base_rate": false
+    }
+   },
+   "space_word": {
+    "gis": [
+     105887,
+     32533,
+     122749,
+     253437,
+     216122
+    ],
+    "help": {
+     "n": 5,
+     "hits": 2,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.64,
+     "p_value": 0.8453,
+     "beats_base_rate": false
+    },
+    "hurt": {
+     "n": 5,
+     "hits": 3,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.36,
+     "p_value": 0.448,
+     "beats_base_rate": false
+    }
+   },
+   "digit": {
+    "gis": [
+     39325,
+     208117,
+     123808,
+     21741,
+     255089
+    ],
+    "help": {
+     "n": 5,
+     "hits": 1,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.64,
+     "p_value": 0.9765,
+     "beats_base_rate": false
+    },
+    "hurt": {
+     "n": 5,
+     "hits": 4,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.36,
+     "p_value": 0.1547,
+     "beats_base_rate": false
+    }
+   },
+   "punct": {
+    "gis": [
+     182573,
+     49010,
+     171307,
+     181938,
+     204857
+    ],
+    "help": {
+     "n": 5,
+     "hits": 5,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.64,
+     "p_value": 0.041,
+     "beats_base_rate": true
+    },
+    "hurt": {
+     "n": 5,
+     "hits": 0,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.36,
+     "p_value": 1.0,
+     "beats_base_rate": false
+    }
+   },
+   "capitalized": {
+    "gis": [
+     251284,
+     255203,
+     232254,
+     201962,
+     204239
+    ],
+    "help": {
+     "n": 5,
+     "hits": 3,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.64,
+     "p_value": 0.552,
+     "beats_base_rate": false
+    },
+    "hurt": {
+     "n": 5,
+     "hits": 2,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.36,
+     "p_value": 0.7759,
+     "beats_base_rate": false
+    }
+   },
+   "newline": {
+    "gis": [
+     55048,
+     255810,
+     17138,
+     216712,
+     140365
+    ],
+    "help": {
+     "n": 5,
+     "hits": 3,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.64,
+     "p_value": 0.552,
+     "beats_base_rate": false
+    },
+    "hurt": {
+     "n": 5,
+     "hits": 2,
+     "base_rate_help": 0.528,
+     "expected_hits": 2.36,
+     "p_value": 0.7759,
+     "beats_base_rate": false
+    }
+   }
+  }
+ },
+ "certification": [
+  {
+   "test": "selectivity",
+   "bar": "concentration>=3 both halves",
+   "value": 5.96,
+   "half_0_500": 5.92,
+   "half_500_1000": 5.99,
+   "verdict": "HELD",
+   "source": "sonnet-wave3-b step1",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "mechanism_enrichment",
+   "bar": "ENRICHED true on >=1 machinery component",
+   "value": {
+    "a7": false,
+    "a9": false
+   },
+   "verdict": "FAILED (real negative -- writer composition does not distinguish members; recorded per SOP v3)",
+   "source": "sonnet-wave3-b step3M",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "behavioral_story_base_rate",
+   "bar": "story_test beats_base_rate p<=0.10 on named class",
+   "value": {
+    "n": 5,
+    "hits": 5,
+    "base_rate_help": 0.528,
+    "expected_hits": 2.64,
+    "p_value": 0.041,
+    "beats_base_rate": true
+   },
+   "verdict": "HELD (punct class only, n=5)",
+   "source": "sonnet-wave3-b step5",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "surface_program",
+   "bar": "context only, not a mechanism grade",
+   "value": {
+    "bacc": 0.555,
+    "null": 0.498
+   },
+   "verdict": "RECORDED (bacc 0.555 vs null 0.498, weak margin)",
+   "source": "sonnet-wave3-b step3",
+   "date": "2026-08-20"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "SOP-v3",
+   "leaf_input_decomp.py",
+   "census_lib.leaf_program",
+   "census_lib.story_test"
+  ],
+  "agent": "sonnet-wave3-b",
+  "lib_rev": "020e43286e5133b70ae8d7405a80a2c5edf1b66d"
+ },
+ "members": {
+  "n": 864
+ }
+}
