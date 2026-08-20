@@ -46,7 +46,15 @@ def main():
     MODS.update({f'm{li}':m.transformer.h[li].mlp
                  for li in range(18)})
     rows=[]
+    import os
+    if os.path.exists(OUT):          # resume partial runs
+        try: rows=json.load(open(OUT)).get('leaves',[])
+        except Exception: rows=[]
+    done={r['tag'] for r in rows}
     for tag in tags:
+      if tag in done: continue
+      try:
+        torch.cuda.empty_cache()
         lf=cl.leaf(tag)
         probes=[ast.literal_eval(p) if isinstance(p,str) else p
                 for p in lf['top_probes']]
@@ -82,6 +90,13 @@ def main():
                      'ranks':rk})
         print(f'{tag}: own {own} random {rnd} ratio '
               f'{rows[-1]["ratio"]}',flush=True)
+        json.dump({'leaves':rows,'partial':True},
+                  open(OUT,'w'),indent=1)   # incremental save
+      except Exception as e:
+        # shared GPU: a swarm agent can squeeze us out mid-leaf
+        print(f'{tag}: SKIPPED ({type(e).__name__}: {e})',
+              flush=True)
+        torch.cuda.empty_cache()
     frac=sum(1 for r in rows if r['own']>=2*r['random_subspace']) \
         /len(rows)
     med=sorted(r['random_subspace'] for r in rows)[len(rows)//2]

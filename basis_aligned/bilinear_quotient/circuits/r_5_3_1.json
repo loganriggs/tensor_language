@@ -1,0 +1,454 @@
+{
+ "schema_version": 1,
+ "tag": "r.5.3.1",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "components": [
+  "a2",
+  "a4"
+ ],
+ "causal": {
+  "abs_dce_members": 0.91,
+  "abs_dce_offslice": 0.176,
+  "concentration": 5.17,
+  "dce_members": 0.01,
+  "dce_pos": 0.933,
+  "dce_neg": -0.864,
+  "n_pos": 420,
+  "n_neg": 444,
+  "minority_share": 0.486,
+  "base_ce_member_mean": 6.077,
+  "base_ce_frac_lt3": 0.161
+ },
+ "causal_half": {
+  "rows_0_500": {
+   "concentration": 5.16,
+   "abs_dce_members": 0.902,
+   "n_members": 410
+  },
+  "rows_500_1000": {
+   "concentration": 5.17,
+   "abs_dce_members": 0.918,
+   "n_members": 454
+  }
+ },
+ "mechanism_3M": {
+  "tag": "r.5.3.1",
+  "machinery": [
+   "a2",
+   "a4"
+  ],
+  "tables": {
+   "a2": {
+    "writers": {
+     "wte": {
+      "mean": 0.995,
+      "min": 0.964,
+      "max": 1.024,
+      "seed5": 1.024,
+      "member": 0.0013,
+      "offslice": 0.0013
+     },
+     "a0": {
+      "mean": 1.005,
+      "min": 0.827,
+      "max": 1.246,
+      "seed5": 1.126,
+      "member": 0.0009,
+      "offslice": 0.0008
+     },
+     "m0": {
+      "mean": 1.002,
+      "min": 1.0,
+      "max": 1.005,
+      "seed5": 1.0,
+      "member": 0.9391,
+      "offslice": 0.9387
+     },
+     "a1": {
+      "mean": 1.005,
+      "min": 0.95,
+      "max": 1.043,
+      "seed5": 1.022,
+      "member": 0.0193,
+      "offslice": 0.0189
+     },
+     "m1": {
+      "mean": 0.951,
+      "min": 0.883,
+      "max": 1.013,
+      "seed5": 0.977,
+      "member": 0.0393,
+      "offslice": 0.0403
+     }
+    },
+    "top": [
+     [
+      "a0",
+      {
+       "mean": 1.005,
+       "min": 0.827,
+       "max": 1.246,
+       "seed5": 1.126,
+       "member": 0.0009,
+       "offslice": 0.0008
+      }
+     ],
+     [
+      "a1",
+      {
+       "mean": 1.005,
+       "min": 0.95,
+       "max": 1.043,
+       "seed5": 1.022,
+       "member": 0.0193,
+       "offslice": 0.0189
+      }
+     ],
+     [
+      "m0",
+      {
+       "mean": 1.002,
+       "min": 1.0,
+       "max": 1.005,
+       "seed5": 1.0,
+       "member": 0.9391,
+       "offslice": 0.9387
+      }
+     ],
+     [
+      "wte",
+      {
+       "mean": 0.995,
+       "min": 0.964,
+       "max": 1.024,
+       "seed5": 1.024,
+       "member": 0.0013,
+       "offslice": 0.0013
+      }
+     ],
+     [
+      "m1",
+      {
+       "mean": 0.951,
+       "min": 0.883,
+       "max": 1.013,
+       "seed5": 0.977,
+       "member": 0.0393,
+       "offslice": 0.0403
+      }
+     ]
+    ],
+    "top_ratio": 1.126,
+    "top_ratio_mean": 1.005,
+    "top_ratio_min": 0.827,
+    "top_ratio_max": 1.246,
+    "null_top_ratio": 1.333,
+    "bootstrap_seeds": [
+     5,
+     17,
+     29,
+     41,
+     53
+    ],
+    "ENRICHED": false,
+    "BEATS_NULL": false,
+    "ENRICHED_STABLE": false
+   },
+   "a4": {
+    "writers": {
+     "wte": {
+      "mean": 1.005,
+      "min": 0.986,
+      "max": 1.024,
+      "seed5": 1.024,
+      "member": 0.0036,
+      "offslice": 0.0035
+     },
+     "a0": {
+      "mean": 1.003,
+      "min": 0.837,
+      "max": 1.214,
+      "seed5": 1.093,
+      "member": 0.0006,
+      "offslice": 0.0006
+     },
+     "m0": {
+      "mean": 1.001,
+      "min": 0.993,
+      "max": 1.011,
+      "seed5": 0.997,
+      "member": 0.5856,
+      "offslice": 0.5873
+     },
+     "a1": {
+      "mean": 0.992,
+      "min": 0.953,
+      "max": 1.017,
+      "seed5": 0.993,
+      "member": 0.013,
+      "offslice": 0.0131
+     },
+     "m1": {
+      "mean": 0.966,
+      "min": 0.902,
+      "max": 1.032,
+      "seed5": 0.988,
+      "member": 0.0302,
+      "offslice": 0.0305
+     },
+     "a2": {
+      "mean": 1.048,
+      "min": 0.985,
+      "max": 1.082,
+      "seed5": 1.061,
+      "member": 0.0378,
+      "offslice": 0.0356
+     },
+     "m2": {
+      "mean": 0.967,
+      "min": 0.951,
+      "max": 0.988,
+      "seed5": 0.959,
+      "member": 0.1159,
+      "offslice": 0.1208
+     },
+     "a3": {
+      "mean": 1.029,
+      "min": 0.987,
+      "max": 1.075,
+      "seed5": 1.075,
+      "member": 0.0316,
+      "offslice": 0.0294
+     },
+     "m3": {
+      "mean": 1.011,
+      "min": 0.99,
+      "max": 1.027,
+      "seed5": 1.014,
+      "member": 0.1817,
+      "offslice": 0.1791
+     }
+    },
+    "top": [
+     [
+      "a2",
+      {
+       "mean": 1.048,
+       "min": 0.985,
+       "max": 1.082,
+       "seed5": 1.061,
+       "member": 0.0378,
+       "offslice": 0.0356
+      }
+     ],
+     [
+      "a3",
+      {
+       "mean": 1.029,
+       "min": 0.987,
+       "max": 1.075,
+       "seed5": 1.075,
+       "member": 0.0316,
+       "offslice": 0.0294
+      }
+     ],
+     [
+      "m3",
+      {
+       "mean": 1.011,
+       "min": 0.99,
+       "max": 1.027,
+       "seed5": 1.014,
+       "member": 0.1817,
+       "offslice": 0.1791
+      }
+     ],
+     [
+      "wte",
+      {
+       "mean": 1.005,
+       "min": 0.986,
+       "max": 1.024,
+       "seed5": 1.024,
+       "member": 0.0036,
+       "offslice": 0.0035
+      }
+     ],
+     [
+      "a0",
+      {
+       "mean": 1.003,
+       "min": 0.837,
+       "max": 1.214,
+       "seed5": 1.093,
+       "member": 0.0006,
+       "offslice": 0.0006
+      }
+     ]
+    ],
+    "top_ratio": 1.061,
+    "top_ratio_mean": 1.048,
+    "top_ratio_min": 0.985,
+    "top_ratio_max": 1.082,
+    "null_top_ratio": 1.333,
+    "bootstrap_seeds": [
+     5,
+     17,
+     29,
+     41,
+     53
+    ],
+    "ENRICHED": false,
+    "BEATS_NULL": false,
+    "ENRICHED_STABLE": false
+   }
+  },
+  "runtime_s": 20.11983323097229
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 7736,
+    "context": " and its members. Everyone can join the\ngroup and help encourage",
+    "target": " each",
+    "base_ce": 2.4,
+    "dce": -1.74
+   },
+   {
+    "gi": 33724,
+    "context": " who would enjoy the sight of pickle and spider-web or",
+    "target": "nam",
+    "base_ce": 2.23,
+    "dce": -1.97
+   },
+   {
+    "gi": 142707,
+    "context": "\nIn a different twist, Bob Fink, an independent music",
+    "target": "ologist",
+    "base_ce": 1.37,
+    "dce": 1.84
+   }
+  ],
+  "random": [
+   {
+    "gi": 46548,
+    "context": "kyMilkshake CHECK OUT THIS FIRETRUCK TEE",
+    "target": "...",
+    "base_ce": 2.72,
+    "dce": 0.81
+   },
+   {
+    "gi": 108915,
+    "context": " integrates Fraunhofer IIS\u2019s easyDCP",
+    "target": " into",
+    "base_ce": 6.52,
+    "dce": 0.02
+   },
+   {
+    "gi": 227591,
+    "context": "Vivendi Divestiture of Telecom",
+    "target": " Assets",
+    "base_ce": 2.63,
+    "dce": 0.4
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "story": {
+  "blind_name": "no behavioral claim survives base-rate testing",
+  "program": [
+   [
+    "circ_r_0_0_1",
+    "dist_nl_ge6"
+   ]
+  ],
+  "program_bacc": 0.583,
+  "program_null": 0.488,
+  "mechanism_level": "none",
+  "mechanism": {
+   "note": "no writer enriches machinery input across bootstrap draws (a2 top a0 mean 1.005 [0.827-1.246]; a4 top a2 mean 1.048 [0.985-1.082]); ENRICHED_STABLE=False both"
+  }
+ },
+ "certification": [
+  {
+   "test": "selectivity_full",
+   "bar": "concentration>=3",
+   "value": 5.17,
+   "verdict": "HELD",
+   "source": "leaf_ablate/sign_stats full 1000-row grid",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "selectivity_half0",
+   "bar": "concentration>=3 rows 0-499",
+   "value": 5.16,
+   "verdict": "HELD",
+   "source": "sign_stats_half",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "selectivity_half1",
+   "bar": "concentration>=3 rows 500-999",
+   "value": 5.17,
+   "verdict": "HELD",
+   "source": "sign_stats_half",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "pack_reproduction",
+   "bar": "full-grid concentration within ~0.5 of 60-row pack value (5.42)",
+   "value": 5.17,
+   "verdict": "HELD",
+   "source": "sop_packs_certified.json vs full grid",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "mechanism_3M_a2",
+   "bar": "ENRICHED_STABLE (bootstrap min ratio>1 over 5 draws, beats null)",
+   "value": 1.005,
+   "verdict": "FAILED",
+   "source": "leaf_input_decomp.py r.5.3.1",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "mechanism_3M_a4",
+   "bar": "ENRICHED_STABLE (bootstrap min ratio>1 over 5 draws, beats null)",
+   "value": 1.048,
+   "verdict": "FAILED",
+   "source": "leaf_input_decomp.py r.5.3.1",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "surface_program",
+   "bar": "bacc>=0.75 and null<=0.6",
+   "value": 0.583,
+   "verdict": "FAILED",
+   "source": "leaf_program (docid-parity split)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "behavioral_story",
+   "bar": "story_test_class ROBUST_V2 true, alpha=0.10/12 pairs tested",
+   "value": 0.0344,
+   "verdict": "FAILED",
+   "source": "story_test_class, best candidate punct/pred_help=True, 12 (class,direction) pairs tested",
+   "date": "2026-08-20"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "CIRCUIT_SOP-v3",
+   "leaf_input_decomp.py",
+   "sop_packs_certified.json (steps1-2 source pack)"
+  ],
+  "agent": "sonnet-wave4-a",
+  "lib_rev": "f65728b6a98b438f9e861976efd712b3f27ed4f5",
+  "date": "2026-08-20"
+ },
+ "members": {
+  "n": 864
+ }
+}

@@ -10451,3 +10451,51 @@ contain comp/head entries (census_lib.proj_hooks only handles
 pca probes) -- fixed by filtering to all-pca bundles with the
 skip count recorded, and requeued. head_cost_map (all 162 heads
 under the corrected dCE metric) is queued behind it.
+
+## 429. Complete head cost map (corrected metric): one head dominates the stack
+
+head_cost_map deleted each of the 162 heads in turn under the
+functional metric (dCE, per the 422 correction).
+(a) HELD: 39 of 162 heads (24%) cost nothing or help when
+deleted. (b) FAILED: the free set is NOT concentrated late --
+median layer 8, and it is spread almost uniformly (5 free heads
+at layer 0, 2-3 at most middle layers, 4 at layer 16, 3 at 17).
+Being free is a property of individual heads, not of depth.
+(c) HELD: the costliest ten are 5.7 (+0.916!), 0.3 (+0.112),
+1.1 (+0.088), 12.6 (+0.073), 6.3 (+0.047), 3.8, 2.6, 1.4, 11.6,
+10.5.
+The striking number is head 5.7 at +0.916 nats -- an order of
+magnitude above the next head and larger than most whole-LAYER
+ablations in the program's depth map. 415 already flagged 5.7 as
+the one code-resistant head whose score does NOT compare m0|m0
+on both sides (it is m0|m4, the only such head found). The
+single most important attention head in bilin18 is therefore
+also the one that reads a different key-side variable from
+everything else. Registered follow-up will target it directly.
+
+## 430. GATE SPECIFICITY (partial, 5 of 12 leaves): the census gate is substantially a FRAGILITY detector
+
+gate_specificity compares each leaf's own probe-bundle
+concentration against a RANK-MATCHED RANDOM SUBSPACE ablation in
+the same components. The run was killed twice by GPU pressure
+from concurrent swarm agents (no traceback; now resumable with
+per-leaf try/except and incremental saves, and requeued), but
+five leaves completed and they already carry the message:
+  r.12.0.1  own 4.01  random 2.65  ratio 1.51
+  r.12.1.3  own 3.69  random 2.70  ratio 1.37
+  r.8.1.2   own 3.93  random 2.38  ratio 1.65
+  r.1.2.2   own 3.75  random 2.71  ratio 1.38
+  r.2.0.0   own 8.28  random 2.56  ratio 3.23
+A RANDOM subspace of matched rank, ablated in the same
+components, already produces concentration 2.4-2.7 -- just under
+the >=3 gate the whole census uses. Four of five leaves sit below
+the registered 2x bar. PROVISIONAL CORRECTION, to be finalized
+when the full run lands: leaf concentration is only about 1.4-1.6x
+what an arbitrary same-rank ablation achieves, so the census gate
+measures selectivity ON TOP OF a large fragility baseline, and
+"concentration 5-6" should not be read as "these directions are
+specifically responsible". The r.5.0.1 reviewer who proposed this
+control was right to. Records already merged keep their numbers;
+what changes is the interpretation, and the swarm SOP will carry
+the ratio-to-random alongside raw concentration once the full run
+is in.
