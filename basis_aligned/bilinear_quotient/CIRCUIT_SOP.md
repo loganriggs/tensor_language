@@ -3,6 +3,7 @@
 # mechanism screen produced no causally real writer mechanism in 60 leaves
 # on either decomposition. Leaf work is now MAINTENANCE ONLY. New circuit
 # work starts from a BEHAVIOUR: see BEHAVIOUR-FIRST below. Supersedes v3.
+# v4.1 adds UNITS OF ANALYSIS -- decompose by subspace channel, not by head.
 
 Written for a FRESH stateless agent (Sonnet/Opus class) holding only this
 file + census_lib. The procedure is verification-driven: every judgment an
@@ -32,6 +33,45 @@ each edge tested by intervention. The finished induction record is the
 template: identity code (wte + MLP-chain enrichment), writer (mlp0),
 couriers (a6.h3, a4.h7 -- prev-token heads), computation (double-QK
 coincidence), every arrow causally verified (BILIN18_CONNECTION 393-408).
+
+## UNITS OF ANALYSIS -- heads and layers are not the natural ones
+(user correction, 2026-08-20, writeup 527)
+
+Every localization in this program has split the model along
+architectural seams: whole layers, then whole heads, then whole
+MLPs. Those are the units the code is written in, not the units
+the computation uses, and two results show the cost.
+  521 concluded the digit subspace is "distributed" because no
+  head carried more than a third of it. That conclusion is only
+  forced if heads are the units.
+  524 found that layer 10 does three unrelated jobs in three
+  different heads, so a LAYER is a shared address rather than a
+  shared computation.
+Finer and coarser units are both available exactly, and cost
+nothing extra to compute:
+  BELOW A HEAD. A head writes into the residual through its own
+    128 columns of c_proj. If the object of interest is a
+    subspace P (rank r), that head's entire possible contribution
+    to it passes through the r x 128 matrix M_h = P^T W_h. Its
+    singular values give the width of the head's CHANNEL into
+    that subspace, from weights alone, with no data. Ablate the
+    channel rather than the head.
+  ACROSS HEADS. Several heads writing into one subspace can be
+    compared by the principal angles between their channels'
+    column spaces. Shared directions mean cooperation (and
+    explain superadditivity); orthogonal ones mean the heads
+    partition the subspace. Again weights only.
+  INSIDE A CHANNEL. Channel content is SUM_k score(q,k) M v(k),
+    so it decomposes exactly by SOURCE POSITION. That is where a
+    semantic name comes from -- "the content arrives from earlier
+    digits" is a mechanism; "head 8.3 matters" is a coordinate.
+  RECURSING. v(k) is itself a linear map of the residual at k,
+    which has its own exact writer decomposition
+    (cl.writer_parts), so the same treatment applies one layer
+    down. This is tier 5 of 512.
+Rule: before reporting that an effect is distributed, check
+whether it is distributed in the units the model uses. A negative
+at head level is not a negative at channel level.
 
 ## BEHAVIOUR-FIRST (v4 default for NEW circuit work, writeups 495-506)
 Three circuits in this program worked -- induction, the position-0
