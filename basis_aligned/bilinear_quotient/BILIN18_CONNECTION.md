@@ -10222,3 +10222,25 @@ cl.story_test's base-rate binomial on a mechanically filtered
 class draw (cl.examples_filtered) -- both helpers added because
 all three WEAKEN reviewers independently hand-built class draws
 and flagged the variance. Wave 3 launched on the new deliverable.
+
+## 420. The courier's payload is a LAYER property, not a head property
+
+payload_decomp split a6.h3's write into exact writer
+contributions: m0 0.271, the first-layer value stream (v1 lambda
+term) 0.266, m3 0.139, m4 0.095, m2 0.076, a4 0.037. (a) HELD --
+m0 is the single largest writer, so the relay is real; (b) HELD --
+the payload is a MIXTURE (m0 well under 60%, six writers above
+5%), which quantitatively explains 418: substituting pure ladder
+code recovers ~40% of the effect because m0 is ~27% of what the
+head carries (plus v1's early-value stream). (c) FAILED and it is
+the most informative line: the CONTROL head a6.h0 carries almost
+the same mixture (m0 0.361, v1 0.294, m3 0.109). Every head at
+layer 6 reads the same residual, so payload composition cannot be
+what makes a6.h3 the courier -- its PATTERN must be. Registered
+crossover queued (pattern_payload_swap): give h3 the control
+head's pattern with its own values, and its own pattern with the
+control's values; predictions (a) pattern swap keeps the deep
+trio's damage >=0.15, (b) value swap keeps it <=0.10, (c) neither
+exceeds deletion. Also of note for the value-side program: a
+quarter of a layer-6 head's write is the FIRST-LAYER value stream
+carried forward by the lambda term -- an under-examined channel.

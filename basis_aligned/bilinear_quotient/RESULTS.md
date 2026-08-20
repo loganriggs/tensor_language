@@ -4167,3 +4167,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - 417: a6.h3's hub effect is content, not bias (mean-ablation doesn't dent it). courier_content_id queued: is its entire downstream role relayed identity-code values?
 - 418: courier payload is NOT pure relayed code (ladder-value substitution recovers 40% of the gap, shuffled 22%); 417's closing hypothesis corrected. payload_decomp queued.
 - 419: wave-2 swarm -- 4 records, 4 adversarial reviews: gates all reproduce, 1 CONFIRM / 3 WEAKEN, zero REFUTE. Stories died of base-rate and tokenizer-bit objections -> SOP v3: mechanism (leaf_input_decomp) is the deliverable; stories need cl.story_test clearance. Wave 3 running.
+- 420: a6.h3's payload = m0 0.27 / first-layer values 0.27 / m3 0.14 -- but the control head carries the same mixture, so payload is a layer property; the courier role must live in the PATTERN. pattern_payload_swap queued (crossover, registered a-c).
