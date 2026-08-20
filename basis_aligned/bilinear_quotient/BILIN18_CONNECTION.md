@@ -18070,3 +18070,53 @@ the reversal is a real, specific, patching-confirmed property, and
 its mechanism is not resolved by margin-based interventions. Recorded
 as a documented open property rather than chased further with the
 same family of tools.
+
+## 604. A clean lexical-vs-contextual map of mlp0's six circuits: the
+## decisions sit on a spectrum from most context-driven (article) to
+## most current-token-driven (number-word), matching their linguistics
+
+Applied 597's validated attn0-fold method (zero attn0's write,
+correlate a cluster's firing with its true firing at its own strong-
+firing positions -- low correlation = needs previous-token context,
+high = reads the current token) as a batch across all six clean
+nameable mlp0 clusters (600/601). All predictions held.
+  (0) both bands reproduced exactly; the attn1 control is EXACT for
+      every cluster (attn1-corr = 1.000 across the board) -- zeroing a
+      later block cannot touch mlp0's input, so every low attn0
+      correlation is genuine upstream dependence, not noise.
+  THE MAP (attn0-ablated firing correlation, low = context-driven):
+        article          0.175   context-driven
+        aux_contraction  0.456   context-driven
+        punctuation      0.643   mixed
+        newline          0.733   mixed
+        pronoun          0.795   mixed
+        number_word      0.802   current-token-driven
+  (a) HELD: article re-confirms strongly context-driven (0.175,
+      matching 597's 0.24).
+  (b) HELD: a real split exists -- article and aux-contraction are
+      context-driven (< 0.5), number-word is current-token-driven
+      (> 0.8), with punctuation/newline/pronoun graded in between.
+THE FINDING is the ordering, and it matches the linguistics of each
+decision exactly:
+  - ARTICLE (a/an vs the) is the MOST context-driven -- you cannot
+    tell which article comes next from the current token; it depends
+    on the preceding verb/preposition (598). Correlation 0.175.
+  - AUX-vs-CONTRACTION ("I am" vs "it's") is context-driven -- it
+    depends on the subject before the blank.
+  - NUMBER-WORD is the MOST current-token-driven -- a spelled-out
+    number ("six", "seven") is largely identifiable from the current
+    token's own local pattern, needing little prior context.
+    Correlation 0.802.
+  - punctuation, newline, pronoun sit in between -- partly local
+    (the current token's shape), partly contextual.
+This is a clean model-level statement about how mlp0 allocates its
+work: its early decisions are not uniformly lexical or uniformly
+contextual, they sit on a spectrum that tracks how much preceding
+context each linguistic decision genuinely requires. And it is an
+INPUT-side result, entirely independent of the causal-direction
+reversal (602/603) -- it measures what FEEDS each cluster, not which
+way the cluster pushes, so it stands cleanly regardless of the
+unresolved sign question. Every cluster's input is now placed on the
+lexical-contextual axis, the article and aux ones traceable back
+through attn0's bigram table (597), the number-word one back to the
+current token directly.

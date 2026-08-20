@@ -1,0 +1,53 @@
+{
+ "pred_0": true,
+ "control_ok": true,
+ "clusters": {
+  "article": {
+   "attn0_corr": 0.1750357300043106,
+   "attn1_corr": 0.9999999403953552,
+   "driven_by": "context (attn0)",
+   "n_units": 101
+  },
+  "punctuation": {
+   "attn0_corr": 0.6433165669441223,
+   "attn1_corr": 0.9999999403953552,
+   "driven_by": "mixed",
+   "n_units": 76
+  },
+  "aux_contraction": {
+   "attn0_corr": 0.4562264382839203,
+   "attn1_corr": 1.0,
+   "driven_by": "context (attn0)",
+   "n_units": 29
+  },
+  "newline": {
+   "attn0_corr": 0.7326077818870544,
+   "attn1_corr": 1.0,
+   "driven_by": "mixed",
+   "n_units": 81
+  },
+  "pronoun": {
+   "attn0_corr": 0.7949240803718567,
+   "attn1_corr": 0.9999999403953552,
+   "driven_by": "mixed",
+   "n_units": 54
+  },
+  "number_word": {
+   "attn0_corr": 0.8015743494033813,
+   "attn1_corr": 1.0,
+   "driven_by": "current-token",
+   "n_units": 37
+  }
+ },
+ "context_driven": [
+  "article",
+  "aux_contraction"
+ ],
+ "token_driven": [
+  "number_word"
+ ],
+ "pred_a": true,
+ "pred_b": true,
+ "null_ok": true,
+ "runtime_s": 39.89009928703308
+}

@@ -1,0 +1,19 @@
+(0) top-300 True, 300-600 True: HELD
+  article: n=101
+  punctuation: n=76
+  aux_contraction: n=29
+  newline: n=81
+  pronoun: n=54
+  number_word: n=37
+           article: attn0-corr +0.175 attn1-corr +1.000 -> context (attn0)
+       punctuation: attn0-corr +0.643 attn1-corr +1.000 -> mixed
+   aux_contraction: attn0-corr +0.456 attn1-corr +1.000 -> context (attn0)
+           newline: attn0-corr +0.733 attn1-corr +1.000 -> mixed
+           pronoun: attn0-corr +0.795 attn1-corr +1.000 -> mixed
+       number_word: attn0-corr +0.802 attn1-corr +1.000 -> current-token
+
+(0-control) all attn1-corr > 0.999: HELD
+(a) article context-driven (attn0-corr < 0.5): HELD
+(b) split -- context-driven ['article', 'aux_contraction'], current-token ['number_word']: HELD
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_context_dependence_results.json (40s)
