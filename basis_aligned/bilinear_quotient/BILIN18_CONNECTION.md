@@ -15966,3 +15966,48 @@ consistent rather than contradictory: a jittered query near a
 closing position prefers the same opener, because the preference
 is a stable positional profile, not tied to the exact closing
 token -- the same fact the fixed-query result establishes.
+
+## 561. The AND generalizes; the discrimination modality differs
+## (with a distractor-choice caveat)
+
+newline_and_factors applied the bracket mechanism test to head
+12.6. Target: a newline-predicting position; match: the most
+recent preceding newline key; distractor: the non-newline token
+just before it.
+  match/distractor ratio: f1 1.42 | f2 1.62 | PRODUCT 2.29
+  f1: real 1.42 | no-rotary 1.30 | match-vs-meankey 2.57
+  f2: real 1.62 | no-rotary 1.64 | match-vs-meankey 9.74
+(0) exact: product reconstructs the score to 0.
+(a) FAILED narrowly: the product ratio 2.29 is 1.4x the larger
+factor (1.62), just under the 1.5x bar. Still multiplicative, so
+the soft-AND generalizes, but weaker than the bracket head's 5.99
+vs 2.8.
+(b) OPPOSITE MODALITY from brackets: removing rotary barely
+changes either factor (1.42->1.30, 1.62->1.64), so NEITHER is
+position-driven. Removing token identity (key-mean) collapses both
+strongly -- the match key differs from the window mean by 2.6x and
+9.7x. So the newline head discriminates its target by TOKEN
+IDENTITY, where the bracket head discriminated by POSITION.
+NULL ok: control product ratio 1.29 < 1.5.
+The clean general statement: both structural heads are fixed-query
+double-QK soft-ANDs. What differs is what the AND resolves --
+position for brackets, token for newlines.
+CAVEAT, stated because it partly explains the difference: I chose
+the distractors differently. The bracket distractor was ANOTHER
+opener (same token type, different position), which forces
+positional discrimination. The newline distractor was a
+non-newline neighbour (different token, similar position), which
+forces token discrimination. So part of the "opposite modality"
+is built into the distractor definition, not purely a property of
+the heads. The task asymmetry is real -- brackets must pick a
+specific opener among several, newlines need only find a newline
+-- but the modality claim needs the matched control.
+newline_and_factors2 is queued with a MATCHED distractor: the
+second-most-recent newline (both keys are newlines, only position
+differs), exactly mirroring the bracket setup. If the newline head
+then STILL does not use position (rotary-off leaves the ratio
+intact), the two heads genuinely use different modalities; if it
+DOES use position to pick among newlines, the mechanism is fully
+general and my distractor choice explained the whole difference.
+Either way the AND itself -- the multiplicative double-QK gate --
+holds for both heads, which is the generalization that matters.
