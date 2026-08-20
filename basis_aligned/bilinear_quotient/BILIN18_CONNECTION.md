@@ -11566,3 +11566,34 @@ If (a) holds, the whole arc reduces to "robust predictions are
 robust", the correct and unglamorous end -- and the program keeps
 the methodological yield instead: never compute a rate at
 positions selected by the outcome you are measuring.
+
+## 463. Predictability does NOT explain the sparing -- something class-specific survives
+
+punct_confidence matched punctuation and non-punctuation
+positions on the intact model's top-1 probability, decile by
+decile, on fresh rows:
+  unmatched punctuation sparing        -0.0251
+  confidence-matched sparing           -0.0229  (91.4% of it)
+  damage by confidence decile: 0.009, 0.014, 0.028, 0.014,
+    0.011, 0.017, 0.012, 0.011, 0.006, -0.002
+(a) FAILED: 91% of the sparing survives matching -- predictability
+does not explain it. (b) FAILED too, and it is the reason: damage
+is essentially FLAT across confidence deciles rather than falling,
+so the premise that confident predictions are more robust is
+itself wrong in this model (only the top decile dips).
+So the deflationary ending I expected does not arrive. After a
+circuit reading died (455), a frequency reading died (456), and a
+selection artifact was exposed and the headline withdrawn (462),
+what remains is small, unselected, replicated on unseen text under
+two interventions -- and now also NOT reducible to the target
+simply being easy to predict. Something class-specific is real.
+The honest arc summary at this point: five hypotheses tested,
+four killed, one standing.
+class_sparing queued to scope the survivor: is punctuation
+special, or one member of a structural/format family? The same
+bundle ablation, priced on fresh rows for six mechanical target
+classes (punct, newline, digit, subword, space_word,
+capitalized), each against everything else. Registered: (a) at
+least one other class is also spared, (b) content classes take
+EXTRA damage, (c) punctuation is the most spared or within 0.005
+of it.
