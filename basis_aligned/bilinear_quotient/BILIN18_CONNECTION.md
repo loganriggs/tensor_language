@@ -14541,3 +14541,54 @@ operator, the right one is a low-rank approximation of the MAP --
 "mlp0 reads its input through r directions" and "writes into r
 directions" -- which is what attn0_rank already does for
 attention. Queued as mlp0_lowrank.
+
+## 535. Attention layer 0 compares tokens along TWO directions
+
+attn0_rank truncated each head's query and key maps to rank r by
+SVD -- both QK factors, all nine heads -- and priced the whole
+model. The premise was checked first and is exact.
+(0) HELD at 7.24e-8: attention layer 0's input IS the token's own
+embedding. Block 0 forms (lam0+lam1) E and rms_norm is scale
+invariant, so there is no context and no approximation. Every
+number below is therefore a statement about a function of token
+identities and relative position alone.
+  rank    cost      random projections of the same rank
+     2   +0.0531    +1.35, +1.32, +1.41
+     4   +0.0509    +1.39, +1.32, +1.41
+     8   +0.0361    +1.31, +1.33, +1.34
+    16   +0.0233    +1.37, +1.37, +1.40
+    32   +0.0095    +1.31, +1.33, +1.36
+    64   +0.0024    +1.28, +1.21, +1.27
+   128   +0.0000      -- (untruncated)
+(a) HELD: rank 16 costs 0.023 nats.
+(c) is the number worth keeping. The cost is already under 0.10
+nats at RANK 2. Each head of attention layer 0 compares tokens
+along two directions of its 128, and the whole layer -- 9 heads x
+2 directions x 2 QK factors -- reproduces the model to within
+0.053 nats. The curve is nearly flat from 2 to 8, so the second
+direction does most of the remaining work and everything past 8 is
+polish.
+(b) HELD enormously: random projections of the same rank cost 1.2
+to 1.4 nats at EVERY rank tested, including rank 64. So this is
+not "attention layer 0 is robust to damage" -- an arbitrary
+64-dimensional restriction is catastrophic while the right
+2-dimensional one is nearly free. The SVD directions are doing the
+work.
+NULL ok: untruncated costs +0.00000.
+(d) 3 of 4 leading directions are class-pure over frequent tokens,
+and they name a coherent computation. For head 0.3, the layer's
+most expensive head:
+  query dir 0 (sv 40.7)  subword 9/10   'ed','ing','ers','ating','ize'
+  query dir 1 (sv 14.4)  subword 10/10  'age','ine','ang','ification'
+  key   dir 1 (sv 17.6)  subword 8/10   'ates','ations','izing','ities'
+The dominant thing this head compares is MORPHOLOGY -- suffixes
+and word-continuation fragments. That is exactly what a layer
+whose job is an exact bigram table should be doing, and it was
+read off the weights with no data.
+For the benchmark this is the strongest early-layer result so far:
+attn0 is exactly a function of token identity and distance, and
+two directions per head suffice to within 0.05 nats. Compare the
+MLP on the same corpus, where the fitted per-token table costs
+1.466 nats and the algebraic stand-in needs 22% of its atoms to
+reach 0.10 -- the attention layer is dramatically more compressible
+than the MLP beside it.
