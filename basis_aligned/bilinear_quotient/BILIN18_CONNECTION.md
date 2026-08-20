@@ -9720,3 +9720,22 @@ ladder code RELAYED from other positions? Arms: a4 with real
 patterns but ladder values (relay test), per-head restriction of
 a4's write, sanity. If the relay arm holds, the story closes as
 ONE code -- built by MLPs, moved by attention.
+
+## 399. THE RELAY RESULT: a4's channel into 5.5 is the ladder code, moved
+
+deep_code_content tested whether a4 writes new match content or
+relays existing code. Arms at head 5.5: ladder 0.362; ladder +
+a4-real 0.860 (sanity HELD); ladder + a4 with real patterns but
+VALUES READ FROM THE LADDER RESIDUAL: 0.837 -- the relay arm
+recovers 95% of a4's lift ((c) HELD). (b) FAILED: no single a4
+head carries the relay (h7 0.168, h5 0.160, h0 0.143, h3 0.105 --
+four heads share it). Conclusion, now covering heads 1.4, 2.5 (up
+to its a1 term), and 5.5: **the induction machinery of bilin18
+compares ONE identity code -- written by the embedding,
+progressively enriched by the MLP chain, and moved between
+positions by attention. Attention contributes no code content of
+its own at 5.5: its channel is 95% relay.** relay_closure queued
+to close the last two heads under the same story: a1's channel
+into 2.5 (relay arm), 8.4's diffuse a5-a7 channel (combined real,
+one-shot relay, ITERATED relay -- nested moves of the same code --
+and a shuffled-value null), registered a-d.
