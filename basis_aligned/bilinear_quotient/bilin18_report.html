@@ -1013,49 +1013,37 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   Interfaces are still the better of the two routes by a clear margin — jointly at rank 256 they
   cost 0.15 where weight truncation never reaches 0.30 at any rank — but nothing in the front of
   this model survives being compressed all at once.</p>
-  <p>Then the thing that does work, and it isn't compression at all. Replace block 0's entire
-  write with a <strong>lookup table</strong> — one row per vocabulary entry, 64 columns — and
-  the model loses <strong>0.18 nats</strong>. At full rank the table costs 0.11. Deleting the
-  write outright costs 0.84, and a random 64-column table costs about 0.50. So the first block
-  of this model can be printed as 50,304 rows of 64 numbers.</p>
-  <p>The gap between the table and the real write at the same width is 0.10 nats, and that
-  number has a meaning: it is everything block 0's attention contributes beyond the identity of
-  the current token.</p>
-  <p>Six of the eight leading columns are nameable lexical classes, scored over frequent tokens
-  with no data beyond the table itself:</p>
-  <table><thead><tr><th>column</th><th>what scores highest</th></tr></thead><tbody>
-  <tr><td>determiners</td><td><code>' the' 'The' ' The' ' a' ' an' ' his'</code></td></tr>
-  <tr><td>punctuation</td><td><code>').' '.' ' (' '".' '!' '."'</code></td></tr>
-  <tr><td>initial capitals</td><td><code>' B' ' D' ' M' ' H' ' G' ' C'</code></td></tr>
-  <tr><td>digits</td><td><code>' 56' ' 57' ' 12' ' 26' ' 17' ' 15'</code></td></tr>
-  <tr><td>sentence openers</td><td><code>' If' 'If' ' Keep' 'You' ' Have' ' There'</code></td></tr>
-  </tbody></table>
-  <p>It generalizes one block up, with the variable the architecture predicts. Block 1's input
-  is the residual after block 0, and the only thing between it and the embedding is an exact
-  bigram table — so the guess is the token <em>pair</em>. Indexed by the current token alone,
-  block 1 costs 0.90 nats; indexed by the pair, 0.52, against a 0.38 ceiling for the real write
-  at the same width. The pair closes <strong>73%</strong> of the gap the single token leaves,
-  and a shuffled index costs 3.55.</p>
-  <p>Put both tables in at once and they cost <strong>0.67 nats</strong> — very slightly
-  <em>less</em> than the sum of their individual costs. Substitutions compose; projections do
-  not. For comparison, the best joint rank allocation across all six blocks, found by greedy
-  search over 27 joint evaluations, costs 1.18 — so two derived tables beat six optimized
-  projections by nearly a factor of two while replacing a third as much of the network. (That
-  search is also why the truncation route is now closed: the lopsided answer it found beats
-  uniform ranks by only 7%.)</p>
-  <p><span class="tag">surprise</span> Refitting makes composition worse. Rebuilding block 1's
-  table with block 0 <em>already replaced</em> — the self-consistent procedure that looks
-  obviously more honest — costs 1.06 instead of 0.67. A table fitted against the real network
-  reproduces the write the real network would have produced, so it partially <em>corrects</em>
-  the error the earlier substitution introduced; a refitted table faithfully reproduces the
-  perturbed write and preserves that error instead. Independent fitting is error-correcting,
-  sequential fitting is error-preserving. For layered stand-ins in this model, fit every piece
-  against the original network.</p>
-  <p>Which sharpens what the failures above were telling us. Compressing how a block
-  <em>computes</em> fails; compressing what six blocks <em>send</em> fails; replacing blocks
-  with explicit functions of variables they provably depend on succeeds and composes. The
-  winning move is substitution, not truncation — and it works because the indexing variable is
-  derivable from the weights before any table is built.</p>
+  <p>Then the thing that does work, and it isn't compression at all. Replace a block's write
+  with a <strong>lookup table</strong> — one row per indexing key, 64 columns — and the model
+  degrades far less than any projection achieves. Block 0's key is the token, which is exact:
+  its input <em>is</em> the embedding. Block 1's key is the token pair, because the only thing
+  between it and the embedding is an exact bigram table. Block 2's is also the token pair,
+  measured rather than derived.</p>
+  <p><span class="tag">correction</span> The first version of this section quoted costs of 0.18,
+  0.52 and 0.27 nats for those three tables. <strong>Those numbers were measured on text the
+  tables had been fitted on</strong> — the fitting corpus and the evaluation sample were drawn
+  from the same FineWeb slice, and 33 of the 48 evaluation rows appeared verbatim in the
+  fitting set. They are withdrawn. On rows properly held out, block 2's pair table costs 0.51
+  against 0.60 for a token-only table and a 0.15 ceiling: the pair closes about a fifth of the
+  gap, not the two-thirds first reported.</p>
+  <p>What survives the correction is direction, not magnitude. The pair table still beats the
+  token table, a shuffled index still costs 1.36, and each block's indexing variable is still
+  predictable from the weights. But the headline comparison — tables versus the best rank
+  allocation — cannot be quoted until both sides are measured on clean text, and that
+  measurement is running.</p>
+  <p>The columns are nameable, which is what makes this an interpretability result rather than
+  a compression one. Six of block 0's eight leading columns are clean lexical classes:
+  determiners (<code>' the' 'The' ' a' ' an'</code>), punctuation (<code>').' '.' ' ('</code>),
+  initial capitals (<code>' B' ' D' ' M'</code>), digits (<code>' 56' ' 57' ' 12'</code>), and
+  sentence openers (<code>' If' 'You' ' Have'</code>). That analysis reads the table's own
+  columns and does not depend on the contaminated cost figures.</p>
+  <p>Two things did come out of the composition work that the correction leaves standing,
+  because both are comparisons between arms measured the same way. Substitutions compose roughly
+  additively where projections do not. And refitting a later table with the earlier one
+  <em>already replaced</em> — the self-consistent procedure that looks more honest — makes
+  things markedly worse, because a table fitted against the real network reproduces the write
+  the real network would have produced and so partially corrects the upstream error, while a
+  refitted table faithfully reproduces the perturbed write and preserves it.</p>
   <p>The rest of this section's pattern still stands as a fact about the model rather than the
   method: <strong>per-component compressibility is real and joint compressibility
   is not.</strong> Every layer individually looks like it has slack; the slack at any one layer
