@@ -11931,3 +11931,36 @@ ablation is selective on BOTH siblings at concentration >= 2, (b)
 it beats the m13 control on both (a RELATIVE bar), (c) the two
 siblings' concentrations agree within 25%, as two views of one
 circuit should.
+
+## 473. THE LAST MECHANISM FAILS ITS NEIGHBOUR CONTROL -- census yield is zero writers
+
+m14_pathway escalated the census's only surviving leaf-specific
+enrichment to a causal test on both sibling leaves:
+  leaf       m14 (enriched)   m13 (control)   bundle   m14+bundle
+  r.1.2.2    conc 4.33        conc 4.44       3.75      3.74
+  r.1.2.0    conc 4.29        conc 4.89       3.49      4.07
+(a) HELD: m14 is genuinely selective on both siblings. (c) HELD:
+the two siblings agree to within 1% (4.33 against 4.29), which is
+exactly what two views of one circuit should look like and is the
+cleanest evidence yet that the census's sibling structure is real.
+(b) FAILED, and it is decisive: the ADJACENT component m13, which
+the enrichment table does NOT flag (peers ~0.9, m13 not in the
+positive list), damages these leaves' members MORE than m14 does,
+on both siblings. The same pattern appeared for a14 versus a13
+(468). So the one input mechanism that survived a 60-leaf screen
+and a peer-specificity check does not survive a neighbour control.
+FULL CENSUS YIELD, stated plainly: 60 certified leaves -> 3 screen
+positives (5%) -> 2 leaf-specific after peer comparison -> 0 that
+are causally distinguishable from an adjacent unflagged component.
+Input-composition analysis in this model RANKS how much a
+component matters (rho 0.76 against causal ablation) and CANNOT
+separate a writer from its neighbours. That is a real limitation
+of the method as applied here, not a shortfall of effort, and it
+is now the headline of the report's instrument section and a
+mandatory neighbour control in the SOP.
+band_unit queued to take the obvious next step rather than
+mourn: if selectivity is smooth across adjacent layers, the unit
+is a BAND, not a writer. Registered: (a) the band m13+m14 damages
+members more than either alone on both siblings, (b) extending to
+m12 adds under 20% -- a sharp boundary, (c) a distant band of the
+same width does less than half the damage.

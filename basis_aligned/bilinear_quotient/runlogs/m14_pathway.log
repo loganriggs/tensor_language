@@ -1,0 +1,13 @@
+r.1.2.2 m14: conc 4.33 members 0.675
+r.1.2.2 m13: conc 4.44 members 0.773
+r.1.2.2 bundle: conc 3.75 members 1.387
+r.1.2.2 m14+bundle: conc 3.74 members 1.631
+r.1.2.0 m14: conc 4.29 members 0.67
+r.1.2.0 m13: conc 4.89 members 0.851
+r.1.2.0 bundle: conc 3.49 members 1.194
+r.1.2.0 m14+bundle: conc 4.07 members 1.605
+m14 [4.33, 4.29] vs m13 [4.44, 4.89] | joint/larger {'r.1.2.2': 1.176, 'r.1.2.0': 1.344}
+(a) m14 selective on both siblings (>=2): HELD
+(b) m14 beats the m13 control on both: FAILED
+(c) the two siblings agree within 25%: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m14_pathway_results.json (86s)

@@ -130,6 +130,15 @@ Two honest outcomes, both publishable:
                     from the table and say what the test could and
                     could not have detected. Then look downstream
                     (leaf_output_decomp).
+NEIGHBOUR CONTROL IS MANDATORY BEFORE ANY WRITER CLAIM (473): a
+positive screen plus a peer-specificity pass is still not enough.
+On the census's only surviving positive, ablating the enriched
+writer m14 gave concentration 4.33/4.29 while the ADJACENT
+unflagged m13 gave 4.44/4.89 -- the neighbour was more damaging.
+The same happened for a14 versus a13. If you claim a writer,
+ablate the component one layer either side and report all three
+numbers; if the neighbour matches or beats it, the claim is a
+BAND-level statement, not a writer-level one.
 Escalation is LADDER-TIER, never blocking the merge: if ENRICHED,
 note the target in the record and (only if you have time after
 step 6) copy qk_writer_decomp.py's pattern to name what an

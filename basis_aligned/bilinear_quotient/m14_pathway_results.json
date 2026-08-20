@@ -1,0 +1,64 @@
+{
+ "leaves": {
+  "r.1.2.2": {
+   "m14": {
+    "concentration": 4.33,
+    "abs_dce_members": 0.675,
+    "abs_dce_offslice": 0.156
+   },
+   "m13": {
+    "concentration": 4.44,
+    "abs_dce_members": 0.773,
+    "abs_dce_offslice": 0.174
+   },
+   "bundle": {
+    "concentration": 3.75,
+    "abs_dce_members": 1.387,
+    "abs_dce_offslice": 0.369
+   },
+   "m14+bundle": {
+    "concentration": 3.74,
+    "abs_dce_members": 1.631,
+    "abs_dce_offslice": 0.436
+   }
+  },
+  "r.1.2.0": {
+   "m14": {
+    "concentration": 4.29,
+    "abs_dce_members": 0.67,
+    "abs_dce_offslice": 0.156
+   },
+   "m13": {
+    "concentration": 4.89,
+    "abs_dce_members": 0.851,
+    "abs_dce_offslice": 0.174
+   },
+   "bundle": {
+    "concentration": 3.49,
+    "abs_dce_members": 1.194,
+    "abs_dce_offslice": 0.342
+   },
+   "m14+bundle": {
+    "concentration": 4.07,
+    "abs_dce_members": 1.605,
+    "abs_dce_offslice": 0.394
+   }
+  }
+ },
+ "m14_concentrations": [
+  4.33,
+  4.29
+ ],
+ "m13_concentrations": [
+  4.44,
+  4.89
+ ],
+ "joint_over_larger": {
+  "r.1.2.2": 1.176,
+  "r.1.2.0": 1.344
+ },
+ "pred_a": true,
+ "pred_b": false,
+ "pred_c": true,
+ "runtime_s": 85.8593680858612
+}

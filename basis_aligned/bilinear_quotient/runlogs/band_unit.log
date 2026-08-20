@@ -1,0 +1,10 @@
+m14: r.1.2.2 conc 4.33 mem 0.675 | r.1.2.0 conc 4.29 mem 0.67
+m13: r.1.2.2 conc 4.44 mem 0.773 | r.1.2.0 conc 4.89 mem 0.851
+band_13_14: r.1.2.2 conc 4.37 mem 1.33 | r.1.2.0 conc 4.89 mem 1.487
+band_12_13_14: r.1.2.2 conc 3.72 mem 1.879 | r.1.2.0 conc 4.29 mem 2.171
+distant_8_9: r.1.2.2 conc 2.71 mem 1.138 | r.1.2.0 conc 3.22 mem 1.351
+band/parts {'r.1.2.2': 1.97, 'r.1.2.0': 2.219} | extension gain {'r.1.2.2': 0.413, 'r.1.2.0': 0.46}
+(a) band beats either part: HELD
+(b) sharp boundary (m12 adds <20%): FAILED
+(c) distant band <half the damage: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/band_unit_results.json (46s)
