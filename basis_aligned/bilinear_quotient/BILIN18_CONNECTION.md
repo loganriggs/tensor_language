@@ -17455,3 +17455,48 @@ methods (533/536, the unit-clustering thread 579/581) already found
 mlp0 to be functionally diverse. The RSPD-application arc that opened
 with 578 closes here on a coherent, cross-validated model-level
 statement.
+
+## 591. mlp0's split survives a fair r_min -- and a properly-
+## calibrated recursion goes DEEPER, resolving 580's rank-70 cluster
+## into two finer sub-populations
+
+580's mlp0 circuit isolation used r_min=343.9, guessed as half the
+root's raw effective rank (no independent anchor existed at the
+time). 589/590 established the right anchor for attn0 (r_min=16, the
+ledger's own task-loss figure); this redoes mlp0 the same way, with
+r_min=64 -- the SAME passage's mlp0 number ("mlp0 needs 64 [directions]
+where attn0 needs 16").
+All four predictions HELD:
+  (0) full-rank sanity, 1.4e-6 relative error.
+  (a) >=3 leaves: got 6 (vs 580's 5).
+  (c) half-data root erank 558.1 vs full 687.7, same order.
+  NULL ok (no reject leaves).
+(b), the direct comparison, is the finding: the two GENERIC bulk
+clusters are UNCHANGED, exactly (n=908 rank=485, n=859 rank=531,
+identical to 580 -- HDBSCAN's clustering step is deterministic given
+the same data, so this is expected, not a coincidence) and the
+rank-39 (91-point) special cluster is also unchanged. What differs:
+580's remaining small cluster (99 points, rank 70) gets recursively
+RE-SPLIT under the lower r_min into two finer sub-populations -- 46
+points at rank 35, 44 points at rank 29 (9 points fall below the
+b_min=30 floor during the sub-split and are dropped, per the
+algorithm's documented behaviour, remaining owned by the parent). So
+lowering r_min from an uncalibrated 343.9 to the ledger's real 64
+does not change the STORY, it REFINES it: real bulk-vs-special-case
+structure exactly as 580 found, plus one more layer of resolution the
+looser r_min had stopped short of. Reading the two new sub-clusters'
+real examples: leaf 7 (rank 35, clause/list-medial contexts --
+"members of the clergy, or", "policy leverage. But what does",
+"held") and leaf 8 (rank 29, largely the SAME geopolitical/proper-
+noun-heavy texture 580 already flagged as its weakest, least-clean
+read -- Soviets, Kangwon Province, Seoul, Chuncheon) look like a
+genuine split of 580's mixed rank-70 cluster into a cleaner clause-
+medial group and the same messier geopolitical-text group, rather
+than two newly-interpretable classes.
+CLOSES THE METHODOLOGICAL LOOP this arc opened: circuit isolation's
+5-leaf split for mlp0 was real, not an artifact of a loose r_min --
+if anything a fair anchor finds slightly MORE structure, never less.
+Combined with 590 (attn0 finds nothing to split at any r_min tried),
+the model-level contrast (attn0 homogeneous, mlp0 heterogeneous)
+stands on fully consistent, task-loss-calibrated footing for both
+components. RSPD-application arc (578-591) complete.

@@ -1,0 +1,84 @@
+2000 samples, W (Down) shape (1152, 4608)
+(0) full-rank relative loss 1.36e-06: HELD
+root effective rank 687.73 -> r_min=64.0 (ledger task-loss anchor, vs 580's guessed 343.9)
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+[full] 9 circuits, 6 leaves
+   leaf 2: n=908 rank=485 erank=485.44 origin=density
+   leaf 3: n=91 rank=39 erank=38.66 origin=density
+   leaf 4: n=859 rank=531 erank=531.10 origin=density
+   leaf 6: n=43 rank=21 erank=21.20 origin=density
+   leaf 7: n=46 rank=35 erank=35.47 origin=density
+   leaf 8: n=44 rank=29 erank=28.59 origin=density
+(a) >= 3 leaves (6, ranks [531, 485, 39, 35, 29, 21]): HELD
+(b) vs 580's [485, 39, 531, 70, 21]: [531, 485, 39, 35, 29, 21]
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+[half1] 4 circuits, 3 leaves
+   leaf 1: n=556 rank=374 erank=374.29 origin=density
+   leaf 2: n=406 rank=253 erank=253.36 origin=density
+   leaf 3: n=38 rank=18 erank=17.54 origin=density
+(c) half-data root erank 558.1268920898438 vs full 687.73: HELD
+NULL: reject ranks [] vs structured [485, 39, 531, 21, 35, 29]: ok
+
+leaf 6 n=43 rank=21 examples:
+   ...' In 2012 … Dividends Hang in the Balance ('
+   ...' Acad Emerg Med. 2011, 18:190-'
+   ...' anyone with the Aids virus in three days.\n'
+   ...'156) for unprofessional content. There were 144 ('
+   ...'\nand because they are CB and White Spot free--'
+   ...' Central Florida mature uneven aged pine flatwoods forest.\n'
+
+leaf 8 n=44 rank=29 examples:
+   ...' against the Soviets in the 1980s.\nAfter he'
+   ...' Kangwon Province, Thursday, police said.\nFour'
+   ..." was an old 18G needle with dried blood', she"
+   ..." in on the case. As he's digging, he"
+   ...' in another city east of Seoul, Chuncheon, three'
+   ...'- Persistent disobedience or aggression (longer than 6'
+
+leaf 7 n=46 rank=35 examples:
+   ...', members of the clergy, or other adults who know'
+   ...' going to lie to you and say that I loved everything'
+   ...' policy leverage. But what does the Turkish experience actually represent'
+   ...' past member of the Oak Bay Lions Club and has held'
+   ...' the American Medical Association.2010, 303(8),'
+   ...' doorstep of the government -- to the people that can do'
+
+leaf 3 n=91 rank=39 examples:
+   ...' the overall Best Medical Blog category) and Resus.'
+   ...' to the death and slaves were fed to the lions.'
+   ...' inadequate, updated information may need to be publicly announced.'
+   ...'so you can be a bit wiser about your purchase.'
+   ...' for a longer period of time.'
+   ...' is dominating with 3 finalists in this list of 5.'
+
+leaf 2 n=908 rank=485 examples:
+   ...' characteristics: Independent learners, problem-solvers, desire'
+   ...", lists Bout's Gambia New Millennium Air Company as"
+   ...' the big, black fuzzy hats who stand like statues in'
+   ...'\nThese state pages or hyper-local pages provide content'
+   ...' if your drinking 80 proof whiskey, or a 1 to'
+   ...'vere worry or anxiety, as shown by regular refusal to'
+
+leaf 4 n=859 rank=531 examples:
+   ...'Ok, just come here tomorrow, and you can play'
+   ...' transport which causes skin blisters (Pseudomon'
+   ...' conflict diamonds out of civil war-ravaged Zaire'
+   ...' physicians, teachers, members of the clergy, or other'
+   ...'USSR], RA-86511 [Russia],'
+   ...' how poetic! I’ll have to remember that'
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_mlp0_down_recalibrated_results.json (54s)
