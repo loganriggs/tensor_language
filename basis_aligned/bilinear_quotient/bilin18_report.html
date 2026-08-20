@@ -918,10 +918,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p>Two of these arrived independently. Layer 8 was already implicated in digit prediction by
   a completely different method — a sixteen-dimensional subspace found through damage
   clustering, whose removal makes digits <em>harder</em> by 0.135 nats across five disjoint
-  samples while removing comparable subspaces makes them easier. And layer 10 is the component
-  carrying the newline head's document gating. A single component leading opening quotes,
-  sentence ends, and that gate is the best candidate in this model for something that tracks
-  document structure generally, and it has not been studied directly yet.</p>
+  samples while removing comparable subspaces makes them easier. And layer 10 is also the
+  component carrying the newline head's document gating.</p>
+  <p>That last coincidence looked like one component tracking document structure generally. It
+  isn't. Splitting layer 10 into its nine heads puts its three jobs in three different heads:
+  one pair of heads handles opening quotes, a different head handles sentence ends (and
+  removing it slightly <em>helps</em> quotes), and a third carries two thirds of the newline
+  gating while doing nothing for either. <strong>A layer is a shared address, not a shared
+  computation.</strong> The same caution applies to every row above — layer 15 leads both
+  capitalized words and colons, and should be assumed to be two circuits until someone
+  checks.</p>
   <p><span class="tag">caveat</span> An earlier version of this table used each class's
   complement as the baseline instead of the global mean. For a class covering a fifth of all
   positions that complement is an unusually easy set of leftovers, which inflated the ratios
