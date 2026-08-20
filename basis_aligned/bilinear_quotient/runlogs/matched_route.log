@@ -1,0 +1,20 @@
+  [assert_disjoint matched_route] 0 of 96 priced rows appear in the fitting corpus -> ok
+block 0: 120358 pairs tabulated
+block 1: 120358 pairs tabulated
+block 2: 120358 pairs tabulated
+
+baseline CE 3.1244
+delete blocks 0-2: +5.0453
+tables (pair-indexed): +1.6463 | description 23.3M numbers
+rank    8: +4.2304 | description 0.03M numbers
+rank   16: +2.6967 | description 0.06M numbers
+rank   32: +1.9530 | description 0.11M numbers
+rank   64: +1.2736 | description 0.22M numbers
+rank  128: +0.5078 | description 0.44M numbers
+rank  256: +0.1054 | description 0.88M numbers
+
+(a) tables reproduce 549's 1.6463 (+1.6463): HELD
+(b) at rank 64 the cheaper route is RANK (rank +1.2736 vs tables +1.6463, difference 0.3727)
+(c) projection first exceeds the tables at rank 8
+NULL (delete +5.0453 costs more than every stand-in): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/matched_route_results.json (32s)

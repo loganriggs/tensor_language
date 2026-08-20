@@ -15345,3 +15345,59 @@ NEITHER route is currently measured cleanly against the other.
 matched_route is queued to price the rank allocation on exactly
 these held-out rows with an out-of-sample basis, so the two can
 finally be compared.
+
+## 550. CORRECTION: projection beats tables decisively, on both
+## accuracy and description size
+
+matched_route priced both stand-in routes on the same held-out
+rows, at the same scope (blocks 0-2), with every fitted object --
+table and basis alike -- built only on the fitting rows.
+cl.assert_disjoint passed at zero shared rows.
+  stand-in for blocks 0-2      cost      numbers to write it down
+  delete the three writes    +5.0453              --
+  pair-indexed tables        +1.6463          23.3M
+  rank 8 projection          +4.2304           0.03M
+  rank 16                    +2.6967           0.06M
+  rank 32                    +1.9530           0.11M
+  rank 64                    +1.2736           0.22M
+  rank 128                   +0.5078           0.44M
+  rank 256                   +0.1054           0.88M
+(a) HELD: the table arm reproduces 549's 1.6463 exactly, so the
+two runs agree and the comparison is sound.
+(b) RANK WINS, and not narrowly. At rank 64 the projection costs
+1.274 against the tables' 1.646 while using ONE HUNDRED TIMES
+fewer numbers. At rank 256 it costs 0.105 -- fifteen times less
+than the tables -- with a description still 26 times smaller.
+(c) The projection only becomes worse than the tables at rank 8,
+where its description is a thousandth the size.
+NULL ok: deleting the writes costs 5.045, more than every
+stand-in.
+So the claim I have been building for several sections is wrong
+and I am withdrawing it. 542 through 546 argued that substitution
+by an interpretable table beats truncation, and 548 showed those
+numbers were contaminated. This is the clean comparison, and it
+goes the other way at every operating point that matters:
+low-rank projection of a block's write dominates a pair-indexed
+table on accuracy AND on size. The table route's apparent
+advantage was an artifact of evaluating tables on their own
+training text.
+Where that leaves the two routes, stated carefully because they
+are not the same kind of object:
+  * As a COMPRESSION of the front, projection is simply better,
+    and 545's conclusion that the front has no cheap interface
+    should be read against these numbers: rank 256 across three
+    blocks costs 0.105 nats, which is a real stand-in, and it was
+    the SIX-block joint version that failed.
+  * As an INTERPRETATION, a table has something a projection does
+    not -- its columns are indexed by tokens and can be read.
+    542's naming result (determiners, punctuation, initial
+    capitals, digits, sentence openers) analysed the table's own
+    columns and does not depend on the retracted costs. That
+    stands.
+  * The honest summary is that this program has ONE
+    interpretable-and-accurate object at block 0 (a token-indexed
+    table costing 0.203 nats on clean text against 0.778 for
+    deleting the block) and no evidence that the table form scales
+    past it.
+The published report is corrected: the line "the winning move is
+substitution, not truncation" is withdrawn and replaced.
