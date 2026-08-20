@@ -1,0 +1,19 @@
+mlp0: 4608 hidden units -> 9216 squared features
+(0) square-form reconstruction 7.817e-07
+(0) EXACTNESS: HELD
+top feature importances: [2667.2991, 1449.0312, 1174.1768, 1038.1064, 758.1622] | median 126.7
+baseline CE 3.3536
+K=   32: cost +1.6932 nats | random [0.8118, 0.8125, 0.7987]
+K=  128: cost +0.7723 nats | random [0.7233, 0.6988, 0.6879]
+K=  512: cost +0.2843 nats | random [0.4898, 0.4822, 0.4555]
+K= 2048: cost +0.0626 nats | random [0.1792, 0.1634, 0.203]
+K= 9216: cost +0.0000 nats | random []
+  feature 1737: space_word 9/10 -> ["' a'", "' the'", "' an'", "' their'", "' our'", "' his'"]
+  feature 6872: space_word 4/10 -> ["'vertisement'", "' crackdown'", "' workaround'", "'awaru'", "' –'", "' This'"]
+  feature 3069: capitalized 3/10 -> ["'\\u200b'", "'�士'", "')}'", "'////////////////////////////////'", "'ModLoader'", "'ikuman'"]
+  feature 6100: space_word 10/10 -> ["' and'", "' to'", "' with'", "' onto'", "' toward'", "' on'"]
+  feature 1269: space_word 5/10 -> ["' metic'", "'\\u200b'", "')}'", "'�士'", "'SourceFile'", "' hospitals'"]
+(a) some K<=512 costs < 0.10 nats: FAILED
+(c) 2/5 leading features are class-pure (>=7/10)
+NULL (1/5 random directions are class-pure): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_squares_results.json (95s)

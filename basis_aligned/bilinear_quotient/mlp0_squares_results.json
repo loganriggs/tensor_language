@@ -1,0 +1,161 @@
+{
+ "exactness": 7.81732694576931e-07,
+ "n_features": 9216,
+ "baseline_ce": 3.3536,
+ "curve": {
+  "32": {
+   "cost": 1.6932,
+   "random": [
+    0.8118,
+    0.8125,
+    0.7987
+   ]
+  },
+  "128": {
+   "cost": 0.7723,
+   "random": [
+    0.7233,
+    0.6988,
+    0.6879
+   ]
+  },
+  "512": {
+   "cost": 0.2843,
+   "random": [
+    0.4898,
+    0.4822,
+    0.4555
+   ]
+  },
+  "2048": {
+   "cost": 0.0626,
+   "random": [
+    0.1792,
+    0.1634,
+    0.203
+   ]
+  },
+  "9216": {
+   "cost": 0.0,
+   "random": []
+  }
+ },
+ "top_features": [
+  {
+   "feature": 1737,
+   "tokens": [
+    " a",
+    " the",
+    " an",
+    " their",
+    " our",
+    " his",
+    " your",
+    " my",
+    " this",
+    ","
+   ],
+   "dominant_class": "space_word",
+   "purity": 9
+  },
+  {
+   "feature": 6872,
+   "tokens": [
+    "vertisement",
+    " crackdown",
+    " workaround",
+    "awaru",
+    " \u2013",
+    " This",
+    "cedented",
+    " --",
+    " eyeing",
+    " stint"
+   ],
+   "dominant_class": "space_word",
+   "purity": 4
+  },
+  {
+   "feature": 3069,
+   "tokens": [
+    "\u200b",
+    "\ufffd\u58eb",
+    ")}",
+    "////////////////////////////////",
+    "ModLoader",
+    "ikuman",
+    "Buyable",
+    " metic",
+    "SourceFile",
+    "uyomi"
+   ],
+   "dominant_class": "capitalized",
+   "purity": 3
+  },
+  {
+   "feature": 6100,
+   "tokens": [
+    " and",
+    " to",
+    " with",
+    " onto",
+    " toward",
+    " on",
+    " towards",
+    " for",
+    " through",
+    " despite"
+   ],
+   "dominant_class": "space_word",
+   "purity": 10
+  },
+  {
+   "feature": 1269,
+   "tokens": [
+    " metic",
+    "\u200b",
+    ")}",
+    "\ufffd\u58eb",
+    "SourceFile",
+    " hospitals",
+    " vehicles",
+    " seasons",
+    " unstable",
+    "////////////////////////////////"
+   ],
+   "dominant_class": "space_word",
+   "purity": 5
+  }
+ ],
+ "random_features": [
+  {
+   "dominant_class": "subword",
+   "purity": 7
+  },
+  {
+   "dominant_class": "space_word",
+   "purity": 5
+  },
+  {
+   "dominant_class": "capitalized",
+   "purity": 5
+  },
+  {
+   "dominant_class": "space_word",
+   "purity": 5
+  },
+  {
+   "dominant_class": "space_word",
+   "purity": 5
+  }
+ ],
+ "class_pure": 2,
+ "random_class_pure": 1,
+ "pred_0": true,
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": false,
+ "null_ok": true,
+ "first_K_under_0.10": null,
+ "runtime_s": 95.1406888961792
+}

@@ -14393,3 +14393,98 @@ distinguish them, and the head has no way to prefer the one whose
 type and depth match. The query must therefore already know how
 far back to look -- that computation is upstream and unlocated,
 and it is the next thing worth chasing on this circuit.
+
+## 532. Rotary selectivity does not generalize -- and its control
+## says why the question was ill-posed
+
+rotary_selectivity disabled rotary for one head at a time and
+re-priced each of the four behaviour-leading heads on its own
+behaviour.
+  head  behaviour       delete-specific  rotary-off  retains  ctrl
+  13.8  close bracket      +0.82372       +0.11650    0.141  -0.004
+  12.6  newline            +0.05262       -0.04714   -0.896  -0.125
+  10.7  opening quote      +0.05322       -0.08876   -1.668  -0.039
+   8.3  digit              +0.02813       +0.01609    0.572  -0.021
+(a) HELD on its face -- three of four retain <= 50%.
+(b) HELD: the bracket head retains 0.141, confirming 529/531 on a
+different sample and a different statistic.
+(c) FAILED: I bet the newline head would survive at >= 50% because
+it responds to punctuation and document type rather than to
+distance. It retains -0.896: disabling its rotary does not merely
+remove the specificity, it REVERSES it.
+CONTROL VIOLATED, and this is the finding rather than the
+footnote. The control asked whether disabling rotary for an
+UNRELATED head in the same layer disturbs the behaviour. Per head:
+  13.8  control is 3.8% of the effect      -- clean
+  10.7  44%                                -- not clean
+   8.3  131%                               -- not clean
+  12.6  265%                               -- not clean
+So for three of the four, disabling rotary anywhere in the layer
+disrupts the target behaviour as much as or more than disabling it
+in the head that owns the behaviour. The intervention is not
+head-specific for them, and (a) and (c) therefore cannot be read
+as statements about those heads at all.
+What survives: the bracket head's positional story, which passes
+its control by a factor of 26 and now has three independent
+confirmations (529 pooled, 531 by distance bin, 532 with a
+same-layer control).
+What does not: the generalization from 530 that selectivity is
+positional across the model. It is not shown here, and the reason
+is instructive -- rotary is shared machinery, so removing it from
+one head perturbs the whole layer's balance, and only an effect as
+large as the bracket head's 0.82 nats stands clear of that
+perturbation. Measuring positional dependence for the smaller
+circuits needs an intervention that is local by construction, such
+as re-rotating a single key to a different position rather than
+removing rotation altogether. Recorded as an open method problem
+rather than a result.
+
+## 533. mlp0 is exactly 9216 squared features, and the loud ones
+## are the wrong atoms
+
+mlp0_squares implemented the exact rewriting a bilinear MLP
+permits: with P = L+R and M = L-R,
+    out = (1/4) Down[(Px)^2] - (1/4) Down[(Mx)^2] + b
+(0) HELD: reconstruction 7.82e-7. mlp0 IS a signed sum of 9216
+squared linear features, with no fitting anywhere.
+Compression, keeping the top K by |Down column| x mean square
+value and mean-filling the rest (baseline CE 3.3536):
+  K      cost      random-K
+    32  +1.6932   +0.81
+   128  +0.7723   +0.71
+   512  +0.2843   +0.47
+  2048  +0.0626   +0.18
+  9216  +0.0000     --
+(a) FAILED: the bar was under 0.10 nats at K <= 512, and 512 costs
+0.284. Reaching 0.10 takes about 2048 features, 22% of them.
+(b) not reached, and the K=32 row shows why the ranking is wrong:
+keeping the 32 LOUDEST squares costs 1.69 nats while 32 RANDOM
+squares cost 0.81. The loud ones are worse than arbitrary ones.
+That is not noise, it is structure. The 9216 squares are not
+independent atoms. They come in 4608 PAIRS -- one hidden unit
+contributes (1/4)Down[:,j]((P_j.x)^2 - (M_j.x)^2), and since
+(a+b)^2 and (a-b)^2 are both about a^2+b^2, the two terms are
+large and nearly equal, with the unit's actual output living in
+their small difference. Ranking squares individually splits pairs
+and destroys the cancellation, and the loudest squares are exactly
+the ones whose partners matter most. My atom choice was wrong.
+(c) FAILED at 2 of 5, and the two that worked are better than the
+bar suggests:
+  feature 6100: 10/10 -- ' and', ' to', ' with', ' onto',
+                ' toward', ' on'   (prepositions and conjunctions)
+  feature 1737:  9/10 -- ' a', ' the', ' an', ' their', ' our',
+                ' his'             (determiners)
+Those are clean, nameable lexical classes, and the coarse
+automatic taxonomy scored both merely as "space_word", missing
+that they are two DIFFERENT and coherent classes. The other three
+are dominated by rare-token junk ('​', 'ModLoader',
+'////////'), which is the standard failure of ranking directions
+by max |w.E_t| across a whole vocabulary: rare embeddings are
+long and odd.
+NULL ok: 1 of 5 random directions reached the purity bar.
+Two fixes follow directly and are queued as mlp0_units: rank by
+HIDDEN UNIT so pairs stay together (4608 atoms, and the natural
+one), and name features over FREQUENT tokens only. The run will
+also price the per-token-table stand-in on the same rows, because
+the 1.0-nat figure this program quotes for that stand-in comes
+from a different measurement and the comparison is the point.
