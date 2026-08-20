@@ -10925,3 +10925,34 @@ the same constant in place, after mlp5, at blocks 6/9/13, and at
 the final residual. Registered: cost rises monotonically with
 depth, and the after-mlp5 arm already costs >= 0.5 nats -- i.e.
 most of the bias's value is consumed by layer 5's own MLP.
+
+## 445. Injection depth is a CLIFF, not a decay
+
+bias_injection_depth priced the constant delivered at six points:
+  in place (inside layer 5, before mlp5)  -0.0053
+  after mlp5                              +1.0166
+  block 6 input                           +1.0166
+  block 9 input                           +1.3206
+  block 13 input                          +1.1796
+  final residual                          +1.3746
+  (reference: delete the head)            +0.9154
+(a) FAILED: the cost does not decay monotonically -- block 13 is
+cheaper than block 9, and the differences past block 6 are noise
+around a plateau. (b) and (c) HELD. Two design notes recorded:
+"after mlp5" and "block 6 input" are the SAME point in this
+architecture (adding to mlp5's output is adding to block 6's
+input), which the identical numbers confirm -- a redundant arm,
+not a coincidence; and my "monotone decay" framing was simply the
+wrong model of the phenomenon.
+The real shape is a CLIFF: before mlp5 the constant is free,
+anywhere after it the constant is worse than nothing, and depth
+past that point barely matters. Two readings remain, and they
+have different consequences, so bias_consumer is queued to
+separate them: either mlp5 is the consumer that must see the
+bias, or adding any constant late is generically harmful. Its
+arms ask the question directly by SUBTRACTION with the head left
+intact (mlp5 sees the bias, nobody later does) plus norm-matched
+random-vector controls in both directions. Registered: (a)
+after_blind <= 0.20 nats if mlp5 is the consumer, (b) the junk
+control quantifies how much of the late-injection penalty is
+generic damage, (c) sanity arms.
