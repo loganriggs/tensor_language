@@ -1,0 +1,28 @@
+(0) input rel err 1.290e-07 | score rel err 5.135e-07
+(0) EXACTNESS: HELD
+
+top 10 pairs at newline targets (12.2% of pair mass):
+    m11 x m11   34.83
+     m9 x m11   24.73
+    m11 x m9    22.2
+    m10 x m11   20.44
+    a10 x a10   20.07
+     m9 x m9    19.01
+    wte x m11   18.72
+    m11 x m10   17.3
+    a10 x m11   16.58
+    wte x m9    15.81
+top 10 at position-matched controls:
+    m11 x m11   22.51
+     a9 x m11   14.89
+    m11 x m9    14.72
+    a10 x a10   14.48
+    m10 x m11   13.89
+    m11 x m10   13.61
+     m9 x m11   13.51
+    a10 x m11   13.17
+    a11 x a11   12.18
+     m9 x m9    11.97
+(a) 0.12230035662651062 vs bar 0.5: FAILED
+(c) top-10 sets differ by 2 pairs (bar 3): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_head_pairs_results.json (394s)

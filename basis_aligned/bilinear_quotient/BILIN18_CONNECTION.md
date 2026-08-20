@@ -13722,3 +13722,57 @@ document gate makes it the best candidate in the model for a
 general structure-tracking component, and it has never been
 studied directly.
 close_bracket_heads is queued on the largest effect.
+
+## 519. Tier 4 on the newline head: exact, dense, and not behaviour-specific
+
+newline_head_pairs, with the double-scaling bug fixed (515).
+(0) HELD, both checks: writer parts reproduce the layer-12 input
+to 1.29e-7, and the 625-term pair sum reproduces head 12.6's real
+score to 5.14e-7. The compositional decomposition is exact --
+each score factor really is the additive sum over writer pairs
+Q_i(q).K_j(k), with 1/128 the only remaining constant.
+So the algebra works. The structure it reveals does not say what I
+hoped.
+(a) FAILED: the top 10 of 625 pairs carry 12.2% of the absolute
+pair mass at newline-target queries. Uniform would be 1.6%, so the
+distribution is 7.6x concentrated relative to uniform -- and
+nowhere near the 50% bar that would make it sparse. The score is
+built from a dense mixture.
+(c) FAILED: the top-10 pair set at newline targets and at
+position-matched controls differ by only TWO pairs out of ten.
+  at newline targets        at controls
+    m11 x m11  34.8           m11 x m11  22.5
+    m9  x m11  24.7           a9  x m11  14.9
+    m11 x m9   22.2           m11 x m9   14.7
+    m10 x m11  20.4           a10 x a10  14.5
+    a10 x a10  20.1           m10 x m11  13.9
+    m9  x m9   19.0           m11 x m10  13.6
+    wte x m11  18.7           m9  x m11  13.5
+The same late-MLP pairs dominate everywhere. Head 12.6's input
+structure is FIXED: it is not that different writers pair up at
+line breaks, it is that the same pairing evaluates differently
+there.
+Two things this does establish. First, tier 4 confirms tier 3's
+ranking rather than overturning it -- m9, m10, m11 and wte lead
+both, so 506's ordering was right even though its interpretation
+("diffuse, no structure") was the wrong reading of a
+multiplicative object. Second, a10 x a10 is the highest-ranked
+non-MLP pair at newline targets, which is independent corroboration
+from a completely different measurement that a10 feeds this head
+(514 found it carrying 48% of the document gate on the key/value
+path).
+What is still untested is SUFFICIENCY, which was registered as (b)
+and deferred to a rebuild run. Density in mass does not settle
+whether a subset is functionally enough: 12% of the mass could
+still reproduce most of the head's behaviour, or 90% of the mass
+could fail to. newline_head_rebuild is queued to measure retention
+-- rebuild the head's score from its top K pairs, run the real
+model with the rebuilt score, and price the head's newline benefit
+against its own ablation -- as a CURVE over K rather than at one
+point, with a random-K control at each step.
+Honest statement of where the tier ladder stands for this head:
+tier 4 is now computed and exact, and its answer is that the
+compositional structure is dense and behaviour-independent. That
+is a real finding about the model, not a failed measurement, and
+it is the opposite of what a sparse-features picture would
+predict.
