@@ -15143,3 +15143,53 @@ question that composition raises. Replacing block 0 changes block
 presence of the replacement rather than fitted against the
 original model. front_table_compose measures naive composition
 against self-consistent composition.
+
+## 546. Two tables compose additively, and refitting makes it WORSE
+
+front_table_compose put 542's token-indexed table for block 0 and
+544's pair-indexed table for block 1 into the model together, and
+asked whether the second table should be rebuilt in the presence
+of the first.
+  arm                                           cost
+  block 0 table alone                         +0.1666
+  block 1 table alone                         +0.5218
+  both, each fitted against the real model    +0.6654
+  both, block 1 REFITTED with block 0 active  +1.0647
+  both with shuffled indices                  +2.9389
+  (sum of the two individual costs: 0.6884)
+(0) HELD: the individual arms reproduce 542 and 544 to within
+0.016 and 0.000.
+(a) FAILED, and the failure is good news. Naive composition costs
+0.6654 against a sum of 0.6884 -- the two substitutions are
+essentially ADDITIVE, very slightly subadditive. That is the
+opposite of what happens to rank truncation, where six blocks
+jointly cost 1.6 times their sum (541) with cancellation in the
+increments (543). Replacing a block with a table indexed on its
+own variable does not disturb the next block the way projecting
+its output does.
+(b) FAILED IN THE OTHER DIRECTION, and this is the finding.
+Refitting block 1's table with block 0 already replaced -- the
+self-consistent, sequential procedure that seemed obviously more
+honest -- costs 1.0647, WORSE than the naive fit by 0.399 nats.
+The reason is visible once stated. A table fitted against the REAL
+model reproduces the real block-1 write, so when block 0's
+substitute has already perturbed the residual, the naive table
+injects the write the true model would have produced and partially
+CORRECTS the upstream error. A refitted table faithfully
+reproduces the perturbed model's write, preserving the error
+instead. Independent fitting is error-correcting; sequential
+fitting is error-preserving.
+That inverts the methodological worry I registered, and it
+generalizes: for layered stand-ins in this model, fit every
+component against the ORIGINAL network, not against the partially
+replaced one. It is the same family as 543's cancellation -- later
+components fitted to the truth undo earlier damage -- and it is
+the practical rule that comes out of both.
+NULL ok: shuffled indices cost 2.94, 4.4 times the naive
+composition.
+(c) The benchmark line: the first TWO blocks of this model can be
+replaced by a token-indexed table and a pair-indexed table, both
+derived from variables the weights predict, for 0.67 nats. The
+best rank allocation across all six blocks costs 1.18 (545). Two
+tables beat six projections by a factor of nearly two while
+replacing a third as much of the network.

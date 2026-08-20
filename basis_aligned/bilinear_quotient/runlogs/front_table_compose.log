@@ -1,0 +1,17 @@
+fitting block 0 table (token index)
+fitting block 1 table (pair index, against the real model)
+refitting block 1 table WITH block 0 replaced
+
+baseline CE 3.3536
+           b0: +0.1666
+           b1: +0.5218
+        naive: +0.6654
+   sequential: +1.0647
+     shuffled: +2.9389
+
+(0) arms reproduce 542/544 (0.182, 0.522): HELD
+(a) naive +0.6654 >= 1.2 x sum (+0.6884): FAILED
+(b) sequential refit gains -0.3993 >= 0.15: FAILED
+(c) best two-block substitution +0.6654 against 1.18 for the best rank allocation of all six blocks
+NULL (shuffled +2.9389 >= 3x naive): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_table_compose_results.json (99s)
