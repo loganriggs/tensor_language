@@ -40,15 +40,21 @@ def main(tag):
     NF=cl.nflat()
     memm=torch.zeros(NF,dtype=torch.bool); memm[mem]=True
     slm=torch.zeros(NF,dtype=torch.bool); slm[sl]=True
-    g=torch.Generator().manual_seed(5)
-    rr=(mem//256).unique()
-    if len(rr)>MAXROWS:
-        rr=rr[torch.randperm(len(rr),generator=g)[:MAXROWS]] \
-            .sort().values
+    allrows=(mem//256).unique()
     rows=cl.rows()
-    print(f'{tag}: machinery {keys} | {len(rr)} rows',flush=True)
+    SEEDS=[5,17,29,41,53]
+    def draw(seed):
+        g=torch.Generator().manual_seed(seed)
+        if len(allrows)<=MAXROWS: return allrows
+        return allrows[torch.randperm(len(allrows),generator=g)
+                       [:MAXROWS]].sort().values
+    print(f'{tag}: machinery {keys} | {min(len(allrows),MAXROWS)} '
+          f'rows x {len(SEEDS)} bootstrap draws',flush=True)
     tables={}
     for key in keys:
+      per_seed={}
+      for _si,_seed in enumerate(SEEDS):
+        rr=draw(_seed)
         li=int(key[1:])
         WR=['wte']+[f'{k}{l}' for l in range(li)
                     for k in ('a','m')]
@@ -104,22 +110,45 @@ def main(tag):
                     'null':round(nv,4),
                     'ratio':round(mv/ov if abs(ov)>1e-4
                                   else float('nan'),3)}
-        top=sorted(tbl.items(),
-                   key=lambda kv:-(kv[1]['ratio']
-                                   if kv[1]['ratio']==kv[1]['ratio']
-                                   else 0))[:5]
         nullratio=max((v['null']/v['offslice']
                        if abs(v['offslice'])>1e-4 else 0)
                       for v in tbl.values())
-        enriched=top[0][1]['ratio'] if top else 0
-        tables[key]={'writers':tbl,'top':top,
-                     'top_ratio':enriched,
-                     'null_top_ratio':round(nullratio,3),
-                     'ENRICHED':bool(enriched>=1.3),
-                     'BEATS_NULL':bool(enriched>nullratio)}
-        print(f"  {key}: top writers {[(w,v['ratio']) for w,v in top]}"
-              f" | ENRICHED={tables[key]['ENRICHED']}"
-              f" BEATS_NULL={tables[key]['BEATS_NULL']}",flush=True)
+        per_seed[_seed]={'tbl':tbl,'null':nullratio}
+      # --- bootstrap aggregation (2026-08-20, wave-3 reviewer
+      # catch: a single hardcoded row subsample made a 1.46 ratio
+      # out of a writer whose resampled range is 1.00-1.07) ---
+      wl=list(per_seed[SEEDS[0]]['tbl'])
+      agg={}
+      for w in wl:
+          vals=[per_seed[s]['tbl'][w]['ratio'] for s in SEEDS
+                if per_seed[s]['tbl'][w]['ratio']
+                ==per_seed[s]['tbl'][w]['ratio']]
+          if not vals: continue
+          agg[w]={'mean':round(sum(vals)/len(vals),3),
+                  'min':round(min(vals),3),'max':round(max(vals),3),
+                  'seed5':per_seed[SEEDS[0]]['tbl'][w]['ratio'],
+                  'member':per_seed[SEEDS[0]]['tbl'][w]['member'],
+                  'offslice':per_seed[SEEDS[0]]['tbl'][w]['offslice']}
+      top=sorted(agg.items(),key=lambda kv:-kv[1]['mean'])[:5]
+      nullratio=max(per_seed[s]['null'] for s in SEEDS)
+      enriched=top[0][1]['seed5'] if top else 0
+      stable=bool(top and top[0][1]['min']>=1.3
+                  and top[0][1]['min']>nullratio)
+      tables[key]={'writers':agg,'top':top,
+                   'top_ratio':enriched,
+                   'top_ratio_mean':top[0][1]['mean'] if top else 0,
+                   'top_ratio_min':top[0][1]['min'] if top else 0,
+                   'top_ratio_max':top[0][1]['max'] if top else 0,
+                   'null_top_ratio':round(nullratio,3),
+                   'bootstrap_seeds':SEEDS,
+                   'ENRICHED':bool(enriched>=1.3),
+                   'BEATS_NULL':bool(enriched>nullratio),
+                   'ENRICHED_STABLE':stable}
+      _s=', '.join(f"{w} {v['mean']} [{v['min']}-{v['max']}]"
+                   for w,v in top[:3])
+      print(f"  {key}: top {_s} | ENRICHED_STABLE={stable}"
+            f" (single-draw ENRICHED={tables[key]['ENRICHED']})",
+            flush=True)
     os.makedirs(PT+'leaf_mech',exist_ok=True)
     out={'tag':tag,'machinery':keys,'tables':tables,
          'runtime_s':time.time()-t0}

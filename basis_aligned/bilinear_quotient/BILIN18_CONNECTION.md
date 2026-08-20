@@ -10372,3 +10372,52 @@ mechanism. Both records' gates and tables reproduced exactly
 (6.1/6.2/6.02 and 5.96/5.92/5.99), so the verification layer is
 doing its job in both directions: it certifies machinery and it
 refuses interpretation.
+
+## 426. TOOL CORRECTION: the mechanism tool needed a bootstrap; one swarm claim retracted
+
+The r.2.0.2 reviewer ran the decisive check I had not: it varied
+the ROW SUBSAMPLE. leaf_input_decomp drew one fixed 24-row sample
+(seed 5), so its ratios carried no sampling error, and its own
+null used the same draw. Resampled, r.2.0.2's headline a0
+enrichment collapses: 1.464 -> the range 0.99-1.46 (mean 1.18).
+Fixed the same hour: the tool now bootstraps over five row draws
+and reports mean/min/max per writer, with ENRICHED_STABLE
+requiring the MINIMUM across draws to clear 1.3 and beat the null.
+Re-run under the fix:
+  r.2.0.2  a0 -> a8 1.178 [0.991-1.464], a6 1.190 [1.000-1.475]
+           ENRICHED_STABLE=False  -> CLAIM RETRACTED (record note
+           appended; the leaf stands as gate-only)
+  r.3.0.2  a14 -> a15 2.37 [2.06-2.85], a17 2.431 [2.09-2.96],
+           a16 2.362 [2.05-2.84]  ENRICHED_STABLE=True -> claim
+           survives, at the reduced scope its reviewer established
+           (the a15 leg reproduces on an unrelated leaf, so that
+           leg is an adjacent-layer property; a17/a16 stay
+           family-specific)
+Wave-3 verdicts complete: CONFIRM 1 (r.5.0.1, a reproduced
+negative plus a new lead -- its downstream consumers are as
+diffuse as its upstream writers), WEAKEN 3. Zero fabricated
+claims survived contact with review, and every gate reproduced
+exactly. The r.5.0.1 reviewer also raised the sharpest open
+objection of the wave: members run high base CE, so concentration
+may partly measure FRAGILITY rather than selectivity.
+gate_specificity queued to settle it (rank-matched random
+subspace ablation in the same components, registered a-c).
+
+## 427. Head role map: position-sensitivity is the norm, and the induction band is the clearest case
+
+head_role_map classified 63 heads across seven layers by whether
+swapping their read pattern or their values costs more.
+(a) FAILED, informatively: only 38% are payload-dominant, so the
+a6.h3 result (423) is a minority regime, not the architecture's
+rule -- most heads' function depends on WHERE they read. The
+layer profile is non-monotone (22% payload at layers 1, 2 and 16;
+44% at 4, 6 and 12; 67% at layer 8).
+(b) HELD: all three sampled induction heads are position-
+sensitive (1.4, 2.5, 8.4), exactly as their mechanism demands --
+for a match head, the read target IS the function.
+(c) FAILED: only 48 of 63 heads cost anything to delete (15 have
+dCE <= 0), consistent with the program's older finding that a
+large minority of heads are free or net-harmful on average text.
+Costliest deletions in the sample: 1.1 (+0.089), 12.6 (+0.073),
+6.3 (+0.047) -- note 1.1 and 12.6 were also the two costliest
+under 4-read truncation (415), and 415 showed both compare m0|m0.

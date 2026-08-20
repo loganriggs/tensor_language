@@ -1080,6 +1080,13 @@
     "note": "story_test_class reproduces the records own finding exactly -- no behavioral claim survives"
    },
    "objection": "The MECHANISM claim (a0 writer-enrichment into a8/a6) is built on a ratio taken over a writer whose absolute contribution share is ~0.07% of the input -- two orders of magnitude below the dominant writer m0s ~42-44%. Resampling the same 24-row draw with different seeds collapses the enrichment to ~1.0, inside the range the tool shows for writers on completely unrelated leaves. The records own BEATS_NULL check compares against a single fixed draw (not a bootstrap distribution) from a deterministically-seeded RNG, so it cannot detect this: it looks stable only because the whole pipeline (model, rows, and even the null mask) is seeded once and never varies. The gate (identity/selectivity) is solid and reproduces exactly, and the record is already honest that no behavioral story survives -- but the MECHANISM headline should not be read as more than a single-sample coincidence on a near-zero-share writer; it is the SOP v3 primary claim and it does not survive resampling."
+  },
+  {
+   "test": "driver-bootstrap-retraction",
+   "source": "fable-driver",
+   "date": "2026-08-20",
+   "verdict": "MECHANISM CLAIM RETRACTED",
+   "note": "reviewer-two showed the a0 enrichment (1.464/1.475) rests on one hardcoded row subsample. leaf_input_decomp now bootstraps over 5 draws: a0 ranges 0.991-1.464 (a8) and 1.000-1.475 (a6), mean 1.18/1.19, ENRICHED_STABLE=False. The claim is withdrawn; the leaf stands as gate-only (concentration 6.03, both halves). Tool fix and retraction recorded in writeup 426."
   }
  ],
  "provenance": {

@@ -6,13 +6,13 @@
 |---|---|---|---|---|---|---|---|
 | r.0.3.0 | diverse | 6.61 | 0.566 | Members are rare/proper-noun-like continuation tokens (numbe | weak | CONFIRM | SOP-v2-diverse,SOP-v2-diverse (full 1000 |
 | r.11.3.1 | diverse | 6.57 | 0.556 | templated-completion vs list/numeric-break selector |  | CONFIRM | sonnet-reviewer-wave2,sonnet-wave2-b |
+| r.5.0.1 | diverse | 5.2 | 0.556 |  |  | CONFIRM | sonnet-reviewer-wave3,sonnet-wave3-a,son |
 | r.1.3.1 | diverse | 6.67 | 0.609 | Members split near-evenly: pushes CE down for clean word/nam |  | WEAKEN | SOP-v2 identity-rule check, manual half- |
 | r.18.2.0 | diverse | 5.96 | 0.555 | no behavioral claim survives base-rate testing except a narr |  | WEAKEN | fable-driver,sonnet-reviewer-wave3,sonne |
-| r.2.0.2 | diverse | 6.03 | 0.693 | input-enrichment for a0 (layer-0 attn) into the a8/a6 double |  | WEAKEN | sonnet-reviewer-wave3,sonnet-wave3-c,son |
+| r.2.0.2 | diverse | 6.03 | 0.693 | input-enrichment for a0 (layer-0 attn) into the a8/a6 double |  | WEAKEN | fable-driver,sonnet-reviewer-wave3,sonne |
 | r.23.2.1 | diverse | 6.84 | 0.517 | generic-vs-proper-noun completion push |  | WEAKEN | sonnet-reviewer-wave2,sonnet-wave2-c,son |
-| r.3.0.2 | diverse | 6.1 | 0.613 | attn-input-writer decomp: a14 dominant writer into a15/16/17 |  | WEAKEN | SOP step1,SOP step1 half,leaf_input_deco |
+| r.3.0.2 | diverse | 6.1 | 0.613 | attn-input-writer decomp: a14 dominant writer into a15/16/17 |  | WEAKEN | SOP step1,SOP step1 half,fable-driver,le |
 | r.4.1.0 | diverse | 6.45 | 0.567 | Two-signed circuit: hurts predictable words (said, tying, op |  | WEAKEN | SOP-v2-diverse,SOP-v2-diverse (full 1000 |
-| r.5.0.1 | diverse | 5.2 | 0.556 |  |  |  | sonnet-wave3-a,sonnet-wave3-a leaf_ablat |
 | ind_band | old |  |  | induction band: top-4 coincidence reads |  |  | induction_residual,mech_replicate,sparse |
 | r.0.0 | old | 2.72 |  |  |  |  | explainer_batch |
 | r.0.0.0 | old | 7.21 | 0.744 |  |  |  | explainer_batch |
