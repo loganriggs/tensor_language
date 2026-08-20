@@ -12225,3 +12225,34 @@ attention reads block-0 outputs. Registered: (a) untruncated is
 exact, (b) k = 2 costs >= 0.30 there against +0.004 at block 0 --
 layer 1 is where context widens, (c) k = 16 costs <= 0.10, so it
 is still bounded.
+
+## 481. Block 1 is local too -- context does NOT widen at layer 1
+
+block1_window applied the 480 sweep one block up, restricting
+attn1's reads to the last k positions:
+  full  +0.0000  <- exact, sanity HELD
+  k=32  +0.0025    k=16  +0.0110    k=8  +0.0105
+  k=4   +0.0138    k=2   +0.0803    k=1  +0.7939
+(a) HELD, (c) HELD, (b) FAILED: I predicted k = 2 would cost
+>= 0.30 at block 1 against +0.004 at block 0, on the theory that
+layer 1 is where context widens. It costs +0.080 -- twenty times
+cheaper than predicted, and a four-token window is nearly free at
++0.014.
+So the first TWO blocks of this model are both essentially local:
+block 0 is a bigram function, block 1 needs about four positions.
+Whatever makes this model more than an n-gram machine happens
+later than layer 1, and the natural question -- where? -- is
+directly measurable rather than speculative.
+window_by_depth queued: restrict ONE attention layer at a time to
+a 4-token window, all others intact, and sweep all eighteen. The
+layer whose restriction is expensive is the layer that genuinely
+needs distant reads. Registered: (a) layers 0-2 each cost <= 0.05,
+(b) some layer costs >= 0.30 (a transition exists at all), (c) the
+worst layer falls in 5-8, where the induction band lives and
+long-range matching is this model's documented long-range
+function.
+If (c) holds, the depth profile of context requirement will line
+up with the one circuit this program has closed end to end, which
+would be a satisfying convergence of two very different
+measurements. If it fails, the model's long-range dependence lives
+somewhere the circuit work has not looked.
