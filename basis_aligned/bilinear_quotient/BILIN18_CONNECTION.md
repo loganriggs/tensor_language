@@ -16094,3 +16094,45 @@ next AND test, if warranted, uses the head's real target. If 10.7
 has no clean attention target, it is a detection head whose
 "selection" is trivial and the AND framing does not apply, which
 is itself a finding about the limits of the account.
+
+## 564. The quote head DOES attend to the recent quote -- 563's
+## "wrong target" was itself too hasty
+
+quote_destination measured where head 10.7 puts score mass at
+opening-quote targets, over candidate key classes.
+  destination      target    control    ratio
+  recent_quote    +0.0695    +0.0125    5.6x
+  prev            +0.0649    +0.0583    1.1x  (generic)
+  self            +0.0624    +0.0720    generic
+  sent_start      +0.0160    +0.0026    6.2x
+  line_start      +0.0145    +0.0046    3.2x
+  other           +0.0087    +0.0070
+(a) FAILED only because 'prev' is numerically close (0.065), but
+prev is GENERIC -- it sits at 0.058 at control positions too. The
+quote-SPECIFIC destinations are recent_quote (5.6x its control),
+sent_start (6.2x) and line_start (3.2x); the head looks back to
+the most recent quote and to structural boundaries.
+(b) HELD: recent_quote is 5.6x its control share.
+NULL: not diffuse -- the head has a target.
+So 563's conclusion was wrong in the other direction. I said the
+quote AND test failed because I had tested a target the head does
+not use. In fact the head DOES attend to the recent quote; the
+target was right. What was wrong in quote_and_factors was (i) the
+distractor -- the token just before the recent quote (mt-1), which
+is not a natural competitor -- and (ii) the ABSOLUTE-VALUE factor
+decomposition, which discards the sign of each QK factor, so f1
+and f2 appeared to disagree when the SIGNED product does not. The
+bracket and newline results survived that flaw because their
+signals were strong; the quote head's weaker signal exposed it.
+Correction recorded: 563's "tested the wrong quantity" is amended
+to "used a poor distractor and a sign-blind factor metric". The
+methodological rule still stands -- know the target first -- and
+here the target was fine; the metric was not.
+quote_modality is queued to redo the third-head test correctly:
+the sign-aware normalized score-mass share (the metric used here,
+not absolute factors), a MATCHED distractor (the second-most-
+recent quote, both keys quotes), and the rotary probe. Prediction,
+as a detection task: like newlines, the quote head should show no
+positional preference among quotes (share ratio near 1, rotary-off
+inert). If instead it discriminates quotes by position, the
+detection-vs-matching axis needs refining.

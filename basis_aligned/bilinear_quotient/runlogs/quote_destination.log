@@ -1,0 +1,15 @@
+255 opening-quote targets
+
+score-mass share at opening-quote targets:
+   recent_quote: +0.0695 (control +0.0125)
+     line_start: +0.0145 (control +0.0046)
+     sent_start: +0.0160 (control +0.0026)
+           prev: +0.0649 (control +0.0583)
+           pos0: +0.0062 (control +0.0112)
+           self: +0.0624 (control +0.0720)
+          other: +0.0087 (control +0.0070)
+
+(a) dominant destination recent_quote (+0.0695) >= 2x prev: FAILED
+(b) recent_quote specific vs control: HELD
+NULL (other dominates -> diffuse detector): has a target
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/quote_destination_results.json (35s)
