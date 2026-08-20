@@ -1,0 +1,9 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+5.7: {'seen_same': 0.079, 'seen_prev': 0.0, 'seen_hist': 1.0, 'fresh_local': 0.0, 'null_same': 0.023, 'n_seen': 366, 'n_fresh': 642, 'top_offsets': [(-8, 16), (-12, 16), (-16, 16), (-20, 16), (-24, 16), (-28, 16)]}
+5.7 reads: [(-8, 16), (-12, 16), (-16, 16), (-20, 16), (-24, 16), (-28, 16)] | same-token 0.079 vs null 0.023 | fresh-local 0.0
+(c) reads reported: HELD
+NOTE role/writer-pair/payload legs run as separate queued scripts (value_vs_pattern_ce pattern, stack_writer_decomp pattern, payload_decomp pattern) so this scan stays cheap; see 431 writeup.
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_5_7_anatomy_results.json (1s)

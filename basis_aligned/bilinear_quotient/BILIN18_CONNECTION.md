@@ -10499,3 +10499,43 @@ control was right to. Records already merged keep their numbers;
 what changes is the interpretation, and the swarm SOP will carry
 the ratio-to-random alongside raw concentration once the full run
 is in.
+
+## 431. Wave 4 and a meta-finding: input-writer composition is the wrong lever
+
+Wave-4 authors (SOP v3 with bootstrap + Bonferroni):
+  r.5.3.1  gate 5.17 (halves 5.16/5.17) | mechanism NEGATIVE
+           (a2, a4 both ENRICHED_STABLE=False) | best behavioral
+           candidate punct p=0.034 vs required 0.0083 -> correctly
+           REJECTED by the agent itself
+  r.13.2.1 gate 5.59 (5.63/5.56) | mechanism NEGATIVE (a7/a6/a3)
+           | behavioral claim KEPT: helps at punctuation targets,
+           39/49 = 80% vs 51% base, population p ~ 0,
+           ROBUST_V2 with n_tests=12
+  r.2.0.1  gate 5.40 (5.09/5.64) | mechanism NEGATIVE (a6/a8) |
+           closest behavioral candidate digit-hurt p=0.0105 vs
+           0.0083 -> REJECTED. Notably a0 NEVER APPEARED here
+           (ratio ~0.96, range 0.75-1.09), independently
+           confirming that its sibling r.2.0.2's retracted a0
+           claim was subsample noise.
+META-FINDING: the input-side mechanism tool has now returned
+ENRICHED_STABLE=False on FIVE of seven leaves, and its one
+survivor (r.3.0.2's a14) proved partly an adjacent-layer
+property. Leaf selectivity is not explained by which writers feed
+the machinery. This is a real negative about the method, not
+about the model, and it redirects the swarm: leaf_output_decomp
+queued -- for each leaf, ablate its bundle and measure which
+DOWNSTREAM components' inputs change at member positions versus
+off-slice, i.e. who CONSUMES the machinery. The 430 fragility
+lesson is built into the tool from the start: every leaf is
+scored against a rank-matched random-subspace ablation, and a
+"consumer" only counts if the real bundle beats the random one.
+Also queued: punct_generality -- two independent leaves now carry
+the same punctuation claim, so the same random-subspace control
+decides whether punctuation-specific pushing is a shared function
+or a fragility artifact (registered a-c).
+Ops: two wave-4 agents parked waiting on background jobs under
+shared-GPU load; both were resumed by message and finished. The
+runbook now carries a never-park rule for authors and a
+resilience rule for queue scripts (try/except per item,
+incremental saves, resume support) after gate_specificity was
+killed twice.

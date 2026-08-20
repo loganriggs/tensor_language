@@ -1,0 +1,154 @@
+{
+ "schema_version": 1,
+ "tag": "r.8.1.0",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "components": [
+  "('pca', 'a4', 'r.8.1', (0, 2))",
+  "('pca', 'a9', 'r.8.1', (4, 10))",
+  "('pca', 'a4', 'r.8.1', (2, 4))",
+  "('pca', 'a7', 'r.8.1', (0, 2))"
+ ],
+ "members": {
+  "n": 864
+ },
+ "base_ce": {
+  "member_mean": 6.227,
+  "frac_lt3": 0.171
+ },
+ "causal": {
+  "abs_dce_members": 1.319,
+  "abs_dce_offslice": 0.232,
+  "concentration": 5.68,
+  "dce_members": 0.07,
+  "dce_pos": 1.553,
+  "dce_neg": -1.117,
+  "n_pos": 384,
+  "n_neg": 480,
+  "minority_share": 0.444,
+  "base_ce_member_mean": 6.227,
+  "base_ce_frac_lt3": 0.171
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 123480,
+    "context": " and her Paramount swan song, \"True Confession\" --",
+    "target": " was",
+    "base_ce": 9.94,
+    "dce": -2.82
+   },
+   {
+    "gi": 242645,
+    "context": " the Battle of the Bulge - Charles B. MacDonald.\n",
+    "target": "002",
+    "base_ce": 5.0,
+    "dce": 3.81
+   },
+   {
+    "gi": 7730,
+    "context": " contests put on by ActiveRain and its members. Everyone can join",
+    "target": " the",
+    "base_ce": 4.22,
+    "dce": 1.88
+   }
+  ],
+  "random": [
+   {
+    "gi": 187605,
+    "context": " the $171 peak median price paid per square foot in May and",
+    "target": " June",
+    "base_ce": 4.06,
+    "dce": -0.58
+   },
+   {
+    "gi": 94298,
+    "context": " from Congress that a non-profit entity be engaged by NASA to",
+    "target": " stimulate",
+    "base_ce": 9.27,
+    "dce": -1.64
+   },
+   {
+    "gi": 91779,
+    "context": "irling Council to Cowie PS to see a teacher that was using",
+    "target": " Endless",
+    "base_ce": 3.57,
+    "dce": 1.28
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "story": {
+  "blind_name": null,
+  "program": [
+   [
+    "circ_r_0_0_1",
+    "NOT is_newline"
+   ]
+  ],
+  "program_bacc": 0.574,
+  "program_null": 0.498,
+  "mechanism_level": "none",
+  "mechanism": "No writer/courier identified: input-writer decomposition into a4/a9/a7 (this leaf's machinery) is not enriched vs off-slice under the 5-seed bootstrap (min ratios 0.996-1.216, below the 1.3 ENRICHED bar; ENRICHED_STABLE=False for all three components). Surface program (NOT is_newline) also fails doc-disjoint heldout (bacc 0.574 vs null 0.498). No behavioral claim survives base-rate testing across 12 class/direction pairs (Bonferroni alpha 0.0083; best punct/helps population p=0.0455)."
+ },
+ "certification": [
+  {
+   "test": "selectivity_both_halves",
+   "bar": "concentration>=3 on rows 0-499 AND 500-999",
+   "value": {
+    "full": 5.68,
+    "half0": 5.73,
+    "half1": 5.62
+   },
+   "verdict": "HELD",
+   "source": "SOP-v3 step1 sonnet-wave4-c",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "input_writer_enrichment_bootstrap",
+   "bar": "ENRICHED_STABLE (min ratio>=1.3 across 5 bootstrap draws)",
+   "value": {
+    "a4": 0.996,
+    "a9": 1.216,
+    "a7": 1.07
+   },
+   "verdict": "FAILED (all three components)",
+   "source": "leaf_input_decomp.py sonnet-wave4-c",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "surface_program_doc_disjoint",
+   "bar": "heldout bacc>=0.75 with null<=0.6",
+   "value": {
+    "bacc": 0.574,
+    "null": 0.498
+   },
+   "verdict": "FAILED",
+   "source": "census_lib.leaf_program sonnet-wave4-c (matches sop_program_batch 409)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "behavioral_story_class_direction_sweep",
+   "bar": "population p<=0.10/12=0.0083 (Bonferroni over 12 class/direction pairs), n_available>=10",
+   "value": {
+    "best_pair": "punct/helps",
+    "best_population_p": 0.0455,
+    "n_tests": 12
+   },
+   "verdict": "FAILED (no pair clears Bonferroni bar; best raw p=0.0455 > 0.0083)",
+   "source": "census_lib.story_test_class sonnet-wave4-c",
+   "date": "2026-08-20"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "SOP-v3",
+   "leaf_input_decomp.py",
+   "sop_program_batch.py(ref)"
+  ],
+  "agent": "sonnet-wave4-c",
+  "lib_rev": "f65728b6a98b438f9e861976efd712b3f27ed4f5"
+ }
+}

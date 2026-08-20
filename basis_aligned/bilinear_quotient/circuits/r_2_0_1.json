@@ -1,0 +1,670 @@
+{
+ "schema_version": 1,
+ "tag": "r.2.0.1",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "components": [
+  "('pca', 'a6', 'r.2.0', (4, 16))",
+  "('pca', 'a8', 'r.2.0', (4, 16))",
+  "('pca', 'a8', 'r.2.0', (0, 4))",
+  "('pca', 'a6', 'r.2.0', (0, 4))"
+ ],
+ "causal": {
+  "abs_dce_members": 1.089,
+  "abs_dce_offslice": 0.202,
+  "concentration": 5.4,
+  "dce_members": 0.102,
+  "dce_pos": -0.415,
+  "dce_neg": 0.654,
+  "n_pos": 446,
+  "n_neg": 418,
+  "minority_share": 0.484,
+  "base_ce_member_mean": 5.627,
+  "base_ce_frac_lt3": 0.273
+ },
+ "causal_half": {
+  "half_0_500": {
+   "concentration": 5.09,
+   "abs_dce_members": 1.025,
+   "n_members": 372
+  },
+  "half_500_1000": {
+   "concentration": 5.64,
+   "abs_dce_members": 1.138,
+   "n_members": 492
+  }
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 30498,
+    "context": "\n|College Teams||High Schools|\nMarch 4, 2012",
+    "target": "Tweet",
+    "base_ce": 12.39,
+    "dce": -0.49
+   },
+   {
+    "gi": 230178,
+    "context": "\n|College Teams||High Schools|\nJanuary 19, 2012",
+    "target": "1",
+    "base_ce": 14.49,
+    "dce": 0.78
+   },
+   {
+    "gi": 11796,
+    "context": "\n|College Teams||High Schools|\nMay 24, 2012",
+    "target": "A",
+    "base_ce": 10.85,
+    "dce": -1.67
+   }
+  ],
+  "random": [
+   {
+    "gi": 173298,
+    "context": " 2008 to late March 2009. Suspended particulate matter (SP",
+    "target": "M",
+    "base_ce": 0.27,
+    "dce": 1.9
+   },
+   {
+    "gi": 168337,
+    "context": " T1macin politics\n[\u2013]Subhazard 1 Punk",
+    "target": "t",
+    "base_ce": 5.44,
+    "dce": -0.44
+   },
+   {
+    "gi": 13544,
+    "context": "That would be \"decreased,\" \"wean,\" and",
+    "target": " we",
+    "base_ce": 8.37,
+    "dce": 0.36
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "mechanism_3M": {
+  "tag": "r.2.0.1",
+  "machinery": [
+   "a6",
+   "a8"
+  ],
+  "tables": {
+   "a6": {
+    "writers": {
+     "wte": {
+      "mean": 0.881,
+      "min": 0.854,
+      "max": 0.908,
+      "seed5": 0.88,
+      "member": 0.0016,
+      "offslice": 0.0018
+     },
+     "a0": {
+      "mean": 0.963,
+      "min": 0.746,
+      "max": 1.089,
+      "seed5": 0.919,
+      "member": 0.0005,
+      "offslice": 0.0005
+     },
+     "m0": {
+      "mean": 0.987,
+      "min": 0.951,
+      "max": 1.035,
+      "seed5": 1.005,
+      "member": 0.4524,
+      "offslice": 0.45
+     },
+     "a1": {
+      "mean": 0.996,
+      "min": 0.932,
+      "max": 1.031,
+      "seed5": 1.026,
+      "member": 0.0116,
+      "offslice": 0.0113
+     },
+     "m1": {
+      "mean": 0.937,
+      "min": 0.856,
+      "max": 1.024,
+      "seed5": 0.953,
+      "member": 0.022,
+      "offslice": 0.0231
+     },
+     "a2": {
+      "mean": 1.041,
+      "min": 0.982,
+      "max": 1.096,
+      "seed5": 0.982,
+      "member": 0.0309,
+      "offslice": 0.0314
+     },
+     "m2": {
+      "mean": 0.94,
+      "min": 0.851,
+      "max": 1.027,
+      "seed5": 0.941,
+      "member": 0.0863,
+      "offslice": 0.0918
+     },
+     "a3": {
+      "mean": 1.012,
+      "min": 0.979,
+      "max": 1.043,
+      "seed5": 0.979,
+      "member": 0.0259,
+      "offslice": 0.0264
+     },
+     "m3": {
+      "mean": 1.041,
+      "min": 1.008,
+      "max": 1.09,
+      "seed5": 1.021,
+      "member": 0.1494,
+      "offslice": 0.1464
+     },
+     "a4": {
+      "mean": 1.134,
+      "min": 1.063,
+      "max": 1.212,
+      "seed5": 1.063,
+      "member": 0.0583,
+      "offslice": 0.0548
+     },
+     "m4": {
+      "mean": 0.97,
+      "min": 0.918,
+      "max": 1.006,
+      "seed5": 0.993,
+      "member": 0.0953,
+      "offslice": 0.096
+     },
+     "a5": {
+      "mean": 1.02,
+      "min": 0.995,
+      "max": 1.036,
+      "seed5": 0.995,
+      "member": 0.0502,
+      "offslice": 0.0504
+     },
+     "m5": {
+      "mean": 1.015,
+      "min": 0.982,
+      "max": 1.055,
+      "seed5": 0.982,
+      "member": 0.0158,
+      "offslice": 0.0161
+     }
+    },
+    "top": [
+     [
+      "a4",
+      {
+       "mean": 1.134,
+       "min": 1.063,
+       "max": 1.212,
+       "seed5": 1.063,
+       "member": 0.0583,
+       "offslice": 0.0548
+      }
+     ],
+     [
+      "a2",
+      {
+       "mean": 1.041,
+       "min": 0.982,
+       "max": 1.096,
+       "seed5": 0.982,
+       "member": 0.0309,
+       "offslice": 0.0314
+      }
+     ],
+     [
+      "m3",
+      {
+       "mean": 1.041,
+       "min": 1.008,
+       "max": 1.09,
+       "seed5": 1.021,
+       "member": 0.1494,
+       "offslice": 0.1464
+      }
+     ],
+     [
+      "a5",
+      {
+       "mean": 1.02,
+       "min": 0.995,
+       "max": 1.036,
+       "seed5": 0.995,
+       "member": 0.0502,
+       "offslice": 0.0504
+      }
+     ],
+     [
+      "m5",
+      {
+       "mean": 1.015,
+       "min": 0.982,
+       "max": 1.055,
+       "seed5": 0.982,
+       "member": 0.0158,
+       "offslice": 0.0161
+      }
+     ]
+    ],
+    "top_ratio": 1.063,
+    "top_ratio_mean": 1.134,
+    "top_ratio_min": 1.063,
+    "top_ratio_max": 1.212,
+    "null_top_ratio": 1.2,
+    "bootstrap_seeds": [
+     5,
+     17,
+     29,
+     41,
+     53
+    ],
+    "ENRICHED": false,
+    "BEATS_NULL": false,
+    "ENRICHED_STABLE": false
+   },
+   "a8": {
+    "writers": {
+     "wte": {
+      "mean": 0.876,
+      "min": 0.851,
+      "max": 0.901,
+      "seed5": 0.878,
+      "member": 0.0008,
+      "offslice": 0.0009
+     },
+     "a0": {
+      "mean": 0.961,
+      "min": 0.744,
+      "max": 1.083,
+      "seed5": 0.917,
+      "member": 0.0005,
+      "offslice": 0.0005
+     },
+     "m0": {
+      "mean": 0.986,
+      "min": 0.947,
+      "max": 1.035,
+      "seed5": 1.007,
+      "member": 0.4303,
+      "offslice": 0.4272
+     },
+     "a1": {
+      "mean": 0.995,
+      "min": 0.93,
+      "max": 1.03,
+      "seed5": 1.027,
+      "member": 0.0113,
+      "offslice": 0.011
+     },
+     "m1": {
+      "mean": 0.935,
+      "min": 0.849,
+      "max": 1.02,
+      "seed5": 0.954,
+      "member": 0.0207,
+      "offslice": 0.0217
+     },
+     "a2": {
+      "mean": 1.037,
+      "min": 0.981,
+      "max": 1.089,
+      "seed5": 0.981,
+      "member": 0.0299,
+      "offslice": 0.0305
+     },
+     "m2": {
+      "mean": 0.937,
+      "min": 0.849,
+      "max": 1.022,
+      "seed5": 0.941,
+      "member": 0.0811,
+      "offslice": 0.0862
+     },
+     "a3": {
+      "mean": 1.009,
+      "min": 0.978,
+      "max": 1.04,
+      "seed5": 0.978,
+      "member": 0.025,
+      "offslice": 0.0255
+     },
+     "m3": {
+      "mean": 1.039,
+      "min": 1.007,
+      "max": 1.084,
+      "seed5": 1.022,
+      "member": 0.1419,
+      "offslice": 0.1388
+     },
+     "a4": {
+      "mean": 1.132,
+      "min": 1.063,
+      "max": 1.211,
+      "seed5": 1.063,
+      "member": 0.0572,
+      "offslice": 0.0538
+     },
+     "m4": {
+      "mean": 0.968,
+      "min": 0.916,
+      "max": 1.007,
+      "seed5": 0.991,
+      "member": 0.0912,
+      "offslice": 0.092
+     },
+     "a5": {
+      "mean": 1.016,
+      "min": 0.995,
+      "max": 1.032,
+      "seed5": 0.995,
+      "member": 0.0507,
+      "offslice": 0.051
+     },
+     "m5": {
+      "mean": 1.013,
+      "min": 0.983,
+      "max": 1.052,
+      "seed5": 0.983,
+      "member": 0.0156,
+      "offslice": 0.0159
+     },
+     "a6": {
+      "mean": 1.076,
+      "min": 1.008,
+      "max": 1.148,
+      "seed5": 1.008,
+      "member": 0.0184,
+      "offslice": 0.0182
+     },
+     "m6": {
+      "mean": 1.054,
+      "min": 1.003,
+      "max": 1.098,
+      "seed5": 1.012,
+      "member": 0.0102,
+      "offslice": 0.01
+     },
+     "a7": {
+      "mean": 0.947,
+      "min": 0.893,
+      "max": 1.015,
+      "seed5": 0.893,
+      "member": 0.01,
+      "offslice": 0.0112
+     },
+     "m7": {
+      "mean": 1.004,
+      "min": 0.933,
+      "max": 1.066,
+      "seed5": 0.981,
+      "member": 0.0053,
+      "offslice": 0.0054
+     }
+    },
+    "top": [
+     [
+      "a4",
+      {
+       "mean": 1.132,
+       "min": 1.063,
+       "max": 1.211,
+       "seed5": 1.063,
+       "member": 0.0572,
+       "offslice": 0.0538
+      }
+     ],
+     [
+      "a6",
+      {
+       "mean": 1.076,
+       "min": 1.008,
+       "max": 1.148,
+       "seed5": 1.008,
+       "member": 0.0184,
+       "offslice": 0.0182
+      }
+     ],
+     [
+      "m6",
+      {
+       "mean": 1.054,
+       "min": 1.003,
+       "max": 1.098,
+       "seed5": 1.012,
+       "member": 0.0102,
+       "offslice": 0.01
+      }
+     ],
+     [
+      "m3",
+      {
+       "mean": 1.039,
+       "min": 1.007,
+       "max": 1.084,
+       "seed5": 1.022,
+       "member": 0.1419,
+       "offslice": 0.1388
+      }
+     ],
+     [
+      "a2",
+      {
+       "mean": 1.037,
+       "min": 0.981,
+       "max": 1.089,
+       "seed5": 0.981,
+       "member": 0.0299,
+       "offslice": 0.0305
+      }
+     ]
+    ],
+    "top_ratio": 1.063,
+    "top_ratio_mean": 1.132,
+    "top_ratio_min": 1.063,
+    "top_ratio_max": 1.211,
+    "null_top_ratio": 1.2,
+    "bootstrap_seeds": [
+     5,
+     17,
+     29,
+     41,
+     53
+    ],
+    "ENRICHED": false,
+    "BEATS_NULL": false,
+    "ENRICHED_STABLE": false
+   }
+  },
+  "runtime_s": 39.10096454620361
+ },
+ "story": {
+  "blind_name": "r.2.0 double-QK bundle (a6/a8); input writer composition NOT enriched (ENRICHED_STABLE=False both); no surviving behavioral story",
+  "program": [
+   [
+    "NOT class_other",
+    "NOT prev1_class_other"
+   ]
+  ],
+  "program_bacc": 0.682,
+  "program_null": 0.561,
+  "mechanism_level": "none",
+  "mechanism_line": "a6 and a8 (r.2.0 double-QK bundle) input writer composition does NOT distinguish members under 5-draw bootstrap: top writer both components is a4 (a6: mean 1.134 [1.063-1.212]; a8: mean 1.132 [1.063-1.211]), ENRICHED_STABLE=False for both (single-draw ENRICHED was already False, so no a0-style collapse to retract). Dominant writer by input mass is m0 (~0.43-0.45 share) but its ratio is flat (~0.986-0.987, not selective) -- consistent with the universal identity code, not this leaf's mechanism.",
+  "behavior_line": "no behavioral claim survives base-rate testing (12 class x direction pairs tested, alpha=0.10/12=0.0083, none robust)",
+  "leaf_mech_file": "leaf_mech/r.2.0.1.json"
+ },
+ "certification": [
+  {
+   "test": "selectivity (concentration)",
+   "bar": ">=3 on full grid",
+   "value": 5.4,
+   "verdict": "HELD",
+   "source": "sonnet-wave4-d step1 full-grid",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "selectivity both-halves",
+   "bar": ">=3 on rows[0,500) and [500,1000) independently",
+   "value": {
+    "half_0_500": 5.09,
+    "half_500_1000": 5.64
+   },
+   "verdict": "HELD",
+   "source": "sonnet-wave4-d step1 sign_stats_half",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "pack reproduction (concentration)",
+   "bar": "loosely reproduces pack value (deltas up to ~0.5 expected)",
+   "value": {
+    "pack_concentration": 5.33,
+    "full_grid_concentration": 5.4
+   },
+   "verdict": "HELD (reproduced within tolerance)",
+   "source": "sonnet-wave4-d vs sop_packs_shortlist.json",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "mechanism ENRICHED_STABLE (step 3M, bootstrapped 5 draws)",
+   "bar": "top writer member/offslice ratio min-across-draws >=1.3 (ENRICHED_STABLE)",
+   "value": {
+    "a6_top_writer": "a4",
+    "a6_mean": 1.134,
+    "a6_min": 1.063,
+    "a6_max": 1.212,
+    "a8_top_writer": "a4",
+    "a8_mean": 1.132,
+    "a8_min": 1.063,
+    "a8_max": 1.211
+   },
+   "verdict": "FAILED (both ENRICHED_STABLE=False; not even single-draw ENRICHED)",
+   "source": "sonnet-wave4-d leaf_input_decomp.py (bootstrap)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "surface program (doc-disjoint, docid parity)",
+   "bar": "heldout bacc>=0.75 and null<=0.6",
+   "value": {
+    "bacc": 0.682,
+    "null": 0.561
+   },
+   "verdict": "FAILED (bacc 0.682 < 0.75)",
+   "source": "sonnet-wave4-d step3",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "behavioral story base-rate sweep (story_test_class, 6 kinds x 2 directions)",
+   "bar": "ROBUST_V2: population p<=0.10/12=0.0083 with n_available>=10",
+   "value": {
+    "subword_True": {
+     "n_available": 285,
+     "seed_pass_frac": 0.2,
+     "pop_p": 0.6059,
+     "pop_hits": 148,
+     "ROBUST_V2": false
+    },
+    "subword_False": {
+     "n_available": 285,
+     "seed_pass_frac": 0.0,
+     "pop_p": 0.4404,
+     "pop_hits": 137,
+     "ROBUST_V2": false
+    },
+    "space_word_True": {
+     "n_available": 481,
+     "seed_pass_frac": 0.2,
+     "pop_p": 0.4367,
+     "pop_hits": 255,
+     "ROBUST_V2": false
+    },
+    "space_word_False": {
+     "n_available": 481,
+     "seed_pass_frac": 0.0,
+     "pop_p": 0.5989,
+     "pop_hits": 226,
+     "ROBUST_V2": false
+    },
+    "digit_True": {
+     "n_available": 44,
+     "seed_pass_frac": 0.0,
+     "pop_p": 0.9956,
+     "pop_hits": 15,
+     "ROBUST_V2": false
+    },
+    "digit_False": {
+     "n_available": 44,
+     "seed_pass_frac": 0.2,
+     "pop_p": 0.0105,
+     "pop_hits": 29,
+     "ROBUST_V2": false
+    },
+    "punct_True": {
+     "n_available": 47,
+     "seed_pass_frac": 0.0,
+     "pop_p": 0.1331,
+     "pop_hits": 29,
+     "ROBUST_V2": false
+    },
+    "punct_False": {
+     "n_available": 47,
+     "seed_pass_frac": 0.0,
+     "pop_p": 0.9204,
+     "pop_hits": 18,
+     "ROBUST_V2": false
+    },
+    "capitalized_True": {
+     "n_available": 175,
+     "seed_pass_frac": 0.2,
+     "pop_p": 0.0135,
+     "pop_hits": 107,
+     "ROBUST_V2": false
+    },
+    "capitalized_False": {
+     "n_available": 175,
+     "seed_pass_frac": 0.0,
+     "pop_p": 0.991,
+     "pop_hits": 68,
+     "ROBUST_V2": false
+    },
+    "newline_True": {
+     "n_available": 5,
+     "seed_pass_frac": 1.0,
+     "pop_p": 0.0401,
+     "pop_hits": 5,
+     "ROBUST_V2": false
+    },
+    "newline_False": {
+     "n_available": 5,
+     "seed_pass_frac": 0.0,
+     "pop_p": 1.0,
+     "pop_hits": 0,
+     "ROBUST_V2": false
+    }
+   },
+   "verdict": "FAILED (no pair clears corrected alpha; closest digit-hurt p=0.0105, capitalized-help p=0.0135, both short of 0.0083)",
+   "source": "sonnet-wave4-d step5 cl.story_test_class (n_tests=12)",
+   "date": "2026-08-20"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "CIRCUIT_SOP.md v3",
+   "leaf_input_decomp.py (bootstrapped)",
+   "sop_program_batch pattern (cl.leaf_program)"
+  ],
+  "agent": "sonnet-wave4-d",
+  "lib_rev": "f65728b6a98b438f9e861976efd712b3f27ed4f5"
+ },
+ "members": {
+  "n": 864
+ }
+}

@@ -1,10 +1,5 @@
-r.12.0.1: own 4.01 random 2.65 ratio 1.51
-r.12.1.3: own 3.69 random 2.7 ratio 1.37
-r.8.1.2: own 3.93 random 2.38 ratio 1.65
-r.1.2.2: own 3.75 random 2.71 ratio 1.38
-r.2.0.0: own 8.28 random 2.56 ratio 3.23
-r.1.3.0: own 7.12 random 2.23 ratio 3.19
-r.13.2.1: own 5.59 random 2.47 ratio 2.26
-r.3.1.0: own 5.31 random 3.08 ratio 1.72
-r.12.2.3: own 4.27 random 2.62 ratio 1.63
-r.18.0.0: own 4.05 random 2.33 ratio 1.74
+frac own>=2x random: 0.33 | median random concentration 2.62
+(a) own >=2x random for >=70%: FAILED
+(b) median random concentration <2.0: FAILED
+(c) caveat recorded either way: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gate_specificity_results.json (0s)
