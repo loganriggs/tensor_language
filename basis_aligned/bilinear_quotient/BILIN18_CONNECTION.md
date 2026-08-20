@@ -13385,3 +13385,47 @@ clustering damage and looking for structure inside a cluster. The
 newline head (495-506) was found the same way. That is now the
 program's operating conclusion about method, and step 3M should be
 retired rather than rebuilt.
+
+## 511. The digit effect is direction-specific, and exactly additive
+
+digit_lead2, on a third disjoint sample (rows 400-496), with the
+control the census tree could not supply as a peer: the same
+components, same slice conditioning, same rank, same construction,
+but the NEXT blocks along the output spectrum.
+  arm                          digit        punct    rank
+  real bundle (0,4)+(4,16)   +0.1459        -0.0487  16+16
+    half (0,4) alone         +0.0931        -0.0567   4+4
+    half (4,16) alone        +0.0524        +0.0036  12+12
+  alternative (16,32)-ish    +0.0260        -0.0072  20+20
+  alternative (32,48)-ish    +0.0086        -0.0108  20+20
+(a) HELD: +0.1459, CI [+0.089, +0.209], excluding zero. Second
+replication, third disjoint sample.
+(b) HELD with room: the real bundle beats the best alternative
+span by 0.120 against a registered bar of 0.03. Other directions
+of the same rank, drawn the same way from the same components,
+do NOT do this. So the effect belongs to these directions and not
+to a6 and a8 wholesale -- which is the leaf-specificity claim that
+508 could not test, arriving by a different route.
+(c) reported: the halves give +0.0931 and +0.0524, summing to
++0.1455 against +0.1459 for the whole bundle. Additive to three
+decimal places, with no interaction between the top-4 block and
+the 4-to-16 block. That is unusual in this model -- almost
+everything measured here has been superadditive -- and it means
+the digit effect is carried by directions that act independently.
+SANITY NULL VIOLATED: punctuation came out at -0.0487, outside the
+registered bracket of [-0.040, -0.010] around its population value
+of -0.025. I registered that bracket as a condition for the run to
+be informative, so the run is REPORTED AS UNINFORMATIVE rather
+than scored, and (a) and (b) above are quoted but not banked.
+The violation is itself informative. The digit number also moved a
+long way between samples -- +0.0900 on rows 200-296 and +0.1459 on
+rows 400-496 -- so this instrument has sample-to-sample spread
+that no earlier run measured, because no earlier run used more
+than one sample. If that spread is real it weakens every
+single-sample class claim in this program, not only this one.
+digit_lead3 is running the same arms on three further disjoint
+samples (skip 600, 800, 1000) and reports the spread rather than a
+number. Its registered bar (c) makes the honest version explicit:
+if punctuation sits outside the bracket in more than one of the
+three, the bracket was set from a single population estimate and
+was wrong, and the finding is about the instrument.
