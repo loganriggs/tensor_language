@@ -1,0 +1,19 @@
+(0a) reproduced sizes [101, 76, 29, 18, 16, 9, 6, 6, 6, 6, 5, 4, 4, 3, 3, 3, 2, 1, 1, 1]: HELD
+
+=== cluster13 (n_units=76) ===
+source positions: 2188, target positions: 50
+(0) identity mean |delta| 0.000000: HELD
+(a) cluster patch mean delta +0.00014 (sign correct): HELD
+(b) random-unit patch mean delta -0.00045 (ratio 138538.68): HELD
+(c) same-class patch mean delta -0.00017 vs cross-class +0.00014: FAILED
+NULL: digit-position delta -7.222873871235436e-05 vs real +0.00014: CHECK
+
+=== cluster7 (n_units=29) ===
+source positions: 287, target positions: 319
+(0) identity mean |delta| 0.000000: HELD
+(a) cluster patch mean delta -0.00026 (sign correct): FAILED
+(b) random-unit patch mean delta +0.00024 (ratio -1.09): FAILED
+(c) same-class patch mean delta +0.00023 vs cross-class -0.00026: FAILED
+NULL: digit-position delta -3.5033479525381495e-06 vs real -0.00026: ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_cluster13_7_patching_results.json (49s)

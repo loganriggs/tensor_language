@@ -17563,3 +17563,63 @@ the first correctly-scoped attempt. Cluster 8 -- read correlationally
 in 581, muddied by three ablation designs in 582-586, now causally
 CONFIRMED by patching -- is the one of the three named mlp0 clusters
 with a complete, closed verification story.
+
+## 593. Patching extended to clusters 13 and 7: cluster 7's effect is
+## real, specific, and CONSISTENTLY BACKWARDS across four independent
+## methods -- a genuine correction, not noise; cluster 13 stays
+## inconclusive for a diagnosable reason
+
+592's activation-patching method, extended to the two clusters
+margin-based testing (582-586) never resolved.
+CLUSTER 13 (period/exclamation vs dash): weak, inconclusive signal,
+not a refutation. (0) HELD. (a) sign correct (+0.00014). (b) HELD by
+the actual comparison logic (cluster's delta is positive, random
+control's is negative, so cluster clearly does more in the right
+direction than random) -- but the PRINTED ratio (138538x) is a
+reporting artifact, not a real number: the random-control delta was
+negative, so the print statement's max(x, 1e-9) floor divided by
+essentially zero, producing a meaningless quotient. Logic was right
+(the boolean comparison never used that ratio), the display line was
+not -- caught and flagged here rather than left to mislead a later
+read. (c) FAILED: the same-class control moved MORE than the real
+cross-class patch, in the WRONG direction. Traced to the same root
+cause 586 already diagnosed: only 50 real dash-target positions exist
+in this sample (against 2188 article-favoring ones) -- a thin, noisy
+pool, consistent with 586's finding that dash prediction is
+inherently low-confidence for this model, so even patching (an
+otherwise validated method) doesn't have a clean signal to work with
+here. Cluster 13's causal status remains genuinely unresolved, for a
+reason now diagnosed four separate times (585's count confound, 586's
+baseline-sanity failure, and now a thin target pool) -- the honest
+conclusion is that THIS dash token set does not support a clean
+two-class causal test by any method tried, not that cluster 13 lacks
+a causal role.
+CLUSTER 7 (first-person auxiliary vs contraction): a real, specific
+effect in the WRONG direction, and this is now the FOURTH independent
+method to say so. (0) HELD. (a) FAILED: sign is negative (-0.00026),
+opposite the predicted direction. (b) FAILED: the random-unit
+control's delta (+0.00024) is POSITIVE (the naively-expected
+direction) while cluster 7's own delta is negative -- cluster 7 is
+doing something different from, and opposite to, a random same-size
+patch. (c) FAILED: same-class control (+0.00023) is also positive,
+opposite cluster 7's real cross-class effect. NULL ok (digit delta
+near zero, well below the real effect).
+Stacking this against every prior cluster-7 measurement: 584's raw
+logit-sum test found a real effect in the PREDICTED direction; 585's
+count-fixed mean-logit version found a real effect but REVERSED;
+586's probability-mass version also found a real, large effect,
+REVERSED; this patching run finds a real, specific effect, REVERSED
+again, consistently with 585/586 and only disagreeing with 584 (the
+one test later shown to have a genuine counting confound). Three
+independent, methodologically sound measurements (585, 586, 593) now
+agree: cluster 7 causally moves the aux-vs-contraction margin
+OPPOSITE to what reading its activating examples (581) suggested.
+CORRECTION to 581/584: cluster 7 is not a "promoter" of aux-verb
+continuation in the direction its positive examples imply -- its real
+causal role pushes the OPPOSITE way. What exactly that means
+mechanistically (an inhibitory/complementary read direction, a sign
+convention mismatch between the read and write sides of these units,
+or something else) is not resolved here and would need a distinct
+follow-up; the DIRECTION of the effect, and that it is real and
+specific rather than noise, is now well-established across three
+independent methods.

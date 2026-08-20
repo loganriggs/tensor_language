@@ -1,0 +1,58 @@
+{
+ "repro_ok": true,
+ "sizes": [
+  101,
+  76,
+  29,
+  18,
+  16,
+  9,
+  6,
+  6,
+  6,
+  6,
+  5,
+  4,
+  4,
+  3,
+  3,
+  3,
+  2,
+  1,
+  1,
+  1
+ ],
+ "clusters": {
+  "cluster13": {
+   "n_units": 76,
+   "n_source": 2188,
+   "n_target": 50,
+   "pred_0": true,
+   "identity_abs_delta": 1.3727694749832154e-07,
+   "cluster_mean_delta": 0.0001385386800393462,
+   "random_mean_delta": -0.00045303066726773975,
+   "pred_a": true,
+   "pred_b": true,
+   "same_class_mean_delta": -0.00016678422689437867,
+   "pred_c": false,
+   "null_mean_delta": -7.222873871235436e-05,
+   "null_ok": false
+  },
+  "cluster7": {
+   "n_units": 29,
+   "n_source": 287,
+   "n_target": 319,
+   "pred_0": true,
+   "identity_abs_delta": 3.0696392059326174e-07,
+   "cluster_mean_delta": -0.0002572548342868686,
+   "random_mean_delta": 0.00023561662528663873,
+   "pred_a": false,
+   "pred_b": false,
+   "same_class_mean_delta": 0.00023190598003566265,
+   "pred_c": false,
+   "null_mean_delta": -3.5033479525381495e-06,
+   "null_ok": true
+  }
+ },
+ "runtime_s": 49.03564953804016
+}
