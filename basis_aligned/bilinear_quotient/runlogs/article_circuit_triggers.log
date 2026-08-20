@@ -1,0 +1,36 @@
+(0) reproduced cluster8 (n=101): HELD
+961 article positions
+(a) by-class spread 1588.840 vs per-position std 1202.870: HELD
+           punct: mean act -419.473 (n=95)
+     capitalized: mean act -72.103 (n=28)
+      determiner: mean act +456.300 (n=20)
+      space_word: mean act +478.352 (n=271)
+         subword: mean act +585.530 (n=30)
+         be_verb: mean act +1150.884 (n=76)
+     preposition: mean act +1169.367 (n=439)
+  top a/an-driving previous tokens:
+    ' into': +3197.577 (n=15)
+    ' from': +1990.744 (n=15)
+    ' in': +1442.817 (n=75)
+    ' all': +1394.867 (n=8)
+    ' of': +1330.020 (n=86)
+    ' was': +1220.970 (n=18)
+    ' on': +1145.641 (n=39)
+    ' to': +1128.365 (n=46)
+    ' is': +1104.797 (n=33)
+    ' be': +1064.209 (n=10)
+  top the-driving previous tokens:
+    ',': -664.724 (n=56)
+    '.': -148.425 (n=24)
+    ' that': +13.625 (n=11)
+    ' and': +67.087 (n=21)
+    ' for': +449.495 (n=31)
+    ' as': +496.469 (n=22)
+    ' at': +660.978 (n=18)
+    ' with': +938.818 (n=26)
+    ' be': +1064.209 (n=10)
+    ' is': +1104.797 (n=33)
+(c) a/an-rate: cluster8-positive-driven classes 0.346 vs negative-driven 0.268: HELD -- sign predicts outcome
+NULL: shuffled by-class spread 625.704 vs real 1588.840: CHECK
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/article_circuit_triggers_results.json (32s)
