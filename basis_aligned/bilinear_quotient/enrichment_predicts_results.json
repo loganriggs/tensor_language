@@ -1,7 +1,69 @@
 {
- "a14": {
-  "enrichment": 2.431,
-  "concentration": 5.76,
-  "abs_dce_members": 0.589
- }
+ "components": {
+  "a14": {
+   "enrichment": 2.431,
+   "concentration": 5.76,
+   "abs_dce_members": 0.589
+  },
+  "a15": {
+   "enrichment": 2.334,
+   "concentration": 5.4,
+   "abs_dce_members": 0.349
+  },
+  "a16": {
+   "enrichment": 2.171,
+   "concentration": 8.56,
+   "abs_dce_members": 0.569
+  },
+  "a13": {
+   "enrichment": 1.774,
+   "concentration": 3.4,
+   "abs_dce_members": 0.333
+  },
+  "a12": {
+   "enrichment": 1.488,
+   "concentration": 2.61,
+   "abs_dce_members": 0.223
+  },
+  "a7": {
+   "enrichment": 1.064,
+   "concentration": 1.97,
+   "abs_dce_members": 0.465
+  },
+  "m0": {
+   "enrichment": 1.035,
+   "concentration": 1.48,
+   "abs_dce_members": 1.566
+  },
+  "a1": {
+   "enrichment": 1.021,
+   "concentration": 1.84,
+   "abs_dce_members": 0.851
+  },
+  "m5": {
+   "enrichment": 0.84,
+   "concentration": 2.12,
+   "abs_dce_members": 0.623
+  },
+  "a0": {
+   "enrichment": 0.737,
+   "concentration": 1.68,
+   "abs_dce_members": 0.862
+  }
+ },
+ "spearman": 0.842,
+ "top_by_enrichment": [
+  "a14",
+  "a15"
+ ],
+ "top_by_concentration": [
+  "a16",
+  "a14"
+ ],
+ "mean_conc_absent": null,
+ "mean_conc_top5_enriched": 5.146,
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": false,
+ "runtime_s": 84.40478730201721
 }

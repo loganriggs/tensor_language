@@ -11771,3 +11771,45 @@ Registered: (a) Spearman >= 0.5, (b) a14 tops both measures, (c)
 absent components are less selective than the top-five enriched.
 If (a) fails, the swarm's central instrument does not predict
 causal importance and that has to be said plainly.
+
+## 469. THE INSTRUMENT IS VALIDATED: enrichment predicts causal selectivity at rho 0.84
+
+enrichment_predicts mean-ablated ten components spanning
+r.3.0.2's writer table and correlated each one's enrichment ratio
+against the concentration of damage it causes on that leaf's
+members:
+  component  enrichment   concentration
+  a14           2.431          5.76
+  a15           2.334          5.40
+  a16           2.171          8.56
+  a13           1.774          3.40
+  a12           1.488          2.61
+  a7            1.064          1.97
+  m0            1.035          1.48
+  a1            1.021          1.84
+  m5            0.840          2.12
+  a0            0.737          1.68
+  Spearman = 0.842
+(a) HELD with room, and this is the result the swarm's whole
+method rests on: a cheap correlational table computed from
+forward passes alone predicts which component's REMOVAL will hurt
+a circuit's positions, at rank correlation 0.84. (b) HELD -- a14
+is top-two on both measures. The ordering is not perfect (a16 has
+the third-highest enrichment and the highest concentration at
+8.56), so the table ranks rather than measures.
+(c) FAILED, and the bar was unevaluable rather than false: I
+registered a control of components ABSENT from the writer table,
+but for a leaf whose machinery sits at layers 15-17 the table
+covers essentially every earlier component, so the absent set was
+empty. Recorded as a design error, not a negative result.
+Report updated with an instrument-check paragraph and
+republished.
+enrichment_generalize queued to ask the harder version: does the
+ordering survive on leaves whose table is NEGATIVE everywhere
+(every ratio near 1.0)? If it does, negative tables still carry
+usable signal below their own threshold; if it does not, a
+negative table means exactly nothing and the swarm should stop
+reporting the ratios in that case. Registered: (a) Spearman >=
+0.5 on at least one negative leaf, (b) negative leaves show a
+flatter concentration range than r.3.0.2's 7.08, (c) pooled
+Spearman across all three leaves >= 0.5.

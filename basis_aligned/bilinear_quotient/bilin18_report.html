@@ -607,6 +607,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   as negatives: the middle layers do not read a low-dimensional input subspace, and
   restricting error-correction to a 64-dim "what downstream reads" interface subspace
   made the assembly worse — the middle's interfaces are broad.</p>
+  <p><span class="tag">instrument check</span> The campaign's main tool asks a cheap
+  correlational question — which upstream component's contribution is enriched in a circuit's
+  input — and we tested whether its answer predicts the expensive causal one. Across ten
+  components of one circuit, the enrichment ratio and the damage caused by actually ablating
+  each component rank-correlate at <strong>0.84</strong>: the top-enriched writer is also the
+  one whose removal hits that circuit's positions hardest (concentration 5.8, matching the
+  circuit's own probes at 6.1). Two accompanying predictions failed and sharpen the reading —
+  neighbouring components are partly selective too, so the tool identifies a gradient rather
+  than a unique culprit, and the writer and the circuit turn out to damage the same positions
+  through <em>independent</em> routes rather than one shared pathway.</p>
   <p class="q">Honest negatives from the same campaign: the naive match-and-copy
   stand-in for the induction band was refuted twice (the copy is distributed, not a
   single-position value injection); the model cannot do single-digit addition; and

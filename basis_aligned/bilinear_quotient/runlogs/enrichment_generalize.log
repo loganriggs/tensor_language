@@ -1,0 +1,33 @@
+r.13.2.1: 8 components ['a2', 'a4', 'm1', 'a3', 'a6', 'm3', 'a0', 'm4']
+  a2: enr 1.041 conc 2.52
+  a4: enr 1.037 conc 2.33
+  m1: enr 1.02 conc 1.02
+  a3: enr 1.001 conc 3.04
+  a6: enr 0.995 conc 2.84
+  m3: enr 0.98 conc 1.81
+  a0: enr 0.962 conc 2.27
+  m4: enr 0.941 conc 2.43
+r.5.3.1: 8 components ['a2', 'a3', 'm3', 'a0', 'a1', 'm0', 'm2', 'm1']
+  a2: enr 1.048 conc 2.88
+  a3: enr 1.029 conc 2.79
+  m3: enr 1.011 conc 1.84
+  a0: enr 1.005 conc 2.16
+  a1: enr 1.005 conc 2.42
+  m0: enr 1.002 conc 1.63
+  m2: enr 0.967 conc 1.65
+  m1: enr 0.966 conc 1.01
+r.3.0.2: 9 components ['a14', 'a15', 'a16', 'a13', 'a7', 'm0', 'a1', 'm5', 'a0']
+  a14: enr 2.431 conc 5.76
+  a15: enr 2.334 conc 5.4
+  a16: enr 2.171 conc 8.56
+  a13: enr 1.774 conc 3.4
+  a7: enr 1.064 conc 1.97
+  m0: enr 1.035 conc 1.48
+  a1: enr 1.021 conc 1.84
+  m5: enr 0.84 conc 2.12
+  a0: enr 0.737 conc 1.68
+per-leaf spearman {'r.13.2.1': 0.119, 'r.5.3.1': 0.905, 'r.3.0.2': 0.783} | ranges {'r.13.2.1': 2.02, 'r.5.3.1': 1.87, 'r.3.0.2': 7.08} | pooled 0.521
+(a) ordering survives on a negative leaf: HELD
+(b) negative leaves are flatter: HELD
+(c) pooled spearman >=0.5: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/enrichment_generalize_results.json (200s)
