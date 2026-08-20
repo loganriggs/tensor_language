@@ -1,0 +1,24 @@
+{'punct': 1602, 'newline': 350, 'digit': 223, 'subword': 1496, 'space_word': 8531, 'capitalized': 1235}
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+batch 32 done
+batch 36 done
+batch 40 done
+batch 44 done
+punct: n 1602 in -0.0097 out +0.0154 dissoc -0.0251
+newline: n 350 in +0.0383 out +0.0113 dissoc +0.0269
+digit: n 223 in -0.0059 out +0.0124 dissoc -0.0183
+subword: n 1496 in +0.0083 out +0.0126 dissoc -0.0044
+space_word: n 8531 in +0.0165 out +0.0022 dissoc +0.0143
+capitalized: n 1235 in +0.0174 out +0.0115 dissoc +0.0059
+spared: ['punct', 'digit', 'subword'] | most spared: punct
+(a) a second class is spared (family): HELD
+(b) content classes pay extra damage: HELD
+(c) punctuation is the most spared: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/class_sparing_results.json (86s)

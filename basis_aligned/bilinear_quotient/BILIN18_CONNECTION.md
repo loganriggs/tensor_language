@@ -11597,3 +11597,56 @@ capitalized), each against everything else. Registered: (a) at
 least one other class is also spared, (b) content classes take
 EXTRA damage, (c) punctuation is the most spared or within 0.005
 of it.
+
+## 464. The survivor scoped: a FORMAT-TOKEN family, and content pays
+
+class_sparing priced the same bundle ablation on fresh rows for
+six mechanical target classes, each against everything else:
+  class         n      dCE in    dCE out   dissociation
+  punct       1602    -0.0097    +0.0154     -0.0251
+  digit        223    -0.0059    +0.0124     -0.0183
+  subword     1496    +0.0083    +0.0126     -0.0044
+  newline      350    +0.0383    +0.0113     +0.0269
+  space_word  8531    +0.0165    +0.0022     +0.0143
+  capitalized 1235    +0.0174    +0.0115     +0.0059
+ALL THREE BARS HELD. (a) punctuation is not alone -- digits are
+spared too, and subwords marginally. (b) content classes pay
+extra: space-initial words and capitalised words take MORE damage
+than average. (c) punctuation is the most spared.
+One prediction inside (a) was wrong in an interesting way: I named
+NEWLINE as the natural second member of a format family, and
+newline is the single WORST-damaged class (+0.0269). So the split
+is not "format versus content". It is closer to
+short-closed-class-token versus everything else: punctuation and
+digits are spared, ordinary words and capitalised words pay, and
+newlines -- which in this corpus mark document structure rather
+than in-sentence syntax -- pay most of all.
+Standing statement for the arc: ablating this bundle shifts the
+model's competence AWAY from content words and TOWARD punctuation
+and digits. Four explanations are dead (circuit-specific,
+frequency, selection, predictability) and the survivor now has
+measured boundaries.
+
+## 465. The free heads are genuinely free -- no redundancy pool
+
+free_head_redundancy tested whether the 39 individually-free heads
+are spare capacity or a redundancy pool, after the sink pair
+showed that "free" can mean "covered by a partner" (454).
+  individual costs, summed              -0.3372
+  all 39 deleted jointly                -0.0296
+  random subsets of 20 (3 draws)        -0.076, -0.074, -0.050
+  random subsets of 10 (3 draws)        -0.063, -0.039, -0.162
+  control: the 39 COSTLIEST heads       +2.9016
+(a) FAILED and (b) FAILED, both in the same direction: deleting
+all thirty-nine at once is still slightly BENEFICIAL (-0.030), and
+subsets are no cheaper than the whole. There is no superadditive
+blow-up, no hidden redundancy, no partner effect at the population
+level. (c) HELD emphatically -- the same-sized costly set costs
++2.90, a hundred-fold difference.
+So the sink pair's mutual cover (454) is a LOCAL structure, not a
+general property of cheap heads. Nearly a quarter of this model's
+attention heads can be removed together, on the corpus it was
+trained for, for free. That is a fact about trained-model slack
+worth having as a plain number, and it sharpens the earlier
+finding: the 39 are not a redundancy pool waiting to be exercised,
+they are simply not doing much.

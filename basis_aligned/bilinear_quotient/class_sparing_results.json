@@ -1,0 +1,50 @@
+{
+ "classes": {
+  "punct": {
+   "n": 1602,
+   "dce_in": -0.0097,
+   "dce_out": 0.0154,
+   "dissociation": -0.0251
+  },
+  "newline": {
+   "n": 350,
+   "dce_in": 0.0383,
+   "dce_out": 0.0113,
+   "dissociation": 0.0269
+  },
+  "digit": {
+   "n": 223,
+   "dce_in": -0.0059,
+   "dce_out": 0.0124,
+   "dissociation": -0.0183
+  },
+  "subword": {
+   "n": 1496,
+   "dce_in": 0.0083,
+   "dce_out": 0.0126,
+   "dissociation": -0.0044
+  },
+  "space_word": {
+   "n": 8531,
+   "dce_in": 0.0165,
+   "dce_out": 0.0022,
+   "dissociation": 0.0143
+  },
+  "capitalized": {
+   "n": 1235,
+   "dce_in": 0.0174,
+   "dce_out": 0.0115,
+   "dissociation": 0.0059
+  }
+ },
+ "spared_classes": [
+  "punct",
+  "digit",
+  "subword"
+ ],
+ "most_spared": "punct",
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": true,
+ "runtime_s": 86.29049897193909
+}
