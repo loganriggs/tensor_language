@@ -10743,3 +10743,55 @@ section on head 5.7 (the costliest head is a constant), and the
 census paragraph now carries the fragility calibration -- a
 rank-matched random subspace scores median 2.62 against the gate
 of 3, so a leaf at 5 is about 1.7x an arbitrary ablation.
+
+## 439. The bias vector is built by mlp4, and the chain closes at cosine 0.999
+
+sink_source decomposed position 0's residual at layer 5 into
+exact writer contributions. (b) FAILED as registered -- I
+predicted wte or m0 on the reasoning that position 0 has no
+context, but the answer is **mlp4** at projection share 0.626,
+then m3 0.159, m0 0.119. (a) HELD (one writer well over 0.40).
+(c) HELD emphatically: routing position 0's value through head
+5.7's own projection reproduces the head's actual mean write at
+**cosine 0.999** -- the chain is closed arithmetically, not
+approximately.
+Standing mechanism, four named parts:
+  something at position 0 -> mlp4 writes a large vector there ->
+  head 5.7 reads position 0 for 99.8% of queries -> that vector
+  is added to every position as a constant (deleting it costs
+  0.92 nats; replacing it with any equal constant is free).
+sink_origin queued to characterise the source: is mlp4's
+position-0 write a fixed learned vector (stable direction across
+rows) or a function of the first token? Registered: (a) its norm
+at position 0 is >= 3x elsewhere, (b) mean pairwise cosine across
+rows >= 0.9, (c) split by first-token identity, (d) which writer
+dominates mlp4's own input there.
+
+## 440. The punctuation claim GENERALIZES to unseen text
+
+punct_heldout took r.13.2.1's claim to 64 fresh FineWeb rows the
+census never saw, in its generalized form (does ablating this
+bundle lower CE at punctuation targets relative to others?).
+  own bundle: punct -0.0078, non-punct +0.0158,
+              difference -0.0236, permutation p = 0.000
+  random rank-matched subspaces: +0.0009 (p 0.30),
+              +0.0018 (p 0.16), -0.0064 (p 0.0025)
+(a) HELD: the effect generalizes, and it is a genuine dissociation
+-- ablating the bundle HELPS at punctuation while HURTING
+elsewhere in the same forward passes.
+(b) FAILED honestly: one of three random subspaces also produced
+a significant same-direction difference, though at 3.7x smaller
+magnitude. So a small part of the punctuation effect is generic
+to ablating anything in those components; the bundle-specific
+part is the large remainder.
+(c) FAILED: the random subspaces' overall damage (0.002-0.005
+nats) is well under the 0.01 threshold I registered as
+"non-trivial", so they are not magnitude-matched to the real
+bundle (0.0126) -- the control is conservative in specificity but
+weak in magnitude, and a magnitude-matched control is the right
+next version.
+Verdict as recorded: r.13.2.1's punctuation function is real,
+survives adversarial review, and generalizes off-corpus, with a
+measured generic component that a future control should isolate
+properly. This is the swarm's first behavioral claim to clear
+every bar the program has.

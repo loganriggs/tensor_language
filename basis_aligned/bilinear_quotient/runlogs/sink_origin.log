@@ -1,0 +1,16 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+m4 norm at pos0 155008.8 vs elsewhere 14803.4 (ratio 10.47)
+mean pairwise cosine of pos-0 writes: 0.9978 (same-first-token 1.0, different 0.9978)
+m4 input writers at pos0: [('m0', 0.4408), ('m3', 0.2975), ('m2', 0.1753), ('m1', 0.0547), ('a4', 0.0177)]
+(a) pos-0 write norm >=3x elsewhere: HELD
+(b) pos-0 direction stable (cos>=0.9): HELD
+(c) token split reported: HELD
+(d) upstream writers reported: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/sink_origin_results.json (1s)

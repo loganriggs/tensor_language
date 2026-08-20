@@ -1,0 +1,8 @@
+fresh rows: (64, 513)
+punct targets: 2158 of 16384
+own: {'punct': -0.0078, 'nonpunct': 0.0158, 'diff': -0.0236, 'p_perm': 0.0, 'overall': 0.0126}
+random: [{'punct': 0.0035, 'nonpunct': 0.0026, 'diff': 0.0009, 'p_perm': 0.3045, 'overall': 0.0027}, {'punct': 0.0035, 'nonpunct': 0.0017, 'diff': 0.0018, 'p_perm': 0.1575, 'overall': 0.002}, {'punct': -0.0007, 'nonpunct': 0.0056, 'diff': -0.0064, 'p_perm': 0.0025, 'overall': 0.0048}]
+(a) own punct effect generalizes (p<=0.01): HELD
+(b) random subspaces do not: FAILED
+(c) both ablations non-trivial: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/punct_heldout_results.json (112s)
