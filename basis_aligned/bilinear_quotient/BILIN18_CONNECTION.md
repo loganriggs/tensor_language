@@ -16059,3 +16059,38 @@ seven intermediate stories to get right (matcher -> pointer ->
 adaptive -> distance -> fixed positional AND); the newline head is
 a token detector that never needed the positional machinery at
 all.
+
+## 563. Third-head test inconclusive -- I tested a target the head
+## may not use
+
+quote_and_factors applied the AND test to head 10.7 (opening
+quotes), predicting a token-detector like newlines.
+  match/distractor ratio: f1 1.38 | f2 0.85 | PRODUCT 1.06
+(0) exact. (a) FAILED. But the failure is diagnostic, not a
+refutation: the product ratio (1.06) is LOWER than f1 (1.38),
+because f2 prefers the distractor (0.85 < 1). The two factors
+disagree about my defined match, which means the head is NOT
+selecting "the most recent preceding quote" -- the target I chose
+by analogy with brackets and newlines.
+This is a methodological miss, and I should have caught it before
+running. For brackets and newlines I knew the attention target
+(the matching opener; the recent newline, from 497/523) before
+testing HOW the head discriminates. For the quote head I assumed
+the target was "the most recent preceding quote" without checking,
+and opening-quote prediction plausibly does not work by attending
+back to an earlier quote at all -- it is a start-of-quoted-speech
+cue, more about local context than about a referent key.
+So the general account -- fixed query, double-QK AND, position for
+matching vs identity for detection -- STANDS at the two heads
+fully worked out (brackets, newlines) and is NOT YET extended to a
+third. The quote result says nothing against it; it tested the
+wrong quantity.
+The rule this re-establishes: identify WHERE a head attends before
+testing HOW it discriminates. quote_destination is queued to do
+that first step for head 10.7 -- the signed score-mass profile at
+opening-quote targets over candidate key classes (recent quote,
+line start, sentence start, previous token, position 0) -- so the
+next AND test, if warranted, uses the head's real target. If 10.7
+has no clean attention target, it is a detection head whose
+"selection" is trivial and the AND framing does not apply, which
+is itself a finding about the limits of the account.
