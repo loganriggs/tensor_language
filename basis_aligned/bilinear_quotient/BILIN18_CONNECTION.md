@@ -16633,3 +16633,55 @@ throughout, now stated for the query computation itself.
 No new speculative experiment is queued -- the census is a
 model-wide result and a natural conclusion; extending further is a
 direction choice, not a reflex.
+
+## 575. Fixed-query tolerance does not compose -- but the joint
+## approximation is still moderate (~1 nat)
+
+fixed_query_joint replaced ALL 162 queries with their means at
+once. Baseline CE 3.3536.
+  joint cost (all queries fixed to means)   +0.9607
+  sum of the 162 individual costs (574)     +0.2499
+  composition ratio                          3.84  (superadditive)
+  joint with RANDOM queries                 +10.3481
+  cumulative by layer 0..k:
+    0    +0.0389      8   +0.6993
+    2    +0.2388     11   +0.8506
+    5    +0.5711     14   +0.9263
+                     17   +0.9607
+NULL ok: random queries cost +10.35, more than 10x the mean-query
+joint, so the means are a meaningful fixed-query approximation.
+So per-head fixed-query tolerance DOES NOT COMPOSE: the joint cost
+(0.96) is 3.84x the sum of the individual costs (0.25). This is
+the same superadditivity the program has found for every joint
+compression (interface rank 540/541, prefix accumulation 543) --
+components each tolerate an approximation, but the errors compound
+when applied together.
+The magnitude, though, keeps the two-class account intact and
+quantifies it. Fixing the model's ENTIRE query computation costs
+0.96 nats -- about 29% of the baseline CE -- against 10.35 for
+random queries, a factor of 11. So the model's attention is
+APPROXIMATELY fixed-query to within about one nat: the fixed-query
+selection mechanism captures the bulk of what the queries do, and
+the residual content-query computation across the whole model is
+worth roughly 1 nat, distributed and superadditive.
+The cumulative curve confirms 574's early-layer lead and refines
+it: layers 0-5 already account for 0.57 of the 0.96 (59%), and the
+first three layers give 0.24 (25%), so early attention carries
+more of the content-query signal per layer -- but the cost keeps
+accruing through the whole stack, not just early. The query
+computation is front-loaded but not confined to the front.
+Final quantified statement for the attention-mechanism line:
+  * the model's attention is dominated by FIXED-QUERY SELECTION --
+    fixing all queries costs ~1 nat, 11x better than random;
+  * the CONTENT-QUERY remainder (induction and the rest) is worth
+    ~1 nat, distributed across many heads, superadditive, and
+    front-loaded in the early layers;
+  * per-head fixed-query tolerance is a per-head fact, not a joint
+    one -- it does not compose to free, consistent with every
+    other composition result in this model.
+This is a clean, honest, whole-model conclusion, grounded in the
+validated classifier and the exact double-QK decomposition. The
+attention-mechanism line is complete. No new speculative
+experiment is queued; the next step is a deliberate direction
+choice (the early-layer content queries, the MLP computation, or
+the front-of-model tables), not another reflexive run.
