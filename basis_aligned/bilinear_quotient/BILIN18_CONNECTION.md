@@ -15050,3 +15050,49 @@ output of a system with cancellation in it, and the honest way to
 search for a front-of-model stand-in is joint optimization rather
 than any per-component rule. Recorded as a constraint on the
 benchmark rather than a result about compressibility.
+
+## 544. Block 1 is a function of the token PAIR
+
+front_table2 repeated 542's construction one block up, where the
+indexing variable is not known in advance. Block 1's input is the
+residual after block 0, and attn0 is exactly a bigram table, so
+the guess was the token pair. Tables were built in the
+64-dimensional interface basis over the census corpus: 24634
+tokens and the observed (previous, current) pairs, with backoff to
+the unigram row for unseen pairs.
+  arm                                        cost
+  unigram table (current token only)       +0.9043
+  bigram table (token pair, with backoff)  +0.5218
+  the real write at the same rank            +0.3781  (ceiling)
+  shuffled-index table                     +3.55 to +3.57
+(0) HELD exactly: the ceiling reproduces 541's block-1 figure of
+0.3781.
+(a) FAILED: the unigram table costs 0.904, over the 0.60 bar I
+registered. Block 1 is genuinely not a function of the current
+token, which 542 could not have told us because at block 0 it is.
+(b) HELD by a wide margin: the bigram table beats the unigram
+table by 0.382 nats.
+(c) HELD: the distance to the ceiling falls from 0.526 to 0.144 --
+the token pair closes 73% of what the single token leaves on the
+table.
+NULL ok: indexing the same table by a randomly chosen token costs
+3.55, nearly four times the unigram table, so both tables are
+using their variables.
+So the substitution route generalizes, and it generalizes with the
+variable the architecture predicts. The first two blocks of this
+model are:
+  block 0   a table indexed by the TOKEN        0.18 nats
+  block 1   a table indexed by the TOKEN PAIR   0.52 nats
+and in both cases the indexing variable was derivable from the
+weights before any table was built -- block 0 because its input is
+exactly the embedding (535), block 1 because the only thing
+between it and the embedding is an exact bigram table.
+The honest caveats. The cost is climbing steeply: 0.18 at block 0
+and 0.52 at block 1, and 543 showed these do not add when applied
+together, so "the front is two tables" is not yet a measured
+claim. And the bigram table has a coverage problem by
+construction -- it holds only pairs the corpus contained, backing
+off to the unigram row otherwise, so its cost on genuinely fresh
+pair statistics would be higher than measured here. The number to
+quote is that indexing on the pair closes 73% of the gap, not that
+block 1 costs 0.52.
