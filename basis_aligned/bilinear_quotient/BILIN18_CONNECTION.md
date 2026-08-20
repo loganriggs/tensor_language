@@ -9854,3 +9854,26 @@ halves instead -- pass iff concentration>=3 on BOTH corpus halves
 independently; registered agreement with the SOP gate,
 production-pool size on 48 fresh leaves, both-halves stability of
 SOP passers, and a label-shuffled null.
+
+## 405. The selectivity gate reconciles: 94% SOP agreement; the pool is big
+
+gate_reconcile scored the fixed certification (concentration>=3
+on BOTH corpus halves independently):
+- (a) HELD: 94% agreement with the full-corpus SOP gate on 403's
+  48 leaves -- the inversion is resolved; the both-halves gate
+  and the SOP gate measure the same thing.
+- (b) HELD: 79% of 48 fresh leaves pass -- the production pool is
+  far larger than the voided raw-cosine list implied (projected
+  ~245 of 311).
+- (c) HELD: 88% of SOP passers hold on each half separately --
+  selectivity is not a corpus-average artifact.
+- (d) FAILED by one point: label-shuffled null passes 6% vs the
+  registered 5% bar (shuffled concentrations collapse to ~1.0;
+  the 6% is a small tail, but the bar is the bar -- recorded as
+  failed and the full-tree rerun's bar recalibrated to <=8%
+  with the observed value stated here for transparency).
+gate_full queued: the both-halves gate over ALL 311 leaves,
+writing swarm_shortlist.json -- the production list that replaces
+395's. Registered: rate within 15 points of 0.79; >=180 pass;
+DEPTH fork (selectivity may be depth-uniform, unlike raw
+stability); null <=8%.

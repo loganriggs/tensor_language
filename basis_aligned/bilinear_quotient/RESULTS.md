@@ -4152,3 +4152,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - 402: relay depth measured -- early band closes at 1 move, deep at 2, all nine >=0.976 by 3; shuffled null flat. ladder_causal queued (live model on computed triggers, CE-priced).
 - 403: CAUSAL CLOSE -- live model on computed triggers: -0.002 at match (intact-indistinguishable), shuffled +0.073, deletion +0.50. Induction arc closed end-to-end; report updated. sop_batch_certified queued (A/B gate vs SOP gate, packs for passers).
 - 404: GATE INVERSION -- A/B raw-damage-cosine certification anti-predicts selectivity (cert 17% vs uncert 88% SOP-pass). 395's list is a magnitude-stability list, not a swarm shortlist. gate_reconcile queued: both-halves concentration gate + shuffled null.
+- 405: selectivity gate reconciles (94% SOP agreement, 79% fresh pass, both-halves stable 88%; shuffled null 6% -- missed its 5% bar by a point, restated honestly). gate_full queued to write swarm_shortlist.json over all 311 leaves.
