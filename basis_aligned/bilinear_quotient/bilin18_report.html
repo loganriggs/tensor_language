@@ -132,7 +132,8 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">11</span><a href="#circuits">The circuit program</a></li>
     <li><span class="num">12</span><a href="#code">The model on readable code</a></li>
     <li><span class="num">13</span><a href="#sink">The most expensive head is a constant</a></li>
-    <li><span class="num">14</span><a href="#open">What's still open</a></li>
+    <li><span class="num">14</span><a href="#overcontinue">A bias the model actually has</a></li>
+    <li><span class="num">15</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -735,6 +736,30 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   twelve heads that cost more than 0.02 nats the median share explained by a constant is 39%.
   Bias-adding is not a widespread role in this model — it is one enormous special case sitting
   on top of an otherwise contextual stack.</p>
+</section>
+
+<section class="col">
+  <h2 id="overcontinue">A bias the model actually has</h2>
+  <p>One thread started as a circuit claim and ended somewhere better. Several independently
+  discovered damage-clusters shared a behaviour: ablating their machinery <em>improved</em> the
+  model's predictions at punctuation. Three rounds of controls dismantled the obvious readings —
+  it is not specific to any one cluster (a component belonging to none of them reproduces it),
+  and it is not explained by punctuation simply being frequent (within the top frequency quartile
+  punctuation still helps 78% against 54% for everything else).</p>
+  <p>What it actually is: <strong>the model systematically over-continues at phrase
+  boundaries</strong>. At positions where ablation helps and the true next token is punctuation,
+  the intact model's top choice is a <em>non-punctuation continuation</em> 75% of the time — it
+  wants to keep the sentence going where the text ends it. Ablation lowers exactly that wrong
+  competitor's probability by 0.108, while a random token's probability moves by 0.0000012, five
+  orders of magnitude less. The reverse asymmetry does not exist: at the 1,194 helped
+  non-punctuation positions, the model's top choice is punctuation only 13% of the time.</p>
+  <p class="q">The bias has a location as well as a description. Reading each component's write
+  through the unembedding at those sites, all five components whose removal helps push the wrong
+  continuation harder than the true target — margins of +3.1 to +8.9 logits after correcting for
+  the stream-centre offset — while the one control component that does not help sits at +0.04, a
+  hundred-fold separation. So "ablating this machinery helps" turned out to mean "this machinery
+  is where a real deficiency lives", which is a more useful finding than the circuit we were
+  looking for.</p>
 </section>
 
 <section class="col">

@@ -11400,3 +11400,44 @@ axis projected out of every write and re-check the logit
 asymmetry under the same projection. Registered: (a) recentered
 cosine >= 0.30 AND at least 0.15 above the control's, (b) verdict
 recorded either way, (c) the logit asymmetry survives.
+
+## 459. Recentered: the geometry is dead, the logit asymmetry is 100x -- and a bar-design lesson
+
+punct_overconf_recentered projected the layer-5 stream-centre axis
+out of every component write and redid both legs.
+  component  ->competitor  ->target   margin
+  a3            4.926        1.781    +3.15
+  a6            4.090       -3.520    +7.61
+  a7           10.048        3.101    +6.95
+  a8           11.726        2.816    +8.91
+  m7           13.041        8.145    +4.90
+  a12 CTRL      5.996        5.957    +0.04
+(a) FAILED, and it settles the question: after recentering the
+helpers' mean pairwise cosine falls to 0.294 while the CONTROL
+sits at 0.349 -- HIGHER than the helpers. The five components do
+NOT share a special direction. 458's 0.712 was the stream-centre
+inflation and nothing else; the geometry leg is now closed as
+uninformative rather than left as a soft positive.
+(c) FAILED AS WRITTEN, and the failure is my bar's fault, not the
+result's: I required the control to not push the competitor AT
+ALL, and after recentering a12's margin is +0.039 -- positive by
+four hundredths. Every helper sits between +3.15 and +8.91. The
+discrimination is a factor of ~100 in MAGNITUDE and the binary
+sign test threw it away. Lesson recorded for the program's bar
+design: when the quantity is continuous and the effect is a
+ratio, register a margin, never a sign.
+Standing statement, unchanged by both failures: five components
+push the wrong continuation at these sites by 3 to 9 logits, the
+one component whose ablation does not help pushes it by 0.04, and
+the effect is not carried by a shared direction. The deficiency
+is distributed across components that each independently favour
+continuation.
+Report updated and republished with the whole arc as a new
+section: "A bias the model actually has".
+punct_repair queued -- the strongest test available for a claimed
+deficiency. Fit the over-continuation direction on census sites,
+subtract a scaled multiple of it from the residual at EVERY
+position on FRESH FineWeb rows, and see whether the model gets
+BETTER. Registered: (a) CE falls at the best scale, (b) the gain
+concentrates at punctuation by >= 3x, (c) a random direction of
+the same norm at the same scales does not help.
