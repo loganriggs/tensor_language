@@ -15,7 +15,8 @@ residual entering layer 12 as writer parts p_i (cl.writer_parts,
 exact to 1e-7). rms_norm is a per-position scalar and rotary is a
 rotation, so with
     Q_i(q) = R_q( (W_q p_i(q))_head6 ),  K_j(k) likewise,
-    C(q,k) = the product of the four per-position scalars / 128
+    C(q,k) = 1/128  (the rms scalars divide into each writer's
+                     own share, so nothing else remains)
 each factor of the score is EXACTLY and ADDITIVELY
     factor1(q,k) = C(q,k) * SUM_ij Q_i(q).K_j(k)
 over 25x25 = 625 writer pairs, and since score = factor1*factor2,
@@ -153,13 +154,17 @@ def main():
             f1r,f2r=real_factors(X,B)
             # exact rebuild of factor1 from all pairs
             sq=P['q'].sum(0); sk=P['k'].sum(0)
-            f1=torch.einsum('bqd,bkd->bqk',sq,sk) \
-               *(cq1[:,:,None]*ck1[:,None,:])/128*TRI
+            # the per-position and per-head rms scalars are
+            # already divided into each writer's share, so the
+            # summed shares ARE the normalized rotated vectors and
+            # no prefactor remains. Applying the scalars a second
+            # time was the bug the exactness gate caught (rel err
+            # 17.4 -> see writeup 514).
+            f1=torch.einsum('bqd,bkd->bqk',sq,sk)/128*TRI
             err['score'].append(
                 float((f1-f1r).norm()/f1r.norm().clamp_min(1e-9)))
             sq2=P['q2'].sum(0); sk2=P['k2'].sum(0)
-            f2=torch.einsum('bqd,bkd->bqk',sq2,sk2) \
-               *(cq2[:,:,None]*ck2[:,None,:])/128*TRI
+            f2=torch.einsum('bqd,bkd->bqk',sq2,sk2)/128*TRI
             for nm,mask in (('nl',nl[i:i+4]),('ct',ctrl[i:i+4])):
                 for b in range(B):
                     qs=mask[b].nonzero().squeeze(1).to(DEV)
@@ -167,9 +172,8 @@ def main():
                     Qi=P['q'][:,b][:,qs]                # (NW,nq,128)
                     Kj=P['k'][:,b]                      # (NW,T,128)
                     pr=torch.einsum('iqd,jkd->ijqk',Qi,Kj)
-                    w=(cq1[b][qs][None,None,:,None]
-                       *ck1[b][None,None,None,:]/128)
-                    term=pr*w*f2[b][qs][None,None]*TRI[qs][None,None]
+                    term=(pr/128)*f2[b][qs][None,None] \
+                         *TRI[qs][None,None]
                     mass[nm]+=term.abs().sum(dim=(2,3)).cpu()
             yield i,X,P,(cq1,ck1,cq2,ck2),f2
     for _ in sweep(): pass

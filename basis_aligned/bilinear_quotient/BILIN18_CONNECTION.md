@@ -13536,3 +13536,60 @@ that matter. But the ratio column should not be quoted until
 behaviour_atlas2 re-runs it against the GLOBAL mean damage over
 all positions -- a denominator that cannot move when a class is
 large. Queued.
+
+## 514. The document gate was on the other path
+
+506 silenced writers on head 12.6's QUERY only, found the gate
+unlocated, and I wrote that the gate had no source. newline_head_kv
+runs the identical surgery on the KEY side, the VALUE side, and
+both, against a baseline AUC of 0.7829 and a gate gap of +0.0503.
+  side    biggest gate mover     biggest detector mover
+  query   a11   -0.0033          m9    -0.0154   (506)
+  key     a10   -0.0123          wte   -0.0435
+  value   a10   -0.0144          wte   -0.0423
+  key+val a10   -0.0243          wte   -0.0984
+(a) HELD: a10 on the key+value path moves the document gate by
+-0.0243, against a registered bar of 0.015 and against the 0.0033
+that the whole query side could manage. That is 48% of the gate,
+from one named component, and it is roughly additive across the
+two paths (0.0123 + 0.0144 = 0.0267 against 0.0243 jointly).
+(c) HELD: silencing all component writers on key+value drops AUC
+to 0.6662.
+(b) HELD, and now on numbers large enough to mean something: the
+gate's source (a10) and the detector's (wte) are different, and
+they arrive on the same path rather than on different ones.
+Silencing all context on the KEY side alone takes the gate gap
+from +0.0503 to -0.0193 -- it does not merely shrink, it reverses.
+So the two inputs of 501 are real and both live on the key/value
+side. The head asks "does this key position look like a line
+end", and the answer is mostly lexical: the token embedding
+reaching keys and values is worth 0.098 of AUC, nine times the
+best single context writer. The document-level gating -- the same
+period getting 2.1x the push in line-broken text -- is carried by
+a10, which is also the leading component for opening quotes and
+sentence ends in the behaviour atlas (513). a10 is starting to
+look like a structure-tracking component rather than a newline
+one, and that is a thread worth pulling.
+The correction to my own earlier claim is plain: 506's "the
+document gate has no located source" was wrong, and it was wrong
+because I only looked at one of the head's three input paths.
+
+## 515. The first tier-4 attempt voided itself on my algebra
+
+newline_head_pairs (512) ran and its exactness gate stopped it:
+the writer parts reproduce the layer-12 input to 1.29e-7, but my
+625-term reconstruction of the head's score missed the real score
+by a relative error of 17.4.
+The bug was double-counting the normalizers. rms_norm is a
+per-position scalar and the per-head rms is another, and I divided
+each writer's share by them AND multiplied the assembled factor by
+them again. Once each writer's share carries the scalars, the
+summed shares ARE the normalized rotated vectors and the only
+remaining constant is the 1/128. Fixed and requeued; the
+confirmatory detail is that the four projections carry no bias, so
+the per-writer shares sum exactly with nothing left over.
+Worth stating because it is the third time an exactness check has
+paid for itself in this session: 503's decomposition error, this
+one, and the 443 injection-scale error before them were all caught
+by a registered arithmetic bar rather than by a suspicious result.
+The gate cost one run and saved a wrong mechanism claim.
