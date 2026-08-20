@@ -14348,3 +14348,48 @@ carries a differentiated bet -- the bracket head should lose
 almost everything, while the newline head, which responds to
 sentence-final punctuation and to document type rather than to
 distance, should not.
+
+## 531. The positional pointer adapts
+
+bracket_range split the 138 match cells by distance instead of
+pooling them, on 384 rows so the far bins populate.
+  distance   n    match share   distractor   ratio   rotary-off
+    1-2      79     0.3241        0.0657      4.93      1.08
+    3-5      28     0.3221        0.0358      8.98      1.06
+    6-11     15     0.2942        0.0486      6.05      1.04
+    12+      16     0.1961        0.0170     11.52      1.05
+(0) HELD: every bin has at least 12 cells.
+(a) HELD: at 6-11 tokens the match share is 6.05x the distractor
+share at the same distance.
+(b) HELD: the match share at 6-11 (0.2942) is 91% of the share at
+1-2 (0.3241), nowhere near the half-strength floor. Even at 12+
+tokens it holds 0.1961, and the RATIO is highest there at 11.52
+because the distractor share falls faster than the match share.
+(c) HELD: with rotary disabled the ratio sits at 1.04-1.08 in
+every bin -- the collapse of 529 is not a short-range artifact, it
+is total at every distance.
+NULL VIOLATED as coded, and the coding was too strict: I required
+the distractor share to be monotonically non-increasing with
+distance, and it goes 0.0657, 0.0358, 0.0486, 0.0170 -- one bin
+out of order by 0.013. The concern the null was meant to catch,
+that the contrast is manufactured by the distance split, is not
+supported: the distractor share falls overall while the match
+share barely moves.
+This partly rehabilitates the pointer and refines 529. The head is
+POSITIONAL -- remove rotary and it cannot tell the match from any
+other opener, at any distance -- but the distance is COMPUTED, not
+baked in. A fixed short-range rule would have lost the match
+entirely past a few tokens; instead the match share is 91% of its
+near-range value at 6-11 tokens and still 60% at 12 or more.
+So the accurate description, replacing both "symbolic matcher"
+(too strong, 529) and "fixed short offset" (too weak):
+  head 13.8 computes a DISTANCE from its query and selects the key
+  at that distance, ignoring what token sits there. The distance
+  it computes tracks where the matching opener actually is, out to
+  at least 32 tokens.
+What it cannot do is disambiguate by content, which is why nesting
+defeats it (526): when two openers compete, only their positions
+distinguish them, and the head has no way to prefer the one whose
+type and depth match. The query must therefore already know how
+far back to look -- that computation is upstream and unlocated,
+and it is the next thing worth chasing on this circuit.

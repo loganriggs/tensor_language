@@ -1,0 +1,13 @@
+138 cells | match distance median 2 IQR 3 range 1-32
+
+bin      n    match   distractor  ratio | no-rotary ratio
+   1-2   79   0.3241      0.0657   4.93 |   1.08
+   3-5   28   0.3221      0.0358   8.98 |   1.06
+  6-11   15   0.2942      0.0486   6.05 |   1.04
+  12-+   16   0.1961      0.0170  11.52 |   1.05
+(0) every bin has >=12 cells: HELD
+(a) 0.14840000000000003 vs bar 1e-09: HELD
+(b) 0.13215000000000002 vs bar 1e-09: HELD
+(c) rotary-off ratio < 2.0 in every populated bin: HELD
+NULL (distractor share does not rise with distance: [0.0657, 0.0358, 0.0486, 0.017]): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_range_results.json (708s)
