@@ -11249,3 +11249,45 @@ of the centre, which is why 5.2 looks nearly free on its own
 (0.015) and expensive once its partner is gone. That is a
 redundancy structure, and it is the first clean instance of one
 in this program's causal graph.
+
+## 455. SCOPE CORRECTION: the punctuation effect is damage-general, not leaf-specific
+
+punct_carrier mean-ablated whole components and scored the same
+punctuation populations:
+  component  r.18.2.0        r.13.2.1        r.11.1.2
+  a7         exc 0.263 ***   exc 0.246 ***   exc 0.100
+  a3         (carrier)       (carrier)       --
+  a6         exc 0.022       exc 0.157       exc 0.177
+  a8         exc 0.116       exc 0.203 **    exc 0.112
+  a4         exc 0.175       exc 0.141       exc 0.149
+  a9         exc 0.060       exc 0.143       exc 0.008
+  a12 CTRL   exc -0.135      exc -0.022      exc -0.267  (clean)
+  m7  CTRL   exc 0.254 ***   exc 0.208 **    exc -0.003  (NOT
+                                                         clean)
+(a) and (b) HELD -- carriers exist and include shared components
+-- but (c) FAILED, and that failure outranks them: m7 belongs to
+NONE of the three bundles and reproduces the effect at p=0.0005.
+CORRECTION, stated plainly and propagated to all three circuit
+records: the punctuation effect is NOT specific to these leaves'
+machinery. Several different whole-component ablations produce
+it; only a12 is clean. What remains true and measured is (i) each
+leaf's own bundle produces it, (ii) 16-dimensional random
+subspaces inside the same components do NOT (453), and (iii) it
+generalizes to fresh FineWeb text (440). So it is not "any
+damage" -- small random damage does nothing -- but it is not this
+circuit's private function either.
+One explanation covers every one of those facts and ties the arc
+back to 442, where the sink constant read out as a UNIGRAM-
+FREQUENCY PRIOR: sufficiently large damage makes the model fall
+back toward that prior, which helps wherever the true next token
+is high-frequency -- and punctuation is the most frequent class
+in the corpus. frequency_fallback queued to test it directly:
+(a) does help-rate rise monotonically across unigram-frequency
+quartiles, (b) does punctuation retain excess AFTER conditioning
+on frequency, (c) does ablation move the model's predictions
+measurably toward the unigram distribution (KL).
+If (a) and (c) hold and (b) shows no residual excess, the
+program's most-tested behavioral claim resolves into a general
+property of damaged prediction rather than a circuit function --
+and the swarm's behavioral bar needs a frequency control added
+before any future class claim is kept.

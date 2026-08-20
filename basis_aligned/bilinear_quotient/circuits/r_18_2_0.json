@@ -431,6 +431,13 @@
    "date": "2026-08-20",
    "verdict": "CLAIM REINSTATED (qualified)",
    "note": "reviewer-two WEAKENed the punctuation claim under the v1 ROBUST gate (seed_pass_frac 0.40 < 0.60). The reviewer also showed that gate is underpowered: a true 84% effect draws 5/5 only ~41% of the time. Whole-population test: 36/43 hits vs base rate 0.528, p~0. Gate replaced by ROBUST_V2 (population-level, n>=10), under which this claim PASSES. The WEAKEN verdict stands as the contemporaneous judgment; the claim is reinstated as real-but-small, per writeup 424."
+  },
+  {
+   "test": "driver-scope-correction",
+   "source": "fable-driver",
+   "date": "2026-08-20",
+   "verdict": "SCOPE CORRECTED",
+   "note": "454 CORRECTION: whole-component mean-ablation of m7 -- a component in NO leaf bundle -- reproduces this punctuation effect (excess 0.254/0.208, p=0.0005/0.0024 on r.18.2.0 and r.13.2.1), as do a3, a7 and a6. The effect is therefore NOT specific to this leaf's machinery, though 16-dim random subspaces within the same components do not produce it (453). Leading explanation under test (frequency_fallback): damage makes the model fall back toward the unigram prior, which helps wherever the target is high-frequency. The claim stands as measured; its SCOPE is corrected from leaf-specific to damage-general."
   }
  ],
  "provenance": {

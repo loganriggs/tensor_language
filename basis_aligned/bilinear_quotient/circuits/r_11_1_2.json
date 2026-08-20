@@ -781,6 +781,68 @@
    "verdict": "HELD",
    "source": "SOP-step5",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave5",
+   "date": "2026-08-20",
+   "verdict": "CONFIRM",
+   "concentration_recheck": {
+    "full": 5.82,
+    "half0": 6.02,
+    "half1": 5.65,
+    "target_full": 5.82,
+    "deviation_pct": 0.0
+   },
+   "mechanism_reproduced": true,
+   "mechanism_recheck": {
+    "a8": {
+     "top_writer": "a4",
+     "ratio_mean": 1.146,
+     "ratio_min": 1.085,
+     "ratio_max": 1.233,
+     "threshold_v2": 1.3,
+     "headroom": -0.215,
+     "ENRICHED_STABLE2": false
+    },
+    "a3": {
+     "top_writer": "a2",
+     "ratio_mean": 1.106,
+     "ratio_min": 1.048,
+     "ratio_max": 1.182,
+     "threshold_v2": 1.3,
+     "headroom": -0.252,
+     "ENRICHED_STABLE2": false
+    },
+    "a4": {
+     "top_writer": "a2",
+     "ratio_mean": 1.111,
+     "ratio_min": 1.051,
+     "ratio_max": 1.178,
+     "threshold_v2": 1.3,
+     "headroom": -0.249,
+     "ENRICHED_STABLE2": false
+    },
+    "note": "honest negative reproduced exactly: no single-writer enrichment clears threshold_v2=1.3 on any of a8/a3/a4"
+   },
+   "punct_reproduced": {
+    "n": 51,
+    "hits": 36,
+    "p_value": 0.0007,
+    "ROBUST_V2": true,
+    "seed_pass_frac": 0.4,
+    "note": "exact match to record (identical n_tests=12, alpha=0.0083)"
+   },
+   "punct_random_subspace": "ATTACK (ii) specificity: built rank-matched random orthonormal subspaces (a8 rank2, a3 rank6, a4 rank8 = same total dims as the leaf top_probes) via torch.randn+orth, hooked the same 3 components (a8/a3/a4), 3 seeds. None reproduced the punct effect: seed101 hits=17/51 p=0.9963 (help_rate 0.33), seed202 hits=29/51 p=0.1781 (0.57), seed303 hits=26/51 p=0.5 (0.51); all beats_base_rate=False, all ROBUST_V2=False -- vs real leaf 36/51 p=0.0007. Random-subspace ablations were also much weaker overall (abs_dce_members 0.052-0.057 vs 0.795 real; concentration 2.8-2.96 vs 5.82 real), since the leaf directions were selected to maximize member concentration -- so this control is not magnitude-matched, only rank-matched (see objection). Directionally clean regardless: none of the 3 random draws even leaned toward beating base rate.",
+   "punct_baseCE_confound": "ATTACK (iii): punct members have LOWER base CE than other members (punct mean=4.287/median=3.600 vs other-members mean=5.439/median=5.007; all-members mean=5.371). Help-rate (dCE<0) rises monotonically with base-CE quartile across all 864 members: Q1(lowest CE,mean1.73)=32.0%, Q2(mean3.90)=47.7%, Q3(mean6.15)=53.7%, Q4(highest CE,mean9.70)=56.0%. This trend runs OPPOSITE to what a base-CE artifact would need to explain the punct result: since punct members skew toward the LOW-help-rate quartiles (20/15/11/5 members in Q1..Q4), a base-CE-only story predicts punct help rate ~=43.6% (quartile-weighted), 27 points below the observed 70.6% (36/51). Matches the r.13.2.1 reviewer finding of an opposite-direction confound trend -- the confound cannot explain this claim, if anything it works against it.",
+   "objection": "Two residual concerns keep this from being airtight. (1) The random-subspace control (attack ii) is rank-matched but not magnitude-matched -- random directions in a8/a3/a4 produce ~5.5x smaller abs_dce_members than the trained leaf directions (expected, since the leaf was selected to maximize concentration), so the control has less statistical power a priori; a magnitude-matched control (scale random ablation to the same abs_dce_members) would be a stronger test, though the fact that none of 3 random seeds even trended toward the punct effect (help rates 33/57/51% vs base ~47-51%, no seed beating base rate) is still informative. (2) seed_pass_frac=0.4 (only 2/5 five-item sub-draws individually significant, seed 11 gives 3/5 hits p=0.45) means the population-level significance leans on pooling all 51 members rather than a uniformly strong per-draw signal; I did not check whether the 51 punct positions cluster into a small number of near-duplicate FineWeb contexts (e.g. repeated template sentences), which would inflate the effective sample size beyond 51 independent trials. Neither concern overturns the verdict but both bound its strength."
+  },
+  {
+   "test": "driver-scope-correction",
+   "source": "fable-driver",
+   "date": "2026-08-20",
+   "verdict": "SCOPE CORRECTED",
+   "note": "454 CORRECTION: whole-component mean-ablation of m7 -- a component in NO leaf bundle -- reproduces this punctuation effect (excess 0.254/0.208, p=0.0005/0.0024 on r.18.2.0 and r.13.2.1), as do a3, a7 and a6. The effect is therefore NOT specific to this leaf's machinery, though 16-dim random subspaces within the same components do not produce it (453). Leading explanation under test (frequency_fallback): damage makes the model fall back toward the unigram prior, which helps wherever the target is high-frequency. The claim stands as measured; its SCOPE is corrected from leaf-specific to damage-general."
   }
  ],
  "provenance": {

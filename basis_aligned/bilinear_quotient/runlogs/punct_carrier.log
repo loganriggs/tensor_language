@@ -1,0 +1,13 @@
+a3: r.18.2.0 exc 0.181 p 0.0126 | r.13.2.1 exc 0.188 p 0.006 | r.11.1.2 exc 0.105 p 0.0854
+a7: r.18.2.0 exc 0.263 p 0.0003 | r.13.2.1 exc 0.246 p 0.0003 | r.11.1.2 exc 0.1 p 0.0959
+a8: r.18.2.0 exc 0.116 p 0.0832 | r.13.2.1 exc 0.203 p 0.003 | r.11.1.2 exc 0.112 p 0.0707
+a4: r.18.2.0 exc 0.175 p 0.0152 | r.13.2.1 exc 0.141 p 0.0334 | r.11.1.2 exc 0.149 p 0.0228
+a6: r.18.2.0 exc 0.022 p 0.4457 | r.13.2.1 exc 0.157 p 0.0189 | r.11.1.2 exc 0.177 p 0.0079
+a9: r.18.2.0 exc 0.06 p 0.261 | r.13.2.1 exc 0.143 p 0.0294 | r.11.1.2 exc 0.008 p 0.5168
+a12: r.18.2.0 exc -0.135 p 0.9732 | r.13.2.1 exc -0.022 p 0.673 | r.11.1.2 exc -0.267 p 1.0
+m7: r.18.2.0 exc 0.254 p 0.0005 | r.13.2.1 exc 0.208 p 0.0024 | r.11.1.2 exc -0.003 p 0.5725
+carriers (excess>=0.15 on >=2 leaves): ['a3', 'a7', 'a6', 'm7']
+(a) a single-component carrier exists: HELD
+(b) the carrier is a shared component: HELD
+(c) a12 and m7 controls clean: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/punct_carrier_results.json (107s)

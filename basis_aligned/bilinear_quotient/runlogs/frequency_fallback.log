@@ -1,0 +1,16 @@
+freq bin 0: n 245 help 0.502
+freq bin 1: n 190 help 0.553
+freq bin 2: n 215 help 0.479
+freq bin 3: n 214 help 0.593
+top-frequency quartile: punct 0.778 (n=45) vs non-punct 0.544 (n=169)
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/frequency_fallback.py", line 125, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/frequency_fallback.py", line 100, in main
+    kl=(p*(lp-loguni.to(DEV)[None,None,:])).sum(-1)
+           ~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (50304) must match the size of tensor b (50257) at non-singleton dimension 2
