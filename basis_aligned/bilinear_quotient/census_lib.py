@@ -126,15 +126,40 @@ def leaf_hooks(probes):
             hs.append(at.register_forward_hook(fh))
     return hs
 
+LAST_PROJ_RANK={}
+
+
 def proj_hooks(probes):
     """probes: list of ('pca',key,stag,(s0,s1)) (strings also ok)."""
     probes=[eval(p) if isinstance(p,str) else p for p in probes]
+    # 2026-08-20 (wave-7 reviewer catch, r.23.2.3): a bundle can
+    # list overlapping spans from the same cached slice -- (4,16)
+    # alongside (4,10) and (10,16) -- and orth() is a plain QR with
+    # no rank truncation, so the projector came out rank 28 while
+    # the record's component table implied 16. Identical (key,stag,
+    # span) entries are dropped, spans nested inside another span
+    # of the same slice are dropped, and the true rank is recorded
+    # for the caller to report.
+    seen=set(); keep=[]
+    for pr in probes:
+        _,key,stag,blk=pr
+        if (key,stag,tuple(blk)) in seen: continue
+        seen.add((key,stag,tuple(blk))); keep.append(pr)
+    drop=set()
+    for i,(_,k1,s1,b1) in enumerate(keep):
+        for j,(_,k2,s2,b2) in enumerate(keep):
+            if i==j or k1!=k2 or s1!=s2: continue
+            if b2[0]<=b1[0] and b1[1]<=b2[1] and (b1[1]-b1[0])<(b2[1]-b2[0]):
+                drop.add(i)
+    probes=[pr for i,pr in enumerate(keep) if i not in drop]
     PER={}
     for _,key,stag,blk in probes:
         PER.setdefault(key,[]).append(pca_block(key,stag,blk))
     hs=[]
+    LAST_PROJ_RANK.clear()
     for key,vs in PER.items():
         P=orth(torch.cat(vs).T)
+        LAST_PROJ_RANK[key]=int(P.shape[1])
         if key[0]=='a':
             def fh(mo,i_,o_,P=P):
                 y,v1=o_

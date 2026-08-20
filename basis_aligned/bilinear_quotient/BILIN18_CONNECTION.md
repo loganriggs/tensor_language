@@ -13057,3 +13057,48 @@ terms. Any claim of the form "component X writes something that
 component Y reads twelve layers later" has to carry these
 numbers, and several claims in this ledger were made without
 them.
+
+## 504. Reviewer wave 7, and a projector that was bigger than its record
+
+Two more census records reviewed adversarially (r.2.0.1,
+r.23.2.3). Both gates reproduced exactly -- concentration 5.40
+(halves 5.09/5.64) and 5.51 (5.55/5.46) -- and both mechanism
+negatives reproduced and are DECISIVE under the new power label,
+with bars at the fixed 1.3 floor rather than null-driven. Both
+records had already self-certified as negatives with no surviving
+behavioural claim, so both verdicts are WEAKEN: there was nothing
+to confirm, and the reviewer upheld the records' own assessment.
+Two things came out of it that matter beyond those tags.
+FIRST, A TOOLING BUG. r.23.2.3's probe bundle lists the PCA span
+(4,16) alongside (4,10) and (10,16) from the same cached slice --
+the same directions twice. cl.orth is a plain QR with no rank
+truncation, so the projector it built was RANK 28, while the
+record's component table implies 16. That leaf's ablation was
+therefore a larger removal than its own description says. Fixed:
+proj_hooks now drops duplicate spans and spans nested inside a
+larger span of the same slice, and records the true rank in
+cl.LAST_PROJ_RANK for callers to report. r.23.2.3 now builds a
+rank-16 projector.
+Scanning all 311 leaves in the diverse tree, ELEVEN carry
+redundant spans: r.7.0.0, r.7.0.1, r.7.1.0, r.7.1.1, r.7.3.0,
+r.11.3.0, r.11.3.1, r.23.1.1, r.23.2.0, r.23.2.1, r.23.2.3. All
+are nested rather than exact duplicates, all in two families. Their
+recorded concentration numbers were computed with the inflated
+projector and will not reproduce exactly under the fixed tool --
+the numbers are not wrong for what they measured, they measured a
+bigger ablation than the record says. Three of the eleven have
+already been reviewed (r.7.1.1, r.11.3.0, r.23.2.3) and their
+mechanism negatives stand either way, since a LARGER ablation
+failing to show writer enrichment is not rescued by shrinking it.
+SECOND, A LEAD. On fresh text r.2.0.1's bundle damages digit
+targets by +0.107 -- the population effect for digits is -0.018,
+i.e. digits are normally SPARED -- and capitalized targets by
++0.051 against a population +0.006. Both clear a three-seed random
+subspace control, and both echo near-misses in the record's own
+census sweep (p=0.0105 and p=0.0135). The reviewer explicitly
+declined to certify these: the sweep covered five classes without
+correction and three control seeds is thin. It is the first
+behavioural lead in this program that points AGAINST the known
+population direction, which is exactly the kind that cannot be a
+restatement of the general bias, so it is worth one dedicated
+pre-registered test rather than being retired with the tag.
