@@ -1,0 +1,12 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+1.4: arm1 hit 0.665 corr 0.366 | arm2 hit 0.998 corr 0.999 | arm3 hit 1.0 corr 1.0
+2.5: arm1 hit 0.531 corr 0.178 | arm2 hit 0.578 corr 0.209 | arm3 hit 0.579 corr 0.21
+3.5: arm1 hit 0.357 corr 0.254 | arm2 hit 0.433 corr 0.275 | arm3 hit 0.433 corr 0.275
+(a) arm2 hit>=80% on >=2: FAILED
+(b) arm2 corr>=0.6 on >=2: FAILED
+(c) monotone ladder all: HELD
+(d) arm3 sanity 1.4 >=0.98: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fold_gap_locate_results.json (8s)

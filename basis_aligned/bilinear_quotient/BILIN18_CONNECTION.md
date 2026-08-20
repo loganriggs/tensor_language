@@ -9574,3 +9574,63 @@ forward (wte + every mlp fold + lambda mixes, rotary at real
 positions), registered (a) all three early heads >=40% hit, (b)
 corr >=0.4 on >=2/3, (c) strict improvement over v2 on all three,
 (d) deep heads stay <10%.
+
+## 392. Fold v3: the token-computable score is exhausted at ~2/3
+
+fold_score_test3 used the full attention-free forward (wte direct
+path + every mlp fold + lambda mixes + rotary). All four registered
+bars FAILED: 1.4 62->66.5%, 2.5 52->53.1%, 3.5 DROPPED 39.1->35.7%
+(higher mlp folds evaluated off-distribution add noise -- more
+evidence that m0 is THE identity code and later folds are poor
+token approximations), and deep head 8.4 rose to 11.8% (above the
+10% bar). Verdict: tokens+weights+positions cap at roughly 2/3 of
+early-band trigger prediction. The missing information is
+contextual by elimination -- and the only contextual quantity
+below layer 1 is attention 0. fold_gap_locate queued with an arm
+ladder to locate it exactly.
+
+## 393. LAYER-1 INDUCTION TRIGGER CLOSED EXACTLY: the gap was m0's contextual input
+
+fold_gap_locate ran three arms (fold baseline / real-m0+wte with
+a0's residual write dropped / real residual through block 0):
+  1.4:  arm1 66.5% -> arm2 99.8% (corr 0.999) -> arm3 100%
+  2.5:  arm1 53.1% -> arm2 57.8% -> arm3 57.9%
+  3.5:  arm1 35.7% -> arm2 43.3% -> arm3 43.3%
+Registered (a)/(b) FAILED as written (only 1.4 crossed 80%/0.6);
+(c) monotone ladder HELD; (d) arm3 sanity HELD. But the arm
+pattern is the discovery:
+- For the layer-1 head, arm2 is ESSENTIALLY EXACT. The whole v3
+  gap was m0's contextual INPUT (m0 really reads rms(E+a0), not
+  rms(E)); a0's residual write adds nothing to the pattern
+  (arm2=arm3). The layer-1 induction trigger is now fully
+  accounted mechanistically: match code = wte + m0(identity code,
+  locally contextualized by a0) -> double-QK coincidence -> top-4
+  reads -> validated executable code (376). This completes the
+  input side of the early induction circuit under the user's
+  standard: known input variables, known computation, verified
+  code.
+- For layers 2-3, arm2=arm3 means block-0 context is NOT the
+  binding gap: their match codes accrete writes from layers 1-2
+  (the m2|m2, m3|m0 side terms of 387). The trigger's context
+  depth grows with head depth -- same gradient the deep band
+  (5.5, 8.4 at ~0 fold hits) extends.
+
+## 394. Census machinery replicates across corpus halves -- at coarse grain
+
+census_ab_replication ran the deferred identity-rule leg on the
+diverse tree: 45 leaves sampled (16/depth), each leaf's 4-probe
+member-mean dCE profile computed independently on corpus halves A
+(rows 0-499) and B (500-999), sampled-row capped.
+- (a) HELD: 77% of leaves replicate at profile cosine >=0.7 (bar
+  60%).
+- (b) HELD: matched median 0.955 vs mismatched-leaf null 0.544 --
+  the profiles are leaf-specific, not a generic all-positive
+  artifact.
+- (c) FAILED (registered fork, informative branch): depth<=1
+  replicates at 88%, depth>=2 at 56%. Identity is COARSE-GRAIN
+  WEIGHTED: root/depth-1 machinery is corpus-stable; depth-2/3
+  probes are partly window-fit. Matches 381's context-dependence.
+  Consequence for the swarm: the A/B cosine is a computable
+  per-leaf certification gate. census_ab_full queued (all 311
+  leaves, registered a-c) to produce the certified production
+  shortlist.
