@@ -1296,6 +1296,23 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   reusable machinery for the same job in more than one place? Here, yes — genuinely
   redundant, confirmed by the same standard of evidence in both layers, with one layer doing
   most of the work and the other contributing a real but minor share.</p>
+  <p>That one confirmed circuit — the article choice — was then traced end to end, which is
+  worth more than adding another shallow layer to the survey. Two questions, both answered
+  cleanly. First, what feeds it: the first MLP layer sits immediately after the first
+  attention layer, so its input is the current word plus whatever that attention layer (an
+  exact previous-word lookup) folds in. Switch off that attention layer and the article
+  group's firing almost entirely collapses — it drops to barely a quarter of its real value —
+  while switching off a <em>later</em> attention layer, which physically cannot reach this
+  point, changes it not at all (a clean control confirming the test only registers real
+  upstream influence). So the "a"/"an"-versus-"the" decision is not read off the current word;
+  it is driven by the preceding context, exactly as it should be — you choose the article from
+  the words before it. Second, where it goes: the second layer's redundant copy of this circuit
+  doesn't just make the same decision, it fires on the <em>same sentences</em> — the two
+  groups' activity across thousands of positions tracks together, while an unrelated group in
+  the same second layer tracks not at all. The circuit now runs unbroken from the input:
+  word → previous-word lookup → article group → the model's article prediction, with a matching
+  second-layer echo firing in the same places — every link either exact arithmetic or a passed
+  causal test. That is the shape of a circuit understood deeply rather than merely spotted.</p>
   <p>A companion tool from the same outside source does the compression side of this question
   properly: given a layer's weight and its real activations, it computes — in one exact step,
   no guessing or gradient descent — the best possible low-rank stand-in for that layer <em>on
