@@ -12008,3 +12008,40 @@ offset carries >= 60% of its reads, (b) the token+rotary fold
 reproduces the real top read >= 95% -- at layer 0 a miss means a
 bug, not a finding -- and (c) replacing its value output with a
 per-read-token table costs <= 0.02 nats.
+
+## 475. Head 0.3 is a previous-token head, and its pattern folds EXACTLY
+
+head_0_3_fold on the model's second costliest head (+0.112 nats,
+behind only the sink at +0.916):
+  offset -1   663 reads   65.8%
+  offset  0   283         28.1%   (self)
+  offset -2    55          5.5%
+  same-token rate 0.282 | fold match 1.000
+(a) HELD: a single offset carries 66% -- head 0.3 is a
+previous-token head with a substantial self component.
+(b) HELD exactly: predicting its top read from WEIGHTS, TOKENS AND
+ROTARY ALONE, with no residual stream, reproduces the real read
+1.000 of the time. At layer 0 that is what the architecture
+demands (attention there reads only token embeddings), so the
+value of this arm is as a bug check on the machinery, and the
+machinery passes cleanly.
+(c) FAILED, and the fault is visible in my own code rather than in
+the model: the per-read-token value table was accumulated only
+from tokens that appeared as TOP READS at sampled query positions,
+so most positions in the replacement pass hit an empty slot and
+contributed zero. The +0.054 is table coverage, not head
+behaviour.
+The fix makes the test stronger rather than weaker. At layer 0 the
+value is a pure function of the token, v = c_v(rms_norm(wte(t))),
+so the correct table is computable from WEIGHTS ALONE over the
+entire 50304-token vocabulary, with no data and no holes.
+head_0_3_exact queued with three arms: the weights-only value
+table, a FULL fold replacing both pattern and values (the whole
+head as a lookup), and a token-shuffled table as the null.
+Registered: (a) the value table costs <= 0.005 nats (an identity
+up to numerics), (b) the full fold costs <= 0.01, (c) the shuffled
+null costs >= 0.05.
+If (b) holds, the model's second most expensive attention head is
+exactly a table -- which would join the sink (a constant) and the
+induction band (four reads of an identity code) as the third
+component of this model reduced to something you can write down.
