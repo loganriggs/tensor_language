@@ -9,13 +9,13 @@
     "wte": {
      "mean": 1.021,
      "min": 0.972,
-     "max": 1.068,
+     "max": 1.069,
      "seed5": 1.016,
-     "member": 0.0463,
-     "offslice": 0.0455
+     "member": 0.0474,
+     "offslice": 0.0466
     },
     "a0": {
-     "mean": 0.855,
+     "mean": 0.854,
      "min": 0.759,
      "max": 0.973,
      "seed5": 0.759,
@@ -23,20 +23,20 @@
      "offslice": 0.0004
     },
     "m0": {
-     "mean": 1.015,
+     "mean": 1.014,
      "min": 0.97,
-     "max": 1.058,
+     "max": 1.057,
      "seed5": 1.053,
-     "member": 0.2547,
-     "offslice": 0.2419
+     "member": 0.2545,
+     "offslice": 0.2417
     },
     "a1": {
      "mean": 0.994,
      "min": 0.976,
      "max": 1.012,
      "seed5": 0.981,
-     "member": 0.6988,
-     "offslice": 0.7122
+     "member": 0.6978,
+     "offslice": 0.7113
     }
    },
    "top": [
@@ -45,21 +45,21 @@
      {
       "mean": 1.021,
       "min": 0.972,
-      "max": 1.068,
+      "max": 1.069,
       "seed5": 1.016,
-      "member": 0.0463,
-      "offslice": 0.0455
+      "member": 0.0474,
+      "offslice": 0.0466
      }
     ],
     [
      "m0",
      {
-      "mean": 1.015,
+      "mean": 1.014,
       "min": 0.97,
-      "max": 1.058,
+      "max": 1.057,
       "seed5": 1.053,
-      "member": 0.2547,
-      "offslice": 0.2419
+      "member": 0.2545,
+      "offslice": 0.2417
      }
     ],
     [
@@ -69,14 +69,14 @@
       "min": 0.976,
       "max": 1.012,
       "seed5": 0.981,
-      "member": 0.6988,
-      "offslice": 0.7122
+      "member": 0.6978,
+      "offslice": 0.7113
      }
     ],
     [
      "a0",
      {
-      "mean": 0.855,
+      "mean": 0.854,
       "min": 0.759,
       "max": 0.973,
       "seed5": 0.759,
@@ -88,8 +88,8 @@
    "top_ratio": 1.016,
    "top_ratio_mean": 1.021,
    "top_ratio_min": 0.972,
-   "top_ratio_max": 1.068,
-   "null_top_ratio": 1.114,
+   "top_ratio_max": 1.069,
+   "null_top_ratio": 1.113,
    "bootstrap_seeds": [
     5,
     17,
@@ -104,8 +104,13 @@
    "null_sd": 0.044,
    "threshold_v2": 1.3,
    "ENRICHED_STABLE2": false,
-   "headroom": -0.328
+   "headroom": -0.328,
+   "min_detectable_enrichment": 1.3,
+   "bar_source": "fixed_1.3",
+   "negative_power": "DECISIVE",
+   "NEAR_MISS": false
   }
  },
- "runtime_s": 1.2672371864318848
+ "runtime_s": 1.332385540008545,
+ "n_seeds": 5
 }

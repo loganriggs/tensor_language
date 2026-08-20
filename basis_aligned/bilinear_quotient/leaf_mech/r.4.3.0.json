@@ -7,16 +7,16 @@
   "m1": {
    "writers": {
     "wte": {
-     "mean": 0.995,
+     "mean": 0.994,
      "min": 0.957,
      "max": 1.052,
-     "seed5": 1.037,
-     "member": 0.0469,
-     "offslice": 0.0452
+     "seed5": 1.036,
+     "member": 0.048,
+     "offslice": 0.0463
     },
     "a0": {
      "mean": 0.995,
-     "min": 0.772,
+     "min": 0.771,
      "max": 1.135,
      "seed5": 1.008,
      "member": 0.0004,
@@ -27,16 +27,16 @@
      "min": 0.973,
      "max": 1.068,
      "seed5": 1.023,
-     "member": 0.2477,
-     "offslice": 0.242
+     "member": 0.2475,
+     "offslice": 0.2419
     },
     "a1": {
      "mean": 0.992,
      "min": 0.974,
      "max": 1.012,
      "seed5": 0.99,
-     "member": 0.705,
-     "offslice": 0.7124
+     "member": 0.7041,
+     "offslice": 0.7114
     }
    },
    "top": [
@@ -47,30 +47,30 @@
       "min": 0.973,
       "max": 1.068,
       "seed5": 1.023,
-      "member": 0.2477,
-      "offslice": 0.242
-     }
-    ],
-    [
-     "wte",
-     {
-      "mean": 0.995,
-      "min": 0.957,
-      "max": 1.052,
-      "seed5": 1.037,
-      "member": 0.0469,
-      "offslice": 0.0452
+      "member": 0.2475,
+      "offslice": 0.2419
      }
     ],
     [
      "a0",
      {
       "mean": 0.995,
-      "min": 0.772,
+      "min": 0.771,
       "max": 1.135,
       "seed5": 1.008,
       "member": 0.0004,
       "offslice": 0.0004
+     }
+    ],
+    [
+     "wte",
+     {
+      "mean": 0.994,
+      "min": 0.957,
+      "max": 1.052,
+      "seed5": 1.036,
+      "member": 0.048,
+      "offslice": 0.0463
      }
     ],
     [
@@ -80,8 +80,8 @@
       "min": 0.974,
       "max": 1.012,
       "seed5": 0.99,
-      "member": 0.705,
-      "offslice": 0.7124
+      "member": 0.7041,
+      "offslice": 0.7114
      }
     ]
    ],
@@ -89,7 +89,7 @@
    "top_ratio_mean": 1.025,
    "top_ratio_min": 0.973,
    "top_ratio_max": 1.068,
-   "null_top_ratio": 1.135,
+   "null_top_ratio": 1.134,
    "bootstrap_seeds": [
     5,
     17,
@@ -101,11 +101,16 @@
    "BEATS_NULL": false,
    "ENRICHED_STABLE": false,
    "null_mean": 1.049,
-   "null_sd": 0.055,
+   "null_sd": 0.054,
    "threshold_v2": 1.3,
    "ENRICHED_STABLE2": false,
-   "headroom": -0.327
+   "headroom": -0.327,
+   "min_detectable_enrichment": 1.3,
+   "bar_source": "fixed_1.3",
+   "negative_power": "DECISIVE",
+   "NEAR_MISS": false
   }
  },
- "runtime_s": 1.2744460105895996
+ "runtime_s": 1.3368031978607178,
+ "n_seeds": 5
 }

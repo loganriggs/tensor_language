@@ -13102,3 +13102,54 @@ behavioural lead in this program that points AGAINST the known
 population direction, which is exactly the kind that cannot be a
 restatement of the general bias, so it is worth one dedicated
 pre-registered test rather than being retired with the tag.
+
+## 505. The census had mechanisms after all: the bug was hiding them
+
+All 75 five-seed records re-run through the corrected screen (503).
+Every one passed the exactness check. Comparing verdicts, and
+counting only components that had a prior record (17 components
+appear in the new tables with no old entry, and those are not
+flips):
+  4 negatives became positive, 1 positive became negative,
+  60 of 167 component tests changed their top writer.
+At the leaf level, where the SOP requires EVERY component of the
+bundle to show stable enrichment, the census goes from one
+qualifying leaf to three:
+  r.3.0.2  unchanged   a15/a16/a17 all enriched for a14
+                       (1.95-2.01). Its components are all late,
+                       where the intervening lam0 product is ~1,
+                       so the correction is a no-op there -- the
+                       ratios are identical to four decimals.
+  r.1.2.0  NEW         m14 and m15 both enriched for m5
+                       (1.78 and 1.81 against bars of 1.30/1.41)
+  r.1.2.2  NEW         m14 and m15 both enriched for m5
+                       (1.53 and 1.56 against bars of 1.30/1.39)
+  r.6.2.0  LOST        m17's top writer was m15 at 2.232 under the
+                       flat weighting; corrected it is a4 at 1.13
+                       against a 1.40 bar. A false positive, and
+                       consistent with mech_map_specificity, which
+                       had already scored that pair a layer
+                       property rather than leaf-specific.
+The two new ones are the interesting part, because of WHAT the bug
+was doing. Under the flat weighting the top writer at both leaves
+was a0 -- the writer whose coefficient was overweighted by a factor
+of 4,242. The error was not adding noise; it was installing the
+same wrong answer at leaf after leaf and burying the real one.
+Corrected, both leaves point at m5, and they do it independently
+on two different components each.
+So the program's central negative is amended. "Sixty leaves, zero
+writer-level mechanisms" (471) becomes THREE leaves with a
+complete writer-level mechanism, two of which the decomposition
+error was concealing. The screen's positive rate is still low --
+three of sixty -- and that is the honest headline: the census
+mostly finds nothing, but not nothing at all.
+One converging detail: r.1.2.0's m14->m15 pair is the pair that
+independently passed the leaf-specificity control in
+mech_map_specificity (2.277 against peers 0.934/1.167/0.691).
+That control was run under the flat weighting and its numbers
+change (m15's enrichment is 1.81 corrected, not 2.28), so it needs
+redoing, but it was pointing at the same leaf.
+mech_m5_verify is queued: peer controls for the m5 finding at both
+leaves, and the causal test the screen cannot do -- silencing m5's
+contribution to m14 and m15's inputs specifically, and asking
+whether the damage lands on the leaf's own member positions.
