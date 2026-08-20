@@ -14097,3 +14097,44 @@ are compressible in different places -- 13.8 in WHICH CELL of its
 score matrix, 12.6 nowhere yet found. "Is this circuit simple?"
 has no single answer in this model; it depends which axis you
 compress along.
+
+## 526. The nested-bracket test voided itself, and the null was right to
+
+bracket_nested built constructed contexts to separate "attends to
+the matching opener" from "attends to the most recent opener",
+which natural text cannot do (1 of 84 targets in 522 had a match
+that was not also the most recent opener).
+(0) FAILED: in the OUTER condition -- text where the upcoming
+closer matches the FIRST of two openers and the more recent one is
+already closed -- the model's negative log-likelihood for the
+closing bracket is 3.963 nats. The registered bar was 2.0. The
+INNER condition, where the match IS the most recent opener, came
+in at 1.496 and would have been usable.
+So the model does not expect a closing bracket in my nested
+contexts, and by the run's own registered terms nothing measured
+in them counts. Recording the unscored numbers so the next attempt
+has them, clearly marked as unusable:
+  outer  delete +0.1064  kill match +1.0687  kill distractor
+         +0.4761  | shares match 0.2908 distractor 0.1317
+  inner  delete +0.4532  kill match +0.2474  kill distractor
+         +0.1621  | shares match 0.3922 distractor 0.3129
+Two things are worth saying about why this failed, because they
+are about the model rather than about my templates. First, twelve
+hand-built sentences from a fixed filler vocabulary are far off
+distribution, and the outer condition is the more artificial of
+the two -- a nested parenthetical closing after an inner one is
+rare in prose and rarer still in the shapes I wrote. Second, the
+inner condition passing at 1.496 while the outer fails at 3.963 is
+itself weak evidence for the depth-free hypothesis: the model is
+comfortable closing the bracket it just opened and uncomfortable
+closing one it opened two clauses ago. That is what a most-recent-
+opener rule would produce, and it is the reading a proper test
+would have to overturn.
+The nesting question therefore stays open, and the honest position
+is the one 522 recorded: head 13.8 points at the matching opener,
+and on natural text that is indistinguishable from pointing at the
+most recent unclosed opener of the right type. A future attempt
+needs nested contexts the model actually finds probable -- mined
+from a corpus with real nesting (code, LaTeX, structured markup)
+rather than constructed -- and the null that killed this run
+should be kept exactly as written.

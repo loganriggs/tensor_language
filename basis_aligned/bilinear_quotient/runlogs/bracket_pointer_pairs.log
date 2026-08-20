@@ -1,0 +1,32 @@
+82 target cells with both a match and a distractor
+(0) input rel err 1.416e-07 | score rel err 4.674e-07
+(0) EXACTNESS: HELD
+
+top 10 pairs at the MATCH cell (14.3% of pair mass):
+     a7 x wte  0.4598
+    m10 x wte  0.4545
+    m10 x m12  0.396
+     a5 x wte  0.3834
+     a8 x wte  0.3639
+     m6 x wte  0.3129
+     m9 x wte  0.3007
+     a7 x m12  0.2997
+     m8 x wte  0.2623
+    a10 x wte  0.2615
+top 10 at the DISTRACTOR cell (16.7%):
+    m10 x wte  0.1161
+     a8 x wte  0.0972
+     a7 x wte  0.0964
+     a5 x wte  0.077
+    m10 x m12  0.0756
+     m9 x wte  0.0713
+     m6 x wte  0.0685
+     m8 x wte  0.0621
+    m11 x wte  0.0585
+    a10 x wte  0.0579
+(a) 0.14251872510883698 vs bar 0.5: FAILED
+(b) top-10 sets differ by 1 pairs (bar 4): FAILED
+(c) 1.9332894086837769 vs bar 1e-09: HELD
+   summed top-10 contribution: match 3.495 vs distractor 0.7806
+NULL (random 10 pairs carry < 10%: [0.0085, 0.0232, 0.0109]): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_pointer_pairs_results.json (100s)
