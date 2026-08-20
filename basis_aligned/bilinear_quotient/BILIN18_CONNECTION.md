@@ -11892,3 +11892,42 @@ share the component and ask whether the positive leaf stands out
 by at least 0.5. Registered: (a) >= 30% of positives are
 leaf-specific, (b) adjacent pairs -- which here means all of them
 -- are specific less often than distant ones.
+
+## 472. ONE REAL MECHANISM IN SIXTY LEAVES -- and it is shared by two siblings
+
+mech_map_specificity checked each of the map's three positives
+against peer leaves that share the same component:
+  r.6.2.0  m15 -> m17   2.232 vs peers [1.333, 2.691, 1.739]
+                        median 1.739, gap 0.49 -> LAYER PROPERTY
+                        (one peer actually scores HIGHER at 2.691)
+  r.1.2.2  m14 -> m15   2.333 vs peers [0.934, 1.167, 0.691]
+                        median 0.934, gap 1.40 -> LEAF-SPECIFIC
+  r.1.2.0  m14 -> m15   2.277 vs the same peers -> LEAF-SPECIFIC
+(a) HELD: 2 of 3 positives are leaf-specific. (b) FAILED and was
+UNEVALUABLE -- I registered a comparison against distant pairs
+when the map had already reported an adjacency fraction of 1.00,
+so the distant category was guaranteed empty. My design error, the
+third of this kind; the rule I keep relearning is to check that a
+registered comparison class can actually be populated by the data
+that will exist when the bar is scored.
+THE CENSUS BOTTOM LINE, which is now quotable: in 60 certified
+leaves this model has ONE genuinely leaf-specific input mechanism
+-- m14 into m15 -- and it is carried by two SIBLING leaves
+(r.1.2.2 and r.1.2.0, both under r.1.2), which is what two views
+of one circuit should look like. Everything else is either
+input-diffuse (57 leaves) or an adjacent-layer property (1).
+That is a modest yield and an honest one: the program's mechanism
+tooling, validated against causal ablation at rho 0.76, says this
+model mostly does not have the kind of structure the tool looks
+for.
+SOP updated: step 3M is now documented as a SCREEN whose usual and
+correct outcome is a scoped negative, with the 5% census figure
+quoted so agents stop treating a negative as a failed task.
+m14_pathway queued to escalate the survivor, with bar design
+corrected by 468's failures -- no absolute control threshold
+(adjacent components are partly selective everywhere) and no
+assumption of a single shared pathway. Registered: (a) m14
+ablation is selective on BOTH siblings at concentration >= 2, (b)
+it beats the m13 control on both (a RELATIVE bar), (c) the two
+siblings' concentrations agree within 25%, as two views of one
+circuit should.

@@ -19,6 +19,57 @@
    "peer_median": 1.739,
    "leaf_specific": false,
    "gap": 2
+  },
+  {
+   "tag": "r.1.2.2",
+   "component": "m15",
+   "writer": "m14",
+   "min_ratio": 2.333,
+   "peers": [
+    "r.1",
+    "r.1.0",
+    "r.1.0.0",
+    "r.1.0.1"
+   ],
+   "peer_ratios": [
+    0.934,
+    1.167,
+    0.691
+   ],
+   "peer_median": 0.934,
+   "leaf_specific": true,
+   "gap": 1
+  },
+  {
+   "tag": "r.1.2.0",
+   "component": "m15",
+   "writer": "m14",
+   "min_ratio": 2.277,
+   "peers": [
+    "r.1",
+    "r.1.0",
+    "r.1.0.0",
+    "r.1.0.1"
+   ],
+   "peer_ratios": [
+    0.934,
+    1.167,
+    0.691
+   ],
+   "peer_median": 0.934,
+   "leaf_specific": true,
+   "gap": 1
   }
- ]
+ ],
+ "n_scored": 3,
+ "n_leaf_specific": 2,
+ "frac_leaf_specific": 0.667,
+ "frac_specific_adjacent": 0.667,
+ "frac_specific_distant": 0.0,
+ "n_adjacent": 3,
+ "n_distant": 0,
+ "pred_a": true,
+ "pred_b": false,
+ "pred_c": true,
+ "runtime_s": 96.20075106620789
 }

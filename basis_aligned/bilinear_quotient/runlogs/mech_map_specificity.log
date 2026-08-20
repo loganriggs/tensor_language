@@ -1,2 +1,9 @@
 3 positive pairs to check
 r.6.2.0 m15->m17: 2.232 vs peers [1.333, 2.691, 1.739] -> layer property
+r.1.2.2 m14->m15: 2.333 vs peers [0.934, 1.167, 0.691] -> SPECIFIC
+r.1.2.0 m14->m15: 2.277 vs peers [0.934, 1.167, 0.691] -> SPECIFIC
+2/3 leaf-specific (66.7%); adjacent 66.7% vs distant 0.0%
+(a) >=30% of positives are leaf-specific: HELD
+(b) adjacent pairs are specific less often: FAILED
+(c) table written: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mech_map_specificity_results.json (96s)

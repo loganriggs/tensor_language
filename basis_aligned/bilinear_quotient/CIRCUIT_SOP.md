@@ -85,7 +85,16 @@ locally selective; do not write a story for it.
     exs = cl.examples(tag, d)              # mechanical: top-3 + 3 random
 Record verbatim. NEVER swap examples for prettier ones.
 
-## Step 3M -- MECHANISM (GPU, ~5s) [THE DELIVERABLE, SOP v3]
+## Step 3M -- MECHANISM SCREEN (GPU, ~5s) [reframed 2026-08-20]
+CENSUS RESULT (471/472): over 60 shortlist leaves, only 3 (5%)
+carried any ENRICHED_STABLE2 positive, and of those only 2 --
+sibling leaves r.1.2.2 and r.1.2.0 sharing m14 -> m15 -- survived
+the peer-specificity check. So the USUAL and CORRECT outcome of
+this step is a scoped negative: most damage-clusters in this model
+are input-diffuse. Treat 3M as a cheap screen, not as a
+deliverable you must return a positive from. A well-executed leaf
+often ends with "no strong single-writer mechanism (top ratio r,
+threshold t)" and that IS the finding.
     python leaf_input_decomp.py <tag>      # writes leaf_mech/<tag>.json
 Decomposes the residual entering each of your leaf's machinery
 components into exact writer contributions, member vs off-slice.
