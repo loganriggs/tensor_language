@@ -1,0 +1,44 @@
+  [assert_disjoint direction_names] 0 of 96 priced rows appear in the fitting corpus -> ok
+class base rates among frequent tokens: {'space_word': 0.584, 'capitalized': 0.197, 'subword': 0.128, 'digit': 0.031, 'punct': 0.019, 'determiner': 0.015, 'preposition': 0.014, 'pronoun': 0.01, 'space': 0.0}
+block 0: 11 of 16 directions nameable
+   dir 0: determiner 9/10 -> ["'The'", "' the'", "' The'", "' a'", "' an'"]
+   dir 1: capitalized 10/10 -> ["' B'", "' M'", "' Ch'", "' K'", "' H'"]
+   dir 2: space_word 9/10 -> ["' gives'", "' allows'", "' lose'", "' helps'", "' brings'"]
+   dir 3: space_word 8/10 -> ["'�'", "' sd'", "' fee'", "' examples'", "' hospitals'"]
+   matched random control: 10 of 16 named
+block 1: 5 of 16 directions nameable
+   dir 0: subword 6/10 -> ["' missiles'", "'ird'", "'ox'", "'rate'", "' tuna'"]
+   dir 1: space_word 8/10 -> ["' surprised'", "' recommend'", "'ored'", "' understood'", "' excited'"]
+   dir 2: space_word 5/10 -> ["'ums'", "' missiles'", "' unb'", "'lim'", "'ol'"]
+   dir 3: subword 9/10 -> ["'rate'", "'less'", "'ell'", "'ith'", "'han'"]
+   matched random control: 5 of 16 named
+block 2: 6 of 16 directions nameable
+   dir 0: space_word 4/10 -> ["'adow'", "' Shares'", "'Point'", "' medicines'", "'ross'"]
+   dir 1: subword 8/10 -> ["'oom'", "'è'", "'oud'", "'oster'", "'ker'"]
+   dir 2: subword 5/10 -> ["'lim'", "'ala'", "'avy'", "' mon'", "' sc'"]
+   dir 3: subword 9/10 -> ["'lim'", "'uck'", "'oster'", "'ump'", "'END'"]
+   matched random control: 5 of 16 named
+block 3: 5 of 16 directions nameable
+   dir 0: space_word 8/10 -> ["'oney'", "'adow'", "' medicines'", "' disturbances'", "' commands'"]
+   dir 1: subword 7/10 -> ["' Share'", "' Common'", "'iv'", "' Hir'", "'ric'"]
+   dir 2: subword 9/10 -> ["'oney'", "'ala'", "'uto'", "'avy'", "'nes'"]
+   dir 3: capitalized 7/10 -> ["' Cubs'", "' Broncos'", "' Turkey'", "'Apple'", "'ust'"]
+   matched random control: 6 of 16 named
+block 4: 8 of 16 directions nameable
+   dir 0: capitalized 6/10 -> ["'Monday'", "'Welcome'", "'July'", "'June'", "'By'"]
+   dir 1: subword 7/10 -> ["' nozzle'", "'hazard'", "'ums'", "'ado'", "'ix'"]
+   dir 2: space_word 6/10 -> ["'Monday'", "' lady'", "'Welcome'", "' clubs'", "' workforce'"]
+   dir 3: capitalized 9/10 -> ["' Palin'", "' Broncos'", "' Cubs'", "'avy'", "' Horowitz'"]
+   matched random control: 5 of 16 named
+block 5: 5 of 16 directions nameable
+   dir 0: space_word 7/10 -> ["' sd'", "' fee'", "' examples'", "' unb'", "' logger'"]
+   dir 1: space_word 6/10 -> ["' pilots'", "'MM'", "' guides'", "'lets'", "' logger'"]
+   dir 2: capitalized 5/10 -> ["'ker'", "' Erica'", "'agon'", "'David'", "'PI'"]
+   dir 3: capitalized 5/10 -> ["' sd'", "' fee'", "' examples'", "'Monday'", "'July'"]
+   matched random control: 2 of 16 named
+
+(a) real 6.7 >= 3x random 5.5 avg named: FAILED
+(b) block 0 has 11 named (strict) >= 5: HELD
+(c) named by block [11, 5, 6, 5, 8, 5] | random [10, 5, 5, 6, 5, 2] | net [1, 0, 1, -1, 3, 3]
+NULL (random avg 5.5 < 2): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/direction_names2_results.json (33s)

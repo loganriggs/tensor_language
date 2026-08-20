@@ -15450,3 +15450,56 @@ the frequent tokens at a binomial p below 0.01. The decay question
 genuinely open again and is worth answering properly, because it
 decides whether the projection stand-in that 550 showed to be
 cheapest is also readable.
+
+## 552. Direction-naming by top tokens is confounded, base rate or
+## not -- the write space is itself class-structured
+
+direction_names2 fixed both flaws 551 identified: the random
+control now draws directions in the SAME centred per-token write
+space as the real principal directions, and a direction counts as
+named only if its dominant class is enriched against its frequency
+among the 5000 frequent tokens at binomial p < 0.01.
+  block            0    1    2    3    4    5
+  named (strict)  11    5    6    5    8    5
+  matched random  10    5    5    6    5    2
+  net             +1    0   +1   -1   +3   +3
+(b) HELD: block 0 has 11 named under the strict criterion.
+(a) FAILED and NULL VIOLATED, decisively: matched random
+directions are named at almost exactly the same rate as the
+principal ones. Block 0's random control scores 10 of 16. The net
+signal -- real minus random -- is [1, 0, 1, -1, 3, 3], which is
+noise for the first four blocks and marginal for the last two.
+This is a stronger and cleaner negative than 551's, because the
+control is now correct and the criterion is base-rate-aware, and
+the answer is still that the method does not work. The reason is
+now clear: the per-token write space is LOW-DIMENSIONAL and
+CLASS-STRUCTURED, so ANY direction in it, projected onto the
+vocabulary, has class-coherent extremes. Picking the top 10 tokens
+of a random direction and finding them 8/10 capitalized is not
+evidence that the direction encodes capitalization -- it is
+evidence that capitalized tokens occupy a coherent region of the
+write space that random directions also intersect.
+So the naming approach used in 542 and 534 is confounded at the
+root, not just underpowered. RETRACTED as evidence: 542's "6 of 8
+class-pure interface directions" and 534's "3 of 5 leading units
+class-pure". The specific token lists are still real -- block 0's
+top direction genuinely scores determiners at 9/10 -- but "this
+direction MEANS determiners" does not follow from it, because a
+random direction scores about as pure.
+What this does NOT touch: the LOOKUP TABLE naming is a different
+and valid measurement. 542 named the table by asking which tokens
+maximize each COLUMN of the fitted table, and the table's columns
+are the model's actual write, not arbitrary directions -- but the
+same confound applies if the column is one SVD direction of that
+write. The honest position is that no correlational top-token
+method distinguishes a meaningful direction from a random one in
+this space, and readability has to be established causally.
+The causal test is immune to the confound and is queued as
+causal_direction_names: project ONE direction out of a block's
+write and measure which token class's prediction degrades. A
+direction that MEANS a class will, when removed, hurt that class
+specifically; a random direction will hurt diffusely. That is a
+real readability measurement and it decides the open question from
+550 -- whether the projection stand-in, which wins on cost, is
+also interpretable -- on evidence rather than on a confounded
+count.
