@@ -10043,3 +10043,30 @@ decomposition (411) alone. ladder16b queued with shuffled arms at
 EVERY k (registered content fork: k3shuf <= k3-0.25, else the
 instrument is declared powerless at this depth and the claim
 stays at 411's level).
+
+## 413. Layer-16 content fork resolves PARTIAL; swarm runbook + reviewer-two shipped
+
+ladder16b (shuffled arms at every k): (a) FAILED as registered --
+content separates at depth for 16.2 (k3 0.976 vs k3shuf 0.651,
+gap 0.33) but not for 16.8 (0.98 vs 0.806, gap 0.17 < 0.25 bar).
+(b)/(c) held. Verdict recorded per the fork: at layer-16 generic
+positions the ladder instrument's signal is majority-structural
+with a real content increment that differs per head; the
+one-code-at-16 claim stays at the writer-decomposition level
+(411). Queued r30_read_semantics: the token-level mechanism
+question (do 16.8/16.2's top reads land on tokens identical to
+the query -- coincidence semantics -- with a frequency-matched
+null and a seen/fresh split).
+
+SWARM HARDENING (for the model swap): SWARM_RUNBOOK.md written --
+new-session bootstrap (cron is session-only and must be
+recreated; bqrunner is not), the wave loop (author waves capped
+at 4 concurrent on the 32GB card, driver is the only committer),
+standards that do not relax, author + REVIEWER-TWO prompt
+templates, health checks, and the union of every trap hit so
+far. Reviewer-two is an adversarial fresh agent per record:
+recompute the gate, test the story on fresh seed-11 examples the
+author never saw, hunt gerrymanders, verdict
+CONFIRM/WEAKEN/REFUTE appended to the record's certification. A
+Sonnet reviewer dry run was launched on r_0_3_0 to validate the
+loop live.
