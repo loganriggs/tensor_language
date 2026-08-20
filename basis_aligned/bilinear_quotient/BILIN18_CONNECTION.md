@@ -11964,3 +11964,47 @@ is a BAND, not a writer. Registered: (a) the band m13+m14 damages
 members more than either alone on both siblings, (b) extending to
 m12 adds under 20% -- a sharp boundary, (c) a distant band of the
 same width does less than half the damage.
+
+## 474. Bands do not isolate either -- the input-composition thread closes
+
+band_unit tested whether a contiguous BAND is the right unit once
+single writers failed their neighbour control:
+  arm              r.1.2.2 conc / member    r.1.2.0 conc / member
+  m14                4.33 / 0.675             4.29 / 0.670
+  m13                4.44 / 0.773             4.89 / 0.851
+  band m13+m14       4.37 / 1.330             4.89 / 1.487
+  band m12+m13+m14   3.72 / 1.879             4.29 / 2.171
+  distant m8+m9      2.71 / 1.138             3.22 / 1.351
+(a) HELD but only trivially: the band damages more than either
+part -- and almost exactly the SUM of them (0.675 + 0.773 = 1.448
+against 1.330 measured). Additive, not synergistic, so "band"
+buys no explanatory power over "two components".
+(b) FAILED: adding m12 adds 41-46% more damage. There is no sharp
+boundary; damage keeps accumulating as layers are added.
+(c) FAILED: the DISTANT band m8+m9 causes 86-91% as much member
+damage as the adjacent one. Absolute damage is barely local at
+all.
+The one place locality does show is SELECTIVITY: concentration is
+4.4-4.9 for the adjacent band against 2.7-3.2 for the distant one.
+So nearby components damage these members more SPECIFICALLY, while
+distant ones damage them nearly as much in absolute terms by
+damaging everything.
+THREAD CLOSED. Across 474 and its predecessors: leaf damage
+profiles in this model are not attributable to single writers
+(473, neighbour control), not to bounded bands (474, no boundary),
+and are only mildly local (selectivity gradient, not a magnitude
+one). What input-composition analysis delivers here is a
+magnitude RANKING (rho 0.76) over a smoothly accumulating
+dependence -- and the program should stop asking it for culprits.
+Pivot, and it is the pivot the evidence supports: this program's
+two COMPLETE circuits -- induction and the position-0 bias -- both
+came from chasing a specific anomaly, not from the census. So take
+the next anomaly. head_0_3_fold queued on head 0.3, the second
+costliest head in the model (+0.112, behind only the sink). Layer
+0 is special: attention there reads only token embeddings, so the
+head's pattern is a pure function of tokens and rotary and should
+be EXACTLY foldable with no forward pass. Registered: (a) one
+offset carries >= 60% of its reads, (b) the token+rotary fold
+reproduces the real top read >= 95% -- at layer 0 a miss means a
+bug, not a finding -- and (c) replacing its value output with a
+per-read-token table costs <= 0.02 nats.

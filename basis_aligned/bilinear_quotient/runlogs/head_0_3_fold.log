@@ -1,0 +1,10 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+offsets [(-1, 663), (0, 283), (-2, 55), (-3, 3), (-100, 1), (-50, 1)] | dominant 0.658 | fold match 1.000 | same-token 0.282
+value-table dCE +0.0543
+(a) one offset carries >=60%: HELD
+(b) token+rotary fold reproduces reads: HELD
+(c) per-read-token table costs <=0.02: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_0_3_fold_results.json (1s)
