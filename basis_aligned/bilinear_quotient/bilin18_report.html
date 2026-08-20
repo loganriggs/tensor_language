@@ -766,6 +766,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   model — first attention layer and first MLP together — is a <strong>bigram function</strong>,
   exactly computable from two tokens, and we can say that with the untruncated reconstruction
   verified exact at +0.0000.</p>
+  <p><span class="tag">how far does this model look?</span> Restricting one attention layer at a
+  time to a four-token read window prices how much each layer needs distant context.
+  <strong>Seventeen of eighteen layers cost under a tenth of a nat.</strong> The single
+  exception is layer 5 at +1.11 — and that turns out to be this same sink losing its constant:
+  allow position 0 through the window and the cost collapses to +0.08, while windowing head 5.7
+  alone reproduces half the damage and windowing the other eight heads of that layer costs
+  +0.05. So on average text, every genuine content read in this eighteen-layer model fits inside
+  four tokens, plus one constant fetched from the first position.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping

@@ -12289,3 +12289,41 @@ other eight heads are local at <= 0.15. If all three hold, 482's
 real headline is "this model's only non-local read is a constant
 fetch", which is a stranger and more useful statement than the one
 I would have published.
+
+## 483. THE CONFOUND WAS REAL: the model's only non-local read is a constant fetch
+
+layer5_window_source, all three bars HELD:
+  4-token window on layer 5 (reference)     +1.1121
+  the same window PLUS position 0 allowed   +0.0766   (-93%)
+  window applied ONLY to head 5.7           +0.5967
+  window applied to the other eight heads   +0.0515
+So layer 5's apparent long-range dependence is the SINK. Let
+position 0 through and layer 5 becomes as local as everything
+else; window head 5.7 alone and you recover half the damage;
+window the other eight and it costs a twentieth of a nat.
+CORRECTED HEADLINE, and it is better than the one I nearly
+published: on average text, EVERY GENUINE CONTENT READ IN THIS
+EIGHTEEN-LAYER MODEL FITS INSIDE FOUR TOKENS, plus a single
+constant fetched from position 0. Seventeen layers under 0.09
+nats, the eighteenth explained by the constant.
+RETRACTION OF AN INTERPRETATION, not of a number: 482's bar (c)
+predicted the worst layer would fall in 5-8, the induction band,
+and it did -- but for the wrong reason. A prediction that holds
+for the wrong reason is not a confirmation, and the "depth profile
+converges with the induction circuit" reading is withdrawn.
+One number worth keeping for the composition ledger: the arms do
+not add. Windowing the sink alone costs 0.597 and the other eight
+0.052, summing to 0.649 against 1.112 measured together --
+superadditive by 0.46, the same non-additivity 447 found for the
+bias's value.
+Report updated and republished with the four-token result.
+That leaves a genuine puzzle, and it is the right next
+experiment. Induction REQUIRES a distant read, and this program
+closed that circuit end to end across layers 1-8 -- yet windowing
+those layers costs 0.014 to 0.038 on average. The reconciliation
+is presumably that induction barely moves AVERAGE loss.
+window_at_match queued to check exactly that: rerun the whole
+sweep scored at MATCH positions. Registered: (a) some band layer
+costs >= 0.20 there, (b) the worst is a documented induction
+layer, (c) unlike the average case, allowing position 0 does NOT
+rescue layer 5 at match positions.
