@@ -674,8 +674,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   circuit's identity is its <em>machinery and causal profile</em>, with member lists as
   evidence. That rule is now enforceable: computing each leaf's damage profile independently
   on disjoint corpus halves, 77% of leaves replicate (profile cosine 0.96 matched vs 0.54
-  mismatched) — 88% at coarse grain, 56% for the finest leaves — giving the program a
-  computable certification gate for every future circuit claim.</p>
+  mismatched) — 88% at coarse grain, 56% for the finest leaves. A correction earned within
+  hours of that number: the raw-damage cosine turns out to certify <em>stability of
+  magnitude</em>, not selectivity — the leaves it ranks highest are whole-component probes
+  whose damage is big, global, and therefore trivially stable, and they fail a local-
+  selectivity gate at five times the rate of uncertified leaves. The working certification
+  standard is now selectivity replicated on both halves independently, and the stability
+  list is not a production shortlist.</p>
 </section>
 
 <section class="col">
