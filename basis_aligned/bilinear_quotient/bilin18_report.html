@@ -1220,6 +1220,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   set of pieces reads far less cleanly on the same test (concentration 6.3 of 8 on average,
   against 7.7 of 8 for the three found groups) — the grouping is doing real work, not just
   picking out any large handful of pieces.</p>
+  <p><strong>A caveat on how much of the layer this covers, worth stating plainly:</strong>
+  those three named groups come from only the top 300 of the layer's 4608 pieces, ranked by a
+  rough importance score — under 7%. It's tempting to assume the important pieces are the top
+  ones and the rest is filler, but that assumption turns out to be wrong. Running the exact
+  same grouping on the <em>next</em> 300 pieces, the ones just below the cutoff, they cluster
+  every bit as cleanly (agreement score 0.56, versus 0.58 for the top group) and yield three
+  <em>more</em> clean, nameable groups that weren't in the top set at all: one that fires
+  before line breaks, one that fires before pronouns ("he", "they", "you"), and one that fires
+  before spelled-out numbers ("six", "seven", "nine"). So the importance ranking doesn't
+  actually separate the structured pieces from the unstructured ones — clean circuitry
+  extends well past where we stopped looking. The honest read is that this layer holds at
+  least six distinct nameable groups, probably more, and the survey so far has sampled a
+  slice, not the whole. That's a limit on coverage, not on the method; the fix is simply to
+  keep going down the list.</p>
   <p>All three groups were then tested causally, not just read off examples — with a group's
   pieces replaced by their average value everywhere else in the layer left exact, does the
   model specifically lose the behaviour the examples suggested? This took three attempts to
