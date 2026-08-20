@@ -1,0 +1,10 @@
+real: digit +0.1459 CI [+0.0890,+0.2091] | punct -0.0487 | rank {'a6': 16, 'a8': 16}
+half_0_4: digit +0.0931 CI [+0.0487,+0.1403] | punct -0.0567 | rank {'a8': 4, 'a6': 4}
+half_4_16: digit +0.0524 CI [+0.0287,+0.0808] | punct +0.0036 | rank {'a6': 12, 'a8': 12}
+alt_16_32: digit +0.0260 CI [+0.0152,+0.0378] | punct -0.0072 | rank {'a6': 20, 'a8': 20}
+alt_32_48: digit +0.0086 CI [-0.0061,+0.0218] | punct -0.0108 | rank {'a6': 20, 'a8': 20}
+(a) 0.089 vs bar 1e-09: HELD
+(b) 0.1199 vs bar 0.03: HELD
+(c) halves +0.0931 + +0.0524 = +0.1455 vs whole +0.1459: reported
+SANITY (punct -0.0487 in [-0.040,-0.010]): VIOLATED -- run uninformative
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_lead2_results.json (98s)

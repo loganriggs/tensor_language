@@ -13291,3 +13291,55 @@ other directions in a6 and a8 do the same thing, the effect
 belongs to those components wholesale; if they do not, it belongs
 to these directions. The (0,4) and (4,16) halves are also priced
 separately.
+
+## 509. The corrected screen's new mechanisms fail causally
+
+mech_m5_verify put 505's two new leaves through the test the
+screen cannot do: silence m5's contribution to m14's and m15's
+inputs specifically -- replace that one writer's part with its own
+mean over positions, leaving m5's output untouched everywhere else
+-- and see where the damage lands. Reconstruction exact at 1.7e-7.
+Member-position damage in nats:
+  leaf       m5       m4       m6      random directions
+  r.1.2.0  +0.00061 +0.00171 +0.00269  +0.01206 -0.00314 +0.00416
+  r.1.2.2  +0.00366 +0.00181 +0.00496  +0.02563 +0.01415 +0.02065
+  r.1.2    +0.00124 +0.00154 +0.00309  (peer, distinct bundle)
+  r.1.2.1  +0.00421 -0.00096 +0.00467  (peer, distinct bundle)
+(a) FAILED: peer leaves on the same components match or beat the
+targets -- r.1.2.1 silenced at m5 costs +0.00421 against
+r.1.2.2's +0.00366.
+(c) FAILED at both leaves: m6, the neighbouring writer, does MORE
+member damage than m5 in every case (+0.00269 vs +0.00061, and
++0.00496 vs +0.00366). The writer the screen named is not the
+writer that matters causally; it is not even the leading one among
+its immediate neighbours.
+NULL VIOLATED, and this is the decisive number: matched RANDOM
+directions substituted the same way cost +0.012 to +0.026 at
+r.1.2.2's members, three to seven times more than silencing m5.
+The intervention the screen points at is less damaging than noise
+of the same size.
+So 505's headline is amended, one section after making it. Three
+leaves pass the SCREEN on the corrected decomposition; the two new
+ones fail causal verification outright. What the correction
+changed is WHERE the screen points, not whether its pointers
+survive contact with an intervention. The census's substantive
+answer is what it was: no verified writer-level mechanism.
+A second, methodological result, and it is the more useful one.
+The member-versus-off-slice contrast that this program has used as
+a localization readout is worthless as a bar. Member positions
+were SELECTED for being damage-sensitive, so ANY perturbation
+lands on them harder: the random directions score contrasts of 8.5
+and 18.0 on exactly the statistic whose registered bar was 1.5.
+This is the selection-bias family that already produced the
+withdrawn over-continuation claim (457/461), reappearing as a
+control rather than as a headline. The correct readout is member
+damage against MATCHED RANDOM DIRECTIONS, which is a comparison
+that can fail, and mech_a14_verify is queued using it.
+That run is the one that matters now. r.3.0.2 -- a15/a16/a17 all
+enriched for a14 at 1.95-2.01, unchanged by the correction because
+its components are late enough that the intervening lambda product
+is about 1 -- is the census's oldest screen positive and has never
+had a causal test. If it fails too, then SOP step 3M has produced
+no causally verified mechanism in sixty leaves on either
+decomposition, and the screen needs rebuilding rather than
+re-running.
