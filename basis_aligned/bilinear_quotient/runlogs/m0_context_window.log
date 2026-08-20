@@ -1,10 +1,10 @@
-full: dCE +0.5526
-k16: dCE +0.6904
-k8: dCE +0.7926
-k4: dCE +0.9206
-k2: dCE +1.1572
-k1: dCE +1.5601
-(a) untruncated fold is exact (<=0.02): FAILED
-(b) k=4 costs <=0.20 (local context): FAILED
-(c) monotone in k and k=1 >= 1.00: HELD
+full: dCE +0.0000
+k16: dCE -0.0105
+k8: dCE -0.0268
+k4: dCE -0.0420
+k2: dCE +0.0041
+k1: dCE +0.5369
+(a) untruncated fold is exact (<=0.02): HELD
+(b) k=4 costs <=0.20 (local context): HELD
+(c) monotone in k and k=1 >= 1.00: FAILED
 wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/m0_context_window_results.json (1s)

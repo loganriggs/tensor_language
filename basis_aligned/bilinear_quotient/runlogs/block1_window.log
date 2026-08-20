@@ -1,0 +1,11 @@
+full: dCE +0.0000
+k32: dCE +0.0025
+k16: dCE +0.0110
+k8: dCE +0.0105
+k4: dCE +0.0138
+k2: dCE +0.0803
+k1: dCE +0.7939
+(a) untruncated is exact: HELD
+(b) k=2 costs >=0.30 (wider than block 0): FAILED
+(c) k=16 costs <=0.10 (still bounded): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/block1_window_results.json (1s)

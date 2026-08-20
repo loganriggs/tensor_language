@@ -12184,3 +12184,44 @@ untruncated fold is exact at <= 0.02 (a miss means a bug), (b)
 k = 4 costs <= 0.20 -- m0's context need is local, (c) cost is
 monotone in k with k = 1 >= 1.00, consistent with the +1.255
 measured here.
+
+## 480. THE FRONT OF THE MODEL IS A BIGRAM FUNCTION -- and 479 is RETRACTED
+
+m0_context_window's first run failed its own sanity bar exactly as
+registered ("a miss means a bug"): the untruncated fold cost
++0.5526 when it should have been an identity. The bug, found by
+checking the block-0 lambdas rather than guessing: the residual
+entering block 0's MLP is (lam0 + lam1) * E + attn_out, and
+lam0 + lam1 = 12.1875 in this model. I had used 1.0 * E, so the
+embedding was under-weighted TWELVEFOLD in every reconstruction
+that fed m0.
+Rerun with the correct mix:
+  full (untruncated fold)   dCE +0.0000   <- exact, bar (a) HELD
+  k = 16                    dCE -0.0105
+  k = 8                     dCE -0.0268
+  k = 4                     dCE -0.0420   <- bar (b) HELD
+  k = 2                     dCE +0.0041
+  k = 1 (self only)         dCE +0.5369
+(c) FAILED as written: the sequence is not monotone (a four-token
+window is slightly BETTER than the full one) and k = 1 costs 0.54
+rather than the >= 1.00 I predicted.
+THE RESULT: the front of this model -- the entire first attention
+layer plus the first MLP -- is a BIGRAM FUNCTION. The current
+token plus ONE previous position costs 0.004 nats against the full
+model; four positions is free; only cutting to the current token
+alone hurts, and even then by half what dropping attention
+entirely costs (478's 1.018).
+RETRACTION of 479, stated plainly: its headline -- "the token PAIR
+form is worse than ignoring attn0 entirely" -- was produced by the
+same twelvefold lambda bug and is WRONG. The corrected measurement
+says the opposite: the token-pair form is essentially free. 479's
+recursion-bug note stands; its scientific conclusion does not, and
+the ledger and the report now carry the corrected version.
+Report updated and republished with the bigram-front result and
+the exactness anchor.
+block1_window queued to measure how fast the required context
+widens with depth: the same window sweep at block 1, whose
+attention reads block-0 outputs. Registered: (a) untruncated is
+exact, (b) k = 2 costs >= 0.30 there against +0.004 at block 0 --
+layer 1 is where context widens, (c) k = 16 costs <= 0.10, so it
+is still bounded.

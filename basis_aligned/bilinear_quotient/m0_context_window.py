@@ -69,7 +69,14 @@ def main():
                     z=torch.einsum('bhqk,bkhd->bhqd',pat,vm)
                     a0=at0.c_proj(z.transpose(1,2).contiguous()
                                   .view(B,T,-1).to(E.dtype)).float()
-                    xin=F.rms_norm(E.float()+a0,(D,))
+                    # block-0 lambda mix: the residual entering
+                    # the MLP is (lam0+lam1)*E + attn_out, and
+                    # lam0+lam1 = 12.19 here. Using 1.0*E (the
+                    # first version) under-weighted the embedding
+                    # by 12x and made the "exact" fold cost 0.55.
+                    lam=m.transformer.h[0].lambdas.detach().float()
+                    xin=F.rms_norm(float(lam.sum())*E.float()+a0,
+                                   (D,))
                     return mlp0_manual(xin).to(o_.dtype)
                 hs.append(mlp0.register_forward_hook(fh))
             x=F.rms_norm(m.transformer.wte(idx),(D,)); x0=x

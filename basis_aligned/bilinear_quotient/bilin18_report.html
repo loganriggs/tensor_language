@@ -758,6 +758,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   1 — which reads layer-0 outputs rather than raw tokens — costs <strong>+1.47 nats</strong>, a
   hundred and fifty times more. So the first attention layer of this model is exactly a bigram
   table, the second is not, and the line between them is measurable to two decimal places.</p>
+  <p>How much context does that front end actually need? With the first attention layer rebuilt
+  from weights and its reads restricted to a sliding window, the answer is startlingly small:
+  giving the first MLP the current token <em>plus one previous position</em> costs
+  <strong>0.004 nats</strong> against the full model, and a four-position window is free
+  (−0.04). Only cutting to the current token alone hurts (+0.54). So the entire front of this
+  model — first attention layer and first MLP together — is a <strong>bigram function</strong>,
+  exactly computable from two tokens, and we can say that with the untruncated reconstruction
+  verified exact at +0.0000.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping
