@@ -14488,3 +14488,56 @@ one), and name features over FREQUENT tokens only. The run will
 also price the per-token-table stand-in on the same rows, because
 the 1.0-nat figure this program quotes for that stand-in comes
 from a different measurement and the comparison is the point.
+
+## 534. Units are better atoms than squares, and still the wrong
+## compression -- but the algebra beats the fitted table anyway
+
+mlp0_units redid 533's curve with hidden units as atoms (pairs
+kept together), naming restricted to the 5000 most frequent
+tokens, and -- the number the benchmark actually needed -- the
+per-token table stand-in measured on the same rows.
+  atoms kept   cost      random-K
+      16      +1.5816    +0.81
+      64      +0.9925    +0.70
+     256      +0.4117    +0.49
+    1024      +0.0974    +0.17
+    4608      +0.0000      --
+  per-token table stand-in: +1.4660 nats
+(0) HELD: keeping all units reproduces the model to +0.00000.
+(a) FAILED: the bar was under 0.10 nats at K <= 256; 256 units
+cost 0.412 and it takes about 1024 -- 22% of them -- to reach
+0.10. That is the same 22% the square-level run found, which is
+itself informative: pairing the squares did not change where the
+curve crosses.
+(b) The pairing fix did NOT solve the small-K problem. At 16 and
+64 units the top-ranked selection is still WORSE than a random
+one (1.58 against 0.81, and 0.99 against 0.70), with the crossover
+only at 256. So the cancellation is not merely within pairs, it is
+global: mlp0's output is a signed sum in which the loudest terms
+largely annihilate each other, and keeping the loud ones while
+mean-filling the rest leaves their unopposed remainder, which is
+worse than keeping nothing in particular. "Top-K plus mean-fill"
+is the wrong compression OPERATOR for this layer, and that is a
+statement about the layer rather than about the ranking.
+(c) THE BENCHMARK COMPARISON, and it is the good news. The fitted
+per-token table costs 1.466 nats on these rows. The algebraic
+stand-in beats it at every K from 256 up: 0.412 nats with 256 of
+4608 units, and 0.097 with 1024. So a derived stand-in at 22% of
+the layer's atoms is FIFTEEN TIMES more accurate than the lookup
+table that has been this program's early-layer stand-in, and even
+at 5.6% of the atoms it is 3.6x better. (Recorded as a correction
+of scale: the ledger has quoted 1.0 nats for the mlp0 table from
+an older measurement; on these rows and this corpus it is 1.466,
+and only the same-rows comparison should be used.)
+(d) HELD, 3 of 5, and the fine taxonomy over frequent tokens fixed
+what 533's coarse one hid:
+  unit 1737  determiner 9/10   ' a', ' the', ' an', ' their'
+  unit 2264  space_word 10/10  ' obtained', ' identified',
+                               ' settled', ' improve'
+  unit 3926  capitalized 9/10  ' Love', ' Me', ' Win', ' Out'
+NULL ok: 1 of 5 random directions reached the bar.
+The next move follows from (b). If subset selection is the wrong
+operator, the right one is a low-rank approximation of the MAP --
+"mlp0 reads its input through r directions" and "writes into r
+directions" -- which is what attn0_rank already does for
+attention. Queued as mlp0_lowrank.

@@ -1,0 +1,22 @@
+(0) attn0 input vs rms_norm(wte): 7.243e-08
+(0) FOLDING EXACT: HELD
+baseline CE 3.3536
+rank    2: cost +0.0531 | random [1.3455, 1.3207, 1.4102]
+rank    4: cost +0.0509 | random [1.3855, 1.321, 1.4089]
+rank    8: cost +0.0361 | random [1.3094, 1.3293, 1.342]
+rank   16: cost +0.0233 | random [1.3701, 1.3718, 1.4017]
+rank   32: cost +0.0095 | random [1.3147, 1.3298, 1.3639]
+rank   64: cost +0.0024 | random [1.2816, 1.2133, 1.2744]
+rank  128: cost +0.0000 | random []
+
+naming head 0.3 (atlas delete cost 0.11217)
+  query dir 0 (sv 40.73): subword 9/10 -> ["'ed'", "'ing'", "'ers'", "'ating'", "'ize'", "' that'"]
+  query dir 1 (sv 14.42): subword 10/10 -> ["'age'", "'ine'", "'ang'", "'ification'", "'ades'", "'ane'"]
+  key dir 0 (sv 40.20): preposition 4/10 -> ["' that'", "' and'", "'s'", "' it'", "' is'", "' to'"]
+  key dir 1 (sv 17.64): subword 8/10 -> ["'ates'", "'ations'", "' including'", "'izing'", "'ities'", "'aries'"]
+(a) 0.0767 vs bar 1e-09: HELD
+(b) 1.3002 vs bar 1e-09: HELD
+(c) rank 4 costs +0.0509; cost first falls under 0.10 nats at rank 2
+(d) 3/4 leading directions are class-pure
+NULL (rank 128 costs +0.00000 < 1e-3): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn0_rank_results.json (129s)

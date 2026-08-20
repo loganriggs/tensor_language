@@ -1,0 +1,139 @@
+{
+ "baseline_ce": 3.3536,
+ "table_cost": 1.466,
+ "curve": {
+  "16": {
+   "cost": 1.5816,
+   "random": [
+    0.8117,
+    0.8048,
+    0.8105
+   ]
+  },
+  "64": {
+   "cost": 0.9925,
+   "random": [
+    0.686,
+    0.7029,
+    0.7111
+   ]
+  },
+  "256": {
+   "cost": 0.4117,
+   "random": [
+    0.4923,
+    0.4946,
+    0.4951
+   ]
+  },
+  "1024": {
+   "cost": 0.0974,
+   "random": [
+    0.1825,
+    0.156,
+    0.1613
+   ]
+  },
+  "4608": {
+   "cost": 0.0,
+   "random": []
+  }
+ },
+ "top_units": [
+  {
+   "unit": 1737,
+   "tokens": [
+    " a",
+    " the",
+    " an",
+    " their",
+    " our",
+    " his",
+    " your",
+    " my",
+    " this",
+    ","
+   ],
+   "dominant_class": "determiner",
+   "purity": 9
+  },
+  {
+   "unit": 2264,
+   "tokens": [
+    " obtained",
+    " identified",
+    " guides",
+    " settled",
+    " improve",
+    " staff",
+    " improved",
+    " probably",
+    " significant",
+    " wonderful"
+   ],
+   "dominant_class": "space_word",
+   "purity": 10
+  },
+  {
+   "unit": 3326,
+   "tokens": [
+    " Pop",
+    "\ufffd",
+    "Mer",
+    "ide",
+    "ops",
+    "5",
+    "#",
+    "0",
+    "6",
+    "15"
+   ],
+   "dominant_class": "digit",
+   "purity": 4
+  },
+  {
+   "unit": 1492,
+   "tokens": [
+    " World",
+    " squad",
+    " people",
+    " critical",
+    "ents",
+    "ous",
+    " authority",
+    " Global",
+    " translation",
+    "EC"
+   ],
+   "dominant_class": "space_word",
+   "purity": 5
+  },
+  {
+   "unit": 3926,
+   "tokens": [
+    " Love",
+    " Me",
+    " Win",
+    " Out",
+    " Can",
+    " Car",
+    " Never",
+    " Are",
+    " So",
+    " Set"
+   ],
+   "dominant_class": "capitalized",
+   "purity": 9
+  }
+ ],
+ "class_pure": 3,
+ "random_class_pure": 1,
+ "pred_0": true,
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": false,
+ "pred_d": true,
+ "null_ok": true,
+ "first_K_under_0.10": null,
+ "runtime_s": 705.3825695514679
+}

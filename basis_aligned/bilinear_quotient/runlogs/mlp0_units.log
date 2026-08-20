@@ -1,0 +1,17 @@
+4608 hidden units | top importances [3701.593, 2159.332, 1684.135, 1460.973, 1298.403] median 293.588
+baseline CE 3.3536 | per-token table stand-in +1.4660 nats
+K=   16: cost +1.5816 | random [0.8117, 0.8048, 0.8105]
+K=   64: cost +0.9925 | random [0.686, 0.7029, 0.7111]
+K=  256: cost +0.4117 | random [0.4923, 0.4946, 0.4951]
+K= 1024: cost +0.0974 | random [0.1825, 0.156, 0.1613]
+K= 4608: cost +0.0000 | random []
+(0) all units reproduces the model (+0.00000): HELD
+  unit 1737: determiner 9/10 -> ["' a'", "' the'", "' an'", "' their'", "' our'", "' his'"]
+  unit 2264: space_word 10/10 -> ["' obtained'", "' identified'", "' guides'", "' settled'", "' improve'", "' staff'"]
+  unit 3326: digit 4/10 -> ["' Pop'", "'�'", "'Mer'", "'ide'", "'ops'", "'5'"]
+  unit 1492: space_word 5/10 -> ["' World'", "' squad'", "' people'", "' critical'", "'ents'", "'ous'"]
+  unit 3926: capitalized 9/10 -> ["' Love'", "' Me'", "' Win'", "' Out'", "' Can'", "' Car'"]
+(a) some K<=256 costs < 0.10 nats: FAILED
+(d) 3/5 leading units class-pure over frequent tokens
+NULL (1/5 random directions): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_units_results.json (705s)

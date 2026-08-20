@@ -1,0 +1,145 @@
+{
+ "folding_rel": 7.243494337672018e-08,
+ "baseline_ce": 3.3536,
+ "curve": {
+  "2": {
+   "cost": 0.0531,
+   "random": [
+    1.3455,
+    1.3207,
+    1.4102
+   ]
+  },
+  "4": {
+   "cost": 0.0509,
+   "random": [
+    1.3855,
+    1.321,
+    1.4089
+   ]
+  },
+  "8": {
+   "cost": 0.0361,
+   "random": [
+    1.3094,
+    1.3293,
+    1.342
+   ]
+  },
+  "16": {
+   "cost": 0.0233,
+   "random": [
+    1.3701,
+    1.3718,
+    1.4017
+   ]
+  },
+  "32": {
+   "cost": 0.0095,
+   "random": [
+    1.3147,
+    1.3298,
+    1.3639
+   ]
+  },
+  "64": {
+   "cost": 0.0024,
+   "random": [
+    1.2816,
+    1.2133,
+    1.2744
+   ]
+  },
+  "128": {
+   "cost": 0.0,
+   "random": []
+  }
+ },
+ "named_head": "0.3",
+ "directions": [
+  {
+   "side": "query",
+   "dir": 0,
+   "sv": 40.731,
+   "dominant_class": "subword",
+   "purity": 9,
+   "tokens": [
+    "ed",
+    "ing",
+    "ers",
+    "ating",
+    "ize",
+    " that",
+    "ized",
+    "ations",
+    "like",
+    "ated"
+   ]
+  },
+  {
+   "side": "query",
+   "dir": 1,
+   "sv": 14.422,
+   "dominant_class": "subword",
+   "purity": 10,
+   "tokens": [
+    "age",
+    "ine",
+    "ang",
+    "ification",
+    "ades",
+    "ane",
+    "ade",
+    "ines",
+    "ank",
+    "aring"
+   ]
+  },
+  {
+   "side": "key",
+   "dir": 0,
+   "sv": 40.199,
+   "dominant_class": "preposition",
+   "purity": 4,
+   "tokens": [
+    " that",
+    " and",
+    "s",
+    " it",
+    " is",
+    " to",
+    " of",
+    " as",
+    " in",
+    " be"
+   ]
+  },
+  {
+   "side": "key",
+   "dir": 1,
+   "sv": 17.642,
+   "dominant_class": "subword",
+   "purity": 8,
+   "tokens": [
+    "ates",
+    "ations",
+    " including",
+    "izing",
+    "ities",
+    "aries",
+    "ments",
+    "ators",
+    "\ufffd",
+    "ification"
+   ]
+  }
+ ],
+ "class_pure": 3,
+ "first_rank_under_0.10": 2,
+ "pred_0": true,
+ "pred_a": true,
+ "pred_b": true,
+ "pred_d": true,
+ "null_ok": true,
+ "runtime_s": 128.97322845458984
+}
