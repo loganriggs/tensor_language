@@ -17824,3 +17824,53 @@ either exact arithmetic or a passed causal/predictive test, and the
 input side is grounded in nameable English grammar. This is the
 depth-first standard the rest of the circuit inventory can be held
 to.
+
+## 599. The article redundancy is PARALLEL, not serial: mlp1 does not
+## read mlp0's write -- both layers independently recompute the
+## decision from the shared attn0-carried input
+
+Directly tests the user's "components fold into later layers" idea for
+the confirmed article redundancy (mlp0 cluster 8 + mlp1's 13% echo,
+595/597). Two mechanisms could produce their same-positions co-firing:
+SERIAL (mlp1 reads mlp0's residual write and continues it) or PARALLEL
+(both independently read the shared upstream input -- token embedding +
+attn0 bigram -- and separately compute the same decision). Ablated
+mlp0 cluster 8's write (mean-fill its 101 units, everything else
+exact) and measured whether mlp1's article cluster still fires at
+article positions.
+  (0) HELD: both clusters reproduced exactly.
+  NULL ok: the ablation demonstrably reaches the output -- it shifts
+      the whole-model a/an-vs-the margin by 0.0074 at article
+      positions (the known cluster-8 effect, 592), confirming (a) is
+      measuring a real, propagating intervention. (An earlier draft's
+      machinery check measured mlp0-c8's activation from its INPUT,
+      which an output-side ablation cannot change by construction --
+      caught and replaced with this output-side margin check before
+      trusting the run.)
+  (a) THE FINDING -- PARALLEL: ablating mlp0 cluster 8 changes mlp1's
+      article-cluster firing by only -1.1%. mlp1 keeps firing almost
+      exactly as before when cluster 8's write is removed -- it is not
+      reading that write.
+  (b) registered as "specificity", came out the OPPOSITE of serial:
+      a size-matched RANDOM mlp0 cluster ablation changes mlp1's
+      article firing MORE (-5.9%) than cluster 8's does (-1.1%). So
+      not only is mlp1 not specifically dependent on cluster 8, cluster
+      8 matters LESS to it than a random mlp0 perturbation -- decisive
+      against serial dependence.
+  (c) mlp1's unrelated artifact cluster changes -5.6% under the c8
+      ablation, about the same as the random-cluster generic effect --
+      confirming the small changes seen are generic residual-stream
+      perturbation, not article-specific signal transfer.
+The "FAILED" on (b)/(c) is not an experiment failure -- those bars were
+framed anticipating a possible serial hand-off, and their failure IS
+the parallel result: there is no specific mlp0-c8 -> mlp1-article wire.
+MECHANISM: the redundancy is two INDEPENDENT computations of the same
+decision, not a relay. 597 showed both clusters' input (embedding +
+attn0's bigram context) carries the article signal; this shows mlp1
+reads that shared input directly rather than mlp0's processed output.
+That makes the redundancy genuinely robust (two parallel reads of the
+same evidence, either sufficient) rather than a fragile chain, and it
+sharpens 595/597: "same data points" is because they share an INPUT,
+not because one feeds the other. A clean, novel mechanistic fact about
+how the model distributes a decision, from the depth-first thread the
+user asked for.
