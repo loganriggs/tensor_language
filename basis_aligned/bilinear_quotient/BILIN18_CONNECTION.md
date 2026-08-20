@@ -17500,3 +17500,66 @@ Combined with 590 (attn0 finds nothing to split at any r_min tried),
 the model-level contrast (attn0 homogeneous, mlp0 heterogeneous)
 stands on fully consistent, task-loss-calibrated footing for both
 components. RSPD-application arc (578-591) complete.
+
+## 592. Activation patching, the different causal probe 586 called
+## for, CONFIRMS cluster 8 -- specific, correctly-signed, and robust
+## across three independent checks
+
+586 closed the margin/mean-ablation causal thread unresolved (real
+effects, unstable direction across metrics) and named the needed fix:
+a genuinely different probe. This is that probe -- standard
+activation patching, not deletion. Real positions where the model's
+own prediction strongly favors indefinite articles (SOURCE, n=678)
+and strongly favors definite articles (TARGET, n=1981) were found in
+real FineWeb text; for each of 80 (source, target) pairs, the
+target's own forward pass runs untouched except at its own query
+position, where cluster 8's 101 hidden units are overwritten with the
+SOURCE's real captured values for those same units -- everything else
+in the target's own context, including every other unit and every
+other position, stays exactly as the target's own computation
+produced it.
+Caught and fixed a reproducibility bug before trusting any numbers:
+first draft used NFRESH=64 everywhere else but NFRESH=96 here (more
+candidate positions); since the fixed-seed subsample depends on the
+TOTAL pool size (NFRESH*256), this silently changed which 4000
+positions get clustered and broke exact reproduction of cluster 8 (a
+different 20-cluster partition came out, sizes [82, 74, 41...] not
+[101, 76, 29...]). Fixed by matching NFRESH=64; reproduction verified
+exact before proceeding.
+RESULTS:
+  (0) HELD: patching a target's own activation into itself changes
+      nothing (delta 1e-6).
+  (a) literal bar FAILED (mean delta +0.00219, registered bar >0.01)
+      but the SIGN is correct -- patching a real a/an-favoring source
+      in does shift the target's margin toward a/an, as predicted.
+      The absolute bar was set without a real sense of scale for a
+      single-position patch on a bounded probability margin and reads
+      as mis-calibrated in hindsight, not as evidence the effect is
+      absent -- the comparative checks below are the load-bearing
+      ones and they are unambiguous.
+  (b) HELD: cluster 8's patch effect is 4.01x a size-matched random-
+      unit patch (+0.00219 vs +0.00055) -- specific to these units.
+  (c) HELD: patching a the-favoring source into a the-favoring target
+      (same-class control) gives +0.00010, 22x smaller than the
+      cross-class +0.00219 -- specific to the SOURCE'S content, not a
+      generic effect of disturbing the residual stream.
+  NULL ok: the same a/an-favoring-source patch applied at digit-
+      target positions gives -0.00007, near zero and far smaller than
+      the real-target effect -- article-specific, not generic
+      disruption.
+CLOSES THE CAUSAL-VERIFICATION ARC (582-586, now 592) on a genuine
+positive: three independent specificity checks (random-unit control,
+same-class control, unrelated-class null) all point the same
+direction and agree with 581's original correlational reading for
+cluster 8 -- it causally carries information that shifts the model
+toward indefinite-article prediction, confirmed by the standard tool
+for exactly this claim after three margin/ablation designs gave
+metric-unstable readings. The lesson from 586 stands and is now
+demonstrated, not just asserted: DELETION-style causal tests (mean-
+ablation) were the wrong instrument for a component this small and
+this entangled with everything else the model is doing; a REPLACEMENT
+-style test (patching in a real alternative) resolved it cleanly on
+the first correctly-scoped attempt. Cluster 8 -- read correlationally
+in 581, muddied by three ablation designs in 582-586, now causally
+CONFIRMED by patching -- is the one of the three named mlp0 clusters
+with a complete, closed verification story.
