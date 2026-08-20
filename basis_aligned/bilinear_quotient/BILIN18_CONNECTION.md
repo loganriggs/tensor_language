@@ -12929,3 +12929,73 @@ of token 198 and asks whether it is a function of the current
 token (an elaborate bigram), of the document being line-broken
 text at all (a genre detector), or of neither, with head 12.2 as a
 same-layer control on the detector score.
+
+## 501. What switches the newline pusher on
+
+newline_head_trigger measured, at every position, how much the
+logit of token 198 drops when 12.6 is ablated -- the head's own
+causal contribution to predicting a line break -- over 64 fresh
+rows.
+It is a usable detector. AUC for "the next token is a newline" is
+0.7686, against 0.4499 for head 12.2, the second-ranked head in
+the same layer. The control lands below chance, so this is 12.6
+and not the layer. Mean push is +0.1193 at line breaks and -0.0741
+everywhere else.
+That minus sign is the finding. The head does not merely fail to
+push newline mid-line; it actively SUPPRESSES it, and the ranking
+by current token shows both sides:
+  '\n'   n=432  push +0.1064      median token   -0.0791
+  '.'    n=567  push +0.0850      ' but'         -0.0365
+  '"'    n=51   push +0.0752      ' "'           -0.0365
+  '?'    n=30   push +0.0739      ':'            -0.0307
+  '!'    n=22   push +0.0257      ' time'        -0.0270
+Sentence-final punctuation and the newline token itself turn it
+on; ordinary mid-sentence words turn it off. A colon suppresses,
+which is the one entry I would have predicted the other way.
+(a) was UNEVALUABLE as registered, not failed. I asked for the
+top-decile push to be at least 3x the median token's, and the
+median token's push is NEGATIVE (-0.0791), so the quotient is
+meaningless -- the third degenerate-ratio bar in four sections.
+The pair is the answer: +0.0561 against -0.0791, a spread of 0.135
+that is larger than the whole newline-target effect, so token
+conditioning is real and strong; only my way of scoring it was
+broken. This one is now mechanical rather than a rule to remember:
+census_lib.score_bar() returns UNEVALUABLE instead of a verdict
+when a ratio's denominator is within noise of zero or a
+comparison class is empty, and it reproduces both of 500's
+failures and this one on the stored numbers.
+(b) HELD: the head is document-gated. Holding the trigger token
+fixed to the top types, the push is +0.1127 in documents whose
+newline density is above the median against +0.0527 below it, a
+factor of 2.14 on n=684 and n=460. So it is not a pure bigram: the
+same period gets twice the push in text that is already
+line-broken.
+So 12.6 is a line-break detector with two inputs -- a local one
+(sentence-final punctuation, or a preceding newline) and a
+document-level one (is this line-broken text at all) -- and it
+expresses its answer by moving one token's logit, up at breaks and
+down between them.
+
+## 502. The census audit closes: no negative was hiding anything
+
+power_recheck2 finished the two candidates the N-stable definition
+added (499):
+  r.6.0.0 m17  signal 1.843 at 5 seeds -> 1.751 at 20 (bar 2.35)
+  r.5.3.2 a15  signal 1.180 at 5 seeds -> 0.972 at 20 (bar 1.514)
+(a) FAILED (no flip), (c) HELD (control did not flip). (b) FAILED,
+but (b) is again about the bar rather than the model: r.6.0.0's
+threshold ROSE from 1.977 to 2.35 with four times the draws, which
+says the writer-share estimator is genuinely noisy on that leaf,
+not that the test got worse.
+All five underpowered-with-a-hint negatives in the census have now
+been retested at 20 draws. None flipped, and four of five shrank
+toward 1.0. The headline stands as written and is now audited:
+sixty leaves, zero writer-level mechanisms, and the negatives are
+negatives.
+One control (r.12.0.2) was lost mid-run to a transient
+huggingface.co disconnection at model-load time, which also killed
+an earlier invocation of the same script. The weights never
+change, so a network blip must not be able to idle the GPU:
+tier2_model.load_elriggs now retries with local_files_only=True
+and prints that it did. Verified the cached path loads with the
+hub disabled entirely.

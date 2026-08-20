@@ -1,8 +1,42 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/power_recheck2.py", line 121, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/power_recheck2.py", line 89, in main
-    'separation':t['null_bar_separation'],
-                 ~^^^^^^^^^^^^^^^^^^^^^^^
-KeyError: 'null_bar_separation'
+[hint] r.6.0.0 m17: writer m15 signal 1.751 vs bar 2.35 | needs 2.35x | STABLE2=False
+[hint] r.5.3.2 a15: writer m14 signal 0.972 vs bar 1.514 | needs 1.514x | STABLE2=False
+r.12.0.2 FAILED
+
+ in _httpx_follow_relative_redirects_with_backoff
+    response = http_backoff(
+               ^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 596, in http_backoff
+    return next(
+           ^^^^^
+  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 504, in _http_backoff_base
+    response = client.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/venv/main/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.RemoteProtocolError: Server disconnected without sending a response.
+
+[control] r.11.3.0 a3: writer a1 signal 0.986 vs bar 1.3 | needs 1.3x | STABLE2=False
+(a) a hinted negative flips at 20 seeds: FAILED
+(b) both bars fall to <=1.35x at 20 draws: FAILED
+(c) CONTROL: no decisive negative flips: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/power_recheck2_results.json (59s)

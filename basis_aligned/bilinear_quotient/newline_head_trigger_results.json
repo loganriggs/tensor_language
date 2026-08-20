@@ -1,0 +1,235 @@
+{
+ "n_token_types": 71,
+ "top_decile_mean_push": 0.0561,
+ "median_token_mean_push": -0.0791,
+ "top_triggers": [
+  {
+   "tok": 198,
+   "repr": "'\\n'",
+   "n": 432,
+   "mean_push": 0.1064,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 13,
+   "repr": "'.'",
+   "n": 567,
+   "mean_push": 0.085,
+   "nl_rate": 0.34
+  },
+  {
+   "tok": 1,
+   "repr": "'\"'",
+   "n": 51,
+   "mean_push": 0.0752,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 30,
+   "repr": "'?'",
+   "n": 30,
+   "mean_push": 0.0739,
+   "nl_rate": 0.267
+  },
+  {
+   "tok": 0,
+   "repr": "'!'",
+   "n": 22,
+   "mean_push": 0.0257,
+   "nl_rate": 0.318
+  },
+  {
+   "tok": 470,
+   "repr": "\"'t\"",
+   "n": 22,
+   "mean_push": 0.0138,
+   "nl_rate": 0.045
+  },
+  {
+   "tok": 644,
+   "repr": "' what'",
+   "n": 20,
+   "mean_push": 0.0127,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 777,
+   "repr": "' these'",
+   "n": 22,
+   "mean_push": 0.0033,
+   "nl_rate": 0.091
+  },
+  {
+   "tok": 8,
+   "repr": "')'",
+   "n": 39,
+   "mean_push": 0.0,
+   "nl_rate": 0.128
+  },
+  {
+   "tok": 447,
+   "repr": "'\ufffd'",
+   "n": 95,
+   "mean_push": -0.0164,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 640,
+   "repr": "' time'",
+   "n": 20,
+   "mean_push": -0.027,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 25,
+   "repr": "':'",
+   "n": 74,
+   "mean_push": -0.0307,
+   "nl_rate": 0.189
+  },
+  {
+   "tok": 523,
+   "repr": "' so'",
+   "n": 25,
+   "mean_push": -0.0354,
+   "nl_rate": 0.04
+  },
+  {
+   "tok": 475,
+   "repr": "' but'",
+   "n": 27,
+   "mean_push": -0.0365,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 366,
+   "repr": "' \"'",
+   "n": 41,
+   "mean_push": -0.0365,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 357,
+   "repr": "' ('",
+   "n": 70,
+   "mean_push": -0.0375,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 656,
+   "repr": "' into'",
+   "n": 23,
+   "mean_push": -0.0388,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 543,
+   "repr": "' which'",
+   "n": 27,
+   "mean_push": -0.0402,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 314,
+   "repr": "' I'",
+   "n": 94,
+   "mean_push": -0.0413,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 345,
+   "repr": "' you'",
+   "n": 61,
+   "mean_push": -0.0445,
+   "nl_rate": 0.0
+  }
+ ],
+ "bottom_triggers": [
+  {
+   "tok": 423,
+   "repr": "' have'",
+   "n": 46,
+   "mean_push": -0.1232,
+   "nl_rate": 0.022
+  },
+  {
+   "tok": 82,
+   "repr": "'s'",
+   "n": 67,
+   "mean_push": -0.1242,
+   "nl_rate": 0.03
+  },
+  {
+   "tok": 561,
+   "repr": "' would'",
+   "n": 21,
+   "mean_push": -0.1272,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 481,
+   "repr": "' will'",
+   "n": 41,
+   "mean_push": -0.1281,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 257,
+   "repr": "' a'",
+   "n": 272,
+   "mean_push": -0.1282,
+   "nl_rate": 0.004
+  },
+  {
+   "tok": 464,
+   "repr": "'The'",
+   "n": 20,
+   "mean_push": -0.1297,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 534,
+   "repr": "' your'",
+   "n": 40,
+   "mean_push": -0.1439,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 503,
+   "repr": "' out'",
+   "n": 41,
+   "mean_push": -0.1454,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 530,
+   "repr": "' one'",
+   "n": 26,
+   "mean_push": -0.1544,
+   "nl_rate": 0.0
+  },
+  {
+   "tok": 547,
+   "repr": "' were'",
+   "n": 24,
+   "mean_push": -0.1665,
+   "nl_rate": 0.0
+  }
+ ],
+ "doc_gating": {
+  "high_density_mean": 0.1127,
+  "low_density_mean": 0.0527,
+  "n_hi": 684,
+  "n_lo": 460,
+  "ratio": 2.14
+ },
+ "auc_12_6": 0.7686,
+ "auc_12_2": 0.4499,
+ "mean_push_at_newline": 0.1193,
+ "mean_push_elsewhere": -0.0741,
+ "pred_a": false,
+ "pred_b": true,
+ "pred_c": true,
+ "null_ok": true,
+ "runtime_s": 77.31913447380066
+}

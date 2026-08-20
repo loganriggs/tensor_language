@@ -1,0 +1,28 @@
+434 newline targets over 64 rows | newline density median 0.0195
+
+top trigger tokens (mean push on "\n"):
+            '\n' n=432   push +0.1064  next-is-newline rate 0.0
+             '.' n=567   push +0.0850  next-is-newline rate 0.34
+             '"' n=51    push +0.0752  next-is-newline rate 0.0
+             '?' n=30    push +0.0739  next-is-newline rate 0.267
+             '!' n=22    push +0.0257  next-is-newline rate 0.318
+            "'t" n=22    push +0.0138  next-is-newline rate 0.045
+         ' what' n=20    push +0.0127  next-is-newline rate 0.0
+        ' these' n=22    push +0.0033  next-is-newline rate 0.091
+             ')' n=39    push +0.0000  next-is-newline rate 0.128
+             '�' n=95    push -0.0164  next-is-newline rate 0.0
+         ' time' n=20    push -0.0270  next-is-newline rate 0.0
+             ':' n=74    push -0.0307  next-is-newline rate 0.189
+           ' so' n=25    push -0.0354  next-is-newline rate 0.04
+          ' but' n=27    push -0.0365  next-is-newline rate 0.0
+            ' "' n=41    push -0.0365  next-is-newline rate 0.0
+
+top decile +0.0561 vs median token -0.0791
+doc gating (top trigger tokens): high-density +0.1127 (n=684) vs low-density +0.0527 (n=460)
+push at newline targets +0.1193 vs elsewhere -0.0741
+AUC 12.6 0.7686 | control head 12.2 0.4499
+(a) top-decile token push >= 3x median token: FAILED
+(b) same tokens pushed >=1.5x more in newline-dense documents: HELD
+(c) 12.6 push predicts next-is-newline, AUC>=0.75: HELD
+NULL (control head 12.2 AUC 0.450 < 0.65): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_head_trigger_results.json (77s)

@@ -695,3 +695,37 @@ def ioi_prompts():
                 out.append((tpl.replace('{A}',a).replace('{B}',b),
                             e.encode(a)[0],e.encode(b)[0]))
     return out
+
+
+def score_bar(name,value,bar,denom=None,n=None,min_n=10,
+              min_denom=None,ref=None):
+    """Score a registered prediction with the two guards this
+    program keeps tripping over (writeups 465, 500).
+
+    UNEVALUABLE, not FAILED, when:
+      * the comparison class is empty or thin (n < min_n) -- a bar
+        cannot be scored on a class the sample never populated;
+      * the bar is a ratio and its denominator is near zero
+        (|denom| < min_denom, default 10% of |ref| if given, else
+        0.05 x |value|) -- a quotient of two numbers straddling
+        zero carries no information regardless of how large it is.
+    Returns (verdict, note) with verdict in HELD/FAILED/UNEVALUABLE
+    and prints the line, so a run cannot quietly score junk.
+    """
+    note=''
+    if n is not None and n<min_n:
+        v='UNEVALUABLE'; note=f'class has n={n} < {min_n}'
+    elif denom is not None:
+        md=(min_denom if min_denom is not None else
+            (0.1*abs(ref) if ref else 0.05*abs(value)))
+        if abs(denom)<md:
+            v='UNEVALUABLE'
+            note=(f'denominator {denom:.5f} is below {md:.5f} -- '
+                  f'report the pair, not the quotient')
+        else:
+            v='HELD' if value>=bar else 'FAILED'
+    else:
+        v='HELD' if value>=bar else 'FAILED'
+    print(f'({name}) {value} vs bar {bar}: {v}'
+          +(f' [{note}]' if note else ''),flush=True)
+    return v,note

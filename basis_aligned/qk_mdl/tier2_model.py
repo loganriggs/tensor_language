@@ -33,12 +33,26 @@ REPOS = {'bilin18': 'Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd',
          'sqrd12': 'Elriggs/gpt2-sqrd-attn-12l-6h-768embd'}
 
 
+def _fetch(repo, fname):
+    """Hub fetch that falls back to the local cache when the hub is
+    unreachable. Added 2026-08-20 after a transient
+    RemoteProtocolError from huggingface.co aborted a queued run at
+    import time: the weights never change, so a network blip must
+    not be able to idle the GPU."""
+    try:
+        return hf_hub_download(repo, fname)
+    except Exception as e:
+        print(f'[tier2_model] hub unreachable for {repo}/{fname} '
+              f'({type(e).__name__}); using local cache', flush=True)
+        return hf_hub_download(repo, fname, local_files_only=True)
+
+
 def load_elriggs(short, device='cuda', dtype=torch.float32):
     repo = REPOS[short]
-    cfg = json.load(open(hf_hub_download(repo, 'config.json')))
+    cfg = json.load(open(_fetch(repo, 'config.json')))
     cfg.pop('step', None)
     m = TT.GPT(TT.GPTConfig(**cfg)).to(device=device, dtype=dtype).eval()
-    m.load_state_dict(torch.load(hf_hub_download(repo, 'pytorch_model.bin'),
+    m.load_state_dict(torch.load(_fetch(repo, 'pytorch_model.bin'),
                                  map_location=device, weights_only=True))
     for p in m.parameters():
         p.requires_grad_(False)
