@@ -136,7 +136,8 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">15</span><a href="#atlas">A map of dedicated machinery</a></li>
     <li><span class="num">16</span><a href="#selection">Where a head keeps its decision</a></li>
     <li><span class="num">17</span><a href="#folding">How small can the front get?</a></li>
-    <li><span class="num">18</span><a href="#open">What's still open</a></li>
+    <li><span class="num">18</span><a href="#grouping">Splitting 4608 pieces into groups</a></li>
+    <li><span class="num">19</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -1173,6 +1174,67 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   between 0.0004 and 0.036 nats, while mean-filling the components costs 0.07 to 0.31. Layer 0
   has already written the token information into the stream, and the eightfold re-injection is
   redundant. <strong>Coefficient magnitude in the residual is not information flow.</strong></p>
+</section>
+
+<section class="col">
+  <h2 id="grouping">Splitting one layer's 4608 pieces into reusable groups</h2>
+  <p>Every circuit so far in this report was found one piece at a time: pick a component,
+  test whether removing it hurts. The first MLP layer alone has 4608 internal pieces (its
+  "hidden units" — each one a small quadratic computation on the input), far too many to test
+  one by one. This section asks a different question: instead of testing pieces individually,
+  can pieces that tend to matter <em>together</em> — removing one hurts the same sentences
+  that removing another one hurts — be grouped automatically, and do those groups turn out to
+  mean something?</p>
+  <p>The method: for many real sentences, remove each piece one at a time and record which
+  sentences got worse. Two pieces that damage the same sentences are probably doing related
+  work, even if nothing about their raw numbers looks similar. Group pieces by that pattern of
+  shared damage, then check whether a group holds together on sentences it has never seen
+  before (the honest test — a fake grouping wouldn't reproduce on fresh data), and read what a
+  group actually responds to by looking at real sentences where it fires hardest.</p>
+  <p>Before trusting this on the real model, it was checked on a fake, built-to-order example
+  where the right answer is known in advance: three independent made-up computations, mixed
+  together into one shared set of numbers so that no single number gives away which
+  computation it belongs to, with one of the three deliberately built from two related
+  sub-parts. The method recovered the three groups exactly, correctly kept the two sub-parts
+  together as a pair before merging them with the third group, and correctly identified the
+  smallest set of pieces needed to reproduce each group's own behaviour. One thing it could not
+  measure honestly: whether two grouped pieces "cooperate" (matter more together than
+  separately) is impossible to tell from a simple straight-line reconstruction like this one —
+  that check needs pieces to actually interact, which the method doesn't have access to. Good
+  to know before reading anything into that number from the real run.</p>
+  <p>Run for real on the first MLP layer's 4608 pieces (top 300 by estimated importance, real
+  Common Crawl text), the grouping is reproducible: splitting the same pieces on two
+  independent halves of the data gives closely matching groups (a standard cluster-agreement
+  score of 0.58, against 0.00 for a shuffled/meaningless control). Three groups stood out and
+  were read by their real firing examples — not by asking "what output direction does this
+  group's weight point toward," which turned out to be the wrong question and gave
+  unreadable answers, but by literally reading the sentences where each group fires hardest and
+  the sentences where it fires most negatively:</p>
+  <table><thead><tr><th>group (pieces)</th><th>fires hardest before</th><th>fires most negatively before</th></tr></thead><tbody>
+  <tr><td>101</td><td>"a" / "an" (8 of 8 top examples)</td><td>"the" / "The" (8 of 8)</td></tr>
+  <tr><td>76</td><td>a period or exclamation mark (8 of 8)</td><td>a dash — or -- (8 of 8)</td></tr>
+  <tr><td>29</td><td>"am" / "had" / "wasn" after "I" (7 of 8)</td><td>the contraction "'s" (8 of 8)</td></tr>
+  </tbody></table>
+  <p>That reads as one group each for: which article to use, which end-of-sentence mark to
+  use, and whether "I ___" continues as a full verb or a contraction. A matched-size random
+  set of pieces reads far less cleanly on the same test (concentration 6.3 of 8 on average,
+  against 7.7 of 8 for the three found groups) — the grouping is doing real work, not just
+  picking out any large handful of pieces.</p>
+  <p>The 101-piece "article" group was then tested causally, not just read off examples: with
+  those 101 pieces (2% of the layer) replaced by their average value everywhere else in the
+  layer left exact, does the model specifically lose its ability to choose between "a"/"an"
+  and "the"? The first attempt measured this with the model's overall next-word error rate,
+  which turned out to be far too blunt an instrument — the effect was too small a slice of
+  everything the model is doing at once to show up against the noise at all, on every
+  comparison tried, including one that looked like a clean negative result before that was
+  caught. Switching to a direct, targeted score — literally the model's preference for
+  "a"/"an" over "the" at each position, nothing else — resolved it: removing the group
+  specifically weakens the model's preference for "a"/"an" exactly where "a"/"an" is the
+  right answer, four times more than removing a random same-size set of pieces does. It does
+  <em>not</em>, however, do the reverse — it doesn't specifically help "the" where "the" is
+  right, the way a clean two-way switch would. So the honest name for this group, after the
+  causal test, is a <strong>promoter of "a"/"an,"</strong> not a full article switch; the
+  "the" half of the reading-by-examples story is not yet confirmed.</p>
 </section>
 
 <section class="col">
