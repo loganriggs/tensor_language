@@ -119,7 +119,12 @@
    ],
    "ENRICHED": false,
    "BEATS_NULL": false,
-   "ENRICHED_STABLE": false
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.162,
+   "null_sd": 0.143,
+   "threshold_v2": 1.447,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.62
   },
   "a4": {
    "writers": {
@@ -267,8 +272,13 @@
    ],
    "ENRICHED": false,
    "BEATS_NULL": false,
-   "ENRICHED_STABLE": false
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.152,
+   "null_sd": 0.107,
+   "threshold_v2": 1.366,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.381
   }
  },
- "runtime_s": 10.705430030822754
+ "runtime_s": 17.4709153175354
 }

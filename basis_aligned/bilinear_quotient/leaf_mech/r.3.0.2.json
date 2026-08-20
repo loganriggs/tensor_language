@@ -328,7 +328,12 @@
    ],
    "ENRICHED": true,
    "BEATS_NULL": true,
-   "ENRICHED_STABLE": true
+   "ENRICHED_STABLE": true,
+   "null_mean": 1.218,
+   "null_sd": 0.06,
+   "threshold_v2": 1.338,
+   "ENRICHED_STABLE2": true,
+   "headroom": 0.723
   },
   "a17": {
    "writers": {
@@ -684,7 +689,12 @@
    ],
    "ENRICHED": true,
    "BEATS_NULL": true,
-   "ENRICHED_STABLE": true
+   "ENRICHED_STABLE": true,
+   "null_mean": 1.422,
+   "null_sd": 0.235,
+   "threshold_v2": 1.891,
+   "ENRICHED_STABLE2": true,
+   "headroom": 0.202
   },
   "a16": {
    "writers": {
@@ -1024,8 +1034,13 @@
    ],
    "ENRICHED": true,
    "BEATS_NULL": true,
-   "ENRICHED_STABLE": true
+   "ENRICHED_STABLE": true,
+   "null_mean": 1.338,
+   "null_sd": 0.182,
+   "threshold_v2": 1.702,
+   "ENRICHED_STABLE2": true,
+   "headroom": 0.349
   }
  },
- "runtime_s": 41.26289963722229
+ "runtime_s": 18.19602870941162
 }

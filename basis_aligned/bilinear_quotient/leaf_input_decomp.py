@@ -130,10 +130,20 @@ def main(tag):
                   'member':per_seed[SEEDS[0]]['tbl'][w]['member'],
                   'offslice':per_seed[SEEDS[0]]['tbl'][w]['offslice']}
       top=sorted(agg.items(),key=lambda kv:-kv[1]['mean'])[:5]
-      nullratio=max(per_seed[s]['null'] for s in SEEDS)
+      nulls=[per_seed[s]['null'] for s in SEEDS]
+      nullratio=max(nulls)
+      # 2026-08-20 (wave-4 reviewer catch): max-of-5 is an
+      # extreme-value statistic -- on some leaves it lands at
+      # 1.333 against a 1.3 bar, i.e. 2.5% headroom, so the gate
+      # could not distinguish a weak true effect from null noise.
+      # ENRICHED_STABLE2 gates on the null's mean + 2 sd instead.
+      nmean=sum(nulls)/len(nulls)
+      nsd=(sum((x-nmean)**2 for x in nulls)/max(len(nulls)-1,1))**0.5
+      thresh=max(1.3,nmean+2*nsd)
       enriched=top[0][1]['seed5'] if top else 0
       stable=bool(top and top[0][1]['min']>=1.3
                   and top[0][1]['min']>nullratio)
+      stable2=bool(top and top[0][1]['min']>thresh)
       tables[key]={'writers':agg,'top':top,
                    'top_ratio':enriched,
                    'top_ratio_mean':top[0][1]['mean'] if top else 0,
@@ -143,12 +153,19 @@ def main(tag):
                    'bootstrap_seeds':SEEDS,
                    'ENRICHED':bool(enriched>=1.3),
                    'BEATS_NULL':bool(enriched>nullratio),
-                   'ENRICHED_STABLE':stable}
+                   'ENRICHED_STABLE':stable,
+                   'null_mean':round(nmean,3),
+                   'null_sd':round(nsd,3),
+                   'threshold_v2':round(thresh,3),
+                   'ENRICHED_STABLE2':stable2,
+                   'headroom':round(top[0][1]['min']-thresh,3)
+                                if top else None}
       _s=', '.join(f"{w} {v['mean']} [{v['min']}-{v['max']}]"
                    for w,v in top[:3])
-      print(f"  {key}: top {_s} | ENRICHED_STABLE={stable}"
-            f" (single-draw ENRICHED={tables[key]['ENRICHED']})",
-            flush=True)
+      print(f"  {key}: top {_s} | ENRICHED_STABLE2={stable2}"
+            f" (thresh {thresh:.3f} = max(1.3, null {nmean:.3f}"
+            f"+2sd {nsd:.3f}); v1 stable={stable}, single-draw"
+            f" ENRICHED={tables[key]['ENRICHED']})",flush=True)
     os.makedirs(PT+'leaf_mech',exist_ok=True)
     out={'tag':tag,'machinery':keys,'tables':tables,
          'runtime_s':time.time()-t0}

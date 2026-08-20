@@ -103,9 +103,15 @@ Two honest outcomes, both publishable:
   ENRICHED true  -> mechanism lead: "this machinery acts where
                     writer X's contribution to C's input is
                     enriched (ratio r, null n)".
-  ENRICHED false -> "input writer composition does NOT distinguish
-                    members (top ratio r)" -- a real negative that
-                    tells the next agent to look downstream.
+  ENRICHED false -> write "no STRONG single-writer mechanism
+                    (top ratio r, threshold t)" -- NOT a blanket
+                    absence claim. A wave-4 reviewer showed the
+                    gate has little power against weak effects
+                    (ratio 1.1-1.25) on leaves whose null noise is
+                    wide, so quote `threshold_v2` and `headroom`
+                    from the table and say what the test could and
+                    could not have detected. Then look downstream
+                    (leaf_output_decomp).
 Escalation is LADDER-TIER, never blocking the merge: if ENRICHED,
 note the target in the record and (only if you have time after
 step 6) copy qk_writer_decomp.py's pattern to name what an

@@ -10593,3 +10593,36 @@ a full GPU pass), to capture the git rev at task START (it drifts
 under concurrent commits), and the step-1 gate now carries the
 430 calibration -- a random rank-matched subspace already scores
 2.4-2.7, so a bare pass at 3 means little.
+
+## 434. Third instrument catch: the enrichment gate had no power, and the negatives were overstated
+
+The r.5.3.1 reviewer (verdict WEAKEN) did the analysis I should
+have: it dumped the per-seed NULL values behind the enrichment
+gate. The gate compared the bootstrap minimum against the MAXIMUM
+of five null draws -- an extreme-value statistic. On that leaf the
+null max is 1.333 against a 1.3 bar: 2.5% headroom, with the
+null's own spread (1.01-1.33) as wide as the entire margin being
+tested. So ENRICHED_STABLE could not distinguish a weak-to-
+moderate true effect (ratio 1.1-1.25) from noise, and every
+"no writer enriches" negative in the swarm was overstated.
+Fixed and verified the same hour: ENRICHED_STABLE2 gates the
+bootstrap minimum against the null's MEAN + 2 SD.
+  r.5.3.1  a2 threshold 1.447 vs top-min 1.246 -> False
+           a4 threshold 1.366 vs top-min 1.082 -> False
+  r.3.0.2  a15 threshold 1.338 vs top-min 2.061 -> True
+           a17 threshold 1.891 vs top-min 2.093 -> True
+           a16 threshold 1.702 vs top-min 2.051 -> True
+The real positive survives a properly calibrated threshold with
+room to spare; the negatives stay negative but are now correctly
+scoped. SOP v3 wording changed accordingly: a failing leaf
+records "no STRONG single-writer mechanism (top ratio r,
+threshold t)" and must quote what the test could not have
+detected -- never a blanket absence. Record note appended to
+r.5.3.1.
+Tally of the swarm auditing its driver: three instrument flaws
+found by reviewers in one night (the underpowered behavioral
+seed-gate, the single-subsample enrichment ratio, and now the
+extreme-value null), all fixed, all with the affected claims
+re-scored. This is the verification layer earning its cost: the
+records it produces are thinner than the first drafts, and the
+ones that survive are worth more.
