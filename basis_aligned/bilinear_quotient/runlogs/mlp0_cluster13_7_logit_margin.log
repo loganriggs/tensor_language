@@ -1,0 +1,15 @@
+(0a) reproduced sizes [101, 76, 29, 18, 16, 9, 6, 6, 6, 6, 5, 4, 4, 3, 3, 3, 2, 1, 1, 1]: HELD
+
+=== cluster13 (n_units=76) n_pos=588 n_neg=47 ===
+(0b) identity +0.000000: HELD
+(a) pos-class: base -5.211, cluster delta +0.0446, random delta +0.0027, ratio 16.70422772979526: FAILED
+(b) neg-class: base -12.963, cluster delta +0.0196, random delta -0.0106, ratio -1.8501008465471895: FAILED
+NULL: digit delta 0.03679852932691574 vs random 0.005870301742106676: ok
+
+=== cluster7 (n_units=29) n_pos=29 n_neg=60 ===
+(0b) identity +0.000000: HELD
+(a) pos-class: base 22.991, cluster delta -0.0119, random delta -0.0020, ratio 6.056710021215045: HELD
+(b) neg-class: base -2.036, cluster delta +0.0057, random delta +0.0013, ratio 4.556010194680899: HELD
+NULL: digit delta 0.0029232476372271776 vs random -0.0024257416371256113: ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_cluster13_7_logit_margin_results.json (36s)
