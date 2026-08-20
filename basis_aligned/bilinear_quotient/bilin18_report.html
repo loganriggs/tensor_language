@@ -1242,13 +1242,26 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   side instead with the other. And the period/exclamation-vs-dash group's test turned out to
   be built on an unfair footing no matter how it was scored: dashes are simply a low-
   confidence guess for this model in general, correct context or not, so a clean two-way
-  comparison against them doesn't work as designed. The honest summary: the grouping finds
-  real, specific structure — that part is solid and reproduces on held-out data every time —
+  comparison against them doesn't work as designed. The honest summary at that point: the
+  grouping finds real, specific structure — solid, reproduces on held-out data every time —
   but turning "these pieces move together" into "and here is exactly what causal job they do"
-  did not work with a simple targeted-score test for any of the three groups. That gap is
-  itself a finding, and matches a pattern this report keeps landing on elsewhere: components
-  that look clean from the outside often turn out to have a more tangled causal role once
-  actually tested.</p>
+  had not yet worked for any of the three groups with a scoring test built on deleting the
+  group and watching what breaks.</p>
+  <p>Deleting a group and watching the damage turned out to be the wrong shape of test, not
+  a dead end. The standard alternative in this kind of work is to <em>replace</em> instead of
+  delete — take the "a"/"an" group's real internal state from a real sentence that is about
+  to say "a" or "an", and drop it into a different, real sentence that was about to say
+  "the" instead, changing nothing else about that second sentence's own computation. If the
+  group really carries that decision, the second sentence should tip toward "a"/"an" too. It
+  does — four times more than swapping in a same-size random handful of pieces instead, and
+  twenty-two times more than swapping in the same kind of state from another "the"-leaning
+  sentence (so it's the borrowed content that matters, not just disturbing the sentence),
+  with no comparable effect when the same swap is tried somewhere the a/an-versus-the choice
+  doesn't even apply. Deleting this group left a murky picture; swapping its real content
+  between two real sentences resolved it cleanly. The lesson survives even though the first
+  three attempts at it didn't: components that look clean from the outside can have a
+  genuinely tangled causal role — the fix was asking the right kind of question, not giving
+  up on causal testing.</p>
   <p>The same grouping method was then run on the transformer's <em>second</em> layer, to see
   whether it was a one-layer trick. It finds real structure there too — held up on a fair
   reproducibility check — but more weakly than the first layer, and murkier to read: one
