@@ -1,0 +1,9 @@
+batch 0 done (5s)
+batch 4 done (11s)
+batch 8 done (16s)
+batch 12 done (21s)
+free heads 39/162 (median layer 8); costliest ['5.7', '0.3', '1.1', '12.6', '6.3', '3.8', '2.6', '1.4', '11.6', '10.5']
+(a) >=20% free: HELD
+(b) free set late (med>=9): FAILED
+(c) 1.1 and 12.6 in costliest ten: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_cost_map_results.json (21s)

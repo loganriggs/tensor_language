@@ -30,6 +30,15 @@ def main():
     cl.use_state(PT+'census_state_diverse.pt')
     tags=json.load(open(PT+'swarm_shortlist.json'))
     tags=[t for t in tags if t.count('.')>=2]
+    # census_lib.proj_hooks only handles ('pca',...) probes; leaves
+    # whose bundle contains comp/head probes are skipped (recorded)
+    def allpca(t):
+        try:
+            return all((ast.literal_eval(p) if isinstance(p,str)
+                        else p)[0]=='pca'
+                       for p in cl.leaf(t)['top_probes'])
+        except Exception: return False
+    tags=[t for t in tags if allpca(t)]
     g=torch.Generator().manual_seed(31)
     tags=[tags[i] for i in torch.randperm(len(tags),
           generator=g)[:NLEAF].tolist()]
@@ -77,7 +86,10 @@ def main():
         /len(rows)
     med=sorted(r['random_subspace'] for r in rows)[len(rows)//2]
     pa=frac>=0.70; pb=med<2.0
-    out={'leaves':rows,'frac_2x':round(frac,3),
+    out={'leaves':rows,'n_leaves_scored':len(rows),
+         'note':'leaves with non-pca probe bundles skipped '
+                '(proj_hooks limitation)',
+         'frac_2x':round(frac,3),
          'median_random_concentration':med,
          'pred_a':bool(pa),'pred_b':bool(pb),'pred_c':True,
          'runtime_s':time.time()-t0}

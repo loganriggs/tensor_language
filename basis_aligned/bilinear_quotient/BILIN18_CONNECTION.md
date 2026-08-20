@@ -10421,3 +10421,33 @@ large minority of heads are free or net-harmful on average text.
 Costliest deletions in the sample: 1.1 (+0.089), 12.6 (+0.073),
 6.3 (+0.047) -- note 1.1 and 12.6 were also the two costliest
 under 4-read truncation (415), and 415 showed both compare m0|m0.
+
+## 428. The stack's costliest heads are PREVIOUS-TOKEN readers, not identity matchers
+
+costly_head_semantics located the top reads of the three heads
+that cost the most to delete (1.1 +0.089, 12.6 +0.073, 6.3
++0.047), all three of which compare m0|m0 (415):
+  1.1   offsets: -1 in 994 of 1008 reads, -2 in 14. Nothing else.
+        A pure previous-token head. (a) HELD at the ceiling.
+  6.3   -1 in 659, -2 in 161, tail to -6. Local, previous-token
+        dominant -- consistent with its census 'prev' profile and
+        with its courier role (407).
+  12.6  -1 in 100, -2 in 76, -3 in 71, -4 in 53, decaying: a
+        LOCAL WINDOW reader, not a point reader. Its 'previous
+        token is the same as the query' rate is 31%.
+(b) FAILED: 12.6's same-token read rate is 6% against a 1.3%
+null -- enriched 4.6x but nowhere near the 20% bar. So the
+model's most expensive heads are NOT identity matchers even
+though their scores compare the identity code: they use m0's
+code to decide WHICH RECENT TOKEN to read, not to find repeats.
+That is the cleanest reconciliation yet of 415 (everything
+compares m0|m0) with 427 (most heads are position-sensitive):
+the identity code is the model's universal comparison currency,
+and most heads spend it on local structure rather than on
+long-range matching. The induction band is the specialist
+minority that spends it on repeats.
+Ops: gate_specificity crashed on leaves whose probe bundles
+contain comp/head entries (census_lib.proj_hooks only handles
+pca probes) -- fixed by filtering to all-pca bundles with the
+skip count recorded, and requeued. head_cost_map (all 162 heads
+under the corrected dCE metric) is queued behind it.
