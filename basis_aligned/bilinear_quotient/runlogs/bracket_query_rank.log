@@ -1,0 +1,16 @@
+77 targets | W_q[head8] rank 128 | top eigenvalue share 0.282
+baseline CE at targets 0.9834 | all-dirs-out 1.8469 (delta +0.8635)
+k=  1: target +0.0365 | other +0.0005
+k=  2: target +0.0518 | other +0.0005
+k=  4: target +0.2698 | other +0.0003
+k=  8: target +0.4274 | other +0.0004 | random [0.0248, 0.0144, 0.01]
+k= 16: target +0.6039 | other +0.0004
+k= 32: target +0.6414 | other +0.0008
+k= 64: target +0.7591 | other +0.0012
+
+(0) all-dirs-out reproduces the head cost (+0.8635 vs 0.825): HELD
+(a) top 8 directions remove 49% of the head cost (>=60%): FAILED
+(b) top 8 beat random 8 by 3x: HELD
+(c) smallest k killing 80%: 64 | W_q rank 128
+NULL (other-position cost is small vs target: ratio 0.00)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_query_rank_results.json (60s)

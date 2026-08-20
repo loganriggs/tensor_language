@@ -15613,3 +15613,58 @@ diffuse-writer finding, and it is a candidate reusable component;
 if it takes many, the computation is high-rank at the input too
 and the bracket head's query has no compact upstream description,
 which would be a real and final answer for this circuit.
+
+## 555. Gap 2 resolved: diffuse over writers, low-rank over
+## directions -- a bracket-specific selection subspace
+
+bracket_query_rank measured how many DIRECTIONS of the layer-13
+residual the head's query reads to make its bracket decision. The
+directions are the top eigenvectors of the accumulated
+query-contrast gradient W_q^T (k_match - mean_k) over targets;
+projecting k of them out of the query input (keys, values and
+every other head untouched) and pricing the model gives the causal
+rank.
+(0) HELD: projecting out all directions reproduces the head's
+bracket cost at +0.864 against the 0.825 reference.
+  directions out    cost at bracket targets    at other positions
+      1                  +0.0365                  +0.0005
+      2                  +0.0518                  +0.0005
+      4                  +0.2698                  +0.0003
+      8                  +0.4274                  +0.0004
+     16                  +0.6039                  +0.0004
+     32                  +0.6414                  +0.0008
+     64                  +0.7591                  +0.0012
+  random 8 directions: +0.010 to +0.025
+(a) FAILED narrowly: 8 directions remove 49%, not 60%. But 16
+remove 70% and the curve is steep through 16.
+(b) HELD by 30x: 8 selection directions remove 0.427 where 8
+random directions remove 0.015.
+(c) It takes 64 directions to kill 80%, but the effective story is
+16: they hold 70% of an 0.86-nat effect.
+NULL perfect: removing these directions at NON-bracket positions
+costs 0.0003-0.0012 nats, a ratio of essentially zero. The
+subspace is entirely bracket-specific -- it carries nothing the
+model uses anywhere else.
+This RESOLVES the apparent contradiction of 553/554 and is the
+real answer to gap 2. The bracket head's distance selection is:
+  * DIFFUSE over writers -- a dozen late components each 6-9%, no
+    single source (553, 554), proven exactly;
+  * LOW-RANK over directions -- a ~16-dimensional subspace of the
+    residual carries 70% of it, 30x cleaner than random, and is
+    inert off brackets (555).
+Both are true because many writers collectively build one
+moderate-dimensional signal. That signal IS the look-back variable
+the circuit reads, and it is now a concrete object: a 16-dimension
+subspace of the layer-13 input, bracket-specific, that the query
+projects onto to decide how far back to point.
+This is exactly the reusable-component handle the user asked for.
+The subspace is a named variable, computed once and read by the
+selection. Two questions follow and are cheap. Is it read by any
+OTHER head -- i.e. is it reused -- which the weights answer through
+principal angles against every head's query map. And which writers
+contribute to THIS subspace specifically, as opposed to the whole
+query, which may concentrate where the full-query decomposition
+did not. bracket_subspace_reuse is queued for the first: it
+compares the 16-dim selection subspace against all 162 heads' read
+subspaces from weights alone, to find whether the bracket look-back
+signal is private to 13.8 or shared machinery.
