@@ -1280,10 +1280,22 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   reproducibility check — but more weakly than the first layer, and murkier to read: one
   large group turned out to be detecting a byte-level text-encoding artifact (a
   replacement-character symbol from imperfectly-decoded curly quotes), not a linguistic
-  behaviour; one looks like it might do related work to the first layer's article group,
-  worth a future causal test; and the third reads only weakly. The method generalizes. Both
-  what it finds and how confidently it can be causally pinned down get harder outside the one
-  layer this thread started on.</p>
+  behaviour; one looks like it might do related work to the first layer's article group; and
+  the third reads only weakly. The method generalizes. Both what it finds and how confidently
+  it can be causally pinned down get harder outside the one layer this thread started on.</p>
+  <p>The one open lead from that second-layer pass got the same swap test the first layer's
+  groups did, and this time every check landed cleanly: swapping in a real
+  "a"/"an"-leaning activation shifts the same article choice the right way, four to nine
+  times more than the random-piece and same-leaning controls (the random control's own
+  average even moved the <em>wrong</em> way, underlining how specific the real effect is),
+  with nothing comparable where the choice doesn't apply. This is a genuinely different
+  group of pieces, in the transformer's second layer, independently doing real, confirmed
+  work on the same decision the first layer's article group makes — sized at about an eighth
+  of the first layer's effect. Put together, that's the clearest answer this report has found
+  to a question asked all the way back at the start of this line of work: does the model keep
+  reusable machinery for the same job in more than one place? Here, yes — genuinely
+  redundant, confirmed by the same standard of evidence in both layers, with one layer doing
+  most of the work and the other contributing a real but minor share.</p>
   <p>A companion tool from the same outside source does the compression side of this question
   properly: given a layer's weight and its real activations, it computes — in one exact step,
   no guessing or gradient descent — the best possible low-rank stand-in for that layer <em>on
