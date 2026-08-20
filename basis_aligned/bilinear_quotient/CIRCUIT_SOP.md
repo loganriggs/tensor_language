@@ -1,6 +1,8 @@
 # Circuit SOP -- step-by-step procedure for one circuit (swarm-runnable)
-# v3 (2026-08-20): MECHANISM IS THE DELIVERABLE (step 3M);
-# behavioral stories need base-rate testing. Supersedes v1/v2.
+# v4 (2026-08-20): STEP 3M IS RETIRED (writeup 510) -- the damage-cluster
+# mechanism screen produced no causally real writer mechanism in 60 leaves
+# on either decomposition. Leaf work is now MAINTENANCE ONLY. New circuit
+# work starts from a BEHAVIOUR: see BEHAVIOUR-FIRST below. Supersedes v3.
 
 Written for a FRESH stateless agent (Sonnet/Opus class) holding only this
 file + census_lib. The procedure is verification-driven: every judgment an
@@ -30,6 +32,39 @@ each edge tested by intervention. The finished induction record is the
 template: identity code (wte + MLP-chain enrichment), writer (mlp0),
 couriers (a6.h3, a4.h7 -- prev-token heads), computation (double-QK
 coincidence), every arrow causally verified (BILIN18_CONNECTION 393-408).
+
+## BEHAVIOUR-FIRST (v4 default for NEW circuit work, writeups 495-506)
+Three circuits in this program worked -- induction, the position-0
+bias, the newline head -- and all three started from a behaviour or
+a striking observation, never from a damage cluster. The newline
+head reduced the first step to one cheap statistic, and it is the
+one to reuse:
+  1. Define a target class of POSITIONS (what token is being
+     predicted), plus a POSITION-MATCHED control (the same
+     positions jittered a few tokens) and a FULLY RANDOM set of
+     the same size. Both controls are mandatory: the first catches
+     a component that merely matters at certain sequence
+     positions, the second catches a screen that fires on any
+     position set.
+  2. Mean-ablate each of the 36 components once and rank them by
+     CONCENTRATION -- damage at the target class divided by that
+     same component's damage elsewhere -- NEVER by absolute damage
+     at the target. Ranking by magnitude finds the front of the
+     model for every behaviour ever tried (writeup 494).
+  3. Decompose the winning component into heads and repeat. If one
+     head carries most of it, you have a candidate.
+  4. Characterize the head causally: what token does deleting it
+     move, at which positions, and by how much against the best
+     competing token.
+  5. Cross-check against head_atlas_results.json, which profiles
+     all 162 heads with no knowledge of your behaviour. If the
+     atlas independently singles out your head, say so -- that is
+     an advance prediction that could have failed.
+Reporting rules that came out of these runs, and are not optional:
+report the PAIR (target and elsewhere) alongside every ratio, and
+never score a bar on a quotient whose denominator is near zero or
+whose comparison class the sample never populated. cl.score_bar()
+enforces both and returns UNEVALUABLE rather than a verdict.
 
 ## Identity rule (2026-08-20 revision, from 381/404/406)
 Leaf member-sets are ONE SAMPLE from a family of valid partitions. A
@@ -85,16 +120,29 @@ locally selective; do not write a story for it.
     exs = cl.examples(tag, d)              # mechanical: top-3 + 3 random
 Record verbatim. NEVER swap examples for prettier ones.
 
-## Step 3M -- MECHANISM SCREEN (GPU, ~5s) [reframed 2026-08-20]
-CENSUS RESULT (471/472): over 60 shortlist leaves, only 3 (5%)
-carried any ENRICHED_STABLE2 positive, and of those only 2 --
-sibling leaves r.1.2.2 and r.1.2.0 sharing m14 -> m15 -- survived
-the peer-specificity check. So the USUAL and CORRECT outcome of
-this step is a scoped negative: most damage-clusters in this model
-are input-diffuse. Treat 3M as a cheap screen, not as a
-deliverable you must return a positive from. A well-executed leaf
-often ends with "no strong single-writer mechanism (top ratio r,
-threshold t)" and that IS the finding.
+## Step 3M -- MECHANISM SCREEN [RETIRED 2026-08-20, writeup 510]
+DO NOT run this step as a deliverable and do not certify a
+mechanism from it. History, so nobody re-derives it: the screen
+asks whether a writer's SHARE of a component's input is larger at
+a leaf's member positions. Writeups 503-510 rebuilt it on a
+corrected residual decomposition (the old one was wrong by up to
+4,242x for early writers) and then tested every positive causally.
+All failed. At the two leaves the corrected screen newly flagged,
+matched RANDOM directions did 3-7x more damage than silencing the
+writer the screen named; at r.3.0.2, the oldest positive,
+silencing the named writer made the leaf's own positions BETTER.
+The correction moved 60 of 167 top writers without changing that
+conclusion, which is why the statistic and not its inputs is the
+problem.
+ALSO RETIRED with it: the member-vs-off-slice contrast as a bar.
+Member positions were SELECTED for damage-sensitivity, so any
+perturbation lands on them harder -- random directions score 8.5
+and 18.0 on a statistic whose registered bar was 1.5. If you need
+a localization readout, compare against MATCHED RANDOM DIRECTIONS
+on the member positions, which is a comparison that can fail.
+If you are reviewing an OLD record that cites 3M, the negative
+still stands (a larger ablation failing to show enrichment is not
+rescued by shrinking it); the positives do not.
     python leaf_input_decomp.py <tag>      # writes leaf_mech/<tag>.json
 Decomposes the residual entering each of your leaf's machinery
 components into exact writer contributions, member vs off-slice.

@@ -3,3 +3,21 @@
 [skip=600] half_4_16: digit +0.0321 CI [-0.0172,+0.0735] | punct +0.0192 | rank {'a6': 12, 'a8': 12}
 [skip=600] alt_16_32: digit -0.0268 CI [-0.0480,-0.0069] | punct -0.0115 | rank {'a6': 20, 'a8': 20}
 [skip=600] alt_32_48: digit -0.0289 CI [-0.0585,-0.0066] | punct -0.0064 | rank {'a6': 20, 'a8': 20}
+[skip=800] real: digit +0.1639 CI [+0.1211,+0.2046] | punct -0.0395 | rank {'a6': 16, 'a8': 16}
+[skip=800] half_0_4: digit +0.1321 CI [+0.0979,+0.1675] | punct -0.0604 | rank {'a8': 4, 'a6': 4}
+[skip=800] half_4_16: digit +0.0325 CI [+0.0086,+0.0553] | punct +0.0124 | rank {'a6': 12, 'a8': 12}
+[skip=800] alt_16_32: digit +0.0250 CI [+0.0094,+0.0414] | punct -0.0074 | rank {'a6': 20, 'a8': 20}
+[skip=800] alt_32_48: digit +0.0332 CI [+0.0211,+0.0456] | punct -0.0074 | rank {'a6': 20, 'a8': 20}
+[skip=1000] real: digit +0.1316 CI [+0.0822,+0.1808] | punct -0.0324 | rank {'a6': 16, 'a8': 16}
+[skip=1000] half_0_4: digit +0.1014 CI [+0.0566,+0.1435] | punct -0.0449 | rank {'a8': 4, 'a6': 4}
+[skip=1000] half_4_16: digit +0.0231 CI [+0.0028,+0.0463] | punct +0.0085 | rank {'a6': 12, 'a8': 12}
+[skip=1000] alt_16_32: digit +0.0132 CI [-0.0036,+0.0285] | punct -0.0080 | rank {'a6': 20, 'a8': 20}
+[skip=1000] alt_32_48: digit -0.0056 CI [-0.0172,+0.0072] | punct -0.0096 | rank {'a6': 20, 'a8': 20}
+
+digit per sample: [0.1433, 0.1639, 0.1316]
+punct per sample: [-0.0154, -0.0395, -0.0324]
+best alternative : [-0.0268, 0.0332, 0.0132]
+(a) 0.1316 vs bar 0.02: HELD
+(b) 0.11839999999999999 vs bar 0.03: HELD
+(c) punctuation outside the registered bracket in 0 of 3 samples: reported
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_lead3_results.json (240s)

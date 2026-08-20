@@ -6,6 +6,46 @@ model "sonnet"), one circuit each, per [[fresh-agents-per-batch]]. The
 goal is SLOW AND STEADY: a few certified, reviewed records per wave, every
 wave pushed, no wave depending on the driver's memory of the last one.
 
+## v4 CHANGE OF TASK (2026-08-20, writeups 503-511) -- read this first
+
+The swarm's old assignment was "claim a leaf, run the SOP, return a
+mechanism". Step 3M is retired (510): across sixty leaves, on two
+decompositions, that screen produced nothing that survived a causal
+test. Do not launch author agents to mine more leaves.
+
+What author agents should do instead, in priority order:
+  1. BEHAVIOUR-FIRST circuits. See the BEHAVIOUR-FIRST section of
+     CIRCUIT_SOP.md v4. One behaviour per agent: define the target
+     positions, run the concentration screen with BOTH controls,
+     decompose to heads, characterize causally, cross-check against
+     head_atlas_results.json. behaviour_atlas_results.json lists
+     which behaviours have a concentrated component -- start from a
+     class that qualifies there, and do not re-run the screen for it.
+  2. REPLICATION on disjoint samples. 511 found that a class-level
+     dissociation moved from +0.090 to +0.146 between two samples of
+     96 rows, which means every single-sample class claim in this
+     program has unmeasured spread. Any behavioural number an agent
+     reports must come from at least three disjoint samples with the
+     spread quoted, not from one.
+  3. Reviewer-two passes on records that still carry BEHAVIOURAL
+     claims. Mechanism negatives from 3M need no further review.
+
+Three tooling facts every agent needs:
+  * cl.writer_coeffs / writer_parts / check_parts give the EXACT
+    residual decomposition. Never write your own with a single
+    block's lam0 -- the stream is rescaled every block and the flat
+    version is wrong by up to 4,242x (503). check_parts before
+    scoring anything.
+  * cl.score_bar returns UNEVALUABLE instead of a verdict when a
+    ratio's denominator is near zero or a class is empty. Use it for
+    every bar; three registered bars in four sections were junk
+    before it existed.
+  * 36 of the 311 census tags are DUPLICATE leaves under different
+    names (leaf_duplicates.json, 14 groups). Never draw a peer
+    control from sibling tags without checking that file -- one peer
+    control compared a leaf against itself and returned identical
+    numbers three times.
+
 ## 0. New-session bootstrap (do once per driver session)
 1. `supervisorctl status bqrunner` — RESTART if not RUNNING. bqrunner
    survives session death; the cron does NOT.
