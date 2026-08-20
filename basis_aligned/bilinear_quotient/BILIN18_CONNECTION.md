@@ -9988,3 +9988,26 @@ end-to-end before Fable credits run out. Queue re-pointed at
 mechanism work: r30_writer_decomp (what does the novel circuit
 r.3.0 COMPARE -- registered: concentration, shared dominant pair
 across its two heads, and the context-vs-identity-code fork).
+
+## 411. r.3.0 COMPARES THE SAME IDENTITY CODE: m0|m0 at layer 16
+
+r30_writer_decomp, the mechanism-first pass on the novel circuit:
+both heads' dominant writer-pair is **m0|m0** -- near-unanimous
+per read (16.8: 495 of ~500 top reads; 16.2: 446 of ~460; runner-
+up m0|m3 in single digits). (b) HELD (shared dominant pair --
+the census's bundling of the two heads reflects a shared score
+input). (c) FAILED on the registered context branch, which is the
+interesting outcome: r.3.0 does NOT compare mid-layer context
+summaries -- it compares mlp0's identity code, sixteen layers
+after it was written. (a) FAILED informatively: top-5 pair mass
+is only ~0.30 (vs 0.6+ for the early induction band) -- at layer
+16 the residual carries far more than the code, so m0's SHARE is
+diluted even though it wins the argmax essentially always.
+Emerging picture: the m0 identity code is the model's universal
+comparison substrate -- the induction band (layers 1-8) and the
+late novel circuit r.3.0 (layer 16) both score coincidences on
+it. This replaces "r.3.0 closes at k=8" with an actual mechanism
+sentence. ladder16 queued: does the bounded-relay reconstruction
+(402) predict 16.8/16.2's patterns -- registered k3>=0.70 both,
+monotone, shuffled null, and a seen-vs-fresh position split (are
+they seen-before detectors?).

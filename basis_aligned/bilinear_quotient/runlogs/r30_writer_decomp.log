@@ -1,0 +1,10 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+16.8: top5 0.30 dom [('m0|m0', 495), ('m0|m3', 1)]
+16.2: top5 0.29 dom [('m0|m0', 446), ('m0|m3', 12)]
+(a) both heads top5>=60%: FAILED
+(b) shared dominant pair: HELD {'16.8': 'm0|m0', '16.2': 'm0|m0'}
+(c) key writer layer>=4 (context, not identity): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/r30_writer_decomp_results.json (198s)

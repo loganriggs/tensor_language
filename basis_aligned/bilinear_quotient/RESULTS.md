@@ -4158,3 +4158,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - 408: relay edges causally verified -- deleting a6.h3 shifts the deep trio's reads 19-29% and the early band 0%, +0.05 match-CE (control ~0); a4.h7 selective for 5.5. Induction circuit record complete end-to-end.
 - 409: shortlist->SOP transfer 98% (47 new packs, 72 total); census_lib now runs on the diverse tree (use_state). sop_program_batch queued (step 3, strict doc-disjoint programs).
 - 410: surface programs fail on the diverse tree (1/72, strict doc-disjoint) -- description != mechanism. User standard recorded: named mechanism over k-laws. SOP v2 shipped; Sonnet dry-run launched; r30_writer_decomp queued (what r.3.0 compares).
+- 411: r.3.0's heads compare m0|m0 -- the SAME identity code as induction, at layer 16 (near-unanimous argmax; mass diluted to 30% by depth). The identity code is the model's universal comparison substrate. ladder16 queued.
