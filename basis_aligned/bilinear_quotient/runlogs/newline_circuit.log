@@ -1,0 +1,31 @@
+182 newline targets of 8192
+a0: newline +0.1028 other +0.2642
+a1: newline +0.1424 other +0.2215
+a2: newline +0.1131 other +0.1718
+a3: newline +0.1274 other +0.1109
+a4: newline +0.1298 other +0.2117
+a5: newline +0.0705 other +0.1291
+a6: newline +0.0763 other +0.0510
+a7: newline +0.0774 other +0.0516
+a9: newline +0.0343 other +0.0609
+a10: newline +0.0939 other +0.0221
+a11: newline +0.0679 other +0.0386
+a12: newline +0.0777 other +0.0076
+a14: newline +0.0422 other +0.0208
+a16: newline +0.0246 other +0.0092
+m0: newline +0.2199 other +0.7579
+m1: newline +0.6732 other +6.9424
+m2: newline +0.2968 other +0.8401
+m3: newline +0.4146 other +0.6468
+m6: newline +0.0406 other +0.0735
+m7: newline +0.0244 other +0.0571
+m8: newline +0.0268 other +0.0480
+m9: newline +0.0458 other +0.0488
+m11: newline +0.0416 other +0.0466
+m16: newline -0.0287 other +0.1695
+m17: newline -0.2694 other +0.4175
+top five ['m1', 'm3', 'm2', 'm0', 'a1'] carry 57.5% | leader m1
+(a) top five carry >=50%: HELD
+(b) the leader is not the sink layer: HELD
+(c) the leader is newline-specific (>=2x): FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_circuit_results.json (102s)

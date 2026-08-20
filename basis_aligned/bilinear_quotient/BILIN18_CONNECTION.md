@@ -12666,3 +12666,38 @@ ablate all 36 and price each at newline targets against
 non-newline positions. Registered: (a) the top five carry >= 50%,
 (b) the leader is not the sink's layer, (c) the leader is at least
 2x newline-specific.
+
+## 494. Behaviour-defined attempt, step 1: concentration without specificity
+
+newline_circuit mean-ablated all 36 components and priced each at
+newline-target positions on fresh text:
+  component  at newline   elsewhere   ratio
+    m1        +0.6732      +6.9424     0.10
+    m3        +0.4146      +0.6468     0.64
+    m2        +0.2968      +0.8401     0.35
+    m0        +0.2199      +0.7579     0.29
+    a1        +0.1424      +0.2215     0.64
+(a) HELD: the top five carry 57.5% of the summed newline cost.
+(b) HELD: the leader is m1, not the sink's layer.
+(c) FAILED, and it invalidates the reading the first two bars
+would suggest: EVERY one of the top five costs more at
+NON-newline positions than at newline ones. m1's ratio is 0.10 --
+it is ten times more important elsewhere. These are simply the
+front of the model doing everything, ranked by magnitude, and
+magnitude is the wrong statistic for a behaviour-defined circuit.
+My step-1 design measured the wrong quantity, which is worth
+recording as a lesson about the playbook rather than about the
+model: when the target is a BEHAVIOUR, rank components by how
+concentrated their damage is ON that behaviour relative to their
+own damage elsewhere, never by absolute damage at the target. The
+induction work got this right implicitly because deletion there
+was scored against a match/non-match split from the start.
+newline_specific queued with the corrected statistic and a
+control the first pass also lacked: newline targets are unevenly
+distributed within a document, so a component that matters more at
+particular sequence positions could masquerade as
+newline-specific. Each component's newline ratio is therefore
+compared against its ratio on a POSITION-MATCHED random target set
+of the same size. Registered: (a) some component reaches a
+newline/elsewhere ratio >= 2.0, (b) it is not one of m0-m3, (c) it
+beats its position-matched control by >= 50%.
