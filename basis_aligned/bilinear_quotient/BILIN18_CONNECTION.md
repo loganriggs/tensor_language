@@ -12509,3 +12509,37 @@ rate, with a rarity split and head 12.3 as control. Registered:
 enriched -- the salience hypothesis, a long-range head that
 ignores position and seeks informative tokens -- and (c) 12.6 is
 more selective than the control.
+
+## 489. Head 12.6 reads STRUCTURE, not salience -- and its layer-mate is its mirror image
+
+head_12_6_targets classified the token at 12.6's top read at match
+positions, against corpus base rates:
+  class         12.6 enrichment    12.3 (control)
+  punctuation       2.33x              0.34x
+  capitalised       1.79x              3.72x
+  digit             1.33x              0.33x
+  newline           1.27x              0.09x
+  space-word        0.68x              1.27x
+  subword           0.38x              1.40x
+  RARE tokens       0.69x              1.01x
+(a) HELD: punctuation is enriched 2.33x. (b) FAILED and the
+failure kills my hypothesis cleanly -- rare tokens are DEPLETED at
+0.69x, so 12.6 is not a salience detector seeking informative
+tokens; it seeks COMMON structural ones. (c) FAILED: the control
+head is more selective on its own top class (3.72x) than 12.6 is
+on its (2.33x), so "selectivity" does not distinguish them.
+What distinguishes them is WHICH classes, and the two heads are
+near mirror images. 12.6 reads punctuation, capitals, digits and
+newlines -- the anchors of layout and clause boundaries -- and
+avoids prose content (subword 0.38x). 12.3 does the opposite:
+capitals and word-content, almost never punctuation (0.34x) or
+newlines (0.09x). One layer holds a long-range STRUCTURE reader
+and a local CONTENT reader side by side.
+That is a characterisation, not yet a function, so
+head_12_6_structure is queued to test it where it should bite: if
+12.6 tracks layout, its contribution should scale with how
+structured the text is. Split fresh FineWeb rows into quartiles by
+punctuation-and-newline density and measure 12.6's window damage
+at match positions in each, with 12.3 as control. Registered: (a)
+a >= 2x gradient from bottom to top quartile for 12.6, (b) no
+gradient for 12.3, (c) per-quartile numbers reported either way.
