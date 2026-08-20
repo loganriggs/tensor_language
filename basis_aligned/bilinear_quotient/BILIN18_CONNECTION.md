@@ -16724,3 +16724,27 @@ the Q/K division (queries select, keys carry content) holds at the
 model level even though it does not per head; if similar, both
 sides contribute comparably and the "fixed-query" framing needs
 tempering to "fixed-QK".
+
+## 577. The Q/K division, quantified: queries select (cheap, 0.96),
+## keys carry content (expensive, 3.32, and early)
+
+fixed_key_joint fixed all 162 keys to their means at once.
+  joint KEY cost      +3.3214    (queries, 575: +0.9607)
+  sum of individual   +0.4923    ratio 6.75 (superadditive)
+  random keys joint   +8.2756
+  cumulative 0..k: 0:+0.08 2:+0.86 5:+3.14 8:+3.45 11:+3.61 17:+3.32
+Fixing all keys costs 3.32 nats, 3.5x the 0.96 for queries. Keys
+carry ~3.5x more content than queries -- the Q/K asymmetry the
+per-head census (576) could not see is clear at the model level:
+  QUERIES select "what to look for", approximately fixed (0.96);
+  KEYS carry the discriminated content "what is here" (3.32).
+Key content is 94% in layers 0-5 (3.14 of 3.32), fitting attn0 =
+bigram table and token-determined early MLPs: the early layers
+build the token-content keys the whole model reads.
+Completes the attention account: (1) early layers write token
+content -> keys; (2) heads apply an approximately fixed query;
+(3) double-QK product is a soft-AND; (4) rotary makes the match
+position-dependent (fixed query selects a referent by distance);
+(5) content induction is a distributed per-head-cheap front-loaded
+~1 nat exception. Every step grounded in exact decomposition or
+validated ablation, quantified model-wide. Attention line complete.

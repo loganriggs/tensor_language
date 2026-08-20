@@ -1,0 +1,17 @@
+baseline 3.3536
+JOINT (all 162 KEYS fixed to means): +3.3214
+sum of 162 individual costs (574): +0.4923 | ratio 6.75
+layers 0..0: +0.0801
+layers 0..2: +0.8632
+layers 0..5: +3.1366
+layers 0..8: +3.4492
+layers 0..11: +3.6065
+layers 0..14: +3.4316
+layers 0..17: +3.3214
+JOINT random queries: +8.2756
+
+(a) joint cost +3.3214
+(b) composition ratio 6.75 (superadditive)
+(c) cumulative by layer: {0: 0.0801, 2: 0.8632, 5: 3.1366, 8: 3.4492, 11: 3.6065, 14: 3.4316, 17: 3.3214}
+NULL (random +8.2756 > mean joint +3.3214): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fixed_key_joint_results.json (58s)
