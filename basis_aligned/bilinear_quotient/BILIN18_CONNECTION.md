@@ -15240,3 +15240,56 @@ positions from the same corpus, where coverage is high, rather
 than on fresh text; or report the fraction of fresh positions whose
 triple was observed alongside the gain, so the reader can scale it.
 Queued as front_table4 with both.
+
+## 548. CORRECTION: the table results were measured on text the
+## tables were fitted on
+
+front_table4 rebuilt the block-2 ladder on rows held out from the
+fitting corpus, and its numbers came back far worse than 547's:
+  block 2, held-out rows    unigram +0.6046   bigram +0.5092
+  block 2, as reported (547) unigram +0.5372   bigram +0.2745
+That prompted the check I should have run before any of this. The
+tables are fitted on cl.rows() -- the 1000-row curated census
+corpus -- and were priced on cl.fineweb_rows(48), which draws the
+FIRST 48 FineWeb rows with no skip. Both are drawn from the same
+FineWeb sample. Direct test: 33 of the 48 priced rows appear
+verbatim in the fitting corpus.
+So 69% of the evaluation text was training text, and every table
+number in 542, 544, 546 and 547 is optimistic by an unknown but
+clearly large amount. RETRACTED:
+  542  block 0 token table at 0.18 nats
+  544  block 1 pair table at 0.52, "73% of the gap closed"
+  546  two-table composition at 0.67, and the refit comparison
+  547  block 2 pair table at 0.27, "69% of the gap closed"
+The one clean measurement now in hand is front_table4's, on 48
+rows held out from the 800 the tables were fitted on:
+  block 2   unigram +0.6046   bigram +0.5092   ceiling +0.1487
+  gap closed by the pair: 21%, not 69%
+  bigram key coverage on held-out text: 42%
+  trigram coverage: 12%, so that arm remains unevaluable
+A pair table still beats a token table by 0.095 nats and a
+shuffled index still costs 1.36, so the direction of every
+qualitative claim survives -- block 2's write does depend on the
+token pair. What does not survive is the magnitude. Closing a
+fifth of the gap is a much weaker statement than closing
+two-thirds, and the benchmark comparison in 546 -- "two tables at
+0.67 beat the best rank allocation at 1.18" -- cannot be quoted
+until both sides are measured on clean text.
+This is the SECOND time this program has made this exact mistake.
+The ledger already carries a data audit finding that the standard
+eval window shared its corpus sample with the fit window and
+flattered every number by about 0.35 nats. The lesson did not
+generalize because it was recorded as a fact about one eval window
+rather than as a rule, so the rule is recorded now: ANY fitted
+object -- table, basis, probe, stand-in -- must be priced on rows
+that are verified disjoint from the rows it was fitted on, by
+explicit comparison and not by assuming two loaders differ.
+A milder version of the same issue affects the interface runs 539,
+541, 543 and 545: they compute a 64-direction SVD basis from the
+same positions they then price. That is 64 directions fitted to
+about 12,000 positions rather than 150,000 table entries, so the
+overfitting is far smaller, but it is in-sample and is flagged
+here rather than assumed harmless.
+front_table5 is queued to redo blocks 0, 1 and 2 and the
+composition on a clean split, with the overlap check as a
+registered gate that must pass before any cost is reported.
