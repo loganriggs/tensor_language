@@ -14047,7 +14047,7 @@ only, the real model is run with that score in place of the
 head's, and the head's newline benefit is priced against its own
 ablation.
   K     retention at newline targets   at controls   random K
-   10          +0.077                    +0.062      -0.13
+   10          +0.048                    -0.033      -0.17
    25          +0.205                    +0.190      -0.14
    50          +0.436                    +0.429      -0.07
   100          +0.692                    +0.701      -0.01
@@ -14063,6 +14063,13 @@ missing, and the substantive reading does not depend on the eighth
 of a percent: the head needs roughly 200 of its 625 pairs -- 32%
 -- to reach 92%, and 100 pairs for 69%.
 NULL ok: retention rises monotonically with K.
+(Correction, same session: the K=10 row was first written as
++0.077/+0.062 from a truncated log before the header line was
+visible. The measured values are +0.048 at targets and -0.033 at
+controls. Nothing else in the table or the conclusions changes,
+and at K=10 the rebuild is worse than useless at control
+positions, which strengthens rather than weakens the reading that
+truncation destroys the score before it isolates anything.)
 The random-K comparison is the part that makes this a result
 rather than a shrug. At K=100 the top-ranked pairs retain 0.692
 and random pairs retain -0.01; at K=200, 0.918 against 0.22. So
