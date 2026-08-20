@@ -17162,3 +17162,44 @@ verdict on cluster 13's causal status, pending a redo with a matched
 token set (either the single most common token per class, or an
 explicit per-class average instead of a sum). Queued:
 mlp0_cluster13_logit_margin_v2.
+
+## 585. RETRACTION: 584's "cluster 7 confirmed" does not survive the
+## count-fair metric either -- the whole logit-sum/mean margin design
+## was the wrong tool, not just cluster13's token count
+
+v2's fix (mean instead of sum, so class size can't bias the compari-
+son) was built to rescue cluster13. Running cluster7 alongside as a
+check (v2's own stated purpose) instead broke it: under the mean
+metric, cluster7's pos-class ratio is -1.60 and neg-class ratio is
+-1.27 (both FAILED, wrong sign) versus 584's sum-based +6.06/+4.56
+(both HELD). Tracing why cluster13's sanity check didn't also catch
+cluster7 at the time: cluster13's negative class averaged 4 tokens
+against 2 positive, an obviously wrong-signed baseline; cluster7's
+negative class was already a SINGLE token, so its baseline sign
+looked sane by construction -- the confound was there but subtler,
+and passing my one designed guard was not the same as being correct.
+RETRACTED: 584's "cluster 7 CONFIRMED as a clean bidirectional
+circuit." Both non-cluster-8 causal tests are now unresolved, not
+because the clusters are wrong but because summing (or, it turns out,
+naively averaging) raw LOGITS across a class of different size or
+different intrinsic frequency is not a fair contrast at all -- logits
+for common tokens (period, auxiliary verbs) sit on a different scale
+than logits for rare ones (em-dash, contraction suffix) regardless of
+context, so neither sum nor per-token mean of raw logits is the right
+quantity. Only cluster 8's test (582/583) is unaffected: its classes
+were already 2-vs-2 matched tokens of comparable frequency (a/an vs
+the/The), which is why it never needed this correction and its
+verdict (selective a/an promoter, one side confirmed) stands.
+THE PRINCIPLED FIX, not another patch: use PROBABILITY MASS (softmax
+over the full vocabulary), not raw logit sums or means. Sum of
+probability across a class's tokens is a coherent quantity regardless
+of class size or token rarity -- P(token in class) always sums
+correctly no matter how many tokens the class has, unlike logits
+which have no natural zero point or shared scale across tokens.
+Margin = P(positive class) - P(negative class), a bounded, well-
+defined quantity. Queued: mlp0_cluster_probmass_v3, retesting all
+three named clusters (8, 13, 7) with this metric for full consistency
+-- including a re-verification of cluster 8, not because its old
+result is doubted, but because this program's standing rule is that a
+metric fix applies uniformly, not selectively to the results that
+need rescuing.
