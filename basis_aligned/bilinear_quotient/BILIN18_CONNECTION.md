@@ -12045,3 +12045,36 @@ If (b) holds, the model's second most expensive attention head is
 exactly a table -- which would join the sink (a constant) and the
 induction band (four reads of an identity code) as the third
 component of this model reduced to something you can write down.
+
+## 476. THE SECOND COSTLIEST HEAD IS EXACTLY A LOOKUP
+
+head_0_3_exact, all three bars HELD and two of them at the floor:
+  weights-only per-token value table          dCE -0.0
+  FULL fold (pattern AND values, weights-only) dCE -0.0
+  token-shuffled table (null)                  dCE +0.14675
+So head 0.3 -- +0.112 nats to delete, the model's second most
+expensive attention head -- can be replaced ENTIRELY by two
+weights-only lookups, its pattern rebuilt from tokens and rotary
+and its values read from a 50304-entry table, at zero measurable
+cost. The shuffled null at +0.147 confirms the table's CONTENT is
+what matters, so this is not a vacuous substitution.
+The honest framing matters here. At layer 0 attention reads only
+token embeddings, so exact foldability is guaranteed by the
+architecture rather than discovered in this head. What the run
+delivers is threefold: the machinery is verified exact (a strong
+instrument check after a night of scale and coverage bugs), the
+head's SHAPE is named (previous-token at 66% with a 28% self
+component), and the practical consequence is real -- an expensive
+head needs no attention computation at runtime at all.
+That makes three components of this model now reduced to something
+writable: the sink (a constant vector), the induction band (four
+reads of an identity code), and head 0.3 (a token-pair lookup).
+layer0_fold queued to ask the whole-layer version with its
+boundary: fold ALL NINE layer-0 heads at once, with a
+token-shuffled null, and apply the identical construction to layer
+1 -- which reads layer-0 outputs rather than raw tokens and should
+therefore FAIL. Registered: (a) the whole layer folds at <= 0.01
+nats, (b) the null costs >= 0.20, (c) layer 1 costs >= 0.10. If
+all three land, "the first attention layer of this model is a
+bigram table" becomes a measured statement with a measured
+boundary.
