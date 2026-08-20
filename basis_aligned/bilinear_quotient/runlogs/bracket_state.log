@@ -1,0 +1,13 @@
+146 close-bracket targets over 192 rows | 145 with a matching opener | 68 with at least one already-closed opener | 138 controls
+
+absolute score-mass share (mean, n):
+  tgt: match 0.3672 (n=145)  open 0.0232 (n=27)  closed 0.0204 (n=68)  rand 0.0097 (n=146)  prev 0.0660 (n=146)
+  ctrl: match 0.0870 (n=101)  open 0.0064 (n=25)  closed 0.0113 (n=64)  rand 0.0210 (n=129)  prev 0.0659 (n=138)
+(a) -0.008800000000000002 vs bar 1e-09: FAILED
+(b) -0.0010000000000000009 vs bar 1e-09: FAILED
+(c) 0.32080000000000003 vs bar 1e-09: HELD
+  (a) closed 0.0204 <= half of still-open 0.0232
+  (b) closed 0.0204 within 2x of random non-bracket 0.0097
+  (c) match 0.3672 >= 2x still-open 0.0232
+  NULL at controls: still-open 0.0064 vs closed 0.0113, ratio 0.57 < 2.0: ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_state_results.json (91s)

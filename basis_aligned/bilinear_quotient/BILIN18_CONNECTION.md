@@ -13939,3 +13939,51 @@ no depth-free token rule can tell them from open ones. If closed
 openers get a share near the lexical baseline, the head is reading
 the open-bracket stack and the state claim survives without
 needing nested examples.
+
+## 523. Not a stack -- a pointer
+
+bracket_state asked whether head 13.8 discounts openers that have
+already been closed, which is what reading an open-bracket stack
+would look like. Absolute score-mass shares at close-bracket
+targets, 192 rows:
+  the matching opener              0.3672  (n=145)
+  other STILL-OPEN openers         0.0232  (n=27)
+  ALREADY-CLOSED openers           0.0204  (n=68)
+  a random earlier non-bracket     0.0097  (n=146)
+  the previous token               0.0660  (n=146)
+(a) FAILED, and cleanly rather than marginally: closed openers get
+0.0204 and other still-open openers get 0.0232. Those are the same
+number. The head does NOT elevate the set of outstanding brackets.
+(b) FAILED, narrowly: closed openers get 2.1x a random non-bracket
+token, just over the 2x bar, so they are treated as very slightly
+more than ordinary text but not much.
+(c) HELD by a factor of 15.8: the match gets 0.3672 against 0.0232
+for other still-open openers.
+NULL ok: at position-matched control positions the still-open and
+closed shares are 0.0064 and 0.0113, a ratio of 0.57 -- no
+separation where no bracket is closing, so the target-position
+numbers are not a fixed property of the key side.
+The hypothesis I registered was wrong and the result is better
+than the hypothesis. This head does not maintain a representation
+of "which brackets are open". It selects exactly ONE token and
+treats every other bracket in the context -- open or closed -- as
+approximately ordinary text. It is a POINTER, not a stack.
+That reframes what still needs explaining. A stack-reading head
+would be easy to account for: elevate all unclosed openers, take
+the most recent. This head skips that intermediate representation
+entirely and lands on one token, so whatever computes "which
+token" does it without a visible open-set representation in this
+head's scores. The computation is still upstream and unlocated.
+One more number worth recording: at control positions the match
+still gets 0.0870, four times less than at targets but well above
+the 0.0097 random baseline. The pointer is partly there before it
+is needed, and sharpens by 4x at the moment a bracket is due.
+Whether the pointer is computed by depth tracking remains open,
+and natural text cannot settle it -- 1 of 84 targets in 522 had a
+match that was not also the most recent opener. bracket_nested is
+queued with constructed contexts that separate the two: text where
+the closer matches the FIRST of two openers and the more recent
+one is already closed, so a depth-free "most recent opener" rule
+points at the wrong token. It carries its own null, since
+constructed text is out of distribution -- if the model does not
+expect a closing bracket there, nothing measured in it counts.
