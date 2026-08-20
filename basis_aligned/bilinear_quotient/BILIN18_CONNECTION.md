@@ -16490,3 +16490,52 @@ and predict the token that followed it -- i.e. induction restricted
 to digits? If so, the digit prediction has a nameable attention
 mechanism on top of the distributed subspace, verified target
 first per the protocol.
+
+## 572. Head 8.3 does digit INDUCTION -- a third modality, and a
+## correction to 571's "detection" label
+
+digit_induction tested whether head 8.3 copies digits. At positions
+whose current token is a digit with a clean prior occurrence:
+  share on (prior digit + 1), the induction key   0.1030
+  share on the prior digit itself                 0.0298
+  control (non-digit) occ+1 share                 0.0584
+(b) the occ+1 / occ ratio is 3.46 -- the head attends to what
+FOLLOWED the prior digit, not to the digit. That is INDUCTION, not
+detection. So 571's "detection" label for 8.3 was measuring the
+wrong key (the digit position, where 8.3's share is only 0.030);
+the head's real target is occurrence+1. CORRECTED.
+NULL ok: the digit occ+1 share (0.103) exceeds the control (0.058),
+so the induction is digit-tuned.
+(a) FAILED, and it is the honest nuance: the digit occ+1 share is
+only 1.76x the NON-digit occ+1 share (0.103 vs 0.058), not 2x. So
+8.3 does GENERAL induction -- it attends to occurrence+1 for
+repeated tokens broadly -- and is merely ENRICHED for digits. It
+is an induction head with digit tuning, not a digit-specific head.
+This adds a THIRD modality to the account and reconciles several
+threads:
+  * MODALITIES, now three: positional matching (bracket, quote --
+    find a specific referent by position); token detection
+    (newline -- find any of a class); content induction (8.3 --
+    find where THIS token occurred, attend to what followed). The
+    first two use an approximately fixed query; induction must
+    use a CONTENT-dependent query, so it should break the
+    fixed-query finding -- testable.
+  * INDUCTION BAND (568): I said induction has no single head. 8.3
+    shows a clean induction ATTENTION pattern on its own, but that
+    does not contradict 568 -- 568 was about CAUSAL effect, where
+    individual band heads cost ~0.003 nats. 8.3 has the induction
+    read pattern while contributing little causally alone; it is
+    one head of the superlinear band, and its attention is a clean
+    window onto what the band computes.
+  * DIGIT SUBSPACE (521, 569): the digit behaviour is distributed
+    over four heads; 8.3's contribution is induction-copying
+    (attend to a prior digit's successor). So the distributed
+    digit computation has at least one nameable attention
+    mechanism -- digit induction -- on top of its compact subspace.
+induction_query is queued to test the modality prediction: head
+8.3's query should be CONTENT-dependent (it must encode the current
+token to find its prior occurrence), so replacing it with a fixed
+query should BREAK the induction attention -- unlike the structural
+heads, whose fixed query reproduced them (559). If the fixed query
+instead preserves the induction, the content-matching reading is
+wrong and that is the finding.

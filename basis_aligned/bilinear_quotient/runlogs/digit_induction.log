@@ -1,0 +1,10 @@
+164 digit induction targets
+
+share on (prior digit + 1): 0.1030
+share on prior digit itself: 0.0298
+control (non-digit) occ+1 share: 0.0584
+
+(a) target attends digits (vs control): FAILED
+(b) occ+1 / occ ratio 3.46: INDUCTION (copies digits)
+NULL (digit-specific: target occ+1 0.1030 vs control 0.0584): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_induction_results.json (34s)
