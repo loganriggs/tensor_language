@@ -9925,3 +9925,23 @@ dribbles. relay_edge_causal queued: zero a6.h3 / a4.h7 in the
 live model vs matched same-layer controls; registered selective
 pattern damage on the deep trio / 5.5, and match-position dCE
 ratios.
+
+## 408. RELAY EDGES CAUSALLY VERIFIED: deleting a6.h3 breaks exactly the deep trio
+
+relay_edge_causal zeroed the named relay heads in the LIVE model
+vs matched same-layer controls. ALL THREE BARS HELD:
+  delete a6.h3: top-read shift 29/21/19% on 7.3/8.3/8.4, and
+    EXACTLY 0% on 1.4/2.5/5.5; match dCE +0.051 vs control
+    a6.h0's -0.0003 (>150x)
+  delete a4.h7: shifts 5.5 at 18.6% (plus 12-17% on the deep
+    trio -- a4.h7 feeds the chain a6.h3 reads, consistent with
+    nested relay), 0% on the early band; control a4.h2 about
+    half its effect
+The prev-token -> induction composition is now interventionally
+verified with named parts: a6.h3 is the deep band's code courier;
+cutting it selectively re-aims the three deepest induction heads
+and costs CE at match positions, while its layer-mate control
+does neither. The induction circuit record is complete at every
+level the program defines: variables, computation, executable
+code, trigger reconstruction, courier identity, and live causal
+verification of each.
