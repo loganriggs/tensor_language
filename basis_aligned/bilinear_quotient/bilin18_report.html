@@ -1303,6 +1303,28 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   down with a second kind of causal test; that test turned out too insensitive to settle it —
   it couldn't even recover the known-correct article result — so the reversal stands on the
   swap test, and its underlying cause is left open rather than overclaimed.)</p>
+  <p>One clean question cuts across all six of the first layer's named groups and sidesteps the
+  direction puzzle entirely, because it's about what each group <em>reads</em>, not which way it
+  pushes: does the group decide from the current word alone, or does it need the words before?
+  The test from earlier — switch off the previous-word lookup and see whose firing collapses —
+  applied to all six at once, lines them up on a clean spectrum, and the order is exactly what
+  the grammar predicts:</p>
+  <table><thead><tr><th>group</th><th>how much it needs prior context</th></tr></thead><tbody>
+  <tr><td>article ("a"/"an" vs "the")</td><td>most context-dependent — nearly all of it</td></tr>
+  <tr><td>auxiliary vs contraction</td><td>strongly context-dependent</td></tr>
+  <tr><td>end-of-sentence punctuation</td><td>mixed</td></tr>
+  <tr><td>line breaks</td><td>mixed</td></tr>
+  <tr><td>before pronouns</td><td>mostly the current word</td></tr>
+  <tr><td>spelled-out numbers</td><td>almost entirely the current word</td></tr>
+  </tbody></table>
+  <p>That ordering isn't imposed, it falls out of the measurement — and it reads as sensible
+  linguistics. You genuinely cannot tell whether "a" or "the" comes next from the word in front
+  of you; you need the verb or preposition before it, so that group leans hardest on context.
+  A spelled-out number, by contrast, is mostly recognizable from the local text right there, so
+  that group barely uses context at all. The model isn't uniformly building "local" or
+  "contextual" features in its first layer — it spends exactly as much context as each decision
+  actually requires. (This particular result is clean regardless of the direction puzzle above,
+  since it only asks what feeds each group, not which way the group steers.)</p>
   <p>The same grouping method was then run on the transformer's <em>second</em> layer, to see
   whether it was a one-layer trick. It finds real structure there too — held up on a fair
   reproducibility check — but more weakly than the first layer, and murkier to read: one
