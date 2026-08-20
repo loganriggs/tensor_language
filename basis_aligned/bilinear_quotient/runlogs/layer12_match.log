@@ -1,0 +1,14 @@
+head 12.0: match +0.0014 non-match +0.0009
+head 12.1: match +0.0009 non-match -0.0003
+head 12.2: match +0.0133 non-match +0.0014
+head 12.3: match +0.0036 non-match +0.0031
+head 12.4: match +0.0067 non-match +0.0014
+head 12.5: match -0.0006 non-match -0.0007
+head 12.6: match +0.1770 non-match +0.0147
+head 12.7: match +0.0020 non-match -0.0004
+head 12.8: match +0.0032 non-match +0.0008
+layer total +0.2094 | worst head 12.6 (84.5%) | same-token reads 0.060 vs null 0.033 | median head +0.0032
+(a) one head carries >=50%: HELD
+(b) it reads the match token (>=30% vs <5%): FAILED
+(c) median head under 0.05: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/layer12_match_results.json (2s)

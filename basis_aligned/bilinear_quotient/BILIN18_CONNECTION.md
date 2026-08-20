@@ -12404,3 +12404,43 @@ same curve over nine random heads. Registered: (a) all nine cost
 >= 3x the mean of the singles (superlinear), (b) at least seven of
 nine singles cost <= 0.05 alone, (c) the control curve is closer
 to linear.
+
+## 486. THE INDUCTION BAND IS MUTUALLY COVERING: 108x superlinear
+
+induction_redundancy windowed the band heads cumulatively:
+  singles (each head alone, at match positions)
+    -0.0123  +0.0231  -0.0393  +0.0349  +0.0088
+    +0.0262  -0.0051  -0.0218  +0.0119     mean +0.0029
+  cumulative
+    -0.012, +0.035, +0.012, +0.085, +0.141,
+    +0.262, +0.299, +0.327, +0.318
+  ratio all-nine / singles-mean:  108.5
+  same ratio for nine random control heads:  10.0
+(a) HELD enormously and (b) HELD: every single band head, windowed
+alone, costs essentially nothing at match positions -- the mean is
+three thousandths of a nat and FOUR of the nine are slightly
+HELPFUL -- while all nine together cost 0.318.
+(c) FAILED, and the failure is worth keeping: the control curve is
+ALSO superlinear, at 10x. Multi-head ablation is superadditive in
+this model generally, so the band's 108x is not a category
+difference from arbitrary heads but an order-of-magnitude one. I
+registered "closer to linear" and the honest statement is "eleven
+times less superlinear".
+THE FINDING: the induction band is a MUTUALLY COVERING circuit. No
+individual head's distant reads are necessary; each one's loss is
+absorbed by the other eight. Only the collective loss bites, and
+then by 75% of what full deletion costs (485). This qualifies the
+program's flagship result in a way worth publishing rather than
+burying: "four reads of an identity code" describes what the band
+computes COLLECTIVELY, not any head's private necessity, and it
+explains cleanly why windowing whole layers looked free (484) --
+each layer holds one band head, and one is always covered.
+Report updated and republished with the qualification.
+layer12_match queued on the one long-range signal still
+unexplained: layer 12 costs +0.209 at match against +0.021
+elsewhere, has nothing to do with the sink, and sits outside the
+band. Registered: (a) one head carries >= 50% of it, (b) that head
+reads the SAME TOKEN as the query at >= 30% of match positions
+against a frequency-matched null under 5% -- which would make it
+an induction-like head the band list missed -- and (c) the median
+layer-12 head carries under 0.05.

@@ -681,7 +681,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   identity code: written by the embedding, enriched layer-by-layer by the MLP chain, and
   moved between positions by attention</strong> — deep heads read relayed, even
   doubly-relayed, copies — with each head then executing its four strongest coincidence
-  reads. The bound is quantitative: allowing the code one move closes the early heads
+  reads. One qualification the window experiments added later: the band is
+  <strong>mutually covering</strong>. Restricting any single induction head to a four-token
+  window costs essentially nothing at repeat positions (mean 0.003 nats across the nine, and
+  four of them are slightly <em>helpful</em>), while restricting all nine together costs 0.318 —
+  a hundred-fold superlinearity, against tenfold for nine random heads. So "four reads of an
+  identity code" describes what the band computes collectively; no individual head is necessary,
+  and the distant reads are what matters (windowing the nine recovers 75% of the damage that
+  deleting them outright causes). The bound is quantitative: allowing the code one move closes the early heads
   (94–100% pattern agreement), two moves close every head to 93%+, three to 98%+. And the
   claim is causal, not just predictive: running the <em>live model</em> with all nine
   induction heads' patterns computed from this reconstruction costs <strong>−0.002 nats</strong>
