@@ -1220,21 +1220,44 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   set of pieces reads far less cleanly on the same test (concentration 6.3 of 8 on average,
   against 7.7 of 8 for the three found groups) — the grouping is doing real work, not just
   picking out any large handful of pieces.</p>
-  <p>The 101-piece "article" group was then tested causally, not just read off examples: with
-  those 101 pieces (2% of the layer) replaced by their average value everywhere else in the
-  layer left exact, does the model specifically lose its ability to choose between "a"/"an"
-  and "the"? The first attempt measured this with the model's overall next-word error rate,
-  which turned out to be far too blunt an instrument — the effect was too small a slice of
-  everything the model is doing at once to show up against the noise at all, on every
-  comparison tried, including one that looked like a clean negative result before that was
-  caught. Switching to a direct, targeted score — literally the model's preference for
-  "a"/"an" over "the" at each position, nothing else — resolved it: removing the group
-  specifically weakens the model's preference for "a"/"an" exactly where "a"/"an" is the
-  right answer, four times more than removing a random same-size set of pieces does. It does
-  <em>not</em>, however, do the reverse — it doesn't specifically help "the" where "the" is
-  right, the way a clean two-way switch would. So the honest name for this group, after the
-  causal test, is a <strong>promoter of "a"/"an,"</strong> not a full article switch; the
-  "the" half of the reading-by-examples story is not yet confirmed.</p>
+  <p>All three groups were then tested causally, not just read off examples — with a group's
+  pieces replaced by their average value everywhere else in the layer left exact, does the
+  model specifically lose the behaviour the examples suggested? This took three attempts to
+  measure honestly, and the honest result is less clean than the reading-by-examples made it
+  look. The first attempt used the model's overall next-word error rate, which was far too
+  blunt an instrument — the effect was too small a slice of everything the model is doing at
+  once to show up against the noise, on every comparison tried, including one that looked
+  like a clean negative result before that was caught. Switching to a direct, targeted score
+  — the model's preference for one word over another at each position, nothing else — did
+  find real effects: every group's removal moves its targeted score 3 to 7 times more than
+  removing a random same-size set of pieces does, every time, under three different ways of
+  scoring "preference" (a raw score difference, an averaged version of it, and the model's
+  actual probability). That part replicates cleanly. What does <em>not</em> replicate is
+  which direction the effect points: for the "am"/"had"-vs-"'s" group, the raw-score version
+  found it pushing the expected way on both sides, but the probability version found it
+  pushing the <em>opposite</em> way on both sides — same group, same removal, opposite
+  causal story depending only on which reasonable way of scoring "preference" is used. The
+  "a"/"an"-vs-"the" group told two different one-sided stories depending on the same choice —
+  confirmed on the "a"/"an" side with one scoring method, confirmed on the <em>"the"</em>
+  side instead with the other. And the period/exclamation-vs-dash group's test turned out to
+  be built on an unfair footing no matter how it was scored: dashes are simply a low-
+  confidence guess for this model in general, correct context or not, so a clean two-way
+  comparison against them doesn't work as designed. The honest summary: the grouping finds
+  real, specific structure — that part is solid and reproduces on held-out data every time —
+  but turning "these pieces move together" into "and here is exactly what causal job they do"
+  did not work with a simple targeted-score test for any of the three groups. That gap is
+  itself a finding, and matches a pattern this report keeps landing on elsewhere: components
+  that look clean from the outside often turn out to have a more tangled causal role once
+  actually tested.</p>
+  <p>The same grouping method was then run on the transformer's <em>second</em> layer, to see
+  whether it was a one-layer trick. It finds real structure there too — held up on a fair
+  reproducibility check — but more weakly than the first layer, and murkier to read: one
+  large group turned out to be detecting a byte-level text-encoding artifact (a
+  replacement-character symbol from imperfectly-decoded curly quotes), not a linguistic
+  behaviour; one looks like it might do related work to the first layer's article group,
+  worth a future causal test; and the third reads only weakly. The method generalizes. Both
+  what it finds and how confidently it can be causally pinned down get harder outside the one
+  layer this thread started on.</p>
 </section>
 
 <section class="col">
