@@ -15096,3 +15096,50 @@ off to the unigram row otherwise, so its cost on genuinely fresh
 pair statistics would be higher than measured here. The number to
 quote is that indexing on the pair closes 73% of the gap, not that
 block 1 costs 0.52.
+
+## 545. Joint optimization is not the missing ingredient
+
+543 concluded that because compression interacts across blocks, a
+front-of-model stand-in needs joint search rather than any
+per-component rule. joint_alloc did the search: starting from full
+rank, offer every block its next lower rank, price all six
+candidates JOINTLY, take the cheapest, repeat to a budget of 384
+directions -- the same total as six blocks at rank 64.
+  greedy    {0:64, 1:128, 2:128, 3:32, 4:16, 5:16}   +1.1795
+  uniform   all six at rank 64                       +1.2745
+  random    three draws at matched budget      +1.37 to +1.77
+(0) HELD: the full-rank start costs under 1e-3.
+(b) HELD: the greedy answer is lopsided, max-to-min rank ratio 8.
+Blocks 1 and 2 keep 128 directions each while blocks 4 and 5 are
+cut to 16, which is a real allocation and not a disguised uniform
+one.
+NULL ok: all three random allocations cost more than uniform
+(1.37, 1.72, 1.77 against 1.27), so uniform is a fair baseline.
+(a) FAILED, and it is the result. Greedy search beats uniform by
+0.095 nats -- 7% -- where I registered 0.30. Twenty-seven joint
+evaluations of a lopsided allocation buy almost nothing over
+picking one number for every block.
+So the low-rank interface line closes with a negative that is now
+well supported from three directions. The front of this model does
+not have a compressed residual interface at roughly 64 directions
+per block, however the budget is allocated: uniform gives 1.27,
+lopsided greedy gives 1.18, random gives 1.37-1.77, and the
+untruncated model gives 0. 543's phrasing -- that a stand-in
+"requires joint optimization" -- was too optimistic and is
+corrected here: joint optimization was tried and it is worth 7%.
+(Note on scale: uniform rank 64 costs 1.2745 here against 1.3137
+in 541, because this run priced on 32 rows and 541 on 48. The
+comparison inside this run is like for like.)
+What survives is the other route entirely. Substitution by an
+explicit table indexed on a variable the block provably depends on
+costs 0.18 nats at block 0 and 0.52 at block 1 (542, 544), against
+1.18 for the best rank allocation of the whole front. The two
+approaches are not close, and the difference is not effort -- it
+is that a table indexes on the right variable while a projection
+keeps a subspace of the wrong one.
+Queued next: composing the two tables, and the methodological
+question that composition raises. Replacing block 0 changes block
+1's input, so block 1's table should arguably be REBUILT in the
+presence of the replacement rather than fitted against the
+original model. front_table_compose measures naive composition
+against self-consistent composition.
