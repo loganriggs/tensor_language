@@ -1,0 +1,54 @@
+{
+ "baseline_target": 1.2139,
+ "full_cost": 0.1038,
+ "wq_rank": 128,
+ "curve": {
+  "1": {
+   "target": 0.017,
+   "other": -0.0002,
+   "random": []
+  },
+  "2": {
+   "target": 0.0216,
+   "other": -0.0002,
+   "random": []
+  },
+  "4": {
+   "target": 0.0332,
+   "other": -0.0004,
+   "random": []
+  },
+  "8": {
+   "target": 0.0497,
+   "other": -0.0006,
+   "random": [
+    0.0059,
+    0.0011,
+    0.0062
+   ]
+  },
+  "16": {
+   "target": 0.0639,
+   "other": -0.0006,
+   "random": []
+  },
+  "32": {
+   "target": 0.0772,
+   "other": -0.0003,
+   "random": []
+  },
+  "64": {
+   "target": 0.0881,
+   "other": -0.0003,
+   "random": []
+  }
+ },
+ "kill80_rank": 64,
+ "newline_vs_bracket_meancos": 0.203,
+ "newline_vs_bracket_maxcos": 0.507,
+ "pred_0": true,
+ "pred_a": true,
+ "pred_b": true,
+ "null_ratio": -0.012,
+ "runtime_s": 60.070403814315796
+}

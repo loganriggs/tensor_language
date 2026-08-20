@@ -15722,3 +15722,59 @@ how this model does attention selection, and it also settles the
 exact selection-subspace and causal-rank measurement of 555
 applied to head 12.6 on newline targets, plus the principal angles
 between the newline and bracket selection subspaces.
+
+## 557. The shape generalizes: attention selection lives in
+## compact, behaviour-specific, mostly-private subspaces
+
+newline_query_rank applied the exact selection-subspace and
+causal-rank method (555) to the newline head 12.6, and compared
+its selection subspace to the bracket head's.
+(0) HELD: projecting out all query-input directions reproduces the
+newline head's effect at +0.104 (497 measured 0.068 by ablation;
+the larger number here is the query-input removal, which also
+disturbs downstream reads).
+  directions out    newline targets    elsewhere
+      1                +0.0170          -0.0002
+      4                +0.0332          -0.0004
+      8                +0.0497          -0.0006
+     16                +0.0639          -0.0006
+     32                +0.0772          -0.0003
+     64                +0.0881          -0.0003
+  random 8 directions: +0.001 to +0.006
+(a) HELD: 16 directions remove 62% of the newline head's effect,
+and 8 selection directions beat 8 random directions by roughly 10x
+(0.050 against 0.005). Same shape as the bracket head.
+(b) HELD, cleaner than brackets: at NON-newline positions removing
+the subspace costs -0.0006 -- literally negative, i.e. nothing.
+The newline selection subspace is even more behaviour-specific
+than the bracket one.
+So the finding is now a GENERAL property of this model, not a
+bracket quirk. Two attention heads doing unrelated jobs -- one
+pointing at a matching bracket, one deciding a line break -- both
+compute their selection by reading a compact (~16-dim) subspace of
+their layer's input that is:
+  * built DIFFUSELY, by a dozen upstream writers none dominant;
+  * LOW-RANK, 16 directions holding 60-70% of the effect;
+  * behaviour-SPECIFIC, inert at positions where the behaviour is
+    not occurring (bracket 0.05 vs 3.57; newline literally 0.00).
+This is a real statement about how attention selection is
+organized here: the decision variable is a named subspace, and the
+job of the upstream stack is to write into it. It is the tractable
+handle the user asked for -- the trace toward the embedding is now
+"what writes this subspace", one level at a time -- and it is the
+same shape for both heads examined.
+(c) settles 556's lead, and settles it as WEAK. The newline and
+bracket selection subspaces overlap at mean cosine 0.203, max
+0.507, against a 0.118 random floor. So the two structural heads
+share SOME geometry -- about 1.7x the floor, one direction at max
+cosine 0.5 -- but not a common variable. The earlier 0.233
+geometric hint (556) was measuring this real but modest overlap.
+The honest reading: these are two DIFFERENT compact subspaces that
+share a direction or two, not one reused component.
+That is itself worth stating for the reusability programme: across
+the two circuits examined, selection subspaces are mostly PRIVATE.
+The model does not appear to compute one structural signal that
+many heads read; it computes a separate compact variable per head,
+with minor shared geometry. Whether that holds across more heads
+is the generalizable next question, and cheap -- the subspaces are
+weights-plus-one-sweep to extract and compare.

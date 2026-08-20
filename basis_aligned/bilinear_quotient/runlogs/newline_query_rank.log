@@ -1,0 +1,18 @@
+newline vs bracket selection subspace: mean cos 0.203, max 0.507 (random floor 0.118)
+528 targets | W_q[head8] rank 128 | top eigenvalue share 0.337
+baseline CE at targets 1.2139 | all-dirs-out 1.3177 (delta +0.1038)
+k=  1: target +0.0170 | other -0.0002
+k=  2: target +0.0216 | other -0.0002
+k=  4: target +0.0332 | other -0.0004
+k=  8: target +0.0497 | other -0.0006 | random [0.0059, 0.0011, 0.0062]
+k= 16: target +0.0639 | other -0.0006
+k= 32: target +0.0772 | other -0.0003
+k= 64: target +0.0881 | other -0.0003
+
+(0) all-dirs-out reproduces the newline head effect (+0.1038 >= 0.04): HELD
+(a) top 16 directions remove 62% of the head effect (>=60%) and 8 beat random 3x: HELD
+(c) newline-vs-bracket subspace mean cos 0.203
+(b) top 8 beat random 8 by 3x: HELD
+(c) smallest k killing 80%: 64 | W_q rank 128
+NULL (other-position cost is small vs target: ratio -0.01)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_query_rank_results.json (60s)
