@@ -1,0 +1,64 @@
+(0) reproduced sizes [101, 76, 29, 18, 16, 9, 6, 6, 6, 6, 5, 4, 4, 3, 3, 3, 2, 1, 1, 1] == 579 [101, 76, 29, 18, 16, 9, 6, 6, 6, 6, 5, 4, 4, 3, 3, 3, 2, 1, 1, 1]: HELD
+
+cluster 8 (101 units) POSITIVE top-8 (concentration 8/8 "determiner"):
+   [+9111.19] ...' Bosnia-Herzegovina – characterizes an' | next=' an'
+   [+7787.81] ...', respectively.\nLast year, JAMA published a' | next=' a'
+   [+7676.44] ...'ée Johnstone, from Ireland. John later established a' | next=' a'
+   [+7560.21] ..."Jack Reacher's latest adventure begins when he suspects a" | next=' a'
+   [+7498.68] ...' are applicable to teaching Emergency Medicine.\nHe shares a' | next=' a'
+   [+7471.81] ...' investigative report, The Wayne Madsen Report unraveled a' | next=' a'
+   [+7428.99] ...' of the Russian-made VIP presidential passenger jet, an' | next=' an'
+   [+7391.87] ...'.\nTrick of the Trade:\nUse a' | next=' a'
+  NEGATIVE top-8:
+   [+5724.84] ...' process and seeking one or more potential offerors. The' | next=' The'
+   [+5721.10] ...' their thoughts, problems and hopes to the doorstep of the' | next=' the'
+   [+5669.32] ...' and foremost about stories and anecdotes. The tasting of the' | next=' the'
+   [+5586.83] ...' affect the way in which takeover offers are effected. The' | next=' The'
+   [+5569.66] ...' the beginning of the offer period, the identity of the' | next=' the'
+   [+5562.39] ...' where the suicide rate is the highest among members of the' | next=' the'
+   [+5533.88] ...' on experience, observation and research: The skin of the' | next=' the'
+   [+5490.13] ...' one or more potential offerors. The details of the' | next=' the'
+
+cluster 13 (76 units) POSITIVE top-8 (concentration 8/8 "punct"):
+   [+6598.36] ...'"' | next='"'
+   [+5262.67] ...'Exhausted and euphoric.' | next='.'
+   [+4346.80] ...' great news.' | next='.'
+   [+4340.54] ...' any Sherpa or Flannel lined jackets out there.' | next='.'
+   [+4325.40] ...' right price and believes in a win-win relationship!' | next='!'
+   [+4207.70] ...' exert a dominant presence in political life.' | next='.'
+   [+4188.90] ...'\nfigured it out a Looong time ago.' | next='.'
+   [+4112.17] ...' Tommy thought that it would be great to play there.' | next='.'
+  NEGATIVE top-8:
+   [+11166.60] ...' presidential contest, which is a lot more about Europe—' | next='—'
+   [+9545.54] ...', if anything startling should happen that requires your attention —' | next=' —'
+   [+9521.00] ...' remain until the next shed. After the next shed--' | next='--'
+   [+9250.58] ...' your doorbell rings in the middle of the night —' | next=' —'
+   [+9088.95] ...'care providers will have to adopt a more multicultural mindset --' | next=' --'
+   [+9087.40] ...'\nimportantly, in reference to the Ads,--' | next='--'
+   [+8989.36] ...' is the only sextuplet who is struggling --' | next=' --'
+   [+8958.94] ...', problems and hopes to the doorstep of the government --' | next=' --'
+
+cluster 7 (29 units) POSITIVE top-8 (concentration 7/8 "space_word"):
+   [+4173.30] ..."together and the added expense. That's why I am" | next=' am'
+   [+4077.42] ...' I am working with them with the dedication that I am' | next=' am'
+   [+3897.24] ...": Maybe. But I don't think that I am" | next=' am'
+   [+3795.98] ..."ia is the headquarters for one of many of Bout's" | next="'s"
+   [+3682.30] ..." seeing these snakes\ndie--that's why I am" | next=' am'
+   [+3675.36] ...' had it that we would like it, but I had' | next=' had'
+   [+3650.03] ..." But I don't think that I am. I am" | next=' am'
+   [+3596.24] ...' lot of extra time (it does)...and I wasn' | next=' wasn'
+  NEGATIVE top-8:
+   [+5115.91] ..."rit Blog? If it is anything similar to it's" | next="'s"
+   [+4964.80] ...' whiskey and the idea of enjoying whiskey. One activity does' | next=' does'
+   [+4909.76] ..." Vasopressor Support (IRVS)?\nIt's" | next="'s"
+   [+4858.65] ...' last year. Winning games is what it’s' | next='s'
+   [+4697.83] ...", and beginning the adventure of a lifetime, it's" | next="'s"
+   [+4609.39] ..." other. Current contest will be highlighted posts so it's" | next="'s"
+   [+4547.00] ...' winning the lottery."\nFor magical thinkers, it\'s' | next="'s"
+   [+4467.62] ..." speaker can zoom around any desired topic. Because it's" | next="'s"
+
+(a) found-cluster concentrations [8, 8, 7] (>=5/8 for >=1 of 3): HELD
+(b) found 7.67 vs random-subset 6.33: HELD
+NULL (shuffled 4.33 <= random-subset+1 7.33): ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_unit_cluster_examples_results.json (45s)

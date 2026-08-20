@@ -1,0 +1,381 @@
+{
+ "pred_0": true,
+ "sizes": [
+  101,
+  76,
+  29,
+  18,
+  16,
+  9,
+  6,
+  6,
+  6,
+  6,
+  5,
+  4,
+  4,
+  3,
+  3,
+  3,
+  2,
+  1,
+  1,
+  1
+ ],
+ "conc_found": [
+  8,
+  8,
+  7
+ ],
+ "conc_random": [
+  4,
+  8,
+  7
+ ],
+ "conc_shuffled": [
+  2,
+  6,
+  5
+ ],
+ "pred_a": true,
+ "pred_b": true,
+ "null_ok": true,
+ "clusters": [
+  {
+   "cluster": 8,
+   "n_units": 101,
+   "pos_concentration": 8,
+   "pos_class": "determiner",
+   "pos_examples": [
+    {
+     "gi": 12658,
+     "token": " an",
+     "pre": " Bosnia-Herzegovina \u2013 characterizes an",
+     "act": 9111.1923828125
+    },
+    {
+     "gi": 7769,
+     "token": " a",
+     "pre": ", respectively.\nLast year, JAMA published a",
+     "act": 7787.80908203125
+    },
+    {
+     "gi": 13142,
+     "token": " a",
+     "pre": "\u00e9e Johnstone, from Ireland. John later established a",
+     "act": 7676.439453125
+    },
+    {
+     "gi": 3946,
+     "token": " a",
+     "pre": "Jack Reacher's latest adventure begins when he suspects a",
+     "act": 7560.20654296875
+    },
+    {
+     "gi": 9445,
+     "token": " a",
+     "pre": " are applicable to teaching Emergency Medicine.\nHe shares a",
+     "act": 7498.681640625
+    },
+    {
+     "gi": 2509,
+     "token": " a",
+     "pre": " investigative report, The Wayne Madsen Report unraveled a",
+     "act": 7471.80908203125
+    },
+    {
+     "gi": 2991,
+     "token": " an",
+     "pre": " of the Russian-made VIP presidential passenger jet, an",
+     "act": 7428.99072265625
+    },
+    {
+     "gi": 7731,
+     "token": " a",
+     "pre": ".\nTrick of the Trade:\nUse a",
+     "act": 7391.86865234375
+    }
+   ],
+   "neg_examples": [
+    {
+     "gi": 6029,
+     "token": " The",
+     "pre": " process and seeking one or more potential offerors. The",
+     "act": 5724.83642578125
+    },
+    {
+     "gi": 5012,
+     "token": " the",
+     "pre": " their thoughts, problems and hopes to the doorstep of the",
+     "act": 5721.09912109375
+    },
+    {
+     "gi": 9534,
+     "token": " the",
+     "pre": " and foremost about stories and anecdotes. The tasting of the",
+     "act": 5669.32373046875
+    },
+    {
+     "gi": 5856,
+     "token": " The",
+     "pre": " affect the way in which takeover offers are effected. The",
+     "act": 5586.833984375
+    },
+    {
+     "gi": 6540,
+     "token": " the",
+     "pre": " the beginning of the offer period, the identity of the",
+     "act": 5569.65673828125
+    },
+    {
+     "gi": 4337,
+     "token": " the",
+     "pre": " where the suicide rate is the highest among members of the",
+     "act": 5562.39306640625
+    },
+    {
+     "gi": 10175,
+     "token": " the",
+     "pre": " on experience, observation and research: The skin of the",
+     "act": 5533.87939453125
+    },
+    {
+     "gi": 6032,
+     "token": " the",
+     "pre": " one or more potential offerors. The details of the",
+     "act": 5490.13037109375
+    }
+   ]
+  },
+  {
+   "cluster": 13,
+   "n_units": 76,
+   "pos_concentration": 8,
+   "pos_class": "punct",
+   "pos_examples": [
+    {
+     "gi": 3840,
+     "token": "\"",
+     "pre": "\"",
+     "act": 6598.36474609375
+    },
+    {
+     "gi": 4870,
+     "token": ".",
+     "pre": "Exhausted and euphoric.",
+     "act": 5262.66845703125
+    },
+    {
+     "gi": 9218,
+     "token": ".",
+     "pre": " great news.",
+     "act": 4346.802734375
+    },
+    {
+     "gi": 14209,
+     "token": ".",
+     "pre": " any Sherpa or Flannel lined jackets out there.",
+     "act": 4340.5390625
+    },
+    {
+     "gi": 11842,
+     "token": "!",
+     "pre": " right price and believes in a win-win relationship!",
+     "act": 4325.39697265625
+    },
+    {
+     "gi": 12295,
+     "token": ".",
+     "pre": " exert a dominant presence in political life.",
+     "act": 4207.69873046875
+    },
+    {
+     "gi": 10770,
+     "token": ".",
+     "pre": "\nfigured it out a Looong time ago.",
+     "act": 4188.89697265625
+    },
+    {
+     "gi": 1173,
+     "token": ".",
+     "pre": " Tommy thought that it would be great to play there.",
+     "act": 4112.16845703125
+    }
+   ],
+   "neg_examples": [
+    {
+     "gi": 15353,
+     "token": "\u2014",
+     "pre": " presidential contest, which is a lot more about Europe\u2014",
+     "act": 11166.6044921875
+    },
+    {
+     "gi": 388,
+     "token": " \u2014",
+     "pre": ", if anything startling should happen that requires your attention \u2014",
+     "act": 9545.5380859375
+    },
+    {
+     "gi": 10339,
+     "token": "--",
+     "pre": " remain until the next shed. After the next shed--",
+     "act": 9521.0048828125
+    },
+    {
+     "gi": 424,
+     "token": " \u2014",
+     "pre": " your doorbell rings in the middle of the night \u2014",
+     "act": 9250.583984375
+    },
+    {
+     "gi": 12887,
+     "token": " --",
+     "pre": "care providers will have to adopt a more multicultural mindset --",
+     "act": 9088.951171875
+    },
+    {
+     "gi": 10868,
+     "token": "--",
+     "pre": "\nimportantly, in reference to the Ads,--",
+     "act": 9087.3955078125
+    },
+    {
+     "gi": 3749,
+     "token": " --",
+     "pre": " is the only sextuplet who is struggling --",
+     "act": 8989.359375
+    },
+    {
+     "gi": 5014,
+     "token": " --",
+     "pre": ", problems and hopes to the doorstep of the government --",
+     "act": 8958.9365234375
+    }
+   ]
+  },
+  {
+   "cluster": 7,
+   "n_units": 29,
+   "pos_concentration": 7,
+   "pos_class": "space_word",
+   "pos_examples": [
+    {
+     "gi": 10997,
+     "token": " am",
+     "pre": "together and the added expense. That's why I am",
+     "act": 4173.30126953125
+    },
+    {
+     "gi": 10964,
+     "token": " am",
+     "pre": " I am working with them with the dedication that I am",
+     "act": 4077.41552734375
+    },
+    {
+     "gi": 10939,
+     "token": " am",
+     "pre": ": Maybe. But I don't think that I am",
+     "act": 3897.243408203125
+    },
+    {
+     "gi": 2652,
+     "token": "'s",
+     "pre": "ia is the headquarters for one of many of Bout's",
+     "act": 3795.97509765625
+    },
+    {
+     "gi": 10955,
+     "token": " am",
+     "pre": " seeing these snakes\ndie--that's why I am",
+     "act": 3682.303955078125
+    },
+    {
+     "gi": 1313,
+     "token": " had",
+     "pre": " had it that we would like it, but I had",
+     "act": 3675.359619140625
+    },
+    {
+     "gi": 10942,
+     "token": " am",
+     "pre": " But I don't think that I am. I am",
+     "act": 3650.02685546875
+    },
+    {
+     "gi": 15442,
+     "token": " wasn",
+     "pre": " lot of extra time (it does)...and I wasn",
+     "act": 3596.244384765625
+    }
+   ],
+   "neg_examples": [
+    {
+     "gi": 7256,
+     "token": "'s",
+     "pre": "rit Blog? If it is anything similar to it's",
+     "act": 5115.9111328125
+    },
+    {
+     "gi": 9671,
+     "token": " does",
+     "pre": " whiskey and the idea of enjoying whiskey. One activity does",
+     "act": 4964.8037109375
+    },
+    {
+     "gi": 7019,
+     "token": "'s",
+     "pre": " Vasopressor Support (IRVS)?\nIt's",
+     "act": 4909.76025390625
+    },
+    {
+     "gi": 14610,
+     "token": "s",
+     "pre": " last year. Winning games is what it\u2019s",
+     "act": 4858.646484375
+    },
+    {
+     "gi": 4909,
+     "token": "'s",
+     "pre": ", and beginning the adventure of a lifetime, it's",
+     "act": 4697.82666015625
+    },
+    {
+     "gi": 11332,
+     "token": "'s",
+     "pre": " other. Current contest will be highlighted posts so it's",
+     "act": 4609.39208984375
+    },
+    {
+     "gi": 3168,
+     "token": "'s",
+     "pre": " winning the lottery.\"\nFor magical thinkers, it's",
+     "act": 4546.9970703125
+    },
+    {
+     "gi": 7141,
+     "token": "'s",
+     "pre": " speaker can zoom around any desired topic. Because it's",
+     "act": 4467.6220703125
+    }
+   ]
+  }
+ ],
+ "random_baseline": [
+  {
+   "n": 101,
+   "conc": 4,
+   "cls": "digit"
+  },
+  {
+   "n": 76,
+   "conc": 8,
+   "cls": "space_word"
+  },
+  {
+   "n": 29,
+   "conc": 7,
+   "cls": "space_word"
+  }
+ ],
+ "runtime_s": 45.09912467002869
+}

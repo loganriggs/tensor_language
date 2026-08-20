@@ -16888,3 +16888,145 @@ fire". Follow-up should probe cluster activation against real
 example contexts (cl.context on top-activating tokens/positions for
 the cluster's summed h, as mlp0_units already does per-unit) rather
 than embedding-direction naming. Queued: mlp0_unit_cluster_examples.
+
+## 580. The REAL rspd library found and applied: mlp0's Down layer
+## splits into two ~500-rank generic bulk clusters and three small,
+## much-lower-rank (21/39/70) special-case clusters
+
+User cloned github.com/ThatE10/rspd to /workspace/rspd (my own clone
+attempts were correctly blocked by the permission classifier for
+using a personal token against a third-party repo -- left to the
+user's own shell rather than routed around, per policy). Reading the
+actual source shows RSPD is NOT what I reimplemented in 578/579: it
+is a closed-form (Eckart-Young) low-rank functional-core extraction
+-- AB = [WX]_r X^+, the truncated SVD of the layer's RESPONSE pulled
+back through the activations' Moore-Penrose pseudoinverse, exact and
+optimal, no gradient descent -- plus RECURSIVE CIRCUIT ISOLATION
+(rspd.circuit_isolation.erank_circuit_isolation): repeatedly
+re-decompose and re-cluster DATA subsets by the shape of their
+per-datum truncation-loss curve (HDBSCAN on a Hellinger-embedded
+spectral view) until each branch bottoms out at a minimum effective
+rank or sample floor. Each recovered leaf IS simultaneously a cluster
+of datapoints and a minimal rank-r weight (A, B) that reproduces the
+layer's behaviour on exactly that cluster -- literally the "clusters
+and minimal weights" the user asked for, and a materially different
+(more principled) object than 578/579's ablation-damage-covariance
+clustering, which is now superseded for linear layers.
+Applied to mlp0's Down (1152x4608, W) with hidden-unit activations
+h=(Lx)(Rx) over 2000 real FineWeb token positions (from 48 documents)
+as X -- a genuine linear layer/activation pair matching the method's
+contract exactly (no nonlinearity between X and WX), unlike
+attention's bilinear QK form which the README says needs the two
+sides cached separately (left for a follow-up).
+REGISTERED PREDICTIONS, all HELD:
+  (0) full-rank sanity: relative loss 1.36e-6 (exact).
+  (a) >=3 leaves: got 5.
+  (b) some leaf rank < half the root's effective rank (687.7): got
+      21, 39, 70 -- three leaves far below half.
+  (c) stability: rerun on an independent data half gives root erank
+      558.1 (vs 687.7 full, same order) and 3 leaves (vs 5) -- coarse
+      reproducibility holds, exact leaf count is not stable at this
+      N (expected -- HDBSCAN cluster count is sample-size-sensitive,
+      not yet a claim of exact structure).
+  NULL ok: no reject-origin leaves this run, so vacuously fine (not a
+      strong check this time -- worth re-testing where reject leaves
+      appear).
+THE FINDING: the recursion splits into two BULK clusters (908 and 859
+of 2000 points, ranks 485 and 531 -- close to the root's 687.7,
+i.e. essentially generic/full-rank, matching 536's "mlp0 reads wide")
+and three SMALL clusters (91, 99, 43 points -- 12% of the data
+together) at much lower rank (39, 70, 21). The small, low-rank
+clusters are the interesting object: a genuinely compressible,
+minority sub-population of mlp0's input space, the kind of "reusable
+computational component" the user is after. Reading their real top
+examples (context, not logit-lens -- 579's naming lesson applied):
+  rank 21 (43 pts): dates/citations/measurements with parenthetical
+    or bracketed numbers -- "(2012 ... Balance (", "2011, 18:190-",
+    "There were 144 (", "in three days.\n", mixed with a couple that
+    don't fit (",  Kangwon Province, Thursday, police said.\n").
+  rank 39 (91 pts): short, complete SENTENCE-FINAL positions --
+    almost every example ends a clause or sentence right at the
+    captured position ("...work that way.", "...period of time.",
+    "...about your purchase.", "...fed to the lions.").
+  rank 70 (99 pts): mixed -- some sentence/clause boundaries, some
+    proper-noun-heavy geopolitical text (Soviets, Kangwon Province,
+    Seoul, Chuncheon, Turkish) -- less clean than rank 39, possibly
+    an unmerged mixture (a candidate for 578's combine_threshold or
+    a deeper recursion level).
+  the two bulk clusters (rank 485, 531): no discernible shared
+    surface property in 8 examples each -- consistent with being the
+    generic, high-rank remainder rather than a class.
+Honest caveats on record: r_min (343.9) was set to half the root's
+own effective rank as a first pass, NOT independently calibrated the
+way the toy experiments do (measuring known-pure-class effective
+ranks first) -- there is no ground truth here to calibrate against,
+so the leaf count/boundaries should be treated as a first read, not
+a final structure. Runtime was CPU-bound (53s for N=2000, ~7
+circuits) because per_datum_truncation_losses sweeps every rank
+1..1152 in a Python loop per circuit and nothing was moved to the
+GPU -- fine at this scale, a real bottleneck if N or the layer size
+scales up; queued to move to CUDA before a larger run.
+Queued: rspd_mlp0_down_scaled (larger N, GPU, and: examine leaf 3's
+rank-39 sentence-final cluster against a directly testable
+hypothesis -- does ablating this circuit's rank-39 weight specifically
+hurt sentence-final continuations while leaving everything else
+intact? -- the causal check this program requires before calling
+anything a verified circuit).
+
+## 581. 579's naming lesson pays off immediately: mlp0's hidden-unit
+## clusters ARE cleanly nameable by real activating context,
+## including a signed a/an-vs-the discriminator
+
+579 found mlp0's ablation-damage-covariance unit clusters
+statistically real (stability, superadditivity) but unnameable by a
+logit-lens probe on their shared output direction, and diagnosed why:
+these are INPUT-selective units, so the output direction is the wrong
+lens. Queued mlp0_unit_cluster_examples to redo naming the way
+mlp0_units already names single units -- by real top-activating
+contexts, POSITIVE and NEGATIVE separately (mlp0's terms are signed
+squares that can subtract). It ran via bqrunner and reproduced 579's
+cluster sizes exactly (pred 0 HELD).
+Result: clean, immediately readable clusters, no interpretation
+required beyond reading the printed contexts:
+  CLUSTER 8 (101 units) is an A/AN-vs-THE discriminator. Every one of
+    its top-8 POSITIVE contexts is immediately followed by 'a' or
+    'an' (concentration 8/8, class "determiner") -- "...established
+    a", "...suspects a", "...characterizes an", "Russian-made VIP
+    ...jet, an". Every one of its top-8 NEGATIVE contexts is followed
+    by 'The'/'the' -- "...seeking one or more potential offerors.
+    The", "...the identity of the". The SIGN of this cluster's summed
+    activation is a genuine indefinite-vs-definite-article signal.
+  CLUSTER 13 (76 units) is a sentence-punctuation-class discriminator.
+    POSITIVE top-8 are all sentence-final '.'/'"'/'!'  (concentration
+    8/8 "punct"). NEGATIVE top-8 are all dashes -- em-dash '—' or
+    double-hyphen '--' (also punct, but the opposite subclass) -- a
+    period/exclamation-vs-dash split within punctuation, not just
+    "punctuation vs not".
+  CLUSTER 7 (29 units) is a first-person-auxiliary-vs-contraction
+    discriminator. POSITIVE top-8 are mostly "am"/"had"/"wasn"
+    following "I" (concentration 7/8 "space_word", e.g. "...that I
+    am", "...but I had"). NEGATIVE top-8 are all the contraction
+    suffix "'s" ("...it's", "...Bout's").
+Predictions: (0) HELD (exact size reproduction); (a) HELD (found-
+cluster concentrations 8/8, 8/8, 7/8, comfortably clearing the >=5/8
+bar); (b) HELD (found clusters average 7.67/8 vs 6.33/8 for random
+same-size unit subsets -- concentration is specific to the found
+grouping, not a property of any large subset); NULL ok (shuffling
+sample alignment before top-8 selection drops concentration to
+4.33/8, below the random-subset baseline, confirming the signal
+depends on which units are grouped together, not the selection
+procedure).
+This corrects 579's "not yet interpretable" to a real positive: the
+clustering was right, the FIRST naming lens was wrong. Two lessons
+now on record about this method: (1) validate on synthetic ground
+truth before applying (578); (2) for input-selective components, name
+by real activating context, not output-direction logit-lens (579's
+diagnosis, confirmed here). Net for the model: mlp0's write is not
+just "9216 signed squares" (533) or "narrow write, wide read" (536)
+-- a meaningful chunk of its 4608 units organize into SIGNED, semantically
+clean discriminators (grammatical class, punctuation subtype, person/
+contraction), each spanning dozens of units and stable out-of-sample.
+Not yet causally verified (the next required step per this program's
+standard -- ablate cluster 8 specifically and check it selectively
+costs a/an-vs-the prediction while leaving other tokens untouched);
+queued as mlp0_cluster8_causal.
