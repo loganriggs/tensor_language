@@ -1,0 +1,43 @@
+{
+ "n_sites": 100,
+ "profiles": {
+  "a3": {
+   "logit_competitor": 7.219,
+   "logit_target": 4.674,
+   "pushes_competitor": true
+  },
+  "a6": {
+   "logit_competitor": 11.816,
+   "logit_target": 11.427,
+   "pushes_competitor": true
+  },
+  "a7": {
+   "logit_competitor": 14.332,
+   "logit_target": 13.087,
+   "pushes_competitor": true
+  },
+  "a8": {
+   "logit_competitor": 14.297,
+   "logit_target": 7.014,
+   "pushes_competitor": true
+  },
+  "m7": {
+   "logit_competitor": 15.518,
+   "logit_target": 11.943,
+   "pushes_competitor": true
+  },
+  "a12": {
+   "logit_competitor": 9.547,
+   "logit_target": 9.996,
+   "pushes_competitor": false
+  }
+ },
+ "mean_pairwise_cos_helpers": 0.712,
+ "null_cos": 0.0317,
+ "ctrl_cos_to_helpers": 0.65,
+ "n_helpers_pushing_competitor": 5,
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": true,
+ "runtime_s": 16.49158787727356
+}

@@ -11365,3 +11365,38 @@ over-confidence: at these sites, do the five helping components
 (a3, a6, a7, a8, m7) push the competitor token in logit space,
 and do they share a direction, with the clean component a12 as
 control? Registered a-c.
+
+## 458. The over-confidence has a location: five components push the wrong continuation
+
+punct_overconf_source, at the 100 helped punctuation sites, took
+each component's actual write and read its logit contribution to
+the competitor the model wrongly prefers versus the true
+punctuation target:
+  component  ->competitor   ->true target   pushes competitor?
+  a3            7.219          4.674            yes (+2.55)
+  a8           14.297          7.014            yes (+7.28)
+  m7           15.518         11.943            yes (+3.58)
+  a7           14.332         13.087            yes (+1.25)
+  a6           11.816         11.427            yes (+0.39)
+  a12 CTRL      9.547          9.996            NO  (-0.45)
+(a) HELD at 5 of 5, and the control fails to push -- exactly the
+split that 455's ablation scan predicted from the other side.
+The deficiency now has a location: these five components write
+toward continuation at precisely the positions where the text
+ends the phrase, and a12, whose ablation does not help, does not.
+(b) HELD as registered but I am recording it as CONTAMINATED
+rather than banking it. The helpers' mean pairwise cosine is
+0.712 against a random null of 0.032 -- but the CONTROL sits at
+0.650 with them, nearly as high. That is the stream-centre effect
+from 449/450: every write at these depths is partly aligned with
+the layer-5 bias axis, so raw cosines between component writes
+are inflated and cannot discriminate helpers from non-helpers.
+The geometry leg tells us nothing until the centre is projected
+out; the LOGIT asymmetry, which is a difference of two numbers
+computed the same way, is unaffected by that inflation and is
+what carries the result.
+punct_overconf_recentered queued: redo the geometry with the bias
+axis projected out of every write and re-check the logit
+asymmetry under the same projection. Registered: (a) recentered
+cosine >= 0.30 AND at least 0.15 above the control's, (b) verdict
+recorded either way, (c) the logit asymmetry survives.
