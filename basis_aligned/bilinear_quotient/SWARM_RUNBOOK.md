@@ -64,9 +64,13 @@ wave pushed, no wave depending on the driver's memory of the last one.
 > cl.use_state(cl.PT+'census_state_diverse.pt')`). If your tag has a
 > pack, verify concentration reproduces (only concentration — pack
 > counts are a 60-row subsample), then continue. On CUDA OOM wait 60s,
-> retry once, then report and stop. DO NOT git commit or push. Report:
-> verification numbers, story, red-team hit count, record path, and any
-> SOP friction.
+> retry once, then report and stop. NEVER PARK ON A BACKGROUND JOB
+> (wave-4 lesson: two agents stalled waiting on a slow step while
+> four siblings shared the GPU) -- run steps inline, and if one is
+> slow, record "not computed under swarm load; demoted step, not
+> blocking" and finish the record. DO NOT git commit or push.
+> Report: verification numbers, story, red-team hit count, record
+> path, and any SOP friction.
 
 ## 4. Reviewer-two (adversarial; every record gets one)
 Reviewer = fresh Sonnet agent that did NOT author the record. Prompt:
@@ -112,6 +116,13 @@ counts toward the certified tally.
 - runlogs/bilin18_canary2.log still cycling (model + data sanity).
 - If a worker is silent >30 min: it died mid-GPU-wait; relaunch its tag
   once, else skip the tag with a note.
+- If a worker REPORTS but says it is waiting on a background job, it
+  has parked: SendMessage it to finish without blocking (see the
+  author template's never-park rule). Two wave-4 agents did this.
+- Heavy QUEUE scripts must tolerate a swarm: wrap per-item work in
+  try/except, save results incrementally, and support resume --
+  gate_specificity was killed twice by GPU pressure before it was
+  made resumable.
 
 ## 6. Known traps (union of every incident so far)
 - NAMESPACE COLLISION: circuits/ holds ~50 OLD-TREE (212-row)
