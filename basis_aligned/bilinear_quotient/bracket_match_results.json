@@ -1,0 +1,35 @@
+{
+ "arms": {
+  "delete": {
+   "target": 0.8254,
+   "nested": 0.0316,
+   "global": 0.00376
+  },
+  "kill_match": {
+   "target": 0.689,
+   "nested": 0.0165,
+   "global": 0.00178
+  },
+  "kill_nearest": {
+   "target": 0.0136,
+   "nested": 0.0252,
+   "global": 3e-05
+  },
+  "kill_random": {
+   "target": 0.0035,
+   "nested": -0.0003,
+   "global": 1e-05
+  },
+  "kill_prev": {
+   "target": 0.0742,
+   "nested": -0.007,
+   "global": 0.0002
+  }
+ },
+ "n_targets": 84,
+ "n_nested": 1,
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": true,
+ "runtime_s": 95.24924039840698
+}

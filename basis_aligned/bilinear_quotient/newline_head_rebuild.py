@@ -84,6 +84,11 @@ def main():
 
     def pieces(X,E,outs,B):
         parts=cl.writer_parts(LJ,E,outs,'a')
+        missing=[w for w in WR if w not in parts]
+        if missing:
+            raise SystemExit(f'writer_parts is missing {missing} -- '
+                             f'the decomposition would be incomplete '
+                             f'and the rebuild meaningless')
         tot=sum(parts.values())
         errs.append(float((F.rms_norm(tot,(D,))-X.float()).norm()
                     /X.float().norm().clamp_min(1e-9)))
@@ -120,6 +125,7 @@ def main():
                                 outs[k9]=y.detach().float()
                             return h
                         hs.append(mod.register_forward_hook(mk()))
+                Efw=F.rms_norm(m.transformer.wte(idx),(D,)).float()
                 def fh(mo,args,o_):
                     y,v1r=o_; X=args[0]
                     v1b=args[1] if args[1] is not None else v1r
@@ -128,7 +134,7 @@ def main():
                     if mode=='ablate':
                         z[:,HD]=z[:,HD].mean(dim=(0,1),keepdim=True)
                     else:
-                        P=pieces(X,None,outs,B)
+                        P=pieces(X,Efw,outs,B)
                         sq2=P['q2'].sum(0); sk2=P['k2'].sum(0)
                         f2=torch.einsum('bqd,bkd->bqk',sq2,sk2)/128
                         acc=torch.zeros(B,T,T,device=DEV)
@@ -170,7 +176,8 @@ def main():
         x=F.rms_norm(m.transformer.wte(idx),(D,)); x0=x; v1=None
         for blk in m.transformer.h: x,v1=blk(x,v1,x0)
         for h in hs: h.remove()
-        X=cap['X']; P=pieces(X,None,outs,B)
+        Erk=F.rms_norm(m.transformer.wte(idx),(D,)).float()
+        X=cap['X']; P=pieces(X,Erk,outs,B)
         sq2=P['q2'].sum(0); sk2=P['k2'].sum(0)
         f2=torch.einsum('bqd,bkd->bqk',sq2,sk2)/128
         for b in range(B):

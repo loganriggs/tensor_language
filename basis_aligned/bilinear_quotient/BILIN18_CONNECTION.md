@@ -13893,3 +13893,49 @@ low sample is a factor of two below the high one. The claim that
 the effect is positive and sign-flipped from the population
 survives all eight, but any quantitative use of "+0.135" should
 carry that spread.
+
+## 522. One matrix entry carries 83% of the bracket head
+
+bracket_match left head 13.8 completely intact and deleted single
+entries of its score matrix -- one (query, key) cell per
+close-bracket target, so every arm removes exactly the same amount
+of the matrix and only the choice of cell differs.
+  arm                                  cost at targets   global
+  delete the whole head                   +0.8254       +0.00376
+  zero the score on the MATCHING opener   +0.6890       +0.00178
+  zero the score on the previous token    +0.0742       +0.00020
+  zero the nearest NON-matching opener    +0.0136       +0.00003
+  zero a random earlier position          +0.0035       +0.00001
+(a) HELD: removing one cell -- the head's score on the specific
+opener this bracket closes -- costs 0.689 of the head's full
+0.825, which is 83%. The registered bar was 36%.
+(b) HELD by a factor of 51: the same operation on the nearest
+NON-matching opener, the same kind of token at a similar distance,
+costs 0.0136.
+(c) HELD: random earlier positions cost 0.0035 and the previous
+token 0.0742, both under the 0.10 bar. The effect is not that
+removing any entry hurts.
+So the matching is the mechanism, not a correlate of it. This is
+the tightest causal result in the program: an 0.825-nat behaviour
+reduced to a single number in a single matrix, and the model's
+whole-text cost of the same intervention is 0.0018 nats, because
+the circuit only fires at the 84 positions where a bracket is
+about to close.
+LIMITATION, and it is the one that matters for the interesting
+version of the claim. Only ONE of the 84 targets has a matching
+opener that is not also the nearest opener -- natural text in this
+sample is almost never nested. So "attends to the matching opener"
+and "attends to the most recent unclosed opener of the right type"
+are the same hypothesis on this data, and the nested subset (n=1)
+cannot separate them. What is ruled out is attending to openers
+generally: the nearest non-matching one costs 51x less. What is
+not yet ruled out is a depth-free rule that happens to be right
+whenever nesting is absent.
+bracket_state, already queued, attacks that from the side where
+the data IS populated: it asks whether the head discounts openers
+that have ALREADY BEEN CLOSED. Those are lexically identical
+tokens at similar distances, they are common in this corpus, and
+no depth-free token rule can tell them from open ones. If closed
+openers get a share near the lexical baseline, the head is reading
+the open-bracket stack and the state claim survives without
+needing nested examples.

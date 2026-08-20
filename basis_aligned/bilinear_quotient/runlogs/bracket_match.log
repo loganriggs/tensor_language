@@ -1,0 +1,12 @@
+84 targets | 77 matched | 1 where the match is NOT the nearest opener
+       delete: target +0.8254 | nested-only 0.0316 | global +0.00376
+   kill_match: target +0.6890 | nested-only 0.0165 | global +0.00178
+ kill_nearest: target +0.0136 | nested-only 0.0252 | global +0.00003
+  kill_random: target +0.0035 | nested-only -0.0003 | global +0.00001
+    kill_prev: target +0.0742 | nested-only -0.007 | global +0.00020
+(a) 0.689 vs bar 0.3: HELD
+(b) 0.6482 vs bar 1e-09: HELD
+(c) kill_random +0.0035 and kill_prev +0.0742 both < 0.10: HELD
+  one entry of the score matrix removed: match +0.6890 of the head's full +0.8254
+  nested subset (n=1): match 0.0165 vs nearest 0.0252
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_match_results.json (95s)
