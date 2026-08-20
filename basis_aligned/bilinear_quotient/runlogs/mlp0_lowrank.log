@@ -1,0 +1,24 @@
+baseline CE 3.3536 | per-token table reference +1.4660 nats (534, same corpus)
+ input rank     8: cost +1.4389 | random [2.3479, 2.3488, 2.3505]
+ input rank    16: cost +1.0054 | random [2.3211, 2.3196, 2.3191]
+ input rank    32: cost +0.6448 | random [2.2594, 2.2638, 2.2605]
+ input rank    64: cost +0.3776 | random [2.1179, 2.1182, 2.1191]
+ input rank   128: cost +0.2126 | random [1.798, 1.7826, 1.7685]
+ input rank   256: cost +0.0718 | random [0.8286, 0.8589, 0.8898]
+ input rank  1152: cost +0.0000 | random []
+output rank     8: cost +0.3902 | random [2.3533, 2.3336, 2.3626]
+output rank    16: cost +0.2525 | random [2.3305, 2.3183, 2.2667]
+output rank    32: cost +0.1659 | random [2.3464, 2.3351, 2.2063]
+output rank    64: cost +0.0991 | random [2.0508, 2.1158, 2.1939]
+output rank   128: cost +0.0462 | random [2.1334, 1.9946, 1.8843]
+output rank   256: cost +0.0157 | random [1.8255, 1.4329, 1.7185]
+output rank  1152: cost +0.0000 | random []
+(0) full rank free (input +0.00000, output +0.00000): HELD
+(a) -0.27759999999999996 vs bar 1e-09: FAILED
+(b) 0.0009000000000000119 vs bar 1e-09: HELD
+(c) input rank 64: svd +0.3776 vs best random +2.1179 -> ok
+(c) output rank 64: svd +0.0991 vs best random +2.0508 -> ok
+(d) input: under 0.10 nats from rank 256; under the table (1.466) from rank 8
+(d) output: under 0.10 nats from rank 64; under the table (1.466) from rank 8
+NULL (random controls degrade as rank falls): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_lowrank_results.json (92s)

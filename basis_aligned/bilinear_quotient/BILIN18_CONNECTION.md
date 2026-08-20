@@ -14592,3 +14592,52 @@ MLP on the same corpus, where the fitted per-token table costs
 1.466 nats and the algebraic stand-in needs 22% of its atoms to
 reach 0.10 -- the attention layer is dramatically more compressible
 than the MLP beside it.
+
+## 536. mlp0 writes narrow and reads wide
+
+mlp0_lowrank replaced subset selection with SVD truncation of the
+map, which 534 argued was the right operator for a layer whose
+output relies on global cancellation.
+  rank    reads through r of 1152    writes into r of 1152
+     8        +1.4389                    +0.3902
+    16        +1.0054                    +0.2525
+    32        +0.6448                    +0.1659
+    64        +0.3776                    +0.0991
+   128        +0.2126                    +0.0462
+   256        +0.0718                    +0.0157
+  1152        +0.0000                    +0.0000
+  random projections at rank 64: +2.12 (input), +2.05 (output)
+(0) HELD: both full-rank arms cost +0.00000.
+(a) FAILED: reading through 64 directions costs 0.378, not the
+0.10 I registered. It takes 256 directions -- 22% of the input
+space -- to reach 0.10 on the read side.
+(b) HELD, barely and honestly: writing into 64 directions costs
+0.0991 against a 0.10 bar. Nine ten-thousandths of a nat of
+margin; the substantive statement is "about 64".
+(c) HELD on both sides by a wide margin: random projections of the
+same rank cost 2.12 and 2.05 nats against 0.378 and 0.099. Unlike
+534's subset selection, which was WORSE than random below K=256,
+low-rank truncation beats random everywhere. That settles the
+operator question -- the right compression for this layer acts on
+the map, not on a subset of its terms.
+(d) THE BENCHMARK LINES. Both sides beat the fitted per-token
+table (1.466 nats on the same rows) from RANK 8 onward. Reading
+through eight directions of the embedding already does better than
+a full lookup table over the vocabulary.
+The asymmetry is the finding. mlp0 WRITES into 64 of 1152
+directions for under 0.10 nats -- 5.6% -- while it READS through
+256 for the same price, four times as many. The layer collects
+broadly and deposits narrowly. That also reconciles 534: the 22%
+of atoms needed there matches the 22% of input directions needed
+here, so subset selection was recovering the read-side rank the
+hard way.
+Against attention layer 0 (535), which needs 2 of 128 directions
+per head -- 1.6% -- to stay under 0.10:
+  attn0   1.6% of its input space
+  mlp0   22% to read, 5.6% to write
+The attention layer is an order of magnitude more compressible
+than the MLP beside it, on the same corpus and the same
+truncation method. early_rank_sweep is queued to turn that pair of
+points into a table across the first six blocks, with the
+composition test that matters for a benchmark -- whether
+truncating every early attention layer at once still holds.
