@@ -15503,3 +15503,62 @@ real readability measurement and it decides the open question from
 550 -- whether the projection stand-in, which wins on cost, is
 also interpretable -- on evidence rather than on a confounded
 count.
+
+## 553. Gap 2, exactly: the bracket query is a diffuse sum, and
+## this time "diffuse" is not an instrument artifact
+
+The user's point: the query side of head 13.8 is LINEAR, so the
+distance selection can be attributed to upstream writers by exact
+weight composition, no ablation. bracket_query_source did it. The
+query is q = rotary(rms_norm(W_q X)[head8]); rms_norm is a
+per-position scalar and rotary a rotation, so with X = SUM_i
+part_i (cl.writer_parts), q = SUM_i q_i exactly. The contribution
+of writer i to the score's first factor at the matching opener is
+q_i . k / 128.
+(0) HELD: q reconstructs to 5.26e-7 and f1 to 2.52e-7. The
+decomposition is exact.
+  writer   |contribution| to the match-cell f1   signed    share
+   m10           0.0603                          -0.0603    9.4%
+    a7           0.0541                          -0.0541    8.4%
+    m6           0.0436                          -0.0436    6.8%
+    a5           0.0425                          -0.0425    6.6%
+   a11           0.0401                          -0.0395    6.3%
+   a10           0.0395                          -0.0393    6.2%
+    m9           0.0394                          -0.0393    6.1%
+   m11           0.0381                          -0.0381    5.9%
+(a) FAILED: the top 3 writers carry 25%, not 60%. The query is
+built from about a dozen late-layer writers, each 6-9%.
+(b) FAILED: the leader is m10, an MLP, not an attention layer.
+(c) N/A: no single writer to localize into heads.
+NULL ok: the leader's share falls from 0.094 at the real query to
+0.053 at a jittered control, so the writers do carry
+position-specific information -- the diffuseness is not the whole
+story.
+This matters because it is the SAME "diffuse query" finding as the
+newline head (506), but on completely different footing. 506 was a
+first-order ablation, and 512 argued that leave-one-out on a
+multiplicative network is misleading. The query side is LINEAR, so
+this decomposition is exact and additive with no such caveat.
+When the exact linear attribution still comes out diffuse, the
+computation genuinely is distributed -- roughly a dozen late
+writers, each contributing 6-9%, ALL WITH THE SAME SIGN.
+The uniform negative sign is a clue I did not predict and it
+reframes the next step. All the late writers push f1 in the same
+direction at the match cell. That is what a COMMON-MODE signal
+looks like -- something every late component writes regardless of
+brackets -- rather than a bracket-specific distance computation.
+The absolute contribution at the match cell mixes two things: the
+common-mode level, and the part that DISCRIMINATES the matching
+opener from other positions. The selection is the discrimination,
+not the level.
+So the honest state of gap 2: exact composition shows the query's
+absolute value at the match cell is a diffuse same-sign sum, which
+is necessary but not sufficient to explain the SELECTION.
+bracket_query_contrast is queued to decompose the quantity that
+actually sets the distance -- the match-cell score MINUS the
+mean score over candidate keys -- which cancels any common-mode
+term and leaves only what discriminates. If that contrast
+concentrates on a few writers where the absolute level did not,
+gap 2 has a real answer; if it stays diffuse, the bracket head's
+distance computation is genuinely distributed and that is the
+finding, now proven exactly rather than asserted.

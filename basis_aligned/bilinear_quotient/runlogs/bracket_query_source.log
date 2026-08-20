@@ -1,0 +1,19 @@
+145 close-bracket target cells with a match
+(0) q reconstruction 5.256e-07 | f1 reconstruction 2.519e-07
+(0) EXACTNESS: HELD
+
+query-side writers into head 13.8, by |contribution| to the match-cell f1 score:
+   m10: |contrib| 0.0603 signed -0.0603 (9.4%)
+    a7: |contrib| 0.0541 signed -0.0541 (8.4%)
+    m6: |contrib| 0.0436 signed -0.0436 (6.8%)
+    a5: |contrib| 0.0425 signed -0.0425 (6.6%)
+   a11: |contrib| 0.0401 signed -0.0395 (6.3%)
+   a10: |contrib| 0.0395 signed -0.0393 (6.2%)
+    m9: |contrib| 0.0394 signed -0.0393 (6.1%)
+   m11: |contrib| 0.0381 signed -0.0381 (5.9%)
+
+(a) top 3 query writers carry 25% (>=60%): FAILED
+(b) leader m10 is an attention layer: FAILED
+(c) one head carries >=40% of the leader: FAILED/NA (-)
+NULL (leader share drops at controls: 0.094 -> 0.053): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_query_source_results.json (51s)
