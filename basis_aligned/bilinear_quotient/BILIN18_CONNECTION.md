@@ -18207,3 +18207,47 @@ determine, and often mispredicts, what its write causally does. This
 is the sharpest statement of the program's recurring theme, now backed
 by six causal tests. Structural-cluster causal investigation is at a
 natural saturation point.
+
+## 607. Clean surface-token circuits are a FRONT-OF-MODEL phenomenon:
+## a middle layer (mlp9) has real but much weaker, non-surface-
+## nameable structure -- completes the layer-wise coverage map
+
+Ran the unit-clustering on mlp9 (a middle layer) to test whether clean
+nameable circuits exist mid-network or are front-loaded.
+  (0) exact by construction.
+  (a) stability ARI 0.167 -- real structure (well above the null
+      -0.012, clearing my registered > 0.1 bar) but MUCH weaker than
+      the front. This completes a clear depth-decay trend:
+        mlp0  0.58
+        mlp1  0.326
+        mlp2  0.295
+        mlp9  0.167
+      Reproducible structure exists at every depth, but it weakens
+      monotonically into the middle of the network.
+  (b) surface concentration is low and generic: the top clusters hit
+      at most 6/8 on "space_word" (a catch-all class), and reading
+      them shows NO clean surface behaviour -- cluster 19 (98 units)
+      mixes unrelated continuations (out/Fisher/issue/security) with
+      question-context negatives ("which medication do you choose",
+      "What is it"); cluster 3 is weakly punctuation-ish (4/8);
+      cluster 13 weakly preposition-ish (4/8). None is cleanly
+      nameable the way mlp0's article (8/8) or newline clusters were.
+  (c) no article cluster; the readings hint at abstract features
+      (question context, list punctuation, preposition context) but
+      none resolves into a clean circuit.
+THE FINDING: clean, surface-token circuits (article, newline, pronoun,
+number-word, punctuation) are specifically a FRONT-OF-MODEL
+phenomenon, concentrated in layers 0-1 and fading by layer 2. A middle
+layer still has reproducible structure, but it is weak and NOT surface-
+lexical -- consistent with the depth map (L6-10 are the least linearly
+predictable, most representationally tangled) and with the model's
+division of labor: the front builds surface/lexical features (readable
+by this method), the middle does abstract/distributed work (not
+readable by surface-token naming). This is the honest layer-wise
+boundary complementing the importance-wise coverage map (600/601): the
+clustering method finds clean circuits where the model does surface-
+token work, and that work is front-loaded. Consolidated coverage now
+maps both axes -- importance (structure extends well below the top-300
+cutoff, decaying gradually) and depth (structure is strongest at the
+front, decaying into the middle, and stops being surface-nameable
+after layer 1-2).

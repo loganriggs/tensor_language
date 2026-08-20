@@ -1,0 +1,67 @@
+4000 samples, mlp9 hidden dim 4608
+(0) exact-by-construction (h @ Down.T IS the real output): HELD
+output rank for 95% variance: r=766
+cluster sizes: [98, 39, 29, 16, 15, 14, 13, 12, 11, 9, 9, 7, 7, 6, 5, 3, 3, 2, 1, 1]
+(a) stability ARI 0.167 (bar 0.3) vs null -0.012: FAILED
+
+cluster 19 (98 units) POSITIVE (concentration 6/8 "space_word"):
+   [+650.92] ..." up for the Daily Drop so you don't miss out" | next=' out'
+   [+572.98] ...'�s Combine Special.\nThey chat about Coach Fisher' | next=' Fisher'
+   [+489.53] ...' in 1945.\nBut even as Obama brings the issue' | next=' issue'
+   [+488.78] ...'\nBut even as Obama brings the issue of nuclear security' | next=' security'
+   [+468.16] ...' the traditional image of what constitutes art in France must evolve' | next=' evolve'
+   [+429.56] ...' ride out the global economic crisis with relative equanimity' | next='ity'
+   [+399.78] ...'natural" pine forest. While considerable attention has been focused' | next=' focused'
+   [+389.98] ..."wers right now, but I've come a long" | next=' long'
+  NEGATIVE:
+   [+887.58] ...' an antihypertensive, which medication do you choose' | next=' choose'
+   [+868.95] ..."). She asked, 'What does very low risk mean" | next=' mean'
+   [+776.93] ...' decide to start an antihypertensive, which medication' | next=' medication'
+   [+771.94] ...' now reconfiguring […]\nWhat is there to say' | next=' say'
+   [+759.03] ...' wishes come true with magical thinking.\nWhat is it' | next=' it'
+   [+757.28] ...' to its members.\nKnow an award-worthy educator' | next=' educator'
+   [+736.45] ...' Acrochordus snakes,\nWhat is it' | next=' it'
+   [+702.86] ...' experience. But then you play them three weeks later and' | next=' and'
+
+cluster 3 (39 units) POSITIVE (concentration 4/8 "punct"):
+   [+319.74] ...'. The waves of urban immigration to the cities […]\n' | next='\n'
+   [+298.51] ...'ca in Moyen Orient, Turquie.\n' | next='\n'
+   [+287.55] ...' I could live anywhere but a coast.\n2.' | next='.'
+   [+270.45] ...' small schoolroom and I only need to have Ladybug' | next='bug'
+   [+257.68] ...' 2012, p. 7 Türkçe\n' | next='\n'
+   [+255.23] ...'.\n- Marked fall in school performance\n-' | next='-'
+   [+249.40] ...'ons.wikimedia.org/wiki/Image:' | next=':'
+   [+238.51] ...'urca in Moyen Orient, Turquie.' | next='.'
+  NEGATIVE:
+   [+558.64] ...'time medical translation app and is now available for FREE.' | next='.'
+   [+512.29] ...', but I had no idea how much we would LOVE' | next=' LOVE'
+   [+507.82] ...' n= 5,156) for unprofessional content.' | next='.'
+   [+498.83] ...'ia have been jailed after being charged with sedition.' | next='.'
+   [+486.33] ...' Do you really need a central line? My gut says' | next=' says'
+   [+475.68] ...' Prezi demo advocating it as a tool for teaching.' | next='.'
+   [+455.53] ...' scouting combine, and a few other important Rams topics.' | next='.'
+   [+455.34] ...' 6 months\nA total of 260 physicians were studied.' | next='.'
+
+cluster 13 (29 units) POSITIVE (concentration 4/8 "preposition"):
+   [+465.43] ...' his talk (subtitled "School Sucks"),' | next='"),'
+   [+403.91] ...' smuggler Yuri Orlov, played by Nicolas Cage in' | next=' in'
+   [+377.37] ...' Grammar School. There she won the silver medal for' | next=' for'
+   [+337.98] ...' out of the country and we are talking to his agent' | next=' agent'
+   [+306.77] ...'In Suzanne Collins’s wildly popular' | next=' popular'
+   [+274.85] ...' medical practitioner, was born on 15 April 1874 at' | next=' at'
+   [+269.32] ..."' Grammar School. There she won the silver medal" | next=' medal'
+   [+263.59] ...' Games books, children are chosen by lottery to serve as' | next=' as'
+  NEGATIVE:
+   [+353.66] ...' reporting them.\nAnonymous web-based survey sent to' | next=' to'
+   [+297.37] ...' on whom fictional arms smuggler Yuri Orlov, played' | next=' played'
+   [+277.51] ...' the death. The Games are televised for the entertainment of' | next=' of'
+   [+266.09] ...' is an\nancient Chinese secret\nA Chinese scientist' | next=' scientist'
+   [+261.13] ...', for him play on a big stage in front of' | next=' of'
+   [+255.22] ...' play on a big stage in front of more than 50' | next=' 50'
+   [+253.40] ...' awareness about the threats of nuclear arms getting into the hands' | next=' hands'
+   [+238.66] ...' Constantinople. In the film, Mehmet the Conqueror' | next='or'
+
+(b) found-cluster concentrations [6, 4, 4] (>=5/8 for >=1 of 3): HELD
+(c) article-related clusters among top 3: [] (none -- redundancy does not extend to mlp2 among the top clusters)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp9_unit_cluster_results.json (32s)
