@@ -1,0 +1,11 @@
+(0a) reproduced [81, 54, 37, 31, 22, 12, 10, 8, 7, 6, 6, 5, 4, 4, 4, 3, 3, 1, 1, 1]: HELD | number cluster n=37
+source (number-favoring): 513, target: 77
+(0b) identity mean |delta| 0.000000: HELD
+(a) number-cluster patch mean delta +0.00002 -> correct-signed (toward numbers)
+(b) random-unit patch -0.00006 (|ratio| 0.27): FAILED
+(c) top current-token triggers at number positions:
+    ',': -352.6 (n=6)
+    ' and': -379.7 (n=5)
+NULL: article-position delta -5.0326530686106705e-05 vs number +0.00002: CHECK
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/number_word_verify_results.json (45s)

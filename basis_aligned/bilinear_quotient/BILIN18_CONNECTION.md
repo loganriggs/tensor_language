@@ -18120,3 +18120,90 @@ unresolved sign question. Every cluster's input is now placed on the
 lexical-contextual axis, the article and aux ones traceable back
 through attn0's bigram table (597), the number-word one back to the
 current token directly.
+
+## 605. Number-word cluster causal test is INCONCLUSIVE (rare target
+## class, underpowered) -- not a data point on the correct/reversed
+## tally; trigger census also too thin
+
+Applied the 592 patching test + current-token trigger census to the
+number-word cluster (37 units, the cleanest current-token-driven
+circuit, 604).
+  (0) reproduced exactly (37-unit cluster); identity patch 0.
+  (a) patch delta +0.00002 -- nominally correct-signed but at the
+      noise floor.
+  (b) FAILED: the cluster's effect (+0.00002) is SMALLER in magnitude
+      than a random-unit patch (-0.00006), |ratio| 0.27 -- no
+      specificity, the effect is indistinguishable from noise.
+  NULL: CHECK -- article-position delta (-5e-5) is comparable to the
+      number-target delta (+2e-5), both tiny.
+  (c) trigger census effectively empty: only two current tokens had
+      >= 4 number-target occurrences (',' and ' and'), too few to
+      read.
+DIAGNOSIS: spelled-out numbers are RARE next tokens in the corpus --
+only 513 number-favoring source positions and 77 control-favoring
+target positions cleared the margin threshold (vs ~1000-2000 for the
+article and newline tests). The number-word margin therefore barely
+moves under any intervention, and the patching effect sits below what
+this sample can resolve. This is a POWER limitation from a rare target
+class, not a finding about the cluster: the number-word cluster's
+causal role and sign are UNEVALUABLE by this method, exactly the
+verdict this program reserves for a thin comparison class (465/500).
+It does NOT join the correct/reversed tally (which stays 3 correct
+article-family, 2 reversed newline/aux). The cluster is real and
+current-token-driven (600/604 stand -- those are activation/input-side
+measurements that do not depend on target-class frequency); only its
+output-side causal test is underpowered. LESSON reinforced: causal
+margin tests need a well-populated target class; rare-class circuits
+(numbers) need a different causal handle than a next-token margin, or
+simply cannot be resolved on natural text at this corpus size. Queued:
+pronoun_verify -- the pronoun cluster (54 units, mixed-context, 604)
+has a COMMON target class (pronouns), so its causal test is properly
+powered, completing the tally with a well-populated fourth cluster.
+
+## 606. Pronoun cluster is WEAKLY correct-signed -- a fourth,
+## well-powered data point: article-family clean-correct, structural
+## clusters reversed, and the mid-spectrum clusters weak
+
+Redid the causal test on the pronoun cluster (54 units), which unlike
+605's number-word has a COMMON target class -- 1374 pronoun-favoring
+and 1040 demonstrative-favoring positions (vs 605's 77), so the margin
+is properly populated.
+  (0) reproduced exactly; identity 0.
+  (a) patch delta +0.00024 -- CORRECT-signed (patching a pronoun-
+      favoring source moves the margin toward pronouns).
+  (b) FAILED the specificity bar: the effect is only 1.5x a random-
+      unit patch (+0.00024 vs +0.00016), below the 3x bar. So the
+      effect is correct-signed and real but WEAKLY specific -- much
+      less sharp than the article cluster's clean 4x+ (592).
+  NULL: CHECK (marginal) -- the article-position delta (+9e-5) is ~40%
+      of the pronoun effect (+24e-5), above the 30% threshold, so
+      even the specificity to pronoun positions is imperfect.
+  (c) triggers (correct sign): the cluster fires most positive (toward
+      pronoun) after a comma (n=49, +148), '!', ' to', ' when', '.'
+      -- clause/sentence boundaries where a pronoun subject naturally
+      starts a new clause -- and most negative (toward demonstrative)
+      after subordinators ' but', ' what', ' because', ' how', ' as'.
+      A sensible, if weak, reading.
+UPDATED TALLY across all clusters causally tested:
+  CLEAN CORRECT (4x+ specific): article cluster 8 (592), mlp1 article
+    echo (595).
+  REVERSED (real, specific, wrong sign): aux-contraction (593),
+    newline (602).
+  WEAK CORRECT (correct sign, <3x specific): pronoun (this).
+  INCONCLUSIVE (underpowered rare class): number-word (605).
+No clean monotonic relationship between a cluster's context-dependence
+(604) and its causal-sign quality: the article cluster (most context-
+driven, 0.175) is the cleanest correct, but aux-contraction (2nd most
+context-driven, 0.456) is reversed, and the current-token-driven
+clusters (pronoun 0.795, number 0.802) are weak/inconclusive -- so
+"how much context a cluster reads" does NOT predict "how cleanly its
+write drives the output." The honest consolidated picture: the ARTICLE
+circuit (both layers) is the one clean, clean-signed, fully-traced
+circuit; the other named clusters are all real and specific as
+STRUCTURE (every activation/clustering measurement holds) but their
+causal WRITE is variously reversed, weak, or unresolvable -- reading a
+cluster's firing reliably locates real structure but does not
+determine, and often mispredicts, what its write causally does. This
+is the sharpest statement of the program's recurring theme, now backed
+by six causal tests. Structural-cluster causal investigation is at a
+natural saturation point.
