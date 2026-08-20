@@ -13244,3 +13244,50 @@ Also of note: sink_source's registered prediction (b) -- "the top
 writer is wte or m0" -- FAILED, as it did before the correction.
 It failed for the wrong reason then (m4 led anyway) and the right
 reason now.
+
+## 508. The digit lead replicates, and four leaves turn out to be one
+
+The dedicated test of the wave-7 reviewer's lead (504), on 96
+fresh rows disjoint from the reviewer's sample.
+(a) HELD: ablating r.2.0.1's 16-dimensional bundle in a6 and a8
+damages digit targets by +0.0900, 95% bootstrap CI [+0.044,
++0.142], excluding zero.
+(b) HELD: the population effect for digits is -0.018 -- digits are
+normally SPARED by this kind of ablation -- so this is a sign flip
+with a wide margin, and it is the first behavioural result in this
+program that cannot be a restatement of the general bias.
+SANITY ok: on the same rows punctuation lands at -0.0371,
+bracketing its population value of -0.025, so the instrument
+reproduces the known effect where it should.
+Ten rank-matched random subspaces in the same components give
+-0.0147 to +0.0145. So the effect is not what removing sixteen
+arbitrary directions from a6 and a8 does.
+(c) FAILED, and the reason is a finding rather than a
+disappointment. The three peer leaves returned +0.0900, +0.0900,
++0.0900 -- identical to four decimal places -- because r.2.0.0,
+r.2.0.1, r.2.0.2 and r.2.0.3 ARE THE SAME LEAF: the same four
+probes in permuted order, the same 864 members, four tags. The
+control compared the leaf against itself and could not have
+discriminated anything.
+Scanning the diverse tree: 311 tags resolve to 289 distinct probe
+bundles. Thirty-six tags (11.6%) duplicate another in fourteen
+groups, four of them four-way (r.2.0.*, r.3.2.*, r.7.2.*,
+r.18.*). Consequences, stated plainly:
+  * any "N leaves" count in this program over-counts by up to 12%;
+  * reviewer effort has been duplicated -- r.2.0.1 and r.2.0.2
+    were reviewed as separate records in separate waves, and they
+    are one leaf. So were r.4.1.1/r.4.1.2 and r.7.1.0/r.7.1.1;
+  * a peer control that draws its peers from sibling tags can be
+    vacuous, which is what happened here.
+Checked immediately, because 505's headline depends on it: r.1.2.0
+and r.1.2.2 have DISTINCT bundles and share them with nothing, as
+do r.1.1.3, r.3.0.2 and r.6.2.0. The three-mechanism result stands.
+Written to leaf_duplicates.json.
+digit_lead2 is queued with the control the tree cannot supply as a
+peer: the same components, the same slice conditioning, the same
+rank, the same construction, but the NEXT blocks along the output
+spectrum -- (16,32) and (32,48) instead of (0,4) and (4,16). If
+other directions in a6 and a8 do the same thing, the effect
+belongs to those components wholesale; if they do not, it belongs
+to these directions. The (0,4) and (4,16) halves are also priced
+separately.
