@@ -14192,3 +14192,49 @@ predicts. bracket_distance is queued to decide it -- the same
 match-versus-distractor share measured with rotary disabled for
 this head, with the key-side wte contribution removed, and with an
 unrelated key writer removed as the control.
+
+## 528. Channels below the head: the content comes from earlier digits
+
+digit_channels acted on the user's correction that heads are not
+the natural units (SOP v4.1). The digit subspace is 16 directions
+in residual space; head h can only reach it through the 16x128
+matrix M_h = P^T W_proj[:, h-slice], so that channel -- not the
+head -- is the unit.
+(0) HELD: the channel decomposition is exact to 3.57e-7, i.e.
+summing score(q,k) * M v(k) over sources reproduces M z_h.
+(d) HELD, and this is the finding. At digit-target queries, the
+share of the leading head's channel content supplied by source
+positions whose token IS A DIGIT is 0.3789, against a digit base
+rate of 0.0269 in the same contexts -- a factor of 14. The
+subspace is carrying digit content forward from earlier digits.
+That is a mechanism with a name, and no head-level ablation could
+have produced it.
+(b) FAILED, informatively: the leading head's channel has
+effective rank 15.7 of 16. I predicted <= 8, expecting heads to
+write into a proper part of the subspace. They do not -- each head
+writes into essentially all of it.
+(c) is therefore VOID AS COMPUTED, and I am recording it as an
+error rather than a result. I measured "do the heads write to the
+same directions" as the principal angles between the column spaces
+of the M_h. With M_h full rank 16, its column space IS the whole
+16-dimensional subspace for every head, so the cosines come back
+1.000 for all six pairs by construction and measure nothing. (b)
+failing and (c) being degenerate are the same fact. The
+meaningful version has to be weighted -- compare the normalized
+Gram matrices M_h M_h^T, which say WHERE IN the subspace each head
+puts its energy rather than merely which directions it can reach.
+Queued as digit_channels2.
+(a) HELD at Spearman 0.604 against a 0.60 bar, and NOT BANKED,
+because its null failed. Random 16-dimensional subspaces in the
+same components give channel norms that predict the measured
+per-head digit effects at rho 0.404, 0.430, 0.439. So most of the
+apparent "the weights knew" is channel norm tracking how much a
+head writes at all, and the digit subspace adds 0.17 of rank
+correlation over a random subspace of the same size. That is a
+real but small increment, and the registered bar of 0.60 was set
+without anticipating a null this high. Reported as: weights
+predict the ranking mostly for a generic reason.
+The useful summary is that going below the head worked and going
+across heads did not, at least not the way I measured it. The
+channel is exact, it is full-rank in the subspace, and its content
+comes from earlier digits at 14x the base rate.
