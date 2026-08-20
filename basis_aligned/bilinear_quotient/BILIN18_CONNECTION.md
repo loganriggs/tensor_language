@@ -13593,3 +13593,43 @@ paid for itself in this session: 503's decomposition error, this
 one, and the 443 injection-scale error before them were all caught
 by a registered arithmetic bar rather than by a suspicious result.
 The gate cost one run and saved a wrong mechanism claim.
+
+## 516. The digit effect settles: five samples, consistent, sanity clean
+
+digit_lead3 ran the same arms on three further disjoint samples
+(rows 600-696, 800-896, 1000-1096), after 511's run violated its
+own sanity null on one sample.
+  sample        digit      punct    best alternative span
+  skip 600     +0.1433    -0.0154        -0.0268
+  skip 800     +0.1639    -0.0395        +0.0332
+  skip 1000    +0.1316    -0.0324        +0.0132
+(a) HELD: positive in all three, smallest +0.1316 against a bar of
++0.020, which is the sign-flip margin over the population's
+-0.018.
+(b) HELD: the real bundle beats the best alternative-span bundle
+by at least +0.118 in every sample, against a bar of 0.03.
+(c) reported, and it resolves 511: punctuation lands inside the
+registered bracket [-0.040,-0.010] in THREE of three samples. The
+-0.0487 that voided 511 was one sample's spread, not a broken
+instrument, so 511's numbers can be quoted after all -- though the
+five-sample series is the thing to quote.
+Across all five samples the digit dissociation is +0.090, +0.146,
++0.143, +0.164, +0.132 -- mean +0.135, range 0.074 wide. The first
+sample is the low outlier. The population value for this class of
+ablation is -0.018, so every sample is on the far side of a sign
+flip.
+The banked claim: a 16-dimensional subspace in the outputs of
+attention layers 6 and 8 is load-bearing for predicting DIGITS,
+and removing comparable subspaces from the same components makes
+digits EASIER. It is direction-specific (alternative spans of the
+same rank give -0.027 to +0.033), additive across its two halves
+(+0.0931 and +0.0524 summing to +0.1455 against +0.1459 whole),
+and clean against ten random rank-matched subspaces.
+The methodological point stands regardless: single-sample class
+claims in this program have unmeasured spread of roughly +-0.03 on
+a +0.135 effect. Anything smaller than that, measured once, was
+never distinguishable from sampling noise. The v4 rule requiring
+three disjoint samples came out of this.
+digit_heads is running the head-level decomposition, with an
+advance bet from the atlas: of the eighteen heads in a6 and a8,
+8.7 has by far the highest digit read-enrichment at 2.45.
