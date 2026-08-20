@@ -1,0 +1,39 @@
+combined: write norm 49578.906 | mean-share 0.707
+attn0: write norm 387.940 | mean-share 0.289
+mlp0: write norm 49539.945 | mean-share 0.707
+
+baseline CE 3.3536
+ combined r=    0: +0.8382
+ combined r=    4: +0.5503
+ combined r=    8: +0.3922
+ combined r=   16: +0.2657
+ combined r=   32: +0.1680 | random [0.6075, 0.5672, 0.5864]
+ combined r=   64: +0.0811
+ combined r=  128: +0.0291
+ combined r=  256: +0.0056
+ combined r= 1152: +0.0000
+    attn0 r=    0: +0.2639
+    attn0 r=    4: +0.1633
+    attn0 r=    8: +0.1241
+    attn0 r=   16: +0.0865
+    attn0 r=   32: +0.0496 | random [0.2373, 0.2416, 0.2392]
+    attn0 r=   64: +0.0163
+    attn0 r=  128: +0.0031
+    attn0 r=  256: +0.0006
+    attn0 r= 1152: +0.0000
+     mlp0 r=    0: +0.8405
+     mlp0 r=    4: +0.5504
+     mlp0 r=    8: +0.3920
+     mlp0 r=   16: +0.2642
+     mlp0 r=   32: +0.1673 | random [0.6075, 0.5668, 0.5862]
+     mlp0 r=   64: +0.0808
+     mlp0 r=  128: +0.0290
+     mlp0 r=  256: +0.0056
+     mlp0 r= 1152: +0.0000
+
+(0) full rank free (+0.00000): HELD
+(a) -0.068 vs bar 1e-09: FAILED
+(b) 0.06320000000000003 vs bar 1e-09: HELD
+(c) smallest rank under 0.10 nats: {'combined': 64, 'attn0': 16, 'mlp0': 64}
+NULL (deleting the whole layer-0 write costs +0.8382 >= 1.0): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_interface_results.json (101s)
