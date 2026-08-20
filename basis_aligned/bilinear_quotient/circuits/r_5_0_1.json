@@ -490,6 +490,59 @@
    "verdict": "FAILED",
    "source": "sonnet-wave3-a leaf_program",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave3",
+   "date": "2026-08-20",
+   "verdict": "CONFIRM",
+   "concentration_recheck": {
+    "full": 5.2,
+    "half0": 5.27,
+    "half1": 5.12,
+    "note": "exact reproduction of recorded 5.2/5.27/5.12. Pack-recorded 6.11 (sop_batch_shortlist.log) is a 60-row seed-13 subsample of the full-corpus gate (sop_batch_shortlist.py MAXROWS=60), not a discrepancy -- the certified full-corpus (864-member) value is 5.2, confirmed independently."
+   },
+   "mechanism_reproduced": true,
+   "mechanism_recheck": "leaf_input_decomp.py r.5.0.1 reproduced exactly: a4 top_ratio=1.08 ENRICHED=False BEATS_NULL=False; a3 top_ratio=1.079 ENRICHED=False BEATS_NULL=True; a2 top_ratio=1.08 ENRICHED=False BEATS_NULL=True. No enriched writer at any of the leaf machinery components.",
+   "downstream_probe": "One-arm probe (leaf-probe ablation only, per writeup-422 caveat that cross-arm top-read-shift is non-specific): ablated the leaf's 4 PCA probes (a4,a3,a2) and measured top-read shift on all 117 downstream heads (layers 5-17) at member vs off-member positions, same 24-row sample used for leaf_input_decomp. Finding: DIFFUSE, not concentrated -- mean shift 20.1% at member positions, 94.9% of downstream heads shift >10% of their top reads; off-member positions in the same rows show nearly the same disruption (mean 16.9%, 92.3%>10%). No single dominant downstream consumer emerged (top movers spread across layers 5,6,7,8,9,16,17 at similar 32-45% magnitudes, unlike a genuine courier signature e.g. courier_centrality a6.h3 which concentrates shift in a small enriched set). This adds a real (negative) lead: the leaf has no specific downstream reader any more than it has a specific upstream writer -- the causal effect (concentration 5.2) looks like it comes from removing a fairly large, generically-influential subspace rather than a localized circuit. dCE at member positions is the certified cl.sign_stats value (dce_members=0.101, abs_dce_members=0.847), not recomputed.",
+   "story_test_class_subword": {
+    "pred_help_True": {
+     "per_seed_p": [
+      0.7389,
+      0.128,
+      0.7389,
+      0.128,
+      0.128
+     ],
+     "seed_pass_frac": 0.0,
+     "population": {
+      "n": 119,
+      "hits": 56,
+      "p_value": 0.3325,
+      "beats_base_rate": false
+     },
+     "ROBUST_V2": false
+    },
+    "pred_help_False": {
+     "per_seed_p": [
+      0.5991,
+      0.9822,
+      0.5991,
+      0.9822,
+      0.9822
+     ],
+     "seed_pass_frac": 0.0,
+     "population": {
+      "n": 119,
+      "hits": 63,
+      "p_value": 0.7313,
+      "beats_base_rate": false
+     },
+     "ROBUST_V2": false
+    },
+    "note": "seed-11 draw (hits=4/5, p=0.128) matches the record's stored subword entry exactly; both directions fail at the population level (n=119, all subword members) under the new ROBUST_V2 gate -- reproduces the recorded story failure with a stronger, draw-noise-free test."
+   },
+   "objection": "The record cannot rule out that concentration=5.2 is explained by member-position FRAGILITY rather than by this leaf's specific machinery: members already run high base CE (mean 5.555, only 21.3% under 3 nats), so any sufficiently large ablation of early-layer directions (not just these 4 specific PCA probes) might show similarly large dCE on these same hard positions purely because high-loss positions are more sensitive to generic perturbation. Neither leaf_input_decomp's writer-share null nor my downstream-shift check controls for this -- both show the effect is diffuse/non-localized, which is consistent with an honest negative but equally consistent with a magnitude-matched-random-subspace-on-these-same-rows control never having been run. That control (ablate a random rank-14 subspace of a2/a3/a4 restricted to the same member rows, compare concentration) would be the decisive follow-up."
   }
  ],
  "provenance": {
