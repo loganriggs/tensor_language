@@ -1,0 +1,20 @@
+170 opening-quote targets | 1010 sentence-end targets | 566 newline targets
+baseline newline document gate: +0.0782
+10.0: quote +0.00129 (ctrl +0.00242) | sent-end -0.00072 | gate +0.0783 (+0.0001)
+10.1: quote +0.00016 (ctrl +0.00122) | sent-end +0.00380 | gate +0.0783 (+0.0000)
+10.2: quote +0.00037 (ctrl +0.00115) | sent-end -0.00332 | gate +0.0623 (-0.0159)
+10.3: quote +0.00257 (ctrl +0.00254) | sent-end -0.00099 | gate +0.0791 (+0.0009)
+10.4: quote +0.00495 (ctrl +0.00159) | sent-end +0.00594 | gate +0.0778 (-0.0004)
+10.5: quote -0.01278 (ctrl +0.00577) | sent-end +0.06033 | gate +0.0731 (-0.0051)
+10.6: quote +0.05024 (ctrl +0.00700) | sent-end -0.00196 | gate +0.0832 (+0.0050)
+10.7: quote +0.05622 (ctrl +0.00064) | sent-end -0.00053 | gate +0.0786 (+0.0004)
+10.8: quote +0.00446 (ctrl -0.00452) | sent-end -0.00280 | gate +0.0828 (+0.0045)
+(a) 0.46748711125893894 vs bar 0.4: HELD
+(c) -0.0004 vs bar 0.01: FAILED
+
+quote leader 10.7 (47% of a10's opening-quote damage); sentence-end leader 10.5
+(b) same head leads both: FAILED
+(c) 10.7 alone moves the newline gate by +0.0004 (all of a10: -0.0243)
+NULL 1 (worst random-target damage +0.01381 < 20% of +0.05622): VIOLATED
+NULL 2 (pair) leader at targets +0.05622 vs position-matched controls +0.00064
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/a10_structure_results.json (103s)

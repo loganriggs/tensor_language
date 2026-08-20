@@ -13987,3 +13987,54 @@ one is already closed, so a depth-free "most recent opener" rule
 points at the wrong token. It carries its own null, since
 constructed text is out of distribution -- if the model does not
 expect a closing bracket there, nothing measured in it counts.
+
+## 524. a10 is a shared address, not a shared computation
+
+518 noted that attention layer 10 leads opening quotes AND
+sentence ends in the behaviour atlas, and 514 found it carrying
+48% of the newline head's document gate, and I wrote that this
+made it "the best candidate in the model for a general
+structure-tracking component". a10_structure tested that by
+decomposing the layer into heads and pricing all three jobs at
+once. 96 rows, 170 opening-quote targets, 1010 sentence-end
+targets, baseline document gate +0.0782.
+  head   opening quote   pos-ctrl   sentence end   gate shift
+  10.7      +0.05622     +0.00064     -0.00053      +0.0004
+  10.6      +0.05024     +0.00700     -0.00196      +0.0050
+  10.5      -0.01278     +0.00577     +0.06033      -0.0051
+  10.2      +0.00037     +0.00115     -0.00332      -0.0159
+  10.4      +0.00495     +0.00159     +0.00594      -0.0004
+  the rest are within 0.003 of zero on all three
+(a) HELD: 10.7 carries 47% of a10's opening-quote damage, and
+with 10.6 the pair carries essentially all of it.
+(b) FAILED, decisively: the opening-quote leader is 10.7 and the
+sentence-end leader is 10.5, and 10.5 actually HELPS opening
+quotes when removed (-0.0128). Different heads.
+(c) FAILED: 10.7 alone moves the newline document gate by +0.0004
+against the -0.0243 that all of a10 contributes. The gate is
+10.2's -- it shifts the gate by -0.0159, two thirds of the layer's
+total, while doing nothing at all for quotes or sentence ends.
+So the answer is three heads with three jobs:
+  10.7 (+10.6)  opening quotes
+  10.5          sentence ends
+  10.2          the newline head's document gate
+RETRACTED: my reading in 518 that a10 looks like a general
+structure-tracking component. It is a shared ADDRESS. The atlas
+maps layers, and a layer that leads several behaviour classes may
+be several unrelated circuits sitting together rather than one
+computation with several uses. That correction applies to the
+whole atlas table: a15 leads both capitalized words and colons,
+and on this evidence should be assumed to be two heads until
+someone checks.
+NULL 1 VIOLATED and it is informative rather than fatal: head 10.5
+damages a random target set by +0.01381, which exceeds 20% of the
+quote leader's +0.05622. 10.5 is the sentence-end head, sentence
+ends are frequent, and a random position set contains plenty of
+them -- so the "random" control is not clean for a behaviour this
+common. The bar should have used the quote leader's own random
+damage (+0.00163, 3% of its target damage) rather than the worst
+across heads. On that reading the quote result is clean; on the
+registered reading the run's null failed, and both are recorded.
+NULL 2 clean for the quote head: 10.7 costs +0.05622 at opening
+quotes and +0.00064 at position-matched controls, a difference of
+two orders of magnitude.
