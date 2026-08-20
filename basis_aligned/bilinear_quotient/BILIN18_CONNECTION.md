@@ -13343,3 +13343,45 @@ had a causal test. If it fails too, then SOP step 3M has produced
 no causally verified mechanism in sixty leaves on either
 decomposition, and the screen needs rebuilding rather than
 re-running.
+
+## 510. The screen has never produced a causally real mechanism
+
+mech_a14_verify tested r.3.0.2 -- the census's oldest and
+strongest screen positive, a15/a16/a17 all enriched for a14 at
+1.95-2.01, unaffected by the decomposition correction because its
+components are late. Member-position damage from silencing each
+writer's contribution to those three inputs:
+  writer            r.3.0.2    r.3.0.0    r.3.0.1
+  a14 (the claim)  -0.00599   -0.01973   -0.03405
+  a13              -0.00345   -0.00023   -0.00698
+  a16              -0.03651   -0.04367   -0.03787
+  random (5 dirs)  +0.016 mean, +0.021 max
+Every number for the named writer is NEGATIVE: silencing a14's
+contribution to a15/a16/a17 makes the leaf's own member positions
+BETTER predicted, by 0.006 nats. Matched random directions make
+them worse by 0.016 to 0.021. The neighbouring writer a16 helps
+six times as much as a14 does.
+(b) FAILED, NULL VIOLATED, (c) FAILED. (a) came out HELD and is
+uninterpretable -- it compares a14's damage against peers when all
+three values are negative, so "beating peers" here means being
+least helpful.
+That completes the audit of SOP step 3M. Across sixty leaves, on
+BOTH the flat and the corrected decomposition, the mechanism
+screen has produced no writer-level mechanism that survives a
+causal test. The screen measures whether a writer's SHARE of a
+component's input is larger at a leaf's member positions; it turns
+out that quantity is not related to whether that writer's
+contribution matters there. The corrected arithmetic changed which
+writers the screen names (60 of 167 top writers moved) without
+changing that conclusion at all, which is the strongest evidence
+yet that the problem is the statistic and not the inputs to it.
+What this program can say about the damage census is therefore
+final and negative: clusters of positions that share an ablation
+signature do not, in this model, correspond to identifiable
+upstream writers. The two circuits that did work -- induction and
+the position-0 bias -- were both found by starting from a
+BEHAVIOUR or a STRIKING OBSERVATION and working outward, never by
+clustering damage and looking for structure inside a cluster. The
+newline head (495-506) was found the same way. That is now the
+program's operating conclusion about method, and step 3M should be
+retired rather than rebuilt.

@@ -1,3 +1,20 @@
 reconstruction relative error: 1.838e-07
 (0) exactness: HELD
 ran a14
+ran a13
+ran a16
+ran RAND seed 5
+ran RAND seed 17
+ran RAND seed 29
+ran RAND seed 41
+ran RAND seed 53
+peers on ['a15', 'a16', 'a17']: ['r.3.0.0', 'r.3.0.1']
+r.3.0.2: m5 member -0.00599 offslice +0.00492 | m4 -0.00345 | m6 -0.03651
+r.3.0.0: m5 member -0.01973 offslice +0.00492 | m4 -0.00023 | m6 -0.04367
+r.3.0.1: m5 member -0.03405 offslice +0.00492 | m4 -0.00698 | m6 -0.03787
+(r.3.0.2-b) -0.0272 vs bar 1e-09: FAILED
+   member damage a14 -0.00599 vs random mean +0.01601 max +0.02121
+(r.3.0.2-a) 0.013740000000000002 vs bar 1e-09: HELD
+(r.3.0.2-c) m5 member -0.00599 beats m4 -0.00345 and m6 -0.03651: FAILED
+(r.3.0.2-NULL) real beats every random direction (-0.00599 vs +0.02121): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mech_a14_verify_results.json (99s)

@@ -1,0 +1,131 @@
+{
+ "per_leaf": {
+  "r.3.0.2": {
+   "n_member": 864,
+   "a14": {
+    "member": -0.00599,
+    "offslice": 0.00492
+   },
+   "a13": {
+    "member": -0.00345,
+    "offslice": 0.01006
+   },
+   "a16": {
+    "member": -0.03651,
+    "offslice": 0.0019
+   },
+   "rand": [
+    {
+     "member": 0.01327,
+     "offslice": 0.00969
+    },
+    {
+     "member": 0.01291,
+     "offslice": 0.00971
+    },
+    {
+     "member": 0.02121,
+     "offslice": 0.00972
+    },
+    {
+     "member": 0.01491,
+     "offslice": 0.00946
+    },
+    {
+     "member": 0.01774,
+     "offslice": 0.00975
+    }
+   ]
+  },
+  "r.3.0.0": {
+   "n_member": 864,
+   "a14": {
+    "member": -0.01973,
+    "offslice": 0.00492
+   },
+   "a13": {
+    "member": -0.00023,
+    "offslice": 0.01006
+   },
+   "a16": {
+    "member": -0.04367,
+    "offslice": 0.0019
+   },
+   "rand": [
+    {
+     "member": 0.00764,
+     "offslice": 0.00969
+    },
+    {
+     "member": 0.00054,
+     "offslice": 0.00971
+    },
+    {
+     "member": 0.00562,
+     "offslice": 0.00972
+    },
+    {
+     "member": -0.00012,
+     "offslice": 0.00946
+    },
+    {
+     "member": -0.00074,
+     "offslice": 0.00975
+    }
+   ]
+  },
+  "r.3.0.1": {
+   "n_member": 864,
+   "a14": {
+    "member": -0.03405,
+    "offslice": 0.00492
+   },
+   "a13": {
+    "member": -0.00698,
+    "offslice": 0.01006
+   },
+   "a16": {
+    "member": -0.03787,
+    "offslice": 0.0019
+   },
+   "rand": [
+    {
+     "member": -0.02038,
+     "offslice": 0.00969
+    },
+    {
+     "member": -0.00761,
+     "offslice": 0.00971
+    },
+    {
+     "member": -0.00837,
+     "offslice": 0.00972
+    },
+    {
+     "member": -0.00849,
+     "offslice": 0.00946
+    },
+    {
+     "member": -0.00638,
+     "offslice": 0.00975
+    }
+   ]
+  }
+ },
+ "verdicts": {
+  "r.3.0.2": {
+   "a": "HELD",
+   "b": "FAILED",
+   "c": "FAILED",
+   "null_ok": false,
+   "peer_best": -0.01973
+  }
+ },
+ "peers": [
+  "r.3.0.0",
+  "r.3.0.1"
+ ],
+ "relerr": 1.8379331834239565e-07,
+ "pred_0": true,
+ "runtime_s": 98.66950464248657
+}
