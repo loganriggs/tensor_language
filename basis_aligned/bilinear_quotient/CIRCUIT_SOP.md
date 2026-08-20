@@ -63,11 +63,21 @@ to verify the recorded numbers reproduce (report both), then continue
 from step 3. write_circuit deep-merges: certification entries are
 appended (never lost), dict fields merge, so just pass your new fields.
 
-## Step 1 -- causal footprint (GPU, ~45s on the diverse grid)
+## Step 1 -- causal footprint (GPU; ~45s alone, MINUTES under swarm
+## load -- run inline with a generous timeout, never park on a monitor)
     import census_lib as cl
     d = cl.leaf_ablate(tag)                # dCE under the leaf's own probes
     s = cl.sign_stats(tag, d)
-GATE: s['concentration'] >= 3 (the field is provided). If FAILED, record
+GATE: s['concentration'] >= 3 (the field is provided).
+THREAD `d` THROUGH the whole task -- examples, story_test_class and
+your merge all take it; recomputing leaf_ablate per step wasted a
+full GPU pass for a wave-4 agent. Capture `git rev-parse HEAD`
+into a variable NOW: read at merge time it has already drifted
+from concurrent commits.
+CALIBRATION (430, provisional): a rank-matched RANDOM subspace in
+the same components already scores ~2.4-2.7 concentration, so a
+gate pass near 3 means little; quote your leaf's ratio to that
+baseline when it matters. If FAILED, record
 {'causal': s, 'certification': [gate FAILED]} and STOP -- the leaf is not
 locally selective; do not write a story for it.
 

@@ -436,6 +436,31 @@
    "verdict": "FAILED",
    "source": "story_test_class, best candidate punct/pred_help=True, 12 (class,direction) pairs tested",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave4",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": {
+    "full": 5.17,
+    "half0": 5.16,
+    "half1": 5.17,
+    "recorded": 5.17,
+    "match": "exact"
+   },
+   "mechanism_reproduced": true,
+   "negative_informative": "Partially. Point estimates for both components are flat at no-lean (a2 top writer a0 mean=1.005 [0.827-1.246]; a4 top writer a2 mean=1.048 [0.985-1.082]), which is real evidence against a strong single-writer mechanism -- neither table shows any upward trend toward enrichment. But the formal ENRICHED_STABLE/BEATS_NULL gate itself is close to uninformative at this leaf: null_top_ratio (1.333, the MAX of 5 bootstrap draws) exceeds the fixed ENRICHED bar (1.3), so the naive ratio>=1.3 flag alone would fire on pure noise here. Re-instrumenting leaf_input_decomp.py to print the 5 per-seed null values (not saved in the record) showed they swing widely draw-to-draw: a2 nulls = {1.25,1.333,1.02,1.197,1.011}, a4 nulls = {1.333,1.083,1.096,1.167,1.083} -- spreads of 0.25-0.32, i.e. the null ceiling covers most of the distance between \"no enrichment\" (1.0) and \"enriched\" (1.3). For comparison, r.3.0.2 (confirmed positive) has much tighter, lower nulls (1.11-1.25). So a true weak-to-moderate enrichment at this leaf could plausibly fail to beat the noisy null-max by chance; the test has headroom to reject strong effects but not weak ones. Net: negative is directionally credible (flat means, no lean) but the ENRICHED_STABLE=False label overstates certainty -- read the record as \"no strong/robust single-writer mechanism found,\" not \"mechanism definitively absent.\"",
+   "headroom": "a2: null_top_ratio=1.333 vs top_ratio_max=1.246 (gap -0.087, top never reaches null; bar 1.3 vs null 1.333 = only +0.033 headroom, 2.5%). a4: null_top_ratio=1.333 vs top_ratio_max=1.082 (gap -0.251, top well below null; same +0.033 bar-null headroom). Bar-vs-null gap of 2.5% is the same for both components since null_top_ratio is identical (1.333) -- essentially zero headroom for the naive ENRICHED flag. Per-seed null variance (1.01-1.33 range) is comparable in size to that entire headroom, so the test is underpowered to detect weak/moderate effects, though the flat observed means still argue against a strong one.",
+   "tool_sanity_check": "Re-ran leaf_input_decomp.py on r.3.0.2 (confirmed positive, a15/a16/a17): reproduced a14 top-writer ratio 2.37 [2.061-2.846] for a15 with ENRICHED_STABLE=True on all three components, matching the cited 2.37 [2.06-2.85]. Tool is live and capable of certifying a real signal in this session.",
+   "story_test_recheck": {
+    "call": "story_test_class('r.5.3.1', d, 'punct', True, n_tests=12)",
+    "population_p_value": 0.0344,
+    "alpha": 0.0083,
+    "ROBUST_V2": false,
+    "match": "reproduces record (FAILED, value 0.0344)"
+   },
+   "objection": "The record certifies ENRICHED_STABLE=False as if it were a clean null result, but the gate that produces that label has almost no headroom at this specific leaf (bar 1.3 vs null 1.333) and the null estimate itself is a noisy max-of-5-bootstrap-draws statistic with a 0.25-0.32 spread -- comparable to the whole margin being tested. A future leaf with genuinely weak-to-moderate enrichment (ratio ~1.1-1.25) at this same writer-set structure would very plausibly also fail ENRICHED_STABLE purely from null noise, indistinguishable from this leaf on the certification record alone. The record should note this leaf-specific power limitation (small MAXROWS=24, 5 seeds) rather than stating flatly mechanism_level=none / no writer enriches -- the honest claim is no STRONG enrichment was found, and weak enrichment cannot be ruled out by this test as configured."
   }
  ],
  "provenance": {

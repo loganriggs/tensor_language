@@ -10539,3 +10539,57 @@ runbook now carries a never-park rule for authors and a
 resilience rule for queue scripts (try/except per item,
 incremental saves, resume support) after gate_specificity was
 killed twice.
+
+## 432. THE MODEL'S COSTLIEST HEAD IS AN ATTENTION SINK
+
+head_5_7_reads returned a suspicious histogram -- exactly 16
+counts at every offset -8, -12, -16, -20... which is the
+signature of a FIXED absolute key position sampled at every
+fourth query, not a relative-offset preference. (Instrument note:
+the read scan records relative offsets only; for sink-like heads
+that is misleading and absolute positions must be checked. Done
+here directly.) Verified:
+  head 5.7 reads position 0 for 99.8% of queries
+  neighbour head 5.6 reads position 0 for 5.3%
+  position 0's value norm 730 vs 197 elsewhere
+So the single most expensive head in bilin18 (+0.916 nats to
+delete, eight times the next head, 429) is an ATTENTION SINK
+locked onto the first position, where the model parks a
+high-norm value.
+head_5_7_role adds the functional shape: deletion costs 0.785 at
+match positions, and BOTH swaps cost MORE than deletion
+(sibling-pattern 0.98, sibling-values 1.11) -- for a sink, any
+substitution injects a wrong constant, which is worse than
+removing the constant altogether. Registered bars (a) and (b)
+both HELD (the head is position-sensitive, trivially so: its
+position is the mechanism).
+This architecture has NO SOFTMAX, so the usual explanation for
+sinks (absorbing normalisation pressure) cannot apply. What a
+sink does here is add nearly the same vector at every position --
+a learned bias. sink_bias_test queued: replace 5.7's write with
+its own mean, with a mean taken from other rows, and with a
+per-row mean. Registered: the mean arm costs <= 0.10 nats against
+deletion's 0.92, and the cross-row mean <= 0.15. If those hold,
+the model's most important attention head is 1152 numbers.
+
+## 433. Wave 4 closes: four records, four honest negatives, one real claim
+
+r.8.1.0 completed the wave: gate 5.68 (halves 5.73/5.62),
+mechanism NEGATIVE on all three components -- and a textbook
+demonstration of why the bootstrap was added: its a9 leg scored
+ENRICHED=True on the single draw at 1.396 but min 1.216 across
+draws, so ENRICHED_STABLE correctly rejected it. Best behavioral
+candidate punct p=0.0455 against the corrected 0.0083 -- rejected
+by the agent itself. Wave-4 totals: four gates all reproduced and
+stable across corpus halves, four mechanism negatives, three
+self-rejected behavioral claims, one KEPT claim (r.13.2.1's
+punctuation effect, now under adversarial review with a
+random-subspace attack). Zero unsupported claims entered the
+record set.
+Friction fixed from the wave: SOP timing estimates now say
+"minutes under swarm load", agents are told to THREAD the dCE
+vector through the task rather than recompute it (one agent burned
+a full GPU pass), to capture the git rev at task START (it drifts
+under concurrent commits), and the step-1 gate now carries the
+430 calibration -- a random rank-matched subspace already scores
+2.4-2.7, so a bare pass at 3 means little.
