@@ -16439,3 +16439,54 @@ require a direction choice -- a new behaviour family, the induction
 band's direction structure, or the front-of-model tables -- rather
 than another head, and that is a decision worth making
 deliberately rather than by reflex.
+
+## 571. Modality map: most behaviour heads are LOCAL, not
+## referent-attenders -- and a fourth verified circuit (digit 8.3)
+
+modality_map ran the corrected destination-first protocol over
+four behaviour-leading heads.
+  behaviour     head    top referent enrichment   result
+  open_bracket  17.2    recent bracket  1.34x      no-referent
+  colon         15.4    (none)          1.00x      no-referent
+  capitalized   15.3    recent newline  1.52x      no-referent
+  digit          8.3    recent DIGIT   10.34x      DETECTION
+(a) FAILED: only 1 of the 4 has a verified lookback referent.
+But the map is the result, and it is informative in two ways.
+FIRST, most behaviour-leading heads are NOT referent-attenders.
+The heads that lead open-bracket, colon and capitalized prediction
+do not attend to an earlier token of their class (enrichment 1.0-
+1.5x, below the 2x bar) -- they are LOCAL heads, predicting the
+class from immediate context rather than by looking back. So the
+referent-attending structural heads I worked out in full (bracket,
+quote, newline) are a SUBSET of behaviour heads, not the norm. The
+corrected protocol earned its keep here: it reported these three
+as no-referent instead of forcing a spurious modality, which is
+exactly the 566 error it was built to prevent.
+SECOND, a fourth verified circuit. Head 8.3 attends to the most
+recent DIGIT at 10.34x its control, and its modality is DETECTION:
+the recent/second-digit ratio is 1.38 (no positional preference
+among digits), collapsing to 0.88 without rotary. So 8.3 is a
+digit detector -- it attends to prior digits by identity,
+indifferent to which, exactly like the newline head. This is a
+properly verified target this time (destination measured first,
+10x enriched), so unlike 566 it is trustworthy.
+The account now stands on FOUR verified referent-attending heads:
+  bracket 13.8  positional  (needs the matching opener)
+  quote   10.7  positional  (needs the last quote for parity)
+  newline 12.6  detection   (any recent newline)
+  digit    8.3  detection   (any recent digit)
+Two positional, two detection, all fixed-query double-QK gates.
+The mechanism is now four-for-four on verified targets.
+One connection worth noting: the digit behaviour is DISTRIBUTED
+over four heads (521, 569), and 8.3 is one of them; its attention
+to prior digits is a per-head detection component of that
+distributed computation. So a distributed behaviour can still
+contain a clean single-head referent-attender -- the distribution
+is in how the write is assembled (569), not necessarily in every
+head's read.
+digit_induction is queued to test the natural hypothesis this
+raises: is head 8.3 doing digit COPYING -- attend to a prior digit
+and predict the token that followed it -- i.e. induction restricted
+to digits? If so, the digit prediction has a nameable attention
+mechanism on top of the distributed subspace, verified target
+first per the protocol.

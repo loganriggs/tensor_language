@@ -1,0 +1,12 @@
+open_bracket (17.2): referent=None (enrich 1.34x) -> no-referent
+colon (15.4): referent=None (enrich 1.0x) -> no-referent
+capitalized (15.3): referent=None (enrich 1.52x) -> no-referent
+digit (8.3): referent=recent_same (enrich 10.34x) -> detection ratio 1.38->0.88
+
+(a) >= 2 heads have a verified referent: 1/4 -> FAILED
+(c) map:
+    open_bracket: no-referent
+           colon: no-referent
+     capitalized: no-referent
+           digit: detection
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/modality_map_results.json (41s)
