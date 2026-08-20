@@ -932,6 +932,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   already-closed and still-open brackets identical weight, and the model cannot close a bracket
   opened two clauses earlier at all. The causal numbers stand exactly as measured; the
   interpretation is a short-range positional pointer, not a symbolic matcher.</p>
+  <p>Following that thread to the end simplified the head further and corrected two of my own
+  intermediate claims. The query barely varies from one closing bracket to the next: replacing
+  it with a single fixed vector — the average query over bracket positions — reproduces the head
+  at zero cost, and reproduces its full distance profile bin by bin. So the head does not
+  <em>compute</em> a distance and does not adapt to one (an earlier version of this section said
+  it did); it applies one constant "attend to a bracket opener" query everywhere. What makes that
+  query land on the right opener is the architecture. With no softmax, the attention score is a
+  <em>product</em> of two bilinear forms — a soft-AND — and here both factors turn out to be
+  position-driven: token identity makes bracket openers stand out from ordinary text (the
+  candidate pool), and rotary, redundantly in both factors, picks the opener at the query's fixed
+  relative offset. Because that offset prefers recent positions and nesting is rare, the chosen
+  opener is almost always the true match — which is exactly why nested brackets defeat it. The
+  head is a fixed-query, token-gated, positional AND, and that is simpler than every story I told
+  on the way to it.</p>
   <p>Two of these arrived independently. Layer 8 was already implicated in digit prediction by
   a completely different method — a sixteen-dimensional subspace found through damage
   clustering, whose removal makes digits <em>harder</em> by 0.135 nats across five disjoint
