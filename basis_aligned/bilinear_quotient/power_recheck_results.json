@@ -1,13 +1,101 @@
 {
- "r.1.1.3:m15": {
-  "group": "hint",
-  "n_seeds": 20,
-  "signal_min": 1.064,
-  "signal_mean": 1.651,
-  "top_writer": "m14",
-  "threshold": 2.874,
-  "null_top": 4.5,
-  "separation": -1.626,
-  "STABLE2": false
- }
+ "components": {
+  "r.1.1.3:m15": {
+   "group": "hint",
+   "n_seeds": 20,
+   "signal_min": 1.064,
+   "signal_mean": 1.651,
+   "top_writer": "m14",
+   "threshold": 2.874,
+   "null_top": 4.5,
+   "separation": -1.626,
+   "STABLE2": false
+  },
+  "r.3.3.2:a17": {
+   "group": "hint",
+   "n_seeds": 20,
+   "signal_min": 1.257,
+   "signal_mean": 1.77,
+   "top_writer": "m15",
+   "threshold": 1.863,
+   "null_top": 2.0,
+   "separation": -0.137,
+   "STABLE2": false
+  },
+  "r.3.2.3:a17": {
+   "group": "hint",
+   "n_seeds": 20,
+   "signal_min": 0.893,
+   "signal_mean": 1.5,
+   "top_writer": "m15",
+   "threshold": 1.74,
+   "null_top": 1.81,
+   "separation": -0.069,
+   "STABLE2": false
+  },
+  "r.1.2.0:m14": {
+   "group": "hint",
+   "n_seeds": 20,
+   "signal_min": 1.124,
+   "signal_mean": 1.433,
+   "top_writer": "a0",
+   "threshold": 1.435,
+   "null_top": 1.429,
+   "separation": 0.006,
+   "STABLE2": false
+  },
+  "r.0.0.1:a4": {
+   "group": "control",
+   "n_seeds": 20,
+   "signal_min": 0.928,
+   "signal_mean": 1.037,
+   "top_writer": "a1",
+   "threshold": 1.3,
+   "null_top": 1.333,
+   "separation": -0.033,
+   "STABLE2": false
+  },
+  "r.4.0.1:a9": {
+   "group": "control",
+   "n_seeds": 20,
+   "signal_min": 0.959,
+   "signal_mean": 1.051,
+   "top_writer": "wte",
+   "threshold": 1.314,
+   "null_top": 1.4,
+   "separation": -0.086,
+   "STABLE2": false
+  },
+  "r.2.0.3:a8": {
+   "group": "control",
+   "n_seeds": 20,
+   "signal_min": 0.936,
+   "signal_mean": 1.149,
+   "top_writer": "m6",
+   "threshold": 1.3,
+   "null_top": 1.4,
+   "separation": -0.1,
+   "STABLE2": false
+  },
+  "r.9.3.1:a3": {
+   "group": "control",
+   "n_seeds": 20,
+   "signal_min": 0.961,
+   "signal_mean": 1.055,
+   "top_writer": "a1",
+   "threshold": 1.3,
+   "null_top": 1.286,
+   "separation": 0.014,
+   "STABLE2": false
+  }
+ },
+ "n_seeds": 20,
+ "n_hint": 4,
+ "n_control": 4,
+ "flipped": [],
+ "control_flips": [],
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": true,
+ "runtime_s": 210.09706234931946
 }

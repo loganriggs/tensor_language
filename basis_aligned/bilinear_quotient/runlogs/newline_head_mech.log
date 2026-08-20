@@ -1,0 +1,11 @@
+targets 350 | regular 140 irregular 159 blank 0 | newline token ids [198]
+
+dCE by group: {'nl': 0.0666, 'nl_reg': 0.0875, 'nl_irr': 0.0909, 'nl_reg_nb': 0.0875, 'nl_irr_nb': 0.0909, 'nl_blank': 0.0, 'ctrl': -0.0008, 'ctrl_reg': 0.0048, 'ctrl_irr': -0.0026, 'rest': -0.001}
+counts: {'nl_reg': 140, 'nl_irr': 159, 'nl_reg_nb': 140, 'nl_irr_nb': 159, 'nl_blank': 0}
+logit drop: newline +0.1371 vs best other +0.0044
+score mass at line breaks: {'recent_nl': 0.0489, 'line_start': 0.0082, 'pos0': 0.0115, 'self': 0.0163, 'prev': -0.0204, 'other': 0.1551}
+(a) regular >= 2x irregular (0.96x): FAILED
+(b) survives excluding blanks (0.96x): FAILED
+(c) newline logit drops >=0.10 more than best competitor (+0.1327): HELD
+NULL (control positions show no rhythm effect, 1.85x < 1.5): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_head_mech_results.json (89s)

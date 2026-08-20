@@ -1,312 +1,48 @@
 {
  "n_tests": 148,
  "n_negatives": 142,
- "n_underpowered": 43,
- "n_near_miss": 3,
- "underpowered": [
-  {
-   "tag": "r.0.0.0",
-   "comp": "m2",
-   "sep": 0.078,
-   "signal": 0.961
-  },
-  {
-   "tag": "r.0.0.1",
-   "comp": "a4",
-   "sep": 0.042,
-   "signal": 0.785
-  },
-  {
-   "tag": "r.1.0.0",
-   "comp": "m12",
-   "sep": 0.09,
-   "signal": 1.073
-  },
-  {
-   "tag": "r.1.0.1",
-   "comp": "m12",
-   "sep": 0.074,
-   "signal": 0.957
-  },
-  {
-   "tag": "r.1.0.1",
-   "comp": "m13",
-   "sep": 0.088,
-   "signal": 0.954
-  },
-  {
-   "tag": "r.1.0.1",
-   "comp": "m15",
-   "sep": 0.084,
-   "signal": 0.961
-  },
-  {
-   "tag": "r.1.0",
-   "comp": "m13",
-   "sep": 0.05,
-   "signal": 1.006
-  },
-  {
-   "tag": "r.1.0",
-   "comp": "m15",
-   "sep": 0.086,
-   "signal": 1.006
-  },
-  {
-   "tag": "r.1.1.3",
-   "comp": "m15",
-   "sep": 0.064,
-   "signal": 1.46
-  },
-  {
-   "tag": "r.1.1.3",
-   "comp": "m14",
-   "sep": 0.083,
-   "signal": 1.075
-  },
-  {
-   "tag": "r.1.2.0",
-   "comp": "m14",
-   "sep": 0.075,
-   "signal": 1.223
-  },
-  {
-   "tag": "r.11.1.1",
-   "comp": "a4",
-   "sep": 0.031,
-   "signal": 1.043
-  },
-  {
-   "tag": "r.11.3.0",
-   "comp": "a8",
-   "sep": 0.078,
-   "signal": 1.047
-  },
-  {
-   "tag": "r.11.3.0",
-   "comp": "a3",
-   "sep": 0.039,
-   "signal": 0.986
-  },
-  {
-   "tag": "r.12.0.2",
-   "comp": "a5",
-   "sep": 0.041,
-   "signal": 0.984
-  },
-  {
-   "tag": "r.12.2.1",
-   "comp": "a6",
-   "sep": 0.083,
-   "signal": 1.04
-  },
-  {
-   "tag": "r.13.1.0",
-   "comp": "a3",
-   "sep": 0.05,
-   "signal": 0.967
-  },
-  {
-   "tag": "r.13.2.2",
-   "comp": "a6",
-   "sep": 0.056,
-   "signal": 1.015
-  },
-  {
-   "tag": "r.13.3.0",
-   "comp": "a3",
-   "sep": 0.076,
-   "signal": 0.993
-  },
-  {
-   "tag": "r.15.0.3",
-   "comp": "a9",
-   "sep": 0.093,
-   "signal": 1.081
-  },
-  {
-   "tag": "r.2.0.3",
-   "comp": "a8",
-   "sep": 0.035,
-   "signal": 0.936
-  },
-  {
-   "tag": "r.23.2.2",
-   "comp": "m1",
-   "sep": 0.032,
-   "signal": 1.014
-  },
-  {
-   "tag": "r.23.2.3",
-   "comp": "a8",
-   "sep": 0.08,
-   "signal": 1.046
-  },
+ "definition": "UNDERPOWERED = min detectable enrichment (threshold_v2) > 1.35; N-stable, replaces the max-of-N separation statistic retracted in writeup 500",
+ "n_underpowered": 32,
+ "underpowered_with_hint": [
   {
    "tag": "r.3.2.3",
    "comp": "a17",
-   "sep": 0.077,
-   "signal": 1.417
-  },
-  {
-   "tag": "r.3.2.3",
-   "comp": "a15",
-   "sep": 0.099,
-   "signal": 1.055
+   "pos": false,
+   "bar": 1.735,
+   "sig": 1.417,
+   "nullmax": 1.658
   },
   {
    "tag": "r.3.3.2",
    "comp": "a17",
-   "sep": 0.047,
-   "signal": 1.5
+   "pos": false,
+   "bar": 1.597,
+   "sig": 1.5,
+   "nullmax": 1.55
   },
   {
-   "tag": "r.4.0.1",
-   "comp": "a9",
-   "sep": 0.031,
-   "signal": 0.932
-  },
-  {
-   "tag": "r.4.0.1",
-   "comp": "m1",
-   "sep": 0.05,
-   "signal": 0.977
-  },
-  {
-   "tag": "r.4.1.1",
-   "comp": "a12",
-   "sep": 0.055,
-   "signal": 0.955
-  },
-  {
-   "tag": "r.4.2.3",
-   "comp": "a12",
-   "sep": 0.05,
-   "signal": 0.946
-  },
-  {
-   "tag": "r.4.2.3",
-   "comp": "m1",
-   "sep": 0.05,
-   "signal": 0.969
-  },
-  {
-   "tag": "r.5.3.1",
-   "comp": "a4",
-   "sep": 0.033,
-   "signal": 0.985
+   "tag": "r.1.1.3",
+   "comp": "m15",
+   "pos": false,
+   "bar": 1.516,
+   "sig": 1.46,
+   "nullmax": 1.452
   },
   {
    "tag": "r.5.3.2",
-   "comp": "a2",
-   "sep": 0.049,
-   "signal": 0.803
+   "comp": "a15",
+   "pos": false,
+   "bar": 1.804,
+   "sig": 1.18,
+   "nullmax": 1.667
   },
   {
-   "tag": "r.6.0",
+   "tag": "r.6.0.0",
    "comp": "m17",
-   "sep": 0.063,
-   "signal": 0.719
-  },
-  {
-   "tag": "r.6.3.0",
-   "comp": "m5",
-   "sep": 0.07,
-   "signal": 1.041
-  },
-  {
-   "tag": "r.6.3.0",
-   "comp": "a9",
-   "sep": 0.052,
-   "signal": 1.087
-  },
-  {
-   "tag": "r.6.3.0",
-   "comp": "m2",
-   "sep": 0.078,
-   "signal": 1.011
-  },
-  {
-   "tag": "r.6.3",
-   "comp": "m5",
-   "sep": 0.045,
-   "signal": 1.057
-  },
-  {
-   "tag": "r.7.1.1",
-   "comp": "a7",
-   "sep": 0.033,
-   "signal": 1.048
-  },
-  {
-   "tag": "r.8.0.0",
-   "comp": "a7",
-   "sep": 0.047,
-   "signal": 0.856
-  },
-  {
-   "tag": "r.8.3.1",
-   "comp": "a12",
-   "sep": 0.071,
-   "signal": 1.049
-  },
-  {
-   "tag": "r.9.2.3",
-   "comp": "a4",
-   "sep": 0.049,
-   "signal": 1.021
-  },
-  {
-   "tag": "r.9.3.1",
-   "comp": "a3",
-   "sep": 0.026,
-   "signal": 0.985
-  }
- ],
- "near_miss": [
-  {
-   "tag": "r.1.1.3",
-   "comp": "m15",
-   "signal": 1.46,
-   "bar": 1.516
-  },
-  {
-   "tag": "r.3.3.2",
-   "comp": "a17",
-   "signal": 1.5,
-   "bar": 1.597
-  },
-  {
-   "tag": "r.8.1.0",
-   "comp": "a9",
-   "signal": 1.216,
-   "bar": 1.3
-  }
- ],
- "underpowered_with_hint": [
-  {
-   "tag": "r.1.1.3",
-   "comp": "m15",
-   "sep": 0.064,
-   "signal": 1.46
-  },
-  {
-   "tag": "r.1.2.0",
-   "comp": "m14",
-   "sep": 0.075,
-   "signal": 1.223
-  },
-  {
-   "tag": "r.3.2.3",
-   "comp": "a17",
-   "sep": 0.077,
-   "signal": 1.417
-  },
-  {
-   "tag": "r.3.3.2",
-   "comp": "a17",
-   "sep": 0.047,
-   "signal": 1.5
+   "pos": false,
+   "bar": 1.977,
+   "sig": 1.843,
+   "nullmax": 1.704
   }
  ]
 }

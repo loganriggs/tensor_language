@@ -169,15 +169,21 @@ def main(tag):
                    'headroom':round(top[0][1]['min']-thresh,3)
                                 if top else None,
                    # 2026-08-20 (wave-6 reviewer catch, r.4.1.1):
-                   # a negative is only informative if the bar sits
-                   # meaningfully ABOVE the null's own worst draw.
-                   # On r.4.1.1's a12 the gap was 0.055, so noise
-                   # alone nearly reached the bar and a real-but-
-                   # weak writer could not have been seen. Cut of
-                   # 0.10 declared here, before use.
-                   'null_bar_separation':round(thresh-nullratio,3),
+                   # a negative is only informative if a real
+                   # effect could have cleared the bar. FIRST
+                   # VERSION USED thresh MINUS THE NULL'S WORST
+                   # DRAW AND WAS WRONG: max-of-N grows with N, so
+                   # the statistic shrank mechanically when the
+                   # bootstrap was widened (writeup 500). The
+                   # N-stable question is how high the bar sits:
+                   # thresh IS the minimum enrichment this test can
+                   # register, and it is only pushed above 1.3 when
+                   # the null's own spread is large.
+                   'min_detectable_enrichment':round(thresh,3),
+                   'bar_source':('fixed_1.3' if thresh<=1.3001
+                                 else 'null_driven'),
                    'negative_power':(None if stable2 else
-                       ('UNDERPOWERED' if thresh-nullratio<0.10
+                       ('UNDERPOWERED' if thresh>1.35
                         else 'DECISIVE')),
                    'NEAR_MISS':bool(top and not stable2 and
                        thresh-top[0][1]['min']<0.10)}
@@ -190,8 +196,9 @@ def main(tag):
       if not stable2:
           print(f"    negative power: "
                 f"{tables[key]['negative_power']} "
-                f"(bar sits {tables[key]['null_bar_separation']} "
-                f"above the null's worst draw"
+                f"(needs {tables[key]['min_detectable_enrichment']}x"
+                f" enrichment to register, bar "
+                f"{tables[key]['bar_source']}"
                 f"{'; NEAR MISS -- widen the bootstrap'
                    if tables[key]['NEAR_MISS'] else ''})",
                 flush=True)

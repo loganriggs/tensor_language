@@ -1,0 +1,57 @@
+{
+ "dce": {
+  "nl": 0.0666,
+  "ctrl": -0.0008,
+  "nl_reg": 0.0875,
+  "nl_irr": 0.0909,
+  "nl_reg_nb": 0.0875,
+  "nl_irr_nb": 0.0909,
+  "nl_blank": 0.0,
+  "ctrl_reg": 0.0048,
+  "ctrl_irr": -0.0026,
+  "rest": -0.001
+ },
+ "n": {
+  "nl": 350,
+  "ctrl": 343,
+  "nl_reg": 140,
+  "nl_irr": 159,
+  "nl_reg_nb": 140,
+  "nl_irr_nb": 159,
+  "nl_blank": 0,
+  "ctrl_reg": 65,
+  "ctrl_irr": 246,
+  "rest": 11616
+ },
+ "ratio_reg_irr": 0.96,
+ "ratio_reg_irr_nonblank": 0.96,
+ "ratio_ctrl_reg_irr": 1.85,
+ "logit": {
+  "base": {
+   "nl": 13.764942278180804,
+   "oth": 12.618975721086775
+  },
+  "abl": {
+   "nl": 13.627834908621653,
+   "oth": 12.61457295009068
+  },
+  "drop_newline": 0.1371,
+  "drop_best_other": 0.0044
+ },
+ "attn_destinations_at_linebreaks": {
+  "recent_nl": 0.0489,
+  "line_start": 0.0082,
+  "pos0": 0.0115,
+  "self": 0.0163,
+  "prev": -0.0204,
+  "other": 0.1551
+ },
+ "newline_token_ids": [
+  198
+ ],
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": true,
+ "null_ok": false,
+ "runtime_s": 89.07860898971558
+}

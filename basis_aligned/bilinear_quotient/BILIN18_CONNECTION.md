@@ -12833,3 +12833,49 @@ raises the signal's bootstrap minimum, it needs a control against
 manufacturing positives: four DECISIVE negatives (signals 0.785 to
 0.985) get the same treatment, and a flip there voids the result.
 Written to negative_power_audit.json.
+
+## 499. The four hinted negatives are noise, and my power statistic was wrong
+
+power_recheck re-ran the four underpowered-with-a-hint components
+at 20 bootstrap draws instead of 5:
+  component        signal at 5 seeds   at 20 seeds
+  r.1.1.3 m15           1.460             1.064
+  r.3.3.2 a17           1.500             1.257
+  r.3.2.3 a17           1.417             0.893
+  r.1.2.0 m14           1.223             1.124
+(a) FAILED: none flipped to ENRICHED_STABLE2.
+(c) HELD: none of the four decisive-negative controls flipped
+either, so widening does not manufacture positives.
+The direction of the failure is the informative part. Every one of
+the four hints SHRANK toward 1.0 when given four times the draws,
+two of them to below 1.0. That is the signature of a small-sample
+artifact, not of a weak real effect being missed, and it makes the
+census's zero stronger rather than weaker: the only negatives that
+looked like they might be hiding something stop looking that way
+under more resampling.
+(b) FAILED, and it fails because the statistic was bad. I defined
+separation as the threshold minus the null's WORST DRAW, and the
+worst draw is a maximum over N, which grows with N by
+construction. Widening the bootstrap therefore shrank my own power
+statistic mechanically -- r.1.1.3's bar moved from 1.3 to 2.874
+purely because 20 null draws have a higher maximum than 5. This is
+the same extreme-value mistake the wave-4 reviewer caught on the
+signal side (434), reintroduced on the null side one section after
+recording the lesson. Bar (b) is void; it measured my arithmetic.
+RETRACTED: the "43 of 142 negatives (30.3%) are underpowered"
+figure in 498, which used that statistic.
+Replacement, N-stable: the threshold IS the minimum enrichment a
+test can register, and it only rises above 1.3 when the null's own
+spread is large. So UNDERPOWERED means the bar exceeds 1.35, i.e.
+the test could not have seen anything below 35% enrichment.
+Re-auditing the 142 negatives on that definition: 32 (22.5%) are
+underpowered, 104 have their bar at the fixed 1.3 floor, and 5
+are underpowered while showing a hint:
+  r.6.0.0 m17  signal 1.843  bar 1.977
+  r.3.3.2 a17  signal 1.500  bar 1.597   (tested: -> 1.257)
+  r.1.1.3 m15  signal 1.460  bar 1.516   (tested: -> 1.064)
+  r.3.2.3 a17  signal 1.417  bar 1.735   (tested: -> 0.893)
+  r.5.3.2 a15  signal 1.180  bar 1.804
+Three of the five are already settled by this run. power_recheck2
+is queued for the two that are not, r.6.0.0 m17 (the largest
+unresolved hint in the census) and r.5.3.2 a15.
