@@ -1036,6 +1036,24 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   indifferently (detection). Getting the bracket head to this point took walking back several
   intermediate stories of my own — matcher, then adaptive pointer, then distance-computer — each
   refuted by a sharper test; the honest endpoint is the simplest of them.</p>
+  <p>That fixed-query story does not cover every head, and finding where it breaks gave a second
+  mechanism class. An <em>induction</em> head — one that predicts a repeated token by finding
+  where the current token last appeared and copying what followed it — cannot use a fixed query,
+  because it has to encode the current token to know what to match. Testing that directly: the
+  digit head's real per-position query attends to the position after a prior occurrence at 6.4×
+  a control, and replacing it with a single averaged query collapses that to under a third.
+  Content matching lives in the query; fixed-query selection does not.</p>
+  <p>So the model runs at least two distinct attention mechanisms, and one measurement tells them
+  apart — does a single fixed query reproduce the head?</p>
+  <ul>
+  <li><strong>Fixed-query selection.</strong> A constant query names a token class; the double-QK
+  AND and rotary do the rest. Positional when the task needs a specific referent (brackets,
+  quotes), detection when it needs only class presence (newlines). The query carries no
+  per-position information.</li>
+  <li><strong>Content induction.</strong> A per-position query encodes the current token and
+  matches its earlier occurrence, attending to the successor. The query <em>is</em> the
+  mechanism; a fixed query destroys it.</li>
+  </ul>
 
   <h2 id="folding">How small can the front of the model get?</h2>
   <p>The point of finding circuits is a benchmark: replace parts of the model with
