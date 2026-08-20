@@ -134,8 +134,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">13</span><a href="#sink">The most expensive head is a constant</a></li>
     <li><span class="num">14</span><a href="#overcontinue">Three readings that died</a></li>
     <li><span class="num">15</span><a href="#atlas">A map of dedicated machinery</a></li>
-    <li><span class="num">16</span><a href="#folding">How small can the front get?</a></li>
-    <li><span class="num">17</span><a href="#open">What's still open</a></li>
+    <li><span class="num">16</span><a href="#selection">Where a head keeps its decision</a></li>
+    <li><span class="num">17</span><a href="#folding">How small can the front get?</a></li>
+    <li><span class="num">18</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -953,6 +954,42 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="selection">Where an attention head keeps its decision</h2>
+  <p>The bracket head and the newline head do unrelated jobs — one points at the opener a
+  closing bracket belongs to, the other decides a line break. Both turned out to compute their
+  decision the same way, and finding that out relied on a fact about this architecture: the
+  <em>query</em> side of an attention head is entirely linear. The query is
+  <code>rotary(rms_norm(W·x))</code>, and rms-norm is just a per-position scalar while rotary is
+  a rotation, so the query is an exact linear image of the residual. That means the contribution
+  of every upstream component to the head's selection can be <em>computed by composing weights</em>,
+  with no ablation and no approximation — reconstructed here to one part in ten million.</p>
+  <p>Composed that way, the selection at first looks hopeless: about a dozen late-layer
+  components each contribute 6–9% of the query, none dominant, and removing the common-mode part
+  doesn't concentrate it. No single upstream component sets the bracket distance.</p>
+  <p>But "spread across many writers" and "spread across many directions" are different claims.
+  Projecting directions out of the head's query input — the eigenvectors of the selection
+  gradient — tells a different story:</p>
+  <table><thead><tr><th>directions removed from the query</th><th>bracket effect lost</th><th>newline effect lost</th></tr></thead><tbody>
+  <tr><td>8</td><td class="n">49%</td><td class="n">48%</td></tr>
+  <tr><td>16</td><td class="n">70%</td><td class="n">62%</td></tr>
+  <tr><td>random 8</td><td class="n">~2%</td><td class="n">~5%</td></tr>
+  </tbody></table>
+  <p>So each head reads a <strong>compact, roughly 16-dimensional subspace</strong> of its
+  input to make its decision — a dozen writers collectively build one moderate-dimensional
+  variable, and the head reads it. The subspace is sharply behaviour-specific: projecting it out
+  costs 30–60× more at the positions where the behaviour happens than a random subspace does,
+  and at other positions it costs essentially nothing (for the newline head, literally zero).</p>
+  <p>This is the tractable handle the whole "trace it to the embedding" programme needs. The
+  decision variable isn't a vague distributed mess; it's a named subspace, and the question
+  becomes "what writes into it," one layer at a time. It's also the same shape for both heads
+  examined, so it looks like a general property of how this model organizes attention selection
+  rather than a quirk of one circuit.</p>
+  <p>One thing it is <em>not</em>, at least so far, is shared. The bracket and newline selection
+  subspaces overlap at a cosine of 0.20 against a chance floor of 0.12 — a direction or two in
+  common, not a reused variable. On the two circuits looked at, each head computes its own
+  private decision subspace. Whether some signal further back is genuinely reused across circuits
+  is still open, but it isn't these.</p>
+
   <h2 id="folding">How small can the front of the model get?</h2>
   <p>The point of finding circuits is a benchmark: replace parts of the model with
   interpretable computation and see whether the outputs survive. The early layers are where
