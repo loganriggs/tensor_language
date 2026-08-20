@@ -13675,3 +13675,50 @@ carries the effect scores high alone and leaves little behind when
 spared; a distributed effect scores low alone and high all-but for
 every head, which is a real answer rather than a failed search.
 Three further disjoint samples.
+
+## 518. The behaviour atlas, on an unbiased denominator
+
+behaviour_atlas2 re-ran 513's screen with "elsewhere" defined as
+the GLOBAL mean damage over all positions instead of the
+complement of the target, control and random masks. This is the
+table to quote; 513's ratio column is superseded.
+  class          top   ratio   target      elsewhere   pos-ctrl  rand
+  close_bracket  a13   41.94  +0.69408    +0.01655      1.12    -1.96
+  open_quote     a10   12.72  +0.27248    +0.02142      8.33     0.82
+  newline        a12   10.59  +0.09934    +0.00938     -0.02     1.77
+  capitalized    a15    8.68  +0.03913    +0.00451      2.12     1.78
+  open_bracket   a17    6.94  +0.06986    +0.01007      0.05    -3.07
+  colon          a15    4.08  +0.01839    +0.00451      2.85     0.55
+  digit           a8    3.59  +0.13355    +0.03715      1.45     0.75
+  sentence_end   a10    3.05  +0.06537    +0.02142      0.78     0.64
+  comma          a12    0.80  +0.00754    +0.00938      1.22     0.87
+NULL now ok for every class -- no component fires on a fully
+random target set. That was the point of the change and it worked:
+newline's random ratio fell from 2.41 to 1.77 and capitalized's
+from 9.11 to 1.78.
+(a) HELD: positive control, newline recovers a12 at 10.59.
+(b) HELD: six classes beyond newline qualify.
+(c) HELD, and stronger than before: FIVE distinct components lead
+-- a8, a10, a13, a15, a17.
+One leader changed, which is the substantive effect of the fix.
+Capitalized was led by a17 at a ratio of 26.89 under the biased
+denominator and is led by a15 at 8.68 under the correct one. That
+class covers 1693 of about 8000 positions, so its complement was
+the most distorted, exactly as predicted. a17 still leads open
+brackets, where it was not distorted.
+Reading the table as a map: the model has dedicated,
+behaviour-concentrated machinery for closing brackets (a13, and
++0.694 nats is an order of magnitude beyond anything else here),
+opening quotes and sentence ends (a10), line breaks (a12),
+capitalization and colons (a15), open brackets (a17), and digits
+(a8). Two classes get nothing -- commas, whose leader is
+anti-concentrated at 0.80, and closing quotes, which had zero
+targets in the sample and remain unevaluable.
+Three of these were already known from other directions: a12 from
+495, a8 from the digit subspace found through the census, and a10
+from 514, where it carries 48% of the newline head's document
+gate. a10 leading opening quotes AND sentence ends AND the
+document gate makes it the best candidate in the model for a
+general structure-tracking component, and it has never been
+studied directly.
+close_bracket_heads is queued on the largest effect.

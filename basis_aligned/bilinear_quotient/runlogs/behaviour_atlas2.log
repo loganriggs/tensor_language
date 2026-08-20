@@ -1,0 +1,61 @@
+newline: 350 targets
+digit: 223 targets
+sentence_end: 482 targets
+comma: 476 targets
+colon: 74 targets
+open_quote: 90 targets
+close_quote: 0 targets
+open_bracket: 59 targets
+close_bracket: 30 targets
+capitalized: 1693 targets
+a0 done
+a1 done
+a2 done
+a3 done
+a4 done
+a5 done
+a6 done
+a7 done
+a8 done
+a9 done
+a10 done
+a11 done
+a12 done
+a13 done
+a14 done
+a15 done
+a16 done
+a17 done
+m0 done
+m1 done
+m2 done
+m3 done
+m4 done
+m5 done
+m6 done
+m7 done
+m8 done
+m9 done
+m10 done
+m11 done
+m12 done
+m13 done
+m14 done
+m15 done
+m16 done
+m17 done
+       newline:  a12 ratio  10.59 (target +0.09934 vs other +0.00938) | pos-ctrl  -0.02 | random   1.77 | QUALIFIES
+         digit:   a8 ratio   3.59 (target +0.13355 vs other +0.03715) | pos-ctrl   1.45 | random   0.75 | QUALIFIES
+  sentence_end:  a10 ratio   3.05 (target +0.06537 vs other +0.02142) | pos-ctrl   0.78 | random   0.64 | QUALIFIES
+         comma:  a12 ratio   0.80 (target +0.00754 vs other +0.00938) | pos-ctrl   1.22 | random   0.87 | -
+         colon:  a15 ratio   4.08 (target +0.01839 vs other +0.00451) | pos-ctrl   2.85 | random   0.55 | -
+    open_quote:  a10 ratio  12.72 (target +0.27248 vs other +0.02142) | pos-ctrl   8.33 | random   0.82 | QUALIFIES
+  open_bracket:  a17 ratio   6.94 (target +0.06986 vs other +0.01007) | pos-ctrl   0.05 | random  -3.07 | QUALIFIES
+ close_bracket:  a13 ratio  41.94 (target +0.69408 vs other +0.01655) | pos-ctrl   1.12 | random  -1.96 | QUALIFIES
+   capitalized:  a15 ratio   8.68 (target +0.03913 vs other +0.00451) | pos-ctrl   2.12 | random   1.78 | QUALIFIES
+
+(a) POSITIVE CONTROL newline -> a12 with ratio >=5: HELD
+(b) >=3 other classes qualify: ['digit', 'sentence_end', 'open_quote', 'open_bracket', 'close_bracket', 'capitalized'] -> HELD
+(c) >=3 distinct leaders among them: ['a10', 'a13', 'a15', 'a17', 'a8'] -> HELD
+NULL (no class fires on fully random targets): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/behaviour_atlas2_results.json (115s)
