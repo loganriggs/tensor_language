@@ -14138,3 +14138,57 @@ needs nested contexts the model actually finds probable -- mined
 from a corpus with real nesting (code, LaTeX, structured markup)
 rather than constructed -- and the null that killed this run
 should be kept exactly as written.
+
+## 527. The pointer is not built from a distinct set of writer pairs
+
+bracket_pointer_pairs decomposed the one score cell that carries
+head 13.8's whole effect. 82 target cells that have both a match
+and a distractor (the nearest non-matching opener), each an exact
+625-term sum; reconstruction 4.67e-7 for the score and 1.42e-7 for
+the layer input.
+(a) FAILED: the top 10 of 625 pairs carry 14.3% of the absolute
+pair mass at the match cell -- almost exactly what the newline
+head gave (12.2%). Even a single, causally decisive scalar is not
+sparse in writer pairs.
+(b) FAILED decisively, and this is the informative one: the top-10
+pair set at the MATCH cell and at the DISTRACTOR cell differ by
+ONE pair out of ten.
+  match cell                distractor cell
+    a7  x wte  0.460          m10 x wte  0.116
+    m10 x wte  0.455          a8  x wte  0.097
+    m10 x m12  0.396          a7  x wte  0.096
+    m6  x wte  0.313          a5  x wte  0.077
+    m9  x wte  0.301          m10 x m12  0.076
+    a7  x m12  0.300          m9  x wte  0.071
+    m8  x wte  0.262          m6  x wte  0.069
+    a10 x wte  0.262          m8  x wte  0.062
+(c) HELD: the same pairs contribute 3.495 at the match cell and
+0.781 at the distractor, a factor of 4.5.
+NULL ok: ten randomly chosen pairs carry 0.9-2.3%.
+So the pointer is NOT built by a distinct set of upstream
+products. The identical machinery evaluates 4.5x larger at the
+matching opener. Whatever selects the match is in the VALUES those
+pairs take, not in which pairs are active.
+The composition of the top pairs says where to look next, and it
+was not something I predicted. Seven of the ten leading pairs have
+WTE ON THE KEY SIDE: the head's key representation of an opener is
+dominated by the raw token embedding. Both cells share the same
+query position -- only the key differs -- so the entire 4.5x
+difference is a key-side effect. And if the key is mostly the
+token embedding, then for two keys that are both "(" tokens the
+embedding contributes IDENTICALLY, and the discrimination has to
+come from one of only two remaining places:
+  ROTARY. The same embedding at a different position is a
+    different rotated vector. A distance-selective query would
+    then produce exactly this pattern.
+  THE MINORITY KEY WRITERS. m12 is the only non-wte key writer in
+    the top ten (m10 x m12 at 0.396, a7 x m12 at 0.300), and m12
+    can differ between the two openers because it sees context.
+The first would make head 13.8 a RELATIVE-DISTANCE selector rather
+than a symbolic matcher, and that would also explain 526: a
+distance rule cannot track nesting, and the model's failure to
+expect a closer in nested contexts is what a distance rule
+predicts. bracket_distance is queued to decide it -- the same
+match-versus-distractor share measured with rotary disabled for
+this head, with the key-side wte contribution removed, and with an
+unrelated key writer removed as the control.

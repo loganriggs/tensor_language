@@ -1,0 +1,25 @@
+a6 projector rank 16
+a8 projector rank 16
+  8.3: |M| 42.666 top-sv 12.877 eff-rank 15.7
+  6.3: |M| 31.510 top-sv 13.218 eff-rank 12.97
+  6.7: |M| 28.584 top-sv 12.046 eff-rank 13.23
+  6.1: |M| 22.538 top-sv 9.863 eff-rank 11.8
+  8.7: |M| 19.978 top-sv 7.721 eff-rank 14.63
+  6.5: |M| 18.514 top-sv 9.324 eff-rank 12.54
+  6.6: |M| 17.349 top-sv 10.071 eff-rank 10.79
+  8.6: |M| 15.980 top-sv 8.035 eff-rank 14.05
+
+principal cosines between 8.3 and 6.3: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0] mean 1.000
+  pairwise mean cosines among the four contributors: {'8.3|6.1': 1.0, '8.3|6.3': 1.0, '8.3|8.7': 1.0, '6.1|6.3': 1.0, '6.1|8.7': 1.0, '6.3|8.7': 1.0}
+
+(0) channel decomposition exactness 3.570e-07
+(0) HELD
+(a) 0.6037151702786377 vs bar 0.6: HELD
+(b) -7.699999999999999 vs bar 1e-09: FAILED
+(c) 1.0000019073486328 vs bar 0.5: HELD
+(d) 0.3252124647924355 vs bar 1e-09: HELD
+  (a) Spearman(|M_h|, measured effect) = 0.604
+  (b) leading head 8.3 effective rank 15.7 of 16
+  (d) digit-source share of channel content 0.3789 vs digit base rate 0.0269
+  NULL random-subspace rhos [0.439, 0.43, 0.404]: VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_channels_results.json (100s)
