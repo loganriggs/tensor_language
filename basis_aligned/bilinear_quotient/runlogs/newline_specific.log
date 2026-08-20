@@ -1,1 +1,12 @@
 182 newline targets | 178 position-matched controls
+a12: nl +0.0777 rest +0.0073 ratio 10.64 (control ratio 3.95)
+a10: nl +0.0939 rest +0.0224 ratio 4.19 (control ratio 0.75)
+a16: nl +0.0246 rest +0.0095 ratio 2.58 (control ratio -0.16)
+a15: nl +0.0132 rest +0.0054 ratio 2.42 (control ratio 0.03)
+a14: nl +0.0422 rest +0.0210 ratio 2.01 (control ratio 0.65)
+a11: nl +0.0679 rest +0.0388 ratio 1.75 (control ratio 0.68)
+most newline-specific: a12 at ratio 10.64
+(a) some component is >=2x newline-specific: HELD
+(b) it is not the front block m0-m3: HELD
+(c) it beats its position-matched control: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_specific_results.json (97s)

@@ -12701,3 +12701,43 @@ compared against its ratio on a POSITION-MATCHED random target set
 of the same size. Registered: (a) some component reaches a
 newline/elsewhere ratio >= 2.0, (b) it is not one of m0-m3, (c) it
 beats its position-matched control by >= 50%.
+
+## 495. A component that is specific to a behaviour
+
+Re-ranking the same 36 components by newline/elsewhere damage
+ratio instead of absolute damage (the correction from 494) finds
+one:
+  component  at newline  elsewhere  ratio   position-ctrl ratio
+    a12        +0.0777    +0.0073   10.64        3.95
+    a10        +0.0939    +0.0224    4.19        0.75
+    a16        +0.0246    +0.0095    2.58       -0.16
+    a15        +0.0132    +0.0054    2.42        0.03
+    a14        +0.0422    +0.0210    2.01        0.65
+    a11        +0.0679    +0.0388    1.75        0.68
+(a) HELD: a12 is 10.6x more costly at newline targets than
+elsewhere, five times the next component.
+(b) HELD: it is not the front block -- m1, which led the
+magnitude ranking, sits at 0.10.
+(c) HELD: a12's newline ratio is 2.7x its position-matched
+control (10.64 vs 3.95), so this is not a component that simply
+matters more at the sequence positions where newlines happen to
+fall. The control is worth reading: a12's ratio of 3.95 on
+JITTERED targets is itself the second-highest number in the table,
+which says a12 matters in the NEIGHBOURHOOD of a line break, and
+the extra factor of 2.7 is what it adds at the break itself.
+This is the first component in the program that is specific to a
+behaviour rather than expensive in general, and the difference
+from every previous attempt is the statistic, not the model: the
+damage census ranked leaves by how much their ablation cost, which
+finds the front of the model every time. Ranking by
+concentration finds a12 immediately, in an experiment that costs
+97 seconds.
+Two things a layer-level number cannot settle, both queued as
+newline_heads: whether the specificity survives decomposition into
+a12's nine heads (or is an interaction of nine non-specific ones),
+and whether the responsible head visibly does something different
+at line breaks. The head atlas supplies an advance bet that knew
+nothing about newlines -- eight of a12's heads have delete costs
+between -0.0008 and 0.0078, and 12.6 costs 0.0726, ten times the
+next -- so "the highest newline-ratio head is 12.6" is registered
+as prediction (b) and can fail eight ways.

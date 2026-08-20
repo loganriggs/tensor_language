@@ -738,6 +738,17 @@
    "verdict": "FAIL (no class/direction ROBUST_V2)",
    "n_tests": 12,
    "alpha": 0.0083
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave6",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": "exact reproduction: full 4.83 (rec 4.83), half0 5.00 (rec 5.00), half1 4.66 (rec 4.66)",
+   "mechanism_reproduced": true,
+   "headroom_judgement": "m1 is well-powered and a clean negative: null_top_ratio 1.089 sits 0.211 below the 1.3 bar and the observed signal (top_ratio_mean 1.006, writer a1) is itself below that null - unambiguous absence of enrichment. a12 is NOT well powered: null_top_ratio 1.25 sits only 0.055 below its own threshold_v2 of 1.305 (=max(1.3, null_mean 1.158 + 2*null_sd 0.074) - the bar was set almost exactly at the null ceiling). With the null distribution itself nearly grazing the enrichment bar, this test has essentially no headroom to distinguish a weak true writer effect from bootstrap noise on the null side. a12's observed signal (1.063, writer wte) does sit below null_top_ratio (1.25) too, consistent with a true negative, but per the reviewer brief's own criterion (null_top_ratio approaching the 1.3 bar -> underpowered) this component's negative should be read as \"undetectable under this test's power,\" not as strong evidence of absence.",
+   "instrument_live_check": "Re-ran leaf_input_decomp.py on r.3.0.2 (confirmed positive) in this session: a15/a16/a17 all ENRICHED_STABLE2=True, top writer a14 at ratios 2.37/2.362/2.431 (bootstrap ranges 2.061-2.846 / 2.051-2.836 / 2.093-2.961), matching the recorded a14 2.37 [2.06-2.85] essentially exactly. Tool is demonstrably live and correctly calibrated to detect real enrichment, so the failure to detect anything for r.4.1.1 is not evidence of a broken instrument, but a12 specifically had too little separation between its null and its bar to be a fully powered test.",
+   "objection": "a12's null_top_ratio (1.25) sits within 0.05 of its own enrichment threshold (1.305) - the textbook \"null approaches the bar\" underpowered signature named in the review brief. A component this close to its own null ceiling cannot cleanly rule out a real-but-weak writer contribution; the record's flat \"FAIL (no ENRICHED_STABLE2 writer)\" certification does not distinguish this from m1's much cleaner, better-separated negative (null 1.089 vs bar 1.3, gap 0.211). Recommend re-running a12's bootstrap with more seeds (10+ instead of 5) before treating it as settled - a wider sample could either resolve the near-null tie or confirm the negative more convincingly. Calibration context (writeup 471: only 3/60 shortlist leaves carry ANY stable enrichment) still supports a negative as the expected outcome, but a12's specific test had less power than m1's or than r.8.1.0's three components."
   }
  ],
  "provenance": {

@@ -140,6 +140,17 @@
    "verdict": "FAILED (no pair clears Bonferroni bar; best raw p=0.0455 > 0.0083)",
    "source": "census_lib.story_test_class sonnet-wave4-c",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave6",
+   "date": "2026-08-20",
+   "verdict": "CONFIRM",
+   "concentration_recheck": "exact reproduction: full 5.68 (rec 5.68), half0 5.73 (rec 5.73), half1 5.62 (rec 5.62)",
+   "mechanism_reproduced": true,
+   "headroom_judgement": "Null well separated from the 1.3 bar for all three components (null_top_ratio a4=1.167 a9=1.200 a7=1.143, thresholds all 1.3, gaps 0.133/0.100/0.157) - adequately powered, not underpowered by the null-encroachment criterion. Exception: a9 is a genuine near-miss, not a clean null - top writer a8 mean ratio 1.396 (min 1.216, max 1.496) clears 1.3 in mean and in single-draw ENRICHED=True, but the bootstrap minimum falls only 0.084 short of threshold_v2=1.3 due to seed variance, failing only the cross-seed stability requirement. a4 (mean 1.095) and a7 (mean 1.098) are clean negatives near their own nulls (1.077, 1.093).",
+   "instrument_live_check": "Re-ran leaf_input_decomp.py on r.3.0.2 (confirmed positive) in this session: a15/a16/a17 all ENRICHED_STABLE2=True, top writer a14 at ratios 2.37/2.362/2.431 (bootstrap ranges 2.061-2.846 / 2.051-2.836 / 2.093-2.961), matching the recorded a14 2.37 [2.06-2.85] essentially exactly. Tool is demonstrably live and capable of detecting real enrichment at this sample size, so the r.8.1.0 negative is not an artifact of a broken tool.",
+   "objection": "a9 top writer a8 (mean ratio 1.396, min 1.216) is the closest near-signal among the three shortlist components - it clears the enrichment bar in mean and on a single draw, and misses stability by only 0.084. A wider bootstrap (>5 seeds) could plausibly push the min above 1.3 and flip that one component. This does not change the record bottom line (SOP requires ALL components pass; a4/a7 remain clean negatives), but the record's uniform \"FAILED (all three components)\" phrasing understates that a9 is a borderline case worth a follow-up bootstrap rather than being lumped with a4/a7 as equally null. Calibration context (writeup 471: only 3/60 shortlist leaves carry ANY stable enrichment) supports reading this as an expected negative, not a failed search."
   }
  ],
  "provenance": {
