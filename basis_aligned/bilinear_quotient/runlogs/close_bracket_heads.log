@@ -1,0 +1,20 @@
+84 close-bracket targets over 128 rows | 77 have a matching opener in window | closer ids [8, 60, 1267]
+13.0: target +0.00715 ctrl -0.00426 global -0.00060 | dlogit closer +0.0698 vs other +0.0640
+13.1: target -0.00069 ctrl +0.00229 global +0.00044 | dlogit closer -0.0015 vs other -0.0003
+13.2: target -0.00112 ctrl +0.00095 global +0.00013 | dlogit closer +0.0028 vs other +0.0067
+13.3: target -0.00358 ctrl -0.00254 global -0.00072 | dlogit closer +0.0044 vs other +0.0152
+13.4: target -0.00047 ctrl -0.00888 global +0.00016 | dlogit closer +0.0085 vs other +0.0117
+13.5: target +0.01067 ctrl -0.00511 global +0.00026 | dlogit closer +0.0254 vs other +0.0123
+13.6: target -0.00617 ctrl -0.00376 global +0.00041 | dlogit closer +0.0168 vs other +0.0307
+13.7: target -0.00063 ctrl +0.00210 global +0.00011 | dlogit closer +0.0013 vs other +0.0040
+13.8: target +0.82536 ctrl +0.00616 global +0.00376 | dlogit closer +1.5421 vs other +0.4730
+(a) 0.9788657226215044 vs bar 0.4: HELD
+(c) 1.0691 vs bar 0.1: HELD
+(d) -0.3806 vs bar 0.039150000000000004: UNEVALUABLE [denominator -0.02610 is below 0.03806 -- report the pair, not the quotient]
+
+leading head 13.8: 98% of a13's close-bracket damage
+(b) atlas narrowed 9 heads to 13.3/13.5/13.8; leader is 13.8: HELD
+(d) score mass: matching opener -0.3806, other openers -0.0261, prev -0.0381, pos0 0.0019
+NULL 1 (target beats position-matched control, +0.82536 vs +0.00616): ok
+NULL 2 (no head fires on random targets, worst 70.50 < 2.0): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/close_bracket_heads_results.json (175s)

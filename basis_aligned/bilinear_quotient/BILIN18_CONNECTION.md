@@ -13776,3 +13776,62 @@ compositional structure is dense and behaviour-independent. That
 is a real finding about the model, not a failed measurement, and
 it is the opposite of what a sparse-features picture would
 predict.
+
+## 520. A bracket matcher: head 13.8, 98% of the effect, one head
+
+close_bracket_heads decomposed the largest concentrated effect in
+the program. 84 close-bracket targets over 128 rows, 77 of them
+with their matching opener inside the window.
+  head    at target   pos-ctrl    random    global
+  13.8    +0.82536    +0.00616   +0.00678  +0.00376
+  13.5    +0.01067    -0.00511   +0.01833  +0.00026
+  13.0    +0.00715    -0.00426   +0.01310  -0.00060
+  the other six are within 0.0007 of zero
+(a) HELD, and by more than any localization this program has
+produced: 13.8 carries 98% of a13's close-bracket damage. Deleting
+one head of 162 costs 0.825 nats at the positions before a closing
+bracket, 0.006 six tokens either side, and 0.004 averaged over all
+text. The newline head, which was the sharpest result until now,
+was 88% of its layer and 0.068 nats.
+(b) HELD: the atlas narrowed nine heads to three on punctuation
+read-enrichment and deletion cost alone, knowing nothing about
+brackets, and 13.8 is in that set -- it had the largest deletion
+cost in the layer at 0.0114.
+(c) HELD by a wide margin: deleting 13.8 lowers the logit of the
+actual closing-bracket token by 1.542 while the best non-bracket
+competitor at the same positions falls by 0.473. It is pushing the
+bracket, not making those positions generally easier.
+(d) is the mechanism question -- matcher or detector -- and
+cl.score_bar returned UNEVALUABLE because I registered it as a
+signed quotient and the denominator is -0.026. The pair is the
+answer and it is unambiguous. Signed shares of score mass at
+close-bracket targets:
+  matching opener  -0.3806     other earlier openers  -0.0261
+  previous token   -0.0381     position 0             +0.0019
+The head puts 14.6 times more score mass on the SPECIFIC matching
+opener than on other openers in the same context. It is a matcher,
+not a detector: it locates the particular "(" that this ")" closes,
+which requires tracking nesting, and no lookup table can do it.
+The sign is negative, which in a model with no softmax is
+meaningful rather than a bug -- the head SUBTRACTS the matched
+opener's value rather than copying it.
+NULL 1 ok: +0.825 at targets against +0.006 at position-matched
+controls.
+NULL 2 VIOLATED as registered, and for the third time in this
+session the violation is a quotient with a near-zero denominator:
+the bar compared each head's random-target damage to its global
+damage, and global damage for these heads is 0.0004 or less. The
+substantive check is the pair, and it is clean -- 13.8's damage on
+a random target set is +0.00678 against +0.82536 on real
+close-bracket targets, a factor of 122. The head does not fire on
+arbitrary positions. I have now written three degenerate-ratio
+nulls after installing a guard that catches them; the guard works,
+my bar-writing does not, and the rule is: if a denominator can be
+near zero, register the PAIR as the bar.
+Queued next, because "it attends to the matching opener" is a
+correlation until the attention is intervened on: bracket_match
+zeroes 13.8's score on the matching opener specifically, on a
+random earlier position, and on the nearest non-matching opener,
+and prices each against the head's full benefit. If matching is
+the mechanism, killing the match should cost most of the 0.825
+while killing a random position should cost little.
