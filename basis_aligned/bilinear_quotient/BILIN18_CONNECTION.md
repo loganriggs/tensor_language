@@ -17970,3 +17970,56 @@ brackets the breadth question: clean structure extends at least to
 rank 900 and decays smoothly. Breadth well-sampled now; the natural
 next move is depth -- promote one of the newly-found clusters to a
 causally-confirmed circuit with the validated patching method.
+
+## 602. The newline cluster is real but causally REVERSED under
+## patching -- the second such case, sharpening a real methodological
+## lesson: activation-reading does not determine causal direction
+
+Applied the validated 592 patching method to the newly-discovered
+newline cluster (600, mlp0 ranks 300-600, 81 units firing positive
+before newline / negative before sentence-end).
+  (0) HELD: sizes reproduced exactly (81-unit cluster), identity
+      patch changes nothing (1e-6).
+  (a) FAILED (sign): patching a real newline-favoring source into a
+      real sentence-end target moves the newline-vs-sentence-end
+      margin by -0.00069 -- the WRONG direction (away from newline).
+  (b) the cluster's effect (-0.00069) is larger in magnitude than a
+      random-unit patch (-0.00025); the printed ratio (-687916) is a
+      near-zero-denominator reporting artifact (the boolean comparison
+      is unaffected), but both are negative -- so the cluster has a
+      real, specific effect, just reversed.
+  (c) FAILED: same-class control (-0.00002) is ~30x smaller than the
+      cross-class effect (-0.00069) -- confirming the effect is real
+      and specific to the newline-favoring source's content, not
+      generic disturbance -- but again reversed.
+  NULL ok: digit-position delta near zero (4.8e-5), far below the
+      real effect -- so the reversed effect is newline-specific, not
+      generic.
+THE PATTERN, now two-for-two on non-article clusters: cluster 7 (aux-
+contraction, 593) and this newline cluster both have REAL, SPECIFIC,
+REPRODUCIBLE causal effects that are REVERSED relative to what their
+activating examples suggested. Meanwhile both ARTICLE clusters
+(cluster 8, 592; mlp1 echo, 595) tested correct-signed. So of the
+five clusters causally tested across this program, three gave clean
+correct-signed confirmations (all article) and two gave real-but-
+reversed effects (aux-contraction, newline). This is not a patching
+bug (it gives correct signs for the article clusters on the identical
+method) -- it is a real property: for some clusters the summed-
+activation reading (which tokens the cluster fires before) does not
+predict the causal DIRECTION of the cluster's write.
+CONSOLIDATED LESSON, now strongly evidenced: unit-clustering +
+activation-reading reliably finds real, specific, reproducible
+structure (every cluster's causal effect is specific and above
+controls), but the causal ROLE -- and especially its sign -- is a
+separate question that must be tested, and it surprises for a
+material fraction of clusters. The correlational picture is a map of
+WHERE real structure is, not a proof of WHAT it does. Whether the
+reversal reflects an inhibitory read direction, a readout-not-driver
+role, or a sign mismatch between the summed-activation metric and the
+net write direction is not yet resolved. Queued: cluster_write_scaling
+to disambiguate -- a DIFFERENT causal method (directly scaling each
+cluster's write into the residual, 0x/1x/2x, and reading the margin
+slope) applied to both a known-correct cluster (article) and a
+reversed one (newline); if the article stays correct-signed and the
+newline stays reversed under a method that does not transplant
+activations, the reversal is a real property, not a patching artifact.

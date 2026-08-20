@@ -1,0 +1,9 @@
+(0a) reproduced sizes [81, 54, 37, 31, 22, 12, 10, 8, 7, 6, 6, 5, 4, 4, 4, 3, 3, 1, 1, 1]: HELD | newline cluster n=81
+source (newline-favoring): 1059, target (sentence-end-favoring): 1728
+(0b) identity mean |delta| 0.000001: HELD
+(a) newline-cluster patch mean delta -0.00069 (sign): FAILED
+(b) random-unit patch mean delta -0.00025 (ratio -687916.58): FAILED
+(c) same-class patch mean delta -0.00002 vs cross-class -0.00069: FAILED
+NULL: digit-position delta 4.7522733478588816e-05 vs real -0.00069: ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_cluster_patching_results.json (41s)
