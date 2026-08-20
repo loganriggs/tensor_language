@@ -1,0 +1,13 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+zero: shift {'7.3': 0.311, '8.3': 0.205, '8.4': 0.183} | rankcorr {'7.3': 0.698, '8.3': 0.783, '8.4': 0.789} | dCE 0.0567
+patswap: shift {'7.3': 0.332, '8.3': 0.214, '8.4': 0.219} | rankcorr {'7.3': 0.667, '8.3': 0.731, '8.4': 0.739} | dCE -0.0013
+valswap: shift {'7.3': 0.317, '8.3': 0.217, '8.4': 0.193} | rankcorr {'7.3': 0.67, '8.3': 0.761, '8.4': 0.77} | dCE 0.0623
+permute: shift {'7.3': 0.42, '8.3': 0.252, '8.4': 0.235} | rankcorr {'7.3': 0.565, '8.3': 0.703, '8.4': 0.708} | dCE 0.0418
+gauss: shift {'7.3': 0.594, '8.3': 0.36, '8.4': 0.366} | rankcorr {'7.3': 0.356, '8.3': 0.526, '8.4': 0.534} | dCE 0.1428
+(a) permute control also >=0.15 (metric saturates): HELD
+(b) CE separates zero from gauss by >=0.05: FAILED
+(c) rank corr separates patswap from gauss: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/shift_metric_audit_results.json (5s)

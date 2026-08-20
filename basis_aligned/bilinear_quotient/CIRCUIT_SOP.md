@@ -88,10 +88,13 @@ Two honest outcomes, both publishable:
   ENRICHED false -> "input writer composition does NOT distinguish
                     members (top ratio r)" -- a real negative that
                     tells the next agent to look downstream.
-Escalate only if ENRICHED: for an attention component, copy
-qk_writer_decomp.py's pattern to name what its score compares; for
-an MLP, check whether the enriched writer is m0 (the universal
-identity code, 411/415).
+Escalation is LADDER-TIER, never blocking the merge: if ENRICHED,
+note the target in the record and (only if you have time after
+step 6) copy qk_writer_decomp.py's pattern to name what an
+attention component's score compares -- that script is hard-coded
+to the induction heads, so adapting it is a new-script job, not a
+5-second step. For an MLP, check whether the enriched writer is m0
+(the universal identity code, 411/415).
 
 ## Step 3 -- surface program (CPU, ~15s) [DEMOTED; context only]
     p = cl.leaf_program(tag)               # heldout + null
@@ -121,8 +124,13 @@ draws and varied):
     f = cl.examples_filtered(tag, d, kind, n=5)   # kind: subword,
         # space_word, digit, punct, capitalized, newline
     cl.story_test(tag, d, [x['gi'] for x in f['draw']], preds)
-A behavioral claim is KEPT only if story_test['beats_base_rate']
-is true on the class it names (these leaves are ~50/50 two-signed,
+A behavioral claim is KEPT only if cl.story_test_class(tag, d,
+kind, pred_help)['ROBUST'] is true on the class it names -- a
+single seed-11 draw passes by chance about 2 times in 5 (wave-3
+seed sweep), so ROBUST demands seed stability AND whole-population
+significance. Also state how many (class, direction) pairs you
+tested: with all 12 pairs searched, require p <= 0.10/12 on the
+population, or pre-declare the pair before looking (these leaves are ~50/50 two-signed,
 so raw hit counts prove nothing). Otherwise record the numbers and
 write "no behavioral claim survives base-rate testing".
 

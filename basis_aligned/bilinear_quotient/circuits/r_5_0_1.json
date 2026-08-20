@@ -1,0 +1,504 @@
+{
+ "schema_version": 1,
+ "tag": "r.5.0.1",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "components": [
+  "('pca', 'a4', 'r.5.0', (0, 2))",
+  "('pca', 'a3', 'r.5.0', (10, 16))",
+  "('pca', 'a3', 'r.5.0', (4, 10))",
+  "('pca', 'a2', 'r.5.0', (0, 2))"
+ ],
+ "members": {
+  "n": 864
+ },
+ "base_ce": {
+  "member_mean": 5.555,
+  "frac_lt3": 0.213
+ },
+ "causal": {
+  "abs_dce_members": 0.847,
+  "abs_dce_offslice": 0.163,
+  "concentration": 5.2,
+  "dce_members": 0.101,
+  "dce_pos": -0.253,
+  "dce_neg": 0.457,
+  "n_pos": 433,
+  "n_neg": 431,
+  "minority_share": 0.499,
+  "base_ce_member_mean": 5.555,
+  "base_ce_frac_lt3": 0.213
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 58959,
+    "context": "efoodlikeItalianfood *inhale* Idon't",
+    "target": "even",
+    "base_ce": 6.98,
+    "dce": -1.69
+   },
+   {
+    "gi": 108406,
+    "context": " nave, chancel, south porch,\nand south is",
+    "target": "le",
+    "base_ce": 1.79,
+    "dce": 5.41
+   },
+   {
+    "gi": 82899,
+    "context": "ant lilies that dominate bouquets and their little bell shapes",
+    "target": " could",
+    "base_ce": 11.47,
+    "dce": -1.34
+   }
+  ],
+  "random": [
+   {
+    "gi": 184746,
+    "context": "\n- Ribbon, on hand or $1\n- Hot glue",
+    "target": ",",
+    "base_ce": 2.69,
+    "dce": -1.25
+   },
+   {
+    "gi": 45928,
+    "context": " noticed the master warning light on my dash and i was nissan",
+    "target": " alt",
+    "base_ce": 4.0,
+    "dce": -1.69
+   },
+   {
+    "gi": 138810,
+    "context": "ly/IytIpq)\nMEMAC Og",
+    "target": "il",
+    "base_ce": 1.29,
+    "dce": 0.01
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "mechanism": {
+  "level": "input_decomp",
+  "machinery": [
+   "a4",
+   "a3",
+   "a2"
+  ],
+  "table": {
+   "a4": {
+    "writers": {
+     "wte": {
+      "member": 0.0037,
+      "offslice": 0.0035,
+      "null": 0.0037,
+      "ratio": 1.06
+     },
+     "a0": {
+      "member": 0.0005,
+      "offslice": 0.0006,
+      "null": 0.0005,
+      "ratio": 0.898
+     },
+     "m0": {
+      "member": 0.6025,
+      "offslice": 0.5873,
+      "null": 0.5939,
+      "ratio": 1.026
+     },
+     "a1": {
+      "member": 0.0142,
+      "offslice": 0.0131,
+      "null": 0.0123,
+      "ratio": 1.08
+     },
+     "m1": {
+      "member": 0.0266,
+      "offslice": 0.0307,
+      "null": 0.0336,
+      "ratio": 0.866
+     },
+     "a2": {
+      "member": 0.0347,
+      "offslice": 0.036,
+      "null": 0.0354,
+      "ratio": 0.964
+     },
+     "m2": {
+      "member": 0.1138,
+      "offslice": 0.1203,
+      "null": 0.1203,
+      "ratio": 0.946
+     },
+     "a3": {
+      "member": 0.0286,
+      "offslice": 0.0289,
+      "null": 0.0286,
+      "ratio": 0.988
+     },
+     "m3": {
+      "member": 0.1755,
+      "offslice": 0.1796,
+      "null": 0.1718,
+      "ratio": 0.977
+     }
+    },
+    "top": [
+     [
+      "a1",
+      {
+       "member": 0.0142,
+       "offslice": 0.0131,
+       "null": 0.0123,
+       "ratio": 1.08
+      }
+     ],
+     [
+      "wte",
+      {
+       "member": 0.0037,
+       "offslice": 0.0035,
+       "null": 0.0037,
+       "ratio": 1.06
+      }
+     ],
+     [
+      "m0",
+      {
+       "member": 0.6025,
+       "offslice": 0.5873,
+       "null": 0.5939,
+       "ratio": 1.026
+      }
+     ],
+     [
+      "a3",
+      {
+       "member": 0.0286,
+       "offslice": 0.0289,
+       "null": 0.0286,
+       "ratio": 0.988
+      }
+     ],
+     [
+      "m3",
+      {
+       "member": 0.1755,
+       "offslice": 0.1796,
+       "null": 0.1718,
+       "ratio": 0.977
+      }
+     ]
+    ],
+    "top_ratio": 1.08,
+    "null_top_ratio": 1.094,
+    "ENRICHED": false,
+    "BEATS_NULL": false
+   },
+   "a3": {
+    "writers": {
+     "wte": {
+      "member": 0.0036,
+      "offslice": 0.0034,
+      "null": 0.0032,
+      "ratio": 1.063
+     },
+     "a0": {
+      "member": 0.0007,
+      "offslice": 0.0008,
+      "null": 0.0008,
+      "ratio": 0.906
+     },
+     "m0": {
+      "member": 0.773,
+      "offslice": 0.759,
+      "null": 0.7535,
+      "ratio": 1.019
+     },
+     "a1": {
+      "member": 0.0174,
+      "offslice": 0.0161,
+      "null": 0.0168,
+      "ratio": 1.079
+     },
+     "m1": {
+      "member": 0.0315,
+      "offslice": 0.0369,
+      "null": 0.0375,
+      "ratio": 0.854
+     },
+     "a2": {
+      "member": 0.0409,
+      "offslice": 0.0423,
+      "null": 0.0439,
+      "ratio": 0.965
+     },
+     "m2": {
+      "member": 0.1329,
+      "offslice": 0.1415,
+      "null": 0.1444,
+      "ratio": 0.939
+     }
+    },
+    "top": [
+     [
+      "a1",
+      {
+       "member": 0.0174,
+       "offslice": 0.0161,
+       "null": 0.0168,
+       "ratio": 1.079
+      }
+     ],
+     [
+      "wte",
+      {
+       "member": 0.0036,
+       "offslice": 0.0034,
+       "null": 0.0032,
+       "ratio": 1.063
+      }
+     ],
+     [
+      "m0",
+      {
+       "member": 0.773,
+       "offslice": 0.759,
+       "null": 0.7535,
+       "ratio": 1.019
+      }
+     ],
+     [
+      "a2",
+      {
+       "member": 0.0409,
+       "offslice": 0.0423,
+       "null": 0.0439,
+       "ratio": 0.965
+      }
+     ],
+     [
+      "m2",
+      {
+       "member": 0.1329,
+       "offslice": 0.1415,
+       "null": 0.1444,
+       "ratio": 0.939
+      }
+     ]
+    ],
+    "top_ratio": 1.079,
+    "null_top_ratio": 1.043,
+    "ENRICHED": false,
+    "BEATS_NULL": true
+   },
+   "a2": {
+    "writers": {
+     "wte": {
+      "member": 0.0014,
+      "offslice": 0.0013,
+      "null": 0.0012,
+      "ratio": 1.067
+     },
+     "a0": {
+      "member": 0.0007,
+      "offslice": 0.0008,
+      "null": 0.0008,
+      "ratio": 0.861
+     },
+     "m0": {
+      "member": 0.9435,
+      "offslice": 0.9385,
+      "null": 0.9395,
+      "ratio": 1.005
+     },
+     "a1": {
+      "member": 0.0203,
+      "offslice": 0.0188,
+      "null": 0.0187,
+      "ratio": 1.08
+     },
+     "m1": {
+      "member": 0.0341,
+      "offslice": 0.0406,
+      "null": 0.0397,
+      "ratio": 0.839
+     }
+    },
+    "top": [
+     [
+      "a1",
+      {
+       "member": 0.0203,
+       "offslice": 0.0188,
+       "null": 0.0187,
+       "ratio": 1.08
+      }
+     ],
+     [
+      "wte",
+      {
+       "member": 0.0014,
+       "offslice": 0.0013,
+       "null": 0.0012,
+       "ratio": 1.067
+      }
+     ],
+     [
+      "m0",
+      {
+       "member": 0.9435,
+       "offslice": 0.9385,
+       "null": 0.9395,
+       "ratio": 1.005
+      }
+     ],
+     [
+      "a0",
+      {
+       "member": 0.0007,
+       "offslice": 0.0008,
+       "null": 0.0008,
+       "ratio": 0.861
+      }
+     ],
+     [
+      "m1",
+      {
+       "member": 0.0341,
+       "offslice": 0.0406,
+       "null": 0.0397,
+       "ratio": 0.839
+      }
+     ]
+    ],
+    "top_ratio": 1.08,
+    "null_top_ratio": 1.001,
+    "ENRICHED": false,
+    "BEATS_NULL": true
+   }
+  },
+  "verdicts": {
+   "a4": {
+    "ENRICHED": false,
+    "BEATS_NULL": false,
+    "top_ratio": 1.08,
+    "null_top_ratio": 1.094
+   },
+   "a3": {
+    "ENRICHED": false,
+    "BEATS_NULL": true,
+    "top_ratio": 1.079,
+    "null_top_ratio": 1.043
+   },
+   "a2": {
+    "ENRICHED": false,
+    "BEATS_NULL": true,
+    "top_ratio": 1.08,
+    "null_top_ratio": 1.001
+   }
+  },
+  "line": "Input writer composition does NOT distinguish members for any of a4/a3/a2 (top writer a1, ratio ~1.06-1.08 in all three, matching null ~1.0-1.09); all three components ENRICHED=False -- no writer is enriched into these probes over the null. Mechanism is a negative result: the machinery is causally selective (concentration 5.2, both halves clear) but its input composition looks like generic residual (dominated by m0, the universal identity code, at ratio ~1.0-1.03), so the selective signal is not explained by WHICH writer feeds it -- look downstream (what the probes compute / what reads them) next."
+ },
+ "story": {
+  "program": [
+   [
+    "circ_r_0_0_1"
+   ]
+  ],
+  "program_bacc": 0.556,
+  "program_null": 0.442,
+  "mechanism_level": "none",
+  "behavior_line": "no behavioral claim survives base-rate testing",
+  "story_test_by_kind": {
+   "subword": {
+    "n": 5,
+    "hits": 4,
+    "base_rate_help": 0.447,
+    "expected_hits": 2.23,
+    "p_value": 0.128,
+    "beats_base_rate": false
+   },
+   "newline": {
+    "n": 5,
+    "hits": 4,
+    "base_rate_help": 0.447,
+    "expected_hits": 2.23,
+    "p_value": 0.128,
+    "beats_base_rate": false
+   },
+   "space_word": {
+    "n": 5,
+    "hits": 2,
+    "base_rate_help": 0.447,
+    "expected_hits": 2.23,
+    "p_value": 0.7389,
+    "beats_base_rate": false
+   },
+   "punct": {
+    "n": 5,
+    "hits": 2,
+    "base_rate_help": 0.447,
+    "expected_hits": 2.23,
+    "p_value": 0.7389,
+    "beats_base_rate": false
+   },
+   "digit": {
+    "n": 5,
+    "hits": 3,
+    "base_rate_help": 0.447,
+    "expected_hits": 2.23,
+    "p_value": 0.4009,
+    "beats_base_rate": false
+   },
+   "capitalized": {
+    "n": 5,
+    "hits": 2,
+    "base_rate_help": 0.447,
+    "expected_hits": 2.23,
+    "p_value": 0.7389,
+    "beats_base_rate": false
+   }
+  }
+ },
+ "certification": [
+  {
+   "test": "selectivity",
+   "bar": "concentration>=3 both halves",
+   "value": 5.2,
+   "half0": 5.27,
+   "half1": 5.12,
+   "verdict": "HELD",
+   "source": "sonnet-wave3-a leaf_ablate+sign_stats_half",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "mechanism_input_decomp",
+   "bar": "ENRICHED (writer contribution enriched over null)",
+   "value": "a4=False,a3=False,a2=False",
+   "verdict": "FAILED",
+   "source": "sonnet-wave3-a leaf_input_decomp.py",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "surface_program",
+   "bar": "bacc>=0.75 and null<=0.6, doc-disjoint",
+   "value": 0.556,
+   "null": 0.442,
+   "verdict": "FAILED",
+   "source": "sonnet-wave3-a leaf_program",
+   "date": "2026-08-20"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "SOP-v3",
+   "leaf_input_decomp.py",
+   "leaf_program"
+  ],
+  "agent": "sonnet-wave3-a",
+  "lib_rev": "020e43286e5133b70ae8d7405a80a2c5edf1b66d"
+ }
+}

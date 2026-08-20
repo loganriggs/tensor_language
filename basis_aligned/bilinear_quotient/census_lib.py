@@ -263,6 +263,33 @@ def examples_filtered(tag,d,kind,n=5,seed=11):
                     'dce':round(float(d[gi]),2)})
     return {'kind':kind,'n_available':len(hits),'draw':out}
 
+def story_test_class(tag,d,kind,pred_help,seeds=(1,2,3,4,11),
+                     n=5):
+    """Robust behavioral test (2026-08-20, from wave-3 friction:
+    a single seed-11 n=5 draw passes by chance ~2/5 of the time).
+    Runs story_test on a filtered draw for each seed AND on the
+    FULL population of that class. ROBUST requires both: >=60% of
+    seeds pass and the whole-population binomial p <= 0.10."""
+    from math import comb
+    per=[]
+    for s in seeds:
+        f=examples_filtered(tag,d,kind,n=n,seed=s)
+        if not f['draw']: continue
+        st=story_test(tag,d,[x['gi'] for x in f['draw']],
+                      [pred_help]*len(f['draw']))
+        per.append({'seed':s,'hits':st['hits'],'n':st['n'],
+                    'p_value':st['p_value']})
+    frac=(sum(p['p_value']<=0.10 for p in per)/len(per)
+          if per else 0.0)
+    fall=examples_filtered(tag,d,kind,n=10**9,seed=0)
+    gis=[x['gi'] for x in fall['draw']]
+    pop=story_test(tag,d,gis,[pred_help]*len(gis)) if gis else \
+        {'n':0,'hits':0,'p_value':1.0}
+    return {'kind':kind,'pred_help':bool(pred_help),
+            'n_available':fall['n_available'],'per_seed':per,
+            'seed_pass_frac':round(frac,2),'population':pop,
+            'ROBUST':bool(frac>=0.6 and pop['p_value']<=0.10)}
+
 def story_test(tag,d,gis,pred_help):
     """Base-rate significance for a behavioral story (2026-08-20,
     from the wave-2 base-rate objection: two-signed leaves give

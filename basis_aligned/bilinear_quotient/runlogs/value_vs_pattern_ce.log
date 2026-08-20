@@ -1,0 +1,17 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+6.3: zero match 0.0512 all 0.0518 | patswap match -0.0021 all 0.0269 | valswap match 0.0584 all 0.058
+4.7: zero match -0.0035 all 0.0035 | patswap match -0.0223 all 0.0034 | valswap match 0.0016 all 0.0064
+6.5: zero match 0.0178 all 0.0104 | patswap match 0.0019 all 0.0063 | valswap match 0.0322 all 0.0165
+4.1: zero match 0.0125 all 0.0103 | patswap match 0.0187 all 0.0132 | valswap match 0.014 all 0.0115
+(a) a6.h3 replicates (pattern free, values cost): HELD
+(b) a4.h7 same ordering: HELD
+(c_general) unnamed pairs same ordering: FAILED
+(d) deletion costs >0 everywhere: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/value_vs_pattern_ce_results.json (4s)

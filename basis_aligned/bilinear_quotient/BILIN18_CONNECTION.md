@@ -10270,3 +10270,54 @@ ledger AND the published report; (b) CE still separates zeroing
 from a random write by >=0.05 nats; (c) rank correlation
 separates patswap from random by >=0.10. No claim about a6.h3's
 pattern-vs-payload division is being recorded until this returns.
+
+## 422. INSTRUMENT CORRECTION: top-read shift is not content attribution
+
+shift_metric_audit settled 421 against my own headline. Controls
+at a6.h3, deep trio (7.3/8.3/8.4):
+  arm        top-read shift        rank corr      dCE(match)
+  zero       0.311/0.205/0.183     0.70/0.78/0.79   +0.057
+  patswap    0.332/0.214/0.219     0.67/0.73/0.74   -0.001
+  valswap    0.317/0.217/0.193     0.67/0.76/0.77   +0.062
+  permute    0.420/0.252/0.235     0.57/0.70/0.71   +0.042
+  gauss      0.594/0.360/0.366     0.36/0.53/0.53   +0.143
+(a) HELD: the position-permuted control shifts MORE than any real
+arm, and a norm-matched Gaussian write shifts twice as much. The
+argmax-shift metric measures perturbation SIZE, not content.
+STANDING CORRECTION: every cross-arm shift comparison in 416-421
+must be read as "a perturbation the size of this write", not as
+content attribution. What survives untouched is WITHIN-arm
+dissociation -- 408's finding that deleting a6.h3 shifts the deep
+trio 19-29% while leaving the early band at exactly 0% is one arm
+measured on different heads, so it stands. (b) FAILED (a random
+write costs MORE than deletion: 0.143 vs 0.057 -- noise is worse
+than absence). (c) HELD: rank correlation degrades gracefully and
+separates real arms from noise. Instruments going forward: dCE
+for function, rank correlation for pattern similarity; argmax
+shift only within a single arm.
+
+## 423. FUNCTIONAL DISSOCIATION: what a head broadcasts matters, where it reads does not
+
+The audit's dCE column contained the real result, and
+value_vs_pattern_ce replicated it at n=32 rows across four heads:
+  a6.h3  zero +0.051 | pattern-swap -0.002 | value-swap +0.058
+  a4.h7  zero -0.004 | pattern-swap -0.022 | value-swap +0.002
+  a6.h5  zero +0.018 | pattern-swap +0.002 | value-swap +0.032
+  a4.h1  zero +0.013 | pattern-swap +0.019 | value-swap +0.014
+(a) HELD for a6.h3: giving it a sibling head's READ PATTERN while
+keeping its own values is FREE (-0.002), while keeping its own
+pattern with the sibling's VALUES costs as much as deleting it.
+(b) HELD: the other named courier a4.h7 orders the same way. (c)
+FAILED as a general law: a6.h5 follows the pattern but a4.h1 does
+not -- so this is common, not universal. (d) FAILED: deleting
+a4.h7 costs nothing at match positions (-0.004) even though 407
+measured it re-aiming 5.5's reads by 18.6% -- another instance of
+read-shifts not being function.
+Emerging statement, with its own caveat queued: for these heads
+the functional payload is WHICH value-subspace they broadcast,
+not where they read from. pattern_necessity queued to decide
+whether that is real or an artifact of sibling patterns being
+similar: uniform-over-prefix, reversed, and cross-row patterns
+(all definitely wrong), plus the h3-h0 pattern correlation as a
+diagnostic. Registered: uniform and cross-row arms <= 0.02 nats
+if positions truly do not matter.

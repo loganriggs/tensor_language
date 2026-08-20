@@ -1,0 +1,15 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+6.3: zero match 0.0512 all 0.0518 | patswap match -0.0021 all 0.0269 | unif match 0.0233 all 0.0328 | rev match 0.0465 all 0.0511 | crossrow match 0.0168 all 0.0242
+sibling pattern rank corr (h3 vs h0): 0.226
+(a) uniform pattern <=0.02 (positions irrelevant): FAILED
+(b) cross-row pattern <=0.02: HELD
+(c_diagnostic) sibling corr reported: HELD
+(d) zero arm reproduces >0.02: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/pattern_necessity_results.json (10s)
