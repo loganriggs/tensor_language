@@ -760,13 +760,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   severity. So there is a real, reproducible dissociation — it is just a claim about
   <em>robustness</em>, not about a bias, and it is much less exciting than what we first wrote
   down.</p>
-  <p class="q">The likely explanation is now being tested rather than asserted: punctuation may be
-  spared simply because it is <em>predictable</em>, and confident predictions survive damage. If
-  matching positions on the intact model's confidence makes the punctuation advantage disappear,
-  nothing punctuation-specific is left to explain — and the honest end of this thread is a
-  methodological one. Three separate readings of the same measurement died here: a circuit claim
-  (it is not leaf-specific), a frequency claim (frequency does not explain it), and a bias claim
-  (selection did). The dissociation that survived all three is the smallest of them.</p>
+  <p>Two more readings then died. Predictability does not explain it: matching positions on the
+  intact model's confidence leaves 91% of the sparing intact, and damage turns out to be roughly
+  flat across confidence deciles rather than falling. And the effect is not universal damage
+  either — a random subspace of the same size in the same components produces the opposite sign
+  at punctuation (+0.007), while ablating real machinery of three different kinds produces
+  sparing (bundle −0.025, one attention head −0.008, one MLP −0.062).</p>
+  <p class="q">Where it ends: ablating real machinery in this model shifts competence away from
+  ordinary words and toward punctuation and digits; arbitrary perturbations of the same size do
+  not. Five readings were tested and four died — a circuit claim, a frequency claim, a
+  selection-driven bias claim, and a predictability claim — and the finer class profile turns out
+  to depend on which machinery you remove (newlines, for instance, are damaged by one intervention
+  and spared by another). The surviving statement is narrow and true, which is the most this
+  particular thread supports. Its real yield was methodological: never compute a rate at positions
+  selected by the outcome you are measuring, and register a margin rather than a sign.</p>
 </section>
 
 <section class="col">

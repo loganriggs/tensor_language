@@ -1,0 +1,40 @@
+{
+ "profiles": {
+  "bundle": {
+   "punct": -0.0251,
+   "newline": 0.0269,
+   "digit": -0.0183,
+   "subword": -0.0044,
+   "space_word": 0.0143,
+   "capitalized": 0.0059
+  },
+  "random": {
+   "punct": 0.0068,
+   "newline": -0.0021,
+   "digit": 0.0255,
+   "subword": 0.0028,
+   "space_word": -0.0063,
+   "capitalized": 0.0011
+  },
+  "head": {
+   "punct": -0.0082,
+   "newline": -0.0012,
+   "digit": 0.0142,
+   "subword": 0.0054,
+   "space_word": 0.0009,
+   "capitalized": 0.0055
+  },
+  "mlp": {
+   "punct": -0.0615,
+   "newline": -0.0258,
+   "digit": 0.0146,
+   "subword": 0.0719,
+   "space_word": -0.002,
+   "capitalized": -0.0005
+  }
+ },
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": true,
+ "runtime_s": 98.1891610622406
+}

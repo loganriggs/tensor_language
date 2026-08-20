@@ -11690,3 +11690,45 @@ rank-matched subspace, a single head deletion and a single MLP
 mean-ablation. Registered: if all reproduce the profile (punct and
 digit spared, newline worst), the survivor is a UNIVERSAL DAMAGE
 SIGNATURE of this model rather than anything about a circuit.
+
+## 467. NOT a universal damage signature -- the arc closes with a narrow true statement
+
+damage_signature ran the identical class breakdown under four
+interventions on the same fresh rows:
+  arm      punct   newline   digit   subword  space_wd  capital
+  bundle  -0.0251  +0.0269  -0.0183  -0.0044  +0.0143  +0.0059
+  random  +0.0068  -0.0021  +0.0255  +0.0028  -0.0063  +0.0011
+  head    -0.0082  -0.0012  +0.0142  +0.0054  +0.0009  +0.0055
+  mlp     -0.0615  -0.0258  +0.0146  +0.0719  -0.0020  -0.0005
+(a) FAILED and (b) FAILED -- so the deflation does not land, and
+that is the informative outcome. A random rank-matched subspace
+produces the OPPOSITE sign at punctuation (+0.007) and at digits
+(+0.026). Real machinery of three different kinds all spare
+punctuation (-0.025 bundle, -0.008 head, -0.062 MLP), but their
+FINER profiles disagree: newline is the worst-damaged class under
+the bundle (+0.027) and a SPARED class under the MLP (-0.026);
+digits are spared only by the bundle.
+FINAL STATE OF THE ARC, and it closes here. Ablating real
+machinery in this model shifts competence away from ordinary words
+and toward punctuation; arbitrary perturbations of the same size
+do not. The finer class profile depends on which machinery is
+removed, so there is no single "damage signature" to name. Five
+readings were tested and four died: a CIRCUIT claim (455), a
+FREQUENCY claim (456), a BIAS claim built on selected positions
+(462, withdrawn from the published report), and a PREDICTABILITY
+claim (463). The survivor is narrow and true, which is all this
+thread supports.
+The lasting yield is methodological and is now enforced in the
+swarm's instructions: never compute a rate at positions selected
+by the outcome being measured (462), register a margin rather
+than a sign (459), and check a reconstructed quantity's norm
+against the residual before injecting it (443/447).
+Report updated and republished with the closed-out section.
+Next, back to mechanism: a14_pathway queued to escalate the
+program's ONE confirmed enrichment (a14 into r.3.0.2's late
+attention machinery, bootstrap-stable and recentering-robust)
+from a correlational statement about input composition to a
+causal one. Registered: (a) ablating a14 damages that leaf's
+members selectively at concentration >= 2, (b) an adjacent-depth
+control does not, (c) a14 and the leaf's own bundle are
+subadditive, i.e. one pathway rather than two.
