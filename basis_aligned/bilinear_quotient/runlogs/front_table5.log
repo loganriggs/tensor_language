@@ -1,0 +1,29 @@
+  [assert_disjoint front_table5] 0 of 96 priced rows appear in the fitting corpus -> ok
+(0) DISJOINT: HELD (800 fit rows, 96 priced)
+block 0: 22061 tokens, 120358 pairs tabulated
+block 1: 22061 tokens, 120358 pairs tabulated
+block 2: 22061 tokens, 120358 pairs tabulated
+
+baseline CE on held-out rows 3.1244
+block 0   delete: +0.7779
+block 0  ceiling: +0.0847
+block 0  unigram: +0.2034
+block 0     pair: +0.1561 (coverage 0.438)
+block 0 shuffled: +1.6334
+block 1   delete: +7.1919
+block 1  ceiling: +0.4176
+block 1  unigram: +1.1611
+block 1     pair: +0.9591 (coverage 0.438)
+block 1 shuffled: +3.5488
+block 2   delete: +1.2540
+block 2  ceiling: +0.1644
+block 2  unigram: +0.6087
+block 2     pair: +0.5096 (coverage 0.438)
+block 2 shuffled: +1.3520
+
+composition {0: 'pair', 1: 'pair', 2: 'pair'}: +1.6463 | sum of parts +1.6248 | ratio 1.01
+(a) each table beats half of deleting its block: HELD
+(b) pair beats token at blocks 1 and 2 by >=0.05: HELD
+(c) composition <= 1.3x sum: HELD (545's best rank allocation of all six blocks: 1.18)
+NULL (shuffled >= 2x unigram everywhere): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_table5_results.json (38s)

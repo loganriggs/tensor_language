@@ -1,0 +1,87 @@
+{
+ "baseline_ce": 3.1244,
+ "n_fit": 800,
+ "n_priced": 96,
+ "shared_rows": 0,
+ "blocks": {
+  "0": {
+   "delete": {
+    "cost": 0.7779,
+    "coverage": null
+   },
+   "ceiling": {
+    "cost": 0.0847,
+    "coverage": null
+   },
+   "unigram": {
+    "cost": 0.2034,
+    "coverage": null
+   },
+   "pair": {
+    "cost": 0.1561,
+    "coverage": 0.438
+   },
+   "shuffled": {
+    "cost": 1.6334,
+    "coverage": null
+   }
+  },
+  "1": {
+   "delete": {
+    "cost": 7.1919,
+    "coverage": null
+   },
+   "ceiling": {
+    "cost": 0.4176,
+    "coverage": null
+   },
+   "unigram": {
+    "cost": 1.1611,
+    "coverage": null
+   },
+   "pair": {
+    "cost": 0.9591,
+    "coverage": 0.438
+   },
+   "shuffled": {
+    "cost": 3.5488,
+    "coverage": null
+   }
+  },
+  "2": {
+   "delete": {
+    "cost": 1.254,
+    "coverage": null
+   },
+   "ceiling": {
+    "cost": 0.1644,
+    "coverage": null
+   },
+   "unigram": {
+    "cost": 0.6087,
+    "coverage": null
+   },
+   "pair": {
+    "cost": 0.5096,
+    "coverage": 0.438
+   },
+   "shuffled": {
+    "cost": 1.352,
+    "coverage": null
+   }
+  }
+ },
+ "best_mode": {
+  "0": "pair",
+  "1": "pair",
+  "2": "pair"
+ },
+ "composition": 1.6463,
+ "sum_parts": 1.6248,
+ "pred_0": true,
+ "pred_a": true,
+ "pred_b": true,
+ "pred_c": true,
+ "null_ok": true,
+ "runtime_s": 38.090150117874146
+}

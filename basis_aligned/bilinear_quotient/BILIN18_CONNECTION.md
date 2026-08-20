@@ -15293,3 +15293,55 @@ here rather than assumed harmless.
 front_table5 is queued to redo blocks 0, 1 and 2 and the
 composition on a clean split, with the overlap check as a
 registered gate that must pass before any cost is reported.
+
+## 549. The table ladder on clean text
+
+front_table5 rebuilt the whole ladder on a verified split -- fitted
+on census rows 0-799, priced on rows 800-895, with the interface
+bases also fitted on the fitting rows so 548's milder in-sample
+flag is closed too. cl.assert_disjoint passed at zero shared rows.
+Held-out baseline CE 3.1244.
+  block   delete   ceiling   unigram    pair    pair coverage
+    0     +0.7779  +0.0847   +0.2034  +0.1561      0.438
+    1     +7.1919  +0.4176   +1.1611  +0.9591      0.438
+    2     +1.2540  +0.1644   +0.6087  +0.5096      0.438
+  gap to ceiling closed by indexing on the pair:
+    block 0  0.118 -> 0.071   40%
+    block 1  0.743 -> 0.541   27%
+    block 2  0.445 -> 0.346   22%
+(0) HELD: zero priced rows in the fitting corpus.
+(a) HELD: every table costs less than half of deleting its block.
+(b) HELD: the pair beats the token by 0.202 at block 1 and 0.099
+at block 2, so 544's and 547's DIRECTION survives the correction
+at both blocks.
+(c) HELD: the three-block composition costs 1.6463 against 1.6248
+for the sum of its parts -- a ratio of 1.01. So 546's additivity
+result also survives on clean text, which is the one number from
+that section that can now be quoted.
+NULL ok: shuffled indices cost 1.63, 3.55 and 1.35, at least twice
+the unigram table everywhere.
+How much the contamination mattered, block by block, is itself
+informative:
+  block 0   542 said 0.182, clean says 0.203 for the same table
+  block 1   544 said 0.522, clean says 0.959
+  block 2   547 said 0.275, clean says 0.510
+Block 0 barely moved because its table is indexed by the TOKEN,
+and with 22,061 tokens seen and heavy repetition the coverage on
+held-out text is nearly complete. Blocks 1 and 2 nearly doubled
+because their tables are indexed by the PAIR, coverage on held-out
+text is 43.8%, and the contaminated evaluation had been enjoying
+near-total coverage. The size of the error tracked exactly the
+sparsity of the index, which is what one would expect and is a
+useful diagnostic for any future table.
+THE BENCHMARK COMPARISON REVERSES, and I am stating it against my
+own earlier claim. 546 said two tables at 0.67 beat the best rank
+allocation of all six blocks at 1.18. On clean text three tables
+cost 1.65. That is worse than 1.18, not better.
+The comparison is still not like for like -- 545's 1.18 was priced
+on different rows, with a baseline CE of 3.3536 against 3.1244
+here, and with its SVD basis fitted in-sample. So the honest
+position is that the table route's advantage is withdrawn and
+NEITHER route is currently measured cleanly against the other.
+matched_route is queued to price the rank allocation on exactly
+these held-out rows with an out-of-sample basis, so the two can
+finally be compared.
