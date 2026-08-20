@@ -1,0 +1,10 @@
+X shape (4000, 1152), W shape (1152, 1152)
+(0) full-rank relative loss 1.71e-06: HELD
+(a) real-embedding effective rank 541.99 (bar <64, ledger independently measured ~16): FAILED
+(b) random-direction effective rank 684.41, real/random ratio 0.792 (bar <=0.6): FAILED
+/venv/main/lib/python3.12/site-packages/sklearn/cluster/_hdbscan/hdbscan.py:722: FutureWarning: The default value of `copy` will change from False to True in 1.10. Explicitly set a value for `copy` to silence this warning.
+  warn(
+(c) 1 circuits, 1 leaves (r_min=270.99)
+   leaf 0: n=4000 rank=542 erank=541.99 examples=[',', '.', ' the', '\n', ' and', ' to', ' of', ' a']
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_attn0_ov_validate_results.json (43s)

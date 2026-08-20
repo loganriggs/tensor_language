@@ -17305,3 +17305,103 @@ causal circuit; and both getting harder (weaker stability, murkier
 reads, unstable causal signs) as the method is pushed to a less-
 characterized layer is itself informative about where this program's
 easy wins run out.
+
+## 588. RSPD's effective-rank metric does NOT match the established
+## task-loss rank for attn0's OV write -- a real metric mismatch,
+## traced and explained, not a contradiction
+
+Applied the real RSPD library to attn0's OV circuit (W = c_proj.weight
+@ c_v.weight, the "if this head attended fully to a position, what
+would it write" matrix) with X = real token embeddings, the exact
+input attn0 actually sees (254: attn0's input is exactly rms_norm
+(wte)). This program independently established (the folding
+programme, ~14796) that attn0's own write needs only 16 directions to
+keep task cost under 0.10 nats -- a strong, specific, previously-
+verified number, chosen precisely so RSPD's output could be graded
+against a known answer rather than another open question.
+  (0) HELD: full-rank sanity, relative error 1.7e-6.
+  (a) FAILED: the Roy-Vetterli effective rank of W's response on real
+      token embeddings is 541.99 -- 34x the ~16-direction bar, not
+      remotely the same ballpark.
+  (b) FAILED: effective rank on RANDOM directions (684.41) is barely
+      higher than on real embeddings (ratio 0.79, bar required
+      <=0.6) -- almost no sign that the vocabulary's own geometry is
+      more compact than generic directions, for this metric.
+  (c) The recursion found NOTHING to split on -- one leaf, the full
+      root, rank 542. No structure recovered at all by this method
+      on this component.
+TRACED, not dismissed: 14796's "16 directions" is a TASK-LOSS rank --
+replace the write with its rank-r SVD truncation IN THE RUNNING
+MODEL, measure the actual cross-entropy cost, find the r where that
+cost crosses a bar. This run's "effective rank" is an ENTROPY measure
+of how uniformly spread the response's own singular values are, with
+no reference to task loss at all -- a matrix can have many small,
+roughly-equal-sized tail singular values (each individually useless
+for the task) and still register a high entropy-based effective rank,
+because entropy penalizes any spread, not spread that MATTERS for
+performance. These are legitimately different quantities that happen
+to share the word "rank"; nothing here contradicts the loss-based
+16-direction finding, but nothing here confirms RSPD either.
+LESSON, on the record for every future rspd use in this program:
+effective_rank (spectral entropy) is not a stand-in for task-loss
+compressibility, and should not be treated as validating or
+invalidating a loss-based rank claim from elsewhere in this ledger.
+The correct like-for-like validation is RSPD's own Problem-1 rank-r
+surrogate (generate_lowrank_approximation / recovered_weight),
+substituted into the LIVE model and priced by actual cross-entropy at
+increasing r -- exactly this program's standing methodology, just
+computed via RSPD's closed form instead of a direct SVD truncation.
+Queued: rspd_attn0_ov_taskloss, the apples-to-apples version.
+
+## 589. RSPD VALIDATED, precisely: its rank-16 surrogate for attn0's
+## write costs 0.0943 nats, matching the ledger's independent
+## <0.10-nat bar almost exactly -- after a real design bug was
+## caught and fixed before wasting a run
+
+588 queued an "apples-to-apples" validation using task-loss instead
+of entropy. The first draft of that script had a genuine conceptual
+bug, caught by a quick local sanity check before it was queued to
+bqrunner or written up: it built W = c_proj.weight @ c_v.weight (a
+"combined all-9-heads OV matrix") and tried to substitute its rank-r
+truncation back into the live model by hooking c_v to emit W_r@x and
+making c_proj an identity pass-through. That factoring is invalid
+with multiple heads -- c_proj is a DENSE matrix mixing all 9 heads'
+128-dim contributions, each head has its OWN attention pattern, and
+Wo @ concat_h(pattern_h-weighted Wv_h@x) is not equal to a single
+shared-pattern-weighted (Wo@Wv@x) unless every head shares one
+pattern, which they don't. The bug was visible immediately: full-rank
+substitution (which should be a costless no-op) cost +4.9 nats.
+FIXED, mirroring 580's already-validated mlp0-Down approach exactly:
+instead of factoring a weight PRODUCT across a multi-head module,
+capture attn0's REAL c_proj INPUT over real FineWeb data -- the true,
+already-correctly-computed (all 9 heads' real patterns baked in)
+attention-weighted value vector -- and apply RSPD to the single
+honest linear layer W = c_proj.weight alone. One hook, one linear
+layer, no double-projection, no head-mixing ambiguity.
+RESULT, all four predictions HELD:
+  (0) full-rank substitution costs exactly 0 (sanity).
+  full rank-cost curve: r=4: +0.192, r=8: +0.139, r=16: +0.094,
+    r=32: +0.054, r=64: +0.017, r=128: +0.003, r=256: +0.001,
+    r=1152: 0.000 -- smooth, monotone (NULL ok).
+  (a) smallest r under the ledger's 0.10-nat bar is 16 -- landing
+      EXACTLY on the ledger's own number, not just the informative
+      2x range.
+  (b) HELD by a huge margin: at r=16, RSPD's surrogate costs 0.0943
+      against 1.33-1.41 for a random-direction projection of the same
+      rank (three draws) -- 14x+ better than random.
+  (c) RSPD's r=16 cost (0.0943) sits just under the ledger's own
+      <0.10 bar (~14796) -- a precise cross-tool agreement, not just
+      a ballpark match.
+This is the clean validation 578's toy and 580's first real
+application were building toward: RSPD's closed-form machinery,
+correctly scoped to a single honest linear layer with its real
+activations, reproduces this program's own independently-measured
+number almost exactly. 588 stands corrected in one respect: the
+entropy-based effective-rank mismatch it found and explained was real
+and its lesson (effective_rank != task-loss compressibility) still
+holds, but part of why that first attempt read so badly was ALSO the
+same multi-head OV-composition problem this run diagnoses and avoids
+-- worth remembering for any future attempt to analyze attention's OV
+circuit with RSPD: work per-head or on a genuine single linear layer
+(like c_proj alone), never a cross-head weight product substituted
+back into a live multi-head forward pass.
