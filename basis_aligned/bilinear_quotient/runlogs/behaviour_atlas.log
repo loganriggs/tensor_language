@@ -1,0 +1,61 @@
+newline: 350 targets
+digit: 223 targets
+sentence_end: 482 targets
+comma: 476 targets
+colon: 74 targets
+open_quote: 90 targets
+close_quote: 0 targets
+open_bracket: 59 targets
+close_bracket: 30 targets
+capitalized: 1693 targets
+a0 done
+a1 done
+a2 done
+a3 done
+a4 done
+a5 done
+a6 done
+a7 done
+a8 done
+a9 done
+a10 done
+a11 done
+a12 done
+a13 done
+a14 done
+a15 done
+a16 done
+a17 done
+m0 done
+m1 done
+m2 done
+m3 done
+m4 done
+m5 done
+m6 done
+m7 done
+m8 done
+m9 done
+m10 done
+m11 done
+m12 done
+m13 done
+m14 done
+m15 done
+m16 done
+m17 done
+       newline:  a12 ratio  14.44 (target +0.09934 vs other +0.00688) | pos-ctrl  -0.02 | random   2.41 | QUALIFIES
+         digit:   a8 ratio   3.79 (target +0.13355 vs other +0.03520) | pos-ctrl   1.53 | random   0.80 | QUALIFIES
+  sentence_end:  a10 ratio   3.25 (target +0.06537 vs other +0.02013) | pos-ctrl   0.83 | random   0.69 | QUALIFIES
+         comma:  a12 ratio   0.81 (target +0.00754 vs other +0.00932) | pos-ctrl   1.23 | random   0.87 | -
+         colon:  a15 ratio   4.19 (target +0.01839 vs other +0.00439) | pos-ctrl   2.92 | random   0.57 | -
+    open_quote:  a10 ratio  13.66 (target +0.27248 vs other +0.01995) | pos-ctrl   8.94 | random   0.88 | QUALIFIES
+  open_bracket:  a17 ratio   6.93 (target +0.06986 vs other +0.01008) | pos-ctrl   0.05 | random  -3.07 | QUALIFIES
+ close_bracket:  a13 ratio  45.81 (target +0.69408 vs other +0.01515) | pos-ctrl   1.22 | random  -2.14 | QUALIFIES
+   capitalized:  a17 ratio  26.89 (target +0.05405 vs other +0.00201) | pos-ctrl  12.54 | random   9.11 | QUALIFIES
+
+(a) POSITIVE CONTROL newline -> a12 with ratio >=5: HELD
+(b) >=3 other classes qualify: ['digit', 'sentence_end', 'open_quote', 'open_bracket', 'close_bracket', 'capitalized'] -> HELD
+(c) >=3 distinct leaders among them: ['a10', 'a13', 'a17', 'a8'] -> HELD
+NULL (no class fires on fully random targets): VIOLATED for ['newline', 'capitalized']
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/behaviour_atlas_results.json (136s)

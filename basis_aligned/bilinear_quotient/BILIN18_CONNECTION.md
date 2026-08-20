@@ -13429,3 +13429,110 @@ number. Its registered bar (c) makes the honest version explicit:
 if punctuation sits outside the bracket in more than one of the
 three, the bracket was set from a single population estimate and
 was wrong, and the finding is about the instrument.
+
+## 512. Tiers of understanding, and why 506 stopped too early
+
+User correction, and it is right. The newline head has a good
+behavioural characterization and no account of the computation
+that produces its input. Writing the ladder down so that future
+work states which rung it is on:
+  TIER 1  localization -- deleting X costs Y nats on behaviour B
+  TIER 2  behavioural -- what token X moves, at which positions,
+          by how much against the best competitor
+  TIER 3  first-order attribution -- which upstream writers feed
+          X, measured by silencing them one at a time
+  TIER 4  compositional -- the exact algebraic form: which
+          PRODUCTS of which upstream contributions produce X's
+          output
+  TIER 5  recursive -- the same treatment applied to those
+          contributions, down to the embedding
+Induction reached tier 2 with a named courier and trigger. The
+position-0 bias reached tier 2 and, after 507's correction, a
+clean tier-3 chain (m1 -> m2 -> m3 -> m4 -> the layer-5 stream).
+The newline head reached tier 2 and stalled at tier 3, where 506
+reported "diffuse input, no small variable set".
+That report was wrong about the model and right about the
+instrument. This network has NO SOFTMAX AND NO ACTIVATION
+FUNCTION. An MLP is Down[(Lx)*(Rx)], a quadratic form. An
+attention score is (q.k)(q2.k2)/128^2, a product of two bilinear
+forms. Silencing one writer at a time is a FIRST-ORDER probe, and
+a first-order probe applied to a multiplicative computation
+reports "nothing matters alone, everything matters together"
+regardless of whether the structure is simple or not. 506's own
+numbers are the signature: individual writers sum to 0.064 and
+jointly cost 0.140. I read that as diffuseness. It is the
+expected reading of a product by an instrument that can only
+subtract one factor at a time.
+The exact answer is available in closed form and costs no more
+than the ablation did. With writer parts p_i (exact to 1e-7),
+rms_norm a per-position scalar and rotary a rotation,
+    factor1(q,k) = C(q,k) * SUM_ij Q_i(q).K_j(k)
+where Q_i is writer i's rotated contribution to the query and K_j
+writer j's to the key -- so each factor of the score is an exact
+additive sum over 625 WRITER PAIRS, and the score, being
+factor1*factor2, decomposes the same way with factor2 as a weight.
+That is tier 4: not "which writer matters" but "which product of
+which two upstream contributions produces this score".
+newline_head_pairs is queued. It checks the decomposition twice
+(parts reproduce the layer input; the 625-term sum reproduces the
+head's real score), ranks pairs at newline-target queries against
+position-matched controls, and -- the bar that makes it a
+mechanism rather than a ranking -- rebuilds the head's score from
+its top ten pairs, runs the real model with the rebuilt score, and
+measures how much of the head's newline benefit survives.
+The same argument applies to every "diffuse" and "high-rank"
+negative in this ledger: the 3->4 chain, the syntax bus, the
+induction band's mutual covering. All were measured with
+first-order tools on a multiplicative network. They are now
+candidates for re-examination at tier 4 rather than settled
+negatives, and that is a substantial revision of what this
+program thinks it has ruled out.
+
+## 513. The behaviour-first screen generalizes to six more behaviours
+
+behaviour_atlas ran the concentration screen over ten behaviour
+classes at once -- ablating each of the 36 components once, with
+every class a different readout of the same forward passes, so ten
+behaviours cost what one did (136 seconds).
+  class          top   ratio   target      elsewhere   pos-ctrl
+  newline        a12   14.44  +0.09934     +0.00688     -0.02
+  close_bracket  a13   45.81  +0.69408     +0.01515      1.22
+  capitalized    a17   26.89  +0.05405     +0.00201     12.54
+  open_quote     a10   13.66  +0.27248     +0.01995      8.94
+  open_bracket   a17    6.93  +0.06986     +0.01008      0.05
+  colon          a15    4.19  +0.01839     +0.00439      2.92
+  digit           a8    3.79  +0.13355     +0.03520      1.53
+  sentence_end   a10    3.25  +0.06537     +0.02013      0.83
+  comma          a12    0.81  +0.00754     +0.00932      1.23
+  (close_quote had zero targets in this sample -- unevaluable,
+   and an instance of the populate-the-class rule biting again)
+(a) HELD: the positive control recovered a12 for newlines at
+14.44, reproducing 495 on a different sample.
+(b) HELD: six classes other than newline qualify (ratio >= 2 and
+beating their position-matched control by >= 50%).
+(c) HELD: four distinct components lead -- a8, a10, a13, a17. The
+screen is not just finding one general-purpose component.
+Two results stand out. Closing brackets: ablating a13 costs
++0.694 nats at those positions and +0.015 elsewhere, the largest
+concentrated effect this program has measured, and a bracket
+CLOSER is exactly the kind of thing that should have a dedicated
+mechanism. Digits: the leader is a8, which is independently one of
+the two components carrying the digit subspace found from a
+completely different direction (504/508/511). Two methods, one
+answer.
+NULL VIOLATED for newline (2.41) and capitalized (9.11), and the
+reason is a denominator I chose badly. "Elsewhere" was defined as
+the complement of the target, control AND random masks, so for a
+class whose targets carry elevated damage the remainder is biased
+downward, and any position set -- including a random one -- then
+scores above it. Capitalized covers 1693 of about 8000 positions,
+so its remainder is mostly easy lowercase continuations. The
+ratios above are inflated by an unknown amount for exactly the
+classes with many targets or large effects.
+This does not touch (a)-(c), which compare classes against their
+own position-matched controls rather than against the remainder,
+and it does not touch the absolute pairs, which are the numbers
+that matter. But the ratio column should not be quoted until
+behaviour_atlas2 re-runs it against the GLOBAL mean damage over
+all positions -- a denominator that cannot move when a class is
+large. Queued.
