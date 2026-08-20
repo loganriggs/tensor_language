@@ -17623,3 +17623,26 @@ or something else) is not resolved here and would need a distinct
 follow-up; the DIRECTION of the effect, and that it is real and
 specific rather than noise, is now well-established across three
 independent methods.
+
+## 594. Coda to 593: a quick weight-only diagnostic on the cluster 7
+## reversal is ambiguous, not a resolution -- flagged and shelved
+## rather than over-interpreted
+
+Quick, cheap check before moving on: does cluster 7's WRITE direction
+alone (unweighted sum of its 29 Down columns, dotted with the
+unembedding rows for am/had/wasn/'s) already show the reversal, or is
+it purely a downstream/nonlinear effect? Dot products: am -1.84,
+had -2.57, wasn -1.58, 's -3.25 -- ALL FOUR negative (the unweighted
+sum direction suppresses every one of these tokens somewhat), but 's
+is suppressed MOST, so the RELATIVE ordering (positive firing hurts
+'s more than the aux words) is actually consistent with 581's
+ORIGINAL reading, not the reversal 585/586/593 measured. This does
+not resolve anything -- an unweighted sum of Down columns ignores each
+unit's real, varying activation magnitude (h_j differs hugely across
+the 29 units and across contexts; the causal tests patch REAL
+activation vectors, not a uniform per-unit weight of 1), so this
+diagnostic and the causal measurements are not directly comparable.
+Recorded as a genuinely open loose end -- worth a properly-weighted
+follow-up (real per-unit activation magnitudes, not a uniform sum)
+if this specific mechanism is revisited, but not chased further now
+rather than over-interpret a quick, mismatched check.
