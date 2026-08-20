@@ -16748,3 +16748,143 @@ position-dependent (fixed query selects a referent by distance);
 (5) content induction is a distributed per-head-cheap front-loaded
 ~1 nat exception. Every step grounded in exact decomposition or
 validated ablation, quantified model-wide. Attention line complete.
+
+## 578. RSPD toy validation -- SVD + ablation-damage-covariance
+## clustering recovers known computational groups, including
+## nesting
+
+New direction: user proposed a general-purpose tool for finding
+reusable computational components (Github repo ThatE10/rspd,
+unreachable -- 404 / credential-use blocked by the permission
+classifier against a third-party repo, see below). Method as
+described: SVD(WX) on a component's output over real data (a fast
+local-reconstruction proxy standing in for the true nonlinear
+downstream effect), then random ablations of singleton/pair/group
+components, measured by the change in that reconstruction, then
+cluster components by covariance of their ablation damage across
+datapoints -- hierarchically, since some structure nests.
+Implemented this myself (not their code) and validated it on
+synthetic data with KNOWN computational groups before touching the
+real model, per the user's explicit ask. Toy: three independent
+"components" A, B, C write to disjoint blocks of a shared 15-dim
+output space via a block-structured weight matrix (within-block
+mixing only, so no output coordinate is a giveaway); each is
+independently active (Bernoulli gate) on ~half the data, mimicking
+real circuits that fire on a data subset; A is further split into
+two sub-latents A1/A2 sharing A's gate (co-active) but otherwise
+independent -- a hierarchical case.
+First attempt FAILED (a: ARI 0.094, b: hierarchy wrong) -- diagnosed
+as my bug, not the method: using the FULL-rank SVD basis (15
+components) included ~7 noise-floor directions with near-degenerate
+singular values, which have no canonical basis (an arbitrary
+rotation within a degenerate eigenspace) and mix across blocks
+arbitrarily, polluting the correlation matrix. Fixed: restrict
+ablation/clustering to the true signal rank only (found via the
+scree-elbow gap in the singular values, 8 here, matching the true
+latent dimension 2+2+3+1), leaving the noise floor fixed in every
+reconstruction. Predictions after the fix:
+  (0) HELD: full reconstruction error 9.34e-31 (exact).
+  (a) HELD: 3-cluster cut gives ARI 1.000 against {A1+A2, B, C} --
+      perfect top-level recovery.
+  (b) HELD: A1's and A2's components merge with each other (linkage
+      height 0.788) before the merged A cluster connects to B/C
+      (height 0.991) -- the hierarchy is recovered, not just the
+      flat partition.
+  (c) HELD: reconstructing block A using only its own cluster's
+      components loses 0.0014 of A's variance; using only the
+      other cluster (B+C's components) loses 2.00x A's variance --
+      the cluster found is the minimal sufficient set.
+  (d) NOT MEANINGFUL AS DESIGNED, a real finding not a bug: same-
+      cluster and cross-cluster pair-ablation damage BOTH give
+      ratio 1.00x versus the summed singleton damages. This is
+      mathematically forced, not a null result -- in an orthonormal
+      SVD basis, removing two orthogonal directions decomposes
+      reconstruction error additively by the Pythagorean theorem,
+      with no possible interaction term. Superadditivity can only
+      show up when the downstream readout is NONLINEAR (as in every
+      real superadditivity finding this program has made -- 540,
+      541, 543, 575, 577 -- all measured through the full nonlinear
+      forward pass and cross-entropy, not a linear reconstruction).
+      Correction for the real application: don't expect or test for
+      interaction in a linear local-reconstruction proxy; either use
+      a genuinely non-orthogonal target (as below) or verify
+      candidate clusters against the real nonlinear loss.
+  NULL ok: shuffling which sample each component's damage vector
+      belongs to drops ARI to -0.078 (chance).
+On the repo: github.com/ThatE10/rspd returns 404 from this box
+regardless of auth (curl to the GitHub API confirms "Not Found"),
+and every attempt to clone it using the account's PAT was blocked
+by the Claude Code permission classifier -- using a personal token
+against an unrelated third party's repo is exactly the kind of
+credential-exposure pattern that guard exists for, and repeated
+denials should not be routed around. Left it to the user (their own
+shell, `!` prefix, bypasses my permission path) rather than
+continuing to retry.
+Net: the method as I understand and implemented it is sound for its
+stated purpose -- recovering real, including nested, computational
+groupings from ablation-damage covariance -- with one important
+caveat now on record (linear reconstruction cannot show
+superadditivity; that check needs a non-orthogonal target or the
+real forward pass). Cleared to apply to a real, not-yet-clustered
+component. mlp0_unit_cluster queued next: 533/536 established mlp0
+exactly (signed sum of 4608 hidden-unit terms, output = Down_bias +
+sum h_j Down[:,j], write narrow) but never asked whether the 4608
+units group into reusable sub-computations.
+
+## 579. mlp0's hidden units cluster into real, stable, mildly
+## superadditive groups -- but the naming probe doesn't read them
+## cleanly yet
+
+First real application of 578's method. mlp0's per-unit
+contribution to the output is exact and closed-form (ablating a
+set S of units removes exactly sum_{j in S} h_j Down[:,j], no
+forward pass needed), so "local reconstruction" here means
+projecting that removed vector onto the top-r PCA directions of
+mlp0's REALIZED output over real FineWeb data (r=558 explains 95%
+of raw output variance on 4000 samples -- notably not 536's ~64,
+because that was a task-loss compression bound and this is a raw-
+variance bound on a different, stricter statistic; not a
+contradiction, a different measurement, flagged so it isn't
+conflated later). Computed exact singleton damage for the top 300
+units by importance (534's Down-norm x hidden-std ranking),
+correlated damage across N=4000 samples, hierarchically clustered
+(average linkage, cut to 20 clusters).
+REGISTERED PREDICTIONS:
+  (0) HELD: full-rank projection sanity, relative error 1.55e-7
+      against the exact closed form.
+  (a) HELD: the 20-cluster cut is not one dominant blob -- largest
+      cluster 101/300 units (34%), sizes taper smoothly (76, 29,
+      18, 16, 9, 6x3, ...) down to several size-1 clusters.
+  (b) HELD, the real test: split-half stability. Clustering the
+      SAME 300 units independently on two random data halves gives
+      Adjusted Rand Index 0.580 between the two halves' cluster
+      labels, versus -0.005 (chance) for a permutation null. The
+      clusters reflect real, reproducible structure in which units
+      co-affect the output together, not noise -- this is the load-
+      bearing result, since there is no ground truth to check
+      against on the real model.
+  (c) HELD, and genuinely meaningful this time (578's toy version
+      was tautological): same-cluster random pairs have damage/
+      singleton-sum ratio 1.032 vs 1.0002 for cross-cluster pairs.
+      Small but consistently positive -- mlp0's Down columns are
+      not orthogonal, so same-cluster units really do share
+      residual-stream directions, unlike the toy's forced-orthogonal
+      SVD basis.
+  (d) WEAK / not yet interpretable: named the 3 largest clusters by
+      taking their summed Down direction and reading off the
+      nearest frequent-token embeddings (logit-lens style). Results
+      were not cleanly nameable -- cluster 8 (101 units): "even",
+      "far", "wide", "a", "actually"; cluster 13 (76 units):
+      "After", "late", "Hotel", "com", "ere"; cluster 7 (29 units):
+      "end", "sh", "Is", "Will", "if". No obvious shared class.
+Honest read: the clustering itself is statistically real (stable
+out-of-sample, genuinely superadditive) -- these are not noise
+groupings. But the naming probe is wrong for this: these are INPUT-
+reading hidden units (h_j depends on the input via L_j/R_j), so a
+logit-lens on their shared OUTPUT (Down) direction is the wrong
+lens -- it asks "what token does this cluster's write look like"
+when the real question is "what input context makes this cluster
+fire". Follow-up should probe cluster activation against real
+example contexts (cl.context on top-activating tokens/positions for
+the cluster's summed h, as mlp0_units already does per-unit) rather
+than embedding-direction naming. Queued: mlp0_unit_cluster_examples.

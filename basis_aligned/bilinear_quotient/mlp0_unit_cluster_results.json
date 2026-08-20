@@ -1,0 +1,87 @@
+{
+ "N": 4000,
+ "K": 300,
+ "output_rank_r": 558,
+ "projection_relerr": 1.5512108575421735e-07,
+ "pred_0": true,
+ "n_clusters_at_0.5": 20,
+ "pred_a": true,
+ "stability_agreement": 0.5797948360127817,
+ "stability_null": -0.004539216060093435,
+ "pred_b": true,
+ "same_cluster_ratio": 1.031514573887469,
+ "cross_cluster_ratio": 1.0002122401717521,
+ "pred_c": true,
+ "top_clusters": [
+  {
+   "cluster": 8,
+   "n_units": 101,
+   "unit_ids": [
+    1737,
+    1492,
+    906,
+    1277,
+    597,
+    212,
+    641,
+    3481,
+    4270,
+    1693
+   ],
+   "top_tokens": [
+    " even",
+    " far",
+    " wide",
+    " a",
+    " actually"
+   ]
+  },
+  {
+   "cluster": 13,
+   "n_units": 76,
+   "unit_ids": [
+    874,
+    3120,
+    1179,
+    3574,
+    3457,
+    2606,
+    4525,
+    3946,
+    591,
+    3364
+   ],
+   "top_tokens": [
+    "After",
+    " late",
+    " Hotel",
+    "com",
+    "ere"
+   ]
+  },
+  {
+   "cluster": 7,
+   "n_units": 29,
+   "unit_ids": [
+    3128,
+    4085,
+    3745,
+    2379,
+    3714,
+    2109,
+    1156,
+    2158,
+    3819,
+    3816
+   ],
+   "top_tokens": [
+    " end",
+    "sh",
+    "Is",
+    " Will",
+    "if"
+   ]
+  }
+ ],
+ "runtime_s": 33.47923421859741
+}
