@@ -10070,3 +10070,38 @@ author never saw, hunt gerrymanders, verdict
 CONFIRM/WEAKEN/REFUTE appended to the record's certification. A
 Sonnet reviewer dry run was launched on r_0_3_0 to validate the
 loop live.
+
+## 414. Reviewer-two VALIDATED -- and its first objection becomes a rule; r.3.0's heads are local comparators
+
+REVIEWER DRY RUN (r.0.3.0): verdict CONFIRM under the v1 rules --
+gate reproduced byte-for-byte (concentration 6.61), fresh
+seed-11 examples 4/5. But the reviewer's gerrymander hunt landed
+the real finding: the story's SPECIFIC claim (helps rare/name
+tokens) was never exercised by the fresh draw -- every hit came
+from the catch-all "hurts ordinary words" branch, which is the
+base-rate direction -- and the record's own program-heldout test
+had already failed. Verdict rules upgraded to v2 in
+SWARM_RUNBOOK: a story whose specific claim went untested caps at
+WEAKEN unless a class-targeted draw passes 4/5; a failed
+program_bacc raises the same requirement. The r.0.3.0 story is
+flagged weak by the driver accordingly. Also fixed from the
+reviewer's friction notes: certification dedup key
+(test,source,date) must be populated or later reviews silently
+drop; cl.examples needs d= passed. Both loops (author, reviewer)
+are now validated live -- the swarm can run.
+
+R30 READ SEMANTICS: all three registered bars FAILED,
+informatively. At generic positions, 16.8's top reads are LOCAL
+(offset -1 carries 549/1008; 76% within 2 tokens) while 16.2's
+are diffuse mid-range; same-token reads are enriched 5-9x over
+the frequency-matched null (7-11% vs 1.2-1.6%) but are a small
+minority; the two heads disagree. (One metric was vacuous by
+construction and is void: 'read lands in query history' is
+trivially true for any causal read -- design flaw, stated.)
+Combined with 411 (m0|m0 dominant): r.3.0's machinery compares
+identity codes at SHORT RANGE -- same substrate as induction,
+different range regime; 16.8 looks like a local identity-code
+comparator (adjacent-token relations), not a match head. Queued:
+stack_writer_decomp -- the 8 costliest code-resistant heads' score
+inputs (registered diffuse-input hypothesis + universal-substrate
+count + the mechanism worklist table for the swarm).

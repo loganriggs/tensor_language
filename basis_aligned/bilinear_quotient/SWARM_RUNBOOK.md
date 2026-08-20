@@ -74,15 +74,26 @@ Reviewer = fresh Sonnet agent that did NOT author the record. Prompt:
 > score the story's help/hurt prediction against each example's dCE
 > sign; (3) hunt gerrymander: does the story predict anything, or would
 > "helps members" fit any leaf? State the strongest objection you found
-> even if the record survives. Verdict: CONFIRM (gate reproduces AND
-> story >=3/5 on fresh examples) / WEAKEN (gate reproduces, story <3/5
-> — story must be marked weak) / REFUTE (gate fails to reproduce).
+> even if the record survives. Verdict rules (v2, from the 414 dry
+> run): REFUTE if the gate fails to reproduce. Otherwise start from the
+> fresh-example score, then apply two demotions: (i) if the story's
+> SPECIFIC claim (the class it names) was never exercised by your draw
+> — all hits came from the catch-all branch — the verdict is at most
+> WEAKEN unless you draw 5 more examples FROM the named class (filter
+> members by the claim) and they score >=4/5; (ii) if the record's own
+> program_bacc FAILED its bar, CONFIRM likewise requires the
+> class-targeted draw at >=4/5. CONFIRM only when the gate reproduces
+> AND the specific claim survived a draw that could have killed it.
 > Append your review via cl.write_circuit(tag, {'certification':
-> [{'gate':'reviewer-two','verdict':..., 'concentration_recheck':...,
-> 'story_fresh_hits':'k/5','objection':...,'agent':'sonnet-reviewer'}]})
-> — write_circuit APPENDS certification entries, never overwrites. DO
-> NOT edit any other field or any other file. DO NOT commit. Report the
-> verdict and the objection.
+> [{'test':'reviewer-two','source':'sonnet-reviewer','date':'<UTC
+> date>','verdict':..., 'concentration_recheck':...,
+> 'story_fresh_hits':'k/5','objection':...}]}) — the dedup key is
+> (test, source, date); OMITTING THEM makes a second reviewer's entry
+> silently drop as a duplicate. Note: cl.examples(tag, d, ...) needs
+> d=cl.leaf_ablate(tag) passed in, else dce fields are silently
+> omitted. write_circuit APPENDS certification entries, never
+> overwrites. DO NOT edit any other field or any other file. DO NOT
+> commit. Report the verdict and the objection.
 Driver applies verdicts: REFUTE -> record's story stripped to gate-only,
 tag returned to the pool with a note; WEAKEN -> story flagged; CONFIRM ->
 counts toward the certified tally.

@@ -943,6 +943,20 @@
    "verdict": "HELD",
    "source": "SOP-v2-diverse",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two full recheck (gate + fresh-example story test + gerrymander hunt)",
+   "gate": "reviewer-two",
+   "verdict": "CONFIRM",
+   "concentration_recheck": 6.61,
+   "concentration_recorded": 6.61,
+   "concentration_pct_diff": 0.0,
+   "story_fresh_hits": "4/5",
+   "story_fresh_seed": 11,
+   "objection": "Existing record already shows the quantitative version of this story FAILED: program_bacc=0.566 vs null=0.504 (bar>=0.75), i.e. essentially no held-out signal from (NOT class_other AND NOT is_newline). The story only survives via a tiny n=3 qualitative redteam (2/3, bar >1/3) which is barely above its own minimum and high-variance. My fresh seed=11 draw (nrand=5) drew ZERO number/name-fragment targets -- all 5 fell into the catch-all \"ordinary word\" bucket, where the predicted direction (negative dCE / hurts) is also the base-rate direction for most English tokens. So the 4/5 sign-match is largely tautological: it never exercised the story's one distinctive, falsifiable claim (helps rare/number/proper-noun-fragment tokens). \"machinery hurts ordinary common words elsewhere\" is a hedge vague enough to fit almost any leaf with a roughly-balanced pos/neg dCE split (here 449 pos / 415 neg members) -- it is not a gerrymander-proof, mechanism-specific story, and the one already-failed rigorous test (program heldout) is stronger evidence against it than 3-5 hand-scored examples are for it.",
+   "source": "reviewer-two dry-run (census_state_diverse.pt, cl.leaf_ablate+cl.sign_stats+cl.examples)",
+   "date": "2026-08-20",
+   "agent": "sonnet-reviewer-dryrun"
   }
  ],
  "examples": {
@@ -1006,7 +1020,8 @@
   "program_null": 0.504,
   "mechanism_level": "none",
   "redteam_hits": "2/3",
-  "redteam_verdict": "HELD"
+  "redteam_verdict": "HELD",
+  "flag": "weak: reviewer-two objection (2026-08-20) -- specific claim never exercised by fresh draw; own program_bacc failed; catch-all branch is base-rate. Verdict-rule v2 would say WEAKEN; recorded by driver."
  },
  "provenance": {
   "scripts": [
