@@ -1,0 +1,21 @@
+mlp0: wte coefficient 12.1875 vs summed component coefficients 1.0000 (log ratio 2.5)
+mlp1: wte coefficient 8.1547 vs summed component coefficients 1.0254 (log ratio 2.074)
+mlp2: wte coefficient 24.1183 vs summed component coefficients 5.0033 (log ratio 1.573)
+mlp3: wte coefficient 21.8492 vs summed component coefficients 4.4472 (log ratio 1.592)
+mlp4: wte coefficient 18.1138 vs summed component coefficients 3.5215 (log ratio 1.638)
+mlp5: wte coefficient 6.2300 vs summed component coefficients 1.2914 (log ratio 1.574)
+
+baseline CE 3.3536
+mlp0: token-only +0.2199 | context-only +0.8711
+mlp1: token-only +0.3146 | context-only +0.0362
+mlp2: token-only +0.1590 | context-only +0.0010
+mlp3: token-only +0.1476 | context-only +0.0004
+mlp4: token-only +0.2442 | context-only +0.0000
+mlp5: token-only +0.0749 | context-only +0.0003
+
+(0) writer reconstruction 7.467e-08: HELD
+(a) mlp0 +0.2199 and mlp1 +0.3146 both < 0.30: FAILED
+(b) cost rises monotonically ['+0.220', '+0.315', '+0.159', '+0.148', '+0.244', '+0.075']: FAILED
+(c) Spearman(log coefficient ratio, cost) = 0.657 <= -0.60: FAILED
+REVERSE ARM (removing the token costs more than removing context, at mlp0 and mlp1): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/early_fold_results.json (99s)

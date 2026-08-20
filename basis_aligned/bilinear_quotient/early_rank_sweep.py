@@ -66,7 +66,7 @@ def main():
         if key[0]=='a':
             at=m.transformer.h[li].attn
             for w,o in zip((at.c_q,at.c_k,at.c_q2,at.c_k2),
-                           orig[key]): w.data.copy_(o)
+                           orig[key]): w.weight.data.copy_(o)
         else:
             mlp=m.transformer.h[li].mlp
             mlp.Left.weight.data.copy_(orig[key][0])
@@ -91,7 +91,7 @@ def main():
                         U,S,Vh=torch.linalg.svd(blk,
                                                 full_matrices=False)
                         W[h*128:(h+1)*128]=(U[:,:r]*S[:r])@Vh[:r]
-                w.data.copy_(W.to(w.dtype))
+                w.weight.data.copy_(W.to(w.weight.dtype))
         else:
             mlp=m.transformer.h[li].mlp
             Lf=orig[key][0].float(); Rf=orig[key][1].float()

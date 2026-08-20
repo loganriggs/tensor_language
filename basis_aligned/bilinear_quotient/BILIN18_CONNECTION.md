@@ -14641,3 +14641,67 @@ truncation method. early_rank_sweep is queued to turn that pair of
 points into a table across the first six blocks, with the
 composition test that matters for a benchmark -- whether
 truncating every early attention layer at once still holds.
+
+## 537. Coefficient magnitude is not information flow
+
+early_fold restricted each early MLP's input to one source at a
+time -- keep the embedding's contribution position-dependent and
+mean-fill every component writer, or the reverse -- using the
+exact writer decomposition (reconstruction 7.47e-8).
+The exact coefficients, from the weights alone:
+  mlp0  wte 12.19 vs components 1.00
+  mlp1  wte  8.15 vs components 1.03
+  mlp2  wte 24.12 vs components 5.00
+  mlp3  wte 21.85 vs components 4.45
+  mlp4  wte 18.11 vs components 3.52
+  mlp5  wte  6.23 vs components 1.29
+The measured costs:
+  layer   keep only the token   keep only the context
+  mlp0        +0.2199                +0.8711
+  mlp1        +0.3146                +0.0362
+  mlp2        +0.1590                +0.0010
+  mlp3        +0.1476                +0.0004
+  mlp4        +0.2442                +0.0000
+  mlp5        +0.0749                +0.0003
+Every registered bar failed, and the reverse arm is the reason.
+(a) FAILED: mlp1's token-only cost is 0.315, over the 0.30 bar.
+(b) FAILED: the cost does not rise with depth; it wanders.
+(c) FAILED with the SIGN INVERTED: Spearman between the log
+coefficient ratio and the token-only cost is +0.657, where I
+registered <= -0.60. A larger token coefficient goes with a LARGER
+cost of keeping only the token.
+REVERSE ARM VIOLATED at mlp1, and this is the finding. From mlp1
+upward, mean-filling the EMBEDDING's direct contribution is
+essentially free -- 0.036, 0.001, 0.0004, 0.0000, 0.0003 nats --
+while mean-filling the component writers costs 0.07 to 0.31. Only
+mlp0 behaves the way the coefficients suggest, and there the
+"context" is nothing but attn0.
+So the eightfold re-injection of the token embedding at every
+block is REDUNDANT. The same token information has already been
+written into the stream by layer 0, whose outputs are themselves
+exact functions of the token and its predecessor, and the direct
+path adds nothing the model needs. A coefficient of 8 against 1
+tells you about magnitude in the residual, not about where the
+computation gets its information.
+CORRECTION to my own reading in 503. The arithmetic there was
+right -- the stream is rescaled every block and a layer-0 write
+arrives at layer 12 multiplied by 0.00024 -- but I glossed it as
+"this model re-injects the token embedding at strength 8 and
+repeatedly shrinks what is already there", which invites the
+inference that the embedding dominates the computation. It does
+not. The coefficients govern how the residual is SCALED; they do
+not say which path carries the information, and here the two
+answers are opposite from mlp1 upward.
+A caveat that keeps the claim honest: mean-filling one writer's
+share removes it only if the information is not duplicated
+elsewhere, so these arms measure NECESSITY. The complementary
+sufficiency arm is the other column, and it agrees -- keeping only
+the component writers costs at most 0.036 from mlp1 up, so they
+are nearly sufficient on their own, while keeping only the
+embedding costs 0.07 to 0.31 and is not.
+For the benchmark this is good news rather than bad. Folding the
+embedding into mlp1 does not require the direct re-injection path;
+it requires attn0 and mlp0's outputs, and those are exactly what
+535 and 536 just showed to be rank-2 and rank-64 objects computed
+from the token. The composition still closes, through layer 0
+rather than around it.
