@@ -13835,3 +13835,61 @@ random earlier position, and on the nearest non-matching opener,
 and prices each against the head's full benefit. If matching is
 the mechanism, killing the match should cost most of the 0.825
 while killing a random position should cost little.
+
+## 521. The digit subspace is genuinely distributed -- and that
+## contrast is the finding
+
+digit_heads2, with the design 517 said this needed: the real
+exactness check, and two measurements per head.
+(0) HELD exactly: removing the projector from all eighteen heads
+gives +0.1238, and the component-level full-bundle ablation on the
+same three samples gives +0.1238. Identical, as it must be --
+projection is linear and the component output is the sum of the
+heads' contributions. The implementation is right.
+  head   removed alone   all OTHER heads removed   spared fraction
+  8.3      +0.0299            +0.0777                 0.37
+  6.1      +0.0236            +0.0743                 0.40
+  6.3      +0.0099            +0.0924                 0.25
+  8.7      +0.0087            +0.0997                 0.19
+  6.7      +0.0024            +0.1143                 0.08
+  the other thirteen              <= 0.0022           <= 0.03
+  (whole +0.1238; the nine "alone" values sum to +0.0792, 64%)
+(a) FAILED: the leading head alone accounts for 24% of the effect,
+against a 40% bar.
+(b) FAILED: sparing that head leaves 63% of the effect, so by the
+sufficiency measure it accounts for 37% -- also under the bar,
+and the two measures agree with each other, which is the useful
+part. Necessity and sufficiency both say "about a quarter to a
+third", so this is not an artifact of either statistic.
+(c) the atlas bet FAILED for the second time: it named 8.7 on
+digit read-enrichment of 2.45, and the leader is 8.3 (enrichment
+1.68) by necessity and 6.1 by sufficiency. The atlas predicted the
+newline head correctly and has now missed the digit head twice; it
+profiles what a head READS, and the digit subspace is about what a
+head WRITES, so this is a limit of that instrument rather than a
+surprise.
+NULL clean: a rank-matched random subspace in 8.3 gives -0.0001 to
++0.0018 against 8.3's +0.0299.
+The conclusion is a real negative and it earns its place next to
+the positives. Four heads across two layers carry the digit
+subspace between them, superadditively (64% recovered
+individually), with no single-head circuit to find. Set against
+the same measurement on other behaviours:
+  closing brackets   head 13.8   98% of the layer effect
+  line breaks        head 12.6   88%
+  digits             head 8.3    24-37%, four heads sharing
+So this model does BOTH. Some behaviours have a single dedicated
+head that can be deleted to destroy them, and others are carried
+by a distributed superadditive group that no head-level search
+will resolve. Which of the two you get is not predictable from the
+size of the effect -- digits are the third largest concentrated
+effect in the atlas and the most distributed of the three.
+One correction to 516's error bars. The full-bundle reference on
+these three further samples came out +0.131, +0.168 and +0.072.
+The eight-sample series is now 0.090, 0.146, 0.143, 0.164, 0.132,
+0.131, 0.168, 0.072 -- mean 0.131, range 0.072 to 0.168. 516 put
+the spread at about +-0.03; it is closer to +-0.05, and the
+low sample is a factor of two below the high one. The claim that
+the effect is positive and sign-flipped from the population
+survives all eight, but any quantitative use of "+0.135" should
+carry that spread.
