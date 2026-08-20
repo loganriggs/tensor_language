@@ -14994,3 +14994,59 @@ generalizes: block 1's input is not the token, so what variable is
 its write a function of? front_table2 will try the same
 construction one block up, indexing on the token PAIR rather than
 the token, since attn0 is a bigram table.
+
+## 543. Not accumulation, not simple interaction: later compression
+## partly REPAIRS earlier damage
+
+prefix_accumulation projected block interfaces to rank 64 over a
+growing prefix, forward and backward, to separate two explanations
+for why compression does not compose.
+  forward     set              cost      increment   individual
+    +0        [0]            +0.0811     +0.0811      0.0811
+    +1        [0,1]          +0.7691     +0.6881      0.3781
+    +2        [0,1,2]        +1.2965     +0.5273      0.1589
+    +3        [0,1,2,3]      +1.6170     +0.3205      0.0788
+    +4        [0..4]         +1.5138     -0.1032      0.0825
+    +5        [0..5]         +1.3137     -0.2000      0.0597
+  reverse     set              cost      increment   individual
+    +5        [5]            +0.0597     +0.0597      0.0597
+    +4        [5,4]          +0.2061     +0.1465      0.0825
+    +3        [5,4,3]        +0.3667     +0.1606      0.0788
+    +2        [5,4,3,2]      +0.5826     +0.2159      0.1589
+    +1        [5..1]         +0.9302     +0.3476      0.3781
+    +0        [5..0]         +1.3137     +0.3836      0.0811
+(0) HELD exactly: the full prefix reproduces 541's 1.3137, and the
+full-rank prefix costs +0.00003.
+NULL ok, and worth noting: both orders reach 1.3137 to four
+decimals, as they must, which is a real check that the machinery
+is order-independent.
+(b) HELD at 4.73x: compressing block 0 costs 0.081 alone and
+0.384 when it is added to a set where blocks 1-5 are already
+compressed. The cost of compressing a block depends strongly on
+what else is compressed, which is interaction and not
+accumulation.
+(a) FAILED, and it failed because my framing was too simple. I
+tested interaction as "increments exceed individual costs", which
+assumes damage amplifies monotonically. Only 3 of 5 forward
+increments do, because the last two are NEGATIVE: adding block 4's
+compression to a set with blocks 0-3 already compressed IMPROVES
+cross-entropy by 0.103 nats, and adding block 5 improves it by
+another 0.200. The forward curve peaks at 1.617 with four blocks
+compressed and falls to 1.314 with all six.
+That is the finding. Compressing a later block partially REPAIRS
+the damage done by compressing earlier ones. The natural reading:
+truncating an early interface injects a component that the later
+blocks then read and amplify, and truncating the later interfaces
+removes part of that amplification. The residual stream is not
+just shared, it is a channel in which damage propagates and later
+projections act as a filter on it.
+Two consequences worth carrying forward. First, 541's closing
+reading -- that per-layer slack is used by other layers -- is
+supported, since a pure accumulation model cannot produce either
+the 4.73x position effect or negative increments. Second, the
+joint numbers in 540 and 541 are NOT simple sums of local damage
+and should not be read as "the front needs rank R"; they are the
+output of a system with cancellation in it, and the honest way to
+search for a front-of-model stand-in is joint optimization rather
+than any per-component rule. Recorded as a constraint on the
+benchmark rather than a result about compressibility.
