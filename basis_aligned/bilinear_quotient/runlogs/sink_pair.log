@@ -1,0 +1,14 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+dCE overall: {'zero7': 0.9154, 'zero2': 0.0154, 'zero_both': 1.2136}
+self-cosine: 5.7 0.998, 5.2 0.883 | axis cos +0.853 | sum 0.9308 vs both 1.2136
+(a) 5.2 is also a broadcaster (self-cos>=0.9): FAILED
+(b) same axis as 5.7 (|cos|>=0.5): HELD
+(c) superadditive by >=0.05: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/sink_pair_results.json (1s)

@@ -158,7 +158,13 @@ single seed-11 draw passes by chance about 2 times in 5 (wave-3
 seed sweep), so ROBUST demands seed stability AND whole-population
 significance. Also state how many (class, direction) pairs you
 tested: with all 12 pairs searched, require p <= 0.10/12 on the
-population, or pre-declare the pair before looking (these leaves are ~50/50 two-signed,
+population, or pre-declare the pair before looking. COUNTING RULE
+(wave-5 question): n_tests is every (class, direction) pair you
+actually EVALUATE. Testing one class in both directions is
+n_tests=2; sweeping all six classes both ways is n_tests=12.
+Choosing a direction by eyeballing the data first and then
+testing only that one is circular -- if you looked, count all the
+pairs you could have chosen from (these leaves are ~50/50 two-signed,
 so raw hit counts prove nothing). Otherwise record the numbers and
 write "no behavioral claim survives base-rate testing".
 

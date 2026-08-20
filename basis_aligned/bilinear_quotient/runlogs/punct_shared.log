@@ -1,0 +1,11 @@
+r.18.2.0: own {'n': 43, 'hits': 36, 'base_rate_help': 0.528, 'expected_hits': 22.69, 'p_value': 0.0, 'beats_base_rate': True} | random {'n': 43, 'hits': 25, 'base_rate_help': 0.522, 'expected_hits': 22.45, 'p_value': 0.266, 'beats_base_rate': False}
+r.13.2.1: own {'n': 49, 'hits': 39, 'base_rate_help': 0.51, 'expected_hits': 25.01, 'p_value': 0.0, 'beats_base_rate': True} | random {'n': 49, 'hits': 30, 'base_rate_help': 0.478, 'expected_hits': 23.42, 'p_value': 0.0409, 'beats_base_rate': True}
+r.11.1.2: own {'n': 51, 'hits': 36, 'base_rate_help': 0.473, 'expected_hits': 24.14, 'p_value': 0.0007, 'beats_base_rate': True} | random {'n': 51, 'hits': 26, 'base_rate_help': 0.497, 'expected_hits': 25.32, 'p_value': 0.4801, 'beats_base_rate': False}
+joint scored on r.18.2.0: {'n': 43, 'hits': 33, 'base_rate_help': 0.521, 'expected_hits': 22.4, 'p_value': 0.0008, 'beats_base_rate': True}
+joint scored on r.13.2.1: {'n': 49, 'hits': 38, 'base_rate_help': 0.503, 'expected_hits': 24.67, 'p_value': 0.0001, 'beats_base_rate': True}
+joint scored on r.11.1.2: {'n': 51, 'hits': 34, 'base_rate_help': 0.472, 'expected_hits': 24.08, 'p_value': 0.004, 'beats_base_rate': True}
+individual excess [0.309, 0.286, 0.233] | joint [0.246, 0.273, 0.195]
+(a) joint <=1.3x largest individual (shared): HELD
+(c) no random-subspace control reaches p<=0.0083: HELD
+(b) geometry leg: NOT RUN (see note)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/punct_shared_results.json (103s)

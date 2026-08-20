@@ -1,0 +1,692 @@
+{
+ "schema_version": 1,
+ "tag": "r.7.1.1",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "causal": {
+  "abs_dce_members": 0.909,
+  "abs_dce_offslice": 0.179,
+  "concentration": 5.08,
+  "dce_members": 0.187,
+  "dce_pos": -0.725,
+  "dce_neg": 1.073,
+  "n_pos": 426,
+  "n_neg": 438,
+  "minority_share": 0.493,
+  "base_ce_member_mean": 5.946,
+  "base_ce_frac_lt3": 0.176
+ },
+ "causal_half": {
+  "rows_0_500": {
+   "concentration": 4.95,
+   "abs_dce_members": 0.881,
+   "n_members": 420
+  },
+  "rows_500_1000": {
+   "concentration": 5.21,
+   "abs_dce_members": 0.936,
+   "n_members": 444
+  }
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 821,
+    "context": " 19, 1924\nTy Cobb can tell you. Personally causing your",
+    "target": " team",
+    "base_ce": 4.88,
+    "dce": 2.36
+   },
+   {
+    "gi": 135816,
+    "context": "\nIn response to Blind faith won\u2019t make climate science",
+    "target": " gaps",
+    "base_ce": 15.02,
+    "dce": -1.79
+   },
+   {
+    "gi": 168226,
+    "context": "\n[\u2013]Subhazard 21 Punkte22 Punkte23",
+    "target": " Punk",
+    "base_ce": 3.94,
+    "dce": 2.06
+   }
+  ],
+  "random": [
+   {
+    "gi": 133682,
+    "context": " the last four games.\nThe Chicago-based Walter, CEO",
+    "target": " Stan",
+    "base_ce": 9.74,
+    "dce": 0.29
+   },
+   {
+    "gi": 121870,
+    "context": " is) than Dan Cloutier, Corey Hirsch, Alf",
+    "target": "ie",
+    "base_ce": 3.73,
+    "dce": -0.33
+   },
+   {
+    "gi": 248932,
+    "context": "Montana weather can vary greatly. We can go from weeks of",
+    "target": " below",
+    "base_ce": 5.07,
+    "dce": 0.91
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "mechanism_3M": {
+  "tag": "r.7.1.1",
+  "machinery": [
+   "a7"
+  ],
+  "tables": {
+   "a7": {
+    "writers": {
+     "wte": {
+      "mean": 1.023,
+      "min": 0.948,
+      "max": 1.061,
+      "seed5": 1.017,
+      "member": 0.0015,
+      "offslice": 0.0014
+     },
+     "a0": {
+      "mean": 0.891,
+      "min": 0.691,
+      "max": 1.068,
+      "seed5": 0.822,
+      "member": 0.0004,
+      "offslice": 0.0005
+     },
+     "m0": {
+      "mean": 1.031,
+      "min": 1.007,
+      "max": 1.052,
+      "seed5": 1.026,
+      "member": 0.4443,
+      "offslice": 0.4331
+     },
+     "a1": {
+      "mean": 0.961,
+      "min": 0.945,
+      "max": 0.973,
+      "seed5": 0.958,
+      "member": 0.0106,
+      "offslice": 0.011
+     },
+     "m1": {
+      "mean": 1.078,
+      "min": 1.048,
+      "max": 1.156,
+      "seed5": 1.05,
+      "member": 0.0236,
+      "offslice": 0.0225
+     },
+     "a2": {
+      "mean": 0.981,
+      "min": 0.935,
+      "max": 1.065,
+      "seed5": 0.979,
+      "member": 0.0299,
+      "offslice": 0.0306
+     },
+     "m2": {
+      "mean": 1.009,
+      "min": 0.966,
+      "max": 1.045,
+      "seed5": 1.045,
+      "member": 0.0932,
+      "offslice": 0.0892
+     },
+     "a3": {
+      "mean": 0.956,
+      "min": 0.921,
+      "max": 1.005,
+      "seed5": 0.938,
+      "member": 0.0243,
+      "offslice": 0.026
+     },
+     "m3": {
+      "mean": 0.949,
+      "min": 0.921,
+      "max": 1.007,
+      "seed5": 0.945,
+      "member": 0.1337,
+      "offslice": 0.1415
+     },
+     "a4": {
+      "mean": 1.023,
+      "min": 0.972,
+      "max": 1.104,
+      "seed5": 1.023,
+      "member": 0.0553,
+      "offslice": 0.0541
+     },
+     "m4": {
+      "mean": 0.944,
+      "min": 0.887,
+      "max": 1.011,
+      "seed5": 0.953,
+      "member": 0.0902,
+      "offslice": 0.0946
+     },
+     "a5": {
+      "mean": 1.0,
+      "min": 0.983,
+      "max": 1.023,
+      "seed5": 0.994,
+      "member": 0.051,
+      "offslice": 0.0513
+     },
+     "m5": {
+      "mean": 0.935,
+      "min": 0.837,
+      "max": 0.994,
+      "seed5": 0.959,
+      "member": 0.0154,
+      "offslice": 0.016
+     },
+     "a6": {
+      "mean": 0.94,
+      "min": 0.92,
+      "max": 0.979,
+      "seed5": 0.922,
+      "member": 0.0165,
+      "offslice": 0.0179
+     },
+     "m6": {
+      "mean": 0.951,
+      "min": 0.847,
+      "max": 1.02,
+      "seed5": 0.978,
+      "member": 0.01,
+      "offslice": 0.0102
+     }
+    },
+    "top": [
+     [
+      "m1",
+      {
+       "mean": 1.078,
+       "min": 1.048,
+       "max": 1.156,
+       "seed5": 1.05,
+       "member": 0.0236,
+       "offslice": 0.0225
+      }
+     ],
+     [
+      "m0",
+      {
+       "mean": 1.031,
+       "min": 1.007,
+       "max": 1.052,
+       "seed5": 1.026,
+       "member": 0.4443,
+       "offslice": 0.4331
+      }
+     ],
+     [
+      "wte",
+      {
+       "mean": 1.023,
+       "min": 0.948,
+       "max": 1.061,
+       "seed5": 1.017,
+       "member": 0.0015,
+       "offslice": 0.0014
+      }
+     ],
+     [
+      "a4",
+      {
+       "mean": 1.023,
+       "min": 0.972,
+       "max": 1.104,
+       "seed5": 1.023,
+       "member": 0.0553,
+       "offslice": 0.0541
+      }
+     ],
+     [
+      "m2",
+      {
+       "mean": 1.009,
+       "min": 0.966,
+       "max": 1.045,
+       "seed5": 1.045,
+       "member": 0.0932,
+       "offslice": 0.0892
+      }
+     ]
+    ],
+    "top_ratio": 1.05,
+    "top_ratio_mean": 1.078,
+    "top_ratio_min": 1.048,
+    "top_ratio_max": 1.156,
+    "null_top_ratio": 1.4,
+    "bootstrap_seeds": [
+     5,
+     17,
+     29,
+     41,
+     53
+    ],
+    "ENRICHED": false,
+    "BEATS_NULL": false,
+    "ENRICHED_STABLE": false,
+    "null_mean": 1.17,
+    "null_sd": 0.131,
+    "threshold_v2": 1.433,
+    "ENRICHED_STABLE2": false,
+    "headroom": -0.385
+   }
+  },
+  "runtime_s": 1.4580793380737305
+ },
+ "output_decomp": {
+  "own_profile": {
+   "in_a0": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a1": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a2": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a3": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a4": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a5": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a6": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a7": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a8": {
+    "member": 0.1116,
+    "offslice": 0.1064,
+    "ratio": 1.049
+   },
+   "in_a9": {
+    "member": 0.1399,
+    "offslice": 0.1307,
+    "ratio": 1.07
+   },
+   "in_a10": {
+    "member": 0.115,
+    "offslice": 0.1065,
+    "ratio": 1.08
+   },
+   "in_a11": {
+    "member": 0.1177,
+    "offslice": 0.1068,
+    "ratio": 1.102
+   },
+   "in_a12": {
+    "member": 0.1132,
+    "offslice": 0.1018,
+    "ratio": 1.113
+   },
+   "in_a13": {
+    "member": 0.1146,
+    "offslice": 0.1011,
+    "ratio": 1.133
+   },
+   "in_a14": {
+    "member": 0.1175,
+    "offslice": 0.1016,
+    "ratio": 1.157
+   },
+   "in_a15": {
+    "member": 0.1275,
+    "offslice": 0.1083,
+    "ratio": 1.177
+   },
+   "in_a16": {
+    "member": 0.1402,
+    "offslice": 0.1178,
+    "ratio": 1.19
+   },
+   "in_a17": {
+    "member": 0.1463,
+    "offslice": 0.1229,
+    "ratio": 1.191
+   }
+  },
+  "random_profile": {
+   "in_a0": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a1": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a2": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a3": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a4": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a5": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a6": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a7": {
+    "member": 0.0,
+    "offslice": 0.0,
+    "ratio": 0.0
+   },
+   "in_a8": {
+    "member": 0.0338,
+    "offslice": 0.0324,
+    "ratio": 1.044
+   },
+   "in_a9": {
+    "member": 0.0364,
+    "offslice": 0.0347,
+    "ratio": 1.051
+   },
+   "in_a10": {
+    "member": 0.0339,
+    "offslice": 0.0324,
+    "ratio": 1.046
+   },
+   "in_a11": {
+    "member": 0.0343,
+    "offslice": 0.0327,
+    "ratio": 1.048
+   },
+   "in_a12": {
+    "member": 0.0333,
+    "offslice": 0.0317,
+    "ratio": 1.049
+   },
+   "in_a13": {
+    "member": 0.0337,
+    "offslice": 0.0317,
+    "ratio": 1.062
+   },
+   "in_a14": {
+    "member": 0.034,
+    "offslice": 0.0319,
+    "ratio": 1.066
+   },
+   "in_a15": {
+    "member": 0.0365,
+    "offslice": 0.0341,
+    "ratio": 1.071
+   },
+   "in_a16": {
+    "member": 0.04,
+    "offslice": 0.037,
+    "ratio": 1.082
+   },
+   "in_a17": {
+    "member": 0.0411,
+    "offslice": 0.0378,
+    "ratio": 1.086
+   }
+  },
+  "top_consumer": "in_a17",
+  "top_ratio": 1.191,
+  "random_top_consumer": "in_a17",
+  "random_top_ratio": 1.086
+ },
+ "story": {
+  "blind_name": "no STRONG single-writer mechanism into a7; weak capitalized-target CE reduction",
+  "program": [
+   [
+    "prev1_starts_space",
+    "NOT is_punct"
+   ]
+  ],
+  "program_bacc": 0.54,
+  "program_null": 0.532,
+  "mechanism_level": "none",
+  "mechanism": {
+   "note": "No STRONG single-writer mechanism into a7 (top writer m1, bootstrap ratio 1.078 [1.048-1.156], threshold_v2 1.433 = max(1.3, null mean 1.17 + 2sd 0.131), headroom -0.385); downstream top consumer a17 ratio 1.191 also below the 1.3 bar (population gates (a)/(b) FAILED; random-subspace consumer 1.086)."
+  },
+  "behavior": "At capitalized-initial targets (137/864 members, 15.9%), ablation raises CE (leaf helps prediction) 90/137 times vs 72.3 expected by the leaf's own base rate (p=0.0015, ROBUST_V2, n_tests=12); no other tested class (subword, space_word, digit, punct, newline; both directions, 12 pairs total) clears the corrected bar -- the leaf's near-even two-signed split (minority_share=0.493) is NOT explained by any class outside capitalized targets.",
+  "behavior_test": {
+   "kind": "capitalized",
+   "pred_help": false,
+   "n_available": 137,
+   "per_seed": [
+    {
+     "seed": 1,
+     "hits": 4,
+     "n": 5,
+     "p_value": 0.2241
+    },
+    {
+     "seed": 2,
+     "hits": 4,
+     "n": 5,
+     "p_value": 0.2241
+    },
+    {
+     "seed": 3,
+     "hits": 4,
+     "n": 5,
+     "p_value": 0.2241
+    },
+    {
+     "seed": 4,
+     "hits": 4,
+     "n": 5,
+     "p_value": 0.2241
+    },
+    {
+     "seed": 11,
+     "hits": 3,
+     "n": 5,
+     "p_value": 0.552
+    }
+   ],
+   "seed_pass_frac": 0.0,
+   "population": {
+    "n": 137,
+    "hits": 90,
+    "base_rate_help": 0.472,
+    "expected_hits": 72.31,
+    "p_value": 0.0015,
+    "beats_base_rate": true
+   },
+   "ROBUST": false,
+   "n_tests": 12,
+   "alpha": 0.0083,
+   "ROBUST_V2": true,
+   "gate_note": "use ROBUST_V2; ROBUST v1 is underpowered"
+  }
+ },
+ "certification": [
+  {
+   "test": "selectivity_full",
+   "bar": "concentration>=3",
+   "value": 5.08,
+   "verdict": "HELD",
+   "source": "leaf_ablate/sign_stats full 1000-row grid",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "selectivity_half0",
+   "bar": "concentration>=3 rows 0-499",
+   "value": 4.95,
+   "verdict": "HELD",
+   "source": "sign_stats_half(0,500)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "selectivity_half1",
+   "bar": "concentration>=3 rows 500-999",
+   "value": 5.21,
+   "verdict": "HELD",
+   "source": "sign_stats_half(500,1000)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "pack_reproduction",
+   "bar": "full-grid concentration within ~0.5 of 60-row pack value (5.27)",
+   "value": 5.08,
+   "verdict": "HELD",
+   "source": "sop_packs_shortlist.json vs full grid",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "mechanism_enrichment_a7",
+   "bar": "ENRICHED_STABLE2 (bootstrap min > max(1.3, null_mean+2sd))",
+   "value": {
+    "top_writer": "m1",
+    "ratio_mean": 1.078,
+    "ratio_min": 1.048,
+    "ratio_max": 1.156,
+    "threshold_v2": 1.433,
+    "headroom": -0.385
+   },
+   "verdict": "FAILED",
+   "source": "leaf_input_decomp.py r.7.1.1",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "downstream_consumer_a17",
+   "bar": "top consumer ratio>=1.3 AND beats random-subspace consumer",
+   "value": {
+    "own_ratio": 1.191,
+    "random_ratio": 1.086
+   },
+   "verdict": "FAILED",
+   "source": "leaf_output_decomp.py r.7.1.1",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "surface_program",
+   "bar": "bacc>=0.75 and null<=0.6",
+   "value": {
+    "bacc": 0.54,
+    "null": 0.532
+   },
+   "verdict": "FAILED",
+   "source": "SOP-step3 leaf_program (docid-parity split)",
+   "date": "2026-08-20"
+  },
+  {
+   "test": "behavioral_capitalized_helps",
+   "bar": "ROBUST_V2: population p<=0.10/n_tests, n_tests=12, n_available>=10",
+   "value": {
+    "kind": "capitalized",
+    "pred_help": false,
+    "n_available": 137,
+    "per_seed": [
+     {
+      "seed": 1,
+      "hits": 4,
+      "n": 5,
+      "p_value": 0.2241
+     },
+     {
+      "seed": 2,
+      "hits": 4,
+      "n": 5,
+      "p_value": 0.2241
+     },
+     {
+      "seed": 3,
+      "hits": 4,
+      "n": 5,
+      "p_value": 0.2241
+     },
+     {
+      "seed": 4,
+      "hits": 4,
+      "n": 5,
+      "p_value": 0.2241
+     },
+     {
+      "seed": 11,
+      "hits": 3,
+      "n": 5,
+      "p_value": 0.552
+     }
+    ],
+    "seed_pass_frac": 0.0,
+    "population": {
+     "n": 137,
+     "hits": 90,
+     "base_rate_help": 0.472,
+     "expected_hits": 72.31,
+     "p_value": 0.0015,
+     "beats_base_rate": true
+    },
+    "ROBUST": false,
+    "n_tests": 12,
+    "alpha": 0.0083,
+    "ROBUST_V2": true,
+    "gate_note": "use ROBUST_V2; ROBUST v1 is underpowered"
+   },
+   "verdict": "HELD",
+   "source": "SOP-step5 story_test_class",
+   "date": "2026-08-20"
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "CIRCUIT_SOP-v3",
+   "leaf_input_decomp.py",
+   "leaf_output_decomp.py",
+   "sop_packs_shortlist.json (steps1-2 source pack)"
+  ],
+  "agent": "sonnet-wave5-b",
+  "lib_rev": "75a00ac83128dbfefef3a4862a84b24767dfefbc",
+  "date": "2026-08-20"
+ },
+ "members": {
+  "n": 864
+ }
+}

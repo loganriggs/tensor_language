@@ -1,0 +1,488 @@
+{
+ "schema_version": 1,
+ "tag": "r.23.2.3",
+ "tree": {
+  "instance": "diverse-1000row-v1",
+  "n_rows": 1000
+ },
+ "causal": {
+  "abs_dce_members": 0.246,
+  "abs_dce_offslice": 0.045,
+  "concentration": 5.51,
+  "dce_members": 0.039,
+  "dce_pos": 0.027,
+  "dce_neg": 0.05,
+  "n_pos": 415,
+  "n_neg": 449,
+  "minority_share": 0.48,
+  "base_ce_member_mean": 5.573,
+  "base_ce_frac_lt3": 0.193
+ },
+ "causal_halves": {
+  "rows_0_500": {
+   "concentration": 5.55,
+   "abs_dce_members": 0.246,
+   "n_members": 427
+  },
+  "rows_500_1000": {
+   "concentration": 5.46,
+   "abs_dce_members": 0.246,
+   "n_members": 437
+  }
+ },
+ "examples": {
+  "top": [
+   {
+    "gi": 30983,
+    "context": "- published: 19 Mar 2013\n-",
+    "target": " views",
+    "base_ce": 3.44,
+    "dce": 0.12
+   },
+   {
+    "gi": 207201,
+    "context": " pitching statistics (DIPS)\n- Defensive Runs Saved (",
+    "target": "D",
+    "base_ce": 1.19,
+    "dce": 0.42
+   },
+   {
+    "gi": 15975,
+    "context": "It helps to fight against nuclear, biological and chemical weapons (NR",
+    "target": "BC",
+    "base_ce": 11.32,
+    "dce": 0.19
+   }
+  ],
+  "random": [
+   {
+    "gi": 182924,
+    "context": ", rather it has evolved towards an ideal, much as each healthy",
+    "target": " Christian",
+    "base_ce": 4.99,
+    "dce": -0.01
+   },
+   {
+    "gi": 66349,
+    "context": " resolved anytime soon.\nAt the end of August, the programming",
+    "target": " of",
+    "base_ce": 4.84,
+    "dce": -0.13
+   },
+   {
+    "gi": 210541,
+    "context": "ists and 47 were cooperationists, a term that refers to the",
+    "target": " delegates",
+    "base_ce": 6.12,
+    "dce": -0.01
+   }
+  ],
+  "rule": "top-3 by |score| + 3 seed-0 random"
+ },
+ "mechanism": {
+  "component": "a8",
+  "top_writer": "a4",
+  "top_ratio_mean": 1.077,
+  "top_ratio_range": [
+   1.046,
+   1.098
+  ],
+  "null_top_ratio_mean": 1.148,
+  "null_top_ratio_sd": 0.065,
+  "threshold_v2": 1.3,
+  "headroom": -0.254,
+  "ENRICHED_STABLE2": false,
+  "verdict": "no STRONG single-writer mechanism (top ratio 1.077 [a4], threshold 1.30)",
+  "full_table": {
+   "writers": {
+    "wte": {
+     "mean": 0.976,
+     "min": 0.88,
+     "max": 1.072,
+     "seed5": 0.94,
+     "member": 0.0008,
+     "offslice": 0.0009
+    },
+    "a0": {
+     "mean": 0.969,
+     "min": 0.813,
+     "max": 1.092,
+     "seed5": 1.028,
+     "member": 0.0005,
+     "offslice": 0.0005
+    },
+    "m0": {
+     "mean": 0.998,
+     "min": 0.964,
+     "max": 1.017,
+     "seed5": 1.001,
+     "member": 0.4229,
+     "offslice": 0.4223
+    },
+    "a1": {
+     "mean": 0.998,
+     "min": 0.961,
+     "max": 1.029,
+     "seed5": 0.981,
+     "member": 0.0107,
+     "offslice": 0.0109
+    },
+    "m1": {
+     "mean": 0.967,
+     "min": 0.941,
+     "max": 1.011,
+     "seed5": 0.946,
+     "member": 0.0211,
+     "offslice": 0.0223
+    },
+    "a2": {
+     "mean": 1.013,
+     "min": 0.958,
+     "max": 1.099,
+     "seed5": 1.019,
+     "member": 0.0305,
+     "offslice": 0.0299
+    },
+    "m2": {
+     "mean": 0.983,
+     "min": 0.948,
+     "max": 1.009,
+     "seed5": 0.948,
+     "member": 0.0839,
+     "offslice": 0.0885
+    },
+    "a3": {
+     "mean": 0.984,
+     "min": 0.954,
+     "max": 1.021,
+     "seed5": 0.975,
+     "member": 0.0248,
+     "offslice": 0.0254
+    },
+    "m3": {
+     "mean": 1.01,
+     "min": 0.986,
+     "max": 1.042,
+     "seed5": 1.022,
+     "member": 0.143,
+     "offslice": 0.1399
+    },
+    "a4": {
+     "mean": 1.077,
+     "min": 1.046,
+     "max": 1.098,
+     "seed5": 1.098,
+     "member": 0.0576,
+     "offslice": 0.0525
+    },
+    "m4": {
+     "mean": 0.965,
+     "min": 0.926,
+     "max": 0.998,
+     "seed5": 0.978,
+     "member": 0.0923,
+     "offslice": 0.0944
+    },
+    "a5": {
+     "mean": 1.015,
+     "min": 0.986,
+     "max": 1.035,
+     "seed5": 1.004,
+     "member": 0.0514,
+     "offslice": 0.0512
+    },
+    "m5": {
+     "mean": 1.027,
+     "min": 0.942,
+     "max": 1.098,
+     "seed5": 0.942,
+     "member": 0.0153,
+     "offslice": 0.0162
+    },
+    "a6": {
+     "mean": 0.994,
+     "min": 0.957,
+     "max": 1.055,
+     "seed5": 1.034,
+     "member": 0.0183,
+     "offslice": 0.0177
+    },
+    "m6": {
+     "mean": 1.056,
+     "min": 0.999,
+     "max": 1.143,
+     "seed5": 0.999,
+     "member": 0.0104,
+     "offslice": 0.0104
+    },
+    "a7": {
+     "mean": 0.962,
+     "min": 0.907,
+     "max": 1.004,
+     "seed5": 0.992,
+     "member": 0.0113,
+     "offslice": 0.0114
+    },
+    "m7": {
+     "mean": 0.943,
+     "min": 0.888,
+     "max": 1.012,
+     "seed5": 0.925,
+     "member": 0.0051,
+     "offslice": 0.0055
+    }
+   },
+   "top": [
+    [
+     "a4",
+     {
+      "mean": 1.077,
+      "min": 1.046,
+      "max": 1.098,
+      "seed5": 1.098,
+      "member": 0.0576,
+      "offslice": 0.0525
+     }
+    ],
+    [
+     "m6",
+     {
+      "mean": 1.056,
+      "min": 0.999,
+      "max": 1.143,
+      "seed5": 0.999,
+      "member": 0.0104,
+      "offslice": 0.0104
+     }
+    ],
+    [
+     "m5",
+     {
+      "mean": 1.027,
+      "min": 0.942,
+      "max": 1.098,
+      "seed5": 0.942,
+      "member": 0.0153,
+      "offslice": 0.0162
+     }
+    ],
+    [
+     "a5",
+     {
+      "mean": 1.015,
+      "min": 0.986,
+      "max": 1.035,
+      "seed5": 1.004,
+      "member": 0.0514,
+      "offslice": 0.0512
+     }
+    ],
+    [
+     "a2",
+     {
+      "mean": 1.013,
+      "min": 0.958,
+      "max": 1.099,
+      "seed5": 1.019,
+      "member": 0.0305,
+      "offslice": 0.0299
+     }
+    ]
+   ],
+   "top_ratio": 1.098,
+   "top_ratio_mean": 1.077,
+   "top_ratio_min": 1.046,
+   "top_ratio_max": 1.098,
+   "null_top_ratio": 1.22,
+   "bootstrap_seeds": [
+    5,
+    17,
+    29,
+    41,
+    53
+   ],
+   "ENRICHED": false,
+   "BEATS_NULL": false,
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.148,
+   "null_sd": 0.065,
+   "threshold_v2": 1.3,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.254
+  }
+ },
+ "story": {
+  "blind_name": "no behavioral claim survives base-rate testing",
+  "program": [
+   [
+    "NOT circ_r_2_1_0",
+    "prev1_starts_space",
+    "NOT prev1_class_sentend"
+   ]
+  ],
+  "program_bacc": 0.531,
+  "program_null": 0.51,
+  "mechanism_level": "none",
+  "behavioral_tests": {
+   "punct_pred_help_true": {
+    "kind": "punct",
+    "pred_help": true,
+    "n_available": 29,
+    "per_seed": [
+     {
+      "seed": 1,
+      "hits": 2,
+      "n": 5,
+      "p_value": 0.7493
+     },
+     {
+      "seed": 2,
+      "hits": 3,
+      "n": 5,
+      "p_value": 0.4137
+     },
+     {
+      "seed": 3,
+      "hits": 3,
+      "n": 5,
+      "p_value": 0.4137
+     },
+     {
+      "seed": 4,
+      "hits": 4,
+      "n": 5,
+      "p_value": 0.135
+     },
+     {
+      "seed": 11,
+      "hits": 3,
+      "n": 5,
+      "p_value": 0.4137
+     }
+    ],
+    "seed_pass_frac": 0.0,
+    "population": {
+     "n": 29,
+     "hits": 17,
+     "base_rate_help": 0.454,
+     "expected_hits": 13.16,
+     "p_value": 0.1065,
+     "beats_base_rate": false
+    },
+    "ROBUST": false,
+    "n_tests": 2,
+    "alpha": 0.05,
+    "ROBUST_V2": false,
+    "gate_note": "use ROBUST_V2; ROBUST v1 is underpowered"
+   },
+   "punct_pred_help_false": {
+    "kind": "punct",
+    "pred_help": false,
+    "n_available": 29,
+    "per_seed": [
+     {
+      "seed": 1,
+      "hits": 3,
+      "n": 5,
+      "p_value": 0.5863
+     },
+     {
+      "seed": 2,
+      "hits": 2,
+      "n": 5,
+      "p_value": 0.865
+     },
+     {
+      "seed": 3,
+      "hits": 2,
+      "n": 5,
+      "p_value": 0.865
+     },
+     {
+      "seed": 4,
+      "hits": 1,
+      "n": 5,
+      "p_value": 0.9808
+     },
+     {
+      "seed": 11,
+      "hits": 2,
+      "n": 5,
+      "p_value": 0.865
+     }
+    ],
+    "seed_pass_frac": 0.0,
+    "population": {
+     "n": 29,
+     "hits": 12,
+     "base_rate_help": 0.454,
+     "expected_hits": 15.84,
+     "p_value": 0.9472,
+     "beats_base_rate": false
+    },
+    "ROBUST": false,
+    "n_tests": 2,
+    "alpha": 0.05,
+    "ROBUST_V2": false,
+    "gate_note": "use ROBUST_V2; ROBUST v1 is underpowered"
+   },
+   "n_tests_declared": 2,
+   "alpha": 0.05,
+   "note": "sibling leaves r.13.2.1 and r.18.2.0 carry VERIFIED punctuation claims; tested here as pre-declared hypothesis per assignment; neither direction cleared ROBUST_V2 (p=0.1065 helps-dir vs alpha 0.05, p=0.9472 hurts-dir)"
+  }
+ },
+ "certification": [
+  {
+   "test": "causal_gate",
+   "source": "sop_step1",
+   "date": "2026-08-20",
+   "verdict": "PASS",
+   "concentration": 5.51
+  },
+  {
+   "test": "both_halves_gate",
+   "source": "sop_step1",
+   "date": "2026-08-20",
+   "verdict": "PASS",
+   "half0_concentration": 5.55,
+   "half1_concentration": 5.46
+  },
+  {
+   "test": "mechanism_3M",
+   "source": "leaf_input_decomp.py",
+   "date": "2026-08-20",
+   "verdict": "ENRICHED_STABLE2=False",
+   "top_ratio_mean": 1.077,
+   "threshold_v2": 1.3,
+   "headroom": -0.254
+  },
+  {
+   "test": "surface_program",
+   "source": "sop_step3",
+   "date": "2026-08-20",
+   "verdict": "FAIL (bacc ~ null)",
+   "bacc": 0.531,
+   "null": 0.51
+  },
+  {
+   "test": "behavioral_punct",
+   "source": "sop_step5",
+   "date": "2026-08-20",
+   "verdict": "NOT ROBUST_V2",
+   "n_tests": 2,
+   "alpha": 0.05,
+   "p_help_true": 0.1065,
+   "p_help_false": 0.9472
+  }
+ ],
+ "provenance": {
+  "scripts": [
+   "SOP-v3"
+  ],
+  "agent": "sonnet-wave5-c",
+  "lib_rev": "75a00ac83128dbfefef3a4862a84b24767dfefbc"
+ },
+ "members": {
+  "n": 864
+ }
+}

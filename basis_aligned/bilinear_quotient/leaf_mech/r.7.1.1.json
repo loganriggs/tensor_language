@@ -1,0 +1,210 @@
+{
+ "tag": "r.7.1.1",
+ "machinery": [
+  "a7"
+ ],
+ "tables": {
+  "a7": {
+   "writers": {
+    "wte": {
+     "mean": 1.023,
+     "min": 0.948,
+     "max": 1.061,
+     "seed5": 1.017,
+     "member": 0.0015,
+     "offslice": 0.0014
+    },
+    "a0": {
+     "mean": 0.891,
+     "min": 0.691,
+     "max": 1.068,
+     "seed5": 0.822,
+     "member": 0.0004,
+     "offslice": 0.0005
+    },
+    "m0": {
+     "mean": 1.031,
+     "min": 1.007,
+     "max": 1.052,
+     "seed5": 1.026,
+     "member": 0.4443,
+     "offslice": 0.4331
+    },
+    "a1": {
+     "mean": 0.961,
+     "min": 0.945,
+     "max": 0.973,
+     "seed5": 0.958,
+     "member": 0.0106,
+     "offslice": 0.011
+    },
+    "m1": {
+     "mean": 1.078,
+     "min": 1.048,
+     "max": 1.156,
+     "seed5": 1.05,
+     "member": 0.0236,
+     "offslice": 0.0225
+    },
+    "a2": {
+     "mean": 0.981,
+     "min": 0.935,
+     "max": 1.065,
+     "seed5": 0.979,
+     "member": 0.0299,
+     "offslice": 0.0306
+    },
+    "m2": {
+     "mean": 1.009,
+     "min": 0.966,
+     "max": 1.045,
+     "seed5": 1.045,
+     "member": 0.0932,
+     "offslice": 0.0892
+    },
+    "a3": {
+     "mean": 0.956,
+     "min": 0.921,
+     "max": 1.005,
+     "seed5": 0.938,
+     "member": 0.0243,
+     "offslice": 0.026
+    },
+    "m3": {
+     "mean": 0.949,
+     "min": 0.921,
+     "max": 1.007,
+     "seed5": 0.945,
+     "member": 0.1337,
+     "offslice": 0.1415
+    },
+    "a4": {
+     "mean": 1.023,
+     "min": 0.972,
+     "max": 1.104,
+     "seed5": 1.023,
+     "member": 0.0553,
+     "offslice": 0.0541
+    },
+    "m4": {
+     "mean": 0.944,
+     "min": 0.887,
+     "max": 1.011,
+     "seed5": 0.953,
+     "member": 0.0902,
+     "offslice": 0.0946
+    },
+    "a5": {
+     "mean": 1.0,
+     "min": 0.983,
+     "max": 1.023,
+     "seed5": 0.994,
+     "member": 0.051,
+     "offslice": 0.0513
+    },
+    "m5": {
+     "mean": 0.935,
+     "min": 0.837,
+     "max": 0.994,
+     "seed5": 0.959,
+     "member": 0.0154,
+     "offslice": 0.016
+    },
+    "a6": {
+     "mean": 0.94,
+     "min": 0.92,
+     "max": 0.979,
+     "seed5": 0.922,
+     "member": 0.0165,
+     "offslice": 0.0179
+    },
+    "m6": {
+     "mean": 0.951,
+     "min": 0.847,
+     "max": 1.02,
+     "seed5": 0.978,
+     "member": 0.01,
+     "offslice": 0.0102
+    }
+   },
+   "top": [
+    [
+     "m1",
+     {
+      "mean": 1.078,
+      "min": 1.048,
+      "max": 1.156,
+      "seed5": 1.05,
+      "member": 0.0236,
+      "offslice": 0.0225
+     }
+    ],
+    [
+     "m0",
+     {
+      "mean": 1.031,
+      "min": 1.007,
+      "max": 1.052,
+      "seed5": 1.026,
+      "member": 0.4443,
+      "offslice": 0.4331
+     }
+    ],
+    [
+     "wte",
+     {
+      "mean": 1.023,
+      "min": 0.948,
+      "max": 1.061,
+      "seed5": 1.017,
+      "member": 0.0015,
+      "offslice": 0.0014
+     }
+    ],
+    [
+     "a4",
+     {
+      "mean": 1.023,
+      "min": 0.972,
+      "max": 1.104,
+      "seed5": 1.023,
+      "member": 0.0553,
+      "offslice": 0.0541
+     }
+    ],
+    [
+     "m2",
+     {
+      "mean": 1.009,
+      "min": 0.966,
+      "max": 1.045,
+      "seed5": 1.045,
+      "member": 0.0932,
+      "offslice": 0.0892
+     }
+    ]
+   ],
+   "top_ratio": 1.05,
+   "top_ratio_mean": 1.078,
+   "top_ratio_min": 1.048,
+   "top_ratio_max": 1.156,
+   "null_top_ratio": 1.4,
+   "bootstrap_seeds": [
+    5,
+    17,
+    29,
+    41,
+    53
+   ],
+   "ENRICHED": false,
+   "BEATS_NULL": false,
+   "ENRICHED_STABLE": false,
+   "null_mean": 1.17,
+   "null_sd": 0.131,
+   "threshold_v2": 1.433,
+   "ENRICHED_STABLE2": false,
+   "headroom": -0.385
+  }
+ },
+ "runtime_s": 1.4580793380737305
+}

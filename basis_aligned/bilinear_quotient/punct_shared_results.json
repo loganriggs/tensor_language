@@ -1,0 +1,119 @@
+{
+ "per_leaf": {
+  "r.18.2.0": {
+   "own": {
+    "n": 43,
+    "hits": 36,
+    "base_rate_help": 0.528,
+    "expected_hits": 22.69,
+    "p_value": 0.0,
+    "beats_base_rate": true
+   },
+   "own_ROBUST": true,
+   "random": {
+    "n": 43,
+    "hits": 25,
+    "base_rate_help": 0.522,
+    "expected_hits": 22.45,
+    "p_value": 0.266,
+    "beats_base_rate": false
+   },
+   "random_ROBUST": false,
+   "ranks": {
+    "a7": 12,
+    "a9": 12
+   }
+  },
+  "r.13.2.1": {
+   "own": {
+    "n": 49,
+    "hits": 39,
+    "base_rate_help": 0.51,
+    "expected_hits": 25.01,
+    "p_value": 0.0,
+    "beats_base_rate": true
+   },
+   "own_ROBUST": true,
+   "random": {
+    "n": 49,
+    "hits": 30,
+    "base_rate_help": 0.478,
+    "expected_hits": 23.42,
+    "p_value": 0.0409,
+    "beats_base_rate": true
+   },
+   "random_ROBUST": false,
+   "ranks": {
+    "a7": 12,
+    "a6": 2,
+    "a3": 6
+   }
+  },
+  "r.11.1.2": {
+   "own": {
+    "n": 51,
+    "hits": 36,
+    "base_rate_help": 0.473,
+    "expected_hits": 24.14,
+    "p_value": 0.0007,
+    "beats_base_rate": true
+   },
+   "own_ROBUST": true,
+   "random": {
+    "n": 51,
+    "hits": 26,
+    "base_rate_help": 0.497,
+    "expected_hits": 25.32,
+    "p_value": 0.4801,
+    "beats_base_rate": false
+   },
+   "random_ROBUST": false,
+   "ranks": {
+    "a8": 2,
+    "a3": 6,
+    "a4": 8
+   }
+  }
+ },
+ "joint": {
+  "r.18.2.0": {
+   "n": 43,
+   "hits": 33,
+   "base_rate_help": 0.521,
+   "expected_hits": 22.4,
+   "p_value": 0.0008,
+   "beats_base_rate": true
+  },
+  "r.13.2.1": {
+   "n": 49,
+   "hits": 38,
+   "base_rate_help": 0.503,
+   "expected_hits": 24.67,
+   "p_value": 0.0001,
+   "beats_base_rate": true
+  },
+  "r.11.1.2": {
+   "n": 51,
+   "hits": 34,
+   "base_rate_help": 0.472,
+   "expected_hits": 24.08,
+   "p_value": 0.004,
+   "beats_base_rate": true
+  }
+ },
+ "individual_excess": [
+  0.309,
+  0.286,
+  0.233
+ ],
+ "joint_excess": [
+  0.246,
+  0.273,
+  0.195
+ ],
+ "pred_a": true,
+ "pred_b": null,
+ "pred_c": true,
+ "note": "geometry leg (b) omitted: probe subspaces are slice-conditioned PCA blocks recomputed per leaf and not directly comparable as fixed bases; recorded as not-run rather than faked",
+ "runtime_s": 103.49074816703796
+}

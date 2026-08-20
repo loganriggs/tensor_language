@@ -11148,3 +11148,53 @@ sink_census queued: sweep all 162 heads for position-0 locking to
 ask whether 5.7 is alone or the extreme member of a class
 (registered: >=5 heads over 50%, sinks costlier to delete, 5.7
 the most extreme).
+
+## 451. Sink census: only TWO in 162 heads, both in layer 5
+
+sink_census swept every head for position-0 locking.
+  5.7   99.7% of top reads at position 0, deletion cost 0.916
+  5.2   67.6%,                            deletion cost 0.018
+  5.4    8.5%   5.6 6.1%   5.1 6.0%   6.1 5.8%   rest under 2%
+(a) FAILED against a bar of five: there are exactly TWO sinks in
+the model, and both live in layer 5. (b) HELD: median deletion
+cost 0.916 for sinks against 0.003 for non-sinks. (c) HELD: 5.7
+is the extreme.
+Two readings the data supports and one it kills. Sinks are not a
+CLASS in this architecture -- they are a pair, co-located in one
+layer, which fits a model with no softmax where nothing forces
+attention mass to go somewhere. And being a sink does not make a
+head important: 5.2 reads the same position two-thirds of the
+time and costs fifty times less to delete than 5.7. sink_pair
+queued to ask what separates them: whether 5.2 also broadcasts a
+near-constant, whether its constant lies on the same axis as
+5.7's, and whether deleting both is superadditive.
+
+## 452. Wave 5: three records, three mechanism negatives, two behavioral claims
+
+  r.11.1.2  gate 5.82 (6.02/5.65) | mechanism NEGATIVE on a8/a3/a4
+            (top ratios 1.11-1.15, thresholds 1.30, headroom
+            -0.22 to -0.25) | KEPT: punctuation, 36/51 = 71% vs
+            47% base, p=0.0007, ROBUST_V2 at n_tests=12, with a
+            direction check (punct dCE -0.209, non-punct +0.177)
+  r.23.2.3  gate 5.51 (5.55/5.46) | mechanism NEGATIVE on a8
+            (1.077 vs threshold 1.30) | punctuation TESTED AND
+            FAILED here (p=0.107 help, 0.947 hurt) -- the first
+            leaf to reject the sibling hypothesis, which is what
+            makes the other three worth believing
+  r.7.1.1   gate 5.08 (4.95/5.21) | mechanism NEGATIVE on a7
+            (1.078 vs threshold 1.433) | KEPT, and a NEW class:
+            capitalized-initial targets, 90/137 vs 72.3 expected,
+            p=0.0015, ROBUST_V2 at n_tests=12
+So the swarm's behavioral yield is now three punctuation claims,
+one capitalized claim, and one explicit rejection -- and every
+mechanism table has come back negative except r.3.0.2's. The
+agents are also auditing the tooling unprompted: one flagged that
+ROBUST_V2 can pass with seed_pass_frac 0.0 (correct by design
+after 434, but counterintuitive), and another raised the
+Bonferroni counting question, now answered in the SOP -- n_tests
+is every (class, direction) pair you actually evaluate, and if
+you eyeballed the data first you must count all the pairs you
+could have chosen from.
+punct_shared is queued to decide whether the three punctuation
+claims are one effect or three (joint versus individual ablation,
+plus random-subspace controls on all three).
