@@ -16279,3 +16279,63 @@ extends to content-matching (find where this token appeared
 before), which is neither positional nor simple token detection.
 induction_and is queued, and per the lesson just re-learned it
 verifies the head's attention target BEFORE testing the mechanism.
+
+## 568. Induction is a band, not a head -- the fixed-query test was
+## inapplicable, and this is the model's recurring shape
+
+induction_fixed came back UNEVALUABLE: head 6.3's score-mass share
+on (previous occurrence + 1) is 0.0150 at induction targets
+against 0.0147 at control -- no enrichment. The protocol correctly
+refused to test modality on an unverified target.
+But this one is not just a target-guessing miss; it reflects a
+structural fact the program already established and I failed to
+carry forward. The earlier induction work (induction_redundancy,
+induction_window) found that induction in this model is a BAND OF
+NINE HEADS acting superlinearly: the nine together cost 0.318 nats
+at match positions, individual heads cost about 0.003 each, a
+ratio of 108x. No single head does induction. So asking whether
+head 6.3 attends to (prev-occ + 1) was doomed -- 6.3 alone barely
+does induction, and its raw attention to the induction key is
+indeed at chance (0.015 vs 0.0147).
+So the fixed-query / single-head mechanism test is INAPPLICABLE to
+induction: there is no single induction head to apply it to. That
+is itself the finding, and it fits the program's recurring shape.
+The things this model computes DISTRIBUTIVELY -- the bracket query
+(a dozen writers, 555-558), induction (nine heads, 108x
+superlinear), the digit subspace (four heads, 521) -- all resist
+single-component analysis, while the things it computes in ONE
+place -- the three structural heads (bracket, quote, newline) --
+yield clean, complete, single-head circuits. The dividing line is
+not the behaviour's complexity; it is whether the model happens to
+localize the computation.
+CONSOLIDATED STATE of the circuit program, stated plainly because
+the productive thread has saturated:
+  SOLID -- three structural-attention circuits fully worked out
+    and corrected (bracket, quote, newline): each an approximately
+    fixed query resolved by a double-QK soft-AND, with token
+    identity selecting the class and rotary discriminating a
+    specific referent when the task needs one (positional for
+    brackets/quotes, detection for newlines). Plus the two
+    whole-behaviour results: attention layer 0 is exactly a bigram
+    table, and block 0 is a token-indexed lookup with nameable
+    columns.
+  NEGATIVE, EXACT -- selection subspaces are compact but written
+    diffusely and generically (no sparse upstream source);
+    reusability across circuits is near-floor (private subspaces);
+    the front of the model does not compress jointly (low-rank
+    interfaces fail to compose); lookup tables lose to projection
+    once evaluated on held-out text.
+  DISTRIBUTED, UNTRACEABLE -- induction, the bracket query, and
+    the digit subspace are genuinely spread across many components
+    with no sparse decomposition, established with exact tools.
+This is a coherent and honest picture: this model has a handful of
+crisp localized circuits and a large distributed remainder that
+does not decompose into sparse traceable parts, and I can now tell
+which is which with exact methods rather than guessing.
+No new single-head experiment is queued, because the last three
+speculative ones were UNEVALUABLE on unverified targets -- the
+right next step is a decision about direction, not another guess.
+The queue is fed with digit_distributed, a GROUNDED question on a
+verified target: does the digit behaviour (four heads) still have
+a compact read subspace like the single-head circuits, or is
+distribution over heads matched by distribution over directions?
