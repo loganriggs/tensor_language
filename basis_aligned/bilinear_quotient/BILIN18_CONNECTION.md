@@ -9832,3 +9832,25 @@ opened: sop_batch_certified queued -- does the A/B certification
 gate (395) predict the SOP concentration gate? Top-24 certified
 vs 24 uncertified leaves, SOP steps 1-2 batch-computed, packs
 written for passers (registered a-c).
+
+## 404. GATE INVERSION: A/B-certified leaves FAIL the selectivity gate (17% vs 88%)
+
+sop_batch_certified asked whether the A/B stability gate (395)
+predicts the SOP concentration gate. It ANTI-predicts it: top-24
+certified leaves pass concentration>=3 at 17%; 24 uncertified at
+88%. Both registered bars failed in the inverted direction, and
+25 partial packs were written (all from passers, mostly
+uncertified -- (c) held). Diagnosis: the cosine of a RAW dCE
+4-vector is trivially stable whenever one component is huge (the
+top-certified leaves are exactly the whole-component root probes,
+e.g. r.4's profile [8.08, 0.05, 0.00, 0.02]) -- so the 395 gate
+certifies BIG GLOBAL damage, which is anti-selective by
+construction, while selective leaves' small profiles have noisy
+cosines. STANDING CORRECTION to 395's framing: raw-damage-cosine
+certification is a STABILITY-OF-MAGNITUDE gate, not an identity
+gate; the 165-leaf list must NOT be used as a swarm shortlist
+as-is. Fix queued (gate_reconcile): replicate SELECTIVITY across
+halves instead -- pass iff concentration>=3 on BOTH corpus halves
+independently; registered agreement with the SOP gate,
+production-pool size on 48 fresh leaves, both-halves stability of
+SOP passers, and a label-shuffled null.
