@@ -993,11 +993,24 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   variable, and the head reads it. The subspace is sharply behaviour-specific: projecting it out
   costs 30–60× more at the positions where the behaviour happens than a random subspace does,
   and at other positions it costs essentially nothing (for the newline head, literally zero).</p>
-  <p>This is the tractable handle the whole "trace it to the embedding" programme needs. The
-  decision variable isn't a vague distributed mess; it's a named subspace, and the question
-  becomes "what writes into it," one layer at a time. It's also the same shape for both heads
-  examined, so it looks like a general property of how this model organizes attention selection
-  rather than a quirk of one circuit.</p>
+  <p>The decision variable isn't a vague distributed mess; it's a named subspace. That turns out
+  to be a general property of this model, and it cuts the other way from what "trace it to the
+  embedding" would hope. Asking <em>what writes into</em> a selection subspace, exactly and one
+  layer at a time, the answer is: about a dozen components, none dominant, depositing into it at
+  all positions rather than only where the behaviour occurs. There is no sparse upstream circuit
+  to follow back. The same split shows up wherever this model spreads a computation — induction
+  is a band of nine heads that individually do almost nothing (108× superadditive), and the
+  digit signal spans four heads. Yet in every case the <em>read</em> side stays compact: the
+  digit effect, across its four heads, concentrates so that a single direction carries more than
+  half of it.</p>
+  <p>So the honest shape of this model is one fact seen from two sides:
+  <strong>behaviour-relevant signals are written into compact direction-subspaces by many
+  diffuse sources.</strong> The read side is low-rank and findable; the write side is
+  distributed and does not decompose into nameable parts. That is why the selection subspaces
+  are recoverable but their upstream origins are not — and it means the clean, fully-traceable
+  circuits in this model are the exception (attention layer 0, the front-block tables, the three
+  structural heads), sitting alongside a large remainder that is real, measurable, and genuinely
+  distributed.</p>
   <p>One thing it is <em>not</em>, at least so far, is shared. The bracket and newline selection
   subspaces overlap at a cosine of 0.20 against a chance floor of 0.12 — a direction or two in
   common, not a reused variable. On the two circuits looked at, each head computes its own
