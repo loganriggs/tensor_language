@@ -1,14 +1,22 @@
+  [check_parts sink_origin] relative error 6.582e-08 -> ok
 batch 0 done
+  [check_parts sink_origin] relative error 6.537e-08 -> ok
 batch 4 done
+  [check_parts sink_origin] relative error 6.538e-08 -> ok
 batch 8 done
+  [check_parts sink_origin] relative error 6.514e-08 -> ok
 batch 12 done
+  [check_parts sink_origin] relative error 6.517e-08 -> ok
 batch 16 done
+  [check_parts sink_origin] relative error 6.473e-08 -> ok
 batch 20 done
+  [check_parts sink_origin] relative error 6.659e-08 -> ok
 batch 24 done
+  [check_parts sink_origin] relative error 6.491e-08 -> ok
 batch 28 done
 m4 norm at pos0 155008.8 vs elsewhere 14803.4 (ratio 10.47)
 mean pairwise cosine of pos-0 writes: 0.9978 (same-first-token 1.0, different 0.9978)
-m4 input writers at pos0: [('m0', 0.4408), ('m3', 0.2975), ('m2', 0.1753), ('m1', 0.0547), ('a4', 0.0177)]
+m4 input writers at pos0: [('m3', 0.6622), ('m2', 0.1842), ('m1', 0.0993), ('a4', 0.0295), ('a3', 0.0064)]
 (a) pos-0 write norm >=3x elsewhere: HELD
 (b) pos-0 direction stable (cos>=0.9): HELD
 (c) token split reported: HELD

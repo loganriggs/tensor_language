@@ -2,3 +2,36 @@ reconstruction relative error: 1.290e-07
 (0) exactness: HELD
 baseline: AUC 0.7829 | gate hi +0.1267 (n=496) lo +0.0764 (n=375) gap +0.0503
 a0: AUC 0.7829 (+0.0000) | gate gap +0.0503 (+0.0000)
+m0: AUC 0.7828 (-0.0000) | gate gap +0.0503 (-0.0000)
+a1: AUC 0.7829 (-0.0000) | gate gap +0.0503 (-0.0001)
+m1: AUC 0.7827 (-0.0002) | gate gap +0.0504 (+0.0001)
+a2: AUC 0.7828 (-0.0001) | gate gap +0.0503 (+0.0000)
+m2: AUC 0.7825 (-0.0004) | gate gap +0.0503 (-0.0000)
+a3: AUC 0.7829 (+0.0000) | gate gap +0.0502 (-0.0001)
+m3: AUC 0.7816 (-0.0012) | gate gap +0.0500 (-0.0004)
+a4: AUC 0.7828 (-0.0001) | gate gap +0.0503 (+0.0000)
+m4: AUC 0.7815 (-0.0013) | gate gap +0.0498 (-0.0006)
+a5: AUC 0.7847 (+0.0018) | gate gap +0.0500 (-0.0003)
+m5: AUC 0.7811 (-0.0018) | gate gap +0.0503 (-0.0000)
+a6: AUC 0.7834 (+0.0005) | gate gap +0.0481 (-0.0022)
+m6: AUC 0.7793 (-0.0036) | gate gap +0.0499 (-0.0004)
+a7: AUC 0.7822 (-0.0007) | gate gap +0.0513 (+0.0010)
+m7: AUC 0.7771 (-0.0057) | gate gap +0.0500 (-0.0003)
+a8: AUC 0.7798 (-0.0031) | gate gap +0.0559 (+0.0056)
+m8: AUC 0.7771 (-0.0058) | gate gap +0.0560 (+0.0056)
+a9: AUC 0.7824 (-0.0005) | gate gap +0.0477 (-0.0026)
+m9: AUC 0.7674 (-0.0154) | gate gap +0.0572 (+0.0068)
+a10: AUC 0.7880 (+0.0051) | gate gap +0.0540 (+0.0037)
+m10: AUC 0.7721 (-0.0108) | gate gap +0.0572 (+0.0068)
+a11: AUC 0.7889 (+0.0061) | gate gap +0.0470 (-0.0033)
+m11: AUC 0.7695 (-0.0134) | gate gap +0.0580 (+0.0077)
+wte: AUC 0.7714 (-0.0114) | gate gap +0.0635 (+0.0131)
+ALL_BUT_WTE: AUC 0.6432 (-0.1396) | gate gap +0.0934 (+0.0431)
+control rand seed 11: dAUC -0.0000
+control rand seed 23: dAUC -0.0005
+control rand seed 37: dAUC +0.0000
+(a) 0.0154 vs bar 0.05: FAILED
+(b) AUC leader m9 vs gate leader a11: HELD
+(c) 0.006800000000000028 vs bar 0.0: HELD
+CONTROL (max |dAUC| over 3 random seeds 0.0005 < 0.02): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_head_writers_results.json (123s)

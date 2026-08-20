@@ -1,8 +1,12 @@
+  [check_parts sink_source] relative error 8.183e-08 -> ok
 batch 0 done
+  [check_parts sink_source] relative error 8.155e-08 -> ok
 batch 4 done
+  [check_parts sink_source] relative error 8.201e-08 -> ok
 batch 8 done
+  [check_parts sink_source] relative error 8.231e-08 -> ok
 batch 12 done
-position-0 writers at layer 5: [('m4', 0.6261), ('m3', 0.1587), ('m0', 0.1185), ('m2', 0.0693), ('m1', 0.0176)]
+position-0 writers at layer 5: [('m4', 0.876), ('m3', 0.0901), ('m2', 0.0191), ('m1', 0.0076), ('a4', 0.0041)]
 chain cosine (pos-0 value write vs head mean write): 0.999 | first tokens [('\n', 2), (' in', 1), (' and', 1)]
 (a) top writer share >=0.40: HELD
 (b) top writer is wte or m0: FAILED

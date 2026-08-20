@@ -13153,3 +13153,49 @@ mech_m5_verify is queued: peer controls for the m5 finding at both
 leaves, and the causal test the screen cannot do -- silencing m5's
 contribution to m14 and m15's inputs specifically, and asking
 whether the damage lands on the leaf's own member positions.
+
+## 506. The newline head is clean; its input is not
+
+newline_head_writers, re-run on the corrected decomposition
+(reconstruction 1.29e-7). Each writer's contribution to head
+12.6's QUERY replaced by its own mean over positions, key and
+value sides and all other heads untouched. Baseline AUC on these
+48 rows is 0.783 (0.769 on the 64 rows of 501).
+(a) FAILED. No single writer matters much. The biggest loss is
+m9 at -0.0154, then m11 -0.0134, wte -0.0114, m10 -0.0108, m8
+-0.0058, m7 -0.0057; every attention writer is under 0.004 and
+four of them (a5, a6, a10, a11) IMPROVE the detector slightly when
+silenced. The registered bar was a single writer worth 0.05.
+(c) HELD, decisively. Silencing every component writer at once
+and leaving only the token embedding drops AUC from 0.783 to
+0.643. So the detector genuinely needs context, and the token
+alone gets less than half way.
+Those two together are the result. The individual drops sum to
+about 0.064; removing them together costs 0.140, more than twice
+as much. The query is assembled from the whole late MLP stack --
+m7 through m11 plus the embedding -- with no member of that set
+load-bearing on its own. This is the same mutual-covering shape as
+the induction band, where nine heads windowed individually cost
+0.003 and jointly 0.318, and it is now the second place in this
+model where a clean, nameable computation turns out to be fed by a
+diffuse input that resists attribution.
+(b) HELD but weakly, and the weakness matters more than the
+verdict. The writer whose removal most reduces detector quality
+(m9, -0.0154) is indeed not the one whose removal most reduces
+document gating (a11, -0.0033), which is what the two-input
+reading predicted. But the gating effects are all within 0.008 of
+zero against a gap of 0.050, so no writer carries the document
+gate either. The honest statement is that (b) was answered by
+numbers too small to interpret, and the document gate's source is
+unlocated. Silencing wte INCREASES the gate gap (+0.0131), and
+silencing all context increases it further (+0.0431), which is the
+opposite of a writer supplying it.
+CONTROL clean: three random directions of matched norm move AUC by
+at most 0.0005, against 0.0154 for the largest real writer, so the
+per-writer numbers are measuring writers and not perturbation.
+Where this leaves the newline circuit: the OUTPUT side is
+finished and sharp -- one head, one token, both directions, AUC
+0.77, named in advance by a general-purpose atlas. The INPUT side
+is a distributed sum with no small variable set, which is the same
+answer the 3->4 chain gave and is worth recording as a repeated
+finding about this model rather than a failure of this experiment.

@@ -1,10 +1,14 @@
+  [check_parts payload_decomp] relative error 7.942e-08 -> ok
 batch 0 done
+  [check_parts payload_decomp] relative error 7.947e-08 -> ok
 batch 4 done
+  [check_parts payload_decomp] relative error 7.912e-08 -> ok
 batch 8 done
+  [check_parts payload_decomp] relative error 7.936e-08 -> ok
 batch 12 done
-a6.h3 top payload writers (proj share): [('m0', 0.2712), ('v1', 0.2658), ('m3', 0.1385), ('m4', 0.0945), ('m2', 0.0764), ('a4', 0.0367)]
-a6.h0 top payload writers (proj share): [('m0', 0.3606), ('v1', 0.294), ('m3', 0.1088), ('m2', 0.0739), ('m4', 0.06), ('a4', 0.029)]
-(a) m0 top writer with share >=0.25: HELD
+a6.h3 top payload writers (proj share): [('a5', 0.4051), ('m5', 0.2525), ('v1', 0.2096), ('m4', 0.0529), ('m3', 0.0311), ('a4', 0.0249)]
+a6.h0 top payload writers (proj share): [('v1', 0.6375), ('a5', 0.1173), ('m5', 0.1058), ('m4', 0.043), ('m3', 0.0279), ('a4', 0.0238)]
+(a) m0 top writer with share >=0.25: FAILED
 (b) mixed payload (m0<=0.60, >=3 writers >5%): HELD
-(c) control head profile differs: FAILED
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/payload_decomp_results.json (0s)
+(c) control head profile differs: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/payload_decomp_results.json (1s)
