@@ -911,10 +911,25 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <tr><td>a comma</td><td colspan="3">nothing — the best component is <em>anti</em>-concentrated</td></tr>
   </tbody></table>
   <p>Five distinct components lead, so this is not one general-purpose part of the network
-  being rediscovered nine times. Closing brackets stand out by an order of magnitude, which is
-  the shape you would expect from a computation that genuinely needs memory: predicting
-  <code>)</code> requires knowing an unclosed <code>(</code> is open, and no lookup table
-  carries that.</p>
+  being rediscovered nine times. Closing brackets stand out by an order of magnitude, and
+  chasing that one down produced both the sharpest result in this work and a correction to my
+  own reading of it.</p>
+  <p>A single head, 13.8, carries <strong>98%</strong> of the layer's effect: deleting it costs
+  0.825 nats at positions before a closing bracket, 0.006 six tokens away, and 0.004 averaged
+  over all text. Better, the whole effect passes through <em>one number</em> — leaving the head
+  intact and zeroing a single cell of its score matrix, its score on the opener the bracket
+  closes, costs 0.689 of that 0.825. The same operation on the nearest <em>non</em>-matching
+  opener costs 0.014.</p>
+  <p>That looked like a bracket matcher tracking nesting. It isn't, and two later measurements
+  say so. Disabling rotary position encoding for this head collapses the match-versus-other
+  contrast from 6.5× to <strong>1.08×</strong> — the two become indistinguishable — while
+  stripping the token embedding out of the key side leaves it at 6.8×. So the head selects by
+  <em>position</em>, and "this is a bracket" contributes nothing to which key it picks. And the
+  matching opener sits a median of two tokens back in this corpus, so "points at the match" and
+  "points two tokens back" were largely the same claim. Consistent with that: the head gives
+  already-closed and still-open brackets identical weight, and the model cannot close a bracket
+  opened two clauses earlier at all. The causal numbers stand exactly as measured; the
+  interpretation is a short-range positional pointer, not a symbolic matcher.</p>
   <p>Two of these arrived independently. Layer 8 was already implicated in digit prediction by
   a completely different method — a sixteen-dimensional subspace found through damage
   clustering, whose removal makes digits <em>harder</em> by 0.135 nats across five disjoint
