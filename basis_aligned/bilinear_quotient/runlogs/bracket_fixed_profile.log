@@ -1,0 +1,11 @@
+bin       n   real    fixed(brk)  fixed(all)
+   1-2    77  0.3648     0.3730     0.3515
+   3-5    48  0.4082     0.4308     0.3715
+  6-11    27  0.3457     0.3619     0.3170
+  12-+    15  0.2845     0.2689     0.2493
+
+(0) all bins populated: HELD
+(a) fixed query matches real near (1-5 tokens): HELD
+(b) real beats fixed at range >=0.05: {'6-11': -0.0162, '12-+': 0.0156} -> NO ADAPTATION (fixed profile)
+NULL (bracket-mean beats all-mean in every bin): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_fixed_profile_results.json (46s)

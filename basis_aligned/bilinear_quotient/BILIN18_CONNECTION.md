@@ -15902,3 +15902,67 @@ BIN against the real query. If the two profiles match, "adapts"
 should be softened to "fixed query with a rotary look-back
 profile"; if the real query beats the fixed one at long distance,
 a residual adaptation survives and is quantified.
+
+## 560. The bracket head is a fixed-profile positional AND -- 531's
+## "adaptation" refuted, the AND confirmed but position x position
+
+Two runs, together the complete corrected mechanism.
+bracket_fixed_profile priced the constant bracket-average query by
+distance bin against the real per-position query:
+  distance   n    real    fixed query    fixed(all-mean)
+    1-2      77   0.3648    0.3730          0.3515
+    3-5      48   0.4082    0.4308          0.3715
+    6-11     27   0.3457    0.3619          0.3170
+    12+      15   0.2845    0.2689          0.2493
+(a) HELD: the fixed query matches the real query near.
+(b) NO ADAPTATION: the real query does NOT beat the fixed query at
+range -- the fixed query is slightly BETTER at 6-11 and within
+0.016 at 12+. A single constant vector reproduces the entire
+distance profile. So 531's "the pointer adapts" is REFUTED: there
+is no per-position adaptation, only a fixed query whose rotary
+profile happens to hold roughly flat out to ~11 tokens.
+NULL ok: the bracket-mean query beats the all-position mean in
+every bin, so the fixed query does carry a bracket-relevant
+direction.
+bracket_and_factors answered the user's question -- how a fixed
+query stays selective -- and confirmed the AND, with a twist.
+  match/distractor ratio: f1 2.98 | f2 2.77 | PRODUCT 5.99
+(0) exact: the product reconstructs the score to 0.
+(a) HELD: the product's selectivity (5.99) exceeds either factor
+(2.98, 2.77) -- multiplicative, a genuine soft-AND, exactly the
+double-QK structure the user pointed at.
+(b) FAILED, and the failure is the finding: it is NOT position x
+token. BOTH factors collapse to ratio ~1.0 without rotary (f1
+2.98->1.02, f2 2.77->1.04), so BOTH are POSITION-driven. The
+token identity does something different: the match key differs
+from the WINDOW-MEAN key by 14-22x, far more than from the
+distractor (3x), because the distractor is ALSO a bracket opener.
+So token identity selects the CANDIDATE POOL -- openers stand out
+from ordinary text -- and rotary, redundantly in both QK factors,
+discriminates the matching opener from other openers by position.
+The complete mechanism, corrected and closed:
+  1. a fixed query ("attend to a bracket opener") is applied at
+     every closing position -- no per-position computation (559);
+  2. token identity makes bracket-opener keys stand out 14-22x
+     from ordinary keys -- the candidate pool;
+  3. the double-QK PRODUCT is a soft-AND that sharpens selectivity
+     multiplicatively (5.99 vs ~2.8 per factor);
+  4. within the opener pool, rotary -- in both factors -- prefers
+     the opener at the query's fixed relative-offset profile;
+  5. because that profile prefers recent positions and nesting is
+     rare, the preferred opener is almost always the true match --
+     which is why nesting defeats the head (526, 529): when the
+     match is not the most recent opener, the fixed profile picks
+     the wrong one.
+So the bracket head is a fixed-query, token-gated, positional
+AND. It does not compute a distance and does not adapt; it prefers
+a bracket opener at a fixed relative offset, and that coincides
+with matching whenever brackets are not nested. This is a complete
+and honest circuit, and it is simpler than every intermediate
+story I told (matcher -> adaptive pointer -> distance computer ->
+this).
+The NULL "violation" (control product ratio 6.77 > 5.99) is
+consistent rather than contradictory: a jittered query near a
+closing position prefers the same opener, because the preference
+is a stable positional profile, not tied to the exact closing
+token -- the same fact the fixed-query result establishes.

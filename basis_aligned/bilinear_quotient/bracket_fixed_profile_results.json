@@ -1,0 +1,41 @@
+{
+ "bins": {
+  "1-2": {
+   "n": 77,
+   "real": 0.3648,
+   "brk": 0.373,
+   "all": 0.3515,
+   "real_minus_brk": -0.0082
+  },
+  "3-5": {
+   "n": 48,
+   "real": 0.4082,
+   "brk": 0.4308,
+   "all": 0.3715,
+   "real_minus_brk": -0.0226
+  },
+  "6-11": {
+   "n": 27,
+   "real": 0.3457,
+   "brk": 0.3619,
+   "all": 0.317,
+   "real_minus_brk": -0.0162
+  },
+  "12-+": {
+   "n": 15,
+   "real": 0.2845,
+   "brk": 0.2689,
+   "all": 0.2493,
+   "real_minus_brk": 0.0156
+  }
+ },
+ "bracket_mean_vs_all_mean_null": true,
+ "adaptation_gap": {
+  "6-11": -0.0162,
+  "12-+": 0.0156
+ },
+ "adapts": false,
+ "pred_0": true,
+ "pred_a": true,
+ "runtime_s": 45.71722173690796
+}
