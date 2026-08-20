@@ -17153,7 +17153,7 @@ came back NEGATIVE (-5.21, i.e. the model prefers dash tokens over
 period/exclamation even where period/exclamation is the correct
 answer) -- an impossible reading for a well-calibrated test. Traced
 it: the margin summed 2 positive tokens ('.','!') against 4 negative
-tokens ('--','--Wraw'em-dash bare,' --',' em-dash') -- comparing a
+tokens ('--', bare em-dash '—', ' --', ' —') -- comparing a
 2-token sum to a 4-token sum, not a fair class contrast. Direct check
 of mean logits across ordinary positions confirms it: period+exclaim
 sum to 10.1, the four dash variants sum to 14.9, PURELY from having
