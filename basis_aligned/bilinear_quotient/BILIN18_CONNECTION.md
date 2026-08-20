@@ -12569,3 +12569,38 @@ blocking structure reproduces >= 50% of the window damage, (b)
 blocking content reproduces <= 25%, (c) the two arms block
 comparable counts so the contrast is not an artifact of how much
 was removed.
+
+## 491. Intervening on the named variable: structure carries 2x content, but not a majority
+
+head_12_6_causal blocked head 12.6 from reading distant positions
+by class, on structured rows at match positions:
+  4-token window (reference)            dCE +0.00717
+  block distant PUNCTUATION + NEWLINE   dCE +0.00318   44.4%
+  block an equal count of distant PROSE dCE +0.00157   21.9%
+  positions blocked: 3525 vs 3525 (exactly matched)
+(b) and (c) HELD. (a) FAILED by 5.6 points: blocking structure
+reproduces 44.4% of the window damage against the 50% I
+registered.
+The substantive result survives the failed bar and is stated at
+its true strength: with the number of blocked positions matched
+EXACTLY, structural reads carry twice what prose reads carry. But
+neither dominates -- about a third of the damage comes from
+distant positions in neither class, so "structure reader" is the
+head's leading tendency rather than its whole function.
+A proportionality note this arc has earned: 12.6's total effect
+here is 0.007 nats on structured rows at match positions. It is
+the largest match-specific long-range signal anywhere in the model
+-- which is the point, since every other layer's distant reads are
+worth under a tenth of a nat and seventeen of eighteen layers can
+be windowed for free -- but it is small in absolute terms, and the
+program should not oversell a head that moves loss by seven
+thousandths.
+head_12_6_classes queued to decompose it without guessing which
+class to add next: block each of the six token classes in turn,
+report damage AND the number of positions blocked, and compare
+classes by DAMAGE PER BLOCKED POSITION. It doubles as a
+convergence test between two independent measurements --
+489 ranked these classes by how enriched 12.6's reads are for
+them, this ranks them by what blocking them costs. Registered: (a)
+punctuation is the most potent per position, (b) prose content the
+least, (c) the two rankings agree at Spearman >= 0.5.
