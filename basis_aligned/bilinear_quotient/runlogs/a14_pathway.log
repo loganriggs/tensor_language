@@ -1,2 +1,9 @@
 a14: conc 5.76 members 0.589 off 0.102
 a13: conc 3.4 members 0.333 off 0.098
+bundle: conc 6.1 members 0.329 off 0.054
+a14+bundle: conc 7.23 members 0.892 off 0.124
+joint / larger individual: 1.514
+(a) a14 ablation is selective (conc>=2): HELD
+(b) a13 control is not (conc<1.5): FAILED
+(c) a14 and the bundle share one pathway: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/a14_pathway_results.json (62s)

@@ -11732,3 +11732,42 @@ causal one. Registered: (a) ablating a14 damages that leaf's
 members selectively at concentration >= 2, (b) an adjacent-depth
 control does not, (c) a14 and the leaf's own bundle are
 subadditive, i.e. one pathway rather than two.
+
+## 468. a14's enrichment IS causal -- but it is not unique, and it is a separate pathway
+
+a14_pathway mean-ablated components and scored r.3.0.2's own
+member set:
+  arm            concentration   member |dCE|   off-slice |dCE|
+  a14 alone           5.76           0.589          0.102
+  a13 control         3.40           0.333          0.098
+  the leaf's bundle   6.10           0.329          0.054
+  a14 + bundle        7.23           0.892          0.124
+(a) HELD: ablating a14 -- the writer the mechanism table flagged
+as enriched -- damages this leaf's members at concentration 5.76,
+essentially matching the leaf's OWN probes (6.10). The correlational
+enrichment statement is now backed by a causal one.
+(b) FAILED: the adjacent-depth control a13 reaches 3.40, well
+above the 1.5 bar. Selectivity for this leaf is a GRADIENT over
+nearby components, not a property of a14 alone. a14 is the
+strongest by a clear margin (5.76 against 3.40) but the claim
+"a14 specifically" is too strong as I wrote it.
+(c) FAILED, and the arithmetic is worth stating: joint member
+damage is 0.892 against 0.589 + 0.329 = 0.918 summed -- almost
+exactly ADDITIVE. I predicted subadditivity (one shared pathway);
+the data say a14 and the leaf's own bundle damage these members
+through largely INDEPENDENT routes. Two pathways, not one.
+This is the program's first confirmed enrichment escalated to a
+causal claim, with both of its accompanying predictions refuted.
+The honest record: the mechanism table pointed at a component
+whose removal really does hit this leaf hardest, and the two
+things it does not tell you are whether nearby components do the
+same (they partly do) and whether the writer and the leaf's
+machinery form one circuit (they do not).
+enrichment_predicts queued to test the tool itself rather than
+one pair: across twelve components spanning the writer table --
+top-enriched, mid-table, bottom-table, and components absent from
+it -- does the enrichment ratio predict ablation selectivity?
+Registered: (a) Spearman >= 0.5, (b) a14 tops both measures, (c)
+absent components are less selective than the top-five enriched.
+If (a) fails, the swarm's central instrument does not predict
+causal importance and that has to be said plainly.
