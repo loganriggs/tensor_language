@@ -11525,3 +11525,44 @@ and price bundle-ablation against component-ablation on the same
 rows. Registered: (a) unselected over-continuation >= 60% or the
 claim was an artifact of conditioning, (b) the bundle dissociation
 replicates, (c) the two interventions differ in direction.
+
+## 462. THE OVER-CONTINUATION CLAIM IS REFUTED -- and the survivor is much smaller
+
+punct_unselected, no conditioning anywhere, 48 fresh FineWeb rows:
+  intact top-1 at ALL 1602 punctuation targets:
+      non-punctuation only 23.5% of the time
+(a) FAILED against a 60% bar, and it is not close. Unselected, the
+model gets punctuation RIGHT three times in four. 457's 75%
+over-continuation rate was entirely an artifact of conditioning on
+positions where ablation helped. THE OVER-CONTINUATION CLAIM IS
+WITHDRAWN, including from the published report, which now carries
+the refutation in place of the claim (section retitled "Three
+readings that died").
+(b) HELD: the bundle dissociation replicates cleanly --
+  bundle:      punct -0.0098   non-punct +0.0153   (-0.0251)
+(c) FAILED, and it dissolves 461's supposed conflict:
+  components:  punct +0.3246   non-punct +0.7462   (-0.4216)
+Both interventions SPARE punctuation; they differ only in overall
+severity. 461's oracle looked backwards because of my design, not
+the model's behaviour -- gating ablation to punctuation positions
+compares "damage only there" against "no damage", which is bound
+to be worse at those positions; the meaningful comparison is
+against damaging everywhere, and under that comparison punctuation
+is spared under both interventions.
+FINAL STATE OF THIS ARC, honestly graded. Three readings of the
+same measurement died: a CIRCUIT claim (not leaf-specific, 455), a
+FREQUENCY claim (frequency does not explain it, 456), and a BIAS
+claim (selection did, 462). What survived all three is the
+smallest of them and it is real: ablation damages punctuation
+predictions less than others, reproducibly, on unseen text, under
+two very different interventions.
+punct_confidence queued to finish it: punctuation may be spared
+simply because it is PREDICTABLE, and confident predictions
+survive damage. Registered: (a) after matching positions on the
+intact model's confidence the sparing shrinks below 25% of its
+unmatched value, (b) damage falls monotonically with confidence
+decile, (c) if (a) fails something class-specific remains.
+If (a) holds, the whole arc reduces to "robust predictions are
+robust", the correct and unglamorous end -- and the program keeps
+the methodological yield instead: never compute a rate at
+positions selected by the outcome you are measuring.

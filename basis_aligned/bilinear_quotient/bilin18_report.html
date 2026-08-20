@@ -132,7 +132,7 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">11</span><a href="#circuits">The circuit program</a></li>
     <li><span class="num">12</span><a href="#code">The model on readable code</a></li>
     <li><span class="num">13</span><a href="#sink">The most expensive head is a constant</a></li>
-    <li><span class="num">14</span><a href="#overcontinue">A bias the model actually has</a></li>
+    <li><span class="num">14</span><a href="#overcontinue">Three readings that died</a></li>
     <li><span class="num">15</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
@@ -739,36 +739,34 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
-  <h2 id="overcontinue">A bias the model actually has</h2>
+  <h2 id="overcontinue">Three readings that died</h2>
   <p>One thread started as a circuit claim and ended somewhere better. Several independently
   discovered damage-clusters shared a behaviour: ablating their machinery <em>improved</em> the
   model's predictions at punctuation. Three rounds of controls dismantled the obvious readings —
   it is not specific to any one cluster (a component belonging to none of them reproduces it),
   and it is not explained by punctuation simply being frequent (within the top frequency quartile
   punctuation still helps 78% against 54% for everything else).</p>
-  <p>The reading we arrived at — and then had to qualify — is that <strong>the model
-  over-continues at phrase boundaries</strong>. At positions where ablation helps and the true
-  next token is punctuation, the intact model's top choice is a <em>non-punctuation
-  continuation</em> 75% of the time, and ablation lowers exactly that wrong competitor's
-  probability by 0.108 while a random token moves by 0.0000012 — five orders of magnitude less.
-  The reverse asymmetry does not appear: at the 1,194 helped non-punctuation positions the top
-  choice is punctuation only 13% of the time.</p>
-  <p class="q"><strong>Correction in progress.</strong> Those figures are computed at positions
-  selected <em>because</em> ablation helped there, which makes the "75%" partly circular as
-  evidence for a general bias — our own error, caught by a follow-up that came back backwards:
-  gating the ablation to true punctuation positions on unseen text makes the model <em>worse</em>
-  (+0.117 nats), not better. What survives unselected is narrower and still real: on fresh text,
-  ablating the original 16-dimensional probe bundle lowers loss at punctuation while raising it
-  elsewhere in the same forward pass. Whole-component ablation does the opposite. The two
-  interventions are not interchangeable, and the unselected version of the competitor measurement
-  is running now; this section will be updated with whichever way it lands.</p>
-  <p class="q">The bias has a location as well as a description. Reading each component's write
-  through the unembedding at those sites, all five components whose removal helps push the wrong
-  continuation harder than the true target — margins of +3.1 to +8.9 logits after correcting for
-  the stream-centre offset — while the one control component that does not help sits at +0.04, a
-  hundred-fold separation. So "ablating this machinery helps" turned out to mean "this machinery
-  is where a real deficiency lives", which is a more useful finding than the circuit we were
-  looking for.</p>
+  <p><strong>What it is not.</strong> Our first reading was that the model over-continues at
+  phrase boundaries — at helped positions its top choice is a non-punctuation continuation 75% of
+  the time. That figure was computed at positions selected <em>because</em> ablation helped there,
+  and the unselected measurement refutes it: across all 1,602 punctuation targets in unseen text,
+  the model's top choice is a non-punctuation token only <strong>23.5%</strong> of the time. It
+  gets punctuation right three times in four. We published the selected number before running the
+  unselected one; this paragraph replaces it.</p>
+  <p><strong>What it is.</strong> Ablation damages punctuation predictions <em>less</em> than
+  everything else, and that part replicates on unseen text under both interventions: the
+  16-dimensional bundle gives −0.010 nats at punctuation against +0.015 elsewhere, and ablating
+  five whole components gives +0.325 against +0.746. Both spare punctuation; they differ only in
+  severity. So there is a real, reproducible dissociation — it is just a claim about
+  <em>robustness</em>, not about a bias, and it is much less exciting than what we first wrote
+  down.</p>
+  <p class="q">The likely explanation is now being tested rather than asserted: punctuation may be
+  spared simply because it is <em>predictable</em>, and confident predictions survive damage. If
+  matching positions on the intact model's confidence makes the punctuation advantage disappear,
+  nothing punctuation-specific is left to explain — and the honest end of this thread is a
+  methodological one. Three separate readings of the same measurement died here: a circuit claim
+  (it is not leaf-specific), a frequency claim (frequency does not explain it), and a bias claim
+  (selection did). The dissociation that survived all three is the smallest of them.</p>
 </section>
 
 <section class="col">
