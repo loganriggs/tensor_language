@@ -1,0 +1,37 @@
+  [assert_disjoint direction_names] 0 of 96 priced rows appear in the fitting corpus -> ok
+block 0: 11 of 16 directions nameable
+   dir 0: determiner 9/10 -> ["'The'", "' the'", "' The'", "' a'", "' an'"]
+   dir 1: capitalized 10/10 -> ["' B'", "' M'", "' Ch'", "' K'", "' H'"]
+   dir 2: space_word 9/10 -> ["' gives'", "' allows'", "' lose'", "' helps'", "' brings'"]
+   dir 3: space_word 8/10 -> ["'�'", "' sd'", "' fee'", "' examples'", "' hospitals'"]
+block 1: 9 of 16 directions nameable
+   dir 0: subword 6/10 -> ["' missiles'", "'ird'", "'ox'", "'rate'", "' tuna'"]
+   dir 1: space_word 8/10 -> ["' surprised'", "' recommend'", "'ored'", "' understood'", "' excited'"]
+   dir 2: space_word 5/10 -> ["'ums'", "' missiles'", "' unb'", "'lim'", "'ol'"]
+   dir 3: subword 9/10 -> ["'rate'", "'less'", "'ell'", "'ith'", "'han'"]
+block 2: 6 of 16 directions nameable
+   dir 0: space_word 4/10 -> ["'adow'", "' Shares'", "'Point'", "' medicines'", "'ross'"]
+   dir 1: subword 8/10 -> ["'oom'", "'è'", "'oud'", "'oster'", "'ker'"]
+   dir 2: subword 5/10 -> ["'lim'", "'ala'", "'avy'", "' mon'", "' sc'"]
+   dir 3: subword 9/10 -> ["'lim'", "'uck'", "'oster'", "'ump'", "'END'"]
+block 3: 6 of 16 directions nameable
+   dir 0: space_word 8/10 -> ["'oney'", "'adow'", "' medicines'", "' disturbances'", "' commands'"]
+   dir 1: subword 7/10 -> ["' Share'", "' Common'", "'iv'", "' Hir'", "'ric'"]
+   dir 2: subword 9/10 -> ["'oney'", "'ala'", "'uto'", "'avy'", "'nes'"]
+   dir 3: capitalized 7/10 -> ["' Cubs'", "' Broncos'", "' Turkey'", "'Apple'", "'ust'"]
+block 4: 9 of 16 directions nameable
+   dir 0: capitalized 6/10 -> ["'Monday'", "'Welcome'", "'July'", "'June'", "'By'"]
+   dir 1: subword 7/10 -> ["' nozzle'", "'hazard'", "'ums'", "'ado'", "'ix'"]
+   dir 2: space_word 6/10 -> ["'Monday'", "' lady'", "'Welcome'", "' clubs'", "' workforce'"]
+   dir 3: capitalized 9/10 -> ["' Palin'", "' Broncos'", "' Cubs'", "'avy'", "' Horowitz'"]
+block 5: 4 of 16 directions nameable
+   dir 0: space_word 7/10 -> ["' sd'", "' fee'", "' examples'", "' unb'", "' logger'"]
+   dir 1: space_word 6/10 -> ["' pilots'", "'MM'", "' guides'", "'lets'", "' logger'"]
+   dir 2: capitalized 5/10 -> ["'ker'", "' Erica'", "'agon'", "'David'", "'PI'"]
+   dir 3: capitalized 5/10 -> ["' sd'", "' fee'", "' examples'", "'Monday'", "'July'"]
+
+(a) block 0 has 11 of 16 nameable: HELD
+(b) block 5 has 4, at least 4 fewer than block 0: HELD
+(c) curve across blocks: [11, 9, 6, 6, 9, 4]
+NULL (9 of 16 random directions nameable): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/direction_names_results.json (33s)

@@ -15401,3 +15401,52 @@ are not the same kind of object:
     past it.
 The published report is corrected: the line "the winning move is
 substitution, not truncation" is withdrawn and replaced.
+
+## 551. The nameability metric is broken, and its control was
+## mismatched
+
+direction_names scored the top 16 interface directions of each
+early block by whether 7 of their 10 highest-scoring frequent
+tokens share an automatic class.
+  block      0    1    2    3    4    5
+  nameable  11    9    6    6    9    4   (of 16)
+(a) HELD: block 0 has 11 of 16, extending 542's count.
+(b) HELD: block 5 has 4, seven fewer than block 0.
+NULL VIOLATED, and it invalidates both: NINE of 16 RANDOM
+directions also come out nameable. With random directions scoring
+56%, a real count of 11 or 4 says almost nothing, and the apparent
+decay could be noise.
+Two things are wrong and I should have caught both before running.
+FIRST, the control was not matched to the treatment. The real
+directions are principal directions of the centred per-token WRITE
+matrix, and each is scored by projecting that same matrix. The
+random control drew a direction and projected the raw EMBEDDING
+table instead -- a different object in a different space. A
+control has to be the same measurement with the structure removed,
+and this one changed the measurement.
+SECOND, the classifier has no base rate. Among the 5000 most
+frequent tokens the classes are heavily unbalanced -- space-words
+alone are a large fraction -- so "7 of 10 share a class" happens
+often by chance. Purity has to be judged against how common the
+class is, not against 7/10 flat.
+This also puts a caveat on earlier naming counts. 542's "6 of 8
+class-pure" and 534's "3 of 5" used the same flat criterion and
+the same mismatched control (random directions projected against
+embeddings rather than against the object being named). Their
+random controls returned 1 of 5, which is why they passed, but
+five draws against a procedure that yields 56% on sixteen draws is
+simply an underpowered check. The QUALITATIVE naming in those
+sections -- that specific directions pick out determiners,
+punctuation, digits, initial capitals -- is visible in the token
+lists and does not depend on the counting, but the COUNTS should
+not be quoted, and I am marking them accordingly rather than
+claiming they are fine.
+direction_names2 is queued with both fixes: the random control
+draws directions in the SAME centred write space and is scored by
+the SAME projection, and a direction counts as named only if its
+dominant class is enriched against that class's base rate among
+the frequent tokens at a binomial p below 0.01. The decay question
+-- whether per-token naming stops working with depth -- is
+genuinely open again and is worth answering properly, because it
+decides whether the projection stand-in that 550 showed to be
+cheapest is also readable.
