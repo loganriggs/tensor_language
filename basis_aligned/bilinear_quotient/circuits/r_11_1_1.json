@@ -811,6 +811,35 @@
    "verdict": "HELD",
    "source": "CIRCUIT_SOP step5 (cl.story_test_class)",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave6",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": {
+    "full": 5.7,
+    "half0": 5.88,
+    "half1": 5.52,
+    "note": "bit-exact reproduction of recorded values via cl.leaf_ablate+cl.sign_stats/sign_stats_half"
+   },
+   "mechanism_reproduced": true,
+   "mechanism_note": "leaf_input_decomp.py rerun: still no ENRICHED_STABLE2 writer in a4/a3/a8. a4 top a2 ratio 1.093 [1.043-1.15] vs threshold_v2 1.364 (headroom -0.321); a3 top a2 ratio 1.093 [1.031-1.161] vs threshold_v2 1.300 (headroom -0.269); a8 top a4 ratio 1.144 [1.075-1.186] vs threshold_v2 1.300 (headroom -0.225). All three ratios/thresholds/headrooms match the recorded values exactly.",
+   "fresh_class_dissociation": {
+    "method": "48 fresh FineWeb rows (cl.fineweb_rows(48)), leaf bundle ablated via cl.proj_hooks(top_probes), dCE = ce_sweep(hooks,tok)-ce_sweep((),tok); dissociation = mean(dCE at punct targets) - mean(dCE elsewhere)",
+    "n_punct": 1602,
+    "n_total": 12288,
+    "dCE_in_punct": 0.0189,
+    "dCE_out": 0.029,
+    "dissociation": -0.0101,
+    "row_bootstrap_95ci": [
+     -0.0239,
+     -0.0011
+    ]
+   },
+   "vs_population": "writeup 464 population (16-dim bundle, class_sparing) punct dissociation = -0.0251. This leaf's own bundle gives -0.0101, only ~40% of the population magnitude, and -0.0251 lies OUTSIDE (below) the leaf's own 95% bootstrap CI [-0.0239,-0.0011]. The claim does NOT exceed the known general effect -- it is a weaker instance of it.",
+   "random_control": "Rank-matched random orthonormal subspaces in the same components (a4 rank4, a3 rank6, a8 rank2), 3 seeds, scored on the same fresh rows/class: dissociation -0.0006/+0.0019/+0.0011 (near zero, no consistent sign). The leaf's real bundle (-0.0101) clears this noise floor -- so ablating THIS specific subspace does something beyond generic rank-matched damage -- but that something is still short of, not in excess of, the population bar.",
+   "objection": "Even setting the shortfall aside, BILIN18_CONNECTION.md sections 453/455/456/462/463 already established that this punctuation-sparing / content-damage dissociation is a GENERIC, non-leaf-specific property of this model: whole-component ablation of many different components (a7,a6,a8,a4,a9, even m7 which belongs to no punctuation bundle) reproduces it, frequency and prediction-confidence explanations were both refuted, and only random rank-matched subspaces are clean. So \"exceeds population\" was never going to certify a PRIVATE circuit function for r.11.1.1 even if it had held -- at best it would show this bundle is a somewhat more efficient generic damage vector than the reference 16-dim bundle, not that a4/a3/a8 specifically implement a punctuation behaviour, especially given the mechanism gate already failed (no enriched single writer in any of the three components)."
   }
  ],
  "provenance": {

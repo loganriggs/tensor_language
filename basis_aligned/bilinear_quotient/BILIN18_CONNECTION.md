@@ -12879,3 +12879,53 @@ are underpowered while showing a hint:
 Three of the five are already settled by this run. power_recheck2
 is queued for the two that are not, r.6.0.0 m17 (the largest
 unresolved hint in the census) and r.5.3.2 a15.
+
+## 500. Head 12.6 is a newline pusher, and it is not counting
+
+Testing what 12.6 computes. The hypothesis was line-length
+rhythm: text with regular line structure (verse, lists, tables,
+chat logs) breaks at a predictable interval, so a head reading the
+distance back to the previous newline could predict the next break
+with no content at all. Every line break was labelled REGULAR when
+its gap matched the document's own median gap within 25%, and
+IRREGULAR otherwise.
+  regular targets    (n=140)  +0.0875
+  irregular targets  (n=159)  +0.0909
+(a) FAILED, and not narrowly -- 0.96x, the two are the same
+number. The head helps exactly as much when the line length is
+unpredictable as when it is on the document's rhythm, so it is not
+doing line arithmetic. The rhythm hypothesis is dead.
+(c) HELD, and this is what replaces it. Deleting 12.6 lowers the
+logit of the newline token (id 198) at line breaks by 0.1371,
+while the strongest non-newline competitor at the same positions
+moves by 0.0044 -- a factor of 31. The head is not making line
+breaks generally more predictable; it is pushing one specific
+token, and it is doing essentially nothing else.
+Where its score mass lands at line breaks (signed shares, so they
+do not sum to one): other 0.155, most recent newline 0.049, self
+0.016, position 0 0.012, line start 0.008, previous token -0.020.
+Diffuse, with the recent-newline preference from 497 present but
+small. Whatever selects the key, it is not a single landmark.
+TWO PROCESS FAILURES IN THIS RUN, both repeats of rules already
+written down:
+(b) was UNEVALUABLE, not failed. It asked whether the rhythm
+effect survives excluding blank-line targets, and the sample
+contains ZERO blank-line targets (in this tokenizer a blank line
+needs two consecutive 198s, and 48 FineWeb rows had none), so (b)
+computed the identical quantity as (a). The rule "check a
+registered comparison class can be populated" was recorded after
+three such bars earlier in this program and violated again here.
+The NULL was VIOLATED as literally registered (control positions
+show a 1.85x regular/irregular gap against a 1.5x bar) -- but
+1.85 is the quotient of +0.0048 and -0.0026, two numbers at 5% of
+the effect being studied and straddling zero. That is exactly the
+degenerate-ratio problem 497 flagged one section earlier, with the
+resolution "report the pair, not the quotient", and I registered a
+quotient anyway. Recording it as violated rather than reinterpreting
+it away; it does not rescue anything, since (a) already failed.
+Next question queued: if not rhythm, what switches the pusher on?
+newline_head_trigger measures the per-position drop in the logit
+of token 198 and asks whether it is a function of the current
+token (an elaborate bigram), of the document being line-broken
+text at all (a genre detector), or of neither, with head 12.2 as a
+same-layer control on the detector score.

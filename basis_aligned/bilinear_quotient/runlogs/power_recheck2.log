@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/power_recheck2.py", line 121, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/power_recheck2.py", line 89, in main
+    'separation':t['null_bar_separation'],
+                 ~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'null_bar_separation'

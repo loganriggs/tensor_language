@@ -673,6 +673,35 @@
    "verdict": "HELD",
    "source": "SOP-step5 story_test_class",
    "date": "2026-08-20"
+  },
+  {
+   "test": "reviewer-two",
+   "source": "sonnet-reviewer-wave6",
+   "date": "2026-08-20",
+   "verdict": "WEAKEN",
+   "concentration_recheck": {
+    "full": 5.08,
+    "half0": 4.95,
+    "half1": 5.21,
+    "note": "bit-exact reproduction of recorded values via cl.leaf_ablate+cl.sign_stats/sign_stats_half"
+   },
+   "mechanism_reproduced": true,
+   "mechanism_note": "leaf_input_decomp.py rerun: still no ENRICHED_STABLE2 writer into a7. top writer m1 ratio 1.078 [1.048-1.156] vs threshold_v2 1.433 (=max(1.3, null 1.170+2sd 0.131)), headroom -0.385. Matches recorded values exactly.",
+   "fresh_class_dissociation": {
+    "method": "48 fresh FineWeb rows (cl.fineweb_rows(48)), leaf bundle ablated via cl.proj_hooks(top_probes), dCE = ce_sweep(hooks,tok)-ce_sweep((),tok); dissociation = mean(dCE at capitalized targets) - mean(dCE elsewhere)",
+    "n_capitalized": 1235,
+    "n_total": 12288,
+    "dCE_in_capitalized": 0.049,
+    "dCE_out": 0.0428,
+    "dissociation": 0.0061,
+    "row_bootstrap_95ci": [
+     -0.0198,
+     0.0379
+    ]
+   },
+   "vs_population": "writeup 464 population (16-dim bundle, class_sparing) capitalized dissociation = +0.0059. This leaf's own bundle gives +0.0061, nominally 0.0002 above population, but the row-level 95% bootstrap CI [-0.0198,+0.0379] comfortably contains both the population value AND zero (and even negative values). The apparent excess is noise, not a reproducible leaf-specific effect.",
+   "random_control": "Rank-matched random orthonormal subspace in the same component (a7, rank24), 3 seeds, scored on the same fresh rows/class: dissociation -0.0031/+0.0034/+0.0096. One random seed alone (+0.0096) exceeds the leaf's own real-bundle effect (+0.0061) -- the control is NOT clean, the real effect is statistically indistinguishable from same-rank random ablation in this component.",
+   "objection": "The claimed excess over population (0.0002) is two orders of magnitude smaller than both the bootstrap CI half-width (~0.029) and the random-control spread (~0.013 across just 3 seeds) -- there is no basis to call this leaf-specific. Independently of the numbers, BILIN18_CONNECTION.md 453/455/456/462/463 already show this punctuation-spared/content-damaged dissociation is a generic property reproduced by ablating many unrelated components in this model (a frequency account and a prediction-confidence account were both tested and refuted, and only 462 established a genuinely leaf-agnostic version survives at all). A CONFIRM here would misattribute a well-documented general bias to a7's specific machinery, which is especially unsupported given the mechanism gate already failed (no enriched writer into a7)."
   }
  ],
  "provenance": {
