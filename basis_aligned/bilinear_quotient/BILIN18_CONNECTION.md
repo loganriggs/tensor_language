@@ -9531,3 +9531,46 @@ Runner timeout raised to 4h and restarted while idle, which also
 activates the queue dup-guard (the phantom re-append bug's
 mitigation, pending since 19:3x). census_diverse requeued
 unchanged.
+
+## 390. THE DIVERSE CENSUS LANDS: 311 leaves, document dominance broken
+
+census_diverse completed on the 4h runner (105 min). The curated
+corpus: 1000 rows / 513k tokens from FineWeb (the training
+distribution), at most 2 rows per document -- ~5x the old window,
+and built specifically because the old window was dominated by one
+travel guide. All registered bars HELD:
+- (a) 311 leaves (bar: >=100). The old same-size-window tree had
+  ~100; diversity does not thin the structure, it multiplies it --
+  22+ root damage modes vs the old 9.
+- (b) median leaf's top-single-document member share is 1% (bar:
+  <=50%). No leaf is a disguised document detector anymore; the
+  old guide-dominance is fully broken. This retro-validates the
+  identity-rule revision (381): what survives corpus change is
+  machinery, not member lists.
+- (c/d) state saved (census_state_diverse.pt, packs in
+  circuit_tree_packs_diverse.json), every pack >=12 contexts.
+Child replication rate 0.85 within-tree. The A/B disjoint-half
+machinery-replication leg was deferred at registration time;
+census_ab_replication is now queued as its own registered
+experiment (below). Class labels attach weakly at this scale
+(class_r2 mostly <0.05) -- consistent with 381: token-class is a
+profile feature, not the partition principle.
+
+## 391. Fold trigger v2: rotary was MOST of the gap, but the bars still fail
+
+fold_score_test2 added the deterministic rotary rotation to the
+weights+tokens fold score. Registered bars: (a) FAILED -- but
+marginally and unevenly: head 1.4 jumped 19%->62%, 2.5 45%->52%,
+3.5 7.5%->39.1% (the bar was >=40% on all three; 3.5 misses by
+0.9 points). Chance is 0.8%. (b) FAILED: rank corr 0.28/0.14/0.24,
+all under 0.4 -- the fold score finds the argmax read half the
+time but does not reproduce the full pattern shape. (c) held: deep
+heads 1.8%/3.3% (context lives in their match code, 387).
+Post-hoc diagnosis (registered forward in v3): v2's fold code was
+mlp0's write ALONE. The residual entering early attention also
+carries the token embedding's direct path and the lambda skip --
+all token-computable. fold_score_test3 queued: full attention-free
+forward (wte + every mlp fold + lambda mixes, rotary at real
+positions), registered (a) all three early heads >=40% hit, (b)
+corr >=0.4 on >=2/3, (c) strict improvement over v2 on all three,
+(d) deep heads stay <10%.

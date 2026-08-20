@@ -4135,3 +4135,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 ## Appendix 388-389 (2026-08-19)
 - 388: fold-only trigger partial (2.5: 45% vs 0.8% chance); rotary omitted -- exactly computable, v2 queued.
 - 389: diverse census (22+ root modes!) outgrew the 90-min cap; runner timeout 4h + dup-guard active; rerun queued.
+
+## Appendix 390-391 (2026-08-20)
+- 390: diverse census lands -- 311 leaves (5x FineWeb corpus, <=2 rows/doc), median top-document share 1% (dominance broken), all bars held; A/B machinery-replication leg queued (census_ab_replication).
+- 391: fold trigger v2 -- rotary was most of the gap (1.4: 19->62%, 2.5: 45->52%, 3.5: 7.5->39.1%) but registered bars still FAILED (3.5 misses 40% by 0.9pt; corr <0.4 everywhere). v3 queued with the full token-computable residual (wte direct path + all mlp folds).
