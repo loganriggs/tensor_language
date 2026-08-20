@@ -1,0 +1,15 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+1.1: top5 1.00 dom [('m0|m0', 496)]
+12.6: top5 0.37 dom [('m0|m0', 443), ('m0|m3', 33)]
+5.7: top5 0.67 dom [('m0|m4', 496)]
+1.8: top5 1.00 dom [('m0|m0', 496)]
+11.6: top5 0.38 dom [('m0|m0', 366), ('m0|m3', 41)]
+10.5: top5 0.42 dom [('m0|m0', 417), ('m3|m0', 35)]
+3.8: top5 0.80 dom [('m0|m0', 306), ('m2|m2', 123)]
+9.8: top5 0.50 dom [('m0|m0', 492), ('m0|m3', 4)]
+(a) >=6/8 top5<0.5 (diffuse inputs): FAILED
+(b) >=2/8 m0|m0 dominant: HELD (7)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/stack_writer_decomp_results.json (168s)

@@ -10105,3 +10105,27 @@ comparator (adjacent-token relations), not a match head. Queued:
 stack_writer_decomp -- the 8 costliest code-resistant heads' score
 inputs (registered diffuse-input hypothesis + universal-substrate
 count + the mechanism worklist table for the swarm).
+
+## 415. The code-resistant heads compare the SAME code: m0|m0 dominates 7 of 8
+
+stack_writer_decomp decomposed the score inputs of the 8 heads
+costliest under 4-read truncation (1.1, 12.6, 5.7, 1.8, 11.6,
+10.5, 3.8, 9.8). The registered diffuse-input hypothesis is
+WRONG: (a) FAILED -- only 3/8 have top-5 pair mass under 0.5, and
+heads 1.1/1.8 are at 1.00, pure m0|m0. (b) HELD overwhelmingly:
+7/8 dominant pairs are m0|m0 (the eighth, 5.7, is m0|m4 -- m0
+still on the query side; ALL EIGHT read m0 as the query input).
+Combined with 411 (r.3.0) and 387 (induction band), every
+attention head examined so far scores its reads by comparing m0
+identity codes. Mechanism reframe for "code-resistance": these
+heads are not resistant because their score has many inputs --
+the comparison substrate is the same one code -- but because
+their FUNCTION integrates many reads (breadth of the read set,
+not breadth of the score inputs). The next mechanism question is
+value-side: what do wide integrators accumulate? Queue stocked
+for the model swap with three registered experiments
+(m0_code_geometry: substrate compactness + shared read subspaces;
+local_bigram_score: is 16.8's offset -1 score a bigram-
+plausibility signal; courier_centrality: is a6.h3 a specific
+courier or a hub -- all with nulls/controls; note their
+docstrings self-number 415-417, one behind this ledger).

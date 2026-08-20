@@ -1,0 +1,12 @@
+65101 bigrams counted
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+16.8: corr 0.161 shuf -0.020 n 1538
+16.2: corr -0.199 shuf -0.102 n 1538
+1.4: corr -0.024 shuf -0.045 n 1538
+(a) 16.8 |corr| >= 0.3: FAILED
+(b) shuffled-table null < 0.1: HELD
+(c) 16.8 exceeds 16.2 and 1.4 by >=0.15: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/local_bigram_score_results.json (1s)
