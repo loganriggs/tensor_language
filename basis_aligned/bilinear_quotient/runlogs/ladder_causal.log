@@ -1,0 +1,24 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+batch 32 done
+batch 36 done
+batch 40 done
+batch 44 done
+batch 48 done
+batch 52 done
+batch 56 done
+batch 60 done
+ladder: match -0.0019 off 0.0007
+shuf: match 0.0731 off 0.0227
+delete: match 0.5008 off 0.4067
+(a) ladder-trigger <=0.05 at match: HELD
+(b) <=10% of deletion: HELD
+(c) shuffled >=6x ladder: HELD
+(d) off-match <=0.02: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ladder_causal_results.json (4s)

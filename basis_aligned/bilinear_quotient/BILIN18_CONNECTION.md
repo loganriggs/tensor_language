@@ -9810,3 +9810,25 @@ cash-in: the LIVE model runs with all nine band heads' patterns
 computed from the k=2 reconstruction (real values), priced in CE
 at match positions against the 4-read code, a shuffled-content
 control, and deletion. Registered a-d.
+
+## 403. CAUSAL CLOSE: the live model runs on computed induction triggers at zero cost
+
+ladder_causal replaced all nine band heads' patterns in the LIVE
+model with patterns computed from the k=2 reconstruction (wte +
+MLP chain + two attention moves of the same code; values real):
+  ladder-trigger: match -0.0019, off-match +0.0007
+  shuffled-content control: match +0.0731
+  deletion anchor: match +0.5008
+All four bars HELD -- (a) far under 0.05, (b) under 10% of
+deletion trivially, (d) surgical off-match. One arithmetic
+footnote: bar (c) (shuffled >= 6x ladder) degenerated because the
+ladder cost is NEGATIVE; the substantive contrast (0.073 vs
+-0.002 vs 0.50) is unambiguous. THE INDUCTION ARC IS CLOSED
+END-TO-END: output side = 4-read code (376, 98.8%); input side =
+one identity code, MLP-built, attention-moved at most twice
+(397-402); and the model actually RUNS on the computed triggers
+(this section). Report updated with the causal number. Next arc
+opened: sop_batch_certified queued -- does the A/B certification
+gate (395) predict the SOP concentration gate? Top-24 certified
+vs 24 uncertified leaves, SOP steps 1-2 batch-computed, packs
+written for passers (registered a-c).

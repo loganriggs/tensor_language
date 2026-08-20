@@ -660,7 +660,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   identity code: written by the embedding, enriched layer-by-layer by the MLP chain, and
   moved between positions by attention</strong> — deep heads read relayed, even
   doubly-relayed, copies — with each head then executing its four strongest coincidence
-  reads.</p>
+  reads. The bound is quantitative: allowing the code one move closes the early heads
+  (94–100% pattern agreement), two moves close every head to 93%+, three to 98%+. And the
+  claim is causal, not just predictive: running the <em>live model</em> with all nine
+  induction heads' patterns computed from this reconstruction costs <strong>−0.002 nats</strong>
+  at match positions — indistinguishable from intact — while a shuffled-content control
+  costs +0.07 and deleting the heads costs +0.50.</p>
   <p class="q">The census that targets this work got its own audit. Rebuilt on a five-times
   larger, deliberately diverse training-distribution corpus (at most two rows per document),
   it yields 311 damage-mode leaves and no leaf is a disguised document detector (median
