@@ -12477,3 +12477,35 @@ as control. Registered: (a) successor-reading >= 25% against a
 null under 5% makes it an induction-target head the band list
 missed, (b) the histogram is reported either way, (c) the control
 head stays under 10%.
+
+## 488. Head 12.6 is a DIFFUSE LONG-RANGE reader -- not induction, not local
+
+head_12_6_reads, with the corrected probe:
+  head 12.6 at match positions (n=1408)
+    successor of a repeat (induction target)  9.3%  (null 1.1%)
+    the repeat itself                         3.3%
+    local, offset >= -4                      15.5%
+    position 0                                0.5%
+    other (distant, scattered)               71.4%
+    top six offsets -1,-2,-4,-3,-6,-9 cover only 22% of reads
+  control head 12.3
+    successor 3.9% | local 43.5% | other 50.8%
+(a) FAILED: 9.3% successor-reading is 8.5x its null and clearly
+non-random, but nowhere near the 25% that would make 12.6 an
+induction-target head the band list missed. (b) HELD (histogram
+reported), (c) HELD (the control is not a successor reader).
+So the corrected probe rules out the identity I expected, and the
+head that carries 84.5% of the model's only match-specific
+long-range cost is something this program has not catalogued: a
+DIFFUSE long-range reader. It is markedly less local than its
+layer-mate (15.5% against 43.5%), spreads its reads thinly over
+distant positions rather than concentrating on any offset, and
+damages the model specifically at repeat positions.
+head_12_6_targets queued to characterise it by WHAT it reads
+rather than where: at match positions, take the token at its top
+read and compare the class distribution against the corpus base
+rate, with a rarity split and head 12.3 as control. Registered:
+(a) some class is enriched >= 2x, (b) RARE tokens are the most
+enriched -- the salience hypothesis, a long-range head that
+ignores position and seeks informative tokens -- and (c) 12.6 is
+more selective than the control.

@@ -1,0 +1,11 @@
+corpus base rates: {'punct': 0.146, 'newline': 0.065, 'digit': 0.063, 'capitalized': 0.139, 'space_word': 0.523, 'subword': 0.18, 'rare': 0.088}
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+12.6: enrichment {'punct': 2.33, 'newline': 1.27, 'digit': 1.33, 'capitalized': 1.79, 'space_word': 0.68, 'subword': 0.38, 'rare': 0.69} | top punct 2.33x
+12.3: enrichment {'punct': 0.34, 'newline': 0.09, 'digit': 0.33, 'capitalized': 3.72, 'space_word': 1.27, 'subword': 1.4, 'rare': 1.01} | top capitalized 3.72x
+(a) some class enriched >=2x: HELD
+(b) rare tokens are the top class: FAILED
+(c) 12.6 is more selective than the control: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_12_6_targets_results.json (1s)

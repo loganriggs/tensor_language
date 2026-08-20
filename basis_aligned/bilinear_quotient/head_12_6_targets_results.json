@@ -1,0 +1,62 @@
+{
+ "12.6": {
+  "n": 1408,
+  "rates": {
+   "punct": 0.339,
+   "newline": 0.083,
+   "digit": 0.084,
+   "capitalized": 0.249,
+   "space_word": 0.358,
+   "subword": 0.068,
+   "rare": 0.061
+  },
+  "enrichment": {
+   "punct": 2.33,
+   "newline": 1.27,
+   "digit": 1.33,
+   "capitalized": 1.79,
+   "space_word": 0.68,
+   "subword": 0.38,
+   "rare": 0.69
+  },
+  "top_class": "punct",
+  "top_enrichment": 2.33
+ },
+ "12.3": {
+  "n": 1408,
+  "rates": {
+   "punct": 0.05,
+   "newline": 0.006,
+   "digit": 0.021,
+   "capitalized": 0.517,
+   "space_word": 0.665,
+   "subword": 0.252,
+   "rare": 0.089
+  },
+  "enrichment": {
+   "punct": 0.34,
+   "newline": 0.09,
+   "digit": 0.33,
+   "capitalized": 3.72,
+   "space_word": 1.27,
+   "subword": 1.4,
+   "rare": 1.01
+  },
+  "top_class": "capitalized",
+  "top_enrichment": 3.72
+ },
+ "base_rates": {
+  "punct": 0.146,
+  "newline": 0.065,
+  "digit": 0.063,
+  "capitalized": 0.139,
+  "space_word": 0.523,
+  "subword": 0.18,
+  "rare": 0.088
+ },
+ "rare_threshold": 1.835401235439349e-05,
+ "pred_a": true,
+ "pred_b": false,
+ "pred_c": false,
+ "runtime_s": 0.8749961853027344
+}
