@@ -1,0 +1,20 @@
+77 targets | selection subspace dim 16
+(0) writer reconstruction 1.400e-07
+
+writers by projection onto the selection subspace S at bracket targets:
+    a5: 8.9% (control 10.5%)
+    a6: 7.3% (control 8.0%)
+   m10: 6.9% (control 6.0%)
+    a7: 6.9% (control 6.0%)
+   a11: 6.8% (control 5.1%)
+   m12: 6.4% (control 8.2%)
+   m11: 6.0% (control 7.3%)
+    a9: 5.9% (control 6.3%)
+  leading head of a5: 5.7 carries 72% of its S-projection
+
+(0) reconstruction 1.400e-07: HELD
+(a) top 3 writers into S carry 23% (>=45%): FAILED
+(b) top writer a5 carries 9% (>=20%): FAILED
+(c) one head carries >=40% of the leader: HELD (7)
+NULL (leader S-share drops at controls 0.089 -> 0.105): VIOLATED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_subspace_writers_results.json (45s)

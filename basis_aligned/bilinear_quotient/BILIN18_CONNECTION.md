@@ -15778,3 +15778,65 @@ many heads read; it computes a separate compact variable per head,
 with minor shared geometry. Whether that holds across more heads
 is the generalizable next question, and cheap -- the subspaces are
 weights-plus-one-sweep to extract and compare.
+
+## 558. The trace stops here, for a real reason: the selection
+## subspace is read compactly but written diffusely and generically
+
+bracket_subspace_writers attributed the selection subspace S
+itself -- not the raw query -- to upstream writers, exactly
+(reconstruction 1.4e-7). The hope was that S, being the
+discriminative part, would concentrate where the raw query (553)
+did not.
+  writer   S-projection at targets   at controls
+    a5           8.9%                  10.5%
+    a6           7.3%                   8.0%
+   m10           6.9%                   6.0%
+    a7           6.9%                   6.0%
+   a11           6.8%                   5.1%
+   m12           6.4%                   8.2%
+   m11           6.0%                   7.3%
+(a) FAILED: top 3 writers carry 23%, no better than the raw
+query's 25%. The selection subspace is written just as diffusely
+as everything else.
+(b) FAILED: the leader a5 carries 9%.
+NULL VIOLATED, and this is the informative part: the leaders'
+projection onto S is essentially the SAME at bracket targets and
+at position-matched controls (a5 8.9% vs 10.5%, if anything
+higher at controls). The writers fill S generically, everywhere,
+not preferentially where brackets close.
+This reconciles with 555 and reframes the whole trace. 555 showed
+removing S at NON-bracket positions costs nothing, yet the writers
+here project onto S at non-bracket positions just as much. Both
+are true: the residual carries energy in S everywhere, but that
+energy only AFFECTS the output at bracket positions, through head
+13.8's query-key alignment. S is a READ FRAME the head uses; the
+bracket-specificity is not in who writes S or when, it is in the
+query-key-rotary GEOMETRY at bracket positions.
+So the honest end state for the bracket circuit's upstream trace:
+  * the head reads a compact 16-dim subspace to select (555) --
+    this is real and tractable;
+  * that subspace is written by a dozen components, none dominant,
+    at all positions equally (558) -- there is NO sparse upstream
+    source to trace to;
+  * the bracket-specificity lives in the interaction between the
+    query (which carries a rotary-phase distance preference) and
+    the opener keys under rotary (529), not in any upstream writer.
+This is a genuine negative for the "trace back to the embedding
+via sparse circuits" hope, and it is a negative about the MODEL,
+established with exact tools (1.4e-7 reconstruction), not a
+failure of method. This model computes the bracket distance in a
+distributed way: many components each nudge a shared read frame,
+and the selection emerges from geometry. There is no dozen-writer
+chain to name because the writing is not sparse.
+What remains cleanly nameable is the READ side -- the 16-dim
+subspace and the head's use of it -- and the ONE place the trace
+did localize: a5's projection onto S is 72% carried by head 5.7
+(the position-0 broadcast head, 444/446). That is a real named
+sub-node, even if it is only 9% of the whole. Recorded as the one
+thread of the bracket query that reaches a specific earlier head.
+The reusable-component search should therefore move to circuits
+whose writers ARE sparse -- the front-of-model token and pair
+tables (542-549) are the clean sparse objects in this model, and
+that is where reuse, if it exists, will be visible. Drilling the
+bracket query further has reached diminishing returns and the
+honest stopping point is here.
