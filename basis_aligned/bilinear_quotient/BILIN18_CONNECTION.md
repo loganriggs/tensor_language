@@ -15562,3 +15562,54 @@ concentrates on a few writers where the absolute level did not,
 gap 2 has a real answer; if it stays diffuse, the bracket head's
 distance computation is genuinely distributed and that is the
 finding, now proven exactly rather than asserted.
+
+## 554. The contrast is diffuse too -- so the question changes from
+## "which writer" to "which direction"
+
+bracket_query_contrast removed the common-mode by decomposing the
+match-minus-mean-key contrast instead of the absolute match-cell
+score. Common-mode cancels exactly because the key enters linearly
+and the query piece is shared.
+(0) HELD: the contrast reconstructs to 2.99e-7.
+  writer   |contrast contribution|   share
+   m10          0.0516               9.0%
+    a7          0.0513               8.9%
+    a5          0.0394               6.8%
+   a10          0.0381               6.6%
+    m6          0.0381               6.6%
+   a11          0.0378               6.6%
+    a9          0.0363               6.3%
+(a) FAILED: top 3 carry 25%, essentially unchanged from the
+absolute level's 25%.
+(b) FAILED: m10 leads at 9%.
+NULL ok: at control positions the contrast top-3 share is 0.26, so
+the (weak) concentration that exists is specific to closing
+positions.
+Removing common-mode barely moved the ranking, which is itself
+informative: the writers were not contributing a shared level plus
+private discrimination -- each contributes a small discriminative
+piece directly. Over WRITERS, the bracket head's distance
+selection is irreducibly distributed across about a dozen
+late-layer components, and this is now proven by exact composition
+(2.99e-7), not asserted from ablation.
+That closes one framing of gap 2 and opens the right one. "Diffuse
+over writers" and "low-rank in the residual stream" are not the
+same statement and can both hold: twelve components each relaying
+one underlying variable would look exactly like this. The variable
+would be a single direction of the layer-13 input that the query
+reads, written into the stream by many hands. The user's
+reusable-component idea lives precisely here -- if one direction
+carries the look-back signal, it is a named variable that other
+circuits may also read.
+So the question moves from "which writer sets the distance" to
+"which DIRECTION of the query input carries the selection, and how
+many". bracket_query_rank is queued: take the head's causal effect
+(the 0.825-nat bracket cost), find the top singular directions of
+the query's dependence on its input across close-bracket targets,
+and project them out of the layer-13 residual one at a time until
+the head's bracket effect is gone. If one or two directions
+suffice, that is the variable to trace upstream, it reconciles the
+diffuse-writer finding, and it is a candidate reusable component;
+if it takes many, the computation is high-rank at the input too
+and the bracket head's query has no compact upstream description,
+which would be a real and final answer for this circuit.

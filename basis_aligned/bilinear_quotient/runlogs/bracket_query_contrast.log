@@ -1,0 +1,19 @@
+145 close-bracket target cells with a match
+(0) q reconstruction 5.256e-07 | f1 reconstruction 2.985e-07
+(0) EXACTNESS: HELD
+
+query-side writers into head 13.8, by |contribution| to the match-cell f1 score:
+   m10: |contrib| 0.0516 signed -0.0515 (9.0%)
+    a7: |contrib| 0.0513 signed -0.0513 (8.9%)
+    a5: |contrib| 0.0394 signed -0.0394 (6.8%)
+   a10: |contrib| 0.0381 signed -0.0379 (6.6%)
+    m6: |contrib| 0.0381 signed -0.0381 (6.6%)
+   a11: |contrib| 0.0378 signed -0.0373 (6.6%)
+    a9: |contrib| 0.0363 signed -0.0363 (6.3%)
+    m9: |contrib| 0.0327 signed -0.0325 (5.7%)
+
+(a) top 3 contrast writers carry 25% (>=50%): FAILED
+(b) top writer m10 carries 9% (>=20%): FAILED
+(c) one head carries >=40% of the leader: FAILED/NA (-)
+NULL (control contrast top-3 0.26 < 0.40): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_query_contrast_results.json (45s)
