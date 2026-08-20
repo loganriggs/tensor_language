@@ -1,0 +1,67 @@
+4000 samples, mlp0 hidden dim 4608
+(0) exact-by-construction (h @ Down.T IS the real output): HELD
+output rank for 95% variance: r=558
+cluster sizes: [48, 32, 29, 28, 25, 22, 20, 20, 14, 10, 9, 8, 7, 6, 6, 4, 4, 4, 3, 1]
+(a) stability ARI 0.363 vs top-300 0.58, null -0.005: real structure
+
+cluster 19 (48 units) POSITIVE (concentration 8/8 "determiner"):
+   [+4990.09] ...'\nFeel free to download this card and print on a' | next=' a'
+   [+4945.85] ...'\nFeel free to download this card and print on a' | next=' a'
+   [+4836.80] ...' questions with some type of "Universal Knowledge" on the' | next=' the'
+   [+4663.03] ...'\nFeel free to download this card and print on a' | next=' a'
+   [+4553.04] ...' to see Laurinaitis and Long hang out on the' | next=' the'
+   [+4551.87] ...' before his day would come, for him play on a' | next=' a'
+   [+4396.29] ...' a Manhattan subway car. Her death leads him on a' | next=' a'
+   [+4356.39] ...', recommended offers should therefore be able to proceed on a' | next=' a'
+  NEGATIVE:
+   [+2958.12] ...' logic which is simple plain and so beautiful. Even the' | next=' the'
+   [+2457.77] ...' requests to extend the 28-day period, particularly where' | next=' where'
+   [+2346.38] ...'\n- Persistent disobedience or aggression (longer than' | next=' than'
+   [+2155.13] ...' time turbulent, exciting and glorious.\nWith as many' | next=' many'
+   [+2041.58] ...' about. It seemed to take a lot of extra time' | next=' time'
+   [+2031.31] ...'"Good Morning' | next=' Morning'
+   [+2022.03] ...' coming in the mail for Ladybug, I described it' | next=' it'
+   [+1977.10] ...' about to give a speech at a wedding or your hear' | next=' hear'
+
+cluster 17 (32 units) POSITIVE (concentration 8/8 "space_word"):
+   [+2711.79] ...' the 28-day period, particularly where good reasons can' | next=' can'
+   [+2672.94] ...') and Resus.M.E. I do' | next=' do'
+   [+2591.11] ...' feeling incompetent, a third of trainees will not report' | next=' report'
+   [+2588.72] ...'” whiskey, it’s good to put' | next=' put'
+   [+2568.36] ...' "I have great men in my life, I do' | next=' do'
+   [+2531.23] ...' entire IObservable/IObserver thing could' | next=' could'
+   [+2494.85] ...'How AP reported' | next=' reported'
+   [+2490.33] ...' homes, and prime luxury and waterfront properties.He also' | next=' also'
+  NEGATIVE:
+   [+3447.41] ..." these words don't sound familiar to you, that's" | next="'s"
+   [+3060.94] ...' their primary care physician.\nWith so many patients being' | next=' being'
+   [+2928.21] ...'per\nHusbandry"? Well, that\'s' | next="'s"
+   [+2909.39] ..." am tired of seeing these snakes\ndie--that's" | next="'s"
+   [+2741.76] ...'Rebecca is the only sextuplet who is' | next=' is'
+   [+2623.10] ...' the Liberian capital.\n"Taylor, who is' | next=' is'
+   [+2581.32] ...' beat.\nIt’s funny because you go' | next=' go'
+   [+2558.25] ...' really, just enjoying the brown, slippery beach that is' | next=' is'
+
+cluster 16 (29 units) POSITIVE (concentration 4/8 "punct"):
+   [+3635.86] ...' his talk (subtitled "School Sucks"),' | next='"),'
+   [+3244.11] ...'], 3D-RTI [Swaziland],' | next='],'
+   [+3161.94] ...' specific geographical location.\nState, County, City and' | next=' and'
+   [+3005.39] ...' CCCP-86511 [USSR],' | next='],'
+   [+2969.17] ...'USSR], RA-86511 [Russia],' | next='],'
+   [+2859.63] ...'), which Islamist movements in Egypt, Tunisia, Morocco and' | next=' and'
+   [+2632.20] ...' in when the job requires bending, reaching, lifting and' | next=' and'
+   [+2606.31] ...' listings, school information, local events, market reports and' | next=' and'
+  NEGATIVE:
+   [+2494.35] ...' based on physician judgment, because' | next=' because'
+   [+2416.44] ...' my back pocket."\nPolice were investigating their motive but' | next=' but'
+   [+2385.31] ...' about them.\nBut it was also bittersweet because' | next=' because'
+   [+2326.72] ...' in the 1st, but Riggs Stephenson, back' | next=' back'
+   [+2226.72] ...' SEC.\nThere is always at least one, if' | next=' if'
+   [+2142.91] ...'weet ending to our tale.\nAppropriate because' | next=' because'
+   [+2103.95] ...' jostling the hypothermic patient too much because' | next=' because'
+   [+2099.52] ...' if anything startling should happen that requires your attention — like' | next=' like'
+
+(b) found-cluster concentrations [8, 8, 4] (>=5/8 for >=1 of 3): HELD
+(c) article-related clusters among the lower-300 top clusters: [19] (present)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_units_600_900_results.json (31s)

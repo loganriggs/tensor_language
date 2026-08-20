@@ -17924,3 +17924,49 @@ circuits extend well below the importance cutoff. Coverage of this one
 layer is more partial than the writeup volume implied, and the fix is
 simply to keep clustering downward. Queued: mlp0_units_600_900 to map
 how far the clean structure extends.
+
+## 601. mlp0's clean structure decays gradually, not sharply, and a
+## THIRD article cluster appears at ranks 600-900 -- the article
+## machinery is distributed across importance levels
+
+Continued the coverage map one band deeper (mlp0 units ranked
+600-900).
+  (0) exact by construction.
+  (a) stability ARI 0.363 -- real structure (null -0.005), decaying
+      from the trend: top-300 0.58, 300-600 0.562, 600-900 0.363. So
+      the clean structure does finally weaken as importance drops, but
+      GRADUALLY -- there is no sharp cutoff separating "structured"
+      from "unstructured" units. At rank 900 the layer is still
+      clustering at 0.36, well above the 0.1 floor.
+  (b) HELD: two of three top clusters at 8/8 concentration.
+  (c) the clusters, all still readable:
+        cluster 19 (48 units): a THIRD ARTICLE-context cluster --
+          8/8 "determiner", fires before a/an/the (especially after
+          prepositions: "on a", "print on a", "on the"). This is a
+          SEPARATE unit set from the top-300's cluster 8, and it means
+          the article decision draws on mlp0 units spread across
+          importance ranks, not concentrated in one cluster.
+        cluster 17 (32 units): a modal/auxiliary-context cluster --
+          fires before can/do/could/report/put, negative before the
+          "'s" contraction and "is" (related to but distinct from the
+          top-300's aux-contraction cluster 7).
+        cluster 16 (29 units): a coordination-vs-subordination cluster
+          -- fires before "and"/list-continuation and bracket-close
+          punctuation, negative before subordinating "because"/"but"/
+          "if".
+  (c-article) cluster 19 IS article-related -- so 600's "no extra
+      article machinery below rank 300" was too strong; it holds for
+      300-600 but not 600-900. Corrected here.
+CONSOLIDATED COVERAGE PICTURE for mlp0 alone: at least NINE clean
+nameable clusters across three importance bands (top-300: article,
+aux-contraction, punctuation; 300-600: newline, pronoun, number-word;
+600-900: article-2, modal, coordination), with stability decaying
+gradually 0.58 -> 0.56 -> 0.36. The honest coverage statement is now
+firmly: mlp0 is far richer than the top-300 framing implied, its
+article machinery in particular is DISTRIBUTED across multiple unit
+clusters at different importance levels (plus the mlp1 echo), and the
+program has named a growing but still partial fraction of it. This
+brackets the breadth question: clean structure extends at least to
+rank 900 and decays smoothly. Breadth well-sampled now; the natural
+next move is depth -- promote one of the newly-found clusters to a
+causally-confirmed circuit with the validated patching method.
