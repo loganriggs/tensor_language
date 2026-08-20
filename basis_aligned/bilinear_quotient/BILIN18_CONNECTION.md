@@ -17712,3 +17712,60 @@ the first two layers and does not keep re-encoding it. This is a real
 boundary on the redundancy, found by the same method that confirmed
 it, and it closes the breadth-first "how far does it extend" question:
 two layers, decaying, done.
+
+## 597. DEPTH-FIRST on the article circuit: it is context-driven
+## (attn0 folds in essentially all of it) and its mlp1 echo fires on
+## the same data points -- both of the user's predictions confirmed
+
+Complementary depth-first pass on the one fully-confirmed circuit
+(mlp0 cluster 8), per the user's steer to intersperse breadth-first
+sweeping with going deep on a promising circuit. Two directions, both
+the user's ideas, both confirmed cleanly (all four registered
+predictions HELD; reproducibility exact).
+PHASE 1 -- FOLDING ATTN0 INTO MLP0 (backward). mlp0 sits in block 0
+right after attn0, so mlp0's input is exactly the token-embedding
+path plus attn0's bigram-table contribution. Zeroing each and
+re-measuring cluster 8's per-position firing:
+  (1a) CONTROL HELD, exactly: zeroing attn1 (a LATER block, which
+      cannot reach mlp0's input) leaves cluster 8 activation IDENTICAL
+      -- correlation 1.0000. Proves the measurement only registers
+      genuine upstream dependence.
+  (1b) FINDING: zeroing attn0 collapses cluster 8's article-position
+      firing to correlation 0.2405 with its true value. attn0 is
+      NOT a minor input -- it carries essentially all of what drives
+      the article decision. The a/an-vs-the choice is CONTEXT-DRIVEN
+      (it needs the previous-token bigram information attn0 folds in),
+      not made from the current token's embedding alone. This makes
+      mechanistic sense: whether the next word is an article at all,
+      and a/an vs the, depends on the preceding words (a verb, "is",
+      a preposition), which is exactly what attn0's bigram table
+      brings to mlp0's input. The circuit is now traced one step
+      further back -- token embedding -> attn0 bigram table -> mlp0
+      cluster 8 -> article logits, every arrow either exact or
+      causally verified.
+PHASE 2 -- SAME DATA POINTS (forward). The user predicted a circuit's
+downstream echo fires on the same positions. mlp1's article cluster
+(595, the confirmed 13% echo) is the test case:
+  (2a) HELD: per-position firing energy of mlp0-cluster8 and mlp1-
+      article-cluster correlate at Pearson 0.4685 across all
+      positions -- they fire hard on the same data.
+  (2b) NULL HELD: mlp0-cluster8 vs an UNRELATED mlp1 cluster (the
+      86-unit tokenization-artifact detector) correlates at -0.0289
+      -- essentially zero. The co-firing is specific to the
+      redundant article cluster, not a property of any large mlp1
+      cluster.
+  (2c) top-100-position Jaccard overlap: article 0.036 vs artifact
+      0.000 -- the article echo shares top positions (modestly in
+      absolute terms; the energy correlation is the stronger signal),
+      the artifact shares none.
+CONSOLIDATED: the article circuit is now the deepest-traced circuit
+in the program -- exact token->attn0->mlp0 fold on the input side
+(context-driven, attn0 load-bearing), causally-confirmed article
+logit effect on the output side (592), and a confirmed same-positions
+redundant continuation in mlp1 (595 + this). Depth-first paid off:
+one confirmed circuit, traced end to end across the attn0/mlp0 fold
+and forward into its layer-1 echo, is a much higher-quality object
+than another shallow breadth-first layer would have been. Good model
+for the next depth targets (the newline head 12.6 and the bracket
+head 13.8 are the other fully-verified circuits that could take the
+same end-to-end fold treatment).
