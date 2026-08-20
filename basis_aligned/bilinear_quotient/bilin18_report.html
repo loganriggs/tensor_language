@@ -1274,6 +1274,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   exactly on the number already trusted: its own rank-16 stand-in costs 0.094, just under the
   same bar, and beats a same-size random direction by more than fourteen times. Two
   independent measurements, two different methods, the same answer.</p>
+  <p>With the tool trusted, the natural next question was whether the first attention layer's
+  real behaviour splits into different cases the way the first MLP's did — recall the earlier
+  grouping work found MLP pieces that specialize (an article choice here, a punctuation choice
+  there). Run the same recursive-splitting search on attention with the newly-confirmed
+  rank-16 anchor in hand this time (rather than guessing, as the very first MLP attempt had
+  to), and the search finds <strong>nothing to split</strong> — one leaf, the whole dataset,
+  never refined. That is a real, informative difference, not a failure of the search: the
+  first MLP layer's version of this same search found five distinct groups, some needing far
+  fewer directions than the rest. Put the two results together and a clean picture emerges —
+  the first attention layer really is what earlier sections called it, a single uniform
+  lookup table that treats the whole vocabulary the same way and needs the same ~16 numbers
+  everywhere, while the first MLP layer is a genuinely mixed bag, with most of its work generic
+  and a real minority of special cases that compress much further. Two components, two honest
+  answers, from the same tool pointed at each in turn.</p>
 </section>
 
 <section class="col">
