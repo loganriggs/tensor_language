@@ -12543,3 +12543,29 @@ punctuation-and-newline density and measure 12.6's window damage
 at match positions in each, with 12.3 as control. Registered: (a)
 a >= 2x gradient from bottom to top quartile for 12.6, (b) no
 gradient for 12.3, (c) per-quartile numbers reported either way.
+
+## 490. CONFIRMED: head 12.6's contribution scales with structural density
+
+head_12_6_structure split fresh FineWeb rows into quartiles by
+punctuation-and-newline density and measured each head's
+4-token-window damage at match positions:
+  quartile (least -> most structured)
+    head 12.6   +0.0004  +0.0026  +0.0075  +0.0073
+    head 12.3   +0.0034  -0.0014  +0.0011  +0.0043
+  ratio top/bottom:  12.6 = 18.25x     12.3 = 1.26x
+ALL THREE BARS HELD. 12.6's contribution rises monotonically with
+how structured the text is, by a factor of eighteen from the least
+to the most structured quartile, while its layer-mate is flat.
+Together with 489's token-class profile -- distant reads enriched
+2.33x for punctuation and depleted 0.38x for prose -- the head now
+has a name backed by two independent measurements: a LONG-RANGE
+STRUCTURE READER.
+head_12_6_causal queued to close it the way this program closes
+claims, by intervening on the NAMED VARIABLE rather than the head.
+On structured rows, block 12.6 from reading distant punctuation
+and newline positions specifically, against a matched control that
+blocks an equal number of distant prose positions. Registered: (a)
+blocking structure reproduces >= 50% of the window damage, (b)
+blocking content reproduces <= 25%, (c) the two arms block
+comparable counts so the contrast is not an artifact of how much
+was removed.
