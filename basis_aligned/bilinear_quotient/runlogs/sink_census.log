@@ -1,0 +1,21 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+2 heads read position 0 >50% of the time
+top 10 (head, sink fraction, deletion cost):
+   5.7: 0.997  0.91559
+   5.2: 0.676  0.01818
+   5.4: 0.085  0.00308
+   5.6: 0.061  0.0197
+   5.1: 0.060  0.00599
+   6.1: 0.058  0.01314
+   16.3: 0.016  0.00396
+   13.5: 0.014  0.00746
+   16.4: 0.013  0.00114
+   14.6: 0.013  0.01595
+median deletion cost: sinks 0.91559 vs non-sinks 0.00308
+(a) >=5 heads are sinks: FAILED
+(b) sinks cost more to delete: HELD
+(c) 5.7 is the most extreme: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/sink_census_results.json (1s)

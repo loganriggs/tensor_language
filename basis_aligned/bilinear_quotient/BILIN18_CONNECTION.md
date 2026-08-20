@@ -11116,3 +11116,35 @@ two confirmed negatives. Registered: (a) the top writer changes
 for at least one leaf, (b) r.3.0.2's a14 survives at >= 1.5 --
 and if it does not, the program's only confirmed mechanism claim
 was a bias-alignment artifact and gets retracted.
+
+## 450. The instrument survives the stream finding -- and the reason is worth stating
+
+mech_tool_recenter recomputed the mechanism tables with the bias
+axis projected out. ALL THREE BARS HELD:
+  r.3.0.2  a17: a14 3.075 -> 3.019   a16: a14 2.963 -> 2.938
+  r.13.2.1 a7/a6/a3: a0 1.25 -> 1.18 (still no enrichment)
+  r.2.0.1  a8: top writer m6 (1.038) -> a4 (1.071)
+(b) HELD: the program's one CONFIRMED mechanism claim survives
+recentering essentially unchanged (3.02 against 3.08) -- a14's
+enrichment into r.3.0.2's late-attention machinery is not a
+bias-alignment artifact, and does not get retracted.
+(a) HELD technically -- the top writer changed for one leaf --
+but the honest reading is the opposite of alarming: the change
+happened only where NOTHING was enriched (r.2.0.1's ratios are
+1.03-1.07, a reshuffle among near-ties).
+The reason the instrument is robust is worth recording, because
+it was not obvious before the run: enrichment RATIOS compare
+member positions against off-slice positions, and the bias is
+position-independent, so it inflates both sides equally and
+CANCELS. Ratio statistics are immune to a constant offset;
+ABSOLUTE share statistics are not. So the program's ratio-based
+mechanism claims stand as measured, while any absolute
+writer-share number quoted at layers 6+ (for instance "m0
+dominates at 0.42") is inflated by the stream centre and should
+be read as alignment with it, not as contribution. That
+distinction is now in the swarm's instructions.
+Wave 5 launched on three fresh leaves with the hardened SOP, and
+sink_census queued: sweep all 162 heads for position-0 locking to
+ask whether 5.7 is alone or the extreme member of a class
+(registered: >=5 heads over 50%, sinks costlier to delete, 5.7
+the most extreme).
