@@ -1,0 +1,8 @@
+ bracket (13.8): ratio 6.81 -> norot 1.09 | control 2.86 | positional
+   quote (10.7): ratio 6.74 -> norot 1.41 | control 2.72 | positional
+ newline (12.6): ratio 1.01 -> norot 0.94 | control 1.02 | detection
+
+(a) bracket+quote positional: HELD
+(b) newline detection (ratio 1.01 < 1.5): HELD
+NULL (control ratios < 1.5): CHECK
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_card_results.json (37s)

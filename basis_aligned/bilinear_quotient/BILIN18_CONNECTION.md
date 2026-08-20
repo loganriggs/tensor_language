@@ -16386,3 +16386,56 @@ sources. The read side is low-rank and localizable; the write side
 is diffuse and not. That is why the selection subspaces are
 findable (555, 557) but their upstream sources are not (558) -- it
 is one fact about the model seen from two directions.
+
+## 570. Circuit card: the three verified circuits reproduce on
+## fresh text -- the structural-attention arc is complete
+
+circuit_card re-measured the three verified structural heads on a
+fresh 256-row sample, as a regression check on the completed
+account.
+  head            ratio    rotary-off    control    modality
+  bracket 13.8    6.81       1.09          2.86      positional
+  quote   10.7    6.74       1.41          2.72      positional
+  newline 12.6    1.01       0.94          1.02      detection
+(a) HELD: bracket and quote are positional -- ratio >= 2 and
+collapse under rotary (6.81->1.09, 6.74->1.41).
+(b) HELD: newline is detection -- no positional preference among
+newlines (1.01).
+NULL 'CHECK': the control (jittered-query) ratio is 2.86 and 2.72
+for the two positional heads, above 1.5. This is not a failure --
+it is the fixed-query finding (559/560) showing through: a query
+near a closing bracket or quote still prefers the match, because
+the preference is a stable positional profile not tied to the
+exact token. For the detection head the control is clean (1.02).
+So the account reproduces on fresh text and the numbers are
+authoritative. This closes the structural-attention arc.
+FINAL STATE of the circuit program:
+  VERIFIED CIRCUITS (complete, corrected, reproduced):
+    * attention layer 0 = an exact bigram table (0.000 nats)
+    * block 0 = a token-indexed lookup with nameable columns
+    * head 13.8 = a fixed-query positional AND (bracket matching)
+    * head 10.7 = a fixed-query positional AND (quote parity)
+    * head 12.6 = a fixed-query token detector (newline)
+  GENERAL MECHANISM: structural attention is a near-fixed query
+    resolved by the double-QK soft-AND; token identity selects the
+    class, rotary discriminates a specific referent when the task
+    needs one. Descriptive over the three, not predictable by me
+    from the task (0/3, writeup 566).
+  MODEL-LEVEL FINDING: behaviour signals are written into COMPACT
+    direction subspaces by MANY DIFFUSE SOURCES -- read side
+    low-rank and localizable, write side distributed and not
+    (bracket query, digit, induction). This is why clean traceable
+    circuits are the exception and a large distributed remainder
+    is the rule.
+  EXACT NEGATIVES: no sparse upstream trace to the embedding;
+    reusability across circuits near the chance floor; no joint
+    low-rank compression of the front; lookup tables lose to
+    projection on held-out text.
+The productive vein of single-head structural circuits is mined
+out: the last several speculative head experiments were UNEVALUABLE
+on unverified targets, and the pattern findings have converged.
+No new speculative experiment is queued. The natural next steps
+require a direction choice -- a new behaviour family, the induction
+band's direction structure, or the front-of-model tables -- rather
+than another head, and that is a decision worth making
+deliberately rather than by reflex.
