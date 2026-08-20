@@ -91,6 +91,15 @@ Decomposes the residual entering each of your leaf's machinery
 components into exact writer contributions, member vs off-slice.
 Record, verbatim, per component: the top writers with their
 member/off-slice ratio and the ENRICHED / BEATS_NULL verdicts.
+WHEN TO QUOTE RATIOS AT ALL (470): the table's ordering predicts
+causal selectivity when there IS structure -- Spearman 0.84 on a
+leaf with a positive, 0.76 with that leaf's own machinery excluded
+-- but on NEGATIVE leaves it is unreliable (0.91 on one, 0.12 on
+another) and the underlying spread is tiny (concentration range
+~2 against ~7). So: if ENRICHED_STABLE2 is true anywhere, quote
+the ratios and chase them. If it is false everywhere, report the
+flat profile and the threshold and move on -- do NOT rank writers
+by ratio in that case, the ordering is a coin flip.
 SPECIFICITY IS REQUIRED (wave-3 reviewer catch, 425): a ratio
 above 1 is measured against random positions in the SAME leaf, so
 an adjacent-layer writer can look enriched simply because it is

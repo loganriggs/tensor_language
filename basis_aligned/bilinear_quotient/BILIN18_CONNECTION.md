@@ -11813,3 +11813,43 @@ reporting the ratios in that case. Registered: (a) Spearman >=
 0.5 on at least one negative leaf, (b) negative leaves show a
 flatter concentration range than r.3.0.2's 7.08, (c) pooled
 Spearman across all three leaves >= 0.5.
+
+## 470. Generalization, and a CONFOUND I put in my own validation
+
+enrichment_generalize ran the same correlation on two leaves whose
+tables are NEGATIVE everywhere, with the positive leaf as control:
+  leaf        Spearman   concentration range
+  r.5.3.1       0.905          1.87
+  r.13.2.1      0.119          2.02
+  r.3.0.2       0.783          7.08
+  pooled        0.521
+All three bars HELD as written -- but only just, and the split is
+the real content. Ordering survives on ONE negative leaf (0.905)
+and collapses on the other (0.119), which across n=2 is a coin
+flip, and on both the concentration range is about 2 against the
+positive leaf's 7.1. So on negative leaves the tool's ranking is
+unreliable AND the thing being ranked barely varies. SOP updated
+accordingly: quote and chase ratios when ENRICHED_STABLE2 is true
+somewhere; when it is false everywhere, report the flat profile
+and the threshold and stop -- do not rank writers by ratio.
+CORRECTION to 469, found while reading the component list rather
+than by any run: three of the ten components in that validation
+(a15, a16, a17) ARE r.3.0.2's own machinery, and two of them were
+in the sample. Ablating a component that CONTAINS the leaf's probe
+directions is close to ablating the leaf itself, so their
+concentrations (5.40 and 8.56) are partly definitional and inflate
+the correlation. Recomputed with the leaf's own machinery
+excluded:
+  rho = 0.762 on the eight remaining components (was 0.842)
+The instrument's validation stands -- 0.76 is still strong, and
+the top-ranked non-machinery writer a14 is still the most damaging
+non-machinery component -- but the headline number moves down and
+the published report's "0.84" needs the same treatment at the next
+boundary update.
+mech_map_all queued to use the validated tool at census scale: run
+the table over 60 shortlist leaves and aggregate. Registered: (a)
+fewer than 25% of leaves carry any stable enrichment, (b) the
+positive pairs concentrate on a few recurring writers, (c) those
+writers are within two layers of what they feed at least 60% of
+the time -- i.e. the tool mostly finds local structure, which is
+what 425 warned about.
