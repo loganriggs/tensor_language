@@ -1,0 +1,17 @@
+77 targets | selection subspace dim 16
+(a) 0 heads have mean principal cosine >0.5 with S
+   14.8: mean cos 0.25, max 0.669
+   12.6: mean cos 0.233, max 0.589
+   11.5: mean cos 0.215, max 0.657
+   15.1: mean cos 0.214, max 0.705
+   14.6: mean cos 0.21, max 0.548
+
+removing S globally: bracket targets +3.5734 | elsewhere +0.0510
+random 16-dim subspaces: [(0.0217, 0.0348), (0.0484, 0.0273), (0.106, 0.0327)]
+
+(0) S removed reproduces a large bracket cost (+3.5734 >= 0.5): HELD
+(a) >=3 heads geometrically overlap S: FAILED
+(b) removing S costs +0.0510 at non-bracket positions (random +0.0316)
+(c) top geometric co-readers: ['14.8', '12.6', '11.5', '15.1', '14.6']
+NULL (S is specific vs random global removal): CHECK
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bracket_subspace_reuse_results.json (50s)

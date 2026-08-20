@@ -15668,3 +15668,57 @@ did not. bracket_subspace_reuse is queued for the first: it
 compares the 16-dim selection subspace against all 162 heads' read
 subspaces from weights alone, to find whether the bracket look-back
 signal is private to 13.8 or shared machinery.
+
+## 556. The bracket look-back subspace is largely private
+
+bracket_subspace_reuse asked whether the 16-dim bracket-selection
+subspace S (555) is read by any other head.
+GEOMETRIC (weights): the mean principal cosine between S and every
+head's query read-subspace. A random 16-dim pair in 1152
+dimensions overlaps at about sqrt(16/1152) = 0.118, so that is the
+floor.
+  head    mean cos   max cos
+  14.8      0.250     0.669
+  12.6      0.233     0.589
+  11.5      0.215     0.657
+  15.1      0.214     0.705
+  14.6      0.210     0.548
+(a) FAILED: no head reaches mean cosine 0.5. The top co-reader,
+14.8, is at 0.25 -- about twice the random floor, not a shared
+subspace. So S is not strongly aligned with any other head's read
+geometry; the bracket look-back signal is largely private to 13.8.
+One weak hint worth keeping: the SECOND-ranked co-reader is 12.6,
+the newline head. The two most position/structure-driven heads in
+the model read mildly overlapping subspaces (0.233 against a 0.118
+floor), which is a lead on shared structural machinery even though
+it is far from proof.
+CAUSAL: removing S globally from block 13 onward costs +3.573 at
+bracket targets -- far more than head 13.8's own 0.86, because the
+whole downstream stack that consumes bracket predictions loses the
+signal too -- against +0.02 to +0.11 for random 16-dim subspaces,
+a clean 30-60x. Off brackets S costs +0.051 against +0.032 for
+random, only 1.6x, so away from brackets S is barely more
+disruptive than an arbitrary subspace. The NULL is therefore
+mixed: overwhelmingly bracket-specific at targets, marginally
+specific elsewhere.
+Method caveat, stated so the count is not over-read: the geometric
+metric compared S against each head's TOP-16 query singular
+vectors, but a head reads its full 128-dim query row space, so
+top-16-vs-top-16 principal angles understate overlap. The
+conclusion "no strong co-reader" is safe because even this
+understating metric would show a genuine shared subspace as high
+max cosine, and the maxes are 0.55-0.71 -- real partial overlap on
+one or two directions but not a shared 16-dim variable.
+So the reusability answer for this signal is: mostly private,
+with a weak structural-head overlap worth one dedicated check. The
+method itself works -- reuse is measurable from weights plus one
+causal sweep -- and it is now available for any circuit.
+The more valuable next question is whether the SHAPE of this
+result generalizes. The bracket head's selection is diffuse over
+writers but a compact behaviour-specific subspace over directions.
+If the newline head is the same, that is a general statement about
+how this model does attention selection, and it also settles the
+12.6/13.8 overlap hint directly. newline_query_rank is queued: the
+exact selection-subspace and causal-rank measurement of 555
+applied to head 12.6 on newline targets, plus the principal angles
+between the newline and bracket selection subspaces.
