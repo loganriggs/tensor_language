@@ -16583,3 +16583,53 @@ ablation tools, and a one-measurement test to classify any head.
 No new speculative experiment is queued; extending to more heads
 would be repetition of an established method, and the next real
 step is a direction choice.
+
+## 574. Census: the model's attention is causally fixed-query
+## almost everywhere
+
+fixed_query_census applied the one-measurement classifier to all
+162 heads: replace each head's per-position query with its own mean
+query (a fixed vector) and measure the whole-model CE cost.
+(0) HELD: reinjecting the real query costs +0.00000.
+(a) HELD: the three verified structural heads cost 0.0017 (13.8),
+~0 (10.7), 0.0007 (12.6) -- fixed, as established.
+(b) HELD: the induction head 8.3 costs 0.0052, more than the
+structural heads.
+(c) THE MAP: 161 of 162 heads cost < 0.02 nats under a fixed
+query; ZERO exceed 0.05. The single exception is head 2.5 at
+0.040. The most content-dependent heads are 2.5 (0.040), 3.5
+(0.013), 1.1 (0.012), 1.4 (0.011), 6.3 (0.011) -- all EARLY
+layers, and all small.
+NULL ok: random-direction queries cost more than the mean query
+for the structural heads, so the mean is a meaningful fixed query.
+So measured by single-head causal cost, the model's attention is
+almost entirely FIXED-QUERY: per-position query variation is worth
+under 0.02 nats per head across 161 of 162 heads.
+This needs the right interpretation, and it RECONCILES rather than
+contradicts 573. The census measures CAUSAL CE cost, not
+attention-pattern change. Head 8.3's induction PATTERN genuinely
+breaks under a fixed query (573: occ+1 share 0.059 -> 0.019), yet
+mean-filling its query costs only 0.005 nats -- because 8.3 is one
+head of the superlinear induction band (568), individually
+low-impact. So content-query computation is REAL in the attention
+patterns but DISTRIBUTED across heads that each cost little, so it
+never shows up as an expensive single head in the census.
+The model-wide statement, careful and complete:
+  * FIXED-QUERY SELECTION is the dominant attention mode causally
+    -- 161/162 heads tolerate a fixed query at < 0.02 nats;
+  * CONTENT MATCHING (induction) exists in the attention patterns
+    but is distributed across a superlinear band of individually
+    cheap heads, so no single head's query content is causally
+    expensive;
+  * the heads whose query content matters MOST (still < 0.04) are
+    all EARLY -- 2.5, 3.5, 1.1, 1.4 -- a small lead that early
+    attention uses content queries more than late attention.
+This is a clean capstone for the attention-mechanism line: a
+whole-model census, grounded in a validated classifier, showing
+the model's attention is causally fixed-query with content
+matching present only as a distributed, per-head-cheap remainder.
+It is the same "compact/localized vs distributed" split seen
+throughout, now stated for the query computation itself.
+No new speculative experiment is queued -- the census is a
+model-wide result and a natural conclusion; extending further is a
+direction choice, not a reflex.
