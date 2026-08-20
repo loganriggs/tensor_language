@@ -17079,3 +17079,48 @@ replacing the CE split with a direct logit-margin probe -- P(a)+P(an)
 minus P(the)+P(The) at the SAME target positions, before/after
 ablating cluster 8 -- a metric with no dilution from the other 50000
 vocabulary items competing for CE's attention.
+
+## 583. Cluster 8 PARTIALLY confirmed causally: a real, selective
+## a/an PROMOTER, not the clean bidirectional discriminator 581
+## described
+
+582 flagged aggregate CE as too diluted to resolve cluster 8's
+causal effect; this redid it with a metric tied directly to the
+claim -- logit margin (a+an) - (the+The) -- which is a difference,
+not a ratio of small numbers, so 582's near-zero-denominator failure
+mode does not apply.
+  (0) HELD: identity ablation leaves the margin exactly unchanged.
+  (a) HELD: at indefinite-article-target positions (n=362, base
+      margin +5.43), ablating cluster 8 shrinks the margin by -0.015,
+      4.27x the -0.0035 shrinkage from a size-matched random-unit
+      control -- a real, selective effect: removing cluster 8
+      specifically costs the model's confidence in predicting
+      'a'/'an' where that is the right answer.
+  (b) FAILED: at definite-article-target positions (n=664, base
+      margin only -0.090), 581's mirror-image prediction does not
+      hold -- cluster 8's delta (+0.0015) is SMALLER than the random
+      control's (+0.0025), not 3x larger. Ablating cluster 8 does not
+      selectively help 'the' prediction the way a clean bidirectional
+      discriminator would.
+  NULL loosely ok (tolerance-bound, noted as weak): cluster 8's delta
+      at digit-target positions (-0.0102) is small in absolute terms
+      but 200x the random control's (-0.00005) in relative terms --
+      worth a second look, not a clean pass.
+READ: 581's "signed a/an-vs-the discriminator" is corrected to "a/an
+PROMOTER" -- cluster 8 causally, selectively supports indefinite-
+article prediction (confirmed, real, 4x a matched control), but does
+NOT symmetrically suppress/support definite-article prediction; the
+"the" side of 581's activation-based story is not load-bearing here.
+One asymmetry worth noting: the base margin at 'the'-target positions
+is only -0.090 (near zero) versus +5.43 at 'a'/'an'-target positions
+-- there may simply be far less headroom for any single small cluster
+to move the margin at defi positions, which would look identical to
+"cluster 8 doesn't act there" from this test alone; not yet
+distinguished.
+Two-run methodological note for the record: 582's aggregate-CE test
+of the SAME cluster, SAME data, was UNEVALUABLE end to end; the
+targeted logit-margin test on the SAME ablation resolved a real,
+partial, directionally-correct effect. Confirms the general lesson
+already stated in 570/582's queue note -- verify causal claims with a
+metric tied to the specific behaviour, not a diluted aggregate one --
+now demonstrated as a direct A/B on identical model states.
