@@ -12078,3 +12078,41 @@ nats, (b) the null costs >= 0.20, (c) layer 1 costs >= 0.10. If
 all three land, "the first attention layer of this model is a
 bigram table" becomes a measured statement with a measured
 boundary.
+
+## 477. THE FIRST ATTENTION LAYER IS A BIGRAM TABLE -- with a sharp boundary at layer 1
+
+layer0_fold, all three bars HELD:
+  all nine layer-0 heads folded to weights-only
+    token-pair patterns + per-token value tables   dCE  -0.00000
+  the same tables with token identities shuffled   dCE  +0.23687
+  the IDENTICAL construction applied to layer 1    dCE  +1.47026
+The entire first attention layer of this model can be replaced by
+lookups computed from weights alone -- no forward pass, no
+residual stream -- at zero measurable cost, and the replacement is
+not vacuous: shuffling the token identities in those same tables
+costs 0.24 nats.
+The boundary is the part worth keeping. Applying exactly the same
+construction one layer up costs +1.47 -- a hundred and fifty times
+more -- because layer 1 reads layer-0 OUTPUTS rather than raw
+tokens. So "this attention layer is a bigram table" is true of
+layer 0, false of layer 1, and the transition is measurable to two
+decimal places rather than argued.
+Report updated at this phase boundary and republished.
+Note on what this is and is not: layer-0 tableability follows from
+the architecture, so the finding is not that the model learned
+something surprising -- it is that the front of this model has an
+exactly writable form, verified end to end, and that the writable
+region stops immediately. Combined with 476 (head 0.3's shape),
+435-441 (the sink is a constant) and 376-408 (induction is four
+reads of an identity code), the tally of this model's components
+reduced to something you can write down now includes an entire
+layer.
+mlp_table_ladder queued to find where per-token TABLEABILITY ends
+on the other side of the front. mlp0's input is rms_norm(E +
+attn0_out), not the token alone -- 393 showed that contextual term
+matters for the induction trigger -- so the question is what
+ignoring it costs, and how fast that cost grows with depth.
+Registered: (a) a per-token table for m0 costs <= 0.10 (the
+identity-code generator is nearly a table), (b) cost rises
+monotonically m0 < m1 < m2, (c) the shuffled m0 table costs
+>= 0.50.

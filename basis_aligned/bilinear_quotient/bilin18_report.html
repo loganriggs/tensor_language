@@ -745,6 +745,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   calibrated around, while halving or doubling it costs almost nothing, and no local ablation
   finds where its value lives (the parts sum to a quarter of the 0.92-nat whole) because being
   the baseline is not a local property.</p>
+  <p><span class="tag">and the first layer is a table</span> Chasing the <em>second</em> costliest
+  head (+0.11 nats) led somewhere cleaner. At layer 0 attention can only read token embeddings, so
+  a head there is in principle a lookup — and in practice it is: replacing head 0.3's attention
+  pattern with one computed from tokens and positions alone, and its values with a 50,304-entry
+  per-token table, costs <strong>zero</strong> measurable loss, while the same table with token
+  identities shuffled costs +0.15. Doing this to <em>all nine</em> heads of layer 0 at once also
+  costs zero (shuffled: +0.24). The boundary is sharp: the identical construction applied to layer
+  1 — which reads layer-0 outputs rather than raw tokens — costs <strong>+1.47 nats</strong>, a
+  hundred and fifty times more. So the first attention layer of this model is exactly a bigram
+  table, the second is not, and the line between them is measurable to two decimal places.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping

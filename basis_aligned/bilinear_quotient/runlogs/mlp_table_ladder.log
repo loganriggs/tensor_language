@@ -1,0 +1,8 @@
+table m0 built (norm 48830.4)
+table m1 built (norm 22585.0)
+table m2 built (norm 18824.0)
+dCE: {'m0': 1.018, 'm1': 1.7752, 'm2': 0.744, 'm0shuf': 3.188}
+(a) m0 is nearly a per-token table (<=0.10): FAILED
+(b) cost rises with depth m0<m1<m2: FAILED
+(c) shuffled m0 table costly (>=0.50): HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_table_ladder_results.json (1s)
