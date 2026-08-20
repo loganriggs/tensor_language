@@ -17030,3 +17030,52 @@ Not yet causally verified (the next required step per this program's
 standard -- ablate cluster 8 specifically and check it selectively
 costs a/an-vs-the prediction while leaving other tokens untouched);
 queued as mlp0_cluster8_causal.
+
+## 582. Causal test of cluster 8 is UNEVALUABLE, not confirmed --
+## mean-fill ablation's effect is too small to resolve
+## article-selectivity, a real methodological lesson
+
+581 flagged the required next step: 579/581's cluster 8 (a/an-vs-the
+reading) was correlational (top activating CONTEXTS), not yet causal.
+Reproduced the exact clustering (pred 0 HELD, identical 101-unit
+cluster) and mean-filled ONLY cluster 8's units in mlp0's hidden
+vector, pricing whole-model CE separately at indefinite-article
+target positions (n=362), definite-article positions (n=664), a
+size-matched generic control (n=1026), and a digit-target control
+(n=284, unrelated-class null), plus a random size-matched unit
+subset as the ablation control.
+First pass used a naive ratio (article cost / generic cost) and got
+a nonsense number for the random control (1445x) -- traced to
+score_bar's exact failure mode (465/500): the random control's
+generic-class cost was -0.00022 (noise-level, near zero), so the
+ratio is uninterpretable regardless of size. Refit through
+cl.score_bar properly (near-zero-denominator guard) and re-ran:
+  cluster8 costs: indef +0.00079, defi +0.00338, article(combined)
+    +0.00247, generic +0.00332, digit +0.00963.
+  EVERY comparison came back UNEVALUABLE, including the ONES THAT
+    LOOKED LIKE A CLEAN NEGATIVE in the first pass (article/generic
+    ratio 0.74, article LOWER than generic) -- because 0.05x the
+    ratio's own value (0.0372) exceeds the actual generic-class cost
+    (0.0033), the ratio itself is not trustworthy, not just the
+    random-control one.
+HONEST READ: mean-filling cluster 8 (101 of mlp0's 4608 hidden units,
+2.2%) has a model-wide causal footprint an order of magnitude too
+small (all costs 0.0008-0.0096 nats against a 3.30-nat baseline) for
+aggregate whole-model cross-entropy, split by target class, to
+resolve directional selectivity one way or the other. This is NOT
+"the article-selectivity story is wrong" -- it is UNEVALUABLE, a
+genuinely different verdict this program insists on keeping distinct
+(465/500's lesson, applied correctly for once on the first flag
+inside the same run rather than after a retraction). 581's finding
+stands as CORRELATIONAL only; it is neither confirmed nor refuted by
+this test.
+LESSON: aggregate CE is the wrong instrument for a small (~2% of
+units), possibly redundant/compensated component -- other established
+causal tests in this ledger that succeeded on comparably small pieces
+(the three structural attention heads, 570) always used a metric
+tied DIRECTLY to the claimed behaviour (attention share on a named
+key), not aggregate downstream loss. Queued: mlp0_cluster8_logit_margin,
+replacing the CE split with a direct logit-margin probe -- P(a)+P(an)
+minus P(the)+P(The) at the SAME target positions, before/after
+ablating cluster 8 -- a metric with no dilution from the other 50000
+vocabulary items competing for CE's attention.
