@@ -4142,3 +4142,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 - 392: fold v3 exhausts token-computable info at ~2/3 early-band hits (3.5 got WORSE with more folds -- m0 is the identity code, later folds add noise).
 - 393: LAYER-1 TRIGGER CLOSED: real-m0+wte arm hits 99.8% (corr 0.999) on head 1.4 -- the gap was m0's contextual input; a0's residual write is pattern-irrelevant. Layers 2-3 cap at 58/43% even with full block-0 context (their gap is layer-1+ writes).
 - 394: census A/B replication -- 77% of leaves' machinery profiles replicate across corpus halves (matched 0.955 vs null 0.544), but depth>=2 drops to 56%: identity is coarse-grain weighted. Full-tree certification run queued.
+- 395: full-tree A/B gate -- 165/311 leaves certified (cos>=0.7); full rate 53% (tree is depth-heavy: 72% coarse vs 46% fine); specificity 0.74 vs 0.27. Swarm claims certified leaves first.
+- 396: 2.5 trigger fork resolves M1-MEDIATED (a1 write adds nothing, m1 real write 0.86); MLP-ladder match-code hypothesis registered and queued (mlp_ladder_code).

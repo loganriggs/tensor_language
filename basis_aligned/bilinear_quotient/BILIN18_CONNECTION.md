@@ -9634,3 +9634,38 @@ member-mean dCE profile computed independently on corpus halves A
   per-leaf certification gate. census_ab_full queued (all 311
   leaves, registered a-c) to produce the certified production
   shortlist.
+
+## 395. Full-tree A/B certification: 165 leaves certified; the tree is depth-heavy and fine grain replicates at 46%
+
+census_ab_full ran the A/B gate over all eligible leaves. The
+full-tree replication rate is 0.53 -- (a) FAILED against the
+sampled 0.77, and the reason is composition, not contradiction:
+the per-depth sample (16/depth) overweighted shallow leaves, and
+the full tree is mostly deep. Depth split confirmed at scale ((c)
+HELD): 72% at depth<=1 vs 46% at depth>=2. Specificity stays
+strong (matched median 0.736 vs mismatched 0.271). The production
+number: **165 leaves certified at cos>=0.7** ((b) HELD) -- the
+swarm's shortlist. Standing rule for circuit claims on the diverse
+tree: claim certified leaves first; an uncertified leaf's record
+must carry its A/B cosine as a warning label.
+
+## 396. The 2.5 trigger fork resolves M1-MEDIATED; the MLP-ladder hypothesis is on the table
+
+fold_gap_locate2, per-component closure of the layer-2/3 triggers:
+  2.5: real-b1-input+m1_fold 0.579 | +a1 write 0.585 | +m1 real
+       0.858 | full real 1.0
+  3.5: real-b2-input+m2_fold 0.590 | +a2 write 0.668 | +m2 real
+       0.779 | full real 1.0
+Sanity and monotonicity HELD; the single-component bar (0.9)
+narrowly FAILED at 0.858. The fork answer is unambiguous:
+**m1-mediated**. Attention's residual write adds ~nothing to the
+match code at either depth (0.579->0.585 at 2.5); what closes the
+trigger is the MLP's real write. Together with 393 (a0's write
+irrelevant at 1.4), the generalization writes itself: the
+induction match code is a CUMULATIVE MLP LADDER -- wte enriched by
+m0, m1, m2... with attention contextualizing the MLPs' inputs but
+never carrying the code in the residual. mlp_ladder_code queued:
+rebuild the residual with all attention writes deleted and all
+real MLP writes kept, plus the inverse control (attention writes
+only). Registered: 2.5>=0.85, 3.5>=0.75, deep-reach fork at 0.5
+for 5.5/8.4, control <0.2, and 1.4>=0.99 for 393 consistency.
