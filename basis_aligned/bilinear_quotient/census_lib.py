@@ -814,3 +814,27 @@ def check_parts(parts,X,tol=1e-4,label=''):
           f'error {rel:.3e} -> {"ok" if ok else "FAILED, run is VOID"}',
           flush=True)
     return ok,rel
+
+
+def assert_disjoint(fit_rows,price_rows,prefix=64,label=''):
+    """Verify that no priced row appears in the fitting corpus.
+
+    Added 2026-08-20 (writeup 548) after the SECOND occurrence of
+    the same error in this program: tables fitted on rows() were
+    priced on fineweb_rows(48), and 33 of those 48 rows were
+    verbatim in the fitting set, because both draw from the same
+    FineWeb slice and the loader names merely LOOK different.
+    Compares the first `prefix` tokens of each row, which is
+    sufficient to identify a row and cheap. Returns (ok, n_shared)
+    and PRINTS, so a run cannot quietly report contaminated costs.
+    """
+    fs={tuple(r[:prefix].tolist()) for r in fit_rows}
+    shared=[i for i,r in enumerate(price_rows)
+            if tuple(r[:prefix].tolist()) in fs]
+    ok=not shared
+    print(f'  [assert_disjoint{" "+label if label else ""}] '
+          f'{len(shared)} of {len(price_rows)} priced rows appear '
+          f'in the fitting corpus -> '
+          f'{"ok" if ok else "CONTAMINATED, run is VOID"}',
+          flush=True)
+    return ok,len(shared)
