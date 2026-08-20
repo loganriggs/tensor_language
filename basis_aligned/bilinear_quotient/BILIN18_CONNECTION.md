@@ -14038,3 +14038,55 @@ registered reading the run's null failed, and both are recorded.
 NULL 2 clean for the quote head: 10.7 costs +0.05622 at opening
 quotes and +0.00064 at position-matched controls, a difference of
 two orders of magnitude.
+
+## 525. The newline head needs about a third of its pair structure
+
+newline_head_rebuild answers the sufficiency question 519 left
+open. Head 12.6's score is rebuilt from its top K writer pairs
+only, the real model is run with that score in place of the
+head's, and the head's newline benefit is priced against its own
+ablation.
+  K     retention at newline targets   at controls   random K
+   10          +0.077                    +0.062      -0.13
+   25          +0.205                    +0.190      -0.14
+   50          +0.436                    +0.429      -0.07
+  100          +0.692                    +0.701      -0.01
+  200          +0.918                    +0.933      +0.22
+  400          +0.995                    +0.999      +0.62
+  625          +1.000                    +1.000        --
+(0) HELD exactly: the full 625-pair rebuild reproduces the head to
+1.000, so the substitution machinery is sound and every number in
+the curve is measuring truncation and nothing else.
+(a) FAILED, narrowly and honestly: the bar was retention >= 0.70
+at K <= 100, and K=100 gives 0.692. Missing by 0.008 is still
+missing, and the substantive reading does not depend on the eighth
+of a percent: the head needs roughly 200 of its 625 pairs -- 32%
+-- to reach 92%, and 100 pairs for 69%.
+NULL ok: retention rises monotonically with K.
+The random-K comparison is the part that makes this a result
+rather than a shrug. At K=100 the top-ranked pairs retain 0.692
+and random pairs retain -0.01; at K=200, 0.918 against 0.22. So
+the ranking is enormously informative -- the pairs are not
+interchangeable -- and yet no small subset suffices. Both things
+are true at once, and that combination is exactly what a
+genuinely high-rank computation looks like.
+The other column settles what 519 suspected. Retention at
+position-matched control positions tracks retention at newline
+targets to within 0.015 at every K. The head's score is no more
+compressible where it does its job than where it does not, so
+there is no behaviour-specific sub-computation to extract. This
+closes the tier-4 question for this head with a negative: the
+newline head's score is a dense, high-rank object in writer-pair
+space, and its behaviour specificity lives in how that fixed
+structure evaluates rather than in any nameable subset of it.
+Worth setting against the bracket head, measured the same week:
+  head 13.8   ONE cell of its score matrix carries 83% of its
+              effect (522), and one token carries 15.8x the mass
+              of every other bracket in context (523)
+  head 12.6   needs ~200 of 625 writer pairs for 92% of its
+              score, with no behaviour-specific subset
+Both are real circuits with clean causal stories at tier 2. They
+are compressible in different places -- 13.8 in WHICH CELL of its
+score matrix, 12.6 nowhere yet found. "Is this circuit simple?"
+has no single answer in this model; it depends which axis you
+compress along.

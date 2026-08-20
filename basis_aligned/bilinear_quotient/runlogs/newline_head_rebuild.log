@@ -1,0 +1,13 @@
+exactness of parts: 1.290e-07
+head benefit at newline targets: +0.0682 nats | at controls +0.0057
+K= 10: retention +0.048 (control -0.033) | random [-0.174, -0.141, -0.188]
+K= 25: retention +0.205 (control +0.190) | random [-0.133, -0.161, -0.133]
+K= 50: retention +0.436 (control +0.429) | random [-0.048, 0.022, -0.111]
+K=100: retention +0.692 (control +0.701) | random [0.036, -0.061, -0.006]
+K=200: retention +0.918 (control +0.933) | random [0.193, 0.194, 0.261]
+K=400: retention +0.995 (control +0.999) | random [0.592, 0.634, 0.638]
+K=625: retention +1.000 (control +1.000) | random []
+(0) full rebuild reproduces the head (1.000 >= 0.95): HELD
+(a) some K<=100 reaches retention >=0.70: FAILED
+NULL (retention increases with K): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_head_rebuild_results.json (178s)

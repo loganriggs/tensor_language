@@ -1,0 +1,8 @@
+outer: n=12 base NLL of the closer 3.963
+   delete +0.1064 | kill match +1.0687 | kill distractor +0.4761 | kill random -0.0018
+   share  match 0.2908 | distractor 0.1317 | random 0.0171
+inner: n=12 base NLL of the closer 1.496
+   delete +0.4532 | kill match +0.2474 | kill distractor +0.1621 | kill random +0.0218
+   share  match 0.3922 | distractor 0.3129 | random 0.0476
+
+(0) the model expects a closer in both conditions (outer 3.963, inner 1.496 < 2.0): FAILED -- RUN VOID

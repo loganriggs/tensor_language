@@ -1,0 +1,27 @@
+{
+ "per_condition": {
+  "outer": {
+   "n": 12,
+   "base_nll_closer": 3.9629,
+   "delete": 0.1064,
+   "kill_match": 1.0687,
+   "kill_distractor": 0.4761,
+   "kill_random": -0.0018,
+   "share_match": 0.2908,
+   "share_distractor": 0.1317,
+   "share_random": 0.0171
+  },
+  "inner": {
+   "n": 12,
+   "base_nll_closer": 1.496,
+   "delete": 0.4532,
+   "kill_match": 0.2474,
+   "kill_distractor": 0.1621,
+   "kill_random": 0.0218,
+   "share_match": 0.3922,
+   "share_distractor": 0.3129,
+   "share_random": 0.0476
+  }
+ },
+ "pred_0": false
+}
