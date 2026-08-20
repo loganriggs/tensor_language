@@ -16136,3 +16136,53 @@ as a detection task: like newlines, the quote head should show no
 positional preference among quotes (share ratio near 1, rotary-off
 inert). If instead it discriminates quotes by position, the
 detection-vs-matching axis needs refining.
+
+## 565. Third head is POSITIONAL -- my prediction was wrong, and
+## the reason refines the account
+
+quote_modality redid the third-head test correctly: sign-aware
+score-mass share, matched distractor (second-most-recent quote),
+rotary probe.
+  real:  match 0.0603 | distractor 0.0089 | ratio 6.74
+  norot: match 0.0150 | distractor 0.0106 | ratio 1.41
+(a) FAILED: the quote head STRONGLY prefers the most-recent quote
+over the second-most-recent (ratio 6.74), so it is NOT a
+position-indifferent detector.
+(b) FAILED: rotary removal collapses the ratio 6.74 -> 1.41, so
+the discrimination IS positional -- like the bracket head.
+My advance prediction (opening-quote prediction is detection, so
+the head should be token-driven like newlines) was WRONG. The
+quote head is a POSITIONAL discriminator.
+The reason refines the account rather than breaking it. I had
+classified quote prediction as "detection" (is quote context
+present). But predicting an opening quote actually requires quote
+PARITY -- am I currently inside or outside a quotation -- and that
+depends on the MOST RECENT quote specifically, not on any quote.
+So the head must identify a specific positional referent (the last
+quote), exactly like the bracket head identifies a specific opener.
+The corrected axis, three heads:
+  bracket 13.8  positional  ratio 5.99  needs the matching opener
+  quote   10.7  positional  ratio 6.74  needs the last quote (parity)
+  newline 12.6  detection   ratio 1.03  any recent newline will do
+The determining factor is NOT "matching vs detection" as I first
+framed it, but whether the task needs a SPECIFIC positional
+referent:
+  * brackets need the one opener that matches -> positional;
+  * quotes need the one most-recent quote for parity -> positional;
+  * newlines need only that SOME newline is near -> token
+    detection, position irrelevant.
+Two of three structural heads are positional; the newline head is
+the outlier, and it is the outlier precisely because its task
+(detect line-break structure) is the only one that does not need a
+specific referent.
+So the general mechanism holds and is now three-for-three: a fixed
+query selects a token class through the double-QK soft-AND, and
+rotary discriminates a specific referent within that class WHEN
+THE TASK NEEDS ONE. My error was a task-classification heuristic,
+not the mechanism; corrected, the account is stronger and
+predictive -- a head's modality follows from whether its behaviour
+requires a specific positional referent.
+The NULL 'violation' (quote+distractor share not 2x the non-quote
+key) is the generic prev/self attention 564 already noted, not a
+mechanism problem: the head attends to prev/self generically AND
+to the most-recent quote positionally.

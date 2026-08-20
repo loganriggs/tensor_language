@@ -1,0 +1,10 @@
+172 opening-quote targets with two prior quotes
+
+real: match 0.0603 distractor 0.0089 ratio 6.74 | non-quote 0.0557
+norot: match 0.0150 distractor 0.0106 ratio 1.41
+
+(a) match/distractor ratio 6.74 < 1.5 (detection not matching): FAILED
+(b) rotary-insensitive (6.74 -> 1.41): FAILED
+NULL (quote-share 0.0693 > 2x non-quote 0.0557): VIOLATED
+MODALITY: positional (brackets=positional, newlines=token-detection)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/quote_modality_results.json (32s)
