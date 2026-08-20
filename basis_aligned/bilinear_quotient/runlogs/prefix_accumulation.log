@@ -1,0 +1,19 @@
+baseline CE 3.3536 | individual costs at rank 64: {0: 0.0811, 1: 0.3781, 2: 0.1589, 3: 0.0788, 4: 0.0825, 5: 0.0597}
+forward: +block 0 -> set [0] cost +0.0811 (increment +0.0811 vs individual +0.0811, ratio 1.00)
+forward: +block 1 -> set [0, 1] cost +0.7691 (increment +0.6881 vs individual +0.3781, ratio 1.82)
+forward: +block 2 -> set [0, 1, 2] cost +1.2965 (increment +0.5273 vs individual +0.1589, ratio 3.32)
+forward: +block 3 -> set [0, 1, 2, 3] cost +1.6170 (increment +0.3205 vs individual +0.0788, ratio 4.07)
+forward: +block 4 -> set [0, 1, 2, 3, 4] cost +1.5138 (increment -0.1032 vs individual +0.0825, ratio -1.25)
+forward: +block 5 -> set [0, 1, 2, 3, 4, 5] cost +1.3137 (increment -0.2000 vs individual +0.0597, ratio -3.35)
+reverse: +block 5 -> set [5] cost +0.0597 (increment +0.0597 vs individual +0.0597, ratio 1.00)
+reverse: +block 4 -> set [5, 4] cost +0.2061 (increment +0.1465 vs individual +0.0825, ratio 1.78)
+reverse: +block 3 -> set [5, 4, 3] cost +0.3667 (increment +0.1606 vs individual +0.0788, ratio 2.04)
+reverse: +block 2 -> set [5, 4, 3, 2] cost +0.5826 (increment +0.2159 vs individual +0.1589, ratio 1.36)
+reverse: +block 1 -> set [5, 4, 3, 2, 1] cost +0.9302 (increment +0.3476 vs individual +0.3781, ratio 0.92)
+reverse: +block 0 -> set [5, 4, 3, 2, 1, 0] cost +1.3137 (increment +0.3836 vs individual +0.0811, ratio 4.73)
+
+(0) full prefix +1.3137 vs 541's 1.3137, and full-rank prefix +0.00003: HELD
+(a) increments exceed individual costs in 3 of 5 additions: FAILED
+(b) block 0 added LAST costs +0.3836 vs +0.0811 alone (ratio 4.73): HELD
+NULL (both orders reach the same total: +1.3137 vs +1.3137): ok
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/prefix_accumulation_results.json (82s)

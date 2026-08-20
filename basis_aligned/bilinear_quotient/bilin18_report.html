@@ -1013,8 +1013,30 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   Interfaces are still the better of the two routes by a clear margin — jointly at rank 256 they
   cost 0.15 where weight truncation never reaches 0.30 at any rank — but nothing in the front of
   this model survives being compressed all at once.</p>
-  <p>That pattern is the real finding of this section, and it is a fact about the model rather
-  than about the method: <strong>per-component compressibility is real and joint compressibility
+  <p>Then the thing that does work, and it isn't compression at all. Replace block 0's entire
+  write with a <strong>lookup table</strong> — one row per vocabulary entry, 64 columns — and
+  the model loses <strong>0.18 nats</strong>. At full rank the table costs 0.11. Deleting the
+  write outright costs 0.84, and a random 64-column table costs about 0.50. So the first block
+  of this model can be printed as 50,304 rows of 64 numbers.</p>
+  <p>The gap between the table and the real write at the same width is 0.10 nats, and that
+  number has a meaning: it is everything block 0's attention contributes beyond the identity of
+  the current token.</p>
+  <p>Six of the eight leading columns are nameable lexical classes, scored over frequent tokens
+  with no data beyond the table itself:</p>
+  <table><thead><tr><th>column</th><th>what scores highest</th></tr></thead><tbody>
+  <tr><td>determiners</td><td><code>' the' 'The' ' The' ' a' ' an' ' his'</code></td></tr>
+  <tr><td>punctuation</td><td><code>').' '.' ' (' '".' '!' '."'</code></td></tr>
+  <tr><td>initial capitals</td><td><code>' B' ' D' ' M' ' H' ' G' ' C'</code></td></tr>
+  <tr><td>digits</td><td><code>' 56' ' 57' ' 12' ' 26' ' 17' ' 15'</code></td></tr>
+  <tr><td>sentence openers</td><td><code>' If' 'If' ' Keep' 'You' ' Have' ' There'</code></td></tr>
+  </tbody></table>
+  <p>Which sharpens what the failures above were telling us. Compressing how a block
+  <em>computes</em> fails; compressing what six blocks <em>send</em> fails; replacing one block
+  with an explicit function of a variable it provably depends on succeeds. The winning move is
+  substitution, not truncation — and it worked at block 0 because that block's input is exactly
+  the token, so the right indexing variable was known in advance rather than guessed.</p>
+  <p>The rest of this section's pattern still stands as a fact about the model rather than the
+  method: <strong>per-component compressibility is real and joint compressibility
   is not.</strong> Every layer individually looks like it has slack; the slack at any one layer
   is apparently being used by some other layer. The residual stream behaves as a shared channel,
   which makes the front a harder replacement target than folding the embedding suggests — and it
