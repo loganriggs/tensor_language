@@ -9764,3 +9764,22 @@ head replaced by its iterated relay; registered early >=0.90,
 deep >=0.75, shuffled null <25% of lift. After that, the causal
 cash-in (ladder-computed patterns driving the live model at match
 positions) closes the arc end-to-end.
+
+## 401. INSTRUMENT FAILURE: ladder_census's iter_all arm was the identity in disguise
+
+ladder_census returned iter_all = 1.000, corr = 1.000, on all
+nine heads -- and that perfection is the tell. With relay writes
+inserted at EVERY block and values drawn from the growing chain,
+the reconstruction equals the real residual by induction (real
+patterns + values-from-real-so-far = the real attention write,
+block after block). Bars (a)/(b) held VACUOUSLY; the run is void
+as a test of the one-code claim (the shuffled arm remains
+meaningful: shuf tracks the ladder baseline, so patterns alone
+carry little without matched values). Recorded per the standing
+red-team rule: an arm that cannot fail is not evidence. The
+honest maximal claim bounds RELAY DEPTH instead: chain_k allows
+values only from chain_{k-1} (k moves of the code), chain_0 =
+pure MLP ladder. ladder_depth queued with registered depth
+predictions: early band closes at k=1; 5.5 at k=1; 8.4 needs
+k=2 (nesting real); all nine >=0.85 by k=3 (bounded-depth fork);
+shuffled-value null at k=1.
