@@ -1,0 +1,29 @@
+batch 0 (layer arms) done
+batch 4 (layer arms) done
+batch 8 (layer arms) done
+batch 12 (layer arms) done
+2.5: base 0.859 top layer a1 lift 0.141
+3.5: base 0.741 top layer a2 lift 0.144
+3.8: base 0.793 top layer a2 lift 0.097
+5.5: base 0.362 top layer a4 lift 0.476
+6.5: base 0.535 top layer a5 lift 0.138
+7.3: base 0.415 top layer a6 lift 0.176
+8.3: base 0.538 top layer a6 lift 0.155
+8.4: base 0.504 top layer a6 lift 0.138
+batch 0 (head arms) done
+batch 4 (head arms) done
+batch 8 (head arms) done
+batch 12 (head arms) done
+2.5: a1 head lifts [0.012, 0.054, 0.011, 0.003, 0.015, 0.005, 0.006, 0.005, 0.028] best h1 (modal self, prev 0.198)
+3.5: a2 head lifts [0.023, 0.004, 0.015, 0.011, 0.008, 0.003, 0.016, 0.013, 0.013] best h0 (modal other, prev 0.185)
+3.8: a2 head lifts [-0.001, 0.002, 0.005, 0.003, -0.005, 0.015, 0.015, -0.003, 0.01] best h5 (modal self, prev 0.003)
+5.5: a4 head lifts [0.142, 0.034, -0.001, 0.103, 0.009, 0.154, 0.009, 0.174, 0.021] best h7 (modal prev, prev 0.765)
+6.5: a5 head lifts [-0.002, 0.005, 0.005, 0.001, -0.005, 0.015, 0.012, 0.099, 0.009] best h7 (modal first, prev 0.004)
+7.3: a6 head lifts [0.003, 0.008, 0.005, 0.135, 0.025, 0.036, 0.02, 0.008, 0.017] best h3 (modal prev, prev 0.468)
+8.3: a6 head lifts [-0.004, 0.003, -0.003, 0.1, 0.015, 0.027, 0.002, 0.02, 0.012] best h3 (modal prev, prev 0.468)
+8.4: a6 head lifts [-0.008, 0.01, -0.001, 0.118, 0.014, 0.007, 0.003, 0.007, 0.006] best h3 (modal prev, prev 0.468)
+pooled rho(prev) 0.249 rho(first) -0.266 | top-head prev-modal 4/8
+(a) rho(lift,prev) >= 0.4: FAILED
+(b) top relay head prev-modal >= half: HELD
+(c) rho(lift,first) <= 0.1: HELD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/relay_heads_results.json (16s)

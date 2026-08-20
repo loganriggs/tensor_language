@@ -9877,3 +9877,27 @@ writing swarm_shortlist.json -- the production list that replaces
 395's. Registered: rate within 15 points of 0.79; >=180 pass;
 DEPTH fork (selectivity may be depth-uniform, unlike raw
 stability); null <=8%.
+
+## 406. THE SWARM SHORTLIST EXISTS: 199 leaves, and selectivity favors the FINE grain
+
+gate_full ran the both-halves selectivity gate over all 311
+diverse-tree leaves: 199 pass (64%; swarm_shortlist.json
+written -- (b) HELD). (a) FAILED at the literal boundary (|0.64 -
+0.79| = 0.150 vs <=0.15, lost to rounding; recorded as failed).
+(d) HELD (shuffled null 6%). The scientific result is (c),
+FAILED in the OPPOSITE direction from the raw-stability gate:
+depth<=1 passes at 44%, depth>=2 at 72%. The two gates are
+mirror images -- 395's raw-damage cosine favored coarse
+whole-component probes (big, global, trivially stable,
+anti-selective), while selectivity favors the FINE leaves. Read
+together with 383 (re-carving) and 395: the census's fine
+structure is real, locally selective, corpus-stable machinery;
+what is unstable at fine grain is only the raw damage MAGNITUDE
+profile. Caveat noted from the stream: depth-0 leaves have no
+off-slice positions inside their own rows (conc is
+floor-inflated, e.g. r.6 at 2.5e4); they are few and
+production work should treat depth-0 concentration as
+ill-defined rather than passing. The swarm now has its
+production list: 199 certified-selective leaves. relay_heads
+running next: who does the relaying (per-head relay lifts vs the
+head census's prev-token shares).
