@@ -1,0 +1,67 @@
+4000 samples, mlp1 hidden dim 4608
+(0) exact-by-construction (h @ Down.T IS the real output): HELD
+output rank for 95% variance: r=604
+cluster sizes: [86, 46, 42, 37, 12, 11, 11, 11, 10, 9, 5, 5, 4, 3, 2, 2, 1, 1, 1, 1]
+(a) stability ARI 0.326 (bar 0.3) vs null -0.018: HELD
+
+cluster 14 (86 units) POSITIVE (concentration 8/8 "punct"):
+   [+1532.24] ...'There�' | next='�'
+   [+1209.32] ...' a jury today, was “slammed�' | next='�'
+   [+1142.42] ...' to my college years in Boston, I don’' | next='�'
+   [+1033.22] ...'I could look up the plot — but it isn�' | next='�'
+   [+1023.38] ...') certified the country’s “new�' | next='�'
+   [+1016.01] ...' offense the best fit for Bradford? I don’' | next='�'
+   [+1000.97] ...' up for sale; traditional “strategic review�' | next='�'
+   [+947.50] ...' Administration of China (CAAC) certified the country�' | next='�'
+  NEGATIVE:
+   [+823.15] ...'Iran�' | next='�'
+   [+760.23] ...'No' | next='No'
+   [+721.77] ...' currents along the sidewalk. It’s my favorite' | next=' favorite'
+   [+712.15] ...'|' | next='|'
+   [+712.15] ...'|' | next='|'
+   [+661.30] ...',�' | next='�'
+   [+643.26] ...' over the years it’s easily become my favorite' | next=' favorite'
+   [+637.65] ...', Mr Jammeh recently told supporters he would �' | next=' �'
+
+cluster 12 (46 units) POSITIVE (concentration 8/8 "determiner"):
+   [+641.39] ...'adopt many methods to determine whether the' | next=' the'
+   [+614.11] ...' great economic and foreign policy leverage. But what does the' | next=' the'
+   [+613.21] ...' as the new Stylebook calls them.\nIf the' | next=' the'
+   [+605.30] ...' the' | next=' the'
+   [+605.30] ...' the' | next=' the'
+   [+578.25] ...' to establish “Turkey Inc.” as the' | next=' the'
+   [+574.84] ...'-stricken regionsMarch 8, 2012\nWhen the' | next=' the'
+   [+552.20] ...' is set to grow, but not as quickly as the' | next=' the'
+  NEGATIVE:
+   [+557.24] ...'According to' | next=' to'
+   [+496.51] ...' all cool on top of your kidneys? Someone told me' | next=' me'
+   [+385.50] ...'is' | next='is'
+   [+384.07] ...'After' | next='After'
+   [+381.51] ..." based on physician judgment, because there's" | next="'s"
+   [+379.97] ...' every day now, and in many different places throughout each' | next=' each'
+   [+361.21] ..."Recently I've been taking a" | next=' a'
+   [+357.24] ..."'m" | next="'m"
+
+cluster 13 (42 units) POSITIVE (concentration 4/8 "capitalized"):
+   [+790.76] ...'Nine people in South Korea' | next=' Korea'
+   [+757.90] ...' largest of its kind hosted by a U.S.' | next='.'
+   [+755.83] ...' a small mining town in Northern France where his Algerian' | next='ian'
+   [+718.79] ...' a Shanghai-based aerospace consultancy firm specializing in emerging countries' | next=' countries'
+   [+705.38] ...' rising economic powers (alongside such countries as South Korea' | next=' Korea'
+   [+700.71] ...'This article was published in Australian' | next=' Australian'
+   [+598.17] ...' the largest of its kind hosted by a U.S' | next='S'
+   [+575.76] ...' has been experienced by religious constituencies across the Anatolian' | next='ian'
+  NEGATIVE:
+   [+1687.48] ...'"' | next='"'
+   [+1647.77] ...' great' | next=' great'
+   [+1647.29] ...' wonderful' | next=' wonderful'
+   [+1582.10] ...'.' | next='.'
+   [+1570.72] ...' lost' | next=' lost'
+   [+1552.08] ...'|' | next='|'
+   [+1552.08] ...'|' | next='|'
+   [+1485.76] ...' it' | next=' it'
+
+(b) found-cluster concentrations [8, 8, 4] (>=5/8 for >=1 of 3): HELD
+(c) distinctness vs mlp0 (article/punct-subtype/aux-contraction) -- read the printed examples above.
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_unit_cluster_results.json (34s)

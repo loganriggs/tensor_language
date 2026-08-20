@@ -1,0 +1,24 @@
+(0a) reproduced sizes [101, 76, 29, 18, 16, 9, 6, 6, 6, 6, 5, 4, 4, 3, 3, 3, 2, 1, 1, 1]: HELD
+
+=== cluster8 (n_units=101) n_pos=324 n_neg=637 ===
+(0) identity +0.000000: HELD
+(-1) baseline sanity: base_pos=0.1194 (want >0), base_neg=-0.2516 (want <0): HELD
+(a) pos-class: base 0.1194, cluster delta +0.00016, random delta -0.00036, ratio -0.44356250507111894: FAILED
+(b) neg-class: base -0.2516, cluster delta +0.00087, random delta +0.00024, ratio 3.6789930264603323: HELD
+NULL: digit delta 0.000500375113915652 vs random -3.695718987728469e-05: ok
+
+=== cluster13 (n_units=76) n_pos=588 n_neg=47 ===
+(0) identity +0.000000: HELD
+(-1) baseline sanity: base_pos=0.4606 (want >0), base_neg=0.1123 (want <0): FAILED -- do not trust below
+(a) pos-class: base 0.4606, cluster delta -0.00055, random delta -0.00038, ratio 1.4527962429125065: FAILED
+(b) neg-class: base 0.1123, cluster delta +0.00018, random delta +0.00010, ratio 1.7910407913849882: FAILED
+NULL: digit delta 2.8051166736986488e-05 vs random 2.614480399643071e-05: ok
+
+=== cluster7 (n_units=29) n_pos=29 n_neg=60 ===
+(0) identity +0.000000: HELD
+(-1) baseline sanity: base_pos=0.0752 (want >0), base_neg=-0.3595 (want <0): HELD
+(a) pos-class: base 0.0752, cluster delta +0.00049, random delta -0.00008, ratio -6.205678178110582: FAILED
+(b) neg-class: base -0.3595, cluster delta -0.00176, random delta -0.00027, ratio 6.507056886528916: FAILED
+NULL: digit delta -2.7777655304817017e-06 vs random -2.103281531162793e-06: ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_cluster_probmass_v3_results.json (38s)

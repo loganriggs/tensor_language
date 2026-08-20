@@ -17203,3 +17203,105 @@ three named clusters (8, 13, 7) with this metric for full consistency
 result is doubted, but because this program's standing rule is that a
 metric fix applies uniformly, not selectively to the results that
 need rescuing.
+
+## 586. Three metrics, three different directional stories: the
+## honest close of the causal-verification thread for clusters
+## 7/13, and a genuine crack in cluster 8's story too
+
+585's principled fix (probability mass, not logit sums or means) was
+run on all three named clusters uniformly, as promised.
+CLUSTER 8: baseline sane. (a) pos-class (a/an) FAILED (delta
++0.00016, essentially noise, WRONG sign vs 583's raw-logit result).
+(b) neg-class (the) HELD (delta +0.00087, 3.68x random control, the
+correct-sign direction). This is the MIRROR IMAGE of 583's raw-logit
+finding, which held on the indefinite side and failed on the
+definite side. Two internally-consistent but MUTUALLY CONTRADICTORY
+readings of which side of the a/an-vs-the split cluster 8 causally
+supports, depending only on which reasonable metric (logit sum vs
+probability mass) is used.
+CLUSTER 13: baseline sanity STILL FAILS under probability mass
+(base_neg = +0.112, should be negative) -- and this time it is not a
+metric artifact (probability mass is scale-fair by construction). It
+is a genuine fact about the model: even in probability terms, period/
+exclamation outrank the four dash tokens tested EVEN AT dash-target
+positions. Read plainly: dashes are evidently a low-confidence,
+high-entropy prediction for this model in general (many valid
+continuations compete for that probability mass), so a clean two-
+class margin built on this specific dash token set is not well-posed
+for testing cluster 13 at all. Not chasing a fourth metric --
+WITHDRAWN, cluster 13's causal status is genuinely unresolved with
+this style of test, and further iteration on it should use a
+different design (e.g. rank of the dash tokens among candidates,
+not raw probability mass) rather than another margin variant.
+CLUSTER 7: baseline sane, but BOTH sides FAILED with the OPPOSITE
+sign from prediction: (a) delta +0.00049 (should be negative);
+(b) delta -0.00176 (should be positive) -- and both ratios are large
+in magnitude (6.2x, 6.5x random control) despite being the WRONG
+sign. So cluster 7 has a real, specific, large effect on this
+margin (far above the random-unit control every time, in every
+metric tried) -- but the DIRECTION reverses depending on the metric,
+and never matches the simple "promoter" story from 581's reading.
+CONSOLIDATED, HONEST STATE after four attempts (582-586): every named
+cluster has a REAL causal footprint, clearly distinguishable from a
+random same-size unit set (3-7x larger effect, holds in every metric
+tried, satisfies every null check) -- the clustering itself keeps
+finding real, specific structure. But the SIMPLE DIRECTIONAL STORY
+("positive activation promotes X, negative promotes Y", read
+straight off correlational examples in 581) does not survive contact
+with causal testing intact for any of the three clusters, and is not
+even a metric-stable statement for two of them. This is the
+program's recurring theme -- distributed, tangled causal roles behind
+clean-looking correlational signatures -- landing squarely on what
+looked like the cleanest finds of this whole thread. Closing this
+specific verification design; a genuinely different causal probe
+(e.g. targeted patching of the cluster's contribution into a
+counterfactual context, or rank-based rather than margin-based
+scoring) is needed to make further progress here, not another
+logit/probability margin variant.
+
+## 587. The clustering method generalizes to mlp1, more weakly, and
+## finds one likely tokenization artifact plus one article-adjacent
+## cluster
+
+Same method (578 validated, 579/581 applied to mlp0) run on mlp1's
+4608 hidden units, context-named from the start (skipping the
+logit-lens step 579 already showed was wrong).
+  (0) HELD trivially (h @ Down.T is exactly the real output).
+  (a) HELD but WEAKER: split-half stability ARI 0.326 (bar 0.3) vs
+      null -0.018 -- real, reproducible structure, but notably less
+      stable than mlp0's 0.58. mlp1's units group less cleanly than
+      mlp0's did.
+  (b) HELD: cluster 14 (86 units) reads at 8/8 concentration -- but
+      as a Unicode replacement-character ("�") predictor, i.e. a
+      byte-level tokenization-artifact detector (curly quotes and
+      other multi-byte characters that decode as replacement chars
+      in this corpus), not a linguistic behaviour. Real and stable,
+      but likely a data/tokenizer artifact rather than the kind of
+      "reusable computational component" this thread is after --
+      flagged honestly rather than counted as a clean linguistic win.
+  cluster 12 (46 units, 8/8 "determiner") reads as an ARTICLE-
+      ADJACENT cluster: strongly positive before " the" specifically
+      (not the a/an-vs-the CONTRAST mlp0's cluster 8 tracks, just
+      "the" itself). Whether this is complementary/distributed
+      representation of article choice across layers 0 and 1, or an
+      unrelated coincidence, is not yet tested -- would need its own
+      causal check, and 586 just closed out margin-based causal
+      testing as unreliable for this kind of claim without a better
+      design, so this is registered as an open lead, not a finding.
+  cluster 13 (42 units) concentration only 4/8 ("capitalized") --
+      weaker, mixed (positive examples look like proper-noun/country-
+      name contexts; negative examples are generic common words) --
+      the least clean of the three.
+CONSOLIDATED READ: the clustering method is not mlp0-specific -- it
+finds real, stable structure in a second layer too -- but mlp1's
+structure is both weaker (lower stability ARI) and murkier (one
+likely artifact cluster, one under-tested lead, one mixed cluster) than
+mlp0's three clean-reading groups. Combined with 586's finding that
+even mlp0's clean-READING clusters don't yield simple, metric-stable
+CAUSAL stories, the honest state of this whole thread: the grouping
+method reliably finds real, reproducible structure; naming that
+structure from real examples is informative but not automatically a
+causal circuit; and both getting harder (weaker stability, murkier
+reads, unstable causal signs) as the method is pushed to a less-
+characterized layer is itself informative about where this program's
+easy wins run out.

@@ -1,0 +1,309 @@
+{
+ "N": 4000,
+ "sizes": [
+  86,
+  46,
+  42,
+  37,
+  12,
+  11,
+  11,
+  11,
+  10,
+  9,
+  5,
+  5,
+  4,
+  3,
+  2,
+  2,
+  1,
+  1,
+  1,
+  1
+ ],
+ "pred_0": true,
+ "stability_ari": 0.3255928210118681,
+ "stability_null": -0.018477187372302823,
+ "pred_a": true,
+ "conc_list": [
+  8,
+  8,
+  4
+ ],
+ "pred_b": true,
+ "null_ok": true,
+ "top_clusters": [
+  {
+   "cluster": 14,
+   "n_units": 86,
+   "pos_concentration": 8,
+   "pos_class": "punct",
+   "pos_examples": [
+    {
+     "token": "\ufffd",
+     "pre": "There\ufffd",
+     "act": 1532.238037109375
+    },
+    {
+     "token": "\ufffd",
+     "pre": " a jury today, was \u201cslammed\ufffd",
+     "act": 1209.321044921875
+    },
+    {
+     "token": "\ufffd",
+     "pre": " to my college years in Boston, I don\u2019",
+     "act": 1142.41552734375
+    },
+    {
+     "token": "\ufffd",
+     "pre": "I could look up the plot \u2014 but it isn\ufffd",
+     "act": 1033.2193603515625
+    },
+    {
+     "token": "\ufffd",
+     "pre": ") certified the country\u2019s \u201cnew\ufffd",
+     "act": 1023.376953125
+    },
+    {
+     "token": "\ufffd",
+     "pre": " offense the best fit for Bradford? I don\u2019",
+     "act": 1016.0105590820312
+    },
+    {
+     "token": "\ufffd",
+     "pre": " up for sale; traditional \u201cstrategic review\ufffd",
+     "act": 1000.9725341796875
+    },
+    {
+     "token": "\ufffd",
+     "pre": " Administration of China (CAAC) certified the country\ufffd",
+     "act": 947.5006103515625
+    }
+   ],
+   "neg_examples": [
+    {
+     "token": "\ufffd",
+     "pre": "Iran\ufffd",
+     "act": 823.1507568359375
+    },
+    {
+     "token": "No",
+     "pre": "No",
+     "act": 760.230224609375
+    },
+    {
+     "token": " favorite",
+     "pre": " currents along the sidewalk. It\u2019s my favorite",
+     "act": 721.7655029296875
+    },
+    {
+     "token": "|",
+     "pre": "|",
+     "act": 712.1514282226562
+    },
+    {
+     "token": "|",
+     "pre": "|",
+     "act": 712.1514282226562
+    },
+    {
+     "token": "\ufffd",
+     "pre": ",\ufffd",
+     "act": 661.300048828125
+    },
+    {
+     "token": " favorite",
+     "pre": " over the years it\u2019s easily become my favorite",
+     "act": 643.2557373046875
+    },
+    {
+     "token": " \ufffd",
+     "pre": ", Mr Jammeh recently told supporters he would \ufffd",
+     "act": 637.6539306640625
+    }
+   ]
+  },
+  {
+   "cluster": 12,
+   "n_units": 46,
+   "pos_concentration": 8,
+   "pos_class": "determiner",
+   "pos_examples": [
+    {
+     "token": " the",
+     "pre": "adopt many methods to determine whether the",
+     "act": 641.3897705078125
+    },
+    {
+     "token": " the",
+     "pre": " great economic and foreign policy leverage. But what does the",
+     "act": 614.110107421875
+    },
+    {
+     "token": " the",
+     "pre": " as the new Stylebook calls them.\nIf the",
+     "act": 613.2095947265625
+    },
+    {
+     "token": " the",
+     "pre": " the",
+     "act": 605.3011474609375
+    },
+    {
+     "token": " the",
+     "pre": " the",
+     "act": 605.3011474609375
+    },
+    {
+     "token": " the",
+     "pre": " to establish \u201cTurkey Inc.\u201d as the",
+     "act": 578.2483520507812
+    },
+    {
+     "token": " the",
+     "pre": "-stricken regionsMarch 8, 2012\nWhen the",
+     "act": 574.84228515625
+    },
+    {
+     "token": " the",
+     "pre": " is set to grow, but not as quickly as the",
+     "act": 552.1976928710938
+    }
+   ],
+   "neg_examples": [
+    {
+     "token": " to",
+     "pre": "According to",
+     "act": 557.2394409179688
+    },
+    {
+     "token": " me",
+     "pre": " all cool on top of your kidneys? Someone told me",
+     "act": 496.51348876953125
+    },
+    {
+     "token": "is",
+     "pre": "is",
+     "act": 385.5025939941406
+    },
+    {
+     "token": "After",
+     "pre": "After",
+     "act": 384.0703125
+    },
+    {
+     "token": "'s",
+     "pre": " based on physician judgment, because there's",
+     "act": 381.5093078613281
+    },
+    {
+     "token": " each",
+     "pre": " every day now, and in many different places throughout each",
+     "act": 379.9653015136719
+    },
+    {
+     "token": " a",
+     "pre": "Recently I've been taking a",
+     "act": 361.2084655761719
+    },
+    {
+     "token": "'m",
+     "pre": "'m",
+     "act": 357.2407531738281
+    }
+   ]
+  },
+  {
+   "cluster": 13,
+   "n_units": 42,
+   "pos_concentration": 4,
+   "pos_class": "capitalized",
+   "pos_examples": [
+    {
+     "token": " Korea",
+     "pre": "Nine people in South Korea",
+     "act": 790.7593383789062
+    },
+    {
+     "token": ".",
+     "pre": " largest of its kind hosted by a U.S.",
+     "act": 757.9017333984375
+    },
+    {
+     "token": "ian",
+     "pre": " a small mining town in Northern France where his Algerian",
+     "act": 755.82666015625
+    },
+    {
+     "token": " countries",
+     "pre": " a Shanghai-based aerospace consultancy firm specializing in emerging countries",
+     "act": 718.7876586914062
+    },
+    {
+     "token": " Korea",
+     "pre": " rising economic powers (alongside such countries as South Korea",
+     "act": 705.3782348632812
+    },
+    {
+     "token": " Australian",
+     "pre": "This article was published in Australian",
+     "act": 700.7057495117188
+    },
+    {
+     "token": "S",
+     "pre": " the largest of its kind hosted by a U.S",
+     "act": 598.1710205078125
+    },
+    {
+     "token": "ian",
+     "pre": " has been experienced by religious constituencies across the Anatolian",
+     "act": 575.757568359375
+    }
+   ],
+   "neg_examples": [
+    {
+     "token": "\"",
+     "pre": "\"",
+     "act": 1687.481201171875
+    },
+    {
+     "token": " great",
+     "pre": " great",
+     "act": 1647.7655029296875
+    },
+    {
+     "token": " wonderful",
+     "pre": " wonderful",
+     "act": 1647.2938232421875
+    },
+    {
+     "token": ".",
+     "pre": ".",
+     "act": 1582.104736328125
+    },
+    {
+     "token": " lost",
+     "pre": " lost",
+     "act": 1570.718017578125
+    },
+    {
+     "token": "|",
+     "pre": "|",
+     "act": 1552.078125
+    },
+    {
+     "token": "|",
+     "pre": "|",
+     "act": 1552.078125
+    },
+    {
+     "token": " it",
+     "pre": " it",
+     "act": 1485.7550048828125
+    }
+   ]
+  }
+ ],
+ "runtime_s": 34.07937932014465
+}
