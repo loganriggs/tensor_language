@@ -13633,3 +13633,45 @@ three disjoint samples came out of this.
 digit_heads is running the head-level decomposition, with an
 advance bet from the atlas: of the eighteen heads in a6 and a8,
 8.7 has by far the highest digit read-enrichment at 2.45.
+
+## 517. A bad bar voids a run, and the digit effect is superadditive
+
+digit_heads decomposed the digit subspace by head: the projector
+is applied to one head's c_proj contribution at a time, which is
+exact because the component output is the sum of those
+contributions and projection is linear.
+  all eighteen heads together   +0.1297
+  sum of the eighteen alone     +0.0770   (59%)
+  8.3  +0.0324   6.1  +0.0124   6.3  +0.0121   8.7  +0.0095
+  8.6  +0.0027   everything else below 0.002
+(0) FAILED, so the run is VOID by its own registered terms. But
+the bar was mine and it was badly designed: I registered "the sum
+of the individual per-head removals reproduces the whole within
+20%", which is an ADDITIVITY assumption about a cross-entropy
+readout, not an exactness check. On a network whose every
+computation is multiplicative there is no reason for it to hold,
+and the user's tier-4 argument (512) applies to localization just
+as it does to attribution. I registered a first-order bar on a
+higher-order object one section after writing down why that is
+wrong.
+The exactness property that DOES have to hold is different, and it
+held without being scored: the all-heads arm gives +0.1297 against
+the five-sample full-bundle mean of +0.135, so the head-level
+machinery reproduces the component-level ablation. The
+implementation is right; the bar was not.
+What the table shows descriptively, quoted but not banked: the
+effect is superadditive across heads (individual removals recover
+59% of the joint) and it is CONCENTRATED but not carried by one
+head -- 8.3 alone accounts for a quarter of it, three more heads
+contribute a tenth each, and thirteen contribute essentially
+nothing. The atlas advance bet named 8.7 on digit read-enrichment
+of 2.45; the leader is 8.3, whose enrichment is 1.68 -- the
+atlas's second choice. The bet as registered would have failed.
+digit_heads2 is queued with the design this needed: (0) becomes
+the real exactness check (all-heads reproduces the full bundle),
+and each head gets TWO measurements -- removed ALONE (necessity)
+and removed from every head EXCEPT it (sufficiency). A head that
+carries the effect scores high alone and leaves little behind when
+spared; a distributed effect scores low alone and high all-but for
+every head, which is a real answer rather than a failed search.
+Three further disjoint samples.
