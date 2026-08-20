@@ -1,0 +1,67 @@
+4000 samples, mlp2 hidden dim 4608
+(0) exact-by-construction (h @ Down.T IS the real output): HELD
+output rank for 95% variance: r=674
+cluster sizes: [104, 41, 27, 23, 15, 12, 11, 10, 10, 9, 8, 6, 6, 5, 3, 3, 3, 2, 1, 1]
+(a) stability ARI 0.295 (bar 0.3) vs null 0.021: FAILED
+
+cluster 16 (104 units) POSITIVE (concentration 4/8 "space_word"):
+   [+3241.16] ...', some of the concepts are applicable to teaching Emergency Medicine' | next=' Medicine'
+   [+3186.41] ...' was the first Queensland-born woman to graduate in medicine' | next=' medicine'
+   [+3047.44] ...'line training. We coach, consult and support real estate' | next=' estate'
+   [+3019.37] ...' studied.\n6.2% were from Emergency Medicine' | next=' Medicine'
+   [+2988.04] ...' year, the Clerkship Directors in Emergency Medicine' | next=' Medicine'
+   [+2879.94] ...' and churches, many of which today, as zero category' | next=' category'
+   [+2833.20] ...' inspiration for the countries of the rest of the Middle East' | next=' East'
+   [+2570.95] ...' Fred has excelled in selling all types of real estate' | next=' estate'
+  NEGATIVE:
+   [+4074.32] ...' seek professional help can be difficult and painful for a parent' | next=' parent'
+   [+3996.82] ...' AP. Twice.\nRay was among the first journalists' | next=' journalists'
+   [+3993.79] ...'Technology: Interested and facile\nMillennials' | next='ials'
+   [+3908.43] ...'\nAnonymous web-based survey sent to all trainees' | next='ees'
+   [+3798.78] ...' the very low risk of contacting HIV and the side effects' | next=' effects'
+   [+3793.17] ...' thinking that this would ever be possible, the promotor' | next='or'
+   [+3771.80] ...' for FREE. It was created by two innovative UCSF' | next='F'
+   [+3572.12] ...' of his career in his last two weeks at the newspaper' | next=' newspaper'
+
+cluster 13 (41 units) POSITIVE (concentration 3/8 "subword"):
+   [+3652.78] ...'ig' | next='ig'
+   [+3608.23] ...'ad' | next='ad'
+   [+3213.98] ...'is' | next='is'
+   [+2755.90] ...'.' | next='.'
+   [+2729.43] ...' taste' | next=' taste'
+   [+2690.13] ...' to' | next=' to'
+   [+2690.13] ...' to' | next=' to'
+   [+2612.66] ...' the' | next=' the'
+  NEGATIVE:
+   [+4060.27] ...'"Good' | next='Good'
+   [+3779.36] ...' distractions of entertainment.\nAs I read through Lenore' | next='ore'
+   [+3201.11] ...'It' | next='It'
+   [+3013.32] ...' TIGER WIN\nBy Calvin J. Butterworth' | next='worth'
+   [+2943.83] ...'Five Reasons I Love Boston\n1' | next='1'
+   [+2793.26] ...'Here' | next='Here'
+   [+2767.25] ...'11 and have now been published in final form,2' | next='2'
+   [+2724.44] ...' "Golden hill"...\nThere is a Ulysses' | next='es'
+
+cluster 14 (27 units) POSITIVE (concentration 6/8 "space_word"):
+   [+2381.34] ...' the problems for the child and family.\nFollowing are' | next=' are'
+   [+2171.25] ...' cancer diagnosis, having an MI, etc. Below is' | next=' is'
+   [+1751.03] ...'No. 24; Updated March 2011\nClick here' | next=' here'
+   [+1699.63] ...' larger ActiveRain. Join groups created by others. or' | next=' or'
+   [+1599.08] ...' should be visibly reduced with each\nSo, what is' | next=' is'
+   [+1565.84] ..." affect the original Rivers protocol? To review, here's" | next="'s"
+   [+1411.40] ...' collaborative, global outlook\nWork characteristics: Team-oriented' | next='oriented'
+   [+1408.28] ...' calls being the main offender), but I was consistently surprised' | next=' surprised'
+  NEGATIVE:
+   [+2930.98] ...', the Chinese\nis capable of\npredicting' | next='ing'
+   [+2626.68] ...' masterpiece investigative report, The Wayne Madsen Report unraveled' | next='ed'
+   [+2406.69] ...' on the global stage so much that it keeps up with' | next=' with'
+   [+2310.34] ...'.\nis an ancient way for\npredicting' | next='ing'
+   [+2255.11] ...' that knocked Alex Smith out of the game and ushering' | next='ing'
+   [+2213.17] ...' to be\n97% effective in\npredicting' | next='ing'
+   [+2148.96] ...' remarkable resemblance to a young Recep Tayyip Erdogan – is shown' | next=' shown'
+   [+2114.67] ...' a masterpiece investigative report, The Wayne Madsen Report unravel' | next=' unravel'
+
+(b) found-cluster concentrations [4, 3, 6] (>=5/8 for >=1 of 3): HELD
+(c) article-related clusters among top 3: [13] (found -- candidate for causal follow-up)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp2_unit_cluster_results.json (47s)

@@ -17678,3 +17678,37 @@ answer -- the model does maintain distributed, redundant machinery
 for at least one linguistic decision, in measurable, unequal
 proportions across layers, not concentrated in one place or split
 evenly.
+
+## 596. The article-choice redundancy does NOT cleanly extend to a
+## third layer -- mlp2's structure is measurably decaying, and its
+## lone "article" flag is spurious
+
+Discovery pass on mlp2 (mirrors 587's mlp1 pass), testing whether the
+confirmed two-layer redundancy (mlp0 primary + mlp1 secondary at 13%,
+595) has a third echo.
+  (0) exact by construction.
+  (a) FAILED, narrowly and informatively: split-half stability ARI
+      0.295, just under the 0.3 bar, vs null 0.021 -- a clear DECAY
+      trend across the three layers examined: mlp0 0.58, mlp1 0.326,
+      mlp2 0.295. The unit-clustering finds progressively weaker,
+      less reproducible structure the deeper it goes (consistent with
+      the depth map: middle layers are the least linearly predictable
+      and the most representationally tangled).
+  (b) HELD: one of the top-3 clusters (27 units, "space_word") reads
+      cleanly enough.
+  (c) THE REDUNDANCY ANSWER: the automated article-signal check
+      flagged cluster 13, but reading it shows the flag is SPURIOUS
+      -- cluster 13's top examples are mostly unrelated subwords
+      ("ig", "ad", "is", " taste") with a single " the" among them
+      (concentration 3/8, the weakest of the three named clusters).
+      There is no clean article-choice cluster at mlp2 comparable to
+      mlp0's cluster 8 or mlp1's determiner cluster.
+HONEST CONCLUSION: the redundant article-choice machinery is a
+TWO-layer phenomenon (mlp0 + mlp1), not a pattern repeated at every
+early layer. The signal-strength profile (mlp0 strong, mlp1 a clean
+13% echo, mlp2 nothing article-specific above noise) matches the
+stability decay -- the model concentrates this particular decision in
+the first two layers and does not keep re-encoding it. This is a real
+boundary on the redundancy, found by the same method that confirmed
+it, and it closes the breadth-first "how far does it extend" question:
+two layers, decaying, done.
