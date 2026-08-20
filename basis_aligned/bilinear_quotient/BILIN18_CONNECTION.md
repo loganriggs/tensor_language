@@ -11853,3 +11853,42 @@ positive pairs concentrate on a few recurring writers, (c) those
 writers are within two layers of what they feed at least 60% of
 the time -- i.e. the tool mostly finds local structure, which is
 what 425 warned about.
+
+## 471. CENSUS-SCALE MECHANISM MAP: positives are rare, local, and concentrated
+
+mech_map_all ran the validated mechanism table over 60 shortlist
+leaves (615 s):
+  60 leaves scanned
+  3 leaves carry any ENRICHED_STABLE2 positive -- 5.0%
+  3 positive (leaf, component, writer) pairs in total:
+     r.6.2.0   m15 -> m17   min ratio 2.232 (threshold 1.98)
+     r.1.2.2   m14 -> m15   min ratio 2.333 (threshold 1.739)
+     r.1.2.0   m14 -> m15   min ratio 2.277 (threshold 1.412)
+  top writers: m14 (2), m15 (1)
+  adjacency fraction: 1.00
+ALL THREE BARS HELD, and the first one held by a wide margin: I
+registered "fewer than 25% of leaves carry a positive" and the
+answer is FIVE PERCENT. After the tool was validated against
+causal ablation (469/470), its verdict at scale is that this
+model's damage-clusters almost never have a single dominant
+upstream writer. Fifty-seven of sixty leaves are input-diffuse.
+(b) held trivially at n=3, and (c) held at 1.00 -- every positive
+is an ADJACENT-LAYER MLP pair, m14 into m15 twice and m15 into
+m17 once. That is precisely the shape the wave-3 reviewer warned
+about (425), so the positives are exactly the cases most likely to
+be layer properties rather than circuit facts.
+Two things follow, and the second is the one that matters for the
+swarm's economics. First, the honest census statement: in this
+model, "which component feeds this circuit" has a concentrated
+answer about one time in twenty. Second, the swarm has been
+spending a mechanism step on every leaf to find a positive 5% of
+the time -- so the SOP's step-3M should be understood as a cheap
+SCREEN whose usual outcome is a scoped negative, not as the
+deliverable it was promoted to in v3. That is a real cost finding
+about the pipeline, from the pipeline's own output.
+mech_map_specificity is running on all three positives: for each,
+read the same (component, writer) ratio from peer leaves that
+share the component and ask whether the positive leaf stands out
+by at least 0.5. Registered: (a) >= 30% of positives are
+leaf-specific, (b) adjacent pairs -- which here means all of them
+-- are specific less often than distant ones.
