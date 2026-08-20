@@ -1,0 +1,25 @@
+{
+ "baseline": {
+  "punct": 1.752,
+  "nonpunct": 3.5937,
+  "all": 3.3536
+ },
+ "oracle": {
+  "punct": 1.8687,
+  "nonpunct": 3.6072,
+  "dce_all": 0.027,
+  "dce_punct": 0.1168
+ },
+ "proxy": {
+  "punct": 1.8693,
+  "nonpunct": 3.9538,
+  "dce_all": 0.3285,
+  "dce_punct": 0.1173,
+  "fraction_of_oracle": null
+ },
+ "proxy_fire_rate": 0.596,
+ "pred_a": false,
+ "pred_b": false,
+ "pred_c": false,
+ "runtime_s": 72.0814437866211
+}

@@ -746,13 +746,22 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   it is not specific to any one cluster (a component belonging to none of them reproduces it),
   and it is not explained by punctuation simply being frequent (within the top frequency quartile
   punctuation still helps 78% against 54% for everything else).</p>
-  <p>What it actually is: <strong>the model systematically over-continues at phrase
-  boundaries</strong>. At positions where ablation helps and the true next token is punctuation,
-  the intact model's top choice is a <em>non-punctuation continuation</em> 75% of the time — it
-  wants to keep the sentence going where the text ends it. Ablation lowers exactly that wrong
-  competitor's probability by 0.108, while a random token's probability moves by 0.0000012, five
-  orders of magnitude less. The reverse asymmetry does not exist: at the 1,194 helped
-  non-punctuation positions, the model's top choice is punctuation only 13% of the time.</p>
+  <p>The reading we arrived at — and then had to qualify — is that <strong>the model
+  over-continues at phrase boundaries</strong>. At positions where ablation helps and the true
+  next token is punctuation, the intact model's top choice is a <em>non-punctuation
+  continuation</em> 75% of the time, and ablation lowers exactly that wrong competitor's
+  probability by 0.108 while a random token moves by 0.0000012 — five orders of magnitude less.
+  The reverse asymmetry does not appear: at the 1,194 helped non-punctuation positions the top
+  choice is punctuation only 13% of the time.</p>
+  <p class="q"><strong>Correction in progress.</strong> Those figures are computed at positions
+  selected <em>because</em> ablation helped there, which makes the "75%" partly circular as
+  evidence for a general bias — our own error, caught by a follow-up that came back backwards:
+  gating the ablation to true punctuation positions on unseen text makes the model <em>worse</em>
+  (+0.117 nats), not better. What survives unselected is narrower and still real: on fresh text,
+  ablating the original 16-dimensional probe bundle lowers loss at punctuation while raising it
+  elsewhere in the same forward pass. Whole-component ablation does the opposite. The two
+  interventions are not interchangeable, and the unselected version of the competitor measurement
+  is running now; this section will be updated with whichever way it lands.</p>
   <p class="q">The bias has a location as well as a description. Reading each component's write
   through the unembedding at those sites, all five components whose removal helps push the wrong
   continuation harder than the true target — margins of +3.1 to +8.9 logits after correcting for

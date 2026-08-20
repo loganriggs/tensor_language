@@ -1,0 +1,20 @@
+batch 0 done
+batch 4 done
+batch 8 done
+batch 12 done
+batch 16 done
+batch 20 done
+batch 24 done
+batch 28 done
+batch 32 done
+batch 36 done
+batch 40 done
+batch 44 done
+UNSELECTED: 1602 punct targets, intact top-1 is non-punct 0.235
+bundle: punct -0.0098 nonpunct +0.0153 (dissociation -0.0251)
+components: punct +0.3246 nonpunct +0.7462 (dissociation -0.4216)
+competitor dprob: bundle -0.00588 component -0.21417 random -7e-08
+(a) unselected over-continuation >=60%: FAILED
+(b) bundle dissociation replicates: HELD
+(c) component intervention differs: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/punct_unselected_results.json (112s)

@@ -11482,3 +11482,46 @@ driven by a purely CAUSAL cue available at inference. Registered:
 nats, (c) the causal proxy captures >= 30% of it -- and if not,
 the honest finding is that the deficiency is real but not cheaply
 fixable.
+
+## 461. THE ORACLE COMES BACK BACKWARDS -- and exposes selection in my own chain
+
+punct_oracle_ceiling mean-ablated the five helping components
+ONLY at positions whose true next token is punctuation, on fresh
+FineWeb rows:
+  baseline overall CE      3.3536
+  oracle gate              +0.0270 overall, +0.1168 at punctuation
+  causal proxy gate        +0.3285 overall
+ALL THREE BARS FAILED, and not narrowly -- the oracle arm, which
+should have been an upper bound on benefit, makes the model WORSE
+exactly where it was aimed.
+That forced me to re-examine the chain rather than the run, and
+the problem is mine: 457's competitor statistics were computed at
+positions selected BECAUSE ablation helped there (d < 0). Reporting
+that ablation helps at positions chosen for being helped is
+circular, and the striking "75% of the time" figure -- which I put
+in the published report -- inherits that conditioning.
+WHAT IS ACTUALLY ESTABLISHED, separated by whether selection was
+involved:
+  UNSELECTED and still standing -- 440's held-out test: ablating
+  r.13.2.1's 16-dimensional probe BUNDLE on fresh FineWeb rows
+  lowers CE at punctuation targets (-0.008) while RAISING it
+  elsewhere in the same forward passes (+0.016), permutation
+  p = 0.000.
+  SELECTED and therefore weaker than reported -- 457's 75%
+  over-continuation rate, 458/459's competitor-margin table
+  (those sites were chosen as helped), and the report paragraph
+  built on them.
+  NEWLY IN CONFLICT -- whole-component ablation and 16-dim bundle
+  ablation point in OPPOSITE directions at punctuation on fresh
+  text. The arc treated them as the same intervention from 455
+  onward. They are not.
+Corrections propagated immediately: the report section now carries
+a "Correction in progress" paragraph stating the circularity, the
+backwards oracle result, and what survives unselected; the artifact
+is republished.
+punct_unselected queued to settle it without any conditioning: on
+fresh rows, measure the intact top-1 at ALL punctuation targets,
+and price bundle-ablation against component-ablation on the same
+rows. Registered: (a) unselected over-continuation >= 60% or the
+claim was an artifact of conditioning, (b) the bundle dissociation
+replicates, (c) the two interventions differ in direction.

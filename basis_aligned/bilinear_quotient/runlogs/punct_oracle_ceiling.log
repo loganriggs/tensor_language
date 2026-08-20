@@ -1,0 +1,6 @@
+punct targets 1602, proxy gate fires 7329 of 12288
+baseline all 3.3536 | oracle +0.0270 (punct +0.1168) | proxy +0.3285
+(a) oracle lowers CE: FAILED
+(b) oracle gain at punct >=0.05: FAILED
+(c) causal proxy captures >=30%: FAILED
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/punct_oracle_ceiling_results.json (72s)
