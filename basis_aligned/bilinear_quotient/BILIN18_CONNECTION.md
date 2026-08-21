@@ -23616,3 +23616,27 @@ TAKEAWAY: the interpretable structure of the front of the network is TOKEN-CLASS
 organisation, readable canonically (token-conditional means) as named grammatical
 axes -- no SAE, no ground truth, causally verified. This is the concrete answer to
 "find interpretable + causal structure without ground truth" for the early layers.
+
+## 769. SEMANTIC ALIGNMENT weakly explains ATOM MONOSEMANTICITY (links 763+767;
+## two bugs fixed en route -- see corrections). Per Down_0 SAE atom: semantic
+## alignment = ||proj_Usem(decoder_a)||/||decoder_a|| vs monosemanticity (token KL).
+CORRECTIONS (stated plainly): first run crashed (float64 weight vs float32 acts;
+fixed dtype); second run reported mean-alignment 0.0 due to Dm.norm(0,...) reading
+0 as the p-ORDER not the axis (LESSONS bug class) -> divided atoms by ~590k ->
+spurious rho 0.327. Fixed to Dm.norm(dim=0,...). Debug confirmed corrected atom
+alignment mean 0.54 (random 0.23), matching 767's 0.50 subspace overlap.
+Result (corrected):
+  mean atom-alignment 0.538 (random 0.23) -- SAE atoms DO live substantially in the
+    canonical semantic subspace (consistent with 767).
+  rho(alignment, monosemanticity) 0.164 vs shuffled null 0.054 -- above chance but
+    WEAK (predicted >=0.3). High-alignment atoms KL 3.85 vs low-alignment 3.69 (small).
+READ: semantic-subspace alignment is PART of what makes an SAE atom monosemantic,
+but only a WEAK part -- most of an atom's monosemanticity variance is NOT explained
+by how much it lies in the semantic subspace. So 763's puzzle (monosem orthogonal to
+causal/stability) is NOT resolved by "atoms are monosemantic iff semantic-aligned":
+the alignment link is real but weak. The nameable interpretability lives at the
+canonical DIRECTION level (768: the semantic axes ARE grammatical classes), and
+individual SAE atoms -- an arbitrary rotation within a subspace they only 54% cover
+-- inherit that nameability only weakly. pred_a False; null clean; pred_0 True
+(now valid). Consistent with the whole 761-769 arc: the atom is the wrong unit;
+the canonical semantic directions are the interpretable units.
