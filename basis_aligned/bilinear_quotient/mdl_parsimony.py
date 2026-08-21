@@ -67,7 +67,7 @@ def capture_out_grad_meta(rows, n):
         bb = rows[i:i+4, :257].to(DEV); idx = bb[:, :-1].contiguous(); tgt = bb[:, 1:].contiguous()
         store = {}
         def hk(mo, i_, o_):
-            o_.retain_grad(); store['o'] = o_
+            o2 = o_.detach().requires_grad_(True); store['o'] = o2; return o2
         h = m.transformer.h[LAYER].mlp.register_forward_hook(hk)
         x = F.rms_norm(m.transformer.wte(idx), (D,)); x0 = x; v1 = None
         for li, blk in enumerate(m.transformer.h): x, v1 = blk(x, v1, x0)

@@ -1,0 +1,33 @@
+{
+ "layer": 1,
+ "K": 256,
+ "frac": 0.9,
+ "n_datapoints": 12288,
+ "ce_based": true,
+ "bases": {
+  "asvd": {
+   "mean_code_len": 119.68,
+   "std": 8.61,
+   "usage_gini": 0.15,
+   "corr_len_entropy": -0.132,
+   "corr_len_logfreq": 0.143
+  },
+  "weight_svd": {
+   "mean_code_len": 127.47,
+   "std": 5.73,
+   "usage_gini": 0.101,
+   "corr_len_entropy": 0.024,
+   "corr_len_logfreq": -0.008
+  },
+  "random": {
+   "mean_code_len": 133.92,
+   "std": 4.75,
+   "usage_gini": 0.04,
+   "corr_len_entropy": -0.01,
+   "corr_len_logfreq": -0.0
+  }
+ },
+ "pred_a_tracks_difficulty": false,
+ "null_ok": true,
+ "runtime_s": 76.39316654205322
+}

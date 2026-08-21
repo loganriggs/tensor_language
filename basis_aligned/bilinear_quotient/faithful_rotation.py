@@ -73,7 +73,7 @@ def capture_out_grad(rows, n):
     for i in range(0, n, 4):
         bb = rows[i:i+4, :257].to(DEV); idx = bb[:, :-1].contiguous(); tgt = bb[:, 1:].contiguous()
         store = {}
-        h = m.transformer.h[LAYER].mlp.register_forward_hook(lambda mo,i_,o_: (o_.retain_grad(), store.__setitem__('o', o_)))
+        h = m.transformer.h[LAYER].mlp.register_forward_hook(lambda mo,i_,o_: store.__setitem__('o', o_.detach().requires_grad_(True)) or store['o'])
         x = F.rms_norm(m.transformer.wte(idx), (D,)); x0 = x; v1 = None
         for li, blk in enumerate(m.transformer.h): x, v1 = blk(x, v1, x0)
         h.remove()

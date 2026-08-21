@@ -22643,3 +22643,39 @@ FINDINGS (prediction FAILED, honestly):
     reconstruction family: a sparse dictionary or a sparsifying rotation
     (faithful_rotation, running next). This experiment rules out the cheap
     "just reorder by loss" fix.
+
+## 740. MDL PARSIMONY (CE-based) -- dense bases are terribly NON-parsimonious
+## (~120/256 components per datapoint), A-SVD marginally best, and the
+## difficulty-tracking VALIDATION is CONFOUNDED by gradient magnitude (flagged).
+
+Per-datapoint CE-code length (K=256, 90% CE-relevance), mlp1:
+  basis        mean-len  reuse-gini  corr(len,entropy)  corr(len,logfreq)
+  A-SVD        119.7     0.15        -0.132             +0.143
+  weight-SVD   127.5     0.10        +0.024             -0.008
+  random       133.9     0.04        -0.010              0.000
+FINDINGS:
+  - DENSE bases are NOT parsimonious: each datapoint needs ~120 of 256
+    components for 90% CE-relevance. SVD/A-SVD fail the MDL objective badly;
+    a good sparse dictionary should give code lengths of a FEW. This is the
+    quantitative case for leaving the dense-orthogonal family.
+  - A-SVD is slightly MORE parsimonious than weight-SVD (119.7 vs 127.5,
+    reuse-gini 0.15 vs 0.10) -- the ONE metric where A-SVD's data-
+    conditioning edges weight-SVD (opposite of efficiency/composability
+    where weight-SVD won). So "which is better" genuinely depends on the
+    metric.
+  CORRECTION / METRIC CONFOUND (stated plainly): validation #2 FAILED and
+    A-SVD's correlations are BACKWARDS (frequent->LONGER, high-entropy->
+    SHORTER). This is a METRIC ARTIFACT: my CE-code length = # components to
+    reach 90% of the datapoint's total CE-RELEVANCE mass, and well-predicted
+    (easy/frequent) tokens have SMALL, DIFFUSE CE-gradients -> their relevance
+    is spread over many components -> spuriously LONGER codes; hard tokens
+    have concentrated gradients -> shorter. The metric conflates "hard to
+    reconstruct" with "small gradient." So the CE-relevance code length CANNOT
+    validate difficulty-tracking as-is.
+  FIX for the metric: measure code length as # components to recover 90% of
+    the datapoint's CE-LOSS-BENEFIT causally (or normalize per-datapoint by
+    difficulty), not 90% of the relevance-mass. The gradient-magnitude
+    normalization is the missing piece. Noted for the sparse-dictionary work.
+This makes the parsimony baseline (dense = bad) clear, gives A-SVD a marginal
+win on raw parsimony, and flags that the difficulty-validation metric needs
+redesign (gradient-magnitude confound).
