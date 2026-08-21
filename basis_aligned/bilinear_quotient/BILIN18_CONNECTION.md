@@ -23229,3 +23229,30 @@ loss-driven) stays 0.5-0.6; L5 needs more atoms. Also notable: L2/L3/L5 have tin
 CE benefit (0.07-0.15) -- they barely matter for loss; L0 benefit 2.08 dominates.
 The learned overcomplete sparse dictionary (750) generalizes across the early
 stack; A-SVD's massive-activation failure (660/676/737) recurs layer by layer.
+
+## 754b. CORRECTION/COMPLETION of 754 (fixed compose, centered corr). After
+## removing the bias confound (center both sides over tokens), the weight-only
+## write prediction correlates ~ZERO with the measured downstream contribution:
+## write_corr 0.026 vs null -0.0004 (was 0.378 uncentered = bias artifact).
+## Left_1 SAE R2 improved to 0.53 (k=48). Coupling in-degree 163, A-SVD drift
+## 1.459 vs SAE 0.0 (both UNCHANGED -- the core claim stands).
+
+INTERPRETATION (sharpens 754, does NOT overturn it):
+  * STILL TRUE: the coupling C = E2@D1 is weight-only and DATA-INVARIANT (drift 0
+    vs A-SVD 1.46). The WIRING lives in the weights and is identical on any data.
+    top-k only routes (sparse live edges/token). This is the compositionality win.
+  * NEW / CORRECTED: you can READ the wiring from weights, but you CANNOT predict
+    the actual PER-TOKEN contribution from the linear coupling z1@D1 alone -- the
+    per-token signal flowing between Down_0 and Left_1 is dominated by the MODEL's
+    intervening nonlinearity (rms_norm's per-token rescale + attention re-mixing +
+    lambda), NOT by the linear coupling. (My test also conflates this with the
+    nonlinearity of rms_norm in the delta measurement, so 0.026 is an upper bound
+    on how much the linear path alone explains -- it is small either way.)
+  * CONSEQUENCE: reading a static weight-only wiring diagram is valid, but
+    QUANTIFYING the per-token flow through it requires the intervening nonlinear
+    pieces. This is exactly why the CE-TRAINED joint (real_joint_ce, running the
+    FULL nonlinear forward) is the right instrument -- it never relies on a linear-
+    coupling prediction; it optimizes the true composed CE. Motivates 757.
+LESSON (LESSONS): a correlation between two model-derived vectors that both carry
+a large shared mean/bias is bias-confounded; ALWAYS center before correlating and
+gate on a shuffle null (3rd time this class of bug appeared: 751, 752, 754).

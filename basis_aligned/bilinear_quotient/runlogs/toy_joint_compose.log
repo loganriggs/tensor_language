@@ -1,0 +1,16 @@
+HANDWRITTEN tiny circuit (5 atoms, wiring src->dst):
+  true      : {0: 2, 1: 4, 2: 0, 3: 3, 4: 1}
+  recovered : {0: 2, 1: 4, 2: 4, 3: 3, 4: 1}   (4/5 correct, atom-match cos 0.79)
+  |recovered coupling| (rows=target atom, cols=source atom):
+    0.01 0.00 0.00 0.03 0.01
+    0.00 0.00 0.00 0.01 0.92
+    0.90 0.02 0.00 0.01 0.02
+    0.01 0.00 0.00 0.93 0.01
+    0.00 1.00 0.00 0.01 0.01
+indep : R2 y1 0.96 y2 0.96 | edge-F1 0.30 live-edges 402 match-cos 0.84 | MDL 14.0
+joint : R2 y1 0.87 y2 0.98 | edge-F1 0.61 live-edges 164 match-cos 0.80 | MDL -57.5
+svd   : edge-F1 0.00 (dense) | SPECIFICITY NULL (joint C vs WRONG S) 0.02
+
+HANDWRITTEN 4/5 correct (match-cos 0.79) -> ok False
+(0) both reconstruct: True; (a) joint recovers wiring>indep, sparser, SPECIFIC: True; (b) joint MDL<=indep: True; NULL joint-vs-wrong-S low & separated: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/toy_joint_compose_results.json (48s)

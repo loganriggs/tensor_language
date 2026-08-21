@@ -122,3 +122,7 @@ replacement tax.
   from the runner's own cwd, so a relative path (e.g. `weight_action_compose.py`)
   is popped and SILENTLY DROPPED -- nothing runs, no error. Always queue the full
   /workspace/.../script.py path (§753->754 cost one idle cycle to this).
+- CORRELATION BIAS CONFOUND (751/752/754): a corr between two model-derived
+  vectors that share a large mean/bias rides that shared component -> real ~=
+  shuffled. ALWAYS center (subtract per-dim mean over samples) before correlating,
+  and gate on a shuffle/permutation null. Cost 754 a wrong 0.378 (true 0.026).
