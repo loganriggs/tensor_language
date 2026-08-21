@@ -21115,3 +21115,48 @@ control knobs: a frequency-bias dial (w_freq) and a temperature/gain dial
 (massive dims). Queued knob_composition to test whether they are
 INDEPENDENT and composable (the account says they are separate mechanisms,
 691).
+
+## 694. Q5 ANSWERED PROPERLY: RSPD A-SVD (the user's SVD(WX)*X.pinv, the
+## data-conditioned 'closest weight necessary for this dataset'), applied
+## to mlp17's Down layer and priced by REAL cross-entropy, finds a
+## strikingly LOW-RANK functional core: rank-1 recovers 55% of mlp17's
+## loss-benefit, RANK-4 recovers 83% (the 20/80 rank is r=4 of 1152).
+## Random-projection null recovers ~0/negative at every rank.
+
+Setup: A-SVD on Down (1152x4608) with X = the real bilinear-gate input
+(3072 tokens), surrogate W_r = A[:,:r]@B[:r,:] substituted into the LIVE
+model, CE measured (per the 588 lesson: entropy-rank is NOT task-loss
+rank -- so price by real CE). mlp17.Down benefit = CE_ablate 4.078 -
+CE_full 3.363 = 0.715 nats.
+  rank r:        1     2     4     8    16    32    64   128   256   512
+  A-SVD recov: 0.554 0.703 0.834 0.879 0.902 0.922 0.942 0.965 0.980 0.993
+  random recov:0.003 0.009 -.003 -.014 -.071 -.102 -.186 -.226 -.199 -.047
+FINDINGS (all predictions HELD):
+  (0) full-rank A-SVD reproduces baseline (CE 3.3644 vs 3.3627). SANITY.
+  (a) 20/80 rank r80 = 4 (<= 128 bar): mlp17's data-conditioned functional
+      core is rank ~4. Rank-1 alone recovers 55%; rank-8 recovers 88%.
+  NULL: random rank-r projection of the SAME weight recovers ~0 or
+      NEGATIVE at every rank (r80 = never) -- a random subspace of W's
+      output space actively hurts. So the low-rank core is genuinely
+      ALIGNED TO THE DATA, not an artifact of W being low-rank.
+SIGNIFICANCE:
+  - This is the correct, positive answer to Q5. The user's SVD(WX)*pinv
+    method WAS the right tool; it had only ever been applied to mlp0/attn0
+    (578-591), never the flagship mlp17. Now done: mlp17 IS highly
+    compressible on-data (r80=4).
+  - CONFIRMS and SHARPENS the '~4 quadratic functions' recollection (Q3,
+    660). A completely different method converges on ~4, and A-SVD is
+    BETTER than the old output-variance basis: rank-8 A-SVD recovers 88%
+    vs 660's rank-8 output-variance 78% -- the activation-conditioned
+    pull-back finds the functionally-important directions that raw output
+    variance misses (extends 617/660: variance basis != functional basis;
+    the DATA-CONDITIONED basis is the right one).
+  - SCOPE (stated plainly, no overclaim): this is the Down OUTPUT MAP being
+    low-rank ON THIS DATA. It does NOT contradict finding 1 (conditional
+    routing has no removable linear carrier): the low-rank core is mlp17's
+    output/calibration writing, while the UPSTREAM gate-computation that
+    decides the 4608 gate values is the distributed part. Two different
+    objects: the readout is rank-4, the routing that feeds it is diffuse.
+Queued rspd_mlp17_core_readout: name the 4 core directions -- project each
+onto the unembedding and read which tokens each boosts/suppresses (the
+finer-grained component isolation Q5 was ultimately after).

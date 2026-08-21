@@ -1,0 +1,20 @@
+gate X (3072, 4608), Down W (1152, 4608)
+A-SVD factors: A (1152, 1152), B (1152, 4608), maxr 1152
+CE_full 3.3627  CE_ablate 4.0779  benefit 0.7152
+(0) full-rank A-SVD CE 3.3644 (|d|<0.01 vs 3.3627): HELD
+r=   1: A-SVD CE 3.6818 recovered 0.554 | random CE 4.0758 recovered 0.003
+r=   2: A-SVD CE 3.5751 recovered 0.703 | random CE 4.0713 recovered 0.009
+r=   4: A-SVD CE 3.4816 recovered 0.834 | random CE 4.0800 recovered -0.003
+r=   8: A-SVD CE 3.4491 recovered 0.879 | random CE 4.0879 recovered -0.014
+r=  16: A-SVD CE 3.4326 recovered 0.902 | random CE 4.1287 recovered -0.071
+r=  32: A-SVD CE 3.4187 recovered 0.922 | random CE 4.1505 recovered -0.102
+r=  64: A-SVD CE 3.4045 recovered 0.942 | random CE 4.2108 recovered -0.186
+r= 128: A-SVD CE 3.3875 recovered 0.965 | random CE 4.2395 recovered -0.226
+r= 256: A-SVD CE 3.3769 recovered 0.980 | random CE 4.2204 recovered -0.199
+r= 512: A-SVD CE 3.3679 recovered 0.993 | random CE 4.1112 recovered -0.047
+
+20/80 rank: A-SVD r80=4  random r80=None
+(a) low functional rank (A-SVD r80<=128): True
+NULL random needs >=2x rank (or never): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_mlp17_functional_rank_results.json (69s)

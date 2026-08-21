@@ -1,37 +1,17 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/knob_composition.py", line 147, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/knob_composition.py", line 108, in main
-    e, mss = measure(g, a)
-             ^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/knob_composition.py", line 94, in measure
-    x, v1 = blk(x, v1, x0)
-            ^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/jacclust/tt_model.py", line 216, in forward
-    x = x + self.mlp(F.rms_norm(x, (x.size(-1),)))
-            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
-    return inner()
-           ^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1846, in inner
-    hook_result = hook(self, args, result)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/knob_composition.py", line 81, in mlp17_hook
-    comp = (o_.float() @ wf)[..., None] * wf
-            ~~~~~~~~~~~^~~~
-RuntimeError: expected scalar type Float but found Double
+g=0.6 alpha=0.5: entropy 2.0109  top20mass 0.3008
+g=0.6 alpha=1.0: entropy 2.2498  top20mass 0.2763
+g=0.6 alpha=1.75: entropy 2.9382  top20mass 0.2245
+g=1.0 alpha=0.5: entropy 2.6422  top20mass 0.3606
+g=1.0 alpha=1.0: entropy 3.3089  top20mass 0.2880
+g=1.0 alpha=1.75: entropy 4.9632  top20mass 0.1627
+g=1.5 alpha=0.5: entropy 3.5771  top20mass 0.3857
+g=1.5 alpha=1.0: entropy 4.8030  top20mass 0.2606
+g=1.5 alpha=1.75: entropy 7.0022  top20mass 0.0953
+
+entropy effect of g (0.6->1.5) by alpha: {0.5: 1.5662000000000003, 1.0: 2.5532, 1.75: 4.064}
+top20-mass effect of alpha (0.5->1.75) by g: {0.6: -0.0763, 1.0: -0.19789999999999996, 1.5: -0.2904}
+
+(a) independent axes (same sign, entropy ratio 2.59<2): False
+NULL cross-effects small: g-on-mass 0.016<a-on-mass 0.198, a-on-ent 2.321<g-on-ent 2.553: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/knob_composition_results.json (77s)
