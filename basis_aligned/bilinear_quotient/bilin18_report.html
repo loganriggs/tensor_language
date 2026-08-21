@@ -120,7 +120,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p class="lede">What we found inside a 546M-parameter bilinear transformer: six layers read
   end to end, a causal graph with every edge tested by intervention, a depth map that says
   where the model compresses and where it refuses to, and a weights-only formula that
-  predicted almost all of it. Including every correction it took to get here — the ledger below runs to twenty.</p>
+  predicted almost all of it — ending with how to split a layer into a small kit of parts
+  whose wiring to the next layer is fixed in the weights. Including every correction it took to
+  get here — the ledger below runs to twenty.</p>
   <nav class="toc" aria-label="Contents"><p class="tochd">Contents</p><ol>
     <li><span class="num">01</span><a href="#model">The model and the method</a></li>
     <li><span class="num">02</span><a href="#depth">The depth map</a></li>
@@ -137,7 +139,8 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">16</span><a href="#selection">Where a head keeps its decision</a></li>
     <li><span class="num">17</span><a href="#folding">How small can the front get?</a></li>
     <li><span class="num">18</span><a href="#grouping">Splitting 4608 pieces into groups</a></li>
-    <li><span class="num">19</span><a href="#open">What's still open</a></li>
+    <li><span class="num">19</span><a href="#composition">Splitting a layer into parts that wire together</a> <span class="flag new">new</span></li>
+    <li><span class="num">20</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -1745,6 +1748,55 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     fire at boundaries, only the last-block one is boundary-selective when deleted; the others do
     general continuation work and happen to trigger there.</li>
   </ul>
+</section>
+
+<section class="col">
+  <h2 id="composition">Splitting a layer into parts that wire together</h2>
+  <p>To read a layer you first have to break its big weight matrices into a small number of
+  reusable parts, and then see how the parts in one layer feed the parts in the next. The
+  textbook way to split a matrix orders its parts by how much <em>energy</em> they carry. On
+  this model that is the wrong order: the loudest directions are the near-constant "massive
+  activations" that carry almost none of the prediction, so if you keep only the top few parts
+  and drop the rest you wreck the model's loss — at the second and third layers, keeping only
+  the eight loudest parts is <em>worse than deleting the layer entirely</em>. The energy order
+  and the loss order are not the same order.</p>
+  <p>A better split is to let the model learn an over-complete kit of parts and use only a
+  handful on any one token — a sparse code. This stays faithful to the original weights
+  <em>and</em> keeps the loss, and it recovers structure the energy split cannot. It beat the
+  textbook split at every early layer we tried; where the textbook split went catastrophic, the
+  sparse kit still recovered 50–60% of the layer's work from eight parts. This is the right
+  family of decomposition for this model, and it holds all the way down the front of the
+  network, not just at one layer.</p>
+  <p>The payoff is that these parts are read straight off the weights, with no data mixed in — so
+  the <em>wiring</em> between one layer's parts and the next, which part feeds which, is fixed in
+  the weights and identical no matter what text you show the model. We checked: the wiring from
+  the sparse kit does not move at all when you swap the text, while the data-aware version of the
+  textbook split moves by 150%. The sparsity — which few parts are active on a given token — is
+  the routing that runs on top of that fixed wiring. One honest caveat: you can read the wiring
+  from the weights, but predicting the exact signal that flows on a given token also needs the
+  pieces sitting between the two matrices — a per-token rescale, and the attention step, which
+  has no softmax and simply mixes across positions. Those are mostly gentle: with attention's
+  position-mixing removed, a plain linear map already accounts for most of the same-position
+  flow. The composition is largely linear; attention's blending of neighbours is the main thing
+  a weights-only reading leaves out, not any harsh nonlinearity.</p>
+  <p>Left to themselves the parts wire together <em>densely</em> — each source part touches about
+  one in seven targets. A clean, sparse wiring diagram is not something you get for free; you have
+  to ask for it, by training the two layers' kits together with a penalty on the number of
+  connections. On a hand-built test with a known wiring we could recover the true connections and
+  nothing else — a deliberately wrong wiring scored near zero — but only once the connection
+  penalty was strong enough; reconstruction alone leaves the wiring ambiguous. On the real model,
+  training the two neighbouring matrices together this way cut the connections by roughly
+  three-quarters while holding the loss.</p>
+  <p>That last step came with a trap worth stating plainly. Training the parts on the model's loss
+  <em>alone</em> quietly ruins them: the loss does not care whether a part still reconstructs its
+  matrix, so the parts drift to fit the handful of training sentences and their faithfulness
+  collapses — reconstruction quality falls straight through zero even as you start from a good
+  solution. It looks like it might be undertraining; it is the opposite, and more steps make it
+  worse. The fix is to anchor the training with the reconstruction target alongside the loss, so
+  the parts stay faithful while the loss and the sparsity penalty do their work. With the anchor,
+  the joined-up decomposition keeps the model's loss at or above where the separate parts left it,
+  keeps every part faithful, and still cuts the wiring by three-quarters — a faithful, loss-aware,
+  sparsely-wired decomposition of two neighbouring layers, read as a small graph.</p>
 </section>
 
 <section class="col">
