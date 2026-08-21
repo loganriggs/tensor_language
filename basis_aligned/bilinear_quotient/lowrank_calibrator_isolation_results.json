@@ -1,0 +1,33 @@
+{
+ "variants": {
+  "full": {
+   "CE_freq": 1.6074,
+   "CE_rare": 4.0834
+  },
+  "mean_ablate": {
+   "CE_freq": 1.4754,
+   "CE_rare": 4.676
+  },
+  "keep_wfreq": {
+   "CE_freq": 1.765,
+   "CE_rare": 4.4826
+  },
+  "remove_wfreq": {
+   "CE_freq": 1.3651,
+   "CE_rare": 4.6938
+  },
+  "keep_random1": {
+   "CE_freq": 1.4416,
+   "CE_rare": 5.2019
+  }
+ },
+ "rare_benefit_nats": 0.5926,
+ "rank1_keep_frac": 0.3264,
+ "remove_lost_frac": 1.03,
+ "random1_keep_frac": -0.8874,
+ "pred_0": true,
+ "pred_a_rank1_keeps": false,
+ "pred_b_rank1_necessary": true,
+ "null_ok": true,
+ "runtime_s": 59.98850870132446
+}

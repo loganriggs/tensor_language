@@ -68,9 +68,12 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
 
 ## Open / focus (hierarchical — go deeper on any)
 
-- **A. Finer component isolation (highest value).** Behavior-conditioned low-rank: restrict X to a
-  behavior, find the smallest-rank weight reproducing it (SVD_r(WX)·X⁺ / RSPD). *Not yet tried on
-  the traced behaviors.* The SVD(W·X) work so far was unit-CLUSTERING, a different (weaker) object.
+- **A. Finer component isolation — METHOD WORKS (§650).** Behavior-conditioned low-rank isolates
+  the block-17 calibration to a **rank-1** direction `w_freq = cov(mlp17 out, target log-freq)`:
+  removing it kills the calibration (necessary), a random direction doesn't (specific). Reaches
+  finer grain than unit-clustering (§578–581, inert groups) or head-ablation (§649, distributed).
+  Rule: isolate by (behavior-conditioned direction + removal test), NOT (component + clustering).
+  Next: remove-random control + keep-rank-r sufficiency curve; then apply to newline/article routing.
 - **B. ~~head-SET localization of induction~~ — ANSWERED NO (§649): copying is distributed across
   ~all attention; pattern-selection can't isolate it. → reinforces A (need subspace method).
 - **C. Systematic circuit discovery** vs the current opportunistic depth-first tracing (see method note).

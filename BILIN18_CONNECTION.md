@@ -646,3 +646,50 @@ front+mid heads led by L5.H5 (647), which are causally real but
 redundant (648). Queued induction_redundancy to quantify the
 redundancy curve: cumulative ablation of the top-K induction heads --
 how many must go before copying collapses?
+
+## 650. Q5 METHOD WORKS: the block-17 frequency calibration isolates to
+## a RANK-1 direction w_freq -- removing it kills the calibration
+## (necessary), a random direction doesn't (specific). The
+## behavior-conditioned low-rank method reaches finer grain than
+## clustering (578-581) or head-ablation (649) could.
+
+Behavior-conditioned low-rank isolation of the calibrator (624-629).
+w_freq = cov(mlp17 output, target log-frequency), the rank-1 output
+direction tracking frequency. Freq/rare-target CE per variant:
+  full           freq 1.607  rare 4.083
+  mean_ablate    freq 1.475  rare 4.676   (calibration removed: 626 sig)
+  keep_wfreq     freq 1.765  rare 4.483   (rank-1 only)
+  remove_wfreq   freq 1.365  rare 4.694   (rank D-1: w_freq removed)
+  keep_random1   freq 1.442  rare 5.202   (control)
+Calibration rare-benefit (mean - full) = +0.593 nats.
+FINDINGS:
+  (0) HELD: mlp17 shows the calibration signature -- mean-ablating it
+      helps freq CE (1.607->1.475) and hurts rare CE (4.083->4.676).
+  (b) w_freq IS NECESSARY -- the clean isolation. Removing just the
+      rank-1 w_freq direction collapses the rare-benefit to the fully-
+      ablated level (rare 4.694 ~ mean 4.676, 103% lost) AND drops freq
+      CE to 1.365 (below mean-ablate -- the frequency suppression is
+      gone). So removing one direction removes the calibration MORE
+      cleanly than ablating the whole layer (which also removes content).
+      w_freq is the calibration direction.
+  NULL: keeping a random rank-1 direction gives rare 5.202 (worse than
+      removing everything, -89%) -- the frequency direction is special,
+      not any direction.
+  (a) FAILED, and it is informative not a problem: keeping ONLY w_freq
+      recovers just 33% of the rare-benefit. mlp17 is not only a
+      calibrator -- it also writes content classes (629, subword/
+      capitalized, its rank-8 output). Keeping rank-1 throws that away,
+      so the FULL layer benefit needs w_freq INTERACTING with the
+      content dims (through rms_norm+softmax); the calibration itself is
+      rank-1, the layer is not.
+THE POINT FOR Q5: the behavior-conditioned low-rank method SUCCEEDS at
+finer-grained isolation where the earlier methods failed. Unit-
+clustering (578-581) found stable-but-inert groups; head-ablation (649)
+found copying distributed across ~all heads; here, conditioning on the
+behavior (frequency) and testing a rank-1 direction by NECESSITY +
+SPECIFICITY isolates the calibration to a single output direction. The
+lesson: isolate by (behavior-conditioned direction, removal test),
+not by (component, clustering). Caveat: the specificity control so far
+is keep-random; the matching remove-random control (does removing a
+random rank-1 leave calibration intact?) is queued as
+lowrank_calibrator_confirm, plus the keep-rank-r sufficiency curve.

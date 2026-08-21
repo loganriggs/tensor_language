@@ -1,0 +1,13 @@
+full           freq 1.6074  rare 4.0834
+mean_ablate    freq 1.4754  rare 4.6760
+keep_wfreq     freq 1.7650  rare 4.4826
+remove_wfreq   freq 1.3651  rare 4.6938
+keep_random1   freq 1.4416  rare 5.2019
+
+calibration rare-benefit (mean-full) = +0.5926 nats
+(0) 626 signature (mean-ablate helps freq, hurts rare): True
+(a) rank-1 keep_wfreq reproduces 33% of benefit: False
+(b) remove_wfreq loses 103%: True
+NULL keep_random1 reproduces -89% (<20%): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/lowrank_calibrator_isolation_results.json (60s)
