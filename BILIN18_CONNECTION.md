@@ -205,3 +205,47 @@ the report artifact with this depth-of-computation account. Queued
 middle_refines_which_class to localize WHICH classes the middle refines
 (content classes should show large within-class sparing; function
 classes little, having few members to choose among).
+
+## 633. Per-block localization of within-class refinement FAILS to a
+## redundancy confound: single-block sparing is highest at the FRONT
+## (block 1 +0.63), not the middle. The band-level synthesis (631)
+## stands; refinement cannot be localized below the band with ablation.
+
+Attempt to locate WHERE the space_word content-word refinement (632)
+happens, per block. Per-block within-class sparing (token-drop minus
+class-drop) for space_word:
+  block 0 +0.39, block 1 +0.63 (top), block 2 +0.51, block 3 +0.28,
+  block 4 +0.20, block 5 +0.26, block 6 +0.05, block 7 +0.13,
+  block 8 +0.29, block 9 +0.11, blocks 10-16 +0.02..0.19, block 17
+  -0.18 (calibrator: drops class more than token).
+  (a) FAILED: middle per-block sparing (avg 0.10) is LOWER than front
+      (avg 0.51) -- the opposite of the registered prediction.
+THE CONFOUND (why (a) fails and the per-block metric is invalid here):
+single-block ablation leaves the model's REDUNDANT class-writers intact.
+The class "a space-word is coming" is written across the front blocks
+(0-2) redundantly (629 + the program's pervasive redundancy findings).
+So removing ANY one block spares the class -- the others still write it
+-- inflating the sparing metric, and MOST at the front, where the
+remaining redundant class-writers are. The per-block sparing therefore
+measures "how redundantly is the class written around this block", not
+"does this block refine within-class". It cannot localize refinement.
+  The VALID measure is the cumulative-band comparison (631/632):
+  removing the WHOLE middle band [6-16] spares the class (class-drop
+  0.30) while destroying the token (0.97) -> sparing +0.67; removing the
+  WHOLE front band [0-2] drops class and token together (0.70 / 0.98) ->
+  sparing +0.27. Removing the whole band removes its redundant class-
+  writing at once, so the band comparison is not confounded, and it
+  correctly shows the middle spares class while the front decides it.
+  block 17's NEGATIVE per-block sparing (-0.18) is real and un-
+  confounded (it is the sole calibrator, no redundant partner): it drops
+  class MORE than token, the frequency-calibration signature.
+HONEST OUTCOME: I cannot localize within-class refinement below the
+band level with single-block ablation -- redundancy defeats it, the same
+wall this program hit for article/newline unit clusters (610-616). The
+band-level three-stage synthesis (631: front decides class, middle
+refines within-class, back calibrates) is the resolution-limited but
+valid statement. This closes the "where exactly" question as
+un-answerable by ablation and the depth-of-computation phase overall.
+Next: pivot to the FRONT/input -- how blocks 0-2 decide the class from
+the current token vs context (tracing toward the embedding, the
+program's core goal). Queued front_token_vs_context.
