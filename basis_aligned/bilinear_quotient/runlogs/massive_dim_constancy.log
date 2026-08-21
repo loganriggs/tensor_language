@@ -1,0 +1,18 @@
+TOP massive dims:
+  dim  981 mean +41681 std 38595 cv 0.93 sign-cons 0.82
+  dim  990 mean -18588 std 33513 cv 1.80 sign-cons 0.67
+  dim  645 mean +24389 std 22264 cv 0.91 sign-cons 0.84
+  dim  329 mean +10889 std 22150 cv 2.03 sign-cons 0.74
+  dim  992 mean +1083 std 14303 cv 13.20 sign-cons 0.84
+MEDIAN-magnitude dims:
+  dim  646 mean -161.6 std 972.8 cv 6.02 sign-cons 0.57
+  dim  866 mean +6.1 std 985.9 cv 161.99 sign-cons 0.51
+  dim 1008 mean +21.8 std 985.5 cv 45.25 sign-cons 0.50
+  dim  502 mean -287.4 std 942.9 cv 3.28 sign-cons 0.61
+  dim  883 mean +228.6 std 958.4 cv 4.19 sign-cons 0.59
+
+(0) massive: True
+(a) DC/bias (top CV 3.78<0.5, sign-cons 0.78>0.9): False
+NULL median dims higher CV (44.15 > 3.78): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/massive_dim_constancy_results.json (71s)

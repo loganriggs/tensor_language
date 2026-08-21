@@ -20567,3 +20567,43 @@ calibrated against, with the frequency-calibration knob living within it.
 Queued massive_dim_constancy to confirm the DC-bias reading directly: are
 the massive dims near-CONSTANT across positions (low coefficient of
 variation, fixed sign) = a literal learned bias?
+
+## 679. The massive dims are NOT a clean constant bias: they have a LARGE
+## DC offset (mean 10k-40k, which median dims lack) but ALSO large signal
+## (std ~ mean, CV ~1). "Big-bias + big-signal" channels, not pure DC.
+## Partly-corrects 678's "DC-like" framing.
+
+Per-dim statistics of the top massive block-17 dims:
+  dim 981 mean +41681 std 38595 CV 0.93 sign-cons 0.82
+  dim 990 mean -18588 std 33513 CV 1.80 sign-cons 0.67
+  dim 645 mean +24389 std 22264 CV 0.91 sign-cons 0.84
+  dim 329 mean +10889 std 22150 CV 2.03 sign-cons 0.74
+  dim 992 mean  +1083 std 14303 CV 13.2 sign-cons 0.84
+  median-magnitude dims: mean ~0 (+-200), std ~980, CV huge (mean~0),
+    sign-cons ~0.5.
+FINDINGS:
+  (0) HELD (massive). (a) FAILED: the massive dims are NOT near-constant
+      (CV ~0.9-2.0 for the top four, not <0.5). They have a LARGE DC
+      OFFSET (mean 10k-40k) that ordinary dims lack (median dims' mean is
+      ~0), AND large per-position variation (std comparable to the mean).
+      So they are "big-bias + big-signal": distinguished from normal dims
+      by a large constant component, but they also swing by roughly their
+      own magnitude (they carry signal too).
+  NULL: median dims have higher CV only because their mean is ~0 (a
+      degenerate CV comparison); their absolute std (~980) is 20-40x
+      SMALLER than the massive dims' (~22000-38000). The clean contrast
+      is the MEAN: massive dims have a huge DC offset, median dims do not.
+REFINES 678: the massive dims are not a pure DC/bias substrate. There is
+a large constant component (a bias, absent in normal dims) but it is not
+the whole story -- they also carry large signal, which is why mean-
+filling them (677) hurts all predictions. So the massive-activation
+channels are high-magnitude in BOTH their constant offset and their
+per-position variation. Characterization of the massive-activation line
+(676-679): they exist and grow with depth; ride persistent channels
+(645, 990, 981); are NOT attention sinks (uniform across pos/tokens, no
+softmax); carry the calibration DIRECTION (88% of w_freq) but are broad
+general-readout channels; and have a large DC offset plus large signal
+(not a pure bias). Queued massive_dc_vs_signal to separate the two: does
+removing just the DC offset (subtract per-dim mean) hurt CE, or only
+removing the signal (mean-fill, 677) -- i.e. is the bias component
+functional or an inert offset?
