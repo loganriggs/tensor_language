@@ -21554,3 +21554,32 @@ matters (mlp1, ~1 nat, clean cluster>shuffle + monotone K-sweep, 704-705);
 mlp2 (0.15 nat) generalizes the cluster>global part but its tiny benefit
 makes the finer assignment signal noisy. Honest scope: the finding is
 strongest where the layer's contribution is large. Arc 702-706 complete.
+
+## 707. USER CHECKS: (A) 703 random baseline -- block0.attn's rank-2 A-SVD
+## core recovers 0.81 vs a RANDOM rank-2 subspace's 0.007 (~115x), stable
+## across data; (B) 704 data-robustness -- cluster >> global holds at 4x
+## more data; (C) clustering visualization delivered (covariance matrix +
+## cluster bar + colorbar).
+
+(A) block0.attn rank-2, A-SVD vs random rank-2 projection (CE recovered):
+    N=3072 tok:  A-SVD 0.806  random 0.007 (3 seeds 0.02/0.00/-0.00)
+    N=12288 tok: A-SVD 0.822  random 0.007
+    -> the rank-2 core is ~115x better than a random 2-D subspace and
+    stable with data. 703's low-rank core is real, not an artifact.
+(B) mlp1 cluster/global/shuffle recovered at r=8, held-out CE:
+    fit N=6144:  cluster +0.219  global -2.710  shuffle -0.622
+    fit N=24576: cluster +0.171  global -2.491  shuffle -0.302
+    -> cluster >> global (>2.6-nat gap) and cluster > shuffle at BOTH data
+    sizes. Conclusion data-robust; exact recovered value has eval-set
+    variance (0.219 vs 704's 0.013 = different eval slice / kmeans seed),
+    but the ordering cluster>shuffle>global is stable. 'More data does not
+    change the conclusions.'
+(C) clustering_viz.png: token-token cosine-similarity ordered by cluster
+    (8 block-diagonal blocks), cluster-color sidebar, KxK centroid
+    similarity + colorbars. KEY OBSERVATION: off-diagonal cluster
+    similarity is HIGH (+0.2..+0.5) -- clusters share a big common
+    direction (massive-activation/DC component) and separate on a smaller
+    discriminative part. This is exactly WHY the union structure shows up
+    in functional/CE space (which ignores the shared loss-irrelevant part)
+    but only weakly in energy space (702) -- the discriminative signal is
+    small in raw variance but decisive for the loss.

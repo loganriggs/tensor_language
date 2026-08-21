@@ -1,0 +1,41 @@
+{
+ "A_703_random_baseline": {
+  "benefit": 1.2754,
+  "by_N": {
+   "3072": {
+    "asvd_r2": 0.8061,
+    "random_r2_mean": 0.0072,
+    "random_r2_all": [
+     0.0199,
+     0.0028,
+     -0.0011
+    ]
+   },
+   "12288": {
+    "asvd_r2": 0.822,
+    "random_r2_mean": 0.0072,
+    "random_r2_all": [
+     0.0199,
+     0.0028,
+     -0.0011
+    ]
+   }
+  }
+ },
+ "B_704_data_robustness": {
+  "benefit": 1.0182,
+  "by_fitN": {
+   "6144": {
+    "cluster": 0.2191,
+    "global": -2.7104,
+    "shuffle": -0.6215
+   },
+   "24576": {
+    "cluster": 0.1707,
+    "global": -2.4913,
+    "shuffle": -0.3025
+   }
+  }
+ },
+ "runtime_s": 68.87919092178345
+}
