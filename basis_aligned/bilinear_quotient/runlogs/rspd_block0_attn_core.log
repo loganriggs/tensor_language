@@ -1,0 +1,10 @@
+benefit 1.468  rank-2 recovered 0.836
+dir 0: boost ['izing', 'ized', 'ist', 'ising', 'ize']
+   top-|s| tokens ['\n', '"', ' nuclear', 'NYSE', ' Liber', ' whiskey'] (share 0.09)
+dir 1: boost [' reason', 'imgur', ' comparison', 'args', ' consolation']
+   top-|s| tokens ['\n', ',', ' the', '"', '—', ' I'] (share 0.71)
+
+NULL random(complement) top_token_share 0.105
+(0) rank-2 recovers >=0.75: True; NULL (real more concentrated than random 0.71>0.10): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_block0_attn_core_results.json (52s)

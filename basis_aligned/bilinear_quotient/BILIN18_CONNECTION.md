@@ -21388,3 +21388,42 @@ structure test here. The real evidence of structure is the token pattern
 (boundary tokens drive |s|) + the 95% rank-1 CE recovery, both clean. Next
 experiment replaces peakedness with a confound-free token-conditional test
 (mean s on boundary vs other tokens). Queued rspd_block0_attn_core.
+
+## 702. CLUSTER -> PER-CLUSTER RANK (user idea): clustering tokens by
+## decoder-response direction finds REAL, linguistically-coherent structure
+## (real clusters more compressible than shuffled same-size subsets), BUT
+## the high-rank layers stay HIGH-rank even per-cluster -- the strong 'union
+## of low-rank circuits' explanation is NOT supported (in energy space).
+## The shuffled null caught a sample-size confound.
+
+Response-energy recovery rank (>=80% energy; RSPD subset_asvd_losses),
+N=3072 tokens, k=8 clusters on L2-normalized per-token response:
+  mlp1.Down: global 591 | real clusters mean 184.5 | shuffled null 229.0
+  mlp0.Down: global 404 | real clusters mean 131.2 | shuffled null 181.6
+FINDINGS:
+  (0) HELD: global energy rank orders like r80 (mlp1 591 > mlp0 404).
+  (a) 'HELD' on the letter (184.5 <= 0.5*591) but MISLEADING: the NULL
+      shows most of that drop is just SMALLER N -- a random same-size
+      subset already falls to 229 (its response spans <= n dims). The real
+      structure signal is the GAP real-vs-shuffled: 184.5 < 229.0 (~20%
+      fewer dims), and 131.2 < 181.6 for mlp0. So response-coherent token
+      groups ARE genuinely more compressible than random ones -- real
+      structure -- but the effect is MODEST.
+  NULL 'FAILED' (shuffled 229 not >= 0.8*591) -- and that failure is the
+      point: it exposes that per-cluster rank reduction is mostly the
+      sample-size effect, not the union-of-low-rank story. Honest read: the
+      high-rank layers are high-rank even within coherent clusters (mlp1
+      clusters still rank ~185 of 591); mlp1/mlp2 are NOT a few low-rank
+      special cases -- their rank is genuinely distributed.
+  The clusters ARE interpretable (mlp1: punctuation | proper-noun frags |
+      determiners the/a/I | subword frags | scope adjectives big/small |
+      prepositions of/and/in | nouns child/school | copulas is/was/are) --
+      so the clustering finds real linguistic groups, just not low-rank ones.
+SCOPE (important): this is ENERGY-recovery rank (591 for mlp1) -- far above
+the CE-functional r80 (128); 660: energy basis != functional basis. Energy
+space over-weights low-energy directions that don't affect the loss, so it
+may UNDERSTATE per-cluster functional compression. The proper test of the
+user's idea is in CE/functional space. Queued rspd_cluster_ce: replace
+mlp1's OUTPUT per-token with its own cluster's rank-r subspace projection
+and price by REAL CE -- does a per-cluster low-rank output beat a global
+low-rank output at the same budget?
