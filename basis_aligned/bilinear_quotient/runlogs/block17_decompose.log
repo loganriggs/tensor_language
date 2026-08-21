@@ -1,0 +1,11 @@
+full           CEfreq 1.607 CErare 4.083  P(sub) 0.823 P(cap) 0.545
+remove_wfreq   CEfreq 1.367 CErare 4.691  P(sub) 0.829 P(cap) 0.426
+mean_ablate    CEfreq 1.475 CErare 4.676  P(sub) 0.676 P(cap) 0.382
+remove_random  CEfreq 1.612 CErare 4.085  P(sub) 0.825 P(cap) 0.547
+
+(0) both effects present: True
+(a) remove_wfreq kills calibration: True (102%)
+(b) content-writing preserved: False (sub 104%, cap 27%)
+NULL remove_random preserves calibration: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/block17_decompose_results.json (66s)

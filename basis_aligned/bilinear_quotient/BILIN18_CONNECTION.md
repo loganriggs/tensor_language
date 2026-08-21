@@ -19718,3 +19718,44 @@ block17_decompose to finish the picture: after removing w_freq (the
 calibration), is block 17's REMAINING output the content-writing (629,
 subword/capitalized) -- i.e. is block 17 cleanly = calibration (rank-1)
 (+) content-writing (rest), two separable functions?
+
+## 657. Block 17 does NOT split cleanly into calibration + content-
+## writing. Removing w_freq kills calibration (102%) and preserves
+## SUBWORD-writing (104%) but loses 73% of CAPITALIZED-writing -- because
+## capitalized words are RARE, so "boost rare content" and "write
+## capitalized" are the SAME rank-1 frequency mechanism (unifies the
+## calibration with 629's function->content mass shift).
+
+Decomposing block 17 by removing the rank-1 calibration direction w_freq
+from mlp17's output:
+  full          CEfreq 1.607 CErare 4.083  P(sub) 0.823 P(cap) 0.545
+  remove_wfreq  CEfreq 1.367 CErare 4.691  P(sub) 0.829 P(cap) 0.426
+  mean_ablate   CEfreq 1.475 CErare 4.676  P(sub) 0.676 P(cap) 0.382
+  remove_random CEfreq 1.612 CErare 4.085  P(sub) 0.825 P(cap) 0.547
+FINDINGS:
+  (a) HELD: remove_wfreq kills the calibration (102% -- rare CE 4.691 ~
+      mean 4.676; freq CE 1.367 below mean, suppression gone).
+  (b) PARTIAL: subword-writing is PRESERVED (104% kept: P(sub) 0.829 ~
+      full 0.823, not collapsed to mean 0.676) -- separable from the
+      calibration. But capitalized-writing is NOT (only 27% kept: P(cap)
+      0.426, most of the way from full 0.545 to mean 0.382).
+  NULL clean: remove_random preserves everything (CErare, P(sub), P(cap)
+      all ~ full).
+THE UNIFICATION: capitalized words are RARE (sentence-initial, less
+frequent than subword continuations), so writing capitalized and boosting
+rare content are THE SAME operation along the frequency axis w_freq.
+Removing w_freq therefore removes both the calibration AND the
+capitalized boost -- they are ONE rank-1 mechanism, not two. This unifies
+624-628 (frequency calibration) with 629 (block 17 shifts mass function->
+content): the mass shift OFF frequent function tokens and ONTO rare
+content is the single frequency-bias direction w_freq. Subword-writing
+(subwords are frequent-ish, orthogonal to the frequency axis) is a
+genuinely separate function that survives removing w_freq.
+SO block 17 = [frequency bias w_freq: suppress frequent function tokens,
+which IS the boost of rare content like capitalized -- rank-1] (+)
+[subword-writing: separate]. Not the clean calibration+content split I
+hypothesized; the calibration and the rare-content boost are the same
+direction. This completes the block-17 characterization. Phase boundary
+for the calibrator thread. Queued mlp17_subword_isolation to finish the
+decomposition: is the separate subword-writing itself rank-1 additive, or
+conditional (654 taxonomy)?

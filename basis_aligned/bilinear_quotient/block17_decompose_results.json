@@ -1,0 +1,36 @@
+{
+ "variants": {
+  "full": {
+   "CE_freq": 1.6074,
+   "CE_rare": 4.0834,
+   "P_subword": 0.823,
+   "P_capitalized": 0.5452
+  },
+  "remove_wfreq": {
+   "CE_freq": 1.3675,
+   "CE_rare": 4.6905,
+   "P_subword": 0.8291,
+   "P_capitalized": 0.4257
+  },
+  "mean_ablate": {
+   "CE_freq": 1.4754,
+   "CE_rare": 4.676,
+   "P_subword": 0.6758,
+   "P_capitalized": 0.3823
+  },
+  "remove_random": {
+   "CE_freq": 1.6119,
+   "CE_rare": 4.0848,
+   "P_subword": 0.8251,
+   "P_capitalized": 0.5474
+  }
+ },
+ "cal_killed_frac": 1.024,
+ "subword_kept_frac": 1.041,
+ "capitalized_kept_frac": 0.266,
+ "pred_0": true,
+ "pred_a_cal_killed": true,
+ "pred_b_content_preserved": false,
+ "null_ok": true,
+ "runtime_s": 66.22802400588989
+}

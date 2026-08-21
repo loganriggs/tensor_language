@@ -19,9 +19,13 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
 
-3. **Block 17 is a net-beneficial frequency calibrator.** It suppresses tokens ∝ log-frequency
-   (corr +0.64), the only block whose removal *helps* frequent-target CE; a −0.17/+0.69 → +0.43
-   nat trade; class-level it shifts mass function→content. Not a content writer. **HIGH.** §624–629.
+3. **Block 17 is a net-beneficial frequency calibrator, isolated to a rank-1 direction.** It
+   suppresses tokens ∝ log-frequency (corr +0.64), the only block whose removal *helps* frequent-
+   target CE; −0.17/+0.69 → +0.43 nat trade. The calibration = one direction `w_freq` (removing it
+   kills it, random doesn't; §650–651), ~40% aligned with the unembedding log-freq axis (cos 0.61,
+   cos²≈§627's R² 0.41; §656). Its function→content mass shift (§629) is the SAME w_freq direction —
+   "boost rare content" = "suppress frequent function tokens" (removing w_freq also drops rare
+   capitalized-writing; §657). Subword-writing is a separate, preserved function. **HIGH.** §624–657.
 
 4. **Depth division of labor.** FRONT (0–2) decides the next-token *class* and carries most loss;
    MIDDLE (6–16) refines *which token within the class* (rare/content, esp. the open content-word
