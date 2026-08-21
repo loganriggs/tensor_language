@@ -1,0 +1,10 @@
+end-punct: 181 followed by newline, 325 not
+direct: newline-follows 0.4163  not 0.4194  (sep -0.0031)
+full:   newline-follows 0.4718  not 0.2078  (sep +0.2640)
+
+(0) enough positions: True
+(a) full model discriminates (fA>1.5x fB): True
+(b) full separation >> direct: True (full 0.2640 vs direct -0.0031)
+NULL direct sep < 0.4x full sep: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_discrimination_results.json (49s)

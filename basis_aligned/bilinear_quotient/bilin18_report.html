@@ -1571,6 +1571,30 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="bigram">Where the circuits bottom out: a bigram the network sharpens</h2>
+  <p>Follow the article and newline circuits all the way down and they end at the simplest
+  possible place — the embedding table. Skip all eighteen blocks and read the current token's
+  embedding straight through the output head, and the triggers are already there: a period
+  predicts a line break 42% of the time, "of"/"in" reach for "the," "is"/"was" reach for
+  "a"/"an." The network does not compute these associations; they are memorized in the
+  embedding, a lookup from one token to the next. That is as close to the input as tracing can
+  get.</p>
+  <p>So what are the eighteen blocks <em>for</em>, on these predictions? Not to build the
+  trigger — to <strong>discriminate</strong> it. The embedding's bigram is context-blind: it
+  fires the same after every period. Split the periods by what actually comes next and the
+  bigram cannot tell them apart — it predicts a line break equally (0.42 vs 0.42) whether a
+  line break really follows or not. The full network separates them cleanly: it lifts the
+  chance to 0.47 at the periods that truly end a line and cuts it to 0.21 at the ones in the
+  middle of a paragraph. The blocks read the surrounding context to decide which of the
+  bigram's blanket guesses are right. A few classes are different — digits, punctuation,
+  capitalized words are barely in the embedding bigram (they start at a few percent) and the
+  network builds them almost from scratch, four to eight times up. But for the function-word
+  triggers the story is uniform: the embedding proposes, the network disposes, and the last
+  layer trims the frequencies. Trigger, discrimination, calibration — three jobs, and only the
+  middle one needs depth.</p>
+</section>
+
+<section class="col">
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight

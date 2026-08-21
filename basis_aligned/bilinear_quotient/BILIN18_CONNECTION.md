@@ -19321,3 +19321,40 @@ the, choice carried by front attention, magnitude by the front MLP.
 Queued embedding_direct_triggers to trace one step deeper -- how much of
 these triggers is already in the embedding->unembedding direct path
 (a learned bigram table) vs computed by the blocks.
+
+## 639. DECISIVE: the embedding bigram is context-blind (P(newline)
+## identical whether or not a newline follows a '.'); the 18 blocks'
+## entire job on the newline decision is CONTEXT DISCRIMINATION. Closes
+## the input-tracing phase (634-639).
+
+Among end-punct positions (current token . ! ?), split by whether a
+newline ACTUALLY follows (181 do, 325 don't):
+  DIRECT (embedding bigram): newline-follows 0.4163, not 0.4194
+    (separation -0.003 ~ ZERO). The bigram fires IDENTICALLY at every
+    period, blind to whether a line break really comes.
+  FULL (all 18 blocks): newline-follows 0.4718, not 0.2078
+    (separation +0.264). The full model RAISES P(newline) at true
+    line-ends and LOWERS it at mid-paragraph periods.
+All predictions HELD: (a) full discriminates (0.47 > 1.5x 0.21);
+(b) full separation (0.264) >> direct (-0.003); NULL ok (direct sep is a
+negligible fraction of full). Means reconcile with 637 (direct end-punct
+0.418, full 0.290) exactly.
+THE NEWLINE CIRCUIT, complete end to end:
+  1. EMBEDDING BIGRAM: the '.' embedding, read by the unembedding,
+     predicts newline at ~0.42 -- a blunt, context-blind trigger that
+     fires the same at every period.
+  2. CONTEXT DISCRIMINATION (the 18 blocks' whole job here): read the
+     surrounding context to decide whether THIS period is a real
+     line-end (paragraph/list/heading -> raise to 0.47) or a
+     mid-paragraph sentence boundary (-> lower to 0.21).
+  3. FREQUENCY CALIBRATION (block 17): trim the still-over-predicted
+     newline as a frequent function token.
+This is the cleanest statement of what the network does on top of the
+embedding bigram: not compute the trigger (it is memorized) but
+DISCRIMINATE its blanket firing with context. Closes the input-tracing
+phase (634-639): triggers are embedding->unembedding bigrams (637), the
+blocks context-discriminate them (638-639) and compute from scratch the
+few classes the bigram barely encodes (digit/punct/capitalized, 638).
+Phase boundary: report refreshed. Queued direct_vs_full_ce to put a
+single number on it -- the CE of the bigram baseline vs the full model,
+overall and rare/frequent, quantifying the blocks' context contribution.
