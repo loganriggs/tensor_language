@@ -18645,3 +18645,58 @@ surface-token structure bookends the abstract middle. And the readout
 end is the CLEANEST structure in the whole model -- a low-rank
 (rank-8) set of direct token-class readouts, the natural mirror of
 the token-indexed lookup table at layer 0.
+
+## 616. REFUTED: readout circuits are ALSO diffuse -- even the
+## cleanest-clustering, lowest-rank layer has no necessary cluster.
+## Redundancy is UNIVERSAL, and clean-to-read is not causally-locus
+
+Tested my 615-motivated hypothesis that mlp17's readout circuits are
+LOCALIZABLE (necessary) unlike mlp0's diffuse feature-builders. The
+prediction (b: concentrated, fraction >= 0.3) FAILED cleanly.
+  (0) reproduced (88-unit newline readout cluster); identity 0.
+  (a) whole-mlp17 newline-margin shift +0.0162 -- real but SMALL.
+      Notably SMALLER than whole-mlp0's newline shift (+0.0505, 611):
+      mlp17 contributes ~3x LESS to the newline decision than mlp0,
+      despite having the cleanest newline READOUT clusters in the
+      model (615).
+  (b) REFUTED: mean-filling the newline readout cluster shifts the
+      margin -0.0027 -- a fraction of -0.16 of the whole layer (small
+      AND opposite sign). The readout cluster is diffuse, not
+      concentrated.
+  (c) FAILED decisively: the readout cluster's |shift| (0.0027) is
+      SMALLER than a random 88-unit set's (0.0033) -- ratio 0.81x. A
+      random slice of mlp17 does MORE to the newline margin, in the
+      right direction, than the actual newline readout cluster does.
+  NULL CHECK (marginal).
+TWO FINDINGS, both important:
+  1. REDUNDANCY IS UNIVERSAL. Even mlp17 -- the cleanest-clustering
+     layer in the model (ARI 0.778), with the lowest-rank output
+     (r=8) and the cleanest surface readouts -- has NO necessary unit
+     cluster. Its newline readout cluster is causally negligible under
+     ablation, and less than random. So "clusters are sufficient
+     handles, no unit subset is necessary" (610) holds at BOTH ends
+     of the network, for feature-building AND readout layers alike.
+     There is no layer type where unit-clustering finds a necessary
+     bottleneck.
+  2. CLEAN-TO-READ IS NOT CAUSALLY-LOCUS. mlp17 has the cleanest
+     newline clusters (615) yet contributes LESS to the newline
+     decision than mlp0 (+0.016 vs +0.051) and its clean cluster is
+     causally negligible. The readout layer's clean structure is a
+     CORRELATE of the decision, displayed legibly near the logits
+     (where each unit's output is nearly a token prediction), not the
+     locus where the decision is causally made. The cleanest structure
+     to READ is not the structure that MATTERS -- a sharp caution: the
+     legibility of a layer's clusters (615's U-shape: readout end
+     cleanest) is anti-correlated with, not indicative of, where the
+     causal work happens (608/611: front layers do more).
+This closes the localization line definitively. Across feature-
+building (mlp0/mlp1), abstract-middle (mlp9), and readout (mlp17)
+layers, the same structure holds: decisions are computed diffusely
+across units, compact only in low-rank output subspaces (612/613),
+with clean unit-clusters serving as readable-but-not-necessary
+handles -- and the readout end's exceptional cluster-legibility (615)
+reflects proximity to the logits, not causal importance. The honest
+model-wide statement: this network has no localized unit-level
+circuits anywhere; its computation lives in distributed units and
+compact directions, and where it is easiest to read is not where it
+is done.

@@ -1,0 +1,8 @@
+(0a) reproduced + article cluster n=88: HELD
+(0b) identity +0.0000000: HELD | baseline margin -0.0992
+(a) whole-mlp17 newline-margin shift +0.0162: HELD (real effect)
+(b) newline cluster shift -0.0027, fraction of whole -0.16 -> diffuse
+(c) random 88-unit shift +0.0033 (cluster/random 0.81x): FAILED
+NULL (random 0.0033 < 0.2*whole 0.0032): CHECK
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp17_readout_localization_results.json (46s)
