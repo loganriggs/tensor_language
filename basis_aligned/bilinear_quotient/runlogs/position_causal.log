@@ -1,0 +1,6 @@
+benefit 1.088
+(a) remove positional dCE 0.257 vs random 0.002  ratio 165.5
+(b) keep-only-positional CE-recovery 0.256 | pos-vs-token subspace overlap 0.616 (random 0.142)
+
+(a) positional subspace CAUSAL (>=3x random): True (ratio 165.5); NOTE if ~1 -> decodable-but-inert like prev-token
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/position_causal_results.json (83s)

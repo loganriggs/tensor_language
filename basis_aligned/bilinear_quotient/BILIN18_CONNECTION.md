@@ -23820,3 +23820,32 @@ mean-subspace method.
 OPEN: is the positional signal CAUSAL (does removing it hurt CE) or another
 decodable-but-inert channel? Queued position_causal. (null_ok flag was a threshold
 artifact: null R2 -0.07, cleanly negative; pred_a True.)
+
+## 776. POSITION IS CAUSAL in MLP L1 (completes the 774 correction). The positional
+## signal 775 found decodable (R2 0.81) is genuinely USED, not decodable-but-inert.
+## Position-conditional-mean subspace of mlp1 (top-32); necessary + sufficient +
+## orthogonality to the token-class subspace.
+Result (mlp1 benefit 1.088):
+  (a) REMOVE positional subspace: dCE 0.257 vs random 0.002 -> ratio 165x. Position
+      is CAUSAL -- removing it costs 24% of mlp1's benefit. NOT decodable-but-inert
+      (contrast prev-token, 775: decodable 0.20 but causally 0.015).
+  (b) KEEP-ONLY positional: CE-recovery 0.256 (~26% sufficient). Position accounts
+      for ~1/4 of mlp1's function.
+      ENTANGLED with token-class: positional vs token-class subspace overlap 0.616
+      (random 0.142) -- WITHIN mlp1, position and token-class share directions, NOT
+      clean separate channels (contrast the ACROSS-component near-orthogonality 772).
+READ: mlp1's non-token-class computation (773's "context residual") is LARGELY
+POSITIONAL, and position is a clean, causal, low-rank, decodable, ~26%-sufficient
+component. So 774's "distributed remainder, no low-rank carrier" was WRONG for mlp1
+(correction completed): its early-middle "contextual" work is dominated by two
+interpretable low-rank structures -- TOKEN-CLASS (lexical, ~56% 773) and POSITION
+(causal, ~26%) -- which are ENTANGLED (overlap 0.62), plus a smaller genuinely
+diffuse remainder. mlp1 is far more interpretable than the distributed-wall framing
+implied.
+REFRAME (773-776): the front's early-middle MLP is not an opaque contextual blob --
+it is TOKEN-CLASS + POSITION (both causal, low-rank, decodable), entangled within
+the component. The genuine irreducible distributed computation is what remains after
+removing BOTH -- likely small. pred_a (causal >=3x) True.
+NEXT: how much of mlp1 is token-class UNION position (keep-only-combined CE-recovery)
+-- is the interpretable (token+position) part nearly ALL of mlp1, leaving only a
+small irreducible core? Queued combined_interpretable.
