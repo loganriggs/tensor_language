@@ -1,0 +1,12 @@
+4673 repeat positions
+baseline     P(B) 0.14016  P(control) 0.00005
+front_attn   P(B) 0.09832  P(control) 0.00013
+mid_attn     P(B) 0.09658  P(control) 0.00007
+late_attn    P(B) 0.13047  P(control) 0.00005
+
+(0) enough repeats: True
+(a) induction exists (P(B) 0.1402 >= 3x base 0.00557): True
+(b) not front-localized (mid/late drop > front): True (front +0.0418, mid +0.0436, late +0.0097)
+NULL P(B) >> P(control): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_natural_results.json (47s)

@@ -1,0 +1,32 @@
+{
+ "n_repeat": 4673,
+ "base_rate_B": 0.005573,
+ "conds": {
+  "baseline": {
+   "P_B": 0.14016,
+   "P_C_control": 5e-05
+  },
+  "front_attn": {
+   "P_B": 0.09832,
+   "P_C_control": 0.00013
+  },
+  "mid_attn": {
+   "P_B": 0.09658,
+   "P_C_control": 7e-05
+  },
+  "late_attn": {
+   "P_B": 0.13047,
+   "P_C_control": 5e-05
+  }
+ },
+ "drops": {
+  "front": 0.04184,
+  "mid": 0.04358,
+  "late": 0.00969
+ },
+ "pred_0": true,
+ "pred_a_induction": true,
+ "pred_b_not_front": true,
+ "null_ok": true,
+ "runtime_s": 46.610995054244995
+}
