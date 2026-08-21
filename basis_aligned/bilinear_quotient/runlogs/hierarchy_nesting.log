@@ -1,0 +1,9 @@
+P=64: train R2 0.591
+P=256: train R2 0.690
+P=1024: train R2 0.787
+(a) fine->coarse assign cos 0.270 (random 0.073)  branching 16.0
+(b) coarse-in-children span residual 0.675 (0=perfectly nested)
+(c) activation containment lift P(parent|child)-base 0.369 (random parent -0.007)
+
+(a) HIERARCHICAL (fines nest in coarses + activation-contained): False; NULL random-parent low: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/hierarchy_nesting_results.json (84s)

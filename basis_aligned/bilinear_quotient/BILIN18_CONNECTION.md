@@ -23467,3 +23467,53 @@ NEXT: test subspace stability -- do the top-r decoder SPANS recur across seeds
 (principal angles) even though individual atoms don't? If yes, the circuit is a
 SUBSPACE/GROUP, not an atom, and the scorecard should be re-run at group level.
 Queued subspace_stability. pred_a False, null under-powered (noted).
+
+## 764. SUBSPACE STABILITY -- 763's atom-instability is PARTIALLY ROTATIONAL (span
+## more stable than basis, but span only moderately stable). Down_0 weight-action
+## SAE x4 seeds; compare atom-match vs top-r decoder subspace principal-angle overlap.
+Result:
+  atom stability (best decoder-cos match)        0.405   (reproduces 763)
+  r= 64 subspace overlap 0.655   (random 0.198)
+  r=128 subspace overlap 0.722   (random 0.286)
+  r=256 subspace overlap 0.812   (random 0.411)
+READ: ROTATIONAL AMBIGUITY is REAL but PARTIAL. The span is meaningfully more
+stable than individual atoms (0.655 vs 0.405 at r=64) and far above random (0.198)
+-> the basis WITHIN the span is more arbitrary/seed-picked than the span itself.
+But the span is only MODERATELY stable (0.655 ~= 58% of the way from random to
+identical), so there is ALSO genuine subspace drift across seeds -- not pure
+rotation of a fixed subspace. CONSEQUENCE for the stability fix: pinning a
+canonical basis in the shared subspace (rotate for interpretability, free wrt
+reconstruction) would HELP but not fully solve; ~1/3 of the instability is the
+subspace itself moving. pred_a False (strict >=0.8 bar; qualitative claim holds).
+CAVEAT: used the raw-decoder top-r SVD subspace (includes low-usage noisy atoms);
+a USAGE-WEIGHTED functional subspace may be more stable -- the important directions
+likely recur, the rare atoms are the drift.
+
+## 765. HIERARCHY NESTING -- ACTIVATION hierarchy YES, geometric nesting NO;
+## explains 761's redundancy (user's hypothesis, partially confirmed). Train Down_0
+## SAE at P=64/256/1024; test whether fine atoms nest in coarse ones.
+Result:
+  (a) DECODER assignment fine->coarse cosine 0.270 (random 0.073): above chance
+      3.7x but LOW absolute -- fine atoms are NOT clean geometric refinements of
+      coarse directions.
+  (b) SPAN residual 0.675: coarse atoms are only ~1/3 captured by their assigned
+      children's span -> NOT geometrically nested.
+  (c) ACTIVATION containment lift P(parent active | child active) - base = 0.369
+      (random-parent null -0.007): STRONG. When a fine atom fires, its coarse
+      "parent" fires 37% above base rate -- a real functional parent/child
+      co-activation.
+READ: the hierarchy is FUNCTIONAL (co-activation), NOT geometric. Fine atoms fire
+WITHIN the context of coarse atoms (containment) but occupy geometrically distinct
+directions (weak cosine). This DOES explain 761's redundancy: fine atoms are
+functionally covered by their co-firing parent/siblings, so knocking one fine atom
+alone does little (parent + siblings compensate) -> single-ablation undercounts,
+superadditive. The hierarchy lives in HOW ATOMS CO-ACTIVATE, so the right circuit
+UNIT is a CO-ACTIVATION GROUP (parent + children), not a single atom -- converging
+with 761/763/764. pred_a False (weak geometric nesting), containment null clean.
+JOINT CONCLUSION (761-765): the atom is the wrong unit. Circuits are co-activation
+GROUPS within a moderately-stable subspace; atoms within a group are redundant,
+unstable (rotational + drift), and individually mis-named. NEXT: re-run the
+scorecard at GROUP level -- cluster atoms by co-activation, test whether GROUPS are
+stable across seeds, causally coherent (joint ablation superadditive), and more
+monosemantic than atoms. If the group rescues the convergence that failed at atom
+level (763), we have the right unit. Queued group_scorecard.
