@@ -20679,3 +20679,36 @@ learned focal, selective patterns via the double-QK product, most sharply
 in the front. Opens the attention-mechanism characterization. Queued
 attention_double_qk to test HOW: is the focality DUE to the double-QK
 (is pat = s1*s2 more focal than either single QK term s1 or s2 alone)?
+
+## 682. The double-QK PRODUCT is the focality mechanism: each single QK
+## term is DIFFUSE (eff-keys fraction 0.54, near random 0.64), but their
+## product is FOCAL (0.23), more focal than BOTH terms in 100% of cases.
+## The softmax-free model peaks attention by AND-ing two diffuse
+## selections, not by exponential normalization.
+
+Effective-keys fraction (focality; low = focal) of the pattern vs its two
+QK factors, per head:
+  pat = s1*s2:  0.233  (focal)
+  s1 alone:     0.540  (diffuse)
+  s2 alone:     0.548  (diffuse)
+  product more focal than BOTH s1 and s2: 100% of head/position cases.
+FINDINGS:
+  (0)/(a) HELD decisively. Neither single QK dot-product is selective --
+      each attends to ~54% of keys, barely sharper than a random pattern
+      (0.64). But their PRODUCT is focal (0.23, 2.3x sharper than either),
+      and this holds in 100% of cases. So the double-QK design IS the
+      peaking mechanism: pat = s1*s2 is large only where BOTH QK circuits
+      are large -- an AND / intersection of two loose selections -- which
+      sharpens a diffuse pair into a focal pattern.
+THE ARCHITECTURAL EXPLANATION: this model replaces softmax's exponential
+peaking with a MULTIPLICATIVE one. Softmax attention sharpens a single QK
+score via exp() + normalization; this model sharpens by MULTIPLYING two
+independent QK scores, so a key is attended only if it passes BOTH soft
+criteria. That is why the model has two QK projections per head (c_q/c_k
+and c_q2/c_k2): the pair, multiplied, produces the selectivity that a
+single unnormalized QK cannot. A clean, distinctive account of the
+softmax-free bilinear attention's focality (681-682). Queued
+attention_qk_complementarity to ask whether the two QK circuits select
+DIFFERENT things (a genuine two-criterion AND) or the SAME thing
+(redundant sharpening): the correlation between the s1 and s2 patterns
+per head.
