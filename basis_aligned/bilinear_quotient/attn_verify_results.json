@@ -1,0 +1,59 @@
+{
+ "results": {
+  "1": {
+   "mean_dCE": 2.2863,
+   "by_class": {
+    "det": 2.5746,
+    "num": 2.666,
+    "punct": 2.0267,
+    "pron": 1.7125,
+    "prep": 2.1907,
+    "aux": 2.0178,
+    "conj": 2.3094,
+    "other": 2.3455
+   },
+   "top_class": "num",
+   "class_concentration": 1.17,
+   "by_position_bin": [
+    1.3562,
+    1.9184,
+    2.112,
+    2.3848,
+    2.5685,
+    2.6115,
+    2.6986,
+    2.6404
+   ],
+   "pos_concentration": 1.18
+  },
+  "5": {
+   "mean_dCE": 1.9743,
+   "by_class": {
+    "det": 2.347,
+    "num": 2.0911,
+    "punct": 1.5345,
+    "pron": 1.4203,
+    "prep": 1.8427,
+    "aux": 1.7606,
+    "conj": 1.9171,
+    "other": 2.062
+   },
+   "top_class": "det",
+   "class_concentration": 1.19,
+   "by_position_bin": [
+    1.7269,
+    1.8301,
+    1.9298,
+    2.005,
+    1.9869,
+    2.0417,
+    2.1298,
+    2.1445
+   ],
+   "pos_concentration": 1.09
+  }
+ },
+ "pred_a_attn1_determiner": false,
+ "pred_b_attn5_positional": false,
+ "runtime_s": 45.98233652114868
+}

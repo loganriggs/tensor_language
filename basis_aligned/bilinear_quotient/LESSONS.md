@@ -126,3 +126,10 @@ replacement tax.
   vectors that share a large mean/bias rides that shared component -> real ~=
   shuffled. ALWAYS center (subtract per-dim mean over samples) before correlating,
   and gate on a shuffle/permutation null. Cost 754 a wrong 0.378 (true 0.026).
+- FOLD names GEOMETRY, not causal FUNCTION (792): folding the QK content bilinear
+  form onto class directions gives the QK class-attention GEOMETRY, but whole-head
+  ablation shows the head contributes BROADLY (multi-function value-moving swamps any
+  class sub-circuit). Naming "head X = concept Y" needs EDGE-level (specific coupling)
+  ablation, not whole-head; and the content fold ignores rmsnorm/rotary/value-path.
+  Robust framing: which VARIABLE a head READS (input-restriction 784), not per-head
+  concept labels.

@@ -24265,3 +24265,37 @@ the attn5~0 are trustworthy; the exact attn1 sign-pattern needs orthogonal class
 NEXT: fold rmsnorm + rotary to name attn5's positional pattern (which relative
 offset?), and causally verify attn1=determiner (ablate determiner-query attention ->
 hurt article prediction). Queued attn_fold2.
+
+## 792. CAUSAL VERIFICATION -- CORRECTS 791: the folded class-attention GEOMETRY does
+## NOT equal the heads' causal function; attn1/attn5 contribute BROADLY, not
+## determiner/position-concentrated. Ablate attn1/attn5, resolve CE increase by
+## current-token grammatical class + position.
+Result:
+  attn1: mean dCE 2.29 | by-class det 2.57 / num 2.67 / punct 2.03 / pron 1.71 / prep
+    2.19 / aux 2.02 / conj 2.31 -- top class is NUM (not det), concentration only x1.17.
+    FLAT across classes. by-position 1.36 -> 2.70 (rises with position, x1.18).
+  attn5: mean dCE 1.97 | by-class det 2.35 (top) x1.19, also FLAT. by-position 1.73 ->
+    2.14 (mild, x1.09).
+  pred_a (attn1 determiner-concentrated) FALSE; pred_b (attn5 class-flat + position-
+    concentrated) FALSE (attn5 is flat on BOTH).
+CORRECTION to 791: the tensor-fold gave the QK class-attention GEOMETRY (attn1
+determiner-dominated, attn5 ~0 class-content), but whole-head causal ablation shows
+BOTH heads contribute BROADLY across token-classes (~1.2x concentration, not 1.5x) --
+NOT the determiner/position concentration the fold predicted. So "attn1 = determiner
+head" and "attn5 = positional head" are NOT supported at the whole-head causal level.
+REASON: these are LARGE MULTI-FUNCTION heads (~2 nats each); whole-head ablation is
+dominated by their broad value-moving contribution (all attention copies token
+values, helping every position), which MASKS any class-specific sub-component. The
+folded class-attention names a GEOMETRIC sub-component of the QK, not the head's
+dominant causal function.
+METHOD LESSON (LESSONS): folding the QK content bilinear form names the QK GEOMETRY,
+but that does NOT equal the head's causal per-class contribution -- (i) the content
+fold ignores rmsnorm/rotary/value-path, and (ii) whole-head ablation is too COARSE for
+a multi-function head (the broad value-moving swamps any class sub-circuit). To verify
+a folded sub-circuit causally, ablate the SPECIFIC coupling (edge), not the whole head.
+RECONCILE with 784 (attn1 = 94% class-READER): consistent -- attn1 READS class+position
+(input side) but CONTRIBUTES broadly (all query positions). "attn1 reads class" is
+robust; "attn1 IS a determiner head" is not. The robust, causally-grounded framing
+stays the VARIABLE picture (which variables a head READS, 783/784), not per-head names.
+So the bottom-up naming should be at the VARIABLE/READER level, not "head X = concept Y".
+pred_a/b False.
