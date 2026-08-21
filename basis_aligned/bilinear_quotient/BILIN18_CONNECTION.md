@@ -23416,3 +23416,27 @@ hope: at this P=512, K=32 setting the layer does not admit a small critical set;
 its loss is held up by many mutually-compensating atoms. (Open: does a SMALLER
 dictionary / smaller K force a more concentrated, less redundant code? that would be
 the knob to trade redundancy for parsimony.) pred_a/b False, pred_0/null True.
+
+## 762. CONVERGENCE / TWO KINDS OF FAITHFULNESS (settles user's "no-edge 48 looks
+## undertrained" -- I had OVERSTATED 758). Pure-CE (no anchor), 1000 steps, 48 vs
+## 128 rows, tracking BOTH CE-recovery and reconstruction R2 (fig
+## real_joint_ce_converge.png, with "better" arrows).
+Result (indep CE-rec 0.946):
+  pure-CE 48 rows : CE-rec 0.578  R2_Down0 -0.472
+  pure-CE 128 rows: CE-rec 0.778  R2_Down0 -0.543
+  anchored 128    : CE-rec 0.962  R2_Down0  0.767
+  pred_a (weight-unfaithful both sizes) True; pred_b (more data helps CE) True;
+  pred_c (anchor holds both) True.
+CORRECTION to 758: the user was RIGHT that the CE-recovery numbers were partly
+undertraining/data-limited -- MORE DATA lifts pure-CE recovery substantially
+(0.578 -> 0.778 from 48 -> 128 rows). BUT the reconstruction R2 stays DEEPLY
+NEGATIVE at both sizes (-0.47, -0.54): more data NEVER restores weight-
+faithfulness, because CE contains no reconstruction term. So pure-CE converges on
+LOSS-FAITHFUL BUT WEIGHT-UNFAITHFUL -- there are TWO DISTINCT FIDELITIES, and CE
+alone buys only one. The anchored run holds BOTH (R2 0.767, CE-rec 0.962 >= indep).
+So 758's "damage not undertraining" was too strong: the CE-recovery drop was part
+undertraining (fixable with data) and part fundamental (plateaus below indep); the
+R2 collapse is the fundamental, data-invariant part. Net for the program: if you
+want a decomposition faithful to the WEIGHT (interpretable as W's parts), you MUST
+anchor on reconstruction; CE alone gives a loss-preserving reparametrization that
+is not a weight decomposition. Stated plainly, correction propagated.
