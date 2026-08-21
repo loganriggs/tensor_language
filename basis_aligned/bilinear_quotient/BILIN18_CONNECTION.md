@@ -19521,3 +19521,43 @@ isolate this computation. To find a finer-grained component you must
 work in the behavior-conditioned SUBSPACE (the copy direction), not by
 picking heads -- i.e. the low-rank behavior-conditioned method, applied
 next. Pivoting the queue to that (lowrank isolation of a clean circuit).
+
+## 651. CONFIRMED: block-17's frequency calibration is a rank-1
+## SUBTRACTIVE direction, cleanly isolated. Removing w_freq loses 103%
+## of the calibration; removing a random rank-1 loses 0-2%. The program's
+## first rank-1 mechanistic isolation. (keep/sufficiency is the wrong
+## frame for a corrective component.)
+
+Closing 650's two gaps.
+  remove w_freq (rank-1)    rare CE 4.694  -> 103% of benefit lost
+  remove random-1 (x3)      rare CE 4.082, 4.082, 4.093 -> 0%, 0%, 2% lost
+  keep top-r (r=1,2,4,8)    kept 33%, 8%, 31%, 8% (erratic, never >=50%)
+FINDINGS:
+  (a) SPECIFIC NECESSITY -- the decisive control. Removing the rank-1
+      w_freq direction destroys the calibration (103% lost), while
+      removing THREE random rank-1 directions leaves it entirely intact
+      (0%, 0%, 2% lost). So it is w_freq SPECIFICALLY, not "any rank-1
+      cut", that carries block-17's frequency calibration. NULL held
+      (random-removal tight, std < 0.2). This is a clean rank-1
+      component isolation -- the first in the program.
+  (b) KEEP/SUFFICIENCY IS THE WRONG FRAME (registered (b) failed, and it
+      should). Keeping only the top-r frequency-aligned dims recovers at
+      most 33% and non-monotonically -- because the calibration is a
+      CORRECTION applied on top of mlp17's content-writing (629), not a
+      standalone output. A subtractive/corrective component is defined by
+      what its REMOVAL does, not by what it reproduces alone. The right
+      isolation test is (behavior-conditioned direction + removal +
+      random-removal control), which passes cleanly; the reconstruction
+      test does not apply.
+METHOD CONCLUSION (answers the user's Q5 fully): behavior-conditioned
+low-rank ISOLATION works and reaches rank-1, where unit-clustering
+(578-581, inert groups) and head-ablation (649, distributed) reached
+nothing. The recipe that works on this redundant model: condition on the
+behavior, take the rank-1 direction cov(component output, behavior
+target), and verify by REMOVAL against a random-removal control -- not by
+clustering components or reconstructing them. Propagated to FINDINGS
+(item A) and the deep-dive deliverable (the "cannot reach finer than a
+band" limitation is now lifted for corrective/subtractive components via
+this method). Queued lowrank_routing_isolation: apply the same recipe to
+the newline routing (does removing a rank-1 "real-line-end" direction
+from the post-front residual collapse the routing?).

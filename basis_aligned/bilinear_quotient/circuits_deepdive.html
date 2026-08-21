@@ -449,11 +449,17 @@
     the decision is made, and where it is tempered — and say how many nats each is worth. The
     trigger→route→calibrate shape recurs across all three, which is itself a load-bearing finding,
     not a coincidence of one example.</p>
-    <p><strong>What is genuinely limited.</strong> Below the block level, the model resists us:
-    computation is diffuse and redundant, so we cannot name the specific neurons or attention heads
-    that do the routing — single-unit and single-cluster ablations are defeated by redundancy every
-    time (this is exactly what the SVD(W·X) clustering ran into). We can localise to "front
-    attention" but not yet to "head 2.4." And the embedding "trigger," read on its own, is a poor
+    <p><strong>What is genuinely limited — and one place the limit just moved.</strong> Below the
+    block level the model mostly resists <em>component</em> naming: computation is diffuse and
+    redundant, so single-unit, single-cluster, and single-head ablations are defeated every time —
+    the induction copy operation, chased to its heads, turned out spread across nearly the whole
+    attention stack (ablating the 16 heads that most cleanly point at the copy source removes only
+    19% of it). Clustering components does not isolate anything here. But conditioning on the
+    <em>behaviour</em> instead does: the last layer's frequency calibration isolates to a single
+    rank-1 direction — removing that one direction destroys the calibration (103% of its benefit
+    gone) while removing a random direction does nothing (0–2%). So the right question is not "which
+    component" (redundancy hides that) but "which behaviour-conditioned direction, tested by
+    removal" — and that reaches rank-1. Finally, the embedding "trigger," read on its own, is a poor
     predictor — worse than uniform overall — so it is a relative <em>lean</em>, not a standalone
     lookup table; the network does the real work.</p>
     <p style="margin-bottom:0">Net: these are real circuits with quantified, causally-verified

@@ -1,0 +1,16 @@
+full freq 1.6074 rare 4.0834; mean rare 4.6760; benefit +0.5926
+remove_wfreq(r1) rare 4.6938  lost 103%
+remove_random(r1) #0 rare 4.0820  lost -0%
+remove_random(r1) #1 rare 4.0822  lost -0%
+remove_random(r1) #2 rare 4.0925  lost 2%
+keep top-1 rare 4.4826  kept 33%
+keep top-2 rare 4.6295  kept 8%
+keep top-4 rare 4.4911  kept 31%
+keep top-8 rare 4.6282  kept 8%
+
+(0) remove_wfreq collapses (>=80% lost): True
+(a) remove_random specific (<25% lost avg): True (mean 0%)
+(b) keep top-8 recovers >=50%: False (kept 8%)
+NULL random-removal tight: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/lowrank_calibrator_confirm_results.json (64s)
