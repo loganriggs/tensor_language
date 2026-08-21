@@ -1,0 +1,13 @@
+mlp0 (benefit 2.096): r80 A-SVD 8  weight-SVD 8
+   r=  4: A-SVD 0.739  weight-SVD 0.749  random -0.002
+   r=  8: A-SVD 0.813  weight-SVD 0.830  random 0.001
+   r= 32: A-SVD 0.921  weight-SVD 0.924  random 0.057
+   r=128: A-SVD 0.980  weight-SVD 0.976  random 0.192
+mlp1 (benefit 0.971): r80 A-SVD 128  weight-SVD 128
+   r=  4: A-SVD -4.382  weight-SVD -0.476  random 0.060
+   r=  8: A-SVD -2.942  weight-SVD -0.259  random 0.137
+   r= 32: A-SVD 0.191  weight-SVD 0.247  random -0.095
+   r=128: A-SVD 0.895  weight-SVD 0.840  random 0.386
+
+(a) A-SVD >= weight-SVD at 8/20 (rank,layer) points: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/decomp_baseline_compare_results.json (201s)

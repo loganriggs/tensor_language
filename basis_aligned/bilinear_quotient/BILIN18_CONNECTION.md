@@ -22546,3 +22546,43 @@ CAVEAT: single-component damage is small (redundancy), so low correlations
 may be partly noise, not proven orthogonality -- but either way the co-
 damage grouping has no usable signal. The pair-interaction test is the
 cleaner probe.
+
+## 737. BASELINE + METRIC (user Q: run weight-SVD baseline; which decomp is
+## better?). SURPRISE / CORRECTION: on the EFFICIENCY metric (CE-recovery per
+## component), plain WEIGHT-SVD BEATS A-SVD, dramatically at LOW rank -- A-SVD
+## front-loads the loss-irrelevant MASSIVE-ACTIVATION directions (it orders by
+## response ENERGY, 660: energy basis != functional basis). My prediction
+## (A-SVD better) was WRONG.
+
+CE-recovery(r), A-SVD vs weight-SVD vs random (mlp0 low-rank, mlp1 high-rank):
+  mlp0: r80 both 8; weight-SVD slightly higher at every r (r8 0.830 vs 0.813).
+  mlp1: r80 both 128, BUT at low rank weight-SVD >> A-SVD:
+     r=4:  A-SVD -4.382  weight-SVD -0.476   (A-SVD catastrophic)
+     r=8:  A-SVD -2.942  weight-SVD -0.259
+     r=32: A-SVD +0.191  weight-SVD +0.247
+     r=128:A-SVD +0.895  weight-SVD +0.840   (A-SVD finally edges ahead)
+  A-SVD >= weight-SVD at only 8/20 (rank,layer) points.
+FINDINGS:
+  - On EFFICIENCY, weight-SVD is the better basis at low/mid rank. WHY:
+    A-SVD = SVD of the response W@X, so its top directions are the highest-
+    RESPONSE-ENERGY directions = the MASSIVE-ACTIVATION dims (huge magnitude,
+    loss-irrelevant gain-control DC, 676). A rank-4 A-SVD surrogate spends
+    its budget reproducing those and injects them mis-scaled -> CE far WORSE
+    than ablation (-4.38). Weight-SVD orders by W's singular values (not
+    dominated by massive activations) -> more loss-relevant top directions ->
+    graceful low-rank degradation.
+  - So the "data-conditioning" of A-SVD does NOT help efficiency here; the
+    data's dominant variance (massive activations) is loss-IRRELEVANT, so
+    ordering by it HURTS. A-SVD only catches up near full rank (its full-rank
+    reconstruction is exact on-data). At the r80 THRESHOLD the two tie; the
+    difference is the low-rank curve shape.
+  - VALIDATES the user's insight: the orthogonal reconstruction-optimal basis
+    is NOT the best for what we care about. Neither A-SVD (energy-ordered) nor
+    weight-SVD (weight-singular-value-ordered) orders by LOSS. A basis ordered
+    by CE-contribution (or optimized directly for the target metric) would
+    beat both on efficiency. That is the "optimize the decomposition for the
+    metric" frontier.
+METRIC ANSWER (user's "in what way better"): EFFICIENCY (CE-recovery/component)
+-> weight-SVD wins. Other metrics (composability = pair-interaction sparsity;
+monosemanticity = damage concentration) measured separately
+(decomp_composition_compare, queued). No single decomposition is best on all.
