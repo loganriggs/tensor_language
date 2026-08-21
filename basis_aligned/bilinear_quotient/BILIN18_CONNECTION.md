@@ -25059,3 +25059,38 @@ So the compute→maintain→read picture gets a compressibility number: the main
 ~1.9 nats but is ~half redundant (3 of 6 layers spare at 0.27 nats total) — the model over-provisions
 class+position refresh with depth. This closes the redundancy sub-thread quantitatively. Figure
 middle_prune_curve.png sent.
+
+## §817 — All-six pipeline table complete: the redundant class+position-maintenance MIDDLE is universal; front/back detail varies more than n=3 implied (cross_model_pipeline_rest.py)
+
+Completed the §815 pipeline table to all six models (added gpt2-medium, gpt2-large, pythia-160m).
+Band = layer-thirds; collective ablation cost, per-component sum, compounding, class+position keep.
+
+| model | front (compound / cp) | middle (compound / cp) | back (compound / cp) |
+|-------|----------------------:|-----------------------:|---------------------:|
+| bilin18 | 0.6× / 0.93 | **3.9× / 0.65** | 2.4× / 0.93 |
+| gpt2-small | 1.6× / 0.83 | **2.1× / 0.62** | 5.2× / 0.87 |
+| gpt2-medium | 2.3× / 0.79 | **2.9× / 0.61** | 6.0× / 0.83 |
+| gpt2-large | 1.3× / **0.37** | **3.6× / 0.59** | 5.8× / 0.72 |
+| pythia-160m | 0.8× / 0.71 | 1.3× / 0.73 | 1.5× / 0.91 |
+| pythia-410m | 0.7× / 0.69 | **2.6× / 0.78** | 1.6× / 0.70 |
+
+CONFIRMED (the novel §813/814 finding): every model's MIDDLE is super-additive (compounding
+1.3–3.9×, collective ≫ per-component sum = redundant) AND class+position (keep 0.59–0.78). The
+redundant class+position-maintenance middle is universal across all six — bilinear-softmax-free,
+absolute, rotary; 124M–774M. gpt2-medium (the earlier constant-bias hard case) is fully in-family
+here (middle 2.9× / 0.61).
+
+Honest caveats the larger sample surfaced (the front/back detail is more architecture-specific than
+n=3 suggested):
+ - **gpt2-large's FRONT is only 0.37 class+position under this simultaneous band metric** — the one
+   number that breaks the "front is high class+position" part of the pattern. Caveat: the band metric
+   projects all front components at ONCE, which compounds (the §799 lesson); per-COMPONENT, gpt2-large
+   was 0.92 (§808). So gpt2-large's front has strong cross-component interaction structure that a
+   simultaneous class+position projection breaks — a real model difference, not a contradiction of §808,
+   but it means "front = class+position" is metric-dependent for this one model. Flagged, not smoothed over.
+ - **pythia-160m is BACK-heavy**: its back band is its largest (collective 9.78 nats, cp 0.914) and its
+   middle is only mildly super-additive (1.31×) — the least-redundant middle of the six.
+
+Net: the MIDDLE maintenance signature (redundant + class+position) is the robustly universal part; the
+front's and back's magnitude, redundancy, and (for gpt2-large) simultaneous-metric class+position share
+are architecture-specific. FINDINGS 1c updated to all-six with these caveats.

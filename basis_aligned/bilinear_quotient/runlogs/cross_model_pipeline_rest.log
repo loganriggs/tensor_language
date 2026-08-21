@@ -1,0 +1,16 @@
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 4360.79it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+gpt2-medium front (L0-7): collective 11.611 sum 5.068 (x2.29) | class+pos 0.792 rand 0.34
+gpt2-medium middle (L8-15): collective 1.003 sum 0.345 (x2.91) | class+pos 0.609 rand 0.037
+gpt2-medium back (L16-23): collective 2.775 sum 0.464 (x5.98) | class+pos 0.827 rand -1.655
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 4401.31it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+gpt2-large front (L0-11): collective 6.477 sum 5.088 (x1.27) | class+pos 0.373 rand 0.016
+gpt2-large middle (L12-23): collective 1.019 sum 0.281 (x3.63) | class+pos 0.588 rand 0.089
+gpt2-large back (L24-35): collective 1.762 sum 0.304 (x5.79) | class+pos 0.72 rand -0.016
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 3692.63it/s]
+EleutherAI/pythia-160m front (L0-3): collective 6.736 sum 8.971 (x0.75) | class+pos 0.707 rand -0.097
+EleutherAI/pythia-160m middle (L4-7): collective 2.163 sum 1.653 (x1.31) | class+pos 0.73 rand 0.041
+EleutherAI/pythia-160m back (L8-11): collective 9.783 sum 6.481 (x1.51) | class+pos 0.914 rand -0.418
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_pipeline_rest_results.json (218s)

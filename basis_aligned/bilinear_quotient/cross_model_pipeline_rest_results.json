@@ -1,0 +1,123 @@
+{
+ "gpt2-medium": {
+  "d": 1024,
+  "n_layers": 24,
+  "bands": {
+   "front": [
+    0,
+    7
+   ],
+   "middle": [
+    8,
+    15
+   ],
+   "back": [
+    16,
+    23
+   ]
+  },
+  "ce_full": 3.5819,
+  "front": {
+   "collective_benefit": 11.611,
+   "per_component_sum": 5.068,
+   "compounding": 2.29,
+   "keep_classpos": 0.792,
+   "keep_random": 0.34
+  },
+  "middle": {
+   "collective_benefit": 1.003,
+   "per_component_sum": 0.345,
+   "compounding": 2.91,
+   "keep_classpos": 0.609,
+   "keep_random": 0.037
+  },
+  "back": {
+   "collective_benefit": 2.775,
+   "per_component_sum": 0.464,
+   "compounding": 5.98,
+   "keep_classpos": 0.827,
+   "keep_random": -1.655
+  }
+ },
+ "gpt2-large": {
+  "d": 1280,
+  "n_layers": 36,
+  "bands": {
+   "front": [
+    0,
+    11
+   ],
+   "middle": [
+    12,
+    23
+   ],
+   "back": [
+    24,
+    35
+   ]
+  },
+  "ce_full": 3.4548,
+  "front": {
+   "collective_benefit": 6.477,
+   "per_component_sum": 5.088,
+   "compounding": 1.27,
+   "keep_classpos": 0.373,
+   "keep_random": 0.016
+  },
+  "middle": {
+   "collective_benefit": 1.019,
+   "per_component_sum": 0.281,
+   "compounding": 3.63,
+   "keep_classpos": 0.588,
+   "keep_random": 0.089
+  },
+  "back": {
+   "collective_benefit": 1.762,
+   "per_component_sum": 0.304,
+   "compounding": 5.79,
+   "keep_classpos": 0.72,
+   "keep_random": -0.016
+  }
+ },
+ "EleutherAI/pythia-160m": {
+  "d": 768,
+  "n_layers": 12,
+  "bands": {
+   "front": [
+    0,
+    3
+   ],
+   "middle": [
+    4,
+    7
+   ],
+   "back": [
+    8,
+    11
+   ]
+  },
+  "ce_full": 3.7771,
+  "front": {
+   "collective_benefit": 6.736,
+   "per_component_sum": 8.971,
+   "compounding": 0.75,
+   "keep_classpos": 0.707,
+   "keep_random": -0.097
+  },
+  "middle": {
+   "collective_benefit": 2.163,
+   "per_component_sum": 1.653,
+   "compounding": 1.31,
+   "keep_classpos": 0.73,
+   "keep_random": 0.041
+  },
+  "back": {
+   "collective_benefit": 9.783,
+   "per_component_sum": 6.481,
+   "compounding": 1.51,
+   "keep_classpos": 0.914,
+   "keep_random": -0.418
+  }
+ },
+ "runtime_s": 218.26740503311157
+}

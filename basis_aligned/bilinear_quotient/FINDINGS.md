@@ -68,8 +68,8 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    are broad multi-function; the fold names QK geometry not causal function, §792) — the robust unit
    is the VARIABLE a component reads/writes, not a head label. **HIGH.**
 
-1c. **Whole-stack shape = an amortized compute→maintain→read pipeline, UNIVERSAL across 3 architectures
-   (§809→815).** By loss-benefit the stack is a barbell in PER-COMPONENT ablation (front layers 0–5 =
+1c. **Whole-stack shape = an amortized compute→maintain→read pipeline, UNIVERSAL across 6 models
+   (§809→817).** By loss-benefit the stack is a barbell in PER-COMPONENT ablation (front layers 0–5 =
    81% of benefit, 93% class+position; back MLPs 15–17 read out, 93%; middle low per-component). BUT
    per-component ablation UNDERSTATES redundant regions — CORRECTION §813: ablating the whole middle
    (6–11) at once costs 1.93 nats, ≈4× the 0.49 per-component sum (super-additive = distributed/redundant,
@@ -77,11 +77,16 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    class+position on 6–11 recovers 0.65 of its collective benefit (random null −1.06, §814). So: FRONT
    computes class+position → MIDDLE redundantly maintains/refreshes it → BACK reads it out into
    predictions. This three-band structure with a SUPER-ADDITIVE class+position-maintenance middle
-   REPLICATES in GPT-2 and Pythia-410M (§815: middle compounding 2.1×/2.6×, keep 0.62/0.78; every band
-   ≫ random) — bilinear-softmax-free, absolute, and rotary all share it. Front/back redundancy profile
-   is architecture-specific (front sub-additive in bilin18/pythia, super in gpt2). Metric note: the
+   REPLICATES in ALL SIX models (§815/§817: middle compounding 1.3–3.9×, class+position keep 0.59–0.78;
+   every band ≫ random) — bilin18, GPT-2 small/medium/large, Pythia-160M/410M; bilinear-softmax-free,
+   absolute, rotary; 124M–774M. The redundant class+position-MAINTENANCE middle is the robustly universal
+   part. Front/back detail is architecture-specific and varies more than n=3 implied (§817): front
+   compounding sub-additive in bilin18/pythia, super in GPT-2; pythia-160m is back-heavy; and gpt2-large's
+   FRONT is only 0.37 class+position under the SIMULTANEOUS band metric (which compounds — per-component it
+   is 0.92, §808 — so its front has strong cross-component interaction structure). Metric note: the
    per-component nat-weighted class+position headline (0.92, item 1b) under-weights the redundant middle,
-   so true whole-model share is a bit lower (consistent with the stricter simultaneous 0.78). **HIGH.**
+   so true whole-model share is a bit lower (consistent with the stricter simultaneous 0.78). Middle is
+   ~half-compressible (§816: drop 3 of 6 middle layers for 0.27 nats; front convex/irreplaceable). **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
