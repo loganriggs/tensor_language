@@ -1,0 +1,16 @@
+lambda0 (residual rescale) by layer:
+  6.094 0.013 1.977 0.574 0.463 0.064 0.490 0.812 1.406 0.902 0.879 1.234 1.039 0.957 1.055 1.188 1.188 1.023
+lambda1 (embedding re-inject) by layer:
+  6.094 8.000 8.000 8.000 8.000 5.062 5.875 8.000 8.000 8.000 8.000 8.000 8.000 8.000 8.000 8.000 8.000 8.000
+
+prod(lambda0) from block k+1..end (attenuation of a block-k write):
+  block 0: x3.57e-04
+  block 4: x5.35e-02
+  block 8: x1.48e+00
+  block 12: x1.46e+00
+  block 16: x1.02e+00
+
+(a) systematic schedule (l0 smooth): True (l0 range 0.01-6.09, step-std 1.583)
+    early-write attenuation to output: 3.57e-04
+
+wrote results (0s)

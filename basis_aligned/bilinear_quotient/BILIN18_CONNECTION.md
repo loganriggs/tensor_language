@@ -20945,3 +20945,48 @@ the model's architecture. This closes the architecture investigation
 (676-688). FINDINGS current. Queued lambda_schedule to examine the last
 unexamined component -- the per-block residual rescaling (x = lambda0*x +
 lambda1*x0): is it a systematic learned gain/decay schedule?
+
+## 689. The residual rescaling (last unexamined component): the EMBEDDING
+## is re-injected at weight ~8 at almost every block (lambda1~8), and the
+## FRONT resets the running residual (L1 lambda0=0.013, L5=0.064 nearly
+## zero it) so a block-0 write is attenuated to 3.6e-4 by the output.
+## Adds detail to the report's known residual-rescaling correction (400).
+
+Learned per-block lambdas (x = lambda0*x + lambda1*x0, x0 = embedding):
+  lambda0 (residual rescale): 6.09, 0.013, 1.98, 0.57, 0.46, 0.064, 0.49,
+    0.81, 1.41, 0.90, 0.88, 1.23, 1.04, 0.96, 1.06, 1.19, 1.19, 1.02
+  lambda1 (embedding re-inject): 6.09, then ~8.0 at every block L1-17
+    (with L5, L6 dipping to 5.1, 5.9).
+  prod(lambda0) block-0->end = 3.6e-4; block-8->end ~1.5; block-16->end
+    ~1.0.
+FINDINGS (dedup note: the report/400 already established the residual
+rescaling and the ~2e-4 attenuation of an early writer; this ADDS the
+specific structure):
+  1. EMBEDDING KEPT DOMINANT: lambda1 ~ 8 at almost every block -- the
+     embedding x0 is re-added at weight 8 into the residual 18 times. So
+     the embedding is an always-present, strongly-weighted component of
+     the stream at every depth. This is why the embedding triggers (637)
+     are always available at the readout, and plausibly contributes to
+     the high residual magnitudes (676).
+  2. FRONT RESETS THE RESIDUAL: lambda0 is near-ZERO at L1 (0.013) and L5
+     (0.064) -- these blocks nearly wipe the running residual, effectively
+     RESETTING it while the re-injected embedding (lambda1~8) dominates.
+     L0/L2 amplify (6.09, 1.98). So the FRONT rebuilds the stream from the
+     embedding a couple of times; the BACK (L8-17, lambda0~1) accumulates
+     normally.
+  3. EARLY WRITES ARE ATTENUATED: prod(lambda0) attenuates a block-0 write
+     to 3.6e-4 by the output (the L1 reset kills it), confirming the
+     report's ~2e-4 finding -- a writer 17 blocks back barely reaches the
+     readout. Mid-late writes (block 8+) survive (~1.0-1.5).
+This examines the LAST architectural component. Combined with the unified
+account (multiplicative AND-gating 686-687, massive-activation norm
+control 676-680, the calibration knob 650-675, residual rescaling here),
+EVERY component of bilin18 is now characterized. The architecture:
+products-of-linear-pairs everywhere (no softmax/relu), an embedding kept
+dominant and re-injected each block, a front that resets and a back that
+accumulates, a few massive dims setting the norm gain, and one editable
+frequency knob on a distributed remainder. COMPREHENSIVE TERMINUS of the
+architecture + mechanism investigation. Queued embedding_recoverability
+as a functional check of finding 1: is the current-token identity
+linearly recoverable from the FINAL residual (the lambda1~8 re-injection
+should keep it decodable to the end)?
