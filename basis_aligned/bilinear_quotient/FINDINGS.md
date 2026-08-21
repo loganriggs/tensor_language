@@ -47,7 +47,14 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    computed grammatical-class collapse (identity ~132 eff-dim → class ~24, sharpened ~1.8× vs the
    embedding, nonlinear R²0.44 §780/782); position is a coarse ~2-dim early/late readout of RoPE
    (RoPE ~18 eff-dim → ~2 §786/788). Written to near-orthogonal channels (§772), read amortized by
-   later components (§783/784), generalising to GPT-2/Pythia at the subspace level (§778/781). The
+   later components (§783/784). **Cross-model universal (§800):** the per-component nat-weighted
+   class+position share is ~0.78 bilin18 / **0.77 GPT-2 / 0.69 Pythia** (vs random 0.28/0.10) — the
+   ~3/4 reduction generalises across bilinear, learned-absolute-position, and rotary models (the
+   *simultaneous* whole-model metric is bilin18-specific — needs its 30·tanh output clamp — §799).
+   The class-SHARPENING mechanism is the one model-specific piece (bilin18/Pythia yes, GPT-2 no §789/796).
+   Also generalising to GPT-2/Pythia at the subspace level (§778/781). The distributed remainder is
+   **content that makes confident predictions confident** (§798: class+position recovery rises 0.50→1.00
+   with token difficulty — the skeleton is all that's left when the model is uncertain). The
    ~22% remainder is a **uniform, diffuse, distributed** computation with no low-rank or class handle
    (§795). So the 546M model is ~4/5 a class+position machine. Per-HEAD concept-naming FAILS (heads
    are broad multi-function; the fold names QK geometry not causal function, §792) — the robust unit
