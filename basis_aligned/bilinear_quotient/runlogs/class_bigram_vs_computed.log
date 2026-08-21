@@ -1,0 +1,15 @@
+newline      direct 0.2706  full 0.4349  full/direct 1.61  (computed)
+determiner   direct 0.3639  full 0.4504  full/direct 1.24  (computed)
+preposition  direct 0.2559  full 0.5435  full/direct 2.12  (computed)
+pronoun      direct 0.2253  full 0.3497  full/direct 1.55  (computed)
+digit        direct 0.0686  full 0.5708  full/direct 8.32  (computed)
+punct        direct 0.1105  full 0.5889  full/direct 5.33  (computed)
+capitalized  direct 0.1358  full 0.5452  full/direct 4.02  (computed)
+space_word   direct 0.5731  full 0.7427  full/direct 1.30  (computed)
+subword      direct 0.7475  full 0.8230  full/direct 1.10  (computed)
+
+(a) function classes attenuated (full/direct<=1.05): False
+(b) content classes computed (full/direct>1): True
+NULL direct off-class < at-class for all: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/class_bigram_vs_computed_results.json (39s)

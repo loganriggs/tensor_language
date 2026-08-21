@@ -353,3 +353,50 @@ confounded) measure different things; where they disagree, the direct
 path is the clean attribution. Queued class_bigram_vs_computed to
 generalize: which classes are embedding-bigram-driven (network
 attenuates) vs genuinely computed by the blocks (network amplifies)?
+
+## 638. Refines 637: the blocks don't just ATTENUATE the embedding
+## bigram -- they DISCRIMINATE it with context. At trigger positions the
+## bigram over-fires and the network suppresses it (637); at true-target
+## positions the network AMPLIFIES it. Every class is amplified at its
+## own target positions; digit/punct/capitalized most.
+
+Per class, direct-path (embedding->unembedding, no blocks) vs full-model
+P(class) at CLASS-TARGET positions (where that class actually comes
+next), ratio full/direct:
+  subword 1.10, determiner 1.24, space_word 1.30, newline 1.61,
+  pronoun 1.55, preposition 2.12, capitalized 4.02, punct 5.33,
+  digit 8.32. ALL > 1: every class is AMPLIFIED at its target positions.
+RECONCILES WITH 637 (they measure different position sets):
+  - 637 measured P(newline) at END-PUNCT positions (the trigger): direct
+    0.418 > full 0.290 -- the bigram OVER-fires at all '.', and the
+    network SUPPRESSES it (most '.' are mid-paragraph, not line-ends).
+  - 638 measures P(newline) at NEWLINE-TARGET positions (newline
+    actually follows): direct 0.271 < full 0.435 -- the network
+    AMPLIFIES the correct cases.
+  Both are true: the embedding bigram is a blunt, CONTEXT-BLIND trigger
+  (fires the same at every '.'); the 18 blocks add CONTEXT to
+  DISCRIMINATE which instances actually fire -- lowering the bigram where
+  it is wrong, raising it where it is right. So 637's "the network
+  attenuates the bigram" is the false-positive half; the full statement
+  is "the network context-conditions the bigram", which is sharpening,
+  not mere tempering.
+THE COMPUTED VS BIGRAM SPECTRUM (full/direct at target positions):
+  - MOSTLY BIGRAM (network adds little): subword 1.10, determiner 1.24,
+    space_word 1.30 -- the embedding already predicts these well at their
+    target positions (direct 0.36-0.75).
+  - HEAVILY COMPUTED (weak bigram, network builds with context): digit
+    8.32, punct 5.33, capitalized 4.02 -- direct only 0.07-0.14, the
+    network raises them 4-8x using context.
+  - MODERATE: newline 1.61, pronoun 1.55, preposition 2.12.
+  (a) FAILED as registered (function classes not "attenuated" at target
+  positions -- they're amplified, because target != trigger positions);
+  (b) HELD (content computed); NULL ok (bigram is class-specific).
+THE CORRECTED INPUT-TRACE SYNTHESIS (634-638): the circuits' triggers
+live in the embedding->unembedding bigram (637), but that bigram is
+context-BLIND; the 18 blocks' job on these predictions is to
+DISCRIMINATE the bigram with context -- amplifying true firings,
+suppressing false ones -- and to compute from scratch the classes the
+bigram barely encodes (digit, punct, capitalized). Queued
+newline_discrimination to demonstrate the discrimination directly: split
+end-punct positions by whether a newline actually follows, and show the
+full model separates them while the bigram cannot.
