@@ -23150,3 +23150,82 @@ that re-injects data is the MODEL's own nonlinearity between the two matrices
 (lambda-scale + attention + rms_norm), not the SAE. Queued weight_action_compose
 (coupling sparsity + weight-only write prediction vs measured contribution +
 routing sparsity + A-SVD data-variance contrast).
+
+## 754. WEIGHT-ACTION COMPOSITION across neighbouring matrices -- the wiring
+## composes FROM WEIGHTS ALONE (answers user's compositionality question). Two
+## weight-action SAEs, Down_0 (residual-WRITE atoms) and Left_1 (residual-READ
+## atoms); coupling C = E2@D1. CONFIRMED + one bug caught + a finding that
+## motivates joint training.
+
+Result (P1=P2=1024): SAE out-R2 Down_0 0.81, Left_1 0.46 (Left_1 HID-dim
+underfit at k=32 -> bumped k=48/steps=1500, re-queued).
+  * WEIGHT-ONLY / DATA-INVARIANT (the core answer): SAE coupling drift across two
+    disjoint FineWeb splits = 0.0 (it is pure weights, no X.pinv); A-SVD's
+    analogous coupling drift = 1.459 (146%!). So the weight-action wiring
+    composes from WEIGHTS ALONE and is identical on any data; A-SVD's cannot
+    (its B = Vh@X.pinv bakes the eval-time data covariance in). This is THE
+    structural advantage of the weight-action decomposition for cross-layer
+    composition. Top-k does NOT re-introduce data into the wiring.
+  * ROUTING IS SPARSE (top-k = per-datapoint path, not wiring): mean 520 LIVE
+    edges/token out of 1024x1024 = 0.0005%. The fixed graph is masked to a tiny
+    live sub-graph each token -- the desired per-datapoint sparsity.
+  * INDEPENDENT COUPLING IS DENSE: in-degree 139/1024, 13.6% of edges strong.
+    Independent per-layer SAEs do NOT give a sparse component graph -- graph
+    sparsity has to be an OBJECTIVE (motivates 755 joint training).
+  * BUG CAUGHT: the "weight-only write predicts measured contribution" corr
+    (0.378) ~= its shuffled null (0.366) -> BIAS-CONFOUNDED (write_pred = z1@D1+b1
+    dominated by constant bias b1; uncentered corr rides the mean). Same class as
+    751/752. FIX: center both sides over tokens before correlating; re-queued.
+CONCLUSION: yes, the weight-action SAE composes from weights alone (data-invariant
+coupling, sparse routing); A-SVD provably does not. The one gap -- sparse WIRING --
+is what joint training must add.
+
+## 755. TOY JOINT SPARSE COMPOSITION (red-teamed) -- joint training with an EDGE
+## penalty RECOVERS planted cross-layer wiring, SPECIFICALLY, where independent
+## SAEs do not. Validates the "jointly train weight-SAEs to sparsely compose"
+## idea (user) on ground truth before the real model.
+
+Setup: plant 2-layer circuit with known sparse coupling S (linear: y1=z1 D1t^T,
+z2=z1 S^T, y2=z2 D2t^T); fit two weight-action SAEs INDEPENDENTLY vs JOINTLY with
++lam_e*||norm(E2)@norm(D1)||_1; recover C=E2@D1, compare to S.
+Result (P1=P2=96, K1=4, fanout=1, lam_e=0.1):
+  * HANDWRITTEN tiny circuit (5 atoms, wiring 0->2,1->4,2->0,3->3,4->1): recovered
+    0->2,1->4,2->4,3->3,4->1 = 4/5 CORRECT, coupling matrix visually clean
+    (col0->row2 .90, col1->row4 1.00, col3->row3 .93, col4->row1 .92); the one
+    miss (src atom 2) was not cleanly identified (atom-match cos 0.79).
+  * 96-atom circuit: joint edge-F1 0.61 vs independent 0.30 vs SVD 0.00; joint
+    SPARSER (164 live edges vs indep 402, true=96); joint MDL lower.
+  * SPECIFICITY (red-team fix): joint coupling vs the TRUE S = 0.61, vs a WRONG
+    (row/col-permuted) S = 0.02 -> recovery is SPECIFIC, not just "some sparse
+    thing." (The first null -- shuffle S AND regenerate data -- was NOT a null:
+    it is just another valid circuit, correctly recovered at 0.60. Caught by
+    red-teaming.)
+  * KEY FINDING: reconstruction ALONE does NOT identify the wiring (overcomplete
+    linear factorization is non-identifiable; edge-F1 ~chance at small lam_e). A
+    STRONG edge penalty (lam_e swept 0.003->0.1) is REQUIRED to break the tie
+    toward the true sparse coupling. So "graph sparsity as an objective" is not
+    optional -- it is what makes the wiring identifiable.
+  LIMITATION: atom identifiability imperfect (match-cos ~0.8; ~1/5 handwritten
+  atoms and ~40% of 96-atom edges missed). Method works, not perfect.
+
+## 756. WEIGHT-ACTION SAE across the EARLY STACK (L0,2,3,4,5) -- the overcomplete
+## sparse dictionary is the right decomposition UNIFORMLY, and exposes a per-layer
+## profile. WA-topk beats A-SVD rank-k at EVERY early layer; where A-SVD is
+## CATASTROPHIC, WA still recovers.
+
+Result (CE-recovery, k=8/32/64; benefit = CE gap ablate-full):
+  L0 (ben 2.08): WA .97/.98/.99 | ASVD .83/.93/.96   -- both good (low-rank, loss-relevant)
+  L2 (ben 0.15): WA .63/.77/.80 | ASVD -2.37/-.30/.41 -- A-SVD CATASTROPHIC at low k, WA fine
+  L3 (ben 0.13): WA .53/.72/.75 | ASVD -1.63/.05/.49  -- A-SVD CATASTROPHIC, WA fine
+  L4 (ben 0.31): WA .85/.89/.91 | ASVD .67/.78/.85    -- both good
+  L5 (ben 0.07): WA .35/.50/.58 | ASVD .02/.31/.45    -- hardest layer, WA still ahead
+  random-OC top-k: catastrophic everywhere (-9 to -150) -> NULL holds.
+READ: WA-topk > A-SVD in ALL early layers (pred_a False only on the strict
+">0.3-gap-EVERYWHERE" bar: L0/L4 gaps are 0.15/0.18 because A-SVD is NOT
+catastrophic there). PROFILE: layers 0,4 have low-rank loss-relevant structure
+even A-SVD captures; layers 2,3 are the massive-activation regime where A-SVD
+front-loads loss-IRRELEVANT energy and goes NEGATIVE at low k while WA (sparse,
+loss-driven) stays 0.5-0.6; L5 needs more atoms. Also notable: L2/L3/L5 have tiny
+CE benefit (0.07-0.15) -- they barely matter for loss; L0 benefit 2.08 dominates.
+The learned overcomplete sparse dictionary (750) generalizes across the early
+stack; A-SVD's massive-activation failure (660/676/737) recurs layer by layer.

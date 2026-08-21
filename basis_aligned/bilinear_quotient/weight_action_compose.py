@@ -49,7 +49,7 @@ from bilin18_joint_removal import m, DEV
 D = 1152; HID = 4608
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'weight_action_compose_results.json'
-NFIT = 64; P1 = 1024; P2 = 1024; K = 32; STEPS = 1000
+NFIT = 64; P1 = 1024; P2 = 1024; K = 48; STEPS = 1500   # K/STEPS up: Left_1 action (HID-dim) underfit at 32/1000
 
 
 def topk(pre, k):
@@ -150,11 +150,16 @@ def main():
     r1_full = capture_left1_input(rows[:NFIT], NFIT, kill_mlp0=False)
     r1_kill = capture_left1_input(rows[:NFIT], NFIT, kill_mlp0=True)
     delta_meas = (r1_full - r1_kill)                       # measured layer-0-mlp contribution at read point
-    a = write_pred.reshape(-1); bb = delta_meas.reshape(-1)
+    # CENTER both sides over tokens: test PER-TOKEN variation only, not the shared bias/mean
+    # (751/752-class confound: an uncentered corr rides the constant b1 -> real ~= shuffled).
+    wp = write_pred - write_pred.mean(0, keepdim=True)
+    dm = delta_meas - delta_meas.mean(0, keepdim=True)
+    a = wp.reshape(-1); bb = dm.reshape(-1)
     corr = float(torch.corrcoef(torch.stack([a, bb]))[0, 1])
     g = torch.Generator(device=DEV).manual_seed(0)
     perm = torch.randperm(z1.shape[0], generator=g, device=DEV)
-    a_sh = (z1[perm] @ D1.T + b1).reshape(-1)
+    wp_sh = (z1[perm] @ D1.T + b1); wp_sh = wp_sh - wp_sh.mean(0, keepdim=True)
+    a_sh = wp_sh.reshape(-1)
     corr_null = float(torch.corrcoef(torch.stack([a_sh, bb]))[0, 1])
     print(f'weight-only write vs measured contribution: corr {corr:.3f}  (shuffled null {corr_null:.3f})', flush=True)
 

@@ -1,0 +1,8 @@
+SAE out-R2: Down_0 0.807  Left_1 0.458
+coupling C: mean in-degree 139.2/1024  (13.59% of edges strong)
+weight-only write vs measured contribution: corr 0.378  (shuffled null 0.366)
+routing: mean LIVE edges/token 520.0  (0.0496% of 1024x1024)
+A-SVD coupling drift across splits ||dC||/||C|| 1.459  (SAE C drift = 0, weights)
+
+(0) both SAEs fit: False; (a) composes weight-only (sparse C + weight-write predicts + sparse routing): False; (b) A-SVD data-variant: True; NULL shuffled~0: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/weight_action_compose_results.json (151s)

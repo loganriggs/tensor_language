@@ -1,0 +1,37 @@
+{
+ "handwritten": {
+  "correct_of_5": 4,
+  "atom_match_cos": 0.793
+ },
+ "indep": {
+  "r2_y1": 0.956,
+  "r2_y2": 0.963,
+  "edge_f1": 0.301,
+  "live_edges": 402.0,
+  "match_cos": 0.844,
+  "mdl_bits": 13.99
+ },
+ "joint": {
+  "r2_y1": 0.874,
+  "r2_y2": 0.977,
+  "edge_f1": 0.608,
+  "live_edges": 164.0,
+  "match_cos": 0.8,
+  "mdl_bits": -57.5
+ },
+ "specificity_null_f1": 0.015,
+ "planted": {
+  "P1": 96,
+  "P2": 96,
+  "fanout": 1,
+  "K1": 4,
+  "K2": 6,
+  "lam_e": 0.1
+ },
+ "pred_0": true,
+ "pred_a": true,
+ "pred_b": true,
+ "null_ok": true,
+ "handwritten_ok": false,
+ "runtime_s": 40.17502307891846
+}
