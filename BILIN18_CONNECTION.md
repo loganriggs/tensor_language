@@ -37,3 +37,42 @@ distribution the writer layers produced. Queued block_calibration_
 profile to finish the picture: is calibration localized to block 17, or
 do the last few blocks all calibrate? (per-block corr(log-freq, delta)
 across all 18 blocks, + how much of block 17's action is pure frequency).
+
+## 627. Calibration is LOCALIZED to two blocks: block 17 (strong,
+## +0.64) and a weaker SECOND calibrator at block 5 (+0.36); all other
+## blocks write or are neutral. Block 17 is ~41% pure frequency bias.
+
+Full 18-block profile of corr(log token frequency, per-token removal-
+delta): positive = calibrator (suppresses frequent tokens), negative =
+writer (builds them).
+  CALIBRATORS (corr > 0.2): block 17 (+0.643, dominant) and block 5
+    (+0.356, weaker). Only two.
+  WRITERS (corr < -0.2): blocks 0 (-0.24), 1 (-0.28), 3 (-0.23),
+    4 (-0.28), 7 (-0.28), 8 (-0.30), 9 (-0.28). The strong writers of
+    frequent tokens cluster in the front and early-middle.
+  NEUTRAL (|corr| < 0.2): blocks 2, 6, 10-16 -- weakly negative or
+    ~zero; the late-middle blocks 10-16 barely touch the frequency
+    axis.
+  (0) block 17 corr +0.643 reproduces 625. HELD.
+  (a) LOCALIZED HELD: block 17 is the strongest positive, and only 2
+      blocks are calibrators. Calibration is a localized function, not
+      spread across the back half.
+  (b) PURITY: block 17's per-token deltas are explained by log-frequency
+      alone at R^2 0.413 -- ~41% of the readout layer's action is a pure
+      unigram-frequency bias, the other ~59% is context-dependent
+      calibration. So block 17 is substantially but NOT purely a
+      unigram-bias subtractor; most of its work is context-sensitive.
+  NULL "False" (minor, informative): early blocks 0-4 are NOT all
+      strong writers -- block 2 is frequency-neutral (-0.03). The front
+      writers are blocks 0,1,3,4; block 2 does something frequency-
+      orthogonal.
+NEW loose end: block 5 is a genuine-looking SECOND calibrator (+0.36),
+consistent with 624 where ablating block 5 slightly RAISED P(newline)/
+P(article) (it suppresses those high-frequency classes too). So the
+model has a weak mid-network calibrator at block 5 and a strong final
+one at block 17. This CLOSES the localization question for the
+calibration thread; block 5 warrants a causal confirmation. Queued
+calibrator_ce_profile: run the 626 CE trade-off (help rare targets,
+hurt frequent targets) for blocks 5, 6, 17 and a writer control -- does
+block 5 show the genuine calibrator signature, cross-validating the
+frequency-correlation metric against causal CE?

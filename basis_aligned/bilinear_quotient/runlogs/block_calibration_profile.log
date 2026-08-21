@@ -1,0 +1,25 @@
+  block  0: corr(log-freq, delta) -0.2357 writer
+  block  1: corr(log-freq, delta) -0.2774 writer
+  block  2: corr(log-freq, delta) -0.0315 
+  block  3: corr(log-freq, delta) -0.2299 writer
+  block  4: corr(log-freq, delta) -0.2778 writer
+  block  5: corr(log-freq, delta) +0.3558 CALIBRATOR
+  block  6: corr(log-freq, delta) +0.1367 
+  block  7: corr(log-freq, delta) -0.2836 writer
+  block  8: corr(log-freq, delta) -0.2961 writer
+  block  9: corr(log-freq, delta) -0.2819 writer
+  block 10: corr(log-freq, delta) -0.1890 
+  block 11: corr(log-freq, delta) -0.1162 
+  block 12: corr(log-freq, delta) -0.0474 
+  block 13: corr(log-freq, delta) -0.1224 
+  block 14: corr(log-freq, delta) -0.0065 
+  block 15: corr(log-freq, delta) -0.0415 
+  block 16: corr(log-freq, delta) -0.1084 
+  block 17: corr(log-freq, delta) +0.6428 CALIBRATOR
+
+(0) block17 corr ~0.64: True (0.6428)
+(a) block17 strongest positive & <=3 calibrators: True (argmax block 17, 2 pos, 7 neg)
+(b) block17 log-freq-only R^2 0.413 (fraction of its action explained by frequency alone)
+NULL early blocks 0-4 all writers (neg): False ([-0.2357, -0.2774, -0.0315, -0.2299, -0.2778])
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/block_calibration_profile_results.json (50s)
