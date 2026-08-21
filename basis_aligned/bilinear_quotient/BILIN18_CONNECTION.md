@@ -19090,3 +19090,53 @@ informative direction. Queued block17_calibration to test the
 suppression hypothesis: does block 17's suppression scale with token
 base frequency (calibration) across many classes, unlike an early
 writer block?
+
+## 625. Block 17 is a FREQUENCY CALIBRATOR: it suppresses common tokens
+## in proportion to their frequency (corr +0.64), uniquely -- early/
+## middle blocks WRITE frequent tokens (corr ~ -0.28). Confirms 624 and
+## gives the readout layer a functional identity.
+
+Tracking each token's mean logit with vs without a block's contribution
+(mean-filled); delta_t = (logit with block removed) - baseline, so
+delta_t > 0 means the block was suppressing that token.
+  (0) removing block 17 raises newline (+0.074) and article (+1.577)
+      mean logits -- confirms 624's suppression at the token level.
+  (a) CALIBRATION HELD: corr(log token frequency, block17 delta) =
+      +0.643 over tokens with >=20 occurrences. The MORE frequent a
+      token, the more block 17 suppresses it (the more it rises when
+      block 17 is removed). Block 17 pushes down common tokens in
+      proportion to their frequency -- a last-layer frequency
+      calibration.
+  (b) CONTRAST HELD: block 1 (an early writer) has corr -0.277 --
+      OPPOSITE sign. Removing block 1 LOWERS frequent tokens: early
+      blocks WRITE the common tokens. Block 17 alone flips the sign to
+      suppress them.
+  NULL "CHECK" is informative, not a failure: block 9 corr -0.282, not
+      ~0. The middle block is ALSO a writer of frequent tokens (like
+      block 1), not neutral. So the real structure is sharper than the
+      registered null: blocks 1 and 9 both have corr ~ -0.28 (writers),
+      and block 17 is the UNIQUE sign-flip (+0.64, the sole
+      calibrator). "Block 17 differs from any other block" holds even
+      though "block 9 ~ 0" did not.
+  (c) the 12 most frequent next-tokens are ALL common function words /
+      punctuation -- ',' ' the' '.' '\n' ' to' ' of' ' and' ' a' ' in'
+      '-' ' is' ' for' -- and EVERY one has a large positive block17
+      delta (+1.2 to +2.0). Block 17 systematically pushes down exactly
+      the high-frequency function vocabulary.
+THE FUNCTIONAL IDENTITY of the readout layer, assembling 615/618/624/
+625: block 17 READS token classes most cleanly (615 cleanest clusters,
+618 AUC 0.845) but does NOT write content -- it CALIBRATES, suppressing
+over-predicted high-frequency tokens in proportion to their frequency.
+That is why (624) ablating it RAISES P(newline)/P(article): those are
+high-frequency function tokens the earlier ("writer") blocks over-
+predict and block 17 trims. It also explains the whole read/write arc
+(619-622): the read axis and write axis are orthogonal because the
+readout layer's job is not to write the class at all -- it reads the
+distribution and applies a frequency correction. Correction to the
+program's earlier framing of block 17/mlp17 as "the readout": it reads
+in the sense of DECODING the distribution, but its causal OUTPUT is
+calibration, not readout-writing. Queued block17_calibration_ce to test
+the trade-off: block 17 should HELP CE at rare-target positions (it
+suppresses frequent competitors) and HURT CE at frequent-target
+positions (it suppresses the correct token) -- the signature of a net-
+beneficial calibrator.

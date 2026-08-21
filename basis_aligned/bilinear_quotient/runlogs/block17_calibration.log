@@ -1,0 +1,21 @@
+block1: computed
+block9: computed
+block17: computed
+(0) block17 removed: newline delta +0.0740, article delta +1.5774 (want >0): True
+(a/b/c) corr(log-freq, delta) per block: {'block1': -0.2774, 'block9': -0.2819, 'block17': 0.6428}
+(a) block17 corr>=0.3: True; (b) block1 < block17: True; NULL block9 ~0: CHECK
+  top-frequency tokens (tok, freq, block17 delta):
+    ','            freq   475  delta +1.9848
+    ' the'         freq   434  delta +1.8119
+    '.'            freq   432  delta +1.6014
+    '\n'           freq   350  delta +1.8720
+    ' to'          freq   253  delta +1.7009
+    ' of'          freq   240  delta +1.4986
+    ' and'         freq   222  delta +1.9293
+    ' a'           freq   193  delta +1.7825
+    ' in'          freq   163  delta +1.8238
+    '-'            freq   118  delta +1.5176
+    ' is'          freq   116  delta +1.2017
+    ' for'         freq    91  delta +1.6235
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/block17_calibration_results.json (39s)
