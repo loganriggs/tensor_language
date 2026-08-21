@@ -1,0 +1,15 @@
+frequency       dCE_high -0.0206 dCE_low +0.7393  trade-off True  mag 0.7599  (rand +0.005/-0.000)
+length          dCE_high +0.1229 dCE_low +0.0017  trade-off False  mag 0.1246  (rand +0.001/+0.004)
+/workspace/tensor_language/basis_aligned/bilinear_quotient/additive_knob_sweep.py:105: RuntimeWarning: Mean of empty slice
+  d_lo = float(ce[lo].mean() - base[lo].mean())
+/venv/main/lib/python3.12/site-packages/numpy/_core/_methods.py:142: RuntimeWarning: invalid value encountered in divide
+  ret = ret.dtype.type(ret / rcount)
+/workspace/tensor_language/basis_aligned/bilinear_quotient/additive_knob_sweep.py:107: RuntimeWarning: Mean of empty slice
+  rd_lo = float(rand_ce[lo].mean() - base[lo].mean())
+is_capitalized  dCE_high +0.0906 dCE_low +nan  trade-off False  mag nan  (rand +0.002/+nan)
+
+(0) frequency is a knob (trade-off): True
+(a) frequency dominates (largest magnitude): True
+NULL random negligible: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/additive_knob_sweep_results.json (78s)

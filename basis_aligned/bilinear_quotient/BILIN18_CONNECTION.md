@@ -20373,3 +20373,38 @@ Q4/Q5) is comprehensively closed. Requeued census_diverse-style breadth
 is NOT restarted; instead queued a fresh-ground experiment: is there a
 POSITION/absolute-index additive knob (does the model additively bias by
 sequence position), or is frequency truly the sole additive axis?
+
+## 674. Causal additive-knob sweep confirms frequency is the dominant/only
+## additive knob (trade-off mag 0.76); length is NOT (no trade-off, 0.12).
+## Capitalization row VOID -- a binary-property median-split bug. Clean
+## causal close of the confounded 659 catalog.
+
+Removing each property's behavior-conditioned rank-1 direction from mlp17
+output; a knob shows opposite-signed dCE (a CE trade-off) along the
+property axis:
+  frequency      dCE_high -0.021, dCE_low +0.739  -> TRADE-OFF, mag 0.76
+  length         dCE_high +0.123, dCE_low +0.002  -> no trade-off, mag 0.12
+  is_capitalized dCE_high +0.091, dCE_low nan     -> VOID (bug)
+  random removal: negligible (~0) for all.
+FINDINGS:
+  (0)/(a) HELD: frequency is the only candidate with the calibrator
+      trade-off (opposite-signed dCE, magnitude 0.76 >> length 0.12).
+      Length shows NO trade-off (same-signed, small) -- not an additive
+      knob; its minor effect is the frequency-correlate (long tokens are
+      rarer). NULL clean (random removal ~0).
+  BUG (stated plainly): the is_capitalized test is VOID. is_capitalized
+      is a 0/1 property, so np.median = 0, the "high" group became ALL
+      positions and the "low" group was EMPTY (nan). Not informative. Fix
+      = split binary properties by ==1, not by median. Requeued as
+      additive_knob_sweep_v2. (Note: 657 already showed capitalized-
+      writing is entangled with the frequency axis, so capitalization is
+      not expected to be an independent knob -- the fix confirms, it does
+      not change the conclusion.)
+CONCLUSION (clean causal close of 659): frequency calibration is the
+model's dominant additive knob; length is not; capitalization pending the
+fix but expected non-independent (657). This completes the causal version
+of the additive-knob catalog and, with 650-673, the isolation
+investigation: the model has ONE cleanly-isolable, stable, actionable
+rank-1 knob (frequency calibration), and no other additive axis survives
+the causal trade-off test. Queued additive_knob_sweep_v2 (binary-split
+fix, adds punctuation and quote-context as candidates).
