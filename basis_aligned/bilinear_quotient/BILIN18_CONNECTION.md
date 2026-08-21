@@ -23363,3 +23363,29 @@ linear per position + attention position-mixing (structured) + a minority rms
 nonlinearity. User's framing (lambda folds, rms is a per-token scalar gain,
 attention is bilinear) is essentially right; the rms scalar is the one genuinely
 nonlinear residual, and it is small in magnitude but not negligible here.
+
+## 760. EDGE CAUSALITY of the sparse wiring -- the weight-only coupling is a
+## GENUINE but INCOMPLETE causal map (+ a test bug caught and fixed).
+BUG (first run, all zeros): selected source atoms by coupling out-degree, but the
+top-out-degree atoms have USAGE 0.000 -- they NEVER fire, so knocking them out did
+nothing (high weight-coupling != high usage). Fix: select source atoms by USAGE
+(must be active to have any causal effect). Diagnostic confirms: top-16 out-degree
+atoms mean usage 0.000; mean atom usage 0.062 (~K/P).
+Result (anchored joint Down_0->Left_1, knock ACTIVE source atoms):
+  (A) GRAPH PREDICTS DOWNSTREAM EFFECT, PARTIALLY: knocking an active source atom i
+      moves the target atoms' pre-activations in the direction -C[:,i] predicts:
+      mean corr 0.217 vs wrong-source null -0.008 (REAL, above chance) -- but WEAK
+      (predicted >=0.4). Per-source 0.01..0.44 (mostly positive, one -0.28).
+  (B) COUPLING DEGREE != CE IMPORTANCE: knocking high- vs low-out-degree active
+      atoms costs the SAME CE (dCE 0.0140 vs 0.0138, ratio 1.01). Out-degree
+      counts how many targets a source touches, not whether they matter for loss.
+READ: the weight-only wiring C is a GENUINE causal skeleton (predicts downstream
+sign above a clean null) but an INCOMPLETE one -- it captures only the same-position
+linear coupling, and (per 754c) attention's cross-position mixing + the rms
+nonlinearity carry much of the actual per-token flow, so C explains only ~0.22 of
+the causal downstream pattern. And coupling STRENGTH is orthogonal to LOSS
+importance (output-side). CONSEQUENCE for the program: you can read a sparse
+wiring diagram from the weights, and it is causally real, but it is a skeleton --
+predicting causal MAGNITUDE needs the intervening pieces, and predicting LOSS
+importance needs the output side. pred_a/pred_b False (strict bars), pred_0/null
+True. Refines the compositionality story honestly.
