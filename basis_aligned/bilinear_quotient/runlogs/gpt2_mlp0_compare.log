@@ -1,0 +1,13 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4774.94it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+gpt2 (d768): eff-rank 21.8 | own-SVD keep {'r16': 0.4361, 'r64': 0.8791, 'r128': 0.9677} (rand64 0.245) | token-mean keep 0.9199
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 3697.71it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+gpt2-medium (d1024): eff-rank 26.23 | own-SVD keep {'r16': -0.7909, 'r64': -0.3092, 'r128': -0.1695} (rand64 -0.4996) | token-mean keep -0.1346
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  91%|█████████ | 397/436 [00:00<00:00, 3966.18it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 3943.51it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+gpt2-large (d1280): eff-rank 79.57 | own-SVD keep {'r16': 0.0546, 'r64': 0.6709, 'r128': 0.9804} (rand64 0.1738) | token-mean keep 0.7714
+
+gpt2-medium diagnosis: H1_high-rank-distributed (own-SVD-r64 -0.3092, token-mean -0.1346)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gpt2_mlp0_compare_results.json (90s)

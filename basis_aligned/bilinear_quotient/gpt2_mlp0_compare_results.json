@@ -1,0 +1,40 @@
+{
+ "gpt2": {
+  "d": 768,
+  "benefit": 3.9586,
+  "eff_rank": 21.8,
+  "own_svd_keep": {
+   "r16": 0.4361,
+   "r64": 0.8791,
+   "r128": 0.9677
+  },
+  "own_rand64_keep": 0.245,
+  "token_mean_keep": 0.9199
+ },
+ "gpt2-medium": {
+  "d": 1024,
+  "benefit": 4.8041,
+  "eff_rank": 26.23,
+  "own_svd_keep": {
+   "r16": -0.7909,
+   "r64": -0.3092,
+   "r128": -0.1695
+  },
+  "own_rand64_keep": -0.4996,
+  "token_mean_keep": -0.1346
+ },
+ "gpt2-large": {
+  "d": 1280,
+  "benefit": 4.8627,
+  "eff_rank": 79.57,
+  "own_svd_keep": {
+   "r16": 0.0546,
+   "r64": 0.6709,
+   "r128": 0.9804
+  },
+  "own_rand64_keep": 0.1738,
+  "token_mean_keep": 0.7714
+ },
+ "diagnosis": "H1_high-rank-distributed",
+ "runtime_s": 90.34414720535278
+}
