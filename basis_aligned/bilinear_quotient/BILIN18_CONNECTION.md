@@ -21522,3 +21522,35 @@ and validated by cluster-vs-shuffle + the K-sweep monotonicity (705). This
 is a genuine finer-grained isolation of a high-rank layer -- exactly what
 Q5 sought, now achieved for the hard case. Queued rspd_cluster_ce_mlp2 to
 confirm the same structure on the OTHER high-rank layer.
+
+## 706. mlp2 GENERALIZES the union-of-low-rank (cluster >> global), but
+## with an honest wrinkle: for this TINY-benefit layer the cluster-vs-
+## shuffle signal flips at small rank. The core finding holds for the
+## substantial layer (mlp1); mlp2 confirms qualitatively.
+
+mlp2 output-projection recovered(r), held-out CE (benefit only 0.153 nats):
+  r:        4       8      16      32      64     128
+  global  -3.85  -2.94   -1.70   -0.55   +0.32  +0.71
+  cluster -1.86  -1.02   -0.27   +0.29   +0.60  +0.77
+  shuffle -0.75  -0.55   -0.41   -0.12   +0.23  +0.53
+FINDINGS:
+  (a) HELD: CLUSTER >> global at every rank (gains 1.99/1.92/1.43 at
+      r=4/8/16); cluster reaches +0.77 -- the union-of-low-rank structure
+      GENERALIZES to mlp2.
+  WRINKLE (stated plainly): unlike mlp1, for mlp2 SHUFFLE beats CLUSTER at
+      small r (r=4: -0.75 vs -1.86; r=8: -0.55 vs -1.02), crossing over
+      only at r>=16 (cluster wins r>=16). Interpretation: mlp2 barely
+      contributes (0.153 nats vs mlp1's 0.965), so reconstruction is
+      dominated by HARM-AVOIDANCE. Cluster assignment concentrates same-
+      direction tokens and reconstructs them CONFIDENTLY in a narrow rank-4
+      subspace; if slightly off for the loss, that confident output injects
+      MORE harm than shuffle's softer, averaged projection. So for a tiny-
+      benefit layer the assignment-matters signal is muddied at low rank.
+  NULL (shuffle vs global) 'failed' again -- same mis-spec as 704 (K
+      subspaces span more than one). The right test (cluster vs shuffle) is
+      CLEAN for mlp1 (every rank) but MIXED for mlp2 (only r>=16).
+CONCLUSION: the union-of-low-rank picture is robust for the layer that
+matters (mlp1, ~1 nat, clean cluster>shuffle + monotone K-sweep, 704-705);
+mlp2 (0.15 nat) generalizes the cluster>global part but its tiny benefit
+makes the finer assignment signal noisy. Honest scope: the finding is
+strongest where the layer's contribution is large. Arc 702-706 complete.

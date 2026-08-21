@@ -1,0 +1,12 @@
+benefit 0.153  (CE_full 3.298 CE_ablate 3.450)
+r=   4: global -3.845  cluster -1.855  shuffle -0.751
+r=   8: global -2.942  cluster -1.018  shuffle -0.550
+r=  16: global -1.700  cluster -0.267  shuffle -0.407
+r=  32: global -0.548  cluster 0.286  shuffle -0.119
+r=  64: global 0.323  cluster 0.599  shuffle 0.229
+r= 128: global 0.706  cluster 0.765  shuffle 0.533
+
+(a) cluster beats global at small r (gains [1.99, 1.924, 1.433]): True
+NULL shuffle does not beat global (max gain 3.095<0.02): False
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_cluster_ce_mlp2_results.json (71s)
