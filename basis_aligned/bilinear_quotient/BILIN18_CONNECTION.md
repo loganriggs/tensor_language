@@ -21583,3 +21583,40 @@ strongest where the layer's contribution is large. Arc 702-706 complete.
     in functional/CE space (which ignores the shared loss-irrelevant part)
     but only weakly in energy space (702) -- the discriminative signal is
     small in raw variance but decisive for the loss.
+
+## 708. mlp1 CLUSTER NAMING + a tempering caveat: per-cluster functional
+## ranks are HETEROGENEOUS (16-128) but MOST clusters still need high rank
+## under a STRICT (0.02-nat) tolerance -- clustering helps (704) but does
+## NOT fully dissolve mlp1 into low-rank pieces. The token content is
+## coherent; the upstream output-readout is mostly an unreliable proxy.
+
+K=8 clusters of mlp1 output, per-cluster functional rank (truncate ONLY
+that cluster to rank r, others full; smallest r keeping the cluster's
+own-token CE within 0.02 nat of full):
+  cl0 rank 32  tokens: and - is was or 's        (conjunction/copula)
+  cl1 rank128  tokens: said out up do know come   (verb/particle)
+  cl2 rank 16  tokens: , . \n " (               (PUNCTUATION -- low rank)
+  cl3 rank 32  tokens: the a I it their you       (determiner/pronoun)
+  cl4 rank128  tokens: ia time nuclear child man  (content nouns)
+  cl5 rank128  tokens: Gamb AP L H D C            (proper-noun/caps)
+  cl6 rank128  tokens: more all just of much no   (quantifier)
+  cl7 rank128  tokens: of in to for with that     (preposition)
+  ranks [32,128,16,32,128,128,128,128] max/min 8.0 -> heterogeneous (HELD).
+HONEST CAVEAT (important, tempers 704-705): 5/8 clusters hit the rank-128
+ceiling. TWO reasons, both stated: (1) the tolerance here (within 0.02 nat
+= ~99% recovery) is FAR stricter than the r80/704-705 metric (80%
+recovery), so these ranks are NOT directly comparable to r80=128 -- at 80%
+they would be much lower; (2) even so, only punctuation (cl2, rank 16) and
+the determiner/conjunction clusters (cl0/cl3, rank 32) are genuinely low-
+rank; the content/preposition/proper-noun clusters remain high-rank even
+per-cluster. So clustering HELPS (704-705, robust 707) but mlp1 is NOT a
+clean union of tiny low-rank pieces -- it stays substantially high-rank,
+with a few genuinely-low-rank clusters (punctuation, function words) and
+several still-high-rank ones (content, prepositions). RECONCILES with 706's
+caution: the union picture is a real improvement, not a full explanation.
+UPSTREAM-PROXY LIMIT: the output-direction unembedding readouts are mostly
+uninterpretable (##, ========, garbage) because mlp1 is 16 blocks from the
+readout; only the low-rank clusters give clean readouts (cl3 writes whole/
+same/very/entire, cl7 writes the/this/your, cl0 writes the/not/a/just).
+Queued rspd_cluster_r80 (per-cluster rank at the SAME 80% tolerance as
+global, for a fair comparison).
