@@ -1,0 +1,5 @@
+CE_full 3.322
+MIDDLE prune cost vs k (cheapest first, drop order [10, 11, 8, 9, 7, 6]): [0.0, 0.0414, 0.1345, 0.2699, 0.5586, 1.0949, 1.9289]
+FRONT  prune cost vs k (drop order [2, 3, 4, 1, 5, 0]): [0.0, 0.2457, 1.1081, 2.9093, 3.7982, 6.5118, 6.6136]
+middle first-3-drops 0.270 vs last-3 1.659 | (a) concave/redundant True | (b) front costlier True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_prune_results.json (63s)

@@ -25027,3 +25027,35 @@ This confirms §814 is not bilin18-specific: transformers of three architectures
 absolute-position softmax, rotary softmax) all compute class+position at the front, redundantly
 maintain it through a super-additive middle, and read it out at the back. Closes the whole-stack
 arc with cross-model universality (§809→815).
+
+## §816 — The redundant middle is half-compressible (drop 3 of 6 layers for 0.27 nats); the front is not (middle_prune.py)
+
+Quantified §813's redundancy with a prune curve: ablate the k cheapest layers (both attn+mlp)
+of a band, cheapest-first, k=0..6, CE cost vs k. Middle (6–11) vs Front (0–5) control.
+
+| k layers dropped | MIDDLE cost (nats) | FRONT cost (nats) |
+|-----------------:|-------------------:|------------------:|
+| 1 | 0.04 | 0.25 |
+| 2 | 0.13 | 1.11 |
+| 3 | 0.27 | 2.91 |
+| 4 | 0.56 | 3.80 |
+| 5 | 1.09 | 6.51 |
+| 6 (whole band) | 1.93 | 6.61 |
+
+The MIDDLE curve is CONCAVE/redundant (prediction (a) held): the first 3 drops cost 0.27 nats,
+the last 3 cost 1.66 — a 6× acceleration. You can delete HALF the middle (the 3 deepest layers)
+for 0.27 nats, then cost accelerates as the redundancy is exhausted. The FRONT curve is
+CONVEX/costly (prediction (b) held): even one front layer costs 0.25, three cost 2.91 — ~10× the
+middle's 3-layer cost. Front layers are individually irreplaceable; middle layers are largely spare.
+
+Drop order is informative. Middle cheapest-first = [10, 11, 8, 9, 7, 6]: redundancy INCREASES with
+depth into the middle (layers 10/11 are the most spare; layer 6, nearest the front, is the most
+important middle layer — the maintenance is strongest right after the front computes the variables,
+and weakest deep in the stack). Front cheapest-first = [2, 3, 4, 1, 5, 0]: layer 0 is the single
+most irreplaceable layer (dropped last), consistent with mlp0/attn0 being the primary class+position
+computers.
+
+So the compute→maintain→read picture gets a compressibility number: the maintenance middle carries
+~1.9 nats but is ~half redundant (3 of 6 layers spare at 0.27 nats total) — the model over-provisions
+class+position refresh with depth. This closes the redundancy sub-thread quantitatively. Figure
+middle_prune_curve.png sent.
