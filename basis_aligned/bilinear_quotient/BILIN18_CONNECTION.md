@@ -22125,3 +22125,35 @@ direction COULD be read by that block), not verified CAUSAL flow. High
 overlap = potential composition, not proven usage. A causal version
 (patch a layer's write component, measure the downstream block's gate
 change) is the natural verification -- queued as the next circuit step.
+
+## 724. READ vs WRITE SUBSPACE OVERLAP (user Q: same subspace or mostly
+## orthogonal?). ANSWER: MOSTLY ORTHOGONAL -- each MLP reads one residual
+## subspace and writes a DIFFERENT one (overlap only ~2.6x random, ~93% of
+## the write subspace lies OUTSIDE the read subspace). Edges (mlp0, mlp17)
+## are somewhat more self-referential; the middle is most orthogonal.
+
+Subspace overlap(WRITE=A-SVD output dirs, READ=[Left;Right] right-sing
+dirs), 32k tokens, at r=32 (random baseline 0.0278):
+  mean overlap@32 = 0.073 (2.6x random) -> MOSTLY ORTHOGONAL.
+  by layer: mlp0 0.142 (5.1x), mlp17 0.133 (4.8x) = HIGHEST (edges write
+    back more onto what they read); mlp13 0.048, mlp14 0.042 (~1.6x) =
+    LOWEST (middle layers most orthogonal, pure transform).
+  per-component: individual top write directions have cos 0.1-0.5 with the
+    read subspace (mlp0's top comps ~0.45-0.50, the most self-aligned).
+FINDINGS:
+  - READ != WRITE at the subspace level: the MLP predominantly MOVES/
+    TRANSFORMS information -- it reads from one residual subspace and writes
+    to a largely DIFFERENT one (2.6x random overlap = ~93% orthogonal
+    complement). Not a self-amplifier.
+  - DEPTH STRUCTURE: the EDGES (mlp0 front, mlp17 back) have the most read/
+    write overlap (~5x random) -- they partly write back onto their own read
+    subspace (more self-referential / refinement). The MIDDLE layers are the
+    most orthogonal (~1.6x) -- they move info across subspaces.
+  - CONNECTS to the composition map (723): orthogonal read/write means a
+    layer's write is a FRESH residual subspace, which the NEXT layer reads
+    (the local i->i+1 forward flow). Read!=write per layer + local write->
+    read across layers = the residual bus routes info forward through
+    successive orthogonal-ish subspaces.
+This extends the read!=write theme (619-622: probe vs unembedding; 676:
+w_freq in massive dims) to the MLP READ vs WRITE geometry: decode-site and
+write-site subspaces are largely orthogonal here too.
