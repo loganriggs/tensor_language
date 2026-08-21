@@ -140,8 +140,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">17</span><a href="#folding">How small can the front get?</a></li>
     <li><span class="num">18</span><a href="#grouping">Splitting 4608 pieces into groups</a></li>
     <li><span class="num">19</span><a href="#composition">Splitting a layer into parts that wire together</a></li>
-    <li><span class="num">20</span><a href="#semantic">Where the interpretable structure lives</a> <span class="flag new">new</span></li>
-    <li><span class="num">21</span><a href="#open">What's still open</a></li>
+    <li><span class="num">20</span><a href="#semantic">Where the interpretable structure lives</a></li>
+    <li><span class="num">21</span><a href="#computer">The front is a class-and-position computer</a> <span class="flag new">new</span></li>
+    <li><span class="num">22</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -1854,6 +1855,45 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   low-rank, token-class-organised summary, and you can read it straight off the activations without
   fitting anything. The grammatical-sorting front is a property of the architecture, not of this
   particular model.</p>
+</section>
+
+<section class="col">
+  <h2 id="computer">The front is a class-and-position computer</h2>
+  <p>Push the earlier finding one step and it stops being "the layer's output is low-rank" and becomes
+  a statement about what the layer <em>computes</em>. The current token is already sitting in the
+  residual stream, raw, the whole way up — so a per-token summary of an early layer's output cannot be
+  there to record <em>which</em> token it is. What it records is the token's grammatical <em>class</em>,
+  and that is something the layer actively works out. Average the first MLP's output over every
+  appearance of each token and you get a table with the effective width of about twenty-three
+  directions for hundreds of tokens — the layer has collapsed identity into a handful of class
+  directions. That table is not a linear shadow of the embedding (a linear fit recovers under half of
+  it), and it separates grammatical classes about 1.8× more cleanly than the raw embedding does. The
+  first MLP takes token identity in and writes token <em>class</em> out — determiners together,
+  numbers together, punctuation together — a computed abstraction, not a copy.</p>
+  <p>Position is the same story in miniature. The model never hands the MLP a position; position only
+  reaches it through the rotary phases that attention applies to its queries and keys. Rotary is a
+  high-dimensional object — dozens of frequencies — but what survives into the layer's output is tiny:
+  a roughly two-dimensional, smooth "how far into the sequence" signal. It is absolute early-versus-late
+  position, not an odd/even or short-period pattern, and it preserves the coarse shape of rotary while
+  throwing away the fine frequencies. So the layer reads rotary and writes a low-resolution position
+  readout, exactly as it reads identity and writes class.</p>
+  <p>These two computed quantities — grammatical class and coarse position — are most of what the front
+  of the network is for. Force <em>every</em> component in the first six layers to keep only its class
+  and position content and nothing else, all at once, and the model still recovers 84% of what those
+  six layers were worth (a random subspace of the same size recovers 17%). So the front is, to about
+  five-sixths, a class-and-position computer: it turns raw token identity and rotary phase into two
+  clean, low-rank, causal, nameable variables, writes each into its own part of the stream, and later
+  layers read them off rather than recomputing them. The remaining sixth is genuine context-dependent
+  computation with no low-rank handle — the same distributed residue that shows up everywhere the model
+  does something conditional.</p>
+  <p>One caution earned the hard way. It is tempting to go further and name individual heads — this one
+  is "the determiner head," that one is "the position head" — and the folded weights do show, for
+  instance, that one early head's query-key geometry is dominated by determiners. But deleting that head
+  hurts prediction roughly evenly across every word class, not especially at determiners: it is a broad,
+  multi-purpose mover whose determiner-flavoured geometry is a small part of its job. The honest unit is
+  the <em>variable</em> a component reads and writes, not a one-word label for the head. Class and
+  position are real, computed, and reused; "head number four does nouns" is usually a story the geometry
+  tells and the interventions refuse.</p>
 </section>
 
 <section class="col">
