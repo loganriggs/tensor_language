@@ -21427,3 +21427,28 @@ user's idea is in CE/functional space. Queued rspd_cluster_ce: replace
 mlp1's OUTPUT per-token with its own cluster's rank-r subspace projection
 and price by REAL CE -- does a per-cluster low-rank output beat a global
 low-rank output at the same budget?
+
+## 703. block0.attn's rank-2 core NAMED (with the confound-free null
+## working): rank-2 recovers 84% of its 1.47-nat contribution; dir0 = a
+## suffix/morphology writer, dir1 = a boundary/discourse writer (fires
+## strongly on newline).
+
+Fast A-SVD, N=12k, held-out CE. benefit 1.468, rank-2 recovered 0.836
+(confirms 699 r80=2 at scale). Two directions:
+  dir 0: boost -izing/-ized/-ist/-ising/-ize (word-SUFFIX / morphology
+     writer); top-|s| tokens mixed (\n " nuclear NYSE Liber whiskey, id-
+     concentration 0.09 -- diffuse firing).
+  dir 1: boost reason/comparison/args/consolation (function/discourse);
+     top-|s| tokens \n , the " -- I (id-concentration 0.71 -- fires
+     strongly on NEWLINE) -- a boundary/discourse writer.
+NULL (redesigned, 701 fix): random direction in the COMPLEMENT of X's
+  massive dims has id-concentration 0.105; the real dir1 is 0.71 -- 7x
+  more concentrated. So the confound-free structure test WORKS (unlike
+  701's peakedness), and dir1's newline-firing is real structure.
+PATTERN across the front attention cores: block0.attn dir1 and block1.attn
+(rank-1, 701) are BOTH boundary/newline -> continuation writers. The front
+attention is substantially about detecting sentence/line boundaries and
+steering toward continuation/function words -- coherent with the newline
+circuit (635/637) and the front's class decision (634). block0.attn adds a
+second, morphology/suffix direction. Next: block2.attn (rank-8) to finish
+the front-attention map, and the CE-cluster test (queued) for mlp1.
