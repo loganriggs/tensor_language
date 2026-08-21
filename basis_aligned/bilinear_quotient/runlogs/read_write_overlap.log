@@ -1,0 +1,25 @@
+captured 32768 tokens
+mlp 0: overlap@r 1:0.051 4:0.085 8:0.118 16:0.134 32:0.142 64:0.163  | top-comp write->read cos [0.501, 0.456, 0.449, 0.504]
+mlp 1: overlap@r 1:0.007 4:0.020 8:0.052 16:0.079 32:0.109 64:0.130  | top-comp write->read cos [0.305, 0.279, 0.243, 0.354]
+mlp 2: overlap@r 1:0.018 4:0.025 8:0.022 16:0.034 32:0.051 64:0.098  | top-comp write->read cos [0.235, 0.271, 0.26, 0.353]
+mlp 3: overlap@r 1:0.004 4:0.005 8:0.012 16:0.024 32:0.051 64:0.094  | top-comp write->read cos [0.163, 0.32, 0.25, 0.272]
+mlp 4: overlap@r 1:0.000 4:0.022 8:0.025 16:0.052 32:0.082 64:0.123  | top-comp write->read cos [0.172, 0.248, 0.328, 0.391]
+mlp 5: overlap@r 1:0.014 4:0.054 8:0.060 16:0.076 32:0.088 64:0.108  | top-comp write->read cos [0.154, 0.243, 0.466, 0.375]
+mlp 6: overlap@r 1:0.011 4:0.056 8:0.049 16:0.055 32:0.068 64:0.087  | top-comp write->read cos [0.131, 0.478, 0.262, 0.299]
+mlp 7: overlap@r 1:0.031 4:0.026 8:0.042 16:0.043 32:0.056 64:0.079  | top-comp write->read cos [0.245, 0.308, 0.279, 0.248]
+mlp 8: overlap@r 1:0.007 4:0.031 8:0.049 16:0.064 32:0.072 64:0.093  | top-comp write->read cos [0.302, 0.22, 0.329, 0.276]
+mlp 9: overlap@r 1:0.003 4:0.022 8:0.053 16:0.057 32:0.065 64:0.085  | top-comp write->read cos [0.179, 0.259, 0.268, 0.372]
+mlp10: overlap@r 1:0.007 4:0.065 8:0.052 16:0.061 32:0.068 64:0.083  | top-comp write->read cos [0.371, 0.318, 0.328, 0.399]
+mlp11: overlap@r 1:0.002 4:0.017 8:0.041 16:0.045 32:0.060 64:0.081  | top-comp write->read cos [0.113, 0.203, 0.252, 0.365]
+mlp12: overlap@r 1:0.002 4:0.028 8:0.040 16:0.048 32:0.056 64:0.075  | top-comp write->read cos [0.118, 0.27, 0.309, 0.335]
+mlp13: overlap@r 1:0.005 4:0.018 8:0.042 16:0.041 32:0.048 64:0.069  | top-comp write->read cos [0.13, 0.233, 0.289, 0.204]
+mlp14: overlap@r 1:0.001 4:0.065 8:0.052 16:0.040 32:0.042 64:0.062  | top-comp write->read cos [0.132, 0.247, 0.196, 0.529]
+mlp15: overlap@r 1:0.001 4:0.028 8:0.057 16:0.059 32:0.056 64:0.071  | top-comp write->read cos [0.328, 0.191, 0.187, 0.378]
+mlp16: overlap@r 1:0.001 4:0.036 8:0.030 16:0.054 32:0.065 64:0.079  | top-comp write->read cos [0.324, 0.196, 0.325, 0.261]
+mlp17: overlap@r 1:0.006 4:0.011 8:0.035 16:0.106 32:0.133 64:0.143  | top-comp write->read cos [0.156, 0.131, 0.224, 0.139]
+
+random baseline overlap@r: {1: 0.0009, 4: 0.0035, 8: 0.0069, 16: 0.0139, 32: 0.0278, 64: 0.0556}
+overlap@32 by layer: [0.142, 0.109, 0.051, 0.051, 0.082, 0.088, 0.068, 0.056, 0.072, 0.065, 0.068, 0.06, 0.056, 0.048, 0.042, 0.056, 0.065, 0.133]
+mean overlap@32 0.073 vs random 0.028 -> mostly orthogonal (<3x random): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/read_write_overlap_results.json (83s)
