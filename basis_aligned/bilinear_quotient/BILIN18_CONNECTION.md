@@ -21890,3 +21890,23 @@ FINDINGS:
     decisive tree (85s runtime) where small data was ambiguous. Adopting
     32k+ as the default. This result would have been muddier at 3-6k.
 Queued hierarchy tree figure + next probe at 32k.
+
+## 717. BARBELL CONFIRMED at 32k-token eval (user's data-scale push). The
+## full-depth MLP r80 profile is essentially IDENTICAL to the 12k-eval
+## version (713) -- the barbell is data-robust.
+
+r80 by depth at 32k eval (vs 713's 12k eval in brackets):
+  mlp0  r80 8  [8]    ben 2.15    <- low-rank edge
+  mlp1  r80 128 [128] ben 0.96
+  mlp2  r80 256 [256] ben 0.16
+  mlp3  r80 256 [256]
+  mlp4  r80 64  [64]
+  mlp5  r80 256 [256]
+  mlp6-14 r80 512 [512] ben ~0.03  <- inert deep-middle
+  mlp15 r80 2  [4]    ben 0.15     <- low-rank edge (slightly lower)
+  mlp16 r80 1  [1]    ben 0.89     <- RANK-1
+  mlp17 r80 4  [4]    ben 0.70
+Only mlp15 shifted (4->2); everything else identical. The barbell (low-rank
+high-benefit EDGES + high-rank early-middle + inert deep-middle) is
+confirmed at 32k tokens. Data-scale does not change the headline; the
+earlier smaller-eval numbers were already correct here.
