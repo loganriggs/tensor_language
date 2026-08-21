@@ -1234,6 +1234,21 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   least six distinct nameable groups, probably more, and the survey so far has sampled a
   slice, not the whole. That's a limit on coverage, not on the method; the fix is simply to
   keep going down the list.</p>
+  <p>Running the same grouping at different <em>depths</em> tells a second, cleaner story about
+  where in the network readable structure lives. It is not spread evenly, and it is not simply
+  "front-loaded" — it is <strong>U-shaped</strong>. The first couple of layers cluster cleanly
+  into the surface groups already described. A middle layer clusters far more weakly and barely
+  reads as anything nameable — the middle of this network does abstract, tangled work that
+  doesn't decompose into legible token-level pieces. But the <em>final</em> layer clusters more
+  cleanly than any layer in the model, including the first — and into exactly what you'd expect
+  right before the output: direct next-token readouts (two separate groups that fire when a line
+  break is coming, one that fires before capitalized names). It even writes into a startlingly
+  small space — about eight directions carry almost all of its output, versus hundreds in the
+  middle. So the division of labor by depth is clean: the front <em>builds</em> features out of
+  the raw tokens, the middle does the hard abstract work that resists this kind of reading, and
+  the end <em>reads out</em> concrete next-token predictions. The two ends are the legible
+  bookends of an illegible middle — the readout layer a near-mirror of the token-lookup table the
+  very first layer turned out to be.</p>
   <p>All three groups were then tested causally, not just read off examples — with a group's
   pieces replaced by their average value everywhere else in the layer left exact, does the
   model specifically lose the behaviour the examples suggested? This took three attempts to
