@@ -24835,3 +24835,41 @@ already characterized (FINDINGS 5/10 — no low-rank or class handle, concentrat
 and mlp1's 26% remainder is the highest-ROI single target if that residue is ever revisited.
 Figure early_understood_corrected.png (per-component benefit split into understood vs
 remainder) sent to user. This closes the corrected class+position program.
+
+## §810 — mlp1's 26% remainder is mostly diffuse (eff-rank 462), but contains real, modest previous-token AND class×position-interaction components (~2× a matched random null) (mlp1_remainder.py)
+
+Decomposed the one early bilin18 component that matters and isn't fully class+position:
+mlp1 (benefit 1.073, class+position keep 0.737). Tested candidates for the 26% remainder,
+each a 64-dim subspace added to class+position, mean-preserving, against a matched-rank
+random null.
+
+| added subspace | keep | gain over class+pos | net over random null |
+|----------------|-----:|--------------------:|---------------------:|
+| — (class+position baseline) | 0.737 | — | — |
+| + random 64-dim (NULL) | 0.799 | +0.062 | — |
+| + previous-token class | 0.874 | +0.137 | **+0.075** |
+| + class×position interaction (token×posbin) | 0.888 | +0.151 | **+0.089** |
+
+Two honest readings, both true:
+
+1. **The remainder is mostly diffuse.** Residual-after-(class+position) effective rank is
+   **462** — high-dimensional, no clean low-rank handle. Even the best single candidate
+   leaves keep at ~0.89 (11% still unexplained). So mlp1's remainder is NOT a single named
+   third variable; the whole-model "diffuse remainder" verdict holds at the component level.
+
+2. **But part of it IS nameable.** The random null already gains +0.062 just from added
+   capacity (mean-preserving keep with 64 more dims sits closer to the full output), so the
+   fair test is gain-over-random. Both candidates clear it by ~2×: a **previous-token
+   (bigram/context)** signal (net +0.075) and a **class×position interaction** (net +0.089,
+   slightly stronger). These are real, causal, and specific (matched-rank random doesn't
+   reproduce them), consistent with mlp1 reading attn0/attn1's copy-source and mixing it
+   with a position-dependent use of the current class. The auto-verdict labelled it
+   "prev-token variable", but joint interaction is marginally stronger and neither
+   dominates — the accurate statement is BOTH contribute modestly.
+
+Net refinement of the remainder picture: the ~7–26% early-layer remainder is not wholly
+structureless — a modest, identifiable slice is previous-token + class×position interaction
+— but it is high-rank and no single low-rank variable closes it. Not a clean third variable;
+a diffuse residue with faint nameable structure. Queued mlp_remainder_sweep.py to test
+whether this prev-token + interaction slice is a general early-MLP recipe (mlp1/2/3) or
+mlp1-specific, and whether combining both closes more of mlp1's gap.
