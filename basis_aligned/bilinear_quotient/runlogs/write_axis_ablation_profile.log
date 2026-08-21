@@ -1,0 +1,29 @@
+baseline P at class positions: {'newline': 0.43493, 'article': 0.38895}
+  block  0: newline drop +0.08200  article drop +0.11736
+  block  1: newline drop +0.22565  article drop +0.16178
+  block  2: newline drop -0.02523  article drop +0.14204
+  block  3: newline drop +0.07588  article drop +0.05947
+  block  4: newline drop +0.04330  article drop +0.05299
+  block  5: newline drop -0.05649  article drop -0.01976
+  block  6: newline drop +0.02964  article drop +0.00001
+  block  7: newline drop +0.06228  article drop +0.03358
+  block  8: newline drop +0.11357  article drop +0.07245
+  block  9: newline drop +0.01725  article drop +0.01900
+  block 10: newline drop +0.02668  article drop +0.01213
+  block 11: newline drop +0.05640  article drop +0.04355
+  block 12: newline drop +0.02867  article drop +0.01091
+  block 13: newline drop -0.01024  article drop +0.00391
+  block 14: newline drop +0.02536  article drop +0.00637
+  block 15: newline drop +0.02324  article drop +0.01709
+  block 16: newline drop +0.04457  article drop +0.04341
+  block 17: newline drop -0.21455  article drop -0.14999
+
+newline: top-3 blocks by |drop| [(1, 0.22565), (17, -0.21455), (8, 0.11357)]; block0 +0.08200 vs block17 -0.21455 -> block0>block17 False
+  NULL agg|drop| class 1.16100 > other 0.15685: ok
+
+article: top-3 blocks by |drop| [(1, 0.16178), (17, -0.14999), (2, 0.14204)]; block0 +0.11736 vs block17 -0.14999 -> block0>block17 False
+  NULL agg|drop| class 0.96580 > other 0.08756: ok
+
+(0) nonzero True; (a) article block0>block17 False; (b) newline block0>block17 False
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/write_axis_ablation_profile_results.json (46s)

@@ -1497,6 +1497,42 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="readwrite">Reading a feature and steering it are different directions</h2>
+  <p>The last MLP layer carries a clean signal for what comes next. Fit the direction in its
+  output that best separates "the next token is a newline" from everything else, and that
+  direction flags newline positions correctly 84% of the time on held-out text — a real
+  decoder. The obvious next move is to use it as a lever: add it to the model's final internal
+  state and the model should predict <em>more</em> newlines. It does the opposite. Pushing
+  along the newline decoder drives the newline probability steadily <strong>down</strong>, from
+  2.5% to 1.4% as the push grows; pushing the other way raises it. The article decoder behaves
+  identically — pushing it drops the article probability from 8% to 3%. A direction validated
+  as a detector fails, and reverses, as a control. <span class="tag off">corrected</span> The
+  supervised readout directions are decoders, not intervention handles.</p>
+  <p>The reason is not that the decoder points the wrong way — it points nowhere near the lever.
+  The direction that actually controls the newline prediction is the newline row of the output
+  embedding, the vector the model scores the final state against. The angle between the decoder
+  and that control direction is essentially ninety degrees: their cosine is 0.00, for both
+  newline and article. They are unrelated. Push the control direction instead and the feature
+  is completely under your thumb — adding the newline output-embedding row takes newline
+  probability from 2.5% to <strong>93%</strong>, and the article row takes article probability
+  from 6% to <strong>98%</strong>; subtract either and the probability goes to zero. The
+  decoder cannot steer because it is not on the steering axis at all; its effect on the
+  prediction is no bigger than a random direction's. So every feature has two directions: one
+  you <em>read</em> it from, fit on the layer's activity, and one you <em>write</em> it with,
+  the output-embedding row — and here they are orthogonal. This is the same fact as an earlier
+  puzzle in this program, that the cleanest place to read a token-class signal (the last layer)
+  is not where the model decides it (earlier layers): reading and deciding use different
+  directions. The split is sharper than location alone. Delete the readout layer's whole
+  contribution and the newline probability doesn't fall, it <strong>rises</strong> — from 43%
+  to 65% at the positions where newlines belong, and article from 39% to 54%. The layer where
+  these classes are easiest to read is quietly <em>suppressing</em> them, a last-layer
+  calibration that trims the model's most over-predicted function words. The actual writing
+  happens early: removing the second block costs the most, and the first three blocks together
+  do the bulk of it. To detect a feature, fit a probe; to change it, push the output-embedding
+  row; and don't expect the layer that reads it best to be the one that writes it.</p>
+</section>
+
+<section class="col">
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight

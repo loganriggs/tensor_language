@@ -19038,3 +19038,55 @@ newline's writer is NOT resolved by this method and needs the causal
 profile. Queued write_axis_ablation_profile (mean-ablate each block's
 contribution, measure P(class) drop across 18 blocks x 2 classes -- the
 causal writer profile, extending 616 to all depths).
+
+## 624. CAUSAL writer profile resolves 623: both classes are WRITTEN
+## EARLY (block 1 largest, blocks 0-2 dominant), and block 17 -- where
+## the class is most cleanly READ -- causally SUPPRESSES it. Reading
+## location != writing location != even writing SIGN.
+
+Per-block causal profile: mean-ablate each block's contribution, measure
+the drop in P(class) at class-target positions (baseline P: newline
+0.435, article 0.389). Positive drop = block writes the class (removal
+hurts); negative = block suppresses it (removal helps).
+  NEWLINE: top-3 by |effect| block 1 (+0.226 writer), block 17 (-0.215
+    SUPPRESSOR), block 8 (+0.114). block 0 +0.082. Early blocks 0-4 and
+    block 8 are net writers; block 17 net suppresses.
+  ARTICLE: block 1 (+0.162 writer), block 17 (-0.150 SUPPRESSOR),
+    block 2 (+0.142), block 0 (+0.117). Early blocks 0-2 dominant
+    writers.
+  NULL ok BOTH: aggregate |drop| far larger at class positions than
+    elsewhere (newline 1.16 vs 0.16; article 0.97 vs 0.09) -- the
+    profile is class-position-specific and trustworthy, unlike 623's
+    linear newline profile which FAILED its null.
+THREE findings:
+1. WRITTEN EARLY, block 1 largest. For BOTH classes the single biggest
+   writer is block 1 (not block 0), with blocks 0-2 dominating. So the
+   "early writer" picture is broadly right (614, 616) but the peak is
+   block 1, and article writing is spread across blocks 0-1-2 rather
+   than block 0 alone -- refining 614's "mlp0" to "early blocks 0-2,
+   block 1 peak".
+2. BLOCK 17 IS A SUPPRESSOR, not a writer. Ablating the readout layer
+   RAISES P(newline) 0.435->0.65 and P(article) 0.389->0.54. The layer
+   where these token classes are most cleanly READABLE (615/618, the
+   cleanest clusters, AUC 0.845) causally SUPPRESSES them -- most likely
+   last-layer calibration pulling down high-frequency function tokens.
+   Reading location is not just different from writing location (620/
+   621); at block 17 the causal sign is OPPOSITE (it reads the class and
+   writes its suppression).
+3. RESOLVES 623 cleanly and vindicates its method rule. 623's linear
+   profile said block 17 had the largest w_newline increment (+3200) and
+   FAILED its position-specificity null. Now we see why: block 17 does
+   move the residual hard along w_newline, but that movement SUPPRESSES
+   newline (causal drop -0.215) -- the linear projection had the
+   interpretation, even the sign, wrong. The failed null correctly
+   flagged it as untrustworthy; the causal profile (null passes) gives
+   the right answer. Confirms: trust the linear write-projection only
+   when it passes the specificity null; otherwise use causal ablation.
+Registered predictions (a) article block0>block17 and (b) newline
+block0>block17 both came back False -- not because block 17 writes more,
+but because block 17 SUPPRESSES (large negative) and the top positive
+writer is block 1, not block 0. Both predictions were wrong in the
+informative direction. Queued block17_calibration to test the
+suppression hypothesis: does block 17's suppression scale with token
+base frequency (calibration) across many classes, unlike an early
+writer block?
