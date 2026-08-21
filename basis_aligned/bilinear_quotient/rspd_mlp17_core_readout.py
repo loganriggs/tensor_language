@@ -62,7 +62,7 @@ def capture_gate_and_wfreq(fresh):
     h1.remove(); h2.remove()
     Xg = torch.cat(cap, 0); Oc = torch.cat(O, 0); lfc = torch.cat(lf, 0)
     wf = ((Oc - Oc.mean(0)) * (lfc - lfc.mean())[:, None]).mean(0)
-    wf = wf / wf.norm()
+    wf = (wf / wf.norm()).float()
     return Xg, wf
 
 

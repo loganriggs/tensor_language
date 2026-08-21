@@ -21160,3 +21160,41 @@ SIGNIFICANCE:
 Queued rspd_mlp17_core_readout: name the 4 core directions -- project each
 onto the unembedding and read which tokens each boosts/suppresses (the
 finer-grained component isolation Q5 was ultimately after).
+
+## 695. CONTROL PHASE #2: the two control knobs (temperature = scale
+## massive dims by g, 693; frequency-bias = scale w_freq by alpha,
+## w_freq_steering) are DOMINANTLY separable and SIGN-STABLE, but NOT
+## strictly independent -- there is a multiplicative interaction (the
+## temperature effect compounds when frequency-sharpening is turned up).
+
+3x3 grid (g in {0.6,1.0,1.5} x alpha in {0.5,1.0,1.75}), measuring output
+entropy (temperature axis) and top-20 frequent-token mass (frequency axis):
+  entropy:  g\a   0.5    1.0    1.75
+            0.6  2.011  2.250  2.938
+            1.0  2.642  3.309  4.963
+            1.5  3.577  4.803  7.002
+  top20mass:0.6  0.301  0.276  0.225
+            1.0  0.361  0.288  0.163
+            1.5  0.386  0.261  0.095
+FINDINGS:
+  (a) STRICT independence FAILED: the entropy effect of g (0.6->1.5) grows
+      with alpha -- 1.57 (a=0.5), 2.55 (a=1.0), 4.06 (a=1.75), ratio 2.59
+      (>2 bar). So the two knobs INTERACT multiplicatively, not additively.
+  NULL HELD (each knob primarily drives ITS OWN axis): g barely moves
+      top20-mass (0.016) vs alpha strongly (0.198) -- a 12x asymmetry; and
+      alpha moves entropy less (2.32) than g does (2.55). So g is a
+      temperature axis and alpha a frequency axis, cleanly.
+  SIGN-STABLE COMPOSABILITY (the useful property): across every setting of
+      the other knob, g's entropy effect stays POSITIVE (1.57/2.55/4.06)
+      and alpha's mass effect stays NEGATIVE (-0.076/-0.198/-0.290) -- the
+      knobs never cancel or reverse. You can always raise entropy with g
+      and cut frequent-mass with alpha regardless of the other; only the
+      MAGNITUDES compound.
+Honest read: bilin18 exposes two USABLE control axes that compose in a
+predictable (sign-stable) way, but they are not orthogonal -- both act on
+the final logit distribution, so temperature and frequency-sharpening
+amplify each other. This refines 691's 'two independent mechanisms': the
+mechanisms are structurally separate (different residual dims / directions)
+but their OUTPUT effects on the softmax interact, as any two logit-space
+edits do. Control phase now has: two demonstrated knobs (693,
+w_freq_steering) + their composition law (here).

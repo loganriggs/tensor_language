@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_mlp17_core_readout.py", line 140, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_mlp17_core_readout.py", line 107, in main
+    cw = float(torch.dot(core[:, j], wf))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: dot : expected both vectors to have same dtype, but found Float and Double
