@@ -1,0 +1,43 @@
+{
+ "cos_d_WUnl1": -0.005729664117097855,
+ "cos_d_WUnl2": 0.010389290750026703,
+ "cos_d_WUnl_mean": -0.0002603568136692047,
+ "curve": {
+  "-2.0": {
+   "P_newline": 0.03327,
+   "nl_logit": 0.0094,
+   "mean_logit": -1.8649
+  },
+  "-1.0": {
+   "P_newline": 0.03012,
+   "nl_logit": 0.0076,
+   "mean_logit": -2.0693
+  },
+  "0.0": {
+   "P_newline": 0.02499,
+   "nl_logit": 0.0392,
+   "mean_logit": -2.191
+  },
+  "1.0": {
+   "P_newline": 0.01918,
+   "nl_logit": 0.0885,
+   "mean_logit": -2.2077
+  },
+  "2.0": {
+   "P_newline": 0.01423,
+   "nl_logit": 0.1293,
+   "mean_logit": -2.1291
+  }
+ },
+ "nl_logit_slope": 0.11989999999999999,
+ "P_slope": -0.01904,
+ "mechanism": "M2 softmax competition (nl logit rises, P falls)",
+ "pred_0": true,
+ "random_nl_slopes": [
+  0.6888,
+  0.0549,
+  1.2276
+ ],
+ "null_ok": false,
+ "runtime_s": 48.0306601524353
+}

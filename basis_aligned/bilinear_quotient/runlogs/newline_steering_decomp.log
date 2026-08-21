@@ -1,0 +1,11 @@
+(b) cos(d, W_U[newline]): "\n" -0.006  "\n\n" +0.010  mean -0.000
+  alpha -2.0: P(nl) 0.03327  nl_logit +0.0094  mean_logit -1.8649
+  alpha -1.0: P(nl) 0.03012  nl_logit +0.0076  mean_logit -2.0693
+  alpha +0.0: P(nl) 0.02499  nl_logit +0.0392  mean_logit -2.1910
+  alpha +1.0: P(nl) 0.01918  nl_logit +0.0885  mean_logit -2.2077
+  alpha +2.0: P(nl) 0.01423  nl_logit +0.1293  mean_logit -2.1291
+
+(a) MECHANISM: M2 softmax competition (nl logit rises, P falls) (nl_logit +0.009->+0.129, P 0.0333->0.0142)
+NULL: d newline-logit slope +0.1199 vs random [0.6888, 0.0549, 1.2276]: CHECK
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_steering_decomp_results.json (48s)
