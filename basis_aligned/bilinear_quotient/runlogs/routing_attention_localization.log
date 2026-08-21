@@ -1,0 +1,10 @@
+baseline     nl_route +0.2479  cap_route +0.2115
+front_attn   nl_route +0.0470  cap_route +0.0444
+late_attn    nl_route +0.1966  cap_route +0.1802
+front_mlp    nl_route +0.0826  cap_route +0.0174
+
+(0) baseline routing positive: True
+(a) front-attn ablation reduces routing (>40%): True (reduction 0.3680 of 0.4594)
+(b) late-attn reduction << front-attn: True (late 0.0826 vs front 0.3680)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/routing_attention_localization_results.json (48s)

@@ -524,3 +524,42 @@ Queued routing_attention_localization to trace WHERE the routing is
 computed: does front-attention ablation collapse the newline-vs-
 capitalized routing (context enters at the front, 634/635) while late
 attention does not?
+
+## 644. The sentence-boundary routing is computed by FRONT ATTENTION:
+## ablating front [0-2] attention collapses the routing 80% (0.459 ->
+## 0.091), ablating late [10-12] attention leaves 82% intact. Closes the
+## input-tracing phase (634-644) with a mechanistic locus.
+
+Localizing the newline-vs-capitalized routing (643). Routing totals
+(nl_route + cap_route):
+  baseline    0.459 (nl +0.248, cap +0.212)
+  front_attn  0.091 (nl +0.047, cap +0.044) -- 80% COLLAPSE
+  late_attn   0.377 (nl +0.197, cap +0.180) -- 82% RETAINED
+  front_mlp   0.100 (nl +0.083, cap +0.017) -- also collapses (compounding
+              artifact, not a clean locus)
+FINDINGS: (a) HELD -- ablating front attention removes 0.368 of the
+0.459 routing (80%); the sentence-boundary routing lives in the first
+three blocks' attention. (b) HELD -- ablating late-middle attention
+removes only 0.083 (18%); routing is NOT a late-attention phenomenon.
+The clean contrast (front-attn vs late-attn, both targeted context-path
+ablations) localizes the routing to FRONT attention, matching 634/635
+(the context that sets class identity, and here routes among the
+outcomes a trigger allows, is read in by the first three blocks).
+THE COMPLETE SENTENCE-BOUNDARY CIRCUIT, end to end:
+  1. TRIGGER: the '.' embedding, read by the unembedding, fires a blunt
+     context-blind distribution (~42% newline, ~10% capitalized) at
+     every period (637/643).
+  2. ROUTE (front attention, blocks 0-2): reads the surrounding context
+     and routes the probability -- to newline where a paragraph really
+     breaks, to a capitalized word where a new sentence starts, to
+     continuation otherwise (643/644). This is 80% of the routing.
+  3. CALIBRATE (block 17): trim the over-predicted frequent tokens
+     (626-629).
+This closes the input-tracing phase (634-644): the model's structural
+predictions are a blunt embedding trigger, routed by front attention,
+calibrated by the last layer -- trigger -> route -> calibrate, each stage
+causally established with controls and nulls. Phase boundary; report
+carries the full account. Next thread: a fresh circuit -- induction/
+copying (does the model copy a token's earlier continuation, and where
+is that computed -- likely NOT front attention, a contrast to routing?).
+Queued induction_natural.
