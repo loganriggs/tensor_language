@@ -23583,3 +23583,36 @@ subspace (token-conditional means) needs NO ground truth, is causally verifiable
 NEXT: NAME the top semantic directions (which token classes) to confirm they are
 human-interpretable, not just statistically token-driven; test generality across
 layers. Queued semantic_naming.
+
+## 768. SEMANTIC NAMING + GENERALITY -- the mlp0 semantic directions are cleanly
+## human-nameable PART-OF-SPEECH / token-class axes, and the token-semantic
+## subspace is causally dominant STACK-WIDE (but concentrated early). The
+## interpretability payoff of 767.
+NAMING (top mlp0 semantic directions, tokens at each extreme):
+  dir0  DETERMINERS/ARTICLES  ' the'/' a'/' an'/' his'/' their'  vs capital initials
+  dir1  PUNCTUATION           '.'/'('/'?'/'!'/';'                 vs content words
+  dir4  SENTENCE-INITIAL PRONOUNS ' It'/' He'/' This'/' She'/' You' vs punctuation
+  dir5  AUX/COPULA VERBS      ' were'/' has'/' are'/' was'/' will'/' is' vs initials
+  dir6  DIGITS/NUMBERS        ' 5'/' 6'/' 4'/' 3'/' three'/' 2'   vs pronouns
+  dir7  PREPOSITIONS/LOCATIVE ' in'/' within'/' on'/' this'
+  dir8  CONDITIONALS/WH       ' If'/'When'/'What'/'In'            vs verbs
+  dir9  BRACKETS/DASHES       '('/'-'/'--'/'['                    vs articles
+  (dirs 2/3 mix determiners with byte-fallback tokens; minor.)
+=> mlp0 organises its output by GRAMMATICAL CLASS -- determiners, punctuation,
+pronouns, verbs, numbers, prepositions, conditionals. This is exactly the
+interpretable canonical structure: nameable, not just statistically token-driven.
+GENERALITY (causal ratio dCE_semantic/dCE_random per layer):
+  L0  1.341 / 0.005  = 268x
+  L4  0.567 / 0.004  = 150x
+  L8  0.019 / 0.002  = 10.9x
+  L12 0.016 / 0.002  = 6.5x
+=> The token-semantic subspace is causally dominant at EVERY tested layer (all
+>=5x random -> a stack-wide organising axis), BUT its ABSOLUTE weight DECAYS with
+depth (dCE 1.34 -> 0.57 -> 0.019 -> 0.016), concentrated in the EARLY layers.
+This matches the 756 barbell: early layers do the heavy (lexical/token-class)
+lifting; deep-middle layers are nearly inert (tiny dCE) and what little they do is
+less token-identity-driven. pred_b True (>=5x everywhere), null clean.
+TAKEAWAY: the interpretable structure of the front of the network is TOKEN-CLASS
+organisation, readable canonically (token-conditional means) as named grammatical
+axes -- no SAE, no ground truth, causally verified. This is the concrete answer to
+"find interpretable + causal structure without ground truth" for the early layers.

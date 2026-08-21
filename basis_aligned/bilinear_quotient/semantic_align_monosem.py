@@ -112,7 +112,7 @@ def main():
     with torch.enable_grad(): Dm, Em, b = train_sae(gate, gate @ W0.T, 0)
 
     # semantic alignment per atom
-    Dn = Dm / Dm.norm(0, keepdim=True).clamp_min(1e-9)
+    Dn = Dm / Dm.norm(dim=0, keepdim=True).clamp_min(1e-9)   # dim=0 not p=0 (LESSONS: norm 0 = order not axis)
     align = ((Dn.T @ Usem)**2).sum(1).sqrt().cpu().numpy()            # fraction of atom dir in Usem (0..1)
     codes = topk(gate @ Em.T, K).cpu().numpy(); usage = (codes > 1e-6).mean(0)
     active = np.where(usage > 0)[0]

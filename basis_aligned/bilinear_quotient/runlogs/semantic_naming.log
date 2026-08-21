@@ -1,10 +1,27 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/semantic_naming.py", line 124, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/semantic_naming.py", line 90, in main
-    proj = (M @ Vh[:NDIR].T).cpu().numpy()                 # (Ntok, NDIR) token-mean projection per direction
-            ~~^~~~~~~~~~~~~
-RuntimeError: expected mat1 and mat2 to have the same dtype, but got: float != double
+dir 0:  HIGH ["' the'", "' The'", "'The'", "' an'", "' a'", "' his'", "' their'", "' our'"]
+         LOW  ["' L'", "' H'", "' C'", "' White'", "' T'", "' Sc'", "' S'", "' J'"]
+dir 1:  HIGH ["').'", "'.'", "' ('", '\'."\'', "'?'", "'!'", "'--'", "';'"]
+         LOW  ["' care'", "' Emergency'", "' suicide'", "' lact'", "' nuclear'", "'AT'", "' EM'", "' White'"]
+dir 2:  HIGH ["'�'", "' The'", "' �'", "'The'", "' the'", "' our'", "'\\n'", "' his'"]
+         LOW  ["' has'", "' are'", "' will'", "' and'", "' is'", "' would'", "' can'", "' was'"]
+dir 3:  HIGH ["'�'", "' �'", "' of'", "'\\n'", "'avan'", "'�'", '\' "\'', '" \'"']
+         LOW  ["' C'", "' H'", "' L'", "' T'", "' S'", "' J'", "' 5'", "' j'"]
+dir 4:  HIGH ["' It'", "' He'", "' This'", "' She'", "' You'", "' There'", "'This'", "'It'"]
+         LOW  ["'.'", "').'", "'!'", '\'."\'', "'up'", "' down'", "' straight'", "'?'"]
+dir 5:  HIGH ['"\'m"', "' were'", "' has'", "' are'", "' was'", "' did'", "' will'", "' is'"]
+         LOW  ["' C'", "' H'", "' L'", "' J'", "' S'", "' T'", "' ('", "' j'"]
+dir 6:  HIGH ["' 5'", "' 6'", "' 4'", "' 3'", "' three'", "' a'", "' an'", "' 2'"]
+         LOW  ["' She'", "' It'", "' He'", "' she'", "' he'", "' We'", "' they'", "'�'"]
+dir 7:  HIGH ["'\\n'", "' in'", "' within'", "' This'", "'In'", "' on'", "' this'", "' these'"]
+         LOW  ["'�'", "' �'", '" \'"', "' an'", "'('", "'A'", "' --'", "' –'"]
+dir 8:  HIGH ["' If'", "'If'", "'When'", "'In'", "'What'", "'A'", "'and'", "' no'"]
+         LOW  ["' has'", "' whiskey'", "' are'", "' is'", "' snakes'", "' was'", '"\'m"', "' pine'"]
+dir 9:  HIGH ["' ('", "'�'", "'('", '\' "\'', "'-'", "'--'", "' ['", "' --'"]
+         LOW  ["' an'", "'A'", "' a'", "' A'", "' And'", "' or'", "' It'", "' and'"]
+L0: dCE_semantic 1.341  dCE_random 0.005  ratio 268.0
+L4: dCE_semantic 0.567  dCE_random 0.004  ratio 149.8
+L8: dCE_semantic 0.019  dCE_random 0.002  ratio 10.9
+L12: dCE_semantic 0.016  dCE_random 0.002  ratio 6.5
+
+(b) semantic subspace causally dominant at EVERY layer (>=5x): True; NULL random harmless: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/semantic_naming_results.json (76s)
