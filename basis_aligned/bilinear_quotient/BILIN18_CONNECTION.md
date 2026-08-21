@@ -23974,3 +23974,35 @@ So the token/position SPLIT varies by architecture, but BOTH variables are prese
 and causal everywhere. token-class and position are also ENTANGLED within-component
 in both (overlap 0.61/0.69, like bilin18 776). External validation of 776-779.
 pred_a (position causal) + pred_b (combined>=token) True.
+
+## 782. TOKEN-CLASS WHITENED -- mlp0 SHARPENS grammatical-class geometry vs the
+## embedding (resolves 780's cosine confound; user insight fully validated). Shared-
+## direction-robust metrics on the labelled classes.
+Result (88 labelled tokens across 5 classes):
+  (a) FISHER class-separation ratio (between/within scatter, robust to a shared
+      additive direction): mean-table 0.571 vs embedding 0.318 -> ratio 1.79x.
+      Shuffled-label null 0.039 (clean). mlp0 separates grammatical classes ~1.8x
+      BETTER than the raw embedding.
+  (b) DE-SHARED cosine separation (top principal direction removed): mean-table 0.317
+      vs embedding 0.207 -- same conclusion once the dominant shared "I am a token"
+      direction is removed.
+RESOLVES 780(c): the raw-cosine result (mean 0.155 < embedding 0.237) was PURELY the
+baseline-similarity confound. With a proper metric (Fisher / de-shared cosine), mlp0
+SHARPENS class geometry -- exactly the user's Q2 hypothesis.
+FULL VALIDATION of the user's insight (780+782): the token-conditional-mean subspace
+is NOT re-encoding token identity (already in the stream, embedding never leaves) --
+mlp0 COMPUTES the token's grammatical CLASS: it (i) collapses ~360 tokens into a ~23-
+dim space (rank 22.7 vs embedding 132.4), (ii) NONLINEARLY (only 44% linear in the
+embedding, R2 0.44), (iii) into a geometry where grammatical classes are ~1.8x more
+separated than the raw embedding. The front of the network is a CLASS-COMPUTING front
+end: read raw identity, write a low-rank, computed, class-sharpened representation
+(+ position, 776-781) that downstream layers read as amortized variables (772).
+This is WHY the token-class subspace is low-rank, canonical, causal, nameable, and
+sufficient (767-773): it is a computed abstraction (grammatical class + position),
+not a copy of the input. pred_a True, null clean.
+SYNTHESIS 767-782: the front of a transformer (bilin18, and cross-model GPT-2/Pythia
+778/781) is a class-computing front end -- it converts token identity into a low-rank,
+causal, nameable grammatical-class + position representation, multiplexed into near-
+orthogonal per-component channels, that carries most of the front's loss contribution
+and is read amortized by later layers. The genuine distributed/conditional computation
+(FINDINGS 1) is the ~15-22% remainder, concentrated in the small early-middle MLPs.

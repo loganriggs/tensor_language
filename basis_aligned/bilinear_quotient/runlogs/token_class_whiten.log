@@ -1,0 +1,6 @@
+88 labelled tokens: {'punct': 17, 'number': 11, 'determiner': 24, 'pronoun': 19, 'prep': 17}
+(a) Fisher class-separation ratio: mean-table 0.571  embedding 0.318  (shuffled null 0.039)  ratio mean/emb 1.79
+(b) de-shared (top-PC removed) cosine separation: mean-table 0.317  embedding 0.207
+
+(a) mlp0 sharpens class separation vs embedding (Fisher >=1.3x & de-shared higher): True; NULL: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/token_class_whiten_results.json (42s)
