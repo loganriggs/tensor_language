@@ -21620,3 +21620,32 @@ readout; only the low-rank clusters give clean readouts (cl3 writes whole/
 same/very/entire, cl7 writes the/this/your, cl0 writes the/not/a/just).
 Queued rspd_cluster_r80 (per-cluster rank at the SAME 80% tolerance as
 global, for a fair comparison).
+
+## 709. CORRECTION to the 704-708 clustering arc (stated plainly). At the
+## FAIR 80% recovery bar, per-cluster r80 for mlp1 is [64,128,128,128,128,
+## 128,128,128] -- 7/8 clusters need rank ~128. mlp1 is GENUINELY HIGH-RANK
+## even per-cluster. The 'union of low-rank circuits' was OVERSTATED.
+
+Reconciliation of the whole arc, honestly:
+  - 708's low per-cluster ranks (16, 32) were an ARTIFACT: those clusters
+    have tiny benefit (< 0.02 nat), so the 'within 0.02 nat of full' test
+    was passed at low rank trivially (even rank 0 would pass when the whole
+    benefit is < 0.02). Not genuine low rank. Bug in the 708 metric.
+  - 709 (fair 80% bar): 7/8 clusters need rank ~128 -- the same as the
+    global r80=128. Clustering does NOT reduce the per-cluster functional
+    rank at a real recovery bar.
+  - 704-705 REINTERPRETED: 'cluster beats global at low rank' is TRUE but
+    MODEST -- even 32 clusters at rank-8 recovered only ~35% aggregate
+    (705), and 80% aggregate needed rank ~32-64. So per-cluster subspaces
+    give a real but SMALL advantage over one global subspace at matched low
+    rank; they do NOT make mlp1 a union of genuinely low-rank pieces.
+HONEST BOTTOM LINE (corrects my earlier '704 vindicated' framing): mlp1 is
+GENUINELY HIGH-RANK, per-cluster included. Clustering by output direction
+provides a modest low-rank ADVANTAGE (better than a single global subspace
+at matched rank, robust per 707) but does NOT dissolve the high rank. The
+user's cluster-then-low-rank idea WORKS as a relative improvement, but the
+strong claim 'high rank = union of low-rank circuits' is NOT supported at a
+fair recovery bar. This aligns with 702 (energy space: high-rank even in
+clusters) and 706 (the effect weakens for smaller-benefit layers). The two
+optimistic sections (704-705) overstated a real-but-modest effect;
+corrected here. Propagated to FINDINGS item 15.

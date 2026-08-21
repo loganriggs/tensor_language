@@ -115,13 +115,15 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
     (block0 r80=2, block1 r80=1 — one direction = a boundary→continuation writer, block2 r80=8), and
     **mlp0/mlp17 are low-rank** (8, 4). But **mlp1/mlp2 are globally high-rank** (r80=128, 256; low-rank
     surrogates worse than ablation). r80 is **data-robust** (mlp0=8 identical across 3k–24k tokens,
-    §699). The high-rank layers are **not** a few low-rank pieces — but in **functional (CE) space they
-    ARE a union of many low-rank per-cluster output circuits**: clustering tokens by decoder-output
-    direction, per-cluster rank-r subspaces beat a global rank-r subspace, and recovery rises
-    monotonically with #clusters (cluster>shuffle>global; §704–705). Energy-space rank (591) hid this
-    (§660 energy basis≠functional basis); measure in CE. Scope: this is the **decoder map conditioned
-    on real activations**, not the full bilinear-MLP rank. Fast A-SVD (normal-equations right-inverse)
-    = 17.5× over the library, N-linear (§700). **HIGH** (method validated, controls+nulls). §694–705.
+    §699). The high-rank layers (mlp1/mlp2) are **genuinely high-rank**. Clustering tokens by
+    decoder-output direction and giving each cluster its own low-rank subspace gives a **modest, real
+    advantage** over one global subspace at matched low rank (cluster>shuffle>global, data-robust §707),
+    but does **NOT** dissolve the high rank: at a fair 80% recovery bar, 7/8 mlp1 clusters still need
+    rank ~128 (§709). The strong "union of low-rank circuits" reading of §704–705 was **overstated and
+    is corrected** (§708–709): the effect is real but small (even 32 clusters at rank-8 recover ~35%).
+    Scope: this is the **decoder map conditioned on real activations**, not the full bilinear-MLP rank.
+    Fast A-SVD (normal-equations right-inverse) = 17.5× over the library, N-linear (§700). **HIGH**
+    (method validated, controls+nulls; over-optimistic conclusion corrected §709). §694–709.
 
 ### Architecture facts worth keeping
 - MLP = `Down[(Lx)·(Rx)] + b`: every output dim is an exact **quadratic form** `xᵀMₖx`. mlp17's
