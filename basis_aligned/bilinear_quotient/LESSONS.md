@@ -118,3 +118,7 @@ replacement tax.
   append-only certification).
 - Mid-wave infra edits cause version skew inside running agents:
   batch infra changes between waves; provenance records lib_rev.
+- bqrunner REQUIRES ABSOLUTE PATHS in queue.txt: it checks `[ -f "$line" ]`
+  from the runner's own cwd, so a relative path (e.g. `weight_action_compose.py`)
+  is popped and SILENTLY DROPPED -- nothing runs, no error. Always queue the full
+  /workspace/.../script.py path (§753->754 cost one idle cycle to this).
