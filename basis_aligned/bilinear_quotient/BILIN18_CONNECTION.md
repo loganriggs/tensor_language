@@ -18251,3 +18251,52 @@ maps both axes -- importance (structure extends well below the top-300
 cutoff, decaying gradually) and depth (structure is strongest at the
 front, decaying into the middle, and stops being surface-nameable
 after layer 1-2).
+
+## 608. The article decision's full depth profile: front-built,
+## empty-middle, final-readout -- and mlp1, not mlp0, is the single
+## largest article-margin layer
+
+Traced the flagship circuit across all 18 layers by mean-filling each
+component's output and measuring the shift in the article margin
+(P(a/an)-P(the/The)) at 961 real article positions.
+  (0) identity exact; baseline margin -0.1265 (negative because "the"
+      outnumbers "a/an" across article positions -- fine, we measure
+      SHIFTS).
+  THE MLP PROFILE (margin shift when that layer's MLP is mean-filled):
+    L0 +0.015, L1 +0.120, L2 +0.009, L3..L14 all |.|<=0.006 (near
+    zero), L15 +0.010, L16 +0.017, L17 -0.052.
+  THE ATTENTION PROFILE: attn0 +0.011, attn6-7 +0.009/+0.011,
+    attn11 +0.008, all others small.
+  (a) HELD: largest MLP contributor is L1, largest attention is L0 --
+      front-loaded.
+  (b) HELD decisively: front MLPs (L0-2) mean |shift| 0.048 vs middle
+      MLPs (L6-10) 0.003 -- a 15x gap. The entire abstract middle of
+      the network does essentially NOTHING to the article decision.
+  (c) a real FINAL-LAYER readout: L15-17 MLPs contribute (+0.010,
+      +0.017, -0.052) -- mlp17 is the second-largest single
+      contributor after mlp1. The decision is built at the front,
+      untouched through the middle, and re-read/amplified at the very
+      end near the logits.
+  NULL ok: attn11 (0.008) < mlp0 (0.015).
+THE SHAPE is clean and interpretable: FRONT-BUILD (L0-1-2), EMPTY
+MIDDLE (L3-14 contribute ~nothing), FINAL-READOUT (L15-17). The
+article decision is committed early and carried untouched through the
+representationally-tangled middle (607) to a final-layer readout --
+consistent with the depth map's picture of a near-linear middle pipe.
+THE NUANCE, and a correction to the mlp0-centric framing: mlp1 (whole
+layer, +0.120) is the SINGLE LARGEST article-margin contributor -- 8x
+mlp0 (+0.015). The program found its first clean article CLUSTER in
+mlp0 (cluster 8), but by whole-layer causal weight on the article
+margin, mlp1 does far more of the work. This reconciles with 599
+(mlp1 computes article info in PARALLEL to mlp0, not by reading it):
+mlp1 is not a minor 13% echo at the whole-layer level -- the 13%
+figure (595) was for the specific 46-unit echo CLUSTER via patching,
+whereas the whole mlp1 layer carries much more article-relevant
+computation. Caveat stated plainly: whole-layer mean-filling conflates
+a layer's DIRECT article write with its INDIRECT effect on everything
+downstream, so the absolute magnitudes are upper bounds on direct
+contribution; but every layer gets the identical treatment, so the
+PROFILE SHAPE (front + final, empty middle; mlp1 > mlp0) is a valid
+comparison. Queued: article_mlp1_cluster to find and causally test
+mlp1's OWN largest article cluster the way mlp0 cluster 8 was tested,
+now that mlp1 is revealed as the heavier article layer.
