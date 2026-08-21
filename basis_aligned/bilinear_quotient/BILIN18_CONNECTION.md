@@ -24330,3 +24330,30 @@ computer, and this is the robust, end-to-end, causally-grounded understanding:
     per-head concept-naming fails (792, heads are broad multi-function).
 So we understand the front to ~84% as class+position (causal, end-to-end), the
 cleanest components (mlp0, attn1) to ~95% incl mechanism, with a hard ~16% remainder.
+
+## 794. WHOLE MODEL = ~78% CLASS+POSITION (grand summary). Project ALL 36 components
+## (attn+mlp, L0-17) onto class+position SIMULTANEOUSLY, measure CE-recovery of the
+## whole model's contribution (128 rows).
+Result:
+  ablate-all-36-components: CE 3.346 -> 12.478, benefit 9.13 nats (the whole model's
+    entire component contribution over the residual+embedding baseline).
+  keep-only class+position at all 36 components at once: CE-recovery 0.781
+    vs random same-rank subspace 0.044.
+READ: the ENTIRE model reduces to a token-class + position computer at ~78% end-to-
+end -- keeping only class+position at every component (all 18 layers, both attention
+and MLP) preserves 78% of the model's whole 9.1-nat component contribution, vs 4% for
+random subspaces. The front alone is 84% (793); the whole model 78% -- the back half
+does slightly MORE non-class-position work (and losses compound through 18 layers),
+consistent with the back carrying more of the distributed remainder, but it is small
+in absolute nats.
+GRAND CAPSTONE (767-794): ~78% of THIS 546M transformer's computation, end-to-end and
+causally, reduces to two low-rank, computed, nameable variables:
+  * TOKEN-CLASS (grammatical category) -- mlp0 collapses identity to ~24 class dims,
+    nonlinearly, sharpening class ~1.8x vs the embedding (780/782).
+  * POSITION -- a coarse ~2-dim early/late readout of RoPE (786/788).
+Written into near-orthogonal channels (772), read amortized by later components
+(783/784), generalising to GPT-2/Pythia at the subspace level (778/781). The
+remaining ~22% is genuine DISTRIBUTED/CONDITIONAL computation with no low-rank carrier
+(FINDINGS 1) -- concentrated in mlp1's remainder and the multi-function heads whose
+per-head concept-naming fails (792). So: the model is mostly (~4/5) a class+position
+machine; the hard, irreducible part is a distinct ~1/5. pred_a True.
