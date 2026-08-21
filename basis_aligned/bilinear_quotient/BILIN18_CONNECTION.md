@@ -23755,3 +23755,38 @@ output (L16/17) ends, with the MLP's early-middle layers (L1-3) housing the
 non-token-class contextual computation. A clean division of labour: attention =
 grammatical structure, MLP-ends = lexical in / token-identity out, MLP-early-middle
 = the contextual reasoning that resists low-rank decomposition.
+
+## 774. CONTEXT RESIDUAL of MLP L1 -- the non-token-class computation is NOT bigram/
+## prev-token, it is the DISTRIBUTED remainder (inconclusive-on-method, decisive-on-
+## magnitude). Follows 773 (L1-3 = where context computation enters). Remove mlp1's
+## current-token-class subspace, ask what the residual encodes.
+Result:
+  residual after removing current-token subspace: 0.563 of variance (mlp1 is
+    MAJORITY non-token-class, matches 773 keep64 0.56).
+  (a) prev-token mean-subspace explains 0.207 of the residual -- but the SHUFFLED-
+      prev-label null explains 0.212, THE SAME. The mean-subspace method that
+      cleanly detected the CURRENT token (767: null 0.14 vs signal 0.82) is
+      UNDERPOWERED for the previous token: building a top-64 subspace from hundreds
+      of sparse per-prev-token means captures ~0.21 of ANY residual at this data
+      scale. So bigram structure is not DETECTABLE this way -- inconclusive, not a
+      clean rejection.
+  (b) DECISIVE on magnitude: removing the prev-token subspace from mlp1 costs only
+      0.015 nats (of mlp1's ~1.07 benefit; 4.5x random 0.003 but tiny in absolute
+      terms). Even if some prev-token structure exists, it is a NEGLIGIBLE part of
+      mlp1's function. The context computation is NOT concentrated in a prev-token
+      (bigram) subspace.
+READ: mlp1's non-token-class computation (56% of its output) is DIFFUSE -- not
+current-token, not previous-token, no low-rank carrier. This is the program's
+central wall (FINDINGS 1: conditional/contextual computation has no removable linear
+carrier) reappearing exactly where 773 located the transition. So the network splits
+cleanly into (i) an INTERPRETABLE token-class subspace -- canonical, causal, low-
+rank, necessary+sufficient, nameable, per-component (767-773) -- and (ii) a
+DISTRIBUTED contextual remainder (MLP L1-3) that resists every low-rank/subspace
+method. The semantic-subspace method characterises (i) beautifully and hits the
+same wall on (ii) that all prior conditional-computation probes did.
+METHOD LESSON (LESSONS): the token-conditional-mean-subspace method works only when
+the conditioning signal DOMINATES the output variance (current token). For a WEAKER
+signal (previous token, position) it is swamped by finite-sample subspace noise
+(null = signal). Detecting weaker context signals needs a SUPERVISED held-out probe
+(regress the label from the residual), not an unsupervised mean-subspace.
+pred_a False; null_ok False (null = signal, the diagnostic of underpower).

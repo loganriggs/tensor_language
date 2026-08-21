@@ -1,0 +1,12 @@
+residual after removing current-token subspace: 0.563 of variance
+(a) prev-token subspace explains 0.207 of the L1 context residual (shuffled null 0.212)
+(b) causal: remove prev-token subspace dCE 0.015 vs random 0.003  ratio 4.5
+   prev-dir 0 HIGH prev-tokens ["' or'", "'and'", "' and'", "'--'", "','", "' –'"]
+   prev-dir 1 HIGH prev-tokens ["'The'", "' or'", "' the'", "' The'", "'and'", "'/'"]
+   prev-dir 2 HIGH prev-tokens ["'B'", "'—'", "'�'", "'('", "'This'", "'\\n'"]
+   prev-dir 3 HIGH prev-tokens ["' nuclear'", "' pine'", "' medical'", "'ian'", "' Jam'", "' EM'"]
+   prev-dir 4 HIGH prev-tokens ["'In'", "'—'", "'When'", "'B'", "'If'", "' in'"]
+   prev-dir 5 HIGH prev-tokens ["'-'", "'/'", "' x'", "' There'", "'B'", "'If'"]
+
+(a) L1 context residual is prev-token (bigram) driven (>=0.4 & >>null): False; NULL: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/context_residual_results.json (87s)
