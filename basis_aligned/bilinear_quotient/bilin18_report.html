@@ -1416,9 +1416,25 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   so it's the general shape of the thing. The honest headline, then, is not "we localized the
   article circuit to these pieces." It is: the grouping finds real, readable, <em>sufficient</em>
   pieces of a decision — a genuine handle on it, with legible triggers and a traceable path — but
-  the decision itself lives redundantly across the whole layer, with no small necessary core to
-  point at. That is a sharper and more useful thing to know than a false claim of localization,
-  and it's the kind of correction this whole effort is built to surface rather than paper over.</p>
+  the decision itself lives redundantly across the whole layer, with no small necessary core
+  <em>in the list of pieces</em>. That is a sharper and more useful thing to know than a false
+  claim of localization, and it's the kind of correction this whole effort is built to surface
+  rather than paper over. (The same test on a second, unrelated decision — where line breaks go —
+  gives the same answer, so this is how the model works, not a quirk of articles.)</p>
+  <p>But "no necessary core in the list of pieces" is not the end of the story, because a piece is
+  only one way to slice a layer. A layer's output is a bundle of 1152 numbers, and you can ask the
+  necessity question of <em>combinations</em> of those numbers instead of the individual pieces
+  that wrote them. Do that — keep only a handful of the most important output <em>directions</em>
+  and blur the rest — and the picture flips: just <strong>sixteen</strong> directions, out of
+  1152, carry about 84% of the whole layer's effect on the article choice, and those particular
+  sixteen do six times better than sixteen random ones. So the decision <em>does</em> have a
+  compact necessary core — it was simply hiding in the wrong coordinate system. Spread across
+  every piece, yes; but those pieces are all pushing within one small sixteen-dimensional
+  subspace. Both facts are true at once, and together they're the honest shape of the thing: the
+  computation is distributed across all the pieces that do it, and compact in the handful of
+  directions they collectively write into — the same "many quiet contributors, one small shared
+  channel" pattern this report keeps finding elsewhere in the model. The right thing to call "the
+  circuit," then, isn't a list of pieces at all; it's that small output subspace.</p>
   <p>A companion tool from the same outside source does the compression side of this question
   properly: given a layer's weight and its real activations, it computes — in one exact step,
   no guessing or gradient descent — the best possible low-rank stand-in for that layer <em>on
