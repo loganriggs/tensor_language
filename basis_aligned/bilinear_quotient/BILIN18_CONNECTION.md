@@ -22859,3 +22859,37 @@ recovers flat / shared / hierarchical sparse structure, respects sharing,
 doesn't hallucinate, and has a tunable k with a clear optimum. Next toy
 candidates (for later): entangled/correlated atoms, mixed sparse+dense (like
 the real layer where R^2<1).
+
+## 746. REAL SAE COMPARE (cross-layer, user: track vs sparser mlp0 +
+## attention). The overcomplete SAE vs SVD rank-8 R^2 gap reveals HIDDEN
+## SPARSE structure that TRACKS OUTPUT-activation sparsity, NOT CE-functional
+## rank. mlp16 (rank-1) has NO gap (genuinely simple); mlp0 AND mlp1 both
+## have LARGE gaps (rich hidden overcomplete structure); attention moderate.
+
+k=8, SAE(P=512) vs SVD-8 vs random-OC, R^2 of layer OUTPUT (held-out):
+  layer        SAE    SVD    gap     usage-gini   (rand ~0.04 all)
+  mlp0         0.691  0.384  +0.307  0.48
+  mlp1         0.567  0.227  +0.340  0.48
+  mlp16        0.881  0.874  +0.007  0.88   <- SAE == SVD, concentrated
+  block1.attn  0.752  0.634  +0.118  0.58
+FINDINGS (null held everywhere: random-OC 0.03-0.04 << SAE):
+  - mlp16 (RANK-1): SAE == SVD (gap +0.007), usage-gini 0.88 (few atoms used
+    heavily). GENUINELY SIMPLE -- SVD-8 already captures it; the SAE adds
+    NOTHING. No hidden sparse structure. (The "respect that it's simple" case.)
+  - mlp0 (+0.31) and mlp1 (+0.34): LARGE SAE gap, usage-gini 0.48 (many atoms
+    used more evenly). Rich hidden sparse/OVERCOMPLETE structure that SVD-8
+    misses. KEY SURPRISE: mlp0 is CE-LOW-rank (r80=8) yet has a BIG SAE gap --
+    so ACTIVATION-sparse structure is NOT the same as CE-FUNCTIONAL rank. A
+    layer can carry most of its CE in 8 directions (r80=8) while its OUTPUT
+    distribution has rich overcomplete sparse structure the SAE captures.
+    The two decomposition views (CE-functional r80 vs activation-sparse SAE)
+    measure DIFFERENT things.
+  - block1.attn: intermediate gap (+0.12), usage-gini 0.58.
+  - So the SAE advantage tracks OUTPUT-activation sparse structure, not the
+    CE-rank. mlp16 (rank-1) is simple in BOTH senses; mlp0/mlp1 are activation
+    -sparse regardless of their CE-rank.
+CAVEATS: SAE R^2 0.57-0.88 (lossy, NOT faithful; mlp16 closest at 0.88 since
+simplest). k=8 fixed. L2 output, not CE (the CE version -- does this L2
+advantage translate to CE-faithfulness? -- is overcomplete_ce_faithful,
+queued). The 745 tuning rule (sweep k, find the recovery peak) should be
+applied per layer for a fair comparison.
