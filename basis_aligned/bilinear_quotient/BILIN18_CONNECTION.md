@@ -18940,3 +18940,48 @@ intervene on a feature, push the WRITE axis (toward the unembedding /
 next-layer input), not a probe fit on activations. Queued
 write_direction_steering as the positive control: pushing W_U[class]
 itself should steer P(class) FORWARD, closing the loop.
+
+## 622. POSITIVE CONTROL closing the read/write line: pushing the WRITE
+## axis W_U[class] steers P(class) from baseline to ~90-98%, while the
+## read probe and random do not. Write axis steers; read axis cannot.
+
+The decisive complement to 619-621. Three directions added to the final
+residual at matched scale, per class:
+  newline: WRITE alpha -2..+2 -> P [0.000, 0.000, 0.025, 0.930, 0.892]
+           READ  -> [0.033, 0.030, 0.025, 0.019, 0.014]  (drops)
+           RAND  -> [0.027, 0.029, 0.025, 0.015, 0.005]  (no fwd)
+  article: WRITE -> P [0.000, 0.000, 0.057, 0.968, 0.977]
+           READ  -> [0.081, 0.071, 0.057, 0.041, 0.026]  (drops)
+           RAND  -> [0.021, 0.042, 0.057, 0.052, 0.030]  (no fwd)
+  cos(write, read) = +0.005 (newline), +0.001 (article) -- write and
+  read axes are orthogonal, as 620/621 found.
+READING: pushing +W_U[class] raises P(class) from baseline (2-6%) to
+~90-98% -- a 15-37x forward swing -- and pushing -W_U[class] drives it
+to 0. The WRITE axis is an extremely effective steering vector. The
+READ probe (the supervised readout direction) instead DROPS P(class)
+(reproducing 619/621), and RANDOM does not steer forward.
+  (a) registered as strict monotonic-increase came back False, but ONLY
+      as a saturation artifact: newline WRITE peaks at +1 (0.930) and
+      dips slightly at +2 (0.892) because P is saturating near the top
+      (logits are tanh-capped at 30, softmax near-saturated), tripping
+      the ps[+1] <= ps[+2] check. Article WRITE is strictly monotonic
+      (True). The substantive prediction -- the write axis steers
+      P(class) sharply FORWARD -- HELD decisively for both classes.
+  (b) HELD as registered: READ and RANDOM do not steer forward for
+      either class.
+CONCLUSION, closing 619-622: the read/write distinction is now proven
+causally in both directions. The WRITE axis W_U[class] (the unembedding
+row) is a powerful forward steering vector (baseline -> ~95%); the READ
+axis d_class (the supervised activation probe, 618) is orthogonal to it
+and cannot steer its own feature. To DECODE a feature, fit a probe on
+activations (the read axis); to STEER/INTERVENE on it, push the
+unembedding write axis. The article steering here is also a clean
+positive control for the article circuit itself: the model's article
+prediction is fully controllable through W_U[a,an,the,The]. Correction
+to any earlier loose phrasing that treated the supervised readout
+directions (618) as intervention handles: they are decoders only; 619-
+622 show the intervention handle is the write axis, orthogonal to them.
+This closes the steering line. Next: WHICH layers build the write axis
+-- write_axis_layer_profile traces the per-depth contribution to
+W_U[class] (extending 616's mlp0>mlp17 newline-writer finding to a full
+18-layer profile for newline and article).

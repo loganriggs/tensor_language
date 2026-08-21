@@ -1,0 +1,13 @@
+newline: cos(write,read) +0.005
+  WRITE [0.0, 0.0, 0.02499, 0.92994, 0.89234] mono-inc False
+  READ  [0.03327, 0.03012, 0.02499, 0.01918, 0.01423] mono-inc False
+  RAND  [0.02703, 0.02917, 0.02499, 0.01479, 0.00498] mono-inc False
+article: cos(write,read) +0.001
+  WRITE [0.0, 0.0, 0.05731, 0.96822, 0.97714] mono-inc True
+  READ  [0.08074, 0.07142, 0.05731, 0.04093, 0.02631] mono-inc False
+  RAND  [0.02141, 0.04191, 0.05731, 0.05219, 0.02995] mono-inc False
+
+(a) WRITE steers forward for all classes: False
+(b) READ and RANDOM do not steer forward: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/write_direction_steering_results.json (54s)
