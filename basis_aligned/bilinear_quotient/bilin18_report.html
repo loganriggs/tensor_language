@@ -1880,10 +1880,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p>These two computed quantities — grammatical class and coarse position — are most of what the front
   of the network is for. Force <em>every</em> component in the first six layers to keep only its class
   and position content and nothing else, all at once, and the model still recovers 84% of what those
-  six layers were worth (a random subspace of the same size recovers 17%). So the front is, to about
-  five-sixths, a class-and-position computer: it turns raw token identity and rotary phase into two
-  clean, low-rank, causal, nameable variables, writes each into its own part of the stream, and later
-  layers read them off rather than recomputing them. The remaining sixth is genuine context-dependent
+  six layers were worth (a random subspace of the same size recovers 17%). Do the same to <em>every</em>
+  layer of the whole network — all thirty-six attention blocks and MLPs at once — and it still recovers
+  78% of everything the components contribute (a random subspace: 4%). So the model, front to back, is
+  to roughly four-fifths a class-and-position computer: it turns raw token identity and rotary phase
+  into two clean, low-rank, causal, nameable variables, writes each into its own part of the stream,
+  and later layers read them off rather than recomputing them. The remaining sixth is genuine context-dependent
   computation with no low-rank handle — the same distributed residue that shows up everywhere the model
   does something conditional.</p>
   <p>One caution earned the hard way. It is tempting to go further and name individual heads — this one
