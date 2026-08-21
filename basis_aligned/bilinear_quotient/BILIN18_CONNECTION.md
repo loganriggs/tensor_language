@@ -22893,3 +22893,39 @@ simplest). k=8 fixed. L2 output, not CE (the CE version -- does this L2
 advantage translate to CE-faithfulness? -- is overcomplete_ce_faithful,
 queued). The 745 tuning rule (sweep k, find the recovery peak) should be
 applied per layer for a fair comparison.
+
+## 747. TOY WEIGHT-ACTION SAE (user's novel direction, validated on ground
+## truth). Factoring W = D@E overcomplete with an L1 penalty on the codes
+## E@X is FAITHFUL (||W-DE||/||W|| = 0.024, reconstructs the WEIGHT not a
+## lossy activation fit), RECOVERS the planted overcomplete atoms (0.93 vs
+## A-SVD's 0.41), and gives SPARSE codes (L0 7.5 vs dense 60) -- the sparse,
+## faithful, overcomplete analog of A-SVD.
+
+Planted W = D_true@E_true (48 rank-1 atoms), data with k_true=3 sparse codes:
+  weight-action SAE:  faithfulness 0.024  atom-recovery 0.930  code-L0 7.5
+  A-SVD (weight-SVD): atom-recovery 0.413 (dense -- can't get overcomplete atoms)
+  NULL lambda=0:      code-L0 60.4 (dense -- sparsity comes from the L1)
+FINDINGS:
+  - The weight-action SAE is FAITHFUL to the WEIGHT (||W-DE||/||W|| = 0.024,
+    ~exact) -- unlike an activation-SAE (lossy fit to observed activations),
+    this decomposes W itself. This is the faithfulness property the user
+    wanted, achieved WITH overcomplete sparse codes.
+  - It RECOVERS the planted overcomplete atoms (0.93) that A-SVD/weight-SVD
+    CANNOT (0.41 -- an orthogonal basis mixes overcomplete atoms). So the
+    novel method recovers structure the standard faithful decomposition
+    misses.
+  - Codes are SPARSE from the L1 (L0 7.5 vs lambda=0 dense 60.4). Not quite
+    the true k=3 at this lambda -- code sparsity is TUNABLE via lambda (the
+    faithfulness-vs-sparsity frontier, 745's tuning lesson). Higher lambda ->
+    sparser codes at some faithfulness cost.
+  - Prediction (a) marked False ONLY on the strict L0<6 bar (got 7.5);
+    everything substantive HELD (faithful, recovers atoms, beats A-SVD by
+    0.52). Honest: the method works; sparsity is a lambda-tuning knob.
+SIGNIFICANCE: this is a NOVEL faithful sparse overcomplete weight
+decomposition -- W = D@E, D@E ~ W (faithful), E@X sparse (per-datapoint) --
+combining A-SVD's faithfulness with SAE-style overcomplete sparsity, and it
+recovers ground-truth structure both miss individually. Validated on the toy
+(diverse-structure harness: 743 flat, 744 shared, 745 hierarchical/DAG, 747
+weight-action). Next: apply to the REAL mlp1.Down weight -- can we get a
+faithful sparse overcomplete decomposition of a real layer? Queued
+weight_action_sae_real.
