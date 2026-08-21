@@ -20040,3 +20040,42 @@ characterized. This is the resolution limit for the early band -- its
 direction is frequency-related but distributed. Calibration thread closed
 (624-664). Propagating the two-band refinement to the report. Pivoting
 the queue to the least-characterized region: the MIDDLE blocks (focus D).
+
+## 665. The middle's within-class content-word refinement uses context
+## (attention) and token-local (MLP) roughly EQUALLY (drops 0.089 vs
+## 0.097) -- more context-dependent than the front's class decision
+## (634, MLP-dominant). A middle function (late attention is inert).
+
+Mean-ablating the middle [7-15] attention vs MLP, P(correct next token)
+at space_word targets (the content-word slot the middle refines most,
+632; baseline 0.150):
+  mid-attn ablated 0.061 (drop 0.089)
+  mid-mlp  ablated 0.054 (drop 0.097)
+  late16-attn      0.149 (drop 0.001)
+FINDINGS:
+  (a) BALANCED, slightly MLP-more (registered "context-driven" guess
+      FAILED narrowly: attn drop 0.089 < mlp drop 0.097). Refining WHICH
+      content word uses attention and the MLP about equally -- both drop
+      P(correct token) ~60%. This CONTRASTS with the front's class
+      decision (634), which was MLP-dominant (mlp drop 0.93 >> attn 0.5):
+      picking the specific word is MORE context-dependent than deciding
+      the class, with attention contributing nearly as much as the MLP
+      (0.089 vs 0.097) rather than being secondary.
+  NULL HELD: late-block-16 attention ablation is inert (0.001) -- the
+      refinement is a MIDDLE function, not late.
+So the depth-of-computation account gains its mechanism dimension:
+  - FRONT (0-2): decides the CLASS -- MLP-dominant, token-local, from
+    the embedding trigger (634, 637).
+  - MIDDLE (7-15): refines the SPECIFIC content word -- attention and MLP
+    balanced, notably more context-dependent than the class decision
+    (665); this is where "which word fits here" is computed, needing
+    context.
+  - BACK (16-17): frequency calibration -- rank-1 readout-axis bias
+    (662-664).
+This fits the intuition: the class ("a content word comes next") is a
+local decision, but the specific word ("which one") requires integrating
+context, so attention matters more in the middle. Queued
+middle_refine_copying to connect this middle mechanism to the copying
+circuit: since the induction reader heads sit in the middle (L5/L8/L10,
+647), does the middle's content-word refinement rely on COPYING the word
+from earlier context (larger middle-ablation drop for repeat targets)?

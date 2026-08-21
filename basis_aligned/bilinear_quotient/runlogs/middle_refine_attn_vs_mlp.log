@@ -1,0 +1,10 @@
+baseline     P(tok) space_word 0.1501  all 0.2520
+mid_attn     P(tok) space_word 0.0608  all 0.1269
+mid_mlp      P(tok) space_word 0.0536  all 0.1079
+late16_attn  P(tok) space_word 0.1487  all 0.2513
+
+(0) sane: True
+(a) refinement context-driven (mid-attn drop 0.0893 > mid-mlp 0.0965): False
+NULL mid-attn > late16-attn (0.0893 > 0.0014): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_refine_attn_vs_mlp_results.json (82s)
