@@ -25094,3 +25094,30 @@ n=3 suggested):
 Net: the MIDDLE maintenance signature (redundant + class+position) is the robustly universal part; the
 front's and back's magnitude, redundancy, and (for gpt2-large) simultaneous-metric class+position share
 are architecture-specific. FINDINGS 1c updated to all-six with these caveats.
+
+## §818 — Refinement of "maintenance": the middle ADDS class+position in mostly NEW directions, not just re-adding the front's (resolves the residual-stream puzzle) (middle_vs_front_subspace.py)
+
+The residual stream is additive, so zeroing the middle's outputs leaves the front's class+position
+contributions intact — yet removing the middle costs 1.93 nats (§813). So the middle must ADD
+class+position content. Tested whether that content is in the SAME directions the front wrote
+(amplification / true "maintenance") or NEW directions (continued class+position computation).
+
+- keep middle output projected onto its OWN class+position subspace: **0.651** (reproduces §814)
+- keep middle output projected onto the FRONT's class+position subspace: **0.369**
+- random null: −0.020
+- principal-angle overlap between front and middle class+position subspaces: **0.286**
+- front-subspace recovers 0.57 of what own-subspace does
+
+VERDICT: the middle's class+position content is only PARTLY in the front's directions (0.37
+recovery, 0.29 overlap) and SUBSTANTIALLY in NEW directions (own 0.65 ≫ front 0.37). So ~57% of
+the middle's class+position reinforces the front's variables and ~43% is new class+position
+structure. Prediction (b) held (front/own 0.57 < 0.6), (a) refuted.
+
+This resolves the residual-stream puzzle and REFINES the §814/815/817 "maintenance" language:
+removing the middle costs loss because it CONTINUES TO COMPUTE class+position — adding mostly-new
+class+position structure on top of the front's, redundantly across its own components — not merely
+refreshing/re-adding the front's exact signal. The accurate pipeline statement:
+  FRONT computes class+position → MIDDLE keeps computing MORE class+position (redundantly; ~57%
+  reinforcing the front's directions, ~43% new structure) → BACK reads it out.
+"Maintenance" was a mild misnomer; "continued/additional class+position computation" is right.
+FINDINGS 1c and the artifact updated to this framing.

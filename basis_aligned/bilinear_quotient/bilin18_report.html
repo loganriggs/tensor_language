@@ -1710,10 +1710,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the others cover for it, so single-layer ablation drastically understates the band. And that work
   is not something new: forcing the entire middle to keep only its class-and-position content
   recovers 65% of those 1.9 nats (a random subspace of the same size makes the model far worse than
-  deleting the middle outright). So the middle <em>maintains</em> the two variables the front
-  computed — refreshing them redundantly through the depth — rather than computing anything of its
-  own. The whole stack reads as one amortized pipeline: the front computes class and position, the
-  middle keeps them alive, and the back reads them out into predictions.</p>
+  deleting the middle outright). So the middle's work is class-and-position too. A subtlety sharpens
+  what it is doing: because the residual stream is additive, the front's output is still present when
+  the middle is deleted — so the middle's cost means it is <em>adding</em> class-and-position content,
+  not merely holding the front's in place. And that content is mostly in <em>new</em> directions: the
+  middle's output is recovered by its own class-and-position directions (65%) far better than by the
+  front's (37%). So the middle keeps <em>computing</em> class and position — roughly half reinforcing
+  the front's variables, half adding fresh structure — rather than passively maintaining them. The
+  whole stack reads as one amortized pipeline: the front computes class and position, the middle keeps
+  computing more of them, and the back reads them out into predictions.</p>
   <p>And this three-part pipeline is not peculiar to bilin18. Running the same band analysis on five
   other models — GPT-2 small, medium, and large, and Pythia-160M and 410M — reproduces its defining
   feature in every one: a middle band that is <em>redundant</em> in exactly the same way, collectively

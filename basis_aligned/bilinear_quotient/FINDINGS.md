@@ -74,9 +74,12 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    per-component ablation UNDERSTATES redundant regions — CORRECTION §813: ablating the whole middle
    (6–11) at once costs 1.93 nats, ≈4× the 0.49 per-component sum (super-additive = distributed/redundant,
    each component compensable). The middle is class+position MAINTENANCE: simultaneous keep-only
-   class+position on 6–11 recovers 0.65 of its collective benefit (random null −1.06, §814). So: FRONT
-   computes class+position → MIDDLE redundantly maintains/refreshes it → BACK reads it out into
-   predictions. This three-band structure with a SUPER-ADDITIVE class+position-maintenance middle
+   class+position on 6–11 recovers 0.65 of its collective benefit (random null −1.06, §814). REFINED
+   §818: since the residual stream is additive, the middle's cost means it ADDS class+position — and it
+   does so in mostly NEW directions (middle output keep-own 0.65 vs projected onto the front's subspace
+   only 0.37, overlap 0.29), so ~57% reinforces the front's directions and ~43% is new class+position
+   structure. So the middle CONTINUES computing class+position (not mere refresh). Pipeline: FRONT
+   computes class+position → MIDDLE keeps computing MORE class+position (redundantly) → BACK reads it out. This three-band structure with a SUPER-ADDITIVE class+position-maintenance middle
    REPLICATES in ALL SIX models (§815/§817: middle compounding 1.3–3.9×, class+position keep 0.59–0.78;
    every band ≫ random) — bilin18, GPT-2 small/medium/large, Pythia-160M/410M; bilinear-softmax-free,
    absolute, rotary; 124M–774M. The redundant class+position-MAINTENANCE middle is the robustly universal
