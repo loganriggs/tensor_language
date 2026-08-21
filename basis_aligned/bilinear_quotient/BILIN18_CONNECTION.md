@@ -22190,3 +22190,43 @@ drives the next block's read (gate), with block 17 as a causal integration
 sink. Combined with 724 (read!=write per layer), the residual bus routes
 information FORWARD through successive orthogonal-ish subspaces, causally.
 Ready to trace named circuits end-to-end through this verified flow.
+
+## 726. CORRECTION -- the "boundary circuit at 3 layers" is NOT a composed
+## circuit. Causal boundary-SELECTIVITY (ablate, CE-increase at boundary vs
+## non-boundary positions) shows only mlp16 is genuinely boundary-selective;
+## block1.attn FIRES at boundaries but contributes BROADLY; block0.attn dir1
+## is causally negligible. My 701/703 names over-read FIRING as FUNCTION.
+
+Boundary = current token is a sentence-ender (1131/24576 positions).
+Ablate each named component, dCE at boundary vs non-boundary:
+  component     bnd dCE  non dCE  selectivity
+  block0.attn   -0.001   +0.001   -0.003   (negligible -- redundant alone)
+  block1.attn   +0.528   +0.968   -0.439   (ANTI-selective: hurts non-bnd more)
+  mlp16         +0.994   +0.666   +0.327   (boundary-SELECTIVE -- real)
+  ALL 3         +2.601   +2.703   -0.102   (non-selective combined)
+  NULL random   --       --       -0.002
+FINDINGS (prediction FAILED, honestly):
+  - The three components do NOT compose into one boundary->continuation
+    circuit. Only mlp16's rank-1 is causally boundary-selective (+0.33,
+    confirming 715). block1.attn's rank-1 (2.06-nat benefit) FIRES on
+    newline (701's top-coefficient tokens) but its causal CONTRIBUTION is
+    BROADER than boundaries -- ablating it hurts NON-boundary prediction
+    MORE (-0.44). block0.attn dir1 ablated alone is causally ~0 (the layer
+    is redundant; removing one direction of a rank-2 core does little).
+  - CORRECTION to 701/703: I named block1.attn and block0.attn dir1
+    "boundary->continuation writers" based on WHERE they FIRE (the input-
+    side coefficient s peaks on \n/punctuation). The causal test shows their
+    OUTPUT contribution is NOT boundary-selective. FIRES != CONTRIBUTES --
+    the recurring read!=write / decode!=cause theme (619-622, 668, 719).
+    Only mlp16 is a genuine boundary circuit; the other two fire at
+    boundaries but do general continuation work.
+  - The selectivity-ablation test is the right VERIFICATION for a named
+    circuit (it caught the over-interpretation). Naming by firing pattern
+    (input) is insufficient; a circuit claim needs causal OUTPUT
+    selectivity for the behavior.
+LESSON (propagate): qualify 701/703 -- block1.attn rank-1 = a general
+continuation writer that FIRES at boundaries (not boundary-selective);
+block0.attn dir1 = causally minor alone. mlp16 rank-1 = the real boundary
+circuit. Queued block1_attn_function to characterize what block1.attn's
+rank-1 ACTUALLY contributes to (by category selectivity), correcting its
+name.

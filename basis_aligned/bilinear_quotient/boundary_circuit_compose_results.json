@@ -1,0 +1,29 @@
+{
+ "components": {
+  "block0.attn": {
+   "boundary_dCE": -0.0012,
+   "nonboundary_dCE": 0.0013,
+   "selectivity": -0.0025
+  },
+  "block1.attn": {
+   "boundary_dCE": 0.5281,
+   "nonboundary_dCE": 0.9676,
+   "selectivity": -0.4395
+  },
+  "mlp16": {
+   "boundary_dCE": 0.9937,
+   "nonboundary_dCE": 0.6663,
+   "selectivity": 0.3274
+  },
+  "ALL": {
+   "boundary_dCE": 2.6007,
+   "nonboundary_dCE": 2.7028,
+   "selectivity": -0.1021
+  }
+ },
+ "null_selectivity": -0.0016,
+ "n_boundary": 1131,
+ "pred_a": false,
+ "null_ok": false,
+ "runtime_s": 113.718590259552
+}

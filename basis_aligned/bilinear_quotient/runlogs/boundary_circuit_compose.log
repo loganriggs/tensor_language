@@ -1,0 +1,9 @@
+boundary positions: 1131 / 24576
+block0.attn : boundary dCE -0.001  non +0.001  selectivity -0.003
+block1.attn : boundary dCE +0.528  non +0.968  selectivity -0.439
+mlp16       : boundary dCE +0.994  non +0.666  selectivity +0.327
+ALL 3       : boundary dCE +2.601  non +2.703  selectivity -0.102
+
+NULL random dirs (all 3): selectivity -0.002
+(a) each + combined boundary-selective: False; NULL ~0: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/boundary_circuit_compose_results.json (114s)
