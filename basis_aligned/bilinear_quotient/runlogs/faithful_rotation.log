@@ -1,11 +1,8 @@
 weight_svd_raw        : mean-len 63.9  median 64  gini 0.11
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/faithful_rotation.py", line 139, in <module>
-    main()
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/faithful_rotation.py", line 122, in main
-    L, gini = ce_code_lengths(O, Grad, U)
-              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/faithful_rotation.py", line 88, in ce_code_lengths
-    C = (O @ U).numpy(); GU = (G @ U).numpy(); R = np.abs(C*GU)
-         ~~^~~
-RuntimeError: expected m1 and m2 to have the same dtype, but got: float != double
+weight_svd_varimax    : mean-len 67.5  median 68  gini 0.06
+weight_svd_randrot    : mean-len 67.3  median 67  gini 0.06
+asvd                  : mean-len 60.7  median 61  gini 0.14
+
+faithfulness (||proj_raw - proj_varimax||): 2.14e-06 (0 = exact same subspace)
+(a) varimax sparser than raw: False; NULL varimax<=randrot: False; faithful: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/faithful_rotation_results.json (165s)

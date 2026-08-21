@@ -22679,3 +22679,41 @@ FINDINGS:
 This makes the parsimony baseline (dense = bad) clear, gives A-SVD a marginal
 win on raw parsimony, and flags that the difficulty-validation metric needs
 redesign (gradient-magnitude confound).
+
+## 741. FAITHFUL ROTATION -- the mechanism is FAITHFUL (proj_diff 2e-6, exact
+## subspace preserved) but ORTHOGONAL ROTATION CANNOT sparsify per-datapoint
+## codes. Varimax made codes LONGER (67.5 vs raw 63.9), same as a random
+## rotation (67.3). Conclusion: faithful per-datapoint sparsity REQUIRES
+## OVERCOMPLETENESS, not rotation.
+
+Per-datapoint CE-code length (K=128, 90%), mlp1 output basis:
+  weight_svd_raw     mean-len 63.9  reuse-gini 0.11
+  weight_svd_varimax 67.5           0.06   (LONGER, less reuse)
+  weight_svd_randrot 67.3           0.06   (same as varimax)
+  asvd               60.7           0.14   (most parsimonious dense basis)
+  faithfulness ||proj_raw - proj_varimax|| = 2.1e-6 (exact).
+FINDINGS:
+  (0)/faithfulness HELD: the rotation preserves the rank-K subspace EXACTLY
+     (proj_diff ~0) -- the faithful-decomposition MECHANISM works; exact
+     reconstruction is preserved by construction.
+  (a) FAILED + NULL FAILED: varimax did NOT shorten per-datapoint codes; it
+     LENGTHENED them (67.5 vs 63.9), identical to a random rotation. Two
+     reasons: (i) varimax optimizes per-COMPONENT (spatial) sparsity -- each
+     atom concentrated in few residual dims -- NOT per-DATAPOINT code
+     sparsity; wrong objective. (ii) More fundamentally, the raw SVD basis is
+     ALREADY the most concentrated orthonormal basis of the subspace, so ANY
+     orthogonal rotation only SPREADS the per-datapoint codes.
+  KEY CONCLUSION: within an orthogonal rank-K basis, per-datapoint code
+     length is ~basis-invariant-to-best (SVD is optimal; rotation only hurts).
+     You CANNOT get sparse per-datapoint codes by rotating a complete
+     orthonormal basis. Faithful per-datapoint sparsity REQUIRES an
+     OVERCOMPLETE dictionary (more atoms than rank), with sparse codes and
+     high reconstruction fidelity. That is the real path (the earlier
+     "faithful rotation" idea is insufficient -- corrected here).
+  A-SVD remains the most parsimonious DENSE basis (60.7) -- consistent with
+     740 (A-SVD wins the parsimony metric among dense bases).
+NEXT: a faithful OVERCOMPLETE sparse dictionary -- learn P>rank atoms in the
+mlp1-output subspace with per-datapoint sparse codes, measure the SPARSITY
+vs RECONSTRUCTION-FIDELITY tradeoff (the faithfulness/sparsity frontier). If
+it reconstructs the subspace exactly (0 error) it is faithful AND sparse.
+Queued overcomplete_sparse_dict.

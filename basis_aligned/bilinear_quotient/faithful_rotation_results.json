@@ -1,0 +1,31 @@
+{
+ "layer": 1,
+ "K": 128,
+ "proj_diff": 2.139753617967662e-06,
+ "bases": {
+  "weight_svd_raw": {
+   "mean_code_len": 63.88,
+   "median": 64,
+   "usage_gini": 0.107
+  },
+  "weight_svd_varimax": {
+   "mean_code_len": 67.5,
+   "median": 68,
+   "usage_gini": 0.056
+  },
+  "weight_svd_randrot": {
+   "mean_code_len": 67.32,
+   "median": 67,
+   "usage_gini": 0.059
+  },
+  "asvd": {
+   "mean_code_len": 60.69,
+   "median": 61,
+   "usage_gini": 0.144
+  }
+ },
+ "pred_a_sparser": false,
+ "null_ok": false,
+ "faithful": true,
+ "runtime_s": 165.1151258945465
+}
