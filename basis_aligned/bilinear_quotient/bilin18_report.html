@@ -1703,6 +1703,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   high-rank (128–256 directions), and the deep middle (blocks 6–14) is nearly inert, ~0.03 nats
   apiece. The MLP work is a barbell: concentrated, low-rank, and legible at the edges; diffuse in
   the early-middle; absent in the deep middle.</p>
+  <p><strong>A correction to that last clause.</strong> "Nearly inert" is what each middle layer
+  looks like when you ablate it <em>alone</em> — and that reading is a trap. Remove the whole middle
+  (layers 6–11) at once and the model loses 1.9 nats, nearly four times the sum of the individual
+  ablations. The middle is not idle; its work is <em>redundant</em> — any one layer can go because
+  the others cover for it, so single-layer ablation drastically understates the band. And that work
+  is not something new: forcing the entire middle to keep only its class-and-position content
+  recovers 65% of those 1.9 nats (a random subspace of the same size makes the model far worse than
+  deleting the middle outright). So the middle <em>maintains</em> the two variables the front
+  computed — refreshing them redundantly through the depth — rather than computing anything of its
+  own. The whole stack reads as one amortized pipeline: the front computes class and position, the
+  middle keeps them alive, and the back reads them out into predictions.</p>
   <p>Why is one layer high-rank and another low? Not because their encoders differ in capacity — the
   weights that read the residual are near-full-rank in every layer. The difference is in what they
   actually <em>compute</em>: a high-rank layer's gates fire a genuinely larger, more distinct set of

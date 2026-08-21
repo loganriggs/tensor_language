@@ -24960,3 +24960,34 @@ regions like the middle (whose class+position keep was the lowest band, ~0.63), 
 whole-model class+position share is somewhat below the per-component headline — consistent
 with the stricter simultaneous metric (bilin18 0.78, §794). RESULTS/§812 and the barbell
 figure annotation corrected.
+
+## §814 — The redundant middle is class+position MAINTENANCE (65% of its collective 1.9 nats); whole-stack story closes: front computes → middle maintains → back reads (middle_class_position.py)
+
+Follow-up to the §813 correction. Projected ALL of layers 6–11 onto only their class+position
+subspace simultaneously (mean-preserving) and measured recovery of the middle's collective
+1.93-nat benefit.
+
+- keep-only class+position (whole middle at once): **0.651**
+- random same-rank simultaneous projection (NULL): **−1.061** (catastrophic — projecting 12
+  components onto a random subspace at once wrecks the model)
+
+Verdict: the redundant middle is largely **class+position maintenance**. Its 1.9 nats of
+distributed, mutually-compensating work is ~65% re-writing/refreshing the same two variables
+the front computed — not a new hidden computation. The ~35% not recovered is the diffuse
+content consistent with the whole-model remainder. The 0.65 is somewhat below the front/back
+per-component ~0.93, so the middle carries relatively more diffuse content, but class+position
+maintenance is the majority of what it does.
+
+**Whole-stack picture now closes coherently** (collective band-ablation benefit / class+position share):
+
+| band | collective benefit | class+position share | role |
+|------|-------------------:|---------------------:|------|
+| FRONT (0–5)  | 6.6 | ~0.93 | COMPUTE the two variables from token identity + rotary |
+| MIDDLE (6–11)| 1.9 | 0.65 | MAINTAIN/refresh them, redundantly (distributed, each component compensable) |
+| BACK (12–17) | 4.6 | ~0.93 | READ them out into predictions |
+
+The model computes grammatical class + coarse position at the front, carries and redundantly
+refreshes them through the middle, and reads them out at the back — amortized computation of
+two named variables across the whole depth, with a diffuse content remainder layered
+throughout. This is the honest close of the whole-stack bottom-up characterization (§767→814),
+including the §813 correction that the middle is redundant, not inert.
