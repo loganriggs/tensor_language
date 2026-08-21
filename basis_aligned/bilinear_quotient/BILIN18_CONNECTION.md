@@ -20231,3 +20231,40 @@ calibration bias (rank-1 isolable). Stateful-register mini-thread
 complete. FINDINGS + report updated. Queued paren_counter_mechanism to
 ask HOW the counter is built (is it attention-computed -- does ablating
 early attention destroy the paren decodability?).
+
+## 670. The paren counter is built by BOTH front attention and front MLP
+## (drops 0.165 and 0.295), neither alone -- even attention-ablated it
+## stays decodable at 0.74. State-building is distributed too, not a clean
+## attention-only counter.
+
+Probing paren-depth after block 3 under front [0-2] ablations (baseline
+AUC 0.903):
+  front-attn ablated 0.737 (drop 0.165)
+  front-mlp  ablated 0.608 (drop 0.295)
+  shuffled null 0.496.
+FINDINGS:
+  (a) ATTENTION CONTRIBUTES (registered part HELD): front-attention
+      ablation drops the counter AUC by 0.165 -- context-mixing helps
+      build the parity count, as counting requires. But it is NOT
+      sufficient nor solely responsible: attention-ablated, the counter
+      is still decodable at 0.74 (well above chance).
+  (b) MLP CONTRIBUTES MORE (registered "attn>mlp" FAILED): front-MLP
+      ablation drops it 0.295 > attention's 0.165. Caveat: MLP mean-
+      ablation is a larger perturbation of the residual than attention
+      mean-ablation (as in 634/637), so the mlp>attn magnitude is partly
+      a perturbation-size artifact, not proof the MLP does the counting.
+      The robust reading is that BOTH paths contribute and neither alone
+      accounts for the counter.
+So even the state-BUILDING computation (maintaining a parity counter) is
+DISTRIBUTED across attention and MLP, like every other predictive
+computation in this model -- there is no clean, isolable counter
+mechanism. This closes the stateful-register thread (667-670): the model
+maintains counting-based context registers (quote parity, paren depth)
+that are decodable, behaviorally used (up to 600x), causally read-
+correlates (no removable linear carrier), and BUILT by distributed
+attention+MLP. Everything about them fits the universal-distribution /
+read!=write law; the sole isolable linear component in the whole model
+remains the frequency-calibration bias. FINDINGS current. Queued
+recency_bias to probe the central "one knob" claim directly: is there a
+SECOND additive knob -- a rank-1 removable "recently-seen token" bias --
+or is frequency calibration truly the only one?

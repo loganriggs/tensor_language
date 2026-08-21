@@ -1,0 +1,11 @@
+baseline         paren probe AUC 0.9029
+front_attn_abl   paren probe AUC 0.7374
+front_mlp_abl    paren probe AUC 0.6078
+shuffled null AUC 0.4961
+
+(0) baseline high: True
+(a) attention-built (attn ablation drops AUC >0.15): True (drop 0.165)
+(b) attn drop > mlp drop: False (attn 0.165 vs mlp 0.295)
+NULL shuffled ~0.5: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/paren_counter_mechanism_results.json (77s)
