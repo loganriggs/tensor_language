@@ -1,0 +1,8 @@
+mlp0        : SAE 0.691  SVD 0.384  gap +0.307  rand 0.042  usage-gini 0.48
+mlp1        : SAE 0.567  SVD 0.227  gap +0.340  rand 0.041  usage-gini 0.48
+mlp16       : SAE 0.881  SVD 0.874  gap +0.007  rand 0.032  usage-gini 0.88
+block1.attn : SAE 0.752  SVD 0.634  gap +0.118  rand 0.039  usage-gini 0.58
+
+SAE-vs-SVD gaps: {'mlp0': 0.3071, 'mlp1': 0.34, 'mlp16': 0.0071, 'block1.attn': 0.1178}
+NULL random<SAE all: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/real_sae_compare_results.json (301s)

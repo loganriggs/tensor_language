@@ -1,0 +1,36 @@
+{
+ "k": 8,
+ "P": 512,
+ "components": {
+  "mlp0": {
+   "r2_sae": 0.6912,
+   "r2_svd": 0.3841,
+   "gap": 0.3071,
+   "r2_rand": 0.0417,
+   "usage_gini": 0.485
+  },
+  "mlp1": {
+   "r2_sae": 0.5673,
+   "r2_svd": 0.2273,
+   "gap": 0.34,
+   "r2_rand": 0.0414,
+   "usage_gini": 0.48
+  },
+  "mlp16": {
+   "r2_sae": 0.8807,
+   "r2_svd": 0.8737,
+   "gap": 0.0071,
+   "r2_rand": 0.0325,
+   "usage_gini": 0.881
+  },
+  "block1.attn": {
+   "r2_sae": 0.7523,
+   "r2_svd": 0.6345,
+   "gap": 0.1178,
+   "r2_rand": 0.0394,
+   "usage_gini": 0.583
+  }
+ },
+ "null_ok": true,
+ "runtime_s": 301.1228873729706
+}

@@ -22820,3 +22820,42 @@ apply it to the REAL layers and compare -- mlp0 (low-rank r80=8) vs mlp1
 (high-rank) vs mlp16 (rank-1) vs an attention c_proj -- to see which real
 layers have hidden sparse/overcomplete structure (SAE>>SVD) vs are genuinely
 low-rank/dense (SAE~SVD). Queued real_sae_compare.
+
+## 745. TOY HIERARCHICAL / DAG (user: extend toys w/ structure types +
+## hyperparameter insight). The SAE recovers a 2-level parent->child DAG
+## (child never fires without parent) AND the code preserves the dependency
+## -- at sufficient k. The k-sweep gives a PRINCIPLED tuning rule: atom-
+## recovery PEAKS at the true per-datapoint sparsity; too-low k loses the
+## DAG, too-high k DEGRADES recovery.
+
+Planted: 6 parents x 6 children (42 atoms), each datapoint = 1 parent + 2 of
+its children (true per-datapoint k=3); planted P(parent|child)=1.0. SAE P=64,
+sweep k:
+  k    atom-recovery   DAG-recovery P(parent|child)
+  2    0.931           0.199   <- k<true: DAG LOST (can't fit parent+2 kids)
+  3    0.993           0.856   <- k=true: BEST recovery + DAG recovered
+  4    0.949           0.858
+  6    0.859           0.941   <- atom-recovery degrading
+  8    0.741           0.844   <- over-budget k splits atoms, recovery worse
+FINDINGS (both HELD):
+  (a) The overcomplete SAE recovers HIERARCHICAL/DAG structure: at k>=3 it
+      recovers the atoms (0.99) AND the codes preserve the parent->child
+      dependency (P(recovered-parent | recovered-child) = 0.86). So the
+      framework captures hierarchical COMPOSITION, not just flat sparsity --
+      directly relevant to the real model's hierarchy (716).
+  HYPERPARAMETER TUNING RULE (the key insight): atom-recovery PEAKS at the
+      true per-datapoint sparsity (k=3 here, recovery 0.99). k TOO LOW (2)
+      collapses DAG-recovery (0.20 -- children fire without parents because
+      the budget can't hold both). k TOO HIGH (6,8) DEGRADES atom-recovery
+      (0.86->0.74 -- the extra budget splits true atoms into spurious pieces).
+      So there is an OPTIMAL k ~ true sparsity; you CANNOT just crank k.
+  FOR THE REAL MODEL (where true k is unknown): sweep k and pick the atom-
+      recovery/reconstruction PEAK-or-elbow -- overshooting k degrades
+      recovery, which is itself the signal you've passed the true sparsity.
+      This is the principled way to set the SAE hyperparameters on real
+      layers (mlp0/mlp1/etc), rather than guessing.
+Toys so far (743 flat, 744 shared, 745 hierarchical) validate: the method
+recovers flat / shared / hierarchical sparse structure, respects sharing,
+doesn't hallucinate, and has a tunable k with a clear optimum. Next toy
+candidates (for later): entangled/correlated atoms, mixed sparse+dense (like
+the real layer where R^2<1).
