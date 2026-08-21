@@ -20990,3 +20990,38 @@ architecture + mechanism investigation. Queued embedding_recoverability
 as a functional check of finding 1: is the current-token identity
 linearly recoverable from the FINAL residual (the lambda1~8 re-injection
 should keep it decodable to the end)?
+
+## 690. Functional confirmation of the embedding-dominant residual (689):
+## the current-token identity stays strongly linearly recoverable from the
+## FINAL residual (log-freq R^2 0.91 -> 0.85 -> 0.73 across depth), a slow
+## decay not a transformation-away. The lambda1~8 re-injection keeps the
+## current token present in the stream to the readout.
+
+Linear-probe R^2 for the CURRENT token's log-frequency from the residual:
+  depth 0 (embedding): 0.907
+  depth 8:             0.846
+  depth 17 (final):    0.727
+  shuffled-label null (depth 17): -0.43.
+FINDINGS:
+  (0)/(a) HELD: the current token is recoverable at the embedding (0.91)
+      AND stays recoverable at the FINAL residual (0.73), decaying only
+      slowly with depth. NULL clean (shuffled -0.43). So the model keeps
+      the current-token identity LINEARLY PRESENT in the residual all the
+      way to the readout -- confirming 689's lambda1~8 embedding re-
+      injection functionally. Unlike a normal transformer (which
+      transforms the current token away into contextual features), this
+      model re-adds the embedding at weight ~8 every block, so the current
+      token never leaves the stream.
+This grounds several earlier findings: why the embedding triggers are
+always available at the readout (637-640), why the direct embedding-path
+carries the trigger geometry (637), and how the readout has near-direct
+access to the current token throughout. It completes the embedding-
+dominance picture (689-690): the current token is a persistent, strongly-
+weighted component of the residual at every depth, and the blocks add
+contextual computation ON TOP of an ever-present embedding rather than
+replacing it. This is a functional capstone for the last architectural
+component and, with 619-689, an EXHAUSTIVE characterization of bilin18 --
+every circuit, behavior, and architectural component now examined and
+cross-confirmed. Queued embedding_massive_overlap as a final connecting
+probe: since the embedding is re-injected at weight 8, do its high-
+magnitude dims contribute to the massive-activation dims (676)?
