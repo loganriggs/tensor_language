@@ -21958,3 +21958,47 @@ FINDINGS:
 IMPLICATION: "cluster by ablation damage" is well-defined and converges,
 but the choice of loss (MSE vs CE) matters a lot -- they decouple. For
 "minimal rank without LOSS" the CE version is the right one.
+
+## 720. SHARED-BASIS PER-CLUSTER MINIMAL RANK (user follow-up): in the
+## shared global A-SVD basis, the CE-ablation-covariance clusters each need
+## NEARLY THE WHOLE vocabulary (r90 = 48-96 of 96), overlap heavily (Jaccard
+## 0.73), and a random component-set works as well as the importance-ranked
+## one -- CONFIRMING mlp1 is genuinely high-rank per-cluster (709). No small
+## distinct per-cluster component sets exist.
+
+Setup: global A-SVD mlp1.Down (M=96 shared components), cluster by CE-
+ablation-covariance (converges 0.88 split-half), per-cluster r90 = min
+global components for 90% of that cluster's CE benefit.
+  cluster  r90   tokens                    (component set)
+  0        96    \n that - of              all 96
+  1        64    - , . \n                  most
+  2        96    garbage ) -               all 96
+  3        48    . the to ,                fewest (skips low comps 0,2,3)
+  4        96    . to the ,                all 96
+  5        64    in to - .                 distinct set [3,7,9,10,11,14,17,20..]
+  6        96    . , posts the             all 96
+  7        96    the of , with             all 96
+  mean pairwise Jaccard of sets 0.73; random-set recovery 0.74 ~ importance
+  set (>=0.90 target).
+FINDINGS:
+  (a) HIGH per-cluster minimal rank (48-96 of 96): mlp1 clusters need
+      NEARLY THE ENTIRE shared vocabulary each -- no cluster decomposes into
+      a small component subset. Directly CONFIRMS 709 (genuinely high-rank
+      per-cluster) in the shared basis. Even the loss-coherent CE clustering
+      does not find low-rank per-cluster structure.
+  (b) HEAVY OVERLAP (Jaccard 0.73): the "shared language" is shared almost
+      ENTIRELY -- clusters use the same large component set, not distinct
+      dialects. Prediction (b) HELD on the letter (0.73 in .1-.9) but the
+      spirit is "mostly identical," not "partial sharing."
+  NULL 'FAILED' but INFORMATIVE: random same-size set recovers 0.74 ~ the
+      importance-ranked set -- because at r90=64-96 you need MOST components
+      regardless, so WHICH ones barely matters. The importance ranking buys
+      little when nearly everything is required. (Only the low-r90 clusters
+      3/5 show any component-selectivity.)
+CONCLUSION: the user's shared-basis test gives a clean, definitive answer:
+mlp1 does NOT decompose into clusters with small distinct component
+vocabularies. Clusters share ~the whole 96-component basis and each needs
+most of it. This reinforces the corrected 709 picture (genuinely high-rank)
+over the union-of-low-rank reading (704-705, corrected). The clustering
+finds real token structure (714/716 hierarchy), but that structure does NOT
+correspond to a low-rank functional decomposition of the layer.

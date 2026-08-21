@@ -1,16 +1,19 @@
-CE-damage matrix done (72s)
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_global_minrank.py", line 195, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_global_minrank.py", line 126, in main
-    conv = float(np.corrcoef(simmat(Lce[:h])[iu], simmat(Lce[h:2*h])[iu])[0, 1])
-                             ^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_global_minrank.py", line 123, in simmat
-    Lc = L - L.mean(0, keepdims=True); Ln = Lc/(np.linalg.norm(Lc, 0, keepdims=True)+1e-9)
-                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 2846, in norm
-    raise ValueError("Invalid norm order for matrices.")
-ValueError: Invalid norm order for matrices.
+CE-damage matrix done (87s)
+CE clustering convergence (split-half sim corr, T=200): 0.882
+importance matrix done (94s)
+
+per-cluster minimal GLOBAL rank (90% CE), shared M=96 basis:
+  cluster 0: r90= 96  n= 167  comps=[0, 1, 2, 3, 4, 5, 6, 7]...  ['\n', ' that', '-', ' of']
+  cluster 1: r90= 64  n= 230  comps=[0, 1, 2, 4, 5, 6, 7, 8]...  ['-', ',', '.', '\n']
+  cluster 2: r90= 96  n= 199  comps=[0, 1, 2, 3, 4, 5, 6, 7]...  ['�', ')', '�', '-']
+  cluster 3: r90= 48  n= 347  comps=[1, 4, 5, 6, 7, 8, 10, 11]...  ['.', ' the', ' to', ',']
+  cluster 4: r90= 96  n= 206  comps=[0, 1, 2, 3, 4, 5, 6, 7]...  ['.', ' to', ' the', ',']
+  cluster 5: r90= 64  n= 206  comps=[3, 7, 9, 10, 11, 14, 17, 20]...  [' in', ' to', '-', '.']
+  cluster 6: r90= 96  n= 501  comps=[0, 1, 2, 3, 4, 5, 6, 7]...  ['.', ',', ' posts', ' the']
+  cluster 7: r90= 96  n= 192  comps=[0, 1, 2, 3, 4, 5, 6, 7]...  [' the', ' of', ',', ' with']
+
+mean pairwise Jaccard of component sets (shared language): 0.730
+NULL random-set mean recovery 0.743 (vs importance-set >=0.90)
+
+(0) converges: True; per-cluster r90 spread 48-96; (b) shared language (Jaccard 0.73 in .1-.9): True; NULL: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_global_minrank_results.json (99s)
