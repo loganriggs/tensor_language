@@ -23721,3 +23721,37 @@ SYNTHESIS (767-772): token-class organisation is the front network's universal
 principle -- canonical, causal, low-rank, necessary+sufficient, human-nameable, per
 component, and MULTIPLEXED into near-orthogonal per-component subspaces. That is a
 complete, ground-truth-free characterisation of what the front of the network does.
+
+## 773. SEMANTIC DEPTH PROFILE -- attention is a token-class writer EVERYWHERE, but
+## the MLP BREAKS from token-class at L1-L3 (where context-dependent computation
+## enters). Capstone of 767-772; located WHERE the network stops being a token-class
+## sorter. Per layer: benefit (CE if ablated) + keep-only-64 CE-recovery (fraction
+## of the component's job captured by its 64-dim token-class subspace). Fig
+## semantic_depth.png.
+Result (benefit / keep64):
+  ATTENTION: L0 1.52/0.98  L1 2.42/0.99  L2 0.40/0.94  L4 0.31/0.88  L5 2.06/0.98 --
+    keep64 0.88-0.99 at EVERY meaningful layer. Attention's ENTIRE loss contribution
+    is its token-class subspace, throughout the network.
+  MLP:       L0 2.38/0.92  L1 1.07/0.56  L2 0.16/0.33  L3 0.13/0.36  L4 0.35/0.85
+    L16 0.89/0.97  L17 0.72/0.92 -- HIGH at L0 and L16/L17, but LOW at L1-L3.
+READ: a sharp asymmetry. ATTENTION is a pure token-class writer at every layer
+(structural markers, 771) -- 88-99% of what it does for the loss is its 64-dim
+token-class subspace. The MLP is token-class only at the FIRST layer (L0, lexical
+768) and the LAST two (L16/L17, re-projecting to token identity for the
+unembedding); at L1-L3 its keep64 DROPS to 0.33-0.56 -- the MLP's early-middle
+layers do context-dependent / compositional work that is NOT captured by current-
+token identity. So the network's token-class organisation is carried by ATTENTION
+(everywhere) + MLP0 (lexical in) + MLP16/17 (token-identity out); the genuinely
+CONTEXTUAL computation enters through the MLP starting at L1, and it is exactly the
+part that is NOT a clean low-rank token-class subspace -- matching the distributed/
+redundant, no-low-rank-carrier character of conditional computation found across the
+program (FINDINGS 1). pred_a (sufficient across early depth) FALSE, and INFORMATIVELY
+so: it pinpoints MLP L1 as where the model transitions from token-class sorting to
+context-dependent computation.
+SYNTHESIS (767-773): the front's token-class subspace is canonical, causal, low-
+rank, necessary+sufficient, nameable, universal, multiplexed -- AND now depth-
+resolved: attention carries it network-wide, the MLP only at the input (L0) and
+output (L16/17) ends, with the MLP's early-middle layers (L1-3) housing the
+non-token-class contextual computation. A clean division of labour: attention =
+grammatical structure, MLP-ends = lexical in / token-identity out, MLP-early-middle
+= the contextual reasoning that resists low-rank decomposition.
