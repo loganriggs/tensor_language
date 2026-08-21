@@ -1,0 +1,19 @@
+attn0: ben 1.45 | class 0.98 +pos 0.99 rand 0.30
+mlp0: ben 2.39 | class 0.92 +pos 0.94 rand 0.08
+attn1: ben 2.38 | class 0.99 +pos 1.00 rand 0.31
+mlp1: ben 1.09 | class 0.61 +pos 0.79 rand 0.43
+attn2: ben 0.37 | class 0.94 +pos 0.95 rand 0.39
+mlp2: ben 0.16 | class 0.30 +pos 0.47 rand 0.25
+attn3: ben 0.16 | class 0.88 +pos 0.93 rand 0.39
+mlp3: ben 0.13 | class 0.36 +pos 0.51 rand 0.17
+attn4: ben 0.30 | class 0.87 +pos 0.91 rand 0.40
+mlp4: ben 0.35 | class 0.84 +pos 0.87 rand 0.10
+attn5: ben 2.05 | class 0.98 +pos 0.98 rand -0.40
+mlp5: ben 0.08 | class 0.53 +pos 0.59 rand 0.03
+
+NAT-WEIGHTED understood (class+position): 0.933 of 10.92 early-layer nats
+WORKLIST (benefit x unnamed-remainder, top): [('mlp1', 1.0876, np.float64(0.21)), ('mlp0', 2.3856, np.float64(0.06)), ('mlp4', 0.35, np.float64(0.13)), ('attn5', 2.0529, np.float64(0.02)), ('attn4', 0.3014, np.float64(0.09))]
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/early_scoreboard.png
+
+(a) majority of early layers understood as class+position (nat-weighted>=0.6, mlp0/attn1>=0.85): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/early_scoreboard_results.json (65s)

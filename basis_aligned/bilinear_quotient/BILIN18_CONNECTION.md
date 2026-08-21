@@ -24200,3 +24200,35 @@ class sharpening) is validated for bilin18 and Pythia, NOT clearly for GPT-2. Th
 UNIVERSAL cross-model result is the token-class SUBSPACE causal sufficiency (778); the
 specific grammatical-class-COMPUTING is shared by some architectures, not all. pred_a
 False. Robust on 81 tokens / two data sizes.
+
+## 790. EARLY-LAYER UNDERSTANDING SCOREBOARD -- 93% of the early-layer OUTPUT budget
+## is token-class + position (answers user's "how much do we understand"), with an
+## honest output-vs-computation caveat. Per component (attn0-5, mlp0-5): keep-only
+## (class+position) of OUTPUT, CE-recovery. Fig early_scoreboard.png.
+Result (keep-only class+position of output; benefit):
+  attn0 0.99 (1.45) | mlp0 0.94 (2.39) | attn1 1.00 (2.38) | mlp1 0.79 (1.09)
+  attn2 0.95 (0.37) | mlp2 0.47 (0.16) | attn3 0.93 (0.16) | mlp3 0.51 (0.13)
+  attn4 0.91 (0.30) | mlp4 0.87 (0.35) | attn5 0.98 (2.05) | mlp5 0.59 (0.08)
+  NAT-WEIGHTED (class+position of output) = 0.933 of 10.92 early-layer nats.
+READ: ~93% of the early-layer OUTPUT nat-budget is captured by token-class + position
+subspaces -- the outputs are low-rank functions of current-token and position, as the
+user intuited ("mean tokens... really clean").
+HONEST CAVEAT (output vs computation): two senses of "understood" --
+  * OUTPUT (this scoreboard): what the component WRITES is 93% token+position. For
+    ATTENTION this is partly TRIVIAL -- heads copy token-value vectors, so their output
+    is token-conditional almost by construction (attn0-5 all 0.91-1.00). The
+    meaningful part is the MLPs (mlp0 0.94, mlp1 0.79, mlp2/3/5 ~0.5) + the attention
+    PATTERNS (separately: attn0/1 attend on class 783/784, attn5 on position).
+  * COMPUTATION (deeper): mlp0's class computation is understood (nonlinear collapse
+    that sharpens grammatical class, 782); attn5's input-reading is joint/complex
+    (787). So output-decomposability (93%) != full mechanism understanding.
+  * The 93% (output) vs the ~75% earlier estimate (which used attn INPUT-reading, the
+    harder measure 784) are BOTH valid, measuring different things: outputs are 93%
+    token+position; attention that READS only class+position is ~75%.
+WORKLIST (benefit x unnamed-remainder, the bottom-up next targets): mlp1 (0.21 rem,
+~0.23 unnamed nats -- the 777 irreducible) > mlp0 (0.06, 0.14) > mlp4 (0.13) > attn5
+(0.02) > attn4 (0.09) > attn2 (0.05). Total unnamed ~0.7 of 10.9 nats (~7%). So the
+genuine unnamed early-layer computation is SMALL and concentrated in mlp1's remainder.
+BOTTOM-UP STATUS: the early layers' OUTPUTS are ~93% token-class + position; mlp0 and
+attn1 (~4.8 nats) are understood to ~95% incl mechanism; the residual worklist is
+mlp1's 21% + the small mid-MLPs. pred_a True (majority understood, mlp0/attn1 >=0.85).
