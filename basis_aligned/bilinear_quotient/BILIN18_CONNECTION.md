@@ -19189,3 +19189,45 @@ the three above: front-loaded for all classes, no middle writers, and
 block 17's function->content sign split. Queued depth_band_ablation to
 quantify prediction-criticality by depth band (does the middle cost
 little CE when removed, confirming it is not prediction-critical?).
+
+## 632. The middle's within-class refinement is concentrated on the
+## OPEN CONTENT-WORD slot (space_word, sparing +0.67); it is NOT uniform
+## content refinement -- subword collapses wholesale, so the prediction
+## (content > function) holds on average but is driven by space_word.
+
+Per-class within-class sparing (token-drop minus class-drop) under
+middle [6-16] vs front [0-2] ablation. Middle sparing, ranked:
+  space_word +0.672 (tok 0.968, cls 0.296) -- the open content-word slot
+  punct +0.250, capitalized +0.205, preposition +0.196, determiner
+  +0.157, pronoun +0.131, digit +0.032, subword +0.015, newline +0.000.
+  (a/b) content-avg sparing 0.297 > function-avg 0.179: HELD, but it is
+  DOMINATED by space_word; the two other "content" classes split --
+  capitalized +0.205 (refined) but subword +0.015 (NOT refined).
+  NULL ok: content>function gap is larger for the middle (+0.118) than
+  the front (+0.074) -- refinement is a middle specialization.
+THE REFINED PICTURE: the middle's main within-class job is choosing
+WHICH space-prefixed content word to emit (space_word: the largest,
+most open class, 4893 positions; sparing +0.67 -- the middle picks the
+word while the class "a space-word is coming" is already set up front).
+Capitalized words and the closed function classes get moderate
+refinement. TWO informative exceptions:
+  - subword sparing +0.015: for mid-word continuation pieces the middle
+    ablation collapses BOTH class and token (~0.98-0.99). The middle
+    does not refine-among-alternatives for subwords; instead subword
+    prediction NEEDS the middle even at the class level. Mid-word
+    continuation is a propagation/identity-carrying task (finish the
+    current word), not a choose-among-many-candidates task -- so
+    ablating 11 middle blocks destroys it wholesale rather than sparing
+    the class. (Note this sits against 629's finding that subword's top
+    single-block writer is block 2; cumulative 11-block middle ablation
+    is a far larger perturbation and compounds, and subword propagation
+    is evidently fragile to it.)
+  - newline +0.000: a near-single-member class (\n, \n\n), so class ~
+    token by construction; nothing to refine within.
+CORRECTS the loose 630/631 phrasing "the middle refines rare/content
+tokens" into the specific claim: the middle's within-class refinement is
+concentrated on the OPEN content-word slot (space_word), with moderate
+refinement of capitalized and function classes, and essentially none for
+subword (a propagation task) or the degenerate single-member classes.
+Queued within_class_depth_profile to locate WHERE in depth the space_word
+refinement happens (per-block sparing across all 18 blocks).

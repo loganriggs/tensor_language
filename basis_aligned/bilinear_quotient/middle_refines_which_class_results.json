@@ -1,0 +1,139 @@
+{
+ "bands": {
+  "front": {
+   "newline": {
+    "token_drop": -0.296,
+    "class_drop": -0.296,
+    "sparing": 0.0,
+    "base_Ptoken": 0.435,
+    "base_Pclass": 0.435
+   },
+   "determiner": {
+    "token_drop": 0.961,
+    "class_drop": 0.921,
+    "sparing": 0.04,
+    "base_Ptoken": 0.226,
+    "base_Pclass": 0.45
+   },
+   "preposition": {
+    "token_drop": 0.934,
+    "class_drop": 0.767,
+    "sparing": 0.167,
+    "base_Ptoken": 0.385,
+    "base_Pclass": 0.544
+   },
+   "pronoun": {
+    "token_drop": 0.971,
+    "class_drop": 0.908,
+    "sparing": 0.063,
+    "base_Ptoken": 0.229,
+    "base_Pclass": 0.35
+   },
+   "digit": {
+    "token_drop": 0.995,
+    "class_drop": 0.962,
+    "sparing": 0.032,
+    "base_Ptoken": 0.109,
+    "base_Pclass": 0.571
+   },
+   "punct": {
+    "token_drop": 0.85,
+    "class_drop": 0.617,
+    "sparing": 0.233,
+    "base_Ptoken": 0.406,
+    "base_Pclass": 0.589
+   },
+   "capitalized": {
+    "token_drop": 0.999,
+    "class_drop": 0.856,
+    "sparing": 0.143,
+    "base_Ptoken": 0.124,
+    "base_Pclass": 0.545
+   },
+   "space_word": {
+    "token_drop": 0.976,
+    "class_drop": 0.704,
+    "sparing": 0.272,
+    "base_Ptoken": 0.15,
+    "base_Pclass": 0.743
+   },
+   "subword": {
+    "token_drop": 0.984,
+    "class_drop": 0.84,
+    "sparing": 0.144,
+    "base_Ptoken": 0.512,
+    "base_Pclass": 0.823
+   }
+  },
+  "middle": {
+   "newline": {
+    "token_drop": 0.908,
+    "class_drop": 0.908,
+    "sparing": 0.0,
+    "base_Ptoken": 0.435,
+    "base_Pclass": 0.435
+   },
+   "determiner": {
+    "token_drop": 0.855,
+    "class_drop": 0.699,
+    "sparing": 0.157,
+    "base_Ptoken": 0.226,
+    "base_Pclass": 0.45
+   },
+   "preposition": {
+    "token_drop": 0.941,
+    "class_drop": 0.745,
+    "sparing": 0.196,
+    "base_Ptoken": 0.385,
+    "base_Pclass": 0.544
+   },
+   "pronoun": {
+    "token_drop": 0.944,
+    "class_drop": 0.814,
+    "sparing": 0.131,
+    "base_Ptoken": 0.229,
+    "base_Pclass": 0.35
+   },
+   "digit": {
+    "token_drop": 0.996,
+    "class_drop": 0.964,
+    "sparing": 0.032,
+    "base_Ptoken": 0.109,
+    "base_Pclass": 0.571
+   },
+   "punct": {
+    "token_drop": 0.838,
+    "class_drop": 0.588,
+    "sparing": 0.25,
+    "base_Ptoken": 0.406,
+    "base_Pclass": 0.589
+   },
+   "capitalized": {
+    "token_drop": 0.998,
+    "class_drop": 0.794,
+    "sparing": 0.205,
+    "base_Ptoken": 0.124,
+    "base_Pclass": 0.545
+   },
+   "space_word": {
+    "token_drop": 0.968,
+    "class_drop": 0.296,
+    "sparing": 0.672,
+    "base_Ptoken": 0.15,
+    "base_Pclass": 0.743
+   },
+   "subword": {
+    "token_drop": 0.999,
+    "class_drop": 0.984,
+    "sparing": 0.015,
+    "base_Ptoken": 0.512,
+    "base_Pclass": 0.823
+   }
+  }
+ },
+ "mid_content_sparing": 0.297,
+ "mid_function_sparing": 0.179,
+ "pred_a_content_refined": true,
+ "null_ok": true,
+ "runtime_s": 50.251797914505005
+}

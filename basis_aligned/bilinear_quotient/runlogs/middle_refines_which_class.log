@@ -1,0 +1,27 @@
+
+front ablated -- per-class sparing (token-drop - class-drop):
+  space_word   spare +0.272 (tok 0.976 cls 0.704)
+  punct        spare +0.233 (tok 0.850 cls 0.617)
+  preposition  spare +0.167 (tok 0.934 cls 0.767)
+  subword      spare +0.144 (tok 0.984 cls 0.840)
+  capitalized  spare +0.143 (tok 0.999 cls 0.856)
+  pronoun      spare +0.063 (tok 0.971 cls 0.908)
+  determiner   spare +0.040 (tok 0.961 cls 0.921)
+  digit        spare +0.032 (tok 0.995 cls 0.962)
+  newline      spare +0.000 (tok -0.296 cls -0.296)
+
+middle ablated -- per-class sparing (token-drop - class-drop):
+  space_word   spare +0.672 (tok 0.968 cls 0.296)
+  punct        spare +0.250 (tok 0.838 cls 0.588)
+  capitalized  spare +0.205 (tok 0.998 cls 0.794)
+  preposition  spare +0.196 (tok 0.941 cls 0.745)
+  determiner   spare +0.157 (tok 0.855 cls 0.699)
+  pronoun      spare +0.131 (tok 0.944 cls 0.814)
+  digit        spare +0.032 (tok 0.996 cls 0.964)
+  subword      spare +0.015 (tok 0.999 cls 0.984)
+  newline      spare +0.000 (tok 0.908 cls 0.908)
+
+(a/b) middle content sparing 0.297 > function 0.179: True
+NULL content>function gap larger for middle (+0.118) than front (+0.074): ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_refines_which_class_results.json (50s)
