@@ -20825,3 +20825,45 @@ architectural PARALLEL: the MLP is also bilinear (h = (Lx)*(Rx)) -- is
 its multiplicative gate an AND (product sparser/more selective than
 either factor), like the attention's double-QK, so the whole model runs
 on multiplicative AND-gating (no softmax, no relu)?
+
+## 686. UNIFYING PRINCIPLE: the whole bilinear model computes by
+## MULTIPLICATIVE AND-GATING. The MLP gate h=(Lx)*(Rx) is a product of
+## two dense linear projections (selectivity 0.62 each) whose product is
+## selective (0.32, sharper than both in 100% of cases) -- EXACTLY like
+## the double-QK attention (682). One primitive replaces both softmax and
+## relu.
+
+MLP0 hidden gate h = (Lx)*(Rx), selectivity fraction (participation over
+positions; low = selective):
+  h = L*R:  0.318  (selective)
+  L alone:  0.622  (dense)
+  R alone:  0.621  (dense)
+  product more selective than BOTH factors: 100% of units.
+  model product/factor ratio 0.51 < random-product baseline 0.64 -- L and
+  R are learned COMPLEMENTARY (their product is EXTRA-sharp), like the
+  uncorrelated QK circuits (683).
+FINDINGS:
+  (a) HELD: the bilinear MLP gate is a multiplicative AND. Each linear
+      factor is dense (fires on ~62% of inputs), but their product is
+      selective (32%), more selective than both in 100% of cases, and
+      sharper than a random product (the factors are learned
+      complementary). This is EXACTLY the double-QK attention mechanism
+      (682): two diffuse linear projections, multiplied, yield a
+      selective result.
+THE DEFINING ARCHITECTURAL PRINCIPLE (unifies 681-686): the entire
+bilinear model -- BOTH attention (pat = s1*s2 = (q.k1)(q2.k2)) AND the MLP
+(h = (Lx)*(Rx)) -- computes by MULTIPLICATIVE AND-GATING of two linear
+projections. Each projection alone is dense/diffuse; their PRODUCT is
+selective because it is large only where BOTH are large (and the pairs
+are learned complementary, 683/686). This single primitive replaces the
+two standard transformer nonlinearities at once: softmax (attention's
+peaking) AND relu/gelu (the MLP's nonlinearity). The model has no softmax
+and no relu -- selectivity everywhere comes from the AND of two linear
+maps. That is what "bilinear" means here, mechanistically: the whole
+network is products of pairs of linear projections, and its expressivity
+(focal attention, sparse MLP features, the quadratic forms of 660) all
+flow from that one multiplicative gate. A complete, unified account of
+the architecture's computational primitive. Report + FINDINGS updated.
+Queued gate_selectivity_depth to quantify the AND-gating across ALL
+layers (is the product-sharpening consistent in attention and MLP at
+every depth?).

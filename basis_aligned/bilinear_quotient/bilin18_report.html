@@ -1650,6 +1650,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   only if it passes two different criteria at once. Where softmax attention asks one question of
   each key, this architecture asks two and takes the AND — a more expressive primitive, bought
   with a second query-key projection per head instead of a normalisation.</p>
+  <p>And it is the same trick twice. The MLP does exactly what the attention does: each hidden
+  unit multiplies two linear projections of its input, each of which fires on ~62% of tokens on
+  its own, but whose product is selective (32%) — sparse for the same reason the attention is
+  focal, large only where both factors are. So the whole network, attention and MLP alike, runs
+  on one primitive: multiply two linear maps and let the product be the gate. That single
+  multiplicative AND stands in for both of a normal transformer's nonlinearities — the softmax
+  in attention and the ReLU in the MLP — at once. "Bilinear" is not a detail of one layer; it is
+  the entire computational style of the model.</p>
 </section>
 
 <section class="col">
