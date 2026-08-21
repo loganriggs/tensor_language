@@ -1,0 +1,20 @@
+{
+ "Dd": 128,
+ "P_true": 64,
+ "K_true": 3,
+ "P_sae": 96,
+ "N": 20000,
+ "planted": {
+  "sae_atom_recovery": 1.0,
+  "svd_atom_recovery": 0.389,
+  "sae_code_len": 3.0
+ },
+ "null_dense": {
+  "sae_atom_recovery": 0.22,
+  "svd_atom_recovery": 0.244,
+  "sae_code_len": 3.0
+ },
+ "pred_a": true,
+ "null_ok": true,
+ "runtime_s": 8.1124587059021
+}

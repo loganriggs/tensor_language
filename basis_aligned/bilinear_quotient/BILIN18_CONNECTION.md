@@ -22754,3 +22754,40 @@ objective; a LEARNED OVERCOMPLETE SPARSE dictionary is the right family --
 per-datapoint sparse codes, dominating frontier, learning-driven. The
 faithfulness question becomes a frontier (sparsity vs R^2), not a binary.
 Queued overcomplete_ce_faithful (the CE version of the frontier).
+
+## 743. TOY PLANTED DICT -- ground-truth VALIDATION of the whole framework
+## (user: toy examples to clarify what we want). With a PLANTED overcomplete
+## dictionary + sparse codes, the top-k SAE recovers the atoms PERFECTLY
+## (recovery 1.000, code-len = true k=3), SVD fails (0.389, dense), and on
+## no-structure data the SAE does NOT hallucinate atoms (recovery 0.22).
+
+Synthetic: D_true=64 unit atoms in 128 dims, each of N=20k datapoints uses
+exactly k_true=3 atoms; O = Z_true @ D_true. Metric = ATOM-RECOVERY (mean
+over true atoms of max|cosine| to a recovered atom).
+  planted:  SAE recovery 1.000  SVD 0.389  | SAE code-len 3.00 (=k_true)
+  null(dense Gaussian): SAE 0.220  SVD 0.244  | (no structure to recover)
+FINDINGS (both predictions HELD):
+  (a) When there IS true sparse structure, the OVERCOMPLETE TOP-K SAE
+      recovers it EXACTLY (all 64 atoms, up to permutation; code length =
+      k_true) while SVD CANNOT (0.389 -- its top directions are dense
+      mixtures of atoms, the orthogonal basis literally cannot represent an
+      overcomplete atom set). This is the ground-truth reason SVD/A-SVD miss
+      sparse structure and the SAE finds it.
+  NULL HELD: on dense Gaussian data (no planted structure) the SAE's atom-
+      recovery is LOW (0.22 ~ chance) -- it does NOT hallucinate structure
+      that isn't there. So SAE 'recovery' is a trustworthy signal.
+WHAT THIS CLARIFIES (user's "what do we want"):
+  - RIGHT METRIC = atom-recovery (does the method recover the true atoms) +
+    per-datapoint code length matching the true sparsity. On real data we
+    lack ground truth, but the toy calibrates the method: high SAE-vs-SVD
+    gap + null-safe => the method finds REAL sparse structure.
+  - RIGHT METHOD = overcomplete top-k SAE (learned). SVD/A-SVD (orthogonal,
+    complete) cannot recover overcomplete atoms by construction.
+  - INTERPRETING 742: the SAE beating SVD on mlp1 means mlp1 HAS genuine
+    sparse structure SVD misses (and the null says it's not hallucinated).
+    But mlp1's R^2 ceiling (0.63 at k=32) < 1 => its structure is PARTIALLY
+    sparse + partially dense/high-rank, not purely sparse like the toy.
+This is the methodological anchor for the sparse-decomposition program: a
+ground-truth toy where the metric and method provably recover the planted
+structure. Next toys: SHARED computation (some datapoints share atoms --
+does the method respect it?) and MIXED sparse+dense (like the real layer).
