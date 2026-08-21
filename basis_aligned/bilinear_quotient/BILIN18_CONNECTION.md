@@ -19759,3 +19759,46 @@ direction. This completes the block-17 characterization. Phase boundary
 for the calibrator thread. Queued mlp17_subword_isolation to finish the
 decomposition: is the separate subword-writing itself rank-1 additive, or
 conditional (654 taxonomy)?
+
+## 658. The additive-vs-conditional taxonomy holds WITHIN one layer:
+## block 17's frequency BIAS is rank-1 isolable (w_freq), but its subword
+## content-WRITING is NOT (rank-1 removal inert, top-8 overshoots). Closes
+## the block-17 characterization and the calibrator thread.
+
+Testing whether block 17's separate subword-writing (657) is rank-1
+additive or distributed. Removing behavior-conditioned directions
+(w_sub = cov(mlp17 output, subword-target)) from mlp17's output; P(subword)
+at subword targets (full 0.823, mean-ablate 0.676):
+  remove top-1   0.823 (0% lost -- INERT, the top direction is not
+                 necessary)
+  remove top-8   0.618 (139% lost -- OVERSHOOTS below the mean-ablate
+                 floor: collateral damage, not clean isolation)
+  remove random-1 0.825 (-1%, preserves)
+FINDINGS:
+  (a) SUBWORD-WRITING IS NOT RANK-1 ISOLABLE. The top behavior-
+      conditioned direction is inert (0%), unlike the calibration's
+      w_freq (which lost 103% at rank-1). Removing 8 directions overshoots
+      the whole-output ablation (139%), i.e. it damages more than just
+      subword -- collateral, not a clean low-rank carrier. So subword-
+      writing patterns with the DISTRIBUTED prediction computations
+      (routing 652, article-magnitude 654), NOT the rank-1 calibrator.
+  (b) w_sub > random (weakly); NULL random preserves.
+THE TAXONOMY HOLDS WITHIN A SINGLE LAYER -- the finest confirmation. Block
+17 has two functions, and they fall on opposite sides of the taxonomy:
+  - frequency BIAS (w_freq): additive, RANK-1 isolable (650-651, 656),
+    = the calibration = the rare-content boost (657).
+  - subword content-WRITING: a prediction computation, DISTRIBUTED, not
+    low-rank isolable (658).
+FINAL BLOCK-17 CHARACTERIZATION (closes 624-658): block 17 = [a rank-1
+frequency-bias direction w_freq that suppresses frequent function tokens
+and thereby boosts rare content, ~40% aligned with the unembedding log-
+freq axis, net +0.43 nats] (+) [distributed subword/content writing that
+is a normal prediction computation, not isolable]. The one clean rank-1
+mechanistic component in the model is the frequency bias; everything
+predictive, even in the same layer, is distributed. This is the sharpest
+statement of the additive(isolable)-vs-predictive(distributed) law the
+whole isolation arc (650-658) established. Phase boundary: calibrator
+thread closed; FINDINGS + deliverable carry the taxonomy. Queued
+additive_bias_catalog: is frequency the model's ONLY rank-1 additive
+bias, or do other token properties (length, capitalization) have
+isolable rank-1 biases too?
