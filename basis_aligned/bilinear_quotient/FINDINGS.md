@@ -21,6 +21,27 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    the ~7.48-nat loss-benefit over uniform, ~6%) plus a ~94% **distributed remainder** with no
    linear carrier. **HIGH.**
 
+1b. **The right decomposition of the front is a canonical token-class SUBSPACE, not learned
+   parts (§737–772).** Chasing a good decomposition: reconstruction-optimal bases (SVD/A-SVD) are
+   CE-catastrophic at low rank (front-load loss-irrelevant massive-activation energy, §737/748); a
+   learned overcomplete **sparse dictionary** (weight-action SAE) reconstructs faithfully (§750/759,
+   needs a reconstruction anchor or pure-CE training destroys weight-faithfulness §758/762) and its
+   cross-layer coupling is **weight-only / data-invariant** (§754, A-SVD's is not) — but the SAE
+   *atoms* are the **wrong unit**: seed-unstable (recur 0.40, §763), redundant (super-additive §761),
+   and monosemanticity is orthogonal to causal importance/stability (§763); co-activation groups
+   don't rescue it (§766). The interpretable+causal+stable structure the SAE fails to be **is a
+   seed-free SUBSPACE** you compute directly: the **token-conditional-mean** directions of a
+   component's output. That subspace is **canonical/data-stable** (0.82 vs atoms 0.40), **necessary**
+   (remove top-64 → +1.34 nats, 268× a random subspace §767), **sufficient** (keep only top-64 →
+   92% of the layer's loss §770), **low-rank** (64/1152), and **human-nameable**: the front sorts
+   what it writes by **token-class** — MLP by LEXICAL categories (determiners/punct/numbers/verbs
+   §768), attention by STRUCTURAL/discourse markers (conjunctions/clause-boundaries §771). It is
+   **universal** across both component types (§771) and **multiplexed** into **near-orthogonal**
+   per-component subspaces (attn0|mlp0 overlap 0.254 vs 0.201 floor §772). *Ground-truth-free recipe
+   for "a good component": don't fit a dictionary and hope — compute the canonical token-mean
+   subspace, verify it causally (ablate-vs-random AND keep-only-vs-random), read its named axes.*
+   **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
