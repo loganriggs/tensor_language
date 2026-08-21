@@ -24926,3 +24926,37 @@ class+position, the late output MLPs read them, and the middle is a quiet transp
 with little new computation to name. There is no rich mid-stack of undiscovered variables —
 answering the "move up the stack" question (option 3): the mid-stack is quiet, not hiding
 structure. Figure whole_stack_barbell.png sent to user.
+
+## §813 — CORRECTION of §812: the middle is NOT skippable. Simultaneous ablation of layers 6–11 costs 1.93 nats (≈4× the per-component sum) — distributed/redundant computation, not inert (middle_skippable.py)
+
+§812 called the middle (layers 6–11) "nearly inert" because its per-COMPONENT loss-benefit
+summed to only 0.49 nats. The causal capstone refutes the "inert/skippable" reading:
+
+| band ablated (all its components at once) | CE cost (nats) | per-component sum | compounding |
+|-------------------------------------------|---------------:|------------------:|------------:|
+| FRONT (0–5)  | 6.61 | 10.42 | 0.6× (sub-additive) |
+| MIDDLE (6–11)| **1.93** | 0.49 | **3.9× (super-additive)** |
+| BACK (12–17) | 4.55 | 1.91 | 2.4× |
+| (CE_full 3.32; ablate-all 12.42) | | | |
+
+Prediction (a) "middle skippable (<0.4 nats)" was FALSE — the middle costs 1.93 nats when
+removed as a whole. Prediction (b) held (front 6.6 > back 4.6 > middle 1.9, so the middle is
+still the least-important band and the low cost is not a generic "ablating 12 things is
+cheap" artifact). The error in §812 was the interpretive leap from low per-component benefit
+to "inert". The middle's per-component benefit is low because its work is DISTRIBUTED and
+REDUNDANT: remove any single middle component and the others compensate (individual cost
+0.02–0.09), but the band collectively contributes 1.93 nats — a 3.9× super-additive
+compounding, the classic signature of redundant distributed computation. (The front is the
+opposite — SUB-additive, 0.6×: its components do partly-overlapping work so the whole is
+less than the sum, meaning the front's real contribution is concentrated in fewer effective
+directions than its per-component sum implies.)
+
+Corrected picture: the BARBELL holds only as a statement about PER-COMPONENT ablation cost
+(front/back components individually matter more than middle components), NOT as a claim that
+the middle is functionally removable. The model is not front+back; the middle does ~1.9 nats
+of genuine, distributed, mutually-compensating computation. This also flags a metric caveat:
+the per-component nat-weighted class+position share (§807/808, 0.92) UNDER-weights redundant
+regions like the middle (whose class+position keep was the lowest band, ~0.63), so the true
+whole-model class+position share is somewhat below the per-component headline — consistent
+with the stricter simultaneous metric (bilin18 0.78, §794). RESULTS/§812 and the barbell
+figure annotation corrected.

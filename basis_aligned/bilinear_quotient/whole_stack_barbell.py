@@ -35,7 +35,7 @@ ax.bar(L, ben, color=BLUE, width=0.7, zorder=3, label='loss-benefit (how much th
 ax.set_ylabel('loss-benefit  (nats)', fontsize=10.5, color=INK)
 ax.set_xlabel('layer', fontsize=10.5, color=INK)
 ax.set_xticks(L); ax.set_xticklabels(L, fontsize=9, color=INK)
-ax.set_title('bilin18 is a barbell: front computes, back reads, middle is quiet', fontsize=13, color=INK, pad=12)
+ax.set_title('bilin18 per-component benefit: barbell in isolation, but the middle is redundant not inert', fontsize=12.5, color=INK, pad=12)
 
 ax2 = ax.twinx()
 ax2.plot(L, kw*100, color=ACCENT, lw=2, marker='o', ms=5, zorder=4, label='class+position share (right axis)')
@@ -43,10 +43,10 @@ ax2.set_ylabel('class + position share  (%)', fontsize=10.5, color=ACCENT)
 ax2.set_ylim(0, 105); ax2.tick_params(colors=ACCENT)
 ax2.spines['right'].set_color(ACCENT)
 
-# band annotations
-for x0, x1, txt in [(-0.5, 5.5, 'FRONT: compute\nclass+position\n(81% of all benefit)'),
-                    (5.5, 11.5, 'MIDDLE:\nnearly inert'),
-                    (11.5, 17.5, 'BACK: read out\nclass+position')]:
+# band annotations (bars = per-component benefit; collective = simultaneous band-ablation cost, §813)
+for x0, x1, txt in [(-0.5, 5.5, 'FRONT: compute\nclass+position\n(collective 6.6 nats)'),
+                    (5.5, 11.5, 'MIDDLE: distributed/\nredundant — tiny per-\ncomponent, but 1.9 nats\ncollective (§813)'),
+                    (11.5, 17.5, 'BACK: read out\nclass+position\n(collective 4.6 nats)')]:
     ax.axvspan(x0, x1, color=MUTED, alpha=0.05, zorder=0)
     ax.text((x0+x1)/2, ax.get_ylim()[1]*0.82, txt, ha='center', va='top', fontsize=9, color=SECONDARY)
 
