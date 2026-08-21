@@ -23849,3 +23849,33 @@ removing BOTH -- likely small. pred_a (causal >=3x) True.
 NEXT: how much of mlp1 is token-class UNION position (keep-only-combined CE-recovery)
 -- is the interpretable (token+position) part nearly ALL of mlp1, leaving only a
 small irreducible core? Queued combined_interpretable.
+
+## 777. COMBINED INTERPRETABLE fraction of MLP L1 -- ~78% is token-class + position,
+## ~22% irreducible (capstone of 773-776). Keep only the union subspace of token-
+## class(64) + position(32).
+Result (mlp1 benefit 1.088):
+  combined union dim = 96 (NO dimensional collapse -- the 0.62 "overlap" of 776 was
+    mean principal-angle COSINE, not shared dimensions; the two subspaces sit at
+    moderate angles but are linearly independent. Correction to the 776 implication
+    that overlap would compress the union.)
+  keep-only: COMBINED 0.785 | token-class 0.613 | position 0.256 | random-96d 0.369
+  remove combined -> complement still recovers dCE 0.446 (41% of benefit)
+READ: ~78% of mlp1's causal loss-benefit is captured by 96 NAMEABLE dimensions
+(token-class lexical + position), vs a random 96-dim subspace at 0.37. The
+IRREDUCIBLE part -- what keep-only-combined MISSES -- is ~22% (1 - 0.785). (The
+complement independently recovers 41%, so mlp1's benefit is partly REDUNDANT between
+the interpretable subspace and its complement; the truly non-interpretable core is
+the ~22% the interpretable subspace cannot reach.) So mlp1's early-middle
+"contextual" computation (773's supposed distributed wall) is MAJORITY-INTERPRETABLE:
+lexical token-class + position, two clean low-rank causal structures, plus a ~22%
+genuinely distributed remainder.
+SYNTHESIS (773-777): the front of the network is far more interpretable than the
+"distributed remainder" framing implied. Attention = token-class everywhere
+(structural markers); MLP L0 = token-class (lexical) in; MLP L16/17 = token-identity
+out; MLP L1-3 = token-class + POSITION (both causal, low-rank, nameable, ~78% of the
+layer) + a ~22% irreducible distributed core. The genuine no-low-rank-carrier wall
+(FINDINGS 1) is real but confined to ~1/5 of the early-middle MLP -- most of what
+looked like opaque contextual computation is token-class and position. pred_a True.
+NEXT: does token-class+position generalise across the early MLPs (L0-L4) -- is the
+front uniformly ~interpretable, and where does the irreducible fraction peak?
+Queued combined_depth.

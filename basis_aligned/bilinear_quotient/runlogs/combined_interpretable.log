@@ -1,0 +1,6 @@
+combined union dim 96 (of token 64 + pos 32 = 96; overlap compresses it)
+keep-only: combined 0.785 | token 0.613 | position 0.256 | random-96d 0.369
+remove combined -> irreducible remainder dCE 0.446 (of benefit 1.088)
+
+(a) mlp1 mostly token-class+position (keep-combined >=0.7): True; irreducible remainder 0.41 of benefit
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/combined_interpretable_results.json (62s)
