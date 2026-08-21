@@ -24563,3 +24563,31 @@ So the honest cross-model claim: ~3/4 class+position is broadly supported across
 family and scale (bilin18, gpt2-small, pythia-160m/410m), with one outlier (gpt2-
 medium) whose low score traces to a massive-activation confound at its first MLP that
 needs a robust re-measurement to resolve. pred_a False (gpt2-medium < 0.6).
+
+## 802. GPT2-MEDIUM IS A GENUINE EXCEPTION (my 801 confound hypothesis REFUTED) --
+## the ~3/4 class+position reduction is COMMON, NOT UNIVERSAL. Correction stated
+## plainly. Diagnostic of gpt2-medium mlp0.
+Result:
+  NO massive activation: mlp0 output norm max/mean 1.49; token-mean subspace singular
+    values 681/532/480/420/399 (s0/s1 1.28) -- NOT dominated by one direction (a
+    massive-activation confound would show 10-100x concentration). Removing the top PC
+    does NOT help (keep -0.168). So the 801 massive-activation-confound hypothesis is
+    REFUTED.
+  keep-only recovery stays NEGATIVE up to rank 128 (r16 -0.43, r64 -0.21, r128 -0.15)
+    and only +0.17 at rank 256. So keeping only the token-mean projection of gpt2-
+    medium's mlp0 is WORSE than ablating it -- the signature of a JOINT / non-separable
+    computation (like attn5 787), not a measurement artifact.
+READ: gpt2-medium mlp0's low class+position score is GENUINE, not a confound. Its
+first MLP does a computation NOT reducible to independent token-class + position
+(keeping only that projection actively hurts). So gpt2-medium is a REAL counterexample.
+CORRECTION (to 800/801 universality framing): the ~3/4 class+position reduction is
+COMMON across models (bilin18 0.78, gpt2-small 0.77, pythia-160m 0.75, pythia-410m
+0.69) but is NOT UNIVERSAL -- gpt2-medium (355M) genuinely does not reduce this way.
+I OVERSTATED it as "a property of trained transformers"; the honest claim is "common
+across the models tested, with at least one genuine exception." Why gpt2-medium
+specifically (differing from gpt2-small only in scale) is open -- possibly its first
+MLP does more joint/entangled computation; not settled.
+So the final honest cross-model claim: the token-class + position reduction to ~3/4 of
+the computation holds for MOST models we tested (4/5, across bilinear/absolute/rotary),
+but it is a COMMON pattern, not a universal law -- gpt2-medium's first MLP is a
+genuine exception. pred_a False (confound refuted).
