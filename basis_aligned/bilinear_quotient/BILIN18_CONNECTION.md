@@ -22791,3 +22791,32 @@ This is the methodological anchor for the sparse-decomposition program: a
 ground-truth toy where the metric and method provably recover the planted
 structure. Next toys: SHARED computation (some datapoints share atoms --
 does the method respect it?) and MIXED sparse+dense (like the real layer).
+
+## 744. TOY SHARING -- the method RESPECTS shared vs unshared computation
+## (user's core criterion). With planted COMMON (shared) + RARE (unique)
+## atoms, the SAE recovers the atoms (0.992) AND their usage frequencies:
+## common atoms recovered as HIGH usage (0.18), rare as LOW (0.035), usage-
+## correlation 0.77 (shuffled null -0.08).
+
+Planted: 8 common atoms (true usage ~0.25 each) + 56 rare (~0.036 each);
+each datapoint = 2 common + 2 rare. SAE P=96, k=4.
+  atom-recovery 0.992; usage-corr(learned,true) 0.766 (null -0.077);
+  recovered-COMMON mean usage 0.182 vs recovered-RARE 0.035 (~5x).
+FINDINGS (both HELD):
+  (a) The SAE RESPECTS the sharing structure: shared computation -> shared
+      HIGH-usage atoms, unique computation -> rare LOW-usage atoms, and the
+      recovered usage frequency correlates with the planted one (0.77). It
+      does NOT over-explain (fixed k=4) and reuses common circuits exactly
+      where the plant shares them. This is precisely the user's criterion
+      ("if datapoints share, respect that; if not, respect that").
+  NULL HELD: usage-correlation with SHUFFLED true usage is ~0 (-0.08) -- the
+      usage match is real.
+TOGETHER (743+744) the two ground-truth toys establish the framework: the
+overcomplete top-k SAE (1) recovers genuine sparse structure SVD cannot
+(743), (2) does not hallucinate structure when there is none (743 null), and
+(3) respects shared-vs-unshared computation via usage frequency (744). This
+is the validated methodology for the sparse-decomposition program. Next:
+apply it to the REAL layers and compare -- mlp0 (low-rank r80=8) vs mlp1
+(high-rank) vs mlp16 (rank-1) vs an attention c_proj -- to see which real
+layers have hidden sparse/overcomplete structure (SAE>>SVD) vs are genuinely
+low-rank/dense (SAE~SVD). Queued real_sae_compare.
