@@ -1249,6 +1249,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the end <em>reads out</em> concrete next-token predictions. The two ends are the legible
   bookends of an illegible middle — the readout layer a near-mirror of the token-lookup table the
   very first layer turned out to be.</p>
+  <p>One caution comes with that picture, and it's a sharp one: <em>legible</em> is not the same
+  as <em>important</em>. The readout layer's groups are the cleanest to read in the whole model,
+  but when you switch them off they barely matter — that final layer moves the line-break decision
+  about three times <em>less</em> than the first layer does, and its cleanest line-break group,
+  deleted, does less than a random handful of its pieces. The clean readout groups are a tidy
+  <em>display</em> of a decision that was largely made earlier and elsewhere, shown legibly right
+  before the output because that's where each piece's activity is nearly a word prediction already.
+  So the place a decision is easiest to read off is precisely not the place it is chiefly made.
+  It's worth holding onto whenever a late-layer feature looks like the answer: reading a group and
+  testing whether it matters are different questions, and here they point in opposite directions.</p>
   <p>All three groups were then tested causally, not just read off examples — with a group's
   pieces replaced by their average value everywhere else in the layer left exact, does the
   model specifically lose the behaviour the examples suggested? This took three attempts to
