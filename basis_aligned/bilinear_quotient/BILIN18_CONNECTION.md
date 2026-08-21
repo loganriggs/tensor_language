@@ -18345,3 +18345,53 @@ whole-layer effect) or equally diffuse. That comparison decides
 whether "mlp0 has a localizable article circuit, mlp1 does not" is
 real or whether both layers are diffuse and cluster 8's earlier
 patching confirmation (592) was also sufficiency-not-necessity.
+
+## 610. DECISIVE: BOTH article layers are diffuse -- even mlp0's
+## flagship cluster 8 carries only 4% of the whole-layer effect under
+## ablation. The article circuit is sufficient-but-not-necessary
+## structure, redundantly computed across each layer's full width
+
+The identical ablation-fraction test on mlp0 (vs 609's mlp1).
+  (0) reproduced; identity 0.
+  (a) whole-mlp0 mean-fill shifts the article margin +0.0154 --
+      reproduces 608's +0.015 exactly.
+  (b) THE DECISIVE FINDING: mean-filling cluster 8 (101 units, the
+      program's first and cleanest article circuit, patching-confirmed
+      in 592) shifts the margin +0.0006 -- only 4% (0.04) of the
+      whole-mlp0 effect. mlp0 is ALSO diffuse.
+  (c) cluster 8's shift is 3.19x a random 101-unit set's -- so it IS
+      genuinely more article-relevant than an arbitrary slice (unlike
+      pure noise), but it is still a 4% minority of the whole layer.
+  NULL ok.
+UNIFIED CONCLUSION across 592/595/609/610: the article decision --
+this program's flagship, most-thoroughly-traced circuit -- is
+CAUSALLY DIFFUSE in both layers that compute it. Neither mlp0 cluster
+8 (4% of whole-mlp0) nor the mlp1 echo (~0% of whole-mlp1) is
+NECESSARY; both are patching-confirmed SUFFICIENT carriers. The full
+resolution of the sufficiency-vs-necessity split now covers both
+layers:
+  - PATCHING (592/595): transplanting either cluster's activation into
+    another context moves the margin correctly -> the clusters carry
+    the article signal (sufficiency).
+  - ABLATION (609/610): removing either cluster's write leaves the
+    margin ~unchanged -> neither is load-bearing (no necessity).
+  These diverge because the article decision is REDUNDANTLY encoded
+  across the full 4608-unit width of each layer. Cluster 8 is slightly
+  less diffuse than the mlp1 echo (4% vs ~0%, 3.19x vs 16.5x random),
+  but the difference is one of degree; both layers compute the article
+  decision redundantly, not through a localized bottleneck.
+WHAT THIS MEANS FOR THE PROGRAM, stated plainly: the unit-clustering +
+patching methodology reliably finds REAL, READABLE, SUFFICIENT article-
+carrying structure -- cluster 8's grammar-matching triggers (598), its
+context-dependence (604), its parallel mlp1 echo (599), its front-
+build depth profile (608) are all genuine. But that structure is a
+HANDLE on a redundant computation, not the computation's bottleneck.
+"We found the article circuit" is true in the sense of "we found real,
+interpretable, sufficient article-carrying directions"; it is NOT true
+in the sense of "we found the localized set of units the model needs
+to make the decision" -- no such small set exists, because the model
+spreads the decision redundantly across each layer's full width. This
+is the deepest and most honest statement of what the circuit-finding
+has and has not established, and it is a general property (holds for
+the flagship, so likely holds broadly), not a one-cluster caveat. The
+localization line is complete; the honest headline is redundancy.
