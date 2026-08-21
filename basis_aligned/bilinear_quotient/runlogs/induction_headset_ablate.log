@@ -1,0 +1,14 @@
+4672 induction positions
+baseline 0.1402   all-attention-ablated floor 0.0184
+K= 1: induction P(B) 0.1340 (drop +0.0062, 5% of floor gap)  random 0.1402
+K= 2: induction P(B) 0.1295 (drop +0.0107, 9% of floor gap)  random 0.1404
+K= 4: induction P(B) 0.1268 (drop +0.0134, 11% of floor gap)  random 0.1408
+K= 8: induction P(B) 0.1248 (drop +0.0154, 13% of floor gap)  random 0.1396
+K=16: induction P(B) 0.1164 (drop +0.0237, 19% of floor gap)  random 0.1351
+
+(0) sane: True
+(a) top-8 set collapses copying (drop>2x random, 13% of floor gap): True
+(b) monotone in K: True
+NULL induction K-set >> random K-set: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_headset_ablate_results.json (59s)

@@ -1,0 +1,32 @@
+{
+ "baseline": 0.14019,
+ "all_attn_floor": 0.01838,
+ "curve": {
+  "1": {
+   "induction": 0.13401,
+   "random": 0.14022
+  },
+  "2": {
+   "induction": 0.12948,
+   "random": 0.14042
+  },
+  "4": {
+   "induction": 0.12676,
+   "random": 0.14082
+  },
+  "8": {
+   "induction": 0.12483,
+   "random": 0.13964
+  },
+  "16": {
+   "induction": 0.11644,
+   "random": 0.1351
+  }
+ },
+ "top8_frac_of_floor_gap": 0.1261,
+ "pred_0": true,
+ "pred_a_set_collapses": true,
+ "pred_b_monotone": true,
+ "null_ok": true,
+ "runtime_s": 58.609111070632935
+}

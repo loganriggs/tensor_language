@@ -1,0 +1,80 @@
+# bilin18 — consolidated findings index
+
+The working index. The full ledger (BILIN18_CONNECTION.md, 630+ sections) is an append-only
+lab notebook, not a place to keep up with results. **This file is the ~10 things that matter,
+their confidence, and what's open.** Update this in place; don't let it grow past a page.
+
+Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid but one caveat.
+**LOW/known-limit** = suggestive or resolution-limited.
+
+## The established results (most important first)
+
+1. **Redundancy is universal — no necessary component at any grain.** Computation is diffuse over
+   MLP units, over depth bands, and over attention heads. The strongest localization the model
+   permits is "these components do it and matter more than chance," never "this one is the circuit."
+   **HIGH.** §610–616 (units), §633 (clusters), §644 (routing = "front attention", no single head),
+   §648 (even the induction heads: top-4 ablation removes only 10%).
+
+2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
+   axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
+   reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
+
+3. **Block 17 is a net-beneficial frequency calibrator.** It suppresses tokens ∝ log-frequency
+   (corr +0.64), the only block whose removal *helps* frequent-target CE; a −0.17/+0.69 → +0.43
+   nat trade; class-level it shifts mass function→content. Not a content writer. **HIGH.** §624–629.
+
+4. **Depth division of labor.** FRONT (0–2) decides the next-token *class* and carries most loss;
+   MIDDLE (6–16) refines *which token within the class* (rare/content, esp. the open content-word
+   slot); BACK (17) calibrates frequency. **MED** (front's +7-nat magnitude inflated by
+   error-compounding; the middle/back claims are clean). §630–632.
+
+5. **Circuits bottom out in embedding trigger-geometry, not computed triggers.** Skip all 18 blocks
+   and a `.`→newline / prep→the lean is already in embedding∘unembedding. BUT the direct path is a
+   *poor* LM (CE 12.65 > uniform 10.83) — it's a relative lean, off-distribution alone; the blocks
+   do essentially all real predictive work (+7.48 nats over uniform). **HIGH.** §637, §640.
+
+6. **The blocks' job = context-discrimination/routing of a context-blind trigger.** The `.` bigram
+   fires identically at every period; the blocks route among {newline, capitalized, continuation}
+   by context, done ~80% by FRONT ATTENTION. Trigger → route → calibrate. **HIGH.** §638–639, §643–644.
+
+7. **Newline circuit (flagship, fully traced).** `.`/`!`/`?` embedding trigger (28× lift) → front
+   attention discriminates real line-ends (0.47) from mid-paragraph (0.21) → block-17 calibration.
+   **HIGH.** §635, §637, §639, §643–644.
+
+8. **Article circuit (traced; corrected 614).** be-verb→a/an; **preposition→the** (was wrongly
+   "a/an"); punctuation→the. Front attention carries the a/an-vs-the *choice*; front MLP carries the
+   *magnitude*; block 17 calibrates "the". **HIGH.** §636, §640.
+
+9. **A token "class" can hide two circuits.** Digit: *continuation* (prev digit→digit) vs
+   *initiation* (first digit after $/page/word). Initiation is computed (9.4×); the average misleads.
+   **MED.** §641–642.
+
+10. **Induction/copying — ALREADY MAPPED in the census (name circuit attn0+attn1 build the copy
+    source; "induction-target" motif). This run re-derived it and added:** natural-text induction is
+    rare-token-dominant (P 0.33 for rare vs 0.08 frequent) and distance-robust; the *reader* heads
+    are L5.H5 (dominant, z+3.99) / L8.H4/H6 / L10.H8, causally real but redundant. **MED / overlaps
+    prior work.** §645–648. ⚠ flagged: opened without checking it was done — a tracking miss.
+
+### Architecture facts worth keeping
+- MLP = `Down[(Lx)·(Rx)] + b`: every output dim is an exact **quadratic form** `xᵀMₖx`. mlp17's
+  *output* is rank-8 (§615), effective rank ~5 supervised readout axes (§618) → mlp17 ≈ **5–8
+  quadratic functions** (one per output direction; ~5 that matter). (Q3 — exact minimal count for
+  80% of loss not yet measured.)
+- Residual is rescaled every block (`x = λ₀x + λ₁x₀`); a writer 12 layers back arrives ×∏λ₀ ≈ 2e-4.
+- Logits are `30·tanh(lm_head(rmsnorm(x))/30)`.
+
+## Open / focus (hierarchical — go deeper on any)
+
+- **A. Finer component isolation (highest value).** Behavior-conditioned low-rank: restrict X to a
+  behavior, find the smallest-rank weight reproducing it (SVD_r(WX)·X⁺ / RSPD). *Not yet tried on
+  the traced behaviors.* The SVD(W·X) work so far was unit-CLUSTERING, a different (weaker) object.
+- **B. Does ablating the whole head-SET localize induction?** (running: induction_headset_ablate.)
+- **C. Systematic circuit discovery** vs the current opportunistic depth-first tracing (see method note).
+- **D. Middle's within-class refinement mechanism** — hit the redundancy wall (§633), unlocalized.
+- **E. Reconcile induction reader-heads (L5.H5) with census name-circuit source-builders (attn0/1).**
+
+## Method note (how ideas are generated — honest)
+Opportunistic, depth-first: pick a behavior, trace it output→input causally, follow each result to
+the next question, generalize/contrast, turn contradictions into experiments. **No systematic
+enumeration and no dedup against prior work** — which is how induction got re-run. Fix: consult this
+index before opening a "new" thread.
