@@ -1,0 +1,13 @@
+block1.attn rank-1 ablation dCE by category:
+  newline  : real +0.243   random +0.001
+  punct    : real +0.507   random +0.000
+  digit    : real +1.298   random +0.002
+  cap_word : real +1.023   random -0.001
+  func_word: real +0.535   random -0.000
+  content  : real +1.241   random +0.001
+  subword  : real +1.454   random +0.001
+top category (real): subword (+1.454)
+
+(a) general open-vocab (top in content/subword): True
+NULL random flat: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/block1_attn_function_results.json (109s)

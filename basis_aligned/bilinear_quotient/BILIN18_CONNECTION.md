@@ -22230,3 +22230,36 @@ block0.attn dir1 = causally minor alone. mlp16 rank-1 = the real boundary
 circuit. Queued block1_attn_function to characterize what block1.attn's
 rank-1 ACTUALLY contributes to (by category selectivity), correcting its
 name.
+
+## 727. block1.attn rank-1 RENAMED: a GENERAL OPEN-VOCABULARY CONTINUATION
+## writer, not a boundary circuit. Ablated, it hurts the HARD open-vocab
+## categories most (subword +1.45, digit +1.30, content +1.24, cap_word
+## +1.02) and NEWLINE the LEAST (+0.24). It fires AT boundaries (input) but
+## its output predicts the CONTENT that follows.
+
+Ablation dCE by next-token category (random null in brackets, all ~0):
+  subword +1.45 [.001] <- TOP   func_word +0.54 [.000]
+  digit   +1.30 [.002]          punct     +0.51 [.000]
+  content +1.24 [.001]          newline   +0.24 [.001] <- LOWEST
+  cap_word+1.02 [-.001]
+FINDINGS:
+  - block1.attn's rank-1 (2.06-nat benefit, one direction) is the single
+    biggest OPEN-VOCAB CONTINUATION contributor: ablating it most hurts the
+    hard open-vocabulary next-token predictions (subwords, digits, content,
+    capitalized words), and LEAST hurts newline. So its causal function is
+    predicting the next CONTENT token, not marking boundaries.
+  - This resolves the 726 correction cleanly: the "boundary firing" (701's
+    top-|s| tokens were \n/punctuation) is the INPUT TRIGGER; the OUTPUT
+    FUNCTION is general open-vocab continuation. Corrected name: block1.attn
+    rank-1 = "fires at boundaries, writes the open-vocab continuation."
+    Consistent with 710/711 (front components serve hard open-vocab) and
+    with 722 (the front does the open-vocab work).
+  - CONFIRMS the general lesson: name circuits by CAUSAL OUTPUT SELECTIVITY
+    (category ablation), not by firing pattern. Firing (input) tells you
+    WHEN a component activates; causal ablation tells you WHAT it does.
+FINAL boundary picture: only mlp16's rank-1 is a genuine boundary-selective
+circuit (726). block1.attn fires at boundaries but does open-vocab
+continuation; block0.attn dir1 is causally minor. The "boundary->
+continuation circuit at 3 layers" was a firing-pattern illusion; the causal
+reality is one boundary-selective circuit (mlp16) + a general open-vocab
+continuation writer (block1.attn) that happens to trigger at boundaries.

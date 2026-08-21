@@ -162,3 +162,12 @@ Opportunistic, depth-first: pick a behavior, trace it output→input causally, f
 the next question, generalize/contrast, turn contradictions into experiments. **No systematic
 enumeration and no dedup against prior work** — which is how induction got re-run. Fix: consult this
 index before opening a "new" thread.
+
+**Circuit-naming rule (§726–727):** name a circuit by its **causal OUTPUT selectivity** (ablate it,
+measure which behavior/token-category the CE-increase concentrates on), **not** by its **firing
+pattern** (which input tokens make its coefficient spike). Firing tells you *when* a component
+activates; only causal ablation tells you *what it does*. Over-reading firing as function created the
+false "boundary→continuation circuit at 3 layers" (§726): of block0.attn-dir1 / block1.attn-rank1 /
+mlp16-rank1, only **mlp16** is causally boundary-selective; **block1.attn fires at boundaries but does
+general open-vocab continuation** (§727). This is the **fires≠contributes** face of read≠write
+(items 1–2). Verify every named circuit this way before trusting the name.
