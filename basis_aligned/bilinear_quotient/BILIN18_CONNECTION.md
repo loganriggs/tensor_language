@@ -19679,3 +19679,42 @@ was registered; the alignment question is still open. Requeued as
 calibrator_direction_id2 with the pseudoinverse construction:
 freq_dir = normalize(W_U^+ log_freq), verify its readout corr >= 0.8,
 then test cos(w_freq, freq_dir) vs random.
+
+## 656. The isolated rank-1 calibration direction IS (mostly) the
+## log-frequency axis: cos(w_freq, freq_dir) = 0.61 (28x random),
+## cos^2 = 0.37 ~ 627's R^2 = 0.41. Two independent measures agree the
+## calibration is ~40% the pure frequency axis. (Caveat: log-freq is
+## only ~half-realizable as a single unembedding readout.)
+
+Corrected identification (655 fix, pseudoinverse via regularized normal
+equations). freq_dir = W_U^+ log_freq.
+  (0) STILL MARGINAL: freq_dir's readout correlates with log-freq at
+      0.529 (better than 655's 0.44 but < 0.8). Even the best least-
+      squares direction reads out log-frequency only ~half-cleanly --
+      log-frequency is NOT a clean rank-1 readout in this unembedding
+      (the frequency signal is partly spread/nonlinear across W_U). So
+      "the frequency axis" is an approximate object.
+  (a) HELD and informative: cos(w_freq, freq_dir) = +0.610, vs random
+      |cos| 0.022 -- the isolated rank-1 calibration direction (650) is
+      strongly aligned (28x random) with the best-achievable log-
+      frequency readout direction. Positive sign (it tracks target
+      frequency).
+CROSS-VALIDATION (the satisfying part): cos^2(w_freq, freq_dir) = 0.37,
+and 627 independently found block 17's per-token action is R^2 = 0.41
+explained by log-frequency alone. Two different methods -- a direction
+cosine here, a per-token regression in 627 -- agree that block 17's
+calibration is ~40% the pure frequency axis and ~60% context/other. So
+the rank-1 calibration component we isolated (650-651) IS, to ~40%, a
+frequency-proportional bias written along the unembedding's log-frequency
+direction; the remaining ~60% is a context-conditioned correction (which,
+per 654's taxonomy, would not itself be linearly isolable).
+CHARACTERIZATION of the one rank-1 component, complete: block 17's
+calibration = a bias written substantially (cos 0.61) along the log-
+frequency axis of the unembedding, suppressing frequent tokens, rank-1-
+isolable by removal (650-651), ~40% pure-frequency / ~60% context (627 +
+656). Caveat carried: log-freq is not a perfectly clean unembedding
+readout (corr 0.53), so the "frequency axis" is approximate. Queued
+block17_decompose to finish the picture: after removing w_freq (the
+calibration), is block 17's REMAINING output the content-writing (629,
+subword/capitalized) -- i.e. is block 17 cleanly = calibration (rank-1)
+(+) content-writing (rest), two separable functions?
