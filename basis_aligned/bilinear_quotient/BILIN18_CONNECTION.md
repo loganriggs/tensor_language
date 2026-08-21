@@ -24357,3 +24357,33 @@ remaining ~22% is genuine DISTRIBUTED/CONDITIONAL computation with no low-rank c
 (FINDINGS 1) -- concentrated in mlp1's remainder and the multi-function heads whose
 per-head concept-naming fails (792). So: the model is mostly (~4/5) a class+position
 machine; the hard, irreducible part is a distinct ~1/5. pred_a True.
+
+## 795. THE ~22% REMAINDER IS UNIFORM, not content (my prediction WRONG, stated
+## plainly). With all 36 components projected onto class+position, CE-recovery
+## resolved by current-token grammatical class.
+Result:
+  overall keep-recovery 0.781 (reproduces 794).
+  by current-token-class: det 0.80 / punct 0.80 / prep 0.78 / aux 0.79 / conj 0.83 /
+    pron 0.80 / num 0.76 / other(content) 0.77.
+  function-word mean 0.80 vs content(other) 0.77 -- gap only 0.036.
+READ: the class+position sufficiency is REMARKABLY UNIFORM (~0.76-0.83) across ALL
+current-token classes. CORRECTION (my pred_a WRONG): I predicted the ~22% remainder
+is CONTENT prediction (function words high, content low). It is NOT -- the split is
+~78% class+position / ~22% distributed for predicting after EVERY kind of token,
+function words and content alike (gap 0.036, negligible). So the distributed
+remainder is NOT a localizable "content module" -- it is a BROAD, UNIFORM ~22%
+overhead woven evenly through all prediction contexts.
+This is consistent with the distributed/no-low-rank-carrier character (FINDINGS 1):
+the hard ~1/5 resists localization by token-class just as it resists low-rank
+decomposition -- it is genuinely diffuse, not concentrated on any nameable subset.
+So the final picture is clean: the model applies the SAME ~78% class+position /
+~22% distributed split uniformly; class+position is a general-purpose ~4/5 of the
+computation everywhere, and the remaining ~1/5 is uniformly-distributed conditional
+computation with no class or rank handle. pred_a False (informatively -- rules out
+the content-module hypothesis).
+CAPSTONE STATUS (767-795): the bottom-up program has a complete, causally-grounded,
+honest characterisation -- the model is ~78% a token-class + position computer
+(two low-rank computed nameable variables, cross-model-general at the subspace level),
+uniformly across token-classes, with a ~22% uniform diffuse distributed remainder
+that resists every low-rank/class localization. The clean part is understood; the
+hard part is characterised as genuinely, uniformly distributed.
