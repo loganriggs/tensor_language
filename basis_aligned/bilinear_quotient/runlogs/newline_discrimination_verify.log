@@ -1,0 +1,7 @@
+3 newline-containing token ids
+period positions: 1508, line-ends: 369
+discrimination AUC  full 0.806  front-ablated 0.510  rand-ablated 0.789
+
+(0) model discriminates (AUC>0.6): True
+(a) front attn drives it (drop 0.296 > 1.5x rand drop 0.017): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_discrimination_verify_results.json (104s)

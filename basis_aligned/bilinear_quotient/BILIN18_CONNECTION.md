@@ -22263,3 +22263,33 @@ continuation; block0.attn dir1 is causally minor. The "boundary->
 continuation circuit at 3 layers" was a firing-pattern illusion; the causal
 reality is one boundary-selective circuit (mlp16) + a general open-vocab
 continuation writer (block1.attn) that happens to trigger at boundaries.
+
+## 728. FLAGSHIP VERIFIED -- the newline circuit is CAUSALLY REAL. Front
+## attention carries essentially ALL the line-end discrimination: at period
+## positions, the model's P(newline)-vs-actual-line-end AUC is 0.806, and
+## ablating front attention (block0+block1 c_proj) collapses it to 0.510
+## (chance), while a matched random-subspace ablation barely touches it
+## (0.789).
+
+At period positions (current token ends in . ! ?; 1508 positions, 369 real
+line-ends), AUC of P(newline) vs is-actually-a-line-end:
+  full model            0.806
+  front-attn ablated    0.510  (drop 0.296 -> chance)
+  random-subspace abl   0.789  (drop 0.017)
+FINDINGS (both predictions HELD):
+  (0) the model strongly discriminates real line-ends from mid-sentence
+      periods (AUC 0.806).
+  (a) FRONT ATTENTION causally CARRIES that discrimination: ablating it
+      drops the AUC to 0.51 (pure chance), 17x more than a matched random
+      ablation (0.79). So the newline circuit's core claim (635-644,
+      FINDINGS item 7: "front attention discriminates real line-ends") is
+      CAUSALLY CONFIRMED, not a firing artifact.
+CONTRAST with 726-727: the SAME causal-selectivity method that BROKE the
+false "boundary circuit" (only mlp16 causal) CONFIRMS the real newline
+circuit (front attn collapses discrimination to chance). So the method is
+two-sided -- it kills firing-illusions AND validates genuine circuits. The
+newline circuit is a DISCRIMINATION/ROUTING function (front attention
+decides newline-vs-continuation at periods), and removing front attention
+destroys the decision. This strengthens FINDINGS item 7 with a clean causal
+AUC test. Queued article_circuit_verify (same test on the other flagship,
+item 8: does front attn/mlp causally carry the a/an-vs-the choice?).
