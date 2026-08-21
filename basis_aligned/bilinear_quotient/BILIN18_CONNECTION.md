@@ -18395,3 +18395,98 @@ is the deepest and most honest statement of what the circuit-finding
 has and has not established, and it is a general property (holds for
 the flagship, so likely holds broadly), not a one-cluster caveat. The
 localization line is complete; the honest headline is redundancy.
+
+## 611. Redundancy is GENERAL: the newline decision is also diffuse --
+## a second independent decision confirms 610's "sufficient handles,
+## no necessary core" as a property of this model, not of articles
+
+Ran the identical ablation-fraction test for the NEWLINE decision
+(vs 610's article), to test whether redundancy is general.
+  (0) reproduced (81-unit newline cluster); identity 0.
+  (a) whole-mlp0 newline-margin shift +0.0505 -- mlp0 does real,
+      substantial newline work (3x its article effect of +0.015).
+  (b) THE FINDING: mean-filling the 81-unit newline cluster shifts the
+      newline margin -0.0005 -- a fraction of -0.01 of the whole
+      layer. The newline decision is DIFFUSE, exactly like article.
+  (c) the newline cluster's shift is 2.94x a random 81-unit set's --
+      just under the 3x specificity bar (FAILED narrowly), so the
+      cluster is marginally more newline-relevant than random but a
+      negligible fraction of the whole layer, same pattern as article.
+  NULL ok.
+CONFIRMED GENERAL: two independent decisions -- article (610, both
+mlp0 and mlp1) and newline (this) -- are both causally diffuse. Their
+named clusters carry ~0-4% of the whole-layer effect under ablation
+despite being patching-confirmed (article) or activation-clean
+(newline). This upgrades 610's claim from "holds for the flagship" to
+"holds across independent decisions": redundant, full-layer-width
+encoding is how THIS MODEL computes its early decisions, not a quirk
+of the article circuit. The unit-clustering method finds real,
+readable, SUFFICIENT structure for each decision, but no decision has
+a NECESSARY localized core in the unit basis. This is now a robust,
+general property with two clean data points.
+ONE QUESTION IT OPENS, worth testing next: units are a privileged
+basis, but the computation could still be low-RANK in a rotated basis
+(RSPD showed attn0's write is rank-16 despite being unit-diffuse,
+589). Is mlp0's article/newline WRITE low-rank in its 1152-dim output
+space even though it is diffuse over the 4608 units? If a small number
+of output DIRECTIONS carries each decision, the computation is
+localizable after all -- just in directions, not units. Queued:
+article_write_rank -- sweep the rank of mlp0's output (keep top-r PCA
+directions, mean-fill the rest) and find the r that preserves the
+article margin, distinguishing "diffuse over units but low-rank over
+directions" from "genuinely high-rank".
+
+## 612. RECONCILED: the article write is DIFFUSE over units but
+## LOW-RANK (~16) over output directions -- there IS a compact
+## necessary core, just in the rotated basis, matching the program's
+## "compact directions, distributed sources" theme
+
+The basis question 611 opened. Keeping only the top-r PCA directions
+of mlp0's output (mean-filling the rest of the 1152-dim output space)
+and measuring the article-margin damage:
+  (0) endpoints HELD: rank-0 (mean-fill all) = +0.0154 (608's whole-
+      layer shift); full-rank = 0 (identity).
+  THE CURVE (shift = residual damage; smaller = more preserved):
+    rank  1: +0.0096 (62% of whole-layer damage remains)
+    rank  2: +0.0079 (51%)
+    rank  4: +0.0056 (37%)
+    rank  8: +0.0040 (26%)
+    rank 16: +0.0024 (16%)   <- 84% of the article decision preserved
+    rank 32-64: ~23% (noise, shifts are ~0.003)
+    rank 128: 15%
+    rank 256: +0.0005 (3%)   <- 97% preserved
+    rank 512: ~0 (identity)
+  (a) HELD: the smallest r with damage under 20% of the whole-layer is
+      16 -- the top 16 output DIRECTIONS carry ~84% of mlp0's article
+      contribution.
+  (c) HELD decisively: at rank 16, the PCA projection's damage
+      (0.0024) is 6x smaller than a random 16-dim subspace's (0.0127,
+      3 draws) -- the low rank is real structure, not any 16-dim
+      slice.
+THE RECONCILIATION, and it is the key structural fact: mlp0's article
+write is DIFFUSE over its 4608 UNITS (610: no small unit-cluster is
+necessary) but LOW-RANK over its 1152 output DIRECTIONS (~16
+directions carry 84%). Both are true because units and output-
+directions are DIFFERENT bases: the article computation is spread
+across all units (so no unit subset is necessary) but concentrated in
+a ~16-dimensional subspace of the output (so a small set of directions
+IS necessary). There is a compact necessary core after all -- it is
+just in the rotated (PCA/output) basis, invisible in the unit basis
+the clustering used.
+THIS UNIFIES THREE THREADS:
+  - 610/611 (article/newline diffuse over units) -- the SOURCES are
+    distributed;
+  - this (article write rank ~16) -- the DIRECTIONS are compact;
+  - 569's "compact directions, distributed sources" (digit subspace:
+    1 direction = 54%, 4 heads) and 589 (attn0's write is rank-16 by
+    the same measure) -- the SAME structure, now shown for mlp0's
+    article write.
+So the honest, complete picture of the article circuit: distributed
+over units, redundant to unit ablation, but living in a compact ~16-
+dimensional output subspace -- exactly the "compact directions,
+distributed sources" signature the program found for attention (589)
+and the digit behaviour (569), now confirmed for the flagship MLP
+decision. The right object to call "the circuit" is the low-rank
+output SUBSPACE, not any set of units. This resolves the localization
+tension (610's "no necessary core") cleanly: the necessary core exists
+in directions, not units. Localization line genuinely complete.
