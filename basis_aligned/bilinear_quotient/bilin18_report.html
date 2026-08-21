@@ -1823,8 +1823,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   comes out the same on either half of the corpus (overlap 0.82, versus 0.40 for the learned
   parts), with no seed to depend on. It is <em>causal</em>, and dramatically so: delete that
   ~60-direction subspace from the first layer's output and the model's loss jumps by 1.3 nats,
-  where deleting a random subspace of the same size costs almost nothing — a factor of 270. And it
-  is <em>readable</em>: the top directions are grammatical classes. One axis runs from determiners
+  where deleting a random subspace of the same size costs almost nothing — a factor of 270. The
+  reverse holds just as sharply: keep only those ~60 directions and throw the entire rest of the
+  layer's output away, and the model still keeps 92% of what the layer was worth (a random 60
+  directions keep 8%) — the other thousand dimensions the layer writes are, for the loss, almost
+  inert. And it is <em>readable</em>: the top directions are grammatical classes. One axis runs from determiners
   and articles ("the", "a", "an", "his") to the rest; another is punctuation; others are
   sentence-opening pronouns ("It", "He", "She"), auxiliary verbs ("is", "was", "were", "has"),
   digits, prepositions, and conditionals. The front of the network sorts what it writes by part of
