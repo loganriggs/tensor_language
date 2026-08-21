@@ -23903,3 +23903,28 @@ pred_a False (strict per-layer >=0.6 bar fails at the tiny L2/L3), but the NAT-
 WEIGHTED story is strongly positive: the early MLP stack is ~85% two nameable low-
 rank structures. This is the quantitative capstone of 773-777: what looked like an
 opaque contextual blob is ~85% token-class + position by the nats that matter.
+
+## 778. CROSS-MODEL -- the token-class SUBSPACE finding GENERALISES to real
+## pretrained transformers (GPT-2, Pythia-410m), and so does the first-MLP BARBELL
+## (user ask 1). Token-conditional-mean subspace of the first MLP's output; keep-
+## only-r CE-recovery.
+Result (first MLP, L0):
+  bilin18 (546M, bilinear)  : benefit ~2.4  keep16 0.72  keep64 0.92  keep128 0.96
+  GPT-2   (124M)            : benefit 3.96   keep16 0.52  keep64 0.84  keep128 0.93  (rand64 0.30)
+  Pythia-410m (410M)        : benefit 7.30   keep16 0.34  keep64 0.62  keep128 0.76  (rand64 0.04)
+READ:
+  * GENERAL: in all three models the FIRST MLP writes a LOW-RANK TOKEN-CLASS
+    subspace that carries most of its (large) loss benefit -- keep-only 64-128 dims
+    recovers 0.6-0.96, vs random 0.04-0.30. bilin18 is not special; "the front
+    sorts what it writes by token-class in a canonical low-rank subspace" is a
+    property of trained transformers. Magnitude varies (bilin18 0.92 > gpt2 0.84 >
+    pythia 0.62 at r=64; pythia reaches 0.76 at r=128) -- larger/deeper models
+    distribute somewhat more, but the structure is strong everywhere.
+  * BARBELL is UNIVERSAL: the first MLP dominates the entire MLP nat-budget in real
+    models too, MORE extreme than bilin18. GPT-2 L0 = 3.96 of ~4.9 total MLP
+    benefit (all other layers 0.05-0.17); Pythia L0 = 7.30 of ~10 (rest 0.09-0.49).
+    The first MLP does the bulk of lexical/token-class processing; the rest of the
+    MLP stack is near-inert by comparison.
+This is external validation of the 767-777 program: the token-class subspace is a
+REAL, canonical, low-rank, causal, cross-model structure, and the first-MLP-heavy
+barbell is a cross-model regularity. pred_a (generalises) True.
