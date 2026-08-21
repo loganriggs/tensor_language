@@ -1,0 +1,53 @@
+{
+ "properties": {
+  "frequency": {
+   "dCE_high": -0.0206,
+   "dCE_low": 0.7393,
+   "tradeoff": true,
+   "magnitude": 0.7599,
+   "rand_dCE_high": 0.0051,
+   "n_hi": 6174,
+   "n_lo": 6114
+  },
+  "length": {
+   "dCE_high": 0.1229,
+   "dCE_low": 0.0017,
+   "tradeoff": false,
+   "magnitude": 0.1246,
+   "rand_dCE_high": 0.0011,
+   "n_hi": 7635,
+   "n_lo": 4653
+  },
+  "is_capitalized": {
+   "dCE_high": 0.1246,
+   "dCE_low": 0.0852,
+   "tradeoff": false,
+   "magnitude": 0.2098,
+   "rand_dCE_high": -0.0092,
+   "n_hi": 1693,
+   "n_lo": 10595
+  },
+  "is_punct": {
+   "dCE_high": 0.0085,
+   "dCE_low": 0.1173,
+   "tradeoff": false,
+   "magnitude": 0.1258,
+   "rand_dCE_high": -0.005,
+   "n_hi": 1602,
+   "n_lo": 10686
+  },
+  "after_quote": {
+   "dCE_high": 0.5605,
+   "dCE_low": 0.1123,
+   "tradeoff": false,
+   "magnitude": 0.6729,
+   "rand_dCE_high": 0.014,
+   "n_hi": 97,
+   "n_lo": 12191
+  }
+ },
+ "pred_0": true,
+ "pred_a_only_freq": false,
+ "null_ok": true,
+ "runtime_s": 99.87080645561218
+}

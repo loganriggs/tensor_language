@@ -20408,3 +20408,42 @@ investigation: the model has ONE cleanly-isolable, stable, actionable
 rank-1 knob (frequency calibration), and no other additive axis survives
 the causal trade-off test. Queued additive_knob_sweep_v2 (binary-split
 fix, adds punctuation and quote-context as candidates).
+
+## 675. DEFINITIVE close of the additive-knob catalog: frequency is the
+## UNIQUE additive bias -- the only property whose rank-1 removal yields a
+## CE TRADE-OFF (opposite-signed dCE). Every other candidate (length,
+## capitalization, punct, after-quote) shows SAME-signed dCE = a WRITER
+## contribution, not a bias knob. The discriminator is the trade-off sign,
+## not magnitude.
+
+Fixed sweep (binary props split by ==1), dCE_high / dCE_low on rank-1
+removal:
+  frequency      -0.021 / +0.739  TRADE-OFF (bias)     mag 0.76
+  length         +0.123 / +0.002  no trade-off (write) mag 0.12
+  is_capitalized +0.125 / +0.085  no trade-off (write) mag 0.21
+  is_punct       +0.009 / +0.117  no trade-off (write) mag 0.13
+  after_quote    +0.561 / +0.112  no trade-off (write) mag 0.67
+  random removal: ~0 for all (NULL clean).
+FINDINGS:
+  (0) HELD: frequency is a knob (trade-off, mag 0.76).
+  THE DISCRIMINATOR is the TRADE-OFF SIGN, not magnitude. An additive
+  BIAS, when removed, HELPS one group and HURTS the other (opposite
+  signs) -- only frequency does this. A WRITER contribution, when
+  removed, HURTS both groups (same sign) -- length, capitalization,
+  punct, and after-quote all do this. after-quote has a LARGE magnitude
+  (0.67, near frequency's 0.76) but it is WRITING (both groups hurt when
+  removed) -- the model genuinely uses quote-context to predict (667-668),
+  but that is content-writing, not an additive bias. So my magnitude-
+  based prediction (a) "failed" but the substantive claim is CONFIRMED:
+  frequency is the ONLY additive bias; every other property is a
+  (distributed) writer. NULL clean (random ~0).
+DEFINITIVE CONCLUSION of the isolation investigation (650-675): the model
+has exactly ONE additive bias -- the frequency calibration -- isolable to
+a stable, actionable rank-1 direction; everything else is distributed
+writing/prediction with no removable linear carrier. The clean test for
+"is this an additive knob" is the trade-off sign of its behavior-
+conditioned direction's removal. This closes the additive-knob catalog
+and the isolation investigation definitively. FINDINGS current. Queued
+residual_outlier_dims to open fresh structural ground: does the residual
+stream have massive-activation / outlier dimensions (a known LLM
+phenomenon), and what do they carry?

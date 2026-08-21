@@ -1,0 +1,10 @@
+frequency       dCE_high -0.0206 dCE_low +0.7393  trade-off True  mag 0.7599  (rand +0.005)
+length          dCE_high +0.1229 dCE_low +0.0017  trade-off False  mag 0.1246  (rand +0.001)
+is_capitalized  dCE_high +0.1246 dCE_low +0.0852  trade-off False  mag 0.2098  (rand -0.009)
+is_punct        dCE_high +0.0085 dCE_low +0.1173  trade-off False  mag 0.1258  (rand -0.005)
+after_quote     dCE_high +0.5605 dCE_low +0.1123  trade-off False  mag 0.6729  (rand +0.014)
+
+(0) frequency knob: True; (a) no other independent knob (freq >= 2x): False
+NULL random negligible: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/additive_knob_sweep_v2_results.json (100s)
