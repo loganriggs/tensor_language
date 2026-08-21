@@ -1,0 +1,12 @@
+mlp 0: input_er 123.3  read_er 919.3  gate_er  179.1  out_er  20.0  decoder_r80   8  ben 2.252
+mlp 1: input_er  52.9  read_er 1036.2  gate_er  429.3  out_er  89.9  decoder_r80 128  ben 1.000
+mlp 2: input_er  95.3  read_er 1003.3  gate_er  861.2  out_er 161.6  decoder_r80 256  ben 0.163
+mlp 4: input_er 149.9  read_er 974.6  gate_er   36.0  out_er  11.3  decoder_r80  64  ben 0.349
+mlp15: input_er 188.9  read_er 993.0  gate_er  509.7  out_er  41.2  decoder_r80   8  ben 0.141
+mlp16: input_er 154.8  read_er 984.2  gate_er   11.1  out_er   3.2  decoder_r80   1  ben 0.836
+mlp17: input_er  15.1  read_er 953.3  gate_er    5.3  out_er   3.5  decoder_r80   4  ben 0.612
+
+mlp1/mlp0 ratios: gate_er 2.40  read_er 1.13  decoder_r80 16.00
+Interpretation: if gate_er ratio ~ decoder_r80 ratio -> encoder-driven; if gate_er ratio ~1 while r80 ratio >>1 -> decoder-recombination.
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/encoder_vs_decoder_rank_results.json (122s)

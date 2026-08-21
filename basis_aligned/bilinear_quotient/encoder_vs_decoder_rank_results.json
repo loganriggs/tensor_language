@@ -1,0 +1,63 @@
+{
+ "per_layer": {
+  "0": {
+   "input_er": 123.3,
+   "read_er": 919.3,
+   "gate_er": 179.1,
+   "out_er": 20.0,
+   "decoder_r80": 8,
+   "benefit": 2.252
+  },
+  "1": {
+   "input_er": 52.9,
+   "read_er": 1036.2,
+   "gate_er": 429.3,
+   "out_er": 89.9,
+   "decoder_r80": 128,
+   "benefit": 1.0
+  },
+  "2": {
+   "input_er": 95.3,
+   "read_er": 1003.3,
+   "gate_er": 861.2,
+   "out_er": 161.6,
+   "decoder_r80": 256,
+   "benefit": 0.163
+  },
+  "4": {
+   "input_er": 149.9,
+   "read_er": 974.6,
+   "gate_er": 36.0,
+   "out_er": 11.3,
+   "decoder_r80": 64,
+   "benefit": 0.349
+  },
+  "15": {
+   "input_er": 188.9,
+   "read_er": 993.0,
+   "gate_er": 509.7,
+   "out_er": 41.2,
+   "decoder_r80": 8,
+   "benefit": 0.141
+  },
+  "16": {
+   "input_er": 154.8,
+   "read_er": 984.2,
+   "gate_er": 11.1,
+   "out_er": 3.2,
+   "decoder_r80": 1,
+   "benefit": 0.836
+  },
+  "17": {
+   "input_er": 15.1,
+   "read_er": 953.3,
+   "gate_er": 5.3,
+   "out_er": 3.5,
+   "decoder_r80": 4,
+   "benefit": 0.612
+  }
+ },
+ "baseline_ce": 3.099,
+ "n_tokens": 32768,
+ "runtime_s": 122.35723447799683
+}

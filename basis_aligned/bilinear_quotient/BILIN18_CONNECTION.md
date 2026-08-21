@@ -22046,3 +22046,49 @@ This directly serves "keep finding circuits": mlp0's per-cluster components
 ARE circuits (rank-1 punctuation = comp 1, etc.), in the shared A-SVD basis,
 ready to compose across components via the residual (tensor-network) bus.
 Queued read_write_overlap + cross-layer composition (offline batch).
+
+## 722. DECONFUSION -- encoder vs decoder (user Q: are high-rank components
+## computing the same thing, or is the difference in the encoder?). ANSWER:
+## the encoder WEIGHT capacity is saturated+uniform everywhere; the
+## difference is in the gate FEATURES actually produced -- high-rank layers
+## genuinely compute MORE distinct features (not the same thing recombined),
+## though the decoder can also collapse features to fewer outputs.
+
+Effective rank (participation ratio) at each stage, 32k tokens:
+  layer  input_er  read_er  gate_er  out_er  decoder_r80  benefit
+  mlp0    123      919      179      20       8          2.25
+  mlp1     53     1036      429      90     128          1.00
+  mlp2     95     1003      861     162     256          0.16
+  mlp4    150      975       36      11      64          0.35
+  mlp15   189      993      510      41       8          0.14
+  mlp16   155      984       11       3       1          0.84
+  mlp17    15      953        5       3       4          0.61
+KEY FINDINGS:
+  1. ENCODER WEIGHT CAPACITY (read_er = eff-rank of [Left;Right]) is
+     SATURATED and UNIFORM: ~920-1040 of 1152 for EVERY layer. So the raw
+     encoder weights can read nearly the full residual everywhere -- the
+     difference between layers is NOT in encoder weight capacity.
+  2. GATE FEATURES ACTUALLY PRODUCED (gate_er = eff-rank of the gate
+     activations) VARY ENORMOUSLY and track the decoder rank: high-rank
+     mlp1=429, mlp2=861 vs rank-1 mlp16=11, rank-4 mlp17=5. So the high-rank
+     layers GENUINELY COMPUTE MORE DISTINCT FEATURES -- they are NOT
+     "computing the same thing recombined."
+  3. mlp1 vs mlp0 (the asked comparison): read_er ratio 1.13 (~same
+     capacity), gate_er ratio 2.40 (mlp1 fires 2.4x more distinct
+     features), out_er ratio 4.5, decoder_r80 ratio 16. -> mlp1's excess
+     rank is driven by a RICHER REALIZED FEATURE SET (encoder OUTPUT), then
+     further spread by the decoder.
+  4. BUT the decoder also matters (both mechanisms exist): mlp15 produces
+     MANY gate features (er 510) yet has a LOW-rank output (r80 8) -- a case
+     of the DECODER COLLAPSING many features into few functional outputs.
+     So gate_er and decoder_r80 do not track perfectly (mlp4/mlp15 break it).
+DECONFUSED ANSWER: the high-rank layers are NOT computing the same thing.
+The encoder's weight CAPACITY is uniform (saturated ~1000 everywhere), but
+the gate FEATURES realized differ a lot -- high-rank layers detect/use a
+genuinely larger, more distinct feature set (mlp1 2.4x mlp0's, mlp2 more).
+The decoder then maps features to outputs, sometimes spreading (mlp1/2),
+sometimes collapsing (mlp15). So "the difference is in the encoder" -- but
+specifically in the encoder's REALIZED OUTPUT (which/how-many gate features
+fire), not its raw weight rank. Secondary: input_er (residual active dim)
+varies 15-189; mlp17's input is very low-dim (15) -- the residual has
+collapsed to few directions by the last block.
