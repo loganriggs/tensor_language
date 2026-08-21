@@ -19479,3 +19479,45 @@ to find the actual INDUCTION HEADS: per head, the raw double-QK attention
 from an induction position to the copy-source position (j+1) -- induction
 heads should attend there specifically. Unlike the diffuse MLP circuits,
 induction heads are often localizable, so this may reach component level.
+
+## 649. Q4 answered, and it sharpens 647/648: ablating the head-SET does
+## NOT localize copying. Top-16 pattern-ranked induction heads remove
+## only 19% of the copy signal; ALL attention removes 87%. Copying is
+## distributed across ~the whole attention stack, and attention-PATTERN
+## salience != causal contribution.
+
+Cumulative mean-ablation of the top-K induction heads (647's z-ranking),
+P(B) over 4672 induction positions (baseline 0.1402; all-attention-
+ablated floor 0.0184 -- attention carries 87% of copying):
+  K=1  0.1340 ( 5% of the floor gap)   random-K 0.140
+  K=2  0.1295 ( 9%)                     random-K 0.140
+  K=4  0.1268 (11%)                     random-K 0.141
+  K=8  0.1248 (13%)                     random-K 0.140
+  K=16 0.1164 (19%)                     random-K 0.135
+FINDINGS:
+  (a) THE HEAD-SET DOES NOT LOCALIZE IT. Even the top-16 heads that most
+      cleanly ATTEND to the copy-source account for only 19% of the
+      causal copying, while all-attention ablation removes 87%. So the
+      causal copying lives across FAR more than 16 heads -- essentially
+      the whole attention stack -- not a small localizable set. (a/b/NULL
+      as coded held -- induction-set > random, monotone -- but the
+      effect ceiling is low, which is the real result.)
+  (b) PATTERN SALIENCE != CAUSAL CONTRIBUTION. The heads with the
+      sharpest "point at the copy-source" pattern (647: L5.H5 z+3.99,
+      etc.) are NOT where most of the causal copying happens. A head can
+      carry the copied value (via its OV/value path) without a sharp
+      copy-source-pointing pattern, and the effect is spread thin across
+      many such heads. This is the read!=write / pattern!=cause theme
+      (619-622, 620) at the head level.
+CORRECTS what I told the user in Q4 ("the head-SET will tell us if it is
+the circuit"): the set is NOT the circuit -- copying is genuinely
+distributed across ~all attention, and attention-pattern ranking
+captures the cleanest-looking heads, not the causal bulk. This is the
+strongest statement yet of the model's universal redundancy: even the
+one circuit that looked component-localizable (induction, 647) is, under
+causal ablation, distributed across the whole attention stack.
+METHOD IMPLICATION (motivates Q5): head/pattern-based selection cannot
+isolate this computation. To find a finer-grained component you must
+work in the behavior-conditioned SUBSPACE (the copy direction), not by
+picking heads -- i.e. the low-rank behavior-conditioned method, applied
+next. Pivoting the queue to that (lowrank isolation of a clean circuit).

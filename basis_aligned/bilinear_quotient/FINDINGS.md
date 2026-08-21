@@ -51,9 +51,12 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
 
 10. **Induction/copying — ALREADY MAPPED in the census (name circuit attn0+attn1 build the copy
     source; "induction-target" motif). This run re-derived it and added:** natural-text induction is
-    rare-token-dominant (P 0.33 for rare vs 0.08 frequent) and distance-robust; the *reader* heads
-    are L5.H5 (dominant, z+3.99) / L8.H4/H6 / L10.H8, causally real but redundant. **MED / overlaps
-    prior work.** §645–648. ⚠ flagged: opened without checking it was done — a tracking miss.
+    rare-token-dominant (P 0.33 for rare vs 0.08 frequent) and distance-robust; reader heads L5.H5
+    (z+3.99)/L8.H4/H6/L10.H8 attend to the copy-source, BUT under ablation the causal copying is
+    **distributed across ~the whole attention stack** — top-16 pattern-heads = 19% of the effect,
+    all-attention = 87% (§649). So attention-pattern salience ≠ causal contribution; copying is NOT
+    a localizable head-set. **MED / overlaps prior work.** §645–649. ⚠ opened without checking it
+    was done — a tracking miss.
 
 ### Architecture facts worth keeping
 - MLP = `Down[(Lx)·(Rx)] + b`: every output dim is an exact **quadratic form** `xᵀMₖx`. mlp17's
@@ -68,7 +71,8 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
 - **A. Finer component isolation (highest value).** Behavior-conditioned low-rank: restrict X to a
   behavior, find the smallest-rank weight reproducing it (SVD_r(WX)·X⁺ / RSPD). *Not yet tried on
   the traced behaviors.* The SVD(W·X) work so far was unit-CLUSTERING, a different (weaker) object.
-- **B. Does ablating the whole head-SET localize induction?** (running: induction_headset_ablate.)
+- **B. ~~head-SET localization of induction~~ — ANSWERED NO (§649): copying is distributed across
+  ~all attention; pattern-selection can't isolate it. → reinforces A (need subspace method).
 - **C. Systematic circuit discovery** vs the current opportunistic depth-first tracing (see method note).
 - **D. Middle's within-class refinement mechanism** — hit the redundancy wall (§633), unlocalized.
 - **E. Reconcile induction reader-heads (L5.H5) with census name-circuit source-builders (attn0/1).**
