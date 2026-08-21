@@ -1,0 +1,7 @@
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  94%|█████████▍| 412/436 [00:00<00:00, 4105.98it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 4105.95it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+gpt2-large (72 comp, total benefit 5.685): NAT-WEIGHTED keep class+pos 0.7513 | random 0.1845
+
+(a) whole-model class+position reduction is universal (gpt2/pythia >=0.6 & >>random): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gpt2large_check_results.json (265s)

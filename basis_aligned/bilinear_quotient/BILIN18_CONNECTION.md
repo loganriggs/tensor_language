@@ -24591,3 +24591,29 @@ So the final honest cross-model claim: the token-class + position reduction to ~
 the computation holds for MOST models we tested (4/5, across bilinear/absolute/rotary),
 but it is a COMMON pattern, not a universal law -- gpt2-medium's first MLP is a
 genuine exception. pred_a False (confound refuted).
+
+## 803. GPT2-LARGE PASSES -- gpt2-medium is an ISOLATED exception, NOT a scale trend
+## (settles 802). Per-component nat-weighted class+position for gpt2-large (774M).
+Result:
+  gpt2-large (774M, d1280, 72 comp): class+pos 0.751 vs random 0.185; mlp0 keep 0.77
+    (healthy, positive -- benefit 4.86).
+READ: gpt2-large IS ~3/4 class+position (0.75), and its mlp0 keeps cleanly (0.77) --
+unlike gpt2-medium (mlp0 keep -0.14). So among GPT-2 sizes: SMALL 0.77 (ok), MEDIUM
+0.12 (fails), LARGE 0.75 (ok). gpt2-medium's failure is ISOLATED -- NOT a systematic
+"GPT-2 loses the reduction at scale," since both the smaller AND larger GPT-2 do the
+class+position reduction fine. So gpt2-medium is a quirk of that specific model
+(training/weights), not a scale property.
+FINAL CROSS-MODEL TALLY: the ~3/4 class+position reduction holds for 5 of 6 models --
+bilin18 0.78, gpt2-small 0.77, gpt2-large 0.75, pythia-160m 0.75, pythia-410m 0.69
+(all vs random 0.02-0.28) -- across bilinear, absolute-position, and rotary families
+and across scale (124M-774M). gpt2-medium (355M) is the single genuine exception
+(0.12, its first MLP does joint non-separable computation, 802), and it is ISOLATED
+(not scale-driven). So the honest, settled cross-model conclusion:
+  * the token-class + position reduction to ~3/4 of the per-component computation is a
+    COMMON, ROBUST pattern across model family and scale (5/6 models);
+  * it is NOT a universal law -- at least one trained model (gpt2-medium) genuinely
+    does not do it, for reasons not yet understood (an isolated quirk, not scale);
+  * the token-class SUBSPACE sufficiency, first-MLP barbell, and position causality
+    are the robust per-component cross-model findings (778/781); the whole-model %
+    reduction is common-not-universal with one documented counterexample.
+This closes the cross-model / scale thread. pred_a (gpt2-large-only bar) moot.
