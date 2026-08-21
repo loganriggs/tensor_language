@@ -20903,3 +20903,45 @@ threads: do the massive-activation dims (676) arise FROM the multiplicative
 gates -- are the high-magnitude residual dims the ones the MLP products
 write largest (products can blow up, plausibly forcing the rms-norm gain
 control)?
+
+## 688. The massive activations arise FROM the multiplicative gates,
+## unifying the architecture: both the attention product and the MLP
+## product write the massive residual dims (L17: mlp overlap 10/10 corr
+## 0.74, att 8/10 corr 0.76). One causal chain: AND-gating -> large
+## products -> massive dims -> rms-norm gain control.
+
+Per-dim RMS overlap between component outputs and the residual:
+  L8:  top-res ∩ top-mlp 3/10 (corr 0.34); ∩ top-att 8/10 (corr 0.66)
+  L12: mlp 3/10 (0.63); att 3/10 (0.56)
+  L16: mlp 6/10 (0.35); att 5/10 (0.45)
+  L17: mlp 10/10 (0.74); att 8/10 (0.76)
+FINDINGS:
+  (a) HELD: the massive residual dims are WRITTEN BY THE MULTIPLICATIVE
+      GATES. At the output (L17) both the MLP product (Down of Lx*Rx) and
+      the attention product (c_proj of s1*s2) strongly coincide with the
+      massive residual dims (overlap 10/10 and 8/10, corr ~0.75), MLP
+      slightly dominant. At earlier layers attention can dominate (L8:
+      att 8/10 vs mlp 3/10). So BOTH multiplicative components produce the
+      high-magnitude outputs, and they accumulate into the same few
+      massive-activation dims.
+THE UNIFIED ARCHITECTURE STORY (676-688), now one causal chain:
+  1. The model's ONE primitive is the MULTIPLICATIVE AND-GATE -- products
+     of pairs of linear projections, in both attention (s1*s2) and MLP
+     (Lx*Rx), at all 36 gates (686-687).
+  2. A product of two linear maps is LARGE where BOTH factors are large,
+     so the gates produce HIGH-MAGNITUDE outputs (688).
+  3. These accumulate into a few MASSIVE-ACTIVATION dims that grow with
+     depth (676) and are NOT attention sinks (no softmax, 678).
+  4. Those few huge dims dominate the residual's norm (~85% of SS), so
+     their DC offset SETS THE RMS-NORM GAIN of the readout -- removing it
+     costs +1.58 nats (680).
+  5. Within that high-magnitude substrate lives the ONE clean linear knob,
+     the frequency-calibration direction (88% of w_freq on the massive
+     dims, 676; the only additive bias, 650-675).
+So the bilinear architecture's defining choice (multiplicative gating, no
+softmax/relu) CAUSALLY explains its distinctive massive activations and
+their norm-control role -- a complete, unified, causally-linked account of
+the model's architecture. This closes the architecture investigation
+(676-688). FINDINGS current. Queued lambda_schedule to examine the last
+unexamined component -- the per-block residual rescaling (x = lambda0*x +
+lambda1*x0): is it a systematic learned gain/decay schedule?

@@ -1,0 +1,80 @@
+{
+ "by_depth": {
+  "8": {
+   "top_res": [
+    43,
+    111,
+    221,
+    373,
+    546,
+    645,
+    750,
+    880,
+    962,
+    990
+   ],
+   "overlap_mlp": 3,
+   "overlap_att": 8,
+   "corr_res_mlp": 0.341,
+   "corr_res_att": 0.664
+  },
+  "12": {
+   "top_res": [
+    43,
+    111,
+    201,
+    221,
+    546,
+    645,
+    750,
+    880,
+    962,
+    990
+   ],
+   "overlap_mlp": 3,
+   "overlap_att": 3,
+   "corr_res_mlp": 0.632,
+   "corr_res_att": 0.562
+  },
+  "16": {
+   "top_res": [
+    49,
+    329,
+    424,
+    540,
+    576,
+    645,
+    668,
+    981,
+    990,
+    992
+   ],
+   "overlap_mlp": 6,
+   "overlap_att": 5,
+   "corr_res_mlp": 0.349,
+   "corr_res_att": 0.452
+  },
+  "17": {
+   "top_res": [
+    49,
+    180,
+    329,
+    424,
+    540,
+    576,
+    645,
+    981,
+    990,
+    992
+   ],
+   "overlap_mlp": 10,
+   "overlap_att": 8,
+   "corr_res_mlp": 0.743,
+   "corr_res_att": 0.762
+  }
+ },
+ "pred_0": true,
+ "pred_a_mlp_writes": true,
+ "mlp_dominant": true,
+ "runtime_s": 162.45201349258423
+}

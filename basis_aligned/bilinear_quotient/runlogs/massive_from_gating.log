@@ -1,0 +1,9 @@
+L8: top-res∩top-mlp 3/10  top-res∩top-att 8/10  corr(res,mlp) 0.34  corr(res,att) 0.66
+L12: top-res∩top-mlp 3/10  top-res∩top-att 3/10  corr(res,mlp) 0.63  corr(res,att) 0.56
+L16: top-res∩top-mlp 6/10  top-res∩top-att 5/10  corr(res,mlp) 0.35  corr(res,att) 0.45
+L17: top-res∩top-mlp 10/10  top-res∩top-att 8/10  corr(res,mlp) 0.74  corr(res,att) 0.76
+
+(a) MLP writes the massive dims (L17 overlap>=3, corr>0.3): True
+    MLP overlap 10 vs attn overlap 8 (mlp-dominant: True)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/massive_from_gating_results.json (162s)
