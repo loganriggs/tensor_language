@@ -68,7 +68,7 @@ def token_mean_matrix(O, toks):
         mk = toks == t
         if mk.sum() < MINCOUNT: continue
         ids.append(int(t)); rows.append(O[mk].mean(0) - g[0]); wt.append(np.sqrt(mk.sum()))
-    M = torch.stack(rows, 0); Mw = M * torch.tensor(wt, device=O.device)[:, None]
+    M = torch.stack(rows, 0); Mw = M * torch.tensor(wt, device=O.device, dtype=O.dtype)[:, None]
     Vh = torch.linalg.svd(Mw, full_matrices=False)[2]
     return Vh, M, np.array(ids)                            # directions, unweighted token-means, token ids
 

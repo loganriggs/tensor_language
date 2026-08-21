@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/semantic_naming.py", line 124, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/semantic_naming.py", line 90, in main
+    proj = (M @ Vh[:NDIR].T).cpu().numpy()                 # (Ntok, NDIR) token-mean projection per direction
+            ~~^~~~~~~~~~~~~
+RuntimeError: expected mat1 and mat2 to have the same dtype, but got: float != double
