@@ -18534,3 +18534,63 @@ newline looser) rather than a fixed number. The redundancy/low-rank
 arc (609-613) is complete: clusters are sufficient handles, no unit
 subset is necessary, but a low-rank output subspace IS the necessary
 core, and its size varies by how distributed the decision is.
+
+## 614. There IS a shared article channel (the unembedding direction
+## d) that every article layer writes into -- but it is DISTINCT from
+## 612's causal low-rank subspace: content vs readout are two objects
+
+Tested whether the article decision travels in one reusable residual
+channel: the fixed unembedding direction d = W_U[a]+W_U[an]-W_U[the]-
+W_U[The] (no fitting, the direction that raises the article margin at
+the output). For each layer, measured the projection of its MLP output
+onto d, split by a/an-target vs the-target positions (the "channel
+gap").
+  (0) 324 a/an-target, 637 the-target positions -- populated.
+  (a) HELD -- a SHARED CHANNEL exists: every layer's output projects
+      MORE onto d at a/an positions than at the positions (positive
+      channel gap at all 18 layers), strongly front-loaded (mlp0
+      +1201, front mean 679 vs middle mean 94). The article machinery
+      writes a common direction d with the correct sign.
+  NULL ok, decisively: at the top channel-writers, the gap for d
+      (806) is 18x the gap for an unrelated readout direction
+      (P(he)-P(the), gap 44) -- the layers write d SPECIFICALLY, not
+      any unembedding direction.
+  (b) FAILED, and this is the informative finding: only 8% of d's
+      norm lies in mlp0's top-16 output-PCA subspace (612's causal
+      article subspace) -- 5.7x a random direction's 1.4%, so real
+      enrichment, but far from the 40% predicted. The readout
+      direction d is NOT contained in the causal low-rank subspace.
+THE RECONCILIATION, two distinct objects both real:
+  - 612's CAUSAL subspace (mlp0's top-16 output directions): keeping
+    it preserves 84% of the article decision because it holds the
+    article-relevant CONTENT that the 12 downstream layers READ and
+    process.
+  - This CHANNEL direction d: the fixed readout direction the
+    unembedding uses, which every layer progressively writes into.
+  These are NOT the same (d is only 8% in the causal subspace). No
+  contradiction: mlp0 writes article-relevant content into its top
+  output-variance directions (612), downstream layers read that
+  content and transform it, and the cumulative residual aligns with d
+  by the output (this). "Content" (what mlp0 outputs, read downstream)
+  and "readout" (the final logit direction) are different residual
+  objects that both carry the article decision.
+A NUANCE vs 608: mlp0 writes d most DIRECTLY (+1201) but mlp1 (608's
+LARGEST causal contributor, +0.120 whole-layer) writes d only weakly
+(+156, less than mlp2/mlp3). So mlp1's large causal article effect is
+INDIRECT -- it does not itself write the readout direction; it shapes
+content that downstream turns into d-alignment. mlp0 is the direct
+readout-writer; mlp1 is the heavier but more indirect content-shaper.
+This refines "mlp1 does more of the work" (608): mlp1 does more CAUSAL
+work but mlp0 does more DIRECT readout-writing -- two different senses
+of contribution, now separated.
+HONEST STATE of the reusable-component question: there IS a single
+reusable article channel direction d (all layers write it, correct
+sign, 18x null-specific), so the answer to "is there one article
+channel" is YES for the readout direction. But it is not the same as
+the causal content subspace, and the two-object structure (content
+subspace + readout direction) is the honest full picture, not a single
+tidy channel. The article circuit, completely characterized:
+distributed over units, low-rank over output directions (~16 causal /
+content), written progressively into one shared readout direction d,
+front-built and finally read out, context-driven and grammar-
+triggered, redundant across two parallel layers.
