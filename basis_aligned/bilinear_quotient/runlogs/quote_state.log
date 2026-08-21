@@ -1,0 +1,15 @@
+1925 inside-quote, 10363 outside-quote positions
+depth after block  2: quote-state probe AUC 0.6895
+depth after block  6: quote-state probe AUC 0.8266
+depth after block 12: quote-state probe AUC 0.7689
+depth after block 17: quote-state probe AUC 0.5819
+
+P(") inside 0.00703  outside 0.00206
+shuffled-label null AUC 0.5106
+
+(0) enough: True
+(a) quote-state tracked (final AUC>=0.8): False (0.5819)
+(c) P(") higher inside: True
+NULL shuffled ~0.5: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/quote_state_results.json (81s)

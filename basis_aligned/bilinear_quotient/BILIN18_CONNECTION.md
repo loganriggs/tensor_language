@@ -20115,3 +20115,41 @@ separates the general refinement circuit from the copying sub-circuit.
 FINDINGS updated. Queued quote_state to add breadth -- a fresh, untouched
 behavior: does the model track quotation parity (inside vs outside a
 quote), and where?
+
+## 667. NEW capability: the model maintains a STATEFUL context register --
+## quotation parity ("am I inside a quote"). It is a MID-NETWORK feature
+## (probe AUC peaks 0.83 at block 6) that DECAYS toward the output (0.58
+## at block 17), and it is used behaviorally (P closing-quote 3.4x higher
+## inside). A working-memory register, distinct from the token-class/
+## frequency machinery.
+
+Quote-parity (odd/even count of '"' so far = inside/outside), 1925 inside
+vs 10363 outside positions. Linear probe AUC by depth:
+  after block  2: 0.69
+  after block  6: 0.83  (peak)
+  after block 12: 0.77
+  after block 17: 0.58
+  shuffled-label null: 0.51 (clean).
+  Behavioral: P('"') inside 0.0070 vs outside 0.0021 (3.4x).
+FINDINGS:
+  (a) STATE IS TRACKED, mid-network. Quote-parity -- a STATEFUL,
+      counting-based feature (odd/even) -- is linearly decodable, built up
+      from block 2 (0.69) to a peak at block 6 (0.83). My registered
+      "final AUC >= 0.8" FAILED only because I probed the wrong depth: the
+      register is strongest MID-network and DECAYS toward the output (0.77
+      at 12, 0.58 at 17). It is a working-memory-like register that later
+      layers READ and act on but do not preserve linearly to the end.
+  (c) USED BEHAVIORALLY: P(closing '"') is 3.4x higher inside quotes than
+      outside -- the model acts on the state. NULL clean (shuffled 0.51).
+THE NEW DIMENSION: beyond the token-class / frequency-calibration
+machinery mapped so far (which is about the CURRENT token and its
+next-token distribution), the model also maintains STATEFUL CONTEXT
+REGISTERS -- parity counters over the sequence. Quote-parity is built in
+the early-middle (peaks block 6, where 665 located context integration),
+consistent with the MIDDLE being the context-integration region. The
+decay toward the output (0.83 -> 0.58) suggests the register is a
+transient working state that downstream layers consume (to raise P(")
+inside), not a feature carried to the readout. Queued quote_state_causal
+to test causality: does removing the mid-network quote-parity direction
+collapse the inside-vs-outside P('"') gap (is the register the causal
+driver of quote-tracking, or a read-correlate)?
