@@ -18985,3 +18985,56 @@ This closes the steering line. Next: WHICH layers build the write axis
 -- write_axis_layer_profile traces the per-depth contribution to
 W_U[class] (extending 616's mlp0>mlp17 newline-writer finding to a full
 18-layer profile for newline and article).
+
+## 623. Which blocks build the write axis: ARTICLE is written early
+## (block 0 dominant, position-specific) -- confirming 614; NEWLINE is
+## NOT (late/diffuse, fails the specificity null). The linear write
+## profile is a clean writer-localizer only when it passes that null.
+
+Per-block increment of the residual's projection onto w_c = normalized
+W_U[class], measured at class-target vs non-class positions, across all
+18 blocks.
+  ARTICLE -- CLEAN early writer:
+    sanity: final proj +9923 (class) vs +5104 (other) -- write axis
+      strongly more populated at article positions.
+    top-3 writer blocks: 0 (+13818), 1 (-12500), 2 (+4439). Block 0 is
+      by far the largest writer; block 0 (+13818) >> block 17 (+763).
+      (Note a push-pull: block 1 cancels most of block 0, net of 0+1 =
+      +1318; the article write axis is set up front then modulated.)
+    NULL ok: aggregate |increment| is larger at article positions
+      (47456) than elsewhere (30291) -- writing along the article axis
+      is position-specific. So (b) HELD: article is written EARLY,
+      confirming 614's mlp0-centered article circuit and extending it
+      to a full-depth profile.
+  NEWLINE -- does NOT fit the early-writer story:
+    sanity: final proj -605 (class) vs -3295 (other) -- net still
+      newline-specific (less negative at newline positions), passes.
+    top-3 writer blocks: 17 (+3200), 16 (-1927), 5 (-1522). The
+      LARGEST raw increments are LATE; block 0 (+547) < block 17
+      (+3200). So (a) FAILED as registered -- newline's raw write-axis
+      increments are dominated by late blocks, not block 0.
+    NULL FAILS: aggregate |increment| is LARGER at non-newline
+      positions (16531) than at newline positions (11603). The
+      per-block w_newline movement is not newline-specific -- blocks
+      push the projection around a lot everywhere, with large
+      cancellations, and only the NET lands higher at newline
+      positions.
+TENSION with 616 stated plainly: 616 found (by ablating the mlp17
+newline CLUSTER) that mlp0 contributes MORE to newline than mlp17
+(+0.051 vs +0.016). This linear profile finds block 17 has the largest
+raw w_newline increment. Not a contradiction but a measurement
+difference: (1) 616 is ablation = marginal necessity under redundancy;
+this is raw linear contribution -- they diverge exactly where the model
+is redundant. (2) This is block-level (attn+mlp), not the specific
+cluster 616 ablated. (3) Decisively, the newline NULL FAILURE means the
+linear profile is a CONFOUNDED writer signal for newline -- most of the
+per-block movement is generic residual dynamics near the output, not
+newline-specific writing, so its "block 17 writes newline" reading is
+not trustworthy. METHOD RULE: the linear write-axis-projection profile
+is a valid writer-localizer ONLY when it passes the position-specificity
+null (article does, newline does not). Where it fails, use a causal
+per-block ablation instead. So: article's early writer is established;
+newline's writer is NOT resolved by this method and needs the causal
+profile. Queued write_axis_ablation_profile (mean-ablate each block's
+contribution, measure P(class) drop across 18 blocks x 2 classes -- the
+causal writer profile, extending 616 to all depths).

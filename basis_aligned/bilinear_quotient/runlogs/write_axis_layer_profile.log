@@ -1,0 +1,16 @@
+
+newline: final proj class -605.077 vs other -3294.728 (sanity True)
+  top-3 writer blocks (block, inc): [(17, 3200.1067), (16, -1926.546), (5, -1521.8093)]
+  block0 +546.8176 vs block17 +3200.1067 -- block0>block17: False
+  per-block inc at class: [546.818, -269.054, 1291.855, 34.63, -476.58, -1521.809, 152.355, 79.805, 127.557, -19.818, 63.45, -204.84, -119.746, -379.538, -142.118, -1046.493, -1926.546, 3200.107]
+  NULL agg|inc| class 11603.118 > other 16531.277: CHECK
+
+article: final proj class +9922.903 vs other +5103.727 (sanity True)
+  top-3 writer blocks (block, inc): [(0, 13817.873), (1, -12499.832), (2, 4439.3354)]
+  block0 +13817.8730 vs block17 +763.3083 -- block0>block17: True
+  per-block inc at class: [13817.873, -12499.832, 4439.335, 1261.429, -1404.682, -4013.852, -207.999, 215.568, 1060.883, 683.631, 336.08, 2066.107, 1397.216, 556.218, 837.513, 1250.199, -644.51, 763.308]
+  NULL agg|inc| class 47456.238 > other 30290.566: ok
+
+(a) newline block0>block17: False; (b) article block0>block17: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/write_axis_layer_profile_results.json (36s)
