@@ -299,3 +299,57 @@ flip; attn contributing 27-60% everywhere) and the front-vs-late
 attention gap. Queued newline_trigger to trace the newline context
 signal to concrete input features (previous-token class, line length)
 and confirm front attention carries them.
+
+## 637. The newline and article TRIGGERS are a 0-layer embedding->
+## unembedding BIGRAM -- present, and STRONGER, when all 18 blocks are
+## skipped. The network ATTENUATES the raw bigram, it does not compute
+## the trigger. Recontextualizes 634-636.
+
+The direct path skips every block: logits = unembed(rms_norm(embedding))
+-- what the current token predicts with zero context and zero block
+computation, purely the learned embedding-unembedding bigram.
+  DIRECT (no blocks): P(newline) after . ! ? = 0.418, after a word =
+    0.0003 (elevation +0.418). be_pref +0.032 (be -> a/an),
+    prep_pref -0.345 (prep -> the, very strong).
+  FULL (all 18 blocks): newline elevation +0.290; be_pref +0.033,
+    prep_pref -0.111.
+FINDINGS:
+1. THE TRIGGERS ARE EMBEDDING-LEVEL BIGRAMS. The current token's
+   embedding, read straight by the unembedding, ALREADY contains the
+   punctuation->newline trigger (0.418 after punct vs 0.0003 after a
+   word) and the be->a/an / prep->the article split. The network does
+   not COMPUTE these triggers; they are memorized in the embedding o
+   unembedding table. (b) HELD (article split present in direct), NULL
+   ok (no elevation after a word).
+2. THE BLOCKS ATTENUATE, NOT AMPLIFY. Prediction (a) FAILED
+   informatively: the direct newline elevation (0.418) is LARGER than
+   the full model's (0.290); direct/full = 1.44. Likewise prep->the is
+   -0.345 direct vs -0.111 full. The 18 blocks NET REDUCE the raw
+   bigram's over-confident trigger toward a calibrated level --
+   consistent with the calibration/suppression findings (block 17
+   frequency calibration, front-MLP newline suppression). The network's
+   job on these tokens is temperance, not computation.
+3. RECONTEXTUALIZES 634-636. Those used mean-fill ablation, which is
+   confounded by error-compounding (mean-filling an early block corrupts
+   the input to all downstream blocks). The clean 0-block direct path
+   shows:
+   - 634's "front MLP is the primary class-writer (0.93 drop)" over-
+     reads: mean-filling the front MLP corrupts 15 downstream blocks;
+     the trigger itself is embedding-level, not MLP-computed. What the
+     front MLP (and the network) mainly does is set the article-
+     prediction MAGNITUDE and temper the bigram, not create the class.
+   - 635's "front attention carries the newline trigger" is a partial
+     reinforcement (front-attn ablation cut elevation 0.291->0.176, a
+     +0.115 contribution) layered on top of the dominant embedding
+     bigram -- not the source.
+   - 636's a/an-vs-the split is embedding-level (prep->the is even
+     stronger in the direct path); attention/MLP modulate it.
+DEEPEST INPUT TRACE (the program's goal, reached): the article and
+newline circuits bottom out in the EMBEDDING o UNEMBEDDING bigram table
+-- the trigger word's embedding directly encodes the next-token bias --
+and the 18 blocks act as a tempering/calibration stage on top. Caveat:
+the direct path (clean 0-layer) and the mean-fill ablations (compounding-
+confounded) measure different things; where they disagree, the direct
+path is the clean attribution. Queued class_bigram_vs_computed to
+generalize: which classes are embedding-bigram-driven (network
+attenuates) vs genuinely computed by the blocks (network amplifies)?

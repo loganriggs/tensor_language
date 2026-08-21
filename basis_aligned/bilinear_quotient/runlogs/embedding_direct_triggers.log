@@ -1,0 +1,9 @@
+direct: nl_punct 0.4183 nl_word 0.0003 (elev +0.4180); be_pref +0.0324 prep_pref -0.3454
+full: nl_punct 0.3022 nl_word 0.0117 (elev +0.2905); be_pref +0.0333 prep_pref -0.1106
+
+(0) direct non-degenerate: True
+(a) newline elev direct 0.4180 < full 0.2905, both>0: False (direct/full 1.44)
+(b) article split (be_pref>prep_pref) present in direct: True
+NULL direct nl after word small vs punct: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/embedding_direct_triggers_results.json (45s)
