@@ -19231,3 +19231,48 @@ refinement of capitalized and function classes, and essentially none for
 subword (a propagation task) or the degenerate single-member classes.
 Queued within_class_depth_profile to locate WHERE in depth the space_word
 refinement happens (per-block sparing across all 18 blocks).
+
+## 635. The newline circuit, traced to input: sentence-ending
+## punctuation is the trigger (P(newline) 1.1% after a word -> 30% after
+## . ! ?), carried by front attention; line length is a weak secondary
+## signal; the front MLP globally suppresses newline.
+
+Tracing 634's context-driven newline signal to concrete input features.
+P(newline) = P('\n')+P('\n\n'), grouped by the current token and line
+length, at baseline vs front [0-2] attention-ablated vs front-MLP-ablated.
+  baseline: overall 0.025; after end-punct (. ! ?) 0.302; after a word
+    0.011; by line-length bucket [0.017, 0.035, 0.020, 0.024].
+  front-attn ablated: overall 0.025 (unchanged); end-punct 0.194;
+    word 0.018.
+  front-mlp ablated: overall 0.618; end-punct 0.817; word 0.614.
+FINDINGS:
+  (a) PUNCTUATION IS THE TRIGGER: P(newline) is 28x higher after a
+      sentence-ending punctuation token (0.302) than after a word
+      (0.011). The newline decision is a bigram trigger on the current
+      token being '.', '!', or '?'.
+  (c) FRONT ATTENTION CARRIES IT, cleanly: ablating front attention
+      leaves the overall newline rate unchanged (0.025 -> 0.025) but
+      cuts the punctuation elevation gap from 0.291 to 0.176 (-40%) --
+      it specifically removes the punctuation-triggered part, confirming
+      634 that the newline context signal is attention-carried. (The
+      front-MLP-ablation comparison is confounded by the MLP's global
+      suppression inflating everything to 0.6, so the clean evidence is
+      attention ablation's targeted flattening at an unchanged base
+      rate.)
+  (b) LINE LENGTH is a WEAK, non-monotonic secondary signal: P(newline)
+      peaks in the 10-30-token bucket (0.035) then falls, rather than
+      rising monotonically with length. Registered (b) passed on the
+      last-vs-first bucket (0.024 > 0.017) but the trend is not clean;
+      the punctuation bigram, not line length, is the real driver.
+  front-MLP ablation raising overall P(newline) to 0.62 re-confirms 634
+  (the front MLP globally suppresses newline).
+THE NEWLINE CIRCUIT, end to end: current token is sentence-ending
+punctuation -> front attention writes a newline prediction (P jumps to
+~30%) -> the front MLP applies a global downward bias on newline
+(favoring content continuation) that the punctuation context overrides
+-> block 17 calibrates. This is a second fully input-traced circuit
+alongside the article circuit (614), and it has the same shape: a
+concrete current-token/context trigger read by front attention. Queued
+article_trigger_trace to test 614's article triggers (prepositions/
+be-verbs -> a/an, punctuation/sentence-start -> the) causally with the
+same attention-ablation tool.

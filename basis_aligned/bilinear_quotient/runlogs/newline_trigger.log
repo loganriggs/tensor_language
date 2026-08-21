@@ -1,0 +1,10 @@
+baseline        overall 0.02499  end-punct 0.30222  word 0.01070  by-len [0.01719, 0.03547, 0.01986, 0.02385]
+front_attn_abl  overall 0.02520  end-punct 0.19384  word 0.01794  by-len [0.0188, 0.03952, 0.01806, 0.01351]
+front_mlp_abl   overall 0.61759  end-punct 0.81672  word 0.61360  by-len [0.51046, 0.63536, 0.64814, 0.77385]
+
+(0) overall plausible: True
+(a) end-punct elevates newline (>1.5x word): True (0.3022 vs 0.0107)
+(b) rises with line length: True ([0.01719, 0.03547, 0.01986, 0.02385])
+(c) attn ablation flattens elevation more than mlp: True (base 0.2915 -> attn 0.1759, mlp 0.2031)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_trigger_results.json (46s)

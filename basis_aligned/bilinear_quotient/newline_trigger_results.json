@@ -1,0 +1,49 @@
+{
+ "overall": {
+  "baseline": 0.02499,
+  "front_attn_abl": 0.0252,
+  "front_mlp_abl": 0.61759
+ },
+ "by_punct": {
+  "baseline": {
+   "end_punct": 0.30222,
+   "word": 0.0107,
+   "elevation": 0.29152
+  },
+  "front_attn_abl": {
+   "end_punct": 0.19384,
+   "word": 0.01794,
+   "elevation": 0.17591
+  },
+  "front_mlp_abl": {
+   "end_punct": 0.81672,
+   "word": 0.6136,
+   "elevation": 0.20312
+  }
+ },
+ "by_length": {
+  "baseline": [
+   0.01719,
+   0.03547,
+   0.01986,
+   0.02385
+  ],
+  "front_attn_abl": [
+   0.0188,
+   0.03952,
+   0.01806,
+   0.01351
+  ],
+  "front_mlp_abl": [
+   0.51046,
+   0.63536,
+   0.64814,
+   0.77385
+  ]
+ },
+ "pred_0": true,
+ "pred_a_punct": true,
+ "pred_b_length": true,
+ "pred_c_attn_carries": true,
+ "runtime_s": 45.945720195770264
+}
