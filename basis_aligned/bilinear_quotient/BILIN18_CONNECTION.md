@@ -23030,3 +23030,40 @@ on ground-truth toys (743-745,747) and now on the real weight in both
 activation (748) and WEIGHT-ACTION (750) forms -- is the right decomposition:
 per-datapoint sparse, CE-faithful, and recovers structure SVD cannot. The
 weight-action top-k SAE is the novel faithful weight-based version.
+
+## 751. INTERPRET SAE ATOMS -- honest NEGATIVE: reconstruction-optimal sparse
+## atoms are NOT automatically monosemantic. Mean top-activation token-
+## concentration: SAE 0.163 < SVD 0.253 (SAE LESS concentrated). The most-used
+## atoms are polysemantic; a FEW are cleanly monosemantic (punctuation/
+## boundary).
+
+Top-12 most-used atoms of a k=32/P=512 SAE on mlp1 output:
+  monosemantic FEW: atom107 (conc 0.55, fires . \n ! ."  = sentence-end),
+    atom165 (0.42, ( , --  = parenthetical), atom22 (0.39, \n ... - = boundary).
+  polysemantic MANY: atoms 499/409/347/389/306/132/178/430/494 (conc 0.02-
+    0.14) fire on MIXED tokens (punct + function + content).
+  mean concentration: SAE 0.163, SVD 0.253, random 0.219.
+FINDINGS (prediction FAILED, honestly):
+  (a) The SAE atoms are NOT more monosemantic than SVD directions by this
+      metric (0.163 < 0.253). A RECONSTRUCTION-optimal sparse code is NOT
+      automatically INTERPRETABLE. The SAE wins on EFFICIENCY + CE-
+      FAITHFULNESS (742/748/750) but NOT on monosemanticity as trained.
+  - So EFFICIENCY/FAITHFULNESS and INTERPRETABILITY are DIFFERENT metrics
+    (the user's "which metric" theme): optimizing reconstruction does not
+    yield monosemantic atoms. A GOOD decomposition on one axis can be poor on
+    another.
+  CAVEATS (two, both real): (1) the MOST-USED atoms are polysemantic almost
+    BY CONSTRUCTION (high usage = fires on many datapoints); low-usage atoms
+    (not measured here) may be more specific. (2) The concentration metric is
+    CONFOUNDED by token FREQUENCY -- common tokens (punctuation) dominate any
+    atom's top-200 activations by base rate; a FREQUENCY-NORMALIZED
+    selectivity (does the atom fire on token X above X's base rate?) is the
+    proper monosemanticity metric.
+  SOME atoms ARE clean circuits (107 = sentence-end, 165 = parenthetical, 22
+    = boundary) -- so interpretable atoms EXIST in the SAE, just not on
+    average / not the most-used ones.
+OPEN: getting monosemantic atoms likely needs (a) a frequency-normalized
+metric, (b) more/better training or an interpretability-oriented objective,
+(c) larger P (more atoms -> each more specific), (d) measuring LOW-usage
+atoms. Queued interpret_sae_atoms_v2 (frequency-normalized selectivity +
+larger P + usage-stratified).
