@@ -21357,3 +21357,34 @@ LEVERS (priority): (1) fast A-SVD [done, 17.5x]; (2) keep eval fixed-size,
   scale only FIT data (pricing cost independent of fit-N); (3) r80 already
   stable from 3k tok (699) so fits at 6-12k suffice for the rank number --
   bigger data matters for NAMING/robustness of directions, not r80.
+
+## 701. block1.attn's rank-1 core NAMED: a boundary->continuation writer.
+## A single direction recovers 95% of block1.attn's 2.15-nat contribution;
+## it fires at sentence/line boundaries and writes toward common
+## continuation words.
+
+Fast A-SVD (700) on block1.attn.c_proj, N=12k tok, held-out CE:
+  benefit 2.150 nats, rank-1 recovered 0.946 (confirms 699's r80=1 AT SCALE).
+The rank-1 component ~= outer(a1, b1):
+  WHERE it fires (top per-token coefficient |s| = X @ b1): overwhelmingly
+    '\n' (newline) and '.' (period) -- boundary tokens.
+  WHAT it writes (a1 unembedding readout, rough 16-block proxy):
+    boost:    that just really this so you these to not only (common
+              continuation / discourse words)
+    suppress: rare/garbage tokens (Collider extinguished Modes LOAD SECTION)
+  s-vs-position corr +0.04 -> NOT positional; boundary/content-driven.
+INTERPRETATION: at a sentence or line boundary, block1's attention (its
+whole functional effect, rank-1) shifts the prediction toward common
+sentence-initial continuation words. Connects to the newline circuit
+(635/637) and the front's class-decision role (634) -- block1.attn is a
+low-rank boundary detector feeding the continuation-word class.
+CORRECTION (null failed, stated plainly): the registered peakedness null
+FAILED -- a random input direction is MORE peaked (|s| max/median 8.9x)
+than the real component (2.1x). Cause: the c_proj input (attention output)
+carries the massive-activation dims (676), so a random direction spuriously
+spikes on those, while the real b1 is spread and avoids them. The
+peakedness metric is CONFOUNDED by massive activations and is not a valid
+structure test here. The real evidence of structure is the token pattern
+(boundary tokens drive |s|) + the 95% rank-1 CE recovery, both clean. Next
+experiment replaces peakedness with a confound-free token-conditional test
+(mean s on boundary vs other tokens). Queued rspd_block0_attn_core.
