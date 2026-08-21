@@ -249,3 +249,53 @@ un-answerable by ablation and the depth-of-computation phase overall.
 Next: pivot to the FRONT/input -- how blocks 0-2 decide the class from
 the current token vs context (tracing toward the embedding, the
 program's core goal). Queued front_token_vs_context.
+
+## 634. The front decides class mostly via the token-local MLP, with
+## context a substantial secondary input; NEWLINE is the lone context-
+## driven class (front attention writes it, the front MLP suppresses
+## it). Context for class identity enters entirely at the front.
+
+Mean-ablating the front [0-2] ATTENTION (context) vs the front MLP
+(token-local transform), per class, plus a late [10-12] attention
+control. Relative P(class) drop at class-target positions:
+  class        front-attn  front-mlp  late-attn   driver
+  newline        +0.558     -0.825      +0.218    context(attn)
+  determiner     +0.517     +0.932      +0.055    token(mlp)
+  preposition    +0.574     +0.890      -0.001    token(mlp)
+  pronoun        +0.602     +0.926      +0.071    token(mlp)
+  digit          +0.575     +0.971      +0.053    token(mlp)
+  punct          +0.338     +0.765      +0.047    token(mlp)
+  capitalized    +0.300     +0.870      +0.042    token(mlp)
+  space_word     +0.267     +0.785      +0.005    token(mlp)
+  subword        +0.310     +0.899      +0.038    token(mlp)
+FINDINGS:
+1. THE FRONT MLP IS THE PRIMARY CLASS-WRITER. For 8 of 9 classes,
+   ablating the front MLP hurts the class more (0.77-0.97) than ablating
+   front attention (0.27-0.60). The next-token class is largely a
+   token-local MLP computation in the first three blocks. But attention/
+   context is a SUBSTANTIAL secondary input -- front-attention ablation
+   still costs 27-60% for every class -- so class identity is
+   token-transform-dominated with real contextual contribution, not
+   purely token-driven. (This refines 614's article story: the attn0
+   bigram is a genuine contributor -- determiner front-attn +0.517 --
+   but the front MLP carries the larger share.)
+2. NEWLINE IS THE LONE CONTEXT-DRIVEN CLASS, with a sign flip. Front-
+   attention ablation drops P(newline) (+0.558) while front-MLP ablation
+   RAISES it (-0.825: removing the MLP increases newline probability).
+   So whether a line breaks next is decided by CONTEXT via front
+   attention (positional/where-in-the-line information), and the front
+   MLP actively SUPPRESSES newline (favoring content continuation). The
+   two front paths pull opposite ways for newline; for every other class
+   they agree (both positive).
+3. CONTEXT ENTERS AT THE FRONT. Late [10-12] attention ablation barely
+   touches any class (drops 0.00-0.22, aggregate 0.53) vs front-attention
+   aggregate 4.04. Whatever context sets the next-token class is read in
+   by the first three blocks; the late-middle attention does not
+   contribute to class identity. (a) HELD, NULL ok.
+CAVEAT: front-MLP mean-ablation is a large perturbation (the MLP is the
+main per-position compute), so absolute MLP-drop magnitudes are inflated;
+the robust signals are the cross-class CONTRASTS (newline's unique sign
+flip; attn contributing 27-60% everywhere) and the front-vs-late
+attention gap. Queued newline_trigger to trace the newline context
+signal to concrete input features (previous-token class, line length)
+and confirm front attention carries them.

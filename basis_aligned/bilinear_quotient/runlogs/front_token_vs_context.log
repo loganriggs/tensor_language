@@ -1,0 +1,15 @@
+newline      front-attn +0.558  front-mlp -0.825  late-attn +0.218  -> context(attn)
+determiner   front-attn +0.517  front-mlp +0.932  late-attn +0.055  -> token(mlp)
+preposition  front-attn +0.574  front-mlp +0.890  late-attn -0.001  -> token(mlp)
+pronoun      front-attn +0.602  front-mlp +0.926  late-attn +0.071  -> token(mlp)
+digit        front-attn +0.575  front-mlp +0.971  late-attn +0.053  -> token(mlp)
+punct        front-attn +0.338  front-mlp +0.765  late-attn +0.047  -> token(mlp)
+capitalized  front-attn +0.300  front-mlp +0.870  late-attn +0.042  -> token(mlp)
+space_word   front-attn +0.267  front-mlp +0.785  late-attn +0.005  -> token(mlp)
+subword      front-attn +0.310  front-mlp +0.899  late-attn +0.038  -> token(mlp)
+
+(a) context classes drop more under front-attn than late-attn: True
+NULL front-attn aggregate 4.040 > late-attn 0.529: ok
+(c) context-driven classes: ['newline']
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_token_vs_context_results.json (51s)

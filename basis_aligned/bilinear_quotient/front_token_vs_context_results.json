@@ -1,0 +1,86 @@
+{
+ "baseline_P": {
+  "newline": 0.4349,
+  "determiner": 0.4504,
+  "preposition": 0.5435,
+  "pronoun": 0.3497,
+  "digit": 0.5708,
+  "punct": 0.5889,
+  "capitalized": 0.5452,
+  "space_word": 0.7427,
+  "subword": 0.823
+ },
+ "per_class": {
+  "newline": {
+   "front_attn_drop": 0.5575,
+   "front_mlp_drop": -0.8253,
+   "late_attn_drop": 0.2182,
+   "attn_over_mlp": -0.676,
+   "driver": "context(attn)"
+  },
+  "determiner": {
+   "front_attn_drop": 0.517,
+   "front_mlp_drop": 0.9316,
+   "late_attn_drop": 0.0547,
+   "attn_over_mlp": 0.555,
+   "driver": "token(mlp)"
+  },
+  "preposition": {
+   "front_attn_drop": 0.5738,
+   "front_mlp_drop": 0.8898,
+   "late_attn_drop": -0.0012,
+   "attn_over_mlp": 0.645,
+   "driver": "token(mlp)"
+  },
+  "pronoun": {
+   "front_attn_drop": 0.6021,
+   "front_mlp_drop": 0.9259,
+   "late_attn_drop": 0.0708,
+   "attn_over_mlp": 0.65,
+   "driver": "token(mlp)"
+  },
+  "digit": {
+   "front_attn_drop": 0.5749,
+   "front_mlp_drop": 0.9707,
+   "late_attn_drop": 0.0531,
+   "attn_over_mlp": 0.592,
+   "driver": "token(mlp)"
+  },
+  "punct": {
+   "front_attn_drop": 0.3378,
+   "front_mlp_drop": 0.7648,
+   "late_attn_drop": 0.0469,
+   "attn_over_mlp": 0.442,
+   "driver": "token(mlp)"
+  },
+  "capitalized": {
+   "front_attn_drop": 0.3004,
+   "front_mlp_drop": 0.8704,
+   "late_attn_drop": 0.0415,
+   "attn_over_mlp": 0.345,
+   "driver": "token(mlp)"
+  },
+  "space_word": {
+   "front_attn_drop": 0.2667,
+   "front_mlp_drop": 0.785,
+   "late_attn_drop": 0.0048,
+   "attn_over_mlp": 0.34,
+   "driver": "token(mlp)"
+  },
+  "subword": {
+   "front_attn_drop": 0.3098,
+   "front_mlp_drop": 0.8993,
+   "late_attn_drop": 0.0381,
+   "attn_over_mlp": 0.345,
+   "driver": "token(mlp)"
+  }
+ },
+ "pred_a_context_front": true,
+ "agg_front_attn": 4.0399,
+ "agg_late_attn": 0.5293,
+ "null_ok": true,
+ "context_driven": [
+  "newline"
+ ],
+ "runtime_s": 50.6586434841156
+}
