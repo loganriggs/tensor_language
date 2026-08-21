@@ -1885,9 +1885,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   78% of everything the components contribute (a random subspace: 4%). So the model, front to back, is
   to roughly four-fifths a class-and-position computer: it turns raw token identity and rotary phase
   into two clean, low-rank, causal, nameable variables, writes each into its own part of the stream,
-  and later layers read them off rather than recomputing them. The remaining sixth is genuine context-dependent
+  and later layers read them off rather than recomputing them. The remaining fifth is genuine context-dependent
   computation with no low-rank handle — the same distributed residue that shows up everywhere the model
   does something conditional.</p>
+  <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
+  prediction by how hard it was — how much loss the full model took — and ask how much of each bucket the
+  class-and-position skeleton alone recovers. On the model's <em>hardest</em>, most uncertain predictions
+  the skeleton recovers essentially everything: when the model does not know what comes next, all it has
+  to offer is the grammatical class and the position, and there is nothing more to strip away. On its
+  <em>easiest</em>, most confident predictions the skeleton recovers only half. So the distributed fifth
+  is not there for the hard cases — it is the specific content that turns a grammatical expectation ("a
+  noun is coming") into a confident bet on the actual word. Class and position are the skeleton the model
+  always has; the diffuse remainder is the flesh that lets it be sure. We understand the skeleton
+  completely and causally; the flesh is the part that still has no low-rank handle.</p>
   <p>One caution earned the hard way. It is tempting to go further and name individual heads — this one
   is "the determiner head," that one is "the position head" — and the folded weights do show, for
   instance, that one early head's query-key geometry is dominated by determiners. But deleting that head
