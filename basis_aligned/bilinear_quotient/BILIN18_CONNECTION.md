@@ -20750,3 +20750,40 @@ Adding the architecture findings (massive-activation norm control +
 two-criterion attention) to the report. Queued qk_criterion_identity to
 ask WHAT the two criteria are for the most-focal heads (e.g. does one QK
 select by position/recency and the other by content?).
+
+## 684. The two-criterion attention often factorizes into POSITIONAL x
+## CONTENT: in 5/6 focal heads, one QK circuit is strongly distance-
+## selective (|corr| 0.32-0.51 with key distance) while the other is
+## content-based (position-independent). The focal heads attend to keys
+## that are BOTH at the right relative distance AND match content -- the
+## classic lookup structure, via the two-QK product.
+
+Correlation of each QK score with key DISTANCE from the query, per focal
+head (681's most-focal heads):
+  L0.H3  s1 +0.32 (positional)  s2 +0.10 (content)   SPLIT
+  L2.H6  s1 +0.49 (positional)  s2 +0.14 (content)   SPLIT
+  L7.H8  s1 -0.51 (recent)      s2 -0.21             SPLIT
+  L2.H2  s1 -0.17               s2 -0.48 (positional) SPLIT
+  L6.H3  s1 +0.22               s2 +0.46 (positional) SPLIT
+  L1.H1  s1 +0.10               s2 -0.18   (no clear split)
+FINDINGS:
+  (a) HELD: 5 of 6 focal heads show a POSITIONAL/CONTENT split -- one QK
+      circuit is strongly distance-correlated (a positional criterion,
+      |corr| 0.32-0.51) and the other is weak (content, position-
+      independent). So these heads attend to keys satisfying a
+      CONJUNCTION of "at the right relative position" AND "matching
+      content" -- exactly the structure of a lookup / induction head,
+      here implemented by the two-QK product (682/683).
+  The positional QK's SIGN varies: some heads prefer DISTANT/older keys
+      (L0.H3, L2.H6, L6.H3, positive dist-corr) and some prefer
+      RECENT/near keys (L7.H8, L2.H2, negative). Different heads carry
+      different positional preferences.
+COMPLETES the softmax-free attention account (681-684) with an
+interpretable per-head meaning: the double-QK is a genuine two-criterion
+conjunction (683) that often factorizes into a POSITIONAL criterion x a
+CONTENT criterion (684). This is how the bilinear architecture implements
+selective lookups without softmax: multiply a positional QK by a content
+QK, and attend where both fire. Ties the architecture back to the traced
+circuits (the front lookup/routing/induction heads live exactly here).
+Queued qk_split_census to generalize from 6 focal heads to ALL 162: how
+common is the positional x content factorization across the model?
