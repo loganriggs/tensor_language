@@ -1,0 +1,30 @@
+article positions 1922, full AUC 0.869
+blk 0: attn AUC drop +0.119  mlp AUC drop +0.154
+blk 1: attn AUC drop +0.153  mlp AUC drop +0.073
+blk 2: attn AUC drop +0.023  mlp AUC drop +0.011
+blk 3: attn AUC drop +0.010  mlp AUC drop +0.013
+blk 4: attn AUC drop +0.019  mlp AUC drop +0.026
+blk 5: attn AUC drop +0.067  mlp AUC drop +0.001
+blk 6: attn AUC drop +0.003  mlp AUC drop +0.004
+blk 7: attn AUC drop +0.007  mlp AUC drop +0.006
+blk 8: attn AUC drop +0.001  mlp AUC drop +0.002
+blk 9: attn AUC drop +0.004  mlp AUC drop +0.003
+blk10: attn AUC drop +0.001  mlp AUC drop +0.001
+blk11: attn AUC drop +0.000  mlp AUC drop +0.002
+blk12: attn AUC drop +0.001  mlp AUC drop +0.001
+blk13: attn AUC drop -0.000  mlp AUC drop +0.000
+blk14: attn AUC drop -0.000  mlp AUC drop +0.001
+blk15: attn AUC drop -0.000  mlp AUC drop +0.002
+blk16: attn AUC drop -0.000  mlp AUC drop +0.003
+blk17: attn AUC drop -0.000  mlp AUC drop +0.002
+
+top article-choice contributors (by AUC drop):
+  mlp blk0: +0.154
+  attn blk1: +0.153
+  attn blk0: +0.119
+  mlp blk1: +0.073
+  attn blk5: +0.067
+  mlp blk4: +0.026
+
+(a) distributed (7 components with AUC drop > 0.02): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/article_choice_depth_results.json (107s)

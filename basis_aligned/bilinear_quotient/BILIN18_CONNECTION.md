@@ -22327,3 +22327,35 @@ and BROKE one firing-illusion (the "boundary circuit at 3 layers": only
 mlp16 causal, 726-727). Named circuits now carry causal-verification
 status, not just firing patterns. Queued article_choice_depth to locate
 where ELSE the a/an-the choice is carried (the distributed remainder).
+
+## 730. ARTICLE CHOICE is a FRONT-BLOCK circuit (not depth-distributed).
+## Per-component ablation across all 18 blocks: the a/an-vs-the choice is
+## carried almost entirely by BLOCKS 0-1 (mlp0, attn0, attn1) plus a small
+## block-4/5 contribution; blocks 6-17 contribute ~nothing.
+
+Per-component AUC drop (top contributors; blocks 6-17 all <=0.007):
+  mlp  blk0  +0.154   <- biggest single
+  attn blk1  +0.153
+  attn blk0  +0.119
+  mlp  blk1  +0.073
+  attn blk5  +0.067
+  mlp  blk4  +0.026
+FINDINGS:
+  - The article choice is a FRONT circuit spread across ~4 front components
+    (mlp0 +0.154, attn1 +0.153, attn0 +0.119, mlp1 +0.073) with a secondary
+    block-4/5 contribution. Blocks 6-17 carry NONE of it. So 729's
+    "distributed" is distributed across the FRONT COMPONENTS, NOT across
+    depth -- the deep/back layers are irrelevant to the a/an-vs-the choice.
+  - mlp0 is the single biggest contributor (0.154), but front attention
+    jointly (attn0+attn1 = 0.272) exceeds front MLP (mlp0+mlp1 = 0.227) --
+    consistent with 636/729's group-level attn>mlp. Both the front MLP and
+    front attention substantially carry the choice; it is a front-block
+    joint computation, not a single component.
+  - REFINES 729: the article choice is front-localized (blocks 0-1 dominant,
+    +block4/5), just spread across several front components rather than one.
+    This matches the depth division (finding 4): the CLASS/word decision
+    (which article) is made in the FRONT.
+This completes the article-circuit causal localization: FRONT blocks 0-1
+(mlp0 + attn0 + attn1 jointly) decide a/an-vs-the, with the choice absent
+from the back half. Verified flagship circuits (newline 728, article
+729-730) are both FRONT-localized decisions, consistent with finding 4.
