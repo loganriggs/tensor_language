@@ -120,14 +120,14 @@ def main():
 
     # convergence check
     def simmat(L):
-        Lc = L - L.mean(0, keepdims=True); Ln = Lc/(np.linalg.norm(Lc, 0, keepdims=True)+1e-9)
+        Lc = L - L.mean(0, keepdims=True); Ln = Lc/(np.linalg.norm(Lc, axis=0, keepdims=True)+1e-9)
         return Ln.T @ Ln
     h = T_CE//2; iu = np.triu_indices(N, 1)
     conv = float(np.corrcoef(simmat(Lce[:h])[iu], simmat(Lce[h:2*h])[iu])[0, 1])
     print(f'CE clustering convergence (split-half sim corr, T={T_CE}): {conv:.3f}', flush=True)
 
     # cluster by CE-damage covariance
-    Lc = Lce - Lce.mean(0, keepdims=True); Ln = torch.tensor((Lc/(np.linalg.norm(Lc, 0, keepdims=True)+1e-9)).T)
+    Lc = Lce - Lce.mean(0, keepdims=True); Ln = torch.tensor((Lc/(np.linalg.norm(Lc, axis=0, keepdims=True)+1e-9)).T)
     assign = kmeans(Ln, KCL).numpy()
 
     # component x cluster CE-importance (single-component ablation)

@@ -1,0 +1,16 @@
+CE-damage matrix done (72s)
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_global_minrank.py", line 195, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_global_minrank.py", line 126, in main
+    conv = float(np.corrcoef(simmat(Lce[:h])[iu], simmat(Lce[h:2*h])[iu])[0, 1])
+                             ^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_global_minrank.py", line 123, in simmat
+    Lc = L - L.mean(0, keepdims=True); Ln = Lc/(np.linalg.norm(Lc, 0, keepdims=True)+1e-9)
+                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/numpy/linalg/_linalg.py", line 2846, in norm
+    raise ValueError("Invalid norm order for matrices.")
+ValueError: Invalid norm order for matrices.
