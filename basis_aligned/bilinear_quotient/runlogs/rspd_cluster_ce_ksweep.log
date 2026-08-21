@@ -1,0 +1,12 @@
+benefit 0.965  r=8
+K=  1: cluster -3.117  shuffle -3.117
+K=  2: cluster -1.449  shuffle -2.358
+K=  4: cluster -0.555  shuffle -1.506
+K=  8: cluster 0.013  shuffle -1.148
+K= 16: cluster 0.228  shuffle -0.606
+K= 32: cluster 0.354  shuffle -0.436
+
+(a) monotone in K & rises >=0.5 (rise 3.47): True
+NULL cluster>shuffle at every K>1: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_cluster_ce_ksweep_results.json (71s)

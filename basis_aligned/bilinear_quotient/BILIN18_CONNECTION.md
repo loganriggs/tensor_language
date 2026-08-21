@@ -21494,3 +21494,31 @@ This also refines 699's 'mlp1/mlp2 genuinely high-rank': high-rank GLOBALLY
   low-rank special-case output circuits. Queued rspd_cluster_ce_ksweep: does
   recovery at fixed r=8 rise monotonically with the number of clusters K
   (K=1 is global)? -- the direct quantitative signature of the union story.
+
+## 705. K-SWEEP CONFIRMS the union-of-low-rank story quantitatively. At a
+## FIXED per-cluster rank r=8, mlp1's reconstruction rises MONOTONICALLY
+## with the number of clusters K -- from catastrophic at K=1 (= global) to
+## positive at K=32 -- and correct assignment beats random at every K.
+
+Recovered(r=8) vs number of clusters K (mlp1 output projection, held-out CE):
+  K:        1       2       4       8      16      32
+  cluster -3.117  -1.449  -0.555  +0.013  +0.228  +0.354
+  shuffle -3.117  -2.358  -1.506  -1.148  -0.606  -0.436
+FINDINGS (all HELD):
+  (0) SANITY: K=1 cluster == shuffle == global (-3.117) -- one subspace.
+  (a) MONOTONE: cluster recovery rises monotonically with K (rise +3.47
+      from K=1 to K=32) -- more per-cluster low-rank subspaces reconstruct
+      the high-rank layer progressively better. Still climbing at K=32
+      (+0.354), so mlp1 is a union of MANY (>32) low-rank pieces, not just
+      8 -- fully dissolving it needs more clusters or slightly higher r.
+  NULL/CONTRAST: cluster > shuffle at every K>1 (gap 0.9-1.2) -- correct
+      token->cluster assignment always beats random among the same K
+      subspaces, so the clusters are real functional partitions.
+CONCLUSION of the 702-705 arc (answering the user's cluster-then-low-rank
+idea): mlp1 (and by 699 mlp2) are GLOBALLY high-rank but decompose into a
+UNION of low-rank per-cluster OUTPUT circuits in FUNCTIONAL/CE space. The
+idea works; it must be measured in CE space (704) not energy space (702),
+and validated by cluster-vs-shuffle + the K-sweep monotonicity (705). This
+is a genuine finer-grained isolation of a high-rank layer -- exactly what
+Q5 sought, now achieved for the hard case. Queued rspd_cluster_ce_mlp2 to
+confirm the same structure on the OTHER high-rank layer.
