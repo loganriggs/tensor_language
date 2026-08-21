@@ -135,6 +135,21 @@ at boundaries but writes open-vocab continuation). See method note.
     Fast A-SVD (normal-equations right-inverse) = 17.5× over the library, N-linear (§700). **HIGH**
     (method validated, controls+nulls; over-optimistic conclusion corrected §709). §694–709.
 
+16. **Decomposition metrics: a learned overcomplete sparse dictionary beats SVD/A-SVD.** SVD/A-SVD are
+    faithful (exact at full rank) but **dense** (~120/256 components per datapoint, §740) and **CE-
+    catastrophic at low rank** — A-SVD orders by response *energy* (massive-activation directions, §737),
+    so its rank-4 reconstruction is worse than ablation (§737, §748). Metrics genuinely differ (weight-SVD
+    wins efficiency/composability/monosemanticity, A-SVD marginally wins raw parsimony). The right family
+    is a **learned top-k sparse dictionary**: per-datapoint it recovers far more CE than SVD at the same k
+    (activation-SAE 86% vs SVD −233% at k=8, §748), validated on ground-truth toys (recovers planted atoms
+    perfectly, respects shared/hierarchical structure, doesn't hallucinate; §743–745, §747). The **novel
+    weight-action** form — factor `W ≈ D·E`, codes `E·gate` top-k sparse — is faithful to the *weight* and
+    CE-faithful on the real mlp1.Down (87% at k=8, §750; soft-L1 failed §749, hard top-k works). Orthogonal
+    rotation can't sparsify (§741); overcompleteness is required. Real layers differ: mlp16 (rank-1) is
+    genuinely simple (SAE≈SVD), mlp0/mlp1 have rich sparse structure the SAE finds (§746). Metric for
+    "right decomposition" = atom-recovery + code-length-matching-true-k on toys; k tuned by the recovery
+    peak (§745). **HIGH** (toys + real, controls+nulls). §737–750.
+
 ### Architecture facts worth keeping
 - MLP = `Down[(Lx)·(Rx)] + b`: every output dim is an exact **quadratic form** `xᵀMₖx`. mlp17's
   *output* is rank-8 by **variance** (§615), but its **functional (loss) rank is higher** (§660):
