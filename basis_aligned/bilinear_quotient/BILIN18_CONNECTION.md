@@ -23091,3 +23091,62 @@ STATUS of the monosemanticity question: still OPEN. The QUALITATIVE answer
 boundary), most-used are polysemantic -- but a clean QUANTITATIVE metric has
 been elusive (concentration confounded by frequency 751; max-lift broken 752).
 KL should settle it.
+
+## 753. INTERPRET SAE ATOMS v3 -- KL metric WORKS, verdict WEAK-YES + a
+## sharper substantive point in the NULL. The KL divergence metric finally
+## SEPARATES methods (v2 gave all ~164): SAE mean-KL 4.10, SVD 3.18, random
+## 3.33. Two registered predictions, both land WEAKLY, and the null FAILS in
+## an informative way.
+
+Result (NFIT=96 ~24.5k tokens, K=32):
+  P=512 : mean-KL 4.10  (high-usage 3.97 / mid 4.12 / low-usage 4.20)  max 5.0
+  P=1024: mean-KL 4.03  (high-usage 3.99 / mid 4.07 / low-usage 4.02)  max 5.1
+  SVD 3.18   random 3.33
+  pred_a (SAE > 1.3x SVD AND low-usage > high-usage): FALSE
+  null_ok (random < SVD): FALSE
+
+READ (honest):
+(1) SAE atoms ARE more token-monosemantic than SVD directions -- 4.10 vs 3.18,
+    a 1.29x lift -- but that just misses the pre-registered 1.3x bar, so it is
+    a WEAK yes, not the clean win predicted. Consistent direction, modest size.
+(2) LOW-usage atoms edge out HIGH-usage (P=512: 4.20 vs 3.97), in the predicted
+    direction (specific atoms are more selective than the polysemantic most-used
+    ones) -- but the gap is small and it REVERSES at P=1024 (4.02 vs 3.99, flat).
+    So "rarer atoms are cleaner" holds only weakly and not robustly across P.
+(3) The NULL FAILS and THAT is the real content: random directions (3.33) score
+    at/above SVD (3.18). SVD directions of the mlp1 output carry NO MORE token
+    identity than a random projection. This is exactly what the massive-
+    activation story (660/676) predicts: SVD orders by output ENERGY, and the
+    top-energy directions are the massive-activation dims that fire on ~every
+    token (common, non-selective), so their top-activating datapoints are not
+    token-specific. SVD is not just WORSE than the SAE for naming circuits -- on
+    this token-monosemanticity metric it is no better than RANDOM. That
+    sharpens the whole 737-750 thesis: SVD/A-SVD is the wrong basis for
+    interpretability, and here we can say so quantitatively, not just on CE.
+
+STATUS -- monosemanticity question, RESOLVED as far as it profitably goes:
+  * QUANTITATIVE (this section): SAE > SVD modestly (1.3x KL); SVD ~= random.
+    The SAE basis carries token identity that SVD/random do not, but the margin
+    is modest and the most-used atoms remain polysemantic.
+  * QUALITATIVE (751, stands): a FEW SAE atoms are clean nameable circuits
+    (sentence-end, parenthetical, boundary); the average atom, and every SVD
+    direction, is not.
+  * Three metric iterations (751 concentration=freq-confounded; 752 max-lift=
+    rare-token-broken; 753 KL=works) converge on the same qualitative answer.
+    NOT launching a 4th metric -- diminishing returns. The reconstruction/CE
+    win (748/750) is real and large; the interpretability win is real but
+    modest and lives in a minority of atoms. Stated plainly, no overclaim.
+  * Lesson (LESSONS): monosemanticity metrics are treacherous -- pick a metric
+    ROBUST to token frequency (KL of top-token dist), and ALWAYS gate it on a
+    random-direction null; here the null is what carried the finding (SVD~=rand).
+Next substantive step is NOT more metric-tuning but COMPOSITION (user question:
+does the weight-action SAE compose from WEIGHTS ALONE across two neighbouring
+matrices, or does top-k make it data-based again?). Answer to test: the
+dictionary coupling C = E2@D1 between Down_0's write-atoms and Left_1's read-
+atoms is PURE WEIGHTS (no X.pinv, unlike A-SVD) -> the WIRING composes from
+weights alone; top-k only ROUTES which edges are live per token (the desired
+per-datapoint sparsity), it does NOT make the wiring data-based. The only thing
+that re-injects data is the MODEL's own nonlinearity between the two matrices
+(lambda-scale + attention + rms_norm), not the SAE. Queued weight_action_compose
+(coupling sparsity + weight-only write prediction vs measured contribution +
+routing sparsity + A-SVD data-variance contrast).
