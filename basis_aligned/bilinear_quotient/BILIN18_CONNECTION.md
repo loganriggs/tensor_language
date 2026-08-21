@@ -19922,3 +19922,41 @@ THE READOUT LAYER, fully characterized (624-661): mlp17's output =
 Queued layerwise_wfreq_removal to close a systematic question with the
 validated causal method: is block 17 the UNIQUE layer with an isolable
 rank-1 frequency-calibration component, or do others have one?
+
+## 662. CORRECTION to "block 17 is the unique calibrator": frequency
+## calibration is DISTRIBUTED. Rank-1 w_freq removal finds a calibrator-
+## sign component in FIVE layers -- L4, L5, L6 (early-middle) and L16, L17
+## (end) -- but block 17 dominates 5-10x. The rank-1 method reveals what
+## the whole-block CE test (628) missed.
+
+Per-layer rank-1 w_freq removal (dCE_freq / dCE_rare; calibrator sign =
+freq drops, rare rises on removal):
+  L0-3: writers (both positive). L4 -0.003/+0.004, L5 -0.011/+0.031,
+  L6 -0.026/+0.053 (CALIBRATORS). L7-15: writers, several with dCE_rare<0
+  (they WRITE rare content). L16 -0.054/+0.075 (CALIBRATOR).
+  L17 -0.240/+0.607 (CALIBRATOR, dominant, 5-10x any other).
+  NULL: random-1 at L17 gives +0.005/+0.001 -- no calibrator sign
+  (w_freq is specific).
+FINDINGS:
+  (a) FIVE calibrator layers, not one (registered guess of "only 17,
+      maybe 5" was wrong -- correctly). Frequency calibration is applied
+      in TWO bands: early-middle (L4-6) and the end (L16-17), with
+      content-writers in between (L7-15). Block 17 does the bulk (its
+      magnitude is 5-10x the next, L16).
+  THE CORRECTION to 628 ("only block 17 is a net calibrator"): that used
+  the WHOLE-BLOCK CE trade-off, on which the other layers' small
+  calibration components are DILUTED by their larger writer roles, so
+  only block 17 showed net calibration. The rank-1 w_freq REMOVAL method
+  isolates the calibration COMPONENT within each layer's output, and
+  finds it in 5 layers. Both are right at their level: block 17 is the
+  only NET calibrator (whole-block), but frequency calibration as a
+  rank-1 component is DISTRIBUTED across ~5 layers. This is a methodo-
+  logical point too: rank-1 behavior-conditioned removal is MORE
+  SENSITIVE than whole-block ablation -- it finds distributed components
+  the block-level test dilutes away.
+So the calibration is not a single-layer function but a distributed
+frequency correction (two bands, L4-6 and L16-17), concentrated in block
+17. Propagated to FINDINGS (item 3 corrected: block 17 dominant, not
+sole). Queued layerwise_calib_axis: do the 5 calibrator layers write
+along the SAME unembedding frequency axis (freq_dir, 656) -- is it one
+shared frequency direction applied at 5 layers?

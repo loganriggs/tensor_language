@@ -19,9 +19,12 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
 
-3. **Block 17 is a net-beneficial frequency calibrator, isolated to a rank-1 direction.** It
-   suppresses tokens ∝ log-frequency (corr +0.64), the only block whose removal *helps* frequent-
-   target CE; −0.17/+0.69 → +0.43 nat trade. The calibration = one direction `w_freq` (removing it
+3. **Block 17 is the DOMINANT frequency calibrator (not the sole one), isolated to a rank-1
+   direction.** It suppresses tokens ∝ log-frequency (corr +0.64); the only *net* calibrator by
+   whole-block CE (−0.17/+0.69 → +0.43 nat trade). But rank-1 `w_freq` removal finds a calibration
+   *component* in **five** layers — L4/5/6 and L16/17 — block 17 dominating 5–10× (§662); calibration
+   is distributed across two bands, diluted below net-calibration in the others by their writer roles.
+   The calibration = one direction `w_freq` (removing it
    kills it, random doesn't; §650–651), ~40% aligned with the unembedding log-freq axis (cos 0.61,
    cos²≈§627's R² 0.41; §656). Its function→content mass shift (§629) is the SAME w_freq direction —
    "boost rare content" = "suppress frequent function tokens" (removing w_freq also drops rare
