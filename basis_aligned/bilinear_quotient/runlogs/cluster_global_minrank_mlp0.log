@@ -1,0 +1,19 @@
+CE-damage matrix done (81s)
+CE clustering convergence (split-half sim corr, T=200): 0.986
+importance matrix done (88s)
+
+per-cluster minimal GLOBAL rank (90% CE), shared M=96 basis:
+  cluster 0: r90=  8  n=  68  comps=[0, 1, 2, 3, 4, 6, 9, 17]  [' the', ',', ' help', ' to']
+  cluster 1: r90= 16  n= 105  comps=[0, 4, 7, 10, 17, 24, 25, 27]...  ['.', '�', ',', ' (']
+  cluster 2: r90=  1  n= 252  comps=[1]  [')', ' the', '.', '-']
+  cluster 3: r90=  2  n= 128  comps=[4, 33]  [' to', '\n', '.', ' the']
+  cluster 4: r90= 32  n= 231  comps=[0, 1, 2, 3, 4, 5, 7, 9]...  [' and', ',', ' to', '.']
+  cluster 5: r90=  1  n=  71  comps=[1]  ['\n', ' (', ' of', ' on']
+  cluster 6: r90= 32  n=1134  comps=[0, 2, 3, 4, 5, 7, 8, 9]...  ['.', ' the', ',', ' to']
+  cluster 7: r90= 96  n=  59  comps=[0, 1, 2, 3, 4, 5, 6, 7]...  [',', '-', ' (', ' had']
+
+mean pairwise Jaccard of component sets (shared language): 0.137
+NULL random-set mean recovery -293.518 (vs importance-set >=0.90)
+
+(0) converges: True; per-cluster r90 spread 1-96; (b) shared language (Jaccard 0.14 in .1-.9): True; NULL: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_global_minrank_mlp0_results.json (90s)
