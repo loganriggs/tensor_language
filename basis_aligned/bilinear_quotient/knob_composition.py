@@ -72,14 +72,15 @@ def main():
     massive = torch.tensor(np.argsort(-rms)[:K].tolist(), device=DEV)
     O = torch.cat(mlp17_out, 0); lf = torch.cat(logf_cap, 0)
     wf = ((O - O.mean(0)) * (lf - lf.mean())[:, None]).mean(0)
-    wf = (wf / wf.norm()).to(DEV)
+    wf = (wf / wf.norm()).float().to(DEV)
 
     # forward with both interventions: scale w_freq comp of mlp17 out by alpha,
     # scale massive dims of final residual by g.
     W = {'alpha': 1.0}
     def mlp17_hook(mo, i_, o_):
-        comp = (o_.float() @ wf)[..., None] * wf
-        return o_ + (W['alpha'] - 1.0) * comp
+        of = o_.float()
+        comp = (of @ wf)[..., None] * wf
+        return (of + (W['alpha'] - 1.0) * comp).to(o_.dtype)
     hh = m.transformer.h[17].mlp.register_forward_hook(mlp17_hook)
 
     @torch.no_grad()
