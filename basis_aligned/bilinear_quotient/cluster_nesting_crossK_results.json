@@ -1,0 +1,231 @@
+{
+ "coarse_labels": [
+  " the/ and/ a",
+  "./ Fr/im",
+  " of/ to/ in",
+  ",/./\n"
+ ],
+ "fine": [
+  {
+   "fine": 0,
+   "label": " all/ more/ one",
+   "kind": "tree",
+   "containment": [
+    0.3,
+    0.47,
+    0.71,
+    0.12
+   ],
+   "strong_parents": [
+    2
+   ]
+  },
+  {
+   "fine": 1,
+   "label": "\ufffd",
+   "kind": "none",
+   "containment": [
+    0.1,
+    0.11,
+    0.41,
+    0.12
+   ],
+   "strong_parents": []
+  },
+  {
+   "fine": 2,
+   "label": " that/,/ (",
+   "kind": "none",
+   "containment": [
+    0.29,
+    0.17,
+    0.5,
+    0.46
+   ],
+   "strong_parents": []
+  },
+  {
+   "fine": 3,
+   "label": " is/ was/ be",
+   "kind": "tree",
+   "containment": [
+    0.65,
+    0.11,
+    0.36,
+    0.11
+   ],
+   "strong_parents": [
+    0
+   ]
+  },
+  {
+   "fine": 4,
+   "label": " said/ out/ up",
+   "kind": "tree",
+   "containment": [
+    0.21,
+    0.35,
+    0.74,
+    0.11
+   ],
+   "strong_parents": [
+    2
+   ]
+  },
+  {
+   "fine": 5,
+   "label": "-/\ufffd/.",
+   "kind": "none",
+   "containment": [
+    0.49,
+    0.26,
+    0.22,
+    0.28
+   ],
+   "strong_parents": []
+  },
+  {
+   "fine": 6,
+   "label": "\n/ \"/ \ufffd",
+   "kind": "none",
+   "containment": [
+    0.16,
+    0.24,
+    0.33,
+    0.48
+   ],
+   "strong_parents": []
+  },
+  {
+   "fine": 7,
+   "label": " of/ to/ in",
+   "kind": "tree",
+   "containment": [
+    0.27,
+    0.16,
+    0.7,
+    0.14
+   ],
+   "strong_parents": [
+    2
+   ]
+  },
+  {
+   "fine": 8,
+   "label": " the/ a/ an",
+   "kind": "tree",
+   "containment": [
+    0.81,
+    0.14,
+    0.25,
+    0.11
+   ],
+   "strong_parents": [
+    0
+   ]
+  },
+  {
+   "fine": 9,
+   "label": "im/ John/ nuclear",
+   "kind": "tree",
+   "containment": [
+    0.21,
+    0.89,
+    0.32,
+    0.14
+   ],
+   "strong_parents": [
+    1
+   ]
+  },
+  {
+   "fine": 10,
+   "label": " I/ it/ you",
+   "kind": "tree",
+   "containment": [
+    0.84,
+    0.18,
+    0.2,
+    0.1
+   ],
+   "strong_parents": [
+    0
+   ]
+  },
+  {
+   "fine": 11,
+   "label": " people/ wedding/ time",
+   "kind": "tree",
+   "containment": [
+    0.18,
+    0.95,
+    0.33,
+    0.11
+   ],
+   "strong_parents": [
+    1
+   ]
+  },
+  {
+   "fine": 12,
+   "label": " That/ If/ This",
+   "kind": "none",
+   "containment": [
+    0.3,
+    0.23,
+    0.54,
+    0.16
+   ],
+   "strong_parents": []
+  },
+  {
+   "fine": 13,
+   "label": ",/ and/ or",
+   "kind": "tree",
+   "containment": [
+    0.3,
+    0.12,
+    0.22,
+    0.67
+   ],
+   "strong_parents": [
+    3
+   ]
+  },
+  {
+   "fine": 14,
+   "label": "./\n/?",
+   "kind": "tree",
+   "containment": [
+    0.15,
+    0.11,
+    0.18,
+    0.93
+   ],
+   "strong_parents": [
+    3
+   ]
+  },
+  {
+   "fine": 15,
+   "label": " Fr/ Seraph/ St",
+   "kind": "tree",
+   "containment": [
+    0.2,
+    0.85,
+    0.35,
+    0.13
+   ],
+   "strong_parents": [
+    1
+   ]
+  }
+ ],
+ "null_containment": 0.021,
+ "n_tree": 11,
+ "n_overlap": 0,
+ "overlap_frac": 0.0,
+ "pred_0": true,
+ "pred_a_overlap": false,
+ "runtime_s": 84.61671566963196
+}

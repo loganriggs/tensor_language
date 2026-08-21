@@ -21,7 +21,7 @@ from bilin18_joint_removal import m, DEV
 D = 1152; HID = 4608
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'rspd_depth_rank_map_results.json'
-NFIT = 24; NEVAL = 48   # N=6144 tokens > MLP gate width 4608 (well-conditioned)
+NFIT = 24; NEVAL = 128   # 32k-token eval (user: more data)   # N=6144 tokens > MLP gate width 4608 (well-conditioned)
 RANKS = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 
 

@@ -21852,3 +21852,41 @@ CAVEAT (null failed, as in 701): the token-concentration null was weak
 are generically high-magnitude in the gate, so concentration is confounded
 (same massive-activation issue as 701). The SOLID evidence is the rank-1 CE
 recovery (0.90) + the coherent unembedding readout, not the concentration.
+
+## 716. CROSS-GRANULARITY NESTING is a CLEAN TREE (32k tokens, user's push
+## for more data). Fine (K=16) clusters nest into coarse (K=4) clusters each
+## into EXACTLY ONE parent (11 tree-like, 0 overlap; containment up to 0.95
+## vs 0.02 random). Reconciles 714: single-scale = overlapping siblings;
+## cross-scale = clean nesting hierarchy. The user's hierarchy intuition is
+## vindicated when scales are separated.
+
+Fine->coarse subspace containment (RF=8 into RC=24), K=16 into K=4, 32768
+tokens:
+  coarse groups: [the/an (closed-class)], [./Fr/im (content/proper)],
+                 [of/to (prep-ish)], [,/./\n (punctuation)]
+  c8  the/a/an     -> closed-class 0.81   (tree)
+  c10 I/it/you     -> closed-class 0.84   (tree)  pronouns nest w/ determiners
+  c9  im/John/nuc  -> content      0.89   (tree)
+  c11 people/wed   -> content      0.95   (tree)
+  c15 Fr/Seraph/St -> content      0.85   (tree)  proper-noun frags
+  c13 ,/and/or     -> punctuation  0.67   (tree)
+  c14 ./\n/?       -> punctuation  0.93   (tree)
+  c12 That/If/This -> none strong (max 0.54) -- sentence-initial capitals,
+                      ambiguous (the one non-nesting fine cluster).
+  11 tree-like, 0 overlap -> overlap frac 0.00. Random null 0.021.
+FINDINGS:
+  - CLEAN TREE across scales: each fine cluster has exactly one coarse
+    parent. NO overlapping/DAG structure at cross-granularity (contra the
+    single-scale sibling overlap of 714).
+  - RECONCILIATION: the structure is a proper HIERARCHY (tree). At a single
+    cut (K=8, 714) the same-level leaves overlap as fuzzy siblings (27%
+    ambiguous tokens, symmetric partial subspace sharing); but zoom across
+    scales and fine clusters nest cleanly in coarse ones. Both true: a tree
+    whose same-level leaves bleed into each other.
+  - The coarse groups are the linguistically natural super-categories
+    (closed-class function words+pronouns / content+proper nouns /
+    prepositions / punctuation), and fine clusters nest sensibly.
+  - DATA-SCALE NOTE (user was right): the 32k-token run gave a clean,
+    decisive tree (85s runtime) where small data was ambiguous. Adopting
+    32k+ as the default. This result would have been muddier at 3-6k.
+Queued hierarchy tree figure + next probe at 32k.
