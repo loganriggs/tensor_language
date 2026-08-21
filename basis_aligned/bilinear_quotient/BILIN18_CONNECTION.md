@@ -20646,3 +20646,36 @@ the readout and hosts the frequency-calibration knob. FINDINGS + report
 to be updated. Queued attention_density to open a fresh architecture-
 specific probe: this model's attention is a softmax-FREE bilinear product
 (pat = s1*s2) -- are its patterns focal or diffuse?
+
+## 681. The softmax-FREE bilinear attention is FOCAL: heads attend to only
+## ~17-32% of valid keys (vs 0.64 random), most-focal heads ~6-8%. The
+## double-QK product produces peaked, selective attention WITHOUT softmax.
+## Front attention is most focal; late attention more diffuse.
+
+Effective-keys fraction (participation ratio of |pat| / #valid keys) per
+head, over real text. Low = focal, ~1 = uniform.
+  by depth: 0.17-0.19 (L2-4, most focal) ... 0.29-0.32 (L15-17, more
+    diffuse). Mean ~0.17-0.32 across all layers.
+  most focal heads: L1.H1 0.06, L0.H3 0.067, L2.H6 0.069, L7.H8 0.081.
+  most diffuse: L1.H8 0.50, L6.H1 0.40, L15.H2/H6/H7 0.38.
+  60 of ~162 heads are focal (frac < 0.2). Random-pattern null: 0.64.
+FINDINGS:
+  (0)/(a) HELD: despite NO softmax, the attention is FOCAL -- heads
+      concentrate on a small fraction of keys (~0.17-0.32 mean, most-
+      focal ~0.06-0.08), far below the 0.64 of a random pattern. So the
+      unnormalized double-QK product (pat = (q.k1)(q2.k2)) produces
+      peaked, selective attention. The peaking mechanism is the PRODUCT
+      of two dot products: the pattern is large only where BOTH QK terms
+      are large, which sharpens the selection (a different peaking route
+      than softmax's exponential). NULL clean (random 0.64, diffuse).
+  DEPTH PATTERN: front attention is the most focal (L2-4 ~0.17 -- the
+      specific bigram/lookup/routing heads live here, 614/644), and the
+      most-focal single heads are front (L0.H3, L1.H1, L2.H6). Late
+      attention is more diffuse (L15-17 ~0.30). Selectivity is front-
+      loaded, matching where the specific-lookup circuits are.
+So the model's unusual softmax-free attention is not diffuse-by-default
+(as one might expect without softmax's normalization/peaking) -- it has
+learned focal, selective patterns via the double-QK product, most sharply
+in the front. Opens the attention-mechanism characterization. Queued
+attention_double_qk to test HOW: is the focality DUE to the double-QK
+(is pat = s1*s2 more focal than either single QK term s1 or s2 alone)?
