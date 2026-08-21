@@ -21244,3 +21244,48 @@ mlp17 into interpretable functional pieces. Closes the RSPD/Q5 arc
 (694-696) on a strong positive. Queued rspd_mlp0_functional_rank: run the
 SAME CE-priced A-SVD rank sweep + core readout on mlp0 (the FRONT class-
 decider) for a front-vs-back functional-rank comparison.
+
+## 697. FRONT-VS-BACK via RSPD: mlp0 (front class-decider) also has a
+## data-conditioned low-rank core (r80=8), does 3x the work of mlp17 (2.39
+## vs 0.72 nats), and its core directions are broad token-CLASS selectors
+## -- vs mlp17's calibration + specific content-writers. Both ends of the
+## depth division compress to nameable low-rank cores.
+
+mlp0.Down: benefit CE_ablate 5.748 - CE_full 3.363 = 2.386 nats. A-SVD
+CE-priced (full-rank sanity HELD 3.3632):
+  rank r:        1     2     4     8    16    32    64   128   256   512
+  A-SVD recov: 0.674 0.686 0.759 0.829 0.890 0.930 0.962 0.984 0.994 0.999
+  random recov:0.001 0.003 -.000 -.001 0.003 0.057 -.002 0.172 0.337 0.730
+  => r80 = 8 (mlp17 r80 = 4). rank-1 alone recovers 67%. Random r80=never.
+Core directions (rough proxy: read through 17 downstream blocks):
+  dir 0  freq_corr -0.501  boost: (rare/garbage) IMAGES _- ICLE =' -- a
+     RARITY/FREQUENCY axis (the front has a calibration-like #1 too).
+  dir 1  freq_corr -0.276  boost: several various different recent parallel
+     -- QUANTIFIER / DEGREE-WORD class.
+  dir 2  freq_corr -0.152  boost: reply CVE realDonaldTrump NVIDIA transform
+     -- NAMED-ENTITY / HANDLE class.
+  dir 3  freq_corr -0.281  boost: entire whole respective first same
+     -- SCOPE-ADJECTIVE / DETERMINER class.
+FINDINGS (all predictions HELD): (0) sanity; (a) low-rank core r80=8<=128;
+(b) front IS higher-rank than back (8 > 4) AND does 3x the work (2.39 vs
+0.72 nats) -- consistent with 634 (front makes the big class decision);
+NULL clean (random ~0 until r>=256). The front's core = broad token-CLASS
+selectors; the back's core = calibration + specific content-writers. This
+is the depth division (finding 4) seen through RSPD: same mechanism (a
+handful of data-conditioned directions) at both ends, doing different jobs
+(class-selection front, calibration+content back), the front higher-rank.
+Closes the RSPD/Q5 arc (694-697): the user's SVD(WX)*pinv method, applied
+properly and CE-priced, isolates BOTH flagship MLPs into nameable low-rank
+functional cores -- the finer-grained component isolation Q5 asked for,
+delivered at both ends of the network.
+
+## 698. CAUTION / SCOPE CORRECTION (user feedback): the r80 numbers in
+## 694-697 rest on only ~3072 tokens (12 rows). That is too little data to
+## make a strong 'rank-4 core' claim -- the A-SVD fit and the CE pricing
+## can both shift with more data. Treating 694-697's r80 (mlp17=4, mlp0=8)
+## as PROVISIONAL pending a data-scaling robustness check. New direction
+## (user): scale the data on GPU and map the FIRST FEW LAYERS ENTIRELY
+## (systematic front-block decomposition) rather than one-off components.
+## Queued rspd_front_layers_scaled: GPU A-SVD over MUCH more data, all
+## components of blocks 0-2 (attn c_proj + mlp Down), WITH an explicit
+## r80-vs-N data-scaling sweep to test whether the low-rank claim holds.

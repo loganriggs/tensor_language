@@ -1,0 +1,22 @@
+gate X (3072, 4608), Down W (1152, 4608)
+CE_full 3.3627  CE_ablate 5.7483  benefit 2.3856
+(0) full-rank A-SVD CE 3.3632: HELD
+r=   1: A-SVD recovered 0.674 | random 0.001
+r=   2: A-SVD recovered 0.686 | random 0.003
+r=   4: A-SVD recovered 0.759 | random -0.000
+r=   8: A-SVD recovered 0.829 | random -0.001
+r=  16: A-SVD recovered 0.890 | random 0.003
+r=  32: A-SVD recovered 0.930 | random 0.057
+r=  64: A-SVD recovered 0.962 | random -0.002
+r= 128: A-SVD recovered 0.984 | random 0.172
+r= 256: A-SVD recovered 0.994 | random 0.337
+r= 512: A-SVD recovered 0.999 | random 0.730
+dir 0: freq_corr -0.501 boost ['�', ' IMAGES', '_-', 'ICLE', "='"]
+dir 1: freq_corr -0.276 boost ['everal', ' various', ' different', 'paralle', ' recent']
+dir 2: freq_corr -0.152 boost ['reply', 'CVE', 'realDonaldTrump', 'NVIDIA', 'transform']
+dir 3: freq_corr -0.281 boost [' entire', ' whole', ' respective', ' first', ' same']
+
+mlp0 r80=8 (mlp17 r80=4); random r80=None
+(a) low-rank core (r80<=128): True; front>back (r80>4): True; NULL: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_mlp0_functional_rank_results.json (79s)

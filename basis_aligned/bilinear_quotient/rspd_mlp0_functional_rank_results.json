@@ -1,0 +1,137 @@
+{
+ "ce_full": 3.3627,
+ "ce_ablate": 5.7483,
+ "benefit": 2.3856,
+ "recovered_by_rank": {
+  "asvd": {
+   "1": 0.6739,
+   "2": 0.6862,
+   "4": 0.759,
+   "8": 0.8293,
+   "16": 0.8902,
+   "32": 0.9301,
+   "64": 0.962,
+   "128": 0.9842,
+   "256": 0.9944,
+   "512": 0.9993
+  },
+  "random": {
+   "1": 0.0011,
+   "2": 0.0026,
+   "4": -0.0004,
+   "8": -0.0009,
+   "16": 0.0029,
+   "32": 0.0573,
+   "64": -0.0024,
+   "128": 0.1715,
+   "256": 0.3366,
+   "512": 0.7299
+  }
+ },
+ "r80_asvd": 8,
+ "r80_random": null,
+ "r80_mlp17": 4,
+ "core_directions": [
+  {
+   "j": 0,
+   "freq_corr": -0.501,
+   "boost": [
+    "\ufffd",
+    " IMAGES",
+    "_-",
+    "ICLE",
+    "='",
+    " SECTION",
+    " CODE",
+    " FILE"
+   ],
+   "suppress": [
+    " that",
+    " to",
+    ".",
+    " the",
+    " in",
+    " this",
+    ",",
+    " a"
+   ]
+  },
+  {
+   "j": 1,
+   "freq_corr": -0.276,
+   "boost": [
+    "everal",
+    " various",
+    " different",
+    "paralle",
+    " recent",
+    "uilt",
+    "multipl",
+    "Attempts"
+   ],
+   "suppress": [
+    "-",
+    ",",
+    " and",
+    ".",
+    "/",
+    "'s",
+    "ly",
+    " of"
+   ]
+  },
+  {
+   "j": 2,
+   "freq_corr": -0.152,
+   "boost": [
+    "reply",
+    "CVE",
+    "realDonaldTrump",
+    "NVIDIA",
+    "transform",
+    "TYPE",
+    "OSED",
+    "Transaction"
+   ],
+   "suppress": [
+    " The",
+    "The",
+    " They",
+    "the",
+    " There",
+    "\n",
+    " This",
+    " It"
+   ]
+  },
+  {
+   "j": 3,
+   "freq_corr": -0.281,
+   "boost": [
+    " entire",
+    " whole",
+    " respective",
+    " first",
+    " same",
+    " previous",
+    " current",
+    "'ll"
+   ],
+   "suppress": [
+    " the",
+    " a",
+    " their",
+    " its",
+    " your",
+    " an",
+    " some",
+    " his"
+   ]
+  }
+ ],
+ "pred_0": true,
+ "pred_a_low_rank": true,
+ "front_higher_rank": true,
+ "null_ok": true,
+ "runtime_s": 78.85802388191223
+}
