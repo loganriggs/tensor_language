@@ -1590,7 +1590,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   line break really follows or not. The full network separates them cleanly: it lifts the
   chance to 0.47 at the periods that truly end a line and cuts it to 0.21 at the ones in the
   middle of a paragraph. The blocks read the surrounding context to decide which of the
-  bigram's blanket guesses are right. A few classes are different — digits, punctuation,
+  bigram's blanket guesses are right. The same period fans out three ways — a line break, a
+  capitalized new sentence, or a lowercase continuation — and the network routes cleanly among
+  them: where a new sentence actually follows it swaps its bet, dropping the line-break chance to
+  0.22 and lifting the capital-letter chance to 0.45, a flip the context-blind bigram (which
+  fires the same 0.42/0.10 at every period) never makes. A few classes are different — digits, punctuation,
   capitalized words are barely in the embedding bigram (they start at a few percent) and the
   network builds them almost from scratch, four to eight times up. But for the function-word
   triggers the story is uniform: the embedding proposes, the network disposes, and the last

@@ -484,3 +484,43 @@ is computed" (638) is true only for initiation; continuation is a
 bigram. Queued digit_init_vs_cont to confirm the split directly:
 digit-target positions preceded-by-digit (continuation, expect bigram:
 full~direct) vs not (initiation, expect computed: full>>direct).
+
+## 643. THE SENTENCE-BOUNDARY FANOUT (crown of the input-tracing phase):
+## one embedding-bigram trigger ('.'), three grammatical outcomes
+## (newline / capitalized / continuation), and the 18 blocks ROUTE among
+## them by context while the bigram fires identically.
+
+After a sentence-ending '.', the next token is a NEWLINE (181 cases), a
+CAPITALIZED word (162), or a lowercase/other continuation (163) --
+well-balanced. P(newline) and P(capitalized) at these positions:
+  DIRECT (embedding bigram), by what ACTUALLY follows:
+    ->newline:     P(nl) 0.416  P(cap) 0.103
+    ->capitalized: P(nl) 0.419  P(cap) 0.103
+    ->other:       P(nl) 0.419  P(cap) 0.103
+    routing: nl -0.003, cap -0.001  (ZERO -- identical regardless of
+    outcome; the bigram is context-blind)
+  FULL (all 18 blocks):
+    ->newline:     P(nl) 0.472  P(cap) 0.242
+    ->capitalized: P(nl) 0.224  P(cap) 0.454
+    ->other:       P(nl) 0.192  P(cap) 0.251
+    routing: nl +0.248, cap +0.212
+THE DEMONSTRATION: the '.' embedding bigram proposes a fixed blunt
+distribution (~42% newline, ~10% capitalized) at EVERY period, blind to
+what follows. The 18 blocks READ CONTEXT and ROUTE: they raise P(newline)
+to 0.472 where a paragraph break really comes and drop it to 0.224 where
+a new sentence (capitalized word) comes; and they raise P(capitalized)
+to 0.454 where a sentence continues and drop it to 0.242 where a
+paragraph breaks. The two outcomes ANTI-correlate -- high-newline goes
+with low-capitalized and vice versa -- the blocks trade off "end the
+paragraph" against "start a new sentence" using context the bigram
+cannot see. All predictions HELD (0, b, NULL).
+This is the cleanest, most complete statement of the model's job on
+structural predictions, crowning the input-tracing phase (634-643): the
+EMBEDDING supplies a blunt context-blind trigger from the current token;
+the 18 BLOCKS supply the entire context-conditional routing among the
+grammatical continuations that trigger allows; and block 17 calibrates
+the frequencies. Trigger -> route -> calibrate. Reported to the artifact.
+Queued routing_attention_localization to trace WHERE the routing is
+computed: does front-attention ablation collapse the newline-vs-
+capitalized routing (context enters at the front, 634/635) while late
+attention does not?

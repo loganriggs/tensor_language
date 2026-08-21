@@ -1,0 +1,17 @@
+end-punct outcome counts: ->newline=181, ->capitalized=162, ->other=163
+direct:
+  ->newline      P(nl) 0.4163  P(cap) 0.1030
+  ->capitalized  P(nl) 0.4194  P(cap) 0.1025
+  ->other        P(nl) 0.4194  P(cap) 0.1028
+  routing: nl -0.0031  cap -0.0005
+full:
+  ->newline      P(nl) 0.4718  P(cap) 0.2420
+  ->capitalized  P(nl) 0.2239  P(cap) 0.4536
+  ->other        P(nl) 0.1918  P(cap) 0.2511
+  routing: nl +0.2479  cap +0.2116
+
+(0) enough per bucket: True
+(b) full model routes to actual outcome: True
+NULL direct routing << full routing: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/sentence_boundary_fanout_results.json (46s)

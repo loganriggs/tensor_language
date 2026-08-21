@@ -1,0 +1,51 @@
+{
+ "counts": {
+  "->newline": 181,
+  "->capitalized": 162,
+  "->other": 163
+ },
+ "table": {
+  "direct": {
+   "->newline": {
+    "P_newline": 0.4163,
+    "P_capitalized": 0.103
+   },
+   "->capitalized": {
+    "P_newline": 0.4194,
+    "P_capitalized": 0.1025
+   },
+   "->other": {
+    "P_newline": 0.4194,
+    "P_capitalized": 0.1028
+   }
+  },
+  "full": {
+   "->newline": {
+    "P_newline": 0.4718,
+    "P_capitalized": 0.242
+   },
+   "->capitalized": {
+    "P_newline": 0.2239,
+    "P_capitalized": 0.4536
+   },
+   "->other": {
+    "P_newline": 0.1918,
+    "P_capitalized": 0.2511
+   }
+  }
+ },
+ "routing": {
+  "direct": {
+   "nl_route": -0.0031,
+   "cap_route": -0.0005
+  },
+  "full": {
+   "nl_route": 0.2479,
+   "cap_route": 0.2116
+  }
+ },
+ "pred_0": true,
+ "pred_b_blocks_route": true,
+ "null_ok": true,
+ "runtime_s": 46.27192735671997
+}
