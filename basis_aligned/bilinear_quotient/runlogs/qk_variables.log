@@ -1,0 +1,5 @@
+attn L1: benefit 2.422 | keep-variables(token+pos) 0.956 | token-only 0.939 | random 0.184
+attn L5: benefit 2.068 | keep-variables(token+pos) 0.545 | token-only 0.112 | random 0.022
+
+(a) attention reads mostly the early token-class+position variables (>=0.6 & >>random): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/qk_variables_results.json (38s)

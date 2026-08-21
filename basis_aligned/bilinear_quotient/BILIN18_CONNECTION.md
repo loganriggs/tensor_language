@@ -24006,3 +24006,29 @@ causal, nameable grammatical-class + position representation, multiplexed into n
 orthogonal per-component channels, that carries most of the front's loss contribution
 and is read amortized by later layers. The genuine distributed/conditional computation
 (FINDINGS 1) is the ~15-22% remainder, concentrated in the small early-middle MLPs.
+
+## 783. QK READS EARLY VARIABLES -- amortized composition CONFIRMED, but the variable
+## is HEAD-SPECIFIC (user's compositional vision, with a fork). Restrict an attention
+## layer's INPUT to the token-class + position subspace, measure CE-recovery.
+Result:
+  attn L1 (benefit 2.42): keep token-only 0.939 | +position 0.956 | random 0.184
+     -> attn L1 reads TOKEN-CLASS: 94% of its function survives on the grammatical-
+        class variable alone. Its computation IS defined in the early class variable
+        (amortized composition, user's vision CONFIRMED for this head).
+  attn L5 (benefit 2.07): keep token-only 0.112 | +position 0.545 | random 0.022
+     -> attn L5 reads POSITION, not class (token-only only 0.11; +position -> 0.545),
+        AND a further ~45% that is NEITHER class nor position -- a computed variable
+        beyond the two front variables.
+READ: attention DOES read early variables amortized (both layers >> random), so the
+compositional picture holds -- later layers' computation is expressible in earlier-
+computed quantities. But WHICH variable is HEAD-SPECIFIC: attn L1 is a CLASS-reader
+(grammatical category), attn L5 is a POSITION-reader plus a further unnamed variable
+(the 45% remainder). So the residual multiplexes several named variables (768/772:
+class per component, position 776) and each head selects the ones it needs -- exactly
+the amortized-variable graph the user envisioned, with per-head variable selection.
+attn L5's 45% remainder is a computed/contextual variable not captured by class+
+position (candidate: relative position / previous-token / induction) -- the natural
+next question. pred_a False (L5 combined 0.545 < 0.6 bar) but the result is
+informative: amortized reading confirmed, variable-identity head-specific.
+NEXT: map WHICH variable each attention layer reads across the network (class vs
+position vs other) -- the amortized-composition graph. Queued qk_variables_depth.
