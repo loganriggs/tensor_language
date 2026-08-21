@@ -1,0 +1,71 @@
+{
+ "n_positions": 24576,
+ "classes": [
+  "capitalized",
+  "determiner",
+  "digit",
+  "newline",
+  "preposition",
+  "pronoun",
+  "punct",
+  "space_word",
+  "subword"
+ ],
+ "pred_0": true,
+ "class_aucs": {
+  "preposition": 0.597,
+  "digit": 0.804,
+  "determiner": 0.725,
+  "space_word": 0.797,
+  "capitalized": 0.836,
+  "pronoun": 0.764,
+  "newline": 0.845,
+  "punct": 0.637,
+  "subword": 0.915
+ },
+ "newline_auc": 0.845,
+ "pred_a": true,
+ "median_pairwise_cos": 0.5885624885559082,
+ "near_collinear": [
+  [
+   "preposition",
+   "space_word",
+   0.92
+  ],
+  [
+   "preposition",
+   "capitalized",
+   -0.93
+  ],
+  [
+   "space_word",
+   "capitalized",
+   -0.97
+  ],
+  [
+   "space_word",
+   "newline",
+   -0.9
+  ],
+  [
+   "capitalized",
+   "newline",
+   0.92
+  ],
+  [
+   "pronoun",
+   "newline",
+   0.81
+  ]
+ ],
+ "class_dirs_erank": 4.718659400939941,
+ "random_newline_aucs": [
+  0.658,
+  0.235,
+  0.205,
+  0.401,
+  0.132
+ ],
+ "null_ok": false,
+ "runtime_s": 40.96775221824646
+}

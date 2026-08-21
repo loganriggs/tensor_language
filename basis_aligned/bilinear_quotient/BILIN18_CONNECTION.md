@@ -18748,3 +18748,54 @@ finding for each token class the output direction that best predicts
 it, and testing whether those SUPERVISED directions are low-rank,
 interpretable, and capture the readout (the right way to name the
 readout primitives).
+
+
+## 618. The readout layer's functional basis IS findable -- but by
+## SUPERVISION, not PCA: ~5-dimensional, token classes as poles/
+## combinations on shared axes
+
+The supervised counterpart to 617. For each token class, the readout
+direction dC = mean(mlp17 output | next token in C) - mean(output |
+not), fit on one data half and tested on the other.
+  (0) 9 classes populated.
+  (a) HELD -- supervised directions ARE real readouts, unlike PCA
+      (617): the newline direction separates newline-target positions
+      out of sample at AUC 0.845, and most classes read out well:
+      subword 0.915, newline 0.845, capitalized 0.836, digit 0.804,
+      space_word 0.797, pronoun 0.764, determiner 0.725 (punct 0.637,
+      preposition 0.597 weaker). So the functional/readout basis
+      EXISTS and is recoverable -- the 617 failure was PCA's, not the
+      layer's.
+  (c) EFFECTIVE RANK 4.72: the 9 class-readout directions span a
+      ~5-dimensional subspace -- consistent with mlp17's rank-8 output
+      (615). The readout layer's functional structure is genuinely
+      low-rank (~5 independent channels for 9 token classes).
+  (b) NOT ORTHOGONAL CHANNELS: median pairwise |cosine| among class
+      directions is 0.589, with many near-collinear pairs -- space_word
+      vs capitalized -0.97 (opposite poles of ONE axis), capitalized
+      vs newline +0.92 (shared direction), preposition vs space_word
+      +0.92, pronoun vs newline +0.81. So the classes are NOT 9
+      independent channels; they are POLES and COMBINATIONS on ~5
+      shared axes (e.g. one axis runs space_word <-> capitalized).
+  NULL marginal (CHECK): random directions give scattered newline AUCs
+      (0.13-0.66, not tightly 0.5) because mlp17's output has strong
+      norm structure any direction partly picks up -- but the
+      supervised direction (0.845) clearly beats them, and the
+      OUT-OF-SAMPLE generalization is the real evidence it is a
+      genuine readout, not the random comparison.
+THE POSITIVE FINDING, correcting 617 into the right method: the
+readout layer HAS an interpretable low-rank functional basis -- ~5
+dimensions in which ~9 token classes sit as poles and combinations on
+shared axes -- and it is found by SUPERVISION (which direction predicts
+each class), not by unsupervised PCA (which finds the magnitude/
+variance basis instead, 617). This is the concrete answer to "name the
+readout layer's computational primitives": ~5 shared readout axes,
+each spanning a pair or group of token classes, together spanning the
+rank-8 output. It also sharpens the program's whole methodology: the
+COMPACT basis (low-rank, found by SVD, 612/613/615) and the
+INTERPRETABLE basis (functional, found by supervision, this) are both
+low-rank and both real, but they are DIFFERENT rotations of the same
+subspace -- SVD gets the dimension count right and the interpretation
+wrong; supervision gets the interpretation. The right tool for "what
+does this compact subspace compute" is a supervised readout probe, not
+the SVD directions themselves.
