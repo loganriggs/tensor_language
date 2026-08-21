@@ -23,13 +23,15 @@ DEV = 'cuda' if torch.cuda.is_available() else 'cpu'
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'cross_model_class_results.json'
 MODELS = ['gpt2', 'EleutherAI/pythia-410m']
-SEQ = 128; NBLOCK = 200; MINCOUNT = 20
+SEQ = 128; NBLOCK = 800; MINCOUNT = 20     # more data (user: default to more data)
 CLASSES = {
-    'determiner': {'the', 'a', 'an', 'this', 'that', 'these', 'those', 'his', 'her', 'its', 'their', 'our', 'my', 'your'},
-    'number': {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'hundred', 'thousand'},
-    'punct': {'.', ',', '!', '?', ';', ':', '(', ')', '[', ']', '"', "'", '--', '-'},
-    'pronoun': {'it', 'he', 'she', 'they', 'we', 'you', 'i', 'him', 'them', 'us', 'me'},
-    'prep': {'in', 'on', 'at', 'of', 'to', 'for', 'with', 'by', 'from', 'into', 'over', 'under'},
+    'determiner': {'the', 'a', 'an', 'this', 'that', 'these', 'those', 'his', 'her', 'its', 'their', 'our', 'my', 'your', 'no', 'some', 'any', 'each', 'every', 'all', 'both', 'which', 'what', 'whose'},
+    'number': {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '20', '30', '50', '100', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'twenty', 'thirty', 'fifty', 'hundred', 'thousand', 'million', 'billion', 'first', 'second', 'third'},
+    'punct': {'.', ',', '!', '?', ';', ':', '(', ')', '[', ']', '"', "'", '--', '-', '/', '*', '&', '%', '#', '@', '...', '।'},
+    'pronoun': {'it', 'he', 'she', 'they', 'we', 'you', 'i', 'him', 'them', 'us', 'me', 'his', 'hers', 'theirs', 'himself', 'herself', 'itself', 'themselves', 'who', 'whom'},
+    'prep': {'in', 'on', 'at', 'of', 'to', 'for', 'with', 'by', 'from', 'into', 'over', 'under', 'about', 'after', 'before', 'through', 'between', 'against', 'during', 'without', 'within', 'across', 'behind', 'beyond', 'toward', 'upon'},
+    'aux': {'is', 'are', 'was', 'were', 'be', 'been', 'being', 'have', 'has', 'had', 'do', 'does', 'did', 'will', 'would', 'can', 'could', 'shall', 'should', 'may', 'might', 'must'},
+    'conj': {'and', 'or', 'but', 'nor', 'yet', 'so', 'because', 'although', 'though', 'while', 'whereas', 'if', 'unless', 'since', 'when', 'where'},
 }
 
 
