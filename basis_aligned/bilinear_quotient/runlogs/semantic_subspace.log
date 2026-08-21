@@ -1,0 +1,7 @@
+semantic variance rank90 71  (using top-64)
+(a) CE: full 3.354  -semantic 4.695 (dCE 1.341)  -random 3.359 (dCE 0.005)  ratio 268.00
+(b) data-split semantic overlap (top-32) 0.822 (random 0.136; SAE atoms 763: 0.40)
+(c) SAE subspace vs semantic overlap 0.498 (random 0.200)
+
+(a) low-rank+causal: False; (b) data-stable: True; (c) SAE aligns: True; NULL: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/semantic_subspace_results.json (110s)
