@@ -21791,3 +21791,38 @@ FINDINGS:
 This gives the full-depth context for the front findings: bilin18's MLP
 work is a low-rank FRONT + high-rank early-middle + inert deep-middle +
 low-rank BACK. Queued rspd_mlp16_rank1 to name mlp16's single direction.
+
+## 714. CLUSTER OVERLAP (user observation): the mlp1 clusters DO overlap --
+## real, above-random subspace sharing (0.05-0.33 vs 0.014 null) and 27%
+## token-level ambiguous membership -- but the overlap is SYMMETRIC/SIBLING
+## (partial), NOT strong parent-child NESTING (no cluster >=60% contained in
+## another). Fuzzy overlapping clusters, not a clean tree and not a strong
+## containment DAG.
+
+Directional subspace containment (row i's top-16 subspace fraction inside
+col j's), K=8:
+  - diagonal 1.00 (sanity); random-subspace null 0.014 (=R/D).
+  - off-diagonals 0.05-0.33, ROUGHLY SYMMETRIC (c[i,j] ~ c[j,i]) -> mutual
+    sibling overlap, not directional nesting. Biggest: c6 (proper-nouns
+    Gamb/AP/L) <-> c7 (content-nouns ia/child/school) = 0.33, semantically
+    sensible (both nouns). Next: c0(is/I/that)<->c1/c4 ~0.18.
+  - multi-parent (>=0.6 containment in >=2 others): ZERO. No cluster is a
+    strong sub-part of another.
+  - TOKEN-level: 27% of tokens have a 2nd-best centroid cosine within 15%
+    of the best -> substantial ambiguous membership (real overlap).
+FINDINGS re the user's observation:
+  - CONFIRMED (the overlap is real): clusters share 5-33% of subspace (>>
+    1.4% random) and 27% of tokens are ambiguous. Hard disjoint k-means is
+    the wrong model; soft/overlapping membership fits better.
+  - REFINED: it is SIBLING overlap (symmetric, partial), not the parent-
+    child NESTING that "a child with two parents" implies. No group is
+    contained in another; the overlap peaks at ~1/3 between semantically-
+    related groups (the two noun clusters). Prediction (a)'s >=0.6 nesting
+    threshold FAILED -- the overlap is partial, not full containment.
+  - So: fuzzy overlapping clusters with the strongest sharing among
+    semantically-adjacent groups. Consistent with 707 (high off-diagonal
+    centroid similarity from the shared massive/DC component) -- the
+    clusters live on a shared manifold and carve overlapping regions.
+Possible follow-up (higher K may reveal finer clusters nesting inside
+coarser ones -- true hierarchy at a different granularity). Queued
+rspd_mlp16_rank1 first (name mlp16's rank-1 core, promised in 713).
