@@ -96,6 +96,19 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
     selective) × one content QK — nearly all use positional selectivity in ≥1 QK (§684–685). So the
     model does lookup-style attention by AND-ing a positional and a content criterion. **HIGH.** §681–685.
 
+14. **Embedding-dominant residual — the current token is kept present to the readout, distributed.**
+    The residual rescale is `x = λ₀x + λ₁x₀` with the embedding re-injected at **λ₁≈8 at every
+    block** (a systematic gain, not decay), while λ₀ **resets** the running residual in the front
+    (L1 λ₀=0.013, L5=0.064 nearly zero it) and accumulates in the back (§689). Functional confirm:
+    the current token's identity stays **linearly recoverable from the FINAL residual** (log-freq
+    probe R² 0.91→0.85→**0.73** across depth, slow decay not transformed-away; shuffled null −0.43;
+    §690) — unlike a normal transformer that transforms the current token into context. The
+    embedding is dimensionally **flat** (per-dim RMS peak 1.5×), so it carries identity in a
+    distributed way; it is **NOT** the source of the massive dims — those (peak 58×) are built by
+    the blocks (overlap 2/10, corr 0.14; §691). So embedding-dominance (item 14) and the massive-dim
+    norm controller (item 12) are **independent** mechanisms sharing the residual stream. Blocks add
+    context *on top of* an ever-present embedding. **HIGH.** §689–691.
+
 ### Architecture facts worth keeping
 - MLP = `Down[(Lx)·(Rx)] + b`: every output dim is an exact **quadratic form** `xᵀMₖx`. mlp17's
   *output* is rank-8 by **variance** (§615), but its **functional (loss) rank is higher** (§660):
@@ -103,7 +116,8 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
   top-8 variance dirs recover only 78% — the low-variance tail (last 5% of var) carries ~22% of the
   loss. Variance rank ≠ functional rank (extends §617's variance basis ≠ functional basis). So
   "mlp17 = 4 quadratic functions" is a good ¾-approximation, not an exact reduction. (Q3)
-- Residual is rescaled every block (`x = λ₀x + λ₁x₀`); a writer 12 layers back arrives ×∏λ₀ ≈ 2e-4.
+- Residual is rescaled every block (`x = λ₀x + λ₁x₀`); a writer 12 layers back arrives ×∏λ₀ ≈ 2e-4
+  (front L1/L5 λ₀ near-zero reset the stream; embedding re-injected at λ₁≈8 every block — item 14).
 - Logits are `30·tanh(lm_head(rmsnorm(x))/30)`.
 
 ## Open / focus (hierarchical — go deeper on any)

@@ -21025,3 +21025,35 @@ every circuit, behavior, and architectural component now examined and
 cross-confirmed. Queued embedding_massive_overlap as a final connecting
 probe: since the embedding is re-injected at weight 8, do its high-
 magnitude dims contribute to the massive-activation dims (676)?
+
+## 691. The two architecture threads are SEPARATE: the re-injected
+## embedding is FLAT across dims (peak 1.5x, no massive dims) while the
+## final residual is sharply peaked (58x). The massive-activation dims are
+## BUILT by the blocks, not inherited from the embedding.
+
+Per-dim RMS peakedness (max/median):
+  embedding x0:        1.5x   (flat -- no dominant dims)
+  final residual (17): 58.2x  (a few dims dominate)
+Top-10 dim overlap embedding vs final residual: 2/10; rank-corr of
+per-dim log-RMS: 0.135 (near zero).
+FINDINGS:
+  (0)/(a) HELD. The embedding is re-injected at weight ~8 every block
+      (689) and the current token stays linearly recoverable to the
+      readout (690), BUT the embedding itself is dimensionally flat -- it
+      carries the current-token identity in a distributed way, not in a
+      few big dims. The massive residual dims (676, peak here 58x) do NOT
+      coincide with the embedding's largest dims (overlap 2/10, corr
+      0.14); they are CONSTRUCTED by the blocks (the multiplicative MLP
+      gates write them, massive_from_gating). So the two architecture
+      threads are mechanistically SEPARATE:
+        (i) embedding-dominance: current token kept present via lambda1~8
+            re-injection, distributed across dims;
+        (ii) massive-activation norm control: a few block-built dims blow
+            up (from the products of linear pairs) and set the rms-norm
+            gain (680).
+This closes the last open connecting question. The complete architecture
+account (619-691, 73 sections) now stands with every component examined,
+every behavior traced, and the cross-component relationships resolved:
+the persistent embedding and the massive-dim norm controller are
+independent mechanisms sharing the residual stream, not one causing the
+other. EXHAUSTIVE, cross-confirmed terminus.

@@ -1,0 +1,9 @@
+embedding top-10 dims:      [222, 266, 425, 479, 495, 625, 645, 893, 990, 1121]
+final residual top-10 dims: [49, 180, 329, 424, 540, 576, 645, 981, 990, 992]
+overlap: 2/10   rank-corr(log RMS): 0.135
+final residual peak (max/median): 58.2x  embedding peak: 1.5x
+
+(0) final residual has massive dims (peak>3x): True
+(a) massive dims BUILT not inherited (overlap<=3): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/embedding_massive_overlap_results.json (97s)

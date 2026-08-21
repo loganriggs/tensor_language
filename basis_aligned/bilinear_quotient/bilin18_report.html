@@ -1661,6 +1661,34 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="embedding">The current token never leaves the stream</h2>
+  <p>Every block rescales the residual as <code>x = λ₀·x + λ₁·x₀</code>, where <code>x₀</code> is
+  the original token embedding. Reading those learned weights off the model shows a deliberate
+  pattern: <strong>λ₁ ≈ 8 at almost every one of the 18 blocks</strong> — the embedding is
+  re-added, at eight times strength, over and over — while λ₀ <em>resets</em> the running residual
+  near the front (block 1's λ₀ is 0.013, block 5's 0.064, each almost erasing what came before) and
+  only accumulates normally in the back half. A write made in block 0 arrives at the output scaled
+  by about 2×10⁻⁴; a write made late arrives intact.</p>
+  <p>The consequence is measurable at the readout. In a normal transformer the current token is
+  gradually transformed into contextual features and is no longer recoverable at the top. Here it
+  is: a linear probe recovers the current token's identity (via its log-frequency) from the residual
+  at R² 0.91 at the embedding, 0.85 at block 8, and still <strong>0.73 at the final block</strong> —
+  a slow fade, not a transformation-away (a shuffled-label control sits at −0.43). The model keeps
+  the current token linearly present all the way to the output, and the blocks add their contextual
+  computation <em>on top of</em> an ever-present embedding rather than replacing it. This is why the
+  embedding "triggers" that seed every circuit stay available at the readout: they are re-injected
+  at every layer.</p>
+  <p>One tidy negative closes the loop between this and the volume-knob dimensions above. If the
+  embedding is re-added eight times, do <em>its</em> largest dimensions become the massive ones? No.
+  The embedding is dimensionally flat — its biggest dimension is only 1.5× its median — while the
+  final residual is peaked 58×, and the two sets of top dimensions barely overlap (2 of 10, rank
+  correlation 0.14). The persistent embedding and the gain-setting massive dimensions are
+  <strong>two independent mechanisms sharing one residual stream</strong>: one keeps the token
+  present (spread across many dimensions), the other is built by the blocks to fix the readout's
+  gain.</p>
+</section>
+
+<section class="col">
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight
