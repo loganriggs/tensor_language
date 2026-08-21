@@ -81,6 +81,13 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
     mechanism is distributed, per item 1. A capability dimension beyond the token-class/frequency
     machinery. **HIGH.** §667–669.
 
+12. **Massive activations = the rms-norm gain controller (not attention sinks).** A few residual
+    dims (persistent 645/990/981) grow to 20–60× the median by block 17 and dominate ~85% of the
+    residual sum-of-squares, so their large DC offset *sets the rms-norm scale* for the readout —
+    removing that offset costs +1.58 nats (§680). They are NOT token/position sinks (uniform across
+    both — this model has no softmax, so no sink mechanism; §678), and they host the frequency-
+    calibration direction (88% of `w_freq`; §676). **HIGH.** §676–680.
+
 ### Architecture facts worth keeping
 - MLP = `Down[(Lx)·(Rx)] + b`: every output dim is an exact **quadratic form** `xᵀMₖx`. mlp17's
   *output* is rank-8 by **variance** (§615), but its **functional (loss) rank is higher** (§660):

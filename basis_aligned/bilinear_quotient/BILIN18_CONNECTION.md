@@ -20607,3 +20607,42 @@ general-readout channels; and have a large DC offset plus large signal
 removing just the DC offset (subtract per-dim mean) hurt CE, or only
 removing the signal (mean-fill, 677) -- i.e. is the bias component
 functional or an inert offset?
+
+## 680. The massive dims' DC offset is the rms-norm GAIN CONTROLLER, not
+## an inert bias: removing the DC costs +1.58 nats -- MORE than removing
+## their signal (+0.61). The massive dims dominate the residual's sum-of-
+## squares (~85%), so their constant magnitude sets the rms-norm scale for
+## the whole readout. Explains why the model builds massive activations.
+
+Separating the massive mlp17 dims' DC offset from their signal:
+  baseline CE 3.354
+  remove DC (subtract per-dim mean, keep variation): 4.934 (dCE +1.580)
+  remove signal (mean-fill, keep DC): 3.960 (dCE +0.606)
+  median dims (both interventions): ~0 (inert).
+FINDINGS:
+  (a) HELD: the signal matters (mean-fill +0.61). (b) FAILED, and the
+      failure is the finding: the DC offset is NOT inert -- removing it
+      costs +1.58 nats, 2.6x more than removing the signal. My guess that
+      "rms-norm absorbs the constant" was WRONG.
+  THE MECHANISM: the massive dims dominate the residual's SUM OF SQUARES
+      (the quantity rms-norm divides by). From their RMS (676): top-8 SS
+      ~ 57000^2+38000^2+33000^2+25000^2+14000^2+... ~ 6.5e9, vs the other
+      1144 dims at ~986^2 each ~ 1.1e9 -- so the massive dims are ~85% of
+      the residual's sum-of-squares. Their large constant magnitude
+      therefore SETS THE RMS-NORM SCALE for the entire final readout.
+      Subtracting the DC offset changes the residual RMS -> rms-norm
+      rescales everything -> all logits shift -> CE explodes. The
+      massive-activation DC offset is the model's de-facto GAIN CONTROLLER.
+  NULL clean: median dims are inert for both interventions.
+This EXPLAINS why the model builds massive activations that grow with
+depth (676): they are the rms-norm normalization substrate -- a few dims
+carry a huge constant magnitude that dominates the norm and sets the
+readout gain. It also explains why they carry the calibration direction
+(676) and why ablating them wholesale hurts everything (677): they ARE
+the norm-scale substrate. CLOSES the massive-activation line (676-680):
+massive activations = a growing, non-sink (no-softmax), high-magnitude DC
++ signal substrate whose constant component controls the rms-norm gain of
+the readout and hosts the frequency-calibration knob. FINDINGS + report
+to be updated. Queued attention_density to open a fresh architecture-
+specific probe: this model's attention is a softmax-FREE bilinear product
+(pat = s1*s2) -- are its patterns focal or diffuse?

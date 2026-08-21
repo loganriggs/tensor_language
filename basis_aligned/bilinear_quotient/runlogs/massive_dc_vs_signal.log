@@ -1,0 +1,12 @@
+top dims [981, 990, 645, 329, 992, 576, 540, 49] means [34799.0, -15858.0, -16355.0, 9084.0, 966.0, 4625.0, 2366.0, 3202.0]
+baseline CE 3.3536
+top remove-DC     4.9340 (dCE +1.5804)
+top remove-signal 3.9600 (dCE +0.6064)
+median remove-DC 3.3535 (-0.0001); remove-signal 3.3541 (+0.0006)
+
+(0) massive: True
+(a) signal matters (remove-signal dCE>0.05): True
+(b) DC largely inert (remove-DC dCE < 0.5x remove-signal): False
+NULL median dims barely matter: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/massive_dc_vs_signal_results.json (71s)
