@@ -23389,3 +23389,30 @@ wiring diagram from the weights, and it is causally real, but it is a skeleton -
 predicting causal MAGNITUDE needs the intervening pieces, and predicting LOSS
 importance needs the output side. pred_a/pred_b False (strict bars), pred_0/null
 True. Refines the compositionality story honestly.
+
+## 761. PER-ATOM CE IMPORTANCE -- loss is DISTRIBUTED + REDUNDANT, not carried by
+## a few load-bearing atoms (follows 760B). Knock each active Down_0 SAE atom, measure
+## CE increase.
+Result (446/512 atoms active):
+  (a) NOT concentrated in a tiny set: top-10 atoms by dCE carry only 19% of the
+      summed positive dCE (predicted >=50%), BUT the distribution is very unequal
+      (Gini 0.67). So the layer's loss is spread over DOZENS of atoms with high
+      inequality, not a handful.
+  (b) USAGE barely predicts importance: rho(dCE, usage) 0.185. Combined with 760B
+      (coupling out-degree != importance), TWO structural measures (how often an atom
+      fires, how many targets it wires to) both FAIL to predict loss-importance --
+      loss-importance is its own property, only revealed by causal ablation.
+  (c) SUPERADDITIVE ~2x: knocking the top-32 atoms JOINTLY costs dCE 0.104 vs
+      0.054 summed individually (ratio 1.93). The atoms are REDUNDANT / compensating
+      -- remove one and others cover; remove many and the backup runs out. Single-
+      atom ablation systematically UNDER-counts importance.
+  NULL: knocking never-active atoms dCE 0.000 (clean).
+READ (parsimony, honestly): the decomposition is NOT "a few critical parts + inert
+rest." It is DISTRIBUTED (broad support, high inequality) and REDUNDANT (2x
+superadditive backup). "Which atoms matter for loss" cannot be read off firing
+frequency (761b) or wiring degree (760b) -- it must be measured causally, and even
+then single-knockouts mislead because of redundancy. This tempers the parsimony
+hope: at this P=512, K=32 setting the layer does not admit a small critical set;
+its loss is held up by many mutually-compensating atoms. (Open: does a SMALLER
+dictionary / smaller K force a more concentrated, less redundant code? that would be
+the knob to trade redundancy for parsimony.) pred_a/b False, pred_0/null True.
