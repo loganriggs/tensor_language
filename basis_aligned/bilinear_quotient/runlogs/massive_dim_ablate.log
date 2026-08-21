@@ -1,0 +1,9 @@
+top massive mlp17-output dims: [981, 990, 645, 329, 992, 576, 540, 49] (RMS [42048.7, 25332.1, 22009.9, 18021.3, 9774.0, 6424.2, 6182.0, 5686.9], median 380.1)
+K=3: top-massive dCE_freq +0.1703 dCE_rare +0.5583 | random dCE_freq +0.0010 dCE_rare -0.0000
+K=8: top-massive dCE_freq +0.1192 dCE_rare +0.7663 | random dCE_freq -0.0008 dCE_rare +0.0003
+
+(0) massive dims real: True
+(a) top-massive ablation = calibrator trade-off: False
+(b) random dims not a trade-off: False
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/massive_dim_ablate_results.json (91s)

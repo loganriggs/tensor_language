@@ -20488,3 +20488,43 @@ persistent channels (645, 990), and carry the calibration. Queued
 massive_dim_ablate to test whether these dims are CAUSAL calibration
 channels (mean-ablating the top massive dims produces the freq/rare CE
 trade-off) or inert high-magnitude sinks.
+
+## 677. The massive dims are the SUBSTRATE the calibration rides, not the
+## calibration mechanism. Mean-ablating the top massive mlp17 dims (RMS
+## up to 42000 vs median 380) HURTS both freq (+0.17) and rare (+0.77) --
+## a general writer effect, NOT the calibrator trade-off. The calibration
+## is a rank-1 DIRECTION within the massive-dim subspace, not the dims.
+
+Mean-ablating the top-K massive mlp17-output dims [981, 990, 645, 329,
+992, ...] (RMS 42048/25332/22010/... vs median 380 -- a 110x outlier):
+  K=3: dCE_freq +0.170, dCE_rare +0.558  (both positive)
+  K=8: dCE_freq +0.119, dCE_rare +0.766  (both positive)
+  random K: ~0.
+FINDINGS:
+  (0) HELD (massive dims real, top 110x median).
+  (a) FAILED, informatively: ablating the massive dims is NOT a
+      calibrator trade-off (which needs freq<0<rare). It HURTS BOTH freq
+      and rare -- a general WRITER effect. So the massive dims are not
+      the calibration mechanism.
+  RECONCILES 676 (88% of w_freq's mass is on the outlier dims): the
+      calibration is a SPECIFIC rank-1 direction WITHIN the massive-dim
+      subspace, not the dims themselves. Removing w_freq removes that one
+      direction (a clean calibrator trade-off, 651); zeroing the massive
+      DIMS wholesale removes everything those high-magnitude channels
+      carry -- which is the bulk of the readout -- so it hurts all
+      predictions. The massive dims are broad high-magnitude general-
+      readout channels; the calibration rides them as substrate but is
+      one direction within (consistent with 661: w_freq is high-variance,
+      in the head).
+  (b) is a CODING ARTIFACT (stated plainly): the auto-flag "random dims
+      not a trade-off" reported False because the random-8 dCE (freq
+      -0.0008, rare +0.0003) happened to straddle zero -- but both are
+      ~0 (negligible magnitude), not a real trade-off. Random ablation is
+      substantively inert; the flag is a zero-crossing artifact of near-
+      zero values, not a finding.
+So: massive activations (676) are a broad high-magnitude readout
+substrate that grows with depth; the ONE clean knob (calibration) is a
+rank-1 direction living within that substrate. The dims carry much more
+than the calibration. Queued massive_dim_tokens to characterize WHAT
+drives the massive activations: are they concentrated on specific
+structural tokens (the attention-sink pattern -- BOS/newline/delimiters)?

@@ -1,0 +1,37 @@
+{
+ "top_dims": [
+  981,
+  990,
+  645,
+  329,
+  992,
+  576,
+  540,
+  49
+ ],
+ "base_freq": 1.6074,
+ "base_rare": 4.0834,
+ "conds": {
+  "top3": {
+   "dCE_freq": 0.1703,
+   "dCE_rare": 0.5583
+  },
+  "rand3": {
+   "dCE_freq": 0.001,
+   "dCE_rare": -0.0
+  },
+  "top8": {
+   "dCE_freq": 0.1192,
+   "dCE_rare": 0.7663
+  },
+  "rand8": {
+   "dCE_freq": -0.0008,
+   "dCE_rare": 0.0003
+  }
+ },
+ "pred_0": true,
+ "pred_a_causal_calib": false,
+ "pred_b_specific": false,
+ "null_ok": false,
+ "runtime_s": 90.94072842597961
+}
