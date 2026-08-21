@@ -1,0 +1,17 @@
+massive dims: [49, 329, 540, 576, 645, 981, 990, 992]
+massive g=0.5 : entropy 2.0662  CE 3.8851
+massive g=0.8 : entropy 2.7314  CE 3.4399
+massive g=1.0 : entropy 3.3089  CE 3.3627
+massive g=1.25: entropy 4.0725  CE 3.4337
+massive g=1.6 : entropy 5.0739  CE 3.7040
+random  g=0.5 : entropy 3.3195  CE 3.3646
+random  g=0.8 : entropy 3.3129  CE 3.3631
+random  g=1.0 : entropy 3.3089  CE 3.3627
+random  g=1.25: entropy 3.3043  CE 3.3628
+random  g=1.6 : entropy 3.2988  CE 3.3641
+
+(0) g=1 baseline consistent: True
+(a) monotone gain knob (entropy range 3.008>0.15, mono True): True
+NULL random-dim entropy range 0.021 < massive/3 (1.003): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/massive_gain_knob_results.json (89s)

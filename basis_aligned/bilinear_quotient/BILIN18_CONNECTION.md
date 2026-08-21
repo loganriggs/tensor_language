@@ -21082,3 +21082,36 @@ bilin18. Every circuit traced to its embedding trigger, every behavior
 characterized, every architectural component examined, the cross-component
 relationships resolved, and the headline numbers verified on held-out
 data. No open connecting questions remain within this model.
+
+## 693. CONTROL PHASE #1: the gain-control finding (680) buys a genuine
+## TEMPERATURE KNOB. Scaling the 8 massive residual dims monotonically
+## moves output entropy over a 3-nat range; native gain (g=1) is CE-
+## optimal; random dims do nothing.
+
+At the final residual, scale the top-8 massive dims' value by g and read
+output entropy + CE (24 rows):
+  g:        0.5     0.8     1.0     1.25    1.6
+  entropy:  2.07    2.73    3.31    4.07    5.07   (monotone up, 3.0-nat range)
+  CE:       3.885   3.440   3.363   3.434   3.704  (U-shape, min at g=1)
+  random-dim entropy: 3.32 3.31 3.31 3.30 3.30    (flat, range 0.021)
+FINDINGS (all predictions HELD):
+  (0)/(a) The massive dims act as a TEMPERATURE / CONFIDENCE knob:
+      shrinking them (g<1) sharpens the distribution (entropy 2.07,
+      overconfident), enlarging them (g>1) softens it (entropy 5.07,
+      underconfident) -- exactly the behavior of scaling the rms-norm
+      denominator, confirming 680's gain-controller mechanism CAUSALLY as
+      a control surface, not just via removal.
+  BONUS: CE is U-shaped with its minimum at the NATIVE gain g=1 (3.363),
+      rising both ways -- the model's learned gain is CE-optimal; the knob
+      trades calibration for nothing at g=1 and costs CE in either
+      direction. So this is a genuine temperature axis, not a free win.
+  NULL clean: scaling 8 RANDOM dims leaves entropy flat (range 0.021 <<
+      3.008) -- the knob is specific to the massive dims.
+This is the first result of the CONTROL phase (does the mechanistic
+account buy usable control?). Combined with w_freq_steering (the rank-1
+frequency-calibration direction is a monotone frequency/diversity dial,
+top20-mass 0.42->0.13 as alpha 0->2), bilin18 now exposes TWO demonstrated
+control knobs: a frequency-bias dial (w_freq) and a temperature/gain dial
+(massive dims). Queued knob_composition to test whether they are
+INDEPENDENT and composable (the account says they are separate mechanisms,
+691).
