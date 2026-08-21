@@ -21751,3 +21751,43 @@ FIX: made asvd_fast pick the correct Gram by regime -- N >= d_in uses the
 Also bumped the depth map to NFIT=24 (6144 > 4608) so the well-conditioned
 branch is used. Requeued rspd_depth_rank_map. No conclusions drawn from the
 void run.
+
+## 713. FULL-DEPTH MLP functional-rank profile (corrected, fast A-SVD CE-
+## priced, all 18 layers). A BARBELL: the EDGE MLPs (mlp0 front; mlp15-17
+## back) do the most work AND are LOW-rank; the early-middle (mlp1-5) is
+## high-rank; the deep-middle (mlp6-14) is nearly INERT. mlp16 is RANK-1.
+
+Per-layer benefit (nats lost if ablated) and r80 (fast A-SVD, N=6144, CE):
+  mlp 0: ben 2.345  r80 8     <- FRONT: big work, low rank
+  mlp 1: ben 0.965  r80 128
+  mlp 2: ben 0.153  r80 256
+  mlp 3: ben 0.122  r80 256   } early-middle: high rank
+  mlp 4: ben 0.344  r80 64
+  mlp 5: ben 0.083  r80 256
+  mlp 6-14: ben 0.03-0.05 each  r80 512   <- deep-middle: NEGLIGIBLE
+  mlp15: ben 0.143  r80 4
+  mlp16: ben 0.881  r80 1     <- BACK: big work, RANK-1
+  mlp17: ben 0.723  r80 4
+FINDINGS:
+  - BARBELL benefit: the MLP contribution is concentrated at the EDGES --
+    mlp0 (2.35 nats) at the front, mlp16 (0.88) + mlp17 (0.72) at the back.
+    The deep-middle MLPs (6-14) each contribute ~0.03 nats -- nearly inert
+    (9 layers ~0.27 nats total). Whatever the middle does, it is NOT in the
+    MLPs (consistent with 665: middle refinement is attention+MLP but the
+    MLP share is tiny; the middle's work is largely attention).
+  - RANK follows the edges: the high-benefit edge MLPs are LOW-rank
+    (mlp0=8, mlp15=4, mlp16=1, mlp17=4) -- a few decoder directions each.
+    mlp16 = RANK-1 (a single direction carries its 0.88-nat contribution,
+    like block1.attn 701) -- a new standout to name.
+  - The early-middle (mlp1-5) is genuinely HIGH-rank (64-256) at moderate
+    benefit -- these are the diffuse layers (mlp1/mlp2 from 699).
+  CAVEAT (stated plainly): for the deep-middle mlp6-14, r80=512 is NOT
+    meaningful -- with ~0.03-nat benefit there is almost no signal, so
+    "high rank" there just means "negligible contribution not captured by
+    low rank," not genuine high-rank structure. Do not over-read those.
+  NULL: the void-run's spurious mlp1 rand-8 +0.13 is gone in spirit (the
+    fixed A-SVD gives the established curve); this run's r80 match 694/699
+    exactly (mlp0=8, mlp1=128, mlp17=4) -- the fix is validated.
+This gives the full-depth context for the front findings: bilin18's MLP
+work is a low-rank FRONT + high-rank early-middle + inert deep-middle +
+low-rank BACK. Queued rspd_mlp16_rank1 to name mlp16's single direction.
