@@ -1,26 +1,26 @@
 {
  "gpt2": {
   "d": 768,
-  "n_tokens": 115,
-  "n_labelled": 50,
-  "eff_rank_mean": 57.55,
-  "eff_rank_emb": 49.09,
-  "fisher_mean": 0.2747,
-  "fisher_emb": 0.338,
-  "fisher_null": 0.0761,
-  "fisher_ratio": 0.813
+  "n_tokens": 117,
+  "n_labelled": 81,
+  "eff_rank_mean": 58.5,
+  "eff_rank_emb": 49.93,
+  "fisher_mean": 0.2177,
+  "fisher_emb": 0.3052,
+  "fisher_null": 0.0825,
+  "fisher_ratio": 0.713
  },
  "EleutherAI/pythia-410m": {
   "d": 1024,
-  "n_tokens": 106,
-  "n_labelled": 50,
-  "eff_rank_mean": 53.18,
-  "eff_rank_emb": 73.73,
-  "fisher_mean": 0.3265,
-  "fisher_emb": 0.2285,
-  "fisher_null": 0.1053,
-  "fisher_ratio": 1.429
+  "n_tokens": 113,
+  "n_labelled": 81,
+  "eff_rank_mean": 54.75,
+  "eff_rank_emb": 77.77,
+  "fisher_mean": 0.2713,
+  "fisher_emb": 0.1995,
+  "fisher_null": 0.0861,
+  "fisher_ratio": 1.36
  },
  "pred_a_class_computing_general": false,
- "runtime_s": 57.476404428482056
+ "runtime_s": 59.607073068618774
 }

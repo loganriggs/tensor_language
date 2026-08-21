@@ -24173,3 +24173,30 @@ collapse), pred_b False (RoPE smoother, estimation-noise confound stated).
 ## the robust cross-model result remains the token-class SUBSPACE causal sufficiency
 ## (778, gpt2 0.84 / pythia 0.62). Re-running cross_model_class with far more data
 ## (800 blocks) + expanded class vocabularies before drawing any conclusion.
+
+## 789. CROSS-MODEL CLASS-SHARPENING -- MODEL-SPECIFIC, not universal (scopes the
+## 780-782 "class-computing" claim). First-MLP per-token mean table Fisher class-sep
+## + eff-rank vs embedding, 81 labelled tokens across 7 classes, ~102k-token sample
+## (consistent across two data sizes 50->81).
+Result:
+  bilin18 : Fisher mean 0.571 vs emb 0.318 (1.79x) + rank collapse 24 vs 132  -> SHARPENS
+  Pythia-410m: Fisher mean 0.271 vs emb 0.200 (1.36x) + collapse 55 vs 78         -> SHARPENS
+  GPT-2   : Fisher mean 0.218 vs emb 0.305 (0.71x) + NO collapse (58 vs 50)        -> does NOT
+READ: the class-SHARPENING (does the first MLP separate grammatical classes MORE than
+the embedding) is MODEL-SPECIFIC: bilin18 and Pythia sharpen (1.8x / 1.36x, with rank
+collapse); GPT-2 does NOT (0.71x, decreases class separation, no collapse).
+RECONCILIATION with 778 (the causal SUBSPACE generalises -- gpt2 keep64 0.84): GPT-2's
+first-MLP token-mean subspace IS causal and low-rank-sufficient, but does not organise
+tokens by MY grammatical-class labels more than the embedding -- and GPT-2's EMBEDDING
+already separates classes better (Fisher 0.305 > Pythia 0.200), so its MLP may not need
+to add class structure.
+CAVEAT (why gpt2 is not conclusive): the RAW Fisher can be depressed by a dominant
+massive-activation direction inflating within-class scatter (the confound 782 fixed
+with a de-shared metric). GPT-2's 0.71x could be genuine OR this confound. Need the
+WHITENED/de-shared Fisher (782's robust metric) on gpt2/pythia to settle. Queued
+cross_model_class_whiten.
+CORRECTION to the generality of 780-782: the "class-computing front end" (grammatical-
+class sharpening) is validated for bilin18 and Pythia, NOT clearly for GPT-2. The
+UNIVERSAL cross-model result is the token-class SUBSPACE causal sufficiency (778); the
+specific grammatical-class-COMPUTING is shared by some architectures, not all. pred_a
+False. Robust on 81 tokens / two data sizes.
