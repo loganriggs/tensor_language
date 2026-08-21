@@ -23256,3 +23256,59 @@ INTERPRETATION (sharpens 754, does NOT overturn it):
 LESSON (LESSONS): a correlation between two model-derived vectors that both carry
 a large shared mean/bias is bias-confounded; ALWAYS center before correlating and
 gate on a shuffle null (3rd time this class of bug appeared: 751, 752, 754).
+
+## 754c. PATH LINEARITY (corrects 754b, prompted by user: lambda folds as a
+## scalar, rms_norm here is a per-token SCALAR gain (no learnable gamma),
+## attention is bilinear/no-softmax but MIXES POSITIONS). The ~0 corr in 754b was
+## NOT a hard nonlinearity -- it was measured AFTER attention's cross-position
+## mixing. Test: predict Left_1 pre-activation change (Down_0 ablated) from the
+## same-position weight-only coupling W_Left1 @ (lambda0 * mlp0_out), attention
+## ON vs ZEROED.
+
+Result (NFIT=48): lambda0 = 0.0127 (block-1 residual rescale is TINY -- Down_0's
+write enters block 1 at ~1.3% weight).
+  full (attn on) : corr 0.056  var-expl 0.003   (reproduces 754b ~0)
+  attn OFF       : corr 0.472  var-expl 0.223   (8.4x jump)
+  shuffled null  : corr -0.000
+READ: ATTENTION CROSS-POSITION MIXING is the dominant decorrelator (removing it
+lifts corr 0.056 -> 0.472). The user is right: lambda folds (scalar), rms_norm is
+a per-token scalar gain, attention is bilinear -- NONE is a hard nonlinearity, and
+the same-position path carries a real LINEAR signal. The remaining gap (0.47 not
+~0.9) is (a) the rms per-token scalar g_t my prediction omits, and (b) the tiny-
+lambda0 regime (a 1.3%-weight perturbation is swamped, so measured delta is mostly
+the rms renormalization response). CORRECTION to 754b: not "nonlinearity
+dominates" -- the composition is MOSTLY LINEAR per position; what my 754 test
+folded in was attention's structured position-mixing + the rms per-token scale,
+both structured and (in principle) foldable, not arbitrary nonlinearity. pred_a
+False only on the strict >=0.6 bar; the qualitative correction stands.
+
+## 757. REAL-MODEL CE-TRAINED JOINT COMPOSITION (Down_0 + Left_1, warm-started
+## from indep, fine-tuned on CE + edge penalty). THE WIN + a flag.
+Result (P=512, K=32, warm-start indep CE-rec 0.908):
+  indep     CE-rec 0.908  in-deg 299
+  joint e=0 CE-rec 0.605  in-deg 305
+  joint e>0 CE-rec 0.607  in-deg 64      <- edge penalty: -79% in-degree, ~0 CE cost
+  rand-OC   CE-rec -1.039 (null holds)
+WIN: on the REAL weights, trained on CE, the edge penalty sparsifies the cross-
+layer wiring 305 -> 64 strong-edges/source (-79%) at ZERO CE cost (0.605->0.607).
+This is the "jointly train weight-SAEs to sparsely compose" idea working on the
+real model. FLAG: joint-CE (0.605) fell BELOW indep (0.908) -- warm-started at
+0.908, CE fine-tuning DROPPED it. Diagnosed in 758 (not undertraining -- drift).
+
+## 758. TRAINING CURVES -- the 757 drop is CE-TRAINING DRIFT/OVERFITTING, NOT
+## undertraining (user asked to check undertraining; the curves settle it).
+Logged over 500 steps (fig real_joint_ce_curves.png):
+  * eval CE-recovery FALLS monotonically from the 0.918 warm-start (0.918->0.59),
+    it is NOT still-rising -> more steps would NOT help (rules out undertraining).
+  * SMOKING GUN: per-layer reconstruction R2 COLLAPSES to NEGATIVE (Down_0 0.81
+    -> -0.06, Left_1 0.44 -> -0.24). CE gradient cares only about output logits,
+    not weight fidelity, so it walks the SAE AWAY from reconstructing W@gate toward
+    fitting the tiny fit-set's CE -> overfits, generalizes worse (eval falls).
+  * MORE DATA helps partially: 48-row condition 0.94 -> 0.71 (vs 16-row 0.59) but
+    STILL degrades -> data alone is not the fix.
+  * edge penalty still cuts in-degree (299 -> 88) but rides on the degrading fit.
+CONCLUSION: pure-CE training of a substituted SAE sacrifices weight-faithfulness
+(a real methodological finding). FIX: keep the MSE action-reconstruction term as an
+ANCHOR: loss = CE + lam_rec*MSE + lam_e*edge. Anchor holds R2 up (faithful), CE
+nudges loss-relevance, edge sparsifies wiring. Queued real_joint_ce_v2 (anchored,
+with the control that reproduces the collapse).

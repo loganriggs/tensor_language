@@ -1,0 +1,6 @@
+full     : corr 0.056  var-expl 0.003  |delta| 32.093
+attn_off : corr 0.472  var-expl 0.223  |delta| 27.857
+shuffled null (attn-off): corr -0.000
+
+(0) delta nonzero: True; (a) mostly-linear same-position (attn-off corr>=0.6 & >>full): False; NULL shuffled~0: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/path_linearity_results.json (116s)
