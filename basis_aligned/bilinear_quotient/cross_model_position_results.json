@@ -1,0 +1,27 @@
+{
+ "gpt2": {
+  "d": 768,
+  "benefit": 3.9586,
+  "keep_token": 0.8436,
+  "keep_position": 0.6341,
+  "keep_combined": 0.9199,
+  "remove_position_dce": 0.0429,
+  "remove_random_dce": 0.0041,
+  "position_ratio": 10.38,
+  "tok_pos_overlap": 0.6076
+ },
+ "EleutherAI/pythia-410m": {
+  "d": 1024,
+  "benefit": 7.3028,
+  "keep_token": 0.6166,
+  "keep_position": 0.4222,
+  "keep_combined": 0.7012,
+  "remove_position_dce": 2.738,
+  "remove_random_dce": 0.0241,
+  "position_ratio": 113.47,
+  "tok_pos_overlap": 0.6897
+ },
+ "pred_a_position_causal": true,
+ "pred_b_combined": true,
+ "runtime_s": 76.862389087677
+}
