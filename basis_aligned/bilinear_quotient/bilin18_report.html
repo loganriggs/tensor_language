@@ -1885,10 +1885,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   78% of everything the components contribute (a random subspace: 4%). So the model, front to back, is
   to roughly four-fifths a class-and-position computer: it turns raw token identity and rotary phase
   into two clean, low-rank, causal, nameable variables, writes each into its own part of the stream,
-  and later layers read them off rather than recomputing them. This is not peculiar to the one model:
-  measured component by component, GPT-2 comes out about 77% class-and-position and Pythia about 69%,
-  against random subspaces of 28% and 10% — the roughly-three-quarters reduction is a property of
-  trained transformers, not of this architecture. The remaining fifth is genuine context-dependent
+  and later layers read them off rather than recomputing them. It is not peculiar to the one model,
+  though it is not universal either: measured component by component, GPT-2 (small) comes out about
+  77% class-and-position, Pythia-160M about 75%, Pythia-410M about 69% — against random subspaces of
+  a few to twenty-odd percent — so the roughly-three-quarters reduction recurs across bilinear,
+  absolute-position, and rotary models. But GPT-2-medium is a genuine exception: its first MLP does
+  not separate into class and position at all (keeping only that projection is worse than deleting the
+  layer), so the pattern is common rather than a law. The remaining fifth is genuine context-dependent
   computation with no low-rank handle — the same distributed residue that shows up everywhere the model
   does something conditional.</p>
   <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
