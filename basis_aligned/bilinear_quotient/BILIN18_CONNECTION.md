@@ -19561,3 +19561,52 @@ band" limitation is now lifted for corrective/subtractive components via
 this method). Queued lowrank_routing_isolation: apply the same recipe to
 the newline routing (does removing a rank-1 "real-line-end" direction
 from the post-front residual collapse the routing?).
+
+## 653. DEFINITIVE: the newline routing is not a residual-stored feature
+## at ANY rank (top-32 removal = 0% effect), and the post-front residual
+## only weakly linearly encodes it (probe AUC 0.70). Completes the
+## low-rank isolation arc: additive biases isolate to rank-1, conditional
+## routing has no removable linear carrier.
+
+Rank sweep of behavior-conditioned direction removal from the residual
+after block 2, on the newline routing R (643):
+  remove top-r (r=1,2,4,8,16,32):  R +0.268, +0.268, +0.267, +0.266,
+                                    +0.265, +0.265  (0-1% lost at every r)
+  baseline R +0.264 ; remove random-32 R +0.262 (1%)
+  w_route probe AUC (rank-1, out-of-sample) 0.695
+FINDINGS:
+  (b) NOT A LOW-RANK RESIDUAL FEATURE, at any rank. Removing even the
+      top-32 outcome-correlated directions from the post-front residual
+      leaves the routing fully intact (0% lost, = random-32). The
+      routing is not stored in a removable residual subspace of any
+      modest rank. With 644 (front-attention ablation collapses it 80%),
+      the picture is: front attention COMPUTES the routing and writes it
+      in a form later blocks read NONLINEARLY -- there is no linear
+      direction (or low-rank subspace) in the residual to remove.
+  (a) FAILED / CORRECTS 652: w_route is only a MODERATE probe (AUC 0.70,
+      not >=0.75). So the post-front residual only WEAKLY linearly
+      encodes "a line-end follows" -- and removing that weak linear part
+      does nothing. 652 called w_route a "readout correlate" implying a
+      clean decode-not-cause readout; more precisely, the outcome is only
+      weakly linearly present in the residual at all (AUC 0.70), and the
+      causal routing is a distributed/nonlinear computation, not a linear
+      carrier. (A weak read!=write, but the sharper point is
+      not-linearly-encoded.)
+  NULL: random-32 removal also ~0% -- confirms no direction, targeted or
+      not, carries the routing linearly.
+COMPLETES THE LOW-RANK ISOLATION ARC (650-653), the full answer to the
+user's Q5:
+  - ADDITIVE / SUBTRACTIVE biases (block-17 frequency calibration):
+    isolate cleanly to RANK-1 by behavior-conditioned removal (necessary
+    + specific vs random). Finer grain than clustering/head-ablation.
+  - CONDITIONAL / ROUTING computations (newline routing): have NO
+    removable linear carrier at any rank; they are computed by attention
+    and read nonlinearly. The behavior-conditioned linear method does not
+    reach them.
+So "can we isolate to finer grain?" is answered by component TYPE: yes,
+to rank-1, for linear biases; no, for conditional routing (the wall
+there is not redundancy but nonlinearity/distribution). This is a phase
+boundary; FINDINGS + deep-dive deliverable updated. Queued
+lowrank_article_magnitude to test the boundary on a NEW behavior: is
+"predict an article at all" (636: front-MLP-carried) an additive bias
+(rank-1 isolable) or a conditional computation (not)?

@@ -1,0 +1,16 @@
+remove top- 1: R +0.2676  (lost -1%)
+remove top- 2: R +0.2675  (lost -1%)
+remove top- 4: R +0.2669  (lost -1%)
+remove top- 8: R +0.2664  (lost -1%)
+remove top-16: R +0.2648  (lost -0%)
+remove top-32: R +0.2652  (lost -0%)
+
+baseline R +0.2640; probe AUC (rank-1, OOS) 0.695
+remove random-32: R +0.2622 (lost 1%)
+
+(0) baseline positive: True
+(a) w_route good probe (AUC>=0.75) yet causally inert: False (AUC 0.70)
+(b) not low-rank residual (top-32 <50% lost): True (-0% lost)
+NULL random-32 barely matters: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/routing_rank_curve_results.json (61s)

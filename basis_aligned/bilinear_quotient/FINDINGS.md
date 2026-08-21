@@ -75,7 +75,10 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
   `w_route` does nothing to the newline routing (§652), which is distributed in front attention
   (§644) and whose correlational direction is a decode-not-cause readout (read≠write). Rule: isolate
   by (behavior direction + removal + random control); expect rank-1 for biases/calibrations, NOT for
-  context-conditional routing. Confirm scope: routing_rank_curve (running).
+  context-conditional routing. **Scope confirmed (§653):** routing has NO removable linear carrier
+  at any rank (top-32 removal = 0%); it's computed by attention + read nonlinearly. So finer-grained
+  isolation is answered by component *type*: rank-1 for additive/subtractive biases, not for
+  conditional routing (the wall there is nonlinearity/distribution, not redundancy). Arc §650–653.
 - **B. ~~head-SET localization of induction~~ — ANSWERED NO (§649): copying is distributed across
   ~all attention; pattern-selection can't isolate it. → reinforces A (need subspace method).
 - **C. Systematic circuit discovery** vs the current opportunistic depth-first tracing (see method note).
