@@ -20787,3 +20787,41 @@ QK, and attend where both fire. Ties the architecture back to the traced
 circuits (the front lookup/routing/induction heads live exactly here).
 Queued qk_split_census to generalize from 6 focal heads to ALL 162: how
 common is the positional x content factorization across the model?
+
+## 685. Model-wide census: POSITIONAL x CONTENT is the dominant clean
+## attention motif -- 71/162 heads (44%) split into one distance-selective
+## QK + one content QK; only 9 (6%) are pure content, 12 both-positional,
+## 70 mixed. Nearly every head uses positional selectivity in >=1 QK.
+## Completes the softmax-free attention account (681-685).
+
+Census of all 162 heads by the two QK circuits' distance-correlation:
+  pos x content split (one |dist-corr|>=0.3, other <0.15): 71 (44%)
+  both positional (>=0.3): 12 (7%)
+  both content (<0.15): 9 (6%)
+  mixed (intermediate): 70 (43%)
+  shuffled-distance null: max |corr| 0.020 (positional selectivity real).
+  mean max-positional |dist-corr| by depth: 0.22 (block 0) -> 0.35-0.57
+    (blocks 1-17) -- positional selectivity present throughout.
+FINDINGS:
+  (a) HELD: the positional x content split is the DOMINANT clean motif
+      (44% of heads), far above chance and the other clean categories
+      (both-positional 7%, both-content 6%). Adding the 43% "mixed"
+      (heads with intermediate positional correlations in at least one
+      QK), nearly ALL heads use positional selectivity somewhere -- only
+      6% are pure content matching. NULL clean (shuffled distance 0.02).
+  So the model organizes its attention broadly as "attend to keys at the
+  right RELATIVE POSITION that also MATCH CONTENT" -- a positional x
+  content conjunction is the default head structure, generalizing 684
+  from the 6 focal heads to the whole model.
+COMPLETES the softmax-free attention characterization (681-685): the
+attention is FOCAL (681) via the double-QK PRODUCT (682) of two
+COMPLEMENTARY criteria (683) that PREDOMINANTLY FACTORIZE into a
+positional x a content criterion (684-685), model-wide. The bilinear
+architecture implements selective, lookup-style attention -- normally
+softmax's job -- by multiplying a positional QK and a content QK per
+head, attending where both fire. A complete, quantified account of the
+model's distinctive attention. Queued mlp_gate_conjunction to test the
+architectural PARALLEL: the MLP is also bilinear (h = (Lx)*(Rx)) -- is
+its multiplicative gate an AND (product sparser/more selective than
+either factor), like the attention's double-QK, so the whole model runs
+on multiplicative AND-gating (no softmax, no relu)?

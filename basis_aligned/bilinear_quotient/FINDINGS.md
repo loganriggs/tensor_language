@@ -88,6 +88,14 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
     both — this model has no softmax, so no sink mechanism; §678), and they host the frequency-
     calibration direction (88% of `w_freq`; §676). **HIGH.** §676–680.
 
+13. **Softmax-free attention = a two-criterion multiplicative conjunction (mostly positional ×
+    content).** Attention is focal (~0.23 eff-keys vs 0.64 random; §681) despite no softmax, because
+    each head multiplies TWO QK scores (`pat = s1·s2`): each alone is diffuse (~0.54), the product
+    focal (more focal than both in 100% of cases; §682). The two QK circuits are complementary
+    (corr ~0, 0/162 redundant; §683) and 44% of heads factorize into one positional (distance-
+    selective) × one content QK — nearly all use positional selectivity in ≥1 QK (§684–685). So the
+    model does lookup-style attention by AND-ing a positional and a content criterion. **HIGH.** §681–685.
+
 ### Architecture facts worth keeping
 - MLP = `Down[(Lx)·(Rx)] + b`: every output dim is an exact **quadratic form** `xᵀMₖx`. mlp17's
   *output* is rank-8 by **variance** (§615), but its **functional (loss) rank is higher** (§660):

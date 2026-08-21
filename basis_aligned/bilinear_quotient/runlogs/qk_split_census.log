@@ -1,0 +1,7 @@
+census: {'pos_x_content_split': 71, 'both_positional': 12, 'both_content': 9, 'mixed': 70, 'total': 162}
+mean max-positional |dist-corr| by depth: {0: 0.225, 1: 0.351, 2: 0.359, 3: 0.38, 4: 0.477, 5: 0.451, 6: 0.466, 7: 0.434, 8: 0.351, 9: 0.567, 10: 0.401, 11: 0.459, 12: 0.524, 13: 0.302, 14: 0.268, 15: 0.457, 16: 0.282, 17: 0.557}
+
+(a) pos x content split common (>=20%): True (44%)
+NULL shuffled-distance max |corr| 0.020 < 0.15: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/qk_split_census_results.json (93s)
