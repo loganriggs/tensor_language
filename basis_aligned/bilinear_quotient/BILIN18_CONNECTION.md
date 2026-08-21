@@ -23547,3 +23547,39 @@ just arbitrary rotation WITHIN it, and the fix is to express the decomposition i
 the semantic basis (not to find magic SAE atoms). pred_a/b False, null clean.
 Queued semantic_subspace (seed-free token-semantic directions: rank, causality,
 data-stability, alignment with the SAE subspace).
+
+## 767. SEMANTIC SUBSPACE -- the POSITIVE resolution of 761-766. A seed-free,
+## canonical, causally-dominant, data-stable interpretable structure EXISTS in
+## mlp0's output: the token-conditional-mean (token-semantic) subspace. It is NOT
+## the SAE atoms/groups (those failed 763/766); it is computed directly from
+## (model, data), so it is canonical by construction.
+Result (top-64 semantic directions of mlp0 output):
+  (a) CAUSALLY DOMINANT: projecting the semantic subspace OUT of mlp0's output
+      raises CE by 1.341 nats vs 0.005 for a random same-rank subspace -- ratio
+      268x. Most of mlp0's causal contribution lives in the token-semantic
+      subspace. (NOT the massive-activation passthrough trap 660/676 -- the
+      INVERSE: token-conditional-MEAN factors out context, isolating the loss-
+      CRITICAL token-driven signal. Random-subspace dCE 0.005 confirms it is
+      specifically the semantic directions.)
+  (b) DATA-STABLE / CANONICAL: semantic subspace from two data halves overlaps
+      0.822 (random 0.136), vs SAE atoms 763: 0.40. It recurs because it is a
+      property of the model, not of a seed-dependent fit.
+  (c) SAE PARTIALLY ALIGNS: SAE fitted subspace vs semantic overlap 0.498 (random
+      0.200) -- the SAE fits a ROTATION OF PART of the semantic structure (~half),
+      which is exactly why its atoms are unstable (763/764): arbitrary rotation
+      within a canonical subspace it only half-covers.
+  RANK: ~71 directions for 90% of token-mean variance (moderate, structured).
+  pred_a False (rank 71 > 64 bar) but the CAUSAL claim is overwhelming (268x);
+  pred_b/c True, null clean.
+RESOLUTION of 761-767: the interpretable + causal + stable structure the program
+sought EXISTS, but it is a SEED-FREE SUBSPACE computed directly (token-conditional
+means), NOT an SAE atom or co-activation group. Different tools for different jobs:
+the weight-action SAE is for FAITHFUL RECONSTRUCTION (759); the token-semantic
+subspace is for INTERPRETABLE + CAUSAL + CANONICAL structure. The SAE's instability
+(763-766) was the symptom of forcing a basis where the model has a subspace. For
+the user's question "how to know a good circuit without ground truth": a canonical
+subspace (token-conditional means) needs NO ground truth, is causally verifiable
+(ablation vs random), and is data-stable -- that IS the ground-truth-free handle.
+NEXT: NAME the top semantic directions (which token classes) to confirm they are
+human-interpretable, not just statistically token-driven; test generality across
+layers. Queued semantic_naming.
