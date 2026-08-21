@@ -1628,6 +1628,31 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="architecture">Two things this architecture does without softmax</h2>
+  <p>bilin18 has no softmax anywhere — not in attention, not at the output — and two of its
+  quirks turn out to be how it copes. The first is in the residual stream: a handful of
+  dimensions grow to twenty, forty, sixty times the size of the rest by the final block, and
+  they carry about 85% of the stream's total energy. These "massive activations" are a known
+  curiosity in large models, usually pinned to attention sinks — but here they are not sinks
+  (they fire the same on every token and position, because there is no softmax to dump attention
+  onto a special one). Instead they are the model's volume knob. The output is normalised by the
+  size of the whole vector, and these few huge dimensions set that size; subtract their constant
+  part and the normalisation is wrong, and the loss jumps 1.6 nats — more than removing their
+  varying signal does. The model grows a few enormous dimensions on purpose, to fix the gain of
+  its own readout.</p>
+  <p>The second is in attention itself. A normal transformer scores each key once and sharpens
+  the winners with an exponential; bilin18 has no exponential, so a single score would attend
+  half the context — barely better than random. It sharpens a different way: every head computes
+  <em>two</em> independent scores per key and <strong>multiplies</strong> them. Each score alone
+  is diffuse (it lands on ~54% of keys), but the product is focal (~23%) — because it is large
+  only where <em>both</em> scores are large. And the two scores are uncorrelated (correlation
+  near zero across 120 of the 162 heads), so this is a genuine two-part test: a key is attended
+  only if it passes two different criteria at once. Where softmax attention asks one question of
+  each key, this architecture asks two and takes the AND — a more expressive primitive, bought
+  with a second query-key projection per head instead of a normalisation.</p>
+</section>
+
+<section class="col">
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight

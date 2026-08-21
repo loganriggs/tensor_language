@@ -20712,3 +20712,41 @@ attention_qk_complementarity to ask whether the two QK circuits select
 DIFFERENT things (a genuine two-criterion AND) or the SAME thing
 (redundant sharpening): the correlation between the s1 and s2 patterns
 per head.
+
+## 683. The two QK circuits are COMPLEMENTARY, not redundant: their
+## pattern correlation is ~0 (mean |corr| 0.23), 0/162 heads redundant,
+## 120/162 complementary. So the double-QK is a genuine TWO-CRITERION AND
+## -- the focal pattern is the intersection of two DIFFERENT diffuse
+## selections. Completes the softmax-free attention account (681-683).
+
+Correlation between the two QK patterns (s1, s2) per head:
+  by depth: all near zero, -0.16..+0.12 (signed).
+  mean |corr| 0.232; near-redundant (|corr|>0.8): 0 heads; complementary
+    (|corr|<0.3): 120 of 162 heads.
+  most-correlated heads: L5.H7 +0.75, L15.H1 -0.72, L17.H2 -0.68 (even
+    these only ~0.7, and several ANTI-correlated).
+FINDINGS:
+  (a) HELD: the two QK circuits are COMPLEMENTARY. Mean |corr| 0.23, with
+      ZERO near-redundant heads and 120/162 essentially uncorrelated. So
+      the double-QK product (682) is a genuine TWO-CRITERION AND: each QK
+      circuit selects a DIFFERENT (uncorrelated) set of keys, and the
+      focal pattern is their INTERSECTION -- a key is attended only if it
+      scores high on both of two independent soft criteria. This is NOT
+      one criterion squared (which would need high s1-s2 correlation).
+  A FEW heads are ANTI-correlated (L15.H1 -0.72, L17.H2 -0.68): there s1
+      and s2 select opposing key-sets, so the product implements a
+      difference-like operation rather than an AND -- a distinct pattern
+      type available in the same machinery.
+THE COMPLETE SOFTMAX-FREE ATTENTION ACCOUNT (681-683): the attention is
+FOCAL (681, eff-keys ~0.23 vs 0.64 random), the focality comes from the
+double-QK PRODUCT (682, single terms diffuse ~0.54, product 0.23), and
+the two QK circuits are COMPLEMENTARY (683, corr ~0). So the model's
+attention is a genuine TWO-CRITERION CONJUNCTIVE selection: two
+independent, individually-diffuse QK circuits per head, multiplied, so a
+key is attended iff it passes BOTH criteria -- a more expressive primitive
+than single-QK softmax (which scores keys on ONE criterion). This is the
+distinctive mechanism of the bilinear architecture, now characterized.
+Adding the architecture findings (massive-activation norm control +
+two-criterion attention) to the report. Queued qk_criterion_identity to
+ask WHAT the two criteria are for the most-focal heads (e.g. does one QK
+select by position/recency and the other by content?).

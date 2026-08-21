@@ -1,0 +1,8 @@
+mean s1-s2 pattern corr by depth: {0: -0.08, 1: -0.027, 2: 0.083, 3: -0.03, 4: -0.049, 5: 0.09, 6: 0.005, 7: 0.04, 8: 0.071, 9: 0.012, 10: 0.118, 11: 0.015, 12: -0.084, 13: -0.017, 14: 0.022, 15: -0.155, 16: 0.017, 17: -0.098}
+mean |corr| 0.232; near-redundant (|corr|>0.8) 0 heads; complementary (|corr|<0.3) 120 heads
+most-correlated heads: [(5, 7, 0.75), (15, 1, -0.72), (17, 2, -0.68), (0, 7, -0.61), (10, 2, -0.61)]
+
+(a) two QK circuits complementary (mean |corr| 0.23 < 0.5): True
+    redundant 0/162, complementary 120/162
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attention_qk_complementarity_results.json (73s)
