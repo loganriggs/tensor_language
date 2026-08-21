@@ -1,0 +1,64 @@
+{
+ "directions": {
+  "dir0": {
+   "name_696": "calibration(696)",
+   "cat_dCE": {
+    "punct": -0.06,
+    "digit": 0.373,
+    "cap_word": 0.516,
+    "func_word": -0.11,
+    "content": 0.375,
+    "subword": 0.022,
+    "newline": -0.197
+   },
+   "freq_selectivity": -0.502,
+   "causal_top_cat": "cap_word"
+  },
+  "dir1": {
+   "name_696": "subword(696)",
+   "cat_dCE": {
+    "punct": -0.057,
+    "digit": 0.132,
+    "cap_word": 0.4,
+    "func_word": -0.049,
+    "content": 0.064,
+    "subword": 0.141,
+    "newline": -0.207
+   },
+   "freq_selectivity": -0.194,
+   "causal_top_cat": "cap_word"
+  },
+  "dir2": {
+   "name_696": "proper-noun(696)",
+   "cat_dCE": {
+    "punct": -0.001,
+    "digit": 0.071,
+    "cap_word": 0.134,
+    "func_word": -0.024,
+    "content": 0.017,
+    "subword": 0.182,
+    "newline": -0.062
+   },
+   "freq_selectivity": -0.105,
+   "causal_top_cat": "subword"
+  },
+  "dir3": {
+   "name_696": "topical(696)",
+   "cat_dCE": {
+    "punct": -0.009,
+    "digit": 0.037,
+    "cap_word": 0.099,
+    "func_word": -0.002,
+    "content": 0.024,
+    "subword": 0.013,
+    "newline": -0.103
+   },
+   "freq_selectivity": -0.054,
+   "causal_top_cat": "cap_word"
+  }
+ },
+ "null_freq_sel": -0.004,
+ "null_top_cat": "cap_word",
+ "dir0_calibration_confirmed": false,
+ "runtime_s": 129.64799118041992
+}

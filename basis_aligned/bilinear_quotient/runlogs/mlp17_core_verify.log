@@ -1,0 +1,9 @@
+dir0 [calibration(696)]: top-cat cap_word  freq-sel -0.502  cats {'punct': -0.06, 'digit': 0.373, 'cap_word': 0.516, 'func_word': -0.11, 'content': 0.375, 'subword': 0.022, 'newline': -0.197}
+dir1 [subword(696)    ]: top-cat cap_word  freq-sel -0.194  cats {'punct': -0.057, 'digit': 0.132, 'cap_word': 0.4, 'func_word': -0.049, 'content': 0.064, 'subword': 0.141, 'newline': -0.207}
+dir2 [proper-noun(696)]: top-cat subword  freq-sel -0.105  cats {'punct': -0.001, 'digit': 0.071, 'cap_word': 0.134, 'func_word': -0.024, 'content': 0.017, 'subword': 0.182, 'newline': -0.062}
+dir3 [topical(696)    ]: top-cat cap_word  freq-sel -0.054  cats {'punct': -0.009, 'digit': 0.037, 'cap_word': 0.099, 'func_word': -0.002, 'content': 0.024, 'subword': 0.013, 'newline': -0.103}
+
+NULL random: top cap_word  freq-sel -0.004
+
+(a) dir0 calibration = frequency-selective (freq-sel>0.02): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp17_core_verify_results.json (130s)

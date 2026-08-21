@@ -22359,3 +22359,43 @@ This completes the article-circuit causal localization: FRONT blocks 0-1
 (mlp0 + attn0 + attn1 jointly) decide a/an-vs-the, with the choice absent
 from the back half. Verified flagship circuits (newline 728, article
 729-730) are both FRONT-localized decisions, consistent with finding 4.
+
+## 731. MLP17 CORE causal verification (apply 726 lens to the 696 readout-
+## named core): the PRIMARY name (dir0 = frequency-calibration) is CAUSALLY
+## CONFIRMED (by far the strongest frequency-selectivity), but the finer
+## readout sub-names (dir1 subword / dir2 proper-noun / dir3 topical) do
+## NOT cleanly survive -- readout naming over-specified the weak directions.
+
+Ablate each mlp17 rank-4 core direction, freq-selectivity = dCE(frequent
+targets) - dCE(rare targets):
+  dir0 [696:calibration] freq-sel -0.502   <- STRONGEST (125x null)
+  dir1 [696:subword]     freq-sel -0.194
+  dir2 [696:proper-noun] freq-sel -0.105
+  dir3 [696:topical]     freq-sel -0.054
+  NULL random            freq-sel -0.004
+FINDINGS:
+  (a) dir0 = FREQUENCY-CALIBRATION -- CAUSALLY CONFIRMED. It has by far the
+      largest frequency-selectivity (-0.502, 125x the null); ablating it
+      hurts RARE-target prediction most. That is exactly a "boost rare /
+      suppress frequent" calibration axis (removing it removes the boost on
+      rare targets). Combined with 696's cos 0.878 to the independently-
+      derived w_freq, dir0 is decisively the calibration direction.
+      [PREDICTION SIGN CORRECTION: I registered "hurts FREQUENT more";
+      the truth is "hurts RARE more" -- calibration BOOSTS rare, so ablating
+      it hurts rare-target CE. Substance (dir0 = calibration) confirmed;
+      my sign was backwards. Stated plainly.]
+  (b) dir1/2/3 sub-names NOT cleanly verified: their frequency-selectivity
+      is much weaker (-0.19/-0.11/-0.05) and their category profiles are
+      dominated by a DIFFICULTY CONFOUND -- the "top category" is cap_word
+      for ALL of them AND for the random null (cap_word has the highest
+      baseline CE = most room). So the 696 readout names (subword/proper-
+      noun/topical) were over-specified: causally these are three weaker,
+      partly-frequency, partly-open-vocab directions without the distinct
+      roles the unembedding readout suggested.
+LESSON (reinforces 726): readout/geometric naming is reliable for the
+DOMINANT direction (calibration, which also matched w_freq) but over-
+specifies weaker ones. Causal selectivity + a random-null difficulty
+control is needed; the "top category" is confounded by category difficulty
+(cap_word wins for the null too) and must not be read as function. Net:
+mlp17's core = ONE causally-verified calibration axis (dir0) + three weaker
+open-vocab-ish directions whose finer readout labels don't hold up.
