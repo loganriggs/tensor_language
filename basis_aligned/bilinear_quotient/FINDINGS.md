@@ -47,12 +47,14 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    computed grammatical-class collapse (identity ~132 eff-dim → class ~24, sharpened ~1.8× vs the
    embedding, nonlinear R²0.44 §780/782); position is a coarse ~2-dim early/late readout of RoPE
    (RoPE ~18 eff-dim → ~2 §786/788). Written to near-orthogonal channels (§772), read amortized by
-   later components (§783/784). **Cross-model COMMON, not universal (§800/§802):** per-component
-   nat-weighted class+position share is ~0.69–0.78 for **5 of 6 models** (bilin18 0.78, gpt2-small 0.77,
-   gpt2-large 0.75, pythia-160m 0.75, pythia-410m 0.69; vs random 0.02–0.28) — robust across
-   bilinear/absolute/rotary and 124M–774M — BUT **GPT-2-medium (355M) is a genuine, ISOLATED exception
-   (first MLP does joint non-separable computation, keep < 0; not a confound and not scale-driven —
-   gpt2-large passes; §802/803)**, so it is a common, robust pattern, not a law. (The
+   later components (§783/784). **Cross-model COMMON across ALL SIX models (§800/§805):** per-component
+   nat-weighted class+position share is ~0.69–0.78 for bilin18 0.78, gpt2-small 0.77, gpt2-large 0.75,
+   pythia-160m 0.75, pythia-410m 0.69 (vs random 0.02–0.28) — robust across bilinear/absolute/rotary
+   and 124M–774M. **GPT-2-medium (355M) was NOT an exception after all** — §802/803's "genuine isolated
+   exception" was a DROPPED-MEAN artifact of the centered keep metric (§804/805): its mlp0 output is 91%
+   constant bias by norm; keep goes −0.13 → +0.63 once the mean is preserved, so it IS class+position
+   (plus a dominant constant DC bias, less cleanly than the others — 0.63 vs 0.75–0.94). A common,
+   robust pattern across all six, with gpt2-medium the least-clean case, not a law. (The
    *simultaneous* whole-model metric is bilin18-specific — needs its 30·tanh output clamp — §799).
    The class-SHARPENING mechanism is the one model-specific piece (bilin18/Pythia yes, GPT-2 no §789/796).
    Also generalising to GPT-2/Pythia at the subspace level (§778/781). The distributed remainder is
