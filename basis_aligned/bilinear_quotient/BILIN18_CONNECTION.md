@@ -23790,3 +23790,33 @@ signal (previous token, position) it is swamped by finite-sample subspace noise
 (null = signal). Detecting weaker context signals needs a SUPERVISED held-out probe
 (regress the label from the residual), not an unsupervised mean-subspace.
 pred_a False; null_ok False (null = signal, the diagnostic of underpower).
+
+## 775. CONTEXT PROBE of MLP L1 residual -- resolves 774 (prev-token DECODABLE but
+## causally inert) and finds the residual is dominated by POSITION, not bigram.
+## Supervised held-out ridge probe of the L1 context residual (current-token subspace
+## removed).
+Result (held-out R2, null = shuffled target ~ -0.07):
+  previous-token embedding from residual : R2 0.199   (from full output 0.277)
+  current-token embedding from full      : R2 0.558   (sanity, strong)
+  POSITION from residual                 : R2 0.813   <- dominant
+READ:
+  * RESOLVES 774: previous-token IS decodable from the residual (R2 0.20 >> null).
+    774's null=signal was METHOD UNDERPOWER (unsupervised mean-subspace), not
+    absence. Combined with 774's causal result (removing the prev-token subspace
+    costs only 0.015 nats), previous-token is a DECODABLE-BUT-CAUSALLY-INERT signal
+    -- the read!=write pattern (FINDINGS 2): the info is present in mlp1's output but
+    the model barely uses it.
+  * NEW: POSITION is STRONGLY decodable (R2 0.81) from the residual -- far more than
+    previous-token. The non-token-class part of mlp1's output (773's "context
+    residual") is dominated by POSITIONAL information, and position is LINEARLY
+    accessible (not the no-low-rank-carrier wall). So 773's "distributed contextual
+    remainder" is not monolithic: a LARGE POSITIONAL component (decodable, likely
+    low-rank), previous-token (decodable, inert), and a genuinely diffuse rest.
+CORRECTION to 774's framing: I called mlp1's non-token-class part "the distributed
+remainder, no low-rank carrier." That was too strong -- a big part of it (position)
+IS linearly decodable. The wall is real for the CONDITIONAL computation, but the L1
+residual also carries a strongly-structured POSITIONAL signal I missed with the
+mean-subspace method.
+OPEN: is the positional signal CAUSAL (does removing it hurt CE) or another
+decodable-but-inert channel? Queued position_causal. (null_ok flag was a threshold
+artifact: null R2 -0.07, cleanly negative; pred_a True.)
