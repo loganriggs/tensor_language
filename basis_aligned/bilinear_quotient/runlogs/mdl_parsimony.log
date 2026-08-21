@@ -1,0 +1,31 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mdl_parsimony.py", line 132, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mdl_parsimony.py", line 111, in main
+    O, Grad, ent, tlf = capture_out_grad_meta(dat, NDATA)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mdl_parsimony.py", line 73, in capture_out_grad_meta
+    for li, blk in enumerate(m.transformer.h): x, v1 = blk(x, v1, x0)
+                                                       ^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/jacclust/tt_model.py", line 216, in forward
+    x = x + self.mlp(F.rms_norm(x, (x.size(-1),)))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1846, in inner
+    hook_result = hook(self, args, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mdl_parsimony.py", line 70, in hk
+    o_.retain_grad(); store['o'] = o_
+    ^^^^^^^^^^^^^^^^
+RuntimeError: can't retain_grad on Tensor that has requires_grad=False
