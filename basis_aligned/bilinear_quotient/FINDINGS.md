@@ -48,10 +48,11 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    embedding, nonlinear R²0.44 §780/782); position is a coarse ~2-dim early/late readout of RoPE
    (RoPE ~18 eff-dim → ~2 §786/788). Written to near-orthogonal channels (§772), read amortized by
    later components (§783/784). **Cross-model COMMON, not universal (§800/§802):** per-component
-   nat-weighted class+position share is ~0.78 bilin18 / 0.77 GPT-2-small / 0.75 Pythia-160m / 0.69
-   Pythia-410m (vs random 0.02–0.28) — recurs across bilinear/absolute/rotary — BUT **GPT-2-medium is
-   a genuine exception (its first MLP does not separate into class+position; keep < 0, not a confound,
-   §802)**, so it is a common pattern, not a law. (The
+   nat-weighted class+position share is ~0.69–0.78 for **5 of 6 models** (bilin18 0.78, gpt2-small 0.77,
+   gpt2-large 0.75, pythia-160m 0.75, pythia-410m 0.69; vs random 0.02–0.28) — robust across
+   bilinear/absolute/rotary and 124M–774M — BUT **GPT-2-medium (355M) is a genuine, ISOLATED exception
+   (first MLP does joint non-separable computation, keep < 0; not a confound and not scale-driven —
+   gpt2-large passes; §802/803)**, so it is a common, robust pattern, not a law. (The
    *simultaneous* whole-model metric is bilin18-specific — needs its 30·tanh output clamp — §799).
    The class-SHARPENING mechanism is the one model-specific piece (bilin18/Pythia yes, GPT-2 no §789/796).
    Also generalising to GPT-2/Pythia at the subspace level (§778/781). The distributed remainder is
