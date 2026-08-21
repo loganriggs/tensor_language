@@ -21332,3 +21332,28 @@ FOLLOW-UPS: block1.attn rank-1 core (name the single direction carrying
 2.06 nats) is the most striking lead; and WHY mlp1/mlp2 are high-rank
 while mlp0/mlp17 are not (a front-interior vs edge contrast) is the open
 question. Queued rspd_block1_attn_rank1 to name the rank-1 direction.
+
+## 700. PERFORMANCE (user Q: GPU vs CPU, bottleneck, throughput). Profiled
+## the RSPD pipeline. Bottleneck = torch.linalg.pinv(X.T) inside the A-SVD
+## (a full SVD of the d_in x N activation matrix), 90-95% of fit time.
+
+GPU vs CPU, A-SVD fit:
+  mlp0.Down (d_in=4608): N=3k GPU 0.61s/CPU 4.6s (7.5x); N=12k 1.7s/35.5s
+    (20x); N=24k 1.9s/76.4s (40x). GPU pinv barely grows with N; CPU pinv
+    scales ~cubically in the big dim -> GPU essential at scale.
+  attn c_proj (d_in=1152): N=12k GPU 0.15s/CPU 4.7s (32x).
+Forward CE pricing: ~35k tok/s on GPU. One component rank-sweep (22
+  forwards over 12k eval tok) ~7.7s; 6-component front map ~46s of forwards
+  -> at the scaled run, FORWARDS dominate wall-time, not the SVD.
+FIX (verified, timing_rspd_fast): replace pinv with the normal-equations
+  right inverse B = Vh @ X @ inv(X.T X + eps I) -- only a d_in x d_in solve,
+  NO big SVD, LINEAR in N. Measured 17.5x faster for mlp Down (1741->100ms),
+  matches library to ~1e-3 (eps ridge; attn 1.9x since its pinv was already
+  cheap). Makes fit cost N-linear -> 100k-1M-token fits become cheap.
+EXPECTED THROUGHPUT at scale (GPU + fast A-SVD): capture ~35k tok/s (1M tok
+  ~29s); A-SVD fit ~0.1s (mlp) independent of N; CE pricing ~8s/component on
+  a fixed 12k-token eval. A full front-block map at 1M-token fits < 2 min.
+LEVERS (priority): (1) fast A-SVD [done, 17.5x]; (2) keep eval fixed-size,
+  scale only FIT data (pricing cost independent of fit-N); (3) r80 already
+  stable from 3k tok (699) so fits at 6-12k suffice for the rank number --
+  bigger data matters for NAMING/robustness of directions, not r80.
