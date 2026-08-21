@@ -1,0 +1,12 @@
+685 article-target positions
+(c) cos(d, mean W_U[article]) +0.000; per-row {257: -0.004, 281: -0.003, 262: -0.003, 383: 0.012}
+  alpha -2.0: P(art) 0.08074  art_logit +6.3997  mean_logit -2.4579
+  alpha -1.0: P(art) 0.07142  art_logit +6.1769  mean_logit -2.3754
+  alpha +0.0: P(art) 0.05731  art_logit +5.6696  mean_logit -2.1910
+  alpha +1.0: P(art) 0.04093  art_logit +5.0356  mean_logit -1.9451
+  alpha +2.0: P(art) 0.02631  art_logit +4.3936  mean_logit -1.6577
+
+(a) reversal generalizes: True (P 0.0807->0.0263); (b) M1 anti-alignment (article logit falls) (logit +6.400->+4.394)
+NULL: d article-logit slope -2.0061 vs random [-0.5694, -4.2618, -2.2672]: CHECK
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/article_steering_decomp_results.json (50s)

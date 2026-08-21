@@ -1,0 +1,48 @@
+{
+ "n_article_pos": 685,
+ "cos_d_WUart_mean": 0.00017641671001911163,
+ "cos_per_row": {
+  "257": -0.004,
+  "281": -0.003,
+  "262": -0.003,
+  "383": 0.012
+ },
+ "curve": {
+  "-2.0": {
+   "P_article": 0.08074,
+   "art_logit": 6.3997,
+   "mean_logit": -2.4579
+  },
+  "-1.0": {
+   "P_article": 0.07142,
+   "art_logit": 6.1769,
+   "mean_logit": -2.3754
+  },
+  "0.0": {
+   "P_article": 0.05731,
+   "art_logit": 5.6696,
+   "mean_logit": -2.191
+  },
+  "1.0": {
+   "P_article": 0.04093,
+   "art_logit": 5.0356,
+   "mean_logit": -1.9451
+  },
+  "2.0": {
+   "P_article": 0.02631,
+   "art_logit": 4.3936,
+   "mean_logit": -1.6577
+  }
+ },
+ "P_slope": -0.054430000000000006,
+ "art_logit_slope": -2.0061,
+ "reversal_generalizes": true,
+ "mechanism": "M1 anti-alignment (article logit falls)",
+ "random_logit_slopes": [
+  -0.5694,
+  -4.2618,
+  -2.2672
+ ],
+ "null_ok": false,
+ "runtime_s": 49.846189737319946
+}

@@ -18858,3 +18858,44 @@ back to raising newline, the reversal was pure rms_norm dilution and
 d_newline IS the causal axis up to scale; if it still suppresses,
 d_newline is a genuine correlate off the causal axis. Queued as
 newline_steering_renorm.
+
+## 620. WHY the newline probe steers backwards (619): it is not
+## anti-aligned -- it is ORTHOGONAL to the newline WRITE direction.
+## Read direction != write direction, the linear-algebra form of 616.
+
+Decomposing 619. Registered guess was M1 (d_newline anti-aligned with
+the newline unembedding, so the newline logit falls). REFUTED. What the
+decomposition shows:
+  (b) cos(d_newline, W_U[newline]) = -0.000 (mean; "\n" -0.006, "\n\n"
+      +0.010). The supervised probe direction is essentially ORTHOGONAL
+      to the newline unembedding rows -- not anti-aligned, not aligned.
+  (a) the raw newline logit actually RISES weakly with alpha
+      (+0.009 -> +0.129 over -2..+2) while P(newline) FALLS
+      (0.0333 -> 0.0142). So by the script's rule this is "M2 softmax
+      competition", but the honest reading is stronger (see NULL).
+  NULL "CHECK" is the informative result: random matched-norm
+      directions move the newline logit MORE than d_newline does
+      (random slopes 0.69, 0.055, 1.23 vs d's 0.12). d is NOT a
+      specific driver of the newline logit at all -- an orthogonal
+      direction that nudges it less than noise. The P(newline) drop is
+      therefore a NON-SPECIFIC distributional effect (adding a big
+      vector perturbs the whole softmax; mean vocab logit moves too),
+      not d targeting newline.
+THE FINDING: d_newline is a READ direction, not a WRITE direction. It
+lives in mlp17's OUTPUT space and predicts the next token is a newline
+(618, AUC 0.845), but it is orthogonal to the direction the unembedding
+uses to PRODUCE the newline logit. Reading a feature and writing it are
+different directions here. This is the concrete linear-algebra form of
+616 ("clean-to-read is not causally-locus"): mlp17's output correlates
+with newline yet does not WRITE the newline logit -- consistent with
+616's causal finding that mlp17 contributes LESS to newline than mlp0
+(+0.016 vs +0.051). The writer is earlier (mlp0); mlp17 carries a
+read-correlate. So it also EXPLAINS 619 cleanly: steering along
+d_newline failed not because d is the anti-newline direction, but
+because d is not on the newline write axis at all -- to steer newline
+you must push W_U[newline], not the probe. General lesson for the
+program: a supervised readout probe (fit on activations) recovers the
+READ axis; the causal/steering axis is the WRITE axis (toward the
+unembedding), and the two can be orthogonal. Probes and interventions
+require different directions. The queued article_steering_decomp tests
+whether this read!=write orthogonality is universal or newline-specific.
