@@ -23879,3 +23879,27 @@ looked like opaque contextual computation is token-class and position. pred_a Tr
 NEXT: does token-class+position generalise across the early MLPs (L0-L4) -- is the
 front uniformly ~interpretable, and where does the irreducible fraction peak?
 Queued combined_depth.
+
+## 779. COMBINED INTERPRETABLE fraction ACROSS the early MLPs -- the early MLP stack
+## is ~85% token-class + position by nat-weight (generality of 777). Keep-only
+## (token-class(64) + position(32)) per layer L0-L5. Fig combined_depth.png.
+Result (benefit / keep-combined / token / position / irreducible):
+  L0  2.40 / 0.93 / 0.92 / 0.71 / 0.07   <- big + highly interpretable
+  L1  1.08 / 0.78 / 0.60 / 0.28 / 0.22
+  L2  0.16 / 0.50 / 0.32 / 0.01 / 0.50   <- half distributed, but TINY benefit
+  L3  0.13 / 0.50 / 0.34 / 0.11 / 0.50   <- half distributed, TINY benefit
+  L4  0.35 / 0.88 / 0.85 / 0.80 / 0.12   <- interpretable (token+position)
+  L5  0.08 / 0.60 / 0.54 / 0.41 / 0.40
+NAT-WEIGHTED interpretable fraction = sum(benefit*keep_combined)/sum(benefit) =
+3.57/4.20 = ~0.85. So ~85% of the early MLP stack's TOTAL loss-benefit is captured
+by token-class + position; only ~15% is the genuinely distributed remainder.
+READ: the interpretable fraction is HIGH exactly where the NATS are -- L0 (0.93),
+L1 (0.78), L4 (0.88) carry ~3.8 of the 4.2 nats and are 78-93% token+position. The
+genuinely distributed part (L2/L3 at 50% irreducible) carries little absolute weight
+(0.08+0.065 nats). Position's role varies: a large interpretable component at
+L0/L4/L5 (0.4-0.8) but ~zero at L2 (0.01) -- so the two interpretable structures are
+not uniformly present; L2's small non-token part is neither position nor token.
+pred_a False (strict per-layer >=0.6 bar fails at the tiny L2/L3), but the NAT-
+WEIGHTED story is strongly positive: the early MLP stack is ~85% two nameable low-
+rank structures. This is the quantitative capstone of 773-777: what looked like an
+opaque contextual blob is ~85% token-class + position by the nats that matter.

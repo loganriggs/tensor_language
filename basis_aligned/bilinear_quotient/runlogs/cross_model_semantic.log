@@ -1,0 +1,13 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 5512.94it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (12514 > 1024). Running this sequence through the model will result in indexing errors
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+  gpt2 benefit-by-layer [3.9586, 0.0455, 0.0455, 0.0613, 0.0497, 0.0669, 0.046, 0.0683, 0.0787, 0.0859, 0.0822, 0.1683]
+gpt2 L0 (d768): benefit 3.9586 | r16:0.52(rand 0.13) r64:0.84(rand 0.30) r128:0.93(rand 0.63)
+gpt2 L11 (d768): benefit 0.1683 | r16:0.25(rand 0.04) r64:0.48(rand 0.17) r128:0.63(rand 0.19)
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 4351.37it/s]
+  EleutherAI/pythia-410m benefit-by-layer [7.3028, 0.09, 0.2629, 0.1821, 0.2046, 0.2345, 0.1945, 0.1168, 0.1102, 0.0871, 0.0752, 0.0973, 0.0947, 0.1208, 0.1143, 0.1219, 0.1568, 0.1427, 0.1474, 0.1299, 0.1186, 0.139, 0.2145, 0.4874]
+EleutherAI/pythia-410m L0 (d1024): benefit 7.3028 | r16:0.34(rand -0.00) r64:0.62(rand 0.04) r128:0.76(rand 0.06)
+EleutherAI/pythia-410m L23 (d1024): benefit 0.4874 | r16:0.31(rand -0.01) r64:0.55(rand 0.02) r128:0.65(rand -0.04)
+
+(a) token-class subspace generalises to real models (keep-64>=0.6 & >>random): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_semantic_results.json (333s)
