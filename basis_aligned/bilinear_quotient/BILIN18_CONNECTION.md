@@ -22427,3 +22427,19 @@ the bigram, ablate the rest) on MUCH more data (digit-continuation is rare).
 Logged as a caught design error; not re-run now (small-sample, marginal).
 LESSON: when testing "is X a bigram," ablate everything EXCEPT the bigram
 mechanism, not the bigram mechanism itself.
+
+## 733. DIGIT VERIFY 2 (corrected design) -- STILL INCONCLUSIVE; ablation is
+## the wrong instrument for a bigram claim. Keeping block-0 attention and
+## ablating blocks 1-17 (545 continuation / 5642 initiation positions),
+## continuation and initiation CE rise ~equally (ratio 1.16). But with
+## blocks 1-17 zeroed, block-0's output cannot PROPAGATE to the readout, so
+## a real block-0 bigram can't survive either -- both collapse.
+Result: continuation full 4.46 -> bigram-only 15.63 (rise +11.17);
+initiation full 4.29 -> 17.29 (rise +13.00); ratio 1.16.
+VERDICT: any large ablation is off-distribution/destructive for the whole
+residual, so it cannot isolate "does the bigram alone suffice." Item 9
+(641-642: initiation computed vs continuation bigram) stands on its original
+LIFT-OVER-BASELINE evidence; ABLATION is the wrong tool and both attempts
+(732 flawed, 733 corrected-but-still-confounded) are inconclusive. Closing
+the digit re-verification: use bigram/unigram baselines, not ablation, if
+revisited. No further ablation attempts.
