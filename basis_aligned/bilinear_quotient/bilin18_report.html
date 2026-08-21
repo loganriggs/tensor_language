@@ -1689,6 +1689,65 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="rankmap">How the layers divide the work — a barbell</h2>
+  <p>Decomposing each MLP's output map on real data and asking how many directions it takes to
+  reproduce what the layer does for the loss gives a clean depth profile. The two <em>ends</em> do
+  the most work and are the simplest: the first MLP does 2.3 nats of work through 8 directions, and
+  the last few (blocks 16–17) do ~1.6 nats through <strong>one to four</strong> directions each —
+  block 16's entire contribution is a single direction. The early-middle layers (1–5) are genuinely
+  high-rank (128–256 directions), and the deep middle (blocks 6–14) is nearly inert, ~0.03 nats
+  apiece. The MLP work is a barbell: concentrated, low-rank, and legible at the edges; diffuse in
+  the early-middle; absent in the deep middle.</p>
+  <p>Why is one layer high-rank and another low? Not because their encoders differ in capacity — the
+  weights that read the residual are near-full-rank in every layer. The difference is in what they
+  actually <em>compute</em>: a high-rank layer's gates fire a genuinely larger, more distinct set of
+  features (block 1 realises ~2.4× as many as block 0), which its decoder then spreads across many
+  outputs. High-rank layers are not doing the same thing many times; they detect more.</p>
+  <p>One caution came out of trying to push this further. A tempting story — that a high-rank layer
+  is secretly a union of low-rank pieces, one per cluster of inputs — turned out to be <em>false</em>
+  at a fair bar: cluster the tokens any way you like, and each cluster of a high-rank layer still
+  needs almost the whole basis. The same test on a genuinely low-rank layer passes cleanly (its
+  punctuation cluster is literally one direction), which is exactly how we know the high-rank layers
+  are really high-rank and not an artifact of the method.</p>
+</section>
+
+<section class="col">
+  <h2 id="compose">Circuits compose locally, and firing is not function</h2>
+  <p>Information moves through the residual stream mostly between neighbours. Measuring how much each
+  layer's output directions land in the next layer's input directions — and confirming it causally,
+  by deleting a layer's output subspace and watching the next layer's gates move 9–44× more than for
+  a random subspace — shows the dominant paths are layer <em>i</em> → block <em>i+1</em>, with the
+  final block acting as a broad integration hub that reads from many earlier layers. Deleting a
+  layer's write cannot change an <em>earlier</em> block's gates at all, and the measurement duly
+  reads exactly zero there. Each MLP also reads one part of the residual and writes to a largely
+  different part (the read and write subspaces are ~93% orthogonal), so the stream carries
+  information forward through a succession of fresh subspaces rather than any layer amplifying its
+  own input.</p>
+  <p>Putting circuits together this way forced a correction worth stating plainly. It is easy to name
+  a component by <em>when</em> it fires — several components across the network spike on newlines and
+  periods, which looks like a "sentence-boundary" circuit. But deleting them tells a different story:
+  only one of them actually helps predict <em>at</em> boundaries. The most prominent "boundary" head
+  fires on newlines yet, when removed, hurts prediction of ordinary content words far more than
+  boundaries — it fires at boundaries but its job is writing the open-vocabulary continuation that
+  follows. Firing is an input pattern; function is what breaks when you remove it, and only the
+  second earns a circuit's name. Applying that test as a rule confirmed the two flagship circuits
+  and dissolved a mirage:</p>
+  <ul>
+    <li><strong>The newline circuit is real and sharply localised.</strong> At period positions the
+    model tells real line-ends from mid-sentence periods with AUC 0.81; delete the front two blocks'
+    attention and that drops to 0.51 — pure chance — while a matched random deletion leaves it at
+    0.79. The front attention <em>is</em> the line-end discriminator.</li>
+    <li><strong>The article circuit is real, and split as claimed.</strong> The a/an-vs-the choice
+    (AUC 0.87) is carried by the front blocks — front attention more than front MLP, exactly the
+    division we'd traced — and by nothing past block 5. It is a front decision, distributed across a
+    handful of front components rather than any single one.</li>
+    <li><strong>The "boundary circuit" was a firing illusion.</strong> Of the three components that
+    fire at boundaries, only the last-block one is boundary-selective when deleted; the others do
+    general continuation work and happen to trigger there.</li>
+  </ul>
+</section>
+
+<section class="col">
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight
