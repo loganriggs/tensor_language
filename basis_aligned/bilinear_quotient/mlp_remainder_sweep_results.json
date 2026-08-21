@@ -1,0 +1,49 @@
+{
+ "mlp1": {
+  "benefit": 1.0726,
+  "residual_eff_rank": 461.9,
+  "keep": {
+   "classpos": 0.7372,
+   "prev": 0.8741,
+   "joint": 0.8884,
+   "both": 0.938,
+   "rand": 0.8508
+  },
+  "net_prev": 0.0233,
+  "net_joint": 0.0376,
+  "net_both": 0.0872,
+  "rand_gain": 0.1136
+ },
+ "mlp2": {
+  "benefit": 0.158,
+  "residual_eff_rank": 497.4,
+  "keep": {
+   "classpos": 0.3799,
+   "prev": 0.6467,
+   "joint": 0.6588,
+   "both": 0.7787,
+   "rand": 0.5917
+  },
+  "net_prev": 0.055,
+  "net_joint": 0.0671,
+  "net_both": 0.187,
+  "rand_gain": 0.2118
+ },
+ "mlp3": {
+  "benefit": 0.1287,
+  "residual_eff_rank": 467.8,
+  "keep": {
+   "classpos": 0.4361,
+   "prev": 0.6863,
+   "joint": 0.6794,
+   "both": 0.8011,
+   "rand": 0.607
+  },
+  "net_prev": 0.0793,
+  "net_joint": 0.0724,
+  "net_both": 0.1941,
+  "rand_gain": 0.1709
+ },
+ "general_recipe": true,
+ "runtime_s": 84.2050096988678
+}

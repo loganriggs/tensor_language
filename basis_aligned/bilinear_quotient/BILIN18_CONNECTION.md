@@ -24873,3 +24873,56 @@ structureless — a modest, identifiable slice is previous-token + class×positi
 a diffuse residue with faint nameable structure. Queued mlp_remainder_sweep.py to test
 whether this prev-token + interaction slice is a general early-MLP recipe (mlp1/2/3) or
 mlp1-specific, and whether combining both closes more of mlp1's gap.
+
+## §811 — Previous-token + class×position interaction is a GENERAL early-MLP remainder recipe, capturing DIFFERENT slices (mlp_remainder_sweep.py)
+
+Extended §810 across mlp1/mlp2/mlp3. Random null here is 128-dim (matched to the combined
+prev+joint add), so net_both (both 128-dim conditions vs 128-dim random) is the honest
+signal; net_prev/net_joint (64-dim adds vs the 128-dim null) are conservative.
+
+| comp | benefit | resid eff-rank | keep class+pos | +both | net_both over random |
+|------|--------:|---------------:|---------------:|------:|---------------------:|
+| mlp1 | 1.073 | 462 | 0.737 | 0.938 | **+0.087** |
+| mlp2 | 0.158 | 497 | 0.380 | 0.779 | **+0.187** |
+| mlp3 | 0.129 | 468 | 0.436 | 0.801 | **+0.194** |
+
+(a) GENERAL: all three early MLPs show a real combined prev+interaction gain over matched
+random — the recipe is not mlp1-specific. (c) DIFFERENT SLICES: "both" exceeds either
+alone in every component (mlp1 0.938 vs prev 0.874 / joint 0.888; mlp2 0.779 vs 0.647 /
+0.659; mlp3 0.801 vs 0.686 / 0.679), so the previous-token signal and the class×position
+interaction are separate contributions that add, not the same slice twice. The relative
+gain is LARGER in the small MLPs (mlp2/3) whose class+position baseline is lowest.
+
+So the early MLPs compute class + position (additive, dominant) PLUS a modest previous-token
+(bigram/context) term PLUS a class×position interaction term. Two honest caveats: the
+residual stays high-rank (462–497) — these are identifiable slices, not a low-rank closure;
+and the small MLPs carrying the largest relative remainder have tiny loss-benefit (0.13–0.16),
+so this refines the mechanism without moving the loss much.
+
+## §812 — Whole-stack shape: a BARBELL. Front computes class+position (benefit 10.4, 93%), back reads it out (benefit 1.9, 93%), middle is nearly inert (benefit 0.49) (from bilin18_scoreboard_mp data)
+
+Read the per-component benefit + mean-preserving class+position keep across all 18 layers
+(existing §808 data, no new run). Benefit-weighted by depth band:
+
+| band | class+position keep | total loss-benefit |
+|------|--------------------:|-------------------:|
+| early (layers 0–5)  | **0.934** | **10.42** |
+| middle (layers 6–11)| 0.628 | 0.49 |
+| late (layers 12–17) | **0.929** | 1.91 |
+
+The model is a barbell. Almost all the computation is at the FRONT (layers 0–5, benefit
+10.4 — 81% of the whole model's 12.8) and it is 93% class+position: this is where the two
+variables are computed. A second, smaller lump of work is at the BACK (layers 15/16/17:
+mlp benefit 0.15/0.89/0.71, keep 0.88/0.98/0.94) — the output MLPs that READ the computed
+class+position and turn it into predictions, also 93% class+position. The MIDDLE (layers
+6–11) is nearly inert: 12 components contributing 0.49 nats total (~0.04 each) — the
+residual stream mostly just carries the early-computed variables through. Attentions are
+~0.9–1.0 class+position at almost every depth; the low-class+position components are the
+small MLPs (mlp2/3/6–14), which carry the faint prev-token/interaction slices (§810/811)
+and diffuse content but almost no loss-benefit.
+
+This validates the amortized-reading thesis directly from the numbers: early layers compute
+class+position, the late output MLPs read them, and the middle is a quiet transport region
+with little new computation to name. There is no rich mid-stack of undiscovered variables —
+answering the "move up the stack" question (option 3): the mid-stack is quiet, not hiding
+structure. Figure whole_stack_barbell.png sent to user.

@@ -1,0 +1,6 @@
+mlp1: ben 1.0726 eff-rank 461.9 | keep cp 0.7372 prev 0.8741 joint 0.8884 both 0.938 rand 0.8508 | NET prev +0.0233 joint +0.0376 both +0.0872
+mlp2: ben 0.158 eff-rank 497.4 | keep cp 0.3799 prev 0.6467 joint 0.6588 both 0.7787 rand 0.5917 | NET prev +0.055 joint +0.0671 both +0.187
+mlp3: ben 0.1287 eff-rank 467.8 | keep cp 0.4361 prev 0.6863 joint 0.6794 both 0.8011 rand 0.607 | NET prev +0.0793 joint +0.0724 both +0.1941
+
+(a) prev+interaction is a GENERAL early-MLP remainder recipe (>=2 of 3 net_both>0.04): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_remainder_sweep_results.json (84s)
