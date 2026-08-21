@@ -1,0 +1,12 @@
+baseline CE freq-target 1.6074  rare-target 4.0834
+block5: dCE all +1.5418  freq +0.2269  rare +2.0913  asymmetry(rare-freq) +1.8644
+block6: dCE all +0.0911  freq +0.0238  rare +0.1193  asymmetry(rare-freq) +0.0955
+block8: dCE all +0.2557  freq +0.1568  rare +0.2970  asymmetry(rare-freq) +0.1402
+block17: dCE all +0.4338  freq -0.1684  rare +0.6855  asymmetry(rare-freq) +0.8539
+
+(0) block17 calibrator signature: True
+(a) block5 calibrates (asym +1.8644 > writer +0.1402): True
+(b) block8 writer (raises CE both): True
+NULL asymmetry large for calibrators, small/neg for writer: ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/calibrator_ce_profile_results.json (64s)

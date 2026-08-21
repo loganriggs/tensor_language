@@ -76,3 +76,47 @@ calibrator_ce_profile: run the 626 CE trade-off (help rare targets,
 hurt frequent targets) for blocks 5, 6, 17 and a writer control -- does
 block 5 show the genuine calibrator signature, cross-validating the
 frequency-correlation metric against causal CE?
+
+## 628. CORRECTION to 627: block 5 is NOT a second calibrator. The
+## causal CE test shows block 17 is the UNIQUE net calibrator; block 5
+## is a large WRITER with a relative frequency tilt. Frequency-
+## correlation flags tilt, not net calibration.
+
+Cross-validating 627's frequency-correlation calibrators against the
+626 causal CE trade-off. Baseline CE: frequent-target 1.607, rare-
+target 4.083.
+  block 17: dCE freq -0.168, rare +0.686, all +0.434. The ONLY block
+    whose removal HELPS frequent targets (dCE_freq < 0) -- the true
+    calibrator signature (it net-suppresses correct frequent tokens).
+  block 5: dCE freq +0.227, rare +2.091, all +1.542. Removing block 5
+    HURTS frequent targets too (positive) -- block 5 net-WRITES frequent
+    tokens, it does not suppress them. It is a large writer (dCE all
+    +1.54, one of the biggest) that helps rare targets even more.
+  block 8 (writer control): dCE freq +0.157, rare +0.297 -- writer,
+    both positive. HELD.
+  block 6 (neutral): dCE freq +0.024, rare +0.119 -- tiny, near-neutral.
+THE CORRECTION: 627 called block 5 a "second calibrator" from its
+positive frequency correlation (+0.36). The causal CE test REFUTES that
+as a net-calibration claim. The defining calibrator signature is
+dCE_freq < 0 (removal helps correct frequent tokens = the block was
+net-suppressing them), and ONLY block 17 meets it. Block 5's positive
+frequency correlation reflects a RELATIVE tilt -- block 5 down-weights
+frequent tokens relative to rare ones -- but on net block 5 still
+WRITES frequent tokens (removing it hurts them). A relative frequency
+tilt is not net calibration.
+METHOD LESSON (two flawed proxies caught by the CE ground truth):
+(1) the frequency-correlation metric (625/627, mean-logit delta vs
+frequency) detects relative frequency tilt, NOT net calibration -- a
+big writer with a tilt scores positive. (2) The asymmetry metric
+(rare dCE - freq dCE) that this script's prediction (a) used is ALSO
+insufficient: block 5's asymmetry (+1.86) EXCEEDS block 17's (+0.85)
+purely because block 5 is a huge writer that helps rare targets more --
+the coded prediction (a) returned True but is misleading. The ground
+truth for "net calibrator" is the SIGN of dCE at frequent targets, and
+by that test block 17 stands alone. So the corrected picture: block 17
+is the model's single net frequency calibrator; every other block,
+block 5 included, is a writer (some, like block 5, with a frequency-
+relative tilt). This SIMPLIFIES the calibration story back to a single
+dedicated calibrator at the readout layer, and adds a caution about
+proxy metrics for calibration. Propagated to RESULTS; the report only
+ever named block 17 (stands, no change). Closes the calibration thread.
