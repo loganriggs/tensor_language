@@ -20079,3 +20079,39 @@ middle_refine_copying to connect this middle mechanism to the copying
 circuit: since the induction reader heads sit in the middle (L5/L8/L10,
 647), does the middle's content-word refinement rely on COPYING the word
 from earlier context (larger middle-ablation drop for repeat targets)?
+
+## 666. The middle's content-word refinement is NOT primarily copying:
+## middle ablation collapses NOVEL content words as much as repeats
+## (rel-drop 92% novel vs 86% repeat). Copying gives repeats a higher
+## baseline (0.265 vs 0.117) but the middle is a GENERAL content-word
+## predictor, not the copy circuit.
+
+At space_word targets, split by whether the target repeats earlier in
+context (1099 repeat, 3794 novel):
+  repeat: base 0.265, mid-ablated 0.037 (drop 0.228, rel 86%)
+  novel:  base 0.117, mid-ablated 0.009 (drop 0.108, rel 92%)
+  late-16 ablation: negligible (repeat -0.004, novel -0.007).
+FINDINGS:
+  (a) FAILED as a copying hypothesis, informatively. Middle ablation
+      collapses BOTH subsets ~90%; relatively it hurts NOVEL content
+      words slightly MORE (92% vs 86%), not repeats. So the middle's
+      refinement is not the copying mechanism -- it predicts novel
+      (uncopyable) content words from context just as much.
+  THE COPYING/REFINEMENT DISTINCTION: copying (induction, 645-648) gives
+      REPEAT content words a higher BASELINE (0.265 vs novel 0.117 -- the
+      copyable ones are easier to predict). But the middle's within-class
+      refinement MACHINERY is a GENERAL content-word predictor needed for
+      novel words too. The induction reader heads in the middle (L5/L8/
+      L10) are ONE contributor (to the repeat baseline), not the defining
+      feature of the middle's refinement, which extends to novel words
+      via context (semantic/syntactic fit, not copying).
+  NULL clean: late-16 ablation has no repeat/novel asymmetry (middle
+      function).
+So the depth account holds and sharpens: the MIDDLE refines the specific
+content word from CONTEXT for both novel and repeated words (665: attn+
+mlp balanced, context-dependent); copying is a sub-component that eases
+repeats but is not what the middle's refinement fundamentally is. This
+separates the general refinement circuit from the copying sub-circuit.
+FINDINGS updated. Queued quote_state to add breadth -- a fresh, untouched
+behavior: does the model track quotation parity (inside vs outside a
+quote), and where?

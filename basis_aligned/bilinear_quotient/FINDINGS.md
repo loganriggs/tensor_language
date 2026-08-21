@@ -30,10 +30,13 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    "boost rare content" = "suppress frequent function tokens" (removing w_freq also drops rare
    capitalized-writing; §657). Subword-writing is a separate, preserved function. **HIGH.** §624–657.
 
-4. **Depth division of labor.** FRONT (0–2) decides the next-token *class* and carries most loss;
-   MIDDLE (6–16) refines *which token within the class* (rare/content, esp. the open content-word
-   slot); BACK (17) calibrates frequency. **MED** (front's +7-nat magnitude inflated by
-   error-compounding; the middle/back claims are clean). §630–632.
+4. **Depth division of labor (with mechanism).** FRONT (0–2) decides the next-token *class* —
+   MLP-dominant, token-local, from the embedding trigger (§634). MIDDLE (7–15) refines *which token
+   within the class* (esp. the open content-word slot) — attention+MLP balanced, more context-
+   dependent than the class decision (§665); a GENERAL content-word predictor (serves novel words as
+   much as repeats — copying/induction is a sub-component, not its defining feature, §666). BACK
+   (16–17) calibrates frequency. **MED** (front's +7-nat magnitude inflated by error-compounding;
+   middle/back claims clean). §630–632, §634, §665–666.
 
 5. **Circuits bottom out in embedding trigger-geometry, not computed triggers.** Skip all 18 blocks
    and a `.`→newline / prep→the lean is already in embedding∘unembedding. BUT the direct path is a
