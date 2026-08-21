@@ -22611,3 +22611,35 @@ FINDINGS:
     preserving basis rotation (rotate the EXACT SVD/A-SVD factorization to
     maximize per-datapoint code sparsity -- exact reconstruction preserved,
     codes sparser).
+
+## 739. CE-ORDERED BASIS -- REORDERING is NOT enough. Reordering weight-SVD
+## directions by CE-importance does NOT reliably beat the natural singular-
+## value order (mixed: better at r=4/64/128, worse at r=8/16). weight-SVD's
+## singular-value ordering is already near-loss-optimal; real efficiency
+## gains need a DIFFERENT BASIS (sparse/rotated), not a reorder.
+
+CE-recovery(r), mlp1: CE-ordered (weight-SVD dirs reranked by single-removal
+CE-importance) vs weight-SVD (singular order) vs A-SVD (energy) vs random-
+order:
+  r:        1      4      8     16     32     64    128    256
+  CE-order -1.05  -0.34  -0.30 -0.08  0.24   0.63  0.86   0.958
+  weightSVD-1.05  -0.48  -0.26 -0.03  0.25   0.58  0.84   0.958
+  A-SVD    -5.40  -4.38  -2.94 -0.31  0.19   0.62  0.895  0.972
+  rand-ord -0.12  -0.48  -0.40 -0.63  -0.18  0.18  0.685  0.958
+FINDINGS (prediction FAILED, honestly):
+  - CE-importance REORDERING is MIXED vs weight-SVD (wins r=4/64/128, loses
+    r=8/16). It does NOT dominate. My CE-importance = single-direction
+    removal damage, a FIRST-ORDER proxy that is not the optimal keep-order
+    for a rank-r reconstruction; the true greedy CE-optimal order (marginal
+    value) needs ~r^2 forwards (expensive). So reordering within the SVD
+    basis buys little.
+  - weight-SVD's SINGULAR-VALUE order is already near-loss-optimal: much
+    better than A-SVD's energy order at low rank (737 confirmed), and CE-
+    reordering barely improves it. A-SVD wins only near full rank (r=128
+    0.895). Random-order is much worse (ordering matters; NULL held).
+  - CONCLUSION: you cannot get a big efficiency win by REORDERING the
+    orthogonal SVD basis -- weight-SVD is already good within that family.
+    Real gains (per the MDL objective) require LEAVING the orthogonal-
+    reconstruction family: a sparse dictionary or a sparsifying rotation
+    (faithful_rotation, running next). This experiment rules out the cheap
+    "just reorder by loss" fix.
