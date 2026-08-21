@@ -1,0 +1,31 @@
+{
+ "ce_full": 3.3536,
+ "benefit": 2.3832,
+ "rs": [
+  16,
+  64,
+  128,
+  256
+ ],
+ "results": {
+  "16": {
+   "sem_recovery": 0.7183,
+   "rand_recovery": 0.0171
+  },
+  "64": {
+   "sem_recovery": 0.9162,
+   "rand_recovery": 0.0826
+  },
+  "128": {
+   "sem_recovery": 0.9632,
+   "rand_recovery": 0.1216
+  },
+  "256": {
+   "sem_recovery": 0.9831,
+   "rand_recovery": 0.3099
+  }
+ },
+ "pred_a_sufficient": true,
+ "null_ok": true,
+ "runtime_s": 69.80553388595581
+}

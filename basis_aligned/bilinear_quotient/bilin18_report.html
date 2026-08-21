@@ -139,8 +139,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
     <li><span class="num">16</span><a href="#selection">Where a head keeps its decision</a></li>
     <li><span class="num">17</span><a href="#folding">How small can the front get?</a></li>
     <li><span class="num">18</span><a href="#grouping">Splitting 4608 pieces into groups</a></li>
-    <li><span class="num">19</span><a href="#composition">Splitting a layer into parts that wire together</a> <span class="flag new">new</span></li>
-    <li><span class="num">20</span><a href="#open">What's still open</a></li>
+    <li><span class="num">19</span><a href="#composition">Splitting a layer into parts that wire together</a></li>
+    <li><span class="num">20</span><a href="#semantic">Where the interpretable structure lives</a> <span class="flag new">new</span></li>
+    <li><span class="num">21</span><a href="#open">What's still open</a></li>
   </ol></nav>
 </header>
 
@@ -1797,6 +1798,47 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the joined-up decomposition keeps the model's loss at or above where the separate parts left it,
   keeps every part faithful, and still cuts the wiring by three-quarters — a faithful, loss-aware,
   sparsely-wired decomposition of two neighbouring layers, read as a small graph.</p>
+</section>
+
+<section class="col">
+  <h2 id="semantic">Where the interpretable structure actually lives</h2>
+  <p>The obvious way to find a layer's "features" is to learn a big dictionary of parts and keep
+  the handful each token uses. We did that, and then asked the question that decides whether you
+  can trust the result: with no ground truth to check against, how do you know a part is real and
+  not an artefact of the fit? The honest answer is that you triangulate — a real part should be
+  <em>stable</em> when you refit from a new random start, <em>causally</em> load-bearing when you
+  remove it, and <em>interpretable</em> as some consistent input. And on the learned parts, those
+  three properties simply do not line up. Refit the dictionary from a different random seed and
+  almost none of the individual parts come back (they recur at 0.4 on a scale where 1 is identical
+  and 0.2 is chance). The parts back each other up, so removing one alone barely moves the loss
+  while removing a group moves it far more. And a part's interpretability has almost nothing to do
+  with how much it matters or how stable it is — the nameable parts are not the important ones.
+  Grouping the parts by which fire together doesn't rescue any of this. The individual learned part
+  is just the wrong unit.</p>
+  <p>The structure <em>is</em> there — it just isn't the learned parts, and you don't need to fit
+  anything to see it. Take the layer's output and average it over every position where the current
+  token is, say, "the"; the context washes out and you are left with the part of the output the
+  token's identity drives. Do that for every token and look at the directions those averages spread
+  along. That subspace is <em>canonical</em> — computed straight from the model and the data, it
+  comes out the same on either half of the corpus (overlap 0.82, versus 0.40 for the learned
+  parts), with no seed to depend on. It is <em>causal</em>, and dramatically so: delete that
+  ~60-direction subspace from the first layer's output and the model's loss jumps by 1.3 nats,
+  where deleting a random subspace of the same size costs almost nothing — a factor of 270. And it
+  is <em>readable</em>: the top directions are grammatical classes. One axis runs from determiners
+  and articles ("the", "a", "an", "his") to the rest; another is punctuation; others are
+  sentence-opening pronouns ("It", "He", "She"), auxiliary verbs ("is", "was", "were", "has"),
+  digits, prepositions, and conditionals. The front of the network sorts what it writes by part of
+  speech.</p>
+  <p>That also explains why the learned parts looked so unreliable. Their dictionary <em>does</em>
+  sit largely inside this canonical subspace — but only covers about half of it, and picks an
+  arbitrary set of axes within the part it covers, different every seed. They were a wobbly
+  rotation of a solid thing. So the two tools have two jobs: the learned sparse dictionary is for
+  faithful reconstruction of what a weight computes, and the token-averaged subspace is for the
+  interpretable, causal, stable structure — and it is the second, not the first, that answers "what
+  is this layer for" without any ground truth. Measured across depth, this token-class subspace is
+  causally dominant at every layer we tested but its weight is concentrated up front (270× at the
+  first layer, fading to 6× by layer twelve) — the same barbell as the rest of the model: the
+  early layers do the grammatical sorting, the deep middle barely does anything.</p>
 </section>
 
 <section class="col">

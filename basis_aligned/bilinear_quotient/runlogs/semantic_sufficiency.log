@@ -1,0 +1,8 @@
+CE_full 3.354  ablate 5.737  benefit 2.383
+r= 16: keep-semantic CE-recovery 0.718  keep-random 0.017
+r= 64: keep-semantic CE-recovery 0.916  keep-random 0.083
+r=128: keep-semantic CE-recovery 0.963  keep-random 0.122
+r=256: keep-semantic CE-recovery 0.983  keep-random 0.310
+
+(a) semantic subspace SUFFICIENT (keep-only top-64 >=0.6 & >>random): True; NULL: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/semantic_sufficiency_results.json (70s)
