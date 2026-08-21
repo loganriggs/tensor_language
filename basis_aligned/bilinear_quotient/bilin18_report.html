@@ -1434,7 +1434,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   computation is distributed across all the pieces that do it, and compact in the handful of
   directions they collectively write into — the same "many quiet contributors, one small shared
   channel" pattern this report keeps finding elsewhere in the model. The right thing to call "the
-  circuit," then, isn't a list of pieces at all; it's that small output subspace.</p>
+  circuit," then, isn't a list of pieces at all; it's that small output subspace. The line-break
+  decision has the same two-sided shape — spread across the pieces, compact in the directions —
+  just a bit looser: it takes about sixty-four directions rather than sixteen to capture it,
+  and no single one dominates. So the compactness is a dial, not a fixed number: tighter for the
+  article choice, looser for line breaks, but low-rank either way.</p>
   <p>A companion tool from the same outside source does the compression side of this question
   properly: given a layer's weight and its real activations, it computes — in one exact step,
   no guessing or gradient descent — the best possible low-rank stand-in for that layer <em>on
