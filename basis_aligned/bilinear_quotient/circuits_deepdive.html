@@ -431,9 +431,18 @@
           </tbody>
         </table>
         </div>
-        <p style="margin-bottom:0">This is why block 17 appears in the other two circuits as the final
+        <p>This is why block 17 appears in the other two circuits as the final
         stage: the same layer that trims newline and "the" is running one frequency correction across
         the whole vocabulary. A textbook last-layer calibrator, isolated and measured.</p>
+        <p style="margin-bottom:0">And it is the one part of this model you can actually <em>turn</em>.
+        The correction lives on a single rank-1 direction — remove it and the calibration is gone,
+        remove a random direction and nothing happens — and that direction is stable across disjoint
+        data (cosine 0.98). Scale the model's projection onto it and you get a clean frequency/diversity
+        dial: at the default, the twenty commonest tokens hold 29% of the probability mass; dial it
+        down and that rises to 42%, dial it up and it falls to 13%. It is the exception that frames the
+        rule — everything else in this model (routing, word choice, even its memory of whether it is
+        inside a quote) is distributed and offers no such knob: readable in places, editable almost
+        nowhere.</p>
       </div>
     </div>
   </div>

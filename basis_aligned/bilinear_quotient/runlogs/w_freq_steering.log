@@ -1,0 +1,11 @@
+alpha 0.0: top20 mass 0.4222  freq-CE 1.3675  rare-CE 4.6905
+alpha 0.5: top20 mass 0.3659  freq-CE 1.4198  rare-CE 4.3173
+alpha 1.0: top20 mass 0.2911  freq-CE 1.6074  rare-CE 4.0834
+alpha 1.5: top20 mass 0.2037  freq-CE 2.0287  rare-CE 4.0707
+alpha 2.0: top20 mass 0.1253  freq-CE 2.7367  rare-CE 4.2707
+
+(a) monotonic freq-mass dial (down as alpha up): True (0.422->0.125)
+(b) trade-off (rare-CE down, freq-CE up): True (rare 4.691->4.271, freq 1.367->2.737)
+NULL random not monotonic: True (rand mass [0.29, 0.291, 0.291, 0.291, 0.292])
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/w_freq_steering_results.json (86s)

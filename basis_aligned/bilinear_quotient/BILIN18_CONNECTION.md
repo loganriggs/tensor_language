@@ -20334,3 +20334,42 @@ w_freq_steering to show the one knob is ACTIONABLE: scaling w_freq up/down
 should act as a frequency/diversity dial (suppress or boost frequent
 tokens) -- demonstrating the practical utility of the single isolable
 component.
+
+## 673. The one knob is ACTIONABLE: scaling w_freq is a monotonic
+## frequency/diversity dial (top-20 token mass 0.42 -> 0.29 default ->
+## 0.13, a 3.4x range), tuning the 626 trade-off; random direction inert.
+## Applied capstone -- the single isolable component is usable.
+
+Scaling mlp17's projection onto w_freq by alpha (1 = identity, 0 =
+calibration off, >1 = amplified):
+  alpha 0.0: top20 mass 0.422  freq-CE 1.368  rare-CE 4.691
+  alpha 0.5: 0.366  1.420  4.317
+  alpha 1.0: 0.291  1.607  4.083   (default)
+  alpha 1.5: 0.204  2.029  4.071
+  alpha 2.0: 0.125  2.737  4.271
+  random-direction scaling: top20 mass flat ~0.29 (inert).
+FINDINGS:
+  (a) MONOTONIC DIAL (HELD): frequent-token mass falls monotonically as
+      alpha rises (0.42 -> 0.13, a 3.4x range) -- a clean, single-knob
+      frequency/diversity control. Turning it down restores frequent
+      tokens (calibration off); turning it up suppresses them (more
+      diverse/rare output).
+  (b) TUNABLE TRADE-OFF (HELD): amplifying the calibration lowers rare-
+      target CE (to 4.07 at alpha 1.5, marginally BELOW the default
+      4.08 -- the model is very slightly under-calibrated for rare
+      targets) while raising frequent-target CE (1.6 -> 2.7). The default
+      alpha=1 is near-optimal overall.
+  NULL clean: scaling a random rank-1 direction leaves frequent-token
+      mass flat.
+So the model's single cleanly-isolable component is not just
+characterizable but USABLE: a robust, interpretable, rank-1 dial for the
+frequency/diversity of the output distribution. This is the applied
+capstone of the isolation investigation (650-673): we found the ONE knob,
+validated it (necessary/specific/frequency-axis/distributed/stable), and
+showed it is an actionable diversity control -- while everything else in
+the model is distributed and offers no such knob. Propagating to the
+deep-dive deliverable. The isolation/one-knob investigation (the user's
+Q4/Q5) is comprehensively closed. Requeued census_diverse-style breadth
+is NOT restarted; instead queued a fresh-ground experiment: is there a
+POSITION/absolute-index additive knob (does the model additively bias by
+sequence position), or is frequency truly the sole additive axis?
