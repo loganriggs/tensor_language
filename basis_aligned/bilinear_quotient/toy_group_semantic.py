@@ -53,7 +53,11 @@ def plant(seed=0):
     for g in range(G):
         mem = groups[g]; on = gact[:, g]
         if g < G-1:                                               # COMPLEMENTARY
-            for a in mem: code[on, a] = np.abs(rng.randn(on.sum()))
+            # members co-fire but PROBABILISTICALLY (p=0.8 each when group on) ->
+            # containment symmetric but < 1 (a real circuit, not perfect lockstep)
+            for a in mem:
+                fires = on & (rng.rand(N) < 0.8)
+                code[fires, a] = np.abs(rng.randn(fires.sum()))
         else:                                                     # SUBSET / redundant
             for k, a in enumerate(mem):
                 fires = on & (rng.rand(N) < 0.5**k)               # nested subsets
