@@ -20268,3 +20268,36 @@ remains the frequency-calibration bias. FINDINGS current. Queued
 recency_bias to probe the central "one knob" claim directly: is there a
 SECOND additive knob -- a rank-1 removable "recently-seen token" bias --
 or is frequency calibration truly the only one?
+
+## 671. Confirms the "one knob" claim against a strong candidate:
+## recency/repetition is a big behavioral effect (recent tokens predicted
+## 2x better) but NOT an additive knob -- removing its rank-1 direction
+## does not reduce it (gap even widens 36%). Frequency calibration remains
+## the model's ONLY isolable linear knob.
+
+Testing whether a recency/repetition bias is a second removable additive
+component. 2649 recent-targets (token seen in last 32) vs 9639 novel:
+  baseline P(correct token): recent 0.405 vs novel 0.210 (gap 0.195, ~2x)
+  remove rank-1 w_rec: gap 0.265 (lost -36% -- gap INCREASED)
+  remove random-1: gap 0.195 (0%).
+FINDINGS:
+  (0) A real, strong recency effect exists (recent tokens predicted ~2x
+      better). (a) NO SECOND KNOB (registered prediction HELD): removing
+      the recency-correlated rank-1 direction does NOT reduce the effect
+      -- it slightly WIDENS the gap (-36%), exactly the signature of a
+      read-correlate whose removal perturbs but does not isolate the
+      behavior. NULL clean (random 0%).
+So recency joins routing, magnitude, content-writing, and the stateful
+registers on the CONDITIONAL/distributed side: a strong behavior with no
+removable linear carrier. The central law is now confirmed against every
+candidate tested -- the frequency-calibration bias is the model's ONE
+cleanly-isolable linear knob (~6% of the loss-benefit); everything else,
+however strong (recency 2x, paren-closing 600x), is distributed and
+causally uneditable by linear removal, though often decodable
+(decodability != causability). This is comprehensive closure on the
+session's central question ("can we isolate components to finer grain?"):
+YES for exactly one additive bias, NO for all predictive/conditional/
+stateful computation. Queued w_freq_generalization to verify the
+robustness of that one clean result: is w_freq a stable MODEL property
+(same direction across disjoint data, cross-removes calibration) or
+data-specific?

@@ -1,0 +1,10 @@
+2649 recent-target, 9639 novel
+baseline: recent 0.4046 novel 0.2101 (gap +0.1945)
+remove w_rec gap +0.2649 (lost -36%)
+remove random gap +0.1946
+
+(0) recency effect exists: True
+(a) NO second knob (recency removal <25%): True (lost -36%)
+NULL random removal barely matters: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/recency_bias_results.json (117s)
