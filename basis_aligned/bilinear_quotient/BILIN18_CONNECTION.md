@@ -21692,3 +21692,43 @@ The tops differing (content/subword) is not a trustworthy specialization
 signal. Queued front_component_function_v2 with a consistent null (shuffle
 labels for BOTH baseline and ablated) to settle whether any real category
 specialization exists beyond easy-vs-hard.
+
+## 711. CORRECTED specialization test (fixes 710): the front components DO
+## have reliably DIFFERENT category emphases (between-component profile corr
+## 0.49, within-component reliability 0.84 -- differences are real, not
+## noise). 710's 'broad, not specialized' was too strong. Normalized by
+## difficulty, block0.attn leans SYNTACTIC (function-words/punct) while
+## block0.mlp + block1.attn lean OPEN-VOCAB/SUBWORD.
+
+Fractional CE increase (delta_c / baseline_c, normalizing out category
+difficulty) -- which categories each component helps RELATIVE to how hard
+they are:
+  block0.attn: func +0.60  punc +0.51  cont +0.46  (SYNTACTIC lean)
+  block0.mlp:  subw +1.21  digi +0.76  cont +0.69  (OPEN-VOCAB/subword)
+  block1.attn: subw +1.26  punc +0.97  func +0.76  (subword + boundary)
+  block1.mlp:  subw +0.50  func +0.36              (small, subword-lean)
+  block2.attn: ~0.1 flat (unreliable, tiny effect)
+  block2.mlp:  ~0.04 flat (negligible)
+Between-component profile corr (mean off-diag) 0.493; within-component
+split-half reliability [0.96,0.97,0.95,0.95,0.42,0.80] (big components very
+reliable; block2.attn 0.42 = tiny/noisy). within (0.84) >> between (0.49)
+=> the differing emphases are REAL.
+FINDINGS (correcting 710):
+  - There IS partial category specialization -- NOT one-category-per-
+    component, but reliably different emphases. block0.attn is the most
+    SYNTACTIC (relatively helps function-words & punctuation, the closed-
+    class predictions); block0.mlp and block1.attn are the most OPEN-VOCAB
+    (relatively help subword continuation & content most).
+  - SUBWORD is the standout front task: the two largest components
+    (block0.mlp +1.21, block1.attn +1.26 fractional) disproportionately
+    help predict word-INTERNAL continuations -- consistent with 703
+    (block0.attn dir0 = suffix/morphology writer) and 701 (block1.attn
+    boundary). Predicting the next piece of a multi-token word is heavily
+    front-loaded.
+  - block 2 contributes negligibly (flat, tiny) -- the front's functional
+    work is essentially blocks 0-1.
+This CORRECTS 710's over-strong 'broad, not specialized': the right
+statement is 'overlapping but reliably differentiated emphases, with a
+syntactic (block0.attn) vs open-vocab/subword (block0.mlp, block1.attn)
+split.' Self-correcting sequence: 710 flawed null -> v2 proper test ->
+real differentiation found.

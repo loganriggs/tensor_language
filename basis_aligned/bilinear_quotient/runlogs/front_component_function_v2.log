@@ -1,0 +1,14 @@
+block0.attn  frac-CE profile: newl +0.26  punc +0.51  digi +0.35  cap_ +0.27  func +0.60  cont +0.46  subw +0.42
+block0.mlp   frac-CE profile: newl +0.34  punc +0.64  digi +0.76  cap_ +0.61  func +0.59  cont +0.69  subw +1.21
+block1.attn  frac-CE profile: newl +0.52  punc +0.97  digi +0.72  cap_ +0.45  func +0.76  cont +0.66  subw +1.26
+block1.mlp   frac-CE profile: newl +0.28  punc +0.32  digi +0.24  cap_ +0.23  func +0.36  cont +0.30  subw +0.50
+block2.attn  frac-CE profile: newl +0.12  punc +0.14  digi +0.09  cap_ +0.08  func +0.14  cont +0.13  subw +0.11
+block2.mlp   frac-CE profile: newl +0.01  punc +0.05  digi +0.03  cap_ +0.04  func +0.05  cont +0.05  subw +0.06
+
+between-component profile corr (mean off-diag): 0.493
+within-component split-half reliability: [0.96, 0.97, 0.95, 0.95, 0.42, 0.8]
+
+(a) components share ONE shape (mean between-corr 0.49 >=0.8 -> BROAD, no specialization): False
+NULL within>>between meaningful (within 0.84): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_component_function_v2_results.json (54s)
