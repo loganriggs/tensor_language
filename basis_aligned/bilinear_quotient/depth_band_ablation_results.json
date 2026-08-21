@@ -1,0 +1,58 @@
+{
+ "baseline": {
+  "all": 3.3536,
+  "freq": 1.6074,
+  "rare": 4.0834
+ },
+ "bands": {
+  "front[0-2]": {
+   "dCE_all": 7.0153,
+   "dCE_freq": 3.8821,
+   "dCE_rare": 8.3249,
+   "n_blocks": 3
+  },
+  "early-mid[3-5]": {
+   "dCE_all": 1.9246,
+   "dCE_freq": 0.423,
+   "dCE_rare": 2.5522,
+   "n_blocks": 3
+  },
+  "mid[6-8]": {
+   "dCE_all": 0.6116,
+   "dCE_freq": 0.3156,
+   "dCE_rare": 0.7353,
+   "n_blocks": 3
+  },
+  "late-mid[9-11]": {
+   "dCE_all": 0.7165,
+   "dCE_freq": 0.1848,
+   "dCE_rare": 0.9388,
+   "n_blocks": 3
+  },
+  "[12-14]": {
+   "dCE_all": 0.4076,
+   "dCE_freq": 0.05,
+   "dCE_rare": 0.5571,
+   "n_blocks": 3
+  },
+  "[15-16]": {
+   "dCE_all": 0.5992,
+   "dCE_freq": 0.0759,
+   "dCE_rare": 0.818,
+   "n_blocks": 2
+  },
+  "back[17]": {
+   "dCE_all": 0.4338,
+   "dCE_freq": -0.1684,
+   "dCE_rare": 0.6855,
+   "n_blocks": 1
+  }
+ },
+ "pred_0": true,
+ "pred_a_front_dominant": true,
+ "pred_b_middle_light": true,
+ "pred_c_back_calibrates": true,
+ "sum_band_dCE": 11.7086,
+ "all18_dCE": 8.2463,
+ "runtime_s": 49.52717447280884
+}

@@ -1,0 +1,15 @@
+baseline CE all 3.3536  freq 1.6074  rare 4.0834
+front[0-2]      (3b): dCE all +7.0153  freq +3.8821  rare +8.3249
+early-mid[3-5]  (3b): dCE all +1.9246  freq +0.4230  rare +2.5522
+mid[6-8]        (3b): dCE all +0.6116  freq +0.3156  rare +0.7353
+late-mid[9-11]  (3b): dCE all +0.7165  freq +0.1848  rare +0.9388
+[12-14]         (3b): dCE all +0.4076  freq +0.0500  rare +0.5571
+[15-16]         (2b): dCE all +0.5992  freq +0.0759  rare +0.8180
+back[17]        (1b): dCE all +0.4338  freq -0.1684  rare +0.6855
+
+(a) front band largest: True (front +7.0153, max +7.0153)
+(b) middle bands < front: True (mids [0.6116, 0.7165, 0.4076])
+(c) back band calibrator sign: True (freq -0.1684, all +0.4338)
+sub-additivity: sum of band dCE 11.709 vs all-18 8.246
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/depth_band_ablation_results.json (50s)

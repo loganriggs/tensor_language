@@ -120,3 +120,48 @@ relative tilt). This SIMPLIFIES the calibration story back to a single
 dedicated calibrator at the readout layer, and adds a caution about
 proxy metrics for calibration. Propagated to RESULTS; the report only
 ever named block 17 (stands, no change). Closes the calibration thread.
+
+## 630. Depth-of-computation synthesis: FRONT (0-2) decides the class
+## and carries prediction, MIDDLE (6-16) refines rare/content tokens
+## within-class (light, rare-weighted, no class writing), BACK (17)
+## calibrates frequency. CE cost by depth band.
+
+CE with each contiguous depth band mean-ablated (baseline CE: all 3.354,
+freq-target 1.607, rare-target 4.083):
+  front[0-2]     dCE all +7.02  (freq +3.88, rare +8.32)
+  early-mid[3-5] dCE all +1.92  (freq +0.42, rare +2.55)
+  mid[6-8]       dCE all +0.61  (freq +0.32, rare +0.74)
+  late-mid[9-11] dCE all +0.72  (freq +0.18, rare +0.94)
+  [12-14]        dCE all +0.41  (freq +0.05, rare +0.56)
+  [15-16]        dCE all +0.60  (freq +0.08, rare +0.82)
+  back[17]       dCE all +0.43  (freq -0.17, rare +0.69)
+  (a) FRONT DOMINATES HELD: [0-2] costs +7.02, far the largest.
+  (b) MIDDLE IS LIGHT HELD: each middle band costs only +0.4-0.7 nats,
+      ~10x less than the front.
+  (c) BACK CALIBRATES HELD: [17] has dCE_freq < 0 (helps frequent
+      targets) while raising CE overall -- the calibrator sign (628).
+  Sub-additive: sum of band costs 11.71 > all-18-ablated 8.25 --
+  redundancy across bands (destroying the front makes later damage
+  partly moot).
+THE SYNTHESIS (assembling 624-630, a depth-of-computation account):
+  FRONT (blocks 0-2): decides next-token CLASS (629, top writer for all
+    9 classes) and carries the bulk of prediction (+7 nats when removed,
+    both frequent and rare). This is where the LM computation lives.
+  MIDDLE (blocks 6-16): light for prediction (+0.4-0.7 nats/band) and
+    writes NO class (629), but its cost is RARE-WEIGHTED (rare-target
+    dCE 0.6-0.9 vs freq 0.05-0.3). So the middle is not idle -- it
+    refines WITHIN-class specific-token identity, mostly for rare/
+    content tokens, not which class comes next. This reconciles 629
+    ("middle writes no class") with the middle costing something:
+    class is set up front, the middle picks the specific (usually rare)
+    token.
+  BACK (block 17): frequency calibration, shifting mass from function
+    classes to content classes (629), net-beneficial (626).
+HONEST CAVEAT: the front's +7.0 magnitude is inflated by error-
+compounding (front ablation propagates through 15+ downstream layers),
+so it should not be read as a clean additive share; the robust claims
+are (i) the middle's ABSOLUTE cost is small and rare-weighted (an upper
+bound independent of compounding) and (ii) the back's calibrator sign.
+Queued middle_within_class to test the synthesis directly: does middle
+ablation degrade P(correct TOKEN) far more than P(correct CLASS)
+(within-class refinement), while front ablation kills both?
