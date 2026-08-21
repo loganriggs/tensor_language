@@ -21910,3 +21910,20 @@ Only mlp15 shifted (4->2); everything else identical. The barbell (low-rank
 high-benefit EDGES + high-rank early-middle + inert deep-middle) is
 confirmed at 32k tokens. Data-scale does not change the headline; the
 earlier smaller-eval numbers were already correct here.
+
+## 718. CLUSTERING RIGOR: the cluster>>global finding (704) is NOT a simple-
+## k-means artifact. k-means++ (best of 5 restarts) reproduces it at 32k
+## tokens; restart stability ARI 0.58.
+
+mlp1 output-projection recovered(r=8), 32k tokens, benefit 1.00 nat:
+             cluster   global   shuffle
+  simple kmeans  -0.136  -3.015   -1.028
+  kmeans++ (5x)  -0.048  -3.015   -0.667   (restart-ARI 0.58)
+FINDINGS: k-means++ gives essentially the same cluster>>global (cluster
+~0, global -3.0), even slightly BETTER than simple k-means, and cluster >
+shuffle for both -> the result survives a more principled clusterer, not a
+single-init artifact. Restart ARI 0.58 = moderate partition stability
+(expected for the overlapping data, 714). NOTE: at r=8 cluster recovery is
+~break-even (not high) -- consistent with 705/709 (per-cluster low rank is
+a modest advantage, not full recovery); the ROBUST claim (cluster>>global,
+cluster>shuffle) holds under k-means++.

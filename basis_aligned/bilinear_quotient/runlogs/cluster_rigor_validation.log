@@ -1,0 +1,7 @@
+benefit 1.000  r=8
+simple k-means:  {'cluster': -0.1363, 'global': -3.0152, 'shuffle': -1.0284}
+k-means++ (best/5): {'cluster': -0.0484, 'global': -3.0152, 'shuffle': -0.6676}  restart-ARI 0.58
+
+(a) not an artifact (kmeans++ ~ simple, cluster>>global): True
+NULL cluster>shuffle both: True; restart stability ARI 0.58
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cluster_rigor_validation_results.json (134s)
