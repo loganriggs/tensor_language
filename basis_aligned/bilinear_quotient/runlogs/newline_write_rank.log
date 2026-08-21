@@ -1,0 +1,16 @@
+captured 16384 mlp0 outputs; top singular values [2030999.0, 1186693.8, 840131.1, 779330.5, 702932.4]
+baseline -0.0992 | rank-0 (mean-fill) +0.0505 (611 +0.0505) | full-rank +0.00000: HELD
+  rank    1: shift +0.04521 (90% of whole-layer)
+  rank    2: shift +0.04195 (83% of whole-layer)
+  rank    4: shift +0.04001 (79% of whole-layer)
+  rank    8: shift +0.03229 (64% of whole-layer)
+  rank   16: shift +0.02244 (44% of whole-layer)
+  rank   32: shift +0.01681 (33% of whole-layer)
+  rank   64: shift +0.01006 (20% of whole-layer)
+  rank  128: shift +0.00558 (11% of whole-layer)
+  rank  256: shift +0.00189 (4% of whole-layer)
+  rank  512: shift +0.00013 (0% of whole-layer)
+(a) smallest r with shift < 20% of whole-layer: 64 (<=64?): HELD
+(c) at r=64: PCA |shift| 0.01006 < random-dir |shift| 0.03905 (draws [0.03963, 0.03913, 0.0384]): HELD
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_write_rank_results.json (41s)

@@ -18490,3 +18490,47 @@ decision. The right object to call "the circuit" is the low-rank
 output SUBSPACE, not any set of units. This resolves the localization
 tension (610's "no necessary core") cleanly: the necessary core exists
 in directions, not units. Localization line genuinely complete.
+
+## 613. Low-rank-over-directions is GENERAL, with decision-dependent
+## rank: newline lives in ~64 output directions (vs article's ~16) --
+## both diffuse over units, both compact over directions
+
+Symmetric closer to 611/612: does the newline write, like article
+(612), live in a low-rank output subspace despite being unit-diffuse
+(611)?
+  (0) endpoints HELD: rank-0 (mean-fill all) = +0.0505 (611's whole-
+      layer newline shift); full-rank = 0.
+  THE CURVE (residual damage; smaller = more of the decision
+  preserved):
+    rank  1: 90% damage (top direction alone carries only 10%)
+    rank  8: 64%
+    rank 16: 44%   (article was 16% here -- newline more spread)
+    rank 32: 33%
+    rank 64: 20%   <- 80% of the newline decision preserved
+    rank 128: 11%
+    rank 256: 4%
+    rank 512: 0% (identity)
+  (a) HELD: smallest r under 20% damage is 64 -- the newline decision
+      lives in ~64 output directions.
+  (c) HELD: at rank 64, PCA damage (0.010) is 4x smaller than random
+      64-dim subspaces (0.039, 3 draws) -- the low rank is real
+      structure.
+THE FINDING confirms the general structure with a real nuance: BOTH
+decisions are diffuse over units (610/611) and low-rank over output
+directions (article ~16, this newline ~64), but the DIMENSIONALITY is
+decision-dependent. Newline needs ~4x more output directions than
+article (64 vs 16), and has no single dominant direction (rank-1
+carries only 10% vs article's 38%). So newline is a more DISTRIBUTED
+decision than article -- over both units and directions -- yet still
+low-rank relative to the 1152-dim output (64 = 5.6%). The unifying
+statement now rests on two decisions: this model's early decisions are
+computed diffusely across a layer's units and written into a compact
+(5-14% of full) low-rank subspace of its output, with the subspace
+dimensionality reflecting how distributed each specific decision is.
+This matches 569's "compact directions, distributed sources" and 589's
+rank-16 attn0 write, now shown to be the general shape for MLP
+decisions too -- with the compactness a spectrum (article tighter,
+newline looser) rather than a fixed number. The redundancy/low-rank
+arc (609-613) is complete: clusters are sufficient handles, no unit
+subset is necessary, but a low-rank output subspace IS the necessary
+core, and its size varies by how distributed the decision is.
