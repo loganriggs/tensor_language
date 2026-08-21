@@ -63,8 +63,11 @@ def mlp_out_hook(mo, i_, o_):
         U = CFG['Ug'][:, :r]
         flat = flat @ U @ U.T
     else:
-        on = flat / flat.norm(dim=1, keepdim=True).clamp_min(1e-9)
-        assign = (on @ CFG['C'].T).argmax(1) if CFG['mode'] == 'cluster' else CFG['assign_rand']
+        if CFG['mode'] == 'cluster':
+            on = flat / flat.norm(dim=1, keepdim=True).clamp_min(1e-9)
+            assign = (on @ CFG['C'].T).argmax(1)
+        else:   # shuffle: random per-batch assignment (the null)
+            assign = torch.randint(0, K, (flat.shape[0],), device=flat.device)
         out = torch.empty_like(flat)
         for j in range(K):
             mmask = assign == j
@@ -140,11 +143,6 @@ def main():
     ce_abl = forward_ce(ev, NEVAL, ablate=True)
     benefit = ce_abl - ce_full
     print(f'benefit {benefit:.3f}  (CE_full {ce_full:.3f} CE_ablate {ce_abl:.3f})', flush=True)
-
-    # shuffled assignment for eval (random cluster per eval token)
-    g = torch.Generator(device='cpu').manual_seed(1)
-    neval_tok = NEVAL * 256
-    CFG['assign_rand'] = torch.randint(0, K, (neval_tok,), generator=g).to(DEV)
 
     res = {'global': {}, 'cluster': {}, 'shuffle': {}}
     for r in RANKS:

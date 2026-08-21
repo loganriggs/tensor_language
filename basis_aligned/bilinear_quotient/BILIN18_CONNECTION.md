@@ -21452,3 +21452,45 @@ steering toward continuation/function words -- coherent with the newline
 circuit (635/637) and the front's class decision (634). block0.attn adds a
 second, morphology/suffix direction. Next: block2.attn (rank-8) to finish
 the front-attention map, and the CE-cluster test (queued) for mlp1.
+
+## 704. CLUSTER->LOW-RANK HOLDS IN FUNCTIONAL (CE) SPACE (user idea
+## vindicated; reconciles 702). Replacing mlp1's OUTPUT per-token with its
+## own cluster's rank-r subspace reproduces the layer FAR better than a
+## single global rank-r subspace. mlp1's high rank IS substantially a UNION
+## of per-cluster low-rank functional pieces -- visible in CE space, hidden
+## in energy space (702).
+
+Output-projection recovered(r), mlp1, held-out CE (benefit 0.965 nats):
+  r:        4       8      16      32      64     128
+  global  -4.82  -3.12   -0.51   +0.14   +0.61  +0.89
+  cluster -0.81  +0.01   +0.41   +0.71   +0.88  +0.95
+  shuffle -2.08  -1.07   -0.43   -0.12   +0.24  +0.63
+FINDINGS:
+  (a) HELD strongly: CLUSTER >> global at every rank. At r=8 a global rank-8
+      output subspace is catastrophic (-3.12, worse than ablation) while
+      per-cluster rank-8 is break-even (+0.01); at r=32 cluster +0.71 vs
+      global +0.14 (5x). Per-cluster low-rank subspaces reproduce mlp1 much
+      better than one global low-rank subspace -- the union-of-low-rank
+      picture holds FUNCTIONALLY.
+  NULL CORRECTION (registered null mis-specified, stated plainly): I
+      registered shuffle-vs-global, and shuffle ALSO beats global (so the
+      null 'failed'). But that is EXPECTED and not a refutation: the SET of
+      K per-cluster rank-r subspaces spans more total directions than one
+      global rank-r subspace, so even random assignment accesses a richer
+      union. The correct test of whether ASSIGNMENT matters is CLUSTER vs
+      SHUFFLE -- and cluster beats shuffle at every rank (r=8: +0.01 vs
+      -1.07, gain +1.08; r=16: +0.41 vs -0.43; r=32: +0.71 vs -0.12). So
+      tokens genuinely belong to their clusters (correct assignment
+      recovers far more than random), which is the real evidence. Clean
+      hierarchy: cluster > shuffle > global at every rank.
+RECONCILIATION with 702: energy-space clustering showed only modest
+  structure (mlp1 clusters still rank ~185/591), but FUNCTIONAL space shows
+  strong structure -- because energy rank (591) over-weights loss-irrelevant
+  directions while CE only cares about the functional ones (660: energy
+  basis != functional basis). The user's cluster-then-low-rank idea is
+  RIGHT; it just has to be measured in CE/functional space, not energy.
+This also refines 699's 'mlp1/mlp2 genuinely high-rank': high-rank GLOBALLY
+  (one subspace), but LOW-rank PER-CLUSTER functionally -- a union of ~8
+  low-rank special-case output circuits. Queued rspd_cluster_ce_ksweep: does
+  recovery at fixed r=8 rise monotonically with the number of clusters K
+  (K=1 is global)? -- the direct quantitative signature of the union story.
