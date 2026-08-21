@@ -18300,3 +18300,48 @@ PROFILE SHAPE (front + final, empty middle; mlp1 > mlp0) is a valid
 comparison. Queued: article_mlp1_cluster to find and causally test
 mlp1's OWN largest article cluster the way mlp0 cluster 8 was tested,
 now that mlp1 is revealed as the heavier article layer.
+
+## 609. mlp1's heavy article role is DIFFUSE -- its patching-confirmed
+## article cluster accounts for ~0% of the whole-layer effect under
+## ablation, a clean sufficiency-vs-necessity split
+
+Follow-up to 608 (mlp1 is the single heaviest article-margin layer,
++0.120). Is that role concentrated in mlp1's 46-unit article echo
+cluster (595, patching-confirmed correct-signed) or spread across the
+layer?
+  (0) reproduced exactly; identity 0.
+  (a) whole-mlp1 mean-fill shifts the article margin +0.1196 --
+      reproduces 608's +0.120 exactly.
+  (b) THE FINDING: mean-filling just the 46-unit article cluster
+      shifts the margin -0.0007 -- a fraction of -0.01 of the whole
+      layer (essentially ZERO, even slightly opposite). The article
+      echo cluster carries NONE of mlp1's whole-layer article effect
+      under ablation.
+  (c) the cluster's shift (0.0007) is still 16.5x a random 46-unit
+      set's (0.00004) -- so the cluster is more article-relevant than
+      an arbitrary slice, but both are negligible against the whole
+      layer's 0.12.
+  NULL ok.
+THE KEY INSIGHT -- sufficiency vs necessity under redundancy: 595
+established the mlp1 article cluster is article-carrying by PATCHING
+(transplanting its activation into another context moves the margin
+correctly). This shows the SAME cluster is NOT NECESSARY by ABLATION
+(removing its write leaves the margin ~unchanged). Both are true and
+consistent: mlp1's article information is so REDUNDANTLY encoded
+across its 4608 units that no 46-unit cluster is necessary, even
+though the cluster genuinely carries the signal when transplanted.
+Patching measures "can this carry the signal" (sufficiency); ablation
+measures "does removing it hurt" (necessity); they diverge exactly
+when a computation is redundant. mlp1's article role is maximally
+diffuse -- the whole layer computes it, no part is load-bearing alone.
+This deepens 599 (parallel redundancy across mlp0/mlp1) into
+redundancy WITHIN mlp1 too, and it is a clean caution about
+interpreting cluster patching results as localization: a patching-
+confirmed cluster can be causally unnecessary. Queued:
+article_mlp0_localization -- the same ablation-fraction test on mlp0
+cluster 8 vs whole-mlp0, to check whether mlp0 is genuinely more
+CONCENTRATED (cluster 8 a large fraction of mlp0's smaller +0.015
+whole-layer effect) or equally diffuse. That comparison decides
+whether "mlp0 has a localizable article circuit, mlp1 does not" is
+real or whether both layers are diffuse and cluster 8's earlier
+patching confirmation (592) was also sufficiency-not-necessity.

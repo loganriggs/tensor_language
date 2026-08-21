@@ -1,0 +1,8 @@
+(0a) reproduced + article cluster n=46: HELD
+(0b) identity +0.0000000: HELD | baseline margin -0.1265
+(a) whole-mlp1 shift +0.1196 (608 was +0.120): HELD
+(b) article cluster shift -0.0007, fraction of whole -0.01 -> diffuse
+(c) random 46-unit shift +0.0000 (cluster/random 16.53x): HELD
+NULL (random 0.0000 < 0.2*whole 0.0239): ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/article_mlp1_localization_results.json (35s)
