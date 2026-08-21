@@ -127,14 +127,21 @@ def main():
         (D0, E0, b0), (DL, EL, bL) = train_anchored(fit, g0, r1, Y0, YL, init0, initL)
     C = (F.normalize(EL, dim=1) @ F.normalize(D0, dim=0))       # (P2, P1)
     outdeg = (C.abs() > 0.2*C.abs().max(0).values.clamp_min(1e-9)).float().sum(0)   # per source atom
-    print(f'trained. coupling mean out-deg {outdeg.mean():.1f}', flush=True)
+    # USAGE of each source atom on eval (must FIRE to have any causal effect -- the
+    # 15:42 all-zeros bug knocked high-coupling but INACTIVE atoms; select by usage).
+    g0_ev = capture(ev, NEVAL, m.transformer.h[0].mlp.Down, HID)
+    usage = (topk(g0_ev @ E0.T, K) > 1e-6).float().mean(0)      # (P1,) fraction of tokens active
+    active = (usage > 0).nonzero(as_tuple=True)[0]
+    hi_out_usage = float(usage[torch.argsort(-outdeg)[:16]].mean())
+    print(f'trained. mean out-deg {outdeg.mean():.1f} | mean usage {usage.mean():.3f} | '
+          f'usage of top-16 out-deg atoms {hi_out_usage:.3f} (bug check: low=inactive)', flush=True)
 
     # baseline z2_pre (no knockout)
     SUB['d0'] = sub_d0(D0, E0, b0); SUB['l1'] = sub_l1(DL, EL, bL); KNOCK['mask'] = None
     z2_base = capture_z2pre(ev, NEVAL, EL).mean(0)              # (P2,)
 
-    # TEST A: knock out each of top out-degree source atoms, correlate downstream delta with -C[:,i]
-    top_src = torch.argsort(-outdeg)[:10]
+    # TEST A: knock out top-USAGE (active) source atoms; correlate downstream delta with -C[:,i]
+    top_src = active[torch.argsort(-usage[active])[:12]]
     corrs, nulls = [], []
     g = torch.Generator(device=DEV).manual_seed(0)
     for i in top_src.tolist():
@@ -150,13 +157,15 @@ def main():
     mean_corr = float(np.mean(corrs)); mean_null = float(np.mean(nulls))
     print(f'(A) graph-predicts-effect: mean corr {mean_corr:.3f}  wrong-source null {mean_null:.3f}', flush=True)
 
-    # TEST B: CE increase knocking out high vs low out-degree source atoms
+    # TEST B: among ACTIVE atoms, CE increase knocking high vs low out-degree (matched usage band)
     def ce_knock(atoms):
         mask = torch.ones(P, device=DEV); mask[atoms] = 0.0; KNOCK['mask'] = mask
         c = ce_on(ev, NEVAL); KNOCK['mask'] = None; return c
     SUB['d0'] = sub_d0(D0, E0, b0); SUB['l1'] = sub_l1(DL, EL, bL)
     ce0 = ce_on(ev, NEVAL)
-    hi = torch.argsort(-outdeg)[:16].tolist(); lo = torch.argsort(outdeg)[:16].tolist()
+    act_sorted = active[torch.argsort(-usage[active])[:64]]      # 64 most-used active atoms
+    od = outdeg[act_sorted]
+    hi = act_sorted[torch.argsort(-od)[:16]].tolist(); lo = act_sorted[torch.argsort(od)[:16]].tolist()
     dce_hi = ce_knock(hi) - ce0; dce_lo = ce_knock(lo) - ce0
     print(f'(B) dCE knock high-coupling {dce_hi:.4f} vs low {dce_lo:.4f}  ratio {dce_hi/max(dce_lo,1e-6):.2f}', flush=True)
     h0.remove(); hL.remove()
@@ -165,7 +174,8 @@ def main():
     pa = mean_corr >= 0.4 and mean_corr - mean_null >= 0.3
     pb = dce_hi > 1.5*max(dce_lo, 1e-6)
     null_ok = abs(mean_null) < 0.1
-    out = {'mean_outdeg': round(float(outdeg.mean()), 2), 'testA_mean_corr': round(mean_corr, 4),
+    out = {'mean_outdeg': round(float(outdeg.mean()), 2), 'mean_usage': round(float(usage.mean()), 4),
+           'top_outdeg_atom_usage': round(hi_out_usage, 4), 'testA_mean_corr': round(mean_corr, 4),
            'testA_wrong_src_null': round(mean_null, 4), 'per_source_corr': [round(c, 3) for c in corrs],
            'ce0': round(ce0, 4), 'dce_high_coupling': round(dce_hi, 4), 'dce_low_coupling': round(dce_lo, 4),
            'pred_0': bool(p0), 'pred_a': bool(pa), 'pred_b': bool(pb), 'null_ok': bool(null_ok),
