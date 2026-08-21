@@ -1,0 +1,25 @@
+baseline:
+  prep         a/an 0.0726  the 0.1832  pref -0.1106 (n=1215)
+  be           a/an 0.0842  the 0.0509  pref +0.0333 (n=364)
+  end_punct    a/an 0.0001  the 0.0501  pref -0.0500 (n=506)
+  other_punct  a/an 0.0150  the 0.0286  pref -0.0137 (n=1096)
+  other        a/an 0.0119  the 0.0179  pref -0.0060 (n=9107)
+front_attn_abl:
+  prep         a/an 0.0438  the 0.1298  pref -0.0859 (n=1215)
+  be           a/an 0.0709  the 0.0522  pref +0.0187 (n=364)
+  end_punct    a/an 0.0015  the 0.0548  pref -0.0533 (n=506)
+  other_punct  a/an 0.0098  the 0.0225  pref -0.0127 (n=1096)
+  other        a/an 0.0120  the 0.0179  pref -0.0059 (n=9107)
+front_mlp_abl:
+  prep         a/an 0.0067  the 0.0226  pref -0.0159 (n=1215)
+  be           a/an 0.0070  the 0.0075  pref -0.0005 (n=364)
+  end_punct    a/an 0.0004  the 0.0052  pref -0.0048 (n=506)
+  other_punct  a/an 0.0016  the 0.0038  pref -0.0022 (n=1096)
+  other        a/an 0.0015  the 0.0024  pref -0.0009 (n=9107)
+
+(0) overall plausible: True (0.05731)
+(a) prep/be pref > end_punct pref: True
+(b) front-attn ablation shrinks group spread: True (base 0.1439 -> attn 0.1046)
+NULL attn spread < mlp spread: CHECK (mlp 0.0155)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/article_trigger_trace_results.json (45s)

@@ -19276,3 +19276,48 @@ concrete current-token/context trigger read by front attention. Queued
 article_trigger_trace to test 614's article triggers (prepositions/
 be-verbs -> a/an, punctuation/sentence-start -> the) causally with the
 same attention-ablation tool.
+
+## 636. CORRECTION to 614: the article a/an-vs-the triggers, tested
+## causally, split what 614 lumped together. BE-verbs -> a/an
+## (confirmed); PREPOSITIONS -> the (614 said a/an -- REFUTED);
+## punctuation -> the (confirmed). Attention carries the context, the
+## MLP carries the magnitude.
+
+Causal test of 614's article triggers with the front-attention-ablation
+tool (parallel to 635). Baseline P(a/an) vs P(the), pref = P(a/an)-P(the),
+grouped by the preceding (current) token:
+  be-verbs    a/an 0.084  the 0.051  pref +0.033  (the ONLY a/an-favoring
+                                                   group: "is a", "was an")
+  prepositions a/an 0.073 the 0.183  pref -0.111  (strongest THE pull:
+                                                   "of the", "in the")
+  end-punct   a/an 0.000  the 0.050  pref -0.050  ("). The": the)
+  other-punct a/an 0.015  the 0.029  pref -0.014
+  other       a/an 0.012  the 0.018  pref -0.006
+THE CORRECTION to 614 ("prepositions/be-verbs -> a/an, punctuation ->
+the"): the causal data SPLITS prepositions from be-verbs.
+  - BE-verbs -> a/an: CONFIRMED (the only positive-pref group).
+  - PUNCTUATION -> the: CONFIRMED (a/an ~ 0 after . ! ?).
+  - PREPOSITIONS -> the: REFUTED direction. Prepositions give the
+    STRONGEST the-preference of any context (pref -0.111), not a/an.
+    614 grouped prepositions with be-verbs as indefinite-article
+    triggers; that was an activation-reading error -- causally,
+    prepositions favor the definite article ("of the", "in the", "to
+    the" are far more frequent than "of a"/"in a").
+PATH DECOMPOSITION: front-attention ablation shrinks the across-group
+spread in preference from 0.144 to 0.105 (~27%) while KEEPING article
+prediction alive (prep-the still 0.130) -- front attention carries part
+of the context-dependent CHOICE. Front-MLP ablation collapses ALL
+article probability to ~0.001-0.02 (spread 0.0155) -- the MLP carries
+the article-prediction MAGNITUDE (consistent with 634: determiner is
+mlp/token-driven). So: attention carries the a/an-vs-the context, the
+MLP carries the do-predict-an-article-at-all magnitude. (The NULL as
+coded -- attn spread < mlp spread -- misfired: the mlp spread is smaller
+only because MLP ablation zeroes the whole prediction, not because it
+carries the trigger; the correct reading is the one above.)
+This is a plain correction propagated to the published report (the
+"circuit program" section stated the prepositions->a/an claim verbatim).
+The article circuit now, causally: be-verb -> a/an, preposition/punct ->
+the, choice carried by front attention, magnitude by the front MLP.
+Queued embedding_direct_triggers to trace one step deeper -- how much of
+these triggers is already in the embedding->unembedding direct path
+(a learned bigram table) vs computed by the blocks.

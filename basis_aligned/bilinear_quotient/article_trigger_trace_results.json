@@ -1,0 +1,115 @@
+{
+ "overall": {
+  "baseline": 0.05731,
+  "front_attn_abl": 0.04817,
+  "front_mlp_abl": 0.00696
+ },
+ "by_group": {
+  "baseline": {
+   "prep": {
+    "P_a_an": 0.07257,
+    "P_the": 0.18315,
+    "pref": -0.11059,
+    "n": 1215
+   },
+   "be": {
+    "P_a_an": 0.0842,
+    "P_the": 0.05089,
+    "pref": 0.03331,
+    "n": 364
+   },
+   "end_punct": {
+    "P_a_an": 0.00012,
+    "P_the": 0.05007,
+    "pref": -0.04996,
+    "n": 506
+   },
+   "other_punct": {
+    "P_a_an": 0.01498,
+    "P_the": 0.02865,
+    "pref": -0.01367,
+    "n": 1096
+   },
+   "other": {
+    "P_a_an": 0.01186,
+    "P_the": 0.01791,
+    "pref": -0.00605,
+    "n": 9107
+   }
+  },
+  "front_attn_abl": {
+   "prep": {
+    "P_a_an": 0.04383,
+    "P_the": 0.12977,
+    "pref": -0.08594,
+    "n": 1215
+   },
+   "be": {
+    "P_a_an": 0.07091,
+    "P_the": 0.05224,
+    "pref": 0.01867,
+    "n": 364
+   },
+   "end_punct": {
+    "P_a_an": 0.0015,
+    "P_the": 0.0548,
+    "pref": -0.0533,
+    "n": 506
+   },
+   "other_punct": {
+    "P_a_an": 0.00982,
+    "P_the": 0.02252,
+    "pref": -0.0127,
+    "n": 1096
+   },
+   "other": {
+    "P_a_an": 0.012,
+    "P_the": 0.01789,
+    "pref": -0.00588,
+    "n": 9107
+   }
+  },
+  "front_mlp_abl": {
+   "prep": {
+    "P_a_an": 0.00668,
+    "P_the": 0.0226,
+    "pref": -0.01592,
+    "n": 1215
+   },
+   "be": {
+    "P_a_an": 0.00704,
+    "P_the": 0.0075,
+    "pref": -0.00046,
+    "n": 364
+   },
+   "end_punct": {
+    "P_a_an": 0.00041,
+    "P_the": 0.00519,
+    "pref": -0.00478,
+    "n": 506
+   },
+   "other_punct": {
+    "P_a_an": 0.00162,
+    "P_the": 0.00377,
+    "pref": -0.00215,
+    "n": 1096
+   },
+   "other": {
+    "P_a_an": 0.0015,
+    "P_the": 0.00245,
+    "pref": -0.00094,
+    "n": 9107
+   }
+  }
+ },
+ "spreads": {
+  "baseline": 0.1439,
+  "front_attn_abl": 0.10461,
+  "front_mlp_abl": 0.01546
+ },
+ "pred_0": true,
+ "pred_a_trigger": true,
+ "pred_b_attn_carries": true,
+ "null_ok": false,
+ "runtime_s": 44.53679943084717
+}
