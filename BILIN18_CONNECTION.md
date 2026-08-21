@@ -443,3 +443,44 @@ encodes (638), concentrated on rare targets (b). Propagated to the
 report capstone (which had called the triggers a "memorized bigram
 lookup" -- tempered to "relative preference geometry the blocks turn
 into a real predictor"). Phase closed.
+
+## 641. The digit "class" is TWO circuits: number CONTINUATION (prev
+## digit -> digit) is an embedding BIGRAM (full = direct); number
+## INITIATION (first digit, no preceding digit) is what 638's 8.3x
+## "computed" captured. Front attention discriminates continuation.
+
+Tracing the most-computed class (638: digit full/direct 8.3x). P(digit)
+grouped by whether the current token is a digit (224 prev-digit
+positions, 12064 not):
+  direct (bigram):  prev-digit 0.0627  prev-not 0.0022  (28x elevation)
+  full:             prev-digit 0.0652  prev-not 0.0168
+  front-attn-abl:   prev-digit 0.0980  prev-not 0.0194
+  front-mlp-abl:    prev-digit 0.0082  prev-not 0.0047
+FINDINGS:
+1. NUMBER CONTINUATION IS A BIGRAM. At prev-digit positions the
+   embedding bigram already predicts a digit next (0.063 vs 0.002
+   elsewhere, 28x), and the full model barely changes it (0.065 ~ 0.063).
+   (b) FAILED as registered (full is NOT >2x direct) -- informatively:
+   digit-continuation is NOT computed, it is a memorized bigram, unlike
+   638's headline.
+2. RESOLVES THE APPARENT CONFLICT WITH 638. 638's digit full/direct =
+   8.3x was measured at ALL digit-TARGET positions; this shows
+   continuation (prev-digit) is bigram-carried, so 638's "computed" must
+   be dominated by the OTHER digit-targets -- number INITIATION, the
+   FIRST digit of a number preceded by a word/space ("$|5", "page |3",
+   "in 2|023"), where the bigram is weak and the model computes "a
+   number is likely here" from numeric context. So the digit class is
+   two mechanisms: continuation (bigram) + initiation (computed).
+   Registered as a hypothesis; the queued split experiment confirms it.
+3. FRONT ATTENTION DISCRIMINATES CONTINUATION. Ablating front attention
+   RAISES digit-continuation (0.065 -> 0.098): attention normally trims
+   over-continuation (not every digit is followed by another -- "3." can
+   end), the same bigram-over-fires / attention-discriminates pattern as
+   newline (639). Front-MLP ablation collapses it (0.065 -> 0.008), the
+   error-compounding artifact (637 caveat), not a clean attribution.
+This shows a token "class" can hide two distinct circuits with different
+mechanisms -- a caution for the class-level analyses (629-638): "digit
+is computed" (638) is true only for initiation; continuation is a
+bigram. Queued digit_init_vs_cont to confirm the split directly:
+digit-target positions preceded-by-digit (continuation, expect bigram:
+full~direct) vs not (initiation, expect computed: full>>direct).

@@ -1,0 +1,12 @@
+224 prev-digit positions, 12064 not
+direct          prev-digit 0.0627  prev-not 0.0022  overall 0.0033
+full            prev-digit 0.0652  prev-not 0.0168  overall 0.0177
+front_attn_abl  prev-digit 0.0980  prev-not 0.0194  overall 0.0209
+front_mlp_abl   prev-digit 0.0082  prev-not 0.0047  overall 0.0048
+
+(0) overall plausible: True
+(a) digit-continuation trigger (full prev-digit>3x prev-not): True
+(b) computed not bigram (full>2x direct at prev-digit): False (full 0.0652 vs direct 0.0627)
+NULL prev-not stays low: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_circuit_trace_results.json (42s)
