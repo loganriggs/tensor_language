@@ -21927,3 +21927,34 @@ single-init artifact. Restart ARI 0.58 = moderate partition stability
 ~break-even (not high) -- consistent with 705/709 (per-cluster low rank is
 a modest advantage, not full recovery); the ROBUST claim (cluster>>global,
 cluster>shuffle) holds under k-means++.
+
+## 719. ABLATION-COVARIANCE CLUSTERING (the user's actual method, finally
+## implemented: ablate random subsets of A-SVD components, record per-
+## datapoint CE+MSE damage, covariance across datapoints, cluster on that).
+## Converges cleanly. KEY: MSE-damage and CE-damage are DECOUPLED.
+
+Setup: global A-SVD of mlp1.Down (top M=64 components), N=2048 datapoints,
+random subsets |S|=4, T_MSE=1500 (cheap, rank-4 removed contribution) +
+T_CE=120 (forward per trial).
+CONVERGENCE (split-half correlation of the datapoint covariance vs T):
+  T:     50    100    200    400    700   1000   1500
+  corr:  0.12  0.91   0.96   0.98   0.99  0.99   0.99
+  -> converges to 0.99; ~200 trials enough. Shuffled null 0.001.
+FINDINGS:
+  (a) CONVERGES (HELD): the covariance is well-estimated by T~200-1500 at
+      N=2048 datapoints. There IS real, stable datapoint structure.
+  (0) FAILED, and it's a real finding: MSE-damage vs CE-damage per datapoint
+      correlate only -0.05, and the MSE-cluster vs CE-cluster ARI is 0.01 --
+      DECOUPLED. The tokens whose MLP OUTPUT is most disrupted by an
+      ablation are NOT the tokens whose LOSS is most disrupted. This is the
+      recurring output-magnitude != loss-relevance / read!=write theme
+      (619-622, 676) at the ablation-covariance level: clustering by output
+      damage (MSE) and by loss damage (CE) give DIFFERENT partitions.
+  (b) the MSE-ablation clustering agrees MODERATELY with the earlier
+      output-direction k-means (704) -- ARI 0.25 -- consistent (both are
+      output-geometry). The CE-ablation clustering is its own thing.
+  Clusters are coherent (punctuation / determiners / prepositions / content
+  "Orthodox/grace" / etc).
+IMPLICATION: "cluster by ablation damage" is well-defined and converges,
+but the choice of loss (MSE vs CE) matters a lot -- they decouple. For
+"minimal rank without LOSS" the CE version is the right one.
