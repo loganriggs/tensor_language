@@ -24084,3 +24084,30 @@ So the front's class computation = collapse to a low-rank class-centroid geometr
 (classes pushed apart) WITH within-class relative structure preserved -- a class-
 separating, not class-erasing, transform. pred_a False (informatively); the scalar
 RSA 0.41 is the user's requested measure.
+
+## 786. POSITION STRUCTURE of MLP L1 -- the positional variable is EARLY/LATE
+## (smooth absolute position), NOT even/odd, and only ~2-DIMENSIONAL (answers user's
+## question). Position-conditional-mean table of mlp1 output, polynomial + FFT +
+## eff-rank (384 rows / ~98k tokens).
+Result:
+  polynomial-in-position R2: linear 0.260, cubic 0.377 (a smooth monotonic early/late
+    component explains ~38%).
+  FFT bands: long-period(>8) 0.557 | short(<=4) 0.267 | PERIOD-2/EVEN-ODD 0.0038 |
+    dominant period 256 (= whole sequence, a monotonic early-vs-late trend).
+  EFFECTIVE RANK 2.3 (of 256 positions) -- position is a ~2-DIMENSIONAL variable.
+  NULL: shuffled-position cubic R2 0.014 (structure is real).
+READ: the positional variable mlp1 carries is a LOW-DIMENSIONAL (~2-dim), SMOOTH,
+ABSOLUTE "how far into the sequence" (early/late) signal -- dominated by a monotonic
+whole-sequence trend (period 256) plus medium-frequency content, with NEGLIGIBLE
+even/odd (period-2) parity (0.4%). This matches ROTARY's low frequencies reaching
+mlp1 through attention (mlp1 gets no position directly; attention applies rotary to
+q/k, and the residual carries the resulting absolute-position structure). So the
+answer to the user: NOT even/odd -- EARLY/LATE, absolute position, ~2-dim.
+CONTRAST with the class variable: class is ~24-dim (780/785), position is ~2-dim --
+position is a MUCH smaller variable. And the 32-dim position subspace used in 776/779
+was overkill (position is ~2-dim; RPOS=32 captured it fully). So mlp1's causal
+low-rank interpretable content is ~24 class dims + ~2 position dims; the ~22%
+irreducible remainder (777) is NEITHER class nor absolute-position -- a further
+computed variable (candidate for the L5/L2 "other variable" of 784).
+pred_a False by a hair (long-share 0.557 vs 0.6 bar) but the qualitative answer
+(early/late, not even/odd, ~2-dim) is definitive. null clean.
