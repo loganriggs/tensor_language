@@ -1,0 +1,22 @@
+random baseline overlap 0.0139
+mean forward (i<j) 0.0792  vs backward (i>j) 0.0440  vs random 0.0139
+strongest write->read forward paths:
+  mlp 5 write -> block 6 read : 0.212 (15.2x random)
+  mlp 0 write -> block 1 read : 0.210 (15.1x random)
+  mlp 6 write -> block 7 read : 0.198 (14.2x random)
+  mlp 7 write -> block 8 read : 0.180 (12.9x random)
+  mlp 8 write -> block 9 read : 0.179 (12.9x random)
+  mlp10 write -> block11 read : 0.170 (12.3x random)
+  mlp 4 write -> block 5 read : 0.168 (12.1x random)
+  mlp15 write -> block17 read : 0.153 (11.0x random)
+  mlp 1 write -> block17 read : 0.148 (10.7x random)
+  mlp14 write -> block17 read : 0.147 (10.6x random)
+  mlp 9 write -> block10 read : 0.146 (10.5x random)
+  mlp13 write -> block17 read : 0.144 (10.3x random)
+
+write -> READOUT overlap by layer: [0.098, 0.095, 0.074, 0.075, 0.064, 0.061, 0.078, 0.084, 0.083, 0.1, 0.132, 0.115, 0.138, 0.148, 0.104, 0.123, 0.141, 0.1]
+  (edges: mlp0 0.098, mlp16 0.141, mlp17 0.100)
+wrote write_read_flow.png
+
+(a) structured forward flow (>1.5x random): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/write_read_flow_results.json (82s)

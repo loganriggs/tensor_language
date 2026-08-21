@@ -22092,3 +22092,36 @@ specifically in the encoder's REALIZED OUTPUT (which/how-many gate features
 fire), not its raw weight rank. Secondary: input_er (residual active dim)
 varies 15-189; mlp17's input is very low-dim (15) -- the residual has
 collapsed to few directions by the last block.
+
+## 723. RESIDUAL-BUS WRITE->READ FLOW (composition map, user: compose
+## circuits via the tensor-network structure). The flow is STRUCTURED and
+## mostly LOCAL: each MLP's output is most read by the NEXT block (adjacent
+## i->i+1, 10-15x random), with block 17 as a broad INTEGRATION HUB, and
+## later layers writing increasingly toward the READOUT.
+
+Subspace overlap(write_i -> read_j), r=16, 32k tokens (random 0.0139):
+  mean forward (i<j) 0.079 (5.7x random) > backward (i>j) 0.044 (3.2x) --
+    info flows FORWARD through the residual, as expected.
+  STRONGEST paths (all ADJACENT except ->17):
+    mlp5->blk6 0.212 (15.2x), mlp0->blk1 0.210 (15.1x), mlp6->blk7 (14.2x),
+    mlp7->blk8, mlp8->blk9, mlp10->blk11, mlp4->blk5, mlp9->blk10 ...
+    -> the DOMINANT paths are i -> i+1 (each layer writes a subspace the
+       immediate next block reads). The residual flow is largely LOCAL.
+  block 17 is a HUB: mlp15/mlp1/mlp14/mlp13 all write into block-17's read
+    subspace (10-11x random) -- the last block reads broadly from across the
+    net (an integration/calibration sink, consistent with 662/676).
+  write->READOUT overlap rises with depth: mlp0 0.098 -> peak mlp13 0.148,
+    mlp16 0.141; later layers write more directly toward the unembedding
+    (but even mlp0 is 7x random -- the front also writes readable dirs).
+FINDINGS:
+  - The tensor-network composition is mostly NEAREST-NEIGHBOR: circuits
+    compose locally (layer i's write feeds block i+1's read), plus a global
+    convergence onto block 17 and a rising direct-to-readout channel.
+  - This gives the compositional skeleton the user asked for: to trace a
+    circuit across components, follow the strong i->i+1 residual overlaps,
+    with block 17 as the integration endpoint.
+CAVEAT (stated plainly): this is GEOMETRIC subspace overlap (the write
+direction COULD be read by that block), not verified CAUSAL flow. High
+overlap = potential composition, not proven usage. A causal version
+(patch a layer's write component, measure the downstream block's gate
+change) is the natural verification -- queued as the next circuit step.
