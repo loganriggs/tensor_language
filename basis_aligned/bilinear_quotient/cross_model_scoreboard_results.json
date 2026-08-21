@@ -1,0 +1,382 @@
+{
+ "gpt2": {
+  "d": 768,
+  "n_components": 24,
+  "total_benefit": 7.568,
+  "natweighted_keep_classpos": 0.7667,
+  "natweighted_random": 0.2816,
+  "per_component": {
+   "attn0": {
+    "benefit": 2.262,
+    "keep": 0.561,
+    "rand": -0.934
+   },
+   "mlp0": {
+    "benefit": 3.959,
+    "keep": 0.92,
+    "rand": 0.498
+   },
+   "attn1": {
+    "benefit": 0.015,
+    "keep": 0.836,
+    "rand": 0.093
+   },
+   "mlp1": {
+    "benefit": 0.045,
+    "keep": 0.588,
+    "rand": -2.761
+   },
+   "attn2": {
+    "benefit": 0.019,
+    "keep": 1.037,
+    "rand": 0.39
+   },
+   "mlp2": {
+    "benefit": 0.046,
+    "keep": 0.474,
+    "rand": -36.961
+   },
+   "attn3": {
+    "benefit": 0.021,
+    "keep": 0.847,
+    "rand": 0.18
+   },
+   "mlp3": {
+    "benefit": 0.061,
+    "keep": 0.442,
+    "rand": 0.103
+   },
+   "attn4": {
+    "benefit": 0.025,
+    "keep": 0.793,
+    "rand": 0.25
+   },
+   "mlp4": {
+    "benefit": 0.05,
+    "keep": 0.404,
+    "rand": 0.04
+   },
+   "attn5": {
+    "benefit": 0.052,
+    "keep": 0.807,
+    "rand": 0.241
+   },
+   "mlp5": {
+    "benefit": 0.067,
+    "keep": 0.448,
+    "rand": 0.11
+   },
+   "attn6": {
+    "benefit": 0.038,
+    "keep": 0.935,
+    "rand": 0.209
+   },
+   "mlp6": {
+    "benefit": 0.046,
+    "keep": 0.371,
+    "rand": 0.167
+   },
+   "attn7": {
+    "benefit": 0.089,
+    "keep": 0.988,
+    "rand": 0.197
+   },
+   "mlp7": {
+    "benefit": 0.068,
+    "keep": 0.504,
+    "rand": 0.153
+   },
+   "attn8": {
+    "benefit": 0.038,
+    "keep": 0.974,
+    "rand": 0.147
+   },
+   "mlp8": {
+    "benefit": 0.079,
+    "keep": 0.502,
+    "rand": 0.177
+   },
+   "attn9": {
+    "benefit": 0.054,
+    "keep": 1.168,
+    "rand": 0.188
+   },
+   "mlp9": {
+    "benefit": 0.086,
+    "keep": 0.465,
+    "rand": 0.197
+   },
+   "attn10": {
+    "benefit": 0.045,
+    "keep": 1.178,
+    "rand": 0.156
+   },
+   "mlp10": {
+    "benefit": 0.082,
+    "keep": 0.223,
+    "rand": -0.088
+   },
+   "attn11": {
+    "benefit": 0.154,
+    "keep": 1.06,
+    "rand": -1.034
+   },
+   "mlp11": {
+    "benefit": 0.168,
+    "keep": 0.561,
+    "rand": 0.096
+   }
+  }
+ },
+ "EleutherAI/pythia-410m": {
+  "d": 1024,
+  "n_components": 48,
+  "total_benefit": 14.299,
+  "natweighted_keep_classpos": 0.6901,
+  "natweighted_random": 0.1006,
+  "per_component": {
+   "attn0": {
+    "benefit": 0.829,
+    "keep": 0.783,
+    "rand": 0.224
+   },
+   "mlp0": {
+    "benefit": 7.303,
+    "keep": 0.701,
+    "rand": 0.059
+   },
+   "attn1": {
+    "benefit": 0.436,
+    "keep": 0.874,
+    "rand": 0.19
+   },
+   "mlp1": {
+    "benefit": 0.09,
+    "keep": 0.542,
+    "rand": 0.121
+   },
+   "attn2": {
+    "benefit": 0.038,
+    "keep": 0.707,
+    "rand": 0.23
+   },
+   "mlp2": {
+    "benefit": 0.263,
+    "keep": 0.569,
+    "rand": 0.123
+   },
+   "attn3": {
+    "benefit": 0.232,
+    "keep": 0.927,
+    "rand": 0.268
+   },
+   "mlp3": {
+    "benefit": 0.182,
+    "keep": 0.529,
+    "rand": 0.093
+   },
+   "attn4": {
+    "benefit": 0.054,
+    "keep": 0.781,
+    "rand": 0.205
+   },
+   "mlp4": {
+    "benefit": 0.205,
+    "keep": 0.585,
+    "rand": 0.109
+   },
+   "attn5": {
+    "benefit": 0.973,
+    "keep": 0.95,
+    "rand": 0.316
+   },
+   "mlp5": {
+    "benefit": 0.234,
+    "keep": 0.6,
+    "rand": -1.75
+   },
+   "attn6": {
+    "benefit": 0.052,
+    "keep": 0.522,
+    "rand": 0.27
+   },
+   "mlp6": {
+    "benefit": 0.195,
+    "keep": 0.63,
+    "rand": -0.604
+   },
+   "attn7": {
+    "benefit": 0.084,
+    "keep": 0.743,
+    "rand": 0.155
+   },
+   "mlp7": {
+    "benefit": 0.117,
+    "keep": 0.585,
+    "rand": 0.011
+   },
+   "attn8": {
+    "benefit": 0.066,
+    "keep": 0.83,
+    "rand": 0.209
+   },
+   "mlp8": {
+    "benefit": 0.11,
+    "keep": 0.428,
+    "rand": 0.07
+   },
+   "attn9": {
+    "benefit": 0.05,
+    "keep": 0.857,
+    "rand": 0.183
+   },
+   "mlp9": {
+    "benefit": 0.087,
+    "keep": 0.404,
+    "rand": 0.083
+   },
+   "attn10": {
+    "benefit": 0.066,
+    "keep": 0.966,
+    "rand": 0.201
+   },
+   "mlp10": {
+    "benefit": 0.075,
+    "keep": 0.318,
+    "rand": 0.06
+   },
+   "attn11": {
+    "benefit": 0.049,
+    "keep": 0.737,
+    "rand": 0.181
+   },
+   "mlp11": {
+    "benefit": 0.097,
+    "keep": 0.357,
+    "rand": 0.067
+   },
+   "attn12": {
+    "benefit": 0.06,
+    "keep": 0.792,
+    "rand": 0.148
+   },
+   "mlp12": {
+    "benefit": 0.095,
+    "keep": 0.226,
+    "rand": 0.044
+   },
+   "attn13": {
+    "benefit": 0.055,
+    "keep": 0.796,
+    "rand": 0.2
+   },
+   "mlp13": {
+    "benefit": 0.121,
+    "keep": 0.336,
+    "rand": 0.062
+   },
+   "attn14": {
+    "benefit": 0.034,
+    "keep": 0.727,
+    "rand": 0.171
+   },
+   "mlp14": {
+    "benefit": 0.114,
+    "keep": 0.369,
+    "rand": 0.086
+   },
+   "attn15": {
+    "benefit": 0.051,
+    "keep": 0.749,
+    "rand": 0.192
+   },
+   "mlp15": {
+    "benefit": 0.122,
+    "keep": 0.364,
+    "rand": 0.078
+   },
+   "attn16": {
+    "benefit": 0.076,
+    "keep": 0.955,
+    "rand": 0.179
+   },
+   "mlp16": {
+    "benefit": 0.157,
+    "keep": 0.444,
+    "rand": 0.089
+   },
+   "attn17": {
+    "benefit": 0.063,
+    "keep": 0.893,
+    "rand": 0.2
+   },
+   "mlp17": {
+    "benefit": 0.143,
+    "keep": 0.443,
+    "rand": 0.085
+   },
+   "attn18": {
+    "benefit": 0.018,
+    "keep": 0.991,
+    "rand": 0.19
+   },
+   "mlp18": {
+    "benefit": 0.147,
+    "keep": 0.475,
+    "rand": 0.057
+   },
+   "attn19": {
+    "benefit": 0.033,
+    "keep": 0.887,
+    "rand": 0.119
+   },
+   "mlp19": {
+    "benefit": 0.13,
+    "keep": 0.506,
+    "rand": 0.103
+   },
+   "attn20": {
+    "benefit": 0.006,
+    "keep": 1.304,
+    "rand": -0.015
+   },
+   "mlp20": {
+    "benefit": 0.119,
+    "keep": 0.381,
+    "rand": 0.082
+   },
+   "attn21": {
+    "benefit": 0.013,
+    "keep": 1.211,
+    "rand": 0.126
+   },
+   "mlp21": {
+    "benefit": 0.139,
+    "keep": 0.521,
+    "rand": 0.015
+   },
+   "attn22": {
+    "benefit": 0.013,
+    "keep": 1.148,
+    "rand": 0.17
+   },
+   "mlp22": {
+    "benefit": 0.214,
+    "keep": 0.558,
+    "rand": 0.024
+   },
+   "attn23": {
+    "benefit": 0.003,
+    "keep": 1.553,
+    "rand": -0.55
+   },
+   "mlp23": {
+    "benefit": 0.487,
+    "keep": 0.648,
+    "rand": -0.066
+   }
+  }
+ },
+ "pred_a_universal": false,
+ "runtime_s": 158.19343185424805
+}

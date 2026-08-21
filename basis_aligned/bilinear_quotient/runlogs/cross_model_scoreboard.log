@@ -1,0 +1,9 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4794.49it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+gpt2 (24 comp, total benefit 7.568): NAT-WEIGHTED keep class+pos 0.7667 | random 0.2816
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 4086.20it/s]
+EleutherAI/pythia-410m (48 comp, total benefit 14.299): NAT-WEIGHTED keep class+pos 0.6901 | random 0.1006
+
+(a) whole-model class+position reduction is universal (gpt2/pythia >=0.6 & >>random): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_scoreboard_results.json (158s)
