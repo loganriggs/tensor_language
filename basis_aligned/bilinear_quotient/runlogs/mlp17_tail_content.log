@@ -1,0 +1,10 @@
+w_freq overlap with top-r SVD subspace: {1: 0.3488, 2: 0.8121, 4: 0.9496, 8: 0.9758, 16: 0.9983}
+head(top-8) recovers freq 88% rare 79%
+tail(9-64)  recovers freq 5% rare 13%
+random-56   recovers freq 49% rare 2%
+
+(0) w_freq in high-var head (overlap8>=0.6): True (0.9758)
+(a) tail serves rare > freq: True
+NULL tail >> random-56: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp17_tail_content_results.json (66s)

@@ -19883,3 +19883,42 @@ disproportionate loss. Queued mlp17_tail_content to characterize the
 tail: is the low-variance tail (ranks 9+, 22% of loss) the distributed
 CONTENT-writing (subword, 657-658), while the rank-1 calibration w_freq
 sits in the high-variance head?
+
+## 661. The readout layer's head/tail structure: the rank-1 calibration
+## w_freq lives in the HIGH-VARIANCE head (95% in top-4 SVD dirs); the
+## low-variance tail (ranks 9-64) is disproportionately RARE-target
+## prediction (rare 13% vs freq 5%). Completes the mlp17 characterization.
+
+Characterizing 660's low-variance tail.
+  w_freq overlap with top-r SVD subspace: r1 0.35, r2 0.81, r4 0.95,
+    r8 0.98 -- the calibration direction is almost entirely in the top
+    2-4 HIGH-VARIANCE output directions.
+  head (top-8) recovers: freq-target 88%, rare-target 79% of the loss.
+  tail (ranks 9-64) recovers: freq 5%, rare 13%.
+  random-56 subspace: freq 49%, rare 2%.
+FINDINGS:
+  (0) HELD: w_freq is a HIGH-VARIANCE component (95% in top-4, 81% in
+      top-2). The calibration is one of mlp17's largest output directions
+      -- a big, consistent frequency bias, not a quiet correction.
+  (a) HELD: the low-variance tail (9-64) serves RARE targets 2.6x more
+      than frequent (rare 13% vs freq 5%). The tail is rare/content-
+      specific prediction, consistent with 660 (tail = 22% of loss,
+      mostly rare) and 657-658 (content/subword writing is distributed).
+  NULL: the tail's rare recovery (13%) is 6.5x a random-56 subspace's
+      (2%) -- real structure. (Aside: random-56 recovers 49% of the
+      FREQUENT-target loss -- frequent-token prediction is so redundant
+      that even a random projection of mlp17's output preserves half of
+      it; rare prediction is not, needing the specific directions.)
+THE READOUT LAYER, fully characterized (624-661): mlp17's output =
+  - a HIGH-VARIANCE HEAD (top-8, ~78% of loss) containing the rank-1
+    frequency calibration w_freq (a large consistent bias, = the rare-
+    content boost) plus the main prediction, and
+  - a LOW-VARIANCE TAIL (ranks 9+, ~22% of loss) doing distributed,
+    rare-target content-specific refinement.
+  Functionally ~4 quadratic functions cover 75% of the loss (660), the
+  calibration is 1 rank-1 direction in the head, and the rare-content
+  work is spread across the tail. This is the most complete component
+  characterization in the program. Phase boundary: readout layer done.
+Queued layerwise_wfreq_removal to close a systematic question with the
+validated causal method: is block 17 the UNIQUE layer with an isolable
+rank-1 frequency-calibration component, or do others have one?
