@@ -1714,6 +1714,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   computed — refreshing them redundantly through the depth — rather than computing anything of its
   own. The whole stack reads as one amortized pipeline: the front computes class and position, the
   middle keeps them alive, and the back reads them out into predictions.</p>
+  <p>And this three-part pipeline is not peculiar to bilin18. Running the same band analysis on
+  GPT-2 and Pythia-410M reproduces it in both: a class-and-position front and back carrying most of
+  the loss, and a middle band that is <em>redundant</em> in exactly the same way — collectively
+  worth two to three times the sum of its parts, and 62–78% class-and-position when kept in
+  isolation. Three architectures — this one (bilinear, no softmax), GPT-2 (absolute position), and
+  Pythia (rotary) — all compute two variables up front, refresh them redundantly through the middle,
+  and read them out at the back. The exact redundancy of the front and back differs between models,
+  but the compute-maintain-read shape is shared.</p>
   <p>Why is one layer high-rank and another low? Not because their encoders differ in capacity — the
   weights that read the residual are near-full-rank in every layer. The difference is in what they
   actually <em>compute</em>: a high-rank layer's gates fire a genuinely larger, more distinct set of

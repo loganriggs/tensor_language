@@ -1,0 +1,83 @@
+{
+ "gpt2": {
+  "d": 768,
+  "n_layers": 12,
+  "bands": {
+   "front": [
+    0,
+    3
+   ],
+   "middle": [
+    4,
+    7
+   ],
+   "back": [
+    8,
+    11
+   ]
+  },
+  "ce_full": 3.8458,
+  "front": {
+   "collective_benefit": 10.464,
+   "per_component_sum": 6.428,
+   "compounding": 1.63,
+   "keep_classpos": 0.834,
+   "keep_random": 0.34
+  },
+  "middle": {
+   "collective_benefit": 0.906,
+   "per_component_sum": 0.434,
+   "compounding": 2.09,
+   "keep_classpos": 0.621,
+   "keep_random": 0.039
+  },
+  "back": {
+   "collective_benefit": 3.629,
+   "per_component_sum": 0.705,
+   "compounding": 5.15,
+   "keep_classpos": 0.873,
+   "keep_random": -0.84
+  }
+ },
+ "EleutherAI/pythia-410m": {
+  "d": 1024,
+  "n_layers": 24,
+  "bands": {
+   "front": [
+    0,
+    7
+   ],
+   "middle": [
+    8,
+    15
+   ],
+   "back": [
+    16,
+    23
+   ]
+  },
+  "ce_full": 3.404,
+  "front": {
+   "collective_benefit": 8.352,
+   "per_component_sum": 11.285,
+   "compounding": 0.74,
+   "keep_classpos": 0.688,
+   "keep_random": 0.138
+  },
+  "middle": {
+   "collective_benefit": 3.264,
+   "per_component_sum": 1.252,
+   "compounding": 2.61,
+   "keep_classpos": 0.776,
+   "keep_random": 0.004
+  },
+  "back": {
+   "collective_benefit": 2.795,
+   "per_component_sum": 1.762,
+   "compounding": 1.59,
+   "keep_classpos": 0.701,
+   "keep_random": -0.569
+  }
+ },
+ "runtime_s": 118.13342928886414
+}
