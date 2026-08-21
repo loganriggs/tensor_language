@@ -22510,3 +22510,39 @@ This confirms the A-SVD ablation-covariance method (719-721) EXTENDS cross-
 layer and that the damage structure is genuinely cross-layer (front+back
 jointly). A cleaner version (single-component ablations for exact
 attribution, or more distinct-token clustering) is the natural refinement.
+
+## 736. CROSS-LAYER COMPONENT GROUPS -- honest NEGATIVE: single A-SVD
+## components have NEAR-ORTHOGONAL damage profiles (co-damage clustering
+## finds NO real cross-layer circuit groups). Clean single-component
+## attribution (vs 735's crude subsets) reveals the composition signal is
+## NOT there at the single-component level.
+
+Ablate each of 120 A-SVD components (5 layers x 24) singly -> exact
+(120 x 3072) CE-damage matrix. Cluster components by datapoint co-damage:
+  random-pair mean |profile corr| 0.036 (noise floor ~1/sqrt(3072)=0.018);
+  within-"group" cohesion 0.03-0.06 -- SAME as random. So the 10 "groups"
+  are k-means artifacts of partitioning near-orthogonal vectors; the
+  "10/10 span >=2 layers" is meaningless (any partition of spread
+  components spans layers).
+FINDINGS:
+  - Single A-SVD components damage SMALL, SCATTERED, largely DISJOINT token
+    sets -- their damage profiles are near-orthogonal / noise-dominated
+    (correlations barely above the 0.018 noise floor). There are NO tight
+    cross-layer component GROUPS that co-damage the same tokens. This is the
+    redundancy theme: no small set of components tightly co-acts; each
+    single component's effect is tiny and spread.
+  - CONTRAST with 735: the SUBSET (size-4) ablation converged (0.873)
+    because combined damage is bigger and more structured, but the SINGLE-
+    component profiles underneath are near-orthogonal. So 735's convergence
+    is about aggregate subset-damage structure, NOT clean component groups.
+  - IMPLICATION: "cross-layer composition via co-damage clustering" does not
+    yield clean circuits -- composition, if present, is DIFFUSE at the
+    single-component level. The right test for composition is PAIRWISE
+    SUPERADDITIVITY: does ablating component A (layer i) + B (layer j) hurt
+    MORE than the sum of individual damages (an interaction)? Superadditive
+    cross-layer pairs = genuinely composed circuits. Queued
+    cross_layer_pair_interaction to test this (the user's "pair ablation").
+CAVEAT: single-component damage is small (redundancy), so low correlations
+may be partly noise, not proven orthogonality -- but either way the co-
+damage grouping has no usable signal. The pair-interaction test is the
+cleaner probe.
