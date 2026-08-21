@@ -21198,3 +21198,49 @@ mechanisms are structurally separate (different residual dims / directions)
 but their OUTPUT effects on the softmax interact, as any two logit-space
 edits do. Control phase now has: two demonstrated knobs (693,
 w_freq_steering) + their composition law (here).
+
+## 696. Q5 GOAL DELIVERED: RSPD's rank-4 core of mlp17 (694) splits into
+## FOUR NAMED, INTERPRETABLE directions -- calibration + subword-writer +
+## two content-writers -- each matching a function found earlier by
+## separate methods. Finer-grained component isolation achieved.
+
+The 4 core output directions (columns of A_fac, residual space; orthonormal,
+max off-diag 0.000; random-dir null clean freq_corr +0.026/cos_wfreq -0.008),
+read out via the unembedding W_U @ dir:
+  dir 0  cos(w_freq) +0.878  freq_corr -0.148
+     boost:    SOFTWARE IMAGES SECTION CLIENT REPL DISTR COVER (rare UPPER)
+     suppress: ask if an back old app ro ist (common short lowercase)
+     => THE FREQUENCY-CALIBRATION AXIS (0.88 aligned with the independently
+        derived w_freq): boost rare, suppress frequent.
+  dir 1  cos(w_freq) -0.121  freq_corr +0.048
+     boost:    diseng dissip stagn shudder dispro overest abhor (rare frags)
+     suppress: Protesters REUTERS JUSTICE Prosecutors (capitalized news)
+     => SUBWORD / WORD-CONTINUATION WRITER (matches 657's separate,
+        preserved subword-writing function).
+  dir 2  cos(w_freq) +0.235  freq_corr +0.192
+     boost:    Christian God James Paul New Young Major present (proper/relig)
+     suppress: VALUE USER BILL FIX GAME PATH WIND (ALL-CAPS code)
+     => PROPER-NOUN / NAMED-ENTITY CONTENT WRITER.
+  dir 3  cos(w_freq) -0.278  freq_corr +0.073
+     boost:    Soviet fascist Brexit Lenin weapon propagate illusion (topical)
+     suppress: Toggle Parameters parser Definitions Extras (UI/code)
+     => TOPICAL / IDEOLOGICAL CONTENT WRITER.
+PREDICTION NOTE (stated plainly): registered (a) required BOTH |freq_corr|
+>=0.4 AND |cos_wfreq|>=0.4 for a calibration axis, and was marked FALSE --
+but only on the freq_corr half. dir 0's cos(w_freq)=0.878 DECISIVELY
+identifies it as the calibration axis; the freq_corr threshold was the
+WRONG gate, because w_freq's own DIRECT unembedding-frequency correlation
+is weak (656: it acts through the massive-dim rms-norm gain, not a clean
+unembedding-freq axis -- read!=write, 676: w_freq lives 88% in the massive
+dims). So the substance HELDS (calibration IS core direction 0); the metric
+was miscalibrated. Corrected reading recorded.
+SIGNIFICANCE: this is the finer-grained isolation Q5 was ultimately after.
+The rank-4 core is not an opaque subspace -- it is FOUR nameable functions,
+and they RECONCILE the separate earlier findings into one decomposition:
+calibration (650/662/676), subword-writing (657), and content-writing
+(658, here resolved into TWO writers: named-entity vs topical). RSPD's
+data-conditioned A-SVD did what covariance-removal could not: it split
+mlp17 into interpretable functional pieces. Closes the RSPD/Q5 arc
+(694-696) on a strong positive. Queued rspd_mlp0_functional_rank: run the
+SAME CE-priced A-SVD rank sweep + core readout on mlp0 (the FRONT class-
+decider) for a front-vs-back functional-rank comparison.

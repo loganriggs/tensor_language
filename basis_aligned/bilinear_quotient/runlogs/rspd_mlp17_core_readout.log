@@ -1,10 +1,20 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_mlp17_core_readout.py", line 140, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_mlp17_core_readout.py", line 107, in main
-    cw = float(torch.dot(core[:, j], wf))
-               ^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: dot : expected both vectors to have same dtype, but found Float and Double
+dir 0: freq_corr -0.148  cos(w_freq) +0.878
+   boost:    [' DISTR', ' SOFTWARE', ' COVER', ' IMAGES', ' SECTION', ' Cunning', ' CLIENT', ' REPL']
+   suppress: ['ask', 'if', 'ro', 'app', 'back', 'old', 'an', 'ist']
+dir 1: freq_corr +0.048  cos(w_freq) -0.121
+   boost:    [' diseng', ' dissip', ' stagn', ' shudder', ' dispro', ' overest', ' abhor', ' swoop']
+   suppress: [' Protesters', ' Unsure', ' REUTERS', ' JUSTICE', ' Presumably', ' Prosecutors', ' ARTICLE', ' DRAGON']
+dir 2: freq_corr +0.192  cos(w_freq) +0.235
+   boost:    [' present', ' Christian', ' Major', ' God', ' James', ' Paul', ' New', ' Young']
+   suppress: ['VALUE', 'USER', 'BILL', 'FIX', 'Lago', 'GAME', 'PATH', 'WIND']
+dir 3: freq_corr +0.073  cos(w_freq) -0.278
+   boost:    ['Soviet', 'fascist', 'Brexit', 'Lenin', 'illusion', 'weapon', ' propagate', 'rendered']
+   suppress: [' Appearance', ' Extras', ' Definitions', ' Toggle', ' Recomm', ')+', ' Parameters', ' parser']
+
+NULL random dir: freq_corr +0.026  cos(w_freq) -0.008
+
+(0) core dirs orthonormal (max|off-diag|=0.000<0.05): True
+(a) calibration axis in the core (best dir 2: freq_corr 0.192, cos_wfreq 0.235): False
+NULL random dir uninformative: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_mlp17_core_readout_results.json (62s)
