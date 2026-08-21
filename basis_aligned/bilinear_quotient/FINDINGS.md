@@ -74,6 +74,13 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
     a localizable head-set. **MED / overlaps prior work.** §645–649. ⚠ opened without checking it
     was done — a tracking miss.
 
+11. **Stateful context registers exist but are read-correlates.** The model tracks
+    counting-based context state — quotation parity (probe AUC 0.83, peaks mid-network then decays;
+    §667) and parenthesis depth (AUC 0.92 from block 2, behaviorally 600×; §669) — decodable and
+    behaviorally used, but removing the decodable direction does nothing (read≠write): the causal
+    mechanism is distributed, per item 1. A capability dimension beyond the token-class/frequency
+    machinery. **HIGH.** §667–669.
+
 ### Architecture facts worth keeping
 - MLP = `Down[(Lx)·(Rx)] + b`: every output dim is an exact **quadratic form** `xᵀMₖx`. mlp17's
   *output* is rank-8 by **variance** (§615), but its **functional (loss) rank is higher** (§660):

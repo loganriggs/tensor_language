@@ -20191,3 +20191,43 @@ program's universal-redundancy / read!=write findings. Propagated to
 FINDINGS. Queued paren_depth_state to confirm the pattern generalizes to
 a SECOND stateful register (parenthesis depth): decodable but causally
 conditional?
+
+## 669. A SECOND stateful register confirms the pattern: parenthesis
+## depth is strongly decodable (AUC 0.92 from block 2) and behaviorally
+## enormous (P(')') 600x higher inside an open paren) yet a READ-
+## CORRELATE (removing the direction loses 1% of the behavioral gap).
+## Two-for-two: decodable + used + causally-conditional.
+
+Paren-open state (unclosed '(' at this position; ids '(' 7, ')' 8), 380
+inside vs 11908 outside. Linear probe AUC by depth:
+  block 2 0.924 (peak) ; block 6 0.886 ; block 10 0.874 ; block 14 0.822.
+  shuffled null 0.495.
+  Behavioral: P(')') inside 0.0778 vs outside 0.00013 (600x).
+  Causal: remove peak (block-2) paren direction -> gap lost 1% (random 0%).
+FINDINGS:
+  (a) DECODABLE, and earlier/more robustly than quote. Paren-depth is
+      linearly decodable from block 2 (AUC 0.92) and stays high through
+      the middle (0.82 at block 14) -- unlike quote-parity which peaked
+      at block 6 (0.83) and decayed to 0.58 (667). Parens have
+      unambiguous open/close tokens, so the counter is cleaner and
+      available earlier.
+  (b) BEHAVIORALLY ENORMOUS: P(')') is 600x higher inside an open paren
+      (0.078 vs 0.00013) -- closing a paren is nearly obligatory inside
+      one, a much stronger effect than quotes (3.4x, 667).
+  (c) STILL A READ-CORRELATE: despite the huge, near-deterministic
+      behavioral effect, removing the decodable paren direction loses
+      only 1% of the gap (= random). So even a near-deterministic
+      stateful behavior is causally carried NOT by its decodable linear
+      direction but by a distributed/nonlinear mechanism. All predictions
+      held; NULL clean.
+CONFIRMS the unified law (668) on a second, stronger register: stateful
+context registers are DECODABLE (linear probe) and behaviorally USED, but
+their causal implementation has no removable linear carrier -- decodability
+!= causality, even when the behavior is 600x and near-deterministic. Two
+registers (quote, paren), same verdict. This robustly generalizes the
+read!=write / distributed-computation law to the model's stateful memory.
+The single exception across the whole model remains the frequency-
+calibration bias (rank-1 isolable). Stateful-register mini-thread
+complete. FINDINGS + report updated. Queued paren_counter_mechanism to
+ask HOW the counter is built (is it attention-computed -- does ablating
+early attention destroy the paren decodability?).

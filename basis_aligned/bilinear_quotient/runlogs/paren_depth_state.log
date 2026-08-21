@@ -1,0 +1,16 @@
+'(' id 7  ')' id 8
+380 inside-paren, 11908 outside
+depth block  2: paren probe AUC 0.9238
+depth block  6: paren probe AUC 0.8864
+depth block 10: paren probe AUC 0.8736
+depth block 14: paren probe AUC 0.8223
+
+P(")") inside 0.07784 outside 0.00013 (gap +0.07771)
+remove peak paren dir: gap +0.07667 (lost 1%)
+remove random: gap +0.07767
+
+(0) enough: True; (a) decodable (peak 0.9238): True
+(b) P()) higher inside: True; (c) read-correlate (removal <25%): True (lost 1%)
+NULL shuffled 0.4952: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/paren_depth_state_results.json (79s)

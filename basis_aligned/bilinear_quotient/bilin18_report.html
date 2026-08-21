@@ -1609,6 +1609,25 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="oneknob">One knob you can turn, and a machine you can only read</h2>
+  <p>Step back and the interventions sort into two piles with almost nothing in between. Ask "is
+  there a single direction I can delete to switch this behaviour off?" and the answer is yes for
+  exactly one thing: the last layer's frequency calibration is a single rank-1 direction — remove
+  it and the calibration is gone, remove a random direction of the same size and nothing happens.
+  That one knob is worth about 0.43 of the 7.5 nats the network adds over blind guessing — call it
+  six percent of the model's skill.</p>
+  <p>Everything else — the routing that decides whether a period ends a line, whether an article is
+  coming, which content word to emit, and even the model's memory of whether it is <em>inside a
+  quote or an open parenthesis</em> — has no such knob. These are all readable: a linear probe
+  recovers "inside a parenthesis" at 92% accuracy, and the model acts on it hard (a close-paren is
+  six hundred times likelier inside an open one). But delete that readable direction and the
+  behaviour is untouched — the state is decoded from a place that isn't where it is caused. Reading
+  a feature out and being able to switch it off are different powers, and the model grants the first
+  far more freely than the second. So the honest shape of this network is one clean linear knob
+  bolted onto a large, redundant, distributed machine: legible in patches, editable almost nowhere.</p>
+</section>
+
+<section class="col">
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight
