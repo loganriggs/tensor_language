@@ -1,0 +1,17 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 5168.88it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+gpt2 (24 comp): NW class+pos CENTERED 0.7667 -> MEAN-PRESERVE 0.9104 | random 0.2816
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 3987.37it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+gpt2-medium (48 comp): NW class+pos CENTERED 0.1219 -> MEAN-PRESERVE 0.6419 | random 0.0192
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  94%|█████████▎| 408/436 [00:00<00:00, 4076.73it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 4069.51it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+gpt2-large (72 comp): NW class+pos CENTERED 0.7513 -> MEAN-PRESERVE 0.9217 | random 0.1845
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4529.12it/s]
+EleutherAI/pythia-160m (24 comp): NW class+pos CENTERED 0.7474 -> MEAN-PRESERVE 0.8125 | random 0.0646
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 4029.69it/s]
+EleutherAI/pythia-410m (48 comp): NW class+pos CENTERED 0.6901 -> MEAN-PRESERVE 0.7388 | random 0.1006
+
+(a) mean-preserving >= centered for all models: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_scoreboard_mp_results.json (598s)

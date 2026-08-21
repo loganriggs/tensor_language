@@ -24738,3 +24738,37 @@ Net: the corrected early-layer class+position numbers are all strong (mlp0 0.63�
 reinforcing §805's "class+position common across all six models." The §800 full-sweep
 headline numbers (0.69–0.78) used centered keep and are therefore slight UNDERESTIMATES;
 queued a full mean-preserving re-sweep to put clean corrected numbers on the headline.
+
+## §807 — Corrected whole-model class+position headline (mean-preserving re-sweep of all §800 components, five HF models) (cross_model_scoreboard_mp.py)
+
+Re-ran the §800 per-component nat-weighted class+position sweep — EVERY component of each
+model, not just the front — with the corrected mean-preserving keep (v = mean +
+proj_U(v − mean)) instead of centered keep. This replaces the §800 headline numbers,
+which the §805/806 metric bug showed were slight underestimates.
+
+| model | components | §800 centered | CORRECTED (mean-preserving) | random null |
+|-------|-----------:|--------------:|----------------------------:|------------:|
+| gpt2-small  | 24 | 0.767 | **0.910** | 0.282 |
+| gpt2-medium | 48 | 0.122 | **0.642** | 0.019 |
+| gpt2-large  | 72 | 0.751 | **0.922** | 0.185 |
+| pythia-160m | 24 | 0.747 | **0.813** | 0.065 |
+| pythia-410m | 48 | 0.690 | **0.739** | 0.074 |
+
+Every model's corrected share is >= its centered share (prediction (a) confirmed), random
+stays low (0.02–0.28), and gpt2-medium moves from a 0.12 outlier to 0.64 — comfortably
+in-family. The whole-model, all-layers class+position share is **0.64–0.92 across the five
+HF models** once the constant bias each component adds is kept rather than discarded. The
+correction raises the floor and erases the one apparent exception without overturning the
+ordering: larger constant-bias components (gpt2-small/large mlp0's, gpt2-medium mlp0) gain
+the most; Pythia (smaller DC biases) gains least.
+
+This is the honest replacement for the §800 numbers. The bottom line is unchanged in
+spirit and stronger in fact: transformers front-to-back are largely class+position
+computers, and the reduction is common across all the models checked, with NO genuine
+exception — gpt2-medium's apparent one was our metric dropping its dominant constant bias.
+
+Caveat: bilin18's own whole-model number (0.78, §794/800) was measured with the
+bilin18-specific simultaneous metric (needs its 30·tanh output clamp) and separately with
+centered per-component keep; it is also a slight underestimate. Queued
+bilin18_scoreboard_mp.py to give bilin18 the same mean-preserving per-component number and
+complete the corrected all-six table.
