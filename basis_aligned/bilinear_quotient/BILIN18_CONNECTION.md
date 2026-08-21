@@ -24299,3 +24299,34 @@ robust; "attn1 IS a determiner head" is not. The robust, causally-grounded frami
 stays the VARIABLE picture (which variables a head READS, 783/784), not per-head names.
 So the bottom-up naming should be at the VARIABLE/READER level, not "head X = concept Y".
 pred_a/b False.
+
+## 793. FRONT = CLASS+POSITION COMPUTER (end-to-end capstone of 767-792). Project
+## ALL 12 early components' outputs (attn0-5, mlp0-5) onto class+position
+## SIMULTANEOUSLY, measure CE-recovery of the full front's contribution.
+Result:
+  ablate-all-front (L0-5): CE 3.305 -> 10.272, benefit 6.97 nats (the front is
+    nearly the entire model's loss-benefit).
+  keep-only class+position at all 12 components at once: CE-recovery 0.837
+    vs random same-rank subspace 0.171.
+READ: the first six layers, AS A WHOLE (accounting for all cross-component
+interactions), reduce to a TOKEN-CLASS + POSITION computer -- keeping only class+
+position at every early component preserves 84% of the front's entire ~7-nat
+contribution, vs 17% for random subspaces. The 0.84 (simultaneous, end-to-end) vs
+0.93 (per-component, 790) gap is the compounding of small per-component losses
+through the 6-layer stack. pred_a True.
+CAPSTONE (767-793): the front of the model is causally ~84% a TOKEN-CLASS + POSITION
+computer, and this is the robust, end-to-end, causally-grounded understanding:
+  * CLASS: computed nonlinearly -- mlp0 collapses ~360 tokens to ~24 class dims (780),
+    sharpening grammatical class ~1.8x vs the embedding (782); ~24-dim.
+  * POSITION: a coarse ~2-dim early/late readout of RoPE (attention collapses RoPE's
+    ~18 eff-dim to ~2, RSA 0.77), absolute not even/odd (786, 788).
+  * These two variables are written into near-orthogonal channels (772), carry ~93%
+    of each component's output (790) and ~84% of the front end-to-end (793), and are
+    READ amortized by later components (783/784).
+  * The token-class SUBSPACE and first-MLP barbell GENERALISE to GPT-2 and Pythia
+    (778/781); the class-SHARPENING is model-specific (789).
+  * The remaining ~16% is genuine DISTRIBUTED/CONDITIONAL computation with no low-rank
+    carrier (FINDINGS 1), concentrated in mlp1's remainder and multi-function heads;
+    per-head concept-naming fails (792, heads are broad multi-function).
+So we understand the front to ~84% as class+position (causal, end-to-end), the
+cleanest components (mlp0, attn1) to ~95% incl mechanism, with a hard ~16% remainder.
