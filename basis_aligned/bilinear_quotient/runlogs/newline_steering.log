@@ -1,0 +1,11 @@
+  alpha -2.0: P(newline) 0.03327  CE 3.5776
+  alpha -1.0: P(newline) 0.03012  CE 3.4069
+  alpha +0.0: P(newline) 0.02499  CE 3.3536
+  alpha +1.0: P(newline) 0.01918  CE 3.4180
+  alpha +2.0: P(newline) 0.01423  CE 3.6107
+
+(0) identity False; (a) monotonic increase False (P 0.0333 -> 0.0142)
+(b) d_newline P@+2 0.01423 > random [0.00498, 0.01213, 0.02746]: FAILED
+NULL: random directions monotonic? [False, False, False] (want all False): ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_steering_results.json (46s)

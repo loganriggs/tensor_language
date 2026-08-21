@@ -18799,3 +18799,62 @@ subspace -- SVD gets the dimension count right and the interpretation
 wrong; supervision gets the interpretation. The right tool for "what
 does this compact subspace compute" is a supervised readout probe, not
 the SVD directions themselves.
+
+## 619. The supervised newline readout direction is a real, specific
+## direction but it steers BACKWARDS: adding d_newline to the final
+## residual monotonically DECREASES P(newline). A probe is not a
+## steering vector.
+
+The causal follow-up to 618. d_newline (mean mlp17 output at
+newline-target positions minus generic, the direction with AUC 0.845
+out of sample in 618) was added at scale alpha*0.25*||resid|| to the
+FINAL residual (after all 18 blocks, before rms_norm + unembedding),
+for alpha in {-2,-1,0,+1,+2}, and P(newline)=P('\n')+P('\n\n') and CE
+measured. Registered prediction (a): P(newline) rises monotonically
+with alpha (adding the readout direction raises its own outcome).
+  RESULT -- (a) FAILED, reversed. P(newline) falls monotonically as
+      alpha rises: -2 -> 0.0333, -1 -> 0.0301, 0 -> 0.0250, +1 ->
+      0.0192, +2 -> 0.0142. Adding d_newline SUPPRESSES newline;
+      subtracting it raises newline. The dependence is smooth and
+      monotone -- so d_newline IS causally coupled to the newline
+      logit, just with the OPPOSITE sign to its correlational
+      definition.
+  (b) SPECIFICITY FAILED (as a consequence): at alpha=+2 d_newline
+      gives P=0.0142, below random matched-norm directions [0.0050,
+      0.0121, 0.0275] -- because at +2 it is suppressing newline while
+      random pushes scatter. This is the expected shadow of the
+      reversal, not an independent failure.
+  (c) CE is minimized at alpha=0 (3.354) and rises for BOTH signs
+      (-2: 3.578, +2: 3.611) -- the true forward pass is optimal;
+      pushing the residual either way along d_newline hurts prediction.
+  NULL ok: the three random directions are not monotonic.
+  (0) "identity False" is a harmless artifact: base_p is captured by a
+      separate run(d,0.0) call before resid_norm is set, then curve[0]
+      recomputes with resid_norm set; at alpha=0 the steering term is
+      exactly 0 so both are the untouched forward pass -- CE at alpha=0
+      is 3.354, the true baseline. The strict <1e-9 float compare trips
+      on recompute order, not on any machinery failure.
+WHY IT REVERSES -- the readout-vs-steering distinction, plus an
+rms_norm mechanism. d_newline is where mlp17's output POINTS when
+newline is (about to be) predicted -- an effect/correlate of the
+decision, an excellent linear PROBE (618). But the residual direction
+that CAUSES the newline logit is different; adding a large vector along
+d_newline mostly inflates the residual norm, and the final rms_norm
+then divides everything down -- diluting the true newline-causing
+components -- so P(newline) drops. A direction can DECODE a feature
+(probe, AUC 0.845) without being the direction that ENCODES/steers it,
+and here it is anti-aligned enough that steering is reversed.
+CONNECTS to the recurring pattern that activation-reading does not
+predict causal direction/sign: cluster 7 (593), the newline cluster
+(602), the article readout side flipping between metrics (586). This
+adds the cleanest instance yet -- a supervised, out-of-sample-validated
+readout direction that nonetheless steers backwards. METHODOLOGICAL:
+618's supervised directions are validated as PROBES only; do NOT treat
+them as steering/intervention vectors without a separate causal test
+(as here). Decoding direction != causal direction. A clean decisive
+follow-up is renormalized steering (project out the current d_newline
+component, add a fixed one, keep ||resid|| constant): if the sign flips
+back to raising newline, the reversal was pure rms_norm dilution and
+d_newline IS the causal axis up to scale; if it still suppresses,
+d_newline is a genuine correlate off the causal axis. Queued as
+newline_steering_renorm.
