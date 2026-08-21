@@ -1842,6 +1842,18 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   causally dominant at every layer we tested but its weight is concentrated up front (270× at the
   first layer, fading to 6× by layer twelve) — the same barbell as the rest of the model: the
   early layers do the grammatical sorting, the deep middle barely does anything.</p>
+  <p>None of this is peculiar to this one model. We ran the same test — average the first MLP's
+  output over each token, keep only the directions those averages span, and see how much of the
+  layer survives — on two ordinary pretrained transformers, GPT-2 and Pythia-410M. Both behave the
+  same way: the very first MLP carries almost the entire MLP workload (in Pythia it is worth 7.3
+  nats of loss while every later layer is worth a fraction of one), and keeping only 64–128
+  token-class directions of that first layer recovers most of it — 0.93 of GPT-2's first layer at
+  128 directions, 0.76 of Pythia's, against 0.30 and 0.04 for a random subspace of the same size.
+  The number drifts down a little as the models get larger — bigger networks spread the work
+  somewhat wider — but the shape is the same everywhere: a trained transformer's first MLP writes a
+  low-rank, token-class-organised summary, and you can read it straight off the activations without
+  fitting anything. The grammatical-sorting front is a property of the architecture, not of this
+  particular model.</p>
 </section>
 
 <section class="col">
