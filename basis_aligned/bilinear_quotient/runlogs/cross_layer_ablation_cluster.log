@@ -1,0 +1,14 @@
+pool: 120 components across 5 layers
+CE-damage matrix done (99s)
+convergence split-half corr 0.873 (null -0.001)
+cluster 0: n= 654 layer-mix {0: 3, 2: 2, 16: 1}  [' and', '\n', ' the', ',', 'X']
+cluster 1: n=  65 layer-mix {0: 2, 16: 3, 2: 1}  ['\n', ' (', '�', ' fr', ' Cur']
+cluster 2: n= 164 layer-mix {0: 3, 17: 1, 2: 1, 16: 1}  ['.', ' the', ',', ' a', ' in']
+cluster 3: n= 408 layer-mix {0: 2, 16: 2, 2: 1, 17: 1}  [' the', ',', 'ark', ' and', ' a']
+cluster 4: n= 351 layer-mix {16: 2, 17: 2, 1: 2}  ['.', ',', ' of', ' the', '�']
+cluster 5: n=  85 layer-mix {17: 3, 1: 2, 0: 1}  ['\n', ' (', ' and', '-', '�']
+cluster 6: n= 182 layer-mix {16: 1, 17: 3, 1: 2}  ['\n', '.', ',', ' and', ' is']
+cluster 7: n= 139 layer-mix {17: 1, 0: 2, 16: 3}  [' the', ',', '.', ' to', ' of']
+
+(0) converges True; (a) 8 clusters span >=2 layers: True; NULL True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_layer_ablation_cluster_results.json (100s)

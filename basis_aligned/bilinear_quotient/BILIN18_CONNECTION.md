@@ -22477,3 +22477,36 @@ FINDINGS:
 This is the first QK mini-win: layer 0 has a small set of nameable QK
 circuits (comparative / pronoun / domain-noun / function-word) plus several
 high-rank/rare-token heads. Weight-based, 4s to compute.
+
+## 735. CROSS-LAYER A-SVD ABLATION CLUSTERING (user's method, cross-layer).
+## Pooling the data-conditioned A-SVD components of 5 layers (0,1,2,16,17),
+## ablating random cross-layer subsets, and clustering datapoints by CE-
+## damage covariance CONVERGES (split-half 0.873, null -0.001), and EVERY
+## cluster depends on components spanning MULTIPLE layers (front + back).
+
+Setup: 120 A-SVD components (24 x 5 layers), random size-4 cross-layer
+subsets, 220 trials, N=2048 datapoints, k=8. Convergence 0.873.
+Per-cluster top-component layer-mix (front 0/1/2, back 16/17):
+  c0 {0:3,2:2,16:1}  c1 {0:2,16:3,2:1}   c2 {0:3,17:1,2:1,16:1}
+  c3 {0:2,16:2,2:1,17:1}  c4 {16:2,17:2,1:2}  c5 {17:3,1:2,0:1}
+  c6 {16:1,17:3,1:2}  c7 {17:1,0:2,16:3}
+FINDINGS (all predictions HELD):
+  (a) The cross-layer clustering CONVERGES and is REAL (0.873 vs null 0). All
+      8 clusters span >=2 layers: every token-cluster's top-damaging A-SVD
+      components come from BOTH front (0/1/2) and back (16/17) layers. So
+      token prediction depends on CROSS-LAYER combinations of components, not
+      single layers -- consistent with the depth division (front class-
+      decision + back calibration both matter for common tokens).
+  CAVEATS (honest): (1) the clusters' TOKEN content is not very distinct --
+      all are dominated by common function words / punctuation / newlines
+      (and/the/,/./\n), which is what most tokens are; the clusters differ in
+      their cross-layer COMPONENT-DEPENDENCY profile more than in obvious
+      semantics. (2) The layer-mix attribution is CRUDE: each trial's damage
+      is credited equally to all 4 components in its subset (additive), so
+      the per-cluster component ranking is approximate. The solid claims are
+      convergence + that damage genuinely spans layers; the fine attribution
+      is rough.
+This confirms the A-SVD ablation-covariance method (719-721) EXTENDS cross-
+layer and that the damage structure is genuinely cross-layer (front+back
+jointly). A cleaner version (single-component ablations for exact
+attribution, or more distinct-token clustering) is the natural refinement.
