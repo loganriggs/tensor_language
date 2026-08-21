@@ -53,13 +53,23 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    fires identically at every period; the blocks route among {newline, capitalized, continuation}
    by context, done ~80% by FRONT ATTENTION. Trigger → route → calibrate. **HIGH.** §638–639, §643–644.
 
-7. **Newline circuit (flagship, fully traced).** `.`/`!`/`?` embedding trigger (28× lift) → front
-   attention discriminates real line-ends (0.47) from mid-paragraph (0.21) → block-17 calibration.
-   **HIGH.** §635, §637, §639, §643–644.
+7. **Newline circuit (flagship, fully traced; causally verified §728).** `.`/`!`/`?` embedding
+   trigger (28× lift) → front attention discriminates real line-ends (0.47) from mid-paragraph (0.21)
+   → block-17 calibration. **Causal AUC test (§728):** line-end discrimination AUC 0.806 collapses to
+   **0.510 (chance)** when front attention is ablated (vs 0.789 random) — front attention carries ~all
+   the discrimination. **HIGH.** §635, §637, §639, §643–644, §728.
 
-8. **Article circuit (traced; corrected 614).** be-verb→a/an; **preposition→the** (was wrongly
-   "a/an"); punctuation→the. Front attention carries the a/an-vs-the *choice*; front MLP carries the
-   *magnitude*; block 17 calibrates "the". **HIGH.** §636, §640.
+8. **Article circuit (traced; corrected 614; causally verified §729).** be-verb→a/an; **preposition→the**
+   (was wrongly "a/an"); punctuation→the. Front attention carries the a/an-vs-the *choice*; front MLP
+   carries the *magnitude*; block 17 calibrates "the". **Causal AUC test (§729):** the-vs-a/an AUC 0.870
+   → 0.703 when front attn ablated (drop 0.167, 24× random) > front-mlp 0.737 — **confirms attn=choice,
+   mlp=magnitude**, but the choice is more DISTRIBUTED than newline (front-attn ablation ≠ chance). **HIGH.**
+   §636, §640, §729.
+
+*Circuit-verification method (§726–729):* every named circuit is now checked by **causal output
+selectivity** (ablate → which behavior's CE/AUC collapses), not firing. This verified items 7–8 and
+BROKE the false "boundary circuit" (§726–727: only mlp16 causally boundary-selective; block1.attn fires
+at boundaries but writes open-vocab continuation). See method note.
 
 9. **A token "class" can hide two circuits.** Digit: *continuation* (prev digit→digit) vs
    *initiation* (first digit after $/page/word). Initiation is computed (9.4×); the average misleads.

@@ -22293,3 +22293,37 @@ decides newline-vs-continuation at periods), and removing front attention
 destroys the decision. This strengthens FINDINGS item 7 with a clean causal
 AUC test. Queued article_circuit_verify (same test on the other flagship,
 item 8: does front attn/mlp causally carry the a/an-vs-the choice?).
+
+## 729. FLAGSHIP VERIFIED -- the article circuit is CAUSALLY REAL, and the
+## attn>mlp split (636) is confirmed, though the choice is more DISTRIBUTED
+## than the newline circuit. At article positions, the-vs-a/an AUC 0.870;
+## front-attn ablated 0.703 (drop 0.167), front-mlp ablated 0.737 (drop
+## 0.133), random 0.863 (drop 0.007).
+
+At positions where an article follows (2348 positions, 1554 "the"), AUC of
+P(the)/(P(the)+P(a/an)) vs the actual article:
+  full model           0.870
+  front-attn ablated   0.703  (drop 0.167, 24x random)
+  front-mlp ablated    0.737  (drop 0.133)
+  random-subspace abl  0.863  (drop 0.007)
+FINDINGS (both predictions HELD):
+  (0) the model discriminates the-vs-a/an from context (AUC 0.870).
+  (a) FRONT ATTENTION causally carries the choice (drop 0.167, 24x the
+      random ablation), and attn > mlp (0.167 > 0.133) -- CONFIRMING 636's
+      decomposition "front attention = the a/an-vs-the CHOICE, front MLP =
+      magnitude." FINDINGS item 8 causally verified.
+  NUANCE (honest): unlike the newline circuit (front attn -> chance 0.51,
+      728), ablating front attention here only drops the article AUC to
+      0.70 (still well above chance). So the article choice is MORE
+      DISTRIBUTED -- front attention is the single biggest contributor but
+      not the whole story; other components (later layers / the embedding
+      direct path) also carry it. Newline discrimination is cleanly
+      localized to front attention; article choice is front-attn-dominant
+      but distributed.
+CIRCUIT-VERIFICATION SWEEP SUMMARY (726-729): the causal output-selectivity
+method verified BOTH flagship circuits (newline item 7: localized to front
+attn; article item 8: front-attn-dominant, attn>mlp per 636, distributed)
+and BROKE one firing-illusion (the "boundary circuit at 3 layers": only
+mlp16 causal, 726-727). Named circuits now carry causal-verification
+status, not just firing patterns. Queued article_choice_depth to locate
+where ELSE the a/an-the choice is carried (the distributed remainder).

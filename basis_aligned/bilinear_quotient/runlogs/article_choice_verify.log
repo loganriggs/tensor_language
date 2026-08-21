@@ -1,0 +1,7 @@
+the ids 2, a/an ids 4
+article positions: 2348, "the": 1554
+the-vs-a/an AUC  full 0.870  front-attn-abl 0.703  front-mlp-abl 0.737  rand-abl 0.863
+
+(0) discriminates (AUC>0.6): True
+(a) front-attn drives choice (drop 0.167 > 1.5x rand 0.007): True; attn>mlp: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/article_choice_verify_results.json (78s)
