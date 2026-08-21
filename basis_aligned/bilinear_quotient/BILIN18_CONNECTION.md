@@ -24413,3 +24413,30 @@ This closes the cross-model thread: SUBSPACE sufficiency + first-MLP barbell are
 universal (778/781); class-SHARPENING + causal position are shared by bilin18/pythia
 (789/781); gpt2's first MLP is low-rank and token-organised but not grammatical-class-
 sharpening.
+
+## 797. LAYER-UNDERSTANDING DEPTH PROFILE -- the big-benefit layers ARE the most
+## class+position; the distributed remainder is diffuse across the low-benefit layers
+## (closes the arc). Per layer: keep-only class+position at both its components,
+## CE-recovery of that layer's benefit. Fig layer_understanding_profile.png.
+Result (benefit / keep-class+position / random):
+  L0 2.21/0.90/-  L1 1.44/0.82/-  L5 1.72/0.96/-  L16 0.99/0.98/-  L17 0.88/0.95/-
+    -> the FIVE big-benefit layers (~7 of ~9 nats) are 0.82-0.98 class+position.
+  L2 0.25/0.41  L3 0.27/0.66  L4 0.35/0.76 -- lowest class+position, but small benefit.
+  L6-L14: near-inert (benefit 0.04-0.15), keep 0.43-0.72 (noisy, low weight).
+  random-subspace baseline at big layers: catastrophic (L1 -2.71, L5 -2.48, L6 -6.73)
+    -- keeping a random subspace at a critical layer breaks the model; class+position
+    (0.82-0.96) is dramatically better.
+READ: the layers that MATTER are the MOST understood -- the five big-benefit layers
+(0,1,5,16,17) are 82-98% class+position. The LEAST-class+position layers (L2 0.41,
+L3 0.66, deep-middle L7-14 0.43-0.59) barely matter (benefit 0.04-0.27). So the
+distributed ~22% remainder is NOT localized to any important layer -- it is spread
+thinly across the low-benefit layers, concentrated where the model barely computes
+anything. Combined with 795 (uniform across token-classes), the remainder is diffuse
+in BOTH depth AND token-class -- it resists every localization, consistent with its
+no-low-rank-carrier character (FINDINGS 1).
+ARC CLOSE (767-797): the model's meaningful computation (the big-benefit layers) is
+~class+position (82-98%); the un-understood distributed part is diffuse across depth
+and token-class, concentrated in the layers/contexts that barely matter. So the 546M
+model is, where it counts, a class+position machine, and the hard residue is a thin,
+uniform, genuinely-distributed film -- not a hidden circuit waiting to be named. This
+is the honest, complete conclusion of the bottom-up class+position program.
