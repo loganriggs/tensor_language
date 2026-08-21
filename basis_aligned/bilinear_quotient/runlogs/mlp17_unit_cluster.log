@@ -1,0 +1,67 @@
+4000 samples, mlp17 hidden dim 4608
+(0) exact-by-construction (h @ Down.T IS the real output): HELD
+output rank for 95% variance: r=8
+cluster sizes: [88, 67, 67, 18, 13, 9, 8, 5, 4, 4, 3, 3, 2, 2, 2, 1, 1, 1, 1, 1]
+(a) stability ARI 0.778 (bar 0.3) vs null 0.012: HELD
+
+cluster 2 (88 units) POSITIVE (concentration 7/8 "space"):
+   [+15019.91] ...'.\n76% were from the United States.\n' | next='\n'
+   [+14849.56] ...') were from Surgery and its subspecialties.\n' | next='\n'
+   [+14309.82] ...' (3%) unprofessional tweets from 27 users:\n' | next='\n'
+   [+13549.31] ...'\n6.2% were from Emergency Medicine.\n' | next='\n'
+   [+13078.80] ...' your photo, inserting a hyperlink and much more\n' | next='\n'
+   [+13052.79] ..." don't miss out on AR's daily happenings\n" | next='\n'
+   [+12985.03] ...'ko Primorje, the spring procession of ‘' | next='�'
+   [+12850.50] ...' about real estate trends, technology and social media.\n' | next='\n'
+  NEGATIVE:
+   [+7129.14] ...'No. 24; Updated March' | next=' March'
+   [+6011.08] ...'.\nMohr NM, Moreno-Walton' | next='ton'
+   [+5846.20] ...'” home-grown heavy-lift helicopter on January' | next=' January'
+   [+5783.50] ...'6:29' | next='29'
+   [+5732.09] ...' them from Amer.\nIt is 2 a.m' | next='m'
+   [+5554.41] ...' presented at the annual CDEM meeting.\nCDEM' | next='EM'
+   [+5552.20] ...' World\nBy Bubacarr Ceesay\nDecember' | next='December'
+   [+5539.64] ...'or will need to be announced by 5 p.m' | next='m'
+
+cluster 8 (67 units) POSITIVE (concentration 6/8 "capitalized"):
+   [+3111.08] ...' STRAIGHT TIGER WIN\nBy Calvin J' | next=' J'
+   [+2721.65] ...' seven cultural phenomena- The Festivity of Saint Bla' | next='a'
+   [+2665.56] ...' Headquarters of the Mafia World\nBy Bubacarr C' | next=' C'
+   [+2602.07] ...' Being the Headquarters of the Mafia World\nBy Bubac' | next='ac'
+   [+2525.77] ...', with no known physical basis," said Professor Emily P' | next=' P'
+   [+2512.42] ...' Balance (ATK, GD, LLL, L' | next=' L'
+   [+2486.60] ...' decided Gucci, […]\nGuest Post by Lara N' | next=' N'
+   [+2481.68] ...", 'The Director of this firm is Baba J" | next=' J'
+  NEGATIVE:
+   [+14380.16] ...' Go!Parc in Herford. He also played' | next=' played'
+   [+13122.46] ...' Extensions for .NET. This is a wonderful project that' | next=' that'
+   [+13081.20] ..." one of many of Bout's front companies -- companies that" | next=' that'
+   [+13046.48] ...' Liberian capital.\n"Taylor, who is now' | next=' now'
+   [+13006.90] ...' inverting the concepts logically.\nJust watch these videos' | next=' videos'
+   [+12946.78] ...' an international mafia ring.\nIn a masterpiece investigative report' | next=' report'
+   [+12931.95] ...'th day after the implementation date, either:\n-' | next='-'
+   [+12714.98] ...'antly, in reference to the Ads,--Just because' | next=' because'
+
+cluster 15 (67 units) POSITIVE (concentration 8/8 "space"):
+   [+5967.37] ...' day-it is that easy to move around.\n' | next='\n'
+   [+5870.41] ...' a task that they did not feel safe about.\n' | next='\n'
+   [+5792.49] ...' Paris Fashion Week, they decided Gucci, […]\n' | next='\n'
+   [+5705.68] ...' he finally saw it he totally understood my references!!!\n' | next='\n'
+   [+5612.92] ...'.\n37.3% trainees responded.\n' | next='\n'
+   [+5558.60] ...' work that way.\nThe current ad states:\n' | next='\n'
+   [+5542.36] ...' of African origin, are now reconfiguring […]\n' | next='\n'
+   [+5481.11] ..." the adventure of a lifetime, it's over.\n" | next='\n'
+  NEGATIVE:
+   [+9054.47] ...' Announce a firm intention to make an offer;\n-' | next='-'
+   [+8646.43] ...'-Walton L, Mills AM, et al.' | next='.'
+   [+7892.29] ...' does not intend to make an offer; or\n-' | next='-'
+   [+7671.84] ...' reporters to suffer from twitching fingers.\n12:' | next=':'
+   [+7493.51] ...' Kilimanjaro on his hands.\n2:' | next=':'
+   [+7316.58] ...' change statements since their last audited accounts.\n—' | next='—'
+   [+7312.21] ...' Mills AM, et al. Generational Influences in' | next=' in'
+   [+7196.48] ...' uneven aged pine flatwoods forest.\nStarr,' | next=','
+
+(b) found-cluster concentrations [7, 6, 8] (>=5/8 for >=1 of 3): HELD
+(c) article-related clusters among top 3: [8] (found -- candidate for causal follow-up)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp17_unit_cluster_results.json (39s)

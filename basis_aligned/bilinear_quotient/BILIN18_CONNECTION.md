@@ -18594,3 +18594,54 @@ distributed over units, low-rank over output directions (~16 causal /
 content), written progressively into one shared readout direction d,
 front-built and finally read out, context-driven and grammar-
 triggered, redundant across two parallel layers.
+
+## 615. The coverage map is U-SHAPED, not decaying: mlp17 (the readout
+## end) clusters MORE cleanly than any layer (ARI 0.778, output rank
+## 8) into clean next-token readouts -- clean structure lives at BOTH
+## ends, weak middle
+
+Clustered the FINAL MLP (mlp17) to complete the layer-wise coverage
+map, and it overturns 607's "front-of-model phenomenon" framing.
+  (0) exact by construction.
+  (a) stability ARI 0.778 -- the HIGHEST of ANY layer measured,
+      higher even than mlp0 (0.58). The full trend is now U-SHAPED,
+      not a monotonic decay:
+        mlp0  0.58   (front)
+        mlp1  0.326
+        mlp2  0.295
+        mlp9  0.167  (middle -- the trough)
+        mlp17 0.778  (readout end -- cleanest of all)
+      Clean, reproducible unit structure lives at BOTH ends of the
+      network and is weakest in the abstract middle.
+  OUTPUT RANK: mlp17's output is 95%-captured by rank 8 (vs mlp0's
+      558, mlp9's 766). The final MLP writes into an ~8-dimensional
+      subspace -- a low-rank readout/amplifier signature, matching
+      608's finding that mlp17 is a late article readout.
+  (b) HELD, high concentration: the top clusters are clean DIRECT
+      NEXT-TOKEN READOUTS, exactly the readout-end hypothesis:
+        cluster 2 (88 units, 7/8 "space"): a NEWLINE readout -- fires
+          positive when the next token is a newline.
+        cluster 15 (67 units, 8/8 "space"): a SECOND newline readout.
+        cluster 8 (67 units, 6/8 "capitalized"): a CAPITALIZED-INITIAL
+          readout -- fires before capital-letter/name-initial tokens
+          (' J', ' C', ' L', ' P', ' N'). (The auto-check mis-flagged
+          this as "article-related" on a stray example; reading it, it
+          is a capitalized-token readout, not article -- corrected
+          here.)
+  (c) mlp17's clusters read as direct predictions of the CURRENT
+      position's next token (newline, capitalized), consistent with
+      its output being one rms_norm + unembedding from the logits.
+THE FINDING reframes the coverage map: clean surface-token circuitry
+is NOT purely front-of-model (607's claim, now corrected). It exists
+at BOTH ends -- the FRONT builds surface features FROM tokens
+(mlp0/mlp1: article, punctuation, etc.), the OUTPUT END reads surface
+token predictions OUT (mlp17: newline, capitalized readouts) -- and
+is weakest in the abstract MIDDLE (mlp9). The network has a clear
+division of labor by depth: front = lexical feature construction,
+middle = abstract/distributed processing (least clusterable), end =
+token-prediction readout (most clusterable, lowest-rank). 607's
+"front-of-model phenomenon" is CORRECTED to "both-ends phenomenon":
+surface-token structure bookends the abstract middle. And the readout
+end is the CLEANEST structure in the whole model -- a low-rank
+(rank-8) set of direct token-class readouts, the natural mirror of
+the token-indexed lookup table at layer 0.
