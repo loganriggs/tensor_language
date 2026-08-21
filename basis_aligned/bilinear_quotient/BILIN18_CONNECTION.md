@@ -19401,3 +19401,40 @@ computed, not one bigram + one computed. Queued sentence_boundary_fanout
 (a fresh, cleanly-powered circuit: after '.', how does the model route
 among newline / capitalized / continuation, and does it discriminate
 the actual outcome?).
+
+## 645. Induction/copying is strong on natural text (P of a token's
+## earlier continuation = 0.140 vs 0.006 base rate, 25x) and is
+## DISTRIBUTED across front + mid attention -- a contrast to the
+## sentence-boundary routing which was 80% front (644). New thread.
+
+For each position whose current token A also occurred earlier at j, the
+induction target is B = the token that followed A at j. Over 4673 repeat
+positions:
+  baseline    P(B) 0.140   P(control) 0.00005
+  front-attn  P(B) 0.098   mid-attn P(B) 0.097   late-attn P(B) 0.130
+  B base rate 0.0056.
+FINDINGS:
+  (a) INDUCTION EXISTS, strong. P(B) 0.140 is 25x B's base rate (0.0056)
+      and 2800x a matched control token (0.00005). The model copies the
+      continuation of a token's earlier occurrence -- a classic
+      induction/copying circuit, here confirmed on natural FineWeb text
+      (not synthetic repeats). NULL ok (control token not elevated).
+  (b) DISTRIBUTED, NOT FRONT-LOCALIZED. Ablating front [0-2] attention
+      drops P(B) by 0.042 (30%); ablating mid [6-9] attention drops it
+      by 0.044 (31%); ablating late [12-15] attention drops it by only
+      0.010 (7%). Front and mid carry induction roughly EQUALLY; late
+      barely. No single band carries the majority -- induction is spread
+      across the first ~10 blocks' attention.
+THE CONTRAST with the sentence-boundary routing (644): routing is
+LOCALIZED (80% in front attention), induction is DISTRIBUTED (front and
+mid, ~30% each, redundant across bands). Two circuits, two different
+topologies -- a structural (grammar) decision made once up front, versus
+a copying operation assembled across the front and middle. This also
+means induction, like the unit-level circuits (616/633), is
+redundancy-protected across depth bands: no one band is necessary.
+Opens a copying/induction thread. The natural question is whether this
+is TRUE in-context induction (match a token's own earlier occurrence,
+works for novel tokens) or a memorized skip-bigram: queued
+induction_rare, which restricts to RARE current-tokens A where a
+memorized bigram cannot help -- if induction survives there, it is
+genuine in-context copying.
