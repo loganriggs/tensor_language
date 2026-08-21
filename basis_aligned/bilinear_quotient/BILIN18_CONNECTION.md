@@ -23440,3 +23440,30 @@ R2 collapse is the fundamental, data-invariant part. Net for the program: if you
 want a decomposition faithful to the WEIGHT (interpretable as W's parts), you MUST
 anchor on reconstruction; CE alone gives a loss-preserving reparametrization that
 is not a weight decomposition. Stated plainly, correction propagated.
+
+## 763. COMPONENT SCORECARD -- convergence FAILS at the atom level; the atom is the
+## WRONG UNIT (answers user's "how to know a good circuit without ground truth": you
+## triangulate, but the measures do NOT converge on single atoms). Train Down_0
+## weight-action SAE with 4 seeds; score each atom on stability (cross-seed decoder
+## cosine), causal importance (dCE knockout), monosemanticity (KL token-selectivity).
+Result:
+  * DECOMPOSITION MOSTLY SEED-UNSTABLE: mean best-match cosine 0.405; only 5/512
+    atoms stable (>0.8 in >=3/4 seeds). Most atoms are seed-specific fits, NOT
+    canonical model features -- P=512,K=32 admits many equivalent sparse bases.
+  * CONVERGENCE FAILS: rho(stability, causal) 0.29 (weak+; single-draw shuffle null
+    landed at 0.21 -> under-powered null, so the 0.29 is weak-but-plausibly-real),
+    rho(stability, monosem) -0.14, rho(causal, monosem) 0.05. Group means: stable
+    atoms slightly MORE causal (0.0005 vs 0.0001) but slightly LESS monosemantic
+    (3.01 vs 3.12).
+KEY READ: MONOSEMANTICITY (interpretability) is ORTHOGONAL to causal importance AND
+to stability at the atom level -- the interpretable atoms are not the important or
+robust ones, and vice versa. So "interpretable AND causally important AND stable"
+(the good-circuit conjunction) does NOT co-occur by default; you cannot assume
+interpretable = important. Combined with 761 (atoms redundant, single-ablation
+undercounts) the evidence converges: the ATOM IS THE WRONG UNIT. Low atom-stability
+with a (hypothesised) stable SPAN is the signature of ROTATIONAL AMBIGUITY -- the
+subspace is a real model feature, the basis within it is arbitrary and seed-picked.
+NEXT: test subspace stability -- do the top-r decoder SPANS recur across seeds
+(principal angles) even though individual atoms don't? If yes, the circuit is a
+SUBSPACE/GROUP, not an atom, and the scorecard should be re-run at group level.
+Queued subspace_stability. pred_a False, null under-powered (noted).
