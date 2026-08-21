@@ -23312,3 +23312,33 @@ CONCLUSION: pure-CE training of a substituted SAE sacrifices weight-faithfulness
 ANCHOR: loss = CE + lam_rec*MSE + lam_e*edge. Anchor holds R2 up (faithful), CE
 nudges loss-relevance, edge sparsifies wiring. Queued real_joint_ce_v2 (anchored,
 with the control that reproduces the collapse).
+
+## 759. RECONSTRUCTION-ANCHORED JOINT CE -- THE FIX WORKS (closes the compose->
+## joint->CE arc). Adding the MSE action-recon term as an anchor to the CE + edge
+## objective gives a joint composition that is FAITHFUL, CE-aware, AND sparse-wired.
+Objective: loss = CE + lam_rec*(MSE_Down0 + MSE_Left1) + lam_e*||norm(E_L1)@norm(D_D0)||_1.
+Result (P=512, K=32, warm-start indep CE-rec 0.938; fig real_joint_ce_v2.png):
+  indep      CE-rec 0.938  (reference)
+  anchored   CE-rec 0.945 (min 0.938, NEVER drops below indep)  R2_Down0 0.77
+             (held, min 0.766)  in-degree 291 -> 70 (-76%)          <- THE FIX
+  no_anchor  CE-rec 0.741  R2_Down0 -0.258 (collapsed)  in-degree 291 -> 126  (control = 758)
+  pred_a True (faithful + sparse), pred_b True (control collapses).
+READ: the anchor holds reconstruction R2 UP (0.77, vs pure-CE collapse to -0.26),
+so the SAE stays weight-faithful; CE keeps CE-recovery at/above indep (0.945); the
+edge penalty sparsifies the cross-layer wiring by 76% (291 -> 70 strong edges per
+source atom). This is the user's "jointly train weight-SAEs to sparsely compose"
+idea, ON THE REAL MODEL, with the loss we care about (CE) -- WORKING: a faithful,
+CE-aware, SPARSE-WIRED joint decomposition of two neighbouring matrices.
+ARC SUMMARY (737 -> 759): reconstruction-optimal bases (SVD/A-SVD) are CE-
+catastrophic at low rank (massive activations); a learned overcomplete SPARSE
+dictionary (748 activation / 750 weight-action) is the right per-matrix
+decomposition; its cross-layer coupling is WEIGHT-ONLY / data-invariant (754,
+A-SVD's is not; corrected 754b/754c: the wiring is weight-only, per-token flow is
+mostly-linear + attention position-mixing); joint training with an edge penalty
+recovers SPARSE wiring (755 toy, specific), and on the real model needs a
+reconstruction ANCHOR to stay faithful under CE (758 diagnosis -> 759 fix). Net:
+we can decompose neighbouring layers into a faithful, sparse, CE-aware component
+graph and read its wiring from weights.
+NEXT: scale the anchored joint to the early stack (0-3) to build the full
+component graph; test edge CAUSALITY (ablate a live coupling edge -> CE impact vs
+random edge). Queued anchored-stack graph as the phase-3 opener (pending).
