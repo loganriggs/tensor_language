@@ -19653,3 +19653,29 @@ THE TAXONOMY, now on THREE behaviors (completes the Q5 arc, 650-654):
   characterizing the one rank-1 component we found: is w_freq the
   unembedding's frequency direction (does block 17 write a bias
   proportional to token frequency)?
+
+## 655. VOID (method bug, caught by the registered sanity check): my
+## "frequency axis" was mis-constructed. freq_dir = sum_t log_freq(t)*
+## W_U[t] does NOT read out as log-frequency (corr 0.44, not >=0.8),
+## because the unembedding rows are non-orthogonal -- the readout
+## direction needs the PSEUDOINVERSE, W_U^+ log_freq. The w_freq
+## alignment test is therefore uninformative and voided.
+
+Attempted to identify the calibration direction w_freq (650) as the
+unembedding frequency axis.
+  (0) SANITY FAILED: the constructed freq_dir = sum_t (logfreq-mean)*
+      W_U[t] has readout-vs-log-freq correlation only 0.438 (needed
+      >=0.8). So freq_dir is NOT the frequency-readout direction.
+  (a) VOID: cos(w_freq, freq_dir) = -0.024 (= random |cos| 0.024) -- but
+      since freq_dir itself is wrong, this says nothing about w_freq.
+THE BUG, plainly: to get the residual direction d whose logit readout
+W_U @ d is proportional to log-frequency, you must solve the least-
+squares system (W_U rows are correlated), d = W_U^+ log_freq =
+(W_U^T W_U)^-1 W_U^T log_freq -- NOT d = W_U^T log_freq (which is
+freq weighted by the row Gram matrix, a different vector). The
+registered sanity check (does freq_dir actually read out as frequency?)
+did its job and caught this before any conclusion was drawn. Good that it
+was registered; the alignment question is still open. Requeued as
+calibrator_direction_id2 with the pseudoinverse construction:
+freq_dir = normalize(W_U^+ log_freq), verify its readout corr >= 0.8,
+then test cos(w_freq, freq_dir) vs random.
