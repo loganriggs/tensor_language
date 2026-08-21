@@ -1538,6 +1538,32 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="labor">What each part of the network does</h2>
+  <p>Deleting one block at a time and watching where the prediction breaks turns the eighteen
+  blocks into three jobs with clean boundaries. Ask each block, for nine kinds of next token —
+  newlines, determiners, prepositions, digits, punctuation, capitalized words, ordinary words —
+  how much removing it lowers the probability of that kind of token when it is the right answer.
+  For every one of the nine, the biggest writer is in the <strong>first three blocks</strong>:
+  the class of the next token — is it a word, a number, a line break — is decided at the very
+  front, and the rest of the network never overrides that choice. Removing the front three blocks
+  costs seven nats of loss; removing any three-block slice of the middle costs well under one.</p>
+  <p>So what is the middle for? Not nothing — but not the class. Delete the middle eleven blocks
+  and the probability of the exactly-correct next token collapses by 93%, while the probability
+  of the correct <em>class</em> falls by only 55%; delete the front three and both fall together.
+  The middle keeps the class the front chose and spends its effort picking <em>which</em> member
+  of that class — which specific word — and it spends that effort disproportionately on rare
+  words, exactly the ones a single guess is least likely to get right. The front decides the
+  kind of token; the middle refines it to the token. And the last block, as the previous section
+  showed, does neither — it recalibrates, trimming the common words the front over-predicts to
+  make room for the rare ones the middle is trying to name. Three stages, three jobs: decide the
+  class, choose the word, fix the frequencies. One caveat on the arithmetic: deleting an early
+  block also starves every block after it, so the front's seven-nat cost is inflated by that
+  knock-on and is not a clean measure of the front's own share; the durable facts are that the
+  middle's own cost is small and falls on rare words, and that it protects the class while
+  sacrificing the word.</p>
+</section>
+
+<section class="col">
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight

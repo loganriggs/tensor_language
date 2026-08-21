@@ -1,0 +1,10 @@
+baseline P(token) 0.2520  P(class) 0.6349
+front: token-drop 0.882 class-drop 0.732 (sparing +0.151); rare tok 0.982/cls 0.757
+middle: token-drop 0.931 class-drop 0.553 (sparing +0.378); rare tok 0.991/cls 0.530
+
+(0) P(class)>=P(token): True
+(a) middle spares class over token: True (tok 0.931 > cls 0.553)
+(b) front drops class ~as much as token: True
+NULL middle sparing +0.378 > front +0.151: ok
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_within_class_results.json (45s)

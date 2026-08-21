@@ -1,0 +1,31 @@
+{
+ "baseline": {
+  "P_token": 0.252,
+  "P_class": 0.6349
+ },
+ "bands": {
+  "front": {
+   "rel_drop_token_all": 0.8821,
+   "rel_drop_class_all": 0.7315,
+   "sparing_all": 0.1506,
+   "rel_drop_token_rare": 0.9821,
+   "rel_drop_class_rare": 0.7574,
+   "rel_drop_token_freq": 0.7538,
+   "rel_drop_class_freq": 0.6548
+  },
+  "middle": {
+   "rel_drop_token_all": 0.9308,
+   "rel_drop_class_all": 0.5529,
+   "sparing_all": 0.378,
+   "rel_drop_token_rare": 0.9906,
+   "rel_drop_class_rare": 0.5297,
+   "rel_drop_token_freq": 0.8541,
+   "rel_drop_class_freq": 0.6217
+  }
+ },
+ "pred_0": true,
+ "pred_a_middle_within_class": true,
+ "pred_b_front_class": true,
+ "null_ok": true,
+ "runtime_s": 45.238627910614014
+}

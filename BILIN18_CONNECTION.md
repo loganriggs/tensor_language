@@ -165,3 +165,43 @@ bound independent of compounding) and (ii) the back's calibrator sign.
 Queued middle_within_class to test the synthesis directly: does middle
 ablation degrade P(correct TOKEN) far more than P(correct CLASS)
 (within-class refinement), while front ablation kills both?
+
+## 631. Synthesis CONFIRMED: the middle refines WITHIN-class token
+## identity. Ablating the middle destroys the specific token (93% of
+## P) but spares the class (only 55%); the front drops both. Closes the
+## depth-of-computation phase (624-631).
+
+Direct test of 630's synthesis. Per position, P(correct next token) and
+P(correct class) (mass on all tokens of the target's class), with the
+front [0-2] vs the middle [6-16] mean-ablated. Baseline: P(token)
+0.252, P(class) 0.635.
+  FRONT [0-2] ablated: P(token) drops 88.2%, P(class) drops 73.2%
+    (sparing +0.151). The front takes down BOTH -- it decides the class.
+  MIDDLE [6-16] ablated: P(token) drops 93.1%, P(class) drops only
+    55.3% (sparing +0.378). The middle takes down the specific TOKEN
+    far more than the CLASS -- it refines within-class identity.
+  (a) HELD: middle spares class over token (token-drop 0.931 > class-
+      drop 0.553). (b) HELD: front drops class about as much as token.
+  NULL HELD: middle sparing (+0.378) is 2.5x the front's (+0.151) --
+  within-class refinement is specifically a middle property, not a
+  generic ablation effect. (Rare targets sharpen it: middle spares
+  class at 0.530 while token collapses 0.991.)
+THE DEPTH-OF-COMPUTATION ACCOUNT, confirmed and closed (624-631):
+  FRONT (blocks 0-2): decides the next-token CLASS (629 top writer for
+    all 9 classes; 631 front ablation drops class as hard as token) and
+    carries the bulk of the loss (630, +7 nats). The LM decision is
+    made here.
+  MIDDLE (blocks 6-16): refines WITHIN-class specific-token identity
+    (631, spares class 2.5x more than the front), light for total loss
+    and rare-weighted (630), writes no class (629). Class is set up
+    front; the middle picks the specific (usually rare/content) token.
+  BACK (block 17): net-beneficial FREQUENCY CALIBRATION (626), a class-
+    level shift of mass from function classes to content classes (629),
+    the model's single calibrator (628).
+This is a clean three-stage division of labor -- decide the class,
+refine the token, calibrate the frequency -- each stage established by
+its own causal test with controls and nulls. Phase boundary: updating
+the report artifact with this depth-of-computation account. Queued
+middle_refines_which_class to localize WHICH classes the middle refines
+(content classes should show large within-class sparing; function
+classes little, having few members to choose among).
