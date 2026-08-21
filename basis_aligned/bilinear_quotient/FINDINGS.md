@@ -64,9 +64,11 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
 
 ### Architecture facts worth keeping
 - MLP = `Down[(Lx)·(Rx)] + b`: every output dim is an exact **quadratic form** `xᵀMₖx`. mlp17's
-  *output* is rank-8 (§615), effective rank ~5 supervised readout axes (§618) → mlp17 ≈ **5–8
-  quadratic functions** (one per output direction; ~5 that matter). (Q3 — exact minimal count for
-  80% of loss not yet measured.)
+  *output* is rank-8 by **variance** (§615), but its **functional (loss) rank is higher** (§660):
+  ~4 quadratic functions recover 75% of its loss (the "~4" answer holds at that level), but the
+  top-8 variance dirs recover only 78% — the low-variance tail (last 5% of var) carries ~22% of the
+  loss. Variance rank ≠ functional rank (extends §617's variance basis ≠ functional basis). So
+  "mlp17 = 4 quadratic functions" is a good ¾-approximation, not an exact reduction. (Q3)
 - Residual is rescaled every block (`x = λ₀x + λ₁x₀`); a writer 12 layers back arrives ×∏λ₀ ≈ 2e-4.
 - Logits are `30·tanh(lm_head(rmsnorm(x))/30)`.
 

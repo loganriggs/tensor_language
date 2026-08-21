@@ -19839,3 +19839,47 @@ their cosines are confounded. Closes the additive-bias-catalog line as
 void. Pivoting to the user's Q3 (architecture): how many quadratic
 functions does mlp17 effectively compute -- its FUNCTIONAL (loss) rank,
 vs the rank-8 variance rank (615)? Queued mlp17_functional_rank.
+
+## 660. Q3 answered: mlp17's FUNCTIONAL (loss) rank is HIGHER than its
+## variance rank. ~4 quadratic functions recover 75% of its loss (the
+## user's "~4" is right at that level), but the top-8 variance dirs (95%
+## var, 615) recover only 78% -- the low-variance tail (last 5% of var)
+## carries a disproportionate 22% of the loss. Variance rank != functional
+## rank, for RANK not just basis (extends 617).
+
+Replacing mlp17's output with its rank-r reconstruction (top-r output SVD
+directions) and measuring full-model CE. mlp17 output = D quadratic forms
+(each dim o_k = x^T M_k x); this counts how many MATTER for the loss.
+Full CE 3.354, mean-ablate 3.759, benefit 0.405 nats.
+  rank 1: recovered 33% of the benefit  (cumvar 44%)
+  rank 2: 58%  (71%)
+  rank 3: 69%  (84%)
+  rank 4: 75%  (91%)
+  rank 5: 76%  (93%)
+  rank 6: 77%  (94%)
+  rank 8: 78%  (95%)
+  random-4 subspace: 1% (NULL clean -- the top directions matter)
+FINDINGS:
+  (0)/(a) FAILED, informatively -- opposite to my guess (I predicted a
+      LOW functional rank <=5 for 80%). The functional rank is HIGHER
+      than the variance rank: rank-8 (95% variance) recovers only 78% of
+      the loss, and 80% is not reached by rank 8 at all. The last 5% of
+      output variance (ranks 9+) carries ~22% of mlp17's loss benefit --
+      the low-variance tail punches far above its variance weight.
+  THE Q3 ANSWER, honestly: mlp17 is ~4 effective quadratic functions AT
+      THE 75% LEVEL (rank-4 recovers 75% of the loss, matching the user's
+      "~4"), but it is NOT cleanly reducible to 4-8 quadratic functions
+      for the full loss -- the tail matters. So "mlp17 = 4 quadratic
+      functions" is a good three-quarter approximation, not an exact
+      reduction.
+CONNECTS to the program's recurring variance!=functional theme: 617
+showed the variance BASIS is not the functional basis; 660 shows the
+variance RANK is not the functional rank either -- the loss-relevant
+computation reaches into low-variance directions the variance ordering
+buries (cf. the report's L1 "mezzanine" finding, where functionally
+necessary nonlinearity sat in mid-variance directions the reading
+experiments missed). The quiet output directions of mlp17 carry
+disproportionate loss. Queued mlp17_tail_content to characterize the
+tail: is the low-variance tail (ranks 9+, 22% of loss) the distributed
+CONTENT-writing (subword, 657-658), while the rank-1 calibration w_freq
+sits in the high-variance head?
