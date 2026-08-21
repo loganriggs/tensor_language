@@ -1,0 +1,39 @@
+{
+ "base_rate_B": 0.005573,
+ "by_A_freq": {
+  "rare A (<=3)": {
+   "P_B": 0.33275,
+   "P_control": 4e-06,
+   "n": 437
+  },
+  "mid A (4-30)": {
+   "P_B": 0.2588,
+   "P_control": 4.1e-05,
+   "n": 994
+  },
+  "frequent A (>30)": {
+   "P_B": 0.07783,
+   "P_control": 5.6e-05,
+   "n": 3242
+  }
+ },
+ "by_distance": {
+  "near (<=8)": {
+   "P_B": 0.08034,
+   "n": 723
+  },
+  "mid (9-32)": {
+   "P_B": 0.13294,
+   "n": 1910
+  },
+  "far (>32)": {
+   "P_B": 0.16813,
+   "n": 2040
+  }
+ },
+ "pred_0": true,
+ "pred_a_rare_induction": true,
+ "pred_b_distance_robust": true,
+ "null_ok": true,
+ "runtime_s": 46.33000421524048
+}

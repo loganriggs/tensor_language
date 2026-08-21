@@ -19438,3 +19438,44 @@ works for novel tokens) or a memorized skip-bigram: queued
 induction_rare, which restricts to RARE current-tokens A where a
 memorized bigram cannot help -- if induction survives there, it is
 genuine in-context copying.
+
+## 646. TRUE in-context induction confirmed: copying is STRONGEST for
+## RARE tokens (P 0.333 for A<=3 occurrences vs 0.078 for frequent) and
+## INCREASES with distance (far>32: 0.168 vs near: 0.080). It is
+## match-and-copy from context, not a memorized skip-bigram.
+
+Restricting 645's induction to cases where a stored bigram cannot help.
+By current-token A frequency (target B = A's earlier continuation;
+B base rate 0.0056):
+  rare A (<=3 occ):  P(B) 0.333  P(control) 0.000004  (n=437)
+  mid A (4-30):      P(B) 0.259                        (n=994)
+  frequent A (>30):  P(B) 0.078                        (n=3242)
+By distance to the antecedent:
+  near (<=8): 0.080   mid (9-32): 0.133   far (>32): 0.168
+FINDINGS:
+  (a) INDUCTION IS STRONGEST FOR RARE TOKENS -- the decisive signature
+      of genuine in-context copying. A token occurring <=3 times has no
+      reliable stored bigram, yet the model predicts its earlier
+      continuation at 0.333 (60x base rate); frequent tokens, where the
+      general distribution competes, get only 0.078. The INVERSE
+      frequency relationship rules out a memorized skip-bigram and
+      confirms match-then-copy from THIS context.
+  (b) DISTANCE-ROBUST, and rising with distance: far-back matches (>32
+      tokens) are copied MORE strongly (0.168) than near ones (0.080) --
+      a copy over the full context window, not a local n-gram. (Far
+      matches are more often meaningful repeats of rare content tokens;
+      near matches are more often common function words with a competing
+      general distribution.)
+  NULL: the control token is at 0.000004 for rare A -- the elevation is
+      specific to the copied continuation, not a general rare-context
+      boost.
+This confirms 645 as a genuine INDUCTION circuit (match the current
+token's earlier occurrence, copy what followed it), on a softmax-free
+double-bilinear-QK attention model, verified on natural text. The
+induction thread now has: exists and is strong (645), distributed across
+front+mid attention (645), and is true in-context match-and-copy, rare-
+token-dominant and distance-robust (646). Queued induction_head_search
+to find the actual INDUCTION HEADS: per head, the raw double-QK attention
+from an induction position to the copy-source position (j+1) -- induction
+heads should attend there specifically. Unlike the diffuse MLP circuits,
+induction heads are often localizable, so this may reach component level.

@@ -1,0 +1,13 @@
+rare A (<=3)       P(B) 0.3328  P(ctrl) 0.000004  (n=437)
+mid A (4-30)       P(B) 0.2588  P(ctrl) 0.000041  (n=994)
+frequent A (>30)   P(B) 0.0778  P(ctrl) 0.000056  (n=3242)
+near (<=8)     P(B) 0.0803 (n=723)
+mid (9-32)     P(B) 0.1329 (n=1910)
+far (>32)      P(B) 0.1681 (n=2040)
+
+(0) enough rare: True
+(a) induction survives for rare A (>=10x base 0.00557): True
+(b) distance-robust (far >=5x base): True
+NULL control not elevated for rare A: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_rare_results.json (46s)
