@@ -23640,3 +23640,27 @@ individual SAE atoms -- an arbitrary rotation within a subspace they only 54% co
 -- inherit that nameability only weakly. pred_a False; null clean; pred_0 True
 (now valid). Consistent with the whole 761-769 arc: the atom is the wrong unit;
 the canonical semantic directions are the interpretable units.
+
+## 770. SEMANTIC SUFFICIENCY -- the token-class subspace is SUFFICIENT (capstone of
+## 767-769). Keeping ONLY the top-r semantic subspace of mlp0's output, discarding
+## the rest, recovers of mlp0's CE benefit (2.383 nats):
+  r= 16: keep-semantic 0.718  (keep-random 0.017)
+  r= 64: keep-semantic 0.916  (keep-random 0.083)
+  r=128: keep-semantic 0.963  (keep-random 0.122)
+  r=256: keep-semantic 0.983  (keep-random 0.310)
+READ: ~64 part-of-speech directions capture 92% of mlp0's entire loss contribution;
+16 capture 72%; a random same-size subspace captures ~8%. So the token-semantic
+subspace is SUFFICIENT, not just necessary (767) -- the other ~1088 of mlp0's 1152
+output dimensions are nearly loss-IRRELEVANT. mlp0 is, for the loss, a LOW-RANK
+GRAMMATICAL-CLASS WRITER (~64-dim of 1152).
+SYNTHESIS (767-770): the token-semantic subspace of mlp0 is NECESSARY (767: remove
+-> +1.34 nats, 268x random), SUFFICIENT (770: keep-only 64 -> 92%), NAMEABLE (768:
+determiners/punctuation/pronouns/verbs/numbers/prepositions), CANONICAL + DATA-
+STABLE (767: 0.82 vs SAE atoms 0.40), and LOW-RANK (64/1152). This is the cleanest
+"right decomposition" of the whole 737-770 program: it satisfies EVERY good-circuit
+property -- causal, stable, interpretable, minimal -- that the learned SAE atoms
+FAILED (763-766), precisely because it is a CANONICAL SUBSPACE read directly from
+(model, data), not a seed-dependent fitted unit. The answer to "how to find a good
+component without ground truth": don't fit a dictionary and hope; compute the
+canonical token-conditional-mean subspace, verify it causally (ablate vs random,
+keep-only vs random), and read its named axes. pred_a True, null clean.
