@@ -20528,3 +20528,42 @@ rank-1 direction living within that substrate. The dims carry much more
 than the calibration. Queued massive_dim_tokens to characterize WHAT
 drives the massive activations: are they concentrated on specific
 structural tokens (the attention-sink pattern -- BOS/newline/delimiters)?
+
+## 678. The massive activations are NOT attention sinks -- they are
+## uniform across positions and tokens (an always-on DC/bias-like
+## channel). Architectural: classic LLM massive activations are tied to
+## SOFTMAX attention sinks; this model has NO softmax, so its massive
+## activations are a uniform DC substrate, not token/position sinks.
+
+Mean |activation| of the top massive block-17 dims [981, 990, 645, 329,
+992] (RMS 56806/38323/... vs median 986):
+  by position: pos0 23091, pos1-4 27166, pos5-32 27055, pos33+ 27188
+    -- position 0 is NOT special (slightly LOWER); no positional sink.
+  by token class: newline 37802, function 29676, punct 29315, space_word
+    27443, digit 26042, subword 23608, capitalized 20952 (overall 27157)
+    -- range only ~21k-38k, only newline mildly elevated (1.4x); no token
+    sink.
+FINDINGS:
+  (0) HELD (massive dims, 58x median). (a) FAILED, informatively: NO sink
+      pattern. The massive activations are roughly UNIFORM across
+      positions (pos0 not special) and token types (all within ~2x, only
+      a mild newline bump) -- an ALWAYS-ON high-magnitude channel, i.e. a
+      DC/bias-like substrate, present at ~27000 magnitude regardless of
+      position or content.
+  ARCHITECTURAL POINT: classic LLM massive activations concentrate on a
+      few SINK tokens (BOS, delimiters) and are mechanistically tied to
+      SOFTMAX attention (the model dumps attention mass on a sink). This
+      model uses NO softmax -- attention is an unnormalized bilinear
+      product (pat = s1*s2) -- so there is no attention-sink mechanism,
+      and correspondingly its massive activations are NOT token/position
+      sinks but a uniform DC substrate. Same surface phenomenon (a few
+      huge-magnitude dims), different cause: a learned bias channel, not
+      an attention sink.
+This fits 677 (ablating the massive dims hurts ALL predictions = a
+constant substrate the readout depends on) and 676 (they carry the
+calibration direction). So the massive dims are a learned, always-on,
+high-magnitude BIAS substrate (grows with depth, 676) that the readout is
+calibrated against, with the frequency-calibration knob living within it.
+Queued massive_dim_constancy to confirm the DC-bias reading directly: are
+the massive dims near-CONSTANT across positions (low coefficient of
+variation, fixed sign) = a literal learned bias?

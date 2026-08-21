@@ -1,0 +1,9 @@
+top dims [981, 990, 645, 329, 992] RMS [56806.0, 38323.0, 33023.0, 24682.0, 14344.0] (median 986)
+by position: {'pos0': 23090.9, 'pos1-4': 27166.0, 'pos5-32': 27054.9, 'pos33+': 27187.5}
+overall mean |act| on top dims: 27156.6
+by token class: {'newline': 37802.2, 'function': 29676.0, 'punct': 29314.8, 'space_word': 27443.0, 'digit': 26041.5, 'subword': 23608.1, 'capitalized': 20952.3}
+
+(0) massive dims: True
+(a) sink pattern (positional or token): False (pos0 23090.9 vs pos33+ 27187.5; top class newline 37802.2 vs overall 27156.6)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/massive_dim_tokens_results.json (74s)
