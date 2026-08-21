@@ -23664,3 +23664,32 @@ FAILED (763-766), precisely because it is a CANONICAL SUBSPACE read directly fro
 component without ground truth": don't fit a dictionary and hope; compute the
 canonical token-conditional-mean subspace, verify it causally (ablate vs random,
 keep-only vs random), and read its named axes. pred_a True, null clean.
+
+## 771. SEMANTIC SUBSPACE GENERALISES TO ATTENTION (my prediction was WRONG,
+## stated plainly). I predicted attention -- which mixes positions -- would be more
+## context-driven, so its token-semantic subspace would be WEAKER than the MLP's.
+## It is NOT: attention's output is ALSO dominated by a canonical token-class
+## subspace, if anything MORE so at layer 0.
+Result (attention output x1):
+  L0: benefit 1.479  remove-ratio 106x  keep-only-64 recovery 0.975 (random 0.294)
+  L4: benefit 0.319  remove-ratio  29x  keep-only-64 recovery 0.877 (random 0.213)
+CORRECTION: keep-only-64 for attention L0 is 0.975, HIGHER than the MLP's 0.92 --
+attention's CE contribution is even MORE concentrated in its current-token-class
+subspace than the MLP's, despite position-mixing. So the token-class organising
+principle is GENERAL to the front of the network, both component types, not MLP-
+specific.
+FLAVOUR DIFFERS (the interesting part): attention's top semantic directions are
+STRUCTURAL / DISCOURSE markers -- dir0 HIGH = '--'/' And'/' It'/' She'/' But'/'\n'
+(L0), ' But'/' And'/' If'/'When'/' This' (L4): conjunctions, sentence-initial
+words, clause boundaries, conditionals. The MLP's were LEXICAL categories
+(determiners, punctuation, numbers, verbs, 768). So BOTH the attention and MLP of
+the front organise their output by token-class in a canonical, causal, low-rank,
+sufficient subspace -- but ATTENTION emphasises the STRUCTURAL/boundary tokens
+(fitting its cross-position role) and the MLP the LEXICAL categories.
+TAKEAWAY: the "front of the network sorts what it writes by token-class" finding
+(767-770) is not an MLP quirk -- it is how the early network works, per component,
+with attention handling sentence structure and the MLP handling word categories.
+pred_a (generalises, >=3x) True; my weaker-than-MLP prediction FALSE; null clean.
+NEXT: are the attention and MLP semantic subspaces the SAME or COMPLEMENTARY
+subspaces? (lexical vs structural -> if largely orthogonal, the front splits token
+processing into two complementary canonical subspaces.) Queued semantic_overlap.

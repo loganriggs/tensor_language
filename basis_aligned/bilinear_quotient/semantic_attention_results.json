@@ -1,0 +1,262 @@
+{
+ "layers": [
+  0,
+  4
+ ],
+ "layer_results": {
+  "0": {
+   "benefit": 1.4788,
+   "remove_ratio": 105.73,
+   "dce_semantic": 0.1481,
+   "dce_random": 0.0014,
+   "keep64_recovery": 0.9749,
+   "keep64_random": 0.2944
+  },
+  "4": {
+   "benefit": 0.3193,
+   "remove_ratio": 28.89,
+   "dce_semantic": 0.0697,
+   "dce_random": 0.0024,
+   "keep64_recovery": 0.8774,
+   "keep64_random": 0.2133
+  }
+ },
+ "named": {
+  "0": [
+   {
+    "dir": 0,
+    "high": [
+     "'\u2014'",
+     "' And'",
+     "' It'",
+     "' She'",
+     "' But'",
+     "'\\n'"
+    ],
+    "low": [
+     "' the'",
+     "' same'",
+     "' child'",
+     "' their'",
+     "' last'",
+     "' own'"
+    ]
+   },
+   {
+    "dir": 1,
+    "high": [
+     "' The'",
+     "' the'",
+     "'The'",
+     "' same'",
+     "'the'",
+     "' first'"
+    ],
+    "low": [
+     "' be'",
+     "' do'",
+     "' had'",
+     "' help'",
+     "' been'",
+     "' play'"
+    ]
+   },
+   {
+    "dir": 2,
+    "high": [
+     "' pine'",
+     "','",
+     "' sale'",
+     "' 2012'",
+     "' selling'",
+     "' Victoria'"
+    ],
+    "low": [
+     "' am'",
+     "' is'",
+     "' was'",
+     "' know'",
+     "\"'m\"",
+     "' been'"
+    ]
+   },
+   {
+    "dir": 3,
+    "high": [
+     "','",
+     "' but'",
+     "' we'",
+     "' and'",
+     "' I'",
+     "' just'"
+    ],
+    "low": [
+     "' characteristics'",
+     "' physicians'",
+     "' style'",
+     "' Medicine'",
+     "' snakes'",
+     "' medical'"
+    ]
+   },
+   {
+    "dir": 4,
+    "high": [
+     "' to'",
+     "'\\n'",
+     "'\u2014'",
+     "' help'",
+     "' include'",
+     "' do'"
+    ],
+    "low": [
+     "' snakes'",
+     "' nuclear'",
+     "' Ac'",
+     "'NYSE'",
+     "' Victoria'",
+     "' Bout'"
+    ]
+   },
+   {
+    "dir": 5,
+    "high": [
+     "' is'",
+     "' going'",
+     "' been'",
+     "' was'",
+     "' a'",
+     "' are'"
+    ],
+    "low": [
+     "' child'",
+     "' they'",
+     "'ia'",
+     "' know'",
+     "' who'",
+     "' you'"
+    ]
+   }
+  ],
+  "4": [
+   {
+    "dir": 0,
+    "high": [
+     "' But'",
+     "' And'",
+     "' If'",
+     "'If'",
+     "'When'",
+     "' This'"
+    ],
+    "low": [
+     "'ch'",
+     "'icus'",
+     "'ord'",
+     "' Spot'",
+     "'O'",
+     "'avan'"
+    ]
+   },
+   {
+    "dir": 1,
+    "high": [
+     "'ch'",
+     "' characteristics'",
+     "' style'",
+     "'h'",
+     "'Work'",
+     "'ord'"
+    ],
+    "low": [
+     "' them'",
+     "' selling'",
+     "' through'",
+     "' than'",
+     "' doing'",
+     "' sale'"
+    ]
+   },
+   {
+    "dir": 2,
+    "high": [
+     "'\u2014'",
+     "'AT'",
+     "'In'",
+     "'A'",
+     "' Obama'",
+     "'If'"
+    ],
+    "low": [
+     "';'",
+     "' --'",
+     "' \u2013'",
+     "').'",
+     "' events'",
+     "'.'"
+    ]
+   },
+   {
+    "dir": 3,
+    "high": [
+     "'eree'",
+     "'ors'",
+     "' patient'",
+     "' child'",
+     "' characteristics'",
+     "'or'"
+    ],
+    "low": [
+     "\"''\"",
+     "' x'",
+     "' 6'",
+     "'NYSE'",
+     "'/'",
+     "'C'"
+    ]
+   },
+   {
+    "dir": 4,
+    "high": [
+     "' characteristics'",
+     "' style'",
+     "'Work'",
+     "' questions'",
+     "' ET'",
+     "'\u2014'"
+    ],
+    "low": [
+     "'h'",
+     "'icus'",
+     "'me'",
+     "'ia'",
+     "' j'",
+     "'avan'"
+    ]
+   },
+   {
+    "dir": 5,
+    "high": [
+     "'ia'",
+     "' Medicine'",
+     "' Victoria'",
+     "' snakes'",
+     "'icus'",
+     "' world'"
+    ],
+    "low": [
+     "\"''\"",
+     "' 6'",
+     "' style'",
+     "'%'",
+     "' x'",
+     "'ors'"
+    ]
+   }
+  ]
+ },
+ "pred_a_generalises": true,
+ "attn_weaker_than_mlp": false,
+ "null_ok": true,
+ "runtime_s": 57.49606490135193
+}
