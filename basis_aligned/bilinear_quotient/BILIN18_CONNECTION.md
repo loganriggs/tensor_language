@@ -19998,3 +19998,45 @@ The model corrects for token frequency twice, in different spaces. Queued
 early_band_axis to identify the early band's direction: is it the INPUT/
 embedding frequency direction (correcting the current token's frequency
 in the representation), which would explain why it is not readout-aligned?
+
+## 664. The early calibration band (L4-6) is MODERATELY the input/
+## current-token frequency direction (cos -0.25, vs 0.05 readout, vs 0.02
+## random) but not cleanly any single axis. The current-token frequency
+## is cleanly encoded in the early residual (corr 0.80). Completes the
+## two-band calibration picture (to the resolution the data allows).
+
+Identifying the early band's direction (663). w_early = mean of L4/5/6
+w_freq_L.
+  emb_freq_dir (current-token log-freq direction in the residual after
+    block 3) reads out current-token log-freq at corr 0.80 -- the early
+    stream cleanly encodes how frequent the CURRENT token is (much
+    cleaner than the readout's log-freq corr 0.53, 656).
+  cos(w_early, emb_freq_dir) = -0.25  (moderate, negative)
+  cos(w_early, readout_freq) = +0.05  (near zero, confirms 663)
+  random |cos(emb_dir)| = 0.02.
+FINDINGS:
+  (a) HELD by the criterion: the early band is MORE aligned with the
+      input/current-token frequency direction (|cos| 0.25) than with the
+      output readout axis (0.05), and 10x random -- so it is input-
+      frequency-related, not output-related. But the alignment is only
+      MODEST (0.25): the early band is not cleanly "the input frequency
+      direction" either; it is a mid-network frequency-related correction
+      whose exact direction is not a single known axis.
+  (0) emb_dir sane (reads current-token log-freq at 0.80). NULL clean.
+THE TWO-BAND CALIBRATION, complete to the data's resolution (662-664):
+  - LATE band (L16-17): writes along the unembedding log-frequency READOUT
+    axis (cos 0.61) -- a clean, direct logit-level frequency bias; block
+    17 dominant; rank-1 isolable (650-651); the +0.43-nat net calibration.
+  - EARLY band (L4-6): a mid-network frequency-related correction,
+    moderately aligned (cos -0.25) with the CURRENT-token frequency
+    representation (which is cleanly present, corr 0.80), orthogonal to
+    the late band; not cleanly reducible to a single axis.
+So the model corrects for token frequency at two depths and in two
+spaces: an early, representation-level correction tied to the current
+token's frequency, and a late, readout-level bias along the output
+frequency axis. The late band is the clean, dominant, isolable one; the
+early band is real (calibrator CE sign, 662) but less cleanly
+characterized. This is the resolution limit for the early band -- its
+direction is frequency-related but distributed. Calibration thread closed
+(624-664). Propagating the two-band refinement to the report. Pivoting
+the queue to the least-characterized region: the MIDDLE blocks (focus D).

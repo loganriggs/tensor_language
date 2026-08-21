@@ -1,0 +1,10 @@
+(0) emb_dir reads current-token log-freq, corr 0.801
+cos(w_early, emb_freq_dir)   -0.250
+cos(w_early, readout_freq)   +0.047
+random |cos(emb_dir)| mean   0.023
+
+(0) emb_dir sane: True
+(a) early band = input-frequency dir (|cos_emb|>|cos_readout| & >>random): True
+NULL random low: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/early_band_axis_results.json (80s)
