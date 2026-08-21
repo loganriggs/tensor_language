@@ -24532,3 +24532,34 @@ sufficiency, first-MLP barbell, position causality, AND the aggregate ~3/4 class
 position share are all cross-model. The class-SHARPENING mechanism is the one model-
 specific piece (bilin18/pythia yes, gpt2 no, 789/796). This is the honest, clean close
 of the cross-model thread.
+
+## 801. SCALE SWEEP -- ~3/4 class+position holds for 4/5 models; gpt2-medium is an
+## OUTLIER driven by a massive-activation confound at its mlp0 (not a clean
+## counterexample; correction to clean scale-robustness). Per-component nat-weighted
+## class+position across scale + family.
+Result (nat-weighted class+position vs random):
+  bilin18 546M       ~0.78
+  GPT-2 124M         0.767 vs 0.282
+  GPT-2-medium 355M  0.122 vs 0.019   <- OUTLIER
+  Pythia-160m        0.747 vs 0.065
+  Pythia-410m        0.690 vs 0.101
+READ: the ~3/4 class+position reduction holds for FOUR of five models (bilin18, gpt2,
+pythia-160m, pythia-410m: 0.69-0.78). GPT-2-medium is a stark outlier (0.12) -- and
+the cause is localised: its mlp0 carries 4.80 of the 5.88 total benefit (82%) but has
+keep = -0.14 (NEGATIVE -- keeping only its class+position projection is WORSE than
+ablating it). A negative keep at the dominant component is the signature of a
+MASSIVE-ACTIVATION measurement confound: the token-conditional-mean subspace captures
+a huge, loss-IRRELEVANT direction (a massive activation) at that component, so keeping
+ONLY the projected 96-dim output preserves the massive activation while dropping the
+loss-relevant content -> harmful (worse than zero). Same confound class as 780 (cosine)
+and 799 (catastrophe). So gpt2-medium's 0.12 is very likely a MEASUREMENT ARTIFACT at
+mlp0, NOT a clean "gpt2-medium is not class+position."
+CORRECTION to any implication of clean scale-robustness: the scale sweep is MIXED --
+strongly supportive for 4/5 models, with gpt2-medium confounded at one component.
+NOT settled whether gpt2-medium is genuinely less class+position or just mis-measured
+at mlp0. Queued gpt2med_diagnostic (re-measure gpt2-medium mlp0 with the top massive-
+activation direction removed / more subspace dims -> does keep go positive?).
+So the honest cross-model claim: ~3/4 class+position is broadly supported across
+family and scale (bilin18, gpt2-small, pythia-160m/410m), with one outlier (gpt2-
+medium) whose low score traces to a massive-activation confound at its first MLP that
+needs a robust re-measurement to resolve. pred_a False (gpt2-medium < 0.6).
