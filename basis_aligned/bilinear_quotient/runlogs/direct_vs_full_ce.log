@@ -1,0 +1,12 @@
+uniform CE (log V) 10.8258
+direct: all 12.6516  freq 8.6544  rare 14.3223
+full:   all 3.3536  freq 1.6074  rare 4.0834
+blocks help: freq -7.0470  rare -10.2389 nats
+bigram share of info gain over uniform: -0.244
+
+(0) bigram beats uniform widely: False
+(a) blocks help overall: True
+(b) blocks help rare more than frequent: True
+NULL bigram freq CE < rare CE: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/direct_vs_full_ce_results.json (48s)

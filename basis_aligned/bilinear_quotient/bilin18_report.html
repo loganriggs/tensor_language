@@ -1575,10 +1575,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p>Follow the article and newline circuits all the way down and they end at the simplest
   possible place — the embedding table. Skip all eighteen blocks and read the current token's
   embedding straight through the output head, and the triggers are already there: a period
-  predicts a line break 42% of the time, "of"/"in" reach for "the," "is"/"was" reach for
-  "a"/"an." The network does not compute these associations; they are memorized in the
-  embedding, a lookup from one token to the next. That is as close to the input as tracing can
-  get.</p>
+  predicts a line break 42% of the time — about right, matching how often a period really does
+  end a line — while "of"/"in" reach for "the" and "is"/"was" reach for "a"/"an." The relative
+  pull is memorized in the embedding geometry: a period's embedding leans toward a line break
+  more than an ordinary word's does. But it is only a handful of directions, not a working
+  model — read <em>every</em> prediction this way and the shortcut scores worse than guessing
+  uniformly, because the embedding and output head were trained to work through the eighteen
+  blocks, not as a direct map. The trigger preferences are in the embedding; turning them into
+  an actual predictor is the network's job.</p>
   <p>So what are the eighteen blocks <em>for</em>, on these predictions? Not to build the
   trigger — to <strong>discriminate</strong> it. The embedding's bigram is context-blind: it
   fires the same after every period. Split the periods by what actually comes next and the

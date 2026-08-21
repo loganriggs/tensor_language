@@ -400,3 +400,46 @@ bigram barely encodes (digit, punct, capitalized). Queued
 newline_discrimination to demonstrate the discrimination directly: split
 end-punct positions by whether a newline actually follows, and show the
 full model separates them while the bigram cannot.
+
+## 640. CORRECTION/quantification of 637: the embedding->unembedding
+## direct path is NOT a working bigram LM -- its CE (12.65) is WORSE
+## than uniform (10.83). The embedding encodes the trigger PREFERENCE
+## GEOMETRY for high-signal function-word bigrams, not a calibrated
+## whole-distribution bigram. The blocks do essentially all the work.
+
+Quantifying the input-tracing phase. Cross-entropy:
+  uniform (log V) 10.83; direct bigram 12.65 (all), 8.65 (freq), 14.32
+  (rare); full 3.35 (all), 1.61 (freq), 4.08 (rare).
+  (0) FAILED: the direct path does NOT beat uniform -- it is 1.82 nats
+      WORSE. The embedding->unembedding shortcut is a BAD language model
+      overall.
+  (a) blocks help massively: full 3.35 vs direct 12.65 (-9.3 nats).
+  (b) blocks help rare (-10.24) more than frequent (-7.05). HELD.
+  NULL ok (direct freq CE 8.65 < rare 14.32).
+  bigram's share of info gain over uniform: -0.24 (NEGATIVE).
+THE CORRECTION to 637's headline ("triggers are a 0-layer embedding
+bigram"): that overstated it as if the embedding were a functional
+bigram LM. It is not -- read straight through the unembedding it scores
+worse than uniform. WHY: the embedding and unembedding are trained to
+operate THROUGH the 18 blocks, so the direct map is OFF-DISTRIBUTION --
+over-confident on a handful of bigram-favored tokens and miscalibrated
+garbage for the general distribution (rare/content tokens), which log
+loss punishes.
+WHAT STANDS (637-639, correctly scoped): for SPECIFIC high-signal
+function-word triggers the direct path's RELATIVE preference is real and
+even roughly calibrated -- P(newline)=0.42 after '.' matches the ~36%
+actual base rate of newline-after-end-punct (181/506); prep->the,
+be->a/an are present. So the embedding encodes the trigger PREFERENCE
+GEOMETRY (the '.' embedding leans toward newline more than a word's
+does), visible on targeted contrasts. But this is a property of a few
+directions, NOT a working bigram model, and it does not survive as a
+whole-distribution predictor.
+THE HONEST SYNTHESIS of the input-tracing phase (634-640): the embedding
+carries the RELATIVE trigger geometry for the function-word circuits;
+the 18 blocks do essentially ALL the actual predictive work (+7.48 nats
+over uniform; the direct path is net-negative), most of it context
+discrimination (638-639) and computing the classes the embedding barely
+encodes (638), concentrated on rare targets (b). Propagated to the
+report capstone (which had called the triggers a "memorized bigram
+lookup" -- tempered to "relative preference geometry the blocks turn
+into a real predictor"). Phase closed.
