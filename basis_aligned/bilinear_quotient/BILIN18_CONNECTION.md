@@ -24141,3 +24141,35 @@ SYNTHESIS (783-787): amortized composition-in-early-variables is REAL and measur
 variable, class ~24-dim), but it is PARTIAL -- the biggest class-readers amortize on
 named variables, while heads like L5 do joint conditional computation (class x
 position x content) that is the genuine distributed remainder. pred_a False.
+
+## 788. POSITION vs ROPE -- the MLP collapses RoPE's multi-frequency encoding into a
+## coarse ~2-dim position readout (position analog of token->class collapse; answers
+## user). mlp1 position-conditional-mean table P vs the raw RoPE table R
+## (cos/sin over all 64 rotary frequencies).
+Result:
+  EFFECTIVE RANK: P (mlp1 position-mean) 2.29  vs  R (RoPE) 17.69  (RoPE has 128 dims
+    but eff-rank ~18: low frequencies dominate variance). The MLP position
+    representation is ~8x LOWER-RANK than RoPE -- a coarse readout, not RoPE's full
+    multi-frequency code.
+  RSA(P, R) = 0.769: despite the 8x collapse, P PRESERVES RoPE's coarse position
+    geometry -- a faithful low-rank PROJECTION keeping the early/late structure and
+    discarding the high frequencies.
+  adjacent-position cosine sim: P 0.538 vs R 0.941 (pred_b WRONG): RoPE is SMOOTHER at
+    the adjacent scale (dominated by slow low frequencies, and noise-free), while the
+    finite-sample position-means carry estimation noise -> "smoother" was the wrong
+    frame.
+READ (user's question answered): YES, the MLP output's position representation is far
+LOWER-RANK than RoPE (2.3 vs 17.7, ~8x) and PRESERVES RoPE's coarse geometry (RSA
+0.77) -- the MLP keeps a coarse ~2-dim early/late readout of RoPE and discards its
+fine frequencies. This is the POSITION ANALOG of the token->class collapse (780): just
+as identity (~132 eff-dim) collapses to class (~24), RoPE (~18 eff-dim) collapses to a
+~2-dim absolute-position summary. The MLP does not compute position from scratch -- it
+reads RoPE (via attention) and writes a low-rank coarse readout. pred_a True (rank
+collapse), pred_b False (RoPE smoother, estimation-noise confound stated).
+
+## 789-attempt. CROSS-MODEL CLASS-SHARPENING -- UNDERPOWERED, not written as a finding
+## (only 50 labelled tokens matched the small class word-sets; mixed result: Pythia
+## Fisher 1.43x + rank collapse, GPT-2 0.81x no collapse). Too few tokens to conclude;
+## the robust cross-model result remains the token-class SUBSPACE causal sufficiency
+## (778, gpt2 0.84 / pythia 0.62). Re-running cross_model_class with far more data
+## (800 blocks) + expanded class vocabularies before drawing any conclusion.

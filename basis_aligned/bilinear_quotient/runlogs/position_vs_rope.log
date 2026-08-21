@@ -1,0 +1,6 @@
+eff-rank: mlp1 position-mean 2.29  |  RoPE encoding 17.69  (RoPE dims 128)
+adjacent-position cosine sim: mlp1 0.538  |  RoPE 0.941
+RSA(mlp1 position geometry, RoPE geometry) 0.769
+
+(a) MLP position rep far lower-rank than RoPE (P<0.2*R): True; (b) smoother (adjacent sim higher): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/position_vs_rope_results.json (36s)

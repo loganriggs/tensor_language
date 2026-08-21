@@ -2,3 +2,7 @@
 [transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (26131 > 1024). Running this sequence through the model will result in indexing errors
 gpt2: 50 labelled | eff-rank mean 57.55 emb 49.09 | Fisher mean 0.2747 emb 0.338 (ratio 0.813, null 0.0761)
 Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 4018.51it/s]
+EleutherAI/pythia-410m: 50 labelled | eff-rank mean 53.18 emb 73.73 | Fisher mean 0.3265 emb 0.2285 (ratio 1.429, null 0.1053)
+
+(a) first MLP sharpens grammatical class cross-model (Fisher>=1.2x & rank-collapse): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_class_results.json (57s)
