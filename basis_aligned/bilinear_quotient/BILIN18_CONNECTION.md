@@ -23067,3 +23067,27 @@ metric, (b) more/better training or an interpretability-oriented objective,
 (c) larger P (more atoms -> each more specific), (d) measuring LOW-usage
 atoms. Queued interpret_sae_atoms_v2 (frequency-normalized selectivity +
 larger P + usage-stratified).
+
+## 752. INTERPRET SAE ATOMS v2 -- METRIC BROKEN (caught by SVD==random==SAE).
+## The freq-normalized MAX-LIFT metric is dominated by RARE-token noise: a
+## single rare token (base rate ~1/N) in the top-150 gives lift ~N/150 ~164
+## for ANY direction. So all methods score ~164 (SVD 163.8 == random 163.8 ==
+## SAE 154-158). Inconclusive; metric redesign needed.
+
+Result (all ~164, identical -> broken): P=512 mean-lift 153.9, P=1024 158.1,
+SVD 163.8, random 163.8. Predictions FAILED but the values are meaningless.
+DIAGNOSIS: max over token-types of P(type|top)/P(type|base) is maximized by
+the RAREST token that appears in the top set (one occurrence -> huge lift),
+not by the atom's actual selectivity. Every direction has some rare token in
+its top-150, so all score ~N/150. This is a metric-DESIGN error (2nd in this
+sub-thread: 751 was frequency-confounded, 752 is rare-token-max-dominated).
+FIX (v3): use a ROBUST monosemanticity metric -- KL divergence of the top-
+activation token distribution from the base distribution D_KL(p_top || p_base)
+(rare single tokens contribute little; measures overall peakedness), or the
+lift of the DOMINANT (most-frequent-in-top-set) token (not the max-lift rare
+one). Queued interpret_sae_atoms_v3 with KL.
+STATUS of the monosemanticity question: still OPEN. The QUALITATIVE answer
+(751) stands -- a FEW SAE atoms are clean circuits (sentence-end, parenthetical,
+boundary), most-used are polysemantic -- but a clean QUANTITATIVE metric has
+been elusive (concentration confounded by frequency 751; max-lift broken 752).
+KL should settle it.
