@@ -1,0 +1,15 @@
+overall recovery 0.781
+  loss-decile 0 (mean loss 0.05): class+pos recovery 0.496
+  loss-decile 1 (mean loss 0.40): class+pos recovery 0.635
+  loss-decile 2 (mean loss 0.91): class+pos recovery 0.691
+  loss-decile 3 (mean loss 1.50): class+pos recovery 0.718
+  loss-decile 4 (mean loss 2.19): class+pos recovery 0.740
+  loss-decile 5 (mean loss 3.00): class+pos recovery 0.766
+  loss-decile 6 (mean loss 3.93): class+pos recovery 0.803
+  loss-decile 7 (mean loss 5.08): class+pos recovery 0.841
+  loss-decile 8 (mean loss 6.67): class+pos recovery 0.900
+  loss-decile 9 (mean loss 9.75): class+pos recovery 1.002
+easiest-decile recovery 0.496  vs  hardest-decile 1.002  gap -0.506
+
+(a) the ~22% remainder is for HARD predictions (easy high, hard low): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/remainder_by_difficulty_results.json (82s)

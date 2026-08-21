@@ -24440,3 +24440,37 @@ and token-class, concentrated in the layers/contexts that barely matter. So the 
 model is, where it counts, a class+position machine, and the hard residue is a thin,
 uniform, genuinely-distributed film -- not a hidden circuit waiting to be named. This
 is the honest, complete conclusion of the bottom-up class+position program.
+
+## 798. THE DISTRIBUTED REMAINDER IS CONTENT FOR CONFIDENT PREDICTIONS, not hard ones
+## (my prediction WRONG, stated plainly -- and it names what the ~22% is FOR). With all
+## 36 components projected onto class+position, CE-recovery binned by full-model per-
+## token loss (difficulty).
+Result (loss-decile mean-loss -> class+position recovery):
+  0 (0.05) 0.496 | 1 (0.40) 0.635 | 2 (0.91) 0.691 | 3 (1.50) 0.718 | 4 (2.19) 0.740
+  5 (3.00) 0.766 | 6 (3.93) 0.803 | 7 (5.08) 0.841 | 8 (6.67) 0.900 | 9 (9.75) 1.002
+  overall 0.781. MONOTONIC increase: easiest 0.50 -> hardest 1.00.
+READ (OPPOSITE of my hypothesis, which was "remainder = hard predictions"): class+
+position sufficiency INCREASES with difficulty. On the EASIEST, most CONFIDENT
+predictions (loss 0.05) class+position recovers only HALF (0.50) -- the model needs the
+DISTRIBUTED computation to nail the specific content. On the HARDEST, most UNCERTAIN
+predictions (loss 9.75) class+position recovers ~ALL (1.00) -- when the model does not
+know the specific content, it falls back to pure grammatical-class + position
+expectation and there is nothing more to recover.
+INTERPRETATION (names the ~22%): CLASS+POSITION is the grammatical SKELETON the model
+always has (part of speech + where you are); the DISTRIBUTED ~22% is the specific
+CONTENT that turns a grammatical expectation into a CONFIDENT, low-loss guess. The
+distributed computation is what makes the model's confident predictions confident;
+strip it and the model still knows the grammatical class of what comes next but loses
+the specific content. So the remainder is not a hidden circuit and not "hard-token
+computation" -- it is content/specificity for the predictable, confident cases.
+CAVEAT: the hardest decile's 1.002 is partly a small-denominator effect (benefit =
+ablate-full is small when the model is already lost), so exact >1 is noisy; but the
+MONOTONIC trend across all 10 deciles (0.50 -> 1.00) is clean and robust. pred_a False
+(remainder is NOT hard predictions -- it is the OPPOSITE).
+FINAL ARC INTERPRETATION (767-798): the model is a class+position (grammatical class +
+absolute position) machine that always supplies the grammatical skeleton, plus a
+distributed content computation (~22%, uniform across class/depth) that fills in the
+specific token to make confident predictions. We understand the skeleton completely and
+causally (two low-rank computed nameable variables, cross-model-general); the content
+filler is the diffuse, no-low-rank-carrier residue -- needed most exactly where the
+model is most confident.
