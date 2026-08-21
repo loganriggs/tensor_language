@@ -1,0 +1,14 @@
+depth  0: median RMS 1322.052  max 3412.456  (2.6x)  #>=8x 0  top [np.int64(383), np.int64(475), np.int64(893), np.int64(761), np.int64(543)]
+depth  4: median RMS 909.141  max 2191.261  (2.4x)  #>=8x 0  top [np.int64(990), np.int64(645), np.int64(761), np.int64(826), np.int64(43)]
+depth  8: median RMS 312.104  max 3109.421  (10.0x)  #>=8x 1  top [np.int64(645), np.int64(990), np.int64(750), np.int64(880), np.int64(111)]
+depth 12: median RMS 649.075  max 11206.145  (17.3x)  #>=8x 2  top [np.int64(645), np.int64(990), np.int64(750), np.int64(111), np.int64(880)]
+depth 16: median RMS 915.171  max 38956.251  (42.6x)  #>=8x 3  top [np.int64(645), np.int64(981), np.int64(990), np.int64(329), np.int64(992)]
+depth 17: median RMS 985.869  max 56805.550  (57.6x)  #>=8x 5  top [np.int64(981), np.int64(990), np.int64(645), np.int64(329), np.int64(992)]
+
+(0) nonuniform spectrum: True
+(a) outlier dims (>=8x median) exist: True
+(b) persistent across depths (top-5 intersection []): False
+    w_freq squared-mass on top-outlier dims: 0.879
+NULL random has no 8x outliers: True (rand ratio 1.02, n 0)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/residual_outlier_dims_results.json (69s)

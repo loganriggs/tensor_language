@@ -20447,3 +20447,44 @@ and the isolation investigation definitively. FINDINGS current. Queued
 residual_outlier_dims to open fresh structural ground: does the residual
 stream have massive-activation / outlier dimensions (a known LLM
 phenomenon), and what do they carry?
+
+## 676. NEW structural finding: MASSIVE ACTIVATIONS exist and GROW toward
+## the output (max/median RMS 2.6x at block 0 -> 58x at block 17), on
+## persistent channels (dims 645, 990). 88% of the frequency-calibration
+## direction w_freq lives on these outlier dims -- the one clean knob is
+## implemented through the massive-activation channels.
+
+Per-dimension RMS magnitude of the residual by depth:
+  block 0  median 1322 max 3412  (2.6x)  #>=8x 0
+  block 4  median  909 max 2191  (2.4x)  #>=8x 0
+  block 8  median  312 max 3109  (10x)   #>=8x 1
+  block 12 median  649 max 11206 (17x)   #>=8x 2
+  block 16 median  915 max 38956 (43x)   #>=8x 3
+  block 17 median  986 max 56805 (58x)   #>=8x 5
+  random-Gaussian null: max/median 1.02, 0 outliers.
+FINDINGS:
+  (0)/(a) HELD: the residual has MASSIVE ACTIVATIONS -- a documented LLM
+      phenomenon (outlier dims with huge magnitude, tied to attention
+      sinks / quantization difficulty). Here they are absent early
+      (2.6x at block 0) and GROW dramatically with depth, reaching 58x
+      the median at block 17 (top dim RMS ~57000 vs median ~986), with 5
+      dims over 8x the median at the output. NULL clean: a random
+      Gaussian has ratio 1.02 and zero outliers -- this is trained model
+      structure.
+  (b) PERSISTENT CHANNELS: dims 645 and 990 are in the top-5 at every
+      depth from block 4 through 17 (the strict all-6-depth intersection
+      is empty only because block 0's top-5 differs). A few stable
+      massive-activation channels dominate the middle-to-end.
+  THE CONNECTION (the interesting part): 88% of the frequency-calibration
+      direction w_freq's squared mass sits on the outlier dimensions. So
+      the ONE clean isolable knob (frequency calibration, 650-675) is
+      implemented THROUGH the massive-activation channels -- a large,
+      consistent frequency bias naturally lives in the highest-magnitude
+      dims. This links the isolation finding to the massive-activation
+      phenomenon: the model's one editable knob and its outlier dims are
+      the same structure.
+Fresh structural line opened. Massive activations grow with depth, ride
+persistent channels (645, 990), and carry the calibration. Queued
+massive_dim_ablate to test whether these dims are CAUSAL calibration
+channels (mean-ablating the top massive dims produces the freq/rare CE
+trade-off) or inert high-magnitude sinks.
