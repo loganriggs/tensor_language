@@ -24232,3 +24232,36 @@ genuine unnamed early-layer computation is SMALL and concentrated in mlp1's rema
 BOTTOM-UP STATUS: the early layers' OUTPUTS are ~93% token-class + position; mlp0 and
 attn1 (~4.8 nats) are understood to ~95% incl mechanism; the residual worklist is
 mlp1's 21% + the small mid-MLPs. pred_a True (majority understood, mlp0/attn1 >=0.85).
+
+## 791. FOLDED QK CLASS-ATTENTION -- naming the big heads' computation from the
+## WEIGHTS (user: fold the tensor, name causally). Fold each head's QK bilinear form
+## (W_q^T W_k and W_q2^T W_k2), project onto the 7 named class-mean directions of the
+## attention input, sum over heads -> class x class attention P[query-class, key-class].
+Result (content part; rmsnorm scale + rotary position-modulation NOT yet folded):
+  attn0: WEAK class structure -- top couplings det->conj 0.05 / det->prep 0.04 /
+    det->aux 0.04 (determiner queries -> function words, small magnitude).
+  attn1: STRONGEST class structure (~0.3) -- DETERMINER-query dominated: det->prep
+    -0.38, det->det -0.30, det->conj -0.23 (large negative), det->punct positive.
+    attn1 is a DETERMINER head.
+  attn5: class-attention ~ ZERO (all |coupling| <= 0.003) -- NO class-content
+    structure -> attn5 is a POSITIONAL head, confirmed FROM THE WEIGHTS (matches 783's
+    position-reading, now weight-derived not empirical).
+READ (bottom-up naming via tensor fold):
+  * attn5 = POSITIONAL head: the folded class-attention is ~0, so its computation is
+    not class-content -- it is the rotary/position structure (783). Clean weight-
+    derived confirmation.
+  * attn1 = DETERMINER head: it has by far the strongest class-attention (~0.3 vs
+    attn0's 0.05), dominated by DETERMINER queries. This connects to the known front-
+    attention ARTICLE (a/an/the) circuit (727): attn1 reads class (784) and the fold
+    shows the class it is about is DETERMINERS.
+  * attn0 = weak determiner->function-word.
+CAVEATS (measured): this is the CONTENT part only -- rmsnorm (per-token scale) and
+rotary (relative-position modulation) are not yet folded in, and the class-mean
+directions are not orthogonalised (classes may overlap, so specific signs/pairs are
+provisional). The ROBUST claims: attn5 has ~0 class-content (positional), attn1 has
+the strongest class-content and is determiner-dominated, attn0 weak. Magnitudes and
+the attn5~0 are trustworthy; the exact attn1 sign-pattern needs orthogonal class dirs
++ the rmsnorm/rotary fold to fully name.
+NEXT: fold rmsnorm + rotary to name attn5's positional pattern (which relative
+offset?), and causally verify attn1=determiner (ablate determiner-query attention ->
+hurt article prediction). Queued attn_fold2.

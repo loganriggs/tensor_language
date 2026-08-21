@@ -1,0 +1,8 @@
+attn0: top class couplings (q->k): [('det', 'conj', 0.0505), ('det', 'prep', 0.0396), ('det', 'aux', 0.0393), ('det', 'pron', 0.0277)]
+        favourite key-class per query-class: {'det': 'conj', 'num': 'prep', 'punct': 'conj', 'pron': 'conj', 'prep': 'conj', 'aux': 'conj', 'conj': 'prep'}
+attn1: top class couplings (q->k): [('det', 'prep', -0.3764), ('det', 'det', -0.3017), ('det', 'conj', -0.2261), ('det', 'aux', -0.1846)]
+        favourite key-class per query-class: {'det': 'punct', 'num': 'punct', 'punct': 'punct', 'pron': 'punct', 'prep': 'punct', 'aux': 'pron', 'conj': 'punct'}
+attn5: top class couplings (q->k): [('det', 'det', -0.0035), ('prep', 'prep', -0.003), ('punct', 'det', 0.0019), ('det', 'prep', 0.0017)]
+        favourite key-class per query-class: {'det': 'prep', 'num': 'prep', 'punct': 'det', 'pron': 'conj', 'prep': 'punct', 'aux': 'pron', 'conj': 'det'}
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_fold_results.json (43s)
