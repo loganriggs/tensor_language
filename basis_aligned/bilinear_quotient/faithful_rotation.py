@@ -107,9 +107,9 @@ def main():
 
     Uw_np = Uw.numpy()
     Rvar = varimax(Uw_np)                                     # sparsifying rotation
-    Uw_rot = torch.tensor(Uw_np @ Rvar)
+    Uw_rot = torch.tensor(Uw_np @ Rvar).float()
     g = torch.Generator().manual_seed(1); Rr = torch.linalg.qr(torch.randn(K, K, generator=g))[0].numpy()
-    Uw_rand = torch.tensor(Uw_np @ Rr)
+    Uw_rand = torch.tensor(Uw_np @ Rr).float()
 
     # faithfulness: same projector
     proj_raw = Uw_np @ Uw_np.T; proj_rot = (Uw_np@Rvar) @ (Uw_np@Rvar).T
