@@ -21826,3 +21826,29 @@ FINDINGS re the user's observation:
 Possible follow-up (higher K may reveal finer clusters nesting inside
 coarser ones -- true hierarchy at a different granularity). Queued
 rspd_mlp16_rank1 first (name mlp16's rank-1 core, promised in 713).
+
+## 715. mlp16's rank-1 core NAMED = a SENTENCE-BOUNDARY -> continuation
+## writer -- the BACK-END analog of block1.attn's front rank-1 core (701).
+## A single direction recovers 90% of mlp16's 0.88-nat benefit.
+
+Fixed fast A-SVD, N=6144, held-out CE. benefit 0.881, rank-1 recovered
+0.902 (confirms 713 r80=1 at scale). The rank-1 component:
+  WHERE it fires (top-|s| current tokens): . ). ? ! : by , ."  -- SENTENCE-
+    END PUNCTUATION (periods, close-parens, question/exclamation, colons).
+  WHAT it writes (a1 unembedding, GOOD proxy -- mlp16 is 1 block from the
+    readout): boost [...] ( - all \n so real ... only and (common
+    continuation/discourse words + punctuation); suppress TABLE/dashes/
+    JOHN/formatting garbage.
+INTERPRETATION: at a sentence boundary, mlp16 (its whole functional effect,
+rank-1) steers toward common continuation words -- structurally the SAME
+motif as block1.attn (701, front boundary->continuation). So bilin18 has
+rank-1 BOUNDARY->CONTINUATION circuits at BOTH ends: block1.attn (front)
+and mlp16 (back). Combined with the barbell (713), the model's low-rank
+edge machinery is substantially about SENTENCE STRUCTURE (boundaries and
+what follows them) -- consistent with the newline circuit (635/637) and the
+front boundary findings (701/703).
+CAVEAT (null failed, as in 701): the token-concentration null was weak
+(real 0.72 vs random-in-complement 0.61, not >1.5x) -- sentence-end tokens
+are generically high-magnitude in the gate, so concentration is confounded
+(same massive-activation issue as 701). The SOLID evidence is the rank-1 CE
+recovery (0.90) + the coherent unembedding readout, not the concentration.
