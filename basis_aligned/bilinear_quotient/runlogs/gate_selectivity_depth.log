@@ -1,0 +1,24 @@
+attention [product, factor] selectivity by layer:
+  L 0 attn [0.256, 0.562]  mlp [0.329, 0.624]
+  L 1 attn [0.204, 0.511]  mlp [0.306, 0.611]
+  L 2 attn [0.169, 0.496]  mlp [0.336, 0.621]
+  L 3 attn [0.186, 0.512]  mlp [0.333, 0.623]
+  L 4 attn [0.168, 0.495]  mlp [0.351, 0.627]
+  L 5 attn [0.226, 0.535]  mlp [0.342, 0.622]
+  L 6 attn [0.231, 0.544]  mlp [0.348, 0.623]
+  L 7 attn [0.216, 0.522]  mlp [0.348, 0.621]
+  L 8 attn [0.225, 0.539]  mlp [0.345, 0.619]
+  L 9 attn [0.188, 0.505]  mlp [0.352, 0.621]
+  L10 attn [0.268, 0.58]  mlp [0.357, 0.623]
+  L11 attn [0.206, 0.52]  mlp [0.361, 0.625]
+  L12 attn [0.292, 0.593]  mlp [0.363, 0.625]
+  L13 attn [0.235, 0.548]  mlp [0.365, 0.625]
+  L14 attn [0.232, 0.549]  mlp [0.367, 0.627]
+  L15 attn [0.328, 0.616]  mlp [0.372, 0.629]
+  L16 attn [0.292, 0.591]  mlp [0.383, 0.637]
+  L17 attn [0.295, 0.604]  mlp [0.377, 0.637]
+
+attn product sharpens in 18/18 layers; mlp in 18/18
+(a) consistent AND-gating (both sharpen in ~all layers): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gate_selectivity_depth_results.json (65s)

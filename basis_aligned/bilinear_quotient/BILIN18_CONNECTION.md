@@ -20867,3 +20867,39 @@ the architecture's computational primitive. Report + FINDINGS updated.
 Queued gate_selectivity_depth to quantify the AND-gating across ALL
 layers (is the product-sharpening consistent in attention and MLP at
 every depth?).
+
+## 687. AND-gating is UNIVERSAL: product-sharpening holds in 18/18 layers
+## for BOTH attention and MLP -- every one of the model's 36 gates (18
+## attn + 18 mlp) is a multiplicative AND. Confirms the unifying principle
+## (686) with no exceptions.
+
+Product vs factor selectivity by layer (low = selective):
+  attention: product 0.17-0.33, factors 0.50-0.62 -- product sharpens in
+    18/18 layers (most focal front L2-4 ~0.17, more diffuse end L15-17
+    ~0.30, consistent with 681).
+  MLP: product 0.31-0.38, factors 0.61-0.64 -- product sharpens in 18/18
+    layers (roughly constant selectivity across depth, ~0.35).
+FINDINGS:
+  (a) HELD with NO exceptions: the multiplicative AND-gate is the
+      computational primitive at EVERY layer, in BOTH components. All 36
+      gates (18 attention patterns s1*s2 + 18 MLP gates Lx*Rx) produce a
+      selective result from two dense factors. So 686's unifying principle
+      is not a front-of-model or single-layer property -- it is the
+      uniform architecture end to end.
+  DEPTH TREND: attention becomes slightly more diffuse with depth (front
+      does the sharp specific lookups, 681), while the MLP gate keeps a
+      constant ~0.35 selectivity throughout. Both always sharpen.
+CONFIRMS AND COMPLETES the architectural characterization: bilin18 is,
+uniformly and at every layer, a network of MULTIPLICATIVE AND-GATES --
+products of pairs of linear projections, in both attention (s1*s2) and
+MLP (Lx*Rx), with no softmax and no relu anywhere. Selectivity, focality,
+and the quadratic-form expressivity (660) all flow from this one gate,
+applied 36 times. Combined with the massive-activation rms-norm gain
+control (676-680), the one frequency-calibration knob (650-675), and the
+distributed remainder (the universal-redundancy law), this is a complete,
+unified mechanistic + architectural account of the model. FINDINGS
+current. Queued massive_from_gating to connect the two architecture
+threads: do the massive-activation dims (676) arise FROM the multiplicative
+gates -- are the high-magnitude residual dims the ones the MLP products
+write largest (products can blow up, plausibly forcing the rms-norm gain
+control)?
