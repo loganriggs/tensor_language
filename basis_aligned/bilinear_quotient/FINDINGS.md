@@ -41,6 +41,17 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    for "a good component": don't fit a dictionary and hope — compute the canonical token-mean
    subspace, verify it causally (ablate-vs-random AND keep-only-vs-random), read its named axes.*
    **HIGH.**
+   **GRAND CAPSTONE (767–795):** keeping ONLY class+position at ALL 36 components at once recovers
+   **78%** of the whole model's 9.1-nat contribution (front alone 84%; random subspace 4%),
+   **uniformly** across every token-class (function words 0.80, content 0.77 — gap 0.04). Class is a
+   computed grammatical-class collapse (identity ~132 eff-dim → class ~24, sharpened ~1.8× vs the
+   embedding, nonlinear R²0.44 §780/782); position is a coarse ~2-dim early/late readout of RoPE
+   (RoPE ~18 eff-dim → ~2 §786/788). Written to near-orthogonal channels (§772), read amortized by
+   later components (§783/784), generalising to GPT-2/Pythia at the subspace level (§778/781). The
+   ~22% remainder is a **uniform, diffuse, distributed** computation with no low-rank or class handle
+   (§795). So the 546M model is ~4/5 a class+position machine. Per-HEAD concept-naming FAILS (heads
+   are broad multi-function; the fold names QK geometry not causal function, §792) — the robust unit
+   is the VARIABLE a component reads/writes, not a head label. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
