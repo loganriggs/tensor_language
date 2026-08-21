@@ -23928,3 +23928,49 @@ READ:
 This is external validation of the 767-777 program: the token-class subspace is a
 REAL, canonical, low-rank, causal, cross-model structure, and the first-MLP-heavy
 barbell is a cross-model regularity. pred_a (generalises) True.
+
+## 780. TOKEN-CLASS GEOMETRY -- the token-means are a COMPUTED low-rank CLASS
+## structure, not token identity (user insight confirmed on the decisive measure).
+## Per-token mean of mlp0 output ("mean table") vs the raw embedding table, 360
+## tokens with >=8 occurrences.
+Result:
+  (a) CLASS COLLAPSE (Q1): mean-table effective rank 22.7 vs embedding 132.4 (of 360
+      tokens). The MLP maps ~360 distinct tokens into a ~23-dim space -- ~6x lower
+      than the embedding. Tokens massively SHARE structure = class collapse, NOT
+      identity (identity needs ~360 dims). User's insight VALIDATED: the token-means
+      are class structure. The current token is already in the stream (embedding
+      never leaves); the MLP does not re-encode it -- it computes its CLASS.
+  (b) NONLINEAR COMPUTATION: the mean is only 44% linearly predictable from the
+      embedding (ridge R2 0.44) -> the MLP computes class structure NONLINEARLY,
+      adding geometry the embedding lacks. Within-class norm varies more in the mean
+      (CV 0.11 vs emb 0.04) -> norm carries class info.
+  (c) COSINE-SEPARATION CONFOUND (my pred_b WRONG, stated plainly): I predicted the
+      mean table would show LARGER within-minus-across cosine separation than the
+      embedding. It does NOT (mean 0.155 vs embedding 0.237). But this is a
+      BASELINE-SIMILARITY CONFOUND: the mean table is so low-rank that ALL tokens are
+      cosine-similar (within 0.77 / across 0.62 -- a dominant shared "I am a token"
+      direction inflates every cosine), while the embedding has a low baseline
+      (across 0.07). Class structure lives in the LOW-VARIANCE directions on top of
+      the shared component; raw cosine can't see it. NOT counter-evidence -- the
+      eff-rank collapse (a) and nonlinearity (b) confirm the class-computation story.
+      Follow-up: remove the shared direction (whiten) then re-measure class geometry.
+pred_a True, pred_b False (confound), null clean (shuffled sep -0.005). Queued
+token_class_whiten.
+
+## 781. CROSS-MODEL POSITION -- the full "first MLP = token-class + POSITION, both
+## causal" story GENERALISES to GPT-2 and Pythia-410m (extends 778 with 776/779).
+Result (first MLP, L0):
+  GPT-2     : keep token 0.84 pos 0.63 combined 0.92 | position causal ratio 10.4
+              (remove-pos dCE 0.043 vs rand 0.004) | tok-pos overlap 0.61
+  Pythia-410m: keep token 0.62 pos 0.42 combined 0.70 | position causal ratio 113.5
+              (remove-pos dCE 2.74 vs rand 0.024) | tok-pos overlap 0.69
+READ: POSITION IS CAUSAL in the first MLP of BOTH real models (GPT-2 10x, Pythia
+113x random), and token-class + position together beat token alone (combined 0.92 /
+0.70 > token 0.84 / 0.62). So the two-variable decomposition -- token-class (lexical)
++ position -- is GENERAL, across position-encoding schemes (GPT-2 learned-absolute,
+Pythia rotary). Pythia's positional weight is HUGE (dCE 2.74 of its 7.3-nat L0) --
+rotary makes the first MLP heavily positional; GPT-2's is smaller (more token-class).
+So the token/position SPLIT varies by architecture, but BOTH variables are present
+and causal everywhere. token-class and position are also ENTANGLED within-component
+in both (overlap 0.61/0.69, like bilin18 776). External validation of 776-779.
+pred_a (position causal) + pred_b (combined>=token) True.

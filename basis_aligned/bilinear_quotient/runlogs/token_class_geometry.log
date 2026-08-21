@@ -1,0 +1,8 @@
+360 tokens with >= 8 occurrences
+(a) effective rank: mean-table 22.7  embedding 132.4  (of 360 tokens)
+    labelled tokens: {'punct': 17, 'number': 11, 'determiner': 24, 'pronoun': 19, 'prep': 17}
+(b) class separation (within-across cos): mean-table 0.155 (w 0.77/a 0.62) | embedding 0.237 (w 0.30/a 0.07) | shuffled-null -0.005
+    mean = linear(embedding)? ridge R2 0.440  | within-class norm CV: mean 0.111 emb 0.037
+
+(a) class collapse (mean-rank << emb-rank): True; (b) sharper classes + nonlinear: False; NULL: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/token_class_geometry_results.json (45s)
