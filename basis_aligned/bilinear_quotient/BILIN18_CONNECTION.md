@@ -21732,3 +21732,22 @@ statement is 'overlapping but reliably differentiated emphases, with a
 syntactic (block0.attn) vs open-vocab/subword (block0.mlp, block1.attn)
 split.' Self-correcting sequence: 710 flawed null -> v2 proper test ->
 real differentiation found.
+
+## 712. VOID (bug caught by sanity): rspd_depth_rank_map returned r80=512
+## for ALL 18 MLP layers -- flatly contradicting the established mlp0 r80=8
+## / mlp17 r80=4 (694, 699). Cause diagnosed and fixed.
+
+BUG: the fast A-SVD helper (asvd_fast, 700) computes the Gram G = X.T @ X
+(d_in x d_in = 4608^2) and inverts it. That right-inverse route pinv(X.T) =
+X @ inv(X.T X) is only valid when N >= d_in. This run used NFIT=12 (N=3072
+tokens) < d_in=4608 (the MLP gate width), so X.T X is RANK-DEFICIENT (rank
+<= 3072 of 4608); the eps-ridged inverse is a wrong pseudoinverse -> garbage
+low-rank surrogate -> nothing reaches 80% until r=512. (700's validation and
+707 used N >= d_in, so they were correct; 699's front map used the LIBRARY
+pinv, also correct.) The r80=512-for-all, plus the null mlp1 random rank-8
+recovering +0.127 (should be ~0/negative), were the tells.
+FIX: made asvd_fast pick the correct Gram by regime -- N >= d_in uses the
+(d_in x d_in) Gram; N < d_in uses the (N x N) Gram B = Vh @ (X X^T)^{-1} X.
+Also bumped the depth map to NFIT=24 (6144 > 4608) so the well-conditioned
+branch is used. Requeued rspd_depth_rank_map. No conclusions drawn from the
+void run.

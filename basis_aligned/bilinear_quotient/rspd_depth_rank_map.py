@@ -21,14 +21,23 @@ from bilin18_joint_removal import m, DEV
 D = 1152; HID = 4608
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'rspd_depth_rank_map_results.json'
-NFIT = 12; NEVAL = 48
+NFIT = 24; NEVAL = 48   # N=6144 tokens > MLP gate width 4608 (well-conditioned)
 RANKS = [1, 2, 4, 8, 16, 32, 64, 128, 256, 512]
 
 
 def asvd_fast(W, X, eps=1e-3):
+    """Regime-aware A-SVD. pinv(X.T) via the SMALLER, full-rank Gram:
+    N>=d_in -> (d_in x d_in) Gram X.T X; N<d_in -> (N x N) Gram X X.T."""
     U, S, Vh = torch.linalg.svd(W @ X.T, full_matrices=False)
-    G = X.T @ X; G.diagonal().add_(eps)
-    return U * S, torch.linalg.solve(G, (Vh @ X).T).T
+    A = U * S
+    N, din = X.shape
+    if N >= din:
+        G = X.T @ X; G.diagonal().add_(eps)
+        B = torch.linalg.solve(G, (Vh @ X).T).T          # (k, d_in)
+    else:
+        Gn = X @ X.T; Gn.diagonal().add_(eps)            # (N, N)
+        B = Vh @ torch.linalg.solve(Gn, X)               # (k,N)@(N,d_in)
+    return A, B
 
 
 @torch.no_grad()
