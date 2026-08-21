@@ -1,0 +1,8 @@
+metric            A-SVD      weight-SVD
+  interaction       0.0947     0.0781
+  concentration     0.3548     0.3497
+  mean_damage_mag   5.7999     4.6687
+
+interpretation: lower interaction = more composable; lower concentration = more monosemantic
+composability winner: weight-SVD; monosemanticity winner: weight-SVD
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/decomp_composition_compare_results.json (109s)
