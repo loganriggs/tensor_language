@@ -24032,3 +24032,26 @@ next question. pred_a False (L5 combined 0.545 < 0.6 bar) but the result is
 informative: amortized reading confirmed, variable-identity head-specific.
 NEXT: map WHICH variable each attention layer reads across the network (class vs
 position vs other) -- the amortized-composition graph. Queued qk_variables_depth.
+
+## 784. QK VARIABLE-READING MAP -- the biggest early heads amortize on the CLASS
+## variable; L2/L4/L5 read FURTHER variables (amortized-composition graph). Restrict
+## each attention layer's input to token-class / +position, CE-recovery. Fig
+## qk_variables_depth.png.
+Result (big-benefit attention layers):
+  L0 (1.48): class 0.61  +pos 0.75  -> CLASS-reader
+  L1 (2.42): class 0.94  +pos 0.96  -> CLASS-reader (strong)
+  L2 (0.40): class -0.77 +pos -0.20 -> OTHER (negative: relies on non-class/non-pos)
+  L4 (0.32): class 0.07  +pos 0.23  -> OTHER
+  L5 (2.07): class 0.11  +pos 0.54  -> POSITION + ~45% OTHER
+  (L6-L17 near-inert, benefit ~0.01-0.10; recovery ratios noise.)
+READ: the amortized-composition-on-front-variables holds STRONGLY for the two biggest
+early heads -- L0/L1 (3.9 nats) are CLASS-readers, attending on the front's
+grammatical-class variable (these are the article/newline front-attention circuits,
+727). But L5 (2.07 nats) reads POSITION plus a further variable, and L2/L4 read a
+variable that is NEITHER class nor position (L2 negative -> its function is
+orthogonal to class+position). So the residual multiplexes MORE named variables than
+class+position: the big class-readers amortize on the front's class variable, but
+L2/L4/L5 read additional COMPUTED variables (position + unnamed). pred_b False (only
+2/5 big heads read class+position). The compositional picture holds -- later layers
+read earlier-computed variables -- but the variable set is larger than {class,
+position}, and naming L5's/L2's further variable is the open question.
