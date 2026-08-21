@@ -1,0 +1,11 @@
+baseline gap P(") inside-outside +0.00497
+remove w_quote gap +0.00494 (lost 0%)
+remove random-1 #0 gap +0.00506 (lost -2%)
+remove random-1 #1 gap +0.00496 (lost 0%)
+remove random-1 #2 gap +0.00496 (lost 0%)
+
+(0) baseline gap positive: True
+(a) w_quote removal collapses gap >=50%: False (lost 0%)
+NULL random removal barely matters: True (mean lost -1%)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/quote_state_causal_results.json (148s)

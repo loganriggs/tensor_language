@@ -9,11 +9,17 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
 
 ## The established results (most important first)
 
-1. **Redundancy is universal — no necessary component at any grain.** Computation is diffuse over
-   MLP units, over depth bands, and over attention heads. The strongest localization the model
-   permits is "these components do it and matter more than chance," never "this one is the circuit."
-   **HIGH.** §610–616 (units), §633 (clusters), §644 (routing = "front attention", no single head),
-   §648 (even the induction heads: top-4 ablation removes only 10%).
+1. **Redundancy is universal, and decodability ≠ causality — one isolable knob + a distributed
+   remainder.** Computation is diffuse over MLP units, depth bands, and attention heads; the
+   strongest localization is "these matter more than chance," never "this is the circuit" (§610–616,
+   §633, §644, §648). The isolation taxonomy (§650–668): **additive/subtractive biases isolate to a
+   removable linear direction** (the frequency calibration = rank-1, §650–651) — but **every
+   conditional/predictive/stateful computation** (newline routing §652–653, article magnitude §654,
+   content-writing §658, quote-parity register §668) has **no removable linear carrier**, even when
+   the feature is strongly *decodable* (quote-parity AUC 0.83 yet causally inert, §668 — read≠write).
+   Net: the model is ~**one cleanly-isolable linear knob** (the frequency-calibration bias, ~0.43 of
+   the ~7.48-nat loss-benefit over uniform, ~6%) plus a ~94% **distributed remainder** with no
+   linear carrier. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even

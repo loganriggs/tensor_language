@@ -20153,3 +20153,41 @@ inside), not a feature carried to the readout. Queued quote_state_causal
 to test causality: does removing the mid-network quote-parity direction
 collapse the inside-vs-outside P('"') gap (is the register the causal
 driver of quote-tracking, or a read-correlate)?
+
+## 668. The quote-parity register is a READ-CORRELATE, not the causal
+## carrier: removing the mid-network quote direction (AUC 0.83) does
+## NOTHING to the behavioral P('"') gap (0% lost = random). Decodable but
+## causally inert -- read!=write for a stateful register. The taxonomy
+## now holds across routing, magnitude, AND stateful state.
+
+Causal test of 667's quote register. Removing the rank-1 quote-parity
+direction from the residual after block 6:
+  baseline gap P('"') inside-outside +0.00497
+  remove w_quote  +0.00494 (0% lost)
+  remove random-1 (x3): 0%, -2%, 0%
+FINDINGS:
+  (a) READ-CORRELATE, not causal (registered guess correct -- I
+      anticipated read!=write). The quote-parity direction DECODES the
+      state well (AUC 0.83, 667) but removing it leaves the behavioral
+      quote-tracking (P('"') 3.4x higher inside) completely intact. So
+      the state's causal effect is NOT carried by the decodable linear
+      direction -- it is distributed/nonlinear/recomputed, like every
+      other conditional computation. NULL clean.
+THE UNIFICATION (the session's central law, now maximally general):
+across newline routing (652-653), article magnitude (654), subword
+content-writing (658), AND now a STATEFUL context register (668), the
+causal computation has NO removable linear carrier -- these are all
+distributed/conditional. The ONE exception in the whole model is the
+frequency-calibration BIAS (rank-1 isolable, 650-651). And decodability
+does not imply causality: quote-parity is strongly decodable (0.83) yet
+causally inert to linear removal -- read!=write holds even for a clean
+state feature. So the model's mechanistic structure is: ~ONE cleanly-
+isolable linear knob (the frequency calibration, ~0.43 of ~7.48 nats of
+loss-benefit over uniform, i.e. ~6% of its predictive power) plus a
+vast distributed remainder (~94%) -- all the prediction, routing,
+refinement, and stateful registers -- that is decodable in places but
+has no removable linear carrier. This is the sharpest statement of the
+program's universal-redundancy / read!=write findings. Propagated to
+FINDINGS. Queued paren_depth_state to confirm the pattern generalizes to
+a SECOND stateful register (parenthesis depth): decodable but causally
+conditional?
