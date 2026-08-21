@@ -1,0 +1,8 @@
+CE_full 3.425 benefit 0.923
+lambda=0.0: ||W-DE||/||W|| 0.000  code-L0 1757.6/2048  CE-recovery 1.000
+lambda=0.001: ||W-DE||/||W|| 0.120  code-L0 1302.6/2048  CE-recovery 0.854
+lambda=0.01: ||W-DE||/||W|| 0.324  code-L0 1792.7/2048  CE-recovery -1.897
+A-SVD full-rank: CE-recovery 1.000 (dense, faithful reference)
+
+(0) lambda=0 fits W + dense: True; NULL sparsity reduces L0: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/weight_action_sae_real_results.json (120s)

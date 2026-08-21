@@ -22960,3 +22960,38 @@ learned overcomplete sparse code is the right decomposition for faithfulness
 + efficiency. (Caveat: the SAE is still activation-based/lossy at these k;
 the weight-action version (747, queued on real weight) is the fully weight-
 faithful analog.)
+
+## 749. WEIGHT-ACTION SAE on real mlp1.Down -- soft-L1 FAILED to sparsify
+## (honest negative on the IMPLEMENTATION, not the concept). lambda=0 gives an
+## EXACT faithful factorization (||W-DE||=0, CE-recovery 1.000) but DENSE
+## codes (1758/2048); raising lambda BREAKS faithfulness (||W-DE|| 0.12->0.32,
+## CE 0.85->-1.90) WITHOUT reducing L0. Fix: HARD top-k, not soft L1.
+
+Real mlp1.Down, D@E overcomplete P=2048, sweep lambda (L1 on codes E@X):
+  lambda   ||W-DE||/||W||   code-L0/2048   CE-recovery
+  0.0      0.000            1757.6         1.000   (exact, faithful, DENSE)
+  0.001    0.120            1302.6         0.854   (faithful degrading, still dense)
+  0.01     0.324            1792.7        -1.897   (broken, still dense)
+  A-SVD full-rank reference: CE-recovery 1.000 (dense, faithful).
+FINDINGS:
+  - The soft-L1 weight-action SAE did NOT achieve faithful+SPARSE on the real
+    weight. At lambda=0 it is EXACT (P>rank so D@E=W) and CE-faithful but
+    DENSE. Increasing lambda destroys the weight reconstruction WITHOUT
+    buying sparsity (L0 barely moves, even rises). NULL (sparsity reduces L0)
+    FAILED -- the L1 penalty did not bite.
+  - CONTRAST with the toy (747, L0 7.5) and the ACTIVATION top-k SAE (748,
+    sparse + 86% CE at k=8): the sparse structure IS there (748 extracts it),
+    but the WEIGHT-ACTION + SOFT-L1 + Adam optimization couldn't. The issue
+    is HARD vs SOFT sparsity: top-k (748) enforces sparsity; soft L1 competes
+    with the weight-reconstruction constraint and Adam finds a dense
+    compromise. Also the eff-L0 threshold metric may under-report.
+  FIX (corrected implementation): weight-action SAE with HARD TOP-K on the
+    codes -- train D (Dout x P), E (P x din) to minimize ||W@gate -
+    D@topk(E@gate)||^2 (reconstruct the weight's ACTION/output with sparse
+    input-driven codes). This is the weight-action analog of the successful
+    748 activation SAE (encoder = linear map E of the GATE, tied to the
+    weight), with sparsity ENFORCED. Queued weight_action_topk.
+HONEST STATUS: the weight-action CONCEPT is validated (747 toy); the soft-L1
+implementation FAILS on the real weight; the hard-top-k implementation is the
+corrected next step. The activation SAE (748) already shows the sparse
+structure is real and CE-faithful.

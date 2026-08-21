@@ -1,0 +1,31 @@
+{
+ "ce_full": 3.4252,
+ "benefit": 0.9229,
+ "P": 2048,
+ "lambdas": [
+  0.0,
+  0.001,
+  0.01
+ ],
+ "frontier": {
+  "0.0": {
+   "weight_recon_err": 0.0,
+   "code_l0": 1757.56,
+   "ce_recovery": 1.0
+  },
+  "0.001": {
+   "weight_recon_err": 0.1203,
+   "code_l0": 1302.61,
+   "ce_recovery": 0.8544
+  },
+  "0.01": {
+   "weight_recon_err": 0.3239,
+   "code_l0": 1792.65,
+   "ce_recovery": -1.8972
+  }
+ },
+ "asvd_ce_recovery": 1.0,
+ "pred_0": true,
+ "null_ok": false,
+ "runtime_s": 119.70690512657166
+}
