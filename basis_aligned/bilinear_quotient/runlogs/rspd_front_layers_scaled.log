@@ -1,0 +1,19 @@
+baseline CE (eval 48 rows): 3.1917
+
+=== data-scaling sweep: mlp0.Down (benefit 2.078) ===
+N=  3072 tok: r80=8  rand_r80=None  rec@4=0.7532 rec@8=0.8275 rec@32=0.923
+N=  6144 tok: r80=8  rand_r80=None  rec@4=0.7407 rec@8=0.8229 rec@32=0.9257
+N= 12288 tok: r80=8  rand_r80=None  rec@4=0.7382 rec@8=0.8213 rec@32=0.9249
+N= 24576 tok: r80=8  rand_r80=None  rec@4=0.7397 rec@8=0.8257 rec@32=0.9251
+
+(a) r80 across N = [8, 8, 8, 8] -> data-robust (<=2x spread): True
+
+=== front map (blocks 0-2, N=12288 tok) ===
+block0.attn   : benefit 1.275  r80=2  rand_r80=512  rec@8=0.8994
+block0.mlp    : benefit 2.078  r80=8  rand_r80=None  rec@8=0.8213
+block1.attn   : benefit 2.061  r80=1  rand_r80=None  rec@8=0.9702
+block1.mlp    : benefit 1.018  r80=128  rand_r80=512  rec@8=-2.6474
+block2.attn   : benefit 0.324  r80=8  rand_r80=512  rec@8=0.8092
+block2.mlp    : benefit 0.154  r80=256  rand_r80=None  rec@8=-2.4095
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rspd_front_layers_scaled_results.json (149s)

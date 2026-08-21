@@ -21289,3 +21289,46 @@ delivered at both ends of the network.
 ## Queued rspd_front_layers_scaled: GPU A-SVD over MUCH more data, all
 ## components of blocks 0-2 (attn c_proj + mlp Down), WITH an explicit
 ## r80-vs-N data-scaling sweep to test whether the low-rank claim holds.
+
+## 699. SCALED + DATA-ROBUST front map (user pivot: more data on GPU, map
+## first layers entirely). TWO findings: (1) the r80 low-rank claim IS
+## data-robust for the components that have it; (2) the front is
+## HETEROGENEOUS -- attention output-maps are strikingly low-rank (r80
+## 1-8) while mlp1/mlp2 are GENUINELY high-rank (r80 128-256). This
+## CORRECTS any impression (from 694-697's mlp0/mlp17) that all MLP cores
+## are rank ~4-8.
+
+(1) DATA-ROBUSTNESS (the key test, held-out CE pricing): mlp0.Down r80 at
+    N = 3k/6k/12k/24k tokens = 8/8/8/8, recovered@4/@8/@32 flat
+    (0.75/0.83/0.92 at every N). So r80=8 for mlp0.Down is NOT a small-
+    sample artifact -- resolves the 698 caveat for this component. (Method
+    validated; the 3072-token fits were already close.)
+(2) FRONT MAP, blocks 0-2, N=12k tokens, held-out CE, full-rank A-SVD
+    reproduces baseline EXACTLY (3.1917) for ALL 6 -> sanity universal, so
+    every r80 below is a real property, not a substitution artifact:
+      component     benefit  r80   rec@1   rec@8   note
+      block0.attn    1.275    2    0.784   0.899   very low-rank map
+      block0.mlp     2.078    8    0.632   0.821   low-rank (matches sweep)
+      block1.attn    2.061    1    0.930   0.970   RANK-1 recovers 93%!
+      block1.mlp     1.018   128  -5.064  -2.647   GENUINELY high-rank
+      block2.attn    0.324    8    0.615   0.809   low-rank map
+      block2.mlp     0.153   256  -2.880  -2.410   high-rank (small benefit)
+    Attention c_proj maps compress to 1-8 directions on-data; block1.attn's
+    entire 2.06-nat contribution is ~RANK-1. But mlp1/mlp2 are high-rank:
+    their low-rank A-SVD surrogates are ACTIVELY HARMFUL (recovered far
+    NEGATIVE at r<=8 -- worse than ablating the layer), recovering only
+    near full rank. So a data-conditioned low-rank core exists for
+    attention maps + mlp0, but NOT for mlp1/mlp2.
+CORRECTIONS/HONESTY:
+  - Registered prediction (b) FAILED and is reversed: I predicted MLPs
+    would be LOWER-rank than attention. The opposite holds -- attention
+    c_proj maps are the low-rank ones (r80 1-8); mlp1/mlp2 are high-rank
+    (128/256). Stated plainly.
+  - The '~4-8 rank core' is COMPONENT-SPECIFIC (mlp0, mlp17, attention
+    maps), NOT a universal property of this model's MLPs. mlp1/mlp2 refute
+    universality. Any earlier phrasing suggesting all MLPs compress is
+    hereby scoped down.
+FOLLOW-UPS: block1.attn rank-1 core (name the single direction carrying
+2.06 nats) is the most striking lead; and WHY mlp1/mlp2 are high-rank
+while mlp0/mlp17 are not (a front-interior vs edge contrast) is the open
+question. Queued rspd_block1_attn_rank1 to name the rank-1 direction.
