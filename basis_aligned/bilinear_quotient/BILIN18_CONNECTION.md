@@ -19802,3 +19802,40 @@ thread closed; FINDINGS + deliverable carry the taxonomy. Queued
 additive_bias_catalog: is frequency the model's ONLY rank-1 additive
 bias, or do other token properties (length, capitalization) have
 isolable rank-1 biases too?
+
+## 659. VOID (confounded, caught by the registered null): the additive-
+## bias catalog's cosine method is invalid -- cov(O, property) pulls every
+## w_prop toward O's dominant variance directions, so a RANDOM label gives
+## cos(w_rand, w_freq) = -0.52, not ~0. Cannot compare property biases by
+## cosine. (651 already shows the calibration is ~fully rank-1, so there
+## is no second FREQUENCY bias.)
+
+Attempted to catalog block-17's additive biases by cos(w_prop, w_freq)
+for w_prop = cov(mlp17 output, property).
+  log_freq        cos +1.00
+  length          cos +0.20   (corr w/ logfreq -0.62)
+  is_capitalized  cos -0.27   (corr -0.29)
+  is_punct        cos -0.19   (corr +0.42)
+  random_label    cos -0.52   <-- THE TELL
+THE CONFOUND: a random per-position label should give w_prop ~ a random
+direction, cos ~ 0.03. It gave -0.52. Because w_prop = O^T @ (property -
+mean) is a weighted sum of O's rows, it is pulled toward O's high-
+variance directions regardless of the property; w_freq (also from O)
+shares that structure, so all cosines are inflated by O's covariance, not
+by property alignment. The registered random-label NULL caught this
+cleanly -- so (0) and NULL "failed", correctly voiding the method. The
+property-cosine comparison is INVALID.
+WHAT STANDS regardless: 651 already showed removing w_freq loses 103% of
+the calibration's rare-benefit -- so the frequency calibration is ~fully
+captured by the single rank-1 w_freq; there is NO second frequency-like
+bias to find. Whether block 17 also applies biases along OTHER property
+axes (length/punct) is NOT answerable by cosines; it would need a causal
+per-property removal in a whitened space (deferred -- low priority, since
+the calibration benefit is already 103% explained by w_freq).
+METHOD LESSON (add to the isolation recipe): compare behavior-conditioned
+directions by CAUSAL REMOVAL or in a whitened space, never by raw cosine
+-- cov-with-property directions all share the activation covariance and
+their cosines are confounded. Closes the additive-bias-catalog line as
+void. Pivoting to the user's Q3 (architecture): how many quadratic
+functions does mlp17 effectively compute -- its FUNCTIONAL (loss) rank,
+vs the rank-8 variance rank (615)? Queued mlp17_functional_rank.

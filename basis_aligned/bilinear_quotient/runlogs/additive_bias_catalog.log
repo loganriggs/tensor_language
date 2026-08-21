@@ -1,0 +1,12 @@
+log_freq        cos(w_prop, w_freq) +1.000  corr(prop, logfreq) +1.000
+length          cos(w_prop, w_freq) +0.203  corr(prop, logfreq) -0.615
+is_capitalized  cos(w_prop, w_freq) -0.274  corr(prop, logfreq) -0.289
+is_punct        cos(w_prop, w_freq) -0.186  corr(prop, logfreq) +0.420
+random_label    cos(w_prop, w_freq) -0.518  corr(prop, logfreq) -0.017
+
+(0) sanity (self-cos 1, random ~0): False
+(a) length & capitalized align with w_freq (|cos|>=0.4): False
+(b) candidate NEW axes (|cos(w_freq)|<0.2): ['is_punct']
+NULL random-label near 0: False
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/additive_bias_catalog_results.json (69s)
