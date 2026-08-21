@@ -19358,3 +19358,46 @@ few classes the bigram barely encodes (digit/punct/capitalized, 638).
 Phase boundary: report refreshed. Queued direct_vs_full_ce to put a
 single number on it -- the CE of the bigram baseline vs the full model,
 overall and rare/frequent, quantifying the blocks' context contribution.
+
+## 642. Partial retraction of 641 + confirmation: number INITIATION is
+## computed (9.4x, n=209, solid, = 638's 8.3x); the continuation-is-a-
+## bigram sub-claim is RETRACTED (underpowered n=14, and what data there
+## is suggests continuation is also discriminated). Digit prediction is
+## computed, embedding gives only a weak "digits cluster" prior.
+
+Direct test at digit-TARGET positions, split by whether preceded by a
+digit. In this FineWeb sample only 14 digit-targets are continuations
+(most numbers are single/first tokens), 209 are initiations.
+  continuation (n=14): direct 0.198, full 0.716, full/direct 3.62
+  initiation (n=209):  direct 0.060, full 0.561, full/direct 9.36
+FINDINGS:
+1. INITIATION IS COMPUTED -- CONFIRMED, solid. At the 209 number-
+   initiation targets the embedding bigram is weak (0.060) and the full
+   model computes the digit from numeric context (0.561, 9.36x). This is
+   638's "digit 8.3x computed": it is number initiation.
+2. RETRACTION of 641's "continuation is a bigram". 641 inferred it from
+   prev-digit positions AVERAGED (direct 0.063 ~ full 0.065). But only
+   14 of 224 prev-digit positions are actually followed by a digit -- so
+   that near-equality just says "most digits are NOT followed by a
+   digit, and both the bigram and the model correctly predict low
+   there". It does NOT show that continuation-when-it-happens is bigram-
+   carried. The (underpowered, n=14) continuation-target data points the
+   other way: full 0.716 >> direct 0.198 (3.6x), i.e. continuation is
+   ALSO discriminated -- the bigram gives a blunt "a digit might
+   continue" and the blocks decide which digits actually continue. So I
+   RETRACT the continuation-is-a-bigram sub-claim; both digit sub-cases
+   are computed/discriminated, on the (limited) evidence.
+3. (0) FAILED (continuation n=14 < 20): the continuation subset is
+   underpowered in natural text; the initiation finding (n=209) stands.
+   NULL ok (direct low at initiation, 0.060).
+CORRECTED DIGIT PICTURE: digit prediction is COMPUTED from numeric
+context (initiation solidly, continuation on limited evidence); the
+embedding provides only a weak "digits cluster near digits/numeric
+context" prior. This fits the general phase result (637-640): the
+embedding gives blunt/weak priors, the blocks do the real predictive
+work. The 641 lesson (a class can hide two circuits) partly survives --
+initiation and continuation are distinct SITUATIONS -- but both turn out
+computed, not one bigram + one computed. Queued sentence_boundary_fanout
+(a fresh, cleanly-powered circuit: after '.', how does the model route
+among newline / capitalized / continuation, and does it discriminate
+the actual outcome?).

@@ -1,0 +1,10 @@
+digit-targets: 14 continuation, 209 initiation
+continuation direct 0.1978  full 0.7159  full/direct 3.62  (n=14)
+initiation   direct 0.0599  full 0.5610  full/direct 9.36  (n=209)
+
+(0) enough: False
+(a) continuation is bigram (full/direct<2): False
+(b) initiation is computed (full/direct>3): True
+NULL direct low at initiation: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_init_vs_cont_results.json (47s)
