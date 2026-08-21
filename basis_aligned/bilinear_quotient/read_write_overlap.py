@@ -35,7 +35,7 @@ from bilin18_joint_removal import m, DEV
 D = 1152; HID = 4608
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'read_write_overlap_results.json'
-NFIT = 256   # ~65k tokens
+NFIT = 128   # ~65k tokens
 RGRID = [1, 4, 8, 16, 32, 64]
 
 
@@ -53,7 +53,7 @@ def asvd_fast(W, X, eps=1e-3):
 def capture_all(rows, n):
     caps = {li: [] for li in range(len(m.transformer.h))}
     hooks = [blk.mlp.Down.register_forward_pre_hook(
-             (lambda li: lambda mo, inp: caps[li].append(inp[0].detach().float().reshape(-1, HID)))(li))
+             (lambda li: lambda mo, inp: caps[li].append(inp[0].detach().float().reshape(-1, HID).cpu()))(li))
              for li, blk in enumerate(m.transformer.h)]
     for i in range(0, n, 4):
         bb = rows[i:i+4, :257].to(DEV); idx = bb[:, :-1].contiguous()
@@ -84,7 +84,7 @@ def main():
         WL = blk.Left.weight.data.float().to(DEV)         # (4608, 1152)
         WR = blk.Right.weight.data.float().to(DEV)
         # WRITE dirs: A-SVD output basis (residual)
-        A, _ = asvd_fast(W, X[li])                         # A: (1152, k)
+        A, _ = asvd_fast(W, X[li].to(DEV))                         # A: (1152, k)
         Aw = A / A.norm(dim=0, keepdim=True).clamp_min(1e-9)
         # READ dirs: right singular vectors of [WL; WR] (residual)
         stacked = torch.cat([WL, WR], 0)                  # (9216, 1152)

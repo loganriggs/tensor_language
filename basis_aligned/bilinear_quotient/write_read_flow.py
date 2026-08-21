@@ -31,7 +31,7 @@ from bilin18_joint_removal import m, DEV
 D = 1152; HID = 4608
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'write_read_flow_results.json'
-NFIT = 256; R = 16
+NFIT = 128; R = 16
 
 
 def asvd_fast(W, X, eps=1e-3):
@@ -48,7 +48,7 @@ def asvd_fast(W, X, eps=1e-3):
 def capture_all(rows, n):
     caps = {li: [] for li in range(len(m.transformer.h))}
     hooks = [blk.mlp.Down.register_forward_pre_hook(
-             (lambda li: lambda mo, inp: caps[li].append(inp[0].detach().float().reshape(-1, HID)))(li))
+             (lambda li: lambda mo, inp: caps[li].append(inp[0].detach().float().reshape(-1, HID).cpu()))(li))
              for li, blk in enumerate(m.transformer.h)]
     for i in range(0, n, 4):
         bb = rows[i:i+4, :257].to(DEV); idx = bb[:, :-1].contiguous()
@@ -70,7 +70,7 @@ def main():
     WRITE = {}; READ = {}
     for li in range(NL):
         blk = m.transformer.h[li]
-        A, _ = asvd_fast(blk.mlp.Down.weight.data.float().to(DEV), X[li])
+        A, _ = asvd_fast(blk.mlp.Down.weight.data.float().to(DEV), X[li].to(DEV))
         Q, _ = torch.linalg.qr(A[:, :R]); WRITE[li] = Q
         # READ: residual dirs feeding MLP gates + attention q/k/v
         mats = [blk.mlp.Left.weight.data.float(), blk.mlp.Right.weight.data.float(),
