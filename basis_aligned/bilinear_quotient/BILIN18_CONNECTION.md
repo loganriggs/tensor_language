@@ -24474,3 +24474,34 @@ specific token to make confident predictions. We understand the skeleton complet
 causally (two low-rank computed nameable variables, cross-model-general); the content
 filler is the diffuse, no-low-rank-carrier residue -- needed most exactly where the
 model is most confident.
+
+## 799. CROSS-MODEL WHOLE-MODEL TEST DOES NOT TRANSFER (honest methodological
+## negative -- the whole-model 78% claim is NOT shown universal). Project all
+## components of gpt2/pythia onto class+position simultaneously.
+Result:
+  gpt2 (24 comp): benefit 49.57 (!!) | keep class+pos 0.948 | random 0.771
+  Pythia (48 comp): benefit 10.34 | keep class+pos 0.140 | random 0.162
+READ: the whole-model SIMULTANEOUS test is BROKEN for both real models, oppositely:
+  * gpt2: benefit 49.6 nats is IMPOSSIBLE for a bounded metric -- gpt2 has NO output
+    clamp (bilin18 uses 30*tanh(logit/30), bounding CE ~ log-vocab), so ablating all
+    components drives CE unbounded (the degenerate model assigns ~0 to true tokens).
+    The recovery ratio is then DOMINATED by preventing that catastrophe, so BOTH
+    class+position (0.95) AND random (0.77) score high -- the metric does NOT isolate
+    class+position (random 0.77 is the tell).
+  * pythia: keep 0.14 ~= random 0.16 (both LOW) -- projecting every one of 48
+    components onto a 96-dim subspace SIMULTANEOUSLY through 24 layers compounds
+    destructively; neither recovers, class+position no better than random.
+REASON: bilin18's whole-model 78% (794) is measurable because its 30*tanh output
+CLAMP bounds CE (clean benefit ~9, random null 0.04). Real models lack the clamp
+(gpt2 -> catastrophe-confounded) or are too deep for simultaneous 96-dim projection
+(pythia -> compounding). So this METRIC does not transfer.
+CONCLUSION / CORRECTION: I CANNOT confirm the whole-model ~78% class+position
+reduction is UNIVERSAL. The bilin18 78% (794) stands as a bilin18 measurement (its
+output clamp makes it clean), but its universality is UNTESTED -- the simultaneous-
+projection metric is bilin18-specific. The ROBUST cross-model result remains the
+PER-COMPONENT findings: first-MLP token-class SUBSPACE sufficiency (778: gpt2 keep64
+0.84 / pythia 0.62), first-MLP BARBELL (778), and position CAUSALITY (781). Those are
+clean because they touch ONE component (bounded intervention). pred_a False.
+So the cross-model claim is precisely: the FIRST-MLP class+position structure and the
+barbell generalise; the WHOLE-MODEL 78% reduction is a bilin18 result whose
+generality this metric cannot establish. Stated plainly.
