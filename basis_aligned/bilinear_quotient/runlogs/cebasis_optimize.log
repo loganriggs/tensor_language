@@ -1,0 +1,13 @@
+CE-importance ordering computed (469s)
+r=  1: CE-ordered -1.047  weightSVD -1.047  A-SVD -5.404  rand-order -0.115
+r=  2: CE-ordered -0.646  weightSVD -0.646  A-SVD -4.295  rand-order -0.202
+r=  4: CE-ordered -0.339  weightSVD -0.476  A-SVD -4.382  rand-order -0.479
+r=  8: CE-ordered -0.304  weightSVD -0.259  A-SVD -2.942  rand-order -0.395
+r= 16: CE-ordered -0.076  weightSVD -0.033  A-SVD -0.314  rand-order -0.631
+r= 32: CE-ordered 0.241  weightSVD 0.247  A-SVD 0.191  rand-order -0.184
+r= 64: CE-ordered 0.631  weightSVD 0.584  A-SVD 0.624  rand-order 0.176
+r=128: CE-ordered 0.860  weightSVD 0.839  A-SVD 0.895  rand-order 0.685
+r=256: CE-ordered 0.958  weightSVD 0.958  A-SVD 0.972  rand-order 0.958
+
+(a) CE-ordering dominates at low rank: False; NULL beats random-order: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cebasis_optimize_results.json (496s)

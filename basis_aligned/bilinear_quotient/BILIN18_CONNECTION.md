@@ -22586,3 +22586,28 @@ METRIC ANSWER (user's "in what way better"): EFFICIENCY (CE-recovery/component)
 -> weight-SVD wins. Other metrics (composability = pair-interaction sparsity;
 monosemanticity = damage concentration) measured separately
 (decomp_composition_compare, queued). No single decomposition is best on all.
+
+## 738. DECOMP COMPOSITION COMPARE -- weight-SVD wins COMPOSABILITY and
+## MONOSEMANTICITY too (not just efficiency, 737). But both dense orthogonal
+## bases are MEDIOCRE in absolute terms -> a sparse dictionary is needed.
+
+mlp1, A-SVD vs weight-SVD (M=20, pair-ablation + single-component damage):
+  metric          A-SVD   weight-SVD   (lower=better for first two)
+  interaction     0.095   0.078        composability: weight-SVD wins
+  concentration   0.355   0.350        monosemanticity: weight-SVD ~ ties/wins
+  damage_mag      5.80    4.67         A-SVD components damage harder
+FINDINGS:
+  - weight-SVD is >= A-SVD on ALL THREE measured metrics (efficiency 737,
+    composability, monosemanticity). A-SVD's data-conditioning (energy
+    ordering) does not help and slightly hurts. Consistent story.
+  - BUT both are dense orthogonal bases and ABSOLUTELY mediocre: interaction
+    ~0.08 (pairs interact ~8% -- not cleanly additive) and concentration
+    ~0.35 (each component's damage spread over ~35% of datapoints -- NOT
+    monosemantic). Neither is a good MDL/parsimonious decomposition; the
+    sparse-dictionary family is required for a real improvement.
+  - This motivates the user's MDL objective (per-datapoint sparse codes with
+    reuse) and the faithfulness question: how to get sparse codes WITHOUT the
+    faithfulness cost of a lossy SAE. Answer pursued next: faithfulness-
+    preserving basis rotation (rotate the EXACT SVD/A-SVD factorization to
+    maximize per-datapoint code sparsity -- exact reconstruction preserved,
+    codes sparser).
