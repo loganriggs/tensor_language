@@ -23693,3 +23693,31 @@ pred_a (generalises, >=3x) True; my weaker-than-MLP prediction FALSE; null clean
 NEXT: are the attention and MLP semantic subspaces the SAME or COMPLEMENTARY
 subspaces? (lexical vs structural -> if largely orthogonal, the front splits token
 processing into two complementary canonical subspaces.) Queued semantic_overlap.
+
+## 772. SEMANTIC SUBSPACES ARE NEAR-ORTHOGONAL ACROSS COMPONENTS -- the token-
+## class bus is MULTIPLEXED (my "partly-shared" prediction was too generous, stated
+## plainly). Pairwise principal-angle overlap of the top-64 token-semantic subspaces
+## (random floor 0.201):
+  attn0 | mlp0  0.254     <- barely above random -> NEAR-ORTHOGONAL
+  mlp0  | mlp4  0.339     <- highest (same type, cross layer) but still low
+  attn0 | attn4 0.275
+  attn0 | mlp4  0.210     ~= floor
+  attn4 | mlp0  0.205     ~= floor
+  attn4 | mlp4  0.237
+READ: every component encodes token-class (767-771 UNIVERSAL), but each component x
+layer writes it into its OWN, largely DISTINCT residual subspace. attn0 and mlp0
+overlap only 0.254 vs a 0.201 random floor -- essentially orthogonal, NOT the
+"partly shared" I predicted. So the residual stream is a MULTIPLEXED token-class
+BUS: attention's structural encoding (771), the MLP's lexical encoding (768), and a
+different subspace per layer, all coexisting in near-orthogonal channels so they do
+not interfere. This ties to the read/write-orthogonality result (each MLP reads one
+part of the stream and writes to a ~93%-orthogonal part): components keep their
+token-class signals separable by using private residual real estate, letting a
+downstream component read exactly the encoding it needs.
+CORRECTION: I predicted attn-vs-MLP overlap would be clearly ABOVE random (sharing
+some token-class directions). It is barely above (0.254 vs 0.201) -- the subspaces
+are more DISTINCT than predicted. pred_a False; null clean (random floor 0.201).
+SYNTHESIS (767-772): token-class organisation is the front network's universal
+principle -- canonical, causal, low-rank, necessary+sufficient, human-nameable, per
+component, and MULTIPLEXED into near-orthogonal per-component subspaces. That is a
+complete, ground-truth-free characterisation of what the front of the network does.
