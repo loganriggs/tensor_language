@@ -24617,3 +24617,42 @@ and across scale (124M-774M). gpt2-medium (355M) is the single genuine exception
     are the robust per-component cross-model findings (778/781); the whole-model %
     reduction is common-not-universal with one documented counterexample.
 This closes the cross-model / scale thread. pred_a (gpt2-large-only bar) moot.
+
+## §804 — Why is gpt2-medium's mlp0 the exception? Diagnosis: it is LOW-rank, but every centered projection is worse than ablation (gpt2_mlp0_compare.py)
+
+§802/803 left one open question: gpt2-medium (355M) is the isolated model whose first
+MLP does not reduce to class+position (keep-only < 0), while gpt2-small (0.77) and
+gpt2-large (0.75) both do. To find out WHAT it does instead, I compared all three
+GPT-2 mlp0's on effective rank and on keep-only recovery using the output's OWN top-r
+principal directions (unsupervised SVD) as well as the token-mean directions.
+
+Predictions (docstring): (0) small/large own-SVD keep high; (a) diagnose H1 high-rank
+vs H2 low-rank-not-token-organised; NULL random << own-SVD.
+
+Result — neither hypothesis was right, and the numbers point somewhere sharper:
+
+| model | eff-rank | own-SVD keep r16 / r64 / r128 | rand-64 | token-mean keep |
+|-------|---------:|-------------------------------|--------:|----------------:|
+| gpt2-small (d768)  | 21.8 | 0.44 / 0.88 / 0.97 | 0.25  | 0.92 |
+| gpt2-medium (d1024)| 26.2 | −0.79 / −0.31 / −0.17 | −0.50 | −0.13 |
+| gpt2-large (d1280) | 79.6 | 0.05 / 0.67 / 0.98 | 0.17  | 0.77 |
+
+The decisive line is gpt2-medium's OWN-SVD keep at r128: **−0.17**. Effective rank is
+only 26, so the top-128 principal directions capture essentially ALL the variance of
+the output — yet substituting that projection is WORSE than substituting zero. That is
+impossible if the projection reproduced the output. It doesn't, because all these
+subspaces are built from CENTERED data (deviations from the global mean), so keep-only
+projects out the per-component MEAN (DC) offset. For gpt2-small/large that offset is
+not loss-critical (own-SVD keep recovers 0.88/0.67 at r64). For gpt2-medium it must be
+large AND critical: dropping it makes any projection harmful — own-SVD, token-mean, and
+random alike are all negative.
+
+So gpt2-medium's mlp0 is NOT high-rank (eff-rank 26, like small's 22) and NOT "low-rank
+but not token-organised". The real suspect is a large, loss-critical CONSTANT BIAS that
+the centered class+position metric discards. If that is the cause, gpt2-medium IS
+class+position plus a big DC bias, and §802's "genuine exception" is a dropped-mean
+measurement artifact. Queued gpt2med_dc_test.py to settle it directly: keep class+
+position with the mean PRESERVED (v_kept = mean + proj_U(v − mean)) vs the centered
+version. If +mean goes positive, the exception dissolves. NOTE: this also flags that
+the whole class+position keep metric has been dropping the DC term throughout — benign
+for models where DC is not critical (all others), but it is the thing to check next.
