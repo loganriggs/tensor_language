@@ -22443,3 +22443,37 @@ LIFT-OVER-BASELINE evidence; ABLATION is the wrong tool and both attempts
 (732 flawed, 733 corrected-but-still-confounded) are inconclusive. Closing
 the digit re-verification: use bigram/unigram baselines, not ablation, if
 revisited. No further ablation attempts.
+
+## 734. QK MINI-WIN, LAYER 0 (user: QK circuit as a per-layer, bottom-up,
+## input-focused decomposition). Each head's two content QK bilinear forms
+## (M1=Wq.T Wk, M2=Wq2.T Wk2) read through the embedding give interpretable
+## "which query-tokens look for which key-tokens." Several layer-0 heads
+## have clean linguistic QK circuits.
+
+Layer-0 QK1 top-mode readout (query-tokens -> key-tokens), 9 heads:
+  head 0: many/well/much/long -> as/how/so/As   = COMPARATIVE ("as X as",
+          "so much") -- a clean construction circuit.
+  head 1: her/his/my/him -> you/We/You          = PRONOUN / person head.
+  head 4: devices/systems/scanner -> medical/governmental/military
+          = DOMAIN / compound-noun head (noun looks for its domain-adj).
+  head 3: (eff-rank 26, low) garbage -> and/is/that/,  = FUNCTION-WORD key.
+  heads 2,5,6,7,8: rare/formatting-token dominated -- top mode not cleanly
+          interpretable.
+FINDINGS:
+  - The QK content circuit is INPUT-FOCUSED and, at layer 0 (which reads the
+    embedding directly), several heads' top modes are human-readable
+    linguistic patterns: a comparative head, a pronoun head, a domain-noun
+    head, a function-word head. Real vs the random-form null (arbitrary
+    tokens, no structure).
+  - CAVEAT (honest): the per-head content forms are mostly HIGH-RANK (mean
+    eff-rank 97 of HD=128), so the top singular mode is only a SLICE of what
+    each head does -- the clean readouts are the dominant preference, not
+    the whole head. Head 3 is the exception (eff-rank 26, genuinely low).
+  - This is the bottom-up ANCHOR: layer 0's QK reads the embedding so its
+    modes map to TOKENS. Higher layers read the transformed residual, so
+    their QK modes are not directly token-readable -- the bottom-up program
+    needs an on-data characterization (which token-TYPES each head attends
+    to) for layers >= 1. That is the next step.
+This is the first QK mini-win: layer 0 has a small set of nameable QK
+circuits (comparative / pronoun / domain-noun / function-word) plus several
+high-rank/rare-token heads. Weight-based, 4s to compute.
