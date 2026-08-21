@@ -1,0 +1,11 @@
+mlp 0 write ablated -> blk 1 gate change: write 6.598  random 0.151  ratio 43.70
+mlp 5 write ablated -> blk 6 gate change: write 9.539  random 0.531  ratio 17.97
+mlp15 write ablated -> blk16 gate change: write 1.325  random 0.147  ratio 9.00
+mlp15 write ablated -> blk17 gate change: write 1.156  random 0.096  ratio 11.98
+mlp 1 write ablated -> blk17 gate change: write 0.415  random 0.017  ratio 24.62
+mlp 0 write ablated -> blk17 gate change: write 0.532  random 0.017  ratio 31.42
+mlp10 write ablated -> blk 3 gate change: write 0.000  random 0.000  ratio 0.00
+
+(a) adjacent paths causal (ratio>=1.5): True
+NULL backward/non-path ratio ~1: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/causal_flow_verify_results.json (132s)

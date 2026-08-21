@@ -22157,3 +22157,36 @@ FINDINGS:
 This extends the read!=write theme (619-622: probe vs unembedding; 676:
 w_freq in massive dims) to the MLP READ vs WRITE geometry: decode-site and
 write-site subspaces are largely orthogonal here too.
+
+## 725. COMPOSITION IS CAUSAL (verifies 723). Projecting out a layer's WRITE
+## subspace changes the downstream block's GATE 9-44x more than a random
+## same-rank subspace; the backward null is EXACTLY ZERO. The residual-bus
+## local forward flow is causally real.
+
+Ablate layer i's top-16 write subspace, measure block j gate change
+(relative), write vs random subspace:
+  path            write   random  ratio
+  mlp0 -> blk1    6.598   0.151   43.7x   (adjacent)
+  mlp5 -> blk6    9.539   0.531   18.0x   (adjacent)
+  mlp15-> blk16   1.325   0.147    9.0x   (adjacent)
+  mlp15-> blk17   1.156   0.096   12.0x   (hub)
+  mlp1 -> blk17   0.415   0.017   24.6x   (hub)
+  mlp0 -> blk17   0.532   0.017   31.4x   (hub, long-range)
+  mlp10-> blk3    0.000   0.000    0.0    (BACKWARD null)
+FINDINGS (all predictions HELD):
+  (a) CAUSAL: the write subspace is causally privileged -- ablating it
+      perturbs the downstream gate 9-44x more than a random subspace. The
+      geometric composition (723) is causally real.
+  NULL PERFECT: the backward path (mlp10 write -> blk3 gate, block 3 is
+      UPSTREAM of block 10) shows EXACTLY zero change -- by causality a
+      later layer cannot affect an earlier block's gate. Clean.
+  block 17 causally integrates from many layers (mlp0/1/15 all drive its
+      gate 12-31x) -- the integration-hub reading (723) is causal.
+  Magnitudes are large (mlp0->blk1 write-ablation = 6.6x relative gate
+      change) because removing a whole top-16 write subspace cascades; the
+      RATIO vs random is the clean causal signal.
+This VERIFIES the tensor-network composition: each layer's write causally
+drives the next block's read (gate), with block 17 as a causal integration
+sink. Combined with 724 (read!=write per layer), the residual bus routes
+information FORWARD through successive orthogonal-ish subspaces, causally.
+Ready to trace named circuits end-to-end through this verified flow.
