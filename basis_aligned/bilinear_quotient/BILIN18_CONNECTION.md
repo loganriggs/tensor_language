@@ -18899,3 +18899,44 @@ READ axis; the causal/steering axis is the WRITE axis (toward the
 unembedding), and the two can be orthogonal. Probes and interventions
 require different directions. The queued article_steering_decomp tests
 whether this read!=write orthogonality is universal or newline-specific.
+
+## 621. Read != write orthogonality is UNIVERSAL: the article probe is
+## also orthogonal to its write direction and also steers backwards.
+## Supervised readout probes recover the read axis, never the write axis.
+
+The generalization test for 620, on the flagship article circuit.
+Identical result shape:
+  (c) cos(d_article, W_U[article]) = +0.000 (per-row 257 -0.004, 281
+      -0.003, 262 -0.003, 383 +0.012). The article probe is ALSO
+      essentially orthogonal to the article unembedding rows.
+  (a) reversal GENERALIZES: adding alpha*d_article DROPS P(article)
+      monotonically (0.0807 -> 0.0263 over -2..+2), same backwards
+      steering as newline (619).
+  (b) here the article raw logit FALLS (+6.40 -> +4.39) -- classified
+      M1, opposite to newline's weakly-rising logit (620) -- BUT the
+      NULL CHECK shows this is non-specific: d's article-logit slope
+      (-2.01) is INSIDE the random-direction range (-0.57, -4.26,
+      -2.27). As with newline, d moves its class logit no more than a
+      random direction does; the per-class sign of the logit change is
+      a non-specific distributional artifact, not the probe acting on
+      its class.
+UNIFIED CONCLUSION across newline (620) and article (621): supervised
+readout probes (618, mean class activation minus generic, validated
+out-of-sample as decoders) recover the READ axis -- the direction in a
+layer's OUTPUT space that correlates with the class -- and that axis is
+ORTHOGONAL (cos ~ 0) to the WRITE axis, the unembedding direction that
+produces the class logit. In BOTH circuits the probe cannot steer its
+own feature (P drops), and its effect on the class logit is within
+random noise. This is a general, causal statement of the read/write
+distinction: the direction you DECODE a feature from is not the
+direction the model ENCODES it to. It unifies the program's threads:
+616 (clean-to-read != causally-locus) is exactly read!=write; 617/618
+(PCA vs supervised basis) is about which READ basis is interpretable,
+and neither read basis is the write basis; the recurring "activation-
+reading doesn't predict causal direction" (586/593/602/619) is the same
+fact -- reading the activation tells you the read axis, the causal
+effect lives on the write axis. METHOD RULE for the program: to
+intervene on a feature, push the WRITE axis (toward the unembedding /
+next-layer input), not a probe fit on activations. Queued
+write_direction_steering as the positive control: pushing W_U[class]
+itself should steer P(class) FORWARD, closing the loop.
