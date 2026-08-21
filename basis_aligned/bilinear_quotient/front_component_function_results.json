@@ -1,0 +1,105 @@
+{
+ "baseline_ce": {
+  "newline": 1.208,
+  "punct": 1.744,
+  "digit": 4.553,
+  "cap_word": 5.491,
+  "func_word": 1.957,
+  "content": 4.521,
+  "subword": 2.906
+ },
+ "category_counts": {
+  "newline": 350,
+  "punct": 1688,
+  "digit": 223,
+  "cap_word": 1235,
+  "func_word": 2842,
+  "content": 4454,
+  "subword": 1496
+ },
+ "table": {
+  "block0.attn": {
+   "delta": {
+    "newline": 0.311,
+    "punct": 0.896,
+    "digit": 1.591,
+    "cap_word": 1.474,
+    "func_word": 1.181,
+    "content": 2.063,
+    "subword": 1.222
+   },
+   "top_category": "content"
+  },
+  "block0.mlp": {
+   "delta": {
+    "newline": 0.412,
+    "punct": 1.116,
+    "digit": 3.457,
+    "cap_word": 3.346,
+    "func_word": 1.146,
+    "content": 3.106,
+    "subword": 3.519
+   },
+   "top_category": "subword"
+  },
+  "block1.attn": {
+   "delta": {
+    "newline": 0.63,
+    "punct": 1.7,
+    "digit": 3.272,
+    "cap_word": 2.454,
+    "func_word": 1.489,
+    "content": 2.961,
+    "subword": 3.671
+   },
+   "top_category": "subword"
+  },
+  "block1.mlp": {
+   "delta": {
+    "newline": 0.336,
+    "punct": 0.553,
+    "digit": 1.083,
+    "cap_word": 1.236,
+    "func_word": 0.7,
+    "content": 1.344,
+    "subword": 1.454
+   },
+   "top_category": "subword"
+  },
+  "block2.attn": {
+   "delta": {
+    "newline": 0.147,
+    "punct": 0.241,
+    "digit": 0.397,
+    "cap_word": 0.426,
+    "func_word": 0.283,
+    "content": 0.584,
+    "subword": 0.311
+   },
+   "top_category": "content"
+  },
+  "block2.mlp": {
+   "delta": {
+    "newline": 0.007,
+    "punct": 0.09,
+    "digit": 0.154,
+    "cap_word": 0.207,
+    "func_word": 0.092,
+    "content": 0.235,
+    "subword": 0.16
+   },
+   "top_category": "content"
+  }
+ },
+ "tops": [
+  "content",
+  "subword",
+  "subword",
+  "subword",
+  "content",
+  "content"
+ ],
+ "pred_a_differentiated": true,
+ "null_ok": false,
+ "runtime_s": 64.70872235298157
+}

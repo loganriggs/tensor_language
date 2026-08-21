@@ -1,0 +1,13 @@
+category counts: {'newline': 350, 'punct': 1688, 'digit': 223, 'cap_word': 1235, 'func_word': 2842, 'content': 4454, 'subword': 1496}
+baseline per-cat CE: {'newline': 1.21, 'punct': 1.74, 'digit': 4.55, 'cap_word': 5.49, 'func_word': 1.96, 'content': 4.52, 'subword': 2.91}
+block0.attn  top=content    newl +0.31  punc +0.90  digi +1.59  cap_ +1.47  func +1.18  cont +2.06  subw +1.22
+block0.mlp   top=subword    newl +0.41  punc +1.12  digi +3.46  cap_ +3.35  func +1.15  cont +3.11  subw +3.52
+block1.attn  top=subword    newl +0.63  punc +1.70  digi +3.27  cap_ +2.45  func +1.49  cont +2.96  subw +3.67
+block1.mlp   top=subword    newl +0.34  punc +0.55  digi +1.08  cap_ +1.24  func +0.70  cont +1.34  subw +1.45
+block2.attn  top=content    newl +0.15  punc +0.24  digi +0.40  cap_ +0.43  func +0.28  cont +0.58  subw +0.31
+block2.mlp   top=content    newl +0.01  punc +0.09  digi +0.15  cap_ +0.21  func +0.09  cont +0.23  subw +0.16
+
+(a) differentiated roles (tops ['content', 'subword', 'subword', 'subword', 'content', 'content']): True
+NULL real spread 3.11 > 1.5x shuffled 4.09: False
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_component_function_results.json (65s)

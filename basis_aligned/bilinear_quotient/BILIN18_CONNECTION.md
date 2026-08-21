@@ -21649,3 +21649,46 @@ fair recovery bar. This aligns with 702 (energy space: high-rank even in
 clusters) and 706 (the effect weakens for smaller-benefit layers). The two
 optimistic sections (704-705) overstated a real-but-modest effect;
 corrected here. Propagated to FINDINGS item 15.
+
+## 710. WHAT THE FRONT COMPONENTS DO (functional map, plain language). Per-
+## component ablation, CE increase by next-token CATEGORY. The front's work
+## goes into the HARD open-vocabulary predictions (content/subword/digit/
+## capitalized), NOT the easy ones (newline/function-word). Components are
+## broad, not category-specialized. (Differentiation null was flawed --
+## stated plainly.)
+
+Baseline per-category CE (the model's difficulty): newline 1.21, func_word
+1.96, punct 1.74 (EASY) vs content 4.52, digit 4.55, cap_word 5.49, subword
+2.91 (HARD open-vocab). CE increase when each component is zeroed:
+  component     newl  punc  digi  cap   func  cont  subw   (biggest)
+  block0.attn  +0.31 +0.90 +1.59 +1.47 +1.18 +2.06 +1.22
+  block0.mlp   +0.41 +1.12 +3.46 +3.35 +1.15 +3.11 +3.52  <- biggest, broad
+  block1.attn  +0.63 +1.70 +3.27 +2.45 +1.49 +2.96 +3.67  <- biggest, broad
+  block1.mlp   +0.34 +0.55 +1.08 +1.24 +0.70 +1.34 +1.45
+  block2.attn  +0.15 +0.24 +0.40 +0.43 +0.28 +0.58 +0.31
+  block2.mlp   +0.01 +0.09 +0.15 +0.21 +0.09 +0.23 +0.16  <- tiny
+FINDINGS:
+  - The front's contribution lands on the HARD categories (content, subword,
+    digit, cap_word: +3 nats from the big components) and is SMALL on the
+    easy ones (newline +0.3-0.6, func_word +0.7-1.5) -- those low-entropy
+    predictions are already handled by the embedding/bigram (637), the
+    front barely helps them. So the front is where the model does its
+    open-vocabulary work.
+  - MAGNITUDE ranking (matches the 699 benefits): block0.mlp ~ block1.attn
+    (biggest) > block0.attn > block1.mlp > block2.attn > block2.mlp (near
+    zero). Blocks 0-1 do almost all front work; block 2 does little.
+  - Components are BROAD, not category-owners: each big component helps many
+    hard categories at once. NOT a clean one-category-per-component split.
+  - Nice connection: block1.attn (rank-1 BOUNDARY detector, 701) most helps
+    SUBWORD/content prediction (+3.67/+2.96) -- boundary detection feeds
+    forward to predict the open-vocab continuation. Trigger = boundary,
+    payoff = continuation.
+CORRECTION (null flawed, stated plainly): my registered 'differentiated
+roles' test + label-shuffle null were mis-built (the null compared shuffled-
+label ablation CE to the REAL-label baseline -- inconsistent, gave a larger
+spurious spread). So I CANNOT claim category-SPECIALIZATION; the reliable
+structure is easy-vs-hard + magnitude, both robust (raw ablation deltas).
+The tops differing (content/subword) is not a trustworthy specialization
+signal. Queued front_component_function_v2 with a consistent null (shuffle
+labels for BOTH baseline and ablated) to settle whether any real category
+specialization exists beyond easy-vs-hard.
