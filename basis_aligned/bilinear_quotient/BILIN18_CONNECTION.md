@@ -24693,3 +24693,48 @@ is uniquely dominant and loss-critical. LESSON logged: centered keep-only silent
 the per-component mean — for a component with a large constant bias this reads as a
 spurious negative; keep the mean (or add a constant direction) before calling a keep
 score negative.
+
+## §806 — Large constant (DC) biases are a COMMON early-layer feature; mean-preserving keep lifts class+position across all five HF models (cross_model_dc.py)
+
+Follow-up to the §805 correction: is a big constant bias special to gpt2-medium, or
+pervasive? Re-scored the first attention and first MLP of five HF models with both the
+old centered keep and the corrected mean-preserving keep, and measured each component's
+mean-norm / output-norm.
+
+| model | attn0 dc | attn0 keep (cent→+mean) | attn0 benefit | mlp0 dc | mlp0 keep (cent→+mean) | mlp0 benefit |
+|-------|---------:|-------------------------|--------------:|--------:|------------------------|-------------:|
+| gpt2-small  | 0.85 | 0.56 → **0.98** | 2.26 | 0.56 | 0.92 → 0.94 | 3.96 |
+| gpt2-medium | 0.41 | 0.79 → 1.10 | 0.02* | **0.91** | −0.13 → **0.63** | 4.80 |
+| gpt2-large  | 0.43 | 0.11 → −0.35 | 0.01* | 0.57 | 0.77 → **0.97** | 4.86 |
+| pythia-160m | 0.52 | 0.76 → 0.96 | 1.34 | 0.41 | 0.63 → 0.70 | 5.17 |
+| pythia-410m | 0.56 | 0.78 → 1.00 | 0.83 | 0.50 | 0.70 → 0.72 | 7.30 |
+
+(* near-zero benefit — see below.)
+
+Three clean takeaways:
+
+1. **Large constant biases are common, not special to gpt2-medium.** 7 of the 10 early
+   components have dc-ratio > 0.5 (every model has at least one; gpt2-small's attn0 is
+   0.85, gpt2-medium's mlp0 the extreme at 0.91). A big constant offset that a component
+   adds at every position is a pervasive early-layer feature — reminiscent of attention-
+   sink / "default output" behaviour — and the centered keep metric was discarding it
+   everywhere.
+
+2. **Preserving the mean lifts class+position for every substantive component.** Every
+   first MLP (all high-benefit, 3.96–7.30) is strongly class+position under the correct
+   metric: gpt2-small 0.94, gpt2-medium 0.63, gpt2-large 0.97, pythia-160m 0.70,
+   pythia-410m 0.72. Attentions with real benefit also rise (gpt2-small 0.56→0.98,
+   pythia 0.76→0.96/0.78→1.00). The §805 correction was not a one-off patch for one
+   model — mean-preserving is the right metric across the board, and gpt2-medium's mlp0
+   was just the one place where the dropped DC was large enough to flip the sign.
+
+3. **The two "mean-preserving hurts" cases are near-no-op attentions.** gpt2-large attn0
+   (0.11→−0.35) and gpt2-medium attn0 both have benefit ~0.01–0.02 — ablating them costs
+   almost nothing, so their keep RATIO (÷ a tiny benefit) is numerically unreliable, not
+   a real regression. Prediction (b) "mean-preserving never hurts" holds for every
+   component that actually does work.
+
+Net: the corrected early-layer class+position numbers are all strong (mlp0 0.63–0.97),
+reinforcing §805's "class+position common across all six models." The §800 full-sweep
+headline numbers (0.69–0.78) used centered keep and are therefore slight UNDERESTIMATES;
+queued a full mean-preserving re-sweep to put clean corrected numbers on the headline.

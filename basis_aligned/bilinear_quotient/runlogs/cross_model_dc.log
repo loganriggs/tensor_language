@@ -1,0 +1,17 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 5267.53it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+gpt2 (d768): attn0: dc 0.85 keep 0.5606->0.9847 | mlp0: dc 0.559 keep 0.9199->0.9427
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 4023.75it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+gpt2-medium (d1024): attn0: dc 0.41 keep 0.7884->1.0975 | mlp0: dc 0.907 keep -0.1346->0.6285
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  94%|█████████▍| 411/436 [00:00<00:00, 4101.41it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 4136.83it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+gpt2-large (d1280): attn0: dc 0.427 keep 0.1101->-0.3508 | mlp0: dc 0.565 keep 0.7714->0.9688
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 3707.92it/s]
+EleutherAI/pythia-160m (d768): attn0: dc 0.518 keep 0.7565->0.9631 | mlp0: dc 0.408 keep 0.6284->0.6967
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 3765.13it/s]
+EleutherAI/pythia-410m (d1024): attn0: dc 0.559 keep 0.7828->1.0004 | mlp0: dc 0.504 keep 0.7012->0.7203
+
+large (>0.5) constant-bias components: ['gpt2/attn0', 'gpt2/mlp0', 'gpt2-medium/mlp0', 'gpt2-large/mlp0', 'pythia-160m/attn0', 'pythia-410m/attn0', 'pythia-410m/mlp0']
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_dc_results.json (164s)
