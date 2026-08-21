@@ -24387,3 +24387,29 @@ honest characterisation -- the model is ~78% a token-class + position computer
 uniformly across token-classes, with a ~22% uniform diffuse distributed remainder
 that resists every low-rank/class localization. The clean part is understood; the
 hard part is characterised as genuinely, uniformly distributed.
+
+## 796. CROSS-MODEL CLASS-SHARPENING SETTLED (de-shared metric resolves 789's gpt2
+## question). Fisher class-separation with the top principal (massive-activation)
+## direction REMOVED (782's robust metric), gpt2 + pythia, 81 labelled tokens.
+Result (raw ratio -> de-shared ratio, mean-table vs embedding):
+  Pythia-410m: 1.36 -> 1.62 (de-shared mean 0.265 / emb 0.164) -- SHARPENS class,
+    STRONGER de-shared (massive activations were slightly masking it).
+  GPT-2      : 0.71 -> 0.83 (de-shared mean 0.189 / emb 0.229) -- does NOT sharpen;
+    removing the shared direction does NOT rescue it (0.83 < 1).
+READ: gpt2's non-sharpening is GENUINE, not a massive-activation confound (the
+de-shared metric moved it only 0.71 -> 0.83, still < 1). So the class-SHARPENING
+(the first MLP separating grammatical classes MORE than the embedding) is confirmed
+MODEL-SPECIFIC: bilin18 (1.8x) and Pythia (1.62x de-shared) compute/sharpen class;
+GPT-2 does not. Likely because gpt2's EMBEDDING already separates classes better
+(de-shared Fisher 0.229 vs pythia 0.164), so its first MLP need not add class
+structure -- it does something else.
+SETTLES 789 (which flagged this as needing the whitened metric): the specific
+grammatical-class-COMPUTING (780/782) is shared by bilin18 + Pythia, NOT GPT-2. The
+UNIVERSAL cross-model result stays the token-class SUBSPACE causal sufficiency (778,
+gpt2 keep64 0.84 / pythia 0.62) -- gpt2's first-MLP output IS a low-rank token-mean
+subspace that carries its loss; it just is not organised by grammatical class more
+than the embedding. pred_a False (gpt2 < 1.2), and now definitively so.
+This closes the cross-model thread: SUBSPACE sufficiency + first-MLP barbell are
+universal (778/781); class-SHARPENING + causal position are shared by bilin18/pythia
+(789/781); gpt2's first MLP is low-rank and token-organised but not grammatical-class-
+sharpening.

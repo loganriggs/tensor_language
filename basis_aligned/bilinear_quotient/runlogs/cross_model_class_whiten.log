@@ -1,0 +1,8 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 5089.13it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (26131 > 1024). Running this sequence through the model will result in indexing errors
+gpt2: 81 labelled | RAW Fisher ratio 0.713 (m 0.2177/e 0.3052) | DE-SHARED ratio 0.826 (m 0.1887/e 0.2286)
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 3937.60it/s]
+EleutherAI/pythia-410m: 81 labelled | RAW Fisher ratio 1.36 (m 0.2713/e 0.1995) | DE-SHARED ratio 1.616 (m 0.265/e 0.164)
+
+(a) first MLP sharpens class cross-model on the DE-SHARED metric (>=1.2x both): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_class_whiten_results.json (78s)
