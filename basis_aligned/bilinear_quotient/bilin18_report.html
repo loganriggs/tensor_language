@@ -1400,6 +1400,25 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   mixes its own direct effect with the knock-on disruption to everything downstream, so the
   exact sizes are upper bounds; but every layer gets the identical treatment, so the shape of
   the profile — and which layers matter — is a fair comparison.)</p>
+  <p>One more test forces an honest correction to the whole framing, and it's important enough
+  to state plainly. Throughout this section a "group" of pieces has been treated as <em>the</em>
+  place a decision is made. But there are two different questions hiding in that, and they turn
+  out to have different answers. One: can you take a group's activity from one sentence, drop it
+  into another, and steer the article choice? Yes — that's the swap test, and the article group
+  passes it cleanly. Two: if you switch that same group <em>off</em>, does the decision break?
+  Here the answer is no — switching off even the cleanest article group barely moves the article
+  choice at all; it accounts for only a few percent of what switching off its whole layer does.
+  Both answers are real and both are consistent, once you see what they mean together: the model
+  computes the article choice <em>redundantly</em>, smeared across the entire width of the layer,
+  so the readable group genuinely carries the signal (you can transplant it and it works) but is
+  nowhere near necessary (you can delete it and the rest of the layer still gets the answer). And
+  this isn't a quirk of one group — it holds for the flagship, in both layers that do the work,
+  so it's the general shape of the thing. The honest headline, then, is not "we localized the
+  article circuit to these pieces." It is: the grouping finds real, readable, <em>sufficient</em>
+  pieces of a decision — a genuine handle on it, with legible triggers and a traceable path — but
+  the decision itself lives redundantly across the whole layer, with no small necessary core to
+  point at. That is a sharper and more useful thing to know than a false claim of localization,
+  and it's the kind of correction this whole effort is built to surface rather than paper over.</p>
   <p>A companion tool from the same outside source does the compression side of this question
   properly: given a layer's weight and its real activations, it computes — in one exact step,
   no guessing or gradient descent — the best possible low-rank stand-in for that layer <em>on
