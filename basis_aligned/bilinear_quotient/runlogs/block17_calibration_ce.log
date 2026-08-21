@@ -1,0 +1,10 @@
+3622 frequent-target, 8666 rare-target positions
+baseline CE: all 3.3536  freq-target 1.6074  rare-target 4.0834
+block1 removed: dCE all +1.5047  freq-target +0.7699  rare-target +1.8118
+block17 removed: dCE all +0.4338  freq-target -0.1684  rare-target +0.6855
+
+(0) True; (a) block17 raises CE at rare targets: True; (b) block17 lowers CE at freq targets: True
+(c) NET block17 dCE +0.4338 (net-beneficial calibrator)
+CONTROL block1 raises CE at both (writer): True (freq +0.7699, rare +1.8118)
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/block17_calibration_ce_results.json (45s)

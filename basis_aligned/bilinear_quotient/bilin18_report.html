@@ -1525,10 +1525,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   directions. The split is sharper than location alone. Delete the readout layer's whole
   contribution and the newline probability doesn't fall, it <strong>rises</strong> — from 43%
   to 65% at the positions where newlines belong, and article from 39% to 54%. The layer where
-  these classes are easiest to read is quietly <em>suppressing</em> them, a last-layer
-  calibration that trims the model's most over-predicted function words. The actual writing
-  happens early: removing the second block costs the most, and the first three blocks together
-  do the bulk of it. To detect a feature, fit a probe; to change it, push the output-embedding
+  these classes are easiest to read is quietly <em>suppressing</em> them, and the suppression
+  is a frequency calibration: across the whole vocabulary, the more common a token is the harder
+  the last layer pushes it down (correlation 0.64 between a token's frequency and how much
+  deleting the layer lifts it), and the twelve most frequent continuations — the commas, periods,
+  newlines, and function words — are exactly the ones it holds back most. It is a trade the model
+  wins: removing the last layer makes common targets slightly easier (−0.17 nats) but rare targets
+  much harder (+0.69 nats), for a net loss of 0.43 nats — the layer spends a little accuracy on
+  frequent words to buy more on rare ones. The actual writing happens early: removing the second
+  block costs the most, and the first three blocks together do the bulk of it. To detect a feature, fit a probe; to change it, push the output-embedding
   row; and don't expect the layer that reads it best to be the one that writes it.</p>
 </section>
 
