@@ -1,0 +1,17 @@
+4672 induction positions (antecedent >=2 back)
+top induction heads (layer.head  z(copy-src)  argmax-frac  z(control)):
+  L5.H5   z +3.987   argmax 0.334   ctrl-z -0.032
+  L8.H4   z +2.393   argmax 0.235   ctrl-z -0.034
+  L8.H6   z +2.045   argmax 0.154   ctrl-z -0.035
+  L10.H8   z +1.348   argmax 0.124   ctrl-z -0.004
+  L13.H2   z +1.064   argmax 0.087   ctrl-z +0.005
+  L2.H1   z +0.978   argmax 0.064   ctrl-z -0.012
+  L14.H0   z +0.976   argmax 0.082   ctrl-z -0.000
+  L14.H7   z +0.903   argmax 0.076   ctrl-z +0.006
+
+(0) enough: True
+(a) induction heads exist (top z>=1.0): True (top z 3.99)
+(b) top heads in front+mid (median layer<=9): True (layers [2, 5, 8, 8, 10, 13, 14, 14])
+NULL control-key z near 0 for top heads: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_head_search_results.json (89s)

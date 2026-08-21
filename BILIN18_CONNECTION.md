@@ -563,3 +563,43 @@ carries the full account. Next thread: a fresh circuit -- induction/
 copying (does the model copy a token's earlier continuation, and where
 is that computed -- likely NOT front attention, a contrast to routing?).
 Queued induction_natural.
+
+## 647. COMPONENT-LEVEL: the induction circuit is carried by identifiable
+## HEADS, led by L5.H5 (z +3.99 to the copy-source, argmax 33%), then
+## L8.H4/H6, L10.H8. Unlike the diffuse routing/MLP circuits, induction
+## reaches the head level. (Pattern evidence; causal test queued.)
+
+Scoring every head by how strongly its raw double-QK pattern at
+induction positions targets the copy-source s (the token after the
+current token's earlier occurrence), over 4672 induction positions.
+z-score of pat[i,s] within the head's valid keys; argmax-frac = how
+often s is the head's top key; control = a random valid key.
+  L5.H5    z +3.99   argmax 0.334   control-z -0.03
+  L8.H4    z +2.39   argmax 0.235   control-z -0.03
+  L8.H6    z +2.05   argmax 0.154   control-z -0.04
+  L10.H8   z +1.35   argmax 0.124
+  L13.H2   z +1.06 ; L2.H1 +0.98 ; L14.H0 +0.98 ; L14.H7 +0.90
+FINDINGS:
+  (a) INDUCTION HEADS EXIST AND ARE LOCALIZABLE. L5.H5 is the dominant
+      induction head -- it points its attention at the copy-source with
+      z +3.99 and is the single top key at 33% of induction positions
+      (chance ~ 1/i, negligible). L8.H4, L8.H6, L10.H8 are secondary.
+      This is the FIRST component-level circuit in the program: named
+      heads, not a diffuse band. Induction heads are localizable where
+      the MLP feature circuits (610-616, 633) and the sentence-boundary
+      routing (644, "front attention" but no single head) were not.
+  (b) FRONT+MID LAYERS. The induction heads sit in L2-L14 with the
+      strongest in L5/L8/L10 -- consistent with 645's band-level result
+      (induction distributed across front+mid attention), now resolved
+      to the specific heads within those bands.
+  NULL: control-key z ~ 0 (-0.04..+0.006) for every top head -- the
+      targeting is specific to the TRUE copy-source, not a generic
+      attention shape.
+CAVEAT: this is PATTERN evidence (the heads point at the copy-source),
+which is correlational. The causal confirmation -- ablate these heads
+and show copying drops -- is queued as induction_head_ablate. If it
+holds, the induction circuit becomes the program's first fully
+component-level, causally-verified circuit (named heads, specific
+pattern, causal necessity), and the deep-dive deliverable's "we can
+localise to front attention but not to a single head" limitation will
+be updated for induction specifically.
