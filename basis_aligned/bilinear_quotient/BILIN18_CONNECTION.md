@@ -24656,3 +24656,40 @@ position with the mean PRESERVED (v_kept = mean + proj_U(v − mean)) vs the cen
 version. If +mean goes positive, the exception dissolves. NOTE: this also flags that
 the whole class+position keep metric has been dropping the DC term throughout — benign
 for models where DC is not critical (all others), but it is the thing to check next.
+
+## §805 — CORRECTION of §802/803: gpt2-medium is NOT an exception. Its mlp0 exception was a dropped-mean (DC) artifact; keep goes −0.13 → +0.63 once the constant bias is kept (gpt2med_dc_test.py)
+
+§804's suspicion is confirmed directly. The class+position keep-only metric substitutes
+proj_U(v) with U built from CENTERED data, so it silently discards the per-component
+MEAN (a constant bias the component adds at every position). Test: keep class+position
+with the mean PRESERVED, v_kept = mean + proj_U(v − mean).
+
+| model | mean-norm / output-norm | keep CENTERED (old) | keep +MEAN (correct) |
+|-------|------------------------:|--------------------:|---------------------:|
+| gpt2-small (d768)   | 0.559 | 0.92  | 0.94 |
+| gpt2-medium (d1024) | **0.907** | **−0.13** | **+0.63** |
+
+gpt2-medium's mlp0 output is 91% constant bias by norm (its mean vector alone is almost
+the whole output). The centered metric threw that bias away, and substituting only the
+token/position VARIATION — without the dominant constant the model is calibrated around
+— was worse than substituting zero, producing the spurious −0.13. Keep the mean and the
+number is **+0.63**: gpt2-medium's first MLP IS class+position (plus a large constant
+bias), not the "joint non-separable computation" §802 claimed. gpt2-small barely moves
+(0.92→0.94) because its bias is smaller and non-critical.
+
+**This corrects §802 and §803.** gpt2-medium is NOT a genuine isolated exception; it was
+a measurement artifact of a DC-dropping metric colliding with an unusually dominant
+constant bias in that one model's mlp0. The class+position reduction is COMMON ACROSS
+ALL SIX models once the constant term is kept — bilin18, GPT-2 small/medium/large,
+Pythia-160M/410M. Caveat kept honestly: gpt2-medium's corrected 0.63 is still below the
+others' 0.75–0.94, so its first MLP is class+position *less cleanly* — its defining
+feature is a dominant constant DC bias (distinct from a per-token massive activation,
+which §802's gpt2med_diagnostic already ruled out: norm max/mean was only 1.5; a large
+MEAN is not a per-token outlier).
+
+Note on scope: every model's class+position keep in the §800 sweep dropped the DC term,
+so all are slight underestimates; it only changed the verdict for gpt2-medium, whose DC
+is uniquely dominant and loss-critical. LESSON logged: centered keep-only silently drops
+the per-component mean — for a component with a large constant bias this reads as a
+spurious negative; keep the mean (or add a constant direction) before calling a keep
+score negative.

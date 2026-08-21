@@ -1,1 +1,10 @@
 Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4600.48it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+[transformers] `loss_type=None` was set in the config but it is unrecognized. Using the default loss: `ForCausalLMLoss`.
+gpt2 (d768): mean/out 0.559 | keep CENTERED 0.9199 | keep +MEAN 0.9427
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 3619.08it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (15246 > 1024). Running this sequence through the model will result in indexing errors
+gpt2-medium (d1024): mean/out 0.907 | keep CENTERED -0.1346 | keep +MEAN 0.6285
+
+(a) gpt2-medium exception is a DROPPED-MEAN artifact (keep+mean>=0.6, centered<0.3): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gpt2med_dc_test_results.json (55s)

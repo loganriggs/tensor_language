@@ -133,3 +133,17 @@ replacement tax.
   ablation, not whole-head; and the content fold ignores rmsnorm/rotary/value-path.
   Robust framing: which VARIABLE a head READS (input-restriction 784), not per-head
   concept labels.
+
+## Centered keep-only silently drops the per-component MEAN (DC bias) — §804/805
+The keep-only / CE-recovery metric substitutes proj_U(v), with U built from CENTERED
+data (token-conditional means, own-SVD of centered output). This discards the
+per-component MEAN — the constant bias the component adds at every position. For most
+components the mean is not loss-critical, so keep works. But when a component's output
+is dominated by a large constant bias (gpt2-medium mlp0: mean = 91% of output norm),
+dropping it makes keep spuriously NEGATIVE (worse than ablation) at EVERY rank — even
+keeping the output's own top-128 SVD directions. This masqueraded as "genuine
+non-separable computation" (§802) for a whole wake before gpt2med_dc_test caught it.
+RULE: before calling a keep-only score negative or a component "not low-rank", check
+mean-norm / output-norm; if it's large, redo keep with the mean PRESERVED
+(v_kept = mean + proj_U(v − mean)). A large constant MEAN is NOT a per-token massive
+activation (norm max/mean can still be ~1.5) — they are different diagnostics.
