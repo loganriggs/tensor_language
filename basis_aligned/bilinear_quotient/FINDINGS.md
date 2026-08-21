@@ -78,7 +78,9 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
   context-conditional routing. **Scope confirmed (§653):** routing has NO removable linear carrier
   at any rank (top-32 removal = 0%); it's computed by attention + read nonlinearly. So finer-grained
   isolation is answered by component *type*: rank-1 for additive/subtractive biases, not for
-  conditional routing (the wall there is nonlinearity/distribution, not redundancy). Arc §650–653.
+  conditional routing (the wall there is nonlinearity/distribution, not redundancy). Arc §650–654,
+  now confirmed on **three** behaviors: calibration = rank-1 isolable; newline routing & article
+  magnitude = conditional, no low-rank carrier.
 - **B. ~~head-SET localization of induction~~ — ANSWERED NO (§649): copying is distributed across
   ~all attention; pattern-selection can't isolate it. → reinforces A (need subspace method).
 - **C. Systematic circuit discovery** vs the current opportunistic depth-first tracing (see method note).

@@ -19610,3 +19610,46 @@ boundary; FINDINGS + deep-dive deliverable updated. Queued
 lowrank_article_magnitude to test the boundary on a NEW behavior: is
 "predict an article at all" (636: front-MLP-carried) an additive bias
 (rank-1 isolable) or a conditional computation (not)?
+
+## 654. Taxonomy generalized: article-magnitude is CONDITIONAL too (no
+## low-rank carrier, top-8 removal loses 1%), like the newline routing.
+## Only the frequency CALIBRATION is a rank-1 additive bias. Three
+## behaviors, two regimes, cleanly separated.
+
+Applying the 650/653 recipe to "predict an article at all" (636: front-
+MLP-carried magnitude). At 685 article-target positions (baseline
+P(article) 0.389):
+  remove top-1 w_art   P 0.385 (lost 1%)
+  remove top-4         P 0.385 (lost 1%)
+  remove top-8         P 0.385 (lost 1%)
+  remove random-1 x3   lost 0%, 0%, -0%
+FINDINGS:
+  (a) CONDITIONAL, not additive (registered guess correct). Removing
+      even the top-8 behavior-conditioned directions from the post-front
+      residual loses only 1% of the article magnitude -- no removable
+      low-rank carrier, exactly like the newline routing (652-653) and
+      unlike the calibrator (650-651). (b) w_art > random (weakly);
+      NULL random tight.
+  Reconciles with 636 (front MLP causally carries article magnitude):
+  the front MLP COMPUTES it, but distributively/nonlinearly, not as a
+  linear residual direction -- so linear removal can't touch it. Same as
+  routing.
+THE TAXONOMY, now on THREE behaviors (completes the Q5 arc, 650-654):
+  ADDITIVE BIAS -> rank-1 isolable by removal:
+    - block-17 frequency calibration (650-651): remove 1 direction, kill
+      it (necessary + specific).
+  CONDITIONAL / PREDICTION-ROUTING -> no removable low-rank carrier:
+    - newline routing (652-653): top-32 removal 0%.
+    - article magnitude (654): top-8 removal 1%.
+  The clean generalization: the behavior-conditioned linear-removal
+  method isolates the model's BIAS/CALIBRATION components to rank-1, but
+  next-token PREDICTION computations (routing, magnitude) are
+  distributed/nonlinear with no linear carrier. "Finer-grained
+  isolation" is possible exactly for the additive/corrective parts, not
+  the predictive computations -- and the wall for the latter is
+  nonlinearity/distribution, not the unit-level redundancy (610-616) it
+  first looked like. This is a phase boundary for the isolation-method
+  arc the user's Q5 opened. Queued calibrator_direction_id to finish
+  characterizing the one rank-1 component we found: is w_freq the
+  unembedding's frequency direction (does block 17 write a bias
+  proportional to token frequency)?

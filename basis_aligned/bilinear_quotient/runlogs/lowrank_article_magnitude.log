@@ -1,0 +1,13 @@
+685 article-target positions
+remove top-1: P(article) 0.3852 (lost 1%)
+remove top-4: P(article) 0.3850 (lost 1%)
+remove top-8: P(article) 0.3846 (lost 1%)
+
+baseline P(article) 0.3890
+remove random-1 lost ['0%', '0%', '-0%']
+
+(0) magnitude present: True (P 0.389)
+(a) REGIME: conditional (no low-rank carrier) (rank-1 lost 1%, top-8 lost 1%)
+(b) w_art > random: True; NULL random tight: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/lowrank_article_magnitude_results.json (63s)
