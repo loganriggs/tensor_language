@@ -1,0 +1,8 @@
+keep-only residual-rank 2: CE-recovery -0.0532
+keep-only residual-rank 8: CE-recovery -0.19
+keep-only residual-rank 32: CE-recovery 0.0217
+keep-only residual-rank 128: CE-recovery 0.1017
+benefit 2.021 | keep class+pos -> other-part 0.133 | residual subspace data-stability (top-32) 0.863
+
+(a) L5 other-variable is LOW-RANK nameable (rank-32 >=0.6 & data-stable): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_l5_other_results.json (69s)

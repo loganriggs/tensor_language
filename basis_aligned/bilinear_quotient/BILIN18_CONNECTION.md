@@ -24111,3 +24111,33 @@ irreducible remainder (777) is NEITHER class nor absolute-position -- a further
 computed variable (candidate for the L5/L2 "other variable" of 784).
 pred_a False by a hair (long-share 0.557 vs 0.6 bar) but the qualitative answer
 (early/late, not even/odd, ~2-dim) is definitive. null clean.
+
+## 787. ATTN L5 OTHER VARIABLE -- NOT a separable named variable; L5 does JOINT
+## conditional computation (bounds the amortized-variable picture of 783). After
+## projecting class+position OFF attn L5's input, rank-sweep the residual input.
+Result (benefit 2.02):
+  keep-only residual-rank: r2 -0.053 | r8 -0.19 | r32 0.022 | r128 0.102
+     -> keeping ONLY the non-class-non-position input directions recovers almost
+        NOTHING (<=0.10 at r=128), and is HARMFUL at low rank (negative). The 45%
+        "other" of 784 is NOT a clean low-rank standalone variable L5 reads.
+  residual subspace data-stability 0.863 -> the residual IS real structure (stable
+     across data halves), not noise -- but it is not a low-rank separable variable.
+READ: attn L5's computation is a JOINT function of class + position AND the residual
+content -- an INTERACTION, not a sum of independently-readable variables. Keeping
+only class+position gives 0.545 (784); keeping only the residual gives <=0.10; the
+function needs BOTH together. So L5's "other variable" is not a nameable independent
+quantity -- it is conditional computation (content matters only in conjunction with
+class/position).
+BOUNDS the amortized-variable / compositional picture (783): SOME heads are clean
+variable-readers (attn L1 = 94% class-reader, a single named variable), but OTHERS
+(attn L5) do JOINT conditional computation that CANNOT be reduced to "reads variable
+X". This is the distributed/conditional-computation face (FINDINGS 1) reappearing at
+the head level: the amortized-variable graph works for the big class-reading heads,
+but not universally -- the residual multiplexes clean named variables (class,
+position) that some heads read, plus interaction/conditional computation that other
+heads (L5) perform on top of them and that resists low-rank naming.
+SYNTHESIS (783-787): amortized composition-in-early-variables is REAL and measured
+(L0/L1 read the front's class variable; position is a clean ~2-dim early/late
+variable, class ~24-dim), but it is PARTIAL -- the biggest class-readers amortize on
+named variables, while heads like L5 do joint conditional computation (class x
+position x content) that is the genuine distributed remainder. pred_a False.
