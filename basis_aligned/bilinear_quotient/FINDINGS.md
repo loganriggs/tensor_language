@@ -68,12 +68,14 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
 
 ## Open / focus (hierarchical — go deeper on any)
 
-- **A. Finer component isolation — METHOD WORKS (§650).** Behavior-conditioned low-rank isolates
-  the block-17 calibration to a **rank-1** direction `w_freq = cov(mlp17 out, target log-freq)`:
-  removing it kills the calibration (necessary), a random direction doesn't (specific). Reaches
-  finer grain than unit-clustering (§578–581, inert groups) or head-ablation (§649, distributed).
-  Rule: isolate by (behavior-conditioned direction + removal test), NOT (component + clustering).
-  Next: remove-random control + keep-rank-r sufficiency curve; then apply to newline/article routing.
+- **A. Finer component isolation — METHOD WORKS, WITH A SCOPE (§650–652).** Behavior-conditioned
+  low-rank + REMOVAL isolates **additive/subtractive** components to rank-1: block-17's calibration
+  = one direction `w_freq = cov(mlp17 out, log-freq)` — removing it kills it (103%), random removal
+  0–2% (§650–651). But it FAILS on **conditional/routing** computations: removing the rank-1
+  `w_route` does nothing to the newline routing (§652), which is distributed in front attention
+  (§644) and whose correlational direction is a decode-not-cause readout (read≠write). Rule: isolate
+  by (behavior direction + removal + random control); expect rank-1 for biases/calibrations, NOT for
+  context-conditional routing. Confirm scope: routing_rank_curve (running).
 - **B. ~~head-SET localization of induction~~ — ANSWERED NO (§649): copying is distributed across
   ~all attention; pattern-selection can't isolate it. → reinforces A (need subspace method).
 - **C. Systematic circuit discovery** vs the current opportunistic depth-first tracing (see method note).

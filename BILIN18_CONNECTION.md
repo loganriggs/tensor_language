@@ -693,3 +693,50 @@ not by (component, clustering). Caveat: the specificity control so far
 is keep-random; the matching remove-random control (does removing a
 random rank-1 leave calibration intact?) is queued as
 lowrank_calibrator_confirm, plus the keep-rank-r sufficiency curve.
+
+## 652. BOUNDARY of the low-rank method: it isolates the CALIBRATOR (an
+## additive/subtractive bias, rank-1) but FAILS on the newline ROUTING
+## (a conditional computation). Removing the behavior-conditioned rank-1
+## direction does nothing to routing (-2%). The correlational direction
+## is a READOUT, not the causal carrier (read!=write again).
+
+Applying 651's recipe to the newline routing (643/644). w_route =
+cov(residual-after-block-2, newline-follows) at end-punct positions.
+Routing R = P(nl | end-punct & follows) - P(nl | end-punct & not):
+  baseline            R +0.264
+  remove w_route      R +0.268  (lost -2%, i.e. NO effect)
+  remove random-1 x3  R +0.264  (lost 0%)
+FINDINGS:
+  (a) FAILS -- removing the rank-1 behavior-conditioned direction does
+      not collapse the routing (-2%, within noise, same as random). The
+      routing does NOT live in a removable low-rank residual direction,
+      unlike the calibration.
+  WHY, two compatible reasons:
+   1. The routing is a CONDITIONAL computation ("raise P(newline) IF
+      this period ends a line"), not a fixed additive shift. A bias is a
+      direction you can subtract; a context-dependent modulation is a
+      function, with no single direction to remove. 644 already showed
+      the routing needs the WHOLE front attention (80% collapse when
+      ablated), i.e. it is a distributed/high-rank computation, not a
+      residual feature.
+   2. w_route is a READOUT CORRELATE, not the causal carrier. It DECODES
+      "a line-end follows" from the post-front residual (it correlates
+      with the outcome) but removing it does not stop the routing --
+      either the information is high-rank, or later blocks reconstruct it
+      from other components. This is read!=write (619-622, 620) at the
+      residual-stream level: the direction that decodes the outcome is
+      not the direction that causes it.
+THE METHOD'S SCOPE (completes the Q5 answer honestly): behavior-
+conditioned low-rank + removal isolates ADDITIVE/SUBTRACTIVE low-rank
+components -- biases and calibrations, like block 17's frequency
+correction (rank-1, clean). It does NOT isolate CONDITIONAL/ROUTING
+computations -- these are distributed, high-rank, and/or downstream-
+reconstructed, and the correlational direction is a decode-not-cause
+readout. So "can we isolate components to finer grain" has a
+component-dependent answer: YES for corrective biases (rank-1), NO for
+context-conditional routing (needs the whole front attention). Queued
+routing_rank_curve to confirm: remove the top-r behavior-conditioned
+directions (r=1..32) -- does routing ever collapse (high-rank residual
+feature) or never (front-attention-computed, not residual-stored)? --
+and report w_route's probe AUC (is it a good readout despite being
+causally inert?).

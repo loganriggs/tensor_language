@@ -1,0 +1,13 @@
+181 end-punct->newline, 325 end-punct->not
+baseline routing R      +0.2640
+remove w_route          +0.2680  (lost -2%)
+remove random-1 #0     +0.2644  (lost -0%)
+remove random-1 #1     +0.2640  (lost -0%)
+remove random-1 #2     +0.2641  (lost -0%)
+
+(0) baseline routing positive: True
+(a) remove w_route collapses routing (>=50%): False
+(b) random removal specific (<25% lost): True (mean -0%)
+NULL random tight: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/lowrank_routing_isolation_results.json (66s)
