@@ -23517,3 +23517,33 @@ scorecard at GROUP level -- cluster atoms by co-activation, test whether GROUPS 
 stable across seeds, causally coherent (joint ablation superadditive), and more
 monosemantic than atoms. If the group rescues the convergence that failed at atom
 level (763), we have the right unit. Queued group_scorecard.
+
+## 766. GROUP SCORECARD -- co-activation GROUPS do NOT rescue 763's atom-level
+## failure (clean negative; narrows the "right unit" search). Cluster Down_0 SAE
+## atoms by co-activation into 27 groups (mean size 16); test group stability,
+## causal coherence, monosemanticity vs atoms.
+Result:
+  (a) STABILITY is a SIZE ARTIFACT: group subspace-overlap 0.549 vs atom-match
+      0.405 LOOKS better, but a RANDOM same-size atom set scores 0.519 -- the
+      "gain" is just that bigger subspaces overlap more, NOT co-activation
+      structure (+0.03 over random). Co-activation grouping does not recur.
+  (b) SUB-ADDITIVE (0.91), not superadditive: co-FIRING atoms knocked together
+      cost ~= the sum of their singles -> co-firing atoms are NOT extra-redundant.
+      (761's superadditivity 1.93 was among the most CAUSALLY-IMPORTANT atoms -- a
+      DIFFERENT grouping. Redundancy is CAUSAL/compensation, not co-activation.)
+      Group dCE 0.0069 vs random-set 0.0052 (only 1.3x, below bar).
+  (c) NO MONOSEM GAIN: group KL 3.24 ~= mean member-atom KL 3.26.
+READ: "circuit = co-activation group" FAILS. Co-activation is the WRONG grouping
+criterion. Synthesis of 761-766: atoms are not the unit (unstable, redundant,
+interpretability-orthogonal); co-activation groups are not either; the only stable
+thing is a moderately-stable SUBSPACE (764); interpretability is orthogonal to
+whatever basis the SAE picks (763). This points AWAY from "find the right SAE unit"
+and TOWARD a SEED-FREE canonical structure: the model's TOKEN-SEMANTIC subspace of
+mlp0's output (token-conditional-mean directions) is a property of the MODEL+DATA,
+not of any SAE fit -- so it is canonical/stable by construction. If that semantic
+subspace is LOW-RANK, CAUSALLY important, and the SAE's stable subspace ALIGNS with
+it, then the interpretable structure is real and canonical; the SAE's instability is
+just arbitrary rotation WITHIN it, and the fix is to express the decomposition in
+the semantic basis (not to find magic SAE atoms). pred_a/b False, null clean.
+Queued semantic_subspace (seed-free token-semantic directions: rank, causality,
+data-stability, alignment with the SAE subspace).
