@@ -22929,3 +22929,34 @@ recovers ground-truth structure both miss individually. Validated on the toy
 weight-action). Next: apply to the REAL mlp1.Down weight -- can we get a
 faithful sparse overcomplete decomposition of a real layer? Queued
 weight_action_sae_real.
+
+## 748. OVERCOMPLETE CE FAITHFUL -- the SAE's advantage is EVEN LARGER in CE
+## than L2. Substituting the top-k SAE reconstruction of mlp1's output into
+## the LIVE model recovers 86% CE at k=8 (94% at k=32), while SVD rank-k is
+## CATASTROPHIC at low k (-2.33 at k=8, worse than ablation).
+
+CE-recovery(k) = (CE_ablate - CE_recon)/(CE_ablate - CE_full), benefit 1.118:
+  k     SAE(P=512)   SVD rank-k   random-OC
+  8     0.864        -2.327       -4.671
+  32    0.937        +0.209       -3.700
+  64    0.957        +0.641       -1.773
+FINDINGS (both HELD):
+  (a) The overcomplete top-k SAE is CE-FAITHFUL even at high sparsity: k=8
+      recovers 86% of mlp1's CE benefit, k=64 recovers 96%. Its per-datapoint
+      sparse code captures the LOSS-RELEVANT structure.
+  (b) SVD rank-k is CATASTROPHIC at low k: -2.33 at k=8 (much worse than
+      ablation). SAME cause as 737: SVD's top directions are the massive-
+      activation ENERGY directions (loss-irrelevant), so the SVD-8
+      reconstruction injects the mis-scaled massive DC -> CE far worse than
+      removing the layer. The SAE avoids this because it learns loss-relevant
+      sparse atoms, not energy directions.
+  NULL: random-overcomplete is worse still (-1.8 to -4.7).
+KEY: the SAE's L2 advantage (742) TRANSLATES to an EVEN LARGER CE advantage
+(k=8: SAE +0.86 vs SVD -2.33 = a 3.2-gap in CE-recovery). So the overcomplete
+sparse dictionary is dramatically more CE-FAITHFUL per component than SVD --
+the sparse-decomposition direction pays off in the metric that matters
+(loss), not just reconstruction. This is the strongest evidence yet that the
+learned overcomplete sparse code is the right decomposition for faithfulness
++ efficiency. (Caveat: the SAE is still activation-based/lossy at these k;
+the weight-action version (747, queued on real weight) is the fully weight-
+faithful analog.)
