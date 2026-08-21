@@ -24772,3 +24772,41 @@ bilin18-specific simultaneous metric (needs its 30·tanh output clamp) and separ
 centered per-component keep; it is also a slight underestimate. Queued
 bilin18_scoreboard_mp.py to give bilin18 the same mean-preserving per-component number and
 complete the corrected all-six table.
+
+## §808 — Corrected all-six class+position table complete; and an apples-to-apples fix (bilin18 per-component = 0.92, not 0.78) (bilin18_scoreboard_mp.py)
+
+Ran bilin18 on the SAME per-component nat-weighted mean-preserving metric as the five HF
+models (single-component ablate / centered-keep / mean-preserving-keep / random, over all
+36 components). Result: **bilin18 nw class+position = 0.9215 mean-preserving (0.9217
+centered, random 0.162)**. Mean-preserving barely moves bilin18 — its constant biases are
+NOT loss-critical (consistent with §806: bilin18 carried no large-DC early component),
+unlike GPT-2 where the DC correction was large.
+
+This surfaces a metric mismatch in the earlier cross-model comparison that I am correcting
+now: bilin18's headline "0.78 / four-fifths" is the SIMULTANEOUS metric (project ALL 36
+components onto class+position AT ONCE — stricter, compounds across depth), whereas the
+§800/807 cross-model numbers for GPT-2/Pythia are PER-COMPONENT (one component at a time,
+nat-weighted). Those are different measurements, and the old cross-model list quietly put
+bilin18's simultaneous 0.78 next to the others' per-component numbers. On the matching
+per-component metric bilin18 is 0.92, right alongside gpt2-small and gpt2-large.
+
+**Corrected apples-to-apples per-component table (all six models, mean-preserving keep):**
+
+| model | per-component nat-weighted class+position | random null |
+|-------|------------------------------------------:|------------:|
+| bilin18     | **0.92** | 0.16 |
+| gpt2-small  | **0.91** | 0.28 |
+| gpt2-large  | **0.92** | 0.18 |
+| pythia-160m | **0.81** | 0.06 |
+| pythia-410m | **0.74** | 0.10 |
+| gpt2-medium | **0.64** | 0.02 |
+
+Band 0.64–0.92, every model >> its random null. gpt2-medium is the lowest but comfortably
+in-family (no longer the 0.12 outlier of §802). Two honest framings kept distinct:
+ - bilin18's own whole-model reduction, measured the strict simultaneous way, is ~0.78
+   ("about four-fifths") — that number stays as bilin18's self-description;
+ - the cross-model comparison, measured per-component for ALL six (apples-to-apples), puts
+   bilin18 at 0.92 in a 0.64–0.92 band.
+
+The class+position reduction is common and robust across all six models on either metric,
+with NO genuine exception. This closes the correction arc opened at §802.

@@ -1885,20 +1885,23 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   78% of everything the components contribute (a random subspace: 4%). So the model, front to back, is
   to roughly four-fifths a class-and-position computer: it turns raw token identity and rotary phase
   into two clean, low-rank, causal, nameable variables, writes each into its own part of the stream,
-  and later layers read them off rather than recomputing them. It is not peculiar to the one model:
-  measured component by component, all six models we checked land around three-quarters
-  class-and-position — bilin18 78%, GPT-2 small 77%, GPT-2 large 75%, Pythia-160M 75%, Pythia-410M
-  69% — against random subspaces of a few to twenty-odd percent, across bilinear, absolute-position,
-  and rotary designs and across a sixfold range of size. GPT-2-medium looked at first like a lone
-  exception — its first MLP scored worse than nothing — but that was our own measurement error, and
-  the correction is worth stating plainly: our recipe builds the class-and-position subspace from
-  <em>centered</em> data, which quietly throws away whatever constant offset a layer adds at every
-  position. In GPT-2-medium's first MLP that constant is nearly the whole output — its average vector
-  is 91% of the output's size — so discarding it and keeping only the token-and-position variation was
-  worse than deleting the layer, purely as an artifact of what we discarded. Keep the constant and the
-  score jumps from below zero to 0.63: GPT-2-medium is class-and-position too, just wrapped around an
-  unusually large fixed bias, and a little less cleanly than the rest. So the pattern holds across all
-  six, GPT-2-medium the least-clean case rather than a counterexample. The remaining fifth is genuine
+  and later layers read them off rather than recomputing them. It is not peculiar to the one model.
+  Measured the same way for all six — one component at a time, keeping each layer's constant offset —
+  they land in a tight band: bilin18 92%, GPT-2 small 91%, GPT-2 large 92%, Pythia-160M 81%, GPT-2
+  medium 64%, Pythia-410M 74%, against random subspaces of a few to twenty-odd percent, across
+  bilinear, absolute-position, and rotary designs and a sixfold range of size. (The 78% quoted above
+  for bilin18 is its stricter all-thirty-six-at-once number; taken one component at a time, as the
+  others are, bilin18 is 92% — the two are different measurements of the same model.) GPT-2-medium's
+  64% is the one that took a correction to get right, and the correction is worth stating plainly.
+  At first its first MLP scored worse than nothing — an apparent lone exception — but that was our own
+  measurement error: our recipe builds the class-and-position subspace from <em>centered</em> data,
+  which quietly throws away whatever constant offset a layer adds at every position. In GPT-2-medium's
+  first MLP that constant is nearly the whole output — its average vector is 91% of the output's size —
+  so discarding it and keeping only the token-and-position variation was worse than deleting the layer,
+  purely as an artifact of what we discarded. Keep the constant and the score jumps from below zero to
+  0.63; those large constant offsets turn out to be common early-layer features across these models,
+  and once they are kept every model's early layers read as class-and-position. GPT-2-medium is the
+  least-clean case, not a counterexample — the pattern holds across all six. The remaining fifth is genuine
   context-dependent
   computation with no low-rank handle — the same distributed residue that shows up everywhere the model
   does something conditional.</p>
