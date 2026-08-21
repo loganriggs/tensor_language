@@ -19140,3 +19140,52 @@ the trade-off: block 17 should HELP CE at rare-target positions (it
 suppresses frequent competitors) and HURT CE at frequent-target
 positions (it suppresses the correct token) -- the signature of a net-
 beneficial calibrator.
+
+## 629. Who-writes-what-where map (9 classes x 18 blocks, causal): ALL
+## next-token class identity is written FRONT-loaded (blocks 1-2, block
+## 2 dominant); the MIDDLE blocks (10-16) are the top writer for NO
+## class; block 17 suppresses FUNCTION classes and writes CONTENT ones.
+
+Causal map: mean-ablate each block, measure the P(class)-drop at class-
+target positions, for 9 token classes. All 9 pass the specificity null
+(trustworthy). Top-writer block per class:
+  newline -> block 1 (+0.226), determiner -> block 1 (+0.172),
+  preposition -> block 2 (+0.331), pronoun -> block 2 (+0.230),
+  digit -> block 2 (+0.472), punct -> block 2 (+0.287),
+  capitalized -> block 2 (+0.306), space_word -> block 2 (+0.300),
+  subword -> block 2 (+0.516).
+THREE findings:
+1. WRITING IS FRONT-LOADED FOR EVERY CLASS. Every one of the 9 classes
+   has its top writer in block 1 or block 2 -- none later. Block 2 is
+   the single biggest writer for 7 of 9 classes; block 1 for newline
+   and determiner. Next-token class identity is decided in the first
+   three blocks. (Refines 624, which saw only newline/article -> block
+   1; across all classes block 2 dominates.)
+2. THE MIDDLE BLOCKS WRITE NO CLASS. Blocks 10-16 are the top writer
+   for ZERO classes (the middle-writer set is empty). Combined with the
+   report's finding that the middle is nearly linear and its
+   nonlinearity is loss-irrelevant, this pins down what the middle does
+   for next-token prediction: essentially nothing at the level of which
+   token-class comes next. Whatever the middle computes is not
+   next-token class identity.
+3. BLOCK 17 CALIBRATES AT THE CLASS LEVEL BY REALLOCATING MASS FROM
+   FUNCTION TO CONTENT. Block 17's per-class effect splits by sign: it
+   SUPPRESSES the high-frequency function classes -- newline (-0.215),
+   determiner (-0.141), pronoun (-0.101), punct (-0.101), preposition
+   (-0.052) -- and WRITES the content classes -- subword (+0.207),
+   capitalized (+0.187), space_word (+0.055) (digit ~0). So the readout
+   layer's calibration (625-628) is, at the class level, a shift of
+   probability mass OFF function-word classes and ONTO content-word
+   classes -- the class-resolved form of "suppress frequent tokens".
+   (a) function-classes-early HELD; (b) block17-suppresses-function
+   HELD; (c) no middle top-writers.
+HONEST CAVEAT on block 2's dominance: early-block mean-ablation has
+larger downstream effects because the perturbation propagates through
+more layers of nonlinearity (error compounding), so the MAGNITUDE
+ordering (block 2 >> the rest) is partly amplified by depth-from-output
+and should not be read as "block 2 does most of the writing" in a
+clean additive sense. The robust, compounding-independent claims are
+the three above: front-loaded for all classes, no middle writers, and
+block 17's function->content sign split. Queued depth_band_ablation to
+quantify prediction-criticality by depth band (does the middle cost
+little CE when removed, confirming it is not prediction-critical?).
