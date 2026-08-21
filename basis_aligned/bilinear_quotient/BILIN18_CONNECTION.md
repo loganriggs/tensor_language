@@ -20301,3 +20301,36 @@ stateful computation. Queued w_freq_generalization to verify the
 robustness of that one clean result: is w_freq a stable MODEL property
 (same direction across disjoint data, cross-removes calibration) or
 data-specific?
+
+## 672. The one knob is a STABLE MODEL PROPERTY, cross-validated: w_freq
+## fit on disjoint data halves is nearly identical (cos 0.98), and the
+## half-A direction cross-removes the calibration on half B at 92% of
+## half B's own. Robustness capstone for the single clean component.
+
+Verifying the rank-1 frequency-calibration knob generalizes.
+  cos(w_freq_A, w_freq_B) from disjoint halves = 0.982 (shuffled-label
+    control 0.224).
+  On half B: self-removal (wB) raises rare-CE +0.612; cross-removal (wA,
+    fit on the OTHER half) +0.565 = 92% of self; random removal -0.007.
+FINDINGS: (a) STABLE (cos 0.98) -- the calibration axis is a model
+property, essentially data-independent. (b) CROSS-REMOVES (92%) -- the
+direction learned on one data slice removes the calibration on another
+almost as well as the native one. NULL clean (shuffled cos 0.22, random
+removal ~0). So the ONE cleanly-isolable component in the model is not a
+data-fitting artifact -- it is a robust, portable, rank-1 model feature.
+CLOSES the isolation/one-knob investigation with full validation. The
+final picture, robustly established this session:
+  - The model has exactly ONE cleanly-isolable, stable, rank-1 linear
+    knob -- the frequency-calibration bias (w_freq): necessary (650-651),
+    specific (651), ~40% the log-freq axis (656), distributed across 5
+    layers with block 17 dominant (662-664), and stable/portable across
+    data (672). ~6% of the loss-benefit over uniform.
+  - EVERYTHING ELSE -- all prediction, routing, refinement, and stateful
+    registers (quote, paren, recency) -- is DISTRIBUTED and causally
+    uneditable by linear removal, though often strongly decodable
+    (decodability != causability; read != write).
+This is the comprehensive answer to the user's Q4/Q5. Queued
+w_freq_steering to show the one knob is ACTIONABLE: scaling w_freq up/down
+should act as a frequency/diversity dial (suppress or boost frequent
+tokens) -- demonstrating the practical utility of the single isolable
+component.

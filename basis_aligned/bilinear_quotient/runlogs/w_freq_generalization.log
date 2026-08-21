@@ -1,0 +1,9 @@
+cos(w_freq_A, w_freq_B) = 0.982  (shuffled control 0.224)
+on B: self-removal rare-CE +0.6118, cross-removal (wA) +0.5646, random +-0.0065
+cross/self effect = 0.92
+
+(a) stable direction (cos>=0.8): True
+(b) cross-removal >=70% of self: True
+NULL shuffled cos low & random removal small: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/w_freq_generalization_results.json (81s)
