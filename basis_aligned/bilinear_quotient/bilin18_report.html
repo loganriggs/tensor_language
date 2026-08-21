@@ -1385,6 +1385,21 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   same sentences because they read the same input, not because one hands off to the other.
   That is the more robust arrangement of the two — either copy alone still gets the answer —
   and it's a concrete, tested fact about how this model spreads one decision across layers.</p>
+  <p>Zooming all the way out to the whole 18-layer stack, one last measurement asks where the
+  article decision actually lives: switch off each layer in turn and watch how much the a/an
+  versus the choice moves. The profile is remarkably clean — the decision is <em>built at the
+  front</em> (the first two layers do almost all of it), <em>carried untouched through the
+  entire middle</em> (layers 3 through 14 barely move it at all — a fifteen-fold drop from the
+  front), and then <em>re-read once more at the very end</em>, with the final layer the second
+  biggest contributor of all. Front-build, empty middle, final readout. It matches the shape
+  the rest of the report found for the middle of this model: a nearly-linear pipe that carries
+  early decisions forward without redoing them. One surprise corrects an earlier emphasis:
+  measured whole-layer, the <em>second</em> layer moves the article choice about eight times
+  more than the first — the first layer is where the cleanest readable group happened to turn
+  up, but the second layer quietly does more of the actual work. (Switching off a whole layer
+  mixes its own direct effect with the knock-on disruption to everything downstream, so the
+  exact sizes are upper bounds; but every layer gets the identical treatment, so the shape of
+  the profile — and which layers matter — is a fair comparison.)</p>
   <p>A companion tool from the same outside source does the compression side of this question
   properly: given a layer's weight and its real activations, it computes — in one exact step,
   no guessing or gradient descent — the best possible low-rank stand-in for that layer <em>on
