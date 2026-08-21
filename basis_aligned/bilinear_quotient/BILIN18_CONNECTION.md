@@ -24055,3 +24055,32 @@ L2/L4/L5 read additional COMPUTED variables (position + unnamed). pred_b False (
 2/5 big heads read class+position). The compositional picture holds -- later layers
 read earlier-computed variables -- but the variable set is larger than {class,
 position}, and naming L5's/L2's further variable is the open question.
+
+## 785. TOKEN RSA (user ask, on 131k tokens) -- the mean table REORGANISES between-
+## class relations while PRESERVING within-class structure (my within-collapse
+## prediction was WRONG, stated plainly). RSA = Spearman corr of the token x token
+## dissimilarity matrices (1-cosine) of the mlp0 mean table vs the raw embedding.
+Result (556 tokens with >=25 occurrences):
+  RSA(mean, embedding) FULL = 0.414   <- the scalar: moderate; the mean table
+     substantially reorganises relative geometry (not a copy of the embedding, not
+     random).
+  RSA within-class 0.778  vs  across-class 0.444
+  Fisher class-sep ratio 2.13 (mean vs embedding); eff-rank mean 24.0 vs emb 172.5.
+READ:
+  * SCALAR answer (user Q2): the mean table's relative structure correlates 0.41 with
+    the embedding's -- moderately different, substantially reorganised toward class.
+  * CORRECTION (my pred_a WRONG): I predicted the mean table would COLLAPSE within-
+    class relative structure (class quantisation) -> within-class RSA < across-class.
+    The OPPOSITE holds: within-class RSA 0.78 >> across-class 0.44. The MLP PRESERVES
+    each class's internal relative geometry (determiners keep their relative
+    arrangement) but REORGANISES the BETWEEN-class relationships. So the class
+    computation is a class-SEPARATION transform (push class groups apart, Fisher
+    2.1x) NOT a within-class collapse. The eff-rank collapse (24 vs 172) is the
+    dominant class-centroid structure; the fine within-class geometry survives in the
+    low-variance directions (RSA 0.78).
+  * ROBUSTNESS (more data): eff-rank 24 vs 172 and Fisher 2.1x confirm 780/782 on
+    556 tokens / 131k-token sample.
+So the front's class computation = collapse to a low-rank class-centroid geometry
+(classes pushed apart) WITH within-class relative structure preserved -- a class-
+separating, not class-erasing, transform. pred_a False (informatively); the scalar
+RSA 0.41 is the user's requested measure.
