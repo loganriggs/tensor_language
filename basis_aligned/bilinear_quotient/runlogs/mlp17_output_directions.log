@@ -1,0 +1,15 @@
+top-8 directions capture 0.950 of output variance: HELD
+  dir 0: reads out "subword" (gap +33853.06, 1.25x 2nd) 
+  dir 1: reads out "newline" (gap +25249.26, 1.15x 2nd) 
+  dir 2: reads out "digit" (gap +19708.94, 1.51x 2nd) 
+  dir 3: reads out "subword" (gap +9437.19, 1.94x 2nd) 
+  dir 4: reads out "newline" (gap +2006.94, 1.33x 2nd) 
+  dir 5: reads out "newline" (gap -2975.36, 1.33x 2nd) 
+  dir 6: reads out "digit" (gap -4173.44, 2.06x 2nd) [clean]
+  dir 7: reads out "digit" (gap -1478.27, 2.93x 2nd) [clean]
+
+(a) 2/8 directions map to a distinct class (>=2x): FAILED
+(c) distinct classes covered by clean directions: ['digit'] (1)
+NULL: PCA median gap ratio 1.42 > random 1.46: CHECK
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp17_output_directions_results.json (47s)

@@ -18700,3 +18700,51 @@ model-wide statement: this network has no localized unit-level
 circuits anywhere; its computation lives in distributed units and
 compact directions, and where it is easiest to read is not where it
 is done.
+
+## 617. The VARIANCE basis is not the FUNCTIONAL basis: mlp17's top-8
+## output PCA directions are NOT interpretable token-class channels --
+## no sharper than random directions
+
+Tried to name the readout layer's 8 output directions (615: rank-8)
+by which token class each reads out. The attempt FAILED, informatively.
+  (0) HELD: top-8 PCA directions capture 95% of output variance
+      (confirms 615's rank-8).
+  (a) FAILED: only 2 of 8 directions map to a DISTINCT class (top
+      class >= 2x the second). The gap ratios are low (1.15-2.9x) --
+      each direction correlates with several classes, not one -- and
+      the classes REPEAT: subword (dirs 0,3), newline (dirs 1,4,5),
+      digit (dirs 2,6,7). The 8 directions cover only ~3 rough classes
+      with heavy overlap, not 8 clean channels.
+  NULL FAILED (the decisive part): the PCA directions' median class-
+      gap ratio (1.42) is NOT higher than 8 RANDOM orthogonal
+      directions' (1.46). The top output PCA directions are no better
+      aligned to token classes than random directions.
+THE FINDING: mlp17's top output-VARIANCE directions are NOT its
+interpretable functional channels. The variance basis (what PCA
+finds, ordered by output magnitude) and the functional basis (what
+discriminates token classes) are DIFFERENT. This is consistent with
+614 (the article readout direction d was only 8% inside mlp0's top-16
+PCA subspace) -- across both layers, the high-variance output
+directions are not the class-readout/functional directions.
+RECONCILES the apparent tension with 615: mlp17's UNITS cluster
+cleanly by token class (615, the clean newline/capitalized readouts)
+because individual units happen to align with classes, but the top
+PCA DIRECTIONS of the aggregate output do not, because PCA orders by
+variance/magnitude and the highest-variance directions are dominated
+by something other than class discrimination (likely overall output
+norm / frequent-token structure). So "the readout layer is rank-8"
+(615) is true for VARIANCE but the 8 variance-directions are not the
+8 interpretable readouts -- naming the readout requires a class-
+SUPERVISED decomposition, not unsupervised PCA.
+METHODOLOGICAL LESSON, now on record: unsupervised low-rank
+decompositions (PCA/SVD of the output) find the COMPACT basis but not
+the INTERPRETABLE basis; the functional/readout directions must be
+found with supervision (which direction predicts a given behaviour).
+612's "16 directions carry 84% of the article causal effect" stands
+(it was a causal-loss measure, not a claim those 16 are individually
+interpretable), but the individual PCA directions should NOT be read
+as circuits. Queued: mlp17_class_directions -- the supervised version,
+finding for each token class the output direction that best predicts
+it, and testing whether those SUPERVISED directions are low-rank,
+interpretable, and capture the readout (the right way to name the
+readout primitives).
