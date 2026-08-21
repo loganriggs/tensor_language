@@ -1,0 +1,12 @@
+4672 induction positions
+baseline P(B)          0.1402
+ablate top-4 induction 0.1268  (drop +0.0134)
+ablate L5.H5 only      0.1340  (drop +0.0062)
+ablate 4 random heads  0.1377  (drop +0.0025)
+
+(0) baseline ~0.14: True
+(a) top induction heads causal (drop>2x random): True
+(b) L5.H5 alone > random: True
+NULL random heads barely matter: True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_head_ablate_results.json (46s)

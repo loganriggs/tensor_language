@@ -603,3 +603,46 @@ component-level, causally-verified circuit (named heads, specific
 pattern, causal necessity), and the deep-dive deliverable's "we can
 localise to front attention but not to a single head" limitation will
 be updated for induction specifically.
+
+## 648. Causal confirmation with the program's universal twist: the
+## induction heads are causally REAL (ablation drop 5.4x random) but
+## REDUNDANT (top-4 removes only 10% of copying). Identifiable and
+## causally-directional, but not necessary -- redundancy reaches the
+## head level too. Tempers 647.
+
+Mean-ablating the induction heads and measuring P(B) (the copied
+continuation) over 4672 induction positions:
+  baseline               0.1402
+  ablate top-4 induction 0.1268  (drop 0.0134, 9.6% of the signal)
+  ablate L5.H5 only      0.1340  (drop 0.0062, 4.4%)
+  ablate 4 random heads  0.1377  (drop 0.0025, 1.8%)
+FINDINGS:
+  (a) CAUSALLY REAL. Ablating the top-4 induction heads {L5.H5, L8.H4,
+      L8.H6, L10.H8} drops copying 5.4x more than 4 random heads
+      (0.0134 vs 0.0025); L5.H5 alone drops it 2.5x more than random.
+      Predictions (a,b) and the NULL all HELD -- the heads 647 found by
+      pattern are confirmed to causally contribute to copying, and the
+      contribution is specific (random heads barely matter).
+  (b) BUT REDUNDANT. The effect is SMALL: ablating even the top-4
+      induction heads removes only 9.6% of the copying signal (P(B)
+      0.140 -> 0.127), and L5.H5 alone only 4.4%. Copying largely
+      SURVIVES ablation of the strongest heads -- it is distributed
+      across many heads, no single head (or top handful) is necessary.
+TEMPERS 647's "first fully component-level circuit". The precise,
+honest statement: for induction we reach component-level IDENTIFICATION
+(L5.H5 is the dominant induction head, by a specific attention pattern
+z+3.99, causally confirmed drop > random) but NOT component-level
+NECESSITY (the heads are redundant; the circuit does not collapse when
+they are removed). This is the program's universal redundancy signature
+-- diffuse over MLP units (610-616, 633), over depth bands (630), over
+attention for routing (644, "front attention" not one head), and now
+over induction HEADS -- reaching every level we probe. The strongest
+localization the model permits is "these are the heads that do it, and
+they matter more than chance," never "this head is the circuit."
+SYNTHESIS of the induction thread (645-648): the model does genuine
+in-context copying (645), strongest for rare tokens and distance-robust
+(646, true induction not skip-bigram), implemented by identifiable
+front+mid heads led by L5.H5 (647), which are causally real but
+redundant (648). Queued induction_redundancy to quantify the
+redundancy curve: cumulative ablation of the top-K induction heads --
+how many must go before copying collapses?
