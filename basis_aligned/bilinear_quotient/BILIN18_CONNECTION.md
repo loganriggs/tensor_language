@@ -24810,3 +24810,28 @@ in-family (no longer the 0.12 outlier of §802). Two honest framings kept distin
 
 The class+position reduction is common and robust across all six models on either metric,
 with NO genuine exception. This closes the correction arc opened at §802.
+
+## §809 — How much of the early layers do we understand? ~93%, and the remainder lives in the small MLPs (early_understood_corrected.py, figure)
+
+Direct answer to the standing question, computed from the corrected §808 per-component
+data (mean-preserving keep) — no new GPU run. Weighting each component by its loss-benefit
+(how much ablating it costs):
+
+- **Early layers (0–5): 93% class+position.** The first six layers' loss-contribution is
+  93% captured by two named, low-rank, causal variables (grammatical class + coarse
+  position). Whole model: 92%.
+- **The understood part is concentrated where the benefit is, and it is attention + mlp0.**
+  attn0 0.99 keep (benefit 1.44), attn1 0.99 (2.22), mlp0 0.97 (2.20), attn5 0.99 (1.97) —
+  the four highest-benefit early components are all ~97–99% class+position.
+- **The remainder is concentrated in the small MLPs and barely matters.** mlp1 (benefit
+  1.07) is 74% class+position — its 26% remainder is the single largest chunk of "not yet
+  named" early computation. mlp2 (0.16 benefit) 38%, mlp3 (0.13) 45%, mlp5 (0.08) 55% are
+  less class+position but carry tiny loss-benefit. So the unnamed early computation is (a)
+  small in total and (b) sits in the low-benefit MLPs, not the attentions.
+
+Honest bound on "100% understood": we understand ~93% of what the early layers do by
+loss-benefit as class+position; the remaining ~7% is the diffuse, distributed content
+already characterized (FINDINGS 5/10 — no low-rank or class handle, concentrated in MLPs),
+and mlp1's 26% remainder is the highest-ROI single target if that residue is ever revisited.
+Figure early_understood_corrected.png (per-component benefit split into understood vs
+remainder) sent to user. This closes the corrected class+position program.
