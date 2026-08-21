@@ -22399,3 +22399,31 @@ control is needed; the "top category" is confounded by category difficulty
 (cap_word wins for the null too) and must not be read as function. Net:
 mlp17's core = ONE causally-verified calibration axis (dir0) + three weaker
 open-vocab-ish directions whose finer readout labels don't hold up.
+
+## 732. DIGIT CIRCUIT VERIFY -- FLAWED DESIGN (stated plainly, inconclusive).
+## My test cannot validate item 9; the "direct path" ablation removed the
+## bigram head that digit CONTINUATION relies on, so both position types
+## collapsed equally. Item 9 stands on its original evidence (641-642), not
+## re-verified here.
+
+Result: ablating ALL 18 blocks (embedding->unembedding "direct path") raised
+digit CE +11.4 (continuation) and +12.4 (initiation), ratio 1.09 (~equal),
+so prediction (a) "initiation computed >> continuation" FAILED.
+WHY IT'S INVALID (my design error):
+  - A digit CONTINUATION (prev digit -> next digit) is a BIGRAM, and the
+    bigram is carried by block-0 ATTENTION (the copy head), NOT the direct
+    embedding->unembedding path. Zeroing ALL blocks removes the bigram head
+    too -- so continuation collapses because I deleted the mechanism it
+    uses, not because it needs deep computation. The test conflated "direct
+    path" with "bigram" and cannot separate them.
+  - Only 41 continuation positions in 40k tokens (too few to be reliable);
+    initiation 566. The continuation estimate is noise-dominated regardless.
+  - Direct-path CE ~16 (worse than uniform ~10.8) shows the ablation is
+    off-distribution/destructive for EVERYTHING, not a clean bigram probe.
+VERDICT: inconclusive; item 9 (641-642: initiation computed 9.4x vs
+continuation bigram) is NOT refuted and NOT re-verified -- my experiment was
+mis-designed. A valid test would compare FULL vs (keep block-0 attention /
+the bigram, ablate the rest) on MUCH more data (digit-continuation is rare).
+Logged as a caught design error; not re-run now (small-sample, marginal).
+LESSON: when testing "is X a bigram," ablate everything EXCEPT the bigram
+mechanism, not the bigram mechanism itself.
