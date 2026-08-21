@@ -22717,3 +22717,40 @@ mlp1-output subspace with per-datapoint sparse codes, measure the SPARSITY
 vs RECONSTRUCTION-FIDELITY tradeoff (the faithfulness/sparsity frontier). If
 it reconstructs the subspace exactly (0 error) it is faithful AND sparse.
 Queued overcomplete_sparse_dict.
+
+## 742. OVERCOMPLETE SPARSE DICT -- the MDL WIN. A learned P=512 top-k sparse
+## dictionary reconstructs each mlp1-output datapoint FAR better than SVD
+## rank-k at the same sparsity (k=2: R2 0.44 vs 0.10, 4.5x; k=32: 0.63 vs
+## 0.39). Random-overcomplete fails (0.01-0.10) -> the win is from LEARNING,
+## not overcompleteness alone. Vindicates the user: the reconstruction-
+## optimal orthogonal basis is NOT the best decomposition.
+
+Reconstruction R^2 (held-out 12k tokens), per-datapoint k atoms:
+  k     SAE(P=512)  SVD rank-k  random-OC
+  2     0.441       0.099       0.014
+  8     0.567       0.227       0.041
+  32    0.632       0.387       0.099
+FINDINGS (both predictions HELD):
+  (a) OVERCOMPLETE SPARSITY WINS decisively at every k. Each datapoint's OWN
+      k atoms (from a learned P=512 dictionary) reconstruct 1.6-4.5x more
+      than k SHARED SVD components. The gap is largest at low k (most sparse)
+      -- exactly the MDL regime the user cares about. This is the first
+      decomposition that beats the dense-orthogonal family on per-datapoint
+      efficiency (740-741: SVD/A-SVD were near-optimal WITHIN their family
+      but far from MDL; overcompleteness + learning breaks past it).
+  NULL HELD: random-overcomplete top-k is much worse (0.01-0.10) -- the win
+      requires LEARNING the dictionary; overcompleteness alone does nothing.
+CAVEATS (honest): (1) NOT YET FAITHFUL -- R^2 0.44-0.63 at these k, not 1.
+    Faithfulness (R^2->1) needs higher k / more atoms / more training; the
+    frontier shows the SPARSITY-vs-FAITHFULNESS tradeoff, with the SAE
+    frontier DOMINATING SVD's everywhere. So faithful sparse codes are
+    achievable but cost more atoms than the ultra-sparse k=2. (2) This is L2
+    OUTPUT reconstruction, not CE -- the CE-faithfulness version (substitute
+    the sparse reconstruction, measure CE) is the next step (queued). (3)
+    Quick 600-step training; a better SAE would do more.
+This resolves the decomposition-metric arc (737-742): dense orthogonal bases
+(SVD near-optimal, A-SVD marginally best on parsimony) are far from the MDL
+objective; a LEARNED OVERCOMPLETE SPARSE dictionary is the right family --
+per-datapoint sparse codes, dominating frontier, learning-driven. The
+faithfulness question becomes a frontier (sparsity vs R^2), not a binary.
+Queued overcomplete_ce_faithful (the CE version of the frontier).

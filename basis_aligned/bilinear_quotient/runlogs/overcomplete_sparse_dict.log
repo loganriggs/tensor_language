@@ -1,0 +1,8 @@
+train 32768 eval 12288 tokens, P=512
+k=  2: SAE(P=512) R2 0.441  SVD rank-k R2 0.099  rand-OC R2 0.014
+k=  8: SAE(P=512) R2 0.567  SVD rank-k R2 0.227  rand-OC R2 0.041
+k= 32: SAE(P=512) R2 0.632  SVD rank-k R2 0.387  rand-OC R2 0.099
+
+(a) overcomplete SAE beats SVD at same k: True
+NULL random-overcomplete does not beat SVD/SAE: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/overcomplete_sparse_dict_results.json (94s)
