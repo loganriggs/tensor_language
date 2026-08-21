@@ -23342,3 +23342,24 @@ graph and read its wiring from weights.
 NEXT: scale the anchored joint to the early stack (0-3) to build the full
 component graph; test edge CAUSALITY (ablate a live coupling edge -> CE impact vs
 random edge). Queued anchored-stack graph as the phase-3 opener (pending).
+
+## 754c-completion. PATH LINEARITY v2 (held-out FULL linear probe -- the honest
+## quantitative answer). v1's scalar-alpha var-expl (0.22) understated linearity by
+## forcing a single scalar on the weight-derived prediction. A FULL linear map
+## (ridge, fit on half the tokens, R2 on held-out half) of Left_1's read-change on
+## Down_0's write:
+  attention ON  : held-out R2 0.345
+  attention OFF : held-out R2 0.589   (removing cross-position mixing lifts it)
+  shuffled null : R2 -0.145  (negative -> no spurious linear fit; clean)
+FINAL READ (settles 754b/754c): the same-position composition is LARGELY LINEAR --
+a full linear map explains ~0.59 of the read-change once attention's cross-position
+mixing is removed (attention is the dominant decorrelator, 0.345 -> 0.589). The
+remaining ~0.41 is the rms per-token NONLINEARITY (the renormalization response),
+amplified by the tiny lambda0=0.013 regime (Down_0 enters block 1 at ~1.3% weight,
+so the measured delta is dominated by the norm's nonlinear response to a small
+perturbation). CONCLUSION: not "nonlinearity dominates" (754b overstated) and not
+purely linear -- the wiring is weight-only (754), the per-token flow is MOSTLY
+linear per position + attention position-mixing (structured) + a minority rms
+nonlinearity. User's framing (lambda folds, rms is a per-token scalar gain,
+attention is bilinear) is essentially right; the rms scalar is the one genuinely
+nonlinear residual, and it is small in magnitude but not negligible here.
