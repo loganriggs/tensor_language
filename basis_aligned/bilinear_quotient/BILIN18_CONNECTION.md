@@ -19960,3 +19960,41 @@ frequency correction (two bands, L4-6 and L16-17), concentrated in block
 sole). Queued layerwise_calib_axis: do the 5 calibrator layers write
 along the SAME unembedding frequency axis (freq_dir, 656) -- is it one
 shared frequency direction applied at 5 layers?
+
+## 663. The distributed calibration is TWO orthogonal mechanisms at two
+## depths, not one shared axis: the END band (L16,17) writes along the
+## unembedding log-frequency axis (cos 0.43, 0.61; mutual 0.84); the
+## EARLY band (L4,5,6) uses its OWN shared direction (mutual 0.57-0.71)
+## that is NOT readout-aligned (cos ~0.06) and orthogonal to the end band.
+
+cos(w_freq_L, freq_dir) [alignment with the unembedding log-freq axis,
+656] and pairwise cos among the 5 calibrator layers (662):
+  alignment with readout axis: L4 +0.06, L5 +0.08, L6 -0.01 (NOT
+    aligned) ; L16 +0.43, L17 +0.61 (aligned) ; writers ~0.06.
+  pairwise among calibrators: L4-5 0.71, L4-6 0.57, L5-6 0.68 (early
+    trio shares a direction); L16-17 0.84 (end pair shares a direction);
+    cross L4/5/6 vs L16/17: 0.04-0.16 (the two bands are ORTHOGONAL).
+FINDINGS:
+  (a) FAILED as a single-axis hypothesis, informatively. Not all 5
+      calibrators share one axis. There are TWO distinct frequency-
+      calibration mechanisms:
+      1. END band (L16, L17): aligned with the unembedding log-frequency
+         READOUT axis (cos 0.43, 0.61), mutually coherent (0.84). This is
+         a direct LOGIT-level frequency bias -- shift the output logits
+         by token frequency. Block 17 dominant (662).
+      2. EARLY band (L4, L5, L6): a SEPARATE shared direction (mutual
+         0.57-0.71) that is NOT readout-aligned (cos ~0.06 with freq_dir)
+         and ORTHOGONAL to the end band. It has the calibrator CE sign
+         (662) so it causally corrects the output freq/rare balance, but
+         via a mid-network REPRESENTATION-level direction, not a direct
+         logit bias.
+  NULL clean: writer layers' mean |cos(freq_dir)| 0.06 < calibrators'
+      0.24; freq_dir sane (readout corr 0.53, random cos 0.02).
+So "distributed frequency calibration" (662) resolves into TWO orthogonal
+mechanisms at two depths: an EARLY representation-level frequency
+correction (L4-6, shared non-readout direction) and a LATE readout-level
+frequency bias (L16-17, unembedding-frequency axis, block 17 dominant).
+The model corrects for token frequency twice, in different spaces. Queued
+early_band_axis to identify the early band's direction: is it the INPUT/
+embedding frequency direction (correcting the current token's frequency
+in the representation), which would explain why it is not readout-aligned?

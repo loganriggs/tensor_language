@@ -1,0 +1,25 @@
+L 0: cos(w_freq_L, freq_dir) +0.068 
+L 1: cos(w_freq_L, freq_dir) +0.080 
+L 2: cos(w_freq_L, freq_dir) +0.039 
+L 3: cos(w_freq_L, freq_dir) +0.071 
+L 4: cos(w_freq_L, freq_dir) +0.057 CAL
+L 5: cos(w_freq_L, freq_dir) +0.075 CAL
+L 6: cos(w_freq_L, freq_dir) -0.008 CAL
+L 7: cos(w_freq_L, freq_dir) +0.077 
+L 8: cos(w_freq_L, freq_dir) +0.040 
+L 9: cos(w_freq_L, freq_dir) +0.076 
+L10: cos(w_freq_L, freq_dir) +0.080 
+L11: cos(w_freq_L, freq_dir) +0.060 
+L12: cos(w_freq_L, freq_dir) +0.163 
+L13: cos(w_freq_L, freq_dir) +0.015 
+L14: cos(w_freq_L, freq_dir) +0.070 
+L15: cos(w_freq_L, freq_dir) +0.069 
+L16: cos(w_freq_L, freq_dir) +0.434 CAL
+L17: cos(w_freq_L, freq_dir) +0.610 CAL
+
+(0) freq_dir sane (corr 0.53, rand 0.022): True
+(a) all 5 calibrators |cos(freq_dir)|>=0.3: False ([0.06, 0.08, 0.01, 0.43, 0.61])
+(b) pairwise cos among calibrators: {'4-5': 0.709, '4-6': 0.573, '4-16': 0.065, '4-17': 0.044, '5-6': 0.683, '5-16': 0.095, '5-17': 0.096, '6-16': 0.159, '6-17': 0.096, '16-17': 0.838}
+NULL writers < calibrators (mean |cos| 0.06 vs 0.24): True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/layerwise_calib_axis_results.json (72s)
