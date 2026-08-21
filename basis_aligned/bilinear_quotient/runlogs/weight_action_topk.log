@@ -1,0 +1,7 @@
+CE_full 3.192 benefit 1.018
+k=  8: WA-topk out-R2 0.764 CE-rec 0.870 | A-SVD CE-rec -2.481 | rand -2.909
+k= 32: WA-topk out-R2 0.824 CE-rec 0.938 | A-SVD CE-rec 0.310 | rand -3.113
+k= 64: WA-topk out-R2 0.857 CE-rec 0.951 | A-SVD CE-rec 0.693 | rand -3.232
+
+(a) WA-topk sparse+CE-faithful (k=32 >=0.7): True; NULL rand<WA: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/weight_action_topk_results.json (184s)

@@ -22995,3 +22995,38 @@ HONEST STATUS: the weight-action CONCEPT is validated (747 toy); the soft-L1
 implementation FAILS on the real weight; the hard-top-k implementation is the
 corrected next step. The activation SAE (748) already shows the sparse
 structure is real and CE-faithful.
+
+## 750. WEIGHT-ACTION TOP-K SAE on real mlp1.Down -- WORKS (fixes 749). The
+## HARD top-k weight-action SAE achieves SPARSE + CE-FAITHFUL codes on the
+## real weight: 87% CE-recovery at k=8, 94% at k=32, 95% at k=64, beating
+## A-SVD rank-k dramatically (k=8: +0.87 vs -2.48). The novel faithful weight-
+## based sparse decomposition is validated on a real layer.
+
+Reconstruct the weight's action W@gate with D@topk(E@gate), sweep k:
+  k    WA-topk out-R2  WA-topk CE-rec   A-SVD rank-k CE-rec   random
+  8    0.764           0.870            -2.481                -2.909
+  32   0.824           0.938            +0.310                -3.113
+  64   0.857           0.951            +0.693                -3.232
+FINDINGS (both HELD):
+  (a) HARD TOP-K FIXES 749: the weight-action SAE with enforced top-k
+      sparsity achieves sparse (k atoms/datapoint) CE-faithful codes on the
+      REAL weight -- 87% CE at k=8, 95% at k=64 -- where the soft-L1 version
+      (749) stayed dense / broke. So the sparse structure IS extractable from
+      the weight; the fix was HARD top-k, not soft L1.
+  (b) It beats A-SVD rank-k dramatically at low k (k=8: WA +0.87 vs A-SVD
+      -2.48 catastrophic; k=32: +0.94 vs +0.31) -- same 737/748 story (A-SVD
+      front-loads massive-activation energy; the sparse code learns loss-
+      relevant atoms). NULL: random-overcomplete catastrophic (-2.9 to -3.2).
+  - The weight-action SAE MATCHES the activation SAE (748: 0.864 at k=8; here
+    0.870) -- nearly identical CE-recovery -- BUT its encoder E is a LINEAR
+    map of the GATE tied to the weight (code = E@gate, a direct function of
+    the input), not a free learned network on the output. So it is the more
+    FAITHFUL / interpretable form: a sparse overcomplete factorization of the
+    weight's action, per-datapoint sparse, CE-faithful, on a real layer.
+CULMINATION of the decomposition-metric program (737-750): dense orthogonal
+bases (SVD/A-SVD) are faithful but far from parsimonious and CE-catastrophic
+at low rank (737/748); a LEARNED OVERCOMPLETE SPARSE dictionary -- validated
+on ground-truth toys (743-745,747) and now on the real weight in both
+activation (748) and WEIGHT-ACTION (750) forms -- is the right decomposition:
+per-datapoint sparse, CE-faithful, and recovers structure SVD cannot. The
+weight-action top-k SAE is the novel faithful weight-based version.
