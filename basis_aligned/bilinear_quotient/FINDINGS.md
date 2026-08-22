@@ -88,10 +88,14 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    part. Front/back detail is architecture-specific and varies more than n=3 implied (§817): front
    compounding sub-additive in bilin18/pythia, super in GPT-2; pythia-160m is back-heavy; and gpt2-large's
    FRONT is only 0.37 class+position under the SIMULTANEOUS band metric (which compounds — per-component it
-   is 0.92, §808 — so its front has strong cross-component interaction structure). Metric note: the
-   per-component nat-weighted class+position headline (0.92, item 1b) under-weights the redundant middle,
-   so true whole-model share is a bit lower (consistent with the stricter simultaneous 0.78). Middle is
-   ~half-compressible (§816: drop 3 of 6 middle layers for 0.27 nats; front convex/irreplaceable). **HIGH.**
+   is 0.92, §808 — so its front has strong cross-component interaction structure). Middle is ~half-compressible
+   (§816: drop 3 of 6 middle layers for 0.27 nats; front convex/irreplaceable). VALIDITY (§820): the
+   subspace GENERALIZES to held-out FineWeb (within≈cross keep, gap ≤0.005; not overfit), BUT per-component
+   mean-preserving keep is mean+redundancy-dominated — even a RANDOM-orthonormal subspace recovers 0.84–0.95
+   of a single high-benefit component (μ ≈ sufficient + others carry the variation redundantly); the
+   class+position increment over random is modest (~0.07–0.13) though consistent/specific. So the
+   per-component headline (0.92) is an UPPER BOUND; the honest whole-model share is the SIMULTANEOUS CENTERED
+   metric (§794: 0.78, random 0.04) — "~4/5 of the model". **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even

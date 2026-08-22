@@ -1,9 +1,9 @@
-attn0: benefit 1.603 | within 0.9906 cross 0.9896 (gap +0.001) | shuffled 0.9912
-mlp0: benefit 2.383 | within 0.9674 cross 0.9665 (gap +0.001) | shuffled 0.9681
-attn1: benefit 2.346 | within 0.9932 cross 0.9927 (gap +0.000) | shuffled 0.9939
-attn5: benefit 2.108 | within 0.9887 cross 0.9837 (gap +0.005) | shuffled 0.9892
-mlp8: benefit 0.034 | within 0.1924 cross 0.0941 (gap +0.098) | shuffled 0.2507
-mlp16: benefit 0.858 | within 0.9741 cross 0.9724 (gap +0.002) | shuffled 0.9737
+attn0: benefit 1.603 | within 0.9906 cross 0.9896 (gap +0.001) | shuffled 0.9912 | rand-orth 0.8792
+mlp0: benefit 2.383 | within 0.9674 cross 0.9665 (gap +0.001) | shuffled 0.9681 | rand-orth 0.8378
+attn1: benefit 2.346 | within 0.9932 cross 0.9927 (gap +0.000) | shuffled 0.9939 | rand-orth 0.9283
+attn5: benefit 2.108 | within 0.9887 cross 0.9837 (gap +0.005) | shuffled 0.9892 | rand-orth 0.9506
+mlp8: benefit 0.034 | within 0.1924 cross 0.0941 (gap +0.098) | shuffled 0.2507 | rand-orth -0.3098
+mlp16: benefit 0.858 | within 0.9741 cross 0.9724 (gap +0.002) | shuffled 0.9737 | rand-orth 0.8532
 
 (a) class+position subspace is STABLE (max within-cross gap 0.005 < 0.10, cross >> shuffled): False
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cp_stability_results.json (97s)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cp_stability_results.json (107s)

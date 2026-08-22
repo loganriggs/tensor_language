@@ -4,6 +4,7 @@
   "within": 0.9906,
   "cross": 0.9896,
   "shuffled_null": 0.9912,
+  "random_orth_null": 0.8792,
   "gap": 0.001
  },
  "mlp0": {
@@ -11,6 +12,7 @@
   "within": 0.9674,
   "cross": 0.9665,
   "shuffled_null": 0.9681,
+  "random_orth_null": 0.8378,
   "gap": 0.0009
  },
  "attn1": {
@@ -18,6 +20,7 @@
   "within": 0.9932,
   "cross": 0.9927,
   "shuffled_null": 0.9939,
+  "random_orth_null": 0.9283,
   "gap": 0.0005
  },
  "attn5": {
@@ -25,6 +28,7 @@
   "within": 0.9887,
   "cross": 0.9837,
   "shuffled_null": 0.9892,
+  "random_orth_null": 0.9506,
   "gap": 0.005
  },
  "mlp8": {
@@ -32,6 +36,7 @@
   "within": 0.1924,
   "cross": 0.0941,
   "shuffled_null": 0.2507,
+  "random_orth_null": -0.3098,
   "gap": 0.0983
  },
  "mlp16": {
@@ -39,9 +44,11 @@
   "within": 0.9741,
   "cross": 0.9724,
   "shuffled_null": 0.9737,
+  "random_orth_null": 0.8532,
   "gap": 0.0017
  },
  "pred_a_stable": false,
  "max_gap": 0.005,
- "runtime_s": 97.14958453178406
+ "note_shuffled_null": "shuffled-token null is weak (data-derived + mean preserved); random_orth is the proper null",
+ "runtime_s": 107.20763731002808
 }

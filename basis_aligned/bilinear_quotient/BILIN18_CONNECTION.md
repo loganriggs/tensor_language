@@ -25155,3 +25155,44 @@ variable (with position secondary). This closes the deep characterization of the
 redundant/super-additive (§813), 65% class+position maintenance (§814), universal across 6 models
 (§815/817), ~half-compressible (§816), adding mostly-NEW directions (§818), and those new directions
 are chiefly finer class (§819). FINDINGS 1c updated.
+
+## §820 — VALIDITY: the class+position subspace GENERALIZES (not overfit); but per-component mean-preserving keep is mean+redundancy-dominated — the honest headline is the simultaneous 0.78, not per-component 0.92 (cp_stability.py)
+
+Two-part validity check of the whole §767→819 program. Built the class+position subspace on
+FineWeb half-A, scored keep-only CE-recovery on held-out half-B (cross), vs same-half (within),
+with shuffled-token and random-orthonormal nulls. (Two bugs fixed first, both caught by the (0)
+SANITY check: full-rank aggregate subspace, and capture running under the live ablate hook.)
+
+| comp | benefit | within | cross | gap | shuffled null | random-orth null |
+|------|--------:|-------:|------:|----:|--------------:|-----------------:|
+| attn0 | 1.60 | 0.991 | 0.990 | 0.001 | 0.991 | 0.879 |
+| mlp0  | 2.38 | 0.967 | 0.967 | 0.001 | 0.968 | 0.838 |
+| attn1 | 2.35 | 0.993 | 0.993 | 0.000 | 0.994 | 0.928 |
+| attn5 | 2.11 | 0.989 | 0.984 | 0.005 | 0.989 | 0.951 |
+| mlp16 | 0.86 | 0.974 | 0.972 | 0.002 | 0.974 | 0.853 |
+| mlp8  | 0.03 | 0.192 | 0.094 | 0.098 | 0.251 | −0.310 |
+
+RESULT 1 — GENERALIZES (not overfit): for every high-benefit component, cross-half keep ≈
+within-half keep (gap ≤ 0.005). The class+position subspace built on one data half recovers the
+held-out half essentially as well as in-sample. The whole program's keep-only numbers are NOT
+in-sample overfitting. (mlp8's larger gap is noise — benefit 0.03.)
+
+RESULT 2 — but per-component mean-preserving keep is MEAN + REDUNDANCY dominated (important
+methodological caveat). Under mean-preserving keep, even a RANDOM-ORTHONORMAL subspace recovers
+0.84–0.95 of a high-benefit component's single-ablation benefit. Why: mean-preserving keep re-adds
+the component's mean vector μ, and (a) μ alone approximates a single component's output well, while
+(b) the token/position VARIATION that μ drops is redundantly available from the other (intact)
+components — so substituting μ+anything looks sufficient. Cross-check with §808 (bilin18 centered ≈
+mean-preserve, both 0.92): the real class+position subspace already CONTAINS μ (class-means average
+to ~the global mean), so it beats random by only a modest, consistent per-component increment
+(~0.07–0.13; mlp8 shows random can go negative, so the subspace IS specific). 
+
+CONSEQUENCE: the per-component mean-preserving keep numbers (0.92–0.99, §808/814) OVERSTATE the
+class+position subspace's specific per-component role — much of each single-component number is the
+component's constant mean plus cross-component redundancy, not class+position variation. The honest
+whole-model figure is the SIMULTANEOUS CENTERED metric (§794: 0.78, random 0.04), which removes all
+means at once and cannot be compensated by other components. This SHARPENS (does not overturn) the
+caveat already in FINDINGS 1b/1c that per-component over-reads vs simultaneous. Net: class+position
+is real, specific, and generalizing — but "~4/5 of the model" (simultaneous 0.78) is the honest
+share; the 0.92 per-component headline is an upper bound inflated by mean-substitution and redundancy.
+FINDINGS updated.
