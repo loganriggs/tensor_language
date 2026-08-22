@@ -28369,3 +28369,26 @@ So ablation-recovery is ~equal (both re-derived), but PATCH-persistence differs 
 TIMESCALE differs (class fast/per-block, content slow/long-range). The honest statement: two machines, both
 re-derived, but at different speeds — fast local (grammar) vs slow long-range (content). This CORRECTS the
 "accumulate vs re-derive" dichotomy. Good that the symmetric test caught the oversimplification before it stood.
+
+## §964 — REFUTES §963's speed hypothesis: BOTH class and content re-derive within ONE block; the residual is a recomputed estimate, not a store (rederivation_speed.py)
+
+Ablate class/content subspace at L2, decode the variable at L3..L15 (recovered fraction of clean, cls_base 0.45,
+top_base 0.19):
+  L3:  class +0.85 | content +0.93     L6:  class +0.94 | content +0.99
+  L4:  class +0.87 | content +0.94     L9:  class +0.97 | content +0.99
+  L12: class +0.97 | content +0.99     L15: class +0.98 | content +1.00
+Both reach 50% recovery by L3 (the FIRST layer after ablation). pred (a) "class faster" TRUE only trivially (both
+half-recover at L3; class <= content).
+REFUTES §963's proposed "class re-derives FAST, content SLOW" distinction: BOTH re-derive within ONE block (85-93%
+by L3, ~full by L6), and content is if anything MARGINALLY FASTER, not slower. So the speed-distinction
+reconciliation of the §961 interchange asymmetry was WRONG (my second over-theorized reconciliation in this
+sub-thread — stated plainly).
+CORRECTED UNIFIED PICTURE (data-only, no unverified mechanism): BOTH variables are CONTINUOUSLY RE-DERIVED from
+the (intact) CONTEXT every block — one block of attn+mlp rebuilds the ablated subspace from the untouched context
+tokens. So the residual holds a RECOMPUTED ESTIMATE of class/topic each block, not a persistent store. This
+reconciles §961 correctly: an interchange patch injects FOREIGN (source) content, which the BASE context then
+OVERWRITES via re-derivation, so patches are TRANSIENT and stick only when applied LATE (few downstream layers
+left to overwrite) — content patch grows toward L15 because L15 is the last content-building layer. NOT a
+per-machine speed difference. LESSON: I over-theorized a reconciliation (§963) that the direct test refuted;
+report the data (both re-derive fast; patches transient/late-sticking) and stop positing unverified speed
+mechanisms. Artifact corrected to the empirically-supported statement.
