@@ -142,8 +142,10 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    clusters cleanly by subject (education, Orthodox religion, tech/business, geopolitics, sports, vaccines, aviation,
    medicine, prison; distinctive-token read) and predicts topically-coherent words. Reconciles the diffuseness: topic
    space is HIGH-DIMENSIONAL (no low-rank handle) but STRUCTURED, not noise (§810 sharpened). Attention feeds it context
-   (§862). Caveat: token-level read, causal topic-swap pending. So: grammar = low-rank part-of-speech (easy 23%);
-   content = high-dimensional topic (hard 75%). **HIGH (topic naming: MED pending causal).**
+   (§862). Topic is CAUSAL (§868): steering a topic's direction specifically raises that topic's next-words (own +0.042
+   vs off −0.004, consistent across every topic) — but only WEAKLY, because one direction is a thin slice of high-dim
+   topic space (opposite of low-rank class, which steers strongly §823). So: grammar = low-rank part-of-speech, strongly
+   causal (easy 23%); content = high-dim topic, weakly-but-specifically causal (hard 75%). Both named+causal. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even

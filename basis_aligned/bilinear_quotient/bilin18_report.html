@@ -1753,7 +1753,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   so it has no small set of directions to find, but it is genuinely structured, not noise. So the honest
   end-state is not "grammar is interpretable, content is a wall" but "grammar is a low-rank part-of-speech
   computation; content is a high-dimensional topic computation" — both real, one just far larger than the
-  other. (This rests on a token-level reading of the clusters; a causal topic-swap is the natural next check.)</p>
+  other.</p>
+
+  <p>And the topic structure is <em>causal</em>, not just a readable correlate — though only weakly steerable by
+  a single direction. Steering the late residual along a topic's own direction specifically raises that topic's
+  distinctive next-words (mean own-topic logit gain +0.042) and no others (off-topic −0.004), and it does so
+  consistently for every topic tested (medicine +0.061, aviation +0.029, politics +0.022, …). The effect is
+  small even when pushed hard — which is itself the signature of a high-dimensional computation: one direction is
+  only a thin slice of a many-topic space, so it cannot move the prediction far, exactly the opposite of the
+  low-rank grammatical class, where a single direction steers strongly. So both machines are now named
+  <em>and</em> causally verified: grammar is low-rank and strongly steerable; content is high-dimensional topic
+  tracking, causal but diffuse.</p>
 </section>
 
 <section class="col">

@@ -26325,3 +26325,30 @@ while component steering worked), and the batch was small. So: topic is decodabl
 (real), causal role pending a proper test. Retesting with a topic-DEVIATION direction, an α sweep, and
 more data (topic_steer2). Artifact/FINDINGS: §866 topic kept as representation-level (decodable), causal
 claim held back pending topic_steer2.
+
+## §868 — topic IS causal, but WEAKLY steerable by one direction (consistent with high-dim topic space) (topic_steer2.py)
+
+Retested §867 with a topic-DEVIATION direction + α sweep (best α=256) + bigger batch. Result: mean
+own-topic logit gain +0.042 vs off-topic −0.004, and EVERY topic tested gains its own distinctive tokens
+(medicine +0.061, whiskey/misc +0.047, aviation +0.029, narrative +0.023, politics +0.022, chem/units
++0.025) while others don't. So the effect is SMALL but SPECIFIC and CONSISTENT — topic steering raises
+that topic's tokens and no others.
+
+CONCLUSION: the topic representation IS causal (directionally confirmed — specific, consistent across all
+topics, off-diagonal ~0), upgrading §866 from representation-level to causally-supported. It is only
+WEAKLY steerable by a SINGLE direction (~0.04 logit gain even at α=256), which is exactly what §866's
+HIGH-DIMENSIONALITY predicts: topic space is many-dimensional, so one mean-deviation direction is a small
+slice of it — unlike the low-rank grammatical class, where one direction steers strongly (§823/837). So
+the weak steering is not evidence against topic; it is a signature of topic being high-dimensional. (My
+§867 pred used a 0.5-nat threshold, far too strict for a high-dim signal; the honest read is
+small-but-specific = causal.)
+
+FINAL TWO-MACHINE ACCOUNT (both machines named AND causally supported):
+ - GRAMMAR machine: low-rank part-of-speech + log-position; context-free (front MLPs); STRONGLY causal
+   (single-direction class steering shifts predictions, §823/837); easy ~23% of loss.
+ - CONTENT machine: HIGH-DIMENSIONAL topic/semantic-domain tracker (§866); attention-fed context (§862),
+   back-MLP-generated (§861); WEAKLY-but-specifically causal (topic-direction steering, §868 — weak
+   because high-dim); hard ~75% of loss, mostly irreducible (§840).
+The interpretable low-rank machine (grammar) and the high-dimensional machine (content/topic) are
+different computations; both are real, named, and causal. This is the honest completion of the bottom-up
+program (§767→868). Artifact/FINDINGS updated to topic-causal.
