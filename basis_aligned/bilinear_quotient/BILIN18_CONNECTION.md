@@ -25987,3 +25987,34 @@ So layer 1, folded onto layer 0: a bilinear stage that reads {class (primary), p
 fine-token} and re-expands the class-collapsed geometry by re-introducing position and finer token
 distinctions. NEXT: scan the folding across depth (mlp0..5, 15-17) to trace how the features-read evolve
 — does the model fold in progressively more/longer-range context with depth?
+
+## §851 — Folding scan across depth: prev-token is consumed EARLY-only; class/position reads follow a barbell; the readout folds class+position in hardest (mlp_folding_scan.py)
+
+Folded every MLP's readouts onto the layer-input features (ratio over chance) across depth:
+
+| mlp | class | pos | token_fine | prev |
+|-----|------:|----:|-----------:|-----:|
+| 0 | 8.3 | 3.1 | 2.3 | 1.73 |
+| 1 | 2.9 | 1.7 | 1.3 | 1.27 |
+| 2 | 2.0 | 1.5 | 1.5 | 1.23 |
+| 3 | 1.1 | 1.7 | 1.3 | 1.04 |
+| 4 | 1.5 | 3.5 | 1.1 | 0.98 |
+| 5 | 4.9 | 2.6 | 1.3 | 0.81 |
+| 15 | 5.1 | 2.2 | 1.9 | 0.99 |
+| 16 | 10.0 | 4.7 | 2.6 | 1.01 |
+| 17 | 13.3 | 6.3 | 3.8 | 1.24 |
+
+Three compositional findings:
+ - PREV-TOKEN is a FRONT-ONLY feature: read above chance only at mlp0-2 (1.73→1.23), decays to ~chance by
+   mlp4 (0.98) and stays ~1 through the back. So attn0's copy-source is consumed by the EARLY MLPs (0-2)
+   and by nothing later — answering the §847 open question "who consumes the copy-source": the early MLPs
+   do, modestly, and then it is dropped.
+ - CLASS reads follow a BARBELL: strong at the front (mlp0 8.3× — computes class from the token), a dip
+   mid-stack (mlp3 1.06 ≈ chance), then rising steeply through the readout (mlp15 5.1 → mlp17 13.3). This
+   is the §812 whole-stack barbell seen at the feature-READ level.
+ - POSITION is read throughout and HARDEST at the readout (mlp16 4.65, mlp17 6.29); the back MLPs fold
+   class+position+fine-token in increasingly strongly toward the final layer — the read-out re-reads the
+   computed variables to produce the prediction, class+position-dominated.
+So the depth story, compositionally: front computes class from the token and folds in prev-token+position
+(mlp0-2); a re-expansion + mid refinement (mlp1-4, where prev-token drops out); then the readout (15-17)
+folds class+position back in ever harder to predict. The prev-token/copy-source is an early-only signal.
