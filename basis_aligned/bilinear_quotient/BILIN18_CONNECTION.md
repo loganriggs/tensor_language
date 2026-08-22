@@ -28151,3 +28151,24 @@ super-additive, robust to single-component ablation, load-bearing only as ensemb
 induction HEAD could still be localized WITHIN a layer — at layer granularity, induction is distributed. NET
 (refines §952): induction lives in the front attention as a DISTRIBUTED circuit, not a single layer; §952's
 "front hosts induction" is right, but it is spread across the front, not localized.
+
+## §954 — induction has identifiable HEADS (L2h5 etc.) embedded in a distributed cooperative circuit (induction_head_localize.py)
+
+Resolve §953's caveat by ablating individual HEADS (mean-ablate each head's 128-dim slice of c_proj input, L0-8),
+inductable-position cost (baseline 0.67).
+  top-5 heads: L2h5 +0.123 | L5h5 +0.073 | L8h3 +0.070 | L3h8 +0.060 | L8h4 +0.047. top-5 share 0.595 of the
+  total positive single-head cost (0.627 summed over all 81 heads).
+pred (a) "a few induction heads" TRUE at head granularity (top-5 > 50%).
+NUANCED RESOLUTION (both true):
+ - LOCALIZATION at HEAD level: a handful of heads carry ~60% of the single-head induction signal — L2h5 dominant,
+   then L5h5, L8h3, L3h8, L8h4 — spanning EARLY-mid layers (L2/L3/L5/L8). These are bilin18's identifiable
+   "induction heads" (matching the classic early-layer induction-head picture; the top is L2h5).
+ - but STILL COOPERATIVE/REDUNDANT in absolute terms: the top head costs only +0.12 alone, and all 81 single-head
+   ablations sum to just 0.63 — vs the +5.21 collective front-6 effect (§952). So no single head is load-bearing;
+   single-head ablation is massively compensated (super-additive), exactly as at layer level (§953).
+NET: induction = identifiable induction HEADS (L2h5 the strongest) EMBEDDED IN a distributed super-additive
+cooperative circuit. This reconciles §953 (layer-distributed) with the classic induction-heads picture: the heads
+exist and are localizable at head granularity, but the circuit is redundant — removing any one is compensated.
+INDUCTION THREAD COMPLETE: front attention hosts induction (§952) -> layer-distributed (§953) -> identifiable-
+but-redundant heads L2h5/L5h5/L8h3/... (§954). Fits the model's unifying theme (distributed super-additive
+circuits: content §948, pooling §931, induction §953/§954).
