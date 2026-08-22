@@ -26040,3 +26040,43 @@ geometry to eff-dim 23) and the scan (token decode ~0.33), attn5 does a real but
 would be invisible) or a structural signal (e.g. distance to a boundary) — an honest UNKNOWN. Switching
 to an EFFECT-based lens (ablate attn5, see what it helps PREDICT), which is robust when the output is not
 a clean input-feature.
+
+## §853 — attn5 RESOLVED: it is a CONTENT-prediction component (helps content words most, function words least) (attn5_effect.py)
+
+Effect-based lens (ablate attn5, measure per-target-class CE increase) cracked the §852 unknown. Total CE
+increase 1.99 (≈ its benefit). Mean CE increase by TARGET class:
+
+| target class | mean CE increase | frac of total | n |
+|--------------|-----------------:|--------------:|---:|
+| word (content) | 2.71 | 0.62 | 23196 |
+| cap (proper)   | 2.50 | 0.12 | 4916 |
+| number         | 2.31 | 0.02 | 859 |
+| pron           | 1.70 | 0.04 | 2238 |
+| det            | 1.11 | 0.05 | 4792 |
+| prep           | 1.11 | 0.06 | 4986 |
+| punct          | 0.99 | 0.08 | 8427 |
+| conj           | 0.89 | 0.02 | 1786 |
+
+FINDING: attn5 disproportionately helps predict CONTENT words (word 2.71, cap 2.50, number 2.31) and
+LEAST helps function words (det/prep/punct/conj ~1.0). Content words absorb 62% of its total effect. So
+attn5 is a CONTENT-prediction component — it works on the HARD lexical/content prediction (the 77%,
+§829), not the grammatical skeleton. This explains why every grammatical/token input-probe missed it
+(§852): its job is content, invisible to a grammatical lens; it collapses the geometry (§849) because it
+builds a content signal, not a class signal. attn5 is the front's main early contributor to the hard
+lexical prediction, distinct from the grammatical machinery of layers 0-2.
+
+## §854 — FRONT (layers 0-5) synthesis: grammatical skeleton + first content signal
+
+Bottom-up, the front now reads (mechanism-level, keep-only-free):
+ - L0: mlp0 = bank of bilinear SHARPENING class detectors (grammatical class); attn0 = copy-source (writes
+   prev-token). [§841-844]
+ - L1: mlp1 RE-EXPANDS the class-collapsed geometry (eff-dim 20→47), folding in class(2.9×)+position(1.7×)+
+   modest prev-token & fine-token; attn1 maintains local token history (not induction). [§849/850/845]
+ - L2-4: modest geometry refinements (holds ~45 dim); mlp2-4 keep reading class+position, prev-token read
+   fades to chance by mlp4. [§849/851]
+ - L5: mlp5 re-reads class strongly (4.9×); attn5 = CONTENT-prediction component (helps content words, not
+   grammar). [§851/853]
+So the front builds the grammatical skeleton (class+position, layers 0-2, sharpened & re-expanded) AND
+begins the hard content prediction (attn5). The prev-token/copy-source is a front-only signal consumed by
+mlp0-2. NEXT (other end of the barbell): the BACK readout mlp16/17 — how the maintained class+position is
+mapped to next-token logits.

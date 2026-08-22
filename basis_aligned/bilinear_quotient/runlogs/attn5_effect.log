@@ -1,0 +1,12 @@
+attn5 ablation total CE increase 1.9851
+per-target-class mean CE increase (what attn5 helps predict):
+  word: mean +2.7066 (frac 0.618, n 23196)
+  cap: mean +2.5015 (frac 0.121, n 4916)
+  number: mean +2.3063 (frac 0.019, n 859)
+  pron: mean +1.6971 (frac 0.037, n 2238)
+  det: mean +1.1141 (frac 0.053, n 4792)
+  prep: mean +1.1117 (frac 0.055, n 4986)
+  punct: mean +0.9857 (frac 0.082, n 8427)
+  conj: mean +0.8903 (frac 0.016, n 1786)
+top helped target tokens: [("'.'", 1936.85), ("' the'", 1531.91), ("' to'", 1228.68), ("','", 1035.67), ("' a'", 861.39), ("' of'", 845.74), ("' I'", 629.31), ("' is'", 599.19), ("' in'", 584.65), ("' that'", 520.17)]
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn5_effect_results.json (70.1s)
