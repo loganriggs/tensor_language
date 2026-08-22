@@ -1,0 +1,16 @@
+=== gpt2 ===
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4764.32it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (19339 > 1024). Running this sequence through the model will result in indexing errors
+  gpt2 steer->' the': base 2.902 -> cp 2.651 (rand 4.620) moved +0.251
+  gpt2 steer->' a': base 3.414 -> cp 1.217 (rand 9.298) moved +2.196
+  gpt2 steer->' and': base 1.732 -> cp 6.029 (rand 7.614) moved -4.297
+  gpt2 steer->' of': base 2.348 -> cp 2.406 (rand 3.231) moved -0.058
+=== EleutherAI/pythia-410m ===
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 4187.13it/s]
+  EleutherAI/pythia-410m steer->' the': base 3.247 -> cp 4.254 (rand 6.304) moved -1.007
+  EleutherAI/pythia-410m steer->' a': base 3.772 -> cp 2.299 (rand 7.176) moved +1.473
+  EleutherAI/pythia-410m steer->' and': base 2.081 -> cp 6.853 (rand 6.461) moved -4.772
+  EleutherAI/pythia-410m steer->' of': base 2.620 -> cp 1.945 (rand 6.171) moved +0.675
+
+(a) causal class steering universal (moves toward B, beats random, both models): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_steering_results.json (124.2s)

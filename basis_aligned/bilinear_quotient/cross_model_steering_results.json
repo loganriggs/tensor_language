@@ -1,0 +1,82 @@
+{
+ "gpt2": {
+  "d": 768,
+  "front_layers": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "per_source": {
+   " the": {
+    "kl_base": 2.9021,
+    "kl_cp": 2.6515,
+    "kl_rand": 4.6202,
+    "moved_toward": 0.2507
+   },
+   " a": {
+    "kl_base": 3.4135,
+    "kl_cp": 1.2173,
+    "kl_rand": 9.2982,
+    "moved_toward": 2.1963
+   },
+   " and": {
+    "kl_base": 1.7322,
+    "kl_cp": 6.0294,
+    "kl_rand": 7.6137,
+    "moved_toward": -4.2972
+   },
+   " of": {
+    "kl_base": 2.3479,
+    "kl_cp": 2.4058,
+    "kl_rand": 3.2309,
+    "moved_toward": -0.0579
+   }
+  },
+  "mean_moved": -0.477,
+  "cp_beats_rand": true
+ },
+ "EleutherAI/pythia-410m": {
+  "d": 1024,
+  "front_layers": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7
+  ],
+  "per_source": {
+   " the": {
+    "kl_base": 3.2469,
+    "kl_cp": 4.2542,
+    "kl_rand": 6.3044,
+    "moved_toward": -1.0073
+   },
+   " a": {
+    "kl_base": 3.772,
+    "kl_cp": 2.2993,
+    "kl_rand": 7.1756,
+    "moved_toward": 1.4727
+   },
+   " and": {
+    "kl_base": 2.0809,
+    "kl_cp": 6.8526,
+    "kl_rand": 6.4612,
+    "moved_toward": -4.7716
+   },
+   " of": {
+    "kl_base": 2.6204,
+    "kl_cp": 1.9453,
+    "kl_rand": 6.1713,
+    "moved_toward": 0.6751
+   }
+  },
+  "mean_moved": -0.9078,
+  "cp_beats_rand": true
+ },
+ "pred_a_universal": false,
+ "runtime_s": 124.2
+}

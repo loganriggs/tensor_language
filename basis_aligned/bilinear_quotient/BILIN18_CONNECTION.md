@@ -25783,3 +25783,20 @@ sequencing — steering shifts the predicted next-class toward what-follows the 
 and the loss splits ~1/4 grammar / ~3/4 mostly-irreducible lexical (§829-831). Every one of these
 rests on naming, steering, or chain-rule loss — NONE on the keep-only recovery magnitude retracted in
 §836. The class+position finding stands on solid, causal, keep-only-free ground.
+
+## §839 — (thread paused per user) cross-model class steering inconclusive; PIVOT to strict bottom-up weight-level mechanism tracing + testing the "irreducible entropy" claim
+
+cross_model_steering ran before the user redirected: class-deviation steering in gpt2/pythia-410m did
+NOT cleanly move predictions toward the injected class (mean_moved gpt2 −0.48, pythia −0.91; cp beat
+random but net moved away from p_B) — inconclusive, and the HF steering setup differs enough (front
+third, WebText-trained) that I am not drawing a conclusion. Thread PAUSED per user steer.
+
+USER REDIRECT (two directives): (1) go strictly bottom-up — fully understand layer 0, then use it to
+interpret layer 1, then 2, …; each attn/MLP understood feeds the next. (2) Scrutinize the "irreducible
+entropy" claim. On (2) I OWN AN OVERCLAIM: §830 called bilin18's ~2.4-nat within-class (word-choice) CE
+floor "irreducible entropy", but that is bilin18's RESIDUAL loss, not a measured entropy — a
+context-plateau shows only that THIS model stops improving, not that the information is absent. Queued
+entropy_ceiling.py (within-class CE for bilin18 + gpt2/medium/large on the SAME FineWeb tokens/tokenizer:
+if it drops with scale the floor is REDUCIBLE/capability-limited, not irreducible). Started the bottom-up
+program with mlp0_bilinear_trace.py (weight-level: which hidden units' (Left·x)⊙(Right·x) write the class
+output, what each readout detects, bilinear vs linear) — keep-only-free, using the exact weights.
