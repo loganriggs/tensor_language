@@ -19,7 +19,7 @@ import torch.nn.functional as F
 
 D = 1152; PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'whole_model_upstream_results.json'
-NEVAL = 200; SEQ = 256; RPCA = 128; RIDGE = 1e2; NLAYER = 18
+NEVAL = 110; SEQ = 256; RPCA = 128; RIDGE = 1e2; NLAYER = 18
 TAGS = [f"{k}{L}" for L in range(NLAYER) for k in ('attn', 'mlp')]
 REPL = {'mode': 'off', 'W': None, 'inpca': None, 'wc': None, 'wp': None, 'ones': None, 'row': 0, 'gmeans': None}
 
@@ -35,7 +35,7 @@ def repl_hook_factory(tag):
         if REPL['mode'] == 'mean':
             yn = REPL['gmeans'][tag].expand(B, T, D).clone()
         else:
-            feat = torch.cat([REPL['wc'][r:r+nrow], REPL['wp'][r:r+nrow], REPL['inpca'][tag][r:r+nrow], REPL['ones'][r:r+nrow]], 1)
+            feat = torch.cat([REPL['wc'][r:r+nrow], REPL['wp'][r:r+nrow], REPL['inpca'][tag][r:r+nrow].to(DEV), REPL['ones'][r:r+nrow]], 1)
             yn = (feat @ REPL['W'][tag]).reshape(B, T, D)
         return (yn,) + tuple(o_[1:]) if isinstance(o_, tuple) else yn
     return hook
@@ -68,31 +68,31 @@ def main():
     outc = {t: [] for t in TAGS}; inc = {t: [] for t in TAGS}; caph = []
     for t in TAGS:
         def mkpost(t):
-            def h(mo, i_, o_): outc[t].append((o_[0] if isinstance(o_, tuple) else o_).detach().float().reshape(-1, D))
+            def h(mo, i_, o_): outc[t].append((o_[0] if isinstance(o_, tuple) else o_).detach().float().reshape(-1, D).cpu())
             return h
         def mkpre(t):
-            def h(mo, a): inc[t].append(a[0].detach().float().reshape(-1, D))
+            def h(mo, a): inc[t].append(a[0].detach().float().reshape(-1, D).cpu())
             return h
         caph.append(submod(t).register_forward_hook(mkpost(t)))
         caph.append(submod(t).register_forward_pre_hook(mkpre(t)))
     REPL['mode'] = 'off'
     for i in range(0, nb, 8): forward_logits(blocks[i:i+8].to(DEV)[:, :-1].contiguous())
     for h in caph: h.remove()
-    outs = {t: torch.cat(outc[t], 0) for t in TAGS}; ins = {t: torch.cat(inc[t], 0) for t in TAGS}
+    outs = {t: torch.cat(outc[t], 0) for t in TAGS}; ins = {t: torch.cat(inc[t], 0) for t in TAGS}  # CPU
     wc = wte[torch.tensor(cur, device=DEV)]; wp = wte[torch.tensor(np.where(prev >= 0, prev, 0), device=DEV)]
     ones = torch.ones(len(cur), 1, device=DEV)
     tr = torch.tensor(trpos, device=DEV)
     rng = np.random.RandomState(0); perm = torch.tensor(rng.permutation(len(cur)), device=DEV)
     W = {}; W_sh = {}; inpca = {}; inpca_sh = {}; gmeans = {}
     for t in TAGS:
-        Xin = ins[t]; gci = Xin.mean(0, keepdim=True)
+        Xin = ins[t].to(DEV); gci = Xin.mean(0, keepdim=True); O = outs[t].to(DEV)
         Vp = torch.linalg.svd(Xin[tr] - gci, full_matrices=False)[2][:RPCA].T.contiguous()
-        ip = (Xin - gci) @ Vp; inpca[t] = ip; inpca_sh[t] = ip[perm]
+        ip = (Xin - gci) @ Vp; inpca[t] = ip.cpu(); inpca_sh[t] = ip[perm].cpu()
         feat = torch.cat([wc, wp, ip, ones], 1); Ftr = feat[tr]
-        A = Ftr.T @ Ftr + RIDGE*torch.eye(feat.shape[1], device=DEV); W[t] = torch.linalg.solve(A, Ftr.T @ outs[t][tr])
+        A = Ftr.T @ Ftr + RIDGE*torch.eye(feat.shape[1], device=DEV); W[t] = torch.linalg.solve(A, Ftr.T @ O[tr])
         featp = torch.cat([wc[perm], wp[perm], ip[perm], ones], 1); Fp = featp[tr]
-        Ash = Fp.T @ Fp + RIDGE*torch.eye(feat.shape[1], device=DEV); W_sh[t] = torch.linalg.solve(Ash, Fp.T @ outs[t][tr])
-        gmeans[t] = outs[t].mean(0); outc[t] = None; inc[t] = None
+        Ash = Fp.T @ Fp + RIDGE*torch.eye(feat.shape[1], device=DEV); W_sh[t] = torch.linalg.solve(Ash, Fp.T @ O[tr])
+        gmeans[t] = O.mean(0); outc[t] = None; inc[t] = None; del Xin, O, ip; torch.cuda.empty_cache()
     REPL['wc'] = wc; REPL['wp'] = wp; REPL['ones'] = ones; REPL['gmeans'] = gmeans
     te_blocks = blocks[~TRAIN]; row0 = ntr*(SEQ-1)
     REPL['mode'] = 'off'; ce_full = ce_pass(te_blocks, row0)
