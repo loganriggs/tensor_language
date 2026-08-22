@@ -25196,3 +25196,36 @@ caveat already in FINDINGS 1b/1c that per-component over-reads vs simultaneous. 
 is real, specific, and generalizing — but "~4/5 of the model" (simultaneous 0.78) is the honest
 share; the 0.92 per-component headline is an upper bound inflated by mean-substitution and redundancy.
 FINDINGS updated.
+
+## §821 — Driver of the high single-component keep is the MEAN, not redundancy; and a correction: bilin18 HAS large per-component means (cp_null_mechanism.py)
+
+Decomposed §820's high single-component random-null recovery into mean-only vs centered-random
+(redundancy proxy) vs mean-preserving-random, for bilin18 attn0/mlp0/attn1.
+
+| comp | mean/out ratio | mean-only | centered-random | mean+random | real class+pos |
+|------|---------------:|----------:|----------------:|------------:|---------------:|
+| attn0 | 0.298 | 0.827 | 0.290 | 0.873 | 0.991 |
+| mlp0  | 0.707 | 0.664 | 0.038 | 0.832 | 0.968 |
+| attn1 | 0.965 | 0.913 | 0.202 | 0.935 | 0.995 |
+
+DRIVER = MEAN. Substituting a component's constant mean vector μ (no subspace at all) already
+recovers 0.66–0.91 of its single-ablation benefit; a random projection WITHOUT the mean recovers
+only 0.04–0.29. So the ~0.84 random-null recovery of §820 is the preserved MEAN, not cross-component
+redundancy. My §820 expectation of "redundancy for bilin18" was WRONG (prediction (a) refuted).
+
+CORRECTION to §808 (stated plainly): I wrote there that "bilin18's constant biases are NOT
+loss-critical" because centered keep ≈ mean-preserving keep (0.9217 vs 0.9215). That inference was
+wrong. bilin18's per-component means are LARGE (mean/output ratio up to 0.97 for attn1, 0.71 for
+mlp0) and loss-relevant (mean-only recovers 0.66–0.91). centered ≈ mean-preserving for the REAL
+class+position subspace not because μ is small, but because the class+position subspace already
+CONTAINS μ (token-class means span the mean direction) — so adding μ back changes nothing for the
+real subspace, while for a random subspace (which excludes μ) mean-preserving adds it and jumps to
+0.84. bilin18 is like the other models in having large per-component constant outputs, contra §808.
+
+CONFIRMS §820's headline (with the mechanism corrected to MEAN): per-component mean-preserving keep
+(0.97–0.99) is mostly the component's constant mean; the class+position VARIATION adds a real but
+MODEST specific increment (real-cp − mean+random = 0.05–0.14; and centered-random is LOW at
+0.04–0.29, so the variation the subspace captures IS specific — a random subspace of the centered
+signal recovers little). So class+position is specific and generalizing, but the honest whole-model
+share is the simultaneous CENTERED 0.78 (removes all means), not the mean-inflated per-component 0.92.
+FINDINGS 1c caveat wording corrected (mean, not redundancy).

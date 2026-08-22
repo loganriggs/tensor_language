@@ -91,11 +91,14 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    is 0.92, §808 — so its front has strong cross-component interaction structure). Middle is ~half-compressible
    (§816: drop 3 of 6 middle layers for 0.27 nats; front convex/irreplaceable). VALIDITY (§820): the
    subspace GENERALIZES to held-out FineWeb (within≈cross keep, gap ≤0.005; not overfit), BUT per-component
-   mean-preserving keep is mean+redundancy-dominated — even a RANDOM-orthonormal subspace recovers 0.84–0.95
-   of a single high-benefit component (μ ≈ sufficient + others carry the variation redundantly); the
-   class+position increment over random is modest (~0.07–0.13) though consistent/specific. So the
-   per-component headline (0.92) is an UPPER BOUND; the honest whole-model share is the SIMULTANEOUS CENTERED
-   metric (§794: 0.78, random 0.04) — "~4/5 of the model". **HIGH.**
+   mean-preserving keep is MEAN-dominated (§821: driver is the mean, NOT redundancy) — substituting a
+   component's constant mean μ alone recovers 0.66–0.91 of its single-ablation benefit, so even a random-
+   orthonormal subspace (which re-adds μ under mean-preserving keep) recovers 0.84–0.95; a random projection
+   WITHOUT the mean recovers only 0.04–0.29. bilin18 HAS large per-component means (ratio up to 0.97;
+   §808's "biases not loss-critical" was wrong — centered≈mean-preserve because the real cp subspace
+   CONTAINS μ). The class+position VARIATION adds a modest but specific increment (0.05–0.14 over mean+random;
+   centered-random low → specific). So the per-component headline (0.92) is an UPPER BOUND; the honest
+   whole-model share is the SIMULTANEOUS CENTERED metric (§794: 0.78, random 0.04) — "~4/5 of the model". **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
