@@ -1,0 +1,19 @@
+{
+ "ce_full": 3.2634,
+ "bands": {
+  "front_L0_5": {
+   "attn_ablate": 3.6631,
+   "mlp_ablate": 2.0127
+  },
+  "middle_L6_11": {
+   "attn_ablate": 0.8564,
+   "mlp_ablate": 1.3371
+  },
+  "back_L12_17": {
+   "attn_ablate": 0.2218,
+   "mlp_ablate": 1.5382
+  }
+ },
+ "pred_a_mlp_front_attn_middle": false,
+ "runtime_s": 44.6
+}

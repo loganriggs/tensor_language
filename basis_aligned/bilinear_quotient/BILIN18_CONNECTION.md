@@ -28085,3 +28085,26 @@ So "middle is the register with the highest CERTIFIED nonlinear fraction" holds;
 nonlinearity" is neither established nor refuted for the front (unmeasurable this way) — I make no claim there.
 The published artifact was never given §949's claim (kept it out), so no artifact correction is needed; the
 shape-arc (§941/§942) it carries is the certified statement. This closes the register-linearization sub-thread.
+
+## §951 — division of labor: ATTENTION is FRONT-LOADED, MLPs steady across depth (attention_vs_mlp_bands.py)
+
+Per depth band, mean-ablate ALL attention outputs vs ALL MLP outputs in the band (others real). ce_full 3.11.
+  band            attn-ablate   mlp-ablate
+  front  L0-5       +3.663        +2.013     <- ATTENTION dominates the front (and is the single largest band cost)
+  middle L6-11      +0.856        +1.337     <- MLP dominates
+  back   L12-17     +0.222        +1.538     <- MLP dominates
+pred (a) "MLP-heavy front, attention substantial in middle" FALSE.
+FINDING: ATTENTION is FRONT-LOADED — its ablation cost falls monotonically with depth (3.66 -> 0.86 -> 0.22), so
+the context-GATHERING happens EARLY; late attention barely matters (back 0.22, consistent with content being built
+by mid-stack §929). MLPs are STEADY across depth (2.01 / 1.34 / 1.54), slightly U-shaped. So the two families
+divide labor by depth differently than I expected: attention does its heavy lifting in the FRONT (early
+context-mixing that everything downstream depends on), while MLPs contribute throughout. This reconciles with
+§929 (topic buildup's biggest jumps are early-mid) and §931 (attention pooling) — the pooling is concentrated
+early. NOTE: the front-attention +3.66 is the largest single band-cost measured, marking early context-mixing as
+the most load-bearing component-band.
+HONEST CAVEAT (band interaction): band mean-ablate has interaction effects, so absolute numbers are NOT directly
+comparable across experiments — e.g. front-MLP-band here is 2.01 but mlp1 ALONE was 6.4 (§933); mean-ablating all
+6 front MLPs together is LESS costly than mlp1 alone because ablating them jointly removes the real/mean MISMATCH
+that a single-component ablation creates downstream. So the valid claim is the WITHIN-band attn-vs-mlp comparison
+(same methodology per band), not cross-experiment absolute magnitudes. Within each band the ranking is robust:
+attention >> MLP in the front, MLP > attention in middle and back.
