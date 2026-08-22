@@ -26229,3 +26229,33 @@ read class+position (§851) AND are the model's main content generators. Caveat 
 small DIRECT logit gain may hide a large INDIRECT role — it moves context between positions that the MLPs
 then convert into content — so its importance to content could be much larger than its direct logit-lens
 gain. Queued ablate_attention_content to settle whether content depends on attention's context.
+
+## §862 — attention is CONTEXT-FOR-CONTENT: ablating it hurts content 4.3× more than grammar (ablate_attention_content.py)
+
+Ablated ALL attention (kept MLPs), split CE into grammar (class) vs content (within-class):
+ - grammar (class-CE): 0.77 → 1.42 (+0.65)
+ - content (within-CE): 2.49 → 5.29 (+2.80)
+ - content/grammar increase ratio: 4.33
+
+FINDING: attention is context-for-content. Its small DIRECT logit-lens content gain (§861: 1.48 vs MLP
+4.58) hid a large INDIRECT role — removing attention collapses CONTENT 4.3× more than GRAMMAR, because the
+back MLPs that generate content DEPEND on the context attention moves between positions. GRAMMAR is
+nearly context-free (survives attention ablation, +0.65 only) — it is the current token's class, computed
+by the front MLPs from the token itself (context-free, §830/842).
+
+## §863 — CAPSTONE: bilin18 is two machines — a context-free GRAMMAR machine and a context-driven CONTENT machine
+
+The whole bottom-up program (§767→862) resolves into a clean two-machine account:
+ - GRAMMAR machine (the easy ~23% of the loss): front MLPs turn the current token into a sharpened
+   grammatical class (bilinear self-product class detectors §842), plus a coarse log-position (§827);
+   nearly context-free (§830/862); low-rank, causal, human-nameable (parts of speech §825/826, causal
+   steering §823/837); read out by the back MLPs whose token-mean collapses to ~3 grammatical axes (§859).
+ - CONTENT machine (the hard ~75% of the loss): attention aggregates CONTEXT (§862 — content needs it 4.3×
+   more than grammar) which the MLPs — especially the BACK MLPs (§861) — convert into specific-word
+   predictions; built distributed across depth, back-weighted (§860); diffuse/high-rank with no clean
+   low-rank or nameable handle (§810/852/858) and only partly reducible even at 6× scale (§840).
+So: current-token→class is the interpretable, context-free, low-rank quarter; context→specific-word is the
+diffuse, attention-fed, MLP-generated, mostly-irreducible three-quarters. The interpretable machinery and
+the bulk of the difficulty are different machines. This is the honest end-state of the bottom-up program;
+the open frontier is NAMING the content machine's diffuse computation (needs a semantic/distributional
+approach, not a grammatical probe). Artifact capstone updated.

@@ -1729,6 +1729,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   0–1) and again at the readout (layer 15→16); through the middle it is nearly frozen. So the middle is
   dimensionally active — it re-inflates — while barely changing the clustering topology, and the readout does
   the final, sharpest re-clustering down to the prediction.</p>
+  <p><strong>Two machines.</strong> Pulling the whole trace together, the network separates into two systems
+  that happen to share the same layers. A <em>grammar machine</em> turns the current token into a sharpened
+  part-of-speech and a coarse position — the front MLPs do this from the token alone, almost without context
+  (delete every attention head and the grammar loss barely moves), and it is low-rank, nameable, and
+  steerable; it is also the <em>easy</em> quarter of the loss. A <em>content machine</em> chooses the specific
+  next word: attention aggregates the surrounding context and the MLPs — mostly the last few — convert it into
+  a prediction. Deleting attention hurts word-choice four times as much as grammar, so the content machine
+  runs on context the way the grammar machine runs on the current token. This half is built gradually across
+  the depth, concentrated at the back, and it is diffuse — no low-rank handle, no clean names — and it is
+  three-quarters of the loss. The clean, interpretable machinery and the bulk of the difficulty are not the
+  same machine: grammar is small, structured, and cheap; content is large, distributed, and most of the
+  work. Naming what the content machine computes — beyond "it uses context to pick the word" — is where this
+  bottom-up account currently stops.</p>
 </section>
 
 <section class="col">
