@@ -25846,3 +25846,42 @@ SHARPENS class (§782) — a product of two aligned class-readouts sharpens the 
 mechanistic account of layer 0's class computation, to carry into layer 1. OPEN (next): do Left and
 Right read the SAME class (self-product = sharpening) or DIFFERENT things (conjunction)? and attn0's
 mechanism, to finish layer 0.
+
+## §842 — mlp0's class bilinearity is SHARPENING (self-product), not conjunction (mlp0_leftright.py)
+
+For all top-24 class-writing units, Left and Right read the SAME grammatical class (frac_same_class =
+1.0) and the product sharpens class-selectivity by mean 1.52× over either readout alone (e.g. punct
+u3574 L=punct/R=punct → 1.85×; det u906 1.64×; cap u3326 1.59×). So each mlp0 class detector is a soft
+SELF-SQUARE (class-readout · x)² — the bilinear form is used to SHARPEN class detection, not to AND two
+different features. This is the §782 "mlp0 sharpens class 1.79×" result read at the weight level: the
+mechanism of the sharpening is the bilinear self-product.
+
+## §843 — attn0 builds the COPY-SOURCE: it writes the PREVIOUS token's identity into the stream (attn0_function.py)
+
+Decoded what attn0's output encodes (linear probe among the 200 most-frequent tokens, 70/30 split):
+
+| decode target | from attn0 INPUT | from attn0 OUTPUT | shuffled null |
+|---------------|-----------------:|------------------:|--------------:|
+| current token | 1.00 | 0.84 | — |
+| PREVIOUS token| 0.30 | **0.86** | 0.065 |
+| position (bin)| — | 0.33 | — |
+
+attn0's output encodes the PREVIOUS token at 0.86 (vs 0.30 in its input, 0.065 null) — a +0.56 gain.
+So attn0's 1.44-nat contribution is mechanistically: move the previous token's identity into the
+residual stream — the "copy-source" the census named (item 10). (The full two-criteria (q·k1)(q2·k2)
+attention-PATTERN mechanism — presumably attend-to-previous-position — needs rotary-aware
+reconstruction; flagged. The FUNCTION (writes prev-token) is established here.)
+
+## §844 — LAYER 0 COMPLETE (bottom-up): current token + sharpened grammatical class + previous token
+
+Layer 0, fully characterized at the mechanism level, keep-only-free:
+ - the residual stream already carries the CURRENT token (embedding, decodes 1.00; item 14);
+ - mlp0 (2.20 nats) computes a SHARPENED GRAMMATICAL-CLASS representation — a bank of bilinear
+   self-product detectors, one per category (determiner, capital/proper, punctuation, conjunction,
+   number, content-word), each sharpening its class ~1.5× (§841/842);
+ - attn0 (1.44 nats) writes the PREVIOUS TOKEN's identity into the stream (copy-source, §843).
+So after layer 0, layer 1 has available: current token, its grammatical class, and the previous token.
+That is the substrate to interpret layer 1 against. NEXT (layer 1): attn1 (2.22, biggest attention) —
+what does it write given prev-token is now present (induction target? prev-prev?); and mlp1 (1.07) —
+does it recompute/sharpen class, or compute something NEW from the now-available previous token (e.g.
+previous-token's class / a bigram feature)?

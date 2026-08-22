@@ -1,0 +1,6 @@
+decode top-1 acc (among 200 tokens):
+  current: input 1.0 | attn0-out 0.8369
+  PREVIOUS: input 0.3014 | attn0-out 0.8592 | shuffled-null 0.0648
+  position(bin): attn0-out 0.3276
+(a) attn0 builds the copy-source (prev-token from output >> input & null): True (prev gain out-over-in +0.558)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn0_function_results.json (60.0s)
