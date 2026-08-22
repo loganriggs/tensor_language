@@ -2008,8 +2008,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   is 98%), so the front MLPs — including the single biggest writer in the model — are effectively linear maps,
   using the second projection as a near-constant gate. Through the middle it inverts: layers 8, 11, and 15 are only
   ~38% linearly recoverable, so roughly <em>60% of what they compute is a genuine product</em> of two varying
-  signals that no linear read, table, or centroid can reproduce. Then the readout snaps back to linear (layer 17,
-  85%). So the model computes in three registers by depth — <strong>linear front → multiplicative middle → linear
+  signals that no linear read, table, or centroid can reproduce. Splitting that product by what it multiplies is
+  telling: the grammatical <em>class</em> is almost never one of the factors (class×anything ablates to ~zero) —
+  class is written and read linearly and kept out of the multiplication — while the factors that matter are the
+  token identity and the content, multiplied in every combination (token×token, token×content, content×content,
+  all comparable). So the middle multiplies <em>what</em> is being said (token and content) by itself, not the
+  <em>part of speech</em>. Then the readout snaps back to linear (layer 17, 85%). So the model computes in three registers by depth — <strong>linear front → multiplicative middle → linear
   readout</strong> — and the whole reconstruction gap is concentrated in that multiplicative middle. It is also
   spread thin: each middle MLP on its own costs only a few hundredths of a nat to ablate, so the content
   computation is redundant across many layers rather than localized to one. This is the same conclusion the
