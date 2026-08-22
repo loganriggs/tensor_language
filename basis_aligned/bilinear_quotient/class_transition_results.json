@@ -1,0 +1,140 @@
+{
+ "classes": [
+  "det",
+  "prep",
+  "conj",
+  "pron",
+  "number",
+  "punct",
+  "cap",
+  "word"
+ ],
+ "per_class_kl_model_vs_emp": {
+  "det": 0.0061,
+  "prep": 0.008,
+  "conj": 0.0068,
+  "pron": 0.0009,
+  "number": 0.0102,
+  "punct": 0.0266,
+  "cap": 0.0134,
+  "word": 0.0016
+ },
+ "mean_kl": 0.0092,
+ "shuffled_null_mean_kl": 0.0564,
+ "model_top_next_class": {
+  "det": [
+   [
+    "word",
+    0.82
+   ],
+   [
+    "cap",
+    0.08
+   ],
+   [
+    "punct",
+    0.04
+   ]
+  ],
+  "prep": [
+   [
+    "word",
+    0.48
+   ],
+   [
+    "det",
+    0.34
+   ],
+   [
+    "cap",
+    0.09
+   ]
+  ],
+  "conj": [
+   [
+    "word",
+    0.57
+   ],
+   [
+    "pron",
+    0.14
+   ],
+   [
+    "det",
+    0.13
+   ]
+  ],
+  "pron": [
+   [
+    "word",
+    0.74
+   ],
+   [
+    "punct",
+    0.17
+   ],
+   [
+    "prep",
+    0.04
+   ]
+  ],
+  "number": [
+   [
+    "punct",
+    0.52
+   ],
+   [
+    "word",
+    0.3
+   ],
+   [
+    "cap",
+    0.06
+   ]
+  ],
+  "punct": [
+   [
+    "word",
+    0.33
+   ],
+   [
+    "punct",
+    0.18
+   ],
+   [
+    "cap",
+    0.14
+   ]
+  ],
+  "cap": [
+   [
+    "word",
+    0.44
+   ],
+   [
+    "punct",
+    0.25
+   ],
+   [
+    "cap",
+    0.16
+   ]
+  ],
+  "word": [
+   [
+    "word",
+    0.47
+   ],
+   [
+    "punct",
+    0.19
+   ],
+   [
+    "prep",
+    0.17
+   ]
+  ]
+ },
+ "pred_a_sequencing": true,
+ "runtime_s": 45.5128333568573
+}

@@ -25424,3 +25424,35 @@ logarithmic position scale (fine early, coarse late) plus an early-sequence land
 Both variables now concretely named: CLASS = grammatical categories (determiners, pronouns vs numbers,
 punctuation, conjunctions, prepositions, verbs/auxiliaries; §825/826, universal), POSITION = a
 logarithmic early/late scale + early landmark (§827). Figure position_naming.png sent.
+
+## §828 — How the class variable is USED: the read-out implements GRAMMATICAL SEQUENCING (predicted next-class matches the empirical class-bigram near-perfectly) (class_transition.py)
+
+New question (not a class+position refinement): the front computes grammatical class (§825/826);
+how is it used for prediction? Assigned each token a coarse POS class (det/prep/conj/pron/number/
+punct/cap/word) by simple rules, then compared, per current class, the model's predicted next-CLASS
+distribution to the empirical class-bigram.
+
+- mean KL(model ‖ empirical next-class) = **0.009** (per-class 0.001–0.027); shuffled token→class
+  null = 0.056 (6× higher). (fixed a numpy/torch .log() bug first.)
+- The model's predicted transitions are grammatically correct:
+  - after DET → word/noun 0.82, cap/proper-noun 0.08 (determiner→noun)
+  - after PREP → word 0.48, det 0.34 (preposition→the/a→noun)
+  - after CONJ → word 0.57, pron 0.14, det 0.13
+  - after PRON → word/verb 0.74, punct 0.17
+  - after NUMBER → punct 0.52, word 0.30
+  - after WORD → word 0.47, punct 0.19, prep 0.17
+
+FINDING: the model's next-token predictions respect grammatical class-sequencing almost exactly — its
+predicted next-class distribution reproduces the empirical class-bigram to KL 0.009, far beyond the
+shuffled-class null (which breaks the grammatical meaning of the classes and raises KL to 0.056). So
+the computed class variable manifests in behavior as grammar-level sequencing: given the current
+token's grammatical class, the model predicts a grammatically-appropriate next class.
+
+Combined causal picture of the class variable, now end-to-end: COMPUTED at the front (§825/826,
+grammatical categories), CAUSAL (steering the class content shifts predictions, §823), and USED as
+grammatical sequencing in the read-out (§828). Honest scope: matching the class-bigram is partly what
+any good LM does (real predictions inherit real class-statistics); the specific content here is that
+the match is near-perfect and class-specific (vs shuffled null) and the transitions are the correct
+grammatical ones. Consistent with §798 (class/grammar is the near-perfectly-predicted skeleton; the
+HARD residual is which specific token within the predicted class). Artifact updated with the
+grammatical-sequencing table.

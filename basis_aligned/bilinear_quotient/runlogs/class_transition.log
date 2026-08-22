@@ -1,13 +1,11 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/class_transition.py", line 131, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/class_transition.py", line 97, in main
-    if cnt[c] >= 20: kls[CLASSES[c]] = round(kl(mdlN[c], empN[c]), 4)
-                                             ^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/class_transition.py", line 62, in kl
-    return float((p*(p/q).log()).sum())
-                    ^^^^^^^^^
-AttributeError: 'numpy.ndarray' object has no attribute 'log'
+mean KL(model||emp next-class) 0.009 | shuffled null 0.056
+  after det: model predicts [('word', 0.82), ('cap', 0.08), ('punct', 0.04)]
+  after prep: model predicts [('word', 0.48), ('det', 0.34), ('cap', 0.09)]
+  after conj: model predicts [('word', 0.57), ('pron', 0.14), ('det', 0.13)]
+  after pron: model predicts [('word', 0.74), ('punct', 0.17), ('prep', 0.04)]
+  after number: model predicts [('punct', 0.52), ('word', 0.3), ('cap', 0.06)]
+  after punct: model predicts [('word', 0.33), ('punct', 0.18), ('cap', 0.14)]
+  after cap: model predicts [('word', 0.44), ('punct', 0.25), ('cap', 0.16)]
+  after word: model predicts [('word', 0.47), ('punct', 0.19), ('prep', 0.17)]
+(a) grammatical sequencing: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/class_transition_results.json (46s)

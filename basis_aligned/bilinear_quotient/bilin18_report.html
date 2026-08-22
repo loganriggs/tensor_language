@@ -1991,6 +1991,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   Pythia separates the prepositions <code>to</code>/<code>in</code>/<code>on</code>/<code>for</code>). Three
   different architectures independently sort their first-layer tokens into parts of speech. Whatever
   else these models are doing, they all start by learning grammar.</p>
+  <p>And you can watch that grammar get used. Tag every token by its part of speech and ask, for each
+  class, what class the model expects next — then compare to what actually follows in real text. They
+  line up almost exactly (a mismatch of 0.009 nats, versus 0.056 when the tags are shuffled). The
+  expected transitions are the ones any grammar would predict: after a <em>determiner</em> the model
+  wants a noun 82% of the time; after a <em>preposition</em>, a noun or another determiner (word 48%,
+  the/a 34%); after a <em>pronoun</em>, a verb (74%); after a <em>number</em>, punctuation (52%). So the
+  back of the network spends the class variable on grammatical sequencing — given the current word's
+  part of speech, predict a grammatically valid next part of speech. Predicting the <em>class</em> of the
+  next token is nearly solved; the hard, distributed work that is left is choosing <em>which</em> word
+  inside that class — which is exactly the residue that carries the model's uncertainty.</p>
   <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
   prediction by how hard it was — how much loss the full model took — and ask how much of each bucket the
   class-and-position skeleton alone recovers. On the model's <em>hardest</em>, most uncertain predictions
