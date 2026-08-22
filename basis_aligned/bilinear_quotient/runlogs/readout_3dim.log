@@ -1,0 +1,14 @@
+L17 token-mean top-3 explain 81.5% of variance
+  dir0 (sv 1127754.6): |corr|logfreq 0.09 class-sep 0.76 |corr|pos 0.03
+    +["'�'", "'--'", '\' "\'', "' ('", "'—'", '" \'"', "'\\n'", "'('"]
+    -["'uto'", "'They'", "' They'", "' who'", "' has'", '"\'m"', "'oney'", "' would'"]
+  dir1 (sv 682188.7): |corr|logfreq 0.04 class-sep 0.66 |corr|pos 0.02
+    +["' must'", "' may'", "' might'", "' can'", "' They'", "' non'", "' He'", "' they'"]
+    -["').'", "'.'", "'?'", '\'."\'', "'!'", "'.)'", '\'?"\'', "':'"]
+  dir2 (sv 425237.5): |corr|logfreq 0.16 class-sep 0.82 |corr|pos 0.01
+    +["'Kevin'", "' Erica'", "' David'", '\',"\'', "' c'", "' F'", "' gave'", "' John'"]
+    -["' $'", "'MM'", "' 9'", "' 7'", "' 8'", "' 3'", "' 6'", "'00'"]
+  dir3 (sv 218863.0): |corr|logfreq 0.19 class-sep 0.85 |corr|pos 0.04
+    +["'�'", '\' "\'', "'\\n'", "'--'", "' ('", "'—'", '" \'"', "' *'"]
+    -["' F'", "' R'", "' M'", "' N'", "' T'", "' D'", "' W'", "' K'"]
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/readout_3dim_results.json (116.9s)

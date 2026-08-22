@@ -26172,3 +26172,20 @@ adds is the diffuse lexical computation — the recurring wall (no low-rank/name
 BOTTOM-UP PROGRAM (front→middle→readout) now COMPLETE at mechanism+geometry level. The recurring frontier
 across attn5/§810/§857/§858 is the CONTENT/lexical computation: diffuse, high-rank, distributed, mostly
 unnamed — the honest wall of the model's interpretability.
+
+## §859 — the readout's ~3-dim collapse is GRAMMATICAL/boundary axes (readout_3dim.py)
+
+Named the ~3 dimensions the L17 token-mean representation collapses to (§857, eff-dim 2.8). Top-3 explain
+81.5% of variance; each is a grammatical/structural contrast (class-separation 0.66-0.85; |corr| with
+log-freq and position ~0):
+ - dir0: PUNCTUATION/boundary (�, --, quote, (, —, \n) vs mid-clause tokens (They, who, has, would)
+ - dir1: CLAUSE-CONTINUATION — modals/pronouns (must, may, might, can, They, He) vs SENTENCE-END (. ? ! ." :)
+ - dir2: PROPER-NAME (Kevin, Erica, David, John) vs NUMBER ($, MM, 9, 7, 8, 00)
+
+So the readout's TOKEN-MEAN representation is dominated by grammatical-class/boundary axes — the
+token-identity-driven part of the final prediction is grammar (predict the next grammatical class /
+boundary), NOT frequency or position. The CONTENT/lexical prediction is the CONTEXT-varying part that is
+averaged out of the token-mean (it varies per position, not per token) — the diffuse residue. This
+completes the readout characterization and closes the bottom-up program's structural pass: the model's
+stable, nameable per-token final representation is ~3-dim grammatical; specific-word content is
+context-driven and diffuse.
