@@ -1,0 +1,132 @@
+{
+ "classes": [
+  "det",
+  "prep",
+  "conj",
+  "pron",
+  "number",
+  "punct",
+  "cap",
+  "word"
+ ],
+ "base_next_class": [
+  0.093,
+  0.098,
+  0.035,
+  0.043,
+  0.014,
+  0.162,
+  0.062,
+  0.493
+ ],
+ "per_source": {
+  "262": {
+   "empirical_follows": [
+    0.002,
+    0.002,
+    0.002,
+    0.003,
+    0.013,
+    0.019,
+    0.181,
+    0.778
+   ],
+   "steered_next_class": [
+    0.122,
+    0.132,
+    0.073,
+    0.028,
+    0.01,
+    0.254,
+    0.029,
+    0.353
+   ],
+   "kl_to_Bfollows_base": 0.9808,
+   "kl_cp": 1.661,
+   "kl_rand": 2.3453,
+   "cp_moved_toward_Bfollows": -0.6802
+  },
+  "257": {
+   "empirical_follows": [
+    0.0,
+    0.0,
+    0.002,
+    0.005,
+    0.026,
+    0.017,
+    0.053,
+    0.897
+   ],
+   "steered_next_class": [
+    0.046,
+    0.069,
+    0.028,
+    0.021,
+    0.015,
+    0.155,
+    0.038,
+    0.628
+   ],
+   "kl_to_Bfollows_base": 3.7794,
+   "kl_cp": 2.246,
+   "kl_rand": 10.1768,
+   "cp_moved_toward_Bfollows": 1.5335
+  },
+  "290": {
+   "empirical_follows": [
+    0.117,
+    0.039,
+    0.008,
+    0.086,
+    0.01,
+    0.021,
+    0.103,
+    0.616
+   ],
+   "steered_next_class": [
+    0.111,
+    0.196,
+    0.008,
+    0.138,
+    0.003,
+    0.085,
+    0.006,
+    0.454
+   ],
+   "kl_to_Bfollows_base": 0.2828,
+   "kl_cp": 0.3335,
+   "kl_rand": 0.6334,
+   "cp_moved_toward_Bfollows": -0.0508
+  },
+  "13": {
+   "empirical_follows": [
+    0.113,
+    0.052,
+    0.059,
+    0.157,
+    0.023,
+    0.269,
+    0.304,
+    0.023
+   ],
+   "steered_next_class": [
+    0.008,
+    0.008,
+    0.006,
+    0.036,
+    0.0,
+    0.919,
+    0.002,
+    0.02
+   ],
+   "kl_to_Bfollows_base": 1.2896,
+   "kl_cp": 1.0114,
+   "kl_rand": 0.7209,
+   "cp_moved_toward_Bfollows": 0.2782
+  }
+ },
+ "mean_cp_move": 0.2702,
+ "mean_rand_move": -1.886,
+ "pred_a_causal_sequencing": true,
+ "runtime_s": 105.4
+}

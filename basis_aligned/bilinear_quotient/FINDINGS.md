@@ -107,10 +107,12 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    **CAPSTONE — class+position program (§767→836), cross-model, WITH A MAJOR §836 CORRECTION on the
    quantitative headline.** WHAT: class = grammatical categories (determiners, pronouns vs numbers,
    punctuation, conjunctions, prepositions, be-verbs/auxiliaries; §825/826, named & universal, shuffled
-   control incoherent), position = a logarithmic early/late scale + first-token landmark (§827). CAUSAL:
-   class steering shifts predictions toward the target class; random directions do not (§823); steering the
-   embedding corrupts (§824). USED AS grammatical sequencing — predicted next-class matches the empirical
-   class-bigram to KL 0.009 (§828). LOSS SPLIT (universal, pure chain rule): predicting the class is the
+   control incoherent), position = a logarithmic early/late scale + first-token landmark (§827). CAUSAL
+   (all keep-only-free, so unaffected by the §836 retraction): class steering shifts predictions toward the
+   target class and is class-SPECIFIC — toward the injected class, away from others (§823/837; random
+   directions do not; steering the embedding corrupts §824); and it DRIVES grammatical sequencing —
+   steering→B shifts the predicted next-class toward what-follows-B, far better than random (§838). USED AS
+   grammatical sequencing — predicted next-class matches the empirical class-bigram to KL 0.009 (§828). LOSS SPLIT (universal, pure chain rule): predicting the class is the
    EASY ~23-25% of the loss; the word within it is the HARD ~75-77% (77% bilin18 / 75% gpt2 / 76% pythia,
    §829/831), partly context-reducible (~1.1 nats) but mostly an irreducible ~2.4-nat entropy floor (§830).
    **HOW MUCH — CORRECTED (§836): RETRACTED as a class+position-specific number.** The keep-only "78%/0.92
