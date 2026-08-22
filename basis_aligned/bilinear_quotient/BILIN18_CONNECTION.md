@@ -26810,3 +26810,22 @@ already at L0 (token-frequency-correlated) and peaking mid-stack. Pred (a) uncer
 (entropy monotone + corr 0.577 + decode above chance), but the internal-decode strength was overstated by the
 baseline bug — corrected here. Next: is this calibration asymmetry universal (gpt2/large)? Artifact gets the
 calibration finding.
+
+## §890 — the calibration asymmetry is UNIVERSAL: LMs are over-cautious on repeats, over-confident on new words (calibration_crossmodel.py)
+
+Ran the §889 entropy/CE-by-position-type calibration on GPT-2 and GPT-2-large. All three models show the SAME
+sign pattern for the calibration gap (H − CE):
+  bilin18:      inductable +0.87 | seen-other +0.85 | first-mention −0.59
+  gpt2:         inductable +1.14 | seen-other +1.06 | first-mention −0.53
+  gpt2-large:   inductable +0.82 | seen-other +0.77 | first-mention −0.66
+POSITIVE (over-cautious) on inductable + seen-other, NEGATIVE (over-confident) on first-mention — in every
+model. Pred (a) universal-asymmetry = TRUE.
+
+So the calibration asymmetry is a GENERAL property of language models on this data, not a bilin18 quirk: they
+hedge more than necessary on predictable/repeated tokens and commit MORE than warranted exactly on the
+genuinely-open new words (first-mentions) — over-confident precisely where they should be least sure. Combines
+with §880/§883/§884/§885 (the whole loss STRUCTURE is universal) — now the model's CONFIDENCE structure over
+that budget is universal too. (Caveat: GPT-2 is OOD on FineWeb, inflating absolute levels; the sign pattern is
+the robust result.) The uncertainty/calibration thread is characterized: represented (entropy tracks the
+budget, §889), internally signalled (weakly, §889), and universally miscalibrated by situation (§890). Artifact
+calibration note gets the universality line.

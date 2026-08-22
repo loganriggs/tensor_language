@@ -1,0 +1,8 @@
+loading gpt2...
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4243.74it/s]
+gpt2: overall H 3.701 vs CE 3.584 | gaps: inductable 1.14 | seen 1.061 | first-mention -0.529
+loading gpt2-large...
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  92%|█████████▏| 399/436 [00:00<00:00, 3963.35it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 3961.45it/s]
+gpt2-large: overall H 3.09 vs CE 3.167 | gaps: inductable 0.822 | seen 0.774 | first-mention -0.655
+(a) calibration asymmetry universal (over-cautious easy, over-confident first-mention): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/calibration_crossmodel_results.json (88.0s)

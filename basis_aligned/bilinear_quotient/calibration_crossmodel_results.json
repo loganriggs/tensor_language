@@ -1,0 +1,55 @@
+{
+ "bilin18_ref": {
+  "inductable_gap": 0.866,
+  "seen_other_gap": 0.845,
+  "first_mention_gap": -0.591
+ },
+ "models": {
+  "gpt2": {
+   "overall": {
+    "entropy": 3.701,
+    "ce": 3.584
+   },
+   "entropy_loss_corr": 0.517,
+   "inductable": {
+    "entropy": 1.994,
+    "ce": 0.853,
+    "calib_gap_H_minus_CE": 1.14
+   },
+   "first_mention": {
+    "entropy": 4.115,
+    "ce": 4.644,
+    "calib_gap_H_minus_CE": -0.529
+   },
+   "seen_other": {
+    "entropy": 3.285,
+    "ce": 2.224,
+    "calib_gap_H_minus_CE": 1.061
+   }
+  },
+  "gpt2-large": {
+   "overall": {
+    "entropy": 3.09,
+    "ce": 3.167
+   },
+   "entropy_loss_corr": 0.528,
+   "inductable": {
+    "entropy": 1.487,
+    "ce": 0.665,
+    "calib_gap_H_minus_CE": 0.822
+   },
+   "first_mention": {
+    "entropy": 3.489,
+    "ce": 4.144,
+    "calib_gap_H_minus_CE": -0.655
+   },
+   "seen_other": {
+    "entropy": 2.684,
+    "ce": 1.91,
+    "calib_gap_H_minus_CE": 0.774
+   }
+  }
+ },
+ "pred_a_universal_asymmetry": true,
+ "runtime_s": 88.0
+}

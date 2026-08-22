@@ -1867,7 +1867,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   (hedging more than it needs to on repeats) and <em>over-confident</em> on first mentions — most peaked exactly
   where it should be least sure. The "this is a new word" situation is weakly decodable from the residual
   throughout the stack (a little above the 60% base rate), so the signal is computed internally; the model just
-  doesn't fully act on it when it commits to a new-word guess.</p>
+  doesn't fully act on it when it commits to a new-word guess. This is not a quirk of this model: GPT-2 and
+  GPT-2-large show the very same pattern — over-cautious on repeats, over-confident on first mentions — so the
+  confidence structure, like the loss budget itself, is a general property of language models.</p>
 </section>
 
 <section class="col">
