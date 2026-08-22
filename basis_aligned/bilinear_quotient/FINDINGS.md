@@ -162,7 +162,12 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    FRAMING (§873/§874): the topic structure is CONTINUOUS/high-dimensional — the 12 clusters are a VISUALIZATION, not 12
    discrete categories. Discrete labels don't replicate across splits (expected for a continuum), but the CONTINUOUS geometry
    DOES: content-subspace overlap A↔B 0.53 = 25× random chance (§874). Finding rests on the content-word
-   gist §872 + held-out decode §870 + replicable geometry §874, not on discrete buckets. **HIGH.**
+   gist §872 + held-out decode §870 + replicable geometry §874, not on discrete buckets. HIERARCHY (§927):
+   the content is subject matter at MULTIPLE GRANULARITIES — re-clustering within a topic yields coherent
+   sub-topics (religion→worship/saints/titles/doctrine; academic→medicine/peer-review; tech→security/design),
+   so the high dimensionality is a coarse→fine topic hierarchy, not noise (caveat: the sibling-disjoint metric
+   is weak; the evidence is the sub-topics' interpretability). Beyond topic, only weak non-topic structure is
+   nameable (§926: entity-repeat +0.05, prev-class +0.06). **HIGH.**
 
 1e. **LOSS BUDGET + irreducible floor + generality (§876→885).** Where every nat goes (bilin18, unigram baseline 7.17 →
    3.24 = grammar 0.76 + content 2.48): by position type — FIRST-MENTION (new token type) 60% of tokens / CE 4.24 = **78% of

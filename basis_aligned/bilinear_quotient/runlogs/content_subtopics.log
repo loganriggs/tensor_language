@@ -1,14 +1,44 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/content_subtopics.py", line 96, in <module>
-    if __name__=='__main__': main()
-                             ^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/content_subtopics.py", line 73, in main
-    parent = distinct(mk)
-             ^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/content_subtopics.py", line 62, in distinct
-    nc = Counter(); nj = int((tgt[mask]>=0).sum())
-                              ~~~^^^^^^
-IndexError: boolean index did not match indexed array along axis 0; size of axis is 82240 but size of corresponding boolean axis is 81920
+topic0 ["' patient'", "' journal'", "' students'", "' posts'"]
+    sub0: ["' acoustic'", "' disturbances'", "' justice'", "' Studies'", "' associate'"]
+    sub1: ["' posts'", "' workforce'", "' Leh'", "'ighton'", "' triangles'"]
+    sub2: ["' ED'", "' Medicine'", "' physicians'", "' lact'", "' patient'"]
+    sub3: ["' Beck'", "' journals'", "' Bor'", "' reviewers'", "' reviewer'"]
+topic1 ["'Fr'", "' Mother'", "' Herman'", "' Fr'"]
+    sub0: ["' prayers'", "' church'", "' heaven'", "' Mother'", "' God'"]
+    sub1: ["' Herman'", "' Seraph'", "' John'", "' Dam'", "' Alex'"]
+    sub2: ["'Kevin'", "'Fr'", "' Fr'", "' He'", "' St'"]
+    sub3: ["' teachings'", "' parish'", "' Fathers'", "' Orthodox'", "' intellectual'"]
+topic2 ["' whiskey'", "'nam'", "'ima'", "' song'"]
+    sub0: ["' song'", "' quarter'", "' music'", "' DJ'", "'nam'"]
+    sub1: ["'pox'", "' micro'", "' diseases'", "' vaccine'", "' vaccines'"]
+    sub2: ["' whiskey'", "' chocolate'", "' cake'", "' cups'", "' baking'"]
+    sub3: ["'ima'", "'au'", "'ways'", "'isson'", "'ll'"]
+topic3 ["' Gamb'", "' policy'", "' Israel'", "' China'"]
+    sub0: ["' Iraq'", "' Turkey'", "' Turkish'", "' Iran'", "' policy'"]
+    sub1: ["' summit'", "' Safety'", "' Polish'", "' radioactive'", "' French'"]
+    sub2: ["' Nissan'", "' ov'", "' Hybrid'", "' Chinese'", "' pink'"]
+    sub3: ["' Gamb'", "' Israel'", "' Bout'", "' smugg'", "' Russian'"]
+topic4 ["' takeoff'", "'wind'", "' Tr'", "' Auburn'"]
+    sub0: ["' Tr'", "'New'", "' finished'", "' Jersey'", "' points'"]
+    sub1: ["' Auburn'", "'Rich'", "' linebacker'", "' Bradford'", "' Broncos'"]
+    sub2: ["'plane'", "' hydro'", "' finals'", "' inning'", "' Pocket'"]
+    sub3: ["'wind'", "' Pilot'", "' runway'", "' departed'", "' takeoff'"]
+topic5 ["'ew'", "' minority'", "' Palin'", "' sexual'"]
+    sub0: ["' passions'", "' untrue'", "' sexual'", "' Christianity'", "' minority'"]
+    sub1: ["'Pal'", "' Unc'", "' Bride'", "' Palin'", "' crash'"]
+    sub2: ["' Jew'", "' Republican'", "' quote'", "' finance'", "' pointing'"]
+    sub3: ["' operating'", "'ew'", "' Fukushima'", "' cost'", "' plant'"]
+topic6 ["' fish'", "' bur'", "' Deg'", "' species'"]
+    sub0: ["' county'", "' wal'", "' fish'", "' commissioners'", "'lers'"]
+    sub1: ["' exercise'", "' Capt'", "'Welcome'", "' specimens'", "' regulations'"]
+    sub2: ["'icus'", "' shr'", "' seeds'", "' bark'", "' Pale'"]
+    sub3: ["'ups'", "' males'", "' breeding'", "' eats'", "'hing'"]
+topic7 ["' >'", "' HP'", "' Derek'", "'Sync'"]
+    sub0: ["' Derek'", "' Erica'", "' disclosure'", "'iles'", "' Code'"]
+    sub1: ["' HP'", "'CVE'", "' CVE'", "'AV'", "'xxxx'"]
+    sub2: ["'Sync'", "' Adobe'", "' Logo'", "' commands'", "'Design'"]
+    sub3: ["' Faction'", "' Dead'", "' Ips'", "'ize'", "' emb'"]
+
+mean sibling-subtopic Jaccard 0.0 (low=distinct subtopics=hierarchy)
+(a) content is hierarchical topic->subtopic: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_subtopics_results.json (39.7s)

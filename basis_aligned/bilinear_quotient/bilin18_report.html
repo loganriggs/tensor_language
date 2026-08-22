@@ -1804,6 +1804,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the continuous geometry underneath does: the dominant content directions in one half match the other at
   25× chance. The topic structure is real and reproducible; the twelve names are just a readable slice of it.</p>
 
+  <p>The topics also have <em>internal</em> structure — they are subjects at more than one grain. Re-cluster
+  within a single topic and coherent sub-topics fall out: the religion topic splits into worship
+  (prayers, church, heaven, God), saints (Herman, Seraph, John), titles (Fr, St), and doctrine (parish,
+  Orthodox, teachings); the academic/medical topic splits into medicine (physicians, patient, ED),
+  peer-review (journals, reviewers), and research; the technology topic splits into software-security
+  (CVE, HP), design tools (Adobe, Logo, Sync), and the rest. This is why the content needs so many
+  dimensions: it is not one flat list of subjects but subject matter at multiple granularities — a
+  coarse-to-fine hierarchy, coherent at each level. (The evidence here is the readability of the
+  sub-topics themselves; a numerical "siblings share no top words" check agrees but is weak on its own,
+  since any way of splitting a cluster produces different top words.)</p>
+
   <p>Is the topic structure causal, or only a readable correlate? Steering the late residual along a topic's own
   direction does specifically raise that topic's distinctive next-words (mean own-topic gain +0.042, off-topic
   −0.004, consistent across every topic), so there is a real causal signal — but it is weak, and an honest control

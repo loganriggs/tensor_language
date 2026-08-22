@@ -27524,3 +27524,23 @@ Naming more of the content would need EXTERNAL semantic tools (NER, coreference,
 on-box. Honest limit: on-box, TOPIC is the main nameable content handle, with weak entity/syntax additions;
 the rest is genuinely high-dimensional. Trying the HIERARCHICAL angle next (does the content have topic→subtopic
 sub-structure — content_subtopics), which is on-box and could name the high-dim content as a hierarchy.
+
+## §927 — the high-dim content is a COHERENT TOPIC→SUBTOPIC HIERARCHY (content_subtopics.py)
+
+Re-clustering within each of the 8 top-level topics yields QUALITATIVELY COHERENT subtopics:
+ - RELIGION (Fr/Mother/Herman) → worship (prayers/church/heaven/God) · saints (Herman/Seraph/John) · titles
+   (Fr/St/He) · doctrine (teachings/parish/Orthodox/intellectual).
+ - ACADEMIC/MEDICAL (patient/journal/students) → medicine (ED/Medicine/physicians/lact/patient) · peer-review
+   (Beck/journals/reviewers) · research (acoustic/disturbances/Studies) · misc (posts/workforce).
+ - TECH (HP/Derek/Sync) → security/CVE (HP/CVE/AV) · software-design (Sync/Adobe/Logo/Design) · names
+   (Derek/Erica) · misc.
+So the content residual is organized as SUBJECT MATTER at MULTIPLE GRANULARITIES — coarse topics splitting into
+coherent finer subtopics. This NAMES more of the high-dimensional content and explains WHY it is high-dim: it
+is a fine-grained subject hierarchy (topics of subtopics), not unstructured noise. Partially resolves the
+"content is diffuse" story (§866/874/926): diffuse because fine-grained, but coherent at each level.
+HONEST CAVEAT: the Jaccard-0.0 (disjoint sibling distinctive tokens) is a WEAK metric — ANY partition gives
+disjoint top tokens; it is not by itself evidence of meaningful hierarchy. The REAL evidence is the
+human-interpretability of the subtopics (worship/saints/doctrine within religion; medicine/peer-review within
+academic; security/design within tech), which is qualitative. So: the content is (at least partly) a coherent
+hierarchical subject structure — a genuine partial naming of the high-rank content, with the caveat that the
+strength rests on interpretability, not the Jaccard number. Artifact/FINDINGS get the hierarchy.
