@@ -27790,3 +27790,28 @@ null -0.505 confirms per-token identity is causally critical. METHOD CAVEAT: str
 here vs token+pos+class there), so only WITHIN-run comparisons (A/B/C/null) are clean; the cross-reference to
 §936's 0.222 is qualitative. This is the honest end-state of the content-stand-in family: ~0.2 recoverable, ~0.8
 continuum. Pivoting next to the whole-model benchmark refresh (report updated number + reference to earlier).
+
+## §939 — BENCHMARK IMPROVED 0.315 -> 0.422: a smooth per-token LINEAR MAP beats the discrete token table (whole_model_understanding_tokenmap.py)
+
+Whole-model understanding (all 36 components replaced at once by named-variable stand-ins, tables/maps fit on 70%
+of rows, CE on held-out 30%; scale 0 = all-mean-ablated 8.714, 1 = full 3.11). Applying §936/§938: swap the token
+stand-in from a discrete TABLE to a smooth per-token LINEAR MAP from the input embedding (a fair named variable —
+a smooth function of token identity, NOT output leakage like the §913-rejected high-rank output subspace).
+  token TABLE (class-backoff)        understanding 0.177
+  token LINEAR MAP (alone)           understanding 0.324   <- nearly DOUBLES the table; ALSO beats the whole old
+  tokenmap + topic                   understanding 0.416      table+topic+prev pipeline (0.315) by itself
+  tokenmap + topic + prev            understanding 0.422   <- NEW HEADLINE (up from 0.315)
+  table + topic + prev (old baseline) understanding 0.315
+  shuffled-map null                  understanding -0.190  (destroys it -> genuine, not a rank artifact)
+map - table gain +0.107; genuine vs shuffled 0.612. pred (a) linear-map-helps TRUE.
+WHY IT IMPROVES: the linear map GENERALIZES across embedding-similar tokens (the smooth token->output relation),
+capturing structure the discrete table misses by undersampling rare tokens (the §938 mechanism, at whole-model
+scale). It is a strictly better NAMED-VARIABLE stand-in, so the benchmark legitimately rises.
+UNDERSTANDING BENCHMARK PROGRESSION (user's tracked metric, held-out unless noted):
+  0.81  (§900, SAME-DATA overclaim) -> CORRECTED as same-data optimism (§901);
+  0.29-0.315 (§901/fresh_backoff, held-out, discrete token table + topic + prev);
+  0.422 (§939, held-out, token LINEAR MAP + topic + prev), genuine-vs-shuffled 0.612.  <- current best
+The remaining ~0.58 is the honest not-yet-tabulated residual: the high-rank CONTENT CONTINUUM (§930/§938,
+~0.8 of the content term irreducible to finite stand-ins) plus cross-component interactions. The improvement is
+in the STAND-IN QUALITY (smooth generalization), consistent with the mechanism being unchanged; content remains
+the frontier. Phase boundary: update the artifact benchmark number 0.315 -> 0.42 with this progression.

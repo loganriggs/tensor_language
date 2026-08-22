@@ -1,0 +1,10 @@
+all-36            token_table: CE 7.725 | understanding 0.177
+all-36               tokenmap: CE 6.899 | understanding 0.324
+all-36         tokenmap+topic: CE 6.382 | understanding 0.416
+all-36    tokenmap+topic+prev: CE 6.351 | understanding 0.422
+all-36       table+topic+prev: CE 6.949 | understanding 0.315
+all-36          shuftoken_map: CE 9.777 | understanding -0.190
+
+MAP token+topic+prev 0.422 vs TABLE 0.315 (gain +0.107); genuine vs shuffled 0.612
+(a) linear map helps the benchmark: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_understanding_tokenmap_results.json (68.6s)

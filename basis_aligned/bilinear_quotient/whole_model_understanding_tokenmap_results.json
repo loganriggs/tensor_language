@@ -1,0 +1,34 @@
+{
+ "ce_full": 3.11,
+ "ce_all_mean_ablated": 8.714,
+ "levels": {
+  "token_table": {
+   "ce": 7.725,
+   "understanding_frac": 0.177
+  },
+  "tokenmap": {
+   "ce": 6.899,
+   "understanding_frac": 0.324
+  },
+  "tokenmap+topic": {
+   "ce": 6.382,
+   "understanding_frac": 0.416
+  },
+  "tokenmap+topic+prev": {
+   "ce": 6.351,
+   "understanding_frac": 0.422
+  },
+  "table+topic+prev": {
+   "ce": 6.949,
+   "understanding_frac": 0.315
+  },
+  "shuftoken_map": {
+   "ce": 9.777,
+   "understanding_frac": -0.19
+  }
+ },
+ "map_minus_table": 0.107,
+ "genuine_frac_vs_shuffled": 0.612,
+ "pred_a_linear_map_helps": true,
+ "runtime_s": 68.6
+}
