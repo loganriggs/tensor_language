@@ -27203,3 +27203,25 @@ read. This is the honest characterization: grammar = low-rank linear/token (solv
 nonlinear, 1/3 low-rank-linear-readable. Testing whether the 2/3 is RANK vs NONLINEARITY next (rank-512 linear
 map: if the middle jumps, it's higher-rank-but-linear; if flat, it's nonlinearity). Artifact/FINDINGS: middle
 refined to "~1/3 rank-128-linear-readable, ~2/3 high-rank/nonlinear (not a wall, but genuinely high-dim)".
+
+## §910 — the middle 2/3 splits into higher-rank-linear (+0.14) and ~HALF genuine NONLINEARITY (bilinear); frontier fully characterized (learned_map_rank512.py)
+
+Near-full-rank (512) linear read of the input (vs rank-128 §909): middle rises 0.304 → 0.442 (attn5 0.54,
+mlp5 0.54, mlp8 0.38, mlp11 0.32; front mlp0 0.92 saturated; readout mlp16 0.76). So the middle 2/3-gap
+decomposes: rank-128 linear 0.30 → +0.14 higher-rank linear (128→512) → 0.44 at near-full-rank linear; the
+remaining ~0.56 is GENUINE NONLINEARITY — a linear map of the input, even full-rank, cannot capture it because
+the middle MLPs are BILINEAR ((Left·x)⊙(Right·x), multiplicative). So the middle content is HIGH-RANK AND ~HALF
+NONLINEAR; its irreducibility to named-variable tables is mechanistic — the content computation IS a
+multiplicative bilinear interaction, not a lookup or a linear read.
+
+FRONTIER FULLY CHARACTERIZED (concludes §893→910): 
+ - GRAMMAR (front): low-rank, smooth, ~token-linear — mlp0 0.90-0.92, solved, causally interchangeable (§892).
+ - CONTENT (middle): HIGH-RANK + NONLINEAR (bilinear) — ~0.30 rank-128-linear, ~0.44 full-rank-linear, ~0.56
+   nonlinear; causal (topic interchange §894). Not a wall (0.44 linear-readable) but genuinely a nonlinear
+   high-dim computation — that is WHY named-variable tables/linear-maps top out ~0.4.
+ - READOUT: ~0.63-0.76.  WHOLE-MODEL: ~40% as generalizing named-variable functions (§906).
+So "how much do we understand": grammar essentially fully (low-rank linear token machine); content ~40-44%
+as a linear read of content, the rest a bilinear nonlinear interaction we can characterize mechanistically
+(multiplicative content mixing) and move causally, but not reduce to a table or linear map. The remaining
+understanding gap is the bilinear NONLINEARITY itself. Testing whether named-variable INTERACTIONS (token×topic,
+prev×topic — a bilinear map of NAMED variables) capture that nonlinear part next. Artifact/FINDINGS finalized.
