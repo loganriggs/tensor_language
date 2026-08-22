@@ -1997,6 +1997,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   subspace of the same rank (see "Why we don't put a number on it"). So read this section's percentages as
   describing a low-rank, redundant maintenance process; that the maintained content is grammatical class
   and position is supported elsewhere, by naming and steering, not by these recovery numbers.</p>
+  <p>One refinement on the word "maintenance": the middle is not merely refreshing the current token's class.
+  Ask what the class each layer <em>writes</em> is a function of, and the front (layers 0–2) writes a class that
+  is 73–88% predictable from the current token alone — its surface part-of-speech — while the middle writes a
+  class that is only ~40% predictable from the token and mostly depends on the surrounding context (layer 5's
+  write is just 22% token-derived). So the middle is <em>contextualising</em> grammar — computing a token's role
+  in its sentence, not re-deriving its dictionary category. And it re-derives rather than carries because the
+  residual is leaky (every block rescales it, so an early write decays) while the raw token is re-injected at
+  every block, so each layer recomputes the grammatical information it needs, in the form it needs, from the
+  always-available token plus the accumulating context.</p>
   <p>Why is one layer high-rank and another low? Not because their encoders differ in capacity — the
   weights that read the residual are near-full-rank in every layer. The difference is in what they
   actually <em>compute</em>: a high-rank layer's gates fire a genuinely larger, more distinct set of

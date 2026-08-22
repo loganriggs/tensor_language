@@ -27311,3 +27311,23 @@ punct, number, space-prefix, alpha, ...), consistent with the ~24 effective clas
 "grammar machine": it computes a multi-attribute code, not a categorical bucket. Artifact gets a note. (My
 8-label scheme throughout was a coarse readout of this richer multi-axis code — the causal/steering results
 stand, but the true class representation is multi-axis.)
+
+## §916 — CORRECTION to "why re-derive": the middle computes CONTEXT-DEPENDENT class, NOT maintenance of the token-class (why_rederive.py)
+
+Predicted each layer's class-write from the CURRENT TOKEN alone vs the FULL input (R²):
+  mlp0 token 0.881 / full 0.932 (gap 0.05)   mlp2 0.732 / 0.888 (0.16)   [FRONT: token-derived surface class]
+  mlp5 0.219 / 0.885 (gap 0.67)   mlp8 0.438 / 0.818 (0.38)   mlp11 0.429 / 0.892 (0.46)   mlp14 0.512 / 0.856 (0.35)
+  mlp16 0.649 / 0.988 (0.34)   [readout]
+MIDDLE avg: token 0.40 vs context gap 0.46. Pred (a) middle-maintains-token-class = FALSE.
+
+CORRECTION of my earlier "why re-derive = maintenance" answer (and a refinement of §813/814's "class
+maintenance"): the middle's class-write is MORE context-derived than token-derived (context gap 0.46 > token
+R² 0.40; mlp5 is only 0.22 token-derived). So the middle is NOT refreshing the SAME surface token-class from
+the re-injected token — it computes CONTEXT-DEPENDENT class: the token's grammatical ROLE/category IN THE
+SEQUENCE (disambiguation, agreement, syntactic role), which genuinely requires the surrounding context and is
+NEW information the token alone cannot give. So the honest picture: FRONT (mlp0/mlp2) writes the current token's
+SURFACE class (token-derived, R² 0.73-0.88); MIDDLE writes CONTEXTUAL class (context-derived, token R²
+0.22-0.51); READOUT reads the accumulated code. This sharpens §818/819 ("middle adds NEW class in new
+directions, finer class") — the NEW class is CONTEXT-derived, i.e. the middle contextualizes grammar, it does
+not merely maintain it. The re-injected token (λ1·x0) lets each layer combine token+context, but what the middle
+WRITES is context-dependent, not a token-class copy. Answer to the user revised accordingly; artifact updated.
