@@ -27582,3 +27582,22 @@ token info leaks past the rank-64 token-subspace strip — so the ~0.53 rise (0.
 accumulation, not 0->0.85; (ii) the target is L15-defined, so L15 is favored by construction — the informative
 parts are the monotone rise BEFORE it and the decline AFTER. Fills a bottom-up gap: WHERE the content machine
 is assembled.
+
+## §930 — content is a high-rank CONTINUUM: even 1024 topic buckets recover only ~17% (content_granularity_extended.py)
+
+Extends §928's K-sweep to distinguish a FINITE topic set (recovery plateaus) from a CONTINUUM (recovery keeps
+rising). Same causal held-out protocol (500 rows, 300 train), keep token+pos+class exact at L15, replace content
+part with nearest-of-K train centroid, run 16-17, measure loss recovery.
+ - recovery: K=1 0.00 | K=128 0.074 | K=512 0.132 | K=1024 0.169. Increments +0.074, +0.058, +0.037 — SHRINKING
+   but still clearly positive. Shuffled null -0.21 (worse than ablate). pred (a) CONTINUUM TRUE.
+ - reproduces §928 at K=128 (0.074 here vs 0.063 there; more train rows -> slightly better centroids).
+READING: content is a HIGH-RANK CONTINUUM, not a finite set of topics. Even 1024 buckets capture only ~17% of the
+content machine's causal contribution to the loss; the diminishing-but-positive increments mean recovery would
+keep creeping up with K but asymptote well below 100% at any feasible granularity — you would need ~a centroid
+per context. This CLOSES the content-frontier quantification: the topic/topic-hierarchy naming (§866/§927) is
+qualitatively correct and reproducible, but causally it is a MODEST handle on a fundamentally high-dimensional
+machine. Squarely consistent with §873/§874 (continuous topic geometry), §922 (topic-subspace ablation ~0), and
+the whole-model benchmark's low content term (~0.10). The honest end-state for content: named as a topic tracker
++ coarse->fine hierarchy, but ~83% of its causal work at K=1024 is finer per-context content that resists any
+finite-bucket stand-in. HONEST BENCHMARK NOTE: this does not raise the content term of the understanding
+benchmark; it quantifies precisely WHY it is low.
