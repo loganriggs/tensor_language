@@ -25121,3 +25121,37 @@ refreshing/re-adding the front's exact signal. The accurate pipeline statement:
   reinforcing the front's directions, ~43% new structure) → BACK reads it out.
 "Maintenance" was a mild misnomer; "continued/additional class+position computation" is right.
 FINDINGS 1c and the artifact updated to this framing.
+
+## §819 — The middle's new class+position content leans toward finer CLASS, with position also contributing (middle_new_content.py)
+
+(First run was INVALID — a subspace-rank bug: the aggregate front subspace was built with
+orth(*front_dirs) which kept all 12×96=1152 concatenated columns = a full-rank basis, so
+projecting onto it was the identity and every "front" keep read 1.0. Caught by the (0) SANITY
+check — front_only should reproduce §818's 0.37, not 1.0. Fixed: reduce aggregates to fixed rank
+front 96 / token 64 / position 32. Corrected numbers below.)
+
+Decomposed the middle's NEW class+position content (§818: ~43% is in directions the front didn't
+write). Added, to the front's class+position subspace, either the middle's TOKEN-driven or its
+POSITION-driven directions, with matched random-rank nulls; recovery of the middle's collective
+1.93-nat benefit:
+
+| kept subspace on middle band | keep | net over matched random |
+|------------------------------|-----:|------------------------:|
+| front class+position only (baseline) | 0.369 | — |
+| + middle TOKEN dirs (64) | 0.594 | **+0.183** |
+| + middle POSITION dirs (32) | 0.493 | **+0.105** |
+| + random 64 (token null) | 0.411 | — |
+| + random 32 (position null) | 0.388 | — |
+| middle own aggregate cp (96) | 0.546 | — |
+
+VERDICT: the middle's new content is BOTH finer class and finer position, but leans toward CLASS
+(token): net token gain +0.183 vs position +0.105 (~1.75×); both clear their matched random nulls
+(token 0.411, position 0.388) decisively. Adding middle-token to the front subspace (0.594) even
+exceeds the middle's own aggregate (0.546), confirming the token directions carry most of the
+middle's distinct contribution.
+
+So the middle continues computing class+position, predominantly refining the grammatical-CLASS
+variable (with position secondary). This closes the deep characterization of the middle band:
+redundant/super-additive (§813), 65% class+position maintenance (§814), universal across 6 models
+(§815/817), ~half-compressible (§816), adding mostly-NEW directions (§818), and those new directions
+are chiefly finer class (§819). FINDINGS 1c updated.

@@ -1,4 +1,3 @@
-[tier2_model] hub unreachable for Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd/config.json (RemoteProtocolError); using local cache
-middle benefit 1.929 | keep {'front_only': 1.0, 'front_plus_midtoken': 1.0, 'front_plus_midpos': 1.0, 'front_plus_randtoken': 1.0, 'front_plus_randpos': 1.0, 'middle_own': 0.5464}
-net token gain +0.000 | net position gain +0.000 -> middle newly refines: both class and position
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_new_content_results.json (84s)
+middle benefit 1.929 | keep {'front_only': 0.369, 'front_plus_midtoken': 0.5941, 'front_plus_midpos': 0.4929, 'front_plus_randtoken': 0.4113, 'front_plus_randpos': 0.3884, 'middle_own': 0.5464}
+net token gain +0.183 | net position gain +0.104 -> middle newly refines: finer CLASS (token)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_new_content_results.json (80s)
