@@ -26868,3 +26868,31 @@ attention re-derives the patched position's class from context, (iii) L15 holds 
 better weight-source (mlp0 detectors) + a DAS-learned subspace (optimize the rotation to maximize IIA) as the
 gold-standard, and interchange on a CONTENT/topic variable. This establishes the METHOD (interchange >
 steering) for the new variable-level program.
+
+## §893 — PER-LAYER UNDERSTANDING metric (user-requested): front grammar ~0.9 token-table, content middle ~0.4, readout ~0.7 (layer_understanding.py)
+
+For each component, replace its output with a token-conditional-MEAN table (our "named-variable" stand-in),
+score CE on the scale 0 = mean-ablate (know nothing) → 1 = full model (know everything); shuffled-token table
+= null (controls the §836 rank artifact). "genuine" = frac − null.
+  FRONT (grammar, HIGH + genuine):  mlp0 0.94 (genuine +2.66) — a near-pure token→class-cluster table, the
+    cleanest component; mlp2 0.87 (+1.73); attn0 0.77 (+0.86, prev-token). mlp1 shows 0.98 but genuine only
+    +0.35 (its meanablate cost 9.73 is huge, so even a shuffled table recovers 63% — mostly RANK, not token
+    structure — a nice catch by the null).
+  MIDDLE MLPs (content, LOW): mlp5 0.39, mlp8 0.47, mlp11 0.48 — the majority of these is context-dependent,
+    NOT a token function. The ~55% gap = the gist/topic computation we understand mechanistically (§870-872)
+    but cannot write as a token lookup.
+  MIDDLE ATTN: attn5 0.50, attn11 0.53 (mixed); attn8 0.97 but its ablation cost is only 0.03 (tiny
+    denominator → noisy, not meaningful).
+  READOUT: mlp16 0.78, mlp17 0.70, mlp15 0.59 — largely token-determined (class readout + frequency calib).
+Full CE 3.33 throughout.
+
+READING: this QUANTIFIES the two-machine story on the user's scale — the GRAMMAR machine (front + readout) is
+~0.7-0.94 capturable by a token→output table (we understand it as tables), while the CONTENT machine (middle
+MLPs) is only ~0.4 (the rest is the context-dependent gist, understood as a mechanism not a table). mlp0 at
+0.94/+2.66 is the model's most-understood component (the token→class-cluster collapse). CAVEATS stated
+plainly: (1) per-component denominators (CE_meanablate − CE_full) are TINY for the redundant middle (§813
+super-additivity — each middle component is individually near-free to ablate), so those fractions are noisy
+and not strictly comparable — the reliable reads are the high-impact components (mlp0/1/2/attn0/readout) and
+the null-subtracted "genuine" column; (2) token-table is the context-FREE ceiling — adding prev-token/topic
+conditioning would raise the middle (induction/gist are context tables), a natural next step. Artifact gets a
+per-layer understanding chart.
