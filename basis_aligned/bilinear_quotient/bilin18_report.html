@@ -2030,6 +2030,18 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   rotates the accumulated grammar-plus-content residual into the vocabulary basis. The three registers are better
   stated as: a linear grammar-writing front, a multiplicative content-computing middle where the answer is
   assembled but unreadable, and a big near-linear readout that turns that assembly into token probabilities.</p>
+
+  <p>That accounts for the MLPs; the attention layers divide the work along a different axis — <em>depth</em>.
+  Mean-ablate all the attention in each third of the stack and the cost falls sharply from front to back: 3.7 nats
+  for the first six layers, 0.9 for the middle six, 0.2 for the last six. So the context-gathering happens
+  <em>early</em>; by the back half attention is nearly free to remove. And what the front attention is mostly
+  doing is <em>induction</em> — the copy-the-previous-continuation mechanism. Split its damage by what kind of
+  token is being predicted and the tell is unmistakable: positions that are predictable by induction are cheap to
+  predict normally (0.7 nats) but cost an extra 5.2 when front attention is gone — as much as deleting
+  <em>every</em> attention layer in the model, and six times what a random six-layer slice of attention costs. The
+  induction circuit lives in the first few layers and essentially nowhere else. The front attention also broadly
+  helps the harder positions, so it is both the induction circuit and the general early context substrate the rest
+  of the model builds on — which is why it is the single most load-bearing block of components in the network.</p>
 </section>
 
 <section class="col">
