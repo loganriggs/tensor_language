@@ -27544,3 +27544,22 @@ human-interpretability of the subtopics (worship/saints/doctrine within religion
 academic; security/design within tech), which is qualitative. So: the content is (at least partly) a coherent
 hierarchical subject structure — a genuine partial naming of the high-rank content, with the caveat that the
 strength rests on interpretability, not the Jaccard number. Artifact/FINDINGS get the hierarchy.
+
+## §928 — topic centroids recover only ~6% of the content machine (content_granularity_benchmark.py)
+
+CAUSAL, held-out test tying §927 to the understanding benchmark. At L15, keep the STRUCTURED part
+(token+position+next-class, 104 dims) exactly and replace the CONTENT part with its nearest-of-K topic-centroid
+(centroids fit on 180 train rows, evaluated on 120 held-out rows), re-inject, run layers 16-17, measure loss.
+Recovery = (loss_ablate_content - loss_K)/(loss_ablate_content - loss_full).
+ - loss_full 3.15; loss_ablate_content (K=1, content->single mean) 4.89 -> ablating content at L15 costs +1.74 nats.
+ - K=8 recovery 0.008; K=32 0.024; K=128 0.063. Monotonic, NOT plateauing. Shuffled-assignment null 5.11 (recovery
+   -0.13) — WORSE than ablate, so the centroid assignment is meaningful (pred (a) TRUE).
+READING: the content machine IS a topic tracker (§866/§927), but topic — even at 128 buckets — accounts for only
+~6% of its causal contribution to the loss; the other ~94% is FINER, per-context content that a finite bucket
+set cannot capture. This QUANTIFIES the content frontier precisely: the "topic hierarchy" naming (§927) is
+qualitatively right but causally a small slice. Consistent with §922 (topic-subspace ablation ~0), §873/§874
+(content is a CONTINUUM, not N discrete topics), and the whole-model benchmark's low content term (~0.10). The
+recovery curve rising ~2.5-3x per 4x K with no plateau is the signature of a continuum: to recover a large
+fraction you would need ~a centroid per context. HONEST BENCHMARK IMPACT: naming content as topic does not
+raise the content term much — a topic-centroid stand-in is a weak reconstruction of a high-rank machine.
+Next: extend the K sweep (512/1024) to confirm the continued-rise / continuum signature.
