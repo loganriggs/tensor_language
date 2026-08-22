@@ -104,14 +104,14 @@ def loss_with(test_blocks, Ustruct, g, per_token_table=None, id2row=None, cen=No
         if not (use_pertoken or use_whole_centroid):
             SUB['on'] = False
         else:
-            toks_slice = bb[:, :-1].reshape(-1).cpu().numpy()
-            rowi = torch.tensor([id2row.get(int(t), 0) for t in toks_slice], device=DEV)
-            if shuffle_pt:
-                rowi = torch.tensor(rng.randint(0, per_token_table.shape[0], size=rowi.shape[0]), device=DEV)
             new = torch.zeros_like(rest)
             if use_whole_centroid:
                 cn = rest/(rest.norm(dim=1, keepdim=True)+1e-9); a = torch.cdist(cn, cen).argmin(1); new = cen_raw[a]
             else:
+                toks_slice = bb[:, :-1].reshape(-1).cpu().numpy()
+                rowi = torch.tensor([id2row.get(int(t), 0) for t in toks_slice], device=DEV)
+                if shuffle_pt:
+                    rowi = torch.tensor(rng.randint(0, per_token_table.shape[0], size=rowi.shape[0]), device=DEV)
                 pt = per_token_table[rowi]; new = pt.clone()
                 if use_rem:
                     rem = rest - pt; cn = rem/(rem.norm(dim=1, keepdim=True)+1e-9)
@@ -155,8 +155,7 @@ def main():
     cen_w_raw = torch.stack([rest_tr[a_w==j].mean(0) if (a_w==j).any() else torch.zeros(D, device=DEV) for j in range(KREM)], 0)
     hh = m.transformer.h[CONTENT_L].register_forward_hook(sub_hook)
     loss_full = loss_with(te, Ustruct, g)
-    loss_ablate = loss_with(te, Ustruct, g, per_token_table=table, id2row=id2row, cen=cen_rem, cen_raw=torch.zeros_like(cen_rem_raw), use_pertoken=True)  # per-token replaced by zeros? -> ablate = zeros
-    # proper ablate: replace rest with zeros
+    # ablate: replace the whole (token+content) rest with zeros (keep only pos+class struct)
     def loss_zero():
         tot = []
         for i in range(0, te.shape[0], 4):
