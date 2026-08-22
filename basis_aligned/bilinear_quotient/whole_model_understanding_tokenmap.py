@@ -170,6 +170,7 @@ def main():
         standins['shuftoken_map'][t] = (Emb_u[tsh] @ Mtok).cpu()
         gmeans[t] = O.mean(0); del O, r1, r2, r1b, r2b
     REPL['standins'] = standins; REPL['gmeans'] = gmeans
+    hooks = [submod(t).register_forward_hook(repl_hook_factory(t)) for t in TAGS]  # apply stand-ins/mean
     test_blocks = blocks[~TRAIN]; ROW_OFFSET[0] = ntr*(SEQ-1)
     REPL['mode'] = 'off'; ce_full = ce_pass(test_blocks)
     REPL['mode'] = 'mean'; ce_mean = ce_pass(test_blocks)
@@ -179,6 +180,7 @@ def main():
         REPL['level'] = lv; ce = ce_pass(test_blocks)
         out['levels'][lv] = {'ce': round(ce, 3), 'understanding_frac': round(float((ce_mean - ce)/denom), 3)}
         print(f"all-36 {lv:>22}: CE {ce:.3f} | understanding {out['levels'][lv]['understanding_frac']:.3f}", flush=True)
+    for h in hooks: h.remove()
     mapf = out['levels']['tokenmap+topic+prev']['understanding_frac']; tabf = out['levels']['table+topic+prev']['understanding_frac']
     out['map_minus_table'] = round(mapf - tabf, 3)
     out['genuine_frac_vs_shuffled'] = round(mapf - out['levels']['shuftoken_map']['understanding_frac'], 3)
