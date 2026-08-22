@@ -1777,6 +1777,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   low-rank grammatical class, where a single direction steers strongly. So both machines are now named
   <em>and</em> causally verified: grammar is low-rank and strongly steerable; content is high-dimensional topic
   tracking, causal but diffuse.</p>
+
+  <p>And we can say what the aggregator actually computes. Feed the model shorter and shorter slices of context:
+  topic decodability climbs steadily with length and is still rising at the model's full 256-token window, and
+  the word-choice loss falls four times as much as the grammar loss does — content lives on far context, grammar
+  on the last few tokens. Then edit the context and re-read the topic: blank out the function words and 82% of
+  the topic survives; blank out the content words instead and it collapses to near chance; shuffle the word order
+  and 61% still survives even as the grammar loss jumps. So the topic is a <em>content-word, order-insensitive
+  gist</em> — the model pools the topical words across the whole passage, largely regardless of their arrangement,
+  which is exactly the shape a high-dimensional subject-matter summary should have. Grammar is the mirror image:
+  it needs the current token and the local order, and every context edit that leaves topic intact damages it.</p>
 </section>
 
 <section class="col">

@@ -1,0 +1,10 @@
+            full: topic-decode 0.636 | class-CE 0.771
+ function_masked: topic-decode 0.547 | class-CE 1.409
+  content_masked: topic-decode 0.211 | class-CE 1.733
+  order_shuffled: topic-decode 0.44 | class-CE 1.475
+
+shuffled-label(chance) 0.128
+topic retained: func-masked 0.82 | content-masked 0.16 | order-shuffled 0.61
+grammar-CE rise under order-shuffle 0.704
+(a) topic = content-word gist: True | (b) order-invariant: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/topic_aggregation_nature_results.json (178.9s)

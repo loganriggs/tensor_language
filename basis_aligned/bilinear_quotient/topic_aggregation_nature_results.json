@@ -1,0 +1,30 @@
+{
+ "C": 128,
+ "k": 12,
+ "shuffled_label_decode": 0.128,
+ "conditions": {
+  "full": {
+   "topic_decode": 0.636,
+   "class_ce": 0.771
+  },
+  "function_masked": {
+   "topic_decode": 0.547,
+   "class_ce": 1.409
+  },
+  "content_masked": {
+   "topic_decode": 0.211,
+   "class_ce": 1.733
+  },
+  "order_shuffled": {
+   "topic_decode": 0.44,
+   "class_ce": 1.475
+  }
+ },
+ "topic_retained_funcmask": 0.82,
+ "topic_retained_contmask": 0.16,
+ "topic_retained_shuffle": 0.61,
+ "grammar_ce_rise_shuffle": 0.704,
+ "runtime_s": 178.9,
+ "pred_a_content_word_gist": true,
+ "pred_b_order_invariant": true
+}

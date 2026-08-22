@@ -148,7 +148,10 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    vs off −0.004, consistent across every topic) — but only WEAKLY, because one direction is a thin slice of high-dim
    topic space (opposite of low-rank class, which steers strongly §823). So: grammar = low-rank part-of-speech, strongly
    causal (easy 23%); content = high-dim topic, weakly-but-specifically causal (hard 75%). Both named+causal. Full content
-   chain (§870): ATTENTION aggregates context → topic representation → MLPs read topic → readout emits topic-coherent word. **HIGH.**
+   chain (§870): ATTENTION aggregates context → topic representation → MLPs read topic → readout emits topic-coherent word.
+   Aggregation NATURE (§871/§872): topic needs LONG context (content-CE drops 1.53 nats to C=256 vs grammar 0.35, 4.4×) and is
+   a CONTENT-WORD, ORDER-INVARIANT gist (function-mask retains 82% of topic, content-mask 16%, order-shuffle 61% while
+   grammar-CE rises +0.70). Grammar = local (few tokens), token-driven; content = long-range content-word gist. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even

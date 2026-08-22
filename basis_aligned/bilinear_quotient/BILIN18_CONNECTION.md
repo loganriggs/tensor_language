@@ -26407,3 +26407,26 @@ than §870's 0.85 because this probe trains only on late query positions (160-25
 TREND (monotone rise with C) is the result, not the absolute. Content is STILL dropping at C=256 (the
 model's train length) -> some of the §840 "irreducible" content floor is context-limited, not purely
 irreducible (consistent with §840's scale-limited framing).
+
+## §872 — the topic aggregator computes a CONTENT-WORD, ORDER-INVARIANT gist (topic_aggregation_nature.py)
+
+Edited the context (C=128) and re-read topic decodability + grammar CE at the query. Results vs full
+(topic-decode 0.636, class-CE 0.771; chance 0.128):
+ - FUNCTION-masked (keep content words, blank det/prep/conj/pron/punct): topic 0.547, RETAINS 82% of topic
+   decodability -> topic rides on CONTENT words.
+ - CONTENT-masked (keep function words, blank content): topic 0.211, retains only 16% (near chance) ->
+   function words carry almost no topic. (within-experiment control for the above.)
+ - ORDER-shuffled (same tokens, permuted order, query fixed at end): topic 0.44, RETAINS 61% of topic while
+   grammar CE RISES +0.70 nats -> topic is largely ORDER-INVARIANT (a bag-of-content-words gist) whereas
+   grammar needs word order.
+Pred (a) content-word gist = TRUE; (b) order-invariant = TRUE.
+
+So the aggregator's computation is NAMED end to end: attention builds the topic representation (§870) by
+pooling the CONTENT words across the passage (§872) largely regardless of their ORDER (§872) over LONG range
+(§871). It is a content-word, order-insensitive gist — a topic/bag-of-words summary — which is exactly the
+right shape for the high-dimensional, low-rank-un-steerable content machine (§866/§868). Honest nuance: both
+retentions are PARTIAL (61% order-invariant, 82% content-only), so ~40% of topic uses some order and ~18%
+leans on function-word context — the gist is the dominant but not sole ingredient. Grammar CE rises under
+EVERY edit (func-mask 1.41, content-mask 1.73, shuffle 1.48 vs full 0.77) — grammar needs the actual local
+sequence, the opposite profile from topic. Content machine characterization COMPLETE. Artifact/FINDINGS
+updated.
