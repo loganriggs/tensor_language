@@ -27225,3 +27225,16 @@ as a linear read of content, the rest a bilinear nonlinear interaction we can ch
 (multiplicative content mixing) and move causally, but not reduce to a table or linear map. The remaining
 understanding gap is the bilinear NONLINEARITY itself. Testing whether named-variable INTERACTIONS (token×topic,
 prev×topic — a bilinear map of NAMED variables) capture that nonlinear part next. Artifact/FINDINGS finalized.
+
+## §911 — named-variable INTERACTIONS don't capture the middle nonlinearity (learned_map_interactions.py)
+
+Added pairwise cross-products of named-variable projections (token×topic, prev×topic, token×prev; 16 dims each)
+to the smooth map, testing whether the middle's ~half nonlinearity (§910) is interactions of the variables we
+named. It did NOT help: middle 0.242 (rank-64 content + interactions) vs 0.304 (rank-128 content alone, §909) —
+lower, because the interaction terms (48 dims) didn't compensate for the smaller content rank (64 vs 128).
+CAVEAT: not apples-to-apples (RPCA 64 vs 128), so this is not a clean refutation — but the interaction terms
+clearly did not add enough to beat plain higher-rank content. So the middle's bilinear nonlinearity is NOT
+captured by low-rank cross-products of (token, prev, topic); it is a higher-dimensional multiplicative
+computation over the content representation, not a few named-variable interactions. Consistent with §910
+(the middle is a genuine high-rank bilinear content mixer). The productive lever for the middle is more
+CONTENT rank, not named-variable cross-products.
