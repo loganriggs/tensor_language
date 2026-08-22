@@ -25294,3 +25294,34 @@ GENERALIZING (held-out, §820), and now SUFFICIENT (steering, §823) — editing
 causally steers the prediction. Together with the honest whole-model share (simultaneous 0.78, §820/822)
 and the compute→maintain→read pipeline (§809→817), the class+position variable is established as the
 model's real, causal, low-dimensional computation.
+
+## §824 — Class+position is a COMPUTED variable at the component write-sites, NOT the raw embedding: steering the embedding corrupts, steering components steers (cp_steer_embedding.py)
+
+§823 showed steering class+position at the front COMPONENTS moves the prediction toward the target
+class. §824 tests the natural alternative source — the token EMBEDDING (which never leaves the stream,
+item 14). Steered the class-deviation at wte output, small α sweep, matched random-direction null.
+
+| source B | KL(normal‖p_B) | emb-cp-steer (α=1/2/4) | random-dir emb-steer (α=1/2/4) |
+|----------|---------------:|------------------------|---------------------------------|
+| " a" (257)  | 3.70 | 8.48 / 8.76 / 8.67 | 3.24 / 3.71 / 4.40 |
+| " and" (290)| 1.59 | 6.60 / 7.54 / 7.44 | 1.88 / 2.80 / 3.68 |
+| " the" (262)| 3.37 | 7.24 / 6.40 / 6.83 | 4.09 / 4.73 / 4.82 |
+
+VERDICT (prediction (a) refuted, decisively): steering at the embedding does NOT move the prediction
+toward B — it makes it far WORSE (KL 6.4–8.8 vs normal 1.6–3.7), and worse than a random-direction
+embedding perturbation. So the embedding is NOT a clean source you can steer through.
+
+Interpretation (this SHARPENS the causal localization, complementing §823):
+ - Editing the raw embedding just creates an OUT-OF-DISTRIBUTION token vector (real embedding + a class
+   direction) that all 18 layers then process abnormally → prediction corrupts, worse than random.
+ - Steering at the COMPONENTS works (§823) because that is where the model WRITES its computed
+   class+position into the residual — the channels downstream layers are built to read.
+ - Therefore class+position is a genuinely COMPUTED variable living in the component write-channels,
+   derived from but DISTINCT from the raw embedding. The causal locus of the variable is the
+   components' output, not the token embedding. (This also refines §823's amplification nuance: the
+   components need amplification because the signal is small-norm (§822) and redundantly written across
+   many components — not because the embedding is a better lever; the embedding is a worse one.)
+
+Causal localization now complete: class+position is necessary (§767→814), generalizing (§820), and
+sufficient/steerable specifically at the component write-sites (§823) but not the embedding (§824) —
+a computed variable, not a relabeling of the input embedding.
