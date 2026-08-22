@@ -1,0 +1,25 @@
+{
+ "corpus_base_func_rate": 0.4341,
+ "by_error_type": {
+  "hit": {
+   "mean_logfreq_true": -6.072,
+   "top1_func_frac": 0.581,
+   "median_true_rank": 0,
+   "n": 19562
+  },
+  "content_error": {
+   "mean_logfreq_true": -8.104,
+   "top1_func_frac": 0.249,
+   "median_true_rank": 7,
+   "n": 14977
+  },
+  "grammar_error": {
+   "mean_logfreq_true": -7.425,
+   "top1_func_frac": 0.781,
+   "median_true_rank": 10,
+   "n": 16461
+  }
+ },
+ "pred_a_hedging": true,
+ "runtime_s": 31.4
+}

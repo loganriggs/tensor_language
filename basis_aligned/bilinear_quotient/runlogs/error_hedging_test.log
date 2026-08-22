@@ -1,0 +1,6 @@
+           hit: true logfreq -6.072 | top1 func-frac 0.581 | median true-rank 0
+ content_error: true logfreq -8.104 | top1 func-frac 0.249 | median true-rank 7
+ grammar_error: true logfreq -7.425 | top1 func-frac 0.781 | median true-rank 10
+corpus base func-rate 0.434
+(a) grammar-errors are content-hedging (rare true token, function top-1, modest true-rank): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/error_hedging_test_results.json (31.4s)

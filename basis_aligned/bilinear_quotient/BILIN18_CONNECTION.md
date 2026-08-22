@@ -28545,3 +28545,24 @@ top-1 partition thus OVER-attributes error-loss to "grammar"; the rigorous gramm
 (§880). So this is a descriptive fact about the model's MODE/hedging behavior, not a reattribution of the loss.
 I will TEST the hedging interpretation directly (not assert it): on grammar-error positions, is the true next
 token a rarer/content word and the predicted top-1 a frequent function word? Follow-up queued (error_hedging_test).
+
+## §973 — CONFIRMED: "grammar errors" are content-difficulty HEDGING, not grammar failures; the model fails on CONTENT (error_hedging_test.py)
+
+Direct test of the §972 hedging interpretation. Per error type (corpus base function-class rate 0.434):
+  type            true-token logfreq   top1 function-frac   median true-token rank
+  HIT               -6.07                0.581                 0
+  CONTENT-ERROR     -8.10                0.249                 7
+  GRAMMAR-ERROR     -7.43                0.781                10
+pred (a) hedging TRUE. On GRAMMAR-ERROR positions: (i) the true token is RARER than on hits (-7.43 vs -6.07)
+= a harder content position; (ii) the predicted top-1 is a FUNCTION word 78% of the time — WAY above the corpus
+base rate 0.434 and above content-errors' 0.249 = the model HEDGES to a common function word; (iii) the true
+token still ranks ~10 (not catastrophic) = the class DISTRIBUTION is intact, only the top-1 MODE hedged.
+RESOLUTION of §972: the "grammar-type" top-1 errors are NOT grammar failures — they are the model HEDGING to a
+frequent function word when the true CONTENT word is rare/unpredictable. This VINDICATES the §972 caveat and
+reconciles it with the loss budget (§880 content 77%): both error types are driven by CONTENT difficulty (rare
+content words) — content-errors pick the wrong content word (true token rarest, -8.10), grammar-errors hedge to a
+function word. GRAMMAR (the class machine) is NOT where the model fails; its failures are fundamentally about
+CONTENT. ERROR-INTERPRETABILITY finding: bilin18's mistakes are content mistakes — when the next content word is
+hard, it either guesses the wrong content word or falls back on a safe function word. This extends the two-machine
+account to the model's errors and closes the error-interpretability sub-thread (§972->973), consistent with
+grammar=easy/solved, content=hard/frontier throughout the program.

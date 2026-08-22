@@ -1,0 +1,27 @@
+{
+ "n": 51000,
+ "hit": {
+  "count": 19562,
+  "frac": 0.3836,
+  "mean_ce": 0.6934,
+  "loss_share": 0.0815
+ },
+ "content_error": {
+  "count": 14977,
+  "frac": 0.2937,
+  "mean_ce": 4.6306,
+  "loss_share": 0.4167
+ },
+ "grammar_error": {
+  "count": 16461,
+  "frac": 0.3228,
+  "mean_ce": 5.0736,
+  "loss_share": 0.5018
+ },
+ "error_content_vs_grammar": {
+  "content_frac_of_errors": 0.476,
+  "content_loss_share_of_errors": 0.454
+ },
+ "pred_a_content_dominates_errors": false,
+ "runtime_s": 32.2
+}
