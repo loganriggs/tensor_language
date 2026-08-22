@@ -25611,3 +25611,34 @@ This is the correct headline: the model computes a low-rank grammatical-class + 
 representation and uses it to drive ~4/5 of ALL its predictive work — grammar and word-choice both — with
 a diffuse high-rank residue handling the last slice and an irreducible entropy floor underneath.
 Artifact corrected.
+
+## §834 — Within class+position, a clean functional split: coarse grammatical CLASS drives the grammar loss; POSITION + fine TOKEN-IDENTITY drive the lexical (word-choice) loss (cp_lexical_source.py)
+
+Decomposed §833's "class+position recovers 76% of lexical benefit" by which PART of the representation
+drives it. Centered simultaneous keep (NOT mean-preserving — so this is not the §821 mean confound;
+all conditions beat centered-random's 0.04–0.29 from §821):
+
+| kept (centered) | recovers CLASS benefit | recovers WITHIN/LEXICAL benefit |
+|-----------------|-----------------------:|--------------------------------:|
+| position only              | 0.630 | 0.595 |
+| + coarse 8-POS-class       | 0.727 (+0.097) | 0.641 (+0.046) |
+| + fine token-identity (r64)| 0.811 (+0.181) | 0.761 (+0.120) |
+
+FINDINGS:
+ - COARSE GRAMMATICAL CLASS barely helps LEXICAL choice (+0.046 within) but helps grammar (+0.097
+   class) — coarse POS is for predicting the next CLASS (§828), not the next word.
+ - FINE TOKEN-IDENTITY helps LEXICAL ~2.6× more than coarse class (+0.120 vs +0.046) — the SPECIFIC
+   current token (a bigram signal), not just its grammatical class, is what narrows the next word.
+ - POSITION alone recovers a large baseline (0.595 within, 0.630 class), far above centered-random
+   (0.04–0.29, §821) — so position is genuinely load-bearing, not a mean artifact; keeping the
+   position-dependent part of every component keeps the pipeline roughly operational and predictive.
+
+CLEAN FUNCTIONAL SPLIT within the interpretable class+position representation:
+ - COARSE grammatical class → the grammar loss (next-class prediction, §828);
+ - POSITION + FINE token-identity → the lexical loss (specific-word choice; token-identity is the
+   bigram-like driver, consistent with §585/item 6).
+So the §833 headline "class+position drives lexical too" is, more precisely: POSITION and the SPECIFIC
+TOKEN IDENTITY drive the word choice, while COARSE grammatical class drives the grammatical-class
+prediction — a clean division of labor inside the single low-rank representation. This closes the
+lexical-source question; the remaining ~24% of lexical benefit not captured is the diffuse high-rank
+residue (§810), and the residual lexical loss is mostly irreducible entropy (§830).

@@ -1,0 +1,7 @@
+coarse+pos keep: class 0.727 | within/lexical 0.6407
+fine+pos keep: class 0.8113 | within/lexical 0.7607
+pos+pos keep: class 0.6304 | within/lexical 0.5954
+
+fine-token adds +0.120 lexical recovery over coarse-8-class (coarse within 0.6407, fine 0.7607, pos-only 0.5954)
+(a) fine token-identity (bigram) drives lexical, not coarse class: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cp_lexical_source_results.json (135s)
