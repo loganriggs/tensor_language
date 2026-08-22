@@ -8,7 +8,7 @@ sys.path.insert(0, '/workspace/tensor_language')
 from palette import INK, SECONDARY, MUTED, GRID, SURFACE
 
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-d = json.load(open(PT + 'layer_understanding_v2_results.json'))['components']
+d = json.load(open(PT + 'layer_understanding_v3_results.json'))['components']
 order = ['mlp0', 'attn0', 'attn5', 'mlp5', 'mlp8', 'mlp11', 'attn11', 'mlp16']
 tok = [d[c]['token']['frac'] for c in order]
 top = [max(d[c]['token+topic']['frac'] - d[c]['token']['frac'], 0) for c in order]
@@ -19,7 +19,7 @@ fig.patch.set_facecolor(SURFACE); ax.set_facecolor(SURFACE)
 xs = range(len(order))
 c_tok, c_top, c_prev = '#104281', '#3987e5', '#cde2fb'
 ax.bar(xs, tok, width=0.7, color=c_tok, edgecolor=SURFACE, linewidth=1.2, zorder=3, label='token (grammar / context-free)')
-ax.bar(xs, top, width=0.7, bottom=tok, color=c_top, edgecolor=SURFACE, linewidth=1.2, zorder=3, label='+ topic (gist)')
+ax.bar(xs, top, width=0.7, bottom=tok, color=c_top, edgecolor=SURFACE, linewidth=1.2, zorder=3, label='+ topic (continuous gist)')
 ax.bar(xs, prev, width=0.7, bottom=[tok[i]+top[i] for i in xs], color=c_prev, edgecolor=SURFACE, linewidth=1.2, zorder=3, label='+ prev-token (local / bigram)')
 ax.axhline(1.0, color=INK, lw=1.0, ls=(0, (4, 3)), zorder=2)
 ax.axhline(0.0, color=SECONDARY, lw=1.0, zorder=2)
@@ -37,4 +37,5 @@ for s in ['left', 'bottom']: ax.spines[s].set_color(MUTED)
 ax.tick_params(colors=SECONDARY); ax.yaxis.grid(True, color=GRID, lw=0.8, zorder=0)
 ax.legend(loc='upper center', ncol=3, frameon=False, fontsize=9.5, bbox_to_anchor=(0.5, -0.2))
 plt.tight_layout()
-out = PT + 'gapfill.png'; plt.savefig(out, bbox_inches='tight', facecolor=SURFACE); print('wrote', out)
+out = PT + 'gapfill.png'
+plt.savefig(out, bbox_inches='tight', facecolor=SURFACE); print('wrote', out)

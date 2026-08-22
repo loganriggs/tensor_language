@@ -1909,11 +1909,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   table keyed on our named variables and see how much of the loss it keeps, on a scale from mean-ablation (0) to
   the full model (1). The front is almost fully a token table — layer-0 MLP scores 0.94, a clean
   token→class-cluster map. The middle content MLPs score only ~0.4 on a token table, and the gap is filled mostly
-  by conditioning on the <em>previous</em> token (local, bigram-like context: +0.2) rather than on the topic as a
-  small set of clusters (+0.03–0.09) — even though the topic is causally real, because it is continuous and a
-  dozen discrete buckets undercount it. Token + previous-token + topic reaches ~0.6–0.8 of the middle; the
-  remaining fifth is long-range and interaction structure we can name mechanistically (the gist) but not yet as a
-  compact table. The readout sits around 0.7–0.8. In short: the grammar machine is a variable we can write down;
+  by two named variables: the <em>previous</em> token (local, bigram-like context, +0.2) and — once the topic is
+  treated as the <em>continuous</em> subspace it really is rather than a dozen discrete buckets — the topic itself
+  (+0.1–0.18, two-to-six times what the clusters captured). Token + continuous-topic + previous-token reaches
+  ~0.68–0.84 of the middle; the remaining fifth-to-third is long-range and interaction structure we can name
+  mechanistically (the gist) but not yet as a compact table. The readout sits around 0.9. In short: the grammar machine is a variable we can write down;
   the content machine is a variable we can causally move but not yet tabulate.</p>
 </section>
 

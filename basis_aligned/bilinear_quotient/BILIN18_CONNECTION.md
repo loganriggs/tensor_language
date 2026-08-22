@@ -26975,3 +26975,22 @@ NEITHER weight source tightly matches the variable at any layer; the activation/
 (§895 DAS≈activation). So weights give a PARTIAL, layer-dependent handle (write near the front, read near the
 back), but the variable itself is a maintained representation best read from activations. The rotation profile
 (fast front + readout, frozen middle) matches the geometry re-clustering (§857) — cross-consistent.
+
+## §898 — the CONTINUOUS topic subspace fills 2-6× more of the middle than discrete clusters (confirms §896 caveat) (layer_understanding_v3.py)
+
+Replaced the §896 discrete 12-cluster topic TABLE with a keep-only projection onto the continuous topic
+SUBSPACE (rank K-1), null = random subspace of same rank. Topic fill (frac gain over token-only), discrete
+(§896) → continuous (§898):
+  attn5  +0.06 → +0.13 (genuine +0.12)      mlp5  +0.02 → +0.12 (+0.10)
+  mlp8   +0.04 → +0.10 (+0.09)              mlp11 +0.03 → +0.08 (+0.07)
+  attn11 +0.09 → +0.18 (+0.18)             mlp16 +0.01 → +0.09 (+0.09)
+  attn0  +0.01 → +0.05                      mlp0 ~+0.01 (front, still ~0)
+So the CONTINUOUS topic subspace fills 2-6× more than discrete clusters — confirming §896's caveat (12 buckets
+undercount the continuous high-dim topic, §874). All gains are GENUINE (well above the random-subspace null).
+With token + continuous-topic + prev-token, the middle content components now reach ~0.68-0.84 (mlp5 0.68, mlp8
+0.74, mlp11 0.73, attn5 0.80, attn11 0.84) — up from ~0.4 token-only. Front unaffected (mlp0 still ~0 topic
+gain = context-free). So the middle content computation is now ~3/4 accounted for by named variables: current
+token + CONTINUOUS topic/gist + previous-token/local context; the residual ~0.2-0.3 is long-range +
+interaction structure. This meaningfully FILLS the gap (user directive) and vindicates treating topic as
+continuous, not discrete (§873/§874). Updating the gap-fill figure to the continuous-topic numbers + the
+artifact variable-section topic line.
