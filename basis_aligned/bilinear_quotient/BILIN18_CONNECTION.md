@@ -28030,3 +28030,32 @@ added the downstream is already ablated, masking its true importance (single-lay
 not the order-dependent cumulative front curve. NET: front = localized/load-bearing (mlp0/mlp1 write grammar+token);
 middle = distributed-cooperative multiplicative content computation (no single point of failure, but the ensemble
 matters). This closes the redundancy question properly.
+
+## §949 — REFUTES "middle is the sole essential nonlinearity"; front's aggregate nonlinearity costs MORE (with caveats) (three_register_linearize.py)
+
+Replace MLP outputs with a fitted linear map of their input, by register (rest REAL), held-out. ce_full 3.110.
+  linearize FRONT (L0-5)     Δce +2.758   <- LARGEST
+  linearize MIDDLE (L6-15)   Δce +0.880
+  linearize READOUT (L16-17) Δce +0.121
+  linearize FRONT+READOUT    Δce +3.188
+  linearize ALL              Δce +4.358
+  shuffled-map null (ALL)    Δce +4.283
+pred (a) "middle is the sole essential nonlinearity" FALSE — linearizing the front costs 3x the middle.
+RECONCILE with §941/§942 (front MLPs 90-98% linearly-recoverable per layer): those are per-layer SHAPE
+statements. This is a whole-register question, and two effects flip the ranking: (i) MAGNITUDE — the front MLPs
+are the dominant writers (mlp1 mean-ablate 6.4 nats §933), so even their ~3% nonlinear residual is large in
+absolute nats; (ii) COMPOUNDING — linearizing L0 changes L1's input, so 6 front layers accumulate super-additively.
+The middle MLPs are more nonlinear in shape (§941 ~40% linear) but TINY in magnitude (~0.04 each §948), so
+linearizing all 10 costs only 0.88. So: SHAPE is linear->multiplicative->linear (§941/§942, valid), but the COST
+of removing each register's nonlinearity is front(2.76) > middle(0.88) > readout(0.12). The clean "linear front"
+is a per-layer shape fact, NOT "the front can be replaced by linear maps for free."
+IMPORTANT CAVEAT (weakens the per-register magnitudes): linearize-ALL (4.36) is ~= the shuffled-map null (4.28) —
+even slightly worse — so the full linearization is in a DEGENERATE regime where a fitted map is no better than a
+random one. I did NOT compute per-register shuffled nulls, so I cannot yet certify that the front's 2.76 reflects
+genuine linear-structure-removal rather than generic linearization damage. Treat the per-register costs as
+SUGGESTIVE, not certified. The robust, null-controlled statement remains §941 (per-layer, one-at-a-time,
+shuffled-input null ~0): front near-linear in shape, middle most nonlinear in shape. CORRECTION to the emerging
+narrative: I was heading toward "middle is the sole essential nonlinearity" — that is too strong; the front's
+large near-linear writers also carry non-negligible aggregate nonlinearity. Queued a corrected version with
+per-register shuffled nulls to resolve it. Artifact: keep the SHAPE arc (§941/942); do NOT claim the front is
+freely linearizable.
