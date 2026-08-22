@@ -100,6 +100,21 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    centered-random low → specific). So the per-component headline (0.92) is an UPPER BOUND; the honest
    whole-model share is the SIMULTANEOUS CENTERED metric (§794: 0.78, random 0.04) — "~4/5 of the model". **HIGH.**
 
+   **CAPSTONE — class+position program COMPLETE (§767→831), all cross-model-validated.** WHAT: class =
+   grammatical categories (determiners, pronouns vs numbers, punctuation, conjunctions, prepositions,
+   be-verbs/auxiliaries; §825/826, named & universal), position = a logarithmic early/late scale + a
+   first-token landmark (§827). WHERE: front computes → middle redundantly keeps computing → back reads
+   (barbell, §812; super-additive class+position-maintenance middle universal across 6 models, §815/817).
+   HOW MUCH: simultaneous 0.78 (per-component 0.92 mean-inflated upper bound, §820/821). CAUSAL: necessary
+   (§767-814), generalizing (§820), sufficient/steerable at the component write-sites but NOT the embedding
+   (§823/824). USED AS grammatical sequencing — predicted next-class matches the empirical class-bigram to
+   KL 0.009 (§828). LOSS SPLIT (universal): predicting the class is the EASY ~23-25% of the loss; choosing
+   the word within it is the HARD ~75-77% (within-fraction 77% bilin18 / 75% gpt2 / 76% pythia, §829/831),
+   partly context-reducible (~1.1 nats) but mostly an irreducible ~2.4-nat entropy floor (§830). ONE-LINE:
+   the interpretable low-rank machinery computes a grammatical skeleton that is most of the components but
+   only a quarter of the difficulty; the rest is high-entropy lexical choice with no low-rank handle — a
+   shape that is a property of the task, not one network.
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
