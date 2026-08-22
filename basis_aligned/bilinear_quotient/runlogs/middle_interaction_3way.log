@@ -1,0 +1,6 @@
+L 1 ablation Δce: {'tok_tok': 0.0611, 'tok_cls': 0.0004, 'tok_con': 0.063, 'cls_cls': 0.0001, 'cls_con': 0.0005, 'con_con': 0.0267}
+L 8 ablation Δce: {'tok_tok': 0.0073, 'tok_cls': 0.0002, 'tok_con': 0.0108, 'cls_cls': 0.0, 'cls_con': 0.0005, 'con_con': 0.013}
+L11 ablation Δce: {'tok_tok': 0.0109, 'tok_cls': 0.0003, 'tok_con': 0.0084, 'cls_cls': 0.0, 'cls_con': 0.0007, 'con_con': 0.01}
+recon-residual L11 0.00006 | L11 token-involving sum 0.0196 vs con_con 0.0100
+(a) middle is token-conditional (token-involving > content x content): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_interaction_3way_results.json (59.3s)

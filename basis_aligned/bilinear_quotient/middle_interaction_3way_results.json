@@ -1,0 +1,34 @@
+{
+ "ce_full": 3.3233,
+ "recon_residual_L11": 6e-05,
+ "ablation_cost": {
+  "1": {
+   "tok_tok": 0.0611,
+   "tok_cls": 0.0004,
+   "tok_con": 0.063,
+   "cls_cls": 0.0001,
+   "cls_con": 0.0005,
+   "con_con": 0.0267
+  },
+  "8": {
+   "tok_tok": 0.0073,
+   "tok_cls": 0.0002,
+   "tok_con": 0.0108,
+   "cls_cls": 0.0,
+   "cls_con": 0.0005,
+   "con_con": 0.013
+  },
+  "11": {
+   "tok_tok": 0.0109,
+   "tok_cls": 0.0003,
+   "tok_con": 0.0084,
+   "cls_cls": 0.0,
+   "cls_con": 0.0007,
+   "con_con": 0.01
+  }
+ },
+ "middle_L11_token_involving_sum": 0.0196,
+ "middle_L11_con_con": 0.01,
+ "pred_a_middle_token_conditional": true,
+ "runtime_s": 59.3
+}

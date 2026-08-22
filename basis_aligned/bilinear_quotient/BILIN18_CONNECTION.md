@@ -27962,3 +27962,29 @@ residual into the token basis — a nameable rotation, not a mysterious nonlinea
 So two of the three registers (front, readout) are near-linear and nameable; the middle multiplicative content
 computation is the sole genuine frontier. Whole-model benchmark 0.42 held-out (§939); the residual is precisely
 the middle multiplication. This is the honest end-state of the bottom-up interpretation.
+
+## §946 — what the middle multiplies, cleanly: TOKEN and CONTENT, never CLASS (middle_interaction_3way.py)
+
+Resolves §943's caveat with a clean 3-way orthogonal split (token rank-64 / class rank-8 orthogonalized vs token
+/ content rest); 6 symmetric bilinear product groups, causal ablation Δce (exact-recon residual L11 = 6e-5, OK).
+  layer   tok_tok  tok_cls  tok_con  cls_cls  cls_con  con_con
+  L1      0.061    0.000    0.063    0.000    0.001    0.027
+  L8      0.007    0.000    0.011    0.000    0.001    0.013   <- con_con is the largest single group here
+  L11     0.011    0.000    0.008    0.000    0.001    0.010
+TWO CLEAN FINDINGS:
+ 1) CLASS products are NEGLIGIBLE everywhere (tok_cls, cls_cls, cls_con all 0.0000-0.0007) -> the middle does NOT
+    multiply grammatical class. Class/grammar is handled LINEARLY in the front (§915); it is kept OUT of the
+    multiplicative computation. Clean and striking.
+ 2) The middle multiplication is TOKEN x TOKEN + TOKEN x CONTENT + CONTENT x CONTENT, all COMPARABLE in magnitude
+    (L11 token-involving 0.020 vs con_con 0.010; L8 con_con 0.013 is the single largest). So content x content is
+    NOT a small minority (as §943 suggested when class was lumped into 'grammar') — it is a SUBSTANTIAL ~1/3-1/2
+    of the middle multiplication.
+CORRECTION to §943: §943's "grammar-dominant, content x content minority" was an artifact of the token+class
+lumping (token rank-64 dominated). With token and class disentangled: class x anything ~= 0, and the products are
+token- and content-involving in comparable measure. NAMED middle mechanism: the middle builds nonlinear features
+by multiplying TOKEN-IDENTITY and CONTENT signals together (token-conditional content features + genuine content
+mixing), while GRAMMATICAL CLASS is excluded from the multiplication. All group ablation costs are tiny
+(0.007-0.013 in the middle) -> redundant/distributed (§940/§941). This precisely names the sole frontier: a
+distributed token&content multiplicative computation with no class involvement. Bottom-up account COMPLETE:
+front (linear grammar+token write) -> middle (token&content multiplication, no class) -> readout (~95% linear
+rotation into token basis, §945). Artifact: the middle multiplies token and content, not class.
