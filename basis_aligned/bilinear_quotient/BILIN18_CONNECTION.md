@@ -27815,3 +27815,29 @@ The remaining ~0.58 is the honest not-yet-tabulated residual: the high-rank CONT
 ~0.8 of the content term irreducible to finite stand-ins) plus cross-component interactions. The improvement is
 in the STAND-IN QUALITY (smooth generalization), consistent with the mechanism being unchanged; content remains
 the frontier. Phase boundary: update the artifact benchmark number 0.315 -> 0.42 with this progression.
+
+## §940 — where the 0.42 lives across depth: the MIDDLE is the content-computation frontier; the back is well-reconstructed but generic (whole_model_understanding_bands.py)
+
+Localize §939's 0.42 by DEPTH. With the map+topic+prev stand-in, replace only one band (rest REAL) vs
+mean-ablate only that band; understanding_band = (CE_bandmeanabl - CE_bandstandin)/(CE_bandmeanabl - CE_full).
+  band            meanabl-cost   RAW understanding   shuffled-map   GENUINE (raw - shuffled)
+  front  L0-5       1.64 nats        +0.344            -0.373           0.717
+  middle L6-11      2.24 nats        +0.262            -0.340           0.602
+  back   L12-17     2.08 nats        +0.445            -0.138           0.583
+Registered pred (a) "front > back" FALSE. Careful reading (raw and shuffle-corrected disagree, so report both):
+ - RAW recovery: back highest (0.445) > front (0.344) > middle (0.262). BUT the back's shuffled-map null is only
+   -0.138 (vs front -0.373), meaning the back is recoverable even with the WRONG token identities -> its raw
+   number is largely GENERIC (the residual is mostly BUILT by L12; the back reads out accumulated topic/position,
+   not fresh per-token computation).
+ - GENUINE (shuffle-corrected, the fair named-variable measure): front 0.717 > middle 0.602 > back 0.583. So the
+   FRONT is the most genuinely token-driven-understood (mlp0 class write §915, token tables), the BACK the least
+   (generic readout of an already-built residual).
+ - The MIDDLE (L6-11) has the LARGEST absolute contribution (meanablate cost 2.24 nats) yet the WORST raw
+   reconstruction (0.262) -> the middle is the CONTENT-COMPUTATION FRONTIER: where the hard, high-rank content
+   mixing happens (bilinear content computation, §930/§938), least capturable by named variables.
+SYNTHESIS: the depth story is NOT a simple front-understood/back-residual monotone. Front = most genuinely
+understood (token/grammar). Middle = the biggest and hardest part (content computation, the residual frontier).
+Back = well-reconstructed but generically (reads out the built residual). This LOCATES the remaining ~0.58 gap in
+the MIDDLE content computation, consistent with the whole content arc. Refines the earlier per-component depth
+split (front grammar high, middle content low) with a whole-band causal measure and the genuine-vs-generic
+distinction. Artifact: add the "middle is the content-computation frontier; back reconstructs generically" nuance.
