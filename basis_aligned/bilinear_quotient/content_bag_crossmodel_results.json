@@ -1,0 +1,26 @@
+{
+ "bilin18_ref": {
+  "bag": 0.655,
+  "current": 0.216
+ },
+ "models": {
+  "gpt2": {
+   "layer": 9,
+   "base": 0.0686,
+   "bag": 0.4552,
+   "current": 0.2086,
+   "null": 0.0663,
+   "bag_minus_current": 0.2466
+  },
+  "gpt2-large": {
+   "layer": 28,
+   "base": 0.0981,
+   "bag": 0.3599,
+   "current": 0.1858,
+   "null": 0.0972,
+   "bag_minus_current": 0.1741
+  }
+ },
+ "pred_a_universal_bag": true,
+ "runtime_s": 36.2
+}

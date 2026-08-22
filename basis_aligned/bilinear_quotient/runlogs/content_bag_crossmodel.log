@@ -1,0 +1,8 @@
+loading gpt2...
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4749.44it/s]
+gpt2 L9: bag 0.455 vs current 0.209 (base 0.069, null 0.066) -> bag-current +0.247
+loading gpt2-large...
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  98%|█████████▊| 426/436 [00:00<00:00, 4253.22it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 4282.76it/s]
+gpt2-large L28: bag 0.360 vs current 0.186 (base 0.098, null 0.097) -> bag-current +0.174
+(a) bag-of-words content universal (bag>>current in all): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_bag_crossmodel_results.json (36.2s)

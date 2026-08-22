@@ -27722,3 +27722,45 @@ bag's topic content. This closes the on-box content-mechanism arc; the honest en
  - HOW MUCH: modest ~17%@K=1024 causal handle on a high-rank continuum (§930).
 NEXT: does a bag-of-words RIDGE-MAP stand-in beat the topic-centroid stand-in in the understanding benchmark?
 (content_bag_benchmark — use §932 mechanistically to improve the tracked benchmark's content term).
+
+## §936 — IMPORTANT REVISION: the content residual's causal bulk is LOCAL per-token, not the long-range topic gist (content_bag_benchmark.py)
+
+Causal held-out benchmark: keep struct (token+pos+class rank-104) exact at L15, replace the CONTENT part with a
+stand-in, run 16-17, measure loss recovery. full 3.12, ablate 4.80 (content = +1.67 nats).
+  current-token linear map  +0.222   <- recovers the MOST
+  topic-centroid K=1024     +0.169   (matches §930)
+  bag-of-words ridge map    +0.052   <- recovers the LEAST, despite decoding the topic LABEL best (§932: 0.655)
+  shuffled-bag null         +0.002   (sanity OK)
+Pred (a) "bag beats buckets" FALSE — and, surprisingly, the bag is the WORST content-RESIDUAL reconstructor.
+KEY DISTINCTION: decoding the discrete TOPIC LABEL (bag wins, §932) is NOT the same as RECONSTRUCTING the content
+residual for LOSS (current-token wins). The content residual (as benchmark-defined) retains lots of
+CURRENT-TOKEN-CONDITIONAL structure beyond the rank-64 token strip, and THAT local per-token content is the
+bigger loss contributor; the long-range topic gist (what the bag captures) is the SMALLEST causal slice.
+REVISION of emphasis (stated plainly): I had been foregrounding TOPIC as "the" content story. Causally, most of
+the content term is LOCAL per-token content (bigram-like: current token -> likely next content words), recovered
+22% by a linear token map; TOPIC is a real but modest (~5-17%) long-range add-on. This does NOT contradict
+§871/§872 (topic needs long context) — those measured the long-range PART; §936 shows that part is a minority of
+the content residual's total causal weight. Ordering current-token(0.222) > topic-centroid(0.169) > bag(0.052)
+tells the story: per-token linear > cluster structure > pooled topic gist.
+METHOD CAVEAT (honest): the rank-64 token strip removes only 64 of ~1152 token-linear directions, so "content"
+here still contains most per-token structure — "content" != "non-token". A cleaner content definition would
+project out full per-token means; under the benchmark's rank-64 definition, the content term is dominated by the
+retained per-token structure. This refines HOW to improve the benchmark content term: a richer per-token map, not
+a topic/bag stand-in. TENTATIVE new content-term estimate under this stand-in family: ~0.22 (current-token map),
+up from the topic-centroid ~0.17 — but it is per-token, not topic. Whole-model benchmark unchanged pending a
+proper re-run. Artifact nuance to add at next phase boundary: content's causal bulk is local per-token; topic is
+a modest long-range slice.
+
+## §937 — the bag-of-words TOPIC-LABEL structure is universal across LMs (content_bag_crossmodel.py)
+
+Mirrors §925 (separability), §880 (loss budget), §831 (23/77). At a late layer, decode topic (K=32) from a
+bag-of-words running mean vs the current-token embedding, in GPT-2 and GPT-2-large:
+  gpt2 (L9):        bag 0.455 vs current 0.209 (base 0.069, null 0.066) -> bag-current +0.247
+  gpt2-large (L28): bag 0.360 vs current 0.186 (base 0.098, null 0.097) -> bag-current +0.174
+  bilin18 ref:      bag 0.655 vs current 0.216.
+pred (a) universal-bag TRUE: in both GPT-2 models the bag decodes topic far above the current token, as in
+bilin18 -> content is an order-invariant bag-of-words topic gist in general LMs, not a bilin18 quirk.
+FRAMING (given §936): this is about topic-LABEL DECODABILITY being universal — the bag reliably identifies the
+topic in every model. It does NOT claim the topic gist is the dominant CAUSAL part of the content residual (§936
+showed it is a modest slice; most content-for-loss is local per-token). So the universal fact is: "LMs carry an
+order-invariant bag-of-words topic signal at late layers." Consistent, cross-model-robust, appropriately scoped.
