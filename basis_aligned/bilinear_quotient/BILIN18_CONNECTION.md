@@ -26918,3 +26918,24 @@ variable. HONEST bound: even with the patch, Δ stays slightly negative (−0.16
 patched position competes with the full base context via attention; the effect is large vs baseline but doesn't
 fully override the passage. Artifact/FINDINGS topic-causal line upgraded from "rests on non-steering evidence"
 to "causal, confirmed by interchange".
+
+## §895 — DAS: the class-variable subspace ROTATES through the stack; at L15 the READ weights align (not front-write); DAS ≈ activation (das_class_learned.py)
+
+DAS learned a class subspace at L15 to maximize interchange; compared IIA + overlap-with-DAS across sources:
+  IIA:      DAS 0.271 | activation-mean 0.281 | lm_head READ 0.156 | mlp0 front-WRITE 0.083 | random 0.062
+  overlap:  activation 0.344 | lm_head 0.188 | front-write 0.043 | random 0.024 (chance r/D 0.007)
+Findings:
+ - DAS ≈ activation (0.271 vs 0.281): the ACTIVATION class-conditional-mean subspace is already ~optimal for
+   interchange at L15 — DAS finds no hidden better subspace. So activations ARE the ground truth for the
+   variable's storage direction (the user's "weights≈activations" holds — the activation subspace is the truth).
+ - Answer to "did you use the correct weight?": I tried the WRITE side (mlp0 Down class-units). It does NOT
+   work at L15 (overlap 0.043 ≈ chance, IIA ≈ random). The READ side (lm_head) works PARTIALLY (overlap 0.188,
+   IIA 0.156 — better than §892's 0.098 at rank 8 + more data). So pred(a) write-beats-read = FALSE — the
+   OPPOSITE: near the readout, the read weights align better than the front-write weights.
+ - WHY: the class variable's subspace ROTATES across depth. mlp0 WRITES it at L0, but 15 blocks of transforms
+   (incl. the per-block rescale) move it, so front-write directions don't match the L15 storage; L15 is close to
+   the readout so the read side partially matches. LESSON (sharpens the user's point): weights DO identify the
+   variable, but you must use the weights of the component acting AT that layer — front-write near the front,
+   readout-read near the back; a mid-stream maintained representation is best read from activations/DAS.
+Next: measure the rotation directly (class subspace overlap across layers vs mlp0-write and lm_head-read) to
+show it swings write→read across depth (class_subspace_rotation).

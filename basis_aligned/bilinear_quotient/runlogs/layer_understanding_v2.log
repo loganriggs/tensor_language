@@ -1,0 +1,11 @@
+  mlp0: token 0.94 -> +topic 0.94 (gain +0.00, genuine +0.00) -> +prev 0.97
+ attn0: token 0.76 -> +topic 0.77 (gain +0.01, genuine +0.01) -> +prev 0.95
+ attn5: token 0.48 -> +topic 0.54 (gain +0.06, genuine +0.06) -> +prev 0.77
+  mlp5: token 0.37 -> +topic 0.40 (gain +0.02, genuine +0.02) -> +prev 0.61
+  mlp8: token 0.43 -> +topic 0.47 (gain +0.04, genuine +0.04) -> +prev 0.71
+ mlp11: token 0.44 -> +topic 0.47 (gain +0.03, genuine +0.03) -> +prev 0.70
+attn11: token 0.50 -> +topic 0.59 (gain +0.09, genuine +0.09) -> +prev 0.79
+ mlp16: token 0.78 -> +topic 0.79 (gain +0.01, genuine +0.01) -> +prev 0.86
+
+(0=mean-ablate,1=full; additive token→+topic→+prev stand-ins; genuine vs shuffled-topic)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/layer_understanding_v2_results.json (147.9s)
