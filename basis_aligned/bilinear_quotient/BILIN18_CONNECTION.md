@@ -28444,3 +28444,19 @@ And the key properties are UNIVERSAL (also GPT-2: separability §925, bag §937,
 budget §880). So the account is not a bilin18 quirk: two separable machines (low-rank local grammar + high-rank
 long-range bag-of-words content) built by a distributed cooperative computation is a property of the model family
 (and, for the core structure, of transformers generally). Family-generalization thread COMPLETE.
+
+## §968 — the depth ARC (linear->nonlinear->linear) generalizes across the family; 4-axis family generalization complete (cross_family_nonlinearity.py)
+
+Per-layer linear-R^2 of the MLP input->output map, band means (front/middle/back):
+  bilin18   0.488 / 0.269 / 0.494   -> clear middle dip
+  swiglu18  0.477 / 0.343 / 0.486   -> middle dip
+  bilin12   0.601 / 0.488 / 0.500   -> shallow middle dip (middle < front and < back, but only just below back)
+pred (a) family-arc TRUE (middle < front AND < back in all three). The linear->multiplicative->linear depth arc
+(§941/§942) is FAMILY-WIDE; bilin12's dip is shallow (smaller/shallower model). With GPT-2/large (§942), the arc
+is general. 
+FAMILY GENERALIZATION now COMPLETE on FOUR axes: STRUCTURE (grammar⊥content separability §966), MECHANISM
+(content=bag-of-words §967), DISTINCTIVE STYLE (distributed-cooperative §965), DEPTH ARC (linear/nonlinear/linear
+§968) — all confirmed in the Elriggs siblings (bilinear + SwiGLU, 18L + 12L), with the core properties universal
+via GPT-2. The bilin18 account is a property of the model family, not a single-checkpoint quirk. Next queued:
+attn_variant_superadditivity — causal isolation of WHAT in the family causes the distributed structure (squared
+vs softmax attention), the one remaining genuinely-new question.

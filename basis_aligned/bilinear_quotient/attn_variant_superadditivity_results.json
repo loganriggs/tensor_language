@@ -1,0 +1,26 @@
+{
+ "models": {
+  "bilin12": {
+   "n_front": 4,
+   "sum_singles": 25026353.0,
+   "band": 40283316.0,
+   "ratio": 1.61,
+   "cfg_flags": {
+    "bilinear": true,
+    "squared_attn": true
+   }
+  },
+  "bilinsm12": {
+   "n_front": 4,
+   "sum_singles": 39236770.0,
+   "band": 44301716.0,
+   "ratio": 1.13,
+   "cfg_flags": {
+    "bilinear": true,
+    "squared_attn": false
+   }
+  }
+ },
+ "sqrd_attn_causes_distributed": true,
+ "runtime_s": 73.4
+}
