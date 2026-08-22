@@ -26829,3 +26829,22 @@ that budget is universal too. (Caveat: GPT-2 is OOD on FineWeb, inflating absolu
 the robust result.) The uncertainty/calibration thread is characterized: represented (entropy tracks the
 budget, §889), internally signalled (weakly, §889), and universally miscalibrated by situation (§890). Artifact
 calibration note gets the universality line.
+
+## §891 — CORRECTION/scope: the "3-dim readout collapse" is VARIANCE (grammar); prediction is HIGH-RANK (readout_dim_reconcile.py)
+
+Reconciled the "L17 collapses to ~3 dims" claim with high-dim first-mention prediction. Per-token eff-dim
+(participation ratio): L15 = 72.0 → L17 = 4.3; class-conditional MEAN eff-dim at L17 = 1.7. So the readout DOES
+collapse the residual's VARIANCE to ~4 effective dimensions (the "3-dim readout" — grammar/boundary/frequency
+axes). BUT prediction is NOT 3-dim: reconstructing the L17 residual from its top-k VARIANCE PCs and reading out,
+mean-only CE 9.762 → top-256-PCs 4.015 → full (1152) 3.263. Top-256 variance-PCs recover 88% of the CE gain but
+the last ~0.75 nats needs the low-variance tail; no small k reaches 90%. So content prediction draws on a
+HIGH-RANK, LOW-VARIANCE tail, not the ~4 dominant directions.
+
+CORRECTION (propagate): FINDINGS 1d / the artifact said the readout "collapses to ~3-dim prediction (eff-dim
+2.8)" — that conflates VARIANCE-concentration with PREDICTION-rank. Correct statement: the readout collapses the
+residual's VARIANCE to ~3-4 effective dims (dominated by grammar/boundary), while the next-token PREDICTION,
+especially content, uses a high-rank structure (~256 dims for 88% of the CE gain, with a further tail). This
+reconciles the collapse with the high-dimensional content machine: the loud directions are grammar; content is
+the quiet high-rank remainder — the same "whisper under the loudest channels" motif seen elsewhere. Pred (a)
+as-metricized (per-token eff-dim>10) was FALSE (it IS ~4), but the operationalization was wrong: prediction-rank,
+not variance-eff-dim, is the right measure, and it is high. Artifact/FINDINGS corrected.

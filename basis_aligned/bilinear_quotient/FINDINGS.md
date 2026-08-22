@@ -140,7 +140,7 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    raise topic decodability). Matches the geometry (re-inflates eff-dim to peak 51 by L9 into content dims;
    topologically stable RSA 0.95-0.98, §813). READOUT (15-17): reads
    class(13×)+position(6×) hard (§851), semi-distributed content-write with some coherent category units
-   (proper-name unit, capitalized-word units), collapses to ~3-dim prediction (eff-dim 2.8). WHOLE-STACK
+   (proper-name unit, capitalized-word units), collapses the residual's VARIANCE to ~3-4 eff-dim (grammar/boundary; §891) — but PREDICTION is high-rank (~256 dims for 88% of CE gain, content in the low-variance tail). WHOLE-STACK
    geometry: 2 expansions (L1, L6-9) + 3 collapses (L0, L5, L16-17); re-clustering at front+readout, middle
    near-frozen. CONTENT MACHINE NAMED (§866): the diffuse content is a TOPIC/semantic-DOMAIN tracker — the content residual
    clusters cleanly by subject (education, Orthodox religion, tech/business, geopolitics, sports, vaccines, aviation,

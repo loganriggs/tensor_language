@@ -1739,8 +1739,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   eighteen layers gives a clean shape: two expansions and three collapses. Effective dimension goes
   117 → 20 (layer 0 collapses to class) → 47 (layer 1 re-expands) → ~45 → 23 (layer 5) → <strong>51 at layer 9</strong>,
   the peak, where the middle re-inflates the representation → then a long decline → <strong>6.5 → 2.8 at the
-  last two layers</strong>, where the readout compresses each token to a roughly three-dimensional,
-  prediction-relevant subspace. The relative-similarity structure is reorganized mainly at the front (layers
+  last two layers</strong>, where the readout compresses most of the residual's <em>variance</em> into a
+  roughly three-to-four-dimensional subspace. That collapse is about variance, not prediction: those few loud
+  directions carry the grammar/boundary structure, but the actual next-token prediction is high-rank — even the
+  top 256 variance-directions leave a chunk of the loss on the table, and the content prediction lives in the
+  quiet, high-rank tail beneath the loud grammatical axes. The relative-similarity structure is reorganized mainly at the front (layers
   0–1) and again at the readout (layer 15→16); through the middle it is nearly frozen. So the middle is
   dimensionally active — it re-inflates — while barely changing the clustering topology, and the readout does
   the final, sharpest re-clustering down to the prediction.</p>

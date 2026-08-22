@@ -1,0 +1,5 @@
+per-token eff-dim: L17 4.3 | L15 72.0 | class-MEAN eff-dim L17 1.7
+CE recovered by top-k L17 PCs (full 3.263, mean-only 9.762): {1: 8.694, 3: 8.036, 8: 7.125, 16: 6.504, 32: 5.965, 64: 5.337, 128: 4.656, 256: 4.015}
+PCs for 90% of CE gain: None
+(a) the '3-dim readout' collapse is MEANS-only; per-token prediction is high-dim: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/readout_dim_reconcile_results.json (114.6s)
