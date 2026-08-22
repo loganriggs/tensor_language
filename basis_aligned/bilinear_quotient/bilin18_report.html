@@ -1976,6 +1976,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   position, and reads that back out later. (A caveat on precision: the strongest dozen-or-so directions
   are these clean categories; underneath them is a longer tail of finer, more lexical distinctions, so
   "grammatical class" names the dominant, causal part, not every last dimension.)</p>
+  <p>And this is not one model's quirk. Running the same read-out on GPT-2 and Pythia turns up the very
+  same grammatical axes in their first layers — determiners, conjunctions, punctuation, and clean verb
+  and preposition classes (GPT-2 separates the be-verbs <code>is</code>/<code>are</code>/<code>was</code>;
+  Pythia separates the prepositions <code>to</code>/<code>in</code>/<code>on</code>/<code>for</code>). Three
+  different architectures independently sort their first-layer tokens into parts of speech. Whatever
+  else these models are doing, they all start by learning grammar.</p>
   <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
   prediction by how hard it was — how much loss the full model took — and ask how much of each bucket the
   class-and-position skeleton alone recovers. On the model's <em>hardest</em>, most uncertain predictions

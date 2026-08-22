@@ -1,0 +1,27 @@
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4716.03it/s]
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (26131 > 1024). Running this sequence through the model will result in indexing errors
+
+=== gpt2 (eff 192.4 dirs, 317 tokens) ===
+  dir 0: +['),' ' The' ').' 'The' ' If' '.' ' It']  -[' Viol' '�' ' Fried' ' deer' ' �']
+  dir 1: +['�' ' �' '*' '||' '•' '!' '�']  -[' these' ' its' ' against' ' their' ' recycling']
+  dir 2: +['�' ' �' ' the' 'The' ' The' ' an' ' a']  -['),' ',' ' and' ' available' ' were']
+  dir 3: +[' South' ' dates' 'David' ' Java' ' Department' ' Marketing' '),']  -['�' ' �' 'In' ' are' ' in']
+  dir 4: +['||' ' or' ' &' '&' ' and' '|' ' And']  -['In' '�' ' In' ' 11' ' in']
+  dir 5: +[' are' ' am' ' is' "'re" ' will' ' be' ' was']  -[' in' '||' 'In' ' In' ' of']
+  dir 6: +[' �' '�' ',' ' own' ' And' ' 2013' ' big']  -['||' '|' ' were' ' be' ' will']
+  dir 7: +[' were' '),' ',' ' be' ' 11' ' been' ' South']  -['\n' ' and' '."' ' but' ' who']
+  shuffled dir0 (control): ' following' 'ridge' ' six' ' really' ' yet' ' 14' ' both'
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 4021.41it/s]
+
+=== EleutherAI/pythia-410m (eff 167.8 dirs, 323 tokens) ===
+  dir 0: +['.' ' the' ' of' ',' ').' ' The' 'The']  -[' Fried' ' waste' ' recycling' ' Viol' ' unemployment']
+  dir 1: +[' the' ' The' 'The' ' a' ' an' ' Ch' ' B']  -['\n' '!' '.' '?' ',']
+  dir 2: +[' to' ' in' ' or' ' on' ' for' ' at' ' and']  -[' the' 'The' ' The' ' Philadelphia' ' unemployment']
+  dir 3: +[',' ' and' '),' ' or' ' And' ' unemployment' ' Viol']  -['\n' ' In' 'In' ' in' ').']
+  dir 4: +[' of' ' unemployment' ' recycling' ' Marketing' ' and' ' November' ' South']  -[' be' ' are' ' is' ' we' ' has']
+  dir 5: +['\n' '||' '|' '’' "'" '*' ' ‘']  -['.' ' 2012' ' 2010' ' 2011' ').']
+  dir 6: +[' and' ' will' ' or' ' would' ' And' ' have' ' may']  -[' A' 'In' ' a' ' In' ' C']
+  dir 7: +[' unemployment' ' will' ' should' ' would' ' of' ' are' ' could']  -[' and' '-' ' A' ' or' 'A']
+  shuffled dir0 (control): ' include' '3' ' unemployment' ' home' "'" ' program' ' U'
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_class_naming_results.json (66s)

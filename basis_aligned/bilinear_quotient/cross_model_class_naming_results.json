@@ -1,0 +1,689 @@
+{
+ "gpt2": {
+  "d": 768,
+  "n_tokens": 317,
+  "eff_num_dirs": 192.4,
+  "directions": [
+   {
+    "k": 0,
+    "top_pos": [
+     "'),'",
+     "' The'",
+     "').'",
+     "'The'",
+     "' If'",
+     "'.'",
+     "' It'",
+     "' the'",
+     "',\"'",
+     "'.\"'"
+    ],
+    "top_neg": [
+     "' Viol'",
+     "'\ufffd'",
+     "' Fried'",
+     "' deer'",
+     "' \ufffd'",
+     "'||'",
+     "'Oct'",
+     "' Search'",
+     "'2011'",
+     "' Marketing'"
+    ]
+   },
+   {
+    "k": 1,
+    "top_pos": [
+     "'\ufffd'",
+     "' \ufffd'",
+     "'*'",
+     "'||'",
+     "'\u2022'",
+     "'!'",
+     "'\ufffd'",
+     "'.'",
+     "'|'",
+     "'),'"
+    ],
+    "top_neg": [
+     "' these'",
+     "' its'",
+     "' against'",
+     "' their'",
+     "' recycling'",
+     "' them'",
+     "' those'",
+     "' my'",
+     "' new'",
+     "' some'"
+    ]
+   },
+   {
+    "k": 2,
+    "top_pos": [
+     "'\ufffd'",
+     "' \ufffd'",
+     "' the'",
+     "'The'",
+     "' The'",
+     "' an'",
+     "' a'",
+     "'\ufffd'",
+     "' their'",
+     "' your'"
+    ],
+    "top_neg": [
+     "'),'",
+     "','",
+     "' and'",
+     "' available'",
+     "' were'",
+     "' of'",
+     "' been'",
+     "'07'",
+     "' May'",
+     "').'"
+    ]
+   },
+   {
+    "k": 3,
+    "top_pos": [
+     "' South'",
+     "' dates'",
+     "'David'",
+     "' Java'",
+     "' Department'",
+     "' Marketing'",
+     "'),'",
+     "' Philadelphia'",
+     "','",
+     "'ridge'"
+    ],
+    "top_neg": [
+     "'\ufffd'",
+     "' \ufffd'",
+     "'In'",
+     "' are'",
+     "' in'",
+     "' and'",
+     "\"'re\"",
+     "' In'",
+     "' is'",
+     "' be'"
+    ]
+   },
+   {
+    "k": 4,
+    "top_pos": [
+     "'||'",
+     "' or'",
+     "' &'",
+     "'&'",
+     "' and'",
+     "'|'",
+     "' And'",
+     "'-'",
+     "'\ufffd'",
+     "' Fried'"
+    ],
+    "top_neg": [
+     "'In'",
+     "'\ufffd'",
+     "' In'",
+     "' 11'",
+     "' in'",
+     "' \ufffd'",
+     "' 3'",
+     "'in'",
+     "' It'",
+     "' three'"
+    ]
+   },
+   {
+    "k": 5,
+    "top_pos": [
+     "' are'",
+     "' am'",
+     "' is'",
+     "\"'re\"",
+     "' will'",
+     "' be'",
+     "' was'",
+     "' been'",
+     "' has'",
+     "' were'"
+    ],
+    "top_neg": [
+     "' in'",
+     "'||'",
+     "'In'",
+     "' In'",
+     "' of'",
+     "' under'",
+     "' on'",
+     "'|'",
+     "'in'",
+     "' at'"
+    ]
+   },
+   {
+    "k": 6,
+    "top_pos": [
+     "' \ufffd'",
+     "'\ufffd'",
+     "','",
+     "' own'",
+     "' And'",
+     "' 2013'",
+     "' big'",
+     "' 2012'",
+     "' and'",
+     "'\ufffd'"
+    ],
+    "top_neg": [
+     "'||'",
+     "'|'",
+     "' were'",
+     "' be'",
+     "' will'",
+     "'!'",
+     "' If'",
+     "' South'",
+     "' been'",
+     "' We'"
+    ]
+   },
+   {
+    "k": 7,
+    "top_pos": [
+     "' were'",
+     "'),'",
+     "','",
+     "' be'",
+     "' 11'",
+     "' been'",
+     "' South'",
+     "' 3'",
+     "'O'",
+     "'07'"
+    ],
+    "top_neg": [
+     "'\\n'",
+     "' and'",
+     "'.\"'",
+     "' but'",
+     "' who'",
+     "' or'",
+     "' And'",
+     "' you'",
+     "').'",
+     "'\ufffd'"
+    ]
+   },
+   {
+    "k": 8,
+    "top_pos": [
+     "' South'",
+     "' And'",
+     "' and'",
+     "' &'",
+     "' The'",
+     "'The'",
+     "'David'",
+     "' but'",
+     "' Department'",
+     "' 2012'"
+    ],
+    "top_neg": [
+     "' a'",
+     "'A'",
+     "' A'",
+     "' an'",
+     "'\ufffd'",
+     "'\ufffd'",
+     "'-'",
+     "'\ufffd'",
+     "'\ufffd'",
+     "'||'"
+    ]
+   },
+   {
+    "k": 9,
+    "top_pos": [
+     "' were'",
+     "' 11'",
+     "' been'",
+     "'A'",
+     "' If'",
+     "' a'",
+     "' South'",
+     "' A'",
+     "'AN'",
+     "'07'"
+    ],
+    "top_neg": [
+     "' you'",
+     "' we'",
+     "' your'",
+     "'We'",
+     "' they'",
+     "' our'",
+     "' I'",
+     "' us'",
+     "' my'",
+     "' their'"
+    ]
+   },
+   {
+    "k": 10,
+    "top_pos": [
+     "'In'",
+     "' In'",
+     "' It'",
+     "' we'",
+     "' it'",
+     "' they'",
+     "' in'",
+     "'We'",
+     "'It'",
+     "'in'"
+    ],
+    "top_neg": [
+     "' of'",
+     "' were'",
+     "' been'",
+     "' am'",
+     "' be'",
+     "' are'",
+     "\"'re\"",
+     "' is'",
+     "' deer'",
+     "' for'"
+    ]
+   },
+   {
+    "k": 11,
+    "top_pos": [
+     "' We'",
+     "' 11'",
+     "' South'",
+     "'AN'",
+     "' available'",
+     "' were'",
+     "' Department'",
+     "' If'",
+     "' including'",
+     "' &'"
+    ],
+    "top_neg": [
+     "'\ufffd'",
+     "'-'",
+     "'\ufffd'",
+     "'\ufffd'",
+     "'\ufffd'",
+     "' has'",
+     "'In'",
+     "' have'",
+     "' had'",
+     "' In'"
+    ]
+   }
+  ],
+  "shuffled_dir0": [
+   "' following'",
+   "'ridge'",
+   "' six'",
+   "' really'",
+   "' yet'",
+   "' 14'",
+   "' both'",
+   "' 3'",
+   "' us'",
+   "'*'"
+  ]
+ },
+ "EleutherAI/pythia-410m": {
+  "d": 1024,
+  "n_tokens": 323,
+  "eff_num_dirs": 167.8,
+  "directions": [
+   {
+    "k": 0,
+    "top_pos": [
+     "'.'",
+     "' the'",
+     "' of'",
+     "','",
+     "').'",
+     "' The'",
+     "'The'",
+     "'),'",
+     "' a'",
+     "' to'"
+    ],
+    "top_neg": [
+     "' Fried'",
+     "' waste'",
+     "' recycling'",
+     "' Viol'",
+     "' unemployment'",
+     "'ridge'",
+     "'eline'",
+     "' South'",
+     "'berg'",
+     "' special'"
+    ]
+   },
+   {
+    "k": 1,
+    "top_pos": [
+     "' the'",
+     "' The'",
+     "'The'",
+     "' a'",
+     "' an'",
+     "' Ch'",
+     "' B'",
+     "' A'",
+     "' in'",
+     "' W'"
+    ],
+    "top_neg": [
+     "'\\n'",
+     "'!'",
+     "'.'",
+     "'?'",
+     "','",
+     "'),'",
+     "').'",
+     "':'",
+     "'||'",
+     "'...'"
+    ]
+   },
+   {
+    "k": 2,
+    "top_pos": [
+     "' to'",
+     "' in'",
+     "' or'",
+     "' on'",
+     "' for'",
+     "' at'",
+     "' and'",
+     "' as'",
+     "' by'",
+     "' of'"
+    ],
+    "top_neg": [
+     "' the'",
+     "'The'",
+     "' The'",
+     "' Philadelphia'",
+     "' unemployment'",
+     "' Corporation'",
+     "' Climate'",
+     "' Florida'",
+     "' recycling'",
+     "' Marketing'"
+    ]
+   },
+   {
+    "k": 3,
+    "top_pos": [
+     "','",
+     "' and'",
+     "'),'",
+     "' or'",
+     "' And'",
+     "' unemployment'",
+     "' Viol'",
+     "' &'",
+     "' the'",
+     "'eline'"
+    ],
+    "top_neg": [
+     "'\\n'",
+     "' In'",
+     "'In'",
+     "' in'",
+     "').'",
+     "'.'",
+     "' into'",
+     "' D'",
+     "' A'",
+     "' C'"
+    ]
+   },
+   {
+    "k": 4,
+    "top_pos": [
+     "' of'",
+     "' unemployment'",
+     "' recycling'",
+     "' Marketing'",
+     "' and'",
+     "' November'",
+     "' South'",
+     "' Philadelphia'",
+     "' Viol'",
+     "' against'"
+    ],
+    "top_neg": [
+     "' be'",
+     "' are'",
+     "' is'",
+     "' we'",
+     "' has'",
+     "' am'",
+     "\"'re\"",
+     "' have'",
+     "' it'",
+     "' I'"
+    ]
+   },
+   {
+    "k": 5,
+    "top_pos": [
+     "'\\n'",
+     "'||'",
+     "'|'",
+     "'\u2019'",
+     "\"'\"",
+     "'*'",
+     "' \u2018'",
+     "' -'",
+     "' both'",
+     "'\"'"
+    ],
+    "top_neg": [
+     "'.'",
+     "' 2012'",
+     "' 2010'",
+     "' 2011'",
+     "').'",
+     "' Ch'",
+     "' 2013'",
+     "' November'",
+     "' M'",
+     "' August'"
+    ]
+   },
+   {
+    "k": 6,
+    "top_pos": [
+     "' and'",
+     "' will'",
+     "' or'",
+     "' would'",
+     "' And'",
+     "' have'",
+     "' may'",
+     "' could'",
+     "' already'",
+     "' these'"
+    ],
+    "top_neg": [
+     "' A'",
+     "'In'",
+     "' a'",
+     "' In'",
+     "' C'",
+     "' in'",
+     "' D'",
+     "' 5'",
+     "' M'",
+     "' 4'"
+    ]
+   },
+   {
+    "k": 7,
+    "top_pos": [
+     "' unemployment'",
+     "' will'",
+     "' should'",
+     "' would'",
+     "' of'",
+     "' are'",
+     "' could'",
+     "' have'",
+     "' Philadelphia'",
+     "' students'"
+    ],
+    "top_neg": [
+     "' and'",
+     "'-'",
+     "' A'",
+     "' or'",
+     "'A'",
+     "' a'",
+     "'||'",
+     "' &'",
+     "' 2'",
+     "'a'"
+    ]
+   },
+   {
+    "k": 8,
+    "top_pos": [
+     "' of'",
+     "' are'",
+     "' were'",
+     "' is'",
+     "' be'",
+     "' have'",
+     "' has'",
+     "' was'",
+     "'2011'",
+     "' am'"
+    ],
+    "top_neg": [
+     "' to'",
+     "' you'",
+     "' In'",
+     "'In'",
+     "' it'",
+     "' in'",
+     "' It'",
+     "'It'",
+     "' into'",
+     "' on'"
+    ]
+   },
+   {
+    "k": 9,
+    "top_pos": [
+     "' you'",
+     "'We'",
+     "' we'",
+     "' We'",
+     "'It'",
+     "' it'",
+     "' It'",
+     "' they'",
+     "' I'",
+     "' your'"
+    ],
+    "top_neg": [
+     "' a'",
+     "' an'",
+     "' to'",
+     "' can'",
+     "' may'",
+     "' should'",
+     "' will'",
+     "' could'",
+     "' A'",
+     "' would'"
+    ]
+   },
+   {
+    "k": 10,
+    "top_pos": [
+     "' a'",
+     "' an'",
+     "' A'",
+     "' you'",
+     "' it'",
+     "' this'",
+     "' one'",
+     "' we'",
+     "' some'",
+     "' our'"
+    ],
+    "top_neg": [
+     "'||'",
+     "'-'",
+     "'|'",
+     "'\u2022'",
+     "'/'",
+     "'\u2019'",
+     "' -'",
+     "\"'\"",
+     "' has'",
+     "'='"
+    ]
+   },
+   {
+    "k": 11,
+    "top_pos": [
+     "' to'",
+     "'-'",
+     "' you'",
+     "' of'",
+     "' your'",
+     "' a'",
+     "' us'",
+     "' any'",
+     "' some'",
+     "'a'"
+    ],
+    "top_neg": [
+     "' In'",
+     "'In'",
+     "' in'",
+     "'in'",
+     "' be'",
+     "' been'",
+     "' Ch'",
+     "' at'",
+     "' is'",
+     "' are'"
+    ]
+   }
+  ],
+  "shuffled_dir0": [
+   "' include'",
+   "'3'",
+   "' unemployment'",
+   "' home'",
+   "\"'\"",
+   "' program'",
+   "' U'",
+   "' University'",
+   "' If'",
+   "'ridge'"
+  ]
+ },
+ "runtime_s": 65.63018536567688
+}
