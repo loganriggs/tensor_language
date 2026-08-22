@@ -27070,3 +27070,25 @@ FINDINGS:
 NET (correcting §893, which was same-data): only the FRONT is understood as a GENERALIZING token table; the
 middle/readout are context-dependent and their token-table "understanding" was same-data overfitting —
 consistent with the whole-model §901 (only low-rank grammar+continuous-topic generalize).
+
+## §903 — class-backoff fresh: front generalizes to ~0.5-0.6 (data-limited), middle ~0; the harmful negatives were rare-token noise (layer_understanding_fresh_backoff.py)
+
+Per-component fresh with rare tokens (<12 train occ) backing off to their CLASS mean ("token means + known
+clusters"). vs §902 (no backoff):
+  mlp0 0.38→0.59 (null −1.02, genuine +1.61)   mlp1 0.92→0.61   mlp2 0.69→0.36   attn0 0.41→0.36
+  attn5 −2.88→0.02   mlp5 0.01→0.02   attn8 0.03→0.00   mlp8 −0.07→−0.09   attn11/mlp11 ~0
+  mlp15 −0.98→0.08   mlp16 −1.04→0.37   mlp17 0.34→0.41
+Backoff has TWO effects: (1) HELPS coverage-limited but genuinely token-determined components (mlp0 0.38→0.59
+— the rare-token coverage was the limiter); (2) NEUTRALIZES the harmful negatives (attn5/mlp15/mlp16 were
+deeply negative because rare-token noise was injected; class-backoff removes that → ~0, confirming those
+negatives were coverage artifacts, not that the tables are anti-informative). It also LOWERS finely-token-
+structured components (mlp1 0.92→0.61, mlp2 0.69→0.36) by coarsening rare tokens to class — MINCOUNT=12 is
+aggressive for ~3 avg train occurrences/token.
+
+ROBUST SYNTHESIS across §901/902/903 (small train set means no single absolute number is clean, so report the
+robust facts): (1) the FRONT (mlp0/mlp1) genuinely generalizes above null as token/class tables but only to
+~0.5-0.6 held-out — even the most token-like component is not a perfect table out-of-sample at this data
+scale; (2) the MIDDLE token-tables do NOT generalize (~0); (3) the READOUT is modest (~0.4); (4) whole-model
+generalizing ~0.29 (§901). So the honest end-state: GRAMMAR (front) is the tabulatable part (best but imperfect
+out-of-sample), CONTENT (middle) is causal (interchange §894) but not tabulatable, and the precise front
+number is data-limited. Definitive whole-model backoff number pending (whole_model_understanding_fresh_backoff).
