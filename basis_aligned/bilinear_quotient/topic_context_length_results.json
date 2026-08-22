@@ -1,0 +1,87 @@
+{
+ "ctxs": [
+  2,
+  4,
+  8,
+  16,
+  32,
+  64,
+  128,
+  256
+ ],
+ "query_positions": [
+  160,
+  166,
+  172,
+  178,
+  184,
+  190,
+  196,
+  202,
+  208,
+  214,
+  220,
+  226,
+  232,
+  238,
+  244,
+  250
+ ],
+ "k": 12,
+ "chance": 0.083,
+ "by_ctx": {
+  "2": {
+   "topic_decode": 0.19,
+   "shuffled_decode": 0.15,
+   "class_ce": 1.108,
+   "within_ce": 3.937
+  },
+  "4": {
+   "topic_decode": 0.269,
+   "shuffled_decode": 0.145,
+   "class_ce": 0.997,
+   "within_ce": 3.519
+  },
+  "8": {
+   "topic_decode": 0.368,
+   "shuffled_decode": 0.163,
+   "class_ce": 0.921,
+   "within_ce": 3.181
+  },
+  "16": {
+   "topic_decode": 0.447,
+   "shuffled_decode": 0.147,
+   "class_ce": 0.865,
+   "within_ce": 2.88
+  },
+  "32": {
+   "topic_decode": 0.522,
+   "shuffled_decode": 0.146,
+   "class_ce": 0.824,
+   "within_ce": 2.678
+  },
+  "64": {
+   "topic_decode": 0.598,
+   "shuffled_decode": 0.141,
+   "class_ce": 0.798,
+   "within_ce": 2.543
+  },
+  "128": {
+   "topic_decode": 0.636,
+   "shuffled_decode": 0.128,
+   "class_ce": 0.771,
+   "within_ce": 2.456
+  },
+  "256": {
+   "topic_decode": 0.666,
+   "shuffled_decode": 0.141,
+   "class_ce": 0.761,
+   "within_ce": 2.409
+  }
+ },
+ "grammar_ce_drop": 0.347,
+ "content_ce_drop": 1.528,
+ "topic_decode_gain": 0.476,
+ "runtime_s": 249.3,
+ "pred_a_content_needs_context": true
+}

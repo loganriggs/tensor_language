@@ -26388,3 +26388,22 @@ So the full content-machine chain is: ATTENTION aggregates context -> TOPIC repr
 rises across depth) -> MLPs read topic -> READOUT emits topic-coherent words (§868 causal). The bottom-up
 map is now mechanistically complete front (grammar) / middle (attention aggregates topic, MLP reads) /
 readout (class+pos hard, topic-coherent word out). Artifact/FINDINGS updated.
+
+## §871 — content/topic NEEDS long context; grammar is LOCAL (functional confirmation of the aggregator) (topic_context_length.py)
+
+Swept the visible context length C (last C tokens before each query) and measured topic decodability + the
+grammar/content CE split. As C grows 2->256: topic-decode rises 0.19 -> 0.27 -> 0.37 -> 0.45 -> 0.52 ->
+0.60 -> 0.64 -> 0.666 (monotone, STILL rising at C=128->256), shuffled-null flat ~0.14 (chance). Content
+(within) CE drops 3.94 -> 2.41 = 1.528 nats and keeps dropping through long context; grammar (class) CE
+drops only 1.11 -> 0.76 = 0.347 nats and mostly saturates by C~16. Content-CE drop is 4.4x the grammar-CE
+drop. Pred (a) content-needs-context / grammar-local = TRUE.
+
+This is the FUNCTIONAL confirmation of §870's structural finding: the content machine's prediction genuinely
+uses far context (topic is aggregated over the whole passage, not the last few tokens), while grammar is a
+local, near-context-free computation (front MLPs, §863) that a handful of tokens saturate. Grammar is not
+PURELY local (0.347 nats of context help — e.g. agreement), but the 4.4x separation cleanly distinguishes
+the two machines by their context appetite. Note: absolute full-context topic-decode here (0.67) is lower
+than §870's 0.85 because this probe trains only on late query positions (160-256) with fewer points — the
+TREND (monotone rise with C) is the result, not the absolute. Content is STILL dropping at C=256 (the
+model's train length) -> some of the §840 "irreducible" content floor is context-limited, not purely
+irreducible (consistent with §840's scale-limited framing).

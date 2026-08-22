@@ -1,0 +1,12 @@
+C=  2: topic-decode 0.19 (shuf 0.15) | class-CE 1.108 | within-CE 3.937
+C=  4: topic-decode 0.269 (shuf 0.145) | class-CE 0.997 | within-CE 3.519
+C=  8: topic-decode 0.368 (shuf 0.163) | class-CE 0.921 | within-CE 3.181
+C= 16: topic-decode 0.447 (shuf 0.147) | class-CE 0.865 | within-CE 2.88
+C= 32: topic-decode 0.522 (shuf 0.146) | class-CE 0.824 | within-CE 2.678
+C= 64: topic-decode 0.598 (shuf 0.141) | class-CE 0.798 | within-CE 2.543
+C=128: topic-decode 0.636 (shuf 0.128) | class-CE 0.771 | within-CE 2.456
+C=256: topic-decode 0.666 (shuf 0.141) | class-CE 0.761 | within-CE 2.409
+
+grammar-CE drop (C2->C256) 0.347 | content-CE drop 1.528 | topic-decode gain 0.476
+(a) content needs context, grammar local: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/topic_context_length_results.json (249.3s)
