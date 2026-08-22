@@ -1,0 +1,11 @@
+'_ssl.c:993: The handshake operation timed out' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 1s [Retry 1/5].
+all-36            token: CE 7.654 | understanding 0.189
+all-36      token+topic: CE 7.090 | understanding 0.290
+all-36 token+topic+prev: CE 7.087 | understanding 0.290
+all-36        shuftoken: CE 10.836 | understanding -0.379
+
+WHOLE MODEL (all 36 components replaced): full CE 3.110, all-mean 8.714
+token+topic+prev understanding 0.29 (genuine vs shuffled 0.669)
+(a) named variables reconstruct most of the model: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_understanding_fresh_results.json (269.4s)

@@ -1909,20 +1909,26 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   table keyed on our named variables and see how much of the loss it keeps, on a scale from mean-ablation (0) to
   the full model (1). The front is almost fully a token table — layer-0 MLP scores 0.94, a clean
   token→class-cluster map. The middle content MLPs score only ~0.4 on a token table, and the gap is filled mostly
-  by two named variables: the <em>previous</em> token (local, bigram-like context, +0.2) and — once the topic is
-  treated as the <em>continuous</em> subspace it really is rather than a dozen discrete buckets — the topic itself
-  (+0.1–0.18, two-to-six times what the clusters captured). Token + continuous-topic + previous-token reaches
-  ~0.68–0.84 of the middle; the remaining fifth-to-third is long-range and interaction structure we can name
-  mechanistically (the gist) but not yet as a compact table. The readout sits around 0.9. In short: the grammar machine is a variable we can write down;
+  in-sample by two named variables — the <em>previous</em> token and the topic — but these two behave very
+  differently once you test on held-out data. The topic, treated as the <em>continuous</em> subspace it really
+  is rather than a dozen discrete buckets, genuinely generalizes (it is low-rank). The previous-token table does
+  <em>not</em>: it looks like it fills much of the middle in-sample, but that is a giant bigram table memorizing
+  the evaluation rows — on fresh text it adds nothing. So the middle's honestly-explained part is current token
+  plus continuous topic; the local-context "fill" was overfitting. The readout, measured the same careful way,
+  is largely token-determined. In short: the grammar machine is a variable we can write down;
   the content machine is a variable we can causally move but not yet tabulate.</p>
   <p>Put it all together and replace <em>every</em> component at once with its named-variable stand-in, and the
-  reconstruction holds: on the same 0-to-1 scale (now with the whole model mean-ablated as the floor), current
-  token alone recovers 60% of the model, adding the continuous topic brings it to 69%, and adding the previous
-  token reaches <strong>81%</strong> — while a shuffled-token control lands below zero, actively worse than
-  knowing nothing. So roughly four-fifths of what this model does over a mean baseline is reconstructable from
-  three named, causally-verified variables — current token (grammar), continuous topic (gist), and previous
-  token (local context) — and the remaining fifth is long-range and interaction structure we can describe as a
-  mechanism but not yet as a table.</p>
+  honest number is more sobering than the per-layer picture suggests — because it must be measured on
+  <em>held-out</em> data. In-sample, the stand-ins recover 81% of the model; but that is mostly memorization.
+  On fresh text the reconstruction is about <strong>29%</strong>: current token recovers ~19%, the continuous
+  topic adds a further ~10% that <em>does</em> generalize (it is low-rank), and the previous-token table — which
+  looked like it filled much of the middle in-sample — adds essentially <em>nothing</em> out-of-sample. That
+  bigram table was memorizing, not explaining. So the part of the model we can capture as a generalizing, named,
+  low-rank variable is roughly a quarter to a third — the grammar skeleton plus a continuous topic direction —
+  and the large remainder is real computation that we can move causally (the interchange swaps work) and
+  describe as a mechanism (a content-word gist) but cannot yet write down as a compact, generalizing table. The
+  gap between 81% in-sample and 29% held-out is itself the lesson: understanding has to be certified on data the
+  explanation was not fit to.</p>
 </section>
 
 <section class="col">

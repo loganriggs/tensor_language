@@ -1,0 +1,25 @@
+{
+ "ce_full": 3.11,
+ "ce_all_mean_ablated": 8.714,
+ "levels": {
+  "token": {
+   "ce": 7.654,
+   "understanding_frac": 0.189
+  },
+  "token+topic": {
+   "ce": 7.09,
+   "understanding_frac": 0.29
+  },
+  "token+topic+prev": {
+   "ce": 7.087,
+   "understanding_frac": 0.29
+  },
+  "shuftoken": {
+   "ce": 10.836,
+   "understanding_frac": -0.379
+  }
+ },
+ "genuine_frac_vs_shuffled": 0.669,
+ "pred_a_named_vars_reconstruct_most": false,
+ "runtime_s": 269.4
+}

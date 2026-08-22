@@ -27017,3 +27017,30 @@ CAVEAT (§836/fresh-data lesson): the stand-in tables are BUILT and EVALUATED on
 A fresh-data version (tables on train rows, applied to held-out) is the honest certification; queued as
 whole_model_understanding_fresh. Report/artifact will quote the fresh number as the headline once it lands;
 using 0.81 provisionally with the caveat. Artifact/FINDINGS updated.
+
+## §901 — CORRECTION: the 81% was same-data OVERFITTING; the GENERALIZING whole-model understanding is ~0.29, and the prev-token gain was memorization (whole_model_understanding_fresh.py)
+
+Fresh-data certification (tables/subspaces built on 70% train rows, CE evaluated on held-out 30%) of the §900
+capstone. All-36-components-at-once understanding (0 = all-mean-ablate CE 8.714, 1 = full CE 3.110):
+  token:            0.189   (§900 same-data 0.603)
+  token+topic:      0.290   (§900 0.691) — topic adds +0.10 FRESH (generalizes)
+  token+topic+prev: 0.290   (§900 0.812) — prev adds +0.00 FRESH (was +0.12 same-data = OVERFITTING)
+  shuffled-token null: −0.379
+Pred (a) named-vars-reconstruct-MOST = FALSE on fresh data.
+
+CORRECTIONS (stated plainly; the fresh check I queued per the §836 lesson caught a ~3× overclaim):
+ 1. §900's "81%" was SAME-DATA OPTIMISM — the additive tables memorized the eval rows. The GENERALIZING
+    whole-model number (all 36 at once, held-out) is ~0.29.
+ 2. The PREV-TOKEN table OVERFITS: +0.12 same-data → +0.00 fresh. It has ~nu×36 parameters (a giant bigram
+    table) that memorize rather than generalize. So §896/§898's "the middle is filled by prev-token/local
+    context" was LARGELY A SAME-DATA ARTIFACT — retracted for the generalizing claim.
+ 3. What GENERALIZES: the LOW-RANK named variables — current TOKEN/class (grammar, 0.189 fresh) and the
+    CONTINUOUS TOPIC subspace (+0.10 fresh, holds up because it is low-rank). The high-capacity bigram table
+    does not. So the honest generalizing statement: grammar + continuous-topic named variables reconstruct
+    ~29% of the whole model applied everywhere at once; the rest (incl. what looked like local-context fill)
+    does not reduce to a generalizing table.
+CAVEATS: (a) all-36-simultaneous compounds errors (harsher than per-component §893, which stays valid as a
+per-component same-data description); (b) 0.29 is also somewhat LOWER-bounded by the small train set for the
+tables (more data would lift token/topic generalization modestly) — but the OVERFITTING GAP (0.81→0.29) and
+the prev-token non-generalization are robust. Artifact/FINDINGS headline corrected from 81% to the fresh ~29%
+with the overfitting explanation. This is the §836 rank-artifact lesson recurring: always certify on fresh data.
