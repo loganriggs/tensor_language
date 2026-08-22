@@ -28108,3 +28108,27 @@ comparable across experiments — e.g. front-MLP-band here is 2.01 but mlp1 ALON
 that a single-component ablation creates downstream. So the valid claim is the WITHIN-band attn-vs-mlp comparison
 (same methodology per band), not cross-experiment absolute magnitudes. Within each band the ranking is robust:
 attention >> MLP in the front, MLP > attention in middle and back.
+
+## §952 — front attention hosts INDUCTION (+ early context substrate) — why it is the most load-bearing (front_attention_role.py)
+
+Split the CE cost of mean-ablating FRONT attention (L0-5) by position type; vs all-attention and a random
+6-layer attention band. Baseline within-type CE: inductable 0.69, first_mention 4.27, seen_other 1.96 (sanity ✓).
+  condition          Δce inductable   Δce first_mention   Δce seen_other
+  front_attn L0-5        +5.213            +4.105              +2.605
+  all_attn (18)          +5.292            +3.892              +3.189
+  random_attn_6          +0.894            +1.005              +0.838
+FINDINGS (pred (a) TRUE):
+ 1) INDUCTION LIVES IN FRONT ATTENTION: mean-ablating front attention costs INDUCTABLE positions +5.21 nats
+    (baseline 0.69 -> 5.90, a 7.5x blow-up), essentially AS MUCH as ablating ALL attention (+5.29). So the
+    induction/copy mechanism is hosted almost ENTIRELY in the front (L0-5); back attention adds ~nothing to
+    induction. Excess over a random attention band = +4.32 -> induction is specifically FRONT, not distributed.
+    (Matches the classic mech-interp finding that induction heads are early.)
+ 2) PLUS BROAD EARLY CONTEXT-MIXING: front attention also hurts first_mention (+4.11) and seen_other (+2.61)
+    substantially -> it is not only induction but the general early context substrate everything downstream builds
+    on. So front attention's §951 dominance (3.66, largest band cost) is explained: it hosts induction AND the
+    early context-mixing substrate.
+NAMED ATTENTION ACCOUNT (now complete): attention is FRONT-LOADED (§951); the front hosts INDUCTION + early
+context-mixing (§952); attention aggregates content as an order-invariant BAG-of-words (§932) via DISTRIBUTED
+pooling (§931) that builds topic gradually early-mid (§929); it is a SHARED grammar/content context-engine
+(§918/§919). Together with the MLP/readout account (§939-950), the bottom-up interpretation now covers BOTH
+component families across all depths. Artifact: add front-attention = induction + early context substrate.
