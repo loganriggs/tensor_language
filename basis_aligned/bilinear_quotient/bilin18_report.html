@@ -1815,6 +1815,25 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   sub-topics themselves; a numerical "siblings share no top words" check agrees but is weak on its own,
   since any way of splitting a cluster produces different top words.)</p>
 
+  <p>But we can now put a hard number on <em>how much</em> of the content machine "topic" actually is — and
+  it is humbling. Take the late residual, keep the grammar/token/position part exactly, and replace only the
+  content part with the average of whichever topic bucket it falls into; then run the rest of the model and see
+  how much of the lost prediction quality comes back. With 128 buckets, 6% comes back; with 1024 buckets, 17%.
+  The curve keeps climbing as we add buckets but with shrinking steps — the mark of a <em>continuum</em>, not a
+  finite list of topics. So the honest reading is that topic, even sliced very finely, is a real but
+  <em>modest</em> handle on the content machine: something like 80% of what content does for the prediction is
+  finer, per-context meaning that no fixed set of topic buckets captures. This is exactly why the content half
+  of the understanding score stays low — not because the topic story is wrong, but because the machine it names
+  is genuinely high-dimensional.</p>
+
+  <p>One more thing we can now say is <em>where</em> the topic representation gets built. If we define the
+  topics from the late layer and then ask how recognizable they already are at each earlier layer, the answer
+  climbs steadily the whole way up the stack — barely present at the bottom, roughly half-formed by the middle,
+  sharpest just before the readout, then easing off in the final two layers as they repackage the residual for
+  output. That is the opposite of the grammar machine, which is written almost entirely in the first block and
+  then re-derived. Content is assembled slowly, by many layers of long-range attention pooling context together
+  — consistent with its need for a long run of preceding text.</p>
+
   <p>Is the topic structure causal, or only a readable correlate? Steering the late residual along a topic's own
   direction does specifically raise that topic's distinctive next-words (mean own-topic gain +0.042, off-topic
   −0.004, consistent across every topic), so there is a real causal signal — but it is weak, and an honest control

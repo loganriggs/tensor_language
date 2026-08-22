@@ -1,0 +1,21 @@
+L 0: attn-drop +0.0609  mlp-drop +0.1556
+L 1: attn-drop +0.0486  mlp-drop +0.6672
+L 2: attn-drop +0.0327  mlp-drop +0.1372
+L 3: attn-drop +0.0261  mlp-drop +0.1163
+L 4: attn-drop +0.0527  mlp-drop +0.0337
+L 5: attn-drop +0.0345  mlp-drop +0.0251
+L 6: attn-drop +0.0144  mlp-drop +0.0237
+L 7: attn-drop +0.0264  mlp-drop +0.0185
+L 8: attn-drop +0.0051  mlp-drop +0.0133
+L 9: attn-drop +0.0270  mlp-drop +0.0109
+L10: attn-drop +0.0107  mlp-drop +0.0100
+L11: attn-drop +0.0251  mlp-drop +0.0158
+L12: attn-drop +0.0061  mlp-drop +0.0103
+L13: attn-drop +0.0139  mlp-drop +0.0118
+L14: attn-drop +0.0065  mlp-drop +0.0051
+L15: attn-drop +0.0060  mlp-drop +0.0059
+L16: attn-drop +0.0000  mlp-drop +0.0000
+L17: attn-drop +0.0000  mlp-drop +0.0000
+clean 0.840 base 0.176 | SUM attn-drop 0.3967 vs mlp-drop 1.2604 | attn early(L1-9) 0.2675
+(a) attention builds topic (sum attn-drop > mlp, early-concentrated): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/topic_buildup_components_results.json (73.1s)
