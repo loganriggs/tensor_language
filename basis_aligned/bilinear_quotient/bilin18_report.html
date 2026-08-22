@@ -1720,6 +1720,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   mean +2.7 nats on content words, 62% of its total effect, versus ~1.0 on determiners and punctuation). So
   layer 5's attention is an early <em>content</em> contributor — it works on the hard lexical part of the loss,
   which is exactly why a grammatical lens was blind to it.</p>
+  <p>And we can now name what layer 5 actually does: it is the <em>induction</em> head. Feed the model a random
+  token sequence repeated twice and it predicts the second copy almost perfectly — the loss falls from 13.1 nats
+  on the first pass to 1.3 on the second, pure copying of what-followed-this-token-last-time (random tokens have
+  no other structure to exploit). Ablate attention one layer at a time and layer 5 is the gate: removing it wipes
+  out essentially all of that induction, with layers 0–2 each also required (a front-to-back chain — the
+  previous-token head at layer 0 lays down the match key, layer 5 executes the copy). This is the same layer 5
+  whose contribution looked like unexplained "content" help: its content contribution <em>is</em> induction —
+  copying content words it has already seen. It also explains why already-seen tokens are so cheap: a token whose
+  bigram has occurred before costs 0.7 nats, against 3.5 for a genuinely new one.</p>
   <p><strong>The whole stack, as geometry.</strong> Tracking the token-similarity structure through all
   eighteen layers gives a clean shape: two expansions and three collapses. Effective dimension goes
   117 → 20 (layer 0 collapses to class) → 47 (layer 1 re-expands) → ~45 → 23 (layer 5) → <strong>51 at layer 9</strong>,

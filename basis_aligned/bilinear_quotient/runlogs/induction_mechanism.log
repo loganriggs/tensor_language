@@ -1,0 +1,5 @@
+SYNTHETIC: first-copy loss 13.086 -> second-copy 1.290 | induction score 11.796 (shuffled-null 0.934)
+top induction layers (score drop when ablated): [(5, 11.33), (1, 9.72), (2, 8.591), (0, 8.326), (8, 5.212)]
+NATURAL: inductable-bigram loss 0.681 (n=1752) vs non 3.546 (n=28848)
+(a) induction present & localized: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_mechanism_results.json (102.7s)

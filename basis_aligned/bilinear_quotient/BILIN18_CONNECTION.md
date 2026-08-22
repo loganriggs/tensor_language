@@ -26532,3 +26532,25 @@ separate them 0.89 vs 0.80 — the real discriminator). CAVEAT: gpt2-large is OO
 so its absolute loss is slightly inflated and the 0.096 gap is a LOWER bound on capacity-reducible loss
 (§840's within-CE gpt2->large gap was larger); the CORRELATION and first-mention localization are robust to
 that shift. Artifact irreducible-entropy section updated.
+
+## §877 — bilin18 has strong INDUCTION, a front-layer chain gated by L5 = the mysterious attn5 content head (induction_mechanism.py)
+
+Synthetic induction (random tokens repeated twice): first-copy loss 13.086 -> second-copy 1.290, induction
+score 11.796 vs shuffled-target null 0.934. So bilin18 copies what-followed-this-token-last-time almost
+perfectly. Natural cross-check: positions whose (current,next) BIGRAM already occurred cost 0.681 nats
+(n=1752) vs 3.546 for non-inductable (n=28848) — a 2.9-nat copy discount, which is the mechanism behind
+§876's seen-token cheapness.
+
+LOCATION: ablating a single attention layer and measuring the induction-score drop: L5 removes ~ALL of it
+(drop 11.33 of 11.80 -> residual ~0), and L1/L2/L0 each also remove most (9.72/8.59/8.33). Induction is a
+FRONT-LAYER CHAIN (each link necessary, so ablation drops overlap and don't partition — why the pred's
+"top-3 account for >60% of the summed drops" was FALSE), critically GATED by L5 attention.
+
+KEY CONNECTION: this identifies attn5. Earlier attn5 was the biggest early attention component that resisted
+every grammatical probe and only showed up as a "content contributor" (+2.7 nats on content words, §layer
+map). Now L5 attention is the induction/copy gate. So attn5's content role IS INDUCTION — copying
+previously-seen content words. The mystery component is named. And the front chain matches the known parts:
+attn0 writes the previous token (prev-token head), the front builds the match key, and attn5 executes the
+copy — the standard two-step induction circuit (prev-token head -> copy head), here spread over L0-L5 and
+gated at L5. This ties §876 (seen tokens cheap) to a concrete mechanism (induction) and names attn5.
+Artifact attn5 paragraph + FINDINGS updated.
