@@ -117,6 +117,7 @@ def main():
     U = torch.linalg.svd(torch.cat([Ut, Up], 1), full_matrices=False)[0][:, :RTOK+RPOS].contiguous()
     STEER['U'] = U
     g = torch.Generator(device=DEV).manual_seed(0); STEER['rand'] = torch.randn(1, D, generator=g, device=DEV)
+    steer_hook = comp().register_forward_hook(hook)   # BUGFIX: actually attach the steering hook
     # per-token mean mlp0 output for source tokens
     tmean = {}
     for b in SRC_TOKENS:
@@ -137,6 +138,7 @@ def main():
                        'kl_cpsteer_to_B': round(kl(p_cp, p_B), 4),
                        'kl_randsteer_to_B': round(kl(p_rnd, p_B), 4)}
         print(f"src {b}: KL(normal||B) {res[str(b)]['kl_normal_to_B']} -> KL(cp-steer||B) {res[str(b)]['kl_cpsteer_to_B']} | rand-steer {res[str(b)]['kl_randsteer_to_B']}", flush=True)
+    steer_hook.remove()
     norm = np.mean([res[k]['kl_normal_to_B'] for k in res]); cp = np.mean([res[k]['kl_cpsteer_to_B'] for k in res]); rnd = np.mean([res[k]['kl_randsteer_to_B'] for k in res])
     out = {'per_source': res, 'mean_kl_normal': round(norm, 4), 'mean_kl_cpsteer': round(cp, 4), 'mean_kl_randsteer': round(rnd, 4),
            'pred_a_sufficient': bool(cp < 0.6*norm and cp < 0.8*rnd), 'runtime_s': time.time()-t0}
