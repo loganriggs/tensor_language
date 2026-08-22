@@ -2092,7 +2092,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   on the same measure. So what makes this model distribute its computation is the training recipe — the
   softmax-free squared attention with its value residual and re-injected token embedding — rather than the
   particular nonlinearity in the feed-forward block. It is a property of the family, and it is what makes the
-  variable-level, ensemble reading in this report the right level of description for these models specifically.</p>
+  variable-level, ensemble reading in this report the right level of description for these models specifically.
+  We can pin the cause down further: take two siblings identical except for the attention — one squared, one
+  ordinary softmax, both with the same bilinear feed-forward and size — and the cooperative signature is present
+  with squared attention (super-additivity 1.6) and largely gone with softmax (1.1). So it is the squared,
+  softmax-free attention specifically that spreads the computation out; swapping it for softmax pulls the model
+  most of the way back toward the concentrated, individually-critical style of a standard transformer.</p>
 </section>
 
 <section class="col">
