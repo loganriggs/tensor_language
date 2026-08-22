@@ -25541,3 +25541,41 @@ read pipeline, universal §815/817), HOW MUCH (simultaneous 0.78; per-component 
 write-sites §823-824), USED AS grammatical sequencing (§828), and the LOSS SPLIT — grammar easy ~25%,
 lexical choice hard ~75%, partly context-reducible but mostly irreducible entropy (§829/830), universal
 (§831). Artifact updated with the universality of the loss split.
+
+## §832 — Grammar vs lexical work is mostly NOT component-localized (both are ~76% lexical, the baseline); weak specialization: back-MLPs = grammar read-out, attention = lexical (lexical_localization.py)
+
+Opened the lexical/context system (the hard 77%, §829/830) by asking which components do grammar
+(class) vs lexical (within-class) work. Per component, ablated it and split the CE increase into
+ΔCE_class vs ΔCE_within; lexical-share = ΔCE_within / ΔCE_total. Baseline loss is 76% lexical.
+
+Most GRAMMATICAL (lexical-share below baseline → relatively more grammar):
+  mlp16 0.63, mlp15 0.69, mlp17 0.70 (the back read-out MLPs), then attn0 0.74, mlp0 0.75.
+Most LEXICAL (lexical-share above baseline):
+  attn5 0.79, mlp4 0.79, attn1 0.78, attn6 0.78, attn7 0.78, mlp5 0.77.
+
+FINDINGS:
+ - Grammar and lexical work are LARGELY NOT SEPARATED BY COMPONENT. Most components' ablation damage is
+   ~76% lexical — the baseline ratio — so they contribute to both in the same proportion.
+ - IMPORTANT RECONCILIATION (two orthogonal decompositions — do not conflate): attn5 is 0.99
+   class+position by the keep metric (§814) YET its ablation damage is 79% lexical here. Both hold
+   because the class+position SUBSPACE (a REPRESENTATION decomposition: class+position vs remainder,
+   0.78 of components) serves BOTH the grammar loss AND much of the lexical loss — keeping attn5's
+   class+position content recovers ~all of its benefit, and that benefit is mostly within-class/lexical.
+   So "class+position = grammar" is too glib: the interpretable low-rank representation (current token's
+   grammatical class + log-position) also carries information that narrows the SPECIFIC next word (which
+   word follows depends on the current word's identity/class and the position), i.e. it reduces
+   within-class loss too. The grammar-vs-lexical split (§829, a LOSS decomposition) is ORTHOGONAL to the
+   class+position-vs-remainder split (§807, a REPRESENTATION decomposition). Class+position is the
+   interpretable representation the model uses for prediction broadly; grammar is just the easy quarter
+   of the loss that representation (plus everything else) achieves.
+ - Two clean exceptions (weak but real, spread 0.63–0.79 around the 0.76 baseline): the BACK read-out
+   MLPs (mlp15/16/17) are the grammar specialists — they predict the next class (consistent with §828
+   grammatical sequencing) — and ATTENTION (attn1/5/6/7) leans lexical, consistent with attention doing
+   the context-based word-narrowing that is the context-reducible part of the lexical loss (§830).
+
+Implication for the lexical system: because the lexical work is DISTRIBUTED across most components (not
+a separable circuit) and — from §810 — high-rank with no low-rank handle, and — from §830 — mostly
+irreducible entropy, the lexical/content computation does NOT have the clean, low-rank, localizable
+structure that made class+position tractable. The interpretable, low-rank, causal structure of the
+model is grammar (class+position); the lexical remainder is diffuse by component, by rank, and by
+depth. Next: one decisive test of whether the lexical/context contribution has ANY low-rank handle.
