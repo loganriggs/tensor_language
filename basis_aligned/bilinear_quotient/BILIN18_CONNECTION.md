@@ -26096,3 +26096,22 @@ So this trace does NOT establish a per-unit readout map. Honest status: the read
 (unit-normalized Down direction vs unit-normalized unembedding rows) to remove the norm artifact and test
 whether the readout write is a coherent per-unit token-set or genuinely DISTRIBUTED (which would be
 consistent with the diffuse lexical residue, §810).
+
+## §856 — the readout is SEMI-DISTRIBUTED: some coherent content-category writer units (incl. a proper-name unit) + a diffuse remainder (back_readout2.py)
+
+Cosine write-attribution (fixing §855's rare-token norm artifact) partially cleaned the readout trace.
+Some mlp17 units are now coherent CATEGORY WRITERS:
+  - u3343: reads pron → writes PROPER NAMES (' Jonathan',' Jason',' Jennifer',' Nathan',' Darrell') — a
+    proper-name promoter
+  - u644, u3237, u919, u1811: write CAPITALIZED / sentence-initial words (10/10 cap: ' Ironically',
+    ' Notably',' Appendix',' Subtle'...)
+  - u2563: prep → cap 9/10
+But it stays NOISY: read-class selectivity is weak (~1.2-2.0, units not cleanly current-class
+conditioned), and several units still write garbage (box-drawing/special chars — residual attribution
+artifact). So the readout write is SEMI-DISTRIBUTED: a minority of clean content-category promoter units
+(proper-name, capitalized-word) on top of a diffuse remainder — NOT the clean bank of per-class detectors
+the FRONT has (mlp0). This fits the readout producing the HARD lexical/content output (§829/810): the
+grammatical part reads cleanly (class 13×, pos 6×, §851) but the specific-token WRITE is largely
+distributed, with only some content categories (proper names, capitalized words) emitted by identifiable
+units. Honest limit: a fully clean readout-write map is not recoverable per-unit; the write is mostly
+distributed, consistent with the diffuse lexical residue.
