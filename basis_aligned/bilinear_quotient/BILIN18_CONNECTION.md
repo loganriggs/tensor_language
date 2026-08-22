@@ -25885,3 +25885,34 @@ That is the substrate to interpret layer 1 against. NEXT (layer 1): attn1 (2.22,
 what does it write given prev-token is now present (induction target? prev-prev?); and mlp1 (1.07) —
 does it recompute/sharpen class, or compute something NEW from the now-available previous token (e.g.
 previous-token's class / a bigram feature)?
+
+## §845 — attn1 does NOT do induction; it maintains local token history (attn1_function.py)
+
+Decoded attn1's output (probe among 200 frequent tokens): current 0.88; previous 0.83 (its INPUT already
+0.75, since attn0 wrote prev); prev-prev 0.54; INDUCTION target 0.29 = input 0.29 (gain −0.002, null
+0.05). So attn1 does NOT do induction (does not write "what followed this token last time" — the 0.29 is
+just the current-token→bigram prior, present already in its input). It carries/slightly-boosts the
+previous token and holds some prev-prev — local token history, not long-range induction. Caveat: these
+token-identity decodes do not fully account for attn1's 2.22-nat contribution; attention does local
+aggregation that a copy-decode misses, so part of attn1's function is still unaccounted.
+
+## §846 — mlp1 is a SECOND bank of current-class detectors; it does NOT use the previous token (mlp1_bilinear_trace.py)
+
+Same weight-level trace as mlp0, on mlp1 (exact recon 7e-7). Top-24 class-writing units: 24/24
+class-selective + bilinear, and **0/24 driven by the PREVIOUS token** — every unit is selective for the
+CURRENT token's grammatical class (det u1775/4361/3691, punct u506/4394, cap u1641/1690, word u2976).
+So mlp1 recomputes/re-sharpens the CURRENT-token class, exactly like mlp0 — it does NOT consume the
+previous token that attn0/attn1 made available. mlp1 ≈ a redundant second current-class detector bank.
+
+## §847 — LAYER 1 is largely REDUNDANT with layer 0, not compositional (synthesis)
+
+Bottom-up, honestly: layer 1 mostly RE-DOES layer 0 rather than building a new variable from it.
+ - mlp1 recomputes the same current-token grammatical class as mlp0 (0/24 units use the prev token) —
+   redundant class computation (consistent with the "continued class computation" of §818, now at the
+   weight level: a second detector bank).
+ - attn1 maintains local token history (prev, some prev-prev) but does NOT do induction.
+So the previous token that attn0 wrote is NOT consumed by the layer-1 MLP; whatever uses the token
+history must be later, or it is part of the diffuse content computation. The early "build-up" is more
+redundant than compositional. Open questions this raises: (1) attn1's unaccounted 2.22 nats (local
+aggregation the token-decode misses); (2) which component, if any, ever CONSUMES the copy-source. Next:
+scan layers 2-5 (incl. attn5, the biggest uncharacterized component, 1.97 nats).
