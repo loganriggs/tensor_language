@@ -2000,6 +2000,21 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   grammar is solved as a low-rank, writable, causal variable; content is causally real (the interchange swaps
   move it) and mechanistically a bilinear content-mixing computation, but not reducible to a table or a linear
   read — the remaining understanding gap <em>is</em> that nonlinearity.</p>
+
+  <p>Measuring each layer directly makes this a clean arc down the stack. Every MLP here is architecturally
+  bilinear — it multiplies two projections of its input — but how much it actually <em>uses</em> the
+  multiplication varies enormously with depth. Fit a linear map from an MLP's input to its output and see how much
+  of its effect on the loss survives: at the front, almost all of it (layer 0 is 90% linearly recoverable, layer 1
+  is 98%), so the front MLPs — including the single biggest writer in the model — are effectively linear maps,
+  using the second projection as a near-constant gate. Through the middle it inverts: layers 8, 11, and 15 are only
+  ~38% linearly recoverable, so roughly <em>60% of what they compute is a genuine product</em> of two varying
+  signals that no linear read, table, or centroid can reproduce. Then the readout snaps back to linear (layer 17,
+  85%). So the model computes in three registers by depth — <strong>linear front → multiplicative middle → linear
+  readout</strong> — and the whole reconstruction gap is concentrated in that multiplicative middle. It is also
+  spread thin: each middle MLP on its own costs only a few hundredths of a nat to ablate, so the content
+  computation is redundant across many layers rather than localized to one. This is the same conclusion the
+  content investigation reached from every other angle — the content machine is genuinely high-dimensional and
+  multiplicative — now read straight off the layers.</p>
 </section>
 
 <section class="col">

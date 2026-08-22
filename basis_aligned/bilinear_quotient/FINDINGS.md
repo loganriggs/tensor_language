@@ -191,7 +191,19 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    the whole model held-out (§906; table 0.30, null −0.03). Splits by depth: FRONT grammar ~0.90 (a smooth
    generalizing function of the current token — SOLVED, §905), READOUT ~0.56, MIDDLE content ~0.10 — the middle is
    NOT a function of these variables (genuinely high-dim, needs longer-range/interaction variables), yet is causal
-   (§894). So grammar is a writable+causal variable; content is causal but not yet tabulatable — the frontier. **HIGH.**
+   (§894). So grammar is a writable+causal variable; content is causal but not yet tabulatable — the frontier.
+   BENCHMARK REFRESH (§939): give the token variable a SMOOTH per-token LINEAR MAP (not a discrete table) and the
+   held-out number rises to **0.42** (token-map alone 0.32 beats the whole old table pipeline 0.315; shuffled-map
+   null −0.19). Progression: 0.81 in-sample (retracted) → 0.30 held-out table → **0.42** held-out map. DEPTH
+   LOCALIZATION (§940): genuine (shuffle-corrected) understanding front 0.72 > middle 0.60 > back 0.58; the middle
+   has the LARGEST contribution yet worst raw reconstruction → the residual frontier. WHY (§941): a
+   linear→multiplicative→linear depth arc — MLPs are 90–98% linearly-recoverable at the front (incl the dominant
+   writer MLP1), ~38% in the middle (i.e. ~60% genuine bilinear MULTIPLICATION, irreducible to any linear/table
+   stand-in), 85% at readout. CONTENT-MECHANISM ARC (§928→941): topic = order-invariant bag-of-word-embeddings
+   gist (§932/§934, universal §937) organized as a coarse→fine hierarchy (§927), but only a MODEST causal slice —
+   a topic-centroid stand-in recovers 6%@K128 / 17%@K1024, a continuum not a finite set (§930); no single handle
+   dominates (token-identity ~10%, cross-token topic ~7%, §938); the bulk is the middle multiplicative computation.
+   Grammar reads the local current token; content reads the whole-context bag (double dissociation §934). **HIGH.**
 
 1g. **GRAMMAR MACHINE — complete bottom-up account (§915→919).** (1) mlp0 writes the current token's MULTI-AXIS
    SURFACE class — capitalization, determiner, punct, number, space-prefix are separately decodable near-ORTHOGONAL
