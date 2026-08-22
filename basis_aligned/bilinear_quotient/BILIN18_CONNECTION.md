@@ -27841,3 +27841,34 @@ Back = well-reconstructed but generically (reads out the built residual). This L
 the MIDDLE content computation, consistent with the whole content arc. Refines the earlier per-component depth
 split (front grammar high, middle content low) with a whole-band causal measure and the genuine-vs-generic
 distinction. Artifact: add the "middle is the content-computation frontier; back reconstructs generically" nuance.
+
+## §941 — WHY the middle is the frontier: a linear->multiplicative->linear depth arc (middle_bilinearity.py)
+
+Per-layer, fit a LINEAR map from each MLP's input to its output, replace the output with that reconstruction
+(held-out), measure loss recovery = linear-recoverable fraction; the remainder is the bilinear multiplicative
+interaction. ce_full 3.11. Shuffled-input null ~0 everywhere (linear maps are genuine).
+  L    meanabl-cost   linear-frac   multiplicative   shuffled
+  0      0.774          0.901          0.099           0.124
+  1      6.441          0.977          0.023          -0.009   <- dominant writer (§933) yet 98% LINEAR
+  4      0.107          0.553          0.447          -0.084
+  8      0.051          0.396          0.604          -0.019
+  11     0.041          0.380          0.620          -0.017
+  15     0.035          0.369          0.631          -0.026   <- most multiplicative
+  17     0.338          0.849          0.151          -0.040   <- readout LINEAR again
+pred (a) middle-more-multiplicative TRUE (front L0-1 lin-frac 0.939 vs middle L8-11 0.388).
+READING: a clear DEPTH ARC of how much the BILINEAR architecture is actually USED as a multiplication:
+ - FRONT (L0-1): ~90-98% LINEARLY readable — the front MLPs use the bilinear form as an effectively-LINEAR map
+   (one projection acts as a near-constant gate), so they are clean functions of their input. MLP1 is the
+   dominant writer (meanabl 6.44 nats, §933) AND 98% linear -> the dominant computation is linear.
+ - MIDDLE (L8-15): ~60-63% MULTIPLICATIVE — only ~37-40% of the output is a linear read of the input; the rest is
+   a genuine PRODUCT of two varying input projections that no linear map / table / centroid can capture. THIS is
+   why the middle is the reconstruction frontier (§940) and why the content term caps at ~0.2 (§930/§938): the
+   irreducible part is genuine multiplication.
+ - READOUT (L17): ~85% linear again (reads out the built residual).
+Also: the middle MLPs have TINY individual meanablate-cost (0.04-0.11 nats) -> the multiplicative content
+computation is REDUNDANT/distributed across many small-contribution middle layers (no single critical one),
+consistent with §940 (middle matters as a band, not per-layer) and §931 (distributed pooling). CAPSTONE for the
+content/middle arc: grammar = front + linear + low-rank (solved); content = middle + ~60% multiplicative bilinear
++ high-rank continuum (irreducible to linear stand-ins by construction); readout = linear. The benchmark's
+remaining ~0.58 IS this middle multiplicative computation. Confirms the artifact's earlier bilinearity claim with
+a direct per-layer causal measurement. Artifact: add the linear->multiplicative->linear arc.

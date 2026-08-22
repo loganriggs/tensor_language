@@ -1,0 +1,10 @@
+L 0 mlp: meanabl-cost 0.774 | linear-recoverable 0.901 | multiplicative 0.099 (shuf 0.124)
+L 1 mlp: meanabl-cost 6.441 | linear-recoverable 0.977 | multiplicative 0.023 (shuf -0.009)
+L 4 mlp: meanabl-cost 0.107 | linear-recoverable 0.553 | multiplicative 0.447 (shuf -0.084)
+L 8 mlp: meanabl-cost 0.051 | linear-recoverable 0.396 | multiplicative 0.604 (shuf -0.019)
+L11 mlp: meanabl-cost 0.041 | linear-recoverable 0.380 | multiplicative 0.620 (shuf -0.017)
+L15 mlp: meanabl-cost 0.035 | linear-recoverable 0.369 | multiplicative 0.631 (shuf -0.026)
+L17 mlp: meanabl-cost 0.338 | linear-recoverable 0.849 | multiplicative 0.151 (shuf -0.040)
+front(L0-1) lin-frac 0.939 vs middle(L8-11) 0.388
+(a) middle more multiplicative (less linearly readable): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_bilinearity_results.json (42.7s)
