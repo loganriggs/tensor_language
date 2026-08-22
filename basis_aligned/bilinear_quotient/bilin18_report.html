@@ -1803,6 +1803,37 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   gist</em> — the model pools the topical words across the whole passage, largely regardless of their arrangement,
   which is exactly the shape a high-dimensional subject-matter summary should have. Grammar is the mirror image:
   it needs the current token and the local order, and every context edit that leaves topic intact damages it.</p>
+
+  <p><strong>Where every nat goes.</strong> All of this lands in one budget. The model takes the average
+  next-token cost from 7.17 nats (guessing from word frequencies alone) down to 3.24, split as 0.76 grammar +
+  2.48 content. Sort the tokens by <em>what kind of prediction they are</em> and the loss concentrates sharply.
+  A token that just copies a repeated bigram (induction) costs 0.69 nats and there are few of them — 6% of
+  tokens, 1% of the loss. A token whose type was seen but not as a repeat costs 1.94 — a third of tokens, a
+  fifth of the loss. And a genuinely new word — a first mention — costs 4.24 nats, and these are 60% of tokens
+  carrying <em>78% of the entire loss</em>, almost all of it content rather than grammar. Grammar is a flat,
+  cheap tax paid everywhere (0.76–0.84 in every group); content is what scales with novelty (0.39 when copyable,
+  1.10 when seen, 3.48 when new). So the model's real job, by the numbers, is the first-mention content problem —
+  the topic-constrained but open choice of a new word — and that is exactly the part that survives even a much
+  larger model.</p>
+  <figure><svg viewBox="0 0 780 252" role="img" aria-label="loss contribution by position type, split into grammar and content">
+  <text class="panel" x="8" y="16">where every nat of the loss goes (bar width = nats contributed)</text>
+  <line class="grid" x1="150" y1="36" x2="150" y2="200"/><text class="tick" x="150" y="216" text-anchor="middle">0</text>
+  <line class="grid" x1="380.8" y1="36" x2="380.8" y2="200"/><text class="tick" x="380.8" y="216" text-anchor="middle">1</text>
+  <line class="grid" x1="611.5" y1="36" x2="611.5" y2="200"/><text class="tick" x="611.5" y="216" text-anchor="middle">2 nats</text>
+  <text class="tick" x="145" y="66" text-anchor="end">first-mention</text>
+  <rect class="bar s1" x="150" y="44" width="105.7" height="34" rx="1.5"/><rect class="bar s2" x="255.7" y="44" width="480.5" height="34" rx="1.5"/>
+  <text class="val" x="740" y="40" text-anchor="end" style="font-size:10px">60% of tokens · 78% of loss</text>
+  <text class="tick" x="145" y="126" text-anchor="end">seen-other</text>
+  <rect class="bar s1" x="150" y="104" width="65.8" height="34" rx="1.5"/><rect class="bar s2" x="215.8" y="104" width="86.3" height="34" rx="1.5"/>
+  <text class="val" x="312" y="125" text-anchor="start" style="font-size:10px">34% of tokens · 20% of loss</text>
+  <text class="tick" x="145" y="186" text-anchor="end">inductable (copy)</text>
+  <rect class="bar s1" x="150" y="164" width="4.2" height="34" rx="1.5"/><rect class="bar s2" x="154.2" y="164" width="5.5" height="34" rx="1.5"/>
+  <text class="val" x="170" y="185" text-anchor="start" style="font-size:10px">6% of tokens · 1% of loss</text>
+  <rect class="bar s1" x="500" y="230" width="12" height="12" rx="1.5"/><text class="tick" x="518" y="240" text-anchor="start">grammar (class)</text>
+  <rect class="bar s2" x="640" y="230" width="12" height="12" rx="1.5"/><text class="tick" x="658" y="240" text-anchor="start">content (word)</text>
+  </svg><figcaption>Each bar is one kind of next-token position; its width is the nats of loss those tokens
+  contribute (fraction of tokens × their mean cross-entropy), split into grammar and content. First mentions
+  dominate; induction is nearly free.</figcaption></figure>
 </section>
 
 <section class="col">

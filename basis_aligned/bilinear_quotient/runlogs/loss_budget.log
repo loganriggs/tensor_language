@@ -1,25 +1,6 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/loss_budget.py", line 116, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/loss_budget.py", line 106, in main
-    json.dump(out, open(OUT, 'w'), indent=1)
-  File "/venv/main/lib/python3.12/json/__init__.py", line 179, in dump
-    for chunk in iterable:
-                 ^^^^^^^^
-  File "/venv/main/lib/python3.12/json/encoder.py", line 432, in _iterencode
-    yield from _iterencode_dict(o, _current_indent_level)
-  File "/venv/main/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
-    yield from chunks
-  File "/venv/main/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
-    yield from chunks
-  File "/venv/main/lib/python3.12/json/encoder.py", line 406, in _iterencode_dict
-    yield from chunks
-  File "/venv/main/lib/python3.12/json/encoder.py", line 439, in _iterencode
-    o = _default(o)
-        ^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/json/encoder.py", line 180, in default
-    raise TypeError(f'Object of type {o.__class__.__name__} '
-TypeError: Object of type float32 is not JSON serializable
+overall CE 3.241 (unigram baseline 7.168) = class 0.761 + within 2.48
+     inductable:  6.1% of pos | CE 0.69 (class 0.30 + within 0.39) |  1.3% of total loss
+  first_mention: 59.9% of pos | CE 4.24 (class 0.76 + within 3.48) | 78.4% of total loss
+     seen_other: 34.0% of pos | CE 1.94 (class 0.84 + within 1.10) | 20.3% of total loss
+(a) loss lives in first-mention content: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/loss_budget_results.json (74.5s)

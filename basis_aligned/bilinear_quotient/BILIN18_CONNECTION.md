@@ -26576,3 +26576,26 @@ test isolated its pure-copy capability (§877, drop 11.3), while on natural text
 and the copy-specific discount is modest (~0.8 nats) because natural inductable tokens are also predictable
 from topic/frequency. Artifact L5 wording softened from "it is the induction head" to "the early content head
 and the induction gate."
+
+## §879 — CAPSTONE loss budget: 78% of the loss is first-mention content; induction nearly free; grammar cheap everywhere (loss_budget.py)
+
+Decomposed bilin18's mean CE by position type x grammar/content. Overall CE 3.241 (unigram baseline 7.168)
+= class 0.761 + within 2.480. By position type:
+ - INDUCTABLE (bigram already seen): 6.1% of positions, CE 0.69 (class 0.30 + within 0.39) -> 1.3% of total
+   loss. Induction/copy (attn5, §877) makes repeats nearly FREE.
+ - FIRST-MENTION (new token type): 59.9% of positions, CE 4.24 (class 0.76 + within 3.48) -> 78.4% of total
+   loss. This is where the loss LIVES, and it is almost all CONTENT (within 3.48 of 4.24) — the
+   topic-constrained-but-open new-word choice, largely irreducible (§876).
+ - SEEN-OTHER (type seen, bigram not repeated): 34.0% of positions, CE 1.94 (class 0.84 + within 1.10) ->
+   20.3% of total loss.
+Pred (a) loss-lives-in-first-mention-content = TRUE.
+
+SYNTHESIS (ties the whole program into one budget): GRAMMAR (class CE) is ~0.76-0.84 in EVERY bucket — cheap,
+uniform, context-free (the low-rank front machine). CONTENT (within CE) tracks NOVELTY: 0.39 when copyable
+(induction), 1.10 when the word was seen, 3.48 when it is a first-mention. So the model's loss is
+overwhelmingly the first-mention content problem (78%), which the topic machine narrows (§868/§871) but
+cannot determine, and which even a 770M model shares (§876). Induction handles the cheap repeat tail (attn5);
+grammar is a cheap uniform tax. This is the quantitative form of the two-machine + induction + irreducible-
+floor account. Note: overall within-CE here 2.48 matches §829 exactly (consistency check). Artifact gets a
+capstone budget figure. (A prior run of this script exited 1 on a float32 JSON-serialization bug — fixed by
+casting; not a model finding.)
