@@ -1927,8 +1927,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   low-rank variable is roughly a quarter to a third — the grammar skeleton plus a continuous topic direction —
   and the large remainder is real computation that we can move causally (the interchange swaps work) and
   describe as a mechanism (a content-word gist) but cannot yet write down as a compact, generalizing table. The
-  gap between 81% in-sample and 29% held-out is itself the lesson: understanding has to be certified on data the
-  explanation was not fit to.</p>
+  gap between 81% in-sample and ~30% held-out is itself the lesson: understanding has to be certified on data the
+  explanation was not fit to. (The ~30% is robust — correcting for rare-token coverage moves it only from 0.29 to
+  0.32 — and it breaks down as grammar ~0.18 plus a continuous-topic direction ~0.11, with the local-context
+  table contributing almost nothing that generalizes.)</p>
 </section>
 
 <section class="col">
