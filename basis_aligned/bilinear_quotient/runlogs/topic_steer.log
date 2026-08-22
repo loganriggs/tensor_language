@@ -1,0 +1,16 @@
+steer->topic0 ["' Created'", "' posts'", "' School'"]: own-topic logit gain 0.003 | mean other 0.0
+steer->topic1 ["' Herman'", "' Mother'", "'Fr'"]: own-topic logit gain 0.002 | mean other 0.0
+steer->topic2 ["' Thunderbolt'", "' quarter'", "' Code'"]: own-topic logit gain 0.001 | mean other -0.0
+steer->topic3 ["' Gamb'", "' Middle'", "' Israel'"]: own-topic logit gain 0.002 | mean other -0.0
+steer->topic4 ["' Auburn'", "' Jersey'", "' Tr'"]: own-topic logit gain 0.001 | mean other -0.0
+steer->topic5 ["' vaccine'", "' vaccines'", "'�'"]: own-topic logit gain 0.001 | mean other 0.0
+steer->topic6 ["' Deg'", "' bur'", "'Oct'"]: own-topic logit gain 0.001 | mean other -0.001
+steer->topic7 ["'iles'", "'Sync'", "' Derek'"]: own-topic logit gain 0.001 | mean other 0.0
+steer->topic8 ["' takeoff'", "'wind'", "' Stewart'"]: own-topic logit gain 0.001 | mean other 0.0
+steer->topic9 ["' whiskey'", "'hart'", "' Victoria'"]: own-topic logit gain 0.001 | mean other 0.0
+steer->topic10 ["' ED'", "' patient'", "' physicians'"]: own-topic logit gain 0.002 | mean other 0.0
+steer->topic11 ["' Palin'", "' Crypto'", "' Unc'"]: own-topic logit gain 0.001 | mean other 0.0
+
+mean diagonal (own-topic gain) 0.001 | mean off-diagonal -0.0
+(a) topic representation is CAUSAL (diagonal >> off-diagonal): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/topic_steer_results.json (74.8s)

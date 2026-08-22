@@ -26308,3 +26308,20 @@ there is no low-rank handle — but it is STRUCTURED and NAMEABLE, not irreducib
 token-level coherence read of unsupervised clusters, not yet a causal test; a few clusters are mixed.
 Next: verify causally (does the topic-content causally drive topically-coherent prediction — patch topic
 between passages?).
+
+## §867 — topic steering (first test) does NOT causally raise topic tokens; §866 topic is REPRESENTATION-level, causal role not yet shown (topic_steer.py)
+
+Causal test of §866: added each topic's mean content-direction at L15 (α=8), measured logit gain on that
+topic's distinctive tokens vs others. Result: mean diagonal (own-topic) gain 0.001, off-diagonal −0.0 —
+NO causal effect. So this steering did NOT show topic causally drives prediction.
+
+Honest reading (do not overclaim): §866's topic structure is REPRESENTATION-level and solid — the content
+residual is clearly organized by topic (coherent distinctive-token clusters). But whether that topic
+representation CAUSALLY drives topic-coherent prediction is NOT established — this is the program's own
+read≠write / read-correlate caution (items 2/11). CAVEATS making this a WEAK (not clean) refutation: α=8
+may be far too small (class steering needed α=16-32, §823/837), the mean-direction (not a topic-deviation)
+may be the wrong lever, L15 may be the READ site not the WRITE site (cf §824 embedding-steering failed
+while component steering worked), and the batch was small. So: topic is decodable in the content residual
+(real), causal role pending a proper test. Retesting with a topic-DEVIATION direction, an α sweep, and
+more data (topic_steer2). Artifact/FINDINGS: §866 topic kept as representation-level (decodable), causal
+claim held back pending topic_steer2.
