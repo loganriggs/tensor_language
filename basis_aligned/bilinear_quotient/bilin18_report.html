@@ -1729,6 +1729,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   0–1) and again at the readout (layer 15→16); through the middle it is nearly frozen. So the middle is
   dimensionally active — it re-inflates — while barely changing the clustering topology, and the readout does
   the final, sharpest re-clustering down to the prediction.</p>
+  <p><strong>What the middle does — attention aggregates topic, MLPs read it.</strong> The one gap left was
+  <em>what</em> the middle computes, and two experiments closed it. Decode a token's topic (the §-content
+  clusters) from the residual at each layer: the accuracy climbs steadily with depth — 0.37 near the front,
+  0.63 by layer 5, 0.82 by layer 12, 0.85 near the readout, against a 0.20 chance floor and a 0.18
+  shuffled-label control. Split each layer's gain into its attention part and its MLP part, and the rise is
+  <em>almost entirely attention</em>: every layer's attention step raises topic decodability (+0.20 summed
+  across the middle) while the MLP steps add essentially nothing (−0.02). Yet folding each MLP's bilinear
+  readouts onto the topic directions shows the MLPs <em>read</em> topic strongly at every depth. So the
+  division of labor is clean: <em>attention is the topic aggregator</em> — it pulls the surrounding context's
+  subject matter into the residual, a little more at each layer — and the <em>MLPs are topic readers</em> that
+  consume that structure to push toward specific words, without themselves making topic more decodable. That
+  is the whole content chain: attention aggregates context → a topic representation builds up across the
+  middle → the MLPs read it → the readout emits topically-coherent words.</p>
   <p><strong>Two machines.</strong> Pulling the whole trace together, the network separates into two systems
   that happen to share the same layers. A <em>grammar machine</em> turns the current token into a sharpened
   part-of-speech and a coarse position — the front MLPs do this from the token alone, almost without context

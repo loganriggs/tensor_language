@@ -1,0 +1,23 @@
+L 0: topic-decode in 0.264 -> after-attn 0.497 (++0.232) -> out 0.371 (mlp -0.126)
+L 1: topic-decode in 0.371 -> after-attn 0.556 (++0.186) -> out 0.454 (mlp -0.102)
+L 2: topic-decode in 0.454 -> after-attn 0.586 (++0.132) -> out 0.543 (mlp -0.042)
+L 3: topic-decode in 0.543 -> after-attn 0.580 (++0.036) -> out 0.528 (mlp -0.051)
+L 4: topic-decode in 0.528 -> after-attn 0.582 (++0.054) -> out 0.541 (mlp -0.041)
+L 5: topic-decode in 0.541 -> after-attn 0.647 (++0.105) -> out 0.632 (mlp -0.015)
+L 6: topic-decode in 0.632 -> after-attn 0.688 (++0.056) -> out 0.684 (mlp -0.004)
+L 7: topic-decode in 0.684 -> after-attn 0.736 (++0.052) -> out 0.737 (mlp +0.001)
+L 8: topic-decode in 0.737 -> after-attn 0.745 (++0.008) -> out 0.736 (mlp -0.009)
+L 9: topic-decode in 0.736 -> after-attn 0.762 (++0.025) -> out 0.761 (mlp -0.001)
+L10: topic-decode in 0.761 -> after-attn 0.784 (++0.024) -> out 0.781 (mlp -0.003)
+L11: topic-decode in 0.781 -> after-attn 0.806 (++0.025) -> out 0.809 (mlp +0.003)
+L12: topic-decode in 0.809 -> after-attn 0.823 (++0.014) -> out 0.820 (mlp -0.003)
+L13: topic-decode in 0.820 -> after-attn 0.838 (++0.018) -> out 0.837 (mlp -0.002)
+L14: topic-decode in 0.837 -> after-attn 0.849 (++0.012) -> out 0.844 (mlp -0.005)
+L15: topic-decode in 0.844 -> after-attn 0.854 (++0.010) -> out 0.847 (mlp -0.007)
+L16: topic-decode in 0.847 -> after-attn 0.855 (++0.008) -> out 0.843 (mlp -0.012)
+L17: topic-decode in 0.843 -> after-attn 0.847 (++0.004) -> out 0.828 (mlp -0.020)
+
+chance(majority) 0.2 | shuffled-label decode 0.179 (should ~ chance)
+middle(6-12) total attn-increment 0.205 vs mlp-increment -0.016
+(a) topic emerges in the middle via attention: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/topic_emergence_results.json (74.8s)

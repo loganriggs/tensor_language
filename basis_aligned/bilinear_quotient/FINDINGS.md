@@ -132,9 +132,11 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    bilinear SHARPENING self-product class-detectors (grammatical class), attn0 = COPY-SOURCE (writes prev-token,
    decode 0.86); mlp1 RE-EXPANDS the class-collapsed geometry (eff-dim 20→47) folding in class+position+modest
    prev/fine-token; L2-4 refine; attn5 = CONTENT-prediction component (helps content words +2.7, invisible to
-   grammatical probes). MIDDLE (6-14): dimensionally active (re-inflates eff-dim to peak 51 by L9, mostly into
-   CONTENT/unnamed directions + finer token-identity; prev-token & position fade) but topologically stable
-   (RSA 0.95-0.98); low per-component benefit yet collectively redundant (§813). READOUT (15-17): reads
+   grammatical probes). MIDDLE (6-14): mechanism NAMED (§869/§870) — ATTENTION is the TOPIC AGGREGATOR (topic-decode rises
+   0.37→0.85 across depth, gains ALL from attention: every layer's attn-increment +, middle +0.205 vs MLP
+   −0.016), MLPs are TOPIC READERS/word-generators (read topic-organized input 3-4× at all depths but don't
+   raise topic decodability). Matches the geometry (re-inflates eff-dim to peak 51 by L9 into content dims;
+   topologically stable RSA 0.95-0.98, §813). READOUT (15-17): reads
    class(13×)+position(6×) hard (§851), semi-distributed content-write with some coherent category units
    (proper-name unit, capitalized-word units), collapses to ~3-dim prediction (eff-dim 2.8). WHOLE-STACK
    geometry: 2 expansions (L1, L6-9) + 3 collapses (L0, L5, L16-17); re-clustering at front+readout, middle
@@ -145,7 +147,8 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    (§862). Topic is CAUSAL (§868): steering a topic's direction specifically raises that topic's next-words (own +0.042
    vs off −0.004, consistent across every topic) — but only WEAKLY, because one direction is a thin slice of high-dim
    topic space (opposite of low-rank class, which steers strongly §823). So: grammar = low-rank part-of-speech, strongly
-   causal (easy 23%); content = high-dim topic, weakly-but-specifically causal (hard 75%). Both named+causal. **HIGH.**
+   causal (easy 23%); content = high-dim topic, weakly-but-specifically causal (hard 75%). Both named+causal. Full content
+   chain (§870): ATTENTION aggregates context → topic representation → MLPs read topic → readout emits topic-coherent word. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even

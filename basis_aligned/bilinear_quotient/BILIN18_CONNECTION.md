@@ -26352,3 +26352,39 @@ FINAL TWO-MACHINE ACCOUNT (both machines named AND causally supported):
 The interpretable low-rank machine (grammar) and the high-dimensional machine (content/topic) are
 different computations; both are real, named, and causal. This is the honest completion of the bottom-up
 program (§767→868). Artifact/FINDINGS updated to topic-causal.
+
+## §869 — MLPs READ topic at all depths (no middle gradient); my "topic built in middle by MLP" pred was FALSE (mlp_topic_folding.py)
+
+Folded each MLP's bilinear readouts onto the topic subspace (§866 clustering) across depth. Topic-read
+energy is ABOVE chance at EVERY layer (mlp0 3.2×, mlp2 4.0×, mlp8 4.1×, mlp10 3.5×, dropping to 1.2× only
+at readout mlp16) vs shuffled-label null ~1.1-1.3× — but NOT a front->middle gradient. So MLPs read
+topic-organized input THROUGHOUT the stack; they are not the layers that BUILD topic. Pred (a)
+topic-built-in-middle-by-MLP = FALSE (stated plainly — my prediction was wrong).
+CAVEAT: the front topic-read magnitude is partly a TOKEN-IDENTITY LEAK — the fold orthogonalizes against a
+rank-64 token subspace, which cannot fully span ~50k token identities, so residual token identity (which
+correlates with topic) inflates mlp0's 3.2×. The clean causal signal is the emergence curve (§870), not the
+front fold magnitude. Class-read is front-loaded (mlp0 7.7×) and huge at readout (mlp16 12.3×) — consistent
+with grammar being a front+readout computation (§851).
+
+## §870 — ATTENTION aggregates topic across depth; MLPs don't add topic decodability (attention=builder, MLP=reader) (topic_emergence.py)
+
+Topic-decode emergence curve across all 18 layers, each layer split into attention-increment vs
+MLP-increment. Topic decodability RISES monotonically with depth: 0.37 (L1 in) -> 0.63 (L5) -> 0.74 (L7)
+-> 0.82 (L12) -> 0.85 (L16), vs majority-chance 0.20 and shuffled-label null 0.179 (~chance, clean). The
+rise comes ALMOST ENTIRELY FROM ATTENTION: every layer's attention increment is POSITIVE (L1 +0.19, L5
++0.11, L6 +0.06, L11 +0.03, ...), while MLP increments are ~0 or slightly NEGATIVE at every layer. Middle
+band (6-12): total attn-increment +0.205 vs mlp-increment -0.016. Pred (a) topic-emerges-via-attention =
+TRUE.
+
+COMBINED (§869+§870) — MIDDLE-LAYER MECHANISM NAMED (last gap in the bottom-up map closed):
+ - ATTENTION is the TOPIC AGGREGATOR: it progressively pulls topic-organized context into the residual
+   across depth (biggest gains L1-7, continuing through the middle), raising linear topic decodability
+   0.37->0.85. This is the mechanism behind §862 (attn feeds content context) and §857 (middle re-inflates
+   into content dims), localized: topic is built by the sum of attention layers, not one.
+ - MLPs are TOPIC READERS/WORD-GENERATORS: they read the topic structure attention built (§869 fold energy
+   3-4× at all depths) and convert it toward output words, WITHOUT increasing linear topic decodability
+   (MLP increments ~0/negative — they consume the topic axis rather than sharpen it).
+So the full content-machine chain is: ATTENTION aggregates context -> TOPIC representation (decodability
+rises across depth) -> MLPs read topic -> READOUT emits topic-coherent words (§868 causal). The bottom-up
+map is now mechanistically complete front (grammar) / middle (attention aggregates topic, MLP reads) /
+readout (class+pos hard, topic-coherent word out). Artifact/FINDINGS updated.
