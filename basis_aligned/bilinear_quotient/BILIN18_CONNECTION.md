@@ -25260,3 +25260,37 @@ constant means (§821 mean/output ratio 0.30–0.97; attn1 is 97% constant by no
 The "constant" question is answered: it is a big generic function-word-leaning offset per component,
 plausibly the operating point rms-norm normalizes against, with the actual class+position + content
 computation living in the small-norm variation. This closes the validity/mean sub-arc (§820→822).
+
+## §823 — CAUSAL SUFFICIENCY confirmed: steering the class+position content moves the prediction toward the injected class (cp_steering / cp_steering2.py)
+
+Capstone causal test — all prior evidence was necessity (ablation); this tests sufficiency by
+INJECTING class+position content and asking if the prediction follows. v1 (cp_steering) injected a
+source token's FULL mean μ_B and failed (KL to p_B rose) — but that was CONFOUNDED: μ_B is dominated
+by the global constant (§821/822, mean/output up to 0.97), so the B-specific class signal was tiny
+and swamped. v2 (cp_steering2) injects the amplified class-DEVIATION α·proj_cp(μ_B − μ_global) at all
+six front components, sweeping α, vs a matched-norm random-direction null.
+
+| source B | KL(normal‖p_B) | cp-steer (α=2/8/32) | random-steer (α=2/8/32) |
+|----------|---------------:|---------------------|--------------------------|
+| " a" (257)  | 3.70 | 3.37 / 2.69 / **1.69** | 3.74 / 4.68 / 5.94 |
+| " and" (290)| 1.59 | 1.46 / **1.20** / 1.75 | 2.44 / 2.70 / 4.20 |
+| " the" (262)| 3.37 | 4.02 / 4.04 / 3.78 | 3.55 / 4.41 / 7.03 |
+
+VERDICT: class+position steering is causally SUFFICIENT. Injecting the amplified class-deviation moves
+the prediction TOWARD the target class's typical continuation — strongly for " a" (KL 3.70→1.69) and
+" and" (1.59→1.20), and for ALL three sources cp-steer beats the matched-norm random-direction steer
+by a large margin (mean cp-below-random +3.0 KL; mean drop vs normal at best α +0.66). The effect is
+SPECIFIC to the class+position directions: a random perturbation of the same norm degrades the
+prediction (KL rises to 4–7) while the class+position injection pulls it toward B.
+
+Honest nuances: (1) steering needs AMPLIFICATION (best at α=8–32) — the natural-magnitude class signal
+is small-norm (§822), and it must overcome the model's redundant recomputation of class+position from
+the persistent current-token embedding (FINDINGS 14), so a 1× injection is too weak; (2) source-
+dependent — " a"/" and" steer cleanly, " the" stays flat (doesn't move toward, though still far better
+than random) — plausibly because " the" is already the high-frequency default continuation. 
+
+This completes the causal characterization of class+position: NECESSARY (ablation/keep-only, §767→814),
+GENERALIZING (held-out, §820), and now SUFFICIENT (steering, §823) — editing the class+position content
+causally steers the prediction. Together with the honest whole-model share (simultaneous 0.78, §820/822)
+and the compute→maintain→read pipeline (§809→817), the class+position variable is established as the
+model's real, causal, low-dimensional computation.

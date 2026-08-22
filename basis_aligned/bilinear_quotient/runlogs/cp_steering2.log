@@ -1,0 +1,7 @@
+src 262: normal 3.3719 | cp-steer {'2.0': 4.0164, '8.0': 4.0355, '32.0': 3.7844} | rand {'2.0': 3.5489, '8.0': 4.4066, '32.0': 7.0257}
+src 257: normal 3.6968 | cp-steer {'2.0': 3.3749, '8.0': 2.6888, '32.0': 1.6894} | rand {'2.0': 3.7395, '8.0': 4.6787, '32.0': 5.9391}
+src 290: normal 1.5934 | cp-steer {'2.0': 1.4579, '8.0': 1.1955, '32.0': 1.7459} | rand {'2.0': 2.4438, '8.0': 2.7028, '32.0': 4.2005}
+
+mean KL drop vs normal (best α) +0.664 | cp below rand +2.999
+(a) class+position steering causally SUFFICIENT: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cp_steering2_results.json (99s)

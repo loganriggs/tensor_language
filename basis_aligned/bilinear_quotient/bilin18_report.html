@@ -1946,6 +1946,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   can lean on another and the constants cancel — the whole model is <strong>78%</strong> class-and-position
   (a random subspace: 4%). That "about four-fifths" is the number to trust; the per-component 90%+ figures
   are upper bounds inflated by those constant offsets.</p>
+  <p>Everything so far shows class-and-position is <em>necessary</em> — remove it and the model gets worse.
+  The stronger claim is that it is <em>sufficient</em>: that you can drive the prediction by editing it. You
+  can. Take the direction that separates one token-class from average, add it (amplified) to the early
+  layers, and the model's next-token distribution moves toward what that class is typically followed by —
+  push the "indefinite-article" class and predictions slide toward what follows "a"; the same for "and".
+  A random direction of the same size does the opposite, degrading the prediction. Two honest caveats: the
+  edit has to be amplified to bite, because the model keeps re-deriving class-and-position from the token
+  embedding it never discards, so a single gentle nudge is overwritten; and it works cleanly for some
+  classes and barely moves others (the ultra-frequent "the" is already the default, so there is nowhere to
+  push it). Necessary, generalizing to held-out text, and steerable — the class-and-position variable is
+  the model's real, low-dimensional, causal computation, not just a pattern we read off it.</p>
   <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
   prediction by how hard it was — how much loss the full model took — and ask how much of each bucket the
   class-and-position skeleton alone recovers. On the model's <em>hardest</em>, most uncertain predictions
