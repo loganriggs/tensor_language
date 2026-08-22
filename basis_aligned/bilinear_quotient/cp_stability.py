@@ -104,20 +104,26 @@ def main():
         # subspaces
         U_A, gmean_A = cp_from(A, w, L)                    # built on A
         U_B, gmean_B = cp_from(B, w, L)                    # built on B (within)
-        U_sh, _ = cp_from(B, w, L, shuffle=True)           # shuffled null on B
+        U_sh, _ = cp_from(B, w, L, shuffle=True)           # shuffled-token-label null on B
+        g = torch.Generator(device=DEV).manual_seed(hash((w, L)) & 0xffff)
+        U_rnd = torch.linalg.qr(torch.randn(D, RTOK+RPOS, generator=g, device=DEV))[0]   # random-orthonormal null
         def keepB(U, mu): SUB['op'] = 'keep'; SUB['U'] = U; SUB['mean'] = mu; c = ce_on(B); SUB['op'] = None; return round(float((ce_abl_B-c)/max(ben_B, 1e-6)), 4)
         cross = keepB(U_A, gmean_A)      # subspace from A, eval on B -> generalization
         within = keepB(U_B, gmean_B)     # subspace from B, eval on B -> in-sample
-        null = keepB(U_sh, gmean_B)      # shuffled labels
+        null_sh = keepB(U_sh, gmean_B)   # shuffled token labels (+ real position, mean preserved)
+        null_rnd = keepB(U_rnd, gmean_B) # random orthonormal subspace (the established 'useless' null)
         h.remove()
-        out[f'{w}{L}'] = {'benefit_B': round(ben_B, 3), 'within': within, 'cross': cross, 'shuffled_null': null,
-                          'gap': round(within - cross, 4)}
-        print(f'{w}{L}: benefit {ben_B:.3f} | within {within} cross {cross} (gap {within-cross:+.3f}) | shuffled {null}', flush=True)
-    gaps = [out[f'{w}{L}']['gap'] for w, L in COMPS if out[f'{w}{L}']['benefit_B'] > 0.1]
-    crosses = [out[f'{w}{L}']['cross'] for w, L in COMPS if out[f'{w}{L}']['benefit_B'] > 0.1]
-    nulls = [out[f'{w}{L}']['shuffled_null'] for w, L in COMPS if out[f'{w}{L}']['benefit_B'] > 0.1]
+        out[f'{w}{L}'] = {'benefit_B': round(ben_B, 3), 'within': within, 'cross': cross,
+                          'shuffled_null': null_sh, 'random_orth_null': null_rnd, 'gap': round(within - cross, 4)}
+        print(f'{w}{L}: benefit {ben_B:.3f} | within {within} cross {cross} (gap {within-cross:+.3f}) | shuffled {null_sh} | rand-orth {null_rnd}', flush=True)
+    big = [f'{w}{L}' for w, L in COMPS if out[f'{w}{L}']['benefit_B'] > 0.1]
+    gaps = [out[k]['gap'] for k in big]
+    crosses = [out[k]['cross'] for k in big]
+    nulls = [out[k]['random_orth_null'] for k in big]      # proper null = random orthonormal
     stable = max(gaps) < 0.10 and min(crosses) > max(nulls) + 0.1
-    out['pred_a_stable'] = bool(stable); out['max_gap'] = round(max(gaps), 4); out['runtime_s'] = time.time()-t0
+    out['pred_a_stable'] = bool(stable); out['max_gap'] = round(max(gaps), 4)
+    out['note_shuffled_null'] = 'shuffled-token null is weak (data-derived + mean preserved); random_orth is the proper null'
+    out['runtime_s'] = time.time()-t0
     json.dump(out, open(OUT, 'w'), indent=1)
     print(f'\n(a) class+position subspace is STABLE (max within-cross gap {max(gaps):.3f} < 0.10, cross >> shuffled): {stable}', flush=True)
     print(f'wrote {OUT} ({out["runtime_s"]:.0f}s)')
