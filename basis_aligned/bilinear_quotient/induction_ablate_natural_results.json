@@ -1,0 +1,38 @@
+{
+ "ablate_layer": 5,
+ "control_layer": 11,
+ "n_inductable": 3172,
+ "n_first_mention": 30466,
+ "n_other": 17362,
+ "full": {
+  "inductable": 0.692,
+  "first_mention": 4.275,
+  "other": 1.959,
+  "overall": 3.263
+ },
+ "ablate_L5": {
+  "inductable": 3.642,
+  "first_mention": 6.427,
+  "other": 3.472,
+  "overall": 5.247
+ },
+ "ablate_L11_control": {
+  "inductable": 0.684,
+  "first_mention": 4.323,
+  "other": 1.966,
+  "overall": 3.295
+ },
+ "L5_increase": {
+  "inductable": 2.95,
+  "first_mention": 2.152,
+  "other": 1.513
+ },
+ "L11_increase": {
+  "inductable": -0.008,
+  "first_mention": 0.048,
+  "other": 0.007
+ },
+ "runtime_s": 174.2,
+ "L5_inductable_over_firstmention": 1.37,
+ "pred_a_L5_is_copy_discount": false
+}

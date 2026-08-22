@@ -131,9 +131,10 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
 1d. **Bottom-up LAYER MAP (mechanism + geometry, keep-only-free; §841→858).** FRONT (0-5): mlp0 = bank of
    bilinear SHARPENING self-product class-detectors (grammatical class), attn0 = COPY-SOURCE (writes prev-token,
    decode 0.86); mlp1 RE-EXPANDS the class-collapsed geometry (eff-dim 20→47) folding in class+position+modest
-   prev/fine-token; L2-4 refine; attn5 = the INDUCTION/COPY head (§877 — gates ~all induction: synthetic 2nd-copy
-   1.29 vs 13.09; its earlier-mysterious "content" help IS copying seen content words), fed by the attn0 prev-token
-   head in a front-layer induction chain (L0-L5); explains seen-token cheapness (inductable bigram 0.68 vs 3.55). MIDDLE (6-14): mechanism NAMED (§869/§870) — ATTENTION is the TOPIC AGGREGATOR (topic-decode rises
+   prev/fine-token; L2-4 refine; attn5 = the early CONTENT head AND the induction GATE (§877/§878 — ablating L5
+   collapses ~all induction: synthetic 2nd-copy 1.29 vs 13.09; natural inductable 0.69→3.64 while control L11 does
+   nothing; fed by the attn0 prev-token head in a front chain L0-L5). NOT pure induction: L5 also aids first-mentions
+   (+2.15), copy-specific effect ~0.8 nats. Explains seen-token cheapness (inductable bigram 0.68 vs 3.55). MIDDLE (6-14): mechanism NAMED (§869/§870) — ATTENTION is the TOPIC AGGREGATOR (topic-decode rises
    0.37→0.85 across depth, gains ALL from attention: every layer's attn-increment +, middle +0.205 vs MLP
    −0.016), MLPs are TOPIC READERS/word-generators (read topic-organized input 3-4× at all depths but don't
    raise topic decodability). Matches the geometry (re-inflates eff-dim to peak 51 by L9 into content dims;

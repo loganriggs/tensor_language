@@ -26554,3 +26554,25 @@ attn0 writes the previous token (prev-token head), the front builds the match ke
 copy — the standard two-step induction circuit (prev-token head -> copy head), here spread over L0-L5 and
 gated at L5. This ties §876 (seen tokens cheap) to a concrete mechanism (induction) and names attn5.
 Artifact attn5 paragraph + FINDINGS updated.
+
+## §878 — L5 IS the induction site (vs control), but it is a multi-function CONTENT head, not a pure induction head (induction_ablate_natural.py)
+
+Ablated L5 attention on FineWeb and split next-token loss by position type. Full model: inductable-bigram
+0.692, first-mention 4.275, other 1.959 (reproduces §876/§877). Ablating L5: inductable jumps to 3.642
+(+2.95), first-mention to 6.427 (+2.15), other to 3.472 (+1.51). Control layer L11 ablation: ~ZERO on both
+(inductable -0.008, first-mention +0.048).
+
+READING (honest, two parts):
+ 1. L5 IS the induction site — the L5-vs-L11 contrast is decisive: removing L5 collapses the inductable copy
+    discount (0.69 -> 3.64, up to ~the first-mention level) while removing a middle topic layer does nothing.
+    Confirms §877 causally on natural text.
+ 2. But L5 is NOT a PURE induction head — ablating it also hurts FIRST-mentions (+2.15), which have nothing to
+    copy, so L5 also does general content aggregation. The copy-SPECIFIC effect on natural data is ~0.8 nats
+    (inductable hit 2.95 minus first-mention hit 2.15); the rest of L5's effect is broad content help. So L5
+    is the main early CONTENT head, of which induction is ONE function. Pred (a) "inductable increase >> 2x
+    first-mention increase" = FALSE (ratio 1.37) — L5 is multi-function.
+This refines §877/the artifact: L5 = early content head AND the induction gate (both true); the synthetic
+test isolated its pure-copy capability (§877, drop 11.3), while on natural text copy is one of several jobs
+and the copy-specific discount is modest (~0.8 nats) because natural inductable tokens are also predictable
+from topic/frequency. Artifact L5 wording softened from "it is the induction head" to "the early content head
+and the induction gate."
