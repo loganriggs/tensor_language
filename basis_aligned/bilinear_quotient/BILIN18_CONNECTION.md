@@ -27238,3 +27238,27 @@ captured by low-rank cross-products of (token, prev, topic); it is a higher-dime
 computation over the content representation, not a few named-variable interactions. Consistent with §910
 (the middle is a genuine high-rank bilinear content mixer). The productive lever for the middle is more
 CONTENT rank, not named-variable cross-products.
+
+## §912 — the class variable is CONTINUOUSLY RE-WRITTEN layer by layer (rotation is distributed, not a point); traces the intermediates §897 skipped (class_carrier_trace.py)
+
+Per-layer decomposition of the class subspace into carried-from-below vs newly-written, with alignment to the
+front-WRITE (mlp0) and readout-READ (lm_head) bases at every layer (the intermediates the direct L0↔L15
+comparison, §895, skipped):
+ - carried(resid_L vs resid_{L-1}): 0.49 (L0→L1) → ~0.85 (middle, stable) → 0.75 (readout). Rotation is
+   FASTEST at the front (L0→L1 0.49) and readout, gradual through the middle.
+ - just-wrote(resid_L vs this-layer WRITE): 0.88 (front) → 0.33 (L14) → 0.56 (L17). Each layer adds FRESH
+   class, most at the ends; the middle's residual class is more carried, less freshly-written.
+ - resid→front-write: 0.88 (L0) → steadily DECAYS → 0.08 (L17).  resid→readout-read: 0.07 → RISES → 0.18
+   (peak L14) → 0.11 (L17).  The newly-written class CROSSES from front-aligned to readout-aligned at L11.
+ - KEY: NEITHER weight basis strongly aligns at ANY layer (max resid→front 0.88 only at L0; max resid→read
+   0.18). The class variable's actual subspace is a MAINTAINED REPRESENTATION distinct from both raw weight
+   bases — the activation subspace is the truth at each layer (confirms §895 bottom-up).
+
+ANSWER to the bottom-up question (user): the class variable is NOT transported from L0 to L15 — it is
+CONTINUOUSLY RE-WRITTEN. Each layer writes class in its own (evolving) directions; the residual class subspace
+is a running mix (~0.85 carried + fresh writes). So there is no single "rotation layer" — the write basis
+drifts steadily away from mlp0's and crosses to readout-ward around L11, gradually across the whole stack. The
+correct "intermediate" between the L0-write and the L15-read is EACH layer's own activation class subspace,
+linked by ~0.85 carry + per-layer re-writing. This is why front-write weights fail to identify the variable at
+L15 (§895): by then it has been re-written a dozen times into a different, maintained subspace. Refines §897
+("rotation") to "continuous re-writing, distributed across depth, crossover ~L11". Artifact/FINDINGS updated.

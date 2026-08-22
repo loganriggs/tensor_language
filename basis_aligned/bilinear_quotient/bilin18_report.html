@@ -1897,14 +1897,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   more often than swapping a random subspace, and swapping the topic subspace between two passages moves the
   prediction toward the donor's subject by ~0.7 nats over a random swap. So the class and topic variables are
   real causal handles; steering was just the wrong lever.</p>
-  <p><strong>Variables rotate through the stack.</strong> Which weights identify a variable depends on where you
-  look, because the variable's direction turns as it flows. The class subspace starts aligned with the weights
-  that <em>write</em> it (layer-0 MLP, overlap 0.29) and, across depth, rotates away from them and toward the
-  weights the readout uses to <em>read</em> it (overlap climbs from 0.07 to about 0.18) — turning fastest at the
-  front and the readout, sitting still through the middle, exactly where the geometry re-clusters. So the
-  front-write weights that name the variable at layer 0 no longer match it at layer 15; you must read it from the
-  component acting there (or, most reliably, from the activations — a learned/DAS subspace does no better than the
-  plain class-conditional-mean directions, so those <em>are</em> the variable).</p>
+  <p><strong>Variables are continuously re-written through the stack.</strong> Which weights identify a variable
+  depends on where you look, and tracing it layer by layer (rather than jumping from layer 0 to layer 15) shows
+  why: the class variable is not transported, it is <em>re-written at every layer</em>. Each layer adds fresh
+  class in its own directions; the running subspace is about 85% carried from the layer below plus a fresh write
+  on top. Its alignment with the layer-0 write weights decays steadily (0.88 → 0.08), and its alignment with the
+  readout's read weights rises (0.07 → 0.18), the freshly-written class crossing from write-aligned to read-aligned
+  around layer 11 — a gradual drift across the whole stack, fastest at the front and the readout, not a single
+  rotation point. And at no layer does either raw weight basis match the variable strongly (the write weights only
+  at layer 0, the read weights peaking at 0.18): the variable lives in a <em>maintained</em> subspace of the
+  activations that the weights only partially name. So the front-write weights fail to identify it at layer 15
+  because by then it has been re-written a dozen times; the honest handle is each layer's own activation subspace
+  (a learned/DAS subspace does no better than the plain class-conditional-mean directions, so those <em>are</em>
+  the variable).</p>
   <p><strong>How much of each layer is a variable we can write down.</strong> Replace a component with a lookup
   table keyed on our named variables and see how much of the loss it keeps, on a scale from mean-ablation (0) to
   the full model (1). The front is almost fully a token table — layer-0 MLP scores 0.94, a clean
