@@ -27408,3 +27408,20 @@ GRAMMAR machine — low-rank, multi-axis part-of-speech, current→predictive (�
 MLPs write surface class; back MLPs convert to words; the middle contextualizes. Understanding benchmark:
 ~0.41 of the model as generalizing named concepts (§906), grammar essentially solved, content the frontier.
 Artifact/FINDINGS finalized.
+
+## §921 — class channel controls the predicted word's PART-OF-SPEECH (clean); topic-channel word-role INCONCLUSIVE (metric too sparse) (word_recombination.py)
+
+Ablating each channel at L15, measuring the predicted token's class-match (grammar) vs topic-match (subject):
+baseline class-match 0.672 / topic-match 0.073. Ablate CLASS: class 0.459 (−0.213) / topic 0.066 (−0.007) —
+cleanly breaks the predicted word's PART-OF-SPEECH, not its topic. Ablate TOPIC: class 0.669 (−0.003) / topic
+0.069 (−0.004) — negligible on both. Random ablation: no effect.
+
+HONEST READING: the CLASS channel causally controls the grammar of the predicted word (−0.21 class-match, clean
+double-dissociation on the class side). But the TOPIC-channel half is INCONCLUSIVE: baseline topic-match is only
+0.073 (most predictions at most positions are common/function words, NOT topic-distinctive content words, §876),
+so the distinctive-token metric is far too sparse to detect the topic channel's contribution (ablation effect
+−0.004 ≈ noise). pred(a) passed only on tiny numbers (0.004 vs 0.003) — NOT real evidence for the topic half.
+So "word = class ∩ topic" is confirmed for the CLASS half (grammar-of-word) and NOT YET shown for the topic
+half. Retesting the topic half with a cleaner metric: ablate each channel and measure the chain-rule CE split —
+class-ablation should raise class-CE (grammar loss), topic-ablation should raise within-CE (content loss) — a
+loss-based double dissociation that doesn't depend on sparse distinctive-token matches (word_recombination_ce).

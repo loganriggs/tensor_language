@@ -1,0 +1,6 @@
+baseline: class-match 0.672 topic-match 0.073
+ablate CLASS: class 0.459 (−0.213) topic 0.066 (−0.007)
+ablate TOPIC: class 0.669 (−0.003) topic 0.069 (−0.004)
+ablate RANDOM: class 0.673 topic 0.075
+(a) word = class∩topic (double dissociation): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/word_recombination_results.json (62.4s)

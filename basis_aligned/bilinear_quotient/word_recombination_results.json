@@ -1,0 +1,24 @@
+{
+ "baseline": {
+  "class_match": 0.672,
+  "topic_match": 0.073
+ },
+ "ablate_class": {
+  "class_match": 0.459,
+  "topic_match": 0.066
+ },
+ "ablate_topic": {
+  "class_match": 0.669,
+  "topic_match": 0.069
+ },
+ "ablate_random": {
+  "class_match": 0.673,
+  "topic_match": 0.075
+ },
+ "class_ablation_hits_class": 0.213,
+ "class_ablation_hits_topic": 0.007,
+ "topic_ablation_hits_class": 0.003,
+ "topic_ablation_hits_topic": 0.004,
+ "runtime_s": 62.4,
+ "pred_a_intersection": true
+}
