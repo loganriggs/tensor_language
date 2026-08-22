@@ -28347,3 +28347,25 @@ COMPLETES the causal-across-depth account: CONTENT is written once and accumulat
 middle depth, growing effect §961); CLASS is re-derived every block (98% rebuilt after early removal, only
 late-patchable §961). The leaky λ0 residual + λ1 token re-injection is what lets the model re-derive class each
 block. Two machines, two persistence regimes: accumulate (content) vs re-derive (grammar).
+
+## §963 — CORRECTION: BOTH content and class are RE-DERIVED after early ablation; the distinction is re-derivation SPEED, not carried-vs-rederived (content_persistence.py)
+
+Symmetric companion to §962. Ablate the content subspace at L8, decode L15 topic (base 0.194):
+  clean L15 topic 0.863 | after-L8-ablation 0.841 (recovers 96.7%) | after-L15-ablation 0.077 (destroyed).
+Content recovers 96.7% after early ablation — NEARLY IDENTICAL to class's 98.2% (§962). pred (a) "content less
+re-derived" technically TRUE but by only 1.5 points ~ NULL.
+CORRECTION (stated plainly; propagated to artifact): my §961/§962 framing "content ACCUMULATES/persists (carried)
+vs class RE-DERIVED" is WRONG/oversimplified. BOTH machines are RE-DERIVED after early ablation — removing either
+class or topic at an early/mid layer is ~fully rebuilt by L15 (98% / 97%). NEITHER is "carried up the stream";
+both are recomputed from context/token through the middle (the leaky λ0 residual + λ1 token re-injection lets the
+model rebuild both).
+THE REAL DISTINCTION is re-derivation SPEED/mechanism, which reconciles with the §961 INTERCHANGE asymmetry:
+ - CLASS is re-derived FAST — per-block from the current TOKEN (a simple token function). So an injected class
+   patch is washed within a couple blocks -> only a LATE (L15) patch sticks (§961: L2 patch fails).
+ - CONTENT is re-aggregated SLOWLY — by LONG-RANGE attention pooling over many layers (§929/§932). So an injected
+   content patch is washed only gradually -> it survives partially even from mid-depth and its effect GROWS toward
+   the readout (§961: L8 +0.12 -> L15 +0.75).
+So ablation-recovery is ~equal (both re-derived), but PATCH-persistence differs because the re-derivation
+TIMESCALE differs (class fast/per-block, content slow/long-range). The honest statement: two machines, both
+re-derived, but at different speeds — fast local (grammar) vs slow long-range (content). This CORRECTS the
+"accumulate vs re-derive" dichotomy. Good that the symmetric test caught the oversimplification before it stood.
