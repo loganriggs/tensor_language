@@ -1,0 +1,7 @@
+overall: entropy 3.252 vs CE 3.263 (calibration) | entropy-loss corr 0.577
+     inductable: entropy 1.558 | CE 0.692 | top1 0.707 | gap 0.866
+     seen_other: entropy 2.803 | CE 1.959 | top1 0.439 | gap 0.845
+  first_mention: entropy 3.684 | CE 4.275 | top1 0.329 | gap -0.591
+is-first-mention decode by layer: {'L0': 0.655, 'L2': 0.689, 'L5': 0.71, 'L8': 0.721, 'L11': 0.722, 'L14': 0.72, 'L17': 0.709} (majority 0.403, shuffled 0.573)
+(a) uncertainty represented + computed internally: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/uncertainty_repr_results.json (75.4s)

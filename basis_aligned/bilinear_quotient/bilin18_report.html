@@ -1857,6 +1857,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   </svg><figcaption>Each bar is one kind of next-token position; its width is the nats of loss those tokens
   contribute (fraction of tokens × their mean cross-entropy), split into grammar and content. First mentions
   dominate; induction is nearly free.</figcaption></figure>
+
+  <p><strong>Does the model know when it is guessing?</strong> Mostly. Its predictive entropy — how uncertain
+  it says it is — is well-calibrated on average (3.25 nats of entropy against 3.26 of actual loss) and tracks
+  the situation: it is confident on a copyable repeat (1.6 nats), unsure on a genuinely new word (3.7), with
+  seen-again words in between, and its per-token entropy correlates with its per-token loss at 0.58. So the
+  budget's structure is reflected in the model's own confidence — it represents which kind of prediction it is
+  making. But the calibration is uneven in a telling way: it is <em>over-cautious</em> on the easy tokens
+  (hedging more than it needs to on repeats) and <em>over-confident</em> on first mentions — most peaked exactly
+  where it should be least sure. The "this is a new word" situation is weakly decodable from the residual
+  throughout the stack (a little above the 60% base rate), so the signal is computed internally; the model just
+  doesn't fully act on it when it commits to a new-word guess.</p>
 </section>
 
 <section class="col">

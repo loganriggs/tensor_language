@@ -1,0 +1,38 @@
+{
+ "overall_entropy": 3.252,
+ "overall_ce": 3.263,
+ "entropy_loss_corr": 0.577,
+ "buckets": {
+  "inductable": {
+   "entropy": 1.558,
+   "ce": 0.692,
+   "top1_prob": 0.707,
+   "calib_gap_H_minus_CE": 0.866
+  },
+  "first_mention": {
+   "entropy": 3.684,
+   "ce": 4.275,
+   "top1_prob": 0.329,
+   "calib_gap_H_minus_CE": -0.591
+  },
+  "seen_other": {
+   "entropy": 2.803,
+   "ce": 1.959,
+   "top1_prob": 0.439,
+   "calib_gap_H_minus_CE": 0.845
+  }
+ },
+ "first_mention_decode_by_layer": {
+  "L0": 0.655,
+  "L2": 0.689,
+  "L5": 0.71,
+  "L8": 0.721,
+  "L11": 0.722,
+  "L14": 0.72,
+  "L17": 0.709
+ },
+ "decode_majority_baseline": 0.403,
+ "shuffled_decode": 0.573,
+ "runtime_s": 75.4,
+ "pred_a_uncertainty_represented": true
+}

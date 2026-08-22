@@ -26788,3 +26788,25 @@ Topic/content causality is better evidenced by the non-steering interventions (�
 first-mention, §874 geometry); grammar's is the low-rank class channel the readout reads hard (§851) plus
 §823's front steering. The two-machine distinction remains STRUCTURAL (rank/locality/context), now with an
 accurate ~2× steering footnote. Artifact/FINDINGS updated to the matched-alpha numbers.
+
+## §889 — the model REPRESENTS its uncertainty (entropy tracks difficulty) but is MISCALIBRATED by situation: overconfident on new words, overcautious on repeats (uncertainty_repr.py)
+
+Predictive entropy + calibration by position type. GLOBAL: entropy 3.252 ~ CE 3.263 (well-calibrated on
+average); entropy-loss Pearson 0.577 (the model's own uncertainty predicts per-token difficulty — "knows when
+it doesn't know"). BY BUCKET, entropy tracks difficulty monotonically (inductable 1.56 < seen-other 2.80 <
+first-mention 3.68), so the model represents WHICH situation it is in. But the calibration gap (H − CE) is
+UNEVEN: inductable +0.87 and seen-other +0.85 (OVERCAUTIOUS — hedges more than needed on predictable tokens),
+first-mention −0.59 (OVERCONFIDENT — more peaked than warranted exactly on the genuinely-open new words). So
+the good global calibration masks a systematic asymmetry: under-commit on the easy, over-commit on the hard.
+(The 30·tanh output clamp caps logit magnitude, which would only INCREASE entropy — so the first-mention
+overconfidence is genuine, not a clamp artifact.)
+
+INTERNAL SIGNAL: "is-this-a-first-mention" is decodable from every layer — 0.655 (L0) → 0.72 (L8-11) → 0.71
+(L17). CORRECTION: the script's printed "majority 0.403" was the MINORITY fraction (a baseline bug); the true
+majority baseline is 0.597 (60% of positions are first-mentions) and the shuffled-label null is 0.573 ≈ that
+chance. So the real decode margin is MODEST — ~+0.12 over chance (0.72 vs 0.597), not the large gap the wrong
+baseline implied. Honest read: the model computes a WEAK internal signal of the uncertainty situation, present
+already at L0 (token-frequency-correlated) and peaking mid-stack. Pred (a) uncertainty-represented = TRUE
+(entropy monotone + corr 0.577 + decode above chance), but the internal-decode strength was overstated by the
+baseline bug — corrected here. Next: is this calibration asymmetry universal (gpt2/large)? Artifact gets the
+calibration finding.
