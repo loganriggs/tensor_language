@@ -1,0 +1,8 @@
+L 1 variance share: {'gg': 0.347, 'gc': 0.089, 'cg': 0.087, 'cc': 0.142} | recon-residual 0.00009
+L 8 variance share: {'gg': 0.166, 'gc': 0.127, 'cg': 0.126, 'cc': 0.352} | recon-residual 0.00022
+L11 variance share: {'gg': 0.396, 'gc': 0.089, 'cg': 0.09, 'cc': 0.195} | recon-residual 0.00007
+L15 variance share: {'gg': 0.912, 'gc': 0.031, 'cg': 0.031, 'cc': 0.073} | recon-residual 0.00002
+L 1 ablation Δce: {'gg': 0.1366, 'gc': 0.0103, 'cg': 0.0097, 'cc': 0.0167}
+L11 ablation Δce: {'gg': 0.0117, 'gc': 0.004, 'cg': 0.0031, 'cc': 0.0078}
+(a) middle multiplies content x content (cc dominates variance+ablation at L11): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_interaction_terms_results.json (47.9s)

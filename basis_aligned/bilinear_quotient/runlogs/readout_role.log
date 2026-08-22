@@ -1,0 +1,13 @@
+[tier2_model] hub unreachable for Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd/config.json (RemoteProtocolError); using local cache
+ce_full 3.2634
+  logit-lens L12: CE 7.6972
+  logit-lens L13: CE 7.2831
+  logit-lens L14: CE 6.7666
+  logit-lens L15: CE 5.8206
+  logit-lens L16: CE 4.0856
+  logit-lens L17: CE 3.2634
+L16: skip Δce +1.7057 | mean-ablate Δce +4.8652
+L17: skip Δce +0.8222 | mean-ablate Δce +6.4981
+L15 logit-lens gap to final +2.5572
+(a) readout = late linear refinement (L15 close, skip<meanablate): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/readout_role_results.json (39.2s)

@@ -27891,3 +27891,29 @@ last blocks refine the residual almost linearly for output. METRIC NOTE: R^2 (ou
 different, coarser metric than §941's loss-recovery (bilin18 front R^2 0.51 vs §941 loss-frac 0.90); only the
 cross-model QUALITATIVE arc (middle dip) is compared, and it is robust. Closes the "why the middle is the
 frontier" question with a cross-model confirmation: the middle is where transformers compute nonlinearly.
+
+## §943 — what the middle multiplies is NOT cleanly content×content: it is largely TOKEN-CONDITIONAL (middle_interaction_terms.py)
+
+Exact bilinear factoring (recon-residual ~1e-4 everywhere, sanity OK): output-bias = gg + gc + cg + cc, where
+g = grammar/struct subspace (token+pos+class, rank 104) and c = content (rest). Variance share (||term||^2 /
+||sum||^2) and causal ablation Δce:
+  layer   gg     gc     cg     cc      | ablation Δce (gg/gc/cg/cc)
+  L1     0.347  0.089  0.087  0.142    | 0.137 / 0.010 / 0.010 / 0.017   <- gg dominates (front)
+  L8     0.166  0.127  0.126  0.352    | (not ablated)                    <- cc dominates HERE
+  L11    0.396  0.089  0.090  0.195    | 0.012 / 0.004 / 0.003 / 0.008   <- gg dominates, cc second
+  L15    0.912  0.031  0.031  0.073    | (not ablated)                    <- gg dominates massively
+pred (a) "middle multiplies content x content" FALSE: cc is dominant only at L8; gg dominates L1, L11, L15, and
+gg has the largest ablation cost at both tested layers (L1 0.137, L11 0.012).
+HONEST READING + CAVEATS: (i) the "grammar" subspace here is token+pos+class (rank 104), DOMINATED by TOKEN
+identity (rank 64) — so "gg" is really STRUCT(token) x STRUCT(token), not grammatical-class x class. So the
+finding is that the middle's largest-magnitude and most-causal products are TOKEN-CONDITIONAL (products involving
+the token/struct subspace), with genuine content x content a smaller part (dominant only at L8). This ALIGNS with
+§936/§938: the middle multiplication's bulk is the per-token / embedding-similarity structure (the dominant
+content-term slice), and long-range topic content x content is a minority. (ii) the variance-share metric is
+imperfect: the four terms partially CANCEL (negative cross-covariance), so shares sum to <1 (e.g. L1 ~0.665); use
+it qualitatively. (iii) middle ablation costs are TINY (~0.01 nats, redundant §940/§941). So the clean "middle =
+content mixing" hypothesis is REFUTED/refined: the middle's multiplicative computation is largely
+token-conditional nonlinear feature-building, with content x content a secondary component peaking mid-stack
+(L8). A cleaner 3-way split (token vs class vs content, distinguishing token x token from class x content) is a
+possible follow-up, but the qualitative conclusion (token-conditional products dominate, content x content is
+minority) is robust to the metric caveats.
