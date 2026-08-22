@@ -27872,3 +27872,22 @@ content/middle arc: grammar = front + linear + low-rank (solved); content = midd
 + high-rank continuum (irreducible to linear stand-ins by construction); readout = linear. The benchmark's
 remaining ~0.58 IS this middle multiplicative computation. Confirms the artifact's earlier bilinearity claim with
 a direct per-layer causal measurement. Artifact: add the linear->multiplicative->linear arc.
+
+## §942 — the middle-nonlinearity dip is UNIVERSAL across model families (middle_nonlinearity_crossmodel.py)
+
+Generalizes §941. Per-layer held-out R^2 of a LINEAR map from each MLP's input to its output (variance of output
+explained by a linear read); low R^2 = nonlinearity heavily used. Front/middle/back band means:
+  bilin18 (bilinear MLP): front 0.505  middle 0.292  back 0.499   (per-layer: 0.59->dip 0.21@L14->0.89/0.93 readout)
+  gpt2 (GELU):            front 0.688  middle 0.226  back 0.327   (L2 0.99 -> dip 0.16@L7 -> 0.50 readout)
+  gpt2-large (GELU):      front 0.476  middle 0.182  back 0.255   (early bump 0.89@L8 -> long valley 0.12 -> rise)
+Shuffled-input null R^2 ~0 everywhere. pred (a) universal-middle-dip TRUE (middle < front AND middle < back in all
+three).
+READING: the linear->nonlinear->linear depth arc (§941) is a GENERAL property of transformer computation, NOT a
+bilinear-architecture quirk — GPT-2's GELU MLPs show the same middle dip. Front and readout MLPs are more
+linearly-readable functions of their input; the MIDDLE layers use their nonlinearity most heavily, in every model.
+Joins the universality thread (§925 separability, §937 bag-of-words topic, §880 loss budget, §831 the 23/77
+split): these models share deep structure. bilin18's readout linearizes hardest (L16/L17 R^2 0.89/0.93) — the
+last blocks refine the residual almost linearly for output. METRIC NOTE: R^2 (output-variance explained) here is a
+different, coarser metric than §941's loss-recovery (bilin18 front R^2 0.51 vs §941 loss-frac 0.90); only the
+cross-model QUALITATIVE arc (middle dip) is compared, and it is robust. Closes the "why the middle is the
+frontier" question with a cross-model confirmation: the middle is where transformers compute nonlinearly.
