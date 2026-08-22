@@ -28330,3 +28330,20 @@ class is RE-DERIVED downstream, so it can only be steered LATE. Completes the "n
 depth: both variables are causal (compositional control §959/§960 at L15), but content is depth-robustly
 addressable while class is only late-addressable. Deepens §916 (class context-dependent/re-derived) with a direct
 causal interchange-by-depth test.
+
+## §962 — DIRECT DEMONSTRATION: class is fully RE-DERIVED across the middle (98% recovered) (class_rederivation.py)
+
+Ablate the class subspace at L2, decode next-token class from L15; vs within-layer L15 ablation. base rate 0.453.
+  clean L15 next-class decode:        0.676
+  after L2 class-subspace ablation:   0.672   -> RECOVERS 98.2% of the clean L15 accuracy
+  after L15 class-subspace ablation:  0.454   -> = base rate (destroyed)
+pred (a) re-derived TRUE. DIRECT mechanistic demonstration: removing class EARLY (L2) has almost NO effect on L15
+(class-decode 0.672 ~= clean 0.676) — the middle layers REBUILD class from the token between L2 and L15; but
+removing it AT L15 (the read layer) drops it to base. So class is CONTINUOUSLY RE-DERIVED, not carried: an early
+edit is overwritten downstream, only a late edit at the layer being read persists. This is precisely the mechanism
+behind §961 (class only LATE-addressable by interchange; content depth-robust because it ACCUMULATES) and confirms
+§916/§917 (class context-dependent/re-derived, not maintained) with a clean causal ablate-early/decode-late test.
+COMPLETES the causal-across-depth account: CONTENT is written once and accumulates (persists, patchable at any
+middle depth, growing effect §961); CLASS is re-derived every block (98% rebuilt after early removal, only
+late-patchable §961). The leaky λ0 residual + λ1 token re-injection is what lets the model re-derive class each
+block. Two machines, two persistence regimes: accumulate (content) vs re-derive (grammar).
