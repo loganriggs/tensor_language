@@ -1,0 +1,22 @@
+L 0: next-class in 0.532 -> after-attn 0.549 (++0.016) -> out 0.561 (mlp +0.012)
+L 1: next-class in 0.561 -> after-attn 0.573 (++0.012) -> out 0.583 (mlp +0.010)
+L 2: next-class in 0.583 -> after-attn 0.588 (++0.005) -> out 0.598 (mlp +0.010)
+L 3: next-class in 0.598 -> after-attn 0.599 (++0.001) -> out 0.611 (mlp +0.012)
+L 4: next-class in 0.611 -> after-attn 0.612 (++0.001) -> out 0.617 (mlp +0.005)
+L 5: next-class in 0.617 -> after-attn 0.627 (++0.011) -> out 0.633 (mlp +0.005)
+L 6: next-class in 0.633 -> after-attn 0.639 (++0.007) -> out 0.643 (mlp +0.004)
+L 7: next-class in 0.643 -> after-attn 0.645 (++0.003) -> out 0.650 (mlp +0.005)
+L 8: next-class in 0.650 -> after-attn 0.655 (++0.005) -> out 0.658 (mlp +0.004)
+L 9: next-class in 0.658 -> after-attn 0.663 (++0.005) -> out 0.662 (mlp -0.001)
+L10: next-class in 0.662 -> after-attn 0.667 (++0.004) -> out 0.666 (mlp -0.000)
+L11: next-class in 0.666 -> after-attn 0.671 (++0.005) -> out 0.669 (mlp -0.002)
+L12: next-class in 0.669 -> after-attn 0.676 (++0.007) -> out 0.669 (mlp -0.007)
+L13: next-class in 0.669 -> after-attn 0.676 (++0.006) -> out 0.670 (mlp -0.005)
+L14: next-class in 0.670 -> after-attn 0.675 (++0.005) -> out 0.669 (mlp -0.006)
+L15: next-class in 0.669 -> after-attn 0.675 (++0.005) -> out 0.669 (mlp -0.006)
+L16: next-class in 0.669 -> after-attn 0.676 (++0.007) -> out 0.668 (mlp -0.008)
+L17: next-class in 0.668 -> after-attn 0.674 (++0.006) -> out 0.663 (mlp -0.011)
+
+total attn-increment 0.11 vs mlp-increment 0.02 | shuffled null 0.445
+(a) attention builds predictive grammar (next-class): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/next_class_emergence_results.json (43.0s)

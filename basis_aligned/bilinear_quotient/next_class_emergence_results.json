@@ -1,0 +1,135 @@
+{
+ "layers": {
+  "L0": {
+   "block_in": 0.532,
+   "after_attn": 0.549,
+   "block_out": 0.561,
+   "attn_inc": 0.016,
+   "mlp_inc": 0.012
+  },
+  "L1": {
+   "block_in": 0.561,
+   "after_attn": 0.573,
+   "block_out": 0.583,
+   "attn_inc": 0.012,
+   "mlp_inc": 0.01
+  },
+  "L2": {
+   "block_in": 0.583,
+   "after_attn": 0.588,
+   "block_out": 0.598,
+   "attn_inc": 0.005,
+   "mlp_inc": 0.01
+  },
+  "L3": {
+   "block_in": 0.598,
+   "after_attn": 0.599,
+   "block_out": 0.611,
+   "attn_inc": 0.001,
+   "mlp_inc": 0.012
+  },
+  "L4": {
+   "block_in": 0.611,
+   "after_attn": 0.612,
+   "block_out": 0.617,
+   "attn_inc": 0.001,
+   "mlp_inc": 0.005
+  },
+  "L5": {
+   "block_in": 0.617,
+   "after_attn": 0.627,
+   "block_out": 0.633,
+   "attn_inc": 0.011,
+   "mlp_inc": 0.005
+  },
+  "L6": {
+   "block_in": 0.633,
+   "after_attn": 0.639,
+   "block_out": 0.643,
+   "attn_inc": 0.007,
+   "mlp_inc": 0.004
+  },
+  "L7": {
+   "block_in": 0.643,
+   "after_attn": 0.645,
+   "block_out": 0.65,
+   "attn_inc": 0.003,
+   "mlp_inc": 0.005
+  },
+  "L8": {
+   "block_in": 0.65,
+   "after_attn": 0.655,
+   "block_out": 0.658,
+   "attn_inc": 0.005,
+   "mlp_inc": 0.004
+  },
+  "L9": {
+   "block_in": 0.658,
+   "after_attn": 0.663,
+   "block_out": 0.662,
+   "attn_inc": 0.005,
+   "mlp_inc": -0.001
+  },
+  "L10": {
+   "block_in": 0.662,
+   "after_attn": 0.667,
+   "block_out": 0.666,
+   "attn_inc": 0.004,
+   "mlp_inc": -0.0
+  },
+  "L11": {
+   "block_in": 0.666,
+   "after_attn": 0.671,
+   "block_out": 0.669,
+   "attn_inc": 0.005,
+   "mlp_inc": -0.002
+  },
+  "L12": {
+   "block_in": 0.669,
+   "after_attn": 0.676,
+   "block_out": 0.669,
+   "attn_inc": 0.007,
+   "mlp_inc": -0.007
+  },
+  "L13": {
+   "block_in": 0.669,
+   "after_attn": 0.676,
+   "block_out": 0.67,
+   "attn_inc": 0.006,
+   "mlp_inc": -0.005
+  },
+  "L14": {
+   "block_in": 0.67,
+   "after_attn": 0.675,
+   "block_out": 0.669,
+   "attn_inc": 0.005,
+   "mlp_inc": -0.006
+  },
+  "L15": {
+   "block_in": 0.669,
+   "after_attn": 0.675,
+   "block_out": 0.669,
+   "attn_inc": 0.005,
+   "mlp_inc": -0.006
+  },
+  "L16": {
+   "block_in": 0.669,
+   "after_attn": 0.676,
+   "block_out": 0.668,
+   "attn_inc": 0.007,
+   "mlp_inc": -0.008
+  },
+  "L17": {
+   "block_in": 0.668,
+   "after_attn": 0.674,
+   "block_out": 0.663,
+   "attn_inc": 0.006,
+   "mlp_inc": -0.011
+  }
+ },
+ "shuffled_null": 0.445,
+ "total_attn_inc": 0.11,
+ "total_mlp_inc": 0.02,
+ "pred_attn_builds_predictive_grammar": true,
+ "runtime_s": 43.0
+}

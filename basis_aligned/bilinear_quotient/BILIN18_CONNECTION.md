@@ -27350,3 +27350,22 @@ top. Names the middle's job in the grammar machine: contextualize the current to
 the next token's grammatical class. Completes the class-machine thread (§915 multi-axis surface class at the
 front → §916 context-dependent class in the middle → §917 shifting toward next-token prediction). Artifact
 updated.
+
+## §918 — predictive grammar (next-token class) is built by ATTENTION, like topic; back MLPs consume it into words (next_class_emergence.py)
+
+Decoding next-token class from block-input / after-attn / block-output at each layer: next-class rises
+0.532 → 0.67 (chance/shuffled-null 0.445). EVERY layer's ATTENTION step adds (+0.001..+0.016; total attn
+increment +0.11), while MLP increments are POSITIVE in the front (mlp0-8, +0.004..+0.012) but NEGATIVE in the
+back (mlp9-17, down to −0.011; total mlp +0.02, net small). Pred (a) attention-builds-predictive-grammar =
+TRUE.
+
+UNIFYING FINDING: ATTENTION is the context-aggregator for BOTH the predictive grammar (next-token class,
+§918) and the topic/content (§870) — both rise monotonically across depth driven by the attention increments.
+The MLPs split by band: FRONT MLPs WRITE the current token's surface class (§915/§916, and here add next-class
+too), BACK MLPs CONSUME class (their negative next-class increments = converting the class representation into
+specific-word logits, consistent with the readout emitting words §861). So the grammar machine, bottom-up:
+front MLP writes current-token multi-axis surface class (§915) → attention aggregates context across depth to
+build predictive next-token-class grammar (§918) AND topic (§870), while the middle MLPs contextualize (§916)
+→ back MLPs convert the class into word logits. Attention = the shared context engine for grammar-prediction
+and content; MLPs = write (front) and read-out-to-words (back). Completes the grammar-machine account. Artifact/
+FINDINGS updated.
