@@ -28172,3 +28172,23 @@ exist and are localizable at head granularity, but the circuit is redundant — 
 INDUCTION THREAD COMPLETE: front attention hosts induction (§952) -> layer-distributed (§953) -> identifiable-
 but-redundant heads L2h5/L5h5/L8h3/... (§954). Fits the model's unifying theme (distributed super-additive
 circuits: content §948, pooling §931, induction §953/§954).
+
+## §955 — the identified induction heads are a genuine specific cooperative set, but only ~11% of a broad distributed circuit (induction_head_set.py)
+
+Causally validate §954's top-5 heads (L2h5,L5h5,L8h3,L3h8,L8h4). Inductable-position CE cost (baseline 0.686):
+  top-5 together:  inductable +0.575 | first_mention +0.038
+  5 random heads:  inductable -0.015 | first_mention +0.125
+  full front band: inductable +5.273 | first_mention +4.029
+pred (a) cooperative-set TRUE. THREE clean signatures that the identified heads are GENUINE induction heads:
+ 1) SUPER-ADDITIVE/COOPERATIVE: top-5 together +0.575 > sum of their singles (0.37) -> they cooperate (1.55x).
+ 2) SPECIFIC vs RANDOM: 5 random heads cost -0.015 on inductable (nothing) -> the effect is specific to these heads.
+ 3) INDUCTION-SPECIFIC: top-5 hurt inductable (+0.575) but NOT first_mention (+0.038 ~ 0) -> these heads do
+    induction, not general context work (a clean functional signature).
+BUT (the honest scale): top-5-together +0.575 is only ~11% of the full front induction effect (+5.27). So even the
+strongest identifiable induction heads are a SMALL SLICE of a broadly DISTRIBUTED induction circuit spread across
+many more front heads. INDUCTION LOCALIZATION COMPLETE (§952->955): front attention hosts induction (§952),
+layer-distributed (§953), with identifiable induction-specific heads L2h5/L5h5/L8h3/... (§954) that form a genuine
+cooperative set (§955) — but these account for only ~11% of a much broader distributed circuit. Strongly
+reinforces the model's unifying theme: even "localized" circuits are the tip of distributed super-additive
+ensembles (content §948, pooling §931, induction §953-955). Queued a calibration check (cross_model_
+superadditivity) to test whether this distributedness is bilin18-special or generic.
