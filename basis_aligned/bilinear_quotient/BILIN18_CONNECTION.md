@@ -27152,3 +27152,15 @@ readout carry most of the loss and are well-captured; the middle is poorly-captu
 So the certified end-state of the understanding-quantification arc (§893→906): ~40% of bilin18 is understood
 as generalizing named-variable functions (grammar solved, readout half), with the high-dimensional middle
 content as the remaining frontier. Artifact/FINDINGS updated to ~40% smooth-map.
+
+## §907 — r128 probe was a NO-OP (topic subspace capped at K=12 clusters); proper higher-rank content test queued (learned_map_r128.py)
+
+learned_map_r128 (RTOPIC=128) returned byte-identical results to r24 (§905): mlp0 0.90, middle ~0.10. CAUGHT
+BUG in my own probe: the topic "subspace" is built from K=12 cluster-mean vectors, so its rank is capped at 12
+regardless of RTOPIC — r128 was effectively still 12-dim topic, NOT a finer-content test. So it does not test
+whether higher-rank content helps the middle; it just re-confirms the middle is not a function of 12-dim topic.
+Stated plainly (no new finding from r128). Testing higher-rank content properly: feature = top-128 PCA of the
+L15 content residual (continuous, rank-128, not cluster-capped) — learned_map_contentpca. NOTE: L15 content is
+DOWNSTREAM of the middle, so this is an UPPER BOUND — if even a rank-128 downstream-content feature fails to
+reconstruct the middle, the middle output is genuinely not a function of the content representation (pure
+interaction/nonlinear). If it succeeds, the middle needs finer content than 12 topics.
