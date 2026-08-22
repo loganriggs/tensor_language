@@ -27108,3 +27108,26 @@ reduce to a generalizing, compact table — it is high-dimensional/interaction/l
 the fresh-certification arc (§901-904): the honest answer to "how much of the model do we understand" is ~30%
 as writable generalizing variables, with the rest causally-characterized-but-not-tabulated. Artifact/FINDINGS
 finalized to ~30%.
+
+## §905 — a SMOOTH map recovers the FRONT to 0.90 (grammar fully understood), but the MIDDLE is NOT a function of named variables (~0.1) (learned_map_understanding.py)
+
+Fit a low-rank LINEAR MAP from named variables [current-token embedding, prev-token embedding, continuous-
+topic-subspace projection] to each component's output, on train, tested fresh (vs the memorizing TABLE from
+§903):
+  mlp0:  MAP fresh 0.90 (table 0.59, same-data 0.94)   ← front grammar: smooth map generalizes ~fully
+  mlp16: MAP fresh 0.56 (table 0.37)                    ← readout: partially
+  attn5: 0.12 | mlp5: 0.11 | mlp8: 0.00 | mlp11: 0.00   ← middle: smooth map barely helps (null ~0)
+Pred (a) middle-is-smooth-function = FALSE.
+
+KEY CLARIFICATION (separates two kinds of "not understood"): 
+ - The FRONT was NOT genuinely unclear — its low fresh TABLE score (0.59) was a table-COVERAGE limitation
+   (rare tokens unseen in train). A smooth map of the token EMBEDDING recovers mlp0 to 0.90 fresh (≈ its
+   same-data 0.94). So the grammar machine IS fully understood as a smooth generalizing function of the token.
+ - The MIDDLE content is genuinely NOT a function of our named variables: a smooth map of token+prev+topic
+   recovers only ~0.10 fresh (barely above the shuffled-feature null). So the middle's ~70% is high-dimensional
+   structure BEYOND current-token + prev-token + continuous-topic — it needs longer context / interactions /
+   variables we have not named. This is the honest ceiling of the current named-variable set for the middle.
+So the refined per-component understanding: FRONT grammar ~0.90 (smooth, generalizing), MIDDLE content ~0.10
+(not a named-variable function — the real high-dim remainder), READOUT ~0.56. The middle content is where the
+genuine open problem is: causal (interchange §894) but not a smooth function of the variables we have. Running
+the whole-model smooth-map for the definitive aggregate (front's 0.90 will lift it above the table's 0.30).
