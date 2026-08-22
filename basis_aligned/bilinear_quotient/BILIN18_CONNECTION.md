@@ -25957,3 +25957,33 @@ re-expand to finer structure (47) → L2-4 hold/refine (~45) → L5 aggregate/co
 2nd directive): FOLD each layer's bilinear form onto the already-computed layer-0 features
 (current-token identity, class, previous token, position) to name WHAT the layer-1 re-expansion
 computes — i.e. which known features mlp1's readouts multiply — getting specifics, not just geometry.
+
+## §850 — FOLDING layer 1 onto layer-0 features: mlp1 reads CLASS (2.9×) + POSITION (1.67×) + modest PREV-token & fine-token (~1.3×); explains the re-expansion and corrects §846 (mlp1_folding.py)
+
+Decomposed mlp1's bilinear readouts (Left_k, Right_k, unit-normalized) onto feature subspaces built
+from the layer-1 INPUT — the features layer 0 computed — reporting energy as ratio over chance
+(rank/D). Random-vector baseline ~0.9-1.04 confirms calibration.
+
+| feature (rank) | Left ratio | Right ratio | (random-vec) |
+|----------------|-----------:|------------:|-------------:|
+| grammatical CLASS (8) | 2.87 | 2.88 | 0.90 |
+| POSITION (32)         | 1.66 | 1.67 | 0.97 |
+| fine TOKEN-identity (64, ⊥class) | 1.30 | 1.28 | 1.04 |
+| PREVIOUS token (64, ⊥token+class) | 1.24 | 1.29 | 0.93 |
+
+FINDINGS (folding = reading layer 1 in terms of layer-0's computed features, the user's directive):
+ - mlp1 preferentially reads, in order: CLASS (2.9×) ≫ POSITION (1.67×) > fine-token ≈ prev-token (~1.3×).
+   So layer 1 folds in the grammatical class primarily, but ALSO position and — modestly — the previous
+   token and finer token identity.
+ - This EXPLAINS the §849 re-expansion (eff-dim 20→47): beyond the coarse 8-way class that layer 0
+   collapsed to, mlp1 re-reads POSITION and FINER token structure, which re-expands the geometry into a
+   richer representation. The re-expansion is not noise — it is position + fine-token being folded back in.
+ - This CORRECTS §846 ("0/24 prev-driven"): the folding (chance-calibrated, sensitive to secondary reads)
+   shows mlp1's readouts DO carry previous-token energy above chance (1.26×). The coarse per-unit
+   "top activating class" test in §846 only caught each unit's PRIMARY selectivity (current class) and
+   missed the modest prev-token read. mlp1 does use the previous token, just as a secondary input.
+
+So layer 1, folded onto layer 0: a bilinear stage that reads {class (primary), position, prev-token,
+fine-token} and re-expands the class-collapsed geometry by re-introducing position and finer token
+distinctions. NEXT: scan the folding across depth (mlp0..5, 15-17) to trace how the features-read evolve
+— does the model fold in progressively more/longer-range context with depth?
