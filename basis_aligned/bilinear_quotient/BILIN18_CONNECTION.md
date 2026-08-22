@@ -27274,3 +27274,22 @@ whole-model held-out benchmark STAYS ~0.41. The clean fix: per-component UPSTREA
 clean INPUT residual, from the unmodified forward), which by construction is not downstream — queued as
 whole_model_upstream. Lesson (recurring): a "feature" taken downstream of what you reconstruct is leakage;
 certify features are upstream. This is why the per-component numbers (§909/§910) used each component's own input.
+
+## §914 — TWO distinct benchmarks: named-concept understanding ~0.41 vs low-rank-linear-interface ~0.72 (don't conflate) (whole_model_upstream.py)
+
+The clean upstream whole-model (each component replaced by a rank-128 LINEAR read of its OWN clean INPUT
+residual, all 36 at once, held-out) = 0.721 (null −0.103, full CE 3.576, all-mean 8.908). No leakage (input is
+upstream). BUT this is a DIFFERENT benchmark than named-concept understanding: the feature is the component's
+INPUT RESIDUAL (the whole accumulated stream), NOT named variables (token/topic/prev). So:
+ - NAMED-CONCEPT understanding (reconstruct from things we have NAMED — token/grammar + continuous topic + prev):
+   ~0.41 held-out (§906). THIS is "how much of the model do we understand as concepts." Headline benchmark.
+ - LOW-RANK-LINEAR INTERFACE (reconstruct each component from a rank-128 linear read of its input): 0.72. This
+   is architectural — "how much of the model is a low-rank linear function of each layer's input" — NOT
+   conceptual understanding (the input residual is the stream, not a named concept). Many components (esp. the
+   readout) are near-linear reads of their rich input, which is why it is high.
+The GAP (0.72 − 0.41 ≈ 0.31) is exactly the content that is low-rank-linear in the residual stream but NOT yet
+reducible to our named variables (token/topic/prev) — the un-named content structure. So the honest headline
+stays: we understand ~0.41 of the model as NAMED CONCEPTS; a further ~0.31 is low-rank-linear-readable from the
+stream but not yet named; the remaining ~0.28 is the bilinear NONLINEARITY (not linear-readable at all, §910).
+Do not report 0.72 as "understanding" without this distinction. Benchmark figure updated to show all three
+(named 0.41 / linear-interface 0.72 / leaky-r512 0.85-rejected) with meanings.
