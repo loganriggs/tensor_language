@@ -28566,3 +28566,26 @@ CONTENT. ERROR-INTERPRETABILITY finding: bilin18's mistakes are content mistakes
 hard, it either guesses the wrong content word or falls back on a safe function word. This extends the two-machine
 account to the model's errors and closes the error-interpretability sub-thread (§972->973), consistent with
 grammar=easy/solved, content=hard/frontier throughout the program.
+
+## §974 — hedging is driven by CLASS (grammar) uncertainty, not content; my content-entropy metric was confounded (content_uncertainty_hedging.py)
+
+Bin positions by predictive entropy; hedge = top-1 is a function-class word. base func-rate 0.551.
+  by CLASS entropy   (low->high): hedge 0.19, 0.28, 0.58, 0.79, 0.91  (acc 0.60->0.24)  -> MONOTONIC rise +0.725
+  by CONTENT entropy (low->high): hedge 0.73, 0.82, 0.52, 0.23, 0.45  (acc 0.77->0.11)  -> NON-monotonic, -0.282
+pred (a) "content uncertainty drives hedging" FALSE. Two honest points:
+ 1) CLEAN finding: HEDGING to a function word is driven by CLASS (part-of-speech) uncertainty — when the model's
+    next-token CLASS distribution is uncertain (high class entropy), its top-1 is a function word 91% of the time
+    (vs 19% when class is certain). Monotonic.
+ 2) CONFOUND (why my prediction's metric failed): my "content entropy" = within-entropy of the model's TOP class.
+    That is LOW exactly when the top class is a small FUNCTION class (few determiners/preps) and HIGH when the top
+    class is the large "word" class — so it conflates "which class is on top" with uncertainty. Hence low
+    content-entropy bins are function-top (hedge high) by construction; the negative trend is an ARTIFACT, not
+    evidence. So this experiment does NOT cleanly measure content-uncertainty's effect on hedging.
+RECONCILE with §973 (does NOT overturn it): §973 stands — grammar-errors have rare true tokens and hedge to
+function words. The mechanism refinement: content-hard positions ELEVATE class entropy (the model becomes unsure
+whether the next token is a content or function word), and under class-uncertainty it hedges to a common function
+word. So the §973 content-driven hedge operates THROUGH class-entropy. Accuracy falls with both entropies (sanity).
+LESSON (consistent with §963/§964): my within-top-class "content entropy" was a confounded metric; I report the
+clean class-entropy result and flag the confound rather than claim the content link from this design. The reliable
+error-interpretability findings are §973 (mistakes are content mistakes) + §974-clean (hedging tracks class
+uncertainty). Winding down the error sub-thread here — finer mechanistic splits keep yielding confounded metrics.
