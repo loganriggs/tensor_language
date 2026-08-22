@@ -2001,6 +2001,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   part of speech, predict a grammatically valid next part of speech. Predicting the <em>class</em> of the
   next token is nearly solved; the hard, distributed work that is left is choosing <em>which</em> word
   inside that class — which is exactly the residue that carries the model's uncertainty.</p>
+  <p>That split can be measured exactly. Break the model's per-token loss into the part spent getting the
+  grammatical class right and the part spent choosing the specific word within it (the two add up to the
+  whole, by the chain rule). Grammar costs <strong>0.75 nats — 23%</strong>; the word-within-the-class
+  costs <strong>2.48 nats — 77%</strong>. So the picture the whole investigation converges on is a little
+  paradoxical: the model pours most of its <em>interpretable, low-rank machinery</em> into computing a
+  grammatical skeleton — parts of speech and position — that turns out to be the <em>easy</em> quarter of
+  the problem, and spends three-quarters of its actual loss on the one thing that has no clean structure
+  to find: which word, out of the thousands that would be grammatical here, actually comes next. The
+  interpretable part and the hard part are not the same part. That is why class-and-position reads so
+  cleanly and the remaining fifth of the components never will.</p>
   <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
   prediction by how hard it was — how much loss the full model took — and ask how much of each bucket the
   class-and-position skeleton alone recovers. On the model's <em>hardest</em>, most uncertain predictions

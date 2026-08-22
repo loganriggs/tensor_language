@@ -25456,3 +25456,32 @@ the match is near-perfect and class-specific (vs shuffled null) and the transiti
 grammatical ones. Consistent with §798 (class/grammar is the near-perfectly-predicted skeleton; the
 HARD residual is which specific token within the predicted class). Artifact updated with the
 grammatical-sequencing table.
+
+## §829 — The punchline, quantified: 77% of the model's loss is choosing WHICH WORD within the correct grammatical class; grammar itself is only 23% (ce_decomposition.py)
+
+Exact chain-rule split of the model's cross-entropy into predicting the next grammatical class vs
+choosing the specific token within that class:
+
+  CE_total 3.227 = CE_class 0.747 (23%) + CE_within 2.480 (77%)   [chain-rule check ≈ 0]
+
+So **77% of the model's loss is within-class lexical selection** — choosing which specific word fills
+an already-correct grammatical slot — and only 23% is getting the grammatical class right. Per current
+class: after a DETERMINER within-class is 4.09 nats (which noun follows "the" is high-entropy) vs class
+0.47; after a NUMBER within-class is only 1.51 (more constrained); punctuation/word/cap all ~2.0–2.6.
+
+This is the quantified capstone that closes the whole program and reconciles its two halves:
+ - The model devotes ~4/5 of its COMPONENTS' work (class+position, simultaneous 0.78) to computing a
+   low-rank, interpretable, causal, grammatical skeleton (class = parts of speech §825/826; position =
+   log early/late §827), read out as grammatical sequencing (§828, next-class KL 0.009).
+ - But that grammatical skeleton accounts for only ~1/4 of the LOSS (0.75 nats): grammar is the EASY,
+   nearly-solved part.
+ - The other ~3/4 of the loss (2.48 nats) is the DIFFUSE, high-rank, distributed residue (§798/§810) —
+   choosing the specific word within the grammatically-correct slot. That is the hard part, and it has
+   no low-rank handle, which is exactly why it resisted every decomposition.
+
+One-line summary of the model: it spends most of its interpretable machinery cheaply nailing grammar
+(class+position), and most of its LOSS on the lexical choice that machinery can't make low-rank. This
+closes the class+position program end-to-end (§767→829): what the variables are, where they are
+computed/maintained/read, how much of the model they are (0.78), that they are necessary + generalizing
++ sufficient + used for grammatical sequencing, and now how the loss divides between grammar (easy,
+23%) and lexical content (hard, 77%). Artifact updated with the loss split.
