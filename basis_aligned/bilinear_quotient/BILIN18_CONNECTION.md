@@ -27917,3 +27917,26 @@ token-conditional nonlinear feature-building, with content x content a secondary
 (L8). A cleaner 3-way split (token vs class vs content, distinguishing token x token from class x content) is a
 possible follow-up, but the qualitative conclusion (token-conditional products dominate, content x content is
 minority) is robust to the metric caveats.
+
+## §944 — CORRECTION: the readout (L16-17) does the BULK of output formation, not a small refinement (readout_role.py)
+
+Logit lens (apply the model's readout head to each layer's residual) + skip(identity)-vs-mean-ablate for L16/L17.
+ce_full 3.263. Logit-lens CE by layer: L12 7.70 | L13 7.28 | L14 6.77 | L15 5.82 | L16 4.09 | L17 3.26(=final).
+ - The prediction is NOT formed by L15: reading out L15 directly gives CE 5.82 vs 3.26 final — a 2.56-nat GAP.
+   The LAST TWO blocks do most of the readout: L15->L16 drops CE 1.73, L16->L17 drops 0.83 (together 2.56 nats).
+ - skip-cost (block's ADDED transformation, residual preserved): L16 +1.71, L17 +0.82 -> both LOAD-BEARING.
+   (mean-ablate cost is huge — 4.87/6.50 — because replacing the block OUTPUT with a mean wipes the whole
+   accumulated residual, not just the block's addition; skip is the fair "what the block adds" measure.)
+pred (a) "readout = small late refinement" FALSE.
+CORRECTION to the earlier picture (§940 called the back band "generic readout of a built residual"; several
+writeups implicitly treated L15 as where the prediction is formed): the last two layers do the BULK of the
+output-formation work — L15's residual holds the information but NOT in output-readable form; L16-17 ROTATE it
+into the token basis. This RECONCILES with §941/§942 (L16-17 are near-LINEAR, R^2 0.89/0.93): they perform a
+LARGE-magnitude but near-LINEAR readout transformation. It also reconciles with §940 (back band reconstructable
+by named stand-ins at 0.445): reconstructable BECAUSE near-linear, but NOT small — it does ~half of the
+readout-relevant CE reduction. Does NOT undermine the content-stand-in benchmark (§928-940), which kept L16-17
+REAL and varied L15 content, then let L16-17 read it out — consistent. Updated bottom-up stack: FRONT (grammar,
+linear write, token-conditional) -> MIDDLE (high-rank multiplicative, token-conditional + content, information
+built but not output-readable) -> READOUT L16-17 (large NEAR-LINEAR rotation of the residual into the token
+basis, load-bearing). Artifact: correct "readout is generic/small" -> "readout does the bulk of output formation,
+near-linear but load-bearing".
