@@ -1982,7 +1982,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   30% of the model held-out — but a lookup fails on any token it didn't see in training, which penalizes even the
   front, where the computation really <em>is</em> a clean function of the token. Fit instead a smooth low-rank map
   of the same named variables (token embedding, previous-token embedding, continuous topic), and the honest
-  held-out number rises to about <strong>40%</strong>. It splits sharply by depth: the front grammar is recovered
+  held-out number rises to about <strong>42%</strong>. The jump is almost entirely the token variable getting its
+  fair form: a smooth per-token map, applied to all 36 components at once, recovers 0.32 of the model <em>by
+  itself</em> — more than the entire old discrete-table-plus-topic-plus-previous-token pipeline (0.315) combined —
+  and adding topic and previous-token on top brings it to 0.42. A shuffled-token version of the same map lands
+  <em>below</em> mean-ablation (−0.19), so the number is genuine token structure, not a fitting artifact. So the
+  benchmark's honest progression reads: 0.81 in-sample (memorization, retracted) → 0.30 held-out with lookup
+  tables → 0.42 held-out once the variables are given a smooth generalizing form. It splits sharply by depth: the front grammar is recovered
   at ~0.90 — essentially solved, a smooth generalizing function of the current token — the readout at ~0.56, and
   the middle content at ~0.10 with a coarse topic — but that last number understates it, and chasing it down
   pins the frontier exactly. Give the middle content its fair form — a higher-rank continuous content feature
