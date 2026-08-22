@@ -1,0 +1,48 @@
+{
+ "bins": [
+  {
+   "pos_range": [
+    0,
+    8
+   ],
+   "ce_class": 0.9688,
+   "ce_within": 3.4976,
+   "ce_total": 4.4664,
+   "n": 2400
+  },
+  {
+   "pos_range": [
+    8,
+    32
+   ],
+   "ce_class": 0.8165,
+   "ce_within": 2.7289,
+   "ce_total": 3.5454,
+   "n": 7200
+  },
+  {
+   "pos_range": [
+    32,
+    96
+   ],
+   "ce_class": 0.7544,
+   "ce_within": 2.5089,
+   "ce_total": 3.2633,
+   "n": 19200
+  },
+  {
+   "pos_range": [
+    96,
+    256
+   ],
+   "ce_class": 0.7222,
+   "ce_within": 2.3809,
+   "ce_total": 3.1031,
+   "n": 48000
+  }
+ ],
+ "within_drop_first_to_last": 1.1167,
+ "class_drop_first_to_last": 0.2466,
+ "pred_a_context_reducible": true,
+ "runtime_s": 48.091076374053955
+}

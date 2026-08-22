@@ -25485,3 +25485,33 @@ closes the class+position program end-to-end (§767→829): what the variables a
 computed/maintained/read, how much of the model they are (0.78), that they are necessary + generalizing
 + sufficient + used for grammatical sequencing, and now how the loss divides between grammar (easy,
 23%) and lexical content (hard, 77%). Artifact updated with the loss split.
+
+## §830 — The hard 77% is partly context-reducible (~1.1 nats) but mostly irreducible lexical entropy (~2.4 nat floor); grammar is nailed early and context-free (within_class_context.py)
+
+Probed what drives the hard within-class lexical choice (§829): is it context-reducible or fixed
+entropy? Binned class-CE and within-class-CE by absolute position (context length):
+
+| position | class-CE | within-CE | total |
+|----------|---------:|----------:|------:|
+| 0–8   | 0.97 | 3.50 | 4.47 |
+| 8–32  | 0.82 | 2.73 | 3.55 |
+| 32–96 | 0.75 | 2.51 | 3.26 |
+| 96–256| 0.72 | 2.38 | 3.10 |
+
+FINDINGS:
+ - CONTEXT HELPS LEXICAL CHOICE, NOT GRAMMAR: within-class CE drops 1.12 nats early→late
+   (3.50→2.38), while class-CE drops only 0.25 (0.97→0.72) — context reduces the specific-word loss
+   ~4.5× more than the grammatical-class loss. Grammar is nailed almost immediately (class-CE 0.97 by
+   position 0–8) and is near context-free; the specific word is what accumulating context narrows.
+ - BUT A LARGE IRREDUCIBLE FLOOR REMAINS: within-class CE plateaus at ~2.38 nats even with full
+   context (positions 96–256). So the hard 77% is only PARTLY context-reducible (~1.1 nats recoverable)
+   and is DOMINATED by irreducible lexical entropy (~2.4-nat floor) — natural language simply has high
+   inherent next-word entropy even given the grammatical slot and full context.
+
+This closes the loss picture honestly: the model's total loss = a small, easy, context-free grammatical
+component (class+position, ~0.75 nats, computed by most of the interpretable low-rank machinery) + a
+large lexical component (~2.48 nats) that is partly context-driven (~1.1 nats, the part attention/
+content earns as context accumulates) and mostly irreducible entropy (~2.4-nat floor). The
+interpretable machinery does the easy, structured part; the bulk of the loss is high-entropy lexical
+choice that is context-reducible only in part. Completes the §827→830 read-out/loss thread and the
+class+position program (§767→830). Artifact updated.

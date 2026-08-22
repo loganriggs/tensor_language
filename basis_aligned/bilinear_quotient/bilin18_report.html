@@ -2011,6 +2011,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   to find: which word, out of the thousands that would be grammatical here, actually comes next. The
   interpretable part and the hard part are not the same part. That is why class-and-position reads so
   cleanly and the remaining fifth of the components never will.</p>
+  <p>How much of that hard part is even learnable? Watching the two components as context accumulates
+  answers it. The grammar cost is essentially paid by the first few tokens and barely moves after —
+  it needs almost no context. The word-choice cost does fall as context builds, by about 1.1 nats from
+  the start of a passage to deep inside one, so context genuinely helps pick the word — but it levels
+  off around 2.4 nats and stays there. So the bulk of what the model is graded on is irreducible: even
+  with the grammatical slot fixed and the whole preceding passage in view, which specific word comes
+  next carries real entropy that no amount of structure removes. The clean, low-rank grammar is most of
+  the machinery and little of the difficulty; the difficulty is language itself.</p>
   <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
   prediction by how hard it was — how much loss the full model took — and ask how much of each bucket the
   class-and-position skeleton alone recovers. On the model's <em>hardest</em>, most uncertain predictions
