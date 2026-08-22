@@ -26770,3 +26770,21 @@ asymmetry. CAVEAT: alphas weren't matched (grammar <=32, topic <=256); grammar's
 doubling) extrapolates to ~0.08 at 256 — i.e. grammar ~ topic at matched alpha, both weak. Confirming with
 grammar_steer3 (matched alpha 16/64/256) before finalizing the artifact wording; correcting the false "steers
 strongly" clause now regardless.
+
+## §888 — matched-alpha resolution: grammar single-direction steering is ~2× topic (both weak); refines §887 (grammar_steer3.py)
+
+Reran grammar steering at MATCHED alpha [16/64/256] (§887 used ≤32, too low). Grammar mean own-class gain
+0.079 vs off-diag −0.011, shuffled-class null −0.003; vs topic's 0.042 (§868) → 1.9×. So at matched strength
+grammar IS ~2× more steerable by a single read-direction than topic — a MODEST real asymmetry, consistent with
+grammar being lower-rank (one read direction captures more of a low-rank feature). But NEITHER is "strong"
+(both <0.1 logit gain); read≠write (item 2) caps single-direction steering for both.
+
+FINAL RESOLUTION of the steering thread (§868/§886/§887/§888): (1) grammar's original "strongly steerable"
+framing was an overstatement (0.079 is modest, not strong); (2) §887's over-correction ("just as weak") was
+judged at too-low alpha — at matched alpha grammar is ~2× topic; (3) HONEST end-state: single mean-direction
+(read-axis) steering is a WEAK lever for both machines (read≠write), with grammar ~2× topic — a modest
+asymmetry in the expected direction (grammar lower-rank) but not the night-and-day contrast first claimed.
+Topic/content causality is better evidenced by the non-steering interventions (§872 gist context-edit, §876
+first-mention, §874 geometry); grammar's is the low-rank class channel the readout reads hard (§851) plus
+§823's front steering. The two-machine distinction remains STRUCTURAL (rank/locality/context), now with an
+accurate ~2× steering footnote. Artifact/FINDINGS updated to the matched-alpha numbers.

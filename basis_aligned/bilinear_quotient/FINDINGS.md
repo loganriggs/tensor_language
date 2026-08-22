@@ -147,8 +147,9 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    medicine, prison; distinctive-token read) and predicts topically-coherent words. Reconciles the diffuseness: topic
    space is HIGH-DIMENSIONAL (no low-rank handle) but STRUCTURED, not noise (§810 sharpened). Attention feeds it context
    (§862). Topic causal support (§868/§887 CORRECTION): topic-direction steering gives a weak-but-specific gain (own +0.042
-   vs off −0.004, every topic) — BUT this is a weak test: steering the class read-direction the same way is equally weak
-   (§887, own +0.01), because read≠write (item 2) limits single-direction steering for BOTH machines. So topic causality
+   vs off −0.004, every topic) — BUT this is a weak test: steering the class read-direction the same way is only ~2× stronger
+   at matched alpha (§888, grammar own +0.079 vs topic +0.042, both weak <0.1; grammar modestly more, consistent with lower
+   rank), because read≠write (item 2) limits single-direction steering for BOTH machines. So topic causality
    rests on the NON-steering interventions: content-word gist causal via context edits (§872), first-mention floor (§876),
    replicable geometry (§874) — NOT the steering. The two machines differ by STRUCTURE (grammar low-rank/local/context-free;
    content high-dim/long-range/topic), not steering strength. grammar = easy 23%, content = hard 75%. Full content

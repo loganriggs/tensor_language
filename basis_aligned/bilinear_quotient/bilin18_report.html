@@ -1790,11 +1790,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p>Is the topic structure causal, or only a readable correlate? Steering the late residual along a topic's own
   direction does specifically raise that topic's distinctive next-words (mean own-topic gain +0.042, off-topic
   −0.004, consistent across every topic), so there is a real causal signal — but it is weak, and an honest control
-  shows why we should not over-read it. Do the identical thing with the grammatical class instead of the topic and
-  the effect is just as weak (own-class gain ~0.01). The weakness is not a fact about topic being high-dimensional;
-  it is a general fact that pushing a feature's <em>read</em> direction barely steers, because the read direction
-  and the write direction are close to orthogonal in these models. So single-direction steering is a weak test for
-  both machines, and the case that topic is causal rests better on the interventions that don't depend on it: the
+  shows why we should not over-read it. Do the identical thing with the grammatical class instead of the topic and,
+  at matched strength, the effect is about twice as large (own-class gain ~0.08 versus ~0.04) but still small. So
+  the class is modestly more steerable than the topic — consistent with grammar being lower-rank, one direction
+  capturing more of it — yet neither is steered <em>strongly</em> by a single direction. That is a general fact:
+  pushing a feature's <em>read</em> direction barely steers, because the read and write directions are close to
+  orthogonal in these models. So single-direction steering is a weak test for both machines, and the case that
+  topic is causal rests better on the interventions that don't depend on it: the
   content-word gist survives function-word masking and word-order shuffling (a causal edit of the input), the
   first-mention floor, and the replicable geometry. The two machines are distinguished by their <em>structure</em>
   — grammar low-rank, local, context-free; content high-dimensional, long-range, topical — not by a steering-strength
