@@ -26115,3 +26115,30 @@ grammatical part reads cleanly (class 13×, pos 6×, §851) but the specific-tok
 distributed, with only some content categories (proper names, capitalized words) emitted by identifiable
 units. Honest limit: a fully clean readout-write map is not recoverable per-unit; the write is mostly
 distributed, consistent with the diffuse lexical residue.
+
+## §857 — WHOLE-STACK geometry trajectory (18 layers): two expansions, three collapses; re-clustering at the front + readout; middle re-inflates dimensionality but is topologically stable (layer_geometry_full.py)
+
+Extended §849's token-geometry analysis to all 18 layers.
+
+Consecutive RSA (relative-similarity change; low = re-cluster): FRONT emb→L0 0.49, L0→L1 0.58 (big);
+L2-4 0.88-0.95; MIDDLE L5→L14 all 0.95-0.98 (near-frozen relative structure); READOUT L15→L16 0.81
+(big), L16→L17 0.92. So relative-geometry CHANGES concentrate at the front and the readout; the middle
+barely reorganizes relative similarities.
+
+Effective-dim trajectory: emb 117 → L0 20 → L1 47 → L2 49 → L3 43 → L4 41 → L5 23 → L6 23 → L7 39 →
+L8 46 → L9 51 (PEAK) → L10 48 → L11 37 → L12 29 → L13 25 → L14 25 → L15 24 → L16 6.5 → L17 2.8.
+
+Whole-stack shape — TWO expansions, THREE collapses:
+ - COLLAPSE 1 (L0): 117→20, embedding clustered by grammatical class.
+ - EXPAND 1 (L1): 20→47, re-expand (fold in position + fine-token, §850).
+ - hold ~45 (L2-4); COLLAPSE 2 (L5): →23 (attn5 content aggregation, §853).
+ - EXPAND 2 (L6-9): 23→51, the stack's PEAK dimensionality — the MIDDLE re-inflates the representation.
+ - long COLLAPSE (L9→L17): 51→2.8, gradual then extreme at the readout.
+ - COLLAPSE 3 (L16-17): 6.5→2.8 — the per-token representation compresses to a ~3-dim prediction-relevant
+   subspace right before the output.
+
+KEY NUANCE (middle): the middle (L6-9) is dimensionally ACTIVE — it re-inflates eff-dim to the stack peak
+(51) — yet topologically STABLE (consecutive RSA 0.95-0.98, relative similarities barely change). So
+"the middle does little" (low per-component ablation benefit §812; §813 redundant) coexists with "the
+middle re-inflates dimensionality without reorganizing the clustering." And the READOUT does the last big
+re-clustering (L15→16 RSA 0.81) and collapses to ~3 dims — the prediction. Figure sent.

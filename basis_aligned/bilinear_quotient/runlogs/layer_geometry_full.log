@@ -1,62 +1,23 @@
-'[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)' thrown while requesting HEAD https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/fineweb.py
-Retrying in 1s [Retry 1/5].
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/layer_geometry_full.py", line 142, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/layer_geometry_full.py", line 107, in main
-    rows = cl.fineweb_rows(NEVAL); d = dec()
-           ^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_lib.py", line 688, in fineweb_rows
-    ds=load_dataset('HuggingFaceFW/fineweb',split='train',
-       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/datasets/load.py", line 1696, in load_dataset
-    builder_instance = load_dataset_builder(
-                       ^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/datasets/load.py", line 1323, in load_dataset_builder
-    dataset_module = dataset_module_factory(
-                     ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/datasets/load.py", line 1215, in dataset_module_factory
-    raise e1 from None
-  File "/venv/main/lib/python3.12/site-packages/datasets/load.py", line 1168, in dataset_module_factory
-    api.hf_hub_download(
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 6640, in hf_hub_download
-    return hf_hub_download(
-           ^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1019, in hf_hub_download
-    return _hf_hub_download_to_cache_dir(
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1148, in _hf_hub_download_to_cache_dir
-    _get_metadata_or_catch_error(
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1713, in _get_metadata_or_catch_error
-    metadata = get_hf_file_metadata(
-               ^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 88, in _inner_fn
-    return fn(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/file_download.py", line 1621, in get_hf_file_metadata
-    response = _httpx_follow_relative_redirects_with_backoff(
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 719, in _httpx_follow_relative_redirects_with_backoff
-    response = http_backoff(
-               ^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 596, in http_backoff
-    return next(
-           ^^^^^
-  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 504, in _http_backoff_base
-    response = client.request(method=method, url=url, **kwargs)
-               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/httpx/_client.py", line 825, in request
-    return self.send(request, auth=auth, follow_redirects=follow_redirects)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/httpx/_client.py", line 901, in send
-    raise RuntimeError("Cannot send a request, as the client has been closed.")
-RuntimeError: Cannot send a request, as the client has been closed.
+consecutive RSA (1=identical geometry, low=re-clustered):
+  emb->L0: all 0.487 | within-class 0.485
+  L0->L1: all 0.581 | within-class 0.607
+  L1->L2: all 0.879 | within-class 0.933
+  L2->L3: all 0.953 | within-class 0.97
+  L3->L4: all 0.904 | within-class 0.925
+  L4->L5: all 0.888 | within-class 0.874
+  L5->L6: all 0.953 | within-class 0.943
+  L6->L7: all 0.947 | within-class 0.938
+  L7->L8: all 0.967 | within-class 0.972
+  L8->L9: all 0.98 | within-class 0.982
+  L9->L10: all 0.972 | within-class 0.977
+  L10->L11: all 0.978 | within-class 0.983
+  L11->L12: all 0.981 | within-class 0.987
+  L12->L13: all 0.978 | within-class 0.984
+  L13->L14: all 0.984 | within-class 0.989
+  L14->L15: all 0.956 | within-class 0.97
+  L15->L16: all 0.812 | within-class 0.754
+  L16->L17: all 0.921 | within-class 0.911
+drift vs embedding: {'emb': 1.0, 'L0': 0.487, 'L1': 0.629, 'L2': 0.64, 'L3': 0.611, 'L4': 0.449, 'L5': 0.428, 'L6': 0.425, 'L7': 0.414, 'L8': 0.392, 'L9': 0.414, 'L10': 0.419, 'L11': 0.445, 'L12': 0.464, 'L13': 0.477, 'L14': 0.465, 'L15': 0.473, 'L16': 0.421, 'L17': 0.393}
+effective dim per stage: {'emb': 117.2, 'L0': 20.4, 'L1': 47.3, 'L2': 48.5, 'L3': 43.3, 'L4': 41.0, 'L5': 22.8, 'L6': 23.4, 'L7': 39.1, 'L8': 46.3, 'L9': 51.2, 'L10': 48.0, 'L11': 37.1, 'L12': 29.1, 'L13': 24.8, 'L14': 25.0, 'L15': 23.8, 'L16': 6.5, 'L17': 2.8}
+(a) early layers RE-CLUSTER (not redundant; max consec RSA 0.984 < 0.95): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/layer_geometry_full_results.json (77.1s)
