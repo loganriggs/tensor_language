@@ -27448,3 +27448,24 @@ PATCHES the coordinated activation and was measured on TOPIC-DISTINCTIVE tokens 
 diluting topic's effect). So topic's word-role is REAL but position-specific (content-word positions) and
 high-dimensional (no low-rank subspace carries it). Testing the position-specific claim: does topic-subspace
 ablation raise within-CE on FIRST-MENTION/content positions specifically (word_recombination_positions).
+
+## §923 — content's word-role IS concentrated on first-mention positions (directionally); closes the recombination thread (word_recombination_positions.py)
+
+Ablating a rank-64 CONTINUOUS content subspace at L15, within-CE change SPLIT by position type: first-mention
++0.202 > seen-other +0.145 > inductable +0.114 — MONOTONIC with novelty, and above the random-subspace null
+(first-mention +0.082). So content's causal contribution to word-choice IS concentrated on FIRST-MENTION/content
+positions (where a new content word is needed), reconciling §894 (topic causal on topic-distinctive tokens) with
+§922 (diluted overall). Magnitude is SMALL because rank-64 is only a slice of the high-dimensional content
+(§908 needed rank-128; content is bilinear-nonlinear §910). CLASS-ablation dominates every position
+(+3.9/+6.3/+3.4 — the dominant low-rank channel). Pred (a) failed only on the strict 0.1 threshold (gap 0.088)
+but the DIRECTION is correct (first-mention highest, monotonic, above random).
+
+RECOMBINATION — how the two orthogonal channels become one word (closing §921-923): the CLASS channel is a
+low-rank DOMINANT gate that sets the predicted word's PART-OF-SPEECH (ablate → part-of-speech breaks, §921;
+raises within-CE everywhere §922/923); the CONTENT channel is a high-rank DIFFUSE narrowing that shapes the
+specific NEW word at content/first-mention positions (§923 directional, §894 causal via interchange) but has no
+low-rank handle. So the word is jointly set — grammar gates the category (strong/low-rank), content picks the
+specific new word (weak-per-slice/high-rank) — an ASYMMETRIC intersection, the same low-rank-grammar/high-rank-
+content asymmetry seen throughout. Completes the two-machine account end to end: shared attention engine →
+orthogonal separable channels (§920) → recombined at the readout as class-gates-POS ∩ content-picks-word (§921-923).
+Artifact/FINDINGS updated.

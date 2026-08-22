@@ -1,0 +1,6 @@
+baseline within-CE: first-mention 3.49 seen 1.12 inductable 0.40
+CLASS-ablation Δwithin-CE: {'first_mention': 3.922, 'seen_other': 6.317, 'inductable': 3.396}
+CONTENT-ablation Δwithin-CE: {'first_mention': 0.202, 'seen_other': 0.145, 'inductable': 0.114}
+RANDOM-ablation Δwithin-CE: {'first_mention': 0.082, 'seen_other': 0.037, 'inductable': 0.022}
+(a) content drives first-mention word (content-ablation hits first-mention >> inductable): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/word_recombination_positions_results.json (42.2s)
