@@ -2004,21 +2004,26 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <p>That split can be measured exactly. Break the model's per-token loss into the part spent getting the
   grammatical class right and the part spent choosing the specific word within it (the two add up to the
   whole, by the chain rule). Grammar costs <strong>0.75 nats — 23%</strong>; the word-within-the-class
-  costs <strong>2.48 nats — 77%</strong>. So the picture the whole investigation converges on is a little
-  paradoxical: the model pours most of its <em>interpretable, low-rank machinery</em> into computing a
-  grammatical skeleton — parts of speech and position — that turns out to be the <em>easy</em> quarter of
-  the problem, and spends three-quarters of its actual loss on the one thing that has no clean structure
-  to find: which word, out of the thousands that would be grammatical here, actually comes next. The
-  interpretable part and the hard part are not the same part. That is why class-and-position reads so
-  cleanly and the remaining fifth of the components never will.</p>
+  costs <strong>2.48 nats — 77%</strong>. It is tempting to conclude that the interpretable
+  class-and-position representation is just this easy grammatical quarter and the hard three-quarters is
+  something else — but that is wrong, and worth correcting carefully, because the two splits are
+  independent. Grammar-versus-word-choice is a split of the <em>loss</em>. Class-and-position-versus-the-rest
+  is a split of the <em>representation</em>. When you measure how much of each loss component the
+  class-and-position representation actually recovers, it recovers <strong>81% of the grammar loss and 76%
+  of the word-choice loss</strong> — almost the same. So the low-rank interpretable representation is not
+  the "easy part"; it is the model's <em>main predictive representation for everything</em>, driving most
+  of the specific-word choice just as much as the grammatical class. What actually resists structure is
+  smaller than it first looked: the last ~quarter of the word-choice work — a genuinely diffuse, high-rank
+  residue with no low-rank handle — sitting on top of a large floor of irreducible lexical entropy.</p>
   <p>How much of that hard part is even learnable? Watching the two components as context accumulates
   answers it. The grammar cost is essentially paid by the first few tokens and barely moves after —
   it needs almost no context. The word-choice cost does fall as context builds, by about 1.1 nats from
   the start of a passage to deep inside one, so context genuinely helps pick the word — but it levels
   off around 2.4 nats and stays there. So the bulk of what the model is graded on is irreducible: even
   with the grammatical slot fixed and the whole preceding passage in view, which specific word comes
-  next carries real entropy that no amount of structure removes. The clean, low-rank grammar is most of
-  the machinery and little of the difficulty; the difficulty is language itself.</p>
+  next carries real entropy that no amount of structure removes. So the difficulty that remains after the
+  class-and-position representation has done its work is language itself — irreducible lexical entropy —
+  not some further structure we failed to find.</p>
   <p>And this division is not particular to this model. Split the loss the same way for GPT-2 and
   Pythia and the numbers barely move: the word-within-the-class share is 77% here, 75% in GPT-2, 76% in
   Pythia. Three architectures, trained separately, all spend about a quarter of their loss on grammar

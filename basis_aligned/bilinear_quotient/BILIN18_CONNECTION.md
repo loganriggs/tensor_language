@@ -25579,3 +25579,35 @@ irreducible entropy, the lexical/content computation does NOT have the clean, lo
 structure that made class+position tractable. The interpretable, low-rank, causal structure of the
 model is grammar (class+position); the lexical remainder is diffuse by component, by rank, and by
 depth. Next: one decisive test of whether the lexical/context contribution has ANY low-rank handle.
+
+## §833 — CORRECTION/REFRAME: class+position is the model's MAIN PREDICTIVE representation, not "grammar-only" — it recovers 76% of the LEXICAL benefit and 81% of the class benefit (cp_serves_lexical.py)
+
+Decisive test of the §832 reconciliation. Simultaneous keep-only class+position at every component,
+CE split into class vs within-class by chain rule:
+
+ - benefit (ablate-all − full): class 2.50 nats, within-class 6.65 nats (within is the bulk).
+ - class+position keep RECOVERS: **class 0.81, within-class 0.76, total 0.77** (reproduces §807's 0.78).
+ - random same-rank keep recovers: class 0.41, within −0.10 (nothing).
+
+CORRECTION to the §829/830 framing (which the artifact carried): I wrote that class+position is "the
+easy grammatical quarter" and the hard 77% lexical is a separate diffuse residue with "no low-rank
+handle". That is WRONG as stated. The class+position REPRESENTATION recovers 76% of the LEXICAL
+(within-class) prediction benefit — nearly as much as it recovers of the class benefit (81%), and far
+beyond random (−0.10). So the interpretable low-rank representation (current token's grammatical class +
+log-position) is the model's MAIN PREDICTIVE representation for EVERYTHING — it drives both the
+grammatical class AND most of the specific-word choice.
+
+Corrected picture (two orthogonal decompositions, now stated right):
+ - REPRESENTATION: class+position (low-rank, interpretable) drives ~78% of ALL predictive benefit —
+   grammar (0.81) and lexical/word-choice (0.76) alike. The ~22% NOT captured by class+position is the
+   diffuse, high-rank residue (§810), which serves only the last slice of lexical benefit.
+ - LOSS: of the loss the full model actually pays, ~23% is class and ~77% is within-class (§829); and a
+   large within-class loss (~2.4 nats) remains even with the full model, mostly irreducible entropy (§830).
+ - So: class+position is not "the easy part" — it is the workhorse representation for the whole
+   prediction. What is genuinely hard-and-diffuse is the small (~24% of lexical benefit) residue plus the
+   irreducible lexical entropy that no representation removes.
+
+This is the correct headline: the model computes a low-rank grammatical-class + log-position
+representation and uses it to drive ~4/5 of ALL its predictive work — grammar and word-choice both — with
+a diffuse high-rank residue handling the last slice and an irreducible entropy floor underneath.
+Artifact corrected.
