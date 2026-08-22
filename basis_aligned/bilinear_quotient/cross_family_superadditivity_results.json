@@ -1,0 +1,30 @@
+{
+ "metric": "final-residual dR2 super-additivity (band / sum-of-singles)",
+ "models": {
+  "bilin18": {
+   "n_front": 6,
+   "sum_singles_dR2": 2442719776.0,
+   "band_dR2": 7820121088.0,
+   "ratio": 3.2
+  },
+  "swiglu18": {
+   "n_front": 6,
+   "sum_singles_dR2": 84595438.0,
+   "band_dR2": 193947408.0,
+   "ratio": 2.29
+  },
+  "bilin12": {
+   "n_front": 4,
+   "sum_singles_dR2": 25026353.0,
+   "band_dR2": 40283316.0,
+   "ratio": 1.61
+  }
+ },
+ "ratios": {
+  "bilin18": 3.2,
+  "swiglu18": 2.29,
+  "bilin12": 1.61
+ },
+ "swiglu18_also_superadditive": true,
+ "runtime_s": 67.0
+}

@@ -28392,3 +28392,22 @@ left to overwrite) — content patch grows toward L15 because L15 is the last co
 per-machine speed difference. LESSON: I over-theorized a reconciliation (§963) that the direct test refuted;
 report the data (both re-derive fast; patches transient/late-sticking) and stop positing unverified speed
 mechanisms. Artifact corrected to the empirically-supported statement.
+
+## §965 — the distributed-cooperative structure is FAMILY/TRAINING-driven, not bilinear-MLP-specific (cross_family_superadditivity.py)
+
+First sibling-family cross-check (load_elriggs). Attention super-additivity ratio (final-residual dR2,
+transform-invariant; band / sum-of-singles over the front third):
+  bilin18   3.20   (bilinear MLP, 18L) — reproduces §956's sign (CE-ratio was 3.52; residual-ratio 3.20, consistent)
+  swiglu18  2.29   (SwiGLU MLP, same 18L/1152/9h family) — SUPER-additive despite NO bilinear MLP
+  bilin12   1.61   (bilinear, 12L) — super-additive, milder (shallower, 4 front layers)
+  gpt2      0.71   (§956, SUB-additive) | gpt2-large 0.73
+FINDING: ALL Elriggs-family models are SUPER-additive (distributed-cooperative); standard GPT-2 is SUB-additive
+(concentrated/redundant). Crucially swiglu18 (a SwiGLU MLP, NOT bilinear) is super-additive too -> the
+distributed-cooperative structure is NOT caused by the bilinear MLP specifically; it is a FAMILY/TRAINING property
+shared across these models (softmax-free sqrd-attention + value-residual + x0 re-injection recipe), and ABSENT in
+standard softmax GPT-2. This SHARPENS §956: the distinctive structure is a property of the training recipe /
+architecture family, not the MLP nonlinearity. Also validates the §956 CE-based ratio via the transform-invariant
+residual ratio (bilin18 3.20 ~ 3.52). CAVEATS: absolute dR2 magnitudes differ across models (different residual
+scales) — only the within-model RATIO is comparable; bilin12's milder ratio (1.61) likely reflects its shallower
+depth (fewer front layers). This is the first family-model generalization of a bilin18 finding; the distinctive
+distributed structure travels across the family.
