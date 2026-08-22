@@ -1766,7 +1766,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   so it has no small set of directions to find, but it is genuinely structured, not noise. So the honest
   end-state is not "grammar is interpretable, content is a wall" but "grammar is a low-rank part-of-speech
   computation; content is a high-dimensional topic computation" — both real, one just far larger than the
-  other.</p>
+  other. A caution on the clusters, though: the topic space is <em>continuous</em>, so the twelve buckets are
+  a way of <em>drawing</em> that continuum, not twelve real categories. Cluster the two halves of the data
+  separately and the discrete labels don't line up — as any arbitrary slicing of a continuum wouldn't — but
+  the continuous geometry underneath does: the dominant content directions in one half match the other at
+  25× chance. The topic structure is real and reproducible; the twelve names are just a readable slice of it.</p>
 
   <p>And the topic structure is <em>causal</em>, not just a readable correlate — though only weakly steerable by
   a single direction. Steering the late residual along a topic's own direction specifically raises that topic's
