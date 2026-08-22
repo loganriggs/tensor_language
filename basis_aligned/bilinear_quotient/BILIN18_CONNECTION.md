@@ -25642,3 +25642,34 @@ TOKEN IDENTITY drive the word choice, while COARSE grammatical class drives the 
 prediction — a clean division of labor inside the single low-rank representation. This closes the
 lexical-source question; the remaining ~24% of lexical benefit not captured is the diffuse high-rank
 residue (§810), and the residual lexical loss is mostly irreducible entropy (§830).
+
+## §835 — CORRECTION: position-only keep recovery is a RANK/CONSTRUCTION ARTIFACT (shuffled-position recovers equally); the right keep-only null is a shuffled-LABEL subspace, not random-orthonormal (position_loadbearing.py)
+
+Tested why position-only keep recovers 0.60 (§834). Built a SHUFFLED-position subspace (same rank 32,
+same mean-deviation construction, position labels randomized) as a matched null:
+
+ - position-only keep: 0.638 overall | shuffled-position keep: 0.660 (EQUAL, slightly higher)
+ - uniform across depth (0.70 early → 0.59 late, same for both)
+
+VERDICT (prediction refuted): the position-only recovery is a CONSTRUCTION/RANK ARTIFACT, not position
+information. A rank-32 subspace built from ANY position-like grouping's mean-deviations recovers ~0.64
+of the benefit, because averaging over any grouping and taking its top directions captures the output's
+dominant (loss-relevant) variance regardless of the labels.
+
+CORRECTIONS this forces (stated plainly):
+ - §834's decomposition ("position + fine token-identity drive lexical") rests on this artifact baseline
+   and is RETRACTED as stated: the position-only "0.595 lexical" is not position information. The only
+   part of §834 that may survive is the RELATIVE ordering (fine-token added more than coarse-class), but
+   both increments sit on an artifact floor and need matched shuffled-label nulls to trust.
+ - MORE BROADLY: keep-only recovery with DATA-DERIVED subspaces has a large construction-artifact floor
+   (this is the same effect as §820's shuffled-TOKEN null recovering 0.99). The random-orthonormal null
+   used in §821 (0.04–0.29) is TOO WEAK — it ignores the data. The correct null is a SHUFFLED-LABEL
+   subspace of matched rank and construction. Measured against that, the SPECIFIC class+position
+   contribution is smaller than the raw keep numbers (0.78/0.92) imply.
+
+WHAT REMAINS ROBUST (independent of keep-only, so unaffected): class+position is a real, named,
+causal representation — the class directions are grammatically coherent with an incoherent shuffled
+control (§825/826), and class steering causally shifts predictions while random directions do not
+(§823). Those establish class+position regardless of the keep-only magnitude. Queued cp_vs_shuffled_null
+to measure the full class+position keep (rank 96) against a matched-rank shuffled-label null and report
+the SPECIFIC (construction-corrected) class+position contribution to class and within-class loss.

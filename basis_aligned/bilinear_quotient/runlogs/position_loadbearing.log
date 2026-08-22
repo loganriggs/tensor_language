@@ -1,0 +1,8 @@
+pos [0,8): position-keep recovers 0.703 | shuffled-null 0.716
+pos [8,32): position-keep recovers 0.640 | shuffled-null 0.652
+pos [32,96): position-keep recovers 0.632 | shuffled-null 0.651
+pos [96,256): position-keep recovers 0.585 | shuffled-null 0.628
+
+overall: position-keep 0.638 vs shuffled-position 0.660 (real-position gain -0.022)
+(a) real position load-bearing (>> shuffled): False | uniform across depth: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/position_loadbearing_results.json (115s)
