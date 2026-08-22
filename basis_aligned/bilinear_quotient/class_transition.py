@@ -58,8 +58,8 @@ def forward_logits(idx):
 
 
 def kl(p, q):
-    p = p + 1e-9; q = q + 1e-9; p = p/p.sum(); q = q/q.sum()
-    return float((p*(p/q).log()).sum())
+    p = np.asarray(p) + 1e-9; q = np.asarray(q) + 1e-9; p = p/p.sum(); q = q/q.sum()
+    return float((p*np.log(p/q)).sum())
 
 
 @torch.no_grad()

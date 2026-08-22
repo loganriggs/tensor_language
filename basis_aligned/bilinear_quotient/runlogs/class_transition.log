@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/class_transition.py", line 131, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/class_transition.py", line 97, in main
+    if cnt[c] >= 20: kls[CLASSES[c]] = round(kl(mdlN[c], empN[c]), 4)
+                                             ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/class_transition.py", line 62, in kl
+    return float((p*(p/q).log()).sum())
+                    ^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'log'
