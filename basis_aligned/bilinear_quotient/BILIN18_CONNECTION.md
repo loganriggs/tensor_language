@@ -28216,3 +28216,25 @@ INFLATE its single-layer ablation costs (high sum_singles); but the SIGN of the 
 sub-additive ratio) is robust to magnitude scaling — the qualitative difference stands. Also: n_front differs
 (bilin18 6, gpt2 4, gpt2-large 12) but the ratio is a within-model normalized quantity. Distinctive-property
 finding worth the artifact.
+
+## §957 — joint interchange: CLASS control confirmed compositionally; TOPIC metric too sparse (metric-limited) (joint_interchange.py)
+
+Patch class and/or content subspaces at L15 (QP=200) base<-source; measure predicted-class match to source and
+source-topic-distinctive-tokens in top-10.
+  condition       class->source   topic->source(top10 hits)
+  class_only         0.38             0.05
+  content_only       0.24             0.06
+  joint              0.375            0.06
+  random             0.24             0.045
+CLASS SIDE (clean, confirmed): class_only 0.38 and joint 0.375 both shift the predicted next-token class toward
+the SOURCE's class, +0.14 over random (0.24); content_only does NOT move class (0.24 = random) -> a clean
+DISSOCIATION and compositional evidence that the class variable is causally controllable in the joint setting
+(consistent with §892 class interchange). The class effect SURVIVES adding the content patch (joint ~= class_only).
+TOPIC SIDE (metric-limited, inconclusive): the topic-match metric (source-topic distinctive tokens in top-10) is
+at the FLOOR for ALL conditions (~0.05-0.06, incl random) -> it is TOO SPARSE to detect a topic shift (exactly the
+sparsity weakness flagged in §921). This is NOT evidence against topic causality — §894 already confirmed topic
+interchange with a proper nats-based metric (+0.70 nats). pred (a) compositional FALSE, but the failure is the
+TOPIC METRIC, not the mechanism.
+NET: class compositional control DEMONSTRATED; the joint test is inconclusive for topic due to the coarse top-10
+metric. Corrected version queued (joint_interchange_v2) with a NATS-based topic metric (log-prob mass on
+source-topic minus base-topic distinctive tokens, §894-style) to properly test compositionality of both machines.

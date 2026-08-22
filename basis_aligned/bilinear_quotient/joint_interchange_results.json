@@ -1,0 +1,23 @@
+{
+ "QP": 200,
+ "conditions": {
+  "class_only": {
+   "pred_class_matches_source": 0.38,
+   "source_topic_tokens_in_top10": 0.05
+  },
+  "content_only": {
+   "pred_class_matches_source": 0.24,
+   "source_topic_tokens_in_top10": 0.06
+  },
+  "joint": {
+   "pred_class_matches_source": 0.375,
+   "source_topic_tokens_in_top10": 0.06
+  },
+  "random": {
+   "pred_class_matches_source": 0.24,
+   "source_topic_tokens_in_top10": 0.045
+  }
+ },
+ "pred_a_compositional": false,
+ "runtime_s": 65.4
+}

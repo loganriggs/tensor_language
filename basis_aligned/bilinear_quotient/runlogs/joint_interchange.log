@@ -1,0 +1,6 @@
+   class_only: class->source 0.38 | topic->source(top10 hits) 0.05
+ content_only: class->source 0.24 | topic->source(top10 hits) 0.06
+        joint: class->source 0.375 | topic->source(top10 hits) 0.06
+       random: class->source 0.24 | topic->source(top10 hits) 0.045
+(a) compositional causal control (joint moves BOTH class and topic > random): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/joint_interchange_results.json (65.4s)
