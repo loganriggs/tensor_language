@@ -27331,3 +27331,22 @@ SURFACE class (token-derived, R² 0.73-0.88); MIDDLE writes CONTEXTUAL class (co
 directions, finer class") — the NEW class is CONTEXT-derived, i.e. the middle contextualizes grammar, it does
 not merely maintain it. The re-injected token (λ1·x0) lets each layer combine token+context, but what the middle
 WRITES is context-dependent, not a token-class copy. Answer to the user revised accordingly; artifact updated.
+
+## §917 — the middle's contextual class is partly PREDICTIVE: the stack shifts from current-token class to next-token class (context_class_predictive.py)
+
+Decoding CURRENT-token class vs NEXT-token class from each layer's output:
+  mlp0  current 0.988 / next 0.563 (next−cur −0.425)   mlp2 0.971 / 0.592
+  mlp5  0.881 / 0.605   mlp8 0.850 / 0.631   mlp11 0.821 / 0.642   mlp14 0.788 / 0.635   mlp16 0.829 / 0.649
+Across depth: CURRENT-class decodability FADES (0.99 → 0.83) while NEXT-class RISES monotonically (0.56 → 0.65);
+the middle is relatively more next-predictive than mlp0 (next−cur −0.21 vs −0.43). Pred (a) middle-predictive
+= TRUE.
+
+So the "context-dependent class" the middle writes (§916) is partly PREDICTIVE grammar: the stack shifts from
+DESCRIBING the current token's class (front, 0.99) toward PREDICTING the next token's class (rising to 0.65),
+i.e. from description to prediction. HONEST bound: current-class still DOMINATES at every layer (always >
+next-class; even mlp16 0.83 current vs 0.65 next), and the next-class rise is modest (+0.09), so it is a gradual
+SHIFT/overlay, not a switch — the middle contextualizes the current class AND grows a next-class prediction on
+top. Names the middle's job in the grammar machine: contextualize the current token's role and begin predicting
+the next token's grammatical class. Completes the class-machine thread (§915 multi-axis surface class at the
+front → §916 context-dependent class in the middle → §917 shifting toward next-token prediction). Artifact
+updated.

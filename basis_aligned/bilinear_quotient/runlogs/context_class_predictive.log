@@ -1,0 +1,11 @@
+  mlp0: CURRENT-class 0.988 | NEXT-class 0.563 | next-cur -0.425
+  mlp2: CURRENT-class 0.971 | NEXT-class 0.592 | next-cur -0.379
+  mlp5: CURRENT-class 0.881 | NEXT-class 0.605 | next-cur -0.276
+  mlp8: CURRENT-class 0.850 | NEXT-class 0.631 | next-cur -0.219
+ mlp11: CURRENT-class 0.821 | NEXT-class 0.642 | next-cur -0.179
+ mlp14: CURRENT-class 0.788 | NEXT-class 0.635 | next-cur -0.153
+ mlp16: CURRENT-class 0.829 | NEXT-class 0.649 | next-cur -0.180
+
+MIDDLE next-minus-current -0.207 vs mlp0 -0.425
+(a) middle class is PREDICTIVE (next-token grammar) more than mlp0: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/context_class_predictive_results.json (42.4s)
