@@ -22,7 +22,11 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    linear carrier. **HIGH.**
 
 1b. **The right decomposition of the front is a canonical token-class SUBSPACE, not learned
-   parts (§737–772).** Chasing a good decomposition: reconstruction-optimal bases (SVD/A-SVD) are
+   parts (§737–772).** [§836 CORRECTION: every keep-only RECOVERY magnitude quoted in this item and 1c
+   (0.78, 0.92, cross-model 0.64–0.92) is a RANK/CONSTRUCTION ARTIFACT — a shuffled-label subspace of
+   matched rank recovers the same (§836). Read those numbers as "rank-r compressibility", not
+   "class+position's specific share". Class+position is real via NAMING (§825/826) and STEERING (§823),
+   not via keep magnitude.] Chasing a good decomposition: reconstruction-optimal bases (SVD/A-SVD) are
    CE-catastrophic at low rank (front-load loss-irrelevant massive-activation energy, §737/748); a
    learned overcomplete **sparse dictionary** (weight-action SAE) reconstructs faithfully (§750/759,
    needs a reconstruction anchor or pure-CE training destroys weight-faithfulness §758/762) and its
@@ -100,20 +104,27 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    centered-random low → specific). So the per-component headline (0.92) is an UPPER BOUND; the honest
    whole-model share is the SIMULTANEOUS CENTERED metric (§794: 0.78, random 0.04) — "~4/5 of the model". **HIGH.**
 
-   **CAPSTONE — class+position program COMPLETE (§767→831), all cross-model-validated.** WHAT: class =
-   grammatical categories (determiners, pronouns vs numbers, punctuation, conjunctions, prepositions,
-   be-verbs/auxiliaries; §825/826, named & universal), position = a logarithmic early/late scale + a
-   first-token landmark (§827). WHERE: front computes → middle redundantly keeps computing → back reads
-   (barbell, §812; super-additive class+position-maintenance middle universal across 6 models, §815/817).
-   HOW MUCH: simultaneous 0.78 (per-component 0.92 mean-inflated upper bound, §820/821). CAUSAL: necessary
-   (§767-814), generalizing (§820), sufficient/steerable at the component write-sites but NOT the embedding
-   (§823/824). USED AS grammatical sequencing — predicted next-class matches the empirical class-bigram to
-   KL 0.009 (§828). LOSS SPLIT (universal): predicting the class is the EASY ~23-25% of the loss; choosing
-   the word within it is the HARD ~75-77% (within-fraction 77% bilin18 / 75% gpt2 / 76% pythia, §829/831),
-   partly context-reducible (~1.1 nats) but mostly an irreducible ~2.4-nat entropy floor (§830). ONE-LINE:
-   the interpretable low-rank machinery computes a grammatical skeleton that is most of the components but
-   only a quarter of the difficulty; the rest is high-entropy lexical choice with no low-rank handle — a
-   shape that is a property of the task, not one network.
+   **CAPSTONE — class+position program (§767→836), cross-model, WITH A MAJOR §836 CORRECTION on the
+   quantitative headline.** WHAT: class = grammatical categories (determiners, pronouns vs numbers,
+   punctuation, conjunctions, prepositions, be-verbs/auxiliaries; §825/826, named & universal, shuffled
+   control incoherent), position = a logarithmic early/late scale + first-token landmark (§827). CAUSAL:
+   class steering shifts predictions toward the target class; random directions do not (§823); steering the
+   embedding corrupts (§824). USED AS grammatical sequencing — predicted next-class matches the empirical
+   class-bigram to KL 0.009 (§828). LOSS SPLIT (universal, pure chain rule): predicting the class is the
+   EASY ~23-25% of the loss; the word within it is the HARD ~75-77% (77% bilin18 / 75% gpt2 / 76% pythia,
+   §829/831), partly context-reducible (~1.1 nats) but mostly an irreducible ~2.4-nat entropy floor (§830).
+   **HOW MUCH — CORRECTED (§836): RETRACTED as a class+position-specific number.** The keep-only "78%/0.92
+   class+position" (§794/807/808) is a RANK/CONSTRUCTION ARTIFACT: a shuffled-LABEL subspace of matched
+   rank 96 recovers the same (0.805/0.760 vs real 0.811/0.761; specific gap +0.006). Keep-only measures
+   rank-96 compressibility, not class+position specifically (class+position ≈ top-PCA ≈ shuffled-label
+   subspace). So do NOT say "the model is 78% class+position"; say "each component's output is ~78%
+   recoverable at rank 96, and that low-rank structure is — by NAMING and STEERING — grammatical class +
+   position." The right keep-only null is a shuffled-LABEL matched-rank subspace, not random-orthonormal
+   (§821 was far too weak). ROBUST regardless: naming (§825/826), steering (§823), loss split (§829-831),
+   and ablation-based shapes (barbell/redundant-middle §812/813). ONE-LINE (corrected): the model computes
+   a low-rank representation, organized and causally used as grammatical class + position, that nails the
+   easy grammatical quarter of the loss; the hard three-quarters is high-entropy lexical choice — but the
+   *fraction* of the model attributable to class+position is not measurable by keep-only and was withdrawn.
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even

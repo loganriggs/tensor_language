@@ -25673,3 +25673,49 @@ control (§825/826), and class steering causally shifts predictions while random
 (§823). Those establish class+position regardless of the keep-only magnitude. Queued cp_vs_shuffled_null
 to measure the full class+position keep (rank 96) against a matched-rank shuffled-label null and report
 the SPECIFIC (construction-corrected) class+position contribution to class and within-class loss.
+
+## §836 — MAJOR CORRECTION: the keep-only "78%/92% class+position" magnitude is a RANK/CONSTRUCTION ARTIFACT — a shuffled-label subspace of the same rank recovers the same. Class+position's reality rests on naming + steering, not keep magnitude (cp_vs_shuffled_null.py)
+
+Decisive test of the §835 concern. Full class+position (rank 96 = 64 token-cond + 32 position-cond)
+keep vs a matched null: rank 96 from SHUFFLED token + SHUFFLED position labels, same mean-deviation
+construction. Simultaneous centered keep, CE split:
+
+|            | recovers CLASS benefit | recovers WITHIN benefit |
+|------------|-----------------------:|------------------------:|
+| REAL class+position (rank 96) | 0.811 | 0.761 |
+| SHUFFLED-label (rank 96, matched) | 0.805 | 0.760 |
+| **specific gap (real − shuffled)** | **+0.006** | **+0.001** |
+
+VERDICT: the class+position keep-only magnitude is NOT specific — a rank-96 subspace built from RANDOM
+(shuffled) token+position groupings recovers essentially the same as the real grammatical grouping.
+Mechanism: random-subset means fluctuate most along the output's high-variance directions, so a
+shuffled-label subspace ≈ the top-96-PCA subspace; and class+position ≈ the top-96-PCA subspace too
+(class/position structure IS the dominant variance). Keep-only therefore measures RANK/COMPRESSIBILITY
+(each component's output is ~78% recoverable at rank 96), NOT class+position specifically.
+
+WHAT THIS RETRACTS (keep-only-magnitude claims — all rank artifacts, corrected):
+ - "the model is ~78% / ~4/5 a class+position computer" (§794/807) — the 78% is a rank-96 compressibility
+   number, not class+position's specific share.
+ - per-component 0.92 and the cross-model shares 0.64–0.92 (§808/815/817) — rank artifacts.
+ - "class+position recovers 76% of the lexical benefit" (§833) and §834's decomposition — rank artifacts.
+ - the keep-based "middle maintains/continues class+position" magnitude (§814/818) — the maintenance
+   MAGNITUDE is confounded (though the middle's redundant ablation-benefit, §813, is robust).
+
+WHAT REMAINS ROBUST (independent of keep-only):
+ - Class+position is a REAL, grammatically-organized representation: the class directions decode as
+   determiners/pronouns/numbers/punctuation/etc. with an INCOHERENT shuffled control (§825/826).
+ - It is CAUSAL: steering the class content shifts predictions toward the target class; random
+   directions do not (§823); steering the embedding corrupts (§824).
+ - Grammatical sequencing (§828) and the grammar/lexical LOSS split (§829–831, pure chain rule) do not
+   use keep-only and stand.
+ - Ablation-based results (per-component benefit, the barbell/redundant-middle SHAPE §812/813, the
+   compute pipeline) are robust; only the class+position-KEEP overlays on them are confounded.
+
+CORRECTED HEADLINE: each component's output is low-rank (≈78% recoverable at rank 96), and that low-rank
+structure is — by naming and by causal steering — organized as grammatical class + position. But the
+"78%" is a statement about RANK/COMPRESSIBILITY, not a measurement that class+position specifically does
+78% of the model's work. The interpretable content (grammar + position) is established by naming and
+steering; the fraction-of-the-model quantification via keep-only is withdrawn. Propagating to FINDINGS
+and the artifact. LESSON: keep-only recovery with a DATA-DERIVED subspace must be nulled against a
+SHUFFLED-LABEL subspace of matched rank/construction — random-orthonormal (§821) is far too weak and
+inflated every keep magnitude in this program.
