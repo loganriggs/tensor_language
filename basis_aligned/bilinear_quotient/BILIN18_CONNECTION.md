@@ -27262,3 +27262,15 @@ correct "intermediate" between the L0-write and the L15-read is EACH layer's own
 linked by ~0.85 carry + per-layer re-writing. This is why front-write weights fail to identify the variable at
 L15 (§895): by then it has been re-written a dozen times into a different, maintained subspace. Refines §897
 ("rotation") to "continuous re-writing, distributed across depth, crossover ~L11". Artifact/FINDINGS updated.
+
+## §913 — CORRECTION: r512 whole-model 0.849 is a LEAKAGE artifact (downstream content feature); benchmark stays ~0.41 (whole_model_smoothmap_r512.py)
+
+The rank-512 whole-model smooth map scored 0.849 held-out — but this is INFLATED by downstream leakage, NOT a
+real benchmark. The content feature is the rank-512 L15 residual, which is DOWNSTREAM of most components: it
+near-DETERMINES the readout (mlp16/17 sit right after L15, so their output is ~a linear readout of L15 content)
+and is CIRCULAR for the middle (which builds L15 content). The 12-topic version (0.406, §906) is LOW-rank so
+leaks little; rank-512 downstream content leaks heavily. So do NOT update the benchmark to 0.85 — the honest
+whole-model held-out benchmark STAYS ~0.41. The clean fix: per-component UPSTREAM content (each component's own
+clean INPUT residual, from the unmodified forward), which by construction is not downstream — queued as
+whole_model_upstream. Lesson (recurring): a "feature" taken downstream of what you reconstruct is leakage;
+certify features are upstream. This is why the per-component numbers (§909/§910) used each component's own input.
