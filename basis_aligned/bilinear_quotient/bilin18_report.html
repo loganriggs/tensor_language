@@ -1824,7 +1824,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   not of this model. Nor is it a property of the bilinear MLP: a sister model of the same size trained on the
   same data with an ordinary SwiGLU MLP gives an identical budget (first mentions 78.4%, seen-other 20.3%,
   induction 1.3%), the same grammar/content split, and the same strong front-of-model induction — so the
-  two-machine-plus-induction structure is in the learned computation, not the architecture we happened to read.</p>
+  two-machine-plus-induction structure is in the learned computation, not the architecture we happened to read.
+  A smaller sibling (12 layers, 162M) tells us which parts are scale-free and which are not: it has the very
+  same budget (78% first mentions) and the same grammar/content split, but a much weaker general-purpose copy —
+  it can still predict real repeated phrases cheaply, yet fails the pure random-token copy test that the larger
+  models pass easily. So the <em>structure</em> of the loss is invariant to size and architecture; the
+  <em>strength</em> of the induction circuit is what grows with scale.</p>
   <figure><svg viewBox="0 0 780 252" role="img" aria-label="loss contribution by position type, split into grammar and content">
   <text class="panel" x="8" y="16">where every nat of the loss goes (bar width = nats contributed)</text>
   <line class="grid" x1="150" y1="36" x2="150" y2="200"/><text class="tick" x="150" y="216" text-anchor="middle">0</text>

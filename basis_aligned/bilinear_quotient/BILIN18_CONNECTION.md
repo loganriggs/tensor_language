@@ -26686,3 +26686,25 @@ slightly less single-layer-concentrated (top drops 9.9/9.7/9.6 across L4/L6/L1 v
 Combined with §880 (budget universal across bilin18/gpt2/gpt2-large) and §831 (23/77 split universal), the
 picture is robust across both architecture and scale. Cross-model loader/forward verified working — enables
 the depth/scale check on bilin12 next. Artifact gets a one-line generality note.
+
+## §884 — scale split: the loss BUDGET is scale-invariant, but general-purpose INDUCTION strength scales with size (cross_arch_bilin12.py)
+
+Ran the account on bilin12 (12L/6H/768, 162M — smaller/shallower than bilin18's 546M, same family/data). Two
+distinct outcomes:
+ - SCALE-INVARIANT: loss budget first-mention 78.1% | seen-other 20.5% | inductable 1.3% — IDENTICAL to
+   bilin18 (78.4/20.3/1.3); grammar/content within-frac 0.767 (bilin18 0.765). Overall CE 3.443 (higher than
+   bilin18's 3.24, as expected for a smaller model) = class 0.803 + within 2.641. So the two-machine split and
+   the loss budget are the same at 162M and 546M.
+ - SCALE-DEPENDENT: synthetic induction score 4.259 vs bilin18/swiglu18's ~12 — bilin12's general-purpose copy
+   is much WEAKER (second-copy loss on random tokens ~8.7 vs ~1.3). Still front-localized (gate L5, top drops
+   L5/L6/L4 ~3.2-3.6, but spread, no dominant single gate). YET its NATURAL inductable bucket stays cheap
+   (0.745, ~bilin18's 0.69).
+Pred (a) architecture-independent = FALSE — correctly, because induction STRENGTH is scale-dependent.
+
+INTERPRETATION: the smaller model handles REAL repeated bigrams fine (natural inductable cheap) but is much
+worse at CONTENT-AGNOSTIC copy (random-token synthetic induction). So bilin12's cheap natural-repeat bucket
+leans more on statistical/topic predictability, while bilin18/swiglu18 have a genuine general-purpose copy
+circuit that develops with scale/depth. Clean separation: the loss STRUCTURE (budget, two machines,
+first-mention floor) is scale- and architecture-invariant (§880/§883/§884), but the STRENGTH of the induction
+mechanism scales with model size. This is the honest final generality picture. Artifact generality note
+refined to distinguish the two.
