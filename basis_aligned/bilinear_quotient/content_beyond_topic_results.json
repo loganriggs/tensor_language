@@ -1,0 +1,38 @@
+{
+ "features": {
+  "sentence_position": {
+   "decode_content": 0.457,
+   "decode_content_no_topic": 0.456,
+   "base_rate": 0.621,
+   "shuffled": 0.215,
+   "topic_removal_drop": 0.0,
+   "above_base": -0.164
+  },
+  "is_repeat_entity": {
+   "decode_content": 0.645,
+   "decode_content_no_topic": 0.659,
+   "base_rate": 0.599,
+   "shuffled": 0.502,
+   "topic_removal_drop": -0.014,
+   "above_base": 0.046
+  },
+  "paren_depth": {
+   "decode_content": 0.46,
+   "decode_content_no_topic": 0.457,
+   "base_rate": 0.96,
+   "shuffled": 0.373,
+   "topic_removal_drop": 0.004,
+   "above_base": -0.5
+  },
+  "prev_token_class": {
+   "decode_content": 0.517,
+   "decode_content_no_topic": 0.516,
+   "base_rate": 0.455,
+   "shuffled": 0.192,
+   "topic_removal_drop": 0.0,
+   "above_base": 0.062
+  }
+ },
+ "pred_a_nontopic_structure": false,
+ "runtime_s": 37.4
+}

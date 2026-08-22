@@ -27508,3 +27508,19 @@ ACCOUNT COMPLETE (bottom-up, causal, cross-model-validated). bilin18, end to end
    generalizing named concepts held-out (§906) — grammar essentially solved (smooth token function ~0.90),
    content the high-rank bilinear frontier (~0.1 as a table, causal but not tabulatable). Universal across
    architecture/scale (§880/883/884/885/925).
+
+## §926 — content beyond topic resists naming with constructible features (weak entity/syntax only); confirms high-dimensionality (content_beyond_topic.py)
+
+Probed what non-topic structure the content residual carries, via constructible features: entity-repetition
+(is-repeat) 0.645 vs base 0.599 (above shuffled 0.502, survives topic removal) — REAL but small (+0.05);
+prev-token class 0.517 vs base 0.455 — REAL but small (+0.06); sentence-position 0.457 < base 0.621 (correctly
+ABSENT — it was removed as position §786); paren-depth base 0.96 (too rare to assess). Pred (a)
+non-topic-structure = FALSE (the two testable features are only weakly present).
+
+So the content residual beyond topic carries only WEAK entity-repetition and local-syntax signals — nothing
+strong or cleanly nameable with these simple constructible probes. This CONFIRMS the content machine's
+high-dimensionality (§866/874): its structure beyond topic is diffuse and not captured by simple features.
+Naming more of the content would need EXTERNAL semantic tools (NER, coreference, sentiment) not available
+on-box. Honest limit: on-box, TOPIC is the main nameable content handle, with weak entity/syntax additions;
+the rest is genuinely high-dimensional. Trying the HIERARCHICAL angle next (does the content have topic→subtopic
+sub-structure — content_subtopics), which is on-box and could name the high-dim content as a hierarchy.
