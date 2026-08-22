@@ -27693,3 +27693,32 @@ the output-side separability (§920 grammar-subspace ⊥ topic-subspace) and the
 current_class 0.539 is only +0.086 above base because next-class is not strongly LINEARLY decodable from the raw
 current embedding (the model computes class nonlinearly via mlp0, §915) — but the CONTRAST (current>bag for
 class, bag>>current for topic) is the dissociation and it is clean.
+
+## §935 — REFUTED: front-MLP per-token encoding does NOT enrich the topic bag; the bag saturates at token-identity level (content_bag_mlpfeatures.py)
+
+Test the "front-MLP per-token encode -> attention bag-average" pipeline: build per-token feature tables via
+length-1 forwards (each token in isolation), bag-average over context, decode L15 topic (K=32). base 0.170,
+ceiling (real L15) 0.844.
+  raw embedding bag 0.655 (reproduces §932) | post-block-0 bag 0.667 | post-block-2 bag 0.664 |
+  post-block-4 bag 0.152 | post-block-7 bag 0.234.
+ - Pred (a) FALSE: post-front-MLP per-token features give NO meaningful gain over raw embeddings (0.667 vs 0.655,
+   +0.011); deeper context-free features COLLAPSE (L4/L7 at/below base) — a token run with no context degenerates
+   in deeper layers.
+FLAWED NULL (reported honestly): the shuffled token->feature-map null returned 0.664 ~= the real result, but this
+is a BAD null — permuting the feature table is an invertible relabeling that PRESERVES token-identity
+information, so the probe simply re-learns it. It does NOT show "feature content doesn't matter"; it is
+uninformative and I do not rely on it. (A proper identity baseline would be a one-hot-token bag; noted for
+follow-up.)
+REFINED CONCLUSION: the flat order-invariant bag captures ~72% of topic-decode-above-base at the TOKEN-IDENTITY
+level — raw embeddings already suffice, and front-MLP per-token encoding adds nothing to the topic-relevant part
+of the bag. Therefore the remaining gap to the model's actual L15 topic (0.655 -> 0.844) is NOT front-MLP
+per-token enrichment; it must come from CONTEXT-DEPENDENT processing — attention's NON-UNIFORM (weighted, not
+flat) pooling and deeper interaction. So the content pipeline is: [bag of token identities: ~72%, order-invariant]
++ [context-dependent attention weighting/deeper processing: the rest], written onto the shared front-MLP
+substrate (§933). The front MLPs matter for writing the MODEL's residual copy (§933) but not for enriching the
+bag's topic content. This closes the on-box content-mechanism arc; the honest end-state for content:
+ - WHAT: order-invariant bag of token identities (§932/§934), ~72% of topic; rest is context-weighted (§935).
+ - WHERE: shared front-MLP substrate, not localized (§933); pooled by distributed attention (§929/§931).
+ - HOW MUCH: modest ~17%@K=1024 causal handle on a high-rank continuum (§930).
+NEXT: does a bag-of-words RIDGE-MAP stand-in beat the topic-centroid stand-in in the understanding benchmark?
+(content_bag_benchmark — use §932 mechanistically to improve the tracked benchmark's content term).
