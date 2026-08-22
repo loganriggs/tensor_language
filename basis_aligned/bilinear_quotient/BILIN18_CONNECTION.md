@@ -26214,3 +26214,18 @@ time, most at the readout — matching its diffuse/high-rank nature (§810), not
 circuit. This LOCATES the content wall (distributed, back-heavy) even though it stays unnamed. Figure sent.
 NEXT: decompose per-layer content improvement into ATTENTION (context aggregation) vs MLP (per-position
 transform) — is content context-driven or transform-driven?
+
+## §861 — content is generated mostly by MLPs (3× attention), concentrated in the BACK MLPs (logit_lens_attn_mlp.py)
+
+Split each layer's logit-lens content (within-CE) reduction into attention (context aggregation) vs MLP
+(per-position transform). TOTAL content reduction: MLP 4.58 vs attention 1.48 (~3× MLP). Biggest single
+content generators are the BACK MLPs: mlp16 +1.21, mlp15 +0.73, mlp17 +0.47 (also mlp1 +1.82, the
+re-expansion, after mlp0 −1.57). Attention content gains are small and gradual (0.1-0.48/layer); the L5
+attention gain is −1.29 (attn5 re-representation reduces logit-readability, §860).
+
+FINDING: by direct logit-lens attribution, the MLPs — especially the BACK MLPs (15/16/17) — generate most
+of the readable content; attention's DIRECT content gain is small. So the back MLPs do double duty: they
+read class+position (§851) AND are the model's main content generators. Caveat (tested next): attention's
+small DIRECT logit gain may hide a large INDIRECT role — it moves context between positions that the MLPs
+then convert into content — so its importance to content could be much larger than its direct logit-lens
+gain. Queued ablate_attention_content to settle whether content depends on attention's context.
