@@ -1,9 +1,9 @@
-src 262: KL(normal||B) 3.3719 -> KL(cp-steer||B) 3.3719 | rand-steer 3.3719
-src 257: KL(normal||B) 3.6968 -> KL(cp-steer||B) 3.6968 | rand-steer 3.6968
-src 13: KL(normal||B) 4.1508 -> KL(cp-steer||B) 4.1508 | rand-steer 4.1508
-src 198: KL(normal||B) 6.5257 -> KL(cp-steer||B) 6.5257 | rand-steer 6.5257
-src 290: KL(normal||B) 1.5934 -> KL(cp-steer||B) 1.5934 | rand-steer 1.5934
+src 262: KL(normal||B) 3.3719 -> KL(cp-steer||B) 3.4899 | rand-steer 3.662
+src 257: KL(normal||B) 3.6968 -> KL(cp-steer||B) 3.7106 | rand-steer 3.8184
+src 13: KL(normal||B) 4.1508 -> KL(cp-steer||B) 4.4848 | rand-steer 4.3742
+src 198: KL(normal||B) 6.5257 -> KL(cp-steer||B) 7.4622 | rand-steer 6.418
+src 290: KL(normal||B) 1.5934 -> KL(cp-steer||B) 2.0898 | rand-steer 1.7903
 
-MEAN KL to source-B continuation: normal 3.868 | cp-steer 3.868 | rand-steer 3.868
+MEAN KL to source-B continuation: normal 3.868 | cp-steer 4.247 | rand-steer 4.013
 (a) class+position steering is causally SUFFICIENT (cp-steer moves toward B, < normal and < rand): False
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cp_steering_results.json (67s)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cp_steering_results.json (74s)
