@@ -26485,3 +26485,21 @@ replicable, CONTINUOUS high-dimensional topic geometry; the discrete clusters ar
 Combined with causal steering (§868), the content-word gist (§872), long-context dependence (§871), and
 held-out decode (§870), the content-machine = continuous topic tracker is now well-established. Artifact/
 FINDINGS finalized to this framing.
+
+## §875 — topic aggregation is DISTRIBUTED across heads (modest per-layer concentration); no single "topic head" (topic_heads.py)
+
+Attributed each of the 9 heads' additive residual contribution (c_proj(y_head)) and decoded the §866 topic
+from each, at layers 2-14. EVERY head decodes topic ABOVE chance (per-head medians 0.26-0.48 vs chance
+~0.17), with ONE head per layer standing out ~1.5x the median (mean top/median ratio 1.57). Clearest single
+topic head: L6 head 1 at 0.637 — decoding topic BETTER than L6's full attention output (0.543), because the
+full output mixes in other heads' non-topic content that adds probe noise. Later layers (L10/L12) spread
+topic across MANY heads (all 0.33-0.59). Pred (a) localized-to-specific-heads = weakly TRUE (ratio>1.5), but
+the honest headline is DISTRIBUTION.
+
+INTERPRETATION: topic aggregation is broadly distributed across heads with only modest per-layer
+concentration — no single "topic head." This mirrors topic's diffuseness at every other level: no single
+DIRECTION handle (weak single-direction steering §868), no single LAYER (built by the sum of attention
+layers §870), and now no single HEAD. The high-dimensional topic computation is spread across heads, layers,
+and dimensions alike — which is exactly why it resisted every localized/low-rank probe and only yielded to
+the continuous-structure framing (§873/§874). L6 head 1 is the one nameable exception worth flagging (a
+genuine strong topic aggregator). This closes the head-level detail of the bottom-up map.

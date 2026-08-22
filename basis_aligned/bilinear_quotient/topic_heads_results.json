@@ -1,0 +1,135 @@
+{
+ "n_head": 9,
+ "layers": {
+  "L2": {
+   "full_attn_out": 0.638,
+   "per_head": [
+    0.337,
+    0.236,
+    0.278,
+    0.23,
+    0.468,
+    0.263,
+    0.261,
+    0.547,
+    0.206
+   ],
+   "top_head": 7,
+   "top_head_acc": 0.547,
+   "median_head_acc": 0.263,
+   "shuffled_null": 0.175
+  },
+  "L4": {
+   "full_attn_out": 0.616,
+   "per_head": [
+    0.263,
+    0.234,
+    0.379,
+    0.223,
+    0.233,
+    0.342,
+    0.342,
+    0.268,
+    0.48
+   ],
+   "top_head": 8,
+   "top_head_acc": 0.48,
+   "median_head_acc": 0.268,
+   "shuffled_null": 0.173
+  },
+  "L6": {
+   "full_attn_out": 0.543,
+   "per_head": [
+    0.292,
+    0.637,
+    0.302,
+    0.307,
+    0.254,
+    0.307,
+    0.248,
+    0.343,
+    0.265
+   ],
+   "top_head": 1,
+   "top_head_acc": 0.637,
+   "median_head_acc": 0.302,
+   "shuffled_null": 0.159
+  },
+  "L8": {
+   "full_attn_out": 0.591,
+   "per_head": [
+    0.254,
+    0.315,
+    0.38,
+    0.266,
+    0.21,
+    0.275,
+    0.294,
+    0.257,
+    0.339
+   ],
+   "top_head": 2,
+   "top_head_acc": 0.38,
+   "median_head_acc": 0.275,
+   "shuffled_null": 0.172
+  },
+  "L10": {
+   "full_attn_out": 0.743,
+   "per_head": [
+    0.476,
+    0.473,
+    0.589,
+    0.394,
+    0.484,
+    0.512,
+    0.48,
+    0.369,
+    0.333
+   ],
+   "top_head": 2,
+   "top_head_acc": 0.589,
+   "median_head_acc": 0.476,
+   "shuffled_null": 0.179
+  },
+  "L12": {
+   "full_attn_out": 0.743,
+   "per_head": [
+    0.461,
+    0.457,
+    0.437,
+    0.495,
+    0.551,
+    0.397,
+    0.407,
+    0.541,
+    0.387
+   ],
+   "top_head": 4,
+   "top_head_acc": 0.551,
+   "median_head_acc": 0.457,
+   "shuffled_null": 0.176
+  },
+  "L14": {
+   "full_attn_out": 0.638,
+   "per_head": [
+    0.361,
+    0.383,
+    0.34,
+    0.266,
+    0.408,
+    0.25,
+    0.372,
+    0.348,
+    0.268
+   ],
+   "top_head": 4,
+   "top_head_acc": 0.408,
+   "median_head_acc": 0.348,
+   "shuffled_null": 0.165
+  }
+ },
+ "chance": 0.2,
+ "mean_top_over_median": 1.57,
+ "pred_a_sparse_topic_heads": true,
+ "runtime_s": 68.4
+}
