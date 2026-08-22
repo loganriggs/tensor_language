@@ -174,6 +174,20 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    MLP form (swiglu18), attention (sqrd12), and scale (bilin12); induction STRENGTH scales with size (18L 11.8 ≫ 12L 4.3) and is
    stronger with normalized attention (sqrd12 8.6 > bilin12 4.3). **HIGH.**
 
+1f. **VARIABLE-LEVEL causal abstraction + how much we understand (§892→906, user-directed).** The honest unit
+   is the VARIABLE (read/write subspace), not the head. INTERCHANGE INTERVENTION (Geiger) verifies causality where
+   mean-STEERING failed (steering pushes the read direction, read≠write, item 2): CLASS is causal (patch flips
+   predicted part-of-speech 4× a random-subspace swap, §892); TOPIC is causal (patch shifts prediction toward the
+   source passage's subject +0.70 nats vs random, §894). The class variable's subspace ROTATES write→read across
+   depth (front-write overlap 0.29→0.02, readout-read 0.07→0.18, §897) — so weights identify a variable only at the
+   layer that acts; activations/DAS are the ground truth (DAS≈activation, §895). HOW MUCH WE UNDERSTAND (replace
+   components with named-variable stand-ins; 0=mean-ablate, 1=full; certified on HELD-OUT data — in-sample overfits,
+   e.g. 0.81→0.30, §901): with a smooth low-rank MAP of named variables (token+prev+continuous-topic), ~**40%** of
+   the whole model held-out (§906; table 0.30, null −0.03). Splits by depth: FRONT grammar ~0.90 (a smooth
+   generalizing function of the current token — SOLVED, §905), READOUT ~0.56, MIDDLE content ~0.10 — the middle is
+   NOT a function of these variables (genuinely high-dim, needs longer-range/interaction variables), yet is causal
+   (§894). So grammar is a writable+causal variable; content is causal but not yet tabulatable — the frontier. **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
