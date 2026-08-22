@@ -99,8 +99,9 @@ def main():
                 if c < 4: continue
                 nc[t] = (c/max(mk.sum(),1))/((base_ct.get(t,0)+1)/Nn)
             distinct[j] = set(int(t) for t,_ in nc.most_common(30))
-        seqR = capL(blocks[:, :SEQ].to(DEV)[:, :-1].contiguous(), L)
-        layer_data[L] = {'Utopic': Utopic, 'tl': tl, 'distinct': distinct, 'qvec': seqR[:, QP, :]}
+        qv = []  # capture per-seq QP residual in chunks (avoid full-batch lm_head OOM)
+        for i in range(0, nb, 4): qv.append(capL(blocks[i:i+4].to(DEV)[:, :-1].contiguous(), L)[:, QP, :])
+        layer_data[L] = {'Utopic': Utopic, 'tl': tl, 'distinct': distinct, 'qvec': torch.cat(qv, 0)}
     pairs = [(i, (i+nb//2) % nb) for i in range(nb)]
     def dset(distinct, topic):
         s = distinct.get(topic, set()); return torch.tensor(sorted(s), device=DEV) if s else None
