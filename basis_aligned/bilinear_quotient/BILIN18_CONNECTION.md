@@ -27646,3 +27646,31 @@ the finer per-context continuum beyond the topic slice. Reconciles trivially wit
 simple function of the context (a running mean), yet the model's stored copy is front-MLP-written (removing MLP1
 removes the copy even though the info is "in principle" in x0). NEXT: is MLP1's write topic-SPECIFIC or generic
 substrate (topic_component_specificity).
+
+## §933 — RESOLVES §931 caveat: MLP1 is a DOMINANT GENERIC substrate writer, not topic-specific (topic_component_specificity.py)
+
+Mean-ablate front components and measure the drop in BOTH topic-decode (content) and next-class-decode (grammar),
+plus overall CE and residual-variance-perturbed. clean topic 0.840 (base 0.176), clean class 0.676 (base 0.456),
+clean CE 3.32. Drops as fraction of clean-above-base:
+  comp   topic_drop  class_drop   CE+     residΔvar
+  mlp0     0.234       0.435     +0.766     0.42
+  mlp1     1.005       0.998     +6.317     4.22   <- collapses BOTH to base; catastrophic; dominant writer
+  mlp2     0.207       0.441     +0.762     0.46
+  mlp3     0.175       0.301     +0.582     0.36
+  mlp9     0.016       0.056     +0.050     0.09   <- mid control, tiny (front-loaded)
+  attn1    0.073       0.080     +0.187     0.14
+RESOLUTION of §931's caveat (was MLP1's topic effect topic-specific or generic?): GENERIC. Ablating MLP1
+collapses topic AND class equally to base and raises CE by 6.3 nats; its mean-ablation perturbs the residual by
+4.2x its own variance -> MLP1 is a DOMINANT front writer of the shared substrate, not a topic-dedicated
+component. pred (a) generic-substrate TRUE.
+REFINES §931: the correct statement is NOT "front MLPs hold the topic representation" but "the front MLPs write a
+SHARED grammar+content substrate into the residual; MLP1 is a dominant generic writer whose removal collapses
+everything; MLP0/2/3 actually lean GRAMMAR (class_drop > topic_drop, consistent with mlp0 writing class §915)."
+So TOPIC IS NOT LOCALIZED to any component — it is a diffuse bag-of-words property (§932) distributed across the
+residual substrate that the front MLPs write and attention pools. This tightens the whole content account:
+ - WHAT (§932): topic ~= order-invariant bag-of-word-embeddings gist of context.
+ - WHERE-written (§933): no dedicated component; carried by the shared front-MLP substrate (MLP1 dominant-generic,
+   MLP0/2/3 grammar-leaning), pooled redundantly by attention (§929/§931).
+ - HOW-MUCH (§930): a modest ~17%@K=1024 causal handle on a high-rank continuum.
+(No overclaim in the artifact: it says content is "written via front MLPs, pooled by attention", consistent with
+"shared substrate"; a phase-boundary artifact pass can add the shared-substrate nuance.)

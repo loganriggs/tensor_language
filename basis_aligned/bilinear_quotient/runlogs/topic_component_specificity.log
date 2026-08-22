@@ -1,0 +1,9 @@
+  mlp0: topic-drop +0.234 class-drop +0.435 | CE +0.766 | residΔvar 0.416
+  mlp1: topic-drop +1.005 class-drop +0.998 | CE +6.317 | residΔvar 4.218
+  mlp2: topic-drop +0.207 class-drop +0.441 | CE +0.762 | residΔvar 0.457
+  mlp3: topic-drop +0.175 class-drop +0.301 | CE +0.582 | residΔvar 0.358
+  mlp9: topic-drop +0.016 class-drop +0.056 | CE +0.050 | residΔvar 0.085
+ attn1: topic-drop +0.073 class-drop +0.080 | CE +0.187 | residΔvar 0.136
+clean topic 0.840(base 0.176) class 0.676(base 0.455)
+(a) MLP1 is generic shared substrate (topic-drop ~= class-drop, both large): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/topic_component_specificity_results.json (60.1s)
