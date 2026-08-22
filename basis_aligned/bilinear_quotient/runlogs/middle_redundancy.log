@@ -1,0 +1,16 @@
+skip 0 middle blocks []: Δce +0.0000
+skip 1 middle blocks [15]: Δce +0.4524
+skip 2 middle blocks [14, 15]: Δce +1.5985
+skip 3 middle blocks [13, 14, 15]: Δce +2.7553
+skip 4 middle blocks [12, 13, 14, 15]: Δce +5.8972
+skip 6 middle blocks [10, 11, 12, 13, 14, 15]: Δce +13.8285
+skip 8 middle blocks [8, 9, 10, 11, 12, 13, 14, 15]: Δce +16.4960
+skip 10 middle blocks [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]: Δce +16.1854
+skip 1 front blocks [5]: Δce +1.1637
+skip 2 front blocks [4, 5]: Δce +1.6693
+skip 3 front blocks [3, 4, 5]: Δce +1.9668
+skip 4 front blocks [2, 3, 4, 5]: Δce +2.6671
+skip 6 front blocks [0, 1, 2, 3, 4, 5]: Δce +7.2858
+skip-6 middle Δce 13.8285 vs front Δce 7.2858 | random-6 [2.9733, 3.9693, 3.335]
+(a) middle more redundant than front (skip-4 middle << skip-4 front): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_redundancy_results.json (53.2s)

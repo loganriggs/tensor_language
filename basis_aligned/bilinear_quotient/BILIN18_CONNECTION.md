@@ -27988,3 +27988,21 @@ mixing), while GRAMMATICAL CLASS is excluded from the multiplication. All group 
 distributed token&content multiplicative computation with no class involvement. Bottom-up account COMPLETE:
 front (linear grammar+token write) -> middle (token&content multiplication, no class) -> readout (~95% linear
 rotation into token basis, §945). Artifact: the middle multiplies token and content, not class.
+
+## §947 — CONFOUND CAUGHT: block-SKIP conflates content computation with the residual-rescale bookkeeping (middle_redundancy.py)
+
+Skip (replace block output with its INPUT = identity) an increasing number of blocks, measure Δce. ce_full 3.263.
+  middle skip k=1 +0.45 | k=2 +1.60 | k=3 +2.76 | k=4 +5.90 | k=6 +13.83 | k=8 +16.50 | k=10 +16.19
+  front  skip k=1 +1.16 | k=2 +1.67 | k=3 +1.97 | k=4 +2.67 | k=6 +7.29
+  random-6 skip: 2.97 / 3.97 / 3.34
+pred (a) "middle more redundant than front" FALSE — skipping middle blocks is CATASTROPHIC (worse than front).
+BUT THIS IS A CONFOUNDED METRIC (stated plainly): each bilin18 block computes x = λ0·x + λ1·x0 (a LEARNED
+residual RESCALE with x0 re-injected) BEFORE attn+mlp. "Skip = replace block output with block input" therefore
+removes not just the attn+mlp computation but the block's RESCALING of the residual stream — and removing k
+rescales COMPOUNDS, drastically changing the residual scale. So the huge skip costs measure broken
+residual-stream BOOKKEEPING, not the content computation's (non-)redundancy. The experiment does NOT answer the
+redundancy question. This does NOT contradict §940/§941/§946: those used MEAN-ABLATE of the MLP submodule OUTPUT
+(clean — keeps the block's rescale), which gave tiny per-layer costs (~0.01-0.05). Those remain the valid
+evidence that the MLP content computation is distributed. LESSON: block-identity-skip is not a clean ablation in
+an architecture with per-block residual rescaling; use submodule mean-ablation. CORRECTED experiment queued
+(mean-ablate k middle MLP outputs simultaneously, no rescale confound) to answer redundancy cleanly.
