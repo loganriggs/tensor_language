@@ -26731,3 +26731,17 @@ INVARIANT across MLP form, attention mechanism, and scale (a universal property 
 data). The INDUCTION mechanism is always a strong-ish FRONT circuit but its STRENGTH varies with scale (18L>>
 12L) and attention type (normalized > unnormalized-bilinear). This is the honest, complete generality picture
 and a natural conclusion to the bottom-up program. Artifact gets the attention-axis note.
+
+## §886 — grammar_steer DESIGN FLAW (front injection washed out by residual rescaling); NOT a causal result — redoing at readout (grammar_steer.py)
+
+grammar_steer steered class directions at block[2] output and got EXACTLY 0.000 gain at every alpha (8/16/32),
+for every class, including the shuffled null. This is NOT evidence that grammar is non-causal — it is a design
+flaw: bilin18 rescales the stream every block (x = lambda0*x + lambda1*x0), so a perturbation injected at
+block[2]'s output arrives at the readout multiplied by the PRODUCT of ~15 intervening lambda0's (the same
+documented effect that makes a writer 12 layers back arrive at ~0.00024). The front-layer injection is
+attenuated to ~0 before the readout — exactly why the gains are 0.000. Topic steering (§868, +0.042) survived
+only because it was injected at block[15], 2-3 blocks from the readout. So this run says nothing about grammar
+causality; it re-demonstrates the residual-rescaling attenuation. Grammar was steered successfully earlier
+(§823/837) at/near the front components with amplified deviations, but for an APPLES-TO-APPLES comparison with
+topic (§868) I must inject class directions at the SAME readout-adjacent layer (block[15]). Redoing as
+grammar_steer2 (READ_L=15). No claim propagated to reports (this is a null-from-bug, stated plainly).

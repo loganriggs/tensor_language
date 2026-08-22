@@ -1,0 +1,16 @@
+alpha 8.0: mean diagonal (own-class gain) 0.000 | off-diag 0.000
+alpha 16.0: mean diagonal (own-class gain) 0.000 | off-diag 0.000
+alpha 32.0: mean diagonal (own-class gain) 0.000 | off-diag -0.000
+steer->   det: own-class gain 0.0 | mean other 0.0
+steer->  prep: own-class gain 0.0 | mean other 0.0
+steer->  conj: own-class gain 0.0 | mean other 0.0
+steer->  pron: own-class gain 0.001 | mean other 0.0
+steer->number: own-class gain 0.0 | mean other 0.0
+steer-> punct: own-class gain 0.0 | mean other 0.0
+steer->   cap: own-class gain 0.0 | mean other -0.0
+steer->  word: own-class gain 0.0 | mean other 0.0
+
+GRAMMAR mean diagonal 0.0 vs off-diag -0.0 | shuffled-class null 0.0
+grammar own-gain 0.0 vs TOPIC own-gain 0.042 (§868) -> 0.0x
+(a) grammar steers strongly + specifically: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/grammar_steer_results.json (167.1s)
