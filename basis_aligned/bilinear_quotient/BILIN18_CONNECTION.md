@@ -27164,3 +27164,24 @@ L15 content residual (continuous, rank-128, not cluster-capped) — learned_map_
 DOWNSTREAM of the middle, so this is an UPPER BOUND — if even a rank-128 downstream-content feature fails to
 reconstruct the middle, the middle output is genuinely not a function of the content representation (pure
 interaction/nonlinear). If it succeeds, the middle needs finer content than 12 topics.
+
+## §908 — the middle IS a smooth function of FINER content (rank-128), not irreducibly interactive — revises §905 (learned_map_contentpca.py)
+
+Replacing the coarse 12-topic feature with a rank-128 continuous content-PCA feature (top-128 PCA of the L15
+content residual), the smooth map captures the MIDDLE far better: middle avg 0.32 (was 0.056 with 12-dim
+topic) — attn5 0.44, mlp5 0.35, mlp8 0.26, mlp11 0.24; front unchanged (mlp0 0.91), readout up (mlp16 0.63).
+Pred (a) middle-is-smooth-function = TRUE (with the finer feature).
+
+REVISES §905's "the middle is not a function of named variables": the middle IS a smooth function of content —
+it just needs FINER content (rank-128) than 12 topic-clusters. So the middle is NOT irreducibly interactive;
+it is high-dimensional-but-FUNCTIONAL, consistent with content being continuous/high-dim (§866/874). The
+12-topic representation was simply too coarse (§898's "continuous topic fills more" taken further).
+CAVEAT (leakage, stated plainly): the content feature is the L15 residual, DOWNSTREAM of the middle
+components, so these middle numbers are UPPER BOUNDS with some circularity — the middle CONTRIBUTES to L15
+content (more so for later-middle like mlp11; early-middle like mlp5 is attenuated by the per-block rescale
+§886, so less circular). The clean, non-leaky question — is the middle a function of UPSTREAM content? — is
+queued (learned_map_upstream): use the content residual at the component's OWN input, separating what the
+middle READS (upstream content) from what it BUILDS (new content). Expect lower than 0.32 (the middle builds
+content, so upstream has less), quantifying read-vs-build. Whole-model headline stays 0.40 (12-dim-topic
+version, less leaky); the 0.32 middle is the finer-content upper bound. Artifact/FINDINGS: middle refined from
+"not a function" to "smooth function of finer content (upper bound; clean upstream test pending)".
