@@ -27601,3 +27601,26 @@ the whole-model benchmark's low content term (~0.10). The honest end-state for c
 + coarse->fine hierarchy, but ~83% of its causal work at K=1024 is finer per-context content that resists any
 finite-bucket stand-in. HONEST BENCHMARK NOTE: this does not raise the content term of the understanding
 benchmark; it quantifies precisely WHY it is low.
+
+## §931 — PREDICTION REFUTED: the FRONT MLPs (esp MLP1), not per-layer attention, hold the topic representation (topic_buildup_components.py)
+
+Mean-ablate each layer's attention output vs its MLP output (replace with global mean), measure the drop in the
+final L15 topic-decode (topics+probe fixed from the clean run). clean 0.840, base 0.176. Placement control OK:
+ablating L16/L17 (downstream of the L15 readout) gives 0.0000 drop.
+ PER-LAYER MLP drops: L0 +0.156 | L1 +0.667 (!) | L2 +0.137 | L3 +0.116 | L4-L15 all <0.035.
+ PER-LAYER ATTN drops: L0 +0.061 | L1 +0.049 | L4 +0.053 | rest 0.006-0.034, EVEN across layers, no dominant one.
+ SUM: MLP-drop 1.260 vs ATTN-drop 0.397. Registered pred (a) "attention builds topic" is FALSE.
+CORRECTED MECHANISM: topic decodability at L15 rests OVERWHELMINGLY on the FRONT MLPs (L0-L3), and MLP1 alone is
+a single point of failure — mean-ablating it drops topic-decode from 0.84 to ~0.17 (= base), i.e. it collapses
+the content residual's topic structure entirely. Attention's per-layer contribution is small and DISTRIBUTED
+(no single critical layer). So the front MLPs WRITE the per-token content substrate into the residual (mirroring
+mlp0 writing class, §915), and the many attention layers POOL it redundantly.
+HONEST CAVEATS (why this is a refinement, not "attention doesn't aggregate"): (i) mean-ablating a whole
+submodule removes its ENTIRE residual contribution, so a big writer (front MLP) shows a big drop partly for
+generic reasons — it writes most of the residual mass — not necessarily topic-specifically; (ii) single-layer
+attention ablation is COMPENSATED by the other 17 attention layers (x0 re-injection + redundant pooling), so a
+per-layer test UNDERSTATES a distributed mechanism. The clean claims are: front MLPs are indispensable
+substrate-writers for topic (single points of failure); attention's pooling is distributed/redundant (no single
+layer critical). FOLLOW-UPS QUEUED/NEEDED: (a) is MLP1's effect topic-SPECIFIC or generic? compare its
+class-decode drop (topic_component_specificity); (b) does attention's aggregation appear under CUMULATIVE
+(multi-layer) ablation rather than per-layer? Also content_bagofwords (queued) tests the aggregation form.
