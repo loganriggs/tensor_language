@@ -27486,3 +27486,25 @@ gates the part-of-speech (removing it flips pron→punct/cap) while the CONTENT 
 (removing it leaves POS intact, per §921-923). The topic labels are sometimes clean (physiology) and sometimes
 noisy (doorbell ~ Code/Victoria/disclosure) — consistent with topic being continuous/high-dim, the 12 clusters
 a coarse label. Artifact gets a worked-example box. This concretely CAPSTONES the two-machine account.
+
+## §925 — the two-channel (grammar⊥content) separability is UNIVERSAL across models (grammar_topic_sep_crossmodel.py)
+
+Grammar (next-class) vs topic subspace overlap, near-orthogonal in all three models: bilin18 0.009 (1.3×
+chance), gpt2 0.0168 (1.6×), gpt2-large 0.0131 (2.1×) — all far below the entangled regime. Pred (a) universal
+= TRUE. So organizing grammar and content into NEAR-ORTHOGONAL channels is a GENERAL LM property, joining the
+universal loss budget (§880) and the universal 23/77 grammar/content split (§831). Nuance: GPT-2 models are
+marginally less perfectly-orthogonal than bilin18 (1.6-2.1× vs 1.3×) — possibly OOD (GPT-2 on FineWeb) or a
+mild real difference — but still near-orthogonal (2× chance = small overlap). Completes the two-machine
+account's generality.
+
+ACCOUNT COMPLETE (bottom-up, causal, cross-model-validated). bilin18, end to end:
+ - FRONT MLPs write the current token's MULTI-AXIS surface class (§915).
+ - ATTENTION (shared, distributed heads §918/919) aggregates context into TWO NEAR-ORTHOGONAL channels (§920,
+   universal §925): predictive next-token GRAMMAR (§918) and continuous high-dim TOPIC/content (§866-910).
+ - MIDDLE MLPs contextualize class (§916) shifting description→prediction (§917); read topic (§869).
+ - BACK MLPs/readout RECOMBINE: the low-rank CLASS channel gates the word's part-of-speech, the high-rank
+   CONTENT channel picks the specific new word at content positions (§921-924, worked example §924).
+ - Causality by INTERCHANGE not steering (read≠write, §892/894). UNDERSTANDING benchmark: ~0.41 of the model as
+   generalizing named concepts held-out (§906) — grammar essentially solved (smooth token function ~0.90),
+   content the high-rank bilinear frontier (~0.1 as a table, causal but not tabulatable). Universal across
+   architecture/scale (§880/883/884/885/925).

@@ -1,0 +1,8 @@
+loading gpt2...
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4395.14it/s]
+gpt2: grammar-topic subspace overlap 0.0168 vs chance 0.0104 (ratio 1.61x) @ L9
+loading gpt2-large...
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  86%|████████▋ | 377/436 [00:00<00:00, 3751.52it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 3751.21it/s]
+gpt2-large: grammar-topic subspace overlap 0.0131 vs chance 0.0063 (ratio 2.1x) @ L28
+(a) two-channel separability universal (grammar⊥topic in all): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/grammar_topic_sep_crossmodel_results.json (36.7s)
