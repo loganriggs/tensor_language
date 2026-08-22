@@ -2077,6 +2077,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   distributes its computation across many interchangeable-looking cooperating components, where a standard
   transformer concentrates it — which is exactly why single-unit ablation studies kept coming up empty here and
   why the honest units of this model are ensembles, subspaces, and variables rather than individual heads.</p>
+
+  <p>This distributed style is not a quirk of the bilinear MLP — it travels across the whole model family. A
+  sibling trained the same way but with a SwiGLU MLP instead of a bilinear one shows the same cooperative
+  signature (super-additivity ~2.3), as does a smaller bilinear sibling (~1.6), while ordinary GPT-2 sits below one
+  on the same measure. So what makes this model distribute its computation is the training recipe — the
+  softmax-free squared attention with its value residual and re-injected token embedding — rather than the
+  particular nonlinearity in the feed-forward block. It is a property of the family, and it is what makes the
+  variable-level, ensemble reading in this report the right level of description for these models specifically.</p>
 </section>
 
 <section class="col">
