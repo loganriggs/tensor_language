@@ -97,7 +97,7 @@ def main():
         frac = float(mk.mean()); ce = float(tot_f[mk].mean()); contrib = frac*ce
         out['buckets'][name] = {'fraction': round(frac, 3), 'mean_ce': round(ce, 3),
                                 'class_ce': round(float(cl_f[mk].mean()), 3), 'within_ce': round(float(wi_f[mk].mean()), 3),
-                                'loss_contribution': round(contrib, 3), 'pct_of_total_loss': round(100*contrib/tot_f.mean(), 1)}
+                                'loss_contribution': round(contrib, 3), 'pct_of_total_loss': round(float(100*contrib/float(tot_f.mean())), 1)}
     fm = out['buckets']['first_mention']
     out['pred_a_loss_is_firstmention_content'] = bool(
         fm['pct_of_total_loss'] > 50 and fm['within_ce'] > fm['class_ce'] and
