@@ -26018,3 +26018,25 @@ Three compositional findings:
 So the depth story, compositionally: front computes class from the token and folds in prev-token+position
 (mlp0-2); a re-expansion + mid refinement (mlp1-4, where prev-token drops out); then the readout (15-17)
 folds class+position back in ever harder to predict. The prev-token/copy-source is an early-only signal.
+
+## §852 — attn5 is NOT an aggregator either; its 1.97 nats are not captured by any grammatical/token probe (attn5_aggregation.py)
+
+Tested whether attn5 (biggest uncharacterized component) pools context. Decodes from attn5 output vs the
+copier attn2:
+
+| decode | attn2 (copier) | attn5 |
+|--------|---------------:|------:|
+| current-class | 0.91 | 0.59 |
+| prev-token | 0.81 | 0.35 |
+| context class-distribution (R²) | 0.36 | 0.32 |
+| position | 0.49 | 0.48 |
+
+REFUTED: attn5 does NOT encode the context class-distribution (0.32 ≤ copier 0.36) or position (0.48 ≈
+0.49) any better than a normal head — it is not a context/class/position aggregator. And it carries LESS
+current-token/prev-token/class than attn2. So attn5's output is not captured by ANY of my probes
+(current/prev token, grammatical class, context-class, position). Combined with §849 (attn5 collapses the
+geometry to eff-dim 23) and the scan (token decode ~0.33), attn5 does a real but DIFFERENT computation
+— plausibly semantic/content (all my probes are grammatical/token-identity, so a topic/content signal
+would be invisible) or a structural signal (e.g. distance to a boundary) — an honest UNKNOWN. Switching
+to an EFFECT-based lens (ablate attn5, see what it helps PREDICT), which is robust when the output is not
+a clean input-feature.
