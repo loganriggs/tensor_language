@@ -1,0 +1,6 @@
+   class_only: class->source 0.38 | topic-gain(nats, source) +0.0191
+ content_only: class->source 0.245 | topic-gain(nats, source) +0.7477
+        joint: class->source 0.375 | topic-gain(nats, source) +0.7482
+       random: class->source 0.245 | topic-gain(nats, source) +0.0312
+(a) compositional causal control (joint moves BOTH class and topic > random): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/joint_interchange_v3_results.json (72.9s)

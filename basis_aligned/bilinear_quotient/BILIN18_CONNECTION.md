@@ -28264,3 +28264,27 @@ nats; §934 double dissociation), so this does not weaken the two-machine accoun
 joint metric. FIX queued (joint_interchange_v3): a CLASS-CONTROLLED topic metric = gain on source-topic tokens
 MINUS gain on base-topic tokens (both content words), cancelling the generic content-word boost, to isolate
 content-specific topic control.
+
+## §959 — COMPOSITIONAL CAUSAL CONTROL of the two machines: clean double dissociation (joint_interchange_v3.py)
+
+Class-controlled topic metric (gain on source-topic MINUS base-topic tokens, cancelling the §958 content-word
+confound), different-topic pairs, QP=200.
+  patch          class->source    topic_net (class-controlled)
+  class_only        0.38             +0.019   <- moves CLASS, not topic
+  content_only      0.245            +0.748   <- moves TOPIC, not class
+  joint             0.375            +0.748   <- moves BOTH
+  random            0.245            +0.031   <- moves neither
+pred (a) compositional TRUE. This is the CAUSAL-ABSTRACTION IDEAL (Geiger), a clean DOUBLE DISSOCIATION:
+ - CLASS axis: patching the class subspace moves the predicted next-token CLASS toward the source (0.38 vs 0.245
+   random); patching content does NOT (0.245 = random).
+ - TOPIC axis: patching the content subspace shifts the prediction toward the source's TOPIC (class-controlled
+   +0.748 vs +0.031 random); patching class does NOT (+0.019 ~ 0).
+ - COMPOSITION: the JOINT patch moves BOTH (class 0.375 AND topic +0.748) — each subspace controls its OWN machine
+   and not the other, and the two compose without interference.
+So the two named variables — the low-rank class/grammar subspace and the content/topic subspace — are
+independently and compositionally CAUSAL: we can steer grammar and content separately and together by editing
+their respective subspaces, exactly as the two-machine account predicts. This is the strongest form of "we
+understand it": predictable, compositional, variable-level control (Geiger causal abstraction). CAPSTONE for the
+causal-abstraction thread (§892 class + §894 topic, now JOINT + dissociated + class-controlled §957->958->959).
+Confirms the two-machine account (grammar low-rank/local; content high-rank/topic) at the deepest causal level.
+Artifact: add the compositional double-dissociation result.
