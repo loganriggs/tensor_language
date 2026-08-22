@@ -1915,6 +1915,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   ~0.68–0.84 of the middle; the remaining fifth-to-third is long-range and interaction structure we can name
   mechanistically (the gist) but not yet as a compact table. The readout sits around 0.9. In short: the grammar machine is a variable we can write down;
   the content machine is a variable we can causally move but not yet tabulate.</p>
+  <p>Put it all together and replace <em>every</em> component at once with its named-variable stand-in, and the
+  reconstruction holds: on the same 0-to-1 scale (now with the whole model mean-ablated as the floor), current
+  token alone recovers 60% of the model, adding the continuous topic brings it to 69%, and adding the previous
+  token reaches <strong>81%</strong> — while a shuffled-token control lands below zero, actively worse than
+  knowing nothing. So roughly four-fifths of what this model does over a mean baseline is reconstructable from
+  three named, causally-verified variables — current token (grammar), continuous topic (gist), and previous
+  token (local context) — and the remaining fifth is long-range and interaction structure we can describe as a
+  mechanism but not yet as a table.</p>
 </section>
 
 <section class="col">

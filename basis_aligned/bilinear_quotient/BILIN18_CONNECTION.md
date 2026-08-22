@@ -26994,3 +26994,26 @@ token + CONTINUOUS topic/gist + previous-token/local context; the residual ~0.2-
 interaction structure. This meaningfully FILLS the gap (user directive) and vindicates treating topic as
 continuous, not discrete (§873/§874). Updating the gap-fill figure to the continuous-topic numbers + the
 artifact variable-section topic line.
+
+## §900 — CAPSTONE HEADLINE: named variables reconstruct ~81% of the WHOLE model (whole_model_understanding.py)
+
+Replaced ALL 36 components simultaneously with named-variable stand-ins; scale 0 = all-mean-ablated (CE 8.835,
+know nothing) → 1 = full model (CE 3.382). Aggregate understanding:
+  token-only:            CE 5.549 → 0.603
+  token+topic(continuous): CE 5.068 → 0.691
+  token+topic+prev:      CE 4.406 → 0.812   ← HEADLINE
+  shuffled-token null:   CE 10.475 → −0.301 (actively harmful — the 0.812 is genuine, +1.11 over null)
+Pred (a) named-vars-reconstruct-most = TRUE.
+
+THE HEADLINE NUMBER: ~81% of the whole model's loss-reduction-over-mean-ablation is reconstructable from three
+named, causally-verified variables applied to every component at once — current TOKEN (grammar/class, §892),
+continuous TOPIC/gist (§894/§898), and PREVIOUS-token/local context (§877). Token tables alone give 60%
+(grammar is most of the cheap-to-name structure); continuous topic adds +9; prev-token adds +12. The remaining
+~19% is long-range + interaction structure (token×context cross-terms, far-context aggregation) we can name
+mechanistically (the gist) but not yet as an additive table. This is the aggregate of the per-component metric
+(§893/896/898) with errors compounding honestly across all 36 components — a MODEL-level, not layer-level,
+understanding fraction.
+CAVEAT (§836/fresh-data lesson): the stand-in tables are BUILT and EVALUATED on the same rows — some optimism.
+A fresh-data version (tables on train rows, applied to held-out) is the honest certification; queued as
+whole_model_understanding_fresh. Report/artifact will quote the fresh number as the headline once it lands;
+using 0.81 provisionally with the caveat. Artifact/FINDINGS updated.
