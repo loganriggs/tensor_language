@@ -28425,3 +28425,22 @@ quirk — it is FAMILY-WIDE (and, with GPT-2, universal). Together with §965 (t
 structure is also family-wide), the two-machine account's structure generalizes across the family. Pairs with the
 queued bag-of-words test (content MECHANISM). Residual-geometry only (no output-transform dependence), so robust
 across models with different output clamps.
+
+## §967 — the content MECHANISM (bag-of-words) generalizes across the family; whole two-machine account is family-wide (cross_family_bagofwords.py)
+
+Decode late-layer topic from a bag-of-words running mean vs the current-token embedding:
+  bilin18  bag 0.661 / current 0.219 -> bag-current +0.441 (reproduces §932: 0.655/0.216)
+  swiglu18 bag 0.702 / current 0.207 -> bag-current +0.495
+  bilin12  bag 0.586 / current 0.175 -> bag-current +0.411
+pred (a) family-bag TRUE: in every family model the bag decodes topic FAR above the current token (+0.41-0.49),
+as in bilin18 (§932) and GPT-2 (§937). So content is an order-invariant BAG-of-word-embeddings gist across the
+family.
+FAMILY GENERALIZATION COMPLETE (three axes): the two-machine account of bilin18 generalizes across the Elriggs
+family (bilinear AND SwiGLU, 18L AND 12L):
+ - STRUCTURE: grammar ⊥ content separability, near-chance overlap (§966).
+ - MECHANISM: content = order-invariant bag-of-words gist (§967, this).
+ - DISTINCTIVE STYLE: distributed-cooperative / super-additive computation (§965), training-driven not MLP-specific.
+And the key properties are UNIVERSAL (also GPT-2: separability §925, bag §937, middle-nonlinearity §942, loss
+budget §880). So the account is not a bilin18 quirk: two separable machines (low-rank local grammar + high-rank
+long-range bag-of-words content) built by a distributed cooperative computation is a property of the model family
+(and, for the core structure, of transformers generally). Family-generalization thread COMPLETE.

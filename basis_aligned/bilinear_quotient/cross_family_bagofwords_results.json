@@ -1,0 +1,34 @@
+{
+ "bilin18_ref_932": {
+  "bag": 0.655,
+  "current": 0.216
+ },
+ "gpt2_ref_937": {
+  "bag_minus_current": 0.247
+ },
+ "models": {
+  "bilin18": {
+   "layer": 14,
+   "base": 0.1609,
+   "bag": 0.6608,
+   "current": 0.2194,
+   "bag_minus_current": 0.4414
+  },
+  "swiglu18": {
+   "layer": 14,
+   "base": 0.1537,
+   "bag": 0.7018,
+   "current": 0.207,
+   "bag_minus_current": 0.4948
+  },
+  "bilin12": {
+   "layer": 9,
+   "base": 0.0989,
+   "bag": 0.5861,
+   "current": 0.1754,
+   "bag_minus_current": 0.4107
+  }
+ },
+ "pred_a_family_bag": true,
+ "runtime_s": 53.8
+}
