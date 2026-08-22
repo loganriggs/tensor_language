@@ -1,0 +1,8 @@
+bilin18: {'n_front': 6, 'sum_singles': 1.0484, 'band_together': 3.6868, 'ratio': 3.52}
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4913.81it/s]
+gpt2: {'n_front': 4, 'sum_singles': 10.3549, 'band_together': 7.3244, 'ratio': 0.71}
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  92%|█████████▏| 402/436 [00:00<00:00, 4011.43it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 4031.33it/s]
+gpt2-large: {'n_front': 12, 'sum_singles': 7.5049, 'band_together': 5.4556, 'ratio': 0.73}
+super-additivity ratios: {'bilin18': 3.52, 'gpt2': 0.71, 'gpt2-large': 0.73}
+bilin18 unusually distributed (ratio >> GPT-2): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/cross_model_superadditivity_results.json (78.3s)
