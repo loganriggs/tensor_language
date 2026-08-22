@@ -1883,6 +1883,41 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="variables">Reading the variables, not the heads</h2>
+  <p>The honest unit of this model is not a head — heads are broad and multi-function — but the <em>variable</em>
+  a computation reads and writes: a direction (or low-rank subspace) in the residual stream. Two questions decide
+  whether we have really found one: can we <em>identify</em> it (ideally from the weights, since in a bilinear
+  network weights and activations are the same kind of object), and can we <em>intervene</em> on it and change
+  the output in the way an abstract account predicts.</p>
+  <p><strong>Interchange beats steering.</strong> Pushing a feature's mean direction barely moved the output —
+  which had made the causal status of both machines look weak. But that was the wrong test: it pushes the
+  <em>read</em> direction, and read and write are near-orthogonal here. The right test is an <em>interchange
+  intervention</em> — swap the variable's real activation subspace between two runs. Do that and both variables
+  are clearly causal: swapping the grammatical-class subspace flips the predicted part-of-speech about four times
+  more often than swapping a random subspace, and swapping the topic subspace between two passages moves the
+  prediction toward the donor's subject by ~0.7 nats over a random swap. So the class and topic variables are
+  real causal handles; steering was just the wrong lever.</p>
+  <p><strong>Variables rotate through the stack.</strong> Which weights identify a variable depends on where you
+  look, because the variable's direction turns as it flows. The class subspace starts aligned with the weights
+  that <em>write</em> it (layer-0 MLP, overlap 0.29) and, across depth, rotates away from them and toward the
+  weights the readout uses to <em>read</em> it (overlap climbs from 0.07 to about 0.18) — turning fastest at the
+  front and the readout, sitting still through the middle, exactly where the geometry re-clusters. So the
+  front-write weights that name the variable at layer 0 no longer match it at layer 15; you must read it from the
+  component acting there (or, most reliably, from the activations — a learned/DAS subspace does no better than the
+  plain class-conditional-mean directions, so those <em>are</em> the variable).</p>
+  <p><strong>How much of each layer is a variable we can write down.</strong> Replace a component with a lookup
+  table keyed on our named variables and see how much of the loss it keeps, on a scale from mean-ablation (0) to
+  the full model (1). The front is almost fully a token table — layer-0 MLP scores 0.94, a clean
+  token→class-cluster map. The middle content MLPs score only ~0.4 on a token table, and the gap is filled mostly
+  by conditioning on the <em>previous</em> token (local, bigram-like context: +0.2) rather than on the topic as a
+  small set of clusters (+0.03–0.09) — even though the topic is causally real, because it is continuous and a
+  dozen discrete buckets undercount it. Token + previous-token + topic reaches ~0.6–0.8 of the middle; the
+  remaining fifth is long-range and interaction structure we can name mechanistically (the gist) but not yet as a
+  compact table. The readout sits around 0.7–0.8. In short: the grammar machine is a variable we can write down;
+  the content machine is a variable we can causally move but not yet tabulate.</p>
+</section>
+
+<section class="col">
   <h2 id="rankmap">How the layers divide the work — a barbell</h2>
   <p>Decomposing each MLP's output map on real data and asking how many directions it takes to
   reproduce what the layer does for the loss gives a clean depth profile. The two <em>ends</em> do
