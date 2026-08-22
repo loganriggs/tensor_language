@@ -1,0 +1,31 @@
+{
+ "conditions": {
+  "none": {
+   "induction_score": 11.796,
+   "second_copy_loss": 1.29
+  },
+  "attn0": {
+   "induction_score": 3.47,
+   "second_copy_loss": 9.586
+  },
+  "attn5": {
+   "induction_score": 0.466,
+   "second_copy_loss": 12.339
+  },
+  "attn0+attn5": {
+   "induction_score": 1.243,
+   "second_copy_loss": 11.605
+  },
+  "control_attn13": {
+   "induction_score": 11.667,
+   "second_copy_loss": 1.386
+  }
+ },
+ "base_induction": 11.796,
+ "drop_attn0": 8.326,
+ "drop_attn5": 11.33,
+ "drop_both": 10.553,
+ "drop_control": 0.129,
+ "runtime_s": 1.0,
+ "pred_a_two_step_front_circuit": false
+}

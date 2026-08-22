@@ -1731,7 +1731,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   nothing. But layer 5 is not <em>only</em> an induction head: removing it also hurts first mentions (which have
   nothing to copy), so it does general content aggregation too, of which induction is one job. That resolves the
   old puzzle of layer 5's unexplained "content" help — part of it is literally copying content words it has
-  already seen.</p>
+  already seen. The copying is graded, not all-or-nothing: even words that recur without an exact repeated
+  bigram get steadily cheaper the more recently and more often they have appeared (from 2.5 nats for a distant
+  single prior mention down to 1.3 for a recent, frequent one), and layer 5 carries the long-range end of that —
+  ablating it costs most where the previous mention is far back.</p>
   <p><strong>The whole stack, as geometry.</strong> Tracking the token-similarity structure through all
   eighteen layers gives a clean shape: two expansions and three collapses. Effective dimension goes
   117 → 20 (layer 0 collapses to class) → 47 (layer 1 re-expands) → ~45 → 23 (layer 5) → <strong>51 at layer 9</strong>,
