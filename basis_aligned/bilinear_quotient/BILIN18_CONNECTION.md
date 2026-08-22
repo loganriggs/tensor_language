@@ -26848,3 +26848,23 @@ reconciles the collapse with the high-dimensional content machine: the loud dire
 the quiet high-rank remainder — the same "whisper under the loudest channels" motif seen elsewhere. Pred (a)
 as-metricized (per-token eff-dim>10) was FALSE (it IS ~4), but the operationalization was wrong: prediction-rank,
 not variance-eff-dim, is the right measure, and it is high. Artifact/FINDINGS corrected.
+
+## §892 — INTERCHANGE INTERVENTION works: class is a causal variable (IIA 0.25 vs 0.06); interchange beats mean-steering; but lm_head is the wrong weight-source (das_class_interchange.py) [NEW DIRECTION: variable-level causal abstraction, user-requested]
+
+First interchange-intervention (Geiger-style) test. Patch ONLY the class-subspace coordinates of the base
+residual at L15/pos128 with a SOURCE run's, measure whether the predicted next-token CLASS flips to the
+source's. Results: activation-derived class subspace IIA 0.252 | weight-derived (lm_head) 0.098 | random
+subspace 0.06 | no-patch coincidental 0.058 | source-class marginal prior 0.207.
+ (a) CLASS IS A CAUSAL VARIABLE via interchange = TRUE: activation-subspace patch raises source-class
+     prediction 0.058 → 0.252 (4.3× baseline, >> random 0.06). And this WORKS where mean-STEERING was weak
+     (§888, 0.01) — vindicating the user's point: interchange patches the real coordinated activation, so it
+     respects read+write jointly, unlike pushing a lone read-direction. Interchange is the right causal test.
+ (b) WEIGHTS-IDENTIFY-VARIABLE (via lm_head) = FALSE: the unembedding class-write subspace gives IIA 0.098 ≈
+     random. lm_head is the OUTPUT side; the class VARIABLE in the L15 residual is a different subspace. So
+     "weights identify the variable" needs the RIGHT weights — mlp0's class-DETECTOR directions (where class
+     is written), not the unembedding. Refinement queued.
+CAVEAT: IIA 0.252 is a clear causal signal but modest (not ~1) — likely because (i) rank-7 is partial, (ii)
+attention re-derives the patched position's class from context, (iii) L15 holds only part of class. Next:
+better weight-source (mlp0 detectors) + a DAS-learned subspace (optimize the rotation to maximize IIA) as the
+gold-standard, and interchange on a CONTENT/topic variable. This establishes the METHOD (interchange >
+steering) for the new variable-level program.

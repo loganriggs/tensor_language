@@ -1,0 +1,10 @@
+/workspace/tensor_language/basis_aligned/bilinear_quotient/das_class_interchange.py:95: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  rows.append(R[torch.tensor(mk, device=DEV)].mean(0) - g[0])
+/workspace/tensor_language/basis_aligned/bilinear_quotient/das_class_interchange.py:106: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.detach().clone() or sourceTensor.detach().clone().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  rows.append(W[torch.tensor(mk, device=DEV)].mean(0) - g[0])
+INTERCHANGE (patch class-subspace base<-source at L15, pos 128); flip-to-source-class rate:
+  activation-subspace IIA 0.252 | weight-subspace IIA 0.098 | random-subspace 0.06
+  no-patch coincidental match 0.058 | source-class prior 0.207
+(a) class is a causal variable via interchange: True
+(b) weights identify the variable: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/das_class_interchange_results.json (97.3s)
