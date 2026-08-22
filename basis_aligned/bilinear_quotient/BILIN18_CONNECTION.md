@@ -26664,3 +26664,25 @@ END-STATE. The bottom-up program is comprehensively complete and internally cons
    soft-copy the cheap seen/repeat tail (§881); ~78% is first-mention word choice, topic-narrowed but open and
    largely irreducible (§876). Both of the user's asks — bottom-up mechanism + the irreducible-entropy question
    — are answered with named, causal, controlled mechanisms and a quantitative budget.
+
+## §883 — the whole account is ARCHITECTURE-INDEPENDENT: swiglu18 reproduces it (cross_arch_swiglu.py)
+
+Ran the loss budget + grammar/content split + synthetic induction on swiglu18 (Elriggs/gpt2-bilinear-swiglu
+-18l-9h-1152embd) — same size/data/bilinear-attention as bilin18 but a SWIGLU MLP instead of bilinear. It
+reproduces bilin18 almost exactly:
+ - overall CE 3.164 = class 0.755 + within 2.409; within-frac 0.761 (bilin18 3.24 / 0.765) — same
+   grammar/content split.
+ - loss budget: first-mention 78.4% | seen-other 20.3% | inductable 1.3% — IDENTICAL to bilin18's
+   78.4/20.3/1.3.
+ - synthetic induction score 12.243 (bilin18 11.8) — strong; gate at L4 (bilin18 L5), top drops L4/L6/L1/L7/L2
+   all FRONT. Induction is a strong front-localized circuit in both; the exact gate shifts one layer.
+Pred (a) architecture-independent = TRUE.
+
+So the two-machine + induction + loss-budget account is a property of the learned language-modeling
+computation, not of the bilinear-MLP form: swapping the MLP for swiglu leaves the loss budget identical, the
+grammar/content split unchanged, and induction strong and front-localized (gate L4 vs L5). The one
+architecture-sensitive detail is the exact induction-gate LAYER (one-layer shift) and swiglu18's induction is
+slightly less single-layer-concentrated (top drops 9.9/9.7/9.6 across L4/L6/L1 vs bilin18's dominant L5=11.3).
+Combined with §880 (budget universal across bilin18/gpt2/gpt2-large) and §831 (23/77 split universal), the
+picture is robust across both architecture and scale. Cross-model loader/forward verified working — enables
+the depth/scale check on bilin12 next. Artifact gets a one-line generality note.

@@ -1821,7 +1821,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   first mentions carry 77% and 78% of the loss — against 78% here — with induction cheap and grammar flat in all
   three. The absolute cost of a new word does fall with scale (3.8 nats in GPT-2, 3.5 here, 3.35 in GPT-2-large),
   but <em>where</em> the loss sits does not move. The shape of the problem is a property of language modelling,
-  not of this model.</p>
+  not of this model. Nor is it a property of the bilinear MLP: a sister model of the same size trained on the
+  same data with an ordinary SwiGLU MLP gives an identical budget (first mentions 78.4%, seen-other 20.3%,
+  induction 1.3%), the same grammar/content split, and the same strong front-of-model induction — so the
+  two-machine-plus-induction structure is in the learned computation, not the architecture we happened to read.</p>
   <figure><svg viewBox="0 0 780 252" role="img" aria-label="loss contribution by position type, split into grammar and content">
   <text class="panel" x="8" y="16">where every nat of the loss goes (bar width = nats contributed)</text>
   <line class="grid" x1="150" y1="36" x2="150" y2="200"/><text class="tick" x="150" y="216" text-anchor="middle">0</text>
