@@ -1,0 +1,19 @@
+{
+ "ref_969": {
+  "bilin12(sqrd+bilinear)": 1.61,
+  "bilinsm12(softmax+bilinear)": 1.13
+ },
+ "models": {
+  "sqrd12": {
+   "ratio": 9.74,
+   "sum_singles": 25235867.25,
+   "band": 245768320.0,
+   "cfg_flags": {
+    "bilinear": false,
+    "squared_attn": true
+   }
+  }
+ },
+ "squared_attn_alone_suffices": true,
+ "runtime_s": 37.1
+}

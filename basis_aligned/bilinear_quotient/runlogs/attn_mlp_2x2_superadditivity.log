@@ -1,0 +1,4 @@
+sqrd12: ratio 9.74 | flags {'bilinear': False, 'squared_attn': True}
+2x2: bilin12(sqrd+bilin) 1.61 | bilinsm12(soft+bilin) 1.13 | sqrd12(sqrd+std) 9.74
+(a) squared attention alone suffices (sqrd12 super-additive): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_mlp_2x2_superadditivity_results.json (37.1s)

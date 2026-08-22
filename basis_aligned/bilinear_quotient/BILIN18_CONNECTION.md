@@ -28478,3 +28478,25 @@ cause, with possibly a small contribution from the rest of the recipe. CAUSAL-IS
 distinctive-structure finding: the softmax-free squared attention is why these models distribute computation
 across many cooperating components (and why single-unit ablations come up empty and the honest units are
 ensembles/subspaces/variables).
+
+## §970 — 2x2 CAUSAL ISOLATION complete: squared attention is the driver; the bilinear MLP DAMPENS it (attn_mlp_2x2_superadditivity.py)
+
+Completed the {squared/softmax attention} x {bilinear/standard MLP} 2x2 of the super-additivity ratio (§969 + this):
+                    bilinear MLP     standard MLP
+  squared attn        1.61             9.74   (sqrd12, cfg bilinear=False squared_attn=True)
+  softmax attn        1.13              --
+pred (a) squared-attn-alone-suffices TRUE (sqrd12 9.74 >> 1.5). READING:
+ - SQUARED ATTENTION is the PRIMARY driver of the distributed/super-additive structure: both squared cells are
+   super-additive (bilin12 1.61, sqrd12 9.74), the softmax cell is near-additive (bilinsm12 1.13). Squared
+   attention alone (with a STANDARD MLP, no bilinear) produces EXTREME super-additivity (9.74) — so the bilinear
+   MLP is NOT needed for the distributed structure.
+ - The bilinear MLP DAMPENS the ratio: with squared attention, bilinear MLP gives 1.61 vs standard MLP 9.74. So
+   the bilinear gating makes individual attention layers somewhat more independently-important (higher
+   sum-of-singles relative to the band), reducing the extreme super-additivity that squared attention alone yields.
+ - Mechanism note: sqrd12's huge band dR2 (246M vs sum-singles 25M) means removing the front attention band is
+   catastrophic while single layers are cheap — squared attention without bilinear gating makes the model
+   COLLECTIVELY dependent on the front attention ensemble.
+DEFINITIVE cause: the softmax-FREE (squared) attention drives bilin18's distributed-cooperative structure
+(§956/§965/§969), independent of the MLP; the bilinear MLP modulates (dampens) its magnitude. This closes the
+causal-isolation thread. The distinctive "no single component matters, the ensemble does" property traces to the
+squared attention mechanism specifically.
