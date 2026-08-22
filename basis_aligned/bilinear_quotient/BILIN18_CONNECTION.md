@@ -26259,3 +26259,17 @@ diffuse, attention-fed, MLP-generated, mostly-irreducible three-quarters. The in
 the bulk of the difficulty are different machines. This is the honest end-state of the bottom-up program;
 the open frontier is NAMING the content machine's diffuse computation (needs a semantic/distributional
 approach, not a grammatical probe). Artifact capstone updated.
+
+## §864 — semantic-cluster probe does NOT name the content: it adds only +0.056 over grammar to next-token-cluster prediction (content_semantic.py)
+
+First semantic attempt at naming the content machine (§863 frontier). Decoded the next token's semantic
+cluster (k-means on token embeddings, 32 clusters) from the L15 residual:
+ - full residual 0.463 | class+position projection 0.407 | shuffled-matched-rank null 0.403.
+So (a) class+position ≈ shuffled-matched (re-confirms §836: keep-only is a rank artifact at this task too),
+and (b) the FULL residual adds only +0.056 over grammar for next-token-cluster prediction. The content
+(non-grammar) part contributes little even to a COARSE 32-way next-token category. Also the embedding
+k-means clusters are morphological/lexical-form (suffixes 'ing'/'hing'; word-family 'land'/'Land') more
+than semantic-topic — a muddy target. So imposing embedding-semantic categories does NOT name the content;
+it stays diffuse. The content machine resists BOTH grammatical (§852/858) and semantic-cluster probes.
+Trying a genuinely different, DATA-DRIVEN approach next: cluster the content residual itself (orthogonal
+to class+position) and read what its clusters share, rather than imposing external categories.

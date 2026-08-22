@@ -1,0 +1,50 @@
+{
+ "n_clusters": 32,
+ "read_layer": 15,
+ "decode_next_token_semantic_cluster": {
+  "full_residual": 0.4633,
+  "class_position_proj": 0.4073,
+  "shuffled_matched_proj": 0.4034
+ },
+ "full_over_classpos": 0.056,
+ "sample_clusters": {
+  "0": [
+   "'ing'",
+   "'hing'",
+   "'ning'",
+   "'ating'",
+   "' being'",
+   "'aking'",
+   "'uring'",
+   "'ting'"
+  ],
+  "1": [
+   "'land'",
+   "' land'",
+   "' Land'",
+   "' lands'",
+   "' landing'",
+   "' landed'",
+   "'Land'"
+  ],
+  "2": [
+   "' Holy'",
+   "' holy'",
+   "' sacred'",
+   "' Sacred'",
+   "'Holy'",
+   "'holy'"
+  ],
+  "3": [
+   "','",
+   "':'",
+   "';'",
+   "' to'",
+   "' of'",
+   "' in'",
+   "' re'",
+   "' is'"
+  ]
+ },
+ "runtime_s": 71.4
+}
