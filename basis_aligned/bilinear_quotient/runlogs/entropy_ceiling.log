@@ -1,0 +1,11 @@
+bilin18: class 0.772 within 2.490 total 3.262
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4137.03it/s]
+gpt2: class 0.843 within 2.739 total 3.582
+Loading weights:   0%|          | 0/292 [00:00<?, ?it/s]Loading weights: 100%|██████████| 292/292 [00:00<00:00, 4102.57it/s]
+gpt2-medium: class 0.798 within 2.515 total 3.313
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  91%|█████████ | 395/436 [00:00<00:00, 3934.67it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 3973.26it/s]
+gpt2-large: class 0.771 within 2.394 total 3.165
+
+within-class CE across GPT-2 scale: [2.7392, 2.5149, 2.3938] (drop small->large 0.3454)
+(a) word-choice floor is REDUCIBLE with scale (not irreducible entropy): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/entropy_ceiling_results.json (87.3s)

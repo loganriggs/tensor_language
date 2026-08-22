@@ -2018,17 +2018,22 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   answers it. The grammar cost is essentially paid by the first few tokens and barely moves after —
   it needs almost no context. The word-choice cost does fall as context builds, by about 1.1 nats from
   the start of a passage to deep inside one, so context genuinely helps pick the word — but it levels
-  off around 2.4 nats and stays there. So the bulk of what the model is graded on is irreducible: even
-  with the grammatical slot fixed and the whole preceding passage in view, which specific word comes
-  next carries real entropy that no amount of structure removes. So the difficulty that remains after the
-  class-and-position representation has done its work is language itself — irreducible lexical entropy —
-  not some further structure we failed to find.</p>
+  off around 2.4 nats within this model. It is tempting to call that floor "irreducible entropy — language
+  itself," and an earlier draft did; but that is an overclaim, and the check is easy. 2.4 nats is
+  <em>this</em> model's residual, not a measured entropy. Feed the same text to larger models and the
+  word-choice cost keeps falling: 2.74 nats in GPT-2 small, 2.51 in medium, 2.39 in GPT-2 large — a
+  steady drop with scale, so a stronger model genuinely does make better word choices. The honest reading
+  is in between: most of the word-choice cost is hard to reduce (the bulk survives even a 774M model), but
+  it is <em>not</em> a wall — a real slice (roughly a nat-tenth here, and still shrinking with scale) is
+  structure a bigger model captures and this one leaves on the table. So the difficulty that remains after
+  class-and-position is mostly, but not entirely, the inherent entropy of language; the reducible remainder
+  is diffuse content-selection we simply don't have a clean handle on (yet).</p>
   <p>And this division is not particular to this model. Split the loss the same way for GPT-2 and
   Pythia and the numbers barely move: the word-within-the-class share is 77% here, 75% in GPT-2, 76% in
   Pythia. Three architectures, trained separately, all spend about a quarter of their loss on grammar
-  and three-quarters on lexical choice. The shape of the problem — a small, learnable, interpretable
-  grammatical core wrapped around a large, mostly-irreducible lexical remainder — appears to be a
-  property of the task, not of any one network.</p>
+  and three-quarters on lexical choice. The shape of the problem — a small, cleanly-interpretable
+  grammatical core wrapped around a large, hard-to-reduce lexical remainder — appears to be a
+  property of the task, not of any one network (with the remainder only partly reducible by scale, as above).</p>
   <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
   prediction by how hard it was — how much loss the full model took — and ask how much of each bucket the
   class-and-position skeleton alone recovers. On the model's <em>hardest</em>, most uncertain predictions

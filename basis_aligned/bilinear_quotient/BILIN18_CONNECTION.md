@@ -25800,3 +25800,49 @@ entropy_ceiling.py (within-class CE for bilin18 + gpt2/medium/large on the SAME 
 if it drops with scale the floor is REDUCIBLE/capability-limited, not irreducible). Started the bottom-up
 program with mlp0_bilinear_trace.py (weight-level: which hidden units' (Left·x)⊙(Right·x) write the class
 output, what each readout detects, bilinear vs linear) — keep-only-free, using the exact weights.
+
+## §840 — CORRECTION of §830: the word-choice loss floor is PARTLY REDUCIBLE (drops 0.35 nats with GPT-2 scale), NOT "irreducible entropy" (entropy_ceiling.py)
+
+Tested the §830 overclaim. Within-class (word-choice) CE on the SAME FineWeb tokens (GPT-2 BPE), same
+class assignment, across GPT-2 scale:
+
+| model | within-class CE | total CE |
+|-------|----------------:|---------:|
+| gpt2 (124M)   | 2.739 | 3.58 |
+| gpt2-medium   | 2.515 | 3.31 |
+| gpt2-large    | 2.394 | 3.16 |
+| bilin18 (ref) | 2.490 | 3.26 |
+
+Within-class CE drops MONOTONICALLY with scale — 0.35 nats gpt2→large. So the word-choice floor is
+REDUCIBLE (capability-limited): a bigger model makes measurably better within-class word choices. My
+§830 label "irreducible entropy / language itself" is RETRACTED. Honest corrected reading: the
+word-choice loss is DOMINATED by hard-to-reduce entropy (most of the ~2.4-2.7 nats persists even at
+774M), but a real reducible component exists (~0.35 nats, ~13% over 6× scale) — so there IS more
+structure to understand in word-choice, it is just diffuse (§810) and only partly recovered by scale.
+bilin18 (2.49) is already good — better than gpt2/medium on this metric — but gpt2-large beats it, so
+bilin18 leaves ~0.1 nats of within-class loss on the table vs a 774M model. Corrected in artifact.
+
+## §841 — LAYER 0 MECHANISM: mlp0 computes grammatical class as a bank of BILINEAR class-DETECTORS (weight-level, exact) (mlp0_bilinear_trace.py)
+
+First result of the strict bottom-up program. Traced mlp0's actual bilinear form Down[(Left·x)⊙(Right·x)]
+(exact reconstruction err 6e-7). For the top-24 hidden units that write to the grammatical-class output
+subspace: ALL 24 are class-SELECTIVE and ALL 24 are genuinely BILINEAR (both readouts vary, cvL/cvR
+~1.0-1.5, not effectively linear). Each unit is a grammatical-class detector, read directly from its
+top-activating tokens:
+
+  DETERMINER: u1737 (" the"," a"), u1492 (" the"), u597 (" the"," a"," many"), u906 (" his"," our"," an")
+  CAPITAL/PROPER: u3326 (" H"," W"," Bennett"), u3926 ("T","E","L")
+  PUNCTUATION: u3574 ("." sel 5.2), u1242 (quotes)
+  CONJUNCTION: u212 (" &",","), u2023 (" before"," without"," who")
+  NUMBER/ARTICLE: u2736 (" An","A")
+  CONTENT WORD: u3069 (" replicate"," travel"," household")
+
+MECHANISM (layer 0, weight-level, keep-only-free): mlp0 computes the grammatical-class variable as a
+bank of bilinear detectors — each hidden unit multiplies two learned token-readouts (Left·x)(Right·x),
+and the class-writing units are cleanly selective for one grammatical category, firing on that
+category's member tokens, then writing it (via Down) into the class output subspace. The computation is
+genuinely a PRODUCT (bilinear AND of two readouts), consistent with the earlier observation that mlp0
+SHARPENS class (§782) — a product of two aligned class-readouts sharpens the detection. This is the
+mechanistic account of layer 0's class computation, to carry into layer 1. OPEN (next): do Left and
+Right read the SAME class (self-product = sharpening) or DIFFERENT things (conjunction)? and attn0's
+mechanism, to finish layer 0.
