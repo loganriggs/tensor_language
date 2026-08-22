@@ -27092,3 +27092,19 @@ scale; (2) the MIDDLE token-tables do NOT generalize (~0); (3) the READOUT is mo
 generalizing ~0.29 (§901). So the honest end-state: GRAMMAR (front) is the tabulatable part (best but imperfect
 out-of-sample), CONTENT (middle) is causal (interchange §894) but not tabulatable, and the precise front
 number is data-limited. Definitive whole-model backoff number pending (whole_model_understanding_fresh_backoff).
+
+## §904 — DEFINITIVE: ~30% of the whole model is generalizing-named-variable reconstructable (robust across coverage fixes) (whole_model_understanding_fresh_backoff.py)
+
+Whole-model fresh with class-backoff (coverage confound removed): token 0.177 → +continuous-topic 0.289
+(+0.11, generalizes) → +prev 0.315 (+0.026, mostly overfit); shuffled null −0.118. So the definitive
+GENERALIZING whole-model understanding is ~0.30-0.32, ROBUST across variants (0.29 no-backoff §901, 0.315
+backoff §904 — the backoff barely moved it, confirming it was not merely a coverage artifact).
+
+CERTIFIED HEADLINE (corrects §900's same-data 0.81): ~30% of the whole model's loss-reduction-over-mean is
+reconstructable from GENERALIZING named variables — current token/class (grammar, ~0.18) + continuous topic
+(gist, +0.11); previous-token adds little that generalizes (+0.03, the rest was memorization). The other ~70%
+is real computation that is CAUSALLY a variable (interchange moves class §892 and topic §894) but does not
+reduce to a generalizing, compact table — it is high-dimensional/interaction/long-range structure. This closes
+the fresh-certification arc (§901-904): the honest answer to "how much of the model do we understand" is ~30%
+as writable generalizing variables, with the rest causally-characterized-but-not-tabulated. Artifact/FINDINGS
+finalized to ~30%.
