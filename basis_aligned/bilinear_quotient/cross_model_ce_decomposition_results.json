@@ -1,0 +1,23 @@
+{
+ "gpt2": {
+  "ce_class": 0.9842,
+  "ce_within": 2.95,
+  "ce_total": 3.9342,
+  "within_fraction": 0.7498,
+  "chain_check": 0.0
+ },
+ "EleutherAI/pythia-410m": {
+  "ce_class": 0.8575,
+  "ce_within": 2.6402,
+  "ce_total": 3.4977,
+  "within_fraction": 0.7548,
+  "chain_check": 0.0
+ },
+ "bilin18_reference": {
+  "ce_class": 0.747,
+  "ce_within": 2.48,
+  "within_fraction": 0.769
+ },
+ "pred_a_universal": true,
+ "runtime_s": 77.98420929908752
+}

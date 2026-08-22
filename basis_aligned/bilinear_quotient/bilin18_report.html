@@ -2019,6 +2019,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   with the grammatical slot fixed and the whole preceding passage in view, which specific word comes
   next carries real entropy that no amount of structure removes. The clean, low-rank grammar is most of
   the machinery and little of the difficulty; the difficulty is language itself.</p>
+  <p>And this division is not particular to this model. Split the loss the same way for GPT-2 and
+  Pythia and the numbers barely move: the word-within-the-class share is 77% here, 75% in GPT-2, 76% in
+  Pythia. Three architectures, trained separately, all spend about a quarter of their loss on grammar
+  and three-quarters on lexical choice. The shape of the problem — a small, learnable, interpretable
+  grammatical core wrapped around a large, mostly-irreducible lexical remainder — appears to be a
+  property of the task, not of any one network.</p>
   <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
   prediction by how hard it was — how much loss the full model took — and ask how much of each bucket the
   class-and-position skeleton alone recovers. On the model's <em>hardest</em>, most uncertain predictions

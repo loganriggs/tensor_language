@@ -25515,3 +25515,29 @@ content earns as context accumulates) and mostly irreducible entropy (~2.4-nat f
 interpretable machinery does the easy, structured part; the bulk of the loss is high-entropy lexical
 choice that is context-reducible only in part. Completes the §827→830 read-out/loss thread and the
 class+position program (§767→830). Artifact updated.
+
+## §831 — The grammar-easy / lexical-hard loss split is UNIVERSAL (~75% within-class across bilin18, GPT-2, Pythia) (cross_model_ce_decomposition.py)
+
+Extended the §829 loss decomposition to GPT-2 and Pythia-410M (chain-rule split of CE into
+next-class prediction vs within-class word choice, each model's own tokenizer for POS assignment).
+
+| model | CE_total | CE_class | CE_within | within-fraction |
+|-------|---------:|---------:|----------:|----------------:|
+| bilin18     | 3.23 | 0.75 | 2.48 | **76.9%** |
+| GPT-2       | 3.93 | 0.98 | 2.95 | **75.0%** |
+| Pythia-410M | 3.50 | 0.86 | 2.64 | **75.5%** |
+
+The split is UNIVERSAL and strikingly consistent: in all three architectures ~3/4 of the loss (75–77%)
+is choosing the specific word within the correct grammatical class, and only ~1/4 (23–25%) is getting
+the class right. Chain-rule exact for all. So the central finding — the interpretable, low-rank
+grammatical machinery (class+position) computes the EASY quarter of the problem, while the hard
+majority is high-entropy lexical choice — is not a bilin18 quirk but a property shared across bilinear-
+softmax-free, absolute-position, and rotary transformers.
+
+This is the final cross-model capstone of the class+position program (§767→831). Full account, all
+cross-model-validated: WHAT (grammatical class §825/826 + log-position §827), WHERE (compute→maintain→
+read pipeline, universal §815/817), HOW MUCH (simultaneous 0.78; per-component 0.92 an upper bound,
+§820/821), CAUSAL STATUS (necessary §767-814, generalizing §820, sufficient/steerable at component
+write-sites §823-824), USED AS grammatical sequencing (§828), and the LOSS SPLIT — grammar easy ~25%,
+lexical choice hard ~75%, partly context-reducible but mostly irreducible entropy (§829/830), universal
+(§831). Artifact updated with the universality of the loss split.
