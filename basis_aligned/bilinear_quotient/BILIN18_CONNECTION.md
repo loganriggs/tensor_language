@@ -26142,3 +26142,33 @@ KEY NUANCE (middle): the middle (L6-9) is dimensionally ACTIVE — it re-inflate
 "the middle does little" (low per-component ablation benefit §812; §813 redundant) coexists with "the
 middle re-inflates dimensionality without reorganizing the clustering." And the READOUT does the last big
 re-clustering (L15→16 RSA 0.81) and collapses to ~3 dims — the prediction. Figure sent.
+
+## §858 — the middle re-inflates mostly into CONTENT/unnamed directions (+ slightly finer token-identity); prev-token & position fade (middle_reinflation.py)
+
+Decoded the residual stream at L5 (eff-dim 23) vs L9 (peak 51) to see what the middle re-inflation adds:
+
+| feature | L5 | L9 | gain |
+|---------|---:|---:|-----:|
+| grammatical class | 0.96 | 0.97 | +0.01 (saturated) |
+| fine token-identity | 0.89 | 0.94 | +0.05 |
+| previous token | 0.68 | 0.60 | −0.08 |
+| position | 0.43 | 0.38 | −0.05 |
+
+FINDINGS: the middle re-inflation (eff-dim 23→51) re-strengthens FINE TOKEN-IDENTITY modestly (+0.05),
+while the PREVIOUS TOKEN and POSITION FADE through the middle (−0.08, −0.05) — consistent with prev-token
+being a front-only signal (§851). But the token-identity gain is small relative to the large eff-dim jump
+(23→51), so MOST of the dimensional expansion is into directions NOT captured by class/token/prev/position
+— i.e. CONTENT/unnamed directions. This is the same diffuse content/lexical space that attn5 works on
+(§853) and that has no clean low-rank handle (§810). So the middle re-inflates mostly into content
+directions we cannot cleanly name, plus a little finer token identity, while shedding prev-token and
+position.
+
+MIDDLE (6-14) characterization COMPLETE: dimensionally active (re-inflates 23→51 by L9 then re-collapses),
+topologically stable (relative similarities near-frozen, RSA 0.95-0.98, §857), low per-component ablation
+benefit (§812) but collectively redundant/super-additive (§813); functionally it re-inflates into
+(mostly) content/unnamed space + finer token identity while dropping prev-token/position. The content it
+adds is the diffuse lexical computation — the recurring wall (no low-rank/nameable handle).
+
+BOTTOM-UP PROGRAM (front→middle→readout) now COMPLETE at mechanism+geometry level. The recurring frontier
+across attn5/§810/§857/§858 is the CONTENT/lexical computation: diffuse, high-rank, distributed, mostly
+unnamed — the honest wall of the model's interpretability.

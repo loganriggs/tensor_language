@@ -128,6 +128,19 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    easy grammatical quarter of the loss; the hard three-quarters is high-entropy lexical choice — but the
    *fraction* of the model attributable to class+position is not measurable by keep-only and was withdrawn.
 
+1d. **Bottom-up LAYER MAP (mechanism + geometry, keep-only-free; §841→858).** FRONT (0-5): mlp0 = bank of
+   bilinear SHARPENING self-product class-detectors (grammatical class), attn0 = COPY-SOURCE (writes prev-token,
+   decode 0.86); mlp1 RE-EXPANDS the class-collapsed geometry (eff-dim 20→47) folding in class+position+modest
+   prev/fine-token; L2-4 refine; attn5 = CONTENT-prediction component (helps content words +2.7, invisible to
+   grammatical probes). MIDDLE (6-14): dimensionally active (re-inflates eff-dim to peak 51 by L9, mostly into
+   CONTENT/unnamed directions + finer token-identity; prev-token & position fade) but topologically stable
+   (RSA 0.95-0.98); low per-component benefit yet collectively redundant (§813). READOUT (15-17): reads
+   class(13×)+position(6×) hard (§851), semi-distributed content-write with some coherent category units
+   (proper-name unit, capitalized-word units), collapses to ~3-dim prediction (eff-dim 2.8). WHOLE-STACK
+   geometry: 2 expansions (L1, L6-9) + 3 collapses (L0, L5, L16-17); re-clustering at front+readout, middle
+   near-frozen. Recurring WALL: the CONTENT/lexical computation is diffuse/high-rank/distributed/unnamed
+   (§810/853/857/858) — the honest limit of interpretability. **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
