@@ -26273,3 +26273,12 @@ than semantic-topic — a muddy target. So imposing embedding-semantic categorie
 it stays diffuse. The content machine resists BOTH grammatical (§852/858) and semantic-cluster probes.
 Trying a genuinely different, DATA-DRIVEN approach next: cluster the content residual itself (orthogonal
 to class+position) and read what its clusters share, rather than imposing external categories.
+
+## §865 — content-residual clustering is FREQUENCY-CONFOUNDED as first run; refitting with distinctive-token read (content_clusters.py)
+
+Clustered the content residual (grammar removed) into 16 and read each cluster's top current/next tokens.
+Result uninformative: EVERY cluster's top tokens are the same corpus-frequent function words (',' '.' 'the'
+'of' 'to') — because raw top-token counts are dominated by frequency regardless of cluster. So this read
+cannot tell whether clusters have coherent content or not. Refitting with a DISTINCTIVE-token read (tokens
+OVER-represented in a cluster vs the corpus baseline), which controls for frequency and is the fair test of
+whether the content residual has interpretable cluster structure.
