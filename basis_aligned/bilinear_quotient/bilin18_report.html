@@ -1879,6 +1879,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   grammar and content variables off the residual stream, but that we can independently and compositionally
   <em>set</em> them and get the prediction we expect.</p>
 
+  <p>None of this is peculiar to this one network. The whole two-machine picture reappears in its siblings —
+  models trained the same way but with a different feed-forward nonlinearity (a SwiGLU block) or a different size
+  (twelve layers). In each, grammar and content occupy near-orthogonal subspaces just as here, content is again a
+  bag-of-words gist of the context, and the distributed, cooperate-or-nothing style is again present. Several of
+  these traits also hold in an ordinary GPT-2, so the core — two separable machines, one a low-rank local
+  part-of-speech computation and the other a high-rank long-range topic computation — is a general fact about
+  these models rather than a quirk of this checkpoint.</p>
+
   <p>And we can say what the aggregator actually computes. Feed the model shorter and shorter slices of context:
   topic decodability climbs steadily with length and is still rising at the model's full 256-token window, and
   the word-choice loss falls four times as much as the grammar loss does — content lives on far context, grammar
