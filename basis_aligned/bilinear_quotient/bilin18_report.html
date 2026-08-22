@@ -1834,6 +1834,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   then re-derived. Content is assembled slowly, by many layers of long-range attention pooling context together
   — consistent with its need for a long run of preceding text.</p>
 
+  <p>These two ways of building — write-once versus rebuild-constantly — leave a clean causal fingerprint. Delete
+  the grammatical-class information at an early layer and it makes almost no difference by the late layer: the
+  middle simply re-derives class from the token again, recovering 98% of what a late reader can decode. Delete it
+  <em>at</em> the late layer and it is gone. So class is not carried up the stream, it is recomputed at every
+  block — which is also why you can only steer it with a late edit (an early swap is overwritten), whereas content,
+  because it accumulates, can be steered anywhere in the middle and the effect only grows with depth. Two machines,
+  two regimes: content is written once and accumulated; grammar is re-derived on every block. The leaky residual —
+  each block rescales the stream and re-injects the token embedding — is exactly what makes constant re-derivation
+  possible.</p>
+
   <p>Is the topic structure causal, or only a readable correlate? Steering the late residual along a topic's own
   direction does specifically raise that topic's distinctive next-words (mean own-topic gain +0.042, off-topic
   −0.004, consistent across every topic), so there is a real causal signal — but it is weak, and an honest control
