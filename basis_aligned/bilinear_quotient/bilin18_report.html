@@ -1935,11 +1935,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   of the same named variables (token embedding, previous-token embedding, continuous topic), and the honest
   held-out number rises to about <strong>40%</strong>. It splits sharply by depth: the front grammar is recovered
   at ~0.90 — essentially solved, a smooth generalizing function of the current token — the readout at ~0.56, and
-  the middle content at only ~0.10. So the middle does not become a function of these variables no matter how we
-  fit it: that ~40%-of-the-loss band is causal (the interchange swaps move it) but genuinely high-dimensional,
-  needing variables we have not yet named — longer-range context and higher-order interactions. That is the honest
-  frontier: grammar is solved as a writable, generalizing, causal variable; content is causally real but not yet
-  reducible to one.</p>
+  the middle content at ~0.10 with a coarse topic — but that last number understates it, and chasing it down
+  pins the frontier exactly. Give the middle content its fair form — a higher-rank continuous content feature
+  read from the layer's own input — and it climbs to ~0.30 at rank 128 and ~0.44 at near-full rank; but it stops
+  there, because the middle layers are <em>bilinear</em> (they multiply two projections of their input), so
+  roughly half of what they compute is a genuine multiplicative nonlinearity that no linear read of the input can
+  capture. So the middle is not a wall and not noise: it is a high-rank, half-nonlinear content computation — its
+  output is ~0.44 a linear read of content plus ~0.56 a multiplicative interaction. That is the honest frontier:
+  grammar is solved as a low-rank, writable, causal variable; content is causally real (the interchange swaps
+  move it) and mechanistically a bilinear content-mixing computation, but not reducible to a table or a linear
+  read — the remaining understanding gap <em>is</em> that nonlinearity.</p>
 </section>
 
 <section class="col">
