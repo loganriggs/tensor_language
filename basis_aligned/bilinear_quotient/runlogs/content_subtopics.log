@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/content_subtopics.py", line 96, in <module>
+    if __name__=='__main__': main()
+                             ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/content_subtopics.py", line 73, in main
+    parent = distinct(mk)
+             ^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/content_subtopics.py", line 62, in distinct
+    nc = Counter(); nj = int((tgt[mask]>=0).sum())
+                              ~~~^^^^^^
+IndexError: boolean index did not match indexed array along axis 0; size of axis is 82240 but size of corresponding boolean axis is 81920

@@ -53,7 +53,7 @@ def main():
     Rs = []
     for i in range(0, nb, 4): Rs.append(capL(blocks[i:i+4].to(DEV)[:, :-1].contiguous()))
     R = torch.cat(Rs, 0); toks = S[:, :-1].reshape(-1); pos = np.broadcast_to(np.arange(256), (nb, 256)).reshape(-1)
-    tgt = np.full_like(S, -1); tgt[:, :-1] = S[:, 1:]; tgt = tgt.reshape(-1); base = Counter(tgt[tgt>=0]); Nn = int((tgt>=0).sum())
+    tgt = S[:, 1:].reshape(-1); base = Counter(tgt[tgt>=0]); Nn = int((tgt>=0).sum())  # (nb,256) aligned with content
     Utok, g = mean_subspace(R, toks, RTOK); Upos, _ = mean_subspace(R, pos.astype(np.int64), RPOS)
     Ucp = torch.linalg.svd(torch.cat([Utok, Upos], 1), full_matrices=False)[0][:, :RTOK+RPOS].contiguous()
     content = (R-g) - ((R-g)@Ucp)@Ucp.T; cn = content/(content.norm(dim=1,keepdim=True)+1e-9)
