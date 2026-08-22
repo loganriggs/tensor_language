@@ -28132,3 +28132,22 @@ context-mixing (§952); attention aggregates content as an order-invariant BAG-o
 pooling (§931) that builds topic gradually early-mid (§929); it is a SHARED grammar/content context-engine
 (§918/§919). Together with the MLP/readout account (§939-950), the bottom-up interpretation now covers BOTH
 component families across all depths. Artifact: add front-attention = induction + early context substrate.
+
+## §953 — induction is a DISTRIBUTED COOPERATIVE circuit, not a localized head/layer (induction_layer_localize.py)
+
+Mean-ablate EACH attention layer individually, measure the CE cost on INDUCTABLE positions (baseline 0.69).
+  Per-layer inductable Δce: all SMALL — L0 -0.03, L1 +0.04, L2 +0.06, L3 +0.05, L4 +0.12, L5 +0.10, L6 +0.08,
+  L7 +0.08, L8 +0.18 (max), L9-17 ~0-0.07. top-3 layers (L8,L4,L5) carry only 47% of the total.
+pred (a) "induction localized to a few layers" FALSE.
+KEY: no single attention layer is a load-bearing "induction head layer" — the largest single-layer inductable
+cost is only +0.18 (L8), and the sum over all 18 single-layer costs is ~0.9. YET mean-ablating the front-6
+together costs inductable +5.21 (§952) and all-18 +5.29 — ~6x the sum of singles. So INDUCTION is a
+DISTRIBUTED, super-additive COOPERATIVE circuit spread across the front attention layers (and into L8): removing
+any ONE layer is compensated by the others, but removing them collectively destroys induction. This is the SAME
+distributed-cooperative pattern as the middle content computation (§948, super-additive 4.9x) and attention
+pooling (§931). UNIFYING THEME: bilin18's circuits — content, induction, pooling — are DISTRIBUTED and
+super-additive, robust to single-component ablation, load-bearing only as ensembles. This corrects the naive
+"induction head layer" expectation for this model. CAVEAT: I ablated whole LAYERS (9 heads each); a single
+induction HEAD could still be localized WITHIN a layer — at layer granularity, induction is distributed. NET
+(refines §952): induction lives in the front attention as a DISTRIBUTED circuit, not a single layer; §952's
+"front hosts induction" is right, but it is spread across the front, not localized.
