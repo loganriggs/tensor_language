@@ -28308,3 +28308,25 @@ residual class->topic leakage in the class-controlled metric early — but conte
 so the dissociation is clean everywhere.) This SOLIDIFIES the causal-abstraction capstone (§957->960): the class
 and content subspaces are independently and compositionally causal across the sequence. Causal-abstraction thread
 COMPLETE and robustness-checked.
+
+## §961 — ASYMMETRY in causal addressability across depth: content accumulates (patchable throughout middle), class is re-derived (only late-patchable) (content_interchange_bylayer.py + class_interchange_bylayer.py)
+
+Interchange the content vs class subspace base<-source at multiple layers; measure the shift toward the source's
+topic (class-controlled topic_net, §959) / class (class-match). Random-patch null per layer.
+ CONTENT (topic_net, vs random): L8 +0.123/+0.003 | L11 +0.385/+0.020 | L15 +0.748/+0.013 -> pred TRUE.
+ CLASS (class->source, vs random): L2 0.24/0.23 | L8 0.315/0.23 | L15 0.38/0.235 -> pred FALSE (L2 no effect).
+FINDINGS (a clean asymmetry between the two machines):
+ - CONTENT is causally addressable THROUGHOUT the middle, and the effect GROWS with depth (+0.12 -> +0.39 ->
+   +0.75). This matches the gradual topic BUILDUP (§929): content is an accumulated context gist, so patching it
+   deeper (more assembled) has a larger, more coherent effect on the output. Content persists and accumulates.
+ - CLASS interchange is WEAK EARLY (L2 +0.01 = no effect, L8 +0.085 modest) and only clearly works LATE (L15
+   +0.145). An early class patch WASHES OUT: the middle RE-DERIVES class from the token each block (§916/§917,
+   "re-derived not carried"; leaky λ0 residual + λ1 token re-injection), overwriting the early edit; only a late
+   patch near the readout sticks. Also consistent with the class subspace ROTATING write->read across depth (§897)
+   — the L2 next-class subspace is not the effective read-subspace downstream.
+SO the two machines differ not only in structure (§934) and construction depth (front-write vs middle-accumulate)
+but in CAUSAL PERSISTENCE: content, once written, PERSISTS and can be steered at any middle depth (growing effect);
+class is RE-DERIVED downstream, so it can only be steered LATE. Completes the "no-skipping" causal picture across
+depth: both variables are causal (compositional control §959/§960 at L15), but content is depth-robustly
+addressable while class is only late-addressable. Deepens §916 (class context-dependent/re-derived) with a direct
+causal interchange-by-depth test.
