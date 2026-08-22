@@ -27369,3 +27369,21 @@ build predictive next-token-class grammar (§918) AND topic (§870), while the m
 → back MLPs convert the class into word logits. Attention = the shared context engine for grammar-prediction
 and content; MLPs = write (front) and read-out-to-words (back). Completes the grammar-machine account. Artifact/
 FINDINGS updated.
+
+## §919 — grammar and topic are MOSTLY SHARED across heads (corr 0.31), with modest specialization (grammar_vs_topic_heads.py)
+
+Per head, decoded BOTH next-token class (predictive grammar) and topic from the head's residual contribution.
+Correlation of per-head grammar-score vs topic-score across all middle heads = 0.31 — moderate: not strongly
+shared (>0.5) nor cleanly specialized (<0.2). Most heads carry BOTH grammar and topic (distributed, per §875),
+with MODEST specialization (e.g. L14 h2 grammar-leaning g0.45/t0.35, h8 g0.42/t0.29; h4 topic-leaning
+g0.37/t0.42). So the "shared context-engine" (§918) is shared at the HEAD level too, mostly: the same heads
+aggregate both predictive grammar and topic, with mild per-head leaning but no grammar-vs-topic head split.
+Consistent with the pervasive diffuseness theme (topic §875 distributed across heads; grammar likewise). This
+completes the grammar-machine bottom-up account (§915-919).
+
+GRAMMAR MACHINE — complete bottom-up account: (1) mlp0 writes the current token's MULTI-AXIS surface class
+(capital ⊥ determiner ⊥ punct…, "The"=both, §915); (2) ATTENTION across depth aggregates context to build
+PREDICTIVE next-token-class grammar (§918) — the same distributed heads that build topic (§919), a shared
+context-engine; (3) middle MLPs CONTEXTUALIZE the class (context-derived, not maintenance, §916), shifting the
+code from describing the current token toward predicting the next (§917); (4) back MLPs CONSUME the class into
+specific-word logits (§918). Read≠write throughout (interchange, not steering, verifies causality §892).

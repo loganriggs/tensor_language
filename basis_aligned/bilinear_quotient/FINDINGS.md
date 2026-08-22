@@ -188,6 +188,18 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    NOT a function of these variables (genuinely high-dim, needs longer-range/interaction variables), yet is causal
    (§894). So grammar is a writable+causal variable; content is causal but not yet tabulatable — the frontier. **HIGH.**
 
+1g. **GRAMMAR MACHINE — complete bottom-up account (§915→919).** (1) mlp0 writes the current token's MULTI-AXIS
+   SURFACE class — capitalization, determiner, punct, number, space-prefix are separately decodable near-ORTHOGONAL
+   axes (|cos| 0.10), a token is several at once ("The"=determiner+capital; §915); my 8-way label is a coarse
+   single-label readout of the ~24-dim code. (2) ATTENTION across depth aggregates context to build PREDICTIVE
+   next-token-class grammar (next-class decode 0.53→0.67, every attn step +, total +0.11; §918) — the SAME
+   distributed heads that build topic (per-head grammar/topic corr 0.31, mostly shared + mild specialization,
+   §919): attention is a SHARED context-engine for grammar-prediction and content. (3) Middle MLPs CONTEXTUALIZE
+   the class (context-derived, NOT maintenance: token-R² 0.40 < context-gap 0.46; §916), shifting the code from
+   describing the current token toward predicting the next (§917). (4) Back MLPs CONSUME class into word logits
+   (negative next-class increments; §918). Re-derived not carried because the residual is leaky (λ₀ rescale) +
+   token re-injected each block (λ₁·x₀). Causality via interchange, not steering (read≠write, §892). **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
