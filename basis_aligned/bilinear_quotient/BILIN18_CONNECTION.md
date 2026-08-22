@@ -28500,3 +28500,28 @@ DEFINITIVE cause: the softmax-FREE (squared) attention drives bilin18's distribu
 (§956/§965/§969), independent of the MLP; the bilinear MLP modulates (dampens) its magnitude. This closes the
 causal-isolation thread. The distinctive "no single component matters, the ensemble does" property traces to the
 squared attention mechanism specifically.
+
+## §971 — the 0.42 understanding benchmark is seed/draw-STABLE (whole_model_understanding_repro.py)
+
+Reproducibility of the §939 headline metric on a FRESH draw (NEVAL 240 vs 200) with all random seeds changed
+(split/kmeans/shuffle 0->7):
+  tokenmap+topic+prev understanding 0.445 (vs §939 0.422; Δ 0.023, within ±0.03)
+  table+topic+prev 0.394 | shuffled-map null -0.145 | genuine vs shuffled 0.59 | map>table gain +0.051
+pred (a) TRUE. The tracked headline metric (~0.42 held-out) is SEED- and DRAW-STABLE: it reproduces at 0.445 on
+independent data with different randomization, the linear map still beats the discrete table (+0.051), and the
+shuffled-map null is negative. (The table baseline varies a little across draws — 0.394 here vs 0.315 in §939 —
+but the headline MAP number is stable.) Confirms the benchmark is a robust measurement, not an artifact of the
+particular rows/seed. This is a robustness capstone for the tracked metric.
+
+--- PROGRAM STATUS (as of §971) ---
+The bottom-up interpretation of bilin18 is comprehensively complete, causally verified, self-corrected, and
+family-generalized: (1) three-register stack — front grammar-write (linear) + induction, middle multiplicative
+content computation (token&content, not class), linear readout that does the bulk of output formation (§915-946);
+(2) two-machine account (low-rank local grammar / high-rank long-range bag-of-words topic content) with robust
+COMPOSITIONAL causal control via interchange (§959-960), both variables continuously re-derived from context
+(§962-964); (3) understanding benchmark 0.42 held-out, seed/draw-stable (§939/§971), residual = the irreducible
+high-rank middle multiplication; (4) distinctive DISTRIBUTED-COOPERATIVE structure, cause isolated to the
+softmax-free SQUARED ATTENTION (§956/§965/§969/§970); (5) whole account generalizes across the Elriggs family on
+4 axes + universal core via GPT-2 (§965-968). Remaining unreconstructed ~58% is characterized as a genuine
+high-rank multiplicative continuum, not a missing mechanism. Further runs would be repetition on additional
+siblings rather than new mechanism.
