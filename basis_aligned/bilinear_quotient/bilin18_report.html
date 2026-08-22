@@ -2097,7 +2097,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   ordinary softmax, both with the same bilinear feed-forward and size — and the cooperative signature is present
   with squared attention (super-additivity 1.6) and largely gone with softmax (1.1). So it is the squared,
   softmax-free attention specifically that spreads the computation out; swapping it for softmax pulls the model
-  most of the way back toward the concentrated, individually-critical style of a standard transformer.</p>
+  most of the way back toward the concentrated, individually-critical style of a standard transformer. Filling in
+  the last cell of the two-by-two settles it: squared attention paired with an <em>ordinary</em> feed-forward
+  block (no bilinear gating at all) is the most cooperative of the lot — a super-additivity near ten. So the
+  squared attention alone drives the effect and needs no help from the bilinear MLP; if anything the bilinear MLP
+  slightly reins it in, making individual attention layers count for a little more on their own.</p>
 </section>
 
 <section class="col">
