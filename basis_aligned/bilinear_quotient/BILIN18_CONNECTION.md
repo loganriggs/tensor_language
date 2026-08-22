@@ -28238,3 +28238,29 @@ TOPIC METRIC, not the mechanism.
 NET: class compositional control DEMONSTRATED; the joint test is inconclusive for topic due to the coarse top-10
 metric. Corrected version queued (joint_interchange_v2) with a NATS-based topic metric (log-prob mass on
 source-topic minus base-topic distinctive tokens, §894-style) to properly test compositionality of both machines.
+
+## §958 — compositional interchange: CLASS control clean + joint effects ADD, but topic metric is CLASS-CONFOUNDED (joint_interchange_v2.py)
+
+Nats-based topic metric (log-prob gain on source-topic distinctive tokens, fixing §957's sparse top-10). QP=200.
+  condition       class->source   topic-gain (nats, source tokens)
+  class_only         0.38             +1.193
+  content_only       0.24             +0.548
+  joint              0.375            +1.650
+  random             0.24             +0.205
+FINDINGS:
+ - CLASS control CLEAN: class_only 0.38 and joint 0.375 shift predicted class to source (+0.14 vs random 0.24);
+   content_only 0.24 = random (doesn't move class). Compositional: class effect SURVIVES the joint patch.
+ - JOINT EFFECTS ADD on topic: joint topic-gain (1.65) > class_only (1.19) > content_only (0.55) > random (0.21)
+   -> the class and content patches ADD (joint highest), evidence the two controls compose.
+ - BUT the TOPIC METRIC is CLASS-CONFOUNDED: class_only (1.19) raises source-topic-token log-prob MORE than
+   content_only (0.55). Reason: source-topic distinctive tokens are content WORDS; patching CLASS toward a
+   content-word-heavy source boosts content-word log-probs generally, inflating the source-topic-token metric as a
+   SIDE EFFECT. So the expected content>class dissociation FAILS -> the metric does not cleanly isolate
+   content-specific topic control. pred (a) FALSE (content_only not > class_only on topic).
+NET: class compositional control is DEMONSTRATED (clean dissociation, survives joint); the two patches' topic
+effects ADD (joint > either); but a CLEAN content-SPECIFIC topic dissociation is not isolated by this metric due
+to the class confound. Topic causality itself is already cleanly established elsewhere (§894 interchange +0.70
+nats; §934 double dissociation), so this does not weaken the two-machine account — it is a limitation of the
+joint metric. FIX queued (joint_interchange_v3): a CLASS-CONTROLLED topic metric = gain on source-topic tokens
+MINUS gain on base-topic tokens (both content words), cancelling the generic content-word boost, to isolate
+content-specific topic control.
