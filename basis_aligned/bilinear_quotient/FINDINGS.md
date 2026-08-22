@@ -217,6 +217,20 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    (negative next-class increments; §918). Re-derived not carried because the residual is leaky (λ₀ rescale) +
    token re-injected each block (λ₁·x₀). Causality via interchange, not steering (read≠write, §892). **HIGH.**
 
+1h. **FULL-STACK COMPUTATIONAL ACCOUNT — three registers by depth (§939→950).** Read off the layers, bilin18
+   computes in THREE registers: (a) FRONT (L0-5) — near-LINEAR per layer (MLP linear-recoverable R² 0.90-0.98,
+   §941/§942), writes grammar+token; localized/load-bearing (mlp1 mean-ablate 6.4 nats §933) and tightly
+   SEQUENTIALLY COUPLED (can't be co-linearized — §950). (b) MIDDLE (L6-15) — the high-rank MULTIPLICATIVE content
+   computation (~40% nonlinear certified, §941/§950; universal middle-nonlinearity dip incl GELU models §942);
+   multiplies TOKEN and CONTENT, NEVER class (§946); DISTRIBUTED-COOPERATIVE (each MLP ~0.04 alone, all-10
+   super-additive 4.9× §948); the irreducible frontier. (c) READOUT (L16-17) — does the BULK of output formation
+   (logit-lens CE 5.8@L15→3.26 final, §944) via a ~95% LINEAR rotation into the token basis (§945, certified
+   nonlinear-fraction 0.16 §950). BENCHMARK: replacing all 36 components with named-variable stand-ins recovers
+   **0.42** held-out (§939, smooth per-token map > discrete table 0.315; progression 0.81-insample→0.30-table→
+   0.42-map); the residual ~0.58 is the middle multiplication. Depth localization (§940): middle is the biggest
+   contributor + hardest to reconstruct. Figure: stack_map.png. CAUGHT+CORRECTED: skip-confound §947→§948
+   (residual-rescale), front-linearize artifact §949→§950 (uncertified stand-in). **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
