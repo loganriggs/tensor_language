@@ -28288,3 +28288,23 @@ understand it": predictable, compositional, variable-level control (Geiger causa
 causal-abstraction thread (§892 class + §894 topic, now JOINT + dissociated + class-controlled §957->958->959).
 Confirms the two-machine account (grammar low-rank/local; content high-rank/topic) at the deepest causal level.
 Artifact: add the compositional double-dissociation result.
+
+## §960 — the compositional double dissociation is ROBUST across query positions (joint_interchange_qpsweep.py)
+
+Robustness control for §959 (§899 flagged fixed-QP fragility). Class-controlled joint interchange at QP in
+{80,140,200,240}:
+  QP    class_only(cls/topic)   content_only(cls/topic)   random(cls/topic)
+  80    0.375 / +0.203          0.193 / +0.752            0.205 / +0.046
+  140   0.320 / +0.211          0.202 / +0.830            0.208 / +0.040
+  200   0.380 / +0.019          0.245 / +0.748            0.245 / +0.031
+  240   0.380 / +0.083          0.201 / +0.796            0.212 / +0.050
+pred (a) robust-dissociation TRUE at ALL four QPs:
+ - CLASS: class_only class->source (0.32-0.38) > random (~0.21) at every QP (+0.11-0.17); content_only ~= random
+   (doesn't move class).
+ - TOPIC: content_only class-controlled topic_net (+0.75 to +0.83) >> random (~0.04) and >> class_only at every QP.
+So the compositional causal control of the two machines (§959) is ROBUST to query position — not a QP=200
+artifact. (Minor: class_only topic_net is slightly elevated early, +0.20 at QP80/140 vs +0.02 at QP200 — small
+residual class->topic leakage in the class-controlled metric early — but content_only always dominates it 3-4x,
+so the dissociation is clean everywhere.) This SOLIDIFIES the causal-abstraction capstone (§957->960): the class
+and content subspaces are independently and compositionally causal across the sequence. Causal-abstraction thread
+COMPLETE and robustness-checked.
