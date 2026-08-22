@@ -1927,10 +1927,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   low-rank variable is roughly a quarter to a third — the grammar skeleton plus a continuous topic direction —
   and the large remainder is real computation that we can move causally (the interchange swaps work) and
   describe as a mechanism (a content-word gist) but cannot yet write down as a compact, generalizing table. The
-  gap between 81% in-sample and ~30% held-out is itself the lesson: understanding has to be certified on data the
-  explanation was not fit to. (The ~30% is robust — correcting for rare-token coverage moves it only from 0.29 to
-  0.32 — and it breaks down as grammar ~0.18 plus a continuous-topic direction ~0.11, with the local-context
-  table contributing almost nothing that generalizes.)</p>
+  gap between 81% in-sample and held-out is itself the lesson: understanding has to be certified on data the
+  explanation was not fit to.</p>
+  <p>The final number depends on giving the variables their fair form. A discrete lookup table reconstructs about
+  30% of the model held-out — but a lookup fails on any token it didn't see in training, which penalizes even the
+  front, where the computation really <em>is</em> a clean function of the token. Fit instead a smooth low-rank map
+  of the same named variables (token embedding, previous-token embedding, continuous topic), and the honest
+  held-out number rises to about <strong>40%</strong>. It splits sharply by depth: the front grammar is recovered
+  at ~0.90 — essentially solved, a smooth generalizing function of the current token — the readout at ~0.56, and
+  the middle content at only ~0.10. So the middle does not become a function of these variables no matter how we
+  fit it: that ~40%-of-the-loss band is causal (the interchange swaps move it) but genuinely high-dimensional,
+  needing variables we have not yet named — longer-range context and higher-order interactions. That is the honest
+  frontier: grammar is solved as a writable, generalizing, causal variable; content is causally real but not yet
+  reducible to one.</p>
 </section>
 
 <section class="col">

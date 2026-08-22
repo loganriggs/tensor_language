@@ -27131,3 +27131,24 @@ So the refined per-component understanding: FRONT grammar ~0.90 (smooth, general
 (not a named-variable function — the real high-dim remainder), READOUT ~0.56. The middle content is where the
 genuine open problem is: causal (interchange §894) but not a smooth function of the variables we have. Running
 the whole-model smooth-map for the definitive aggregate (front's 0.90 will lift it above the table's 0.30).
+
+## §906 — DEFINITIVE: a smooth map of named variables reconstructs ~40% of the whole model held-out (vs table 30%) (whole_model_smoothmap.py)
+
+Whole-model, all 36 components replaced at once by a low-rank LINEAR MAP of named variables (token-emb +
+prev-emb + continuous-topic), fit on train, CE on held-out: smooth-map understanding 0.406 (shuffled-feature
+null −0.031) vs the memorizing table's 0.29 (§901) / 0.315 backoff (§904). Pred (a) smooth-beats-table = TRUE.
+
+DEFINITIVE HEADLINE for "how much of the model do we understand as GENERALIZING named-variable functions":
+~40% (smooth map), up from ~30% (tables) — the improvement is the front/readout, which are smooth token
+functions a map captures (mlp0 0.90 §905) where a discrete table fails on unseen tokens. Breakdown (§905):
+FRONT grammar ~0.90, READOUT ~0.56, MIDDLE content ~0.10. The ~40% aggregate reflects the barbell (front+
+readout carry most of the loss and are well-captured; the middle is poorly-captured). So:
+ - GRAMMAR (front): ~fully understood — a smooth, low-rank, generalizing function of the current token,
+   causally steerable/interchangeable (§892). Solved.
+ - CONTENT (middle): the open problem — ~40% of the model's loss, causal (topic interchange §894) but NOT a
+   generalizing function of current-token + prev-token + continuous-topic (~0.10). It needs variables we have
+   not named (longer-range context, higher-order interactions).
+ - READOUT: ~half, token-determined class/frequency read-out.
+So the certified end-state of the understanding-quantification arc (§893→906): ~40% of bilin18 is understood
+as generalizing named-variable functions (grammar solved, readout half), with the high-dimensional middle
+content as the remaining frontier. Artifact/FINDINGS updated to ~40% smooth-map.
