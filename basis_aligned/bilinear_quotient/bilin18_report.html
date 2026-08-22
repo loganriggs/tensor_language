@@ -1834,15 +1834,18 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   then re-derived. Content is assembled slowly, by many layers of long-range attention pooling context together
   — consistent with its need for a long run of preceding text.</p>
 
-  <p>These two ways of building — write-once versus rebuild-constantly — leave a clean causal fingerprint. Delete
-  the grammatical-class information at an early layer and it makes almost no difference by the late layer: the
-  middle simply re-derives class from the token again, recovering 98% of what a late reader can decode. Delete it
-  <em>at</em> the late layer and it is gone. So class is not carried up the stream, it is recomputed at every
-  block — which is also why you can only steer it with a late edit (an early swap is overwritten), whereas content,
-  because it accumulates, can be steered anywhere in the middle and the effect only grows with depth. Two machines,
-  two regimes: content is written once and accumulated; grammar is re-derived on every block. The leaky residual —
-  each block rescales the stream and re-injects the token embedding — is exactly what makes constant re-derivation
-  possible.</p>
+  <p>It is tempting to say grammar is rebuilt while content is carried — but the model is more uniform than that,
+  and the clean test says so. Delete the grammatical-class information at an early layer and it makes almost no
+  difference by the late layer: the middle re-derives class from the token again, recovering 98% of what a late
+  reader can decode. Do the same to the content and it too comes back — 97% recovered. So <em>neither</em> variable
+  is carried untouched up the stream; both are recomputed through the middle, which the leaky residual (each block
+  rescales the stream and re-injects the token embedding) is exactly built to allow. What differs is the
+  <em>speed</em> of the rebuild, and that is visible when you inject a donor signal rather than delete one. Class
+  is re-derived fast — every block, straight from the current token — so an early class swap is overwritten within
+  a couple of layers and only a late edit sticks. Content is re-aggregated slowly, by long-range attention pooling
+  that takes many layers to converge, so a content swap survives partially even from the middle of the stack and
+  its effect grows the later you make it. Two machines, both re-derived, but on different clocks: fast and local
+  for grammar, slow and long-range for content.</p>
 
   <p>Is the topic structure causal, or only a readable correlate? Steering the late residual along a topic's own
   direction does specifically raise that topic's distinctive next-words (mean own-topic gain +0.042, off-topic
