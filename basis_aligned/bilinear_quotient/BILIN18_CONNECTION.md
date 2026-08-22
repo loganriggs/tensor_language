@@ -26708,3 +26708,26 @@ circuit that develops with scale/depth. Clean separation: the loss STRUCTURE (bu
 first-mention floor) is scale- and architecture-invariant (§880/§883/§884), but the STRENGTH of the induction
 mechanism scales with model size. This is the honest final generality picture. Artifact generality note
 refined to distinguish the two.
+
+## §885 — generality sweep complete: budget invariant across ATTENTION too; induction strength depends on attention mechanism + scale (cross_arch_sqrd12.py)
+
+Ran the account on sqrd12 (Elriggs/gpt2-sqrd-attn-12l-6h-768embd) — a DIFFERENT ATTENTION (single-branch
+(q.k/D)^2 NORMALIZED vs bilin's two-branch unnormalized), 12L/6H/768. Budget: first-mention 78.1% |
+seen-other 20.5% | inductable 1.3% — IDENTICAL again; within-frac 0.767; overall CE 3.471 = class 0.807 +
+within 2.664. Synthetic induction score 8.603 (front gate L4). Pred (a) = TRUE.
+
+Notable: sqrd12 (8.6) has STRONGER induction than bilin12 (4.26) at the SAME size (both 12L/6H/768) — so
+induction strength depends on the ATTENTION MECHANISM (single-branch NORMALIZED > two-branch unnormalized
+bilinear), not only scale. The normalized attention (rows sum to 1, softmax-like) supports cleaner copy.
+
+GENERALITY MATRIX COMPLETE (4 models):
+                  budget(fm/seen/ind)   within-frac   synthetic induction
+  bilin18 (18L,546M, bilin attn+MLP)    78.4/20.3/1.3      0.765           11.8  (gate L5)
+  swiglu18(18L,546M, bilin attn, swiglu)78.4/20.3/1.3      0.761           12.2  (gate L4)
+  bilin12 (12L,162M, bilin attn+MLP)    78.1/20.5/1.3      0.767            4.26 (gate L5, weak)
+  sqrd12  (12L,162M, sqrd norm attn)    78.1/20.5/1.3      0.767            8.6  (gate L4)
+CONCLUSION: the LOSS STRUCTURE — the ~78/20/1 position-type budget and the ~23/77 grammar/content split — is
+INVARIANT across MLP form, attention mechanism, and scale (a universal property of language modeling on this
+data). The INDUCTION mechanism is always a strong-ish FRONT circuit but its STRENGTH varies with scale (18L>>
+12L) and attention type (normalized > unnormalized-bilinear). This is the honest, complete generality picture
+and a natural conclusion to the bottom-up program. Artifact gets the attention-axis note.

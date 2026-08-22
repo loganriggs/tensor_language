@@ -159,6 +159,16 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    DOES: content-subspace overlap A↔B 0.53 = 25× random chance (§874). Finding rests on causal steering §868 + content-word
    gist §872 + held-out decode §870 + replicable geometry §874, not on discrete buckets. **HIGH.**
 
+1e. **LOSS BUDGET + irreducible floor + generality (§876→885).** Where every nat goes (bilin18, unigram baseline 7.17 →
+   3.24 = grammar 0.76 + content 2.48): by position type — FIRST-MENTION (new token type) 60% of tokens / CE 4.24 = **78% of
+   the loss** (almost all content); SEEN-OTHER 34% / CE 1.94 = 20%; INDUCTABLE (repeated bigram) 6% / CE 0.69 = 1% (induction
+   nearly free). Grammar is a cheap uniform tax (~0.8 every bucket); content tracks novelty (0.39 copied → 1.10 seen → 3.48 new).
+   IRREDUCIBLE floor (§876): first-mention content is 87% shared with gpt2-large (per-token loss corr 0.90) — topic-narrowed but
+   open new-word choice, only shrinks with scale. SEEN discount (§881) = soft-copy salience (falls with recency+count), L5 the
+   long-range copy. GENERALITY (§880/§883/§884/§885): the budget (78/20/1) and 23/77 split are INVARIANT across model (gpt2/large),
+   MLP form (swiglu18), attention (sqrd12), and scale (bilin12); induction STRENGTH scales with size (18L 11.8 ≫ 12L 4.3) and is
+   stronger with normalized attention (sqrd12 8.6 > bilin12 4.3). **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
