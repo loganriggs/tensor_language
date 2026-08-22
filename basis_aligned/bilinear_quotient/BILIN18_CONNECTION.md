@@ -27674,3 +27674,22 @@ residual substrate that the front MLPs write and attention pools. This tightens 
  - HOW-MUCH (§930): a modest ~17%@K=1024 causal handle on a high-rank continuum.
 (No overclaim in the artifact: it says content is "written via front MLPs, pooled by attention", consistent with
 "shared substrate"; a phase-boundary artifact pass can add the shared-substrate nuance.)
+
+## §934 — clean DOUBLE DISSOCIATION: grammar is local (current-token), content is a bag (grammar_vs_content_bag.py)
+
+Decode next-token CLASS (grammar) and L15 TOPIC (content) each from the raw-embedding CURRENT-token vs a causal
+BAG-of-words running mean. 2x2 decode table:
+                TOPIC (base 0.170)   CLASS (base 0.453)
+  current:          0.216                0.539
+  bag:              0.655                0.460
+ - TOPIC: bag 0.655 >> current 0.216 (~base) -> content is an order-invariant BAG property (confirms §932).
+ - CLASS: current 0.539 > bag 0.460 (~base) -> grammar is LOCAL/current-token-driven; the bag WASHES OUT class.
+ - dissociation index = (current_class-bag_class)+(bag_topic-current_topic) = 0.079+0.439 = 0.518. Nulls at base
+   (topic 0.170, class 0.434). pred (a) double-dissociation TRUE.
+READING: a clean, quantified double dissociation of the two machines' INPUT structure — grammar reads the local
+current token, content reads the order-invariant bag of the whole context. This is the input-side complement to
+the output-side separability (§920 grammar-subspace ⊥ topic-subspace) and the causal separability (interchange
+§892/§894): the two machines differ in what they read, where they read it, and how it is encoded. HONEST CAVEAT:
+current_class 0.539 is only +0.086 above base because next-class is not strongly LINEARLY decodable from the raw
+current embedding (the model computes class nonlinearly via mlp0, §915) — but the CONTRAST (current>bag for
+class, bag>>current for topic) is the dissociation and it is clean.
