@@ -27185,3 +27185,21 @@ middle READS (upstream content) from what it BUILDS (new content). Expect lower 
 content, so upstream has less), quantifying read-vs-build. Whole-model headline stays 0.40 (12-dim-topic
 version, less leaky); the 0.32 middle is the finer-content upper bound. Artifact/FINDINGS: middle refined from
 "not a function" to "smooth function of finer content (upper bound; clean upstream test pending)".
+
+## §909 — clean upstream ≈ downstream: the middle is ~1/3 rank-128-LINEAR-readable from its own input, ~2/3 high-rank/nonlinear (leakage was not the issue) (learned_map_upstream.py)
+
+Clean, non-leaky test: content feature = rank-128 PCA of each component's OWN INPUT residual (upstream), not
+the downstream L15. Result nearly identical to §908's downstream: middle avg UPSTREAM 0.304 vs DOWNSTREAM 0.323
+(mlp0 0.91=0.91; attn5 0.40 vs 0.44; mlp5 0.40 vs 0.35; mlp8 0.24 vs 0.26; mlp11 0.18 vs 0.24; mlp16 0.74 vs
+0.63). So the §908 leakage worry was UNFOUNDED — upstream and downstream agree, meaning the middle output is
+genuinely a function of its INPUT content (not primarily new-content-it-builds; the read-vs-build gap is ~0).
+
+REFINED FRONTIER (concludes the read-vs-build question): the middle content is NOT a wall — a rank-128 LINEAR
+read of (token + prev + upstream content) captures ~1/3 of it (0.30) generalizing (>> shuffled null ~0). But
+~2/3 remains: since an MLP's output IS a deterministic function of its input, the missing 2/3 is HIGHER-RANK
+and/or NONLINEAR structure (the bilinear MLP's own nonlinearity + interactions) beyond a rank-128 linear map.
+So the middle content computation is genuinely HIGH-RANK + NONLINEAR, only ~1/3 captured by a low-rank linear
+read. This is the honest characterization: grammar = low-rank linear/token (solved); content middle = high-rank
+nonlinear, 1/3 low-rank-linear-readable. Testing whether the 2/3 is RANK vs NONLINEARITY next (rank-512 linear
+map: if the middle jumps, it's higher-rank-but-linear; if flat, it's nonlinearity). Artifact/FINDINGS: middle
+refined to "~1/3 rank-128-linear-readable, ~2/3 high-rank/nonlinear (not a wall, but genuinely high-dim)".

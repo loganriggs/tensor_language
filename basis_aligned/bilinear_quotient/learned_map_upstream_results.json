@@ -1,0 +1,38 @@
+{
+ "ce_full": 3.11,
+ "components": {
+  "mlp0": {
+   "upstream_map_fresh": 0.912,
+   "shuffled_null": -0.041,
+   "downstream_908": 0.91
+  },
+  "attn5": {
+   "upstream_map_fresh": 0.401,
+   "shuffled_null": -0.056,
+   "downstream_908": 0.44
+  },
+  "mlp5": {
+   "upstream_map_fresh": 0.401,
+   "shuffled_null": -0.057,
+   "downstream_908": 0.35
+  },
+  "mlp8": {
+   "upstream_map_fresh": 0.238,
+   "shuffled_null": -0.092,
+   "downstream_908": 0.26
+  },
+  "mlp11": {
+   "upstream_map_fresh": 0.178,
+   "shuffled_null": -0.065,
+   "downstream_908": 0.24
+  },
+  "mlp16": {
+   "upstream_map_fresh": 0.744,
+   "shuffled_null": -0.065,
+   "downstream_908": 0.63
+  }
+ },
+ "mean_upstream_middle": 0.304,
+ "mean_downstream_middle": 0.323,
+ "runtime_s": 68.8
+}
