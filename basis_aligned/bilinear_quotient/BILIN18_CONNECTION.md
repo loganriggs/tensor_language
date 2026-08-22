@@ -27940,3 +27940,25 @@ linear write, token-conditional) -> MIDDLE (high-rank multiplicative, token-cond
 built but not output-readable) -> READOUT L16-17 (large NEAR-LINEAR rotation of the residual into the token
 basis, load-bearing). Artifact: correct "readout is generic/small" -> "readout does the bulk of output formation,
 near-linear but load-bearing".
+
+## §945 — the readout is ~95% a nameable LINEAR map of the L15 residual (readout_linear.py)
+
+Completes the readout characterization (§944). Fit a single ridge LINEAR map from the L15 residual to the L17
+residual (train), apply the model's readout head, evaluate held-out CE:
+  L15 logit-lens (no transform) 5.455 | LINEAR-map 3.238 | true final (L16-17 real) 3.110 | shuffled-map null 9.879.
+ - The L15->final gap is 2.345 nats; the single linear map recovers 0.9455 (94.5%) of it — linear-map CE 3.238 is
+   only 0.13 nats short of the true two-block readout. Shuffled-map null 9.879 (garbage) confirms it is genuine.
+pred (a) readout-is-linear TRUE.
+READING: the last two blocks (L16-17) are ~95% a single LINEAR TRANSFORMATION of the L15 (grammar+content)
+residual into the token basis — a nameable rotation, not a mysterious nonlinear computation. The remaining ~5%
+(0.13 nats) is the only nonlinear part L16-17 add. This closes the bottom-up STACK characterization:
+  FRONT (L0-5): grammar written by near-LINEAR, token-conditional MLPs (mlp0 class write §915; §941 L0-1 90-98%
+    linear); low-rank, causal, SOLVED.
+  MIDDLE (L6-15): the high-rank MULTIPLICATIVE content computation (§941 ~60% multiplicative, universal §942;
+    largely token-conditional products §943); the answer is ASSEMBLED here but not output-readable; the
+    irreducible ~0.58 benchmark residual.
+  READOUT (L16-17): a LARGE but ~95% LINEAR rotation of the assembled residual into token logits (§944 does the
+    bulk of output formation, 2.35 nats; §945 ~95% linear).
+So two of the three registers (front, readout) are near-linear and nameable; the middle multiplicative content
+computation is the sole genuine frontier. Whole-model benchmark 0.42 held-out (§939); the residual is precisely
+the middle multiplication. This is the honest end-state of the bottom-up interpretation.
