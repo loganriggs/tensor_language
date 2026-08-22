@@ -1,0 +1,9 @@
+loading gpt2...
+Loading weights:   0%|          | 0/148 [00:00<?, ?it/s]Loading weights: 100%|██████████| 148/148 [00:00<00:00, 4372.82it/s]
+gpt2: overall 3.584 | first-mention 77.4% | seen-other 21.1% | inductable 1.5%
+loading gpt2-large...
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  90%|████████▉ | 391/436 [00:00<00:00, 3878.43it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 3925.56it/s]
+gpt2-large: overall 3.167 | first-mention 78.2% | seen-other 20.5% | inductable 1.3%
+first-mention % of loss: {'gpt2': 77.4, 'gpt2-large': 78.2} (bilin18 78.4)
+(a) budget shape universal: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/loss_budget_crossmodel_results.json (84.9s)

@@ -26599,3 +26599,24 @@ grammar is a cheap uniform tax. This is the quantitative form of the two-machine
 floor account. Note: overall within-CE here 2.48 matches §829 exactly (consistency check). Artifact gets a
 capstone budget figure. (A prior run of this script exited 1 on a float32 JSON-serialization bug — fixed by
 casting; not a model finding.)
+
+## §880 — the loss budget is UNIVERSAL: first-mention carries ~78% of the loss in three separate models (loss_budget_crossmodel.py)
+
+Ran the §879 position-type x grammar/content budget on GPT-2 and GPT-2-large (same GPT-2 BPE, same FineWeb
+tokens). The SHAPE is nearly identical across all three separately-trained models:
+ - first-mention % of total loss: bilin18 78.4 | gpt2 77.4 | gpt2-large 78.2
+ - inductable: 1.3 | 1.5 | 1.3   ; seen-other: 20.3 | 21.1 | 20.5
+ - grammar (class CE) cheap and roughly uniform across buckets in every model.
+Absolute levels track scale (first-mention within-CE: gpt2 3.80 -> bilin18 3.48 -> gpt2-large 3.35 — a bigger
+model makes better new-word choices, §840), but which bucket the loss LIVES IN does not move. Pred (a)
+universal-shape = TRUE.
+
+So the "loss lives in first-mention content" budget is a MODEL-INDEPENDENT property of language modeling, not a
+bilin18 artifact — complementing §831 (the ~23/77 grammar/content split is universal across GPT-2/Pythia). The
+picture that emerges from the whole program is therefore general: every one of these LMs spends a cheap uniform
+tax on grammar, gets repeats nearly free via induction, and pours ~78% of its loss into the topic-constrained
+but genuinely open choice of a first-mention word — the part that only shrinks with scale and never closes.
+CAVEAT: GPT-2 is WebText-trained (slightly OOD on FineWeb), inflating its absolute CE; the shape (robust to a
+level shift) is the result. Bilin18's first-mention content (3.48) sits between gpt2 and gpt2-large despite
+being far smaller — its FineWeb training makes it competitive in-distribution. Artifact budget paragraph gets
+the universality note.

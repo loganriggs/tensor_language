@@ -1,0 +1,72 @@
+{
+ "position_fractions": {
+  "inductable": 0.062,
+  "first_mention": 0.597,
+  "seen_other": 0.34
+ },
+ "bilin18_reference_pct": {
+  "inductable": 1.3,
+  "first_mention": 78.4,
+  "seen_other": 20.3
+ },
+ "models": {
+  "gpt2": {
+   "overall_ce": 3.584,
+   "overall_class_ce": 0.843,
+   "overall_within_ce": 2.741,
+   "buckets": {
+    "inductable": {
+     "fraction": 0.062,
+     "mean_ce": 0.853,
+     "class_ce": 0.361,
+     "within_ce": 0.493,
+     "pct_of_total_loss": 1.5
+    },
+    "first_mention": {
+     "fraction": 0.597,
+     "mean_ce": 4.644,
+     "class_ce": 0.843,
+     "within_ce": 3.8,
+     "pct_of_total_loss": 77.4
+    },
+    "seen_other": {
+     "fraction": 0.34,
+     "mean_ce": 2.224,
+     "class_ce": 0.932,
+     "within_ce": 1.292,
+     "pct_of_total_loss": 21.1
+    }
+   }
+  },
+  "gpt2-large": {
+   "overall_ce": 3.167,
+   "overall_class_ce": 0.772,
+   "overall_within_ce": 2.395,
+   "buckets": {
+    "inductable": {
+     "fraction": 0.062,
+     "mean_ce": 0.665,
+     "class_ce": 0.296,
+     "within_ce": 0.369,
+     "pct_of_total_loss": 1.3
+    },
+    "first_mention": {
+     "fraction": 0.597,
+     "mean_ce": 4.144,
+     "class_ce": 0.793,
+     "within_ce": 3.351,
+     "pct_of_total_loss": 78.2
+    },
+    "seen_other": {
+     "fraction": 0.34,
+     "mean_ce": 1.91,
+     "class_ce": 0.821,
+     "within_ce": 1.089,
+     "pct_of_total_loss": 20.5
+    }
+   }
+  }
+ },
+ "pred_a_universal_shape": true,
+ "runtime_s": 84.9
+}

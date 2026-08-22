@@ -1814,7 +1814,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   cheap tax paid everywhere (0.76–0.84 in every group); content is what scales with novelty (0.39 when copyable,
   1.10 when seen, 3.48 when new). So the model's real job, by the numbers, is the first-mention content problem —
   the topic-constrained but open choice of a new word — and that is exactly the part that survives even a much
-  larger model.</p>
+  larger model. And this budget is not peculiar to bilin18: run the identical split on GPT-2 and GPT-2-large and
+  first mentions carry 77% and 78% of the loss — against 78% here — with induction cheap and grammar flat in all
+  three. The absolute cost of a new word does fall with scale (3.8 nats in GPT-2, 3.5 here, 3.35 in GPT-2-large),
+  but <em>where</em> the loss sits does not move. The shape of the problem is a property of language modelling,
+  not of this model.</p>
   <figure><svg viewBox="0 0 780 252" role="img" aria-label="loss contribution by position type, split into grammar and content">
   <text class="panel" x="8" y="16">where every nat of the loss goes (bar width = nats contributed)</text>
   <line class="grid" x1="150" y1="36" x2="150" y2="200"/><text class="tick" x="150" y="216" text-anchor="middle">0</text>
