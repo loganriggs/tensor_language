@@ -25325,3 +25325,40 @@ Interpretation (this SHARPENS the causal localization, complementing §823):
 Causal localization now complete: class+position is necessary (§767→814), generalizing (§820), and
 sufficient/steerable specifically at the component write-sites (§823) but not the embedding (§824) —
 a computed variable, not a relabeling of the input embedding.
+
+## §825 — What the class variable actually IS: named grammatical categories (determiners, pronouns, numbers, punctuation, conjunctions, suffixes) (class_naming.py)
+
+The program proved class+position is the model's real causal computation but never enumerated the
+classes. Took the SVD of the token-conditional-mean mlp0 outputs (1642 tokens) and read the top
+class directions by their loading tokens. The leading directions are cleanly NAMEABLE grammatical
+categories (decoded tokens):
+
+| dir | positive pole (what loads) | negative pole | name |
+|-----|----------------------------|---------------|------|
+| 0 | the, The, an, a, his, their, our | isolated caps (R,G,F,W,P) | ARTICLES / DETERMINERS / possessives |
+| 1,2,11 | ). . ( ! ". \n special-char | verbs / caps | PUNCTUATION & sentence-boundary |
+| 3 | 'll, 've, 'd, ll, ve, yet | isolated caps | CONTRACTION SUFFIXES |
+| 4 | You, He, It, We, They, She | 14, 28, 27, 300, 16 | CAPITALIZED PRONOUNS vs numbers |
+| 6 | she, he, him, they, we, users | 12, 15, 19, 14 | lowercase PRONOUNS vs numbers |
+| 7 | Many, Not, Some, Even, especially | isolated caps | sentence-initial QUANTIFIERS/FOCUS |
+| 9 | someone, anyone, nothing, something, a, an | caps | INDEFINITES |
+| 10,12 | An, A, The, This, These, However, Today | numbers / quotes | sentence-initial DETERMINERS/DEMONSTRATIVES |
+| 13 | 28, 13, 15, 14, 25, 27 | quotes / letters | NUMBERS / digits |
+| 14 | and, And, &, !", ?" | quotes | CONJUNCTIONS |
+
+Recurring negative pole across many directions: isolated capital letters (R, G, F, W, P …) — likely
+initials / abbreviations / mid-word caps forming their own class.
+
+CONTROL (shuffled token labels): dir-0 top tokens become incoherent — ' September', 'ot', ' faith',
+' Me', ' fight', ' atmosphere', ' month' — no category. So the grammatical structure is real, not an
+SVD artifact. Effective number of class directions: 239 (real) vs 441 (shuffled) over 1642 tokens —
+the real class geometry is genuinely lower-rank/structured than random.
+
+So the model's computed "class" variable IS a part-of-speech / grammatical-category system:
+determiners, pronouns (capitalized vs lowercase, both opposed to numbers), numbers, punctuation,
+conjunctions, contraction suffixes, quantifiers, and capitalized-initials. This is the concrete,
+plain-language answer to "what is the class variable": grammar. NUANCE on rank: the LEADING ~15
+directions are the clean grammatical categories, but the full token-mean structure is ~239-dim (a
+long tail of finer token-specific distinctions) — earlier "~24 eff-dim" referred to the causally-kept
+subspace (RTOK-capped), not the full token geometry. The dominant, causal, nameable part is
+grammatical class; the tail is finer lexical detail.
