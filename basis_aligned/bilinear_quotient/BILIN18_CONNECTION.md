@@ -25930,3 +25930,30 @@ The layer_scan context (coarse, being superseded): attn2/3 still carry token ide
 weaker, and attn5 does NOT (current/prev ~0.33, class 0.59) — attn5 aggregates rather than copies.
 mlp2-5 remain class-selective banks by the coarse label, ~0-2/24 prev-driven — but per the correction
 this label is too coarse; the geometry evolution is the right test.
+
+## §849 — VINDICATES the user: layer 1 is NOT redundant — it RE-CLUSTERS the token geometry (collapse→re-expand), a distinct transformation from layer 0 (layer_geometry_evolution.py)
+
+Measured the token×token similarity geometry (RDM of token-conditional means, 300 frequent tokens) at
+each stage and how much each layer changes it. This is the right object §846/847 missed.
+
+Consecutive RSA (1 = geometry unchanged; low = re-clustered):
+  emb→L0 0.49 | L0→L1 0.58 | L1→L2 0.88 | L2→L3 0.95 | L3→L4 0.90 | L4→L5 0.89
+Within-class (fine geometry inside a POS class): emb→L0 0.49 | L0→L1 0.61 | then 0.87-0.97.
+Effective dim: emb 117 → L0 20 → L1 47 → L2 49 → L3 43 → L4 41 → L5 23.
+
+FINDING (confirms the user's correction; §847 "redundant" fully RETRACTED): layer 1 transforms the
+token geometry ALMOST AS MUCH as layer 0 (RSA 0.58 vs 0.49), overall and WITHIN each grammatical class
+(0.61) — so it is doing a distinct re-clustering, not re-doing layer 0. The clustering dynamics make the
+distinction concrete: layer 0 COLLAPSES the embedding (eff-dim 117→20) into tight class clusters, then
+layer 1 RE-EXPANDS (20→47) into a richer structure — the geometric OPPOSITE of layer 0, not a repeat.
+Layers 2-4 hold ~45 dim with modest refinements; layer 5 collapses again (23), consistent with attn5
+aggregating rather than copying. The coarse 8-way-POS lens (§846/847) was blind to all of this because
+both mlp0 and mlp1 write to the same class subspace while reorganizing the FINE token geometry
+oppositely (collapse vs re-expand). A token-mean is a clustering, and the clustering keeps changing —
+exactly as the user said.
+
+Early-layer geometry sequence: EMBEDDING (spread, 117) → L0 collapse to class clusters (20) → L1
+re-expand to finer structure (47) → L2-4 hold/refine (~45) → L5 aggregate/collapse (23). NEXT (user's
+2nd directive): FOLD each layer's bilinear form onto the already-computed layer-0 features
+(current-token identity, class, previous token, position) to name WHAT the layer-1 re-expansion
+computes — i.e. which known features mlp1's readouts multiply — getting specifics, not just geometry.

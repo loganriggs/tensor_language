@@ -1,0 +1,11 @@
+consecutive RSA (1=identical geometry, low=re-clustered):
+  emb->L0: all 0.487 | within-class 0.485
+  L0->L1: all 0.581 | within-class 0.607
+  L1->L2: all 0.879 | within-class 0.933
+  L2->L3: all 0.953 | within-class 0.97
+  L3->L4: all 0.904 | within-class 0.925
+  L4->L5: all 0.888 | within-class 0.874
+drift vs embedding: {'emb': 1.0, 'L0': 0.487, 'L1': 0.629, 'L2': 0.64, 'L3': 0.611, 'L4': 0.449, 'L5': 0.428}
+effective dim per stage: {'emb': 117.2, 'L0': 20.4, 'L1': 47.3, 'L2': 48.5, 'L3': 43.3, 'L4': 41.0, 'L5': 22.8}
+(a) early layers RE-CLUSTER (not redundant; max consec RSA 0.953 < 0.95): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/layer_geometry_evolution_results.json (72.6s)
