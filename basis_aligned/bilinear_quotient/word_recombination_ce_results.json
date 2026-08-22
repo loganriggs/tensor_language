@@ -1,0 +1,24 @@
+{
+ "baseline": {
+  "class_ce": 0.769,
+  "within_ce": 2.478
+ },
+ "ablate_class": {
+  "class_ce": 2.731,
+  "within_ce": 7.574
+ },
+ "ablate_topic": {
+  "class_ce": 0.774,
+  "within_ce": 2.513
+ },
+ "ablate_random": {
+  "class_ce": 0.771,
+  "within_ce": 2.488
+ },
+ "class_abl_raises_classCE": 1.962,
+ "class_abl_raises_withinCE": 5.096,
+ "topic_abl_raises_classCE": 0.005,
+ "topic_abl_raises_withinCE": 0.036,
+ "runtime_s": 44.1,
+ "pred_a_intersection": false
+}

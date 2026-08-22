@@ -27425,3 +27425,26 @@ So "word = class ∩ topic" is confirmed for the CLASS half (grammar-of-word) an
 half. Retesting the topic half with a cleaner metric: ablate each channel and measure the chain-rule CE split —
 class-ablation should raise class-CE (grammar loss), topic-ablation should raise within-CE (content loss) — a
 loss-based double dissociation that doesn't depend on sparse distinctive-token matches (word_recombination_ce).
+
+## §922 — CE double-dissociation FAILS, re-confirming the asymmetry: class is low-rank+DOMINANT, content high-rank+DIFFUSE (word_recombination_ce.py)
+
+Ablating each channel at L15, chain-rule CE split: baseline class-CE 0.769 / within-CE 2.478. Ablate CLASS
+(8-dim): class-CE +1.962 AND within-CE +5.096 (hurts BOTH, content more). Ablate TOPIC (11-dim cluster-mean
+subspace): class-CE +0.005, within-CE +0.036 (NEGLIGIBLE). Random: negligible. Pred (a) double-dissociation =
+FALSE.
+
+WHY (re-confirms the through-line): the two channels are NOT symmetric. The CLASS subspace is LOW-RANK and
+DOMINANT — its 8 directions are high-variance and the readout heavily depends on them, so projecting them out
+collapses the WHOLE prediction (both grammar and content). The low-rank TOPIC subspace (11 discrete
+cluster-mean directions) is a TINY slice of the content computation — content is HIGH-DIMENSIONAL and DIFFUSE
+(§866/874/908), spread across many directions, so removing 11 cluster-mean directions barely dents within-CE.
+So "word = class ∩ topic" cannot be shown by symmetric low-rank ablation: grammar is a dominant low-rank gate
+(removal breaks all), content is a diffuse high-rank narrowing with no low-rank handle. This is the SAME
+low-rank-grammar / high-rank-content asymmetry found throughout — now at the output/ablation level.
+
+RECONCILES with §894 (topic IS causal via interchange, +0.70 on topic-distinctive tokens): interchange
+PATCHES the coordinated activation and was measured on TOPIC-DISTINCTIVE tokens (where topic matters), whereas
+§922 ablates a low-rank subspace and measures OVERALL within-CE (dominated by non-topic-distinctive positions,
+diluting topic's effect). So topic's word-role is REAL but position-specific (content-word positions) and
+high-dimensional (no low-rank subspace carries it). Testing the position-specific claim: does topic-subspace
+ablation raise within-CE on FIRST-MENTION/content positions specifically (word_recombination_positions).

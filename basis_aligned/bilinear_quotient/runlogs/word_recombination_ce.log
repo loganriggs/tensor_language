@@ -1,0 +1,6 @@
+baseline: class-CE 0.769 within-CE 2.478
+ablate CLASS: class-CE 2.731 (+1.962) within-CE 7.574 (+5.096)
+ablate TOPIC: class-CE 0.774 (+0.005) within-CE 2.513 (+0.036)
+ablate RANDOM: class-CE 0.771 within-CE 2.488
+(a) class->classCE, topic->withinCE double dissociation: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/word_recombination_ce_results.json (44.1s)
