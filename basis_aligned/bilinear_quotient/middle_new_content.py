@@ -99,10 +99,11 @@ def main():
                 front_dirs.append(torch.linalg.svd(torch.cat([Ut, Up], 1), full_matrices=False)[0][:, :RTOK+RPOS].contiguous())
             else:
                 TOKD[(w, L)] = Ut; POSD[(w, L)] = Up; mid_tok.append(Ut); mid_pos.append(Up)
-    U_front = orth(*front_dirs)                      # front class+position (rank 96)
-    U_mtok = orth(*mid_tok)[:, :RTOK]                # aggregate middle token dirs
-    U_mpos = orth(*mid_pos)[:, :RPOS]               # aggregate middle position dirs
-    U_own = orth(U_mtok, U_mpos)                     # middle own class+position
+    # reduce each aggregate to a fixed rank (BUGFIX: orth(*dirs) kept all 1152 cols = full rank)
+    U_front = torch.linalg.svd(torch.cat(front_dirs, 1), full_matrices=False)[0][:, :RTOK+RPOS].contiguous()  # rank 96
+    U_mtok = torch.linalg.svd(torch.cat(mid_tok, 1), full_matrices=False)[0][:, :RTOK].contiguous()           # rank 64
+    U_mpos = torch.linalg.svd(torch.cat(mid_pos, 1), full_matrices=False)[0][:, :RPOS].contiguous()           # rank 32
+    U_own = orth(U_mtok, U_mpos)                     # middle own class+position (rank 96)
     g = torch.Generator(device=DEV).manual_seed(0)
     U_rtok = torch.linalg.qr(torch.randn(D, RTOK, generator=g, device=DEV))[0]
     U_rpos = torch.linalg.qr(torch.randn(D, RPOS, generator=g, device=DEV))[0]
