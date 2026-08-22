@@ -151,7 +151,10 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    chain (§870): ATTENTION aggregates context → topic representation → MLPs read topic → readout emits topic-coherent word.
    Aggregation NATURE (§871/§872): topic needs LONG context (content-CE drops 1.53 nats to C=256 vs grammar 0.35, 4.4×) and is
    a CONTENT-WORD, ORDER-INVARIANT gist (function-mask retains 82% of topic, content-mask 16%, order-shuffle 61% while
-   grammar-CE rises +0.70). Grammar = local (few tokens), token-driven; content = long-range content-word gist. **HIGH.**
+   grammar-CE rises +0.70). Grammar = local (few tokens), token-driven; content = long-range content-word gist.
+   CAVEAT (§873): the topic structure is CONTINUOUS/high-dimensional — the 12 clusters are a VISUALIZATION, not 12 discrete
+   replicable categories (discrete labels don't replicate across splits, as expected for a continuum; the finding rests on
+   causal steering §868 + content-word gist §872 + held-out decode §870, not on discrete buckets; continuous-geometry retest topic_robustness2). **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even

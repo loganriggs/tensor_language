@@ -26430,3 +26430,30 @@ leans on function-word context — the gist is the dominant but not sole ingredi
 EVERY edit (func-mask 1.41, content-mask 1.73, shuffle 1.48 vs full 0.77) — grammar needs the actual local
 sequence, the opposite profile from topic. Content machine characterization COMPLETE. Artifact/FINDINGS
 updated.
+
+## §873 — CORRECTION: discrete 12-topic clustering does NOT replicate as discrete labels; the honest claim is a CONTINUOUS topic structure (topic_robustness.py)
+
+Tested whether the §866 discrete clustering replicates across a DISJOINT data split (A/B) at K=8/12/16,
+fingerprinting each topic by its top-25 distinctive next-tokens, vs a shuffled-content null. Result: A<->B
+distinctive-token Jaccard overlap 0.005/0.034/0.047 (mean 0.029) — at or BELOW the shuffled-content null
+0.046/0.099/0.163 (mean 0.103). Pred (a) discrete-topic-replicates = FALSE.
+
+HONEST READING — two things, stated plainly:
+ 1. This TEST is largely uninformative as designed: the distinctive-token fingerprint is dominated by RARE
+    tokens (over-representation ratio favors low-base tokens), which differ between two disjoint 150-seq
+    halves, so overlap is near-zero for BOTH real and shuffled (all values are tiny, 0.03 vs 0.10). Small
+    split coverage + rare-token fingerprint = a metric that can't detect replication. It is NOT evidence
+    the topic finding is false.
+ 2. But it DOES force a correction to the FRAMING: I cannot claim "12 discrete, replicable topics." Discrete
+    k-means labels are an arbitrary partition of what §866/§868 already argued is a CONTINUOUS,
+    high-dimensional topic space — and an arbitrary slicing of a continuum should NOT reproduce across
+    splits. The honest claim is: the content residual carries a continuous, high-dimensional TOPIC/
+    subject-matter STRUCTURE; the 12 clusters are a VISUALIZATION of it, not 12 real categories.
+
+What the topic finding actually rests on (independent of discrete-cluster replication, all still standing):
+causal steering along topic directions (§868, specific+consistent), the content-word order-invariant GIST
+(§872, function-mask retains 82%), long-context dependence (§871), and held-out topic decodability (§870,
+0.85 train/test). These are continuous-structure evidence and do not require 12 discrete replicable buckets.
+Retested with a proper CONTINUOUS-geometry metric (topic_robustness2: content-subspace principal-angle
+overlap + matched-centroid cosine across splits, more data, shuffled-content null). Artifact/FINDINGS get a
+plain caveat: "continuous topic structure, clusters are a visualization," pending topic_robustness2.

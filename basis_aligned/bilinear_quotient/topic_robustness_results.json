@@ -1,0 +1,94 @@
+{
+ "ks": [
+  8,
+  12,
+  16
+ ],
+ "by_k": {
+  "K8": {
+   "replication": 0.005,
+   "shuffled_null": 0.046,
+   "ratio": 0.11
+  },
+  "K12": {
+   "replication": 0.034,
+   "shuffled_null": 0.099,
+   "ratio": 0.34
+  },
+  "K16": {
+   "replication": 0.047,
+   "shuffled_null": 0.163,
+   "ratio": 0.29
+  }
+ },
+ "sample_topics_k12": {
+  "0": [
+   "' #'",
+   "'my'",
+   "' Nissan'",
+   "' blogging'",
+   "'\ufffd'",
+   "' Hybrid'"
+  ],
+  "1": [
+   "' prevent'",
+   "' Israel'",
+   "' against'",
+   "' pres'",
+   "' disease'",
+   "' cow'"
+  ],
+  "2": [
+   "'outh'",
+   "' Auburn'",
+   "' 2012'",
+   "' State'",
+   "' good'",
+   "' Jersey'"
+  ],
+  "3": [
+   "'AV'",
+   "' Remote'",
+   "' tried'",
+   "'MS'",
+   "'N'",
+   "' suicide'"
+  ],
+  "4": [
+   "' said'",
+   "' went'",
+   "'wind'",
+   "' He'",
+   "' feet'",
+   "' asked'"
+  ],
+  "5": [
+   "' Wang'",
+   "' Drupal'",
+   "'oney'",
+   "\"''\"",
+   "' Hotel'",
+   "' Victoria'"
+  ],
+  "6": [
+   "' God'",
+   "' come'",
+   "'4'",
+   "'6'",
+   "'8'",
+   "';'"
+  ],
+  "7": [
+   "' sleep'",
+   "' talk'",
+   "' Chinese'",
+   "' baby'",
+   "' Sc'",
+   "'O'"
+  ]
+ },
+ "mean_replication": 0.029,
+ "mean_null": 0.103,
+ "pred_a_topic_replicates": false,
+ "runtime_s": 80.9
+}
