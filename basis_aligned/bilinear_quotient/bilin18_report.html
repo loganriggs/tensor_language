@@ -2042,6 +2042,18 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   induction circuit lives in the first few layers and essentially nowhere else. The front attention also broadly
   helps the harder positions, so it is both the induction circuit and the general early context substrate the rest
   of the model builds on — which is why it is the single most load-bearing block of components in the network.</p>
+
+  <p>One structural habit recurs everywhere we looked, and it turns out to be distinctive. Whether it is the
+  content computation, the context pooling, or the induction circuit, no single component is load-bearing: delete
+  any one attention layer, MLP, or head and the model barely notices, yet delete the whole group and the function
+  collapses. The parts are cheap alone and expensive together — the mark of a computation spread thin across many
+  cooperating pieces rather than concentrated in a few. This is not just generic redundancy: measure it against
+  ordinary GPT-2 and the sign flips. In bilin18 the front attention layers cost about 0.17 nats each to remove but
+  3.7 together (they cooperate); in GPT-2 each front attention layer costs ~2.6 nats alone but the group costs
+  <em>less</em> than that sum (they are individually critical and mutually redundant). So bilin18 genuinely
+  distributes its computation across many interchangeable-looking cooperating components, where a standard
+  transformer concentrates it — which is exactly why single-unit ablation studies kept coming up empty here and
+  why the honest units of this model are ensembles, subspaces, and variables rather than individual heads.</p>
 </section>
 
 <section class="col">

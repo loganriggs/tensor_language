@@ -229,7 +229,11 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    **0.42** held-out (§939, smooth per-token map > discrete table 0.315; progression 0.81-insample→0.30-table→
    0.42-map); the residual ~0.58 is the middle multiplication. Depth localization (§940): middle is the biggest
    contributor + hardest to reconstruct. Figure: stack_map.png. CAUGHT+CORRECTED: skip-confound §947→§948
-   (residual-rescale), front-linearize artifact §949→§950 (uncertified stand-in). **HIGH.**
+   (residual-rescale), front-linearize artifact §949→§950 (uncertified stand-in). DISTINCTIVE STRUCTURE (§956):
+   bilin18's computation is DISTRIBUTED-COOPERATIVE — single components near-free, ensembles load-bearing
+   (super-additive: content §948 4.9×, attention §956 ratio 3.52); this is the OPPOSITE of GPT-2 (sub-additive
+   ~0.72, individually-critical redundant layers), so it is a genuine bilin18 property, not generic compounding —
+   and why single-unit ablations came up empty and the honest units are ensembles/subspaces/variables. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
