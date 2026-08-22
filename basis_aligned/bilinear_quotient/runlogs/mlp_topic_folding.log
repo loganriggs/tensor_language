@@ -1,0 +1,14 @@
+mlp 0: TOPIC-read x3.18  (shuffled-null x1.26) | class-read x7.66
+mlp 1: TOPIC-read x3.36  (shuffled-null x1.22) | class-read x4.14
+mlp 2: TOPIC-read x4.02  (shuffled-null x1.2) | class-read x3.06
+mlp 4: TOPIC-read x2.89  (shuffled-null x1.02) | class-read x2.13
+mlp 6: TOPIC-read x3.49  (shuffled-null x1.2) | class-read x1.9
+mlp 8: TOPIC-read x4.11  (shuffled-null x1.07) | class-read x3.25
+mlp10: TOPIC-read x3.5   (shuffled-null x1.12) | class-read x3.48
+mlp12: TOPIC-read x1.91  (shuffled-null x1.13) | class-read x4.38
+mlp14: TOPIC-read x1.65  (shuffled-null x1.03) | class-read x2.2
+mlp16: TOPIC-read x1.15  (shuffled-null x1.27) | class-read x12.26
+
+front(0-2) topic-read x3.52 | middle(6-12) topic-read x3.25
+(a) topic BUILT in the middle (mid>>front, mid>chance): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_topic_folding_results.json (75.7s)
