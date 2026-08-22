@@ -28525,3 +28525,23 @@ softmax-free SQUARED ATTENTION (§956/§965/§969/§970); (5) whole account gene
 4 axes + universal core via GPT-2 (§965-968). Remaining unreconstructed ~58% is characterized as a genuine
 high-rank multiplicative continuum, not a missing mechanism. Further runs would be repetition on additional
 siblings rather than new mechanism.
+
+## §972 — error decomposition: top-1 is class-correct ~2/3 of the time; grammar-type errors slightly lead by the MODE metric (caveat) (error_decomposition.py)
+
+Partition every next-token prediction by top-1 (n=51000): HIT (top-1 correct), CONTENT-ERROR (top-1 class == true
+class, wrong token), GRAMMAR-ERROR (top-1 class != true class).
+  HIT            frac 0.384 | mean-CE 0.69 | loss-share 0.082
+  CONTENT-ERROR  frac 0.294 | mean-CE 4.63 | loss-share 0.417
+  GRAMMAR-ERROR  frac 0.323 | mean-CE 5.07 | loss-share 0.502
+pred (a) "content dominates errors" FALSE: grammar-type (top-1 class-wrong) errors are slightly MORE frequent
+(0.323 vs 0.294) and carry slightly more loss (0.502 vs 0.417).
+DESCRIPTIVE FINDING: the model's single most-likely token is CLASS-CORRECT ~2/3 of the time (HIT+CONTENT = 0.678);
+when class-wrong (0.323) it is a top-1-MODE mismatch.
+IMPORTANT CAVEAT (do not over-read): this partitions by the TOP-1 MODE, which is NOT the same as the class
+DISTRIBUTION, and does NOT contradict the chain-rule loss budget (§880: content = 77% of loss). A class-wrong
+top-1 is often the model HEDGING to a frequent function word when the true CONTENT word is unpredictable — a
+symptom of content difficulty, not a failure of the (well-calibrated, low class-CE §880) class distribution. The
+top-1 partition thus OVER-attributes error-loss to "grammar"; the rigorous grammar/content split is the chain-rule
+(§880). So this is a descriptive fact about the model's MODE/hedging behavior, not a reattribution of the loss.
+I will TEST the hedging interpretation directly (not assert it): on grammar-error positions, is the true next
+token a rarer/content word and the predicted top-1 a frequent function word? Follow-up queued (error_hedging_test).
