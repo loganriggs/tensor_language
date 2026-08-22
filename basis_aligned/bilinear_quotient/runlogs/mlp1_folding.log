@@ -1,0 +1,63 @@
+'[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 1s [Retry 1/5].
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_folding.py", line 143, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_folding.py", line 103, in main
+    rows = cl.fineweb_rows(NEVAL); d = dec()
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/census_lib.py", line 692, in fineweb_rows
+    for ex in ds:
+              ^^
+  File "/venv/main/lib/python3.12/site-packages/datasets/iterable_dataset.py", line 2840, in __iter__
+    for key, example in ex_iterable:
+                        ^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/datasets/iterable_dataset.py", line 2373, in __iter__
+    for key, pa_table in self._iter_arrow():
+                         ^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/datasets/iterable_dataset.py", line 2398, in _iter_arrow
+    for key, pa_table in self.ex_iterable._iter_arrow():
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/datasets/iterable_dataset.py", line 536, in _iter_arrow
+    for key, pa_table in iterator:
+                         ^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/datasets/iterable_dataset.py", line 419, in _iter_arrow
+    for key, pa_table in self.generate_tables_fn(**gen_kwags):
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/datasets/packaged_modules/parquet/parquet.py", line 207, in _generate_tables
+    for batch_idx, record_batch in enumerate(
+                                   ^^^^^^^^^^
+  File "pyarrow/_dataset.pyx", line 3936, in _iterator
+  File "pyarrow/_dataset.pyx", line 3526, in pyarrow._dataset.TaggedRecordBatchIterator.__next__
+  File "pyarrow/error.pxi", line 155, in pyarrow.lib.pyarrow_internal_check_status
+  File "pyarrow/error.pxi", line 89, in pyarrow.lib.check_status
+  File "/venv/main/lib/python3.12/site-packages/datasets/utils/file_utils.py", line 844, in read_with_retries
+    out = read(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/hf_file_system.py", line 1238, in read
+    return super().read(length)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/fsspec/spec.py", line 2131, in read
+    out = self.cache._fetch(self.loc, self.loc + length)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/fsspec/caching.py", line 279, in _fetch
+    self.cache = self.fetcher(start, end)  # new block replaces old
+                 ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/hf_file_system.py", line 1194, in _fetch_range
+    r = http_backoff("GET", url, headers=headers, timeout=constants.HF_HUB_DOWNLOAD_TIMEOUT)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 596, in http_backoff
+    return next(
+           ^^^^^
+  File "/venv/main/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 504, in _http_backoff_base
+    response = client.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/httpx/_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/httpx/_client.py", line 901, in send
+    raise RuntimeError("Cannot send a request, as the client has been closed.")
+RuntimeError: Cannot send a request, as the client has been closed.
