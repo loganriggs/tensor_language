@@ -1740,8 +1740,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the depth, concentrated at the back, and it is diffuse — no low-rank handle, no clean names — and it is
   three-quarters of the loss. The clean, interpretable machinery and the bulk of the difficulty are not the
   same machine: grammar is small, structured, and cheap; content is large, distributed, and most of the
-  work. Naming what the content machine computes — beyond "it uses context to pick the word" — is where this
-  bottom-up account currently stops.</p>
+  work.</p>
+  <p>And the content machine is not nameless after all — it just needed the right question. Every probe
+  that imposed a category (grammatical class, embedding-semantic clusters) came up empty, because the content
+  is not organized that way. But strip the grammar out of the late residual and let the leftover cluster
+  itself, then read each cluster by the words <em>over-represented</em> in it rather than its most frequent
+  words, and clean topics fall out: one cluster is education (school, students, grades), another Orthodox
+  religion (monastery, Holy, Fr, Seraph), others are technology and business (Apple, NYSE, HTC), Middle-East
+  geopolitics, American football, vaccines, aviation, emergency medicine, prisons. The content machine is a
+  <em>topic tracker</em>: it sorts the context by subject matter and pushes toward topically-coherent words.
+  That also explains why it looked structureless — topic space is huge (many subjects, each with many words),
+  so it has no small set of directions to find, but it is genuinely structured, not noise. So the honest
+  end-state is not "grammar is interpretable, content is a wall" but "grammar is a low-rank part-of-speech
+  computation; content is a high-dimensional topic computation" — both real, one just far larger than the
+  other. (This rests on a token-level reading of the clusters; a causal topic-swap is the natural next check.)</p>
 </section>
 
 <section class="col">

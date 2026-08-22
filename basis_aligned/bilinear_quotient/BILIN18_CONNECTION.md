@@ -26282,3 +26282,29 @@ Result uninformative: EVERY cluster's top tokens are the same corpus-frequent fu
 cannot tell whether clusters have coherent content or not. Refitting with a DISTINCTIVE-token read (tokens
 OVER-represented in a cluster vs the corpus baseline), which controls for frequency and is the fair test of
 whether the content residual has interpretable cluster structure.
+
+## §866 — CONTENT WALL CRACKED: the content machine tracks TOPIC / semantic DOMAIN (content_clusters2.py)
+
+Distinctive-token read (over-representation vs corpus baseline, fixing §865's frequency confound) of the
+16 content-residual clusters is strongly COHERENT and clearly TOPICAL — the content machine sorts contexts
+by SEMANTIC DOMAIN and predicts topically-coherent words:
+
+  0 EDUCATION (School, students, grades, triangles) | 1 ORTHODOX CHRISTIANITY (monastery, Holy, Fr, Seraph,
+  Herman, Mother) | 2 TECH/BUSINESS (Apple, Mac, NYSE, HTC, Thunderbolt, sales) | 3 GEOPOLITICS (Middle
+  East, Turkish, Arab, Israel, Nuclear, France) | 4 SPORTS (Rams, NFL, Broncos, Auburn, coach) | 5
+  VACCINES/IMMUNOLOGY (vaccine, immune, measles, vaccinated) | 7 NARRATIVE (Derek, Erica, she, kids) |
+  8 AVIATION (takeoff, plane, landing, heading) | 10 MEDICINE (patient, clinical, Alzheimer, ED, physician)
+  | 12 PRISON/MILITARY (prison, inmates, extremist, Army) | 11 POLITICS (Palin, Sarah, election) | 13
+  WEB-DEV (Drupal, WordPress, Adobe). ~12 of 16 clusters are clearly a single topic; a few (6,14,15) mixed.
+
+FINDING: the content machine — the diffuse hard-75% (§863) — is a TOPIC/semantic-DOMAIN tracker. It sorts
+the context by topic and predicts topically-coherent content words. This NAMES the content after 7 angles
+failed (grammatical §852/858, semantic-cluster decode §864, raw-token cluster §865): those failed because
+topic is not grammatical, the wte-kmeans targets were morphological, and raw-token reads are
+frequency-dominated; the DISTINCTIVE-token read of the data-driven content clusters reveals it. And it
+RECONCILES the diffuseness (§810): topic-space is HIGH-DIMENSIONAL (many topics × many topic-words), so
+there is no low-rank handle — but it is STRUCTURED and NAMEABLE, not irreducible noise. So the earlier
+"diffuse content with no handle" is sharpened to "high-dimensional TOPIC structure." Caveat: this is a
+token-level coherence read of unsupervised clusters, not yet a causal test; a few clusters are mixed.
+Next: verify causally (does the topic-content causally drive topically-coherent prediction — patch topic
+between passages?).

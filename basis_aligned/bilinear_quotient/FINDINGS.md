@@ -138,8 +138,12 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    class(13×)+position(6×) hard (§851), semi-distributed content-write with some coherent category units
    (proper-name unit, capitalized-word units), collapses to ~3-dim prediction (eff-dim 2.8). WHOLE-STACK
    geometry: 2 expansions (L1, L6-9) + 3 collapses (L0, L5, L16-17); re-clustering at front+readout, middle
-   near-frozen. Recurring WALL: the CONTENT/lexical computation is diffuse/high-rank/distributed/unnamed
-   (§810/853/857/858) — the honest limit of interpretability. **HIGH.**
+   near-frozen. CONTENT MACHINE NAMED (§866): the diffuse content is a TOPIC/semantic-DOMAIN tracker — the content residual
+   clusters cleanly by subject (education, Orthodox religion, tech/business, geopolitics, sports, vaccines, aviation,
+   medicine, prison; distinctive-token read) and predicts topically-coherent words. Reconciles the diffuseness: topic
+   space is HIGH-DIMENSIONAL (no low-rank handle) but STRUCTURED, not noise (§810 sharpened). Attention feeds it context
+   (§862). Caveat: token-level read, causal topic-swap pending. So: grammar = low-rank part-of-speech (easy 23%);
+   content = high-dimensional topic (hard 75%). **HIGH (topic naming: MED pending causal).**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
