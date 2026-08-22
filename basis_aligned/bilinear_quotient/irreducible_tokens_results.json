@@ -1,0 +1,75 @@
+{
+ "n_tokens": 51000,
+ "bilin18_mean_ce": 3.263,
+ "large_mean_ce": 3.167,
+ "mean_gap_bilin_minus_large": 0.096,
+ "mean_shared_floor": 2.85,
+ "shared_floor_frac_of_bilin": 0.873,
+ "loss_correlation": 0.897,
+ "first_mention_mean_ce_bilin": 4.275,
+ "seen_mean_ce_bilin": 1.763,
+ "first_mention_mean_ce_large": 4.144,
+ "seen_mean_ce_large": 1.718,
+ "shared_floor_tokens": {
+  "n": 12750,
+  "class_dist": {
+   "det": 0.035,
+   "prep": 0.04,
+   "conj": 0.017,
+   "pron": 0.017,
+   "number": 0.023,
+   "punct": 0.069,
+   "cap": 0.2,
+   "word": 0.599
+  },
+  "function_frac": 0.178,
+  "content_frac": 0.822,
+  "first_mention_frac": 0.893,
+  "examples": [
+   "' AP'",
+   "' reported'",
+   "' all'",
+   "' formats'",
+   "' from'",
+   "' tornado'",
+   "' regions'",
+   "'March'",
+   "'When'",
+   "' serious'",
+   "' bout'",
+   "' of'"
+  ]
+ },
+ "bilin_only_gap_tokens": {
+  "n": 195,
+  "class_dist": {
+   "det": 0.015,
+   "prep": 0.036,
+   "conj": 0.021,
+   "pron": 0.026,
+   "number": 0.0,
+   "punct": 0.056,
+   "cap": 0.246,
+   "word": 0.6
+  },
+  "function_frac": 0.154,
+  "content_frac": 0.846,
+  "first_mention_frac": 0.8,
+  "examples": [
+   "'in'",
+   "' promot'",
+   "'ica'",
+   "'system'",
+   "' circ'",
+   "' cure'",
+   "' Bout'",
+   "' jail'",
+   "' War'",
+   "' arms'",
+   "\"'s\"",
+   "' aircraft'"
+  ]
+ },
+ "pred_a_floor_is_open_content": false,
+ "runtime_s": 87.6
+}

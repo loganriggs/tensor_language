@@ -26503,3 +26503,32 @@ layers §870), and now no single HEAD. The high-dimensional topic computation is
 and dimensions alike — which is exactly why it resisted every localized/low-rank probe and only yielded to
 the continuous-structure framing (§873/§874). L6 head 1 is the one nameable exception worth flagging (a
 genuine strong topic aggregator). This closes the head-level detail of the bottom-up map.
+
+## §876 — the "irreducible" loss is FIRST-MENTION word choice, shared with a 770M model (irreducible_tokens.py)
+
+Compared bilin18 to gpt2-large (770M, same GPT-2 BPE) per-token on the same FineWeb tokens to separate
+capacity-reducible loss from the shared hard floor, and characterize the floor. Answering the user's
+irreducible-entropy question concretely:
+ - bilin18 mean CE 3.263, gpt2-large 3.167 (gap 0.096); per-token loss CORRELATION 0.897 — the two models
+   find the SAME tokens hard. 87.3% of bilin18's loss is a shared floor (min of the two) that even the big
+   model pays. The hard part is INTRINSIC to the prediction problem, not a bilin18 capacity artifact.
+ - WHERE it lives: FIRST-MENTIONS. A next-token whose type has NOT appeared earlier in the context costs
+   4.275 nats (bilin18) / 4.144 (large); an already-SEEN token costs 1.763 / 1.718. The loss is almost
+   entirely in first-mentions, for BOTH models.
+ - WHAT the floor is: shared-floor tokens (top loss quartile) are 89% first-mention, 82% content words
+   ('AP','reported','tornado','regions','March'). The bilin18-only gap (bilin high, large low) is also
+   content-heavy (85%) but LESS first-mention (80% vs 89%) and carries more mid-word BPE fragments
+   ('ica','circ','promot','Bout') — bilin18's specific subword weakness.
+
+CONCLUSION (answers "is there really nothing to understand there?"): the irreducible loss is the choice of a
+NEW content word not yet in the context. It is NOT nothing-to-understand — the content/topic machine DOES
+constrain it (the first-mention is topically appropriate: 'tornado','regions' in a weather story) — but the
+EXACT new word is a genuinely open lexical choice that even a 770M model cannot nail (correlate 0.90). So the
+"hard 75%" (§829) = topic-constrained first-mention word choice, largely irreducible. This retires the §830
+overclaim cleanly: not "irreducible = a wall with nothing inside," but "irreducible = open first-mention
+choice, narrowed by topic, not determined."
+Pred (a) was FALSE only on an over-strict AND (content_frac equal ~0.83 in both sets; first-mention DID
+separate them 0.89 vs 0.80 — the real discriminator). CAVEAT: gpt2-large is OOD on FineWeb (WebText-trained),
+so its absolute loss is slightly inflated and the 0.096 gap is a LOWER bound on capacity-reducible loss
+(§840's within-CE gpt2->large gap was larger); the CORRELATION and first-mention localization are robust to
+that shift. Artifact irreducible-entropy section updated.

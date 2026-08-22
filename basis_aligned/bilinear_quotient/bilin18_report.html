@@ -2128,6 +2128,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   structure a bigger model captures and this one leaves on the table. So the difficulty that remains after
   class-and-position is mostly, but not entirely, the inherent entropy of language; the reducible remainder
   is diffuse content-selection we simply don't have a clean handle on (yet).</p>
+  <p>We can now say <em>what</em> that hard floor is made of, token by token. Score every token with both
+  bilin18 and GPT-2 large and the two agree remarkably — their per-token losses correlate 0.90, so the two
+  models find the <em>same</em> tokens hard, and 87% of bilin18's loss is a floor the big model pays too. And
+  that floor has a sharp signature: it is almost entirely <em>first mentions</em>. A token whose type has not
+  yet appeared in the passage costs about 4.2 nats to predict; one that has already appeared costs about 1.7
+  — the same split for both models. The hardest quartile is 89% first-mention, 82% content words: <em>AP</em>,
+  <em>tornado</em>, <em>regions</em>, <em>March</em>. So "irreducible" is not a blank wall — it is the choice
+  of a <em>new</em> content word, and the content machine has already done real work on it (the new word is
+  topically apt — <em>tornado</em> in a weather story), but the exact word is a genuinely open choice that even
+  a 774M model cannot pin down. The remaining difficulty is topic-constrained, first-mention word choice: we
+  understand the constraint; the residual is the open pick. (One caveat: GPT-2 large is trained on WebText, so
+  it is slightly out-of-distribution on this FineWeb text, which makes the model-to-model gap a lower bound —
+  the correlation and the first-mention signature are robust to it.)</p>
   <p>And this division is not particular to this model. Split the loss the same way for GPT-2 and
   Pythia and the numbers barely move: the word-within-the-class share is 77% here, 75% in GPT-2, 76% in
   Pythia. Three architectures, trained separately, all spend about a quarter of their loss on grammar

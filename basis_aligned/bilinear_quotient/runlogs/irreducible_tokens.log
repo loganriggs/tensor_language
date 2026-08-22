@@ -1,0 +1,9 @@
+loading gpt2-large...
+Loading weights:   0%|          | 0/436 [00:00<?, ?it/s]Loading weights:  97%|█████████▋| 422/436 [00:00<00:00, 4194.96it/s]Loading weights: 100%|██████████| 436/436 [00:00<00:00, 4209.16it/s]
+bilin18 mean CE 3.263 | gpt2-large mean CE 3.167 | gap 0.096 | corr 0.897
+shared floor (min) 2.85 = 0.873 of bilin18's loss
+first-mention CE: bilin 4.275 vs seen 1.763 | large 4.144 vs seen 1.718
+SHARED FLOOR tokens: content 0.822 first-mention 0.893 | ex ["' AP'", "' reported'", "' all'", "' formats'", "' from'", "' tornado'", "' regions'", "'March'"]
+BILIN-ONLY gap tokens: content 0.846 first-mention 0.8 | ex ["'in'", "' promot'", "'ica'", "'system'", "' circ'", "' cure'", "' Bout'", "' jail'"]
+(a) irreducible floor = open content choice: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/irreducible_tokens_results.json (87.6s)
