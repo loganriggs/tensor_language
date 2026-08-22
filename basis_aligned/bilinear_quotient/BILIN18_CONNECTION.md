@@ -28460,3 +28460,21 @@ FAMILY GENERALIZATION now COMPLETE on FOUR axes: STRUCTURE (grammar⊥content se
 via GPT-2. The bilin18 account is a property of the model family, not a single-checkpoint quirk. Next queued:
 attn_variant_superadditivity — causal isolation of WHAT in the family causes the distributed structure (squared
 vs softmax attention), the one remaining genuinely-new question.
+
+## §969 — CAUSE ISOLATED: the SQUARED (softmax-free) ATTENTION drives the distributed-cooperative structure (attn_variant_superadditivity.py)
+
+Matched pair, cfg flags CONFIRM the only difference is attention type:
+  bilin12   bilinear=True, squared_attn=True  -> super-additivity ratio 1.61 (super-additive)
+  bilinsm12 bilinear=True, squared_attn=False -> ratio 1.13 (near-additive)
+(both bilinear MLP, 12L/6h/768). pred (a) sqrd-attn-causes-distributed TRUE (1.61 > 1.5, 1.13 < 1.2).
+FINDING: switching the attention from SQUARED to standard SOFTMAX (holding the bilinear MLP and size fixed)
+COLLAPSES most of the super-additivity (1.61 -> 1.13). So the distributed-cooperative structure (§956/§965) is
+caused SPECIFICALLY by the SQUARED (softmax-free) ATTENTION, not the bilinear MLP, not model size. This sharpens
+§965 (which attributed it broadly to the "training/architecture family"): the primary driver is the squared
+attention mechanism. CAVEAT: bilinsm12's 1.13 is still slightly >1 (mildly super-additive), not as sub-additive as
+GPT-2's 0.71 (§956) — so the softmax variant here isn't fully GPT-2-like; a minor residual super-additivity may
+come from the other shared family features (value-residual, x0 re-injection). So squared attention is the PRIMARY
+cause, with possibly a small contribution from the rest of the recipe. CAUSAL-ISOLATION capstone for the
+distinctive-structure finding: the softmax-free squared attention is why these models distribute computation
+across many cooperating components (and why single-unit ablations come up empty and the honest units are
+ensembles/subspaces/variables).
