@@ -84,9 +84,9 @@ def main():
                 if mk.sum() >= 20: g[f"rec{rlo}-{rhi}_cnt{clo}-{chi}"] = {'loss': round(float(loss[mk].mean()), 3), 'n': int(mk.sum())}
         return g
 
-    L0 = per_pos_loss(blocks)
+    L0 = per_pos_loss(blocks).reshape(-1)
     hh = m.transformer.h[ABLATE_L].attn.register_forward_hook(ablate_hook)
-    ABL['on'] = True; L1 = per_pos_loss(blocks); ABL['on'] = False; hh.remove()
+    ABL['on'] = True; L1 = per_pos_loss(blocks).reshape(-1); ABL['on'] = False; hh.remove()
     out = {'baseline': {'first_mention': round(float(L0[first].mean()), 3),
                         'inductable': round(float(L0[inductable].mean()), 3),
                         'seen_other': round(float(L0[seen_other].mean()), 3)},

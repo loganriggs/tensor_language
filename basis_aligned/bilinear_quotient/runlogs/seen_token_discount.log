@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/seen_token_discount.py", line 116, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/seen_token_discount.py", line 90, in main
+    out = {'baseline': {'first_mention': round(float(L0[first].mean()), 3),
+                                                     ~~^^^^^^^
+IndexError: boolean index did not match indexed array along axis 0; size of axis is 220 but size of corresponding boolean axis is 56100
