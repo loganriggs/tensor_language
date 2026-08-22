@@ -26080,3 +26080,19 @@ So the front builds the grammatical skeleton (class+position, layers 0-2, sharpe
 begins the hard content prediction (attn5). The prev-token/copy-source is a front-only signal consumed by
 mlp0-2. NEXT (other end of the barbell): the BACK readout mlp16/17 — how the maintained class+position is
 mapped to next-token logits.
+
+## §855 — back-readout per-unit trace INCONCLUSIVE (rare-token unembedding-norm artifact); refitting with cosine (back_readout.py)
+
+Tried to trace mlp16/17 readout units as "read current-class → write next-token-set". Result is not
+interpretable: the write-tokens are incoherent rare tokens (' Presumably', ' REUTERS', ' Ibid',
+'iannopoulos', '66666666', 'dylib'), and read-class selectivity is weak (~1.2-1.5). Two problems: (1)
+the write attribution lm_head·Down[:,k] is dominated by the RARE-TOKEN UNEMBEDDING-NORM artifact (rare
+tokens have large ||unembedding row|| and top any raw dot product) — a known pitfall, so the "written
+tokens" are not what the unit actually promotes; (2) at layers 16/17 units are not cleanly
+current-class selective (the readout predicts the NEXT token, conditioned on more than current class).
+So this trace does NOT establish a per-unit readout map. Honest status: the readout's READ side is known
+(class 10-13×, position 5-6×; §851) and its FUNCTION is grammatical sequencing at the behavior level
+(§828), but a clean per-unit WRITE decomposition failed here. Refitting the write with COSINE attribution
+(unit-normalized Down direction vs unit-normalized unembedding rows) to remove the norm artifact and test
+whether the readout write is a coherent per-unit token-set or genuinely DISTRIBUTED (which would be
+consistent with the diffuse lexical residue, §810).
