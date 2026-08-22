@@ -1935,10 +1935,12 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <em>is</em> grammatical class and position — established two ways a shuffled subspace cannot fake. First,
   naming: read the strongest directions by their tokens and they are parts of speech (determiners,
   pronouns, numbers, punctuation…), while the shuffled control is incoherent. Second, and decisively,
-  causation: steering the class-and-position content moves the prediction toward the injected class, and a
-  random direction of the same size does not. The model computes a low-rank representation, and that
-  representation is — by name and by causal test — grammatical class and log-position. We just can't put a
-  trustworthy "fraction of the model" on it with the keep-only tool. GPT-2 and Pythia behave the same way:
+  causation: steering the class-and-position content moves the prediction toward the injected class
+  <em>specifically</em> — inject "and" and predictions move toward what follows "and", not toward what
+  follows "a" or "." — while a random direction of the same size does not, and the effect is a
+  class-by-class match, not a generic nudge. The model computes a low-rank representation, and that
+  representation is — by name and by class-specific causal test — grammatical class and log-position. We
+  just can't put a trustworthy "fraction of the model" on it with the keep-only tool. GPT-2 and Pythia behave the same way:
   their first layers, read by name, carve out the same grammatical categories, and their loss divides the
   same way (below). Alongside the class-and-position structure there is a genuinely distributed residue —
   context-dependent computation with no low-rank handle — that shows up wherever the model does something

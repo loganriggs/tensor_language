@@ -1,0 +1,8 @@
+inject 262: KL-drop toward each class {262: 1.3009, 257: 0.5787, 290: 0.9191, 13: 1.2989} (diagonal=1.3009)
+inject 257: KL-drop toward each class {262: -0.7294, 257: -1.3446, 290: -0.0415, 13: 0.5674} (diagonal=-1.3446)
+inject 290: KL-drop toward each class {262: 2.0575, 257: 2.2402, 290: -0.3936, 13: 1.4604} (diagonal=-0.3936)
+inject 13: KL-drop toward each class {262: 1.3316, 257: 1.8887, 290: 4.0271, 13: -2.9449} (diagonal=-2.9449)
+
+mean diagonal (toward injected) KL-drop -0.846 | mean off-diagonal +1.300
+(a) steering is class-SPECIFIC (diagonal drop >> off-diagonal): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/steering_specificity_results.json (111s)

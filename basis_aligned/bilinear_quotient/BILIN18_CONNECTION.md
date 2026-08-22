@@ -25719,3 +25719,34 @@ steering; the fraction-of-the-model quantification via keep-only is withdrawn. P
 and the artifact. LESSON: keep-only recovery with a DATA-DERIVED subspace must be nulled against a
 SHUFFLED-LABEL subspace of matched rank/construction — random-orthonormal (§821) is far too weak and
 inflated every keep magnitude in this program.
+
+## §837 — The causal pillar HOLDS: class steering is class-SPECIFIC (moves toward the injected class, away from others) — confirming class+position is real and causal after the §836 keep-only retraction (steering_specificity.py)
+
+After §836 retracted the keep-only magnitude, the surviving evidence for class+position is naming
+(§825) + steering (§823). Stress-tested steering at the strict null standard: inject class B's
+deviation at the front components (α=16), measure the KL-DROP toward EACH class's typical continuation
+p_C (negative = moved toward C). Class-specific steering ⇒ the diagonal (toward injected) is the most
+negative.
+
+KL-drop matrix (inject row-B → movement toward column-C; negative = toward):
+  inject " a" (257): [the +?, a −1.34, and −0.04, . +0.57] → most toward " a" ✓
+  inject " and"(290): [the +2.06, a +2.24, and −0.39, . +1.46] → toward " and", away from others ✓
+  inject "."  (13):  [the +1.33, a +1.89, and +4.03, . −2.94] → strongly toward ".", away others ✓
+  inject " the"(262): all positive (moved away from everything, incl. itself) — FAILS ✗
+
+Mean diagonal (toward injected) drop −0.85; mean off-diagonal +1.30. So on average steering moves
+predictions TOWARD the injected class and AWAY from other classes — class-SPECIFIC causal control,
+confirmed for 3 of 4 sources. The one failure is " the" (262), the ultra-frequent default class, which
+also failed to steer in §823: predictions are already " the"-ward, so there is nowhere to push and the
+amplified injection only distorts.
+
+CONCLUSION: the causal claim survives the §836 correction. Class+position is a REAL representation
+(grammatically named, §825/826, shuffled control incoherent) and a CAUSAL one (steering it moves
+predictions toward the specific injected grammatical class, away from others, §823/837; random
+directions do not, §823; the effect is not a keep-only artifact — steering adds a direction, it does
+not project). What was retracted (§836) is only the keep-only "fraction of the model" magnitude
+(78%/92%), which measured rank/compressibility. Post-correction status of the class+position program,
+stated cleanly: the model computes a low-rank representation that IS grammatical class + log-position
+(named + causally class-specific), uses it for grammatical sequencing (§828), and the loss splits
+~1/4 grammar / ~3/4 mostly-irreducible lexical (§829-831) — but there is no trustworthy keep-only
+quantification of how much of the model that representation "is". FINDINGS + artifact updated.
