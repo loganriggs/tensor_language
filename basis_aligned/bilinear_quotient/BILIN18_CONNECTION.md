@@ -26745,3 +26745,28 @@ causality; it re-demonstrates the residual-rescaling attenuation. Grammar was st
 (§823/837) at/near the front components with amplified deviations, but for an APPLES-TO-APPLES comparison with
 topic (§868) I must inject class directions at the SAME readout-adjacent layer (block[15]). Redoing as
 grammar_steer2 (READ_L=15). No claim propagated to reports (this is a null-from-bug, stated plainly).
+
+## §887 — CORRECTION: single-direction steering is WEAK for grammar too (not just topic); the "grammar steers strongly, unlike topic" contrast was wrong — read≠write limits BOTH (grammar_steer2.py)
+
+Apples-to-apples: injected class READ directions (conditional means) at block[15], same site as topic (§868).
+Grammar own-class gain is WEAK — 0.003/0.005/0.010 at alpha 8/16/32, off-diag ~0, shuffled-class null ~0. It
+is SPECIFIC (every class positive, off-diag negative) but small — comparable to or weaker than topic's 0.042.
+Pred (a) grammar-steers-strongly = FALSE.
+
+CORRECTION (propagate): the artifact/§868 framing "topic steers weakly BECAUSE it is high-dimensional, the
+opposite of the low-rank grammatical class where a single direction steers strongly" is WRONG. Single
+mean-direction steering at the readout input is WEAK for grammar too. The shared cause is read≠write
+(FINDINGS item 2): I steered the READ direction (class/topic conditional mean), and pushing a read direction
+does not steer well — for either machine. So the weak topic steering (§868, 0.042) is NOT evidence of
+high-dimensionality vs a strongly-steerable grammar; it is the read≠write signature, shared by both. Grammar's
+genuine strong causality (§823/837) was a FRONT-layer / write-aligned result, which §886 showed does not
+survive injection at the readout via the residual rescaling.
+
+IMPACT: (1) topic's causal status (§868) should rest on its NON-steering evidence — the content-word gist
+being causal via context edits (§872), first-mention floor (§876), replicable geometry (§874) — not on the
+weak 0.042 read-direction gain. (2) The two-machine distinction stands on STRUCTURE (grammar low-rank/local/
+context-free §863/§871; content high-dim/context-aggregated/topic §866-874), not on a steering strength
+asymmetry. CAVEAT: alphas weren't matched (grammar <=32, topic <=256); grammar's trend (~doubling per alpha
+doubling) extrapolates to ~0.08 at 256 — i.e. grammar ~ topic at matched alpha, both weak. Confirming with
+grammar_steer3 (matched alpha 16/64/256) before finalizing the artifact wording; correcting the false "steers
+strongly" clause now regardless.

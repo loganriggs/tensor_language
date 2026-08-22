@@ -146,17 +146,19 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    clusters cleanly by subject (education, Orthodox religion, tech/business, geopolitics, sports, vaccines, aviation,
    medicine, prison; distinctive-token read) and predicts topically-coherent words. Reconciles the diffuseness: topic
    space is HIGH-DIMENSIONAL (no low-rank handle) but STRUCTURED, not noise (§810 sharpened). Attention feeds it context
-   (§862). Topic is CAUSAL (§868): steering a topic's direction specifically raises that topic's next-words (own +0.042
-   vs off −0.004, consistent across every topic) — but only WEAKLY, because one direction is a thin slice of high-dim
-   topic space (opposite of low-rank class, which steers strongly §823). So: grammar = low-rank part-of-speech, strongly
-   causal (easy 23%); content = high-dim topic, weakly-but-specifically causal (hard 75%). Both named+causal. Full content
+   (§862). Topic causal support (§868/§887 CORRECTION): topic-direction steering gives a weak-but-specific gain (own +0.042
+   vs off −0.004, every topic) — BUT this is a weak test: steering the class read-direction the same way is equally weak
+   (§887, own +0.01), because read≠write (item 2) limits single-direction steering for BOTH machines. So topic causality
+   rests on the NON-steering interventions: content-word gist causal via context edits (§872), first-mention floor (§876),
+   replicable geometry (§874) — NOT the steering. The two machines differ by STRUCTURE (grammar low-rank/local/context-free;
+   content high-dim/long-range/topic), not steering strength. grammar = easy 23%, content = hard 75%. Full content
    chain (§870): ATTENTION aggregates context → topic representation → MLPs read topic → readout emits topic-coherent word.
    Aggregation NATURE (§871/§872): topic needs LONG context (content-CE drops 1.53 nats to C=256 vs grammar 0.35, 4.4×) and is
    a CONTENT-WORD, ORDER-INVARIANT gist (function-mask retains 82% of topic, content-mask 16%, order-shuffle 61% while
    grammar-CE rises +0.70). Grammar = local (few tokens), token-driven; content = long-range content-word gist.
    FRAMING (§873/§874): the topic structure is CONTINUOUS/high-dimensional — the 12 clusters are a VISUALIZATION, not 12
    discrete categories. Discrete labels don't replicate across splits (expected for a continuum), but the CONTINUOUS geometry
-   DOES: content-subspace overlap A↔B 0.53 = 25× random chance (§874). Finding rests on causal steering §868 + content-word
+   DOES: content-subspace overlap A↔B 0.53 = 25× random chance (§874). Finding rests on the content-word
    gist §872 + held-out decode §870 + replicable geometry §874, not on discrete buckets. **HIGH.**
 
 1e. **LOSS BUDGET + irreducible floor + generality (§876→885).** Where every nat goes (bilin18, unigram baseline 7.17 →
