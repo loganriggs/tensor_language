@@ -26896,3 +26896,25 @@ and not strictly comparable — the reliable reads are the high-impact component
 the null-subtracted "genuine" column; (2) token-table is the context-FREE ceiling — adding prev-token/topic
 conditioning would raise the middle (induction/gist are context tables), a natural next step. Artifact gets a
 per-layer understanding chart.
+
+## §894 — TOPIC is a causal variable via INTERCHANGE (the content result steering §868 couldn't give) (das_topic_interchange.py)
+
+Interchange intervention on the TOPIC subspace at L15/pos128: patch base←source (different topic), measure
+Δ = [source-topic distinctive-logit gain] − [base-topic distinctive-logit gain]. Results:
+  topic-patch: mean Δ −0.158, flip-rate(Δ>0) 0.49
+  random-patch: mean Δ −0.838, flip-rate 0.365
+  no-patch:     mean Δ −0.861, flip-rate 0.36
+Patching the topic subspace shifts the prediction toward the SOURCE topic by +0.70 nats vs no-patch (Δ −0.86
+→ −0.16) and +0.68 vs random-patch, flip-rate 0.36 → 0.49. Pred (a) topic-causal-via-interchange = TRUE.
+
+This RESOLVES the §868 ambiguity: mean-STEERING the topic direction was weak (0.042, §868/§887), which I had
+(correctly) said should not be over-read — but INTERCHANGE (patching the real coordinated activation, respecting
+read+write jointly) shows the topic subspace is genuinely CAUSAL, moving content prediction toward the source
+topic by a large, specific margin over random. So topic is a causal variable, not just a decodable correlate;
+the earlier weak steering was the read≠write signature (item 2), not evidence against topic causality. Combined
+with §892 (class is causal via interchange, IIA 0.25 vs 0.06), INTERCHANGE is the working causal test for
+variable-level abstraction in this model — for BOTH the low-rank grammar variable and the high-dim content/topic
+variable. HONEST bound: even with the patch, Δ stays slightly negative (−0.16) and flip-rate 0.49 (<0.5) — one
+patched position competes with the full base context via attention; the effect is large vs baseline but doesn't
+fully override the passage. Artifact/FINDINGS topic-causal line upgraded from "rests on non-steering evidence"
+to "causal, confirmed by interchange".

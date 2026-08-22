@@ -1,0 +1,8 @@
+  DAS step 0: loss 4.145
+  DAS step 30: loss 2.144
+  DAS step 60: loss 0.894
+  DAS step 90: loss 1.572
+IIA — DAS 0.271 | activation 0.281 | lm_head(read) 0.156 | frontwrite(mlp0) 0.083 | random 0.062
+overlap with DAS-Q — activation 0.344 | lm_head 0.188 | frontwrite 0.043 | random 0.024 (chance 0.007)
+(a) write side beats read side (correct weight = write): False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/das_class_learned_results.json (109.5s)

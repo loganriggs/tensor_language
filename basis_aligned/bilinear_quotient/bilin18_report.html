@@ -1801,9 +1801,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   orthogonal in these models. So single-direction steering is a weak test for both machines, and the case that
   topic is causal rests better on the interventions that don't depend on it: the
   content-word gist survives function-word masking and word-order shuffling (a causal edit of the input), the
-  first-mention floor, and the replicable geometry. The two machines are distinguished by their <em>structure</em>
-  — grammar low-rank, local, context-free; content high-dimensional, long-range, topical — not by a steering-strength
-  contrast.</p>
+  first-mention floor, and the replicable geometry. And there is a proper causal test that <em>does</em> work: an
+  <em>interchange intervention</em>. Instead of pushing a lone direction, take two passages on different subjects,
+  and swap just the topic-subspace coordinates of one into the other at a late layer. The prediction moves toward
+  the donor's subject — its topical words gain about 0.7 nats over the untouched case, far more than swapping a
+  random subspace does. The same works for the grammatical class (swapping its subspace flips the predicted
+  part-of-speech four times more often than a random swap). So both variables are genuinely causal; single-direction
+  steering was weak only because it pushes the <em>read</em> direction, while interchange swaps the real stored
+  activation and respects read and write together. The two machines are distinguished by their <em>structure</em>
+  — grammar low-rank, local, context-free; content high-dimensional, long-range, topical — not by a difference in
+  whether they are causal.</p>
 
   <p>And we can say what the aggregator actually computes. Feed the model shorter and shorter slices of context:
   topic decodability climbs steadily with length and is still rising at the model's full 256-token window, and

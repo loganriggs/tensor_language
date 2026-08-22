@@ -149,9 +149,11 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    (§862). Topic causal support (§868/§887 CORRECTION): topic-direction steering gives a weak-but-specific gain (own +0.042
    vs off −0.004, every topic) — BUT this is a weak test: steering the class read-direction the same way is only ~2× stronger
    at matched alpha (§888, grammar own +0.079 vs topic +0.042, both weak <0.1; grammar modestly more, consistent with lower
-   rank), because read≠write (item 2) limits single-direction steering for BOTH machines. So topic causality
-   rests on the NON-steering interventions: content-word gist causal via context edits (§872), first-mention floor (§876),
-   replicable geometry (§874) — NOT the steering. The two machines differ by STRUCTURE (grammar low-rank/local/context-free;
+   rank), because read≠write (item 2) limits single-direction steering for BOTH machines. Topic IS CAUSAL, confirmed by
+   INTERCHANGE INTERVENTION (§894, Geiger-style — patching the topic subspace base←source shifts prediction toward the
+   source topic +0.70 nats vs random, flip 0.36→0.49; interchange works where steering fails because it respects read+write
+   jointly). Also supported by content-word gist via context edits (§872), first-mention floor (§876), replicable geometry
+   (§874). Class likewise causal via interchange (§892, IIA 0.25 vs 0.06). The two machines differ by STRUCTURE (grammar low-rank/local/context-free;
    content high-dim/long-range/topic), not steering strength. grammar = easy 23%, content = hard 75%. Full content
    chain (§870): ATTENTION aggregates context → topic representation → MLPs read topic → readout emits topic-coherent word.
    Aggregation NATURE (§871/§872): topic needs LONG context (content-CE drops 1.53 nats to C=256 vs grammar 0.35, 4.4×) and is
