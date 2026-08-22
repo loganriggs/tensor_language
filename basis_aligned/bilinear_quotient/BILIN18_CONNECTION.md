@@ -27764,3 +27764,29 @@ FRAMING (given §936): this is about topic-LABEL DECODABILITY being universal �
 topic in every model. It does NOT claim the topic gist is the dominant CAUSAL part of the content residual (§936
 showed it is a modest slice; most content-for-loss is local per-token). So the universal fact is: "LMs carry an
 order-invariant bag-of-words topic signal at late layers." Consistent, cross-model-robust, appropriately scoped.
+
+## §938 — MODERATES §936: no single handle dominates content; token-identity, topic, and embedding-similarity are comparable modest slices (content_pertoken_split.py)
+
+Clean decomposition (struct = pos+class rank-40 kept exact; the rest = token+content decomposed). full 3.12,
+ablate (rest->0) 5.67. Loss recovery:
+  A per-token MEAN lookup only          +0.101
+  B per-token + topic-centroid(remainder) +0.172   (cross-token topic gain B-A = +0.072)
+  C whole-centroid K=256 (reference)    +0.180
+  null shuffled per-token map           -0.505   (assigning the WRONG token's vector is far worse than ablating)
+Pred (a) "local dominates" FALSE. Two honest readings:
+ 1) The per-token MEAN lookup (0.101) UNDER-recovers vs §936's current-token LINEAR map (0.222) and vs clustering
+    (0.180). A discrete per-token table undersamples RARE tokens; a linear map from embeddings GENERALIZES across
+    similar tokens. So §936's 22% "local per-token" was partly SMOOTH EMBEDDING-SPACE structure (token-similarity
+    -> content-similarity), which blends identity + semantics, NOT pure per-token identity (which is only ~10%).
+    This MODERATES §936's "content bulk is local per-token" -> the linear map's extra recovery is embedding-space
+    generalization, part of which is topic-like.
+ 2) Cross-token topic adds a COMPARABLE +0.072 on top of per-token identity. So token-identity (~10%) and
+    cross-token topic (~7%) are comparable modest contributors; NEITHER dominates.
+SYNTHESIS (closes the content-stand-in decomposition arc §928-938): the content term is a MIX of comparable
+modest slices — token identity (~10%), cross-token topic (~7% gain), and smooth embedding-similarity structure a
+linear map exploits (lifting recovery to ~18-22%) — with the REMAINING ~78% an unreconstructed HIGH-RANK
+CONTINUUM. No single named handle dominates; content is genuinely distributed/high-rank (consistent with §930).
+null -0.505 confirms per-token identity is causally critical. METHOD CAVEAT: struct differs from §936 (pos+class
+here vs token+pos+class there), so only WITHIN-run comparisons (A/B/C/null) are clean; the cross-reference to
+§936's 0.222 is qualitative. This is the honest end-state of the content-stand-in family: ~0.2 recoverable, ~0.8
+continuum. Pivoting next to the whole-model benchmark refresh (report updated number + reference to earlier).

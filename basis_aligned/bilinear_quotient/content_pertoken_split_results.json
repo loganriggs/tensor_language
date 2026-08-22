@@ -1,0 +1,13 @@
+{
+ "loss_full": 3.1245,
+ "loss_ablate": 5.6658,
+ "recovery": {
+  "A_per_token_only": 0.1006,
+  "B_per_token_plus_topic_rem": 0.1722,
+  "C_whole_centroid_K256": 0.1795,
+  "null_shuffled_pertoken": -0.5052
+ },
+ "cross_token_topic_gain_B_minus_A": 0.0716,
+ "pred_a_local_dominates": false,
+ "runtime_s": 49.9
+}
