@@ -28059,3 +28059,29 @@ narrative: I was heading toward "middle is the sole essential nonlinearity" — 
 large near-linear writers also carry non-negligible aggregate nonlinearity. Queued a corrected version with
 per-register shuffled nulls to resolve it. Artifact: keep the SHAPE arc (§941/942); do NOT claim the front is
 freely linearizable.
+
+## §950 — RETRACTS §949: the front linear-map stand-in is INVALID (worse than mean); certified registers confirm §941/§945 (three_register_linearize_v2.py)
+
+Per-register, with the other registers REAL: C_mean (mean-ablate = magnitude), C_lin (best linear map of inputs),
+C_shuf (shuffled-input linear map = per-register null), nonlinear_fraction = C_lin/C_mean. ce_full 3.110.
+  register   C_mean   C_lin   C_shuf   nonlin-frac   certified (C_lin << C_shuf)?
+  front      +2.124   +2.758  +2.125     1.298        NO  (C_lin > C_shuf AND > C_mean!)
+  middle     +2.218   +0.880  +2.296     0.397        YES
+  readout    +0.776   +0.121  +0.678     0.156        YES
+RESOLUTION:
+ - FRONT is UNCERTIFIED: the fitted linear map for all 6 front MLPs is WORSE than mean-ablation (2.76 > 2.12) and
+   worse than a shuffled map (2.76 > 2.13). So §949's "linearizing the front costs 2.76" does NOT measure front
+   nonlinearity — the multi-layer linear stand-in is simply BROKEN. RETRACT §949's claim that "the front's
+   aggregate nonlinearity costs more than the middle's." Why it breaks: the 6 front layers are TIGHTLY
+   SEQUENTIALLY COUPLED (mlp0->mlp1->..., huge magnitudes), so linearizing them together compounds drift
+   catastrophically — worse than a stable mean. (This tight front coupling is itself a real observation.)
+ - MIDDLE and READOUT are CERTIFIED (C_lin << C_shuf): middle nonlinear-fraction 0.40, readout 0.16. These
+   cleanly CONFIRM the §941/§945 shape arc at the register level — readout near-linear, middle substantially
+   nonlinear — with proper nulls this time.
+NET (honest): the certified picture is readout ~0.16 nonlinear, middle ~0.40 nonlinear (highest certified). The
+front's AGGREGATE nonlinearity is simply NOT MEASURABLE by simultaneous linear-map (the stand-in degenerates);
+the valid front statement remains §941 (per-layer, one-at-a-time, shuffle-null ~0: front near-linear per layer).
+So "middle is the register with the highest CERTIFIED nonlinear fraction" holds; the stronger "sole essential
+nonlinearity" is neither established nor refuted for the front (unmeasurable this way) — I make no claim there.
+The published artifact was never given §949's claim (kept it out), so no artifact correction is needed; the
+shape-arc (§941/§942) it carries is the certified statement. This closes the register-linearization sub-thread.
