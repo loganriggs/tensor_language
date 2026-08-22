@@ -25229,3 +25229,34 @@ MODEST specific increment (real-cp − mean+random = 0.05–0.14; and centered-r
 signal recovers little). So class+position is specific and generalizing, but the honest whole-model
 share is the simultaneous CENTERED 0.78 (removes all means), not the mean-inflated per-component 0.92.
 FINDINGS 1c caveat wording corrected (mean, not redundancy).
+
+## §822 — The per-component constants are large function-word-leaning OFFSETS, not a frequency prior; the real computation is the small-norm variation on top (mean_output_meaning2.py)
+
+Followed up §821 (single-component keep is mean-driven) by asking WHAT the constant encodes.
+v1 was confounded (residual stream carries wte(idx), so "all components constant" still had the
+embedding — pos-independence std 0.43). v2 also fixed the embedding to its mean → a TRULY
+input-independent forward (pos-independence std 0.000).
+
+- correlation(constant output, unigram log-freq): 0.545 (shuffled null −0.012)
+- CE of the fully-constant model: 10.38 vs unigram-prior CE 7.11 (gap +3.27)
+- top constant tokens: " the", " a", " in", ",", "\n", " and", " (", " to", " that", " all"
+
+VERDICT (prediction (a) refuted, cleanly): the constants are NOT a calibrated frequency prior —
+a truly-constant model (CE 10.4) is far WORSE than just predicting empirical unigram frequencies
+(7.1). They do LEAN toward common function words / punctuation (r 0.54; top tokens are the most
+frequent connectives), so the flavor is "generic default", but it is a poor, mis-scaled prior, not
+the unigram distribution.
+
+SYNTHESIS of §820–822 (the validity/mean sub-arc). Component outputs are DOMINATED by their
+constant means (§821 mean/output ratio 0.30–0.97; attn1 is 97% constant by norm). Consequences:
+ (1) substituting ONE component's mean is nearly free (§821: 0.66–0.91) because you only drop that
+     component's small input-dependent VARIATION, which the rest of the model largely compensates;
+ (2) but the constants together carry NO useful standalone prediction (§822: CE 10.4) — they are
+     large offsets, not a computation;
+ (3) therefore the per-component mean-preserving keep numbers (0.92–0.99) mostly reflect the
+     constant offsets, NOT class+position computation; the real computation is the small-norm
+     VARIATION on top of the constants, and its honest whole-model share is the simultaneous
+     CENTERED 0.78 (§794), not 0.92.
+The "constant" question is answered: it is a big generic function-word-leaning offset per component,
+plausibly the operating point rms-norm normalizes against, with the actual class+position + content
+computation living in the small-norm variation. This closes the validity/mean sub-arc (§820→822).

@@ -1931,6 +1931,21 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   context-dependent
   computation with no low-rank handle — the same distributed residue that shows up everywhere the model
   does something conditional.</p>
+  <p><strong>How much of this is real, and which number to trust.</strong> Two checks keep the headline
+  honest. First, it is not an artifact of fitting the same data twice: build the class-and-position
+  directions on one half of the text and score them on a held-out half, and the recovery is unchanged
+  (within 0.005) — the subspace generalizes. Second, and more subtly, the way you measure it matters a
+  lot. Deleting one component and substituting its class-and-position content scores very high (0.95+),
+  but most of that is an illusion: each component's output is dominated by a large constant offset — for
+  some layers 97% of the output by size — and substituting that constant alone already recovers most of a
+  single component's contribution, because the rest of the network covers for the small varying part it
+  drops. That constant is not itself a computation (a network frozen to only its constants predicts far
+  worse than a plain word-frequency table; the constants merely lean toward common function words). The
+  real class-and-position computation lives in the <em>small varying part</em> on top of those constants.
+  Measured honestly — every component's class-and-position content projected out at once, so no component
+  can lean on another and the constants cancel — the whole model is <strong>78%</strong> class-and-position
+  (a random subspace: 4%). That "about four-fifths" is the number to trust; the per-component 90%+ figures
+  are upper bounds inflated by those constant offsets.</p>
   <p>That residue turns out to have a job, and it is the opposite of what you might guess. Sort every
   prediction by how hard it was — how much loss the full model took — and ask how much of each bucket the
   class-and-position skeleton alone recovers. On the model's <em>hardest</em>, most uncertain predictions
