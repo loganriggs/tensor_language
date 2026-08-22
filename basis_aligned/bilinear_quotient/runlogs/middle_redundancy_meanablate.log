@@ -1,0 +1,17 @@
+mean-ablate 0 middle MLPs: Δce +0.0000
+mean-ablate 1 middle MLPs: Δce +0.0366
+mean-ablate 2 middle MLPs: Δce +0.1060
+mean-ablate 3 middle MLPs: Δce +0.2578
+mean-ablate 4 middle MLPs: Δce +0.4602
+mean-ablate 6 middle MLPs: Δce +0.9664
+mean-ablate 8 middle MLPs: Δce +1.5716
+mean-ablate 10 middle MLPs: Δce +2.2036
+mean-ablate 1 front MLPs: Δce +0.0863
+mean-ablate 2 front MLPs: Δce +0.2774
+mean-ablate 3 front MLPs: Δce +0.8979
+mean-ablate 4 front MLPs: Δce +1.7323
+mean-ablate 6 front MLPs: Δce +2.0127
+middle all-10 2.2036 vs per-layer-sum 0.450 (super-additive 4.9x)
+skip-4: middle 0.4602 vs front 1.7323
+(a) middle more redundant than front (meanablate-4 middle < front): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/middle_redundancy_meanablate_results.json (64.0s)

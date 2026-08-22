@@ -28006,3 +28006,27 @@ redundancy question. This does NOT contradict §940/§941/§946: those used MEAN
 evidence that the MLP content computation is distributed. LESSON: block-identity-skip is not a clean ablation in
 an architecture with per-block residual rescaling; use submodule mean-ablation. CORRECTED experiment queued
 (mean-ablate k middle MLP outputs simultaneously, no rescale confound) to answer redundancy cleanly.
+
+## §948 — the middle content computation is DISTRIBUTED + super-additively COOPERATIVE, not freely redundant (middle_redundancy_meanablate.py)
+
+Corrected clean metric (mean-ablate MLP OUTPUTS, keeps the residual-rescale — fixes §947's skip-confound).
+ce_full 3.263.
+  middle mean-ablate: k=1 +0.037 | k=2 +0.106 | k=4 +0.460 | k=6 +0.966 | k=8 +1.572 | k=10 +2.204
+  front  mean-ablate: k=1 +0.086 | k=2 +0.277 | k=4 +1.732 | k=6 +2.013
+  per-layer-middle SUM (L6-15 individually) 0.450  vs  all-10-together 2.204  ->  SUPER-ADDITIVE 4.9x
+pred (a) redundant-middle TRUE (middle-4 0.46 < front-4 1.73).
+FINDINGS:
+ 1) The middle content computation is DISTRIBUTED: each middle MLP costs only ~0.04 nats alone (robust to any
+    single ablation), confirming §940/§941/§946. Mean-ablating 4 middle MLPs costs just 0.46.
+ 2) But it is SUPER-ADDITIVE (4.9x): the 10 middle MLPs together cost 2.20, far more than their 0.45 sum -> they
+    COOPERATE (each layer builds on the others' partial content), so it is DISTRIBUTED-COOPERATIVE, NOT freely
+    redundant. Correcting my earlier loose word "redundant" (§940/§941): no single layer is load-bearing, but the
+    ensemble is — removing many together is much worse than the sum.
+ 3) Confirms §947's confound: the clean metric costs only 2.20 for all 10 middle MLPs, vs the confounded
+    block-skip's +16 — the skip's huge numbers were the residual-rescale artifact, now retracted for good.
+CAVEAT (honest): the cumulative FRONT curve here (latest-first L5->L0) UNDERSTATES mlp0/mlp1 — by the time L1 is
+added the downstream is already ablated, masking its true importance (single-layer mlp1 mean-ablate is +6.3 nats,
+§933/§941). So the clean front-vs-middle contrast rests on SINGLE-layer ablation (front mlp1 6.3 >> middle ~0.04),
+not the order-dependent cumulative front curve. NET: front = localized/load-bearing (mlp0/mlp1 write grammar+token);
+middle = distributed-cooperative multiplicative content computation (no single point of failure, but the ensemble
+matters). This closes the redundancy question properly.
