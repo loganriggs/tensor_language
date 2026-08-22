@@ -2434,6 +2434,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <em>task</em> — grammar is the cheap quarter, specific-word choice the expensive three-quarters — without
   claiming a matching share for the representation. What we can say about the hard three-quarters comes
   from the loss directly, not from recovery: it is largely irreducible.</p>
+  <p>The same split shows up in the model's actual mistakes. Its single most-likely token has the right part of
+  speech about two-thirds of the time; when it does not, the giveaway is what it substitutes. On those positions
+  the true next word is rarer than average and the model's top guess is a common function word 78% of the time —
+  far above the 43% base rate — while the true word still sits around rank ten. That is not a grammar failure; it
+  is the model <em>hedging</em> to a safe function word when the specific content word is hard to call. So both
+  kinds of error trace to the same place: when the next content word is unpredictable, the model either picks the
+  wrong content word or falls back on a function word. Grammar is not where it fails — its mistakes are content
+  mistakes, exactly as the cheap-grammar / expensive-content split predicts.</p>
   <p>How much of that hard part is even learnable? Watching the two components as context accumulates
   answers it. The grammar cost is essentially paid by the first few tokens and barely moves after —
   it needs almost no context. The word-choice cost does fall as context builds, by about 1.1 nats from
