@@ -27469,3 +27469,20 @@ specific new word (weak-per-slice/high-rank) — an ASYMMETRIC intersection, the
 content asymmetry seen throughout. Completes the two-machine account end to end: shared attention engine →
 orthogonal separable channels (§920) → recombined at the readout as class-gates-POS ∩ content-picks-word (§921-923).
 Artifact/FINDINGS updated.
+
+## §924 — WORKED EXAMPLES: class-ablation flips the predicted part-of-speech, content-ablation doesn't (worked_example.py)
+
+Concrete end-to-end traces make the account tangible:
+ - "...pumping you up, and turning" (cur ' turning', topic decoded ~physiology: blood/lact/ED/patient): model
+   predicts a PRONOUN (' you'/' your'/' it'). Ablate the CLASS channel → prediction becomes PUNCTUATION
+   ('-'/' point') — part-of-speech FLIPPED. Ablate the CONTENT channel → unchanged (' you'/' your'). Clean
+   demonstration that the class channel gates the predicted part-of-speech (§921) while content does not.
+ - another context predicts pronouns (' I'/' The'/' And'); ablate class → capitalized-words (' Oops'/'LOAD'/
+   ' Accessed') — POS flipped pron→cap.
+ - "...your doorbell" (cur 'bell'): predicts ' rings'/' ring'/' buzz' — content-appropriate word choice.
+These illustrate the whole account on single predictions: the current token sets a multi-axis class (§915),
+attention has aggregated context into topic + predictive grammar (§918), and at the readout the CLASS channel
+gates the part-of-speech (removing it flips pron→punct/cap) while the CONTENT channel shapes the specific word
+(removing it leaves POS intact, per §921-923). The topic labels are sometimes clean (physiology) and sometimes
+noisy (doorbell ~ Code/Victoria/disclosure) — consistent with topic being continuous/high-dim, the 12 clusters
+a coarse label. Artifact gets a worked-example box. This concretely CAPSTONES the two-machine account.

@@ -1777,7 +1777,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   both of them, on largely the same heads, it writes them into <em>orthogonal</em> channels of the residual —
   the grammar and topic subspaces overlap at chance, and swapping a passage's topic barely touches its predicted
   part-of-speech (about 7% of the effect of editing grammar directly). So the model runs one shared context
-  engine feeding two independently-editable subspaces. And the two channels recombine at the readout to pick a single word — asymmetrically. The grammar channel is a dominant, low-rank gate that sets the word's part of speech: remove it and the predicted word's category collapses (and the loss blows up everywhere). The content channel is a diffuse, high-rank narrowing that shapes the specific new word, and its effect concentrates exactly where a new word is needed — removing it raises the word-choice loss most on first mentions, least on copied repeats — but no small subspace carries much of it. So the emitted word is grammar-gates-the-category intersected with content-picks-the-word, one strong and low-rank, the other weak-per-direction and high-rank.</p></p>
+  engine feeding two independently-editable subspaces. And the two channels recombine at the readout to pick a single word — asymmetrically. The grammar channel is a dominant, low-rank gate that sets the word's part of speech: remove it and the predicted word's category collapses (and the loss blows up everywhere). The content channel is a diffuse, high-rank narrowing that shapes the specific new word, and its effect concentrates exactly where a new word is needed — removing it raises the word-choice loss most on first mentions, least on copied repeats — but no small subspace carries much of it. So the emitted word is grammar-gates-the-category intersected with content-picks-the-word, one strong and low-rank, the other weak-per-direction and high-rank.</p>
+  <p>A worked example makes it concrete. In the context "…pumping you up, and turning", the model predicts a
+  pronoun — <em>you</em>, <em>your</em>, <em>it</em> — and its content channel has read the passage's topic as
+  physiology (its nearest topical words are <em>blood</em>, <em>lactate</em>, <em>patient</em>). Delete the class
+  channel at the readout and the prediction flips to <em>punctuation</em> — the model no longer knows it should
+  emit a pronoun. Delete the content channel instead and it still predicts <em>you</em>/<em>your</em>: the part of
+  speech is untouched, only the specific word would drift. That single case shows both machines at work — the
+  grammar gate deciding <em>what kind</em> of word, the content narrowing <em>which</em> one — and shows their
+  independence, since removing one leaves the other's job intact.</p>
   <p>And the content machine is not nameless after all — it just needed the right question. Every probe
   that imposed a category (grammatical class, embedding-semantic clusters) came up empty, because the content
   is not organized that way. But strip the grammar out of the late residual and let the leftover cluster

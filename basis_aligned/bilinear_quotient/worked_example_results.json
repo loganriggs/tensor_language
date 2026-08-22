@@ -1,0 +1,614 @@
+{
+ "n_examples": 24,
+ "examples": [
+  {
+   "context_tail": " booked several flights to the cities closest to the",
+   "current_token": " the",
+   "current_class": "det",
+   "topic_cluster": 6,
+   "topic_distinctive": [
+    "' shared'",
+    "'rie'",
+    "'ican'",
+    "' whiskey'",
+    "' Guth'",
+    "' Created'"
+   ],
+   "baseline_top5": [
+    "' storm'",
+    "' tornado'",
+    "' torn'",
+    "' epic'",
+    "' area'"
+   ],
+   "baseline_pred_class": "word",
+   "ablate_class_top5": [
+    "' storm'",
+    "' epic'",
+    "' scene'",
+    "' event'",
+    "' capital'"
+   ],
+   "ablate_class_pred_class": "word",
+   "ablate_content_top5": [
+    "' torn'",
+    "' storm'",
+    "' tornado'",
+    "' epic'",
+    "' disaster'"
+   ],
+   "ablate_content_pred_class": "word"
+  },
+  {
+   "context_tail": " ended up driving toward Harrisburg, Ill.,",
+   "current_token": ".,",
+   "current_class": "punct",
+   "topic_cluster": 6,
+   "topic_distinctive": [
+    "' shared'",
+    "'rie'",
+    "'ican'",
+    "' whiskey'",
+    "' Guth'",
+    "' Created'"
+   ],
+   "baseline_top5": [
+    "' where'",
+    "' to'",
+    "' and'",
+    "' in'",
+    "' on'"
+   ],
+   "baseline_pred_class": "word",
+   "ablate_class_top5": [
+    "','",
+    "'\ufffd'",
+    "'-'",
+    "' joined'",
+    "' was'"
+   ],
+   "ablate_class_pred_class": "punct",
+   "ablate_content_top5": [
+    "' where'",
+    "' and'",
+    "' to'",
+    "' in'",
+    "' on'"
+   ],
+   "ablate_content_pred_class": "word"
+  },
+  {
+   "context_tail": " to arrive and he confirmed those reports -- in",
+   "current_token": " in",
+   "current_class": "prep",
+   "topic_cluster": 6,
+   "topic_distinctive": [
+    "' shared'",
+    "'rie'",
+    "'ican'",
+    "' whiskey'",
+    "' Guth'",
+    "' Created'"
+   ],
+   "baseline_top5": [
+    "' the'",
+    "' a'",
+    "' his'",
+    "' an'",
+    "' fact'"
+   ],
+   "baseline_pred_class": "det",
+   "ablate_class_top5": [
+    "'-'",
+    "' full'",
+    "' March'",
+    "' text'",
+    "' June'"
+   ],
+   "ablate_class_pred_class": "punct",
+   "ablate_content_top5": [
+    "' the'",
+    "' a'",
+    "' his'",
+    "' fact'",
+    "' an'"
+   ],
+   "ablate_content_pred_class": "det"
+  },
+  {
+   "context_tail": " material on text wires. He then walked around",
+   "current_token": " around",
+   "current_class": "word",
+   "topic_cluster": 6,
+   "topic_distinctive": [
+    "' shared'",
+    "'rie'",
+    "'ican'",
+    "' whiskey'",
+    "' Guth'",
+    "' Created'"
+   ],
+   "baseline_top5": [
+    "' the'",
+    "' with'",
+    "' a'",
+    "' town'",
+    "' to'"
+   ],
+   "baseline_pred_class": "det",
+   "ablate_class_top5": [
+    "' town'",
+    "','",
+    "'-'",
+    "'.'",
+    "'s'"
+   ],
+   "ablate_class_pred_class": "word",
+   "ablate_content_top5": [
+    "' the'",
+    "' with'",
+    "' a'",
+    "' and'",
+    "' to'"
+   ],
+   "ablate_content_pred_class": "det"
+  },
+  {
+   "context_tail": " are kind of like those British Royal Guards with",
+   "current_token": " with",
+   "current_class": "prep",
+   "topic_cluster": 6,
+   "topic_distinctive": [
+    "' shared'",
+    "'rie'",
+    "'ican'",
+    "' whiskey'",
+    "' Guth'",
+    "' Created'"
+   ],
+   "baseline_top5": [
+    "' their'",
+    "' a'",
+    "' the'",
+    "' two'",
+    "' an'"
+   ],
+   "baseline_pred_class": "det",
+   "ablate_class_top5": [
+    "'-'",
+    "' rubber'",
+    "' Six'",
+    "' \ufffd'",
+    "' T'"
+   ],
+   "ablate_class_pred_class": "punct",
+   "ablate_content_top5": [
+    "' a'",
+    "' their'",
+    "' the'",
+    "' those'",
+    "' all'"
+   ],
+   "ablate_content_pred_class": "det"
+  },
+  {
+   "context_tail": ", slippery beach that is your kidneys.\n",
+   "current_token": "\n",
+   "current_class": "punct",
+   "topic_cluster": 11,
+   "topic_distinctive": [
+    "' blood'",
+    "' lact'",
+    "' ED'",
+    "' patient'",
+    "' All'",
+    "' care'"
+   ],
+   "baseline_top5": [
+    "'I'",
+    "'The'",
+    "'And'",
+    "'So'",
+    "'You'"
+   ],
+   "baseline_pred_class": "pron",
+   "ablate_class_top5": [
+    "' Oops'",
+    "'LOAD'",
+    "' Accessed'",
+    "' Ibid'",
+    "' Passed'"
+   ],
+   "ablate_class_pred_class": "cap",
+   "ablate_content_top5": [
+    "'The'",
+    "'I'",
+    "'And'",
+    "'So'",
+    "'But'"
+   ],
+   "ablate_content_pred_class": "det"
+  },
+  {
+   "context_tail": "ig crack outside your tent or your doorbell",
+   "current_token": "bell",
+   "current_class": "word",
+   "topic_cluster": 2,
+   "topic_distinctive": [
+    "' Code'",
+    "' Victoria'",
+    "' disclosure'",
+    "'ver'",
+    "' implementation'",
+    "' Fred'"
+   ],
+   "baseline_top5": [
+    "' rings'",
+    "' ring'",
+    "' buzz'",
+    "' is'",
+    "' goes'"
+   ],
+   "baseline_pred_class": "word",
+   "ablate_class_top5": [
+    "' rings'",
+    "' ring'",
+    "' buzz'",
+    "' ch'",
+    "' vibr'"
+   ],
+   "ablate_class_pred_class": "word",
+   "ablate_content_top5": [
+    "' rings'",
+    "' ring'",
+    "' be'",
+    "' sounds'",
+    "' crack'"
+   ],
+   "ablate_content_pred_class": "word"
+  },
+  {
+   "context_tail": " your body, pumping you up, and turning",
+   "current_token": " turning",
+   "current_class": "word",
+   "topic_cluster": 11,
+   "topic_distinctive": [
+    "' blood'",
+    "' lact'",
+    "' ED'",
+    "' patient'",
+    "' All'",
+    "' care'"
+   ],
+   "baseline_top5": [
+    "' you'",
+    "' your'",
+    "' the'",
+    "' it'",
+    "' on'"
+   ],
+   "baseline_pred_class": "pron",
+   "ablate_class_top5": [
+    "'-'",
+    "'\ufffd'",
+    "' point'",
+    "' red'",
+    "'['"
+   ],
+   "ablate_class_pred_class": "punct",
+   "ablate_content_top5": [
+    "' you'",
+    "' your'",
+    "' the'",
+    "' on'",
+    "' it'"
+   ],
+   "ablate_content_pred_class": "pron"
+  },
+  {
+   "context_tail": " lined up in a box.\nAfter my",
+   "current_token": " my",
+   "current_class": "det",
+   "topic_cluster": 6,
+   "topic_distinctive": [
+    "' shared'",
+    "'rie'",
+    "'ican'",
+    "' whiskey'",
+    "' Guth'",
+    "' Created'"
+   ],
+   "baseline_top5": [
+    "' first'",
+    "' time'",
+    "' last'",
+    "' trip'",
+    "' second'"
+   ],
+   "baseline_pred_class": "word",
+   "ablate_class_top5": [
+    "' first'",
+    "' heart'",
+    "' visit'",
+    "' hike'",
+    "' tour'"
+   ],
+   "ablate_class_pred_class": "word",
+   "ablate_content_top5": [
+    "' first'",
+    "' time'",
+    "' last'",
+    "' second'",
+    "' stint'"
+   ],
+   "ablate_content_pred_class": "word"
+  },
+  {
+   "context_tail": "I always come back to school right at the",
+   "current_token": " the",
+   "current_class": "det",
+   "topic_cluster": 6,
+   "topic_distinctive": [
+    "' shared'",
+    "'rie'",
+    "'ican'",
+    "' whiskey'",
+    "' Guth'",
+    "' Created'"
+   ],
+   "baseline_top5": [
+    "' end'",
+    "' beginning'",
+    "' start'",
+    "' first'",
+    "' peak'"
+   ],
+   "baseline_pred_class": "word",
+   "ablate_class_top5": [
+    "' end'",
+    "' start'",
+    "' beginning'",
+    "' first'",
+    "' heart'"
+   ],
+   "ablate_class_pred_class": "word",
+   "ablate_content_top5": [
+    "' end'",
+    "' start'",
+    "' beginning'",
+    "' first'",
+    "' top'"
+   ],
+   "ablate_content_pred_class": "word"
+  },
+  {
+   "context_tail": " around the corner, though, fall settles in",
+   "current_token": " in",
+   "current_class": "prep",
+   "topic_cluster": 6,
+   "topic_distinctive": [
+    "' shared'",
+    "'rie'",
+    "'ican'",
+    "' whiskey'",
+    "' Guth'",
+    "' Created'"
+   ],
+   "baseline_top5": [
+    "'.'",
+    "' and'",
+    "' like'",
+    "','",
+    "' with'"
+   ],
+   "baseline_pred_class": "punct",
+   "ablate_class_top5": [
+    "'.'",
+    "':'",
+    "' thick'",
+    "'rene'",
+    "' snug'"
+   ],
+   "ablate_class_pred_class": "punct",
+   "ablate_content_top5": [
+    "' and'",
+    "','",
+    "'.'",
+    "' like'",
+    "' with'"
+   ],
+   "ablate_content_pred_class": "conj"
+  },
+  {
+   "context_tail": "\ufffds my favorite time of year.\n",
+   "current_token": "\n",
+   "current_class": "punct",
+   "topic_cluster": 6,
+   "topic_distinctive": [
+    "' shared'",
+    "'rie'",
+    "'ican'",
+    "' whiskey'",
+    "' Guth'",
+    "' Created'"
+   ],
+   "baseline_top5": [
+    "'3'",
+    "'I'",
+    "'And'",
+    "'The'",
+    "'But'"
+   ],
+   "baseline_pred_class": "number",
+   "ablate_class_top5": [
+    "' \u25a0'",
+    "' Ibid'",
+    "' REUTERS'",
+    "'________________________________________________________________'",
+    "' 000000'"
+   ],
+   "ablate_class_pred_class": "punct",
+   "ablate_content_top5": [
+    "'3'",
+    "'I'",
+    "'And'",
+    "'The'",
+    "'But'"
+   ],
+   "ablate_content_pred_class": "number"
+  },
+  {
+   "context_tail": " who look to you for leadership and support are",
+   "current_token": " are",
+   "current_class": "word",
+   "topic_cluster": 3,
+   "topic_distinctive": [
+    "' Rams'",
+    "' Tr'",
+    "' Brandon'",
+    "' NFL'",
+    "' game'",
+    "' games'"
+   ],
+   "baseline_top5": [
+    "' often'",
+    "' not'",
+    "' usually'",
+    "' rarely'",
+    "' the'"
+   ],
+   "baseline_pred_class": "word",
+   "ablate_class_top5": [
+    "' rarely'",
+    "'nt'",
+    "' seldom'",
+    "' often'",
+    "' usually'"
+   ],
+   "ablate_class_pred_class": "word",
+   "ablate_content_top5": [
+    "' not'",
+    "' often'",
+    "' going'",
+    "' in'",
+    "' usually'"
+   ],
+   "ablate_content_pred_class": "word"
+  },
+  {
+   "context_tail": " the suddenly resurgent Indians re-visited",
+   "current_token": "ited",
+   "current_class": "word",
+   "topic_cluster": 3,
+   "topic_distinctive": [
+    "' Rams'",
+    "' Tr'",
+    "' Brandon'",
+    "' NFL'",
+    "' game'",
+    "' games'"
+   ],
+   "baseline_top5": [
+    "' the'",
+    "' their'",
+    "' a'",
+    "' an'",
+    "' last'"
+   ],
+   "baseline_pred_class": "det",
+   "ablate_class_top5": [
+    "' challenge'",
+    "'og'",
+    "' last'",
+    "' field'",
+    "' recently'"
+   ],
+   "ablate_class_pred_class": "word",
+   "ablate_content_top5": [
+    "' the'",
+    "' their'",
+    "' a'",
+    "' last'",
+    "' an'"
+   ],
+   "ablate_content_pred_class": "det"
+  },
+  {
+   "context_tail": " the Earl of Whitehill, who has been",
+   "current_token": " been",
+   "current_class": "word",
+   "topic_cluster": 3,
+   "topic_distinctive": [
+    "' Rams'",
+    "' Tr'",
+    "' Brandon'",
+    "' NFL'",
+    "' game'",
+    "' games'"
+   ],
+   "baseline_top5": [
+    "' a'",
+    "' in'",
+    "' the'",
+    "' called'",
+    "' known'"
+   ],
+   "baseline_pred_class": "det",
+   "ablate_class_top5": [
+    "' named'",
+    "','",
+    "' absent'",
+    "' thrust'",
+    "' credited'"
+   ],
+   "ablate_class_pred_class": "word",
+   "ablate_content_top5": [
+    "' a'",
+    "' in'",
+    "' called'",
+    "' the'",
+    "' known'"
+   ],
+   "ablate_content_pred_class": "det"
+  },
+  {
+   "context_tail": "ment, left him there with a short fly",
+   "current_token": " fly",
+   "current_class": "word",
+   "topic_cluster": 2,
+   "topic_distinctive": [
+    "' Code'",
+    "' Victoria'",
+    "' disclosure'",
+    "'ver'",
+    "' implementation'",
+    "' Fred'"
+   ],
+   "baseline_top5": [
+    "' ball'",
+    "' to'",
+    "'.'",
+    "'ball'",
+    "' in'"
+   ],
+   "baseline_pred_class": "word",
+   "ablate_class_top5": [
+    "' ball'",
+    "'ball'",
+    "' drive'",
+    "' shot'",
+    "'-'"
+   ],
+   "ablate_class_pred_class": "word",
+   "ablate_content_top5": [
+    "' ball'",
+    "' to'",
+    "'ball'",
+    "','",
+    "' and'"
+   ],
+   "ablate_content_pred_class": "word"
+  }
+ ],
+ "runtime_s": 36.2
+}
