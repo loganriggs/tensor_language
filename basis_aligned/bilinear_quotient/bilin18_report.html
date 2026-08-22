@@ -1903,6 +1903,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   position, not an odd/even or short-period pattern, and it preserves the coarse shape of rotary while
   throwing away the fine frequencies. So the layer reads rotary and writes a low-resolution position
   readout, exactly as it reads identity and writes class.</p>
+  <p>Reading that position signal by which absolute positions load on it shows what "how far into the
+  sequence" actually means to the model, and it is not linear. Its dominant direction tracks the
+  <em>logarithm</em> of position (correlation 0.98, versus 0.79 for raw position): the model draws sharp
+  distinctions among the first ten or twenty tokens and then compresses everything later, so positions 200
+  and 250 look nearly identical to it while 2 and 5 do not. Riding alongside are a sharp
+  <em>first-token</em> landmark — a spike that fires only at the very start of the sequence — and a faint
+  oscillating component, the last visible trace of the individual rotary frequencies. Fine early, coarse
+  late, with a marker for the beginning: a sensible thing to compute if what matters is mostly how a span
+  opens.</p>
   <p>These two computed quantities — grammatical class and coarse position — are most of what the front
   of the network is for. Force <em>every</em> component in the first six layers to keep only its class
   and position content and nothing else, all at once, and the model still recovers 84% of what those

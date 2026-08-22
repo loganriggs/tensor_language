@@ -25391,3 +25391,36 @@ be-verb axis; all three share determiners/conjunctions/punctuation. Effective di
 (bilin18 239, GPT-2 192, Pythia 168), dominated in every case by ~15 grammatical directions. This
 completes the interpretive payoff cross-model: transformers rediscover parts of speech in their first
 MLP, and that is what the class variable is. Artifact updated with the universality note.
+
+## §827 — What the position variable encodes: a LOGARITHMIC early/late scale (dominant dir r=0.98 with log-position) + a weak early landmark (position_naming.py)
+
+Symmetric to §825's class naming. Took the position-conditional-mean mlp0 outputs (per absolute
+position 0..255), SVD, and characterized the top position directions.
+
+| dir | sv | \|corr\| linear | \|corr\| log-pos | \|corr\| pos≤2 |
+|-----|---:|----------------:|-----------------:|---------------:|
+| 0 | 34183 | 0.79 | **0.98** | 0.53 |
+| 1 | 13405 | 0.16 | 0.06 | 0.06 |
+| 2 | 11048 | 0.28 | 0.17 | 0.35 |
+| 3 | 7373 | 0.02 | 0.03 | 0.05 |
+| 4 | 5444 | 0.10 | 0.02 | 0.12 |
+
+FINDING: the position readout is dominated (sv 34k, ~2.5× the next) by a single direction that is
+almost perfectly LOG-POSITION — correlation 0.98 with log(position), higher than with linear
+position (0.79). So the model encodes position on a LOGARITHMIC scale: it distinguishes early
+positions finely (1 vs 2 vs 5) and compresses late ones (200 vs 250 nearly identical) — the natural
+readout of a rotary/relative scheme and of the fact that early-sequence position matters more. There
+is a secondary early-position/landmark component (dir0 also corr 0.53 with a position≤2 indicator,
+dir2 corr 0.35), and dirs 1/3/4 carry finer position structure not captured by linear/log/landmark
+(plausibly residual rotary-frequency components). CONTROL: shuffled-position labels give a leading
+direction with corr-linear only 0.13 (vs the real 0.98 log), and eff-dims 159 (vs real 74) — the
+position geometry is genuinely structured.
+
+RANK NUANCE (parallels §825): eff-num position dims is ~74 (not the "~2" quoted earlier — that was the
+RPOS-capped / CE-relevant subspace). But it is dominated by ONE log-position axis plus a weak early
+landmark; the long tail is finer. So "coarse early/late" is right in spirit, sharpened to "a
+logarithmic position scale (fine early, coarse late) plus an early-sequence landmark".
+
+Both variables now concretely named: CLASS = grammatical categories (determiners, pronouns vs numbers,
+punctuation, conjunctions, prepositions, verbs/auxiliaries; §825/826, universal), POSITION = a
+logarithmic early/late scale + early landmark (§827). Figure position_naming.png sent.
