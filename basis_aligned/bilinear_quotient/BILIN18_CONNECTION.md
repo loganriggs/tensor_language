@@ -27624,3 +27624,25 @@ substrate-writers for topic (single points of failure); attention's pooling is d
 layer critical). FOLLOW-UPS QUEUED/NEEDED: (a) is MLP1's effect topic-SPECIFIC or generic? compare its
 class-decode drop (topic_component_specificity); (b) does attention's aggregation appear under CUMULATIVE
 (multi-layer) ablation rather than per-layer? Also content_bagofwords (queued) tests the aggregation form.
+
+## §932 — topic ≈ a bag-of-word-embeddings running average of the context (content_bagofwords.py)
+
+NAMES the aggregation mechanism. Decode the L15 topic (K=32) from cheap causal running-mean features of the raw
+input embeddings, vs the real-L15 ceiling and a null. topic-decode (base 0.170, shuffled null 0.063):
+  real L15 content (ceiling) 0.844 | all-token bag 0.655 | content-word bag 0.657 | function-word bag 0.551 |
+  recency-weighted 0.665 | current-token-only 0.216.
+ - A simple causal RUNNING MEAN of context word-embeddings recovers (0.655-0.170)/(0.844-0.170) = 72% of the
+   topic-decodability-above-base that the full 15-layer content residual achieves. pred (a) TRUE, pred (b) TRUE.
+ - content-word bag ~= all-token bag (0.657 vs 0.655): masking to content words barely helps (function words add
+   little noise; even a function-word bag gets 0.55 because register/function-word mix correlates with topic).
+ - recency-weighted ~= flat (0.665 vs 0.655): ORDER-INVARIANT, LONG-RANGE (confirms §872/§871).
+READING: WHAT the topic representation IS is now named cheaply — topic is approximately a bag-of-word-embeddings
+average of the preceding context (order-invariant, long-range). This is the "what"; §931 is the "where" (front
+MLPs write it into the residual, attention pools it redundantly); §930 is the "how much" (topic is a modest ~17%
+causal handle on a high-rank continuum). Together: the content machine computes an order-invariant bag-of-words
+gist of context (cheap to describe), writes it via front MLPs, pools it across attention layers, and uses the
+low-dimensional topic slice of it to bias toward topically-coherent words — but the bulk of its causal effect is
+the finer per-context continuum beyond the topic slice. Reconciles trivially with §931: the topic INFO is a
+simple function of the context (a running mean), yet the model's stored copy is front-MLP-written (removing MLP1
+removes the copy even though the info is "in principle" in x0). NEXT: is MLP1's write topic-SPECIFIC or generic
+substrate (topic_component_specificity).
