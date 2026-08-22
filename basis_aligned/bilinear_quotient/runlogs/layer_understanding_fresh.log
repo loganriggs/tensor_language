@@ -1,0 +1,16 @@
+  mlp0: fresh 0.38 (null -1.48) | same-data §893 0.94 | drop +0.56
+ attn0: fresh 0.41 (null -0.36) | same-data §893 0.77 | drop +0.36
+  mlp1: fresh 0.92 (null +0.65) | same-data §893 0.98 | drop +0.06
+  mlp2: fresh 0.69 (null -0.68) | same-data §893 0.87 | drop +0.18
+ attn5: fresh -2.88 (null -4.21) | same-data §893 0.5 | drop +3.38
+  mlp5: fresh 0.01 (null -0.54) | same-data §893 0.39 | drop +0.38
+ attn8: fresh 0.03 (null -0.17) | same-data §893 0.97 | drop +0.94
+  mlp8: fresh -0.07 (null -0.52) | same-data §893 0.47 | drop +0.54
+attn11: fresh -0.09 (null -0.43) | same-data §893 0.53 | drop +0.62
+ mlp11: fresh -0.07 (null -0.58) | same-data §893 0.48 | drop +0.55
+ mlp15: fresh -0.98 (null -1.28) | same-data §893 0.59 | drop +1.57
+ mlp16: fresh -1.04 (null -2.05) | same-data §893 0.78 | drop +1.82
+ mlp17: fresh 0.34 (null -0.45) | same-data §893 0.7 | drop +0.36
+
+(fresh per-component: table on 70% train, CE on held-out 30%; 0=mean-ablate,1=full)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/layer_understanding_fresh_results.json (117.3s)

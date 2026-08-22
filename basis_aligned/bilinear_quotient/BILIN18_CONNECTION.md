@@ -27044,3 +27044,29 @@ per-component same-data description); (b) 0.29 is also somewhat LOWER-bounded by
 tables (more data would lift token/topic generalization modestly) — but the OVERFITTING GAP (0.81→0.29) and
 the prev-token non-generalization are robust. Artifact/FINDINGS headline corrected from 81% to the fresh ~29%
 with the overfitting explanation. This is the §836 rank-artifact lesson recurring: always certify on fresh data.
+
+## §902 — per-component FRESH: only the FRONT generalizes as token tables; middle/readout token-tables overfit (some actively harmful) — corrects §893 (layer_understanding_fresh.py)
+
+Fresh (table on 70% train rows, CE on held-out 30%) per-component understanding vs §893 same-data:
+  mlp0  0.38 (null −1.48, genuine +1.86) | §893 0.94   mlp1 0.92 (null +0.65) | 0.98
+  mlp2  0.69 (null −0.68, +1.37) | 0.87                attn0 0.41 (null −0.36) | 0.77
+  attn5 −2.88 (null −4.21) | 0.50                      mlp5 0.01 (null −0.54) | 0.39
+  attn8 0.03 | 0.97                                    mlp8 −0.07 | 0.47
+  attn11 −0.09 | 0.53                                  mlp11 −0.07 | 0.48
+  mlp15 −0.98 | 0.59   mlp16 −1.04 | 0.78              mlp17 0.34 | 0.70
+FINDINGS:
+ - The FRONT (mlp0/mlp1/mlp2/attn0) genuinely GENERALIZES as token tables — positive and well above the
+   shuffled null (mlp0 genuine +1.86). These are the grammar components; being token-determined, their tables
+   transfer.
+ - The MIDDLE and READOUT token-tables do NOT generalize: fresh ~0 or NEGATIVE (attn5 −2.88, mlp15 −0.98,
+   mlp16 −1.04 — injecting a train-token-table for a context-dependent component is WORSE than mean-ablation
+   out-of-sample). So §893's middle/readout same-data values (0.4–0.97) were OVERFIT. attn5 (the induction/
+   content head) and the readout are strongly NON-token-functions — confirmed by the large negative fresh.
+ - CAVEAT (coverage): the absolute fresh values are LOWER BOUNDS limited by the small train set — many
+   held-out tokens are rare/unseen in 140 train seqs, so their table entry is missing and even mlp0 (a true
+   token function by its weights) scores only 0.38 fresh. The genuine-vs-null column is the robust read
+   (front strongly positive, middle/readout ~0/negative). To remove the coverage confound, restrict to
+   WELL-SAMPLED tokens (queued: layer_understanding_fresh_wellsampled).
+NET (correcting §893, which was same-data): only the FRONT is understood as a GENERALIZING token table; the
+middle/readout are context-dependent and their token-table "understanding" was same-data overfitting —
+consistent with the whole-model §901 (only low-rank grammar+continuous-topic generalize).
