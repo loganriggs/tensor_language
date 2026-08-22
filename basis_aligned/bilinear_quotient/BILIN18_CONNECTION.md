@@ -25916,3 +25916,17 @@ history must be later, or it is part of the diffuse content computation. The ear
 redundant than compositional. Open questions this raises: (1) attn1's unaccounted 2.22 nats (local
 aggregation the token-decode misses); (2) which component, if any, ever CONSUMES the copy-source. Next:
 scan layers 2-5 (incl. attn5, the biggest uncharacterized component, 1.97 nats).
+
+## §848 — CORRECTION (user): §847's "layer 1 is redundant" was premature — it rested on the coarse 8-way POS collapse, which hides the fine token-geometry. Measuring the geometry evolution instead (layer_geometry_evolution.py)
+
+User pushback, correct: a token-conditional mean is a CLUSTERING, and both mlp0 and mlp1 "producing
+class-shaped output" does NOT mean they compute the same thing — the RELATIVE token-to-token
+similarities can differ at embedding vs mlp0 vs mlp2, i.e. each layer re-clusters. §846/847 collapsed
+to an 8-way class label and so could not see this; the "redundant" verdict is RETRACTED pending the
+geometry measure. Also (user): find specifics by FOLDING each layer's bilinear form onto the
+previously-computed features (layer-0 outputs) — set up as the follow-up.
+
+The layer_scan context (coarse, being superseded): attn2/3 still carry token identity (~0.85), attn4
+weaker, and attn5 does NOT (current/prev ~0.33, class 0.59) — attn5 aggregates rather than copies.
+mlp2-5 remain class-selective banks by the coarse label, ~0-2/24 prev-driven — but per the correction
+this label is too coarse; the geometry evolution is the right test.

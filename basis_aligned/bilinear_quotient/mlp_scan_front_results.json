@@ -1,0 +1,58 @@
+{
+ "layers": {
+  "mlp2": {
+   "n_class_selective": 12,
+   "n_bilinear": 24,
+   "n_prev_driven": 2,
+   "class_histogram": {
+    "word": 2,
+    "punct": 5,
+    "pron": 5,
+    "prep": 3,
+    "conj": 3,
+    "det": 4,
+    "cap": 2
+   }
+  },
+  "mlp3": {
+   "n_class_selective": 16,
+   "n_bilinear": 24,
+   "n_prev_driven": 2,
+   "class_histogram": {
+    "word": 6,
+    "number": 3,
+    "cap": 6,
+    "punct": 7,
+    "conj": 2
+   }
+  },
+  "mlp4": {
+   "n_class_selective": 7,
+   "n_bilinear": 24,
+   "n_prev_driven": 0,
+   "class_histogram": {
+    "cap": 6,
+    "det": 2,
+    "punct": 3,
+    "word": 2,
+    "pron": 6,
+    "number": 3,
+    "conj": 2
+   }
+  },
+  "mlp5": {
+   "n_class_selective": 14,
+   "n_bilinear": 21,
+   "n_prev_driven": 0,
+   "class_histogram": {
+    "cap": 15,
+    "number": 1,
+    "punct": 4,
+    "pron": 1,
+    "conj": 1,
+    "word": 2
+   }
+  }
+ },
+ "runtime_s": 89.3
+}
