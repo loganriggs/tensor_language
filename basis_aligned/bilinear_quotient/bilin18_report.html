@@ -2015,6 +2015,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   computation is redundant across many layers rather than localized to one. This is the same conclusion the
   content investigation reached from every other angle — the content machine is genuinely high-dimensional and
   multiplicative — now read straight off the layers.</p>
+
+  <p>That the last two layers are near-<em>linear</em> is easy to misread as "they barely do anything." They do
+  the opposite. Read the model's own output head off each layer's residual (a logit lens) and the cross-entropy
+  falls 7.7 → 6.8 → <strong>5.8 at layer 15</strong> → 4.1 → <strong>3.26 at layer 17</strong>. So layer 15 —
+  where all the content analysis lives — is still 2.6 nats worse than the final answer: the information is present
+  but not yet in a form the output head can read. The <em>last two blocks do that reading</em>, and they are
+  load-bearing, not decorative: deleting layer 16 (passing its input straight through) costs 1.7 nats, deleting
+  layer 17 costs 0.8. So the readout is a <em>large</em> transformation that happens to be nearly linear — it
+  rotates the accumulated grammar-plus-content residual into the vocabulary basis. The three registers are better
+  stated as: a linear grammar-writing front, a multiplicative content-computing middle where the answer is
+  assembled but unreadable, and a big near-linear readout that turns that assembly into token probabilities.</p>
 </section>
 
 <section class="col">
