@@ -1,0 +1,22 @@
+L 0: overlap write 0.291 | read 0.068 | next 0.494
+L 1: overlap write 0.148 | read 0.090 | next 0.708
+L 2: overlap write 0.129 | read 0.094 | next 0.740
+L 3: overlap write 0.120 | read 0.101 | next 0.768
+L 4: overlap write 0.095 | read 0.092 | next 0.698
+L 5: overlap write 0.101 | read 0.097 | next 0.773
+L 6: overlap write 0.104 | read 0.124 | next 0.814
+L 7: overlap write 0.104 | read 0.125 | next 0.837
+L 8: overlap write 0.104 | read 0.132 | next 0.792
+L 9: overlap write 0.111 | read 0.138 | next 0.834
+L10: overlap write 0.112 | read 0.147 | next 0.847
+L11: overlap write 0.106 | read 0.170 | next 0.855
+L12: overlap write 0.100 | read 0.159 | next 0.856
+L13: overlap write 0.092 | read 0.168 | next 0.860
+L14: overlap write 0.091 | read 0.177 | next 0.855
+L15: overlap write 0.077 | read 0.162 | next 0.765
+L16: overlap write 0.048 | read 0.153 | next 0.748
+L17: overlap write 0.016 | read 0.114
+
+write-overlap front→back: 0.291→0.016 | read-overlap front→back: 0.068→0.114 (chance 0.007)
+(a) class subspace rotates write→read across depth: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/class_subspace_rotation_results.json (87.0s)

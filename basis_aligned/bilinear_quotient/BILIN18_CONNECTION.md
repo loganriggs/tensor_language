@@ -26939,3 +26939,39 @@ Findings:
    readout-read near the back; a mid-stream maintained representation is best read from activations/DAS.
 Next: measure the rotation directly (class subspace overlap across layers vs mlp0-write and lm_head-read) to
 show it swings write→read across depth (class_subspace_rotation).
+
+## §896 — FILLING THE GAP: the middle content MLPs are filled by PREV-TOKEN (local/bigram) far more than by TOPIC-as-clusters (layer_understanding_v2.py)
+
+Progressive named-variable stand-ins (0=mean-ablate, 1=full), token → +topic → +prev, per component:
+  mlp0  0.94 → 0.94 (topic +0.00) → 0.97 (prev +0.03)   [front: context-free, as expected]
+  attn0 0.76 → 0.77 (+0.01)       → 0.95 (prev +0.18)    [prev-token head — prev fills it, as known §layermap]
+  attn5 0.48 → 0.54 (+0.06)       → 0.77 (prev +0.23)
+  mlp5  0.37 → 0.40 (+0.02)       → 0.61 (prev +0.21)
+  mlp8  0.43 → 0.47 (+0.04)       → 0.71 (prev +0.24)
+  mlp11 0.44 → 0.47 (+0.03)       → 0.70 (prev +0.23)
+  attn11 0.50 → 0.59 (+0.09)      → 0.79 (prev +0.20)
+  mlp16 0.78 → 0.79 (+0.01)       → 0.86 (prev +0.07)
+FINDING (partly overturns the pred): the middle content MLPs' context-dependence is captured MUCH more by
+PREV-TOKEN (local/bigram context, +0.20-0.24) than by TOPIC as a 12-cluster table (+0.02-0.09). So token+prev
+reconstructs ~0.6-0.79 of the middle; topic-clusters add little to the RECONSTRUCTION. This is NOT a
+contradiction with §894 (topic causally real): topic is a CONTINUOUS high-dim variable (§866/§874), so 12
+discrete clusters are a coarse handle that undercounts its output-variance contribution even though a
+topic-subspace patch is causal. So "how much of the middle we understand" as tables: token+prev(+topic) ≈
+0.6-0.79 (a big jump from token-only ~0.4), with the local bigram context being the biggest reconstructable
+piece; the residual ~0.25 is longer-range/continuous-topic/interactions. genuine topic gain (vs shuffled-topic
+null) is small-but-real (+0.02-0.09).
+
+## §897 — the class subspace ROTATES write→read across depth (confirms §895) (class_subspace_rotation.py)
+
+Class-conditional-mean subspace at each layer vs front-WRITE (mlp0 Down class units) and readout-READ (lm_head):
+  write-overlap: L0 0.291 (high) → 0.077 (L15) → 0.016 (L17)  [decays]
+  read-overlap:  L0 0.068 → 0.162 (L15) → 0.114 (L17), peak ~0.18 (L14)  [rises toward back]
+  consecutive-layer overlap: 0.49 (L0→L1, fast rotation) → 0.85 (middle, stable) → 0.75 (readout).
+Pred (a) rotation write→read = TRUE. The class variable's subspace starts aligned with the mlp0 WRITE basis
+(0.29), rotates fastest at the front (L0→L1 0.49) and readout, is stable through the middle (0.85), and drifts
+toward the readout-READ basis at the back — explaining §895 (front-write fails at L15 where write-overlap is
+already 0.077 < read 0.162). HONEST bound: overlaps are MODEST at both ends (write max 0.29, read max 0.18) —
+NEITHER weight source tightly matches the variable at any layer; the activation/DAS subspace is always the best
+(§895 DAS≈activation). So weights give a PARTIAL, layer-dependent handle (write near the front, read near the
+back), but the variable itself is a maintained representation best read from activations. The rotation profile
+(fast front + readout, frozen middle) matches the geometry re-clustering (§857) — cross-consistent.
