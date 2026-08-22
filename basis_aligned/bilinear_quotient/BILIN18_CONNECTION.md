@@ -28411,3 +28411,17 @@ residual ratio (bilin18 3.20 ~ 3.52). CAVEATS: absolute dR2 magnitudes differ ac
 scales) — only the within-model RATIO is comparable; bilin12's milder ratio (1.61) likely reflects its shallower
 depth (fewer front layers). This is the first family-model generalization of a bilin18 finding; the distinctive
 distributed structure travels across the family.
+
+## §966 — the two-machine SEPARABILITY (grammar ⊥ content) generalizes across the family (cross_family_separability.py)
+
+Grammar (next-class) vs content (topic) subspace overlap vs chance, late layer (~0.8 depth):
+  bilin18  overlap 0.0104 / chance 0.0069 -> ratio 1.50 (reproduces §920's near-chance)
+  swiglu18 overlap 0.0098 / chance 0.0069 -> ratio 1.42
+  bilin12  overlap 0.0121 / chance 0.0104 -> ratio 1.16
+pred (a) family-separable TRUE (all ratios < 3, i.e. near-ORTHOGONAL). In every Elriggs family model (bilinear AND
+SwiGLU, 18L AND 12L) the grammar and content subspaces are near-orthogonal — as in bilin18 (§920) and GPT-2
+(§925). So the CORE two-machine STRUCTURE (grammar and content written to separable channels) is not a bilin18
+quirk — it is FAMILY-WIDE (and, with GPT-2, universal). Together with §965 (the DISTINCTIVE distributed-cooperative
+structure is also family-wide), the two-machine account's structure generalizes across the family. Pairs with the
+queued bag-of-words test (content MECHANISM). Residual-geometry only (no output-transform dependence), so robust
+across models with different output clamps.
