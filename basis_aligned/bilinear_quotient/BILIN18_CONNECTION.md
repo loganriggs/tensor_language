@@ -26189,3 +26189,28 @@ averaged out of the token-mean (it varies per position, not per token) — the d
 completes the readout characterization and closes the bottom-up program's structural pass: the model's
 stable, nameable per-token final representation is ~3-dim grammatical; specific-word content is
 context-driven and diffuse.
+
+## §860 — WHERE content is built: distributed across depth, back-weighted (logit-lens by layer) (logit_lens_content.py)
+
+Logit-lensed every layer (apply the model's final readout to the intermediate residual) and split the
+readable CE into grammar (class) vs content (within-class). Sanity: L17 gives class 0.77 / within 2.49 =
+the true model CE (§829).
+
+class-CE (grammar): L0 3.44 → L4 2.06 → L9 1.78 → L14 1.56 → L16 1.03 → L17 0.77.
+within-CE (content): L0 10.1 → L4 7.4 → L5 8.6(bump) → L9 7.0 → L14 5.2 → L15 4.4 → L16 3.1 → L17 2.5.
+
+FINDINGS:
+ - Both grammar and content improve MONOTONICALLY across the stack (not grammar-early/content-late as I
+   guessed — corrected). Content is built INCREMENTALLY at every layer.
+ - GRAMMAR is mostly settled by L4 (class-CE 2.06, within 1.3 nats of the final 0.77), inches down through
+   the middle, and gets a final sharpening at L16/17.
+ - CONTENT is refined most HEAVILY at the BACK: the last 3 layers cut within-CE 5.2→2.5 — roughly half the
+   remaining content loss resolved in L15-17, coinciding with the geometry collapse to ~3 dims (§857). So
+   the readout's collapse IS the final content resolution.
+ - L5 BUMP: within-CE rises at L5 (7.4→8.6) — attn5's content re-representation is not yet logit-readable
+   (it collapses the geometry, §857/853), and L6-9 rebuild readability. A non-monotone re-representation.
+So the content computation is DISTRIBUTED across depth and BACK-WEIGHTED — built everywhere a bit at a
+time, most at the readout — matching its diffuse/high-rank nature (§810), not a localizable content
+circuit. This LOCATES the content wall (distributed, back-heavy) even though it stays unnamed. Figure sent.
+NEXT: decompose per-layer content improvement into ATTENTION (context aggregation) vs MLP (per-position
+transform) — is content context-driven or transform-driven?
