@@ -27293,3 +27293,21 @@ stays: we understand ~0.41 of the model as NAMED CONCEPTS; a further ~0.31 is lo
 stream but not yet named; the remaining ~0.28 is the bilinear NONLINEARITY (not linear-readable at all, §910).
 Do not report 0.72 as "understanding" without this distinction. Benchmark figure updated to show all three
 (named 0.41 / linear-interface 0.72 / leaky-r512 0.85-rejected) with meanings.
+
+## §915 — the class code is MULTI-AXIS: a token is several categories at once ("The" = determiner AND capital, on orthogonal axes) (class_multiaxis.py)
+
+User's question ("The is two categories"): confirmed decisively. Decoding binary attributes from the mlp0
+class-writing output, each is separately decodable far above base rate — capital 0.996 (base 0.869),
+determiner 0.998 (0.906), punct 0.999, number 1.0, space-prefix 0.996, alpha 0.999. Capitalization and
+determiner-ness are NEAR-ORTHOGONAL axes (|cos| 0.095) — SEPARATE categories, not one label. In the
+(determiner, capital) plane: "The" det +4014 / cap +3419 (BOTH); " the" det +4816 / cap −2741 (det only);
+" London" det −3167 / cap +3976 (cap only); " cat"/" and" negative on both. So "The" vs "the" differ ONLY on
+the capital axis, "The" vs "London" ONLY on the determiner axis. Pred (a) multi-axis = TRUE.
+
+So the class variable is NOT an 8-way partition (my classify() is a coarse SINGLE-LABEL proxy that even
+mislabels "The" as determiner-only via its lowercase match) — it is a MULTI-AXIS continuous code where a token
+is a POINT carrying components along several near-orthogonal category axes at once (capitalization, determiner,
+punct, number, space-prefix, alpha, ...), consistent with the ~24 effective class dims (§780). This refines the
+"grammar machine": it computes a multi-attribute code, not a categorical bucket. Artifact gets a note. (My
+8-label scheme throughout was a coarse readout of this richer multi-axis code — the causal/steering results
+stand, but the true class representation is multi-axis.)

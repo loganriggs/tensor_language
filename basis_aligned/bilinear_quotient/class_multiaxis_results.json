@@ -1,0 +1,104 @@
+{
+ "read_layer_mlp": 0,
+ "attribute_decode": {
+  "capital": {
+   "acc": 0.996,
+   "base_rate": 0.869
+  },
+  "determiner": {
+   "acc": 0.998,
+   "base_rate": 0.906
+  },
+  "punct": {
+   "acc": 0.999,
+   "base_rate": 0.855
+  },
+  "number": {
+   "acc": 1.0,
+   "base_rate": 0.983
+  },
+  "space_prefix": {
+   "acc": 0.996,
+   "base_rate": 0.734
+  },
+  "alpha": {
+   "acc": 0.999,
+   "base_rate": 0.819
+  }
+ },
+ "axis_abs_cosine": {
+  "capital": {
+   "capital": 1.0,
+   "determiner": 0.095,
+   "punct": 0.057,
+   "number": 0.046,
+   "space_prefix": 0.12,
+   "alpha": 0.019
+  },
+  "determiner": {
+   "capital": 0.095,
+   "determiner": 1.0,
+   "punct": 0.011,
+   "number": 0.236,
+   "space_prefix": 0.05,
+   "alpha": 0.008
+  },
+  "punct": {
+   "capital": 0.057,
+   "determiner": 0.011,
+   "punct": 1.0,
+   "number": 0.016,
+   "space_prefix": 0.331,
+   "alpha": 0.835
+  },
+  "number": {
+   "capital": 0.046,
+   "determiner": 0.236,
+   "punct": 0.016,
+   "number": 1.0,
+   "space_prefix": 0.098,
+   "alpha": 0.328
+  },
+  "space_prefix": {
+   "capital": 0.12,
+   "determiner": 0.05,
+   "punct": 0.331,
+   "number": 0.098,
+   "space_prefix": 1.0,
+   "alpha": 0.384
+  },
+  "alpha": {
+   "capital": 0.019,
+   "determiner": 0.008,
+   "punct": 0.835,
+   "number": 0.328,
+   "space_prefix": 0.384,
+   "alpha": 1.0
+  }
+ },
+ "examples_det_cap_plane": {
+  "The": {
+   "determiner_proj": 4013.98,
+   "capital_proj": 3418.251
+  },
+  " the": {
+   "determiner_proj": 4815.826,
+   "capital_proj": -2741.375
+  },
+  " London": {
+   "determiner_proj": -3167.0,
+   "capital_proj": 3975.746
+  },
+  " cat": {
+   "determiner_proj": -3393.616,
+   "capital_proj": -2872.088
+  },
+  " and": {
+   "determiner_proj": -3271.88,
+   "capital_proj": -2470.809
+  }
+ },
+ "cap_det_orthogonal": 0.095,
+ "runtime_s": 47.2,
+ "pred_a_multiaxis": true
+}

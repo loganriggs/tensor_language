@@ -1695,6 +1695,8 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 
 <section class="col">
   <h2 id="buildup">Building the layers up, bottom to top</h2>
+  <p><strong>The class code is multi-axis.</strong> The "class" the front computes is not one of a few buckets but a point in a multi-attribute space: capitalization, determiner-ness, punctuation, number, space-prefix and more are each separately decodable and sit on near-orthogonal axes (capitalization vs determiner overlap just 0.10). So a token can be several categories at once — "The" scores high on both the determiner axis and the capital axis, where "the" is determiner-only and "London" capital-only. The eight labels used elsewhere here are a coarse single-label readout of this richer ~24-dimensional code.</p>
+
   <p>Reading each early layer as a transformation of the ones below it — by its actual bilinear weights and
   by how it re-clusters the token geometry, rather than by a coarse label — gives a concrete, mechanism-level
   account of the front, and a caution against calling any layer "redundant" too quickly.</p>
