@@ -27387,3 +27387,24 @@ PREDICTIVE next-token-class grammar (§918) — the same distributed heads that 
 context-engine; (3) middle MLPs CONTEXTUALIZE the class (context-derived, not maintenance, §916), shifting the
 code from describing the current token toward predicting the next (§917); (4) back MLPs CONSUME the class into
 specific-word logits (§918). Read≠write throughout (interchange, not steering, verifies causality §892).
+
+## §920 — the two machines are CLEANLY SEPARABLE: orthogonal subspaces + low cross-talk (grammar_topic_interference.py)
+
+Tested whether grammar and content, which share the attention context-engine (§918/§919), are separable or
+entangled. (a) SUBSPACE: grammar (next-class) vs topic subspace overlap = 0.009 ≈ chance 0.007 — ORTHOGONAL.
+(b) CAUSAL cross-patch: interchange-patching the TOPIC subspace shifts the next-class prediction only 0.064,
+vs 0.872 for patching the CLASS subspace itself (cross-talk ratio 0.07). Pred (a) separable = TRUE.
+
+So the two machines are CLEANLY SEPARABLE: attention builds BOTH predictive grammar and topic on mostly-shared
+heads (§919), but writes them to ORTHOGONAL channels of the residual (overlap ≈ chance), and you can patch one
+without disturbing the other (7% cross-talk). The two-machine framing is a REAL factorization, not just a
+convenient description — grammar and content are genuinely independent subspaces sharing one context engine.
+
+TWO-MACHINE ACCOUNT — complete & causally verified: a shared ATTENTION context-engine (distributed heads,
+§918/919) aggregates context and writes into TWO ORTHOGONAL, independently-editable channels (§920): (1) the
+GRAMMAR machine — low-rank, multi-axis part-of-speech, current→predictive (§915-918), causal via interchange
+(§892), the easy ~23% of loss; (2) the CONTENT machine — high-rank continuous TOPIC gist, bilinear/nonlinear
+(§866-910), causal via interchange (§894), the hard ~75%, ~1/3 named-variable-reconstructable (§906). Front
+MLPs write surface class; back MLPs convert to words; the middle contextualizes. Understanding benchmark:
+~0.41 of the model as generalizing named concepts (§906), grammar essentially solved, content the frontier.
+Artifact/FINDINGS finalized.

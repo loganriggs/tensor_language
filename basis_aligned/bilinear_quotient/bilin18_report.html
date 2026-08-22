@@ -1773,7 +1773,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the depth, concentrated at the back, and it is diffuse — no low-rank handle, no clean names — and it is
   three-quarters of the loss. The clean, interpretable machinery and the bulk of the difficulty are not the
   same machine: grammar is small, structured, and cheap; content is large, distributed, and most of the
-  work.</p>
+  work. And the two really are separate machines, not just a convenient description: although attention builds
+  both of them, on largely the same heads, it writes them into <em>orthogonal</em> channels of the residual —
+  the grammar and topic subspaces overlap at chance, and swapping a passage's topic barely touches its predicted
+  part-of-speech (about 7% of the effect of editing grammar directly). So the model runs one shared context
+  engine feeding two independently-editable subspaces.</p>
   <p>And the content machine is not nameless after all — it just needed the right question. Every probe
   that imposed a category (grammatical class, embedding-semantic clusters) came up empty, because the content
   is not organized that way. But strip the grammar out of the late residual and let the leftover cluster
