@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/position_interchange.py", line 169, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/position_interchange.py", line 128, in main
+    cand = [j for j in valid if topic_qp[j] != topic_qp[bi]]; src_of[bi] = cand[rng.randint(len(cand))]
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "numpy/random/mtrand.pyx", line 801, in numpy.random.mtrand.RandomState.randint
+  File "numpy/random/_bounded_integers.pyx", line 1334, in numpy.random._bounded_integers._rand_int64
+ValueError: high <= 0
