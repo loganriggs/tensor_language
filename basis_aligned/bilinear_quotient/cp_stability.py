@@ -81,7 +81,9 @@ def mean_subspace(O, labels, r):
 
 
 def cp_from(rows, w, L, shuffle=False):
+    saved = SUB['op']; SUB['op'] = None      # BUGFIX: capture must see CLEAN activations, not the ablate/keep hook
     O, toks, pos = capture(rows, w, L)
+    SUB['op'] = saved
     if shuffle:
         rng = np.random.RandomState(0); toks = toks.copy(); rng.shuffle(toks)
     Ut, g = mean_subspace(O, toks, RTOK); Up, _ = mean_subspace(O, pos, RPOS)
