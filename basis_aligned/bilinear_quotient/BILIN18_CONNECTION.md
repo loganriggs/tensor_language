@@ -27563,3 +27563,22 @@ recovery curve rising ~2.5-3x per 4x K with no plateau is the signature of a con
 fraction you would need ~a centroid per context. HONEST BENCHMARK IMPACT: naming content as topic does not
 raise the content term much — a topic-centroid stand-in is a weak reconstruction of a high-rank machine.
 Next: extend the K sweep (512/1024) to confirm the continued-rise / continuum signature.
+
+## §929 — the topic tracker is built GRADUALLY across the whole stack (topic_buildup_by_layer.py)
+
+Bottom-up companion to the grammar carrier trace (§912). Define K=32 topics from the L15 content residual, then
+measure how decodable that final topic structure already is from each layer's content residual (token+pos
+stripped), held-out. Topic-decodability (base rate 0.14, shuffled null 0.06):
+  L0 0.32 | L1 0.41 | L2 0.50 | L5 0.62 | L7 0.73 | L9 0.75 | L12 0.81 | L15 0.85 (peak) | L16 0.84 | L17 0.83.
+ - front(L0-2) 0.41 vs late(L13-15) 0.84 (pred (a) TRUE). Biggest increments early-mid (L1 +0.09, L2 +0.09,
+   L5 +0.12, L6 +0.06, L7 +0.05) but accumulation CONTINUES through L12-13; plateau L14-15; slight DECLINE in the
+   readout layers L16-17 (they repurpose the residual for output, §843/§891).
+READING: topic is built by a LONG, DISTRIBUTED accumulation across the stack — no single "topic layer" — peaking
+just before readout, consistent with long-range attention aggregation (§862/§871). This CONTRASTS sharply with
+grammar, which is written in the FRONT (mlp0 collapses class in one block, §915) and then re-derived. So the two
+machines differ in construction depth too: grammar = front-loaded + local; content/topic = gradual + whole-stack
++ long-range. CAVEATS: (i) L0 already 0.32 because topic labels correlate with the current token and residual
+token info leaks past the rank-64 token-subspace strip — so the ~0.53 rise (0.32->0.85) is the honest
+accumulation, not 0->0.85; (ii) the target is L15-defined, so L15 is favored by construction — the informative
+parts are the monotone rise BEFORE it and the decline AFTER. Fills a bottom-up gap: WHERE the content machine
+is assembled.

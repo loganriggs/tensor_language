@@ -8,3 +8,14 @@ L 6: topic-decode 0.6783
 L 7: topic-decode 0.7311
 L 8: topic-decode 0.7313
 L 9: topic-decode 0.7515
+L10: topic-decode 0.7682
+L11: topic-decode 0.7854
+L12: topic-decode 0.8148
+L13: topic-decode 0.8375
+L14: topic-decode 0.8452
+L15: topic-decode 0.8486
+L16: topic-decode 0.8418
+L17: topic-decode 0.8266
+front(L0-2) 0.413 vs late(L13-15) 0.844 | shuffled null 0.062
+(a) topic built late/gradual (late>>front, above null): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/topic_buildup_by_layer_results.json (72.1s)
