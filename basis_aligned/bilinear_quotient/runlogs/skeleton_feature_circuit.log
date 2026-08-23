@@ -1,0 +1,21 @@
+atoms [87, 153, 24, 18, 215, 6, 25, 187] | affinity pairwise overlap mean 0.082
+atom 87: top writers [('mlp5', 0.151), ('attn4', 0.144), ('attn9', 0.129)] | attn-share 0.456
+atom 153: top writers [('attn9', 0.147), ('attn5', 0.138), ('attn4', 0.119)] | attn-share 0.627
+atom 24: top writers [('mlp5', 0.133), ('mlp6', 0.125), ('mlp7', 0.125)] | attn-share 0.445
+atom 18: top writers [('mlp6', 0.41), ('mlp3', 0.396), ('mlp7', 0.382)] | attn-share 0.342
+atom 215: top writers [('attn10', 0.348), ('attn9', 0.347), ('attn5', 0.325)] | attn-share 0.611
+atom 6: top writers [('attn11', 0.305), ('attn5', 0.289), ('attn9', 0.283)] | attn-share 0.586
+atom 25: top writers [('attn5', 0.261), ('attn7', 0.251), ('attn9', 0.238)] | attn-share 0.612
+atom 187: top writers [('attn7', 0.146), ('attn8', 0.121), ('mlp7', 0.119)] | attn-share 0.592
+mean pairwise writer-profile corr 0.544
+steer atom 87: own +0.0197 | other +0.0254 | rnd -0.0033 | specific False
+steer atom 153: own +0.0156 | other +0.0162 | rnd -0.0031 | specific False
+steer atom 24: own -0.0022 | other -0.0025 | rnd -0.0021 | specific False
+steer atom 18: own -0.0052 | other -0.0058 | rnd -0.0028 | specific False
+steer atom 215: own +0.0028 | other +0.0028 | rnd -0.0028 | specific False
+steer atom 6: own +0.0001 | other +0.0003 | rnd -0.0021 | specific False
+steer atom 25: own +0.0084 | other +0.0091 | rnd -0.0018 | specific False
+steer atom 187: own -0.0008 | other -0.0001 | rnd -0.0004 | specific False
+n_specific 0/8 | writer-profile corr 0.544 | mean attn-share 0.534
+pred_a specific False | pred_b writers-differ True | pred_c attn-dominant False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/skeleton_feature_circuit_results.json (46.0s)
