@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_class_readers.py", line 199, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_class_readers.py", line 106, in main
+    lab = label_token(t)
+          ^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_class_readers.py", line 52, in label_token
+    raw = enc.decode([tid]); s = raw.strip()
+          ^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/tiktoken/core.py", line 287, in decode
+    return self._core_bpe.decode_bytes(tokens).decode("utf-8", errors=errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'Invalid token for decoding: 50257'

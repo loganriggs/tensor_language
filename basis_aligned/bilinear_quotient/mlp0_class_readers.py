@@ -102,8 +102,11 @@ def main():
     V = int(m.lm_head.weight.shape[0])
     # vocab class lookup
     cls_of = torch.full((V,), -1, dtype=torch.long)
-    for t in range(V):
-        lab = label_token(t)
+    for t in range(min(V, 50257)):
+        try:
+            lab = label_token(t)
+        except Exception:
+            continue
         if lab is not None: cls_of[t] = CLASSES.index(lab)
     cls_of = cls_of.to(DEV)
 
