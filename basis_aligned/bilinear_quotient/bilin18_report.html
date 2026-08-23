@@ -2326,6 +2326,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   93% of the effect of its own content. The content representation is a portable object that independently trained
   bilinear models of different sizes converge on and can exchange.</p>
 
+  <p>That convergence is across <em>models</em>, on the ordinary web text these models were trained on. It is not the
+  same as being register-universal <em>within</em> a model. Feeding the network source code instead of prose — a sharply
+  different register — the deep-middle content lands mostly on <em>different</em> directions: the prose content
+  subspace captures only a fraction of the code's content (a few times better than chance, but far short of code's own
+  best directions), and code's content is lower-dimensional to boot. So the content map is register-adaptive: prose and
+  code share a modest common core but are largely represented in their own bases. "Universal" here means shared across
+  independently trained models on their training distribution, not one fixed set of directions for every kind of text.</p>
+
   <p>These directions are not just descriptive — they are causal. If you take one passage's coordinates along this
   content map and splice them into the network's run on a <em>different</em> passage, the model's predictions swing
   toward the first passage's topic; splicing the same number of random directions does almost nothing. Just sixteen of
