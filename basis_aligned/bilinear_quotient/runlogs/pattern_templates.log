@@ -1,0 +1,5 @@
+L8: mean-row decay-cos 0.932 | top2 var 0.415 | coeff probe R2 [0.634, 0.748] | shapes {'template0': [0.037, 0.044, 0.919], 'template1': [0.06, 0.062, 0.877]}
+L10: mean-row decay-cos 0.923 | top2 var 0.465 | coeff probe R2 [0.845, 0.636] | shapes {'template0': [0.083, 0.112, 0.806], 'template1': [0.08, 0.167, 0.753]}
+L12: mean-row decay-cos -0.872 | top2 var 0.600 | coeff probe R2 [0.878, 0.656] | shapes {'template0': [0.072, 0.108, 0.82], 'template1': [0.08, 0.15, 0.77]}
+pred_a nameable True | pred_b interaction False | pred_c unstructured False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/pattern_templates_results.json (59.0s)

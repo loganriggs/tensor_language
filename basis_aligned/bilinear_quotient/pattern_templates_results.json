@@ -1,0 +1,71 @@
+{
+ "per_layer": {
+  "8": {
+   "mean_row_decay_cos": 0.932,
+   "top2_var_frac": 0.415,
+   "coeff_probe_r2": [
+    0.634,
+    0.748
+   ],
+   "template_mass_far_mid_near": {
+    "template0": [
+     0.037,
+     0.044,
+     0.919
+    ],
+    "template1": [
+     0.06,
+     0.062,
+     0.877
+    ]
+   },
+   "named": true
+  },
+  "10": {
+   "mean_row_decay_cos": 0.923,
+   "top2_var_frac": 0.465,
+   "coeff_probe_r2": [
+    0.845,
+    0.636
+   ],
+   "template_mass_far_mid_near": {
+    "template0": [
+     0.083,
+     0.112,
+     0.806
+    ],
+    "template1": [
+     0.08,
+     0.167,
+     0.753
+    ]
+   },
+   "named": true
+  },
+  "12": {
+   "mean_row_decay_cos": -0.872,
+   "top2_var_frac": 0.6,
+   "coeff_probe_r2": [
+    0.878,
+    0.656
+   ],
+   "template_mass_far_mid_near": {
+    "template0": [
+     0.072,
+     0.108,
+     0.82
+    ],
+    "template1": [
+     0.08,
+     0.15,
+     0.77
+    ]
+   },
+   "named": true
+  }
+ },
+ "pred_a_nameable": true,
+ "pred_b_interaction": false,
+ "pred_c_unstructured": false,
+ "runtime_s": 59.0
+}
