@@ -29374,3 +29374,36 @@ is not. The honest statement: L5 h7 is the PREFERENTIAL, broad-pooling content h
 is a methodological lesson too: window-banding can overstate a component's unique causal role vs output-ablation.
 Artifact updated to the corrected (redundant-not-critical) framing; §1006/1007's "single nameable part" reading
 retracted.
+
+## §1009 — the banding-vs-ablation relationship FLIPS with granularity; §1008's "banding overstates" was over-general; §998's L3-5 localization needs the banding instrument (content_gathering_ablate.py)
+
+Mean-ablate each 3-layer group's ATTENTION OUTPUT (vs §998/§1001's window-banding); within-CE / class-CE cost,
+baseline within 2.468:
+  group   ablate-within  ablate-class   banding-within (§998)
+  L0-2      +2.502        +0.856          0.061
+  L3-5      +2.485        +0.700          0.520
+  L6-8      +0.268        +0.074          0.071
+  L9-11     +0.148        +0.029          0.026
+  L12-14    +0.062        +0.012          0.045
+  L15-17    +0.032        +0.016          0.019
+pred_a (L3-5 top under ablation) FALSE -- L0-2 (2.502) is ~tied/top, not L3-5 (2.485). pred_b (ablation<banding)
+FALSE -- ablation is MUCH HIGHER than banding for bands (opposite of §1008's single-head case). pred_c (content>
+grammar) TRUE.
+KEY METHODOLOGICAL FINDING (refines/partly corrects §1008, stated plainly): the banding-vs-output-ablation
+relationship FLIPS with GRANULARITY:
+  - SINGLE HEAD (h7, §1008): banding 0.29 >> output-ablation 0.01. Ablation is compensated by sibling heads
+    (redundancy); banding injects a misleading LOCAL pool (active interference). Banding OVERSTATES.
+  - WHOLE BAND (§1009): output-ablation 2.5 >> banding 0.06-0.52. Removing ALL of an early band's attention destroys
+    the foundational representation (off-distribution, nothing downstream can rebuild it); banding preserves local
+    attention -> gentler. Output-ablation OVERSTATES (relative to the specific content-gathering function).
+So my §1008 lesson "banding overstates a component's role" was OVER-GENERAL -- it holds for a redundant SINGLE head,
+not for whole bands. Neither instrument is uniformly "right"; they answer different questions:
+  - BANDING isolates the LONG-RANGE FUNCTION (restrict window = remove long-range access, keep local + keep the
+    component active) -> the APPROPRIATE tool for "where is long-range content gathered" (§998's question).
+  - OUTPUT-ABLATION measures TOTAL-output importance given compensation -> for early bands this is dominated by
+    "attention is foundational" (§951 attention front-loaded), NOT content-gathering-specific.
+CONSEQUENCE for the arc: §998's L3-5 content-gathering localization STANDS as the answer to "where is the LONG-RANGE
+content gathered" (banding is the correct isolating instrument); §1009 shows it is simply NOT VISIBLE under the
+cruder whole-band output-ablation, which conflates content-gathering with all-attention-computation and flags early
+attention (L0-5) as broadly foundational (~2.5 nats, expected). No retraction of §998; a clarification of what each
+instrument measures.
