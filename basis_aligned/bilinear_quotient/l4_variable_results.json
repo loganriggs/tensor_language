@@ -1,0 +1,37 @@
+{
+ "base_ce": 3.3914,
+ "costs": {
+  "full": 0.0,
+  "mtok": 0.0974,
+  "own16": 0.0593,
+  "own64": 0.0268,
+  "own256": 0.0069,
+  "deep64": 0.0656,
+  "prec64": 0.0351,
+  "gram64": 0.0794,
+  "rand64": 0.0863,
+  "meanabl": 0.103
+ },
+ "recov": {
+  "full": 1.0,
+  "mtok": 0.054,
+  "own16": 0.424,
+  "own64": 0.74,
+  "own256": 0.933,
+  "deep64": 0.363,
+  "prec64": 0.659,
+  "gram64": 0.229,
+  "rand64": 0.162
+ },
+ "overlaps": {
+  "own_vs_deep": 0.3156,
+  "own_vs_prec": 0.6451,
+  "own_vs_gram": 0.1756,
+  "own_vs_rand": 0.0564
+ },
+ "own_dev_top64_varfrac": 0.3918,
+ "pred_a_precursor": true,
+ "pred_b_grammar": false,
+ "pred_c_broadband": false,
+ "runtime_s": 99.4
+}

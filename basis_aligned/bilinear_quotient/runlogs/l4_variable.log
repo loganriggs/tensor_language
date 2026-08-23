@@ -1,0 +1,14 @@
+    full: cost 0.0
+    mtok: cost 0.0974
+   own16: cost 0.0593
+   own64: cost 0.0268
+  own256: cost 0.0069
+  deep64: cost 0.0656
+  prec64: cost 0.0351
+  gram64: cost 0.0794
+  rand64: cost 0.0863
+ meanabl: cost 0.103
+recov: {'full': 1.0, 'mtok': 0.054, 'own16': 0.424, 'own64': 0.74, 'own256': 0.933, 'deep64': 0.363, 'prec64': 0.659, 'gram64': 0.229, 'rand64': 0.162}
+overlaps: {'own_vs_deep': 0.3156, 'own_vs_prec': 0.6451, 'own_vs_gram': 0.1756, 'own_vs_rand': 0.0564} | own-top64 varfrac 0.3918
+pred_a precursor True | pred_b grammar False | pred_c broadband False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/l4_variable_results.json (99.4s)

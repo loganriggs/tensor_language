@@ -12,13 +12,15 @@ at position 0.
   never dominant — the transition does not specially multiply token against context; the depth
   story is a smooth tok→dev gradient (tok share 0.73 front → 0.34 deep).
 - **L3:** still substantially token-driven (tok-only CE recovery 0.67 held-out, §1088).
-- **L4 — the step (§1084/§1088/§1094):** tok-only recovery ~0.05 (nothing partial works;
-  tok+cross 0.22); highest dev variance share of any layer (0.47). Its context variable is NOT
-  the deep content manifold: removing the L8-12 topic projection from its input leaves it ~intact
-  (recovery 0.914), while content-projected dev gives only 0.363 (3× random-64's 0.162 but
-  insufficient) (§1094). rare/freq of its mean-abl = 1.63 (between machines). Identity of its
-  variable = OPEN (precursor-content in rotated early coordinates vs a different local/class
-  variable — l4_variable.py queued/§1095?).
+- **L4 — RESOLVED (§1084/§1088/§1094/§1095):** tok-only recovery ~0.05; highest dev variance
+  share of any layer (0.47). §1094: the DEEP (L8-12) content projection is neither necessary
+  (strip it → 0.914 intact) nor sufficient (0.363). §1095: L4 consumes the content PRECURSOR —
+  the same content variable in its LOCAL rotated coordinates: own-top-64 dev recovers 0.74
+  (own-256: 0.93); own basis overlaps the precursor (L3+L5 dev) 0.645 = 2.0× deep ref, 3.7×
+  grammar, 11× random; causally precursor-64 projection recovers 0.659 vs deep 0.363 / grammar
+  0.229 / random 0.162. The §1052 drift is FUNCTIONAL: each layer reads the content object in
+  the coordinates it has at that depth; content×content effectively begins at L4 in precursor
+  coordinates. rare/freq of L4 mean-abl = 1.63.
 - **mlp4's second job (§439 + sink arc):** at position 0 it writes the fixed constant (norm 155k,
   cross-doc cos 0.998) that head 5.7 broadcasts (see `attn-sink-5-7.md`). This is position-
   triggered, not token-triggered, and is invisible to per-token-mean analyses (pos 0 = 1/255 of

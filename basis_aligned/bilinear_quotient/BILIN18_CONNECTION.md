@@ -31075,3 +31075,16 @@ attn_static_results.json; runlogs/attn_static.log (86s).
 **Reading.** The first context-consuming MLP does not eat the deep topic manifold. Its context variable lives outside the L8-12 content basis. Two candidates, unresolved here: (i) a genuinely different variable (local-window / predictive-class context, §918/§1045); (ii) the CONTENT PRECURSOR — §1052 showed the content directions drift heavily through the transition (L3-5 overlap with the deep ref only 0.26-0.44), so the L8-12 basis projected onto L4's input may simply miss L4's own (rotated) early-content directions. **Registered follow-up (l4_variable.py):** decompose in L4's OWN deviation basis; check whether its needed subspace overlaps the §1052 transition precursor or the grammar/class code.
 
 l4_function_results.json; runlogs/l4_function.log (96s).
+
+## §1095 — L4 RESOLVED: it consumes the content PRECURSOR — the same content variable in its local (rotated) coordinates; §1094's "not content-fed" was a wrong-basis artifact (l4_variable.py)
+
+**Result (pred_a TRUE; pred_b/c false).**
+- L4's needed context is LOW-RANK in its own basis: own-top-64 deviation recovers **0.74** of its mean-ablation gap (own-16: 0.42, own-256: 0.93; own top-64 = 39% of its dev variance).
+- **Identity = the precursor.** L4's own top-64 basis overlaps the transition-precursor basis (L3+L5 own deviations) at **0.645** — 2.0× its overlap with the deep L8-12 content ref (0.316), 3.7× grammar L0-1 (0.176), 11× random (0.056).
+- **Causal confirmation:** projecting L4's input deviation on the precursor-64 basis recovers **0.659** vs deep-64 0.363, grammar-64 0.229, random-64 0.162.
+
+**Corrected reading of §1094, plainly:** L4 IS a content consumer — but of the content variable in its LOCAL coordinates. §1052's drift (transition overlap with the deep ref only 0.26-0.44) is functional, not noise: the content object rotates as it is built, and each layer reads/writes it in the coordinates it has at that depth. Measuring "content" at L4 with the L8-12 basis (as §1094 did) misses ~half the variable, which is why "non-content" appeared to carry the function. The content×content multiplication (§1041) effectively begins at L4, in precursor coordinates.
+
+**Standing transition picture:** L3 mostly token-driven (0.67) → L4 the first genuine content(precursor)×content MLP (own-64 0.74, precursor-fed) → L5 intermediate → deep band consolidates the coordinates (§1049). Module dossier updated (modules/mlp-transition-L3-5.md).
+
+l4_variable_results.json; runlogs/l4_variable.log (99s).
