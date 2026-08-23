@@ -239,6 +239,19 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    ~0.72, individually-critical redundant layers), so it is a genuine bilin18 property, not generic compounding —
    and why single-unit ablations came up empty and the honest units are ensembles/subspaces/variables. **HIGH.**
 
+1i. **OUTPUT BEHAVIOR & ERRORS — the two machines at the readout (§972→980).** bilin18's mistakes are CONTENT
+   mistakes, not grammar: top-1 is class-correct ~2/3 of the time (§972); when wrong it either picks the wrong
+   content word or HEDGES to a frequent function word (grammar-error top-1 is function-class 78% vs base 44%, true
+   token rare, §973) — family-wide (§975). The hedge is the FRONT's high-frequency default that the READOUT
+   overrides toward content on easy positions but not hard ones (§976); frequency de-biasing is DISTRIBUTED across
+   the stack (readout dominant, §977). The model is EXCELLENTLY CALIBRATED (token ECE 0.009, class ECE 0.022):
+   confident+accurate on grammar (~0.72), appropriately uncertain on content (~0.38) — so the hedge is CALIBRATED
+   deferral, not blind failure (§979). And content errors are GRACEFUL: the wrong word is in the true word's TOPIC
+   40% vs 15% class-matched-random (§980) — the content machine narrows to the right subject even when it misses
+   the word. CAPACITY buys CONTENT not grammar (bilin18 vs bilin12: content-CE 2.53 vs 2.68, grammar-CE ~0.8 both;
+   §978): grammar solved at any size, content the capacity sink + slow-yielding frontier. Method caveat: the §974
+   within-top-class entropy metric was confounded (report class-entropy result only). **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.

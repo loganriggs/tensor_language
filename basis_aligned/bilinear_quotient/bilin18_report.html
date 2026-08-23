@@ -2453,7 +2453,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   situation: it is almost perfectly calibrated (its top-token confidence matches its accuracy to within a
   percentage point, and its part-of-speech confidence nearly so), confident and accurate on grammar (~0.72) and
   appropriately unsure on content (~0.38). The hedge, then, is not blind failure but well-calibrated deferral on
-  content the model genuinely cannot resolve.</p>
+  content the model genuinely cannot resolve. And when it does guess a content word and gets it wrong, the guess
+  is usually still on-subject: the wrong word shares the true word's topic 40% of the time, against 15% for a
+  same-part-of-speech random word. So the content machine degrades gracefully — it narrows to the right subject
+  even when it misses the exact word, which is precisely the topic-tracking job it was built to do, with the
+  residual difficulty being the last step of choosing the specific word within the topic.</p>
   <p>How much of that hard part is even learnable? Watching the two components as context accumulates
   answers it. The grammar cost is essentially paid by the first few tokens and barely moves after —
   it needs almost no context. The word-choice cost does fall as context builds, by about 1.1 nats from
