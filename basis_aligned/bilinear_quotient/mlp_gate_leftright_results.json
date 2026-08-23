@@ -1,0 +1,53 @@
+{
+ "base_ce": 3.2634,
+ "per_mlp": {
+  "0": {
+   "weight_cos_mean": -0.0024,
+   "weight_cos_abs_mean": 0.2262,
+   "force_Lsq_cost": 2.4064,
+   "force_Rsq_cost": 2.4387,
+   "perm_right_null_cost": 2.2473
+  },
+  "4": {
+   "weight_cos_mean": 0.0014,
+   "weight_cos_abs_mean": 0.1246,
+   "force_Lsq_cost": 2.085,
+   "force_Rsq_cost": 2.0555,
+   "perm_right_null_cost": 0.5483
+  },
+  "8": {
+   "weight_cos_mean": 0.0019,
+   "weight_cos_abs_mean": 0.0905,
+   "force_Lsq_cost": 0.1403,
+   "force_Rsq_cost": 0.1374,
+   "perm_right_null_cost": 0.0537
+  },
+  "10": {
+   "weight_cos_mean": 0.0013,
+   "weight_cos_abs_mean": 0.0712,
+   "force_Lsq_cost": 0.1032,
+   "force_Rsq_cost": 0.1027,
+   "perm_right_null_cost": 0.048
+  },
+  "12": {
+   "weight_cos_mean": -0.0003,
+   "weight_cos_abs_mean": 0.0804,
+   "force_Lsq_cost": 0.0928,
+   "force_Rsq_cost": 0.0906,
+   "perm_right_null_cost": 0.0429
+  },
+  "16": {
+   "weight_cos_mean": 0.0008,
+   "weight_cos_abs_mean": 0.0995,
+   "force_Lsq_cost": 0.6279,
+   "force_Rsq_cost": 0.6007,
+   "perm_right_null_cost": 0.8573
+  }
+ },
+ "mlp0_force_Lsq_cost": 2.4064,
+ "midmean_force_Lsq_cost": 0.1121,
+ "mlp0_wcos": -0.0024,
+ "midmean_wcos": 0.001,
+ "pred_a_midconjunction": false,
+ "runtime_s": 117.8
+}

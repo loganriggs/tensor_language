@@ -30778,3 +30778,27 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 - So the **value-residual is a mechanism for broadcasting each position's STATIC, embedding-derived word content (its c_v value) to every layer** (50/50 mix, §1075).
 
 **What this completes (the content-construction mechanism, end to end).** The content is built as follows: (1) block 0 computes each token's static VALUE c_v(emb) — pure word content, no context; (2) the value-residual broadcasts this static per-token value into every layer's attention (50%, §1075, concentrated at the L2-4 content onset); (3) attention at each layer POOLS these values over the context (§1074) into the content bag; (4) the deep-middle MLPs MULTIPLY the pooled content (content×content, §1041). This RECONCILES §1072 (content is NOT a linear bag of raw EMBEDDINGS) with §1074/1075: the content is a pooled bag of c_v-VALUE-projected static word contents (a learned projection of embeddings), not raw embeddings — so a raw-embedding bag fails (§1072) but attention-pooling of the broadcast values succeeds. The value-residual is the wire that keeps each word's own content available at every depth for this pooling. **Controls:** shuffled-token override (+0.52, confirms token-specificity); static-override 0.0 confirms exact per-token nature. **Caveat:** all three R² predictors coincide at block 0 (context input = embedding there), which is itself the finding — block-0 value has no context.
+
+## §1077 — The bilinear GATE: front MLPs are a two-distinct-factor conjunction; the deep-middle content gate is diffuse (pred reversed)
+
+**Question:** in the bilinear MLP Down[(Left·x)⊙(Right·x)], do the deep-middle content MLPs SHARPEN content (Left~=Right, self-product) or CONJOIN two different criteria (Left≠Right)? Weight cosine per neuron + functional force-self-product (replace Right(x) with Left(x)) CE cost, per MLP, vs a permute-Right null. (`mlp_gate_leftright.py`, 200 rows.)
+
+**Registered predictions:** (a) deep-middle is conjunction (lower Left/Right cosine than mlp0 AND large force-self-product cost).
+
+**Result — pred_a FALSE (reversed):**
+
+| MLP | weight cos (mean/|·|) | force Left² cost | force Right² | permute-Right null |
+|---|---|---|---|---|
+| mlp0 (grammar) | −0.002 / 0.23 | **+2.41** | +2.44 | +2.25 |
+| mlp4 (transition) | 0.001 / 0.12 | **+2.09** | +2.06 | +0.55 |
+| mlp8 (content) | 0.002 / 0.09 | +0.14 | +0.14 | +0.05 |
+| mlp10 (content) | 0.001 / 0.07 | +0.10 | +0.10 | +0.05 |
+| mlp12 (content) | −0.000 / 0.08 | +0.09 | +0.09 | +0.04 |
+| mlp16 (readout) | 0.001 / 0.10 | +0.63 | +0.60 | +0.86 |
+
+- **Weight cosine ≈ 0 at every layer** — Left and Right rows are ~orthogonal everywhere; no MLP is a literal Left=Right self-product at the weight level.
+- **The FRONT MLPs (mlp0, mlp4) are a genuine TWO-DISTINCT-FACTOR conjunction:** forcing self-product (Right:=Left) is catastrophic (+2.4/+2.1 nats) — the two gate factors are distinct and both essential. (mlp0 is also perm-sensitive, +2.25; mlp4 much less, +0.55 — so mlp4's Right is distinct but its specific neuron assignment matters less.)
+- **The DEEP-MIDDLE content MLPs have a DIFFUSE gate:** forcing self-product costs little in absolute terms (+0.09-0.14), only ~2-3× the permute-null — the gate is relatively insensitive to the specific Left/Right factor split. Consistent with the content being a high-rank product where no precise two-criterion conjunction dominates. (Caveat: deep-middle MLPs are low-stakes, so absolute costs are small and interpretation is limited.)
+- **pred_a REVERSED:** I predicted the deep-middle would be the strong conjunction; instead the strong two-distinct-factor gate lives in the FRONT (grammar), and the deep-middle content gate is diffuse.
+
+**Tension with §842 (flagged, not overturned).** §842 called mlp0 a "self-product/sharpening." §1077 finds forcing mlp0 to an actual self-product is catastrophic (+2.4). These measure different things — §842 analyzed the bilinear form's structure restricted to the CLASS subspace (where it may act as a sharpening), while §1077 tests functional replaceability of Right by Left over the FULL output. Not a clean correction; worth reconciling if the front-gate structure is revisited. **Nulls:** permute-Right (per MLP). **Caveat:** low deep-middle stakes limit the diffuse-gate claim to "relatively insensitive," not "Right is useless."
