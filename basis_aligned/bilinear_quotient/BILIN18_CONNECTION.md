@@ -31582,3 +31582,13 @@ The registered escalation for the created-in-flight 30% was a per-layer LOCAL-ba
 **Open-problems final scoreboard: 6/6 addressed** — #1 boundary theorem (§1127/§1143), #2 NAMED (this section), #3 NAMED (§1141), #4 closed at stated tooling boundary (§1142), #5 hardened three-family law (§1139), #6 remains a low-priority curiosity. The program has no unaddressed substantive unknowns at module grain.
 
 pattern_templates_results.json; runlogs/pattern_templates.log (59s).
+
+## §1145 — DECODABLE ≠ CAUSALLY RECONSTRUCTIBLE: the probe-named mass and template terms add ZERO held-out recovery over the bare kernel (0.594/0.609/0.604 vs 0.597) — the CE-bearing pattern structure is the low-variance interaction detail the probes DON'T capture; §1141/§1144's names downgrade to representation-level (attn_named_standin.py)
+
+**pred_b TRUE, and it is the variance≠function law's third appearance, now at attention-pattern level.**
+- Sanity clean: kernel-only on fresh held-out data reproduces §1099 (0.597 vs 0.583); const floor comparable.
+- The generative three-term model — probe-predicted saturation-mass (α decodable at R² 0.93!) and probe-predicted near-field templates (coefficients decodable at 0.63-0.88, carrying 42-60% of row-deviation variance) — moves recovery by ≤0.012. **The components that dominate the pattern's VARIANCE and are beautifully predictable from the state are not the components that carry the LOSS.** The CE-bearing structure lives in the unpredicted remainder: fine query-key interaction detail, exactly §1144's pred-b alternative arriving one level deeper than expected.
+- **Corrections, stated plainly:** §1141's "mass driver NAMED" and §1144's "key-selection NAMED" are hereby downgraded to *representation-level descriptions* — accurate accounts of what the pattern deviations look like and what predicts them, NOT causal reconstructions of the band's function. The middle-attention benchmark entry stays at kernel 0.58. The family of laws grows by one member: read≠write (§619-622), fires≠contributes (§726), decodable≠causal (§668), variance-rank≠functional-rank (§660/§1132), and now **decodable≠reconstructible** — a probe can read a signal almost perfectly and a generative model built from that probe can still contribute nothing, because prediction targets variance while function lives in the tail.
+- What survives untouched: the kernel (58%, causal), the phenomenology (the deviations ARE state-predictable near-field re-weightings — true as description), and the graveyards. The band's honest final state: 58% named-and-causal + 42% genuinely interaction-borne, now proven so by the strongest available instrument.
+
+attn_named_standin_results.json; runlogs/attn_named_standin.log (119s).

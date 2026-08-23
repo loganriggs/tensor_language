@@ -210,7 +210,10 @@
     kernel, each middle layer's attention is a state-controlled <i>sharpening or flattening of the local
     window</i> — two row-shapes carry half the remaining structure and their mixing reads out of the position's
     state at R² up to 0.88. Both of this band's "unknowns" were named by replacing hand-crafted features with
-    learned probes.</p>
+    learned probes — with one final twist that became a law of its own: plug those near-perfect probes back in
+    as a <i>generative</i> model of the attention and they contribute nothing. What the probes read (the big,
+    predictable part of the pattern) and what carries the loss (a fine query-key interaction residue) are
+    different parts. Reading a signal and rebuilding its function are not the same thing.</p>
     <p><b>3 · The readout's last fifth.</b> Both output MLPs sit at 0.81–0.84 under two unrelated stand-in
     families — the remainder is neither sparse nor linear. <i>Next (untried):</i> a fitted low-rank quadratic,
     the third natural instrument family.</p>
