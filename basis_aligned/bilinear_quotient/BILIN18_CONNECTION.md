@@ -30081,3 +30081,33 @@ raw input mixes token+context; in the loc/ctx basis the form is structured. This
 rank / can't we do better": the right basis is the context decomposition, and there the middle = content×content.
 NEXT: is the context×context term LOW-RANK when the context is restricted to the NAMED content/topic subspace (=
 topic×topic)? If so, the deep-middle is understood as a bounded (topic⊗topic) bilinear map -> toward 90%. Queued.
+
+## §1042 — prong 4 limit: the deep-middle's context×context is HIGH-RANK in the content subspace too; the content is genuinely high-dimensional (prong4_context_rank.py)
+
+Restrict the context to its top-K principal directions in the context×context term; CE loss-recovery vs K (ce_full 3.21):
+  layer  K16    K64    K128   K256   K512   K1152(full)
+  L8     0.01   0.13   0.27   0.51   0.77   0.996
+  L11    0.10   0.25   0.39   0.57   0.76   1.00
+  recovery@128 = 0.33; effective content rank for 90% = FULL (1152) both layers. pred_a (low-rank context) FALSE.
+FINDING: the context×context term is NOT low-rank in the content subspace -- you need ~ALL 1152 context directions for
+90% loss-recovery (@512 only ~0.77). So the pooled content the deep-middle multiplies is GENUINELY HIGH-DIMENSIONAL.
+This confirms §930 (content = high-rank continuum) at the bilinear-INPUT level, with the loss-relevant + optimal-PCA
+measure (not a linear-stand-in or output-variance artifact). Convergent with §1038 (neuron-rank high) and §1000
+(linear ceiling): the deep-middle content is genuinely high-rank, three independent ways.
+
+=== PRONGS 1-4 CONCLUSION (answering "why can't we understand more") ===
+We CAN understand more than the "irreducible ceiling" framing implied -- STRUCTURALLY:
+ - The middle is EXACTLY bilinear (not "irreducible"), and we now know WHAT it multiplies: CONTEXT×CONTEXT (pooled
+   content by itself, §1041), with negligible token×token; token×context second.
+ - Modules are understood at 90% by DIFFERENT matched structures (§1040): front by per-token tables (token-dominated
+   input), readout mlp16 by a rank-64 bilinear map, mlp4/15 by a few dominant factors + tail.
+ - The content pooler (attn5) is mechanistically understood (recency-weighted content-word value-residual bag,
+   §998/1007/1019); its -4.84 was a harness artifact (§1039).
+BUT there is a REAL wall, now confirmed with loss-relevant + compositional + optimal-basis measures (NOT a
+stand-in artifact): the DEEP-MIDDLE content is GENUINELY HIGH-RANK. It is content×content where the content is a
+high-dimensional (~full-rank) topic space. Reaching 90% on a deep-middle module requires ~full content rank because
+the content IS high-rank. That high-dimensionality is a real PROPERTY of the model (it tracks a broad, high-rank
+topic manifold), not a failure of the stand-ins. So: "irreducible" -> WRONG (it's structured content×content);
+"the deep-middle is a high-rank content×content bilinear computation" -> the corrected, sharper, evidence-backed claim.
+The 90%-per-module goal is reached for front/readout/pooler-mechanism, and is bounded for the deep-middle by the
+genuine high-rank of the content.
