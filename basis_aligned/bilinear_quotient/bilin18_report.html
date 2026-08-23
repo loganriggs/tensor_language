@@ -2266,7 +2266,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   content will become, and that figure climbs smoothly — 61% by layer 4, 88% by layer 7 — before the deep-middle band
   refines it. So the hard, nonlinear step is early (turning raw tokens into a context representation); from there the
   content is assembled gradually and largely linearly. It is a genuinely computed feature of the text, not a shallow tally
-  of which words appeared.</p>
+  of which words appeared. And we can see which operation builds it: splitting each early layer into its attention and its
+  MLP, it is the <em>attention</em> steps that create the content — each one jumps the content's predictability, while the
+  MLP steps, busy writing grammar, leave it flat or slightly lower. So the division of labor is clean end to end:
+  attention gathers the context into the content representation, the deep-middle MLPs multiply that content by itself, and
+  the readout reads the result.</p>
 
   <p>So what <em>is</em> that content? It is not opaque noise — its principal directions are readable. Decoding the
   passages that sit at the extremes of each top axis of the content subspace turns up recognizable topic-and-register
