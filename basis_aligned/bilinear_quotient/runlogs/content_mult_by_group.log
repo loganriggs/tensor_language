@@ -1,0 +1,10 @@
+baseline {'full_ce': 3.1385, 'class_ce': 0.736, 'within_ce': 2.4025}
+   L0_2: within-cost +0.5627 class-cost +0.1611 (full 3.8623)
+   L3_5: within-cost +0.213 class-cost +0.0722 (full 3.4238)
+   L6_8: within-cost +0.131 class-cost +0.0382 (full 3.3077)
+  L9_11: within-cost +0.1134 class-cost +0.0288 (full 3.2807)
+ L12_14: within-cost +0.0977 class-cost +0.0197 (full 3.256)
+ L15_17: within-cost +0.151 class-cost +0.0516 (full 3.3411)
+top multiplicative-content group L0_2 | early(0-8) 0.907 late(12-17) 0.249 sum 1.2688
+pred_a multiplicative-content early True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_mult_by_group_results.json (65.8s)

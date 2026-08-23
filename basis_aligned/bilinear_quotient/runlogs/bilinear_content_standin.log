@@ -1,0 +1,8 @@
+L 1: R2 by rank {'0': 0.2865, '16': 0.3491, '64': 0.4231, '256': 0.4943} | linear 0.2865 -> bilinear256 0.4943 (gain 0.2078)
+L 6: R2 by rank {'0': 0.257, '16': 0.258, '64': 0.197, '256': 0.2174} | linear 0.257 -> bilinear256 0.2174 (gain -0.0396)
+L 8: R2 by rank {'0': 0.1707, '16': 0.1607, '64': 0.1815, '256': 0.2093} | linear 0.1707 -> bilinear256 0.2093 (gain 0.0386)
+L11: R2 by rank {'0': 0.1476, '16': 0.175, '64': 0.1932, '256': 0.2229} | linear 0.1476 -> bilinear256 0.2229 (gain 0.0753)
+L15: R2 by rank {'0': 0.1199, '16': 0.3319, '64': 0.341, '256': 0.3484} | linear 0.1199 -> bilinear256 0.3484 (gain 0.2285)
+MIDDLE (L8/11/15): linear R2 0.146 -> rank-256 bilinear R2 0.26
+pred_a bilinear breaks the linear ceiling: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilinear_content_standin_results.json (132.5s)

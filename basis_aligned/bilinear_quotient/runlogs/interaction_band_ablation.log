@@ -1,0 +1,14 @@
+baseline {'full_ce': 3.2147, 'class_ce': 0.7659, 'within_ce': 2.4488}
+null(full recompute all) cost 0.0003 (~0)
+L 0 single: cost 1.6076 (within +1.2219)
+L 1 single: cost 0.516 (within +0.3939)
+L 2 single: cost 0.2321 (within +0.176)
+L 4 single: cost 0.3779 (within +0.2952)
+L 8 single: cost 0.0371 (within +0.0299)
+L11 single: cost 0.0295 (within +0.0234)
+L15 single: cost 0.0312 (within +0.0212)
+BAND front [0, 1, 2]: joint cost 4.8942 (within +3.8367 class +1.0575) | sum-single 2.3557 | super-add ratio 2.08
+BAND middle [4, 8, 11, 15]: joint cost 0.5465 (within +0.4272 class +0.1193) | sum-single 0.4757 | super-add ratio 1.15
+MIDDLE joint 0.5465 vs sum-single 0.4757 (ratio 1.15) | FRONT ratio 2.08
+pred_a mid super-additive False | pred_b mid=content True | pred_c front more additive False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/interaction_band_ablation_results.json (51.3s)

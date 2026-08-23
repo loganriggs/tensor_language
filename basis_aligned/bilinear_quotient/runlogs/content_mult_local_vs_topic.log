@@ -1,0 +1,15 @@
+original {'full_ce': 3.1385, 'class_ce': 0.736, 'within_ce': 2.4025}
+[full] L0-2: within-cost +0.5627
+[full] L3-5: within-cost +0.213
+[full] L6-8: within-cost +0.131
+[full] L9-11: within-cost +0.1134
+[full] baseline within 2.4025
+[band_K8] L0-2: within-cost +0.3403
+[band_K8] L3-5: within-cost +-0.0796
+[band_K8] L6-8: within-cost +0.1735
+[band_K8] L9-11: within-cost +0.1068
+[band_K8] baseline within 3.566
+within-cost ratios (banded/full): {'L0_2': 0.6, 'L3_5': -0.37, 'L6_8': 1.32, 'L9_11': 0.94}
+L0-2 local-ratio 0.6 vs later mean 1.13
+pred_0 null True | pred_a front-local False | pred_b later-topic-dep False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_mult_local_vs_topic_results.json (78.5s)

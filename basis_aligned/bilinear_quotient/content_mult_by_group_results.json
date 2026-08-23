@@ -1,0 +1,57 @@
+{
+ "baseline": {
+  "full_ce": 3.1385,
+  "class_ce": 0.736,
+  "within_ce": 2.4025
+ },
+ "conditions": {
+  "L0_2": {
+   "full_ce": 3.8623,
+   "class_ce": 0.8971,
+   "within_ce": 2.9652,
+   "within_cost": 0.5627,
+   "class_cost": 0.1611
+  },
+  "L3_5": {
+   "full_ce": 3.4238,
+   "class_ce": 0.8082,
+   "within_ce": 2.6155,
+   "within_cost": 0.213,
+   "class_cost": 0.0722
+  },
+  "L6_8": {
+   "full_ce": 3.3077,
+   "class_ce": 0.7742,
+   "within_ce": 2.5335,
+   "within_cost": 0.131,
+   "class_cost": 0.0382
+  },
+  "L9_11": {
+   "full_ce": 3.2807,
+   "class_ce": 0.7648,
+   "within_ce": 2.5159,
+   "within_cost": 0.1134,
+   "class_cost": 0.0288
+  },
+  "L12_14": {
+   "full_ce": 3.256,
+   "class_ce": 0.7557,
+   "within_ce": 2.5002,
+   "within_cost": 0.0977,
+   "class_cost": 0.0197
+  },
+  "L15_17": {
+   "full_ce": 3.3411,
+   "class_ce": 0.7876,
+   "within_ce": 2.5535,
+   "within_cost": 0.151,
+   "class_cost": 0.0516
+  }
+ },
+ "top_group": "L0_2",
+ "early_L0_8_sum": 0.9067,
+ "late_L12_17_sum": 0.2487,
+ "group_sum": 1.2688,
+ "pred_a_mult_early": true,
+ "runtime_s": 65.8
+}

@@ -1,0 +1,56 @@
+{
+ "baseline_orig": {
+  "full_ce": 3.3233,
+  "class_ce": 0.7882,
+  "within_ce": 2.5351
+ },
+ "conditions": {
+  "L0_2": {
+   "full_ce": 3.4049,
+   "class_ce": 0.8085,
+   "within_ce": 2.5964,
+   "within_cost": 0.0613,
+   "class_cost": 0.0203
+  },
+  "L3_5": {
+   "full_ce": 3.9797,
+   "class_ce": 0.9244,
+   "within_ce": 3.0553,
+   "within_cost": 0.5202,
+   "class_cost": 0.1362
+  },
+  "L6_8": {
+   "full_ce": 3.4188,
+   "class_ce": 0.8124,
+   "within_ce": 2.6064,
+   "within_cost": 0.0713,
+   "class_cost": 0.0242
+  },
+  "L9_11": {
+   "full_ce": 3.3529,
+   "class_ce": 0.7914,
+   "within_ce": 2.5615,
+   "within_cost": 0.0264,
+   "class_cost": 0.0032
+  },
+  "L12_14": {
+   "full_ce": 3.3783,
+   "class_ce": 0.7983,
+   "within_ce": 2.58,
+   "within_cost": 0.0449,
+   "class_cost": 0.0101
+  },
+  "L15_17": {
+   "full_ce": 3.352,
+   "class_ce": 0.7982,
+   "within_ce": 2.5539,
+   "within_cost": 0.0188,
+   "class_cost": 0.01
+  }
+ },
+ "top_group": "L3_5",
+ "early_sum": 0.6792,
+ "late_sum": 0.0637,
+ "pred_a_gathering_early_middle": true,
+ "runtime_s": 51.8
+}

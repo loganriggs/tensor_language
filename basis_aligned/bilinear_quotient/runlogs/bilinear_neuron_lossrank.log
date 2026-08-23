@@ -1,0 +1,8 @@
+ce_full 3.2418
+L 6 (meanabl 0.048): loss-recovery {'0': 0.0, '16': 0.0615, '64': 0.1098, '256': 0.2409, '1024': 0.5567} | eff-loss-rank None
+L 8 (meanabl 0.032): loss-recovery {'0': 0.0, '16': 0.0295, '64': 0.0743, '256': 0.1945, '1024': 0.4411} | eff-loss-rank None
+L11 (meanabl 0.027): loss-recovery {'0': 0.0, '16': 0.0328, '64': 0.0925, '256': 0.1875, '1024': 0.4197} | eff-loss-rank None
+L15 (meanabl 0.139): loss-recovery {'0': 0.0, '16': 0.724, '64': 0.8031, '256': 0.8255, '1024': 0.8752} | eff-loss-rank None
+MIDDLE loss-recovery@256 0.362 vs output-R²@256 0.157
+pred_a loss lower-rank than output variance: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilinear_neuron_lossrank_results.json (110.6s)

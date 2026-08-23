@@ -30253,3 +30253,22 @@ FRONT-MLP MAP COMPLETE + honest: mlp0 0.885, mlp1 0.95 (~90%, token+window); mlp
 bilinear high-rank residual); mlp4 enters the content-multiplicative regime. So the understanding-gap is UNIFORMLY the
 high-rank bilinear content: ABSENT at the front L0-1 (token-dominated -> ~90%) and readout (near-linear), PRESENT and
 growing from mlp2 into the deep-middle. One consistent frontier (high-rank content×content), not many separate walls.
+
+## §1049 — The deep-middle is ONE content computation on a shared, drifting subspace
+
+**Question (structural, "understand more"):** §1042 showed each deep-middle MLP multiplies a *high-rank* content×content — but is that ten independent high-rank maps, or one shared content object the whole band reads and writes? If shared, the middle is a single content computation (more unified/understood) even though it is high-dimensional. Test: take the content deviation (x_ctx = layer input minus its per-token mean) at deep-middle layers L=6,8,10,12,14; take each layer's top-64 PCA subspace U_L; measure pairwise subspace overlap ‖U_aᵀU_b‖_F²/64 (1 = identical directions, 0 = orthogonal) against a random-subspace null. (`middle_content_sharing.py`, 96 FineWeb rows × 256 tok.)
+
+**Registered predictions:** (0) self-overlap 1; random null ≈ K/D = 64/1152 ≈ 0.056. (a) SHARED: pairwise overlap high (>0.5), far above null → one shared content manifold.
+
+**Result — pred_a TRUE, and the shape is informative:**
+
+| pair | 6–8 | 8–10 | 10–12 | 12–14 | 6–10 | 8–12 | 10–14 | 6–12 | 8–14 | 6–14 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| overlap | .649 | .708 | .752 | .818 | .522 | .556 | .588 | .409 | .443 | .320 |
+
+- **Random null 0.054** (≈ predicted 0.056 — sanity passes exactly). Mean pairwise overlap **0.577**, ~11× the null.
+- **Neighbours overlap most and it decays smoothly with layer distance:** adjacent pairs 0.65→0.82 (rising with depth); +4-apart 0.52–0.59; the far corners 6–14 only 0.32. This is not ten random high-rank subspaces (that would give ~0.05 everywhere) and not one frozen subspace (that would give ~0.8 everywhere). It is **one content subspace that slowly rotates through depth** — each layer reads essentially what the layer below it wrote, with the representation drifting gradually.
+
+**What this changes.** The deep-middle frontier is high-rank (§1000/§1038/§1042, unchanged) but it is *unified*: a single content object, ~64 dominant directions largely shared and drifting, not ten independent computations. So "understand the deep middle" is one target, not nine — consistent with the tensor-network / DAG intuition (each middle layer's content is expressible in terms of the previous layer's). The whole-model gap remains ONE located, named thing: a single high-rank content manifold, now shown to be shared across the band and slowly rotating, not a stack of separate walls.
+
+**Nulls/controls:** random-subspace null 0.054 (passes); self-overlap trivially 1 (not tabulated). **Caveat:** overlap of top-64 PCA subspaces measures shared *span*, not that the layers compute the same *function* on it; the smooth distance-decay is strong evidence for a drifting-shared representation but does not by itself prove identical read/write maps.

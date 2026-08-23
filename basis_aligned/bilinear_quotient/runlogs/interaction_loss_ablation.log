@@ -1,0 +1,15 @@
+baseline {'full_ce': 3.2147, 'class_ce': 0.7663, 'within_ce': 2.4484}
+null(full recompute all) {'full_ce': 3.215, 'class_ce': 0.7664, 'within_ce': 2.4486} (should ~= baseline)
+L 0 interaction-ablate: cost 1.6076 (within +1.2201 class +0.3876)
+L 1 interaction-ablate: cost 0.516 (within +0.3929 class +0.1231)
+L 2 interaction-ablate: cost 0.2321 (within +0.1755 class +0.0566)
+L 4 interaction-ablate: cost 0.3779 (within +0.2944 class +0.0834)
+L 8 interaction-ablate: cost 0.0371 (within +0.0298 class +0.0072)
+L11 interaction-ablate: cost 0.0295 (within +0.0233 class +0.0062)
+L15 interaction-ablate: cost 0.0312 (within +0.0212 class +0.01)
+L17 interaction-ablate: cost 0.2153 (within +0.1464 class +0.0689)
+BAND front [0, 1, 2] interaction-ablate: cost 4.8942 (within +3.8324 class +1.0617)
+BAND middle [8, 11] interaction-ablate: cost 0.0867 (within +0.0683 class +0.0184)
+front-band cost 4.8942 vs middle-band cost 0.0867 | null cost 0.0003
+pred_a front-inert/mid-loadbearing False | pred_b mid=content True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/interaction_loss_ablation_results.json (55.5s)

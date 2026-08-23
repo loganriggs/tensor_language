@@ -1,0 +1,34 @@
+{
+ "baseline": {
+  "full_ce": 3.1385,
+  "class_ce": 0.736,
+  "within_ce": 2.4025
+ },
+ "conditions": {
+  "front_linear": {
+   "within_cost": 1.0086,
+   "class_cost": 0.2846
+  },
+  "front_table": {
+   "within_cost": 1.551,
+   "class_cost": 0.4843
+  },
+  "middle_linear": {
+   "within_cost": 0.645,
+   "class_cost": 0.1642
+  },
+  "middle_table": {
+   "within_cost": 1.3007,
+   "class_cost": 0.3858
+  },
+  "front_table_shuffled_null": {
+   "within_cost": 1.8853,
+   "class_cost": 0.5815
+  }
+ },
+ "front_table_captures_extra": -0.5424,
+ "pred_0_null_ok": true,
+ "pred_a_front_table_beats_linear": false,
+ "pred_b_middle_table_approx_linear": false,
+ "runtime_s": 83.1
+}

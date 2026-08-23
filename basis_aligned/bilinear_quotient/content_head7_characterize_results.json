@@ -1,0 +1,35 @@
+{
+ "baseline": {
+  "full_ce": 3.3233,
+  "class_ce": 0.7882,
+  "within_ce": 2.5351
+ },
+ "per_layer": {
+  "3": {
+   "within_cost": 0.0,
+   "class_cost": 0.0001
+  },
+  "4": {
+   "within_cost": 0.0,
+   "class_cost": 0.0
+  },
+  "5": {
+   "within_cost": 0.2902,
+   "class_cost": 0.0739
+  }
+ },
+ "mass_gt8": {
+  "3": 0.418,
+  "4": 0.315,
+  "5": 0.628
+ },
+ "joint": {
+  "within_cost": 0.2904,
+  "class_cost": 0.074
+ },
+ "content_grammar_ratio": 3.92,
+ "mean_mass_gt8": 0.454,
+ "pred_a_content_head": true,
+ "pred_b_broad_pooler": false,
+ "runtime_s": 51.8
+}

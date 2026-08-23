@@ -1,0 +1,7 @@
+baseline {'full_ce': 3.3233, 'class_ce': 0.7882, 'within_ce': 2.5351}
+h7 @ L3: within +0.0 class +0.0001
+h7 @ L4: within +0.0 class +0.0
+h7 @ L5: within +0.2902 class +0.0739
+joint h7 L3-5: within +0.2904 class +0.074 (ratio 3.92) | mass>8 {'3': 0.418, '4': 0.315, '5': 0.628} mean 0.454
+pred_a content-head True | pred_b broad-pooler False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_head7_characterize_results.json (51.8s)

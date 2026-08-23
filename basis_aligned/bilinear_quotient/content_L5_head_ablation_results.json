@@ -1,0 +1,49 @@
+{
+ "baseline": {
+  "full_ce": 3.2418,
+  "class_ce": 0.7736,
+  "within_ce": 2.4682
+ },
+ "per_head": {
+  "0": {
+   "within_cost": 0.0045,
+   "class_cost": 0.0002
+  },
+  "1": {
+   "within_cost": 0.0024,
+   "class_cost": 0.0004
+  },
+  "2": {
+   "within_cost": 0.0024,
+   "class_cost": 0.0006
+  },
+  "3": {
+   "within_cost": 0.006,
+   "class_cost": 0.0019
+  },
+  "4": {
+   "within_cost": 0.003,
+   "class_cost": 0.0007
+  },
+  "5": {
+   "within_cost": 0.0073,
+   "class_cost": 0.0021
+  },
+  "6": {
+   "within_cost": 0.0061,
+   "class_cost": 0.0022
+  },
+  "7": {
+   "within_cost": 0.0098,
+   "class_cost": 0.0025
+  },
+  "8": {
+   "within_cost": 0.0065,
+   "class_cost": 0.002
+  }
+ },
+ "top_content_head": "7",
+ "h7_content_grammar_ratio": 3.92,
+ "pred_a_h7_dominates_content": true,
+ "runtime_s": 57.5
+}

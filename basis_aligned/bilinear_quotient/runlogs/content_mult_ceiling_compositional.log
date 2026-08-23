@@ -1,0 +1,7 @@
+baseline {'full_ce': 3.1385, 'class_ce': 0.736, 'within_ce': 2.4025}
+  lin_front: within-cost +1.0086 class-cost +0.2846 (full 4.4317)
+ lin_middle: within-cost +0.645 class-cost +0.1642 (full 3.9477)
+    lin_all: within-cost +1.5937 class-cost +0.4493 (full 5.1815)
+CLEAN middle within-cost 0.645 (vs §999 inflated 0.773) | front within-cost 1.0086
+pred_0 compositional-lower&front-cheap False | pred_a mult=content True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_mult_ceiling_compositional_results.json (69.7s)

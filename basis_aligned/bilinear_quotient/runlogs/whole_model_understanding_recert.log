@@ -1,0 +1,9 @@
+all-36            token: CE 7.234 | understanding 0.198
+all-36      token+topic: CE 6.111 | understanding 0.445
+all-36 token+topic+prev: CE 6.077 | understanding 0.452
+all-36        shuftoken: CE 10.608 | understanding -0.545
+
+WHOLE MODEL (all 36 components replaced): full CE 3.588, all-mean 8.132
+token+topic+prev understanding 0.452 (genuine vs shuffled 0.997)
+(a) named variables reconstruct most of the model: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_understanding_recert_results.json (73.8s)

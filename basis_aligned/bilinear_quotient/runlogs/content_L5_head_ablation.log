@@ -1,0 +1,13 @@
+baseline {'full_ce': 3.2418, 'class_ce': 0.7736, 'within_ce': 2.4682}
+L5 h0 mean-ablate: within +0.0045 class +0.0002
+L5 h1 mean-ablate: within +0.0024 class +0.0004
+L5 h2 mean-ablate: within +0.0024 class +0.0006
+L5 h3 mean-ablate: within +0.006 class +0.0019
+L5 h4 mean-ablate: within +0.003 class +0.0007
+L5 h5 mean-ablate: within +0.0073 class +0.0021
+L5 h6 mean-ablate: within +0.0061 class +0.0022
+L5 h7 mean-ablate: within +0.0098 class +0.0025
+L5 h8 mean-ablate: within +0.0065 class +0.002
+top content head (output-ablation) L5 h7 | h7 within 0.0098 class 0.0025 ratio 3.92
+pred_a h7 dominates content (independent confirm) True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_L5_head_ablation_results.json (57.5s)

@@ -1,0 +1,19 @@
+content ' football': own-neighbor Δlp 0.6043 | random-neighbor Δlp 0.09
+content ' hospital': own-neighbor Δlp 0.4693 | random-neighbor Δlp 0.0582
+content ' ocean': own-neighbor Δlp 0.5583 | random-neighbor Δlp 0.0666
+content ' music': own-neighbor Δlp 0.5381 | random-neighbor Δlp 0.0861
+content ' science': own-neighbor Δlp 0.5002 | random-neighbor Δlp 0.0785
+content ' army': own-neighbor Δlp 0.4605 | random-neighbor Δlp 0.0753
+content ' church': own-neighbor Δlp 0.5589 | random-neighbor Δlp 0.0583
+content ' garden': own-neighbor Δlp 0.5139 | random-neighbor Δlp 0.0491
+content ' computer': own-neighbor Δlp 0.4206 | random-neighbor Δlp 0.0678
+content ' medicine': own-neighbor Δlp 0.5386 | random-neighbor Δlp 0.0618
+function ' the': own-neighbor Δlp 0.1199
+function ' of': own-neighbor Δlp 0.0524
+function ' and': own-neighbor Δlp 0.0441
+function ' to': own-neighbor Δlp 0.0743
+function ' in': own-neighbor Δlp 0.0495
+function ' for': own-neighbor Δlp 0.0822
+content-inject own-neighbor Δlp 0.5163 | function 0.0704 | random-null 0.0692
+pred_0 topic-specific True | pred_a topical-priming (content>>function) True
+(inject pos 3 -> query 150, long-range) wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_injection_priming_results.json (106.4s)

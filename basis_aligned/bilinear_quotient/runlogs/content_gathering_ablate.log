@@ -1,0 +1,10 @@
+baseline {'full_ce': 3.2418, 'class_ce': 0.7736, 'within_ce': 2.4682}
+L0_2 attn-output-ablate: within +2.5015 class +0.8563 (banding ref 0.061)
+L3_5 attn-output-ablate: within +2.4854 class +0.6995 (banding ref 0.52)
+L6_8 attn-output-ablate: within +0.2677 class +0.0743 (banding ref 0.071)
+L9_11 attn-output-ablate: within +0.148 class +0.0291 (banding ref 0.026)
+L12_14 attn-output-ablate: within +0.0618 class +0.0122 (banding ref 0.045)
+L15_17 attn-output-ablate: within +0.0322 class +0.0161 (banding ref 0.019)
+top group (output-ablation) L0_2 | L3-5 within 2.4854 vs banding 0.520
+pred_a L3-5 top False | pred_b ablate<band False | pred_c content>grammar True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_gathering_ablate_results.json (54.7s)

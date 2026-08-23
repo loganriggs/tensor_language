@@ -1,0 +1,34 @@
+{
+ "baseline_orig": {
+  "full_ce": 3.3233,
+  "class_ce": 0.7882,
+  "within_ce": 2.5351
+ },
+ "conditions": {
+  "all_K8": {
+   "full_ce": 4.6981,
+   "class_ce": 1.0426,
+   "within_ce": 3.6555,
+   "within_cost": 1.1204,
+   "class_cost": 0.2544
+  },
+  "early_K8": {
+   "full_ce": 4.5582,
+   "class_ce": 1.0469,
+   "within_ce": 3.5113,
+   "within_cost": 0.9762,
+   "class_cost": 0.2587
+  },
+  "late_K8": {
+   "full_ce": 3.4815,
+   "class_ce": 0.8122,
+   "within_ce": 2.6692,
+   "within_cost": 0.1341,
+   "class_cost": 0.024
+  }
+ },
+ "early_over_late_within_ratio": 7.28,
+ "pred_0_null_ok": true,
+ "pred_a_pooled_early_read_late": true,
+ "runtime_s": 49.3
+}

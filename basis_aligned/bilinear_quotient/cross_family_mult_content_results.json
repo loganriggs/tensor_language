@@ -1,0 +1,37 @@
+{
+ "models": {
+  "bilin18": {
+   "baseline_ce": 3.261,
+   "middle_band": [
+    6,
+    11
+   ],
+   "within_cost": 0.3305,
+   "class_cost": 0.0902,
+   "content_grammar_ratio": 3.66
+  },
+  "bilin12": {
+   "baseline_ce": 3.4341,
+   "middle_band": [
+    4,
+    7
+   ],
+   "within_cost": 0.3777,
+   "class_cost": 0.124,
+   "content_grammar_ratio": 3.05
+  },
+  "swiglu18": {
+   "baseline_ce": 3.1542,
+   "middle_band": [
+    6,
+    11
+   ],
+   "within_cost": 0.3771,
+   "class_cost": 0.1082,
+   "content_grammar_ratio": 3.49
+  }
+ },
+ "pred_a_content_general": true,
+ "swiglu_ratio": 3.49,
+ "runtime_s": 62.9
+}

@@ -1,0 +1,52 @@
+{
+ "draws": [
+  {
+   "offset": 0,
+   "token": 0.136,
+   "token+topic+prev": 0.269,
+   "genuine_vs_shuffled": 0.676,
+   "ce_full": 3.168
+  },
+  {
+   "offset": 150,
+   "token": 0.145,
+   "token+topic+prev": 0.247,
+   "genuine_vs_shuffled": 0.564,
+   "ce_full": 3.21
+  },
+  {
+   "offset": 300,
+   "token": 0.097,
+   "token+topic+prev": 0.367,
+   "genuine_vs_shuffled": 0.753,
+   "ce_full": 3.161
+  },
+  {
+   "offset": 450,
+   "token": 0.215,
+   "token+topic+prev": 0.4,
+   "genuine_vs_shuffled": 0.978,
+   "ce_full": 3.571
+  }
+ ],
+ "token": {
+  "mean": 0.148,
+  "std": 0.043,
+  "min": 0.097,
+  "max": 0.215
+ },
+ "token+topic+prev": {
+  "mean": 0.321,
+  "std": 0.064,
+  "min": 0.247,
+  "max": 0.4
+ },
+ "genuine_vs_shuffled": {
+  "mean": 0.743,
+  "std": 0.152,
+  "min": 0.564,
+  "max": 0.978
+ },
+ "pred_token_tight": true,
+ "pred_total_wider": true
+}

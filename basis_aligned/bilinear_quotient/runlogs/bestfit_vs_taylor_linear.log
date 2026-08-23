@@ -1,0 +1,8 @@
+baseline CE 3.1385
+L 0: meanabl 0.8406 bestfit 0.0947 taylor 1.7177 null 1.2203 | frac bestfit 0.887 taylor -1.043 null -0.452
+L 1: meanabl 6.7729 bestfit 0.1381 taylor 0.5698 null 3.9148 | frac bestfit 0.98 taylor 0.916 null 0.422
+L 8: meanabl 0.0518 bestfit 0.0363 taylor 0.0389 null 0.0689 | frac bestfit 0.299 taylor 0.249 null -0.33
+L11: meanabl 0.0443 bestfit 0.0337 taylor 0.0318 null 0.0616 | frac bestfit 0.239 taylor 0.282 null -0.391
+FRONT frac bestfit 0.933 >> taylor -0.063 (null -0.015) | MID bestfit 0.269
+pred_0 null~0 True | pred_a front bestfit>>taylor True | pred_b mid<front True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bestfit_vs_taylor_linear_results.json (60.3s)

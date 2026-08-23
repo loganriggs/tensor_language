@@ -1,0 +1,56 @@
+{
+ "layers": {
+  "1": {
+   "r2_int": 0.4753,
+   "r2_full": 0.5512,
+   "lam_int": 100.0,
+   "lam_full": 100.0,
+   "ntrain": 16000,
+   "nval": 4000,
+   "ntest": 6000
+  },
+  "4": {
+   "r2_int": 0.5626,
+   "r2_full": 0.547,
+   "lam_int": 1000.0,
+   "lam_full": 1000.0,
+   "ntrain": 16000,
+   "nval": 4000,
+   "ntest": 6000
+  },
+  "8": {
+   "r2_int": 0.2704,
+   "r2_full": 0.2519,
+   "lam_int": 100.0,
+   "lam_full": 100.0,
+   "ntrain": 16000,
+   "nval": 4000,
+   "ntest": 6000
+  },
+  "11": {
+   "r2_int": 0.2331,
+   "r2_full": 0.2677,
+   "lam_int": 1000.0,
+   "lam_full": 1000.0,
+   "ntrain": 16000,
+   "nval": 4000,
+   "ntest": 6000
+  },
+  "15": {
+   "r2_int": 0.2328,
+   "r2_full": 0.3523,
+   "lam_int": 1000.0,
+   "lam_full": 1000.0,
+   "ntrain": 16000,
+   "nval": 4000,
+   "ntest": 6000
+  }
+ },
+ "front_L1_r2_int": 0.4753,
+ "mid_L8_11_r2_int": 0.252,
+ "front_L1_r2_full": 0.5512,
+ "mid_L8_11_r2_full": 0.26,
+ "sanity_full_replicates_941": false,
+ "pred_a_interaction_linear_at_front": false,
+ "runtime_s": 39.2
+}

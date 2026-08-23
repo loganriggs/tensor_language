@@ -1,0 +1,27 @@
+{
+ "ce_full": 3.0852,
+ "modules": {
+  "attn16": {
+   "meanabl_cost": 0.01,
+   "recovery_linear": 0.209,
+   "recovery_shuffled_null": 0.077
+  },
+  "mlp16": {
+   "meanabl_cost": 0.13,
+   "recovery_linear": 0.783,
+   "recovery_shuffled_null": -0.63
+  },
+  "attn17": {
+   "meanabl_cost": 0.011,
+   "recovery_linear": 0.563,
+   "recovery_shuffled_null": -0.195
+  },
+  "mlp17": {
+   "meanabl_cost": 0.328,
+   "recovery_linear": 0.848,
+   "recovery_shuffled_null": -0.439
+  }
+ },
+ "pred_a_readout_linear": false,
+ "runtime_s": 92.7
+}

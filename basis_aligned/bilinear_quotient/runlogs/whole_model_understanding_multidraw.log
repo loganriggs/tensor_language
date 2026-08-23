@@ -1,0 +1,22 @@
+all-36            token: CE 7.741 | understanding 0.136
+all-36      token+topic: CE 7.029 | understanding 0.270
+all-36 token+topic+prev: CE 7.032 | understanding 0.269
+all-36        shuftoken: CE 10.611 | understanding -0.407
+draw off=0: token 0.136 ttp 0.269 genuine 0.676
+all-36            token: CE 8.637 | understanding 0.145
+all-36      token+topic: CE 7.966 | understanding 0.251
+all-36 token+topic+prev: CE 7.991 | understanding 0.247
+all-36        shuftoken: CE 11.575 | understanding -0.317
+draw off=150: token 0.145 ttp 0.247 genuine 0.564
+all-36            token: CE 8.422 | understanding 0.097
+all-36      token+topic: CE 6.812 | understanding 0.373
+all-36 token+topic+prev: CE 6.850 | understanding 0.367
+all-36        shuftoken: CE 11.235 | understanding -0.386
+draw off=300: token 0.097 ttp 0.367 genuine 0.753
+all-36            token: CE 7.081 | understanding 0.215
+all-36      token+topic: CE 6.301 | understanding 0.389
+all-36 token+topic+prev: CE 6.250 | understanding 0.400
+all-36        shuftoken: CE 10.623 | understanding -0.578
+draw off=450: token 0.215 ttp 0.4 genuine 0.978
+MULTI-DRAW: token {'mean': 0.148, 'std': 0.043, 'min': 0.097, 'max': 0.215} | token+topic+prev {'mean': 0.321, 'std': 0.064, 'min': 0.247, 'max': 0.4} | genuine {'mean': 0.743, 'std': 0.152, 'min': 0.564, 'max': 0.978}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_understanding_multidraw_results.json

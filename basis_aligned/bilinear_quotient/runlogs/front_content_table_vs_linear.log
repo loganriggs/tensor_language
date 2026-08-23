@@ -1,0 +1,9 @@
+baseline {'full_ce': 3.1385, 'class_ce': 0.736, 'within_ce': 2.4025}
+  front_linear: within-cost +1.0086 class-cost +0.2846
+   front_table: within-cost +1.551 class-cost +0.4843
+ middle_linear: within-cost +0.645 class-cost +0.1642
+  middle_table: within-cost +1.3007 class-cost +0.3858
+front_table_shuffled_null within +1.8853
+FRONT linear 1.0086 table 1.551 (table captures extra -0.5424) | MIDDLE linear 0.645 table 1.3007
+pred_0 null True | pred_a front-table<linear False | pred_b middle table~linear False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_content_table_vs_linear_results.json (83.1s)

@@ -1,0 +1,9 @@
+baseline {'full_ce': 3.1385, 'class_ce': 0.736, 'within_ce': 2.4025}
+      lin_front: within-cost +1.424 class-cost +0.4078 (full 4.9703)
+     lin_middle: within-cost +0.7728 class-cost +0.1978 (full 4.1091)
+        lin_all: within-cost +2.256 class-cost +0.7323 (full 6.1268)
+    shuf_middle: within-cost +1.879 class-cost +0.5362 (full 5.5537)
+ meanabl_middle: within-cost +1.7613 class-cost +0.4961 (full 5.3959)
+lin_middle within-cost 0.7728 vs class-cost 0.1978 | shuf_middle 5.5537 ~ meanabl_middle 5.3959
+pred_0 null False | pred_a mult-middle=content True | ceiling 0.7728 nats
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_multiplicative_ceiling_results.json (51.2s)

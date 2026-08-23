@@ -1,0 +1,48 @@
+{
+ "baseline": {
+  "full_ce": 3.1385,
+  "class_ce": 0.736,
+  "within_ce": 2.4025
+ },
+ "conditions": {
+  "lin_front": {
+   "full_ce": 4.9703,
+   "class_ce": 1.1438,
+   "within_ce": 3.8265,
+   "within_cost": 1.424,
+   "class_cost": 0.4078
+  },
+  "lin_middle": {
+   "full_ce": 4.1091,
+   "class_ce": 0.9338,
+   "within_ce": 3.1753,
+   "within_cost": 0.7728,
+   "class_cost": 0.1978
+  },
+  "lin_all": {
+   "full_ce": 6.1268,
+   "class_ce": 1.4683,
+   "within_ce": 4.6585,
+   "within_cost": 2.256,
+   "class_cost": 0.7323
+  },
+  "shuf_middle": {
+   "full_ce": 5.5537,
+   "class_ce": 1.2722,
+   "within_ce": 4.2815,
+   "within_cost": 1.879,
+   "class_cost": 0.5362
+  },
+  "meanabl_middle": {
+   "full_ce": 5.3959,
+   "class_ce": 1.2321,
+   "within_ce": 4.1638,
+   "within_cost": 1.7613,
+   "class_cost": 0.4961
+  }
+ },
+ "pred_0_null_ok": false,
+ "pred_a_mult_middle_is_content": true,
+ "multiplicative_content_ceiling_nats": 0.7728,
+ "runtime_s": 51.2
+}

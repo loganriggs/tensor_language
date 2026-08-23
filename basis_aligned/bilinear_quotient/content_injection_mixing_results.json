@@ -1,0 +1,52 @@
+{
+ "pairs": {
+  " football+ ocean": {
+   "soloA": 0.604,
+   "soloB": 0.643,
+   "jointA": 0.717,
+   "jointB": 0.654,
+   "crossA_whenB": 0.116,
+   "crossB_whenA": 0.076
+  },
+  " hospital+ music": {
+   "soloA": 0.474,
+   "soloB": 0.645,
+   "jointA": 0.578,
+   "jointB": 0.678,
+   "crossA_whenB": 0.103,
+   "crossB_whenA": 0.063
+  },
+  " science+ church": {
+   "soloA": 0.499,
+   "soloB": 0.678,
+   "jointA": 0.551,
+   "jointB": 0.688,
+   "crossA_whenB": 0.049,
+   "crossB_whenA": 0.064
+  },
+  " army+ garden": {
+   "soloA": 0.46,
+   "soloB": 0.588,
+   "jointA": 0.554,
+   "jointB": 0.636,
+   "crossA_whenB": 0.089,
+   "crossB_whenA": 0.11
+  },
+  " computer+ medicine": {
+   "soloA": 0.421,
+   "soloB": 0.644,
+   "jointA": 0.534,
+   "jointB": 0.702,
+   "crossA_whenB": 0.113,
+   "crossB_whenA": 0.075
+  }
+ },
+ "solo_mean": 0.566,
+ "joint_mean": 0.629,
+ "cross_null_mean": 0.086,
+ "joint_over_solo_retention": 1.112,
+ "pred_0_specific": true,
+ "pred_a_additive_mixture": true,
+ "pred_b_modest_dilution": true,
+ "runtime_s": 75.2
+}

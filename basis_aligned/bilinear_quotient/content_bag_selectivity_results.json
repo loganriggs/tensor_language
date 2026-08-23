@@ -1,0 +1,36 @@
+{
+ "baseline_orig": {
+  "full_ce": 3.3233,
+  "class_ce": 0.7882,
+  "within_ce": 2.5351
+ },
+ "conditions": {
+  "all": {
+   "full_ce": 3.3233,
+   "class_ce": 0.7882,
+   "within_ce": 2.5351
+  },
+  "content_far": {
+   "full_ce": 3.7071,
+   "class_ce": 0.8912,
+   "within_ce": 2.8159
+  },
+  "function_far": {
+   "full_ce": 4.1906,
+   "class_ce": 0.955,
+   "within_ce": 3.2356
+  },
+  "none_far": {
+   "full_ce": 5.0788,
+   "class_ce": 1.1144,
+   "within_ce": 3.9644
+  }
+ },
+ "content_word_share": 0.804,
+ "function_word_share": 0.51,
+ "class_ce_spread": 0.3262,
+ "pred_0_null_ok": true,
+ "pred_a_bag_of_content": true,
+ "pred_b_grammar_local_control": false,
+ "runtime_s": 45.1
+}

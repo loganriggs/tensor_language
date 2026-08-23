@@ -1,0 +1,13 @@
+baseline {'full_ce': 3.3233, 'class_ce': 0.7882, 'within_ce': 2.5351}
+head 0: within-cost +0.0045
+head 1: within-cost +0.0032
+head 2: within-cost +0.0063
+head 3: within-cost +0.0008
+head 4: within-cost +0.0025
+head 5: within-cost +0.0105
+head 6: within-cost +0.0021
+head 7: within-cost +0.2904
+head 8: within-cost +0.0078
+all-heads within-cost 0.5202 (§998 L3-5 ~0.52) | per-head sum 0.3281 | top3 share 0.941
+pred_a head-concentrated True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_pooling_heads_results.json (55.9s)

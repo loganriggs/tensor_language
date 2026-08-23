@@ -365,7 +365,12 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    deep-middle is a high-rank CONTENT×CONTENT bilinear computation** — understood in FORM and organization, with the
    residual gap being the genuine high-dimensionality of the content (a real model property: it tracks a broad
    high-rank topic manifold), NOT a stand-in artifact. 90%-per-module is reached for front (tables), readout (rank-64
-   bilinear), and the pooler (mechanism); bounded for the deep-middle by the content's real high rank. **HIGH.**
+   bilinear), and the pooler (mechanism); bounded for the deep-middle by the content's real high rank.
+   **REFINEMENT (§1049): the deep-middle is ONE content computation, not ten.** The content deviation's top-64 PCA
+   subspaces are largely SHARED across L6-14 (pairwise overlap mean 0.577 vs 0.054 null; adjacent 0.65-0.82, decaying to
+   0.32 at 6-14) — one high-rank content subspace that slowly rotates through depth, each layer reading what the one
+   below wrote. So the frontier is high-rank but *unified*: a single content object across the band (tensor-network/DAG
+   intuition confirmed), not a stack of separate walls. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even

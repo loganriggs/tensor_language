@@ -1,0 +1,10 @@
+baseline (original) {'full_ce': 3.3233, 'class_ce': 0.7882, 'within_ce': 2.5351}
+   L0_2 (band 0-2): within-cost +0.0613 class-cost +0.0203
+   L3_5 (band 3-5): within-cost +0.5202 class-cost +0.1362
+   L6_8 (band 6-8): within-cost +0.0713 class-cost +0.0242
+  L9_11 (band 9-11): within-cost +0.0264 class-cost +0.0032
+ L12_14 (band 12-14): within-cost +0.0449 class-cost +0.0101
+ L15_17 (band 15-17): within-cost +0.0188 class-cost +0.01
+top content-gathering group L3_5 | early-sum 0.679 late-sum 0.064
+pred_a gathering early-middle True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_gathering_layers_results.json (51.8s)

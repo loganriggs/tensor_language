@@ -1,0 +1,9 @@
+L 1: R^2 interaction 0.4753 (lam 100.0) | R^2 full 0.5512 (lam 100.0) [ntr 16000]
+L 4: R^2 interaction 0.5626 (lam 1000.0) | R^2 full 0.547 (lam 1000.0) [ntr 16000]
+L 8: R^2 interaction 0.2704 (lam 100.0) | R^2 full 0.2519 (lam 100.0) [ntr 16000]
+L11: R^2 interaction 0.2331 (lam 1000.0) | R^2 full 0.2677 (lam 1000.0) [ntr 16000]
+L15: R^2 interaction 0.2328 (lam 1000.0) | R^2 full 0.3523 (lam 1000.0) [ntr 16000]
+SANITY full replicates §941 (front>0.7 & >mid): False
+front(L1) R^2_int 0.4753 vs mid(L8,11) 0.252  |  R^2_full front 0.5512 mid 0.260
+(a) interaction linearly-predictable at front, not middle: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/interaction_linear_predictability_results.json (39.2s)

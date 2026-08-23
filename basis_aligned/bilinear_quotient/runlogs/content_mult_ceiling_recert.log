@@ -1,0 +1,7 @@
+baseline {'full_ce': 3.4781, 'class_ce': 0.8216, 'within_ce': 2.6566}
+  lin_front: within-cost +0.9826 class-cost +0.2651 (full 4.7259)
+ lin_middle: within-cost +0.6419 class-cost +0.1562 (full 4.2764)
+    lin_all: within-cost +1.5456 class-cost +0.4236 (full 5.4473)
+lin_all within 1.5456 (§1000 1.594, delta -0.048) | front 0.9826 vs middle 0.6419
+pred_a draw-stable True | within>>class True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_mult_ceiling_recert_results.json (86.9s)

@@ -1,0 +1,10 @@
+ce_full 3.0852
+attn0: meanabl 0.269 | window-recovery 0.944 | shuffled-null -0.007
+attn1: meanabl 0.197 | window-recovery 0.825 | shuffled-null -0.703
+attn2: meanabl 0.127 | window-recovery 0.643 | shuffled-null -0.374
+attn3: meanabl 0.102 | window-recovery 0.488 | shuffled-null -0.274
+attn4: meanabl 0.217 | window-recovery 0.615 | shuffled-null -0.389
+attn5: meanabl 0.124 | window-recovery 0.089 | shuffled-null -0.126
+front attn (0-4) mean window-recovery 0.703 | attn5 0.089
+pred_a front local-window True | pred_b pooler exception True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bottomup_attn_window_results.json (68.3s)

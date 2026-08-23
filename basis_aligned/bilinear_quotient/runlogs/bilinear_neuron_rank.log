@@ -1,0 +1,8 @@
+L 1 (HID 4608): R2 by rank {'16': -0.0896, '64': -0.0203, '256': 0.1081, '1024': 0.4311, '4608': 1.0} | eff_rank_90 4608
+L 6 (HID 4608): R2 by rank {'16': -0.2031, '64': -0.1167, '256': 0.0638, '1024': 0.4116, '4608': 1.0} | eff_rank_90 4608
+L 8 (HID 4608): R2 by rank {'16': -0.085, '64': -0.0206, '256': 0.122, '1024': 0.3986, '4608': 1.0} | eff_rank_90 4608
+L11 (HID 4608): R2 by rank {'16': -0.1338, '64': -0.0722, '256': 0.0781, '1024': 0.3638, '4608': 1.0} | eff_rank_90 4608
+L15 (HID 4608): R2 by rank {'16': -0.3891, '64': 0.1612, '256': 0.2709, '1024': 0.4737, '4608': 1.0} | eff_rank_90 4608
+MIDDLE (L8/11/15): R2@256 0.157 | R2@1024 0.412 | eff-ranks [4608, 4608, 4608]
+pred_a middle is low-rank bilinear: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilinear_neuron_rank_results.json (73.5s)

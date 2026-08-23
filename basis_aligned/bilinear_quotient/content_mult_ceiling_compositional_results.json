@@ -1,0 +1,35 @@
+{
+ "baseline": {
+  "full_ce": 3.1385,
+  "class_ce": 0.736,
+  "within_ce": 2.4025
+ },
+ "conditions": {
+  "lin_front": {
+   "full_ce": 4.4317,
+   "class_ce": 1.0206,
+   "within_ce": 3.4111,
+   "within_cost": 1.0086,
+   "class_cost": 0.2846
+  },
+  "lin_middle": {
+   "full_ce": 3.9477,
+   "class_ce": 0.9002,
+   "within_ce": 3.0475,
+   "within_cost": 0.645,
+   "class_cost": 0.1642
+  },
+  "lin_all": {
+   "full_ce": 5.1815,
+   "class_ce": 1.1853,
+   "within_ce": 3.9962,
+   "within_cost": 1.5937,
+   "class_cost": 0.4493
+  }
+ },
+ "multiplicative_content_ceiling_nats": 0.645,
+ "ref_999_independent_fit_middle_within": 0.7728,
+ "pred_0_composition_lower_and_front_cheap": false,
+ "pred_a_mult_middle_is_content": true,
+ "runtime_s": 69.7
+}

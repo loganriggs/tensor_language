@@ -1,0 +1,46 @@
+{
+ "baseline": {
+  "full_ce": 3.2418,
+  "class_ce": 0.7736,
+  "within_ce": 2.4682
+ },
+ "per_group": {
+  "L0_2": {
+   "within_cost": 2.5015,
+   "class_cost": 0.8563
+  },
+  "L3_5": {
+   "within_cost": 2.4854,
+   "class_cost": 0.6995
+  },
+  "L6_8": {
+   "within_cost": 0.2677,
+   "class_cost": 0.0743
+  },
+  "L9_11": {
+   "within_cost": 0.148,
+   "class_cost": 0.0291
+  },
+  "L12_14": {
+   "within_cost": 0.0618,
+   "class_cost": 0.0122
+  },
+  "L15_17": {
+   "within_cost": 0.0322,
+   "class_cost": 0.0161
+  }
+ },
+ "banding_ref": {
+  "L0_2": 0.061,
+  "L3_5": 0.52,
+  "L6_8": 0.071,
+  "L9_11": 0.026,
+  "L12_14": 0.045,
+  "L15_17": 0.019
+ },
+ "top_group": "L0_2",
+ "pred_a_L35_top": false,
+ "pred_b_ablate_lower_than_band": false,
+ "pred_c_content_gt_grammar": true,
+ "runtime_s": 54.7
+}

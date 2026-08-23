@@ -1,0 +1,36 @@
+{
+ "baseline": {
+  "full_ce": 3.4781,
+  "class_ce": 0.8216,
+  "within_ce": 2.6566
+ },
+ "conditions": {
+  "lin_front": {
+   "full_ce": 4.7259,
+   "class_ce": 1.0867,
+   "within_ce": 3.6392,
+   "within_cost": 0.9826,
+   "class_cost": 0.2651
+  },
+  "lin_middle": {
+   "full_ce": 4.2764,
+   "class_ce": 0.9778,
+   "within_ce": 3.2985,
+   "within_cost": 0.6419,
+   "class_cost": 0.1562
+  },
+  "lin_all": {
+   "full_ce": 5.4473,
+   "class_ce": 1.2452,
+   "within_ce": 4.2022,
+   "within_cost": 1.5456,
+   "class_cost": 0.4236
+  }
+ },
+ "ceiling_all_within": 1.5456,
+ "ref_1000_all_within": 1.594,
+ "delta_vs_1000": -0.048,
+ "pred_a_draw_stable": true,
+ "pred_within_gg_class": true,
+ "runtime_s": 86.9
+}

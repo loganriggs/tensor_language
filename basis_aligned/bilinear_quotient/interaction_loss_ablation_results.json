@@ -1,0 +1,99 @@
+{
+ "baseline": {
+  "full_ce": 3.2147,
+  "class_ce": 0.7663,
+  "within_ce": 2.4484
+ },
+ "null_full_recompute": {
+  "full_ce": 3.215,
+  "class_ce": 0.7664,
+  "within_ce": 2.4486
+ },
+ "per_layer": {
+  "0": {
+   "full_ce": 4.8223,
+   "class_ce": 1.1539,
+   "within_ce": 3.6685,
+   "cost": 1.6076,
+   "within_cost": 1.2201,
+   "class_cost": 0.3876
+  },
+  "1": {
+   "full_ce": 3.7307,
+   "class_ce": 0.8894,
+   "within_ce": 2.8413,
+   "cost": 0.516,
+   "within_cost": 0.3929,
+   "class_cost": 0.1231
+  },
+  "2": {
+   "full_ce": 3.4468,
+   "class_ce": 0.8229,
+   "within_ce": 2.6239,
+   "cost": 0.2321,
+   "within_cost": 0.1755,
+   "class_cost": 0.0566
+  },
+  "4": {
+   "full_ce": 3.5926,
+   "class_ce": 0.8497,
+   "within_ce": 2.7428,
+   "cost": 0.3779,
+   "within_cost": 0.2944,
+   "class_cost": 0.0834
+  },
+  "8": {
+   "full_ce": 3.2518,
+   "class_ce": 0.7735,
+   "within_ce": 2.4782,
+   "cost": 0.0371,
+   "within_cost": 0.0298,
+   "class_cost": 0.0072
+  },
+  "11": {
+   "full_ce": 3.2442,
+   "class_ce": 0.7725,
+   "within_ce": 2.4717,
+   "cost": 0.0295,
+   "within_cost": 0.0233,
+   "class_cost": 0.0062
+  },
+  "15": {
+   "full_ce": 3.2459,
+   "class_ce": 0.7763,
+   "within_ce": 2.4696,
+   "cost": 0.0312,
+   "within_cost": 0.0212,
+   "class_cost": 0.01
+  },
+  "17": {
+   "full_ce": 3.43,
+   "class_ce": 0.8352,
+   "within_ce": 2.5948,
+   "cost": 0.2153,
+   "within_cost": 0.1464,
+   "class_cost": 0.0689
+  }
+ },
+ "band_front": {
+  "full_ce": 8.1089,
+  "class_ce": 1.828,
+  "within_ce": 6.2808,
+  "cost": 4.8942,
+  "within_cost": 3.8324,
+  "class_cost": 1.0617
+ },
+ "band_middle": {
+  "full_ce": 3.3014,
+  "class_ce": 0.7847,
+  "within_ce": 2.5167,
+  "cost": 0.0867,
+  "within_cost": 0.0683,
+  "class_cost": 0.0184
+ },
+ "pred_0a_null_ok": true,
+ "pred_0b_costs_nonneg": true,
+ "pred_a_front_inert_mid_loadbearing": false,
+ "pred_b_mid_content": true,
+ "runtime_s": 55.5
+}

@@ -1,0 +1,32 @@
+  [bilin18] K=1: within 4.2306 class 1.2144
+  [bilin18] K=2: within 3.672 class 1.0845
+  [bilin18] K=4: within 3.2037 class 0.9425
+  [bilin18] K=8: within 2.8976 class 0.8734
+  [bilin18] K=16: within 2.6853 class 0.8295
+  [bilin18] K=32: within 2.5401 class 0.7916
+  [bilin18] K=64: within 2.356 class 0.7847
+  [bilin18] K=128: within 2.2695 class 0.7731
+  [bilin18] K=200: within 2.2108 class 0.7714
+bilin18: content-drop 2.0198 vs grammar-drop 0.443 (ratio 4.56)
+  [bilin12] K=1: within 4.3655 class 1.2341
+  [bilin12] K=2: within 3.8295 class 1.1207
+  [bilin12] K=4: within 3.3688 class 0.9944
+  [bilin12] K=8: within 3.0827 class 0.9001
+  [bilin12] K=16: within 2.8102 class 0.8379
+  [bilin12] K=32: within 2.7105 class 0.8159
+  [bilin12] K=64: within 2.4865 class 0.802
+  [bilin12] K=128: within 2.4017 class 0.7842
+  [bilin12] K=200: within 2.3542 class 0.782
+bilin12: content-drop 2.0113 vs grammar-drop 0.4521 (ratio 4.45)
+  [swiglu18] K=1: within 4.2943 class 1.2164
+  [swiglu18] K=2: within 3.7074 class 1.1223
+  [swiglu18] K=4: within 3.1993 class 0.9522
+  [swiglu18] K=8: within 2.8862 class 0.8855
+  [swiglu18] K=16: within 2.6248 class 0.8117
+  [swiglu18] K=32: within 2.4467 class 0.7814
+  [swiglu18] K=64: within 2.2459 class 0.7521
+  [swiglu18] K=128: within 2.1566 class 0.7319
+  [swiglu18] K=200: within 2.0881 class 0.728
+swiglu18: content-drop 2.2062 vs grammar-drop 0.4884 (ratio 4.52)
+pred_a content-broad/grammar-local family-general True | swiglu ratio 4.52
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_contextlen_family_results.json (72.0s)

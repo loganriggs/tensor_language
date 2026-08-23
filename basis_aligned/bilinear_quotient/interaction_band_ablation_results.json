@@ -1,0 +1,105 @@
+{
+ "baseline": {
+  "full_ce": 3.2147,
+  "class_ce": 0.7659,
+  "within_ce": 2.4488
+ },
+ "null_full_recompute": {
+  "full_ce": 3.215,
+  "class_ce": 0.766,
+  "within_ce": 2.449,
+  "cost": 0.0003,
+  "within_cost": 0.0002,
+  "class_cost": 0.0001
+ },
+ "per_layer": {
+  "0": {
+   "full_ce": 4.8223,
+   "class_ce": 1.1516,
+   "within_ce": 3.6707,
+   "cost": 1.6076,
+   "within_cost": 1.2219,
+   "class_cost": 0.3857
+  },
+  "1": {
+   "full_ce": 3.7307,
+   "class_ce": 0.888,
+   "within_ce": 2.8427,
+   "cost": 0.516,
+   "within_cost": 0.3939,
+   "class_cost": 0.1221
+  },
+  "2": {
+   "full_ce": 3.4468,
+   "class_ce": 0.822,
+   "within_ce": 2.6248,
+   "cost": 0.2321,
+   "within_cost": 0.176,
+   "class_cost": 0.0561
+  },
+  "4": {
+   "full_ce": 3.5926,
+   "class_ce": 0.8486,
+   "within_ce": 2.744,
+   "cost": 0.3779,
+   "within_cost": 0.2952,
+   "class_cost": 0.0827
+  },
+  "8": {
+   "full_ce": 3.2518,
+   "class_ce": 0.773,
+   "within_ce": 2.4787,
+   "cost": 0.0371,
+   "within_cost": 0.0299,
+   "class_cost": 0.0071
+  },
+  "11": {
+   "full_ce": 3.2442,
+   "class_ce": 0.7721,
+   "within_ce": 2.4722,
+   "cost": 0.0295,
+   "within_cost": 0.0234,
+   "class_cost": 0.0062
+  },
+  "15": {
+   "full_ce": 3.2459,
+   "class_ce": 0.7759,
+   "within_ce": 2.47,
+   "cost": 0.0312,
+   "within_cost": 0.0212,
+   "class_cost": 0.01
+  }
+ },
+ "bands": {
+  "front": {
+   "joint": {
+    "full_ce": 8.1089,
+    "class_ce": 1.8234,
+    "within_ce": 6.2855,
+    "cost": 4.8942,
+    "within_cost": 3.8367,
+    "class_cost": 1.0575
+   },
+   "sum_single": 2.3557,
+   "superadd_ratio": 2.08
+  },
+  "middle": {
+   "joint": {
+    "full_ce": 3.7612,
+    "class_ce": 0.8852,
+    "within_ce": 2.876,
+    "cost": 0.5465,
+    "within_cost": 0.4272,
+    "class_cost": 0.1193
+   },
+   "sum_single": 0.4757,
+   "superadd_ratio": 1.15
+  }
+ },
+ "pred_0a_null_ok": true,
+ "pred_0b_joint_ge_max_single": true,
+ "pred_a_middle_superadditive": false,
+ "pred_b_middle_content": true,
+ "pred_c_front_more_additive": false,
+ "runtime_s": 51.3
+}

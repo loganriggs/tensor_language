@@ -1,0 +1,30 @@
+{
+ "layers": {
+  "8": {
+   "var_share": {
+    "loc": 0.067,
+    "cross": 0.203,
+    "ctx": 0.731
+   },
+   "ce_identity_full": 3.2148,
+   "cost_loc_only": 0.0348,
+   "cost_loc_cross": 0.0323,
+   "context_terms_fix_frac": 0.07
+  },
+  "11": {
+   "var_share": {
+    "loc": 0.089,
+    "cross": 0.257,
+    "ctx": 0.654
+   },
+   "ce_identity_full": 3.2147,
+   "cost_loc_only": 0.0312,
+   "cost_loc_cross": 0.0268,
+   "context_terms_fix_frac": 0.138
+  }
+ },
+ "ce_full": 3.2147,
+ "mean_context_var_share": 0.922,
+ "pred_a_content_in_context_terms": true,
+ "runtime_s": 97.0
+}

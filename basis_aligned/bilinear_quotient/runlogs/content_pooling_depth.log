@@ -1,0 +1,7 @@
+baseline (original) {'full_ce': 3.3233, 'class_ce': 0.7882, 'within_ce': 2.5351}
+    all_K8 (band 0-17): within-cost +1.1204 class-cost +0.2544
+  early_K8 (band 0-11): within-cost +0.9762 class-cost +0.2587
+   late_K8 (band 12-17): within-cost +0.1341 class-cost +0.024
+early within-cost 0.9762 vs late within-cost 0.1341 (ratio 7.28)
+pred_a pooled-early/read-late True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_pooling_depth_results.json (49.3s)

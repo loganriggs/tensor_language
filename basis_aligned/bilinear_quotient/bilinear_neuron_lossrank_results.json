@@ -1,0 +1,53 @@
+{
+ "ce_full": 3.2418,
+ "layers": {
+  "6": {
+   "meanabl_cost": 0.0478,
+   "loss_recovery_by_rank": {
+    "0": 0.0,
+    "16": 0.0615,
+    "64": 0.1098,
+    "256": 0.2409,
+    "1024": 0.5567
+   },
+   "eff_loss_rank_90": null
+  },
+  "8": {
+   "meanabl_cost": 0.0319,
+   "loss_recovery_by_rank": {
+    "0": 0.0,
+    "16": 0.0295,
+    "64": 0.0743,
+    "256": 0.1945,
+    "1024": 0.4411
+   },
+   "eff_loss_rank_90": null
+  },
+  "11": {
+   "meanabl_cost": 0.0269,
+   "loss_recovery_by_rank": {
+    "0": 0.0,
+    "16": 0.0328,
+    "64": 0.0925,
+    "256": 0.1875,
+    "1024": 0.4197
+   },
+   "eff_loss_rank_90": null
+  },
+  "15": {
+   "meanabl_cost": 0.1389,
+   "loss_recovery_by_rank": {
+    "0": 0.0,
+    "16": 0.724,
+    "64": 0.8031,
+    "256": 0.8255,
+    "1024": 0.8752
+   },
+   "eff_loss_rank_90": null
+  }
+ },
+ "mid_recovery_256": 0.362,
+ "ref_output_r2_256": 0.157,
+ "pred_a_loss_lower_rank": false,
+ "runtime_s": 96.0
+}
