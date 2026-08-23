@@ -252,6 +252,17 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    §978): grammar solved at any size, content the capacity sink + slow-yielding frontier. Method caveat: the §974
    within-top-class entropy metric was confounded (report class-entropy result only). **HIGH.**
 
+1j. **QK ROUTING — the softmax-free squared attention reverse-engineered (§981→984).** The attention weight is
+   an UNNORMALIZED PRODUCT of two bilinear score matrices: pattern = (q.k/D)*(q2.k2/D), causally masked. (1) Heads
+   SPECIALIZE by routing mode; (2) the two QK factors are NON-REDUNDANT (differ 6/9 heads), so the pattern is a
+   SIGNED CONJUNCTION of two distinct criteria — positive where they agree, NEGATIVE where they disagree, giving
+   SUPPRESSIVE "anti-heads" that route AWAY (impossible for non-negative softmax) (§982/981). (3) The range-robust
+   routing modes are RECENCY and INDUCTION, NOT content-similarity — the apparent content-similarity was a recency
+   confound, retracted via a long-range control (§983). (4) INDUCTION routing is FRONT/MID-peaked (peak L5, gone by
+   L11+, §984), confirming §954 at the pattern level. (5) Since attention does NOT route by content, the topic
+   EMERGES from broad ~uniform/recency POOLING (unifies §932 bag-of-words: routing is not content-selective). Exact
+   pattern captured via verbatim-copy monkeypatch. **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
