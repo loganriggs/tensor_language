@@ -2264,6 +2264,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   The high-dimensional content map is the family's shared way of holding context — not an accident of this particular
   network.</p>
 
+  <p>These directions are not just descriptive — they are causal. If you take one passage's coordinates along this
+  content map and splice them into the network's run on a <em>different</em> passage, the model's predictions swing
+  toward the first passage's topic; splicing the same number of random directions does almost nothing. Just sixteen of
+  the top content directions produce tens of times the effect of sixteen random ones. So the middle really is reading
+  and using this topic map to decide what comes next — the content frontier is a working mechanism, located, readable,
+  and causally load-bearing, not a residual we simply failed to model.</p>
+
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
   output for each current token) instead of a linear map, and comparing. The table does <em>worse</em>, not better
