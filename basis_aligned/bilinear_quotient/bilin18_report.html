@@ -2449,7 +2449,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   share of the top guess falls from ~0.88 to ~0.59), whereas on the content-hard positions the readout cannot make
   that move and the function-word default simply persists. So the readout's real job is to override a grammar-shaped,
   frequency-driven prior with the specific content word, and a mistake is that override failing when the content is
-  too hard to call — the same content bottleneck, seen one more way.</p>
+  too hard to call — the same content bottleneck, seen one more way. And the model knows when it is in that
+  situation: it is almost perfectly calibrated (its top-token confidence matches its accuracy to within a
+  percentage point, and its part-of-speech confidence nearly so), confident and accurate on grammar (~0.72) and
+  appropriately unsure on content (~0.38). The hedge, then, is not blind failure but well-calibrated deferral on
+  content the model genuinely cannot resolve.</p>
   <p>How much of that hard part is even learnable? Watching the two components as context accumulates
   answers it. The grammar cost is essentially paid by the first few tokens and barely moves after —
   it needs almost no context. The word-choice cost does fall as context builds, by about 1.1 nats from
