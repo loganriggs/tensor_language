@@ -28898,3 +28898,24 @@ product, not of factor specialization. This CLOSES the bilinear-MLP-factor quest
 the two factors do not divide into gate/content; both always vary; the linearity is post-Down. (v2 corrects §988's
 mean-freeze confound.) The distinctive bilinear MLP has no interpretable factor split — its multiplicativeness is
 a genuine two-varying-factor interaction whose loss-relevant nonlinearity is read out (or not) by Down per layer.
+
+## §990 — REFUTES §989's reconciliation: the interaction dominates the Down-output at ALL layers, front included (bilinear_down_readout.py)
+
+Decompose product = const + linear-in-x (a*w+b*u) + interaction (u*w); apply Down to each; output-variance share
+(exact reconstruction, recon-resid 0.0 everywhere):
+  layer:            L1     L4     L8     L11    L15
+  linear-share      0.063  0.022  0.033  0.084  0.141
+  interaction-share 0.937  0.978  0.967  0.916  0.859
+pred (a) front-linear-readout FALSE. The INTERACTION term (u*w) DOMINATES the Down output variance at EVERY layer
+(~86-98%), INCLUDING the front (L1 0.937). So §989's inferred reconciliation ("Down reads out the linear part and
+discards the interaction at the front") is REFUTED — the interaction is present and dominant everywhere; Down does
+NOT project it out at the front.
+This is my SECOND wrong inference on this fine sub-question (§989's near-constant gate, then §989's Down-projection)
+— stated plainly. The DATA-GROUNDED facts are: (§941, clean+certified) front MLP output is 90-98% LINEARLY
+recoverable from input, middle ~38%; (§989) both factors vary equally (no gate); (§990) the interaction dominates
+the output variance at all layers. The ONLY consistent reconciliation left: the interaction term u*w, though it
+dominates the output VARIANCE, must itself be LINEARLY PREDICTABLE from x at the FRONT (a quadratic that collapses
+to ~linear over the data) but NOT at the middle. I will TEST this directly (not assert it, given two prior wrong
+inferences): fit a linear map x -> Down(u*w) and compare R^2 front vs middle. Correcting the artifact to the plain
+certified §941 statement (front near-linear output, middle multiplicative) WITHOUT the refuted factor-level
+mechanism until the direct test settles it.
