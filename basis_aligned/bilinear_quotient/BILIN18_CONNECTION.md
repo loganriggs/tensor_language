@@ -30596,3 +30596,21 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - (pred_a scored FALSE only on a razor's-edge gate — it required > 2× random-map; 0.691 is 1.95×. The finding holds: 93% of within-model, clearly above the floor. The pooled-coordinate method's within-model bound is 0.745 vs §1062's per-layer 0.80, so absolute numbers are a touch lower by construction; the cross/within RATIO is the fair quantity.)
 
 **What this completes.** The universality arc is now causal across ARCHITECTURES: the content representation is not just correlated across width/depth (§1063) but functionally interchangeable across them (§1066), just as §1062 showed for same-width. Independently-trained bilinear LMs of different sizes converge on a content representation that is portable — one model's context representation, linearly mapped, drives another's computation at >90% effectiveness regardless of width or depth. **Controls:** within-model upper bound (0.745), random-map floor (0.354). **Caveat:** pooled single-vector injection (bridges the depth mismatch) is coarser than §1062's per-layer; a per-layer cross-depth correspondence might close the last 7%.
+
+## §1067 — The content is a BROAD prediction support, NOT a content-word-specific mechanism (hypothesis refuted)
+
+**Question:** if the deep-middle content is a topic representation, does ablating it hurt CONTENT/topical (rare) word prediction more than FUNCTION (frequent) word prediction? Project the top-K=256 content subspace OUT of the deep-middle stream (L6-14) and measure per-target-token loss increase binned by target frequency (rare=content, frequent=function), vs a random-K subspace control. (`content_ablation_by_tokentype.py`, 240 rows, 61k targets.)
+
+**Registered predictions:** (a) content ablation hurts low-freq (content) targets disproportionately (content low/high ratio > random's).
+
+**Result — pred_a FALSE:**
+
+| target logfreq (low→high) | 0.9 | 1.8 | 3.0 | 4.5 | 6.2 | 7.6 |
+|---|---|---|---|---|---|---|
+| content-ablation loss+ | 10.75 | 10.66 | 9.83 | 8.33 | 6.56 | 6.38 |
+| random-ablation loss+ | 7.09 | 6.91 | 5.87 | 5.08 | 2.85 | 2.33 |
+
+- **Both ablations hurt RARE tokens more** (general difficulty: rare tokens need more of the computation), and RANDOM has the STEEPER frequency gradient (low/high ratio 3.04 vs content's 1.69). So content ablation does NOT specifically target content/topical words — pred_a refuted.
+- **The content's EXCESS over random is relatively LARGER for FREQUENT (function) tokens** (content/random = 2.74× at high-freq vs 1.52× at low-freq). The content subspace is used heavily even for function-word prediction (+6.4 nats to remove it, vs random +2.3). So the deep-middle content is a BROAD prediction-support representation — carrying the context needed for coherent prediction across the board — not a content-word-specific topic lookup.
+
+**Honest confound (bounds the claim).** K=256 projection after every deep-middle block is near-total destruction (compounding, §1056), so this compares two catastrophic ablations; the frequency profile may partly reflect general token difficulty rather than the content's specific function. A low-K (modest, non-destructive) version is queued (§1068) to check whether the "broad, not content-word-specific" pattern survives outside the destructive regime. **Controls:** random-K subspace (weaker at every frequency, but steeper gradient). **Net (pending §1068):** the content supports prediction broadly, refuting the simple "content = content-word predictor" hypothesis; the topic representation is used for coherent prediction of function words too.
