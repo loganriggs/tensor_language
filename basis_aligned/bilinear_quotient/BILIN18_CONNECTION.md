@@ -30801,4 +30801,27 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 - **The DEEP-MIDDLE content MLPs have a DIFFUSE gate:** forcing self-product costs little in absolute terms (+0.09-0.14), only ~2-3× the permute-null — the gate is relatively insensitive to the specific Left/Right factor split. Consistent with the content being a high-rank product where no precise two-criterion conjunction dominates. (Caveat: deep-middle MLPs are low-stakes, so absolute costs are small and interpretation is limited.)
 - **pred_a REVERSED:** I predicted the deep-middle would be the strong conjunction; instead the strong two-distinct-factor gate lives in the FRONT (grammar), and the deep-middle content gate is diffuse.
 
-**Tension with §842 (flagged, not overturned).** §842 called mlp0 a "self-product/sharpening." §1077 finds forcing mlp0 to an actual self-product is catastrophic (+2.4). These measure different things — §842 analyzed the bilinear form's structure restricted to the CLASS subspace (where it may act as a sharpening), while §1077 tests functional replaceability of Right by Left over the FULL output. Not a clean correction; worth reconciling if the front-gate structure is revisited. **Nulls:** permute-Right (per MLP). **Caveat:** low deep-middle stakes limit the diffuse-gate claim to "relatively insensitive," not "Right is useless."
+**Tension with §842 (RESOLVED in §1078 — mlp0 is a MIX of self-square class units + conjunction neurons; both results stand).** §842 called mlp0 a "self-product/sharpening." §1077 finds forcing mlp0 to an actual self-product is catastrophic (+2.4). These measure different things — §842 analyzed the bilinear form's structure restricted to the CLASS subspace (where it may act as a sharpening), while §1077 tests functional replaceability of Right by Left over the FULL output. Not a clean correction; worth reconciling if the front-gate structure is revisited. **Nulls:** permute-Right (per MLP). **Caveat:** low deep-middle stakes limit the diffuse-gate claim to "relatively insensitive," not "Right is useless."
+
+## §1078 — §842 ↔ §1077 RECONCILED: mlp0 is a MIX of self-square (class) and conjunction neurons
+
+**Question:** §842 found mlp0's top-24 CLASS units are a self-square (Left & Right read the same class, sharpening); §1077 found forcing the FULL mlp0 to self-product costs +2.4 nats (Left/Right generally distinct). I flagged this as a tension. Resolve it: per-neuron activation correlation corr(Left(x)_i, Right(x)_i) for mlp0, then force self-product (Right:=Left) restricted to the HIGH-corr vs LOW-corr quartile. (`gate_reconcile.py`, 160 rows.)
+
+**Registered predictions:** (a) mlp0 is a reconciled MIX — a self-square subset (corr>0.7) exists, and forcing self-product on the LOW-corr quartile costs ≫ the HIGH-corr quartile.
+
+**Result — pred_a TRUE, cleanly reconciled:**
+
+| measure | value |
+|---|---|
+| mlp0 neurons with corr(Left,Right) > 0.7 | 1.0% (self-square subset) |
+| mlp0 neurons with \|corr\| > 0.5 | 13.4% |
+| force self-product cost — HIGH-corr quartile | **+0.026** |
+| force self-product cost — LOW-corr quartile | **+1.703** |
+| force self-product cost — random quartile | +0.041 |
+| mlp8 (content) neurons with corr>0.7 | 0.04% |
+
+- **mlp0 is a MIX:** ~1% of neurons are near-self-square (corr>0.7 — consistent with §842's top-24 class units ≈ 0.5% of HID=4608), while the majority have distinct Left/Right (low corr). Forcing self-product on the HIGH-corr quartile is ~free (+0.026 — those neurons already act as self-squares), but on the LOW-corr quartile it is catastrophic (+1.703, a 67× split). The random quartile is cheap (+0.041), so the +2.4-nat global cost (§1077) is concentrated in a specific set of low-corr, high-impact conjunction neurons.
+- **§842 and §1077 are both correct** and describe DIFFERENT neuron subsets: §842's class-writing units are the self-square subset (sharpening class); §1077's catastrophic global force-self-product comes from the conjunction majority. TENSION RESOLVED — not a correction to either, a decomposition of mlp0 into self-square (class-sharpening) + conjunction (two-distinct-factor) neurons.
+- mlp8 (deep-middle content) has essentially NO self-square neurons (0.04% corr>0.7), consistent with §1077's diffuse content gate.
+
+**§1077 CORRECTION propagated:** the "flagged tension with §842" (§1077) is now RESOLVED — mlp0 is a mix; both prior results stand. **Controls:** random-quartile force (cheap, confirms the cost is subset-specific, not generic); high vs low corr split. **Caveat:** activation-correlation is a proxy for §842's class-readout identity; the 67× high/low split is robust.
