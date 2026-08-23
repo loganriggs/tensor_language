@@ -29824,3 +29824,28 @@ measure the content effect on the RAW LOGITS (pre-softmax) instead of log-probs 
 trigger/non-trigger, the content computation is independent and the log-prob 2x is softmax coupling. Queued §1031.
 ROBUST across §1027-1030: INDUCTION independent of content (copy retention 0.97); content-side shows a log-prob-level
 amplification when induction fires, whose origin (computation interaction vs softmax coupling) §1031 will settle.
+
+## §1031 — the content↔induction interaction is REAL at the logit level (not softmax); an ASYMMETRIC interaction. Capstone of §1027-1031 (mechanism_content_from_induction_logits.py)
+
+Density-matched control measured on RAW LOGITS (pre-softmax), content effect (W topic-neighbor logit boost):
+  induction-TRIGGER (last=A) 0.838 | NON-trigger (last=D) 0.466 | retention 1.80
+pred_a (content-computation independent, logit retention ~1) FALSE. The ~1.8x amplification SURVIVES in logit space,
+so it is NOT softmax coupling (softmax cannot affect raw logits). Combined with §1030 (not content-density) and §1029
+(not last-token identity), the effect is REAL at the computation level.
+CAPSTONE of the content↔induction independence saga (§1027-1031), five controls each peeling away a candidate
+confound -- stated plainly as the honest path:
+  §1027 last-token PRESENCE confound -> §1028 reduced, residual -> §1029 NOT last-token identity -> §1030 NOT
+  content-density (density-matched, still ~2x) -> §1031 NOT softmax coupling (logit-space, still ~1.8x).
+ROBUST CONCLUSION -- an ASYMMETRIC interaction:
+  - INDUCTION is INDEPENDENT of content: the copy strength is unchanged by content injection (retention 0.97, §1027-
+    1028).
+  - CONTENT is NOT independent of induction: when the last token repeats an earlier token (the induction condition),
+    a content word's contribution to the logits is ~1.8x LARGER than in a density- and last-token-type-matched
+    non-induction condition (§1030/§1031).
+MECHANISM (unresolved, leading hypothesis stated as hypothesis): induction fires by attending from the current token
+(pos 149) back to the earlier matching token (pos 5) to copy its successor; that same attention plausibly carries the
+CONTENT of the matched region forward -- and the injected content word W (pos 3) sits right beside the match (pos 5),
+so induction attention may incidentally amplify nearby content. NOT verified (would need W placed far from the match).
+I have isolated the interaction robustly (5 controls) but not explained its mechanism; winding down this secondary
+question -- it does NOT affect the core three-mechanism account, it refines it: the mechanisms are mostly independent,
+with a one-way induction->content output amplification.
