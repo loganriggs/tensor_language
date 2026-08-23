@@ -1910,6 +1910,24 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   content is what produces the order-insensitive bag-of-words topic — and grammar, computed locally from the
   current token, barely needs it.</p>
 
+  <p><strong>The shape of the pooling.</strong> Three experiments pin down exactly how broad this bag of words is,
+  which words go in it, and where the gathering happens — by clamping each attention layer to a sliding window of the
+  last K tokens and watching the cost. First, <em>how far back</em>: shrink the window to a single token and content
+  cost jumps by 1.9 nats while grammar cost rises only 0.5 — content is about four times as context-hungry as
+  grammar. Widening the window helps content all the way out to the full 256-token context, with no saturation and
+  steadily diminishing returns: every doubling of the window adds a bit more topic. So the content window is not a
+  fixed span but the whole available history, weighted toward recent tokens. Second, <em>which words</em>: restrict
+  the far context to only content words (nouns, capitalized words, numbers) and content prediction keeps 80% of what
+  the full context gave it; restrict it to only function words and it keeps about half. The bag is mostly a bag of
+  content words, and it is redundant — either half of the words alone recovers most of the topic, because the gist is
+  over-determined by many tokens. Third, <em>where the gathering happens</em>: clamp the window only in the early and
+  middle layers (0–11) and content cost rises 0.98 nats; clamp it only in the late layers (12–17) and it rises just
+  0.13 — seven times less. Content is gathered from the broad context in the first two-thirds of the stack and pooled
+  into each position's residual, so by the late layers it is already sitting locally and can be read straight off the
+  current position. That resolves an apparent paradox from earlier work — that the content at layer 15 is best
+  reconstructed from the current token, as if it were local. It <em>is</em> local by layer 15, but only because the
+  broad gathering already finished upstream.</p>
+
   <p><strong>Where every nat goes.</strong> All of this lands in one budget. The model takes the average
   next-token cost from 7.17 nats (guessing from word frequencies alone) down to 3.24, split as 0.76 grammar +
   2.48 content. Sort the tokens by <em>what kind of prediction they are</em> and the loss concentrates sharply.
