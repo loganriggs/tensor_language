@@ -263,6 +263,17 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    EMERGES from broad ~uniform/recency POOLING (unifies §932 bag-of-words: routing is not content-selective). Exact
    pattern captured via verbatim-copy monkeypatch. **HIGH.**
 
+1k. **ARCHITECTURAL MECHANISMS — value residual & x0 re-injection ground the two machines (§985→987).** The model
+   keeps the original token available at every layer via two re-injections, both heavily used (learned weights
+   large): (1) the VALUE RESIDUAL mixes the first block's ORIGINAL token values into every block's attention
+   (lamb -4..+4.6); ablating it DOUBLES the loss (+3.33 nats) and damages CONTENT 3.8x more than grammar — it is
+   the bag-of-words CONTENT-aggregation substrate (§932), genuine and graded (§986). (2) The x0 EMBEDDING
+   RE-INJECTION (lambda1~8, saturated) DOMINATES each block's input (~8/9 embedding), the reason class is
+   re-derived from the ever-present token every block (§962); ablating it costs +2.34 nats. Both are CONTENT-HEAVY;
+   x0 is only RELATIVELY more grammar-weighted (ratio 2.96 vs value residual 3.84) — a relative shift, NOT a clean
+   grammar-vs-content dissociation (my dissociation hypothesis corrected, §987). Caveat: full ablations are
+   off-distribution (both graded, so genuine, with a near-zero nonlinear tail). **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
