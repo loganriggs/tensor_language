@@ -30415,3 +30415,23 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 3. **But loss-per-variance is NOT flat (spread 20.7×), so "uniformly load-bearing" is falsified.** The profile is U-shaped: top dominates absolute loss; the bottom has the highest loss-per-variance.
 
 **Honest confound (bounds claim 3).** The bottom SVD directions of the *content* deviation have near-zero content variance and may overlap NON-content directions (grammar/positional/frequency) that the deep-middle stream also carries; projecting them out damages those, inflating the bottom band's loss beyond its content role. So the high bottom loss-per-variance does NOT cleanly prove low-content-variance directions are load-bearing *content* — it may be collateral damage. Also the absolute magnitudes are inflated by compounding (projection applied after all 9 blocks). The clean, robust conclusions are (1) and (2): the content is causally real, top-heavy in absolute loss, and privileged over random across its spectrum; the specific "flat per-variance" prediction is falsified and its interpretation is confounded. **Net:** causally, the content matters enormously and its full subspace (not just the top) beats random — consistent with genuinely high-rank load-bearing content, but this experiment does not cleanly establish per-dimension uniformity.
+
+## §1057 — The high-dimensional interpretable topic/register content manifold is UNIVERSAL across the bilinear family (bilin12, swiglu18, bilin18)
+
+**Question (generalization):** is the deep-middle finding (§1049-1055) — one high-rank, semantically-organized topic/register content object — specific to bilin18, or a general property of the bilinear-family LMs? Replicate the core measurement on two family models via their own forward + hooks: bilin12 (12L, D=768) and swiglu18 (18L, D=1152). For each, capture middle MLP-input, form the content deviation, PCA it, report the top-10 PCs' variance fraction and the extremal context snippets of the top axes. Same FineWeb corpus (GPT-2 ids valid in the models' padded 50304 vocab). (`crossmodel_content.py`, 300 rows, ref layers bilin12 [5,6,7] / swiglu18 [8,10,12].)
+
+**Registered predictions:** (a) universal high-rank — top-10 content var frac small (<0.25) in both; (b) universal interpretability — top axes decode to topic/register contrasts.
+
+**Result — BOTH predictions TRUE:**
+
+| model | layers | D | top-10 content var frac |
+|---|---|---|---|
+| bilin18 (ref) | 18 | 1152 | 0.116 |
+| bilin12 | 12 | 768 | 0.186 |
+| swiglu18 | 18 | 1152 | 0.158 |
+
+- **(a) Universal high-rank:** both family models have a high-rank middle content — top-10 PCs explain only 0.16-0.19 of variance (like bilin18's 0.12). No handful of dominant themes; a great many readable axes. High-rank content is a GENERAL family property, not a bilin18 quirk.
+- **(b) Universal interpretability — the SAME axes recur.** Despite PCA being an arbitrary rotation within the subspace, the same topic/register contrasts appear across all three models: encyclopedic/scientific ↔ casual-dialogue (bilin18 PC0; bilin12 PC2 "degus endemic to Chile / US Dept of State" vs "double play I mean / being blonde"; swiglu18 PC0 "matorral western slopes of the Andes / Nuclear Regulatory Commission" vs "stare at / brain disconnect"), moral-religious ↔ business/casual (bilin12 PC3, swiglu18 PC3 "rose to heaven … Buddha born speaking" vs craft-blog), personal ↔ economic-analytical (swiglu18 PC2 "knocked my water bottle / born Jan" vs "economy recovers / gas prices / vaccine development is economic").
+- **Strikingly, the SAME extremal contexts recur across models** — "matorral … western slopes of the Andes", "Where your treasure is, there will your heart be also", the double-play "I mean,", "it is also important to bear in mind", "NY Animation is a perpetually a green traffic light" — appear as top activators in bilin18 AND the family models. The content manifold's principal structure is shared across independently-trained bilinear LMs.
+
+**What this establishes.** The whole account generalizes: a high-dimensional, semantically-organized topic/register content manifold in the middle of the network is a UNIVERSAL property of these bilinear-family LMs, with recurring interpretable axes and even shared extremal contexts across models of different depth and width. The bilin18 frontier is not idiosyncratic — it is the family's way of representing context. **Caveat:** PCA axes are rotations of the native features; the recurrence of interpretable contrasts and specific extremal contexts across models is the robust claim, not that these exact PCA directions are canonical. bilin12/swiglu18 recovery/loss-level replication (not just subspace structure) would further strengthen it.

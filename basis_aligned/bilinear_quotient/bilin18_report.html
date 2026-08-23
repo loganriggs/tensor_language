@@ -2256,6 +2256,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   real distinction, and it is the sheer number of them — not any single hard-to-read computation — that keeps the last
   slice of the model from collapsing into a small stand-in.</p>
 
+  <p>This turns out not to be a quirk of one network. Running the same measurement on two sibling models — a shallower
+  12-layer bilinear model and an 18-layer variant with a different feed-forward — finds the same thing: a high-rank
+  middle content whose top ten directions again cover only about a sixth of the variance, and whose principal axes read
+  as the same topic-and-register contrasts (encyclopedic versus conversational, moral versus commercial, personal
+  versus economic). The same handful of passages even sit at the extremes across all three independently trained models.
+  The high-dimensional content map is the family's shared way of holding context — not an accident of this particular
+  network.</p>
+
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
   output for each current token) instead of a linear map, and comparing. The table does <em>worse</em>, not better
