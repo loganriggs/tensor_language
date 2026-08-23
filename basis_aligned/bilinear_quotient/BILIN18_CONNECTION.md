@@ -31556,3 +31556,11 @@ alpha_probe_results.json; runlogs/alpha_probe.log (48s).
 Dossier updated: middle-attention unknown #2 goes from "graveyard" to "named at subspace level (nonlinear content-state saturation); hand-feature graveyard stands as the list of what it is NOT."
 
 alpha_name_results.json; runlogs/alpha_name.log (54s).
+
+## §1142 — Open-problem #4 closes NEGATIVE at n-gram grain: class-TRIGRAM legality also fails to separate soup from salad (drop ratio 0.83 — content-ablation breaks sequence statistics as badly as grammar-ablation); the readable difference is content-SUPPORT, already captured by cw-rate (saved-text analysis, no GPU)
+
+Re-scored the saved §1136 generations with a class-trigram legality metric (236 triples = 95% of base mass) and punctuation rate:
+- trigram-legal: base 0.951, random-control 0.858, content-abl **0.560**, grammar-abl 0.625, vres-off 0.724. The soup violates class-sequence statistics MORE than the salad does (a run of orphaned determiners is illegal at trigram grain too). Punctuation rate: both ablations elevated (0.27 / 0.33), grammar higher but not separating.
+**Closure, stated plainly:** the two phenotypes cannot be separated by ANY n-gram class statistic tried (bigram §1136, trigram here) — because both destroy local class sequences; what a human reads instantly is the CONTENT-SUPPORT asymmetry (structure-words-without-content vs content-words-without-structure), and that axis is already quantified by the content-word rate (separates 1.6-6.9× across the family) plus repetition for loop-type failures (swiglu18). A parser-level metric (constituency well-formedness) is the genuine next escalation and is out of this program's scope. Open-problems item #4 → closed: the phenotype distinction is real, readable, and quantified on the content axis; sequence-statistics quantification of the grammar axis is a stated tooling boundary.
+
+gen_structmetric_results.json.

@@ -4876,3 +4876,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1139 — readout ceiling = THREE-FAMILY LAW (fitted quadratic +0.01; train R² rises, held-out doesn't); mlp16/17 final at 0.82/0.86; open-problem #5 hardened (readout_bilinear_fit.py)
 §1140 — mass driver DECODABLE (MLP probe R² 0.931 vs feature baseline 0.094); §1134 closure amended (feature vocabulary failed, not representability); naming decomposition queued (alpha_probe.py)
 §1141 — mass driver NAMED: nonlinear content-state saturation (content-64 probe 0.755 of full 0.931; norm-only −0.002; pool-hard-when-thin, throttle-when-full; small-t ratio caveat flagged); open-problem #3 closes positive (alpha_name.py)
+§1142 — open-problem #4 closed negative at n-gram grain (trigram ratio 0.83 — soup breaks sequences as badly as salad); separator = content-support asymmetry (cw-rate, already quantified); parser-level metric out of scope (saved-text analysis)
