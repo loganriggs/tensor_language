@@ -1,0 +1,41 @@
+{
+ "n_positions": 20400,
+ "conds": {
+  "full9": {
+   "kl": 8.016,
+   "alignment": 0.8994
+  },
+  "last1": {
+   "kl": 5.8479,
+   "alignment": 0.7843
+  },
+  "full9_strip": {
+   "kl": 2.5883,
+   "alignment": 0.4368
+  },
+  "last1_strip": {
+   "kl": 1.152,
+   "alignment": 0.2939
+  },
+  "strip_only": {
+   "kl": 0.0,
+   "alignment": 0.0001
+  },
+  "r256": {
+   "kl": 2.4625,
+   "alignment": 0.6693
+  }
+ },
+ "excess_over_r256": {
+  "full9": 0.2301,
+  "last1": 0.115,
+  "full9_strip": -0.2325,
+  "last1_strip": -0.3754,
+  "strip_only": -0.6692,
+  "r256": 0.0
+ },
+ "pred_a_consequences_real": false,
+ "pred_b_last1_coords_only": true,
+ "pred_c_additive": false,
+ "runtime_s": 36.5
+}
