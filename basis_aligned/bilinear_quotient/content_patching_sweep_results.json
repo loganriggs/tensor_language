@@ -1,0 +1,52 @@
+{
+ "KS": [
+  16,
+  64,
+  256
+ ],
+ "abl_range": [
+  6,
+  14
+ ],
+ "n_positions": 20400,
+ "perK": {
+  "16": {
+   "content": {
+    "kl": 2.3677,
+    "alignment": 0.5783
+   },
+   "random": {
+    "kl": 0.0381,
+    "alignment": 0.1403
+   },
+   "align_excess": 0.438,
+   "kl_ratio": 62.21
+  },
+  "64": {
+   "content": {
+    "kl": 5.0083,
+    "alignment": 0.7696
+   },
+   "random": {
+    "kl": 0.2278,
+    "alignment": 0.3029
+   },
+   "align_excess": 0.4666,
+   "kl_ratio": 21.98
+  },
+  "256": {
+   "content": {
+    "kl": 7.3465,
+    "alignment": 0.8995
+   },
+   "random": {
+    "kl": 2.0812,
+    "alignment": 0.6689
+   },
+   "align_excess": 0.2306,
+   "kl_ratio": 3.53
+  }
+ },
+ "pred_a_excess_concentrated_small_K": true,
+ "runtime_s": 60.1
+}

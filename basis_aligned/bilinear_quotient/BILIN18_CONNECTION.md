@@ -30473,3 +30473,22 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - **pred_a scored FALSE only on the strict 1.5× alignment-ratio gate** (0.90 vs 0.67 = 1.35×). That gate was too aggressive: patching ANY 256-dim subspace injects substantial source information, so the random baseline alignment is already high (0.67); the honest discriminators are the 3.5× KL gap and the near-ceiling 0.90 content alignment, both of which support the claim.
 
 **Net:** the deep-middle content subspace is not just correlated with topic (§1055) and load-bearing for loss (§1056) — it CAUSALLY carries the topic the rest of the model reads. **Controls:** equal-dimension random subspace (weaker on both metrics). **Caveat:** the random baseline is inflated by the large patch dimension; a size-matched sweep (K=16,64,256) or a content-vs-matched-variance-random control would sharpen the excess, but the direction and magnitude are clear.
+
+## §1060 — Content-patching K-sweep: a few top content directions transport topic (closes §1059's caveat)
+
+**Question:** §1059's one caveat was that its random-subspace control was inflated by the large K=256 patch (any big subspace injects generic source info). Sweep K∈{16,64,256}: if the content excess is concentrated in the TOP directions, content>>random at small K and the gap shrinks as K grows. Same activation-patching design as §1059. (`content_patching_sweep.py`, 80 pairs.)
+
+**Registered predictions:** (a) content-vs-random excess (KL ratio) LARGER at small K; (b) report per-K.
+
+**Result — pred_a TRUE, decisively:**
+
+| K | content KL | random KL | KL ratio | content align→src | random align→src |
+|---|---|---|---|---|---|
+| 16 | 2.37 | 0.038 | **62×** | 0.578 | 0.140 |
+| 64 | 5.01 | 0.228 | **22×** | 0.770 | 0.303 |
+| 256 | 7.35 | 2.081 | 3.5× | 0.900 | 0.669 |
+
+- **A few top content directions carry the topic:** just 16 content directions move the target's output 0.58 (cosine) toward the source and produce **62×** the KL of 16 random directions (which barely do anything: KL 0.038, alignment 0.14). At K=64 the content alignment is 0.77 (22× KL). The alignment EXCESS over random peaks at K=64 (0.47) — the top ~64 content directions (the interpretable ones, §1055) are the sweet spot for topic transport.
+- **§1059's caveat is closed:** the near-tie in alignment at K=256 (0.90 vs 0.67) was purely a large-patch artifact — random subspaces only start transporting info once big enough to capture appreciable variance by chance. At the honest small-K regime the content subspace dominates by 20-60×.
+
+**Net:** the deep-middle content subspace CAUSALLY transports topic, and the effect is concentrated in its top ~16-64 (interpretable) directions — 20-60× the causal effect of same-size random subspaces. Together §1055 (interpretable axes) + §1056 (load-bearing) + §1059/§1060 (causal topic transport, concentrated in the top directions) give a complete causal account of the content frontier. **Controls:** size-matched random subspace at every K (weak, as it should be).
