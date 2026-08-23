@@ -30435,3 +30435,22 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - **Strikingly, the SAME extremal contexts recur across models** — "matorral … western slopes of the Andes", "Where your treasure is, there will your heart be also", the double-play "I mean,", "it is also important to bear in mind", "NY Animation is a perpetually a green traffic light" — appear as top activators in bilin18 AND the family models. The content manifold's principal structure is shared across independently-trained bilinear LMs.
 
 **What this establishes.** The whole account generalizes: a high-dimensional, semantically-organized topic/register content manifold in the middle of the network is a UNIVERSAL property of these bilinear-family LMs, with recurring interpretable axes and even shared extremal contexts across models of different depth and width. The bilin18 frontier is not idiosyncratic — it is the family's way of representing context. **Caveat:** PCA axes are rotations of the native features; the recurrence of interpretable contrasts and specific extremal contexts across models is the robust claim, not that these exact PCA directions are canonical. bilin12/swiglu18 recovery/loss-level replication (not just subspace structure) would further strengthen it.
+
+## §1058 — Cross-model LOSS-LEVEL confirmation: the front-linear / middle-nonlinear split is universal (closes §1057's caveat)
+
+**Question:** §1057 showed the middle content SUBSPACE is universal across the bilinear family; is it also LOAD-BEARING family-wide (loss level), replicating bilin18's front-linear/middle-nonlinear pattern (§1000/§1042)? Per-layer (single replacement, no compounding): replace one layer's MLP output with a held-out LINEAR map of its input, measure loss-recovery vs mean-ablate, for a front vs a middle layer of bilin12 and swiglu18. (`crossmodel_content_cost.py`, 200 rows.)
+
+**Registered predictions:** (a) family front ~linear (recovery >0.7); (b) family middle markedly lower.
+
+**Result — both TRUE:**
+
+| model | front layer | linear-recovery | middle layer | linear-recovery |
+|---|---|---|---|---|
+| bilin18 (ref) | mlp1 | ~0.9 | deep-middle | ~0.4-0.6 |
+| bilin12 | L1 (cost 1.24) | **0.894** | L6 (cost 0.20) | **0.590** |
+| swiglu18 | L1 (cost 0.48) | **0.857** | L10 (cost 0.08) | **0.458** |
+
+- Both family models replicate bilin18 exactly: the FRONT MLP is well-recovered by a linear map (0.86-0.89 — grammar is ~linear/token, and L1 is the dominant writer, cost 0.5-1.2 nats), while a MIDDLE MLP is poorly recovered (0.46-0.59 — its content is bilinear/high-rank, a linear map cannot capture it). Shuffled-input nulls negative (pass).
+- Middle linear-recovery (0.46-0.59) lands in bilin18's deep-middle range (~0.4-0.6); front (0.86-0.89) matches bilin18's front.
+
+**What this closes.** The load-bearing high-rank content is a family property at the LOSS level, not merely a shared subspace (§1057's caveat resolved). The whole bottom-up account — grammar-linear front, bilinear high-rank content middle, semantically-organized topic/register manifold — is a general property of these bilinear-family LMs. **Caveat:** one middle layer sampled per model (representative, not exhaustive); a full per-layer sweep would map each family model's front/middle boundary precisely, but the qualitative universal split is established.

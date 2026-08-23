@@ -1,0 +1,41 @@
+{
+ "bilin18_ref": "front mlp1 ~0.9 linear (table); deep-middle full-rank (~0.4-0.6)",
+ "models": {
+  "bilin12": {
+   "D": 768,
+   "layers": 12,
+   "per_layer": {
+    "front_L1": {
+     "meanabl_cost": 1.241,
+     "linear_recovery": 0.894,
+     "shuffled_null": -0.404
+    },
+    "middle_L6": {
+     "meanabl_cost": 0.2036,
+     "linear_recovery": 0.59,
+     "shuffled_null": -0.63
+    }
+   },
+   "ce_full": 3.2624
+  },
+  "swiglu18": {
+   "D": 1152,
+   "layers": 18,
+   "per_layer": {
+    "front_L1": {
+     "meanabl_cost": 0.4786,
+     "linear_recovery": 0.857,
+     "shuffled_null": -0.224
+    },
+    "middle_L10": {
+     "meanabl_cost": 0.0756,
+     "linear_recovery": 0.458,
+     "shuffled_null": -0.312
+    }
+   },
+   "ce_full": 2.9805
+  }
+ },
+ "pred_front_linear_gt_middle": true,
+ "runtime_s": 75.2
+}
