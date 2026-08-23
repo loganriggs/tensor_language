@@ -28606,3 +28606,23 @@ property, not a single-checkpoint quirk. Non-confounded (argmax-based, transform
 entropy metric. This adds ERROR STRUCTURE as a 5th family-general axis (alongside structure §966, mechanism §967,
 distinctive style §965, depth arc §968). The error-interpretability facet is now both mechanistically resolved
 (§973) and family-general (§975).
+
+## §976 — the "hedge" is a front high-frequency function-word DEFAULT that the readout overrides on easy positions but not on hard content (hedge_depth.py)
+
+Logit-lens (transform-invariant argmax) function-word-top-1 fraction by layer, split by final error type:
+  grammar-err: L0 0.90 -> ~0.70-0.80 mid -> 0.85 (L14) -> 0.78 (L17)   [front L0-2 mean 0.813, back 0.829]
+  hit:         L0 0.88 -> ~0.70-0.78 mid -> 0.74 (L15) -> 0.63 (L16) -> 0.59 (L17)
+pred (a) "hedge front-formed" TRUE (front 0.813 > 0.5) — but the mechanism is more precise:
+ - The FRONT provides a high-frequency FUNCTION-WORD DEFAULT for ALL positions (L0 top-1 is a function word
+   ~0.88-0.90 for both hits and errors) — unsurprising, function words are the highest-frequency tokens, so the
+   early logit lens defaults to them.
+ - The DIVERGENCE is at the READOUT: on HIT positions the readout MOVES OFF the function-word default (0.88 -> 0.59
+   by L17) to commit to the specific (often content) token; on GRAMMAR-ERROR positions it STAYS on the function
+   word (0.90 -> 0.83). So the "hedge" (§973/§975) is NOT a front decision — it is the front's function-word DEFAULT
+   PERSISTING because the readout fails to override it toward the specific content word when content is hard.
+UNIFIES the facets: §944 (the readout does the bulk of output formation — here specifically it moves OFF the front
+default toward the content word), §973/§975 (mistakes are content mistakes — the readout can't override on hard
+content), §915 (front writes the grammar/high-freq structure). The picture: front lays down a grammar-shaped,
+high-frequency-defaulted distribution; the readout's job is to override it toward the specific content word; a
+grammar-error/hedge is exactly the readout failing to make that override on a hard content position. Closes the
+error/hedge facet with a mechanistic tie to the bottom-up stack.
