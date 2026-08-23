@@ -101,7 +101,7 @@ def content_coords(seqs, xbars, Uc, V):
     cap = {L: [] for L in REF}; hs = []
     for L in REF:
         def mk(L):
-            def h(mo, i_, o_): cap[L].append((i_[0] if isinstance(i_, tuple) else i_).detach().float().reshape(seqs.shape[0], -1, D))
+            def h(mo, i_, o_): cap[L].append((i_[0] if isinstance(i_, tuple) else i_).detach().float().reshape(-1, D))
             return h
         hs.append(H[L].mlp.register_forward_hook(mk(L)))
     SUB['active'] = set()
@@ -110,10 +110,10 @@ def content_coords(seqs, xbars, Uc, V):
     tokf = seqs.reshape(-1)
     dev = None
     for L in REF:
-        X = torch.cat(cap[L], 0).reshape(-1, D); cap[L] = []
+        X = torch.cat(cap[L], 0); cap[L] = []
         dv = X - xbars[tokf]
         dev = dv if dev is None else dev + dv
-    c = ((dev/len(REF)) @ Uc).view(seqs.shape[0], -1, K)
+    c = ((dev/len(REF)) @ Uc).view(seqs.shape[0], seqs.shape[1], K)
     return c.mean(1)
 
 
