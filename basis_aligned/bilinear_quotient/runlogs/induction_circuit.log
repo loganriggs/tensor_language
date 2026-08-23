@@ -1,9 +1,5 @@
-            none: induction score 11.796 | second-copy loss 1.29
-           attn0: induction score 3.47 | second-copy loss 9.586
-           attn5: induction score 0.466 | second-copy loss 12.339
-     attn0+attn5: induction score 1.243 | second-copy loss 11.605
-  control_attn13: induction score 11.667 | second-copy loss 1.386
-
-drops: attn0 8.326 | attn5 11.33 | both 10.553 | control(attn13) 0.129
-(a) two-step front circuit (attn0->attn5), control spared: False
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_circuit_results.json (1.0s)
+ablate attn0: inc_hit -0.0323 | inc_nonhit 0.2766 | ratio -0.12
+ablate attn5: inc_hit 0.1024 | inc_nonhit 0.1227 | ratio 0.83
+ablate attn11: inc_hit -0.0121 | inc_nonhit 0.0399 | ratio -0.3
+frac induction-hit 0.0622 | base loss hit 0.692 vs nonhit 3.434
+pred_a induction-circuit False | sanity hit-easier True | wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/induction_circuit_results.json (77.2s)
