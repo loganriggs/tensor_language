@@ -34,6 +34,13 @@ across the model family; register-adaptive within a model. §1049-1081 settled t
 ~**0.10** as variables (§906/§940) — bounded by REAL high-dimensionality, not instruments
 (FINDINGS item 5). Content passthrough triples whole-model recovery (0.12→0.39; §1071).
 
+**Feature-circuit thread (§1128-1129, closed):** writers DIFFER per atom (attention-authored:
+attn5/7/9/10/11 poolers; MLP-authored: mlp3/6/7 transition — §1074 refined) but the API is a
+POPULATION CODE: single atoms fail deletion (§1104-style), dose-steering (§1128, 0/8, generic
+content boost), AND value-interchange (§1129, 0/8; wrong-dir null sometimes beats own). Smallest
+causal unit = the package's value vector (whole-pattern patching works, §1059-60/§1105). Do not
+attempt single-feature interventions on the content API.
+
 ## Gotchas
 - Ablations at K=256 enter a destructive regime (§1067-1068): use low K for specificity claims.
 - Patching must match the removal point/scale (§1066 bug).

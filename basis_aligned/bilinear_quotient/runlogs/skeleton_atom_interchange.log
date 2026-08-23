@@ -1,0 +1,11 @@
+atoms [123, 222, 73, 207, 55, 250, 89, 248] | affinity pairwise overlap mean 0.085
+interchange atom 123: own +0.0555 | other +0.0696 | wrong-dir +0.0331 | specific False
+interchange atom 222: own +0.0131 | other +0.0157 | wrong-dir -0.0096 | specific False
+interchange atom 73: own -0.0027 | other -0.0090 | wrong-dir +0.0035 | specific False
+interchange atom 207: own +0.0065 | other +0.0039 | wrong-dir +0.0517 | specific False
+interchange atom 55: own +0.0356 | other +0.0396 | wrong-dir +0.0034 | specific False
+interchange atom 250: own +0.0052 | other +0.0051 | wrong-dir +0.0134 | specific False
+interchange atom 89: own +0.0135 | other +0.0110 | wrong-dir +0.0058 | specific False
+interchange atom 248: own -0.0001 | other +0.0026 | wrong-dir +0.0244 | specific False
+n_specific 0/8 | pred_a value-causal False | pred_b package-smallest True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/skeleton_atom_interchange_results.json (46.0s)
