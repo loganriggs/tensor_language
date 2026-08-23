@@ -2050,10 +2050,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   multiplication varies enormously with depth. Fit a linear map from an MLP's input to its output and see how much
   of its effect on the loss survives: at the front, almost all of it (layer 0 is 90% linearly recoverable, layer 1
   is 98%), so the front MLPs — including the single biggest writer in the model — are effectively linear maps.
-  (One might guess this is because one of the two projections is a near-constant gate, but it is not: measured
-  directly, both projections vary about equally at every layer, front included. The front's linearity is instead a
-  property of the <em>output</em> map — the down-projection largely reads out the part of the product that is
-  linear in the input and discards the interaction — rather than of any constant factor.) Through the middle it
+  (Two tempting explanations both turned out to be wrong when measured. It is <em>not</em> that one projection is a
+  near-constant gate — both projections vary about equally at every layer, front included. And it is <em>not</em>
+  that the down-projection discards the interaction at the front — measured directly, the multiplicative interaction
+  term dominates the down-projection's output variance at every layer (~90% or more), the front no exception. So the
+  interaction is present and dominant everywhere; the front is linear anyway. The only reconciliation left is that
+  the front's interaction term, though it dominates the output, is itself <em>linearly predictable</em> from the
+  input — a quadratic that collapses to a near-linear map over the actual data — whereas the middle's is genuinely
+  nonlinear. That is a direct, testable claim, and the current experiment measures it.) Through the middle it
   inverts: layers 8, 11, and 15 are only
   ~38% linearly recoverable, so roughly <em>60% of what they compute is a genuine product</em> of two varying
   signals that no linear read, table, or centroid can reproduce. Splitting that product by what it multiplies is
