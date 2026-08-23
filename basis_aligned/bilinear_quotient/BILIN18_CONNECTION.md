@@ -30162,3 +30162,33 @@ rank-64 bilinear (0.94); DEEP-MIDDLE = high-rank content×content (bounded, §10
 low-rank) DO with matched stand-ins (attn0, mlp1, mlp16 ~0.93-0.94); the POOLERS (broad) and DEEP-MIDDLE (high-rank
 content) are structurally/mechanistically understood but not 90%-reconstructible by simple stand-ins -- both are REAL
 model properties (broad pooling; high-rank content), not stand-in failures.
+
+## §1045 — BOTTOM-UP: front MLPs are token + local-window functions; L0-1 dominant writers ~90% understood (bottomup_mlp_window.py)
+
+Front MLP stand-in = per-token table(current) + ridge map of the local window [cur+3prev] on the residual; held-out
+loss-recovery (ce_full 3.085):
+  mlp   meanabl   token-only   token+window   gain
+  mlp0   0.751     0.591        0.885         +0.294
+  mlp1   6.514     0.646        0.950         +0.304   <- dominant writer (§933), ~fully understood
+  mlp2   0.742     0.496        0.716         +0.220
+  mlp3   0.571     0.432        0.648         +0.216
+  mlp4   0.102    -0.007       -0.321         -0.314   <- window HURTS (transition/pooling zone)
+pred_a (window lifts front MLPs) TRUE. The local-window term substantially lifts the front MLPs: mlp1 (the dominant
+writer, meanabl 6.5) reaches 0.95 and mlp0 0.885 -- so the FRONT L0-1 is ~90% understood as TOKEN + LOCAL-WINDOW
+functions. mlp2/3 partial (0.65-0.72); mlp4's NEGATIVE window gain confirms it sits in the transition to the
+content-gathering zone (its input comes from the L3-5 poolers, so a local window is the wrong basis).
+
+=== BOTTOM-UP 90%-PER-MODULE STATUS (matched stand-ins; the user's goal) ===
+ UNDERSTOOD ~90% (matched stand-in in parens):
+   attn0 0.94 (local window), attn1 0.83 (local window), mlp0 0.885 (token+window), mlp1 0.95 (token+window),
+   readout mlp16 0.94 (rank-64 bilinear). -> the FRONT (L0-1) grammar machine and the readout are ~90% understood.
+ PARTIAL (matched stand-in, 0.5-0.75): attn2 0.65, mlp2 0.72, mlp3 0.65, mlp17 (readout, ~0.9 at rank1024).
+ BOUNDED BY REAL MODEL PROPERTIES (structurally/mechanistically understood, NOT simple-stand-in-reconstructible):
+   - attn3-5 = CONTENT POOLERS (broad recency-weighted value-residual bag; §998/1007/1019/1039) -- window/per-position
+     stand-ins can't reconstruct a broad pool.
+   - deep-middle mlp5-14 = HIGH-RANK CONTENT×CONTENT bilinear (§1041/1042) -- content genuinely high-rank (3-way
+     confirmed §1000/1038/1042); ~90% needs ~full content rank.
+ KEY LESSON: modules reach 90% when scored with the stand-in MATCHED to their computation (token tables + local
+ window for front grammar; low-rank bilinear for the readout). The two hold-outs (poolers, deep-middle) are bounded by
+ REAL properties (broad pooling; high-rank content), not by our instruments -- these are named mechanisms, just not
+ compressible to a simple reconstruction.
