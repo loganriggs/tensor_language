@@ -1,0 +1,45 @@
+{
+ "pairs": {
+  "determiner->number": {
+   "toward_donor_profile": 0.0231,
+   "away_from_own": 0.0004,
+   "same_class_control": -0.0006,
+   "win": true
+  },
+  "number->determiner": {
+   "toward_donor_profile": -0.0147,
+   "away_from_own": -0.0003,
+   "same_class_control": -0.0024,
+   "win": false
+  },
+  "punctuation->pronoun": {
+   "toward_donor_profile": 0.0043,
+   "away_from_own": 0.0,
+   "same_class_control": 0.0007,
+   "win": true
+  },
+  "pronoun->punctuation": {
+   "toward_donor_profile": 0.0216,
+   "away_from_own": 0.0008,
+   "same_class_control": 0.0014,
+   "win": true
+  },
+  "preposition->aux/be/neg": {
+   "toward_donor_profile": 0.0016,
+   "away_from_own": 0.0001,
+   "same_class_control": 0.0003,
+   "win": true
+  },
+  "aux/be/neg->preposition": {
+   "toward_donor_profile": 0.0039,
+   "away_from_own": -0.0001,
+   "same_class_control": -0.001,
+   "win": true
+  }
+ },
+ "wins": 5,
+ "random_subspace_toward_donor_detnum": -0.0003,
+ "mean_toward_shift": 0.0066,
+ "pred_a_per_class_causal": true,
+ "runtime_s": 144.7
+}

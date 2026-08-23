@@ -31171,3 +31171,16 @@ mlp0_class_readers_results.json; runlogs/mlp0_class_readers.log (130s; first run
 **Registered next (the gold-standard instrument):** deletion is the wrong tool for a redundant variable — INTERCHANGE is what worked for class (§892 IIA 0.25) and topic (§894). mlp0_class_interchange.py queued: swap the class-package projection between positions of different classes at mlp0's output; if the predicted NEXT-CLASS distribution follows the DONOR's class (per §828's class-bigram), the within-package coordinates are causally class-differentiating — the strong per-class story without fighting the redundancy.
 
 mlp0_class_subspace_results.json; runlogs/mlp0_class_subspace.log (120s).
+
+## §1105 — PER-CLASS INTERCHANGE WORKS (5/6 directed pairs): swapping one class's package coordinates at mlp0's output moves the next-class prediction toward the DONOR's grammar — the §1098 clusters are causally distinct VALUES of the class variable (mlp0_class_interchange.py)
+
+**pred_a TRUE.** Swapping each position's class-package projection (top-24 subspace) with a donor of another class, readout = predicted next-token-CLASS distribution vs the class-bigram successor profiles (§828):
+- determiner←number +0.0231 toward the number-successor profile; pronoun←punctuation +0.0216; punctuation←pronoun +0.0043; aux←preposition +0.0039; preposition←aux +0.0016 — **5/6 directed pairs move toward the donor class's grammar**.
+- Controls clean: same-class-donor swaps ±0.001-0.002 (~nothing); random-subspace null **−0.0003** (sign-flipped, 22× smaller than the mean real shift 0.0066).
+- The one loss: number←determiner (−0.0147) — injecting determiner code into digit positions does not produce determiner-successor predictions; consistent with digit positions being dominated by the separate digit-continuation circuitry (old item 9: continuation vs initiation).
+
+**Why this instrument and not deletion (the §1103-1105 arc, for communication):** deletion failed (§1104) because the class variable is multiplexed (attn0's parallel copy + x0 re-injection re-derive it); interchange changes the VALUE on the wire instead of cutting the wire — the same reason it worked at aggregate level (§892) and for topic (§894). Effect sizes are modest in absolute KL (the swapped copy is one of several), but the DIRECTION is class-specific with clean nulls — which is the claim: **mlp0's class clusters are separately-written, causally distinct values; put a number-code where a determiner-code was and the model's next-word grammar shifts toward what follows numbers.**
+
+**Three-layer circuit, final:** (1) mlp0 writes a class-organized code — derivable from weights alone (§1098: weight-fold cosine 0.83, congruence 0.90); (2) downstream reads it as a package (attn1 keys, §1103), one of several multiplexed copies (§1104); (3) the within-package values are class-causal by interchange (this section). Dossier updated.
+
+mlp0_class_interchange_results.json; runlogs/mlp0_class_interchange.log (145s).

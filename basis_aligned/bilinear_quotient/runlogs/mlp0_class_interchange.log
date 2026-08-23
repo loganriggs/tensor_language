@@ -1,0 +1,8 @@
+   determiner <- number       : toward-donor +0.0231 | away-own +0.0004 | same-ctrl -0.0006 | win True
+       number <- determiner   : toward-donor -0.0147 | away-own -0.0003 | same-ctrl -0.0024 | win False
+  punctuation <- pronoun      : toward-donor +0.0043 | away-own +0.0000 | same-ctrl +0.0007 | win True
+      pronoun <- punctuation  : toward-donor +0.0216 | away-own +0.0008 | same-ctrl +0.0014 | win True
+  preposition <- aux/be/neg   : toward-donor +0.0016 | away-own +0.0001 | same-ctrl +0.0003 | win True
+   aux/be/neg <- preposition  : toward-donor +0.0039 | away-own -0.0001 | same-ctrl -0.0010 | win True
+wins 5/6 | mean toward-shift 0.0066 | random-subspace null -0.0003
+pred_a per-class-causal True | wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_class_interchange_results.json (144.7s)
