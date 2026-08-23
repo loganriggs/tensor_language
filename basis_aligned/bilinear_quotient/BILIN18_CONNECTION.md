@@ -31102,3 +31102,17 @@ l4_variable_results.json; runlogs/l4_variable.log (99s).
 **Caveat/possible follow-up:** a vocabulary-matched transfer (restrict eval to tokens well-sampled in BOTH registers) would isolate computation-difference from coverage; registered as the natural refinement if this number matters downstream.
 
 grammar_transfer_code_results.json; runlogs/grammar_transfer_code.log (110s).
+
+## §1097 — Seed ensembles: CE says front dynamics matter most in isolation-restore and NO sub-band alone recovers the middle's value; the content-RETENTION metric came back INVALID (values >1) and is discarded (attn_seed_ensembles.py)
+
+**Metric failure stated first.** My "content retained" = raw projection energy of the condition-run's L8 deviations onto the full-run content basis, normalized by the full-run baseline. Under heavily degraded runs the deviations BLOW UP in magnitude, so none_allconst "retained" 1.94 and middle_L6_9 "retained" 2.27 — retention above 1 is meaningless (energy inflation, not information survival). pred_a/pred_b are UNEVALUABLE on this metric; only the CE column stands. (Same off-regime theme as §1093's stale-bias inversion — degraded streams are not small perturbations.) Registered fix queued: attn_seed_align.py measures ALIGNMENT (per-position R² of condition-run content coordinates against the full run's), which is magnitude-invariant.
+
+**What the CE column shows (all-162-static gap = +3.73):**
+- Restore front L0-2 dynamics only: +2.38 (recovers 0.36 of the gap) — the strongest single band, consistent with §1093's front number.
+- Restore gatherer L3-5: +2.75 (0.26); minus head 5.7: +2.64 (marginally BETTER without it — consistent with the sink's dynamics being worthless, §1089).
+- Restore middle L6-9 only: +3.78 (≈0, if anything negative) — a sub-band of the middle alone does NOTHING, even though restoring the whole L3-14 middle recovered 0.465 in §1093. The middle's collective value needs BREADTH: it is super-additive even in restoration (36 heads of genuine middle dynamics are useless without their neighbors' dynamics).
+- Random 27 heads: +3.48 (0.07, ~noise floor for a 27-head restore).
+
+**Standing addition to the attention picture:** the §1093 collective function does not decompose into sub-bands — restoration, like ablation, is super-additive. The middle's redundant pooling only works as a wide ensemble.
+
+attn_seed_ensembles_results.json; runlogs/attn_seed_ensembles.log (218s).
