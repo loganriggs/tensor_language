@@ -1,0 +1,8 @@
+       full: cost 0.0 | rare 0.0 | freq 0.0
+       mtok: cost 0.0974 | rare 0.1255 | freq 0.0888
+    content: cost 0.0656 | rare 0.0837 | freq 0.0601
+ noncontent: cost 0.0089 | rare 0.0094 | freq 0.0087
+     rand64: cost 0.0863 | rare 0.1109 | freq 0.0788
+    meanabl: cost 0.103 | rare 0.1461 | freq 0.0899
+recov: {'full': 1.0, 'mtok': 0.054, 'content': 0.363, 'noncontent': 0.914, 'rand64': 0.162} | rare/freq(meanabl) 1.63
+pred_a content-fed False | pred_b noncontent-fed True | wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/l4_function_results.json (96.3s)

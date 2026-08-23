@@ -31062,3 +31062,16 @@ head_const_map_results.json; runlogs/head_const_map.log (230s).
 **Standing synthesis (with §1091-1092):** per-head, bilin18's attention = one constant + ~6 small routers; collectively, its dynamics carry ~3.7 nats, mostly as redundant middle pooling with no indispensable courier. Both descriptions are true at their granularity; the gap between them (5.7×) IS the redundancy.
 
 attn_static_results.json; runlogs/attn_static.log (86s).
+
+## §1094 — L4 consumes a NON-content context variable: removing the topic-subspace projection from its input barely matters (recovery 0.91); the content deviation is neither necessary nor sufficient for it (l4_function.py)
+
+**Question.** L4 = the first true context MLP (§1084/§1088). Does its dev×dev consume the CONTENT signal (making it the first content×content multiplier)?
+
+**Result (pred_a FALSE, pred_b TRUE).** Substituting L4's output with the MLP applied to reduced inputs (in-sample xbar; L4's tok-leak is negligible — mtok-only reproduces §1084's 0.054):
+- mtok + content-projected dev: recovery only **0.363** (random-64 control 0.162 — content dev is ~3× random but far from the function);
+- mtok + NON-content dev (input minus its U_c projection): recovery **0.914** — strip the L8-12 topic projection out of L4's input and its computation is nearly intact (cost 0.009 vs mean-abl 0.103).
+- L4's mean-ablation rare/freq = 1.63 (between grammar ~1 and content ~2.7).
+
+**Reading.** The first context-consuming MLP does not eat the deep topic manifold. Its context variable lives outside the L8-12 content basis. Two candidates, unresolved here: (i) a genuinely different variable (local-window / predictive-class context, §918/§1045); (ii) the CONTENT PRECURSOR — §1052 showed the content directions drift heavily through the transition (L3-5 overlap with the deep ref only 0.26-0.44), so the L8-12 basis projected onto L4's input may simply miss L4's own (rotated) early-content directions. **Registered follow-up (l4_variable.py):** decompose in L4's OWN deviation basis; check whether its needed subspace overlaps the §1052 transition precursor or the grammar/class code.
+
+l4_function_results.json; runlogs/l4_function.log (96s).
