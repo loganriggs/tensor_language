@@ -1897,6 +1897,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   which is exactly the shape a high-dimensional subject-matter summary should have. Grammar is the mirror image:
   it needs the current token and the local order, and every context edit that leaves topic intact damages it.</p>
 
+  <p>There is a specific architectural piece that makes this bag-of-words pooling possible, and it turns out to be
+  one of the most important components in the model. Besides re-injecting the token embedding at every block, this
+  architecture also re-injects the <em>first block's attention values</em> into every later block's attention — a
+  "value residual," mixed in with a learned per-layer weight that the model has pushed to large values (from −4 to
+  +4.6, several layers dominated by it). Those first-block values are essentially the original per-token content,
+  so the value residual keeps the raw word content available to be pooled at every depth. Turn it off and the loss
+  <em>doubles</em>, and the damage is overwhelmingly to content: word-choice cost rises about four times as much as
+  grammar cost. Scale it down gradually and content degrades smoothly the whole way, so the dependence is real and
+  graded, not a brittle artifact of switching it fully off. This is the substrate of the content machine: broad
+  attention pooling (which, as we saw, does not select by topic) applied to the value residual's original word
+  content is what produces the order-insensitive bag-of-words topic — and grammar, computed locally from the
+  current token, barely needs it.</p>
+
   <p><strong>Where every nat goes.</strong> All of this lands in one budget. The model takes the average
   next-token cost from 7.17 nats (guessing from word frequencies alone) down to 3.24, split as 0.76 grammar +
   2.48 content. Sort the tokens by <em>what kind of prediction they are</em> and the loss concentrates sharply.
