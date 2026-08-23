@@ -1,0 +1,51 @@
+{
+ "n_positions": 20400,
+ "conds": {
+  "scat50": {
+   "kl": 4.002,
+   "alignment": 0.6195
+  },
+  "frz7_14": {
+   "kl": 3.6961,
+   "alignment": 0.5877
+  },
+  "frz15_17": {
+   "kl": 3.8662,
+   "alignment": 0.5677
+  },
+  "frz7_17": {
+   "kl": 3.5546,
+   "alignment": 0.4223
+  },
+  "full9": {
+   "kl": 8.016,
+   "alignment": 0.8994
+  },
+  "r256": {
+   "kl": 2.4625,
+   "alignment": 0.6693
+  }
+ },
+ "freeze_null_kl": 0.0,
+ "scat50_patched": {
+  "scat50": 0.8905,
+  "frz7_14": 0.8719,
+  "frz15_17": 0.8688,
+  "frz7_17": 0.848
+ },
+ "scat50_unpatched": {
+  "scat50": 0.3505,
+  "frz7_14": 0.3057,
+  "frz15_17": 0.2689,
+  "frz7_17": 0.0
+ },
+ "leak_drops": {
+  "deep_band": 0.0448,
+  "late_band": 0.0816,
+  "all_bands": 0.3505
+ },
+ "pred_a_late_main_carrier": false,
+ "pred_b_own_term_attention_free": true,
+ "pred_c_band_shares_add": false,
+ "runtime_s": 36.9
+}

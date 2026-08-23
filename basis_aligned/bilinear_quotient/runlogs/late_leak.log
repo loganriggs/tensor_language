@@ -1,0 +1,11 @@
+   scat50: KL   4.002 | align +0.6195
+  frz7_14: KL   3.696 | align +0.5877
+ frz15_17: KL   3.866 | align +0.5677
+  frz7_17: KL   3.555 | align +0.4223
+    full9: KL   8.016 | align +0.8994
+     r256: KL   2.462 | align +0.6693
+patched   {'scat50': 0.8905, 'frz7_14': 0.8719, 'frz15_17': 0.8688, 'frz7_17': 0.848}
+unpatched {'scat50': 0.3505, 'frz7_14': 0.3057, 'frz15_17': 0.2689, 'frz7_17': 0.0} | drops deep 0.0448 late 0.0816 all 0.3505
+freeze-null KL 0.0
+pred_a late-carrier False | pred_b own-attn-free True | pred_c additive False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/late_leak_results.json (36.9s)

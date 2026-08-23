@@ -4894,3 +4894,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1157 — ARC CLOSED: no missing half (excess-scale artifact, 3rd metric trap → law: raw values + strength-matched nulls); raw-KL ledger balances (coords 68% + consequences 32%; last1 predicted 6.0 vs 5.85); transport law final: local, frozen, coords-dominant (patch_relax_magnitude.py)
 §1158 — transport law FAMILY-UNIVERSAL: swiglu18 all preds TRUE, constants within 0.01-0.04 (full 0.913/0.899; local split 0.911/0.318; last1 share 0.75/0.73) (transport_family.py)
 §1159 — carrier split: manufacture = deep MLPs (−1.80 KL frozen, 69% of consequence channel); leak SURVIVES L7-14 attn freeze (−13% only) → readout-band attention suspected as pooler; late_leak queued (leak_carrier.py)
+§1160 — leak carrier CLOSED: 100% attention (all-frozen → exactly 0.0), REDUNDANT deep+readout co-carriage (super-additive 0.045+0.082 vs 0.351); own-position reading attention-free (0.848); transport account carrier-complete (late_leak.py)
