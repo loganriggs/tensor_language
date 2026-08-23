@@ -1953,7 +1953,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   literal sense that it <em>adds up</em>: drop in two copies and the topic pull roughly doubles, four copies quadruple
   it, eight copies raise it about eight-fold — a near-linear dose-response, evidence accumulating token by token rather
   than one word saturating the effect. (Even function words accumulate this way, just far more weakly — the pool takes
-  in everything, but content words carry perhaps twice the topical weight.)</p>
+  in everything, but content words carry perhaps twice the topical weight.) And the injection cleanly separates the
+  two machines: that distant content word shifts the model's <em>topic</em> prediction while leaving its
+  <em>grammar</em> prediction — which part of speech comes next — essentially untouched. Only a content word dropped
+  right next to the query disturbs grammar, because grammar is read off the local tokens. Content reaches across the
+  whole context; grammar stays home — the two-machine split, visible from the input. The grammar side answers the same
+  way in reverse: drop the word <em>the</em> immediately before the query and the model's probability that a noun
+  comes next jumps by about a third; drop it far away and nothing happens. And it is real syntax, not a reflex — the
+  preposition <em>of</em> in the same slot barely raises the noun probability, because <em>of</em> is followed by
+  another little word (<em>of the…</em>) before the noun arrives.</p>
 
   <p><strong>Where every nat goes.</strong> All of this lands in one budget. The model takes the average
   next-token cost from 7.17 nats (guessing from word frequencies alone) down to 3.24, split as 0.76 grammar +
