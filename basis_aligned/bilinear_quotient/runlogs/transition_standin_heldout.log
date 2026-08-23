@@ -1,0 +1,5 @@
+L3 recov: {'full': 1.0, 'mtok': 0.671, 'own64': 0.831, 'own256': 0.952, 'rand64': 0.695} (meanabl 0.6161)
+L4 recov: {'full': 1.0, 'mtok': -0.766, 'own64': 0.477, 'own256': 0.817, 'rand64': -0.607} (meanabl 0.1112)
+L5 recov: {'full': 1.0, 'mtok': 0.129, 'own64': 0.544, 'own256': 0.804, 'rand64': 0.178} (meanabl 0.09)
+held-out own-64 recoveries: L3 0.831 | L4 0.477 | L5 0.544 | drops {'3': 0.096, '4': 0.263, '5': 0.223}
+pred_a certified False | pred_b leak True | wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/transition_standin_heldout_results.json (58.0s)

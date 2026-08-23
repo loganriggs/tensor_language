@@ -13,8 +13,8 @@ compounding-dominated; content passthrough 0.39; §1070-1071). Whole-model simul
 | other front routers L0H3/L1H1/L2H5 | 0.7-0.95 | residual-window routing | §1054/§1091 |
 | mlp0 | ~0.90 | class-code writer / token map | §905/§1045 |
 | mlp1 | ~0.93 | static per-token table (held-out) | §1088 |
-| mlp3 | ~0.67 | token table (held-out) | §1088 |
-| mlp4 | ~0.70 | own-basis top-64 precursor projection (§1095; split-half stable §1101) | §1095 |
+| mlp3 | **0.95 (r256) / 0.83 (r64)** certified | own-basis projection (held-out) | §1130 |
+| mlp4 | 0.82 (r256) / 0.48 (r64) certified | own-basis projection; token table HURTS held-out | §1130 |
 | mlp5-14 (content) | ~0.10 as variables | none — real high-rank (3-way confirmed) | §1000/38/42 |
 | middle attn (collective) | 0.58 partial | static distance-kernel (values dynamic); kernel+content-sim next | §1099 |
 | readout mlp16/17 | 0.78/0.85 | near-linear read | §1046 |

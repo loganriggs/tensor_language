@@ -44,5 +44,10 @@ of own-basis; rotation monotone toward deep coordinates (deep overlap L3 0.276 -
 NOT grammar-side (grammar overlap ~0.2 for all three). Caveat: L3's stakes are small (mean-abl
 0.58, mtok alone 0.83). Stability: L4 numbers reproduce split-half (§1101).
 
+**CERTIFIED (held-out rule, §1130):** L3 own-64 0.831 / own-256 0.952 (≥90% line crossed);
+L4 0.477/0.817; L5 0.544/0.804. §1095/§1100 own-64 absolute numbers were leak-inflated (corrected);
+identity conclusions (precursor, one rotating variable) survive — relative structure intact
+(L4: own +0.48 vs rand −0.61 vs mtok −0.77 held-out; token table actively hurts at L4).
+
 ## Open
 - Nothing pressing; the band is accounted for (one precursor variable, consumed from L4 on).

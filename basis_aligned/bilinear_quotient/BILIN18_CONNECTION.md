@@ -31442,3 +31442,14 @@ skeleton_feature_circuit_results.json; runlogs/skeleton_feature_circuit.log (46s
 **Thread closed (§1128-1129).** The feature-circuit story for communication: "the content machine's API is eight named features, written by identifiable components (some by attention's pooling, some by the transition MLPs), read as a bundle, and steerable only as a pattern — like neurons in a population code, individually meaningful, jointly causal."
 
 skeleton_atom_interchange_results.json; runlogs/skeleton_atom_interchange.log (46s).
+
+## §1130 — Certification results: L3 CERTIFIES (0.83 @64, 0.95 @256 held-out); L4/L5's own-64 numbers were leak-inflated and CORRECT DOWN (0.74→0.48, 0.77→0.54) — but rank-256 certifies the whole band at 0.80-0.95 (transition_standin_heldout.py)
+
+**Corrections, stated plainly (pred_b):**
+- **§1100's L3 0.927 → certified 0.831** (drop 0.096, within band — stands). **§1095's L4 own-64 0.74 → 0.477** (drop 0.263) and **§1100's L5 0.767 → 0.544** (drop 0.223): both leak-inflated by in-sample per-token means. Note §1101's "L4 split-half stable" is not contradicted — each half there built AND evaluated on itself (stability across draws ≠ held-out validity; both facts stand, the certified number is the valid one).
+- **What survives untouched:** §1095's IDENTITY conclusion (L4 consumes the precursor in local coordinates) rests on RELATIVE comparisons sharing the same means — and the relative structure is intact held-out: L4 own-64 +0.48 vs random-64 −0.61 vs mtok −0.77 (the token table actively HURTS at L4 held-out — the context MLP's input token-means don't generalize, the sharpest confirmation yet that L4 is not a token function).
+- **The band certifies at rank 256:** held-out own-256 recoveries L3 **0.952**, L4 **0.817**, L5 **0.804**. L3 crosses the 90% line certified; L4/L5 are certified strong partials. Benchmark table updated to carry ONLY held-out-certified entries for the band (mlp3 0.95@r256 ✓90%; mlp4 0.82; mlp5 0.80).
+
+**Process note:** the certification sweep continues — next target the readout stand-ins (§1046's linear-read numbers predate the held-out rule; queued).
+
+transition_standin_heldout_results.json; runlogs/transition_standin_heldout.log (58s).
