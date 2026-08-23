@@ -36,8 +36,8 @@
   opaque. Score each module instead with the stand-in <em>matched to what it computes</em> — a local window of the
   layer's own residual for attention, a token table plus that window for front MLPs, a low-rank bilinear map for the
   readout — and most of the model resolves: the front grammar machine (attention and MLPs), the front+gatherer
-  attention, and the readout all reach ~0.8–0.95, and layer 4 — long the worst MLP — resolves at ~0.70 once scored in its own
-  rotating coordinates. What is left has now been split in two: the content computation's <em>read interface</em> is
+  attention, and the readout all reach ~0.8–0.95, and layer 4 — long the worst MLP — certifies at 0.82 once scored in its own
+  rotating coordinates (held-out). What is left has now been split in two: the content computation's <em>read interface</em> is
   about eight stable features (every consumer of the content reads them; filtering the content down to the eight
   costs only 10–15% of removing it entirely), while the genuinely high-dimensional remainder is construction
   scratch — material the middle works through but never ships. The frontier is no longer "high-rank content";
