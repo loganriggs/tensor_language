@@ -31378,3 +31378,14 @@ benchmark_skeleton_results.json; runlogs/benchmark_skeleton.log.
 **Reading:** the construction frontier splits: (i) a LINEAR dynamical system on 64 coords — simulable, ~53% of end-of-band variance; (ii) the remainder = information the real attention injects fresh at each layer, which a causal-mean pool cannot carry. **Registered next (queued, oracle diagnostic per the §1108 pattern): add each layer's TRUE attention-output coords as a per-step input** — if the rollout jumps to ~0.9, construction = linear coord dynamics + attention injections, fully characterized, and the benchmark's construction gap reduces to simulating the attention stream alone.
 
 coord_dynamics_results.json; runlogs/coord_dynamics.log (167s).
+
+## §1123 — Attention injections lift the rollout to R² 0.68 (from 0.53) but don't complete it — and the residual is consistent with PER-STEP ERROR COMPOUNDING (0.92⁹≈0.47), the §1070 law reappearing in coordinate space (coord_dynamics_attn.py)
+
+**Between the poles once more (pred_a <0.85 false; pred_b <0.1-lift false at 0.093 cos / 0.153 R²):**
+- Base linear rollout reproduces §1122 exactly (0.635/0.529 ✓). **With each step given the TRUE attention-output coords: 0.728 / 0.682** — a real lift closing ~⅓ of the residual. Shuffled-injection null is clean and instructive: WRONG injections are worse than none (0.454/0.281) — the maps genuinely use the input.
+- **The remaining gap looks like compounding, not a missing input:** one-step linear fidelity is R² ≈ 0.92 (§1122); naively compounded over 9 steps that is 0.92⁹ ≈ 0.47 — right at the base rollout — and true-attention injections mitigate by re-anchoring each step (0.68 > naive). This is §1070's compounding law (per-module understanding doesn't compose) recurring INSIDE the coordinate simulation: to simulate the band end-to-end you need per-step R² ≳ 0.99, i.e. better per-step models, not more inputs.
+- (Run detail: stale final print crashed after the JSON was written — data intact, print fixed; same cosmetic pattern as §1121's run, now twice — derived scripts get their tail prints checked before queueing from here on.)
+
+**Construction-simulation frontier, scoped after two experiments:** construction = LINEAR stateful coord dynamics (per-step R² 0.92) + attention injections (worth +0.15 rollout R²) + a compounding tax that dominates the remainder. The route to closing the benchmark gap is now concrete and narrow: push per-step fidelity toward 0.99 (richer per-step inputs from the same layer: the tail coords, the MLP's own dev×dev term) or shorten the effective chain (skip-level maps L5→L9→L14). Both are registered candidates for the next design; neither is queued tonight — the scoping is done and the ledger closes the wave cleanly.
+
+coord_dynamics_attn_results.json; runlogs/coord_dynamics_attn.log.

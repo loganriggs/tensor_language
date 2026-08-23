@@ -158,7 +158,7 @@ def main():
     out['pred_b_not_attention'] = bool(ro_inj[0] - ro_base[0] < 0.1)
     out['runtime_s'] = round(time.time()-t0, 1)
     json.dump(out, open(OUT, 'w'), indent=1)
-    print(f"pred_a simple-dynamics {out['pred_a_simple_dynamics']} | pred_b context-limited {out['pred_b_context_limited']} | pred_c stateless {out['pred_c_stateless']}", flush=True)
+    print(f"pred_a injections-complete {out['pred_a_injections_complete']} | pred_b not-attention {out['pred_b_not_attention']}", flush=True)
     print(f"wrote {OUT} ({out['runtime_s']}s)")
 
 

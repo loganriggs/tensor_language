@@ -1,0 +1,25 @@
+{
+ "results": {
+  "rollout": {
+   "base_linear": [
+    0.635,
+    0.529
+   ],
+   "with_true_attn": [
+    0.728,
+    0.682
+   ],
+   "shuffled_attn": [
+    0.454,
+    0.281
+   ],
+   "persistence": [
+    0.513,
+    0.129
+   ]
+  }
+ },
+ "pred_a_injections_complete": false,
+ "pred_b_not_attention": true,
+ "runtime_s": 37.1
+}
