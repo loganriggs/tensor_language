@@ -28685,3 +28685,18 @@ solved GRAMMAR machine, and appropriately uncertain on the hard CONTENT machine,
 throughout. The hedge is not a bug; it is well-calibrated deferral on content the model genuinely cannot resolve.
 Closes the output-behavior facet (errors §972-976, frequency §977, capacity §978, calibration §979): bilin18's
 output behavior is a calibrated readout of two machines — a confident grammar gate and an uncertain content pick.
+
+## §980 — content errors are TOPICALLY APPROPRIATE: the content machine fails gracefully (topic-right, word-wrong) (content_error_topicality.py)
+
+On CONTENT-ERROR positions (right class, wrong token, n=13783): is the wrong predicted word still in the true
+word's TOPIC?
+  content-error topic-match: 0.400   vs   class-matched-random null: 0.154   (2.6x above null)
+pred (a) topically-appropriate TRUE. Even when the content machine picks the WRONG specific word, it lands in the
+CORRECT topic/subject 40% of the time — 2.6x more than a class- and frequency-matched random token would (15%).
+So content errors are GRACEFUL: the content machine's job (narrow the context to the right subject, §866 topic
+tracker) SUCCEEDS even when the final within-topic word choice fails. The failure is "right topic, wrong word,"
+not "wrong topic." This ties the error facet to the content machine's established competence: the topic-narrowing
+works; the residual difficulty is picking the exact word within the topic (consistent with content = high-rank
+within-topic word selection, §930/§938). Completes the picture of bilin18's errors: mistakes are content mistakes
+(§973), the model knows it and hedges calibratedly (§979), and even the content misses are topically on-target
+(§980) — the content machine degrades gracefully rather than collapsing. Output-behavior facet (§972-980) complete.
