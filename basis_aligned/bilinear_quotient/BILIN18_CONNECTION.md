@@ -30632,3 +30632,21 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 - At K=64 the content ablation already saturates (frequent targets +6.0), so its low/high ratio flattens to 1.9 < random 5.74 — i.e. **§1067's K=256 "broad, not content-specific" conclusion was a destructive-regime artifact**: once the ablation is large enough to cripple function-word prediction too, the selectivity is masked. The clean K=16 window shows the true picture.
 
 **CORRECTION (stated plainly).** §1067's headline ("content is broad, NOT content-word-specific") is RETRACTED — it held only in the over-ablated K=256/64 regime. The corrected finding: **the deep-middle content preferentially supports content/topical (rare) word prediction** (K=16: 7.6× more loss on rare vs frequent, above the 6.0× general-difficulty baseline; +8.5 vs +1.1 nats), while contributing modestly to function-word prediction too. This TIES the content mechanism to its function: the topic representation is used most where meaning must be predicted (content words), consistent with §1055/§1064 (semantic topic) and §798 (class+position skeleton is what remains when content is uncertain). Neither §1067 nor this was propagated to the published reports (ledger/RESULTS only), so no report correction needed. **Controls:** random-K subspace (tiny at K=16, confirming the regime is clean). **Caveat:** frequency is a proxy for content-vs-function; a POS-based split would refine it but frequency is objective and the selectivity is clear.
+
+## §1069 — The middle-attention gap is non-local / content-dependent, NOT a wider-window issue (last module band closed)
+
+**Question:** §1054 showed a local window [cur+3prev] of the residual recovers only 0.5-0.68 of the middle attention (L5-11) loss. Is the remainder longer-range LOCAL routing (a wider window closes it) or non-local/content-dependent (wider window saturates)? Fit residual-window stand-ins at widths W∈{3,7,15}, per-layer loss-recovery. (`middle_attn_window_width.py`, 200 rows.)
+
+**Registered predictions:** (a) longer-range — recovery rises to >0.8 by W=15; (b) non-local saturation — recovery flat/below 0.7 as W grows.
+
+**Result — pred_b TRUE, pred_a FALSE:**
+
+| layer | 0 | 1 | 2 | 5 | 6 | 7 | 8 | 9 | 10 | 11 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| W=3 | .944 | .905 | .819 | .660 | .525 | .683 | .124 | .649 | .612 | .524 |
+| W=15 | .941 | .904 | .802 | .621 | .472 | .683 | .047 | .635 | .565 | .474 |
+
+- **A wider window does NOT help the middle attention** — middle (L5-11) mean recovery 0.54 at W=3 → 0.50 at W=15 (gain −0.04, slightly WORSE, from overfitting the 16×-larger feature set despite ridge). Front layers (L0-2) are flat and high (0.80-0.94) at all widths — a 3-token window already suffices there.
+- So the middle attention's unrecovered 30-45% is **genuinely non-local / content-dependent**, not longer-range local routing. No local window of any width reconstructs it. Consistent with §1053/§1054: the middle attention is entangled with the content-carrying residual stream (it reads and mixes the accumulated content), not a pure window function.
+
+**What this closes (the bottom-up map is now complete).** Every module band is characterized: FRONT attention L0-2 = local-window routing of the residual (0.80-0.94, width-3 suffices); MIDDLE attention L5-11 = partial local routing (0.5-0.68) + a non-local content-dependent remainder, at low stakes (meanabl ≤0.06 nats); the content MLPs = the high-rank content frontier; READOUT = near-linear read. The middle attention's residual joins the deep-middle MLPs as part of the one content-dependent frontier — it is not a separate wider-window mechanism we were missing. **Nulls:** shuffled-window null negative at every middle layer (passes). **Caveat:** low stakes make the middle-attention numbers noisier; the qualitative "wider window doesn't help" is robust across all seven middle layers.
