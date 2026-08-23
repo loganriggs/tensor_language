@@ -1976,6 +1976,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   long-range copy — move on command when you write to the input, which is the strongest evidence the account
   describes the machine and not just its traces.</p>
 
+  <p>These three jobs are mostly independent — but not perfectly, and the one place they touch is worth naming
+  honestly. Induction never cares about content: planting a topic word does not change how strongly the model copies.
+  Content, though, is <em>amplified</em> when induction fires — inject a topic word into a context where a copy is
+  also being set up and its topical pull runs about one-and-a-half to two times stronger. Chasing that down through
+  six controls (it is not the last token, not the extra word-density, not a softmax artifact) leaves two real
+  contributions: the induction head, reaching back to the token it is copying from, also drags the <em>nearby</em>
+  content forward — the amplification is largest for a topic word sitting right beside the copy source and fades with
+  distance from it — on top of a smaller, position-independent lift whenever a copy is active. So the machines share
+  the road rather than ignoring each other completely: induction, while doing its own job, gives a lift to whatever
+  content it happens to be reaching past.</p>
+
   <p><strong>Where every nat goes.</strong> All of this lands in one budget. The model takes the average
   next-token cost from 7.17 nats (guessing from word frequencies alone) down to 3.24, split as 0.76 grammar +
   2.48 content. Sort the tokens by <em>what kind of prediction they are</em> and the loss concentrates sharply.
