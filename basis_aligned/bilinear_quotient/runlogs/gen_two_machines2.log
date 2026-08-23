@@ -1,0 +1,9 @@
+natural: content-word rate 0.476 | legal-transition 0.974
+        base: topic 0.8679 | cw-rate 0.4355 | legal 0.9749 | rep4 0.0154
+ content_abl: topic 0.675 | cw-rate 0.203 | legal 0.8943 | rep4 0.0435
+ grammar_abl: topic 0.7132 | cw-rate 0.2886 | legal 0.8996 | rep4 0.0102
+ random2_abl: topic 0.8471 | cw-rate 0.4186 | legal 0.9663 | rep4 0.0225
+    vres_off: topic 0.8339 | cw-rate 0.5036 | legal 0.9329 | rep4 0.0
+cw-drop ratio (content/grammar) 1.58 | legal-drop ratio (grammar/content) 0.93
+pred_a clean-dissociation False | pred_b vres-signature False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gen_two_machines2_results.json (106.3s)

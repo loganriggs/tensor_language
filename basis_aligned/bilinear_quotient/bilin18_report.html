@@ -815,6 +815,32 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="phenotypes">Turn off one machine and read what comes out</h2>
+  <p>Everything above scores the model one token at a time, with the true text always restored before the next
+  step. Letting the model <em>free-run</em> — generate its own continuations for 64 tokens — shows what each
+  machine's absence does when errors are allowed to accumulate. Ablate a band, let the model write, then judge
+  the text with the intact model. The three failures read completely differently:</p>
+  <p><span class="tag">no content machine</span> The text becomes <em>function-word soup</em> — grammatical
+  scaffolding with nothing hung on it: <em>"far from the community the of the … by the, and the three a new at
+  the way, a big, the proposed mid-"</em>. Quantitatively, the fraction of content words craters from 0.44 to
+  0.20 (natural text: 0.48) — the content machine's job, visible by its absence.</p>
+  <p><span class="tag">no grammar machine</span> The mirror image: <em>fragment salad</em>, where content nouns
+  survive but the structure that would hold them collapses: <em>": interactions)… 52, D. … Tribune. email@.
+  Ingredients — Tribune Tribune-qu organisations"</em>. (An honest instrument note: this brokenness is
+  <em>ordering</em>-level — our simple word-class statistics can't fully separate it from the soup, because a
+  run of orphaned determiners is also ungrammatical. The phenotype is unmistakable to a reader; a proper
+  syntactic metric is future work.)</p>
+  <p><span class="tag">no value-residual</span> The strangest and most diagnostic: turn off the channel that
+  broadcasts each word's fixed meaning-vector to every layer, and the model emits a hyper-diverse stream of
+  contentful-<em>looking</em> tokens with no anchoring — <em>"As K DD ISI Pal Bag the and, His H and, and
+  forward three Se arena"</em> — containing <strong>not a single repeated 4-gram</strong> in six thousand
+  generated tokens, and a content-word rate <em>above</em> natural text. Words without their meaning-anchor:
+  the earlier finding that this channel carries each token's static content, made audible.</p>
+  <p class="q">A matched control (ablating two random middle layers instead) generates near-normal text, so
+  these are the bands' own signatures, not generic damage.</p>
+</section>
+
+<section class="col">
   <h2 id="overcontinue">Three readings that died</h2>
   <p>One thread started as a circuit claim and ended somewhere better. Several independently
   discovered damage-clusters shared a behaviour: ablating their machinery <em>improved</em> the

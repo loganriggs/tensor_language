@@ -31501,3 +31501,14 @@ attn_gain_second_results.json; runlogs/attn_gain_second.log (34s).
 **Registered next (queued):** metric sharpening — content-word RATE (content axis) and real-word well-formedness (grammar axis) should separate the soup from the salad cleanly where class-KL conflates them; generations saved to disk this time for re-scoring.
 
 gen_two_machines_results.json; runlogs/gen_two_machines.log (106s).
+
+## §1136 — Generation wave closes: the CONTENT axis quantifies (cw-rate craters 0.44→0.20, 1.6× grammar's drop; topic ordering holds), the GRAMMAR axis is under-instrumented at bigram grain (both ablations ~equal legal-rate — the salad's brokenness is an ordering/global property class-bigrams cannot see); the vres phenotype gets its signature (gen_two_machines2.py)
+
+**Registered (c) half-true, with the failure located in the instrument, not the model:**
+- **Content axis separates:** content-ablation craters the content-word rate to 0.203 (natural 0.476, base 0.436) — 1.6× grammar-ablation's drop — and owns the worst topic retention. The function-word-soup phenotype is quantified.
+- **Grammar axis does not separate at bigram grain (ratio 0.93):** my legal-transition metric admits the fragment salad's local pairs (punct→punct IS a legal class bigram) — both ablations land ~0.895. The salad's brokenness is higher-order structure (ordering, constituency) that no class-bigram statistic captures. Honest status: the grammar phenotype is VISIBLE (§1135 samples) but needs a structural metric beyond this program's current toolkit; recorded as an instrument gap, not iterated further (diminishing returns).
+- **The value-residual phenotype gets a crisp signature:** content-word rate 0.504 — ABOVE natural — with rep-4gram exactly 0.000 and mildly degraded transitions. The unanchored stream is content-word-RICH noise: without the per-token broadcast (§1076), the model emits diverse "contentful-looking" tokens with no identity anchoring. (pred_b missed its threshold by 0.008 on the legal-rate — at the boundary, stated as such.)
+
+**Generation wave conclusion (§1135-1136, two experiments):** free-running text under band ablations yields three real, readable, mechanistically-sensible failure phenotypes; the content side quantifies cleanly; the grammar side's quantification awaits a syntactic-structure metric; accumulation partially mixes simple per-token statistics. The phenotypes + samples go to the report at this boundary.
+
+gen_two_machines2_results.json (all 5×24 generations saved for re-reading); runlogs/gen_two_machines2.log (106s).
