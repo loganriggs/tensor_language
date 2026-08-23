@@ -1,0 +1,34 @@
+{
+ "K": 64,
+ "ref_layers": [
+  8,
+  10,
+  12
+ ],
+ "n_positions": 51000,
+ "canonical_correlations_top10": [
+  0.972,
+  0.964,
+  0.963,
+  0.961,
+  0.953,
+  0.951,
+  0.95,
+  0.947,
+  0.943,
+  0.941
+ ],
+ "mean_topK": 0.845,
+ "n_above_0.7": 58,
+ "n_above_0.5": 60,
+ "shuffled_control_top5": [
+  0.066,
+  0.065,
+  0.063,
+  0.062,
+  0.059
+ ],
+ "shuffled_mean": 0.029,
+ "pred_a_shared_content_info": true,
+ "runtime_s": 71.7
+}

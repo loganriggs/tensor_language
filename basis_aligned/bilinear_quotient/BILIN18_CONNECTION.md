@@ -30492,3 +30492,18 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - **§1059's caveat is closed:** the near-tie in alignment at K=256 (0.90 vs 0.67) was purely a large-patch artifact — random subspaces only start transporting info once big enough to capture appreciable variance by chance. At the honest small-K regime the content subspace dominates by 20-60×.
 
 **Net:** the deep-middle content subspace CAUSALLY transports topic, and the effect is concentrated in its top ~16-64 (interpretable) directions — 20-60× the causal effect of same-size random subspaces. Together §1055 (interpretable axes) + §1056 (load-bearing) + §1059/§1060 (causal topic transport, concentrated in the top directions) give a complete causal account of the content frontier. **Controls:** size-matched random subspace at every K (weak, as it should be).
+
+## §1061 — Two independently-trained models encode the SAME content information (CCA near ceiling)
+
+**Question:** §1057 showed bilin18 and swiglu18 have similarly-structured content subspaces with the same extremal contexts. The rigorous, basis-independent test of whether they carry the SAME information: run both on the same corpus, take each model's per-position content coordinates (projection onto its own top-64 content PCA), and compute the CANONICAL CORRELATIONS between the two coordinate sets over aligned positions. (`crossmodel_cca.py`, 200 rows, 51k positions, K=64.)
+
+**Registered predictions:** (a) several canonical correlations > 0.7, far above a position-shuffled control -> shared content information; (b) report the spectrum.
+
+**Result — pred_a TRUE, near ceiling:**
+
+- **Top-10 canonical correlations: 0.972, 0.964, 0.963, 0.961, 0.953, 0.951, 0.950, 0.947, 0.943, 0.941.** Mean over all 64 = **0.845**. **58 of 64** directions correlate > 0.7; **60 of 64** > 0.5.
+- **Shuffled-position control: mean 0.029, top-5 ~0.06** — essentially zero, confirming the alignment is real, not spurious.
+
+**What this establishes.** Two INDEPENDENTLY-TRAINED bilinear models — different initialization, different training run, and even a different MLP type (bilin18's squared-bilinear vs swiglu18's gated variant) — encode essentially the SAME content: the top content directions align at canonical correlation ~0.95-0.97, and nearly the whole 64-dim content subspace (58/64) is shared up to a linear map. The high-dimensional topic/register content manifold is a **convergent, model-independent representation** — not just the same shape (§1057) but the same information, in two separately-learned bases. This is the strongest form of the universality claim: these bilinear LMs converge on the same way of representing context.
+
+**Controls/caveats:** position-shuffled control ~0.03 (passes). CCA finds the best LINEAR alignment, so this shows the subspaces carry linearly-equivalent information (the precise, intended claim: "same information up to a linear map"), not that individual PCA directions coincide. K=64, N=51k (well-conditioned, N>>K), ridge 1e-3.
