@@ -31725,3 +31725,11 @@ consequence_split_results.json; runlogs/consequence_split.log (37s).
 **TRANSPORT ARC FINAL SUMMARY (§1150-1157):** the deep-middle topic address is (1) position-LOCAL — each position's prediction reads its own coords at ~full strength; cross-position spread is a small, distance-decaying, causally-masked pooling leak; (2) depth-UNIFORM and nearly FROZEN — written once, it survives at 0.98-0.99/block in direction and magnitude; (3) consumed at the readout ≈68% as raw coordinates and ≈32% as source-flavored material the deep blocks manufacture from those coordinates outside the content span; (4) graded in coverage, class-blind, arrangement-strict (wrong placement actively misdirects). §1059-60 stands replicated to the fourth decimal; the §1146-49 questions all have in-protocol answers; three metric traps were caught by registered controls and are now laws.
 
 patch_relax_magnitude_results.json; runlogs/patch_relax_magnitude.log (39s).
+
+## §1158 — TRANSPORT LAW IS FAMILY-UNIVERSAL: swiglu18 reproduces all three pillars with near-identical numbers (full 0.913 vs 0.899; patched/unpatched split 0.911/0.318 vs 0.891/0.358; single-layer KL share 0.75 vs 0.73) — preds a-c ALL TRUE (transport_family.py)
+
+Same harness translated to the independently-trained sibling (swiglu18: gated-SwiGLU MLPs, no squared attention; own content basis from its own L8-12 MLP-input deviations). **pred_a** transport replicates: full9 alignment 0.9132 vs r256 null 0.6758, KL 8.71 vs 2.71. **pred_b** position-locality replicates: scat50 patched positions 0.9112 (≈ its own full-patch level), unpatched 0.3178 — the same own-position-dominant + small-leak structure. **pred_c** frozen clamp replicates: last1 (L14 only) raw-KL share 0.7515 (bilin18: 0.73).
+
+The correspondence is not just qualitative — the four headline numbers land within 0.01-0.04 of bilin18's across a different architecture. The transport law (position-local read, causally-masked leak, depth-uniform frozen clamp) joins the family-universal column alongside the content info itself (§1061-63), the API atoms (§1119), and the generation phenotypes (§1137-38). Two independently trained models with different MLP nonlinearities implement the SAME topic-addressing scheme down to its constants.
+
+transport_family_results.json; runlogs/transport_family.log (37s).

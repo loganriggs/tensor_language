@@ -1,0 +1,36 @@
+{
+ "model": "swiglu18",
+ "n_positions": 20400,
+ "conds": {
+  "full9": {
+   "kl": 8.7115,
+   "alignment": 0.9132
+  },
+  "last1": {
+   "kl": 6.5468,
+   "alignment": 0.8344
+  },
+  "scat50": {
+   "kl": 4.445,
+   "alignment": 0.6133
+  },
+  "r256": {
+   "kl": 2.7078,
+   "alignment": 0.6758
+  }
+ },
+ "scat50_patched_pos": 0.9112,
+ "scat50_unpatched_pos": 0.3178,
+ "last1_kl_share": 0.7515,
+ "bilin18_refs": {
+  "full9": 0.8994,
+  "r256": 0.6693,
+  "patched_pos": 0.8914,
+  "unpatched_pos": 0.3579,
+  "last1_kl_share": 0.73
+ },
+ "pred_a_transport_replicates": true,
+ "pred_b_position_local": true,
+ "pred_c_frozen_clamp": true,
+ "runtime_s": 37.2
+}
