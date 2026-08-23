@@ -4823,3 +4823,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1086 — CORRECTION §1082: argmax-flip was perturbation-size artifact (norm-matched random flips 41% vs content 38%); near-linear read + tail asymmetry (1.7x over matched control) survive (readout_merge_vmatch.py)
 §1087 — L5H7: content-tilted (rare/freq 2.16), far-range causal; donor interchange ~FREE (0.02 vs zero 0.88) → load-bearing signal is document-GENERIC (pooled-mass ramp?); mediation test invalid (super-additive); generic-vs-specific follow-up queued (l5h7_probe.py)
 §1088 — CORRECTION §1084: deep+readout tok-recoveries were singleton leakage — held-out L8 0.14, L10 0.01, L16 0.13; L1 stands 0.93; readout-as-token-lookup WITHDRAWN (transition_terms_heldout.py)
+§1089 — L5H7 RESOLVED: a constant-bias head — one fixed vector = 98.5% of its 0.88-nat function; constant sits on massive/gain dims (7/8 overlap); 'content gatherer' framing retired; biggest attention node ≈ a bias (l5h7_generic.py)
+§1090 — readout reinstated, sharper: mlp16 82% token-variance held-out (structural) but small dev part carries ~87% of CE value; §1084 var-share table = in-sample-only (readout_var_heldout.py)

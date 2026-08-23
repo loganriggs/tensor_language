@@ -30996,3 +30996,28 @@ Held-out means (computed on half A, evaluated on half B; 20.3% of eval positions
 **What survives of §1084:** the exact three-term decomposition and its sanity; NO binding band (cross-share flatness is a weight/activation fact, small leak sensitivity); the front-vs-deep DIRECTION of the gradient (L1 0.93 vs L10 0.01 held-out is even sharper than before); L4 as the first true context MLP (its tok recovery was ~0 already in-sample). What changes: the deep/readout token components were illusory.
 
 transition_terms_heldout_results.json; runlogs/transition_terms_heldout.log (99s).
+
+## §1089 — L5H7 RESOLVED: the super-head is a CONSTANT-BIAS head — its whole 0.88-nat function is one fixed vector, and that vector sits on the massive-activation/gain dims (l5h7_generic.py + inline check)
+
+**The generic-vs-specific split (registered §1087) came back MORE extreme than the ramp hypothesis:**
+- Batch-mean replacement (keep per-position generic, delete all doc-specificity): **0.0127** nats.
+- GLOBAL-mean replacement (ONE fixed vector at every position, every document): **0.0133** nats.
+- Position-shuffle 0.015, donor 0.021, zero 0.879. Ramp REFUTED: output norm is FLAT with position (final/early 1.029). pred_a formally false — because the truth is stronger: no positional structure needed at all.
+- **L5H7 is functionally a CONSTANT.** Its output is 91% fixed by norm (mean 740 vs mean deviation 72), and replacing the head with that single fixed vector retains 98.5% of its function (0.013 of 0.879). The biggest attention node in the model (54% of per-head causal weight, §1083) is a bias delivered through an attention head.
+- **The constant is the gain-control vector.** Inline check (16 seqs): the head's D-space mean contribution has its top components EXACTLY on the massive-activation dims — 7/8 overlap between its top-8 |dims| (645, 990, 880, 750, 111, 373, 43) and the residual's top-8 massive dims. Refines §688-691 (massive dims written collectively by the multiplicative gates, attention dominant at L8): there is a single dominant named writer, and its per-head cost (0.88 nats) is the gain-control stake. The rare/freq 2.16 tilt (§1087) is a property of gain-control disruption, not of topic content.
+
+**Corrections this implies, stated plainly:** §1083's "prime candidate for THE content gatherer" and §1087's "content-tilted gatherer" framings are RETIRED — L5H7 gathers nothing the model uses; it supplies the rms-norm gain-controller constant (FINDINGS 12) via near-uniform broad pooling of the (mostly-constant-in-mean) value stream. The content seed does NOT have this address; §1074's early-attention content creation must be carried by the OTHER attention nodes (the individually-cheap redundant poolers).
+
+**Benchmark note:** L5H7 as a module is now ~98.5% understood by the cheapest possible stand-in — a constant. pred_b (position>document) TRUE but moot given both ~0.
+
+l5h7_generic_results.json; runlogs/l5h7_generic.log (524s).
+
+## §1090 — Readout REINSTATED with a sharper reading: mlp16's output is genuinely 82% token-variance, but its VALUE lives in the small context part (readout_var_heldout.py)
+
+Held-out variance shares + CE substitutions (xbar from half A, measured on half B):
+- **L16: tok variance share 0.824 held-out** (in-sample 0.906 — barely inflated; reinstate criterion met) and dev-only substitution costs 0.795 vs mean-ablation 0.138 (5.8×) — the load-bearing token baseline is real. §1088's withdrawal of the STRUCTURAL claim is reversed: the readout MLP's output really is mostly a per-token function.
+- **But the CE value is in the other 4%:** tok-only substitution held-out recovers just 0.13 of the mean-ablation cost. Combined statement: mlp16 emits a large, mostly-token-determined vector whose token part is REDUNDANT for CE (the stream already carries token identity — embedding-dominant residual, FINDINGS 14) while the small dev part (4% of variance) carries ~87% of the layer's marginal value. Big-but-redundant + small-but-valuable, in one module.
+- **L1 in-sample variance shares were contaminated too** (0.66/0.22/0.12 → held-out 0.39/0.31/0.31) even though its tok CE recovery stands at 0.93: for CE the token table suffices, but the output's variance decomposition shifts held-out. §1084's variance-share TABLE should be read as in-sample-only; the held-out CE numbers (§1088) are the standing per-layer facts.
+- **L8 deep-context confirmed (pred_b):** tok share 0.13 held-out (was 0.33), dev 0.53.
+
+readout_var_heldout_results.json; runlogs/readout_var_heldout.log (115s).

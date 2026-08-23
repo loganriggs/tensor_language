@@ -1,0 +1,52 @@
+{
+ "base_ce": 3.3914,
+ "conditions": {
+  "zero": {
+   "cost": 0.8791,
+   "rare_cost": 1.4925,
+   "freq_cost": 0.6917
+  },
+  "batchmean": {
+   "cost": 0.0127,
+   "rare_cost": 0.0177,
+   "freq_cost": 0.0112
+  },
+  "globalmean": {
+   "cost": 0.0133,
+   "rare_cost": 0.0181,
+   "freq_cost": 0.0118
+  },
+  "donor": {
+   "cost": 0.0214,
+   "rare_cost": 0.0323,
+   "freq_cost": 0.0181
+  },
+  "posshuffle": {
+   "cost": 0.015,
+   "rare_cost": 0.0225,
+   "freq_cost": 0.0127
+  }
+ },
+ "ramp_final_over_early": 1.029,
+ "norm_curve_sample": [
+  748.52,
+  734.83,
+  728.2,
+  730.92,
+  739.02,
+  747.69,
+  750.42,
+  745.74,
+  746.21,
+  746.38,
+  744.44,
+  738.46,
+  760.2,
+  752.83,
+  750.83,
+  754.71
+ ],
+ "pred_a_generic_positional": false,
+ "pred_b_position_over_document": true,
+ "runtime_s": 523.7
+}

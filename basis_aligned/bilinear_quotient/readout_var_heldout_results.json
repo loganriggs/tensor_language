@@ -1,0 +1,55 @@
+{
+ "base_ce": 3.1473,
+ "var_shares": {
+  "1": {
+   "tok": 0.3855,
+   "cross": 0.3087,
+   "dev": 0.3058
+  },
+  "8": {
+   "tok": 0.1286,
+   "cross": 0.3428,
+   "dev": 0.5286
+  },
+  "16": {
+   "tok": 0.8244,
+   "cross": 0.1348,
+   "dev": 0.0408
+  }
+ },
+ "ce": {
+  "1": {
+   "full": 0.0,
+   "tok": 0.4372,
+   "dev": 0.3265,
+   "meanabl": 6.5043
+  },
+  "8": {
+   "full": 0.0,
+   "tok": 0.0416,
+   "dev": 0.0155,
+   "meanabl": 0.0481
+  },
+  "16": {
+   "full": 0.0,
+   "tok": 0.12,
+   "dev": 0.7946,
+   "meanabl": 0.1381
+  }
+ },
+ "insample_tok_share": {
+  "1": {
+   "tok": 0.6576
+  },
+  "8": {
+   "tok": 0.3255
+  },
+  "16": {
+   "tok": 0.9062
+  }
+ },
+ "pred_a_readout_reinstated": true,
+ "pred_a_readout_withdrawn_final": false,
+ "pred_b_deep_context": true,
+ "runtime_s": 115.3
+}
