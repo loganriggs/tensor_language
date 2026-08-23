@@ -30852,3 +30852,25 @@ Dedup miss (stated plainly): §1075's value-residual / x0 re-injection ablations
 - **Code content is LOWER-rank than prose** (top-10 PCs explain 24% vs prose's 12%) — code is more structurally repetitive, so its content is more compressible/concentrated.
 
 **What this nuances.** The universality claim (§1057-1063: content is the same across independently-trained models) was established on FineWeb PROSE (same training distribution). §1079 shows that WITHIN a model, the content subspace is register-ADAPTIVE: code and prose get mostly different content directions (overlap 0.19), sharing only a ~3×-random general-content backbone. So "universal content manifold" means universal ACROSS MODELS on in-distribution text, NOT register-general within a model. The content machine tracks "what this text is about" in a register-dependent basis. **Controls:** random-64 null (0.055), symmetric prose-by-code (0.125). **Caveat:** code is OOD for a FineWeb-trained model, so "code content" is whatever the model computes on code (processing may be degraded); the subspace-overlap measure is register-relative and robust, but the absolute meaningfulness of code's content directions is bounded by the model's OOD competence.
+
+## §1080 — Register-generality by depth: GRAMMAR (front) transfers across registers ~2× better than CONTENT (middle)
+
+**Question (extends §1079):** is the GRAMMAR machine more register-general than the content machine? Measure prose↔code MLP-input deviation subspace overlap (top-64) at EVERY layer, with a prose↔prose(split) ceiling and random null. (`register_generality_by_depth.py`, 150 code + 300 prose seqs.)
+
+**Registered predictions:** (a) front (grammar) overlap > 2× deep-middle (content) overlap.
+
+**Result — pred_a TRUE, a clean depth gradient:**
+
+| band | prose↔code | prose↔prose ceiling | frac of ceiling |
+|---|---|---|---|
+| front L0-2 (grammar) | **0.410** | 0.886 | 0.46 |
+| transition L3-5 | 0.333 | 0.852 | 0.39 |
+| deep-middle L6-14 (content) | **0.205** | 0.708 | 0.29 |
+| readout L15-17 | 0.194 | 0.577 | 0.34 |
+
+(random null 0.057; per-layer overlap declines smoothly L0 0.428 → L14 0.167, matching §1079's deep-middle 0.19.)
+
+- **The grammar front is ~2× more register-general than the content middle** — both raw (0.41 vs 0.20) and relative to the achievable ceiling (46% vs 28% — the ceiling itself declines with depth as deep subspaces get more data-dependent, but prose↔code drops FASTER through the content band). Every band is well above the random null (0.057).
+- So the two-machine split holds along a THIRD axis (after depth and cross-model): GRAMMAR (syntax / token-class, front) transfers across registers — code and prose share ~40% of front directions (punctuation/number/identifier class structure is register-general) — while CONTENT (topic, deep-middle) is register-SPECIFIC (§1079, code and prose diverge to 0.20).
+
+**What this adds.** The grammar/content dissociation, established by nonlinearity (§1000/1042), causal role (§1056/1059), function (§1068), and origin (§1074), now also holds by REGISTER-GENERALITY: grammar is a register-general syntactic machine, content is a register-adaptive topic machine. This is the natural OOD extension of the two-machine account. **Nulls/controls:** random-64 (0.057), prose↔prose ceiling (register-general reference, 0.58-0.89). **Caveat:** code is OOD for a FineWeb model; overlaps are register-relative and robust, but absolute code-computation quality is bounded by OOD competence (as §1079).
