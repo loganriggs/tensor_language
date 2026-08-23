@@ -28700,3 +28700,33 @@ works; the residual difficulty is picking the exact word within the topic (consi
 within-topic word selection, §930/§938). Completes the picture of bilin18's errors: mistakes are content mistakes
 (§973), the model knows it and hedges calibratedly (§979), and even the content misses are topically on-target
 (§980) — the content machine degrades gracefully rather than collapsing. Output-behavior facet (§972-980) complete.
+
+## §981 — QK ROUTING is HETEROGENEOUS/SPECIALIZED per head, and softmax-free routing can be NEGATIVE (qk_routing.py)
+
+Opened the QK-routing mechanism. bilin18 = SOFTMAX-FREE squared attention: pattern[h,q,k] = (q.k/D)*(q2.k2/D),
+causally masked, UNNORMALIZED. Captured the exact pattern (verbatim-copy monkeypatch) at mid layer L8; per-head
+correlation of routing weights with recency / content-similarity / induction(token-match) [null ~0.000 all heads]:
+  head  recency  content-sim  induction   (induction-null ~0)
+  h0    +0.016   -0.085       -0.001
+  h1    +0.109   -0.019       +0.015          <- recency head
+  h2    -0.061   +0.006       -0.031
+  h3    +0.009   +0.088       -0.190          <- content head + ANTI-induction (negative routing)
+  h4    +0.015   +0.011       +0.193          <- INDUCTION head
+  h5    +0.082   -0.000       +0.038
+  h6    +0.116   +0.063       +0.157          <- recency + INDUCTION head
+  h7    +0.087   +0.122       +0.050          <- content head
+  h8    +0.089   +0.151       +0.004          <- CONTENT-similarity head
+pred (a) (mean-based) FALSE — but that was the WRONG test: the MEAN washes out strong HEAD SPECIALIZATION. The
+per-head picture is clear (null ~0.000 everywhere confirms genuineness):
+ 1) HEADS SPECIALIZE BY ROUTING MODE at L8: INDUCTION heads (h4 +0.193, h6 +0.157 >> null 0.002), CONTENT-
+    SIMILARITY heads (h8 +0.151, h7 +0.122, h3 +0.088), RECENCY heads (h1/h6 +0.11, h5 +0.08). So the routing IS
+    content/token-driven, just HETEROGENEOUS across heads (the mean 0.026 induction / 0.037 content hid this).
+ 2) NEGATIVE ROUTING (distinctive to softmax-free): the unnormalized pattern can be NEGATIVE, so heads can route
+    AWAY from tokens — h3 anti-induction (-0.190), h0 anti-content (-0.085). Standard softmax attention (weights
+    >=0) CANNOT do this. Squared attention has SUPPRESSIVE routing heads as well as attractive ones.
+So the QK routing is a per-head MIXTURE of specialized modes (induction / content-similarity / recency), some
+attractive and some suppressive — a richer routing repertoire than softmax attention, enabled by the softmax-free
+unnormalized squared pattern. Opens the routing thread. LESSON: the mean was the wrong summary (masked
+specialization); per-head is the right unit (consistent with the whole program's "the honest unit is finer than
+the aggregate"). Next: does the DOUBLE-QK (the two factors q.k and q2.k2) specialize — one factor content, one
+positional?
