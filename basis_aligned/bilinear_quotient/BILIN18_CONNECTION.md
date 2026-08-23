@@ -29407,3 +29407,18 @@ content gathered" (banding is the correct isolating instrument); §1009 shows it
 cruder whole-band output-ablation, which conflates content-gathering with all-attention-computation and flags early
 attention (L0-5) as broadly foundational (~2.5 nats, expected). No retraction of §998; a clarification of what each
 instrument measures.
+
+## §1010 — "the MLP multiplication serves CONTENT, not grammar" is ARCHITECTURE-GENERAL (incl SwiGLU) (cross_family_mult_content.py)
+
+Compositionally linearize each model's MIDDLE MLP band; chain-rule content(within-CE)/grammar(class-CE) split:
+  model      baseline_ce  middle-band  within-cost  class-cost  content/grammar ratio
+  bilin18       3.261       L6-11        +0.331       +0.090       3.66
+  bilin12       3.434       L4-7         +0.378       +0.124       3.05
+  swiglu18      3.154       L6-11        +0.377       +0.108       3.49
+pred_a (multiplication-serves-content, ratio>2.5 for every model) TRUE. Every model -- INCLUDING swiglu18, a
+NON-bilinear (SwiGLU) MLP -- spends its middle nonlinearity ~3-4x more on CONTENT (within-CE) than GRAMMAR
+(class-CE). So the content/grammar DIVISION of the MLP nonlinearity is ARCHITECTURE-GENERAL, not specific to the
+bilinear form: whatever the MLP's nonlinear form (bilinear product or SwiGLU gate), it is spent refining CONTENT,
+while grammar is handled ~linearly. Extends §942 (the middle-nonlinearity DIP is universal) with the content/grammar
+ATTRIBUTION of that nonlinearity. Strengthens the two-machine account: "grammar = linear/low-rank, content =
+nonlinear/multiplicative" is a family- AND architecture-general fact.
