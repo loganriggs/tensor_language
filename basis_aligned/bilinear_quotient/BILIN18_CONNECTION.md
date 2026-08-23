@@ -29545,3 +29545,23 @@ word's TOPIC (its unembedding-neighbors) at a distant query, by +0.52 nats -- 7.
 So the bag-of-words content account PREDICTS BEHAVIOR: drop a topical content word into the context and the model's
 downstream content prediction shifts toward that topic, broadly and order-invariantly -- the strongest, most direct
 (generative) confirmation of the content machine yet.
+
+## §1017 — the bag ACCUMULATES ~linearly with dose (pooling confirmed); it pools ALL tokens, content 2.2x more than function (content_injection_dose.py)
+
+Inject K copies of a word at early positions; topic-neighbor Δlog-prob at query 150 (excl W, excl context):
+  K:            0      1      2      4      8      | K8/K1
+  content:      0.000  0.525  0.964  1.807  3.421  | 6.51   (~+0.43 per copy, roughly LINEAR)
+  function:     0.000  0.073  0.311  0.708  1.547  | 21.2   (also accumulates!)
+pred_a (pooling accumulates, monotonic, K8>>K1) TRUE -- the content topic-boost grows ~LINEARLY with the number of
+injected topical words (0.53 -> 0.96 -> 1.81 -> 3.42), confirming the bag ACCUMULATES topical evidence (broad pooling,
+§995), not a single word saturating. Strong generative confirmation of the POOLING mechanism.
+pred_0 (function-word null flat) FALSE, stated plainly: injecting function words ALSO accumulates (1.55 at K=8). This
+is NOT an artifact -- the boost is specific to the INJECTED token's own unembedding-neighbors (function words'
+neighbors are other function words), so it is genuine pooling of that token's direction. REFINEMENT: the bag-of-words
+pools ALL tokens (content AND function), accumulating with dose; CONTENT words pool 2.2x MORE than function words at
+K=8 (3.42 vs 1.55) because their embedding neighborhoods are more topically coherent. So §1016's near-null
+function-word result (0.07 at K=1) was because the function effect is TINY at single dose but accumulates -- the
+content/function distinction is QUANTITATIVE (content pools ~2x stronger), not absolute.
+NET (generative content validation, §1016-1017): the bag-of-words content account PREDICTS BEHAVIOR both in KIND
+(inject a topical word -> its topic is primed downstream, §1016) and in DOSE (inject more -> proportionally stronger,
+~linear, §1017); the pooling is over all tokens, weighted toward content words.
