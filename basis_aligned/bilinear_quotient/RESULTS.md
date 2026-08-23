@@ -4842,3 +4842,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1105 — per-class interchange WINS 5/6 (mean +0.0066 vs random-subspace −0.0003, same-class ctrl ~0): mlp0 clusters are causally distinct VALUES of the class variable; number←determiner the one loss (digit circuitry); §1098-1105 arc complete (mlp0_class_interchange.py)
 §1106 — content-sim term causally INERT in the pattern (gain 0.001; §1085 correlate doesn't convert); middle stand-in stays 0.58; const baseline of this run invalid (doubled-means bug, disclosed); kernel+induction rung queued (attn_kernel_content.py)
 §1107 — induction term also inert in the pool (0.006-0.02) though fit rediscovers L5H5 (γ=0.041); both named modes fail; gain-vs-selection diagnostic queued (attn_kernel_induction.py)
+§1108 — gatherer remainder = per-query MASS (0.39→0.64 oracle); middle remainder = unnamed key-SELECTION (+0.08 only; survives content/induction/mass); 4-term scoreboard recorded (attn_kernel_gain.py)

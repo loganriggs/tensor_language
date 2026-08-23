@@ -31204,3 +31204,13 @@ attn_kernel_content_results.json; runlogs/attn_kernel_content.log (86s).
 - **Standing picture for the band:** distance kernel = 0.58 (middle) / 0.39 (gatherer); the remainder is UNNAMED pattern structure that is neither content-similarity nor induction-matching. Candidates: per-QUERY gain (unnormalized attention makes total row mass a real degree of freedom — the §1089 constant showed mass matters) vs genuinely key-selective structure. Queued diagnostic (attn_kernel_gain.py): oracle per-query gain α_h(q) × k_h(d) — if oracle-gain closes the gap, the remainder is "how much to pool" not "which keys"; explicitly a DIAGNOSTIC (uses the real pattern's row mass), not a stand-in.
 
 attn_kernel_induction_results.json; runlogs/attn_kernel_induction.log (72s).
+
+## §1108 — Gain vs selection: the GATHERER's remainder is substantially per-query MASS (0.39→0.64 with oracle gain, +0.25); the MIDDLE's is key-SELECTION (only +0.08); neither closes — the named decomposition of the pool now stands at 4 terms tested (attn_kernel_gain.py)
+
+Oracle per-query gain (real row mass × distance kernel; explicitly a diagnostic):
+- **Gatherer L3-5: 0.394 → 0.640** (+0.246 — the largest single addition for that band). The gatherer's un-kerneled structure is substantially "HOW MUCH context to pool at this position" — per-query mass, a real degree of freedom of unnormalized attention (the §1089 constant is pure mass; §1030's induction-state amplification is a mass effect too). What the gain TRACKS is now the nameable question (queued: attn_gain_what.py — regress oracle α on position/content-norm/class/entropy features).
+- **Middle L6-14: 0.583 → 0.665** (+0.082; pred_b TRUE at <0.7). The middle's remaining ~33% is key-SELECTION beyond distance — and it is NOT content-similarity (§1106), NOT induction-matching (§1107), NOT mass (this section). An unnamed selection criterion survives all three named candidates plus the oracle. Recorded on the dossier as THE open question for the band; diminishing returns for now — the band's honest stand-in remains kernel (0.58) with a named residual taxonomy.
+
+**Band decomposition scoreboard (collective dynamic value):** distance kernel 0.58/0.39 (middle/gatherer) + per-query mass +0.08/+0.25 + content-sim +0.00 + induction +0.02/+0.01; unnamed selection remainder ~0.33/~0.36.
+
+attn_kernel_gain_results.json; runlogs/attn_kernel_gain.log (68s).
