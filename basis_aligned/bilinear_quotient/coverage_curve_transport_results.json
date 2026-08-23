@@ -1,0 +1,51 @@
+{
+ "n_positions": 20400,
+ "conds": {
+  "scat25": {
+   "kl": 1.9868,
+   "alignment": 0.4233
+  },
+  "scat50": {
+   "kl": 4.0147,
+   "alignment": 0.6211
+  },
+  "scat75": {
+   "kl": 6.0657,
+   "alignment": 0.7739
+  },
+  "scat90": {
+   "kl": 7.2373,
+   "alignment": 0.8511
+  },
+  "prefix50": {
+   "kl": 3.9098,
+   "alignment": 0.5466
+  },
+  "suffix50": {
+   "kl": 4.1496,
+   "alignment": 0.4498
+  },
+  "full": {
+   "kl": 8.016,
+   "alignment": 0.8994
+  },
+  "r256": {
+   "kl": 2.4625,
+   "alignment": 0.6693
+  }
+ },
+ "excess_over_r256": {
+  "scat25": -0.246,
+  "scat50": -0.0482,
+  "scat75": 0.1046,
+  "scat90": 0.1818,
+  "prefix50": -0.1227,
+  "suffix50": -0.2195,
+  "full": 0.2301,
+  "r256": 0.0
+ },
+ "pred_a_consistency_required": false,
+ "pred_b_contiguity_helps": false,
+ "pred_c_prefix_over_suffix": true,
+ "runtime_s": 38.6
+}
