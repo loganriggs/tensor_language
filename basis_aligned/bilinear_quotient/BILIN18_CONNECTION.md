@@ -31347,3 +31347,11 @@ content_skeleton_stream_results.json; runlogs/content_skeleton_stream.log (56s).
 **Arc status:** §1113-1119 complete — the content API is stable, mostly named, causally dominant at every read point, and substantially shared across the model family. Registered next (queued): split-half stability audit of the §1115-1117 read-interface fractions (the data-scale rule applied to the arc's headline numbers before they harden).
 
 skeleton_family_results.json; runlogs/skeleton_family.log (58s).
+
+## §1120 — Skeleton arc AUDITED: split-half fractions agree tightly (skel 0.125/0.137 vs original 0.122; tail 0.794/0.788 vs 0.778) with fully independent bases and retrained dictionaries — the skeleton law is data-solid (skeleton_stability.py)
+
+pred_a TRUE, no corrections needed. Two independent halves (384 rows total; xbars, U_c, and SAEs rebuilt per half): the read-interface split reproduces within 0.02 absolute on both fractions. Combined with §1119's family-constant density (R² 0.710±0.001 across three models) and the §1101 audit pattern, the §1113-1119 arc's headline numbers are now data-stable, cross-seed-stable, and cross-model-replicated. The arc hardens as published (report + benchmark figure current).
+
+**Next (registered intent, designed next wake):** the north-star payoff — re-run the whole-model held-out understanding benchmark (§939/§1013 harness, currently 0.32±0.06) with the content term upgraded from topic-PCA to the 8 skeleton features. If the skeleton is the read API, the middle band's ~0.10 should rise materially. Requires reading the existing harness first (whole_model_understanding_multidraw.py) — dossier rule applies.
+
+skeleton_stability_results.json; runlogs/skeleton_stability.log (62s).

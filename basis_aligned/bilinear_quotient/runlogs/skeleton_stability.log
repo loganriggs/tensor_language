@@ -1,0 +1,13 @@
+SAE recon R2 0.7099 (skeleton variance share)
+    noop: cost 0.0 | rare 0.0 | freq 0.0
+    skel: cost 0.0054 | rare 0.0085 | freq 0.0048
+    tail: cost 0.0344 | rare 0.0515 | freq 0.0309
+ fullrem: cost 0.0433 | rare 0.0635 | freq 0.0392
+[halfA] skel/fullrem 0.125 | tail/fullrem 0.794
+SAE recon R2 0.7200 (skeleton variance share)
+    noop: cost 0.0 | rare 0.0 | freq 0.0
+    skel: cost 0.006 | rare 0.0117 | freq 0.0047
+    tail: cost 0.0346 | rare 0.0539 | freq 0.0304
+ fullrem: cost 0.0439 | rare 0.0677 | freq 0.0388
+[halfB] skel/fullrem 0.137 | tail/fullrem 0.788
+stability: {'skel_frac': {'halfA': 0.125, 'halfB': 0.137, 'original': 0.122, 'stable': True}, 'tail_frac': {'halfA': 0.794, 'halfB': 0.788, 'original': 0.778, 'stable': True}} | pred_a all-stable True | wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/skeleton_stability_results.json (61.5s)
