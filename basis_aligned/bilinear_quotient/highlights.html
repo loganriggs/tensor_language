@@ -130,8 +130,11 @@
     text. The valid answers: transport is <b>position-bound</b> — scramble which position holds which content
     vector and it is destroyed completely (worse than a random patch of equal size); a single passage-average
     vector carries nothing. A rank-8 slice already carries 78% of rank-16's effect. So the code is coarse in
-    rank but strict in arrangement: topic lives in which content sits <i>where</i>. They behave like a
-    <b>population code</b>: separately written, jointly causal, read as an arrangement across positions.</p>
+    rank but strict in arrangement: topic lives in which content sits <i>where</i>. The mechanism: each position
+    reads the topic written in its <i>own</i> coordinates almost completely (0.89 of the 0.90 full effect);
+    neighbors receive only a small distance-decaying leak that respects the causal mask — patch the second half
+    of a passage and the first half inherits exactly nothing. They behave like a <b>population code</b>:
+    separately written, jointly causal, read locally at each position.</p>
     <div class="stats"><span class="stat"><b>10–15%</b>tail's share of every read</span>
     <span class="stat"><b>7 / 8</b>features matched in a sibling model</span></div>
     <p class="ref">§1113–1119, §1128–1129</p>

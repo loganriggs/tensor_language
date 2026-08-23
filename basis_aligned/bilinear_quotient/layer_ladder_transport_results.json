@@ -1,0 +1,51 @@
+{
+ "n_positions": 20400,
+ "conds": {
+  "early3": {
+   "kl": 6.2551,
+   "alignment": 0.8168
+  },
+  "mid3": {
+   "kl": 6.7654,
+   "alignment": 0.8415
+  },
+  "late3": {
+   "kl": 6.5055,
+   "alignment": 0.8259
+  },
+  "early6": {
+   "kl": 7.4811,
+   "alignment": 0.8708
+  },
+  "late6": {
+   "kl": 7.4734,
+   "alignment": 0.8755
+  },
+  "full9": {
+   "kl": 8.016,
+   "alignment": 0.8994
+  },
+  "last1": {
+   "kl": 5.8478,
+   "alignment": 0.7843
+  },
+  "r256": {
+   "kl": 2.4625,
+   "alignment": 0.6693
+  }
+ },
+ "excess_over_r256": {
+  "early3": 0.1475,
+  "mid3": 0.1722,
+  "late3": 0.1566,
+  "early6": 0.2015,
+  "late6": 0.2062,
+  "full9": 0.2301,
+  "last1": 0.115,
+  "r256": 0.0
+ },
+ "pred_a_late_dominates": false,
+ "pred_b_last1_not_enough": false,
+ "pred_c_monotone_depth": false,
+ "runtime_s": 48.2
+}

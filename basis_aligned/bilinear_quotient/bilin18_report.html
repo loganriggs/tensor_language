@@ -1898,8 +1898,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   (worse than a random patch of the same size), while a single passage-average vector broadcast everywhere carries
   nothing at all. A rank-8 slice of the pattern already carries 78% of what rank-16 carries, so the code is coarse
   in rank but strict in <em>arrangement</em>: what moves topic from one passage to another is which content sits
-  <em>where</em>. They behave like a population code: separately written, jointly causal, and read as an arrangement
-  across positions rather than as a bag of features. The "irreducible high rank" is real, but it
+  <em>where</em>. A follow-up located the mechanism: each position's prediction inherits the topic written in its
+  <em>own</em> residual coordinates almost completely (patched positions reach 0.89 of the 0.90 full-patch effect
+  regardless of neighbors), while neighboring positions receive only a small pooled leak that fades with distance
+  and respects the causal mask — patch the second half of a passage and the first half inherits exactly nothing.
+  A two-term model (own-position + decaying leak) reproduces every coverage and geometry measurement to ±0.005.
+  They behave like a population code: separately written, jointly causal, and read locally at each position rather
+  than as a bag of features. The "irreducible high rank" is real, but it
   is irreducible for <em>simulating the construction</em>, not for <em>reading the result</em> — which is a much
   smaller mystery than the one we started with. A six-experiment follow-up then priced that construction exactly:
   of what the middle builds, <strong>53%</strong> is plain linear transport of the state it starts from, <strong>17%</strong>

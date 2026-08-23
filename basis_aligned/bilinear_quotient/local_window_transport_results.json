@@ -1,0 +1,27 @@
+{
+ "n_positions": 20400,
+ "alignment": {
+  "scat50": 0.6195,
+  "blocks16": 0.6004,
+  "blocks64": 0.5689,
+  "prefix50": 0.5466,
+  "full": 0.8994
+ },
+ "scat50_window_regression": {
+  "pearson_r": 0.1787,
+  "window": 32,
+  "patched_pos_mean": 0.8914,
+  "unpatched_pos_mean": 0.3579
+ },
+ "prefix50_profile_segments": {
+  "128_159": 0.2946,
+  "160_191": 0.1943,
+  "192_223": 0.1605,
+  "224_255": 0.1321,
+  "patched_0_127": 0.8945
+ },
+ "pred_a_window_reads": false,
+ "pred_b_interleave_ladder": true,
+ "pred_c_boundary_decay": true,
+ "runtime_s": 35.8
+}

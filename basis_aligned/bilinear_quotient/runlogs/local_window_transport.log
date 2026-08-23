@@ -1,0 +1,5 @@
+alignment {'scat50': 0.6195, 'blocks16': 0.6004, 'blocks64': 0.5689, 'prefix50': 0.5466, 'full': 0.8994}
+scat50 window-frac r 0.1787 | patched-pos 0.8914 vs unpatched 0.3579
+prefix50 profile {'128_159': 0.2946, '160_191': 0.1943, '192_223': 0.1605, '224_255': 0.1321, 'patched_0_127': 0.8945}
+pred_a window False | pred_b ladder True | pred_c decay True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/local_window_transport_results.json (35.8s)

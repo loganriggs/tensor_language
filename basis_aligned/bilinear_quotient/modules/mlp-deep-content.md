@@ -25,7 +25,16 @@ across the model family; register-adaptive within a model. §1049-1081 settled t
   coords lose ALL excess over the random-subspace null (0.565 < 0.669), per-sequence mean broadcast
   = zero excess (0.653 ≈ 0.669); rank ladder c8 0.453 / c16 0.578 / c64 0.768 / c256 0.899 —
   only ≥64 dims beat the equal-energy random patch outright. Grain questions must be asked at
-  THIS locus with THIS readout (§1149 method law); supports content/topical-word
+  THIS locus with THIS readout (§1149 method law).
+  **TRANSPORT LAW (§1150-1153, arc complete):** the address is read almost entirely LOCALLY —
+  a patched position's own prediction moves to source-level 0.891 ≈ full 0.899; unpatched
+  neighbors get only a pooled LEAK (0.358 at half density) that decays with distance and is
+  causally masked (suffix-patch leak to its unpatched prefix = 0, predicted and observed
+  0.445/0.450). Two-term additive model [patched? 0.89 : leak] reproduces all coverage/geometry
+  numbers ±0.005. Coverage curve smooth+concave (0.42→0.90) — graded, no threshold; position
+  classes interchangeable (content-word advantage 0.009); scattered > contiguous at equal count
+  (leak geometry). §1151's "half-coverage zero excess" framing was corrected in §1152
+  (coverage-mismatched null — do not quote it); supports content/topical-word
   prediction (K=16: rare targets 7.6× vs frequent, above 6.0× difficulty baseline; §1068 —
   §1067's "broad" claim was a K=256 destructive-regime artifact).
 - **Universal:** same info across independently-trained models (CCA 0.95-0.97; §1061), across
