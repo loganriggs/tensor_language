@@ -1966,6 +1966,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   preposition <em>of</em> in the same slot barely raises the noun probability, because <em>of</em> is followed by
   another little word (<em>of the…</em>) before the noun arrives.</p>
 
+  <p>The third mechanism answers to injection too, and most sharply of all. Plant a novel pair of tokens
+  <em>A B</em> early in the context, then end the context with <em>A</em>, and the model's probability of
+  <em>B</em> next leaps by more than eight nats — it copies the continuation it saw before, from a hundred and forty
+  tokens back. Swap the plant to <em>A C</em> and ask again about <em>B</em>: almost nothing moves. This is induction
+  — literal, position-specific copying of "what followed this token last time" — and its signature under injection is
+  unmistakable precisely because it is exact, where content is diffuse: one token lifted eight nats, versus a topic
+  spread half a nat across a neighborhood. All three of the model's named jobs — local grammar, broad topic, and
+  long-range copy — move on command when you write to the input, which is the strongest evidence the account
+  describes the machine and not just its traces.</p>
+
   <p><strong>Where every nat goes.</strong> All of this lands in one budget. The model takes the average
   next-token cost from 7.17 nats (guessing from word frequencies alone) down to 3.24, split as 0.76 grammar +
   2.48 content. Sort the tokens by <em>what kind of prediction they are</em> and the loss concentrates sharply.
