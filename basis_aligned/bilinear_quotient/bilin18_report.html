@@ -2117,7 +2117,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   <em>what</em> is being said. And this is not a quirk of the bilinear design: run the same test on a sibling model
   built with an ordinary SwiGLU MLP and the split is identical (content costs ~3.5× grammar there too). Whatever
   nonlinear form the middle uses, it spends it on content and leaves grammar linear — an architecture-general
-  division of labor.</p>
+  division of labor. The context signature is architecture-general in the same way: across the bilinear models and
+  the SwiGLU one alike, content stays roughly four-and-a-half times as context-hungry as grammar, with grammar
+  saturated within about eight tokens and content still improving out to the full window. Both halves of the
+  two-machine picture — content nonlinear and long-range, grammar linear and local — hold across the family and
+  across the MLP form.</p>
 
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
