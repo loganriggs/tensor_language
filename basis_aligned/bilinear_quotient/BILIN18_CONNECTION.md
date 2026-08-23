@@ -31512,3 +31512,16 @@ gen_two_machines_results.json; runlogs/gen_two_machines.log (106s).
 **Generation wave conclusion (§1135-1136, two experiments):** free-running text under band ablations yields three real, readable, mechanistically-sensible failure phenotypes; the content side quantifies cleanly; the grammar side's quantification awaits a syntactic-structure metric; accumulation partially mixes simple per-token statistics. The phenotypes + samples go to the report at this boundary.
 
 gen_two_machines2_results.json (all 5×24 generations saved for re-reading); runlogs/gen_two_machines2.log (106s).
+
+## §1137 — The generation phenotypes are FAMILY-GENERAL: swiglu18 reproduces the function-word soup nearly VERBATIM and the zero-repetition stream exactly; the content-axis dissociation is even sharper (6.9×); only the grammar-failure FLAVOR differs — loops instead of fragments (gen_family.py)
+
+**pred_a TRUE.** Same battery on swiglu18 (independently trained, different MLP nonlinearity), its own bands/basis/means:
+- **The soup replicates almost token-for-token.** bilin18: "far from the community the of the … the three a new at the way, a big, the proposed mid-". swiglu18: "far from the best the and the … the three a new at the way, a big, the proposed mid". Two models, independent training runs, same seed and prompts — near-identical babble when the content machine is off. The function-word attractor is a property of the training distribution's grammar shell, not of either model.
+- **Content axis dissociates 6.9×** (cw-rate 0.438→0.215 under content-abl; grammar-abl barely touches it, 0.406) — sharper than bilin18's 1.6×.
+- **The unanchored stream replicates exactly:** vres-off → rep-4gram 0.0005 with content-word rate 0.704 (natural 0.476) — the §1076 value-broadcast mechanism and its failure phenotype are family-general.
+- **The grammar failure is architecture-FLAVORED:** where bilin18 shattered into fragment salad, swiglu18 falls into REPETITION LOOPS — rep4 0.445 (!): "world-based people from the world-based and from the world-based people…". Same machine lost, different degeneration attractor; and this time rep4 catches it where bigram-grain legal-rate again does not (0.964). The §1136 instrument gap is thus partly closed from the side: across the family, grammar-machine loss shows up in whichever of {fragmentation, looping} statistics fits the model's attractor.
+- Controls clean (random-2 ≈ base; base near natural).
+
+**Standing claim (report-propagated):** the two machines' failure phenotypes are behavioral universals of this model family — most striking, the near-verbatim shared soup.
+
+gen_family_results.json (texts saved); runlogs/gen_family.log (97s).

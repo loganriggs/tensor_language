@@ -837,7 +837,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   generated tokens, and a content-word rate <em>above</em> natural text. Words without their meaning-anchor:
   the earlier finding that this channel carries each token's static content, made audible.</p>
   <p class="q">A matched control (ablating two random middle layers instead) generates near-normal text, so
-  these are the bands' own signatures, not generic damage.</p>
+  these are the bands' own signatures, not generic damage. And they are not one model's quirks: running the same
+  experiment on an independently-trained sibling model reproduces the function-word soup <em>nearly verbatim</em>
+  and the zero-repetition stream exactly — only the grammar-failure flavor differs (that model falls into
+  repetition loops where this one shatters into fragments).</p>
 </section>
 
 <section class="col">
