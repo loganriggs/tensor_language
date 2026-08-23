@@ -1,0 +1,55 @@
+{
+ "lambda1_per_layer": [
+  6.094,
+  8.0,
+  8.0,
+  8.0,
+  8.0,
+  5.062,
+  5.875,
+  8.0,
+  8.0,
+  8.0,
+  8.0,
+  8.0,
+  8.0,
+  8.0,
+  8.0,
+  8.0,
+  8.0,
+  8.0
+ ],
+ "by_alpha": {
+  "1.0": {
+   "full_ce": 3.3233,
+   "class_ce": 0.7889,
+   "within_ce": 2.5344
+  },
+  "0.75": {
+   "full_ce": 3.3399,
+   "class_ce": 0.7928,
+   "within_ce": 2.5472
+  },
+  "0.5": {
+   "full_ce": 3.414,
+   "class_ce": 0.8115,
+   "within_ce": 2.6025
+  },
+  "0.25": {
+   "full_ce": 3.7248,
+   "class_ce": 0.8903,
+   "within_ce": 2.8344
+  },
+  "0.0": {
+   "full_ce": 5.6599,
+   "class_ce": 1.3784,
+   "within_ce": 4.2816
+  }
+ },
+ "class_ce_gain_at0": 0.5895,
+ "within_ce_gain_at0": 1.7472,
+ "content_vs_grammar_ratio_at0": 2.96,
+ "value_residual_ratio_ref_985": 3.84,
+ "pred_a_x0_more_grammar_weighted": true,
+ "runtime_s": 39.5
+}

@@ -1,0 +1,33 @@
+{
+ "by_alpha": {
+  "1.0": {
+   "full_ce": 3.3233,
+   "class_ce": 0.7889,
+   "within_ce": 2.5344
+  },
+  "0.75": {
+   "full_ce": 3.3436,
+   "class_ce": 0.7944,
+   "within_ce": 2.5492
+  },
+  "0.5": {
+   "full_ce": 3.4588,
+   "class_ce": 0.8202,
+   "within_ce": 2.6386
+  },
+  "0.25": {
+   "full_ce": 4.2648,
+   "class_ce": 0.9917,
+   "within_ce": 3.273
+  },
+  "0.0": {
+   "full_ce": 6.656,
+   "class_ce": 1.4769,
+   "within_ce": 5.1792
+  }
+ },
+ "within_ce_monotonic_rise": true,
+ "content_step_ge_grammar_step": true,
+ "pred_a_graded_content": true,
+ "runtime_s": 41.5
+}

@@ -28837,3 +28837,29 @@ with content depending on it much more than grammar throughout. NET (value-resid
 distinctive v1 re-injection (mixing the first block's original token values into every block's attention) is the
 substrate of the bag-of-words content machine (§932) — gradedly content-critical, tolerant to moderate reduction,
 collapsing content as it is removed. Grammar barely depends on it. Artifact: add the value-residual mechanism.
+
+## §987 — x0 re-injection is a general token-availability mechanism (content-heavy, modest grammar tilt); NOT a clean grammar substrate (x0_reinjection_scaling.py)
+
+lambda1 (x0 re-inject weight) is huge/saturated (~8 vs lambda0 ~1) -> the residual is dominated by the re-injected
+embedding at every block. Scale lambda1 by alpha; chain-rule CE split:
+  alpha:        1.0    0.75   0.5    0.25   0.0
+  within(content) 2.534  2.547  2.603  2.834  4.282  (smooth, graded)
+  class(grammar)  0.789  0.793  0.812  0.890  1.378
+  at alpha=0: grammar +0.590, content +1.747, content/grammar ratio 2.96 (value-residual ref 3.84).
+pred (a) x0-more-grammar-weighted TRUE (2.96 < 3.84) — but HONESTLY NUANCED (corrects my "x0=grammar substrate"
+hypothesis):
+ - x0 re-injection is CRITICAL and GRADED: scaling lambda1 to 0 raises full CE 3.32 -> 5.66 (+2.34), smooth.
+ - BOTH re-injections are CONTENT-HEAVY (content damaged more than grammar in both). x0's lower ratio (2.96 vs
+   3.84) is because it hurts CONTENT LESS (+1.75 vs value-residual +2.64), NOT because it hurts grammar more
+   (grammar +0.59 vs +0.69, similar). So x0 re-injection is RELATIVELY more grammar-weighted, but it is NOT a clean
+   grammar substrate — it serves BOTH machines, with the value residual being the MORE content-specific of the two.
+ - x0 ablation (+2.34) is LESS catastrophic than value-residual ablation (+3.33) despite lambda1's larger weight —
+   because even at lambda1=0 the FIRST block still receives x0 and the residual carries token info; the value
+   residual's removal strips token values from ALL attention pooling, which is more damaging to content.
+NET (re-injection mechanisms §985-987): the model keeps the original token available at every layer via TWO
+re-injections — the x0 embedding (dominant, general, serves both machines, content-heavy with a modest grammar
+tilt) and the value residual (content-specific, the bag-of-words pooling substrate). Both are content-critical;
+neither is a clean single-machine substrate, though the value residual is the more content-specialized. HONEST
+correction: I hypothesized a clean x0=grammar / value-residual=content dissociation; the data show a RELATIVE
+shift, not a dissociation — both re-injections mainly serve content. Caveat: alpha=0 is off-distribution (both
+sweeps graded, so genuine, but the near-zero magnitudes include a nonlinear tail).

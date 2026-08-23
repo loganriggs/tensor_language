@@ -1,0 +1,8 @@
+alpha 1.0: {'full_ce': 3.3233, 'class_ce': 0.7889, 'within_ce': 2.5344}
+alpha 0.75: {'full_ce': 3.3436, 'class_ce': 0.7944, 'within_ce': 2.5492}
+alpha 0.5: {'full_ce': 3.4588, 'class_ce': 0.8202, 'within_ce': 2.6386}
+alpha 0.25: {'full_ce': 4.2648, 'class_ce': 0.9917, 'within_ce': 3.273}
+alpha 0.0: {'full_ce': 6.656, 'class_ce': 1.4769, 'within_ce': 5.1792}
+within-CE across alpha(1->0): [2.5344, 2.5492, 2.6386, 3.273, 5.1792] | class-CE: [0.7889, 0.7944, 0.8202, 0.9917, 1.4769]
+(a) graded content dependence (smooth monotonic, content>grammar each step): True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/value_residual_scaling_results.json (41.5s)

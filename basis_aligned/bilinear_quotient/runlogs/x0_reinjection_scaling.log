@@ -1,0 +1,10 @@
+alpha 1.0: {'full_ce': 3.3233, 'class_ce': 0.7889, 'within_ce': 2.5344}
+alpha 0.75: {'full_ce': 3.3399, 'class_ce': 0.7928, 'within_ce': 2.5472}
+alpha 0.5: {'full_ce': 3.414, 'class_ce': 0.8115, 'within_ce': 2.6025}
+alpha 0.25: {'full_ce': 3.7248, 'class_ce': 0.8903, 'within_ce': 2.8344}
+alpha 0.0: {'full_ce': 5.6599, 'class_ce': 1.3784, 'within_ce': 4.2816}
+lambda1: [6.094, 8.0, 8.0, 8.0, 8.0, 5.062, 5.875, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0, 8.0]
+within-CE across alpha(1->0): [2.5344, 2.5472, 2.6025, 2.8344, 4.2816] | class-CE: [0.7889, 0.7928, 0.8115, 0.8903, 1.3784]
+at alpha=0: grammar gain +0.5895 content gain +1.7472 ratio 2.96 (value-residual ref 3.84)
+(a) x0 re-injection more grammar-weighted than value residual: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/x0_reinjection_scaling_results.json (39.5s)
