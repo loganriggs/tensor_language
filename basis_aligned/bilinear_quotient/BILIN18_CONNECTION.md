@@ -29907,3 +29907,30 @@ grammar=head / content=tail split (§1033, shown under injection) holds on real 
 grammatical slot precisely (head) and then places a broad, uncertain distribution over which specific content word
 fills it (tail). This is the chain-rule split (class-CE = grammar = head; within-CE = content = tail) read directly
 off the per-token ranks. Two independent instruments (injection §1033, natural-text ranks §1034) agree.
+
+## §1035 — the benchmark graph across all 36 components: grammar (front MLPs) understood, content-pooling components ANTI-understood (per_component_understanding.py)
+
+Per-component held-out understanding frac = (CE[mean-ablate this] - CE[named-standin this]) / (CE[mean-ablate this] -
+CE_full), for each of 36 components (ce_full 3.11):
+  layer:  L0    L1    L2    L3    L4    L5     L6    ...  L15    L16   L17
+  attn:  0.81  0.31  0.36  0.39  0.51 -4.84  -0.28 ...  0.11   0.05  0.33
+  mlp:   0.67  0.93  0.74  0.63 -0.13  0.06  -0.02 ... -0.48   0.43  0.63
+pred_a (front>middle) TRUE (band means front 0.035 > middle -0.037 > ... back 0.062), but the raw means are dominated
+by ONE outlier -- report medians for the honest shape.
+THE SHAPE (bimodal, two-machine at component granularity):
+ - FRONT MLPs = the GRAMMAR/token machine, well UNDERSTOOD: mlp0 0.67, mlp1 0.93 (the dominant writer §933,
+   essentially solved as a named variable), mlp2 0.74, mlp3 0.63 (front-MLP median 0.65).
+ - attn5 = -4.84, a CATASTROPHIC OUTLIER and itself a finding: attn5 is the CONTENT-POOLING head-layer (§998 L3-5
+   gathering; §1007 L5 h7). Its output is a broad CONTEXT POOL, NOT a per-position function of the current token, so
+   the named per-position stand-ins (token/topic/prev) don't merely fail to capture it -- they ACTIVELY MISPREDICT it
+   (the stand-in is far worse than mean-ablation -> deeply negative frac). The content-pooling component is
+   ANTI-understood by per-position named variables.
+ - MIDDLE (L6-15) = the CONTENT machine: ~0 to slightly NEGATIVE (median -0.035) -- the named variables give ~no
+   gain over mean-ablate; the multiplicative content frontier at component granularity.
+ - READOUT (mlp16 0.43, mlp17 0.63, attn17 0.33) = the linear readout, partly understood.
+band medians: front 0.45 (front-MLP 0.65) | middle -0.035 | back 0.027. mean_attn -0.11 (dragged by attn5), mean_mlp
+0.15. So the "benchmark graph across module components" is BIMODAL: the front-MLP grammar machine sits high (0.6-0.9,
+solved), and everything content -- the pooling components (attn5 esp) and the whole middle -- sits at or below zero
+(the multiplicative content frontier, which per-position named variables cannot model, and for the broad-pool
+components actively mispredict). This is the two-machine split read component-by-component, and it pinpoints attn5 (the
+content pooler) as the single most anti-understood component.
