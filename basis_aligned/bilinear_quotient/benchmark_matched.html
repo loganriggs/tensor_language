@@ -55,7 +55,12 @@
     </div>
     <div class="chartscroll"><svg id="c" viewBox="0 0 960 500" role="img"
       aria-label="Matched-stand-in understanding fraction for attention and MLP across 18 layers"></svg></div>
-    <p class="foot">Matched stand-ins: attention = local window of the layer's own residual input [cur+3 prev] + causal
+    <p class="foot">All MLP bars are now HELD-OUT CERTIFIED (means/bases/maps built on one half of the data, scored
+    on the other): L1 0.93 token table; L3 0.95 / L4 0.82 / L5 0.80 own-basis rank-256 projections; readout
+    mlp16 0.81 / mlp17 0.84 fitted linear reads (two independent stand-in families converge on mlp16's 0.81 —
+    its remaining fifth is neither sparse nor linear); mlp15 0.40 with near-zero stakes. Certification corrected
+    several older in-sample numbers downward (the recurring culprit: per-token tables leak on rare tokens;
+    fitted linear maps generalize). Matched stand-ins: attention = local window of the layer's own residual input [cur+3 prev] + causal
     running mean; front MLP = token table + window; deep-middle MLP = best low-rank bilinear (of the model's own
     neurons); readout MLP = rank-64 / linear read. Sources: <code>pooling_standin_all</code> (§1054, corrects §1047's
     embedding-window with the residual-window instrument), <code>bottomup_mlp_window</code> (§1045),
@@ -83,7 +88,7 @@
 </div>
 <script>
 const A={"0":0.947,"1":0.915,"2":0.821,"3":0.826,"4":0.924,"5":0.675,"6":0.529,"7":0.688,"8":0.124,"9":0.651,"10":0.611,"11":0.525,"12":0.325,"13":0.132,"14":-0.041,"15":0.419,"16":0.228,"17":0.636};
-const M={"0":0.885,"1":0.95,"2":0.716,"3":0.648,"4":0.70,"5":0.625,"6":0.557,"7":0.506,"8":0.441,"9":0.441,"10":0.39,"11":0.42,"12":0.409,"13":0.411,"14":0.414,"15":0.875,"16":0.94,"17":0.945};
+const M={"0":0.885,"1":0.93,"2":0.716,"3":0.95,"4":0.82,"5":0.80,"6":0.557,"7":0.506,"8":0.441,"9":0.441,"10":0.39,"11":0.42,"12":0.409,"13":0.411,"14":0.414,"15":0.40,"16":0.81,"17":0.84};
 const NS="http://www.w3.org/2000/svg",W=960,padL=60,padR=16;
 const laneH=155,gap=64,top1=52,top2=top1+laneH+gap,plotW=W-padL-padR,n=18,step=plotW/n,bw=step*0.6;
 const svg=document.getElementById("c");
