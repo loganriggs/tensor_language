@@ -30685,3 +30685,19 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 - **BUT the scaffold stand-ins STILL compound.** Even with content preserved, the curve declines monotonically from 0.88 (after L0) to 0.28 (all scaffold replaced), including through the readout (whose stand-ins are ~0.9 in isolation). So compounding among the "understood" scaffold modules (attention routing + front/readout MLPs) is ALSO a binding constraint.
 
 **Refined conclusion (nuances §1070).** The low whole-model substitution number reflects TWO effects, not one: (1) the content frontier — preserving it triples recovery, confirming it as a major gap; and (2) scaffold-approximation compounding — small per-module errors accumulate over depth even for well-understood modules, so recovery still tops out at ~0.39 with content intact. Neither alone explains it. Per-module-in-isolation understanding (front/attention/readout ~0.66-0.95, verified causally) remains the valid understanding measure; the whole-model substitution is jointly limited by the content gap and depth-compounding. **Controls:** scaffold mean-ablate baseline; §1070 all-36 reference. **Caveat:** a per-layer/richer scaffold stand-in would reduce (2) and isolate (1) more cleanly; the 0.88→0.28 scaffold decline shows (2) is real regardless.
+
+## §1072 — The content is NOT a linear bag-of-words of context embeddings (it is nonlinearly computed)
+
+**Question:** is the deep-middle content constructively a recency-weighted BAG-OF-WORDS of the context (§894/930)? Fit ridge maps from bag features of context TOKEN EMBEDDINGS — current emb, causal running mean, exponential-decay means (λ=0.9, 0.99) — to the content coordinate (top-64 PCA of pooled L8-12 content deviation), held-out R². (`content_from_bag.py`, 240 rows, 61k positions.)
+
+**Registered predictions:** (a) content is a bag — recency-weighted bag R² >> current-token-only and > 0.4.
+
+**Result — pred_a FALSE, decisively:**
+
+| feature | cur | cummean | exp9 | exp99 | full-bag | shuffled null |
+|---|---|---|---|---|---|---|
+| R² (content coord) | −0.059 | −0.005 | 0.019 | 0.007 | −0.011 | −0.105 |
+
+- **No bag feature linearly predicts the content** — every R² is ~0 or negative (the best, exp9 ≈ a recent-window average, is a trivial 0.019). A recency-weighted average of raw token embeddings has essentially ZERO linear predictive power for the deep-middle content coordinate.
+
+**What this refines.** The deep-middle content is NOT a linear bag-of-words of the context. Interpretation (and why it's not a contradiction of §894/930): the content coordinate is the CONTEXTUAL DEVIATION — residual minus per-token mean — so token IDENTITY has been partialled out, while a bag of embeddings is dominated by identity/lexical content; the two are near-orthogonal. So the content is the part of the representation that is NOT explained by which words are present as raw vectors — a nonlinearly-computed contextual/semantic representation the model builds through its layers, consistent with it being genuinely high-rank (§1000/§1042), semantic-not-surface (§1064), and interpretable-by-topic (§1055). The §894/930 "bag" intuition is right about the FUNCTION (order-insensitive topic) but the content VECTOR is a deep computed feature, not a shallow linear average of word embeddings. **Nulls:** shuffled-position bag −0.105 (passes — confirms even the trivial R² are not spurious). **Caveat:** this is a LINEAR test; a nonlinear map from the bag might capture more, but the obvious bag-of-words construction fails, which is the point — the content is not trivially reconstructible from context words.
