@@ -30897,3 +30897,20 @@ Dedup miss (stated plainly): §1075's value-residual / x0 re-injection ablations
 - Grammar remains the LARGER deep contributor on code (0.65 vs content 0.28), consistent with §1080 (grammar directions transfer), but it is relied on ~3× less than on prose.
 
 **Representation vs reliance (the interesting distinction).** §1080 showed grammar's REPRESENTATION transfers to code (subspace overlap 0.41 vs content 0.20). §1081 shows the model RELIES on the deep grammar computation LESS for code PREDICTION (cost-frac 2.00→0.65). These are consistent and complementary: the class structure is shared across registers, but code's local predictability means the model needs less deep inference (of either kind) to predict it — it leans on the per-token value broadcast instead. **Nulls/controls:** this-data mean-ablation; restore-to-base (implicit). **Caveat:** code base CE is only modestly higher (4.0 vs 3.3) — code is quite predictable — and mean-ablation costs depend on the data's own mean; the robust signal is the direction (both deep bands down, value-residual up on code).
+
+## §1082 — THREAD A: the readout merge is ADDITIVE-LINEAR, but the head is NOT content-insulated (winner-among-candidates is content-sensitive) (readout_merge.py)
+
+**Question.** §1033/1034 gave the division (grammar owns the top-5 head, content owns the tail) but the MERGE itself — how the two streams combine into final logits — was never traced (0 ledger hits). Hypothesis: additive-linear merge at the final residual, with full stream separation (content deletion leaves the head intact).
+
+**Method.** Final residual x (pre final-norm), content component c = U_c U_c^T (x − xbar[tok]) with U_c = top-64 PCA of final-residual deviations (76% of deviation variance — the readout stream is much lower-rank than the mid-stack content, §1055's top-10 ≈ 12%). Conditions: remove c; INTERCHANGE c (donor swap, roll batch); remove random-64 projection (control). Metrics split: HEAD = top-5 mass + argmax-change rate; TAIL = rare-target (batch-freq ≤ 2, 20% of positions) log-prob. Linearity: cosine of actual logit-delta vs weight-level prediction −W_lm @ c (norm-corrected). 128 seqs × 256.
+
+**Result (pred_c TRUE, pred_a FALSE — informative split).**
+- **Near-linear read CONFIRMED (c):** mean cosine 0.768 between the actual logit change from deleting c and the linear map −W_lm@c. The merge is approximately additive in logit space: final logits ≈ grammar-carrier read + linear content read.
+- **Stream separation REFUTED (a):** content removal barely moves top-5 MASS (0.616→0.571, rel 0.073) and hits the tail 4.3× harder in relative terms (rare-lp −5.51→−7.24, 1.73 nats; random control 0.11 nats = 16× less) — that part held. But the ARGMAX flips at **37.8%** of positions (control 13.7%). Grammar defines the head **candidate set and its mass**; content participates in choosing the **winner among the candidates**. Head candidates sit close in logit space, so the small additive content vote is decisive within the set.
+- **Interchange: wrong content is actively misleading, not just absent.** Donor-swap is WORSE than removal (CE 4.62 vs 4.23; rare-lp −7.54 vs −7.24; top-5 mass 0.459; argmax change 49%). A real additive vote, not a generic gain term: the donor's content votes for the donor's words.
+
+**Merge picture (refines §1033/1034).** logits ≈ W·(grammar carrier) + W·c, both near-linear; the head/tail division is about MAGNITUDE (content's vote is small on frequent words, large on rare ones), not about insulation — within near-tied head candidates the content vote swings the choice at ~1/3 of positions.
+
+**Redteam caveat (registered for follow-up).** The random-64 control removes far less variance than the content-64 (76% of deviation variance). The argmax-flip excess (38% vs 14%) therefore isn't yet cleanly content-SPECIFIC vs a variance-matched null. Follow-up: variance-matched random removal.
+
+readout_merge_results.json; runlogs/readout_merge.log (84s).

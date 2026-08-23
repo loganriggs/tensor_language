@@ -1,0 +1,40 @@
+{
+ "K": 64,
+ "n_rare_frac": 0.2028,
+ "conditions": {
+  "base": {
+   "ce": 3.3473,
+   "rare_lp": -5.5101,
+   "top5_mass": 0.6161,
+   "argmax_change": 0.0
+  },
+  "remove_content": {
+   "ce": 4.2324,
+   "rare_lp": -7.2436,
+   "top5_mass": 0.5713,
+   "argmax_change": 0.3778
+  },
+  "interchange": {
+   "ce": 4.6187,
+   "rare_lp": -7.5395,
+   "top5_mass": 0.4592,
+   "argmax_change": 0.4929
+  },
+  "remove_random": {
+   "ce": 3.3982,
+   "rare_lp": -5.6189,
+   "top5_mass": 0.6022,
+   "argmax_change": 0.1371
+  }
+ },
+ "content_var_frac_top64": 0.7568,
+ "tail_drop_nats": 1.7335,
+ "head_top5_shift_rel": 0.0727,
+ "tail_drop_rel": 0.3146,
+ "lin_cosine": 0.768,
+ "interchange_rare_delta": -0.2959,
+ "random_tail_drop_nats": 0.1088,
+ "pred_a_stream_separation": false,
+ "pred_c_near_linear_read": true,
+ "runtime_s": 84.1
+}
