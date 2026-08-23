@@ -30272,3 +30272,26 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 **What this changes.** The deep-middle frontier is high-rank (§1000/§1038/§1042, unchanged) but it is *unified*: a single content object, ~64 dominant directions largely shared and drifting, not ten independent computations. So "understand the deep middle" is one target, not nine — consistent with the tensor-network / DAG intuition (each middle layer's content is expressible in terms of the previous layer's). The whole-model gap remains ONE located, named thing: a single high-rank content manifold, now shown to be shared across the band and slowly rotating, not a stack of separate walls.
 
 **Nulls/controls:** random-subspace null 0.054 (passes); self-overlap trivially 1 (not tabulated). **Caveat:** overlap of top-64 PCA subspaces measures shared *span*, not that the layers compute the same *function* on it; the smooth distance-decay is strong evidence for a drifting-shared representation but does not by itself prove identical read/write maps.
+
+## §1050 — Band-level: the deep-middle stand-ins don't COMPOSE, but a SHARED basis makes them cohere (functional confirmation of §1049)
+
+**Question:** §1049 showed the deep-middle (L6-14) shares a drifting content subspace. Does treating the band as ONE object help? Replace ALL NINE deep-middle MLPs *simultaneously* with a stand-in = [per-token mean lookup] + [content deviation projected to rank-K], fit closed-form on clean activations, held-out. Two bases: PER-LAYER (each its own top-K content PCA) vs SHARED (one basis from the pooled deviation across all nine). Band loss-recovery vs mean-ablating all nine. (`bottomup_middle_shared.py`, 200 FineWeb rows, K∈{64,128,256,512}.)
+
+**Registered predictions:** (a) high-rank band → needs large K for 90%; (b) sharing buys little (shared ≈ per-layer at matched K).
+
+**Result — surprising; pred_a TRUE, pred_b FALSE:**
+
+| K | 64 | 128 | 256 | 512 |
+|---|---|---|---|---|
+| per-layer basis | −0.98 | −0.98 | −0.92 | −0.60 |
+| **shared basis** | −1.03 | −0.97 | **−0.72** | **−0.17** |
+
+(band mean-ablate cost = 1.996 nats; shuffled-input null at K=512 = −1.05.)
+
+1. **The headline is negative everywhere: per-module stand-ins DO NOT COMPOSE.** Replacing all nine at once with independently-fit stand-ins is *worse* than mean-ablating all nine (recovery < 0). Mechanism: each stand-in was fit on the *clean* activation stream, but at eval time layer L's input is the *corrupted* residual stream produced by the eight other replaced layers — a distribution shift the closed-form map never saw, so errors compound through the residual stream faster than the clean constant baseline. **Methodological caveat: the per-module understanding %s (§1040/§1042, measured in isolation) are per-module-in-isolation and do NOT add up to a band %.** A clean band number would require fitting the stand-ins on the corrupted stream (sequential/greedy) — noted for future.
+
+2. **pred_a TRUE — high-rank at band level:** recovery rises monotonically with K (shared: −1.03→−0.17) and is still negative at K=512 — the band content needs both a shared basis and high rank; consistent with §1000/§1038/§1042.
+
+3. **pred_b FALSE, and this is the real finding — SHARING HELPS A LOT at high K.** Shared basis beats per-layer by 0.32–0.43 at K=256/512 (−0.72 vs −0.92; −0.17 vs −0.60). Using ONE common content subspace for all nine keeps the compounding errors *aligned in the same directions*, so the band approximation is far more coherent than nine independently-oriented per-layer bases. This is a **functional** confirmation of §1049: the shared drifting subspace is not just a span coincidence — forcing all nine layers to read/write the same content basis measurably improves the joint replacement. The deep-middle really is one content computation on a shared manifold.
+
+**Nulls/controls:** shuffled-input null −1.05 (destructive, as expected); mean-ablate baseline is the denominator. **Honest status:** this experiment does NOT hand us a clean "deep-middle band understood %" (composition compounds errors below the mean-ablate floor); its value is the two lessons — per-module scores don't compose, and the shared-subspace structure is functionally real.

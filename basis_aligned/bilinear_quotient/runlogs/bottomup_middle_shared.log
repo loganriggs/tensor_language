@@ -1,0 +1,12 @@
+ce_full 3.0852 | meanablate-all-nine cost 1.996
+band perlayer K=64: recovery -0.975
+band perlayer K=128: recovery -0.98
+band perlayer K=256: recovery -0.923
+band perlayer K=512: recovery -0.602
+band shared K=64: recovery -1.033
+band shared K=128: recovery -0.966
+band shared K=256: recovery -0.716
+band shared K=512: recovery -0.166
+pred_a high-rank band (shared K=512 <0.9): True
+pred_b sharing~=perlayer: False | shuffled null -1.054
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bottomup_middle_shared_results.json (61.6s)
