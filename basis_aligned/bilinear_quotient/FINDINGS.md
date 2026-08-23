@@ -44,10 +44,17 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    vs frequent §1068, correcting §1067's destructive-regime artifact). ORIGIN: not a raw-word bag
    (R²~0 §1072); progressively linearly built from the PROCESSED stream (0.38@L1→0.88@L7 §1073);
    content = pooled bag of block-0's STATIC per-token c_v values broadcast by the value-residual
-   (§1076). REGISTER (OOD code, §1079-1081): content subspace largely register-SPECIFIC (prose↔code
-   overlap 0.19), grammar ~2× more register-general (0.41 vs 0.20); on code the model leans on
-   LOCAL/per-token prediction (both deep machines relied on less, value-residual more §1081) —
-   universality is cross-MODEL on-distribution, not register-general. **HIGH.**
+   (§1076). REGISTER (4 registers, §1079-1112): grammar
+   consistently MORE register-general than content (1.6-2.1× all pairs — no fixed constant, §1111
+   retracted the 2.05 'law'); content band prose-specialized; value-residual the most
+   register-robust channel; front tables register-CONTEXTUAL w/ breadth asymmetry (§1112).
+   **SKELETON/SCRATCH (§1113-1118, the naming capstone):** the content code = ~8 STABLE features
+   (cross-seed 0.76-0.81; 3.6× PCA; 6/8 human-named: topic/register/discourse mix) + dense tail.
+   Reads are SPARSE everywhere (tail only 10-15% of read-CE at deep MLPs / readout MLPs / final
+   logit path — which cross-checks §1082); construction is MIXED (stream-level: skeleton-removal
+   97%, tail-removal 46% — the tail works in transit, read by nothing). Skeleton = the API,
+   tail = the scratch space; 'irreducible high rank' re-scoped to SIMULATING construction, not
+   READING the result (§1056 reinterpreted as construction disruption). **HIGH.**
 
 3. **ATTENTION — fully resolved at head level. One constant + a few routers + redundant collective
    pooling.** (a) THE SINK (§429-432 + sink arc; §1083-1092 re-derived — see dedup lesson): head 5.7
