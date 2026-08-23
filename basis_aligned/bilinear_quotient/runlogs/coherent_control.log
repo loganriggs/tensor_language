@@ -1,0 +1,6 @@
+atoms [114, 63, 191, 132, 218, 48, 189, 248] | affinity pairwise overlap mean 0.101
+     coherent: own +0.3167 | other +0.3100 | ratio 1.02
+ shuffled_pos: own +0.3212 | other +0.3150 | ratio 1.02
+      rotated: own +0.1376 | other +0.1317 | ratio 1.04
+conds {'coherent': {'own': 0.3167, 'other': 0.31, 'own_over_other': 1.02}, 'shuffled_pos': {'own': 0.3212, 'other': 0.315, 'own_over_other': 1.02}, 'rotated': {'own': 0.1376, 'other': 0.1317, 'own_over_other': 1.04}} | pred_a coherence False | pred_b blunt True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/coherent_control_results.json (71.8s)
