@@ -1,0 +1,30 @@
+{
+ "base_ce": 3.1414,
+ "meanabl": 0.1503,
+ "conditions": {
+  "top64": {
+   "cost": 0.0473,
+   "recov": 0.685
+  },
+  "top128": {
+   "cost": 0.0307,
+   "recov": 0.796
+  },
+  "top256": {
+   "cost": 0.0291,
+   "recov": 0.807
+  },
+  "rand64": {
+   "cost": 0.8384,
+   "recov": -4.579
+  },
+  "all": {
+   "cost": 0.0,
+   "recov": 1.0
+  }
+ },
+ "pred_a_certified_90": false,
+ "pred_b_selection_inflated": true,
+ "smallest_k_for_090": "none<=256",
+ "runtime_s": 41.4
+}

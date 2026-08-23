@@ -17,7 +17,7 @@ compounding-dominated; content passthrough 0.39; §1070-1071). Whole-model simul
 | mlp4 | 0.82 (r256) / 0.48 (r64) certified | own-basis projection; token table HURTS held-out | §1130 |
 | mlp5-14 (content) | ~0.10 as variables | none — real high-rank (3-way confirmed) | §1000/38/42 |
 | middle attn (collective) | 0.58 partial | static distance-kernel (values dynamic); kernel+content-sim next | §1099 |
-| readout mlp16/17 | **0.81/0.84 certified** (mlp15 0.40, tiny stakes) | fitted linear read (held-out); token term redundant | §1131 |
+| readout mlp16/17 | **0.81/0.84 certified** (mlp15 0.40, tiny stakes) | fitted linear read; CEILING: top-256 own-neurons also 0.81 — functional tail is neither sparse nor linear | §1131-1132 |
 | block-17 calibration | ~1.00 | rank-1 w_freq | §650-651 |
 | the merge | understood | additive-linear (−W·c, cos 0.77) | §1082/§1086 |
 
