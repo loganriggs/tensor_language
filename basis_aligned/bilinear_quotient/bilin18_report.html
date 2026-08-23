@@ -2106,6 +2106,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   four times harder on content than on grammar — the multiplication, wherever it sits, is in service of
   <em>what</em> is being said.</p>
 
+  <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
+  that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
+  output for each current token) instead of a linear map, and comparing. The table does <em>worse</em>, not better
+  (it costs 1.6 nats of content where the linear map costs 1.0). A table captures everything about the current token
+  but throws away the context; a linear map keeps the context the residual is carrying. So the front's content is
+  context-dependent, not word-sense lookup. Laying the three surrogates side by side decomposes the front MLP content
+  cleanly: about <strong>18%</strong> is current-token lookup (what a table recovers), about <strong>29%</strong> is
+  context read <em>linearly</em>, and the remaining <strong>54%</strong> is context combined <em>multiplicatively</em>
+  — the genuinely irreducible part, and the reason a table-based understanding score has a ceiling below one no matter
+  how good the tables get.</p>
+
   <p>That the last two layers are near-<em>linear</em> is easy to misread as "they barely do anything." They do
   the opposite. Read the model's own output head off each layer's residual (a logit lens) and the cross-entropy
   falls 7.7 → 6.8 → <strong>5.8 at layer 15</strong> → 4.1 → <strong>3.26 at layer 17</strong>. So layer 15 —
