@@ -1,0 +1,54 @@
+{
+ "spans": {
+  "L5_to_L9": {
+   "direct": [
+    0.711,
+    0.634
+   ],
+   "direct_plus_attnsum": [
+    0.774,
+    0.746
+   ],
+   "persistence": [
+    0.643,
+    0.393
+   ]
+  },
+  "L9_to_L14": {
+   "direct": [
+    0.811,
+    0.835
+   ],
+   "direct_plus_attnsum": [
+    0.833,
+    0.88
+   ],
+   "persistence": [
+    0.781,
+    0.494
+   ]
+  },
+  "L5_to_L14": {
+   "direct": [
+    0.638,
+    0.534
+   ],
+   "direct_plus_attnsum": [
+    0.738,
+    0.705
+   ],
+   "persistence": [
+    0.513,
+    0.129
+   ]
+  }
+ },
+ "chained_baseline_1122": [
+  0.635,
+  0.529
+ ],
+ "pred_a_compounding": false,
+ "pred_b_info_midband": false,
+ "pred_c_nonlinear_remainder": true,
+ "runtime_s": 35.1
+}
