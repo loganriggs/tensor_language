@@ -29707,3 +29707,24 @@ strength, NO dilution and NO genuine super-addition. Consistent with §930 (cont
 === generative content modality COMPLETE + clean (§1016-1024) === kind / dose / separability / receptive-field /
 architecture-general / compositionality / high-capacity-additive. The bag-of-words content machine is behaviorally a
 broad, additive, high-capacity linear superposition of content-word topic vectors.
+
+## §1025 — GENERATIVE validation of INDUCTION (the third mechanism): long-range copy, +8.56 nats, position-specific (induction_injection.py)
+
+Inject a novel bigram "A B" at pos 3-4, set the last fed token to A (pos 149), measure logP(B) at query 150 (24
+random token trials):
+  condition                       ΔlogP(B) vs baseline
+  INDUCTION ("A B" early, A last)   +8.558
+  WRONG-SOURCE ("A C" early, A last) +0.417
+  baseline logP(B) = -14.91
+pred_a (induction raises logP(B)) TRUE, hugely; pred_b (wrong-source control near-null) TRUE (0.42 vs 8.56, 20x).
+Injecting a bigram "A B" early and then presenting A raises the probability of B by +8.56 nats at a query 146 tokens
+later -- the model COPIES the earlier successor (induction), long-range. The wrong-source control ("A C" injected,
+still measure B) barely moves logP(B) (+0.42): induction copies the token that ACTUALLY followed A, not any primed
+token -> genuine position-specific copy, NOT generic priming. The effect is FAR larger than content-priming (~0.5
+nats, §1016) because induction is a PRECISE single-token copy while content is a BROAD topical shift spread over many
+neighbors. This validates the induction mechanism (§877) generatively -- the THIRD named mechanism, distinct from
+grammar (local POS, §1020) and content (broad bag-of-words, §1016-1024).
+=== ALL THREE mechanisms validated generatively (input-side) === GRAMMAR (local part-of-speech: adjacent determiner
+-> noun, §1020) + CONTENT (broad bag-of-words topic priming, §1016-1024) + INDUCTION (long-range single-token copy,
+§1025). The model's three named computations all PREDICT BEHAVIOR under input intervention, complementing the
+structural and causal/interchange evidence.
