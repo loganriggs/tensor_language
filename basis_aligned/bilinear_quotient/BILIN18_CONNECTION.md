@@ -29586,3 +29586,21 @@ The bag-of-words content account PREDICTS BEHAVIOR from the input side: (§1016 
 topic is primed downstream (+0.52, topic-specific, not induction); (§1017 DOSE) inject more -> ~linear accumulation
 (pooling; pools all tokens, content 2.2x > function); (§1018 SEPARABILITY) a distant content word moves content not
 grammar (two separable machines, long-range content / local grammar). Three independent generative confirmations.
+
+## §1019 — generative content receptive-field profile: recency-weighted but broad, cross-validating §995 from the input side (content_injection_position.py)
+
+Inject a single topical word at varying distances before query 150; topic-neighbor boost by distance:
+  distance from query:  147    100    60     30     10     2
+  boost:                0.525  0.675  0.805  1.086  1.756  4.010
+pred_0 (positive at all distances) TRUE; pred_a (recency-weighted but broad) TRUE. The content-priming boost RISES
+smoothly and monotonically as the injected word approaches the query (recency weighting, consistent with §981-983
+recency routing), from 0.53 at distance 147 to 4.01 at distance 2 -- yet it stays SUBSTANTIAL even at the farthest
+distance (0.53 = 13% of the adjacent value, far/near 0.131), never zero -> broad, long-range pooling with a recency
+emphasis. This is the generative (input-side) analog of the content receptive field, and it AGREES with the two
+independent activation-side instruments: attention window-banding (§995: content broad/unsaturated to 256) and QK
+recency routing (§981-983). Three instruments -> one profile: content is pooled over the whole context, weighted
+toward recent tokens.
+=== injection modality complete (§1016-1019) === The bag-of-words content account predicts behavior from the input
+side across its full property set: KIND (§1016 topical priming, topic-specific, not induction), DOSE (§1017 ~linear
+accumulation/pooling, all tokens, content 2.2x>function), SEPARABILITY (§1018 distant content moves content not
+grammar), and RECEPTIVE FIELD (§1019 recency-weighted-but-broad, cross-validating §995).
