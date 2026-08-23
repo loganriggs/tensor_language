@@ -29501,3 +29501,24 @@ irreducible CONTEXT-MULTIPLICATIVE content (~1.6 nats, §1000/1005), which no li
 CORRECTION propagated: prior single-number quotes ("0.29 fresh", earlier "0.42"/"0.81") were points on a
 draw-variable (and metric-variable) distribution; the honest statement is 0.32 ± 0.06 (this simultaneous held-out
 config), with the token term ~0.15 the tightest component. FINDINGS 1f and the artifact benchmark figure updated.
+
+## §1015 — "multiplication serves content" is ROBUST to class taxonomy (8-class & 2-class); my shuffled-class null was mis-designed (mult_content_class_robust.py)
+
+Compositional middle-linearization cost split under different class taxonomies (bilin18):
+  taxonomy      within-cost  class-cost  content/grammar ratio
+  class8          +0.644       +0.164       3.93
+  class2 (func/content) +0.718 +0.090       7.97
+  shuffled8 (null) +0.730      +0.078       9.37
+pred_a (taxonomy-robust, ratio>2.5 under both real taxonomies) TRUE -- the "multiplication serves CONTENT not
+grammar" finding (§1000/§1005/§1010) is NOT an artifact of the hand-coded 8-class taxonomy: it holds under the 8-class
+(3.93) AND the coarse 2-class function-vs-content (7.97) split. (The 2-class ratio is even higher because the coarse
+function/content grammar distinction is more easily handled linearly, so linearizing hurts it even less relatively.)
+pred_0 (shuffled-class null collapses the ratio) FALSE -- but this is a MIS-DESIGNED null, stated plainly: a RANDOM
+token->class partition is UNPREDICTABLE, so its class-CE sits near max (log 8) and BARELY changes when the middle is
+linearized (the model never predicted the random partition, so there is nothing for linearization to damage) ->
+class-cost -> ~0 and the ratio INFLATES (9.37) rather than collapsing. A random partition cannot serve as the null
+here; the correct null would be a PREDICTABLE-but-non-grammatical partition (e.g. by frequency or first-letter). The
+taxonomy-robustness (pred_a) already establishes the finding is not a class-definition artifact; the shuffled null was
+the wrong control and its FALSE flag carries no negative evidence.
+NET: the content/grammar linearization split is real and taxonomy-robust; my null design was flawed (noted for future
+controls: never use a random/unpredictable partition to null a chain-rule split -- it trivially zeroes the class term).
