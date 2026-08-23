@@ -1,0 +1,71 @@
+{
+ "base_func_rate": 0.551,
+ "by_content_entropy": [
+  {
+   "bin": 0,
+   "hedge_rate": 0.732,
+   "acc": 0.766,
+   "n": 8160
+  },
+  {
+   "bin": 1,
+   "hedge_rate": 0.821,
+   "acc": 0.464,
+   "n": 8160
+  },
+  {
+   "bin": 2,
+   "hedge_rate": 0.522,
+   "acc": 0.327,
+   "n": 8160
+  },
+  {
+   "bin": 3,
+   "hedge_rate": 0.23,
+   "acc": 0.207,
+   "n": 8160
+  },
+  {
+   "bin": 4,
+   "hedge_rate": 0.45,
+   "acc": 0.113,
+   "n": 8160
+  }
+ ],
+ "by_class_entropy": [
+  {
+   "bin": 0,
+   "hedge_rate": 0.189,
+   "acc": 0.595,
+   "n": 8160
+  },
+  {
+   "bin": 1,
+   "hedge_rate": 0.275,
+   "acc": 0.384,
+   "n": 8160
+  },
+  {
+   "bin": 2,
+   "hedge_rate": 0.583,
+   "acc": 0.356,
+   "n": 8160
+  },
+  {
+   "bin": 3,
+   "hedge_rate": 0.794,
+   "acc": 0.304,
+   "n": 8160
+  },
+  {
+   "bin": 4,
+   "hedge_rate": 0.914,
+   "acc": 0.238,
+   "n": 8160
+  }
+ ],
+ "content_hedge_rise": -0.282,
+ "class_hedge_rise": 0.725,
+ "pred_a_content_drives_hedge": false,
+ "runtime_s": 32.0
+}

@@ -28589,3 +28589,20 @@ LESSON (consistent with §963/§964): my within-top-class "content entropy" was 
 clean class-entropy result and flag the confound rather than claim the content link from this design. The reliable
 error-interpretability findings are §973 (mistakes are content mistakes) + §974-clean (hedging tracks class
 uncertainty). Winding down the error sub-thread here — finer mechanistic splits keep yielding confounded metrics.
+
+## §975 — the content-error / hedging structure is FAMILY-WIDE (cross_family_errors.py)
+
+Transform-invariant error analysis (argmax + token freq) across the family (corpus base function-rate 0.435):
+  model     hit / content-err / grammar-err   gram-err top1-func-frac   gram true-logfreq / hit true-logfreq
+  bilin18   0.376 / 0.296 / 0.328             0.781                     -7.35 / -6.00
+  swiglu18  0.389 / 0.290 / 0.321             0.779                     -7.32 / -6.06
+  bilin12   0.356 / 0.302 / 0.342             0.791                     -7.36 / -5.92
+pred (a) family-content-errors TRUE. The error structure (§972/§973) is essentially IDENTICAL across bilin18,
+swiglu18 (SwiGLU MLP), and bilin12: (i) the top-1 is class-correct ~2/3 of the time; (ii) on grammar-error
+positions the top-1 is a FUNCTION word ~78-79% (vs base 0.44) = the same hedge-to-function-word behavior; (iii)
+the true token on grammar-errors is RARER (-7.3) than on hits (-6.0) = content-hard positions. So "bilin18's
+mistakes are CONTENT mistakes — pick the wrong content word or hedge to a function word" (§973) is a FAMILY-WIDE
+property, not a single-checkpoint quirk. Non-confounded (argmax-based, transform-invariant) — unlike the §974
+entropy metric. This adds ERROR STRUCTURE as a 5th family-general axis (alongside structure §966, mechanism §967,
+distinctive style §965, depth arc §968). The error-interpretability facet is now both mechanistically resolved
+(§973) and family-general (§975).
