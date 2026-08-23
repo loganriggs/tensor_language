@@ -29565,3 +29565,24 @@ content/function distinction is QUANTITATIVE (content pools ~2x stronger), not a
 NET (generative content validation, §1016-1017): the bag-of-words content account PREDICTS BEHAVIOR both in KIND
 (inject a topical word -> its topic is primed downstream, §1016) and in DOSE (inject more -> proportionally stronger,
 ~linear, §1017); the pooling is over all tokens, weighted toward content words.
+
+## §1018 — GENERATIVE two-machine separability: a distant content word shifts CONTENT (0.52) not GRAMMAR (0.007); adjacent injection does move grammar (content_injection_separability.py)
+
+Inject a topical content word at FAR (pos 3) vs NEAR (pos 148) the query (pos 150); measure content shift
+(topic-neighbor Δlp) and grammar shift (next-token CLASS-distribution total-variation):
+  injection   content-shift   grammar-TV
+  FAR (pos 3)   0.525          0.0068
+  NEAR (pos148) 4.007          0.2087
+pred_0 (near-grammar >> far-grammar, positive control) TRUE (0.209 vs 0.007, 31x -> the grammar metric IS sensitive).
+pred_a (separable: far content large, far grammar tiny) TRUE (content 0.52 vs grammar-TV 0.007, 77x).
+GENERATIVE demonstration of the CORE two-machine claim: a content word 147 tokens BEFORE the query still shifts the
+model's CONTENT prediction (0.52, broad pooling reaches it) but barely moves its GRAMMAR (class-TV 0.007) -- because
+grammar at the query is set by the LOCAL tokens around it, untouched by a distant content word. The positive control
+confirms the grammar metric can move (adjacent injection at pos 148 shifts class-TV to 0.21, 31x). So the two machines
+are SEPARABLE in space, shown by input injection: content is long-range/pooled, grammar is local. This complements
+the activation-level compositional separability (§959-960/§966) with a generative input-side demonstration.
+=== GENERATIVE content-validation trilogy complete (§1016-1018) ===
+The bag-of-words content account PREDICTS BEHAVIOR from the input side: (§1016 KIND) inject a topical word -> its
+topic is primed downstream (+0.52, topic-specific, not induction); (§1017 DOSE) inject more -> ~linear accumulation
+(pooling; pools all tokens, content 2.2x > function); (§1018 SEPARABILITY) a distant content word moves content not
+grammar (two separable machines, long-range content / local grammar). Three independent generative confirmations.
