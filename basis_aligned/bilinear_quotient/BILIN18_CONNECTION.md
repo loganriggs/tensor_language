@@ -29952,3 +29952,32 @@ CORRECT approach (queued §1037): don't FIT a generic bilinear map from scratch 
 weights. The MLP is a sum of HID=4608 rank-1 bilinear neurons (neuron i contributes Down[:,i]·(Wl x)_i·(Wr x)_i);
 truncate to the top-R most-important neurons and measure reconstruction R² vs R. This is EXACT at full rank by
 construction and reveals the EFFECTIVE bilinear rank of the middle -- the principled test of bilinear-capturability.
+
+## §1037 — prong 1 (valid): the middle is bilinear but HIGH-RANK in the neuron basis by OUTPUT VARIANCE; loss-relevant rank still open (bilinear_neuron_rank.py)
+
+Truncate the model's own bilinear neurons to top-R (by importance = std × Down-col-norm), held-out reconstruction R²
+(exact at full rank by construction -> R²=1.0 at R=HID, confirming the method, unlike the invalid §1036):
+  layer   R16    R64    R256   R1024   R4608
+  L1     -0.09  -0.02   0.11   0.43    1.00
+  L6     -0.20  -0.12   0.06   0.41    1.00
+  L8     -0.09  -0.02   0.12   0.40    1.00
+  L11    -0.13  -0.07   0.08   0.36    1.00
+  L15    -0.39   0.16   0.27   0.47    1.00
+  MIDDLE R2@256 0.16, R2@1024 0.41, effective-rank-90 = full 4608 every layer. pred_a (low-rank bilinear) FALSE.
+FINDING: the middle MLP output is genuinely HIGH-RANK in the model's bilinear-neuron basis -- no small subset of
+neurons reconstructs it; you need ~all 4608 (R²@1024 only 0.41). So a low-rank bilinear stand-in in the neuron basis
+does NOT capture the middle. Consistent with content being high-dimensional/distributed (§930/§940). This VALIDLY
+answers the neuron-basis version of "why not low-rank bilinear": the content is bilinear (exactly, R²=1 full rank) but
+NOT low-rank-compressible in that basis.
+TWO IMPORTANT CAVEATS (prong 1 not yet closed, stated plainly):
+ 1. OUTPUT-VARIANCE vs LOSS: R² weights output VARIANCE, which includes loss-IRRELEVANT directions (massive
+    activations / norm channels front-load huge variance, §737/§748). The LOSS-relevant bilinear rank could be MUCH
+    lower -- most of the high-rank output variance may not matter for the loss. -> test loss-recovery of top-R
+    truncation, queued §1038.
+ 2. GREEDY / neuron-basis is SUBOPTIMAL: top-R-by-marginal-importance is a greedy upper bound on the effective rank;
+    an optimal low-rank bilinear decomposition (or a different input-subspace / compositional factorization -- prong
+    4) could be lower-rank. §1036's gradient fit FAILED to find it (optimization), so the optimal rank is still open.
+So: the content is exactly bilinear and high-rank BY OUTPUT VARIANCE in the neuron basis; whether the LOSS-relevant
+content is low-rank (§1038) and whether a compositional/tensor-network factorization compresses it (prong 4) remain
+the live questions. The "irreducible" framing is still wrong (it IS bilinear structure); "irreducibly high-rank" is
+the sharper open claim to test.
