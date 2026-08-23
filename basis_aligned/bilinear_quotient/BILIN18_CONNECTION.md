@@ -31309,3 +31309,16 @@ content_skeleton_causal_results.json; runlogs/content_skeleton_causal.log (48s).
 **Content-naming thread conclusion (§1113-1116):** the content machine's read interface = a stable, largely nameable ~8-feature skeleton (78/72% of read-CE at both scales); the high rank is a property of the STREAM as a shared object, not of any reader. Phase-boundary candidate for the report next wake.
 
 content_skeleton_band_results.json; runlogs/content_skeleton_band.log (50s).
+
+## §1117 — CAPSTONE of the naming arc: SKELETON EVERYWHERE — every read interface in the model (deep MLPs 13%, readout MLPs 15%, the final logit path 10%) is dominated by the ~8-feature skeleton; the dense tail is barely read ANYWHERE (content_skeleton_readout.py)
+
+**pred_b TRUE (the branch that demands a reinterpretation).** Fixed run (first attempt NaN'd — fp16 overflow on the final residual's massive dims ~1e5 > 65504; xbar to float32; point A reproduced across the fix, 0.147 vs 0.153):
+- **Readout MLPs (L15-17 inputs):** fullrem 0.137; skeleton-only 14.7%, tail-only 85.3% — the law's third scale.
+- **Final residual (the direct logit path):** fullrem **0.900** — the biggest single content consumer measured (bigger than all ten deep MLPs' 0.34 combined) — and even here skeleton-only costs just **9.8%** (0.089), tail-only 82%. CROSS-CHECK: this fullrem (0.900) reproduces §1082's independent remove_content measurement (0.885) via a different codepath — instruments agree.
+- Also: the final-residual object is far more sparsifiable (SAE R² 0.94 vs 0.71-0.78 mid-stack) — the exit representation compresses (consistent with §1082's top-64 = 76% var).
+
+**The reinterpretation, stated plainly (registered consequence of pred_b):** §1056's stream-level catastrophe (+8.4 nats for removing the content directions FROM THE STREAM) cannot be read-deprivation — no reader needs the tail. It must be CONSTRUCTION/CIRCULATION disruption: a persistent stream edit corrupts what attention re-pools and what each layer builds on, compounding through depth (the §1051 starvation and §1093 off-regime themes). The high-rank tail is the residue of construction riding in the stream — not a payload any reader consumes.
+
+**THE CONTENT ARC CONCLUSION (§1113-1117, the program's biggest naming result):** the content machine's ENTIRE read interface ≈ 8 stable, mostly-named features (topic/register/discourse mix, §1116) + per-token means. High rank is real but lives only in the stream's construction process. Registered closing test (queued, content_skeleton_stream.py): stream-level skeleton-only vs tail-only removal — under the reinterpretation, stream-level SKELETON removal should reproduce most of §1056's catastrophe while stream-level TAIL removal stays mild; if BOTH are catastrophic, construction needs the full-rank object per se (report plainly).
+
+content_skeleton_readout_results.json; runlogs/content_skeleton_readout.log (61s).
