@@ -31158,3 +31158,16 @@ attn_seed_align_results.json; runlogs/attn_seed_align.log (93s).
 **Reading.** The §1098 clusters are separately WRITTEN (weight-derivable geometry) but at rank-1 resolution not separately READ. The right instrument for the user's differential-reading question is the class SUBSPACE (top-k PCA of each class's member token-mean outputs, k=4-8), with a matched-rank shuffled-membership null — queued as mlp0_class_subspace.py; prediction: diagonal dominance emerges with rank.
 
 mlp0_class_readers_results.json; runlogs/mlp0_class_readers.log (130s; first run crashed on vocab padding V=50304>50257, fixed).
+
+## §1104 — Rank-k class-subspace deletions (k=2/4/8): the verdict is PACKAGE — class-matched damage tendency (~1.5-3× at own-class positions) at every rank, but never diagonal-dominant; deletions are compensated because the class variable is redundantly multiplexed (mlp0_class_subspace.py)
+
+**pred_b TRUE (package at all ranks); pred_a FALSE.** With matched-rank shuffled-membership nulls:
+- Damage grows with k (sanity ✓) but stays SMALL in absolute terms (k=8 own-class ≤0.022 nats, vs mlp0's full mean-ablation 0.79) — deleting mlp0's copy of a class's code barely hurts, at any rank.
+- The class-matched TENDENCY is consistent and real: at k=8, own-class damage exceeds overall damage for 9/10 classes (aux 2.7×, number 3.3×, subword 2.7×, Capitalized 2.0×, pronoun 1.7×) — same pattern at k=2/4 and at rank-1 (§1103). But no class passes strict diagonal dominance (own ≥3× off-diagonal AND ≥3× shuffled null) because off-diagonal damage is substantial: the class subspaces share carriers.
+- **Why deletion can't produce the strong story here:** the class variable is REDUNDANTLY MULTIPLEXED — attn0 writes a parallel near-orthogonal class subspace (§772), and the x0 re-injection keeps the raw token present at every block (§689/§962), so class is RE-DERIVED downstream no matter what mlp0's output loses. Deleting one copy is compensated; this is the standing isolation law (§652-653: no removable carrier for conditional computation) at class granularity.
+
+**Three-layer answer to the differential-reading question (with §1098/§1103):** (1) the clusters are separately WRITTEN — pure weight geometry; (2) downstream weights read the code as a BUNDLE (attn1 keys elevated on all classes, no per-class reader); (3) per-class deletions produce class-MATCHED damage (2-3× concentration) but small and never dominant, because the variable is multiplexed. The classes are real coordinates OF one package variable, not independently routed wires.
+
+**Registered next (the gold-standard instrument):** deletion is the wrong tool for a redundant variable — INTERCHANGE is what worked for class (§892 IIA 0.25) and topic (§894). mlp0_class_interchange.py queued: swap the class-package projection between positions of different classes at mlp0's output; if the predicted NEXT-CLASS distribution follows the DONOR's class (per §828's class-bigram), the within-package coordinates are causally class-differentiating — the strong per-class story without fighting the redundancy.
+
+mlp0_class_subspace_results.json; runlogs/mlp0_class_subspace.log (120s).
