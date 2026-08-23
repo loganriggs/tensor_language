@@ -29202,3 +29202,24 @@ FINDINGS:
  5. CLEAN MULTIPLICATIVE-CONTENT CEILING: forcing ALL MLPs linear costs +1.594 nats of content (within-CE 2.40->3.996).
     This is the content that FUNDAMENTALLY requires MLP nonlinearity -- the honest floor on what any linear / table /
     bag named-variable stand-in can reconstruct, and why the whole-model benchmark's content term is capped.
+
+## §1001 — the multiplicative content is FRONT-LOADED (L0-2), distinct from where content is POOLED (L3-5, §998) (content_mult_by_group.py)
+
+Compositionally linearize each 3-layer group; within-CE (content) cost vs baseline 2.40:
+  group:  L0-2   L3-5   L6-8   L9-11  L12-14 L15-17
+  within: +0.563 +0.213 +0.131 +0.113 +0.098 +0.151
+  class:  +0.161 +0.072 +0.038 +0.029 +0.020 +0.052
+  top group L0-2; early(0-8) 0.907 vs late(12-17) 0.249; group_sum 1.269 (< §1000 all-band 1.59). pred_a TRUE.
+FINDING: the irreducible MULTIPLICATIVE content is FRONT-LOADED -- L0-2 alone accounts for +0.563 nats (~44% of the
+group sum), tapering steadily down the stack, with a small secondary bump at the readout (L15-17 +0.151, consistent
+with L17 being ~85% linear = ~15% multiplicative, §941). group_sum 1.27 < §1000's all-band 1.59 -> linearizing the
+whole model compounds beyond the sum of per-group (cooperative super-additivity, §994/§1000).
+This SEPARATES two content locations that were easy to conflate:
+ - MULTIPLICATIVE content COMPUTATION: L0-2 (the front dominant-writer MLPs, §933) -- the nonlinear MLP work.
+ - Content POOLING (broad-context attention gather): L3-5 (§998) -- the attention work.
+So the front MLPs (L0-2) do the heavy multiplicative content writing; the attention band just above (L3-5) pools the
+broad context; later layers pool/read with little further multiplication. Consistent with §1000 (front absolute
+nonlinearity > middle because the front writes most) and §994 (front cooperative cascade).
+PUZZLE this raises: L0-2 is BELOW the pooling layers (L3-5), so at L0-2 the broad topic is NOT yet gathered -- what
+"content" does L0-2 multiply? Likely LOCAL, current-token content (word-sense), distinct from the broad pooled TOPIC.
+Next: test whether L0-2's multiplicative content is LOCAL (unaffected by removing broad context) vs topic-dependent.
