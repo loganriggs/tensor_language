@@ -40,9 +40,12 @@ across the model family; register-adaptive within a model. §1049-1081 settled t
 - The manifold is a continuum — discrete topic labels don't replicate, the geometry does (§873-874).
 
 ## Open
-- ~~Nameable sparse features~~ TESTED (§1113): sparse basis is REPRODUCIBLE (cross-seed 0.77 vs
-  weight-atoms' 0.40 §763) but weakly sparse (R² 0.71 @ k=8/256), half-nameable (9/16), NOT
-  causally individuated (3/8; controls exceeded own twice). Honest units = continuous axes +
-  low-K patchable subspaces (§1055/§1059-60). k-sweep pending to price the density.
+- Sparse features RESOLVED (§1113-1115): the content code = STABLE SPARSE SKELETON (k≈8, 70%
+  of coord variance, stability 0.76-0.81, 3.6× PCA at low k) + DENSE TAIL (30% var, stability
+  dies 0.37, §763's instability = the dense limit). **CAUSAL (§1115): the skeleton carries 78%
+  of the per-layer content read's CE; the tail 12% (variance≠CE inverted).** Atoms entangled
+  with each other (not one-by-one handles, §1113) but the SET is the function. Stream must stay
+  full-rank (many cumulative readers, §1051); each reader's draw is skeleton-dominated.
+  Whole-band (L5-14) version pending.
 - Register axis CLOSED (§1079-1112): grammar>content generality 1.6-2.1x all pairs (no fixed
   constant, §1111); content band prose-specialized; value-residual most register-robust.

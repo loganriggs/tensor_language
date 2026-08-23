@@ -31284,3 +31284,16 @@ content_dictionary_results.json (snippets included for human reading); runlogs/c
 **Synthesis (refines §1113):** the content representation is a **stable sparse skeleton + dense tail**: ~8 reproducible, PCA-beating features carry ~70% of the variance (plausibly §1113's 9/16 coherent atoms), riding on a ~30% dense remainder where features stop existing. This finally reconciles the whole content-line: low-K interpretable/patchable structure (§1055 axes, §1060 top-16 transport) AND irreducible high-rank tails (§1042) are the SAME object at two depths of the k-curve. **Queued causal split (content_skeleton_causal.py): does the skeleton or the tail carry the CE?** — replace content coords by their k=8 reconstruction (drop tail) vs remove the skeleton (keep tail) at the REF layers.
 
 content_dict_ksweep_results.json; runlogs/content_dict_ksweep.log (86s).
+
+## §1115 — THE SKELETON IS THE CAUSAL CORE: the ~8 stable features carry 78% of the content component's CE at the REF layers; the 30%-variance dense tail carries only 12% — §1113's bounded negative is revised UP (content_skeleton_causal.py)
+
+**pred_b TRUE (the strong branch).** At L8/10/12 MLP inputs simultaneously (partition sanity clean: noop 0.0; skel 0.0053 + tail 0.0337 ≈ fullrem 0.0433):
+- Remove the dense TAIL (keep the k=8 skeleton reconstruction): cost 0.0053 = **12%** of full removal.
+- Remove the SKELETON (keep the tail): 0.0337 = **78%**.
+- Variance≠CE, inverted from the usual direction: the tail holds 30% of variance and ~none of the function; the reproducible sparse skeleton (§1114: stability 0.76-0.81, 3.6× PCA) is what these layers actually READ. Dominant-condition rare/freq 1.67 (content-leaning, as expected).
+
+**Revised standing picture for the content machine's units:** ~8 stable, learned, overcomplete features are BOTH the reproducible low-k structure (§1114) AND the causal core of the per-layer read (this section). §1113's individuation failure still stands — the atoms are entangled with EACH OTHER (not separable one-by-one handles) — but as a SET they are the function. "High-rank content" decomposes: the loss-relevant per-layer READ is low-rank/sparse; the high rank lives in the tail's variance and in cross-layer accumulation.
+
+**Caveats, stated plainly:** (i) absolute stakes are small here (fullrem 0.043 nats — this intervenes at THREE MLP inputs only, leaving the residual stream intact; §1056's catastrophic numbers were stream-level). The claim is about the COMPOSITION of the component's value, not its size. (ii) Reconciliation with §1042/§1051 (full rank needed): the stream must carry the full-rank object because MANY readers draw on it cumulatively and a bottleneck IN THE STREAM starves the band (§1051); but each individual reader's draw is skeleton-dominated. Registered next (queued): the same split at ALL TEN deep MLPs (L5-14) simultaneously — if the skeleton still carries it, the whole band's reads are 8-feature-sufficient and only the stream is high-rank.
+
+content_skeleton_causal_results.json; runlogs/content_skeleton_causal.log (48s).
