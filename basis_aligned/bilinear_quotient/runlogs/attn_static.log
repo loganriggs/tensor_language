@@ -1,0 +1,8 @@
+           all_const: cost 3.6725 | rare 5.3833 | freq 3.1497 | ratio 1.71
+            all_zero: cost 3.421 | rare 5.2434 | freq 2.8641 | ratio 1.83
+  const_except_front: cost 2.2995 | rare 3.3978 | freq 1.9639 | ratio 1.73
+   const_except_dyn6: cost 2.3615 | rare 3.4324 | freq 2.0343 | ratio 1.69
+ const_except_middle: cost 1.9648 | rare 2.8824 | freq 1.6844 | ratio 1.71
+collective factor 5.69 | recov front 0.374 dyn6 0.357 middle 0.465
+preds: a collective False | b middle>front True | c no-collective False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_static_results.json (86.0s)

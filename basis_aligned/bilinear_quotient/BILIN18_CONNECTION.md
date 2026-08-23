@@ -31049,3 +31049,16 @@ head_const_map_results.json; runlogs/head_const_map.log (230s).
 **Also reconciled:** §1006-1008 ("L5h7 the preferential-but-redundant content head") vs §432 (constant sink): §1091 settles it — the banding-based content attribution in §1006-1007 was confounded by the constant; §1008's correction pointed the right way; L5h7 gathers nothing document-specific (donor/const-free).
 
 **Why the dedup failed, so it stops failing:** I grepped my own vocabulary ("per-head", "head special", "readout merge") — the prior arc's vocabulary is "sink", "head cost map", "5.7" (dotted head notation), and it predates the § numbering era. AND: FINDINGS.md (29 items) does not index the sink arc at all — the index's one job. Lesson recorded in memory: dedup-grep with MULTIPLE vocabularies (sink/constant/cost map/X.Y head notation), grep ledger HEADERS not FINDINGS alone; the overdue FINDINGS consolidation (29→~10) must include the sink arc as a top-level item.
+
+## §1093 — Static attention: the collective dynamics are worth 5.7× the per-head sum (3.67 vs 0.645), and STALE BIASES ARE WORSE THAN NO ATTENTION (all-zero 3.42 < all-const 3.67) (attn_static.py)
+
+**Method.** All 162 heads' outputs replaced by their global-mean constants simultaneously (a bilin18 with attention-shaped biases but NO attention dynamics); vs all-zero (no attention at all); plus band restores. 96 seqs.
+
+**Result.**
+- **Collective factor 5.7×:** static attention costs 3.67 nats vs the per-head const sum of 0.645 (§1091). The middle's pooling is collectively load-bearing but per-head redundant — the known distributed-super-additive theme (§931, §952-954, §1049/§1051) now quantified at all-162 granularity in one number. (pred_a's factor≥3 held; its rare/freq≥2 sub-criterion failed at 1.71 — the collective function is only mildly content-tilted, it serves both machines.)
+- **SANITY (0) VIOLATED, informatively: all_zero (3.42) < all_const (3.67).** Deleting attention entirely — including the §432 sink constant, alone worth 0.88 — costs LESS than keeping every head's calibrated-for-normal-operation constant. With the dynamics gone everywhere, the stale biases are miscalibrated for the degraded regime and become net harm. Same off-manifold theme as §1087's super-additive partials and §1091's truncation result: these constants are operating points, valid only near the regime they were calibrated in.
+- **Band restores:** middle dynamics recover 0.465 of the static-attention cost > front 0.374 > the 6 named dynamic routers alone 0.357 (pred_b TRUE). The collective function lives mostly in the middle band's redundant pooling, exactly where per-head measurement sees almost nothing (§1091 middle const sum ≈ 0.2).
+
+**Standing synthesis (with §1091-1092):** per-head, bilin18's attention = one constant + ~6 small routers; collectively, its dynamics carry ~3.7 nats, mostly as redundant middle pooling with no indispensable courier. Both descriptions are true at their granularity; the gap between them (5.7×) IS the redundancy.
+
+attn_static_results.json; runlogs/attn_static.log (86s).

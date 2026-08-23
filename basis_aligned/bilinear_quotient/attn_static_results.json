@@ -1,0 +1,44 @@
+{
+ "base_ce": 3.3914,
+ "conditions": {
+  "all_const": {
+   "cost": 3.6725,
+   "rare_cost": 5.3833,
+   "freq_cost": 3.1497,
+   "rare_freq_ratio": 1.71
+  },
+  "all_zero": {
+   "cost": 3.421,
+   "rare_cost": 5.2434,
+   "freq_cost": 2.8641,
+   "rare_freq_ratio": 1.83
+  },
+  "const_except_front": {
+   "cost": 2.2995,
+   "rare_cost": 3.3978,
+   "freq_cost": 1.9639,
+   "rare_freq_ratio": 1.73
+  },
+  "const_except_dyn6": {
+   "cost": 2.3615,
+   "rare_cost": 3.4324,
+   "freq_cost": 2.0343,
+   "rare_freq_ratio": 1.69
+  },
+  "const_except_middle": {
+   "cost": 1.9648,
+   "rare_cost": 2.8824,
+   "freq_cost": 1.6844,
+   "rare_freq_ratio": 1.71
+  }
+ },
+ "perhead_const_sum": 0.645,
+ "collective_factor": 5.69,
+ "recov_front": 0.374,
+ "recov_dyn6": 0.357,
+ "recov_middle": 0.465,
+ "pred_a_collective": false,
+ "pred_b_middle_over_front": true,
+ "pred_c_no_collective": false,
+ "runtime_s": 86.0
+}
