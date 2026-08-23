@@ -1,0 +1,195 @@
+<title>Eighteen Layers, Two Machines</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap">
+<style>
+  :root{
+    --bg:#fafbf8;--card:#ffffff;--ink:#1a1d1a;--ink2:#4c544e;--muted:#7d857e;--line:#e2e6e0;
+    --accent:#177a68;--accent-soft:#e4f1ed;--warn:#9a6b15;--warn-soft:#f6eedd;--num:#0e5648;
+    --shadow:0 1px 2px rgba(20,30,25,.05),0 10px 28px rgba(20,30,25,.05);
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --bg:#101412;--card:#171c19;--ink:#e7ece8;--ink2:#b4bcb5;--muted:#828a83;--line:#262d28;
+    --accent:#43bfa3;--accent-soft:#15302a;--warn:#d9a545;--warn-soft:#2c2415;--num:#6ad4bb;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.35);}}
+  :root[data-theme="dark"]{
+    --bg:#101412;--card:#171c19;--ink:#e7ece8;--ink2:#b4bcb5;--muted:#828a83;--line:#262d28;
+    --accent:#43bfa3;--accent-soft:#15302a;--warn:#d9a545;--warn-soft:#2c2415;--num:#6ad4bb;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 12px 30px rgba(0,0,0,.35);}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Public Sans",system-ui,sans-serif;line-height:1.6}
+  .wrap{max-width:840px;margin:0 auto;padding:52px 22px 80px}
+  .kick{font-family:"Spline Sans Mono",monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+  h1{font-family:"Newsreader",serif;font-weight:600;font-size:clamp(32px,6vw,52px);line-height:1.04;margin:0 0 14px;letter-spacing:-.015em;text-wrap:balance}
+  .lede{font-size:17.5px;color:var(--ink2);max-width:64ch;margin:0 0 8px}
+  .defs{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:20px 22px;margin:30px 0 34px;font-size:14.5px}
+  .defs h2{font-family:"Newsreader",serif;font-size:19px;margin:0 0 10px}
+  .defs dt{font-weight:600;color:var(--ink)}
+  .defs dd{margin:2px 0 10px;color:var(--ink2)}
+  .hl{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:24px 24px 18px;margin:0 0 22px}
+  .hl .tag{font-family:"Spline Sans Mono",monospace;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
+  .hl h2{font-family:"Newsreader",serif;font-weight:600;font-size:24px;line-height:1.22;margin:0 0 10px;text-wrap:balance}
+  .hl p{margin:0 0 12px;color:var(--ink2);font-size:15.5px;max-width:70ch}
+  .hl p b{color:var(--ink)}
+  .stats{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 12px}
+  .stat{background:var(--accent-soft);border-radius:9px;padding:8px 13px;font-family:"Spline Sans Mono",monospace;font-size:13px;color:var(--num)}
+  .stat b{font-size:17px;display:block;font-weight:500}
+  .dfn{border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 9px 9px 0;padding:9px 13px;margin:0 0 12px;font-size:13.8px;color:var(--ink2)}
+  .dfn b{color:var(--ink)}
+  .corr{border-left:3px solid var(--warn);background:var(--warn-soft);border-radius:0 9px 9px 0;padding:9px 13px;margin:0 0 12px;font-size:13.8px;color:var(--ink2)}
+  .sample{font-family:"Spline Sans Mono",monospace;font-size:12.8px;background:var(--bg);border:1px dashed var(--line);border-radius:9px;padding:9px 12px;margin:0 0 10px;color:var(--ink2);overflow-x:auto;white-space:pre-wrap}
+  .ref{font-family:"Spline Sans Mono",monospace;font-size:11.5px;color:var(--muted)}
+  .foot{color:var(--muted);font-size:13px;margin-top:34px;max-width:70ch}
+</style>
+<div class="wrap">
+  <p class="kick">bilin18 · research highlights · august 2026</p>
+  <h1>Eighteen Layers, Two Machines</h1>
+  <p class="lede">The short version of what we now know about one small language model, from a program that
+  demands a causal test, a control, and a null for every claim — and publishes its own corrections. Every term
+  is defined where it's used.</p>
+
+  <div class="defs">
+    <h2>The model, and the yardstick</h2>
+    <dl style="margin:0">
+      <dt>bilin18</dt><dd>An 18-layer, 546M-parameter language model with two unusual choices: no softmax in
+      attention (attention weights are a raw product of two matching-scores), and multiplication-based MLPs
+      (each layer computes products of two linear views of its input). Trained on FineWeb prose.</dd>
+      <dt>the understanding score</dt><dd>For each part of the model we build a <i>stand-in</i> — a simple,
+      human-legible replacement (a lookup table, a linear map, a fixed vector) — splice it in, and measure how
+      much of the part's contribution to prediction survives. 0 = knowing nothing (replace the part with its
+      average output), 1 = the real thing. All scores below are <b>held-out</b>: the stand-in is built on one
+      half of the data and scored on the other, after we caught in-sample scores flattering themselves.</dd>
+    </dl>
+  </div>
+
+  <div class="hl">
+    <p class="tag">the organizing fact</p>
+    <h2>The model is two machines sharing one wire</h2>
+    <p>A <b>grammar machine</b> — the first two layers — works out each word's grammatical role (determiner,
+    preposition, number, punctuation…) and what role should come next. A <b>content machine</b> — the deep
+    middle — builds a running summary of what the text is <i>about</i>, and uses it to pick the specific word.
+    Grammar is the easy quarter of the prediction problem; content is the hard three-quarters. The two write
+    into nearly perpendicular directions of the same residual stream, and the same split appears in sibling
+    models trained independently.</p>
+    <div class="stats"><span class="stat"><b>~23% / ~77%</b>grammar / content share of the loss</span>
+    <span class="stat"><b>2 + 10</b>grammar layers + content layers</span></div>
+    <p class="ref">ledger §829–831, §1041, §1049–1058</p>
+  </div>
+
+  <div class="hl">
+    <p class="tag">the first layer</p>
+    <h2>You can't cut the grammar wire — but you can lie on it, and the model believes the lie</h2>
+    <div class="dfn"><b>Class code:</b> average the first MLP's output over every appearance of each word and
+    the words sort themselves into grammatical clusters — determiners here, numbers there, punctuation in its
+    own arm. The whole map can be computed from the <b>weights alone</b>, no text needed (agreement 0.83 with
+    the data-derived map).</div>
+    <p><b>Deleting</b> a class's code does almost nothing — the model keeps redundant copies (a parallel one in
+    the first attention layer, plus the raw word re-injected at every layer, so downstream can always re-derive
+    it). But <b>transplanting</b> — pasting a number's code where a determiner's code was — moves the model's
+    next-word grammar toward what follows <i>numbers</i>, in 5 of 6 class pairs, with controls flat. The
+    clusters are real causal variables; you just have to change their value rather than remove the wire.</p>
+    <div class="stats"><span class="stat"><b>5 / 6</b>transplants where grammar follows the donor</span>
+    <span class="stat"><b>0.83</b>weights-only map agreement</span></div>
+    <p class="ref">§1098–1105 · figures: class map, t-SNE, damage matrix, transplant chart</p>
+  </div>
+
+  <div class="hl">
+    <p class="tag">attention, priced</p>
+    <h2>The most important attention head is a constant — and most of attention is biases plus a crowd</h2>
+    <p>The single costliest attention head (0.9 nats to delete — 8× the runner-up) turns out to add <i>the same
+    vector at every position of every text</i>: it reads position 0, where an MLP manufactures a fixed vector,
+    and broadcasts it. Replace the head with that one constant and 98.5% of its function survives. Across all
+    162 heads, <b>62% of individual-head value is bias</b> (kept when the head's output is frozen to its own
+    average) — yet freezing <i>every</i> head at once costs 5.7× the sum of the individual prices: the middle's
+    pooling is a crowd that matters collectively while every member is individually expendable.</p>
+    <div class="dfn"><b>Nat:</b> the unit of prediction loss (natural-log cross-entropy). This model's total
+    loss on prose is ≈3.3 nats/token; 0.9 nats from one head is enormous.</div>
+    <div class="stats"><span class="stat"><b>98.5%</b>of the top head = one fixed vector</span>
+    <span class="stat"><b>5.7×</b>collective vs summed per-head value</span></div>
+    <p class="ref">§429–432 (sink arc), §1089–1093</p>
+  </div>
+
+  <div class="hl">
+    <p class="tag">the content machine's api</p>
+    <h2>The "irreducibly high-dimensional" content splits into a skeleton and a scratch space</h2>
+    <div class="dfn"><b>Skeleton:</b> train a small sparse dictionary on the content signal and ~8 stable
+    features fall out — the same 8 across retrainings (0.77 agreement) and largely the same in sibling models
+    (7/8 across architectures). Several are human-readable: a livestock topic, a political-analysis register, a
+    partitive construction ("some of / many of"). <b>Scratch:</b> the dense remainder, ~30% of the signal's
+    variance, where feature identity dissolves.</div>
+    <p>The causal split is stark: <b>every reader in the model reads the skeleton</b> — filter the content down
+    to the 8 features at any read point (deep layers, readout layers, the final step before the logits) and only
+    10–15% of the damage of full removal appears. The scratch is read by <i>nothing</i> — but it does real work
+    in transit while the content is being built. Skeleton = the API; scratch = the workspace.</p>
+    <p>One earned caveat: the 8 features are individually <i>nameable</i> but not individually <i>steerable</i> —
+    three different single-feature interventions all failed. Only moving the whole 8-number pattern transports
+    meaning. They behave like a <b>population code</b>: separately written, jointly causal.</p>
+    <div class="stats"><span class="stat"><b>10–15%</b>tail's share of every read</span>
+    <span class="stat"><b>7 / 8</b>features matched in a sibling model</span></div>
+    <p class="ref">§1113–1119, §1128–1129</p>
+  </div>
+
+  <div class="hl">
+    <p class="tag">the frontier, budgeted</p>
+    <h2>What we still can't tabulate is now a theorem, not a mystery: 53% + 17% + 30%</h2>
+    <p>Simulating the content machine's <i>construction</i> — how the summary gets built layer by layer —
+    decomposes exactly: <b>53%</b> is plain linear transport of the state it starts from; <b>17%</b> is what
+    attention injects along the way; and the final <b>30%</b> is created in flight by the nonlinear steps in
+    layers 5–9. That last share is not hiding anywhere we failed to look: it is not linearly present in the
+    starting state at any basis width, and not the multiplication's own quadratic shadow. To get it, you run
+    the layers. Feature-level simulation caps at ~70%; the rest is computation, not representation.</p>
+    <div class="stats"><span class="stat"><b>53 / 17 / 30</b>transport / attention / created-in-flight</span></div>
+    <p class="ref">§1122–1127 (including one published self-correction: an early "compounding" reading died
+    when a direct map matched the chained one exactly)</p>
+  </div>
+
+  <div class="hl">
+    <p class="tag">behavior you can read</p>
+    <h2>Turn off one machine and the failure is legible in the text itself</h2>
+    <p>Free-running generation (the model writing its own continuations) under targeted ablations produces three
+    different failure modes — judged by the intact model and by eye:</p>
+    <p><b>No content machine → function-word soup</b> (grammar scaffolding, nothing on it):</p>
+    <div class="sample">far from the community the of the … by the, and the three a new at the way, a big, the proposed mid-</div>
+    <p><b>No grammar machine → fragment salad</b> (content nouns survive, structure collapses):</p>
+    <div class="sample">: interactions)… 52, D. … Tribune. email@. Ingredients — Tribune Tribune-qu organisations</div>
+    <p><b>No value-residual</b> (the channel broadcasting each word's fixed meaning-vector) <b>→ an unanchored
+    stream</b>: diverse contentful-looking tokens with <i>zero</i> repeated 4-grams in six thousand tokens:</p>
+    <div class="sample">As K DD ISI Pal Bag the and, His H and, and forward three Se arena</div>
+    <p>A matched control (two random middle layers ablated instead) writes near-normal text.</p>
+    <p class="ref">§1135–1136 · all generations saved for re-reading</p>
+  </div>
+
+  <div class="hl">
+    <p class="tag">the scoreboard</p>
+    <h2>Where the 90%-per-module goal stands — every number held-out</h2>
+    <p><b>At or above 90%:</b> layer-0 attention (literally a lookup table), the first three MLPs (0.93–0.95),
+    the constant head (98.5%), the frequency-calibration knob (a single direction — remove it and calibration
+    dies, remove a random direction and nothing happens).
+    <b>Ceiling-characterized (0.80–0.84):</b> the transition MLPs and both readout MLPs — where two unrelated
+    stand-in families converge on the same score, telling us the remainder is neither sparse nor linear.
+    <b>Bounded by results, not ignorance:</b> the content construction (the 30% above) and the middle pool's
+    two remaining unknowns, each closed with a documented list of every candidate explanation that failed.</p>
+    <div class="corr"><b>Why "held-out" is underlined everywhere:</b> the sweep that certified these numbers
+    also caught the recurring failure mode — per-word lookup tables silently memorize rare words (a word seen
+    once has its answer stored), inflating scores by up to 0.5. Fitted linear maps don't. Four earlier headline
+    numbers were corrected downward in public when this was found.</div>
+    <p class="ref">§1088, §1130–1133 · live figure: "Understanding Each Module, Bottom-Up"</p>
+  </div>
+
+  <div class="hl">
+    <p class="tag">how the sausage is made</p>
+    <h2>The redteam caught the authors ~ten times, and every catch is in the ledger</h2>
+    <p>Every experiment registers its predictions before running, with controls and nulls. The memorable saves:
+    a "content decides the winner" claim killed by a norm-matched control (any same-size perturbation flips the
+    winner); a compounding theory killed by its own discriminator experiment; an invariant "2.05× law" retracted
+    when a third data point landed at 1.62; a whole four-experiment thread discovered to be a re-derivation of
+    year-old results, prompting a per-module documentation system so it can't happen again. The published
+    story only ever contains claims that survived their own attack.</p>
+    <p class="ref">corrections: §1067→68, §1082→86, §1084→88, §1092, §1110→11, §1123→24, §1130</p>
+  </div>
+
+  <p class="foot">Companion pages: the full plain-language report ("the skeleton and the scratch",
+  "the most expensive head is a constant", "turn off one machine…") and the per-module benchmark figure.
+  Everything cites BILIN18_CONNECTION.md section numbers — an append-only lab notebook, 1,136 entries and
+  counting.</p>
+</div>
