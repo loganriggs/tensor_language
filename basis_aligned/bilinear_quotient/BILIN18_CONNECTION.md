@@ -30234,3 +30234,22 @@ the content-gathering §998 + distributed middle pooling §931); attn15-17 are n
 the ATTENTION machine = local-window front + broad-pooling middle + inert late. Only the front attn is
 window-reconstructible; the middle attn is the broad content pooling (mechanistically understood §932/998/1019, not
 window-reconstructible), and the late attn barely acts.
+
+## §1048 — the bag (pooled content) does NOT lift the transition MLPs; their residual is bilinear/high-rank, not missing pooled content (bottomup_mlp_transition.py)
+
+token + [window + bag-of-words] stand-in for mlp2/3/4 (ce_full 3.085):
+  mlp   token   token+win+bag   §1045 window-only   bag-vs-window
+  mlp2  0.496   0.712           0.716               -0.004  (bag added NOTHING)
+  mlp3  0.432   0.608           0.648               -0.040  (bag slightly WORSE)
+  mlp4 -0.007  -2.876          -0.321               catastrophic (bag off-distribution)
+pred_a (bag lifts, gain-vs-TOKEN>0.05) TRUE but MISLEADING (stated plainly): the meaningful comparison is vs
+WINDOW-ONLY (§1045), and there the bag adds NOTHING for mlp2 (0.712 vs 0.716) and HURTS mlp3/mlp4. So my hypothesis
+("the transition MLPs read pooled content, so a bag lifts them") is WRONG. The transition MLPs plateau at ~0.65-0.72
+with LOCAL features (token+window); the residual is NOT pooled-content -- it is the same BILINEAR HIGH-RANK content
+issue as the deep-middle (§1042), just smaller-scale (these are bilinear MLPs; the linear window map misses their
+multiplicative interaction, which is high-rank per §1040/1042). mlp4's catastrophic bag result marks it as already in
+the multiplicative-content regime where a crude linear bag is actively wrong.
+FRONT-MLP MAP COMPLETE + honest: mlp0 0.885, mlp1 0.95 (~90%, token+window); mlp2 0.72, mlp3 0.65 (local plateau,
+bilinear high-rank residual); mlp4 enters the content-multiplicative regime. So the understanding-gap is UNIFORMLY the
+high-rank bilinear content: ABSENT at the front L0-1 (token-dominated -> ~90%) and readout (near-linear), PRESENT and
+growing from mlp2 into the deep-middle. One consistent frontier (high-rank content×content), not many separate walls.
