@@ -31235,3 +31235,20 @@ attn_gain_what_results.json; runlogs/attn_gain_what.log (50s).
 **Register-axis summary (3 registers):** the two-machine REPRESENTATION split generalizes with a fixed 2× grammar-generality ratio; RELIANCE re-weights per register along two interpretable axes — local predictability (value-residual up, both deep machines down) and syntax density (grammar band). Registered next: register #4 (markdown, mixed prose/structure) predicts INTERPOLATION on all metrics + ratio ≈2 again — a falsifiable three-point test of the two axes.
 
 register_json_results.json; runlogs/register_json.log (68s).
+
+## §1111 — Markdown falsifies the "2.05 ratio law" (third pair: 1.62) and the two-axis reliance story; what survives, with raw costs alongside fractions (register_markdown.py)
+
+**Both registered predictions FALSE — the falsification test earned its keep.**
+- **Ratio law RETRACTED:** prose↔markdown front/deep overlap = 0.563/0.348 = **1.62**, outside [1.7, 2.4]. The §1110 "invariant 2.05" was a two-point coincidence. What survives at all THREE pairs: the DIRECTION — grammar consistently more register-general than content (ratios 1.6-2.1) — but no invariant constant. Markdown is the closest register to prose (overlaps 0.56/0.35, far above code/json), as expected for a mixed register.
+- **Interpolation FALSE, and it exposed a metric lesson.** Markdown is the HARDEST register (base CE 4.81 > code 4.00 > prose 3.33 > json 2.75 — repo .md files are technical/unusual text), and all four cost-FRACTIONS land below prose — partly a denominator artifact: cost-frac divides by a register-dependent base, conflating channel reliance with register difficulty. Raw costs across all four registers (now the standing table):
+
+  | register | base | content raw | grammar raw | vresid raw | x0 raw |
+  |---|---|---|---|---|---|
+  | prose | 3.33 | 2.29 | 6.65 | 3.35 | 2.33 |
+  | code | 4.00 | 1.13 | 2.62 | 4.39 | 1.19 |
+  | json | 2.75 | 0.94 | 3.35 | 5.19 | 1.04 |
+  | markdown | 4.81 | 1.31 | 4.40 | 3.15 | 1.67 |
+
+**What survives as the register-axis conclusions (4 registers):** (i) REPRESENTATION: grammar > content in register-generality at every pair (1.6-2.1×), no fixed constant. (ii) The content band is PROSE-SPECIALIZED — lowest raw and frac cost on every non-prose register. (iii) The value-residual is the most register-ROBUST channel (raw 3.1-5.2 everywhere; never collapses, unlike the grammar band's 2.6-6.6 swing). (iv) §1110's "monotone with predictability" holds along prose→code→json in raw too (3.35→4.39→5.19) but markdown breaks any single-axis ordering — register reliance re-weighting is real but NOT yet reduced to one or two axes; left open honestly. METHOD RULE ADDED: report raw costs alongside cost-fractions in all cross-register comparisons (fractions alone are difficulty-confounded — applies retroactively as a caveat to §1081/§1110 frac-based statements; their qualitative conclusions survive the raw check above).
+
+register_markdown_results.json; runlogs/register_markdown.log (69s).
