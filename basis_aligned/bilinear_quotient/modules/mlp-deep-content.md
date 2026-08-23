@@ -46,6 +46,11 @@ across the model family; register-adaptive within a model. §1049-1081 settled t
   of the per-layer content read's CE; the tail 12% (variance≠CE inverted).** Atoms entangled
   with each other (not one-by-one handles, §1113) but the SET is the function. Stream must stay
   full-rank (many cumulative readers, §1051); each reader's draw is skeleton-dominated.
-  Whole-band (L5-14) version pending.
+  BAND-WIDE (§1116): scale-invariant — skel 13% / tail 72% of fullrem 0.34 across all ten deep
+  MLPs. RELOCATION: deep MLPs are MINOR content consumers (0.34 nats total read vs stream-level
+  +8.4 §1056) — main consumers downstream (readout local read §997 + attention re-pooling); deep
+  MLPs maintain/multiply the object (write-side) more than they consume it. Skeleton atoms named
+  (§1116): topic (livestock), register (political-analysis, technical-expository), discourse
+  (partitive "Some of"), entity-density; 6/8 readable. THREAD CONCLUDED.
 - Register axis CLOSED (§1079-1112): grammar>content generality 1.6-2.1x all pairs (no fixed
   constant, §1111); content band prose-specialized; value-residual most register-robust.
