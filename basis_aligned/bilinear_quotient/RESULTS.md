@@ -4897,3 +4897,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1160 — leak carrier CLOSED: 100% attention (all-frozen → exactly 0.0), REDUNDANT deep+readout co-carriage (super-additive 0.045+0.082 vs 0.351); own-position reading attention-free (0.848); transport account carrier-complete (late_leak.py)
 §1161 — window fold does NOT close L2: certified 4-gram variable = 48% of closable pattern range on 2.5 (0.577; null floor 0.18); loss-locality ≠ pattern-locality; replicates fold_gap_locate2 arm A; m1_width sweep queued (ladder_fold.py)
 §1162 — pattern-locality LOG-LOCAL: 2.5 closes 0.55→0.81 (W=4→64), +0.06/doubling; layer 2 foldable from known ~64-token window variable; two-scale front law (loss 4-local, written code ~64-local); depth sweep queued (m1_width.py)
+§1163 — log-local law GENERAL: 3.5/5.5/8.4 all window-foldable (0.78-0.91 @W128); registration error disclosed (5.5 mislabeled as sink — sink is 5.7); 162-head fold map queued (pattern_width_by_depth.py)
