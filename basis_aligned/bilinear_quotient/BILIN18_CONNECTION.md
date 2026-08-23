@@ -28919,3 +28919,38 @@ to ~linear over the data) but NOT at the middle. I will TEST this directly (not 
 inferences): fit a linear map x -> Down(u*w) and compare R^2 front vs middle. Correcting the artifact to the plain
 certified §941 statement (front near-linear output, middle multiplicative) WITHOUT the refuted factor-level
 mechanism until the direct test settles it.
+
+## §991 — the front's nonlinearity is real in the RAW output but behaviorally near-inert; the §941 "linear front" is a LOSS-relevant property, not raw-output variance (interaction_linear_predictability.py)
+
+Powered-up ridge (16k train rows, lambda swept on a val split, best full-R^2 per layer; test split), raw-output-R^2
+of a LINEAR map x -> Down(target):
+  layer:        L1     L4     L8     L11    L15
+  R^2 interaction 0.475  0.563  0.270  0.233  0.233
+  R^2 full        0.551  0.547  0.252  0.268  0.352
+SANITY (R^2_full replicates §941's 0.9) = FALSE. IMPORTANT CORRECTION of my own framing: this is NOT an invalid run
+and NOT a bug — it CORRECTLY reproduces the KNOWN raw-output R^2 (~0.51 front, already recorded at the middle_
+bilinearity generalization, ledger ~line 27891: "bilin18 front R^2 0.51 vs §941 loss-frac 0.90"). My sanity gate was
+MIS-SPECIFIED: it compared two DIFFERENT metrics. §941's "linear-recoverable fraction" is a LOSS-RECOVERY measure
+(replace the MLP output with its best linear reconstruction, measure fraction of the mean-ablate loss recovered =
+front 0.90-0.98); §991 measures raw-output-VECTOR R^2 (fraction of the output's variance a linear map explains =
+front ~0.55). They were never the same number.
+What §991 validly shows on the raw-output instrument:
+ (1) R^2_int ~= R^2_full at EVERY layer (front 0.48~=0.55; mid 0.25~=0.26) -> the interaction term is linearly-
+     predictable to the SAME degree as the full output, which follows directly from §990 (the interaction DOMINATES
+     the output, so predicting the output ~ predicting the interaction).
+ (2) the FRONT raw-output R^2 (0.55) is ~2x the MIDDLE's (0.26) -> same DIRECTION as §941 (front more linear).
+ (3) raw-output R^2 tops out ~0.55 front, NEVER reaching §941's 0.90 -> the front's RAW output is substantially
+     NONLINEAR (interaction present + dominant, §990, and only ~half linearly-predictable).
+RESOLUTION of the §941-vs-§990 paradox (how is the front "linear" (§941) if the interaction dominates the raw output
+(§990)?): the front MLP's raw output IS substantially nonlinear, BUT that nonlinearity is largely BEHAVIORALLY INERT
+— a linear map recovers 90-98% of its effect on the LOSS (§941) even though it captures only ~55% of the output
+variance. The front writes a large near-linear component that is what MATTERS for the loss, plus a genuine
+interaction component that is mostly in directions the loss doesn't use (or is cancelled downstream). The MIDDLE's
+interaction, by contrast, is behaviorally LOAD-BEARING (§941 loss-frac drops to 0.38). So the front-vs-middle
+distinction is NOT whether the interaction exists (everywhere, §990) nor how linear the raw output is (front only
+2x better) — it is whether the interaction AFFECTS THE LOSS.
+DEFINITIVE TEST QUEUED (§992, interaction_loss_ablation.py): ablate ONLY the interaction term (keep const+linear =
+Down(a*Rx + b*Lx - a*b)+bias) and measure the CE cost at front vs middle, on §941's certified LOSS instrument.
+Prediction: front CE barely rises (interaction inert), middle CE rises substantially (interaction load-bearing);
++ chain-rule split to check the middle interaction is content (within-CE). pred_a raw-output-linear FALSE (correct:
+that was the wrong metric); the real claim is behavioral and §992 tests it.
