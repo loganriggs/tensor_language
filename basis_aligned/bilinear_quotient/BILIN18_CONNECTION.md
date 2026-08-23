@@ -29175,3 +29175,30 @@ the multiplicative nonlinearity SERVES CONTENT (pred_a). The shuffled-input null
 is roughly OK; the null's failure is entirely the front<middle clause, i.e. the compounding confound.
 CLEAN CEILING NEEDS a compounding-free instrument: fit each layer's linear map COMPOSITIONALLY (on the ALREADY-
 linearized upstream distribution), so no distribution shift. Queued as §1000.
+
+## §1000 — CLEAN multiplicative-content ceiling; front>middle is REAL (absolute nats vs §941's relative), partially correcting §999 (content_mult_ceiling_compositional.py)
+
+Compositionally-fit linear surrogates (each layer's map fit on the already-linearized upstream distribution -> no
+compounding), chain-rule split (baseline within 2.40, class 0.74):
+  condition     within-cost  class-cost  full_ce   (§999 independent-fit within, for comparison)
+  lin_front(0-5)  +1.009      +0.285      4.432      (§999 +1.424)
+  lin_middle(6-15)+0.645      +0.164      3.948      (§999 +0.773)
+  lin_all(0-17)   +1.594      +0.449      5.182      (§999 +2.256)
+pred_0 FALSE (front 1.01 still > middle 0.65); pred_a TRUE (within >> class in every band).
+FINDINGS:
+ 1. Compounding was REAL but PARTIAL: compositional fitting lowers every cost vs §999 (middle 0.773->0.645, front
+    1.42->1.01, all 2.26->1.59) -> §999's absolute numbers were inflated by distribution-shift, as diagnosed.
+ 2. BUT front>middle PERSISTS compositionally (1.01 vs 0.645) -> this is NOT merely a compounding artifact, PARTIALLY
+    CORRECTING §999's claim that "front>middle is the confound's signature". The ordering is REAL.
+ 3. RECONCILIATION with §941 (front MLPs 90-98% linear per layer): §941 is a RELATIVE fraction (of each layer's own
+    loss effect); §1000 is ABSOLUTE nats. The FRONT writes far more than the middle (L0/L1 are the dominant writers,
+    §933), so its SMALL relative nonlinearity (2-10%) is LARGE in absolute nats (1.01); the MIDDLE is relatively very
+    multiplicative (60%, §941) but writes little, so its nonlinearity is 0.645 nats absolute. Both are true at once.
+    Combined with §994 (front interaction is a super-additive cooperative cascade), the front's nonlinearity is
+    DISTRIBUTED/cooperative across layers -- ~linear per layer given true neighbors, but jointly a large
+    multiplicative contribution.
+ 4. pred_a: forcing ANY MLP band linear costs ~4x more CONTENT (within-CE) than GRAMMAR (class-CE) -- ratios
+    lin_front 3.5, lin_middle 3.9, lin_all 3.5 -> the MLP multiplication throughout the stack serves CONTENT.
+ 5. CLEAN MULTIPLICATIVE-CONTENT CEILING: forcing ALL MLPs linear costs +1.594 nats of content (within-CE 2.40->3.996).
+    This is the content that FUNDAMENTALLY requires MLP nonlinearity -- the honest floor on what any linear / table /
+    bag named-variable stand-in can reconstruct, and why the whole-model benchmark's content term is capped.
