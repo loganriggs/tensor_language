@@ -21,6 +21,11 @@ gain/expansion writer whose CE function is ~a static per-token table (held-out 0
 - **What they write is grammar, orthogonal to content:** MLP steps DECREASE content-R2 (−0.10)
   while attention steps build it (§1074).
 
+- **Register (§1080/§1096):** the front grammar computation is ~HALF register-shared — prose-built
+  token tables recover ~50% of code-built tables' function on code, matching the representational
+  overlap (0.41 ≈ 46% of ceiling) from an independent instrument. Code→prose numbers are
+  vocabulary-confounded (narrow code vocab → global-mean fallback); only prose→code is clean.
+
 ## Benchmark status
 mlp0/mlp1 ≈ **0.90+** (smooth per-token maps / token tables; §905/§1045/§1088). Front content
 share: ~18% token-lookup / 29% context-linear / 54% context-multiplicative (§1005).
