@@ -1987,6 +1987,17 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the road rather than ignoring each other completely: induction, while doing its own job, gives a lift to whatever
   content it happens to be reaching past.</p>
 
+  <p>One last injection result draws the sharpest line between the two machines — by failing to steer. Flooding the
+  context with a topic lifts that topic's words by several nats, yet it almost never changes the model's actual
+  top-five prediction (a topic word cracks the top five about two percent of the time even after eight copies). The
+  top of the distribution is owned by high-frequency grammatical tokens; a content word starts so far down the tail
+  that several nats of lift still leaves it below them. Inject <em>function</em> words instead and the top five
+  <em>does</em> move, because those live at the head. So content is a tail phenomenon: it decides <em>which</em> word
+  fills a slot the grammar has already chosen, and its whole influence lives in the log-probabilities below the fold.
+  That is the two-machine split stated in the bluntest behavioral terms — grammar owns the head of the distribution,
+  content owns the tail — and it bounds what understanding buys: we can reshape the content tail at will, but the slot
+  itself is grammar's to give.</p>
+
   <p><strong>Where every nat goes.</strong> All of this lands in one budget. The model takes the average
   next-token cost from 7.17 nats (guessing from word frequencies alone) down to 3.24, split as 0.76 grammar +
   2.48 content. Sort the tokens by <em>what kind of prediction they are</em> and the loss concentrates sharply.
