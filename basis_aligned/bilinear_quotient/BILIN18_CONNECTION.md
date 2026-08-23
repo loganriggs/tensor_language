@@ -29522,3 +29522,26 @@ taxonomy-robustness (pred_a) already establishes the finding is not a class-defi
 the wrong control and its FALSE flag carries no negative evidence.
 NET: the content/grammar linearization split is real and taxonomy-robust; my null design was flawed (noted for future
 controls: never use a random/unpredictable partition to null a chain-rule split -- it trivially zeroes the class term).
+
+## §1016 — GENERATIVE input-side confirmation: injecting a topical word primes its topic downstream (bag-of-words, long-range, topic-specific) (content_injection_priming.py)
+
+Inject a content word W at position 3; measure the mean log-prob shift of W's TOPIC-NEIGHBORS (top-20 unembedding-
+cosine, EXCLUDING W and any context token) at query position 150. Δlog-prob (nats):
+  CONTENT words (own-neighbors):  football 0.60, hospital 0.47, ocean 0.56, music 0.54, science 0.50, army 0.46,
+    church 0.56, garden 0.51, computer 0.42, medicine 0.54  -> mean +0.516
+  FUNCTION words (own-neighbors):  the 0.12, of 0.05, and 0.04, to 0.07, in 0.05, for 0.08  -> mean +0.070
+  RANDOM-neighbor null (content-word injection, random word's neighbors):  mean +0.069
+pred_0 (topic-specific) TRUE; pred_a (topical priming, content>>function) TRUE. BOTH strongly.
+This is a NEW evidence modality (all prior content causality was activation/weight-level, e.g. topic interchange
+§894): from the INPUT side, injecting a topical CONTENT word at the start raises the model's prediction of that
+word's TOPIC (its unembedding-neighbors) at a distant query, by +0.52 nats -- 7.4x more than injecting a FUNCTION word
+(+0.07) and 7.5x more than the effect on a RANDOM word's neighbors (+0.07). Key controls hold:
+ - LONG-RANGE + order-invariant: injection at pos 3 affects the query at pos 150 (broad pooling, §995).
+ - NOT induction/copy: W itself and context tokens are EXCLUDED from the neighbor set, so this is genuine TOPICAL
+   priming of un-seen topic-neighbors, not token copying.
+ - TOPIC-SPECIFIC: the shift lands on W's OWN topic-neighbors (0.52), not a random word's neighbors (0.07).
+ - CONTENT-WORD-driven: function words (no topic) barely prime (0.07), confirming §996 (the bag is content words)
+   generatively.
+So the bag-of-words content account PREDICTS BEHAVIOR: drop a topical content word into the context and the model's
+downstream content prediction shifts toward that topic, broadly and order-invariantly -- the strongest, most direct
+(generative) confirmation of the content machine yet.
