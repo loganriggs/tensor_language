@@ -376,7 +376,12 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    TRANSPORTS high-rank content through the residual stream, load-bearing for the whole band, so a low-rank bottleneck at
    any layer starves the rest. NET: the frontier is high-rank but *unified and load-bearing* — one content object across
    the band (tensor-network/DAG intuition confirmed), irreducibly high-dimensional in the stream, not a stack of
-   separate walls. **HIGH.**
+   separate walls. §1052: the object is BORN GRADUALLY — its shared content directions rise monotonically from the
+   grammar front (L1-2 overlap 0.16 with the deep-middle content ref, vs 0.056 null) through the transition (L3-5:
+   0.26→0.44) and consolidate in the band (L6-12: 0.53→0.91) before drifting toward readout (L14 0.69). So the frontier
+   is not a wall at L6; it emerges from L3 — which is why transition MLPs resist token+window (§1048): they catch the
+   birth of the content flow. Full bottom-up map: L0-1 grammar → L2-5 content onset → L6-14 content band → L15-17
+   readout. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
