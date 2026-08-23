@@ -1,0 +1,15 @@
+atoms [30, 49, 7, 9, 241, 80, 42, 248] | affinity pairwise overlap mean 0.075
+grain k=1: own +0.0388 | other +0.0470 | wrong-dir +0.0402 | ratio 0.83
+grain k=2: own +0.0325 | other +0.0311 | wrong-dir +0.0281 | ratio 1.04
+grain k=4: own +0.0810 | other +0.0657 | wrong-dir +0.0460 | ratio 1.23
+grain k=8: own +0.0370 | other +0.0379 | wrong-dir +0.0283 | ratio 0.97
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/skeleton_pattern_grain.py", line 205, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/skeleton_pattern_grain.py", line 200, in main
+    print(f"n_specific {ok}/8 | pred_a value-causal {out['pred_a_value_causal']} | pred_b package-smallest {out['pred_b_package_smallest_unit']}", flush=True)
+                        ^^
+NameError: name 'ok' is not defined. Did you mean: 'tok'?

@@ -197,7 +197,7 @@ def main():
     out['pred_c_beyond_8'] = bool(rr[8] < 2)
     out['runtime_s'] = round(time.time()-t0, 1)
     json.dump(out, open(OUT, 'w'), indent=1)
-    print(f"n_specific {ok}/8 | pred_a value-causal {out['pred_a_value_causal']} | pred_b package-smallest {out['pred_b_package_smallest_unit']}", flush=True)
+    print(f"grain curve {out['grain_curve']} | preds a {out['pred_a_graded_by_k4']} b {out['pred_b_holistic']} c {out['pred_c_beyond_8']}", flush=True)
     print(f"wrote {OUT} ({out['runtime_s']}s)")
 
 

@@ -31592,3 +31592,16 @@ pattern_templates_results.json; runlogs/pattern_templates.log (59s).
 - What survives untouched: the kernel (58%, causal), the phenomenology (the deviations ARE state-predictable near-field re-weightings — true as description), and the graveyards. The band's honest final state: 58% named-and-causal + 42% genuinely interaction-borne, now proven so by the strongest available instrument.
 
 attn_named_standin_results.json; runlogs/attn_named_standin.log (119s).
+
+## §1146 — Open-problem #6 closes with pred_c: the causal codeword EXCEEDS the 8-atom skeleton — even the full 8-value swap is generic (ratio 0.97 at k=8; curve 0.83/1.04/1.23/0.97) — semantic addressing needs the fuller 16-64-coordinate pattern (skeleton_pattern_grain.py)
+
+**pred_c TRUE.** Group value-swaps toward target-high donors at k = 1/2/4/8: own-vs-other specificity never exceeds 1.23 and returns to 0.97 at the full skeleton — a generic content boost at every grain, with wrong-direction nulls comparably positive. Combined with the arc's established endpoints, the causal-grain map is now complete and three-tiered:
+- **Reading** (deletion-CE): the 8-atom skeleton dominates — 78-90% of every read (§1115-1117).
+- **Addressing** (source-specific transport): requires the fuller continuous pattern — §1059-60's K=16-64 PCA coordinates, position-matched — NOT reproducible from the 8-value reconstruction at any sub-grain (this section) nor from probe-predictions (§1145).
+- **Reconstruction**: no discrete/probe-mediated version of either converts causally (§1145's law).
+
+**One refinement to the published skeleton/scratch story, propagated:** the report and highlights said "only moving the whole eight-number pattern at once transports meaning" — CORRECTED: the eight numbers suffice for what downstream READS in aggregate, but semantic transport needs the richer 16-64-coordinate pattern; the tail is not only construction scratch (§1118) but also ADDRESS PRECISION for transport. (Also: third stale-tail-print crash on a derived script, after JSON write — data intact, print fixed; the pre-queue check now includes grepping derived files for orphaned variable names.)
+
+**Open-problems map final: 6/6 experimentally resolved.** #1 boundary theorem, #2 representation-named + interaction-proven, #3 representation-named, #4 tooling boundary, #5 three-family law, #6 codeword > skeleton (this section).
+
+skeleton_pattern_grain_results.json; runlogs/skeleton_pattern_grain.log (—).
