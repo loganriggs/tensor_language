@@ -31261,3 +31261,15 @@ Evaluating only at positions whose token is well-sampled (≥8) in BOTH build co
 - **Standing conclusion for the register axis (final):** the front grammar computation is ~half register-shared (§1096), genuinely — not sampling — because the token tables are partly CONTEXTUAL, and context is register-specific. The asymmetry is the register version of a familiar ML fact: train broad, transfer; train narrow, don't.
 
 grammar_transfer_vmatch_results.json; runlogs/grammar_transfer_vmatch.log (62s).
+
+## §1113 — Sparse features on the content manifold: MORE STABLE than weight-atoms (0.77 vs 0.40) but only weakly sparse (R² 0.71 @ k=8), half-nameable (9/16), and mostly NOT causally individuated (3/8) — the manifold's honest units remain continuous axes (content_dictionary.py)
+
+**All three registered predictions false; the middle result is the finding.**
+- **Stability: 0.771 cross-seed atom match** — nearly double the weight-atom recurrence that killed dictionaries in §763 (0.40). Activation-space features on the content coords are substantially reproducible (pred_c firmly false — the §763 instability does NOT replicate here).
+- **But the manifold resists sparsity:** reconstruction R² only 0.71 at k=8/256 (registered sanity was >0.9). Even inside its own 64-dim coordinate space, the content structure is distributed — consistent with the three-way high-rank verdict (§1000/§1038/§1042), now at a fourth granularity.
+- **Nameability 9/16** (bar was 10): some atoms cohere strongly (0.5 vs 0.0 null), several at zero.
+- **Causal individuation 3/8, with disqualifying anomalies:** for two atoms the OTHER-atom or RANDOM control exceeded own-atom removal (atom 105: random +0.047 > own +0.027; atom 197: other +0.056 > own +0.021) — removals at active positions are entangled, not feature-local.
+
+**Verdict for the naming thread, plainly:** the content machine supports a *reproducible* sparse basis but not an *atomic* one — features overlap, individually explain little, and are not causally separable handles. The honest units of the content manifold remain what §1055/§1059-60 established: continuous interpretable AXES and low-K patchable subspaces, on a genuinely distributed high-rank object. Thread closed with a bounded negative; registered follow-up (queued): k-sweep (R² and stability vs k=4..64) to price exactly HOW distributed — if R² needs k≈32+ for 0.9, "8-sparse features" was simply the wrong sparsity for a manifold this dense.
+
+content_dictionary_results.json (snippets included for human reading); runlogs/content_dictionary.log (109s).

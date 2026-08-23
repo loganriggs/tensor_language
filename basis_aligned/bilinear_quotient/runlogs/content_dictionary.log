@@ -1,0 +1,16 @@
+seed 0: recon R2 0.7101
+seed 1: recon R2 0.7105
+seed 2: recon R2 0.7109
+cross-seed atom match cosine: [0.777, 0.771, 0.767] (mean 0.771; weight-atoms were 0.40 §763)
+nameability: coherent atoms 9/16 | example coher {164: (0.0, 0.0), 197: (0.333, 0.333), 105: (0.5, 0.0), 75: (0.0, 0.0)}
+atom 164: own +0.0152 | other +0.0231 | random +0.0055 | individuated False
+atom 197: own +0.0210 | other +0.0555 | random +0.0063 | individuated False
+atom 105: own +0.0267 | other +0.0007 | random +0.0474 | individuated False
+atom 75: own +0.0087 | other +0.0016 | random +-0.0006 | individuated True
+atom 69: own +0.0076 | other +0.0004 | random +0.0020 | individuated True
+atom 193: own +0.0036 | other +0.0008 | random +0.0098 | individuated False
+atom 159: own +0.0168 | other +-0.0001 | random +0.0010 | individuated True
+atom 196: own +-0.0014 | other +0.0002 | random +-0.0010 | individuated False
+stability 0.771 | coherent 9/16 | individuated 3/8
+pred_a stable+nameable False | pred_b individuated False | pred_c unstable False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_dictionary_results.json (108.8s)

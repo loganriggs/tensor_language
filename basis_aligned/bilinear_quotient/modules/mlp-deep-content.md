@@ -40,5 +40,9 @@ across the model family; register-adaptive within a model. §1049-1081 settled t
 - The manifold is a continuum — discrete topic labels don't replicate, the geometry does (§873-874).
 
 ## Open
-- Nameable sparse features on the manifold (dictionary > SVD; FINDINGS item 16-era) — a naming,
-  not mechanism, thread. Register axis continuations (`FINDINGS` Open C).
+- ~~Nameable sparse features~~ TESTED (§1113): sparse basis is REPRODUCIBLE (cross-seed 0.77 vs
+  weight-atoms' 0.40 §763) but weakly sparse (R² 0.71 @ k=8/256), half-nameable (9/16), NOT
+  causally individuated (3/8; controls exceeded own twice). Honest units = continuous axes +
+  low-K patchable subspaces (§1055/§1059-60). k-sweep pending to price the density.
+- Register axis CLOSED (§1079-1112): grammar>content generality 1.6-2.1x all pairs (no fixed
+  constant, §1111); content band prose-specialized; value-residual most register-robust.
