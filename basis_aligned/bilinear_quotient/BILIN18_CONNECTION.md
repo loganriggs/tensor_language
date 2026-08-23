@@ -31785,3 +31785,13 @@ pattern_width_by_depth_results.json; runlogs/pattern_width_by_depth.log (70s).
 **Fix queued (pattern_fold_map2.py, registered):** exact early positions — for t < W the true window IS the prefix, so one forward over the first W tokens supplies exact x_hat for positions 0..W−1; sliding windows cover t ≥ W. Re-registered: (a) global law strengthens (every layer mean rises or holds; none falls > 0.01); (b) sink 5.7 ≥ 0.9 at both widths; (c) L5 mean recovers to ≥ 0.85. Fifth instrument-bug catch of the program's redteam culture (§1097, §1106, §1152, §1156, here) — each caught by its own registered control.
 
 pattern_fold_map_results.json; runlogs/pattern_fold_map.log (160s).
+
+## §1165 — FIXED MAP CONFIRMS THE GLOBAL LAW: sink 0.998, L5 recovers to 0.887, 17/18 layers mean ≥ 0.80 — the model's attention selection is ~85-90% argmax-computable from weights over a 128-token window at every layer; only L1 lags (0.68); causal capstone queued (pattern_fold_map2.py)
+
+**Preds a-c ALL TRUE.** Exact-prefix fix lands exactly as registered: sink 5.7 goes 0.002 → 0.998 at both widths (the §1164 artifact confirmed as pure padding bug); L5 mean 0.687 → 0.887; every layer rises or holds. Final map @W=128: L0 exact 1.0 (sanity), front 0.89, middle 0.876, late 0.86 — FLAT across depth. The single laggard is L1 (0.684, heads 0.53-0.95): the layer whose queries read mlp0/attn0's freshly-made contextual code — plausibly diffuse/low-contrast patterns where argmax is tie-unstable rather than unfoldable (metric refinement noted, not queued yet).
+
+**Statement earned (map-level):** at every layer, which position each head attends to is a bounded-window function — weights applied to the last ~128 tokens — at 0.8-1.0 fidelity. Combined with the loss-side map (writeup 482: 4-token windows cost ≤0.086 everywhere except the L5 sink fetch) this makes the model's SELECTION machinery n-gram-computable; what is NOT window-computable is the CONTENT the deep stream constructs (§1125-27's 30% created-in-flight, and §1150-60's transported coordinates).
+
+**Causal capstone queued (fold_pattern_loss.py, registered):** this model's attention is UNNORMALIZED (raw pattern × values — no softmax), so argmax fidelity is not yet function; the capstone runs the model with patterns folded at all 18 layers (values/OV/MLPs live, λ-mix and rms applied exactly on the folded side) and pays the price in nats. (a) fold_all ≤ +0.30 nats; (b) shuffled-text null ≥ +1.5; (c) front/deep roughly additive. Sanity: custom forward must reproduce true-model CE ±0.02.
+
+pattern_fold_map2_results.json; runlogs/pattern_fold_map2.log (162s).

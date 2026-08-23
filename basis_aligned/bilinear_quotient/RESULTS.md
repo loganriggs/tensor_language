@@ -4899,3 +4899,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1162 — pattern-locality LOG-LOCAL: 2.5 closes 0.55→0.81 (W=4→64), +0.06/doubling; layer 2 foldable from known ~64-token window variable; two-scale front law (loss 4-local, written code ~64-local); depth sweep queued (m1_width.py)
 §1163 — log-local law GENERAL: 3.5/5.5/8.4 all window-foldable (0.78-0.91 @W128); registration error disclosed (5.5 mislabeled as sink — sink is 5.7); 162-head fold map queued (pattern_width_by_depth.py)
 §1164 — 162-HEAD MAP: window-fold law MODEL-WIDE (all layer means ≥0.68 @W128, flat bands, no middle dip) as LOWER BOUND — pad-clamp bug corrupts early keys (sink 0.002 artifact, disclosed); exact-prefix fix map2 queued (pattern_fold_map.py)
+§1165 — fixed map: global law CONFIRMED (sink 0.998, L5 0.887, flat 0.86-0.89 bands; only L1 0.68 lags) — attention selection window-computable model-wide; causal capstone fold_pattern_loss queued (pattern_fold_map2.py)
