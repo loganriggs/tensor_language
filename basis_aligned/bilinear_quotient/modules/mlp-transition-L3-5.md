@@ -38,6 +38,11 @@ L5 ~0.6.
 - The L8-12 content basis drifts (§1052): "non-content" at L4 may contain rotated early content —
   test in L4's OWN basis before concluding a different variable (registered §1094).
 
+**One rotating variable — band account COMPLETE (§1100):** adjacent own-basis overlaps L3-L4
+0.569 / L4-L5 0.563 (random 0.057); neighbor-basis substitution recovers 0.98x (L3) / 0.84x (L5)
+of own-basis; rotation monotone toward deep coordinates (deep overlap L3 0.276 -> L5 0.464). L3 is
+NOT grammar-side (grammar overlap ~0.2 for all three). Caveat: L3's stakes are small (mean-abl
+0.58, mtok alone 0.83). Stability: L4 numbers reproduce split-half (§1101).
+
 ## Open
-- L4's context variable identity (l4_variable.py: own-basis rank + precursor/grammar/deep overlap
-  + causal projection tests).
+- Nothing pressing; the band is accounted for (one precursor variable, consumed from L4 on).

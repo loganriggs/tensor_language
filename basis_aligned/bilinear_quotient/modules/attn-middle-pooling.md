@@ -22,9 +22,10 @@ are worth ~3 nats — a recency-first, weakly content-biased pool that feeds the
   (§1054/§1069).
 
 ## Benchmark status
-Per-head: trivially high (const ≈ full for most). Collective: the honest open number — no
-stand-in reproduces the 3.67-nat collective function yet (window/pool stand-ins recover the
-front+gatherer part 0.66-0.95, middle remainder low-stakes §1054).
+Per-head: trivially high (const ≈ full for most). Collective: first partial stand-in (§1099) —
+a per-head static DISTANCE KERNEL (values dynamic) recovers 0.583 of the middle band's collective
+value (gatherer L3-5 only 0.394 — more routing-adaptive). Two-term kernel+content-sim model is
+the registered next rung. Split-half audit: all collective numbers stable (§1101).
 
 ## Gotchas
 - NEVER evaluate this band per-head and conclude it's dispensable (5.7× collective factor).

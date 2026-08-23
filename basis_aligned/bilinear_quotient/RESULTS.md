@@ -4833,3 +4833,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1096 — grammar function transfers ~50% prose→code (matches §1080's representational 46%; two instruments, one number); code→prose vocab-confounded, stated; shuffled-table null catastrophic (grammar_transfer_code.py)
 §1097 — seed ensembles: retention metric INVALID (energy blow-up, values >1; discarded, alignment fix queued); CE: front restore 0.36 of static gap, gatherer 0.26 (better w/o sink), middle L6-9 alone ~0 — restoration is super-additive too (attn_seed_ensembles.py)
 §1098 — mlp0 class map figures (PCA + t-SNE + weights-only): 3.3x class separation; weight-only fold reproduces the map at cosine 0.83 / congruence 0.90 — the class geometry is a pure weight object (fig_mlp0_*.py)
+§1099 — recency kernel = 58% of middle pool (39% gatherer — more adaptive); first partial middle stand-in (attn_kernel_standin.py)
+§1100 — transition = ONE rotating precursor variable L3→L5 (adjacent overlap 0.57, neighbor-basis recovers 84-98%); transition account COMPLETE (l35_variable.py)
+§1101 — split-half audit at 2-4x N: ALL nine headline numbers stable; §1093 inversion holds both halves (robustness_recheck.py)
+§1102 — seed authorship: NO privileged band (all ≤0.14 alignment; front strongest; sink carries none) — whole-stack cooperative product; Open A answered negatively (attn_seed_align.py)

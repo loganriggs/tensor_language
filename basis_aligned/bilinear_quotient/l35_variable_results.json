@@ -1,0 +1,74 @@
+{
+ "base_ce": 3.2694,
+ "per_layer": {
+  "3": {
+   "costs": {
+    "full": 0.0,
+    "mtok": 0.0974,
+    "own16": 0.0722,
+    "own64": 0.0422,
+    "own256": 0.0096,
+    "neighbor64": 0.0535,
+    "deep64": 0.073,
+    "gram64": 0.076,
+    "rand64": 0.089,
+    "meanabl": 0.5777
+   },
+   "recov": {
+    "full": 1.0,
+    "mtok": 0.831,
+    "own16": 0.875,
+    "own64": 0.927,
+    "own256": 0.983,
+    "neighbor64": 0.907,
+    "deep64": 0.874,
+    "gram64": 0.868,
+    "rand64": 0.846
+   }
+  },
+  "5": {
+   "costs": {
+    "full": 0.0,
+    "mtok": 0.0472,
+    "own16": 0.0314,
+    "own64": 0.02,
+    "own256": 0.0065,
+    "neighbor64": 0.0305,
+    "deep64": 0.0291,
+    "gram64": 0.042,
+    "rand64": 0.0443,
+    "meanabl": 0.0857
+   },
+   "recov": {
+    "full": 1.0,
+    "mtok": 0.449,
+    "own16": 0.634,
+    "own64": 0.767,
+    "own256": 0.924,
+    "neighbor64": 0.644,
+    "deep64": 0.66,
+    "gram64": 0.51,
+    "rand64": 0.483
+   }
+  }
+ },
+ "overlaps": {
+  "L3_L4": 0.5694,
+  "L4_L5": 0.5634,
+  "L3_deep": 0.2757,
+  "L5_deep": 0.4637,
+  "L3_gram": 0.2173,
+  "L4_gram": 0.1782,
+  "L5_gram": 0.1534,
+  "L3_rand": 0.0568
+ },
+ "own64_varfrac": {
+  "3": 0.3963,
+  "4": 0.3899,
+  "5": 0.4031
+ },
+ "pred_a_one_rotating_variable": true,
+ "pred_b_L3_grammar_side": false,
+ "pred_c_broadband": false,
+ "runtime_s": 124.3
+}

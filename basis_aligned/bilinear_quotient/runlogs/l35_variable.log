@@ -1,0 +1,5 @@
+L3 recov: {'full': 1.0, 'mtok': 0.831, 'own16': 0.875, 'own64': 0.927, 'own256': 0.983, 'neighbor64': 0.907, 'deep64': 0.874, 'gram64': 0.868, 'rand64': 0.846} (meanabl 0.5777)
+L5 recov: {'full': 1.0, 'mtok': 0.449, 'own16': 0.634, 'own64': 0.767, 'own256': 0.924, 'neighbor64': 0.644, 'deep64': 0.66, 'gram64': 0.51, 'rand64': 0.483} (meanabl 0.0857)
+overlaps: {'L3_L4': 0.5694, 'L4_L5': 0.5634, 'L3_deep': 0.2757, 'L5_deep': 0.4637, 'L3_gram': 0.2173, 'L4_gram': 0.1782, 'L5_gram': 0.1534, 'L3_rand': 0.0568}
+pred_a one-variable True | pred_b L3-grammar-side False | pred_c broadband False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/l35_variable_results.json (124.3s)

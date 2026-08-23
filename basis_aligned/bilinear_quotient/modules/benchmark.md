@@ -14,9 +14,9 @@ compounding-dominated; content passthrough 0.39; §1070-1071). Whole-model simul
 | mlp0 | ~0.90 | class-code writer / token map | §905/§1045 |
 | mlp1 | ~0.93 | static per-token table (held-out) | §1088 |
 | mlp3 | ~0.67 | token table (held-out) | §1088 |
-| mlp4 | ~0.36 best partial | OPEN (context variable unidentified; §1094) | §1094 |
+| mlp4 | ~0.70 | own-basis top-64 precursor projection (§1095; split-half stable §1101) | §1095 |
 | mlp5-14 (content) | ~0.10 as variables | none — real high-rank (3-way confirmed) | §1000/38/42 |
-| middle attn (collective) | OPEN | no stand-in for the 3.67-nat collective pool | §1093 |
+| middle attn (collective) | 0.58 partial | static distance-kernel (values dynamic); kernel+content-sim next | §1099 |
 | readout mlp16/17 | 0.78/0.85 | near-linear read | §1046 |
 | block-17 calibration | ~1.00 | rank-1 w_freq | §650-651 |
 | the merge | understood | additive-linear (−W·c, cos 0.77) | §1082/§1086 |

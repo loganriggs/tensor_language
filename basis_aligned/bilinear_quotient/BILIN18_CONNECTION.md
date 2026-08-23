@@ -31124,3 +31124,27 @@ Token-conditional-mean mlp0 outputs for 354 tokens (≥8 occurrences, 96 diverse
 **WEIGHT-ONLY derivation (user point confirmed):** folding embedding → block-0 λ-remix → T=1 self-attention (rotary at pos 0) → mlp0 gives the same map with NO data statistics: per-token cosine with the data map **0.83**, pairwise-distance congruence **0.90**, class separation 3.30× (vs data 3.31×). mlp0's class geometry is a pure weight object; the data averaging adds almost nothing (context contributes the residual ~0.17 cosine gap).
 
 Files: fig_mlp0_class_map.png (PCA, data), fig_mlp0_class_map_weights.png (PCA, weights-only), fig_mlp0_tsne.png (t-SNE side-by-side), mlp0_clusters.md (full membership). No new mechanism claims — a visualization + weight-derivability check of §767-772/§915/§825-826.
+
+## §1099 — A static recency kernel recovers 58% of the middle pool's collective value (39% of the gatherer's) — positional routing is most, not all, of the middle's function (attn_kernel_standin.py)
+
+Replace each head's pattern with its own fitted distance-kernel k_h(d) (static routing, values stay dynamic), per band. Middle L6-14: const +1.155, kernel +0.482 → **kernel recovery 0.583**. Gatherer L3-5: const +0.814, kernel +0.493 → **0.394**. Predictions at the 0.6/0.3 thresholds all formally FALSE — the result sits between the poles: the middle pool is ~60% "fixed recency kernel over dynamic values" (§1085's correlational picture is most of the causal function), and the GATHERER is measurably more routing-adaptive than the middle (0.39 vs 0.58) — where the seed-building §1074 band lives, routing genuinely depends on content/context. Benchmark note: the middle band gains its first partial stand-in (0.58). Natural next rung (queued): add the §1085 content-similarity term to the kernel — two-term pattern model.
+
+attn_kernel_standin_results.json; runlogs/attn_kernel_standin.log (131s).
+
+## §1100 — The transition band is ONE ROTATING PRECURSOR VARIABLE (L3→L4→L5): adjacent own-bases overlap 0.57, neighbor-basis substitution recovers 84-98% of own-basis — completing the transition account (l35_variable.py)
+
+pred_a TRUE: adjacent own-basis overlaps L3-L4 0.569, L4-L5 0.563 (random 0.057); causally, substituting a layer's deviation projected on its NEIGHBOR's basis recovers 0.98× (L3) / 0.84× (L5) of its own-basis recovery. The rotation is monotone toward the deep coordinates (deep-ref overlap: L3 0.276 → L5 0.464 → deep-band internal 0.53-0.91, §1049/§1052). pred_b FALSE: L3 is NOT grammar-side (grammar overlap 0.217 ≈ L4's 0.178) — the handoff to content coordinates is already underway at L3. Caveats stated: L3's discrimination is soft (mean-abl only 0.58 with mtok alone recovering 0.83; own-basis adds +0.10 vs random's +0.02 — the direction is clear but the stakes are small); L5 cleaner (own64 0.767 vs rand 0.483). **Transition account COMPLETE: L0-1 grammar tables → L3-5 one shared precursor variable rotating toward the deep-middle's coordinates, consumed by dev×dev starting at L4 (§1095) → L6-14 consolidated content band.**
+
+l35_variable_results.json; runlogs/l35_variable.log (124s).
+
+## §1101 — SPLIT-HALF STABILITY AUDIT: every headline number of the wave reproduces on independent halves at 2-4× N — NOTHING UNSTABLE (robustness_recheck.py)
+
+Per the user's data-scale directive: 384 seqs, two fully independent halves (bases/means refit per half). ALL nine audited numbers stable (pred_a TRUE): L5H7 zero 0.875/0.953 (orig 0.912), const 0.0128/0.0126 (0.013); all-const 3.73/4.09 (3.67); **the §1093 inversion all_zero < all_const holds in BOTH halves** (3.44<3.73, 3.71<4.09); L4 own-64 recovery 0.701/0.695 (0.74), precursor-64 0.614/0.610 (0.66), deep-64 0.272/0.306 (0.36); L10 pattern correlations content 0.083/0.102, log-dist −0.595/−0.609 (−0.586). The wave's conclusions are data-stable; new experiments continue at NSEQ≥192.
+
+robustness_recheck_results.json; runlogs/robustness_recheck.log (132s).
+
+## §1102 — Seed authorship (fixed metric): NO single band preserves the content seed — alignment after any band-restore is ≤0.14 of baseline, with the FRONT strongest; the seed is authored by the whole stack's dynamics (attn_seed_align.py)
+
+The magnitude-invariant fix of §1097's broken metric (per-position cosine of L8 content coordinates vs the full run). Result: with only one band's dynamics restored (rest static), content alignment is tiny everywhere — front 0.136, gatherer 0.091 (minus-5.7: 0.082, confirming the sink carries no seed), middle 0.081, random-27 0.047, all-const 0.000 (base = 1.0 by construction). pred_a (gatherer-seed) FALSE; the ranking contradiction with my §1074-based expectation is informative: **the front's dynamics matter most for preserving the content coordinates** (consistent with §1073 — content is built progressively from the PROCESSED stream, so corrupting the front corrupts everything downstream), **and no band suffices: the seed is a whole-stack cooperative product.** FINDINGS Open A is answered negatively: there is no privileged seed-carrying band to name; content authorship is as super-additive as everything else in this model (§956 theme, now for the seed specifically). R² values are negative throughout (magnitude distortion persists even where direction survives) — cosine is the valid column.
+
+attn_seed_align_results.json; runlogs/attn_seed_align.log (93s).
