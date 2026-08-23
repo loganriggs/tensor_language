@@ -29784,3 +29784,23 @@ W's topic boost is ~2x larger there -- this is a last-token-identity effect, NOT
 mechanism interaction. To isolate the induction TRIGGER's effect on content with the last token held FIXED, compare
 {A@149} vs {AB@5-6, A@149} (both A-last, differ only in the AB bigram) -> queued §1029. NET so far: induction is
 independent of content (clean); the content-side independence needs the matched-last-token control to settle.
+
+## §1029 — corrects §1028's diagnosis: the content-side residual is CONTENT-DENSITY from the added tokens, not last-token identity (mechanism_independence_v3.py)
+
+Content effect (W topic-neighbor boost) in three backgrounds:
+  ce_plain (orig last token)   0.525
+  ce_Aonly (A at last, no AB)  0.571   -> retention last-token-IDENTITY (A/orig) 1.089  (NEAR 1 -- identity is NOT the cause)
+  ce_ind   (A at last, +AB)    1.041   -> retention induction-TRIGGER (AB/A, last-token matched) 1.822
+pred_a (content independent of the induction trigger: retention_trigger ~1) FALSE.
+CORRECTION of my §1028 diagnosis (stated plainly): I attributed §1028's residual 2x to last-token IDENTITY. §1029
+REFUTES that -- A-last vs orig-last barely differ (retention 1.089). The 2x comes from ADDING the AB bigram itself
+(retention_trigger 1.822, last-token held fixed). BUT this is very likely the CONTENT-DENSITY effect (§1023/§1024),
+NOT a genuine content x induction MECHANISM interaction: A and B are random MID-FREQUENCY tokens, which are mostly
+CONTENT words, so injecting them raises content density -> amplifies the content channel generally (raising ALL
+topic-neighbor boosts, W's included), exactly as §1024 measured (control-density grows with injected content words).
+So the "induction trigger" here just adds two content-ish tokens; the 1.8x is content-density, not induction.
+ROBUST across §1027-1029: INDUCTION is INDEPENDENT of content (copy retention 0.97-0.985). The REVERSE (content
+independent of induction) is NOT cleanly isolable by this injection design, because every induction-trigger injection
+also adds content-density. DEFINITIVE control queued §1030: inject AB (triggers induction: A also at last) vs A'B'
+(two random content-ish tokens, NO last-token match, no induction) -- MATCHED content-density -> if content boost is
+equal, the 1.8x was pure density and content IS independent of the induction mechanism.
