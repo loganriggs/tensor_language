@@ -2234,6 +2234,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   object, genuinely high-dimensional, and irreducible not because we lack the right stand-in but because the model
   really does move that much content through its middle.</p>
 
+  <p>And it has a birthplace. Tracking those shared content directions from the front of the network upward, they are
+  barely present in the grammar layers (an overlap of ~0.16 at layers 1–2, against ~0.06 for chance), then climb
+  steadily through the <em>transition</em> layers 3–5 (0.26 → 0.31 → 0.44) and consolidate through the band
+  (0.53 at layer 6, peaking ~0.91 by layer 10) before drifting off toward the readout. So the frontier is not a wall
+  that switches on at layer 6 — the one content object is <em>born gradually in the transition band</em> and built up
+  layer by layer, each reading what the one below wrote. That is exactly why the transition layers resist a simple
+  token-plus-window description: they are the moment the residual stream starts carrying the shared content.</p>
+
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
   output for each current token) instead of a linear map, and comparing. The table does <em>worse</em>, not better

@@ -30316,3 +30316,22 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 **What this establishes (convergent with §1000/§1038/§1042/§1049/§1050).** The deep-middle isn't just nine individually-high-rank MLPs — it is a band that **transports high-rank content through the residual stream**, and that high-rankness is *load-bearing for information flow*: you cannot bottleneck the content to rank-K at each layer without falling below the clean mean-ablate floor, by either fit strategy. This is the strongest statement of the frontier: the deep-middle content is genuinely, functionally high-dimensional — a real model property, now shown at the band/flow level, not just per-layer. The shared-basis help (§1050) and shared-subspace overlap (§1049) say it is ONE such content object; §1051 says that one object is irreducibly high-rank in the stream.
 
 **Honest limits.** clean-ref shared (−0.166) vs greedy per-layer (−0.704) is not apples-to-apples (basis differs); the safe claim is the one made — greedy does not beat clean and both stay well below the mean-ablate floor at all K. A greedy+shared-basis variant could be run but is unlikely to cross zero given the flow argument. This closes the deep-middle-compressibility line: the frontier is characterized, named, and bounded by a real property.
+
+## §1052 — Where the content flow is BORN: a smooth onset through the transition band (L3-5), not a wall at L6
+
+**Question:** §1049-1051 characterized the deep-middle (L6-14) as one shared, load-bearing high-rank content object. §1048 showed the transition MLPs (L2-4) resist token+window+bag stand-ins with a bilinear residual. Is the transition the *onset* of that same one object, or a distinct mechanism? Build a deep-middle reference content subspace (top-64 PCA of pooled content deviation over L8-12), and measure — bottom-up, layer by layer — how much each layer's MLP-input content-deviation subspace overlaps it. (`content_onset.py`, 96 rows, K=64.)
+
+**Registered predictions:** (a) gradual onset — low at the grammar front, rising through L3-5 into the band; (b) report per-layer overlap.
+
+**Result — pred_a TRUE; a clean monotonic onset:**
+
+| layer | 1 | 2 | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 14 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| overlap w/ deep-middle content ref | .162 | .212 | .262 | .305 | .443 | .529 | .739 | **.911** | .876 | .694 |
+
+(random-subspace null 0.056 — sanity passes; ref layers 8-12 peak ~0.74-0.91 as expected.)
+
+- **The shared content object is BORN GRADUALLY, not switched on.** Its directions are already faintly present at the grammar front (L1-2: 0.16-0.21, ~3× the null but small — the front is mostly local/token grammar), grow steadily through the **transition L3-5 (0.26 → 0.31 → 0.44)**, and consolidate in the band **L6-12 (0.53 → 0.74 → 0.91)**. Then L14 drops to 0.69 — the content subspace drifts on toward the readout (consistent with §1049's distance-decay).
+- **This LOCATES the frontier's onset in the transition.** The transition MLPs (L2-4) resist token+window+bag stand-ins (§1048) precisely because that is where the residual stream *starts carrying the shared content* — they are catching the birth of the one content object, not a separate local mechanism. The frontier is not a wall at L6; it emerges continuously from L3, consistent with a tensor-network where each layer's content is built from the previous.
+
+**Complete bottom-up picture:** L0-1 grammar (content barely present, 0.16) → **L2-5 transition = onset of the shared content flow (0.21→0.44)** → L6-14 the content band, consolidated and drifting (0.53→0.91→0.69) → L15-17 readout (content handed off, read out ~linearly). One object, born in the transition, load-bearing and high-rank through the band, read out at the top. **Null:** random subspace 0.056 (passes). **Caveat:** overlap measures shared span, not identical function (as in §1049); the smooth monotonic onset is strong evidence for a single continuously-built content object.
