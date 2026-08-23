@@ -29687,3 +29687,23 @@ content-density control. (Noted for a clean follow-up: subtract the boost of top
 === generative content modality COMPLETE (§1016-1023) === kind / dose / separability / receptive-field /
 architecture-general / compositionality / capacity(>=6, high). The bag-of-words content machine is behaviorally
 confirmed as a broad, additive, high-capacity linear superposition of content-word topic vectors.
+
+## §1024 — CLEAN capacity (resolves §1023 confound): the bag is high-capacity ADDITIVE; the raw super-linear growth was content-density (content_injection_capacity_clean.py)
+
+Subtract a topic-UNRELATED control content word's neighbor-boost to remove the general content-density shift:
+  N:                    1      2      3      4      6
+  raw topic boost:      0.604  0.685  0.770  0.891  1.194   (§1023 confounded growth)
+  control-density boost: 0.086 0.211  0.367  0.458  0.683   (grows strongly with N -> the confound, quantified)
+  CLEAN retention:      1.000  0.949  0.901  0.953  1.128   (flat near 1)
+pred_0 (topic survives subtraction: solo clean boosts ~0.36-0.52, all >0) TRUE; pred_a (clean retention flat/additive,
+not super-linear) TRUE.
+RESOLUTION of §1023's flagged confound: the control-content boost GROWS with N (0.086 -> 0.683), confirming that
+injecting more content words raises UNRELATED content predictions generally (the content-density shift §1023 warned
+of, now measured). After subtracting it, the CLEAN per-topic retention is FLAT near 1 across N=1..6 (0.90-1.13) --
+the §1023 raw growth to 2.23 was ENTIRELY the content-density confound. TRUE result: the content bag is a
+HIGH-CAPACITY ADDITIVE linear superposition -- at least 6 distinct topics coexist, each retained at ~full solo
+strength, NO dilution and NO genuine super-addition. Consistent with §930 (content = high-rank continuum) and §1022
+(additive, no dilution). My §1023 confound is corrected; the clean picture is high-capacity additivity.
+=== generative content modality COMPLETE + clean (§1016-1024) === kind / dose / separability / receptive-field /
+architecture-general / compositionality / high-capacity-additive. The bag-of-words content machine is behaviorally a
+broad, additive, high-capacity linear superposition of content-word topic vectors.
