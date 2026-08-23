@@ -1,0 +1,7 @@
+atoms [189, 0, 137, 245, 247, 138, 243, 186] | affinity pairwise overlap mean 0.080
+PCA K=8: own +0.2156 | other +0.2144 | wrong-dir +0.0912 | ratio 1.01
+PCA K=16: own +0.3722 | other +0.3702 | wrong-dir +0.1802 | ratio 1.01
+PCA K=32: own +0.5329 | other +0.5465 | wrong-dir +0.2773 | ratio 0.97
+PCA K=64: own +0.6260 | other +0.6275 | wrong-dir +0.3469 | ratio 1.0
+curve {'8': {'own': 0.2156, 'other': 0.2144, 'wrongdir': 0.0912, 'own_over_other': 1.01}, '16': {'own': 0.3722, 'other': 0.3702, 'wrongdir': 0.1802, 'own_over_other': 1.01}, '32': {'own': 0.5329, 'other': 0.5465, 'wrongdir': 0.2773, 'own_over_other': 0.97}, '64': {'own': 0.626, 'other': 0.6275, 'wrongdir': 0.3469, 'own_over_other': 1.0}} | pred_a rank False | pred_b style True | crossing none
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/address_grain_results.json (61.0s)

@@ -1,0 +1,43 @@
+{
+ "atoms": [
+  189,
+  0,
+  137,
+  245,
+  247,
+  138,
+  243,
+  186
+ ],
+ "affinity_overlap_mean": 0.08,
+ "grain_curve": {
+  "8": {
+   "own": 0.2156,
+   "other": 0.2144,
+   "wrongdir": 0.0912,
+   "own_over_other": 1.01
+  },
+  "16": {
+   "own": 0.3722,
+   "other": 0.3702,
+   "wrongdir": 0.1802,
+   "own_over_other": 1.01
+  },
+  "32": {
+   "own": 0.5329,
+   "other": 0.5465,
+   "wrongdir": 0.2773,
+   "own_over_other": 0.97
+  },
+  "64": {
+   "own": 0.626,
+   "other": 0.6275,
+   "wrongdir": 0.3469,
+   "own_over_other": 1.0
+  }
+ },
+ "pred_a_rank": false,
+ "pred_b_style": true,
+ "pred_c_cross_k": "none",
+ "runtime_s": 61.0
+}
