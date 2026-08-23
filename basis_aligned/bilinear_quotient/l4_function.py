@@ -78,7 +78,11 @@ def main():
 
     # pass 1: L4 input mean per token + output mean + content basis (pooled L8-12 deviation)
     capL4, capO, capR = [], [], {Lr: [] for Lr in REF}
-    hs = [H[L4].mlp.register_forward_hook(lambda mo, i_, o_: (capL4.append((i_[0] if isinstance(i_, tuple) else i_).detach().float().reshape(-1, D)), capO.append(o_.detach().float().reshape(-1, D))))]
+    def cap4(mo, i_, o_):
+        capL4.append((i_[0] if isinstance(i_, tuple) else i_).detach().float().reshape(-1, D))
+        capO.append(o_.detach().float().reshape(-1, D))
+        return None
+    hs = [H[L4].mlp.register_forward_hook(cap4)]
     for Lr in REF:
         def mk(Lr):
             def h(mo, i_, o_): capR[Lr].append((i_[0] if isinstance(i_, tuple) else i_).detach().float().reshape(-1, D))
