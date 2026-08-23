@@ -66,9 +66,9 @@ def main():
         mlp = m.transformer.h[L].mlp
         dn = lambda h: F.linear(h, mlp.Down.weight)  # Down without bias
         out_lin = dn(linear); out_int = dn(interaction)
-        recon = dn(linear + interaction + const) + (mlp.Down.bias if mlp.Down.bias is not None else 0)
-        true_out = mlp(Lx*0 + a)  # not meaningful; use direct: full product Down
-        full = dn(Lx*Rx) + (mlp.Down.bias if mlp.Down.bias is not None else 0)
+        bias = mlp.Down.bias if mlp.Down.bias is not None else 0
+        recon = dn(linear + interaction + const) + bias
+        full = dn(Lx*Rx) + bias  # Down of the actual product = the MLP output
         recon_resid = float((recon - full).pow(2).sum() / (full - full.mean(0)).pow(2).sum())
         v_lin = float(out_lin.var(0).sum()); v_int = float(out_int.var(0).sum())
         tot = v_lin + v_int
