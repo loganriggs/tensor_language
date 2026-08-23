@@ -30111,3 +30111,28 @@ topic manifold), not a failure of the stand-ins. So: "irreducible" -> WRONG (it'
 "the deep-middle is a high-rank content×content bilinear computation" -> the corrected, sharper, evidence-backed claim.
 The 90%-per-module goal is reached for front/readout/pooler-mechanism, and is bounded for the deep-middle by the
 genuine high-rank of the content.
+
+## §1043 — BOTTOM-UP: front attention is understood as LOCAL-WINDOW routing (attn0 0.94); attn5 the pooler exception (bottomup_attn_window.py)
+
+Ridge map from the local window [emb(cur), emb(prev1..3)] to each attn output; held-out loss-recovery per module
+(ce_full 3.085):
+  module   meanabl   window-recovery   shuffled-null
+  attn0     0.269      0.944            -0.007
+  attn1     0.197      0.825            -0.703
+  attn2     0.127      0.643            -0.374
+  attn3     0.102      0.488            -0.274
+  attn4     0.217      0.615            -0.389
+  attn5     0.124      0.089            -0.126   <- pooler exception
+  front(0-4) mean 0.703. pred_a (front local-window >0.7) TRUE; pred_b (attn5 <0.3) TRUE.
+FINDING: front attention is a LOCAL-WINDOW function of the current + recent tokens -- attn0 0.94 (essentially
+understood), attn1 0.83, attn2-4 0.49-0.64. This is FAR above the per-position token stand-in (§1035 attn 0.3-0.5):
+scoring attention with a WINDOW (not a per-position table) is the right instrument, because attention MOVES local
+information. Shuffled-window null strongly NEGATIVE everywhere -> the map is genuine local-window structure, not
+leakage. attn5 (the content pooler) is the EXCEPTION (0.089) -- a local window cannot capture its broad pool
+(consistent with §1039; it is a recency-weighted value-residual bag, mechanistically understood but not
+window-reconstructible).
+BOTTOM-UP 90%-per-module status (with MATCHED stand-ins): attn0 0.94, mlp1 0.93, readout mlp16 0.94 (rank-64
+bilinear) all ~90%; attn1 0.83 close; attn2-4 0.49-0.64 (need wider window / induction-copy for the further routing);
+mlp0 0.67; attn5 pooler (mechanistic); deep-middle bounded by high-rank content (§1042). The push works: matched
+stand-ins (window for attn, tables for front MLP, low-rank bilinear for readout) bring multiple modules to ~90%.
+NEXT: push attn2-4 with a WIDER window + an induction-copy feature (they route beyond the 4-token window).
