@@ -1,0 +1,20 @@
+{
+ "n_rows": 32,
+ "hits": {
+  "h25_W4": 0.5768,
+  "h25_W2": 0.4846,
+  "h25_null": 0.1822,
+  "h35_W8": 0.6412,
+  "h35_W2": 0.445,
+  "h35_null": 0.1785
+ },
+ "baselines": {
+  "unigram_fold_prior": "0.12-0.39 (fold_score_test2/3)",
+  "real_x_ceiling": 1.0
+ },
+ "pred_a_25_closes": false,
+ "pred_b_beyond_bigram": false,
+ "pred_c_35_closes": false,
+ "null_ok": false,
+ "runtime_s": 45.3
+}

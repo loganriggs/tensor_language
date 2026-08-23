@@ -31749,3 +31749,13 @@ leak_carrier_results.json; runlogs/leak_carrier.log (37s).
 **TRANSPORT ACCOUNT NOW CARRIER-COMPLETE (§1150-1160):** own-position term = private path (deep MLPs manufacture ~69% of the consequence channel §1159 + direct coordinate readout §1156), attention-free; cross-position term = attention only, redundant between deep and readout bands; clamp frozen (§1155), family-universal (§1158). Thread closed.
 
 late_leak_results.json; runlogs/late_leak.log (37s).
+
+## §1161 — WINDOW FOLD DOES NOT CLOSE LAYER 2: the loss-certified 4-gram front variable predicts head 2.5's pattern argmax at 0.577 (48% of the closable range; ceiling 1.0, positional-bias null 0.18) — loss-locality ≠ pattern-locality (ladder_fold.py)
+
+**All predictions FALSE, reported plainly — and the run replicates the prior thread's finding from a new direction.** Weights-only window forward through blocks 0-1 (W=4, the writeup-481 loss-certified approximation, +0.014 nats) yields x2_hat; head 2.5's squared-attention pattern computed from x2_hat matches the real argmax at 0.5768 — numerically identical to fold_gap_locate2's block-1-context arm (0.579). W=2: 0.4846. 3.5 (blocks 0-2, W=8): 0.6412. Null (right machinery, wrong text): 0.18 — the honest floor (positional biases like prev-token attention survive text shuffling), so pred-null's 0.1 bar was mis-set; range-normalized closure = (0.577−0.18)/(1−0.18) = 48%.
+
+**The named dissociation:** blocks 0-1 are 4-local IN LOSS (+0.004/+0.014, writeups 480-481) but their residual carries long-range, loss-cheap components that head 2.5's QK forms READ — consistent with the fold thread's resolved account (writeups 396-399: the induction match code is MLP-built and ATTENTION-MOVED; m1-real closes 2.5 to 0.86). Answer to the standing question "why not fold L2 from known variables": you get half the pattern from the certified n-gram variable; the other half is the code-relay — attention moves the ladder code long-range even though the front's own next-token loss barely notices those moves.
+
+**Queued refinement (m1_width.py, registered):** sweep the window W ∈ {4,8,16,32,64} for x2_hat. (a) hit climbs monotonically; (b) W=64 reaches ≥ 0.8 (the mediator is a wide-but-bounded window — pattern-locality is log-local, refining 481); alternative: flat curve → m1's pattern-relevant input is genuinely global (position-0 sink / value-residual class); (c) either way the loss-vs-pattern locality dissociation is quantified.
+
+ladder_fold_results.json; runlogs/ladder_fold.log (45s).

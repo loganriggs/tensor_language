@@ -4895,3 +4895,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1158 — transport law FAMILY-UNIVERSAL: swiglu18 all preds TRUE, constants within 0.01-0.04 (full 0.913/0.899; local split 0.911/0.318; last1 share 0.75/0.73) (transport_family.py)
 §1159 — carrier split: manufacture = deep MLPs (−1.80 KL frozen, 69% of consequence channel); leak SURVIVES L7-14 attn freeze (−13% only) → readout-band attention suspected as pooler; late_leak queued (leak_carrier.py)
 §1160 — leak carrier CLOSED: 100% attention (all-frozen → exactly 0.0), REDUNDANT deep+readout co-carriage (super-additive 0.045+0.082 vs 0.351); own-position reading attention-free (0.848); transport account carrier-complete (late_leak.py)
+§1161 — window fold does NOT close L2: certified 4-gram variable = 48% of closable pattern range on 2.5 (0.577; null floor 0.18); loss-locality ≠ pattern-locality; replicates fold_gap_locate2 arm A; m1_width sweep queued (ladder_fold.py)
