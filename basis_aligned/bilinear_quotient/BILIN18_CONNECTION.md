@@ -29248,3 +29248,17 @@ HONEST READING (not forcing a clean story):
 ROBUST TAKEAWAY: §1001's front-loading of the multiplicative content stands; L0-2's multiplicative content is mostly
 local word-sense with a secondary pooling-substrate role; a clean local/topic decomposition by this 2x2 instrument is
 NOT achievable (intervention interaction). Not drilling this finer -- diminishing returns / entangled interventions.
+
+## §1003 — the multiplicative-content ceiling is DRAW-STABLE (content_mult_ceiling_recert.py)
+
+Re-run §1000's compositional whole-model linearization on a DIFFERENT, LARGER fineweb draw (offset past first 400
+rows; 256 eval / 128 calib). baseline within 2.657 (vs §1000 draw's 2.40 -- this draw is slightly higher-content).
+  condition     within-cost  class-cost   (§1000 first-draw within)
+  lin_front       +0.983      +0.265        (1.009)
+  lin_middle      +0.642      +0.156        (0.645)
+  lin_all         +1.546      +0.424        (1.594)
+lin_all within 1.546 vs §1000's 1.594 (delta -0.048, within +-0.2); front (0.98) > middle (0.64) ORDERING PERSISTS;
+within>>class (ratio 3.6). pred_a draw-stable TRUE; within>>class TRUE.
+CERTIFIES §1000: the multiplicative-content ceiling (~1.55-1.59 nats of content that forcing all MLPs linear costs)
+is draw-stable, not first-draw optimism, and the front>middle absolute-nats ordering is robust. This is the honest
+floor on what any linear/table/bag named-variable stand-in can reconstruct of the content machine.
