@@ -1,0 +1,12 @@
+            scat50: KL   4.002 | align +0.6195
+  scat50_attnfroze: KL   3.696 | align +0.5877
+   scat50_mlpfroze: KL   3.037 | align +0.5500
+             full9: KL   8.016 | align +0.8994
+   full9_attnfroze: KL   7.534 | align +0.8773
+    full9_mlpfroze: KL   6.221 | align +0.7966
+              r256: KL   2.462 | align +0.6693
+patched   {'scat50': 0.8905, 'scat50_attnfroze': 0.8719, 'scat50_mlpfroze': 0.7887}
+unpatched {'scat50': 0.3505, 'scat50_attnfroze': 0.3057, 'scat50_mlpfroze': 0.3131}
+freeze-null KL 0.0
+pred_a leak-attn False | pred_b mfg-mlp True | pred_c locality False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/leak_carrier_results.json (37.2s)

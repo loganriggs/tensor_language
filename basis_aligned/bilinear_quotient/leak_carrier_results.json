@@ -1,0 +1,48 @@
+{
+ "n_positions": 20400,
+ "conds": {
+  "scat50": {
+   "kl": 4.002,
+   "alignment": 0.6195
+  },
+  "scat50_attnfroze": {
+   "kl": 3.6961,
+   "alignment": 0.5877
+  },
+  "scat50_mlpfroze": {
+   "kl": 3.0366,
+   "alignment": 0.55
+  },
+  "full9": {
+   "kl": 8.016,
+   "alignment": 0.8994
+  },
+  "full9_attnfroze": {
+   "kl": 7.5344,
+   "alignment": 0.8773
+  },
+  "full9_mlpfroze": {
+   "kl": 6.2215,
+   "alignment": 0.7966
+  },
+  "r256": {
+   "kl": 2.4625,
+   "alignment": 0.6693
+  }
+ },
+ "freeze_null_kl": 0.0,
+ "scat50_patched": {
+  "scat50": 0.8905,
+  "scat50_attnfroze": 0.8719,
+  "scat50_mlpfroze": 0.7887
+ },
+ "scat50_unpatched": {
+  "scat50": 0.3505,
+  "scat50_attnfroze": 0.3057,
+  "scat50_mlpfroze": 0.3131
+ },
+ "pred_a_leak_attn_borne": false,
+ "pred_b_manufacture_mlp_borne": true,
+ "pred_c_locality_survives_mlpfreeze": false,
+ "runtime_s": 37.2
+}
