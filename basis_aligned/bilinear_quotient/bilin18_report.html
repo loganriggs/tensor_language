@@ -1928,6 +1928,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   reconstructed from the current token, as if it were local. It <em>is</em> local by layer 15, but only because the
   broad gathering already finished upstream.</p>
 
+  <p>One head does stand out — with a caveat that turns out to be the real lesson. Restrict each of the nine heads in
+  the gathering band to a local window one at a time, and eight barely matter, while clamping <strong>head 7 of layer
+  5</strong> costs 0.29 nats of content — and it sits exactly at layer 5, where content prediction independently
+  switches on, pools broadly, and hurts content four times as much as grammar. It looks like a single nameable
+  content-gatherer. But delete that head's output entirely — mean-ablate it — and the loss barely moves (0.01 nats):
+  the rest of the model simply reconstructs the content without it. So head 7 is the head the broad pooling
+  <em>preferentially</em> runs through, but it is not load-bearing; the model routes around its absence. Even the
+  sharpest localization this model offers turns out to be redundant when you remove it — the same lesson as
+  everywhere else, holding right down to the single head.</p>
+
   <p><strong>Where every nat goes.</strong> All of this lands in one budget. The model takes the average
   next-token cost from 7.17 nats (guessing from word frequencies alone) down to 3.24, split as 0.76 grammar +
   2.48 content. Sort the tokens by <em>what kind of prediction they are</em> and the loss concentrates sharply.
@@ -2104,7 +2114,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the front is nearly linear layer-by-layer, yet its nonlinearity, pooled across the cooperating early layers, is the
   single largest multiplicative contribution in the model. And whichever band you linearize, the damage falls about
   four times harder on content than on grammar — the multiplication, wherever it sits, is in service of
-  <em>what</em> is being said.</p>
+  <em>what</em> is being said. And this is not a quirk of the bilinear design: run the same test on a sibling model
+  built with an ordinary SwiGLU MLP and the split is identical (content costs ~3.5× grammar there too). Whatever
+  nonlinear form the middle uses, it spends it on content and leaves grammar linear — an architecture-general
+  division of labor.</p>
 
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
