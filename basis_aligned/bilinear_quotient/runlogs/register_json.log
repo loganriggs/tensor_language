@@ -1,0 +1,5 @@
+json blocks: torch.Size([150, 256])
+REPRESENTATION prose<->json: front 0.2893 (ceil 0.8862) | deep 0.1401 (ceil 0.7064) | null 0.058
+RELIANCE prose: base 3.3271 | content-frac 0.6872 | grammar-frac 1.9982 | vresid-frac 1.0077 | x0-frac 0.7008
+RELIANCE json: base 2.753 | content-frac 0.3397 | grammar-frac 1.2149 | vresid-frac 1.8867 | x0-frac 0.3794
+pred_a gradient False | pred_b grammar-generality True | wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/register_json_results.json (67.7s)

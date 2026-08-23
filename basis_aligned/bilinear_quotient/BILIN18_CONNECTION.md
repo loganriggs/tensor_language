@@ -31222,3 +31222,16 @@ attn_kernel_gain_results.json; runlogs/attn_kernel_gain.log (68s).
 **Thread status — PAUSED, honestly bounded.** The middle-attention band's collective function now decomposes into: distance kernel (0.58/0.39) + per-query mass (+0.08/+0.25) + nothing from content-sim/induction — leaving TWO bounded unknowns: (1) the middle's key-selection criterion (survived 4 named candidates, §1108); (2) the gatherer's mass driver (survived 5 named query features, this section). Both are real, causally-sized structures whose obvious candidate lists are exhausted; the next instruments would need nonlinear/contextual features (novelty bursts, syntax boundaries) — diminishing returns for now, recorded on the dossier so nobody re-plows the candidates already eliminated.
 
 attn_gain_what_results.json; runlogs/attn_gain_what.log (50s).
+
+## §1110 — Register #3 (JSON): the grammar/content generality RATIO is invariant (~2.05) across register pairs; the reliance gradient splits — value-residual reliance grows monotonically with local predictability, but grammar-band reliance tracks SYNTAX DENSITY, not predictability (register_json.py)
+
+**Representation (pred_b TRUE, with a bonus invariance):** prose↔JSON deviation-subspace overlap: front 0.289 vs deep 0.140 (null 0.058; ceilings 0.89/0.71). Both absolute overlaps are lower than prose↔code (0.41/0.20 — JSON is farther from prose), but the RATIO is preserved to two decimals: **0.289/0.140 = 2.06 vs code's 0.41/0.20 = 2.05.** Grammar is almost exactly 2× more register-general than content, invariant across the two register pairs tested — a candidate law of the two-machine split.
+
+**Reliance (pred_a strict-monotone FALSE — the refined structure is better):** JSON base CE 2.75 (BELOW prose's 3.33 — the "OOD" register is easier, pure local structure). Cost fractions prose → code → JSON:
+- **value-residual: 1.01 → 1.10 → 1.89** — the per-token content broadcast's reliance grows MONOTONICALLY with local predictability; in the most locally-predictable register it is by far the dominant channel. This half of the gradient holds dramatically.
+- **grammar band: 2.00 → 0.65 → 1.21** — NOT monotone. JSON rebounds: it is syntax-dense (brackets/quotes/structure are the grammar machine's home turf), so grammar-band reliance tracks the register's SYNTAX DENSITY rather than its predictability. Code sits lower because its syntax is more locally trivial per token.
+- content band: 0.69 → 0.28 → 0.34 (both non-prose registers low — the topic machine is prose-specialized); x0: 0.70 → 0.30 → 0.38.
+
+**Register-axis summary (3 registers):** the two-machine REPRESENTATION split generalizes with a fixed 2× grammar-generality ratio; RELIANCE re-weights per register along two interpretable axes — local predictability (value-residual up, both deep machines down) and syntax density (grammar band). Registered next: register #4 (markdown, mixed prose/structure) predicts INTERPOLATION on all metrics + ratio ≈2 again — a falsifiable three-point test of the two axes.
+
+register_json_results.json; runlogs/register_json.log (68s).
