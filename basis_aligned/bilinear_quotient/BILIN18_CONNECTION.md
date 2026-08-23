@@ -30701,3 +30701,20 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 - **No bag feature linearly predicts the content** — every R² is ~0 or negative (the best, exp9 ≈ a recent-window average, is a trivial 0.019). A recency-weighted average of raw token embeddings has essentially ZERO linear predictive power for the deep-middle content coordinate.
 
 **What this refines.** The deep-middle content is NOT a linear bag-of-words of the context. Interpretation (and why it's not a contradiction of §894/930): the content coordinate is the CONTEXTUAL DEVIATION — residual minus per-token mean — so token IDENTITY has been partialled out, while a bag of embeddings is dominated by identity/lexical content; the two are near-orthogonal. So the content is the part of the representation that is NOT explained by which words are present as raw vectors — a nonlinearly-computed contextual/semantic representation the model builds through its layers, consistent with it being genuinely high-rank (§1000/§1042), semantic-not-surface (§1064), and interpretable-by-topic (§1055). The §894/930 "bag" intuition is right about the FUNCTION (order-insensitive topic) but the content VECTOR is a deep computed feature, not a shallow linear average of word embeddings. **Nulls:** shuffled-position bag −0.105 (passes — confirms even the trivial R² are not spurious). **Caveat:** this is a LINEAR test; a nonlinear map from the bag might capture more, but the obvious bag-of-words construction fails, which is the point — the content is not trivially reconstructible from context words.
+
+## §1073 — Content construction traced: NOT a raw-word bag, but progressively/linearly built from the processed stream (38% @L1 → 88% @L7)
+
+**Question:** §1072 showed the content is not a linear bag of raw context embeddings. Is it linearly built from the PROCESSED residual stream, and from how early? Predict the pooled-L8-12 content coordinate (top-64 PCA of content deviation) from each earlier layer's residual content-deviation, held-out R². (`content_construction.py`, 240 rows, 61k positions.)
+
+**Registered predictions:** (a) R² far above the bag baseline and rising L1→L7 (content progressively built).
+
+**Result — pred_a TRUE:**
+
+| source layer | L1 | L2 | L3 | L4 | L5 | L6 | L7 | raw-emb bag (§1072) |
+|---|---|---|---|---|---|---|---|---|
+| R² predicting L8-12 content | 0.38 | 0.48 | 0.54 | 0.61 | 0.72 | 0.80 | 0.88 | −0.005 |
+
+- **The content is progressively, ~linearly built from the processed stream:** already 38% linearly present at L1 (after just one layer of processing), rising smoothly to 88% by L7 (just before the deep-middle band). Contrast the raw-embedding bag baseline (R² ≈ 0, §1072).
+- **The nonlinearity is front-loaded.** Raw tokens do NOT linearly encode the content (§1072), but ONE layer of the model's processing (attention gathering context + bilinear MLP) already produces a representation that linearly carries 38% of the eventual deep content; each subsequent layer adds more, largely linearly. So the token→content nonlinear transformation happens early, and the middle refines a representation that is increasingly linearly determined.
+
+**What this completes (the content's origin).** Reconciles the content findings into a construction account: the content is NOT a shallow bag of raw words (§1072); it is a deep computed feature that the model builds incrementally from the front — its shared subspace emerges in the transition (§1052, subspace overlap) and it becomes progressively linearly determined (§1073, 0.38→0.88 over L1-7), consolidating into the high-rank (§1042), semantic (§1064), causal (§1059) content object of the deep-middle band. High-rank intrinsic dimensionality and high linear predictability-from-adjacent-layers are both true (they measure different things). **Nulls:** raw-emb bag baseline −0.005 (passes). **Caveat:** R² predicting a 64-dim coordinate from the full 1152-dim residual of a nearby layer is expected to be high; the informative content is the SMOOTH RISE from L1 and the sharp contrast with the raw-word bag (the model's processing, not the raw tokens, carries the content).

@@ -1,0 +1,9 @@
+predict L8-12 content from L1 residual-dev: R2 0.3824
+predict L8-12 content from L2 residual-dev: R2 0.4752
+predict L8-12 content from L3 residual-dev: R2 0.5399
+predict L8-12 content from L4 residual-dev: R2 0.6083
+predict L8-12 content from L5 residual-dev: R2 0.7161
+predict L8-12 content from L6 residual-dev: R2 0.8006
+predict L8-12 content from L7 residual-dev: R2 0.8828
+bag baseline R2 -0.0052 | rises L1->L7 True | pred_a True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_construction_results.json (77.2s)
