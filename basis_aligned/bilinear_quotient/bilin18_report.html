@@ -2074,6 +2074,21 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   helps the harder positions, so it is both the induction circuit and the general early context substrate the rest
   of the model builds on — which is why it is the single most load-bearing block of components in the network.</p>
 
+  <p>What decides where a head looks? This model's attention is unusual — it is softmax-free: the weight on a key
+  is a raw <em>product of two</em> learned score matrices, uncapped and unnormalized, so a weight can be large,
+  small, or <em>negative</em>. Reading those weights out directly and asking what they track (against a control
+  that decouples nearness from similarity by looking only at far-apart token pairs) gives a clear answer. The
+  heads specialize, and along two axes that survive the control: <em>recency</em> (attend to nearby tokens) and
+  <em>induction</em> (attend to the token that followed the last occurrence of the current one) — the induction
+  heads are strong and genuinely long-range (a couple of them dominate). What does <em>not</em> survive is
+  content-similarity: at short range the weights look like they favor semantically similar keys, but that is just
+  nearness in disguise — far apart, similarity stops predicting attention. So attention does not gather content by
+  seeking out on-topic tokens; it pools broadly (recency plus induction) and the topic falls out of the average —
+  which is exactly why the content signal reads as an order-insensitive bag of words. The two score matrices earn
+  their keep: they are not redundant copies but different criteria, and because the pattern multiplies them it can
+  route on their <em>conjunction</em> and, where they disagree in sign, actively route <em>away</em> from a token
+  — a suppressive move a single non-negative softmax score cannot make.</p>
+
   <p>One structural habit recurs everywhere we looked, and it turns out to be distinctive. Whether it is the
   content computation, the context pooling, or the induction circuit, no single component is load-bearing: delete
   any one attention layer, MLP, or head and the model barely notices, yet delete the whole group and the function
