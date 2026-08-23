@@ -1857,7 +1857,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   every downstream consumer actually reads — and the high-dimensional remainder is its <em>scratch space</em>,
   material the construction process works through but never ships. The "irreducible high rank" is real, but it
   is irreducible for <em>simulating the construction</em>, not for <em>reading the result</em> — which is a much
-  smaller mystery than the one we started with.</p>
+  smaller mystery than the one we started with. A six-experiment follow-up then priced that construction exactly:
+  of what the middle builds, <strong>53%</strong> is plain linear transport of the state it starts from, <strong>17%</strong>
+  is what attention injects along the way — and the remaining <strong>30%</strong> is created in flight by the
+  nonlinear steps themselves, concentrated in layers 5–9. That last share is not hiding anywhere: it is not
+  linearly present in the starting state at any basis width (a rank-512 window on the raw residual gains nothing),
+  and it is not the multiplication's own coordinate shadow. To get it, you run the layers. So the frontier ends as
+  a boundary statement rather than a mystery: any feature-level simulation of the content construction caps at
+  about 70%; the rest is computation, not representation.</p>
 
   <p>One more thing we can now say is <em>where</em> the topic representation gets built. If we define the
   topics from the late layer and then ask how recognizable they already are at each earlier layer, the answer

@@ -4861,3 +4861,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1124 — CORRECTION: no compounding tax (direct = chained exactly); budget closes: linear 53% + attention 17% + FRONT-LOADED nonlinear core 30% (L5-9, = §1041 dev×dev / §1000 ceiling located); quadratic-features closure test queued (coord_direct.py)
 §1125 — quadratic INERT (rotated null == true axes): missing 30% is OFF-COORDINATE; fixed-basis simulation caps at 0.70; K-sweep queued to price width-vs-drift (coord_quadratic.py)
 §1126 — wider fixed basis WORSE (0.705→0.615) but input/target confounded (self-caught); fixed-target input-width variant queued before drawing drift (coord_direct_k.py)
+§1127 — WAVE CAPSTONE: missing 30% not linearly present at ANY input width (RAW-512 −0.004); construction budget final: 53% transport + 17% attention + 30% created-in-flight (must be RUN); simulation frontier closed as a stated boundary (coord_direct_kin.py)

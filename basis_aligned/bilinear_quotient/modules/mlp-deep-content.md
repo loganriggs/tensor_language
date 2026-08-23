@@ -51,6 +51,11 @@ across the model family; register-adaptive within a model. §1049-1081 settled t
   construction MIXED (stream-level: skeleton-removal 97%, tail-removal 46% — the tail works in
   transit though read nowhere). Resolves §1042/§1051/§1055/§1056/§1060 tensions in one frame:
   high rank is irreducible for SIMULATING construction, not for READING the result.
+  CONSTRUCTION-SIMULATION BOUNDARY (§1122-1127, wave closed): end-band content = 53% linear
+  transport of L5 state (per-step maps LINEAR, chaining lossless — §1123's compounding reading
+  corrected in §1124) + 17% attention injections + 30% CREATED IN FLIGHT in L5-9 (not carried at
+  any input width incl RAW-512 §1127; not coordinate-quadratic §1125). Linear/feature simulation
+  caps at R²≈0.70-0.72; the remainder must be RUN. Do not re-attempt fixed-basis simulators.
   BAND-WIDE (§1116): scale-invariant — skel 13% / tail 72% of fullrem 0.34 across all ten deep
   MLPs. RELOCATION: deep MLPs are MINOR content consumers (0.34 nats total read vs stream-level
   +8.4 §1056) — main consumers downstream (readout local read §997 + attention re-pooling); deep
