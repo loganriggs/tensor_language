@@ -31184,3 +31184,15 @@ mlp0_class_subspace_results.json; runlogs/mlp0_class_subspace.log (120s).
 **Three-layer circuit, final:** (1) mlp0 writes a class-organized code — derivable from weights alone (§1098: weight-fold cosine 0.83, congruence 0.90); (2) downstream reads it as a package (attn1 keys, §1103), one of several multiplexed copies (§1104); (3) the within-package values are class-causal by interchange (this section). Dossier updated.
 
 mlp0_class_interchange_results.json; runlogs/mlp0_class_interchange.log (145s).
+
+## §1106 — The content-similarity term is CAUSALLY INERT in the pattern (gain ≈0); §1099's kernel stand-in stays the ceiling at 0.58. (Bug disclosed: this run's const baseline invalid — doubled means) (attn_kernel_content.py)
+
+**Bug stated first.** The per-head mean vectors were accumulated over BOTH fitting passes (128 seqs) but normalized by one pass's position count (64) — the const-replacement baseline used DOUBLED biases (const costs +1.93/+1.41 vs §1099's correct +1.15/+0.81; off-manifold inflation, §1093's stale-bias theme squared). Every recovery quoted against THIS run's const denominator is void, including the registered pred_a "0.75" (an artifact). §1099's denominators stand.
+
+**What is valid (mode-vs-mode comparison, independent of the means):**
+- **pred_c TRUE — the content term adds nothing:** kernel+content vs kernel-only: middle +0.4813 vs +0.4820 (gain 0.001 nats), gatherer +0.4749 vs +0.4933 (gain 0.013). Fitted betas are tiny (median ~0.005; only 59% positive). Against §1099's correct denominators, the two-term model recovers 0.583 (middle) — identical to kernel-only.
+- **Reconciliation with §1085:** the correlational content-sim bias in middle patterns (r 0.08-0.18, masking 1.8-4×) does NOT convert into causal pattern function under a global multiplicative term. Either the masking effect was pattern-magnitude confounded (top-content-sim keys are also high-|pattern| keys) or the functional form (uniform beta per head) is wrong — but at stand-in level the honest statement is: **the middle pool's nameable causal structure is the distance kernel (0.58); the remaining ~42% of its collective dynamic value is unnamed pattern structure** (candidates: induction-offset routing §983, syntax-position effects).
+
+**Next registered rung (queued):** kernel + INDUCTION term (γ_h boost at classic induction-matched key positions, fit per head) — §983 names recency AND induction as the two range-robust routing modes; the gatherer especially (0.39 kernel-only) hosts the induction chain (L5H5, §954).
+
+attn_kernel_content_results.json; runlogs/attn_kernel_content.log (86s).

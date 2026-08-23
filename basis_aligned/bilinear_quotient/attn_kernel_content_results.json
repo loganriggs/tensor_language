@@ -1,0 +1,26 @@
+{
+ "base_ce": 3.2694,
+ "middle_beta_pos_frac": 0.593,
+ "bands": {
+  "gatherer_L3_5": {
+   "const": 1.4056,
+   "kernel": 0.4933,
+   "kernel_content": 0.4749,
+   "kernel_recovery": 0.649,
+   "kernel_content_recovery": 0.662,
+   "content_term_gain": 0.013
+  },
+  "middle_L6_14": {
+   "const": 1.9311,
+   "kernel": 0.482,
+   "kernel_content": 0.4813,
+   "kernel_recovery": 0.75,
+   "kernel_content_recovery": 0.751,
+   "content_term_gain": 0.001
+  }
+ },
+ "pred_a_two_term_works": true,
+ "pred_b_gatherer_below": false,
+ "pred_c_content_inert": true,
+ "runtime_s": 85.8
+}
