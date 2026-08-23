@@ -28820,3 +28820,20 @@ absolute +3.33 nats may include generic disruption; the robust claim is the CONT
 and that the value residual is heavily used and content-critical. A graded lamb-scaling sweep could quantify the
 off-distribution component (possible follow-up). Genuinely-new characterization of a previously-uncovered
 distinctive mechanism.
+
+## §986 — value-residual content role is GENUINE and GRADED (resolves §985 caveat) (value_residual_scaling.py)
+
+Scale the value-residual coefficient by alpha (lamb -> alpha*lamb); chain-rule CE split:
+  alpha:        1.0    0.75   0.5    0.25   0.0
+  within(content) 2.534  2.549  2.639  3.273  5.179   (smooth MONOTONIC rise as alpha->0)
+  class(grammar)  0.789  0.794  0.820  0.992  1.477
+pred (a) graded-content TRUE: content-CE rises smoothly and monotonically as the value residual is scaled down,
+by MORE than grammar at every step. So the value residual's content role is GENUINE and GRADED, NOT a brittle
+0-only off-distribution artifact (§985 caveat RESOLVED). SHAPE is NONLINEAR: the model TOLERATES moderate scaling
+(alpha 1.0->0.5 costs only +0.11 content-CE) but degrades SHARPLY near zero (alpha 0.25->0 costs +1.91) — so some
+of §985's full-ablation +3.33 is a nonlinear/near-zero tail (partly off-distribution), but the graded rise from
+full confirms the value residual is genuinely content-load-bearing: the model needs a SUBSTANTIAL FRACTION of it,
+with content depending on it much more than grammar throughout. NET (value-residual mechanism, §985+§986): the
+distinctive v1 re-injection (mixing the first block's original token values into every block's attention) is the
+substrate of the bag-of-words content machine (§932) — gradedly content-critical, tolerant to moderate reduction,
+collapsing content as it is removed. Grammar barely depends on it. Artifact: add the value-residual mechanism.
