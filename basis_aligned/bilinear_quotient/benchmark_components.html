@@ -81,9 +81,11 @@
   <div class="card">
     <h2>The per-component graph</h2>
     <p class="sub">Read left to right through depth. Grammar is written and understood at the front; the content
-    machine in the middle sits at or below zero; and one component — <b>attention&nbsp;5, the content-pooling layer</b> —
-    is actively <em>mis</em>-modelled by per-position variables, because its output is a broad pool of the whole
-    context, not a function of the current position.</p>
+    machine in the middle sits at or below zero. <b>Attention&nbsp;5, the content-pooling layer</b>, shows the largest
+    negative here — but a later, cleaner re-scoring (§1039) found that its −4.84 is an artifact of <em>this</em>
+    stand-in family (the topic-subspace term is off-distribution for a pooled output); with a plain per-token or
+    bag-of-words stand-in it scores near zero. attn&nbsp;5 is <em>mechanistically</em> well understood — it is the
+    recency-weighted content-word pool over the value residual — just not reconstructible by these simple stand-ins.</p>
     <div class="legend">
       <span class="key"><span class="sw" style="background:var(--pos)"></span>understood (stand-in recovers it)</span>
       <span class="key"><span class="sw" style="background:var(--neg)"></span>anti-understood (stand-in worse than deleting)</span>
@@ -92,7 +94,9 @@
     <div class="chartscroll"><svg id="chart" viewBox="0 0 960 470" role="img"
       aria-label="Per-component understanding fraction for attention and MLP across 18 layers"></svg></div>
     <p class="foot">Held-out (stand-ins fit on 70% of rows, scored on the rest). Bar height = understanding fraction,
-    clipped to ±1; attention&nbsp;5's true value is <code>−4.84</code> (off scale). Source: <code>per_component_understanding.py</code> (§1035).</p>
+    clipped to ±1; attention&nbsp;5's value in this stand-in family is <code>−4.84</code> (off scale) but ≈0 under a
+    clean per-token/bag stand-in (§1039 — a harness artifact, not a real anti-understanding). Source:
+    <code>per_component_understanding.py</code> (§1035), corrected by <code>prong2_pooling_standin.py</code> (§1039).</p>
   </div>
 
   <div class="card">
