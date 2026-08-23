@@ -46,6 +46,11 @@ across the model family; register-adaptive within a model. §1049-1081 settled t
   of the per-layer content read's CE; the tail 12% (variance≠CE inverted).** Atoms entangled
   with each other (not one-by-one handles, §1113) but the SET is the function. Stream must stay
   full-rank (many cumulative readers, §1051); each reader's draw is skeleton-dominated.
+  FINAL PICTURE (§1118): **skeleton = the API, tail = the scratch space** — reads sparse
+  everywhere (tail 10-15% incl the 0.90-nat logit path §1117, which cross-checks §1082's 0.885);
+  construction MIXED (stream-level: skeleton-removal 97%, tail-removal 46% — the tail works in
+  transit though read nowhere). Resolves §1042/§1051/§1055/§1056/§1060 tensions in one frame:
+  high rank is irreducible for SIMULATING construction, not for READING the result.
   BAND-WIDE (§1116): scale-invariant — skel 13% / tail 72% of fullrem 0.34 across all ten deep
   MLPs. RELOCATION: deep MLPs are MINOR content consumers (0.34 nats total read vs stream-level
   +8.4 §1056) — main consumers downstream (readout local read §997 + attention re-pooling); deep

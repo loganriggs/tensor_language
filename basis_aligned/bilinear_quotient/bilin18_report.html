@@ -1840,6 +1840,25 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   of the understanding score stays low — not because the topic story is wrong, but because the machine it names
   is genuinely high-dimensional.</p>
 
+  <p><span class="tag">the skeleton and the scratch</span> That high-dimensionality claim now has a sharper
+  shape, from a six-experiment arc that finally split the content object in two. Train a small sparse
+  dictionary on the content coordinates and about <strong>eight stable features</strong> fall out — the same
+  eight across random retrainings (agreement 0.77-0.81, where the same method on raw weights gave an unusable
+  0.40), several of them human-readable: a livestock/breeding topic, a formal-political-analysis register, a
+  technical-expository register, even a grammatical construction (the partitive "some of / many of / one of").
+  Those eight features carry only ~70% of the content signal's <em>variance</em> — but here is the finding:
+  <strong>they carry 85-90% of its causal function at every point where anything reads it</strong>. Filter the
+  content down to just the eight features at the deep layers' inputs, at the readout layers' inputs, or at the
+  final step before the logits, and almost nothing happens (10-15% of the damage of removing the content
+  entirely); delete the eight and keep the rest, and most of the value is gone. The dense remainder — the part
+  that made the content "irreducibly high-dimensional" — is read by <em>nothing</em>. It is not idle, though:
+  filter it out of the residual stream itself, mid-construction, and half the stream-level damage of a full
+  deletion appears. So the division is this: the eight features are the content machine's <em>API</em> — what
+  every downstream consumer actually reads — and the high-dimensional remainder is its <em>scratch space</em>,
+  material the construction process works through but never ships. The "irreducible high rank" is real, but it
+  is irreducible for <em>simulating the construction</em>, not for <em>reading the result</em> — which is a much
+  smaller mystery than the one we started with.</p>
+
   <p>One more thing we can now say is <em>where</em> the topic representation gets built. If we define the
   topics from the late layer and then ask how recognizable they already are at each earlier layer, the answer
   climbs steadily the whole way up the stack — barely present at the bottom, roughly half-formed by the middle,

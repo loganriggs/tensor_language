@@ -31322,3 +31322,16 @@ content_skeleton_band_results.json; runlogs/content_skeleton_band.log (50s).
 **THE CONTENT ARC CONCLUSION (§1113-1117, the program's biggest naming result):** the content machine's ENTIRE read interface ≈ 8 stable, mostly-named features (topic/register/discourse mix, §1116) + per-token means. High rank is real but lives only in the stream's construction process. Registered closing test (queued, content_skeleton_stream.py): stream-level skeleton-only vs tail-only removal — under the reinterpretation, stream-level SKELETON removal should reproduce most of §1056's catastrophe while stream-level TAIL removal stays mild; if BOTH are catastrophic, construction needs the full-rank object per se (report plainly).
 
 content_skeleton_readout_results.json; runlogs/content_skeleton_readout.log (61s).
+
+## §1118 — ARC CLOSED: reads are sparse, construction is MIXED — the tail does real work IN TRANSIT (46% of stream-level cost) despite being read nowhere (10-15%); final picture: skeleton = the API, tail = the scratch space (content_skeleton_stream.py)
+
+**Both registered poles false; the in-between is the finding.** Stream-level filtering after every deep-band block (L5-14; per-token means kept; band-limited version of §1056's intervention style — fullrem here 1.50 nats):
+- Remove the TAIL from the stream (skeleton kept): **0.684 = 46%** of fullrem — the tail, read by nothing (§1115-1117: 10-15% at every read interface), nonetheless carries HALF the stream-level function.
+- Remove the SKELETON from the stream: 1.457 = 97% — construction is skeleton-primary.
+- (Stream deviations are also more sparsifiable: SAE R² 0.90 vs 0.71-0.78 at MLP inputs.)
+
+**The final division of the content object, in one line: the skeleton is the API; the tail is the scratch space.** Downstream consumers read ~8 stable named features. But while the object is being BUILT — re-pooled by attention, multiplied by dev×dev, accumulated across ten layers — the tail participates materially (46%): it is an intermediate of the computation, not an output. This resolves every tension in the content line at once: genuine high rank (§1042: construction needs it in the stream), low-rank interpretability and patchability (§1055/§1060: the API), the §1051 bottleneck starvation (you can't bottleneck the scratch space mid-computation), and §1056's catastrophe (deleting API+scratch from the stream kills construction, not reading).
+
+**§1113-1118 arc summary (for the report, phase boundary):** the content machine's interface to the rest of the model is ~8 stable, mostly-human-nameable features (topic/register/discourse; stability 0.76-0.81, 3.6× more efficient than PCA); its internal computation uses a dense high-rank scratch that never surfaces at any read point. "The irreducible high-rank frontier" is thereby re-scoped: irreducible for SIMULATING the construction, not for READING the result.
+
+content_skeleton_stream_results.json; runlogs/content_skeleton_stream.log (56s).

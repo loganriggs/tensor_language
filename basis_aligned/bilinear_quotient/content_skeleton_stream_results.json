@@ -1,0 +1,32 @@
+{
+ "base_ce": 3.2694,
+ "sae_r2": 0.9019,
+ "conditions": {
+  "noop": {
+   "cost": 0.0,
+   "rare": 0.0,
+   "freq": 0.0
+  },
+  "skel": {
+   "cost": 0.6843,
+   "rare": 1.0833,
+   "freq": 0.6033
+  },
+  "tail": {
+   "cost": 1.4574,
+   "rare": 1.9972,
+   "freq": 1.3478
+  },
+  "fullrem": {
+   "cost": 1.5008,
+   "rare": 2.0704,
+   "freq": 1.3852
+  }
+ },
+ "skel_cost_frac_of_fullrem": 0.456,
+ "tail_cost_frac_of_fullrem": 0.971,
+ "pred_a_construction_skeleton_only": false,
+ "pred_b_construction_full_rank": false,
+ "dominant_rare_freq": 1.48,
+ "runtime_s": 56.3
+}
