@@ -1,0 +1,40 @@
+{
+ "results": {
+  "one_step_L8": {
+   "mlp": [
+    0.836,
+    0.881
+   ],
+   "linear": [
+    0.859,
+    0.916
+   ],
+   "persistence": [
+    0.842,
+    0.838
+   ]
+  },
+  "rollout_L5_to_L14": {
+   "mlp": [
+    0.626,
+    0.531
+   ],
+   "linear": [
+    0.635,
+    0.529
+   ],
+   "persistence": [
+    0.513,
+    0.129
+   ],
+   "token_only": [
+    -0.155,
+    -0.046
+   ]
+  }
+ },
+ "pred_a_simple_dynamics": false,
+ "pred_b_context_limited": false,
+ "pred_c_stateless": false,
+ "runtime_s": 167.3
+}

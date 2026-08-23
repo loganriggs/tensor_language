@@ -31367,3 +31367,14 @@ skeleton_stability_results.json; runlogs/skeleton_stability.log (62s).
 2. **The benchmark's topic term was never a fully external variable (methodological, applies retroactively to §939/§1013/§1014):** the topic term projects each component's OWN residual onto a rank-11 subspace — it reuses per-position information from the very output being reconstructed, which an external feature cannot. The skeleton term (a pure function of 8 externally-computed numbers) is the honest kind. So the standing "0.32 ± 0.06 understanding" MIXES external naming (token tables, prev) with partially self-referential reconstruction (topic term); the fully-external figure is nearer **0.16-0.18**. Not a retraction — the §939-era framing said "named variables" and the topic subspace is named — but the distinction (external-predictable vs own-output-projected) should be carried forward whenever the benchmark number is quoted. FINDINGS item 5 annotated.
 
 benchmark_skeleton_results.json; runlogs/benchmark_skeleton.log.
+
+## §1122 — The construction is largely LINEAR STATEFUL DYNAMICS in coordinate space: a per-step LINEAR map rolls out L5→L14 at cosine 0.64 / R² 0.53 (persistence 0.51/0.13; stateless fails at −0.15) — half the construction is simulable, the other half needs per-layer context injection (coord_dynamics.py)
+
+**Between the registered poles, leaning strongly toward simulability:**
+- **Rollout across 9 compounding steps (held-out rows, starting from true c₅):** learned maps reach cosine 0.63 / R² 0.53 of the true end-of-band content — 4× persistence's R² (0.13). The construction's coordinate evolution is substantially predictable from state + token + a causal-mean pool. (pred_a's cos≥0.6 met; its margin criterion missed by 0.04 — reported as registered.)
+- **The dynamics is LINEAR:** the per-step linear map matches the MLP (rollout 0.635 vs 0.626; one-step 0.916 vs 0.881 R²) — consistent with §1073 (content built progressively/linearly from the processed stream). No nonlinear simulator needed for this half.
+- **And genuinely STATEFUL:** token-only rollout fails completely (cosine −0.155) — the coords carry irreplaceable accumulated state (pred_c cleanly false).
+
+**Reading:** the construction frontier splits: (i) a LINEAR dynamical system on 64 coords — simulable, ~53% of end-of-band variance; (ii) the remainder = information the real attention injects fresh at each layer, which a causal-mean pool cannot carry. **Registered next (queued, oracle diagnostic per the §1108 pattern): add each layer's TRUE attention-output coords as a per-step input** — if the rollout jumps to ~0.9, construction = linear coord dynamics + attention injections, fully characterized, and the benchmark's construction gap reduces to simulating the attention stream alone.
+
+coord_dynamics_results.json; runlogs/coord_dynamics.log (167s).

@@ -1,0 +1,13 @@
+step L5->L6 trained
+step L6->L7 trained
+step L7->L8 trained
+step L8->L9 trained
+step L9->L10 trained
+step L10->L11 trained
+step L11->L12 trained
+step L12->L13 trained
+step L13->L14 trained
+one-step L8: {'mlp': (0.836, 0.881), 'linear': (0.859, 0.916), 'persistence': (0.842, 0.838)}
+rollout: mlp (0.626, 0.531) | linear (0.635, 0.529) | persistence (0.513, 0.129) | token-only (-0.155, -0.046)
+pred_a simple-dynamics False | pred_b context-limited False | pred_c stateless False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/coord_dynamics_results.json (167.3s)
