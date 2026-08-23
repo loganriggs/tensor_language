@@ -30874,3 +30874,26 @@ Dedup miss (stated plainly): §1075's value-residual / x0 re-injection ablations
 - So the two-machine split holds along a THIRD axis (after depth and cross-model): GRAMMAR (syntax / token-class, front) transfers across registers — code and prose share ~40% of front directions (punctuation/number/identifier class structure is register-general) — while CONTENT (topic, deep-middle) is register-SPECIFIC (§1079, code and prose diverge to 0.20).
 
 **What this adds.** The grammar/content dissociation, established by nonlinearity (§1000/1042), causal role (§1056/1059), function (§1068), and origin (§1074), now also holds by REGISTER-GENERALITY: grammar is a register-general syntactic machine, content is a register-adaptive topic machine. This is the natural OOD extension of the two-machine account. **Nulls/controls:** random-64 (0.057), prose↔prose ceiling (register-general reference, 0.58-0.89). **Caveat:** code is OOD for a FineWeb model; overlaps are register-relative and robust, but absolute code-computation quality is bounded by OOD competence (as §1079).
+
+## §1081 — On OOD code the model leans on LOCAL/per-token prediction (value-residual up, BOTH deep machines down)
+
+**Question (causal OOD companion to §1080):** on OOD code vs prose, how much does the model RELY on each machine? Mean-ablate (this-data's mean) the content band (L5-14 MLPs), grammar band (L0-1 MLPs), value-residual (lamb=0), and x0 (lambdas[1]=0); CE cost prose vs code. (`ood_band_importance.py`, 150 code + 150 prose seqs.)
+
+**Registered predictions:** (a) content leans out on code (content-band + value-residual cost-frac lower on code); (b) grammar holds on code.
+
+**Result — both FALSE; the real pattern is a shift to LOCAL prediction:**
+
+| ablation | prose cost (frac of base) | code cost (frac of base) |
+|---|---|---|
+| content band L5-14 | 2.29 (0.69) | 1.13 (**0.28**) |
+| grammar band L0-1 | 6.65 (2.00) | 2.62 (**0.65**) |
+| value-residual | 3.35 (1.01) | 4.39 (**1.10**) |
+| x0 re-injection | 2.33 (0.70) | 1.19 (0.30) |
+
+(base CE prose 3.33, code 4.00.)
+
+- **On OOD code the model relies LESS on BOTH deep machines** — content-band cost-frac 0.69→0.28 AND grammar-band 2.00→0.65 (both ~2.5-3× lower on code) — and MORE on the **value-residual** (1.01→1.10, the only ablation costlier on code). So code is predicted more from LOCAL / per-token structure (the value-residual broadcasts the current token's content; code syntax is highly locally predictable) and less from the deep grammar-class + content inference.
+- **Both predictions FALSE:** value-residual did NOT lean out (it leaned IN, pred_a false); the grammar band did NOT hold (it leaned out too, pred_b false). The clean dissociation I expected ("grammar holds, content leans out") is wrong — on code, BOTH deep machines are used less, and local/token prediction carries more.
+- Grammar remains the LARGER deep contributor on code (0.65 vs content 0.28), consistent with §1080 (grammar directions transfer), but it is relied on ~3× less than on prose.
+
+**Representation vs reliance (the interesting distinction).** §1080 showed grammar's REPRESENTATION transfers to code (subspace overlap 0.41 vs content 0.20). §1081 shows the model RELIES on the deep grammar computation LESS for code PREDICTION (cost-frac 2.00→0.65). These are consistent and complementary: the class structure is shared across registers, but code's local predictability means the model needs less deep inference (of either kind) to predict it — it leans on the per-token value broadcast instead. **Nulls/controls:** this-data mean-ablation; restore-to-base (implicit). **Caveat:** code base CE is only modestly higher (4.0 vs 3.3) — code is quite predictable — and mean-ablation costs depend on the data's own mean; the robust signal is the direction (both deep bands down, value-residual up on code).
