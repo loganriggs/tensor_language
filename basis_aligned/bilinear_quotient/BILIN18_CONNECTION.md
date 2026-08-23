@@ -29128,3 +29128,25 @@ framing is thus RECONTEXTUALIZED (not wrong): local at L15 = post-pooling readou
     L15) with the broad-gathering picture.
  5. The residual/irreducible part is the genuine multiplicative middle content (§941/§994), which no linear/table/
     bag stand-in captures -> the benchmark's content-term ceiling.
+
+## §998 — the content-gathering is CONCENTRATED in layers 3-5 (content_gathering_layers.py)
+
+Band the §995 attention window (K=8) on each 3-layer group; within-CE (content) cost vs baseline 3.3233:
+  group:  L0-2   L3-5   L6-8   L9-11  L12-14 L15-17
+  within: +0.061 +0.520 +0.071 +0.026 +0.045 +0.019
+  class:  +0.020 +0.136 +0.024 +0.003 +0.010 +0.010
+  top group L3-5; early-sum(0-11) 0.679 vs late-sum(12-17) 0.064. pred_a (gathering early-middle) TRUE.
+FINDING: content gathering is not spread evenly across the early layers -- it is CONCENTRATED in L3-5. Banding just
+L3-5's attention window costs +0.52 nats of content, ~8x any other 3-layer group and ~46% of the all-layers cost
+(§997 all_K8 +1.12). This pinpoints L3-5 as the critical content-pooling band and matches the earlier observation
+that content prediction "begins ~attn5" (§~860). Grammar (class-cost) also peaks at L3-5 (0.136) but is smaller.
+CONSISTENCY NOTE: the sum of separate 3-layer-group within-costs for 0-11 (0.68) is LESS than §997's joint early
+band (0.98) -- banding one group at a time lets the OTHER early layers re-pool/compensate with their full window,
+whereas banding all of 0-11 jointly removes that compensation. Mild interdependence within the early gathering
+(cooperative pooling), consistent with the distributed account (§931); the localization to L3-5 as the dominant
+single group is the clean result.
+
+=== content-gathering depth, complete (§995-998) ===
+ Content is a broad, order-invariant, content-word-weighted bag-of-words gist (§995/996), GATHERED by attention
+ concentrated in layers 3-5 (§998), pooled into each position's residual across the early/middle stack (§997), and
+ read out locally by the late layers (§997). The irreducible residual is the multiplicative middle content (§941).
