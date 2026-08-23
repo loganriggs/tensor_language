@@ -28954,3 +28954,39 @@ Down(a*Rx + b*Lx - a*b)+bias) and measure the CE cost at front vs middle, on §9
 Prediction: front CE barely rises (interaction inert), middle CE rises substantially (interaction load-bearing);
 + chain-rule split to check the middle interaction is content (within-CE). pred_a raw-output-linear FALSE (correct:
 that was the wrong metric); the real claim is behavioral and §992 tests it.
+
+## §992 — REVERSAL: the FRONT interaction is LOAD-BEARING (not inert); "front is linear" (§941) means best-fit-linear-reproducible, NOT interaction-negligible (interaction_loss_ablation.py)
+
+Ablate ONLY the multiplicative interaction term u*w (keep const+linear = Down(a*Rx+b*Lx-a*b)+bias, the mean/Taylor
+first-order split), per layer, on §941's LOSS instrument. baseline full_CE 3.215.
+  NULL (full recompute all layers) 3.215 == baseline (hook math correct); all costs >= 0 (sanity OK).
+  layer:  L0     L1     L2     L4     L8     L11    L15    L17
+  cost:   1.608  0.516  0.232  0.378  0.037  0.030  0.031  0.215   (nats)
+  within: 1.220  0.393  0.176  0.294  0.030  0.023  0.021  0.146
+  class:  0.388  0.123  0.057  0.083  0.007  0.006  0.010  0.069
+  BAND front(L0-2) cost 4.894 (within 3.832 class 1.062) | BAND middle(L8-11) cost 0.087 (within 0.068 class 0.018)
+pred_a (front INERT / mid load-bearing) = FALSE -- the OPPOSITE is true. Dropping the interaction is CATASTROPHIC at
+the FRONT (L0 1.61, L1 0.52 nats) and NEARLY FREE in the MIDDLE (~0.03/layer). pred_b (cost is within-CE/content)
+TRUE at BOTH front and middle (front within 3.83 >> class 1.06; middle within 0.068 > class 0.018).
+
+CORRECTION of §991 (my THIRD wrong interpretation on this MLP-internals sub-thread, stated plainly; §989 "constant
+gate", §989 "Down projects out interaction", §991 "front interaction behaviorally inert" -- all wrong; the RUNS are
+clean, my inferences overreached): the front interaction is NOT behaviorally inert. It is LARGE (dominates the raw
+output, §990) AND LOAD-BEARING (dropping it costs 1.6 nats at L0).
+
+COHERENT reconciliation (now consistent with §941+§990+§991), turning on TWO DIFFERENT linear maps:
+ - §941's "front is 90-98% linear" uses the BEST-FIT linear map (optimal input->output regression), which RECOVERS
+   the front output including the interaction's effect -- because at the front the interaction u*w, though quadratic,
+   is largely LINEARLY-SHAPED in x over the data (§991: ~half its output variance is linearly predictable), so the
+   best-fit linear map ABSORBS it.
+ - §992 drops u*w entirely (mean/Taylor first-order split a*w+b*u), a DIFFERENT and much worse linear surrogate that
+   does NOT capture the interaction's linearly-shaped part -> catastrophic at the front.
+ So "the front is linear" (§941) = "the front output, interaction INCLUDED, is reproducible by a best-fit linear
+   map", NOT "the interaction is small/negligible". The interaction is large and load-bearing but approximately
+   linearly-shaped, so a best-fit linear surrogate works while deleting the term does not.
+ - The MIDDLE interaction is genuinely multiplicative (§941 best-fit only 0.38) yet ablating it costs ~nothing
+   (~0.03/layer) because each middle MLP is individually LOW-STAKES (§941 meanabl 0.04-0.05; redundant distributed
+   band, §940). The middle matters as a BAND, not per layer -- so per-layer interaction-ablation is cheap.
+CONFIRMING TEST QUEUED (§993): side-by-side on ONE instrument -- best-fit-linear surrogate (§941 method) vs Taylor
+const+linear (§992) vs mean-ablate, at front L0/L1 and middle L8/L11. Prediction: front linear-frac_bestfit (~0.9)
+>> linear-frac_taylor (<<) -> proves the front interaction is load-bearing yet best-fit-linearly-reproducible.
