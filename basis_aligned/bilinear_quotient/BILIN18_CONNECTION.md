@@ -29023,3 +29023,32 @@ absorbs its linearly-shaped effect). The MIDDLE best-fit frac 0.27 (~ §941's 0.
  My interpretation errors on this thread, corrected in place: §989 "constant gate" (refuted, both vary), §989 "Down
  projects out interaction" (refuted §990), §991 "front interaction inert" (refuted §992). The RUNS were clean; the
  fix each time was a better-controlled measurement, not new data. Thread closed; artifact to be updated.
+
+## §994 — SURPRISE: the FRONT (not the middle) is the super-additive cooperative interaction band; deep-middle interaction is cheap even jointly (interaction_band_ablation.py)
+
+Ablate the multiplicative interaction u*w jointly across a band (drop u*w, keep const+linear), §941/§992 loss
+instrument. baseline full_CE 3.215. NULL (full recompute all) cost 0.0003 (valid); joint >= max-single (sanity OK).
+  single-layer costs:  L0 1.608  L1 0.516  L2 0.232 | L4 0.378  L8 0.037  L11 0.030  L15 0.031  (nats)
+  BAND front (L0-2):  joint 4.894 (within +3.837 class +1.058) | sum-single 2.356 | SUPER-ADD RATIO 2.08
+  BAND middle(L4-15): joint 0.547 (within +0.427 class +0.119) | sum-single 0.476 | super-add ratio 1.15
+pred_a (MIDDLE super-additive) FALSE; pred_c (FRONT more additive than middle) FALSE -- BOTH my expectations were
+WRONG, and informatively so: the FRONT is the strongly super-additive band (2.08), the MIDDLE is ~ADDITIVE (1.15).
+pred_b (cost is within-CE/content) TRUE at both bands.
+
+WHAT THIS MEANS (stated carefully; my registered expectation was backwards):
+ - The FRONT bilinear interaction is a COOPERATIVE CASCADE. Removing it from L0+L1+L2 jointly costs 4.89 nats (CE
+   3.21 -> 8.10, near-catastrophic) -- more than 2x the sum of individual costs -- because L1 reads L0's
+   (interaction-damaged) output and has its own interaction removed too, compounding. The front three layers
+   cooperatively build the foundational representation everything downstream reads (connects to L1 = dominant
+   writer §933, front-grammar-write). This is where the multiplicative form is load-bearing AND interdependent.
+ - The deep-MIDDLE interaction (L8,11,15) is CHEAP even jointly: ~0.10 nats combined. The middle band's 0.55 is
+   dominated by L4 (0.38, which behaves front-like). So the middle MLPs' OWN multiplicative writes barely move the
+   loss -- consistent with their tiny mean-ablate budgets (§941: 0.04-0.05/layer) and the redundant-band picture
+   (§940). IMPORTANT REFRAME: "the middle is the content frontier" (§940) is about CONTENT IN THE RESIDUAL STREAM
+   (built cumulatively and read by attention/downstream), NOT about the middle MLPs' interaction terms being large
+   -- those are small. The reconstruction gap (§930/§938 content caps ~0.2) lives in residual-stream content, not
+   in per-layer middle-MLP multiplication.
+ - The interaction carries CONTENT (within-CE) at both bands, but the front's is far larger in absolute nats.
+NEXT (content frontier proper): the content that caps the benchmark lives in the RESIDUAL STREAM across the middle,
+read by attention -- not in the middle MLPs. Pivot the next experiment to locate where the loss-relevant content is
+actually written/read (attention vs MLP, which layers) rather than more MLP-interaction anatomy.
