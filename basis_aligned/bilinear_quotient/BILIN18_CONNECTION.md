@@ -29442,3 +29442,22 @@ two-machine CONTEXT-WINDOW signature (content broad, grammar local) is family- A
 §1010 (content-multiplicative division architecture-general), BOTH central two-machine claims -- content is
 nonlinear+long-range, grammar is linear+local -- are now shown universal across the family including a NON-bilinear
 (SwiGLU) model.
+
+## §1012 — CONFOUNDED: logit-lens depth-onset can't measure grammar/content COMPUTATION depth (late-readout-basis artifact) (content_depth_onset_family.py)
+
+Logit-lens each layer, chain-rule split, per model; depth-fraction at which grammar(class-CE)/content(within-CE) reach
+90% of their reduction:
+  model     nl   grammar-90%-onset   content-90%-onset   final class / within
+  bilin18   18       1.00              0.944              0.788 / 2.535
+  bilin12   12       0.917             1.00               0.819 / 2.681
+  swiglu18  18       0.889             0.944              0.771 / 2.446
+pred_a (grammar-onset < content-onset every model) FALSE. But this is a CONFOUNDED INSTRUMENT, stated plainly (my
+poor instrument choice): the 90%-onset is ~0.89-1.0 for BOTH grammar and content in every model because the
+logit-lens CE collapses almost entirely in the LAST 1-2 layers (§941: L15->L17 is 5.8->3.26 nats) -- the residual is
+NOT in the readout/unembedding basis until the late layers (§934), so logit-lens measures when a variable becomes
+READABLE BY THE HEAD (dominated by the late readout alignment), NOT when it is COMPUTED. So the onset fractions and
+their grammar-vs-content ordering are artifacts of the readout-basis collapse, not evidence about computation depth.
+NO conclusion drawn from §1012. The grammar-front / content-later DEPTH structure is already established CAUSALLY by
+clean instruments -- grammar written in the front MLPs (§915-919/§933), content gathered at L3-5 (§998) and built
+through the multiplicative middle (§941/§1001) -- which do not depend on logit-lens readability. §1012 simply used
+the wrong instrument for the depth question; the causal depth evidence stands.
