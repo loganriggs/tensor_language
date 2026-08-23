@@ -29262,3 +29262,24 @@ within>>class (ratio 3.6). pred_a draw-stable TRUE; within>>class TRUE.
 CERTIFIES §1000: the multiplicative-content ceiling (~1.55-1.59 nats of content that forcing all MLPs linear costs)
 is draw-stable, not first-draw optimism, and the front>middle absolute-nats ordering is robust. This is the honest
 floor on what any linear/table/bag named-variable stand-in can reconstruct of the content machine.
+
+## §1004 — a content-word bag does NOT improve the benchmark content stand-in; the linear/bag ceiling is fundamental (content_bag_contentword.py)
+
+§936 harness (held-out L15 content term, loss_full 3.12, loss_ablate 4.80), recovery of each content stand-in:
+  cw_bag_map (content-word bag)   +0.042
+  bag_map (all-token bag)         +0.052   (§936 reference)
+  topic_centroid_K1024            +0.169
+  current_token_map               +0.222
+  shuffled_cwbag_null             -0.009   (map is genuine)
+pred_a (cw-bag beats all-token bag) FALSE -- the content-word bag is marginally WORSE (0.042 < 0.052), and both are
+far below the centroid (0.169) and current-token (0.222). HONEST NEGATIVE.
+WHY (reconciles with §996, which is about the MODEL's mechanism, not a stand-in recipe): §996 showed content words
+carry 80% of the far-context content IN THE MODEL, but (1) the all-token bag ALREADY includes content words, and the
+topic is REDUNDANT/over-determined (§996: either subset recovers most), so subsetting to content words adds no
+information; (2) more fundamentally, BOTH raw-embedding bags are poor LINEAR proxies for the model's LEARNED pooling
+(value-residual-weighted §985, multiplicatively refined §1000) -- which token you average doesn't fix that. The
+benchmark's content stand-in ceiling remains current-token + topic-centroid, CAPPED by the multiplicative middle
+(§1000). §996's content-word finding is a mechanism fact, NOT a benchmark-improvement lever.
+CLOSES the content-stand-in / benchmark-content-improvement question: no linear/bag stand-in (all-token or
+content-word) beats current-token+centroid; the missing content is the multiplicative computation (§1000 ceiling),
+not a matter of choosing better tokens to average.
