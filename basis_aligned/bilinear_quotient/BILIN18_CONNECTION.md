@@ -29422,3 +29422,23 @@ bilinear form: whatever the MLP's nonlinear form (bilinear product or SwiGLU gat
 while grammar is handled ~linearly. Extends §942 (the middle-nonlinearity DIP is universal) with the content/grammar
 ATTRIBUTION of that nonlinearity. Strengthens the two-machine account: "grammar = linear/low-rank, content =
 nonlinear/multiplicative" is a family- AND architecture-general fact.
+
+## §1011 — content broad / grammar local is ARCHITECTURE-GENERAL (incl SwiGLU); the two-machine context-window signature is universal (content_contextlen_family.py)
+
+Architecture-agnostic (truncation, no monkeypatch): feed the last K tokens before query position 200, chain-rule CE
+split at the query; sweep K, per model. content(within-CE) / grammar(class-CE):
+  model     within@K=1  within@8  within@32  within@128  within@200 | class@1  class@8  class@200 | drop-ratio
+  bilin18     4.231     2.898     2.540     2.270     2.211      | 1.214    0.873    0.771    | 4.56
+  bilin12     4.366     3.083     2.711     2.402     2.354      | 1.234    0.900    0.782    | 4.45
+  swiglu18    4.294     2.886     2.447     2.157     2.088      | 1.216    0.886    0.728    | 4.52
+pred_a (content broad / grammar local, ratio>2 every model) TRUE. In EVERY model incl swiglu18 (non-bilinear):
+ - GRAMMAR (class-CE) SATURATES EARLY: nearly all its context-benefit is in by K~8 (bilin18 1.21->0.87 by K=8, then
+   ->0.77 flat) -> grammar is LOCAL.
+ - CONTENT (within-CE) keeps DROPPING past K=8 all the way to K=200 (bilin18 4.23->2.90->2.54->2.27->2.21, still
+   improving 128->200) -> content is BROAD/long-range, unsaturated.
+ - The content is ~4.5x MORE context-hungry than grammar (K=1->full drop ratio 4.45-4.56) in all three.
+Matches §995's bilin18 result (K=1 content penalty +1.9 vs grammar +0.5, ratio ~4) and GENERALIZES it: the
+two-machine CONTEXT-WINDOW signature (content broad, grammar local) is family- AND architecture-general. Together with
+§1010 (content-multiplicative division architecture-general), BOTH central two-machine claims -- content is
+nonlinear+long-range, grammar is linear+local -- are now shown universal across the family including a NON-bilinear
+(SwiGLU) model.
