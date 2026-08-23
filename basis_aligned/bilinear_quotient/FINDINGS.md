@@ -196,7 +196,13 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    held-out number rises to **0.42** (token-map alone 0.32 beats the whole old table pipeline 0.315; shuffled-map
    null −0.19). Progression: 0.81 in-sample (retracted) → 0.30 held-out table → **0.42** held-out map. DEPTH
    LOCALIZATION (§940): genuine (shuffle-corrected) understanding front 0.72 > middle 0.60 > back 0.58; the middle
-   has the LARGEST contribution yet worst raw reconstruction → the residual frontier. WHY (§941): a
+   has the LARGEST contribution yet worst raw reconstruction → the residual frontier. [§1013/§1014 CAVEAT: the
+   held-out understanding number is DRAW-SENSITIVE — the table-based simultaneous-held-out config is **0.32 ± 0.06**
+   (4-draw mean±std, genuine-vs-shuffled 0.74 ± 0.15); the swing is the TOPIC term (train/eval topic overlap varies),
+   the token term is the tightest (~0.15). So ALL single quotes here (0.30 / 0.40 / 0.42) are POINTS on a
+   draw- and config-variable distribution; report the understanding fraction as a range with ±0.06 draw-uncertainty,
+   not a stable point. The residual ~0.68 is dominated by the irreducible context-multiplicative content (§1000).]
+   WHY (§941): a
    linear→multiplicative→linear depth arc — MLPs are 90–98% linearly-recoverable at the front (incl the dominant
    writer MLP1), ~38% in the middle (i.e. ~60% genuine bilinear MULTIPLICATION, irreducible to any linear/table
    stand-in), 85% at readout. CONTENT-MECHANISM ARC (§928→941): topic = order-invariant bag-of-word-embeddings

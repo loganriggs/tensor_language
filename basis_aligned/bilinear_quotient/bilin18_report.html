@@ -2060,7 +2060,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   and adding topic and previous-token on top brings it to 0.42. A shuffled-token version of the same map lands
   <em>below</em> mean-ablation (−0.19), so the number is genuine token structure, not a fitting artifact. So the
   benchmark's honest progression reads: 0.81 in-sample (memorization, retracted) → 0.30 held-out with lookup
-  tables → 0.42 held-out once the variables are given a smooth generalizing form. It splits sharply by depth: the front grammar is recovered
+  tables → 0.42 held-out once the variables are given a smooth generalizing form. One honest caveat on all these
+  figures: the number is <em>draw-sensitive</em>. Re-run the held-out benchmark on different slices of the corpus and
+  it moves — the simultaneous table-based version ranges 0.25–0.40 across four draws (0.32 ± 0.06), because the topic
+  stand-in's held-out recovery rises and falls with how much the evaluation passages overlap in subject with the ones
+  the topic model was fit on. The token part is steady (~0.15); the topic part is what wobbles. So the right way to
+  quote it is a band, not a point: roughly a third of the model, give or take, plus whatever the smooth-map form adds.
+  It splits sharply by depth: the front grammar is recovered
   at ~0.90 — essentially solved, a smooth generalizing function of the current token — the readout at ~0.56, and
   the middle content at ~0.10 with a coarse topic — but that last number understates it, and chasing it down
   pins the frontier exactly. Give the middle content its fair form — a higher-rank continuous content feature
