@@ -28666,3 +28666,22 @@ So the two-machine loss budget (§831/§880) is size-invariant in its SPLIT, and
 spent on the CONTENT machine (the hard, high-rank, multiplicative frontier §930/§941), not the (solved) grammar
 machine. This explains WHY content is the frontier: it is where capacity goes and where the residual task
 difficulty lives. Clean within-family comparison (same data/recipe/tokenizer, full-CE sanity-checked).
+
+## §979 — the model is EXCELLENTLY calibrated; hedging is calibrated uncertainty (calibration_two_machines.py)
+
+Reliability + ECE for the token (content) and class (grammar) predictions:
+  TOKEN (content): ECE 0.0091 | mean-conf 0.384 | mean-acc 0.376  (reliability near-diagonal: 0.85->0.84, 0.97->0.97)
+  CLASS (grammar): ECE 0.0220 | mean-conf 0.724 | mean-acc 0.701  (near-diagonal)
+pred (a) grammar-higher-confidence + at-least-as-calibrated TRUE. FINDINGS:
+ - bilin18 is EXCELLENTLY CALIBRATED on BOTH machines: confidence ~= accuracy across all bins (token ECE 0.009,
+   class ECE 0.022). It is not over- or under-confident.
+ - GRAMMAR is higher-confidence (0.72) and higher-accuracy (0.70) than CONTENT (0.38/0.38) -> grammar is the
+   solved/confident machine; content is the appropriately-UNCERTAIN machine.
+ - So the HEDGING (§973-976) is CALIBRATED uncertainty: the model correctly KNOWS when the content word is hard
+   and lowers its confidence (spreads probability, top-1 falls back to a safe function word) rather than failing
+   blindly. Its low token-confidence on hard positions MATCHES its low accuracy there (ECE 0.009).
+UNIFICATION: the two-machine account + errors + calibration cohere — the model is confident and accurate on the
+solved GRAMMAR machine, and appropriately uncertain on the hard CONTENT machine, with near-perfect calibration
+throughout. The hedge is not a bug; it is well-calibrated deferral on content the model genuinely cannot resolve.
+Closes the output-behavior facet (errors §972-976, frequency §977, capacity §978, calibration §979): bilin18's
+output behavior is a calibrated readout of two machines — a confident grammar gate and an uncertain content pick.
