@@ -29804,3 +29804,23 @@ independent of induction) is NOT cleanly isolable by this injection design, beca
 also adds content-density. DEFINITIVE control queued §1030: inject AB (triggers induction: A also at last) vs A'B'
 (two random content-ish tokens, NO last-token match, no induction) -- MATCHED content-density -> if content boost is
 equal, the 1.8x was pure density and content IS independent of the induction mechanism.
+
+## §1030 — density-matched: content boost is ~2x larger when induction FIRES (corrects §1029's density diagnosis); likely softmax coupling, not a computation interaction (mechanism_content_from_induction.py)
+
+Both backgrounds inject A@5,B@6 (SAME content-density) + a content-ish last token; differ ONLY in whether the last
+token triggers induction:
+  background                         content-effect (W topic-neighbor boost)
+  induction-TRIGGER {A,B, A@149}      1.021
+  NON-trigger {A,B, D@149} (matched)  0.535
+  retention trigger/non-trigger 1.907
+pred_a (content independent of induction: retention ~1) FALSE. CORRECTS §1029 (stated plainly): the ~2x is NOT
+content-density -- A,B density is identical in both backgrounds and cancels; yet the content boost is still ~2x larger
+when induction FIRES (last=A matches the earlier bigram) vs not (last=D). So it is genuinely tied to induction firing.
+LIKELY MECHANISM (not yet isolated): this is measured on LOG-PROBS, and induction firing concentrates probability mass
+on the copied token B (§1025: logP(B) -15 -> -6). Softmax normalization then changes how a content LOGIT-shift maps to
+a log-prob-shift -- so the apparent content-boost amplification is plausibly a SHARED-OUTPUT / softmax-coupling effect
+(both mechanisms write to the SAME logits), NOT the content COMPUTATION being altered by induction. Directly testable:
+measure the content effect on the RAW LOGITS (pre-softmax) instead of log-probs -> if logit-boost is equal in
+trigger/non-trigger, the content computation is independent and the log-prob 2x is softmax coupling. Queued §1031.
+ROBUST across §1027-1030: INDUCTION independent of content (copy retention 0.97); content-side shows a log-prob-level
+amplification when induction fires, whose origin (computation interaction vs softmax coupling) §1031 will settle.
