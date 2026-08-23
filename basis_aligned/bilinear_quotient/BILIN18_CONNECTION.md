@@ -31759,3 +31759,11 @@ late_leak_results.json; runlogs/late_leak.log (37s).
 **Queued refinement (m1_width.py, registered):** sweep the window W ∈ {4,8,16,32,64} for x2_hat. (a) hit climbs monotonically; (b) W=64 reaches ≥ 0.8 (the mediator is a wide-but-bounded window — pattern-locality is log-local, refining 481); alternative: flat curve → m1's pattern-relevant input is genuinely global (position-0 sink / value-residual class); (c) either way the loss-vs-pattern locality dissociation is quantified.
 
 ladder_fold_results.json; runlogs/ladder_fold.log (45s).
+
+## §1162 — PATTERN-LOCALITY IS LOG-LOCAL: head 2.5's argmax closes monotonically with front-window width (0.55/0.62/0.68/0.76/0.81 at W=4/8/16/32/64) — layer 2 IS foldable from a known bounded-window variable; preds a-c ALL TRUE (m1_width.py)
+
+The §1161 dissociation quantified: LOSS through blocks 0-1 saturates at W=4 (+0.014 nats, writeup 481), but head 2.5's PATTERN keeps gaining ≈ +0.06 hit per doubling of window width, reaching 0.811 at W=64 (chance floor 0.18, real-x ceiling 1.0, m1-real reference 0.86 from fold_gap_locate2). No global relay is required for ~80% closure — the pattern-relevant part of the front residual is a WIDE-BUT-BOUNDED window function, and the interpretation "layer-2 trigger = weights folded over a known n-gram variable" holds with n ≈ 64 rather than 4. Two-scale law for the front: predictions are 4-local, the identity code the front WRITES for later layers is ~64-local. (Remaining 0.81→1.0 gap: consistent with continued slow climb toward full context; the m1-real arm's 0.86 sits on the same curve.)
+
+**Queued (pattern_width_by_depth.py, registered):** does the log-local law govern the other catalogued heads? W ∈ {8,32,128} at 3.5 (blocks 0-2), 5.5 (blocks 0-4), 8.4 (blocks 0-7). (a) 3.5 climbs monotonically, ≥0.75 at W=128; (b) 5.5 — the position-0 sink — folds EASILY at small W (its key lives at position 0, whose window IS its true prefix; its value is the MLP4 constant): hit ≥0.7 already at W=8; alternative (fails at all W) would mean the sink query needs global content; (c) 8.4 (diffuse, writeup 398) intermediate and shallow-sloped.
+
+m1_width_results.json; runlogs/m1_width.log (50s).
