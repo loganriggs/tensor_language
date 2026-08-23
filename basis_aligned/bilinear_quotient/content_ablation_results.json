@@ -1,0 +1,31 @@
+{
+ "ce_full": 3.2634,
+ "KB": 64,
+ "abl_range": [
+  6,
+  14
+ ],
+ "bands": {
+  "top": {
+   "var_removed": 0.3607,
+   "loss_increase": 8.3878,
+   "loss_per_var": 23.255
+  },
+  "mid": {
+   "var_removed": 0.0254,
+   "loss_increase": 0.2449,
+   "loss_per_var": 9.66
+  },
+  "bottom": {
+   "var_removed": 0.008,
+   "loss_increase": 1.6006,
+   "loss_per_var": 200.245
+  }
+ },
+ "random_control": {
+  "loss_increase": 0.6708
+ },
+ "loss_per_var_spread_ratio": 20.73,
+ "pred_a_uniformly_loadbearing": false,
+ "runtime_s": 69.5
+}

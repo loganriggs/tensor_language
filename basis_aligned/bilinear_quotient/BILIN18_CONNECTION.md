@@ -30394,3 +30394,24 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 **What this establishes.** The content frontier is not opaque noise — it is a **semantically-organized topic/register/genre space**, and its principal axes are interpretable contrasts (informal↔formal, narrative↔technical, casual↔analytical, personal↔moral). Crucially the **top-10 PCs explain only 11.6% of content variance** — so there are MANY such interpretable axes, each a real distinction. That is precisely the mechanistic meaning of "genuinely high-dimensional content" (§1000/1042): the model tracks a very large number of topic/register dimensions, each human-readable, and no small handful dominates. We have moved from "the frontier is high-rank content" to "the frontier is a high-dimensional, interpretable topic/register manifold" — understanding the contextual computation itself, not just bounding it.
 
 **Nulls/caveats:** the current-token view is uninformative (content deviation is contextual → current tokens are mostly punctuation/function words, as expected); the signal is in the context snippets, which are coherent per axis (a shuffled-projection control would be incoherent). PCA axes are variance-ordered directions within the subspace, an arbitrary rotation of the model's native features — the interpretability of the *rotation* shows the subspace is semantically structured, not that these exact axes are the model's units.
+
+## §1056 — Causal ablation: the content directions are strongly load-bearing and privileged over random across the whole spectrum, but NOT uniform per-variance (pred_a false)
+
+**Question (causal capstone):** if the content is genuinely high-rank, is it uniformly load-bearing (loss-increase per variance-removed ~flat across top/mid/bottom content-PC bands), or dominated by a few top directions (=effectively compressible)? Project a band of content directions OUT of the deep-middle residual stream (after each block, L6-14) and measure the loss increase, for top/mid/bottom bands of the content-deviation PCA + a random-64 control. (`content_ablation.py`, 200 rows, train-free.)
+
+**Registered predictions:** (a) uniformly load-bearing — loss-per-variance flat (spread < 4×); (b) top band costs more in absolute loss but not disproportionately per variance.
+
+**Result — pred_a FALSE (spread 20.7×), but causally informative:**
+
+| band | var removed | loss increase (nats) | loss / var |
+|---|---|---|---|
+| top [0:64] | 0.361 | **+8.39** | 23.3 |
+| mid [544:608] | 0.025 | +0.24 | 9.7 |
+| bottom [1088:1152] | 0.008 | +1.60 | 200 |
+| random-64 control | — | +0.67 | — |
+
+1. **The top content directions are catastrophically load-bearing:** removing the top 64 (36% of content variance) from the stream costs +8.4 nats — worse than mean-ablating the whole band (~2 nats) — confirming the content's dominant axes are absolutely essential (consistent with §1055's interpretable topic/register axes being the high-variance ones).
+2. **The whole content spectrum is causally PRIVILEGED over random:** even the bottom 64 content directions (tiny 0.8% variance) cost +1.6 nats — 2.4× the random-64 control (+0.67) — despite near-zero variance. So the content subspace's low-variance tail is NOT droppable; this is exactly why a rank-K stand-in (which keeps only the top) fails (§1042/1050/1051) — the discarded tail carries real loss.
+3. **But loss-per-variance is NOT flat (spread 20.7×), so "uniformly load-bearing" is falsified.** The profile is U-shaped: top dominates absolute loss; the bottom has the highest loss-per-variance.
+
+**Honest confound (bounds claim 3).** The bottom SVD directions of the *content* deviation have near-zero content variance and may overlap NON-content directions (grammar/positional/frequency) that the deep-middle stream also carries; projecting them out damages those, inflating the bottom band's loss beyond its content role. So the high bottom loss-per-variance does NOT cleanly prove low-content-variance directions are load-bearing *content* — it may be collateral damage. Also the absolute magnitudes are inflated by compounding (projection applied after all 9 blocks). The clean, robust conclusions are (1) and (2): the content is causally real, top-heavy in absolute loss, and privileged over random across its spectrum; the specific "flat per-variance" prediction is falsified and its interpretation is confounded. **Net:** causally, the content matters enormously and its full subspace (not just the top) beats random — consistent with genuinely high-rank load-bearing content, but this experiment does not cleanly establish per-dimension uniformity.

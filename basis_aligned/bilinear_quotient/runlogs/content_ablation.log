@@ -1,0 +1,6 @@
+top PCs[0:64]: var_removed 0.3607 | loss+ 8.3878 | loss/var 23.26
+mid PCs[544:608]: var_removed 0.0254 | loss+ 0.2449 | loss/var 9.66
+bottom PCs[1088:1152]: var_removed 0.0080 | loss+ 1.6006 | loss/var 200.24
+random-64 control: loss+ 0.6708
+loss/var top,mid,bottom = [23.255, 9.66, 200.245] | spread 20.73x | pred_a uniform False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_ablation_results.json (69.5s)

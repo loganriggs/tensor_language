@@ -381,7 +381,17 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    0.26→0.44) and consolidate in the band (L6-12: 0.53→0.91) before drifting toward readout (L14 0.69). So the frontier
    is not a wall at L6; it emerges from L3 — which is why transition MLPs resist token+window (§1048): they catch the
    birth of the content flow. Full bottom-up map: L0-1 grammar → L2-5 content onset → L6-14 content band → L15-17
-   readout. **HIGH.**
+   readout. §1053: the middle ATTENTION is NOT the primary author of the content-read subspace (overlap 0.23 vs mlp
+   0.53-0.91) — content is a cumulative residual-stream object. §1054: CORRECTED attention benchmark lane — a window of
+   the layer's own RESIDUAL (not raw embeddings, as §1047 wrongly used) recovers front+gatherer attn L0-5 at 0.66-0.95,
+   and a broad pool does NOT beat it → middle attention is local routing, not a loss-bearing pool; deep attn L12-17
+   near-zero stakes. §1055: NAMED the content — its top PCA axes are interpretable topic/register contrasts (informal↔
+   formal, narrative↔technical, casual↔analytical, personal↔moral); top-10 PCs = only 12% variance → a high-dimensional
+   semantically-organized topic/register manifold (many readable axes). §1056: causal ablation — removing top-64 content
+   dirs from the stream is catastrophic (+8.4 nats); even bottom-64 beat the random control (whole subspace privileged),
+   though per-variance uniformity is falsified+confounded. **NET whole-model status: grammar (L0-1), routing attention
+   (L0-5), and readout (L15-17) understood ~0.8-0.95; the one frontier is the deep-middle high-dimensional interpretable
+   topic/register content — located, named, causally verified, bounded by a real model property.** **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
