@@ -28863,3 +28863,18 @@ neither is a clean single-machine substrate, though the value residual is the mo
 correction: I hypothesized a clean x0=grammar / value-residual=content dissociation; the data show a RELATIVE
 shift, not a dissociation — both re-injections mainly serve content. Caveat: alpha=0 is off-distribution (both
 sweeps graded, so genuine, but the near-zero magnitudes include a nonlinear tail).
+
+## §988 — FLAWED METRIC (caught): mean-freeze factor decomposition is confounded by zero-mean projections (bilinear_mlp_factors.py)
+
+Tried to test whether the front bilinear MLP is "gate x content" (one factor near-constant) by freezing each factor
+at its GLOBAL MEAN and measuring retained product variance. Result: asymmetry ~1.0 and dominant-factor-retain
+~0.03-0.05 at ALL layers (L1 through L15) — i.e. freezing EITHER factor at its mean kills ~95-97% of the product
+variance, everywhere. This is a CONFOUND, not a finding: the projections Lx=Left(x), Rx=Right(x) are ~MEAN-CENTERED
+(means ~0), so freezing a factor at its ~zero mean trivially zeroes its term regardless of any gate structure. So
+the metric cannot distinguish gate-vs-content, and it gives the same (uninformative) answer at every layer. pred_a
+came out "True" (front asym 1.05 vs mid 1.02) but that margin is NOISE, not signal — RETRACTED as uninformative.
+The metric is wrong; §941 (clean loss-recovery: front near-linear, middle multiplicative) stands as the real
+answer to whether the layer uses its multiplication. CORRECTED metric queued (bilinear_mlp_factors_v2): measure
+each factor's CONSTANT FRACTION = ||mean||^2 / (||mean||^2 + variation-energy), a scale-free test of whether one
+factor is near-constant (a gate) — high constant-fraction = gate. LESSON: freezing at the mean is not a valid
+"hold this factor fixed" for mean-centered activations; use an energy-fraction metric.
