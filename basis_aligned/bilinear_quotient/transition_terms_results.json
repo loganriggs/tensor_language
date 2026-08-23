@@ -1,0 +1,151 @@
+{
+ "base_ce": 3.3914,
+ "var_shares": {
+  "0": {
+   "tok": 0.799,
+   "cross": 0.1304,
+   "dev": 0.0706
+  },
+  "1": {
+   "tok": 0.6576,
+   "cross": 0.2218,
+   "dev": 0.1207
+  },
+  "3": {
+   "tok": 0.4883,
+   "cross": 0.2432,
+   "dev": 0.2685
+  },
+  "4": {
+   "tok": 0.3283,
+   "cross": 0.2067,
+   "dev": 0.465
+  },
+  "5": {
+   "tok": 0.5398,
+   "cross": 0.1474,
+   "dev": 0.3128
+  },
+  "8": {
+   "tok": 0.3255,
+   "cross": 0.2558,
+   "dev": 0.4187
+  },
+  "10": {
+   "tok": 0.3153,
+   "cross": 0.2788,
+   "dev": 0.4059
+  },
+  "12": {
+   "tok": 0.3882,
+   "cross": 0.2391,
+   "dev": 0.3727
+  },
+  "16": {
+   "tok": 0.9062,
+   "cross": 0.0747,
+   "dev": 0.0191
+  }
+ },
+ "ce": {
+  "0": {
+   "full": 0.0,
+   "tok": 0.044,
+   "tokcross": 0.0065,
+   "dev": 1.2774,
+   "meanabl": 0.7918,
+   "tok_recov": 0.944,
+   "tokcross_recov": 0.992
+  },
+  "1": {
+   "full": 0.0,
+   "tok": 0.1269,
+   "tokcross": 0.0111,
+   "dev": 0.5639,
+   "meanabl": 6.5856,
+   "tok_recov": 0.981,
+   "tokcross_recov": 0.998
+  },
+  "3": {
+   "full": -0.0,
+   "tok": 0.0835,
+   "tokcross": 0.0368,
+   "dev": 0.0665,
+   "meanabl": 0.5894,
+   "tok_recov": 0.858,
+   "tokcross_recov": 0.938
+  },
+  "4": {
+   "full": 0.0,
+   "tok": 0.0974,
+   "tokcross": 0.0802,
+   "dev": 0.0606,
+   "meanabl": 0.103,
+   "tok_recov": 0.054,
+   "tokcross_recov": 0.221
+  },
+  "5": {
+   "full": 0.0,
+   "tok": 0.0435,
+   "tokcross": 0.0328,
+   "dev": 0.0349,
+   "meanabl": 0.0837,
+   "tok_recov": 0.48,
+   "tokcross_recov": 0.608
+  },
+  "8": {
+   "full": 0.0,
+   "tok": 0.0202,
+   "tokcross": 0.0157,
+   "dev": 0.0171,
+   "meanabl": 0.0488,
+   "tok_recov": 0.586,
+   "tokcross_recov": 0.678
+  },
+  "10": {
+   "full": 0.0,
+   "tok": 0.0164,
+   "tokcross": 0.0112,
+   "dev": 0.0163,
+   "meanabl": 0.0396,
+   "tok_recov": 0.586,
+   "tokcross_recov": 0.717
+  },
+  "12": {
+   "full": 0.0,
+   "tok": 0.0167,
+   "tokcross": 0.0104,
+   "dev": 0.0177,
+   "meanabl": 0.0393,
+   "tok_recov": 0.575,
+   "tokcross_recov": 0.735
+  },
+  "16": {
+   "full": 0.0,
+   "tok": 0.0373,
+   "tokcross": 0.0221,
+   "dev": 0.874,
+   "meanabl": 0.1521,
+   "tok_recov": 0.755,
+   "tokcross_recov": 0.855
+  }
+ },
+ "band_cross": {
+  "front01": 0.1761,
+  "trans345": 0.1991,
+  "deep81012": 0.2579
+ },
+ "band_tok": {
+  "front01": 0.7283,
+  "trans345": 0.4521,
+  "deep81012": 0.343
+ },
+ "band_dev": {
+  "front01": 0.0956,
+  "trans345": 0.3488,
+  "deep81012": 0.3991
+ },
+ "pred_a_binding": false,
+ "pred_b_gradient": true,
+ "runtime_s": 150.9
+}

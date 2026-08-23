@@ -1,0 +1,10 @@
+L6 r: {'content_sim': -0.015, 'key_content_norm': 0.1, 'log_dist': -0.575, 'key_norm': -0.001, 'key_log_freq': -0.042} | joint R2 0.349
+L8 r: {'content_sim': 0.075, 'key_content_norm': 0.074, 'log_dist': -0.387, 'key_norm': 0.0, 'key_log_freq': -0.069} | joint R2 0.156
+L10 r: {'content_sim': 0.097, 'key_content_norm': 0.12, 'log_dist': -0.586, 'key_norm': -0.008, 'key_log_freq': -0.071} | joint R2 0.357
+L12 r: {'content_sim': 0.181, 'key_content_norm': 0.145, 'log_dist': -0.61, 'key_norm': -0.0, 'key_log_freq': -0.131} | joint R2 0.406
+L6 mask cost: content-sim 0.0048 | random 0.0026 | ratio 1.85
+L8 mask cost: content-sim 0.0098 | random 0.0024 | ratio 4.08
+L10 mask cost: content-sim 0.002 | random 0.0011 | ratio 1.82
+L12 mask cost: content-sim 0.0019 | random 0.0005 | ratio 3.8
+content-top layers 0/4 | causal>=3x layers 2/4 | pred_a False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/pooler_criterion_results.json (86.8s)

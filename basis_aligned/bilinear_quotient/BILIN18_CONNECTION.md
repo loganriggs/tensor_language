@@ -30931,3 +30931,18 @@ readout_merge_results.json; runlogs/readout_merge.log (84s).
 **Redteam/follow-up registered (l5h7_probe.py):** (i) is L5H7's cost content-signed (rare/frequent ratio like the value-residual's 2.69, §1075)? (ii) INTERCHANGE: donor-patch L5H7's output — does topic transport through this one head? (iii) distance masking: is its value from far context? (iv) same tests on a matched inert pooler control (L10H5).
 
 attn_head_map_results.json; runlogs/attn_head_map.log (474s).
+
+## §1084 — THREAD C: NO token×context binding band — the MLP stack is a smooth tok→context gradient; L4 is the first true context MLP; the readout MLP is 91% token-variance with a load-bearing token baseline (transition_terms.py)
+
+**Question.** What do the transition MLPs (L3-5, content birth §1052) compute? Hypothesis: token×context CROSS terms (binding). The bilinear form makes the test exact weight algebra: split input x = mtok + dev (per-token mean + deviation); output = Down[Lm*Rm] (TOK) + Down[Lm*Rd + Ld*Rm] (CROSS) + Down[Ld*Rd] (DEV), exactly. Variance shares + CE substitution per layer (0,1,3,4,5,8,10,12,16). Sanity held: FULL reconstruction costs 0.0 everywhere.
+
+**Result (pred_a binding FALSE; pred_b gradient TRUE).**
+- **No binding band.** CROSS variance share is nearly flat and never dominant: front 0.18, transition 0.20, deep 0.26 (max single-layer 0.28 at L10 — highest in the DEEP, not the transition). The transition does not specially multiply token against context.
+- **Smooth handoff instead (b):** TOK share falls 0.73→0.45→0.34 and DEV rises 0.10→0.35→0.40 (front→transition→deep band means) — the token→context handoff is a gradient across the whole stack, not a banded operation.
+- **The transition band is HETEROGENEOUS — L4 is the step.** L3 is still front-like (tok-only recovers 0.86 of its mean-ablation CE); **L4 is the first MLP that genuinely needs the dev×dev term** (tok-only 0.05, tok+cross 0.22 — nothing partial works) and has the highest dev share of ANY layer (0.47). L5 intermediate (0.48/0.61). §1052's "smooth onset" has a sharp step at L4 in MLP terms.
+- **Per-token static tables go far.** Tok-only CE recovery: L0 0.94, **L1 0.98** (against a colossal 6.59-nat mean-ablation — the gain-control/massive-activation writer, FINDINGS 12, lives in the token term), L3 0.86, L16 0.76. Deep-middle L8-12: tok-only 0.58-0.59, tok+cross 0.68-0.74 — but per-layer stakes there are tiny (mean-abl 0.04-0.05; the band's importance is collective, §1049 redundancy).
+- **Readout MLP surprise:** L16 output variance is **91% token** (cross 0.07, dev 0.02) — mostly a per-token function — and its token baseline is LOAD-BEARING: substituting dev-only output costs 0.874 nats vs 0.152 for full mean-ablation. Keeping context-deviation output without the right per-token baseline is far worse than silence. Refines §1046 (near-linear read): the read rides on a dominant per-token calibration.
+
+**Redteam caveat (registered).** XBAR is in-sample: for singleton tokens (~20% of positions) xbar[tok] equals the single observed input, so dev=0 and the TOK term memorizes the sample — inflating tok-only recovery on rare tokens. Follow-up: held-out-half means. Front conclusions are safe (§1045 got ~0.9 by an independent method); the deep tok-only ~0.59 numbers are the ones to re-check.
+
+transition_terms_results.json; runlogs/transition_terms.log (151s).
