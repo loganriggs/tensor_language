@@ -2269,7 +2269,9 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   content one model reads from a passage, pass it through a single linear map, and splice it into a <em>different</em>
   model running on other text, that second model's predictions swing toward the passage's topic almost as much as if you
   had used its own content (about 96% as much). One network's sense of "what this text is about" can be handed to another
-  and it still works.</p>
+  and it still works. And this does not depend on the models being the same size: a narrower, shallower model (768 wide,
+  twelve layers) shares its leading content directions with the larger ones at correlations of 0.96 and above — the same
+  representation, independent of width, depth, and feed-forward design.</p>
 
   <p>These directions are not just descriptive — they are causal. If you take one passage's coordinates along this
   content map and splice them into the network's run on a <em>different</em> passage, the model's predictions swing

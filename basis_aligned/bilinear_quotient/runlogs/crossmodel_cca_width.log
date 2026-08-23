@@ -1,0 +1,4 @@
+bilin18 vs swiglu18 (same-width): top5 [0.972, 0.964, 0.963, 0.961, 0.953] | mean 0.845 | >0.7 58/64 | shuf 0.029
+bilin18 vs bilin12 (cross-width): top5 [0.958, 0.951, 0.944, 0.937, 0.93] | mean 0.762 | >0.7 49/64 | shuf 0.029
+swiglu18 vs bilin12 (cross-width): top5 [0.968, 0.962, 0.955, 0.952, 0.945] | mean 0.795 | >0.7 53/64 | shuf 0.029
+pred_a cross-width universal: True | wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/crossmodel_cca_width_results.json (67.0s)

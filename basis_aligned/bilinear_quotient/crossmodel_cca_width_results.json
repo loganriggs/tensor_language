@@ -1,0 +1,67 @@
+{
+ "K": 64,
+ "n_positions": 51000,
+ "D": {
+  "bilin18": 1152,
+  "swiglu18": 1152,
+  "bilin12": 768
+ },
+ "pairs": {
+  "bilin18__swiglu18": {
+   "kind": "same-width",
+   "top10": [
+    0.972,
+    0.964,
+    0.963,
+    0.961,
+    0.953,
+    0.951,
+    0.95,
+    0.947,
+    0.943,
+    0.941
+   ],
+   "mean": 0.845,
+   "n_above_0.7": 58,
+   "shuffled_mean": 0.029
+  },
+  "bilin18__bilin12": {
+   "kind": "cross-width",
+   "top10": [
+    0.958,
+    0.951,
+    0.944,
+    0.937,
+    0.93,
+    0.928,
+    0.926,
+    0.918,
+    0.915,
+    0.915
+   ],
+   "mean": 0.762,
+   "n_above_0.7": 49,
+   "shuffled_mean": 0.029
+  },
+  "swiglu18__bilin12": {
+   "kind": "cross-width",
+   "top10": [
+    0.968,
+    0.962,
+    0.955,
+    0.952,
+    0.945,
+    0.938,
+    0.934,
+    0.933,
+    0.927,
+    0.924
+   ],
+   "mean": 0.795,
+   "n_above_0.7": 53,
+   "shuffled_mean": 0.029
+  }
+ },
+ "pred_a_crosswidth_universal": true,
+ "runtime_s": 67.0
+}

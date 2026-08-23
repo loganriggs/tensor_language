@@ -30526,3 +30526,22 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - The random-map floor (0.348) is nonzero because a permuted map still injects content-subspace variance (wrong correspondence, right subspace); the correctly-learned W more than doubles it to near the within-model ceiling — so the LEARNED cross-model correspondence carries real, bilin18-meaningful topic.
 
 **What this establishes — the strongest form of universality.** The high-dimensional topic/register content is not just similarly structured (§1057) or correlated in information (§1061) across independently-trained bilinear models — it is CAUSALLY INTERCHANGEABLE: swiglu18's content, mapped by a single linear transform, works in bilin18 almost as well as bilin18's own. These models converge on the same context representation up to a linear change of basis, and that representation is a portable, functional object. **Controls:** within-model upper bound (0.80) and random-map floor (0.35). **Caveat:** a single global map W across the deep-middle band (not per-layer) already achieves 96% — a per-layer map might close the last 4%; and swiglu18/bilin18 share D=1152, which makes the linear map square (cross-D transfer, e.g. bilin12→bilin18, would need a rectangular map).
+
+## §1063 — Cross-WIDTH universality: the content representation is architecture-independent (bilin12 D=768 vs the D=1152 models)
+
+**Question:** §1061 showed bilin18↔swiglu18 (both D=1152) share content information (CCA 0.95-0.97). Does this survive DIFFERENT WIDTH and DEPTH? Add bilin12 (D=768, 12 layers) and compute all three pairwise CCAs between per-position content coordinates on the same corpus. CCA lives in the K=64 coordinate space, so width differences don't block it. (`crossmodel_cca_width.py`, 200 rows, 51k positions, K=64.)
+
+**Registered predictions:** (a) cross-width pairs also show high top CCAs (several >0.7), comparable to same-width.
+
+**Result — pred_a TRUE:**
+
+| pair | kind | top CCA | mean (64) | #>0.7 | shuffled |
+|---|---|---|---|---|---|
+| bilin18 ↔ swiglu18 | same-width (1152) | 0.972 | 0.845 | 58/64 | 0.029 |
+| **bilin18 ↔ bilin12** | **cross-width (1152/768)** | **0.958** | 0.762 | 49/64 | 0.029 |
+| **swiglu18 ↔ bilin12** | **cross-width (1152/768)** | **0.968** | 0.795 | 53/64 | 0.029 |
+
+- The cross-width pairs (bilin12 D=768, 12 layers vs the D=1152, 18-layer models) share content information at **nearly the same level as same-width**: top canonical correlations 0.96-0.97 (vs 0.97), ~50/64 directions >0.7 (vs 58), means 0.76-0.80 (vs 0.845). The small drop is expected (fewer layers/width to spread the same information), not a qualitative change.
+- Shuffled control 0.029 across all pairs.
+
+**What this establishes.** The high-dimensional topic/register content representation is genuinely ARCHITECTURE-INDEPENDENT: three independently-trained bilinear LMs spanning different WIDTH (768 vs 1152), DEPTH (12 vs 18 layers), and MLP type (squared-bilinear vs gated) converge on the same content information, aligned up to a linear map. The convergent content representation (§1061) is not an artifact of matched dimensionality — it is a robust property of the bilinear LM family. **Controls:** shuffled-position (0.03). **Caveat:** CCA measures linearly-alignable shared information; the top-direction agreement (0.96-0.97) is the robust cross-width claim.
