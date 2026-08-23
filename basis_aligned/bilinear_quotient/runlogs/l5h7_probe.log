@@ -1,0 +1,14 @@
+L5H7 zero: cost 0.8791 | rare 1.4925 | freq 0.6917
+L5H7 donor: cost 0.0214 | rare 0.0323 | freq 0.0181
+L5H7 local_only: cost 0.3417 | rare 0.5726 | freq 0.2712
+L5H7 far_only: cost 0.046 | rare 0.0793 | freq 0.0359
+L5H7 zero_content: cost 1.6444 | rare 2.9577 | freq 1.2431
+L5H7 zero_rest: cost 2.3847 | rare 3.8371 | freq 1.9409
+L10H5 zero: cost 0.0069 | rare -0.0011 | freq 0.0094
+L10H5 donor: cost 0.0085 | rare 0.0115 | freq 0.0076
+L10H5 local_only: cost 0.0008 | rare -0.0007 | freq 0.0012
+L10H5 far_only: cost 0.0041 | rare -0.0027 | freq 0.0062
+L10H5 zero_content: cost 0.0059 | rare 0.0074 | freq 0.0054
+L10H5 zero_rest: cost 0.0038 | rare -0.0027 | freq 0.0058
+L5H7: rare/freq 2.16 | content-frac 1.871 | local-mask 0.3417 vs far-mask 0.046
+pred_a content-gatherer True | pred_b interchange True | wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/l5h7_probe_results.json (83.2s)

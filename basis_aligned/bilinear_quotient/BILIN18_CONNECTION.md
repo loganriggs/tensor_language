@@ -30946,3 +30946,29 @@ attn_head_map_results.json; runlogs/attn_head_map.log (474s).
 **Redteam caveat (registered).** XBAR is in-sample: for singleton tokens (~20% of positions) xbar[tok] equals the single observed input, so dev=0 and the TOK term memorizes the sample — inflating tok-only recovery on rare tokens. Follow-up: held-out-half means. Front conclusions are safe (§1045 got ~0.9 by an independent method); the deep tok-only ~0.59 numbers are the ones to re-check.
 
 transition_terms_results.json; runlogs/transition_terms.log (151s).
+
+## §1085 — THREAD D: the middle pool is PREDOMINANTLY POSITIONAL (recency-decay), with a weak content-similarity bias that grows with depth — "soft content-addressed lookup" REFUTED as the dominant criterion (pooler_criterion.py)
+
+**Question.** What does the middle attention (attn6-12) pool BY? Candidates: content similarity (query·key on U_c), key content norm, positional distance, key residual norm, key frequency. Correlational (sampled (q,k) pairs, |pattern| vs features + joint R²) + causal (mask top-16 content-similar keys per query vs 16 random eligible keys, d≥5).
+
+**Result (pred_a FALSE).**
+- **Position dominates everywhere:** log-distance is the top correlate at all four layers (r = −0.39 to −0.61; closer ⇒ more weight). Content similarity r = −0.02 (L6) → 0.08 (L8) → 0.10 (L10) → **0.18 (L12)**; key-content-norm 0.07-0.15. Joint R² 0.16-0.41 (position carries most of it). The middle pool is a RECENCY pool first — consistent with §1054 (local-window routing of the residual) and §1065 (content ≈ recency-weighted running context).
+- **But the content bias is real and causal, just second-order:** masking top-content-sim keys costs 1.8-4.1× random-key masking (all >1; L8 4.1×, L12 3.8×). And the content correlation GROWS monotonically with depth — the deeper the layer, the more its pooling tilts toward content-relevant keys.
+- Absolute stakes tiny (masking costs ≤0.01 nats — 16 keys of ~250, and §1083 showed middle heads are individually redundant).
+
+**Caveat (registered).** Pattern was averaged over heads; §1083 says middle heads are redundant poolers EXCEPT specialists — a single content-addressed head could be diluted by 8 positional siblings. The head-resolved criterion (esp. for L5H7) is the right follow-up; l5h7_probe (running) partially covers it via distance-masking.
+
+pooler_criterion_results.json; runlogs/pooler_criterion.log (87s).
+
+## §1086 — CORRECTION of §1082 (redteam worked): the argmax-flip rate was a PERTURBATION-SIZE artifact, not a content-specific head vote (readout_merge_vmatch.py)
+
+**§1082 claimed** "content casts the deciding vote among near-tied head candidates" from its 37.8% argmax-flip rate vs a (variance-mismatched) random-64 control's 13.7%. The registered norm-matched control settles it: **a random-direction removal scaled to the content component's norm flips the argmax MORE (41.1%) than content removal (37.8%)**. The head's winner is fragile to ANY large perturbation of the final residual; the content DIRECTION is not special for head flips. Full-deviation removal flips 59.5% (flip rate tracks perturbation size monotonically). **The §1082 sentence "content participates in choosing the winner among the candidates" is RETRACTED as content-specific; plainly: head-winner sensitivity is magnitude-generic.**
+
+**What survives §1082 (and is confirmed here):**
+- The near-linear additive read (lin cosine 0.77) — untouched.
+- The TAIL preference is content-specific but only moderately: content removal costs 1.73 nats of rare-target log-prob vs 1.01 for the norm-matched random control (1.7×) and 0.11 for the unscaled random-64 (16×). Honest summary: at the FINAL residual the content directions are ~1.7× more tail-relevant than any same-size perturbation — the strong content/tail specificity established earlier in the stack (§1056, §1068) is largely already MERGED into the residual by the readout; deleting it there mostly acts like generic damage.
+- Interchange being worse than removal (§1082) still indicates a real directional vote at the tail level.
+
+Not propagated to the published report (§1082 never was — held for this control, correctly).
+
+readout_merge_vmatch_results.json; runlogs/readout_merge_vmatch.log (79s).

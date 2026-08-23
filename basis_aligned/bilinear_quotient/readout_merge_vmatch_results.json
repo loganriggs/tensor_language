@@ -1,0 +1,36 @@
+{
+ "K": 64,
+ "conditions": {
+  "base": {
+   "ce": 3.3473,
+   "rare_lp": -5.5101,
+   "top5_mass": 0.6161,
+   "argmax_change": 0.0
+  },
+  "remove_content": {
+   "ce": 4.2324,
+   "rare_lp": -7.2436,
+   "top5_mass": 0.5713,
+   "argmax_change": 0.3778
+  },
+  "normmatch_random": {
+   "ce": 4.0702,
+   "rare_lp": -6.5179,
+   "top5_mass": 0.4833,
+   "argmax_change": 0.4107
+  },
+  "remove_fulldev": {
+   "ce": 5.5258,
+   "rare_lp": -9.2641,
+   "top5_mass": 0.4293,
+   "argmax_change": 0.5952
+  }
+ },
+ "flip_content": 0.3778,
+ "flip_normmatch": 0.4107,
+ "flip_fulldev": 0.5952,
+ "tail_content": 1.7335,
+ "tail_normmatch": 1.0078,
+ "pred_a_content_specific": false,
+ "runtime_s": 79.4
+}
