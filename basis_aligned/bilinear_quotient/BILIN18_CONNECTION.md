@@ -29350,3 +29350,27 @@ Stated plainly: the pred_b flag is a metric artifact; the substantive claim (L5 
 CAPSTONE of the content-gathering localization (§995->1007): whole content machine -> broad content-word bag-of-words
 (§995/996) -> gathered in L3-5 (§998) -> DOMINANTLY by a SINGLE broad-pooling content head, L5 h7 (§1006/1007) ->
 pooled into the residual and read locally late (§997). A clean bottom-up chain from behavior to one head.
+
+## §1008 — CORRECTION of §1006/1007: L5 h7 is the PREFERENTIAL but REDUNDANT content head; banding (0.29) vastly overstates its irreplaceability vs output-ablation (0.01) (content_L5_head_ablation.py)
+
+INDEPENDENT instrument: mean-ablate each L5 head's OUTPUT z (replace with calibration mean), vs §1006/1007's
+attention-window BANDING. within-CE / class-CE cost vs baseline 2.468:
+  L5 h7: within +0.0098 class +0.0025  (TOP content head, ratio 3.92)
+  others: within +0.0024..+0.0073
+pred_a (h7 top content head by output-ablation too) TRUE -- the DIRECTION agrees: h7 is the top content head by BOTH
+instruments, and within>class (content head). BUT the MAGNITUDES disagree ~30x: banding L5 h7 costs 0.29 nats (§1007)
+while mean-ablating its ENTIRE output costs only 0.0098 nats.
+CORRECTION of §1006/1007 (stated plainly): I called L5 h7 "a rare near-single-component localization / nameable
+single part". Output-ablation REFUTES that strong reading. Removing h7's output entirely barely moves the loss (0.01
+nats) -- the model RECONSTRUCTS the content without it (redundant remainder, the other heads / value residual / later
+pooling compensate). So h7 is NOT load-bearing; it is the head the broad pooling PREFERENTIALLY runs through (top by
+both instruments), but REDUNDANT -- consistent with the model's UNIVERSAL redundancy (FINDINGS item 1), NOT an
+exception to it.
+WHY the two instruments diverge 30x: banding forces h7 to emit a LOCAL-window pool (a present-but-wrong,
+position-varying signal the downstream reads as if it were the broad pool -> active interference, 0.29), whereas
+mean-ablation cleanly REMOVES h7's contribution and the redundant remainder compensates (0.01). Banding measures
+"how much h7's broad-pooling FUNCTION matters if corrupted"; output-ablation measures "is h7 IRREPLACEABLE" -- and it
+is not. The honest statement: L5 h7 is the PREFERENTIAL, broad-pooling content head, but redundant/compensable. This
+is a methodological lesson too: window-banding can overstate a component's unique causal role vs output-ablation.
+Artifact updated to the corrected (redundant-not-critical) framing; §1006/1007's "single nameable part" reading
+retracted.
