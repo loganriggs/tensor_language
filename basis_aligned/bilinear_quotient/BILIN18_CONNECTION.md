@@ -29981,3 +29981,29 @@ So: the content is exactly bilinear and high-rank BY OUTPUT VARIANCE in the neur
 content is low-rank (§1038) and whether a compositional/tensor-network factorization compresses it (prong 4) remain
 the live questions. The "irreducible" framing is still wrong (it IS bilinear structure); "irreducibly high-rank" is
 the sharper open claim to test.
+
+## §1038 — prong 1 result: loss-relevant middle content is PARTLY low-rank bilinear (L15 esp), lower-rank than output variance, but deep-middle is genuinely high-rank even for the loss (bilinear_neuron_lossrank.py)
+
+Substitute each middle MLP output with its top-R-neuron reconstruction (model's real neurons); CE loss-recovery vs R
+(ce_full 3.24):
+  layer  meanabl-cost   R16    R64    R256   R1024
+  L6      0.048         0.06   0.11   0.24   0.56
+  L8      0.032         0.03   0.07   0.19   0.44
+  L11     0.027         0.03   0.09   0.19   0.42
+  L15     0.139         0.72   0.80   0.83   0.88   <- LOW-RANK: 16 neurons recover 72%!
+  MIDDLE loss-recovery@256 = 0.36 vs output-R²@256 = 0.16 (§1037). pred_a FALSE (didn't clear the 0.9/threshold bar).
+FINDINGS (nuanced, and they move toward the user's point):
+ 1. LOSS < OUTPUT RANK: loss-recovery@256 (0.36) is 2.3x the output-variance R²@256 (0.16) -> much of §1037's high
+    output-rank is LOSS-IRRELEVANT (massive-activation/norm variance, §737/748); the loss-relevant bilinear content is
+    more compressible than the raw output. Confirms §1037's caveat 1.
+ 2. L15 IS GENUINELY LOW-RANK: just 16 bilinear neurons recover 72% of L15's loss contribution (64->80%, 1024->88%).
+    A HANDFUL of nameable bilinear neurons carry most of the last content layer -- directly understandable as low-rank
+    bilinear structure. (L15 also has the largest middle budget, meanabl 0.14.)
+ 3. DEEP-MIDDLE (L6/8/11) STAYS HIGH-RANK even for the LOSS: 256 neurons recover only ~0.2, 1024 only ~0.4-0.56 --
+    need well over 1024 of 4608 for 0.9. This is a REAL high-rank limit, now confirmed with the loss-relevant measure
+    (not an output-variance or linear-stand-in artifact).
+PRONG 1 CONCLUSION: the middle is bilinear (exactly), and we CAN understand more of it than "irreducible" implied --
+its loss-relevant part is partly low-rank, and L15 is a handful of neurons. But the deep-middle content is genuinely
+HIGH-RANK bilinear even for the loss. So the corrected claim is: NOT "irreducible", but "exact bilinear structure that
+is LOW-rank at L15 and HIGH-rank in the deep middle." Greedy neuron-ranking is a suboptimal upper bound; a better
+factorization or the compositional/tensor-network view (prong 4) may compress the deep-middle further -- next.
