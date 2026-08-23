@@ -1,0 +1,323 @@
+{
+ "K": 16,
+ "CTX": 12,
+ "n_positions": 51000,
+ "features": [
+  "digit_density",
+  "punct_density",
+  "upper_ratio",
+  "alpha_ratio",
+  "mean_tok_len",
+  "word_rate"
+ ],
+ "per_pc": [
+  {
+   "pc": 0,
+   "top_feature_corrs": [
+    [
+     "mean_tok_len",
+     -0.195
+    ],
+    [
+     "alpha_ratio",
+     -0.109
+    ],
+    [
+     "punct_density",
+     0.107
+    ]
+   ],
+   "surface_R2": 0.067,
+   "shuffled_max_abs_r": 0.008
+  },
+  {
+   "pc": 1,
+   "top_feature_corrs": [
+    [
+     "word_rate",
+     -0.112
+    ],
+    [
+     "upper_ratio",
+     0.069
+    ],
+    [
+     "alpha_ratio",
+     0.061
+    ]
+   ],
+   "surface_R2": 0.063,
+   "shuffled_max_abs_r": 0.006
+  },
+  {
+   "pc": 2,
+   "top_feature_corrs": [
+    [
+     "mean_tok_len",
+     -0.174
+    ],
+    [
+     "word_rate",
+     -0.159
+    ],
+    [
+     "upper_ratio",
+     0.125
+    ]
+   ],
+   "surface_R2": 0.039,
+   "shuffled_max_abs_r": 0.005
+  },
+  {
+   "pc": 3,
+   "top_feature_corrs": [
+    [
+     "mean_tok_len",
+     -0.107
+    ],
+    [
+     "word_rate",
+     -0.087
+    ],
+    [
+     "punct_density",
+     0.078
+    ]
+   ],
+   "surface_R2": 0.016,
+   "shuffled_max_abs_r": 0.005
+  },
+  {
+   "pc": 4,
+   "top_feature_corrs": [
+    [
+     "punct_density",
+     0.048
+    ],
+    [
+     "alpha_ratio",
+     -0.043
+    ],
+    [
+     "upper_ratio",
+     -0.041
+    ]
+   ],
+   "surface_R2": 0.009,
+   "shuffled_max_abs_r": 0.008
+  },
+  {
+   "pc": 5,
+   "top_feature_corrs": [
+    [
+     "word_rate",
+     -0.101
+    ],
+    [
+     "upper_ratio",
+     0.063
+    ],
+    [
+     "mean_tok_len",
+     -0.057
+    ]
+   ],
+   "surface_R2": 0.013,
+   "shuffled_max_abs_r": 0.002
+  },
+  {
+   "pc": 6,
+   "top_feature_corrs": [
+    [
+     "word_rate",
+     0.07
+    ],
+    [
+     "alpha_ratio",
+     -0.062
+    ],
+    [
+     "digit_density",
+     0.049
+    ]
+   ],
+   "surface_R2": 0.021,
+   "shuffled_max_abs_r": 0.008
+  },
+  {
+   "pc": 7,
+   "top_feature_corrs": [
+    [
+     "word_rate",
+     -0.077
+    ],
+    [
+     "mean_tok_len",
+     -0.057
+    ],
+    [
+     "upper_ratio",
+     0.033
+    ]
+   ],
+   "surface_R2": 0.01,
+   "shuffled_max_abs_r": 0.006
+  },
+  {
+   "pc": 8,
+   "top_feature_corrs": [
+    [
+     "alpha_ratio",
+     -0.039
+    ],
+    [
+     "word_rate",
+     0.038
+    ],
+    [
+     "digit_density",
+     0.032
+    ]
+   ],
+   "surface_R2": 0.009,
+   "shuffled_max_abs_r": 0.006
+  },
+  {
+   "pc": 9,
+   "top_feature_corrs": [
+    [
+     "word_rate",
+     0.103
+    ],
+    [
+     "mean_tok_len",
+     0.068
+    ],
+    [
+     "punct_density",
+     -0.06
+    ]
+   ],
+   "surface_R2": 0.012,
+   "shuffled_max_abs_r": 0.006
+  },
+  {
+   "pc": 10,
+   "top_feature_corrs": [
+    [
+     "mean_tok_len",
+     -0.062
+    ],
+    [
+     "alpha_ratio",
+     -0.059
+    ],
+    [
+     "digit_density",
+     0.038
+    ]
+   ],
+   "surface_R2": 0.005,
+   "shuffled_max_abs_r": 0.007
+  },
+  {
+   "pc": 11,
+   "top_feature_corrs": [
+    [
+     "punct_density",
+     -0.047
+    ],
+    [
+     "word_rate",
+     0.042
+    ],
+    [
+     "upper_ratio",
+     -0.037
+    ]
+   ],
+   "surface_R2": 0.01,
+   "shuffled_max_abs_r": 0.008
+  },
+  {
+   "pc": 12,
+   "top_feature_corrs": [
+    [
+     "mean_tok_len",
+     0.107
+    ],
+    [
+     "word_rate",
+     0.101
+    ],
+    [
+     "upper_ratio",
+     -0.062
+    ]
+   ],
+   "surface_R2": 0.016,
+   "shuffled_max_abs_r": 0.004
+  },
+  {
+   "pc": 13,
+   "top_feature_corrs": [
+    [
+     "mean_tok_len",
+     -0.107
+    ],
+    [
+     "word_rate",
+     -0.1
+    ],
+    [
+     "punct_density",
+     0.078
+    ]
+   ],
+   "surface_R2": 0.015,
+   "shuffled_max_abs_r": 0.007
+  },
+  {
+   "pc": 14,
+   "top_feature_corrs": [
+    [
+     "word_rate",
+     0.073
+    ],
+    [
+     "digit_density",
+     -0.066
+    ],
+    [
+     "alpha_ratio",
+     0.065
+    ]
+   ],
+   "surface_R2": 0.009,
+   "shuffled_max_abs_r": 0.006
+  },
+  {
+   "pc": 15,
+   "top_feature_corrs": [
+    [
+     "word_rate",
+     -0.036
+    ],
+    [
+     "digit_density",
+     0.026
+    ],
+    [
+     "mean_tok_len",
+     -0.023
+    ]
+   ],
+   "surface_R2": 0.002,
+   "shuffled_max_abs_r": 0.005
+  }
+ ],
+ "mean_surface_R2": 0.02,
+ "pred_a_axes_carry_register": false,
+ "pred_b_residual_semantic": true,
+ "runtime_s": 57.7
+}

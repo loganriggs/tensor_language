@@ -30545,3 +30545,16 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - Shuffled control 0.029 across all pairs.
 
 **What this establishes.** The high-dimensional topic/register content representation is genuinely ARCHITECTURE-INDEPENDENT: three independently-trained bilinear LMs spanning different WIDTH (768 vs 1152), DEPTH (12 vs 18 layers), and MLP type (squared-bilinear vs gated) converge on the same content information, aligned up to a linear map. The convergent content representation (§1061) is not an artifact of matched dimensionality — it is a robust property of the bilinear LM family. **Controls:** shuffled-position (0.03). **Caveat:** CCA measures linearly-alignable shared information; the top-direction agreement (0.96-0.97) is the robust cross-width claim.
+
+## §1064 — The content axes are genuine SEMANTIC topic, not surface register (surface features explain only ~2%)
+
+**Question:** §1055 read the top content axes as topic/register contrasts by eyeballing extremal snippets. Are they actually just SURFACE register (digit density, punctuation, capitalization, token length)? Correlate each of the top-16 content directions' per-position coordinate with measurable trailing-window surface features, and regress all features on each coordinate. (`content_axis_features.py`, 200 rows, per-vocab char-stat table aggregated over a 12-token window.)
+
+**Registered predictions:** (a) axes carry register — some PCs correlate with surface features at |r|>0.2; (b) residual semantic — surface R² modest, much variance unexplained.
+
+**Result — pred_a FALSE, pred_b strongly TRUE:**
+
+- **Surface features barely explain the content.** Best single-feature correlations are only |r| ≈ 0.1-0.2 (PC0: mean-token-length −0.195; PC2: −0.174; a faint trace of register — longer/technical vocabulary anti-correlates with the "informal" pole). All six surface features TOGETHER explain a mean of just **2%** of content-coordinate variance (per-PC surface R² 0.005-0.067, mean 0.02).
+- **These small correlations are real** (shuffled-position null ~0.005-0.008, so |r|~0.1-0.2 is well above chance) — but tiny.
+
+**What this establishes (a refinement/correction of the naive reading).** The content axes are NOT surface register (punctuation/caps/digit statistics) — they carry GENUINE SEMANTIC TOPIC. §1055's "informal conversational ↔ formal encyclopedic", "narrative ↔ technical" contrasts are *semantic/genre* distinctions (what the text is ABOUT and its communicative mode), not shallow text statistics: a formal encyclopedic passage and an informal chat differ in content/topic, and only ~2% in measurable surface features. This strengthens the core claim — the high-dimensional content manifold is a genuine semantic-topic representation, not a trivial surface-statistics artifact. It also mildly corrects any reading of §1055's "register" as surface-level: the register is semantic. **Nulls:** shuffled-position (~0.006). **Caveat:** only six hand-chosen surface features tested; a richer surface-feature set might explain a bit more, but 2% is a strong floor that the content is dominantly semantic.

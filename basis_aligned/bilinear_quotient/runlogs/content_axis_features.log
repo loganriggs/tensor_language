@@ -1,0 +1,18 @@
+PC0: top [('mean_tok_len', -0.195), ('alpha_ratio', -0.109), ('punct_density', 0.107)] | surfaceR2 0.067 | shufmax 0.008
+PC1: top [('word_rate', -0.112), ('upper_ratio', 0.069), ('alpha_ratio', 0.061)] | surfaceR2 0.063 | shufmax 0.006
+PC2: top [('mean_tok_len', -0.174), ('word_rate', -0.159), ('upper_ratio', 0.125)] | surfaceR2 0.039 | shufmax 0.005
+PC3: top [('mean_tok_len', -0.107), ('word_rate', -0.087), ('punct_density', 0.078)] | surfaceR2 0.016 | shufmax 0.005
+PC4: top [('punct_density', 0.048), ('alpha_ratio', -0.043), ('upper_ratio', -0.041)] | surfaceR2 0.009 | shufmax 0.008
+PC5: top [('word_rate', -0.101), ('upper_ratio', 0.063), ('mean_tok_len', -0.057)] | surfaceR2 0.013 | shufmax 0.002
+PC6: top [('word_rate', 0.07), ('alpha_ratio', -0.062), ('digit_density', 0.049)] | surfaceR2 0.021 | shufmax 0.008
+PC7: top [('word_rate', -0.077), ('mean_tok_len', -0.057), ('upper_ratio', 0.033)] | surfaceR2 0.01 | shufmax 0.006
+PC8: top [('alpha_ratio', -0.039), ('word_rate', 0.038), ('digit_density', 0.032)] | surfaceR2 0.009 | shufmax 0.006
+PC9: top [('word_rate', 0.103), ('mean_tok_len', 0.068), ('punct_density', -0.06)] | surfaceR2 0.012 | shufmax 0.006
+PC10: top [('mean_tok_len', -0.062), ('alpha_ratio', -0.059), ('digit_density', 0.038)] | surfaceR2 0.005 | shufmax 0.007
+PC11: top [('punct_density', -0.047), ('word_rate', 0.042), ('upper_ratio', -0.037)] | surfaceR2 0.01 | shufmax 0.008
+PC12: top [('mean_tok_len', 0.107), ('word_rate', 0.101), ('upper_ratio', -0.062)] | surfaceR2 0.016 | shufmax 0.004
+PC13: top [('mean_tok_len', -0.107), ('word_rate', -0.1), ('punct_density', 0.078)] | surfaceR2 0.015 | shufmax 0.007
+PC14: top [('word_rate', 0.073), ('digit_density', -0.066), ('alpha_ratio', 0.065)] | surfaceR2 0.009 | shufmax 0.006
+PC15: top [('word_rate', -0.036), ('digit_density', 0.026), ('mean_tok_len', -0.023)] | surfaceR2 0.002 | shufmax 0.005
+mean surface-R2 0.02 | pred_a register False | pred_b residual-semantic True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_axis_features_results.json (57.7s)
