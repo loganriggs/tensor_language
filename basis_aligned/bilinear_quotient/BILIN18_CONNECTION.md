@@ -29871,3 +29871,24 @@ with a mechanistic account, not just an isolated effect.
 forward (spatial, decays with distance from the match) + (b) a global ~1.5x induction-firing content boost. Robust
 across 6 controls (last-token presence/identity, content-density, softmax, and the spatial/global decomposition).
 The core three-mechanism account is unchanged; this refines it with one real, now-explained cross-mechanism coupling.
+
+## §1033 — content controls the TAIL, not the HEAD: topical injection barely moves the top-5 despite large log-prob boosts (grammar owns the head) (content_steering.py)
+
+Fraction of query positions where an injected word's topic-neighbor is in the model's TOP-5 prediction, vs K:
+  K:               0       1       4       8      | ΔK8
+  content words:   0.0019  0.0019  0.0032  0.0207 | +0.019
+  function words:  0.2676  0.2676  0.3301  0.4073 | +0.140
+pred_a (behavioral top-5 steering by content) FALSE; pred_0 (function control smaller than content) FALSE.
+INFORMATIVE NEGATIVE (my "steering" prediction was naive, stated plainly): content injection produces LARGE log-prob
+boosts (§1017: +3.4 nats at K=8) but barely changes the TOP-5 prediction (content top-5 topic-hit only 0.02 at K=8).
+WHY -- and it confirms the two-machine structure behaviorally: the model's TOP-k predictions are dominated by
+HIGH-FREQUENCY grammatical tokens (function words, punctuation, common words); content-word topic-neighbors are
+LOW-frequency specific tokens deep in the tail (logP ~ -15). A +3.4-nat boost lifts them to ~ -11.6, still far below
+the top-5 (logP ~ -2). So CONTENT shapes the TAIL (which specific word, given the grammatical slot), NOT the HEAD
+(which grammatical slot). GRAMMAR owns the head: FUNCTION-word injection DOES move the top-5 (0.27 -> 0.41) because
+function words and their neighbors ARE the high-frequency head.
+This is a behavioral confirmation of the chain-rule split used throughout (class-CE = grammar = the HEAD / top-k;
+within-CE = content = the within-slot TAIL): content is a tail phenomenon. It also BOUNDS "understanding -> control":
+the content machine lets us shape the specific-word tail (log-probs), NOT flip the top-k (which grammar governs). A
+fitting, honest capstone -- the content machine's behavioral reach is the tail, exactly as the two-machine account
+implies.
