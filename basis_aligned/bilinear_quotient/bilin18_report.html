@@ -1953,7 +1953,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   literal sense that it <em>adds up</em>: drop in two copies and the topic pull roughly doubles, four copies quadruple
   it, eight copies raise it about eight-fold — a near-linear dose-response, evidence accumulating token by token rather
   than one word saturating the effect. (Even function words accumulate this way, just far more weakly — the pool takes
-  in everything, but content words carry perhaps twice the topical weight.) And the injection cleanly separates the
+  in everything, but content words carry perhaps twice the topical weight.) It is also a true mixture: drop in two
+  <em>different</em> topics — football and ocean, hospital and music — and both come through downstream at close to
+  full strength, neither crowding out the other. The bag superposes topics rather than picking a winner, which is
+  what a linear pool of word-vectors should do. And the injection cleanly separates the
   two machines: that distant content word shifts the model's <em>topic</em> prediction while leaving its
   <em>grammar</em> prediction — which part of speech comes next — essentially untouched. Only a content word dropped
   right next to the query disturbs grammar, because grammar is read off the local tokens. Content reaches across the
