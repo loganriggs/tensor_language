@@ -1,0 +1,49 @@
+{
+ "base_ce": 3.1414,
+ "per_layer": {
+  "15": {
+   "costs": {
+    "full": 0.0,
+    "linear": 0.0235,
+    "linear_token": 0.0254,
+    "meanabl": 0.0389
+   },
+   "recov": {
+    "linear": 0.396,
+    "linear_token": 0.347
+   }
+  },
+  "16": {
+   "costs": {
+    "full": 0.0,
+    "linear": 0.0281,
+    "linear_token": 0.0297,
+    "meanabl": 0.1503
+   },
+   "recov": {
+    "linear": 0.813,
+    "linear_token": 0.802
+   }
+  },
+  "17": {
+   "costs": {
+    "full": 0.0,
+    "linear": 0.0583,
+    "linear_token": 0.0616,
+    "meanabl": 0.3682
+   },
+   "recov": {
+    "linear": 0.842,
+    "linear_token": 0.833
+   }
+  }
+ },
+ "drop_vs_1046": {
+  "16": -0.033,
+  "17": 0.008
+ },
+ "pred_a_certified": true,
+ "pred_b_leak": false,
+ "pred_c_token_redundant": true,
+ "runtime_s": 48.5
+}

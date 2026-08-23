@@ -1,0 +1,9 @@
+L15: linear fit R2 (train) 0.483
+L16: linear fit R2 (train) 0.911
+L17: linear fit R2 (train) 0.947
+L15: linear recov 0.396 | +token 0.347 | mean-abl 0.0389
+L16: linear recov 0.813 | +token 0.802 | mean-abl 0.1503
+L17: linear recov 0.842 | +token 0.833 | mean-abl 0.3682
+drops vs §1046: {'16': -0.033, '17': 0.008} | max token gain -0.009
+pred_a certified True | pred_b leak False | pred_c token-redundant True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/readout_standin_heldout_results.json (48.5s)

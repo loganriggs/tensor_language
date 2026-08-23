@@ -31453,3 +31453,11 @@ skeleton_atom_interchange_results.json; runlogs/skeleton_atom_interchange.log (4
 **Process note:** the certification sweep continues — next target the readout stand-ins (§1046's linear-read numbers predate the held-out rule; queued).
 
 transition_standin_heldout_results.json; runlogs/transition_standin_heldout.log (58s).
+
+## §1131 — Readout CERTIFIES: mlp17 0.842, mlp16 0.813 held-out (fitted linear maps generalize, unlike token tables); token augmentation adds nothing (−0.009, §1090 confirmed); the certification sweep CLOSES (readout_standin_heldout.py)
+
+**pred_a TRUE, pred_c TRUE.** Held-out linear-read recoveries: mlp17 0.842 (§1046: 0.85 — drop 0.008), mlp16 **0.813** (§1046: 0.78 — better held-out with a properly fitted map), mlp15 0.396 (first number; stakes tiny, mean-abl 0.039). Train-R² ≈ held-out recovery (0.91/0.95) — LINEAR maps generalize where token tables leak, which is the mechanism behind the §1088/§1130 corrections landing only on table-based stand-ins. The token-augmented variant subtracts value (−0.009 max): §1090's "token part big-but-redundant" is now a certified-stand-in fact.
+
+**Certification sweep status — CLOSED.** Every row of the per-module table is now either (i) certified held-out this sweep (front MLPs §1088; transition §1130; readout here; skeleton fractions §1120), (ii) split-half audited (§1101: L5H7 constant, static-attention numbers), or (iii) structurally leak-free (window/kernel stand-ins recompute from weights+current activations with no fitted per-token parameters; L0's table was verified at zero cost by construction in the prior sink arc). Remaining certified gaps to 90%: mlp16/17 sit at 0.81-0.84 (the §1040 rank-64 bilinear reading of mlp16 — weight-truncation, low leak risk — suggests ≥0.9 is available; registered as the one candidate upgrade), L4/L5 at 0.82/0.80 (r256), middle-attn kernel 0.58, deep content bounded by the §1127 construction theorem.
+
+readout_standin_heldout_results.json; runlogs/readout_standin_heldout.log (49s).
