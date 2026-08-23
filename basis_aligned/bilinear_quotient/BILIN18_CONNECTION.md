@@ -30220,3 +30220,17 @@ GATHERERS (broad pooling) and the deep-middle CONTENT×CONTENT (high-rank conten
 REAL model properties (broad pooling; genuinely high-dimensional content), not by our instruments. The residual
 understanding gap of the whole model IS that high-rank content -- a real property, now precisely located and
 characterized rather than an "irreducible ceiling".
+
+## §1047 — complete attention map: local-window front (0-2), broad-pooling middle (3-14), inert late (15-17) (bottomup_attn_all.py)
+
+Local-window [cur+3prev] loss-recovery for all 18 attn (ce_full 3.085):
+  attn:  0     1     2     3     4     5     6     7     8-14         15    16    17
+  win-r: 0.94  0.83  0.64  0.49  0.62  0.09  0.37  0.28  0.03-0.18   0.07  0.05  0.17
+  meanabl 0.27  0.20  0.13  0.10  0.22  0.12  0.05  0.06  0.02-0.06  0.006 0.01  0.011
+  bands: front(0-2) 0.80 | gatherers(3-5) 0.40 | middle(6-14) 0.10 | late(15-17) 0.10. pred_a TRUE.
+COMPLETE ATTENTION MAP: attn0-2 are LOCAL-WINDOW routers (0.64-0.94, understood as current+recent-token functions);
+attn3-14 are BROAD (window-recovery 0.03-0.62, mostly content pooling / long-range, low-stakes meanabl 0.02-0.22 --
+the content-gathering §998 + distributed middle pooling §931); attn15-17 are nearly INERT (meanabl 0.006-0.011). So
+the ATTENTION machine = local-window front + broad-pooling middle + inert late. Only the front attn is
+window-reconstructible; the middle attn is the broad content pooling (mechanistically understood §932/998/1019, not
+window-reconstructible), and the late attn barely acts.
