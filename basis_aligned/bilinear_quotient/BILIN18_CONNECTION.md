@@ -29604,3 +29604,26 @@ toward recent tokens.
 side across its full property set: KIND (§1016 topical priming, topic-specific, not induction), DOSE (§1017 ~linear
 accumulation/pooling, all tokens, content 2.2x>function), SEPARABILITY (§1018 distant content moves content not
 grammar), and RECEPTIVE FIELD (§1019 recency-weighted-but-broad, cross-validating §995).
+
+## §1020 — GENERATIVE validation of the LOCAL grammar machine: adjacent determiner -> noun prediction; far -> nothing (grammar_injection_local.py)
+
+Inject a grammatical cue ADJACENT to the query (last fed position) vs FAR (pos 3); ΔP(next token is noun-ish:
+word/cap/number):
+  cue            adjacent ΔP(noun)   far ΔP(noun)
+  " the" (det)     +0.320             -0.0011
+  " a"   (det)     +0.257             -0.0004
+  " of"  (prep)    +0.034             -0.0005
+  adjacent mean +0.204 | far mean -0.0007.
+pred_0 (far control ~0) TRUE; pred_a (adjacent local grammar response) TRUE. Injecting a determiner RIGHT BEFORE the
+query sharply raises the model's probability that the next token is a noun (+0.26-0.32) -- the grammar machine
+responds to the local syntactic cue -- while the SAME determiner 147 tokens away does nothing (-0.001): grammar is
+LOCAL, shown generatively (mirrors §1018's separability from the grammar side).
+LINGUISTICALLY-CORRECT NUANCE (nice sanity): the PREPOSITION " of" adjacent raises P(noun) only +0.034, FAR less than
+determiners -- because "of" is usually followed by a DETERMINER ("of the", "of a"), NOT a noun directly. So the
+grammar machine tracks REAL syntax (of -> det -> noun), not a crude "function-word -> noun" rule. Generative
+confirmation that grammar is a local, syntactically-accurate part-of-speech predictor.
+=== GENERATIVE two-machine validation COMPLETE (§1016-1020) === Both machines predict behavior from the input side:
+CONTENT is broad topical pooling (inject a topical word -> its topic is primed downstream, dose-accumulating,
+recency-weighted-but-broad; §1016-1019), GRAMMAR is local part-of-speech prediction (inject a determiner adjacent ->
+noun predicted; far -> nothing; syntactically accurate; §1020). This generative modality complements the structural
+(§995-998) and causal/interchange (§894/§959-960) evidence for the two-machine account.
