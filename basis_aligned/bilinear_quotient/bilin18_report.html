@@ -2189,6 +2189,23 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   two-machine picture — content nonlinear and long-range, grammar linear and local — hold across the family and
   across the MLP form.</p>
 
+  <p><strong>"Irreducible" was the wrong word — here is the structure.</strong> Calling that 1.6-nat gap irreducible
+  conflated two different things: irreducible to a <em>linear</em> stand-in (true — but a linear map is the wrong tool
+  for a bilinear layer) versus irreducible <em>full stop</em> (false). Pushing on it directly changed the picture.
+  The middle MLP is exactly bilinear, so ask what it multiplies: split its input into the part fixed by the current
+  token and the part carried in from context, and the multiplication is overwhelmingly <strong>context × context</strong>
+  — the pooled content multiplied by itself (about 70% of the output and essentially all of the loss), with the
+  token-by-token term negligible. So we know the <em>form</em> of the middle computation: it squares the running
+  topic. Module by module the structure is legible too — the readout MLP is a compact rank-64 bilinear map; the front
+  MLPs are captured by per-token tables; only the deep middle resists. And there the resistance is finally
+  <em>named</em>: the content it multiplies is genuinely high-dimensional — you need almost the full content subspace
+  (not a handful of topic directions) to reconstruct 90% of what the deep-middle does, confirmed three independent
+  ways (linear maps, the model's own neurons, and the content's own principal axes). That high-rank-ness is a real
+  property of the model — it tracks a broad topic manifold, not a few topics — not a limitation of our stand-ins. So
+  the honest statement is not "irreducible" but: <em>the deep middle is a high-rank content-times-content bilinear
+  computation</em> — understood in form and organization, with the remaining gap being the true dimensionality of the
+  content itself.</p>
+
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
   output for each current token) instead of a linear map, and comparing. The table does <em>worse</em>, not better
