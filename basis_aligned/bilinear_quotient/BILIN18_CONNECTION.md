@@ -29483,3 +29483,21 @@ draw-dependent), NOT a single stable point; the DRAW-STABLE parts are the token 
 (the residual is the multiplicative content, §1000/1005). Prior single-number quotes (e.g. "0.29 fresh" / earlier
 "0.42"/"0.81") were partly reflecting DRAW variance, not just method differences. The fix is MULTI-DRAW AVERAGING ->
 queued §1014 to report a stable mean +- spread.
+
+## §1014 — STABLE north-star headline: we understand 0.32 ± 0.06 of the whole model (4-draw mean±std) (whole_model_understanding_multidraw.py)
+
+Fresh held-out benchmark over 4 fineweb draws (offsets 0/150/300/450), all 36 components replaced simultaneously:
+  draw off:      0      150    300    450    | mean ± std          (range)
+  token:         0.136  0.145  0.097  0.215  | 0.148 ± 0.043       (0.097-0.215)
+  token+topic+prev 0.269 0.247  0.367  0.400 | 0.321 ± 0.064       (0.247-0.400)
+  genuine_vs_shuf  0.676 0.564  0.753  0.978 | 0.743 ± 0.152       (0.564-0.978)
+pred_token_tight TRUE (token std 0.043 < 0.05); pred_total_wider TRUE (total std 0.064 > token 0.043).
+HEADLINE (properly quantified, replacing single-draw quotes): with our named variables (token-table + continuous
+topic subspace + prev-token) standing in for ALL 36 components at once, held-out, we reconstruct
+**0.32 ± 0.06** of the whole model's contribution (0 = all-mean-ablated, 1 = full), genuine-vs-shuffled 0.74 ± 0.15.
+The draw-to-draw spread (±0.06 total, ±0.15 genuine) is REAL and driven by the topic term's dependence on train/eval
+topic overlap (§1013); it is the honest uncertainty on the metric. The remaining ~0.68 is dominated by the
+irreducible CONTEXT-MULTIPLICATIVE content (~1.6 nats, §1000/1005), which no linear/table/bag stand-in can capture.
+CORRECTION propagated: prior single-number quotes ("0.29 fresh", earlier "0.42"/"0.81") were points on a
+draw-variable (and metric-variable) distribution; the honest statement is 0.32 ± 0.06 (this simultaneous held-out
+config), with the token term ~0.15 the tightest component. FINDINGS 1f and the artifact benchmark figure updated.
