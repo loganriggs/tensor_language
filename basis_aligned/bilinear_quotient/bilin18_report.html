@@ -1949,7 +1949,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   generic rise in confidence. And because the injected word and the context are excluded from what's measured, this is
   not the model copying a token it just saw — it is the topic of that token, broadcast forward to un-seen relatives.
   One content word, dropped in early, tilts the whole downstream topic — which is exactly what a broad, order-free bag
-  of content words predicts, now shown by construction rather than inferred from ablations.</p>
+  of content words predicts, now shown by construction rather than inferred from ablations. And it is a bag in the
+  literal sense that it <em>adds up</em>: drop in two copies and the topic pull roughly doubles, four copies quadruple
+  it, eight copies raise it about eight-fold — a near-linear dose-response, evidence accumulating token by token rather
+  than one word saturating the effect. (Even function words accumulate this way, just far more weakly — the pool takes
+  in everything, but content words carry perhaps twice the topical weight.)</p>
 
   <p><strong>Where every nat goes.</strong> All of this lands in one budget. The model takes the average
   next-token cost from 7.17 nats (guessing from word frequencies alone) down to 3.24, split as 0.76 grammar +
