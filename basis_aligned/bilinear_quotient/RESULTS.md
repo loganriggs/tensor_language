@@ -4843,3 +4843,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1106 — content-sim term causally INERT in the pattern (gain 0.001; §1085 correlate doesn't convert); middle stand-in stays 0.58; const baseline of this run invalid (doubled-means bug, disclosed); kernel+induction rung queued (attn_kernel_content.py)
 §1107 — induction term also inert in the pool (0.006-0.02) though fit rediscovers L5H5 (γ=0.041); both named modes fail; gain-vs-selection diagnostic queued (attn_kernel_induction.py)
 §1108 — gatherer remainder = per-query MASS (0.39→0.64 oracle); middle remainder = unnamed key-SELECTION (+0.08 only; survives content/induction/mass); 4-term scoreboard recorded (attn_kernel_gain.py)
+§1109 — gatherer mass driver UNNAMED (5 features, joint R² 0.06; content-demand refuted); pooling thread PAUSED at two bounded unknowns; eliminated-candidates list on dossier (attn_gain_what.py)

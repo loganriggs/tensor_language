@@ -1,0 +1,32 @@
+{
+ "bands": {
+  "gatherer_L3_5": {
+   "r": {
+    "log_pos": -0.208,
+    "log_freq": 0.039,
+    "content_norm": 0.011,
+    "function_word": -0.051,
+    "seen_before": 0.055
+   },
+   "joint_r2": 0.063,
+   "alpha_cv": 0.616
+  },
+  "middle_L6_14": {
+   "r": {
+    "log_pos": -0.276,
+    "log_freq": 0.148,
+    "content_norm": 0.089,
+    "function_word": 0.012,
+    "seen_before": 0.091
+   },
+   "joint_r2": 0.115,
+   "alpha_cv": 0.555
+  }
+ },
+ "gatherer_top_feature": [
+  "log_pos",
+  -0.208
+ ],
+ "pred_a_content_demand": false,
+ "runtime_s": 49.8
+}

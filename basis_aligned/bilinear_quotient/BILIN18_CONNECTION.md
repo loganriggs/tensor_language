@@ -31214,3 +31214,11 @@ Oracle per-query gain (real row mass × distance kernel; explicitly a diagnostic
 **Band decomposition scoreboard (collective dynamic value):** distance kernel 0.58/0.39 (middle/gatherer) + per-query mass +0.08/+0.25 + content-sim +0.00 + induction +0.02/+0.01; unnamed selection remainder ~0.33/~0.36.
 
 attn_kernel_gain_results.json; runlogs/attn_kernel_gain.log (68s).
+
+## §1109 — The gatherer's mass signal is REAL but UNNAMED: five candidate query features explain almost none of it (joint R² 0.06; top |r| = log-position at only −0.21) — the pooling thread pauses at two bounded unknowns (attn_gain_what.py)
+
+**pred_a FALSE.** Oracle α (per-query pooled-mass gain, worth +0.25 recovery in the gatherer §1108) has substantial variance (CV 0.62) but none of the named query features track it: log-position r=−0.21 (mass slightly DECREASES with position — no ramp, consistent with §1089's flat norm), log-frequency 0.04, content-norm 0.01, function-word −0.05, seen-before 0.06; joint R² 0.063 (middle band similar, 0.115). The content-demand hypothesis is refuted at first order.
+
+**Thread status — PAUSED, honestly bounded.** The middle-attention band's collective function now decomposes into: distance kernel (0.58/0.39) + per-query mass (+0.08/+0.25) + nothing from content-sim/induction — leaving TWO bounded unknowns: (1) the middle's key-selection criterion (survived 4 named candidates, §1108); (2) the gatherer's mass driver (survived 5 named query features, this section). Both are real, causally-sized structures whose obvious candidate lists are exhausted; the next instruments would need nonlinear/contextual features (novelty bursts, syntax boundaries) — diminishing returns for now, recorded on the dossier so nobody re-plows the candidates already eliminated.
+
+attn_gain_what_results.json; runlogs/attn_gain_what.log (50s).
