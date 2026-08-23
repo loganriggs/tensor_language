@@ -347,6 +347,26 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    the logit level (not softmax/density/last-token — each ruled out by a control). Refines, doesn't break, the
    three-mechanism account. **HIGH.**
 
+1N. **"GO HARDER" — the middle is STRUCTURED bilinear, not "irreducible"; but the content is genuinely high-rank
+   (§1036→1042, user-directed).** Retraction of the "irreducible ceiling" framing (it conflated "irreducible to LINEAR
+   stand-ins" with "irreducible"): the MLP is exactly bilinear, so a linear stand-in is the wrong instrument.
+   Corrected picture, prong by prong: (1) BILINEAR RANK — the middle MLP is bilinear (R²=1 at full rank); loss-relevant
+   rank is lower than output-variance rank, and L15 is genuinely LOW-rank (16 neurons → 72% loss-recovery), but the
+   deep-middle (L6-11) needs ~full rank even for the loss (§1037/1038). (My first gradient-fit attempt §1036 was an
+   optimization failure — didn't reach the closed-form linear baseline — corrected.) BOTTOM-UP per-MLP effective
+   bilinear loss-rank (§1040): readout mlp16 = rank-64 (compact!), front mlp0/1 ~1024 (dominant writers, meanabl
+   2.2/1.1 — token-table-captured but bilinear-rank moderate), deep-middle mlp5-14 = full-rank. (2) POOLER — attn5's
+   −4.84 (§1035) was a harness artifact; clean stand-in ≈0, though a crude bag doesn't reconstruct it either (§1039) —
+   it is MECHANISTICALLY understood (recency-weighted value-residual content bag) but not simple-stand-in-reconstructible.
+   (4) COMPOSITIONAL/TENSOR-NETWORK — the deep-middle bilinear form is STRUCTURED = CONTEXT×CONTEXT (pooled content ×
+   itself: ~70% of variance, ~all of the loss; token×token negligible; §1041) — we know WHAT it multiplies. BUT that
+   context is GENUINELY HIGH-RANK (need ~full 1152 context directions for 90% loss-recovery; §1042), confirmed 3 ways
+   (linear §1000, neuron §1038, context-PCA §1042). NET: "irreducible" → wrong; the corrected claim is **the
+   deep-middle is a high-rank CONTENT×CONTENT bilinear computation** — understood in FORM and organization, with the
+   residual gap being the genuine high-dimensionality of the content (a real model property: it tracks a broad
+   high-rank topic manifold), NOT a stand-in artifact. 90%-per-module is reached for front (tables), readout (rank-64
+   bilinear), and the pooler (mechanism); bounded for the deep-middle by the content's real high rank. **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
