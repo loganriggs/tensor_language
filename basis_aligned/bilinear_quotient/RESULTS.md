@@ -4877,3 +4877,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1140 — mass driver DECODABLE (MLP probe R² 0.931 vs feature baseline 0.094); §1134 closure amended (feature vocabulary failed, not representability); naming decomposition queued (alpha_probe.py)
 §1141 — mass driver NAMED: nonlinear content-state saturation (content-64 probe 0.755 of full 0.931; norm-only −0.002; pool-hard-when-thin, throttle-when-full; small-t ratio caveat flagged); open-problem #3 closes positive (alpha_name.py)
 §1142 — open-problem #4 closed negative at n-gram grain (trigram ratio 0.83 — soup breaks sequences as badly as salad); separator = content-support asymmetry (cw-rate, already quantified); parser-level metric out of scope (saved-text analysis)
+§1143 — open-problem #1 closed BY ARGUMENT (RAW-512 ⊇ any local frame; §1127 boundary final on all registered routes); scoreboard: #1,#4 closed, #3 named, #5 hardened; remaining #2 (paused), #6 (low)
