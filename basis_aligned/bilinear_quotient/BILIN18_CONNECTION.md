@@ -29641,3 +29641,27 @@ function word. So the bag-of-words content BEHAVIOR is architecture-general -- c
 intervention), complementing the STRUCTURAL architecture-generality (§1010/1011). The content machine is now
 triple-validated (structural §995-998, causal/interchange §894, generative §1016-1021) AND shown architecture-general
 in both the structural and generative modalities.
+
+## §1022 — the content bag COMPOSES topics ADDITIVELY with NO dilution (a genuine linear superposition) (content_injection_mixing.py)
+
+Inject two different-topic words (A pos 3, B pos 12); topic-neighbor boost at query 150:
+  pair                 soloA  soloB | jointA jointB | cross-null (A when only B, B when only A)
+  football+ocean       0.604  0.643 | 0.717  0.654  | 0.116 / 0.076
+  hospital+music       0.474  0.645 | 0.578  0.678  | 0.103 / 0.063
+  science+church       0.499  0.678 | 0.551  0.688  | 0.049 / 0.064
+  army+garden          0.460  0.588 | 0.554  0.636  | 0.089 / 0.110
+  computer+medicine    0.421  0.644 | 0.534  0.702  | 0.113 / 0.075
+  solo mean 0.566 | joint mean 0.629 | retention joint/solo 1.11 | cross-null mean 0.086
+pred_0 (topic-specific: cross-null << solo) TRUE (0.086 vs 0.566); pred_a (additive mixture: both topics primed when
+both injected) TRUE; pred_b (modest dilution, retention>0.5) TRUE but the reality is STRONGER, stated plainly: there
+is NO dilution -- retention 1.11 (joint slightly EXCEEDS solo). Injecting two topics primes BOTH to ~full solo
+strength SIMULTANEOUSLY; the topics do NOT compete for a fixed pool.
+READING: the content bag is a genuine ADDITIVE, HIGH-CAPACITY MIXTURE -- a linear SUPERPOSITION of topic vectors.
+Inject two topics -> get both at full strength (not winner-take-all, not diluted). This is the defining property of a
+bag-of-words representation (independent additive accumulation), now shown generatively and CONFIRMED at the
+compositional level, which structural (§995-998) and causal (§894) evidence did not directly test. My "modest
+dilution" prediction was too weak: the bag has ample capacity, so two topics add independently.
+=== generative content modality, full property set (§1016-1022) === KIND (priming §1016) + DOSE (~linear
+accumulation §1017) + SEPARABILITY (content-not-grammar §1018) + RECEPTIVE FIELD (recency-broad §1019) +
+ARCHITECTURE-GENERAL (incl swiglu §1021) + COMPOSITIONALITY (additive, no dilution §1022). The bag-of-words content
+machine is behaviorally confirmed as a broad, additive, linear superposition of content-word topic vectors.
