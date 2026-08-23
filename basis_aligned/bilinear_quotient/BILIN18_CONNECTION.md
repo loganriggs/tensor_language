@@ -28645,3 +28645,24 @@ de-biasing, with the readout as the largest single contributor, NOT a separate r
 refines §976 and is consistent with item 3 ("dominant but not sole"). My unification hypothesis (readout ==
 frequency calibrator) is thus REFINED, not confirmed: frequency calibration is distributed; the readout is its
 largest contributor. Closes the readout/frequency unification attempt honestly.
+
+## §978 — capacity buys CONTENT, not grammar; content is both partly capacity-limited and largely task-fundamental (content_bottleneck_capacity.py)
+
+Chain-rule CE split, same FineWeb data/tokenizer, within family:
+  model     full-CE   class-CE(grammar)   within-CE(content)   content-frac
+  bilin18   3.323     0.789               2.534                0.763
+  bilin12   3.500     0.819               2.680                0.766
+pred (a) content-partly-capacity TRUE (sanity full-CE ok; content gap 0.146 >> class gap 0.030). READING:
+ - Extra capacity (bilin12 12L/768 -> bilin18 18L/1152, +~50%) goes almost ENTIRELY into CONTENT: within-class
+   (content) CE drops 0.146 nats, while class (grammar) CE barely moves (0.030). Capacity buys content ~5x more
+   than grammar.
+ - GRAMMAR is SATURATED at both sizes (class-CE ~0.8 both) -> grammar is solved regardless of capacity (consistent
+   with grammar = easy/front/low-rank, solved).
+ - CONTENT is BOTH partly capacity-limited (improves with size) AND largely task-fundamental: it stays the
+   dominant cost (~76% at both sizes, the 23/77 split is SIZE-INVARIANT) and shrinks only 0.15 nats for +50%
+   params, so closing the 2.53-nat content gap would need enormous capacity -> it is a genuine, slowly-yielding
+   bottleneck, not just under-capacity.
+So the two-machine loss budget (§831/§880) is size-invariant in its SPLIT, and the model's extra parameters are
+spent on the CONTENT machine (the hard, high-rank, multiplicative frontier §930/§941), not the (solved) grammar
+machine. This explains WHY content is the frontier: it is where capacity goes and where the residual task
+difficulty lives. Clean within-family comparison (same data/recipe/tokenizer, full-CE sanity-checked).
