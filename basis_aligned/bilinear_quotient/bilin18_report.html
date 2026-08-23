@@ -2092,6 +2092,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   content investigation reached from every other angle — the content machine is genuinely high-dimensional and
   multiplicative — now read straight off the layers.</p>
 
+  <p>One refinement keeps the "linear front" claim honest. "The front is linear" is a statement about each layer
+  <em>relative to itself</em> — a linear surrogate recovers 90–98% of that one layer's effect. It is not that the
+  front's nonlinearity is small in absolute terms. Force every MLP in the model to be its best compositional linear
+  approximation (fitting each layer on the already-linearized stream below it, so no approximation error compounds)
+  and the content cost is <strong>1.6 nats</strong> — the hard floor on what any linear, table, or bag-of-words
+  stand-in can ever reconstruct, and the reason the whole-model understanding score is capped where it is. Split that
+  floor by band and, in absolute nats, the front actually costs <em>more</em> than the middle (1.0 vs 0.6), not less
+  — because the front layers write so much more than the middle ones that even their small relative nonlinearity is a
+  lot of nats, while the middle is proportionally very multiplicative but writes little. Both facts hold at once:
+  the front is nearly linear layer-by-layer, yet its nonlinearity, pooled across the cooperating early layers, is the
+  single largest multiplicative contribution in the model. And whichever band you linearize, the damage falls about
+  four times harder on content than on grammar — the multiplication, wherever it sits, is in service of
+  <em>what</em> is being said.</p>
+
   <p>That the last two layers are near-<em>linear</em> is easy to misread as "they barely do anything." They do
   the opposite. Read the model's own output head off each layer's residual (a logit lens) and the cross-entropy
   falls 7.7 → 6.8 → <strong>5.8 at layer 15</strong> → 4.1 → <strong>3.26 at layer 17</strong>. So layer 15 —
