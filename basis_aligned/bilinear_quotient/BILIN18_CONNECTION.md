@@ -30738,3 +30738,23 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 - So the **content seed is created by the early ATTENTION**, not the MLP. The early attention gathers context into the residual — that is what builds the content-carrying representation. The early MLPs write GRAMMAR (token-class, §768), which is orthogonal to content and slightly dilutes the content R² (adds non-content variance).
 
 **What this completes (and reconciles).** The two-machine account is now mechanistically precise about origin: (1) early ATTENTION = the content GATHERER — it creates the content seed (§1074), consistent with §1053 (content is a residual-stream object attention writes into) and the bag-of-context intuition (§894/930) — but NOT a linear bag of RAW embeddings (§1072), because attention's value-projection + weighting transform the gathered context; (2) front MLP = GRAMMAR writer (orthogonal to content); (3) the deep-middle MLPs then MULTIPLY the already-gathered content (content×content, §1041) into the high-rank semantic object. So: attention gathers the content, the deep-middle MLPs multiply it, the readout reads it. **Nulls/controls:** before_L0 R² ≈ 0 (embedding alone carries no content, sanity); monotone rise matches §1073's cumulative curve. **Caveat:** attn-step and mlp-step gains are within-layer deltas of a cumulative R²; the clear sign pattern (attn +, mlp −, across all four layers) is robust.
+
+## §1075 — bilin18's two distinctive architectural features feed the two machines: value-residual → content, x0 re-injection → grammar
+
+**Question:** what do bilin18's distinctive features DO? (1) x0 RE-INJECTION: every block computes x = λ0·x + λ1·x0 with λ ≈ [6.09, 6.09] (a ~50/50 remix of the running residual with the ORIGINAL embedding at every block). (2) VALUE-RESIDUAL: every attention uses v = (1−λ)v + λ·v1 with λ=0.5 (half of BLOCK-0's value routed into every layer). Ablate each (x0: λ1=0 all blocks; value-residual: λ=0 all attn), measure CE cost, per-layer importance, and the rare-vs-frequent (content-vs-grammar) split. Downstream rms_norm makes these direction/mix ablations, not scale artifacts. (`arch_features.py`, 200 rows; sanity: restore recovers base CE 3.2634 exactly.)
+
+**Registered predictions:** (a) both matter (>0.2 nats); (b) x0 re-injection helps grammar/frequent relatively more, value-residual helps content/rare relatively more.
+
+**Result — both TRUE, and strongly:**
+
+| ablation | CE cost (nats) | rare→freq loss inc | rare/freq ratio |
+|---|---|---|---|
+| no x0 re-injection | **+2.34** | 2.72 / 2.43 / 2.47 / 1.74 | 1.56 |
+| no value-residual | **+3.37** | 4.69 / 4.11 / 2.95 / 1.74 | **2.69** |
+| both | +5.09 | 6.19 / 5.83 / 5.23 / 3.12 | 1.98 |
+
+- **Both features are enormously load-bearing** (base CE 3.26; removing either costs 2-3 nats). Not minor architectural tweaks — core to the model.
+- **Differential role (pred_b TRUE):** the VALUE-RESIDUAL disproportionately supports CONTENT/rare-word prediction (rare/freq 2.69; rare +4.69 vs freq +1.74) — it routes block-0's original token value into every layer, feeding the content computation. x0 RE-INJECTION is flatter/broader (1.56), relatively more grammar-weighted — it re-supplies the token embedding.
+- **Per-layer: both are DISTRIBUTED / super-additive** (per-layer costs sum ≪ the all-layer cost — x0 sum ~0.13 vs global 2.34; value-residual sum ~0.44 vs global 3.37). x0 re-injection's per-layer cost concentrates at **L0-1** (the grammar front, cost 0.028/0.088); the value-residual's concentrates at **L2-4** (cost 0.123/0.058/0.107) — EXACTLY the content-onset transition (§1052). So the value-residual routes the original token value into the layers where the content seed forms.
+
+**What this adds (architecture ↔ two machines).** The two distinctive bilin18 features are not incidental — they feed the two machines: the VALUE-RESIDUAL supplies original token content to the content-building transition/middle (content machine); x0 RE-INJECTION re-supplies the embedding to the early grammar layers (grammar machine). Both are distributed (each layer's is individually compensable, collectively critical). This connects the architecture to the content-origin account (§1074: attention gathers content — and the value it gathers is half block-0's, routed by the value-residual). **Nulls/controls:** restore-to-baseline exact (sanity); per-layer decomposition. **Caveat:** ablating λ1/λ globally also removes their (rms-normed) scale role; the differential rare-vs-frequent pattern and the L2-4 vs L0-1 per-layer localization are the robust, interpretable findings.
