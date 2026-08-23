@@ -2283,6 +2283,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   and using this topic map to decide what comes next — the content frontier is a working mechanism, located, readable,
   and causally load-bearing, not a residual we simply failed to model.</p>
 
+  <p>And you can see what it is <em>for</em>. Remove a small slice of this content map and the damage falls
+  overwhelmingly on the rare, meaning-bearing words — the nouns and verbs that carry a passage's subject — while common
+  function words are barely touched (removing sixteen content directions costs about eight times more on rare words than
+  on frequent ones, well beyond how much harder rare words are to predict in the first place). The topic map is used
+  most exactly where meaning has to be predicted. That is the content machine's job: hold what the passage is about, so
+  the model can call up the words that fit it.</p>
+
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
   output for each current token) instead of a linear map, and comparing. The table does <em>worse</em>, not better
