@@ -29223,3 +29223,28 @@ nonlinearity > middle because the front writes most) and §994 (front cooperativ
 PUZZLE this raises: L0-2 is BELOW the pooling layers (L3-5), so at L0-2 the broad topic is NOT yet gathered -- what
 "content" does L0-2 multiply? Likely LOCAL, current-token content (word-sense), distinct from the broad pooled TOPIC.
 Next: test whether L0-2's multiplicative content is LOCAL (unaffected by removing broad context) vs topic-dependent.
+
+## §1002 — front multiplicative content is MOSTLY local (~60%) with a pooling-substrate component; clean local/topic split NOT supported for later layers (content_mult_local_vs_topic.py)
+
+Compositional group-linearization under full vs K=8-banded context; within-CE cost per group and ratio (banded/full).
+NULL: full baseline == original 3.1385; band baseline within 3.566 (K8 penalty +1.16 ~ §995's +1.12). Valid.
+  group   cost_full  cost_banded  ratio(band/full)
+  L0-2      0.563      0.340        0.60
+  L3-5      0.213     -0.080       -0.37
+  L6-8      0.131      0.174        1.32
+  L9-11     0.113      0.107        0.94
+pred_a (front local, ratio>0.7) FALSE; pred_b (later more topic-dependent, lower ratio) FALSE -- my clean two-part
+hypothesis (front=local / later=topic) is REFUTED.
+HONEST READING (not forcing a clean story):
+ - L0-2 ratio 0.60 has a sensible decomposition: cost_full 0.56 = L0-2's LOCAL multiplicative content (~0.34, the
+   value that SURVIVES banding, i.e. needs only local context) + the damage L0-2's linearization does to the
+   DOWNSTREAM POOLING SUBSTRATE (~0.22, present only under full context, where L3-5 can pool L0-2's features). So
+   L0-2's multiplicative content is MOSTLY (60%) local but ALSO sets up features the later pooling uses. Partial
+   support for "front = local", but below the 0.70 bar.
+ - The LATER groups do NOT show the predicted topic-dependence: L6-8 cost INCREASES under banding (ratio 1.32) --
+   likely a COMPENSATION effect (the banded model, starved of broad content, leans harder on L6-8's local
+   multiplication). L3-5 goes slightly NEGATIVE (-0.08, noise-level). The band x linearize 2x2 is ENTANGLED for
+   these layers (banding changes the computational regime), so the ratio does NOT cleanly measure local-vs-topic.
+ROBUST TAKEAWAY: §1001's front-loading of the multiplicative content stands; L0-2's multiplicative content is mostly
+local word-sense with a secondary pooling-substrate role; a clean local/topic decomposition by this 2x2 instrument is
+NOT achievable (intervention interaction). Not drilling this finer -- diminishing returns / entangled interventions.
