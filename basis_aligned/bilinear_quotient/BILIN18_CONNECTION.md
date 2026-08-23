@@ -31525,3 +31525,18 @@ gen_two_machines2_results.json (all 5×24 generations saved for re-reading); run
 **Standing claim (report-propagated):** the two machines' failure phenotypes are behavioral universals of this model family — most striking, the near-verbatim shared soup.
 
 gen_family_results.json (texts saved); runlogs/gen_family.log (97s).
+
+## §1138 — Cross-width phenotypes (bilin12): the soup replicates a THIRD time with the same substring; the unanchored stream goes to 92% content words at rep4 = 0.0 exactly; one caveat — the matched control is proportionally stronger at 12 layers (gen_family12.py)
+
+**pred_a TRUE (with a stated control caveat).**
+- **Three models, one soup.** bilin12's content-ablated text: "…and the three a new at the way, a big, the most mid- I." — bilin18 had "…the three a new at the way, a big, the proposed mid-", swiglu18 "…the three a new at the way, a big, the proposed mid". Three independently-trained models across two widths and two MLP families produce near-identical babble under content ablation. The function-word attractor is a property of the TRAINING DISTRIBUTION's grammar shell. cw-drop ratio 5.1 (family: 1.6 / 6.9 / 5.1).
+- **The unanchored stream, extremized:** vres-off at D=768 gives rep4 exactly 0.0 with content-word rate **0.915** — an almost pure name-stream ("Ald Sun Hughes L K Brown Fisher Se Thomas Mart…"). The §1076 mechanism's failure mode is family-universal and grows more extreme at smaller width.
+- **Caveat (sanity (0) partially violated, stated):** the random-2-MLP control is NOT near base here (topic 0.56 vs 0.72) — 2 of 12 layers is a proportionally larger cut, so at this width the control is stronger and the grammar-abl comparison is muddy (grammar-abl ≈ control on most metrics; bilin12's grammar phenotype is the weakest of the three — mild disfluency, no loops, no heavy fragments). The content and vres signatures remain far beyond the control; the grammar-side claim at 12L is NOT made.
+
+gen_family12_results.json (texts saved); runlogs/gen_family12.log (59s).
+
+## §1139 — The readout ceiling HARDENS INTO A THREE-FAMILY LAW: a fitted rank-64 quadratic gains +0.009/+0.015 (0.822 / 0.857) — not linear, not neuron-sparse, not low-rank-quadratic (readout_bilinear_fit.py)
+
+**pred_b TRUE.** Instrument family #3 (learned factors u,v,w — free rotated quadratic, not the model's own neurons): held-out recoveries 0.822 (mlp16) and 0.857 (mlp17), within 0.015 of the fitted-linear numbers. Telling detail: mlp17's TRAIN R² rose to 0.975 (vs linear's 0.947) — the quadratic capacity absorbs train-side variance that does not generalize; the held-out ceiling doesn't move. **Final characterization of the readout MLPs: ~0.82-0.86 of each is capturable by any of three unrelated stand-in families; the remainder generalizes past linear, neuron-sparse, and rank-64-quadratic function classes.** The module's dossier closes at this law; further attack would need a fundamentally different hypothesis about what the tail computes (e.g. high-rank quadratic or context-conditional structure), and the marginal value is low. Open-problems item #5 resolved as "hardened", not "broken".
+
+readout_bilinear_fit_results.json; runlogs/readout_bilinear_fit.log (73s).

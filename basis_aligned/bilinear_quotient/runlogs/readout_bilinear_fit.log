@@ -1,0 +1,6 @@
+L16: fitted-bilinear train R2 0.9114 (linear was 0.911)
+L17: fitted-bilinear train R2 0.9752 (linear was 0.947)
+L16: held-out fitted-bilinear recovery 0.822 (linear was 0.813)
+L17: held-out fitted-bilinear recovery 0.857 (linear was 0.842)
+gains over linear: {'16': 0.009, '17': 0.015} | pred_a broken False | pred_b hardens True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/readout_bilinear_fit_results.json (73.0s)

@@ -838,9 +838,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   the earlier finding that this channel carries each token's static content, made audible.</p>
   <p class="q">A matched control (ablating two random middle layers instead) generates near-normal text, so
   these are the bands' own signatures, not generic damage. And they are not one model's quirks: running the same
-  experiment on an independently-trained sibling model reproduces the function-word soup <em>nearly verbatim</em>
-  and the zero-repetition stream exactly — only the grammar-failure flavor differs (that model falls into
-  repetition loops where this one shatters into fragments).</p>
+  experiment on two independently-trained sibling models — one with a different MLP design, one at half the
+  width — reproduces the function-word soup <em>nearly verbatim in all three</em> and the zero-repetition
+  stream exactly (at half width it becomes an almost pure stream of names); only the grammar-failure flavor
+  is model-specific (loops in one sibling, fragments here).</p>
 </section>
 
 <section class="col">

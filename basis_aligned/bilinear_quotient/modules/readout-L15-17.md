@@ -39,7 +39,7 @@ Readout band ~0.56-0.9 (§906/§940; mlp17 0.85, mlp16 0.78 §1046). The merge i
 **CEILING CERTIFIED (§1131-1133):** held-out — mlp17 0.842 linear / 0.821 top-256 own-neurons;
 mlp16 0.813 / 0.807. Two instrument families converge at both MLPs: ~0.81-0.84 capturable, the
 final ~0.2 neither sparse nor linear (§660 law certified band-wide). Token augmentation redundant
-(−0.009). mlp15 0.40 at near-zero stakes. Do not chase 0.9 here with sparsity/linearity instruments.
+(−0.009). mlp15 0.40 at near-zero stakes. Do not chase 0.9 here with sparsity/linearity instruments. THIRD FAMILY (§1139): fitted rank-64 quadratic gains +0.01 (0.822/0.857; train R² rises to 0.975 but held-out doesn't move) — the ceiling is a THREE-FAMILY LAW; module closed.
 
 ## Open
 - Nothing pressing beyond the standing §1069 middle-attention remainder upstream.

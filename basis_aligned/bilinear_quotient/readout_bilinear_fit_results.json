@@ -1,0 +1,26 @@
+{
+ "base_ce": 3.1414,
+ "train_r2": {
+  "16": 0.9114,
+  "17": 0.9752
+ },
+ "per_layer": {
+  "16": {
+   "bilin": 0.0267,
+   "meanabl": 0.1503,
+   "recov": 0.822
+  },
+  "17": {
+   "bilin": 0.0525,
+   "meanabl": 0.3682,
+   "recov": 0.857
+  }
+ },
+ "gain_over_linear": {
+  "16": 0.009,
+  "17": 0.015
+ },
+ "pred_a_ceiling_broken": false,
+ "pred_b_ceiling_hardens": true,
+ "runtime_s": 73.0
+}
