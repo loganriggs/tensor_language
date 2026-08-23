@@ -30136,3 +30136,29 @@ bilinear) all ~90%; attn1 0.83 close; attn2-4 0.49-0.64 (need wider window / ind
 mlp0 0.67; attn5 pooler (mechanistic); deep-middle bounded by high-rank content (§1042). The push works: matched
 stand-ins (window for attn, tables for front MLP, low-rank bilinear for readout) bring multiple modules to ~90%.
 NEXT: push attn2-4 with a WIDER window + an induction-copy feature (they route beyond the 4-token window).
+
+## §1044 — attn2-4 are NOT window/induction routers; attn3-5 are the CONTENT-POOLING band (§998). Front attn splits local (0-2) / pooler (3-5) (bottomup_attn_induction.py)
+
+Added a wider (5-prev) window + an induction-copy feature (emb of the token after the current token's previous
+occurrence). Loss-recovery per module vs §1043 window-only:
+  module  window+induction   §1043 window-only   gain
+  attn0     0.946              0.944             +0.002
+  attn1     0.834              0.825             +0.009
+  attn2     0.648              0.643             +0.005
+  attn3     0.489              0.488             +0.001
+  attn4     0.621              0.615             +0.006
+  attn5     0.106              0.089             +0.017
+pred_a (induction lifts attn2-4) FALSE -- the induction-copy feature AND the wider window added ~nothing (gains
+<=0.017). My "attn2-4 need induction" hypothesis (§1043) is WRONG, stated plainly.
+REINTERPRETATION (consistent with §998): attn3-5 are the L3-5 CONTENT-GATHERING band -- their unexplained routing is
+BROAD content POOLING, not local-window or induction-copy (a local window / induction-copy cannot capture a broad
+pool). So the FRONT ATTENTION splits cleanly: attn0-2 = LOCAL-WINDOW routers (understood: attn0 0.94, attn1 0.83,
+attn2 0.65), attn3-5 = CONTENT POOLERS (broad; mechanistically understood as recency-weighted value-residual
+bag-of-words §998/1007/1019, but NOT reconstructible by window/induction/per-position stand-ins). The local->pooler
+boundary is attn2/attn3, matching the content-gathering onset at L3-5.
+BOTTOM-UP 90%-per-module map (updated): FRONT-MLP grammar = token tables (mlp1 0.93; mlp0 0.67 needs context);
+FRONT-ATTN = local window (attn0 0.94, attn1 0.83, attn2 0.65) then POOLERS (attn3-5, mechanistic); READOUT mlp16 =
+rank-64 bilinear (0.94); DEEP-MIDDLE = high-rank content×content (bounded, §1042). Modules that CAN hit 90% (local /
+low-rank) DO with matched stand-ins (attn0, mlp1, mlp16 ~0.93-0.94); the POOLERS (broad) and DEEP-MIDDLE (high-rank
+content) are structurally/mechanistically understood but not 90%-reconstructible by simple stand-ins -- both are REAL
+model properties (broad pooling; high-rank content), not stand-in failures.
