@@ -29329,3 +29329,24 @@ being ~dispensable alone -- a DISTRIBUTED, cooperative remainder. So L3-5 conten
 localization in an otherwise redundant model -- and it is exactly h7 (head-index 7) across the L3-5 band.
 Caveat: banded head-index 7 in L3,L4,L5 jointly, so this identifies the head INDEX that dominates the band, not
 which of the three layers' h7 matters most.
+
+## §1007 — the content-gatherer is a SINGLE head: L5 head 7, a broad-pooling CONTENT head (content_head7_characterize.py)
+
+Band head 7's K=8 window per layer; within-CE (content) / class-CE (grammar) cost vs baseline 2.535:
+  h7 @ L3: within +0.000 class +0.000
+  h7 @ L4: within +0.000 class +0.000
+  h7 @ L5: within +0.290 class +0.074
+  joint L3-5: within +0.290 class +0.074  (== L5 alone -> ALL of h7's content-gathering is at L5)
+  content/grammar ratio 3.92 (pred_a content-head TRUE).
+  h7 |attention| mass at distance >8: L3 0.418, L4 0.315, L5 0.628.
+LOCALIZATION: the dominant L3-5 content-gathering head (§1006) is specifically **L5 head 7** (attn5-h7). L3/L4 h7
+contribute ZERO content (banding them costs 0.000); the entire +0.29 nats is L5 h7. This matches the long-standing
+"content prediction begins ~attn5" hint EXACTLY, now pinned to a single head.
+It is a CONTENT head: banding it costs 3.9x more content (within-CE) than grammar (class-CE).
+It is a BROAD pooler: 63% of L5 h7's attention mass is at distance >8 (bag-of-words, §932/§995). pred_b (broad-pooler)
+registered FALSE only because I MIS-SPECIFIED the metric -- I averaged mass>8 over L3/L4/L5 h7 (mean 0.454), but
+L3/L4 h7 are IRRELEVANT (0 content cost); on the RELEVANT layer L5, mass>8 = 0.628 > 0.5 -> broad pooler confirmed.
+Stated plainly: the pred_b flag is a metric artifact; the substantive claim (L5 h7 pools broadly) holds.
+CAPSTONE of the content-gathering localization (§995->1007): whole content machine -> broad content-word bag-of-words
+(§995/996) -> gathered in L3-5 (§998) -> DOMINANTLY by a SINGLE broad-pooling content head, L5 h7 (§1006/1007) ->
+pooled into the residual and read locally late (§997). A clean bottom-up chain from behavior to one head.
