@@ -2464,6 +2464,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   structure a bigger model captures and this one leaves on the table. So the difficulty that remains after
   class-and-position is mostly, but not entirely, the inherent entropy of language; the reducible remainder
   is diffuse content-selection we simply don't have a clean handle on (yet).</p>
+  <p>The cleanest version of that check stays inside the family, avoiding the mismatch of scoring a WebText model
+  on this corpus: compare this model to a smaller sibling trained the same way on the same data. The whole capacity
+  difference lands on content. From the twelve-layer sibling to this one, the word-choice cost falls 2.68 → 2.53
+  nats while the grammar cost barely moves (0.82 → 0.79) — the extra parameters buy about five times as much
+  content as grammar, and grammar is already saturated at both sizes. The 23/77 split itself is unchanged by scale.
+  So grammar is solved regardless of size, and content is simultaneously where the model spends its capacity and a
+  bottleneck that yields only slowly to more of it — which is exactly why it is the frontier.</p>
   <p>We can now say <em>what</em> that hard floor is made of, token by token. Score every token with both
   bilin18 and GPT-2 large and the two agree remarkably — their per-token losses correlate 0.90, so the two
   models find the <em>same</em> tokens hard, and 87% of bilin18's loss is a floor the big model pays too. And
