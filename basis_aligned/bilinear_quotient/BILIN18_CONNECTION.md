@@ -29098,3 +29098,33 @@ READING:
 BENCHMARK IMPLICATION: the content stand-in should be a broad bag-of-words over CONTENT-word token embeddings across
 the whole context (not a short window, not function words). This motivates testing an improved content stand-in
 against the current 0.42 benchmark.
+
+## §997 — RECONCILES §936 vs §995: content is GATHERED broadly in early/middle layers, then reads out LOCALLY late (content_pooling_depth.py)
+
+Apply the §995 banded attention window (K=8) to a subset of layers; within-CE (content) cost vs baseline 3.3233:
+  all_K8   (L0-17): within-cost +1.120  class-cost +0.254
+  early_K8 (L0-11): within-cost +0.976  class-cost +0.259
+  late_K8  (L12-17):within-cost +0.134  class-cost +0.024
+  early/late within ratio 7.28 ; pred_a (pooled-early/read-late) TRUE.
+CONSISTENCY NULL: all_K8 within-cost +1.120 EXACTLY matches §995's K=8 within penalty (3.656-2.535 = +1.121) ->
+instrument consistent across scripts. early(+0.976)+late(+0.134)=1.11 ~= all(1.12) -> early and late banding are
+nearly additive, early dominates.
+RECONCILIATION (the point of this run): §936 (content_bag_benchmark) found the content at L15 is best reconstructed
+by a CURRENT-TOKEN map and concluded "content bulk is LOCAL per-token"; §995 found content needs BROAD context.
+Both are right and now unified: content is GATHERED from broad context by attention in the EARLY/MIDDLE layers
+(0-11) -- banding their window costs +0.98 nats of content -- and POOLED into each position's residual stream, so by
+the LATE layers (12-17) it is already present locally and reads out with almost no further context (+0.13 nats,
+7.3x less). §936 was measuring AT L15, AFTER the pooling, so a current-token/local map works there -- not because
+content is local in origin, but because the broad gathering already finished upstream. §936's "local per-token"
+framing is thus RECONTEXTUALIZED (not wrong): local at L15 = post-pooling readout of broadly-gathered content.
+
+=== content machine mechanism, consolidated (§932/§967/§985/§995/§996/§997) ===
+ 1. Content = order-invariant BAG-OF-WORDS topic gist (§932/§967), not a table/centroid-reducible feature.
+ 2. Gathered from the WHOLE context: broad, long-range, unsaturated at 256 tokens, diminishing returns; grammar is
+    ~4x more local in absolute nats (§995).
+ 3. Predominantly from CONTENT words (80% vs 51% for function words), redundant/over-determined (§996).
+ 4. GATHERED by attention in the early/middle layers (0-11) via the value residual (§985), then POOLED into the
+    residual so it READS OUT LOCALLY by the late layers (§997, early/late 7.3x). Reconciles §936 (local readout at
+    L15) with the broad-gathering picture.
+ 5. The residual/irreducible part is the genuine multiplicative middle content (§941/§994), which no linear/table/
+    bag stand-in captures -> the benchmark's content-term ceiling.
