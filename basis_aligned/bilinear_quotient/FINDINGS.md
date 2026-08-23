@@ -274,6 +274,27 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    grammar-vs-content dissociation (my dissociation hypothesis corrected, §987). Caveat: full ablations are
    off-distribution (both graded, so genuine, with a near-zero nonlinear tail). **HIGH.**
 
+1L. **BILINEAR-MLP INTERNALS + CONTENT-MACHINE MECHANISM/LOCALIZATION + the multiplicative ceiling (§988→1003).**
+   *Bilinear MLP:* the multiplicative interaction term (u·w) DOMINATES the down-projection's raw output variance at
+   EVERY layer incl the front (~90%+, §990); it is NOT gated (both factors vary, §989) nor projected out. The FRONT
+   interaction is LOAD-BEARING (deleting it at L0 costs 1.7 nats, worse than deleting the layer, §992) yet the front
+   output is reproducible by a BEST-FIT linear map (89–98% loss recovery, §941/§993) because the front interaction is
+   linearly-SHAPED in the input; the middle's is genuinely nonlinear (best-fit ~27–38%). The front interaction is a
+   SUPER-ADDITIVE cooperative cascade (joint≫sum, §994); deep-middle interaction is cheap even jointly (redundant
+   band, §940/§994). Three of my interpretations were corrected in place along the way — "constant gate" (§989),
+   "Down projects out interaction" (§990), "front interaction inert" (§992) — runs were clean, fixes were better
+   controls. *Content machine (§995→1002):* content = broad, long-range, order-invariant, content-word-weighted
+   (80% vs 51%) BAG-OF-WORDS (§995/996), UNSATURATED even at 256 tokens (~4× more context-hungry than grammar);
+   GATHERED by attention concentrated in L3-5 (§998), pooled into each position's residual across the early/middle
+   stack and READ OUT LOCALLY by the late layers (§997, reconciling §936's "content local at L15" as post-pooling
+   readout). The irreducible MULTIPLICATIVE content is FRONT-LOADED in L0-2 (§1001, ~44% of it), mostly local
+   word-sense with a secondary pooling-substrate role (§1002; clean local/topic split not achievable — entangled
+   interventions, stated plainly). *Ceiling:* forcing all MLPs to their best COMPOSITIONAL linear approx costs
+   **+1.55–1.59 nats of content** (§1000, draw-stable §1003) — the honest floor on what any linear/table/bag
+   named-variable stand-in can reconstruct, and why the whole-model benchmark's content term is capped. In ABSOLUTE
+   nats the front costs more than the middle (writes most, §933) though it is ~linear per-layer RELATIVE (§941). Any
+   band linearized hurts content ~4× more than grammar. **HIGH.**
+
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
    reverses). To decode, fit a probe; to intervene, push the write axis. **HIGH.** §619–622.
