@@ -28878,3 +28878,23 @@ answer to whether the layer uses its multiplication. CORRECTED metric queued (bi
 each factor's CONSTANT FRACTION = ||mean||^2 / (||mean||^2 + variation-energy), a scale-free test of whether one
 factor is near-constant (a gate) — high constant-fraction = gate. LESSON: freezing at the mean is not a valid
 "hold this factor fixed" for mean-centered activations; use an energy-fraction metric.
+
+## §989 — the bilinear MLP's two factors do NOT specialize (no gate); front near-linearity is an OUTPUT-map property (bilinear_mlp_factors_v2.py)
+
+Clean constant-fraction metric (||mean(F)||^2 / (||mean(F)||^2 + var(F)) per factor; high = near-constant gate):
+  layer:        L0     L1     L4     L8     L11    L15
+  Left  const-frac 0.031  0.049  0.019  0.019  0.030  0.071
+  Right const-frac 0.031  0.047  0.020  0.019  0.032  0.071
+pred (a) front-gated FALSE. FINDING: NEITHER factor is a near-constant gate — both factors are ~ZERO-MEAN and vary
+SYMMETRICALLY (Left ~= Right) at ALL layers (constant-fraction only 2-7%, so >93% of each factor's energy is
+position-dependent variation). So the "gate x content" hypothesis for the front's near-linearity (§941) is REFUTED:
+the raw bilinear product (Left.x)*(Right.x) is INTERACTION-HEAVY at every layer, including the front. RECONCILE
+with §941 (front MLP output 90-98% LINEARLY recoverable): §941 measured the OUTPUT (post-Down) linearity directly,
+and it stands. Since the pre-Down product is interaction-heavy everywhere but the front's OUTPUT is near-linear,
+the front's linearity must arise at the OUTPUT-MAP level — the Down projection (HID 4608 -> D 1152) largely
+projects out / down-weights the nonlinear interaction term at the front, leaving a near-linear output — NOT from a
+constant gate factor. So the front-vs-middle linearity difference (§941) is a property of how Down reads the
+product, not of factor specialization. This CLOSES the bilinear-MLP-factor question with a clean negative:
+the two factors do not divide into gate/content; both always vary; the linearity is post-Down. (v2 corrects §988's
+mean-freeze confound.) The distinctive bilinear MLP has no interpretable factor split — its multiplicativeness is
+a genuine two-varying-factor interaction whose loss-relevant nonlinearity is read out (or not) by Down per layer.

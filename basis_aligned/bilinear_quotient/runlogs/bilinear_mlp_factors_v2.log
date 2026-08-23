@@ -1,0 +1,9 @@
+L 0: const-frac Left 0.0311 Right 0.0312 | max(gate) 0.0312 min 0.0311
+L 1: const-frac Left 0.0486 Right 0.0471 | max(gate) 0.0486 min 0.0471
+L 4: const-frac Left 0.0186 Right 0.0196 | max(gate) 0.0196 min 0.0186
+L 8: const-frac Left 0.0188 Right 0.0189 | max(gate) 0.0189 min 0.0188
+L11: const-frac Left 0.0304 Right 0.0319 | max(gate) 0.0319 min 0.0304
+L15: const-frac Left 0.0708 Right 0.0712 | max(gate) 0.0712 min 0.0708
+front(L1) max-const-frac 0.0486 vs mid(L8,11) 0.025
+(a) front has a near-constant gate factor: False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilinear_mlp_factors_v2_results.json (43.4s)
