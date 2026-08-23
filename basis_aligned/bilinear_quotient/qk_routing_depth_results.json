@@ -1,0 +1,44 @@
+{
+ "gap": 30,
+ "by_layer": {
+  "2": {
+   "max_induction": 0.118,
+   "mean_induction": 0.01,
+   "max_induction_null": 0.011,
+   "mean_recency": -0.028,
+   "top_induction_head": 1
+  },
+  "5": {
+   "max_induction": 0.323,
+   "mean_induction": 0.024,
+   "max_induction_null": 0.007,
+   "mean_recency": -0.019,
+   "top_induction_head": 5
+  },
+  "8": {
+   "max_induction": 0.247,
+   "mean_induction": 0.043,
+   "max_induction_null": 0.011,
+   "mean_recency": 0.013,
+   "top_induction_head": 4
+  },
+  "11": {
+   "max_induction": 0.044,
+   "mean_induction": -0.002,
+   "max_induction_null": 0.007,
+   "mean_recency": -0.011,
+   "top_induction_head": 7
+  },
+  "15": {
+   "max_induction": 0.011,
+   "mean_induction": -0.019,
+   "max_induction_null": 0.002,
+   "mean_recency": -0.09,
+   "top_induction_head": 0
+  }
+ },
+ "front_L2_8_max_induction": 0.229,
+ "back_L11_15_max_induction": 0.027,
+ "pred_a_induction_front_peaked": true,
+ "runtime_s": 34.6
+}

@@ -28776,3 +28776,22 @@ CORRECTED routing picture (§981->983): each head multiplies two bilinear criter
 (§982); the range-robust routing modes are RECENCY and INDUCTION (attractive or suppressive per head), NOT
 content-similarity; content/topic is pooled ~uniformly and emerges from the average. The long-range control caught
 the confound flagged in §982 -- disciplined correction.
+
+## §984 — induction routing is FRONT/MID-peaked (peak L5), gone by the late layers (qk_routing_depth.py)
+
+Max-head long-range (q-k>30) induction routing correlation by depth (null ~0.01):
+  L2 0.118 (h1) | L5 0.323 (h5, PEAK) | L8 0.247 (h4) | L11 0.044 (h7) | L15 0.011 (h0)
+  front(L2-8) 0.229  vs  back(L11-15) 0.027. pred (a) induction-front-peaked TRUE.
+FINDING: the squared-attention INDUCTION routing lives in the EARLY-MID layers (builds to a PEAK at L5, strong
+through L8) and VANISHES by the late layers (L11 0.04, L15 0.01) — all above the shuffled null (~0.01). This
+confirms §952/§954 (induction is a front phenomenon; induction heads L2h5/L5h5/L8h... behavioral) at the direct
+ROUTING-PATTERN level, across depth. So the double-QK routes on token-match specifically in the first ~8 layers;
+late attention (L11+) routes on neither induction nor content-similarity (§983) — consistent with content being
+already built by mid-stack (§929) and attention being front-loaded (§951). (Recency is uninformative here by
+construction — long-range pairs have little recency variation; §981/§983 covered short-range recency.)
+QK-ROUTING SUB-PROJECT COMPLETE (§981->984): bilin18's softmax-free squared attention routes via a SIGNED
+CONJUNCTION of two distinct bilinear criteria (§982); heads SPECIALIZE by mode (§981) with SUPPRESSIVE/anti-heads
+possible (negative routing, unavailable to softmax); the range-robust routing modes are RECENCY and INDUCTION, NOT
+content-similarity (that was a recency confound, §983); INDUCTION routing is front/mid-peaked (peak L5, gone late,
+§984); and content/topic emerges from broad ~uniform POOLING rather than content-selective routing (unifies §932).
+This reverse-engineers the one previously-under-covered mechanism.
