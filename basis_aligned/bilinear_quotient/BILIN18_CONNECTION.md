@@ -31196,3 +31196,11 @@ mlp0_class_interchange_results.json; runlogs/mlp0_class_interchange.log (145s).
 **Next registered rung (queued):** kernel + INDUCTION term (γ_h boost at classic induction-matched key positions, fit per head) — §983 names recency AND induction as the two range-robust routing modes; the gatherer especially (0.39 kernel-only) hosts the induction chain (L5H5, §954).
 
 attn_kernel_content_results.json; runlogs/attn_kernel_content.log (86s).
+
+## §1107 — The induction term is ALSO inert in the pooling function (gain 0.006-0.020): BOTH named routing modes fail to explain the middle pool's unnamed ~40% — despite the fit independently rediscovering L5H5 (attn_kernel_induction.py)
+
+**Sanities all passed:** const baselines reproduce §1099 EXACTLY (+0.8136/+1.1548 — confirming §1106's doubled-means diagnosis and the fix); kernel-only recoveries reproduce (0.394/0.583); and the per-head γ fit independently rediscovers the induction head — γ(L5H5)=0.041, 4× any other L5 head. The instrument works.
+- **pred_a FALSE, pred_b TRUE:** adding the induction-offset term to the distance kernel gains only 0.006 (gatherer) / 0.020 (middle) of recovery. Combined with §1106 (content-sim gain 0.001): **both of §983's range-robust routing modes — recency aside — are causally negligible in the collective pooling function.** The correlates are real (§1085 r's; γ at L5H5); their marginal CE through the pool is not.
+- **Standing picture for the band:** distance kernel = 0.58 (middle) / 0.39 (gatherer); the remainder is UNNAMED pattern structure that is neither content-similarity nor induction-matching. Candidates: per-QUERY gain (unnormalized attention makes total row mass a real degree of freedom — the §1089 constant showed mass matters) vs genuinely key-selective structure. Queued diagnostic (attn_kernel_gain.py): oracle per-query gain α_h(q) × k_h(d) — if oracle-gain closes the gap, the remainder is "how much to pool" not "which keys"; explicitly a DIAGNOSTIC (uses the real pattern's row mass), not a stand-in.
+
+attn_kernel_induction_results.json; runlogs/attn_kernel_induction.log (72s).
