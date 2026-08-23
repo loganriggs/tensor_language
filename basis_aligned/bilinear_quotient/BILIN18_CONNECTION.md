@@ -31468,3 +31468,9 @@ readout_standin_heldout_results.json; runlogs/readout_standin_heldout.log (49s).
 **The convergence is the finding:** fitted linear map 0.813 (§1131) and top-256 own-neurons 0.807 — two unrelated stand-in families hit the SAME ceiling. mlp16's certified understanding is ~0.81; the remaining ~0.19 lives in a functional tail that is neither low-neuron-count nor linear (the §617/§660 variance≠functional-rank law, now certified at module level). Benchmark table: mlp16 stays **0.81 certified** with the ceiling annotated; the 90%-line population stands as of tonight: L0-attention, L0/L1/L3 MLPs, head 5.7, block-17 calibration — with L4/L5/mlp16/mlp17 certified in the 0.80-0.84 band and the deep content bounded by the §1127 construction theorem.
 
 mlp16_bilinear_heldout_results.json; runlogs/mlp16_bilinear_heldout.log (41s).
+
+## §1133 — The readout ceiling law is BAND-WIDE: mlp17's own-neuron stand-in converges on its linear number too (0.821 vs 0.842; mlp16: 0.807 vs 0.813) — both readout MLPs are ~4/5 capturable by either instrument, with a tail that is neither sparse nor linear (mlp17_bilinear_heldout.py)
+
+**pred_a TRUE, pred_b false (not neuron-compact).** mlp17 top-64 0.676, top-128 0.762, top-256 0.821 (random-64 −0.65, all 1.0 — controls sharp). Two unrelated stand-in families now converge at BOTH readout MLPs: fitted linear 0.84/0.81 vs own-top-256-neurons 0.82/0.81. The certified readout picture: ~0.81-0.84 of each MLP's function is capturable by any reasonable instrument; the final ~0.2 is a functional tail that resists sparsity and linearity alike — the §617/§660 law, certified across the band. (§660's old "4 quadratic functions ≈ 75%" sits consistently under the 64-128-neuron points.) Benchmark table unchanged (0.81/0.84 stand); readout thread closed at its characterized ceiling.
+
+mlp17_bilinear_heldout_results.json; runlogs/mlp17_bilinear_heldout.log (41s).

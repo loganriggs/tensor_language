@@ -1,0 +1,30 @@
+{
+ "base_ce": 3.1414,
+ "meanabl": 0.3682,
+ "conditions": {
+  "top64": {
+   "cost": 0.1193,
+   "recov": 0.676
+  },
+  "top128": {
+   "cost": 0.0878,
+   "recov": 0.762
+  },
+  "top256": {
+   "cost": 0.0659,
+   "recov": 0.821
+  },
+  "rand64": {
+   "cost": 0.6083,
+   "recov": -0.652
+  },
+  "all": {
+   "cost": 0.0,
+   "recov": 1.0
+  }
+ },
+ "pred_a_same_ceiling": true,
+ "pred_b_compact": false,
+ "smallest_k_for_090": "none<=256",
+ "runtime_s": 40.7
+}
