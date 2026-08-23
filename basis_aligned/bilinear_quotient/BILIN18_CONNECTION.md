@@ -29283,3 +29283,32 @@ benchmark's content stand-in ceiling remains current-token + topic-centroid, CAP
 CLOSES the content-stand-in / benchmark-content-improvement question: no linear/bag stand-in (all-token or
 content-word) beats current-token+centroid; the missing content is the multiplicative computation (§1000 ceiling),
 not a matter of choosing better tokens to average.
+
+## §1005 — the MLP content is CONTEXT-dependent even at the front: a per-token table is WORSE than a linear map (my hypothesis reversed); three-way decomposition of the content (front_content_table_vs_linear.py)
+
+Compositionally replace an MLP band with a best-fit LINEAR map of the input vs a per-TOKEN TABLE (current-token
+conditional-mean output). within-CE (content) cost vs baseline 2.40:
+  condition                    within-cost  class-cost
+  front_linear                   +1.009      +0.285
+  front_table                    +1.551      +0.484
+  middle_linear                  +0.645      +0.164
+  middle_table                   +1.301      +0.386
+  front_table_shuffled_null      +1.885      +0.582   (random-token table = effective mean-ablate reference)
+pred_a (front table<linear) FALSE; pred_b (middle table~linear) FALSE -- BOTH REVERSED, stated plainly: the per-token
+TABLE is WORSE than the LINEAR map at BOTH bands, not better. NULL OK (shuffled 1.885 > table 1.551 -> table genuine).
+WHY (corrects my hypothesis that the front is current-token word-sense): a per-token table averages over ALL contexts
+for a given token, DISCARDING context-dependence; a best-fit LINEAR map of the full input USES the context carried in
+the residual (even the front input has ~1/9 accumulated context beyond the x0 current-token embedding, §987). So the
+MLP content is genuinely CONTEXT-DEPENDENT even at the front, and the table's context-averaging makes it a worse
+surrogate than a linear read of the context-carrying input.
+CLEAN THREE-WAY DECOMPOSITION of the FRONT MLP content (span = shuffled-null 1.885 = total content lost):
+  - current-token lookup (table recovers):        1.885-1.551 = 0.334  (18%)
+  - context-LINEAR (linear beyond table):         1.551-1.009 = 0.542  (29%)
+  - context-MULTIPLICATIVE (even linear misses):  1.009               (54%)  <- §1000's ceiling, the irreducible part
+So the front MLP content is only ~18% current-token-lookup; the majority (54%) is context-MULTIPLICATIVE and a
+further 29% is context-LINEAR. This CONFIRMS the content machine is genuinely context-dependent (not word-sense
+lookup) and that §1000's ceiling is truly CONTEXT-multiplicative (a per-token table, which captures ALL current-token
+structure, does strictly WORSE than linear -> the irreducible content is not current-token-nonlinear).
+BENCHMARK NOTE: the benchmark's per-token-TABLE stand-ins capture only ~18% of the MLP content; even the context-
+LINEAR 29% is missed by a token table (though the benchmark's TOPIC subspace, a context variable, captures part of it
+separately). The named-variable (table) ceiling is thus stricter than the §1000 linear ceiling.
