@@ -36,5 +36,18 @@ share: ~18% token-lookup / 29% context-linear / 54% context-multiplicative (§10
   0.66→0.39 tok share) — quote held-out CE, not variance shares.
 - mlp0 "self-product" vs "conjunction" is subset-dependent (§1078) — don't flatten to one label.
 
+**mlp0 class-cluster circuit (§1098-1105, user-directed arc — the communicable story):**
+(1) WRITTEN: token-mean mlp0 outputs cluster by class (3.3x shuffled separation) and the map is
+derivable from WEIGHTS ALONE (fold emb -> block-0 T=1 attn -> mlp0: cosine 0.83, congruence 0.90;
+figures fig_mlp0_class_map*.png, fig_mlp0_tsne.png; membership mlp0_clusters.md). (2) READ AS A
+PACKAGE: attn1 keys read all class centroids elevated ~uniformly (§1103); per-class deletions at
+any rank produce only class-MATCHED tendency (1.5-3x own-class, never dominant, §1104) because the
+variable is MULTIPLEXED (attn0 copy §772 + x0 re-injection §689 re-derive it). (3) VALUES ARE
+CLASS-CAUSAL BY INTERCHANGE (§1105): swapping the top-24 package coordinates with a donor class
+moves next-class prediction toward the donor's bigram grammar in 5/6 directed pairs (mean +0.0066
+vs random-subspace -0.0003, same-class ctrl ~0); exception number<-determiner (digit circuitry).
+Figures: fig_mlp0_damage_matrix.png, fig_mlp0_interchange.png. LESSON: deletion is the wrong
+instrument for multiplexed variables; interchange is the gold standard (§892/§894 law).
+
 ## Open
 - Nothing pressing; the band is the solved end of the benchmark.
