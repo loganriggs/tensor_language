@@ -2260,6 +2260,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   layer by layer, each reading what the one below wrote. That is exactly why the transition layers resist a simple
   token-plus-window description: they are the moment the residual stream starts carrying the shared content.</p>
 
+  <p>Where does it come from? Not from the words themselves in any simple way — a recency-weighted bag of the passage's
+  raw word vectors predicts essentially none of the content (it lands near zero). But the network's <em>processed</em>
+  representation does: even one layer in, the running representation already linearly carries about 38% of what the deep
+  content will become, and that figure climbs smoothly — 61% by layer 4, 88% by layer 7 — before the deep-middle band
+  refines it. So the hard, nonlinear step is early (turning raw tokens into a context representation); from there the
+  content is assembled gradually and largely linearly. It is a genuinely computed feature of the text, not a shallow tally
+  of which words appeared.</p>
+
   <p>So what <em>is</em> that content? It is not opaque noise — its principal directions are readable. Decoding the
   passages that sit at the extremes of each top axis of the content subspace turns up recognizable topic-and-register
   contrasts: one axis separates informal conversational writing ("Damn right", "Phwew", "BTW") from formal encyclopedic
