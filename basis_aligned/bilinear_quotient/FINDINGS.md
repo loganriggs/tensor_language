@@ -314,6 +314,31 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    uniformly right: banding isolates the long-range FUNCTION (correct for "where is content gathered", §998 stands),
    output-ablation measures total-output importance. **HIGH** (mechanism); **MED** (single-head localization: real
    but redundant, instrument-dependent).
+   *Universality of BOTH pillars (§1010→1012):* "MLP multiplication serves CONTENT not grammar" (~4× content/grammar
+   when the middle is linearized) and "content long-range / grammar local" (content ~4.5× more context-hungry) both
+   hold across the family INCLUDING the non-bilinear SwiGLU model (bilin18/bilin12/swiglu18) — architecture-general,
+   not bilinear-specific. (§1012 logit-lens depth-onset was confounded by the late readout-basis collapse — no
+   conclusion; depth structure stands on causal evidence §915/§998/§941.) **HIGH.**
+   *North-star quantified (§1013→1014):* the held-out simultaneous-all-36 understanding fraction is DRAW-SENSITIVE —
+   **0.32 ± 0.06** (4-draw mean±std, token+topic+prev), genuine-vs-shuffled 0.74 ± 0.15; the topic term drives the
+   spread, the token term is tight (~0.15). Report as a BAND, not a point; prior single quotes (0.30/0.42/0.81) were
+   points on a draw/config-variable distribution. Residual ~0.68 = the irreducible context-multiplicative content.
+   The content/grammar split is taxonomy-robust (8-class 3.9, 2-class 8.0; §1015). **HIGH.**
+
+1M. **GENERATIVE (input-side) validation of the two machines (§1016→1023).** All prior content causality was
+   activation/weight-level; this validates the account by INTERVENING ON THE INPUT and predicting behavior. Inject a
+   topical CONTENT word early and its TOPIC-neighbors (excl the word & context, so not induction/copy) are boosted at
+   a distant query — the bag-of-words content machine predicts behavior across its full property set: KIND (topical
+   priming +0.52 nats, topic-specific vs random-word null; §1016), DOSE (~linear accumulation, ~+0.43/copy; pools ALL
+   tokens, content 2.2× > function; §1017), SEPARABILITY (a distant content word moves content 0.52 but grammar-TV
+   only 0.007, 77×; adjacent moves grammar — positive control; §1018), RECEPTIVE FIELD (recency-weighted but broad,
+   0.53 at dist-147 → 4.0 at dist-2; cross-validates §995 banding + §981-983 recency; §1019), ARCHITECTURE-GENERAL
+   (priming holds in bilin12 & swiglu18, ratio 6.7-9.2; §1021), COMPOSITIONALITY (two topics superpose ADDITIVELY with
+   NO dilution, retention 1.11 — a linear superposition; §1022), and CAPACITY (§1023). GRAMMAR validated symmetrically:
+   a determiner injected ADJACENT to the query raises P(noun) sharply (the +0.32, a +0.26) while FAR does nothing
+   (grammar local); syntactically accurate ("of" → determiner, not noun directly, so barely raises P(noun); §1020).
+   The two-machine account thus predicts behavior generatively, complementing the structural (§995-998) and causal
+   (§894/§959-960) evidence. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
