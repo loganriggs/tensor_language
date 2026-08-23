@@ -29461,3 +29461,25 @@ NO conclusion drawn from §1012. The grammar-front / content-later DEPTH structu
 clean instruments -- grammar written in the front MLPs (§915-919/§933), content gathered at L3-5 (§998) and built
 through the multiplicative middle (§941/§1001) -- which do not depend on logit-lens readability. §1012 simply used
 the wrong instrument for the depth question; the causal depth evidence stands.
+
+## §1013 — the whole-model understanding number is DRAW-SENSITIVE (0.29↔0.45), concentrated in the topic term (whole_model_understanding_recert.py)
+
+Re-ran the fresh held-out benchmark on a DIFFERENT fineweb draw (offset 400) vs the original (offset 0):
+                        offset 0 (orig)   offset 400 (recert)
+  ce_full                 3.11              3.588
+  ce_all_mean_ablated     8.71              8.132
+  token frac              0.189             0.198
+  token+topic frac        0.29              0.445
+  token+topic+prev frac   0.29              0.452
+  genuine_vs_shuffled     0.669             0.997
+pred (within +-0.05, draw-stable) FALSE. The headline "how much of the whole model do we understand" is NOT
+draw-stable: token+topic+prev swings 0.29 -> 0.45 (delta +0.16) across two draws; genuine-vs-shuffled 0.67 -> 1.0.
+LOCALIZATION of the sensitivity: the TOKEN term is stable (0.189 vs 0.198); the swing is entirely in the TOPIC term
+(token->token+topic adds 0.10 on draw 0 vs 0.247 on draw 400). The topic stand-in (k-means centroids / topic subspace
+built on train, evaluated held-out) depends on TRAIN/EVAL TOPIC OVERLAP, which varies by draw -> its held-out
+recovery is draw-sensitive. ce_full and ce_all_mean also shift with the draw, moving the normalization.
+IMPORTANT CORRECTION to the north-star metric's reporting: the understanding fraction should be a RANGE (~0.29-0.45,
+draw-dependent), NOT a single stable point; the DRAW-STABLE parts are the token term (~0.19-0.20) and the MECHANISM
+(the residual is the multiplicative content, §1000/1005). Prior single-number quotes (e.g. "0.29 fresh" / earlier
+"0.42"/"0.81") were partly reflecting DRAW variance, not just method differences. The fix is MULTI-DRAW AVERAGING ->
+queued §1014 to report a stable mean +- spread.
