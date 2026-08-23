@@ -30033,3 +30033,30 @@ well-understood (§998/1007/1019/1032: L5 recency-weighted content-word bag-of-w
 validated), but that named mechanism is NOT compressible to a simple per-position/uniform-bag reconstruction -- the
 right stand-in is a recency-weighted value-residual pool, which approaches recomputing the head. So "understood
 mechanistically" and "reconstructible by a simple stand-in" come apart here, stated plainly.
+
+## §1040 — BOTTOM-UP structural map: effective bilinear loss-rank per MLP varies hugely (readout rank-64; deep-middle full-rank) (bottomup_mlp_rank.py)
+
+For every MLP, R (of HID=4608 own bilinear neurons) needed for 90% loss-recovery (exact at full rank -> method valid):
+  mlp:      0     1     2     3     4     5-14        15    16    17
+  eff-rank: 1024  1024  full  full  1024  full(all)   full  64    1024
+  meanabl:  2.17  1.08  0.16  0.13  0.34  0.03-0.08   0.14  0.87  0.65
+  rec@16:   0.21  0.07  ...   ...   0.77  ~0.02-0.11  0.72  0.39  0.49
+  rec@1024: 0.96  0.90  0.67  0.62  0.90  0.39-0.56   0.88  0.97  0.94
+pred_a (front low-rank <=256) FALSE. FINDINGS (bottom-up, toward "90% per module"):
+ - READOUT mlp16 is the MOST compact: a rank-64 bilinear map (64 neurons -> 94% loss-recovery), meanabl 0.87. This
+   module IS understood at ~90% as a low-rank bilinear map.
+ - FRONT mlp0/mlp1 are the DOMINANT writers (meanabl 2.17, 1.08!) and MODERATE-rank (~1024 for 90%). CORRECTION of my
+   earlier "front grammar = low-rank/solved": the front is captured by per-TOKEN TABLES (§1035 mlp1 0.93) because its
+   input is token-dominated, but the bilinear MAP itself needs ~1024 factors -- "low-rank in the token-conditional
+   basis, moderate-rank in the neuron basis". (Also: mlp0's meanabl 2.17 > mlp1 1.08 here -- mlp0 is a bigger writer
+   than the §933 "mlp1 dominant" note suggested on this eval; both are huge.)
+ - mlp4 and mlp15 are MOSTLY low-rank (16 neurons -> 0.77, 0.72) with a high-rank tail -- a few dominant bilinear
+   factors carry the bulk.
+ - DEEP-MIDDLE mlp5-14 are FULL-rank (need ~all 4608 for 90%; rec@1024 only 0.39-0.56), with tiny per-layer budgets
+   (0.03-0.08). This is the genuine high-rank bilinear frontier even for the LOSS -- a flat bilinear map of the raw
+   1152-dim input does not compress them.
+BOTTOM-UP READING for the 90%-per-module goal: modules are understood at 90% by DIFFERENT structures -- front by
+token tables, readout (mlp16) by low-rank bilinear, mlp4/15 by a few dominant factors + tail. The DEEP-MIDDLE
+(mlp5-14) is the hold-out: full-rank as a flat bilinear map. NEXT (prong 4): a flat bilinear map over the raw input
+is the wrong basis for the deep-middle -- express its bilinear form over the NAMED SUBSPACES / earlier-layer writes
+(content×token, content×content) where it may be low-rank. That is the compositional/tensor-network test.
