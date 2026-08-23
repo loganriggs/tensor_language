@@ -294,6 +294,20 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    named-variable stand-in can reconstruct, and why the whole-model benchmark's content term is capped. In ABSOLUTE
    nats the front costs more than the middle (writes most, §933) though it is ~linear per-layer RELATIVE (§941). Any
    band linearized hurts content ~4× more than grammar. **HIGH.**
+   *Ceiling refined + benchmark (§1004→1005):* a content-word bag does NOT beat an all-token bag as a benchmark
+   content stand-in (both ≪ current-token+centroid, §1004) — §996's content-word finding is a MECHANISM fact, not a
+   stand-in recipe. A per-token TABLE is WORSE than a linear map (§1005: front 1.55 vs 1.01) because it discards
+   context → the front content is CONTEXT-dependent, not word-sense. Clean three-way split of front MLP content: ~18%
+   current-token-lookup / 29% context-linear / 54% context-MULTIPLICATIVE (the irreducible floor). *Single content
+   head, corrected (§1006→1009):* by attention-window banding, the L3-5 content-gathering is dominated by ONE head,
+   **L5 head 7** (broad-pooling content head, ratio 3.9; §1006/1007) — BUT output-ablation of h7 costs only 0.01 nats
+   (§1008), so h7 is the PREFERENTIAL but REDUNDANT content head, NOT a load-bearing single part; the "rare single
+   nameable component" reading was retracted. Methodological lesson (§1008/§1009): banding vs output-ablation FLIPS
+   with granularity — banding overstates a redundant SINGLE head (sibling compensation + local-pool interference),
+   output-ablation overstates a whole BAND (removing early attention is foundational/off-distribution). Neither is
+   uniformly right: banding isolates the long-range FUNCTION (correct for "where is content gathered", §998 stands),
+   output-ablation measures total-output importance. **HIGH** (mechanism); **MED** (single-head localization: real
+   but redundant, instrument-dependent).
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
