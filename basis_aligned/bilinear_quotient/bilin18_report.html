@@ -798,6 +798,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   twelve heads that cost more than 0.02 nats the median share explained by a constant is 39%.
   Bias-adding is not a widespread role in this model — it is one enormous special case sitting
   on top of an otherwise contextual stack.</p>
+  <p><span class="tag">the stack, priced two ways</span> Two follow-up sweeps put numbers on that contextual
+  stack. Head by head, 62% of attention's total single-head cost is bias-value (once each head's own average
+  is kept, the cost vanishes) — and 86% of that bias-value is the one sink head; the genuinely dynamic
+  remainder is thin and concentrated in a handful of front routers, the largest worth 0.08 nats. But
+  per-head prices hide collective work: make <em>every</em> head static at once (each output frozen to its own
+  average — attention as pure bias) and the model loses 3.7 nats, <strong>5.7×</strong> the sum of the per-head
+  prices. The middle's pooling is collectively load-bearing while every individual head is expendable — the
+  same redundancy signature this model shows everywhere. And one detail worth keeping: deleting attention
+  outright costs <em>less</em> (3.4) than keeping the frozen biases (3.7). Those constants are operating
+  points, calibrated to the normal regime; once the dynamics are gone they are poison, not padding. What the
+  static model misses decomposes cleanly: a per-head recency kernel recovers about 58% of the middle band's
+  collective value, a per-position "how much to pool" gain adds most of the gatherer band's remainder — and
+  the rest survives every named candidate we tried (content-similarity, induction-matching, pooled mass),
+  an honestly bounded unknown.</p>
 </section>
 
 <section class="col">
@@ -2742,6 +2756,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   Pythia separates the prepositions <code>to</code>/<code>in</code>/<code>on</code>/<code>for</code>). Three
   different architectures independently sort their first-layer tokens into parts of speech. Whatever
   else these models are doing, they all start by learning grammar.</p>
+  <p><span class="tag">the transplant test</span> Steering adds a class direction; a stricter test is a
+  transplant: cut the class-code coordinates out of one position and paste in the coordinates measured at a
+  token of a <em>different</em> class — a number's code where a determiner's was. In five of six such swaps,
+  the model's next-word grammar follows the transplant: predictions shift toward what typically follows the
+  <em>donor's</em> class, while pasting same-class code moves nothing and a random-subspace swap moves things
+  slightly the wrong way. (The one failure is telling: pasting determiner-code onto digits does nothing,
+  because digits are ruled by their own continuation circuitry.) Deletion, by contrast, barely dents anything
+  at any rank — and now we know why: the model keeps several copies of the class code. The first attention
+  layer writes a parallel one, and the raw token is re-injected into the stream at every block, so downstream
+  layers just re-derive class from an intact copy. You cannot cut this wire, but you can lie on it, and the
+  model believes the lie. One more check closes the loop: the entire class-cluster map can be computed from
+  the <em>weights alone</em> — fold the embedding through the first block's attention and MLP with no text at
+  all, and the same clusters appear (agreement 0.83 with the data-derived map). The classes are in the
+  weights; the data only reads them out.</p>
   <p>And you can watch that grammar get used. Tag every token by its part of speech and ask, for each
   class, what class the model expects next — then compare to what actually follows in real text. They
   line up almost exactly (a mismatch of 0.009 nats, versus 0.056 when the tags are shuffled). The
