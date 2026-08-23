@@ -8,6 +8,10 @@ causing a 4-experiment re-derivation — every major arc is indexed here now).
 
 Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid but one caveat.
 
+**PER-MODULE DOSSIERS: `modules/` — self-contained doc per module (facts+numbers+§refs,
+stand-in status, module-specific gotchas, open questions). READ THE RELEVANT DOSSIER BEFORE
+DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the ledger writeup.**
+
 ## The established results
 
 1. **THE TWO MACHINES — the organizing fact.** bilin18 = a GRAMMAR machine (front L0-1, low-rank,
