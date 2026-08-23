@@ -30718,3 +30718,23 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 - **The nonlinearity is front-loaded.** Raw tokens do NOT linearly encode the content (§1072), but ONE layer of the model's processing (attention gathering context + bilinear MLP) already produces a representation that linearly carries 38% of the eventual deep content; each subsequent layer adds more, largely linearly. So the token→content nonlinear transformation happens early, and the middle refines a representation that is increasingly linearly determined.
 
 **What this completes (the content's origin).** Reconciles the content findings into a construction account: the content is NOT a shallow bag of raw words (§1072); it is a deep computed feature that the model builds incrementally from the front — its shared subspace emerges in the transition (§1052, subspace overlap) and it becomes progressively linearly determined (§1073, 0.38→0.88 over L1-7), consolidating into the high-rank (§1042), semantic (§1064), causal (§1059) content object of the deep-middle band. High-rank intrinsic dimensionality and high linear predictability-from-adjacent-layers are both true (they measure different things). **Nulls:** raw-emb bag baseline −0.005 (passes). **Caveat:** R² predicting a 64-dim coordinate from the full 1152-dim residual of a nearby layer is expected to be high; the informative content is the SMOOTH RISE from L1 and the sharp contrast with the raw-word bag (the model's processing, not the raw tokens, carries the content).
+
+## §1074 — The content seed is created by the early ATTENTION (context gathering), NOT the MLP (hypothesis reversed)
+
+**Question:** §1073 showed the content is ~linearly built from the processed stream and front-loaded. Within the early layers, which operation creates the content seed — attention (gathering) or the bilinear MLP (the multiply)? At each early layer L=0-3, capture the residual BEFORE attn / AFTER attn (=before mlp) / AFTER mlp, and measure R² predicting the pooled-L8-12 content coordinate. Attn-step gain = R²(mid)−R²(before); MLP-step gain = R²(after)−R²(mid). (`content_seed.py`, 240 rows, 61k positions.)
+
+**Registered predictions:** (a) the MLP (bilinear multiply) creates the content (mlp-step gain > attn-step gain).
+
+**Result — pred_a FALSE, REVERSED:**
+
+| layer | before | →[attn]→ mid | →[mlp]→ after |
+|---|---|---|---|
+| L0 | −0.01 | **0.25** | 0.21 |
+| L1 | 0.21 | **0.38** | 0.34 |
+| L2 | 0.34 | **0.48** | 0.47 |
+| L3 | 0.47 | **0.54** | 0.53 |
+
+- **Total attn-step gain +0.64; total MLP-step gain −0.10.** Every early ATTENTION step jumps the content R² (L0 alone: −0.01→0.25 from attention gathering context), while every MLP step slightly DECREASES it.
+- So the **content seed is created by the early ATTENTION**, not the MLP. The early attention gathers context into the residual — that is what builds the content-carrying representation. The early MLPs write GRAMMAR (token-class, §768), which is orthogonal to content and slightly dilutes the content R² (adds non-content variance).
+
+**What this completes (and reconciles).** The two-machine account is now mechanistically precise about origin: (1) early ATTENTION = the content GATHERER — it creates the content seed (§1074), consistent with §1053 (content is a residual-stream object attention writes into) and the bag-of-context intuition (§894/930) — but NOT a linear bag of RAW embeddings (§1072), because attention's value-projection + weighting transform the gathered context; (2) front MLP = GRAMMAR writer (orthogonal to content); (3) the deep-middle MLPs then MULTIPLY the already-gathered content (content×content, §1041) into the high-rank semantic object. So: attention gathers the content, the deep-middle MLPs multiply it, the readout reads it. **Nulls/controls:** before_L0 R² ≈ 0 (embedding alone carries no content, sanity); monotone rise matches §1073's cumulative curve. **Caveat:** attn-step and mlp-step gains are within-layer deltas of a cumulative R²; the clear sign pattern (attn +, mlp −, across all four layers) is robust.
