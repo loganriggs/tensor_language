@@ -2282,6 +2282,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   even the architecture is organized around the same two machines — one wire feeds the content, the other feeds the
   grammar.</p>
 
+  <p>The value-residual wire is worth pinning down, because it closes the loop on how the content gets built. What it
+  carries turns out to be exactly each word's own content and nothing else: the first layer, which sees only the bare
+  embeddings, computes a value for each token, and that value is a pure per-token quantity — swap in a lookup table of
+  "the average value for this token" and the model's loss doesn't change at all, while broadcasting the wrong token's
+  value clearly hurts. So the full recipe is now concrete. The first layer turns each word into a content vector; the
+  value-residual keeps that per-word content on tap at every depth; attention pools it over the context into the topic
+  representation; the deep-middle layers multiply that representation by itself; and the readout reads it out. That is
+  also why a plain bag of the raw word vectors fails to predict the content — what gets pooled is the network's learned
+  value projection of each word, not the word vector itself.</p>
+
   <p>So what <em>is</em> that content? It is not opaque noise — its principal directions are readable. Decoding the
   passages that sit at the extremes of each top axis of the content subspace turns up recognizable topic-and-register
   contrasts: one axis separates informal conversational writing ("Damn right", "Phwew", "BTW") from formal encyclopedic
