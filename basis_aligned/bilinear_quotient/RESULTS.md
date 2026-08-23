@@ -4874,3 +4874,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1137 — phenotypes FAMILY-GENERAL: swiglu18 soup near-VERBATIM, zero-rep stream exact (rep4 0.0005, cw 0.70), content dissociation 6.9x; grammar failure architecture-flavored (loops vs fragments, rep4 0.445) (gen_family.py)
 §1138 — bilin12: SAME soup substring third time (training-distribution attractor); stream extremized (cw 0.92, rep4 0.0); control proportionally strong at 12L — grammar claim not made there (gen_family12.py)
 §1139 — readout ceiling = THREE-FAMILY LAW (fitted quadratic +0.01; train R² rises, held-out doesn't); mlp16/17 final at 0.82/0.86; open-problem #5 hardened (readout_bilinear_fit.py)
+§1140 — mass driver DECODABLE (MLP probe R² 0.931 vs feature baseline 0.094); §1134 closure amended (feature vocabulary failed, not representability); naming decomposition queued (alpha_probe.py)
