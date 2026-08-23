@@ -148,7 +148,7 @@ def main():
     for i in range(0, NSEQ, 8): fcap(blocks[i:i+8].to(DEV)[:, :-1].contiguous())
     XF = torch.cat(capF, 0); capF.clear()
     xbF = torch.zeros(V, D, device=DEV); xbF.index_add_(0, tok, XF)
-    xbF = xbF/cn.clamp_min(1).unsqueeze(1); ST['xbarF'] = xbF.half()
+    xbF = xbF/cn.clamp_min(1).unsqueeze(1); ST['xbarF'] = xbF  # float32: final-residual massive dims (~1e5) overflow fp16
     dvF = XF - xbF[tok]; dvF = dvF - dvF.mean(0); del XF
     _, _, VtF = torch.linalg.svd(dvF, full_matrices=False)
     ST['UcF'] = VtF[:K].T.contiguous()

@@ -1,0 +1,12 @@
+SAE recon R2 0.7836 (skeleton variance share)
+final-residual SAE recon R2 0.9400
+    noop: cost 0.0 | rare 0.0 | freq 0.0
+    skel: cost 0.0209 | rare 0.0414 | freq 0.0168
+    tail: cost 0.1161 | rare 0.3037 | freq 0.0781
+ fullrem: cost 0.137 | rare 0.3558 | freq 0.0926
+FINAL     noop: cost nan | rare nan | freq nan
+FINAL     skel: cost nan | rare nan | freq nan
+FINAL     tail: cost nan | rare nan | freq nan
+FINAL  fullrem: cost nan | rare nan | freq nan
+A (readout MLPs): skel 0.153 tail 0.847 | B (final resid): skel nan tail nan
+pred_a readout-reads-tail False | pred_b skeleton-everywhere False | wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_skeleton_readout_results.json (65.3s)
