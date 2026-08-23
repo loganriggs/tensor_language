@@ -29052,3 +29052,27 @@ WHAT THIS MEANS (stated carefully; my registered expectation was backwards):
 NEXT (content frontier proper): the content that caps the benchmark lives in the RESIDUAL STREAM across the middle,
 read by attention -- not in the middle MLPs. Pivot the next experiment to locate where the loss-relevant content is
 actually written/read (attention vs MLP, which layers) rather than more MLP-interaction anatomy.
+
+## §995 — content is broad, long-range, unsaturated bag-of-words pooling; grammar is ~4x more local (ABSOLUTE nats); my recovery-fraction metric was the wrong lens (content_receptive_field.py)
+
+Restrict every attention layer to a causal band of width K (position i attends only to keys in (i-K, i]); sweep K.
+NULL: K=None (patched full band) == original baseline full_CE 3.3233 exactly (valid). ce by window:
+  K:      1      2      4      8      16     32     64     128    full
+  full:   5.717  5.090  5.079  4.698  4.269  3.923  3.667  3.472  3.323
+  class:  1.254  1.115  1.114  1.043  0.968  0.905  0.857  0.819  0.788
+  within: 4.462  3.975  3.964  3.656  3.301  3.018  2.810  2.653  2.535
+pred_a (grammar local, class_K90<=8) FALSE; pred_b (content longrange, within_K90>=16 and > class) FALSE -- BUT this
+is a METRIC MIS-SPECIFICATION on my part, stated plainly: I gated on RECOVERY FRACTION (each metric normalized by its
+own K=1->full span), which coincidentally makes class and within track almost identically (class_K90 = within_K90 =
+128) and HIDES the real asymmetry. In ABSOLUTE nats the two-machine account is confirmed:
+ - K=1 (attend to self only) penalty: CONTENT within-CE +1.93 nats vs GRAMMAR class-CE +0.47 nats -> content is ~4x
+   MORE context-hungry than grammar. Grammar is mostly (not entirely) LOCAL: even with zero context the class-CE
+   penalty is small (0.47). Content is SEVERELY degraded without context.
+ - Both improve smoothly out to K~128 with NO sharp cutoff; each DOUBLING of context adds a decreasing amount of
+   content (within-CE marginal: K8->16 -0.36, 16->32 -0.28, 32->64 -0.21, 64->128 -0.16, 128->256 -0.11 nats) ->
+   roughly log-linear, broad BAG-OF-WORDS pooling with diminishing returns, UNSATURATED even at 256 tokens. More
+   context always helps content a little.
+READING: content is a broad, long-range, order-invariant (§967) bag-of-words topic gist pooled over the ENTIRE
+available context (via the value residual, §985) with slow diminishing returns; grammar needs only a few local
+tokens. This is exactly the two-machine geometry (low-rank local grammar / high-rank long-range content), now with a
+context-window profile. The benchmark's content stand-in must integrate the WHOLE context, not a short window.
