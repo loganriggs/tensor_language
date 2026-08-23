@@ -30758,3 +30758,23 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 - **Per-layer: both are DISTRIBUTED / super-additive** (per-layer costs sum ≪ the all-layer cost — x0 sum ~0.13 vs global 2.34; value-residual sum ~0.44 vs global 3.37). x0 re-injection's per-layer cost concentrates at **L0-1** (the grammar front, cost 0.028/0.088); the value-residual's concentrates at **L2-4** (cost 0.123/0.058/0.107) — EXACTLY the content-onset transition (§1052). So the value-residual routes the original token value into the layers where the content seed forms.
 
 **What this adds (architecture ↔ two machines).** The two distinctive bilin18 features are not incidental — they feed the two machines: the VALUE-RESIDUAL supplies original token content to the content-building transition/middle (content machine); x0 RE-INJECTION re-supplies the embedding to the early grammar layers (grammar machine). Both are distributed (each layer's is individually compensable, collectively critical). This connects the architecture to the content-origin account (§1074: attention gathers content — and the value it gathers is half block-0's, routed by the value-residual). **Nulls/controls:** restore-to-baseline exact (sanity); per-layer decomposition. **Caveat:** ablating λ1/λ globally also removes their (rms-normed) scale role; the differential rare-vs-frequent pattern and the L2-4 vs L0-1 per-layer localization are the robust, interpretable findings.
+
+## §1076 — Block-0's value is EXACTLY static per-token content; the value-residual broadcasts it to every layer (mechanism complete)
+
+**Question:** what is the v1 that the value-residual broadcasts to every layer (§1075)? Predict block-0's value (c_v output) from the token embedding / a per-token table / the context input, and functionally replace the broadcast v1 with a static per-token table. (`blockzero_value.py`, 200 rows, 51k positions.)
+
+**Registered predictions:** (a) v1 is ~static word content (token-table R² high, static-override cost small); (b) or context-dependent.
+
+**Result — pred_a TRUE, at the ceiling:**
+
+| measure | value |
+|---|---|
+| R² predicting block-0 value from embedding | **1.00** |
+| token-identity variance fraction | **1.00** |
+| static-per-token-table override cost | **0.0 nats** |
+| shuffled-token override null | +0.52 nats |
+
+- **Block-0's value is EXACTLY a static per-token function** (R²=1.0, token-identity fraction 1.0). Structural reason: at block 0, x = x0 = the embedding, so the attention input is purely the (rms-normed) token embedding — no context has been mixed yet — making c_v(input) a deterministic per-token value. Replacing the broadcast v1 with the exact per-token table costs ZERO CE (it IS a per-token lookup); broadcasting the WRONG token's value costs +0.52 (the right token matters).
+- So the **value-residual is a mechanism for broadcasting each position's STATIC, embedding-derived word content (its c_v value) to every layer** (50/50 mix, §1075).
+
+**What this completes (the content-construction mechanism, end to end).** The content is built as follows: (1) block 0 computes each token's static VALUE c_v(emb) — pure word content, no context; (2) the value-residual broadcasts this static per-token value into every layer's attention (50%, §1075, concentrated at the L2-4 content onset); (3) attention at each layer POOLS these values over the context (§1074) into the content bag; (4) the deep-middle MLPs MULTIPLY the pooled content (content×content, §1041). This RECONCILES §1072 (content is NOT a linear bag of raw EMBEDDINGS) with §1074/1075: the content is a pooled bag of c_v-VALUE-projected static word contents (a learned projection of embeddings), not raw embeddings — so a raw-embedding bag fails (§1072) but attention-pooling of the broadcast values succeeds. The value-residual is the wire that keeps each word's own content available at every depth for this pooling. **Controls:** shuffled-token override (+0.52, confirms token-specificity); static-override 0.0 confirms exact per-token nature. **Caveat:** all three R² predictors coincide at block 0 (context input = embedding there), which is itself the finding — block-0 value has no context.
