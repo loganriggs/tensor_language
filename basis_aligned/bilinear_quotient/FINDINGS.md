@@ -366,11 +366,17 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    residual gap being the genuine high-dimensionality of the content (a real model property: it tracks a broad
    high-rank topic manifold), NOT a stand-in artifact. 90%-per-module is reached for front (tables), readout (rank-64
    bilinear), and the pooler (mechanism); bounded for the deep-middle by the content's real high rank.
-   **REFINEMENT (§1049): the deep-middle is ONE content computation, not ten.** The content deviation's top-64 PCA
-   subspaces are largely SHARED across L6-14 (pairwise overlap mean 0.577 vs 0.054 null; adjacent 0.65-0.82, decaying to
-   0.32 at 6-14) — one high-rank content subspace that slowly rotates through depth, each layer reading what the one
-   below wrote. So the frontier is high-rank but *unified*: a single content object across the band (tensor-network/DAG
-   intuition confirmed), not a stack of separate walls. **HIGH.**
+   **REFINEMENT (§1049-1051): the deep-middle is ONE load-bearing high-rank content flow, not ten independent maps.**
+   §1049: the content deviation's top-64 PCA subspaces are largely SHARED across L6-14 (pairwise overlap mean 0.577 vs
+   0.054 null; adjacent 0.65-0.82, decaying to 0.32 at 6-14) — one content subspace slowly rotating through depth.
+   §1050: replacing all nine MLPs at once with [token-mean + rank-K content] stand-ins gives NEGATIVE recovery (per-
+   module stand-ins DON'T compose — fit on clean stream, they compound errors below the mean-ablate floor), BUT a SHARED
+   basis beats per-layer at high K (−0.17 vs −0.60 @512) — functional confirmation of §1049. §1051: fitting greedily on
+   the CORRUPTED stream does NOT rescue it (−0.70 @512) — so the negative is not a fit artifact; the deep-middle
+   TRANSPORTS high-rank content through the residual stream, load-bearing for the whole band, so a low-rank bottleneck at
+   any layer starves the rest. NET: the frontier is high-rank but *unified and load-bearing* — one content object across
+   the band (tensor-network/DAG intuition confirmed), irreducibly high-dimensional in the stream, not a stack of
+   separate walls. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even

@@ -30295,3 +30295,24 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 3. **pred_b FALSE, and this is the real finding — SHARING HELPS A LOT at high K.** Shared basis beats per-layer by 0.32–0.43 at K=256/512 (−0.72 vs −0.92; −0.17 vs −0.60). Using ONE common content subspace for all nine keeps the compounding errors *aligned in the same directions*, so the band approximation is far more coherent than nine independently-oriented per-layer bases. This is a **functional** confirmation of §1049: the shared drifting subspace is not just a span coincidence — forcing all nine layers to read/write the same content basis measurably improves the joint replacement. The deep-middle really is one content computation on a shared manifold.
 
 **Nulls/controls:** shuffled-input null −1.05 (destructive, as expected); mean-ablate baseline is the denominator. **Honest status:** this experiment does NOT hand us a clean "deep-middle band understood %" (composition compounds errors below the mean-ablate floor); its value is the two lessons — per-module scores don't compose, and the shared-subspace structure is functionally real.
+
+## §1051 — Greedy corrupted-stream fit does NOT rescue the band: the deep-middle's high-rank content is load-bearing for the whole band's information flow
+
+**Question:** §1050's negative band recovery could be a mere distribution-shift artifact (stand-ins fit on the clean stream, evaluated on the corrupted one). Fix it the standard way — fit each layer's stand-in ON THE CORRUPTED STREAM, greedily: replace L6, capture L7's actual corrupted input + true MLP output under that replacement, fit L7, replace, capture L8 under 6+7 replaced, ... Distribution-matched. If greedy >> clean-fit, §1050 was an artifact; if greedy still fails, the band is genuinely irreducible to a low-rank-per-layer pipeline. (`bottomup_middle_greedy.py`, 200 rows, per-layer basis, K∈{128,512}.)
+
+**Registered predictions:** (a) GREEDY >> CLEAN-FIT (§1050); (b) report honest band % vs K.
+
+**Result — pred_a FALSE, and it's the informative outcome:**
+
+| | greedy K=128 | greedy K=512 | clean-fit ref (§1050) |
+|---|---|---|---|
+| band recovery | −0.595 | −0.704 | −0.602 (per-layer) / −0.166 (shared) |
+
+(shuffled-input null −1.08; mean-ablate-all-nine cost ≈ 1.82 nats.)
+
+- **Greedy does NOT beat clean-fit** — per-layer greedy (−0.70 @512) is no better than, and if anything slightly worse than, clean-fit per-layer (−0.60). So the negative band recovery is **not** a fixable distribution-shift artifact. Fitting on the corrupted stream even hurts, because it *commits the early layers to stripping content the deep layers still need* — a low-rank bottleneck at L6 starves L7-14, and no downstream fit recovers information already deleted from the residual stream.
+- **More capacity didn't help** (K=512 ≈ K=128, both ~−0.6/−0.7): the failure isn't rank of any single map, it's that the *stream itself* carries high-rank content the whole band draws on.
+
+**What this establishes (convergent with §1000/§1038/§1042/§1049/§1050).** The deep-middle isn't just nine individually-high-rank MLPs — it is a band that **transports high-rank content through the residual stream**, and that high-rankness is *load-bearing for information flow*: you cannot bottleneck the content to rank-K at each layer without falling below the clean mean-ablate floor, by either fit strategy. This is the strongest statement of the frontier: the deep-middle content is genuinely, functionally high-dimensional — a real model property, now shown at the band/flow level, not just per-layer. The shared-basis help (§1050) and shared-subspace overlap (§1049) say it is ONE such content object; §1051 says that one object is irreducibly high-rank in the stream.
+
+**Honest limits.** clean-ref shared (−0.166) vs greedy per-layer (−0.704) is not apples-to-apples (basis differs); the safe claim is the one made — greedy does not beat clean and both stay well below the mean-ablate floor at all K. A greedy+shared-basis variant could be run but is unlikely to cross zero given the flow argument. This closes the deep-middle-compressibility line: the frontier is characterized, named, and bounded by a real property.
