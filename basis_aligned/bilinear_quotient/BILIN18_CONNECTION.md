@@ -29934,3 +29934,21 @@ solved), and everything content -- the pooling components (attn5 esp) and the wh
 (the multiplicative content frontier, which per-position named variables cannot model, and for the broad-pool
 components actively mispredict). This is the two-machine split read component-by-component, and it pinpoints attn5 (the
 content pooler) as the single most anti-understood component.
+
+## §1036 — INVALID (optimization failure): my gradient-fit bilinear stand-in was underpowered; does NOT test the bilinear hypothesis (bilinear_content_standin.py)
+
+Rank-R bilinear stand-in fit by Adam (400 steps), held-out R²:
+  L1:  R0 0.287 R16 0.349 R64 0.423 R256 0.494
+  L6:  R0 0.257 ... R256 0.217   L8: R0 0.171 ... R256 0.209   L11: R0 0.148 ... R256 0.223   L15: R0 0.120 ... R256 0.348
+  mid linear 0.146 -> bilinear256 0.26. pred_a FALSE.
+INVALID -- stated plainly, my methodology error: the MLP output is LITERALLY bilinear in its input
+(y = Down[(Wl x)⊙(Wr x)]), so a full-rank bilinear stand-in MUST reconstruct it EXACTLY (R²=1). Getting only ~0.26 at
+rank 256 is an OPTIMIZATION FAILURE, not evidence the middle isn't bilinear-capturable. The tell: the R=0 (pure
+LINEAR) Adam fit gives R² 0.29 at L1, but the CLOSED-FORM ridge linear is 0.55 (§991/§1005) -- my Adam fit does not
+even reach the linear baseline (400 steps, zero-init G, non-convex bilinear regression). So §1036 tests my optimizer,
+not the hypothesis. The user's point ("the middle is bilinear/multilinear structure we should be able to capture")
+remains OPEN, not refuted.
+CORRECT approach (queued §1037): don't FIT a generic bilinear map from scratch -- use the model's OWN bilinear
+weights. The MLP is a sum of HID=4608 rank-1 bilinear neurons (neuron i contributes Down[:,i]·(Wl x)_i·(Wr x)_i);
+truncate to the top-R most-important neurons and measure reconstruction R² vs R. This is EXACT at full rank by
+construction and reveals the EFFECTIVE bilinear rank of the middle -- the principled test of bilinear-capturability.
