@@ -30007,3 +30007,29 @@ its loss-relevant part is partly low-rank, and L15 is a handful of neurons. But 
 HIGH-RANK bilinear even for the loss. So the corrected claim is: NOT "irreducible", but "exact bilinear structure that
 is LOW-rank at L15 and HIGH-rank in the deep middle." Greedy neuron-ranking is a suboptimal upper bound; a better
 factorization or the compositional/tensor-network view (prong 4) may compress the deep-middle further -- next.
+
+## §1039 — prong 2: §1035's attn5 = -4.84 was a HARNESS ARTIFACT (clean stand-in -> ~0); a crude bag stand-in does NOT rescue the poolers (prong2_pooling_standin.py)
+
+Re-score the content-pooling attn (L3/4/5) with a bag-of-words stand-in (ridge map: causal running-mean-of-embeddings
+-> attn output) vs a clean per-token table, held-out loss-recovery (ce_full 3.12):
+  component   meanabl-cost   recovery BAG   recovery TOKEN
+  attn3         0.114          0.130          0.225
+  attn4         0.230          0.121          0.308
+  attn5         0.132          0.067          0.014
+pred_a (bag stand-in understands the pooler) FALSE.
+TWO honest findings:
+ 1. CORRECTION of §1035 (propagated): attn5's -4.84 was NOT a robust "anti-understood" fact -- it was specific to the
+    token+topic+prev benchmark harness, where the TOPIC-SUBSPACE stand-in is catastrophically OFF-DISTRIBUTION for the
+    pooler's output. A clean per-token table gives attn5 recovery ~+0.01 (near zero), and a bag stand-in ~+0.07. So
+    attn5 is LOW-understood by simple stand-ins (~0), NOT catastrophically anti-understood (-4.84). The §1035 figure
+    claim is corrected.
+ 2. The crude BAG stand-in does NOT capture the poolers: it is WORSE than the token table for attn3/4 (0.13/0.12 vs
+    0.23/0.31) and only ~0.07 for attn5. Reason: attn5 pools the VALUE RESIDUAL (learned first-block value vectors,
+    §985) with a RECENCY-WEIGHTED squared-attention pattern (§1019), NOT a uniform mean of raw embeddings. My bag
+    feature (uniform running mean of rms-normed embeddings) is the wrong pooled quantity.
+NET (prong 2): the -4.84 overclaim is corrected (harness artifact; true ~0). But a simple external stand-in (per-token
+OR uniform-bag) does NOT reconstruct the content pooler -- it is only ~7-30% recoverable. The pooler is MECHANISTICALLY
+well-understood (§998/1007/1019/1032: L5 recency-weighted content-word bag-of-words over value residuals, generatively
+validated), but that named mechanism is NOT compressible to a simple per-position/uniform-bag reconstruction -- the
+right stand-in is a recency-weighted value-residual pool, which approaches recomputing the head. So "understood
+mechanistically" and "reconstructible by a simple stand-in" come apart here, stated plainly.
