@@ -1,0 +1,89 @@
+{
+ "KS": [
+  16,
+  64
+ ],
+ "abl_range": [
+  6,
+  14
+ ],
+ "n_targets": 61200,
+ "per_K": {
+  "16": {
+   "bins_low_to_high_freq": [
+    {
+     "mean_logfreq": 0.89,
+     "content_loss_inc": 8.4758,
+     "random_loss_inc": 0.2601
+    },
+    {
+     "mean_logfreq": 1.81,
+     "content_loss_inc": 7.5835,
+     "random_loss_inc": 0.2147
+    },
+    {
+     "mean_logfreq": 2.95,
+     "content_loss_inc": 5.809,
+     "random_loss_inc": 0.1235
+    },
+    {
+     "mean_logfreq": 4.53,
+     "content_loss_inc": 3.9064,
+     "random_loss_inc": 0.0795
+    },
+    {
+     "mean_logfreq": 6.23,
+     "content_loss_inc": 2.05,
+     "random_loss_inc": 0.0535
+    },
+    {
+     "mean_logfreq": 7.55,
+     "content_loss_inc": 1.1159,
+     "random_loss_inc": 0.0434
+    }
+   ],
+   "content_mean_loss_inc": 4.8234,
+   "content_low_over_high": 7.6,
+   "random_low_over_high": 5.99
+  },
+  "64": {
+   "bins_low_to_high_freq": [
+    {
+     "mean_logfreq": 0.89,
+     "content_loss_inc": 11.4162,
+     "random_loss_inc": 1.3101
+    },
+    {
+     "mean_logfreq": 1.81,
+     "content_loss_inc": 10.8988,
+     "random_loss_inc": 1.0615
+    },
+    {
+     "mean_logfreq": 2.95,
+     "content_loss_inc": 9.457,
+     "random_loss_inc": 0.7625
+    },
+    {
+     "mean_logfreq": 4.53,
+     "content_loss_inc": 7.0026,
+     "random_loss_inc": 0.4739
+    },
+    {
+     "mean_logfreq": 6.23,
+     "content_loss_inc": 5.117,
+     "random_loss_inc": 0.2142
+    },
+    {
+     "mean_logfreq": 7.55,
+     "content_loss_inc": 5.9987,
+     "random_loss_inc": 0.2284
+    }
+   ],
+   "content_mean_loss_inc": 8.3151,
+   "content_low_over_high": 1.9,
+   "random_low_over_high": 5.74
+  }
+ },
+ "pred_a_content_word_specific": true,
+ "runtime_s": 71.3
+}

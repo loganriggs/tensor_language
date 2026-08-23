@@ -30614,3 +30614,21 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - **The content's EXCESS over random is relatively LARGER for FREQUENT (function) tokens** (content/random = 2.74× at high-freq vs 1.52× at low-freq). The content subspace is used heavily even for function-word prediction (+6.4 nats to remove it, vs random +2.3). So the deep-middle content is a BROAD prediction-support representation — carrying the context needed for coherent prediction across the board — not a content-word-specific topic lookup.
 
 **Honest confound (bounds the claim).** K=256 projection after every deep-middle block is near-total destruction (compounding, §1056), so this compares two catastrophic ablations; the frequency profile may partly reflect general token difficulty rather than the content's specific function. A low-K (modest, non-destructive) version is queued (§1068) to check whether the "broad, not content-word-specific" pattern survives outside the destructive regime. **Controls:** random-K subspace (weaker at every frequency, but steeper gradient). **Net (pending §1068):** the content supports prediction broadly, refuting the simple "content = content-word predictor" hypothesis; the topic representation is used for coherent prediction of function words too.
+
+## §1068 — CORRECTION of §1067: at clean low-K, the content DOES preferentially support content/topical-word prediction
+
+**Motivation:** §1067 (K=256) concluded the content is a broad, non-content-word-specific support, but flagged the K=256 near-total-destruction confound. Clean low-K check: repeat the frequency-binned content-ablation at K∈{16,64} (modest ablation), content vs random subspace. (`content_ablation_lowk.py`, 240 rows, 61k targets.)
+
+**Result — reverses §1067 at the clean K=16 regime:**
+
+K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
+
+| target logfreq | 0.9 | 1.8 | 3.0 | 4.5 | 6.2 | 7.6 |
+|---|---|---|---|---|---|---|
+| content-abl loss+ | 8.48 | 7.58 | 5.81 | 3.91 | 2.05 | 1.12 |
+| random-abl loss+ | 0.26 | 0.21 | 0.12 | 0.08 | 0.05 | 0.04 |
+
+- **content low/high-freq ratio 7.6 > random 5.99** → content ablation is MORE frequency-selective than the general difficulty baseline. Removing just 16 content directions costs +8.5 nats on rare (content/topical) targets but only +1.1 on frequent (function) targets. So the content DOES preferentially support content/topical-word prediction — the original hypothesis, confirmed at the clean regime.
+- At K=64 the content ablation already saturates (frequent targets +6.0), so its low/high ratio flattens to 1.9 < random 5.74 — i.e. **§1067's K=256 "broad, not content-specific" conclusion was a destructive-regime artifact**: once the ablation is large enough to cripple function-word prediction too, the selectivity is masked. The clean K=16 window shows the true picture.
+
+**CORRECTION (stated plainly).** §1067's headline ("content is broad, NOT content-word-specific") is RETRACTED — it held only in the over-ablated K=256/64 regime. The corrected finding: **the deep-middle content preferentially supports content/topical (rare) word prediction** (K=16: 7.6× more loss on rare vs frequent, above the 6.0× general-difficulty baseline; +8.5 vs +1.1 nats), while contributing modestly to function-word prediction too. This TIES the content mechanism to its function: the topic representation is used most where meaning must be predicted (content words), consistent with §1055/§1064 (semantic topic) and §798 (class+position skeleton is what remains when content is uncertain). Neither §1067 nor this was propagated to the published reports (ledger/RESULTS only), so no report correction needed. **Controls:** random-K subspace (tiny at K=16, confirming the regime is clean). **Caveat:** frequency is a proxy for content-vs-function; a POS-based split would refine it but frequency is objective and the selectivity is clear.
