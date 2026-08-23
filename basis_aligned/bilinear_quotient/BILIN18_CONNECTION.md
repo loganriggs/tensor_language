@@ -29749,3 +29749,21 @@ The two-machine + induction account is now validated across THREE evidence modal
 causal/interchange §894/§959-960, generative §1016-1026) AND shown architecture-general in the structural (§1010/1011)
 and generative (§1021/§1026) modalities. The reverse-engineering of bilin18's next-token computation is comprehensively
 complete and multiply-validated.
+
+## §1027 — induction is INDEPENDENT of content (clean, 0.985); the content-side retention is a DESIGN CONFOUND (my flaw) (mechanism_independence.py)
+
+Co-inject content word (pos 3) + induction bigram (AB pos 5-6, A at last pos 149); measure content boost (W-neighbors)
+and induction boost (ΔlogP(B)):
+  mechanism   solo    joint   retention
+  content     0.525   3.139   5.97   <- CONFOUNDED
+  induction   11.22   11.06   0.985  <- CLEAN
+pred_a (both independent, retention in [0.7,1.3]) FALSE.
+CLEAN result: INDUCTION is INDEPENDENT of content -- co-injecting a content topic does NOT change the induction copy
+(retention 0.985; solo 11.2 -> joint 11.1). The content word does not interfere with the copy mechanism.
+DESIGN CONFOUND on the content side (stated plainly, my flaw): the induction condition REPLACES the last fed token
+(pos 149) with A -- and pos 149 is exactly where the content effect is read (the query). So the content-solo baseline
+(original last token) and the joint condition (last token = random A) are NOT comparable: a random content-ish last
+token inflates ALL content-neighbor log-probs, so the content-boost jumps to 3.14 not because content and induction
+interact but because my two conditions differ in the last token. The content-side retention 5.97 is therefore
+uninterpretable as interference. FIX: the content baseline must use the SAME last token (A) as the joint condition,
+differing only in the AB bigram -> queued §1028.
