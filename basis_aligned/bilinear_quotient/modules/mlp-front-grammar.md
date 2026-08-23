@@ -23,8 +23,11 @@ gain/expansion writer whose CE function is ~a static per-token table (held-out 0
 
 - **Register (§1080/§1096):** the front grammar computation is ~HALF register-shared — prose-built
   token tables recover ~50% of code-built tables' function on code, matching the representational
-  overlap (0.41 ≈ 46% of ceiling) from an independent instrument. Code→prose numbers are
-  vocabulary-confounded (narrow code vocab → global-mean fallback); only prose→code is clean.
+  overlap (0.41 ≈ 46% of ceiling) from an independent instrument. Vocab-matched check (§1112):
+  coverage was NOT the gap — ratios [0.61, 0.58, 0.12, 0.83] on matched tokens; mlp0's tables are
+  register-CONTEXTUAL (input includes attn0's gather) with a breadth asymmetry: prose-built tables
+  travel (0.61), code-built don't (0.12); mlp1 largely register-general (0.58-0.83). Register
+  thread CLOSED for this band.
 
 ## Benchmark status
 mlp0/mlp1 ≈ **0.90+** (smooth per-token maps / token tables; §905/§1045/§1088). Front content

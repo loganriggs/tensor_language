@@ -1,0 +1,7 @@
+matched-vocab position fraction: code 0.260 | prose 0.330
+eval=code mlp0: same -0.0104 (recov 1.025) | cross 0.1562 (recov 0.629) | shuf 0.5012 (-0.191) | abl 0.4207 | transfer 0.614
+eval=code mlp1: same 0.2678 (recov 0.92) | cross 1.5483 (recov 0.536) | shuf 5.5755 (-0.67) | abl 3.3395 | transfer 0.583
+eval=prose mlp0: same 0.1917 (recov 0.751) | cross 0.6988 (recov 0.091) | shuf 0.8312 (-0.082) | abl 0.7685 | transfer 0.121
+eval=prose mlp1: same 0.9134 (recov 0.858) | cross 1.8666 (recov 0.709) | shuf 5.9806 (0.068) | abl 6.4147 | transfer 0.826
+matched-vocab transfer ratios [0.614, 0.583, 0.121, 0.826] | pred_a coverage-was-gap False | pred_b computation-differs False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/grammar_transfer_vmatch_results.json (62.3s)

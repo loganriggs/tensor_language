@@ -1,0 +1,62 @@
+{
+ "eval": {
+  "code": {
+   "base_ce": 4.8389,
+   "mlp0": {
+    "prose": 0.1562,
+    "code": -0.0104,
+    "shuffled": 0.5012,
+    "meanabl": 0.4207,
+    "same_recov": 1.025,
+    "cross_recov": 0.629,
+    "shuffled_recov": -0.191,
+    "transfer_ratio": 0.614
+   },
+   "mlp1": {
+    "prose": 1.5483,
+    "code": 0.2678,
+    "shuffled": 5.5755,
+    "meanabl": 3.3395,
+    "same_recov": 0.92,
+    "cross_recov": 0.536,
+    "shuffled_recov": -0.67,
+    "transfer_ratio": 0.583
+   }
+  },
+  "prose": {
+   "base_ce": 3.8683,
+   "mlp0": {
+    "prose": 0.1917,
+    "code": 0.6988,
+    "shuffled": 0.8312,
+    "meanabl": 0.7685,
+    "same_recov": 0.751,
+    "cross_recov": 0.091,
+    "shuffled_recov": -0.082,
+    "transfer_ratio": 0.121
+   },
+   "mlp1": {
+    "prose": 0.9134,
+    "code": 1.8666,
+    "shuffled": 5.9806,
+    "meanabl": 6.4147,
+    "same_recov": 0.858,
+    "cross_recov": 0.709,
+    "shuffled_recov": 0.068,
+    "transfer_ratio": 0.826
+   }
+  }
+ },
+ "transfer_ratios": [
+  0.614,
+  0.583,
+  0.121,
+  0.826
+ ],
+ "matched_frac_code": 0.26,
+ "matched_frac_prose": 0.33,
+ "pred_a_coverage_was_gap": false,
+ "pred_b_computation_differs": false,
+ "asymmetry_prose_to_code_minus_code_to_prose": 0.125,
+ "runtime_s": 62.3
+}
