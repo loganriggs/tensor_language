@@ -30060,3 +30060,24 @@ token tables, readout (mlp16) by low-rank bilinear, mlp4/15 by a few dominant fa
 (mlp5-14) is the hold-out: full-rank as a flat bilinear map. NEXT (prong 4): a flat bilinear map over the raw input
 is the wrong basis for the deep-middle -- express its bilinear form over the NAMED SUBSPACES / earlier-layer writes
 (content×token, content×content) where it may be low-rank. That is the compositional/tensor-network test.
+
+## §1041 — PRONG 4 win: the deep-middle bilinear form is STRUCTURED = CONTEXT×CONTEXT (pooled content multiplied by itself), not token×token (prong4_bilinear_crossterms.py)
+
+Decompose the middle MLP input into x_loc (per-token conditional mean = local/token part) + x_ctx (context deviation);
+split the bilinear form into cross-terms. Identity check: loc+cross+ctx reconstructs ce_full exactly (3.2148 vs
+3.2147). OUTPUT-VARIANCE share:
+  layer   loc×loc   token×context   context×context
+  L8       0.067      0.203           0.731
+  L11      0.089      0.257           0.654
+  mean context-term (cross+ctx) variance share 0.922. pred_a TRUE.
+LOSS: loc×loc alone recovers ~NOTHING (cost_loc_only 0.035/0.031 ~= the full mean-ablate budget §1040 0.03); adding
+token×context barely helps (context-fix frac 0.07/0.14); the full sum (which adds CONTEXT×CONTEXT) recovers everything
+(identity). So the CONTEXT×CONTEXT term carries essentially ALL the loss-relevant content of the deep-middle.
+COMPOSITIONAL / TENSOR-NETWORK UNDERSTANDING (the user's prong 4): the deep-middle MLP multiplies the POOLED CONTEXT
+BY ITSELF (context×context, ~70% of variance and ~all of the loss), with a smaller token×context term and NEGLIGIBLE
+token×token. This is a STRUCTURED bilinear form -- we now know WHAT it multiplies (pooled content × pooled content) --
+even though §1040 showed it is full-rank as a FLAT map of the raw 1152-dim input. The flat-rank was high because the
+raw input mixes token+context; in the loc/ctx basis the form is structured. This directly answers "why is it full
+rank / can't we do better": the right basis is the context decomposition, and there the middle = content×content.
+NEXT: is the context×context term LOW-RANK when the context is restricted to the NAMED content/topic subspace (=
+topic×topic)? If so, the deep-middle is understood as a bounded (topic⊗topic) bilinear map -> toward 90%. Queued.
