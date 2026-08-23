@@ -4868,3 +4868,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1131 — readout certifies (mlp17 0.84, mlp16 0.81 held-out; linear maps generalize, token term redundant); certification sweep CLOSED — all table rows certified/audited/structural (readout_standin_heldout.py)
 §1132 — mlp16 compactness corrects (top-64 neurons 0.685; plateau 0.81 by 256); two instruments converge on the 0.81 ceiling (functional-tail law certified at module level); table annotated (mlp16_bilinear_heldout.py)
 §1133 — readout ceiling law band-wide (mlp17 own-neurons 0.821 ≈ linear 0.842; both MLPs converge ~0.81-0.84 across instruments; tail neither sparse nor linear); readout closed at characterized ceiling (mlp17_bilinear_heldout.py)
+§1134 — mass driver unnamed at 8 features (R² 0.09; novelty NEGATIVE −0.22 = consistency tilt, not demand); thread closed with graveyard; both middle-attn unknowns now bounded+documented (attn_gain_second.py)
