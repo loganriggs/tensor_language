@@ -29627,3 +29627,17 @@ CONTENT is broad topical pooling (inject a topical word -> its topic is primed d
 recency-weighted-but-broad; §1016-1019), GRAMMAR is local part-of-speech prediction (inject a determiner adjacent ->
 noun predicted; far -> nothing; syntactically accurate; §1020). This generative modality complements the structural
 (§995-998) and causal/interchange (§894/§959-960) evidence for the two-machine account.
+
+## §1021 — generative content-priming is ARCHITECTURE-GENERAL (incl SwiGLU) (content_injection_family.py)
+
+Inject a topical content word at pos 3; topic-neighbor boost at query 150, content vs function, per model:
+  model      content-mean  function-mean  ratio
+  bilin18      0.525        0.073          7.23
+  bilin12      0.522        0.057          9.20
+  swiglu18     0.646        0.097          6.68
+pred_a (generative content-priming, content>>function ratio>3, every model) TRUE. Injecting a topical content word
+primes its topic downstream in EVERY family model INCLUDING swiglu18 (non-bilinear), content 6.7-9.2x more than a
+function word. So the bag-of-words content BEHAVIOR is architecture-general -- confirmed generatively (input
+intervention), complementing the STRUCTURAL architecture-generality (§1010/1011). The content machine is now
+triple-validated (structural §995-998, causal/interchange §894, generative §1016-1021) AND shown architecture-general
+in both the structural and generative modalities.
