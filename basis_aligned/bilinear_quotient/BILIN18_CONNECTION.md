@@ -28795,3 +28795,28 @@ possible (negative routing, unavailable to softmax); the range-robust routing mo
 content-similarity (that was a recency confound, §983); INDUCTION routing is front/mid-peaked (peak L5, gone late,
 §984); and content/topic emerges from broad ~uniform POOLING rather than content-selective routing (unifies §932).
 This reverse-engineers the one previously-under-covered mechanism.
+
+## §985 — the VALUE RESIDUAL is a critical, primarily-CONTENT mechanism (= the bag-of-words aggregation) (value_residual.py)
+
+Ablate the value residual (set all per-layer lamb=0, so v = current-block values only, no first-block v1 mixing):
+  full CE 3.323 -> 6.656  (+3.33 nats — DOUBLES the loss)
+  class-CE (grammar) 0.789 -> 1.477  (+0.688)
+  within-CE (content) 2.534 -> 5.179 (+2.645)
+  content/grammar damage ratio 3.84
+pred (a) value-residual-is-content TRUE. FINDINGS:
+ - The value residual is one of the MOST LOAD-BEARING mechanisms in the model: removing it DOUBLES the loss
+   (+3.33 nats). lamb is learned and large per layer (-4.2..+4.6; §prev), so it is heavily used — some layers'
+   attention values are dominated by v1 (the FIRST block's values ~ original token values, threaded to all blocks).
+ - It is PRIMARILY a CONTENT mechanism: ablation hurts CONTENT (+2.64) 3.8x more than GRAMMAR (+0.69). This
+   CONFIRMS the value residual as the bag-of-words CONTENT-AGGREGATION mechanism (§932): every block's attention
+   pools the ORIGINAL token values (v1), which is WHY content reads as an order-invariant bag of original
+   word-values — remove v1 and content collapses. Grammar (front/token-driven) is far less dependent on it.
+ - So the distinctive value-residual architecture (v1 re-injection, analogous to the x0 embedding re-injection) is
+   the mechanistic substrate of the content machine: it keeps the original word content available for pooling at
+   every layer. Combined with §983 (attention pools broadly, not content-selectively), the content machine =
+   broad pooling of the value-residual's original-token values -> bag-of-words topic.
+HONEST CAVEAT: lamb=0 is OFF the training distribution (the weights were trained WITH the value residual), so the
+absolute +3.33 nats may include generic disruption; the robust claim is the CONTENT>>GRAMMAR differential (3.8x)
+and that the value residual is heavily used and content-critical. A graded lamb-scaling sweep could quantify the
+off-distribution component (possible follow-up). Genuinely-new characterization of a previously-uncovered
+distinctive mechanism.

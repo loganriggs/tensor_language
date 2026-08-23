@@ -1,0 +1,6 @@
+lamb per layer: [0.5, -0.053, -4.0, -4.0, -4.188, -0.056, 0.361, 0.262, 4.0, -0.656, 0.416, -1.75, 0.268, 4.188, 4.625, 0.559, 1.453, -0.089]
+full: {'full_ce': 3.3233, 'class_ce': 0.7889, 'within_ce': 2.5344}
+lamb=0 (value-residual ablated): {'full_ce': 6.656, 'class_ce': 1.4769, 'within_ce': 5.1792}
+gains -> class(grammar) +0.688 | within(content) +2.6448 | full +3.3327 | content/grammar ratio 3.84
+(a) value residual is the content mechanism: True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/value_residual_results.json (39.1s)
