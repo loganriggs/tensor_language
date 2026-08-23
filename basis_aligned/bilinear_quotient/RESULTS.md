@@ -4837,3 +4837,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1100 — transition = ONE rotating precursor variable L3→L5 (adjacent overlap 0.57, neighbor-basis recovers 84-98%); transition account COMPLETE (l35_variable.py)
 §1101 — split-half audit at 2-4x N: ALL nine headline numbers stable; §1093 inversion holds both halves (robustness_recheck.py)
 §1102 — seed authorship: NO privileged band (all ≤0.14 alignment; front strongest; sink carries none) — whole-stack cooperative product; Open A answered negatively (attn_seed_align.py)
+§1103 — class code read as a PACKAGE (attn1 keys read all classes ~uniformly); rank-1 class deletions near-harmless but diagonal-tending (own-class damage 2-7x overall; number passes strict bar); rank-k subspace follow-up queued (mlp0_class_readers.py)

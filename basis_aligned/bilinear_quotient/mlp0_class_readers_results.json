@@ -1,0 +1,371 @@
+{
+ "base_ce": 3.2694,
+ "class_axis_max_offdiag_cos": 0.639,
+ "read_map": {
+  "mlp1.Left": {
+   "determiner": 0.76,
+   "preposition": 0.79,
+   "pronoun": 0.93,
+   "conjunction": 0.87,
+   "aux/be/neg": 0.83,
+   "number": 1.0,
+   "punctuation": 0.88,
+   "Capitalized": 0.91,
+   "subword-piece": 0.99,
+   "content word": 0.77
+  },
+  "mlp1.Right": {
+   "determiner": 0.74,
+   "preposition": 0.79,
+   "pronoun": 0.93,
+   "conjunction": 0.88,
+   "aux/be/neg": 0.82,
+   "number": 1.02,
+   "punctuation": 0.89,
+   "Capitalized": 0.91,
+   "subword-piece": 0.98,
+   "content word": 0.77
+  },
+  "mlp5.Left": {
+   "determiner": 1.0,
+   "preposition": 1.0,
+   "pronoun": 1.01,
+   "conjunction": 1.03,
+   "aux/be/neg": 1.02,
+   "number": 0.97,
+   "punctuation": 0.98,
+   "Capitalized": 0.97,
+   "subword-piece": 1.01,
+   "content word": 1.03
+  },
+  "mlp5.Right": {
+   "determiner": 0.98,
+   "preposition": 1.01,
+   "pronoun": 1.02,
+   "conjunction": 1.04,
+   "aux/be/neg": 1.02,
+   "number": 0.97,
+   "punctuation": 1.0,
+   "Capitalized": 0.99,
+   "subword-piece": 1.01,
+   "content word": 1.05
+  },
+  "mlp16.Left": {
+   "determiner": 1.06,
+   "preposition": 1.07,
+   "pronoun": 1.02,
+   "conjunction": 1.02,
+   "aux/be/neg": 1.05,
+   "number": 1.01,
+   "punctuation": 1.07,
+   "Capitalized": 1.0,
+   "subword-piece": 0.99,
+   "content word": 1.02
+  },
+  "attn1.q": {
+   "determiner": 1.04,
+   "preposition": 1.17,
+   "pronoun": 1.13,
+   "conjunction": 1.12,
+   "aux/be/neg": 1.0,
+   "number": 0.96,
+   "punctuation": 1.36,
+   "Capitalized": 1.22,
+   "subword-piece": 1.36,
+   "content word": 1.31
+  },
+  "attn1.k": {
+   "determiner": 1.54,
+   "preposition": 1.67,
+   "pronoun": 1.15,
+   "conjunction": 1.54,
+   "aux/be/neg": 1.6,
+   "number": 1.26,
+   "punctuation": 1.39,
+   "Capitalized": 1.48,
+   "subword-piece": 1.38,
+   "content word": 1.46
+  },
+  "attn1.q2": {
+   "determiner": 1.08,
+   "preposition": 1.14,
+   "pronoun": 1.12,
+   "conjunction": 1.02,
+   "aux/be/neg": 0.97,
+   "number": 0.97,
+   "punctuation": 1.16,
+   "Capitalized": 1.05,
+   "subword-piece": 1.37,
+   "content word": 1.23
+  },
+  "attn1.k2": {
+   "determiner": 1.74,
+   "preposition": 1.83,
+   "pronoun": 1.24,
+   "conjunction": 1.5,
+   "aux/be/neg": 1.82,
+   "number": 1.29,
+   "punctuation": 1.16,
+   "Capitalized": 1.4,
+   "subword-piece": 1.16,
+   "content word": 1.52
+  },
+  "attn1.v": {
+   "determiner": 0.83,
+   "preposition": 0.8,
+   "pronoun": 0.88,
+   "conjunction": 0.97,
+   "aux/be/neg": 0.8,
+   "number": 0.99,
+   "punctuation": 1.03,
+   "Capitalized": 0.91,
+   "subword-piece": 1.02,
+   "content word": 0.9
+  },
+  "attn5.q": {
+   "determiner": 1.0,
+   "preposition": 1.1,
+   "pronoun": 1.09,
+   "conjunction": 1.01,
+   "aux/be/neg": 1.04,
+   "number": 1.07,
+   "punctuation": 1.07,
+   "Capitalized": 1.06,
+   "subword-piece": 1.17,
+   "content word": 1.04
+  },
+  "attn5.k": {
+   "determiner": 1.22,
+   "preposition": 1.23,
+   "pronoun": 1.07,
+   "conjunction": 1.13,
+   "aux/be/neg": 1.14,
+   "number": 1.08,
+   "punctuation": 1.13,
+   "Capitalized": 1.01,
+   "subword-piece": 1.23,
+   "content word": 1.1
+  },
+  "attn5.v": {
+   "determiner": 1.01,
+   "preposition": 0.99,
+   "pronoun": 0.98,
+   "conjunction": 0.94,
+   "aux/be/neg": 0.96,
+   "number": 1.03,
+   "punctuation": 1.01,
+   "Capitalized": 1.02,
+   "subword-piece": 1.01,
+   "content word": 0.95
+  }
+ },
+ "damage_matrix": {
+  "determiner": [
+   0.0138,
+   0.0064,
+   0.0036,
+   0.0098,
+   0.0046,
+   0.0047,
+   0.0051,
+   0.0081,
+   0.0095,
+   0.006
+  ],
+  "preposition": [
+   0.0044,
+   0.0098,
+   0.0009,
+   0.0068,
+   0.0043,
+   -0.0024,
+   0.0043,
+   0.009,
+   0.002,
+   0.0046
+  ],
+  "pronoun": [
+   0.0072,
+   0.0046,
+   0.0109,
+   0.0057,
+   0.0077,
+   0.0026,
+   0.0032,
+   0.0059,
+   0.0051,
+   0.0042
+  ],
+  "conjunction": [
+   0.0052,
+   0.0048,
+   0.0001,
+   0.004,
+   0.0041,
+   -0.0004,
+   0.0039,
+   0.0073,
+   0.0053,
+   0.0042
+  ],
+  "aux/be/neg": [
+   0.0059,
+   0.0064,
+   0.0036,
+   0.0073,
+   0.0072,
+   -0.0008,
+   0.0046,
+   0.0051,
+   0.0052,
+   0.0044
+  ],
+  "number": [
+   0.0025,
+   0.0028,
+   0.0001,
+   0.0036,
+   0.0004,
+   0.0161,
+   0.0031,
+   0.0002,
+   0.001,
+   0.0016
+  ],
+  "punctuation": [
+   0.0059,
+   0.0016,
+   0.0029,
+   0.0023,
+   0.0041,
+   0.0041,
+   0.0051,
+   0.0029,
+   0.0048,
+   0.0026
+  ],
+  "Capitalized": [
+   0.0096,
+   0.01,
+   0.0053,
+   0.0101,
+   0.004,
+   0.0046,
+   0.0097,
+   0.0205,
+   0.0203,
+   0.0064
+  ],
+  "subword-piece": [
+   0.0087,
+   0.0042,
+   0.0078,
+   0.0072,
+   0.002,
+   0.0065,
+   0.0053,
+   0.009,
+   0.0461,
+   0.0053
+  ],
+  "content word": [
+   0.012,
+   0.011,
+   0.004,
+   0.0077,
+   0.0086,
+   0.0012,
+   0.0069,
+   0.0137,
+   0.0075,
+   0.0096
+  ]
+ },
+ "control_row": [
+  0.0005,
+  0.0006,
+  -0.0001,
+  0.0003,
+  0.0006,
+  0.0001,
+  0.0001,
+  0.0006,
+  0.0008,
+  0.0003
+ ],
+ "classes": [
+  "determiner",
+  "preposition",
+  "pronoun",
+  "conjunction",
+  "aux/be/neg",
+  "number",
+  "punctuation",
+  "Capitalized",
+  "subword-piece",
+  "content word"
+ ],
+ "diag_test": [
+  [
+   "determiner",
+   0.0138,
+   0.0064,
+   0.0005,
+   false
+  ],
+  [
+   "preposition",
+   0.0098,
+   0.0038,
+   0.0006,
+   false
+  ],
+  [
+   "pronoun",
+   0.0109,
+   0.0051,
+   -0.0001,
+   false
+  ],
+  [
+   "conjunction",
+   0.004,
+   0.0038,
+   0.0003,
+   false
+  ],
+  [
+   "aux/be/neg",
+   0.0072,
+   0.0046,
+   0.0006,
+   false
+  ],
+  [
+   "number",
+   0.0161,
+   0.0017,
+   0.0001,
+   true
+  ],
+  [
+   "punctuation",
+   0.0051,
+   0.0035,
+   0.0001,
+   false
+  ],
+  [
+   "Capitalized",
+   0.0205,
+   0.0089,
+   0.0006,
+   false
+  ]
+ ],
+ "n_diagonal": 1,
+ "reader_class_pairs": [],
+ "pred_a_diagonal_damage": false,
+ "pred_b_differential_readers": false,
+ "runtime_s": 130.3
+}
