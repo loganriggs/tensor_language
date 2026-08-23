@@ -21,8 +21,8 @@ import census_lib as cl
 import torch.nn.functional as F
 
 D = 1152; PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT = PT + 'bilinear_neuron_lossrank_results.json'
-NCAL = 48; NEVAL = 160; SEQ = 256; LAYERS = [6, 8, 11, 15]; RANKS = [0, 16, 64, 256, 1024]
+OUT = PT + 'bottomup_mlp_rank_results.json'
+NCAL = 48; NEVAL = 160; SEQ = 256; LAYERS = list(range(18)); RANKS = [0, 16, 64, 256, 1024, 4608]
 ORD = {}; SUB = {'L': None, 'R': None}
 
 
@@ -91,13 +91,15 @@ def main():
         out['layers'][str(L)] = {'meanabl_cost': round(ce_ma - ce_full, 4), 'loss_recovery_by_rank': rec, 'eff_loss_rank_90': eff}
         print(f"L{L:>2} (meanabl {ce_ma-ce_full:.3f}): loss-recovery {rec} | eff-loss-rank {eff}", flush=True)
     for h in hooks: h.remove()
-    out['mid_recovery_256'] = round(float(np.mean([out['layers'][str(L)]['loss_recovery_by_rank']['256'] for L in LAYERS])), 3)
-    out['ref_output_r2_256'] = 0.157
-    out['pred_a_loss_lower_rank'] = bool(out['mid_recovery_256'] > 0.4 and out['mid_recovery_256'] > out['ref_output_r2_256'] + 0.2)
+    effr = {L: out['layers'][str(L)]['eff_loss_rank_90'] for L in LAYERS}
+    out['eff_loss_rank_by_layer'] = {str(L): effr[L] for L in LAYERS}
+    frontok = [effr[L] for L in [0, 1, 2, 3] if effr[L] is not None]
+    out['pred_a_front_low_rank'] = bool(len(frontok) >= 2 and all(r <= 256 for r in frontok))
     out['runtime_s'] = round(time.time()-t0, 1)
     json.dump(out, open(OUT, 'w'), indent=1)
-    print(f"MIDDLE loss-recovery@256 {out['mid_recovery_256']} vs output-R²@256 {out['ref_output_r2_256']}", flush=True)
-    print(f"pred_a loss lower-rank than output variance: {out['pred_a_loss_lower_rank']}", flush=True)
+    print("\nBOTTOM-UP effective loss-rank (R for 90% recovery) per MLP:", flush=True)
+    for L in LAYERS: print(f"  mlp{L:>2}: eff-rank {effr[L]}  {out['layers'][str(L)]['loss_recovery_by_rank']}", flush=True)
+    print(f"pred_a front MLPs low-rank: {out['pred_a_front_low_rank']}", flush=True)
     print(f"wrote {OUT} ({out['runtime_s']}s)")
 
 
