@@ -2219,6 +2219,21 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   frontier — the high-rank content — absent at the token-dominated front and the linear readout, and growing through
   the middle. Not many walls; one, located and named.</p>
 
+  <p><strong>Is that one frontier really one object — and can we compress it?</strong> Two further tests say yes, and
+  no. First, the deep-middle layers turn out to share a <em>single</em> content subspace rather than each having their
+  own: the top content directions of layers 6, 8, 10, 12 and 14 overlap heavily and the overlap fades smoothly with
+  distance (neighbours ~0.65–0.82, the far ends ~0.32, against ~0.05 for random directions) — one content
+  representation slowly rotating through depth, each layer reading what the one below it wrote. So the middle is
+  <em>one</em> content computation, not nine independent ones. Second, we tried to <em>compress</em> that shared object:
+  replace all nine deep-middle MLPs at once with a token-average plus a rank-<em>K</em> slice of the content. It does
+  not work at any rank we tried — worse than simply deleting the layers — and, revealingly, fitting the replacements on
+  the already-degraded stream (the honest way) does not help either. The reason is that the middle <em>carries</em>
+  high-rank content forward through the residual stream for every later layer to draw on; throttle it to a low-rank
+  slice anywhere and everything downstream starves. The content is not just high-rank inside each layer — it is
+  load-bearing high-rank information in flight. That is the precise shape of the remaining frontier: one shared content
+  object, genuinely high-dimensional, and irreducible not because we lack the right stand-in but because the model
+  really does move that much content through its middle.</p>
+
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
   output for each current token) instead of a linear map, and comparing. The table does <em>worse</em>, not better
