@@ -29767,3 +29767,20 @@ token inflates ALL content-neighbor log-probs, so the content-boost jumps to 3.1
 interact but because my two conditions differ in the last token. The content-side retention 5.97 is therefore
 uninterpretable as interference. FIX: the content baseline must use the SAME last token (A) as the joint condition,
 differing only in the AB bigram -> queued §1028.
+
+## §1028 — cleaner independence test: induction-independence CLEAN (0.97); content-side residual 2x is last-token-IDENTITY, still not fully isolated (mechanism_independence_v2.py)
+
+Within-condition Δ (add trigger vs not) design:
+  mechanism   effect-plain-bg   effect-with-other   retention
+  content        0.525            1.041             1.984   <- residual, still confounded
+  induction      9.269            9.023             0.973   <- CLEAN (independent)
+pred_a (both retentions in [0.7,1.3]) FALSE.
+The fix removed most of §1027's inflation (content retention 5.97 -> 1.98 -- the last-token-PRESENCE confound is
+gone). INDUCTION independence is now CLEAN and robust across §1027/§1028 (0.985, 0.973): co-injecting a content topic
+does NOT change the copy. But a RESIDUAL 2x on the content side remains, and I diagnose it plainly as a last-token-
+IDENTITY effect (my design still imperfect): the plain background has the ORIGINAL last token while the induction
+background has A@149 (a content-ish random token). A content-ish last token makes the content channel more active, so
+W's topic boost is ~2x larger there -- this is a last-token-identity effect, NOT a genuine content x induction
+mechanism interaction. To isolate the induction TRIGGER's effect on content with the last token held FIXED, compare
+{A@149} vs {AB@5-6, A@149} (both A-last, differ only in the AB bigram) -> queued §1029. NET so far: induction is
+independent of content (clean); the content-side independence needs the matched-last-token control to settle.
