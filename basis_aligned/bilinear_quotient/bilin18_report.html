@@ -2228,10 +2228,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   actually receive — the recovered fraction collapses to about 12%. The reason is compounding, not hidden
   incomprehension: each stand-in carries a small error, and in a deep residual network those errors accumulate across
   layers, so the decline sets in from the very first module and continues even through the readout, whose stand-in scores
-  ~0.9 on its own. The honest reading is that we understand each module's <em>function</em> well (in isolation, verified
-  by intervention), while a faithful end-to-end reconstruction from simple stand-ins is defeated by accumulated
-  approximation error — a property of stacking approximations in a deep network, separate from the one genuine frontier,
-  the high-rank content.</p>
+  ~0.9 on its own. Two separate things are going on, and we can tell them apart: if we keep the deep-middle content
+  computed exactly and let only the <em>understood</em> parts run as stand-ins, the recovered fraction more than triples
+  — so the high-rank content genuinely is a large part of what the simple substitution loses. But even then the
+  reconstruction tops out well short of the original, because the understood stand-ins still accumulate error down the
+  stack. The honest reading is that we understand each module's <em>function</em> well (in isolation, verified by
+  intervention), while a faithful end-to-end reconstruction is limited by two things at once: the one genuine frontier
+  (the high-rank content) and the ordinary accumulation of approximation error when many stand-ins are stacked in a deep
+  network.</p>
 
   <p><strong>Is that one frontier really one object — and can we compress it?</strong> Two further tests say yes, and
   no. First, the deep-middle layers turn out to share a <em>single</em> content subspace rather than each having their

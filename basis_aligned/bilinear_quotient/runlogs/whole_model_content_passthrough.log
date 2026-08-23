@@ -1,0 +1,17 @@
+ce_full 3.0852
+replaced 2/26 scaffold (up to mlp0): recovery 0.883
+replaced 4/26 scaffold (up to mlp1): recovery 0.553
+replaced 6/26 scaffold (up to mlp2): recovery 0.579
+replaced 8/26 scaffold (up to mlp3): recovery 0.573
+replaced 10/26 scaffold (up to mlp4): recovery 0.483
+replaced 12/26 scaffold (up to attn6): recovery 0.545
+replaced 14/26 scaffold (up to attn8): recovery 0.505
+replaced 16/26 scaffold (up to attn10): recovery 0.461
+replaced 18/26 scaffold (up to attn12): recovery 0.431
+replaced 20/26 scaffold (up to attn14): recovery 0.381
+replaced 22/26 scaffold (up to mlp15): recovery 0.346
+replaced 24/26 scaffold (up to mlp16): recovery 0.185
+replaced 26/26 scaffold (up to mlp17): recovery 0.284
+SCAFFOLD greedy recovery (content MLPs passed through) = 0.284 | vs-1070-denominator 0.392 (1070 all-36 was 0.124)
+ce_standin_scaffold 5.684 vs 1070 all-36 6.8314 | full 3.085 | pred_a True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_content_passthrough_results.json (100.3s)

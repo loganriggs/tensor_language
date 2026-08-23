@@ -30667,3 +30667,21 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 - **The recovery declines MONOTONICALLY from the very first module** (0.90 after L0 → 0.62 by mlp1 → ... → 0.12), and keeps dropping THROUGH THE READOUT (mlp15-17: 0.23→0.12) — even though readout stand-ins are 0.85-0.94 in ISOLATION (§1046). So the decline is dominated by ERROR COMPOUNDING: each stand-in is good on clean input but sees the accumulated errors of all prior replacements, and small per-module residual errors compound catastrophically over 36 sequential substitutions in a deep residual stream. The drop is somewhat steeper through the content band (0.56→0.26 over mlp4-14), but it is a continuous compounding, NOT a clean content wall.
 
 **What this establishes (an honest limit of the methodology).** Per-module understanding does NOT compose into whole-model understanding via stand-in substitution — extending §1050/§1051 from the deep-middle band to the WHOLE model. The 12% composed number is a COMPOUNDING lower bound (error accumulation over depth), NOT a statement that the model is 12% understood. **The valid understanding measure is PER-MODULE-IN-ISOLATION** (the benchmark_matched figure: front grammar ~0.9, routing attention 0.66-0.95, readout ~0.9, content the frontier), each verified causally — because that isolates each module's function from the compounding. The whole-model substitution benchmark is fundamentally compounding-limited and should be read as such. **Controls:** mean-ablate-all baseline (denominator), full (numerator). **Caveat:** greedy corrupted-stream fitting is the best composition-aware method available and still yields 12% — a per-layer or richer stand-in might raise it modestly, but the monotonic-from-module-1 decline (through even the isolation-high readout) shows compounding, not stand-in weakness, is the binding constraint.
+
+## §1071 — Content passthrough triples whole-model recovery (content is a major gap) BUT scaffold compounding persists
+
+**Question (sharpening §1070):** §1070 found whole-model substitution recovers only 12%, dominated by compounding. Is the CONTENT the isolated gap? Replace everything EXCEPT the deep-middle content MLPs (mlp5-14, passed through undistorted), greedy-fit the rest on the corrupted stream. (`whole_model_content_passthrough.py`, same corpus/split as §1070.)
+
+**Registered predictions:** (a) content is the isolated gap — passthrough recovers >> §1070's 0.124.
+
+**Result — pred_a TRUE, but with an important nuance:**
+
+| condition | ce_standin | recovery (§1070 denominator: meanabl-all 7.36, full 3.09) |
+|---|---|---|
+| §1070: all 36 replaced | 6.83 | 0.124 |
+| **§1071: scaffold replaced, content MLPs passed through** | **5.68** | **0.392** |
+
+- **Passing the content through MORE THAN TRIPLES recovery** (0.124 → 0.392; CE 6.83 → 5.68). So the deep-middle content is a MAJOR isolated gap at the whole-model level — undistorted, it carries substantial load (confirming §1051/§1056/§1059's load-bearing content, now at whole-model scale). pred_a TRUE.
+- **BUT the scaffold stand-ins STILL compound.** Even with content preserved, the curve declines monotonically from 0.88 (after L0) to 0.28 (all scaffold replaced), including through the readout (whose stand-ins are ~0.9 in isolation). So compounding among the "understood" scaffold modules (attention routing + front/readout MLPs) is ALSO a binding constraint.
+
+**Refined conclusion (nuances §1070).** The low whole-model substitution number reflects TWO effects, not one: (1) the content frontier — preserving it triples recovery, confirming it as a major gap; and (2) scaffold-approximation compounding — small per-module errors accumulate over depth even for well-understood modules, so recovery still tops out at ~0.39 with content intact. Neither alone explains it. Per-module-in-isolation understanding (front/attention/readout ~0.66-0.95, verified causally) remains the valid understanding measure; the whole-model substitution is jointly limited by the content gap and depth-compounding. **Controls:** scaffold mean-ablate baseline; §1070 all-36 reference. **Caveat:** a per-layer/richer scaffold stand-in would reduce (2) and isolate (1) more cleanly; the 0.88→0.28 scaffold decline shows (2) is real regardless.
