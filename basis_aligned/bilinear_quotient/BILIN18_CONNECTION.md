@@ -30335,3 +30335,24 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - **This LOCATES the frontier's onset in the transition.** The transition MLPs (L2-4) resist token+window+bag stand-ins (§1048) precisely because that is where the residual stream *starts carrying the shared content* — they are catching the birth of the one content object, not a separate local mechanism. The frontier is not a wall at L6; it emerges continuously from L3, consistent with a tensor-network where each layer's content is built from the previous.
 
 **Complete bottom-up picture:** L0-1 grammar (content barely present, 0.16) → **L2-5 transition = onset of the shared content flow (0.21→0.44)** → L6-14 the content band, consolidated and drifting (0.53→0.91→0.69) → L15-17 readout (content handed off, read out ~linearly). One object, born in the transition, load-bearing and high-rank through the band, read out at the top. **Null:** random subspace 0.056 (passes). **Caveat:** overlap measures shared span, not identical function (as in §1049); the smooth monotonic onset is strong evidence for a single continuously-built content object.
+
+## §1053 — The middle attention is NOT the primary author of the content-read subspace: the content is a cumulative residual-stream object, not a simple gather→multiply DAG
+
+**Question (unifying the two middle hold-outs):** the benchmark has two under-90% middle bands — the content-pooling attention (attn3-14) and the high-rank content MLPs (§1049-1052). Tensor-network/DAG hypothesis: attention GATHERS content into a subspace, MLPs MULTIPLY within that same subspace — one machine, two roles. Test: build the deep-middle MLP-READ content reference (top-64 PCA of pooled L8-12 mlp-input content deviation, same ref as §1052), and measure how much each middle layer's ATTENTION-OUTPUT content subspace overlaps it. (`attn_writes_content.py`, 96 rows, K=64.)
+
+**Registered predictions:** (a) attention writes content — band overlap > 0.4, well above null; (b) report attn-output vs mlp-input overlap.
+
+**Result — pred_a FALSE:**
+
+| layer | 3 | 4 | 5 | 6 | 8 | 10 | 12 | 14 |
+|---|---|---|---|---|---|---|---|---|
+| **attn-output** overlap w/ content ref | .177 | .191 | .323 | .232 | .144 | .321 | .214 | .063 |
+| mlp-input overlap (ref, §1052) | .262 | .305 | .444 | .529 | .739 | .911 | .876 | .694 |
+
+(null 0.056; attn band L6-12 mean 0.228.)
+
+- **The middle attention output overlaps the content-read subspace only modestly** (0.14-0.32, band mean 0.23) — 3-6× the null (so attention *does* contribute some content directions) but FAR below the MLP-input overlap (0.53-0.91). The attention is **not** the primary writer of the high-rank content-read subspace.
+- **So the simple "attention gathers → MLP multiplies, same subspace" DAG is too simple.** The content-read subspace is a property of the **accumulated residual stream**, built cumulatively (§1052), not predominantly authored by any single layer's attention write. This reinforces §1051: the content is load-bearing *in the stream*, a cumulative object no one component owns.
+- **Reconciles with §894/930/1039** (attention pools the value-residual into a bag): attention *moves* value-residual information, but the top-64 directions the MLPs most strongly READ are dominated by what the residual has already accumulated by that depth, only modestly overlapping the per-layer attention increment.
+
+**Honest caveat (real, and it bounds the claim):** this compares a per-layer INCREMENT (attention output) to the ACCUMULATED residual (MLP input) — the increment is small, so lower overlap is partly expected by construction. The safe, supported claim is the relative one: the attention increment is a *minor, above-null* contributor to the content-read subspace, not its main author; the subspace is cumulative. A cleaner apples-to-apples version (attention write vs pre-attention residual increment) could sharpen it, but the qualitative conclusion — no simple one-subspace gather→multiply DAG — stands. **Null:** random subspace 0.056 (passes).
