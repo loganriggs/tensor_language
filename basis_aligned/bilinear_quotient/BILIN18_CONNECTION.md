@@ -28751,3 +28751,28 @@ attractive or suppressive). HONEST CAVEAT: recency and content-similarity CO-VAR
 are embedding-similar), so I cannot cleanly label a given factor "content" vs "position" — the robust claims are
 (a) the two factors are non-redundant (differ 6/9 heads) and (b) the product is a signed conjunction; a cleaner
 content-vs-position disentangling (long-range pairs where recency and similarity diverge) is a possible follow-up.
+
+## §983 — CORRECTS §981: content-similarity routing was a RECENCY confound; genuine routing = recency + induction (qk_routing_longrange.py)
+
+Recomputed routing correlations on LONG-RANGE pairs (q-k>30, recency near-constant, content-sim varies freely) at
+L8:
+  content-similarity: mean 0.005 (null 0.002) -- VANISHES; §981's "content head" h8 goes +0.151 -> -0.037.
+  induction: per-head h4 +0.250, h6 +0.203, h5 +0.095, h7 +0.075 (h3 -0.207 anti-induction) -- PERSISTS strongly.
+pred (a) (compound, mean-based) FALSE, but the two parts split cleanly:
+ - CORRECTION to §981: the apparent CONTENT-SIMILARITY routing was RECENCY IN DISGUISE. At long range content-sim
+   no longer predicts the routing (0.005 ~ null 0.002); §981's "content-similarity heads" (h7/h8) were actually
+   RECENCY heads (recent tokens are embedding-similar in short contexts, confounding the short-range measurement).
+   So the QK routing is NOT content-similarity-selective. (§981's induction and negative-routing findings STAND;
+   its content-similarity claim is retracted.)
+ - GENUINE FINDING: INDUCTION routing is real and LONG-RANGE — h4 (+0.25) and h6 (+0.20) route to token-match even
+   at q-k>30 (induction is inherently long-range: attend to a prior occurrence of the current token); h3 is a real
+   ANTI-induction head (-0.207). These are bilin18's genuine induction heads at the routing level (confirming
+   §954's behavioral induction heads with a direct pattern measurement).
+ - UNIFIES with §932 (content = order-invariant BAG-of-words): since attention does NOT route by content-similarity,
+   the content/topic aggregation is achieved by NEAR-UNIFORM (recency-tilted) POOLING, and the topic EMERGES from
+   averaging the context, NOT from selectively attending to content-similar tokens. So "bag-of-words" is literal:
+   attention pools broadly (recency + induction), and topic is a property of the pooled average, not of the routing.
+CORRECTED routing picture (§981->983): each head multiplies two bilinear criteria into a signed conjunction
+(§982); the range-robust routing modes are RECENCY and INDUCTION (attractive or suppressive per head), NOT
+content-similarity; content/topic is pooled ~uniformly and emerges from the average. The long-range control caught
+the confound flagged in §982 -- disciplined correction.
