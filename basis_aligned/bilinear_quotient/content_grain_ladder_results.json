@@ -1,0 +1,48 @@
+{
+ "n_positions": 20400,
+ "abl_range": [
+  6,
+  14
+ ],
+ "conds": {
+  "c8": {
+   "kl": 1.6274,
+   "alignment": 0.4526
+  },
+  "c16": {
+   "kl": 2.6835,
+   "alignment": 0.5778
+  },
+  "c64": {
+   "kl": 5.4919,
+   "alignment": 0.7679
+  },
+  "c256": {
+   "kl": 8.016,
+   "alignment": 0.8994
+  },
+  "r256": {
+   "kl": 2.4625,
+   "alignment": 0.6693
+  },
+  "shuf256": {
+   "kl": 7.9566,
+   "alignment": 0.5649
+  },
+  "mean256": {
+   "kl": 4.9763,
+   "alignment": 0.6533
+  }
+ },
+ "orig_1059_60": {
+  "c256": 0.8995,
+  "r256": 0.6689,
+  "c16": 0.5783,
+  "c64": 0.7696
+ },
+ "pred_0_replicates": true,
+ "pred_a_grain_coarse": true,
+ "pred_b_coherence_matters": true,
+ "pred_c_mean_not_enough": false,
+ "runtime_s": 43.9
+}

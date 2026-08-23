@@ -38,7 +38,11 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    interpretable, top-10 PCs only ~12% var (§1055); genuine semantic topic not surface register
    (~2% §1064); multi-scale, predominantly running local context (§1065). CAUSAL: ablation
    catastrophic + privileged over random across the whole spectrum (§1056); activation patching
-   TRANSPORTS topic (62×/22× random @K16/64, §1059-1060). UNIVERSAL across the family: same info
+   TRANSPORTS topic (62×/22× random @K16/64, §1059-1060; replicated 4th-decimal on fresh rows §1150).
+   Transport is POSITION-BOUND: shuffling which position gets which content vector kills all excess
+   (goes below random); a per-sequence average carries zero excess; rank-8 slice already carries 78%
+   of rank-16's alignment (§1150 — in-protocol resolution of the §1146-49 nullified sub-thread).
+   UNIVERSAL across the family: same info
    (CCA 0.95-0.97 §1061), functionally interchangeable cross-arch and cross-width (93-96% of
    within-model §1062/§1063/§1066); supports content/topical-word prediction (clean K=16: 7.6× rare
    vs frequent §1068, correcting §1067's destructive-regime artifact). ORIGIN: not a raw-word bag

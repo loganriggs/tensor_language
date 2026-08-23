@@ -20,7 +20,12 @@ across the model family; register-adaptive within a model. §1049-1081 settled t
   not a raw-word bag (§1072); ultimately a pooled bag of block-0's static per-token c_v values
   (§1076) gathered by early attention (§1074).
 - **Causal:** ablation catastrophic + privileged across the whole spectrum (§1056); activation
-  patching transports topic (62×/22× random @K16/64; §1059-1060); supports content/topical-word
+  patching transports topic (62×/22× random @K16/64; §1059-1060; replicated to the 4th decimal on
+  fresh rows §1150). Transport is POSITION-BOUND (§1150, in-protocol): position-shuffled source
+  coords lose ALL excess over the random-subspace null (0.565 < 0.669), per-sequence mean broadcast
+  = zero excess (0.653 ≈ 0.669); rank ladder c8 0.453 / c16 0.578 / c64 0.768 / c256 0.899 —
+  only ≥64 dims beat the equal-energy random patch outright. Grain questions must be asked at
+  THIS locus with THIS readout (§1149 method law); supports content/topical-word
   prediction (K=16: rare targets 7.6× vs frequent, above 6.0× difficulty baseline; §1068 —
   §1067's "broad" claim was a K=256 destructive-regime artifact).
 - **Universal:** same info across independently-trained models (CCA 0.95-0.97; §1061), across
