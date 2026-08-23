@@ -31355,3 +31355,15 @@ pred_a TRUE, no corrections needed. Two independent halves (384 rows total; xbar
 **Next (registered intent, designed next wake):** the north-star payoff — re-run the whole-model held-out understanding benchmark (§939/§1013 harness, currently 0.32±0.06) with the content term upgraded from topic-PCA to the 8 skeleton features. If the skeleton is the read API, the middle band's ~0.10 should rise materially. Requires reading the existing harness first (whole_model_understanding_multidraw.py) — dossier rule applies.
 
 skeleton_stability_results.json; runlogs/skeleton_stability.log (62s).
+
+## §1121 — North-star refresh: the skeleton does NOT lift whole-model tabulation (token+skel 0.18 vs token+topic 0.26) — construction-limitation quantified at benchmark level, plus a methodological finding: the standing benchmark's topic term is partially SELF-REFERENTIAL (benchmark_skeleton.py)
+
+**Result (both formal predicates false — skel is neither ≥topic nor within 0.03; the gap is −0.08 ± 0.04):**
+- token 0.141 ± 0.004 | token+skel **0.180 ± 0.026** | token+topic 0.261 ± 0.010 | token+skel+prev 0.163 (prev HURTS after skel — term interaction) | token+topic+prev 0.258 ± 0.011 (reproduces the standing band's low end ✓) | shuffled-skel ≈ token (null clean).
+- (Run detail: both draws completed; a stale print crashed after the JSON was written — summary intact, cosmetic fix committed.)
+
+**Two findings, stated separately:**
+1. **Construction-limitation at north-star level (the §1118 expectation, confirmed and exceeded):** the true read-API features, as an external variable, add only ~0.04 of whole-model understanding over token tables. Per-module output substitution must reproduce what each component WRITES — which includes the construction scratch that no 8-feature code carries (§1118). The benchmark's residual gap is now precisely characterized: it is the cost of simulating construction, not of naming what is read.
+2. **The benchmark's topic term was never a fully external variable (methodological, applies retroactively to §939/§1013/§1014):** the topic term projects each component's OWN residual onto a rank-11 subspace — it reuses per-position information from the very output being reconstructed, which an external feature cannot. The skeleton term (a pure function of 8 externally-computed numbers) is the honest kind. So the standing "0.32 ± 0.06 understanding" MIXES external naming (token tables, prev) with partially self-referential reconstruction (topic term); the fully-external figure is nearer **0.16-0.18**. Not a retraction — the £939-era framing said "named variables" and the topic subspace is named — but the distinction (external-predictable vs own-output-projected) should be carried forward whenever the benchmark number is quoted. FINDINGS item 5 annotated.
+
+benchmark_skeleton_results.json; runlogs/benchmark_skeleton.log.

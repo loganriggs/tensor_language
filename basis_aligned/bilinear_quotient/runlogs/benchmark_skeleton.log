@@ -1,0 +1,24 @@
+all-36            token: CE 7.741 | understanding 0.136
+all-36      token+topic: CE 7.029 | understanding 0.270
+all-36       token+skel: CE 7.644 | understanding 0.154
+all-36  token+skel+prev: CE 7.660 | understanding 0.151
+all-36 token+topic+prev: CE 7.032 | understanding 0.269
+all-36         shufskel: CE 7.825 | understanding 0.120
+draw off=0: {'offset': 0, 'token': 0.136, 'token+topic': 0.27, 'token+skel': 0.154, 'token+skel+prev': 0.151, 'token+topic+prev': 0.269, 'shufskel': 0.12, 'skel_minus_topic': -0.116, 'ce_full': 3.168}
+all-36            token: CE 8.637 | understanding 0.145
+all-36      token+topic: CE 7.966 | understanding 0.251
+all-36       token+skel: CE 8.250 | understanding 0.206
+all-36  token+skel+prev: CE 8.448 | understanding 0.175
+all-36 token+topic+prev: CE 7.991 | understanding 0.247
+all-36         shufskel: CE 8.512 | understanding 0.165
+draw off=150: {'offset': 150, 'token': 0.145, 'token+topic': 0.251, 'token+skel': 0.206, 'token+skel+prev': 0.175, 'token+topic+prev': 0.247, 'shufskel': 0.165, 'skel_minus_topic': -0.045, 'ce_full': 3.21}
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/benchmark_skeleton.py", line 247, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/benchmark_skeleton.py", line 242, in main
+    print(f"MULTI-DRAW: token {out['token']} | token+topic+prev {out['token+topic+prev']} | genuine {out['genuine_vs_shuffled']}", flush=True)
+                                                                                                     ~~~^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'genuine_vs_shuffled'

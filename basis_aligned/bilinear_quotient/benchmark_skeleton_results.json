@@ -1,0 +1,64 @@
+{
+ "draws": [
+  {
+   "offset": 0,
+   "token": 0.136,
+   "token+topic": 0.27,
+   "token+skel": 0.154,
+   "token+skel+prev": 0.151,
+   "token+topic+prev": 0.269,
+   "shufskel": 0.12,
+   "skel_minus_topic": -0.116,
+   "ce_full": 3.168
+  },
+  {
+   "offset": 150,
+   "token": 0.145,
+   "token+topic": 0.251,
+   "token+skel": 0.206,
+   "token+skel+prev": 0.175,
+   "token+topic+prev": 0.247,
+   "shufskel": 0.165,
+   "skel_minus_topic": -0.045,
+   "ce_full": 3.21
+  }
+ ],
+ "token": {
+  "mean": 0.141,
+  "std": 0.004,
+  "min": 0.136,
+  "max": 0.145
+ },
+ "token+skel": {
+  "mean": 0.18,
+  "std": 0.026,
+  "min": 0.154,
+  "max": 0.206
+ },
+ "token+topic": {
+  "mean": 0.261,
+  "std": 0.01,
+  "min": 0.251,
+  "max": 0.27
+ },
+ "token+skel+prev": {
+  "mean": 0.163,
+  "std": 0.012,
+  "min": 0.151,
+  "max": 0.175
+ },
+ "token+topic+prev": {
+  "mean": 0.258,
+  "std": 0.011,
+  "min": 0.247,
+  "max": 0.269
+ },
+ "skel_minus_topic": {
+  "mean": -0.081,
+  "std": 0.036,
+  "min": -0.116,
+  "max": -0.045
+ },
+ "pred_a_skeleton_beats_topic": false,
+ "pred_b_scratch_limited": false
+}

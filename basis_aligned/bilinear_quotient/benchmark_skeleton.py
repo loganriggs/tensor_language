@@ -239,7 +239,7 @@ def main():
     out['pred_a_skeleton_beats_topic'] = bool(out['skel_minus_topic']['mean'] > 0.03)
     out['pred_b_scratch_limited'] = bool(abs(out['skel_minus_topic']['mean']) <= 0.03)
     json.dump(out, open(OUT, 'w'), indent=1)
-    print(f"MULTI-DRAW: token {out['token']} | token+topic+prev {out['token+topic+prev']} | genuine {out['genuine_vs_shuffled']}", flush=True)
+    print(f"MULTI-DRAW: token {out['token']} | skel {out['token+skel']} | topic {out['token+topic']} | skel-minus-topic {out['skel_minus_topic']}", flush=True)
     print(f"wrote {OUT}", flush=True)
 
 
