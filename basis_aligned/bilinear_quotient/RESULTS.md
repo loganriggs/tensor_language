@@ -4825,3 +4825,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1088 — CORRECTION §1084: deep+readout tok-recoveries were singleton leakage — held-out L8 0.14, L10 0.01, L16 0.13; L1 stands 0.93; readout-as-token-lookup WITHDRAWN (transition_terms_heldout.py)
 §1089 — L5H7 RESOLVED: a constant-bias head — one fixed vector = 98.5% of its 0.88-nat function; constant sits on massive/gain dims (7/8 overlap); 'content gatherer' framing retired; biggest attention node ≈ a bias (l5h7_generic.py)
 §1090 — readout reinstated, sharper: mlp16 82% token-variance held-out (structural) but small dev part carries ~87% of CE value; §1084 var-share table = in-sample-only (readout_var_heldout.py)
+§1091 — 162-head bias map: attention = one giant constant (L5H7 = 86% of bias value) + thin dynamics (top router L0H3 0.079; 62%/38% bias/dynamic split); L5H7 constant functionally BROAD (sparse truncation worse than zeroing — §1089 sparse-payload reading corrected) (head_const_map.py)

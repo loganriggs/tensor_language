@@ -31021,3 +31021,18 @@ Held-out variance shares + CE substitutions (xbar from half A, measured on half 
 - **L8 deep-context confirmed (pred_b):** tok share 0.13 held-out (was 0.33), dev 0.53.
 
 readout_var_heldout_results.json; runlogs/readout_var_heldout.log (115s).
+
+## §1091 — The 162-head bias map: attention = ONE giant constant (L5H7, 86% of all bias value) + thin distributed dynamics (top dynamic head only 0.079); the L5H7 constant is functionally BROAD, not few-dim (head_const_map.py)
+
+**Method.** Every head, two interventions: ZERO (reproduces §1083) vs CONST (output := its global-mean vector). Const cost = the head's DYNAMIC value (bias kept, computation deleted); zero−const = its BIAS value. Plus a sparse-constant sweep for L5H7. (Note: the JSON field 'top_dynamic_heads' is mislabeled — it ranks zero−const = BIAS value; true dynamic ranking = const cost, used here.)
+
+**Result.**
+- **Stack-level split: 62% bias / 38% dynamics** (zero sum 1.686, const sum 0.645; pred_a registered <35% dynamics — formally FALSE at 38%, qualitatively the bias-dominance holds).
+- **The bias is essentially ONE head:** L5H7's bias value (0.899) = 86% of the stack's total bias value. No other head's bias exceeds ~0.04. The §1089 constant-bias discovery isn't a motif — it's a singleton.
+- **The dynamics are small and spread thin:** top TRUE dynamic heads: L0H3 0.079 (bias-frac 0.10 — a genuine router, its value IS the token-dependent pattern), L2H5 0.028, L1H1 0.024, L6H3 0.023, L9H7 0.020, L7H8 0.018 … nothing else >0.015. Front L0-2 holds 35% of all dynamic value. pred_b split: L0H3 dynamic as predicted; L1H1 is 61% bias (the "local specialist" half-splits).
+- **pred_c REFUTED, sharply:** truncating L5H7's replacement constant to its top-4/8/16 coords is WORSE THAN ZEROING THE HEAD (costs 1.36/1.41/1.65 vs zero 0.91); top-32 ≈ zeroing; only top-64/128 works (0.139). Same super-additive inconsistency as §1087's partial removals. **Correction to §1089's implication, plainly: the constant's LARGEST coords sit on the massive/gain dims (7/8 overlap) but the functional payload is the BROAD 128-dim vector** (top-8 coords held only 8.9% of its energy — the two facts were always consistent; my "sparse payload" reading was not).
+- Sanity (0) held: zero costs reproduce §1083 (L5H7 0.912, L0H3 0.088, L1H1 0.062); const ≤ zero everywhere except noise-level heads.
+
+**Standing attention picture (thread B capstone):** softmax-free attention in bilin18 = (i) one constant-bias head feeding the gain/massive-dim system [98.6% understood as a fixed vector], (ii) a handful of genuine routers concentrated at the front (L0H3 prev/local, L2H5 early pooler, L6H3, L1 pair) worth ~0.23 nats of dynamics, (iii) a long tail of near-inert redundant poolers (§1085: positional-first, content-bias second-order). The middle "pooling band" carries its content collectively and cheaply — no single indispensable courier.
+
+head_const_map_results.json; runlogs/head_const_map.log (230s).
