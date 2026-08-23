@@ -33,10 +33,11 @@
   <p class="eyebrow">bilin18 · bottom-up · matched stand-ins</p>
   <h1>How much of each module do we understand — with the right stand-in?</h1>
   <p class="lede">The earlier per-module score used one generic stand-in for everything and made most of the model look
-  opaque. Score each module instead with the stand-in <em>matched to what it computes</em> — a local token window for
-  front attention, a token table plus that window for front MLPs, a low-rank bilinear map for the readout — and the
-  front grammar machine and the readout resolve to ~90%. What is left is not a mystery but two <em>named</em>
-  mechanisms bounded by real properties: broad content pooling, and a genuinely high-dimensional content computation.</p>
+  opaque. Score each module instead with the stand-in <em>matched to what it computes</em> — a local window of the
+  layer's own residual for attention, a token table plus that window for front MLPs, a low-rank bilinear map for the
+  readout — and most of the model resolves: the front grammar machine (attention and MLPs), the front+gatherer
+  attention, and the readout all reach ~0.8–0.95. What is left is essentially one <em>named</em> frontier bounded by a
+  real property: a genuinely high-dimensional content computation carried through the middle of the network.</p>
 
   <div class="card">
     <h2>Understanding per module, layer by layer</h2>
@@ -50,29 +51,33 @@
     </div>
     <div class="chartscroll"><svg id="c" viewBox="0 0 960 500" role="img"
       aria-label="Matched-stand-in understanding fraction for attention and MLP across 18 layers"></svg></div>
-    <p class="foot">Matched stand-ins: attention = local token window [cur+3 prev]; front MLP = token table + window;
-    deep-middle MLP = best low-rank bilinear (of the model's own neurons); readout MLP = rank-64 / linear read.
-    Sources: <code>bottomup_attn_all</code> (§1047), <code>bottomup_mlp_window</code> (§1045),
+    <p class="foot">Matched stand-ins: attention = local window of the layer's own residual input [cur+3 prev] + causal
+    running mean; front MLP = token table + window; deep-middle MLP = best low-rank bilinear (of the model's own
+    neurons); readout MLP = rank-64 / linear read. Sources: <code>pooling_standin_all</code> (§1054, corrects §1047's
+    embedding-window with the residual-window instrument), <code>bottomup_mlp_window</code> (§1045),
     <code>bottomup_mlp_rank</code> (§1040), <code>bottomup_readout</code> (§1046).</p>
   </div>
 
   <div class="card">
     <h2>What each band is — and why the hold-outs hold out</h2>
     <p class="sub" style="max-width:78ch">
-    <b>Front (L0–1): grammar machine, ~90%.</b> Local-window attention writing part-of-speech; token+window MLPs
-    (mlp1, the dominant writer, reaches 0.95). <b>Transition (L2–4):</b> partial — local structure giving way to
-    pooling. <b>Content gatherers (attn3–5) &amp; broad middle attention (6–14):</b> bounded — these are broad
-    recency-weighted pools of the value residual (bag-of-words content), a named mechanism a local window cannot
-    reconstruct. <b>Deep-middle MLPs (5–14): the frontier.</b> Exactly bilinear, and structured — they multiply the
-    pooled content <em>by itself</em> (content × content) — but that content is genuinely high-dimensional (you need
-    almost the full content subspace, confirmed three independent ways), so a bounded stand-in tops out near 0.4–0.6.
-    <b>Readout (L15–17): ~90%.</b> Near-linear / low-rank bilinear reads of the built residual; the readout attention
-    is essentially inert. The remaining whole-model gap <em>is</em> that high-rank content — located and named, not an
-    "irreducible ceiling."</p>
+    <b>Front + gatherer attention (L0–5): local-window routing of the residual, ~0.66–0.95.</b> With the correct
+    instrument — a window of the layer's <em>own residual input</em>, not the raw token embedding (§1054 corrects §1047)
+    — attention layers 0–4 land at 0.82–0.95 and layer 5 at 0.68. A broad causal-mean pool does <em>not</em> beat the
+    window, so the loss-bearing part of the attention is local routing; the broad content-pooling lives in the value-
+    residual / MLP path, not the attention output. <b>Front MLPs (L0–1): grammar, ~90%</b> (mlp1, the dominant writer,
+    0.95). <b>Middle attention (L6–11):</b> partial (0.5–0.68), with modest stakes; <b>deep attention (L12–17):</b> low
+    recovery but near-zero stakes (removing a layer costs ≤0.02 nats), so effectively understood by negligible
+    contribution. <b>Deep-middle MLPs (5–14): the frontier.</b> Exactly bilinear and structured — they multiply the
+    accumulated content <em>by itself</em> (content × content) — but that content is genuinely high-dimensional (you
+    need almost the full content subspace, confirmed several ways) and load-bearing in the residual stream, so a bounded
+    stand-in tops out near 0.4–0.6. <b>Readout (L15–17): ~90%.</b> Near-linear / low-rank bilinear reads of the built
+    residual. The remaining whole-model gap <em>is</em> that high-rank content — located and named, not an "irreducible
+    ceiling."</p>
   </div>
 </div>
 <script>
-const A={"0":0.944,"1":0.825,"2":0.643,"3":0.488,"4":0.615,"5":0.089,"6":0.373,"7":0.281,"8":0.05,"9":0.035,"10":0.181,"11":0.027,"12":-0.001,"13":0.008,"14":-0.04,"15":0.068,"16":0.05,"17":0.168};
+const A={"0":0.947,"1":0.915,"2":0.821,"3":0.826,"4":0.924,"5":0.675,"6":0.529,"7":0.688,"8":0.124,"9":0.651,"10":0.611,"11":0.525,"12":0.325,"13":0.132,"14":-0.041,"15":0.419,"16":0.228,"17":0.636};
 const M={"0":0.885,"1":0.95,"2":0.716,"3":0.648,"4":0.0,"5":0.625,"6":0.557,"7":0.506,"8":0.441,"9":0.441,"10":0.39,"11":0.42,"12":0.409,"13":0.411,"14":0.414,"15":0.875,"16":0.94,"17":0.945};
 const NS="http://www.w3.org/2000/svg",W=960,padL=60,padR=16;
 const laneH=155,gap=64,top1=52,top2=top1+laneH+gap,plotW=W-padL-padR,n=18,step=plotW/n,bw=step*0.6;

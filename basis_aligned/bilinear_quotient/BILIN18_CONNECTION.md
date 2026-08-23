@@ -30356,3 +30356,23 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - **Reconciles with §894/930/1039** (attention pools the value-residual into a bag): attention *moves* value-residual information, but the top-64 directions the MLPs most strongly READ are dominated by what the residual has already accumulated by that depth, only modestly overlapping the per-layer attention increment.
 
 **Honest caveat (real, and it bounds the claim):** this compares a per-layer INCREMENT (attention output) to the ACCUMULATED residual (MLP input) — the increment is small, so lower overlap is partly expected by construction. The safe, supported claim is the relative one: the attention increment is a *minor, above-null* contributor to the content-read subspace, not its main author; the subspace is cumulative. A cleaner apples-to-apples version (attention write vs pre-attention residual increment) could sharpen it, but the qualitative conclusion — no simple one-subspace gather→multiply DAG — stands. **Null:** random subspace 0.056 (passes).
+
+## §1054 — Correcting the attention lane: it's local-window routing OF THE RESIDUAL (not a loss-bearing pool); §1047 undersold it with embedding-windows
+
+**Question / method fix:** §1047 scored attention recovery with a window of raw TOKEN EMBEDDINGS [emb(cur), emb(prev1-3)] — the right feature for L0 but wrong for deeper layers, which read the built-up residual, not the embedding. Correct instrument: window of the attention's ACTUAL INPUT (the residual at that layer). Also test the broad-pool hypothesis (§894/930): does adding a CAUSAL RUNNING MEAN of the input help the middle attention? Three matched stand-ins per layer — window[cur+3prev of residual], pool[cur+cummean], pool+window — loss-recovery, all 18 layers. (`pooling_standin_all.py`, 200 rows.)
+
+**Registered predictions:** (a) front=window; (b) middle=pool (pool >> window in the middle).
+
+**Result — pred_a TRUE, pred_b FALSE, plus a big honest upgrade to the attention lane:**
+
+| layer | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12-17 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| window(residual) | .94 | .91 | .82 | .82 | .92 | .66 | .53 | .68 | .12 | .65 | .61 | .52 | .31/.14/−.04/.41/.21/.63 |
+| pool | .64 | .73 | .72 | .78 | .84 | .63 | .48 | .61 | .11 | .55 | .58 | .44 | (≈window) |
+| stakes (meanabl nats) | .27 | .20 | .13 | .10 | .22 | .12 | .05 | .06 | .03 | .06 | .02 | .04 | ≤.02 |
+
+1. **§1047 UNDERSOLD the attention lane.** With the correct residual-window instrument, front+gatherer attention (L0-5) recovers **0.66-0.94** — vs §1047's embedding-window 0.09-0.94 (attn3/4/5 jump from 0.49/0.62/0.09 to **0.82/0.92/0.66**). The front+gatherer attention is well understood as local-window routing OF THE RESIDUAL; the embedding-window conflated "understand this attention" with "understand the whole stack below it."
+2. **pred_b FALSE — the pool does NOT beat the window** anywhere; pool ≈ window ≈ pool+window (pool alone is slightly worse). So the middle attention's loss-relevant output is **local-window routing of the residual, NOT a loss-bearing broad pool.** This reconciles with §1053: the broad content pooling lives in the value-residual/MLP-content path (a cumulative residual object), not in the attention OUTPUT the loss depends on.
+3. **Deep attention (L12-17) is near-zero-stakes** (meanabl ≤ 0.02 nats): low recovery there is low-stakes noise, not an understanding gap — effectively understood by negligible contribution.
+
+**Net for "90% each module":** the attention lane is much better than the benchmark showed — L0-4 ~0.82-0.94 (near/at understood), L5-11 partial (0.5-0.68) with modest stakes, L12-17 negligible stakes. The remaining real attention gap is a handful of moderate-stakes middle layers (L6-11, recovery ~0.5-0.68). Updating the matched-stand-in figure's attention lane. **Nulls:** shuffled-feature null near 0 or negative at every layer (passes). **Caveat:** window-of-residual measures the attention as a function of its own input (correct per-module question), not of the raw tokens.
