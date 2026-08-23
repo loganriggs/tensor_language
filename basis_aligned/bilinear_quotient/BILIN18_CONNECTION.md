@@ -30558,3 +30558,22 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 - **These small correlations are real** (shuffled-position null ~0.005-0.008, so |r|~0.1-0.2 is well above chance) — but tiny.
 
 **What this establishes (a refinement/correction of the naive reading).** The content axes are NOT surface register (punctuation/caps/digit statistics) — they carry GENUINE SEMANTIC TOPIC. §1055's "informal conversational ↔ formal encyclopedic", "narrative ↔ technical" contrasts are *semantic/genre* distinctions (what the text is ABOUT and its communicative mode), not shallow text statistics: a formal encyclopedic passage and an informal chat differ in content/topic, and only ~2% in measurable surface features. This strengthens the core claim — the high-dimensional content manifold is a genuine semantic-topic representation, not a trivial surface-statistics artifact. It also mildly corrects any reading of §1055's "register" as surface-level: the register is semantic. **Nulls:** shuffled-position (~0.006). **Caveat:** only six hand-chosen surface features tested; a richer surface-feature set might explain a bit more, but 2% is a strong floor that the content is dominantly semantic.
+
+## §1065 — The content is MULTI-SCALE: document-topic-coherent above chance, but predominantly running local context
+
+**Question:** positive confirmation of the topic reading (§1055/§1064): does the content track DOCUMENT-level topic (stable within a document, different across)? Measure the fraction of each content coordinate's variance explained by document identity (ANOVA eta^2 = between-doc / total), content vs a random subspace of the same residual vs a shuffled-document-label null. (`content_doc_coherence.py`, 300 docs, 76.5k positions, K=64.)
+
+**Registered predictions:** (a) high document-eta^2 (>0.3), > random subspace, >> shuffled null; (b) report the three.
+
+**Result — pred_a FALSE on the strict gate, but a clear refinement:**
+
+| coords | document-eta^2 |
+|---|---|
+| **content subspace** | **0.167** |
+| random subspace of same residual | 0.102 |
+| content, shuffled doc labels (null) | 0.004 |
+
+- **The content IS document-topic-coherent above chance:** 17% of its variance is between-document — vastly above the shuffled-label null (0.4%, sanity passes) and 1.64× a random subspace of the same residual. So the content specifically carries a document-level topic component.
+- **But the majority (83%) is WITHIN-document:** the content changes substantially as the text progresses. It is not a static per-document topic label; it is a running LOCAL-CONTEXT representation that also carries document-level topic — a MULTI-SCALE signal. This is exactly what the recency-weighted content-bag mechanism (§894/930) predicts: the content is a running bag of recent context, drifting within a document as local sub-topic changes, while retaining a document-level component.
+
+**What this refines.** §1055/§1064's "semantic topic" is real but multi-scale: document-level topic (17%, 1.64× random, >>null) sits on top of a dominant local-context signal. So the content should be understood as "what the recent context is about," carrying both the document's overall topic and the local sub-topic — not a single per-document label. pred_a's strict "document-dominant (>0.3)" was the wrong expectation for a running-context representation. **Nulls:** shuffled doc labels 0.004 (passes). **Caveat:** eta^2 uses whole-document identity; a sentence/paragraph-level grouping would likely show higher coherence at that finer scale (the local component), which would further support the multi-scale reading.
