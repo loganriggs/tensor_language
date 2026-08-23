@@ -28626,3 +28626,22 @@ content), §915 (front writes the grammar/high-freq structure). The picture: fro
 high-frequency-defaulted distribution; the readout's job is to override it toward the specific content word; a
 grammar-error/hedge is exactly the readout failing to make that override on a hard content position. Closes the
 error/hedge facet with a mechanistic tie to the bottom-up stack.
+
+## §977 — frequency de-biasing is DISTRIBUTED across the network, not a distinct readout mechanism (readout_freq_debias.py)
+
+Correlate per-token logit CHANGE with corpus log-frequency (logit lens):
+  readout (L15 -> final):  corr -0.546   (std of change 4.47)
+  front   (L0  -> L2):     corr -0.567   (std 2.51)
+pred (a) "readout override = frequency de-bias, more than front" FALSE. Both the FRONT and the READOUT shift
+logits ANTI-proportional to frequency, EQUALLY in direction (-0.55 vs -0.57) — so suppressing frequent tokens and
+boosting rare/content ones is a NETWORK-WIDE, distributed process, not a distinct readout mechanism. The readout
+makes LARGER-magnitude changes (std 4.47 vs 2.51), consistent with it being the DOMINANT frequency calibrator
+(FINDINGS item 3: block-17-dominant but NOT sole) and doing the bulk of output formation (§944), but its DIRECTION
+(anti-frequency) is shared with the front.
+READING: the model starts (L0 logit lens) with a strong high-frequency bias (embedding->unembedding is
+frequency-dominated), and progressively DE-BIASES it toward specific/rarer content throughout the stack — front
+and readout alike. So §976's readout-override-toward-content is PART OF this distributed anti-frequency
+de-biasing, with the readout as the largest single contributor, NOT a separate readout-only calibrator. This
+refines §976 and is consistent with item 3 ("dominant but not sole"). My unification hypothesis (readout ==
+frequency calibrator) is thus REFINED, not confirmed: frequency calibration is distributed; the readout is its
+largest contributor. Closes the readout/frequency unification attempt honestly.
