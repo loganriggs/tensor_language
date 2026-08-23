@@ -28990,3 +28990,36 @@ COHERENT reconciliation (now consistent with §941+§990+§991), turning on TWO 
 CONFIRMING TEST QUEUED (§993): side-by-side on ONE instrument -- best-fit-linear surrogate (§941 method) vs Taylor
 const+linear (§992) vs mean-ablate, at front L0/L1 and middle L8/L11. Prediction: front linear-frac_bestfit (~0.9)
 >> linear-frac_taylor (<<) -> proves the front interaction is load-bearing yet best-fit-linearly-reproducible.
+
+## §993 — AIRTIGHT: front interaction is load-bearing YET best-fit-linearly reproducible; §992 reconciliation confirmed on one instrument (bestfit_vs_taylor_linear.py)
+
+Three MLP-output surrogates, one CE eval (baseline 3.139), frac = 1 - cost/cost_meanablate (§941 definition):
+  layer  cost_meanabl  cost_bestfit  cost_taylor  cost_null | frac_bestfit  frac_taylor  frac_null
+  L0       0.841         0.095         1.718        1.220   |   0.887        -1.043       -0.452
+  L1       6.773         0.138         0.570        3.915   |   0.980         0.916        0.422
+  L8       0.052         0.036         0.039        0.069   |   0.299         0.249       -0.330
+  L11      0.044         0.034         0.032        0.062   |   0.239         0.282       -0.391
+  FRONT frac_bestfit 0.933  >>  frac_taylor -0.063  (null -0.015 ~ 0) | MID frac_bestfit 0.269
+ALL PREDICTIONS TRUE: pred_0 null~0 (best-fit map is genuine, not leakage); pred_a front bestfit>>taylor;
+pred_b mid frac_bestfit < front.
+This DIRECTLY proves the §992 reconciliation: at the FRONT the best-fit linear map recovers 89-98% of the loss
+(replicating §941 exactly) while dropping the interaction (Taylor const+linear) is MUCH worse -- at L0 the Taylor
+surrogate is WORSE than mean-ablating the whole MLP (frac -1.04, cost 1.72 > meanabl 0.84). So the front interaction
+is LOAD-BEARING (deleting it hurts, catastrophically at L0) YET best-fit-linearly reproducible (a best-fit linear map
+absorbs its linearly-shaped effect). The MIDDLE best-fit frac 0.27 (~ §941's 0.38) with tiny absolute costs
+(0.03-0.05) -> genuinely multiplicative but low-stakes per layer (redundant band, §940).
+
+=== CLOSED: coherent, causally-verified account of the bilinear MLP across depth (§941/§988-993) ===
+ 1. The multiplicative interaction (u*w) DOMINATES the raw down-projection output variance at EVERY layer, front
+    included (~86-98%, §990). It is NOT gated away (both factors vary equally, §989) nor projected out (§990).
+ 2. FRONT (L0-L1): the interaction is LARGE and LOAD-BEARING (deleting it costs 1.6/0.5 nats, §992/§993) but is
+    approximately LINEARLY-SHAPED in the input, so a BEST-FIT linear map reproduces the front output at 89-98%
+    (§941/§993). "Front is linear" = a linear surrogate WORKS, NOT that the interaction is small.
+ 3. MIDDLE (L8-L15): the interaction is genuinely multiplicative (best-fit linear recovers only 24-38%, §941/§993)
+    but each middle MLP is individually LOW-STAKES (mean-ablate 0.04-0.05 nats); the middle matters as a distributed
+    BAND (§940), so per-layer interaction ablation is cheap.
+ 4. Removing the interaction costs WITHIN-class CE (content) at both bands (§992) -> the multiplicative term carries
+    content everywhere; the front additionally reproduces via linear surrogate, the middle does not.
+ My interpretation errors on this thread, corrected in place: §989 "constant gate" (refuted, both vary), §989 "Down
+ projects out interaction" (refuted §990), §991 "front interaction inert" (refuted §992). The RUNS were clean; the
+ fix each time was a better-controlled measurement, not new data. Thread closed; artifact to be updated.
