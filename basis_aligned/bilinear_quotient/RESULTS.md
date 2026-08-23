@@ -4859,3 +4859,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1122 — construction ≈ LINEAR stateful dynamics in coord space (rollout R² 0.53 over 9 steps, 4x persistence; linear=MLP; stateless fails); other half = per-layer attention injections; oracle-injection follow-up queued (coord_dynamics.py)
 §1123 — attention injections lift rollout to R² 0.68 (shuffled null WORSE than none); residual ≈ per-step compounding (0.92⁹≈0.47 — §1070's law inside the simulation); frontier scoped: push per-step fidelity or shorten the chain (coord_dynamics_attn.py)
 §1124 — CORRECTION: no compounding tax (direct = chained exactly); budget closes: linear 53% + attention 17% + FRONT-LOADED nonlinear core 30% (L5-9, = §1041 dev×dev / §1000 ceiling located); quadratic-features closure test queued (coord_direct.py)
+§1125 — quadratic INERT (rotated null == true axes): missing 30% is OFF-COORDINATE; fixed-basis simulation caps at 0.70; K-sweep queued to price width-vs-drift (coord_quadratic.py)

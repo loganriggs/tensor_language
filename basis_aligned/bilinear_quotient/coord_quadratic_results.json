@@ -1,0 +1,61 @@
+{
+ "spans": {
+  "L5_to_L9": {
+   "direct": [
+    0.711,
+    0.634
+   ],
+   "plus_attn": [
+    0.774,
+    0.746
+   ],
+   "plus_quad": [
+    0.714,
+    0.643
+   ],
+   "plus_attn_quad": [
+    0.775,
+    0.75
+   ],
+   "plus_attn_quadrot": [
+    0.775,
+    0.748
+   ]
+  },
+  "L5_to_L14": {
+   "direct": [
+    0.638,
+    0.534
+   ],
+   "plus_attn": [
+    0.738,
+    0.705
+   ],
+   "plus_quad": [
+    0.643,
+    0.546
+   ],
+   "plus_attn_quad": [
+    0.739,
+    0.711
+   ],
+   "plus_attn_quadrot": [
+    0.738,
+    0.707
+   ]
+  }
+ },
+ "reference_1124": {
+  "direct": [
+   0.638,
+   0.534
+  ],
+  "plus_attn": [
+   0.738,
+   0.705
+  ]
+ },
+ "pred_a_quadratic_closes": false,
+ "pred_b_off_coordinate": true,
+ "runtime_s": 32.8
+}
