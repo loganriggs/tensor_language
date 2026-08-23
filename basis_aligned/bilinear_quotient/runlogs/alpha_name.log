@@ -1,0 +1,9 @@
+restricted probe norm_only: R2 -0.002
+restricted probe content_64: R2 0.755
+restricted probe grammar_64: R2 0.703
+restricted probe massive_8: R2 0.457
+high_alpha ['Prior', 'Latest', "'m", 'This', 'This', 'Israel']
+low_alpha [' shack" by any stretch of the imagination. Somebody above', ' Muslims and Christians alike (though there is no mention in', ' to think deeply. Kurt Russell showed up when', 'us.M.E. I do love the fact', 'atics of the whiskey. The water added should lack any', ' at what real users are saying Leave a review yourself']
+full 0.931 | restricted {'norm_only': -0.002, 'content_64': 0.755, 'grammar_64': 0.703, 'massive_8': 0.457} | best ['content_64', 0.755]
+pred_a named True | pred_b norm False | pred_c diffuse False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/alpha_name_results.json (54.2s)

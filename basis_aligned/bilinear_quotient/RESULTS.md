@@ -4875,3 +4875,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1138 — bilin12: SAME soup substring third time (training-distribution attractor); stream extremized (cw 0.92, rep4 0.0); control proportionally strong at 12L — grammar claim not made there (gen_family12.py)
 §1139 — readout ceiling = THREE-FAMILY LAW (fitted quadratic +0.01; train R² rises, held-out doesn't); mlp16/17 final at 0.82/0.86; open-problem #5 hardened (readout_bilinear_fit.py)
 §1140 — mass driver DECODABLE (MLP probe R² 0.931 vs feature baseline 0.094); §1134 closure amended (feature vocabulary failed, not representability); naming decomposition queued (alpha_probe.py)
+§1141 — mass driver NAMED: nonlinear content-state saturation (content-64 probe 0.755 of full 0.931; norm-only −0.002; pool-hard-when-thin, throttle-when-full; small-t ratio caveat flagged); open-problem #3 closes positive (alpha_name.py)

@@ -1,0 +1,48 @@
+{
+ "probe_r2_linear": 0.647,
+ "probe_r2_mlp": 0.931,
+ "restricted": {
+  "norm_only": -0.002,
+  "content_64": 0.755,
+  "grammar_64": 0.703,
+  "massive_8": 0.457
+ },
+ "snippets": {
+  "high_alpha": [
+   "Prior",
+   "Latest",
+   "'m",
+   "This",
+   "This",
+   "Israel",
+   " great",
+   "Chinese",
+   "Welcome",
+   " oppressive",
+   "Mex",
+   "Here"
+  ],
+  "low_alpha": [
+   " shack\" by any stretch of the imagination. Somebody above",
+   " Muslims and Christians alike (though there is no mention in",
+   " to think deeply. Kurt Russell showed up when",
+   "us.M.E. I do love the fact",
+   "atics of the whiskey. The water added should lack any",
+   " at what real users are saying Leave a review yourself",
+   " deeply.The appearance of this sentence is always an infall",
+   ". Fred is a high achiever and settles for",
+   " his Algerian parents had settled. It was there that",
+   "chief have given her the boot. I should think",
+   " distinct (yet sometimes overlapping) communities that have coex",
+   " in three years. We need to surround him with"
+  ]
+ },
+ "best_restricted": [
+  "content_64",
+  0.755
+ ],
+ "pred_a_named": true,
+ "pred_b_norm_artifact": false,
+ "pred_c_diffuse": false,
+ "runtime_s": 54.2
+}

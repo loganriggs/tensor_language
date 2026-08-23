@@ -201,9 +201,11 @@
     "you have to run the layers" is final.</p>
     <p><b>2 · Two attention unknowns,</b> each with a documented graveyard: what the middle pool selects keys
     <i>by</i> (distance explains 58%; content-similarity and induction-matching both correlate but are causally
-    inert), and what drives each position's pooling <i>amount</i> (eight candidate signals tried, R² 0.09; the
-    one clue is that it favors positions <i>consistent</i> with the running context). <i>Next:</i> pattern-template
-    analysis for the first; a can-anything-decode-it probe for the second.</p>
+    inert), and — until a probe settled it — what drives each position's pooling <i>amount</i>. That second one just
+    resolved: eight hand-crafted signals had failed (R² 0.09), but a small learned probe reads the amount
+    almost perfectly (R² 0.93) from the position's content state — the gatherer pools hard while its running
+    summary is thin and throttles as it fills; the earlier features were linear, the function isn't.
+    <i>Still open:</i> the key-selection criterion — next instrument is pattern-template analysis.</p>
     <p><b>3 · The readout's last fifth.</b> Both output MLPs sit at 0.81–0.84 under two unrelated stand-in
     families — the remainder is neither sparse nor linear. <i>Next (untried):</i> a fitted low-rank quadratic,
     the third natural instrument family.</p>
