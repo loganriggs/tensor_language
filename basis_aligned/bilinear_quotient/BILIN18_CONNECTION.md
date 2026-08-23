@@ -30914,3 +30914,20 @@ Dedup miss (stated plainly): §1075's value-residual / x0 re-injection ablations
 **Redteam caveat (registered for follow-up).** The random-64 control removes far less variance than the content-64 (76% of deviation variance). The argmax-flip excess (38% vs 14%) therefore isn't yet cleanly content-SPECIFIC vs a variance-matched null. Follow-up: variance-matched random removal.
 
 readout_merge_results.json; runlogs/readout_merge.log (84s).
+
+## §1083 — THREAD B: FIRST per-head map. One SUPER-HEAD (L5H7) carries half the attention stack's causal weight; the L5 "induction layer" resolves into TWO different specialist heads (attn_head_map.py)
+
+**Question.** All prior attention work (§1043-1047, §1054, §1069, §877) treated each layer's 9 heads as one unit. First head-level map: pattern profiles recomputed from weights (rotary+qk-norm included) + induction share on repeated sequences + per-head zero-ablation CE (162 causal conditions).
+
+**Result (pred_a formally FALSE, but the real structure is stronger than predicted).**
+- **A single super-head: L5H7 costs 0.912 nats alone** — 54% of the summed per-head cost of the ENTIRE attention stack (1.69 total), 95% of its own layer. Profile: broad pooler (mid 0.375 / far 0.257 mass), induction share ~0. Given §1052 (content onset L3-5) and §1074 (early attention creates the content seed), L5H7 is the prime candidate for THE content gatherer. The content seed may have a single address.
+- **The L5 story splits into two heads.** The induction-pattern head at L5 is a DIFFERENT head: **L5H5** (induction share 0.248, the highest in the model; L7H3 0.165 and L8H3/H4/H6 0.12-0.14 are secondary). §877's layer-level "L5 = induction + content" was two specialists sharing a layer: H5 does induction (tiny prose CE cost, 0.009 — induction rarely binds on prose), H7 gathers content (0.912). Layer-level ablation could not see this.
+- **Hyper-concentration:** top-5 heads (L5H7, L0H3, L1H1, L2H5, L6H3) = 67% of total per-head cost. Front named: L0H3 (0.088, local/prev profile self 0.23/prev 0.30), L1H1 (0.062, local), L2H5 (0.036 — a POOLER already at L2, consistent with §1052's early content onset).
+- **pred_a formally false** (9/18 layers have top-2 ≥ 50% of layer cost) — but only because 6 layers (12-17) have negligible total cost to be sparse ABOUT (sums ≤ 0.017). Among layers with real cost, sparsity is strong (L0 0.88, L5 0.95, L6 0.81).
+- **Bands:** late 15-17 all-inert (0.027 total; confirms §1047); mid 6-14 mostly inert-poolers (0.26 total spread thin) — the middle's pooling is redundant per-head; the FRONT + L5H7 is where individual heads are load-bearing.
+
+**Caveats.** Per-head zeroing measures marginal cost — redundant heads can each look cheap (the middle's thin spread is consistent with §1054's low-stakes distributed routing). Sanity (0) held: layer cost sums track known band importance.
+
+**Redteam/follow-up registered (l5h7_probe.py):** (i) is L5H7's cost content-signed (rare/frequent ratio like the value-residual's 2.69, §1075)? (ii) INTERCHANGE: donor-patch L5H7's output — does topic transport through this one head? (iii) distance masking: is its value from far context? (iv) same tests on a matched inert pooler control (L10H5).
+
+attn_head_map_results.json; runlogs/attn_head_map.log (474s).
