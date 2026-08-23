@@ -28730,3 +28730,24 @@ unnormalized squared pattern. Opens the routing thread. LESSON: the mean was the
 specialization); per-head is the right unit (consistent with the whole program's "the honest unit is finer than
 the aggregate"). Next: does the DOUBLE-QK (the two factors q.k and q2.k2) specialize — one factor content, one
 positional?
+
+## §982 — the DOUBLE-QK is non-redundant: two distinct bilinear criteria multiplied = conjunctive/signed routing (qk_double_factor.py)
+
+Captured the two squared-attention factors separately (f1 = q.k/D, f2 = q2.k2/D) at L8; per-head correlations with
+recency/content-sim/induction. The two factors have DIFFERENT dominant features on 6/9 heads (pred TRUE). Examples:
+  h1: f1 rec +0.105 (weak) | f2 rec -0.531 (strong)         -> different magnitude/role
+  h3: f1 ind -0.182         | f2 ind +0.097                 -> OPPOSITE induction signs
+  h7: f1 weak               | f2 rec -0.403                 -> factor2 carries the routing
+  h2: f1 rec -0.536         | f2 near-zero                  -> factor1 carries it
+FINDING: the double-QK is NOT redundant — the two QK pairs compute DIFFERENT score matrices (not copies). So the
+pattern = f1 * f2 is a PRODUCT OF TWO DISTINCT bilinear criteria: it is large-POSITIVE where both factors are
+large and SAME-SIGN (conjunctive AND-like routing — attend to k only if BOTH criteria fire), and NEGATIVE where
+the factors DISAGREE in sign (which is the source of §981's SUPPRESSIVE/anti-head routing). This explains WHY
+squared attention uses a double-QK: it multiplies two learned bilinear routing criteria into a signed conjunction,
+a strictly richer routing primitive than a single softmax score (which is one criterion, non-negative). Combined
+with §981 (heterogeneous specialized heads), the QK-routing picture: each head multiplies two distinct bilinear
+score matrices into a signed, conjunctive pattern, and different heads specialize (induction / content / recency,
+attractive or suppressive). HONEST CAVEAT: recency and content-similarity CO-VARY in short contexts (recent tokens
+are embedding-similar), so I cannot cleanly label a given factor "content" vs "position" — the robust claims are
+(a) the two factors are non-redundant (differ 6/9 heads) and (b) the product is a signed conjunction; a cleaner
+content-vs-position disentangling (long-range pairs where recency and similarity diverge) is a possible follow-up.
