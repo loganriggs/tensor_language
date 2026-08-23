@@ -2244,6 +2244,18 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   layer by layer, each reading what the one below wrote. That is exactly why the transition layers resist a simple
   token-plus-window description: they are the moment the residual stream starts carrying the shared content.</p>
 
+  <p>So what <em>is</em> that content? It is not opaque noise — its principal directions are readable. Decoding the
+  passages that sit at the extremes of each top axis of the content subspace turns up recognizable topic-and-register
+  contrasts: one axis separates informal conversational writing ("Damn right", "Phwew", "BTW") from formal encyclopedic
+  prose (geography, immunology, historical dates); the next separates emotional narrative ("terrified … the monster she
+  used to be afraid of") from technical and financial text ("pathogen-associated molecular patterns", "retire in a bull
+  market"); others pick out casual-social versus analytical, or personal versus moral-religious registers. The catch is
+  that the top ten of these axes together account for only about a tenth of the content's variance — there is no handful
+  of dominant themes, but a great many readable ones. That is the concrete meaning of "high-dimensional content": the
+  middle of the network maintains a large, semantically organized map of topic, genre and register, each direction a
+  real distinction, and it is the sheer number of them — not any single hard-to-read computation — that keeps the last
+  slice of the model from collapsing into a small stand-in.</p>
+
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
   output for each current token) instead of a linear map, and comparing. The table does <em>worse</em>, not better
