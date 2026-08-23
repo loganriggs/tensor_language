@@ -29076,3 +29076,25 @@ READING: content is a broad, long-range, order-invariant (§967) bag-of-words to
 available context (via the value residual, §985) with slow diminishing returns; grammar needs only a few local
 tokens. This is exactly the two-machine geometry (low-rank local grammar / high-rank long-range content), now with a
 context-window profile. The benchmark's content stand-in must integrate the WHOLE context, not a short window.
+
+## §996 — the bag is predominantly a bag of CONTENT WORDS (redundant/over-determined); grammar also has a modest long-range component (content_bag_selectivity.py)
+
+Restrict far context (local window W=4 kept always) to only content-word vs only function-word key positions.
+NULL: 'all' == original baseline 3.3233 (valid). within-CE (content):
+  all 2.535 | content_far 2.816 (+0.28) | function_far 3.236 (+0.70) | none_far 3.964 (+1.43)
+  content-word share of far content = (none-content)/(none-all) = 0.804; function-word share = 0.510
+pred_a (bag of content words: content share > function+0.2 and >0.5) TRUE (0.80 vs 0.51).
+pred_b (grammar-local control: class-CE spread <0.1) FALSE -- class-CE rose 0.79->1.11 (spread 0.33) as far context
+was removed. So my W=4 "grammar stays local" control assumption is WRONG (stated plainly): grammar ALSO draws on far
+context modestly (consistent with §995, where class-CE kept improving past K=8). Not a clean grammar control, but
+informative.
+READING:
+ - The content bag is WEIGHTED toward CONTENT words: content-word far context recovers 80% of the far-context content
+   vs 51% for function words. The topic gist is carried mainly by content words (nouns/caps/numbers), as expected.
+ - It is REDUNDANT / over-determined: the two shares sum to 1.31 (>1), so EITHER subset alone recovers most of the
+   content -> the topic is estimated from many redundant tokens (matches the broad, diminishing-returns pooling of
+   §995 and the distributed account §931). Dropping half the words still leaves a good topic estimate.
+ - Function words are not useless (51%): partly their own residual token content, partly the redundancy above.
+BENCHMARK IMPLICATION: the content stand-in should be a broad bag-of-words over CONTENT-word token embeddings across
+the whole context (not a short window, not function words). This motivates testing an improved content stand-in
+against the current 0.42 benchmark.
