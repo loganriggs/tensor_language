@@ -2442,6 +2442,14 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   kinds of error trace to the same place: when the next content word is unpredictable, the model either picks the
   wrong content word or falls back on a function word. Grammar is not where it fails — its mistakes are content
   mistakes, exactly as the cheap-grammar / expensive-content split predicts.</p>
+  <p>Reading the output head off each layer shows the hedge is not so much invented as left standing. From the very
+  first layers the most-likely token is already a common function word — a sensible high-frequency default — on both
+  the positions the model will get right and the ones it will miss. The two only part ways at the readout: on the
+  positions it gets right, the last blocks move off that default and commit to the specific word (the function-word
+  share of the top guess falls from ~0.88 to ~0.59), whereas on the content-hard positions the readout cannot make
+  that move and the function-word default simply persists. So the readout's real job is to override a grammar-shaped,
+  frequency-driven prior with the specific content word, and a mistake is that override failing when the content is
+  too hard to call — the same content bottleneck, seen one more way.</p>
   <p>How much of that hard part is even learnable? Watching the two components as context accumulates
   answers it. The grammar cost is essentially paid by the first few tokens and barely moves after —
   it needs almost no context. The word-choice cost does fall as context builds, by about 1.1 nats from
