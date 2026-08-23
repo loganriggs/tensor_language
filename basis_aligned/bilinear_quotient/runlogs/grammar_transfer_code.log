@@ -1,0 +1,6 @@
+eval=code mlp0: same 0.0195 (recov 0.951) | cross 0.187 (recov 0.53) | shuf 0.4571 (-0.148) | abl 0.398 | transfer 0.557
+eval=code mlp1: same 0.2316 (recov 0.917) | cross 1.5586 (recov 0.442) | shuf 5.3791 (-0.926) | abl 2.7935 | transfer 0.482
+eval=prose mlp0: same 0.2013 (recov 0.745) | cross 0.7048 (recov 0.108) | shuf 0.8274 (-0.048) | abl 0.7898 | transfer 0.145
+eval=prose mlp1: same 0.9967 (recov 0.847) | cross 1.9621 (recov 0.698) | shuf 6.1546 (0.054) | abl 6.5043 | transfer 0.824
+transfer ratios [0.557, 0.482, 0.145, 0.824] | pred_a transfers False | asym 0.035
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/grammar_transfer_code_results.json (109.8s)

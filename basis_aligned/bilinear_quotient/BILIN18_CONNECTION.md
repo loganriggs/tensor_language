@@ -31088,3 +31088,17 @@ l4_function_results.json; runlogs/l4_function.log (96s).
 **Standing transition picture:** L3 mostly token-driven (0.67) → L4 the first genuine content(precursor)×content MLP (own-64 0.74, precursor-fed) → L5 intermediate → deep band consolidates the coordinates (§1049). Module dossier updated (modules/mlp-transition-L3-5.md).
 
 l4_variable_results.json; runlogs/l4_variable.log (99s).
+
+## §1096 — Grammar FUNCTION transfers across registers only PARTIALLY (~50% prose→code) — matching, not exceeding, the representational overlap; code→prose direction is vocabulary-confounded (grammar_transfer_code.py)
+
+**Question.** §1080: grammar's REPRESENTATION is ~2× more register-general than content (subspace overlap 0.41 ≈ 46% of the prose-prose ceiling). Causal version: do prose-built front token-tables FUNCTION on code?
+
+**Result (pred_a ≥0.8 transfer FALSE; sanity held).**
+- Same-register tables reproduce the §1088-level recoveries (mlp1 on code 0.92, on prose 0.85; mlp0 0.95/0.75) and shuffled-token tables are catastrophic (mlp1 on code −0.93 — the tables are genuinely token-specific).
+- **Prose→code transfer ≈ 0.5:** prose tables recover 53% (mlp0) / 44% (mlp1) of what code-built tables recover on code. Real (shuffled null strongly negative) but half.
+- **Code→prose is confounded and reported as such:** transfer 0.145 (mlp0) / 0.824 (mlp1). The code corpus has a narrow vocabulary, so code-built tables fall back to the global mean on many prose tokens — the low mlp0 number conflates "different computation" with "never saw the token." Only the prose→code direction (prose vocab covers most code tokens) is a clean function-transfer measurement.
+- **Coherent picture with §1080:** causal function transfer (~0.5) ≈ the representational overlap fraction (~0.46 of ceiling). The front grammar machine is about HALF register-shared — same number from two independent instruments (subspace overlap, table substitution). No representation-vs-function dissociation (pred_c not triggered); the §1081 "reliance" drop on code (grammar band 2.00→0.65) now sits on top of a genuinely half-shared computation.
+
+**Caveat/possible follow-up:** a vocabulary-matched transfer (restrict eval to tokens well-sampled in BOTH registers) would isolate computation-difference from coverage; registered as the natural refinement if this number matters downstream.
+
+grammar_transfer_code_results.json; runlogs/grammar_transfer_code.log (110s).

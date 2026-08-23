@@ -4830,3 +4830,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1093 — static attention: collective dynamics = 5.7x per-head sum (3.67 vs 0.645); all-zero BEATS all-const (stale biases net-harmful off-regime); middle band carries the collective function (attn_static.py)
 §1094 — L4 is NOT content-fed: non-content dev recovers 0.91, content dev only 0.36 (3x random but insufficient); its context variable is outside the deep topic basis — precursor-vs-different-variable follow-up queued (l4_function.py)
 §1095 — L4 RESOLVED: consumes the content PRECURSOR in local rotated coordinates (own-64 recov 0.74; precursor overlap 0.645 = 2x deep, causal 0.66 vs 0.36); §1094's 'not content-fed' was a wrong-basis artifact; drift is functional (l4_variable.py)
+§1096 — grammar function transfers ~50% prose→code (matches §1080's representational 46%; two instruments, one number); code→prose vocab-confounded, stated; shuffled-table null catastrophic (grammar_transfer_code.py)

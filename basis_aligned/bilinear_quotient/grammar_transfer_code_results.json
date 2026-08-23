@@ -1,0 +1,60 @@
+{
+ "eval": {
+  "code": {
+   "base_ce": 3.8624,
+   "mlp0": {
+    "prose": 0.187,
+    "code": 0.0195,
+    "shuffled": 0.4571,
+    "meanabl": 0.398,
+    "same_recov": 0.951,
+    "cross_recov": 0.53,
+    "shuffled_recov": -0.148,
+    "transfer_ratio": 0.557
+   },
+   "mlp1": {
+    "prose": 1.5586,
+    "code": 0.2316,
+    "shuffled": 5.3791,
+    "meanabl": 2.7935,
+    "same_recov": 0.917,
+    "cross_recov": 0.442,
+    "shuffled_recov": -0.926,
+    "transfer_ratio": 0.482
+   }
+  },
+  "prose": {
+   "base_ce": 3.1473,
+   "mlp0": {
+    "prose": 0.2013,
+    "code": 0.7048,
+    "shuffled": 0.8274,
+    "meanabl": 0.7898,
+    "same_recov": 0.745,
+    "cross_recov": 0.108,
+    "shuffled_recov": -0.048,
+    "transfer_ratio": 0.145
+   },
+   "mlp1": {
+    "prose": 0.9967,
+    "code": 1.9621,
+    "shuffled": 6.1546,
+    "meanabl": 6.5043,
+    "same_recov": 0.847,
+    "cross_recov": 0.698,
+    "shuffled_recov": 0.054,
+    "transfer_ratio": 0.824
+   }
+  }
+ },
+ "transfer_ratios": [
+  0.557,
+  0.482,
+  0.145,
+  0.824
+ ],
+ "pred_a_grammar_transfers": false,
+ "pred_c_register_specific": false,
+ "asymmetry_prose_to_code_minus_code_to_prose": 0.035,
+ "runtime_s": 109.8
+}
