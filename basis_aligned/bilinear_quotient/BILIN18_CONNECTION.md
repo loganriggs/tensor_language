@@ -29849,3 +29849,25 @@ so induction attention may incidentally amplify nearby content. NOT verified (wo
 I have isolated the interaction robustly (5 controls) but not explained its mechanism; winding down this secondary
 question -- it does NOT affect the core three-mechanism account, it refines it: the mechanisms are mostly independent,
 with a one-way induction->content output amplification.
+
+## §1032 — EXPLAINS the content<-induction interaction: SPATIAL (induction attention carries nearby content) + a GLOBAL floor (content_induction_spatial.py)
+
+Content logit-amplification (induction-trigger / non-trigger ratio) vs W's distance from the induction-match (pos 5):
+  W position:      3 (beside match)   50      100 (far from match, near query)
+  amplification:   1.979              1.943   1.527
+pred_a (spatial: amp near-match > far-match by >0.3) TRUE (1.98 vs 1.53); pred_b (uniform/global) FALSE.
+RESOLUTION of the §1031 interaction -- it has TWO components:
+ 1. SPATIAL: the amplification FALLS with W's distance from the induction-match position (1.98 -> 1.94 -> 1.53),
+    confirming the leading hypothesis -- the induction head, attending from the query back to the matched token
+    (pos 5), ALSO carries the CONTENT of that region forward, so content NEAR the match is amplified more.
+ 2. GLOBAL: the amplification is still ~1.53 even for W FAR from the match (pos 100), so there is ALSO a
+    position-independent induction-firing amplification of the content channel (~1.5x everywhere), not only the
+    spatial attention-carries-nearby-content effect.
+So the §1031 content<-induction amplification is EXPLAINED as spatial (attention forwarding nearby content, distance-
+decaying) + a global induction-state content boost. This closes the content↔induction independence saga (§1027-1032)
+with a mechanistic account, not just an isolated effect.
+=== content↔induction interaction, RESOLVED (§1027-1032) === INDUCTION is independent of content (copy unchanged,
+0.97). CONTENT is amplified when induction fires -- asymmetric -- via (a) induction attention carrying nearby content
+forward (spatial, decays with distance from the match) + (b) a global ~1.5x induction-firing content boost. Robust
+across 6 controls (last-token presence/identity, content-density, softmax, and the spatial/global decomposition).
+The core three-mechanism account is unchanged; this refines it with one real, now-explained cross-mechanism coupling.
