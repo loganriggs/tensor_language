@@ -31273,3 +31273,14 @@ grammar_transfer_vmatch_results.json; runlogs/grammar_transfer_vmatch.log (62s).
 **Verdict for the naming thread, plainly:** the content machine supports a *reproducible* sparse basis but not an *atomic* one — features overlap, individually explain little, and are not causally separable handles. The honest units of the content manifold remain what §1055/§1059-60 established: continuous interpretable AXES and low-K patchable subspaces, on a genuinely distributed high-rank object. Thread closed with a bounded negative; registered follow-up (queued): k-sweep (R² and stability vs k=4..64) to price exactly HOW distributed — if R² needs k≈32+ for 0.9, "8-sparse features" was simply the wrong sparsity for a manifold this dense.
 
 content_dictionary_results.json (snippets included for human reading); runlogs/content_dictionary.log (109s).
+
+## §1114 — Density priced: the content code = a STABLE SPARSE SKELETON (k≈8, ~70% of variance, 3-4× more efficient than PCA, reproducible 0.76-0.81) + a DENSE TAIL (~30%) where stability dies; k₉₀ = 25.6 of 64 dims (content_dict_ksweep.py)
+
+**All three questions answered crisply (pred_a TRUE, pred_b TRUE, pred_c FALSE):**
+- **k₉₀ = 25.6:** reaching R² 0.9 needs ~26 of 64 coordinate dims active per position — a moderately DENSE code (~40% of its own dimensionality), the fourth-granularity confirmation of genuine distributedness.
+- **But the dictionary crushes PCA at low k:** +0.43 R² at k=4 and k=8 (SAE 0.59/0.71 vs PCA 0.16/0.28 — 2.5-3.6×). §1113's strongest possible conclusion ("PCA axes literally sufficient") is REJECTED: the manifold has real overcomplete/nonlinear low-k structure a linear basis cannot see.
+- **Stability is k-fragile:** 0.81 (k=4) → 0.76 (8) → 0.67 (16) → 0.51 (32) → 0.37 (64). As the code approaches completeness, the basis becomes rotation-degenerate and arbitrary — §763's instability regime is the DENSE limit, not a universal property.
+
+**Synthesis (refines §1113):** the content representation is a **stable sparse skeleton + dense tail**: ~8 reproducible, PCA-beating features carry ~70% of the variance (plausibly §1113's 9/16 coherent atoms), riding on a ~30% dense remainder where features stop existing. This finally reconciles the whole content-line: low-K interpretable/patchable structure (§1055 axes, §1060 top-16 transport) AND irreducible high-rank tails (§1042) are the SAME object at two depths of the k-curve. **Queued causal split (content_skeleton_causal.py): does the skeleton or the tail carry the CE?** — replace content coords by their k=8 reconstruction (drop tail) vs remove the skeleton (keep tail) at the REF layers.
+
+content_dict_ksweep_results.json; runlogs/content_dict_ksweep.log (86s).

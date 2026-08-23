@@ -1,0 +1,7 @@
+k=4: SAE R2 0.5931 | PCA R2 0.1641 | delta +0.4290 | stability 0.811
+k=8: SAE R2 0.7099 | PCA R2 0.2820 | delta +0.4279 | stability 0.759
+k=16: SAE R2 0.8200 | PCA R2 0.4536 | delta +0.3664 | stability 0.671
+k=32: SAE R2 0.9533 | PCA R2 0.6877 | delta +0.2656 | stability 0.508
+k=64: SAE R2 0.9995 | PCA R2 1.0000 | delta -0.0005 | stability 0.365
+k for R2=0.9: 25.6 | pred_a density True | pred_b dict>pca True | pred_c stab False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/content_dict_ksweep_results.json (86.1s)
