@@ -29150,3 +29150,28 @@ single group is the clean result.
  Content is a broad, order-invariant, content-word-weighted bag-of-words gist (§995/996), GATHERED by attention
  concentrated in layers 3-5 (§998), pooled into each position's residual across the early/middle stack (§997), and
  read out locally by the late layers (§997). The irreducible residual is the multiplicative middle content (§941).
+
+## §999 — CONFOUNDED ceiling attempt: joint-band linearization inflates cost via compounding (super-additive cascade, §994); salvageable = content»grammar ratio (content_multiplicative_ceiling.py)
+
+Replace whole MLP bands with independently-fit best-fit linear surrogates; chain-rule split (baseline within 2.40,
+class 0.74):
+  condition        within-cost  class-cost  full_ce
+  lin_front(0-5)     +1.424      +0.408      4.970
+  lin_middle(6-15)   +0.773      +0.198      4.109
+  lin_all(0-17)      +2.256      +0.732      6.127
+  shuf_middle        +1.879      +0.536      5.554   (shuffled-input linear null)
+  meanabl_middle     +1.761      +0.496      5.396
+pred_0 null FALSE; pred_a (within > class) TRUE.
+CONFOUND (stated plainly -- I repeated a §994-class mistake): the joint-band linearization is INFLATED by COMPOUNDING.
+Each layer's linear map W_L was fit to map (TRUE L input)->(TRUE L output), but in the cascade layer L receives the
+LINEARIZED upstream output, not its true input -> distribution shift -> the map is applied off-distribution and its
+error compounds down the band. Signature: lin_front (+1.42 within) is LARGER than lin_middle (+0.77), directly
+CONTRADICTING §941/§993 (front MLPs are ~linear: per-layer linearization costs ~0.1 nats, front cheaper than
+middle). So the front's +1.42 is compounding through the high-magnitude front writers (L0/L1, §933), NOT genuine
+front nonlinearity. The absolute numbers (0.77 "middle ceiling") are INFLATED UPPER BOUNDS, not a clean ceiling.
+SALVAGEABLE FINDING: the within/class cost RATIO is ~3-4x in EVERY band (lin_front 3.5, lin_middle 3.9, lin_all 3.1)
+-> forcing any MLP band to be linear costs ~4x more CONTENT (within-CE) than GRAMMAR (class-CE), reconfirming that
+the multiplicative nonlinearity SERVES CONTENT (pred_a). The shuffled-input null ~= mean-ablate (within 1.88 ~ 1.76)
+is roughly OK; the null's failure is entirely the front<middle clause, i.e. the compounding confound.
+CLEAN CEILING NEEDS a compounding-free instrument: fit each layer's linear map COMPOSITIONALLY (on the ALREADY-
+linearized upstream distribution), so no distribution shift. Queued as §1000.
