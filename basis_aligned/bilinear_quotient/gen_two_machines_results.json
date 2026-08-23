@@ -1,0 +1,34 @@
+{
+ "conditions": {
+  "base": {
+   "topic_retention": 0.8679,
+   "rep4gram": 0.0154,
+   "class_kl": 0.0421
+  },
+  "content_abl": {
+   "topic_retention": 0.675,
+   "rep4gram": 0.0435,
+   "class_kl": 0.5259
+  },
+  "grammar_abl": {
+   "topic_retention": 0.7132,
+   "rep4gram": 0.0102,
+   "class_kl": 0.7795
+  },
+  "random2_abl": {
+   "topic_retention": 0.8471,
+   "rep4gram": 0.0225,
+   "class_kl": 0.0771
+  },
+  "vres_off": {
+   "topic_retention": 0.8339,
+   "rep4gram": 0.0,
+   "class_kl": 0.3299
+  }
+ },
+ "topic_drop_ratio_content_over_grammar": 1.25,
+ "grammar_kl_ratio_grammar_over_content": 1.52,
+ "pred_a_double_dissociation": false,
+ "pred_b_vres_content_side": false,
+ "runtime_s": 106.0
+}

@@ -31481,3 +31481,23 @@ mlp17_bilinear_heldout_results.json; runlogs/mlp17_bilinear_heldout.log (41s).
 **Feature graveyard (do not re-test):** log-position, log-frequency, content-norm, function-word, seen-before (§1109); content-novelty, syntax-boundary, model-surprise (this section). The channel is causally sized (+0.25 rollout R², §1108) and behaviorally characterized (favors consistency, weakly) but its driver is not a simple per-position feature — plausibly a distributed/interactive signal, the same shape as everything else this model refuses to localize. CLOSED as a bounded unknown; the middle-attention band now carries two such, both with graveyards on the dossier.
 
 attn_gain_second_results.json; runlogs/attn_gain_second.log (34s).
+
+## §1135 — First free-running experiment: THREE DISTINCT FAILURE PHENOTYPES, readable in the raw text — partial quantitative dissociation (ordering correct on both axes; ratios 1.25-1.52 < the registered 2×) (gen_two_machines.py)
+
+**pred_a formally FALSE, sanity clean (random-2-MLP control ≈ base), and the qualitative result is the strongest communication material yet.** 64-token continuations at temp 0.8, evaluated by the CLEAN model + text statistics:
+
+| condition | topic retention | rep-4gram | class-bigram KL | what the text actually looks like |
+|---|---|---|---|---|
+| base | 0.868 | 0.015 | 0.042 | coherent journalism: "Ray, the Washington bureau chief at the AP, was busy recording every storm…" |
+| content-band abl | **0.675** | 0.044 | 0.526 | FUNCTION-WORD SOUP: "far from the community the of the … by the, and the three a new at the way, a big, the proposed mid-" |
+| grammar-band abl | 0.713 | 0.010 | **0.780** | FRAGMENT SALAD, content nouns survive: ": interactions)… 52, D. … Tribune. email@. Ingredients — Tribune Tribune-qu organisations" |
+| random-2 control | 0.847 | 0.023 | 0.077 | near-base coherent text ✓ |
+| value-residual off | 0.834 | **0.000** | 0.330 | UNANCHORED RARE-TOKEN STREAM: "As K DD ISI Pal Bag the and, His H and, and forward three Se arena" — zero repetition, hyper-diverse |
+
+- **The ordering dissociates correctly on both axes:** content-abl worst at topic (0.675 < grammar's 0.713); grammar-abl worst at class-KL (0.780 > content's 0.526). But ratios (1.25 / 1.52) miss the 2× bar because each ablation damages BOTH metrics — losing content words wrecks class statistics too (a string of determiners with no payloads is also ungrammatical). Registered outcome (c) is half-true: accumulation partially mixes the machines at these metrics.
+- **Three phenotypes, each mechanistically sensible:** no content machine → syntax scaffolding emitted with nothing to hang on it; no grammar machine → content nouns float in structural rubble; no value-residual → §1076 made concrete: without the per-token content broadcast, tokens lose identity-anchoring and the model emits a diverse stream of rare/capitalized tokens with literally zero 4-gram repetition. pred_b formally false only because vres damage lands in class statistics (rare-token salad) rather than topic drift.
+- (First run crashed on a capture reshape — fixed, disclosed; this is the fixed run.)
+
+**Registered next (queued):** metric sharpening — content-word RATE (content axis) and real-word well-formedness (grammar axis) should separate the soup from the salad cleanly where class-KL conflates them; generations saved to disk this time for re-scoring.
+
+gen_two_machines_results.json; runlogs/gen_two_machines.log (106s).
