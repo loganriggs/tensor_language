@@ -31335,3 +31335,15 @@ content_skeleton_readout_results.json; runlogs/content_skeleton_readout.log (61s
 **§1113-1118 arc summary (for the report, phase boundary):** the content machine's interface to the rest of the model is ~8 stable, mostly-human-nameable features (topic/register/discourse; stability 0.76-0.81, 3.6× more efficient than PCA); its internal computation uses a dense high-rank scratch that never surfaces at any read point. "The irreducible high-rank frontier" is thereby re-scoped: irreducible for SIMULATING the construction, not for READING the result.
 
 content_skeleton_stream_results.json; runlogs/content_skeleton_stream.log (56s).
+
+## §1119 — The content API is SUBSTANTIALLY UNIVERSAL: 7/8 skeleton atoms match across architecture (swiglu18, corr 0.47-0.78), 5/8 across width (bilin12, 0.35-0.79), all vs nulls of ~0.014 — and the code's DENSITY is identical across the family (R² 0.7101/0.7093/0.7107) (skeleton_family.py)
+
+**Between the registered poles, leaning strongly universal.** bilin18's top-8 skeleton atoms, matched by activation correlation on shared text against each family model's own independently-trained dictionary:
+- **swiglu18 (same width, different MLP): 7/8 ≥ 0.5** (best 0.776; the one miss at 0.469 — barely). Different nonlinearity, independently trained, same named features.
+- **bilin12 (different width): 5/8 ≥ 0.5** — the majority survives even D=768 vs 1152; the two strongest atoms match at 0.78-0.79 across width. Every match, even the failures, is 25-70× the shuffled null (0.011-0.021).
+- pred_a (≥6/8 in both) formally FALSE on bilin12's 5/8; pred_b (private basis) clearly false. Honest statement: **the API is convergent, graded by model distance** — near-complete within a width, majority across widths. Extends §1061-1063 (shared information) to the feature level: not just the same manifold, largely the same COORDINATES on it.
+- **The density constant:** all three models' k=8/256 SAEs reconstruct at R² 0.710 ± 0.001. The §1114 skeleton/tail split (70/30 at k=8) is a FAMILY CONSTANT to three decimals — training on the same distribution produces the same code density regardless of architecture or width.
+
+**Arc status:** §1113-1119 complete — the content API is stable, mostly named, causally dominant at every read point, and substantially shared across the model family. Registered next (queued): split-half stability audit of the §1115-1117 read-interface fractions (the data-scale rule applied to the arc's headline numbers before they harden).
+
+skeleton_family_results.json; runlogs/skeleton_family.log (58s).

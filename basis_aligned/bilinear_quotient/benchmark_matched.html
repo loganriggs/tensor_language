@@ -36,8 +36,12 @@
   opaque. Score each module instead with the stand-in <em>matched to what it computes</em> — a local window of the
   layer's own residual for attention, a token table plus that window for front MLPs, a low-rank bilinear map for the
   readout — and most of the model resolves: the front grammar machine (attention and MLPs), the front+gatherer
-  attention, and the readout all reach ~0.8–0.95. What is left is essentially one <em>named</em> frontier bounded by a
-  real property: a genuinely high-dimensional content computation carried through the middle of the network.</p>
+  attention, and the readout all reach ~0.8–0.95, and layer 4 — long the worst MLP — resolves at ~0.70 once scored in its own
+  rotating coordinates. What is left has now been split in two: the content computation's <em>read interface</em> is
+  about eight stable features (every consumer of the content reads them; filtering the content down to the eight
+  costs only 10–15% of removing it entirely), while the genuinely high-dimensional remainder is construction
+  scratch — material the middle works through but never ships. The frontier is no longer "high-rank content";
+  it is "simulating a construction process whose output is eight numbers."</p>
 
   <div class="card">
     <h2>Understanding per module, layer by layer</h2>
@@ -68,17 +72,18 @@
     residual / MLP path, not the attention output. <b>Front MLPs (L0–1): grammar, ~90%</b> (mlp1, the dominant writer,
     0.95). <b>Middle attention (L6–11):</b> partial (0.5–0.68), with modest stakes; <b>deep attention (L12–17):</b> low
     recovery but near-zero stakes (removing a layer costs ≤0.02 nats), so effectively understood by negligible
-    contribution. <b>Deep-middle MLPs (5–14): the frontier.</b> Exactly bilinear and structured — they multiply the
-    accumulated content <em>by itself</em> (content × content) — but that content is genuinely high-dimensional (you
-    need almost the full content subspace, confirmed several ways) and load-bearing in the residual stream, so a bounded
-    stand-in tops out near 0.4–0.6. <b>Readout (L15–17): ~90%.</b> Near-linear / low-rank bilinear reads of the built
-    residual. The remaining whole-model gap <em>is</em> that high-rank content — located and named, not an "irreducible
-    ceiling."</p>
+    contribution. <b>Deep-middle MLPs (5–14): the re-scoped frontier.</b> Exactly bilinear and structured — they multiply the
+    accumulated content <em>by itself</em> — and their read interface is now known to be ~8 stable features (the
+    content API; the dense remainder is construction scratch, read by nothing). Stand-ins here top out near 0.4–0.6
+    because simulating the <em>construction</em> still needs the high-rank scratch; reading the <em>result</em> does
+    not. The same eight features recur across the model family (7/8 in a different architecture, 5/8 at a different
+    width). <b>Readout (L15–17): ~90%.</b> Near-linear / low-rank bilinear reads. The whole-model gap is the
+    construction process, not the representation.</p>
   </div>
 </div>
 <script>
 const A={"0":0.947,"1":0.915,"2":0.821,"3":0.826,"4":0.924,"5":0.675,"6":0.529,"7":0.688,"8":0.124,"9":0.651,"10":0.611,"11":0.525,"12":0.325,"13":0.132,"14":-0.041,"15":0.419,"16":0.228,"17":0.636};
-const M={"0":0.885,"1":0.95,"2":0.716,"3":0.648,"4":0.0,"5":0.625,"6":0.557,"7":0.506,"8":0.441,"9":0.441,"10":0.39,"11":0.42,"12":0.409,"13":0.411,"14":0.414,"15":0.875,"16":0.94,"17":0.945};
+const M={"0":0.885,"1":0.95,"2":0.716,"3":0.648,"4":0.70,"5":0.625,"6":0.557,"7":0.506,"8":0.441,"9":0.441,"10":0.39,"11":0.42,"12":0.409,"13":0.411,"14":0.414,"15":0.875,"16":0.94,"17":0.945};
 const NS="http://www.w3.org/2000/svg",W=960,padL=60,padR=16;
 const laneH=155,gap=64,top1=52,top2=top1+laneH+gap,plotW=W-padL-padR,n=18,step=plotW/n,bw=step*0.6;
 const svg=document.getElementById("c");
