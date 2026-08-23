@@ -2050,14 +2050,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   multiplication varies enormously with depth. Fit a linear map from an MLP's input to its output and see how much
   of its effect on the loss survives: at the front, almost all of it (layer 0 is 90% linearly recoverable, layer 1
   is 98%), so the front MLPs — including the single biggest writer in the model — are effectively linear maps.
-  (Two tempting explanations both turned out to be wrong when measured. It is <em>not</em> that one projection is a
-  near-constant gate — both projections vary about equally at every layer, front included. And it is <em>not</em>
-  that the down-projection discards the interaction at the front — measured directly, the multiplicative interaction
-  term dominates the down-projection's output variance at every layer (~90% or more), the front no exception. So the
-  interaction is present and dominant everywhere; the front is linear anyway. The only reconciliation left is that
-  the front's interaction term, though it dominates the output, is itself <em>linearly predictable</em> from the
-  input — a quadratic that collapses to a near-linear map over the actual data — whereas the middle's is genuinely
-  nonlinear. That is a direct, testable claim, and the current experiment measures it.) Through the middle it
+  (What "linear" means here is subtle, and two tempting shortcuts are both wrong. It is <em>not</em> that one
+  projection is a near-constant gate — both projections vary about equally at every layer. And it is <em>not</em>
+  that the interaction is small at the front — the multiplicative term actually dominates the raw output at every
+  layer, and deleting just the interaction at the front is catastrophic (removing it from the very first layer costs
+  1.7 nats, worse than deleting that whole layer). The interaction is large and load-bearing at the front. What is
+  true is narrower: the front's output, interaction included, is reproducible by a <em>best-fit</em> linear map of
+  the input — a linear surrogate recovers 89–98% of the layer's effect on the loss — because the front's
+  interaction, though a genuine product, happens to be shaped almost linearly in the input over real data. The
+  middle's interaction is not: there a best-fit linear map recovers only ~27–38%. So "linear front" means a linear
+  stand-in works, not that the layer stops multiplying.) Through the middle it
   inverts: layers 8, 11, and 15 are only
   ~38% linearly recoverable, so roughly <em>60% of what they compute is a genuine product</em> of two varying
   signals that no linear read, table, or centroid can reproduce. Splitting that product by what it multiplies is
