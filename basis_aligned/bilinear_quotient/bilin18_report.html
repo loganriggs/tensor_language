@@ -2272,6 +2272,16 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   attention gathers the context into the content representation, the deep-middle MLPs multiply that content by itself, and
   the readout reads the result.</p>
 
+  <p>Two of this network's unusual wiring choices turn out to serve exactly this split. Every layer re-mixes the original
+  word embedding back in (an "x0 re-injection"), and every layer's attention blends in a share of the very first layer's
+  values (a "value residual"). Both are load-bearing — switching either off costs two to three nats of loss — but they
+  do different jobs. Removing the value residual hits rare, meaning-bearing words far harder than common ones, and the
+  damage is concentrated in the transition layers where content is born: it is the channel that pipes each word's own
+  content into the content-building machine. Removing the x0 re-injection is felt more evenly and lands earliest, in the
+  grammar layers: it keeps re-supplying the raw token to the part of the network that sorts words by grammatical role. So
+  even the architecture is organized around the same two machines — one wire feeds the content, the other feeds the
+  grammar.</p>
+
   <p>So what <em>is</em> that content? It is not opaque noise — its principal directions are readable. Decoding the
   passages that sit at the extremes of each top axis of the content subspace turns up recognizable topic-and-register
   contrasts: one axis separates informal conversational writing ("Damn right", "Phwew", "BTW") from formal encyclopedic
