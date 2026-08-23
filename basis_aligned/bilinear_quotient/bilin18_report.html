@@ -2206,6 +2206,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   computation</em> — understood in form and organization, with the remaining gap being the true dimensionality of the
   content itself.</p>
 
+  <p><strong>Module by module, bottom-up.</strong> Scoring each of the 36 modules with the stand-in matched to what it
+  computes — a local token window for attention, a token table plus that window for the front MLPs, a low-rank
+  bilinear map for the readout — draws a clean map. The <strong>front grammar machine reaches ~90%</strong>: attention
+  0 and 1 are local-window routers (0.94, 0.83), MLP 0 and 1 are token-plus-window functions (0.89, and 0.95 for the
+  single biggest writer in the model). The <strong>readout reaches ~90%</strong> too: its MLPs are near-linear or
+  rank-64 bilinear reads of the built residual, and its attention is essentially inert. In between sit the two
+  hold-outs, and they are the same phenomenon at two scales: the <strong>content gatherers and broad middle
+  attention</strong> (layers 3–14) are wide recency-weighted pools of the value residual — a named bag-of-words
+  mechanism a local window cannot reconstruct — and the <strong>deep-middle MLPs</strong> are the high-rank
+  content×content computation above. Read as one story, the whole model's understanding gap is a <em>single</em>
+  frontier — the high-rank content — absent at the token-dominated front and the linear readout, and growing through
+  the middle. Not many walls; one, located and named.</p>
+
   <p>Is that floor really irreducible, or is some of it just word-sense — the same token meaning different things —
   that a lookup table would capture? We can check by replacing the front MLPs with a per-token table (the average
   output for each current token) instead of a linear map, and comparing. The table does <em>worse</em>, not better
