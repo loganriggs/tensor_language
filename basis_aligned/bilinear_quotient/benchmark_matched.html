@@ -1,0 +1,102 @@
+<title>bilin18: Understanding Each Module, Bottom-Up</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root{--bg:#f4f5f7;--panel:#fff;--ink:#16181d;--ink2:#4a4f5a;--muted:#828997;--line:#e2e5ea;--line2:#cdd2da;
+    --good:#0f766e;--mid:#b45309;--low:#64748b;--accent:#3949ab;--band:#eef0f4;--target:#3949ab;
+    --shadow:0 1px 2px rgba(20,24,33,.06),0 8px 24px rgba(20,24,33,.05);}
+  :root:not([data-theme="light"]){@media (prefers-color-scheme:dark){--bg:#0e1014;--panel:#171a20;--ink:#eef0f4;
+    --ink2:#b2b9c6;--muted:#7d8595;--line:#262b34;--line2:#333a45;--good:#2dd4bf;--mid:#fb923c;--low:#94a3b8;
+    --accent:#8b96e8;--band:#1b1f27;--target:#8b96e8;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);}}
+  :root[data-theme="dark"]{--bg:#0e1014;--panel:#171a20;--ink:#eef0f4;--ink2:#b2b9c6;--muted:#7d8595;--line:#262b34;
+    --line2:#333a45;--good:#2dd4bf;--mid:#fb923c;--low:#94a3b8;--accent:#8b96e8;--band:#1b1f27;--target:#8b96e8;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.35);}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,sans-serif;line-height:1.55}
+  .wrap{max-width:1000px;margin:0 auto;padding:48px 24px 72px}
+  .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
+  h1{font-family:"Fraunces",serif;font-weight:600;font-size:clamp(29px,5vw,48px);line-height:1.05;margin:0 0 16px;letter-spacing:-.01em;text-wrap:balance}
+  .lede{font-size:18px;color:var(--ink2);max-width:66ch;margin:0 0 34px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:26px 26px 20px;box-shadow:var(--shadow);margin:0 0 26px}
+  .card h2{font-family:"Fraunces",serif;font-weight:600;font-size:22px;margin:0 0 4px}
+  .card .sub{font-size:14px;color:var(--muted);margin:0 0 20px;max-width:74ch}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;align-items:center;font-size:13px;color:var(--ink2);margin:2px 0 18px}
+  .key{display:inline-flex;align-items:center;gap:7px}.sw{width:13px;height:13px;border-radius:3px;display:inline-block}
+  .chartscroll{overflow-x:auto}
+  svg{display:block;width:100%;height:auto;min-width:660px;font-family:"IBM Plex Mono",monospace}
+  .axlab{fill:var(--muted);font-size:11px}.lanelab{fill:var(--ink);font-family:"IBM Plex Sans";font-weight:600;font-size:14px}
+  .val{fill:var(--ink2);font-size:9px}.foot{font-size:12.5px;color:var(--muted);margin-top:12px}.foot code{color:var(--ink2)}
+  .bandlab{fill:var(--muted);font-size:10.5px;font-family:"IBM Plex Sans"}
+</style>
+<div class="wrap">
+  <p class="eyebrow">bilin18 · bottom-up · matched stand-ins</p>
+  <h1>How much of each module do we understand — with the right stand-in?</h1>
+  <p class="lede">The earlier per-module score used one generic stand-in for everything and made most of the model look
+  opaque. Score each module instead with the stand-in <em>matched to what it computes</em> — a local token window for
+  front attention, a token table plus that window for front MLPs, a low-rank bilinear map for the readout — and the
+  front grammar machine and the readout resolve to ~90%. What is left is not a mystery but two <em>named</em>
+  mechanisms bounded by real properties: broad content pooling, and a genuinely high-dimensional content computation.</p>
+
+  <div class="card">
+    <h2>Understanding per module, layer by layer</h2>
+    <p class="sub">Bar height = fraction of each module's loss contribution recovered by its matched stand-in
+    (held-out). Dashed line = 90%. Green ≥ 0.9 (understood); amber 0.5–0.9 (partial); slate < 0.5 (bounded by a real
+    property — broad pooling or high-rank content, not an instrument failure).</p>
+    <div class="legend">
+      <span class="key"><span class="sw" style="background:var(--good)"></span>understood (≥0.9)</span>
+      <span class="key"><span class="sw" style="background:var(--mid)"></span>partial (0.5–0.9)</span>
+      <span class="key"><span class="sw" style="background:var(--low)"></span>bounded by a real property (&lt;0.5)</span>
+    </div>
+    <div class="chartscroll"><svg id="c" viewBox="0 0 960 500" role="img"
+      aria-label="Matched-stand-in understanding fraction for attention and MLP across 18 layers"></svg></div>
+    <p class="foot">Matched stand-ins: attention = local token window [cur+3 prev]; front MLP = token table + window;
+    deep-middle MLP = best low-rank bilinear (of the model's own neurons); readout MLP = rank-64 / linear read.
+    Sources: <code>bottomup_attn_all</code> (§1047), <code>bottomup_mlp_window</code> (§1045),
+    <code>bottomup_mlp_rank</code> (§1040), <code>bottomup_readout</code> (§1046).</p>
+  </div>
+
+  <div class="card">
+    <h2>What each band is — and why the hold-outs hold out</h2>
+    <p class="sub" style="max-width:78ch">
+    <b>Front (L0–1): grammar machine, ~90%.</b> Local-window attention writing part-of-speech; token+window MLPs
+    (mlp1, the dominant writer, reaches 0.95). <b>Transition (L2–4):</b> partial — local structure giving way to
+    pooling. <b>Content gatherers (attn3–5) &amp; broad middle attention (6–14):</b> bounded — these are broad
+    recency-weighted pools of the value residual (bag-of-words content), a named mechanism a local window cannot
+    reconstruct. <b>Deep-middle MLPs (5–14): the frontier.</b> Exactly bilinear, and structured — they multiply the
+    pooled content <em>by itself</em> (content × content) — but that content is genuinely high-dimensional (you need
+    almost the full content subspace, confirmed three independent ways), so a bounded stand-in tops out near 0.4–0.6.
+    <b>Readout (L15–17): ~90%.</b> Near-linear / low-rank bilinear reads of the built residual; the readout attention
+    is essentially inert. The remaining whole-model gap <em>is</em> that high-rank content — located and named, not an
+    "irreducible ceiling."</p>
+  </div>
+</div>
+<script>
+const A={"0":0.944,"1":0.825,"2":0.643,"3":0.488,"4":0.615,"5":0.089,"6":0.373,"7":0.281,"8":0.05,"9":0.035,"10":0.181,"11":0.027,"12":-0.001,"13":0.008,"14":-0.04,"15":0.068,"16":0.05,"17":0.168};
+const M={"0":0.885,"1":0.95,"2":0.716,"3":0.648,"4":0.0,"5":0.625,"6":0.557,"7":0.506,"8":0.441,"9":0.441,"10":0.39,"11":0.42,"12":0.409,"13":0.411,"14":0.414,"15":0.875,"16":0.94,"17":0.945};
+const NS="http://www.w3.org/2000/svg",W=960,padL=60,padR=16;
+const laneH=155,gap=64,top1=52,top2=top1+laneH+gap,plotW=W-padL-padR,n=18,step=plotW/n,bw=step*0.6;
+const svg=document.getElementById("c");
+function el(t,a){const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;}
+function color(v){return v>=0.9?"var(--good)":(v>=0.5?"var(--mid)":"var(--low)");}
+function lane(topY,dat,label){
+  const base=topY+laneH, h=laneH;
+  // band shading front/gatherers/middle/readout
+  [[0,2,"front"],[3,5,"gatherers"],[6,14,"deep middle"],[15,17,"readout"]].forEach((b,i)=>{
+    if(i%2===1){const x=padL+b[0]*step;svg.appendChild(el("rect",{x,y:topY-4,width:(b[1]-b[0]+1)*step,height:h+8,fill:"var(--band)"}));}
+    const lx=padL+(b[0]+ (b[1]-b[0]+1)/2)*step;const t=el("text",{x:lx,y:topY-8,class:"bandlab","text-anchor":"middle"});t.textContent=b[2];svg.appendChild(t);
+  });
+  // gridlines 0,.5,.9,1
+  [0,0.5,0.9,1].forEach(g=>{const y=base-g*h;
+    svg.appendChild(el("line",{x1:padL,y1:y,x2:W-padR,y2:y,stroke:g===0.9?"var(--target)":"var(--line)","stroke-width":g===0.9?1.4:1,"stroke-dasharray":g===0.9?"5 3":(g===0?"":"2 3")}));
+    const t=el("text",{x:padL-7,y:y+3,class:"axlab","text-anchor":"end"});t.textContent=g;svg.appendChild(t);});
+  const ll=el("text",{x:padL,y:topY-26,class:"lanelab"});ll.textContent=label;svg.appendChild(ll);
+  for(let L=0;L<18;L++){const v=Math.max(0,dat[L]);const x=padL+L*step+(step-bw)/2;const bh=Math.min(v,1)*h;
+    svg.appendChild(el("rect",{x,y:base-bh,width:bw,height:Math.max(bh,0.6),rx:2,fill:color(dat[L])}));
+    if(dat[L]>=0.5||dat[L]>=0.85){const tv=el("text",{x:x+bw/2,y:base-bh-3,class:"val","text-anchor":"middle"});tv.textContent=dat[L].toFixed(2);svg.appendChild(tv);}
+    const xl=el("text",{x:x+bw/2,y:base+13,class:"axlab","text-anchor":"middle"});xl.textContent=L;svg.appendChild(xl);}
+  const xlab=el("text",{x:padL+plotW/2,y:base+27,class:"axlab","text-anchor":"middle"});xlab.textContent="layer";svg.appendChild(xlab);
+}
+lane(top1,A,"Attention  (matched: local token window)");
+lane(top2,M,"MLP  (matched: token+window · low-rank bilinear · linear readout)");
+</script>
