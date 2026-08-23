@@ -29312,3 +29312,20 @@ structure, does strictly WORSE than linear -> the irreducible content is not cur
 BENCHMARK NOTE: the benchmark's per-token-TABLE stand-ins capture only ~18% of the MLP content; even the context-
 LINEAR 29% is missed by a token table (though the benchmark's TOPIC subspace, a context variable, captures part of it
 separately). The named-variable (table) ceiling is thus stricter than the §1000 linear ceiling.
+
+## §1006 — the L3-5 content gathering runs primarily through ONE head (head 7) + a distributed remainder (content_pooling_heads.py)
+
+Band each head's attention to K=8 in ALL of L3-5; within-CE (content) cost vs baseline 2.535:
+  head:  h7     h5     h8     h2     h0     h1     h4     h6     h3
+  cost: +0.290 +0.011 +0.008 +0.006 +0.005 +0.003 +0.003 +0.002 +0.001
+  all-heads (L3-5) +0.520 (== §998's L3-5 band cost ~0.52, NULL consistency); per-head sum 0.328; top-3 share 0.941.
+pred_a (head-concentrated) TRUE, strongly. The long-range content pooling in the gathering band is DOMINATED by a
+SINGLE head, HEAD 7: banding just h7's window costs +0.290 nats of content -- 88% of the per-head sum and 56% of the
+all-heads joint cost. The other 8 heads each cost ~0.001-0.011 alone.
+NUANCE (fits the program's central theme, FINDINGS item 1 "one isolable knob + distributed remainder"): per-head sum
+(0.328) < all-heads joint (0.520), so the other 8 heads collectively add ~0.19-0.23 nats when all banded despite each
+being ~dispensable alone -- a DISTRIBUTED, cooperative remainder. So L3-5 content gathering = one DOMINANT head (h7,
+0.29) + a distributed redundant remainder (other heads, ~0.2 jointly). This is a rare near-single-component
+localization in an otherwise redundant model -- and it is exactly h7 (head-index 7) across the L3-5 band.
+Caveat: banded head-index 7 in L3,L4,L5 jointly, so this identifies the head INDEX that dominates the band, not
+which of the three layers' h7 matters most.
