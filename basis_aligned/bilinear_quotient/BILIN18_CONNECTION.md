@@ -30507,3 +30507,22 @@ growing from mlp2 into the deep-middle. One consistent frontier (high-rank conte
 **What this establishes.** Two INDEPENDENTLY-TRAINED bilinear models — different initialization, different training run, and even a different MLP type (bilin18's squared-bilinear vs swiglu18's gated variant) — encode essentially the SAME content: the top content directions align at canonical correlation ~0.95-0.97, and nearly the whole 64-dim content subspace (58/64) is shared up to a linear map. The high-dimensional topic/register content manifold is a **convergent, model-independent representation** — not just the same shape (§1057) but the same information, in two separately-learned bases. This is the strongest form of the universality claim: these bilinear LMs converge on the same way of representing context.
 
 **Controls/caveats:** position-shuffled control ~0.03 (passes). CCA finds the best LINEAR alignment, so this shows the subspaces carry linearly-equivalent information (the precise, intended claim: "same information up to a linear map"), not that individual PCA directions coincide. K=64, N=51k (well-conditioned, N>>K), ridge 1e-3.
+
+## §1062 — The content is FUNCTIONALLY INTERCHANGEABLE across models: swiglu18's content, mapped, drives bilin18 (96% of within-model)
+
+**Question:** §1061 (CCA) showed bilin18 and swiglu18 encode the same content up to a linear map W. Is it functionally interchangeable? Extract content from SWIGLU18 on a source text, map it into bilin18's content space via a fitted W (ridge, held-out), and PATCH it into BILIN18 running on a target text (deep-middle L6-14, §1059 mechanics). If bilin18's output moves toward bilin18-on-source — a good fraction of the within-model (bilin18→bilin18) upper bound and far above a random-map control — the content is causally substitutable across independently-trained models. (`crossmodel_transfer.py`, K=64, fit W on half, eval source/target pairs on the other half.)
+
+**Registered predictions:** (a) cross-model transfer works — alignment positive, >> random-map, meaningful fraction of within-model.
+
+**Result — pred_a TRUE, near the upper bound:**
+
+| patch | alignment → bilin18-source |
+|---|---|
+| within-model (bilin18's own source content) | 0.798 (upper bound) |
+| **cross-model mapped (swiglu18 → W → bilin18)** | **0.764 (96% of upper bound)** |
+| random-map control (permuted W) | 0.348 |
+
+- **Content extracted from swiglu18, linearly mapped, and injected into bilin18 transports topic at 96% of the effectiveness of bilin18's OWN content** (0.764 vs 0.798), and far above the random-map control (0.348). One independently-trained model's context representation causally drives another's computation.
+- The random-map floor (0.348) is nonzero because a permuted map still injects content-subspace variance (wrong correspondence, right subspace); the correctly-learned W more than doubles it to near the within-model ceiling — so the LEARNED cross-model correspondence carries real, bilin18-meaningful topic.
+
+**What this establishes — the strongest form of universality.** The high-dimensional topic/register content is not just similarly structured (§1057) or correlated in information (§1061) across independently-trained bilinear models — it is CAUSALLY INTERCHANGEABLE: swiglu18's content, mapped by a single linear transform, works in bilin18 almost as well as bilin18's own. These models converge on the same context representation up to a linear change of basis, and that representation is a portable, functional object. **Controls:** within-model upper bound (0.80) and random-map floor (0.35). **Caveat:** a single global map W across the deep-middle band (not per-layer) already achieves 96% — a per-layer map might close the last 4%; and swiglu18/bilin18 share D=1152, which makes the linear map square (cross-D transfer, e.g. bilin12→bilin18, would need a rectangular map).

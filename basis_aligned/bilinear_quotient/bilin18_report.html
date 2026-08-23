@@ -2265,7 +2265,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   network. In fact the agreement is near-exact: comparing the content coordinates of two separately trained models
   position by position, the leading directions line up at correlations of 0.95 and above, and almost the entire
   sixty-four-dimensional content space is shared up to a change of basis. Independently trained bilinear models converge
-  on the same representation of context.</p>
+  on the same representation of context. The convergence is strong enough to be <em>portable</em>: if you take the
+  content one model reads from a passage, pass it through a single linear map, and splice it into a <em>different</em>
+  model running on other text, that second model's predictions swing toward the passage's topic almost as much as if you
+  had used its own content (about 96% as much). One network's sense of "what this text is about" can be handed to another
+  and it still works.</p>
 
   <p>These directions are not just descriptive — they are causal. If you take one passage's coordinates along this
   content map and splice them into the network's run on a <em>different</em> passage, the model's predictions swing

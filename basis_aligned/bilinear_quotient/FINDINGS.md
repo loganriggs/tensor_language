@@ -389,7 +389,7 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    formal, narrative↔technical, casual↔analytical, personal↔moral); top-10 PCs = only 12% variance → a high-dimensional
    semantically-organized topic/register manifold (many readable axes). §1056: causal ablation — removing top-64 content
    dirs from the stream is catastrophic (+8.4 nats); even bottom-64 beat the random control (whole subspace privileged),
-   though per-variance uniformity is falsified+confounded. **NET whole-model status: grammar (L0-1), routing attention
+   though per-variance uniformity is falsified+confounded. §1059-1060: content-subspace ACTIVATION PATCHING causally transports topic (inject one text's content coords into another's run -> output moves to source; ~16-64 top dirs carry it, 62x/22x a random subspace). §1061: bilin18 & swiglu18 encode the SAME content info (CCA 0.95-0.97, 58/64 dirs >0.7). §1062: content is FUNCTIONALLY INTERCHANGEABLE -- swiglu18 content mapped via linear W drives bilin18 at 96% of within-model. **NET whole-model status: grammar (L0-1), routing attention
    (L0-5), and readout (L15-17) understood ~0.8-0.95; the one frontier is the deep-middle high-dimensional interpretable
    topic/register content — located, named, causally verified, bounded by a real model property.** **HIGH.**
 
