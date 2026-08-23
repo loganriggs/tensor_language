@@ -2271,7 +2271,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   had used its own content (about 96% as much). One network's sense of "what this text is about" can be handed to another
   and it still works. And this does not depend on the models being the same size: a narrower, shallower model (768 wide,
   twelve layers) shares its leading content directions with the larger ones at correlations of 0.96 and above — the same
-  representation, independent of width, depth, and feed-forward design.</p>
+  representation, independent of width, depth, and feed-forward design. And the handoff works across those size
+  differences too: content read by the smaller model, passed through one linear map, drives the larger model at about
+  93% of the effect of its own content. The content representation is a portable object that independently trained
+  bilinear models of different sizes converge on and can exchange.</p>
 
   <p>These directions are not just descriptive — they are causal. If you take one passage's coordinates along this
   content map and splice them into the network's run on a <em>different</em> passage, the model's predictions swing
