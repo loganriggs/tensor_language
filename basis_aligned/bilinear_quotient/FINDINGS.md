@@ -338,7 +338,14 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
    a determiner injected ADJACENT to the query raises P(noun) sharply (the +0.32, a +0.26) while FAR does nothing
    (grammar local); syntactically accurate ("of" → determiner, not noun directly, so barely raises P(noun); §1020).
    The two-machine account thus predicts behavior generatively, complementing the structural (§995-998) and causal
-   (§894/§959-960) evidence. **HIGH.**
+   (§894/§959-960) evidence. INDUCTION validated generatively too (AB…A→B copy, +7-8 nats, position-specific,
+   architecture-general incl swiglu; §1025/§1026) — the third mechanism. CAPACITY clean: the bag is high-capacity
+   ADDITIVE (≥6 topics, no dilution; §1024 resolved a content-density confound in §1023). CROSS-MECHANISM COUPLING
+   (§1027→1032, six controls): the mechanisms are ASYMMETRICALLY coupled — induction is independent of content (copy
+   unchanged, 0.97), but content is AMPLIFIED ~1.5-2× when induction fires, via (a) induction attention carrying
+   NEARBY content forward (spatial, decays with distance from the match) + (b) a global induction-state boost; real at
+   the logit level (not softmax/density/last-token — each ruled out by a control). Refines, doesn't break, the
+   three-mechanism account. **HIGH.**
 
 2. **Read ≠ write direction.** A supervised probe decodes a feature; the *unembedding row* (write
    axis) steers it; the two are ~orthogonal (cos≈0). Pushing the probe does not steer (even
