@@ -30829,3 +30829,26 @@ K=16 (random control now genuinely modest, +0.04-0.26 nats — non-destructive):
 ## §1075-CORRECTION — §1075 duplicated §985-987 (FINDINGS 1k), and its clean-dissociation framing was overstated
 
 Dedup miss (stated plainly): §1075's value-residual / x0 re-injection ablations DUPLICATE §985-987 (FINDINGS 1k) — same numbers (value-residual +3.33 nats there vs my +3.37; x0 +2.34 vs +2.34). More importantly, §987 had ALREADY CORRECTED the clean "value-residual→content, x0→grammar" dissociation: BOTH re-injections are CONTENT-HEAVY; x0 is only RELATIVELY more grammar-weighted (content/grammar damage ratio 2.96 for x0 vs 3.84 for value-residual) — a relative TILT, not two dedicated wires. My §1075 writeup and the report paragraph I added re-stated the overturned clean-dissociation framing. CORRECTED: the report paragraph now says both are content-heavy with a relative tilt (value-residual more content, x0 relatively more grammar), not "one wire feeds content, the other grammar." My own §1075 numbers already agreed (value-residual rare/freq 2.69, x0 rare/freq 1.56 — BOTH >1, i.e. both hurt rare/content words, x0 just relatively flatter). The genuine NEW bits of §1075 vs §985-987: the per-layer localization (x0 at L0-1, value-residual at L2-4 = content onset) and the frequency-decile split. §1076 (block-0 value is EXACTLY static per-token, static-override cost 0.0) is a genuine refinement not in §985-987. LESSON: grep FINDINGS (all 26 items) for prior coverage BEFORE building — reinforced in memory.
+
+## §1079 — First OOD test: the content subspace is largely REGISTER-SPECIFIC (code vs prose use mostly different content directions)
+
+**Question (first out-of-distribution test; all prior work is in-distribution FineWeb prose, LESSONS rule 10):** does the content machine's subspace generalize to CODE? Build the deep-middle content subspace from PROSE (top-64 PCA of pooled L8-12 content deviation), measure how much of CODE's content-deviation variance it captures vs code's own top-64 (upper) and random-64 (lower). Code = the repo's own .py files tokenized with GPT-2 BPE. (`content_ood_code.py`, 150 code + 150 prose seqs.)
+
+**Registered predictions:** (a) register-general (prose subspace captures >0.5 of code's own capture, ≫ random).
+
+**Result — pred_a FALSE (register-specific):**
+
+| retained-variance fraction | value |
+|---|---|
+| code by PROSE subspace | 0.166 |
+| code by its OWN top-64 (upper bound) | 0.515 |
+| code by random-64 (null) | 0.055 |
+| prose by prose subspace (baseline) | 0.369 |
+| prose by code subspace | 0.125 |
+| prose↔code top-64 subspace overlap | 0.19 |
+| code content top-10 var frac (vs prose 0.124) | 0.238 |
+
+- **The content machine is LARGELY REGISTER-SPECIFIC.** The prose content subspace captures code content (0.166) at ~3× the random null (0.055) — so there IS a shared content core — but only **32% of what code's own subspace captures** (0.515), and the prose↔code subspace overlap is just **0.19**. Code content lives substantially OFF the prose content manifold; the two registers use mostly different content directions with a modest (~3× random) shared backbone.
+- **Code content is LOWER-rank than prose** (top-10 PCs explain 24% vs prose's 12%) — code is more structurally repetitive, so its content is more compressible/concentrated.
+
+**What this nuances.** The universality claim (§1057-1063: content is the same across independently-trained models) was established on FineWeb PROSE (same training distribution). §1079 shows that WITHIN a model, the content subspace is register-ADAPTIVE: code and prose get mostly different content directions (overlap 0.19), sharing only a ~3×-random general-content backbone. So "universal content manifold" means universal ACROSS MODELS on in-distribution text, NOT register-general within a model. The content machine tracks "what this text is about" in a register-dependent basis. **Controls:** random-64 null (0.055), symmetric prose-by-code (0.125). **Caveat:** code is OOD for a FineWeb-trained model, so "code content" is whatever the model computes on code (processing may be degraded); the subspace-overlap measure is register-relative and robust, but the absolute meaningfulness of code's content directions is bounded by the model's OOD competence.

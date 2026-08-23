@@ -1,0 +1,23 @@
+{
+ "K": 64,
+ "ref_layers": [
+  8,
+  10,
+  12
+ ],
+ "n_code_seq": 150,
+ "n_prose_seq": 150,
+ "code_content_top10_var_frac": 0.2377,
+ "prose_content_top10_var_frac": 0.1241,
+ "retained": {
+  "code_by_prose_subspace": 0.1659,
+  "code_by_own_top64": 0.5146,
+  "code_by_random64": 0.0554,
+  "prose_by_prose_subspace": 0.3688,
+  "prose_by_code_subspace": 0.1251
+ },
+ "prose_code_subspace_overlap": 0.1908,
+ "code_frac_of_own_captured_by_prose": 0.322,
+ "pred_a_register_general": false,
+ "runtime_s": 80.0
+}
