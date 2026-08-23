@@ -31116,3 +31116,11 @@ grammar_transfer_code_results.json; runlogs/grammar_transfer_code.log (110s).
 **Standing addition to the attention picture:** the §1093 collective function does not decompose into sub-bands — restoration, like ablation, is super-additive. The middle's redundant pooling only works as a wide ensemble.
 
 attn_seed_ensembles_results.json; runlogs/attn_seed_ensembles.log (218s).
+
+## §1098 — FIGURES (user-requested): the mlp0 class map, labeled — and derived identically from WEIGHTS ALONE (fig_mlp0_class_map*.py, fig_mlp0_tsne.py)
+
+Token-conditional-mean mlp0 outputs for 354 tokens (≥8 occurrences, 96 diverse-census rows), rule-labeled with the §825/826 taxonomy, mapped by PCA (PC1-4) and t-SNE. Class separation inter/intra 1.02 vs shuffled-label 0.31 (**3.3×**). Visible structure: PUNCTUATION its own arm; NUMBERS + CAPITALIZED segregate together (surface-form axis); DETERMINER/PREPOSITION/AUX adjacent (function-word region); PRONOUNS split subject-forms vs possessives — the possessives (their/your/her) sit WITH the determiners, which is grammatically correct (possessive determiners); content words an undifferentiated central mass (their identity rides elsewhere — the class code is about grammatical role, item 1g).
+
+**WEIGHT-ONLY derivation (user point confirmed):** folding embedding → block-0 λ-remix → T=1 self-attention (rotary at pos 0) → mlp0 gives the same map with NO data statistics: per-token cosine with the data map **0.83**, pairwise-distance congruence **0.90**, class separation 3.30× (vs data 3.31×). mlp0's class geometry is a pure weight object; the data averaging adds almost nothing (context contributes the residual ~0.17 cosine gap).
+
+Files: fig_mlp0_class_map.png (PCA, data), fig_mlp0_class_map_weights.png (PCA, weights-only), fig_mlp0_tsne.png (t-SNE side-by-side), mlp0_clusters.md (full membership). No new mechanism claims — a visualization + weight-derivability check of §767-772/§915/§825-826.
