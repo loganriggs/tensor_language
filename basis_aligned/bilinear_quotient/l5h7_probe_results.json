@@ -1,0 +1,78 @@
+{
+ "base_ce": 3.3914,
+ "base_rare": 5.411,
+ "base_freq": 2.7742,
+ "heads": {
+  "L5H7": {
+   "zero": {
+    "cost": 0.8791,
+    "rare_cost": 1.4925,
+    "freq_cost": 0.6917
+   },
+   "donor": {
+    "cost": 0.0214,
+    "rare_cost": 0.0323,
+    "freq_cost": 0.0181
+   },
+   "local_only": {
+    "cost": 0.3417,
+    "rare_cost": 0.5726,
+    "freq_cost": 0.2712
+   },
+   "far_only": {
+    "cost": 0.046,
+    "rare_cost": 0.0793,
+    "freq_cost": 0.0359
+   },
+   "zero_content": {
+    "cost": 1.6444,
+    "rare_cost": 2.9577,
+    "freq_cost": 1.2431
+   },
+   "zero_rest": {
+    "cost": 2.3847,
+    "rare_cost": 3.8371,
+    "freq_cost": 1.9409
+   },
+   "rare_freq_ratio": 2.16,
+   "content_frac_of_zero": 1.871
+  },
+  "L10H5": {
+   "zero": {
+    "cost": 0.0069,
+    "rare_cost": -0.0011,
+    "freq_cost": 0.0094
+   },
+   "donor": {
+    "cost": 0.0085,
+    "rare_cost": 0.0115,
+    "freq_cost": 0.0076
+   },
+   "local_only": {
+    "cost": 0.0008,
+    "rare_cost": -0.0007,
+    "freq_cost": 0.0012
+   },
+   "far_only": {
+    "cost": 0.0041,
+    "rare_cost": -0.0027,
+    "freq_cost": 0.0062
+   },
+   "zero_content": {
+    "cost": 0.0059,
+    "rare_cost": 0.0074,
+    "freq_cost": 0.0054
+   },
+   "zero_rest": {
+    "cost": 0.0038,
+    "rare_cost": -0.0027,
+    "freq_cost": 0.0058
+   },
+   "rare_freq_ratio": -0.12,
+   "content_frac_of_zero": 0.855
+  }
+ },
+ "pred_a_content_gatherer": true,
+ "pred_b_interchange": true,
+ "runtime_s": 83.2
+}

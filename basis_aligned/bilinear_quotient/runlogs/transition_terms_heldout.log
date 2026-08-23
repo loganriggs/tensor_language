@@ -1,0 +1,8 @@
+L1 held-out: full 0.0 | tok 0.4372 (recov 0.933) | tok+cross 0.1371 (recov 0.979) | mean-abl 6.5043
+L3 held-out: full 0.0 | tok 0.1873 (recov 0.673) | tok+cross 0.1361 (recov 0.762) | mean-abl 0.5725
+L8 held-out: full 0.0 | tok 0.0416 (recov 0.135) | tok+cross 0.03 (recov 0.376) | mean-abl 0.0481
+L10 held-out: full -0.0 | tok 0.0369 (recov 0.013) | tok+cross 0.0261 (recov 0.302) | mean-abl 0.0374
+L16 held-out: full 0.0 | tok 0.12 (recov 0.131) | tok+cross 0.0637 (recov 0.539) | mean-abl 0.1381
+unseen-token frac on eval half: 0.2026
+drops vs in-sample: {'1': 0.048, '3': 0.185, '8': 0.451, '10': 0.573, '16': 0.624} | pred_a front False | pred_b deep-drop True | pred_c readout False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/transition_terms_heldout_results.json (99.4s)

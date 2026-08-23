@@ -30972,3 +30972,27 @@ pooler_criterion_results.json; runlogs/pooler_criterion.log (87s).
 Not propagated to the published report (§1082 never was — held for this control, correctly).
 
 readout_merge_vmatch_results.json; runlogs/readout_merge_vmatch.log (79s).
+
+## §1087 — L5H7 probe: broad-range and content-tilted CONFIRMED — but the donor interchange REFRAMES it: the head's load-bearing signal is largely DOCUMENT-GENERIC (l5h7_probe.py)
+
+**Tests on the §1083 super-head (each mirrored on inert-pooler control L10H5, which stayed ≤0.009 throughout — clean).**
+- **Reproduces:** zero cost 0.879 (§1083: 0.912 at different N). **Content-signed:** rare/freq cost ratio 2.16 (≥2 registered; value-residual's is 2.69, §1075) — its removal hurts content words preferentially.
+- **Far-range confirmed causally:** restricting the head to far keys only (d>8) costs just 0.046 (95% of function retained), restricting to local-only costs 0.342. Its function comes from broad context, as the pattern profile said.
+- **THE SURPRISE — donor interchange is nearly FREE: 0.021 nats** (2.4% of zeroing). Replacing L5H7's output with the SAME-POSITION output from a DIFFERENT document barely hurts. My registered pred_b ("donor ≈ zeroing, both destroy the specific content") was satisfied only vacuously (donor ≤ 1.5×zero) — the honest reading is the opposite of what I expected: **what the model needs from L5H7 is mostly generic** — a "pooled context of this length/kind is present" signal — while the document-SPECIFIC content this head carries is worth only ~0.02 nats. Plausible mechanism: squared attention is UNNORMALIZED, so a broad pooler's output mass ramps with position/context-length; zeroing kills the ramp (catastrophic), a same-position donor preserves it. The doc-specific topic content is either redundant across the other (individually cheap) poolers or small at this node.
+- **Mediation sub-test INVALID as designed:** zeroing only the U_c projection of the head's contribution costs 1.64 and zeroing the complement 2.38 — each EXCEEDS full zeroing (0.88) and they are wildly super-additive. Partial removals leave inconsistent vectors that are worse than silence; the "content-frac 1.87" is not a fraction. pred_a's formal TRUE is therefore only ratified on the rare/freq and range criteria, not mediation.
+
+**Standing picture revision:** L5H7 is the single biggest attention node and is content-TILTED, but it is not the sole courier of specific topic — its dominant causal role looks like supplying the generic pooled-context signal (possibly the content-machine's operating point/scale). Registered follow-up (l5h7_generic.py): replace its output with the per-position BATCH-MEAN (keeps the generic ramp, deletes all doc-specificity) and with position-SHUFFLED donor (breaks the ramp, keeps doc content) — the clean generic-vs-specific split.
+
+l5h7_probe_results.json; runlogs/l5h7_probe.log (83s).
+
+## §1088 — CORRECTION of §1084 (redteam worked again): the deep and readout tok-only recoveries were mostly SINGLETON LEAKAGE; held-out numbers: L8 0.14, L10 0.01, L16 0.13 (transition_terms_heldout.py)
+
+Held-out means (computed on half A, evaluated on half B; 20.3% of eval positions unseen-in-A → global-mean fallback; full-reconstruction sanity 0.0 held):
+- **L1 STANDS:** tok-only recovery 0.933 (was 0.981) against a 6.5-nat stake — mlp1 really is ~a static per-token function (gain control). §1045 corroborated independently.
+- **L3 weakens:** 0.858 → 0.673 (tok+cross 0.938 → 0.762) — partially leak-inflated, still substantially token-driven.
+- **DEEP RETRACTED:** L8 0.586 → **0.135**, L10 0.586 → **0.013**. §1084's "deep tok-only ~0.59" was almost entirely the singleton artifact (for a once-seen token, xbar = that very input). Corrected: the deep-middle MLPs' function is genuinely CONTEXT (tok+cross held-out: 0.38/0.30; the dev×dev term is the function — consistent with §1041).
+- **READOUT RETRACTED:** L16 0.755 → **0.131** (pred_c false). §1084's "readout MLP ≈ per-token calibration lookup" is WITHDRAWN — and its companion claims (91% token variance share; dev-only substitution harm) were computed with the same in-sample xbar, so they inherit the contamination and are downgraded to unverified pending a held-out variance decomposition. The standing description of the readout returns to §1046: near-linear read (established by an unaffected method). tok+cross held-out at L16 recovers 0.539.
+
+**What survives of §1084:** the exact three-term decomposition and its sanity; NO binding band (cross-share flatness is a weight/activation fact, small leak sensitivity); the front-vs-deep DIRECTION of the gradient (L1 0.93 vs L10 0.01 held-out is even sharper than before); L4 as the first true context MLP (its tok recovery was ~0 already in-sample). What changes: the deep/readout token components were illusory.
+
+transition_terms_heldout_results.json; runlogs/transition_terms_heldout.log (99s).

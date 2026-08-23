@@ -1,0 +1,64 @@
+{
+ "base_ce": 3.1473,
+ "unseen_token_frac": 0.2026,
+ "ce": {
+  "1": {
+   "full": 0.0,
+   "tok": 0.4372,
+   "tokcross": 0.1371,
+   "meanabl": 6.5043,
+   "tok_recov": 0.933,
+   "tokcross_recov": 0.979
+  },
+  "3": {
+   "full": 0.0,
+   "tok": 0.1873,
+   "tokcross": 0.1361,
+   "meanabl": 0.5725,
+   "tok_recov": 0.673,
+   "tokcross_recov": 0.762
+  },
+  "8": {
+   "full": 0.0,
+   "tok": 0.0416,
+   "tokcross": 0.03,
+   "meanabl": 0.0481,
+   "tok_recov": 0.135,
+   "tokcross_recov": 0.376
+  },
+  "10": {
+   "full": -0.0,
+   "tok": 0.0369,
+   "tokcross": 0.0261,
+   "meanabl": 0.0374,
+   "tok_recov": 0.013,
+   "tokcross_recov": 0.302
+  },
+  "16": {
+   "full": 0.0,
+   "tok": 0.12,
+   "tokcross": 0.0637,
+   "meanabl": 0.1381,
+   "tok_recov": 0.131,
+   "tokcross_recov": 0.539
+  }
+ },
+ "insample_tok_recov": {
+  "1": 0.981,
+  "3": 0.858,
+  "8": 0.586,
+  "10": 0.586,
+  "16": 0.755
+ },
+ "drop": {
+  "1": 0.048,
+  "3": 0.185,
+  "8": 0.451,
+  "10": 0.573,
+  "16": 0.624
+ },
+ "pred_a_front_holds": false,
+ "pred_b_deep_drops": true,
+ "pred_c_readout_holds": false,
+ "runtime_s": 99.4
+}
