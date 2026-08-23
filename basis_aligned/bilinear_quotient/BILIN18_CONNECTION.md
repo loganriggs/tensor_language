@@ -29892,3 +29892,18 @@ within-CE = content = the within-slot TAIL): content is a tail phenomenon. It al
 the content machine lets us shape the specific-word tail (log-probs), NOT flip the top-k (which grammar governs). A
 fitting, honest capstone -- the content machine's behavioral reach is the tail, exactly as the two-machine account
 implies.
+
+## §1034 — natural-text confirmation of grammar-head / content-tail: content targets sit 25x deeper in the distribution (content_target_rank.py)
+
+On natural text (NO injection), rank of each true next-token target in the model's distribution, split by target class:
+  target class        median rank   mean rank   top-5 fraction   n
+  FUNCTION (grammar)      0            11.6         0.804        17682
+  CONTENT                 6           286.7         0.464        23118
+pred_a (content in the tail) TRUE; pred_b (function top-5 >> content top-5) TRUE.
+CONFIRMS §1033 on NATURAL data without any intervention: GRAMMAR (function-word) targets live at the HEAD -- the
+model's argmax is the correct function word (median rank 0), 80% are in the top-5, mean rank 11.6. CONTENT-word
+targets live deep in the TAIL -- median rank 6, mean rank 286.7 (25x the function mean), only 46% in the top-5. So the
+grammar=head / content=tail split (§1033, shown under injection) holds on real text: the model resolves the
+grammatical slot precisely (head) and then places a broad, uncertain distribution over which specific content word
+fills it (tail). This is the chain-rule split (class-CE = grammar = head; within-CE = content = tail) read directly
+off the per-token ranks. Two independent instruments (injection §1033, natural-text ranks §1034) agree.
