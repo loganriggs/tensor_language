@@ -1,0 +1,5 @@
+K=64: direct (0.638, 0.534) | +attn (0.738, 0.705)
+K=128: direct (0.602, 0.471) | +attn (0.724, 0.674)
+K=256: direct (0.549, 0.378) | +attn (0.694, 0.615)
+K-gain (plus_attn, 64->256): -0.090 | pred_a width False | pred_b drift True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/coord_direct_k_results.json (33.6s)
