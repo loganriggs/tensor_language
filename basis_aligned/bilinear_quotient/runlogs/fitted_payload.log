@@ -1,0 +1,17 @@
+fit targets 1705 | eval targets 4432
+bases fitted
+base {'t': 0.8551157631168297, 'e': 3.3168899354410777} | whole-slice dmg ind 0.1211 else 0.0015
+fit_r1: ind 0.0025 else -0.0
+fit_r2: ind 0.0034 else -0.0002
+fit_r4: ind 0.0037 else -0.0001
+fit_r8: ind 0.0046 else -0.0001
+fit_r16: ind 0.0077 else -0.0002
+fit_r32: ind 0.0132 else -0.0005
+rnd_r1: ind 0.0025 else -0.0001
+rnd_r2: ind 0.0026 else -0.0001
+rnd_r4: ind 0.0028 else -0.0001
+rnd_r8: ind 0.0043 else -0.0001
+rnd_r16: ind 0.0075 else -0.0002
+rnd_r32: ind 0.0137 else -0.0004
+pred_a fitted16 False | pred_b null False | pred_c elbow False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fitted_payload_results.json (119.6s)

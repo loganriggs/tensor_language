@@ -32866,3 +32866,11 @@ query_side_results.json; runlogs/query_side.log (98s).
 - Thread closed. Standing next options logged, not queued: fitted per-head payload subspaces (the §1294 route to per-head accounting, queued NOW as fitted_payload.py), swiglu-family transfer of the annotation instrument.
 
 pair_source_specific_results.json; runlogs/pair_source_specific.log (121s).
+
+## §1301 — FITTED SUBSPACES FAIL TOO, AND THE PARTITION QUESTION IS NOW CLOSED FROM EVERY SIDE: PCA bases fitted ON INDUCTION-TARGET OUTPUTS have ZERO advantage over random-position bases at every rank (r16: 0.0077 vs null 0.0075; r32: 0.0132 vs 0.0137), and r=32 of the fetchers' 256-dim joint output space captures only 11% of the whole-slice damage (0.121); preds a-c ALL FALSE (fitted_payload.py)
+
+- The reason fitted = null, stated plainly: each induction target needs a DIFFERENT token delivered. The payload is a per-position variable that sweeps the whole channel uniformly across targets — so target-conditioned variance has no special directions; any basis of a given rank removes the same generic fraction. There is no fixed "payload subspace", weights-derived (§1290-92) OR empirically fitted (this cell).
+- THE PARTITION LAW, FINAL FORM (§1290-94 + §1301): for transport heads, the task-part is per-position (the data-dependent rank-1 mask, §1293 — null-clean at 60:1) or variable-level (the verdict axis, §1240-46), NEVER a fixed subspace of any provenance. "This part of the rank of the head does the task" is true exactly when the task's content is a shared low-rank variable, and false when the content IS the transported message.
+- Head-partition program totals: 6 experiments, 6 registered outcomes, 1 keeper instrument, 1 law. Explainer postscript updated with the fitted-subspace closure.
+
+fitted_payload_results.json; runlogs/fitted_payload.log (120s).
