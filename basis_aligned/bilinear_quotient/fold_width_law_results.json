@@ -1,0 +1,24 @@
+{
+ "n_rows": 16,
+ "ce": {
+  "base": 3.3627,
+  "all_W16": 3.8447,
+  "all_W32": 3.5912,
+  "all_W64": 3.4297,
+  "all_W128": 3.3768,
+  "front_W16": 3.3895,
+  "true_model": 3.3627
+ },
+ "cost_vs_base": {
+  "all_W16": 0.482,
+  "all_W32": 0.2285,
+  "all_W64": 0.067,
+  "all_W128": 0.0141,
+  "front_W16": 0.0268
+ },
+ "sanity_base_matches_true": true,
+ "pred_a_monotone": true,
+ "pred_b_w64_suffices": false,
+ "pred_c_front_short": false,
+ "runtime_s": 219.8
+}

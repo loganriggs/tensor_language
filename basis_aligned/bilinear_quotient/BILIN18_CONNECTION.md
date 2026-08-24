@@ -31805,3 +31805,11 @@ pattern_fold_map2_results.json; runlogs/pattern_fold_map2.log (162s).
 **What this closes:** WHERE each head looks is now a certified bounded-window weights function everywhere in the model — no attention pattern reads genuinely global context; the model's only long-range selection (the position-0 constant fetch, sink 5.7) survives folding because position 0's prefix is exact by construction (writeup 483's "only non-local read" account, now causally re-certified inside a full-model replacement). Everything genuinely long-range in bilin18's function therefore travels in the VALUES/residual content (the §1076 pooled bag, the §1150-60 transported coordinates), never in the selection. Registered next (fold_width_law.py): the causal width law — fold_all at W ∈ {16,32,64,128}; (a) cost falls monotonically with W; (b) ≤ 0.05 nats by W=64; (c) front stays ≤ 0.005 at every W (front selection is genuinely n-gram-short).
 
 fold_pattern_loss2_results.json; runlogs/fold_pattern_loss2.log (237s; v1 236s).
+
+## §1167 — CAUSAL WIDTH LAW: folding cost decays super-geometrically with window width (0.482 / 0.229 / 0.067 / 0.014 nats at W=16/32/64/128 — ratio per doubling 2.1× → 3.4× → 4.8×), no hard scale; two bars near-missed and reported plainly (fold_width_law.py)
+
+**pred_a TRUE:** strictly monotone, and the decay ACCELERATES — each doubling of window width buys a growing factor (2.1×, 3.4×, 4.8×). Selection has no single characteristic scale; it is log-local with a softly-vanishing tail (extrapolation suggests ~0.003 at W=256). **pred_b FALSE by 0.017:** W=64 costs 0.067 vs the registered 0.05 bar — near-miss; the qualitative claim (most of selection well under 64 tokens) stands, the bar was tight. **pred_c FALSE:** front-only folding at W=16 costs 0.0268, not ≤0.005 — even front selection benefits from context accrual in the window residual (the W=128 front figure of +0.001 remains; my bar conflated read-window locality (writeup 481, 4-token READS cost +0.014) with residual-window locality — the residual itself accrues context, different quantity, now both on record).
+
+The operating point stands: **W=128 → +0.0141 nats for all 162 patterns.** Sanity exact again (3.3627).
+
+fold_width_law_results.json; runlogs/fold_width_law.log (220s).

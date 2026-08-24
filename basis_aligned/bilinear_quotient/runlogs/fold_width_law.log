@@ -1,3 +1,8 @@
 batch 1/4 done 79s
 batch 2/4 done 126s
 batch 3/4 done 173s
+batch 4/4 done 220s
+CE {'base': 3.3627, 'all_W16': 3.8447, 'all_W32': 3.5912, 'all_W64': 3.4297, 'all_W128': 3.3768, 'front_W16': 3.3895, 'true_model': 3.3627}
+costs {'all_W16': 0.482, 'all_W32': 0.2285, 'all_W64': 0.067, 'all_W128': 0.0141, 'front_W16': 0.0268}
+sanity True | pred_a monotone True | pred_b W64 False | pred_c front False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fold_width_law_results.json (219.8s)
