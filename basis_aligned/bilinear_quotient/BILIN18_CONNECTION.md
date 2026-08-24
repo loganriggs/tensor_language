@@ -31905,3 +31905,13 @@ tabulated_stack4_results.json; runlogs/tabulated_stack4.log (137s).
 **Capstone queued (full_window_model.py, registered) — the whole model as a window function:** run the ENTIRE model per-position on only its last W tokens, W ∈ {16, 32, 64, 128}, scored at positions ≥128 (full-context base as reference). This is the VALUES-side complement to the selection result: how much of total function is genuinely long-range at all. (a) monotone in W; (b) W=64 costs ≤ 0.15; (c) W=128 ≤ 0.05. Cross-refs: writeup 482 (single-layer 4-tok windows ≤0.086 + sink), §1065 (content multi-scale but running-local), induction (§953-54: distant reads real but redundant).
 
 mlp_ladder_stack_results.json; runlogs/mlp_ladder_stack.log (147s).
+
+## §1180 — THE WHOLE MODEL AS A WINDOW FUNCTION: 0.593 / 0.379 / 0.207 / 0.082 nats at W=16/32/64/128 — monotone, both absolute bars missed (0.207 > 0.15, 0.082 > 0.05, reported plainly); the split lands: at horizon 128, long-range function ≈ 0.08 nats, of which selection carries 0.014 and pooled VALUES/content ~0.07 (full_window_model.py)
+
+Run the entire model per-position on only its last W tokens (exact weights, truncated context; scored positions ≥128 against full-context base at the same positions). pred_a TRUE (monotone); pred_b/c FALSE — my bars extrapolated from the selection fold, and the values side is ~5× heavier: at matched W=128, total window cost 0.0816 vs selection-fold 0.0141 → **~0.07 nats of genuinely long-range value rides in the content/values stream** (the §1076 pooled bag + §1150-60 transported coordinates), exactly where the fold arc said long-range function must live — now priced. At W=64 the split is 0.207 total / 0.067 selection / ~0.14 values.
+
+Consistency checks: single-layer 4-token windows cost ≤0.086 each (writeup 482) while the all-at-once W=16 whole-model cost is 0.593 — the familiar super-additivity, now at full-model scale. The sink survives windowing as predicted (window's own position 0 manufactures the content-generic constant, §1089) — else W=128 would carry the +1.1-nat sink signature of writeup 482.
+
+**The two-machine account now has a complete locality budget:** selection = bounded-window weights function (~0.014 @128); values/content = the long-range residue (~0.07 @128, shrinking with horizon); everything else local. Family twin queued (full_window_family.py, registered): (a) swiglu18 monotone; (b) W=128 total within 2× of bilin18's 0.082; (c) selection/values split same shape (0.0148 selection @128 already known → values ≈ total − 0.015).
+
+full_window_model_results.json; runlogs/full_window_model.log (48s).
