@@ -1,0 +1,10 @@
+    true: centered retention 0.4100
+    T1.0: centered retention 0.2403
+    T0.8: centered retention 0.2817
+    T0.6: centered retention 0.2243
+  greedy: centered retention -0.0738
+   floor: centered retention -0.0201
+retention {'true': 0.41, 'T1.0': 0.2403, 'T0.8': 0.2817, 'T0.6': 0.2243, 'greedy': -0.0738, 'floor': -0.0201}
+rep4 {'true': 0.002, 'T1.0': 0.0113, 'T0.8': 0.036, 'T0.6': 0.1213, 'greedy': 0.62}
+pred_a monotone False | pred_b T0.6 half False | pred_c greedy dissociates False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/temp_drift_results.json (110.6s)

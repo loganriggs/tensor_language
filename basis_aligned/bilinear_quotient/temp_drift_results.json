@@ -1,0 +1,23 @@
+{
+ "n_prompts": 12,
+ "cap_layer": 10,
+ "retention": {
+  "true": 0.41,
+  "T1.0": 0.2403,
+  "T0.8": 0.2817,
+  "T0.6": 0.2243,
+  "greedy": -0.0738,
+  "floor": -0.0201
+ },
+ "rep4": {
+  "true": 0.002,
+  "T1.0": 0.0113,
+  "T0.8": 0.036,
+  "T0.6": 0.1213,
+  "greedy": 0.62
+ },
+ "pred_a_monotone_in_T": false,
+ "pred_b_T06_recovers_half": false,
+ "pred_c_greedy_dissociates": false,
+ "runtime_s": 110.6
+}
