@@ -5036,3 +5036,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1299 — CORRECTION: 4.33-nat source dependence is ~70% GENERIC (random-position floor 3.08; specific excess 1.25); rankings survive, absolute framing corrected; pair-scoped isolation queued (query_side.py)
 §1300 — pair-scoped isolation: sources FREE (band covers), only query-side above noise (0.055) — sufficiency-without-necessity at every grain; annotation thread CLOSED (pair_source_specific.py)
 §1301 — fitted subspaces FAIL too (fitted = null at every rank; r32 = 11% of whole): partition law FINAL — task-parts are per-position or variable-level, never fixed-subspace; program closed (fitted_payload.py)
+§1302 — comparative screen UNDERPOWERED (n=20, dirty controls) — verdict withheld; attn8 registered as bet; 5x rerun queued (comparative_screen.py)

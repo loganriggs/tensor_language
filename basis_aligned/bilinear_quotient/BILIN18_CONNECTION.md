@@ -32874,3 +32874,10 @@ pair_source_specific_results.json; runlogs/pair_source_specific.log (121s).
 - Head-partition program totals: 6 experiments, 6 registered outcomes, 1 keeper instrument, 1 law. Explainer postscript updated with the fitted-subspace closure.
 
 fitted_payload_results.json; runlogs/fitted_payload.log (120s).
+
+## §1302 — COMPARATIVE SCREEN UNDERPOWERED, VERDICT WITHHELD: n=20 targets (the ctx window as written counts only non-adjacent comparatives, which are rare at 192 rows), and the suggestive winner attn8 (conc 48.6, dmg 1.67) sits on DIRTY controls (jitter conc 5.8, random 1.9); pred_a & c FALSE on the control bars, pred_b unearned at this n (comparative_screen.py)
+
+- Per the §368/§1283 evaluability standard this is below the bar: no conclusion recorded for or against a "than"-expectation carrier. attn8 is registered as the directional bet for the rerun and nothing more.
+- Rerun queued (comparative_screen2.py): 960 rows (5x), and the target class made deliberately STRICT — comparative 2-20 tokens back (the carried-expectation case; the adjacent "more than" bigram is grammar-machine territory and excluded by design, now stated rather than accidental).
+
+comparative_screen_results.json; runlogs/comparative_screen.log (166s).
