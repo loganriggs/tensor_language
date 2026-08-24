@@ -4937,3 +4937,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1200 — CONSOLIDATION: locality mega-arc §1161-99 summarized (selection foldable, MLPs window-bounded, one long-range channel priced, generation-certified; corrections + 10 instrument catches on record)
 §1201 — retention = INVERTED-U in temperature (peak T≈0.8 = the 0.70 constant; greedy BELOW floor, rep4 0.62 — bilin18 loops under cold decoding); preds a-c FALSE, U is the finding; family twin queued (temp_drift.py)
 §1202 — inverted-U NOT family-general (swiglu best at T0.6, loops topic-positive); §1199's 0.70 'constant' DOWNGRADED to matched-T coincidence; fingerprint filed; decoding thread CLOSED §1196-1202 (temp_drift_family.py)
+§1203 — ONE-SENTENCE MODEL: grand stack + 128-token read-mask = +0.0634 nats (1.9%); readmask@128 alone 0.0391; sub-additive 7th; highlights card added (final_certificate.py)

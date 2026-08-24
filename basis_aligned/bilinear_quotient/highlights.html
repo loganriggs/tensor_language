@@ -119,6 +119,26 @@
   </div>
 
   <div class="hl">
+    <p class="tag">the locality program</p>
+    <h2>The model only looks nearby — certified piece by piece, then all at once</h2>
+    <p>One question — "how far does this model actually look?" — answered causally at every grain.
+    <b>Every MLP</b> (all 18) recomputes from its position's last ≤64 tokens at ≤0.014 nats each. <b>Every
+    attention pattern</b> (all 162) folds from the weights over ≤128 tokens. Stack <b>twelve</b> such
+    reductions at once and the model runs at <b>0.03–0.04 nats</b> (~1% of loss, audited on fresh data) — and
+    every composition came in <i>cheaper</i> than its parts' sum, six times in a row. The one genuinely
+    long-range channel is attention's value pooling: worth ~0.07 nats at a 128-token horizon on ordinary prose,
+    gathered by a redundant crowd in layers 5–8 plus one induction trigger in layer 2 — and worth <b>30×
+    more</b> on repetitive text, where the copying machinery engages. The certificate even survives free-running
+    generation: a 128-token-window generator holds the prompt's topic exactly as well as the full model
+    (validated by an instrument that provably detects the damage — a 16-token generator scores at the
+    unrelated-text floor). One published claim was corrected along the way: "the front is a bigram function"
+    holds on prose only; on code and JSON the front needs 8–16 tokens.</p>
+    <div class="stats"><span class="stat"><b>0.03</b>nats: twelve reductions at once</span>
+    <span class="stat"><b>~0.08</b>nats: all long-range function @128 tokens</span></div>
+    <p class="ref">§1161–1202 (fold, window, generation arcs)</p>
+  </div>
+
+  <div class="hl">
     <p class="tag">the content machine's api</p>
     <h2>The "irreducibly high-dimensional" content splits into a skeleton and a scratch space</h2>
     <div class="dfn"><b>Skeleton:</b> train a small sparse dictionary on the content signal and ~8 stable

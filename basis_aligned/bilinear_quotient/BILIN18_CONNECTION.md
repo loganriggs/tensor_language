@@ -32077,3 +32077,9 @@ Reported plainly: the temperature-response curves of the two siblings differ in 
 **Decoding/generation side-thread CLOSED (§1196-1202):** valid family-general result = the W=128 locality certificate under free-running generation (§1198-99); architecture-flavored phenomenology catalogued (§1201-02); three instrument iterations, every claim gated on its own positive control.
 
 temp_drift_family_results.json; runlogs/temp_drift_family.log (90s).
+
+## §1203 — THE ONE-SENTENCE MODEL, PRICED: grand stack + every attention read masked to 128 tokens = +0.0634 nats (1.9% of loss; read-mask alone 0.0391; sub-additive 7th consecutive composition; sanity exact); preds a-c ALL TRUE (final_certificate.py)
+
+The composed certificate in one condition: bilin18 with (i) all 162 attention patterns computed from weights over ≤128-token windows, (ii) all attention READS masked to 128 tokens (+position 0), (iii) head 5.7's output one constant, and (iv) ten MLPs recomputed from ≤64-token windows — runs at 3.4261 vs 3.3627, a 0.0634-nat (1.9%) price. New number en route: read-masking alone at W=128 costs 0.0391 (between the selection fold 0.014 and the full truncation 0.082, as it must be). The plain sentence the program earned: **bilin18 is, to within 2% of its loss, a 128-token-window machine whose selection is a weight-computable function, whose MLPs are local processors, and whose only long-range act is pooling nearby content — with everything beyond that living in 0.06 nats of residue.**
+
+final_certificate_results.json; runlogs/final_certificate.log (179s). Highlights gained the locality-program card; benchmark page carries the certificate card (previous wake).
