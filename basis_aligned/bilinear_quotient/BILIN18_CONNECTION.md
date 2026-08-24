@@ -32568,3 +32568,9 @@ payload_live_results.json; runlogs/payload_live.log (168s).
 The reduction program's final line: **the copy circuit's four-head front end = a weights-and-embedding-table computation (match scores → verdict axis → successor-code payload with two measured signs) at 0.78 held-out, invariant across repeat periods, with the weights-only form MORE robust than the activation-assisted one.** Every scope statement, correction (§1259→§1260), and control is in the ledger. Program §1204-1261 (~40 experiments) closed at a certified, generalizing, sign-respecting reduction plus the distributed 22% tail honestly beyond it.
 
 payload_live160_results.json; runlogs/payload_live160.log (260s).
+
+## §1262 — THE REDUCTION METHODOLOGY DOES NOT TRANSFER TO THE POOL (clean null): the computed far bag (exp-kernel over far v1 codes, content-projected, injected at L5-9 entries) recovers −0.002 of the 0.176 all-mask prose damage — indistinguishable from its wrong-text and near-window controls; pred_a FALSE, b-c vacuous (far_bag_standin.py)
+
+The contrast IS the finding: **copying reduced to a computation (0.78, §1261); pooling resists the same move.** Consistent with the standing structure — the crowd is synergistic (§1223), its product feeds a construction that must be run (§1127), and prose content is position-bound and rank-structured (§1150), which a global recency kernel cannot reproduce per position. Confound honestly open: formula-wrong vs delivery-wrong (raw U_c projection at block entries may be the wrong arrival form even if the bag content were right). Diagnostic queued (bag_diagnostic): cosine between the computed bag's content coords and the clean model's actual far-content deviation — low cosine closes the door on the formula; high cosine reopens the delivery question.
+
+far_bag_standin_results.json; runlogs/far_bag_standin.log (193s).

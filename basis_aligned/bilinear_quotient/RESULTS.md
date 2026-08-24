@@ -4996,3 +4996,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1259 — full-circuit reduction boundary: fetch payload ≠ static v1(successor) (fit chose 0.0); axis alone = 63% of QUAD damage; selection+verdict computable, delivery must run (full_copy_standin.py)
 §1260 — CORRECTION of 1259 + full reduction: static payload works with measured signs (77.5% ≈ live 78.8%); whole quad = weights-computed at 0.78; sign-flip −111% (payload_live.py)
 §1261 — full reduction GENERALIZES: 78.4% at unseen offset (static BEATS live off-distribution); copy program §1204-61 closed at a certified weights-computed reduction (payload_live160.py)
+§1262 — pool resists reduction (computed bag recovers −0.002; controls level) — copying computable, pooling not (this form); formula-vs-delivery diagnostic queued (far_bag_standin.py)

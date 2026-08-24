@@ -1,0 +1,10 @@
+base 3.2588 | mask 3.4347 | damage 0.1758
+scale 0.1: fit CE 3.4845
+scale 0.25: fit CE 3.4845
+scale 0.5: fit CE 3.4844
+scale 1.0: fit CE 3.4844
+scale 2.0: fit CE 3.4847
+chosen scale 1.0
+CE {'base': 3.2588, 'mask': 3.4347, 'bag_true': 3.435, 'bag_wrong': 3.4355, 'bag_near': 3.4352} | recovery {'bag_true': -0.0017, 'bag_wrong': -0.0045, 'bag_near': -0.0028}
+pred_a computes False | pred_b right True | pred_c far True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/far_bag_standin_results.json (192.7s)
