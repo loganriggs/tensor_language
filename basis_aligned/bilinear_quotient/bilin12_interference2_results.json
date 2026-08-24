@@ -1,0 +1,28 @@
+{
+ "model": "bilin12",
+ "n_rows": 24,
+ "W": 64,
+ "base": 3.4383,
+ "cost": {
+  "core12": 0.2996,
+  "all72": 0.2478,
+  "core12+front": 0.1978,
+  "core12+L0": 0.2616,
+  "core12+L1": 0.29,
+  "core12+L2": 0.2899,
+  "core12+L3": 0.2638
+ },
+ "front_recovery": 0.1018,
+ "layer_recoveries": {
+  "L0": 0.038,
+  "L1": 0.0096,
+  "L2": 0.0097,
+  "L3": 0.0358
+ },
+ "best_layer": "L0",
+ "sanity": true,
+ "pred_a_one_layer": false,
+ "pred_b_station_layer": false,
+ "pred_c_anchors": true,
+ "runtime_s": 68.5
+}

@@ -4961,3 +4961,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1224 — crowd structure family-general (stations top screen; no compact core 40-43%) but SYNERGY is not (swiglu sublinear 0.84× vs bilin 1.56×) — score-function hypothesis registered, bilin12 decides (swiglu_crowd.py)
 §1225 — crowd-scaling hypothesis FALSIFIED (bilin12 sublinear too; bilin18 synergy = solo fingerprint); NEW: bilin12 core-12 mask costs 121% of all-72 — ensemble-scale interference (bilin12_crowd.py)
 §1226 — interference front-located: +front recovers 0.102 (196% of net), +late HURTS 0.041; core+front mask (0.198) beats all-72 (0.248) — conditional-value readers at band scale (bilin12_interference.py)
+§1227 — toxic front = L0 + L3 additively (0.038/0.036), NOT station-hosted; interference thread closed at characterized, mechanism parked (bilin12_interference2.py)
