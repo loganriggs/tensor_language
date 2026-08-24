@@ -31999,3 +31999,11 @@ grand_stack_audit_results.json; runlogs/grand_stack_audit.log (282s).
 Read-mask vs truncation: 0.4796/0.3152/0.1759 vs 0.5926/0.3787/0.2069 — recovery fraction 0.191/0.168/0.150, DECREASING with width. Although 18 layers of 64-token reads could relay information across the full document, the model recovers less than a fifth of truncated value that way. Coheres with the whole account: cross-position spread is a small distance-decaying leak (§1153), pooling is a direct redundant crowd (§1187), and the §1076 bag is gathered in one hop by early-middle attention, not bucket-brigaded. **The range-geography thread closes (§1185-1191):** every carrier named, every grain bounded, the relay myth priced at <20%.
 
 relay_recovery_results.json; runlogs/relay_recovery.log (34s).
+
+## §1192 — swiglu18 RELAYS ESSENTIALLY NOTHING (recovery 1-3% at all widths) — and this exposes a candidate confound in bilin18's 15-19%: sink-authenticity, not relaying; disambiguator queued; preds a-c ALL TRUE (relay_recovery_family.py)
+
+The softmax sibling's read-mask vs truncation gap is 0.003-0.018 nats (recovery 0.028/0.030/0.013) — multi-hop relaying is essentially absent there. The 6× difference from bilin18 (15-19%) is suspicious rather than interesting: read-masking keeps the DOCUMENT's true position 0 visible (the sink reads an authentic pos-0 constant) while input truncation manufactures the constant at each WINDOW's first token. §1089 called the constant content-generic (cross-doc cos 0.998), but generic ≠ identical — bilin18's "relay recovery" may be nothing but sink-authenticity. Stated as an open confound, not a conclusion.
+
+**Disambiguator queued (relay_vs_sink.py, registered):** bilin18 truncation curve re-run with each window PREPENDED with the document's true first token (windows of W+1: [tok0, t−W+1..t]). (a) SINK EXPLAINS IT: truncation+tok0 closes most of the read-mask gap (recovery vs plain truncation ≥ half the 15-19%, leaving true relay ≤ 8%) — then both siblings relay ~nothing and the family law is uniform; (b) alternative: gap persists → bilin18 genuinely relays where softmax doesn't (an architectural fingerprint worth its own thread); (c) prepended-tok0 truncation ≤ plain truncation at every W (sanity: authentic sink can only help).
+
+relay_recovery_family_results.json; runlogs/relay_recovery_family.log (45s).

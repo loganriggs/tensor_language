@@ -1,0 +1,34 @@
+{
+ "model": "swiglu18",
+ "n_rows": 24,
+ "ce": {
+  "base": 3.1496,
+  "W16": 3.782,
+  "W32": 3.5444,
+  "W64": 3.3727
+ },
+ "readmask_cost": {
+  "W16": 0.6324,
+  "W32": 0.3948,
+  "W64": 0.2231
+ },
+ "truncation_refs_1181": {
+  "W16": 0.6504,
+  "W32": 0.407,
+  "W64": 0.226
+ },
+ "relay_recovery_fraction": {
+  "W16": 0.028,
+  "W32": 0.03,
+  "W64": 0.013
+ },
+ "bilin18_recovery": {
+  "W16": 0.191,
+  "W32": 0.168,
+  "W64": 0.15
+ },
+ "pred_a_mask_le_trunc": true,
+ "pred_b_recovery_le_30pct": true,
+ "pred_c_monotone": true,
+ "runtime_s": 44.9
+}
