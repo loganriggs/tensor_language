@@ -4995,3 +4995,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1258 — general stand-in GENERALIZES: 97.4% at unseen period-160 (92.4% at 128); argmax "misses" = other valid copies; benchmark row finalized at 0.92-0.97 (matcher_standin2.py)
 §1259 — full-circuit reduction boundary: fetch payload ≠ static v1(successor) (fit chose 0.0); axis alone = 63% of QUAD damage; selection+verdict computable, delivery must run (full_copy_standin.py)
 §1260 — CORRECTION of 1259 + full reduction: static payload works with measured signs (77.5% ≈ live 78.8%); whole quad = weights-computed at 0.78; sign-flip −111% (payload_live.py)
+§1261 — full reduction GENERALIZES: 78.4% at unseen offset (static BEATS live off-distribution); copy program §1204-61 closed at a certified weights-computed reduction (payload_live160.py)
