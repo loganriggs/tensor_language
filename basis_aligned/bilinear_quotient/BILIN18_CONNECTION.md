@@ -32841,3 +32841,11 @@ pair_profile_results.json; runlogs/pair_profile.log (114s).
 - Queued (pair_algo2.py): the MIRROR arm — repeat a 7-token context window but change the pivot token (context matches, identity does not). If the model can fuzzy-match at all there, 1.8 should lead 1.1: registered. Both arms together = full double dissociation.
 
 pair_algo_results.json; runlogs/pair_algo.log (79s).
+
+## §1298 — MIRROR ARM NULL AT THE GATE, AND THE NULL IS THE FINDING: THE MODEL HAS NO PIVOT-FREE FUZZY INDUCTION — with a verbatim 7-token context repeat but a novel current token, clean base CE at the pivot is 10.35 ≈ chance (~10.8): no fetch happens at all; pred_a FALSE so preds b/c are unread by design (restore denominators ≈ 0 — the §1287 ratio guard, working as intended) (pair_algo2.py)
+
+- Consequence for the annotation story, stated carefully: bilin18's matching is STRICTLY TOKEN-TRIGGERED. The context signature (1.8) is a source-side annotation that suffices on verbatim repeats — where the repeated context contains the repeated token — but it is NOT an alternative matching pathway: without query-side token identity, no amount of matching context drives a fetch. The double dissociation is therefore one-armed: the identity mark generalizes to context-free repeats (110%, §1297); the signature does not stand alone. 1.8's natural-text sufficiency (84%) rides contexts that include the token itself.
+- ANNOTATION-SERVICE ARC FINAL (§1289-98, ten experiments): two writer heads (1.1 local/identity, 1.8 global/signature), either sufficient on natural text, three consumers (matchers, 13.8, 10.5), redundant beyond the pair (sufficient-not-necessary), one-armed dissociation (identity generalizes, signature doesn't), destruction dynamics (corrupt the mark and mlp4's re-encoding poisons it). Every claim behind registered preds; 6 lost bets doing the steering.
+- Queued (query_side.py): the asymmetry §1298 implies — matchers should need the annotation at the SOURCE but derive the query-side criterion from the current token directly (§1238: weights-readable from raw codes). Zero front writes at TARGET positions vs at SOURCE positions vs random: registered bet — target-side costs <= 30% of source-side.
+
+pair_algo2_results.json; runlogs/pair_algo2.log (97s).
