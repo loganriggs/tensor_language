@@ -32927,3 +32927,12 @@ matcher_collisions_results.json; runlogs/matcher_collisions.log (111s).
 - Dossier + FINDINGS updated. Next goal-2 deliverable queued (selectivity_matrix.py): the remove-one-circuit x measure-all-behaviours matrix — diagonal dominance, off-diagonal quiet, control row flat, all registered.
 
 stem_induction_results.json; runlogs/stem_induction.log (153s).
+
+## §1309 — THE SELECTIVITY MATRIX IS STRONGLY DIAGONAL, AND ITS VIOLATIONS ARE THEMSELVES FINDINGS: diagonals 0.13-2.21 nats (comparative 2.21!, question 0.73, delimiter 0.41, successor 0.35, matchers 0.25/0.19, fetchers 0.13/0.15); off-diagonal max 0.19; preds a-c ALL FALSE by the letter, for two nameable reasons (selectivity_matrix.py; 960 rows)
+
+- Violation class 1 — POSITION OVERLAP, not circuit overlap: matchers/fetchers damage successor targets (0.08/0.07), delimiter targets (0.04), question targets (0.06). Cause: the behaviour TARGET SETS share positions — numbered lists carry identity-copy support alongside succession ("3." repeats), closing quotes are themselves copy-supported (the same token appeared at the opener), repeated question forms likewise. The masks were not made disjoint, so the copy circuit legitimately contributes at those shared positions. This is the user's "unless they overlap" clause materializing in the data — but at the POSITION level rather than the component level.
+- Violation class 2 — SMALL-N NOISE: question->than 0.19 and the control row's than 0.073 / qmark 0.080 sit on n=39 and n=187 targets; the control row exceeding 0.05 on exactly the two smallest classes marks the absolute bar as noise-dominated there.
+- What stands regardless: single-head circuits are exquisitely selective — successor, comparative, delimiter, question each hit their own behaviour at 20-300x any foreign one, with negative-to-negligible damage elsewhere. Goal 2 is CLOSE; certification needs the v2 protocol.
+- v2 queued (selectivity_matrix2.py): behaviour masks made MUTUALLY EXCLUSIVE (copy-supported positions subtracted from succ/delim/qmark/than sets), 1920 rows for the thin classes, and the control bar set relative to diagonals (<= 10%) instead of absolute.
+
+selectivity_matrix_results.json; runlogs/selectivity_matrix.log.
