@@ -154,7 +154,8 @@ def main():
            'halves_conc': halves,
            'pred_a_one_head': bool(share >= 0.60),
            'pred_b_halves_gate': bool(all(c >= 3 for c in halves)),
-           'pred_c_inc_specific': bool(per[win]['conc_q'] >= 2 * max(per[win]['conc_b'], 1e-6)),\n           'pred_b_not_fetchers': bool(win not in (3, 4)),
+           'pred_c_inc_specific': bool(per[win]['conc_q'] >= 2 * max(per[win]['conc_b'], 1e-6)),
+           'pred_b_not_fetchers': bool(win not in (3, 4)),
            'runtime_s': round(time.time() - t0, 1)}
     json.dump(out, open(OUT, 'w'), indent=1)
     print(f"winner h{win} share {share:.3f} | halves {halves} | bracket conc {per[win]['conc_b']}")

@@ -1,0 +1,4 @@
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ordinal_heads.py", line 157
+    'pred_c_inc_specific': bool(per[win]['conc_q'] >= 2 * max(per[win]['conc_b'], 1e-6)),\n           'pred_b_not_fetchers': bool(win not in (3, 4)),
+                                                                                          ^
+SyntaxError: unexpected character after line continuation character
