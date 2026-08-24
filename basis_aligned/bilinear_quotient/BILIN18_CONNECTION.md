@@ -32554,3 +32554,11 @@ matcher_standin2_results.json; runlogs/matcher_standin2.log (182s).
 - Benchmark stands at §1258's row (matchers 0.92-0.97); no upgrade claimed for the quad.
 
 full_copy_standin_results.json; runlogs/full_copy_standin.log (141s).
+
+## §1260 — CORRECTION OF §1259, AND THE FULL REDUCTION LANDS: the payload DOES reduce to the successor's static v1 code — §1259's failure was the INJECTION SHAPE (it ignored the §1239 sign structure; 8.3 delivers NEGATIVE successor, so a uniform positive scale was net-harmful). With per-head measured coefficients (+0.190 / −0.119): axis + static payload = 77.5% of the quad damage, axis + live payload = 78.8% (Δ 1.3 points — static ≈ live), flipped signs = −111%; preds a-b TRUE, pred_c FALSE and the falsification retracts §1259's boundary (payload_live.py)
+
+**Correction, stated plainly:** §1259 concluded "payload delivery still requires running attention." Wrong — the discriminating cell shows the static weights-only payload performs within 1.3 points of the live-activation payload once the injection carries the measured sign structure. §1259's grid rejected the payload because both heads were injected positively; the differential pair's negative arm (§1239) made every uniform-positive scale harmful. The boundary claim is RETRACTED; the ledger's §1259 entry stands as the record of the wrong intermediate conclusion.
+
+**The final reduction, for the record:** the copy circuit's entire nameable front end — matchers 2.5/3.8 AND fetchers 8.3/8.4 — is replaced at **0.78 held-out** (of a 2.20-nat stake) by: (1) raw embedding codes through the matchers' own q/k pipelines, max score over far candidates; (2) one 2-parameter affine map onto the verdict axis; (3) the found source's successor token's block-0 value code through the fetchers' c_proj slices, scaled by two measured signed constants. Everything computed from the weight matrices, the embedding table, and four fitted/measured scalars. The sign-flip control (−111% — worse than no restoration by over a nat) is the strongest single demonstration yet that the circuit's sign conventions are semantic content, not gauge.
+
+payload_live_results.json; runlogs/payload_live.log (168s).

@@ -72,11 +72,12 @@ identifiable-but-redundant heads; independent of content, but content is amplifi
   correction, not a dedicated service).
 
 ## Benchmark status
-Front end (matchers 2.5+3.8): **0.92 weights-computed stand-in** (§1257: wte codes → own
-q/k pipelines → 1-D affine map → verdict-axis injection; oracle transplant 95.3%; scope =
-offset-known repeat regime; general-context extension = max-over-window score, registered
-not run). Rest of circuit: mechanistically mapped (MED-HIGH); the fetch/pool remainder is
-distributed-cooperative (§956/§1209's 41% tail).
+Front end (all four heads 2.5+3.8+8.3+8.4): **0.78 weights-computed stand-in** (§1257-60:
+wte codes → matchers' own q/k pipelines → max far score → 2-param map → verdict axis, PLUS
+the found source's successor v1 code → fetchers' c_proj slices × measured signed coeffs
+(+0.190/−0.119). Matchers alone: 0.92-0.97 incl. unseen offsets (§1258). §1259's "payload
+must run attention" RETRACTED in §1260 — the failure was ignoring the sign structure.
+Remaining tail: the distributed 41% beyond the quad (§1209).
 
 ## Gotchas
 - Pattern salience ≠ causal contribution (§649). Prose CE underrates induction — evaluate on
