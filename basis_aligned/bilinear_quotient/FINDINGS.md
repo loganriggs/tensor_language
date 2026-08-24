@@ -191,9 +191,9 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    (f) Per-head/per-component sums ≠ collective cost (5.7× gap §1093) — measure both granularities.
 
 ## Open / focus
-- **A. The content seed's real carriers:** ensemble-level design now running (seed_ensemble:
-  greedy read-mask selection over all 162 heads; the §1204-21 arc validated the instrument).
-  Criterion question (content-sim grows with depth §1085) still open behind it.
+- **A. CLOSED at read grain (§1222):** no compact carrier ensemble exists — best 12-head set
+  = 43% of prose pooling; nameable edge = copy/induction core (2.5/3.8/5.5, 23%); rest is a
+  ~150-head collective. Criterion question (content-sim grows with depth §1085) still open.
 - **B. CLOSED (§1094):** L4 consumes a NON-content context variable (l4_function ran; stale
   entry corrected this pass).
 - **C. Register/OOD axis:** grammar-machine causal transfer to code; more registers.

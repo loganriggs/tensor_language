@@ -4956,3 +4956,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1219 — CODA: matchers match on prose too (self-match share 6× baseline, no positional peak); fetchers at baseline — double duty = same criterion, never off (prose_station_offsets.py)
 §1220 — instruments reconciled: ablation ≈ read-mask on repeat (1.04 vs 1.08; quad 109%); §649 was regime-only; sink disagreement control fired as designed (repeat_ablate_stations.py)
 §1221 — criterion asymmetry complete: swiglu stations self-match at baseline (0.4-1.1x) + FLAT far mass — identity criterion is bilinear-only, always-on; arc §1204-21 fully closed (prose_offsets_family.py)
+§1222 — Open A closed: best 12-head ensemble = 43% of prose pooling (no compact core); named edge = the copy/induction heads (2.5/3.8/5.5 = 23%); tail = ~150 heads collectively (seed_ensemble.py)

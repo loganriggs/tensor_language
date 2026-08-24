@@ -32248,3 +32248,13 @@ repeat_ablate_stations_results.json; runlogs/repeat_ablate_stations.log (60s).
 **Copy-circuit arc fully closed at every registered edge (§1204-1221, nineteen experiments).** Criterion (identity-match, bilinear family only, never off), roles (match front / fetch mid), implementations (score function decides), price (~3.2, three-family constant, text-set), station taxonomy (single heads / pairs / crowds by model), instrument reconciliation (§649 regime-scoped), prose moonlighting (~0.037 both 18L; identity-driven in bilin18, uniform-pool in swiglu18).
 
 prose_offsets_family_results.json; runlogs/prose_offsets_family.log (79s).
+
+## §1222 — OPEN A RESOLVED AS A BOUNDED NEGATIVE + NAMED CORE: the best 12-head read-ensemble carries only 43% of the prose pooling budget (0.0761 of 0.1758); the core IS the identity/induction machinery (greedy picks 1-3 = 2.5, 3.8, 5.5 → 23%); the other ~57% is spread over ~150 heads at ≤0.002 each; preds a & c FALSE at their bars, b TRUE (seed_ensemble.py)
+
+All 162 heads screened singly under the W=64 read-mask on prose, then greedy forward selection from the top 40. Sanity: base = true model to the 4th decimal; all18 = 0.1758 (third §1186 replication).
+
+- **The screening table is itself the finding's first half:** the top prose single-head read values are the COPY stations and induction heads — 2.5 at 0.0174 (3× everything else), then 5.5 (0.0060), 3.8 (0.0058), 6.1, 7.0, 8.3. On ordinary prose, the only heads whose long-range reads are individually worth naming are the ones the copy arc already named. (Built-in consistency control: greedy's first two picks are the §1207 matchers.)
+- **pred_a FALSE (the bounded negative):** the greedy curve decelerates smoothly (+0.0174, +0.0137, +0.0100, … +0.002 by round 12) and reaches 0.0761 = 43% at 12 heads — no compact core carries the majority of prose pooling. Combined with §1187 (per-layer ≤0.009) and §1093 (all-static 5.7× super-additive), the answer to "WHICH poolers gather the seed" is: **no nameable subset — the seed is gathered by the collective, with one thin nameable edge (the identity/induction core, ~23%).** FINDINGS Open A closes at this instrument's boundary.
+- **pred_b TRUE:** the core is mid-heavy (8/12 members in L4-9). **pred_c FALSE informatively:** the chosen core is only 1.54× super-additive (bar 2×) — greedy naturally picks the least-overlapping heads; the deep redundancy lives in the unpicked tail.
+
+seed_ensemble_results.json; runlogs/seed_ensemble.log (153s). Queued closer: crowd_scaling (cost vs random-k-head masks — the tail's redundancy curve, quantified).

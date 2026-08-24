@@ -33,8 +33,11 @@ the registered next rung. Split-half audit: all collective numbers stable (§110
 - Banding vs output-ablation flip on redundant parts (§1008-1009).
 
 ## Open
-- Which ensembles carry the content seed (§1074 says early attention; L5H7 retired §1089) —
-  needs ensemble-level intervention, not per-head (FINDINGS Open A).
+- Which ensembles carry the content seed — CLOSED at read grain (§1222): no compact ensemble;
+  best 12-head greedy set = 43% of the 0.176 prose budget; the only nameable edge is the
+  copy/induction core (2.5/3.8/5.5 = 23%); the rest is ~150 heads at ≤0.002 each. The
+  §1093/§1187 collective picture confirmed at ensemble grain; crowd_scaling (queued) prices
+  the tail's redundancy curve.
 - The depth-growing content-sim bias (§1085): mechanism unknown.
 
 ## Value-range map (§1186-1189, complete at layer grain)
