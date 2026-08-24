@@ -1,0 +1,395 @@
+<title>bilin18 Circuit Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground: #F4F6F4;
+    --surface: #FCFDFC;
+    --ink: #1C2422;
+    --muted: #5D6B65;
+    --line: #D8DFDA;
+    --line-soft: #E6EBE7;
+    --copper: #A6641F;
+    --copper-soft: #C9853E22;
+    --closed: #2C7A52;
+    --closed-bg: #2C7A5218;
+    --flight: #9A6B14;
+    --flight-bg: #9A6B1418;
+    --cand: #5D6B65;
+    --cand-bg: #5D6B6514;
+    --neg-bg: #8a3b3b14;
+    --neg: #8A3B3B;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #101513;
+      --surface: #171D1A;
+      --ink: #DAE3DD;
+      --muted: #8FA098;
+      --line: #2A332E;
+      --line-soft: #222A26;
+      --copper: #D3934C;
+      --copper-soft: #D3934C1E;
+      --closed: #57B98A;
+      --closed-bg: #57B98A1C;
+      --flight: #D3A040;
+      --flight-bg: #D3A0401C;
+      --cand: #8FA098;
+      --cand-bg: #8FA09818;
+      --neg: #C97B7B;
+      --neg-bg: #C97B7B14;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #101513;
+    --surface: #171D1A;
+    --ink: #DAE3DD;
+    --muted: #8FA098;
+    --line: #2A332E;
+    --line-soft: #222A26;
+    --copper: #D3934C;
+    --copper-soft: #D3934C1E;
+    --closed: #57B98A;
+    --closed-bg: #57B98A1C;
+    --flight: #D3A040;
+    --flight-bg: #D3A0401C;
+    --cand: #8FA098;
+    --cand-bg: #8FA09818;
+    --neg: #C97B7B;
+    --neg-bg: #C97B7B14;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 15.5px;
+    line-height: 1.55;
+    margin: 0;
+    padding: 0 20px 80px;
+  }
+  main { max-width: 900px; margin: 0 auto; }
+  .mono, code, td.num, .headid {
+    font-family: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
+  }
+  header { padding: 52px 0 20px; border-bottom: 2px solid var(--ink); }
+  h1 {
+    font-weight: 800; font-size: 40px; letter-spacing: -0.02em;
+    margin: 0 0 6px; text-wrap: balance;
+  }
+  .sub { color: var(--muted); max-width: 62ch; margin: 0; }
+  .statstrip {
+    display: flex; gap: 28px; flex-wrap: wrap;
+    padding: 16px 0 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;
+  }
+  .statstrip b { font-size: 22px; display: block; font-weight: 600; color: var(--copper); }
+  .statstrip span { color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; font-size: 10.5px; }
+  h2 {
+    font-weight: 800; font-size: 21px; letter-spacing: -0.01em;
+    margin: 52px 0 4px; text-wrap: balance;
+  }
+  h2 + p.lede { color: var(--muted); margin: 0 0 18px; max-width: 68ch; }
+  .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
+  th {
+    text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--line);
+    white-space: nowrap;
+  }
+  td { padding: 9px 14px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  td.num { font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 12.5px; }
+  .chip {
+    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
+    font-weight: 600; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 999px;
+    white-space: nowrap;
+  }
+  .chip.closed { color: var(--closed); background: var(--closed-bg); }
+  .chip.flight { color: var(--flight); background: var(--flight-bg); }
+  .chip.cand { color: var(--cand); background: var(--cand-bg); }
+  .chip.neg { color: var(--neg); background: var(--neg-bg); }
+  .headid {
+    font-size: 12.5px; font-weight: 600; color: var(--copper);
+    background: var(--copper-soft); padding: 1px 6px; border-radius: 4px; white-space: nowrap;
+  }
+  .card {
+    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
+    padding: 26px 28px; margin: 22px 0;
+  }
+  .card h3 {
+    margin: 0; font-size: 18px; font-weight: 800; letter-spacing: -0.01em;
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  }
+  .card .caps { color: var(--muted); margin: 6px 0 0; max-width: 68ch; }
+  figure { margin: 22px 0 8px; }
+  figure svg { max-width: 100%; height: auto; display: block; }
+  figcaption { font-size: 12.5px; color: var(--muted); margin-top: 8px; max-width: 70ch; }
+  .facts {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px;
+    overflow: hidden; margin: 16px 0 6px;
+  }
+  .fact { background: var(--surface); padding: 10px 14px; }
+  .fact b { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 600; }
+  .fact span { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
+  .refs { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--muted); margin-top: 12px; }
+  .note { font-size: 13px; color: var(--muted); border-left: 3px solid var(--copper); padding: 2px 0 2px 14px; margin: 18px 0; max-width: 68ch; }
+  footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; }
+</style>
+
+<main>
+<header>
+  <h1>bilin18 Circuit Board</h1>
+  <p class="sub">Every circuit thread in the interpretability program, at its pipeline stage — with the mechanism, the numbers, and the ledger references. Source of truth: <span class="mono">CIRCUIT_REGISTRY.md</span>, updated every time a circuit moves stage.</p>
+  <div class="statstrip">
+    <div><b>4</b><span>closed</span></div>
+    <div><b>2</b><span>weights-read done</span></div>
+    <div><b>1</b><span>screening now</span></div>
+    <div><b>6</b><span>candidates pooled</span></div>
+    <div><b>5</b><span>generators</span></div>
+  </div>
+</header>
+
+<h2>Status board</h2>
+<p class="lede">Pipeline: candidate → screened → owned → weights-read (G3) → extracted (G1) → removal-verified (G2) → closed. As of §1336.</p>
+<div class="tablewrap"><table>
+  <tr><th>Circuit</th><th>Stage</th><th>What it is</th><th>§</th></tr>
+  <tr>
+    <td><span class="headid">8.1</span> Comparative</td>
+    <td><span class="chip closed">CLOSED</span></td>
+    <td>route + 2 zero-bit gates + one head = 0.659 of a 7.0-nat gap; removal 26× surgical</td>
+    <td class="num">1303–33</td>
+  </tr>
+  <tr>
+    <td><span class="headid">10.5</span> Question</td>
+    <td><span class="chip closed">CLOSED</span></td>
+    <td>clause gate on L0–5 + one head = 0.714; annotator is a layer-4 <em>crowd</em>, no owner</td>
+    <td class="num">1284–1336</td>
+  </tr>
+  <tr>
+    <td><span class="headid">5.7</span> Sink</td>
+    <td><span class="chip closed">CLOSED</span></td>
+    <td>0.92-nat head whose entire output is one constant vector</td>
+    <td class="num">1089–91</td>
+  </tr>
+  <tr>
+    <td><span class="headid">0.3</span> Bigram router</td>
+    <td><span class="chip closed">CLOSED</span></td>
+    <td>exact bigram lookup table, replaced at zero cost</td>
+    <td class="num">1091</td>
+  </tr>
+  <tr>
+    <td><span class="headid">1.1</span><span class="headid" style="margin-left:4px">1.8</span> Stem matcher</td>
+    <td><span class="chip flight">G3 DONE</span></td>
+    <td>weights predicted morphological matching; certified on natural text</td>
+    <td class="num">1307–08</td>
+  </tr>
+  <tr>
+    <td><span class="headid">17.2</span><span class="headid" style="margin-left:4px">17.3</span> Exclamation</td>
+    <td><span class="chip flight">G3 DONE</span></td>
+    <td>two perfectly additive half-heads carry 91% of "!" prediction</td>
+    <td class="num">1315–20</td>
+  </tr>
+  <tr>
+    <td>Induction / copy stations</td>
+    <td><span class="chip flight">G1 PARTIAL</span></td>
+    <td>route-grain closure reaches 79%; printable payload failed twice</td>
+    <td class="num">1311–16</td>
+  </tr>
+  <tr>
+    <td><span class="headid">a13</span> Close-bracket</td>
+    <td><span class="chip cand">SCREENING</span></td>
+    <td>largest concentrated effect on record (+0.694 nats); clean screen running now</td>
+    <td class="num">513</td>
+  </tr>
+  <tr>
+    <td>Newline routing</td>
+    <td><span class="chip cand">OWNED</span></td>
+    <td>conditional computation; resists low-rank removal — needs the template</td>
+    <td class="num">635–52</td>
+  </tr>
+  <tr>
+    <td>Comma, colon</td>
+    <td><span class="chip neg">NEGATIVE</span></td>
+    <td>fail the concentration screen — distributed, recorded so nobody rescreens</td>
+    <td class="num">513</td>
+  </tr>
+</table></div>
+
+<h2>The stem matcher — <span class="headid" style="font-size:16px">1.1</span> + <span class="headid" style="font-size:16px">1.8</span></h2>
+<p class="lede">The cleanest weights-first result in the program: the circuit's behavior was read off its weight matrices <em>before</em> being tested, and the prediction held on natural text.</p>
+<div class="card">
+  <h3>Induction that survives inflection <span class="chip flight">G3 DONE</span></h3>
+  <p class="caps">Ordinary induction copies what followed an <em>identical</em> earlier token. Mining this pair's QK weights for non-identical token pairs that still score high returned morphological families — show/shows, make/making, story/stories, discuss/discussed — 192 pairs at ≥ half the identical-match score. The weights said: this is a <b>stem</b> matcher.</p>
+  <figure>
+    <svg role="img" aria-label="A token strip where an earlier 'discuss' followed by 'the' is matched by a later 'discussed'; the matcher pair links the stems and the model predicts 'the'." viewBox="0 0 720 190">
+      <defs>
+        <marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L8,4 L0,8 z" fill="currentColor"/>
+        </marker>
+        <marker id="arrC" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L8,4 L0,8 z" fill="#C9853E"/>
+        </marker>
+      </defs>
+      <g fill="none" stroke="currentColor" stroke-width="1.2">
+        <rect x="20"  y="70" width="90" height="34" rx="4"/>
+        <rect x="120" y="70" width="70" height="34" rx="4" stroke="#C9853E" stroke-width="2"/>
+        <rect x="200" y="70" width="60" height="34" rx="4" stroke-dasharray="4 3"/>
+        <rect x="330" y="70" width="110" height="34" rx="4" stroke="#C9853E" stroke-width="2"/>
+        <rect x="450" y="70" width="60" height="34" rx="4" stroke-dasharray="4 3" opacity="0.45"/>
+      </g>
+      <g font-family="IBM Plex Mono, monospace" font-size="13" fill="currentColor" text-anchor="middle">
+        <text x="65"  y="91">…we will</text>
+        <text x="155" y="91">discuss</text>
+        <text x="230" y="91">the</text>
+        <text x="385" y="91">discussed</text>
+        <text x="480" y="91" opacity="0.55">the?</text>
+      </g>
+      <path d="M 385 68 C 350 20, 200 20, 160 66" fill="none" stroke="#C9853E" stroke-width="1.8" marker-end="url(#arrC)"/>
+      <text x="272" y="30" font-family="Archivo, sans-serif" font-size="12" fill="#C9853E" text-anchor="middle">1.1 + 1.8 match on the stem</text>
+      <path d="M 235 106 C 260 150, 420 150, 462 108" fill="none" stroke="currentColor" stroke-width="1.4" marker-end="url(#arr)" stroke-dasharray="5 4"/>
+      <text x="350" y="163" font-family="Archivo, sans-serif" font-size="12" fill="currentColor" text-anchor="middle">fetch the earlier continuation → predict "the"</text>
+    </svg>
+    <figcaption>An inflected variant of the current token appeared earlier. The matcher pair links them by stem, and the model copies the earlier token's continuation — induction across morphology.</figcaption>
+  </figure>
+  <div class="facts">
+    <div class="fact"><b>1,569</b><span>natural variant positions</span></div>
+    <div class="fact"><b>0.186 nats</b><span>ablation cost at targets</span></div>
+    <div class="fact"><b>78%</b><span>of identical-match damage — inside the registered 30–80% band</span></div>
+    <div class="fact"><b>0.8%</b><span>control pair's effect (flat)</span></div>
+  </div>
+  <p class="caps">The registered weights-read prediction — variant-supported positions should show 30–80% of the identical-supported effect — was made before the natural-text run and landed at 78%. Planted collision pairs get 51% of the identity copy-boost.</p>
+  <div class="refs">§1307 (weights mining, planted pairs) · §1308 (natural-text certification)</div>
+</div>
+
+<h2>The two closed capability circuits — owner vs. crowd</h2>
+<p class="lede">Both were extracted with the same template and closed with itemized descriptions. They landed on opposite ends of the structure taxonomy, which is the finding.</p>
+
+<div class="card">
+  <h3>Comparative → "than" <span class="chip closed">CLOSED</span></h3>
+  <p class="caps">One head owns the capability. Front attention writes a class mark at the comparative token and prepares state where the prediction happens; <span class="headid">8.1</span> alone cashes it — 100.7% of its layer's effect.</p>
+  <figure>
+    <svg role="img" aria-label="Front attention serves two position windows — the comparative token and the query window before 'than' — feeding head 8.1, which predicts 'than'." viewBox="0 0 720 210">
+      <g fill="none" stroke="currentColor" stroke-width="1.2">
+        <rect x="20" y="24" width="240" height="40" rx="4"/>
+        <rect x="105" y="120" width="90" height="36" rx="4" fill="#C9853E22" stroke="#C9853E"/>
+        <rect x="290" y="120" width="180" height="36" rx="4" fill="#C9853E14" stroke="#C9853E" stroke-dasharray="5 3"/>
+        <rect x="540" y="112" width="76" height="52" rx="6" stroke-width="2"/>
+      </g>
+      <g font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">
+        <text x="32" y="48">front attention  L0–2</text>
+        <text x="118" y="142" font-family="IBM Plex Mono, monospace">"bigger"</text>
+        <text x="300" y="142" font-size="11.5">…query window (2–20 later)…</text>
+        <text x="552" y="134" font-family="IBM Plex Mono, monospace" font-weight="600">8.1</text>
+        <text x="552" y="152" font-size="10.5" opacity="0.7">comparative head</text>
+      </g>
+      <path d="M 130 66 L 145 116" stroke="currentColor" stroke-width="1.3" fill="none" marker-end="url(#arr2)"/>
+      <path d="M 230 66 L 350 116" stroke="currentColor" stroke-width="1.3" fill="none" marker-end="url(#arr2)"/>
+      <path d="M 197 138 L 536 132" stroke="#C9853E" stroke-width="1.6" fill="none" marker-end="url(#arrC2)"/>
+      <path d="M 472 141 L 536 141" stroke="#C9853E" stroke-width="1.6" fill="none" marker-end="url(#arrC2)"/>
+      <path d="M 618 138 L 672 138" stroke="currentColor" stroke-width="1.4" fill="none" marker-end="url(#arr2)"/>
+      <text x="680" y="142" font-family="IBM Plex Mono, monospace" font-size="13" fill="currentColor">"than"</text>
+      <g font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity="0.75">
+        <text x="60" y="100">writes mark (27%)</text>
+        <text x="300" y="100">prepares query state (73%)</text>
+      </g>
+      <defs>
+        <marker id="arr2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L8,4 L0,8 z" fill="currentColor"/>
+        </marker>
+        <marker id="arrC2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L8,4 L0,8 z" fill="#C9853E"/>
+        </marker>
+      </defs>
+      <text x="20" y="196" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity="0.75">key-side : query-side service ≈ 1 : 2.7 — measured by gating each window separately (§1331–33)</text>
+    </svg>
+    <figcaption>Both dependency directions were measured: the band without 8.1 is generic only; 8.1 without the band recovers almost nothing (+0.025 over baseline). A specialist that is 100% conditional on its annotator.</figcaption>
+  </figure>
+  <div class="facts">
+    <div class="fact"><b>0.659</b><span>target recovery, final description</span></div>
+    <div class="fact"><b>+0.014</b><span>elsewhere cost above route</span></div>
+    <div class="fact"><b>26×</b><span>removal selectivity (0.361 vs 0.014 nats)</span></div>
+    <div class="fact"><b>~0 bits</b><span>gate cost — both windows are token properties</span></div>
+  </div>
+  <div class="refs">§1303–06 (screen, head, criterion) · §1329 (extraction + surgical removal) · §1331–33 (gates, closure)</div>
+</div>
+
+<div class="card">
+  <h3>Question → "?" <span class="chip closed">CLOSED</span></h3>
+  <p class="caps">Same template, opposite anatomy: no hidden owner exists. Front attention marks the WH-opener; a <em>crowd</em> in layer 4 maintains the open-clause state (top head carries just 32% — the registered diffuse bet won); <span class="headid">10.5</span> cashes it at the terminal.</p>
+  <figure>
+    <svg role="img" aria-label="A WH-opened clause where front attention marks the opener, a crowd of layer-4 heads maintains clause state, and head 10.5 predicts the question mark." viewBox="0 0 720 200">
+      <g fill="none" stroke="currentColor" stroke-width="1.2">
+        <rect x="20" y="120" width="70" height="36" rx="4" fill="#C9853E22" stroke="#C9853E"/>
+        <rect x="100" y="120" width="270" height="36" rx="4" stroke="#C9853E" stroke-dasharray="5 3"/>
+        <rect x="20" y="24" width="150" height="40" rx="4"/>
+        <g stroke-width="1.4">
+          <rect x="215" y="24" width="18" height="18" rx="2" stroke="#C9853E"/>
+          <rect x="239" y="24" width="18" height="18" rx="2" stroke="#C9853E"/>
+          <rect x="263" y="24" width="18" height="18" rx="2" stroke="#C9853E"/>
+          <rect x="287" y="24" width="18" height="18" rx="2" opacity="0.5"/>
+          <rect x="311" y="24" width="18" height="18" rx="2" opacity="0.5"/>
+          <rect x="335" y="24" width="18" height="18" rx="2" opacity="0.5"/>
+          <rect x="227" y="48" width="18" height="18" rx="2" opacity="0.5"/>
+          <rect x="251" y="48" width="18" height="18" rx="2" opacity="0.5"/>
+          <rect x="275" y="48" width="18" height="18" rx="2" opacity="0.5"/>
+        </g>
+        <rect x="540" y="112" width="76" height="52" rx="6" stroke-width="2"/>
+      </g>
+      <g font-family="Archivo, sans-serif" font-size="12.5" fill="currentColor">
+        <text x="32" y="48">a02 opener mark</text>
+        <text x="215" y="86" font-size="11">layer-4 crowd — no head ≥ 32%</text>
+        <text x="30" y="142" font-family="IBM Plex Mono, monospace">What</text>
+        <text x="112" y="142" font-size="11.5">…open clause (state held here)…</text>
+        <text x="548" y="134" font-family="IBM Plex Mono, monospace" font-weight="600">10.5</text>
+        <text x="548" y="152" font-size="10.5" opacity="0.7">question head</text>
+      </g>
+      <path d="M 80 66 L 55 116" stroke="currentColor" stroke-width="1.3" fill="none" marker-end="url(#arr3)"/>
+      <path d="M 275 70 L 255 116" stroke="#C9853E" stroke-width="1.5" fill="none" marker-end="url(#arrC3)"/>
+      <path d="M 372 138 L 536 138" stroke="#C9853E" stroke-width="1.6" fill="none" marker-end="url(#arrC3)"/>
+      <path d="M 618 138 L 672 138" stroke="currentColor" stroke-width="1.4" fill="none" marker-end="url(#arr3)"/>
+      <text x="684" y="143" font-family="IBM Plex Mono, monospace" font-size="14" fill="currentColor">?</text>
+      <defs>
+        <marker id="arr3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L8,4 L0,8 z" fill="currentColor"/>
+        </marker>
+        <marker id="arrC3" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0,0 L8,4 L0,8 z" fill="#C9853E"/>
+        </marker>
+      </defs>
+      <text x="20" y="190" font-family="Archivo, sans-serif" font-size="11" fill="currentColor" opacity="0.75">layer 4 carries 63% of the mid-band service; L3 and L5 partially duplicate it (redundant state carriers, §1336)</text>
+    </svg>
+    <figcaption>The extraction found a genuine non-monotonicity twice: gating the band to question clauses beats leaving it fully live, and widening the live band past L5 makes things worse. The optimal live set is not "more".</figcaption>
+  </figure>
+  <div class="facts">
+    <div class="fact"><b>0.714</b><span>target recovery, final description</span></div>
+    <div class="fact"><b>+0.013</b><span>elsewhere cost above route</span></div>
+    <div class="fact"><b>63%</b><span>of mid service in layer 4</span></div>
+    <div class="fact"><b>32%</b><span>largest single-head share — crowd, not owner</span></div>
+  </div>
+  <div class="refs">§1284, §1313 (head, specificity) · §1334 (inversion) · §1335 (band scan) · §1336 (crowd verdict, closure)</div>
+</div>
+
+<div class="card">
+  <h3>Exclamation → "!" <span class="chip flight">G3 DONE — extraction not yet run</span></h3>
+  <p class="caps">A third structural form: <span class="headid">17.2</span> and <span class="headid">17.3</span> are two <em>perfectly additive half-heads</em> — joint ablation equals the sum of solo ablations within 2.6%, each surgically clean, together carrying 91% of the layer's "!" effect (17.3 at concentration 262). Not an owner, not a crowd: a pair splitting one job. The extraction template hasn't been applied yet; sitting at L17 the route should carry more of it — that run is in the registry's open list.</p>
+  <div class="refs">§1315–17 (screen, certification at 5× data) · §1318 (pair) · §1319–20 (additivity, criterion)</div>
+</div>
+
+<h2>What feeds the pipeline next</h2>
+<p class="lede">The candidate pool, ranked. Each was flagged by the behaviour-first screen with a named leader component; a thread opens with a clean §1302-standard screen (running now for close_bracket).</p>
+<div class="tablewrap"><table>
+  <tr><th>Behavior</th><th>Leader</th><th>Target vs elsewhere damage</th><th>Note</th></tr>
+  <tr><td>close_bracket</td><td><span class="headid">a13</span></td><td class="num">+0.694 / +0.015</td><td>largest concentrated effect on record — screening now</td></tr>
+  <tr><td>capitalized</td><td><span class="headid">a17</span></td><td class="num">+0.054 / +0.002</td><td>n=1693; needs a clean control re-screen</td></tr>
+  <tr><td>open_quote</td><td><span class="headid">a10</span></td><td class="num">+0.272 / +0.020</td><td>control was dirty — re-screen</td></tr>
+  <tr><td>open_bracket</td><td><span class="headid">a17</span></td><td class="num">+0.070 / +0.010</td><td>shares a17 with capitalized</td></tr>
+  <tr><td>digit</td><td><span class="headid">a8</span></td><td class="num">+0.134 / +0.035</td><td>reproduces the a8-counting result independently</td></tr>
+  <tr><td>sentence_end</td><td><span class="headid">a10</span></td><td class="num">+0.065 / +0.020</td><td>overlaps the newline thread — dedup first</td></tr>
+</table></div>
+<p class="note">When the pool runs low, five generators refill it: new behavior taxonomies through the screen (~10 classes per 2-minute run), damage-cluster mining over the 147 certified ownership clusters, selectivity-matrix off-diagonals (shared-subroutine candidates), the 24% of well-predicted tokens no certified slice covers, and the benchmark backlog.</p>
+
+<footer>
+  Model: bilin18 (546M bilinear-attention GPT-2, 18L × 9 heads). All recoveries are fractions of the mean-ablation gap on held-out FineWeb; "route" = the ~free-in-bits λ·v1 baseline every extraction keeps. Ledger: BILIN18_CONNECTION.md §1280–1336 · Status: CIRCUIT_REGISTRY.md · Updated 2026-08-24.
+</footer>
+</main>
