@@ -32470,3 +32470,9 @@ mlp3's match-evidence code, characterized over 2304 positions: delta = mlp3(x) �
 **Wake summary: §1247's correction propagated to the explainer page (block-5 cleanup = general normalization, not a dedicated service). The §1242-48 micro-program (consumption → re-encoder → normalization → code shape) is at a natural pause; the front-end story stands at component grain with honest scope on every claim.**
 
 reencode_subspace_results.json; runlogs/reencode_subspace.log (224s).
+
+## §1249 — A NAMED VARIABLE, CERTIFIED: projecting out the single §1248 axis (blocks 4-8) costs 1.001 nats on repeat text — 1250× the random-direction null (0.0008) — and 0.036 on prose (28:1 selectivity); preds a-c ALL TRUE (reencode_axis.py)
+
+The **match-evidence axis**: one direction in the 1152-dim stream, fit as PC1 of mlp3's re-encoding deltas on 12 fit rows, evaluated on disjoint rows. Removing it alone destroys ~31% of the whole 3.2-nat copy budget while leaving prose essentially untouched (rare and frequent targets alike). This is the program's cleanest single-direction causal result — sharper than any content-skeleton atom (§1128-29: individually unsteerable) and the second NAMED intermediate variable of the circuit story (after the v1 broadcast, §1236): **v1 carries the identities; the match-evidence axis carries the verdict.** The §1242-49 chain in one line: matchers compute the verdict (as −(matched value)), mlp3 transduces it onto this axis, blocks 4-8 carry it, the fetch band consumes it.
+
+reencode_axis_results.json; runlogs/reencode_axis.log (307s).
