@@ -76,12 +76,27 @@ slices are PERFECTLY selective (elsewhere = route +-0.002): [route + comp-positi
 outputs + 8.1] is an honestly capability-specific 50%-extraction at zero elsewhere cost.
 Next: comparative_query_side.py (key vs qry vs both gates; queued).
 
+## Comparative circuit: CLOSED (§1333)
+
+Final description: **[v1-route + a02 live inside two zero-bit token-defined windows
+(comparative positions; positions with a comparative 2-20 back) + head 8.1]** = 0.659
+target recovery — 85% of the whole-band arm's contribution — at elsewhere route+0.014.
+Query-side dominates key-side 2.7:1 (+0.183 vs +0.068, mildly sub-additive at +0.222
+joint). With §1329's removal results this circuit has: annotator windows, carrier head,
+criterion sidedness, removal selectivity (26x), and description cost. First all-preds-TRUE
+run of the thread. The band-arm anchor replicated 3x (0.694-0.697). Unchased tail: 15%
+of band service from positions outside both windows.
+
+**THE TEMPLATE** (for the next specialist): extraction at route grain + capability-window
+gates on a02 + specialist head; arms full/ymean/route/band/key/qry/both; bars = band>=0.60,
+qry-vs-key +-0.05, selectivity +-0.05 of route elsewhere.
+
 ## Open
 
-- Query-side decomposition running (comparative_query_side.py): if key+qry gates recover
-  the band's 0.69, the comparative description is [route + two positional gates + 8.1],
-  all ~zero-bit gates.
-- Exclamation & question circuits: not yet extracted standalone (G1 open). Expect the
-  same conditional-chain shape; their annotators are unnamed beyond "front band".
+- question_gates.py QUEUED: the template on 10.5 (targets = "?" in WH-opened sentences
+  via §1313 QSTATE; key gate = WH openers, query gate = open clause). Assumption
+  registered: annotator band = a02 by §1286-88; a band-arm miss localizes it elsewhere.
+- Exclamation circuit (17.2+17.3): template not yet applied; L17 position means the
+  "band" may be the whole stack below — expect the route to carry much more there.
 - MDL bridge: price each specialist's kept description (patterns + route + head params at
   balanced gauge) against its capability nats — connects to modules/benchmark.md ladder.

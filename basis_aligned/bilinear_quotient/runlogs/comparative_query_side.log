@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 110
+full: target 1.2539 | else 3.1243
+ymean: target 8.2717 | else 7.2170
+route: target 5.2029 | else 5.4904
+circ_band: target 3.3796 | else 4.4373
+circ_key: target 4.7291 | else 5.4807
+circ_qry: target 3.9178 | else 5.4349
+circ_both: target 3.6485 | else 5.4324
+
+rec target: band 0.6971 key 0.5048 qry 0.6204 both 0.6588 route 0.4373
+pred_a both True | pred_b query True | pred_c selective True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/comparative_query_side_results.json (120.8s)

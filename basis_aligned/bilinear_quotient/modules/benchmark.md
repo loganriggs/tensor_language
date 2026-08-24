@@ -71,3 +71,12 @@ grows (mlp1's increment grew 0.092->0.142 as sparse-token mass halved). Standing
 mlp17/16 contextual half real and fast (not doc-state at K=16 grain, §1328); mlp1 = a
 context-indexed per-token MENU (~1.0 nats of within-token choice at 4-bit grain, §1330).
 Instrument draw-spread ~+-0.05 per point — trends, not points, are evidence.
+**FINAL STATE after §1332 (read this, not the §1328/§1330 intermediate reversals):** the
+standing instrument for "does context add anything" is the RESIDUAL construction — fit
+the ctx delta on (out - full-token-table[token]) and score on top of the table; every
+coarse-grain label-vs-null comparison is confounded on token-dominated modules by the
+CONSISTENT-HASH effect (a deterministic label routes rare tokens to the same cell at fit
+and eval; the null scatters them — an advantage that GROWS with data, so §1330's
+growth criterion cannot catch it). Verdicts: mlp1 ~95% token table, un-tableable residue
+0.045 of stake, ctx16 reaches +0.0066 of it ("menu" withdrawn); mlp17 +0.1328 ON TOP of
+its full table (null -0.001, 42% of residual variance) — real, fast context at the top.

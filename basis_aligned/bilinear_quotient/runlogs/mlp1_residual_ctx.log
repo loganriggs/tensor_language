@@ -1,0 +1,7 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [assert_disjoint mlp1_residual_ctx] 0 of 480 priced rows appear in the fitting corpus -> ok
+mlp1: stake 6.826 | tok50k 0.9506 +ctx 0.9572 +null 0.9505 | add_ctx +0.0066 add_null -0.0001 | L2 real/null 0.0259/0.0001
+mlp17: stake 0.369 | tok50k 0.5164 +ctx 0.6492 +null 0.5158 | add_ctx +0.1328 add_null -0.0006 | L2 real/null 0.4185/0.0003
+
+pred_a adds-on-top False (+0.0066) | pred_b beats-null False (+0.0067) | pred_c top-more True (+0.1328)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_residual_ctx_results.json (200.4s)
