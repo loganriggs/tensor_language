@@ -104,6 +104,8 @@ def capture_dev(blocks):
         mlp = m.transformer.h[L].mlp
         def mk(L):
             def h(mo, i_, o_):
+                if not ST.get('capture_on'):
+                    return None                      # do NOT capture inside window_resid forwards
                 caps[L].append((i_[0] if isinstance(i_, tuple) else i_).detach().float().reshape(-1, D))
             return h
         hs.append(mlp.register_forward_hook(mk(L)))
@@ -112,7 +114,9 @@ def capture_dev(blocks):
     for i in range(0, blocks.shape[0], 8):
         idx = blocks[i:i + 8].to(DEV)[:, :-1].contiguous(); toks.append(idx.reshape(-1))
         XH = {L: window_resid(idx, W, L) for L in range(18)}   # per-chunk (memory-safe)
+        ST['capture_on'] = True
         folded_fwd(idx, XH)
+        ST['capture_on'] = False
         del XH
     for h in hs: h.remove()
     return {L: torch.cat(caps[L], 0) for L in REF_LAYERS}, torch.cat(toks, 0)
@@ -122,7 +126,7 @@ def capture_dev(blocks):
 def main():
     t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
     rows = cl.fineweb_rows(2 * NEVAL)[NEVAL:]
-    blocks = rows[:, :SEQ].contiguous(); V = int(m.lm_head.weight.shape[0])
+    blocks = rows[:, :SEQ + 1].contiguous()   # +1 so idx after [:-1] is exactly T=256; V = int(m.lm_head.weight.shape[0])
 
     caps, tok = capture_dev(blocks)   # window residuals computed per-chunk inside (memory-safe)
     devsum = None
