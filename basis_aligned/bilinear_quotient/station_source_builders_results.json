@@ -1,0 +1,38 @@
+{
+ "n_rows": 24,
+ "ce": {
+  "base": 0.3613,
+  "src01": 5.9624,
+  "dst01": 6.2791,
+  "src10": 0.3659,
+  "true_model": 0.3613
+ },
+ "cost_vs_base": {
+  "src01": 5.6011,
+  "dst01": 5.9178,
+  "src10": 0.0046
+ },
+ "o128_share": {
+  "base": {
+   "2.5": 0.3019,
+   "3.8": 0.3252,
+   "8.3": 0.0599,
+   "8.4": 0.059
+  },
+  "src01": {
+   "2.5": 0.1264,
+   "3.8": 0.0935,
+   "8.3": 0.0097,
+   "8.4": 0.0085
+  }
+ },
+ "matcher_drops": {
+  "2.5": 0.581,
+  "3.8": 0.712
+ },
+ "sanity": true,
+ "pred_a_match_collapses": true,
+ "pred_b_source_side": false,
+ "pred_c_placebo_small": true,
+ "runtime_s": 47.7
+}

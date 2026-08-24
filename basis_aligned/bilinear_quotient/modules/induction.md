@@ -65,5 +65,8 @@ distributed-cooperative (like everything here, §956).
 - §877's "L5 = induction + content" is two different heads (H5 induction, H7 constant; §1083).
 
 ## Open
-- Reconcile reader-heads with census name-circuit source-builders (FINDINGS legacy Open E) —
-  low priority.
+- Open E RECONCILED (§1228): the §239 source-builders (attn0/1) are the pipeline's
+  identity-writers — matchers' o=128 reads collapse 58-71% when their source-half writes are
+  zeroed (placebo 1/1000). Full pipeline: attn0/1 write identity → 2.5/3.8 match → 8.3/8.4
+  fetch → mid consumes. On repeat text both ends are symmetric (§239's 18%-site-local
+  asymmetry is a natural-text property). Nothing further pressing.
