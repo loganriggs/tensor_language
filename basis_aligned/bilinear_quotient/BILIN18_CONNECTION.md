@@ -32858,3 +32858,11 @@ pair_algo2_results.json; runlogs/pair_algo2.log (97s).
 - Queued (pair_source_specific.py): the clean isolation — ablate ONLY 1.1/1.8 (position-restricted) at sources vs random vs targets. Matched mass, pair-scoped: whatever excess sources show over random is annotation-specific by construction. Registered: (a) source excess >= 3x random; (b) all pair-scoped effects small (<= 0.1 — redundancy covers); (c) targets ≈ random (no query-side role for the pair).
 
 query_side_results.json; runlogs/query_side.log (98s).
+
+## §1300 — PAIR-SCOPED ISOLATION COMPLETES THE REDUNDANCY PICTURE: with the rest of the front band alive, ablating ONLY 1.1/1.8 at source positions is FREE (0.006; random −0.010) — the band fully covers the pair at sources; the one above-noise class is QUERY positions (0.055, ~9x |random|); pred_a TRUE only by a near-zero denominator (disclosed — the source effect is itself negligible), pred_b TRUE, pred_c FALSE (pair_source_specific.py)
+
+- Final shape of the annotation-service story (§1289-1300, twelve experiments): the pair is SUFFICIENT (§1289/91/95/97 keep-one-alive, certified thrice) and nowhere NECESSARY (this cell + §1296) — bilin18's recurring signature (collective pooling §1093, front-write superadditivity §1287, fetcher pair §1213) reappearing at its sharpest: a function carried redundantly at EVERY grain — across heads within the pair, across the pair vs the band, across layers (L0 backstop).
+- The small query-side excess (0.055) is the pair's only position-specific necessity: at the query, the current token's identity mark feeds the matcher q-side, where coverage is apparently thinner. Absolute scale kept honest: 0.055 nats on a 0.93 base — minor.
+- Thread closed. Standing next options logged, not queued: fitted per-head payload subspaces (the §1294 route to per-head accounting, queued NOW as fitted_payload.py), swiglu-family transfer of the annotation instrument.
+
+pair_source_specific_results.json; runlogs/pair_source_specific.log (121s).

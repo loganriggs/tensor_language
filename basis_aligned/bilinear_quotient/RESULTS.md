@@ -5034,3 +5034,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1297 — DISSOCIATION 77 points: context-free repeats — 1.1 (identity mark) 110% vs 1.8 (context signature) 33%, reversing natural text; adding 1.8 to 1.1 HURTS there; mirror arm queued (pair_algo.py)
 §1298 — mirror arm NULL = finding: NO pivot-free fuzzy induction (base = chance) — matching is strictly token-triggered; signature is not an alternative pathway; annotation arc §1289-98 CLOSED; query-side asymmetry cell queued (pair_algo2.py)
 §1299 — CORRECTION: 4.33-nat source dependence is ~70% GENERIC (random-position floor 3.08; specific excess 1.25); rankings survive, absolute framing corrected; pair-scoped isolation queued (query_side.py)
+§1300 — pair-scoped isolation: sources FREE (band covers), only query-side above noise (0.055) — sufficiency-without-necessity at every grain; annotation thread CLOSED (pair_source_specific.py)
