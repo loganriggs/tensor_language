@@ -33214,3 +33214,19 @@ comparative_query_side_results.json; runlogs/comparative_query_side.log (121s).
 - Queued (question_band_scan.py): find the missing half. Clause-gated liveness + 10.5 + route, for attention bands a02 (anchor) / a05 (L0-5) / a08 (L0-8) / a38 (L3-8, mid without front). Registered: pred_a WIDENING FINDS IT: a08-gated target recovery >= 0.65; pred_b THE MID BAND IS THE MISSING ANNOTATOR: a05 - a02 >= 0.05 (L3-5 attention carries question service the front lacks); pred_c selectivity throughout (else within 0.05 of route).
 
 question_gates_results.json; runlogs/question_gates.log (113s).
+
+## §1335 — THE MISSING QUESTION ANNOTATOR IS L3-5 ATTENTION, AND THE GATING INVERSION REPEATS AT BAND SCALE: clause-gated a05 (L0-5) reaches 0.714 — the best question number, past the bar — while widening to a08 goes BACKWARD (0.677: L6-8's clause-gated liveness hurts), and mid-without-front (a38, 0.570) beats front alone (0.545); preds a, b, c ALL TRUE (question_band_scan.py; n=307)
+
+  arm (clause-gated + 10.5 + route)   target-rec  else-rec   increment over route
+  route                               0.328       0.422      —
+  a02  (L0-2)                         0.545       0.433      +0.217
+  a38  (L3-8)                         0.570       0.427      +0.242
+  a08  (L0-8)                         0.677       0.432      +0.349
+  a05  (L0-5)                         0.714       0.435      +0.386
+
+- ALL THREE PREDICTIONS HELD (second clean sweep of the template thread). (a) a08 0.677 >= 0.65 — widening finds the missing service; (b) a05 - a02 = +0.168 >= 0.05 — the mid band carries question service the front lacks, as registered; (c) every arm's elsewhere within 0.013 of route — the clause gate stays surgical at every width.
+- THE SHAPE OF THE ANSWER: the question annotator is DISTRIBUTED ACROSS L0-5 — front attention writes the opener mark (§1334's key-side +0.09 at the WH position), and L3-5 attention maintains the open-clause state that 10.5's query cashes. Neither half suffices: a02 alone 0.545, a38 alone 0.570, together (within a05) 0.714 — sub-additive against the increment sum (0.217+0.242=0.459 vs 0.386), i.e. partially redundant state carriers, consistent with the §1099/§1093 collective-pooling picture of the mid band rather than a single hidden specialist.
+- THE INVERSION REPEATS, NOW WITHIN THE GATED FAMILY: a08 < a05 by 0.037 — adding L6-8's clause-gated liveness on TOP of L0-5 subtracts. §1334 saw live-everywhere < gated for one band; this run shows the same non-monotonicity in BAND WIDTH at fixed gate. Under a partial extraction there is an optimal live set, and it is not "more": L6-8's outputs inside question clauses are net interference for "?"-prediction once L0-5 is live (their service in the full model is presumably re-derived downstream; under route-grain the downstream can't absorb the shift). Standing design rule confirmed twice: SCAN width, never assume monotone.
+- QUESTION CIRCUIT STATUS after this rung: [route + clause gate on L0-5 attention + 10.5] = 0.714 of a 7.96-nat gap at elsewhere route+0.013. Still short of comparative's 85%-of-band closure because there is no single annotator to name — the next and likely last rung asks WITHIN L3-5 whether the service is head-concentrated or crowd-carried. Registered in the queued run (question_mid_heads.py): pred_a per-layer localization — ONE of L3/L4/L5 carries >= 60% of the a05-over-a02 increment; pred_b DIFFUSE BET (the program's §1093 prior, bet against a §1304-style owner): within the winning layer NO single head carries >= 50% of that layer's increment; pred_c selectivity throughout (else within 0.05 of route).
+
+question_band_scan_results.json; runlogs/question_band_scan.log (112s).

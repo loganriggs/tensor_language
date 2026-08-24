@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 307
+full: target 0.9464 | else 3.1255
+ymean: target 8.9070 | else 7.2159
+route: target 6.2960 | else 5.4897
+a02: target 4.5664 | else 5.4428
+a05: target 3.2246 | else 5.4381
+a08: target 3.5165 | else 5.4440
+a38: target 4.3700 | else 5.4540
+
+rec target: a02 0.5453 a05 0.7138 a08 0.6771 a38 0.5699 route 0.328
+pred_a a08 True | pred_b mid True | pred_c selective True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_band_scan_results.json (112.4s)

@@ -1,0 +1,66 @@
+{
+ "n_targets": 307,
+ "n_rows": 1920,
+ "ce": {
+  "full": {
+   "target": 0.9464,
+   "else": 3.1255
+  },
+  "ymean": {
+   "target": 8.907,
+   "else": 7.2159
+  },
+  "route": {
+   "target": 6.296,
+   "else": 5.4897
+  },
+  "a02": {
+   "target": 4.5664,
+   "else": 5.4428
+  },
+  "a05": {
+   "target": 3.2246,
+   "else": 5.4381
+  },
+  "a08": {
+   "target": 3.5165,
+   "else": 5.444
+  },
+  "a38": {
+   "target": 4.37,
+   "else": 5.454
+  }
+ },
+ "recovery": {
+  "full": {
+   "target": 1.0,
+   "else": 1.0
+  },
+  "route": {
+   "target": 0.328,
+   "else": 0.422
+  },
+  "a02": {
+   "target": 0.5453,
+   "else": 0.4335
+  },
+  "a05": {
+   "target": 0.7138,
+   "else": 0.4346
+  },
+  "a08": {
+   "target": 0.6771,
+   "else": 0.4332
+  },
+  "a38": {
+   "target": 0.5699,
+   "else": 0.4307
+  }
+ },
+ "gap_target": 7.9606,
+ "gap_else": 4.0904,
+ "pred_a_widening_finds_it": true,
+ "pred_b_mid_band_annotator": true,
+ "pred_c_all_selective": true,
+ "runtime_s": 112.4
+}
