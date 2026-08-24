@@ -32139,3 +32139,19 @@ The §1204/§1206 map on the softmax sibling (softmax masking = −inf before so
 **Law vs style, updated: copy-circuit READ CONCENTRATION (few nameable reader stations) and TOTAL PRICE (~3.2 nats at W=64) are family constants; station DEPTH is the architectural fingerprint (bilinear front-loads the fetch, softmax mid-loads it).** swiglu18 station heads queued (repeat_family_heads).
 
 repeat_range_family_results.json; runlogs/repeat_range_family.log (94s).
+
+## §1209 — NECESSARY BUT NOT SUFFICIENT: keeping ONLY the quad's range (other 158 heads masked) still costs 1.5106 of all18's 3.2004 — the copy circuit = four dominant stations + a genuine distributed remainder (~47%); the two complementary masks partition (2.20 + 1.51 = 3.71 ≈ joint); pred_a FALSE, preds b-c TRUE (repeat_quad_sufficient.py)
+
+The converse of §1207. pred_a (quad suffices, ≤0.3× bar) FALSE: with all other heads' reads windowed, the model recovers only 53% of the repeat capability. pred_b TRUE: quad-masked + complement-masked = 3.71, within [0.8, 1.3]× the joint — the split is an approximate partition of the long-range function, so the two numbers can be read as shares: **the quad carries ~59% (2.20/3.71) and the distributed tail ~41% of copying's long-range reading.** pred_c TRUE (quad cost replicates §1207 exactly). Plain statement for the dossier: the copy front end has four NAMEABLE dominant fetchers, but copying is genuinely a population behavior beyond them — both §1207's localization and §649's distributedness are quantitatively true, 59/41.
+
+repeat_quad_sufficient_results.json; runlogs/repeat_quad_sufficient.log (93s).
+
+## §1210 — swiglu18'S STATIONS SHARPEN TO SINGLE HEADS TOO: L5H2 alone 0.936 (91% of its layer), L4H4 alone 0.660 (164% — head-alone > whole-layer, the interference sign, now CROSS-ARCHITECTURE); but its L8 is a within-layer crowd (top head 27%); pred_a FALSE (L8 only), preds b-c TRUE (repeat_family_heads.py)
+
+All 27 heads at swiglu18's stations L4/L5/L8 masked singly.
+
+- Single-head map: **L5H2 0.9356** and **L4H4 0.6595** tower over everything; next are L8H0 0.116 ≈ L8H8 0.114; all other 23 heads ≤ 0.007.
+- **The family picture at head grain: each sibling has TWO dominant one-head distance-fetchers (bilin18: 2.5 + 3.8; swiglu18: 4.4 + 5.2) plus an L8-area secondary station — a redundant PAIR in bilin18 (8.3+8.4, 87% of layer), a wider crowd in swiglu18 (top head only 27%).** pred_a FALSE solely on swiglu-L8; pred_b TRUE (top-4 singles 1.82 ≥ 0.4×3.206); pred_c TRUE (anchors replicate).
+- Third cross-model observation of the interference sign (L4H4 alone 0.66 > whole L4 0.40; cf. bilin18 L2H5, L3H8): masking a station's sibling heads WITH it consistently recovers loss — when the fetcher is blinded, its layer-mates' long-range reads are net harmful. Family-general, unexplained; parked as a named observation.
+
+repeat_family_heads_results.json; runlogs/repeat_family_heads.log (104s). Queued closer: repeat_quad_prose (are bilin18's four stations prose-dormant specialists?).

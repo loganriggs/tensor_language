@@ -4943,3 +4943,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1206 — reader STATIONS found: L3 1.01 > L8 0.62 > L2 0.53 (L0/1/4/9 zero); front = additive chain links, mid1 = crowd anchored by L8; preds a-c ALL FALSE informatively (repeat_range_singles.py)
 §1207 — FOUR HEADS = 69% of copy long-range reading (quad 2.20/3.20); L3's read is ONE head (3.8 alone > whole layer; complement 0.004); §649 scope-corrected to read grain (repeat_heads2.py)
 §1208 — swiglu18 same copy total (3.206 vs 3.200!) + same few-station structure, stations DEEPER (L5/L8/L4) — price+concentration = family law, station depth = fingerprint (repeat_range_family.py)
+§1209 — quad necessary NOT sufficient: complement still costs 1.51/3.20; partition holds — quad ~59%, distributed tail ~41% of copy reading (repeat_quad_sufficient.py)
+§1210 — swiglu18 stations = single heads too (L5H2 91%, L4H4 164% of layer — interference sign cross-arch); its L8 a crowd; two one-head fetchers per sibling = family pattern (repeat_family_heads.py)
