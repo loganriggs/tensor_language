@@ -32226,3 +32226,9 @@ repeat_offsets_family_results.json; runlogs/repeat_offsets_family.log (57s).
 **The copy-circuit mega-arc (§1204-1218, fifteen experiments) is CLOSED.** Full story: one algorithm (match → fetch), two implementations (direct-match = bilinear family; key-composition = softmax), few nameable stations everywhere (single heads / pairs / one crowd), serial across roles, ~59/41 stations-vs-tail, double duty on prose (~0.037 nats both 18L models), and one three-family constant — the whole-model copy read price ~3.2 nats @W64, set by the text, not the machine.
 
 repeat_bilin12_stations_results.json; runlogs/repeat_bilin12_stations.log (60s).
+
+## §1219 — CODA: on prose the matchers STILL MATCH — 2.5/3.8 put ~10% of far mass on self-match keys (6.0× their layer baseline 0.016) with NO positional peak (max offset share 0.008), fetchers exactly at baseline (0.9-1.0×); preds a-c ALL TRUE (prose_station_offsets.py)
+
+The §1211 double-duty explained: the stations' prose contribution is the SAME token-identity criterion running on ordinary text — wherever an earlier copy of the current token exists, 2.5/3.8 read it (the §1215 o=128 peak was repeat structure concentrating an ever-present behavior, not a repeat-only mode). The fetchers 8.3/8.4 show no self-match preference on prose (their key is the predecessor, not the token itself — invisible to this instrument, consistent by omission). Copy-circuit picture complete end to end: criterion (token match), roles (match front / fetch mid), implementations (direct-read = bilinear score; key-composition = softmax), price (~3.2, text-set), prose moonlighting (~0.037 nats, criterion never off).
+
+prose_station_offsets_results.json; runlogs/prose_station_offsets.log (51s).

@@ -4953,3 +4953,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1216 — double duty family-general: swiglu stations 0.036/0.223 prose (16%) ≈ bilin18's 0.038 absolute; partition clean (repeat_family_prose.py)
 §1217 — swiglu has NO source-matcher (all stations o=127 fetchers, 0.54-0.73) — bilin18 matches by direct range reads, swiglu by local key-composition; two implementations, one price; bilin12 = deciding case, queued (repeat_offsets_family.py)
 §1218 — DECIDED: bilin12 has source-matchers despite normalization (L2 pair o=128, L5 pair o=127) — the SCORE FUNCTION picks the implementation; copy arc §1204-18 CLOSED (repeat_bilin12_stations.py)
+§1219 — CODA: matchers match on prose too (self-match share 6× baseline, no positional peak); fetchers at baseline — double duty = same criterion, never off (prose_station_offsets.py)
