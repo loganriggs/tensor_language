@@ -4984,3 +4984,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1247 — janitor is GENERAL: injected random dirs scrubbed hardest (0.029 vs matcher 0.185) — block 5 = off-manifold normalizer, not a matcher-keyed service; §1244 consumption unaffected; framing corrected (janitor_general.py)
 §1248 — re-encoding = one super-stable axis (split-half 0.97) + mid-rank body (57%@16); genuinely new direction (0.25); prose-active at half strength — match-gated (reencode_subspace.py)
 §1249 — NAMED VARIABLE: the match-evidence axis — one direction = 1.00 nat of copying (1250× random null; prose 28:1 spared); v1 carries identities, this axis carries the verdict (reencode_axis.py)
+§1250 — SUFFICIENT: one-axis restore = 95.3% of matcher-mask damage repaired (2.38→0.46); necessary AND sufficient named variable; shuffled-null caveat logged; saga §1237-50 closed (axis_restore.py)
