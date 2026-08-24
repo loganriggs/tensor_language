@@ -4986,3 +4986,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1249 — NAMED VARIABLE: the match-evidence axis — one direction = 1.00 nat of copying (1250× random null; prose 28:1 spared); v1 carries identities, this axis carries the verdict (reencode_axis.py)
 §1250 — SUFFICIENT: one-axis restore = 95.3% of matcher-mask damage repaired (2.38→0.46); necessary AND sufficient named variable; shuffled-null caveat logged; saga §1237-50 closed (axis_restore.py)
 §1251 — FAMILY LAW: swiglu has the verdict axis too (removal 1.18 nats, 71:1 spared, stab 0.97) — implementations diverge, representation CONVERGES; third family-general named variable (swiglu_axis.py)
+§1252 — THREE FOR THREE: bilin12 axis 1.75 nats (54% of budget, 45:1 spared, stab 0.995) — verdict axis = three-family law (1.00/1.18/1.75); named-variable program closed (bilin12_axis.py)

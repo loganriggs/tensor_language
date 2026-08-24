@@ -32490,3 +32490,9 @@ The registered bet was that key-composition keeps the verdict implicit (matching
 **Wake close (§1247-1251):** janitor corrected to general normalization (§1247, propagated to the explainer); the re-encoding characterized (§1248); the axis certified necessary (§1249, 1250× null), sufficient (§1250, 95.3% restore), and family-general (§1251). Explainer at v6→v7 with each step.
 
 swiglu_axis_results.json; runlogs/swiglu_axis.log (240s).
+
+## §1252 — THREE FOR THREE: bilin12's verdict axis removal costs 1.748 nats (54% of its copy budget; random null −0.011; prose 45:1 spared; PC1 split-half 0.995) — the match-verdict axis is a THREE-FAMILY LAW (1.00 / 1.18 / 1.75 nats); preds a-c ALL TRUE (bilin12_axis.py)
+
+Every sibling — direct-match bilinear (18L), key-composition softmax, normalized-bilinear (12L) — re-encodes its match outcome onto ONE stable stream direction near its main station, and that single direction is causally load-bearing for a third to a half of the model's entire copy-regime value. The axis is strongest in the smallest model (1.75 of 3.23 = 54%), consistent with its generally thinner redundancy. **The §1235-1252 program in one sentence: the copy circuit's intermediate state is two named variables — the broadcast token-identity code (v1) and the match-verdict axis — and both are now certified necessary, characterized, and family-general, with the verdict axis also proven sufficient in bilin18 (95% single-direction restoration).**
+
+bilin12_axis_results.json; runlogs/bilin12_axis.log (113s).
