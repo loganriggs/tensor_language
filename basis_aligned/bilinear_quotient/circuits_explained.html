@@ -210,6 +210,35 @@ downstream circuits trust the convention completely. (Flipping a low-value head 
 0.0004.)</p>
 </div>
 
+<h2>Circuit 4, added later — the delimiter closer</h2>
+<div class="circuit">
+<span class="tag">"a quote is open — close it"</span>
+<div class="kv">
+<b>What</b><span>State tracking for paired punctuation. One head predicts closing quotation
+marks <em>and</em> closing brackets/parens — anything with an unmatched opener in context. At
+close positions it fetches from the opener itself: 29.8% of its attention mass sits on
+delimiter-token keys there, versus 2.8% elsewhere (§1272).</span>
+<b>Where</b><span>Head <span class="mono">13.8</span>, deep in the network — and it does
+<em>nothing else</em>: mean-ablating it costs 0.326 nats at quote-close targets and 0.679 at
+bracket-close targets while its damage everywhere else is negative (−0.001). Its eight
+layer-mates sum to zero. Average delete cost 0.011 — invisible to every magnitude-ranked
+screen, found only by the concentration protocol; the behaviour-blind head atlas independently
+ranks punctuation as its top read class (§1270-71).</span>
+<b>Why</b><span>Balanced delimiters are a hard grammatical constraint prose obeys almost
+surely — a dedicated closer converts a long-range state ("something is open") into a
+prediction at exactly the right moment. Its criterion is the instructive part: unlike the copy
+matchers, it is <em>not</em> readable from the embedding table (the weights-only test that
+solved circuit 1 sees nothing here, ratio 0.83) — the head keys on a <b>computed annotation</b>
+written at the opener's position. And the annotator is the same front-attention service
+(attn0–2) that builds the copy matchers' keys: ablate its writes at opener positions only and
+13.8's fetch collapses 54.6% (random-position control 11.8%; §1274). Two retrieval circuits
+with different criterion architectures — embedding-native matching and annotation-based
+fetching — run on one front-attention annotation service.</span>
+</div>
+<p class="ref">Evidence: §1270-74 (five experiments; SOP behaviour-first protocol; both-halves
+certification; one instrument bug disclosed and fixed in-thread).</p>
+</div>
+
 <h2>How the three compose — and one circuit that pointedly doesn't join</h2>
 <p>The composition is a supply chain: <b>block-0 writes a token code → the value-residual
 broadcasts it everywhere → the matchers compare it across distance (circuit 1) → the fetchers
