@@ -32023,3 +32023,9 @@ Family relay table: bilin18 (18L bilinear) +15-19% · swiglu18 (18L softmax) +1-
 **Range-geography mega-thread CLOSED (§1185-1194):** complete layer-grain value-range map; every carrier named or bounded; relay priced (≤19%, one model only, cause parked); three family members compared; two instrument caveats recorded.
 
 relay_bilin12_results.json; runlogs/relay_bilin12.log (61s).
+
+## §1195 — THE LOCALITY BUDGET IS REGIME-DEPENDENT, EXTREMELY: on verbatim-repeat text base CE = 0.258 (induction nearly solves it) and window costs are 3.41/3.24/2.71 @W32/64/128 — 9-33× the natural-text figures; preds a-c ALL TRUE by wide margins (window_repeat.py)
+
+Scope guard for §1180-81, earned by construction: synthetic rows with tokens[128:256] = tokens[0:128] put every repeat source at distance 128 — outside all windows tested. The model reads it at full context almost perfectly (0.258 nats vs ~3.25 natural) and loses everything when windowed (2.7 nats even at W=128). **The 0.08-nat locality budget is a NATURAL-TEXT AVERAGE, not a property of the machinery:** the induction band's long-range reading is worth ~2.7+ nats in the copying regime, ~0.01-0.08 on average prose (consistent with §953-54: induction collective +5.2 on match positions, rare on FineWeb). Any quote of "this model is local" must carry the regime qualifier — added mentally to the report's locality paragraph scope (page text already says "on average text" in the four-token-window sentence; the new locality-budget sentence inherits the same corpus scope, acceptable as published).
+
+window_repeat_results.json; runlogs/window_repeat.log (64s).

@@ -1,0 +1,24 @@
+{
+ "n_rows": 24,
+ "scored_positions": "128..256 stride 2",
+ "ce": {
+  "W32": 3.6711,
+  "W64": 3.4968,
+  "W128": 2.9652,
+  "base": 0.2582
+ },
+ "cost_vs_fullcontext": {
+  "W32": 3.4129,
+  "W64": 3.2386,
+  "W128": 2.707
+ },
+ "natural_refs_1180": {
+  "W32": 0.3787,
+  "W64": 0.2069,
+  "W128": 0.0816
+ },
+ "pred_a_repeat_easy": true,
+ "pred_b_window_kills": true,
+ "pred_c_no_escape_128": true,
+ "runtime_s": 64.0
+}
