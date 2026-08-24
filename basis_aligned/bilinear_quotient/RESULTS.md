@@ -5014,3 +5014,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1277 — "+1" IN THE WEIGHTS 8/8: 8.7's value map ranks d+1 FIRST for every digit (control 1/8, rank 5.1) — increment thread closed same-day: screen → head → weights mechanism (succ_map.py)
 §1278 — 8.7 = GENERAL SUCCESSOR HEAD (weekdays 6/6, months 8/11 in weights; causal conc 55) — control not flat (residual lexicon ordering, disclosed); renamed; thread closed (succ_general.py)
 §1279 — TWIN FOUND: 14.4 also 8/8 in weights (median 1 across 162) — successor = redundant two-head implementation; 8.7 causal owner; thread §1275-79 closed (succ_unique.py)
+§1280 — twin DORMANT: 14.4 no causal role alive or as backup (joint ≈ solo) — succession implemented twice in weights, wired once; successor thread §1275-80 CLOSED (succ_pair.py)

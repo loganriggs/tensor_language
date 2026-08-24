@@ -32692,3 +32692,10 @@ Successor machinery is a REDUNDANT TWO-HEAD implementation: the behaviour-level 
 **Successor thread final (§1275-79): one function (succession over ordered lexicons — digits, weekdays, months), one dominant causal owner (8.7), one weights-twin (14.4), mechanism literally in the weight matrices, rarity certified against all 162 heads.**
 
 succ_unique_results.json; runlogs/succ_unique.log (1.5s).
+
+## §1280 — THE TWIN IS DORMANT: 14.4 solo at INC targets = −0.015 (mildly helpful to ablate), and joint ablation (0.267) ≈ 8.7 alone (0.273) — no coverage appears even with the primary dead; preds a & c TRUE (anchor exact), pred_b FALSE and it closes the thread with a new phenomenon: SUCCESSION IS IMPLEMENTED TWICE IN THE WEIGHTS BUT WIRED INTO BEHAVIOUR ONCE (succ_pair.py)
+
+- 14.4 carries a perfect 8/8 successor map in its value/projection weights (§1279) yet has no measurable causal role at succession targets, alive or as backup — a LATENT DUPLICATE. Unlike every prior redundancy on the books (fetcher pair, mid crowds — where the backup engages when the primary dies), this one never engages. Hypotheses logged, not chased: 14.4 may serve succession in an untested context (multi-token numbers, years), or be genuinely vestigial structure from training.
+- **Successor thread final ledger (§1275-80, six experiments):** the behaviour (ordinal increment), the owner (8.7, conc 113, both-halves), the generality (digits + weekdays + months, weights + causal conc 55), the mechanism ("+1" composed into W_v·W_proj, 8/8 rank-1), the rarity (median 1 across 162 heads), and the twin (14.4, weights-perfect, causally dormant). Every prediction scored; three informative falsifications (deep-carrier bet, control-not-flat, no-coverage) on the record.
+
+succ_pair_results.json; runlogs/succ_pair.log (91s).
