@@ -4940,3 +4940,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1203 — ONE-SENTENCE MODEL: grand stack + 128-token read-mask = +0.0634 nats (1.9%); readmask@128 alone 0.0391; sub-additive 7th; highlights card added (final_certificate.py)
 §1204 — COPY REGIME geography is OPPOSITE prose: front 1.91 / mid1 2.64 EACH catastrophic, band sum 4.70 > joint 3.20 — SERIAL chain not redundant crowd; pred_c FALSE = the finding (repeat_range_bands.py)
 §1205 — the distance-128 read is L2's (0.53; head 2.5 alone 0.62), NOT the L5 gate's (0.12) — gate ≠ long-range reader; named pair = only 26% of the circuit (repeat_range_heads.py)
+§1206 — reader STATIONS found: L3 1.01 > L8 0.62 > L2 0.53 (L0/1/4/9 zero); front = additive chain links, mid1 = crowd anchored by L8; preds a-c ALL FALSE informatively (repeat_range_singles.py)

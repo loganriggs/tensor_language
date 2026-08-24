@@ -32103,3 +32103,17 @@ Same rows/instrument, masks applied per HEAD.
 - **pred_b TRUE:** the two named heads jointly cost 0.83 = 26% of all18's 3.20. The named pair is real but is NOT the circuit — most of the copy regime's long-range carriage lives in the REST of front+mid1 (see §1204's serial bands; §649/§952-53's "not a localizable head-set" survives at read grain too).
 
 repeat_range_heads_results.json; runlogs/repeat_range_heads.log (31s). Follow-up queued: repeat_range_singles (all L0-L9 singly — crowd or chain inside each band).
+
+## §1206 — THE READER STATIONS, FOUND — AND THE DOSSIER'S RANKING INVERTED: L3 is the TOP single distance reader (1.01), then L8 (0.62), then L2 (0.53); L0/L1/L4/L9 are zero; preds a-c ALL FALSE, each informatively (repeat_range_singles.py)
+
+All ten single layers L0-L9 read-masked one at a time on repeat rows (anchors front/mid1 replicate §1204 exactly; sanity exact).
+
+Per-layer cost: L0 0.010 · L1 −0.003 · **L2 0.532 · L3 1.008** · L4 0.014 · L5 0.117 · L6 0.070 · L7 0.061 · **L8 0.619** · L9 −0.001.
+
+- **pred_a (L2 top) FALSE:** L3 is 1.9× L2. The prose-CE head ranking (§954: L2h5 top at +0.123) does not predict the copy regime's read-grain ranking — but §954's identifiable list DID contain L3h8 and L8h3/h4, and those are exactly the layers that surface here. Head-grain test queued (repeat_heads2).
+- **pred_b (front crowd) FALSE:** front singles sum 1.56 vs band 1.91 — mostly ADDITIVE, dominated by L2+L3 (1.54 of the 1.56). The front's carriage is two chain links, not a backup crowd.
+- **pred_c (mid1 crowd with small singles) FALSE as registered** — L8 breaks the ≤0.15 bar at 0.619. The corrected reading: mid1 is a crowd ANCHORED by one station (singles sum 0.87 vs band 2.64 — 3× super-additive remainder — but with L8 an identifiable reader, unlike prose mid1 where no single layer exceeded 0.009, §1187).
+
+**The copy circuit's read-grain backbone: three stations (L3 > L8 > L2) + a mid1 collective remainder + a local gate at L5.** Copying's long-range reads are far more concentrated than prose pooling's (three layers carry 2.2 of the 3.2 total) yet still not two-head-nameable (§1205: pair = 26%).
+
+repeat_range_singles_results.json; runlogs/repeat_range_singles.log (44s).
