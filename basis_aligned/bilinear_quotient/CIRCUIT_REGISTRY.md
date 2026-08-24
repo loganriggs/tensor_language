@@ -24,7 +24,7 @@ conditionality measured).
 
 | Circuit | Stage | Key facts | §refs |
 |---|---|---|---|
-| **Comparative (8.1)** | CLOSED; gap = CONTENT | kit 0.659, ATTENTION-ONLY (MLPs live, unpriced). §1343: entropy-setter REFUTED 3 ways (rank collapse 95->51% top-5; gain-freeze hurts; temp s*=0.95); missing 0.34 = target-specific dynamic content — band scan in flight | §1303-08, §1329-33, §1343 |
+| **Comparative (8.1)** | 4-STAGE, refine loc. in flight | annotate(a02)->fetch(8.1)->REFINE(L10-12, 1.8x target-specific, §1344)->readout; L3-5 service is GENERIC pooling (not kit material); kit+b1012 = 0.776; refine-head drop-cost running (bet: 10.5 moonlights per §1310 off-diagonal) | §1303-08, §1329-44 |
 | **Question (10.5)** | **CLOSED at head grain** | slim kit = [route + clause gate on 16 named heads + 10.5] = 0.641 (§1342); 8 heads beat the 27-head band; L4 crowd = a TRIO (4.0/4.1/4.7 by drop-cost); cross-circuit guests 0.3 + 1.1 in top-8 | §1284-§1342 |
 | Exclamation (17.2+17.3) | G3 done | additive half-head pair, 91% share; criterion stream-computed; template NOT yet applied (L17 → expect route to carry more) | §1315-20 |
 | Stem matcher (1.1+1.8) | G3 done | weights-read certified on natural text (78% variant-support damage, in-band) | §1307-08 |

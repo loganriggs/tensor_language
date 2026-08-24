@@ -1,0 +1,91 @@
+{
+ "n_targets": 110,
+ "n_rows": 1920,
+ "ce": {
+  "full": {
+   "target": 1.2539,
+   "else": 3.1243
+  },
+  "ymean": {
+   "target": 8.2717,
+   "else": 7.217
+  },
+  "route": {
+   "target": 5.2029,
+   "else": 5.4904
+  },
+  "kit": {
+   "target": 3.6485,
+   "else": 5.4324
+  },
+  "kit+b35": {
+   "target": 2.6985,
+   "else": 4.5112
+  },
+  "kit+b69": {
+   "target": 3.2636,
+   "else": 5.0342
+  },
+  "kit+b1012": {
+   "target": 2.8289,
+   "else": 5.1647
+  },
+  "kit+b1417": {
+   "target": 3.6434,
+   "else": 5.3243
+  }
+ },
+ "recovery": {
+  "full": {
+   "target": 1.0,
+   "else": 1.0
+  },
+  "route": {
+   "target": 0.4373,
+   "else": 0.4219
+  },
+  "kit": {
+   "target": 0.6588,
+   "else": 0.436
+  },
+  "kit+b35": {
+   "target": 0.7942,
+   "else": 0.6611
+  },
+  "kit+b69": {
+   "target": 0.7136,
+   "else": 0.5333
+  },
+  "kit+b1012": {
+   "target": 0.7756,
+   "else": 0.5015
+  },
+  "kit+b1417": {
+   "target": 0.6595,
+   "else": 0.4625
+  }
+ },
+ "band_increments": {
+  "b35": {
+   "target": 0.1354,
+   "else": 0.2251
+  },
+  "b69": {
+   "target": 0.0548,
+   "else": 0.0973
+  },
+  "b1012": {
+   "target": 0.1168,
+   "else": 0.0654
+  },
+  "b1417": {
+   "target": 0.0007,
+   "else": 0.0264
+  }
+ },
+ "winner": "b35",
+ "pred_a_band_carries": true,
+ "pred_b_mid_pool": true,
+ "pred_c_target_specific": false,
+ "runtime_s": 126.0
+}

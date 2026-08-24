@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 110
+full: target 1.2539 | else 3.1243
+ymean: target 8.2717 | else 7.217
+route: target 5.2029 | else 5.4904
+kit: target 3.6485 | else 5.4324
+kit+b35: target 2.6985 | else 4.5112
+kit+b69: target 3.2636 | else 5.0342
+kit+b1012: target 2.8289 | else 5.1647
+kit+b1417: target 3.6434 | else 5.3243
+
+increments over kit: b35 t+0.135/e+0.225 b69 t+0.055/e+0.097 b1012 t+0.117/e+0.065 b1417 t+0.001/e+0.026
+winner b35 | pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/comparative_missing_band_results.json (126.0s)
