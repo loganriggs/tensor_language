@@ -5005,3 +5005,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1268 — dirs identified: dir0 = BASELINE (0.905); dir2 = position-flat half-content carrier (ramp hypothesis dies; tilt misses bar by 1.4%); pool arc §1262-68 CLOSED (pool_dir2.py)
 §1269 — dir2 = "the attn6 far-pool direction" (L6 writes 60%); vocab-diffuse, sub-bar universality; pool investigation §1262-69 fully closed (dir2_identity.py)
 §1270 — quote-state screen: attn13 conc 16.3 (controls clean); late-attention carrier, rhymes with certified bclose circuit — head decomposition + dedup queued (quote_screen.py)
+§1271 — NEW NAMED HEAD: 13.8 = the delimiter-closer (quotes 0.326 + brackets 0.679, elsewhere −0.001; atlas punct 2.16 rank-1; bclose record sharpened+merged); mechanism next (quote_heads.py)

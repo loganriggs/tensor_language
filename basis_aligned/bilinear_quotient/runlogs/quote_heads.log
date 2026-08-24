@@ -1,0 +1,15 @@
+quote ids 131 | close-bracket ids 180 | open ids 143
+quote targets 249 | bracket targets 216
+base {'q': 2.04422427803637, 'b': 1.3505498749652394, 'e': 3.123323629789776}
+h0: q 0.0067 (conc 1.07) | b 0.0079 (conc 1.27) | e 0.00622
+h1: q 0.0006 (conc 1.09) | b -0.0003 (conc -0.55) | e 0.00057
+h2: q -0.0068 (conc -6.23) | b -0.0010 (conc -0.88) | e 0.00110
+h3: q -0.0021 (conc -1.1) | b 0.0010 (conc 0.55) | e 0.00190
+h4: q -0.0003 (conc -0.58) | b 0.0007 (conc 1.37) | e 0.00052
+h5: q -0.0056 (conc -2.94) | b 0.0084 (conc 4.39) | e 0.00190
+h6: q -0.0017 (conc -2.46) | b -0.0004 (conc -0.53) | e 0.00068
+h7: q -0.0026 (conc -6.68) | b -0.0006 (conc -1.45) | e 0.00039
+h8: q 0.3256 (conc 3255.78) | b 0.6787 (conc 6786.91) | e -0.00107
+winner h8 share 1.038 | halves [3850.32, 2856.76] | bracket conc 6786.91
+pred_a one-head True | pred_b halves True | pred_c bracket True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/quote_heads_results.json (82.6s)
