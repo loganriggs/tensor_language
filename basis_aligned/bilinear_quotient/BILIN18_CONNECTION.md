@@ -32069,3 +32069,11 @@ Registered story (monotone: colder = more anchored) was wrong in both directions
 **Family twin queued (temp_drift_family.py, registered):** swiglu18 same protocol. (a) inverted-U replicates (T0.8 > both neighbors); (b) greedy rep4 ≥ 0.3 with retention ≤ floor + 0.05; (c) peak height / true ∈ [0.6, 0.8] (the 0.70 constant).
 
 temp_drift_results.json; runlogs/temp_drift.log (111s).
+
+## §1202 — THE INVERTED-U IS NOT FAMILY-GENERAL, AND §1199's "0.70 CONSTANT" IS DOWNGRADED: swiglu18's retention RISES to T0.6 (0.2624 ≈ its true ceiling 0.268) and its greedy loops stay TOPIC-POSITIVE (0.128 despite rep4 0.59) — preds a-b FALSE, c accidentally true (temp_drift_family.py)
+
+Reported plainly: the temperature-response curves of the two siblings differ in SHAPE (bilin18: peak at 0.8, anti-topic collapse under greedy; swiglu18: still improving at 0.6, loops topic-adjacent). §1199's parked observation — base-gen/true = 0.70 in both — was a coincidence of measuring both at T=0.8, not a peak-height law; DOWNGRADED to "matched-temperature ratio, no invariance claim." The architectural fingerprint catalogue gains a proper entry instead: **decoding-induced repetition is topic-adjacent in swiglu18, off-manifold/anti-topic in bilin18** — rhyming with §1137's lesion-induced flavor split (swiglu loops vs bilin fragments), now seen from the decoding side. Fingerprints (styles) vs constants (laws) remains the organizing distinction; this one filed under styles.
+
+**Decoding/generation side-thread CLOSED (§1196-1202):** valid family-general result = the W=128 locality certificate under free-running generation (§1198-99); architecture-flavored phenomenology catalogued (§1201-02); three instrument iterations, every claim gated on its own positive control.
+
+temp_drift_family_results.json; runlogs/temp_drift_family.log (90s).

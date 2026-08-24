@@ -1,0 +1,10 @@
+    true: centered retention 0.2680
+    T1.0: centered retention 0.2159
+    T0.8: centered retention 0.1845
+    T0.6: centered retention 0.2624
+  greedy: centered retention 0.1277
+   floor: centered retention -0.0027
+retention {'true': 0.268, 'T1.0': 0.2159, 'T0.8': 0.1845, 'T0.6': 0.2624, 'greedy': 0.1277, 'floor': -0.0027}
+rep4 {'true': 0.002, 'T1.0': 0.02, 'T0.8': 0.02, 'T0.6': 0.1413, 'greedy': 0.592}
+pred_a U False | pred_b greedy-collapse False | pred_c peak-ratio True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/temp_drift_family_results.json (90.1s)

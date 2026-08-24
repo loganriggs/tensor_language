@@ -4936,3 +4936,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1199 — generation locality family-general + sampling-drift ratio 0.70 in BOTH siblings (7th family constant); temp_drift queued (gen_window_family.py)
 §1200 — CONSOLIDATION: locality mega-arc §1161-99 summarized (selection foldable, MLPs window-bounded, one long-range channel priced, generation-certified; corrections + 10 instrument catches on record)
 §1201 — retention = INVERTED-U in temperature (peak T≈0.8 = the 0.70 constant; greedy BELOW floor, rep4 0.62 — bilin18 loops under cold decoding); preds a-c FALSE, U is the finding; family twin queued (temp_drift.py)
+§1202 — inverted-U NOT family-general (swiglu best at T0.6, loops topic-positive); §1199's 0.70 'constant' DOWNGRADED to matched-T coincidence; fingerprint filed; decoding thread CLOSED §1196-1202 (temp_drift_family.py)
