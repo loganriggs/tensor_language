@@ -32216,3 +32216,13 @@ repeat_family_prose_results.json; runlogs/repeat_family_prose.log (54s).
 - Open question registered to the deciding case: bilin12 is bilinear-squared (like bilin18) but row-NORMALIZED (like softmax). repeat_bilin12_stations queued: if its far-reads peak at 127, normalization decides the implementation; if a 128-matcher appears, bilinearity does.
 
 repeat_offsets_family_results.json; runlogs/repeat_offsets_family.log (57s).
+
+## §1218 — THE DECIDING CASE: bilin12 has SOURCE-MATCHERS despite row normalization — L2 readers H1 (0.55) + H3 (0.28) peak at o=128, L5 readers H1 (0.65) + H5 (0.34) at o=127 — BILINEARITY, not normalization, decides the implementation; preds a & c TRUE, pred_b FALSE and that settles it (repeat_bilin12_stations.py)
+
+- **pred_b FALSE (registered as the normalization hypothesis):** bilin12's far-reads do NOT all peak at 127. Its L2 is a match station (o=128 shares 0.195/0.180 for H1/H3) and its L5 a fetch station (o=127: 0.132/0.132 for H1/H5) — the same match-front/fetch-mid split as bilin18, in miniature. **Mechanism law, final: both bilinear-scored models (normalized or not) implement copying as direct long-range source-matching + successor-fetching split across depth; the softmax model implements the textbook local-key-composition + fetch. The score function decides; the ~3.2-nat price is indifferent.**
+- **pred_a TRUE:** stations are two-head pairs, top head 42%/38% of its layer — sharper than its late crowd (§1214: 32%) but wider than bilin18's single-head stations. Station sharpness ranks bilin18 > bilin12 > (swiglu18 mixed: two sharp + one crowd) at the secondary; model size tracks concentration among the bilinear pair.
+- **pred_c TRUE** (anchors replicate §1212 exactly; sanity exact).
+
+**The copy-circuit mega-arc (§1204-1218, fifteen experiments) is CLOSED.** Full story: one algorithm (match → fetch), two implementations (direct-match = bilinear family; key-composition = softmax), few nameable stations everywhere (single heads / pairs / one crowd), serial across roles, ~59/41 stations-vs-tail, double duty on prose (~0.037 nats both 18L models), and one three-family constant — the whole-model copy read price ~3.2 nats @W64, set by the text, not the machine.
+
+repeat_bilin12_stations_results.json; runlogs/repeat_bilin12_stations.log (60s).

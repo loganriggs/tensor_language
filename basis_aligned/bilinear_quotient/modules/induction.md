@@ -41,8 +41,19 @@ identifiable-but-redundant heads; independent of content, but content is amplifi
   Third member bilin12: SAME price again (3.231; §1212) despite induction 4.3 vs 11.8 —
   the ~3.2-nat copy read price @W64 is text-set, not machine-set; stations L5/L2; its late
   band NOT local (17% — depth compression pushes copy reads into the readout zone). Quad
-  heads are NOT prose-dormant: 22% of the natural 0.176 read budget (§1211). Arc §1204-12
-  closed.
+  heads are NOT prose-dormant: 22% of the natural 0.176 read budget (§1211; swiglu 16%,
+  same ~0.037 absolute §1216).
+- **MECHANISM (§1215-1218, arc capstone):** one algorithm, two implementations. bilin18:
+  front stations 2.5/3.8 are SOURCE-MATCHERS (attend the query's own copy at offset 128;
+  0.30-0.33 of far mass) and mid stations 8.3/8.4 (+redundant 5.5) are SUCCESSOR-FETCHERS
+  (o=127) — matching is itself a long-range read, which is why the front band is
+  catastrophic. swiglu18: NO source-matcher — all four stations pure fetchers (o=127,
+  0.54-0.73); matching via local key-composition (textbook), hence its mild front band.
+  Deciding case bilin12 (bilinear scores + row normalization): HAS matchers (L2 pair H1/H3
+  at o=128; L5 pair H1/H5 at o=127) — **the score function (bilinear vs softmax) decides
+  the implementation; the ~3.2-nat price is indifferent.** Station sharpness: bilin18
+  single heads > bilin12 pairs > crowds (bilin12 late §1214, swiglu L8). L3H1 = auxiliary
+  of the 3.8 matcher, toxic without it (§1213), diffuse offsets. Arc §1204-18 closed.
 
 ## Benchmark status
 Mechanistically mapped (MED-HIGH); no compact stand-in exists because the circuit is

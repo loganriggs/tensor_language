@@ -834,7 +834,15 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   induction is nearly 3× weaker. What verbatim repetition is worth at distance is set by the text and
   the objective, not the machine; each architecture collects nearly all of it with its own two or three
   reader stations, placed at different depths (front layers in bilin18, mid-stack in the softmax
-  sibling, spread into the final layers in the small one).</p>
+  sibling, spread into the final layers in the small one). Reading each station's attention by
+  <em>offset</em> then exposed the mechanism: one algorithm, two implementations. In both
+  bilinear-scored models, front stations attend to the query token's <em>own earlier copy</em>
+  (offset 128 — matching is itself a long-range read) while mid stations fetch the successor
+  (offset 127); the softmax sibling has no matcher at all — every station is a fetcher, with
+  matching done locally in the keys, the textbook induction design. The 12-layer model settled
+  which property decides: it is row-normalized like softmax but bilinear-scored, and it has
+  matchers — the score function picks the implementation, and the ~3.2-nat price doesn't care
+  which one a model uses.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping

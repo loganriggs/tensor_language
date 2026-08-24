@@ -139,6 +139,29 @@
   </div>
 
   <div class="hl">
+    <p class="tag">the copy circuit</p>
+    <h2>How three models copy: one algorithm, two implementations, one price</h2>
+    <p>Repetitive text is the one regime where "the model only looks nearby" breaks — restricting reads to a
+    64-token window costs <b>~3.2 nats</b> there instead of prose's 0.08. Mapping who carries it found the
+    opposite geography from prose: not a redundant crowd but a <b>serial chain with named stations</b>. In
+    bilin18, layer 3's entire long-range read is <i>one head</i> (masking it alone costs more than masking all
+    nine of its layer-mates, whose reads without it are mildly toxic — traced to one auxiliary head). Four
+    nameable heads carry 69% of everything all 162 heads do at distance when copying binds; a genuine
+    distributed tail carries the rest (~59/41 split), and the same four heads moonlight at ~22% of ordinary
+    prose pooling. Reading each station's attention by <i>offset</i> exposed the mechanism: front stations
+    attend the query token's <b>own earlier copy</b> (matching, done as a long-range read) and mid stations
+    fetch the <b>successor</b> — while the softmax sibling has no matcher at all, matching locally in its keys
+    (the textbook design) and only fetching at range. The 12-layer model — bilinear-scored but
+    softmax-style-normalized — settled which property decides: it has matchers, so <b>the score function picks
+    the implementation</b>. And all three models pay the <i>same</i> total (3.200 / 3.206 / 3.231 nats),
+    including the one whose induction is 3× weaker: what copying is worth at distance is set by the text, not
+    the machine.</p>
+    <div class="stats"><span class="stat"><b>4 heads</b>= 69% of copy-regime range</span>
+    <span class="stat"><b>~3.2</b>nats: the price, in all three models</span></div>
+    <p class="ref">§1204–1218 (copy-circuit arc, fifteen experiments)</p>
+  </div>
+
+  <div class="hl">
     <p class="tag">the content machine's api</p>
     <h2>The "irreducibly high-dimensional" content splits into a skeleton and a scratch space</h2>
     <div class="dfn"><b>Skeleton:</b> train a small sparse dictionary on the content signal and ~8 stable

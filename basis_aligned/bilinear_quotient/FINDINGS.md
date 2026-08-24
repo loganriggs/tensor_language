@@ -99,9 +99,14 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    8.3/8.4 = 69% necessary / 59-41 partition vs distributed tail (§1207/09); stations do double
    duty on prose (22% of the 0.176 budget, §1211). THREE-FAMILY LAWS: total copy read price
    ~3.2 nats @W64 in all siblings (3.200/3.206/3.231 — invariant to arch AND induction strength
-   4.3-vs-11.8: text-set, not machine-set §1212); ~2 dominant stations each. Fingerprints:
-   station depth (front / mid / spread-to-late), secondary-station width (pair vs crowd);
-   bilin12's late band NOT local (17%). **HIGH.**
+   4.3-vs-11.8: text-set, not machine-set §1212); ~2 dominant stations each. MECHANISM
+   (§1215-18): one algorithm, two implementations — bilinear-scored models (both) MATCH the
+   source by direct long-range reads at o=128 then FETCH the successor at o=127 mid-stack;
+   the softmax model has NO matcher (all stations o=127 fetchers; local key-composition,
+   textbook) — the SCORE FUNCTION decides, normalization doesn't (bilin12 = the deciding
+   case). Fingerprints: station depth + sharpness (bilin18 single heads > bilin12 pairs >
+   crowds); bilin12's late band NOT local (17%); L3H1 = matcher's auxiliary, toxic without
+   it (§1213). **HIGH.**
 
 4. **ARCHITECTURE MECHANISMS — how the two machines are grounded in bilin18's oddities.**
    (a) VALUE-RESIDUAL (v = ½v + ½v1, block-0 values everywhere): the content-aggregation substrate;
