@@ -1,0 +1,49 @@
+{
+ "n_targets": 1779,
+ "n_rows": 1920,
+ "base": {
+  "target": 1.2133,
+  "jitter": 3.3249,
+  "random": 3.0532,
+  "else": 3.1325
+ },
+ "damage": {
+  "a12": {
+   "target": 0.0389,
+   "jitter": 0.0106,
+   "random": 0.0095,
+   "else": 0.011
+  },
+  "a13": {
+   "target": 0.7113,
+   "jitter": 0.0209,
+   "random": 0.0251,
+   "else": 0.0155
+  },
+  "a14": {
+   "target": 0.0604,
+   "jitter": 0.0261,
+   "random": 0.0349,
+   "else": 0.0235
+  },
+  "a17": {
+   "target": -0.0199,
+   "jitter": 0.0096,
+   "random": 0.0128,
+   "else": 0.0138
+  },
+  "a5": {
+   "target": 0.2322,
+   "jitter": 0.1275,
+   "random": 0.1264,
+   "else": 0.1297
+  }
+ },
+ "a13_concentration": 45.89,
+ "a13_jitter_conc": 1.35,
+ "a13_random_conc": 1.62,
+ "pred_a_concentration": true,
+ "pred_b_controls_clean": false,
+ "pred_c_ownership": true,
+ "runtime_s": 97.1
+}

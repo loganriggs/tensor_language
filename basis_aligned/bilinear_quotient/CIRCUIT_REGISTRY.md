@@ -38,7 +38,7 @@ conditionality measured).
 
 | Behavior | Leader | Target dmg vs elsewhere | n | Note |
 |---|---|---|---|---|
-| **close_bracket** | a13 | +0.694 vs +0.015 (largest concentrated effect in program) | 30 | small-n: rerun at 1920+ rows first |
+| **close_bracket** | a13 | **+0.711 vs +0.016 at n=1779 (§1337)** — conc 45.9, ownership 3x-clear | 1779 | verdict withheld on random control (1.62 vs 1.5); 2x rerun in flight |
 | capitalized | a17 | +0.054 vs +0.002 | 1693 | big n; control ratio dirty (12.5) — needs clean re-screen |
 | open_quote | a10 | +0.272 vs +0.020 | 90 | ctrl 8.9 dirty — re-screen |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |

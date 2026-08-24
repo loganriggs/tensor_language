@@ -33239,3 +33239,19 @@ question_band_scan_results.json; runlogs/question_band_scan.log (112s).
 - QUESTION CIRCUIT — CLOSED at the honest grain: [v1-route + clause gate on L0-5 attention + 10.5], 0.714 of a 7.96-nat gap at elsewhere route+0.013 (§1335), with the internal structure now mapped: a02 opener-mark (+0.217), L4 crowd clause-state (+0.106 localized, redundant with L3/L5), 10.5 the cashing specialist (§1313 question-specific). No finer honest description exists — pushing below L4's crowd would name heads that are individually droppable. Registry updated; the template moves to the next candidate (close_bracket -> a13 per the pool ranking).
 
 question_mid_heads_results.json; runlogs/question_mid_heads.log (309s).
+
+## §1337 — CLOSE-BRACKET SCREEN AT SCALE: THE §513 FLAG REPRODUCES SPECTACULARLY (a13 target damage +0.711 nats at n=1779, concentration 45.9, ownership 3x-clear over every competitor) BUT THE VERDICT IS WITHHELD on the random control (1.62 vs the 1.5 bar, missed by 0.12); preds a & c TRUE, pred_b FAILED as written — 2x-data rerun queued per the §1315->§1317 path (close_bracket_screen.py)
+
+  layer  target-dmg  jitter   random   else     (whole-layer y-mean ablation, 1920 rows)
+  a12    +0.039      +0.011   +0.010   +0.011
+  a13    +0.711      +0.021   +0.025   +0.016   <- conc 45.9; jitter 1.35 OK; random 1.62 MISS
+  a14    +0.060      +0.026   +0.035   +0.024
+  a17    -0.020      +0.010   +0.013   +0.014
+  a5     +0.232      +0.128   +0.126   +0.130   (generalist competitor: high everywhere, flat)
+
+- pred_a TRUE, AND THE §513 NUMBER SURVIVES ITS OWN CAVEATS: the atlas flagged close_bracket->a13 at n=30 with a biased ratio denominator; the clean screen at n=1779 (better target definition: next token contains ')' AND an unmatched '(' within 64 back, bracket-depth tracked) returns +0.711 nats target damage against +0.016 elsewhere — concentration 45.9, the largest clean concentration this program has measured for a whole-layer ablation. The capability is real and a13 owns its layer-grain.
+- pred_c TRUE, CLEANLY: a13's target damage is 12-18x a12/a14, and the a5 competitor arm shows what a GENERALIST looks like under this instrument (+0.23 at targets but +0.13 everywhere — flat, not concentrated). a17, the §513 capitalized/open_bracket leader, is actually slightly NEGATIVE here — no bleed between the pool's a17 candidates and this one.
+- pred_b FAILED AS WRITTEN, 0.12 over the bar, and the verdict is withheld per the standard even though the miss is almost certainly denominator noise: a13's elsewhere damage is only 0.0155 nats, so the "random concentration" 1.62 = 0.0251/0.0155 divides two small numbers; the jitter control (the sharper test — same local text, wrong position) is comfortably clean at 1.35. §1302 and §1315 were both in exactly this position and both certified at more data. close_bracket_screen2 (NR=3840, fresh random seed) is running; if the random ratio lands under 1.5 the screen certifies and the thread proceeds to per-head + template.
+- Worth registering ahead of the head stage: bracket-closing is a DEPTH-tracking capability (the target mask itself needed a running bracket-depth counter). If a13 turns out to have an owner head, its criterion should be depth-sensitive — a natural weights-read (G3) target after localization.
+
+close_bracket_screen_results.json; runlogs/close_bracket_screen.log (97s).
