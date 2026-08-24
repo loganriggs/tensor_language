@@ -126,7 +126,8 @@ def capture_dev(blocks):
 def main():
     t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
     rows = cl.fineweb_rows(2 * NEVAL)[NEVAL:]
-    blocks = rows[:, :SEQ + 1].contiguous()   # +1 so idx after [:-1] is exactly T=256; V = int(m.lm_head.weight.shape[0])
+    V = int(m.lm_head.weight.shape[0])
+    blocks = rows[:, :SEQ + 1].contiguous()   # +1 so idx after [:-1] is exactly T=256
 
     caps, tok = capture_dev(blocks)   # window residuals computed per-chunk inside (memory-safe)
     devsum = None
