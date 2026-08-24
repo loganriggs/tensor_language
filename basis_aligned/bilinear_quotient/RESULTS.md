@@ -4933,3 +4933,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1196 — gen metrics INSTRUMENT-BLIND (W16 positive control failed: normal per-token stats while topic-hopping); topic-retention instrument queued; benchmark page updated (gen_window.py)
 §1197 — retention instrument SATURATED (range 0.011): pooled residual = the constant baseline (own §688 finding, unapplied — disclosed); centering fix gen_window3 queued (gen_window2.py)
 §1198 — VALID on 3rd instrument: W128 generation retains topic = full model (0.274/0.279; W16 ≈ floor; control passes); sampling itself costs 30% anchoring; family twin queued (gen_window3.py)
+§1199 — generation locality family-general + sampling-drift ratio 0.70 in BOTH siblings (7th family constant); temp_drift queued (gen_window_family.py)
+§1200 — CONSOLIDATION: locality mega-arc §1161-99 summarized (selection foldable, MLPs window-bounded, one long-range channel priced, generation-certified; corrections + 10 instrument catches on record)
