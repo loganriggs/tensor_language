@@ -32043,3 +32043,11 @@ gen_window_results.json (texts saved); runlogs/gen_window.log (81s). Benchmark p
 The shuffled-pair floor scored 0.973 against the true-continuation ceiling 0.984 — a dynamic range of 0.011, unusable. Cause is a program fact I derived myself and forgot to apply: after L5 the residual stream is mostly ONE fixed vector (§688-691; the §1089 constant sits at cos 0.99 with the mean residual), so pooled raw residuals of ANY two texts are near-parallel. The W-ordering was even correct inside that sliver (floor < W16 < W64 < W128 ≈ base — pred_c TRUE) but no claim survives a 0.011-range instrument. Fix (gen_window3.py, queued): center every pooled vector by the run's grand pooled mean before the cosine — the §1055 deviation move at pool level; re-registered with the floor bound (≤0.35) as part of the positive control.
 
 gen_window2_results.json; runlogs/gen_window2.log (75s).
+
+## §1198 — CERTIFIED VALIDLY ON THE THIRD INSTRUMENT: windowed generation at W=128 retains topic like the full model (centered retention 0.2743 vs base-gen 0.2789; W16 = 0.0349 ≈ floor −0.0319 — positive control decisive; true text 0.3922); preds a-c ALL TRUE (gen_window3.py)
+
+The three-step instrument saga closes: per-token metrics blind (§1196, W16 control failed) → raw pooled retention saturated by the stream constant (§1197, own finding unapplied, disclosed) → CENTERED pooled retention with full dynamic range (floor −0.03 to ceiling 0.39) and a passing positive control. The valid claims: (1) **the locality certificate survives autoregression** — a W=128 read-masked generator holds the prompt's topic exactly as well as the full model over 128 generated tokens; (2) W=64 halves retention (0.124), W=16 destroys it (≈ floor) — the generation-side counterpart of the teacher-forced curve, now visible; (3) BONUS: sampled text drifts relative to real text even at full context (0.279 vs 0.392) — temperature-0.8 sampling costs ~30% of natural topic anchoring, a baseline fact for any future generation work.
+
+**Family twin queued (gen_window_family.py, registered):** swiglu18, same protocol (centered retention; base/W128/W16 + floor + true). (a) instrument sees (floor ≤ 0.35... floor low AND W16 ≤ base − 0.15); (b) W128 within 0.07 of base; (c) ordering floor < W16 < W128 ≤ true-side ordering as in bilin18.
+
+gen_window3_results.json; runlogs/gen_window3.log (95s).

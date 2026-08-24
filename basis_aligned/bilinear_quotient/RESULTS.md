@@ -4932,3 +4932,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1195 — locality budget REGIME-DEPENDENT: repeat-text base 0.258, window cost 2.7-3.4 nats (9-33× natural); 0.08 = natural-text average, machinery worth 30× in copying regime (window_repeat.py)
 §1196 — gen metrics INSTRUMENT-BLIND (W16 positive control failed: normal per-token stats while topic-hopping); topic-retention instrument queued; benchmark page updated (gen_window.py)
 §1197 — retention instrument SATURATED (range 0.011): pooled residual = the constant baseline (own §688 finding, unapplied — disclosed); centering fix gen_window3 queued (gen_window2.py)
+§1198 — VALID on 3rd instrument: W128 generation retains topic = full model (0.274/0.279; W16 ≈ floor; control passes); sampling itself costs 30% anchoring; family twin queued (gen_window3.py)

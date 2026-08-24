@@ -1,0 +1,9 @@
+    true: centered retention 0.3922
+base_gen: centered retention 0.2789
+    W128: centered retention 0.2743
+     W64: centered retention 0.1240
+     W16: centered retention 0.0349
+   floor: centered retention -0.0319
+retention {'true': 0.3922, 'base_gen': 0.2789, 'W128': 0.2743, 'W64': 0.124, 'W16': 0.0349, 'floor': -0.0319}
+pred_a sees True | pred_b W128 clean True | pred_c ordered True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gen_window3_results.json (95.1s)
