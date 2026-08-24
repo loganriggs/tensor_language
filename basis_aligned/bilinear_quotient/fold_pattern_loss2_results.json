@@ -1,0 +1,23 @@
+{
+ "n_rows": 16,
+ "W": 128,
+ "ce": {
+  "base": 3.3627,
+  "fold_all": 3.3768,
+  "fold_front": 3.3637,
+  "fold_deep": 3.3768,
+  "fold_shuffled": 4.8761,
+  "true_model": 3.3627
+ },
+ "cost_vs_base": {
+  "fold_all": 0.0141,
+  "fold_front": 0.001,
+  "fold_deep": 0.0141,
+  "fold_shuffled": 1.5134
+ },
+ "sanity_base_matches_true": true,
+ "pred_a_causally_foldable": true,
+ "pred_b_null_catastrophic": true,
+ "pred_c_additive": true,
+ "runtime_s": 236.8
+}
