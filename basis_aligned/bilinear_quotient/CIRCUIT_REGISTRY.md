@@ -38,7 +38,7 @@ conditionality measured).
 
 | Behavior | Leader | Target dmg vs elsewhere | n | Note |
 |---|---|---|---|---|
-| **close_bracket** | a13 | **CERTIFIED §1338**: +0.706, conc 46.8, controls 1.18/0.99 clean, ownership 12x | ~3500 | head stage in flight (OWNER bet registered) |
+| **close_bracket** | **13.8** | **NEW NAMED HEAD §1340**: 96.5% of layer solo, both directions agree, ~570x surgical | 1779 | subtype decomposition in flight (user conjecture: compound closes )),).,)" need helpers) |
 | capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | NO layer-owner (1.1x) — first late-band shared capability; PARKED behind close-bracket; extraction starts from a band gate |
 | open_quote | a10 | +0.272 vs +0.020 | 90 | ctrl 8.9 dirty — re-screen |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |

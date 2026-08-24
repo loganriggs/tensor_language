@@ -33278,3 +33278,17 @@ close_bracket_screen2_results.json; runlogs/close_bracket_screen2.log (172s).
 - Thread disposition: capitalized moves to OWNED-AS-BAND (a15-a17); its extraction rung, when it comes, starts from a late-band gate rather than a single layer, and the §1333 template's "specialist head" slot may be empty — parked in the registry behind the close-bracket thread rather than opened now (one thread at a time through the head stage).
 
 capitalized_screen_results.json; runlogs/capitalized_screen.log (99s).
+
+## §1340 — NEW NAMED HEAD: 13.8 = THE CLOSE-BRACKET HEAD — it alone carries 96.5% of the layer's bracket damage (solo +0.687 of +0.711; the other EIGHT heads jointly +0.008), knockout and keep-only AGREE, and it is surgical to ~570x (elsewhere +0.0012); preds a, b, c ALL TRUE (close_bracket_heads.py; n=1779)
+
+  head    solo-dmg   else      all-but-h
+  13.8    +0.6865    +0.0012   +0.0082    <- the owner, both directions
+  13.5    +0.0070    +0.0020   +0.6872
+  13.0    +0.0037    +0.0064   +0.7040
+  (all others <= |0.001| solo; layer total +0.7113, §1338 anchor reproduced)
+
+- THE STRONGEST OWNERSHIP MEASUREMENT IN THE PROGRAM: 96.5% single-head share with the redundancy check passed in both directions (§3.1 trap: knock-out AND knock-all-but-one rank 13.8 first), and elsewhere damage of one thousandth of the target damage. Even 8.1's comparative ownership (100.7% of layer share, §1304) did not come with an all-but-one arm this clean (+0.0082 = the other eight heads are jointly irrelevant at these targets). The registry's candidate pipeline has now produced its first fully-new named head: 13.8, the close-bracket head.
+- pred_a's owner bet WON against the question precedent — the circuit-form scoreboard now reads: owner (8.1, 13.8), crowd (question L4, induction), pair (17.2/17.3, matchers 1.1/1.8). Sharp single-owner capabilities so far are all mid-stack (L8-13) punctuation/structure closers; crowds carry state, owners cash it.
+- USER REFINEMENT RECEIVED (mid-run): the target class is HETEROGENEOUS — ")" vs "))" vs ")," vs ")." vs ")\"" are different jobs (a double close means depth >= 2; a ")," must also place the comma), and the user conjectures OTHER heads assist on the compound forms. Queued (close_bracket_subtypes.py) with the conjecture registered as pred_b in the user's name: per-subtype decomposition of the damage — 13.8 solo vs full a13 vs a13-minus-13.8 vs neighbor layers, per target-token form. Registered: pred_a 13.8's share >= 0.90 on PLAIN ")" targets; pred_b (USER CONJECTURE) at least one compound subtype has a 13.8-share lower than plain's by >= 0.15 — helpers carry the compound part; pred_c the DOUBLE close "))" is the most helper-dependent subtype (lowest 13.8 share — two-level depth needs the most extra machinery).
+
+close_bracket_heads_results.json; runlogs/close_bracket_heads.log (271s).
