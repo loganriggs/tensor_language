@@ -4918,3 +4918,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1181 — locality budget FAMILY CONSTANT: swiglu18 whole-model @128 = 0.0812 vs bilin18 0.0816 (3rd decimal); selection 0.015 + values 0.066 both siblings; curve tail queued (full_window_family.py)
 §1182 — tail smooth to zero (0.077/0.045/0.000 @160/192/224), no plateau; model uses all trained context, weight halving per ~32-64 tokens; deep MLP n-gram map queued (window_tail.py)
 §1183 — every MLP a ≤64-token window function (deep 0.002-0.006, decreasing with depth); long-range = attention accumulation ONLY; grand stack queued (deep_mlp_ngram.py)
+§1184 — GRAND STACK: 12 reductions jointly = 0.0385 nats (1.1%; 2.6× sub-additive; sanity exact); wake arc §1174-84 complete (grand_stack.py)

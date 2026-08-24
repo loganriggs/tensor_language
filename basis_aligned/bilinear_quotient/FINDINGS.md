@@ -86,7 +86,14 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    model with ALL 162 patterns replaced by window-folded reconstructions → +0.0141 nats (front-5
    +0.001; wrong-text null +1.513). Pattern-locality is log-local (~+0.06 hit/doubling of W; loss
    4-local but written code ~64-128-local — two-scale front law §1162). Long-range behavior lives
-   in VALUES/content, never selection. **HIGH.**
+   in VALUES/content, never selection — PRICED (§1180-81, family-constant to 3rd decimal): whole
+   model on 128-token windows costs 0.082 nats (selection 0.014 + values ~0.07); smooth decay, no
+   plateau, zero at trained context (§1182). EVERY MLP is a ≤64-token window function (§1183:
+   deep entries 0.002-0.006, decreasing with depth — MLPs process, attention accumulates).
+   GRAND STACK (§1184): 12 reductions jointly (162 folded patterns + sink constant + 9 n-gram
+   MLPs) = 0.0385 nats, sub-additive at all six composition steps. Front n-gram width is
+   REGISTER-DEPENDENT (§1175-76 correction to writeup 480: k=2 prose / k=8-16 structured; full
+   fold exact on all registers). **HIGH.**
 
 4. **ARCHITECTURE MECHANISMS — how the two machines are grounded in bilin18's oddities.**
    (a) VALUE-RESIDUAL (v = ½v + ½v1, block-0 values everywhere): the content-aggregation substrate;

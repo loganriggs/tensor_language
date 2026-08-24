@@ -31937,3 +31937,11 @@ With live attention around them, every MLP tested (0-5, 7, 9, 12, 15) recomputes
 **Grand stack queued (grand_stack.py, registered):** everything certified so far, jointly — folded patterns (162) + sink constant + m0@8 + m1@16 + m2@32 + m3/m4@64 + m5/m7/m9/m12/m15@64. (a) grand total ≤ 0.06 nats; (b) sub-additive (6th time) vs parts' sum ~0.075; (c) sanity exact.
 
 deep_mlp_ngram_results.json; runlogs/deep_mlp_ngram.log (157s).
+
+## §1184 — GRAND STACK: twelve certified reductions jointly = 0.0385 nats (1.1% of loss; parts' sum 0.0994, 2.6× sub-additive; sanity exact) — all selection + the top head + nine MLPs run on bounded windows simultaneously; preds a-b TRUE (grand_stack.py)
+
+The window-certificate program's closing number: bilin18 runs with every attention pattern computed from ≤128-token windows, head 5.7 replaced by one constant, and MLPs 0,1,2,3,4,5,7,9,12,15 each recomputed from ≤64-token windows — ALL AT ONCE — for +0.0385 nats. Sub-additivity held at every single composition step of the arc (six of six). What remains outside the certificate: the un-replaced MLPs (6,8,10,11,13,14,16,17 — expected equally cheap by §1183's flat map), attention's VALUE pooling (the one genuinely long-range channel, ~0.07 nats at horizon 128, §1180-81), and the readout.
+
+**WAKE ARC SUMMARY (§1174-1184):** arcs compose (transport intact under folded selection §1174); published-claim correction (front bigram → register-scoped n-gram, §1175-76); window-certificate stack grown 2→12 entries (0.023 → 0.030 → 0.0385 with more than 4× the coverage); no content wall at L4 (§1179 reframing: locality ≠ tabulability); whole-model locality budget priced and family-constant (§1180-81); smooth tail (§1182); MLPs-process/attention-accumulates law (§1183). Two published pages updated twice; one report correction; every failed bar reported.
+
+grand_stack_results.json; runlogs/grand_stack.log (162s).
