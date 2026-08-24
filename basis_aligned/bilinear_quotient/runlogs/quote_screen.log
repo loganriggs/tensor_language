@@ -1,0 +1,42 @@
+quote token ids: [1, 366, 526, 553, 1701, 2474]
+target positions: 84
+base {'tar': 2.180306470819882, 'jit': 3.739326018791694, 'rand': 3.0515694693913535, 'els': 3.2821293514097514}
+attn0: conc 1.15 (jit 0.93, rand 1.07) dmg_tar 0.3322
+attn1: conc 0.34 (jit 0.76, rand 1.09) dmg_tar 0.0638
+attn2: conc 0.74 (jit 1.13, rand 1.09) dmg_tar 0.1171
+attn3: conc 1.11 (jit 1.10, rand 0.65) dmg_tar 0.1471
+attn4: conc 1.61 (jit 1.18, rand 0.86) dmg_tar 0.4265
+attn5: conc 0.67 (jit 1.48, rand 0.58) dmg_tar 0.0839
+attn6: conc 1.69 (jit 1.26, rand 0.84) dmg_tar 0.0826
+attn7: conc 0.62 (jit 1.71, rand 0.10) dmg_tar 0.0357
+attn8: conc 1.35 (jit 2.24, rand 0.86) dmg_tar 0.0473
+attn9: conc 1.53 (jit 0.73, rand 0.23) dmg_tar 0.0778
+attn10: conc 12.83 (jit 1.81, rand 0.54) dmg_tar 0.2437
+attn11: conc 1.84 (jit 1.11, rand -0.60) dmg_tar 0.0671
+attn12: conc 2.92 (jit 0.32, rand 0.35) dmg_tar 0.0356
+attn13: conc 16.27 (jit 1.05, rand 0.01) dmg_tar 0.2561
+attn14: conc 1.70 (jit 1.49, rand 1.87) dmg_tar 0.0416
+attn15: conc 7.52 (jit 2.05, rand -1.16) dmg_tar 0.0539
+attn16: conc 3.32 (jit 0.94, rand 1.06) dmg_tar 0.0446
+attn17: conc 8.49 (jit 3.23, rand 0.89) dmg_tar 0.1151
+mlp0: conc 0.86 (jit 1.23, rand 1.11) dmg_tar 0.7650
+mlp1: conc 1.21 (jit 1.06, rand 0.85) dmg_tar 9.6662
+mlp2: conc 0.73 (jit 0.97, rand 1.03) dmg_tar 0.6026
+mlp3: conc 1.03 (jit 0.92, rand 1.03) dmg_tar 0.6370
+mlp4: conc -0.32 (jit 0.66, rand 0.46) dmg_tar -0.0334
+mlp5: conc -0.65 (jit 1.69, rand 0.94) dmg_tar -0.0537
+mlp6: conc 0.31 (jit 1.08, rand 1.15) dmg_tar 0.0230
+mlp7: conc -0.89 (jit 2.09, rand 0.73) dmg_tar -0.0482
+mlp8: conc -1.25 (jit 0.56, rand 0.40) dmg_tar -0.0593
+mlp9: conc -1.61 (jit 1.70, rand 0.27) dmg_tar -0.0799
+mlp10: conc -1.06 (jit 1.46, rand 0.38) dmg_tar -0.0400
+mlp11: conc -1.53 (jit 0.84, rand 0.38) dmg_tar -0.0608
+mlp12: conc -2.34 (jit 1.77, rand 0.88) dmg_tar -0.0913
+mlp13: conc -2.79 (jit 0.76, rand 0.73) dmg_tar -0.0981
+mlp14: conc -4.33 (jit 0.37, rand 2.16) dmg_tar -0.1236
+mlp15: conc -2.84 (jit 0.76, rand 1.09) dmg_tar -0.1012
+mlp16: conc -0.60 (jit 1.17, rand 0.80) dmg_tar -0.0804
+mlp17: conc -0.82 (jit 1.25, rand 0.71) dmg_tar -0.3237
+top5 [('attn13', 16.27, 1.05, 0.01, 0.2561), ('attn10', 12.83, 1.81, 0.54, 0.2437), ('attn17', 8.49, 3.23, 0.89, 0.1151), ('attn15', 7.52, 2.05, -1.16, 0.0539), ('attn16', 3.32, 0.94, 1.06, 0.0446)]
+pred_a carrier True | pred_b attnL2-8 False | pred_c rand True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/quote_screen_results.json (103.0s)
