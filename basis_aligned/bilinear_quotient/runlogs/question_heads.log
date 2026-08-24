@@ -1,1 +1,14 @@
 targets 84
+base_t 1.0875 | whole-layer dmg_t 0.6149
+10.0: dmg_t -0.0036 share -0.006 conc -6.1 (jit -1.5)
+10.1: dmg_t 0.0050 share 0.008 conc 3.6 (jit 0.4)
+10.2: dmg_t 0.0100 share 0.016 conc 3.1 (jit 1.1)
+10.3: dmg_t -0.0025 share -0.004 conc -1.6 (jit 9.6)
+10.4: dmg_t 0.0118 share 0.019 conc 5.0 (jit -0.5)
+10.5: dmg_t 0.6535 share 1.063 conc 137.2 (jit 0.9)
+10.6: dmg_t -0.0031 share -0.005 conc -5.0 (jit 3.7)
+10.7: dmg_t -0.0010 share -0.002 conc -2.7 (jit -1.1)
+10.8: dmg_t -0.0044 share -0.007 conc -4.4 (jit -0.4)
+winner 10.5 share 1.063 conc 137.2
+pred_a one-owner True | pred_b concentrated True | pred_c rest-quiet True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_heads_results.json (124.5s)

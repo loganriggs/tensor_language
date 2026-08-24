@@ -5018,3 +5018,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1281 — twin dormant on years too (conc −3.9; weights 0.934!); 8.7 causal across FOUR lexicons (113/55/21); vestigial reading now standing (year_succ.py)
 §1282 — question-state carrier FOUND: attn10 conc 32.6 (0.70 nats at "?"-in-WH-sentence targets, controls clean); syntactic cousin of delimiter-closer; per-head next (question_screen.py)
 §1283 — dormant twin SURVIVES 10x data (user challenge): 1036 targets/4 lexicons — 14.4 solo −0.004 vs 8.7's 0.231, backup interaction 3%, no niche alive; vestigial certified (succ_twin_scale.py)
+§1284 — NEW NAMED HEAD: 10.5 = the question head (106% share of layer, conc 137, rest <=2%); third dominant-owner; mechanism cell queued (question_heads.py)

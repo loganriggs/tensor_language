@@ -32722,3 +32722,11 @@ question_screen_results.json; runlogs/question_screen.log (198s).
 - Standing conclusion now at its strongest form: succession is implemented twice in the weights (8/8 rank-1 both heads, §1279) and wired into behaviour exactly once. 14.4 is the program's certified example of VESTIGIAL WEIGHT STRUCTURE — trained-in computation with no causal consumer. Remaining unexplored refuges (multi-token arithmetic with carry, non-English ordinals) logged as unlikely, not queued.
 
 succ_twin_scale_results.json; runlogs/succ_twin_scale.log (148s).
+
+## §1284 — THE QUESTION-STATE CONSUMER IS A SINGLE HEAD: 10.5 alone carries 106% of layer-10's damage at "?"-prediction targets (dmg 0.654 of the layer's 0.615; conc 137, jitter 0.9), every other head <= 2% share; preds a-c ALL TRUE (question_heads.py; 480 rows, n=84 targets)
+
+- The §1276/§1272 dominant-owner pattern repeats a third time: one head per behaviour, invisible to magnitude screens (atlas delete cost for 10.5: 0.023 — same order as 13.8's and 8.7's). Share slightly >1 means the other eight heads mildly mask 10.5's contribution when the whole layer is ablated together.
+- Atlas cross-check: motif self/prev-dominant, mild capitalized-key enrichment (1.17) — consistent with reading capitalized WH sentence-openers, nothing contradicts.
+- NEW NAMED HEAD (third of the behaviour-first program): **10.5 = the question head** — consumes the carried "this sentence is a question" state to predict the closing "?". Mechanism cell queued (question_mechanism.py): does it fetch the WH opener's position like 13.8 fetches the delimiter opener, and is its criterion stream-computed (the 13.8 sibling bet, registered)?
+
+question_heads_results.json; runlogs/question_heads.log (125s).
