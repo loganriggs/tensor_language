@@ -62,6 +62,14 @@ identifiable-but-redundant heads; independent of content, but content is amplifi
   (−0.30/−0.42, 99-100% consistent); fetchers sign-split (8.4 +, 8.3 −). Signs LOAD-BEARING:
   flip 3.8 costs 1.43 > mask 1.08; both matchers flipped 7.81 (worst garbage-in recorded);
   differential-pair reading falsified (joint fetcher flip 5.21). Explainer page: circuits_explained.html.
+- **THE MATCH-EVIDENCE AXIS (§1248-1253):** mlp3's re-encoding = one super-stable direction
+  (split-half 0.97-0.995 all family). NECESSARY: removal 1.00/1.18/1.75 nats (bilin18/swiglu/
+  bilin12; random null ~0; prose 28-71:1 spared) — three-family law, representation CONVERGES
+  though matching algorithms differ. SUFFICIENT (bilin18): one-direction restore = 95.3% of
+  matcher-mask damage. READ at blocks 4-5 (removal there 1.12; fetch band 0.28, 9+ nothing).
+  SEMANTICS: per-row match LEVEL (72%) + positional pattern (23%); wrong pattern < bare level.
+  Block-5 cleanup of the spent raw vector = GENERAL off-manifold normalization (§1247
+  correction, not a dedicated service).
 
 ## Benchmark status
 Mechanistically mapped (MED-HIGH); no compact stand-in exists because the circuit is
