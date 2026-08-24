@@ -1,0 +1,70 @@
+{
+ "n_rows": 48,
+ "base": {
+  "close_ce": 1.8923,
+  "dl_share": 0.298
+ },
+ "bands": {
+  "a02": {
+   "open": {
+    "dce": 2.3907,
+    "share": 0.1353,
+    "share_drop": 0.546
+   },
+   "rand": {
+    "dce": 0.8809,
+    "share_drop": 0.118
+   }
+  },
+  "m02": {
+   "open": {
+    "dce": 0.3696,
+    "share": 0.2719,
+    "share_drop": 0.087
+   },
+   "rand": {
+    "dce": 0.0125,
+    "share_drop": 0.001
+   }
+  },
+  "a38": {
+   "open": {
+    "dce": 0.5975,
+    "share": 0.2203,
+    "share_drop": 0.261
+   },
+   "rand": {
+    "dce": 0.0538,
+    "share_drop": 0.0
+   }
+  },
+  "m38": {
+   "open": {
+    "dce": 0.1798,
+    "share": 0.2575,
+    "share_drop": 0.136
+   },
+   "rand": {
+    "dce": 0.0219,
+    "share_drop": 0.003
+   }
+  },
+  "late912": {
+   "open": {
+    "dce": 0.1155,
+    "share": 0.3034,
+    "share_drop": -0.018
+   },
+   "rand": {
+    "dce": 0.0041,
+    "share_drop": 0.004
+   }
+  }
+ },
+ "winner_share": "a02",
+ "winner_ce": "a02",
+ "pred_a_annotator": true,
+ "pred_b_position_specific": false,
+ "pred_c_coherent": true,
+ "runtime_s": 74.5
+}

@@ -5008,3 +5008,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1271 — NEW NAMED HEAD: 13.8 = the delimiter-closer (quotes 0.326 + brackets 0.679, elsewhere −0.001; atlas punct 2.16 rank-1; bclose record sharpened+merged); mechanism next (quote_heads.py)
 §1272 — 13.8 = opener-fetcher (10.5× delimiter-key mass) with a STREAM-COMPUTED criterion (raw codes blind, 0.83) — two criterion architectures in one model; annotator hunt next (quote_mechanism.py)
 §1273 — annotator hunt partial (share NaN bug disclosed): opener-specific writers = mlp0-2 + attn3-8 (+late); attn0-2 mostly generic; fixed v2 queued (annotator_hunt.py)
+§1274 — annotator = FRONT ATTENTION (fetch collapse 54.6%, control 11.8%; a38 secondary) — one annotation service feeds BOTH retrieval circuits; delimiter-closer record complete, thread §1270-74 CLOSED (annotator_hunt2.py)

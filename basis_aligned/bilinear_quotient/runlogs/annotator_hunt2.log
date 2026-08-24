@@ -1,0 +1,10 @@
+opener positions 424 | close targets 254
+base: close CE 1.8923 | 13.8 dl-share 0.2980
+a02: open dCE 2.3907 share-drop 0.546 | rand dCE 0.8809 share-drop 0.118
+m02: open dCE 0.3696 share-drop 0.087 | rand dCE 0.0125 share-drop 0.001
+a38: open dCE 0.5975 share-drop 0.261 | rand dCE 0.0538 share-drop 0.0
+m38: open dCE 0.1798 share-drop 0.136 | rand dCE 0.0219 share-drop 0.003
+late912: open dCE 0.1155 share-drop -0.018 | rand dCE 0.0041 share-drop 0.004
+winner(share) a02 | winner(CE) a02
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/annotator_hunt2_results.json (74.5s)
