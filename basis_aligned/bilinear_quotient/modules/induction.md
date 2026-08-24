@@ -90,3 +90,20 @@ Remaining tail: the distributed 41% beyond the quad (§1209).
   zeroed (placebo 1/1000). Full pipeline: attn0/1 write identity → 2.5/3.8 match → 8.3/8.4
   fetch → mid consumes. On repeat text both ends are symmetric (§239's 18%-site-local
   asymmetry is a natural-text property). Nothing further pressing.
+
+## Annotation service resolution (2026-08-24, §1289-98)
+- The §1228 "builders = attn0/1" layer-grain claim resolves at head grain: **heads 1.1 and 1.8**
+  (layer 1), either alone sufficient at match sources (restore 70%/84%, pair 96.5% of a 4.33-nat
+  dependence; leave-one-alive instrument, keep-none anchor null). L0 = weaker collective backstop.
+- Two DIFFERENT algorithms, one interchangeable output: 1.1 = identity mark (local read, 86%
+  within ±8); 1.8 = context signature (76% far). Dissociated on planted context-free bigrams:
+  1.1 restores 110%, 1.8 33%; adding 1.8 there HURTS (§1297). Mirror arm NULL: no pivot-free
+  fuzzy induction (verbatim 7-token context + novel pivot → base = chance §1298) — matching is
+  strictly token-triggered; the signature is not an independent matching pathway.
+- Pair is sufficient-NOT-necessary (only-pair ablation ≈ free §1296); annotation redundancy
+  spans the front band (§1287 superadditivity). Corrupted marks poison via mlp4's re-encoding
+  (blocking mlp4 restores 94% §1288); same consumers: matchers, 13.8 (delimiters), 10.5 (questions).
+- Head-partition law for this circuit (§1290-94): the payload is FULL-RANK identity — no
+  weights-derivable subspace of a head is "the induction part" (route = 31%, 16-dim = null,
+  per-position raw-code = broadcast term only). Partition variables (verdict axis), not pipes.
+  Keeper instrument: per-position identity mask, 60:1 shuffle null. Long tail = identity crowd.

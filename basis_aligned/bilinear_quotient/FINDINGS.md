@@ -166,7 +166,18 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    coupling: content amplified ~1.5-2× when induction fires, induction independent of content
    (§1027-1032). Circuits bottom out in embedding trigger-geometry routed by context (§637-644).
    Loss budget: first-mention 78% / seen 20% / inductable 1%; invariant across the family (§876-885).
-   **HIGH.**
+   2026-08-24 additions (behaviour-first SOP, all invisible to magnitude screens): 13.8 =
+   delimiter closer (§1270-74), 8.7 = general successor head, four lexicons, "+1" in W_v·W_proj,
+   dormant weights-twin 14.4 certified vestigial at 10x data (§1275-83); 10.5 = question head
+   (§1282-89). ANNOTATION SERVICE (§1289-98): heads 1.1 (identity mark, local) + 1.8 (context
+   signature, global) — either sufficient on natural text, THREE consumers (matchers, 13.8, 10.5),
+   redundant beyond the pair, one-armed double dissociation (identity generalizes to context-free
+   repeats 110% vs 33%; signature is NOT an independent pathway — no pivot-free fuzzy induction,
+   base=chance §1298; signature actively harmful off-distribution §1297). Opener corruption poisons
+   via mlp4 re-encoding (94% restore when blocked §1288). HEAD-PARTITION LAW (§1290-94): task-parts
+   are weights-derivable at BOTTLENECK VARIABLES (verdict axis, successor maps), not at TRANSPORT
+   (identity is full-rank, depth-recoded); partition variables, not pipes; long tail = identity
+   crowd (1.1 nats, 60:1-null instrument). **HIGH.**
 
 9. **GENERATIVE (input-side) VALIDATION.** Injecting a topical word early boosts its topic-neighbors
    at distance with the full predicted property set: dose-linear, additive multi-topic superposition
