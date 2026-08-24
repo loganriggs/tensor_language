@@ -32192,3 +32192,19 @@ Head grain at bilin12's anomalous late band (§1212: 17% of its copy budget live
 - pred_c TRUE: late anchor replicates §1212 exactly (0.5575); sanity exact.
 
 repeat_bilin12_late_results.json; runlogs/repeat_bilin12_late.log (65s).
+
+## §1215 — THE MECHANISM: the two induction roles are SPLIT ACROSS DEPTH — front stations 2.5/3.8 are SOURCE-MATCHERS (offset-128 share 0.30/0.33 vs 0.01 at 127) and mid stations 8.3/8.4 (+dossier head 5.5) are SUCCESSOR-FETCHERS (o=127: 0.13/0.12/0.18); preds a-b FALSE at their registered bars, and the peak structure is the finding (repeat_station_offsets.py)
+
+Pattern-mass-by-offset on repeat rows (|pattern| shares over offsets > 64, key 0 excluded, queries t≥160).
+
+- **The split:** on repeat text, position t's own copy sits at t−128 and its successor (the fetch target) at t−127. Heads 2.5 and 3.8 put 30-33% of ALL their long-range mass on the single offset 128 — they attend to the query token's own earlier copy (a token-match/anchor read). Heads 8.3, 8.4 and 5.5 peak at 127 instead — the classic induction fetch. **The two textbook induction roles exist, but organized across BANDS, not within a layer: match at the front, fetch mid-stack.** This is the §1204 serial chain's mechanism — the front link (match) and mid link (fetch) do different jobs, which is why severing either alone is catastrophic and the costs overlap.
+- pred_a FALSE at its 0.40 bar (bands 0.27-0.37 — peaks unambiguous but less concentrated than registered; remainder spreads over other far offsets). pred_b FALSE — the L3 pair does NOT split source/successor internally: both H8 and the auxiliary H1 lean to 128; H1's read is diffuse (band 0.088), consistent with its §1213 auxiliary/toxic role being something other than a sharp offset read. pred_c TRUE (L3 controls flat); sink 5.7 flat (0.024).
+- Bonus corroboration: dossier head 5.5 — named induction by pattern share in §1083 — is a successor-fetcher here (0.177 at o=127), yet §1205 showed masking its range costs little: its fetch is redundant with 8.3/8.4's. The read-grain circuit prunes the dossier's head list to the four load-bearing ones while confirming the mechanism of the fifth.
+
+repeat_station_offsets_results.json; runlogs/repeat_station_offsets.log (47s).
+
+## §1216 — DOUBLE DUTY IS FAMILY-GENERAL — AND ODDLY CONSTANT: swiglu18's stations carry 0.0363 of its 0.2231 prose read budget (16%; bilin18: 0.0381 of 0.176 = 22%) — nearly the SAME ABSOLUTE prose contribution (0.036 vs 0.038 nats); preds a-c ALL TRUE (repeat_family_prose.py)
+
+§1211's design on the softmax sibling (quad = {4.4, 5.2, 8.0, 8.8}). all18 replicates §1188's 0.2231 to the 4th decimal. Partition clean (0.036 + 0.210 ≈ 0.223). Both families' copy stations moonlight in ordinary pooling at ~0.037 nats — logged as an observation (two models, no third measurement; not claimed as law).
+
+repeat_family_prose_results.json; runlogs/repeat_family_prose.log (54s).

@@ -1,0 +1,21 @@
+{
+ "model": "swiglu18",
+ "n_rows": 24,
+ "W": 64,
+ "ce": {
+  "base": 3.1496,
+  "quad": 3.1859,
+  "allbutquad": 3.3592,
+  "all18": 3.3727
+ },
+ "cost_vs_base": {
+  "quad": 0.0363,
+  "allbutquad": 0.2096,
+  "all18": 0.2231
+ },
+ "near_1188": true,
+ "pred_a_double_duty": true,
+ "pred_b_remainder": true,
+ "pred_c_partition": true,
+ "runtime_s": 53.5
+}
