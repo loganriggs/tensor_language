@@ -5054,3 +5054,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1317 — "!" carrier CERTIFIED: attn17 (14.0, controls clean, n=228), spread persists; per-head cell queued with registered DIFFUSE bet (exclaim_screen2.py)
 §1318 — "!" = a PAIR: 17.2 (49%) + 17.3 (43%, conc 262) = 91% — third circuit form (owner/crowd/pair); additive-vs-redundant + burst/sustained cell queued (exclaim_heads.py)
 §1319 — "!" pair = two half-heads: perfectly additive (2.6%), no burst/sustained division; fourth structure form; thread §1315-19 closed (exclaim_pair.py)
+§1320 — "!"-pair criterion stream-computed (1.49/1.29; guard clean); thread closed; criterion taxonomy final (exclaim_weights.py)

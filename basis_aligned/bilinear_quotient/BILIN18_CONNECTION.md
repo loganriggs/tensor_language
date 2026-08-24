@@ -33011,3 +33011,7 @@ exclaim_heads_results.json; runlogs/exclaim_heads.log.
 - EXCLAMATION THREAD CLOSED (§1315-19): behaviour ("!" prediction under exclamatory register) -> layer (attn17, certified 5x) -> structure (additive pair 17.2/17.3, 91%) -> non-division (uniform across the tested split). One weights cell queued to complete the record: is the pair's criterion embedding-native or stream-computed (exclaim_weights.py; registered bet: stream-computed — late-layer register heads read processed state).
 
 exclaim_pair_results.json; runlogs/exclaim_pair.log (74s).
+
+## §1320 — THE "!"-PAIR'S CRITERION IS STREAM-COMPUTED, THREAD FULLY CLOSED: raw "!"-token codes do not stand out under 17.2/17.3's q/k weights (ratios 1.49/1.29 vs the 2.0 bar; control 17.0 at 1.15; matcher guard 0.88 confirms the instrument); preds a-c ALL TRUE (exclaim_weights.py; 48s)
+
+Criterion taxonomy final tally across seven named circuits: embedding-native (8.7 only — lexicon order lives in the tokens); stream-computed class/state marks (13.8, 10.5, 8.1, 17.2/17.3); equality-on-broadcast-codes with stem tolerance (matchers). Exclamation thread §1315-20 closed at six experiments.
