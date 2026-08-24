@@ -32182,3 +32182,13 @@ The §1205/07/10 sign (masking a station's siblings WITH it recovers loss) probe
 - Reading: **L3H1's long-range reads are only useful in COMBINATION with H8's fetch** — with the fetcher blinded, H1 keeps injecting distance values that the downstream circuit misprices, and cutting them too is a net gain. A two-head cooperative pair at the station, one dominant (H8) and one auxiliary that turns toxic alone (H1). Mechanism question queued (repeat_station_offsets): do H8 and H1 read DIFFERENT offsets of the repeat (copy-source t−128 vs predecessor t−127) — the classic two-role induction split?
 
 repeat_interference_results.json; runlogs/repeat_interference.log (81s).
+
+## §1214 — bilin12's LATE COPY READING IS A CROWD, NOT A STATION: L10 0.255 + L11 0.127 vs joint late 0.5575 (1.46× super-additive); top head L10H0 only 32% of its layer; preds a-b FALSE as registered, pred_c TRUE (repeat_bilin12_late.py)
+
+Head grain at bilin12's anomalous late band (§1212: 17% of its copy budget lives in L10-11, vs <1% in both 18L siblings).
+
+- **pred_a FALSE:** no single late layer dominates (L10 46% of the band; the band exceeds its two layers' sum 1.46× — cross-layer redundant carriage). **pred_b FALSE:** no single-head station (L10H0 0.081 = 32%; six heads across L10-11 carry 0.02-0.08 each; four are ~0).
+- Structural reading: **the 12-layer model's readout-zone copy reading is prose-style collective, unlike the sharp one-head stations both 18L models use.** Combined with §1212 (same total price, stations at L5/L2), bilin12 = two mid stations + a late crowd. The fingerprint axis sharpens: architecture/depth sets HOW the family-constant copy price is collected (station sharpness and placement), and the smallest model is the least modular — consistent with its weaker induction score (§885) coming from a more distributed implementation rather than a missing circuit.
+- pred_c TRUE: late anchor replicates §1212 exactly (0.5575); sanity exact.
+
+repeat_bilin12_late_results.json; runlogs/repeat_bilin12_late.log (65s).

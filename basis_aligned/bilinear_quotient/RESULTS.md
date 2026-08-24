@@ -4948,3 +4948,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1211 — stations do DOUBLE DUTY: quad = 22% of prose read budget (0.038/0.176; §1186 replicated 4th decimal) — not dormant specialists; dormancy preds FALSE as registered (repeat_quad_prose.py)
 §1212 — THREE-FAMILY CONSTANT: bilin12 all12 = 3.231 (vs 3.200/3.206) — copy read price invariant to arch AND induction strength; stations L5/L2; deviation: bilin12 late NOT local (17%); arc §1204-12 CLOSED (repeat_range_bilin12.py)
 §1213 — interference named: L3H1 = 73% of the recovery (auxiliary head toxic without the fetcher H8); cooperative two-head station; offsets probe queued (repeat_interference.py)
+§1214 — bilin12 late zone = CROWD (L10+L11 sum 0.38 vs joint 0.56; top head 32%) — smallest model least modular; station sharpness is the fingerprint axis (repeat_bilin12_late.py)
