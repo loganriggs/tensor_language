@@ -4,3 +4,12 @@ weekdays: 24 targets
 months: 98 targets
 years: 207 targets
 pooled targets 1036 (vs §1280's digit-only 480-row set)
+base {'digits': 2.2803154579469807, 'weekdays': 2.383628093327085, 'months': 2.154664472201649, 'years': 2.141867907870795, 'pool': 2.243160108442132, 'else': 3.1265789076647463}
+h87: {'digits': 0.3091, 'weekdays': 0.1489, 'months': 0.0599, 'years': 0.0526, 'pool': 0.2306, 'else': 0.0024}
+h144: {'digits': -0.0063, 'weekdays': 0.0054, 'months': 0.0054, 'years': -0.0033, 'pool': -0.0043, 'else': 0.0065}
+both: {'digits': 0.3106, 'weekdays': 0.1642, 'months': 0.0706, 'years': 0.0538, 'pool': 0.2332, 'else': 0.009}
+ctrl81: {'digits': 0.0045, 'weekdays': 0.0028, 'months': -0.0055, 'years': -0.0044, 'pool': 0.0017, 'else': 0.0066}
+pool dmg: 8.7 0.2306 | 14.4 -0.0043 | both 0.2332 | interaction 0.0069 | ctrl 0.0017
+niche_144_alive {'digits': False, 'weekdays': False, 'months': False, 'years': False}
+pred_a dormant True | pred_b no-backup True | pred_c anchor True | pred_d ctrl True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/succ_twin_scale_results.json (148.3s)

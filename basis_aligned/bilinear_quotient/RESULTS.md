@@ -5017,3 +5017,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1280 — twin DORMANT: 14.4 no causal role alive or as backup (joint ≈ solo) — succession implemented twice in weights, wired once; successor thread §1275-80 CLOSED (succ_pair.py)
 §1281 — twin dormant on years too (conc −3.9; weights 0.934!); 8.7 causal across FOUR lexicons (113/55/21); vestigial reading now standing (year_succ.py)
 §1282 — question-state carrier FOUND: attn10 conc 32.6 (0.70 nats at "?"-in-WH-sentence targets, controls clean); syntactic cousin of delimiter-closer; per-head next (question_screen.py)
+§1283 — dormant twin SURVIVES 10x data (user challenge): 1036 targets/4 lexicons — 14.4 solo −0.004 vs 8.7's 0.231, backup interaction 3%, no niche alive; vestigial certified (succ_twin_scale.py)

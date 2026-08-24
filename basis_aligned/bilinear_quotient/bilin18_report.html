@@ -891,7 +891,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   eight (weekdays 6/6 top-3, months 8/11). A sweep of all 162 heads found the structure rare (median
   count 1) — and one perfect twin, head 14.4, which carries the identical successor map in its
   weights yet has <em>no causal role at all</em>, alive or as backup: succession is implemented twice
-  and wired once, the program's cleanest case of weight-structure without function. Both new heads'
+  and wired once, the program's cleanest case of weight-structure without function. That claim was
+  directly challenged ("run 10× more data — won't they cover for each other?") and retested at scale:
+  on 2,000 fresh rows with 1,036 natural successor targets spanning all four lexicons, the twin's
+  solo ablation cost is −0.004 nats (the owner's: 0.231), the backup interaction — ablate both minus
+  the two solo costs — is 3% of the owner's cost, and no lexicon niche shows the twin alive. Because
+  this attention has no softmax, a backup could not engage by automatic renormalization; it would
+  have to be a learned conditional circuit, and none exists. Both new heads'
   keys descend from the same front-attention annotation service that feeds the copy circuit — one
   infrastructure, many consumers.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no

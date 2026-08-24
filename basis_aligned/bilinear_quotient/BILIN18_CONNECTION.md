@@ -32713,3 +32713,12 @@ year_succ_results.json; runlogs/year_succ.log (174s).
 - Honesty flags: n_targets = 39 on 192 rows — small (the behaviour is rare in FineWeb prose); base target CE is 1.03, i.e. the model finds these predictable when healthy. Per-head decomposition of attn10 queued next (question_heads.py) at 480 rows to raise the target count.
 
 question_screen_results.json; runlogs/question_screen.log (198s).
+
+## §1283 — THE DORMANCY SURVIVES THE 10x SCALE-UP (user challenge answered): on 2000 fresh FineWeb rows with 1036 natural successor targets across FOUR lexicons at once, 14.4-solo damage is −0.004 (vs 8.7's 0.231) and the backup interaction term (both − solo − solo) is 0.007 = 3% of 8.7's solo cost; no lexicon niche shows 14.4 alive; preds a-d ALL TRUE (succ_twin_scale.py)
+
+- The user's challenge, verbatim in spirit: "if it's in the weights but you didn't see it, maybe you didn't run the right data — with 10x more data won't they cover for each other?" Split into two hypotheses and both tested: H_coverage (14.4 active on unsampled natural contexts → broad-data solo ablation) and H_backup (14.4 wakes only when 8.7 dies → joint-vs-solo interaction at scale).
+- Numbers: pooled targets 1036 (digits 707, weekdays 24 — still thin, flagged; months 98, years 207). 8.7 solo: 0.231 pooled (digits 0.309, weekdays 0.149, months 0.060, years 0.053; elsewhere 0.002 — the anchor and specificity both hold on natural text). 14.4 solo: −0.004 pooled, within noise in every lexicon (per-niche alive test: 0/4). Both: 0.233 ≈ 8.7 alone; interaction 0.0069. Control head 8.1: 0.002.
+- Physics note for why no-backup is a substantive finding here: bilin18's attention is UNNORMALIZED, so the softmax mechanism by which backup heads inherit attention mass automatically when a primary is ablated does not exist in this architecture — coverage would have to be a learned conditional circuit, and none is present.
+- Standing conclusion now at its strongest form: succession is implemented twice in the weights (8/8 rank-1 both heads, §1279) and wired into behaviour exactly once. 14.4 is the program's certified example of VESTIGIAL WEIGHT STRUCTURE — trained-in computation with no causal consumer. Remaining unexplored refuges (multi-token arithmetic with carry, non-English ordinals) logged as unlikely, not queued.
+
+succ_twin_scale_results.json; runlogs/succ_twin_scale.log (148s).
