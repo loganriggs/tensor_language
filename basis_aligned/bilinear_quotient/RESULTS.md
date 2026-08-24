@@ -5049,3 +5049,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1312 — GOAL-1 verdict: mechanism extracts (0.78 stand-in), behaviour doesn't (30% @ 33 heads — crowd-bound); three-goals scoreboard recorded; ladder closed (extraction_v2.py)
 §1313 — 10.5 certified QUESTION-specific ("?" 0.726, "!" 19% near-bar, "." 5%, else 0.4%); exclamation screen queued (terminal_specificity.py)
 §1314 — ladder REOPENED (user: count bits, not heads): rung 3 = keep the lambda-v1 route through removed heads (~free in description length); registered a-c; running (extraction_v3.py)
+§1315 — "!" screen: attn17 leads (17.2) but random dirty, n=70 — withheld; register-not-state interpretation registered; 960-row rerun queued (exclaim_screen.py)

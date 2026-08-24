@@ -32975,3 +32975,10 @@ terminal_specificity_results.json; runlogs/terminal_specificity.log (110s; benig
   pred_a ROUTE RESTORES THE CROWD'S SERVICE: closure_route ident damage <= 40% of allmean's (>= 60% of the induction gap back — vs 30% at rung 2).
   pred_b SHARED-VARIABLE CONSEQUENCE (stated before running): elsewhere ALSO recovers >= 40% of its gap — the same broadcast is the content pool's substrate (§1076), so route-grain extraction cannot separate copy from topic; the leak is the prediction.
   pred_c BAND STILL NEEDED: circ_route trails closure_route by >= 0.3 nats on ident (annotation manufacture lives in the front band's fresh values, not the route).
+
+## §1315 — EXCLAMATION SCREEN: SUGGESTIVE, NOT CERTIFIED — attn17 leads (conc 17.2, dmg 0.212, jitter −1.7 clean) but the random control misses its bar (2.59 vs 1.5) at n=70; pred_a & b TRUE, pred_c FALSE, verdict withheld per the evaluability standard (exclaim_screen.py)
+
+- The shape already differs from the question circuit: damage is SPREAD across late layers (17/15/12/14/10 all conc >= 6) with no dominant owner, and base target CE is 2.98 (vs 0.97 for "?") — the model finds "!" genuinely uncertain. Registered interpretation for the rerun: exclamation is a REGISTER (diffuse, style-carried, crowd-like) rather than a STATE (single-head, opener-fetched) — which would also explain 10.5's 19% partial share (§1313) as register-adjacent contamination rather than shared machinery.
+- Rerun queued (exclaim_screen2.py, 960 rows): registered — (a) attn17 stays the winner; (b) random cleans up at 5x targets OR stays dirty and certifies the diffuse-register reading; (c) top-5 spread persists (no head >= 50% share when decomposed — logged for the follow-up, not this cell).
+
+exclaim_screen_results.json; runlogs/exclaim_screen.log.

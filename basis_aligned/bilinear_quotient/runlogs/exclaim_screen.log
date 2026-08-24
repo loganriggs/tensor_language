@@ -33,3 +33,10 @@ mlp10: conc -0.51 (jit 0.70, rand 0.95) dmg_tar -0.0211
 mlp11: conc -0.78 (jit 1.35, rand 0.42) dmg_tar -0.0349
 mlp12: conc -0.22 (jit 0.92, rand 0.76) dmg_tar -0.0088
 mlp13: conc -0.56 (jit 0.61, rand 0.61) dmg_tar -0.0210
+mlp14: conc -3.05 (jit 0.64, rand 1.19) dmg_tar -0.0908
+mlp15: conc -1.30 (jit -0.64, rand 1.01) dmg_tar -0.0474
+mlp16: conc -0.37 (jit 0.73, rand 1.26) dmg_tar -0.0495
+mlp17: conc 1.45 (jit 0.61, rand 1.43) dmg_tar 0.5119
+top5 [('attn17', 17.21, -1.67, 2.59, 0.2121), ('attn15', 13.74, -2.04, 7.11, 0.0978), ('attn12', 11.3, -0.67, 0.93, 0.12), ('attn14', 7.64, 0.2, 3.06, 0.1889), ('attn10', 6.37, 0.4, 1.42, 0.1415)]
+pred_a carrier True | pred_b late-attn True | pred_c rand False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/exclaim_screen_results.json (194.2s)
