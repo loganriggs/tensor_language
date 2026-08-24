@@ -32303,3 +32303,13 @@ bilin12_interference2_results.json; runlogs/bilin12_interference2.log (69s).
 - Scale note: 5.6-5.9 nats is the largest ablation number this program has recorded outside full-machine removals — attn0/1 are the lexical foundation (§239 "attn1 is infrastructure"; §1040 front dominance), and everything downstream, stations included, runs on their writes. **pred_c TRUE** (placebo 0.005 = 1/1000 of the effect).
 
 station_source_builders_results.json; runlogs/station_source_builders.log (48s). Queued sharpening: builders_split (attn0 vs attn1 separately — does matching track the identity-writer and fetching the prev-token-writer?).
+
+## §1229 — THE TEXTBOOK BUILDER→STATION ASSIGNMENT INVERTS (with a caveat registered before interpretation): matchers lose MORE from attn0-removal (52% vs 39%) and fetchers track attn1 (o=127 share −46% under src1, +19% under src0); preds a-b BOTH FALSE; costs strongly super-additive (1.35 + 2.58 vs pair 5.60) (builders_split.py)
+
+The registered textbook split (identity/attn1 → matching; prev-token/attn0 → fetching) fails in both directions:
+
+- Matchers (2.5/3.8, o=128): drop 0.525 under src0 vs 0.391 under src1 — the match criterion leans on the prev-token/copy-source writer at least as much as on lexical identity.
+- Fetchers (8.3/8.4, o=127): drop 0.460 under src1, and RISE 0.193 under src0.
+- **Instrument caveat, stated before any story:** these are within-head SHARE measurements (fraction of each head's far mass at its signature offset); a rise under ablation can mean redistribution (the head's OTHER far reads collapsed harder), not strengthening. Absolute-mass version queued (builders_split_abs) before this section's inversion is promoted to a mechanism claim. What survives the caveat unconditionally: BOTH stations depend on BOTH builders, the clean textbook division does not hold, and the builders are complementary infrastructure (pair cost 5.60 = 1.4× the singles' sum 3.93; anchors replicate §1228 exactly).
+
+builders_split_results.json; runlogs/builders_split.log (72s).

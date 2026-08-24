@@ -4963,3 +4963,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1226 — interference front-located: +front recovers 0.102 (196% of net), +late HURTS 0.041; core+front mask (0.198) beats all-72 (0.248) — conditional-value readers at band scale (bilin12_interference.py)
 §1227 — toxic front = L0 + L3 additively (0.038/0.036), NOT station-hosted; interference thread closed at characterized, mechanism parked (bilin12_interference2.py)
 §1228 — Open E RECONCILED: attn0/1 source-writes are what matchers match on (o=128 reads −58/−71% under src ablation; placebo 1/1000); repeat pipeline symmetric (dst = src cost) (station_source_builders.py)
+§1229 — textbook builder→station split FALSE both ways (matchers lean attn0, fetchers lean attn1) — share-instrument caveat registered; absolute-mass version queued (builders_split.py)

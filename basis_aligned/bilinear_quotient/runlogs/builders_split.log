@@ -1,0 +1,4 @@
+CE {'base': 0.3613, 'src0': 1.7147, 'src1': 2.9391, 'src01': 5.9624, 'true_model': 0.3613}
+signature shares {'base': {'2.5': 0.3019, '3.8': 0.3252, '8.3': 0.1284, '8.4': 0.1222}, 'src0': {'2.5': 0.1369, '3.8': 0.1616, '8.3': 0.1518, '8.4': 0.1471}, 'src1': {'2.5': 0.2113, '3.8': 0.1685, '8.3': 0.0696, '8.4': 0.0658}} | drops {'matchers_src0': 0.525, 'matchers_src1': 0.391, 'fetchers_src0': -0.193, 'fetchers_src1': 0.46}
+sanity True | pred_a m->1 False | pred_b f->0 False | pred_c anchor True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/builders_split_results.json (71.5s)
