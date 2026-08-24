@@ -32335,3 +32335,15 @@ scalar_recalibrate_results.json; runlogs/scalar_recalibrate.log (69s).
 User-proposed rate-distortion ladder for head constants (log2(k) bits of conditioning per position). First rung verdict: the pooling crowd's value is NOT a position-indexed bias schedule — absolute-position bits are nearly worthless to it (its §1085 criterion is recency + content, i.e. RELATIVE structure). Also replicated on eval rows: all-static (cost 4.03) worse than all-zero (3.69), the §1093 ordering. The informative contrast is §240: slice-conditioned constants carried ~85% of three circuits — but those buckets were TOKEN-TYPE-conditioned at specific heads. Conditioning variable is everything; queued next rung: same ladder with buckets = current-token frequency class (4 bins, §1151 convention extended), registered to beat position-k16 with 2 bits.
 
 bucket_constants_results.json; runlogs/bucket_constants.log (70s).
+
+## §1233 — SCALAR RECALIBRATION, SETTLED AS A CLEAN NULL AT THIS LOCUS: with the overfit fixed (32 rows, L2 prior to 1.0), scalars converge NEAR 1 (only 5 of 162 move >0.15, none suppressive), held-out recovery −0.02 ≈ 0; preds a-b FALSE as the final answer, perm-null control TRUE (scalar_recalibrate2.py)
+
+The user-proposed folded-scalar repair, properly fit, buys nothing on the whole-model read-mask residual: the windowed model is already gain-calibrated at head grain — the 0.17-nat damage is missing INFORMATION, not miscalibrated magnitude. Scope note recorded: the idea remains untested at the one locus where suppression should help by construction — bilin12's toxic front (§1226, where full masking of specific heads HELPS, so s<1 on those heads interpolates a known win); parked as designed. v1's overfit (§1231) + v2's null = the honest pair: the instrument works, the effect isn't there.
+
+scalar_recalibrate2_results.json; runlogs/scalar_recalibrate2.log (60s).
+
+## §1234 — THE SECOND RUNG PAYS OFF EXACTLY AS PROPOSED: 2 bits of CURRENT-TOKEN-CLASS conditioning neutralize the static-attention poison to the deletion line (freq4 = 6.8228 vs zero-attention 6.8163, Δ 0.007; global-mean k1 = 7.1634; position-k16 managed 1/8th of this) — preds a-c ALL TRUE; shuffled-bin control clean (7.1426 ≈ k1) (bucket_constants2.py)
+
+The user's rate-distortion framing, first real result: **attention's frozen-bias pathology is entirely a token-class error.** A per-head constant indexed by 4 frequency classes of the current token (2 bits) recovers 0.34 nats of the static gap — everything that made stale biases WORSE than no attention (§1093/§1232) — landing within noise of deletion. What remains (3.69 nats to base) is attention's genuine dynamic value, now cleanly separated: **bias = 2 bits of token class; dynamics = everything else.** Conditioning variable is everything (position bits: 10× less; random bits: nothing). The ladder can continue (finer token bins, token×recency products) — logged as available, not queued (the separation just achieved was the scientific point).
+
+bucket_constants2_results.json; runlogs/bucket_constants2.log (54s).
