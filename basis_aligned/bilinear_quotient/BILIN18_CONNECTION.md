@@ -32684,3 +32684,11 @@ succ_map_results.json; runlogs/succ_map.log. **Increment thread (§1275-77) clos
 - Rename adopted: **8.7 = the successor head** (increment was the discovery instance).
 
 succ_general_results.json; runlogs/succ_general.log (169s). Thread §1275-78 closed at a certified general mechanism.
+
+## §1279 — THE UNIQUENESS SWEEP FINDS A TWIN: 8.7 AND 14.4 both score a perfect 8/8 digit-successor rank-1 in pure weights (next: 11.7 at 6/8; median across all 162 heads = 1 — the structure is rare); pred_a TRUE by tie-break, pred_b FALSE and it is the finding, pred_c TRUE (succ_unique.py; 1.5s)
+
+Successor machinery is a REDUNDANT TWO-HEAD implementation: the behaviour-level owner is 8.7 (§1276's 78% share, conc 113), and 14.4 — whose layer the §1275 screen had already flagged at rank 3 (attn14, conc 5.7) — carries an identical successor map in its weights, presumably the backup/refinement stage. The §1213-family primary+auxiliary pattern repeats at a new circuit. 11.7's 6/8 makes a third partial. Causal check of 14.4's behavioural share (mean-ablate at INC targets with 8.7 alive vs dead — the §1207-style redundancy cell) logged as the thread's one remaining open edge, not queued tonight.
+
+**Successor thread final (§1275-79): one function (succession over ordered lexicons — digits, weekdays, months), one dominant causal owner (8.7), one weights-twin (14.4), mechanism literally in the weight matrices, rarity certified against all 162 heads.**
+
+succ_unique_results.json; runlogs/succ_unique.log (1.5s).
