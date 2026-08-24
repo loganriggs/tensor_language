@@ -10,7 +10,10 @@ Confidence: **HIGH** = causal test + control + null, reproduced. **MED** = solid
 
 **PER-MODULE DOSSIERS: `modules/` — self-contained doc per module (facts+numbers+§refs,
 stand-in status, module-specific gotchas, open questions). READ THE RELEVANT DOSSIER BEFORE
-DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the ledger writeup.**
+DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the ledger writeup.
+CIRCUIT WORK: `CIRCUIT_REGISTRY.md` is the one status board (pipeline stage per circuit +
+candidate pool + generators) — check it before opening a circuit thread, update it when a
+circuit moves stage.**
 
 ## The established results
 
