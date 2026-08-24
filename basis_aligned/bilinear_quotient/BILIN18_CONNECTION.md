@@ -32173,3 +32173,12 @@ Third family member (12L, D=768, single-QK squared row-normalized; masking = zer
 **Copy-circuit arc (§1204-1212) closes.** Laws (family-constant): total read price ~3.2 @W64; few nameable reader stations; serial/sub-additive carriage; partition into stations + distributed tail. Styles (fingerprints): station DEPTH (bilin18 front L2/L3, swiglu18 mid L4/L5, bilin12 spread to late); station WIDTH (single heads vs pairs vs crowds at the secondary station); prose double-duty at 22% (bilin18, only member tested at head grain).
 
 repeat_range_bilin12_results.json; runlogs/repeat_range_bilin12.log (58s).
+
+## §1213 — THE INTERFERENCE HAS A NAME: L3H1 — masking it alongside the blinded fetcher recovers 73% of the head-alone > whole-layer gap (1.0755 → 1.0259 of L3's 1.0076; H5 adds 0.012; six other siblings ~0); preds a-c ALL TRUE (repeat_interference.py)
+
+The §1205/07/10 sign (masking a station's siblings WITH it recovers loss) probed at bilin18's L3: mask H8 plus each sibling singly.
+
+- **pred_a TRUE (concentrated):** one sibling, H1, accounts for 0.050 of the 0.068 recovery. **pred_b TRUE** (no joint condition worse than fetcher-only — the recovery is monotone). **pred_c TRUE** (anchors replicate §1207 exactly; sanity exact).
+- Reading: **L3H1's long-range reads are only useful in COMBINATION with H8's fetch** — with the fetcher blinded, H1 keeps injecting distance values that the downstream circuit misprices, and cutting them too is a net gain. A two-head cooperative pair at the station, one dominant (H8) and one auxiliary that turns toxic alone (H1). Mechanism question queued (repeat_station_offsets): do H8 and H1 read DIFFERENT offsets of the repeat (copy-source t−128 vs predecessor t−127) — the classic two-role induction split?
+
+repeat_interference_results.json; runlogs/repeat_interference.log (81s).
