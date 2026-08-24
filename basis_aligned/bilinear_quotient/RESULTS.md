@@ -4958,3 +4958,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1221 — criterion asymmetry complete: swiglu stations self-match at baseline (0.4-1.1x) + FLAT far mass — identity criterion is bilinear-only, always-on; arc §1204-21 fully closed (prose_offsets_family.py)
 §1222 — Open A closed: best 12-head ensemble = 43% of prose pooling (no compact core); named edge = the copy/induction heads (2.5/3.8/5.5 = 23%); tail = ~150 heads collectively (seed_ensemble.py)
 §1223 — crowd synergistic (random-k superlinear ~k^1.2; coverage hypothesis FALSE) + core = tail (0.076 vs 0.080, 12 vs 150 heads — 12× per head); Open A final: nameable core + synergistic collective (crowd_scaling.py)
+§1224 — crowd structure family-general (stations top screen; no compact core 40-43%) but SYNERGY is not (swiglu sublinear 0.84× vs bilin 1.56×) — score-function hypothesis registered, bilin12 decides (swiglu_crowd.py)

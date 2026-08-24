@@ -32266,3 +32266,11 @@ seed_ensemble_results.json; runlogs/seed_ensemble.log (153s). Queued closer: cro
 - Controls: sanity exact; core12 replicates §1222 exactly (0.0761).
 
 crowd_scaling_results.json; runlogs/crowd_scaling.log (72s). Family replication queued (swiglu_crowd).
+
+## §1224 — CROWD LAWS vs CROWD FINGERPRINT: swiglu18 replicates the STRUCTURE (its copy station 4.4 tops the prose screen at 0.0282 = 4.4× the next head; greedy-12 = 40% of all18 vs bilin18's 43% — no compact core, family-general; preds a-b TRUE) but NOT the SYNERGY — its random-k scaling is mildly SUBLINEAR (per-head 0.84× from k=8→64, vs bilin18's 1.56×; pred_c FALSE) (swiglu_crowd.py)
+
+- **Family-general (laws):** (1) the prose read-value screen is topped by the copy machinery (bilin18: 2.5/3.8/5.5 at #1/#3/#2; swiglu18: 4.4 at #1, 5.2 at #4); (2) no compact core — the best 12-head ensemble carries 40-43% in both models; (3) all18 anchors replicate their §1186/§1188 values to the 4th decimal.
+- **Architecture-dependent (fingerprint):** the crowd's SCALING. bilin18's collective is synergistic (random-k cost ~k^1.2, per-head value rising); swiglu18's is weakly coverage-like (per-head value falling 0.84×). Registered follow-up hypothesis (queued, bilin12_crowd): the crowd exponent tracks the SCORE FUNCTION, like the matcher mechanism did (§1218) — bilinear → synergy, softmax → coverage. bilin12 (bilinear, normalized) decides again.
+- Also of note: swiglu's greedy picks spread far deeper (L0-15, including 13.7/14.3/15.6) than bilin18's (L1-13) — the §1188 "softmax pools deeper" fingerprint at ensemble grain.
+
+swiglu_crowd_results.json; runlogs/swiglu_crowd.log (148s).
