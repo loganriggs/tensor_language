@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [assert_disjoint mlp_ladder_depth] 0 of 480 priced rows appear in the fitting corpus -> ok
+mlp0: stake 0.799 | ceiling 0.863 | k16/tab 0.43 | digits 2 | freq 10.32x
+mlp1: stake 6.997 | ceiling 0.945 | k16/tab 0.43 | digits 2 | freq 16.33x
+mlp2: stake 0.760 | ceiling 0.716 | k16/tab 0.14 | digits 2 | freq 22.29x
+mlp3: stake 0.631 | ceiling 0.593 | k16/tab 0.40 | digits 2 | freq 10.97x
+mlp4: stake 0.104 | ceiling -0.252 | k16/tab -333700.00 | digits 1 | freq 3.53x
+mlp5: stake 0.083 | ceiling -0.036 | k16/tab -13200.00 | digits 2 | freq 4.63x
+mlp6: stake 0.079 | ceiling -0.060 | k16/tab -30500.00 | digits 2 | freq 1.65x
+mlp7: stake 0.057 | ceiling -0.148 | k16/tab -86300.00 | digits 2 | freq 1.55x
+mlp8: stake 0.048 | ceiling -0.099 | k16/tab -63200.00 | digits 4 | freq 1.8x
+mlp9: stake 0.051 | ceiling -0.067 | k16/tab -61400.00 | digits 2 | freq 2.36x
+mlp10: stake 0.040 | ceiling -0.060 | k16/tab -70400.00 | digits 2 | freq 1.44x
+mlp11: stake 0.043 | ceiling -0.032 | k16/tab 23000.00 | digits 2 | freq 1.37x
+mlp12: stake 0.039 | ceiling 0.005 | k16/tab -7.53 | digits 2 | freq 1.65x
+mlp13: stake 0.035 | ceiling 0.059 | k16/tab -0.05 | digits 2 | freq 1.43x
+mlp14: stake 0.028 | ceiling 0.039 | k16/tab 0.36 | digits 2 | freq 1.34x
+mlp15: stake 0.035 | ceiling 0.141 | k16/tab 0.78 | digits 3 | freq 3.41x
+mlp16: stake 0.150 | ceiling 0.494 | k16/tab 1.10 | digits 3 | freq 3.59x
+mlp17: stake 0.381 | ceiling 0.497 | k16/tab 0.84 | digits 2 | freq 8.94x
+
+pred_a ceiling-falls True (front05 0.4713 vs back1217 0.206)
+pred_b elbow-late True (3/6 late elbows; early all flat True)
+pred_c stake-barbell True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_ladder_depth_results.json (696.6s)
