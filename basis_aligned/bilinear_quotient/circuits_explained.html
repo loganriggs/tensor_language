@@ -184,6 +184,32 @@ value-residual costs +3.3 nats, content-tilted (§FINDINGS 4a).</span>
 the <em>bag contents</em> — the pool is an aggregate of broadcast token codes.</p>
 </div>
 
+<h2>Postscript: the criterion read straight off the weights — with a minus sign</h2>
+<div class="circuit">
+<p>After this page was first drafted, the matching criterion was pushed all the way down to
+the weight matrices (§1237–1240). Three facts, in the order they fell:</p>
+<p><b>1. It's computable with zero forward passes.</b> Feed raw token embedding codes through
+heads 2.5 and 3.8's actual query/key pipelines and score all pairs: same-token pairs separate
+from different-token pairs <em>perfectly</em> (AUC discriminability 1.00; their sixteen
+layer-mates average 0.00). "Is this the same token?" is a fact about the weights and the
+embedding table alone.</p>
+<p><b>2. The algebra is a mirrored signed conjunction.</b> This architecture's attention score
+is a <em>product of two bilinear forms</em>, and it has no softmax, so scores keep their sign.
+At same-token pairs, each matcher runs one positive-scoring branch and one negative-scoring
+branch — head 2.5 as (+0.74, −0.78), head 3.8 as (−0.80, +0.81), mirror twins — so the product
+is a large, consistently <em>negative</em> match flag. In the live model the matchers really do
+deliver <b>−1× the matched token's value</b> (in-vivo mean signed pattern −0.30 and −0.42,
+99–100% sign-consistent). Even the fetchers split by sign: 8.4 delivers +successor, 8.3
+−successor, each 100% consistent.</p>
+<p><b>3. The minus sign is load-bearing.</b> Flip one matcher's pattern sign — touch nothing
+else — and copying degrades <em>more than if the head were blinded outright</em>
+(<span class="num">1.43</span> vs <span class="num">1.08</span> nats); flip both matchers and
+the damage (<span class="num">7.81</span>) exceeds twice the value of the entire long-range
+system. Wrong-signed evidence is the worst input this program has ever fed the model —
+downstream circuits trust the convention completely. (Flipping a low-value head as control:
+0.0004.)</p>
+</div>
+
 <h2>How the three compose — and one circuit that pointedly doesn't join</h2>
 <p>The composition is a supply chain: <b>block-0 writes a token code → the value-residual
 broadcasts it everywhere → the matchers compare it across distance (circuit 1) → the fetchers

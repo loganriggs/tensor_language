@@ -54,6 +54,14 @@ identifiable-but-redundant heads; independent of content, but content is amplifi
   the implementation; the ~3.2-nat price is indifferent.** Station sharpness: bilin18
   single heads > bilin12 pairs > crowds (bilin12 late §1214, swiglu L8). L3H1 = auxiliary
   of the 3.8 matcher, toxic without it (§1213), diffuse offsets. Arc §1204-18 closed.
+- **SIGNS + WEIGHTS (§1237-1240):** match-identity travels the embedding path, payload-identity
+  the v1 broadcast (§1236-37 scramble dissociation). The criterion is WEIGHTS-READABLE: raw
+  wte codes through 2.5/3.8's q/k pipelines separate same-token pairs perfectly — INVERTED
+  (AUC 0.00; layer-mates 0.50). Algebra: mirrored signed conjunctions (one + branch, one −
+  branch each; product negative 99.8-100%); in vivo the matchers deliver −(matched value)
+  (−0.30/−0.42, 99-100% consistent); fetchers sign-split (8.4 +, 8.3 −). Signs LOAD-BEARING:
+  flip 3.8 costs 1.43 > mask 1.08; both matchers flipped 7.81 (worst garbage-in recorded);
+  differential-pair reading falsified (joint fetcher flip 5.21). Explainer page: circuits_explained.html.
 
 ## Benchmark status
 Mechanistically mapped (MED-HIGH); no compact stand-in exists because the circuit is

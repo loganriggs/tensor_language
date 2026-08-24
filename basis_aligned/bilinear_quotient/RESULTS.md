@@ -4974,3 +4974,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1237 — v1's copy role = mid fetch payload (+1.88); matcher substrate NOT v1 (front +0.036) — match-identity and payload-identity travel different channels; content multi-band super-additive (shared_variable2.py)
 §1238 — matching criterion WEIGHTS-READABLE and ANTI-SIGNED: AUC 0.00/0.002 (perfect inverted separation on raw wte codes); station-specific (layer-mates 0.50); sign follow-up queued (matcher_weights.py)
 §1239 — sign structure complete: matchers = mirrored signed conjunctions delivering −(matched value); fetchers = ± DIFFERENTIAL pair (8.4 +, 8.3 −, 100% consistent); sign-flip causal test queued (matcher_weights2.py)
+§1240 — signs load-bearing: flip 3.8 (1.43) > mask 3.8 (1.08); both matchers flipped 7.81 (worst garbage-in yet); differential read falsified (joint 5.21); control 0.0004 (sign_flip.py)

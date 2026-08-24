@@ -1,0 +1,31 @@
+{
+ "n_rows": 24,
+ "W": 64,
+ "ce": {
+  "base": 0.3613,
+  "flip25": 1.4955,
+  "flip38": 1.7892,
+  "flip2538": 8.1712,
+  "flip83": 2.2563,
+  "flip84": 0.9597,
+  "flip8384": 5.5754,
+  "flip4": 8.2371,
+  "flip170": 0.3617,
+  "true_model": 0.3613
+ },
+ "cost_vs_base": {
+  "flip25": 1.1342,
+  "flip38": 1.4279,
+  "flip2538": 7.8099,
+  "flip83": 1.895,
+  "flip84": 0.5984,
+  "flip8384": 5.2141,
+  "flip4": 7.8758,
+  "flip170": 0.0004
+ },
+ "sanity": true,
+ "pred_a_sign_loadbearing": true,
+ "pred_b_differential": false,
+ "pred_c_control": true,
+ "runtime_s": 107.3
+}

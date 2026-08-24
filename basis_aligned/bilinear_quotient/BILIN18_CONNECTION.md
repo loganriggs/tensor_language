@@ -32395,3 +32395,13 @@ matcher_weights_results.json; runlogs/matcher_weights.log (104s). Queued: matche
 - Queued closer: sign_flip (flip pat → −pat for named heads only, repeat rows) — is the convention load-bearing (downstream expects −v), and is the fetcher pair read differentially (flipping ONE arm worse than flipping BOTH)?
 
 matcher_weights2_results.json; runlogs/matcher_weights2.log (230s).
+
+## §1240 — THE SIGN CONVENTION IS LOAD-BEARING, AND WRONG-SIGNED EVIDENCE IS THE WORST INPUT YET: flipping 3.8's pattern sign costs 1.43 (MORE than blinding it, 1.08); both matchers flipped = 7.81 (3× the singles' sum, 2.4× the whole read-mask budget); the differential-pair hypothesis FALSIFIED in strong form (joint fetcher flip 5.21 ≫ singles 1.90/0.60); control flip 0.0004; preds a & c TRUE, pred_b FALSE (sign_flip.py)
+
+- **pred_a TRUE:** downstream consumers read the matchers' −(matched value) convention literally — invert it and the model is anti-informed: it treats the match flag as its own negation. Worse than no information (mask 1.08 < flip 1.43), and compounding: two inverted matchers (7.81) are far worse than the entire attention system blinded (3.20). The garbage-worse-than-nothing ladder now reads: stale bias (§1093) < wrong identity (§1236, 4.06) < wrong-signed match evidence (7.81).
+- **pred_b FALSE:** if 8.3/8.4 were read as a difference, flipping BOTH would preserve it up to global sign — instead the joint flip (5.21) is catastrophic vs singles (1.90/0.60). Each arm's absolute sign convention is individually consumed; the §1207 within-pair redundancy stays "coverage at read grain," now with the caveat that the two arms carry OPPOSITE-signed copies of the same payload (§1239) whose conventions downstream knows separately.
+- pred_c TRUE (near-zero-value head flips free; sanity exact).
+
+**The weights-relative thread (§1237-1240) closes the deepest loop of the program:** the matching criterion is computable from the weight matrices + embedding table alone (§1238), its algebra is a mirrored signed conjunction (§1239), the live model uses exactly that algebra with consistent negative polarity (§1239 in-vivo), and the polarity is causally load-bearing to the tune of being worse-than-blindness when inverted (§1240). What/where/why/how — all four, closed at weight grain, for the circuit the explainer page describes.
+
+sign_flip_results.json; runlogs/sign_flip.log (107s).
