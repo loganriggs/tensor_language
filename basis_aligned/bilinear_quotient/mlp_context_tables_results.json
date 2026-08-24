@@ -1,0 +1,78 @@
+{
+ "n_fit": 1920,
+ "n_eval": 480,
+ "k_tok": 16,
+ "k_ctx": 16,
+ "layers": [
+  {
+   "layer": 17,
+   "ce": {
+    "full": 3.1662,
+    "mean": 3.5467,
+    "tok50k": 3.3576,
+    "tok16": 3.3872,
+    "ctx16": 3.3323,
+    "tok16xctx16": 3.3139,
+    "tok16xrand16": 3.3872
+   },
+   "stake": 0.3805,
+   "recovery": {
+    "tok50k": 0.4969,
+    "tok16": 0.4192,
+    "ctx16": 0.5634,
+    "tok16xctx16": 0.6117,
+    "tok16xrand16": 0.4192
+   },
+   "ctx_increment": 0.1925,
+   "ctx_token_purity": 0.133
+  },
+  {
+   "layer": 16,
+   "ce": {
+    "full": 3.1662,
+    "mean": 3.3167,
+    "tok50k": 3.2424,
+    "tok16": 3.2352,
+    "ctx16": 3.2199,
+    "tok16xctx16": 3.2155,
+    "tok16xrand16": 3.2352
+   },
+   "stake": 0.1505,
+   "recovery": {
+    "tok50k": 0.4937,
+    "tok16": 0.5417,
+    "ctx16": 0.6433,
+    "tok16xctx16": 0.6721,
+    "tok16xrand16": 0.5415
+   },
+   "ctx_increment": 0.1306,
+   "ctx_token_purity": 0.145
+  },
+  {
+   "layer": 1,
+   "ce": {
+    "full": 3.1662,
+    "mean": 10.1633,
+    "tok50k": 3.5543,
+    "tok16": 7.3281,
+    "ctx16": 7.1915,
+    "tok16xctx16": 5.5043,
+    "tok16xrand16": 7.3218
+   },
+   "stake": 6.9971,
+   "recovery": {
+    "tok50k": 0.9445,
+    "tok16": 0.4052,
+    "ctx16": 0.4247,
+    "tok16xctx16": 0.6658,
+    "tok16xrand16": 0.4061
+   },
+   "ctx_increment": 0.2597,
+   "ctx_token_purity": 0.1729
+  }
+ ],
+ "pred_a_context_real_at_top": true,
+ "pred_b_256_beats_50k": true,
+ "pred_c_front_control": false,
+ "runtime_s": 156.4
+}

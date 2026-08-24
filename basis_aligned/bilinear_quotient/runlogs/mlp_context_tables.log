@@ -1,0 +1,10 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [assert_disjoint mlp_context_tables] 0 of 480 priced rows appear in the fitting corpus -> ok
+mlp17: stake 0.381 | tok50k 0.497 tok16 0.419 ctx16 0.563 tok16xctx16 0.612 null 0.419 | incr +0.193 | purity 0.133
+mlp16: stake 0.150 | tok50k 0.494 tok16 0.542 ctx16 0.643 tok16xctx16 0.672 null 0.541 | incr +0.131 | purity 0.145
+mlp1: stake 6.997 | tok50k 0.945 tok16 0.405 ctx16 0.425 tok16xctx16 0.666 null 0.406 | incr +0.260 | purity 0.173
+
+pred_a context-real True (incr +0.193)
+pred_b 256-beats-50k True (0.612 vs ceiling 0.497)
+pred_c front-control False (mlp1 incr +0.260)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_context_tables_results.json (156.4s)
