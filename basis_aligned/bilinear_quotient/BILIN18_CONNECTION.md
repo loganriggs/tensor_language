@@ -32607,3 +32607,12 @@ pool_subspace3_results.json; runlogs/pool_subspace3.log (141s). Pool thread (§1
 Closing picture of the far-pooling channel, one level deeper than §1266: **about half its causal value lives in ~2 nameable directions — the dominant one adjacent to the stream's BASELINE (the same operating-point object the sink head delivers as a constant) — while the other half stays distributed; its subspace is shared with the copy machinery's verdict coordinates rather than disjoint from them.** The "mechanism vs crowd" poles stand at the algorithm level; at the representation level the two channels interleave in the same few working coordinates plus a spread tail. Content-basis energy replicates at 0.30 (third measurement).
 
 pool_names_results.json; runlogs/pool_names.log (349s). Pool naming thread closed; the §1262-67 arc is complete.
+
+## §1268 — THE TWO LOAD-BEARING DIRECTIONS, IDENTIFIED AS FAR AS THE INSTRUMENT REACHES: dir0 IS the baseline (cos 0.905 — pred_a TRUE); dir2 is NOT a position ramp (r 0.070 — pred_b FALSE, the §1087 context-length hypothesis dies for it) and misses the content-tilt bar by a hair (0.504 vs 0.511 — pred_c FALSE by 1.4%); the far channel's final ledger: baseline maintenance + one position-flat half-content carrier + a distributed tail (pool_dir2.py)
+
+Arc close (§1262-68, seven experiments, three instrument iterations, two named directions):
+- **What the prose far-pooling channel IS:** ~0.067 nats (mid-band) whose causal value splits into (i) maintenance of the stream's BASELINE/operating point (dir0 = the §1089 baseline object, delivered here by the crowd's far reads rather than the sink's constant fetch — the two mechanisms co-maintain one variable), (ii) one dominant position-flat direction, half its energy content-basis, resisting further naming at current instruments (dir2, single-removal 0.078 with the §1091 partial-removal caveat), and (iii) a genuinely distributed remainder (~half the channel).
+- **What it is NOT:** a computable bag (§1262), a content-coordinate signal at mid-stream (6.5%, §1263), a compact subspace (46%@16, §1266), a context-length ramp (this run), or anything a small ensemble carries (§1222).
+- The §1087 rhyme is completed rather than confirmed: L5H7's donor-free "generic pooled-context signal" and the crowd's baseline direction are plausibly the same operating-point variable — the head delivers it as a constant, the crowd maintains it dynamically; dir2 is something else.
+
+pool_dir2_results.json; runlogs/pool_dir2.log (143s). **Pool arc (§1262-68) closed.**
