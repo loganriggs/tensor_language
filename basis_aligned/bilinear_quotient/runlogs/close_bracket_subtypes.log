@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+plain: n 889
+double: n 4
+comma: n 274
+period: n 374
+quote: n 26
+other: n 212
+base: plain 0.917 double 5.130 comma 1.552 period 1.172 quote 1.740 other 1.951
+h138: plain 1.630 double 9.964 comma 2.227 period 1.654 quote 3.695 other 2.670
+a13_full: plain 1.661 double 9.770 comma 2.265 period 1.658 quote 3.680 other 2.696
+a13_minus138: plain 0.929 double 4.889 comma 1.558 period 1.171 quote 1.696 other 1.972
+a12: plain 0.926 double 5.751 comma 1.566 period 1.251 quote 1.841 other 2.059
+a14: plain 0.857 double 5.462 comma 1.742 period 1.343 quote 1.797 other 2.151
+plain: n 889 | 13.8 +0.713 of a13 +0.744 (share 0.9583) | helpers +0.012 | a12 +0.009 a14 -0.060
+double: n 4 | 13.8 +4.834 of a13 +4.641 (share 1.0417) | helpers -0.241 | a12 +0.622 a14 +0.333
+comma: n 274 | 13.8 +0.674 of a13 +0.712 (share 0.9467) | helpers +0.006 | a12 +0.014 a14 +0.190
+period: n 374 | 13.8 +0.482 of a13 +0.486 (share 0.9914) | helpers -0.001 | a12 +0.079 a14 +0.171
+quote: n 26 | 13.8 +1.955 of a13 +1.941 (share 1.0074) | helpers -0.044 | a12 +0.102 a14 +0.058
+other: n 212 | 13.8 +0.719 of a13 +0.745 (share 0.9643) | helpers +0.021 | a12 +0.108 a14 +0.200
+pred_a plain-core True | pred_b user-helpers False | pred_c double False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/close_bracket_subtypes_results.json (97.0s)

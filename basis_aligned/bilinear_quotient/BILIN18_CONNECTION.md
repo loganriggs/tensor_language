@@ -33292,3 +33292,20 @@ capitalized_screen_results.json; runlogs/capitalized_screen.log (99s).
 - USER REFINEMENT RECEIVED (mid-run): the target class is HETEROGENEOUS — ")" vs "))" vs ")," vs ")." vs ")\"" are different jobs (a double close means depth >= 2; a ")," must also place the comma), and the user conjectures OTHER heads assist on the compound forms. Queued (close_bracket_subtypes.py) with the conjecture registered as pred_b in the user's name: per-subtype decomposition of the damage — 13.8 solo vs full a13 vs a13-minus-13.8 vs neighbor layers, per target-token form. Registered: pred_a 13.8's share >= 0.90 on PLAIN ")" targets; pred_b (USER CONJECTURE) at least one compound subtype has a 13.8-share lower than plain's by >= 0.15 — helpers carry the compound part; pred_c the DOUBLE close "))" is the most helper-dependent subtype (lowest 13.8 share — two-level depth needs the most extra machinery).
 
 close_bracket_heads_results.json; runlogs/close_bracket_heads.log (271s).
+
+## §1341 — SUBTYPE DECOMPOSITION: 13.8 OWNS EVERY SUBTYPE INSIDE L13 (share 0.95-1.04 on plain/comma/period/quote — the user's helper conjecture FAILS at the within-layer grain) BUT VINDICATES ITSELF ACROSS LAYERS: a14 assists exactly the compound closes (comma +0.190, period +0.171, other +0.200) while being NEGATIVE on plain (−0.060) — the trailing-punctuation half of a compound close is another layer's job; pred_a TRUE, pred_b FALSE as registered, pred_c UNEVALUABLE (double n=4) (close_bracket_subtypes.py)
+
+  subtype  n     base-CE  dmg 13.8  dmg a13  share  helpers(L13)  a12      a14
+  plain    889   0.917    +0.713    +0.744   0.958  +0.012        +0.009   −0.060
+  comma    274   1.552    +0.674    +0.712   0.947  +0.006        +0.014   +0.190
+  period   374   1.172    +0.482    +0.486   0.991  −0.001        +0.079   +0.171
+  quote    26    1.740    +1.955    +1.941   1.007  −0.044        +0.102   +0.058
+  other    212   1.951    +0.719    +0.745   0.964  +0.021        +0.108   +0.200
+  double   4     5.130    (+4.834)  (+4.641) —      —             (+0.622) (+0.333)  UNEVALUABLE
+
+- pred_b (USER CONJECTURE) FAILED AS REGISTERED — at the grain it was registered at: no compound subtype's 13.8-share drops below plain's by 0.15 (all sit in 0.95-1.04; L13's other eight heads contribute <= +0.021 on every evaluable subtype). WITHIN layer 13, the close-bracket capability is 13.8 on every form of the close.
+- BUT THE CONJECTURE'S SUBSTANCE WAS RIGHT, one layer later, and the a14 column is the finding: ablating a14 costs +0.17 to +0.20 nats on comma/period/other closes — the forms where the model must place TRAILING PUNCTUATION with the bracket — while on plain ")" it is NEGATIVE (−0.060: removing a14 mildly HELPS the bare close). That is a subtype-selective division of labor ACROSS layers: 13.8 computes "close now", a14 handles what rides along with the close, and on bare closes a14's contribution is net interference. a12 shows a weaker echo (+0.08-0.11 on period/quote/other). The compound closes also confirm the "more details going on" reading upstream of any head: their base CE is 1.2-1.9 vs plain's 0.92 — they are genuinely harder predictions.
+- pred_c UNEVALUABLE, disclosed rather than scored on air: "))" occurs 4 times in 1920 rows (as a same-token double; depth >= 2 with split tokens lands in "plain" by construction). The double-close question needs a targeted corpus or a token-split-aware mask; logged as the thread's tail, with the n=4 raw numbers quoted but carrying no weight.
+- THREAD STATE: close-bracket is now [owner head 13.8 (every subtype) + a14's trailing-punctuation assist + a12 minor]. The extraction rung, when it runs, should gate 13.8 + a14 rather than 13.8 alone, and the a14 negative-on-plain sign predicts the §1334-style inversion will appear if a14 is left live on plain targets.
+
+close_bracket_subtypes_results.json; runlogs/close_bracket_subtypes.log (97s).

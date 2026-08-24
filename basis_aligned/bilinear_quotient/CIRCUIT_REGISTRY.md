@@ -25,7 +25,7 @@ conditionality measured).
 | Circuit | Stage | Key facts | §refs |
 |---|---|---|---|
 | **Comparative (8.1)** | **CLOSED** | route + 2 zero-bit gates + 8.1 = 0.659 (85% of band), else route+0.014; 26x surgical; head worthless without annotator | §1303-08, §1329-33 |
-| **Question (10.5)** | **CLOSED** | [route + clause gate L0-5 + 10.5] = 0.714 at else route+0.013; annotator = a02 mark + L4 CROWD (63% of mid service, no head >= 32% — DIFFUSE bet won); owner-vs-crowd contrast with comparative | §1284, §1313, §1334-36 |
+| **Question (10.5)** | CLOSED, kit slimming | layer-grain kit = 0.714 (§1336); user push: whole gated layers are lazy — head-grain slimming in flight (drop-one ranking over the 36-head a02+L4 core, nested kits 16/12/8/4) | §1284, §1313, §1334-36, slim in flight |
 | Exclamation (17.2+17.3) | G3 done | additive half-head pair, 91% share; criterion stream-computed; template NOT yet applied (L17 → expect route to carry more) | §1315-20 |
 | Stem matcher (1.1+1.8) | G3 done | weights-read certified on natural text (78% variant-support damage, in-band) | §1307-08 |
 | Induction/copy stations | G1 partial | route-grain closure 79% (§1316); payload rungs 4-5 negative; stations 2.5/3.8/8.3/8.4 | §1311-16, §1204-18 |
@@ -38,7 +38,7 @@ conditionality measured).
 
 | Behavior | Leader | Target dmg vs elsewhere | n | Note |
 |---|---|---|---|---|
-| **close_bracket** | **13.8** | **NEW NAMED HEAD §1340**: 96.5% of layer solo, both directions agree, ~570x surgical | 1779 | subtype decomposition in flight (user conjecture: compound closes )),).,)" need helpers) |
+| **close_bracket** | **13.8** (+a14 assist) | 13.8 owns EVERY subtype in-layer (0.95-1.04, §1341); a14 = trailing-punctuation helper (+0.17..0.20 compounds, NEGATIVE on plain); extraction rung should gate 13.8+a14 | 1779 | next: extraction with bracket gates; double-close needs targeted corpus |
 | capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | NO layer-owner (1.1x) — first late-band shared capability; PARKED behind close-bracket; extraction starts from a band gate |
 | open_quote | a10 | +0.272 vs +0.020 | 90 | ctrl 8.9 dirty — re-screen |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |
