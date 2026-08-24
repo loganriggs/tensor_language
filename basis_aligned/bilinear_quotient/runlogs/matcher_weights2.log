@@ -1,0 +1,7 @@
+factors {"2.5": {"s1_pos_share": 1.0, "s2_pos_share": 0.002, "s1_mean": 0.7418, "s2_mean": -0.78171, "prod_mean": -0.586156, "prod_neg_share": 0.998}, "3.8": {"s1_pos_share": 0.0, "s2_pos_share": 1.0, "s1_mean": -0.79898, "s2_mean": 0.80756, "prod_mean": -0.646095, "prod_neg_share": 1.0}}
+2.5 @o=128: signed -0.30283 | abs 0.30665
+3.8 @o=128: signed -0.42059 | abs 0.42059
+8.3 @o=127: signed -0.11868 | abs 0.11868
+8.4 @o=127: signed 0.19027 | abs 0.19029
+pred_a anti True | pred_b fetchpos False | pred_c factor True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/matcher_weights2_results.json (230.4s)

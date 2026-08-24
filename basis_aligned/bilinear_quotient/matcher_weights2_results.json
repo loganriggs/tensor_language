@@ -1,0 +1,43 @@
+{
+ "n_tokens": 512,
+ "factors_same_token": {
+  "2.5": {
+   "s1_pos_share": 1.0,
+   "s2_pos_share": 0.002,
+   "s1_mean": 0.7418,
+   "s2_mean": -0.78171,
+   "prod_mean": -0.586156,
+   "prod_neg_share": 0.998
+  },
+  "3.8": {
+   "s1_pos_share": 0.0,
+   "s2_pos_share": 1.0,
+   "s1_mean": -0.79898,
+   "s2_mean": 0.80756,
+   "prod_mean": -0.646095,
+   "prod_neg_share": 1.0
+  }
+ },
+ "invivo": {
+  "2.5": {
+   "mean_signed": -0.30283,
+   "mean_abs": 0.30665
+  },
+  "3.8": {
+   "mean_signed": -0.42059,
+   "mean_abs": 0.42059
+  },
+  "8.3": {
+   "mean_signed": -0.11868,
+   "mean_abs": 0.11868
+  },
+  "8.4": {
+   "mean_signed": 0.19027,
+   "mean_abs": 0.19029
+  }
+ },
+ "pred_a_invivo_anti": true,
+ "pred_b_fetchers_pos": false,
+ "pred_c_factor_consistent": true,
+ "runtime_s": 230.4
+}
