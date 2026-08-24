@@ -31895,3 +31895,13 @@ Composed ledger now: WHERE all 162 heads look (weights, ≤128-token windows) + 
 **Ladder climb queued (mlp_ladder_stack.py, registered) — where is the wall?** Same construction one layer at a time: mlp2@W32, mlp3@W64, mlp4@W64. The transition dossier says content is born L3-5; the n-gram construction should hit it. (a) mlp2@W32 ≤ 0.05; (b) mlp3@W64 ≤ 0.10; (c) mlp4@W64 ≥ 0.20 (the content wall — its input is the §1094 precursor, a pooled non-local object); (d) stack6 = stack4 + {mlp2, mlp3} ≤ 0.10 with sub-additivity persisting.
 
 tabulated_stack4_results.json; runlogs/tabulated_stack4.log (137s).
+
+## §1179 — NO WALL AT L4 (pred_c FALSE, and it reframes the ledger): mlp4 as a 64-gram function costs 0.004 — the CHEAPEST entry; mlp2/mlp3 ≈ 0.013 each; stack6 = 0.0303 (adding both cost +0.0006 jointly) — the stack certifies CONTEXT-LOCALITY, not tabulability (mlp_ladder_stack.py)
+
+**The registered wall did not exist.** mlp2@W32 0.0129, mlp3@W64 0.0124, mlp4@W64 0.0040. The prediction assumed mlp4's content-precursor input (§1094) is a long-range object; it is not — §1065 already said the content code is predominantly RUNNING LOCAL context, and a 64-token window carries it. Sub-additivity holds a FIFTH time (stack6 0.0303 vs stack4 0.0297 + 0.0253 parts).
+
+**Framing correction, stated plainly:** "maximally-tabulated model" was the wrong name. These reductions RUN the real weights on truncated context (window functions), they do not tabulate — only the L0 tables (writeup 477) and the sink constant are literal lookups. No tension with §1127's construction theorem: deep MLPs must be RUN (no fixed map simulates them), but they only need ~64 tokens of context to run on. The ledger is a **window-certificate stack**: {selection ≤128-tok windows, sink constant, mlp0-4 as ≤64-gram functions} = 0.030 nats.
+
+**Capstone queued (full_window_model.py, registered) — the whole model as a window function:** run the ENTIRE model per-position on only its last W tokens, W ∈ {16, 32, 64, 128}, scored at positions ≥128 (full-context base as reference). This is the VALUES-side complement to the selection result: how much of total function is genuinely long-range at all. (a) monotone in W; (b) W=64 costs ≤ 0.15; (c) W=128 ≤ 0.05. Cross-refs: writeup 482 (single-layer 4-tok windows ≤0.086 + sink), §1065 (content multi-scale but running-local), induction (§953-54: distant reads real but redundant).
+
+mlp_ladder_stack_results.json; runlogs/mlp_ladder_stack.log (147s).

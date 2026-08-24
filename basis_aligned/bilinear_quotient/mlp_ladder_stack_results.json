@@ -1,0 +1,29 @@
+{
+ "n_rows": 16,
+ "W": 128,
+ "ce": {
+  "base": 3.3627,
+  "stack4": 3.3924,
+  "m2ng": 3.3756,
+  "m3ng": 3.3751,
+  "m4ng": 3.3667,
+  "stack6": 3.393,
+  "true_model": 3.3627
+ },
+ "cost_vs_base": {
+  "stack4": 0.0297,
+  "m2ng": 0.0129,
+  "m3ng": 0.0124,
+  "m4ng": 0.004,
+  "stack6": 0.0303
+ },
+ "refs": {
+  "stack4_1178": 0.0297
+ },
+ "sanity_base_matches_true": true,
+ "pred_a_mlp2_cheap": true,
+ "pred_b_mlp3_cheap": true,
+ "pred_c_mlp4_wall": false,
+ "pred_d_stack6": true,
+ "runtime_s": 146.8
+}

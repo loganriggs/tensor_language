@@ -1,0 +1,8 @@
+batch 1/4 done 66s
+batch 2/4 done 93s
+batch 3/4 done 120s
+batch 4/4 done 147s
+CE {'base': 3.3627, 'stack4': 3.3924, 'm2ng': 3.3756, 'm3ng': 3.3751, 'm4ng': 3.3667, 'stack6': 3.393, 'true_model': 3.3627}
+costs {'stack4': 0.0297, 'm2ng': 0.0129, 'm3ng': 0.0124, 'm4ng': 0.004, 'stack6': 0.0303}
+sanity True | pred_a m2 True | pred_b m3 True | pred_c m4-wall False | pred_d stack6 True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_ladder_stack_results.json (146.8s)
