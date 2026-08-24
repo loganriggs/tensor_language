@@ -32824,3 +32824,11 @@ head_partition4_results.json; runlogs/head_partition4.log.
 - Copy-circuit dossier updated implication: §1228's "builders = attn0/1" at layer grain resolves at head grain to this pair (in layer 1), with layer 0 as the diffuse backstop (§1289).
 
 writer_cross2_results.json; runlogs/writer_cross2.log (110s).
+
+## §1296 — THE TWO ANNOTATORS USE OPPOSITE ALGORITHMS, AND THE PAIR IS SUFFICIENT-NOT-NECESSARY: at match sources 1.1's attention is LOCAL (self 0.32 + prev 0.28 + near 0.26 = 86% within +-8) while 1.8's is GLOBAL (far 76%, self+prev 6.6%); mean-ablating only the pair everywhere costs just 0.017 at induction (conc 0.42) — the remaining front band covers; pred_a FALSE by a hair (self+prev 0.594 vs the 0.6 bar — the LOCAL reading stands, the bar was drawn one band too narrow), pred_b TRUE, pred_c FALSE and it completes the redundancy picture (pair_profile.py)
+
+- The puzzle sharpened: how does a head that mostly reads FAR positions (1.8) write a mark at the current position that lets matchers find it? Hypothesis registered for the next cell: the two heads write DIFFERENT BUT INTERCHANGEABLE annotations — 1.1 an identity mark ("this position holds token X", from its local read), 1.8 a context signature ("this position sits in context Y", from its far pool). On repeat text both work: repeated tokens sit in repeated contexts, so matching on either finds the source. On natural prose the two coincide; a discriminating dataset must decouple them.
+- pred_c's lesson: sufficiency was certified by keep-one-alive (§1289/91/95); NECESSITY fails at pair grain because annotation is redundant beyond the pair (L0's diffuse backstop, §1289; the §1287 superadditivity). The annotation SERVICE is load-bearing; no small subset of its writers is.
+- Queued (pair_algo.py): synthetic rows — random token sequences with planted repeated bigrams, so token identity repeats but surrounding context does NOT. Keep-one-alive at source positions. Registered: if 1.1 = identity-marker and 1.8 = context-signature, 1.1's restore should now EXCEED 1.8's by >= 20 points (reversing the natural-text order, where 1.8 led 84% to 70%).
+
+pair_profile_results.json; runlogs/pair_profile.log (114s).
