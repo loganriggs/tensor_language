@@ -214,6 +214,15 @@ downstream circuits trust the convention completely. (Flipping a low-value head 
 <p>The composition is a supply chain: <b>block-0 writes a token code → the value-residual
 broadcasts it everywhere → the matchers compare it across distance (circuit 1) → the fetchers
 deliver it from the matched site (circuit 2) → the crowd pools it into topic (circuit 3)</b> —
+and the matcher branch has since been resolved two steps further (§1242–1245): the −(matched
+value) vector the matchers write is <em>consumed on the spot</em> — the MLP in the matcher's own
+block (mlp3, with mlp2 assisting; 87% of the write's value flows through them) immediately
+re-encodes the evidence into the stream's working form, and block 5 then <em>cleans the raw
+vector out of the stream entirely</em> (its projection collapses 86% across that one block, 4×
+the passive decay rate of control writes). Downstream circuits run on the re-encoding, never
+the raw vector — hide it from the cleanup MLPs and the unprocessed anti-signed vector pollutes
+everything after (+2.3 nats); delete it a second time after cleanup and the model reads the
+deletion itself as anti-match evidence (+3.8) —
 with the deep MLPs and readout consuming the last two products. Circuits 1+2 dominate when text
 repeats (3.2 nats at stake); circuit 3 dominates on fresh prose (0.07 nats at stake but feeding
 the hard 77% of prediction). Because all three are downstream of one variable, a single

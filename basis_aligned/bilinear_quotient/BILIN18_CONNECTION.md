@@ -32438,3 +32438,11 @@ The null is unambiguous: mlp4/5's sensitivity is matcher-vector-specific, not ge
 The non-monotone curve, the blind-mlp45 cost, and the keep-then-delete cheapness are one mechanism seen from three sides. Registered signature test queued (matcher_janitor): in the BASE model, the stream's projection onto the raw write direction should drop sharply across blocks 4-5 (active cancellation) while null-head writes only λ-decay.
 
 matcher_reencode2_results.json; runlogs/matcher_reencode2.log (154s).
+
+## §1245 — THE JANITOR IS BLOCK 5, MEASURED: the matcher write's stream projection rides at 2.0-2.5 through block-4/5 entries then COLLAPSES to 0.34 at block-6 entry (86% removed in one block; L4→L6 ratio 0.138) while null writes decay passively (0.527) — matcher-specific cancellation 4× the generic rate; preds a & c TRUE, pred_b FALSE (the generic-decay bar was set too high — nulls decay 47%, the stream is lossier than registered; the SPECIFICITY claim is what stands) (matcher_janitor.py)
+
+Base-model measurement, no intervention: per-position projection of the residual stream onto each recorded write direction, blocks 3-8. Full profile (matcher): 1.96 → 2.48 → 2.00 → **0.34** → 0.26 → 0.28. The −(matched value) vector is amplified into block 4, consumed through block 5, and gone by block 6 — exactly where §1241's subtraction spike sat (removing it "again" at 6 injects −raw into a stream that already cleaned it).
+
+**The §1237-1245 weights-and-mechanism thread closes.** The copy circuit's front end, complete at component grain with signs: builders attn0/1 write bigram-flavored identity (§1228-30) → matchers 2.5/3.8, whose criterion is a weights-readable mirrored signed conjunction (§1238-39), write −(matched value) (§1239, load-bearing §1240) → mlp3 (with mlp2) immediately re-encodes the evidence (87%, §1243) → block 5 cancels the raw vector from the stream (86% in one block, §1245; hiding it from mlp4/5 instead costs 2.34, §1244) → the fetch band and beyond run on the re-encoded form. Ten registered experiments, three instrument catches (§1231 overfit, §1241 quarantine, §1243 confound), every step causal with nulls.
+
+matcher_janitor_results.json; runlogs/matcher_janitor.log (91s).
