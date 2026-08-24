@@ -1,0 +1,8 @@
+batch 1/4 done 71s
+batch 2/4 done 113s
+batch 3/4 done 155s
+batch 4/4 done 197s
+CE {'base': 3.2425, 'fold_all': 3.2573, 'fold_shuffled': 4.7976, 'true_model': 3.2425}
+costs {'fold_all': 0.0148, 'fold_shuffled': 1.5551} | map hits {'0': 1.0, '1': 0.96, '5': 0.909, '9': 0.846, '13': 0.804, '17': 0.857}
+sanity True | pred_a universal True | pred_b null True | pred_c map True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fold_family_results.json (197.0s)

@@ -1,0 +1,32 @@
+{
+ "model": "swiglu18",
+ "n_rows": 16,
+ "W": 128,
+ "ce": {
+  "base": 3.2425,
+  "fold_all": 3.2573,
+  "fold_shuffled": 4.7976,
+  "true_model": 3.2425
+ },
+ "cost_vs_base": {
+  "fold_all": 0.0148,
+  "fold_shuffled": 1.5551
+ },
+ "map_hit_by_layer": {
+  "0": 1.0,
+  "1": 0.96,
+  "5": 0.909,
+  "9": 0.846,
+  "13": 0.804,
+  "17": 0.857
+ },
+ "bilin18_refs": {
+  "fold_all": 0.0141,
+  "null": 1.5134
+ },
+ "sanity_base_matches_true": true,
+ "pred_a_family_universal": true,
+ "pred_b_null": true,
+ "pred_c_map_transfers": true,
+ "runtime_s": 197.0
+}

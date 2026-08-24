@@ -108,7 +108,8 @@
     functions computed from the weights applied to each position's last ~128 tokens, run the model, and it
     loses just <b>0.014 nats</b> (the same reconstruction fed the wrong text costs 1.51). The model's entire
     selection machinery is a bounded-window function; everything genuinely long-range travels in the pooled
-    content, never in the selection.</p>
+    content, never in the selection. The sibling model — independently trained, ordinary softmax attention —
+    pays almost exactly the same price (+0.015): the law belongs to the task, not the architecture.</p>
     <div class="stats"><span class="stat"><b>98.5%</b>of the top head = one fixed vector</span>
     <span class="stat"><b>+0.014</b>nats to fold all 162 patterns</span></div>
     <p class="ref">§429–432 (sink arc), §1089–1093, §1161–1166 (fold capstone)</p>

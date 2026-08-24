@@ -803,7 +803,10 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   (front five layers alone: +0.001; the same reconstruction fed the wrong text: +1.51). Where
   this model looks is a bounded-window function of the recent text, computable from the weights,
   everywhere in the stack. Whatever is genuinely long-range in its behavior travels in the
-  pooled <em>content</em> — the values riding the stream — never in the selection.</p>
+  pooled <em>content</em> — the values riding the stream — never in the selection. And the law is
+  a property of the training task, not this architecture: the sibling model, trained independently
+  with ordinary softmax attention, pays almost exactly the same price for total pattern
+  replacement — +0.015 nats against bilin18's +0.014.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping
