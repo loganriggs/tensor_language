@@ -232,7 +232,13 @@ copying function returns. The axis even turns out to be family-general — three
 sibling (which matches inside its keys and has no matcher heads at all) carries its verdict
 on one stable stream direction (1.18 nats, prose spared 71:1), and so does the 12-layer
 sibling (1.75 nats — over half its copy budget on one direction). Three architectures
-implement matching differently and <em>converge on the same intermediate representation</em> — hide it from the cleanup MLPs and the unprocessed anti-signed vector pollutes
+implement matching differently and <em>converge on the same intermediate representation</em>.
+The reduction was finally pushed to the whole four-head front end: compute the match from the
+weights, write the verdict on the axis, and deliver the found source's successor token's
+layer-0 code through the fetcher heads' projections with their two measured signed constants —
+<b>0.78</b> of the four heads' function returns, everything computed from weight matrices, the
+embedding table, and four scalars. (Flip the two signs and recovery goes to −111%: the
+conventions are semantic content, not gauge.) — hide it from the cleanup MLPs and the unprocessed anti-signed vector pollutes
 everything after (+2.3 nats); delete it a second time after cleanup and the model reads the
 deletion itself as anti-match evidence (+3.8) —
 with the deep MLPs and readout consuming the last two products. Circuits 1+2 dominate when text
