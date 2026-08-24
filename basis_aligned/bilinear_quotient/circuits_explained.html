@@ -257,7 +257,11 @@ is the striking part: <b>"+1" is carved into the head's weight matrices.</b> Pus
 raw embedding code through 8.7's value and projection weights and read the result against the
 unembedding: for all eight digits tested, the top-ranked prediction is the <em>next</em> digit
 (successor logits 2–4× the digit's own; a control head scores 1 of 8 at chance rank). No
-lookup, no forward pass — two weight matrices compose into the successor function. The model
+lookup, no forward pass — two weight matrices compose into the successor function. And it is
+not digits-only: the same map ranks Tuesday after Monday (6/6 weekday pairs top-3, five rank-1)
+and February after January (8/11 month pairs, seven rank-1), and ablating the head at
+weekday/month-successor positions costs 55× its elsewhere damage — one successor head for every
+ordered lexicon tested (§1278). The model
 now shows three long-range designs side by side: equality in the weights (circuit 1),
 computed-state fetching (circuit 4), and arithmetic in the weights (this one) — §1277.</span>
 </div>
