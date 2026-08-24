@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 110
+full: target 1.2539 | else 3.1243
+ymean: target 8.2717 | else 7.217
+route: target 5.2029 | else 5.4904
+kit: target 3.6485 | else 5.4324
+kit_gf: target 4.2145 | else 5.8478
+temperature s*=0.95 | target CE 3.6994 (sampled-else fit 5.5833)
+{'full_top1_frac': 0.6727, 'kit_top1_frac': 0.2909, 'full_top5_frac': 0.9455, 'kit_top5_frac': 0.5091, 'kit_keeps_full_top5': 0.5385, 'median_rank_full': 0, 'median_rank_kit': 4}
+
+recovery: kit 0.6588 | +gainfreeze 0.5781 | +temp 0.6515
+pred_a content False (0.54) | pred_b entropy-setter False | pred_c temp False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/comparative_gap_anatomy_results.json (90.9s)

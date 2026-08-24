@@ -1,0 +1,51 @@
+{
+ "n_targets": 110,
+ "n_rows": 1920,
+ "ce": {
+  "full": {
+   "target": 1.2539,
+   "else": 3.1243
+  },
+  "ymean": {
+   "target": 8.2717,
+   "else": 7.217
+  },
+  "route": {
+   "target": 5.2029,
+   "else": 5.4904
+  },
+  "kit": {
+   "target": 3.6485,
+   "else": 5.4324
+  },
+  "kit_gf": {
+   "target": 4.2145,
+   "else": 5.8478
+  },
+  "kit_temp": {
+   "target": 3.6994,
+   "else_sampled": 5.5833
+  }
+ },
+ "recovery": {
+  "kit": 0.6588,
+  "kit_gf": 0.5781,
+  "kit_temp": 0.6515,
+  "route": 0.4373
+ },
+ "temperature": 0.95,
+ "rank": {
+  "full_top1_frac": 0.6727,
+  "kit_top1_frac": 0.2909,
+  "full_top5_frac": 0.9455,
+  "kit_top5_frac": 0.5091,
+  "kit_keeps_full_top5": 0.5385,
+  "median_rank_full": 0,
+  "median_rank_kit": 4
+ },
+ "mlp_note": "ATTENTION-ONLY extraction: all 18 MLPs live in every arm",
+ "pred_a_content_there": false,
+ "pred_b_user_entropy_setter": false,
+ "pred_c_temperature_real": false,
+ "runtime_s": 90.9
+}

@@ -33309,3 +33309,35 @@ close_bracket_heads_results.json; runlogs/close_bracket_heads.log (271s).
 - THREAD STATE: close-bracket is now [owner head 13.8 (every subtype) + a14's trailing-punctuation assist + a12 minor]. The extraction rung, when it runs, should gate 13.8 + a14 rather than 13.8 alone, and the a14 negative-on-plain sign predicts the §1334-style inversion will appear if a14 is left live on plain targets.
 
 close_bracket_subtypes_results.json; runlogs/close_bracket_subtypes.log (97s).
+
+## §1342 — THE QUESTION KIT SLIMS 36 -> 16 HEADS FOR 1 POINT (0.641 vs 0.651) AND 8 HEADS BEAT THE WHOLE 27-HEAD FRONT BAND (0.584 vs §1334's 0.545); the drop-cost ranking names the true carriers — 4.0/4.1/4.7 (the L4 trio, +0.20/+0.17/+0.16) with CROSS-CIRCUIT GUESTS 0.3 (the bigram router) and 1.1 (a stem-matcher head) in the top eight; preds a, b, c ALL TRUE (question_kit_slim.py)
+
+  kit        heads  target-rec  else-rec
+  kit36      36     0.651       0.435     (the §1336 a02+L4 core, anchor)
+  kit16      16     0.641       0.435
+  kit12      12     0.619       0.434
+  kit8        8     0.584       0.434
+  kit4        4     0.518       0.433
+  drop-cost top-8: 4.0 (+0.203), 4.1 (+0.168), 4.7 (+0.160), 2.6 (+0.078), 4.4 (+0.073),
+                   0.3 (+0.065), 1.1 (+0.061), 4.5 (+0.055)
+
+- THE USER'S PUSH VINDICATED IN FULL: whole gated layers were carrying dead weight. Sixteen heads reproduce the 36-head kit to a point; EIGHT heads beat the entire gated front band that §1334 needed 27 heads for. The honest question kit is now [route + clause gate on 16 named heads + 10.5] = 0.641, and the drop-cost table is its parts manifest.
+- THE L4 "CROWD" HAS A CORE AFTER ALL, at the right instrument: §1336's solo-add screen showed no head above 32% (additions are masked by redundancy); DROP-cost shows 4.0/4.1/4.7 each cost 0.16-0.20 to remove — three near-equal load-bearers, not nine. Both statements are true: no single owner (removing any one leaves two), but the crowd is THREE deep, not nine. Add-grain and drop-grain measure different things; the kit wants drop-grain.
+- CROSS-CIRCUIT SHARING, FIRST DIRECT SIGHTING IN A KIT: head 0.3 — the bigram ROUTER (§1091's named front router) — and 1.1 — a STEM-MATCHER half (§1307-08) — both make the question top-8. Named specialists moonlight in other circuits' kits; the registry's shared-subroutine generator (selectivity off-diagonals) predicted this class of finding, and it means kit costs across circuits are NOT additive — shared parts should be priced once.
+- Mini-inversions at head grain: dropping 4.2 or 1.0 HELPS (+0.007 each, negative drop cost) — the §1334 interference effect exists per-head too. The slim kit excludes them for free.
+
+question_kit_slim_results.json; runlogs/question_kit_slim.log (379s).
+
+## §1343 — THE ENTROPY-SETTER IS REFUTED THREE WAYS, AND THE MISSING 0.34 IS NAMED: CONTENT — the kit's "than" falls out of the full model's top-5 at HALF the targets (keeps top-5 only 53.9%, median rank 0 -> 4), per-token gain-freezing makes things WORSE (0.578 vs kit 0.659), and the fitted global temperature is 0.95 ~ 1.0 buying nothing (0.652); preds a, b, c ALL FALSE — the user's conjecture and my two bars all lose to the same verdict (comparative_gap_anatomy.py; n=110; MLP convention now explicit: ATTENTION-ONLY extraction, all 18 MLPs live in every arm)
+
+  arm       target-CE  target-rec   rank picture (n=110 targets)
+  kit       3.649      0.659        "than" top-1: 29% (full: 67%); top-5: 51% (full: 95%)
+  kit_gf    4.215      0.578        gain-freeze HURTS (elsewhere too: 5.85 vs 5.43)
+  kit_temp  3.699      0.652        s* = 0.95 — the kit is NOT globally under-confident
+
+- pred_a FALSE AND DECISIVE: at 46% of the targets where the full model has "than" in its top-5, the kit does not. The gap is not a flattened correct answer — the kit is MISSING THE ANSWER at specific targets. Content, not confidence.
+- pred_b (USER'S ENTROPY-SETTER) FALSE WITH A SIGN FLIP: clamping the final norm's per-token scale to the clean run's costs 0.08 recovery at targets and hurts elsewhere. The kit's stream is not the clean stream at a different volume — forcing the clean volume onto it mis-scales what content it does carry. (Methodological note honestly earned: this was also the template's first gain-frozen leg, closing the §HARNESS both-regimes gap for this thread — and the free-norm number survives it in the only sense that matters: the free/frozen DIFFERENCE is now measured, not assumed away.)
+- pred_c FALSE, THE CHEAPEST REFUTATION: the CE-optimal global temperature for the kit's logits is 0.95 — within noise of 1. There is no global sharpness deficit to correct.
+- THE VERDICT AND THE FRONTIER: the missing 0.34 of the comparative capability is target-specific dynamic content carried by the crowd's LIVE values (and/or attention-MLP interaction) — the one thing the route's static broadcast cannot supply. "Compose the exact circuit from weights" therefore needs, beyond the kit: WHICH band's live service closes the rank gap (queued, comparative_missing_band.py — kit + one fully-live band per arm, bands L3-5 / L6-9 / L10-12 / L14-17, L13 excluded to keep 13.8's circuit out of the frame); and separately the MLP side, which this entire ladder has never priced. Registered: pred_a some band adds >= 0.10 target recovery over the kit; pred_b the winner is MID (L3-9 — the content-pooling band); pred_c the winner's target increment >= 1.5x its elsewhere increment (a risky bet that the missing content is target-specific rather than generic pooling — the §1329 band pattern says generic, so a FALSE here is itself informative).
+
+comparative_gap_anatomy_results.json; runlogs/comparative_gap_anatomy.log (91s).

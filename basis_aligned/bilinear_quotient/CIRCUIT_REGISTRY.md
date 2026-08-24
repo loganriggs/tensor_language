@@ -24,8 +24,8 @@ conditionality measured).
 
 | Circuit | Stage | Key facts | §refs |
 |---|---|---|---|
-| **Comparative (8.1)** | CLOSED, gap anatomy in flight | route + 2 zero-bit gates + 8.1 = 0.659 — ATTENTION-ONLY (all 18 MLPs live; the MLP side of "than" is UNPRICED). User push: decompose the missing 0.34 — entropy-setter (gain-frozen + temperature) vs content (rank diagnostic) | §1303-08, §1329-33 |
-| **Question (10.5)** | CLOSED, kit slimming | layer-grain kit = 0.714 (§1336); user push: whole gated layers are lazy — head-grain slimming in flight (drop-one ranking over the 36-head a02+L4 core, nested kits 16/12/8/4) | §1284, §1313, §1334-36, slim in flight |
+| **Comparative (8.1)** | CLOSED; gap = CONTENT | kit 0.659, ATTENTION-ONLY (MLPs live, unpriced). §1343: entropy-setter REFUTED 3 ways (rank collapse 95->51% top-5; gain-freeze hurts; temp s*=0.95); missing 0.34 = target-specific dynamic content — band scan in flight | §1303-08, §1329-33, §1343 |
+| **Question (10.5)** | **CLOSED at head grain** | slim kit = [route + clause gate on 16 named heads + 10.5] = 0.641 (§1342); 8 heads beat the 27-head band; L4 crowd = a TRIO (4.0/4.1/4.7 by drop-cost); cross-circuit guests 0.3 + 1.1 in top-8 | §1284-§1342 |
 | Exclamation (17.2+17.3) | G3 done | additive half-head pair, 91% share; criterion stream-computed; template NOT yet applied (L17 → expect route to carry more) | §1315-20 |
 | Stem matcher (1.1+1.8) | G3 done | weights-read certified on natural text (78% variant-support damage, in-band) | §1307-08 |
 | Induction/copy stations | G1 partial | route-grain closure 79% (§1316); payload rungs 4-5 negative; stations 2.5/3.8/8.3/8.4 | §1311-16, §1204-18 |

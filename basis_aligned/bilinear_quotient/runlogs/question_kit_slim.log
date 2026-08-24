@@ -1,0 +1,52 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 307
+36-head kit target CE (NR1) 3.7068
+drop L0.0: +0.0034
+drop L0.1: +0.0012
+drop L0.2: +-0.0002
+drop L0.3: +0.0648
+drop L0.4: +0.0010
+drop L0.5: +0.0012
+drop L0.6: +0.0002
+drop L0.7: +-0.0013
+drop L0.8: +0.0126
+drop L1.0: +-0.0074
+drop L1.1: +0.0609
+drop L1.2: +-0.0003
+drop L1.3: +0.0428
+drop L1.4: +0.0501
+drop L1.5: +0.0482
+drop L1.6: +0.0066
+drop L1.7: +0.0041
+drop L1.8: +0.0040
+drop L2.0: +0.0341
+drop L2.1: +0.0071
+drop L2.2: +0.0523
+drop L2.3: +0.0184
+drop L2.4: +0.0067
+drop L2.5: +0.0529
+drop L2.6: +0.0782
+drop L2.7: +0.0248
+drop L2.8: +0.0080
+drop L4.0: +0.2026
+drop L4.1: +0.1684
+drop L4.2: +-0.0068
+drop L4.3: +-0.0010
+drop L4.4: +0.0728
+drop L4.5: +0.0548
+drop L4.6: +0.0158
+drop L4.7: +0.1604
+drop L4.8: +0.0307
+full: target 0.9464 | else 3.1255
+ymean: target 8.9070 | else 7.2159
+route: target 6.2960 | else 5.4897
+kit36: target 3.7216 | else 5.4354
+kit16: target 3.8020 | else 5.4368
+kit12: target 3.9812 | else 5.4386
+kit8: target 4.2564 | else 5.4419
+kit4: target 4.7842 | else 5.4501
+
+ranked top-8: ['4.0', '4.1', '4.7', '2.6', '4.4', '0.3', '1.1', '4.5']
+rec: kit36 0.6514 kit16 0.6413 kit12 0.6188 kit8 0.5842 kit4 0.5179
+pred_a 16=36 True | pred_b 8>band True | pred_c selective True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_kit_slim_results.json (378.9s)
