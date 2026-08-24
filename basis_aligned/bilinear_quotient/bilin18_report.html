@@ -3073,6 +3073,33 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
 </section>
 
 <section class="col">
+  <h2 id="goals">Three tests of understanding — the scoreboard</h2>
+  <p>Late in the program the question was posed operationally: understanding a circuit should
+  mean you can <em>extract</em> it (a model that does only that task), <em>remove</em> it
+  selectively (without touching non-overlapping abilities), and <em>predict its
+  generalization from the weights</em> (which specific inputs it handles, which it fails —
+  including adversarial ones). All three were then tested (§1307–1312).</p>
+  <p><b>Predict-from-weights: closed, with a discovery.</b> Mining the matchers' readable
+  criterion for non-identical collisions returned <em>morphological families</em> —
+  show/shows, make/making, story/stories. The matcher is a <b>stem matcher</b>, and the
+  prediction certified on natural text: at 1,569 positions where only an inflected variant
+  of the current token had appeared before, matcher ablation costs 0.19 nats at 78% of
+  identical-token strength — inside the 30–80% band registered from the weights scores
+  before the experiment ran. First complete weights → prediction → causal loop.</p>
+  <p><b>Selective removal: settled with a map.</b> The remove-one-circuit × measure-all
+  matrix is strongly diagonal — successor, comparative, delimiter, and question heads each
+  hit their own behaviour at 20–300× any foreign one. The one principled exception: the
+  copy circuit is a <em>shared subroutine</em>, leaking 0.03–0.08 nats into lists, quote
+  pairs, and repeated punctuation even after every copy-supported position is excluded —
+  removable, but with a declared tax.</p>
+  <p><b>Extraction: settled with a boundary.</b> The copy <em>mechanism</em> extracts
+  completely (the weights-computed stand-in: embeddings + weights + four scalars = 0.78 of
+  the front end). The copy <em>behaviour</em> does not: keeping the circuit plus its full
+  front-band dependency closure (33 heads of 162) in a mean-field attention model recovers
+  only 30% of the induction gap, because roughly a nat of natural-text copying rides the
+  diffuse identity-transport crowd that has no small keep-set. The behaviour is mechanism
+  plus crowd — the program's two poles, one more time.</p>
+
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
   negative, now measured: the 3→4 edge has <strong>no small variable set</strong> — eight

@@ -32950,3 +32950,14 @@ selectivity_matrix2_results.json; runlogs/selectivity_matrix2.log.
 - Rung 2 queued (extraction_v2.py): keep the dependency closure — all 27 front-band heads (L0-2) + circuit + sink = 33 of 162. Registered: (a) ident damage <= 40% of all-mean (>= 60% of the gap back); (b) elsewhere damage still >= 60% of all-mean's (the content-pooling crowd is gone — the extracted model stays bad at prose); (c) v2 beats rung 1's ident CE by >= 1.0 nat (the band was the missing dependency).
 
 extraction_v1_results.json; runlogs/extraction_v1.log (131s).
+
+## §1312 — GOAL-1 VERDICT, AND THE THREE-GOALS SCOREBOARD: the 33-head dependency closure recovers 30% of the induction gap (4.38 vs all-mean 5.88, full 0.90) — better than rung 1's 19% (pred_c's 1.0-nat bar missed at 0.57) but far from the 60% bar; pred_b TRUE (elsewhere stays at 64% of the all-mean floor — the extraction IS selective); preds a & c FALSE (extraction_v2.py)
+
+- Why the ceiling, in one sentence: THE BEHAVIOUR IS NOT THE CIRCUIT. §1293 measured the diffuse tail carrying ~1 nat of identity transport at induction targets, and §1262-69 certified the mid crowd as irreducibly collective — mean-replacing the other 129 heads deletes that crowd traffic, and no small keep-set can restore it. Natural-text induction CE = sharp mechanism (matchers/fetchers, extractable) + front-band input manufacture (closure, extractable at 27 heads) + collective identity/content piping (NOT extractable below ~the whole model). The extraction ladder STOPS here by design: rung 3 would be "keep the crowd", i.e. keep the model.
+- GOAL-1 final form: the MECHANISM extracts (the §1256-60 stand-in: weights+embeddings+4 scalars = 0.78 of the front end); the full BEHAVIOUR does not extract at head grain (30% ceiling). "Pull the circuit out" succeeds for the computation, not for the performance — the same mechanism/crowd pole structure the program found everywhere.
+- THREE-GOALS SCOREBOARD (user framework, 2026-08-24, §1307-12):
+  GOAL 1 (extract): mechanism YES (0.78 stand-in), behaviour NO (30% @ 33 heads; crowd-bound). SETTLED with a boundary.
+  GOAL 2 (selective removal): single-head circuits YES (20-300x clean); copy circuit = shared subroutine, removable with a declared 0.03-0.08 tax on structured text. SETTLED with a map.
+  GOAL 3 (predict from weights): YES, first full loop closed — stem-matcher discovery, natural-text certification inside the registered band (§1307-08). OPEN for more strikes.
+
+extraction_v2_results.json; runlogs/extraction_v2.log.
