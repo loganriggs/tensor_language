@@ -32936,3 +32936,10 @@ stem_induction_results.json; runlogs/stem_induction.log (153s).
 - v2 queued (selectivity_matrix2.py): behaviour masks made MUTUALLY EXCLUSIVE (copy-supported positions subtracted from succ/delim/qmark/than sets), 1920 rows for the thin classes, and the control bar set relative to diagonals (<= 10%) instead of absolute.
 
 selectivity_matrix_results.json; runlogs/selectivity_matrix.log.
+
+## §1310 — GOAL-2 VERDICT (matrix v2, disjoint masks, 1920 rows): SELECTIVITY IS HIGH BUT NOT ABSOLUTE, AND THE RESIDUE IS REAL STRUCTURE — the same off-diagonals replicate after copy-supported positions are excluded (matchers->succ 0.080, fetchers->succ 0.037, matchers->qmark 0.045, question->than 0.171, delimiter->qmark 0.043); preds a-c FALSE again, now meaningfully (selectivity_matrix2.py)
+
+- Reading, plainly: (1) SINGLE-HEAD CIRCUITS ARE CLEANLY REMOVABLE — successor, comparative, delimiter, question each hit their own behaviour at 0.40-2.14 nats with foreign cells 20-300x smaller; the user's goal-2 capability holds for them outright. (2) THE COPY CIRCUIT IS A SHARED SUBROUTINE — its removal leaks 0.03-0.08 nats into every structured-text behaviour even with exact/stem copy support excluded; lists, quote pairs, and repeated punctuation lean on copying at a level the masks cannot fully separate. Removing copying is possible but comes with a DECLARED low-level tax on structured text — which is itself the shared-vs-private map goal 2 asked for. (3) question->than (0.171, stable across both runs) is SAME-SENTENCE COUPLING: "than" targets inside WH-question sentences lose coherence when the question head dies — context coupling, not circuit sharing. (4) The control row's floor on the two smallest classes (0.06-0.08) marks those columns' noise level; cells below it are unresolved.
+- Matrix iteration STOPPED here by design: two runs, same off-diagonals — further mask surgery would be chasing the residue the data says is real.
+
+selectivity_matrix2_results.json; runlogs/selectivity_matrix2.log.

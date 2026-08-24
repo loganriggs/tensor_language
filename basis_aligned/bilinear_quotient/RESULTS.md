@@ -5044,3 +5044,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1307 — GOAL-3: matcher = STEM matcher, read from weights (collisions are inflections; 51% of identity boost when planted); natural-text certification queued (matcher_collisions.py)
 §1308 — GOAL-3 CLOSED: stem-matcher prediction certified on natural text (0.186 @ conc 4.5; 78% of identity = inside the registered band; ctrl 0.8%) — first full weights->prediction->causal loop (stem_induction.py)
 §1309 — GOAL-2 matrix: strongly diagonal (own-behaviour 20-300x foreign) but preds FALSE via position-overlap in target sets + small-n noise — disjoint-mask v2 queued (selectivity_matrix.py)
+§1310 — GOAL-2 verdict: single-head circuits cleanly removable (20-300x); copy = shared subroutine (0.03-0.08 leak into all structured text, real); question->than = sentence coupling; matrix closed (selectivity_matrix2.py)

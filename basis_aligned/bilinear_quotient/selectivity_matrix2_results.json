@@ -1,0 +1,149 @@
+{
+ "n_rows": 1920,
+ "counts": {
+  "ident": 38278,
+  "var": 2816,
+  "succ": 546,
+  "than": 81,
+  "delim": 4296,
+  "qmark": 294,
+  "els": 322345
+ },
+ "base": {
+  "ident": 0.8602,
+  "var": 1.2669,
+  "succ": 2.5394,
+  "than": 1.3888,
+  "delim": 1.9547,
+  "qmark": 0.9801,
+  "els": 3.4276
+ },
+ "matrix": {
+  "matchers": {
+   "ident": 0.2325,
+   "var": 0.2046,
+   "succ": 0.0802,
+   "than": 0.0219,
+   "delim": 0.0294,
+   "qmark": 0.0446,
+   "els": 0.0476
+  },
+  "fetchers": {
+   "ident": 0.1288,
+   "var": 0.1804,
+   "succ": 0.0365,
+   "than": -0.0032,
+   "delim": 0.0015,
+   "qmark": -0.0067,
+   "els": 0.0017
+  },
+  "successor": {
+   "ident": -0.0022,
+   "var": -0.0026,
+   "succ": 0.3986,
+   "than": -0.0048,
+   "delim": 0.001,
+   "qmark": 0.0008,
+   "els": 0.0031
+  },
+  "comparative": {
+   "ident": -0.0011,
+   "var": 0.0001,
+   "succ": 0.0074,
+   "than": 2.1358,
+   "delim": -0.0027,
+   "qmark": -0.0082,
+   "els": 0.0071
+  },
+  "delimiter": {
+   "ident": 0.0074,
+   "var": 0.0091,
+   "succ": 0.0055,
+   "than": 0.015,
+   "delim": 0.4262,
+   "qmark": 0.0431,
+   "els": -0.0015
+  },
+  "question": {
+   "ident": -0.0016,
+   "var": -0.0042,
+   "succ": 0.0013,
+   "than": 0.1714,
+   "delim": 0.041,
+   "qmark": 0.7288,
+   "els": 0.006
+  },
+  "control": {
+   "ident": -0.0003,
+   "var": 0.0085,
+   "succ": 0.0081,
+   "than": 0.0609,
+   "delim": 0.0524,
+   "qmark": 0.0821,
+   "els": 0.0143
+  }
+ },
+ "violations_a": [
+  [
+   "matchers",
+   "succ",
+   0.0802
+  ],
+  [
+   "matchers",
+   "qmark",
+   0.0446
+  ],
+  [
+   "fetchers",
+   "succ",
+   0.0365
+  ],
+  [
+   "question",
+   "than",
+   0.1714
+  ]
+ ],
+ "violations_b": [
+  [
+   "matchers",
+   "succ",
+   0.0802
+  ],
+  [
+   "matchers",
+   "than",
+   0.0219
+  ],
+  [
+   "matchers",
+   "delim",
+   0.0294
+  ],
+  [
+   "matchers",
+   "qmark",
+   0.0446
+  ],
+  [
+   "fetchers",
+   "succ",
+   0.0365
+  ],
+  [
+   "delimiter",
+   "qmark",
+   0.0431
+  ],
+  [
+   "question",
+   "than",
+   0.1714
+  ]
+ ],
+ "pred_a_diagonal": false,
+ "pred_b_offdiag_quiet": false,
+ "pred_c_control_flat": false,
+ "runtime_s": 204.9
+}
