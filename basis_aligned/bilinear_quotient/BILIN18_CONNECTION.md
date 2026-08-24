@@ -32419,3 +32419,10 @@ The three anchors that force the reading: (i) never write = 2.23 lost (the write
 **Circuit-story consequence:** the copy signal does NOT travel from L2/L3 to the fetch band as the matchers' raw attention vector — it travels as an MLP-RE-ENCODED code manufactured on the spot. (Rhymes with §1073: everything is progressively linearly re-built from the processed stream.) Queued: matcher_reencode — hide the matcher write from mlp2/mlp3 ONLY (attention path intact) to name the re-encoder.
 
 matcher_consumer2_results.json; runlogs/matcher_consumer2.log (103s).
+
+## §1243 — THE RE-ENCODER IS NAMED: hide the matchers' write from mlp2+mlp3's inputs only and 87% of its full value vanishes (1.93 of zerowrite's 2.23); mlp3 alone 1.29, mlp2 0.20 — the match evidence is consumed and re-encoded ON THE SPOT, principally by mlp3; preds a-b TRUE; pred_c FALSE with a NAMED CONFOUND (blind_mlp45 = 2.34 — but that condition creates the §1242 inconsistency state, disambiguating null queued) (matcher_reencode.py)
+
+- **The clean result:** the copy circuit's front end now has a complete four-step story at component grain: builders (attn0/1, §1228) → matchers 2.5/3.8 write −(matched value) (§1239-40) → **mlp3 (with mlp2 assisting) immediately re-encodes it** → downstream runs on the re-encoding, not the raw vector (§1242's keep-then-delete cheapness). 87% of the write's value flows through this two-MLP bottleneck.
+- **pred_c's failure is quarantined, not interpreted:** blinding mlp4/5 to the raw vector while the rest of the network still sees it (2.34) is confounded with the §1242 L4-5 calibration-inconsistency phenomenon — the same numbers appeared there for stream-subtraction at cut6. matcher_reencode2 queued: identical blind-mlp45 with NULL-head writes; if the null is also expensive, mlp4/5 are generically inconsistency-sensitive and §1242's scaffolding reading stands; if cheap, mlp4/5 genuinely read the raw matcher vector.
+
+matcher_reencode_results.json; runlogs/matcher_reencode.log (152s).

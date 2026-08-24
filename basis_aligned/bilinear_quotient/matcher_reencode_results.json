@@ -1,0 +1,24 @@
+{
+ "n_rows": 24,
+ "ce": {
+  "base": 0.3613,
+  "blind_mlp2": 0.5579,
+  "blind_mlp3": 1.6491,
+  "blind_both": 2.2947,
+  "blind_mlp45": 2.7038,
+  "zerowrite": 2.5864,
+  "true_model": 0.3613
+ },
+ "cost_vs_base": {
+  "blind_mlp2": 0.1966,
+  "blind_mlp3": 1.2878,
+  "blind_both": 1.9334,
+  "blind_mlp45": 2.3425,
+  "zerowrite": 2.2251
+ },
+ "sanity": true,
+ "pred_a_mlp23_reencode": true,
+ "pred_b_mlp3_main": true,
+ "pred_c_late_cheap": false,
+ "runtime_s": 152.2
+}
