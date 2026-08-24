@@ -1,0 +1,19 @@
+{
+ "n_rows": 24,
+ "scored_positions": "224..256 stride 1",
+ "ce": {
+  "W160": 3.235,
+  "W192": 3.2028,
+  "W224": 3.1568,
+  "base": 3.1576
+ },
+ "cost_vs_fullcontext": {
+  "W160": 0.0774,
+  "W192": 0.0452,
+  "W224": -0.0008
+ },
+ "pred_a_monotone": true,
+ "pred_b_w192": false,
+ "pred_c_decay": true,
+ "runtime_s": 52.9
+}

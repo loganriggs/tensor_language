@@ -109,7 +109,10 @@
     loses just <b>0.014 nats</b> (the same reconstruction fed the wrong text costs 1.51). The model's entire
     selection machinery is a bounded-window function; everything genuinely long-range travels in the pooled
     content, never in the selection. The sibling model — independently trained, ordinary softmax attention —
-    pays almost exactly the same price (+0.015): the law belongs to the task, not the architecture.</p>
+    pays almost exactly the same price (+0.015): the law belongs to the task, not the architecture.
+    The full locality budget: run the <i>whole model</i> on only its last 128 tokens and it loses
+    0.082 nats (sibling: 0.081) — everything long-range these models do is worth ~0.08 nats at that
+    horizon, ~0.014 in selection and ~0.07 in the pooled content.</p>
     <div class="stats"><span class="stat"><b>98.5%</b>of the top head = one fixed vector</span>
     <span class="stat"><b>+0.014</b>nats to fold all 162 patterns</span></div>
     <p class="ref">§429–432 (sink arc), §1089–1093, §1161–1166 (fold capstone)</p>

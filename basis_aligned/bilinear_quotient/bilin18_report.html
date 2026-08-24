@@ -810,7 +810,13 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   pooled <em>content</em> — the values riding the stream — never in the selection. And the law is
   a property of the training task, not this architecture: the sibling model, trained independently
   with ordinary softmax attention, pays almost exactly the same price for total pattern
-  replacement — +0.015 nats against bilin18's +0.014.</p>
+  replacement — +0.015 nats against bilin18's +0.014. The complete locality budget followed: run
+  the <em>entire</em> model per-position on only its last 128 tokens and it loses 0.082 nats
+  (the sibling: 0.081 — agreement to the third decimal). So at the 128-token horizon, everything
+  genuinely long-range in these models is worth ~0.08 nats: ~0.014 in selection, ~0.07 in the
+  pooled content the values carry. And composing certified reductions keeps costing less than
+  their sum — a window-certificate stack of {all 162 patterns + the sink constant + MLPs 0
+  through 3 as n-gram functions} runs at 0.030 nats total.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping

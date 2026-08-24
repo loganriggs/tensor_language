@@ -31915,3 +31915,9 @@ Consistency checks: single-layer 4-token windows cost ≤0.086 each (writeup 482
 **The two-machine account now has a complete locality budget:** selection = bounded-window weights function (~0.014 @128); values/content = the long-range residue (~0.07 @128, shrinking with horizon); everything else local. Family twin queued (full_window_family.py, registered): (a) swiglu18 monotone; (b) W=128 total within 2× of bilin18's 0.082; (c) selection/values split same shape (0.0148 selection @128 already known → values ≈ total − 0.015).
 
 full_window_model_results.json; runlogs/full_window_model.log (48s).
+
+## §1181 — THE LOCALITY BUDGET IS A FAMILY CONSTANT: swiglu18's whole-model window curve (0.650/0.407/0.226/0.0812) matches bilin18's (0.593/0.379/0.207/0.0816) — at W=128 the totals agree to the THIRD decimal; preds a-c ALL TRUE (full_window_family.py)
+
+Both independently-trained siblings, different attention nonlinearities: total long-range function at horizon 128 = 0.081-0.082 nats, of which selection carries 0.014-0.015 (§1166/§1170) and pooled values/content ~0.066-0.068. The §1180 locality budget joins the transport constants (§1158) and the fold constants (§1170) in the family-constant column. What next-token training on FineWeb builds — twice, in different architectures — is: local machinery + a ~128-token-scale content pool worth ~0.08 nats + one constant. Curve tail queued (window_tail.py, registered): W ∈ {160, 192, 224} on bilin18; (a) monotone continues; (b) W=192 ≤ 0.04; (c) decay factor per +64 tokens stays ≥ 1.8 (no long flat tail — the pool's value concentrates at ~document scale, not beyond).
+
+full_window_family_results.json; runlogs/full_window_family.log (48s).

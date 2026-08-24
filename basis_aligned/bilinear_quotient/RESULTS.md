@@ -4915,3 +4915,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1178 — FOUR entries = 0.0297 nats (mlp1@16-gram 0.0094 vs its unigram table +1.775; sub-additive 4th time); ladder climb mlp2/3/4 queued to find the content wall (tabulated_stack4.py)
 §1179 — NO WALL: mlp4@64-gram = 0.004 cheapest; stack6 0.0303 (sub-additive 5th); ledger REFRAMED as window-certificate stack (locality, not tabulability; no tension with §1127); full-model window capstone queued (mlp_ladder_stack.py)
 §1180 — whole model as window function: 0.59/0.38/0.21/0.082 @W16-128 (bars missed, plainly); LOCALITY BUDGET: @128 selection 0.014 + values ~0.07 = 0.082 total; family twin queued (full_window_model.py)
+§1181 — locality budget FAMILY CONSTANT: swiglu18 whole-model @128 = 0.0812 vs bilin18 0.0816 (3rd decimal); selection 0.015 + values 0.066 both siblings; curve tail queued (full_window_family.py)
