@@ -31929,3 +31929,11 @@ pred_a/c TRUE, pred_b near-miss (0.0452 vs 0.04, reported). W=224 ≈ full conte
 **MLP ladder map extension queued (deep_mlp_ngram.py, registered):** the §1179 construction on the deep band — mlp5/7/9/12/15@W=64, each alone. Since the §1180 long-range 0.08 rides ATTENTION POOLING (which the construction leaves live outside the replaced MLP), deep MLP n-gram entries should stay cheap: (a) all ≤ 0.03; (b) no depth trend (flat, unlike the loss-side §1114 deep-MLP content shares); (c) if any ≥ 0.10, a genuinely context-hungry MLP is found (informative alternative — would localize a values-side long-range consumer).
 
 window_tail_results.json; runlogs/window_tail.log (53s).
+
+## §1183 — EVERY MLP IS A ≤64-TOKEN WINDOW FUNCTION: deep entries m5/m7/m9/m12/m15 cost 0.0062/0.0062/0.0027/0.0025/0.0019 — gently DECREASING with depth, no context-hungry MLP anywhere; preds a-b TRUE (deep_mlp_ngram.py)
+
+With live attention around them, every MLP tested (0-5, 7, 9, 12, 15) recomputes from its position's last ≤64 tokens at ≤0.014 nats. The §1180 long-range budget (~0.07 nats at horizon 128) therefore lives ENTIRELY in the attention value-pooling chain — no MLP consumes long-range context directly; they consume the POOL, which attention hands them locally (§1076's bag, §1153's own-position reads). The sharp sentence: **MLPs process, attention accumulates, and only the accumulation is long-range.** Depth trend inverts the loss-side importance ranking (deep MLPs carry big CE §1114 but tiny window-sensitivity) — importance ≠ context-hunger.
+
+**Grand stack queued (grand_stack.py, registered):** everything certified so far, jointly — folded patterns (162) + sink constant + m0@8 + m1@16 + m2@32 + m3/m4@64 + m5/m7/m9/m12/m15@64. (a) grand total ≤ 0.06 nats; (b) sub-additive (6th time) vs parts' sum ~0.075; (c) sanity exact.
+
+deep_mlp_ngram_results.json; runlogs/deep_mlp_ngram.log (157s).

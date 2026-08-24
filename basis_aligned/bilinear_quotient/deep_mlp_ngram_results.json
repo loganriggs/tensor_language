@@ -1,0 +1,25 @@
+{
+ "n_rows": 16,
+ "W": 128,
+ "ce": {
+  "base": 3.3627,
+  "m5ng": 3.3689,
+  "m7ng": 3.3689,
+  "m9ng": 3.3654,
+  "m12ng": 3.3652,
+  "m15ng": 3.3646,
+  "true_model": 3.3627
+ },
+ "cost_vs_base": {
+  "m5ng": 0.0062,
+  "m7ng": 0.0062,
+  "m9ng": 0.0027,
+  "m12ng": 0.0025,
+  "m15ng": 0.0019
+ },
+ "sanity_base_matches_true": true,
+ "pred_a_all_cheap": true,
+ "pred_b_flat": true,
+ "pred_c_hungry_found": false,
+ "runtime_s": 157.3
+}
