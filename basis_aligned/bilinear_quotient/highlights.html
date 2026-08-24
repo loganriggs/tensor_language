@@ -162,6 +162,30 @@
   </div>
 
   <div class="hl">
+    <p class="tag">the named variable</p>
+    <h2>Two attention heads' verdict rides one direction — remove it, copying dies; restore it, copying returns</h2>
+    <p>Chasing the copy circuit to component grain found that the matcher heads' output is consumed
+    <i>on the spot</i>: the neighboring MLP re-encodes "I found a match" onto one extraordinarily
+    stable direction of the residual stream (the same direction across data splits at cosine 0.97).
+    That <b>match-evidence axis</b> is a certified variable in the strongest sense. <b>Necessary:</b>
+    project the single direction out and <b>1.00 nat</b> of repeat-text performance vanishes — a
+    random direction costs 0.0008, and ordinary prose is spared 28:1. <b>Sufficient:</b> blind both
+    matcher heads entirely, transplant only this direction's clean per-position values, and
+    <b>95%</b> of the lost function returns. <b>Universal:</b> all three sibling models carry the
+    same axis (1.00 / 1.18 / 1.75 nats) — including the softmax model, which matches by a completely
+    different algorithm; implementations diverge, the intermediate representation converges. Its
+    meaning decomposed too: mostly a per-passage "matching is happening" level (72%), refined by a
+    per-position pattern (23%) — and injecting <i>wrong</i> positional values does worse than the
+    bare level, the same "wrong evidence beats no evidence into the ground" law seen when flipping
+    the matchers' minus sign made the model worse than deleting them. The criterion behind it all is
+    readable straight off the weights: embedding codes through the matchers' query/key pipelines
+    separate same-token pairs perfectly, zero forward passes needed.</p>
+    <div class="stats"><span class="stat"><b>1.00</b>nat lost removing one direction</span>
+    <span class="stat"><b>95%</b>restored from one direction</span></div>
+    <p class="ref">§1235–1255 (named-variables saga; six instrument catches on record)</p>
+  </div>
+
+  <div class="hl">
     <p class="tag">the content machine's api</p>
     <h2>The "irreducibly high-dimensional" content splits into a skeleton and a scratch space</h2>
     <div class="dfn"><b>Skeleton:</b> train a small sparse dictionary on the content signal and ~8 stable

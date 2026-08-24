@@ -32518,3 +32518,17 @@ Resolution of the middle-pooling dossier's last mechanism item, by dissolution r
 - Honest close: "depth-growing content addressing" is retired as a phenomenon needing mechanism; replaced by "distance-dominated pooling + latent content capability + a small causal content preference." Dossier updated.
 
 pooler_mechanism2_results.json; runlogs/pooler_mechanism2.log (112s).
+
+## §1256 — CONSOLIDATION: the named-variables saga (§1235-1255, ~21 experiments), summarized for the record
+
+**What was found, in causal order:**
+1. **One shared source variable (§1236-37):** block-0's per-token value code v1, distributed by the value-residual, feeds the matchers' comparison substrate (via the embedding path), the fetchers' payload (via the broadcast), and the content pool's bag — scramble the broadcast once and copy (+3.65) and content (+0.72, tilted) die together; block-0's own write is epiphenomenal (+0.02).
+2. **The criterion in the weights (§1238-39):** matchers 2.5/3.8's same-token test is computable from weight matrices + embedding table alone — perfectly, inverted (AUC 0.00; layer-mates 0.50); algebra = mirrored signed conjunctions delivering −(matched value); the anti-design is architecturally exclusive to unnormalized bilinear patterns (bilin12: same criterion via magnitude, AUC 1.000).
+3. **The sign is load-bearing (§1240):** flip one matcher's sign and it is worse than blinding it (1.43 vs 1.08); both flipped = 7.81 — wrong-signed evidence is the worst input on record.
+4. **Consumption chain (§1242-45, §1247 correction):** the evidence is consumed on the spot — mlp3 (with mlp2) re-encodes 87% of the write's value; blocks 4-5 then clear the spent vector as part of GENERAL off-manifold normalization (not a dedicated service — corrected after the injection null).
+5. **The verdict axis (§1248-53):** the re-encoding's dominant direction (split-half 0.97-0.995) is a certified named variable — necessary (removal 1.00/1.18/1.75 nats across all three siblings; random nulls ~0; prose 28-71:1 spared), sufficient (one-direction restore = 95.3% in bilin18), read at blocks 4-5, semantics = per-row match level (72%) + positional pattern (23%).
+6. **Instruments proposed by the user paid off (§1231-35):** folded scalars found the toxic heads (bilin12 3.1/2.0; L3H1 toxic in both bilinear siblings); the bits-ladder priced attention's frozen-bias pathology at exactly 2 bits of token class.
+
+**Corrections/catches on record this saga:** scalar overfit (§1231), consumer-locus quarantine lifted by null (§1241-42), mlp45 confound resolved by null (§1243-44), janitor framing corrected (§1247), share-instrument artifact caught (§1229-30), distance confound caught (§1254-55). Six instrument saves, all by registered controls.
+
+**Standing next question (queued):** matcher_standin — can the two matcher heads be REPLACED by a weights-computed axis writer (wte scores → 1-D map → axis injection)? A yes upgrades the benchmark's copy-circuit row from "mechanistically mapped, no compact stand-in" to a working Type-1 reduction.

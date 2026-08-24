@@ -4990,3 +4990,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1253 — axis read at BLOCKS 4-5 (1.12 alone; fetch band 0.28); semantics = LEVEL (72%) + positional refinement (23%); wrong pattern < bare level; §1250 caveat settled (axis_reader+axis_meanrestore)
 §1254 — mechanism run quarantined (raw r distance-confounded; null moved) — partial-correlation v2 queued (pooler_mechanism.py)
 §1255 — §1085 depth-growth DISSOLVES (partial r ≤0.07; distance confound); QK content-CAPABLE (3× amp → 0.26-0.39) but unengaged; dossier mechanism item closed (pooler_mechanism2.py)
+§1256 — CONSOLIDATION of the named-variables saga §1235-55 (six instrument saves; two named variables; three-family verdict-axis law); matcher_standin queued as the benchmark-grade capstone

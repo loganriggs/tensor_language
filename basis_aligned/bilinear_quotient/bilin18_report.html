@@ -843,6 +843,26 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   which property decides: it is row-normalized like softmax but bilinear-scored, and it has
   matchers — the score function picks the implementation, and the ~3.2-nat price doesn't care
   which one a model uses.</p>
+  <p><span class="tag">two named variables, and a criterion in the weights</span> Pushing the copy
+  circuit to component grain produced the program's cleanest single results. The circuit's
+  intermediate state is <b>two named variables</b>. First, the layer-0 per-token value code that
+  the architecture's value-residual broadcasts everywhere: scramble it once (wrong tokens' codes,
+  right norms) and copying (+3.65 nats) and topic content (+0.72, content-tilted 2.6×) die
+  together, while scrambling the same code in layer 0's own local write kills neither — one
+  variable, one pipe, three consumers. Second, the <b>match-evidence axis</b>: the matcher heads'
+  output is consumed on the spot by the neighboring MLP, which re-encodes the verdict onto one
+  extraordinarily stable stream direction. That single direction is <em>necessary</em> — project
+  it out and 1.00 nat of copying vanishes (a random direction: 0.0008; prose spared 28:1) —
+  and <em>sufficient</em>: blind both matcher heads and transplant only this direction's clean
+  values, and 95% of the lost function returns. All three sibling models carry the same axis
+  (removal 1.00 / 1.18 / 1.75 nats) — they match by different algorithms and converge on the
+  same intermediate representation. The criterion itself lives in the weights: raw embedding
+  codes fed through the matchers' query/key pipelines separate same-token pairs perfectly — with
+  a minus sign (this softmax-free architecture allows signed attention, and the matchers deliver
+  −1× the matched value; flip that sign and the model does worse than if the head were removed
+  outright). Six instrument failures were caught by registered controls along the way — an
+  overfit, two confounds resolved by nulls, one framing corrected — each disclosed in the ledger
+  before any conclusion shipped.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping
