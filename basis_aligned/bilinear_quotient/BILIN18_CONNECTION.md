@@ -32083,3 +32083,23 @@ temp_drift_family_results.json; runlogs/temp_drift_family.log (90s).
 The composed certificate in one condition: bilin18 with (i) all 162 attention patterns computed from weights over ≤128-token windows, (ii) all attention READS masked to 128 tokens (+position 0), (iii) head 5.7's output one constant, and (iv) ten MLPs recomputed from ≤64-token windows — runs at 3.4261 vs 3.3627, a 0.0634-nat (1.9%) price. New number en route: read-masking alone at W=128 costs 0.0391 (between the selection fold 0.014 and the full truncation 0.082, as it must be). The plain sentence the program earned: **bilin18 is, to within 2% of its loss, a 128-token-window machine whose selection is a weight-computable function, whose MLPs are local processors, and whose only long-range act is pooling nearby content — with everything beyond that living in 0.06 nats of residue.**
 
 final_certificate_results.json; runlogs/final_certificate.log (179s). Highlights gained the locality-program card; benchmark page carries the certificate card (previous wake).
+
+## §1204 — THE COPY REGIME'S GEOGRAPHY IS THE OPPOSITE OF PROSE'S: front (1.91) and mid1 (2.64) are EACH ALONE catastrophic — band sum 4.70 > joint 3.20, a SERIAL chain, not a redundant crowd; pred_c (redundancy) FALSE and that is the finding (repeat_range_bands.py)
+
+The §1186 band instrument (read-mask W=64, position 0 visible) moved onto §1195's verbatim-repeat rows (second 128 tokens = first 128; copy source at distance 128, outside every window; base CE 0.361 — repeat nearly solved, replicating §1195).
+
+- **pred_a TRUE (front+mid1 carry it):** front 1.9124 + mid1 2.6438 = 4.56, vs all18 3.2004. mid2 is small (0.124) and late is nothing (0.016 — pred_b TRUE: the readout is local in every regime).
+- **pred_c FALSE, and the falsification is the result.** On prose, no single band mattered much and the joint exceeded the parts (redundant crowd, §1186-87). On repeat text the bands sum to 1.47× the joint: masking front ALONE breaks copying (1.91 of a 3.20 total), and masking mid1 ALONE breaks it too (2.64). Two operations that each destroy most of the same downstream value = two links of ONE chain. **Copying is a serial pipeline; prose pooling is a parallel crowd. Same instrument, same model, opposite architecture of carriage — the regime decides.**
+
+Sanity exact (base = true model to 4 decimals). repeat_range_bands_results.json; runlogs/repeat_range_bands.log (40s).
+
+## §1205 — AT HEAD GRAIN: the distance-128 READ belongs to L2 (0.53; its head 2.5 alone 0.62), NOT to the L5 gate (whole layer 0.12; H5 0.086) — pred_c (gate outranks) FALSE; the two dossier heads jointly are only 26% of the circuit (pred_b TRUE); within L5 the induction head IS the long-range reader (pred_a TRUE) (repeat_range_heads.py)
+
+Same rows/instrument, masks applied per HEAD.
+
+- **pred_a TRUE:** within each named layer the induction head is the long-range reader — L5H5 costs 0.086 vs whole-L5 0.117 (73%), complement L5noH5 only 0.023; L2H5 0.62 vs whole-L2 0.53.
+- **Oddity reported plainly:** masking ONLY L2H5 costs MORE than masking all nine L2 heads (0.62 > 0.53) — with H5 blinded, the other heads' long-range reads are net mildly harmful, so blinding them too recovers 0.09. Small, but the sign is consistent with interference rather than backup among L2's heads.
+- **pred_c FALSE — the dossier's emphasis inverts at read grain.** Ablating L5 collapses induction (§877-78), yet read-masking L5 barely costs (0.12 vs L2's 0.53). Resolution: L5's gate role is not a long-range READ — by L5 the copy-source information has already been fetched into the stream (L2's distance read), and the gate operates on local/positional evidence. "L5 gates" and "L2 reads the distance" are both true; only L2 needs the range.
+- **pred_b TRUE:** the two named heads jointly cost 0.83 = 26% of all18's 3.20. The named pair is real but is NOT the circuit — most of the copy regime's long-range carriage lives in the REST of front+mid1 (see §1204's serial bands; §649/§952-53's "not a localizable head-set" survives at read grain too).
+
+repeat_range_heads_results.json; runlogs/repeat_range_heads.log (31s). Follow-up queued: repeat_range_singles (all L0-L9 singly — crowd or chain inside each band).

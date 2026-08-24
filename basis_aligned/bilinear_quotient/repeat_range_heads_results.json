@@ -1,0 +1,30 @@
+{
+ "n_rows": 24,
+ "W": 64,
+ "ce": {
+  "base": 0.3613,
+  "L2": 0.8929,
+  "L2H5": 0.9819,
+  "L5": 0.4786,
+  "L5H5": 0.4469,
+  "L5noH5": 0.3844,
+  "pair": 1.1926,
+  "all18": 3.5617,
+  "true_model": 0.3613
+ },
+ "cost_vs_base": {
+  "L2": 0.5316,
+  "L2H5": 0.6206,
+  "L5": 0.1173,
+  "L5H5": 0.0856,
+  "L5noH5": 0.0231,
+  "pair": 0.8313,
+  "all18": 3.2004
+ },
+ "sanity": true,
+ "repeat_easy": true,
+ "pred_a_heads_are_layers": true,
+ "pred_b_pair_not_circuit": true,
+ "pred_c_gate_outranks": false,
+ "runtime_s": 31.0
+}

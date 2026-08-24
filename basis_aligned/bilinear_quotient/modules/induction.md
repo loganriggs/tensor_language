@@ -22,6 +22,15 @@ identifiable-but-redundant heads; independent of content, but content is amplifi
   front/mid-peaked (peak L5, gone by L11+).
 - On prose CE, induction heads cost little (L5H5 zero-abl 0.009; §1083) — induction binds on
   repeated structure, not average text.
+- **Read-grain map, copy regime (§1204-1205, W=64 read-masks on verbatim-repeat rows):**
+  copying is a SERIAL chain across bands — front (1.91) and mid1 (2.64) each alone
+  catastrophic, band sum 1.47× the joint 3.20 (opposite of prose pooling's redundant crowd
+  §1186-87). The distance-128 READ belongs to **L2** (0.53; head 2.5 alone 0.62) — the L5
+  gate barely needs range (whole layer 0.12; H5 0.086, though within L5 H5 IS the long-range
+  reader, complement 0.023). Division of labor sharpened: **L2 reads the distance, L5 gates
+  locally** (both §877-78 and this coexist: ablation kills the gate's output role, read-mask
+  shows the fetch already happened upstream). The named pair jointly = only 26% of the
+  circuit's long-range carriage — §649's non-localizability survives at read grain.
 
 ## Benchmark status
 Mechanistically mapped (MED-HIGH); no compact stand-in exists because the circuit is
