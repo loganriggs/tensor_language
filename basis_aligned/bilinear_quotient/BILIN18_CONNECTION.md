@@ -31963,3 +31963,9 @@ Two cross-checks: all-18 read-masking at W=64 (0.176) < §1180's full truncation
 **Drill-down queued (value_range_mid1.py, registered):** L5-9 one layer at a time @W64 (pos-0 visible) + the mid1 joint. (a) DISTRIBUTED: max single layer ≤ 0.03 (the §1093/§1160 redundancy signature, expected here too); (b) singles sum ≤ mid1 joint (super-additive again); (c) L5 NOT special once pos-0 is visible (its writeup-482 spike was pure sink).
 
 value_range_bands_results.json; runlogs/value_range_bands.log (40s).
+
+## §1187 — THE POOLING CHANNEL IS A REDUNDANT CROWD: within L5-9 every single-layer read-mask costs ≤0.009 (L5 = L6 = L8 = 0.009, L9 0.002) while the band jointly costs 0.067 (1.8× super-additive) — no indispensable long-range layer exists; preds a-c ALL TRUE (value_range_mid1.py)
+
+The §1186 drill-down lands on the program's most familiar signature: distributed, redundant, collectively load-bearing (§1093's 5.7× static-attention factor, §1160's leak co-carriage, writeup 486's 108× induction-band redundancy — and now the long-range value pool). L5 is NOT special once position 0 stays visible (pred_c: 0.009 ≈ the band median; writeup 482's +1.11 spike was entirely the sink fetch, re-confirmed at the read-mask level). Localization of the 0.07-nat channel therefore CLOSES at band grain: the content pool is gathered redundantly across L5-8 (with the front contributing a real 0.036 share, §1186), and no finer carrier decomposition is available by ablation — the §1128-29 population-code law, at the range dimension.
+
+value_range_mid1_results.json; runlogs/value_range_mid1.log (39s).
