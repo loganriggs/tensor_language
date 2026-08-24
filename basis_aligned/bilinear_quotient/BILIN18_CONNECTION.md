@@ -31873,3 +31873,11 @@ fold_transport_results.json; runlogs/fold_transport.log (2103s).
 **Stack status (tabulated_stack2, preds b-c TRUE):** stack2 replicates (0.0232); three-entry stack3 = 0.0371 — strongly SUB-additive (parts sum 0.115): the m0 truncation error largely overlaps with the pattern-fold errors rather than adding (flagged as notable, not yet interpreted). The composed ledger stands at 0.037 nats for {162 folded patterns + sink constant + m0-bigram}, with the m0 entry now register-annotated.
 
 tabulated_stack2_results.json; m0_ctx_corpus_results.json; runlogs (142s + 8s).
+
+## §1176 — THE FRONT'S WINDOW ON DIVERSE TEXT: n-gram with register-dependent n (k1 0.897 / k2 0.092 / k4 0.030 / k8 0.014 / k16 0.006 / full EXACT) — local on every register, bigram only on prose; preds a-c ALL TRUE (m0_diverse_width.py)
+
+The §1175 correction quantified: on the diverse corpus the front (attn0+mlp0, weights-only 480 construction) needs ~8-16 tokens to reach the same fidelity that 2 tokens buy on prose. The clean sentence for the report (already annotated): the front folds EXACTLY from the weights at full context on every register; its effective locality is register-dependent — n≈2 prose, n≈8-16 structured formats. Matches §1112's mechanism (mlp0's contextual tables are built with attn0's gather — structured formats make the gather reach further).
+
+**Stack upgrade queued (tabulated_stack3.py, registered):** swap the stack's m0 entry from k=2 to k=8. (a) m0big@k8 in-harness ≈ 0.014 ± 0.008; (b) stack3@k8 ≤ 0.045; (c) sub-additivity persists (stack3 < parts' sum).
+
+m0_diverse_width_results.json; runlogs/m0_diverse_width.log (8s).
