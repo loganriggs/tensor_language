@@ -4999,3 +4999,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1262 — pool resists reduction (computed bag recovers −0.002; controls level) — copying computable, pooling not (this form); formula-vs-delivery diagnostic queued (far_bag_standin.py)
 §1263 — pool thread closed with the reason: far-pool's content-coord contribution at L8 = 6.5% of clean norm (nothing to restore there); the 0.176 travels elsewhere — next thread's opener (bag_diagnostic.py)
 §1264 — delta characterized (50%@16 dims, 30% content overlap); attribution QUARANTINED (random-16 removal alone = 1.5× the whole reference — instrument too blunt); matched instrument named (pool_subspace.py)
+§1265 — iteration 2: 16× specific but null still too big (local writes contaminate); surgical far-component v3 queued (pool_subspace2.py)
