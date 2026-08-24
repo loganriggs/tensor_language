@@ -5053,3 +5053,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1316 — RUNG 3 WINS: route-grain extraction 79% of induction gap (vs 30% head-grain); shared-variable leak confirmed (else 68% — broadcast serves pool too); rung 4 (stand-in code inside skeleton) logged (extraction_v3.py)
 §1317 — "!" carrier CERTIFIED: attn17 (14.0, controls clean, n=228), spread persists; per-head cell queued with registered DIFFUSE bet (exclaim_screen2.py)
 §1318 — "!" = a PAIR: 17.2 (49%) + 17.3 (43%, conc 262) = 91% — third circuit form (owner/crowd/pair); additive-vs-redundant + burst/sustained cell queued (exclaim_heads.py)
+§1319 — "!" pair = two half-heads: perfectly additive (2.6%), no burst/sustained division; fourth structure form; thread §1315-19 closed (exclaim_pair.py)

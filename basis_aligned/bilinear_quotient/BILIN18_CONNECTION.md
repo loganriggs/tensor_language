@@ -33004,3 +33004,10 @@ exclaim_screen2_results.json; runlogs/exclaim_screen2.log.
 - Queued (exclaim_pair.py): solo/solo/joint + a target split (previous "!" within 20 tokens = BURST vs farther = SUSTAINED register). Registered: (a) ADDITIVE: joint within 20% of solo-sum (no redundant coverage); (b) both concentrated solo (conc >= 10, controls clean); (c) DIVISION OF LABOR: the pair dissociates >= 2x on the burst/sustained split (direction: 17.3 = burst, 17.2 = sustained — from 17.3's extreme concentration).
 
 exclaim_heads_results.json; runlogs/exclaim_heads.log.
+
+## §1319 — THE PAIR IS TWO HALF-HEADS: perfectly ADDITIVE (joint 0.1752 vs solo-sum 0.1708 — within 2.6%), each surgically clean (elsewhere <= 3% of target), and NOT divided on the burst/sustained axis (ratios 1.32 vs 1.02 — both near-uniform); preds a & b TRUE, pred_c FALSE (exclaim_pair.py)
+
+- A fourth micro-taxonomy entry, distinct from all prior forms: not an owner, not a crowd, not a redundant pair (1.1/1.8: either suffices) — an ADDITIVE ENSEMBLE OF TWO, each carrying ~half the amplitude of one function with no coverage (remove one, lose its half exactly). Functionally: a single distributed owner that happens to be sharded across two heads. Whatever axis divides their labor (if any), it is not burst-vs-sustained; token-subtype or register-flavor splits are logged, not chased.
+- EXCLAMATION THREAD CLOSED (§1315-19): behaviour ("!" prediction under exclamatory register) -> layer (attn17, certified 5x) -> structure (additive pair 17.2/17.3, 91%) -> non-division (uniform across the tested split). One weights cell queued to complete the record: is the pair's criterion embedding-native or stream-computed (exclaim_weights.py; registered bet: stream-computed — late-layer register heads read processed state).
+
+exclaim_pair_results.json; runlogs/exclaim_pair.log (74s).
