@@ -817,6 +817,24 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   pooled content the values carry. And composing certified reductions keeps costing less than
   their sum — a window-certificate stack of {all 162 patterns + the sink constant + MLPs 0
   through 3 as n-gram functions} runs at 0.030 nats total.</p>
+  <p><span class="tag">the one regime where locality breaks — mapped to named heads</span> The 0.08-nat
+  budget above is for ordinary prose. On text whose second half verbatim-repeats its first, the same
+  window restriction costs <strong>~3.2 nats</strong> — the copying machinery is the model's one
+  genuinely long-range act, and mapping who carries it produced the opposite geography from prose.
+  Prose pooling is a redundant crowd (no single layer matters much; the band jointly does). Copying is
+  a <em>serial chain with named stations</em>: window-restrict just layer 3's reads and 1.0 of the 3.2
+  nats is gone — and within that layer, <em>one head</em> (3.8) is the entire station (masking it alone
+  costs more than masking all nine; the other eight together cost 0.004). Four nameable heads — 2.5,
+  3.8, and the redundant pair 8.3/8.4 — account for 69% of everything all 162 heads do at long range
+  when copying binds; the complementary test (keep only those four heads' range) shows a genuine
+  distributed remainder too, a roughly 59/41 split. The same four heads are <em>not</em> specialists on
+  ordinary prose: they carry 22% of the small prose pooling budget as well — double duty, not a gated
+  module. And the family comparison delivered a striking constant: all three sibling models pay
+  <strong>the same ~3.2 nats</strong> (3.200, 3.206, 3.231) — including the 12-layer sibling whose
+  induction is nearly 3× weaker. What verbatim repetition is worth at distance is set by the text and
+  the objective, not the machine; each architecture collects nearly all of it with its own two or three
+  reader stations, placed at different depths (front layers in bilin18, mid-stack in the softmax
+  sibling, spread into the final layers in the small one).</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping
