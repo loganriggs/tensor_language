@@ -1,0 +1,6 @@
+ base: cw 0.4753 | rep4 0.036 | distinct2 0.8668
+ W128: cw 0.4766 | rep4 0.032 | distinct2 0.8615
+  W64: cw 0.457 | rep4 0.0247 | distinct2 0.8806
+  W16: cw 0.4753 | rep4 0.01 | distinct2 0.9226
+pred_a W128 clean True | pred_b W64 mild True | pred_c W16 degrades False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gen_window_results.json (81.2s)

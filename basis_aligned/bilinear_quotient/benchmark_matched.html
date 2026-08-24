@@ -85,6 +85,23 @@
     width). <b>Readout (L15–17): ~90%.</b> Near-linear / low-rank bilinear reads. The whole-model gap is the
     construction process, not the representation.</p>
   </div>
+
+  <div class="card">
+    <h2>A second, causal certificate: context locality (added later)</h2>
+    <p class="sub" style="max-width:78ch">
+    The bars above score <em>stand-in fidelity</em> — can a simple map reproduce what the module computes. A later
+    program certified an independent, fully causal property: <b>context locality</b> — run the real weights on
+    truncated context and pay the price in prediction loss. Results, all with registered predictions and wrong-text
+    controls: <b>where every one of the 162 attention heads looks is computable from the weights over the last
+    ~128 tokens</b> — replace all patterns at once and the model loses <b>0.014 nats</b> (control: 1.51); <b>every
+    MLP, all 18, recomputes from its position's last ≤64 tokens</b> (0.002–0.014 each); a joint stack of twelve such
+    reductions runs at <b>≈0.03–0.04 nats total (~1% of loss, audited on fresh data)</b>. The one genuinely
+    long-range channel is attention's value pooling — worth ~0.07 nats at a 128-token horizon on natural prose,
+    carried redundantly by layers 5–8, and worth ~30× more on repetitive text where the induction machinery
+    engages. Both certificates hold, with near-identical constants, in an independently trained sibling model.
+    So the frontier statement sharpens: modules are locally computable and largely stand-in-able; what resists is
+    <em>simulating the construction</em> — a process that must be run, though only ever on nearby context.</p>
+  </div>
 </div>
 <script>
 const A={"0":0.947,"1":0.915,"2":0.821,"3":0.826,"4":0.924,"5":0.675,"6":0.529,"7":0.688,"8":0.124,"9":0.651,"10":0.611,"11":0.525,"12":0.325,"13":0.132,"14":-0.041,"15":0.419,"16":0.228,"17":0.636};
