@@ -32426,3 +32426,15 @@ matcher_consumer2_results.json; runlogs/matcher_consumer2.log (103s).
 - **pred_c's failure is quarantined, not interpreted:** blinding mlp4/5 to the raw vector while the rest of the network still sees it (2.34) is confounded with the §1242 L4-5 calibration-inconsistency phenomenon — the same numbers appeared there for stream-subtraction at cut6. matcher_reencode2 queued: identical blind-mlp45 with NULL-head writes; if the null is also expensive, mlp4/5 are generically inconsistency-sensitive and §1242's scaffolding reading stands; if cheap, mlp4/5 genuinely read the raw matcher vector.
 
 matcher_reencode_results.json; runlogs/matcher_reencode.log (152s).
+
+## §1244 — mlp4/5 READ THE MATCHER VECTOR (null ratio 0.014: hiding null writes from them costs 0.032 vs 2.343 for the matcher write) — and the JANITOR HYPOTHESIS now explains every §1241-43 number: mlp4/5 NEUTRALIZE the raw −(matched value) after mlp3 has re-encoded it; preds a-b TRUE (matcher_reencode2.py)
+
+The null is unambiguous: mlp4/5's sensitivity is matcher-vector-specific, not generic input-inconsistency. The full front-end mechanism that makes all observations cohere:
+
+1. Matchers write **−(matched value)** at L2/L3 (§1239-40).
+2. **mlp3 (with mlp2) immediately re-encodes** the evidence into the stream's working form — 87% of the write's value flows through this bottleneck (§1243).
+3. **mlp4/5 then CLEAN UP the raw anti-signed vector** — with it hidden from them it survives unprocessed and pollutes everything downstream (+2.34, this run); with it subtracted from the stream before they run (cut4) there is nothing to clean and nothing is lost (+0.03, §1242); with it subtracted AFTER they cleaned it (cut6), the subtraction removes what is already gone — net injection of −(raw), a wrong vector of exactly the shape downstream knows how to read, hence the 3.80 spike that decays with depth (§1241-42).
+
+The non-monotone curve, the blind-mlp45 cost, and the keep-then-delete cheapness are one mechanism seen from three sides. Registered signature test queued (matcher_janitor): in the BASE model, the stream's projection onto the raw write direction should drop sharply across blocks 4-5 (active cancellation) while null-head writes only λ-decay.
+
+matcher_reencode2_results.json; runlogs/matcher_reencode2.log (154s).

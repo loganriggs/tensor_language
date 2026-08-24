@@ -4978,3 +4978,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1241 — consumer-locus v1 QUARANTINED (non-monotone violates removal semantics; keep-then-subtract ≠ clean deletion); null-controlled v2 queued (matcher_consumer.py)
 §1242 — null lifts quarantine: match evidence consumed IMMEDIATELY (keep-through-L3-then-delete = 0.03 vs never-write 2.23); raw vector = scaffolding, L4-5 removal inconsistency 3.8; re-encoder hunt queued (matcher_consumer2.py)
 §1243 — re-encoder NAMED: mlp3 (87% with mlp2) immediately re-encodes the match evidence; front-end chain complete (builders → matchers → mlp3 → downstream); mlp45 confound quarantined, null queued (matcher_reencode.py)
+§1244 — mlp4/5 read the matcher vector (null 0.014); JANITOR mechanism: mlp3 re-encodes, mlp4/5 neutralize the raw −v — explains the whole §1241-43 curve; signature test queued (matcher_reencode2.py)
