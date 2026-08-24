@@ -4930,3 +4930,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1193 — sink ruled out (tok0-prepend ≈ plain truncation): bilin18 relay GENUINE 15-19%, softmax nil — architectural fingerprint #2; bilin12 triangulation queued (relay_vs_sink.py)
 §1194 — triangulation: bilin12 recovery NEGATIVE → relay does not track bilinear class; OOD-penalty caveat recorded (recovery = relay − penalty; bilin18's 15-19% = lower bound, cause parked); range-geography thread CLOSED §1185-94 (relay_bilin12.py)
 §1195 — locality budget REGIME-DEPENDENT: repeat-text base 0.258, window cost 2.7-3.4 nats (9-33× natural); 0.08 = natural-text average, machinery worth 30× in copying regime (window_repeat.py)
+§1196 — gen metrics INSTRUMENT-BLIND (W16 positive control failed: normal per-token stats while topic-hopping); topic-retention instrument queued; benchmark page updated (gen_window.py)
