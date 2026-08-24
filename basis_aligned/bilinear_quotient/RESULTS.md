@@ -4928,3 +4928,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1191 — relay recovers only 15-19% (decreasing with W): no bucket-brigade — direct read range binds; range-geography thread CLOSED §1185-91 (relay_recovery.py)
 §1192 — swiglu18 relay ≈ nil (1-3%) → bilin18's 15-19% suspected SINK-AUTHENTICITY confound (named, not concluded); relay_vs_sink disambiguator queued (relay_recovery_family.py)
 §1193 — sink ruled out (tok0-prepend ≈ plain truncation): bilin18 relay GENUINE 15-19%, softmax nil — architectural fingerprint #2; bilin12 triangulation queued (relay_vs_sink.py)
+§1194 — triangulation: bilin12 recovery NEGATIVE → relay does not track bilinear class; OOD-penalty caveat recorded (recovery = relay − penalty; bilin18's 15-19% = lower bound, cause parked); range-geography thread CLOSED §1185-94 (relay_bilin12.py)

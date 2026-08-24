@@ -32015,3 +32015,11 @@ The §1192 confound is dead: giving each truncated window the document's real fi
 **Triangulation queued (relay_bilin12.py, registered):** the third family member (bilin12: 12 layers, D=768, squared/bilinear attention like bilin18) — truncation AND read-mask at W ∈ {32,64} in one harness (no prior truncation refs exist for it). (a) BILINEAR FINGERPRINT: recovery ≥ 0.10 at both widths → relaying tracks the attention nonlinearity; (b) alternative recovery ≤ 0.05 → tracks depth/scale instead; (c) sanity: unmasked forward = true model ±0.005.
 
 relay_vs_sink_results.json; runlogs/relay_vs_sink.log (50s).
+
+## §1194 — TRIANGULATION: bilin12's recovery is NEGATIVE (−0.076/−0.289 @W32/64) — relaying does NOT track the bilinear nonlinearity; pred_a FALSE, pred_b nominally TRUE, plus an instrument caveat the negative sign forces (relay_bilin12.py)
+
+Family relay table: bilin18 (18L bilinear) +15-19% · swiglu18 (18L softmax) +1-3% · bilin12 (12L bilinear) NEGATIVE. So neither attention class nor architecture family alone explains bilin18's relaying — if anything the conjunction depth×bilinear, or an idiosyncrasy of that one training run. **Instrument caveat, forced by the sign:** read-masking keeps full-length sequences whose positions carry absolute-context cues while seeing only 64 tokens (off-distribution state), whereas truncation produces authentic short prefixes (in-distribution — training saw them). Measured "recovery" = relay benefit − this OOD penalty; bilin12's penalty exceeds its relay. Consequences stated plainly: bilin18's +15-19% is a LOWER BOUND on its true relaying; small cross-model recovery differences are not interpretable at this instrument's precision; the §1193 conclusion ("bilin18 genuinely relays; sink ruled out") stands, the §1192-93 fingerprint framing softens to "bilin18-specific, cause unresolved" — parked, not chased (diminishing returns; the effect is ≤0.11 nats).
+
+**Range-geography mega-thread CLOSED (§1185-1194):** complete layer-grain value-range map; every carrier named or bounded; relay priced (≤19%, one model only, cause parked); three family members compared; two instrument caveats recorded.
+
+relay_bilin12_results.json; runlogs/relay_bilin12.log (61s).

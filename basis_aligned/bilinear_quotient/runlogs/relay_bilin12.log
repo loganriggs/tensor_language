@@ -1,0 +1,10 @@
+batch 1/6 done 60s
+batch 2/6 done 60s
+batch 3/6 done 60s
+batch 4/6 done 61s
+batch 5/6 done 61s
+batch 6/6 done 61s
+CE {'base': 3.4221, 'true': 3.4221, 'mask32': 3.8423, 'trunc32': 3.8125, 'mask64': 3.6945, 'trunc64': 3.6334}
+cost {'mask32': 0.4202, 'trunc32': 0.3904, 'mask64': 0.2724, 'trunc64': 0.2113} | recovery {'W32': -0.076, 'W64': -0.289}
+sanity True | pred_a bilinear False | pred_b depth/scale True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/relay_bilin12_results.json (61.2s)

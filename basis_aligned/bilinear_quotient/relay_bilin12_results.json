@@ -1,0 +1,36 @@
+{
+ "model": "bilin12",
+ "n_rows": 24,
+ "ce": {
+  "base": 3.4221,
+  "true": 3.4221,
+  "mask32": 3.8423,
+  "trunc32": 3.8125,
+  "mask64": 3.6945,
+  "trunc64": 3.6334
+ },
+ "cost": {
+  "mask32": 0.4202,
+  "trunc32": 0.3904,
+  "mask64": 0.2724,
+  "trunc64": 0.2113
+ },
+ "recovery": {
+  "W32": -0.076,
+  "W64": -0.289
+ },
+ "family_refs": {
+  "bilin18": {
+   "W32": 0.168,
+   "W64": 0.15
+  },
+  "swiglu18": {
+   "W32": 0.03,
+   "W64": 0.013
+  }
+ },
+ "sanity": true,
+ "pred_a_bilinear_fingerprint": false,
+ "pred_b_depth_scale": true,
+ "runtime_s": 61.2
+}

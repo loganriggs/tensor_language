@@ -35,11 +35,10 @@ def forward_masked(idx, mask):
         q = are(F.rms_norm(at.c_q(xin).view(B, T, H, HD), (HD,)), cos, sin)
         k = are(F.rms_norm(at.c_k(xin).view(B, T, H, HD), (HD,)), cos, sin)
         if SQUARED:
-            q2 = are(F.rms_norm(at.c_q2(xin).view(B, T, H, HD), (HD,)), cos, sin)
-            k2 = are(F.rms_norm(at.c_k2(xin).view(B, T, H, HD), (HD,)), cos, sin)
-            pat = (torch.einsum('bqhd,bkhd->bhqk', q.float(), k.float()) / HD) \
-                * (torch.einsum('bqhd,bkhd->bhqk', q2.float(), k2.float()) / HD)
+            # bilin12: single-score squared attention, ROW-NORMALIZED (naive_squared_attention)
+            pat = (torch.einsum('bqhd,bkhd->bhqk', q.float(), k.float()) / HD).square()
             pat = pat.masked_fill(~mask, 0.0)
+            pat = pat / pat.sum(-1, keepdim=True).clamp_min(1e-9)
         else:
             sc = torch.einsum('bqhd,bkhd->bhqk', q.float(), k.float()) / (HD ** 0.5)
             sc = sc.masked_fill(~mask, float('-inf'))
