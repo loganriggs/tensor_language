@@ -24,7 +24,7 @@ conditionality measured).
 
 | Circuit | Stage | Key facts | §refs |
 |---|---|---|---|
-| **Comparative (8.1)** | **CLOSED** | route + 2 zero-bit gates + 8.1 = 0.659 (85% of band), else route+0.014; 26x surgical; head worthless without annotator | §1303-08, §1329-33 |
+| **Comparative (8.1)** | CLOSED, gap anatomy in flight | route + 2 zero-bit gates + 8.1 = 0.659 — ATTENTION-ONLY (all 18 MLPs live; the MLP side of "than" is UNPRICED). User push: decompose the missing 0.34 — entropy-setter (gain-frozen + temperature) vs content (rank diagnostic) | §1303-08, §1329-33 |
 | **Question (10.5)** | CLOSED, kit slimming | layer-grain kit = 0.714 (§1336); user push: whole gated layers are lazy — head-grain slimming in flight (drop-one ranking over the 36-head a02+L4 core, nested kits 16/12/8/4) | §1284, §1313, §1334-36, slim in flight |
 | Exclamation (17.2+17.3) | G3 done | additive half-head pair, 91% share; criterion stream-computed; template NOT yet applied (L17 → expect route to carry more) | §1315-20 |
 | Stem matcher (1.1+1.8) | G3 done | weights-read certified on natural text (78% variant-support damage, in-band) | §1307-08 |
