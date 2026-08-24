@@ -32238,3 +32238,13 @@ prose_station_offsets_results.json; runlogs/prose_station_offsets.log (51s).
 The last open reconciliation of the arc. On the same repeat rows, the two causal instruments give the same station map: no dynamic compensation for a missing head where copying binds (pred_a — the §1204 seriality seen from the ablation side); the quad agrees across instruments (pred_b, 109%); and the built-in disagreement control (head 5.7, whose value is the position-0 constant that read-masks leave visible) disagrees exactly as it must (pred_c). The prose-vs-repeat regime difference, not the ablation-vs-mask instrument difference, is what made copying look non-localizable for 550 sections. Every §649-era claim stands in its regime; every §1204-19 claim stands in its own; the two are now provably about different text, not different knives.
 
 repeat_ablate_stations_results.json; runlogs/repeat_ablate_stations.log (60s).
+
+## §1221 — FAMILY CRITERION ASYMMETRY COMPLETE: swiglu18's stations have ZERO token-identity preference on prose (self-match ratios 0.39-1.14 vs bilin18 matchers' 5.9-6.0) and their far mass is FLAT across distance (near-band 0.20-0.26 ≈ deep-band 0.22-0.23; recency pred_b FALSE at the 2× bar — a uniform far-pool, not a decaying one); preds a & c TRUE (prose_offsets_family.py)
+
+- **pred_a TRUE:** the matching criterion literally does not exist in the softmax sibling — no head at L4/L5/L8 self-matches above baseline on prose. Combined with §1219: bilin18's identity criterion is always on (6× baseline on prose); swiglu18's copy machinery is criterion-silent until repeat structure exists (its key-composition match only fires when the composed key finds its target). The two implementations differ in PEACETIME behavior, not just wiring.
+- **pred_b FALSE, informatively:** the registered recency-decay shape (§1182 intuition) is wrong for PATTERN MASS — swiglu stations spread far mass nearly uniformly over offsets 65-160 on prose. No contradiction with §1182 (that curve priced VALUE by horizon, not mass by offset); logged as the correct mass-shape fact: prose far-pooling is flat-mass, decaying-value.
+- **pred_c TRUE** (no positional peak, max single-offset share ≤ 0.010).
+
+**Copy-circuit arc fully closed at every registered edge (§1204-1221, nineteen experiments).** Criterion (identity-match, bilinear family only, never off), roles (match front / fetch mid), implementations (score function decides), price (~3.2, three-family constant, text-set), station taxonomy (single heads / pairs / crowds by model), instrument reconciliation (§649 regime-scoped), prose moonlighting (~0.037 both 18L; identity-driven in bilin18, uniform-pool in swiglu18).
+
+prose_offsets_family_results.json; runlogs/prose_offsets_family.log (79s).

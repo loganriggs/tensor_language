@@ -4955,3 +4955,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1218 — DECIDED: bilin12 has source-matchers despite normalization (L2 pair o=128, L5 pair o=127) — the SCORE FUNCTION picks the implementation; copy arc §1204-18 CLOSED (repeat_bilin12_stations.py)
 §1219 — CODA: matchers match on prose too (self-match share 6× baseline, no positional peak); fetchers at baseline — double duty = same criterion, never off (prose_station_offsets.py)
 §1220 — instruments reconciled: ablation ≈ read-mask on repeat (1.04 vs 1.08; quad 109%); §649 was regime-only; sink disagreement control fired as designed (repeat_ablate_stations.py)
+§1221 — criterion asymmetry complete: swiglu stations self-match at baseline (0.4-1.1x) + FLAT far mass — identity criterion is bilinear-only, always-on; arc §1204-21 fully closed (prose_offsets_family.py)
