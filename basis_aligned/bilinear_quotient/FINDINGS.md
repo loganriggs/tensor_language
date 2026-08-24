@@ -196,7 +196,9 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
   ~150-head collective. Criterion question (content-sim grows with depth §1085) still open.
 - **B. CLOSED (§1094):** L4 consumes a NON-content context variable (l4_function ran; stale
   entry corrected this pass).
-- **C. Register/OOD axis:** grammar-machine causal transfer to code; more registers.
+- **C. CLOSED for the front band (dedup pass):** §1096 (prose tables ~50% on code), §1111
+  (markdown, ratio-law retracted), §1112 (matched-vocab: register-contextual with breadth
+  asymmetry) — the dossier marks the register thread closed; no re-run needed.
 - **D. Middle attention non-local remainder** (§1069, low-stakes) and per-layer cross-model
   transfer maps (incremental). Census name-circuit reconciliation (induction dossier) — now
   easier with stations named (2.5/3.8 matchers).
