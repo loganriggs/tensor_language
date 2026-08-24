@@ -31985,3 +31985,11 @@ L0 0.000 / L1 0.004 / **L2 0.0178** / L3 0.006 / L4 −0.002. The front's distan
 **Audit queued (grand_stack_audit.py, §1101 law):** the 0.0385 grand-stack headline at 2× fresh rows; registered 0.0385 ± 0.012 with sub-additivity intact.
 
 value_range_front_results.json; runlogs/value_range_front.log (77s).
+
+## §1190 — GRAND STACK AUDITED: 0.0282 on 2× fresh rows (vs 0.0385; within the registered ±0.012, at the band's edge; sanity exact; sub-additivity intact) — durable quote: ≈0.03-0.04 nats, ~1% of loss (grand_stack_audit.py)
+
+Same fresh-draw-easier pattern as §1172 — absolute costs scale with row difficulty (base 3.2548 vs 3.3627); structure replicates exactly. The window-certificate program's headline is audit-stable.
+
+**Relay quantifier queued (relay_recovery.py, registered):** §1186 noted multi-hop relay (per-layer read masks compound receptive fields across layers) recovers surprisingly little vs full input truncation. Directly: all-18 read-masking at W ∈ {16,32,64} against §1180's truncation curve (0.593/0.379/0.207). (a) read-mask ≤ truncation at every W; (b) relay recovery fraction ≤ 0.3 at every W (reads are the binding constraint, not input truncation); (c) both monotone.
+
+grand_stack_audit_results.json; runlogs/grand_stack_audit.log (282s).
