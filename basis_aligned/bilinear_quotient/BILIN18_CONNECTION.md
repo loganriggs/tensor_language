@@ -31921,3 +31921,11 @@ full_window_model_results.json; runlogs/full_window_model.log (48s).
 Both independently-trained siblings, different attention nonlinearities: total long-range function at horizon 128 = 0.081-0.082 nats, of which selection carries 0.014-0.015 (§1166/§1170) and pooled values/content ~0.066-0.068. The §1180 locality budget joins the transport constants (§1158) and the fold constants (§1170) in the family-constant column. What next-token training on FineWeb builds — twice, in different architectures — is: local machinery + a ~128-token-scale content pool worth ~0.08 nats + one constant. Curve tail queued (window_tail.py, registered): W ∈ {160, 192, 224} on bilin18; (a) monotone continues; (b) W=192 ≤ 0.04; (c) decay factor per +64 tokens stays ≥ 1.8 (no long flat tail — the pool's value concentrates at ~document scale, not beyond).
 
 full_window_family_results.json; runlogs/full_window_family.log (48s).
+
+## §1182 — CURVE TAIL: smooth to zero (0.0774 / 0.0452 / −0.001 at W=160/192/224, scored ≥224) — no plateau; the content pool's value is spread across the full trained document scale, roughly halving per +32-64 tokens (window_tail.py)
+
+pred_a/c TRUE, pred_b near-miss (0.0452 vs 0.04, reported). W=224 ≈ full context for the scored positions → cost exactly zero (internal sanity). The locality picture completes: long-range value decays smoothly with horizon and vanishes only at the trained context length — the model uses ALL 256 tokens, with weight halving every ~32-64. (Scope: T=256 is the trained context; nothing here speaks to longer documents.)
+
+**MLP ladder map extension queued (deep_mlp_ngram.py, registered):** the §1179 construction on the deep band — mlp5/7/9/12/15@W=64, each alone. Since the §1180 long-range 0.08 rides ATTENTION POOLING (which the construction leaves live outside the replaced MLP), deep MLP n-gram entries should stay cheap: (a) all ≤ 0.03; (b) no depth trend (flat, unlike the loss-side §1114 deep-MLP content shares); (c) if any ≥ 0.10, a genuinely context-hungry MLP is found (informative alternative — would localize a values-side long-range consumer).
+
+window_tail_results.json; runlogs/window_tail.log (53s).
