@@ -1,0 +1,26 @@
+{
+ "n_rows": 24,
+ "W": 64,
+ "base": 3.2588,
+ "cost": {
+  "all18": 0.1758,
+  "core12": 0.0761,
+  "pool150": 0.0799
+ },
+ "random_k_mean": {
+  "8": 0.00128,
+  "16": 0.00276,
+  "32": 0.00623,
+  "64": 0.01596
+ },
+ "per_head": {
+  "k8": 0.00016,
+  "k64": 0.000249
+ },
+ "sanity": true,
+ "core_replicates": true,
+ "pred_a_tail_majority": false,
+ "pred_b_sublinear": false,
+ "pred_c_partition": true,
+ "runtime_s": 71.6
+}

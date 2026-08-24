@@ -1,0 +1,8 @@
+base 3.2588 true 3.2588 | all18 0.1758 core12 0.0761 pool150 0.0799
+k=8: mean cost 0.00128
+k=16: mean cost 0.00276
+k=32: mean cost 0.00623
+k=64: mean cost 0.01596
+per-head k8 0.000160 vs k64 0.000249
+sanity True | core repl True | pred_a tail False | pred_b sublin False | pred_c part True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/crowd_scaling_results.json (71.6s)

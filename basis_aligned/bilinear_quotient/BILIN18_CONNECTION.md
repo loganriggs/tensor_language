@@ -32258,3 +32258,11 @@ All 162 heads screened singly under the W=64 read-mask on prose, then greedy for
 - **pred_b TRUE:** the core is mid-heavy (8/12 members in L4-9). **pred_c FALSE informatively:** the chosen core is only 1.54× super-additive (bar 2×) — greedy naturally picks the least-overlapping heads; the deep redundancy lives in the unpicked tail.
 
 seed_ensemble_results.json; runlogs/seed_ensemble.log (153s). Queued closer: crowd_scaling (cost vs random-k-head masks — the tail's redundancy curve, quantified).
+
+## §1223 — THE CROWD IS SYNERGISTIC, AND THE CORE PUNCHES 12×: random-k read-masks scale SUPERLINEARLY (per-head value RISES 1.56× from k=8 to k=64 — synergy, not coverage; pred_b FALSE against the registered redundancy picture) and the 12-head core (0.0761) carries as much as the 150-head tail combined (0.0799; pred_a FALSE at the tail-majority bar); partition clean (pred_c TRUE) (crowd_scaling.py)
+
+- **The 50/50 split reframes §1222:** "best 12 heads = 43%" and "the other 150 = 45%" are the same facts — per head, the core is ~12× the tail (0.0063 vs 0.0005). Open A's final answer: prose pooling = one nameable, copy/induction-flavored core (12 heads, half the value) + a 150-head synergistic collective (the other half, no member worth naming).
+- **pred_b FALSE, informatively:** the registered coverage hypothesis (read-masked survivors compensate → sublinear) is wrong. Random-k costs grow ~k^1.2 (0.0013 → 0.0160 for 8→64): heads' far-reads are worth MORE jointly than singly even at read grain. §1093's static-output super-additivity is not an output-instrument artifact — synergy is how the pooling collective works, period. A random 64-head mask (0.016) is also 5× cheaper than the chosen core (0.076): concentration and synergy coexist.
+- Controls: sanity exact; core12 replicates §1222 exactly (0.0761).
+
+crowd_scaling_results.json; runlogs/crowd_scaling.log (72s). Family replication queued (swiglu_crowd).
