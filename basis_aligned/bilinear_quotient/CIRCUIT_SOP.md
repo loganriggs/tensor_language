@@ -339,3 +339,57 @@ from mid-wave infra edits is detectable.
 - tags are tree-instance-local; identity across instances = member overlap.
 - basev/base CE is fit-window; fresh-data claims need fresh rows.
 - Do not edit census_lib semantics; add functions if needed.
+
+
+## VALIDATED INSTRUMENTS from the 2026-08-24 program (writeups 1204-1258)
+Use these before inventing new ones — each is causally validated with nulls, and
+each has a known failure mode already caught once. Reference scripts live in
+this directory (all runnable via queue.txt with absolute paths).
+
+1. READ-MASK (window-restrict a head's pattern beyond W tokens, position 0 kept
+   visible). The sharpest per-head causal knife: separates a head's LONG-RANGE
+   read value from its local work. Script pattern: repeat_heads2.py. Known trap:
+   output-zeroing and read-masking measure DIFFERENT things (§1235: zeroing
+   bilin12's front heads = catastrophic, masking their reads = helpful).
+2. REPEAT ROWS (tokens[128:256] = tokens[0:128]) turn on the copy machinery
+   (base CE ~0.36 vs 3.26 prose); the ~3.2-nat window cost there is a THREE-
+   FAMILY constant. Any long-range claim should be tested in BOTH regimes —
+   prose redundancy and repeat seriality behave oppositely (§1204).
+3. OFFSET SIGNATURES: on repeat rows, |pattern| mass at offset 128 = source-
+   MATCHING, at 127 = successor-FETCHING (§1215). Measure SIGNED pattern too —
+   this architecture's patterns carry sign and the signs are load-bearing
+   (§1239-40; flipping a matcher's sign is worse than deleting it).
+4. IDENTITY SCRAMBLE (permute which position's v1/block-0 code belongs to which
+   token, right norms) — the shared-variable knife: one scramble of the v1
+   broadcast kills copy AND content; scrambling block-0's local write kills
+   neither (§1236). Script: shared_variable.py.
+5. AXIS INSTRUMENTS: fit PC1 of an MLP's re-encoding delta (mlp(x) −
+   mlp(x − head_write)); certify by (i) projection REMOVAL vs random-direction
+   null + prose selectivity, (ii) TRANSPLANT restoration under head masking,
+   (iii) mean-restore (level) vs per-position (pattern) split. Scripts:
+   reencode_axis.py, axis_restore.py, axis_meanrestore.py. The verdict axis is
+   a three-family law (removal 1.00/1.18/1.75 nats).
+6. WEIGHTS-ONLY CRITERION TEST: raw rms(wte) codes through a head's own q/k
+   pipelines at realistic rotary positions; AUC same-token vs different. AUC 0
+   is PERFECT INVERTED separation, not failure (§1238). Script:
+   matcher_weights.py.
+7. WEIGHTS-COMPUTED STAND-IN: wte codes -> head's own pipelines -> max score
+   over far candidates -> 1-D affine map -> axis injection. 0.92-0.97 held-out
+   for the matchers, generalizes to unseen offsets (§1257-58). Scripts:
+   matcher_standin.py, matcher_standin2.py.
+
+MANDATORY CONTROLS (each has caught a wrong conclusion at least once):
+- Random-direction / permuted / shuffled null for every projection or scramble
+  (caught §1231 overfit, §1254 distance confound).
+- Share-based offset metrics can show RISES under ablation from pure
+  redistribution — always confirm in ABSOLUTE mass (§1229-30).
+- Keep-until-L-then-subtract is NOT clean removal (baked consequences);
+  interpret only WITH a null-head twin (§1241-42).
+- Correlations with content-similarity must be DISTANCE-PARTIALED (§1254).
+- Regularize any fitted repair (L2 prior toward identity) and evaluate on
+  disjoint rows (§1231/§1233).
+
+NAMED VARIABLES available for steering/analysis (certified):
+- v1 broadcast (block-0 per-token value code; identity carrier).
+- match-evidence axis (PC1 of mlp3's re-encoding delta; verdict carrier;
+  necessary + sufficient + family-general). Fit procedure in reencode_axis.py.
