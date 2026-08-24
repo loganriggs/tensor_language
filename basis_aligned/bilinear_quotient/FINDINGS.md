@@ -191,12 +191,13 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    (f) Per-head/per-component sums ≠ collective cost (5.7× gap §1093) — measure both granularities.
 
 ## Open / focus
-- **A. The content seed's real carriers:** L5H7 retired (constant); §1074 says early attention
-  gathers content — WHICH of the redundant poolers, and by what criterion (content-sim grows with
-  depth §1085)? Needs an ensemble-level (not per-head) intervention design.
-- **B. L4:** first true context MLP — what does its dev×dev consume (content subspace vs other)?
-  l4_function queued.
+- **A. The content seed's real carriers:** ensemble-level design now running (seed_ensemble:
+  greedy read-mask selection over all 162 heads; the §1204-21 arc validated the instrument).
+  Criterion question (content-sim grows with depth §1085) still open behind it.
+- **B. CLOSED (§1094):** L4 consumes a NON-content context variable (l4_function ran; stale
+  entry corrected this pass).
 - **C. Register/OOD axis:** grammar-machine causal transfer to code; more registers.
 - **D. Middle attention non-local remainder** (§1069, low-stakes) and per-layer cross-model
-  transfer maps (incremental).
+  transfer maps (incremental). Census name-circuit reconciliation (induction dossier) — now
+  easier with stations named (2.5/3.8 matchers).
 - **E. FINDINGS hygiene:** keep this file ≤ 2 pages; add every closed arc as it lands.
