@@ -19,6 +19,7 @@
     --cand-bg: #5D6B6514;
     --neg-bg: #8a3b3b14;
     --neg: #8A3B3B;
+    --exbg: #EFF3F0;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -38,6 +39,7 @@
       --cand-bg: #8FA09818;
       --neg: #C97B7B;
       --neg-bg: #C97B7B14;
+      --exbg: #121816;
     }
   }
   :root[data-theme="dark"] {
@@ -57,6 +59,7 @@
     --cand-bg: #8FA09818;
     --neg: #C97B7B;
     --neg-bg: #C97B7B14;
+    --exbg: #121816;
   }
   * { box-sizing: border-box; }
   body {
@@ -69,78 +72,63 @@
     padding: 0 20px 80px;
   }
   main { max-width: 900px; margin: 0 auto; }
-  .mono, code, td.num, .headid {
-    font-family: 'IBM Plex Mono', 'SF Mono', Consolas, monospace;
-  }
+  .mono, code, td.num, .headid { font-family: 'IBM Plex Mono', 'SF Mono', Consolas, monospace; }
   header { padding: 52px 0 20px; border-bottom: 2px solid var(--ink); }
-  h1 {
-    font-weight: 800; font-size: 40px; letter-spacing: -0.02em;
-    margin: 0 0 6px; text-wrap: balance;
-  }
+  h1 { font-weight: 800; font-size: 40px; letter-spacing: -0.02em; margin: 0 0 6px; text-wrap: balance; }
   .sub { color: var(--muted); max-width: 62ch; margin: 0; }
-  .statstrip {
-    display: flex; gap: 28px; flex-wrap: wrap;
-    padding: 16px 0 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px;
-  }
+  .statstrip { display: flex; gap: 28px; flex-wrap: wrap; padding: 16px 0 4px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; }
   .statstrip b { font-size: 22px; display: block; font-weight: 600; color: var(--copper); }
   .statstrip span { color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; font-size: 10.5px; }
-  h2 {
-    font-weight: 800; font-size: 21px; letter-spacing: -0.01em;
-    margin: 52px 0 4px; text-wrap: balance;
-  }
+  h2 { font-weight: 800; font-size: 21px; letter-spacing: -0.01em; margin: 52px 0 4px; text-wrap: balance; }
   h2 + p.lede { color: var(--muted); margin: 0 0 18px; max-width: 68ch; }
   .tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); }
   table { border-collapse: collapse; width: 100%; font-size: 13.5px; }
-  th {
-    text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em;
-    color: var(--muted); font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--line);
-    white-space: nowrap;
-  }
+  th { text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; padding: 10px 14px; border-bottom: 1px solid var(--line); white-space: nowrap; }
   td { padding: 9px 14px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
   tr:last-child td { border-bottom: none; }
   td.num { font-variant-numeric: tabular-nums; white-space: nowrap; font-size: 12.5px; }
-  .chip {
-    display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px;
-    font-weight: 600; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 999px;
-    white-space: nowrap;
-  }
+  .chip { display: inline-block; font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600; letter-spacing: 0.05em; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
   .chip.closed { color: var(--closed); background: var(--closed-bg); }
   .chip.flight { color: var(--flight); background: var(--flight-bg); }
   .chip.cand { color: var(--cand); background: var(--cand-bg); }
   .chip.neg { color: var(--neg); background: var(--neg-bg); }
-  .headid {
-    font-size: 12.5px; font-weight: 600; color: var(--copper);
-    background: var(--copper-soft); padding: 1px 6px; border-radius: 4px; white-space: nowrap;
-  }
-  .card {
-    background: var(--surface); border: 1px solid var(--line); border-radius: 8px;
-    padding: 26px 28px; margin: 22px 0;
-  }
-  .card h3 {
-    margin: 0; font-size: 18px; font-weight: 800; letter-spacing: -0.01em;
-    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  }
+  .headid { font-size: 12.5px; font-weight: 600; color: var(--copper); background: var(--copper-soft); padding: 1px 6px; border-radius: 4px; white-space: nowrap; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 26px 28px; margin: 22px 0; }
+  .card h3 { margin: 0; font-size: 18px; font-weight: 800; letter-spacing: -0.01em; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
   .card .caps { color: var(--muted); margin: 6px 0 0; max-width: 68ch; }
   figure { margin: 22px 0 8px; }
   figure svg { max-width: 100%; height: auto; display: block; }
   figcaption { font-size: 12.5px; color: var(--muted); margin-top: 8px; max-width: 70ch; }
-  .facts {
-    display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-    gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px;
-    overflow: hidden; margin: 16px 0 6px;
-  }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; margin: 16px 0 6px; }
   .fact { background: var(--surface); padding: 10px 14px; }
   .fact b { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 16px; font-weight: 600; }
   .fact span { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); }
   .refs { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--muted); margin-top: 12px; }
   .note { font-size: 13px; color: var(--muted); border-left: 3px solid var(--copper); padding: 2px 0 2px 14px; margin: 18px 0; max-width: 68ch; }
   footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; }
+  /* example blocks */
+  .exwrap { margin: 18px 0 4px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .exhead { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; padding: 8px 14px; background: var(--exbg); border-bottom: 1px solid var(--line-soft); }
+  .exrow { display: flex; align-items: baseline; gap: 10px; padding: 7px 14px; border-bottom: 1px solid var(--line-soft); font-family: 'IBM Plex Mono', monospace; font-size: 12px; background: var(--surface); }
+  .exrow:last-child { border-bottom: none; }
+  .exctx { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; direction: rtl; text-align: left; color: var(--muted); }
+  .exctx bdi { direction: ltr; unicode-bidi: isolate; }
+  .extgt { color: var(--copper); background: var(--copper-soft); font-weight: 600; padding: 0 5px; border-radius: 3px; white-space: pre; }
+  .exdce { font-variant-numeric: tabular-nums; white-space: nowrap; width: 70px; text-align: right; font-weight: 600; }
+  .exdce.small { color: var(--muted); font-weight: 400; }
+  /* glossary */
+  dl.gloss { display: grid; grid-template-columns: 200px 1fr; gap: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); overflow: hidden; margin: 0; }
+  dl.gloss dt { padding: 11px 16px; border-bottom: 1px solid var(--line-soft); font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 600; color: var(--copper); }
+  dl.gloss dd { padding: 11px 16px 11px 0; border-bottom: 1px solid var(--line-soft); margin: 0; font-size: 13.5px; }
+  dl.gloss dt:nth-last-of-type(1), dl.gloss dd:last-of-type { border-bottom: none; }
+  dl.gloss code { font-size: 12px; background: var(--exbg); padding: 1px 5px; border-radius: 3px; }
+  @media (max-width: 640px) { dl.gloss { grid-template-columns: 1fr; } dl.gloss dt { border-bottom: none; padding-bottom: 2px; } dl.gloss dd { padding-left: 16px; } }
 </style>
 
 <main>
 <header>
   <h1>bilin18 Circuit Board</h1>
-  <p class="sub">Every circuit thread in the interpretability program, at its pipeline stage — with the mechanism, the numbers, and the ledger references. Source of truth: <span class="mono">CIRCUIT_REGISTRY.md</span>, updated every time a circuit moves stage.</p>
+  <p class="sub">Every circuit thread in the interpretability program, at its pipeline stage — with the mechanism, the numbers, real examples from the evaluation text, and the ledger references. Source of truth: <span class="mono">CIRCUIT_REGISTRY.md</span>.</p>
   <div class="statstrip">
     <div><b>4</b><span>closed</span></div>
     <div><b>2</b><span>weights-read done</span></div>
@@ -150,8 +138,41 @@
   </div>
 </header>
 
+<h2>How to read the numbers</h2>
+<p class="lede">Every quantity on this page reduces to one measurement: how much worse the model predicts the next token when a piece of it is silenced. Definitions in the order you'll meet them.</p>
+<dl class="gloss">
+  <dt>nat</dt>
+  <dd>The unit of prediction loss. A prediction's cross-entropy is <code>−ln p(actual next token)</code>. A damage of +0.7 nats means the model's probability on the correct token was roughly <b>halved</b> (e<sup>0.7</sup> ≈ 2); +2.3 nats means cut to a tenth. All numbers are averages over held-out FineWeb text the model never fit on.</dd>
+  <dt>mean-ablation</dt>
+  <dd>How a component is "silenced": its output at every position is replaced by its <em>average</em> output over 24 unrelated text rows. The component still emits something of the right size — it just carries no information about the current input.</dd>
+  <dt>target / elsewhere</dt>
+  <dd>Positions where the capability fires vs. everywhere else. Target masks are computed mechanically from the token stream — e.g. comparative targets = positions whose next token is "than" with a comparative word 2–20 tokens back. The first 64 tokens of each row are excluded (burn-in).</dd>
+  <dt>damage (dCE)</dt>
+  <dd><code>CE(ablated) − CE(intact)</code> at a position or averaged over a mask. The per-example numbers below are exactly this, per position.</dd>
+  <dt>concentration</dt>
+  <dd><code>target damage ÷ elsewhere damage</code> for the same ablation. 45.9 means silencing the component hurts its targets ~46× more than everything else — the signature of a specialist rather than a generalist.</dd>
+  <dt>jitter control</dt>
+  <dd>The same damage measured at target positions <em>shifted +2 tokens</em> — same local text, wrong position. Catches "the component just matters near this kind of text." Must be ≤1.5× before a screen verdict is issued.</dd>
+  <dt>random control</dt>
+  <dd>The same damage at a count-matched <em>random</em> position set. Catches "the component matters everywhere and the targets are just positions." Same ≤1.5× bar. A screen with a dirty control gets <b>no verdict</b> — it reruns at more data.</dd>
+  <dt>gap &amp; recovery</dt>
+  <dd>For extractions: <b>gap</b> = target CE with <em>every</em> attention head mean-ablated minus target CE of the full model. <b>Recovery</b> of an arm = <code>(CE(all-ablated) − CE(arm)) ÷ gap</code>: 0 = all attention dead, 1 = full model. "0.714 recovery" means the extracted kit restores 71.4% of what attention as a whole was worth at those targets.</dd>
+  <dt>route</dt>
+  <dd>The baseline every extraction keeps. bilin18 mixes each head's values with block-0's values (<code>v = ½v + ½v₁</code>). The route arm keeps that block-0 broadcast — nearly free to describe, since it's a per-layer scalar times values the extraction keeps anyway — and replaces only each head's <em>fresh</em> values with their mean. It alone recovers 33–44% of any capability measured so far, so extraction claims are always quoted above it.</dd>
+  <dt>band</dt>
+  <dd>A contiguous run of attention layers, written like <code>a02</code> = attention layers 0–2, <code>L0–5</code> = layers 0 through 5.</dd>
+  <dt>gate</dt>
+  <dd>A position mask inside which a band runs <em>live</em> (outside it's routed). Gates used so far are pure token properties — "comparative token here", "question clause open" — so they cost ~zero bits to describe. Twice now, a gated band has <em>beaten</em> the same band fully live: under a partial extraction, extra live outputs can be interference.</dd>
+  <dt>selectivity</dt>
+  <dd>Of a removal: damage at targets vs. elsewhere when the specialist is deleted from the extraction. "26× surgical" = removing 8.1 costs 0.361 nats at comparative targets and 0.014 elsewhere.</dd>
+  <dt>owner / crowd / pair</dt>
+  <dd>The three structural forms found so far. <b>Owner</b>: one head carries the capability (8.1 = 100.7% of its layer's comparative effect). <b>Crowd</b>: many heads share it, none necessary (question's layer-4 state: top head 32%). <b>Pair</b>: two heads split one job additively (17.2+17.3, joint = sum of solos within 2.6%).</dd>
+  <dt>G3 / G1 / G2</dt>
+  <dd>The three goals a circuit must pass to close. <b>G3 weights-read</b>: predict the behavior from the weight matrices alone, then certify the prediction on natural text. <b>G1 extract</b>: rebuild the capability from a small itemized kit (route + gates + specialist) and measure its recovery. <b>G2 remove</b>: delete the specialist and show only the capability degrades.</dd>
+</dl>
+
 <h2>Status board</h2>
-<p class="lede">Pipeline: candidate → screened → owned → weights-read (G3) → extracted (G1) → removal-verified (G2) → closed. As of §1336.</p>
+<p class="lede">Pipeline: candidate → screened → owned → weights-read (G3) → extracted (G1) → removal-verified (G2) → closed. As of §1337.</p>
 <div class="tablewrap"><table>
   <tr><th>Circuit</th><th>Stage</th><th>What it is</th><th>§</th></tr>
   <tr>
@@ -199,8 +220,8 @@
   <tr>
     <td><span class="headid">a13</span> Close-bracket</td>
     <td><span class="chip cand">SCREENING</span></td>
-    <td>largest concentrated effect on record (+0.694 nats); clean screen running now</td>
-    <td class="num">513</td>
+    <td>largest clean concentration on record (45.9×); verdict awaiting the control rerun</td>
+    <td class="num">513, 1337</td>
   </tr>
   <tr>
     <td>Newline routing</td>
@@ -215,6 +236,8 @@
     <td class="num">513</td>
   </tr>
 </table></div>
+
+<p class="note">About the examples below: every example is real held-out FineWeb text. <b>Illustrative</b> = the 5 targets where silencing the circuit's specialist hurt most (selection criterion disclosed: sorted by dCE). <b>Random</b> = 5 targets drawn with a fixed seed, damage as it fell. The spread between the two groups is honest information: it shows how evenly the circuit's load is distributed over its targets.</p>
 
 <h2>The stem matcher — <span class="headid" style="font-size:16px">1.1</span> + <span class="headid" style="font-size:16px">1.8</span></h2>
 <p class="lede">The cleanest weights-first result in the program: the circuit's behavior was read off its weight matrices <em>before</em> being tested, and the prediction held on natural text.</p>
@@ -253,12 +276,27 @@
     <figcaption>An inflected variant of the current token appeared earlier. The matcher pair links them by stem, and the model copies the earlier token's continuation — induction across morphology.</figcaption>
   </figure>
   <div class="facts">
-    <div class="fact"><b>1,569</b><span>natural variant positions</span></div>
-    <div class="fact"><b>0.186 nats</b><span>ablation cost at targets</span></div>
+    <div class="fact"><b>1,569</b><span>natural variant positions (§1308 mask)</span></div>
+    <div class="fact"><b>0.186 nats</b><span>ablation cost at those targets</span></div>
     <div class="fact"><b>78%</b><span>of identical-match damage — inside the registered 30–80% band</span></div>
     <div class="fact"><b>0.8%</b><span>control pair's effect (flat)</span></div>
   </div>
-  <p class="caps">The registered weights-read prediction — variant-supported positions should show 30–80% of the identical-supported effect — was made before the natural-text run and landed at 78%. Planted collision pairs get 51% of the identity copy-boost.</p>
+
+  <div class="exwrap">
+    <div class="exhead">Illustrative — highest dCE when 1.1+1.8 are silenced (loose display mask: any stem repeat ≥64 back)</div>
+    <div class="exrow"><span class="exctx"><bdi>classroom.⏎Best Group Blog: Nerdy Book Club – No other group</bdi></span><span class="extgt"> blog</span><span class="exdce">+4.04</span></div>
+    <div class="exrow"><span class="exctx"><bdi>: 66288884. (C) 2008 The Island Def Jam Music</bdi></span><span class="extgt"> Group</span><span class="exdce">+3.77</span></div>
+    <div class="exrow"><span class="exctx"><bdi>"Holiday Central" -- that we introduce you to At Play's Holiday</bdi></span><span class="extgt"> Guide</span><span class="exdce">+3.02</span></div>
+    <div class="exrow"><span class="exctx"><bdi> (he is amazing, by the way.) Just check out http://phil</bdi></span><span class="extgt">ry</span><span class="exdce">+2.59</span></div>
+    <div class="exrow"><span class="exctx"><bdi>mins)⏎PATAGONIAN WINTER (alpine)*Andy</bdi></span><span class="extgt"> Kirk</span><span class="exdce">+2.38</span></div>
+    <div class="exhead">Random sample (seed 7) — same mask, damage as it fell</div>
+    <div class="exrow"><span class="exctx"><bdi>untries with the most protected intangible cultural heritage</bdi></span><span class="extgt"> elements</span><span class="exdce small">−0.08</span></div>
+    <div class="exrow"><span class="exctx"><bdi>'s two mini-parks, is a 0.3 acre</bdi></span><span class="extgt"> lot</span><span class="exdce small">−0.17</span></div>
+    <div class="exrow"><span class="exctx"><bdi>s. Females participate in rearing on another's young. Groups</bdi></span><span class="extgt"> maintain</span><span class="exdce small">−0.27</span></div>
+    <div class="exrow"><span class="exctx"><bdi>ut. We cannot possibly ruin the stereotype about how Koreans</bdi></span><span class="extgt"> are</span><span class="exdce small">+0.04</span></div>
+    <div class="exrow"><span class="exctx"><bdi>. He felt that we had a limited time in order to do the work</bdi></span><span class="extgt"> of</span><span class="exdce small">+0.19</span></div>
+  </div>
+  <p class="caps" style="font-size:13px">The contrast between the two groups is the redundancy story in miniature: on most stem-repeat positions the crowd covers for the pair (random sample ≈ 0), but where the pair is load-bearing — names and titles recurring in inflected or compound form — silencing it costs 2–4 nats. Note the display mask here is looser than §1308's certified one (which also required the earlier variant's continuation to be the correct answer); the certified 0.186-nat figure uses the strict mask.</p>
   <div class="refs">§1307 (weights mining, planted pairs) · §1308 (natural-text certification)</div>
 </div>
 
@@ -311,6 +349,22 @@
     <div class="fact"><b>26×</b><span>removal selectivity (0.361 vs 0.014 nats)</span></div>
     <div class="fact"><b>~0 bits</b><span>gate cost — both windows are token properties</span></div>
   </div>
+
+  <div class="exwrap">
+    <div class="exhead">Illustrative — highest dCE when 8.1 is silenced (mean over all 24 targets: +2.06)</div>
+    <div class="exrow"><span class="exctx"><bdi>. I've given them a lot more of my time this summer</bdi></span><span class="extgt"> than</span><span class="exdce">+4.67</span></div>
+    <div class="exrow"><span class="exctx"><bdi>s have less discretion to limit inmates' religious practices</bdi></span><span class="extgt"> than</span><span class="exdce">+4.62</span></div>
+    <div class="exrow"><span class="exctx"><bdi> accepted for review far fewer free-expression-related cases</bdi></span><span class="extgt"> than</span><span class="exdce">+3.59</span></div>
+    <div class="exrow"><span class="exctx"><bdi>he fishing is no good and the tribe would rather believe him</bdi></span><span class="extgt"> than</span><span class="exdce">+3.58</span></div>
+    <div class="exrow"><span class="exctx"><bdi>er, because inmates have more limited First Amendment rights</bdi></span><span class="extgt"> than</span><span class="exdce">+2.93</span></div>
+    <div class="exhead">Random sample (seed 7)</div>
+    <div class="exrow"><span class="exctx"><bdi> accepted for review far fewer free-expression-related cases</bdi></span><span class="extgt"> than</span><span class="exdce">+3.59</span></div>
+    <div class="exrow"><span class="exctx"><bdi>tes that sometimes, humans can be more vicious and malignant</bdi></span><span class="extgt"> than</span><span class="exdce">+0.88</span></div>
+    <div class="exrow"><span class="exctx"><bdi>e from past policy, but both are finding more in these moves</bdi></span><span class="extgt"> than</span><span class="exdce">+2.67</span></div>
+    <div class="exrow"><span class="exctx"><bdi>s have less discretion to limit inmates' religious practices</bdi></span><span class="extgt"> than</span><span class="exdce">+4.62</span></div>
+    <div class="exrow"><span class="exctx"><bdi>tive Protestants to be even more liberal relative to Muslims</bdi></span><span class="extgt"> than</span><span class="exdce">+1.75</span></div>
+  </div>
+  <p class="caps" style="font-size:13px">Unlike the stem matcher, the random sample here looks like the illustrative one — every sampled target loses 0.9–4.7 nats. That's what "owner" means operationally: there is no crowd covering for 8.1 at its own targets. (Only 24 targets exist in this 480-row display sample — the comparative construction is rare, which is why certification runs used 1,920 rows.)</p>
   <div class="refs">§1303–06 (screen, head, criterion) · §1329 (extraction + surgical removal) · §1331–33 (gates, closure)</div>
 </div>
 
@@ -367,7 +421,44 @@
     <div class="fact"><b>63%</b><span>of mid service in layer 4</span></div>
     <div class="fact"><b>32%</b><span>largest single-head share — crowd, not owner</span></div>
   </div>
+
+  <div class="exwrap">
+    <div class="exhead">Illustrative — highest dCE when 10.5 is silenced (mean over all 87 targets: +0.53)</div>
+    <div class="exrow"><span class="exctx"><bdi>ituations.⏎When will I have to pay back the amount I put off</bdi></span><span class="extgt">?</span><span class="exdce">+3.07</span></div>
+    <div class="exrow"><span class="exctx"><bdi>ate whether particular material can be withheld from inmates</bdi></span><span class="extgt">?</span><span class="exdce">+3.02</span></div>
+    <div class="exrow"><span class="exctx"><bdi> guy working from his home on a blog he maintains by himself</bdi></span><span class="extgt">?</span><span class="exdce">+2.56</span></div>
+    <div class="exrow"><span class="exctx"><bdi>et your feet wet by assembling some test equipment from kits</bdi></span><span class="extgt">?</span><span class="exdce">+2.50</span></div>
+    <div class="exrow"><span class="exctx"><bdi>sed to determine the constitutionality of prison regulations</bdi></span><span class="extgt">?</span><span class="exdce">+2.21</span></div>
+    <div class="exhead">Random sample (seed 7)</div>
+    <div class="exrow"><span class="exctx"><bdi> is acceptable to sleep in. Are you comfortable Baby Bofinks</bdi></span><span class="extgt">?</span><span class="exdce small">+0.28</span></div>
+    <div class="exrow"><span class="exctx"><bdi>could the bride have expressed unhappiness in this situation</bdi></span><span class="extgt">?"</span><span class="exdce small">+0.66</span></div>
+    <div class="exrow"><span class="exctx"><bdi>ws at Universal Studios?⏎What new book will you want to read</bdi></span><span class="extgt">?</span><span class="exdce small">+0.10</span></div>
+    <div class="exrow"><span class="exctx"><bdi>? Why do you expect me to swallow the fables of Christianity</bdi></span><span class="extgt">?</span><span class="exdce small">+0.05</span></div>
+    <div class="exrow"><span class="exctx"><bdi> for a cat? Is it for me? Is it for both of us</bdi></span><span class="extgt">?</span><span class="exdce small">+0.00</span></div>
+  </div>
+  <p class="caps" style="font-size:13px">The random sample shows where 10.5's load actually sits: long clauses far from any other question mark lose 2–3 nats, while questions in question-dense text (the bottom rows — note the earlier "?" already in context) lose almost nothing. When recent context already screams "questions here", the crowd carries the prediction and the specialist is redundant — the same crowd that makes the layer-4 annotator diffuse.</p>
   <div class="refs">§1284, §1313 (head, specificity) · §1334 (inversion) · §1335 (band scan) · §1336 (crowd verdict, closure)</div>
+</div>
+
+<div class="card">
+  <h3>Close-bracket → ")" <span class="chip cand">SCREENING</span></h3>
+  <p class="caps">The pool's top candidate, mid-certification. Silencing attention layer 13 costs <b>+0.711 nats</b> at bracket-closing targets against +0.016 everywhere else — concentration 45.9, the largest clean whole-layer concentration on record — with ownership 3×-clear over every neighbor. The verdict is withheld only on a marginal random control (1.62 vs the 1.5 bar); the 2×-data rerun is in flight. Targets require an <em>unmatched</em> "(" earlier: the capability is depth-tracking, which makes a13's criterion a natural weights-read target once a head is localized.</p>
+  <div class="exwrap">
+    <div class="exhead">Illustrative — highest dCE when a13 (whole layer) is silenced (mean over all 362 targets: +0.77)</div>
+    <div class="exrow"><span class="exctx"><bdi> Germany⏎|Ancestor||None. (See Ford (crossing</bdi></span><span class="extgt">))</span><span class="exdce">+5.01</span></div>
+    <div class="exrow"><span class="exctx"><bdi>ay not help my friend get through her day better (physically</bdi></span><span class="extgt">)</span><span class="exdce">+3.38</span></div>
+    <div class="exrow"><span class="exctx"><bdi>m containing this song (which was the second headlining song</bdi></span><span class="extgt">)</span><span class="exdce">+3.29</span></div>
+    <div class="exrow"><span class="exctx"><bdi> shut the hell up.⏎Back at Omarion (Ometepe</bdi></span><span class="extgt">),</span><span class="exdce">+3.05</span></div>
+    <div class="exrow"><span class="exctx"><bdi> us up the wall.⏎(The Uncredentialed, Crypto Jew</bdi></span><span class="extgt">)</span><span class="exdce">+2.74</span></div>
+    <div class="exhead">Random sample (seed 7)</div>
+    <div class="exrow"><span class="exctx"><bdi>omonas bacteria⏎which cause septicemia, aka "Blood Poisoning</bdi></span><span class="extgt">").</span><span class="exdce">+1.41</span></div>
+    <div class="exrow"><span class="exctx"><bdi>. (Contreras, et al., 1987; Fulk, 1976</bdi></span><span class="extgt">)</span><span class="exdce small">+0.23</span></div>
+    <div class="exrow"><span class="exctx"><bdi> Egger with fellow alpinist Ian Parnell. (31mins</bdi></span><span class="extgt">)</span><span class="exdce small">+0.00</span></div>
+    <div class="exrow"><span class="exctx"><bdi>opment (13 posts)⏎- Creative teaching and learning (28 posts</bdi></span><span class="extgt">)</span><span class="exdce small">+0.00</span></div>
+    <div class="exrow"><span class="exctx"><bdi>The hostel is a renovated old brothel (better than it sounds</bdi></span><span class="extgt">)</span><span class="exdce small">+0.79</span></div>
+  </div>
+  <p class="caps" style="font-size:13px">Same pattern as the question head, and informative in the same way: brackets whose closure is <em>locally obvious</em> — a "(31mins" or a list template repeated line after line — lose nothing, while brackets held open across a long clause lose 3–5 nats. Whatever a13 computes, it earns its keep on the long-range cases.</p>
+  <div class="refs">§513 (atlas flag) · §1337 (clean screen, verdict withheld on control)</div>
 </div>
 
 <div class="card">
@@ -377,11 +468,11 @@
 </div>
 
 <h2>What feeds the pipeline next</h2>
-<p class="lede">The candidate pool, ranked. Each was flagged by the behaviour-first screen with a named leader component; a thread opens with a clean §1302-standard screen (running now for close_bracket).</p>
+<p class="lede">The candidate pool, ranked. Each was flagged by the behaviour-first screen with a named leader component; a thread opens with a clean §1302-standard screen.</p>
 <div class="tablewrap"><table>
   <tr><th>Behavior</th><th>Leader</th><th>Target vs elsewhere damage</th><th>Note</th></tr>
-  <tr><td>close_bracket</td><td><span class="headid">a13</span></td><td class="num">+0.694 / +0.015</td><td>largest concentrated effect on record — screening now</td></tr>
-  <tr><td>capitalized</td><td><span class="headid">a17</span></td><td class="num">+0.054 / +0.002</td><td>n=1693; needs a clean control re-screen</td></tr>
+  <tr><td>close_bracket</td><td><span class="headid">a13</span></td><td class="num">+0.711 / +0.016 (n=1779)</td><td>screened §1337 — control rerun in flight</td></tr>
+  <tr><td>capitalized</td><td><span class="headid">a17</span></td><td class="num">+0.054 / +0.002</td><td>clean re-screen queued (sentence-boundary confound excluded)</td></tr>
   <tr><td>open_quote</td><td><span class="headid">a10</span></td><td class="num">+0.272 / +0.020</td><td>control was dirty — re-screen</td></tr>
   <tr><td>open_bracket</td><td><span class="headid">a17</span></td><td class="num">+0.070 / +0.010</td><td>shares a17 with capitalized</td></tr>
   <tr><td>digit</td><td><span class="headid">a8</span></td><td class="num">+0.134 / +0.035</td><td>reproduces the a8-counting result independently</td></tr>
@@ -390,6 +481,6 @@
 <p class="note">When the pool runs low, five generators refill it: new behavior taxonomies through the screen (~10 classes per 2-minute run), damage-cluster mining over the 147 certified ownership clusters, selectivity-matrix off-diagonals (shared-subroutine candidates), the 24% of well-predicted tokens no certified slice covers, and the benchmark backlog.</p>
 
 <footer>
-  Model: bilin18 (546M bilinear-attention GPT-2, 18L × 9 heads). All recoveries are fractions of the mean-ablation gap on held-out FineWeb; "route" = the ~free-in-bits λ·v1 baseline every extraction keeps. Ledger: BILIN18_CONNECTION.md §1280–1336 · Status: CIRCUIT_REGISTRY.md · Updated 2026-08-24.
+  Model: bilin18 (546M bilinear-attention GPT-2, 18L × 9 heads). All recoveries are fractions of the mean-ablation gap on held-out FineWeb; "route" = the ~free-in-bits λ·v1 baseline every extraction keeps. Examples extracted by circuit_examples.py on 480 fresh rows (⏎ marks a newline in the source text). Ledger: BILIN18_CONNECTION.md §1280–1337 · Status: CIRCUIT_REGISTRY.md · Updated 2026-08-24.
 </footer>
 </main>
