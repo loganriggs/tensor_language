@@ -864,6 +864,18 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   collective value, a per-position "how much to pool" gain adds most of the gatherer band's remainder — and
   the rest survives every named candidate we tried (content-similarity, induction-matching, pooled mass),
   an honestly bounded unknown.</p>
+  <p><span class="tag">the bias, priced in bits</span> A later experiment made the frozen-bias pathology
+  precise. A head's frozen mean is a constant that conditions on <em>nothing</em> — zero bits of context.
+  Let each head's constant condition on just the <em>current token's frequency class</em> (four classes —
+  two bits) and the static model lands within 0.007 nats of the delete-attention line: the entire harm of
+  stale biases was that they were wrong for the current token class. Two bits of the right variable
+  neutralize it completely — while the same bits of the <em>wrong</em> variable (document position) buy an
+  eighth as much, and randomly assigned classes buy exactly nothing. The decomposition is now clean:
+  attention's bias component is worth two bits of token class; the remaining ~3.7 nats is genuine dynamics
+  that no small conditioning table can fake. (A sibling idea — repairing window-restriction damage with
+  learned per-head gain scalars, free because they fold into the projection weights — came back a clean
+  null once properly regularized: the restricted model is already gain-calibrated; what it lacks is
+  information, not amplitude.)</p>
 </section>
 
 <section class="col">
