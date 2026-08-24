@@ -5001,3 +5001,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1264 — delta characterized (50%@16 dims, 30% content overlap); attribution QUARANTINED (random-16 removal alone = 1.5× the whole reference — instrument too blunt); matched instrument named (pool_subspace.py)
 §1265 — iteration 2: 16× specific but null still too big (local writes contaminate); surgical far-component v3 queued (pool_subspace2.py)
 §1266 — attribution lands: 16 dims = 46% of the far channel (null clean 8%; anchor exact 0.067) — pool = medium-rank distributed at every grain; thread §1262-66 CLOSED (pool_subspace3.py)
+§1267 — far channel NAMED: baseline dir at 0.97 in-span (operating-point maintenance); verdict axis 0.62 (poles share representation); 2 load-bearing dirs (non-additive, §1091 law); arc §1262-67 complete (pool_names.py)
