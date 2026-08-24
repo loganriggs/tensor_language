@@ -32781,3 +32781,11 @@ question_writers_results.json; runlogs/question_writers.log.
 - CUT 2 queued (head_partition2.py): partition by CONTENT, not route — per head, fit the 16-dim identity-code subspace (PCA of that head's v1 slice) and mask vv's projection onto it, catching identity content arriving by EITHER path; random-16-dim-basis null per head is the mandatory control (§1264 lesson: subspace removals need their null).
 
 head_partition_results.json; runlogs/head_partition.log (365s).
+
+## §1291 — 1.1 AND 1.8 ARE UNIVERSAL OPENER-ANNOTATORS: at DELIMITER openers (13.8's circuit) the same two heads are again the sufficient writers — keep-none costs 2.29 nats at close targets, keeping only 1.1 restores 81%, only 1.8 restores 70%, both together 98%; preds a & b TRUE, pred_c FALSE by a margin worth recording — control head 1.0 restores 24% vs the 20% bar (writer_cross.py; 489 close targets)
+
+- The §1289 cross-circuit question answered in one cell: the pair that redundantly writes the "question opener" mark also redundantly writes the "delimiter opener" mark, and together they account for 98% of what all 27 front heads do for delimiter closing at opener positions. One annotation infrastructure, at head grain, now certified for TWO consumers (10.5 and 13.8) — and the §1228 builder function (match sources for the copy circuit) is the natural third, logged for the same instrument.
+- pred_c's miss, plainly: delimiter closing leans on front-head writes far harder than the question task (keep-none 2.29 vs 0.397), and any kept head restores a little generic function — the control's 24% is that generic floor, not opener-annotation (1.1's 81% and the pair's 98% stand 3-4x above it). The 20% bar was too tight for a task with this much front-attention dependence; the separation, not the bar, carries the conclusion.
+- NAMED: heads 1.1 and 1.8 = the annotator pair. Third consumer test (match sources) logged.
+
+writer_cross_results.json; runlogs/writer_cross.log (74s).
