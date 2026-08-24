@@ -1,0 +1,116 @@
+{
+ "n_rows": 192,
+ "base": {
+  "q_ce": 1.0254,
+  "wh_share": 0.0726
+ },
+ "bands": {
+  "a01": {
+   "open": {
+    "dce": 0.3068,
+    "share_drop": 0.028
+   },
+   "rand": {
+    "dce": 0.0054,
+    "share_drop": 0.009
+   }
+  },
+  "a0a2": {
+   "open": {
+    "dce": -0.0025,
+    "share_drop": 0.009
+   },
+   "rand": {
+    "dce": 0.0009,
+    "share_drop": 0.001
+   }
+  },
+  "a12": {
+   "open": {
+    "dce": 0.1019,
+    "share_drop": 0.06
+   },
+   "rand": {
+    "dce": 0.0057,
+    "share_drop": 0.006
+   }
+  },
+  "a02": {
+   "open": {
+    "dce": 0.3966,
+    "share_drop": 0.032
+   },
+   "rand": {
+    "dce": 0.0064,
+    "share_drop": 0.003
+   }
+  },
+  "a02m3": {
+   "open": {
+    "dce": 0.1031,
+    "share_drop": 0.058
+   },
+   "rand": {
+    "dce": 0.0016,
+    "share_drop": 0.009
+   }
+  },
+  "a02m4": {
+   "open": {
+    "dce": 0.0232,
+    "share_drop": 0.02
+   },
+   "rand": {
+    "dce": 0.0021,
+    "share_drop": 0.003
+   }
+  },
+  "a02m5": {
+   "open": {
+    "dce": 0.4067,
+    "share_drop": 0.05
+   },
+   "rand": {
+    "dce": 0.0062,
+    "share_drop": 0.004
+   }
+  },
+  "a02m6": {
+   "open": {
+    "dce": 0.4101,
+    "share_drop": 0.118
+   },
+   "rand": {
+    "dce": 0.0064,
+    "share_drop": 0.003
+   }
+  },
+  "a02m7": {
+   "open": {
+    "dce": 0.3963,
+    "share_drop": 0.014
+   },
+   "rand": {
+    "dce": 0.0064,
+    "share_drop": 0.003
+   }
+  },
+  "a02m8": {
+   "open": {
+    "dce": 0.3957,
+    "share_drop": 0.018
+   },
+   "rand": {
+    "dce": 0.0064,
+    "share_drop": 0.003
+   }
+  }
+ },
+ "a02_anchor": 0.3966,
+ "best_restorer": "a02m4",
+ "m5_wins": false,
+ "pred_a_pairs_cheap": false,
+ "pred_b_one_scrubber": true,
+ "pred_c_controls_flat": true,
+ "runtime_s": 116.5
+}

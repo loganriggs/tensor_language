@@ -1,0 +1,15 @@
+opener positions 89 | ? targets 37
+base: ? CE 1.0254 | 10.5 wh-share 0.0726
+a01: open dCE 0.3068 share-drop 0.028 | rand dCE 0.0054 share-drop 0.009
+a0a2: open dCE -0.0025 share-drop 0.009 | rand dCE 0.0009 share-drop 0.001
+a12: open dCE 0.1019 share-drop 0.06 | rand dCE 0.0057 share-drop 0.006
+a02: open dCE 0.3966 share-drop 0.032 | rand dCE 0.0064 share-drop 0.003
+a02m3: open dCE 0.1031 share-drop 0.058 | rand dCE 0.0016 share-drop 0.009
+a02m4: open dCE 0.0232 share-drop 0.02 | rand dCE 0.0021 share-drop 0.003
+a02m5: open dCE 0.4067 share-drop 0.05 | rand dCE 0.0062 share-drop 0.004
+a02m6: open dCE 0.4101 share-drop 0.118 | rand dCE 0.0064 share-drop 0.003
+a02m7: open dCE 0.3963 share-drop 0.014 | rand dCE 0.0064 share-drop 0.003
+a02m8: open dCE 0.3957 share-drop 0.018 | rand dCE 0.0064 share-drop 0.003
+best restorer a02m4 (m5_wins False) | a02 anchor 0.3966
+pred_a pairs-cheap False | pred_b one-scrubber True | pred_c ctrl True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_annotator3_results.json (116.5s)
