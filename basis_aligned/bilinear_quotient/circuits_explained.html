@@ -269,6 +269,38 @@ computed-state fetching (circuit 4), and arithmetic in the weights (this one) �
 three-way dedup; atlas cross-check).</p>
 </div>
 
+<h2>Circuit 6, added later — the question head</h2>
+<div class="circuit">
+<span class="tag">"this sentence began with <em>Who</em> — it will end with a question mark"</span>
+<div class="kv">
+<b>What</b><span>Interrogative-state tracking: predicting the closing <span class="mono">?</span>
+of a sentence that opened with a question word (Who/What/How/Is/Can/…). The syntactic cousin of
+the delimiter closer — a carried binary state, but the opener is a <em>word class</em>, not a
+paired symbol. Found by the same concentration screen (attn10 at 32.6, controls clean), owned
+by a single head carrying <b>106%</b> of its layer's damage (the other eight heads mildly mask
+it), concentration 137.</span>
+<b>Where</b><span>Head <span class="mono">10.5</span>. Delete cost 0.023 — the <em>fourth</em>
+consecutive circuit owner invisible to magnitude ranking. At question-mark targets its attention
+on the exact opener position is 11.4× a random earlier key; its mass share on question-word keys
+is 26× baseline. Raw question-word embeddings do <em>not</em> stand out under its query/key
+weights (ratio 1.1) — like the delimiter closer, it keys on an annotation computed in the
+stream, not on the token itself.</span>
+<b>Why</b><span>The upstream story took three corrections to get right, each forced by a
+registered control. First reading: front attention (layers 0–2) "supplies the content" — its
+opener-restricted ablation costs 0.40 nats at 25× position specificity. Overturned: also
+ablating the mid MLPs at the opener <em>restores</em> the behaviour (0.003) — the damage was
+mostly <b>mlp4 re-encoding a corrupted opener state into poison</b> (blocking mlp4 alone
+restores 94%; mlp3 partial; mlp5–8 nothing). Second reading: the front write is "collectively"
+held (single layers free, all three = 0.397). Refined: it is ordinary <b>2-writer
+redundancy</b> — keeping only attn1 alive costs ~0, only attn0 costs 0.10, only attn2 costs
+0.31. The full chain: <b>attn0/attn1 redundantly mark the opener → mlp3/mlp4 re-encode the
+mark → 10.5 fetches it and writes the "?"</b> — the same front layers that build the copy
+matchers' identities, annotating for yet another consumer.</span>
+</div>
+<p class="ref">Evidence: §1282-1288 (screen → head → mechanism → annotation chain; two
+corrections on the record; every step's random control ≤ 2% of its effect).</p>
+</div>
+
 <h2>How the three compose — and one circuit that pointedly doesn't join</h2>
 <p>The composition is a supply chain: <b>block-0 writes a token code → the value-residual
 broadcasts it everywhere → the matchers compare it across distance (circuit 1) → the fetchers
