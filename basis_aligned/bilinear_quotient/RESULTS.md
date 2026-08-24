@@ -5048,3 +5048,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1311 — extraction rung 1: 7 heads recover only 19% — circuits = heads + upstream closure; rung 2 (front band + circuit, 33 heads) queued (extraction_v1.py)
 §1312 — GOAL-1 verdict: mechanism extracts (0.78 stand-in), behaviour doesn't (30% @ 33 heads — crowd-bound); three-goals scoreboard recorded; ladder closed (extraction_v2.py)
 §1313 — 10.5 certified QUESTION-specific ("?" 0.726, "!" 19% near-bar, "." 5%, else 0.4%); exclamation screen queued (terminal_specificity.py)
+§1314 — ladder REOPENED (user: count bits, not heads): rung 3 = keep the lambda-v1 route through removed heads (~free in description length); registered a-c; running (extraction_v3.py)

@@ -32967,3 +32967,11 @@ extraction_v2_results.json; runlogs/extraction_v2.log.
 - The question head is not a generic sentence-terminal predictor: periods are untouched, and the small "!" share sits just under the specificity bar — plausibly exclamatory sentences share some interrogative-adjacent state machinery. Logged: an exclamation-state screen (who owns "!"?) queued as the next behaviour thread; 10.5's 19% suggests partial overlap, and the screen's per-component ranking will say whether "!" has its own owner.
 
 terminal_specificity_results.json; runlogs/terminal_specificity.log (110s; benign teardown noise in log).
+
+## §1314 — USER CORRECTION, LADDER REOPENED: §1312's "rung 3 = keep the model" was WRONG — extraction cost is DESCRIPTION LENGTH, not head count, and the crowd's induction service is route-carried (§1290/93): keep each removed head's lambda-v1 term (a constant scalar times the block-0 value — nearly free in bits) while mean-replacing only its fresh values. Patterns stay live but are themselves known weights-functions (§1161-66: all 162 window-foldable at +0.014). Rung 3 queued (extraction_v3.py)
+
+- Conditions: full | allmean | circ_route (7 circuit heads live + v1 route through all others) | closure_route (33-head closure live + v1 route through all others).
+- Registered predictions:
+  pred_a ROUTE RESTORES THE CROWD'S SERVICE: closure_route ident damage <= 40% of allmean's (>= 60% of the induction gap back — vs 30% at rung 2).
+  pred_b SHARED-VARIABLE CONSEQUENCE (stated before running): elsewhere ALSO recovers >= 40% of its gap — the same broadcast is the content pool's substrate (§1076), so route-grain extraction cannot separate copy from topic; the leak is the prediction.
+  pred_c BAND STILL NEEDED: circ_route trails closure_route by >= 0.3 nats on ident (annotation manufacture lives in the front band's fresh values, not the route).
