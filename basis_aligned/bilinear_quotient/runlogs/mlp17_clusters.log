@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [assert_disjoint mlp17_clusters] 0 of 480 priced rows appear in the fitting corpus -> ok
+tokens covered 31297
+K=1 clustered
+K=4 clustered
+K=16 clustered
+K=64 clustered
+K=256 clustered
+K=1024 clustered
+K=1: CE 3.5467
+K=4: CE 3.4618
+K=16: CE 3.3872
+K=64: CE 3.3847
+K=256: CE 3.3754
+K=1024: CE 3.374
+stake 0.3805 | recovery {'table50k': 0.497, 'k1': 0.0, 'k4': 0.2231, 'k16': 0.4192, 'k64': 0.4258, 'k256': 0.4502, 'k1024': 0.4539}
+digit clusters@16 [2, 10] | freq spread 0.478 vs null 0.068
+pred_a ceiling True | pred_b shape False | pred_c digits False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp17_clusters_results.json (74.3s)

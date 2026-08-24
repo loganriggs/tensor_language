@@ -5059,3 +5059,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1322 — rung 5 negative (additive payload dead, 2 strikes) + MODULE PILOT: mlp1 = 94.4% token table on a 7.00-nat stake (position ~0, bigrams +1.5); cluster ladder running (extraction_v5.py; mlp1_table.py)
 §1323 — mlp1 simplicity curve: LOG-LINEAR (no elbow; 41% @ K=16, 94.4% ceiling), digits cluster but value is token-resolved — module benchmark = the curve; mlp0 ladder queued (mlp1_clusters.py)
 §1324 — module ladder entry 2: curve SHAPE module-invariant (mlp0 log-linear, 37% @ K=16, ceiling 86.3%; digits in 2 of 16 again) but STAKE is not — mlp0 0.80 nats vs mlp1 7.00 (8.8x); mlp17 ladder queued (mlp0_clusters.py)
+§1325 — LADDER DISCRIMINATES: mlp17 = coarse categorizer, half-contextual (ceiling 49.7% vs front 86-94%; ELBOW at K=16, k16/ceiling 0.84 vs 0.43); pred_a TRUE, b & c FALSE informatively; freq-spread 7x null replaces the digit bar; 18-layer depth sweep queued (mlp17_clusters.py)

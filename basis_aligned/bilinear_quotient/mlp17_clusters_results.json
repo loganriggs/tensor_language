@@ -1,0 +1,37 @@
+{
+ "layer": 17,
+ "n_fit": 1920,
+ "n_eval": 480,
+ "ce": {
+  "full": 3.1662,
+  "mean": 3.5467,
+  "table50k": 3.3576,
+  "k1": 3.5467,
+  "k4": 3.4618,
+  "k16": 3.3872,
+  "k64": 3.3847,
+  "k256": 3.3754,
+  "k1024": 3.374
+ },
+ "stake": 0.3805,
+ "recovery": {
+  "table50k": 0.497,
+  "k1": 0.0,
+  "k4": 0.2231,
+  "k16": 0.4192,
+  "k64": 0.4258,
+  "k256": 0.4502,
+  "k1024": 0.4539
+ },
+ "k16_over_table": 0.8435,
+ "digit_clusters_at_k16": [
+  2,
+  10
+ ],
+ "freq_spread_k16": 0.4784,
+ "freq_spread_null": 0.0681,
+ "pred_a_ceiling_falls": true,
+ "pred_b_shape_survives": false,
+ "pred_c_digits_spread": false,
+ "runtime_s": 74.3
+}
