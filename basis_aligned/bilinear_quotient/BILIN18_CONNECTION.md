@@ -32705,3 +32705,11 @@ succ_pair_results.json; runlogs/succ_pair.log (91s).
 The successor head's causal ledger is now four lexicons wide (digits conc 113, weekdays/months 55, years 21.4), and the dormant twin is three-for-three contexts of perfect weight structure with zero-or-negative causal role. The vestigial interpretation is now the standing one; the last unregistered refuge (multi-token numbers with carry) is logged as unlikely and not chased. Thread stays closed.
 
 year_succ_results.json; runlogs/year_succ.log (174s).
+
+## §1282 — A QUESTION-STATE CARRIER EXISTS AND IT IS ATTN10: mean-ablating layer-10 attention at "?"-prediction targets inside WH-opened sentences costs 0.70 nats at conc 32.6 (jitter −0.9, random 1.0 — both clean); preds a-c ALL TRUE as registered (question_screen.py; first submission died on an HF-hub network drop, requeued unchanged)
+
+- The behaviour: positions whose next token contains "?" AND whose sentence opened with an interrogative word (Who/What/How/Is/Can/...), tracked by a per-position state machine over sentence boundaries. This is the syntactic cousin of the delimiter-closer (§1270-74): a carried binary state ("this sentence is a question") consumed at close time — but the opener is a word class, not a paired symbol.
+- Winner attn10 (conc 32.6, dmg_tar 0.6999, elsewhere 0.0215); attn12 second at 7.1, attn9 at 3.6 — a mid-late attention stack, matching the registered late-attention bet (pred_b: L>=10). All MLPs flat or negative at target.
+- Honesty flags: n_targets = 39 on 192 rows — small (the behaviour is rare in FineWeb prose); base target CE is 1.03, i.e. the model finds these predictable when healthy. Per-head decomposition of attn10 queued next (question_heads.py) at 480 rows to raise the target count.
+
+question_screen_results.json; runlogs/question_screen.log (198s).
