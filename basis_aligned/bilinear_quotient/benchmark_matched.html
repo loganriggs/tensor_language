@@ -102,6 +102,23 @@
     So the frontier statement sharpens: modules are locally computable and largely stand-in-able; what resists is
     <em>simulating the construction</em> — a process that must be run, though only ever on nearby context.</p>
   </div>
+
+  <div class="card">
+    <h2>A third kind of row: two attention heads replaced by a computation you can read (added later)</h2>
+    <p class="sub" style="max-width:78ch">
+    The copy circuit's front end — the two "matcher" heads that look for earlier copies of the current token —
+    now has a working stand-in built entirely from legible parts: look up the raw embedding codes of the current
+    token and the candidate source, push them through the heads' own query/key weight pipelines (no forward
+    passes of the model), map the resulting score through <b>one fitted 2-parameter affine function</b>, and
+    write the output onto <b>one direction</b> of the residual stream (the certified match-evidence axis).
+    Held-out recovery: <b>0.92</b> of the two heads' 2.0-nat function on the repeat regime — within 3 points of
+    transplanting the true axis values (0.95), 17 points above a "matching is happening" level-only baseline,
+    with a shuffled-score control landing exactly at that baseline. Scope stated plainly: certified where the
+    source offset is known (verbatim-repeat text); the general-context version (max score over a window of
+    candidate sources) is the registered extension. This is the strongest per-module row on the board: not a
+    fitted imitation of the module's outputs, but the module's own criterion, read out of its weights, driving
+    one named variable.</p>
+  </div>
 </div>
 <script>
 const A={"0":0.947,"1":0.915,"2":0.821,"3":0.826,"4":0.924,"5":0.675,"6":0.529,"7":0.688,"8":0.124,"9":0.651,"10":0.611,"11":0.525,"12":0.325,"13":0.132,"14":-0.041,"15":0.419,"16":0.228,"17":0.636};
