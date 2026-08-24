@@ -1,0 +1,27 @@
+{
+ "n_rows": 192,
+ "base": 0.9324,
+ "keep_none_dce": 4.331,
+ "conds": {
+  "k11": {
+   "dce": 1.2846,
+   "restore": 0.703
+  },
+  "k18": {
+   "dce": 0.675,
+   "restore": 0.844
+  },
+  "k11_18": {
+   "dce": 0.1516,
+   "restore": 0.965
+  },
+  "k10ctrl": {
+   "dce": 3.7645,
+   "restore": 0.131
+  }
+ },
+ "pred_a_annotation_needed": true,
+ "pred_b_universal_writers": true,
+ "pred_c_control": true,
+ "runtime_s": 110.3
+}
