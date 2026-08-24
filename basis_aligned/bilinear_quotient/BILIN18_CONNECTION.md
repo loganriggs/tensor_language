@@ -31977,3 +31977,11 @@ Fifth family-constant of the mega-arc (transport §1158, fold §1170, width law 
 **Front drill-down queued (value_range_front.py, registered), completing the geography:** L0-4 singles @W64, pos-0 visible. (a) L1+L2 carry the majority of the front's 0.036 (the router/induction-trigger band — L2h5 is the top induction head and §1162 showed the front WRITES a ~64-local code); (b) singles super-additive vs the front joint; (c) L0 ≈ 0 (≤0.003 — a bigram table needs no range).
 
 value_range_family_results.json; runlogs/value_range_family.log (39s).
+
+## §1189 — FRONT'S LONG-RANGE READER = L2 (0.0178, 61% of the front joint; L0 exactly 0.0, L4 free) — the value-range map is COMPLETE at layer grain; preds a-c ALL TRUE (value_range_front.py)
+
+L0 0.000 / L1 0.004 / **L2 0.0178** / L3 0.006 / L4 −0.002. The front's distant reading concentrates in the induction-trigger layer (L2h5 = the model's top induction head, §953) — distant match-reads, not content pooling. THE COMPLETE VALUE-RANGE MAP (@W64, pos-0 visible, nats): L0 0 · L1 .004 · L2 .018 · L3 .006 · L4 0 · L5-L8 ~.009 each (redundant crowd, §1187) · L9 .002 · L10-14 band .034 · L15-17 band .013 — bands joint 0.176, whole map super-additive at every grain. Long-range function in this model = one induction trigger (L2) + one redundant content-pooling crowd (L5-8, echoed at L10-14) + one constant fetch (sink, priced separately) — nothing else reads beyond 64 tokens for more than a hundredth of a nat.
+
+**Audit queued (grand_stack_audit.py, §1101 law):** the 0.0385 grand-stack headline at 2× fresh rows; registered 0.0385 ± 0.012 with sub-additivity intact.
+
+value_range_front_results.json; runlogs/value_range_front.log (77s).

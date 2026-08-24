@@ -4923,3 +4923,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1186 — pooling channel localized: L5-9 top carrier 0.067 (2× mid2, 5× late; front 0.036 real second); late local (0.013) — §1153 triple-confirmed; mid-share 57% vs 60% bar (near-miss disclosed); mid1 drill-down queued (value_range_bands.py)
 §1187 — pooling channel = REDUNDANT CROWD (singles ≤0.009, joint 0.067, 1.8×; L5 not special — 482 spike was pure sink); localization closes at band grain (value_range_mid1.py)
 §1188 — pooling geography FAMILY-GENERAL (swiglu18 same shape; fingerprint: deeper spread); 5th family constant of the arc; front drill-down queued (value_range_family.py)
+§1189 — front long-range = L2 alone (0.018, induction trigger; L0 exactly 0); VALUE-RANGE MAP COMPLETE at layer grain; grand-stack 2x audit queued (value_range_front.py)

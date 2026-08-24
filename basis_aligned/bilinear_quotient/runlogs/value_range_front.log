@@ -1,0 +1,4 @@
+CE {'base': 3.2588, 'L0': 3.2588, 'L1': 3.2628, 'L2': 3.2766, 'L3': 3.2646, 'L4': 3.2573, 'front': 3.2946, 'true_model': 3.2588}
+costs {'L0': 0.0, 'L1': 0.004, 'L2': 0.0178, 'L3': 0.0058, 'L4': -0.0015, 'front': 0.0358} | singles sum 0.0261 vs joint 0.0358
+sanity True | pred_a L1+L2 True | pred_b superadd True | pred_c L0 True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/value_range_front_results.json (76.8s)

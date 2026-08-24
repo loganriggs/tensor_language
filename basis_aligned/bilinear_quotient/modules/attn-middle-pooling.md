@@ -36,3 +36,13 @@ the registered next rung. Split-half audit: all collective numbers stable (§110
 - Which ensembles carry the content seed (§1074 says early attention; L5H7 retired §1089) —
   needs ensemble-level intervention, not per-head (FINDINGS Open A).
 - The depth-growing content-sim bias (§1085): mechanism unknown.
+
+## Value-range map (§1186-1189, complete at layer grain)
+Read-masking @W64 (pos-0 visible), nats: L0 0 / L1 .004 / L2 .018 (induction trigger — the
+front's only distant reader) / L3 .006 / L4 ~0 / L5-8 ~.009 each (REDUNDANT crowd: singles sum
+.037 vs band joint .067, no indispensable layer, L5 not special once pos-0 visible) / L9 .002 /
+L10-14 band .034 / L15-17 band .013 (readout local, §1153 triple-confirmed). All-18 joint .176.
+Family-general shape (swiglu18: mid1 top .075; fingerprint = deeper spread, mid2 .063).
+Whole-model long-range budget: .082 @W128 (selection .014 + values ~.07), smooth to zero at
+trained context. Every MLP is a ≤64-token window function (§1183-85). Do not chase finer
+carrier decompositions of the pool — redundancy closes it (population-code law, range edition).
