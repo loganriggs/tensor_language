@@ -32155,3 +32155,9 @@ All 27 heads at swiglu18's stations L4/L5/L8 masked singly.
 - Third cross-model observation of the interference sign (L4H4 alone 0.66 > whole L4 0.40; cf. bilin18 L2H5, L3H8): masking a station's sibling heads WITH it consistently recovers loss — when the fetcher is blinded, its layer-mates' long-range reads are net harmful. Family-general, unexplained; parked as a named observation.
 
 repeat_family_heads_results.json; runlogs/repeat_family_heads.log (104s). Queued closer: repeat_quad_prose (are bilin18's four stations prose-dormant specialists?).
+
+## §1211 — THE STATIONS DO DOUBLE DUTY: on natural prose the quad carries 0.0381 of the 0.176 whole-model read budget (22% — over-weighted for 4/162 heads, but nowhere near their 69% copy share); preds a & c FALSE at the registered dormancy bars, pred_b TRUE (repeat_quad_prose.py)
+
+The §1209 conditions on NATURAL FineWeb rows. all18 lands at 0.1759 — replicating §1186 to the 4th decimal (instrument cross-check for free). The quad's prose cost 0.0381 misses the ≤0.02 dormancy bar and the ≤15% share bar (22%): **the four copy fetchers are NOT prose-dormant specialists — they moderately participate in ordinary long-range pooling too** (partition again clean: 0.038 + 0.152 ≈ 0.176). Corrected picture for the dossier: a dedicated copy front end that ALSO pools (22% of prose carriage), not a cleanly gated module. Consistent with L5H5's small-but-nonzero 0.009 prose zero-ablation (§1083).
+
+repeat_quad_prose_results.json; runlogs/repeat_quad_prose.log (85s). Queued: repeat_range_bilin12 (third family member; price-vs-induction-strength test).

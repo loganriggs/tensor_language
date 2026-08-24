@@ -4945,3 +4945,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1208 — swiglu18 same copy total (3.206 vs 3.200!) + same few-station structure, stations DEEPER (L5/L8/L4) — price+concentration = family law, station depth = fingerprint (repeat_range_family.py)
 §1209 — quad necessary NOT sufficient: complement still costs 1.51/3.20; partition holds — quad ~59%, distributed tail ~41% of copy reading (repeat_quad_sufficient.py)
 §1210 — swiglu18 stations = single heads too (L5H2 91%, L4H4 164% of layer — interference sign cross-arch); its L8 a crowd; two one-head fetchers per sibling = family pattern (repeat_family_heads.py)
+§1211 — stations do DOUBLE DUTY: quad = 22% of prose read budget (0.038/0.176; §1186 replicated 4th decimal) — not dormant specialists; dormancy preds FALSE as registered (repeat_quad_prose.py)
