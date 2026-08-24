@@ -5019,3 +5019,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1282 — question-state carrier FOUND: attn10 conc 32.6 (0.70 nats at "?"-in-WH-sentence targets, controls clean); syntactic cousin of delimiter-closer; per-head next (question_screen.py)
 §1283 — dormant twin SURVIVES 10x data (user challenge): 1036 targets/4 lexicons — 14.4 solo −0.004 vs 8.7's 0.231, backup interaction 3%, no niche alive; vestigial certified (succ_twin_scale.py)
 §1284 — NEW NAMED HEAD: 10.5 = the question head (106% share of layer, conc 137, rest <=2%); third dominant-owner; mechanism cell queued (question_heads.py)
+§1285 — 10.5 fetches the WH opener (11.4x exact-key; share 26x) via stream-computed annotation (weights 1.1 — not embedding-native); ctrl bar missed by a hair (1.59/1.5, disclosed); annotator hunt queued (question_mechanism.py)

@@ -32730,3 +32730,11 @@ succ_twin_scale_results.json; runlogs/succ_twin_scale.log (148s).
 - NEW NAMED HEAD (third of the behaviour-first program): **10.5 = the question head** — consumes the carried "this sentence is a question" state to predict the closing "?". Mechanism cell queued (question_mechanism.py): does it fetch the WH opener's position like 13.8 fetches the delimiter opener, and is its criterion stream-computed (the 13.8 sibling bet, registered)?
 
 question_heads_results.json; runlogs/question_heads.log (125s).
+
+## §1285 — 10.5 FETCHES THE WH OPENER, AND THE CRITERION IS STREAM-COMPUTED: at "?" targets its |pattern| on the exact opener key is 11.4x a random earlier key, and its WH-key mass share is 26x elsewhere-positions; raw WH embedding codes do NOT stand out under its weights (ratio 1.1 — annotated, not embedding-native); pred_a & b TRUE, pred_c FALSE honestly — control 10.0's opener ratio is 1.59, a hair over the 1.5 bar (question_mechanism.py; n=37 targets, thin, consistent with §1282/84)
+
+- Mechanism now parallel to 13.8 point-for-point: a state head that FETCHES ITS OPENER — the delimiter closer fetches the opening quote/bracket, the question head fetches the opening Who/What/How — and in both cases the fetch key is an annotation computed in the stream, invisible to raw-embedding weights tests (13.8: same verdict, §1272).
+- pred_c's miss, interpreted plainly: opener positions are sentence-initial capitalized tokens — mildly salient keys to ANY head — so the inert control clears 1.5 slightly (1.59, wh-share ratio 6.5). The discrimination is still 7x on opener-fetch (11.35 vs 1.59) and 4x on share (25.7 vs 6.5); the bar was set too strictly, the conclusion stands on the margin, and the miss is recorded.
+- Next (queued): question_annotator.py — band-ablation at opener positions only, the §1274 instrument. Registered bet: the annotator is a02, the SAME front-attention service that marks openers for the copy matchers and for 13.8 (one annotation infrastructure, three consumers would make it a load-bearing shared variable of the model's state-tracking style).
+
+question_mechanism_results.json; runlogs/question_mechanism.log (158s).

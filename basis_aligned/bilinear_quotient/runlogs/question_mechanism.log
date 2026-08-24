@@ -1,0 +1,6 @@
+targets 37
+10.5: opener 0.12940 vs rand 0.01140 (ratio 11.35) | wh-share tar 0.0726 els 0.0028
+10.0: opener 0.00873 vs rand 0.00550 (ratio 1.59) | wh-share tar 0.0143 els 0.0022
+weights scores {5: {'wh_absmean': 0.00562, 'ord_absmean': 0.00513, 'ratio': 1.1}, 0: {'wh_absmean': 0.00597, 'ord_absmean': 0.006, 'ratio': 1.0}}
+pred_a opener True | pred_b stream True | pred_c ctrl False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_mechanism_results.json (158.3s)
