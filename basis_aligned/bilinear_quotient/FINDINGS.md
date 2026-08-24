@@ -178,7 +178,9 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    via mlp4 re-encoding (94% restore when blocked §1288). HEAD-PARTITION LAW (§1290-94): task-parts
    are weights-derivable at BOTTLENECK VARIABLES (verdict axis, successor maps), not at TRANSPORT
    (identity is full-rank, depth-recoded); partition variables, not pipes; long tail = identity
-   crowd (1.1 nats, 60:1-null instrument). **HIGH.**
+   crowd (1.1 nats, 60:1-null instrument). GOAL-3 LOOP (§1307-08): the matcher is a STEM
+   matcher, read from weights (collisions = inflections), certified causally on natural text
+   (variant targets 78% of identity strength, inside the registered band). **HIGH.**
 
 9. **GENERATIVE (input-side) VALIDATION.** Injecting a topical word early boosts its topic-neighbors
    at distance with the full predicted property set: dose-linear, additive multi-topic superposition
