@@ -32903,3 +32903,11 @@ comparative_heads_results.json; runlogs/comparative_heads.log (149s).
 - Queued (comparative_annotator.py): who writes the comparative mark? Band ablation at comparative positions (question_annotator instrument, random-position controls). Registered: (a) a CE-critical band exists (>= 0.3 nats at 5x its random control); (b) it is a02; (c) the §1286 CONTENT/KEY DISSOCIATION repeats (share-drop winner = mid MLPs, not the CE winner).
 
 comparative_mechanism_results.json; runlogs/comparative_mechanism.log (112s).
+
+## §1306 — THE COMPARATIVE MARK IS WRITTEN BY FRONT ATTENTION, CONTENT AND KEY TOGETHER: a02 at comparative positions costs 2.42 nats at "than" targets (11x its random control) AND is the share-drop winner (59% of 8.1's comparative-key mass) — preds a & b TRUE; pred_c FALSE: the §1286 content/key dissociation does NOT repeat — this circuit follows the 13.8 unified-annotator pattern (comparative_annotator.py; 960 rows)
+
+- Between-circuit comparison now on record: the question circuit's annotation splits (front attention = content, mid MLPs = key, §1286-87); the delimiter and comparative circuits' annotations are unified in front attention (both metrics, one band). The split is a property of the circuit, not of the model's annotation style in general.
+- Depth note: a38 is also strongly load-bearing here (1.96 nats, 56% share-drop, random ~0) — the comparative mark is refreshed/carried by mid attention on its way to 8.1 (distance 2-20 means the mark must survive several blocks). Logged, not chased.
+- COMPARATIVE THREAD CLOSED (§1302-06, five experiments): behaviour (comparative licenses "than") -> owner (8.1, share 100.7%, conc 276) -> mechanism (fetches the comparative 64x; criterion = stream-computed class mark, embedding-native bet lost) -> annotator (front attention, unified). Sixth named circuit.
+
+comparative_annotator_results.json; runlogs/comparative_annotator.log.

@@ -1,0 +1,10 @@
+opener positions 810 | ? targets 38
+base: ? CE 1.3205 | 10.5 wh-share 0.2598
+a02: open dCE 2.4207 share-drop 0.591 | rand dCE 0.2167 share-drop 0.062
+m02: open dCE 0.6406 share-drop 0.186 | rand dCE 0.0022 share-drop -0.0
+a38: open dCE 1.9576 share-drop 0.564 | rand dCE 0.001 share-drop -0.001
+m38: open dCE 0.7692 share-drop 0.321 | rand dCE 0.0001 share-drop -0.0
+late9: open dCE -0.0096 share-drop 0.0 | rand dCE 0.0003 share-drop 0.0
+winner_ce a02 | winner_share a02
+pred_a ce-band True | pred_b a02 True | pred_c dissoc False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/comparative_annotator_results.json (154.6s)
