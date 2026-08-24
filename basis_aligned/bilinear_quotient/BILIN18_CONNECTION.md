@@ -32365,3 +32365,15 @@ Identity-scramble design (v1 with positions permuted — wrong tokens' values, r
 - Detail echoing the stale-bias theme: wrong-identity broadcast (repeat 4.06) is WORSE than no long-range reads at all (all18 mask 3.56 abs) — poisoned identity beats absent identity, again.
 
 shared_variable_results.json; runlogs/shared_variable.log (122s).
+
+## §1237 — DEPTH MAP REFINES THE CONSUMER LIST: the v1 broadcast's copy role is the MID-BAND FETCH PAYLOAD (mid scramble +1.88 repeat), NOT the matchers' substrate (front scramble +0.036 — nearly nothing); content carriage is multi-band and super-additive (bands sum 0.43 vs joint 0.72); preds a-b FALSE informatively, pred_c anchor TRUE (shared_variable2.py; NR=48)
+
+Per-band scramble of the inherited v1 (front L1-4 / mid L5-9 / late L10-17; block-0's own write clean).
+
+- **Copy:** front +0.036, mid +1.884, late +0.261, all +3.649. The matchers keep matching with the front's v1-mix scrambled — so their comparison substrate (token identity in q/k at L2/L3) does NOT descend from the value-residual; it must reach them via the embedding→MLP path. Combined with §1236's route-A null and §1228's builder-output collapse, the identity-for-MATCHING and identity-for-PAYLOAD travel on DIFFERENT channels: matching reads a stream code the front computes from embeddings; fetching delivers v1 itself. The strong super-additivity (all 3.65 ≈ 1.7× band sum) says the payload is redundantly co-carried across bands — corrupt any one band's inheritance and the clean copies elsewhere partially cover.
+- **Content:** front +0.040, mid +0.187, late +0.201, all +0.723 — spread across mid AND late with a large joint excess; the bag's consumption is distributed the way its pooling is (§1186-87 crowd; §1222 tail).
+- **Process disclosure:** a derivation slip left this run's OUT path pointing at shared_variable_results.json, overwriting §1236's JSON; §1236's numbers remain in the ledger text and runlogs/shared_variable.log; this run's JSON now lives at shared_variable2_results.json. No numbers lost, file hygiene noted.
+
+**Next (queued): the weight-relative test the refinement demands** — if the matchers' criterion doesn't ride v1, is it readable from the embedding path directly? matcher_weights.py scores heads' q·k bilinear forms on raw rms(wte) token codes: same-token vs different-token pairs at offset 128.
+
+shared_variable2_results.json; runlogs/shared_variable2.log (198s).

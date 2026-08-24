@@ -1,0 +1,8 @@
+  none: repeat 0.4153 | rare 4.3366 | freq 1.8783
+ front: repeat 0.4508 | rare 4.3762 | freq 1.8988
+   mid: repeat 2.3 | rare 4.5233 | freq 1.9484
+  late: repeat 0.6767 | rare 4.538 | freq 1.973
+   all: repeat 4.0643 | rare 5.0592 | freq 2.1598
+deltas {'front': {'rep': 0.0355, 'rare': 0.0396}, 'mid': {'rep': 1.8847, 'rare': 0.1867}, 'late': {'rep': 0.2614, 'rare': 0.2014}, 'all': {'rep': 3.649, 'rare': 0.7226}}
+pred_a mid False | pred_b front+mid False | pred_c anchor True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/shared_variable_results.json (198.1s)
