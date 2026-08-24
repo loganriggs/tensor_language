@@ -1,0 +1,7 @@
+ none: repeat 0.4153 | prose 3.1943 (rare 4.3366 freq 1.8783)
+    A: repeat 0.436 | prose 3.4434 (rare 4.6448 freq 2.0593)
+    B: repeat 4.0643 | prose 3.7119 (rare 5.0592 freq 2.1598)
+ both: repeat 4.08 | prose 4.2381 (rare 5.7375 freq 2.5108)
+deltas {'A_repeat': 0.0207, 'B_repeat': 3.649, 'A_rare': 0.3082, 'B_rare': 0.7226, 'B_freq': 0.2815}
+pred_a copyA False | pred_b contentB True | pred_c controls True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/shared_variable_results.json (122.2s)

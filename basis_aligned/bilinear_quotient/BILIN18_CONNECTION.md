@@ -32355,3 +32355,13 @@ bucket_constants2_results.json; runlogs/bucket_constants2.log (54s).
 - v1 autograd bug (in-place head scaling broke the graph) fixed with out-of-place index_copy; first submission exit=1, no results consumed.
 
 scalar_toxic_front_results.json; runlogs/scalar_toxic_front.log (91s).
+
+## §1236 — THE SHARED VARIABLE, DEMONSTRATED — AND SHARPER THAN HYPOTHESIZED: scrambling block-0's per-token value code IN THE VALUE-RESIDUAL BROADCAST kills BOTH copying (repeat CE +3.65, ≈ the whole §1204 budget) and content (rare-target +0.72, 2.6× the grammar hit) — while scrambling the SAME code in block-0's own attention write kills neither (+0.02 / +0.31); preds b-c TRUE, pred_a FALSE in the registered-risk direction and the failure is the refinement (shared_variable.py; NR=48)
+
+Identity-scramble design (v1 with positions permuted — wrong tokens' values, right norms), applied per route. Sanity: identity permutation = true model exactly; both-routes ≥ each single (no cancellation).
+
+- **The refined statement:** one variable — block-0's static per-token value code v1 (§1076) — one distribution channel — the value-residual λ-mix at every layer — at least three consumers: (i) the MATCHERS' comparison substrate (identity information reaching L2/L3's keys and queries), (ii) the FETCHERS' payload (what 8.3/8.4 actually deliver is λ·v1-laden values), (iii) the CONTENT POOL's bag contents (the §1076 pooled broadcast). Corrupt the broadcast once and copy + content die together; corrupt only block-0's local write and both survive — that write is nearly epiphenomenal for these functions.
+- **Reconciliation with §1228** (attn0/1 output ablation collapsed matching): no conflict — §1228 removed blocks 0-1's ENTIRE stream contribution (which later q/k read); tonight's route A kept the write but falsified its VALUE PAYLOAD only. Together: the match keys are built from stream content that descends from the embedding + the v1 broadcast, not from block-0's value payload per se.
+- Detail echoing the stale-bias theme: wrong-identity broadcast (repeat 4.06) is WORSE than no long-range reads at all (all18 mask 3.56 abs) — poisoned identity beats absent identity, again.
+
+shared_variable_results.json; runlogs/shared_variable.log (122s).

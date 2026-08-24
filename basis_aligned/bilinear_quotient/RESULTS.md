@@ -4970,3 +4970,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1233 — scalar recalibration = clean null once regularized (masked model already gain-calibrated; damage is information, not magnitude) (scalar_recalibrate2.py)
 §1234 — 2 bits of token-class conditioning neutralize static-attention poison EXACTLY to the deletion line (freq4 6.823 vs zero 6.816; k1 7.163) — bias = 2 bits, dynamics = the rest (bucket_constants2.py)
 §1235 — folded scalars WIN at the toxic-front locus: 0.079 free recovery, toxicity = two named heads (3.1 s=0.57, 2.0 s=0.70); L3H1 toxic in BOTH siblings (scalar_toxic_front.py)
+§1236 — SHARED VARIABLE demonstrated: v1 broadcast kills copy (+3.65) AND content (+0.72, 2.6x tilt) when scrambled; block-0's own write epiphenomenal (+0.02) — one variable, one channel, three consumers (shared_variable.py)
