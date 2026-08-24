@@ -32509,3 +32509,12 @@ axis_reader_results.json, axis_meanrestore_results.json; runlogs (142s, 104s).
 Instrument lesson #15, caught by the registered null: manipulation effects on a CONFOUNDED correlate are uninterpretable. §1085's own conclusion (position dominates; content second-order) already warned of this — the mechanism instrument needed distance-partialed correlations from the start. No mechanism conclusion drawn; v2 (residualize both pattern and content-sim on log-distance before correlating, same conditions, bars re-registered on partial r) queued.
 
 pooler_mechanism_results.json; runlogs/pooler_mechanism.log (110s).
+
+## §1255 — THE §1085 DEPTH-GROWTH DISSOLVES UNDER DISTANCE-PARTIALING: partial content-sim r = −0.10 / 0.02 / 0.005 / 0.07 (L6/8/10/12) — the "growing content bias" was mostly distance-mediated; the QK circuits are content-CAPABLE (3× substrate amplification → partial r 0.26-0.39) but barely engage it at natural levels; preds a & c FALSE (bases at noise floor — instrument-limited verdict), b TRUE (pooler_mechanism2.py)
+
+Resolution of the middle-pooling dossier's last mechanism item, by dissolution rather than discovery:
+- **What §1085's correlation was:** mostly the distance confound (nearby keys share content). Partialed, the surviving content-sim signal is ≤0.07 anywhere and the random-basis null wobbles comparably — at natural content levels the correlational bias is within instrument noise.
+- **What stands:** §1085's CAUSAL result (masking top-content-sim keys costs 1.8-4.1× random) is untouched — a small real effect; and the capability fact is new and clean: amplify the content component 3× in the q/k input only and strong genuine content-sim patterns appear (0.26-0.39 partial) — the circuits can read content similarity, the substrate is just weak where they sit.
+- Honest close: "depth-growing content addressing" is retired as a phenomenon needing mechanism; replaced by "distance-dominated pooling + latent content capability + a small causal content preference." Dossier updated.
+
+pooler_mechanism2_results.json; runlogs/pooler_mechanism2.log (112s).

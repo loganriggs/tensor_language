@@ -38,7 +38,10 @@ the registered next rung. Split-half audit: all collective numbers stable (§110
   copy/induction core (2.5/3.8/5.5 = 23%); the rest is ~150 heads at ≤0.002 each. The
   §1093/§1187 collective picture confirmed at ensemble grain; crowd_scaling (queued) prices
   the tail's redundancy curve.
-- The depth-growing content-sim bias (§1085): mechanism unknown.
+- The depth-growing content-sim bias (§1085): RESOLVED BY DISSOLUTION (§1254-55) — the raw
+  correlation was distance-confounded; partialed it is ≤0.07 everywhere (noise floor). QK is
+  content-CAPABLE (3× substrate amp → partial r 0.26-0.39) but barely engaged at natural
+  levels. §1085's small causal preference (1.8-4× key-masking) stands. Item closed.
 
 ## Value-range map (§1186-1189, complete at layer grain)
 Read-masking @W64 (pos-0 visible), nats: L0 0 / L1 .004 / L2 .018 (induction trigger — the
