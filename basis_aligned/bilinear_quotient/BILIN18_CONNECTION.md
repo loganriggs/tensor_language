@@ -32323,3 +32323,9 @@ builders_split_results.json; runlogs/builders_split.log (72s).
 builders_split_abs_results.json; runlogs/builders_split_abs.log (85s).
 
 **Builders thread (§1228-1230) closed; copy-circuit program (§1204-1230, 27 experiments) fully closed.** Pipeline, final form: attn0+attn1 jointly write per-position (bigram-flavored) identity → matchers 2.5/3.8 compare it at range (o=128) → fetchers 8.3/8.4 collect successors (o=127) → mid-stack consumes; source and destination halves symmetric; price ~3.2 nats, three-family constant; implementations split by score function.
+
+## §1231 — SCALAR RECALIBRATION v1 OVERFITS (instrument lesson, not a verdict): 60 unregularized Adam steps on 8 rows drive the 162 scalars to extremes (0.24-2.5, four negative) and held-out recovery is NEGATIVE (−0.35 of the 0.186 gap); preds a-b FALSE at this fit budget; perm-null trivially worse (scalar_recalibrate.py)
+
+User-proposed instrument (a per-head output scalar folds into c_proj = zero added description complexity, so any held-out recovery is free understanding). v1's registered bars failed for a fit-budget reason visible in the scalars themselves: with 162 free parameters, 8 training rows, and no prior, most heads drifted far from 1.0 and the assignment memorized the train batch (train CE fell, eval rose). The idea is NOT tested yet — v2 queued with 32 fit rows, an L2 prior toward 1.0, lower LR, fewer steps; same registered predictions with the recovery bar honestly lowered to 10%.
+
+scalar_recalibrate_results.json; runlogs/scalar_recalibrate.log (69s).
