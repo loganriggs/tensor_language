@@ -31835,3 +31835,9 @@ The strongest possible version of the §1166 result: an independently-trained si
 **Queued (tabulated_stack.py, registered) — first COMPOSED reduction toward the tabulated-model goal:** run bilin18 with folded patterns AND head 5.7 replaced by its constant vector, jointly. (a) sink-const alone reproduces §1089 under this harness (≤ 0.03); (b) joint ≤ sum + 0.02 (reductions compatible — no destructive interaction); (c) joint total ≤ 0.06 nats. The §1168 4.1× compounding warns interactions are possible even between individually-cheap reductions — that is exactly what this measures.
 
 fold_family_results.json; runlogs/fold_family.log (197s).
+
+## §1171 — REDUCTIONS COMPOSE, SUB-ADDITIVELY: folded patterns + sink constant jointly cost 0.0232 nats (< sum 0.0273; sink alone 0.0132 = §1089's 0.013 replicated in-harness) — the composed-reduction ledger opens; preds a-c ALL TRUE (tabulated_stack.py)
+
+The §1168 worry (4.1× compounding of fold errors across layers) does NOT extend to composing DIFFERENT certified reductions: replacing all 162 attention patterns with window functions AND head 5.7's output with one constant vector costs 0.0232 jointly — slightly LESS than the parts' sum. Two structurally independent stand-ins (selection machinery; one value channel) leave each other's error-absorption intact. Sanity exact again (3.3627). The maximally-tabulated model now has its first two composed entries at a running total of 0.023 nats out of 3.363; next candidates for the stack (next wave): mlp0 as the writeup-480 bigram function (+0.004 solo — bug-prone construction, to be built carefully with its own sanity arm), L0 value tables (architecturally exact), and the front λ-scale facts.
+
+tabulated_stack_results.json; runlogs/tabulated_stack.log (133s). Audit queued: same stack at 2× rows (fresh draw), §1101's replication law — expect 0.023 ± 0.005.

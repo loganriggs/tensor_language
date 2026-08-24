@@ -4905,3 +4905,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1168 — per-layer fold attribution: 4.1× SUPER-additive (sum 0.056 vs joint 0.229 @W32), deep 86%; L1 argmax laggard costs 0.0005 nats (ties loss-irrelevant); l1_tie_diag queued (fold_cost_by_layer.py)
 §1169 — L1 anomaly = tie-instability (top3 0.876, laggards 1.8× tie rate; corr 0.887 near-miss); FOLD ARC COMPLETE §1161-69 (l1_tie_diag.py)
 §1170 — fold law FAMILY-UNIVERSAL, matching constants (+0.0148 swiglu18 vs +0.0141 bilin18; nulls 1.56/1.51); selection law = task property not architecture; composed-reduction tabulated_stack queued (fold_family.py)
+§1171 — composed reductions SUB-additive: foldpat+sink joint 0.0232 < sum 0.0273 (sink replicates 1089); composed-reduction ledger opened; 2x audit queued (tabulated_stack.py)
