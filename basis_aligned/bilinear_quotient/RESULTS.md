@@ -4982,3 +4982,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1245 — janitor = block 5, measured: matcher write projection 2.0 → 0.34 across one block (4× generic decay); front-end thread §1237-45 CLOSED with full sign-and-mechanism story (matcher_janitor.py)
 §1246 — family close: bilin12 matchers weights-readable at AUC 1.000/0.993 via MAGNITUDE (positive branch); anti-sign design architecturally bilin18-exclusive; overnight arc 1235-46 closed (bilin12_signs.py)
 §1247 — janitor is GENERAL: injected random dirs scrubbed hardest (0.029 vs matcher 0.185) — block 5 = off-manifold normalizer, not a matcher-keyed service; §1244 consumption unaffected; framing corrected (janitor_general.py)
+§1248 — re-encoding = one super-stable axis (split-half 0.97) + mid-rank body (57%@16); genuinely new direction (0.25); prose-active at half strength — match-gated (reencode_subspace.py)

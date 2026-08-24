@@ -32462,3 +32462,11 @@ bilin12_signs_results.json; runlogs/bilin12_signs.log (88s).
 - Explainer page wording to be updated at next phase republish ("cleans the raw vector" stays; "dedicated" implication dropped).
 
 janitor_general_results.json; runlogs/janitor_general.log (111s).
+
+## §1248 — THE RE-ENCODING'S SHAPE: one very stable dominant axis (split-half PC1 |cos| 0.972) on a mid-rank body (top-16 PCs = 57% — pred_a's 70% compactness bar FAILED); genuinely re-encoded (|cos to raw write| 0.25, pred_b TRUE); active on prose at half strength (2.06× vs the 3× gate bar — pred_c FALSE as registered, consistent with the always-on §1219 criterion: match-gated, not repeat-gated) (reencode_subspace.py)
+
+mlp3's match-evidence code, characterized over 2304 positions: delta = mlp3(x) − mlp3(x − matcher write). Not the 8-feature-style compact code registered (57% at rank 16 — between the skeleton API and the §1127 high-rank construction), but its leading direction is as stable as anything measured this program (0.97 across halves) — a candidate named variable ("match strength/evidence axis") for future steering work. The prose activity at half the repeat norm matches the §1219 story: the matchers run their criterion everywhere; the re-encoder transduces whatever they find.
+
+**Wake summary: §1247's correction propagated to the explainer page (block-5 cleanup = general normalization, not a dedicated service). The §1242-48 micro-program (consumption → re-encoder → normalization → code shape) is at a natural pause; the front-end story stands at component grain with honest scope on every claim.**
+
+reencode_subspace_results.json; runlogs/reencode_subspace.log (224s).

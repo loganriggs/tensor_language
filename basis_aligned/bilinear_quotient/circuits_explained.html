@@ -218,8 +218,10 @@ and the matcher branch has since been resolved two steps further (§1242–1245)
 value) vector the matchers write is <em>consumed on the spot</em> — the MLP in the matcher's own
 block (mlp3, with mlp2 assisting; 87% of the write's value flows through them) immediately
 re-encodes the evidence into the stream's working form, and block 5 then <em>cleans the raw
-vector out of the stream entirely</em> (its projection collapses 86% across that one block, 4×
-the passive decay rate of control writes). Downstream circuits run on the re-encoding, never
+vector out of the stream</em> (its projection collapses 86% across that one block) — a cleanup
+that later testing showed to be block 5's <em>general</em> normalization of spent, off-manifold
+components rather than a matcher-dedicated service (injected random vectors are scrubbed even
+harder). Downstream circuits run on the re-encoding, never
 the raw vector — hide it from the cleanup MLPs and the unprocessed anti-signed vector pollutes
 everything after (+2.3 nats); delete it a second time after cleanup and the model reads the
 deletion itself as anti-match evidence (+3.8) —
