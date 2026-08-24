@@ -32454,3 +32454,11 @@ Architectural statement first, then data: bilin12's pattern = (q·k)² row-norma
 **Overnight arc (§1235-1246) closed.** The user-proposed instruments (folded scalars, bit-priced buckets) each found their locus (§1233-35 + §1232/34); the three-circuit explainer stands published with the shared-variable demonstration (§1236-37) and the full weights-to-mechanism chain (§1238-45); family status of every new claim checked (§1246).
 
 bilin12_signs_results.json; runlogs/bilin12_signs.log (88s).
+
+## §1247 — JANITOR GENERALITY TEST FALSIFIES THE SUBSPACE-KEYED READING: INJECTED matcher-shaped vectors survive blocks 4-5 BETTER than random ones (L4→L6 ratios: random 0.029, matcher-dir 0.185, null-dir 0.250) — block 5 is a GENERAL transient/off-manifold normalizer, hardest on the most off-manifold input; preds a-b FALSE, pred_c (locus = block 5) TRUE (janitor_general.py)
+
+- **Correction to §1244-45's framing, stated plainly:** "the janitor keyed to the matcher write" oversold it. Injection shows blocks 4-5 scrub ARBITRARY off-distribution components aggressively (random directions 97% gone) and write-shaped directions (matcher and null alike) less so. The §1245 in-vivo asymmetry (real matcher writes canceled 4× faster than real null writes) is therefore not evidence of a dedicated service — more likely: the real matcher write is a large TRANSIENT component the general normalization removes once consumed, while null writes are small persistent-stream contributions.
+- **What survives unchanged:** §1244's consumption result is injection-free and null-controlled (mlp4/5's outputs depend on the real matcher write 70× more than on null writes) — mlp4/5 READ it; and §1242-43's re-encoding chain is untouched. Softened pipeline wording: builders → matchers write −(matched value) → mlp3 re-encodes → **block 5's general normalization clears the spent vector** → downstream runs on the re-encoding.
+- Explainer page wording to be updated at next phase republish ("cleans the raw vector" stays; "dedicated" implication dropped).
+
+janitor_general_results.json; runlogs/janitor_general.log (111s).

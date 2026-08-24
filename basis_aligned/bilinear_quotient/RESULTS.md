@@ -4981,3 +4981,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1244 — mlp4/5 read the matcher vector (null 0.014); JANITOR mechanism: mlp3 re-encodes, mlp4/5 neutralize the raw −v — explains the whole §1241-43 curve; signature test queued (matcher_reencode2.py)
 §1245 — janitor = block 5, measured: matcher write projection 2.0 → 0.34 across one block (4× generic decay); front-end thread §1237-45 CLOSED with full sign-and-mechanism story (matcher_janitor.py)
 §1246 — family close: bilin12 matchers weights-readable at AUC 1.000/0.993 via MAGNITUDE (positive branch); anti-sign design architecturally bilin18-exclusive; overnight arc 1235-46 closed (bilin12_signs.py)
+§1247 — janitor is GENERAL: injected random dirs scrubbed hardest (0.029 vs matcher 0.185) — block 5 = off-manifold normalizer, not a matcher-keyed service; §1244 consumption unaffected; framing corrected (janitor_general.py)
