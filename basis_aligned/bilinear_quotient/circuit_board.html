@@ -106,6 +106,21 @@
   .refs { font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--muted); margin-top: 12px; }
   .note { font-size: 13px; color: var(--muted); border-left: 3px solid var(--copper); padding: 2px 0 2px 14px; margin: 18px 0; max-width: 68ch; }
   footer { margin-top: 60px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; }
+  /* recovery ladders */
+  .ladder { margin: 18px 0 4px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .ladhead { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; padding: 8px 14px; background: var(--exbg); border-bottom: 1px solid var(--line-soft); }
+  .ladrow { display: grid; grid-template-columns: minmax(210px, 1.25fr) 90px 1fr 118px; align-items: center; gap: 12px; padding: 8px 14px; border-bottom: 1px solid var(--line-soft); background: var(--surface); font-size: 12.5px; }
+  .ladrow:last-child { border-bottom: none; }
+  .ladwhat b { font-weight: 600; }
+  .ladwhat .sub2 { display: block; font-size: 11px; color: var(--muted); }
+  .ladcost { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .ladbar { height: 12px; background: var(--line-soft); border-radius: 3px; overflow: hidden; position: relative; }
+  .ladbar i { display: block; height: 100%; background: var(--copper); border-radius: 3px; }
+  .ladbar i.dim { background: var(--muted); opacity: 0.55; }
+  .ladbar i.full { background: var(--closed); }
+  .ladnum { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; font-size: 12px; text-align: right; white-space: nowrap; }
+  .ladnum .inc { color: var(--copper); font-weight: 600; }
+  @media (max-width: 640px) { .ladrow { grid-template-columns: 1fr 70px; } .ladbar { grid-column: 1 / -1; } }
   /* example blocks */
   .exwrap { margin: 18px 0 4px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
   .exhead { font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); font-weight: 600; padding: 8px 14px; background: var(--exbg); border-bottom: 1px solid var(--line-soft); }
@@ -169,6 +184,8 @@
   <dd>The three structural forms found so far. <b>Owner</b>: one head carries the capability (8.1 = 100.7% of its layer's comparative effect). <b>Crowd</b>: many heads share it, none necessary (question's layer-4 state: top head 32%). <b>Pair</b>: two heads split one job additively (17.2+17.3, joint = sum of solos within 2.6%).</dd>
   <dt>G3 / G1 / G2</dt>
   <dd>The three goals a circuit must pass to close. <b>G3 weights-read</b>: predict the behavior from the weight matrices alone, then certify the prediction on natural text. <b>G1 extract</b>: rebuild the capability from a small itemized kit (route + gates + specialist) and measure its recovery. <b>G2 remove</b>: delete the specialist and show only the capability degrades.</dd>
+  <dt>kit</dt>
+  <dd>The extracted circuit as a parts list: everything kept live while all other attention is mean-replaced, with each part's description cost. Costs are qualitative for now: <b>~free</b> = per-layer scalars and masks computable from the token stream; <b>weights kept</b> = actual head/band parameters retained. The recovery ladders below add parts one at a time, so each row's increment is what that part alone buys on top of everything above it.</dd>
 </dl>
 
 <h2>Status board</h2>
@@ -350,6 +367,53 @@
     <div class="fact"><b>~0 bits</b><span>gate cost — both windows are token properties</span></div>
   </div>
 
+  <div class="ladder">
+    <div class="ladhead">The extracted kit — recovery ladder at "than" targets (each row adds one part; CE in nats)</div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>All attention silenced</b><span class="sub2">the anchor: every head mean-ablated</span></span>
+      <span class="ladcost">—</span>
+      <span class="ladbar"><i class="dim" style="width:2%"></i></span>
+      <span class="ladnum">0.000 <span style="color:var(--muted)">(8.27)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>+ route</b><span class="sub2">block-0 value broadcast (λ·v₁) + live patterns</span></span>
+      <span class="ladcost">~free</span>
+      <span class="ladbar"><i style="width:43.7%"></i></span>
+      <span class="ladnum"><span class="inc">+0.437</span> → 0.437 <span style="color:var(--muted)">(5.20)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>+ head 8.1 alone</b><span class="sub2">the specialist without its annotator — nearly worthless</span></span>
+      <span class="ladcost">1 head</span>
+      <span class="ladbar"><i style="width:46.2%"></i></span>
+      <span class="ladnum"><span class="inc">+0.025</span> → 0.462 <span style="color:var(--muted)">(5.03)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>+ a02 inside the key window</b><span class="sub2">front band live at comparative tokens only</span></span>
+      <span class="ladcost">L0–2 wts, gated</span>
+      <span class="ladbar"><i style="width:50.5%"></i></span>
+      <span class="ladnum"><span class="inc">+0.043</span> → 0.505 <span style="color:var(--muted)">(4.73)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>+ the query window too</b><span class="sub2">…and where the prediction is made — the final kit</span></span>
+      <span class="ladcost">mask ~free</span>
+      <span class="ladbar"><i style="width:65.9%"></i></span>
+      <span class="ladnum"><span class="inc">+0.154</span> → <b>0.659</b> <span style="color:var(--muted)">(3.65)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>(whole band ungated)</b><span class="sub2">rejected: buys +0.038 here but +0.26 of generalist spillover elsewhere</span></span>
+      <span class="ladcost">L0–2 wts, all pos</span>
+      <span class="ladbar"><i class="dim" style="width:69.7%"></i></span>
+      <span class="ladnum">0.697 <span style="color:var(--muted)">(3.38)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>Full model</b></span>
+      <span class="ladcost">everything</span>
+      <span class="ladbar"><i class="full" style="width:100%"></i></span>
+      <span class="ladnum">1.000 <span style="color:var(--muted)">(1.25)</span></span>
+    </div>
+  </div>
+  <p class="caps" style="font-size:13px">Reading the ladder: the crowd's free broadcast already carries 44% of the capability; the specialist head buys almost nothing until its annotator windows go live — and then the query-side window is worth 3.6× the key-side one. Elsewhere cost of the final kit: route+0.014 (the ungated band's elsewhere cost, +0.26, is why it was rejected — same loss story, worse description).</p>
+
   <div class="exwrap">
     <div class="exhead">Illustrative — highest dCE when 8.1 is silenced (mean over all 24 targets: +2.06)</div>
     <div class="exrow"><span class="exctx"><bdi>. I've given them a lot more of my time this summer</bdi></span><span class="extgt"> than</span><span class="exdce">+4.67</span></div>
@@ -422,6 +486,53 @@
     <div class="fact"><b>32%</b><span>largest single-head share — crowd, not owner</span></div>
   </div>
 
+  <div class="ladder">
+    <div class="ladhead">The extracted kit — recovery ladder at "?" targets (10.5 live in every kit row; CE in nats)</div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>All attention silenced</b></span>
+      <span class="ladcost">—</span>
+      <span class="ladbar"><i class="dim" style="width:2%"></i></span>
+      <span class="ladnum">0.000 <span style="color:var(--muted)">(8.91)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>+ route</b><span class="sub2">questions get less crowd help than comparatives (0.33 vs 0.44)</span></span>
+      <span class="ladcost">~free</span>
+      <span class="ladbar"><i style="width:32.8%"></i></span>
+      <span class="ladnum"><span class="inc">+0.328</span> → 0.328 <span style="color:var(--muted)">(6.30)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>+ 10.5, + a02 in the clause gate</b><span class="sub2">the question head plus the opener-mark writers, live only inside open clauses</span></span>
+      <span class="ladcost">1 head + L0–2 wts, gated</span>
+      <span class="ladbar"><i style="width:54.5%"></i></span>
+      <span class="ladnum"><span class="inc">+0.217</span> → 0.545 <span style="color:var(--muted)">(4.57)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>+ layer 4 in the gate</b><span class="sub2">the crowd that holds "a question is open" — 63% of the mid service</span></span>
+      <span class="ladcost">L4 wts, gated</span>
+      <span class="ladbar"><i style="width:65.1%"></i></span>
+      <span class="ladnum"><span class="inc">+0.106</span> → 0.651 <span style="color:var(--muted)">(3.72)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>+ layers 3 &amp; 5 in the gate</b><span class="sub2">redundant state carriers — the final kit (full L0–5)</span></span>
+      <span class="ladcost">L3,L5 wts, gated</span>
+      <span class="ladbar"><i style="width:71.4%"></i></span>
+      <span class="ladnum"><span class="inc">+0.063</span> → <b>0.714</b> <span style="color:var(--muted)">(3.22)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>(widen to L0–8)</b><span class="sub2">rejected: adding L6–8 inside the gate goes BACKWARD — the inversion</span></span>
+      <span class="ladcost">more wts</span>
+      <span class="ladbar"><i class="dim" style="width:67.7%"></i></span>
+      <span class="ladnum">0.677 <span style="color:var(--muted)">(3.52)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>Full model</b></span>
+      <span class="ladcost">everything</span>
+      <span class="ladbar"><i class="full" style="width:100%"></i></span>
+      <span class="ladnum">1.000 <span style="color:var(--muted)">(0.95)</span></span>
+    </div>
+  </div>
+  <p class="caps" style="font-size:13px">Elsewhere cost of the final kit: route+0.013. Note the last kit row's small increment (+0.063 for two whole gated layers) — L3 and L5 mostly duplicate L4's state carriage (solo increments sum to 0.217 but jointly add 0.169; sub-additive). And the rejected row is a genuine non-monotonicity: more live weights, less capability.</p>
+
   <div class="exwrap">
     <div class="exhead">Illustrative — highest dCE when 10.5 is silenced (mean over all 87 targets: +0.53)</div>
     <div class="exrow"><span class="exctx"><bdi>ituations.⏎When will I have to pay back the amount I put off</bdi></span><span class="extgt">?</span><span class="exdce">+3.07</span></div>
@@ -459,6 +570,71 @@
   </div>
   <p class="caps" style="font-size:13px">Same pattern as the question head, and informative in the same way: brackets whose closure is <em>locally obvious</em> — a "(31mins" or a list template repeated line after line — lose nothing, while brackets held open across a long clause lose 3–5 nats. Whatever a13 computes, it earns its keep on the long-range cases.</p>
   <div class="refs">§513 (atlas flag) · §1337 (clean screen, verdict withheld on control)</div>
+</div>
+
+<div class="card">
+  <h3>Induction — the extraction that taught the grain <span class="chip flight">G1 PARTIAL</span></h3>
+  <p class="caps">The oldest and largest extraction target: in-context copying, worth ~5 nats at identity-supported targets. Its ladder is the program's clearest record of <em>what description actually buys the loss back</em> — each rung is a different answer to "what is a circuit?", and the jump between rungs 2 and 3 changed the whole program's accounting from head-count to description length.</p>
+  <div class="ladder">
+    <div class="ladhead">Extraction rungs at identity targets (each rung is a different kept description; CE in nats)</div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>All attention silenced</b></span>
+      <span class="ladcost">—</span>
+      <span class="ladbar"><i class="dim" style="width:2%"></i></span>
+      <span class="ladnum">0.00 <span style="color:var(--muted)">(5.88)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>Rung 1 — the 7 named circuit heads</b><span class="sub2">matchers + fetchers + sink + annotators, everything else dead</span></span>
+      <span class="ladcost">7 heads</span>
+      <span class="ladbar"><i style="width:19%"></i></span>
+      <span class="ladnum">0.19 <span style="color:var(--muted)">(4.95)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>Rung 2 — 33-head dependency closure</b><span class="sub2">add everything upstream the 7 depend on</span></span>
+      <span class="ladcost">33 heads</span>
+      <span class="ladbar"><i style="width:30%"></i></span>
+      <span class="ladnum">0.30 <span style="color:var(--muted)">(4.38)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>Rung 3 — closure + route through every removed head</b><span class="sub2">same 33 heads; the other 129 keep only their ~free λ·v₁ broadcast</span></span>
+      <span class="ladcost">33 heads + ~free</span>
+      <span class="ladbar"><i style="width:79%"></i></span>
+      <span class="ladnum"><b>0.79</b> <span style="color:var(--muted)">(1.94)</span></span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>Rungs 4–5 — printable stand-in payload</b><span class="sub2">replace kept heads with written-out code: FAILED twice (additive injection is dead)</span></span>
+      <span class="ladcost">code</span>
+      <span class="ladbar"><i class="dim" style="width:8%"></i></span>
+      <span class="ladnum" style="color:var(--neg)">negative ×2</span>
+    </div>
+    <div class="ladrow">
+      <span class="ladwhat"><b>Full model</b></span>
+      <span class="ladcost">everything</span>
+      <span class="ladbar"><i class="full" style="width:100%"></i></span>
+      <span class="ladnum">1.00 <span style="color:var(--muted)">(0.90)</span></span>
+    </div>
+  </div>
+  <p class="caps" style="font-size:13px">The rung 2→3 jump (+49 points for ~zero added description) is why every later extraction starts from the route: the crowd's contribution to copying is carried by the block-0 value broadcast, which costs almost nothing to keep. Honest caveat that comes with it: the same broadcast carries the model's general content pool, so "elsewhere" recovers 68% too — the route is a shared substrate, not a circuit part. The remaining 21% gap is the open frontier; two attempts to replace the kept heads with printable code both failed.</p>
+  <div class="refs">§1311 (rung 1) · §1312 (rung 2) · §1314 (the accounting correction) · §1316 (rung 3) · §1321–22 (payload failures)</div>
+</div>
+
+<div class="card">
+  <h3>The one-part kits <span class="chip closed">CLOSED, pre-template</span></h3>
+  <p class="caps">Two circuits so simple their entire extracted description is one object — closed before the template existed, and still the cheapest loss-per-bit in the model.</p>
+  <div class="tablewrap"><table>
+    <tr><th>Circuit</th><th>Entire kit</th><th>What it buys</th></tr>
+    <tr>
+      <td><span class="headid">5.7</span> Sink</td>
+      <td>one 1152-dim constant vector</td>
+      <td>the head costs 0.92 nats if deleted — 8× any other head — yet replacing its output with its global mean is <b>free</b>: it reads position 0 on 99.8% of queries and emits the stream's baseline. Even a donor text's mean works. Partial removals are <em>worse</em> than deletion (being the baseline is not a local property).</td>
+    </tr>
+    <tr>
+      <td><span class="headid">0.3</span> Bigram router</td>
+      <td>a bigram lookup table</td>
+      <td>the head's routing is an exact function of the current token pair; swapping the head for the table costs zero. The largest genuinely <em>dynamic</em> value-mover in the front (0.079 nats) reduced to a lookup.</td>
+    </tr>
+  </table></div>
+  <div class="refs">sink arc, §1089–91 (constant, partial-removal trap) · §1091 (bigram table)</div>
 </div>
 
 <div class="card">
