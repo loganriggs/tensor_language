@@ -1,0 +1,59 @@
+{
+ "n_rows": 960,
+ "kept": {
+  "circuit": [
+   "2.5",
+   "3.8",
+   "5.7",
+   "8.3",
+   "8.4"
+  ],
+  "ann": [
+   "1.1",
+   "1.8"
+  ]
+ },
+ "ce": {
+  "full": {
+   "ident": 0.8968,
+   "var": 1.2287,
+   "els": 3.4499
+  },
+  "allmean": {
+   "ident": 5.8757,
+   "var": 6.1935,
+   "els": 7.2974
+  },
+  "circuit": {
+   "ident": 5.1996,
+   "var": 5.3931,
+   "els": 6.5324
+  },
+  "circuit_ann": {
+   "ident": 4.9467,
+   "var": 5.106,
+   "els": 6.4231
+  }
+ },
+ "dmg_vs_full": {
+  "allmean": {
+   "ident": 4.9789,
+   "var": 4.9648,
+   "els": 3.8475
+  },
+  "circuit": {
+   "ident": 4.3028,
+   "var": 4.1644,
+   "els": 3.0825
+  },
+  "circuit_ann": {
+   "ident": 4.0499,
+   "var": 3.8773,
+   "els": 2.9732
+  }
+ },
+ "pred_a_induction_survives": false,
+ "pred_b_selective_degradation": false,
+ "pred_c_annotators_matter": true,
+ "runtime_s": 130.5
+}

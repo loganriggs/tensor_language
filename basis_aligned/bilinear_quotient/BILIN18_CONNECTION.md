@@ -32943,3 +32943,10 @@ selectivity_matrix_results.json; runlogs/selectivity_matrix.log.
 - Matrix iteration STOPPED here by design: two runs, same off-diagonals — further mask surgery would be chasing the residue the data says is real.
 
 selectivity_matrix2_results.json; runlogs/selectivity_matrix2.log.
+
+## §1311 — EXTRACTION RUNG 1 FAILS AND NAMES ITS MISSING DEPENDENCY: keeping the 7 circuit heads (matchers+fetchers+sink+annotators) in a mean-field attention model recovers only 19% of the induction gap (ident CE 4.95 vs full 0.90 vs all-mean 5.88); preds a & b FALSE, pred_c TRUE (annotators buy 0.25 nats — they matter, §1295 logic transfers) (extraction_v1.py)
+
+- Why, in the program's own terms: the matchers consume ANNOTATED STREAM STATE, and §1287/§1295-99 already showed that state is manufactured by the front band COLLECTIVELY (generic per-position front-attention work, 3.08-nat floor; annotation redundant across the band). Mean-replace 155 heads and the circuit's inputs no longer exist — a circuit is not a set of heads, it is heads PLUS the upstream closure that builds their input variables. Goal-1 extraction must cut at the VARIABLE boundary, not the head boundary.
+- Rung 2 queued (extraction_v2.py): keep the dependency closure — all 27 front-band heads (L0-2) + circuit + sink = 33 of 162. Registered: (a) ident damage <= 40% of all-mean (>= 60% of the gap back); (b) elsewhere damage still >= 60% of all-mean's (the content-pooling crowd is gone — the extracted model stays bad at prose); (c) v2 beats rung 1's ident CE by >= 1.0 nat (the band was the missing dependency).
+
+extraction_v1_results.json; runlogs/extraction_v1.log (131s).
