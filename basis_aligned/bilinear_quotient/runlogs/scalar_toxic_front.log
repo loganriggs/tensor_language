@@ -1,0 +1,4 @@
+eval core-mask 3.5922 | +front s=0 5.7969
+recoveries {'front_learned': 0.0794, 'front_s0': -2.2047, 'late_learned': 0.0258} | mean s {'L0': 1.0, 'L1': 1.126, 'L2': 1.026, 'L3': 0.968}
+pred_a geq True | pred_b suppress False | pred_c late False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/scalar_toxic_front_results.json (91.4s)

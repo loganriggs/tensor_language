@@ -32347,3 +32347,11 @@ scalar_recalibrate2_results.json; runlogs/scalar_recalibrate2.log (60s).
 The user's rate-distortion framing, first real result: **attention's frozen-bias pathology is entirely a token-class error.** A per-head constant indexed by 4 frequency classes of the current token (2 bits) recovers 0.34 nats of the static gap — everything that made stale biases WORSE than no attention (§1093/§1232) — landing within noise of deletion. What remains (3.69 nats to base) is attention's genuine dynamic value, now cleanly separated: **bias = 2 bits of token class; dynamics = everything else.** Conditioning variable is everything (position bits: 10× less; random bits: nothing). The ladder can continue (finer token bins, token×recency products) — logged as available, not queued (the separation just achieved was the scientific point).
 
 bucket_constants2_results.json; runlogs/bucket_constants2.log (54s).
+
+## §1235 — THE FOLDED-SCALAR IDEA WINS AT ITS PROPER LOCUS: learned per-head gains on bilin12's front recover 0.0794 held-out (≈ the §1226 read-mask win, 0.102) at zero description cost, and LOCALIZE the toxicity to TWO heads — 3.1 (s=0.567) and 2.0 (s=0.695), all other means ≈1.0; pred_a TRUE, pred_b FALSE (suppression is head-specific, not layer-wide), pred_c marginal-FALSE (late control 0.026 vs 0.024 bar) (scalar_toxic_front.py)
+
+- **Cross-model rhyme worth flagging:** the most-suppressed head is L3H1 — the SAME index as bilin18's toxic auxiliary (§1213). Two bilinear siblings, independently trained, each parking a conditional-value/toxic reader at L3H1. Filed as an observation (could be coincidence of small indices; a third check would need sqrd12).
+- **Instrument distinction sharpened:** zeroing these heads' OUTPUTS is catastrophic (s=0 reference: 5.80 vs core-mask 3.59) while window-masking their READS recovered loss (§1226) — the heads' local work is essential; only the long-range read is harmful. The learned scalar splits the difference correctly: soft global down-weighting (0.57-0.70) of the two culprits captures most of what surgical read-masking bought, in a form that folds into c_proj.
+- v1 autograd bug (in-place head scaling broke the graph) fixed with out-of-place index_copy; first submission exit=1, no results consumed.
+
+scalar_toxic_front_results.json; runlogs/scalar_toxic_front.log (91s).
