@@ -4907,3 +4907,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1170 — fold law FAMILY-UNIVERSAL, matching constants (+0.0148 swiglu18 vs +0.0141 bilin18; nulls 1.56/1.51); selection law = task property not architecture; composed-reduction tabulated_stack queued (fold_family.py)
 §1171 — composed reductions SUB-additive: foldpat+sink joint 0.0232 < sum 0.0273 (sink replicates 1089); composed-reduction ledger opened; 2x audit queued (tabulated_stack.py)
 §1172 — 2x audit: structure replicates (sub-additive; joint 0.0161 fresh vs 0.0232), absolute band missed by 0.002 in favorable direction (row difficulty); stack quote = ≈0.02 nats (tabulated_stack_audit.py)
+§1173 — family width symmetry: swiglu18 same accelerating decay (0.183→0.0148), softmax gentler at narrow W (2.6× at W16), identical operating point; fold arc certified in both siblings at all three levels (fold_family_width.py)

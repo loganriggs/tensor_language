@@ -31849,3 +31849,9 @@ All structural predictions TRUE on a fresh 2× draw; the only miss is my absolut
 **Wake summary (§1161-1172, one continuous fold arc):** from the user's "why can't we fold L0-2?" to: selection is a bounded-window weights function model-wide (map + causal capstone +0.014), log-local width law with no hard scale, 4.1× error compounding across layers but SUB-additive composition across reduction types, family-universal with matching constants (+0.0148 softmax sibling), L1 anomaly = tie instability, two instrument bugs caught by registered controls, pages and FINDINGS updated. Next wave (registered intent): grow the composed stack — mlp0-bigram (writeup-480 construction, built with its own sanity arm), then price the maximally-tabulated model.
 
 tabulated_stack_audit_results.json; runlogs/tabulated_stack_audit.log (238s).
+
+## §1173 — FAMILY WIDTH SYMMETRY: swiglu18's causal width law is the same accelerating-decay shape (0.183/0.107/0.047/0.0148 @ W=16/32/64/128; ratios 1.7→2.3→3.2 vs bilin18's 2.1→3.4→4.8, within the registered 2× band); softmax is gentler at narrow windows, identical at the operating point — preds a-c ALL TRUE (fold_family_width.py)
+
+Full family symmetry for the fold arc: both models show monotone, ACCELERATING cost decay with window width and converge to the same ~0.015-nat price at W=128. The one architectural fingerprint: swiglu18's softmax pays 2.6× LESS at W=16 (0.183 vs 0.482) — row-normalization absorbs truncation-induced score distortions that bilin18's raw pattern×values passes straight through. Selection = bounded-window function is now certified in both siblings at map level (§1165/§1170), causal level (§1166/§1170), and width-law level (§1167/here).
+
+fold_family_width_results.json; runlogs/fold_family_width.log (187s).

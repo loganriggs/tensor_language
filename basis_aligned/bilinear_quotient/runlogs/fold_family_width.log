@@ -1,0 +1,8 @@
+batch 1/4 done 70s
+batch 2/4 done 109s
+batch 3/4 done 148s
+batch 4/4 done 187s
+CE {'base': 3.2425, 'all_W16': 3.4255, 'all_W32': 3.3493, 'all_W64': 3.2897, 'all_W128': 3.2573, 'true_model': 3.2425}
+costs {'all_W16': 0.183, 'all_W32': 0.1068, 'all_W64': 0.0472, 'all_W128': 0.0148} | ratios [1.71, 2.26, 3.19] (bilin18 [2.1, 3.4, 4.8])
+sanity True | pred_a monotone True | pred_b W128 True | pred_c ratios True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/fold_family_width_results.json (186.8s)
