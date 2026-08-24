@@ -5056,3 +5056,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1319 — "!" pair = two half-heads: perfectly additive (2.6%), no burst/sustained division; fourth structure form; thread §1315-19 closed (exclaim_pair.py)
 §1320 — "!"-pair criterion stream-computed (1.49/1.29; guard clean); thread closed; criterion taxonomy final (exclaim_weights.py)
 §1321 — rung 4: axis code transfers (38%), payload code needs stream calibration (additive injection poisoned — §1287 rule); rms-calibrated rung 5 queued (extraction_v4.py)
+§1322 — rung 5 negative (additive payload dead, 2 strikes) + MODULE PILOT: mlp1 = 94.4% token table on a 7.00-nat stake (position ~0, bigrams +1.5); cluster ladder running (extraction_v5.py; mlp1_table.py)
