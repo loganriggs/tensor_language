@@ -4951,3 +4951,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1214 — bilin12 late zone = CROWD (L10+L11 sum 0.38 vs joint 0.56; top head 32%) — smallest model least modular; station sharpness is the fingerprint axis (repeat_bilin12_late.py)
 §1215 — MECHANISM: roles split across depth — 2.5/3.8 SOURCE-matchers (o=128, 30-33%), 8.3/8.4+5.5 SUCCESSOR-fetchers (o=127) — the serial chain explained; L3H1 diffuse (repeat_station_offsets.py)
 §1216 — double duty family-general: swiglu stations 0.036/0.223 prose (16%) ≈ bilin18's 0.038 absolute; partition clean (repeat_family_prose.py)
+§1217 — swiglu has NO source-matcher (all stations o=127 fetchers, 0.54-0.73) — bilin18 matches by direct range reads, swiglu by local key-composition; two implementations, one price; bilin12 = deciding case, queued (repeat_offsets_family.py)

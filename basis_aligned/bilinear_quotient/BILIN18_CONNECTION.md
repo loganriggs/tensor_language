@@ -32208,3 +32208,11 @@ repeat_station_offsets_results.json; runlogs/repeat_station_offsets.log (47s).
 §1211's design on the softmax sibling (quad = {4.4, 5.2, 8.0, 8.8}). all18 replicates §1188's 0.2231 to the 4th decimal. Partition clean (0.036 + 0.210 ≈ 0.223). Both families' copy stations moonlight in ordinary pooling at ~0.037 nats — logged as an observation (two models, no third measurement; not claimed as law).
 
 repeat_family_prose_results.json; runlogs/repeat_family_prose.log (54s).
+
+## §1217 — swiglu18 HAS NO SOURCE-MATCHER: all four of its stations are pure successor-fetchers (o=127 shares 0.54-0.73; o=128 at 0.02-0.05) — pred_b FALSE, and the asymmetry explains the band split: bilin18 matches by DIRECT LONG-RANGE READS, swiglu18 matches locally (textbook key-composition) and only FETCHES at range (repeat_offsets_family.py)
+
+- **pred_a TRUE** (bands 0.60-0.79 — much sharper than bilin18's 0.27-0.37; softmax's normalized patterns concentrate). **pred_b FALSE:** no station peaks at 128. **pred_c TRUE** (L4 controls flat).
+- **The retrodiction that makes this satisfying:** in classic induction, matching is done by KEY-COMPOSITION — a local prev-token head writes each position's predecessor into its key, so the matcher never needs a long-range read; only the successor-fetch reads at distance. swiglu18 fits that exactly: mild front band (0.62), all stations mid-stack, all fetchers. bilin18 instead spends two front stations (2.5, 3.8) on DIRECT source-matching at offset 128 — its front band is catastrophic (1.91) precisely because its matching is itself a long-range read. **Two implementations of one algorithm; the family constant (~3.2 nats of copy value collected) is indifferent to which one.**
+- Open question registered to the deciding case: bilin12 is bilinear-squared (like bilin18) but row-NORMALIZED (like softmax). repeat_bilin12_stations queued: if its far-reads peak at 127, normalization decides the implementation; if a 128-matcher appears, bilinearity does.
+
+repeat_offsets_family_results.json; runlogs/repeat_offsets_family.log (57s).
