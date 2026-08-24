@@ -782,7 +782,11 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   (−0.04). Only cutting to the current token alone hurts (+0.54). So the entire front of this
   model — first attention layer and first MLP together — is a <strong>bigram function</strong>,
   exactly computable from two tokens, and we can say that with the untruncated reconstruction
-  verified exact at +0.0000.</p>
+  verified exact at +0.0000. <em>Register scope, added later:</em> those truncation numbers were
+  measured on prose. On a diverse corpus (code, JSON, markdown mixed in), the same two-token
+  cut costs +0.09 — the front still folds exactly from the weights with full context on every
+  register, but <em>how local</em> it is depends on the text: bigram-local on prose, wider on
+  structured formats.</p>
   <p><span class="tag">how far does this model look?</span> Restricting one attention layer at a
   time to a four-token read window prices how much each layer needs distant context.
   <strong>Seventeen of eighteen layers cost under a tenth of a nat.</strong> The single

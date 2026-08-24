@@ -148,11 +148,7 @@ def main():
             x, v1 = blk(x, v1, x0)
         lt = 30.0 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30.0)
         ce_true += float(F.cross_entropy(lt.reshape(-1, lt.shape[-1]).float(), tgt.reshape(-1), reduction='sum'))
-        # capture head 5.7's live output (pre-c_proj slice) on these rows for the constant
-        capv = {}
-        def hk(mo, i_, o_):
-            capv['x57'] = None  # placeholder; we recompute below
-        # recompute 5.7 output within a capture-forward: reuse custom_forward pieces inline
+        # recompute 5.7 output within a capture-forward for the sink constant
         xx = F.rms_norm(m.transformer.wte(idx), (D,)); x00 = xx; vv1 = None
         sink_vec = None
         for L, blk in enumerate(m.transformer.h):
