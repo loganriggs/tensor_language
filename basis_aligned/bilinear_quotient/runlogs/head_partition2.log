@@ -1,0 +1,18 @@
+induction targets 8359
+head-slice 0: top-16 energy 0.251
+head-slice 1: top-16 energy 0.291
+head-slice 2: top-16 energy 0.451
+head-slice 3: top-16 energy 0.284
+head-slice 4: top-16 energy 0.227
+head-slice 5: top-16 energy 0.339
+head-slice 6: top-16 energy 0.305
+head-slice 7: top-16 energy 0.307
+head-slice 8: top-16 energy 0.346
+base {'t': 0.8715629080206402, 'e': 3.3537343176188976}
+main4_sub: ind 0.0225 else -0.0008
+tail_sub: ind 0.5872 else 0.7712
+all_sub: ind 0.628 else 0.7709
+all_rand: ind 0.274 else 0.4092
+main4_rand: ind 0.0185 else -0.0003
+pred_a content False | pred_b null False | pred_c tail False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_partition2_results.json (93.1s)

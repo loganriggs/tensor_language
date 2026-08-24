@@ -1,0 +1,41 @@
+{
+ "n_rows": 384,
+ "n_targets": 8359,
+ "rank": 16,
+ "base": {
+  "t": 0.8716,
+  "e": 3.3537
+ },
+ "conds": {
+  "main4_sub": {
+   "d_ind": 0.0225,
+   "d_else": -0.0008
+  },
+  "tail_sub": {
+   "d_ind": 0.5872,
+   "d_else": 0.7712
+  },
+  "all_sub": {
+   "d_ind": 0.628,
+   "d_else": 0.7709
+  },
+  "all_rand": {
+   "d_ind": 0.274,
+   "d_else": 0.4092
+  },
+  "main4_rand": {
+   "d_ind": 0.0185,
+   "d_else": -0.0003
+  }
+ },
+ "anchors_1290": {
+  "main4_whole": [
+   0.395,
+   0.0605
+  ]
+ },
+ "pred_a_content_is_part": false,
+ "pred_b_null_clean": false,
+ "pred_c_tail_same_variable": false,
+ "runtime_s": 93.1
+}

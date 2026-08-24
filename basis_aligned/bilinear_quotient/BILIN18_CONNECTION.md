@@ -32789,3 +32789,11 @@ head_partition_results.json; runlogs/head_partition.log (365s).
 - NAMED: heads 1.1 and 1.8 = the annotator pair. Third consumer test (match sources) logged.
 
 writer_cross_results.json; runlogs/writer_cross.log (74s).
+
+## §1292 — CUT 2 FALSIFIED, AND THE REASON REDRAWS THE PROGRAM: THE IDENTITY CODE IS FULL-RANK — each head-slice's top-16 directions hold only 23-45% of the v1 code's energy, the 16-dim content mask removes almost nothing the null doesn't (main4: 0.0225 vs random-basis 0.0185), and the all-heads version is not induction-specific (ind 0.628 vs else 0.771); preds a-c ALL FALSE (head_partition2.py)
+
+- The lesson, plainly: "this part of the RANK of the head does induction" presumes the task's content fits a small subspace. The copy payload is TOKEN IDENTITY — content for a 50k vocabulary — and it uses essentially the whole 128-dim head channel. No 16-dim (or plausibly 64-dim) subspace of value space IS the induction part, because induction's content is the widest variable the model carries.
+- The refined picture after two falsified cuts: a transport head does not partition across value-space subspaces; it partitions across FUNCTIONAL STAGES. The QK criterion is low-rank and weights-readable (§1238: match scores from raw codes; §1272/85: annotation keys). The OV payload is full-channel identity transport. Where the user's partition program SUCCEEDS is at circuit BOTTLENECKS, where content is genuinely low-rank — the verdict axis (§1240-46: two heads -> ONE direction, 95% restore) is the worked example, and the successor maps (per-lexicon, near-rank-1) another. Criterion: partition variables, not pipes.
+- CUT 3 queued (head_partition3.py), the data-dependent version that respects full-rank content: per source position, remove from each head's mixed value its rank-1 projection onto THAT position's own v1 direction — "delete this token's identity from what this head delivers", wherever in the mix it sits, no global subspace assumed. Null: same-sized removal onto a position-shuffled v1 direction.
+
+head_partition2_results.json; runlogs/head_partition2.log (93s).

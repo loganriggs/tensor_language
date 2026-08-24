@@ -5026,3 +5026,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1289 — writers NAMED: 1.1 (95%) and 1.8 (90%) each alone sufficient at WH openers (leave-one-alive over 27 heads; anchor null passed); question thread §1282-89 CLOSED (question_writers.py)
 §1290 — head-partition cut 1 FAILS informatively: v1 route = only 31% of main4's induction part (fresh 61% — stream carries a second copy of the code); route-mask surgically clean (else 2%) but incomplete; content-subspace cut 2 queued (head_partition.py)
 §1291 — 1.1/1.8 are UNIVERSAL annotators: same pair sufficient at delimiter openers too (81%/70% alone, 98% together, of a 2.29-nat dependence); two consumers certified, third (match sources) logged (writer_cross.py)
+§1292 — cut 2 FALSIFIED: identity code is FULL-RANK (top-16 = 23-45% energy; masks ~= nulls) — partition works at bottleneck variables (verdict axis), not transport pipes; data-dependent rank-1 cut 3 queued (head_partition2.py)
