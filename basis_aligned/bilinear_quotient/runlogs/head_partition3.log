@@ -1,0 +1,10 @@
+induction targets 8313
+base {'t': 0.8707449573565946, 'e': 3.3712885861394115}
+main4_id: ind 0.125 else 0.0016
+main4_shuf: ind 0.002 else -0.0
+tail_id: ind 0.963 else 0.5423
+tail_shuf: ind 0.0174 else 0.0125
+all_id: ind 1.7765 else 0.5969
+all_shuf: ind 0.022 else 0.0128
+pred_a identity False | pred_b null True | pred_c tail False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_partition3_results.json (112.5s)

@@ -1,0 +1,44 @@
+{
+ "n_rows": 384,
+ "n_targets": 8313,
+ "base": {
+  "t": 0.8707,
+  "e": 3.3713
+ },
+ "conds": {
+  "main4_id": {
+   "d_ind": 0.125,
+   "d_else": 0.0016
+  },
+  "main4_shuf": {
+   "d_ind": 0.002,
+   "d_else": -0.0
+  },
+  "tail_id": {
+   "d_ind": 0.963,
+   "d_else": 0.5423
+  },
+  "tail_shuf": {
+   "d_ind": 0.0174,
+   "d_else": 0.0125
+  },
+  "all_id": {
+   "d_ind": 1.7765,
+   "d_else": 0.5969
+  },
+  "all_shuf": {
+   "d_ind": 0.022,
+   "d_else": 0.0128
+  }
+ },
+ "anchors_1290": {
+  "main4_whole": [
+   0.395,
+   0.0605
+  ]
+ },
+ "pred_a_identity_is_part": false,
+ "pred_b_shuffle_null": true,
+ "pred_c_tail_identity": false,
+ "runtime_s": 112.5
+}

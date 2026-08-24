@@ -32797,3 +32797,11 @@ writer_cross_results.json; runlogs/writer_cross.log (74s).
 - CUT 3 queued (head_partition3.py), the data-dependent version that respects full-rank content: per source position, remove from each head's mixed value its rank-1 projection onto THAT position's own v1 direction — "delete this token's identity from what this head delivers", wherever in the mix it sits, no global subspace assumed. Null: same-sized removal onto a position-shuffled v1 direction.
 
 head_partition2_results.json; runlogs/head_partition2.log (93s).
+
+## §1293 — CUT 3: THE NULL IS FINALLY PERFECT AND THE MEASUREMENT IS REAL — BUT IT CATCHES ONLY THE RAW-COORDINATE COPY: per-position rank-1 identity removal on main4 costs 0.125 at targets (vs shuffle-null 0.002 — a 60:1 instrument) yet equals cut 1's v1-route number (0.122 ≈ 0.125): the fresh route's identity content is NOT parallel to the raw code; preds a & c FALSE, pred_b TRUE (head_partition3.py)
+
+- What the coincidence of 0.125 with §1290's 0.122 proves: removing "the component along this token's v1 direction" strips exactly the lambda-broadcast term and almost nothing else — so the SAME variable rides the fresh route in a DIFFERENT coordinate system. Each layer's c_v re-encodes block-0's stream write; the identity arrives twice, once raw, once transformed, and a one-direction mask sees only the raw copy.
+- Partial vindication worth recording: at all-heads grain the aligned removal is 3.0x induction-specific (ind 1.777 vs else 0.597) with the shuffle null at ~1% — the first partition instrument whose null is clean AND whose effect is substantial. And the TAIL carries more raw-coordinate identity induction than the main four (0.963 vs 0.125, specificity 1.78x): the long tail is, to first order, an identity-transport crowd — the user's "they all do a bit of this task" reading, now with the task part isolated per position.
+- CUT 4 queued (head_partition4.py): rank-2 per position — remove the projection onto BOTH coordinate systems: the raw v1 direction AND the layer-transformed direction c_v^L(block-0's stream write at that position), Gram-Schmidt orthogonalized. Registered: main4 rank-2 >= 60% of whole (0.395); shuffle null <= 25%; rank-2 >= 2x rank-1 (0.125 anchor).
+
+head_partition3_results.json; runlogs/head_partition3.log (113s).
