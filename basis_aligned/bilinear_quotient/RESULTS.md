@@ -5023,3 +5023,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1286 — annotation is LAYERED: a02 carries content (0.40 nats at openers, 25x specific; share -3%), m38 carries the key (share -39%, CE 0.02) — 13.8's one-band pattern does NOT repeat; preds a,b FALSE honestly (question_annotator.py)
 §1287 — CORRECTION+reversal: front-attn opener writes are collective (singles ~0, all three 0.397 — 26x superadditive) AND the 0.40 cost is INDIRECT — ablating mid MLPs too RESTORES it (0.003); §1286 "content" reading corrected to off-manifold scrubbing (question_annotator2.py)
 §1288 — scrubber = MLP4 (94% restore; mlp5 bet lost) + front write is 2-WAY REDUNDANCY (attn1 alone sufficient, attn0 nearly) — same builder layers as copy circuit; chain legible end-to-end (question_annotator3.py)
+§1289 — writers NAMED: 1.1 (95%) and 1.8 (90%) each alone sufficient at WH openers (leave-one-alive over 27 heads; anchor null passed); question thread §1282-89 CLOSED (question_writers.py)

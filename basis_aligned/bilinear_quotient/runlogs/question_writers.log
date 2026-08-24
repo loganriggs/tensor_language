@@ -1,2 +1,34 @@
 'Server disconnected without sending a response.' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
 Retrying in 1s [Retry 1/5].
+opener positions 89 | ? targets 37
+base 1.0254 | keep-none dCE 0.3966 (a02 output-zero anchor was 0.3966)
+keep 0.0: dCE 0.3926 restore 0.010
+keep 0.1: dCE 0.3833 restore 0.034
+keep 0.2: dCE 0.3934 restore 0.008
+keep 0.3: dCE 0.3140 restore 0.208
+keep 0.4: dCE 0.3881 restore 0.022
+keep 0.5: dCE 0.3947 restore 0.005
+keep 0.6: dCE 0.3727 restore 0.060
+keep 0.7: dCE 0.3213 restore 0.190
+keep 0.8: dCE 0.3955 restore 0.003
+keep 1.0: dCE 0.4121 restore -0.039
+keep 1.1: dCE 0.0184 restore 0.954
+keep 1.2: dCE 0.3898 restore 0.017
+keep 1.3: dCE 0.3974 restore -0.002
+keep 1.4: dCE 0.4083 restore -0.029
+keep 1.5: dCE 0.3847 restore 0.030
+keep 1.6: dCE 0.3899 restore 0.017
+keep 1.7: dCE 0.3691 restore 0.069
+keep 1.8: dCE 0.0380 restore 0.904
+keep 2.0: dCE 0.3798 restore 0.042
+keep 2.1: dCE 0.3929 restore 0.009
+keep 2.2: dCE 0.3846 restore 0.030
+keep 2.3: dCE 0.4018 restore -0.013
+keep 2.4: dCE 0.3929 restore 0.009
+keep 2.5: dCE 0.3939 restore 0.007
+keep 2.6: dCE 0.3764 restore 0.051
+keep 2.7: dCE 0.3870 restore 0.024
+keep 2.8: dCE 0.3902 restore 0.016
+top5 [('1.1', {'dce': 0.0184, 'restore': 0.954}), ('1.8', {'dce': 0.038, 'restore': 0.904}), ('0.3', {'dce': 0.314, 'restore': 0.208}), ('0.7', {'dce': 0.3213, 'restore': 0.19}), ('1.7', {'dce': 0.3691, 'restore': 0.069})]
+pred_a sufficient True | pred_b layer1 True | pred_c redundant True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_writers_results.json (434.6s)

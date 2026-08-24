@@ -32763,3 +32763,12 @@ question_annotator2_results.json; runlogs/question_annotator2.log (103s).
 - Chain now legible end-to-end: attn0/attn1 redundantly mark the WH opener → mlp3/mlp4 re-encode the mark → 10.5 fetches the opener key (11.4x, §1285) and writes the "?" prediction. Controls clean at every step with large effects (1.6%).
 
 question_annotator3_results.json; runlogs/question_annotator3.log (117s). Question thread §1282-88.
+
+## §1289 — THE OPENER WRITERS ARE HEADS 1.1 AND 1.8, EITHER ALONE SUFFICIENT: leave-one-alive across all 27 front heads finds exactly two that restore the question behaviour by themselves — 1.1 (95.4% restore) and 1.8 (90.4%); the next best is 0.3 at 20.8%; preds a-c ALL TRUE, built-in anchor null PASSED (keep-none 0.3966 = the §1287 output-zero anchor) (question_writers.py; 435s)
+
+- Design note for the books: redundancy blinds leave-one-out (all §1287 singles read ~0), so the instrument is LEAVE-ONE-ALIVE — ablate all 27 front-head y-slices at opener positions except one kept head. A kept head that restores the behaviour is a sufficient writer.
+- Result grain: TWO redundant sufficient writers, both in attn1 (matching §1288's layer verdict), each ~fully covering for the other. Layer 0's near-sufficiency at layer grain (§1288: keep-only-attn0 = 0.102) is itself collective — its best single head restores only 21% — so the head-grain picture is: 1.1 or 1.8 suffice; L0 provides a weaker multi-head backstop.
+- Question thread FINAL (§1282-89, eight experiments): behaviour (predict "?" in WH-opened sentences) -> owner (10.5, 106% of layer, conc 137) -> mechanism (fetches the opener key 11.4x; criterion stream-computed, ratio 1.1) -> annotation chain (1.1/1.8 redundantly write the opener mark; mlp3/4 re-encode it; corrupting the mark poisons via mlp4's re-encoding, 94% restore when blocked). Two corrections (§1287, §1288 refinement) and three lost bets on the record; every large-effect control <= 2%.
+- Cross-circuit question logged (not yet queued): are 1.1/1.8 ALSO the sufficient writers at DELIMITER openers (13.8's annotation) and at match sources (the §1228 builder function)? Same leave-one-alive instrument transfers directly.
+
+question_writers_results.json; runlogs/question_writers.log.
