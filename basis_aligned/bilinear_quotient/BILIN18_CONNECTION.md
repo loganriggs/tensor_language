@@ -32595,3 +32595,9 @@ pool_subspace_results.json; runlogs/pool_subspace.log (213s).
 The instrument is converging but not converged: the delta basis contains directions mid-band attention uses for everything, so output-level projection removal cannot separate far-carried from locally-carried content. v3 queued with the surgical form — subtract the delta-16 projection of only the FAR COMPONENT of each attention output (pattern split at the W64 boundary), with full-far removal as a built-in sanity anchor that must reproduce §1186's mid-band 0.067.
 
 pool_subspace2_results.json; runlogs/pool_subspace2.log (162s).
+
+## §1266 — THE ATTRIBUTION LANDS, THIRD INSTRUMENT: 16 directions carry 46% of the mid-band's far-pooling value (0.0306 of 0.0670; random-16 null 0.0054 — clean at last; sanity anchor reproduces §1186's 0.067 to the 4th decimal); pred_a FALSE at the 60% bar — the honest number is ~half; preds b-c TRUE (pool_subspace3.py)
+
+Three-iteration instrument convergence (stream-level → output-level → far-component-level), each failure caught by its own null (§1264-65), the final form validated by an exact independent anchor. The pool thread's closing picture: **the far-pooling channel's product is a MEDIUM-RANK distributed object — its top 16 directions carry ~46% of its causal value (variance share 50%, §1264 — variance and value align here), only ~a third of that energy is content-basis, and the remaining half of the value spreads beyond any small basis.** Fully consistent with the crowd's synergy (§1223), the no-compact-ensemble result (§1222), and the tiny mid-stream content footprint (§1263). The §1204-61 copy circuit and the pool now stand as the program's two poles: one long-range channel that compresses to a computation, and one that is irreducibly collective at every grain tested — carrier, ensemble, and now subspace.
+
+pool_subspace3_results.json; runlogs/pool_subspace3.log (141s). Pool thread (§1262-66) closed.
