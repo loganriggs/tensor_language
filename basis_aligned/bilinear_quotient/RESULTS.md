@@ -5011,3 +5011,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1274 — annotator = FRONT ATTENTION (fetch collapse 54.6%, control 11.8%; a38 secondary) — one annotation service feeds BOTH retrieval circuits; delimiter-closer record complete, thread §1270-74 CLOSED (annotator_hunt2.py)
 §1275 — ordinal screen: attn8 conc 18.8 (n=24 flagged; deep bet lost; digit-circuit + fetcher collision) — widened head step with dedup cells queued (ordinal_screen.py)
 §1276 — NEW NAMED HEAD: 8.7 = the increment head (78%, increment-specific, not-fetchers bet WON, atlas digit 2.45 rank-1); mechanism = successor-map weights test next (ordinal_heads.py)
+§1277 — "+1" IN THE WEIGHTS 8/8: 8.7's value map ranks d+1 FIRST for every digit (control 1/8, rank 5.1) — increment thread closed same-day: screen → head → weights mechanism (succ_map.py)
