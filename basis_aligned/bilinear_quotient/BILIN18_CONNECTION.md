@@ -31813,3 +31813,9 @@ fold_pattern_loss2_results.json; runlogs/fold_pattern_loss2.log (237s; v1 236s).
 The operating point stands: **W=128 → +0.0141 nats for all 162 patterns.** Sanity exact again (3.3627).
 
 fold_width_law_results.json; runlogs/fold_width_law.log (220s).
+
+## §1168 — PER-LAYER ATTRIBUTION: folding errors are individually absorbed, jointly compounding (per-layer sum 0.056 vs joint 0.229 at W=32 — 4.1× SUPER-additive); deep carries 86%; L1's argmax laggard costs NOTHING (0.0005 nats) (fold_cost_by_layer.py)
+
+**pred_a FALSE (and informative):** single-layer folds at W=32 cost 0.000-0.009 each (max: L8 at 0.0089), summing to 0.0559 — the joint all-18 fold costs 0.2285, 4.1× the sum. The super-additivity signature (§1093's 5.7× collective attention, §1160's redundant leak carriage) appears a third time at the pattern level: each layer's selection errors are absorbed by the live layers around it; fold everywhere and the errors compound. **pred_c TRUE:** L5-17 carry 86% of the summed cost. **pred_b FALSE, closing the L1 anomaly at the loss level:** L1 — the 162-head map's only argmax laggard (0.68, §1165) — costs 0.0005 nats when folded, LESS than L3 (0.0014). Its low argmax hit is loss-irrelevant, consistent with tie-instability among near-equal scores rather than genuine unfoldability (tie diagnosis queued: l1_tie_diag.py, registered — (a) L1 mean top-3 hit ≥ 0.85; (b) mean folded-vs-real pattern correlation ≥ 0.9; (c) the lowest-top1 heads have the highest tie rates).
+
+fold_cost_by_layer_results.json; runlogs/fold_cost_by_layer.log (57s).
