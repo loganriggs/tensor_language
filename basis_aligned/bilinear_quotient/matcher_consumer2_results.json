@@ -1,0 +1,28 @@
+{
+ "n_rows": 24,
+ "ce": {
+  "base": 0.3613,
+  "cut4": 0.395,
+  "cut6": 4.1585,
+  "cut9": 0.8869,
+  "null4": 0.358,
+  "null6": 0.4796,
+  "null9": 0.3737,
+  "zerowrite": 2.5864,
+  "true_model": 0.3613
+ },
+ "cost_vs_base": {
+  "cut4": 0.0337,
+  "cut6": 3.7972,
+  "cut9": 0.5256,
+  "null4": -0.0033,
+  "null6": 0.1183,
+  "null9": 0.0124,
+  "zerowrite": 2.2251
+ },
+ "sanity": true,
+ "pred_a_artifact": false,
+ "pred_b_zerowrite": true,
+ "pred_c_replicates": true,
+ "runtime_s": 103.4
+}
