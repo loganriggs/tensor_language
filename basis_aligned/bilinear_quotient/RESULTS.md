@@ -4988,3 +4988,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1251 — FAMILY LAW: swiglu has the verdict axis too (removal 1.18 nats, 71:1 spared, stab 0.97) — implementations diverge, representation CONVERGES; third family-general named variable (swiglu_axis.py)
 §1252 — THREE FOR THREE: bilin12 axis 1.75 nats (54% of budget, 45:1 spared, stab 0.995) — verdict axis = three-family law (1.00/1.18/1.75); named-variable program closed (bilin12_axis.py)
 §1253 — axis read at BLOCKS 4-5 (1.12 alone; fetch band 0.28); semantics = LEVEL (72%) + positional refinement (23%); wrong pattern < bare level; §1250 caveat settled (axis_reader+axis_meanrestore)
+§1254 — mechanism run quarantined (raw r distance-confounded; null moved) — partial-correlation v2 queued (pooler_mechanism.py)

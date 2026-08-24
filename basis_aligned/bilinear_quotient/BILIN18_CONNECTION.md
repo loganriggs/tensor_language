@@ -32503,3 +32503,9 @@ bilin12_axis_results.json; runlogs/bilin12_axis.log (113s).
 - **Semantics (axis_meanrestore):** the §1250 shuffled-null puzzle resolves — the axis's value decomposes into a per-row "matching is happening" LEVEL (72% of restoration) + a per-position pattern (the last 23%); shuffling injects wrong positional deviations around the right level and lands at 40% — worse than the level alone by 32 points of damage. Wrong evidence < no evidence < right evidence, at one direction's grain. §1250's position-binding claim settles as: PARTIALLY position-bound (pattern real but secondary on repeat rows).
 
 axis_reader_results.json, axis_meanrestore_results.json; runlogs (142s, 104s).
+
+## §1254 — MECHANISM RUN QUARANTINED BY ITS OWN NULL: base r's replicate §1085 exactly (−0.015/0.076/0.097/0.181) but content-removal RAISES the raw correlation (L10 0.097→0.177) and the random-basis null moves +42% at L8 — the raw content-sim r is DISTANCE-CONFOUNDED (nearby keys share content; any manipulation that shifts patterns toward recency inflates the confound); preds a & c FALSE, b vacuous (near-zero L6 base made the 2× bar trivial); partial-correlation rerun queued (pooler_mechanism.py)
+
+Instrument lesson #15, caught by the registered null: manipulation effects on a CONFOUNDED correlate are uninterpretable. §1085's own conclusion (position dominates; content second-order) already warned of this — the mechanism instrument needed distance-partialed correlations from the start. No mechanism conclusion drawn; v2 (residualize both pattern and content-sim on log-distance before correlating, same conditions, bars re-registered on partial r) queued.
+
+pooler_mechanism_results.json; runlogs/pooler_mechanism.log (110s).
