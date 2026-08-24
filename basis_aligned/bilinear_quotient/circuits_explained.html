@@ -239,6 +239,32 @@ fetching — run on one front-attention annotation service.</span>
 certification; one instrument bug disclosed and fixed in-thread).</p>
 </div>
 
+<h2>Circuit 5, added later — the increment head</h2>
+<div class="circuit">
+<span class="tag">"the last list item was 2 — this one is 3"</span>
+<div class="kv">
+<b>What</b><span>Ordinal increment: predicting a digit that <em>never appeared in context</em>
+from its predecessor that did — a transformation, where every other long-range circuit here
+copies or fetches. Discovered by the same concentration screen (attn8 at 18.8), owned by one
+head at 78% share with the certification gate passed, and separated from both resident
+hypotheses by discriminating cells: it ignores digits that lack a predecessor in context
+(so it is not the digit-formatting circuit), and it is not the copy fetchers (§1275-76).</span>
+<b>Where</b><span>Head <span class="mono">8.7</span>. Elsewhere damage 0.0024; average delete
+cost 0.011 — the third consecutive circuit owner invisible to magnitude ranking. The
+behaviour-blind atlas ranks digit as its top read class (2.45).</span>
+<b>Why</b><span>Lists are everywhere, and their next item is <em>computable</em>. The mechanism
+is the striking part: <b>"+1" is carved into the head's weight matrices.</b> Push each digit's
+raw embedding code through 8.7's value and projection weights and read the result against the
+unembedding: for all eight digits tested, the top-ranked prediction is the <em>next</em> digit
+(successor logits 2–4× the digit's own; a control head scores 1 of 8 at chance rank). No
+lookup, no forward pass — two weight matrices compose into the successor function. The model
+now shows three long-range designs side by side: equality in the weights (circuit 1),
+computed-state fetching (circuit 4), and arithmetic in the weights (this one) — §1277.</span>
+</div>
+<p class="ref">Evidence: §1275-1277 (screen → head → weights mechanism, closed in one day;
+three-way dedup; atlas cross-check).</p>
+</div>
+
 <h2>How the three compose — and one circuit that pointedly doesn't join</h2>
 <p>The composition is a supply chain: <b>block-0 writes a token code → the value-residual
 broadcasts it everywhere → the matchers compare it across distance (circuit 1) → the fetchers

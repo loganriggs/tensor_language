@@ -186,6 +186,26 @@
   </div>
 
   <div class="hl">
+    <p class="tag">behaviour-first</p>
+    <h2>Two new heads in two days — one closes quotes, one counts</h2>
+    <p>A screening protocol that ranks components by <i>concentration</i> (damage at a target
+    behaviour ÷ damage everywhere else) instead of raw magnitude found two single-head circuits that
+    every magnitude-ranked sweep had run past — both with average delete costs of ~0.01 nats.
+    <b>Head 13.8 closes delimiters:</b> quotes <i>and</i> brackets (0.33 and 0.68 nats at those
+    targets, <i>negative</i> damage elsewhere), by fetching a computed "something is open" annotation
+    from the opener's position. <b>Head 8.7 increments:</b> it predicts the digit that never appeared
+    from the one that did ("3" after "2.") — and its mechanism is carved directly into its weights:
+    push any digit's embedding code through the head's value and projection matrices and the
+    top-ranked output is the <i>next</i> digit, eight for eight, no forward pass needed. Both heads'
+    keys are built by the same front-attention annotation service that feeds the copy circuit — one
+    infrastructure, many consumers. The model now shows three long-range designs side by side:
+    equality in the weights, computed-state fetching, and arithmetic in the weights.</p>
+    <div class="stats"><span class="stat"><b>8 / 8</b>digits mapped to their successor by pure weights</span>
+    <span class="stat"><b>~0.01</b>nats: both heads' average cost (invisible to magnitude screens)</span></div>
+    <p class="ref">§1270–1277 (delimiter-closer and increment threads, each closed screen-to-mechanism)</p>
+  </div>
+
+  <div class="hl">
     <p class="tag">the content machine's api</p>
     <h2>The "irreducibly high-dimensional" content splits into a skeleton and a scratch space</h2>
     <div class="dfn"><b>Skeleton:</b> train a small sparse dictionary on the content signal and ~8 stable
