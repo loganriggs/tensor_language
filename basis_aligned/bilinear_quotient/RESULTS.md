@@ -5020,3 +5020,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1283 — dormant twin SURVIVES 10x data (user challenge): 1036 targets/4 lexicons — 14.4 solo −0.004 vs 8.7's 0.231, backup interaction 3%, no niche alive; vestigial certified (succ_twin_scale.py)
 §1284 — NEW NAMED HEAD: 10.5 = the question head (106% share of layer, conc 137, rest <=2%); third dominant-owner; mechanism cell queued (question_heads.py)
 §1285 — 10.5 fetches the WH opener (11.4x exact-key; share 26x) via stream-computed annotation (weights 1.1 — not embedding-native); ctrl bar missed by a hair (1.59/1.5, disclosed); annotator hunt queued (question_mechanism.py)
+§1286 — annotation is LAYERED: a02 carries content (0.40 nats at openers, 25x specific; share -3%), m38 carries the key (share -39%, CE 0.02) — 13.8's one-band pattern does NOT repeat; preds a,b FALSE honestly (question_annotator.py)
