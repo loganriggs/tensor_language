@@ -32982,3 +32982,12 @@ terminal_specificity_results.json; runlogs/terminal_specificity.log (110s; benig
 - Rerun queued (exclaim_screen2.py, 960 rows): registered — (a) attn17 stays the winner; (b) random cleans up at 5x targets OR stays dirty and certifies the diffuse-register reading; (c) top-5 spread persists (no head >= 50% share when decomposed — logged for the follow-up, not this cell).
 
 exclaim_screen_results.json; runlogs/exclaim_screen.log.
+
+## §1316 — RUNG 3 LANDS: THE ROUTE-GRAIN EXTRACTION RECOVERS 79% OF THE INDUCTION GAP — closure (33 heads) + the lambda-v1 route through every removed head gives ident CE 1.94 (vs full 0.90, all-mean 5.88; damage 1.05 = 21% of all-mean's) — up from 30% at head grain; the registered shared-variable leak CONFIRMED (elsewhere recovers 68% of its gap — the broadcast carries the pool, §1076); the band still needed (circ_route trails by 0.72); preds a-c ALL TRUE (extraction_v3.py)
+
+- The user's correction, quantified: the difference between "keep the crowd" and "keep one constant-scalar route through the crowd" is 49 points of induction gap (30% -> 79%) at a description-length cost of ~nothing (lambda already exists per layer; v1 = block-0's output, already kept; patterns = window-foldable weights functions, §1161-66). Extraction cost IS description length; §1312's head-grain "ladder closed" is formally superseded.
+- The extracted object: front band (27 heads) + matchers/fetchers (4) + sink (1) + annotators (2, inside the band) + one scalar route per remaining head + per-head mean vectors. It does induction at 1.05 nats from full (variant copying tracks at 1.09 — stem-matching survives extraction too) and is still 1.25 nats degraded on prose.
+- The leak is the map: elsewhere recovering 68% via the same route CONFIRMS §1076 causally from a new direction — the v1 broadcast is single shared infrastructure for copy AND topic; an induction-ONLY extraction would need to split the two consumers of one variable, which §1310 already priced as the copy-subroutine tax in reverse.
+- RUNG 4 LOGGED (the composition, next wake): replace the four circuit heads inside closure_route with the §1256-60 weights-computed stand-in — induction from a PRINTABLE description (code + scalars + means). If that runs at ~0.7 of rung 3, goal-1 is complete in the strongest sense the user asked for.
+
+extraction_v3_results.json; runlogs/extraction_v3.log.

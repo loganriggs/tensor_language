@@ -3092,13 +3092,20 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   copy circuit is a <em>shared subroutine</em>, leaking 0.03–0.08 nats into lists, quote
   pairs, and repeated punctuation even after every copy-supported position is excluded —
   removable, but with a declared tax.</p>
-  <p><b>Extraction: settled with a boundary.</b> The copy <em>mechanism</em> extracts
-  completely (the weights-computed stand-in: embeddings + weights + four scalars = 0.78 of
-  the front end). The copy <em>behaviour</em> does not: keeping the circuit plus its full
-  front-band dependency closure (33 heads of 162) in a mean-field attention model recovers
-  only 30% of the induction gap, because roughly a nat of natural-text copying rides the
-  diffuse identity-transport crowd that has no small keep-set. The behaviour is mechanism
-  plus crowd — the program's two poles, one more time.</p>
+  <p><b>Extraction: 79% and counting — with a lesson about accounting.</b> The copy
+  <em>mechanism</em> extracts completely (the weights-computed stand-in: embeddings +
+  weights + four scalars = 0.78 of the front end). The first attempts to extract the full
+  <em>behaviour</em> plateaued at 30% (33 heads of 162 kept, everything else mean-replaced)
+  and were nearly declared a boundary — until the accounting was corrected: extraction cost
+  is <em>description length</em>, not head count. The crowd's contribution to copying rides
+  the λ·v1 broadcast — a constant per-layer scalar times block-0's value, nearly free in
+  bits — so rung 3 kept that one route flowing through every removed head while mean-replacing
+  only their learned fresh values. Result: <b>79% of the induction gap recovered</b> (CE 1.94
+  vs 0.90 full / 5.88 floor), stem-copying intact, from 33 full heads + one scalar route +
+  means. The registered side-prediction also confirmed: the same route restores most of
+  <em>topic</em> performance too — causal proof from a new direction that the broadcast is
+  single shared infrastructure for copying and content. Next rung: swap the four circuit
+  heads for the stand-in code — induction from a printable description.</p>
 
   <h2 id="open">What's still open</h2>
   <p>The 2→3→4 chain got its abstraction treatment, and the answer is the anticipated
