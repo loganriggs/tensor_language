@@ -31887,3 +31887,11 @@ m0_diverse_width_results.json; runlogs/m0_diverse_width.log (8s).
 The register-corrected m0 entry composes cleanly: stack3 = 0.0270 (was 0.0371 with the mis-scoped k=2 entry). Running ledger of the maximally-tabulated model: WHERE all 162 heads look = weights over ≤128-token windows; head 5.7's output = one constant; mlp0 = weights over 8-token windows — total price 0.027 of 3.363 nats (0.8%). Sub-additivity has now held at every composition step: certified reductions overlap in their error budgets rather than adding. Next entry queued (tabulated_stack4.py, registered): mlp1 as an n-gram function (windowed block-0 + attn1 + manual bilinear, W=16 — mlp1 is the front's most register-GENERAL module, §1112's 0.83 table). (a) mlp1@W16 alone ≤ 0.05; (b) stack4 ≤ 0.08; (c) sub-additivity persists.
 
 tabulated_stack3_results.json; runlogs/tabulated_stack3.log (142s).
+
+## §1178 — FOUR ENTRIES, 0.030 NATS: mlp1 as a 16-gram function costs 0.0094 alone; stack4 = 0.0297 (sub-additive, 4th consecutive composition) — the front MLPs, all selection, and the top head are jointly tabulated at 0.9% of loss; preds a-c ALL TRUE (tabulated_stack4.py)
+
+Composed ledger now: WHERE all 162 heads look (weights, ≤128-token windows) + head 5.7's value (one constant) + mlp0 (8-gram) + mlp1 (16-gram) = 0.0297 nats of 3.3627 on the diverse corpus. Every composition so far has been sub-additive — certified reductions keep overlapping in error budget instead of adding. Note mlp1's n-gram cost (0.0094 @W16) versus its per-token TABLE cost (+1.775, writeup 478): including windowed attention in the weights-only recomputation is the whole difference — the front MLPs are cheap n-gram FUNCTIONS, expensive unigram tables.
+
+**Ladder climb queued (mlp_ladder_stack.py, registered) — where is the wall?** Same construction one layer at a time: mlp2@W32, mlp3@W64, mlp4@W64. The transition dossier says content is born L3-5; the n-gram construction should hit it. (a) mlp2@W32 ≤ 0.05; (b) mlp3@W64 ≤ 0.10; (c) mlp4@W64 ≥ 0.20 (the content wall — its input is the §1094 precursor, a pooled non-local object); (d) stack6 = stack4 + {mlp2, mlp3} ≤ 0.10 with sub-additivity persisting.
+
+tabulated_stack4_results.json; runlogs/tabulated_stack4.log (137s).

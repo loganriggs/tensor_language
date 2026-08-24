@@ -4912,3 +4912,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1175 — CORRECTION writeup 480: 'front = bigram function' is PROSE-SCOPED (k2 +0.004 curated / +0.092 FineWeb, original harness; untruncated fold exact both) — hook exonerated; stack3 0.0371 strongly sub-additive; report annotated; diverse width sweep queued (m0_ctx_corpus.py)
 §1176 — front window on diverse text: register-dependent n (k2 0.092 / k8 0.014 / k16 0.006 / full exact); local everywhere, bigram only on prose; stack m0 entry upgraded to k=8, queued (m0_diverse_width.py)
 §1177 — composed ledger THREE entries = 0.027 nats (sub-additive 3rd time; m0@k8 0.0139 exact match); stack4 (mlp1 n-gram) queued (tabulated_stack3.py)
+§1178 — FOUR entries = 0.0297 nats (mlp1@16-gram 0.0094 vs its unigram table +1.775; sub-additive 4th time); ladder climb mlp2/3/4 queued to find the content wall (tabulated_stack4.py)

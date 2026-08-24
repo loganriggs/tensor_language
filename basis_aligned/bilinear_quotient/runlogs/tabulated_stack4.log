@@ -1,0 +1,8 @@
+batch 1/4 done 59s
+batch 2/4 done 85s
+batch 3/4 done 111s
+batch 4/4 done 137s
+CE {'base': 3.3627, 'stack3': 3.3897, 'mlp1ng': 3.3721, 'stack4': 3.3924, 'true_model': 3.3627}
+costs {'stack3': 0.027, 'mlp1ng': 0.0094, 'stack4': 0.0297}
+sanity True | pred_a mlp1 True | pred_b stack4 True | pred_c subadd True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/tabulated_stack4_results.json (136.6s)

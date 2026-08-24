@@ -1,0 +1,24 @@
+{
+ "n_rows": 16,
+ "W": 128,
+ "ce": {
+  "base": 3.3627,
+  "stack3": 3.3897,
+  "mlp1ng": 3.3721,
+  "stack4": 3.3924,
+  "true_model": 3.3627
+ },
+ "cost_vs_base": {
+  "stack3": 0.027,
+  "mlp1ng": 0.0094,
+  "stack4": 0.0297
+ },
+ "refs": {
+  "stack3_1177": 0.027
+ },
+ "sanity_base_matches_true": true,
+ "pred_a_mlp1_cheap": true,
+ "pred_b_stack4_cheap": true,
+ "pred_c_subadditive": true,
+ "runtime_s": 136.6
+}
