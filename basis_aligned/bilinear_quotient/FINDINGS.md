@@ -79,7 +79,14 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    ~44% of heads factorize positional×content (§684-685); focality from the product (§681-682).
    (e) WINDOWS: every genuine content read fits a 4-token window except the position-0 constant
    fetch (17/18 layers <0.1 nats; prior sink arc). Induction heads exist but are redundant
-   (L2h5 top, L5h5, L8h3/4; single-head max +0.12 vs collective +5.2 §953-954). **HIGH.**
+   (L2h5 top, L5h5, L8h3/4; single-head max +0.12 vs collective +5.2 §953-954).
+   (f) FOLD CAPSTONE (§1161-1166): attention SELECTION is a bounded-window weights function
+   MODEL-WIDE — 162-head map: every layer's pattern argmax 0.8-1.0 predictable from weights over
+   the last ~128 tokens (sink 0.998; exact-prefix fix after a pad-clamp artifact); CAUSAL: run the
+   model with ALL 162 patterns replaced by window-folded reconstructions → +0.0141 nats (front-5
+   +0.001; wrong-text null +1.513). Pattern-locality is log-local (~+0.06 hit/doubling of W; loss
+   4-local but written code ~64-128-local — two-scale front law §1162). Long-range behavior lives
+   in VALUES/content, never selection. **HIGH.**
 
 4. **ARCHITECTURE MECHANISMS — how the two machines are grounded in bilin18's oddities.**
    (a) VALUE-RESIDUAL (v = ½v + ½v1, block-0 values everywhere): the content-aggregation substrate;

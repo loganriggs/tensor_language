@@ -104,9 +104,14 @@
     pooling is a crowd that matters collectively while every member is individually expendable.</p>
     <div class="dfn"><b>Nat:</b> the unit of prediction loss (natural-log cross-entropy). This model's total
     loss on prose is ≈3.3 nats/token; 0.9 nats from one head is enormous.</div>
+    <p>The capstone: replace <i>all 162 heads'</i> attention patterns — where each head looks — with
+    functions computed from the weights applied to each position's last ~128 tokens, run the model, and it
+    loses just <b>0.014 nats</b> (the same reconstruction fed the wrong text costs 1.51). The model's entire
+    selection machinery is a bounded-window function; everything genuinely long-range travels in the pooled
+    content, never in the selection.</p>
     <div class="stats"><span class="stat"><b>98.5%</b>of the top head = one fixed vector</span>
-    <span class="stat"><b>5.7×</b>collective vs summed per-head value</span></div>
-    <p class="ref">§429–432 (sink arc), §1089–1093</p>
+    <span class="stat"><b>+0.014</b>nats to fold all 162 patterns</span></div>
+    <p class="ref">§429–432 (sink arc), §1089–1093, §1161–1166 (fold capstone)</p>
   </div>
 
   <div class="hl">

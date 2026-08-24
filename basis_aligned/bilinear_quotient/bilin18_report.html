@@ -791,6 +791,19 @@ nav.toc .tochd{grid-column:1/-1; font-size:.66rem; letter-spacing:.16em;
   alone reproduces half the damage and windowing the other eight heads of that layer costs
   +0.05. So on average text, every genuine content read in this eighteen-layer model fits inside
   four tokens, plus one constant fetched from the first position.</p>
+  <p><span class="tag">the selection machinery folds</span> The strongest version of this result
+  arrived when the same question was asked of the attention <em>patterns</em> themselves — where
+  each head looks, not what it costs. Mapping all 162 heads: at every layer, a head's pattern
+  computed from the weights applied to each position's last ~128 tokens matches the real
+  pattern's strongest read at 0.8–1.0 fidelity (the position-0 sink at 0.998, and the first
+  attempt at this map had a padding bug that made the sink read 0.002 — caught by its own
+  registered prediction and fixed). Then the causal version: <strong>run the whole model with
+  every one of the 162 patterns replaced by its weights-only window reconstruction</strong> —
+  values, projections, and MLPs live — and the total price is <strong>+0.014 nats</strong>
+  (front five layers alone: +0.001; the same reconstruction fed the wrong text: +1.51). Where
+  this model looks is a bounded-window function of the recent text, computable from the weights,
+  everywhere in the stack. Whatever is genuinely long-range in its behavior travels in the
+  pooled <em>content</em> — the values riding the stream — never in the selection.</p>
   <p class="q">Two things make this more than a curiosity. First, this architecture has no
   softmax, so the usual story for attention sinks — a place to dump normalized attention mass —
   cannot apply here; the sink exists to deliver a bias. Second, it is nearly unique: sweeping
