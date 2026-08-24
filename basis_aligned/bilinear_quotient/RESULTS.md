@@ -5007,3 +5007,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1270 — quote-state screen: attn13 conc 16.3 (controls clean); late-attention carrier, rhymes with certified bclose circuit — head decomposition + dedup queued (quote_screen.py)
 §1271 — NEW NAMED HEAD: 13.8 = the delimiter-closer (quotes 0.326 + brackets 0.679, elsewhere −0.001; atlas punct 2.16 rank-1; bclose record sharpened+merged); mechanism next (quote_heads.py)
 §1272 — 13.8 = opener-fetcher (10.5× delimiter-key mass) with a STREAM-COMPUTED criterion (raw codes blind, 0.83) — two criterion architectures in one model; annotator hunt next (quote_mechanism.py)
+§1273 — annotator hunt partial (share NaN bug disclosed): opener-specific writers = mlp0-2 + attn3-8 (+late); attn0-2 mostly generic; fixed v2 queued (annotator_hunt.py)
