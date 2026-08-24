@@ -31953,3 +31953,13 @@ Full 18-layer profile (n-gram recomputation cost, W as certified): m0 0.0139@8 /
 **Next thread queued (value_range_bands.py, registered) — localize the 0.07-nat pooling channel by depth band:** window-restrict attention READS (pattern masked beyond W=64, position 0 ALWAYS visible per writeup-483's sink lesson) for one band at a time: front L0-4, mid1 L5-9, mid2 L10-14, late L15-17, and all-18. (a) the mid bands (5-14) carry the MAJORITY of the all-18 cost (content pooling lives there, §1076/§1099); (b) late band ≤ 0.02 (readout consumes local coords, §1153); (c) band costs are super-additive vs all-18 (the recurring collective signature — quantify the factor).
 
 mlp_ngram_complete_results.json; runlogs/mlp_ngram_complete.log (171s).
+
+## §1186 — THE POOLING CHANNEL LOCALIZED: L5-9 is the top long-range value carrier (0.067 nats @W64 read-masking, pos-0 visible) — 2× the L10-14 band (0.034), 5× the readout band (0.013); front a real second carrier (0.036); preds: a near-miss 57% vs 60% bar, b TRUE, c TRUE (value_range_bands.py)
+
+Read-masking one band at a time (pattern beyond 64 tokens zeroed, position 0 always visible so the sink's known constant fetch is not re-measured): front 0.0358 / mid1 0.0670 / mid2 0.0335 / late 0.0130 / all-18 jointly 0.1759 (band sum 0.1493 — super-additive at a mild 1.18×, far tamer than the leak's redundancy §1160). **pred_a FALSE by 0.03 as registered (mid bands = 57% of joint vs the 0.6 bar) — the qualitative claim stands** (the middle gathers most), and the front's 0.036 is the informative remainder: early attention genuinely gathers long-range material (§1074's account, now priced). **pred_b TRUE:** the readout band barely reads beyond 64 tokens (0.013) — §1153's own-position consumption confirmed by a third independent instrument.
+
+Two cross-checks: all-18 read-masking at W=64 (0.176) < §1180's full truncation at W=64 (0.207) — the gap ≈ position-0 visibility plus what full truncation additionally destroys; and multi-hop relay (each layer's 64-window on top of earlier layers' windows gives a compounding receptive field) recovers surprisingly little — per-layer read range, not relayed reach, is what prices out.
+
+**Drill-down queued (value_range_mid1.py, registered):** L5-9 one layer at a time @W64 (pos-0 visible) + the mid1 joint. (a) DISTRIBUTED: max single layer ≤ 0.03 (the §1093/§1160 redundancy signature, expected here too); (b) singles sum ≤ mid1 joint (super-additive again); (c) L5 NOT special once pos-0 is visible (its writeup-482 spike was pure sink).
+
+value_range_bands_results.json; runlogs/value_range_bands.log (40s).

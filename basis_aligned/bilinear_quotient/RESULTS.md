@@ -4920,3 +4920,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1183 — every MLP a ≤64-token window function (deep 0.002-0.006, decreasing with depth); long-range = attention accumulation ONLY; grand stack queued (deep_mlp_ngram.py)
 §1184 — GRAND STACK: 12 reductions jointly = 0.0385 nats (1.1%; 2.6× sub-additive; sanity exact); wake arc §1174-84 complete (grand_stack.py)
 §1185 — MLP window map GAP-FREE (all 18 ≤0.014; program complete: selection + every MLP + grand stack certified); value-pooling band localization queued (mlp_ngram_complete.py)
+§1186 — pooling channel localized: L5-9 top carrier 0.067 (2× mid2, 5× late; front 0.036 real second); late local (0.013) — §1153 triple-confirmed; mid-share 57% vs 60% bar (near-miss disclosed); mid1 drill-down queued (value_range_bands.py)

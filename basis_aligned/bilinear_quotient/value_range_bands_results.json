@@ -1,0 +1,26 @@
+{
+ "n_rows": 24,
+ "W": 64,
+ "ce": {
+  "base": 3.2588,
+  "front": 3.2946,
+  "mid1": 3.3258,
+  "mid2": 3.2923,
+  "late": 3.2718,
+  "all18": 3.4347,
+  "true_model": 3.2588
+ },
+ "cost_vs_base": {
+  "front": 0.0358,
+  "mid1": 0.067,
+  "mid2": 0.0335,
+  "late": 0.013,
+  "all18": 0.1759
+ },
+ "band_sum": 0.1493,
+ "sanity": true,
+ "pred_a_mid_carries": false,
+ "pred_b_late_local": true,
+ "pred_c_superadditive": true,
+ "runtime_s": 40.2
+}
