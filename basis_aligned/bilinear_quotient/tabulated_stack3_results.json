@@ -1,0 +1,25 @@
+{
+ "n_rows": 16,
+ "W": 128,
+ "ce": {
+  "base": 3.3627,
+  "stack2": 3.3859,
+  "m0big": 3.3766,
+  "stack3": 3.3897,
+  "true_model": 3.3627
+ },
+ "cost_vs_base": {
+  "stack2": 0.0232,
+  "m0big": 0.0139,
+  "stack3": 0.027
+ },
+ "refs": {
+  "stack2_1171": 0.0232,
+  "m0big_480": 0.004
+ },
+ "sanity_base_matches_true": true,
+ "pred_a_m0_replicates": true,
+ "pred_b_compatible": true,
+ "pred_c_stack3_cheap": true,
+ "runtime_s": 142.3
+}

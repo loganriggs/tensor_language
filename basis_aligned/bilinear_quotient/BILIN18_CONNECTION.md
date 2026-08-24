@@ -31881,3 +31881,9 @@ The §1175 correction quantified: on the diverse corpus the front (attn0+mlp0, w
 **Stack upgrade queued (tabulated_stack3.py, registered):** swap the stack's m0 entry from k=2 to k=8. (a) m0big@k8 in-harness ≈ 0.014 ± 0.008; (b) stack3@k8 ≤ 0.045; (c) sub-additivity persists (stack3 < parts' sum).
 
 m0_diverse_width_results.json; runlogs/m0_diverse_width.log (8s).
+
+## §1177 — COMPOSED LEDGER AT THREE ENTRIES: {162 folded patterns + sink constant + m0 8-gram} = 0.027 nats jointly on the diverse corpus (parts sum 0.037 — sub-additive for the third time); m0@k8 in-harness 0.0139 = the sweep's 0.0139 exactly; preds a-c ALL TRUE (tabulated_stack3.py)
+
+The register-corrected m0 entry composes cleanly: stack3 = 0.0270 (was 0.0371 with the mis-scoped k=2 entry). Running ledger of the maximally-tabulated model: WHERE all 162 heads look = weights over ≤128-token windows; head 5.7's output = one constant; mlp0 = weights over 8-token windows — total price 0.027 of 3.363 nats (0.8%). Sub-additivity has now held at every composition step: certified reductions overlap in their error budgets rather than adding. Next entry queued (tabulated_stack4.py, registered): mlp1 as an n-gram function (windowed block-0 + attn1 + manual bilinear, W=16 — mlp1 is the front's most register-GENERAL module, §1112's 0.83 table). (a) mlp1@W16 alone ≤ 0.05; (b) stack4 ≤ 0.08; (c) sub-additivity persists.
+
+tabulated_stack3_results.json; runlogs/tabulated_stack3.log (142s).

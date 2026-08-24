@@ -4911,3 +4911,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1174 — arcs COMPOSE: transport intact inside fully-folded model (0.8677/0.6171, excess 0.251 ≥ live 0.230); §1145's pattern residue not load-bearing for addressing; pred_c bar misregistered (difficulty mismatch, disclosed) (fold_transport.py)
 §1175 — CORRECTION writeup 480: 'front = bigram function' is PROSE-SCOPED (k2 +0.004 curated / +0.092 FineWeb, original harness; untruncated fold exact both) — hook exonerated; stack3 0.0371 strongly sub-additive; report annotated; diverse width sweep queued (m0_ctx_corpus.py)
 §1176 — front window on diverse text: register-dependent n (k2 0.092 / k8 0.014 / k16 0.006 / full exact); local everywhere, bigram only on prose; stack m0 entry upgraded to k=8, queued (m0_diverse_width.py)
+§1177 — composed ledger THREE entries = 0.027 nats (sub-additive 3rd time; m0@k8 0.0139 exact match); stack4 (mlp1 n-gram) queued (tabulated_stack3.py)
