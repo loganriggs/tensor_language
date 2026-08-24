@@ -33031,3 +33031,11 @@ extraction_v4_results.json; runlogs/extraction_v4.log (97s).
 - W64-benchmark context note for honesty: on wholesale repeats the full model runs at 0.36 while the skeleton runs at 3.53 even with the quad live — deep-repeat exploitation beyond the front circuit (live crowd values) dominates that regime; the skeleton's 79% (§1316) is a natural-text ident-target number, not a W64 number. Both stand, on their own benchmarks.
 
 extraction_v5_results.json; mlp1_table_results.json; runlogs/.
+
+## §1323 — THE SIMPLICITY CURVE FOR MLP1 IS LOG-LINEAR, NOT CATEGORICAL: recovery climbs ~16-18 points per 4x categories (K=1/4/16/64/256/1024 -> 0/18/41/64/80/85%, table ceiling 94.4%) with NO elbow — preds a & b FALSE (K=16 reaches 41% not 60%; K=1024 still 21 points over K=64); pred_c TRUE: all single-digit tokens land in exactly TWO of 16 clusters (mlp1_clusters.py)
+
+- The honest reading: mlp1 is NOT a coarse categorizer. Its semantic organization is real (digits cluster together — the user's "numbers to numbers" confirmed at K=16) but its CE VALUE is token-resolved: each 4x refinement of the token partition buys a roughly constant slice of recovery, all the way to the full table. This parallels §1292/§1301 from the module side — token identity is the model's irreducibly fine-grained variable, and mlp1's job is to write token-SPECIFIC refinements whose worth lies exactly in their specificity.
+- THE BENCHMARK OUTPUT IS THE CURVE, per the user's framing: reconstruction x simplicity for mlp1 = {2 bits: 18%, 4 bits: 41%, 6 bits: 64%, 8 bits: 80%, 10 bits: 85%, full table: 94.4%} of a 7.00-nat stake, position-free, +1.5 points for bigrams. Any future compression claim about mlp1 now has a measured baseline to beat at its bit-budget.
+- Logged, not queued: the READ-DERIVED clustering variant (cluster tokens by what downstream layers consume from mlp1, the mlp0 method) — could beat write-side k-means at equal K if downstream readers use fewer distinctions than the outputs contain. Next module queued instead (mlp0_clusters.py): same ladder for mlp0, building the per-module scoreboard.
+
+mlp1_clusters_results.json; runlogs/mlp1_clusters.log (132s).

@@ -1,0 +1,33 @@
+{
+ "n_fit": 1920,
+ "n_eval": 480,
+ "ce": {
+  "full": 3.1662,
+  "mean": 10.1633,
+  "table50k": 3.5543,
+  "k1": 10.1633,
+  "k4": 8.8852,
+  "k16": 7.3281,
+  "k64": 5.6638,
+  "k256": 4.55,
+  "k1024": 4.2069
+ },
+ "stake": 6.9971,
+ "recovery": {
+  "table50k": 0.9445,
+  "k1": 0.0,
+  "k4": 0.1827,
+  "k16": 0.4052,
+  "k64": 0.6431,
+  "k256": 0.8022,
+  "k1024": 0.8513
+ },
+ "digit_clusters_at_k16": [
+  0,
+  7
+ ],
+ "pred_a_categorizer": false,
+ "pred_b_saturation": false,
+ "pred_c_digits_together": true,
+ "runtime_s": 131.6
+}

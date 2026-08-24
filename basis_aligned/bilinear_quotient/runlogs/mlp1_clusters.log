@@ -8,3 +8,9 @@ K=1024 clustered
 K=1: CE 10.1633
 K=4: CE 8.8852
 K=16: CE 7.3281
+K=64: CE 5.6638
+K=256: CE 4.55
+K=1024: CE 4.2069
+stake 6.9971 | recovery {'table50k': 0.9445, 'k1': 0.0, 'k4': 0.1827, 'k16': 0.4052, 'k64': 0.6431, 'k256': 0.8022, 'k1024': 0.8513} | digit clusters@16 [0, 7]
+pred_a categorizer False | pred_b saturation False | pred_c digits True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_clusters_results.json (131.6s)
