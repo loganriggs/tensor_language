@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 3268 | jitter 3213 | rand 3268
+base: {k: round(v, 4) for k, v in base.items()}
+a12: dmg target +0.0311 | jit +0.0135 | rand +0.0096 | else +0.0103
+a13: dmg target +0.7060 | jit +0.0178 | rand +0.0149 | else +0.0151
+a14: dmg target +0.0584 | jit +0.0228 | rand +0.0190 | else +0.0249
+a17: dmg target -0.0216 | jit +0.0079 | rand +0.0117 | else +0.0130
+a5: dmg target +0.2190 | jit +0.1330 | rand +0.1279 | else +0.1310
+
+a13 conc 46.8 | jitter 1.18 | random 0.99
+pred_a conc True | pred_b controls True | pred_c ownership True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/close_bracket_screen2_results.json (172.0s)

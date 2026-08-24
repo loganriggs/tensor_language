@@ -38,8 +38,8 @@ conditionality measured).
 
 | Behavior | Leader | Target dmg vs elsewhere | n | Note |
 |---|---|---|---|---|
-| **close_bracket** | a13 | **+0.711 vs +0.016 at n=1779 (§1337)** — conc 45.9, ownership 3x-clear | 1779 | verdict withheld on random control (1.62 vs 1.5); 2x rerun in flight |
-| capitalized | a17 | +0.054 vs +0.002 | 1693 | big n; control ratio dirty (12.5) — needs clean re-screen |
+| **close_bracket** | a13 | **CERTIFIED §1338**: +0.706, conc 46.8, controls 1.18/0.99 clean, ownership 12x | ~3500 | head stage in flight (OWNER bet registered) |
+| capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | NO layer-owner (1.1x) — first late-band shared capability; PARKED behind close-bracket; extraction starts from a band gate |
 | open_quote | a10 | +0.272 vs +0.020 | 90 | ctrl 8.9 dirty — re-screen |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |
 | digit | a8 | +0.134 vs +0.035 | 223 | independently reproduces a8-counting; see backlog #3 |

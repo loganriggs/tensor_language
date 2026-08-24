@@ -33255,3 +33255,26 @@ question_mid_heads_results.json; runlogs/question_mid_heads.log (309s).
 - Worth registering ahead of the head stage: bracket-closing is a DEPTH-tracking capability (the target mask itself needed a running bracket-depth counter). If a13 turns out to have an owner head, its criterion should be depth-sensitive — a natural weights-read (G3) target after localization.
 
 close_bracket_screen_results.json; runlogs/close_bracket_screen.log (97s).
+
+## §1338 — CLOSE-BRACKET CERTIFIES: at 2x data the withheld §1337 verdict resolves with EVERYTHING clean — a13 target damage +0.706 (reproduces v1's +0.711), concentration 46.8, jitter 1.18, random 0.99, ownership unchallenged; preds a, b, c ALL TRUE (close_bracket_screen2.py; NR=3840, fresh control seed)
+
+- The §1337 random-control miss (1.62) was denominator noise exactly as suspected: at 2x data and a fresh seed it lands at 0.99 — dead clean. The jitter control tightened too (1.35 -> 1.18). Both target-damage measurements agree to 0.005 nats (+0.711 / +0.706) across disjoint row draws — this instrument's target number is stable even though its small-denominator ratios are not, which is worth remembering when setting control bars: the RATIO needs the data, the DAMAGE does not.
+- close_bracket -> a13 is now OWNED at layer grain: +0.706 nats at n~3500 targets, 46.8x concentrated, 12x over every neighboring layer, controls clean at the registered bars. The capability: predicting ")" where an unmatched "(" is open — depth-tracking by construction.
+- Thread proceeds per the template: per-head localization inside a13 (queued, close_bracket_heads.py), then the §1333 extraction with a bracket-window gate. Registered for the head stage: pred_a AN OWNER EXISTS (top head >= 60% of the layer's target damage — the sharp 46.8x concentration and the comparative precedent both point owner-ward; a crowd would echo the question circuit instead); pred_b KNOCKOUT AND KEEP-ONLY AGREE on the top head (the §3.1 redundancy trap check — knock-all-but-one must rank the same head first); pred_c SURGICAL (the top head's elsewhere damage <= 10% of its target damage).
+
+close_bracket_screen2_results.json; runlogs/close_bracket_screen2.log (172s).
+
+## §1339 — CAPITALIZED IS REAL BUT HAS NO LAYER-OWNER: the confound fix works (controls 1.38/0.88, down from the atlas's dirty 12.5 — excluding sentence-initial positions was the right call) and the concentration is real (a17 +0.109 at 20.9x) BUT ownership FAILS decisively: a16 is at +0.098 (1.1x, not 3x) and a15/a13 both contribute — mid-sentence capitalization is a LATE-BAND capability (a15-a17), not a single layer's; preds a & b TRUE, pred_c FALSE (capitalized_screen.py; n=29,697)
+
+  layer  target-dmg  jitter    random    else
+  a17    +0.109      +0.007    +0.005    +0.005   conc 20.9, controls clean
+  a16    +0.098      +0.003    +0.005    +0.005   nearly a17's equal
+  a15    +0.057      +0.000    +0.004    +0.003
+  a13    +0.068      +0.015    +0.015    +0.015
+  a5     +0.116      +0.130    +0.132    +0.132   (generalist: flat, high everywhere)
+
+- pred_b's PASS IS THE METHOD RESULT: the §513 atlas scored this class with a 12.5x-dirty control; the registered assumption here — sentence-initial capitalization is a sentence-boundary capability and must be EXCLUDED from a capitalization mask — brings both controls under 1.4 without touching anything else. The atlas's dirt was mask contamination, not instrument failure. Standing rule for future masks: separate a capability from the boundary phenomena it rides on before screening it.
+- pred_c's FAILURE IS THE STRUCTURE RESULT: no 3x owner exists at layer grain. a17/a16 nearly tie (+0.109/+0.098), a15 and a13 both contribute above noise — a LATE-BAND SHARED capability, the first candidate to land in that shape. It coheres with what the module ladder found from the other side (§1325-26: the top modules are the categorical/contextual ones; mid-sentence capitalization — "am I inside a Name/Title span?" — is exactly the kind of coarse register state mlp16/17's categories carry). Registered lesson for the registry: the atlas's per-class LEADER column can name a band member, not an owner; a13's clean ownership (§1338) shows the instrument CAN discriminate when an owner exists.
+- Thread disposition: capitalized moves to OWNED-AS-BAND (a15-a17); its extraction rung, when it comes, starts from a late-band gate rather than a single layer, and the §1333 template's "specialist head" slot may be empty — parked in the registry behind the close-bracket thread rather than opened now (one thread at a time through the head stage).
+
+capitalized_screen_results.json; runlogs/capitalized_screen.log (99s).
