@@ -4946,3 +4946,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1209 — quad necessary NOT sufficient: complement still costs 1.51/3.20; partition holds — quad ~59%, distributed tail ~41% of copy reading (repeat_quad_sufficient.py)
 §1210 — swiglu18 stations = single heads too (L5H2 91%, L4H4 164% of layer — interference sign cross-arch); its L8 a crowd; two one-head fetchers per sibling = family pattern (repeat_family_heads.py)
 §1211 — stations do DOUBLE DUTY: quad = 22% of prose read budget (0.038/0.176; §1186 replicated 4th decimal) — not dormant specialists; dormancy preds FALSE as registered (repeat_quad_prose.py)
+§1212 — THREE-FAMILY CONSTANT: bilin12 all12 = 3.231 (vs 3.200/3.206) — copy read price invariant to arch AND induction strength; stations L5/L2; deviation: bilin12 late NOT local (17%); arc §1204-12 CLOSED (repeat_range_bilin12.py)

@@ -38,6 +38,11 @@ identifiable-but-redundant heads; independent of content, but content is amplifi
   read-range in the copy regime DOES localize. Family: swiglu18 pays the SAME total (3.206)
   with the same few-station structure but stations deeper (L5 1.03, L8 0.43, L4 0.40) —
   price+concentration are family law, station depth is the architectural fingerprint.
+  Third member bilin12: SAME price again (3.231; §1212) despite induction 4.3 vs 11.8 —
+  the ~3.2-nat copy read price @W64 is text-set, not machine-set; stations L5/L2; its late
+  band NOT local (17% — depth compression pushes copy reads into the readout zone). Quad
+  heads are NOT prose-dormant: 22% of the natural 0.176 read budget (§1211). Arc §1204-12
+  closed.
 
 ## Benchmark status
 Mechanistically mapped (MED-HIGH); no compact stand-in exists because the circuit is

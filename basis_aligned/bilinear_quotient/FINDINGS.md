@@ -93,7 +93,15 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    GRAND STACK (§1184): 12 reductions jointly (162 folded patterns + sink constant + 9 n-gram
    MLPs) = 0.0385 nats, sub-additive at all six composition steps. Front n-gram width is
    REGISTER-DEPENDENT (§1175-76 correction to writeup 480: k=2 prose / k=8-16 structured; full
-   fold exact on all registers). **HIGH.**
+   fold exact on all registers). COPY REGIME (§1204-12, the one place locality breaks — 30×):
+   read-grain map on verbatim-repeat rows = SERIAL chain, not prose's redundant crowd; reader
+   STATIONS localize — bilin18: heads 2.5 + 3.8 (L3's ENTIRE read; complement 0.004) + pair
+   8.3/8.4 = 69% necessary / 59-41 partition vs distributed tail (§1207/09); stations do double
+   duty on prose (22% of the 0.176 budget, §1211). THREE-FAMILY LAWS: total copy read price
+   ~3.2 nats @W64 in all siblings (3.200/3.206/3.231 — invariant to arch AND induction strength
+   4.3-vs-11.8: text-set, not machine-set §1212); ~2 dominant stations each. Fingerprints:
+   station depth (front / mid / spread-to-late), secondary-station width (pair vs crowd);
+   bilin12's late band NOT local (17%). **HIGH.**
 
 4. **ARCHITECTURE MECHANISMS — how the two machines are grounded in bilin18's oddities.**
    (a) VALUE-RESIDUAL (v = ½v + ½v1, block-0 values everywhere): the content-aggregation substrate;
