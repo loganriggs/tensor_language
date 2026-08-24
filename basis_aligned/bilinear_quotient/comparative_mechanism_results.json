@@ -1,0 +1,37 @@
+{
+ "n_targets": 38,
+ "pattern": {
+  "1": {
+   "opener_absmean": 0.23804,
+   "randkey_absmean": 0.00371,
+   "opener_ratio": 64.14,
+   "wh_share_tar": 0.2598,
+   "wh_share_els": 0.004,
+   "wh_share_ratio": 64.21
+  },
+  "0": {
+   "opener_absmean": 0.0028,
+   "randkey_absmean": 0.00105,
+   "opener_ratio": 2.66,
+   "wh_share_tar": 0.0303,
+   "wh_share_els": 0.0031,
+   "wh_share_ratio": 9.79
+  }
+ },
+ "weights_scores": {
+  "1": {
+   "wh_absmean": 0.0047,
+   "ord_absmean": 0.00465,
+   "ratio": 1.01
+  },
+  "0": {
+   "wh_absmean": 0.00503,
+   "ord_absmean": 0.00531,
+   "ratio": 0.95
+  }
+ },
+ "pred_a_comp_fetcher": true,
+ "pred_b_embedding_native": false,
+ "pred_c_control_flat": false,
+ "runtime_s": 112.1
+}
