@@ -4903,3 +4903,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1166 — CAUSAL CAPSTONE: all-162-pattern replacement by weights-only 128-window functions costs +0.0141 nats (null +1.513, 107x; sanity exact; v1 forward bug caught by registered sanity — 6th catch); selection = bounded-window function model-wide; width law queued (fold_pattern_loss2.py)
 §1167 — width law: cost 0.482/0.229/0.067/0.014 @W16/32/64/128, decay accelerates per doubling (no hard scale); W64 bar near-missed 0.067 vs 0.05, front-W16 0.027 (read-window vs residual-window distinction recorded) (fold_width_law.py)
 §1168 — per-layer fold attribution: 4.1× SUPER-additive (sum 0.056 vs joint 0.229 @W32), deep 86%; L1 argmax laggard costs 0.0005 nats (ties loss-irrelevant); l1_tie_diag queued (fold_cost_by_layer.py)
+§1169 — L1 anomaly = tie-instability (top3 0.876, laggards 1.8× tie rate; corr 0.887 near-miss); FOLD ARC COMPLETE §1161-69 (l1_tie_diag.py)

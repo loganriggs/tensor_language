@@ -1,0 +1,12 @@
+L1H0: {'top1': 0.663, 'top3': 0.873, 'tie_rate': 0.276, 'corr': 0.883}
+L1H1: {'top1': 0.947, 'top3': 0.988, 'tie_rate': 0.024, 'corr': 0.981}
+L1H2: {'top1': 0.606, 'top3': 0.856, 'tie_rate': 0.26, 'corr': 0.867}
+L1H3: {'top1': 0.707, 'top3': 0.892, 'tie_rate': 0.094, 'corr': 0.843}
+L1H4: {'top1': 0.56, 'top3': 0.796, 'tie_rate': 0.156, 'corr': 0.787}
+L1H5: {'top1': 0.757, 'top3': 0.942, 'tie_rate': 0.154, 'corr': 0.907}
+L1H6: {'top1': 0.599, 'top3': 0.829, 'tie_rate': 0.219, 'corr': 0.858}
+L1H7: {'top1': 0.779, 'top3': 0.981, 'tie_rate': 0.18, 'corr': 0.954}
+L1H8: {'top1': 0.538, 'top3': 0.726, 'tie_rate': 0.257, 'corr': 0.907}
+mean top3 0.876 | mean corr 0.887 | tie low3 0.211 vs high3 0.119
+pred_a ties True | pred_b corr False | pred_c tie-predicts True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/l1_tie_diag_results.json (33.2s)
