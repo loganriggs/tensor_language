@@ -17,6 +17,7 @@ DOSSIER in the same commit as the ledger writeup.
 | `mlp-deep-content.md` | The content machine L5-14 — manifold, universality, patching, OOD |
 | `readout-L15-17.md` | Near-linear read, mlp16 structure, block-17 calibration, the merge |
 | `induction.md` | The induction mechanism — heads, circuit, coupling with content |
+| `specialist-heads.md` | Named specialists (10.5/8.1/17.2-3/matchers), three-goal status, extraction ladder, selectivity matrix |
 | `channels.md` | value-residual, x0 re-injection, massive dims/gain, embedding dominance, clamps |
 | `benchmark.md` | Per-module understanding scores + valid stand-ins + measurement rules |
 

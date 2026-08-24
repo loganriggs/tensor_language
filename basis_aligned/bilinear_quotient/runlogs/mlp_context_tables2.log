@@ -1,0 +1,10 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [assert_disjoint mlp_context_tables2] 0 of 480 priced rows appear in the fitting corpus -> ok
+mlp17: stake 0.381 | tok50k 0.497 tok16 0.419 | self 0.612/0.429 (+0.183) prev 0.476/0.423 (+0.053) doc 0.458/0.421 (+0.037) | nmi {'self': 0.5111, 'prev': 0.4605, 'doc': 0.1983}
+mlp16: stake 0.150 | tok50k 0.494 tok16 0.542 | self 0.672/0.533 (+0.139) prev 0.578/0.548 (+0.030) doc 0.557/0.543 (+0.014) | nmi {'self': 0.5842, 'prev': 0.5222, 'doc': 0.2136}
+mlp1: stake 6.997 | tok50k 0.945 tok16 0.405 | self 0.666/0.521 (+0.144) prev 0.687/0.494 (+0.192) doc 0.565/0.424 (+0.140) | nmi {'self': 0.8928, 'prev': 0.3893, 'doc': 0.1995}
+
+pred_a v1-token-artifact False (mlp1 self +0.144)
+pred_b top-survives True (mlp17 self +0.183)
+pred_c doc-state-at-top False (mlp17 doc +0.037 vs mlp1 doc +0.140)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp_context_tables2_results.json (369.7s)

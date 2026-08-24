@@ -1,0 +1,58 @@
+{
+ "n_targets": 110,
+ "n_rows": 1920,
+ "ce": {
+  "full": {
+   "target": 1.2539,
+   "else": 3.1243
+  },
+  "ymean": {
+   "target": 8.2717,
+   "else": 7.217
+  },
+  "route": {
+   "target": 5.2029,
+   "else": 5.4904
+  },
+  "circ": {
+   "target": 3.3796,
+   "else": 4.4373
+  },
+  "circ_no81": {
+   "target": 3.7406,
+   "else": 4.4513
+  },
+  "circ_only81": {
+   "target": 5.0305,
+   "else": 5.4836
+  }
+ },
+ "recovery": {
+  "full": {
+   "target": 1.0,
+   "else": 1.0
+  },
+  "route": {
+   "target": 0.4373,
+   "else": 0.4219
+  },
+  "circ": {
+   "target": 0.6971,
+   "else": 0.6792
+  },
+  "circ_no81": {
+   "target": 0.6457,
+   "else": 0.6758
+  },
+  "circ_only81": {
+   "target": 0.4619,
+   "else": 0.4235
+  }
+ },
+ "gap_target": 7.0178,
+ "gap_else": 4.0927,
+ "pred_a_extraction_carries": false,
+ "pred_b_surgical_81": false,
+ "pred_c_annotator_needed": true,
+ "runtime_s": 96.9
+}

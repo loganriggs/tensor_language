@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 110 | else 368530
+full: target 1.2539 | else 3.1243
+ymean: target 8.2717 | else 7.2170
+route: target 5.2029 | else 5.4904
+circ: target 3.3796 | else 4.4373
+circ_no81: target 3.7406 | else 4.4513
+circ_only81: target 5.0305 | else 5.4836
+
+recovery target: route 0.4373 circ 0.6971 no81 0.6457 only81 0.4619
+pred_a carries False | pred_b surgical False | pred_c annotator True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/comparative_extraction_results.json (96.9s)

@@ -1,0 +1,125 @@
+{
+ "n_fit": 1920,
+ "n_eval": 480,
+ "k_tok": 16,
+ "k_ctx": 16,
+ "sources": [
+  "self",
+  "prev",
+  "doc"
+ ],
+ "layers": [
+  {
+   "layer": 17,
+   "ce": {
+    "full": 3.1662,
+    "mean": 3.5467,
+    "tok50k": 3.3576,
+    "tok16": 3.3872,
+    "ctx_self": 3.3139,
+    "null_self": 3.3835,
+    "ctx_prev": 3.3654,
+    "null_prev": 3.3856,
+    "ctx_doc": 3.3725,
+    "null_doc": 3.3865
+   },
+   "stake": 0.3805,
+   "recovery": {
+    "tok50k": 0.4969,
+    "tok16": 0.4192,
+    "ctx_self": 0.6117,
+    "null_self": 0.4288,
+    "ctx_prev": 0.4763,
+    "null_prev": 0.4233,
+    "ctx_doc": 0.4578,
+    "null_doc": 0.421
+   },
+   "increment": {
+    "self": 0.1829,
+    "prev": 0.053,
+    "doc": 0.0368
+   },
+   "nmi_ctx_token": {
+    "self": 0.5111,
+    "prev": 0.4605,
+    "doc": 0.1983
+   }
+  },
+  {
+   "layer": 16,
+   "ce": {
+    "full": 3.1662,
+    "mean": 3.3167,
+    "tok50k": 3.2424,
+    "tok16": 3.2352,
+    "ctx_self": 3.2155,
+    "null_self": 3.2365,
+    "ctx_prev": 3.2297,
+    "null_prev": 3.2343,
+    "ctx_doc": 3.2328,
+    "null_doc": 3.235
+   },
+   "stake": 0.1505,
+   "recovery": {
+    "tok50k": 0.4937,
+    "tok16": 0.5417,
+    "ctx_self": 0.6721,
+    "null_self": 0.5327,
+    "ctx_prev": 0.5777,
+    "null_prev": 0.5477,
+    "ctx_doc": 0.5572,
+    "null_doc": 0.5428
+   },
+   "increment": {
+    "self": 0.1394,
+    "prev": 0.03,
+    "doc": 0.0144
+   },
+   "nmi_ctx_token": {
+    "self": 0.5842,
+    "prev": 0.5222,
+    "doc": 0.2136
+   }
+  },
+  {
+   "layer": 1,
+   "ce": {
+    "full": 3.1662,
+    "mean": 10.1633,
+    "tok50k": 3.5543,
+    "tok16": 7.3281,
+    "ctx_self": 5.5043,
+    "null_self": 6.5149,
+    "ctx_prev": 5.3586,
+    "null_prev": 6.7045,
+    "ctx_doc": 6.2125,
+    "null_doc": 7.1943
+   },
+   "stake": 6.9971,
+   "recovery": {
+    "tok50k": 0.9445,
+    "tok16": 0.4052,
+    "ctx_self": 0.6658,
+    "null_self": 0.5214,
+    "ctx_prev": 0.6867,
+    "null_prev": 0.4943,
+    "ctx_doc": 0.5646,
+    "null_doc": 0.4243
+   },
+   "increment": {
+    "self": 0.1444,
+    "prev": 0.1924,
+    "doc": 0.1403
+   },
+   "nmi_ctx_token": {
+    "self": 0.8928,
+    "prev": 0.3893,
+    "doc": 0.1995
+   }
+  }
+ ],
+ "pred_a_v1_was_token_artifact": false,
+ "pred_b_top_survives": true,
+ "pred_c_doc_state_at_top": false,
+ "runtime_s": 369.7
+}

@@ -40,3 +40,27 @@ compounding-dominated; content passthrough 0.39; §1070-1071). Whole-model simul
 90% per module bottom-up (user directive). Solved: front, readout, sink, L0-attention,
 calibration. Bounded by real model properties: deep-middle content (high-rank). Genuinely open:
 mlp4's variable, the middle-attention collective pool.
+
+## The module simplicity ladder (§1322-1327) — stake / table ceiling / elbow per MLP
+
+A second, cheaper axis than the understanding score: for each MLP, mean-ablation STAKE
+(nats), token-table CEILING (recovery of the stake by a per-token mean table, held-out),
+and the ELBOW index k16/ceiling (how much of the table 16 k-means categories buy).
+Instrument: mlp*_clusters.py / mlp_ladder_depth.py. **The instrument is uninformative below
+~0.15 nats of stake** (negative ceilings = table estimation noise; §1326). One k-means
+seed, one eval draw — treat third decimals as noise.
+
+| Module | Stake | Ceiling | k16/ceiling | Reading |
+|---|---|---|---|---|
+| mlp0 | 0.80 | 0.863 | 0.43 | token-resolved, log-linear (§1324) |
+| mlp1 | 7.00 | 0.945 | 0.43 | token-resolved, log-linear; THE big front module (§1322-23) |
+| mlp2 | 0.76 | 0.716 | 0.14 | token-resolved (§1326) |
+| mlp3 | 0.63 | 0.593 | 0.40 | token-resolved (§1326) |
+| mlp4-15 | 0.03-0.10 | n/a | n/a | UNEVALUABLE at this instrument's floor (§1326) |
+| mlp16 | 0.15 | 0.494 | **1.10** | categorical: K=16 BEATS the 50k table (§1326) |
+| mlp17 | 0.38 | 0.497 | 0.84 | half-contextual + categorical elbow at K=16 (§1325) |
+
+Context arms (§1327 + within-token null §1328): a (token16 x context16) key beats the 50k
+table at the top — but ONLY the within-token null (resample labels from P(ctx|token))
+separates context from token re-encoding; the random-label null does NOT (mlp1 front
+control failed it, +0.260). Purity is a powerless diagnostic (retired); use NMI(ctx;tok)/H(ctx).
