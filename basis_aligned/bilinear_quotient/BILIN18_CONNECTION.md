@@ -32405,3 +32405,9 @@ matcher_weights2_results.json; runlogs/matcher_weights2.log (230s).
 **The weights-relative thread (§1237-1240) closes the deepest loop of the program:** the matching criterion is computable from the weight matrices + embedding table alone (§1238), its algebra is a mirrored signed conjunction (§1239), the live model uses exactly that algebra with consistent negative polarity (§1239 in-vivo), and the polarity is causally load-bearing to the tune of being worse-than-blindness when inverted (§1240). What/where/why/how — all four, closed at weight grain, for the circuit the explainer page describes.
 
 sign_flip_results.json; runlogs/sign_flip.log (107s).
+
+## §1241 — CONSUMER-LOCUS INSTRUMENT FAILS ITS OWN LOGIC (non-monotone: cut4 +0.03, cut6 +3.80, cut9 +0.53) — keep-until-L-then-subtract is NOT clean removal; results quarantined pending null; preds a-c ALL FALSE, sanity exact (matcher_consumer.py)
+
+Design flaw identified before interpretation: subtracting the matchers' raw c_proj write at L_cut removes the additive vector but leaves every nonlinear consequence baked in by blocks between write and cut (MLPs consumed the write; λ-mixes rescaled the stream). Clean-removal semantics would force monotonicity (removing earlier deprives more blocks); the measured curve violates it (cut4 nearly free, cut6 catastrophic, cut9 mild), so the instrument is measuring subtraction-inconsistency, not consumption locus. Precedent: §1091's "partial removals worse than deletion." NOT written to any dossier; quarantined. v2 queued with the two required controls: a NULL-head subtraction (same design, non-station heads of matched write norm — if its cut6 also spikes, the spike is pure artifact) and a zero-from-birth anchor (never write = the §1228-family operation, interpretable scale).
+
+matcher_consumer_results.json; runlogs/matcher_consumer.log (142s).

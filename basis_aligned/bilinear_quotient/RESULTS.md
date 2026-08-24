@@ -4975,3 +4975,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1238 — matching criterion WEIGHTS-READABLE and ANTI-SIGNED: AUC 0.00/0.002 (perfect inverted separation on raw wte codes); station-specific (layer-mates 0.50); sign follow-up queued (matcher_weights.py)
 §1239 — sign structure complete: matchers = mirrored signed conjunctions delivering −(matched value); fetchers = ± DIFFERENTIAL pair (8.4 +, 8.3 −, 100% consistent); sign-flip causal test queued (matcher_weights2.py)
 §1240 — signs load-bearing: flip 3.8 (1.43) > mask 3.8 (1.08); both matchers flipped 7.81 (worst garbage-in yet); differential read falsified (joint 5.21); control 0.0004 (sign_flip.py)
+§1241 — consumer-locus v1 QUARANTINED (non-monotone violates removal semantics; keep-then-subtract ≠ clean deletion); null-controlled v2 queued (matcher_consumer.py)
