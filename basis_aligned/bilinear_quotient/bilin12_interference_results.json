@@ -1,0 +1,25 @@
+{
+ "model": "bilin12",
+ "n_rows": 24,
+ "W": 64,
+ "base": 3.4383,
+ "cost": {
+  "core12": 0.2996,
+  "all72": 0.2478,
+  "core12+front": 0.1978,
+  "core12+mid": 0.2848,
+  "core12+late": 0.3408
+ },
+ "recovery_full": 0.0518,
+ "band_recoveries": {
+  "front": 0.1018,
+  "mid": 0.0148,
+  "late": -0.0412
+ },
+ "best_band": "front",
+ "sanity": true,
+ "pred_a_concentrated": true,
+ "pred_b_monotone": false,
+ "pred_c_anchors": true,
+ "runtime_s": 68.4
+}

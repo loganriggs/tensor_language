@@ -32282,3 +32282,9 @@ swiglu_crowd_results.json; runlogs/swiglu_crowd.log (148s).
 - Screen notes: bilin12's prose top-6 = 2.1, 5.5, 5.1, 7.0, 3.3, 10.2 — its copy stations 2.1/5.5/5.1 rank #1/#2/#3 (station law, cleanest instance); its prose read budget all12 = 0.2478 exceeds both 18L models (0.176/0.223) — the smallest model leans hardest on long-range reads.
 
 bilin12_crowd_results.json; runlogs/bilin12_crowd.log (146s; first submission died on a missing import — NameError at first forward, fixed and requeued, no results consumed).
+
+## §1226 — THE INTERFERENCE IS FRONT-LOCATED AND BIGGER THAN THE NET NUMBER SHOWED: adding the remaining FRONT heads to the core mask recovers 0.102 (196% of the net 0.052 full recovery) while adding the LATE heads HURTS by 0.041 — core12+front (0.1978) beats masking ALL 72 heads (0.2478); pred_a TRUE, pred_b (monotone) FALSE, pred_c TRUE (bilin12_interference.py)
+
+The §1225 ensemble interference decomposed by band. The net core→all72 recovery (0.052) is the SUM of two opposite effects: front non-core heads' long-range reads are strongly TOXIC once the core is blind (masking them too recovers 0.102), while late heads' reads are genuinely HELPFUL in the same state (masking them costs 0.041). mid ≈ 0.015. Consequence worth stating: the cheapest read-restricted configuration found so far for bilin12 is NOT all-masked — it is core+front masked with mid/late reads left free (0.198 vs 0.248): **for this model, a partial blindfold placed correctly beats both full sight restriction and the core-only mask.** The §1213 two-head interference (bilin18 L3H1) and this are the same phenomenon at two scales: auxiliary long-range readers whose value is conditional on the main reader being alive.
+
+bilin12_interference_results.json; runlogs/bilin12_interference.log (68s). Follow-up queued: per-layer split of the toxic front (bilin12_interference2).
