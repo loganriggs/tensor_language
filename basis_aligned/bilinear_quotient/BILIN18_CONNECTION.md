@@ -32616,3 +32616,9 @@ Arc close (§1262-68, seven experiments, three instrument iterations, two named 
 - The §1087 rhyme is completed rather than confirmed: L5H7's donor-free "generic pooled-context signal" and the crowd's baseline direction are plausibly the same operating-point variable — the head delivers it as a constant, the crowd maintains it dynamically; dir2 is something else.
 
 pool_dir2_results.json; runlogs/pool_dir2.log (143s). **Pool arc (§1262-68) closed.**
+
+## §1269 — DIR2'S WRITER NAMED, ITS SEMANTICS LEFT DIFFUSE: layer 6's far reads write 60% of its energy (shares: L5 .14 / L6 .60 / L7 .06 / L8 .06 / L9 .15 — pred_c TRUE); no frequency-axis structure (log-freq tilt 0.14 vs bar 2 — pred_a FALSE; vocab readout diffuse/unreadable); swiglu functional correlate real but sub-bar (r 0.411 vs 0.5 — pred_b FALSE) (dir2_identity.py)
+
+Final identity ledger for the far channel's dominant direction: **written principally by attn6's far pooling; position-flat; half content-basis; vocab-diffuse; moderately but not certifiably universal.** Named as far as three instrument classes reach — "the attn6 far-pool direction" is its honest name, with its meaning remaining distributional rather than lexical. The pool investigation (§1262-69, nine experiments) closes fully: every level from CE budget to single-direction writer has a measured answer or a certified negative, and the two long-range channels' contrast (computable mechanism vs priced crowd, sharing working coordinates) is the program's standing summary of long-range function in this model family.
+
+dir2_identity_results.json; runlogs/dir2_identity.log (172s). Next wake: behaviour-first thread via the SOP, or consolidation.

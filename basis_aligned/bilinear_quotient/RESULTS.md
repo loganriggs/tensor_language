@@ -5003,3 +5003,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1266 — attribution lands: 16 dims = 46% of the far channel (null clean 8%; anchor exact 0.067) — pool = medium-rank distributed at every grain; thread §1262-66 CLOSED (pool_subspace3.py)
 §1267 — far channel NAMED: baseline dir at 0.97 in-span (operating-point maintenance); verdict axis 0.62 (poles share representation); 2 load-bearing dirs (non-additive, §1091 law); arc §1262-67 complete (pool_names.py)
 §1268 — dirs identified: dir0 = BASELINE (0.905); dir2 = position-flat half-content carrier (ramp hypothesis dies; tilt misses bar by 1.4%); pool arc §1262-68 CLOSED (pool_dir2.py)
+§1269 — dir2 = "the attn6 far-pool direction" (L6 writes 60%); vocab-diffuse, sub-bar universality; pool investigation §1262-69 fully closed (dir2_identity.py)
