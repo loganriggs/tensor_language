@@ -1,0 +1,10 @@
+opener positions 89 | ? targets 37
+base: ? CE 1.0254 | 10.5 wh-share 0.0726
+a0: open dCE 0.0007 share-drop -0.012 | rand dCE 0.0006 share-drop 0.001
+a1: open dCE 0.0184 share-drop 0.13 | rand dCE 0.003 share-drop 0.015
+a2: open dCE -0.0039 share-drop 0.026 | rand dCE -0.0003 share-drop -0.0
+a02: open dCE 0.3966 share-drop 0.032 | rand dCE 0.0064 share-drop 0.003
+joint: open dCE 0.0033 share-drop 0.046 | rand dCE 0.0005 share-drop 0.001
+best single a1 (a1_wins True)
+pred_a one-layer False | pred_b joint False | pred_c ctrl False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_annotator2_results.json (102.7s)

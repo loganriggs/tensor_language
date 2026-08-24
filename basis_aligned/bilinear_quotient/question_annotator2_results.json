@@ -1,0 +1,65 @@
+{
+ "n_rows": 192,
+ "base": {
+  "q_ce": 1.0254,
+  "wh_share": 0.0726
+ },
+ "bands": {
+  "a0": {
+   "open": {
+    "dce": 0.0007,
+    "share_drop": -0.012
+   },
+   "rand": {
+    "dce": 0.0006,
+    "share_drop": 0.001
+   }
+  },
+  "a1": {
+   "open": {
+    "dce": 0.0184,
+    "share_drop": 0.13
+   },
+   "rand": {
+    "dce": 0.003,
+    "share_drop": 0.015
+   }
+  },
+  "a2": {
+   "open": {
+    "dce": -0.0039,
+    "share_drop": 0.026
+   },
+   "rand": {
+    "dce": -0.0003,
+    "share_drop": -0.0
+   }
+  },
+  "a02": {
+   "open": {
+    "dce": 0.3966,
+    "share_drop": 0.032
+   },
+   "rand": {
+    "dce": 0.0064,
+    "share_drop": 0.003
+   }
+  },
+  "joint": {
+   "open": {
+    "dce": 0.0033,
+    "share_drop": 0.046
+   },
+   "rand": {
+    "dce": 0.0005,
+    "share_drop": 0.001
+   }
+  }
+ },
+ "best_single": "a1",
+ "a1_wins": true,
+ "pred_a_one_layer": false,
+ "pred_b_joint_collapse": false,
+ "pred_c_controls_flat": false,
+ "runtime_s": 102.7
+}
