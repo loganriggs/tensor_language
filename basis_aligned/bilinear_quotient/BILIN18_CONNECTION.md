@@ -32007,3 +32007,11 @@ The softmax sibling's read-mask vs truncation gap is 0.003-0.018 nats (recovery 
 **Disambiguator queued (relay_vs_sink.py, registered):** bilin18 truncation curve re-run with each window PREPENDED with the document's true first token (windows of W+1: [tok0, t−W+1..t]). (a) SINK EXPLAINS IT: truncation+tok0 closes most of the read-mask gap (recovery vs plain truncation ≥ half the 15-19%, leaving true relay ≤ 8%) — then both siblings relay ~nothing and the family law is uniform; (b) alternative: gap persists → bilin18 genuinely relays where softmax doesn't (an architectural fingerprint worth its own thread); (c) prepended-tok0 truncation ≤ plain truncation at every W (sanity: authentic sink can only help).
 
 relay_recovery_family_results.json; runlogs/relay_recovery_family.log (45s).
+
+## §1193 — SINK-AUTHENTICITY RULED OUT: truncation + authentic tok0 ≈ plain truncation (0.6277/0.3916/0.2105 vs 0.5926/0.3787/0.2069) — bilin18's 15-19% relay is GENUINE, and the softmax sibling's ~nil relay makes it ARCHITECTURAL FINGERPRINT #2; pred_b decisive TRUE, pred_c sanity FALSE (prepend slightly hurts at W16 — window-statistics distortion, disclosed) (relay_vs_sink.py)
+
+The §1192 confound is dead: giving each truncated window the document's real first token changes nothing (the sink's constant is as content-generic as §1089 claimed). What read-masking preserves that truncation destroys is therefore the RELAYED content itself: bilin18's unnormalized bilinear attention chains reads across layers for a modest but real 15-19% of long-range value, while softmax swiglu18 does not (1-3%, §1192). Family fingerprint ledger: (1) grammar-failure phenotype (repetition vs fragments, §1137); (2) relaying (bilinear yes / softmax no). The laws stay universal; the styles differ.
+
+**Triangulation queued (relay_bilin12.py, registered):** the third family member (bilin12: 12 layers, D=768, squared/bilinear attention like bilin18) — truncation AND read-mask at W ∈ {32,64} in one harness (no prior truncation refs exist for it). (a) BILINEAR FINGERPRINT: recovery ≥ 0.10 at both widths → relaying tracks the attention nonlinearity; (b) alternative recovery ≤ 0.05 → tracks depth/scale instead; (c) sanity: unmasked forward = true model ±0.005.
+
+relay_vs_sink_results.json; runlogs/relay_vs_sink.log (50s).

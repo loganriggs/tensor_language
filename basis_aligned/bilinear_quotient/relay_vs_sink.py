@@ -63,7 +63,7 @@ def main():
             wins = torch.stack([torch.cat([idx[:, :1], idx[:, t - w + 1: t + 1]], 1)
                                 for t in qpos], 1)   # (B, Q, w+1): true tok0 prepended
             B, Q, _ = wins.shape
-            flat = wins.reshape(B * Q, w)
+            flat = wins.reshape(B * Q, w + 1)
             outs = []
             step = max(64, 4096 // w)
             for j in range(0, flat.shape[0], step):

@@ -1,0 +1,29 @@
+{
+ "n_rows": 24,
+ "scored_positions": "128..256 stride 2",
+ "ce": {
+  "W16": 3.8811,
+  "W32": 3.645,
+  "W64": 3.4639,
+  "base": 3.2534
+ },
+ "cost_vs_fullcontext": {
+  "W16": 0.6277,
+  "W32": 0.3916,
+  "W64": 0.2105
+ },
+ "readmask_refs_1191": {
+  "W16": 0.4796,
+  "W32": 0.3152,
+  "W64": 0.1759
+ },
+ "trunc_refs_1180": {
+  "W16": 0.5926,
+  "W32": 0.3787,
+  "W64": 0.2069
+ },
+ "pred_a_sink_explains": false,
+ "pred_b_genuine_relay": true,
+ "pred_c_sanity_helps": false,
+ "runtime_s": 49.5
+}
