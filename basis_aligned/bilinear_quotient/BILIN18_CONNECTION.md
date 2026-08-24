@@ -32313,3 +32313,13 @@ The registered textbook split (identity/attn1 → matching; prev-token/attn0 →
 - **Instrument caveat, stated before any story:** these are within-head SHARE measurements (fraction of each head's far mass at its signature offset); a rise under ablation can mean redistribution (the head's OTHER far reads collapsed harder), not strengthening. Absolute-mass version queued (builders_split_abs) before this section's inversion is promoted to a mechanism claim. What survives the caveat unconditionally: BOTH stations depend on BOTH builders, the clean textbook division does not hold, and the builders are complementary infrastructure (pair cost 5.60 = 1.4× the singles' sum 3.93; anchors replicate §1228 exactly).
 
 builders_split_results.json; runlogs/builders_split.log (72s).
+
+## §1230 — SETTLED IN ABSOLUTE MASS: no clean builder→station assignment exists — matchers keep 32% (src0) / 58% (src1) of their o=128 mass, fetchers 63% / 54% of o=127; the §1229 fetcher "rise" was a share-redistribution artifact (absolute mass FELL to 63% — the registered caveat caught it); preds a-c ALL TRUE (builders_split_abs.py)
+
+- **The finding:** both copy stations read a JOINT representation co-written by attn0 (prev-token) and attn1 (identity); the matcher depends harder on attn0's write (−68% vs −42%). The textbook's clean division (identity→match, prev-token→fetch) is simply not how bilin18 factorized the problem.
+- **Interpretation, flagged as such (not a measured claim):** bilin18's pattern is a PRODUCT of two bilinear forms — a natural substrate for conjunctive criteria — and a match key of the form "token X following Y" (bigram identity) would require exactly both builders' writes, with the prev-token component the more distinguishing one. This rhymes with the model's front being literally a bigram machine (writeup 477's L0 table; §1162's two-scale front law). A registered test would compare match strength on repeat rows where only unigrams vs both-grams recur; parked as designed-but-not-queued (the arc has met its stopping rule: every registered edge tested, diminishing returns).
+- Process note: §1229's inversion did NOT survive the better instrument — recorded as the program's 13th instrument-catch by pre-registered caveat/control.
+
+builders_split_abs_results.json; runlogs/builders_split_abs.log (85s).
+
+**Builders thread (§1228-1230) closed; copy-circuit program (§1204-1230, 27 experiments) fully closed.** Pipeline, final form: attn0+attn1 jointly write per-position (bigram-flavored) identity → matchers 2.5/3.8 compare it at range (o=128) → fetchers 8.3/8.4 collect successors (o=127) → mid-stack consumes; source and destination halves symmetric; price ~3.2 nats, three-family constant; implementations split by score function.
