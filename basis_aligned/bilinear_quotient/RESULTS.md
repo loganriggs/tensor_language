@@ -4925,3 +4925,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1188 — pooling geography FAMILY-GENERAL (swiglu18 same shape; fingerprint: deeper spread); 5th family constant of the arc; front drill-down queued (value_range_family.py)
 §1189 — front long-range = L2 alone (0.018, induction trigger; L0 exactly 0); VALUE-RANGE MAP COMPLETE at layer grain; grand-stack 2x audit queued (value_range_front.py)
 §1190 — grand stack AUDITED (0.0282 fresh 2x, band edge; quote ≈0.03-0.04 nats ~1%); relay_recovery queued (grand_stack_audit.py)
+§1191 — relay recovers only 15-19% (decreasing with W): no bucket-brigade — direct read range binds; range-geography thread CLOSED §1185-91 (relay_recovery.py)

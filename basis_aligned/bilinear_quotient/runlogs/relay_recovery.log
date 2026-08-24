@@ -1,0 +1,4 @@
+CE {'base': 3.2588, 'W16': 3.7384, 'W32': 3.574, 'W64': 3.4347}
+readmask {'W16': 0.4796, 'W32': 0.3152, 'W64': 0.1759} vs truncation {'W16': 0.5926, 'W32': 0.3787, 'W64': 0.2069} | recovery {'W16': 0.191, 'W32': 0.168, 'W64': 0.15}
+pred_a mask<=trunc True | pred_b <=30% True | pred_c monotone True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/relay_recovery_results.json (33.6s)

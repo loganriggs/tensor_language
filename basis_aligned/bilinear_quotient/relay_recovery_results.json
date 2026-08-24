@@ -1,0 +1,28 @@
+{
+ "n_rows": 24,
+ "ce": {
+  "base": 3.2588,
+  "W16": 3.7384,
+  "W32": 3.574,
+  "W64": 3.4347
+ },
+ "readmask_cost": {
+  "W16": 0.4796,
+  "W32": 0.3152,
+  "W64": 0.1759
+ },
+ "truncation_refs_1180": {
+  "W16": 0.5926,
+  "W32": 0.3787,
+  "W64": 0.2069
+ },
+ "relay_recovery_fraction": {
+  "W16": 0.191,
+  "W32": 0.168,
+  "W64": 0.15
+ },
+ "pred_a_mask_le_trunc": true,
+ "pred_b_recovery_le_30pct": true,
+ "pred_c_monotone": true,
+ "runtime_s": 33.6
+}

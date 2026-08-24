@@ -31993,3 +31993,9 @@ Same fresh-draw-easier pattern as §1172 — absolute costs scale with row diffi
 **Relay quantifier queued (relay_recovery.py, registered):** §1186 noted multi-hop relay (per-layer read masks compound receptive fields across layers) recovers surprisingly little vs full input truncation. Directly: all-18 read-masking at W ∈ {16,32,64} against §1180's truncation curve (0.593/0.379/0.207). (a) read-mask ≤ truncation at every W; (b) relay recovery fraction ≤ 0.3 at every W (reads are the binding constraint, not input truncation); (c) both monotone.
 
 grand_stack_audit_results.json; runlogs/grand_stack_audit.log (282s).
+
+## §1191 — RELAY RECOVERS ONLY 15-19%: read-masking (which permits multi-hop compounding of receptive fields) beats input truncation by just 0.031-0.113 nats at W=16/32/64 — the model does NOT chain reads into long-range relays; direct per-layer read range is the binding constraint; preds a-c ALL TRUE (relay_recovery.py)
+
+Read-mask vs truncation: 0.4796/0.3152/0.1759 vs 0.5926/0.3787/0.2069 — recovery fraction 0.191/0.168/0.150, DECREASING with width. Although 18 layers of 64-token reads could relay information across the full document, the model recovers less than a fifth of truncated value that way. Coheres with the whole account: cross-position spread is a small distance-decaying leak (§1153), pooling is a direct redundant crowd (§1187), and the §1076 bag is gathered in one hop by early-middle attention, not bucket-brigaded. **The range-geography thread closes (§1185-1191):** every carrier named, every grain bounded, the relay myth priced at <20%.
+
+relay_recovery_results.json; runlogs/relay_recovery.log (34s).
