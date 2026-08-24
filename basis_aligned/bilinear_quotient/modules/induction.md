@@ -109,3 +109,11 @@ Remaining tail: the distributed 41% beyond the quad (§1209).
   weights-derivable subspace of a head is "the induction part" (route = 31%, 16-dim = null,
   per-position raw-code = broadcast term only). Partition variables (verdict axis), not pipes.
   Keeper instrument: per-position identity mask, 60:1 shuffle null. Long tail = identity crowd.
+
+## Stem-matcher discovery (goal-3 loop, §1307-08)
+- The matcher criterion mined for collisions returns MORPHOLOGY: show/shows, make/making,
+  story/stories (192 pairs >= 0.5x identical median). The matcher is a **stem matcher**;
+  induction = copy-across-word-family. Certified on natural text: matcher ablation costs
+  0.186 nats at variant-supported targets (conc 4.5, n=1569), 78% of identical-supported
+  damage — inside the weights-predicted 30-80% band; control pair 0.8%. First complete
+  weights -> generalization-prediction -> causal-certification chain (user goal 3).

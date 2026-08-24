@@ -32919,3 +32919,11 @@ comparative_annotator_results.json; runlogs/comparative_annotator.log.
 - Queued (stem_induction.py): the natural-text certification — positions where an INFLECTED VARIANT of the current token appeared earlier and its continuation would be the correct prediction (exact-match support excluded). Registered: (a) matcher ablation damages these variant-supported targets (>= 0.1 nat, conc >= 3); (b) the damage is 30-80% of identical-supported damage (the weights-predicted half-strength band); (c) control-head ablation flat.
 
 matcher_collisions_results.json; runlogs/matcher_collisions.log (111s).
+
+## §1308 — GOAL-3 LOOP CLOSED: THE WEIGHTS-READ PREDICTION CERTIFIES ON NATURAL TEXT — at 1569 natural variant-supported positions (an inflected variant of the current token occurred earlier and its continuation is the right answer; exact-match support excluded), ablating the matcher pair costs 0.186 nats at concentration 4.5, the damage is 78% of identical-supported damage (INSIDE the registered 30-80% weights-predicted band), and the control pair is flat (0.0015 = 0.8%); preds a-c ALL TRUE (stem_induction.py; benign teardown abort, JSON intact)
+
+- The full loop, for the record: (1) read the matcher criterion off the weights (§1238); (2) mine it for predicted failure/generalization cases — it names INFLECTION (§1307); (3) return to natural data and causally confirm: the copy circuit runs across morphological variants at partial strength, exactly as the collision scores suggested (variant m ~85-90% of identical median -> live 78%). Base CE agrees the model exploits this daily: variant-supported positions sit at 1.23 vs 3.45 elsewhere.
+- This is the program's first COMPLETE weights -> generalization-prediction -> causal-certification chain on natural text (user goal 3). The matcher is a STEM matcher; "induction" in bilin18 is copy-across-word-family.
+- Dossier + FINDINGS updated. Next goal-2 deliverable queued (selectivity_matrix.py): the remove-one-circuit x measure-all-behaviours matrix — diagonal dominance, off-diagonal quiet, control row flat, all registered.
+
+stem_induction_results.json; runlogs/stem_induction.log (153s).

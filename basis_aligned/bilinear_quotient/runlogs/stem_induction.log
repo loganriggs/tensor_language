@@ -1,0 +1,12 @@
+stems: 27324
+variant targets 1569 | identical targets 19957
+matcher dmg var 0.1857 ident 0.2386 els 0.0412 | frac 0.778
+pred_a var-induction True | pred_b half-strength True | pred_c ctrl True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/stem_induction_results.json (152.8s)
+Fatal Python error: PyGILState_Release: thread state 0x7fc8f00154b0 must be current when releasing
+Python runtime state: finalizing (tstate=0x0000564d7e99e5d0)
+
+Thread 0x00007fcd782ea600 (most recent call first):
+  <no Python frame>
+
+Extension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, torch._C, torch._C._dynamo.autograd_compiler, torch._C._dynamo.eval_frame, torch._C._dynamo.guards, torch._C._dynamo.utils, torch._C._fft, torch._C._linalg, torch._C._nested, torch._C._nn, torch._C._sparse, torch._C._special, yaml._yaml, pyarrow.lib, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._pcg64, numpy.random._generator, numpy.random._mt19937, numpy.random._philox, numpy.random._sfc64, numpy.random.mtrand, _cyutility, pandas._libs._cyutility, pandas._libs.tslibs.ccalendar, pandas._libs.tslibs.np_datetime, pandas._libs.tslibs.dtypes, pandas._libs.tslibs.base, pandas._libs.tslibs.nattype, pandas._libs.tslibs.timezones, pandas._libs.properties, pandas._libs.tslibs.fields, pandas._libs.tslibs.timedeltas, pandas._libs.tslibs.tzconversion, pandas._libs.tslibs.timestamps, pandas._libs.tslibs.offsets, pandas._libs.hashing, pandas._libs.index, pandas._libs.json, pyarrow._acero, charset_normalizer.md, multidict._multidict, aiohttp._websocket.reader_c, xxhash._xxhash, scipy._cyutility, scipy._lib._ccallback_c, _csparsetools (total: 49)
