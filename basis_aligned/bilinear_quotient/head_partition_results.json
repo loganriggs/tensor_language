@@ -1,0 +1,44 @@
+{
+ "n_rows": 384,
+ "n_targets": 8313,
+ "base": {
+  "t": 0.8707,
+  "e": 3.3713
+ },
+ "conds": {
+  "main4_whole": {
+   "d_ind": 0.395,
+   "d_else": 0.0605
+  },
+  "main4_v1": {
+   "d_ind": 0.1222,
+   "d_else": 0.0013
+  },
+  "main4_fresh": {
+   "d_ind": 0.2406,
+   "d_else": 0.0458
+  },
+  "tail_whole": {
+   "d_ind": 5.7422,
+   "d_else": 3.8255
+  },
+  "tail_v1": {
+   "d_ind": 0.6872,
+   "d_else": 0.3592
+  },
+  "all_v1": {
+   "d_ind": 1.4063,
+   "d_else": 0.404
+  },
+  "all_fresh": {
+   "d_ind": 4.04,
+   "d_else": 3.1791
+  }
+ },
+ "spec_ratio_v1": 3.48,
+ "spec_ratio_fresh": 1.27,
+ "pred_a_main4_route": false,
+ "pred_b_tail_route": false,
+ "pred_c_v1_specific": false,
+ "runtime_s": 364.5
+}

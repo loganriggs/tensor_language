@@ -1,0 +1,11 @@
+induction targets 8313 / 98304
+base {'t': 0.8707449573565946, 'e': 3.3712885861394115}
+main4/whole: ind 0.395 else 0.0605
+main4/v1: ind 0.1222 else 0.0013
+main4/fresh: ind 0.2406 else 0.0458
+tail/whole: ind 5.7422 else 3.8255
+tail/v1: ind 0.6872 else 0.3592
+all/v1: ind 1.4063 else 0.404
+all/fresh: ind 4.04 else 3.1791
+pred_a main4 False | pred_b tail False | pred_c specificity False (v1 ratio 3.48 vs fresh 1.27)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_partition_results.json (364.5s)

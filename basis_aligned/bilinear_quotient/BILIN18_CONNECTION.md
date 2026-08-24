@@ -32772,3 +32772,12 @@ question_annotator3_results.json; runlogs/question_annotator3.log (117s). Questi
 - Cross-circuit question logged (not yet queued): are 1.1/1.8 ALSO the sufficient writers at DELIMITER openers (13.8's annotation) and at match sources (the §1228 builder function)? Same leave-one-alive instrument transfers directly.
 
 question_writers_results.json; runlogs/question_writers.log.
+
+## §1290 — THE FIRST CUT OF THE USER'S HEAD-PARTITION PROGRAM: THE ARCHITECTURAL v1 ROUTE IS *NOT* "THE INDUCTION PART" OF A HEAD — masking the main four heads' lambda-v1 route reproduces only 31% of their whole-head induction damage (0.122 of 0.395; their FRESH route carries 61%), and the all-heads v1 mask is induction-specific only 3.48:1 vs the 5:1 bar; preds a-c ALL FALSE as registered (head_partition.py; 8313 natural induction targets on 384 rows)
+
+- The proposal under test (user's, verbatim in spirit): decompose each head into the part that does induction and the rest, instead of head-level membership — "this part of the rank of the head is this task." Cut 1 used the decomposition the architecture hands us free: v_mixed = (1-lambda)*v_fresh + lambda*v1.
+- Why cut 1 fails, plainly: the identity variable reaches each head by TWO paths — the explicit lambda-broadcast AND the residual stream itself (block 0 also wrote its output into the stream, and each layer's fresh c_v re-extracts it). Deleting only the broadcast leaves the stream copy, so the route is not the content. Consistent with this: removals are graceful where §1236's SCRAMBLE (wrong codes, not absent codes) was fatal — poison beats deletion at proving substrate, route-masks undercount membership.
+- What survives: (i) the main4 v1-route mask's elsewhere cost is 0.0013 — 2% of whole-head — so route-masking is surgically clean, just incomplete; (ii) v1-route specificity 3.48 vs fresh 1.27 — the broadcast is ~3x more induction-tilted than fresh values, a real but partial signal; (iii) rough additivity (0.122 + 0.241 ≈ 0.395) — the two routes partition the effect cleanly, they just don't put the task all in one route.
+- CUT 2 queued (head_partition2.py): partition by CONTENT, not route — per head, fit the 16-dim identity-code subspace (PCA of that head's v1 slice) and mask vv's projection onto it, catching identity content arriving by EITHER path; random-16-dim-basis null per head is the mandatory control (§1264 lesson: subspace removals need their null).
+
+head_partition_results.json; runlogs/head_partition.log (365s).
