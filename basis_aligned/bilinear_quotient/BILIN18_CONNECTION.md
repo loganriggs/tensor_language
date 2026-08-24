@@ -32991,3 +32991,9 @@ exclaim_screen_results.json; runlogs/exclaim_screen.log.
 - RUNG 4 LOGGED (the composition, next wake): replace the four circuit heads inside closure_route with the §1256-60 weights-computed stand-in — induction from a PRINTABLE description (code + scalars + means). If that runs at ~0.7 of rung 3, goal-1 is complete in the strongest sense the user asked for.
 
 extraction_v3_results.json; runlogs/extraction_v3.log.
+
+## §1317 — EXCLAMATION CARRIER CERTIFIED AT 5x DATA: attn17 (conc 14.0, dmg 0.188, jitter 0.45, random 0.60 — controls clean at n=228); preds a-c ALL TRUE including the registered attn17 bet; the late-layer SPREAD persists (attn12 8.3, attn10 6.5, attn16 6.0) — register-vs-state still undecided (exclaim_screen2.py)
+
+- The discriminating cell queued (exclaim_heads.py, per-head at L17): every certified circuit so far resolved to a single 98-107% owner (13.8, 8.7, 10.5, 8.1). REGISTERED BET, direction stated: exclamation is a REGISTER, so NO head reaches 50% share — the first predicted-diffuse decomposition of the program. If instead one head owns it, the state family gains a seventh member and the register reading dies.
+
+exclaim_screen2_results.json; runlogs/exclaim_screen2.log.

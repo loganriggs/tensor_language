@@ -11,3 +11,32 @@ attn6: conc 2.36 (jit 1.22, rand 1.70) dmg_tar 0.1371
 attn7: conc 0.52 (jit 1.09, rand 0.24) dmg_tar 0.0318
 attn8: conc 1.28 (jit 1.12, rand 1.04) dmg_tar 0.0476
 attn9: conc 2.13 (jit 0.44, rand 0.85) dmg_tar 0.1320
+attn10: conc 6.48 (jit 1.01, rand -0.18) dmg_tar 0.1564
+attn11: conc 0.61 (jit 0.88, rand 0.41) dmg_tar 0.0255
+attn12: conc 8.25 (jit 0.81, rand -0.18) dmg_tar 0.0928
+attn13: conc 3.78 (jit -0.86, rand 0.11) dmg_tar 0.0638
+attn14: conc 4.86 (jit 1.20, rand 0.24) dmg_tar 0.1152
+attn15: conc 4.92 (jit 0.87, rand 1.56) dmg_tar 0.0352
+attn16: conc 5.96 (jit 1.09, rand 1.45) dmg_tar 0.0691
+attn17: conc 14.02 (jit 0.45, rand 0.60) dmg_tar 0.1876
+mlp0: conc 0.76 (jit 1.02, rand 1.13) dmg_tar 0.7043
+mlp1: conc 0.92 (jit 0.99, rand 0.96) dmg_tar 7.4643
+mlp2: conc 0.40 (jit 0.57, rand 0.95) dmg_tar 0.3233
+mlp3: conc 0.59 (jit 0.71, rand 0.80) dmg_tar 0.3689
+mlp4: conc 1.64 (jit 0.91, rand 0.96) dmg_tar 0.1712
+mlp5: conc 0.82 (jit 1.13, rand 0.84) dmg_tar 0.0696
+mlp6: conc 0.83 (jit 1.14, rand 1.05) dmg_tar 0.0674
+mlp7: conc 0.15 (jit 1.69, rand 0.88) dmg_tar 0.0087
+mlp8: conc 0.49 (jit 0.73, rand 0.82) dmg_tar 0.0252
+mlp9: conc 0.22 (jit 1.01, rand 1.68) dmg_tar 0.0114
+mlp10: conc -0.70 (jit 1.13, rand 0.76) dmg_tar -0.0292
+mlp11: conc -0.89 (jit 0.69, rand 0.79) dmg_tar -0.0403
+mlp12: conc -1.02 (jit 1.16, rand 1.31) dmg_tar -0.0423
+mlp13: conc -1.26 (jit 1.34, rand 0.79) dmg_tar -0.0483
+mlp14: conc -3.43 (jit 0.50, rand 1.07) dmg_tar -0.1035
+mlp15: conc -2.34 (jit 0.38, rand 1.07) dmg_tar -0.0876
+mlp16: conc -0.93 (jit 0.80, rand 1.07) dmg_tar -0.1301
+mlp17: conc 0.47 (jit 0.74, rand 1.11) dmg_tar 0.1781
+top5 [('attn17', 14.02, 0.45, 0.6, 0.1876), ('attn12', 8.25, 0.81, -0.18, 0.0928), ('attn10', 6.48, 1.01, -0.18, 0.1564), ('attn16', 5.96, 1.09, 1.45, 0.0691), ('attn15', 4.92, 0.87, 1.56, 0.0352)]
+pred_a carrier True | pred_b attn17 True | pred_c rand True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/exclaim_screen2_results.json (312.1s)

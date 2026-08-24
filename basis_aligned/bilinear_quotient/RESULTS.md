@@ -5051,3 +5051,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1314 — ladder REOPENED (user: count bits, not heads): rung 3 = keep the lambda-v1 route through removed heads (~free in description length); registered a-c; running (extraction_v3.py)
 §1315 — "!" screen: attn17 leads (17.2) but random dirty, n=70 — withheld; register-not-state interpretation registered; 960-row rerun queued (exclaim_screen.py)
 §1316 — RUNG 3 WINS: route-grain extraction 79% of induction gap (vs 30% head-grain); shared-variable leak confirmed (else 68% — broadcast serves pool too); rung 4 (stand-in code inside skeleton) logged (extraction_v3.py)
+§1317 — "!" carrier CERTIFIED: attn17 (14.0, controls clean, n=228), spread persists; per-head cell queued with registered DIFFUSE bet (exclaim_screen2.py)
