@@ -72,8 +72,11 @@ identifiable-but-redundant heads; independent of content, but content is amplifi
   correction, not a dedicated service).
 
 ## Benchmark status
-Mechanistically mapped (MED-HIGH); no compact stand-in exists because the circuit is
-distributed-cooperative (like everything here, §956).
+Front end (matchers 2.5+3.8): **0.92 weights-computed stand-in** (§1257: wte codes → own
+q/k pipelines → 1-D affine map → verdict-axis injection; oracle transplant 95.3%; scope =
+offset-known repeat regime; general-context extension = max-over-window score, registered
+not run). Rest of circuit: mechanistically mapped (MED-HIGH); the fetch/pool remainder is
+distributed-cooperative (§956/§1209's 41% tail).
 
 ## Gotchas
 - Pattern salience ≠ causal contribution (§649). Prose CE underrates induction — evaluate on

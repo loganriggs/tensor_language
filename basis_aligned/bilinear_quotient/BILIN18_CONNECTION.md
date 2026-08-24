@@ -32532,3 +32532,11 @@ pooler_mechanism2_results.json; runlogs/pooler_mechanism2.log (112s).
 **Corrections/catches on record this saga:** scalar overfit (§1231), consumer-locus quarantine lifted by null (§1241-42), mlp45 confound resolved by null (§1243-44), janitor framing corrected (§1247), share-instrument artifact caught (§1229-30), distance confound caught (§1254-55). Six instrument saves, all by registered controls.
 
 **Standing next question (queued):** matcher_standin — can the two matcher heads be REPLACED by a weights-computed axis writer (wte scores → 1-D map → axis injection)? A yes upgrades the benchmark's copy-circuit row from "mechanistically mapped, no compact stand-in" to a working Type-1 reduction.
+
+## §1257 — BENCHMARK UPGRADE: the matcher heads have a WEIGHTS-COMPUTED STAND-IN at 0.92 — replace 2.5+3.8 with {wte codes → their own q/k pipelines at offset 128 → one 1-D affine map → the verdict axis} and 92.0% of the masked function returns (oracle transplant: 95.3%; own-level baseline 74.9%; shuffled-score control 76.3% ≈ level); preds a-c ALL TRUE (matcher_standin.py)
+
+The §1235-55 saga's cash value. Two attention heads reduce to a human-legible computation: look up the raw embedding codes of token t and token t−128, push them through the heads' own bilinear score pipelines (weights only, §1238), map the resulting scalar through one fitted affine function (2 parameters, fit on 12 disjoint rows), and write the result onto the match-evidence axis (1 direction). Held-out recovery 0.9201 of a 2.02-nat stake — within 3 points of transplanting the true axis values. The per-position weight-derived signal genuinely carries information beyond the "matching is happening" level (+17 points over own-level; shuffle lands at level, as it must).
+
+**Scope stated plainly:** certified on the verbatim-repeat regime at offset 128 (where the source location is known). A general-context stand-in needs the max-over-window score — registered as the natural extension, not run (the offset-known version establishes the reduction's existence; the extension is engineering). Benchmark row updated: copy-circuit front end (matchers) = 0.92 weights-computed, replacing "mechanistically mapped, no compact stand-in."
+
+matcher_standin_results.json; runlogs/matcher_standin.log (219s).

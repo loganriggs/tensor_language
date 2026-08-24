@@ -4991,3 +4991,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1254 — mechanism run quarantined (raw r distance-confounded; null moved) — partial-correlation v2 queued (pooler_mechanism.py)
 §1255 — §1085 depth-growth DISSOLVES (partial r ≤0.07; distance confound); QK content-CAPABLE (3× amp → 0.26-0.39) but unengaged; dossier mechanism item closed (pooler_mechanism2.py)
 §1256 — CONSOLIDATION of the named-variables saga §1235-55 (six instrument saves; two named variables; three-family verdict-axis law); matcher_standin queued as the benchmark-grade capstone
+§1257 — BENCHMARK UPGRADE: matchers = weights-computed stand-in at 0.92 (wte→own pipelines→1-D map→axis; oracle 95.3%, level 74.9%, shuffle clean); scope: offset-known repeat regime (matcher_standin.py)
