@@ -93,8 +93,10 @@ Remaining tail: the distributed 41% beyond the quad (§1209).
 
 ## Annotation service resolution (2026-08-24, §1289-98)
 - The §1228 "builders = attn0/1" layer-grain claim resolves at head grain: **heads 1.1 and 1.8**
-  (layer 1), either alone sufficient at match sources (restore 70%/84%, pair 96.5% of a 4.33-nat
-  dependence; leave-one-alive instrument, keep-none anchor null). L0 = weaker collective backstop.
+  (layer 1), either alone sufficient at match sources (restore 70%/84%, pair 96.5%; leave-one-alive
+  instrument, keep-none anchor null). CAVEAT §1299: the keep-none 4.33-nat baseline is ~70%
+  GENERIC front-band damage (random-position floor 3.08); source-specific excess ≈ 1.25 nats.
+  Rankings within the baseline stand; the pair may be layer-1's load-bearing heads generally. L0 = weaker collective backstop.
 - Two DIFFERENT algorithms, one interchangeable output: 1.1 = identity mark (local read, 86%
   within ±8); 1.8 = context signature (76% far). Dissociated on planted context-free bigrams:
   1.1 restores 110%, 1.8 33%; adding 1.8 there HURTS (§1297). Mirror arm NULL: no pivot-free

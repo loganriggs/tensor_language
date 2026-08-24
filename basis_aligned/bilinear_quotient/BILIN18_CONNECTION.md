@@ -32849,3 +32849,12 @@ pair_algo_results.json; runlogs/pair_algo.log (79s).
 - Queued (query_side.py): the asymmetry §1298 implies — matchers should need the annotation at the SOURCE but derive the query-side criterion from the current token directly (§1238: weights-readable from raw codes). Zero front writes at TARGET positions vs at SOURCE positions vs random: registered bet — target-side costs <= 30% of source-side.
 
 pair_algo2_results.json; runlogs/pair_algo2.log (97s).
+
+## §1299 — CORRECTION TO §1295's FRAMING: THE 4.33-NAT "SOURCE DEPENDENCE" IS ~70% GENERIC — zeroing all 27 front-head writes at count-matched RANDOM positions costs 3.08 nats at induction targets (source positions: 4.33, target positions: 4.49); pred_a anchor TRUE (4.331 exact), preds b & c FALSE and they overturn the absolute framing (query_side.py)
+
+- The confound, plainly: "zero ALL front heads at position set X" is too blunt to isolate annotation. The front band is the grammar machine — every position needs its writes for the local stream to stay on-manifold — so ablating 8% of positions wrecks downstream processing regardless of which positions. The SOURCE-SPECIFIC excess is 4.33 − 3.08 = **~1.25 nats**, not 4.33. Query-side positions are equally dependent (4.49) — no annotation asymmetry is detectable above the generic floor with this instrument.
+- What SURVIVES: all §1289-97 keep-one-alive comparisons were WITHIN the same position set and baseline, so the rankings stand (1.1/1.8 sufficient where others are not; the 77-point dissociation; control heads restoring little). But a puzzle sharpens: if ~70% of keep-none damage is generic, the pair restoring 96.5% means 1.1/1.8 carry most of layer-1's GENERIC per-position function too — "annotation service" may undersell them; they look like the load-bearing heads of front processing at large (consistent with 1.1's 0.088 delete cost — the largest in L1).
+- CORRECTION PROPAGATED: dossier and FINDINGS restated (4.33 → 1.25 source-specific excess + generic floor); writer_cross2's pred_a framing marked as conflated in place.
+- Queued (pair_source_specific.py): the clean isolation — ablate ONLY 1.1/1.8 (position-restricted) at sources vs random vs targets. Matched mass, pair-scoped: whatever excess sources show over random is annotation-specific by construction. Registered: (a) source excess >= 3x random; (b) all pair-scoped effects small (<= 0.1 — redundancy covers); (c) targets ≈ random (no query-side role for the pair).
+
+query_side_results.json; runlogs/query_side.log (98s).

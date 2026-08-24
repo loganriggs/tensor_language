@@ -171,7 +171,8 @@ DESIGNING AN EXPERIMENT on a module, and update it in the same commit as the led
    dormant weights-twin 14.4 certified vestigial at 10x data (§1275-83); 10.5 = question head
    (§1282-89). ANNOTATION SERVICE (§1289-98): heads 1.1 (identity mark, local) + 1.8 (context
    signature, global) — either sufficient on natural text, THREE consumers (matchers, 13.8, 10.5),
-   redundant beyond the pair, one-armed double dissociation (identity generalizes to context-free
+   redundant beyond the pair (§1299 caveat: keep-none baselines are ~70% generic front-band
+   damage — source-specific excess ~1.25 nats; within-baseline rankings stand), one-armed double dissociation (identity generalizes to context-free
    repeats 110% vs 33%; signature is NOT an independent pathway — no pivot-free fuzzy induction,
    base=chance §1298; signature actively harmful off-distribution §1297). Opener corruption poisons
    via mlp4 re-encoding (94% restore when blocked §1288). HEAD-PARTITION LAW (§1290-94): task-parts
