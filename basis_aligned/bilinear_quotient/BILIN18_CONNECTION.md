@@ -32997,3 +32997,10 @@ extraction_v3_results.json; runlogs/extraction_v3.log.
 - The discriminating cell queued (exclaim_heads.py, per-head at L17): every certified circuit so far resolved to a single 98-107% owner (13.8, 8.7, 10.5, 8.1). REGISTERED BET, direction stated: exclamation is a REGISTER, so NO head reaches 50% share — the first predicted-diffuse decomposition of the program. If instead one head owns it, the state family gains a seventh member and the register reading dies.
 
 exclaim_screen2_results.json; runlogs/exclaim_screen2.log.
+
+## §1318 — EXCLAMATION IS A TWO-HEAD TEAM, NOT A REGISTER AND NOT A SINGLE STATE HEAD: 17.2 (share 48.5%, conc 34) + 17.3 (share 42.6%, conc 262!) carry 91% of the layer's effect between them, every other head <= 5%; pred_a TRUE by 1.5 points (no owner >= 50%), pred_b FALSE (a pair, not a >= 3-head spread), pred_c TRUE (exclaim_heads.py)
+
+- The taxonomy gains a third form: single-owner states (13.8, 10.5, 8.7, 8.1), collective crowds (pool, front-band annotation), and now a NEAR-EVEN PAIR (17.2/17.3) — the fetcher-pair and annotator-pair shape appearing at the behaviour's top level. Solo damages sum to 0.171 vs layer 0.188 — arithmetic hints ADDITIVE/complementary rather than redundant (unlike 1.1/1.8, where either alone sufficed), but only the joint cell can say.
+- Queued (exclaim_pair.py): solo/solo/joint + a target split (previous "!" within 20 tokens = BURST vs farther = SUSTAINED register). Registered: (a) ADDITIVE: joint within 20% of solo-sum (no redundant coverage); (b) both concentrated solo (conc >= 10, controls clean); (c) DIVISION OF LABOR: the pair dissociates >= 2x on the burst/sustained split (direction: 17.3 = burst, 17.2 = sustained — from 17.3's extreme concentration).
+
+exclaim_heads_results.json; runlogs/exclaim_heads.log.
