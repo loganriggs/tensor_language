@@ -41,7 +41,7 @@ def main():
             s = enc.decode([tok]).strip()
         except Exception:
             continue
-        if s.isdigit() and 1900 <= int(s) <= 2030:
+        if s.isascii() and s.isdigit() and len(s) == 4 and 1900 <= int(s) <= 2030:
             yr.setdefault(int(s), []).append(tok)
     years = sorted(yr)
     print(f"single-token years: {len(years)} ({years[0]}..{years[-1]})", flush=True)
