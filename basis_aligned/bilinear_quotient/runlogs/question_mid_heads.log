@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 307
+full: target 0.9464 | else 3.1255
+ymean: target 8.9070 | else 7.2159
+route: target 6.2960 | else 5.4897
+a02: target 4.5664 | else 5.4428
+a05: target 3.2246 | else 5.4381
+a02+L3: target 4.1214 | else 5.4398
+a02+L4: target 3.7216 | else 5.4354
+a02+L5: target 4.1280 | else 5.4456
+layer increments {3: 0.05590030902193299, 4: 0.10612265407130106, 5: 0.055071225787000966} | winner L4 | band inc 0.1686
+L4.0: target 4.2991 | else 5.4408
+L4.1: target 4.3233 | else 5.4398
+L4.2: target 4.5878 | else 5.4430
+L4.3: target 4.5658 | else 5.4427
+L4.4: target 4.4785 | else 5.4422
+L4.5: target 4.4956 | else 5.4414
+L4.6: target 4.5354 | else 5.4424
+L4.7: target 4.3116 | else 5.4408
+L4.8: target 4.5277 | else 5.4424
+
+head increments {0: 0.03357787101474763, 1: 0.03053789915333016, 2: -0.00268823957993114, 3: 7.537120317557822e-05, 4: 0.011041881265231202, 5: 0.008893801974725557, 6: 0.0038941788307413905, 7: 0.03200763761525516, 8: 0.004861442604828792} | top L4.0
+pred_a layer True | pred_b diffuse True | pred_c selective True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_mid_heads_results.json (308.7s)

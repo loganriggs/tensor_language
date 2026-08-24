@@ -25,7 +25,7 @@ conditionality measured).
 | Circuit | Stage | Key facts | §refs |
 |---|---|---|---|
 | **Comparative (8.1)** | **CLOSED** | route + 2 zero-bit gates + 8.1 = 0.659 (85% of band), else route+0.014; 26x surgical; head worthless without annotator | §1303-08, §1329-33 |
-| **Question (10.5)** | G1 in flight | annotator = L0-5 (clause-gated a05 **0.714**, bar cleared §1335); a08 goes BACKWARD (inversion in band width); per-layer/per-head localization running (DIFFUSE bet registered) | §1284, §1313, §1334-35 |
+| **Question (10.5)** | **CLOSED** | [route + clause gate L0-5 + 10.5] = 0.714 at else route+0.013; annotator = a02 mark + L4 CROWD (63% of mid service, no head >= 32% — DIFFUSE bet won); owner-vs-crowd contrast with comparative | §1284, §1313, §1334-36 |
 | Exclamation (17.2+17.3) | G3 done | additive half-head pair, 91% share; criterion stream-computed; template NOT yet applied (L17 → expect route to carry more) | §1315-20 |
 | Stem matcher (1.1+1.8) | G3 done | weights-read certified on natural text (78% variant-support damage, in-band) | §1307-08 |
 | Induction/copy stations | G1 partial | route-grain closure 79% (§1316); payload rungs 4-5 negative; stations 2.5/3.8/8.3/8.4 | §1311-16, §1204-18 |
