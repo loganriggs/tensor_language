@@ -60,7 +60,14 @@ seed, one eval draw — treat third decimals as noise.
 | mlp16 | 0.15 | 0.494 | **1.10** | categorical: K=16 BEATS the 50k table (§1326) |
 | mlp17 | 0.38 | 0.497 | 0.84 | half-contextual + categorical elbow at K=16 (§1325) |
 
-Context arms (§1327 + within-token null §1328): a (token16 x context16) key beats the 50k
-table at the top — but ONLY the within-token null (resample labels from P(ctx|token))
-separates context from token re-encoding; the random-label null does NOT (mlp1 front
-control failed it, +0.260). Purity is a powerless diagnostic (retired); use NMI(ctx;tok)/H(ctx).
+Context arms (§1327-1330): a (token16 x context16) key beats the 50k table at the top —
+and ONLY the within-token null (resample labels from P(ctx|token)) separates context from
+token re-encoding; the random-label null does NOT (§1327). Purity is a powerless
+diagnostic (retired); use NMI(ctx;tok)/H(ctx). **The §1328 ceiling-bound gate
+(increment <= 1 - ceiling) was RETRACTED in §1330**: the mean table is L2-optimal, not
+CE-optimal, so 1 - ceiling lower-bounds token-only inadequacy but does NOT upper-bound
+context value. Data-scaling arbitrates instead: artifacts shrink with fit data, signal
+grows (mlp1's increment grew 0.092->0.142 as sparse-token mass halved). Standing picture:
+mlp17/16 contextual half real and fast (not doc-state at K=16 grain, §1328); mlp1 = a
+context-indexed per-token MENU (~1.0 nats of within-token choice at 4-bit grain, §1330).
+Instrument draw-spread ~+-0.05 per point — trends, not points, are evidence.

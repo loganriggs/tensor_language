@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+mark-dir samples per layer: [83, 83, 83]
+targets 108
+full: target 1.2651 | else 3.1151
+ymean: target 8.2430 | else 7.2226
+route: target 5.2332 | else 5.4950
+circ_band: target 3.4037 | else 4.4351
+circ_pos: target 4.7495 | else 5.4852
+circ_dir: target 4.9644 | else 5.4881
+
+rec target: band 0.6935 pos 0.5007 dir 0.4699 route 0.4313
+rec else:   band 0.6786 pos 0.423 dir 0.4223 route 0.4206
+pred_a posgate False | pred_b rank1 False | pred_c selective True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/comparative_mark_slice_results.json (112.7s)

@@ -66,11 +66,21 @@ elsewhere — G2 verified surgically), and **8.1 without the band is worthless**
 over bare route) — the specialist is 100% conditional on its annotator, both directions
 measured. G1 verdict: PARTIAL — 70% reached, kept description not capability-specific.
 
+## Comparative rung 2: the annotator's service is QUERY-side (§1331)
+
+Position-gating a02 at comparative (key-side) positions keeps only 27% of the band's
+increment (+0.070 of +0.263 over route); a rank-1 mark direction carries ~55% of that
+key-side piece (83-sample estimate, flagged). The dominant ~73% arrives query-side —
+front-band processing at the prediction position that 8.1's q reads. BUT both gated
+slices are PERFECTLY selective (elsewhere = route +-0.002): [route + comp-position
+outputs + 8.1] is an honestly capability-specific 50%-extraction at zero elsewhere cost.
+Next: comparative_query_side.py (key vs qry vs both gates; queued).
+
 ## Open
 
-- Comparative rung 2 (logged §1329): replace live-a02 with (i) a02 at comparative
-  positions only, (ii) the §1306 mark output-direction slice — itemize the capability's
-  true description [route + mark-writer slice + 8.1].
+- Query-side decomposition running (comparative_query_side.py): if key+qry gates recover
+  the band's 0.69, the comparative description is [route + two positional gates + 8.1],
+  all ~zero-bit gates.
 - Exclamation & question circuits: not yet extracted standalone (G1 open). Expect the
   same conditional-chain shape; their annotators are unnamed beyond "front band".
 - MDL bridge: price each specialist's kept description (patterns + route + head params at

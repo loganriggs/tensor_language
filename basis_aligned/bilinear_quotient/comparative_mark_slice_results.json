@@ -1,0 +1,63 @@
+{
+ "n_targets": 108,
+ "n_rows": 1920,
+ "ce": {
+  "full": {
+   "target": 1.2651,
+   "else": 3.1151
+  },
+  "ymean": {
+   "target": 8.243,
+   "else": 7.2226
+  },
+  "route": {
+   "target": 5.2332,
+   "else": 5.495
+  },
+  "circ_band": {
+   "target": 3.4037,
+   "else": 4.4351
+  },
+  "circ_pos": {
+   "target": 4.7495,
+   "else": 5.4852
+  },
+  "circ_dir": {
+   "target": 4.9644,
+   "else": 5.4881
+  }
+ },
+ "recovery": {
+  "full": {
+   "target": 1.0,
+   "else": 1.0
+  },
+  "route": {
+   "target": 0.4313,
+   "else": 0.4206
+  },
+  "circ_band": {
+   "target": 0.6935,
+   "else": 0.6786
+  },
+  "circ_pos": {
+   "target": 0.5007,
+   "else": 0.423
+  },
+  "circ_dir": {
+   "target": 0.4699,
+   "else": 0.4223
+  }
+ },
+ "gap_target": 6.9779,
+ "gap_else": 4.1075,
+ "mark_dir_samples": {
+  "0": 83,
+  "1": 83,
+  "2": 83
+ },
+ "pred_a_posgate_suffices": false,
+ "pred_b_mark_rank1": false,
+ "pred_c_both_selective": true,
+ "runtime_s": 112.7
+}

@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [assert_disjoint nfit960] 0 of 480 priced rows appear in the fitting corpus -> ok
+NFIT 960: incr +0.0921 | tok50k 0.9327 | ctx 0.5902 null 0.4981 | frac_le2 0.576
+  [assert_disjoint nfit1920] 0 of 480 priced rows appear in the fitting corpus -> ok
+NFIT 1920: incr +0.0879 | tok50k 0.9450 | ctx 0.6360 null 0.5481 | frac_le2 0.482
+  [assert_disjoint nfit3840] 0 of 480 priced rows appear in the fitting corpus -> ok
+NFIT 3840: incr +0.1268 | tok50k 0.9505 | ctx 0.6790 null 0.5522 | frac_le2 0.358
+  [assert_disjoint nfit7680] 0 of 480 priced rows appear in the fitting corpus -> ok
+NFIT 7680: incr +0.1418 | tok50k 0.9552 | ctx 0.6553 null 0.5135 | frac_le2 0.215
+
+increments [0.0921, 0.0879, 0.1268, 0.1418] | ceilings [0.9327, 0.945, 0.9505, 0.9552]
+pred_a monotone False | pred_b <0.10 False | pred_c ceiling-stable True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_null_scaling_results.json (360.5s)
