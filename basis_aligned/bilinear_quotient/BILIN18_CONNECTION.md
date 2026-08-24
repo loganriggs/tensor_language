@@ -32656,3 +32656,9 @@ annotator_hunt_results.json; runlogs/annotator_hunt.log (78s).
 **The delimiter-closer's record, complete at SOP grain:** behaviour (quote/bracket-close) → component (attn13, conc 16.3, controls clean) → head (13.8, sole owner, both-halves gate, elsewhere-damage negative) → mechanism (opener-fetcher, 10.5× delimiter-key mass; criterion stream-computed, NOT embedding-native — raw-code ratio 0.83) → annotator (front attention primary + mid-attention secondary) → atlas cross-check (punct enrichment 2.16, rank-1, behaviour-blind). Thread (§1270-74, five experiments) closed; one instrument bug (share NaN) disclosed and fixed in-thread.
 
 annotator_hunt2_results.json; runlogs/annotator_hunt2.log (75s).
+
+## §1275 — ORDINAL-INCREMENT SCREEN: attn8 at concentration 18.8 (target 0.649 vs elsewhere 0.035; jitter 0.78) — with three honest flags: my registered deep-carrier bet LOST (L8), the random control marginally failed (1.97, n=24 targets — far under the more-data rule), and attn8 already hosts TWO known circuits (the certified digit machine attn8+mlp15 AND the copy fetchers 8.3/8.4) (ordinal_screen.py)
+
+The head step decides between three hypotheses: (i) increment = the digit circuit generalizing (dedup, no new circuit); (ii) increment = the FETCHERS doing more than copying (a big revision — 8.3/8.4 delivering transformed rather than copied values); (iii) a distinct increment head. Queued with 480 rows (~5× targets), both-halves gate, and the discriminating dedup cell: the winner's concentration on PLAIN-digit targets (no predecessor in context) vs increment targets — digit-generic vs increment-specific.
+
+ordinal_screen_results.json; runlogs/ordinal_screen.log (121s).
