@@ -47,6 +47,13 @@ Three tooling facts every agent needs:
     numbers three times.
 
 ## 0. New-session bootstrap (do once per driver session)
+0. IF THE BOX WAS RECYCLED (no /venv torch, no /workspace/rspd, no
+   bqrunner): `bash ops/restore.sh` rebuilds the whole runtime from
+   git in ~5 min — venv (cu128 wheels; the 5090 is sm_120), rspd
+   clone, the five Elriggs checkpoints into $HF_HOME, the FineWeb
+   stream warm-up, the bqrunner service, and the canary as the gate.
+   ${WORKSPACE} is NOT volume-backed here, so everything except git
+   is lost on recycle — which is why the push cadence is the rule.
 1. `supervisorctl status bqrunner` — RESTART if not RUNNING. bqrunner
    survives session death; the cron does NOT.
 2. Recreate the wake cron (session-only!): CronCreate, schedule

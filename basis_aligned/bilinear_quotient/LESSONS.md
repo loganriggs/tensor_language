@@ -105,6 +105,14 @@ replacement tax.
   same rows) are unaffected -- the tax cancels.
 
 ## Ops rules (each cost at least one incident)
+- THE BOX IS NOT VOLUME-BACKED (`workspace_is_volume: false`). A recycle on
+  2026-08-24 wiped the venv, the HF cache, /workspace/rspd and the bqrunner
+  service; only git survived, and only because everything was pushed. Two
+  standing consequences: (1) push after every writeup, no exceptions; (2) the
+  rebuild is scripted — `bash ops/restore.sh` — so a recycle costs ~5 minutes
+  instead of a session. Anything you set up by hand OUTSIDE the repo (a
+  supervisor service, a cloned dependency) must be committed under ops/ the
+  same hour you create it, or it is not real.
 - queue.txt takes ABSOLUTE paths; bare names are silently dropped.
 - After writing a transform-generated script: verify file exists AND
   ast.parse it BEFORE queueing (ioi_chain incident: queued, then the
