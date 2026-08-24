@@ -4941,3 +4941,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1204 — COPY REGIME geography is OPPOSITE prose: front 1.91 / mid1 2.64 EACH catastrophic, band sum 4.70 > joint 3.20 — SERIAL chain not redundant crowd; pred_c FALSE = the finding (repeat_range_bands.py)
 §1205 — the distance-128 read is L2's (0.53; head 2.5 alone 0.62), NOT the L5 gate's (0.12) — gate ≠ long-range reader; named pair = only 26% of the circuit (repeat_range_heads.py)
 §1206 — reader STATIONS found: L3 1.01 > L8 0.62 > L2 0.53 (L0/1/4/9 zero); front = additive chain links, mid1 = crowd anchored by L8; preds a-c ALL FALSE informatively (repeat_range_singles.py)
+§1207 — FOUR HEADS = 69% of copy long-range reading (quad 2.20/3.20); L3's read is ONE head (3.8 alone > whole layer; complement 0.004); §649 scope-corrected to read grain (repeat_heads2.py)
+§1208 — swiglu18 same copy total (3.206 vs 3.200!) + same few-station structure, stations DEEPER (L5/L8/L4) — price+concentration = family law, station depth = fingerprint (repeat_range_family.py)

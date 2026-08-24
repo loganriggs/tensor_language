@@ -30,7 +30,14 @@ identifiable-but-redundant heads; independent of content, but content is amplifi
   reader, complement 0.023). Division of labor sharpened: **L2 reads the distance, L5 gates
   locally** (both §877-78 and this coexist: ablation kills the gate's output role, read-mask
   shows the fetch already happened upstream). The named pair jointly = only 26% of the
-  circuit's long-range carriage — §649's non-localizability survives at read grain.
+  circuit's long-range carriage — but see §1206-1208: the FULL station set does localize.
+- **Reader stations (§1206-1208):** bilin18's distance reads concentrate in FOUR heads —
+  **2.5, 3.8 (L3's entire read: alone 1.076, complement 0.004), 8.3+8.4 (redundant pair,
+  87% of L8)** — jointly 69% of the whole-model copy-regime cost (3.20 @W64). §649's
+  "non-localizable" is scope-corrected: that was zero-ablation on prose (output redundancy);
+  read-range in the copy regime DOES localize. Family: swiglu18 pays the SAME total (3.206)
+  with the same few-station structure but stations deeper (L5 1.03, L8 0.43, L4 0.40) —
+  price+concentration are family law, station depth is the architectural fingerprint.
 
 ## Benchmark status
 Mechanistically mapped (MED-HIGH); no compact stand-in exists because the circuit is

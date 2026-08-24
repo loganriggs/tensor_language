@@ -32117,3 +32117,25 @@ Per-layer cost: L0 0.010 · L1 −0.003 · **L2 0.532 · L3 1.008** · L4 0.014 
 **The copy circuit's read-grain backbone: three stations (L3 > L8 > L2) + a mid1 collective remainder + a local gate at L5.** Copying's long-range reads are far more concentrated than prose pooling's (three layers carry 2.2 of the 3.2 total) yet still not two-head-nameable (§1205: pair = 26%).
 
 repeat_range_singles_results.json; runlogs/repeat_range_singles.log (44s).
+
+## §1207 — FOUR NAMEABLE HEADS ARE 69% OF THE COPY CIRCUIT'S LONG-RANGE READING: quad {2.5, 3.8, 8.3, 8.4} read-masked = 2.2029 of all18's 3.2004; L3's ENTIRE distance read is head 3.8 (alone 1.076 > whole layer 1.008; complement 0.0045 ≈ zero); preds a-c ALL TRUE (repeat_heads2.py)
+
+Head grain at the §1206 stations, repeat rows, W=64 read-masks. Anchors replicate §1206 exactly; sanity exact.
+
+- **pred_a TRUE, maximally:** L3H8 masked alone costs 1.0755 — MORE than masking all nine L3 heads (1.0076) — while the other eight heads jointly cost 0.0045. One head is the station. (Second observation of the head-alone > whole-layer sign, cf. L2H5 §1205: with the reader blinded, the sibling heads' long-range reads are net mildly interfering.)
+- **pred_b TRUE:** L8's pair H3+H4 jointly 0.5401 = 87% of the layer's 0.6194. Within the pair, redundancy: singles 0.175 + 0.104 sum to 0.28, joint 0.54 — each head covers for the other (the only crowd-like structure left, and it is two heads wide).
+- **pred_c TRUE at 69% (bar was 40%):** the quad's joint cost is 2.2029 = 69% of everything all 162 heads do at long range on repeat text. **Scope-corrected reading of §649/§952-53 ("copying is not a localizable head-set"): that was zero-ABLATION on prose — the heads' OUTPUT roles are redundant there. At READ grain in the regime where copying binds, the long-range front end localizes to four heads: 2.5 and 3.8 fetch at distance from the front; 8.3+8.4 re-fetch mid-stack.** Sufficiency test queued (repeat_quad_sufficient: keep ONLY the quad's range, mask the other 158).
+
+repeat_heads2_results.json; runlogs/repeat_heads2.log (75s).
+
+## §1208 — FAMILY: swiglu18 pays the SAME copy-regime total (all18 3.2059 vs bilin18's 3.2004!) with the same few-station structure — but its stations sit DEEPER (L5 1.03, L8 0.43, L4 0.40 vs bilin18's L3/L8/L2); pred_a (serial-band geography) FALSE as registered — the seriality is station-wise, not band-wise (repeat_range_family.py)
+
+The §1204/§1206 map on the softmax sibling (softmax masking = −inf before softmax; repeat rows; W=64).
+
+- **The constant, again:** whole-model long-range copy cost 3.2059 vs bilin18's 3.2004 — the third family constant measured to the second decimal (with locality budget 0.082/0.081 and repeat-easiness base 0.257/0.361). What long-range copying is WORTH is architecture-independent.
+- **The style:** WHERE it is read differs. bilin18 reads distance in the FRONT (L2/L3, band 1.91); swiglu18's front band costs only 0.62 and its stations are L5 (1.031), L8 (0.428), L4 (0.403) — the §1188 fingerprint ("softmax sibling spreads pooling deeper") repeats for copying. pred_a FALSE exactly because the front band is not catastrophic in swiglu18 — the serial-chain signature lives at station grain, not at the fixed §1186 band cuts.
+- **pred_b TRUE:** top-2 singles = 69% of the singles sum — few identifiable stations, family-general. **pred_c TRUE:** late local (0.028), repeat easy (base 0.257).
+
+**Law vs style, updated: copy-circuit READ CONCENTRATION (few nameable reader stations) and TOTAL PRICE (~3.2 nats at W=64) are family constants; station DEPTH is the architectural fingerprint (bilinear front-loads the fetch, softmax mid-loads it).** swiglu18 station heads queued (repeat_family_heads).
+
+repeat_range_family_results.json; runlogs/repeat_range_family.log (94s).
