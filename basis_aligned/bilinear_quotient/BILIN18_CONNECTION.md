@@ -32636,3 +32636,9 @@ quote_screen_results.json; runlogs/quote_screen.log (103s).
 - Registered next (queued): the MECHANISM — how does 13.8 know a delimiter is open? Candidates: an open-delimiter state variable in the stream (probe + interchange), direct key-matching on the opener (§1238-style weights test on quote/bracket token codes), or a count/parity signal. The §1204-61 instrument kit applies wholesale.
 
 quote_heads_results.json; runlogs/quote_heads.log (83s).
+
+## §1272 — THE DELIMITER-CLOSER'S MECHANISM, HALF-RESOLVED WITH A NEW CONTRAST: 13.8 is an OPENER-FETCHER (29.8% of its pattern mass on delimiter keys at close targets vs 2.8% elsewhere — 10.5×; pred_a TRUE) whose criterion is NOT embedding-native (raw-code weights test ratio 0.83 — pred_b FALSE): it keys on PROCESSED stream annotations at the opener's position; control head partially fails (13.1 pattern ratio 2.96 — a weak layer-wide tendency, dominated 3.5× by 13.8; weights control clean at 1.04) (quote_mechanism.py)
+
+**The contrast worth keeping:** the model now exhibits BOTH criterion architectures side by side — the copy matchers' criterion is readable from the embedding table + weights alone (§1238, AUC 1.0), while the delimiter-closer's criterion lives in computed stream state ("an unclosed delimiter sits here"), invisible to raw codes. Long-range reading has (at least) two designs in one network: embedding-native matching and annotation-based fetching. Registered next (the thread's step 4-5): WHO writes the opener annotation — keep-until-delete / source-side ablations on opener positions to name the annotating layer, then the close-token causal characterization (which token moves when 13.8 dies).
+
+quote_mechanism_results.json; runlogs/quote_mechanism.log (199s).

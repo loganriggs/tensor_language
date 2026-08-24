@@ -1,0 +1,31 @@
+{
+ "n_rows": 96,
+ "pattern_shares": {
+  "8": {
+   "target_share": 0.298,
+   "else_share": 0.0284,
+   "ratio": 10.51
+  },
+  "1": {
+   "target_share": 0.0423,
+   "else_share": 0.0143,
+   "ratio": 2.96
+  }
+ },
+ "weights_scores": {
+  "8": {
+   "dl_absmean": 0.00416,
+   "ord_absmean": 0.00499,
+   "ratio": 0.83
+  },
+  "1": {
+   "dl_absmean": 0.00519,
+   "ord_absmean": 0.005,
+   "ratio": 1.04
+  }
+ },
+ "pred_a_opener_reader": true,
+ "pred_b_weights_see": false,
+ "pred_c_control_flat": false,
+ "runtime_s": 199.1
+}

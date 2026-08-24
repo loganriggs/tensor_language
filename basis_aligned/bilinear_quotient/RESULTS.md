@@ -5006,3 +5006,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1269 — dir2 = "the attn6 far-pool direction" (L6 writes 60%); vocab-diffuse, sub-bar universality; pool investigation §1262-69 fully closed (dir2_identity.py)
 §1270 — quote-state screen: attn13 conc 16.3 (controls clean); late-attention carrier, rhymes with certified bclose circuit — head decomposition + dedup queued (quote_screen.py)
 §1271 — NEW NAMED HEAD: 13.8 = the delimiter-closer (quotes 0.326 + brackets 0.679, elsewhere −0.001; atlas punct 2.16 rank-1; bclose record sharpened+merged); mechanism next (quote_heads.py)
+§1272 — 13.8 = opener-fetcher (10.5× delimiter-key mass) with a STREAM-COMPUTED criterion (raw codes blind, 0.83) — two criterion architectures in one model; annotator hunt next (quote_mechanism.py)

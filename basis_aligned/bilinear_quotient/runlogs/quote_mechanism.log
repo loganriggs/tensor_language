@@ -1,0 +1,5 @@
+delimiter ids: 373
+pattern shares {8: {'target_share': 0.298, 'else_share': 0.0284, 'ratio': 10.51}, 1: {'target_share': 0.0423, 'else_share': 0.0143, 'ratio': 2.96}}
+weights scores {8: {'dl_absmean': 0.00416, 'ord_absmean': 0.00499, 'ratio': 0.83}, 1: {'dl_absmean': 0.00519, 'ord_absmean': 0.005, 'ratio': 1.04}}
+pred_a opener True | pred_b weights False | pred_c ctrl False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/quote_mechanism_results.json (199.1s)
