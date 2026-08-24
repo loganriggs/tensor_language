@@ -1,0 +1,66 @@
+{
+ "n_targets": 307,
+ "n_rows": 1920,
+ "ce": {
+  "full": {
+   "target": 0.9464,
+   "else": 3.1255
+  },
+  "ymean": {
+   "target": 8.907,
+   "else": 7.2159
+  },
+  "route": {
+   "target": 6.296,
+   "else": 5.4897
+  },
+  "circ_band": {
+   "target": 4.8645,
+   "else": 4.4211
+  },
+  "circ_key": {
+   "target": 5.5833,
+   "else": 5.4604
+  },
+  "circ_qry": {
+   "target": 4.5664,
+   "else": 5.4428
+  },
+  "circ_both": {
+   "target": 4.5664,
+   "else": 5.4428
+  }
+ },
+ "recovery": {
+  "full": {
+   "target": 1.0,
+   "else": 1.0
+  },
+  "route": {
+   "target": 0.328,
+   "else": 0.422
+  },
+  "circ_band": {
+   "target": 0.5078,
+   "else": 0.6833
+  },
+  "circ_key": {
+   "target": 0.4175,
+   "else": 0.4292
+  },
+  "circ_qry": {
+   "target": 0.5453,
+   "else": 0.4335
+  },
+  "circ_both": {
+   "target": 0.5453,
+   "else": 0.4335
+  }
+ },
+ "gap_target": 7.9606,
+ "gap_else": 4.0904,
+ "pred_a_extraction_carries": false,
+ "pred_b_query_dominates": true,
+ "pred_c_all_selective": true,
+ "runtime_s": 112.7
+}

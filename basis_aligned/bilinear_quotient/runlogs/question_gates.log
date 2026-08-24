@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 307
+full: target 0.9464 | else 3.1255
+ymean: target 8.9070 | else 7.2159
+route: target 6.2960 | else 5.4897
+circ_band: target 4.8645 | else 4.4211
+circ_key: target 5.5833 | else 5.4604
+circ_qry: target 4.5664 | else 5.4428
+circ_both: target 4.5664 | else 5.4428
+
+rec target: band 0.5078 key 0.4175 qry 0.5453 both 0.5453 route 0.328
+pred_a carries False | pred_b query True | pred_c selective True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_gates_results.json (112.7s)
