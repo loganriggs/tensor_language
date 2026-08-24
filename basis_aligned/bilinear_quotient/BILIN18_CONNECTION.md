@@ -32699,3 +32699,9 @@ succ_unique_results.json; runlogs/succ_unique.log (1.5s).
 - **Successor thread final ledger (§1275-80, six experiments):** the behaviour (ordinal increment), the owner (8.7, conc 113, both-halves), the generality (digits + weekdays + months, weights + causal conc 55), the mechanism ("+1" composed into W_v·W_proj, 8/8 rank-1), the rarity (median 1 across 162 heads), and the twin (14.4, weights-perfect, causally dormant). Every prediction scored; three informative falsifications (deep-carrier bet, control-not-flat, no-coverage) on the record.
 
 succ_pair_results.json; runlogs/succ_pair.log (91s).
+
+## §1281 — THE TWIN'S DORMANCY EXTENDS TO YEARS: 8.7 carries year succession causally (conc 21.4, n=18 targets — flagged small) while 14.4's concentration is −3.9 (removal mildly helps) — §1280's numeric-niche hypothesis REFUTED; both twins' WEIGHTS encode year succession near-perfectly (top-3 frac 0.959 vs 0.934 over 121 years); preds a-c ALL TRUE (year_succ.py; first submission died on a unicode-digit int() crash — '²'.isdigit() is True — fixed and rerun)
+
+The successor head's causal ledger is now four lexicons wide (digits conc 113, weekdays/months 55, years 21.4), and the dormant twin is three-for-three contexts of perfect weight structure with zero-or-negative causal role. The vestigial interpretation is now the standing one; the last unregistered refuge (multi-token numbers with carry) is logged as unlikely and not chased. Thread stays closed.
+
+year_succ_results.json; runlogs/year_succ.log (174s).

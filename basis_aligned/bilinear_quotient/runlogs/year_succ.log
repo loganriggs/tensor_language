@@ -1,10 +1,6 @@
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/year_succ.py", line 161, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/year_succ.py", line 44, in main
-    if s.isdigit() and 1900 <= int(s) <= 2030:
-                               ^^^^^^
-ValueError: invalid literal for int() with base 10: '²'
+single-token years: 126 (1900..2030)
+year-successor targets: 18
+conc 8.7 21.36 (dmg 0.0624) | 14.4 -3.92 (dmg -0.0280)
+weights top-3 frac: 8.7 0.96 | 14.4 0.93 (n=121)
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/year_succ_results.json (173.5s)
