@@ -32961,3 +32961,9 @@ extraction_v1_results.json; runlogs/extraction_v1.log (131s).
   GOAL 3 (predict from weights): YES, first full loop closed — stem-matcher discovery, natural-text certification inside the registered band (§1307-08). OPEN for more strikes.
 
 extraction_v2_results.json; runlogs/extraction_v2.log.
+
+## §1313 — 10.5 IS QUESTION-SPECIFIC: its ablation costs 0.726 at "?" targets (anchor §1284 replicates within bar), 0.136 at "!" targets (18.7% — under the 20% bar but disclosed as near it), 0.037 at sentence-final "." (5%), 0.004 elsewhere; preds a-c ALL TRUE (terminal_specificity.py; 960 rows)
+
+- The question head is not a generic sentence-terminal predictor: periods are untouched, and the small "!" share sits just under the specificity bar — plausibly exclamatory sentences share some interrogative-adjacent state machinery. Logged: an exclamation-state screen (who owns "!"?) queued as the next behaviour thread; 10.5's 19% suggests partial overlap, and the screen's per-component ranking will say whether "!" has its own owner.
+
+terminal_specificity_results.json; runlogs/terminal_specificity.log (110s; benign teardown noise in log).

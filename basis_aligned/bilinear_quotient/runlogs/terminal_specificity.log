@@ -1,0 +1,9 @@
+q 187 | ! 338 | . 7362
+dmg: q 0.7255 | ! 0.1355 | . 0.0374 | els 0.0037
+pred_a anchor True | pred_b q-specific True | pred_c els True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/terminal_specificity_results.json (110.0s)
+'peer closed connection without sending complete message body (received 13320701 bytes, expected 32735128)' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 1s [Retry 1/5].
+Fatal Python error: PyGILState_Release: auto-releasing thread-state, but no thread-state for this thread
+Python runtime state: finalizing (tstate=0x00005640185875d0)
+
