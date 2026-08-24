@@ -32540,3 +32540,9 @@ The §1235-55 saga's cash value. Two attention heads reduce to a human-legible c
 **Scope stated plainly:** certified on the verbatim-repeat regime at offset 128 (where the source location is known). A general-context stand-in needs the max-over-window score — registered as the natural extension, not run (the offset-known version establishes the reduction's existence; the extension is engineering). Benchmark row updated: copy-circuit front end (matchers) = 0.92 weights-computed, replacing "mechanistically mapped, no compact stand-in."
 
 matcher_standin_results.json; runlogs/matcher_standin.log (219s).
+
+## §1258 — THE GENERAL-CONTEXT STAND-IN GENERALIZES BEYOND ITS TRAINING OFFSET: max-over-window weight scores recover 97.4% on period-160 rows (an offset never seen; period-128: 92.4%, consistent with §1257) — the matcher stand-in needs NO offset knowledge; pred_b's argmax bar FAILED informatively (60.7% — on repeat text the "misses" are largely OTHER VALID COPIES of the same token; the metric was mis-specified, the score's VALUE carries the verdict regardless of which copy wins); preds a & c TRUE (matcher_standin2.py)
+
+The benchmark row finalizes: **matchers 2.5+3.8 = {raw embedding codes → the heads' own q/k weight pipelines → max match-score over all far candidates → one fitted 2-parameter map → the verdict axis}, held-out 0.92-0.97 across repeat regimes, no offset or forward-pass knowledge.** The §1257 scope caveat is discharged; the remaining honest boundary is regime (verbatim-repeat text, where copying binds — on prose the stakes are the 0.037-nat moonlighting share, untested and low-value). Benchmark card updated and republished.
+
+matcher_standin2_results.json; runlogs/matcher_standin2.log (182s).

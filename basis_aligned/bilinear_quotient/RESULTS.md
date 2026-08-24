@@ -4992,3 +4992,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1255 — §1085 depth-growth DISSOLVES (partial r ≤0.07; distance confound); QK content-CAPABLE (3× amp → 0.26-0.39) but unengaged; dossier mechanism item closed (pooler_mechanism2.py)
 §1256 — CONSOLIDATION of the named-variables saga §1235-55 (six instrument saves; two named variables; three-family verdict-axis law); matcher_standin queued as the benchmark-grade capstone
 §1257 — BENCHMARK UPGRADE: matchers = weights-computed stand-in at 0.92 (wte→own pipelines→1-D map→axis; oracle 95.3%, level 74.9%, shuffle clean); scope: offset-known repeat regime (matcher_standin.py)
+§1258 — general stand-in GENERALIZES: 97.4% at unseen period-160 (92.4% at 128); argmax "misses" = other valid copies; benchmark row finalized at 0.92-0.97 (matcher_standin2.py)
