@@ -32546,3 +32546,11 @@ matcher_standin_results.json; runlogs/matcher_standin.log (219s).
 The benchmark row finalizes: **matchers 2.5+3.8 = {raw embedding codes → the heads' own q/k weight pipelines → max match-score over all far candidates → one fitted 2-parameter map → the verdict axis}, held-out 0.92-0.97 across repeat regimes, no offset or forward-pass knowledge.** The §1257 scope caveat is discharged; the remaining honest boundary is regime (verbatim-repeat text, where copying binds — on prose the stakes are the 0.037-nat moonlighting share, untested and low-value). Benchmark card updated and republished.
 
 matcher_standin2_results.json; runlogs/matcher_standin2.log (182s).
+
+## §1259 — THE FULL-CIRCUIT REDUCTION FINDS ITS BOUNDARY: the computed fetch payload (successor's static v1 code through the fetchers' c_proj slices) is REJECTED by its own fit (best scale = 0.0 — any injection hurts), while the synthesized verdict axis ALONE recovers 62.9% of the entire quad-mask damage (2.20 nats); pred_a TRUE via the axis, pred_b FALSE (the payload hypothesis dies), pred_c vacuous (full_copy_standin.py)
+
+- **What extends:** the §1258 stand-in was fit against the MATCHER mask; here it recovers 63% of the larger quad damage — the verdict axis carries a substantial share of the fetchers' downstream value too (their consumers partly run on the axis-borne verdict, not only on the delivered payload).
+- **What resists, stated plainly:** the fetchers' payload is not a static function of the successor's token id. Two non-exclusive reasons, neither resolved here: the fetched value's live component (the source position's current-layer v, an activation) matters beyond the λ·v1 part; and/or a block-entry c_proj-slice injection is the wrong shape for a value that normally arrives inside the attention mixture. Registered honestly as the reduction's boundary — the copy circuit's SELECTION and VERDICT are weights-computable; its PAYLOAD DELIVERY still requires running attention. (Rhymes with §1127: reading is cheap, construction must be run.)
+- Benchmark stands at §1258's row (matchers 0.92-0.97); no upgrade claimed for the quad.
+
+full_copy_standin_results.json; runlogs/full_copy_standin.log (141s).

@@ -1,0 +1,9 @@
+pscale 0.0: fit CE 1.2770
+pscale 0.25: fit CE 4.9425
+pscale 0.5: fit CE 6.4219
+pscale 1.0: fit CE 6.9594
+pscale 2.0: fit CE 8.5531
+chosen pscale 0.0
+CE {'base': 0.3613, 'mask': 2.5642, 'axis_only': 1.1794, 'full': 1.1794, 'wrong_succ': 1.1794} | damage 2.2029 | recovery {'axis_only': 0.6286, 'full': 0.6286, 'wrong_succ': 0.6286}
+pred_a full True | pred_b adds False | pred_c wrong True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/full_copy_standin_results.json (140.9s)
