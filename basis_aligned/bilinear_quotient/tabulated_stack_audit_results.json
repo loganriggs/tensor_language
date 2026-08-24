@@ -1,0 +1,21 @@
+{
+ "n_rows": 32,
+ "W": 128,
+ "ce": {
+  "base": 3.2548,
+  "foldpat": 3.265,
+  "sink_const": 3.266,
+  "joint": 3.2709,
+  "true_model": 3.2548
+ },
+ "cost_vs_base": {
+  "foldpat": 0.0102,
+  "sink_const": 0.0112,
+  "joint": 0.0161
+ },
+ "sanity_base_matches_true": true,
+ "pred_a_sink_replicates": true,
+ "pred_b_compatible": true,
+ "pred_c_cheap_jointly": true,
+ "runtime_s": 238.1
+}
