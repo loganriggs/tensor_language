@@ -5041,3 +5041,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1304 — NEW NAMED HEAD: 8.1 = comparative head (100.7% share, conc 276; fourth L8 specialist bet WON); mechanism cell queued (comparative_heads.py)
 §1305 — 8.1 fetches the comparative (64x) via STREAM-COMPUTED class mark (weights 1.01 — embedding-native bet LOST; criterion taxonomy now 3 kinds); annotator-band cell queued (comparative_mechanism.py)
 §1306 — comparative mark = front attention, content+key UNIFIED (2.42 nats @11x; 59% share-drop) — §1286 dissociation does NOT repeat; comparative thread §1302-06 CLOSED (comparative_annotator.py)
+§1307 — GOAL-3: matcher = STEM matcher, read from weights (collisions are inflections; 51% of identity boost when planted); natural-text certification queued (matcher_collisions.py)
