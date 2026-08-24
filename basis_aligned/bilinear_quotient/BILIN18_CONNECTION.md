@@ -32881,3 +32881,10 @@ fitted_payload_results.json; runlogs/fitted_payload.log (120s).
 - Rerun queued (comparative_screen2.py): 960 rows (5x), and the target class made deliberately STRICT — comparative 2-20 tokens back (the carried-expectation case; the adjacent "more than" bigram is grammar-machine territory and excluded by design, now stated rather than accidental).
 
 comparative_screen_results.json; runlogs/comparative_screen.log (166s).
+
+## §1303 — THE "THAN"-EXPECTATION CARRIER IS LAYER-8 ATTENTION, REGISTERED BET WON: at 5x data the attn8 verdict replicates (conc 44.7, dmg 1.64 at targets vs 0.037 elsewhere; random control clean at 0.7) — pred_b TRUE as registered; pred_a still FALSE on the jitter bar alone (1.84 vs 1.5, down from v1's 5.8), pred_c TRUE (comparative_screen2.py; n=54 — the strict non-adjacent construction is genuinely rare, flagged)
+
+- Reading with the flags on the table: a concentrated carrier of the comparative->than expectation exists in attn8 (44x), the random control is clean, and the layer bet from the withheld v1 screen confirmed. The jitter miss is narrow and partially expected semantically — positions 3 after a "than" are still inside the comparative clause, where the same context does real predictive work; recorded as a miss regardless.
+- Layer 8 is crowded company: fetchers 8.3/8.4 and the successor head 8.7 live there. Per-head cell queued (comparative_heads.py, 960 rows): registered bets — one dominant owner, and it is a FOURTH L8 specialist (not 8.3/8.4/8.7).
+
+comparative_screen2_results.json; runlogs/comparative_screen2.log (352s).
