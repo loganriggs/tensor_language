@@ -1,0 +1,31 @@
+{
+ "model": "swiglu18",
+ "n_rows": 24,
+ "W": 64,
+ "ce": {
+  "base": 3.1496,
+  "front": 3.1878,
+  "mid1": 3.2244,
+  "mid2": 3.2128,
+  "late": 3.1695,
+  "all18": 3.3727
+ },
+ "cost_vs_base": {
+  "front": 0.0382,
+  "mid1": 0.0748,
+  "mid2": 0.0632,
+  "late": 0.0199,
+  "all18": 0.2231
+ },
+ "bilin18_refs": {
+  "front": 0.0358,
+  "mid1": 0.067,
+  "mid2": 0.0335,
+  "late": 0.013,
+  "all18": 0.1759
+ },
+ "pred_a_mid1_top": true,
+ "pred_b_late_local": true,
+ "pred_c_all18_2x": true,
+ "runtime_s": 38.8
+}

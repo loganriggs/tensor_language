@@ -31969,3 +31969,11 @@ value_range_bands_results.json; runlogs/value_range_bands.log (40s).
 The §1186 drill-down lands on the program's most familiar signature: distributed, redundant, collectively load-bearing (§1093's 5.7× static-attention factor, §1160's leak co-carriage, writeup 486's 108× induction-band redundancy — and now the long-range value pool). L5 is NOT special once position 0 stays visible (pred_c: 0.009 ≈ the band median; writeup 482's +1.11 spike was entirely the sink fetch, re-confirmed at the read-mask level). Localization of the 0.07-nat channel therefore CLOSES at band grain: the content pool is gathered redundantly across L5-8 (with the front contributing a real 0.036 share, §1186), and no finer carrier decomposition is available by ablation — the §1128-29 population-code law, at the range dimension.
 
 value_range_mid1_results.json; runlogs/value_range_mid1.log (39s).
+
+## §1188 — POOLING GEOGRAPHY IS FAMILY-GENERAL: swiglu18 same band shape (mid1 top 0.0748, front 0.0382, late local 0.0199, all18 0.2231 — all within the registered bands vs bilin18's 0.067/0.036/0.013/0.176); one fingerprint: softmax sibling spreads pooling DEEPER (mid2 0.0632 vs 0.0335); preds a-c ALL TRUE (value_range_family.py)
+
+Fifth family-constant of the mega-arc (transport §1158, fold §1170, width law §1173, locality budget §1181, and now the pooling geography). The single visible architectural difference across the whole program's family comparisons remains depth-distribution details (here: swiglu18's L10-14 band carries 2× bilin18's share; earlier: repetition-flavored grammar failure §1137) — never the laws themselves.
+
+**Front drill-down queued (value_range_front.py, registered), completing the geography:** L0-4 singles @W64, pos-0 visible. (a) L1+L2 carry the majority of the front's 0.036 (the router/induction-trigger band — L2h5 is the top induction head and §1162 showed the front WRITES a ~64-local code); (b) singles super-additive vs the front joint; (c) L0 ≈ 0 (≤0.003 — a bigram table needs no range).
+
+value_range_family_results.json; runlogs/value_range_family.log (39s).

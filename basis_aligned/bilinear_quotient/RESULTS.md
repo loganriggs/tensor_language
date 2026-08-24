@@ -4922,3 +4922,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1185 — MLP window map GAP-FREE (all 18 ≤0.014; program complete: selection + every MLP + grand stack certified); value-pooling band localization queued (mlp_ngram_complete.py)
 §1186 — pooling channel localized: L5-9 top carrier 0.067 (2× mid2, 5× late; front 0.036 real second); late local (0.013) — §1153 triple-confirmed; mid-share 57% vs 60% bar (near-miss disclosed); mid1 drill-down queued (value_range_bands.py)
 §1187 — pooling channel = REDUNDANT CROWD (singles ≤0.009, joint 0.067, 1.8×; L5 not special — 482 spike was pure sink); localization closes at band grain (value_range_mid1.py)
+§1188 — pooling geography FAMILY-GENERAL (swiglu18 same shape; fingerprint: deeper spread); 5th family constant of the arc; front drill-down queued (value_range_family.py)
