@@ -32832,3 +32832,12 @@ writer_cross2_results.json; runlogs/writer_cross2.log (110s).
 - Queued (pair_algo.py): synthetic rows — random token sequences with planted repeated bigrams, so token identity repeats but surrounding context does NOT. Keep-one-alive at source positions. Registered: if 1.1 = identity-marker and 1.8 = context-signature, 1.1's restore should now EXCEED 1.8's by >= 20 points (reversing the natural-text order, where 1.8 led 84% to 70%).
 
 pair_profile_results.json; runlogs/pair_profile.log (114s).
+
+## §1297 — THE DISSOCIATION LANDS, 77 POINTS: on planted repeated bigrams in random-token rows (identity repeats, context does NOT), keep-only-1.1 restores 110% of the annotation function while keep-only-1.8 restores 33% — reversing the natural-text order (§1295: 1.8 led 84% to 70%); preds a & b TRUE, pred_c FALSE and it is a finding: ADDING 1.8 TO 1.1 HURTS on this data (pair 55% < 1.1 alone 110%) (pair_algo.py)
+
+- The two annotation algorithms are now NAMED AND SEPARATED: 1.1 writes an IDENTITY MARK (local read, ±8 window; survives context destruction; restore 110%), 1.8 writes a CONTEXT SIGNATURE (far read, 76% of mass ≥9 tokens out; useless when contexts don't repeat, restore 33% ≈ generic floor over control 4%). On natural text the signatures coincide with identities so either suffices; decouple them and each head's true algorithm shows.
+- Restore >1 and pred_c's failure, read together: on context-free repeats the OTHER front heads' context-flavored annotations (1.8 included) are actively counterproductive — noise marks on non-repeating contexts that partially corrupt matching. Zeroing everything at sources except 1.1's identity mark BEATS the clean model at the planted targets (dCE −0.058).
+- Honesty flags: base target CE on this synthetic set is 8.93 (vs ~10.8 chance) — the clean model's induction on isolated bigram repeats in noise is weak, so restores are measured against a shallow dependence (keep-none dCE 0.596); n=572 planted targets.
+- Queued (pair_algo2.py): the MIRROR arm — repeat a 7-token context window but change the pivot token (context matches, identity does not). If the model can fuzzy-match at all there, 1.8 should lead 1.1: registered. Both arms together = full double dissociation.
+
+pair_algo_results.json; runlogs/pair_algo.log (79s).
