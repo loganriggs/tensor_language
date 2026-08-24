@@ -1,0 +1,12 @@
+eval base 3.1493 | masked 3.3178 | gap 0.1686
+/workspace/tensor_language/basis_aligned/bilinear_quotient/scalar_recalibrate2.py:109: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  print(f"step {step}: train CE {float(loss):.4f}", flush=True)
+step 0: train CE 3.6086
+step 10: train CE 3.5241
+step 20: train CE 3.0198
+step 30: train CE 3.2475
+recovery -0.019 (perm null -0.009) | core dev 0.061 vs other 0.054
+extremes {'1.1': 1.154, '2.3': 1.17, '6.1': 1.159, '8.7': 1.232, '13.0': 1.175}
+pred_a rec False | pred_b cuts False | pred_c null True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/scalar_recalibrate2_results.json (60.4s)

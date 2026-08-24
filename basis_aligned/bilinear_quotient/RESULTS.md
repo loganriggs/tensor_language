@@ -4966,3 +4966,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1229 — textbook builder→station split FALSE both ways (matchers lean attn0, fetchers lean attn1) — share-instrument caveat registered; absolute-mass version queued (builders_split.py)
 §1230 — settled: both builders feed both stations (matcher leans attn0 −68%); §1229 rise = share artifact (caught by registered caveat); copy program §1204-30 FULLY CLOSED (builders_split_abs.py)
 §1231 — scalar-recalibration v1 overfits (negative held-out recovery; 162 params on 8 rows unregularized) — instrument lesson; regularized v2 queued (scalar_recalibrate.py)
+§1232 — bucket ladder rung 1: position bits ≈ worthless for the crowd (k2 = 3%, k16 flat, none beat deletion); random-bucket control exact; token-type rung queued (bucket_constants.py)

@@ -1,0 +1,25 @@
+{
+ "n_train": 32,
+ "n_eval": 16,
+ "W": 64,
+ "steps": 40,
+ "eval_base": 3.1493,
+ "eval_masked": 3.3178,
+ "eval_masked_scaled": 3.3211,
+ "gap": 0.1686,
+ "recovery_frac": -0.0194,
+ "recovery_perm_null": -0.0088,
+ "core_mean_abs_dev": 0.061,
+ "other_mean_abs_dev": 0.0541,
+ "scalar_extremes": {
+  "1.1": 1.154,
+  "2.3": 1.17,
+  "6.1": 1.159,
+  "8.7": 1.232,
+  "13.0": 1.175
+ },
+ "pred_a_free_recovery": false,
+ "pred_b_fix_at_cuts": false,
+ "pred_c_perm_null_fails": true,
+ "runtime_s": 60.4
+}

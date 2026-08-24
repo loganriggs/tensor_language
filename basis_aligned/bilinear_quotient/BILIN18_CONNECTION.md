@@ -32329,3 +32329,9 @@ builders_split_abs_results.json; runlogs/builders_split_abs.log (85s).
 User-proposed instrument (a per-head output scalar folds into c_proj = zero added description complexity, so any held-out recovery is free understanding). v1's registered bars failed for a fit-budget reason visible in the scalars themselves: with 162 free parameters, 8 training rows, and no prior, most heads drifted far from 1.0 and the assignment memorized the train batch (train CE fell, eval rose). The idea is NOT tested yet — v2 queued with 32 fit rows, an L2 prior toward 1.0, lower LR, fewer steps; same registered predictions with the recovery bar honestly lowered to 10%.
 
 scalar_recalibrate_results.json; runlogs/scalar_recalibrate.log (69s).
+
+## §1232 — THE BUCKET LADDER, FIRST RUNG: POSITION IS THE WRONG VARIABLE — k=2 position buckets recover only 3% of the all-static gap, k=16 adds nothing more (7.163 → 7.041), and no k crosses below zero-attention (6.816); monotone (pred_a TRUE) but pred_b FALSE; random-bucket control lands exactly on k1 (7.1636 vs 7.1634 — pred_c TRUE, the instrument is clean) (bucket_constants.py)
+
+User-proposed rate-distortion ladder for head constants (log2(k) bits of conditioning per position). First rung verdict: the pooling crowd's value is NOT a position-indexed bias schedule — absolute-position bits are nearly worthless to it (its §1085 criterion is recency + content, i.e. RELATIVE structure). Also replicated on eval rows: all-static (cost 4.03) worse than all-zero (3.69), the §1093 ordering. The informative contrast is §240: slice-conditioned constants carried ~85% of three circuits — but those buckets were TOKEN-TYPE-conditioned at specific heads. Conditioning variable is everything; queued next rung: same ladder with buckets = current-token frequency class (4 bins, §1151 convention extended), registered to beat position-k16 with 2 bits.
+
+bucket_constants_results.json; runlogs/bucket_constants.log (70s).
