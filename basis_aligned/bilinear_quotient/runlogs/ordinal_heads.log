@@ -1,4 +1,15 @@
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ordinal_heads.py", line 157
-    'pred_c_inc_specific': bool(per[win]['conc_q'] >= 2 * max(per[win]['conc_b'], 1e-6)),\n           'pred_b_not_fetchers': bool(win not in (3, 4)),
-                                                                                          ^
-SyntaxError: unexpected character after line continuation character
+digit id counts: [2, 2, 2, 2, 2, 2, 2, 2, 2]
+INC targets 181 | PLAIN targets 144
+base {'q': 2.0401372416819656, 'b': 4.662325566013654, 'e': 3.092038561856863}
+h0: q -0.0000 (conc -0.36) | b -0.0001 (conc -1.5) | e -0.00004
+h1: q 0.0077 (conc 1.12) | b 0.0124 (conc 1.81) | e 0.00684
+h2: q -0.0019 (conc -0.95) | b 0.0075 (conc 3.68) | e 0.00204
+h3: q 0.0683 (conc 11.16) | b -0.0105 (conc -1.72) | e 0.00612
+h4: q 0.0080 (conc 3.23) | b -0.0022 (conc -0.91) | e 0.00246
+h5: q -0.0034 (conc -6.38) | b -0.0058 (conc -10.92) | e 0.00054
+h6: q -0.0050 (conc -4.61) | b -0.0043 (conc -4.0) | e 0.00108
+h7: q 0.2725 (conc 113.35) | b 0.0026 (conc 1.09) | e 0.00240
+h8: q 0.0035 (conc 0.95) | b -0.0061 (conc -1.66) | e 0.00367
+winner h7 share 0.779 | halves [178.52, 74.43] | bracket conc 1.09
+pred_a one-head True | halves True | not-fetchers True | inc-specific True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ordinal_heads_results.json (112.7s)
