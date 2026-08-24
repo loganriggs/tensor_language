@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/year_succ.py", line 161, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/year_succ.py", line 44, in main
+    if s.isdigit() and 1900 <= int(s) <= 2030:
+                               ^^^^^^
+ValueError: invalid literal for int() with base 10: '²'
