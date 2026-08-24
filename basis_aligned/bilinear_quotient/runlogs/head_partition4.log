@@ -1,0 +1,12 @@
+'peer closed connection without sending complete message body (received 30497772 bytes, expected 38345731)' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 1s [Retry 1/5].
+induction targets 8313
+base {'t': 0.8707449573565946, 'e': 3.3712885861394115}
+main4_id: ind 0.1302 else 0.002
+main4_shuf: ind 0.0037 else -0.0
+tail_id: ind 1.1423 else 0.6931
+tail_shuf: ind 0.063 else 0.0656
+all_id: ind 1.9349 else 0.749
+all_shuf: ind 0.0697 else 0.0659
+pred_a identity False | pred_b null True | pred_c second-coord False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_partition4_results.json (401.3s)

@@ -32805,3 +32805,14 @@ head_partition2_results.json; runlogs/head_partition2.log (93s).
 - CUT 4 queued (head_partition4.py): rank-2 per position — remove the projection onto BOTH coordinate systems: the raw v1 direction AND the layer-transformed direction c_v^L(block-0's stream write at that position), Gram-Schmidt orthogonalized. Registered: main4 rank-2 >= 60% of whole (0.395); shuffle null <= 25%; rank-2 >= 2x rank-1 (0.125 anchor).
 
 head_partition3_results.json; runlogs/head_partition3.log (113s).
+
+## §1294 — HEAD-PARTITION ARC CLOSED (cuts 1-4): THE INDUCTION PART OF A HEAD IS NOT A WEIGHTS-DERIVABLE SUBSPACE — cut 4's second coordinate (c_v^L applied to block-0's stream write) adds ~nothing (0.130 vs 0.125; pred_c FALSE, null clean at 35:1) — the fresh-route identity is a DEPTH-RECODED representation no simple weight-derived direction spans (head_partition4.py; 401s)
+
+The user's program, scored across four registered cuts:
+- Cut 1 (architectural route): the lambda-v1 broadcast = 31% of the main heads' induction part; the stream carries a second copy. FALSIFIED as "the part", validated as surgically clean (else 2%).
+- Cut 2 (fixed 16-dim content subspace): identity content is FULL-RANK (top-16 = 23-45% energy); masks ~= their nulls. FALSIFIED, and it names the reason the copy circuit uses dedicated heads: the payload needs the whole channel.
+- Cut 3 (per-position raw-code direction): instrument VALID (60:1 over shuffle null) but captures exactly the broadcast term (0.125 = cut 1's 0.122). The same variable rides the fresh route in transformed coordinates.
+- Cut 4 (raw + layer-transformed direction): the one-hop linear transform c_v^L(d0) is NOT the transformation — by the source position's own depth, identity has been re-encoded through MLPs into a form these two directions do not span (0.130, +0.005 over cut 3).
+STANDING CONCLUSIONS: (i) partition succeeds at BOTTLENECK VARIABLES (verdict axis: 1-D, 95% restore; successor maps: near-rank-1) and fails at TRANSPORT: full-rank content in learned, depth-recoded coordinates — partition variables, not pipes. (ii) The per-position identity instrument (cut 3/4) is the arc's keeper: null-clean, elsewhere-clean on the main heads, and it certifies the LONG TAIL as an identity-transport crowd (1.14 nats at 1.6x specificity). (iii) The remaining route to "100% of each head" is EMPIRICALLY FITTED per-head payload subspaces (the §1240 fitted-axis method, which is how the 1-D case was won) — logged, not queued tonight. QK-side partition is already largely answered by the §1256-60 weights-computed stand-ins (0.78).
+
+head_partition4_results.json; runlogs/head_partition4.log.

@@ -347,6 +347,30 @@ matching, no pooling: a bias-delivery circuit, whose entire "information need" w
 to be two bits of the current token's frequency class (§1234). Sharing the variable is a
 property of these three circuits, not of the network at large.</p>
 
+<h2>Postscript: can a head be split into its parts?</h2>
+<p>A natural next ambition — proposed by the reader of these pages — is to stop treating
+heads as the unit of membership: since the tail of small contributors "all do different
+things," decompose each head into <em>the part that does this task</em> and the rest, and
+mask just that part. Four registered attempts (§1290–94) mapped exactly where that works.
+Splitting by the architecture's own broadcast route captured only <b>31%</b> of the main
+heads' induction contribution — the identity code also travels through the residual stream
+and is re-extracted fresh by every layer. Splitting by a fixed 16-dimensional subspace
+failed for a structural reason worth knowing: <b>the identity code is full-rank</b> —
+token identity for a 50k vocabulary fills the whole 128-dimensional head channel (16
+directions hold under half its energy), which is <em>why</em> copying uses dedicated heads
+rather than corners of shared ones. A per-position mask along each token's own code
+direction finally produced a clean instrument (60:1 over its shuffled null, elsewhere cost
+2%) — and showed the long tail really is an <b>identity-transport crowd</b> (1.1 nats of
+induction carried collectively) — but it, too, catches only the raw broadcast copy: by
+mid-depth the stream's version of the code has been re-encoded through MLPs into
+coordinates no weight-derived direction spans (adding the one-hop transformed direction
+changed nothing, 0.130 vs 0.125). The standing rule the arc produced: <b>partition
+variables, not pipes.</b> Head-splitting succeeds where content is genuinely low-rank —
+the one-direction match verdict (95% restored through a single axis), the near-rank-1
+successor maps — and fails at transport, where the content <em>is</em> the full-width
+variable. There, the honest per-head statement is a fraction, not a subspace: this head
+carries this much of the identity traffic.</p>
+
 <div class="footer">
 <p>Companion pages: <a href="https://claude.ai/code/artifact/60bcb3fd-b383-4ceb-b242-9a6a4f24addb">the full report</a> ·
 <a href="https://claude.ai/code/artifact/bd70f86b-0ea3-46c2-8797-44e00848a6f0">highlights</a> ·
