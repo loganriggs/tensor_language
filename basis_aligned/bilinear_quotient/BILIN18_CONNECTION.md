@@ -32583,3 +32583,9 @@ Two-level close of §1262's null:
 - Thread closed as a characterized negative: **copying reduces to computation (§1261, 0.78); prose far-pooling does not — its product is small, distributed off the content basis, and synergistic.** The remaining question ("in WHICH subspace does the 0.176 travel?") is registered as the next thread's opener, not chased tonight.
 
 bag_diagnostic_results.json; runlogs/bag_diagnostic.log (175s).
+
+## §1264 — CHARACTERIZATION DELIVERED, ATTRIBUTION QUARANTINED BY ITS OWN NULL: the far-pool delta is moderately low-rank (top-16 = 50.1% var; 30% of that energy overlaps the content basis) — but the causal step failed: removing the delta-16 subspace from the clean stream costs 7.66 nats and RANDOM-16 costs 0.263, BOTH exceeding the 0.176 all-mask reference; preds a TRUE, b vacuously "true" at a meaningless scale, c FALSE (pool_subspace.py)
+
+Instrument catch #16, by the registered null: projecting 16 dimensions out of the stream at five consecutive block entries destroys general stream function regardless of which 16 (random: 1.5× the entire quantity being attributed) — the §1249 single-direction removal was the benign exception, not a license for 16-dim surgery. The 29× excess of delta-16 over random-16 says the delta's top directions are heavily load-bearing, but that includes the stream's principal working directions the pool merely writes into — no pool-specific attribution is possible at this instrument. What stands: the carrier-subspace characterization (half the far-pool's stream effect fits in 16 directions; less than a third of it is content-basis). Matched instrument registered as available (subtract the delta-16 projection of attention OUTPUTS only, leaving the stream's own coordinates untouched); not queued tonight — the thread has its opener characterized and its instrument requirements named.
+
+pool_subspace_results.json; runlogs/pool_subspace.log (213s).
