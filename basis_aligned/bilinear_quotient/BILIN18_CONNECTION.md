@@ -33015,3 +33015,11 @@ exclaim_pair_results.json; runlogs/exclaim_pair.log (74s).
 ## §1320 — THE "!"-PAIR'S CRITERION IS STREAM-COMPUTED, THREAD FULLY CLOSED: raw "!"-token codes do not stand out under 17.2/17.3's q/k weights (ratios 1.49/1.29 vs the 2.0 bar; control 17.0 at 1.15; matcher guard 0.88 confirms the instrument); preds a-c ALL TRUE (exclaim_weights.py; 48s)
 
 Criterion taxonomy final tally across seven named circuits: embedding-native (8.7 only — lexicon order lives in the tokens); stream-computed class/state marks (13.8, 10.5, 8.1, 17.2/17.3); equality-on-broadcast-codes with stem tolerance (matchers). Exclamation thread §1315-20 closed at six experiments.
+
+## §1321 — RUNG 4 IS HALF A PRINTABLE MACHINE: the AXIS code transfers into the skeleton (38.4% of the quad's in-skeleton gap, vs the 50% bar — pred_a FALSE) but the PAYLOAD code does not — every pscale > 0 HURT (grid chose 0.0; in the full model the same payload earned +15 points, §1260); pred_b TRUE (standin price 3.54 <= 2x skeleton 3.17), pred_c trivially TRUE (extraction_v4.py; W64 repeat benchmark)
+
+- The dissociation names the engineering rule: the axis stand-in is CAPTURE-AND-SET (replace a component with the computed value — self-calibrating to the receiving stream); the payload was ADDITIVE at a scale fitted in a HEALTHY stream. Inside the skeleton the L8 stream state is degraded, the fixed-scale added vector is off-manifold, and §1287's lesson applies: downstream re-encoding turns uncalibrated injections into poison. Computed circuit code must be injected in stream-calibrated form.
+- Context numbers: on W64 repeats the full model runs at CE 0.36 (repeats almost free), the rung-3 skeleton at 3.53 — the skeleton's repeat exploitation is partial; the quad's marginal value inside it is 0.59 nats, of which printed code currently buys 0.38.
+- RUNG 5 queued (extraction_v5.py): payload injected RMS-CALIBRATED — normalized per position and scaled as a fraction alpha of the local stream norm, fine alpha grid. Registered: (a) some alpha > 0 beats axis-only by >= 5 points; (b) wrong-successor stays flat at the chosen alpha; (c) chosen alpha <= 0.15 (small, consistent with degraded-stream calibration).
+
+extraction_v4_results.json; runlogs/extraction_v4.log (97s).
