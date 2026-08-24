@@ -1,20 +1,17 @@
-# bilin12_crowd: does the crowd's scaling exponent track the SCORE FUNCTION? (§1224 test.)
-# bilin18 (bilinear, unnormalized): synergistic, per-head value x1.56 from k=8 to 64.
-# swiglu18 (softmax): coverage-like, x0.84. bilin12 = bilinear scores + row normalization —
-# the same deciding position that settled the matcher mechanism (§1218: bilinearity won).
+# bilin12_interference: locate the ensemble-scale interference. §1225: masking bilin12's
+# 12-head core costs 0.2996 — MORE than masking all 72 heads (0.2478). Some unmasked heads'
+# long-range reads are net harmful once the core is blind. WHICH?
 #
-# Design (prose, natural rows, W=64 read-mask, pos-0 visible, scored t>=128): screen all
-# 72 heads singly; greedy-12 core; random-k scaling k in {8, 48} x 3 draws from non-core
-# heads (72-head model: k=48 plays the role of 64/162).
+# Conditions (prose, W=64 read-mask, pos-0 visible): base; core12 (§1225's chosen set,
+# anchor); core12 + remaining-front (L0-3 non-core heads also masked); core12 + remaining-mid
+# (L4-7); core12 + remaining-late (L8-11); all72.
 #
 # Registered predictions:
-#   pred_a SCORE FUNCTION DECIDES: per-head cost at k=48 >= 1.2 x per-head at k=8
-#          (bilinear -> synergy, despite normalization — the §1218 pattern).
-#   pred_b STATIONS TOP THE SCREEN: >= 2 of its copy heads {2.1, 2.3, 5.1, 5.5} in the
-#          screening top-6.
-#   pred_c NO COMPACT CORE: greedy-12 <= 0.55 x all12 (family law; bar loosened to 0.55
-#          since 12 of 72 heads is proportionally more of this model).
-# Controls: base = custom unmasked forward, sanity vs reference_forward (±0.005).
+#   pred_a CONCENTRATED: the best single added band recovers >= 60% of the full recovery
+#          (core12 − all72 = 0.052).
+#   pred_b MONOTONE: adding ANY band to core12 reduces cost (no band's masking hurts).
+#   pred_c ANCHORS: core12 within ±0.01 of 0.2996; all72 within ±0.01 of 0.2478.
+# Control: sanity base = reference_forward (±0.005).
 import json, time, sys, torch
 import torch.nn.functional as F
 sys.path.insert(0, '/workspace/rspd')
@@ -23,12 +20,12 @@ from tier2_model import load_elriggs, reference_forward, rope_tables, apply_rot
 import census_lib as cl
 
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT = PT + 'bilin12_crowd_results.json'
+OUT = PT + 'bilin12_interference_results.json'
 DEV = 'cuda'
 mdl, cfg = load_elriggs('bilin12', device=DEV, dtype=torch.float32); mdl.eval()
 D = 768; NH = 6; HD = 128; NL = 12; T = 256; NR = 24; WIN = 64; QSTART = 128
-TOPK_SCREEN = 30; ROUNDS = 12
 V12 = int(mdl.lm_head.weight.shape[0])
+CORE = [(2,1),(5,5),(5,1),(7,0),(7,5),(10,0),(11,3),(10,2),(11,2),(2,3),(8,0),(5,0)]
 
 MASK_W = None
 FULL = None
@@ -90,6 +87,7 @@ def ce_of(spec, ROWS, qp):
     return tot / n
 
 
+
 @torch.no_grad()
 def main():
     global MASK_W, FULL
@@ -109,55 +107,30 @@ def main():
         n += idx.shape[0] * len(qp)
     ce_true = tot / n
     allheads = [(L, h) for L in range(NL) for h in range(NH)]
-    all12 = ce_of(spec_of(allheads), ROWS, qp) - base
-    print(f"base {base:.4f} true {ce_true:.4f} | all12 {all12:.4f}", flush=True)
-    singles = {}
-    for L in range(NL):
-        for h in range(NH):
-            singles[(L, h)] = round(ce_of({L: {h}}, ROWS, qp) - base, 5)
-        print(f"screened L{L}", flush=True)
-    top = sorted(singles.items(), key=lambda kv: -kv[1])[:TOPK_SCREEN]
-    cand = [k for k, _ in top]
-    chosen = []; curve = []; cur = 0.0
-    for r in range(ROUNDS):
-        best = None; bc = cur
-        for c in cand:
-            if c in chosen:
-                continue
-            cost = ce_of(spec_of(chosen + [c]), ROWS, qp) - base
-            if cost > bc:
-                bc = cost; best = c
-        if best is None:
-            break
-        chosen.append(best); cur = bc
-        curve.append({'head': f'{best[0]}.{best[1]}', 'joint_cost': round(cur, 4)})
-        print(f"round {r + 1}: +{best[0]}.{best[1]} -> {cur:.4f} ({cur / all12:.0%})", flush=True)
-    pool = [x for x in allheads if x not in chosen]
-    g = torch.Generator().manual_seed(11)
-    rk = {}
-    for k in (8, 48):
-        vals = []
-        for s in range(3):
-            perm = torch.randperm(len(pool), generator=g).tolist()
-            vals.append(ce_of(spec_of([pool[j] for j in perm[:k]]), ROWS, qp) - base)
-        rk[k] = round(sum(vals) / 3, 5)
-    per8 = rk[8] / 8; per48 = rk[48] / 48
-    top6 = [f'{L}.{h}' for (L, h), _ in top[:6]]
-    stations = {'2.1', '2.3', '5.1', '5.5'}
-    n_st = len(stations & set(top6))
+    rest = [x for x in allheads if x not in CORE]
+    bands = {'front': [x for x in rest if x[0] <= 3],
+             'mid': [x for x in rest if 4 <= x[0] <= 7],
+             'late': [x for x in rest if x[0] >= 8]}
+    cost = {}
+    cost['core12'] = round(ce_of(spec_of(CORE), ROWS, qp) - base, 4)
+    cost['all72'] = round(ce_of(spec_of(allheads), ROWS, qp) - base, 4)
+    for bn, bh in bands.items():
+        cost[f'core12+{bn}'] = round(ce_of(spec_of(CORE + bh), ROWS, qp) - base, 4)
+    rec_full = cost['core12'] - cost['all72']
+    recs = {bn: round(cost['core12'] - cost[f'core12+{bn}'], 4) for bn in bands}
+    best = max(recs, key=recs.get)
     out = {'model': 'bilin12', 'n_rows': NR, 'W': WIN, 'base': round(base, 4),
-           'all12_cost': round(all12, 4),
-           'screen_top12': [[f'{L}.{h}', v] for (L, h), v in top[:12]],
-           'greedy_curve': curve, 'chosen': [f'{L}.{h}' for L, h in chosen],
-           'random_k_mean': rk, 'per_head': {'k8': round(per8, 6), 'k48': round(per48, 6)},
+           'cost': cost, 'recovery_full': round(rec_full, 4), 'band_recoveries': recs,
+           'best_band': best,
            'sanity': bool(abs(base - ce_true) <= 0.005),
-           'pred_a_synergy': bool(per48 >= 1.2 * per8),
-           'pred_b_stations_top': bool(n_st >= 2), 'stations_in_top6': n_st,
-           'pred_c_no_compact_core': bool(curve and curve[-1]['joint_cost'] <= 0.55 * all12),
+           'pred_a_concentrated': bool(rec_full > 0 and recs[best] >= 0.6 * rec_full),
+           'pred_b_monotone': bool(all(v >= -0.005 for v in recs.values())),
+           'pred_c_anchors': bool(abs(cost['core12'] - 0.2996) <= 0.01 and
+                                  abs(cost['all72'] - 0.2478) <= 0.01),
            'runtime_s': round(time.time() - t0, 1)}
     json.dump(out, open(OUT, 'w'), indent=1)
-    print(f"top6 {top6} (stations {n_st}) | greedy12 {curve[-1]['joint_cost'] if curve else 0} of {all12:.4f} | per-head k8 {per8:.6f} k48 {per48:.6f}")
-    print(f"sanity {out['sanity']} | pred_a synergy {out['pred_a_synergy']} | pred_b stations {out['pred_b_stations_top']} | pred_c nocore {out['pred_c_no_compact_core']}")
+    print(f"cost {cost} | recoveries {recs} | best {best} of full {rec_full}")
+    print(f"sanity {out['sanity']} | pred_a conc {out['pred_a_concentrated']} | pred_b mono {out['pred_b_monotone']} | pred_c anchors {out['pred_c_anchors']}")
     print(f"wrote {OUT} ({out['runtime_s']}s)")
 
 

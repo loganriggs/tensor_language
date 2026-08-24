@@ -32274,3 +32274,11 @@ crowd_scaling_results.json; runlogs/crowd_scaling.log (72s). Family replication 
 - Also of note: swiglu's greedy picks spread far deeper (L0-15, including 13.7/14.3/15.6) than bilin18's (L1-13) — the §1188 "softmax pools deeper" fingerprint at ensemble grain.
 
 swiglu_crowd_results.json; runlogs/swiglu_crowd.log (148s).
+
+## §1225 — CROWD-SCALING HYPOTHESIS FALSIFIED, AND A BIGGER FISH SURFACES: bilin12 is sublinear too (0.88× — bilin18's synergy is a SOLO fingerprint, not score-function-tracked; pred_a FALSE) — but its greedy-12 core costs 0.2996 = 121% OF MASKING ALL 72 HEADS (0.2478): ensemble-scale INTERFERENCE (pred_c FALSE in the unregistered direction); stations top the screen in all three (pred_b TRUE, 3 in top-6) (bilin12_crowd.py)
+
+- **The registered hypothesis dies:** the §1218 pattern (score function decides) does NOT extend to crowd scaling — both siblings are mildly sublinear (swiglu 0.84×, bilin12 0.88×); bilin18's superlinear 1.56× stands alone, joining its relay behavior (§1194) in the solo-fingerprint bin. Reported plainly: two potential family laws proposed this arc, one confirmed three ways (stations top the prose screen: 2.5/3.8/5.5 · 4.4/5.2 · 2.1/5.5/5.1), one falsified at the first sibling.
+- **The surprise (echoing §1205/§1213 at 5× the scale):** in bilin12, masking the 12-head core costs MORE than masking all 72 heads — the unmasked crowd's long-range reads are net HARMFUL once the core is blind, to the tune of 0.05 nats (21% of the whole budget). The interference phenomenon is not a two-head curiosity; in the smallest model it dominates ensemble arithmetic. (bilin18's core never exceeded all18; its interference was confined within layers.)
+- Screen notes: bilin12's prose top-6 = 2.1, 5.5, 5.1, 7.0, 3.3, 10.2 — its copy stations 2.1/5.5/5.1 rank #1/#2/#3 (station law, cleanest instance); its prose read budget all12 = 0.2478 exceeds both 18L models (0.176/0.223) — the smallest model leans hardest on long-range reads.
+
+bilin12_crowd_results.json; runlogs/bilin12_crowd.log (146s; first submission died on a missing import — NameError at first forward, fixed and requeued, no results consumed).

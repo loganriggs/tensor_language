@@ -1,0 +1,28 @@
+base 3.4383 true 3.4383 | all12 0.2478
+screened L0
+screened L1
+screened L2
+screened L3
+screened L4
+screened L5
+screened L6
+screened L7
+screened L8
+screened L9
+screened L10
+screened L11
+round 1: +2.1 -> 0.0229 (9%)
+round 2: +5.5 -> 0.0507 (20%)
+round 3: +5.1 -> 0.0880 (36%)
+round 4: +7.0 -> 0.1194 (48%)
+round 5: +7.5 -> 0.1439 (58%)
+round 6: +10.0 -> 0.1667 (67%)
+round 7: +11.3 -> 0.1925 (78%)
+round 8: +10.2 -> 0.2168 (87%)
+round 9: +11.2 -> 0.2421 (98%)
+round 10: +2.3 -> 0.2649 (107%)
+round 11: +8.0 -> 0.2834 (114%)
+round 12: +5.0 -> 0.2996 (121%)
+top6 ['2.1', '5.5', '5.1', '7.0', '3.3', '10.2'] (stations 3) | greedy12 0.2996 of 0.2478 | per-head k8 0.002625 k48 0.002308
+sanity True | pred_a synergy False | pred_b stations True | pred_c nocore False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_crowd_results.json (146.2s)
