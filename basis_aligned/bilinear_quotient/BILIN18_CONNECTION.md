@@ -32377,3 +32377,13 @@ Per-band scramble of the inherited v1 (front L1-4 / mid L5-9 / late L10-17; bloc
 **Next (queued): the weight-relative test the refinement demands** — if the matchers' criterion doesn't ride v1, is it readable from the embedding path directly? matcher_weights.py scores heads' q·k bilinear forms on raw rms(wte) token codes: same-token vs different-token pairs at offset 128.
 
 shared_variable2_results.json; runlogs/shared_variable2.log (198s).
+
+## §1238 — THE MATCHING CRITERION IS WEIGHTS-READABLE — AND IT IS AN ANTI-CRITERION: on raw rms(wte) token codes, heads 2.5 and 3.8 separate same-token from different-token pairs PERFECTLY INVERTED (AUC 0.002 / 0.000 — same-token scores consistently LOWEST); non-station L2/L3 mean 0.50, sink 0.60; preds a & c FALSE by registered letter, TRUE in |discriminability| — reported both ways (matcher_weights.py)
+
+Pure weights+embeddings instrument: feed 512 real corpus tokens' rms(wte) codes through each head's actual q- and k-pipelines (rotary at positions 200 vs 72, offset 128), score s1·s2, AUC of same-token diagonal vs off-diagonal.
+
+- **pred_a FALSE as registered (AUC ≥ 0.8) and the failure is the discovery:** AUC ≈ 0 is perfect separation with inverted sign. |2·AUC−1| = 1.00 for both matchers vs 0.00 mean for their sixteen layer-mates (pred_b TRUE — utterly station-specific in pure weights). In this softmax-free architecture patterns are SIGNED products (§981-984 anti-heads) — the matchers' bilinear forms assign same-token pairs extreme scores of consistent NEGATIVE polarity. The §1215 instrument used |pattern|, so the live sign was never observed; heads 3.5 (0.008), 5.1 (0.147), 5.2 (0.196) also show inverted structure worth logging.
+- **pred_c FALSE by letter** (bars were written for positive AUCs): fetchers 8.3/8.4 at 0.46/0.62 — |discriminability| 0.08/0.25, far below the matchers' 1.00 — the intended asymmetry (fetchers' keys are composed context, not raw identity) holds in the corrected metric.
+- Registered caveat honored: this instrument is sufficiency-only — and it SUCCEEDED, so the strong claim stands: **"is this the same token?" is computable for these two heads from the weight matrices and the embedding table alone, with zero forward passes of the model.** The §1237 channel picture completes: match-identity = embedding-path (weights-relative, now literal), payload-identity = v1 broadcast.
+
+matcher_weights_results.json; runlogs/matcher_weights.log (104s). Queued: matcher_weights2 (sign structure — factor signs at same-token pairs; IN-VIVO signed pattern at o=128 on repeat rows; fetcher o=127 sign contrast).
