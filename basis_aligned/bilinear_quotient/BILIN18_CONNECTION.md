@@ -32888,3 +32888,10 @@ comparative_screen_results.json; runlogs/comparative_screen.log (166s).
 - Layer 8 is crowded company: fetchers 8.3/8.4 and the successor head 8.7 live there. Per-head cell queued (comparative_heads.py, 960 rows): registered bets — one dominant owner, and it is a FOURTH L8 specialist (not 8.3/8.4/8.7).
 
 comparative_screen2_results.json; runlogs/comparative_screen2.log (352s).
+
+## §1304 — NEW NAMED HEAD: 8.1 = THE COMPARATIVE HEAD — it alone carries the comparative->"than" expectation (dmg 1.652 of the layer's 1.640 = 100.7% share, conc 276, jitter −0.06 clean), every other L8 head <= 0.2% share; preds a-c ALL TRUE including the fourth-specialist bet (comparative_heads.py; n=54 flagged; disclosure: the script's winner label printed "10.1" — a label string inherited from question_heads with L hardcoded; the data rows are unambiguous, layer 8 head 1)
+
+- Layer 8 is now a four-specialist bureau of "deliver the token the context licenses": 8.3/8.4 (copy fetchers, offset-from-match), 8.7 (successor head, "+1" in weights), and 8.1 (comparative licensing, "than" after a comparative 2-20 back). Four heads, four licensing rules, one layer. 8.1's earlier cameo as a "control head" (§1278, flat at successor targets; succ_twin_scale ctrl) is consistent — its job was elsewhere.
+- Fifth behaviour-first named head; delete-cost check pending in mechanism cell. Queued (comparative_mechanism.py): does 8.1 FETCH the comparative's position (13.8/10.5-style), and is its criterion EMBEDDING-NATIVE (registered bet: yes — comparatives are a lexical class like the successor lexicons, readable from raw codes; opposite of the state heads' stream-computed annotations)?
+
+comparative_heads_results.json; runlogs/comparative_heads.log (149s).

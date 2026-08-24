@@ -5038,3 +5038,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1301 — fitted subspaces FAIL too (fitted = null at every rank; r32 = 11% of whole): partition law FINAL — task-parts are per-position or variable-level, never fixed-subspace; program closed (fitted_payload.py)
 §1302 — comparative screen UNDERPOWERED (n=20, dirty controls) — verdict withheld; attn8 registered as bet; 5x rerun queued (comparative_screen.py)
 §1303 — "than"-carrier = attn8 CONFIRMED at 5x (conc 44.7, rand clean; jitter 1.84 narrow miss, n=54 flagged); per-head cell queued (comparative_screen2.py)
+§1304 — NEW NAMED HEAD: 8.1 = comparative head (100.7% share, conc 276; fourth L8 specialist bet WON); mechanism cell queued (comparative_heads.py)
