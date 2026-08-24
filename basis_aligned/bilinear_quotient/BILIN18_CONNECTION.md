@@ -32037,3 +32037,9 @@ pred_a/b nominally passed (W128 within noise of base on cw-rate/rep4/distinct2; 
 **Correct instrument queued (gen_window2.py, registered):** topic retention = cosine between pooled mid-stream residuals (block 10, base model) of the prompt vs the last 64 generated positions; ceiling = true FineWeb continuations, floor = shuffled prompt-continuation pairing. (a) instrument SEES W16 (retention ≤ base-gen − 0.15) — required before any claim; (b) W128 within 0.05 of base-gen; (c) full ordering floor < W16 < W64 ≤ W128, base-gen ≤ true.
 
 gen_window_results.json (texts saved); runlogs/gen_window.log (81s). Benchmark page 📈 gained the context-locality certificate card (republished).
+
+## §1197 — RETENTION INSTRUMENT SATURATED (floor 0.973 vs ceiling 0.984): pooled residuals ARE the constant baseline — my own §688/§1089 finding, not applied; centering fix queued (gen_window2.py)
+
+The shuffled-pair floor scored 0.973 against the true-continuation ceiling 0.984 — a dynamic range of 0.011, unusable. Cause is a program fact I derived myself and forgot to apply: after L5 the residual stream is mostly ONE fixed vector (§688-691; the §1089 constant sits at cos 0.99 with the mean residual), so pooled raw residuals of ANY two texts are near-parallel. The W-ordering was even correct inside that sliver (floor < W16 < W64 < W128 ≈ base — pred_c TRUE) but no claim survives a 0.011-range instrument. Fix (gen_window3.py, queued): center every pooled vector by the run's grand pooled mean before the cosine — the §1055 deviation move at pool level; re-registered with the floor bound (≤0.35) as part of the positive control.
+
+gen_window2_results.json; runlogs/gen_window2.log (75s).

@@ -1,0 +1,7 @@
+base_gen: retention 0.9805
+    W128: retention 0.9804
+     W64: retention 0.9786
+     W16: retention 0.9732
+retention {'true': 0.9842, 'base_gen': 0.9805, 'W128': 0.9804, 'W64': 0.9786, 'W16': 0.9732, 'floor': 0.973}
+pred_a sees False | pred_b W128 clean True | pred_c ordered True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gen_window2_results.json (75.1s)

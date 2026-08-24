@@ -1,0 +1,16 @@
+{
+ "n_prompts": 12,
+ "cap_layer": 10,
+ "retention": {
+  "true": 0.9842,
+  "base_gen": 0.9805,
+  "W128": 0.9804,
+  "W64": 0.9786,
+  "W16": 0.9732,
+  "floor": 0.973
+ },
+ "pred_a_instrument_sees": false,
+ "pred_b_W128_clean": true,
+ "pred_c_ordered": true,
+ "runtime_s": 75.1
+}
