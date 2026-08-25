@@ -1,0 +1,60 @@
+{
+  "row": 577,
+  "pos": 244,
+  "ce": 1.5707,
+  "target": " ",
+  "context": "Attorney Review : Yes___ No ____\nReviewed by: Dept. Head",
+  "class": "other",
+  "mlp_top": [
+    [
+      1,
+      11.2678
+    ],
+    [
+      0,
+      2.6306
+    ],
+    [
+      3,
+      0.9888
+    ]
+  ],
+  "head_ov_top": [
+    [
+      14,
+      6,
+      0.8835
+    ],
+    [
+      3,
+      6,
+      0.241
+    ],
+    [
+      16,
+      3,
+      0.2281
+    ]
+  ],
+  "head_qk_top": [
+    [
+      14,
+      6,
+      0.8011
+    ],
+    [
+      16,
+      3,
+      0.2122
+    ],
+    [
+      3,
+      6,
+      0.1631
+    ]
+  ],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1=11.27 dominates (~13x the top head 14.6, OV=0.88/QK=0.80 -- near-equal ratio ~1.1x, so head 14.6 is almost pure selection/locating-the-blank rather than payload). This context ('Yes___ No ____') is a near-verbatim match to mlp1's previously catalogued 'form-filler boilerplate' example from wave-1/2 writeups -- this datapoint directly corroborates that known finding rather than adding anything new."
+}

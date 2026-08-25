@@ -1,0 +1,60 @@
+{
+  "row": 1534,
+  "pos": 255,
+  "ce": 1.0714,
+  "target": " a",
+  "context": " on March 26.\nJermaine Jones returned home to Germany to nurse",
+  "class": "word",
+  "mlp_top": [
+    [
+      1,
+      15.2855
+    ],
+    [
+      2,
+      2.0101
+    ],
+    [
+      3,
+      1.3195
+    ]
+  ],
+  "head_ov_top": [
+    [
+      0,
+      3,
+      0.1565
+    ],
+    [
+      2,
+      7,
+      0.1543
+    ],
+    [
+      0,
+      8,
+      0.1539
+    ]
+  ],
+  "head_qk_top": [
+    [
+      0,
+      8,
+      0.1203
+    ],
+    [
+      5,
+      3,
+      0.0718
+    ],
+    [
+      8,
+      1,
+      0.063
+    ]
+  ],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1=15.29 is the most dominant owner in this whole sample (~95x the top head, which tops out at 0.16). Determiner 'a' after a transitive-verb infinitive ('nurse a [injury]') is a near-deterministic grammatical continuation \u2014 illustrates mlp1's strength on function-word prediction even at the low end of the medium-CE band (ce=1.07). Head 0.3 present at rank1 OV (0.16) but negligible relative to mlp1."
+}

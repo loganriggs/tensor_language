@@ -1,0 +1,60 @@
+{
+  "row": 551,
+  "pos": 153,
+  "ce": 2.1268,
+  "target": " heart",
+  "context": "est to mind, and therefore thought to be\nClosest to the",
+  "class": "word",
+  "mlp_top": [
+    [
+      1,
+      10.2847
+    ],
+    [
+      0,
+      3.7473
+    ],
+    [
+      2,
+      3.1352
+    ]
+  ],
+  "head_ov_top": [
+    [
+      0,
+      3,
+      1.5727
+    ],
+    [
+      9,
+      7,
+      0.9166
+    ],
+    [
+      1,
+      3,
+      0.8288
+    ]
+  ],
+  "head_qk_top": [
+    [
+      1,
+      3,
+      0.6538
+    ],
+    [
+      5,
+      3,
+      0.5114
+    ],
+    [
+      2,
+      8,
+      0.3614
+    ]
+  ],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1=10.28 owns it but with unusually broad support from other MLPs: mlp0=3.75 and mlp2=3.15 are both non-trivial (mlp1 is only ~2.7x mlp0, vs typical 10-90x margins elsewhere in this sample). Idiom completion 'closest to the [heart]' draws a wider front-MLP circuit than the single-mlp1 cases. Head 0.3 (bigram router) is the top head at OV=1.57/QK=0.65 \u2014 clearly present but still ~6.5x below mlp1, consistent with 0.3 supplying a bigram-level signal ('to the' -> noun) that mlp1's token table subsumes."
+}

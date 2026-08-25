@@ -1,0 +1,60 @@
+{
+  "row": 370,
+  "pos": 245,
+  "ce": 1.1485,
+  "target": "'ve",
+  "context": ": Are there other places that have been traditionally very difficult to play that you",
+  "class": "other",
+  "mlp_top": [
+    [
+      1,
+      13.199
+    ],
+    [
+      2,
+      1.9308
+    ],
+    [
+      3,
+      1.8225
+    ]
+  ],
+  "head_ov_top": [
+    [
+      5,
+      8,
+      0.2692
+    ],
+    [
+      8,
+      1,
+      0.1886
+    ],
+    [
+      14,
+      8,
+      0.1394
+    ]
+  ],
+  "head_qk_top": [
+    [
+      5,
+      8,
+      0.2316
+    ],
+    [
+      8,
+      1,
+      0.1552
+    ],
+    [
+      14,
+      8,
+      0.1474
+    ]
+  ],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1=13.20 dominates (~6.8x mlp2=1.93, ~49x heads, all heads <0.27). Contraction completion 'you' -> \"'ve\" is a canonical high-frequency bigram, classic mlp1 territory; no head plays any role."
+}

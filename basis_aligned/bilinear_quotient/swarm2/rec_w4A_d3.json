@@ -1,0 +1,60 @@
+{
+  "row": 955,
+  "pos": 136,
+  "ce": 1.0555,
+  "target": " to",
+  "context": " the news was usually linked with sexual practice, and the result was not favorable",
+  "class": "word",
+  "mlp_top": [
+    [
+      1,
+      4.1326
+    ],
+    [
+      2,
+      0.9213
+    ],
+    [
+      3,
+      0.546
+    ]
+  ],
+  "head_ov_top": [
+    [
+      4,
+      5,
+      0.2804
+    ],
+    [
+      7,
+      8,
+      0.2692
+    ],
+    [
+      3,
+      5,
+      0.2678
+    ]
+  ],
+  "head_qk_top": [
+    [
+      4,
+      5,
+      0.1891
+    ],
+    [
+      3,
+      5,
+      0.1344
+    ],
+    [
+      7,
+      8,
+      0.0958
+    ]
+  ],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1=4.13 dominates (~4.5x mlp2=0.92, ~15x every head). 'favorable to' is a standard adjective-preposition collocation; ordinary mlp1 token-table completion, no notable head contribution (all heads <0.3, no known-function head stands out)."
+}

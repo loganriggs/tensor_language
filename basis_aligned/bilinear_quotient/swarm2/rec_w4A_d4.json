@@ -1,0 +1,60 @@
+{
+  "row": 1405,
+  "pos": 168,
+  "ce": 2.292,
+  "target": " it",
+  "context": " still hoping to get more specific information from him.\nLike you say,",
+  "class": "word",
+  "mlp_top": [
+    [
+      1,
+      9.8401
+    ],
+    [
+      0,
+      0.8799
+    ],
+    [
+      3,
+      0.3893
+    ]
+  ],
+  "head_ov_top": [
+    [
+      0,
+      3,
+      0.3221
+    ],
+    [
+      2,
+      3,
+      0.2011
+    ],
+    [
+      1,
+      5,
+      0.1933
+    ]
+  ],
+  "head_qk_top": [
+    [
+      2,
+      3,
+      0.198
+    ],
+    [
+      1,
+      5,
+      0.1126
+    ],
+    [
+      5,
+      8,
+      0.0667
+    ]
+  ],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1=9.84 dominates (~11x mlp0=0.88, ~30x heads). Discourse-marker continuation 'like you say, [it]' \u2014 pronoun completion after a common conversational hedge phrase. Head 0.3 (bigram router) is top head at OV=0.32/QK=0.11 (ratio ~3x, mostly selection), again a minor secondary presence under mlp1 ownership."
+}

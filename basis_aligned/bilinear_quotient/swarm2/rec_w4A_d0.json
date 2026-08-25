@@ -1,0 +1,60 @@
+{
+  "row": 1447,
+  "pos": 156,
+  "ce": 1.7841,
+  "target": " people",
+  "context": "'s residents are originally from Istanbul. Istanbul's population density of 2,523",
+  "class": "word",
+  "mlp_top": [
+    [
+      1,
+      5.6639
+    ],
+    [
+      0,
+      1.9853
+    ],
+    [
+      2,
+      0.9004
+    ]
+  ],
+  "head_ov_top": [
+    [
+      6,
+      3,
+      0.7986
+    ],
+    [
+      8,
+      1,
+      0.3659
+    ],
+    [
+      0,
+      3,
+      0.2768
+    ]
+  ],
+  "head_qk_top": [
+    [
+      6,
+      3,
+      0.7886
+    ],
+    [
+      8,
+      1,
+      0.3535
+    ],
+    [
+      8,
+      8,
+      0.1669
+    ]
+  ],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1=5.66 dominates ~7x over the next mlp (mlp0=1.99) and ~7x over the top head (6.3, OV=0.80/QK=0.79 \u2014 near-equal ratio, so head 6.3's contribution is mostly selection not payload). 'density of 2,523 [people]' is a numeric-unit collocation completed from surface token identity, matching mlp1's known BPE/phrase-completion role. Secondary head 0.3 (bigram router, L0) appears at rank3 OV (0.28), a small but consistent presence across this sample's mlp1-owned datapoints."
+}

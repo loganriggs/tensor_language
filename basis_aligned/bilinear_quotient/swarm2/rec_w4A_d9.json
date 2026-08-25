@@ -1,0 +1,60 @@
+{
+  "row": 889,
+  "pos": 139,
+  "ce": 1.8105,
+  "target": "'m",
+  "context": "ET?! It's not as good as it sounds. I mean, I",
+  "class": "other",
+  "mlp_top": [
+    [
+      1,
+      8.0833
+    ],
+    [
+      0,
+      0.7404
+    ],
+    [
+      10,
+      0.0928
+    ]
+  ],
+  "head_ov_top": [
+    [
+      0,
+      3,
+      0.1004
+    ],
+    [
+      17,
+      2,
+      0.064
+    ],
+    [
+      13,
+      1,
+      0.0614
+    ]
+  ],
+  "head_qk_top": [
+    [
+      10,
+      6,
+      0.0724
+    ],
+    [
+      13,
+      3,
+      0.0549
+    ],
+    [
+      13,
+      1,
+      0.0472
+    ]
+  ],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1=8.08 dominates overwhelmingly (~11x mlp0=0.74, ~80x every head, all heads <=0.10). Contraction 'I' -> \"'m\" is a canonical high-frequency bigram; essentially no head involvement at all."
+}

@@ -1,0 +1,67 @@
+{
+  "row": 1259,
+  "pos": 117,
+  "ce": 2.4874,
+  "target": "\n",
+  "context": " PM me: Maybe he could do some rhyme-o-mancy",
+  "class": "other",
+  "mlp_top": [
+    [
+      10,
+      0.0001
+    ],
+    [
+      15,
+      -0.1224
+    ],
+    [
+      14,
+      -0.1402
+    ]
+  ],
+  "head_ov_top": [
+    [
+      16,
+      2,
+      0.4086
+    ],
+    [
+      12,
+      6,
+      0.3453
+    ],
+    [
+      8,
+      2,
+      0.3264
+    ]
+  ],
+  "head_qk_top": [
+    [
+      16,
+      2,
+      0.3223
+    ],
+    [
+      12,
+      6,
+      0.2959
+    ],
+    [
+      8,
+      2,
+      0.2526
+    ]
+  ],
+  "owner": "diffuse (no single owner; top: head16.2=0.41, head12.6=0.35, head8.2=0.33, all comparable magnitude)",
+  "verdict": "DIFFUSE",
+  "known_function": null,
+  "enrichment_note": "mlp contributes essentially nothing here (top mlp10=0.0001, several mlps mildly NEGATIVE, e.g. mlp15=-0.12, mlp14=-0.14) \u2014 this is the one datapoint in the sample where mlp1 is not even the top mlp (mlp1 itself is not in the top-3 mlp list at all). Three late/mid heads (16.2, 12.6, 8.2) sit within ~25% of each other at OV and QK alike (near-equal OV/QK ratios throughout, i.e. selection and payload roughly balanced, not a clean QK-vs-OV split). None of layers 16.2/12.6/8.2 match any known-function head (13.8, 8.1, 10.5, 8.3, 8.7, 2.5, 3.8, 1.1/1.8, 0.3, 5.7, 17.2/17.3). Target is a newline after an invented compound word ('rhyme-o-mancy') in casual forum chat \u2014 an inherently hard-to-predict message-boundary position. Local max dCE (0.41) is below the 0.5 floor set for opening a specificity_and_scope investigation, so per discipline this is reported sub-floor/storyless rather than proposed as a new category.",
+  "floor_check": {
+    "local_max_dce": 0.41,
+    "threshold": 0.5,
+    "passed": false,
+    "scope_run": false,
+    "note": "no head/mlp reached the 0.5 local-dCE bar required before running specificity_and_scope"
+  }
+}
