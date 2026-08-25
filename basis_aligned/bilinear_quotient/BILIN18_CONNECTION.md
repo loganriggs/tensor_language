@@ -34334,3 +34334,12 @@ swarm2/ complete for waves 1-3; worker reports in session log.
   frontier: full .934 @ 926 | tier8000 .931 @ 200 | tier2000 .922 @ 89.5 | svd256
   .907 @ 211 | svd64 .751 @ 53 (best fid/Mbit .0143 vs full's .0010).
 - The tier structure is itself interpretable: frequent tokens have individually-learned outputs; the tail rides a 64-dim "vocabulary subspace". Combined with §1438's residual ridge, mlp1's benchmark entry becomes: tiered table (89.5 Mbit) + chain ridge (+.033 fid at 42.5 Mbit) — a full glass plank at ~132 Mbit, half the module's own weight.
+
+## §1442 — DOWNSTREAM-DEFINED CLUSTERS BEAT ACTIVATION-DEFINED AT EVERY TESTED K — THE USER'S PRINCIPLE CONFIRMED CAUSALLY (pred_a PASSED: down beats act at K=16 (.4226 vs .3857) AND K=64 (.5282 vs .4859), and also at K=256 (.6236 vs .6107); pred_b FAILED: down-64 lands .528, under the .60 bar; pred_c FAILED: rank-24 SVD holds only .617 — the §1384 "effective rank 24" is a variance statistic, not a usable compression rank): clustering tokens by HOW BLOCK-1's WEIGHTS DISCRIMINATE mlp0's outputs is uniformly better than clustering by the outputs' own geometry — and the fid-per-bit numbers are spectacular: down-64 = .528 fidelity at 1.48 Mbit (.357/Mbit, 350x the full table's efficiency) (mlp0_downstream_clusters_results.json)
+
+  head-to-head (fid_opt, down/act): K=2 −.035/−.031 | K=16 .423/.386 | K=64 .528/.486
+  | K=256 .624/.611. Reference: full table .866 @ 926 Mbit, svd24 .617 @ 19.7 Mbit.
+- The K=2 answer to the user's "two clusters would be quite interpretable": for mlp0 a 2-way split is BELOW the optimal-constant floor (−.03 both definitions) — mlp0's discrete structure genuinely needs ≥16 classes before any fidelity appears. The K-curve (per definition) is the module's usable class-count spectrum, and downstream-defined coordinates shift the whole curve up.
+- Frontier adds: down-64 (.528 @ 1.5 Mbit) and down-256 (.624 @ 5.1 Mbit) are the two best fid-per-bit entries in the repo after the 5.7 bias vector.
+
+## §1443 — mlp17: THE LINEAR READ REPRODUCES, THE QUADRATIC ADDS LITTLE (pred_a PASSED: ridge from mlp17's own input = .821 fid_opt, matching the §1131 read; pred_b FAILED: +quad adds .035, under .04; pred_c FAILED: total .856 vs .88): the top readout module stays "a linear read plus scraps" — its remaining .049-nat gap after quad is 14% of its stake, and the bilinear structure the architecture allows is barely used at this module ON-distribution (mlp17_quad_ladder_results.json)

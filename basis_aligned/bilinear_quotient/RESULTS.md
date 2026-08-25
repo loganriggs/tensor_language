@@ -5176,3 +5176,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1439 — mlp0: tok .866/+ridge .908/+quad .932 fid_opt (3-for-3, frozen anchors); front story uniform: table + linear same-block-attention correction + small quad (mlp0_residual_ladder)
 §1440 — mlp2 rank curve measured (0-for-3 preds, honest): mid-rank map, r128 = .82 @ 7 Mbit, r256 = .89 @ 14 Mbit; no sharp knee (mlp2_rank_curve)
 §1441 — mlp1 GLASS-PLANKED 3-for-3: tier2000+rank64 = .922 @ 89.5 Mbit (10x cheaper, 99% of table fidelity); svd64 = 14x fid/Mbit; plank test passes (mlp1_table_compress)
+§1442 — downstream-defined clusters beat activation-defined at ALL K (user's principle confirmed); K=2 below constant floor (mlp0 needs >=16 classes); down-64 = .528 @ 1.5 Mbit = 350x table efficiency; rank-24 = variance stat not compression rank (mlp0_downstream_clusters)
+§1443 — mlp17: linear read .821 reproduced; +quad .856 (preds b,c failed); top readout = linear + scraps (mlp17_quad_ladder)

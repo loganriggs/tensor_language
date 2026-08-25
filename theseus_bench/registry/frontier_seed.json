@@ -94,20 +94,41 @@
  ],
  "mlp0": [
   {
-   "slug": "tok-map",
-   "fidelity": 0.866,
-   "bits_params": 926337024,
-   "mbits": 926.3,
+   "slug": "down64-clusters",
+   "fidelity": 0.528,
+   "mbits": 1.5,
+   "bits_params": 1480000,
+   "edges": 1,
+   "inputs": [
+    "tokens"
+   ],
+   "note": "downstream-weight-defined K=64 clusters"
+  },
+  {
+   "slug": "down256-clusters",
+   "fidelity": 0.624,
+   "mbits": 5.1,
+   "bits_params": 5120000,
    "edges": 1,
    "inputs": [
     "tokens"
    ]
   },
   {
-   "slug": "tok+ridge",
-   "fidelity": 0.908,
-   "bits_params": 968804352,
-   "mbits": 968.8,
+   "slug": "tok-map",
+   "fidelity": 0.866,
+   "mbits": 926.3,
+   "bits_params": 926300000,
+   "edges": 1,
+   "inputs": [
+    "tokens"
+   ]
+  },
+  {
+   "slug": "tok+ridge+quad",
+   "fidelity": 0.932,
+   "mbits": 1129.0,
+   "bits_params": 1129000000,
    "edges": 3,
    "inputs": [
     "tokens",
@@ -158,9 +179,19 @@
  "mlp17": [
   {
    "slug": "linear-read",
-   "fidelity": 0.84,
-   "bits_params": 21233664,
+   "fidelity": 0.821,
    "mbits": 21.2,
+   "bits_params": 21200000,
+   "edges": 1,
+   "inputs": [
+    "resid_pre.17"
+   ]
+  },
+  {
+   "slug": "linread+quad256",
+   "fidelity": 0.856,
+   "mbits": 185.0,
+   "bits_params": 185000000,
    "edges": 1,
    "inputs": [
     "resid_pre.17"
