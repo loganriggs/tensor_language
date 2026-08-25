@@ -210,5 +210,31 @@
    "edges": 0,
    "inputs": []
   }
+ ],
+ "attn1": [
+  {
+   "slug": "distance-kernel",
+   "fidelity": 0.8165,
+   "mbits": 0.037,
+   "bits_params": 36864,
+   "edges": 1,
+   "inputs": [
+    "resid_pre.1"
+   ],
+   "note": "9 heads x 256 offsets, values live; S1446"
+  }
+ ],
+ "attn4": [
+  {
+   "slug": "distance-kernel",
+   "fidelity": 0.8109,
+   "mbits": 0.037,
+   "bits_params": 36864,
+   "edges": 1,
+   "inputs": [
+    "resid_pre.4"
+   ],
+   "note": "kernel BEATS meanpat table; S1446"
+  }
  ]
 }

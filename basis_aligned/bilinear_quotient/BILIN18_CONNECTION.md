@@ -34357,3 +34357,10 @@ swarm2/ complete for waves 1-3; worker reports in session log.
 
   verified: tier .9221 @ 89.5 Mbit | tier+ridge .9677 @ 132 | tier+rank128 .9507 @ 96.6.
 - Estimates-never-stand paid off in the GOOD direction this time: the verified number beats the estimate because refitting the ridge on the TIERED table's residual (rather than composing two separately-fit pieces) recovers the compression loss — the sequential-refit discipline (§105/§158) surfacing in the benchmark era.
+
+## §1446 — WHOLE ATTENTION LAYERS ARE ~81% DISTANCE KERNELS AT 37 KILOBITS (pred_a PASSED: attn1 meanpat = .8219, far past the .60 bar; pred_b PASSED: the distance kernel holds .8165 — 99% of the positional table's fidelity at 1/250th the bits; pred_c FAILED informatively: at attn4 the kernel BEATS the full table (.8109 vs .8063) — the 256x256 positional table overfits where 256 per-offset numbers do not): the first attention-layer stand-ins land as the best fidelity-per-bit entries in the repo — "each head attends by query-key DISTANCE alone (9 heads x 256 offsets), values live" describes attn1 at .82 and attn4 at .81 for 0.037 Mbit (attn_layer_ladder_results.json, 58s)
+
+  fid_opt: attn1 meanpat .822 / kernel .817 | attn4 meanpat .806 / kernel .811.
+  Board impact: attn1 unexplained .219 → .040; attn4 .223 → .042 — both leave the top-3.
+- The pred_c inversion repeats the mlp16 elbow lesson (§1326: 16 cells beat the 50k table) at attention grain: the SMALLER description generalizes better held-out. Selection in these layers is dominated by relative position; content-dependence is the ~19% residue (where the named specialists live).
+- Queued (attn_kernel_sweep): the kernel arm for ALL 18 attention layers in one run (one capture pass, 18 evals). Preds: pred_a median kernel fid ≥ .70; pred_b ≥ 14 of 18 layers ≥ .60; pred_c the specialist-hosting layers (a8, a10, a13) sit in the bottom five (content-selection is exactly what the kernel can't do).
