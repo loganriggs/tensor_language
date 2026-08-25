@@ -101,16 +101,13 @@ def main():
                 B = idx.shape[0]
                 if mode == 'mean':
                     st = gmean.expand(B, T, D)
-                elif mode == 'lin3':
-                    Xe = torch.cat([E['m0'], E['m2'], E['m3']], -1).reshape(-1, 3 * D).to(DEV)
-                    st = (ym3 + (Xe - xm3) @ W3).view(B, T, D)
-                elif mode == 'lin0':
-                    Xe = E['m0'].reshape(-1, D).to(DEV)
-                    st = (ym0 + (Xe - xm0) @ W0).view(B, T, D)
-                else:  # class64
-                    Xe = E['m0'].reshape(-1, D).to(DEV)
-                    labe = torch.cdist(Xe, cent).argmin(1)
-                    st = ctab[labe].view(B, T, D)
+                elif mode == 'lin2':
+                    Xe = torch.cat([E['a4'], E['m3']], -1).reshape(-1, 2 * D).to(DEV)
+                    st = (ym2 + (Xe - xm2) @ W2).view(B, T, D)
+                else:  # lin5
+                    Xe = torch.cat([E['a4'], E['m0'], E['m1'], E['m2'], E['m3']],
+                                   -1).reshape(-1, 5 * D).to(DEV)
+                    st = (ym5 + (Xe - xm5) @ W5).view(B, T, D)
                 STAND['mode'] = 'on'
                 STAND['tensor'] = st
             lo = fwd(idx).float()
