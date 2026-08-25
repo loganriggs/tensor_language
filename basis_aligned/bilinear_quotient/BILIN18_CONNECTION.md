@@ -33553,3 +33553,17 @@ closer_kit_results.json; runlogs/closer_kit.log (98s).
 - Queued (ellipsis_screen.py, pool next): §1302-standard screen for ellipsis -> a17 (generator flag 0.318 at ratio 23.8). Registered with the §1339 risk stated: a17 also led capitalized, which turned out late-band-shared with NO owner — pred_c is exactly the owner-vs-band question. pred_a a17 damage >= 0.15 and conc >= 8; pred_b both controls <= 1.5; pred_c a17 >= 3x every competitor (a15/a16/a13/a5) — a FALSE here likely means a second late-band shared capability, which would itself pattern-match §1339.
 
 closer_quote_depth_results.json; runlogs/closer_quote_depth.log (104s).
+
+## §1359 — ELLIPSIS SCREENS CLEAN WITH A CLEAR LEADER BUT MISSES THE OWNERSHIP BAR ON A FAMILIAR RUNNER-UP: a17 +0.302 at conc 22.7 (controls 0.59 / 1.49 — the random control passes by 0.01, quoted), 2.5x over second place — but second place is a13, THE CLOSER's layer, at +0.122, breaking the 3x bar; preds a & b TRUE, pred_c FALSE (ellipsis_screen.py; n=382)
+
+  layer  target-dmg  jitter   random   else
+  a17    +0.302      +0.008   +0.020   +0.013   conc 22.7, clean
+  a13    +0.122      +0.008   +0.028   +0.019   <- the CLOSER's layer, 2nd place
+  a16    +0.057      +0.008   +0.020   +0.012
+  a5     +0.048      +0.105   +0.120   +0.130   generalist flat
+  a15    +0.037      +0.027   +0.005   +0.007
+
+- UNLIKE CAPITALIZED (§1339: a17/a16 at 1.1x, no leader), ellipsis HAS a dominant layer — a17 at 2.5x over second — it just misses the registered 3x because the runner-up is real. And the runner-up is a13: under the heads-are-functions frame the immediate reading is that 13.8-the-closer serves the subset of ellipses that terminate delimited spans ('…"', '…)' — trailing-off inside quotes/parens), while a17 carries the expressive/terminal part. Both function-heads showing up at one behavior is now the EXPECTED shape, not an anomaly.
+- THE PAIR BET, registered for the head stage: a17's two named heads are the EXCLAIM PAIR 17.2+17.3 (§1318-19) — and "…" is an expressive terminal marker like "!". If the pair carries the a17 ellipsis service, that is its THIRD capability surface (!, and now …), the function being something like EXPRESSIVE-TERMINAL EMISSION, and the §1354 heuristic scores again. Queued (ellipsis_heads.py, §1340 pattern at ellipsis targets): pred_a THE PAIR CARRIES IT: heads 17.2+17.3 jointly >= 60% of the layer's target damage (solo-sum grain); pred_b directions agree on the top head; pred_c surgical (top head's elsewhere <= 10% of its target damage).
+
+ellipsis_screen_results.json; runlogs/ellipsis_screen.log (93s).

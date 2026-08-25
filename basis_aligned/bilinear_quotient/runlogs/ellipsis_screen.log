@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ellipsis token ids: 45
+targets 382 | jitter 363 | rand 382
+base: {k: round(v, 4) for k, v in base.items()}
+a17: dmg target +0.3020 | jit +0.0079 | rand +0.0198 | else +0.0133
+a16: dmg target +0.0569 | jit +0.0080 | rand +0.0204 | else +0.0119
+a15: dmg target +0.0370 | jit +0.0266 | rand +0.0045 | else +0.0073
+a13: dmg target +0.1218 | jit +0.0081 | rand +0.0277 | else +0.0188
+a5: dmg target +0.0475 | jit +0.1045 | rand +0.1196 | else +0.1303
+
+a17 conc 22.7 | jitter 0.59 | random 1.49
+pred_a conc True | pred_b controls True | pred_c ownership False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ellipsis_screen_results.json (93.4s)
