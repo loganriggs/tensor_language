@@ -1,16 +1,15 @@
-# close_bracket_a14: THE a14 RUNG, SCORED PER SUBTYPE (user request: show the computation
-# for ")," / ")." / ")\"" separately). §1341: a14 assists compound closes (+0.17..0.20)
-# and is NEGATIVE on plain ")" (-0.060). §1346 closed the core kit at 0.657. This rung
-# adds a14 two ways — gated to depth>0 positions, and fully live — and scores every arm
-# per target-token subtype. The depth gate CANNOT separate plain from compound closes
-# (both live inside brackets), so pred_b is a genuine risk, registered as such.
+# close_bracket_missing_band: THE §1344 ANALOGUE FOR BRACKETS — which band's LIVE service
+# carries the kit's remaining ~0.34, measured BY CONSTRUCTION (the §1347 rule: ablation
+# names roles, construction prices kits). Arms: kit | kit + one fully-live band
+# (L3-5 / L6-9 / L10-12 / L14-17; L13 excluded — the owner is already live).
+# Per-subtype diagnostics retained.
 #
 # Registered predictions:
-#   pred_a GATED a14 LIFTS THE COMPOUNDS: comma and period subtypes each gain >= +0.05
-#          recovery over the kit.
-#   pred_b NET-POSITIVE OVERALL: kit+a14_gated >= kit + 0.03 on all targets (risk: the
-#          gate also exposes plain closes to a14's negativity).
-#   pred_c COMPOUND-CONCENTRATED: comma/period gains each >= 2x the plain gain.
+#   pred_a SOME BAND CARRIES IT: best band adds >= 0.08 target recovery over the kit.
+#   pred_b SPECIFICITY: the winner's target increment >= 1.5x its elsewhere increment
+#          (comparative's refine passed at 1.8x).
+#   pred_c DOWNSTREAM: the winner is L14-17 — annotate->fetch->REFINE predicts
+#          post-fetch service above the L13 owner, as it found L10-12 above the L8 owner.
 import json, time, sys, torch
 import torch.nn.functional as F
 sys.path.insert(0, '/workspace/rspd')
@@ -18,12 +17,13 @@ from bilin18_joint_removal import m, DEV
 import census_lib as cl
 
 D = 1152; T = 256; PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT = PT + 'close_bracket_a14_results.json'
+OUT = PT + 'close_bracket_missing_band_results.json'
 NMEAN = 24; NR = 1920
 are = sys.modules[type(m.transformer.h[0].attn).__module__].apply_rotary_emb
 H = m.transformer.h
 A02L = (0, 1, 2)
-A14 = {'mode': None}   # None | 'gated' | 'full'
+BANDS = {'b35': (3, 4, 5), 'b69': (6, 7, 8, 9), 'b1012': (10, 11, 12), 'b1417': (14, 15, 16, 17)}
+CURBAND = {'layers': (), 'on': False}
 KEEPQ = {(13, 8)}
 
 
@@ -70,14 +70,9 @@ def fwd_arm(idx, arm, vmeans, ymeans, gatemask):
                 else:
                     gm = gatemask.view(B, T, 1, 1)
                     y = torch.where(gm, y_live, y)
-            if L == 14 and arm == 'circ_gate' and A14['mode'] is not None:
+            if arm == 'circ_gate' and CURBAND['on'] and L in CURBAND['layers']:
                 vv_live = (1 - at.lamb) * v + at.lamb * v1.view_as(v)
-                y_live = torch.einsum('bhqk,bkhd->bqhd', pat.to(vv_live.dtype), vv_live)
-                if A14['mode'] == 'full':
-                    y = y_live
-                else:
-                    gm = gatemask.view(B, T, 1, 1)
-                    y = torch.where(gm, y_live, y)
+                y = torch.einsum('bhqk,bkhd->bqhd', pat.to(vv_live.dtype), vv_live)
         yo = at.c_proj(y.reshape(B, T, D))
         x = xm + yo
         x = x + blk.mlp(F.rms_norm(x, (D,)))
@@ -205,44 +200,39 @@ def main():
                 {s: ssub[s] / max(nsub[s], 1) for s in SUBS}, dict(nsub))
 
     res = {}; subce = {}
-    for arm, gk, a14mode in (('full', None, None), ('ymean', None, None),
-                             ('route', None, None), ('kit', 'qry', None),
-                             ('kit_a14g', 'qry', 'gated'), ('kit_a14f', 'qry', 'full')):
+    arms = [('full', None, None), ('ymean', None, None), ('route', None, None),
+            ('kit', 'qry', None)] + [(f'kit+{b}', 'qry', b) for b in BANDS]
+    for arm, gk, band in arms:
         real_arm = 'circ_gate' if arm.startswith('kit') else arm
-        A14['mode'] = a14mode
+        CURBAND['on'] = band is not None
+        CURBAND['layers'] = BANDS.get(band, ())
         tce, ece, sc, ns = ce_cond(real_arm, gk)
         res[arm] = {'target': round(tce, 4), 'else': round(ece, 4)}
         subce[arm] = {s: round(v, 4) for s, v in sc.items()}
         print(f"{arm}: target {tce:.4f} | else {ece:.4f} | " +
               " ".join(f"{s} {sc[s]:.3f}" for s in SUBS), flush=True)
-    A14['mode'] = None
+    CURBAND['on'] = False
 
     gt = res['ymean']['target'] - res['full']['target']
     ge = res['ymean']['else'] - res['full']['else']
     rec = {a: {'target': round((res['ymean']['target'] - res[a]['target']) / max(gt, 1e-6), 4),
                'else': round((res['ymean']['else'] - res[a]['else']) / max(ge, 1e-6), 4)}
            for a in res if a != 'ymean'}
-    # per-subtype recovery gains of a14 arms over kit
-    subrec = {}
-    for s in SUBS:
-        g = subce['ymean'][s] - subce['full'][s]
-        subrec[s] = {a: round((subce['ymean'][s] - subce[a][s]) / max(g, 1e-6), 4)
-                     for a in res if a != 'ymean'}
-    gain_g = {s: round(subrec[s]['kit_a14g'] - subrec[s]['kit'], 4) for s in SUBS}
-    pa = gain_g['comma'] >= 0.05 and gain_g['period'] >= 0.05
-    pb = rec['kit_a14g']['target'] >= rec['kit']['target'] + 0.03
-    pc = (gain_g['comma'] >= 2 * max(gain_g['plain'], 1e-4) and
-          gain_g['period'] >= 2 * max(gain_g['plain'], 1e-4))
+    kt, ke = rec['kit']['target'], rec['kit']['else']
+    inc = {b: {'target': round(rec[f'kit+{b}']['target'] - kt, 4),
+               'else': round(rec[f'kit+{b}']['else'] - ke, 4)} for b in BANDS}
+    winner = max(inc, key=lambda b: inc[b]['target'])
+    pa = inc[winner]['target'] >= 0.08
+    pb = inc[winner]['target'] >= 1.5 * max(inc[winner]['else'], 1e-4)
+    pc = winner == 'b1417'
     out = {'n_targets': ntar, 'n_rows': NR, 'ce': res, 'subtype_ce': subce,
-           'recovery': rec, 'subtype_recovery': subrec, 'a14_gated_gain': gain_g,
-           'pred_a_compounds_lift': bool(pa), 'pred_b_net_positive': bool(pb),
-           'pred_c_compound_concentrated': bool(pc),
-           'runtime_s': round(time.time() - t0, 1)}
+           'recovery': rec, 'band_increments': inc, 'winner': winner,
+           'pred_a_band_carries': bool(pa), 'pred_b_specific': bool(pb),
+           'pred_c_downstream': bool(pc), 'runtime_s': round(time.time() - t0, 1)}
     json.dump(out, open(OUT, 'w'), indent=1)
-    print(f"\na14 gated gains: " + " ".join(f"{s} {gain_g[s]:+.3f}" for s in SUBS))
-    print(f"kit {rec['kit']['target']} -> +a14g {rec['kit_a14g']['target']} "
-          f"+a14f {rec['kit_a14f']['target']}")
-    print(f"pred_a compounds {pa} | pred_b net {pb} | pred_c concentrated {pc}")
+    print(f"\nincrements: " + " ".join(f"{b} t{inc[b]['target']:+.3f}/e{inc[b]['else']:+.3f}"
+                                        for b in BANDS))
+    print(f"winner {winner} | pred_a {pa} | pred_b {pb} | pred_c {pc}")
     print(f"wrote {OUT} ({out['runtime_s']}s)")
 
 

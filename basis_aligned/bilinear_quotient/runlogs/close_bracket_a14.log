@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 1779
+plain: n 889
+comma: n 274
+period: n 374
+quote: n 26
+other: n 212
+double: n 4
+full: target 1.2133 | else 3.1330 | plain 0.917 comma 1.552 period 1.172 quote 1.740 other 1.951 double 5.130
+ymean: target 10.6752 | else 7.2005 | plain 9.605 comma 11.038 period 10.839 quote 16.331 other 13.645 double 14.296
+route: target 5.6685 | else 5.4895 | plain 4.603 comma 6.368 period 5.960 quote 11.004 other 7.957 double 11.334
+kit: target 4.4572 | else 5.4513 | plain 3.485 comma 4.909 period 4.908 quote 9.465 other 6.389 double 12.607
+kit_a14g: target 4.4124 | else 5.4510 | plain 3.438 comma 4.842 period 4.865 quote 9.458 other 6.378 double 12.399
+kit_a14f: target 4.4123 | else 5.4457 | plain 3.437 comma 4.843 period 4.864 quote 9.459 other 6.381 double 12.386
+
+a14 gated gains: plain +0.005 comma +0.007 period +0.004 quote +0.001 other +0.001 double +0.023
+kit 0.6572 -> +a14g 0.6619 +a14f 0.6619
+pred_a compounds False | pred_b net False | pred_c concentrated False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/close_bracket_a14_results.json (103.1s)
