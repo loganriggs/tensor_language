@@ -33775,3 +33775,16 @@ bilin12_closer_quotes_results.json; runlogs/bilin12_closer_quotes.log (91s).
 - Queued (sqrd12_closer_heads.py): the owner question at sqrd12's a7 (6 heads; solo + all-but-one). Registered: pred_a an owner >= 60% solo; pred_b both directions agree; pred_c surgical (else <= 10%). The §1215 precedent (implementation differs across score functions) makes a crowd verdict genuinely live here — the first place the owner-shape claim could break.
 
 sqrd12_closer_screen_results.json; runlogs/sqrd12_closer_screen.log (77s).
+
+## §1377 — THE OWNER SHAPE CROSSES THE SCORE-FUNCTION BOUNDARY: sqrd12's a7.0 carries 103.4% of its layer's close-bracket damage solo (+0.415 of +0.402; all-but −0.003 — neighbors net-negative, the fourth model-layer to show the exact signature), both directions agree, surgical — preds a, b, c ALL TRUE, fourth clean sweep of the transfer thread (sqrd12_closer_heads.py; n=1779)
+
+  THE CROSS-FAMILY CLOSER TABLE, final form:
+  model    score fn              head   bracket solo   rel depth  neighbors
+  bilin18  two-branch bilinear   13.8   96.5%          0.72       net-negative
+  bilin12  two-branch bilinear   7.1    105.0%         0.64       net-negative
+  sqrd12   single-branch, normed 7.0    103.4%         0.64       net-negative
+
+- WHERE THE UNIVERSALITY CLAIM NOW STANDS, four registered sweeps deep: three independently trained models spanning two attention score functions all build the closer as ONE surgical head at matched relative depth with a solo share at-or-above its whole layer and layer-mates that are net interference at its targets. The §1215 matcher precedent showed implementations CAN differ across score functions — so this is not a triviality of the family: the closer's owner-shape is apparently more deeply determined than the matcher's existence. What varies is only magnitude (sqrd12's +0.40 vs the bilinears' +0.71/+0.95) and the size of the generalist front around it.
+- Queued (sqrd12_closer_quotes.py): the last symmetric cell — is sqrd12's 7.0 delimiter-general (quote-parity targets)? Registered: pred_a 7.0 >= 60% of a7's quote-close damage; pred_b directions agree; pred_c surgical. A sweep completes a 3x2 table (three models x two delimiter families) with every cell owner-carried; then the transfer thread RESTS.
+
+sqrd12_closer_heads_results.json; runlogs/sqrd12_closer_heads.log (82s).
