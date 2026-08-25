@@ -39,7 +39,7 @@ conditionality measured).
 | Behavior | Leader | Target dmg vs elsewhere | n | Note |
 |---|---|---|---|---|
 | **close_bracket** | **CLOSED, 4-stage** | kit 0.657 (§1346); a14 does NOT port (§1347 — ablation names roles, construction prices kits); refine = L14-17 by construction (ratio 2.4, +0.062, §1348) — downstream motif holds 2-for-2; generic-pool invariant +0.227==+0.225 across circuits | 1779 | thread rests; head-grain refine deprioritized (thin vs draw spread) |
-| capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | COMMITTEE-OF-7 {17.2,17.1,16.5,15.3,17.0,16.4,16.0}, NO owner (S1397, 3-for-3 crowd preds); anti-closer shape; capitalized_band_slim queued (price committee as unit) |
+| capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | COMMITTEE-OF-7 {17.2,17.1,16.5,15.3,17.0,16.4,16.0}, NO owner (S1397, 3-for-3 crowd preds); anti-closer shape; committee = clean unit (S1398: 71% of band, surgical, rest-20 generic; REMOVAL GOAL DONE); grain split queued (QK vs OV) |
 | ~~open_quote~~ | — | DEMOTED §1351: clean screen fails every bar (a10 +0.067, conc 2.7, jitter dirty); mask-sensitive (atlas n=90 vs clean n=1087); distributed-no-owner class | 1087 | negative, recorded |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |
 | **digit** | **8.3 + 8.7 COMPLEMENTARY** | §1354: divides by EVIDENCE TYPE — 8.3 copy-flavored (2.9x per-position), 8.7 fresh-specialist NEGATIVE on copyable (interference inside a pair); moonlighting #4 | 9056 | thread rests fully mapped |

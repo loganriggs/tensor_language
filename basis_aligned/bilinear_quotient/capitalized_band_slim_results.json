@@ -1,0 +1,46 @@
+{
+ "n_targets": 18039,
+ "n_rows": 960,
+ "base": {
+  "t": 4.7087,
+  "j": 2.7572,
+  "r": 3.0456,
+  "e": 3.0145
+ },
+ "arms": {
+  "all27": {
+   "t": 0.2923,
+   "j": 0.0234,
+   "r": 0.0263,
+   "e": 0.0257
+  },
+  "committee_only": {
+   "t": 0.208,
+   "j": -0.0018,
+   "r": 0.0038,
+   "e": 0.0042
+  },
+  "rest20": {
+   "t": 0.0398,
+   "j": 0.0201,
+   "r": 0.0162,
+   "e": 0.016
+  }
+ },
+ "committee": [
+  "15.3",
+  "16.0",
+  "16.4",
+  "16.5",
+  "17.0",
+  "17.1",
+  "17.2"
+ ],
+ "committee_share": 0.7116,
+ "rest_share": 0.1362,
+ "additivity_gap": 0.0445,
+ "pred_a_committee_carries": true,
+ "pred_b_rest_cheap": true,
+ "pred_c_additive": true,
+ "runtime_s": 47.1
+}
