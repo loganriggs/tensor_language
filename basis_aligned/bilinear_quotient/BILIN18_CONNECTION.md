@@ -33693,3 +33693,16 @@ shared_band_kit_results.json; runlogs/shared_band_kit.log (102s).
 - The extraction arc RESTS here at its capstone. The registry's status board, the two-tier bill, and the circuit-board viewer are consistent as of §1368-69; the standing open items are the deep-refine gate (comparative elsewhere 0.0006 over), cross-model transfer of the commons (nothing tested off bilin18), and the MLP side of every kit — all logged, none in flight.
 
 mdl_bill2_results.json; MDL_BILL.md.
+
+## §1370 — THE TWO-SIDED DESCRIPTION FAILS AT NAIVE COMPOSITION, ALL THREE PREDS FALSE — AND BOTH FAILURE MODES WERE PRE-NAMED BY THE HARNESS DOC: (1) the "inert middle" is NOT inert inside the kit — meaning mlp4-15 costs 0.42 comparative recovery (0.874 -> 0.458) though their full-model stakes total 0.64 nats — §1347's ablation-vs-construction lesson MIRRORED for MLPs; (2) intact-model tables applied to the kit's shifted stream collapse it (full-desc elsewhere recovery 0.037, barely above the ymean floor) — the §105 capture/apply mismatch, disclosed in the docstring and now measured at full scale (full_description_kit.py)
+
+  arm            comparative-rec  else-rec
+  kit_attn       0.874            0.472    (MLPs live — the §1368 anchor)
+  kit_mid_mean   0.458            0.201    (only mlp4-15 meaned: −0.42 target!)
+  kit_full_desc  0.367            0.037    (all stand-ins: near-collapse elsewhere)
+
+- FAILURE MODE 1, THE DEEPER ONE: §1326 measured mlp4-15 at 0.03-0.10 nats each WITH ALL ATTENTION LIVE. Inside the kit — most attention routed — the same modules carry 0.42 of the comparative recovery and 0.27 of elsewhere. Redundancy is CONTEXT-DEPENDENT: the middle MLPs are free in the full model because the live attention crowd duplicates their service; remove the crowd and they become load-bearing. Free-standing stakes do not compose (§104/§157's drift, §1347's ablation-vs-construction, now at module scale) — a module's price depends on WHAT ELSE IS IN THE DESCRIPTION. Every per-module number in the ladder (§1322-26) is hereby scoped: valid in the intact model, not inside kits.
+- FAILURE MODE 2, THE ONE THE HARNESS DOC WROTE THE RULE FOR: the tables were fit on the intact model's stream (disclosed §105 caveat) and applied to the kit's hybrid stream; elsewhere collapsed to 0.037 — nearly the ymean floor. HARNESS.md's mandatory sequential refit (fit each stand-in WITH ALL UPSTREAM STAND-INS INSTALLED; §158 measured 36% better on clean instruments) exists precisely for this, and this run is its motivating catastrophe reproduced deliberately at kit scale.
+- Queued (full_description_kit2.py): the SEQUENTIAL REFIT version — front-to-back over the MLPs, each table/mean fit on captures taken DURING kit forwards with all previously-fitted stand-ins installed (capture and apply in one code path). Registered: pred_a refit lifts comparative recovery to >= 0.60 (naive: 0.367); pred_b elsewhere >= 0.30 (naive: 0.037 — the still-an-LM bar transferred); pred_c the refit middle costs <= 0.15 recovery to mean (naive: 0.42 — refit gmeans absorb the stream shift, the residual is the middle's true in-kit price).
+
+full_description_kit_results.json; runlogs/full_description_kit.log (106s).

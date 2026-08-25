@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+commons 22 heads
+MLP tables fit
+targets: q 307 | than 110 | bracket 1779 | quote 1058
+full: question 0.946 comparative 1.254 closer_b 1.213 closer_q 1.772 | else 3.1392
+ymean: question 8.907 comparative 8.272 closer_b 10.675 closer_q 9.725 | else 7.1925
+route: question 6.296 comparative 5.203 closer_b 5.668 closer_q 7.554 | else 5.4837
+kit_attn: question 5.459 comparative 2.136 closer_b 5.140 closer_q 6.960 | else 5.2785
+kit_mid_mean: question 6.615 comparative 5.060 closer_b 6.269 closer_q 6.982 | else 6.3779
+kit_full_desc: question 7.366 comparative 5.699 closer_b 7.736 closer_q 8.118 | else 7.0424
+
+comparative rec: attn 0.874 | mid-mean 0.458 | full-desc 0.367
+pred_a middle-free False | pred_b carries False | pred_c still-LM False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/full_description_kit_results.json (105.8s)
