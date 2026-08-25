@@ -191,37 +191,6 @@ def main():
     ymeans = [torch.stack([torch.stack(ys[L][h]).mean(0) for h in range(9)]).to(DEV)
               for L in range(18)]
 
-    # ---- SEQUENTIAL REFIT: fit each MLP stand-in on kit-forward captures, in order
-    FITT = cl.fineweb_rows(NFITT, skip=80)[:, :T + 1].contiguous()
-    MLPMODE['cur'] = 'refit'
-    CUR['kit'] = 'comparative'
-    for L in list(range(18)):
-        CAPL['cur'] = L
-        sums = torch.zeros(V, D, device=DEV) if L in TABLE_LAYERS else None
-        cnts = torch.zeros(V, device=DEV)
-        gsum = torch.zeros(D, device=DEV); n_ = 0
-        for i in range(0, NFITT, 8):
-            idx3 = FITT[i:i + 8, :-1].to(DEV).contiguous()
-            CAPL['buf'] = []
-            gm3 = gates_for('comparative', idx3.cpu()).to(DEV)
-            fwd_arm(idx3, 'kit', vmeans, ymeans, gm3)
-            o = CAPL['buf'][0].reshape(-1, D)
-            if sums is not None:
-                sums.index_add_(0, idx3.reshape(-1), o)
-                cnts.index_add_(0, idx3.reshape(-1),
-                                torch.ones(idx3.numel(), device=DEV))
-            gsum += o.sum(0); n_ += o.shape[0]
-        MLPTAB['gmean'][L] = gsum / max(n_, 1)
-        if sums is not None:
-            gm2 = MLPTAB['gmean'][L]
-            MLPTAB['tabs'][L] = torch.where(cnts.unsqueeze(1) > 0,
-                                            sums / cnts.clamp_min(1).unsqueeze(1),
-                                            gm2.unsqueeze(0))
-        MLPTAB['installed'].add(L)
-        print(f"refit mlp{L} installed", flush=True)
-    CAPL['cur'] = None
-    MLPMODE['cur'] = None
-
     # target families + gates on EVR
     toks = EVR[:, :-1]; tgt = EVR[:, 1:]
     QS = qstate(toks, se_t, wh_t)
@@ -271,6 +240,38 @@ def main():
         iq = torch.isin(toks_b, q_i)
         pr = (iq.long().cumsum(1) % 2) == 1
         return (dep > 0) | pr
+
+    # ---- SEQUENTIAL REFIT: fit each MLP stand-in on kit-forward captures, in order
+    FITT = cl.fineweb_rows(NFITT, skip=80)[:, :T + 1].contiguous()
+    MLPMODE['cur'] = 'refit'
+    CUR['kit'] = 'comparative'
+    for L in list(range(18)):
+        CAPL['cur'] = L
+        sums = torch.zeros(V, D, device=DEV) if L in TABLE_LAYERS else None
+        cnts = torch.zeros(V, device=DEV)
+        gsum = torch.zeros(D, device=DEV); n_ = 0
+        for i in range(0, NFITT, 8):
+            idx3 = FITT[i:i + 8, :-1].to(DEV).contiguous()
+            CAPL['buf'] = []
+            gm3 = gates_for('comparative', idx3.cpu()).to(DEV)
+            fwd_arm(idx3, 'kit', vmeans, ymeans, gm3)
+            o = CAPL['buf'][0].reshape(-1, D)
+            if sums is not None:
+                sums.index_add_(0, idx3.reshape(-1), o)
+                cnts.index_add_(0, idx3.reshape(-1),
+                                torch.ones(idx3.numel(), device=DEV))
+            gsum += o.sum(0); n_ += o.shape[0]
+        MLPTAB['gmean'][L] = gsum / max(n_, 1)
+        if sums is not None:
+            gm2 = MLPTAB['gmean'][L]
+            MLPTAB['tabs'][L] = torch.where(cnts.unsqueeze(1) > 0,
+                                            sums / cnts.clamp_min(1).unsqueeze(1),
+                                            gm2.unsqueeze(0))
+        MLPTAB['installed'].add(L)
+        print(f"refit mlp{L} installed", flush=True)
+    CAPL['cur'] = None
+    MLPMODE['cur'] = None
+
 
     MASKS = {'question': T_q, 'comparative': T_c, 'closer_b': T_b, 'closer_q': T_qc}
 
