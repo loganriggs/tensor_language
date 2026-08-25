@@ -230,11 +230,11 @@ def main():
     CUR['kit'] = 'comparative'
     for i in range(0, NFITT, 8):
         idx3 = FITT[i:i + 8, :-1].to(DEV).contiguous()
-        km = torch.isin(idx3.cpu(), comp_t).to(DEV)
-        qm_ = torch.zeros_like(km)
+        ic = torch.isin(idx3.cpu(), comp_t)
+        cx = torch.zeros_like(ic)
         for w in range(2, 21):
-            qm_[:, w:] |= km[:, :-w]
-        fwd_arm(idx3, 'kit', vmeans, ymeans, km, qm_)
+            cx[:, w:] |= ic[:, :-w]
+        fwd_arm(idx3, 'kit', vmeans, ymeans, (ic | cx).to(DEV))
         for L in MIDL:
             xin, out = caps[L]
             xf = xin.reshape(-1, D); of = out.reshape(-1, D)

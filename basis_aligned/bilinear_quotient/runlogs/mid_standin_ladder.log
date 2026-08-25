@@ -1,0 +1,19 @@
+commons 22 heads
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mid_standin_ladder.py", line 383, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mid_standin_ladder.py", line 237, in main
+    fwd_arm(idx3, 'kit', vmeans, ymeans, km, qm_)
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+TypeError: fwd_arm() takes 5 positional arguments but 6 were given
+Fatal Python error: PyGILState_Release: thread state 0x72e3f867c3f0 must be current when releasing
+Python runtime state: finalizing (tstate=0x00005f6f43d045d0)
+
+Thread 0x000072e82d5c1740 (most recent call first):
+  <no Python frame>
