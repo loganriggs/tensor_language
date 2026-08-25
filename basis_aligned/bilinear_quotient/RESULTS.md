@@ -5143,3 +5143,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1406 — JOINT BILL 3-for-3: 28 heads + 9 MLPs live + gmean tables = comparative .9886 (best ever), closer .868, question .662 — three families BEAT all-mids-live (width inversion #10, whole-stack grain); capitalized pays −.096 (needs mlp10-15 en route to register) (unified_bill_mlp)
 §1407 — capitalized's late-mid need is DIFFUSE (top single add mlp13 +.041 of −.096 gap; preds a,b FAILED): no late-mid handle; register assembled through whole mlp10-15 stack; bonus: mlp11 lifts question to .693 (matches §1395) (capitalized_mid_adds)
 §1408 — BILL CERTIFIED 3-for-3: keep7 = comparative .984 / closer .864 / capitalized .797 / question .690 / else .750 with 28/162 heads + 11/18 MLPs; unified-bill arc CLOSED (unified_bill_final)
+§1409 — sentence_end AND open_bracket both DEMOTED (dirty jitter, front-generic damage; atlas small-n leader fails 3/3); POOL EMPTY -> damage_cluster_mine generator queued (pool_screen_a10_a17)
