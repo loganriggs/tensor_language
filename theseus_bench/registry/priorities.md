@@ -3,42 +3,38 @@
 Ranked by **unexplained global CE** = Δ_opt × (1 − best fidelity).
 A low-importance head at 100% understood ranks below a big MLP at 50%.
 Anchors from the optimal-ablation sweep (198/198 components so far;
-attention layers land last). Generated 2026-08-25 22:27 UTC; regenerate with
+attention layers land last). Generated 2026-08-25 22:42 UTC; regenerate with
 `python bench/make_priorities.py` after any frontier move or sweep progress.
 
 ## Top targets
 
 1. **mlp1** — unexplained 0.181 nats (Δ_opt 7.253, fidelity 0.97) — tok table + residual ridge [attn1,mlp0] + quad, fid_opt, S1438
-2. **attn2** — unexplained 0.159 nats (Δ_opt 0.159, fidelity 0.00) — baseline zoo only
-3. **attn5** — unexplained 0.136 nats (Δ_opt 0.136, fidelity 0.00) — baseline zoo only
-4. **attn3** — unexplained 0.116 nats (Δ_opt 0.116, fidelity 0.00) — baseline zoo only
-5. **attn6** — unexplained 0.064 nats (Δ_opt 0.064, fidelity 0.00) — baseline zoo only
-6. **attn9** — unexplained 0.064 nats (Δ_opt 0.064, fidelity 0.00) — baseline zoo only
-7. **head0.3** — unexplained 0.062 nats (Δ_opt 0.062, fidelity 0.00) — baseline zoo only
-8. **mlp0** — unexplained 0.062 nats (Δ_opt 0.908, fidelity 0.93) — tok map + residual ridge [attn0,embed] + quad, fid_opt, S1439
-9. **attn7** — unexplained 0.059 nats (Δ_opt 0.059, fidelity 0.00) — baseline zoo only
-10. **mlp7** — unexplained 0.056 nats (Δ_opt 0.056, fidelity 0.00) — baseline zoo only
+2. **attn5** — unexplained 0.136 nats (Δ_opt 0.136, fidelity 0.00) — baseline zoo only
+3. **head0.3** — unexplained 0.062 nats (Δ_opt 0.062, fidelity 0.00) — baseline zoo only
+4. **mlp0** — unexplained 0.062 nats (Δ_opt 0.908, fidelity 0.93) — tok map + residual ridge [attn0,embed] + quad, fid_opt, S1439
+5. **mlp7** — unexplained 0.056 nats (Δ_opt 0.056, fidelity 0.00) — baseline zoo only
+6. **attn2** — unexplained 0.051 nats (Δ_opt 0.159, fidelity 0.68) — distance kernel S1447
+7. **mlp9** — unexplained 0.050 nats (Δ_opt 0.050, fidelity 0.00) — baseline zoo only
+8. **mlp17** — unexplained 0.048 nats (Δ_opt 0.332, fidelity 0.86) — linread+quad, S1443
+9. **mlp8** — unexplained 0.047 nats (Δ_opt 0.047, fidelity 0.00) — baseline zoo only
+10. **mlp11** — unexplained 0.046 nats (Δ_opt 0.046, fidelity 0.00) — baseline zoo only
 
 ## Full table
 
 | component | Δ_opt | best fidelity | unexplained CE | current best |
 |---|---|---|---|---|
 | mlp1 | 7.2533 | 0.97 | 0.1813 | tok table + residual ridge [attn1,mlp0] + quad, fid_opt, S1438 |
-| attn2 | 0.1585 | 0.00 | 0.1585 | baseline zoo only |
 | attn5 | 0.1362 | 0.00 | 0.1362 | baseline zoo only |
-| attn3 | 0.1162 | 0.00 | 0.1162 | baseline zoo only |
-| attn6 | 0.0642 | 0.00 | 0.0642 | baseline zoo only |
-| attn9 | 0.0640 | 0.00 | 0.0640 | baseline zoo only |
 | head0.3 | 0.0621 | 0.00 | 0.0621 | baseline zoo only |
 | mlp0 | 0.9080 | 0.93 | 0.0617 | tok map + residual ridge [attn0,embed] + quad, fid_opt, S1439 |
-| attn7 | 0.0594 | 0.00 | 0.0594 | baseline zoo only |
 | mlp7 | 0.0563 | 0.00 | 0.0563 | baseline zoo only |
+| attn2 | 0.1585 | 0.68 | 0.0510 | distance kernel S1447 |
 | mlp9 | 0.0496 | 0.00 | 0.0496 | baseline zoo only |
-| attn8 | 0.0479 | 0.00 | 0.0479 | baseline zoo only |
 | mlp17 | 0.3323 | 0.86 | 0.0479 | linread+quad, S1443 |
 | mlp8 | 0.0474 | 0.00 | 0.0474 | baseline zoo only |
 | mlp11 | 0.0460 | 0.00 | 0.0460 | baseline zoo only |
-| attn11 | 0.0460 | 0.00 | 0.0460 | baseline zoo only |
+| attn8 | 0.0479 | 0.04 | 0.0460 | distance kernel S1447 |
+| attn3 | 0.1162 | 0.62 | 0.0438 | distance kernel S1447 |
 | attn4 | 0.2226 | 0.81 | 0.0421 | distance kernel S1446 |
 | mlp12 | 0.0416 | 0.00 | 0.0416 | baseline zoo only |
 | mlp10 | 0.0409 | 0.00 | 0.0409 | baseline zoo only |
@@ -48,20 +44,23 @@ attention layers land last). Generated 2026-08-25 22:27 UTC; regenerate with
 | mlp15 | 0.0379 | 0.00 | 0.0379 | baseline zoo only |
 | mlp4 | 0.1051 | 0.69 | 0.0326 | lin5 ridge on [attn4,mlp0-3], opt-anchored, S1428/S1433 |
 | mlp3 | 0.6099 | 0.95 | 0.0305 | own-basis projection r256, S1130 |
+| attn6 | 0.0642 | 0.53 | 0.0301 | distance kernel S1447 |
 | mlp14 | 0.0301 | 0.00 | 0.0301 | baseline zoo only |
-| attn14 | 0.0296 | 0.00 | 0.0296 | baseline zoo only |
 | mlp6 | 0.0760 | 0.62 | 0.0289 | ladder linall+quad, S1436 |
 | mlp5 | 0.0821 | 0.65 | 0.0287 | linall+quad ladder, S1434 |
 | head2.5 | 0.0284 | 0.00 | 0.0284 | baseline zoo only |
+| attn14 | 0.0296 | 0.06 | 0.0279 | distance kernel S1447 |
+| attn11 | 0.0460 | 0.42 | 0.0268 | distance kernel S1447 |
 | mlp16 | 0.1399 | 0.81 | 0.0266 | fitted linear read, S1131-32 |
-| attn10 | 0.0263 | 0.00 | 0.0263 | baseline zoo only |
 | head1.1 | 0.0259 | 0.00 | 0.0259 | baseline zoo only |
+| attn7 | 0.0594 | 0.60 | 0.0236 | distance kernel S1447 |
 | head6.3 | 0.0211 | 0.00 | 0.0211 | baseline zoo only |
+| attn9 | 0.0640 | 0.69 | 0.0197 | distance kernel S1447 |
 | head9.7 | 0.0191 | 0.00 | 0.0191 | baseline zoo only |
 | head7.8 | 0.0180 | 0.00 | 0.0180 | baseline zoo only |
-| attn13 | 0.0164 | 0.00 | 0.0164 | baseline zoo only |
+| attn10 | 0.0263 | 0.39 | 0.0160 | distance kernel S1447 |
+| attn13 | 0.0164 | 0.04 | 0.0157 | distance kernel S1447 |
 | head7.0 | 0.0136 | 0.00 | 0.0136 | baseline zoo only |
-| attn16 | 0.0135 | 0.00 | 0.0135 | baseline zoo only |
 | head4.0 | 0.0133 | 0.00 | 0.0133 | baseline zoo only |
 | head6.1 | 0.0128 | 0.00 | 0.0128 | baseline zoo only |
 | head1.4 | 0.0126 | 0.00 | 0.0126 | baseline zoo only |
@@ -69,6 +68,7 @@ attention layers land last). Generated 2026-08-25 22:27 UTC; regenerate with
 | head4.5 | 0.0125 | 0.00 | 0.0125 | baseline zoo only |
 | attn0 | 0.2395 | 0.95 | 0.0120 | token+position pattern + per-token value table, sink arc (~1.00 claimed; conservatively seeded) |
 | attn17 | 0.0118 | 0.00 | 0.0118 | baseline zoo only |
+| attn16 | 0.0135 | 0.15 | 0.0114 | distance kernel S1447 |
 | head4.1 | 0.0114 | 0.00 | 0.0114 | baseline zoo only |
 | head3.5 | 0.0109 | 0.00 | 0.0109 | baseline zoo only |
 | head8.3 | 0.0107 | 0.00 | 0.0107 | baseline zoo only |
@@ -76,7 +76,6 @@ attention layers land last). Generated 2026-08-25 22:27 UTC; regenerate with
 | head11.2 | 0.0103 | 0.00 | 0.0103 | baseline zoo only |
 | head2.6 | 0.0102 | 0.00 | 0.0102 | baseline zoo only |
 | head11.6 | 0.0102 | 0.00 | 0.0102 | baseline zoo only |
-| attn12 | 0.0095 | 0.00 | 0.0095 | baseline zoo only |
 | head2.3 | 0.0094 | 0.00 | 0.0094 | baseline zoo only |
 | head1.3 | 0.0094 | 0.00 | 0.0094 | baseline zoo only |
 | head4.7 | 0.0089 | 0.00 | 0.0089 | baseline zoo only |
@@ -85,14 +84,15 @@ attention layers land last). Generated 2026-08-25 22:27 UTC; regenerate with
 | head2.2 | 0.0083 | 0.00 | 0.0083 | baseline zoo only |
 | head5.8 | 0.0080 | 0.00 | 0.0080 | baseline zoo only |
 | head6.7 | 0.0076 | 0.00 | 0.0076 | baseline zoo only |
+| attn12 | 0.0095 | 0.21 | 0.0075 | distance kernel S1447 |
 | head14.4 | 0.0075 | 0.00 | 0.0075 | baseline zoo only |
-| attn15 | 0.0074 | 0.00 | 0.0074 | baseline zoo only |
 | head1.8 | 0.0073 | 0.00 | 0.0073 | baseline zoo only |
 | head3.4 | 0.0065 | 0.00 | 0.0065 | baseline zoo only |
 | head2.7 | 0.0062 | 0.00 | 0.0062 | baseline zoo only |
 | head3.6 | 0.0057 | 0.00 | 0.0057 | baseline zoo only |
 | head8.1 | 0.0055 | 0.00 | 0.0055 | baseline zoo only |
 | head3.0 | 0.0055 | 0.00 | 0.0055 | baseline zoo only |
+| attn15 | 0.0074 | 0.28 | 0.0053 | distance kernel S1447 |
 | head13.0 | 0.0053 | 0.00 | 0.0053 | baseline zoo only |
 | head10.5 | 0.0052 | 0.00 | 0.0052 | baseline zoo only |
 | head1.5 | 0.0051 | 0.00 | 0.0051 | baseline zoo only |
