@@ -25,7 +25,11 @@ circuit moves stage.**
    recovery for ~25M attention params (4.5% of model, §1369); laws: criterion scope predicts annotator
    depth (4-for-4, §1358), owners are annotator-conditional (4-for-4), width inversions (6x — kits
    have interior optima), never gate a constant (§1367), ablation names roles / construction prices
-   kits (§1347). BOTTLENECK: the generic middle is ONE redundant service with TWO implementations
+   kits (§1347). TRANSFER (§1373-82): the CLOSER replicates across FOUR sibling models
+   (2 score fns x 2 MLP types) as one surgical owner head at mid-late depth with net-negative
+   neighbors — existence/grain/depth are TRAINING-PROBLEM properties, strength is
+   architecture-modulated; the extraction grammar's laws (query-side dominance,
+   owner-as-liability) replicate on bilin12. BOTTLENECK: the generic middle is ONE redundant service with TWO implementations
    (mid attention + mid MLPs) — extraction removes either half, never both (§1370-71); attention
    compresses, the MLP side does not. Dossiers: CIRCUIT_REGISTRY.md, MDL_BILL.md. **HIGH.**
 

@@ -1,16 +1,18 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_closer_kit.py", line 204, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_closer_kit.py", line 124, in main
-    q2 = are(F.rms_norm(at.c_q2(xin).view(B, T, NH, 128), (128,)), cos, sin)
-                        ^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1968, in __getattr__
-    raise AttributeError(
-AttributeError: 'CausalSelfAttention' object has no attribute 'c_q2'. Did you mean: 'c_q'?
-Fatal Python error: PyGILState_Release: auto-releasing thread-state, but no thread-state for this thread
-Python runtime state: finalizing (tstate=0x000057b654c5b5d0)
+'The read operation timed out' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 1s [Retry 1/5].
+'The read operation timed out' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 2s [Retry 2/5].
+targets 1779
+full: target 1.3249 | else 3.3042
+ymean: target 9.3913 | else 6.7590
+route: target 6.3565 | else 5.5857
+circ_solo: target 6.5107 | else 5.5738
+circ_band: target 4.5480 | else 4.5622
+circ_key: target 6.3113 | else 5.5717
+circ_qry: target 5.0418 | else 5.5327
+circ_both: target 5.0418 | else 5.5327
 
+rec target: band 0.6004 key 0.3818 qry 0.5392 both 0.5392 route 0.3762
+pred_a carries False | pred_b query True | pred_c conditional True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_closer_kit_results.json (226.7s)

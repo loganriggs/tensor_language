@@ -33834,3 +33834,14 @@ swiglu18_closer_heads_results.json; runlogs/swiglu18_closer_heads.log (230s).
 - Queued (bilin12_closer_kit.py): the RECIPE-transfer question — the §1346 kit template ported whole to bilin12 ([route + depth/parity union gate on the front band + 7.1], 12L/6h adapter). The screens transferred (§1373-75); this asks whether the EXTRACTION GRAMMAR does. Registered: pred_a the kit carries >= 0.55 bracket recovery; pred_b conditionality transfers (7.1 solo <= route + 0.08); pred_c selectivity (elsewhere within 0.05 of route).
 
 shared_band_kit_seed2_results.json; runlogs/shared_band_kit_seed2.log (105s).
+
+## §1382 — THE EXTRACTION GRAMMAR TRANSFERS IN STRUCTURE, MISSES ITS CARRY BAR BY 0.011: bilin12's kit reaches 0.539 (bar 0.55; within the §1381-measured +-0.025 draw spread of the bar, scored FALSE as written) — but BOTH law signatures replicate: query-side dominance (0.539 vs key 0.382, fifth confirmation across circuits AND models) and owner-as-liability (7.1 solo 0.357, BELOW route 0.376 — the §1346 signature in a second model); pred_a FALSE, preds b & c TRUE (bilin12_closer_kit.py; n=1779; adapter no-op-tested to diff 0.00000)
+
+  bilin12: route 0.376 (vs bilin18's 0.529 — less crowd service in the smaller model) |
+  key gate 0.382 | qry gate 0.539 | ungated band 0.600 (generalist elsewhere as always)
+
+- WHAT TRANSFERRED: the grammar's LAWS. Query-side dominance now holds in five kit measurements spanning four capabilities and two models; owner-without-annotator-is-a-liability holds in both models measured. The zero-bit gates stay selective (elsewhere within 0.016 of route). The extraction RECIPE — route grain, token-computed gates, owner head, and the design rules learned on bilin18 — produces a working, selective, law-obeying kit on a sibling with a DIFFERENT attention normalization, on the first attempt after the adapter fix.
+- WHAT DIDN'T, quantitatively: absolute carry. 0.539 vs bilin18's 0.657 at the same gate design — plausibly the 3-of-12-layer band covers relatively more model but bilin12's route floor is much lower (0.376 vs 0.529), leaving more for the band to carry. The 0.011 bar miss is within measured draw noise but stands as scored; band-width variants (a03/a04) are the logged tail, not chased — the structural result is the finding, and the transfer thread now RESTS COMPLETELY (screens, owner grain, function generality, recipe grammar: §1373-82).
+- Queued (closer_share_spread.py): the error-bar leg for the flagship table — 13.8's bracket solo-share re-measured on three disjoint row draws (the table's key column is single-draw everywhere). Registered: pred_a share spread <= +-0.05 across draws; pred_b share > 0.90 in every draw; pred_c surgical in every draw.
+
+bilin12_closer_kit_results.json; runlogs/bilin12_closer_kit.log (227s).
