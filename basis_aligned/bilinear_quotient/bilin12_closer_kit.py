@@ -2,7 +2,9 @@
 # (§1373-75: bilin12's 7.1 = closer, 105% both surfaces). Does the EXTRACTION GRAMMAR —
 # route grain + zero-bit gates + owner head — port to the sibling? §1346 template on
 # bilin12: [v1-route + (depth>0 gate on the front band a02) + 7.1], bracket targets.
-# Adapter: 12L, 6 heads x 128, D=768; the tt_model block API is identical.
+# Adapter: 12L, 6 heads x 128, D=768. bilin12's attention is SINGLE-BRANCH squared
+# bilinear, ROW-NORMALIZED (verified from source): pattern = ((q.k)/128)^2, masked, then
+# row-normalized; QK-norm THEN rotary; v mixed with block-0 v1 BEFORE the pattern.
 #
 # Registered predictions:
 #   pred_a THE KIT CARRIES: circ_qry (depth>0 gate + 7.1) >= 0.55 bracket recovery.
@@ -34,15 +36,14 @@ def fwd_arm(idx, arm, vmeans, ymeans, gatemask):
         at = blk.attn
         xm = blk.lambdas[0] * x + blk.lambdas[1] * x0
         xin = F.rms_norm(xm, (D,))
-        cos, sin = at.rotary(at.c_q(xin).view(B, T, NH, 128))
-        q = are(F.rms_norm(at.c_q(xin).view(B, T, NH, 128), (128,)), cos, sin)
+        qr = at.c_q(xin).view(B, T, NH, 128)
+        cos, sin = at.rotary(qr)
+        q = are(F.rms_norm(qr, (128,)), cos, sin)
         k = are(F.rms_norm(at.c_k(xin).view(B, T, NH, 128), (128,)), cos, sin)
-        q2 = are(F.rms_norm(at.c_q2(xin).view(B, T, NH, 128), (128,)), cos, sin)
-        k2 = are(F.rms_norm(at.c_k2(xin).view(B, T, NH, 128), (128,)), cos, sin)
-        pat = (torch.einsum('bqhd,bkhd->bhqk', q.float(), k.float()) / 128.0) \
-            * (torch.einsum('bqhd,bkhd->bhqk', q2.float(), k2.float()) / 128.0)
+        pat = (torch.einsum('bqhd,bkhd->bhqk', q.float(), k.float()) / 128.0).square()
         tril = torch.tril(torch.ones(T, T, device=DEV, dtype=torch.bool))
         pat = pat.masked_fill(~tril, 0.0)
+        pat = pat / pat.sum(-1, keepdim=True).clamp_min(1e-9)
         v = at.c_v(xin).view(B, T, NH, 128)
         if v1 is None:
             v1 = v
@@ -118,15 +119,14 @@ def main():
             at = blk.attn
             xm = blk.lambdas[0] * x + blk.lambdas[1] * x0
             xin = F.rms_norm(xm, (D,))
-            cos, sin = at.rotary(at.c_q(xin).view(B, T, NH, 128))
-            q = are(F.rms_norm(at.c_q(xin).view(B, T, NH, 128), (128,)), cos, sin)
+            qr = at.c_q(xin).view(B, T, NH, 128)
+            cos, sin = at.rotary(qr)
+            q = are(F.rms_norm(qr, (128,)), cos, sin)
             k = are(F.rms_norm(at.c_k(xin).view(B, T, NH, 128), (128,)), cos, sin)
-            q2 = are(F.rms_norm(at.c_q2(xin).view(B, T, NH, 128), (128,)), cos, sin)
-            k2 = are(F.rms_norm(at.c_k2(xin).view(B, T, NH, 128), (128,)), cos, sin)
-            pat = (torch.einsum('bqhd,bkhd->bhqk', q.float(), k.float()) / 128.0) \
-                * (torch.einsum('bqhd,bkhd->bhqk', q2.float(), k2.float()) / 128.0)
+            pat = (torch.einsum('bqhd,bkhd->bhqk', q.float(), k.float()) / 128.0).square()
             tril = torch.tril(torch.ones(T, T, device=DEV, dtype=torch.bool))
             pat = pat.masked_fill(~tril, 0.0)
+            pat = pat / pat.sum(-1, keepdim=True).clamp_min(1e-9)
             v = at.c_v(xin).view(B, T, NH, 128)
             if v1 is None:
                 v1 = v
