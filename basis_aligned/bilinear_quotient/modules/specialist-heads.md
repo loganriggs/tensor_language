@@ -121,8 +121,9 @@ qry-vs-key +-0.05, selectivity +-0.05 of route elsewhere.
 - Double-close "))" unevaluable on natural rows (n=4) — needs targeted corpus (§1341).
 
 ## CAPITALIZED COMMITTEE (S1397, extended S1411) — the anti-closer
-TWELVE heads across a13-a17: {13.0, 13.5, 14.4, 14.6, 14.7, 15.3, 16.0, 16.4, 16.5,
-17.0, 17.1, 17.2}, solo dCE .016-.035 each, NO owner anywhere (top shares .38-.55).
+THIRTEEN heads across a13-a17: {13.0, 13.5, 14.4, 14.6, 14.7, 15.3, 16.0, 16.3, 16.4,
+16.5, 17.0, 17.1, 17.2} (16.3 confirmed S1418 at NR=1920), solo dCE .016-.035 each,
+NO owner anywhere (top shares .38-.55).
 Sharp edge: next head below the .015 bar sits at .004. a14 is the band's biggest layer
 (.089), missed by the S1339 screen (looked only at a15-17). 17.2 (expressive-broad)
 leads = its 3rd moonlight. The committee is the named unit. REMOVAL HANDLE RE-PRICED (S1412): all-12 = .603
@@ -139,7 +140,7 @@ specialist in construction (.195); 8.1 marginal .048. Individual drop costs do n
 compose (redundancy = shared resource): 14 individually-cheap heads collapse the kit
 when dropped together.
 
-## NEWLINE-SETTER PAIR: 8.2 + 11.0 (S1415, from the head-grain damage mine)
+## NEWLINE-SETTER CREW: {7.2, 8.2, 10.2, 11.0, 12.6} (S1415/S1418) — joint handle .617
 8.2: newline-target damage +.1457, controls <= .0025 (cleanest first screen since the
 closer). 11.0: +.0894, clean. Distinct from the old front-attention newline ROUTING
 circuit (item 7) — these predict where newlines GO. 10.6 = SECOND close-quote server
