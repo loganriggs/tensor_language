@@ -45,7 +45,7 @@ conditionality measured).
 10.6 quote +.036; 13.3/11.7 punct dead (argmax mirages). pair = two-crew #3 (S1416, joint 1.70x); 10.6 inverted (close-side); open-quote UNSERVED; newline served at .863 by kit28 WITHOUT the pair (S1417 — two-inventory law now general, 4/4; pair not added). CREW = 5 heads L7-12, joint .617 (S1418); 16.3 = 13th committee member; closer = the exception not the paradigm. crew = near-additive, NO sub-band split (S1419, motif demoted); c13 joint .654. quote = owner+helpers {13.8; 10.6, 11.5}; open-quote crew-served-without-owner (S1420); 14.7 sub-bar; MINE POOL FULLY DISPOSITIONED (11 objects/run). BILL FRESH-CERTIFIED (S1421: comp .998, all lines within .006). NEW THREAD (user directive):
 MID-MLP DECOMPOSITION — "no valid stand-in" reframed as "no tested FORM works"; goal = lower-complexity
 semantic descriptions (BoW-topic tables, sectional decomposition, black-boxes-with-simple-wiring OK).
-mlp4 first: mlp4_reads queued (path-patch upstream contributions into mlp4 input); next: mlp4_bow
+mlp4 DIET NAMED (S1422: mlp0 .674/mlp3 .373/mlp2 .121, mlp1~0, attn 5%; coherent-code sensitivity) + NOT topical (S1423: BoW=null, tok-table<constant). mlp4_from_inputs queued (lin3/lin0/class64). Registered next: mlp4_bow was
 (K~20 preceding-window topic labels, table[token,topic] vs token table vs shuffled null) |
 | ~~open_quote~~ | — | DEMOTED §1351: clean screen fails every bar (a10 +0.067, conc 2.7, jitter dirty); mask-sensitive (atlas n=90 vs clean n=1087); distributed-no-owner class | 1087 | negative, recorded |
 | ~~open_bracket~~ | — | DEMOTED S1409: clean screen puts top at a4 +.336 with jitter +.245 (dirty); a17 atlas leader (n=59) did not replicate | 749 | negative, recorded |

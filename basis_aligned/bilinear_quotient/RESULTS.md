@@ -5156,3 +5156,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1419 — two-crew motif DEMOTED (newline crew is near-additive, 1.15x; late trio alone = 56%); redundancy structure varies by service; committee-13 joint .654 (+.077 from 16.3 — joint marginals 5x solos, rosters priced jointly) (newline_crews)
 §1420 — quote service final: owner 13.8 + helpers {10.6, 11.5} (joint 1.79x); OPEN-quote is crew-served-without-owner (3rd service pattern, "unserved" revised); 14.7 sub-bar; mine pool fully dispositioned — 11 real objects from one run (quote_digit_screen)
 §1421 — BILL CERTIFIED FRESH 3-for-3: comparative .9976 (≈full), all lines within .006 of §1408; no row-fit; headline artifact reproducible (bill_fresh_cert)
+§1422 — mlp4's diet named: mlp0 .674 / mlp3 .373 / mlp2 .121; mlp1 ≈ 0 (token table passes THROUGH); attn 5%; single-patches 3x the all-mean ceiling (coherent-code sensitivity) (mlp4_reads)
+§1423 — mlp4 is not topical: BoW-topic table = shuffled null, token table < constant; mlp4 = class-code transformer, token/topic/attention-blind; stand-in family shifts to functions-of-upstream-outputs (mlp4_bow)

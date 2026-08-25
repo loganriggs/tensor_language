@@ -60,6 +60,10 @@ say "5/6 bqrunner service (drains queue.txt; canary on idle)"
 cp "$BQ/ops/bqrunner.sh"   /opt/supervisor-scripts/bqrunner.sh
 cp "$BQ/ops/bqrunner.conf" /etc/supervisor/conf.d/bqrunner.conf
 chmod +x /opt/supervisor-scripts/bqrunner.sh
+cp "$BQ/ops/bqrunner2.sh"   /opt/supervisor-scripts/bqrunner2.sh
+cp "$BQ/ops/bqrunner2.conf" /etc/supervisor/conf.d/bqrunner2.conf
+chmod +x /opt/supervisor-scripts/bqrunner2.sh
+touch "$BQ/queue2.txt"
 supervisorctl reread && supervisorctl update
 sleep 3; supervisorctl status bqrunner
 
