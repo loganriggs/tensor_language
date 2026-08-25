@@ -26,7 +26,9 @@ Floor anchor moving from MEAN-ablation to OPTIMAL-ablation (Li & Janson 2409.099
 learned constant vector per component, trained against full-model CE, mean-init.
 fidelity(repl) = (d_opt - d_repl)/d_opt — optimal constant scores 0, component scores 1.
 Per-position constants = a higher complexity budget, logged separately. Constants:
-opt_ablation_consts.pt (optimal_ablation.py; first four: mlp4, mlp1, mlp16, head 13.8).
+opt_ablation_consts.pt (4-comp pilot) and opt_ablation_consts_all.pt (FULL SWEEP,
+user directive: all 198 components — 18 MLPs, 162 heads, 18 attn layers; resumable;
+optimal_ablation_all.py). The _all file is THE standing baseline once complete.
 Prior "recovery of ymean-gap / mean-stake" numbers remain valid but are MEAN-anchored;
 re-anchor when comparing across papers.
 
