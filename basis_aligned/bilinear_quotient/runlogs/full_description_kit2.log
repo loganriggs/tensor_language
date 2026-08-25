@@ -1,0 +1,31 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+commons 22 heads
+targets: q 307 | than 110 | bracket 1779 | quote 1058
+refit mlp0 installed
+refit mlp1 installed
+refit mlp2 installed
+refit mlp3 installed
+refit mlp4 installed
+refit mlp5 installed
+refit mlp6 installed
+refit mlp7 installed
+refit mlp8 installed
+refit mlp9 installed
+refit mlp10 installed
+refit mlp11 installed
+refit mlp12 installed
+refit mlp13 installed
+refit mlp14 installed
+refit mlp15 installed
+refit mlp16 installed
+refit mlp17 installed
+full: question 0.946 comparative 1.254 closer_b 1.213 closer_q 1.772 | else 3.1392
+ymean: question 8.907 comparative 8.272 closer_b 10.675 closer_q 9.725 | else 7.1925
+route: question 6.296 comparative 5.203 closer_b 5.668 closer_q 7.554 | else 5.4837
+kit_attn: question 5.459 comparative 2.136 closer_b 5.140 closer_q 6.960 | else 5.2785
+kit_mid_refit: question 5.701 comparative 4.479 closer_b 4.391 closer_q 6.204 | else 5.5137
+kit_full_refit: question 5.719 comparative 4.945 closer_b 4.345 closer_q 6.051 | else 5.6696
+
+comparative rec: attn 0.874 | mid-refit 0.540 | full-refit 0.474
+pred_a refit-carries False | pred_b still-LM True | pred_c mid-price False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/full_description_kit2_results.json (193.5s)
