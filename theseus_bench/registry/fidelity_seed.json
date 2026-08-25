@@ -1,8 +1,8 @@
 {
  "_comment": "Best-known fidelity per component from the bilinear_quotient program (opt-anchored where available, mean-anchored otherwise - S1433 showed they differ by <1% for tested comps). 0 = only the baseline zoo exists. Edit as frontiers move; make_priorities.py consumes this.",
  "mlp0": {
-  "fidelity": 0.9,
-  "ref": "class-code writer / token map, S905/S1045"
+  "fidelity": 0.932,
+  "ref": "tok map + residual ridge [attn0,embed] + quad, fid_opt, S1439"
  },
  "mlp1": {
   "fidelity": 0.975,

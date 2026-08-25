@@ -5173,3 +5173,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1436 — mlp6 ladder: lin2 .515/linall .572/quad +.046 — tail flattening REFUTED (non-monotone by depth) (mlp6_ladder)
 §1437 — mlp2 = 92% linear map of [attn2, mlp1] (.944 with quad); top board target: .726 -> .041 nats unexplained in one run; chain template now 5-for-5 (mlp2_ladder)
 §1438 — mlp1 residual: tok .934 -> +ridge .968 -> +quad .975 fid_opt; unexplained .508 -> .180; anchor-order bug disclosed + re-anchored on frozen sweep anchors = Invariant 4 learned in practice (mlp1_residual_ladder)
+§1439 — mlp0: tok .866/+ridge .908/+quad .932 fid_opt (3-for-3, frozen anchors); front story uniform: table + linear same-block-attention correction + small quad (mlp0_residual_ladder)

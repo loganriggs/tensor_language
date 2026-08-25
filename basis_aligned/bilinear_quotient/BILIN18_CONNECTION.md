@@ -34317,3 +34317,9 @@ swarm2/ complete for waves 1-3; worker reports in session log.
   against clean 2.9455).
 - LESSON, and it is exactly the benchmark's Invariant 4 learned by stepping on it: anchors must come FROZEN from the sweep, never recomputed inside a submission script — my in-script "mean" was silently corrupted by an order-of-operations slip that frozen anchors are immune to. The practice build's verifier will read bench/anchors/, not compute its own.
 - BOARD MOVEMENT after one directed hour: the top two targets went from 1.234 nats unexplained (mlp2 .726 + mlp1 .508) to .221 (.041 + .180). New top-3: mlp1-residual (.180), mlp0-residual (.091), mlp17 (.053). Queued (mlp0_residual_ladder): same stack for mlp0 — token map + residual ridge from [attn0, embed] + quad, with the mean arm taken from the FROZEN anchor this time.
+
+## §1439 — mlp0'S RESIDUAL YIELDS THE SAME WAY, 3-FOR-3, UNDER FROZEN ANCHORS (pred_a PASSED: token map .8656 fid_opt; pred_b PASSED: +residual ridge from [attn0, embed] → .9081; pred_c PASSED: +quad → .9316): the front-of-model story is now uniform — every front module (0, 1, 2) is a token-keyed table/map plus a LINEAR context correction read from same-block attention, with a small quadratic on top; mlp0's unexplained CE drops .091 → .062 (mlp0_residual_ladder_results.json, 164s; scored on frozen sweep anchors per the §1438 lesson — in-script mean arm kept only as cross-check)
+
+  Front ladder summary (fid_opt): mlp0 .87/.91/.93 | mlp1 .93/.97/.975 | mlp2 —/.92/.94
+  (mlp2 needs no table at all: pure linear chain). Board after update: mlp1-resid .18,
+  mlp0-resid .06, then the head tail.

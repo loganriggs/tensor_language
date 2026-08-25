@@ -1,0 +1,147 @@
+{
+ "mlp2": [
+  {
+   "slug": "lin2-chain",
+   "fidelity": 0.92,
+   "bits_params": 42504192,
+   "mbits": 42.5,
+   "edges": 2,
+   "inputs": [
+    "attn_out.2",
+    "mlp_out.1"
+   ]
+  },
+  {
+   "slug": "lin2+quad256",
+   "fidelity": 0.944,
+   "bits_params": 202936320,
+   "mbits": 202.9,
+   "edges": 2,
+   "inputs": [
+    "attn_out.2",
+    "mlp_out.1"
+   ]
+  }
+ ],
+ "mlp1": [
+  {
+   "slug": "tok-table",
+   "fidelity": 0.934,
+   "bits_params": 926337024,
+   "mbits": 926.3,
+   "edges": 1,
+   "inputs": [
+    "tokens"
+   ]
+  },
+  {
+   "slug": "tok+ridge",
+   "fidelity": 0.968,
+   "bits_params": 968804352,
+   "mbits": 968.8,
+   "edges": 3,
+   "inputs": [
+    "tokens",
+    "attn_out.1",
+    "mlp_out.0"
+   ]
+  },
+  {
+   "slug": "tok+ridge+quad",
+   "fidelity": 0.975,
+   "bits_params": 1129236480,
+   "mbits": 1129.2,
+   "edges": 3,
+   "inputs": [
+    "tokens",
+    "attn_out.1",
+    "mlp_out.0"
+   ]
+  }
+ ],
+ "mlp0": [
+  {
+   "slug": "tok-map",
+   "fidelity": 0.866,
+   "bits_params": 926337024,
+   "mbits": 926.3,
+   "edges": 1,
+   "inputs": [
+    "tokens"
+   ]
+  },
+  {
+   "slug": "tok+ridge",
+   "fidelity": 0.908,
+   "bits_params": 968804352,
+   "mbits": 968.8,
+   "edges": 3,
+   "inputs": [
+    "tokens",
+    "attn_out.0",
+    "embed"
+   ]
+  }
+ ],
+ "mlp4": [
+  {
+   "slug": "lin2-chain",
+   "fidelity": 0.62,
+   "bits_params": 42467328,
+   "mbits": 42.5,
+   "edges": 2,
+   "inputs": [
+    "attn_out.4",
+    "mlp_out.3"
+   ]
+  },
+  {
+   "slug": "lin5",
+   "fidelity": 0.69,
+   "bits_params": 106168320,
+   "mbits": 106.2,
+   "edges": 5,
+   "inputs": [
+    "attn_out.4",
+    "mlp_out.0",
+    "mlp_out.1",
+    "mlp_out.2",
+    "mlp_out.3"
+   ]
+  }
+ ],
+ "mlp16": [
+  {
+   "slug": "linear-read",
+   "fidelity": 0.81,
+   "bits_params": 21233664,
+   "mbits": 21.2,
+   "edges": 1,
+   "inputs": [
+    "resid_pre.16"
+   ]
+  }
+ ],
+ "mlp17": [
+  {
+   "slug": "linear-read",
+   "fidelity": 0.84,
+   "bits_params": 21233664,
+   "mbits": 21.2,
+   "edges": 1,
+   "inputs": [
+    "resid_pre.17"
+   ]
+  }
+ ],
+ "head5.7": [
+  {
+   "slug": "bias-vector",
+   "fidelity": 0.985,
+   "bits_params": 2048,
+   "mbits": 0.0,
+   "edges": 0,
+   "inputs": []
+  }
+ ]
+}
