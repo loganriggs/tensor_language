@@ -33528,3 +33528,16 @@ behaviour_atlas2_results.json; runlogs/behaviour_atlas2.log (138s).
 - Queued (closer_kit.py): the direct MDL payoff test — the §1346 kit with (i) bracket gates, (ii) quote-parity gates, (iii) the UNION gate, each + 13.8, scored on BOTH target families. Registered: pred_a the quote kit carries: >= 0.60 recovery at quote-close targets; pred_b ONE KIT, TWO CAPABILITIES: the union kit lands within 0.03 of each dedicated kit on its own targets (a single description serving both — the function frame cashed as description length); pred_c selectivity throughout (every kit arm's elsewhere within 0.05 of route).
 
 quote_close_heads_results.json; runlogs/quote_close_heads.log (271s).
+
+## §1357 — ONE KIT, TWO CAPABILITIES: the union kit matches each dedicated kit to 0.001 on its own family (bracket 0.658 vs 0.657; quote 0.468 vs 0.468) with selectivity intact — the function-frame MDL merge is REAL; but pred_a FALSE: the quote side under-carries at 0.468 (bar 0.60), and the miss lands exactly where the §1350 CRITERION-SCOPE TAXONOMY predicts — quote spans are LONG, so their parity state should need mid-stack annotator service that a02 lacks (preds b & c TRUE) (closer_kit.py; n=1779 bracket / 1058 quote)
+
+  family    route-floor  dedicated-kit  union-kit
+  bracket   0.529        0.657          0.658     (kit = parity/depth gate on a02 + 13.8)
+  quote     0.273        0.468          0.468
+  elsewhere: union within 0.023 of route — selective.
+
+- pred_b IS THE STRUCTURAL RESULT: merging the two gates into one union gate costs NOTHING on either family (differences 0.001/0.000) and nothing elsewhere. The CLOSER's two capability surfaces share one description: [route + (depth>0 OR odd-parity) gate on a02 + 13.8]. Kit accounting moves from per-capability to per-function, as §1356 hoped — the first measured instance of the merge.
+- pred_a's MISS IS A TAXONOMY CONFIRMATION IN DISGUISE: quotes' route floor (0.273) is HALF of brackets' (0.529), and the a02-gated kit adds similar increments on both (+0.185 quote, +0.128 bracket) — the deficit is upstream: the quote-parity state ("am I inside a quote", spans of dozens of tokens) is not maintained by front attention alone. §1350's rule — CRITERION SCOPE PREDICTS ANNOTATOR DEPTH — called this: long-scope criteria (question clause, exclamatory register, now quote spans) need the early-mid band; short ones (brackets, comparatives) do not. The taxonomy now has three long-scope members and predicted this miss before it happened, which is what a taxonomy is for.
+- Queued (closer_quote_depth.py): the depth rung the taxonomy demands — parity gate widened to L0-5 and L0-8 (+13.8), quote targets. Registered: pred_a the a05-parity kit reaches >= 0.60 quote recovery (the taxonomy bet, now on its fourth circuit); pred_b the increment is mid-concentrated (L3-5 adds >= 0.08 over the a02 kit); pred_c selectivity (else within 0.05 of route).
+
+closer_kit_results.json; runlogs/closer_kit.log (98s).

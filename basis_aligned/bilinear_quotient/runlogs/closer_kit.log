@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+bracket targets 1779 | quote targets 1058
+full: bracket 1.2133 | quote 1.7717 | else 3.1368
+ymean: bracket 10.6752 | quote 9.7251 | else 7.1939
+route: bracket 5.6685 | quote 7.5544 | else 5.4840
+kit_bracket: bracket 4.4572 | quote 7.4741 | else 5.4458
+kit_quote: bracket 5.7552 | quote 6.0024 | else 5.4267
+kit_union: bracket 4.4476 | quote 6.0020 | else 5.3923
+
+rec bracket: dedicated 0.6572 union 0.6582
+rec quote:   dedicated 0.4681 union 0.4681
+pred_a quote-kit False | pred_b one-kit True | pred_c selective True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/closer_kit_results.json (98.2s)
