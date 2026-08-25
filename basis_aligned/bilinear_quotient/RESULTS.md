@@ -5158,3 +5158,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1421 — BILL CERTIFIED FRESH 3-for-3: comparative .9976 (≈full), all lines within .006 of §1408; no row-fit; headline artifact reproducible (bill_fresh_cert)
 §1422 — mlp4's diet named: mlp0 .674 / mlp3 .373 / mlp2 .121; mlp1 ≈ 0 (token table passes THROUGH); attn 5%; single-patches 3x the all-mean ceiling (coherent-code sensitivity) (mlp4_reads)
 §1423 — mlp4 is not topical: BoW-topic table = shuffled null, token table < constant; mlp4 = class-code transformer, token/topic/attention-blind; stand-in family shifts to functions-of-upstream-outputs (mlp4_bow)
+§1424 — lin3 (ridge from mlp0+mlp2+mlp3 outputs) recovers .61 of mlp4 held-out; mlp0-alone −.96 (coherent-code sensitivity #3); class64 .06; mlp4 = "mostly a linear map on the front joint code" (mlp4_from_inputs)
