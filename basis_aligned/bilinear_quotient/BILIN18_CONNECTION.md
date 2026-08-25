@@ -33369,3 +33369,20 @@ comparative_missing_band_results.json; runlogs/comparative_missing_band.log (126
 - THE COMPARATIVE CIRCUIT, current best full statement: [route + key/qry gates on a02 + 8.1 + refine {10.5, 12.8} (+11.7, 11.6 optional)] = 0.76-0.78 of the 7.0-nat gap, elsewhere +0.01-0.03 over route, ATTENTION-ONLY (MLPs live and unpriced). Remaining ~0.22: generic mid-pool service (shared with the whole model, §1344) + whatever the MLP side carries. The thread rests here; the registry's next item is the close-bracket extraction.
 
 comparative_refine_heads_results.json; runlogs/comparative_refine_heads.log (306s).
+
+## §1346 — THE CLOSE-BRACKET TEMPLATE SWEEPS (third circuit): a02+13.8 carries 0.690 (the a02-annotator assumption HOLDS for brackets, unlike question), query-side dominates AGAIN (+0.144, depth>0 gate 0.657 vs open-paren gate 0.513), and 13.8 WITHOUT its annotator is BELOW ROUTE (0.506 vs 0.529 — the solo owner is net interference); preds a, b, c ALL TRUE (close_bracket_gates.py; n=1779; DISCLOSED: open positions have depth>0, so key is a subset of qry and circ_both degenerates to circ_qry — §1334's void-both slip repeated despite being a standing lesson; the gate-disjointness check is now added to the template checklist as a MANDATORY precondition, not a lesson)
+
+  arm         target-rec  else-rec
+  route       0.529       0.421     (brackets get the most crowd help of the three circuits: 0.53 vs 0.44/0.33)
+  circ_solo   0.506       0.422     (route + 13.8, no annotator — BELOW route)
+  circ_key    0.513       0.428     (a02 at open-paren positions + 13.8)
+  circ_qry    0.657       0.430     (a02 at depth>0 positions + 13.8)  <- the kit
+  circ_band   0.690       0.676     (ungated a02 + 13.8 — generalist elsewhere as always)
+
+- pred_c IS THE SHARPEST CONDITIONALITY MEASUREMENT YET: adding 13.8 to bare route with no annotator makes the target prediction WORSE than route alone (−0.023 recovery). 8.1 without its mark was worthless (+0.025, §1329); 13.8 without its mark is actively harmful — an owner head running on an unmarked stream fetches noise and injects it at 570x-selective positions. Conditionality is not just "needs the annotator to help" but "is a liability without it" — which coheres with §1341's a14-negative-on-plain: specialists mis-fire when their precondition structure is absent.
+- pred_a: the a02 band + 13.8 reaches 0.690 — the front-band annotator assumption that FAILED for question (§1334, needed L4) HOLDS for brackets. Bracket state is front-written; question state needed mid-stack maintenance. The difference tracks span length and structure: bracket spans are short and lexically anchored, question clauses are long and syntactic.
+- pred_b: query-side dominance is now THREE for three (comparative 2.7:1, question +0.128, brackets +0.144). Standing generalization, upgraded from pattern to expectation: specialists read PREPARED QUERY STATE; the trigger-position mark is always the minor term.
+- THE CLOSE-BRACKET KIT: [route + depth>0 gate on a02 + 13.8] = 0.657 at elsewhere route+0.009 — capability-specific (the band arm's 0.676 elsewhere is the usual generalist bill). Kit arithmetic across the three circuits now: brackets 0.657, comparative 0.659 (pre-refine), question 0.641 — three capabilities, one recipe, same recovery plateau at ~0.65, which is itself a datum: the route+annotator-gate+owner grain buys two-thirds everywhere, and the §1344-45 refine lesson says the next slice needs named downstream carriers per circuit.
+- Queued (close_bracket_a14.py): the a14 rung with the per-subtype computation the user asked for — arms kit | kit+a14(depth-gated) | kit+a14(full), scored PER SUBTYPE (plain/comma/period/quote, §1341 masks). Registered: pred_a the gated a14 lifts the compound subtypes (comma & period each >= +0.05 recovery over kit); pred_b net-positive overall (kit+a14_gated >= kit + 0.03) — a real risk since the depth gate cannot separate plain from compound closes and a14 is NEGATIVE on plain (§1341); pred_c the benefit is compound-concentrated (comma/period gains each >= 2x plain's).
+
+close_bracket_gates_results.json; runlogs/close_bracket_gates.log (124s).

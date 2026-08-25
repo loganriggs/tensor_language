@@ -38,7 +38,7 @@ conditionality measured).
 
 | Behavior | Leader | Target dmg vs elsewhere | n | Note |
 |---|---|---|---|---|
-| **close_bracket** | **13.8** (+a14 assist) | 13.8 owns EVERY subtype in-layer (0.95-1.04, §1341); a14 = trailing-punctuation helper (+0.17..0.20 compounds, NEGATIVE on plain); extraction rung should gate 13.8+a14 | 1779 | next: extraction with bracket gates; double-close needs targeted corpus |
+| **close_bracket** | **13.8** | KIT CLOSED §1346: [route + depth>0 gate on a02 + 13.8] = 0.657 at else +0.009; a02-annotator HOLDS; 13.8 solo BELOW route (sharpest conditionality); a14 subtype rung in flight | 1779 | ~0.65 plateau noted across all 3 kits |
 | capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | NO layer-owner (1.1x) — first late-band shared capability; PARKED behind close-bracket; extraction starts from a band gate |
 | open_quote | a10 | +0.272 vs +0.020 | 90 | ctrl 8.9 dirty — re-screen |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |

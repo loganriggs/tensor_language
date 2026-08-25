@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 1779
+full: target 1.2133 | else 3.1330
+ymean: target 10.6752 | else 7.2005
+route: target 5.6685 | else 5.4895
+circ_solo: target 5.8911 | else 5.4864
+circ_band: target 4.1436 | else 4.4522
+circ_key: target 5.8212 | else 5.4835
+circ_qry: target 4.4572 | else 5.4513
+circ_both: target 4.4573 | else 5.4513
+
+rec target: band 0.6903 key 0.513 qry 0.6572 both 0.6572 route 0.5291
+pred_a carries True | pred_b query True | pred_c conditional True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/close_bracket_gates_results.json (124.1s)
