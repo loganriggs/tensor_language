@@ -1,0 +1,26 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 1779
+base target 1.151
+a0: t +0.060 j +0.045 r +0.060 e +0.070
+a1: t +0.126 j +0.109 r +0.133 e +0.139
+a2: t +0.144 j +0.142 r +0.159 e +0.167
+a3: t +0.269 j +0.151 r +0.172 e +0.175
+a4: t +0.366 j +0.174 r +0.191 e +0.190
+a5: t +0.467 j +0.289 r +0.349 e +0.349
+a6: t +0.315 j +0.168 r +0.165 e +0.161
+a7: t +0.298 j +0.154 r +0.176 e +0.159
+a8: t +0.047 j +0.080 r +0.066 e +0.067
+a9: t +0.018 j +0.029 r +0.045 e +0.038
+a10: t +0.252 j +0.066 r +0.077 e +0.075
+a11: t +0.044 j +0.082 r +0.088 e +0.093
+a12: t +0.102 j +0.021 r +0.029 e +0.030
+a13: t +0.013 j +0.030 r +0.035 e +0.031
+a14: t +0.244 j +0.018 r +0.019 e +0.013
+a15: t +0.052 j +0.026 r +0.030 e +0.018
+a16: t -0.009 j +0.006 r +0.017 e +0.014
+a17: t +0.071 j +0.018 r +0.014 e +0.011
+raw winner a5 (dmg +0.467) | specificity winner a10
+
+winner a10 (rel depth 0.59) conc 3.4 | jitter 0.88 random 1.03
+pred_a conc False | pred_b mid True | pred_c controls True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/swiglu18_closer_screen_results.json (220.5s)

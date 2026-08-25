@@ -1,13 +1,10 @@
-# swiglu18_closer_screen: THE FOURTH SIBLING (§1378) — bilinear attention + SwiGLU MLPs,
-# 18L/9h/D1152. Extends the closer table along the MLP-architecture axis; the closer is
-# an ATTENTION part, so MLP type should not matter (the registered bet). Scoring per the
-# §1376 PATCHED TEMPLATE: both the raw argmax and the best specificity-passing layer are
-# reported; bars key to the SPECIFICITY winner (target/else ratio >= 3 gate, then max dmg).
+# swiglu18_closer_heads: SETTLE §1379 — is a14 swiglu18's closer, and is it an owner?
+# §1340 battery at a14 (9 heads, D=1152).
 #
 # Registered predictions:
-#   pred_a a concentrated closer layer exists: specificity winner dmg >= 0.20, conc >= 8.
-#   pred_b it sits mid-stack: rel depth in [0.55, 0.85].
-#   pred_c both controls clean at the specificity winner (<= 1.5).
+#   pred_a an owner exists: top solo head >= 60% of a14's target damage.
+#   pred_b knockout and keep-only AGREE on the top head.
+#   pred_c surgical: top head's elsewhere damage <= 10% of its target damage.
 import json, time, sys, torch
 import torch.nn.functional as F
 sys.path.insert(0, '/workspace/tensor_language/basis_aligned/qk_mdl')
@@ -17,21 +14,23 @@ import census_lib as cl
 
 D = 1152; T = 256; NL = 18
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT = PT + 'swiglu18_closer_screen_results.json'
+OUT = PT + 'swiglu18_closer_heads_results.json'
+L7 = 14
+NH = 9
+HD = 128
 NMEAN = 24; NR = 1920
 m12, cfg = load_elriggs('swiglu18')
 H = m12.transformer.h
-CUR = {'abl': None, 'mean': None}
+CUR = {'heads': None, 'mean': None}
 
 
-def mk_hook(L):
-    def hook(mod, args, out):
-        if CUR['abl'] == L:
-            y = out[0] if isinstance(out, tuple) else out
-            rep = CUR['mean'][L].to(y.dtype).expand_as(y)
-            return (rep,) + tuple(out[1:]) if isinstance(out, tuple) else rep
-        return out
-    return hook
+def cproj_hook(mod, args):
+    if CUR['heads'] is None:
+        return None
+    y = args[0].clone()
+    for h in CUR['heads']:
+        y[..., h * HD:(h + 1) * HD] = CUR['mean'][h].to(y.dtype)
+    return (y,)
 
 
 @torch.no_grad()
@@ -63,22 +62,14 @@ def main():
     ROWS = ROWS.clamp_max(V12 - 1)
     MEANR, EVR = ROWS[:NMEAN], ROWS[NMEAN:]
 
-    caps = {L: [] for L in range(NL)}
-    hs = []
-    for L in range(NL):
-        def mk(L):
-            def h(mod, args, out):
-                y = out[0] if isinstance(out, tuple) else out
-                caps[L].append(y.detach().float().mean((0, 1)))
-                return out
-            return h
-        hs.append(H[L].attn.register_forward_hook(mk(L)))
-    CUR['abl'] = None
+    capsH = []
+    hk = H[L7].attn.c_proj.register_forward_pre_hook(
+        lambda mod, args: capsH.append(args[0].detach().float().reshape(-1, NH, HD).mean(0)))
+    CUR['heads'] = None
     for i in range(0, NMEAN, 4):
         fwd(MEANR[i:i + 4, :-1].to('cuda').contiguous())
-    for h in hs:
-        h.remove()
-    CUR['mean'] = {L: torch.stack(caps[L]).mean(0) for L in range(NL)}
+    hk.remove()
+    CUR['mean'] = torch.stack(capsH).mean(0)
 
     toks = EVR[:, :-1]; tgt_all = EVR[:, 1:]
     is_open = torch.isin(toks, open_ids); is_close = torch.isin(toks, close_ids)
@@ -103,10 +94,10 @@ def main():
     ELSE = ~TARGET & ~JIT & ~RAND; ELSE[:, :64] = False
     print(f"targets {k}", flush=True)
 
-    hooks = [H[L].attn.register_forward_hook(mk_hook(L)) for L in range(NL)]
+    hooks = [H[L7].attn.c_proj.register_forward_pre_hook(cproj_hook)]
 
     def ce_all(abl):
-        CUR['abl'] = abl
+        CUR['heads'] = abl
         st = sj = sr = se = 0.0; nt = nj = nr_ = ne = 0
         for i in range(0, NR, 8):
             bb = EVR[i:i + 8].to('cuda')
@@ -129,41 +120,36 @@ def main():
                 'random': sr / max(nr_, 1), 'else': se / max(ne, 1)}
 
     base = ce_all(None)
-    print(f"base target {base['target']:.3f}", flush=True)
-    dmg = {}
-    for L in range(NL):
-        r = ce_all(L)
-        dmg[L] = {kk: round(r[kk] - base[kk], 4) for kk in r}
-        print(f"a{L}: t {dmg[L]['target']:+.3f} j {dmg[L]['jitter']:+.3f} "
-              f"r {dmg[L]['random']:+.3f} e {dmg[L]['else']:+.3f}", flush=True)
-        json.dump({'partial': True, 'damage': {f'a{x}': dmg[x] for x in dmg}},
-                  open(OUT, 'w'), indent=1)
+    full = ce_all(set(range(NH)))
+    layer_dmg = full['target'] - base['target']
+    print(f"layer dmg {layer_dmg:+.4f} (vs §1379 +0.244)", flush=True)
+    solo = {}; keep = {}
+    for h in range(NH):
+        r = ce_all({h})
+        solo[h] = {kk: round(r[kk] - base[kk], 4) for kk in r}
+        r2 = ce_all(set(range(NH)) - {h})
+        keep[h] = {kk: round(r2[kk] - base[kk], 4) for kk in r2}
+        print(f"a14.{h}: solo {solo[h]['target']:+.4f} (else {solo[h]['else']:+.4f}) | "
+              f"all-but {keep[h]['target']:+.4f}", flush=True)
+        json.dump({'partial': True, 'solo': {str(x): solo[x] for x in solo},
+                   'keep': {str(x): keep[x] for x in keep}}, open(OUT, 'w'), indent=1)
     for h in hooks:
         h.remove()
 
-    raw_win = max(dmg, key=lambda L: dmg[L]['target'])
-    passing = [L for L in dmg
-               if dmg[L]['target'] / max(abs(dmg[L]['else']), 1e-4) >= 3.0]
-    win = max(passing, key=lambda L: dmg[L]['target'] / max(abs(dmg[L]['else']), 1e-4)) \
-        if passing else raw_win   # §1379: rank passing layers by CONCENTRATION
-    dw = dmg[win]
-    conc = dw['target'] / max(abs(dw['else']), 1e-4)
-    jc = dw['jitter'] / max(abs(dw['else']), 1e-4)
-    rc = dw['random'] / max(abs(dw['else']), 1e-4)
-    print(f"raw winner a{raw_win} (dmg {dmg[raw_win]['target']:+.3f}) | "
-          f"specificity winner a{win}", flush=True)
-    pa = dw['target'] >= 0.20 and conc >= 8.0
-    pb = 0.55 <= (win / (NL - 1)) <= 0.85
-    pc = jc <= 1.5 and rc <= 1.5
-    out = {'n_targets': k, 'n_rows': NR, 'damage': {f'a{x}': dmg[x] for x in dmg},
-           'winner': f'a{win}', 'raw_winner': f'a{raw_win}', 'winner_rel_depth': round(win / (NL - 1), 3),
-           'conc': round(conc, 1), 'jitter_conc': round(jc, 2), 'random_conc': round(rc, 2),
-           'pred_a_concentrated': bool(pa), 'pred_b_mid_stack': bool(pb),
-           'pred_c_controls_clean': bool(pc), 'runtime_s': round(time.time() - t0, 1)}
+    top_solo = max(solo, key=lambda h: solo[h]['target'])
+    top_keep = min(keep, key=lambda h: keep[h]['target'])
+    pa = solo[top_solo]['target'] >= 0.60 * max(layer_dmg, 1e-4)
+    pb = top_solo == top_keep
+    pc = abs(solo[top_solo]['else']) <= 0.10 * max(solo[top_solo]['target'], 1e-4)
+    out = {'n_targets': k, 'n_rows': NR, 'layer_dmg': round(layer_dmg, 4),
+           'solo': {str(h): solo[h] for h in solo}, 'keep': {str(h): keep[h] for h in keep},
+           'top_solo': int(top_solo), 'top_keep': int(top_keep),
+           'top_share': round(solo[top_solo]['target'] / max(layer_dmg, 1e-4), 4),
+           'pred_a_owner': bool(pa), 'pred_b_agree': bool(pb),
+           'pred_c_surgical': bool(pc), 'runtime_s': round(time.time() - t0, 1)}
     json.dump(out, open(OUT, 'w'), indent=1)
-    print(f"\nwinner a{win} (rel depth {win/(NL-1):.2f}) conc {conc:.1f} "
-          f"| jitter {jc:.2f} random {rc:.2f}")
-    print(f"pred_a conc {pa} | pred_b mid {pb} | pred_c controls {pc}")
+    print(f"\ntop solo a14.{top_solo} share {out['top_share']} | top keep a14.{top_keep}")
+    print(f"pred_a owner {pa} | pred_b agree {pb} | pred_c surgical {pc}")
     print(f"wrote {OUT} ({out['runtime_s']}s)")
 
 

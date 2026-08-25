@@ -33802,3 +33802,16 @@ sqrd12_closer_heads_results.json; runlogs/sqrd12_closer_heads.log (82s).
 - Queued (swiglu18_closer_screen.py): the fourth sibling — bilinear attention with SwiGLU MLPs at 18L. Extends the table along the MLP-architecture axis (the closer is an ATTENTION part; MLP type should not matter — the registered bet). Bars keyed to the BEST SPECIFICITY-PASSING layer per the §1376 patched-template rule (both winners reported). Registered: pred_a a concentrated closer layer exists (dmg >= 0.20, conc >= 8 at the specificity winner); pred_b rel depth in [0.55, 0.85]; pred_c controls clean at the specificity winner.
 
 sqrd12_closer_quotes_results.json; runlogs/sqrd12_closer_quotes.log (79s).
+
+## §1379 — THE FOURTH SIBLING'S SCREEN MISSES ON A SELECTOR HAIR: pred_a FALSE as scored (specificity winner a10: conc 3.4) — but the patched selector ranked passing layers by DAMAGE and a14 lost to a10 by 0.008 nats while carrying 5.5x the concentration (a14: +0.244 target vs +0.013 else, conc 18.8, jitter 1.4, random 1.46, rel depth 0.82 — ALL raw bars passing); selector refined AGAIN (rank passing layers by concentration); preds b & c TRUE on the scored winner (swiglu18_closer_screen.py; 220s, 18 layers)
+
+  swiglu18 candidates: a5 +0.467 (generalist, conc 1.3 — raw winner) | a10 +0.252 conc 3.4
+  (scored winner, damage-ranked) | a14 +0.244 conc 18.8 (the concentration-sorted candidate,
+  all bars passing) | a12 +0.102 conc 3.4 | a17 +0.071 conc 6.5
+  cross-family so far: bilin18 a13@0.72 conc 46 | bilin12 a7@0.64 conc 21 | sqrd12 a7@0.64 conc 9 | swiglu18 a14@0.82 conc 19 (pending head stage)
+
+- SCORED AS REGISTERED: pred_a FALSE — the bar evaluated a10, which is real but weakly concentrated. The selector lesson compounds one refinement further: among specificity-PASSING layers, rank by CONCENTRATION, not damage (damage-ranking re-admits the generalist tail through the gate). This is selector-design iteration #4, now patched into the template in this commit rather than remembered.
+- THE SUBSTANTIVE PICTURE PENDING CONFIRMATION: a14 fits the family pattern (mid-late, sharply concentrated, clean-ish controls with random at 1.46) and would extend the table to four models — with the note that swiglu18's closer damage (+0.244) is the family's weakest despite sharing bilin18's attention architecture, which if confirmed says MLP TYPE also modulates specialist strength (SwiGLU MLPs may absorb more of the closing service).
+- Queued (swiglu18_closer_heads.py): the settling test — §1340 battery at swiglu18's a14 (9 heads). Registered: pred_a an owner >= 60% solo; pred_b both directions agree; pred_c surgical. An owner completes the four-model table; a crowd or a null localizes what SwiGLU changes.
+
+swiglu18_closer_screen_results.json; runlogs/swiglu18_closer_screen.log (221s).
