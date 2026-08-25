@@ -320,3 +320,43 @@ def well_predicted_stratified(n_per_class=6, ce_max=0.3, seed=0, nrows=1600):
         if all(len(v) >= n_per_class for v in buckets.values()):
             break
     return buckets
+
+
+def ce_band_stratified(n_per_class=6, ce_min=1.0, ce_max=3.0, seed=0, nrows=1600):
+    """Wave-4 sampler (§1392 pivot): MEDIUM-CE positions (ce_min <= CE < ce_max) — the
+    territory where the named specialists demonstrably earn their keep — stratified by
+    target class, target-dedup'd. No mlp1 filter (medium-CE is not mlp1's turf; verify
+    per-datapoint with mlp_dce). Returns dict class -> list of datapoints."""
+    _ensure_refs()
+    rows = _rows(nrows, skip=400)
+    bce = _base_ce(rows)
+    mask = (bce >= ce_min) & (bce < ce_max)
+    mask[:, :64] = False
+    e = cl.enc()
+    def clas(t):
+        d = e.decode([t])
+        ds = d.strip()
+        if ds.isalpha():
+            return 'word' if d.startswith(' ') else 'fragment'
+        if ds.isdigit():
+            return 'digit'
+        if ds and all(not c.isalnum() for c in ds):
+            return 'punct'
+        return 'other'
+    pos = torch.nonzero(mask)
+    g = torch.Generator().manual_seed(seed)
+    perm = torch.randperm(pos.shape[0], generator=g)
+    buckets = {k: [] for k in ('word', 'fragment', 'digit', 'punct', 'other')}
+    seen = {k: set() for k in buckets}
+    for i in perm.tolist():
+        r, p = pos[i].tolist()
+        tid = int(rows[r, p + 1])
+        c = clas(tid)
+        if len(buckets[c]) < n_per_class and tid not in seen[c]:
+            seen[c].add(tid)
+            pre, tgt = context(rows, r, p)
+            buckets[c].append({'row': r, 'pos': p, 'ce': round(float(bce[r, p]), 4),
+                               'context': pre, 'target': tgt, 'nrows': nrows})
+        if all(len(v) >= n_per_class for v in buckets.values()):
+            break
+    return buckets
