@@ -119,3 +119,9 @@ qry-vs-key +-0.05, selectivity +-0.05 of route elsewhere.
 - The MLP side of every kit: unpriced. Bridge to modules/benchmark.md ladder (mlp1 table,
   top-MLP 16x16 context tables) is the exact-extraction frontier.
 - Double-close "))" unevaluable on natural rows (n=4) — needs targeted corpus (§1341).
+
+## CAPITALIZED COMMITTEE (S1397) — the anti-closer
+7 late heads {17.2, 17.1, 16.5, 15.3, 17.0, 16.4, 16.0} across a15-17, solo dCE .016-.035
+each, NO owner (top shares .49/.30/.41). First named late-band shared capability at head
+grain. 17.2 (expressive-broad) leads = its 3rd moonlight. Members under .02 solo stay
+unnamed individually; the committee is the named unit. Slim/unit pricing: capitalized_band_slim.
