@@ -40,9 +40,9 @@ conditionality measured).
 |---|---|---|---|---|
 | **close_bracket** | **CLOSED, 4-stage** | kit 0.657 (§1346); a14 does NOT port (§1347 — ablation names roles, construction prices kits); refine = L14-17 by construction (ratio 2.4, +0.062, §1348) — downstream motif holds 2-for-2; generic-pool invariant +0.227==+0.225 across circuits | 1779 | thread rests; head-grain refine deprioritized (thin vs draw spread) |
 | capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | NO layer-owner (1.1x) — first late-band shared capability; PARKED behind close-bracket; extraction starts from a band gate |
-| open_quote | a10 | +0.272 vs +0.020 | 90 | clean re-screen IN FLIGHT (space-led-quote mask, §1302 standard) |
+| ~~open_quote~~ | — | DEMOTED §1351: clean screen fails every bar (a10 +0.067, conc 2.7, jitter dirty); mask-sensitive (atlas n=90 vs clean n=1087); distributed-no-owner class | 1087 | negative, recorded |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |
-| digit | a8 | +0.134 vs +0.035 | 223 | independently reproduces a8-counting; see backlog #3 |
+| digit | a8 | +0.134 vs +0.035 | 223 | clean screen IN FLIGHT (cross-method confirmation vs backlog #3) |
 | sentence_end | a10 | +0.065 vs +0.020 | 482 | overlaps newline thread — dedup before opening |
 | ~~comma~~ | — | fails screen (distributed) | 476 | negative, recorded |
 | ~~colon~~ | — | fails both controls | 74 | negative, recorded |
