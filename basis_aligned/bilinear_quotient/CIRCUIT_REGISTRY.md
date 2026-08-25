@@ -45,6 +45,9 @@ conditionality measured).
 | **digit** | **8.3 + 8.7 COMPLEMENTARY** | §1354: divides by EVIDENCE TYPE — 8.3 copy-flavored (2.9x per-position), 8.7 fresh-specialist NEGATIVE on copyable (interference inside a pair); moonlighting #4 | 9056 | thread rests fully mapped |
 | sentence_end | a10 | +0.065 vs +0.020 | 482 | overlaps newline thread — dedup before opening |
 | **THE CLOSER (13.8)** | **CLOSED** | union kit brackets 0.657/quotes 0.630 (§1357-58); band SLIMMED 54->16 and band-16 BEATS band-54 (§1367, 6th inversion); NEVER GATE A CONSTANT (sink seam −0.44); commons overlap with question 10/16 | — | capstone shared-band test in flight |
+| **6.5** | swarm w2 §1389 | structured-format delimiter continuation (table pipes, list commas, field colons) — selection-regime, narrow (0.15%), categorically precise; NEEDS two-skip confirmation | — | swarm candidate |
+| **7.8** | swarm w2 §1389 | payload-regime recurrer across unrelated targets | — | swarm candidate |
+| ~~11.6~~ | swarm w1, downgraded | "roster-surname" story collapsed on fresh rows (reviewer §1389) -> generic rare-proper-noun helper | — | recorded |
 | ellipsis | **17.2** (17.3 minor) | RESOLVED §1360: pair carries 93% but ASYMMETRIC (17.2 78% vs 17.3 15%) — 17.2 = BROAD expressive-terminal, 17.3 = "!"-specialist; breadth axis added to function labels | 382 | kit blocked on same probe gate as exclaim |
 | ~~unit~~ | — | DEMOTED §1362 (two strikes): a8 is PHRASE-SCOPED numeric-context — jitter positions genuinely load-bearing (my §1361 contamination story refuted by its own 5%-overlap diagnostic); not a distinct capability | 260 | a8 function entry upgraded: digit -> numeric-context |
 | ~~possessive, hyphen, ordinal, year~~ | — | fail generator bars §1355 (distributed / generalist profiles) | — | negative, recorded |

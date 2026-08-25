@@ -1,0 +1,38 @@
+{
+  "datapoint": {
+    "row": 1094,
+    "pos": 64,
+    "context": "|\n|October 3, 2012 for the Atlanta Braves|\n|Run",
+    "target": "s",
+    "ce": 0.0099,
+    "mlp1_dce": 0.3581
+  },
+  "top_heads_ov": [
+    [5, 1, 0.0191],
+    [7, 0, 0.0173],
+    [0, 3, 0.0167]
+  ],
+  "top_heads_qk": [
+    [11, 6, 0.0119],
+    [5, 1, 0.0104],
+    [10, 2, 0.0069]
+  ],
+  "top_mlps": [
+    [16, 2.3737],
+    [17, 0.7786],
+    [2, 0.3721]
+  ],
+  "qk_vs_ov_reading": "MLP16 dwarfs every head by >100x (dce=2.37 vs max head 0.019) -- the payload for 's' (completing the baseball-infobox table header 'Run'->'Runs') is carried by an MLP-layer computation, not attention. Among heads, 5.1 is the only one in both top-3 lists (ov=0.0191, qk=0.0104, ratio ~1.8) -- mildly PAYLOAD-leaning but numerically negligible next to the MLP. The head worth flagging is 11.6: top-QK only (qk=0.0119, absent from OV top3) -- a clean SELECTION signature -- and 11.6 is the wave-1-flagged 'roster-surnames' head. Head 0.3 (known bigram router) also shows up in OV top3 (0.0167), its usual walk-on role.",
+  "chosen_spec": ["mlp", 16],
+  "scope_stats": {
+    "spec": ["mlp", 16],
+    "n_positions": 18432,
+    "mean_dce": 0.13109,
+    "frac_gt_0.5": 0.10742,
+    "frac_lt_-0.5": 0.03516
+  },
+  "category_story": "MLP16 ablated model-wide over 96 fresh rows hurts a narrow, sharp category: multi-token completions of BASEBALL-PLAYER SURNAMES inside Cubs-roster narrative text -- 'Lou Pin'->'ie' (Piniella), 'Zambrano, Lilly'->',' , 'Dale'->' S', 'Franch'->'ot' (Franchot), 'Bryan'->' La', 'Chad'->' Bill' (Billingsley), 'Adrian'->' H', 'Hend'->'ry' (Hendry). Only 10.7% of positions exceed 0.5 nats (mean 0.131) -- narrow/high-precision, not a broad table like mlp0/mlp1. This strongly overlaps the wave-1-flagged 11.6 'roster-surnames' head's territory; 11.6 shows up here as top-QK (selection) head for this very datapoint, consistent with an 11.6(select)+MLP16(payload) roster-surname circuit.",
+  "local_global_match": false,
+  "local_global_note": "MISMATCH: the actual datapoint target 's' completes a STRUCTURAL TABLE-HEADER WORD ('Run'->'Runs' in a baseball-bio infobox), not a player surname -- yet MLP16's globally-dominant scope is specifically surname continuation. MLP16 is causally responsible here (dCE=2.37) but this instance sits outside its typical serving category; likely a generic subword-completion capacity that happens to concentrate on surnames in this genre-specific sample, catching 'Runs' incidentally rather than through a surname-specific pathway.",
+  "surprises": "11.6 (wave-1 roster-surnames flag) rediscovered as top-QK head at a baseball-context position, pairing plausibly with MLP16 whose global scope IS roster-surname completion -- but the local instance itself is a non-name token, exposing a local-global mismatch. 0.3 (bigram router) also makes its usual cameo in OV top3."
+}

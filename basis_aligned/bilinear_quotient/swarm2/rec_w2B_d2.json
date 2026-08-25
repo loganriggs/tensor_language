@@ -1,0 +1,39 @@
+{
+  "datapoint": {
+    "row": 901,
+    "pos": 254,
+    "context": "...with the ascendency of Barack Obama, Europe finally got a mirror image of itself. Both Iraq",
+    "target": " and",
+    "ce": 0.0197,
+    "mlp1_dce": 0.3978
+  },
+  "top_heads_ov": [
+    [8, 1, 0.0135],
+    [11, 2, 0.0098],
+    [7, 8, 0.0094]
+  ],
+  "top_heads_qk": [
+    [8, 1, 0.0111],
+    [1, 4, 0.0063],
+    [11, 2, 0.0055]
+  ],
+  "top_mlps": [
+    [0, 0.9997],
+    [2, 0.4468],
+    [1, 0.3978]
+  ],
+  "qk_vs_ov_reading": "Head 8.1 is top in BOTH OV (0.0135) and QK (0.0111) -- near-equal magnitude (ratio ~1.2x) -> classic SELECTION regime, and 8.1 is the KNOWN 'comparative' head. Clean rediscovery: 8.1 is doing selection work for the syntactic pairing 'Both Iraq and ___', a textbook comparative/parallel-structure context. However MLP0's dCE (1.00) still dwarfs 8.1's by ~70x, so head 8.1's causal footprint on this position is real but small next to the blunt MLP0 ablation. (Sanity check: mlp_dce's own layer-1 entry reads 0.3978, matching the sampler's mlp1_dce filter value exactly.)",
+  "chosen_spec": ["mlp", 0],
+  "scope_stats": {
+    "spec": ["mlp", 0],
+    "n_positions": 18432,
+    "mean_dce": 0.96237,
+    "frac_gt_0.5": 0.53494,
+    "frac_lt_-0.5": 0.10178,
+    "note": "reused from datapoint d1 (rec_w2B_d1.json) -- same spec ('mlp', 0) dominates both datapoints"
+  },
+  "category_story": "Same MLP0 scope as d1: a massive front-of-network token/subword-completion table (53% of positions >0.5 nats, mean 0.962). Top-hurt examples are all multi-token word completions ('che'->'wed', 'carniv'->'ores', 'circum'->'scribed', 'right-'->'hander', etc.) -- no function words or conjunctions anywhere in its top-hurt list.",
+  "local_global_match": false,
+  "local_global_note": "MISMATCH: the local target ' and' is a common FUNCTION WORD selected via syntactic pairing structure ('Both X and Y') -- exactly what the top-OV/QK head 8.1 (known comparative head) looks built for, evidenced by its clean SELECTION signature here (ov ~ qk). But the part with the largest raw dCE is MLP0, whose demonstrated global scope is specific-word/subword-identity completion with zero function-word examples in its top-hurt list. Ablating MLP0 wrecks ~53% of all positions model-wide, so its huge local dCE here looks like blunt collateral damage from destroying the residual stream, not evidence that MLP0 'owns' and-selection. The mechanistically relevant, specific circuit for this datapoint is head 8.1 (comparative), not MLP0.",
+  "surprises": "8.1 (known comparative head) rediscovered with a clean SELECTION signature (ov~qk) driving a 'Both X and Y' pairing prediction -- textbook comparative-head behavior. But by raw magnitude the 'strongest part' is MLP0, a blunt broad-scope token-table whose own top-hurt category has nothing to do with conjunctions -- a cautionary example of magnitude-ranking picking the wrong story when a giant nonspecific MLP sits upstream of a small, specific head."
+}

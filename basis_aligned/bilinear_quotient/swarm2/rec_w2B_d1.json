@@ -1,0 +1,38 @@
+{
+  "datapoint": {
+    "row": 990,
+    "pos": 206,
+    "context": "...I become cynical, overbearing, self",
+    "target": "-",
+    "ce": 0.0595,
+    "mlp1_dce": 0.104
+  },
+  "top_heads_ov": [
+    [0, 3, 0.0444],
+    [4, 0, 0.0236],
+    [3, 6, 0.015]
+  ],
+  "top_heads_qk": [
+    [4, 5, 0.0134],
+    [2, 2, 0.0105],
+    [3, 6, 0.0105]
+  ],
+  "top_mlps": [
+    [0, 1.0708],
+    [3, 0.3096],
+    [2, 0.3054]
+  ],
+  "qk_vs_ov_reading": "MLP0 dwarfs every head (dce=1.07 vs max head 0.044) -- a broad token-table payload drives inserting the hyphen in 'self-'. Top-OV head is 0.3 (known bigram router!) at ov=0.0444, essentially absent from QK top3 -> PAYLOAD regime, consistent with its documented exact-bigram-lookup role (the bigram 'self'->'-' looks like a stored pattern). Second head 4.0 (ov=0.0236) is also OV-leaning. No head is simultaneously top in both OV and QK; 3.6 appears in both lists at small, comparable magnitude (~0.0105-0.015) -- borderline SELECTION but tiny next to the MLP.",
+  "chosen_spec": ["mlp", 0],
+  "scope_stats": {
+    "spec": ["mlp", 0],
+    "n_positions": 18432,
+    "mean_dce": 0.96237,
+    "frac_gt_0.5": 0.53494,
+    "frac_lt_-0.5": 0.10178
+  },
+  "category_story": "MLP0 ablated model-wide over 96 fresh rows is a MASSIVE, non-specific effect: 53% of ALL positions exceed 0.5 nats dCE (mean 0.962). Top-hurt examples are multi-token subword completions of arbitrary words: 'che'->'wed', 'Pennsylvania in'->' Philadelphia', 'carniv'->'ores', 'circum'->'scribed', 'right-'->'hander', 'Darwin'->' Barney', 'Merc'->'ant', 'Smugg'->'ler'. This reads as a broad front-of-network token-identity/subword-continuation table -- essentially the same functional description already given for the known mlp1 table, just realized in MLP0. Two adjacent giant token-tables (mlp0 and mlp1) appear to coexist near the front of the network.",
+  "local_global_match": true,
+  "local_global_note": "MATCH (loose): the local target is inserting a hyphen to open a compound-word continuation of the rare stem 'self-', a token-identity/subword-continuation operation -- squarely inside MLP0's demonstrated broad scope. Compare the scope example 'right-'->'hander': literally the sibling half of the same compound-hyphen mechanism (predicting the suffix after the hyphen, vs. here predicting the hyphen before the suffix). Head 0.3 (bigram router) plausibly implements the specific 'self'->'-' bigram atop the same broad MLP0 substrate.",
+  "surprises": "0.3 (known bigram router) rediscovered exactly in its documented role -- top-OV head for a hyphen-insertion bigram. Also notable: MLP0's scope (53% of ALL positions >0.5 nats) is comparable in breadth to the documented mlp1 table, suggesting the front-of-network token-table function is split/duplicated across MLP0 and MLP1 rather than owned solely by mlp1."
+}
