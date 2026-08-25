@@ -5167,3 +5167,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1430 — quadratic residual is direction-POOL-limited: r-curve .687/.701/.723/.736 (32-256, climbing), F-curve dead flat; high-rank tail measured as a curve (mlp4_quad_curve)
 §1431 — native weight bases: early MLPs dense in their OWN coordinates (top-8 eig mass ~2.7%); PC hub was variance artifact; native basis elevates attn4 (agrees with causal reads); TOP PAIRS ALL SELF-SQUARES -> squaring/energy motif; squares test queued (weight_tensor_chain)
 §1432 — squares motif refuted causally (matched pairs tie exactly); quad curve flattening ~.74 at r=512 (missed bar by .0016); mlp4 description near-final: 62% two-input linear + 68% all-linear + dense rank-~512 quadratic +.07 (mlp4_squares)
+§1433 — optimal-ablation pilot: mean anchor near-optimal (ratios .94-1.00; only mlp1 gains 6.3%); historical mean-anchored numbers validated; lin5 fidelity .690; FULL 198-component sweep launched lane2 (optimal_ablation)

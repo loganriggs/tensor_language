@@ -1,0 +1,47 @@
+{
+ "clean": 2.9455,
+ "results": {
+  "mlp4": {
+   "shape": "D",
+   "ce_mean": 3.0512,
+   "ce_opt": 3.0507,
+   "delta_mean": 0.1056,
+   "delta_opt": 0.1051,
+   "opt_over_mean": 0.9954,
+   "rel_drift_from_mean": 0.0012
+  },
+  "mlp1": {
+   "shape": "D",
+   "ce_mean": 10.6851,
+   "ce_opt": 10.1988,
+   "delta_mean": 7.7396,
+   "delta_opt": 7.2533,
+   "opt_over_mean": 0.9372,
+   "rel_drift_from_mean": 0.0084
+  },
+  "mlp16": {
+   "shape": "D",
+   "ce_mean": 3.0858,
+   "ce_opt": 3.0854,
+   "delta_mean": 0.1403,
+   "delta_opt": 0.1399,
+   "opt_over_mean": 0.9971,
+   "rel_drift_from_mean": 0.0004
+  },
+  "head13.8": {
+   "shape": "128 (c_proj slice)",
+   "ce_mean": 2.9495,
+   "ce_opt": 2.9495,
+   "delta_mean": 0.004,
+   "delta_opt": 0.0039,
+   "opt_over_mean": 0.9813,
+   "rel_drift_from_mean": 0.1217
+  }
+ },
+ "lin5_fidelity_reanchored": 0.6902,
+ "consts_file": "/workspace/tensor_language/basis_aligned/bilinear_quotient/opt_ablation_consts.pt",
+ "pred_a_opt_beats_mean_2of4": false,
+ "pred_b_mlp4_mean_near_opt": true,
+ "pred_c_lin5_fidelity_60": true,
+ "runtime_s": 149.9
+}
