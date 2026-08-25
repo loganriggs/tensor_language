@@ -1,0 +1,15 @@
+{
+  "row": 322,
+  "pos": 80,
+  "ce": 2.4621,
+  "target": ")",
+  "context": " tragedy does when it makes its female characters \"discursive practices\" (12",
+  "class": "punct",
+  "mlp_top": [[1, 2.4545], [13, 0.2695], [16, 0.0192]],
+  "head_ov_top": [[13, 8, 0.7933], [5, 2, 0.2038], [3, 7, 0.2024]],
+  "head_qk_top": [[13, 8, 0.8868], [4, 0, 0.2245], [6, 5, 0.1527]],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table); 13.8 (closer) as strong secondary",
+  "enrichment_note": "mlp1 is the largest single dCE (2.45) so is the nominal owner, but the KNOWN 13.8 closer head (documented for close-brackets/quotes/pipes) is a clean rediscovery here at both grains (qk=0.887, ov=0.793, matched -> selection+payload both engaged) -- by far its strongest showing in this batch. Enriches 13.8's description: fires specifically on a numeric-citation parenthetical close '(12)' -- not just generic bracket-closing, but citation/footnote-style closes after a bare number. mlp13 (0.27) is a minor tertiary, not chased."
+}

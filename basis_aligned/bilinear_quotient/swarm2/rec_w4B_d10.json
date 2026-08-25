@@ -1,0 +1,26 @@
+{
+  "row": 16,
+  "pos": 174,
+  "ce": 1.3379,
+  "target": "ers",
+  "context": " Phillip fell out of a tree and tried to cover it up with a som",
+  "class": "fragment",
+  "mlp_top": [[16, 7.045], [1, 6.2563], [17, 2.0058]],
+  "head_ov_top": [[9, 7, 0.4612], [10, 5, 0.3409], [13, 6, 0.2875]],
+  "head_qk_top": [[10, 5, 0.3181], [7, 8, 0.3129], [12, 4, 0.3048]],
+  "owner": "mlp16",
+  "verdict": "UNSERVED_CANDIDATE",
+  "known_function": null,
+  "enrichment_note": "First datapoint in the batch where mlp1 (6.26) is NOT the single largest part -- mlp16 edges it out at 7.05. mlp16 is not in the known-function list (only mlp1 and mlp4-7 'mid generic band' are named MLPs). Flagged as UNSERVED_CANDIDATE and scoped (owner dCE=7.05 >= 0.5 threshold).",
+  "scope": {
+    "spec": ["mlp", 16],
+    "skip_900": {"n_positions": 18432, "mean_dce": 0.13109, "frac_gt_0.5": 0.10742, "frac_lt_-0.5": 0.03516},
+    "skip_1400": {"n_positions": 18432, "mean_dce": 0.19991, "frac_gt_0.5": 0.14144, "frac_lt_-0.5": 0.04042},
+    "top_examples_theme": "Overwhelmingly rare-proper-noun / surname BPE-fragment continuation: 'Lou Pin'->'ie' (Piniella), 'Marqu'->'is' (Marquis, x2), 'Sor'->'iano' (Soriano, x3), 'Zam'->'br'->'ano' (Zambrano fragments), 'Hend'->'ry' (Hendry), 'Franch'->'ot', 'Hairst'->'on' (Hairston), 'McK'->'it' (McKitt-), 'Rim'->'ini' (Rimini), plus code/URL fragments ('webster.'->'sk', 'welcome2isu.'->'ilst'). Very consistent theme across the top-30: late-layer completion of rare/proper-noun and code-like BPE continuations, distinct from the generic mid-band."
+  },
+  "floor_check": {
+    "rule": "scope-mean dCE >= 0.02 AND stable across two skips (900, 1400)",
+    "result": "PASS -- 0.131 and 0.200, both far above 0.02 floor and same order of magnitude across skips (ratio ~1.5x, consistent direction, not noise-flip)",
+    "category_story": "mlp16 behaves like a SECOND, later-layer, narrower token/name table specialized for rare proper-noun and code/URL BPE continuation -- surface-similar to the KNOWN head 2.5 ('fetcher: rare-name/code BPE continuation supported by copy') in WHAT it serves, but mechanistically distinct: it is an MLP (direct completion, no attention-mediated copy signature visible -- the local top heads at this exact datapoint (9.7, 10.5, 13.6) don't overlap with 2.5 or 3.8 and are all sub-0.5), and it sits at a different layer (16, near the output) than mlp1's broad table or the documented mlp4-7 mid generic band. NOT claimed as identical to 2.5 (different component type); proposed as a genuinely new category: 'mlp16 = late rare-name/code continuation table', magnitude and theme both hold up under the two-skip discipline."
+  }
+}

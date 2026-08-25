@@ -1,0 +1,15 @@
+{
+  "row": 602,
+  "pos": 72,
+  "ce": 2.4063,
+  "target": ",",
+  "context": " not so much.\nThe first team of human observers entered Fukushima Unit 1",
+  "class": "punct",
+  "mlp_top": [[17, 0.1545], [16, 0.0736], [14, -0.0551]],
+  "head_ov_top": [[5, 5, 0.2176], [4, 5, 0.1281], [4, 3, 0.1041]],
+  "head_qk_top": [[5, 5, 0.2024], [2, 2, 0.1011], [4, 5, 0.0977]],
+  "owner": "head_5_5",
+  "verdict": "DIFFUSE",
+  "known_function": null,
+  "enrichment_note": "Largest single part is head (5,5) at only dCE=0.218 (OV) / 0.202 (QK), below the 0.3 owner threshold; every MLP is even smaller (top mlp17=0.15, several negative). Mid-clause comma after 'Fukushima Unit 1' (list continuation, not a clean sentence/clause boundary like d0's period) has no single dominant part -- genuinely diffuse, distributed across many small OV~QK-matched contributors. Not chased further (owner < 0.5, no scope run per protocol)."
+}

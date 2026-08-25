@@ -1,0 +1,15 @@
+{
+  "row": 445,
+  "pos": 147,
+  "ce": 1.7414,
+  "target": "Type",
+  "context": "/or fixed in the latest Service Pack 3.\n1. Fixed True",
+  "class": "fragment",
+  "mlp_top": [[1, 18.6826], [17, 3.464], [0, 2.9426]],
+  "head_ov_top": [[11, 6, 0.5676], [1, 1, 0.351], [7, 0, 0.2714]],
+  "head_qk_top": [[17, 6, 0.3003], [7, 0, 0.2285], [10, 5, 0.19]],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1 heavily dominant (18.7), the largest single mlp1 value in this batch -- a textbook mid-word BPE completion ('True'->'Type' = 'TrueType' font name). Head (11,6) is a modest OV-leaning secondary (0.57 ov vs not-top3 qk) but not a named head; not chased since mlp1 already served and the effect is small relative to mlp1."
+}

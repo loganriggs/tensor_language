@@ -1,0 +1,15 @@
+{
+  "row": 12,
+  "pos": 136,
+  "ce": 2.4137,
+  "target": "anut",
+  "context": "'vebeencravingtohavelikebananashakeswithpe",
+  "class": "fragment",
+  "mlp_top": [[1, 12.8361], [0, 2.6108], [3, 1.0833]],
+  "head_ov_top": [[2, 1, 0.6129], [0, 3, 0.4559], [7, 0, 0.271]],
+  "head_qk_top": [[2, 1, 0.6201], [10, 4, 0.248], [17, 1, 0.1945]],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1 dominant (12.8) on the most degenerate BPE-fragment context in the batch (no-space run-on text, 'pe'->'anut' completing 'peanut'). Clean textbook mlp1 case -- extreme fragment completion is exactly its documented surface. Head (2,1) matched OV/QK (0.61/0.62) is a real secondary but not a named head; head (0,3) (KNOWN 0.3 bigram router) also appears at rank-2 OV (0.46) -- second sighting of 0.3 in this batch (also d8), both times on tight word-internal subword boundaries, consistent with its bigram-routing description."
+}

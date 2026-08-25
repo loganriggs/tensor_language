@@ -1,0 +1,15 @@
+{
+  "row": 1104,
+  "pos": 255,
+  "ce": 2.3377,
+  "target": "02",
+  "context": " retire No. 10 in honor of Jones\". Yahoo! Sports. 2013-",
+  "class": "digit",
+  "mlp_top": [[1, 16.1365], [0, 7.5105], [6, 0.4674]],
+  "head_ov_top": [[1, 1, 0.1741], [2, 8, 0.1285], [7, 2, 0.1009]],
+  "head_qk_top": [[11, 6, 0.1171], [2, 8, 0.103], [3, 0, 0.075]],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1 dominant (16.1) for a date fragment '2013-'->'02' (month digits after ISO-style date dash). Notably mlp0 is also large here (7.5, unusual -- most other datapoints have mlp0 much smaller), suggesting an early-layer date/numeric-format signal feeding mlp1, but mlp0 is not itself the owner and has no established name in the known list -- not chased since owner (mlp1) is already served and mlp0 is secondary. No head clears 0.2; attention essentially decorative for this digit-pair completion."
+}

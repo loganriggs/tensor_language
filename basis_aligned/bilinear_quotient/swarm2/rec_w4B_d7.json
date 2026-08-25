@@ -1,0 +1,15 @@
+{
+  "row": 1176,
+  "pos": 171,
+  "ce": 2.085,
+  "target": " 1906",
+  "context": " to mean the jerseys. It was reported in the Daily Mail on 20 September",
+  "class": "digit",
+  "mlp_top": [[1, 17.2241], [2, 1.9679], [17, 1.6866]],
+  "head_ov_top": [[8, 3, 0.4332], [13, 0, 0.392], [9, 4, 0.3705]],
+  "head_qk_top": [[8, 3, 0.4323], [13, 0, 0.42], [14, 4, 0.3077]],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table); 8.3 (copy/fetch digit pairs) as secondary",
+  "enrichment_note": "mlp1 dominant (17.2). KNOWN 8.3 head again present as top head, matched OV/QK (0.43/0.43), for a year prediction after a full 'day Month' date ('20 September'->'1906') -- third occurrence of 8.3 across the 4 digit datapoints in this batch (present in 3/4), confirming it as the reliable digit-pair specialist across varied date/list contexts. 13.8-adjacent head (13,0) also shows up but is a different head (not the catalogued 13.8 closer) -- coincidental layer-13 co-occurrence, not chased."
+}

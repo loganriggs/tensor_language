@@ -1,0 +1,15 @@
+{
+  "row": 732,
+  "pos": 173,
+  "ce": 1.8014,
+  "target": ".",
+  "context": " would appreciate this treat. The salt was perfect, like a salted rim",
+  "class": "punct",
+  "mlp_top": [[1, 6.7643], [3, 0.7234], [4, 0.4829]],
+  "head_ov_top": [[10, 4, 0.2677], [1, 4, 0.2482], [5, 6, 0.244]],
+  "head_qk_top": [[7, 5, 0.1866], [10, 4, 0.1661], [1, 4, 0.1423]],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1 dwarfs every head by ~25x (6.76 vs 0.27) for an ordinary sentence-final period after a complete clause -- extends mlp1's documented BPE-fragment/document-recall table role to plain sentence-boundary punctuation prediction, not just subword continuation. No head clears 0.3; heads present (10.4, 1.4, 5.6, 7.5) are all sub-0.3 generic walk-ons, matched-ish OV~QK, decorative."
+}

@@ -1,0 +1,15 @@
+{
+  "row": 1110,
+  "pos": 225,
+  "ce": 2.4469,
+  "target": "54",
+  "context": " was dismissed in disgrace, but his agreement was not rescinded and in 18",
+  "class": "digit",
+  "mlp_top": [[1, 20.546], [0, 0.7666], [2, 0.7327]],
+  "head_ov_top": [[8, 3, 0.6323], [8, 7, 0.1924], [2, 5, 0.1217]],
+  "head_qk_top": [[8, 3, 0.6507], [8, 7, 0.1953], [2, 5, 0.1522]],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table); 8.3 (copy/fetch digit pairs) as strong secondary",
+  "enrichment_note": "mlp1 dominant (20.5). KNOWN 8.3 head (documented for copy/fetch digit pairs + rare-token copy) is a clean rediscovery, matched OV/QK (0.63/0.65), completing a year '18'->'54' (1854) -- exactly its catalogued surface. 8.7 present but much weaker here (0.19), consistent with 8.3 vs 8.7 division of labor (pair-fetch vs fresh-digit)."
+}

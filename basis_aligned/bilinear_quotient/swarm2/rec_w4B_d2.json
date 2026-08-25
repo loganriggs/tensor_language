@@ -1,0 +1,15 @@
+{
+  "row": 1505,
+  "pos": 238,
+  "ce": 2.7381,
+  "target": "/",
+  "context": " the following:\nDQ|sea-air humidity difference|(g",
+  "class": "punct",
+  "mlp_top": [[1, 2.6935], [17, 1.9286], [0, 1.3195]],
+  "head_ov_top": [[11, 5, 0.4935], [9, 7, 0.4195], [6, 3, 0.356]],
+  "head_qk_top": [[11, 5, 0.4388], [6, 3, 0.1632], [2, 8, 0.1569]],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table)",
+  "enrichment_note": "mlp1 leads (2.69) but not by an overwhelming margin here -- head (11,5) is a real secondary contributor (ov=0.49, qk=0.44, matched regime) on a scientific-notation unit-fraction slash ('(g/...'). This is a table-format/scientific-document context, consistent with mlp1's 'document-topical recall' half rather than pure subword completion. (11,5) not in the known-function list; not chased (owner=mlp1 already served, and (11,5) is not itself the top-ranked part)."
+}

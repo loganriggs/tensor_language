@@ -1,0 +1,15 @@
+{
+  "row": 625,
+  "pos": 87,
+  "ce": 2.3259,
+  "target": "for",
+  "context": " got all kind of gaming news sites riled up about the affair! Pitch",
+  "class": "fragment",
+  "mlp_top": [[1, 14.7121], [2, 4.1655], [0, 3.6196]],
+  "head_ov_top": [[0, 3, 0.5208], [9, 7, 0.5141], [8, 8, 0.4923]],
+  "head_qk_top": [[8, 8, 0.3851], [4, 0, 0.3292], [1, 8, 0.328]],
+  "owner": "mlp1",
+  "verdict": "SERVED_BY_KNOWN",
+  "known_function": "mlp1 (token table); 0.3 (bigram router, L0) as secondary",
+  "enrichment_note": "mlp1 dominant (14.7) for a BPE fragment completion ('Pitch'->'for', building toward 'Pitchfork'). Head (0,3) is the KNOWN L0 'bigram router' -- rediscovered here with ov=0.52 (its 2nd-highest showing in the batch), though its qk is not in the top-3, suggesting an OV/payload-leaning contribution here rather than fresh selection (consistent with a router role: it may already be attending per a fixed local pattern and mainly contributes what to write). Reasonable fit for its documented bigram-routing surface on a word-internal subword boundary."
+}
