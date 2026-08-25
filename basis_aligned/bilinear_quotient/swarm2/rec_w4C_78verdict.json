@@ -1,0 +1,126 @@
+{
+  "spec": "head_ov 7.8",
+  "runs": [
+    {
+      "skip": 2000,
+      "nrows": 192,
+      "scope_mean": 0.01905,
+      "top10": [
+        {
+          "context_tail": "s to have happened to others since v2.50",
+          "target": " came",
+          "dce": 2.377
+        },
+        {
+          "context_tail": "y do damage\n74 DNA discoveries move cure",
+          "target": " closer",
+          "dce": 2.356
+        },
+        {
+          "context_tail": "(best movie EVER!), hate only makes hate",
+          "target": " grow",
+          "dce": 2.265
+        },
+        {
+          "context_tail": "Development Economics Papers - From 2008",
+          "target": " this",
+          "dce": 2.263
+        },
+        {
+          "context_tail": "rces, but in later years suffered at the",
+          "target": " hands",
+          "dce": 2.116
+        },
+        {
+          "context_tail": "of jQuery, I have to load those over the",
+          "target": " wire",
+          "dce": 2.064
+        },
+        {
+          "context_tail": "It means there's nothing terrible enough",
+          "target": " happening",
+          "dce": 1.993
+        },
+        {
+          "context_tail": "raging 35.\nCritics will start to put the",
+          "target": " blame",
+          "dce": 1.973
+        },
+        {
+          "context_tail": "then make up conventions for them on the",
+          "target": " fly",
+          "dce": 1.936
+        },
+        {
+          "context_tail": "ich we will strongly encourage).\nOn some",
+          "target": " occasions",
+          "dce": 1.935
+        }
+      ]
+    },
+    {
+      "skip": 2600,
+      "nrows": 192,
+      "scope_mean": 0.0195,
+      "top10": [
+        {
+          "context_tail": "ng presence for the Astros. He makes his",
+          "target": " living",
+          "dce": 2.85
+        },
+        {
+          "context_tail": "and the W3C is failing miserably on this",
+          "target": " front",
+          "dce": 2.116
+        },
+        {
+          "context_tail": "ng does go wrong, makes it easier for 1)",
+          "target": " users",
+          "dce": 2.04
+        },
+        {
+          "context_tail": " place had Google kept the playing field",
+          "target": " level",
+          "dce": 1.816
+        },
+        {
+          "context_tail": "ge person has an IQ of 100; an IQ of 132",
+          "target": " will",
+          "dce": 1.784
+        },
+        {
+          "context_tail": " or at least the songs I have been doing",
+          "target": " reflect",
+          "dce": 1.724
+        },
+        {
+          "context_tail": "ry the system out for himself and at the",
+          "target": " same",
+          "dce": 1.655
+        },
+        {
+          "context_tail": "conference opener to Purdue, and ran the",
+          "target": " table",
+          "dce": 1.599
+        },
+        {
+          "context_tail": "f People (HDDP) has teamed up with Canis",
+          "target": " Major",
+          "dce": 1.534
+        },
+        {
+          "context_tail": "sual output of the chromatograph. In the",
+          "target": " case",
+          "dce": 1.529
+        }
+      ]
+    }
+  ],
+  "overlap_note": "Top-30 target-token overlap between the two disjoint-skip runs: ['case'] (1/30 tokens, exact-token match, case-insensitive, whitespace-stripped). Essentially no recurring exact targets across fresh data, though both lists are qualitatively dominated by fixed-collocation/idiom completions (\"put the blame\", \"on the fly\", \"at the hands\", \"ran the table\", \"makes his living\", \"at the same [time]\") -- a shared FLAVOR but not a shared surface form, and not enough to rescue the magnitude floor miss below.",
+  "verdict": "FAIL",
+  "category_if_pass": null,
+  "scope_mean_skip2000": 0.01905,
+  "scope_mean_skip2600": 0.0195,
+  "floor": 0.02,
+  "decision_basis": "Both properly-powered runs (nrows=192, topk=40) landed below the 0.02 magnitude floor: skip=2000 -> 0.01905, skip=2600 -> 0.0195. Per the fixed decision rule (FAIL if either skip is below 0.02), 7.8 is declared sub-floor generic helper and closed permanently, independent of the qualitative idiom/collocation flavor visible in the top examples."
+}
