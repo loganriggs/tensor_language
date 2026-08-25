@@ -21,6 +21,15 @@ compounding-dominated; content passthrough 0.39; §1070-1071). Whole-model simul
 | block-17 calibration | ~1.00 | rank-1 w_freq | §650-651 |
 | the merge | understood | additive-linear (−W·c, cos 0.77) | §1082/§1086 |
 
+## Anchors (updated 2026-08-25, user spec)
+Floor anchor moving from MEAN-ablation to OPTIMAL-ablation (Li & Janson 2409.09951):
+learned constant vector per component, trained against full-model CE, mean-init.
+fidelity(repl) = (d_opt - d_repl)/d_opt — optimal constant scores 0, component scores 1.
+Per-position constants = a higher complexity budget, logged separately. Constants:
+opt_ablation_consts.pt (optimal_ablation.py; first four: mlp4, mlp1, mlp16, head 13.8).
+Prior "recovery of ymean-gap / mean-stake" numbers remain valid but are MEAN-anchored;
+re-anchor when comparing across papers.
+
 ## Measurement rules (violations produced retractions — check every design against these)
 1. HELD-OUT everything: in-sample per-token means leak on singletons (~20% of positions)
    (§901 0.81→0.30; §1088 deep tok-recovery 0.59→0.01-0.14).
