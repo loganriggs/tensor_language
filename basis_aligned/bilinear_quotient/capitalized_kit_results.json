@@ -1,0 +1,35 @@
+{
+ "n_targets": 39173,
+ "coverage": 0.4846,
+ "res": {
+  "full": {
+   "t": 4.6201,
+   "else": 2.9458
+  },
+  "ymean": {
+   "t": 10.0186,
+   "else": 6.8842
+  },
+  "route": {
+   "t": 7.4438,
+   "else": 5.2581
+  },
+  "kit": {
+   "t": 6.5432,
+   "else": 4.9662
+  },
+  "kit_nocommittee": {
+   "t": 6.6977,
+   "else": 5.0107
+  }
+ },
+ "recovery": {
+  "route": 0.4769,
+  "kit": 0.6438,
+  "kit_nocommittee": 0.6152
+ },
+ "pred_a_kit_60": true,
+ "pred_b_committee_marginal_10": false,
+ "pred_c_gate_covers_half": false,
+ "runtime_s": 83.5
+}
