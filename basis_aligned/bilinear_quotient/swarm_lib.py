@@ -266,3 +266,57 @@ def well_predicted_nontable(n=20, ce_max=0.05, mlp1_dce_max=0.5, seed=0, nrows=4
                     'mlp1_dce': round(float(m1dce[r, p]), 4),
                     'context': pre, 'target': tgt})
     return out
+
+
+@torch.no_grad()
+def well_predicted_stratified(n_per_class=6, ce_max=0.3, seed=0, nrows=1600):
+    """Wave-3 sampler (§1389/§1391): stratify by TARGET CLASS over a larger row budget,
+    excluding mlp1-dominated positions (mlp1_dce < 0.5). Classes: word (space+alpha),
+    fragment (alpha, no space — mid-word BPE), digit, punct, other. Returns a dict of
+    class -> list of datapoints."""
+    _ensure_refs()
+    rows = _rows(nrows, skip=400)
+    bce = _base_ce(rows)
+    key = ('m1ce', nrows)
+    if key not in _C:
+        out = []
+        for i in range(0, rows.shape[0], 8):
+            bb = rows[i:i + 8].to(DEV)
+            idx = bb[:, :-1].contiguous(); tg = bb[:, 1:].contiguous()
+            lo = _forward(idx, ('mlp', 1)).float()
+            ce = F.cross_entropy(lo.reshape(-1, lo.shape[-1]), tg.reshape(-1),
+                                 reduction='none').view(tg.shape)
+            out.append(ce.cpu())
+        _C[key] = torch.cat(out)
+    m1dce = _C[key] - bce
+    mask = (bce < ce_max) & (m1dce < 0.5)
+    mask[:, :64] = False
+    e = cl.enc()
+    def clas(t):
+        d = e.decode([t])
+        ds = d.strip()
+        if ds.isalpha():
+            return 'word' if d.startswith(' ') else 'fragment'
+        if ds.isdigit():
+            return 'digit'
+        if ds and all(not c.isalnum() for c in ds):
+            return 'punct'
+        return 'other'
+    pos = torch.nonzero(mask)
+    g = torch.Generator().manual_seed(seed)
+    perm = torch.randperm(pos.shape[0], generator=g)
+    buckets = {k: [] for k in ('word', 'fragment', 'digit', 'punct', 'other')}
+    seen = {k: set() for k in buckets}
+    for i in perm.tolist():
+        r, p = pos[i].tolist()
+        tid = int(rows[r, p + 1])
+        c = clas(tid)
+        if len(buckets[c]) < n_per_class and tid not in seen[c]:
+            seen[c].add(tid)
+            pre, tgt = context(rows, r, p)
+            buckets[c].append({'row': r, 'pos': p, 'ce': round(float(bce[r, p]), 4),
+                               'mlp1_dce': round(float(m1dce[r, p]), 4),
+                               'context': pre, 'target': tgt, 'nrows': nrows})
+        if all(len(v) >= n_per_class for v in buckets.values()):
+            break
+    return buckets

@@ -33920,3 +33920,13 @@ swarm2/rec_w2*_d*.json + review_wave1.json (committed); worker reports in sessio
 - Queued (candidate_confirm_65_78.py): the reviewer's TWO-SKIP RULE applied to the wave's two surviving candidates — 6.5 (structured-format delimiters) and 7.8 (payload-recurrer) scoped on two disjoint fresh skips each, with mechanical category proxies registered: pred_a 6.5's top-15 targets are >= 50% delimiter-type tokens in BOTH skips; pred_b 7.8's two skips share >= 5 target token types in their top-15s (some consistent category exists); pred_c magnitudes within +-50% across skips for both heads.
 
 closer_pipe_test_results.json; runlogs/closer_pipe_test.log (271s).
+
+## §1391 — THE TWO-SKIP RULE KILLS BOTH WAVE-2 CANDIDATES AND YIELDS THE SWARM'S CALIBRATION LAW: 6.5's "structured-format delimiter" category collapses (delimiter-fraction 0.00 and 0.33 on the two skips — skip-1300's top targets are sentence-starters; magnitude unstable at 2.8x) and 7.8 shows NO consistent category (1 of 15 target types shared across skips) — preds a, b, c ALL FALSE; with 11.6's earlier collapse this is three-for-three: SMALL HEADS DO NOT HAVE NAMEABLE CATEGORIES AT THIS RESOLUTION — category-stability has a MAGNITUDE FLOOR (candidate_confirm_65_78.py)
+
+  6.5: mean scope dCE 0.0026 / 0.0009 (unstable); 7.8: 0.021 / 0.019 (stable magnitude, no category)
+  vs the confirmed swarm lead: pipe surface at dCE 0.11 -> §1390 all-sweeps.
+
+- THE LAW, from three registered deaths and one registered success: heads whose scope-mean dCE sits below ~0.02 produce top-example lists that are NOISE DRAWS — any story fit to them is a one-sample artifact (11.6 "roster-surnames", 6.5 "delimiters"), even when the magnitude replicates (7.8: stable size, incoherent membership). The wave's one durable discovery (pipe -> closer's third surface) had 5-40x that magnitude. WAVE-3 RULE, adopted: no category naming below scope-mean 0.02; small heads get recorded as "minor generic helper, magnitude X" with NO story. This is the swarm-scale version of §1302's evaluability standard — a verdict you cannot stabilize is a verdict you must not issue.
+- Registry: 6.5 and 7.8 struck (recorded, not renamed). The swarm's net new-component yield after full review: the pipe surface (§1390, promoted and confirmed) plus mlp1's second mode — and the negative yield is equally real: the map of what is NOT nameable (small-head territory, the structure-layer complement of mlp1).
+
+candidate_confirm_65_78_results.json; runlogs/candidate_confirm_65_78.log.
