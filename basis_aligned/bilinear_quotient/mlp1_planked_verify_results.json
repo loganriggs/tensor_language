@@ -1,0 +1,27 @@
+{
+ "ce": {
+  "None": 2.9455,
+  "mean": 10.6287,
+  "tier": 3.5107,
+  "tier_ridge": 3.1798,
+  "tier_ridge128": 3.3028
+ },
+ "fid_opt": {
+  "tier": 0.9221,
+  "tier_ridge": 0.9677,
+  "tier_ridge128": 0.9507
+ },
+ "mbits": {
+  "tier": 89.5,
+  "tier_ridge": 132.0,
+  "tier_ridge128": 96.6
+ },
+ "frozen_anchor": {
+  "ce_mean": 10.6851,
+  "ce_opt": 10.1988
+ },
+ "pred_a_composed_95": true,
+ "pred_b_rank128_94": true,
+ "pred_c_ridge_adds_025": true,
+ "runtime_s": 90.8
+}

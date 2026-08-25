@@ -47,28 +47,21 @@
  ],
  "mlp1": [
   {
-   "slug": "tier2000+rank64",
-   "fidelity": 0.922,
-   "mbits": 89.5,
-   "bits_params": 89500000,
-   "edges": 1,
+   "slug": "tier2000+rank128ridge",
+   "fidelity": 0.9507,
+   "mbits": 96.6,
+   "bits_params": 96600000,
+   "edges": 3,
    "inputs": [
-    "tokens"
-   ]
-  },
-  {
-   "slug": "svd64-table",
-   "fidelity": 0.751,
-   "mbits": 52.6,
-   "bits_params": 52600000,
-   "edges": 1,
-   "inputs": [
-    "tokens"
-   ]
+    "tokens",
+    "attn_out.1",
+    "mlp_out.0"
+   ],
+   "note": "VERIFIED S1445"
   },
   {
    "slug": "tier2000+ridge",
-   "fidelity": 0.956,
+   "fidelity": 0.9677,
    "mbits": 132.0,
    "bits_params": 132000000,
    "edges": 3,
@@ -77,7 +70,17 @@
     "attn_out.1",
     "mlp_out.0"
    ],
-   "note": "estimated compose of S1438 ridge on tiered table; verify M1"
+   "note": "VERIFIED S1445"
+  },
+  {
+   "slug": "tier2000+rank64",
+   "fidelity": 0.922,
+   "mbits": 89.5,
+   "bits_params": 89500000,
+   "edges": 1,
+   "inputs": [
+    "tokens"
+   ]
   },
   {
    "slug": "tok+ridge+quad-full",

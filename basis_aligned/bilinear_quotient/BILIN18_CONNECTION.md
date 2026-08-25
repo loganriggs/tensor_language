@@ -34352,3 +34352,8 @@ swarm2/ complete for waves 1-3; worker reports in session log.
   Δ_mean < CI-noise are excluded from ratio statistics and priority ranking (head8.0
   is literally a zero-function head at this grain).
 - The anchor-sweep loss curves (198 panels) are in the artifact; the priority board now covers the full model. The sweep's summary law: the mean is the optimal constant for bilin18's components, everywhere it matters — Δ_opt re-anchoring changes nothing that Δ_mean anchoring hadn't already said, which certifies the program's entire mean-anchored history in one number (.9964).
+
+## §1445 — mlp1'S COMPOSED PLANK VERIFIES ABOVE ITS ESTIMATE, 3-FOR-3 (pred_a PASSED: tiered table + full residual ridge = .9677 fid_opt vs the estimated .956 — sequential refit on the tiered residual BEATS the naive compose; pred_b PASSED: with the ridge truncated to rank 128 the plank holds .9507 at 96.6 Mbit total — 38% of the module's own weight; pred_c PASSED: the ridge adds .046 over the table): mlp1's verified benchmark entry is now "2000 frequent tokens exact + rank-64 vocabulary tail + a rank-128 chain correction from [attn1, mlp0]" — .95 fidelity, priced, human-readable, and the estimate-flagged frontier row is replaced by measurement (mlp1_planked_verify_results.json, 91s)
+
+  verified: tier .9221 @ 89.5 Mbit | tier+ridge .9677 @ 132 | tier+rank128 .9507 @ 96.6.
+- Estimates-never-stand paid off in the GOOD direction this time: the verified number beats the estimate because refitting the ridge on the TIERED table's residual (rather than composing two separately-fit pieces) recovers the compression loss — the sequential-refit discipline (§105/§158) surfacing in the benchmark era.

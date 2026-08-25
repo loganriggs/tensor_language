@@ -5179,3 +5179,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1442 — downstream-defined clusters beat activation-defined at ALL K (user's principle confirmed); K=2 below constant floor (mlp0 needs >=16 classes); down-64 = .528 @ 1.5 Mbit = 350x table efficiency; rank-24 = variance stat not compression rank (mlp0_downstream_clusters)
 §1443 — mlp17: linear read .821 reproduced; +quad .856 (preds b,c failed); top readout = linear + scraps (mlp17_quad_ladder)
 §1444 — FULL BASELINE COMPLETE: 198/198 anchors frozen (median opt/mean .9964 — mean is near-optimal everywhere; head8.0 = inert-component edge case, rule registered); attn-layer tier priced (attn0 .240); anchors -> bench/anchors/ (optimal_ablation_all)
+§1445 — mlp1 plank VERIFIED 3-for-3: tier+ridge .9677 (beats estimate), tier+rank128 .9507 @ 96.6 Mbit (38% of module weight); sequential refit beats naive compose (mlp1_planked_verify)
