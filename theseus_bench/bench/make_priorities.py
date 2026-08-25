@@ -16,6 +16,14 @@ rows = []
 for name, v in sweep['results'].items():
     fid = seed.get(name, {}).get('fidelity', 0.0)
     ref = seed.get(name, {}).get('ref', 'baseline zoo only')
+    if name.startswith('head'):
+        layer = 'attn' + name[4:].split('.')[0]
+        lf = seed.get(layer, {}).get('fidelity', 0.0)
+        if lf > fid:
+            fid, ref = lf, f'inherited from {layer} stand-in'
+    # inert-component rule (S1444): delta below noise floor -> excluded
+    if v['delta_mean'] < 0.002:
+        continue
     unexplained = v['delta_opt'] * (1.0 - fid)
     rows.append((unexplained, name, v['delta_opt'], fid, ref))
 rows.sort(reverse=True)
