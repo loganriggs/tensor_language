@@ -33516,3 +33516,15 @@ digit_copy_split_results.json; runlogs/digit_copy_split.log (85s).
 - pred_c FALSE, recorded: possessive-'s is NOT front-band-owned (top a4 at ratio 1.2 — distributed). The grammar-band prior misfired; possessive attachment joins comma/colon/open_quote in the distributed class. Ellipsis->a17 enters the pool behind the closer test (late-layer, likely register-adjacent — a17 also led capitalized).
 
 behaviour_atlas2_results.json; runlogs/behaviour_atlas2.log (138s).
+
+## §1356 — 13.8 IS THE CLOSER: it carries 107.9% of a13's quote-close damage solo (+0.524 of +0.486 — keeping ONLY 13.8 beats the full layer, the other eight heads are net-NEGATIVE at quote targets), knockout and keep-only agree, surgical at 0.6% elsewhere — the generalized-closer bet WINS and the head is RENAMED: not "close-bracket head" but a delimiter-general CLOSE-WHAT'S-OPEN function, owning every bracket subtype (§1341) and quote-closing (here) from one seat; preds a, b, c ALL TRUE (quote_close_heads.py; n=1058)
+
+  head   solo (quote targets)  keep-only
+  13.8   +0.524 (107.9%)       −0.012   <- keeping only 13.8 BEATS the intact layer
+  all others: solo |<=0.003|, several negative
+
+- THE SHARPEST OWNERSHIP NUMBER OF THE PROGRAM, on a capability the head was never named for: 13.8's solo damage EXCEEDS the whole layer's (share 1.079) because its eight neighbors are collectively harmful at quote-close positions (all-but-13.8 = −0.0115: ablating them helps). The interference motif reaches its extreme — at this head's targets, the rest of its own layer is noise.
+- THE RENAME AND WHAT IT BUYS: 13.8 = THE CLOSER. One function — emit the closing token for whatever delimiter is open — serving at least two capability surfaces (brackets §1340-41, quotes here), with the §1354 heads-are-functions frame now carrying its strongest case: the atlas's two highest-ratio flags ever (46.8 bracket, 30.5 quote) were the SAME head seen through two contexts. The registry's capability rows for close_bracket and quote_close merge under one function entry; the §1346 kit should generalize by re-keying its gates.
+- Queued (closer_kit.py): the direct MDL payoff test — the §1346 kit with (i) bracket gates, (ii) quote-parity gates, (iii) the UNION gate, each + 13.8, scored on BOTH target families. Registered: pred_a the quote kit carries: >= 0.60 recovery at quote-close targets; pred_b ONE KIT, TWO CAPABILITIES: the union kit lands within 0.03 of each dedicated kit on its own targets (a single description serving both — the function frame cashed as description length); pred_c selectivity throughout (every kit arm's elsewhere within 0.05 of route).
+
+quote_close_heads_results.json; runlogs/quote_close_heads.log (271s).

@@ -106,9 +106,10 @@ qry-vs-key +-0.05, selectivity +-0.05 of route elsewhere.
   kit (§1342); 10.5 is the TOP comparative-refine carrier (§1345 — §1310's off-diagonal
   seen causally). Kit costs across circuits are NOT additive; price shared heads once.
   Labels of the form "X-specific" hold at behavior grain, not service grain.
-- CLOSE-BRACKET: 13.8 owns every subtype in-layer (§1341); a14 = trailing-punctuation
-  assistant (compound closes only, NEGATIVE on plain). Template run in flight
-  (close_bracket_gates.py: key = open-paren positions, qry = depth>0).
+- 13.8 = **THE CLOSER** (§1356 rename): delimiter-general close-what's-open — owns every
+  bracket subtype (§1341, shares 0.95-1.04) AND quote-closing (107.9% solo, neighbors
+  net-negative). Kit: [route + depth>0 gate on a02 + 13.8] = 0.657 (§1346); a14 assist
+  does not port (§1347); refine = L14-17 by construction (§1348). Union-kit test §1356+.
 
 ## Open
 

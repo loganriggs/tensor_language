@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+quote ids 131
+targets 1058 | jitter 1047 | rand 1058
+layer dmg +0.4857 (vs §1355 atlas +0.475)
+L13.0: solo +0.0009 (else +0.0064) | all-but +0.4922
+L13.1: solo -0.0002 (else +0.0004) | all-but +0.4860
+L13.2: solo -0.0014 (else +0.0011) | all-but +0.4847
+L13.3: solo -0.0009 (else +0.0019) | all-but +0.5098
+L13.4: solo -0.0002 (else +0.0003) | all-but +0.4865
+L13.5: solo -0.0030 (else +0.0021) | all-but +0.4898
+L13.6: solo -0.0033 (else +0.0007) | all-but +0.4902
+L13.7: solo -0.0014 (else +0.0004) | all-but +0.4877
+L13.8: solo +0.5240 (else +0.0030) | all-but -0.0115
+
+top solo L13.8 share 1.0789 | top keep L13.8
+pred_a owner True | pred_b agree True | pred_c surgical True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/quote_close_heads_results.json (271.1s)
