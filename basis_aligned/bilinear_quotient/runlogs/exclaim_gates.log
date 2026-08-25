@@ -1,1 +1,12 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 561
+full: target 3.1354 | else 3.1237
+ymean: target 9.6418 | else 7.2136
+route: target 6.1293 | else 5.4894
+circ_solo: target 5.9596 | else 5.4569
+circ_band02: target 5.0221 | else 4.4380
+circ_band05: target 4.0493 | else 3.6127
+
+rec: route 0.5399 solo 0.5659 b02 0.71 b05 0.8595
+pred_a carries True | pred_b conditional True | pred_c depth True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/exclaim_gates_results.json (95.2s)

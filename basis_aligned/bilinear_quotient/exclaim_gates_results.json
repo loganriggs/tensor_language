@@ -18,21 +18,13 @@
    "target": 5.9596,
    "else": 5.4569
   },
-  "circ_band": {
+  "circ_band02": {
    "target": 5.0221,
    "else": 4.438
   },
-  "circ_key": {
-   "target": 5.9193,
-   "else": 5.42
-  },
-  "circ_qry": {
-   "target": 5.0221,
-   "else": 4.438
-  },
-  "circ_both": {
-   "target": 5.0221,
-   "else": 4.438
+  "circ_band05": {
+   "target": 4.0493,
+   "else": 3.6127
   }
  },
  "recovery": {
@@ -48,27 +40,19 @@
    "target": 0.5659,
    "else": 0.4295
   },
-  "circ_band": {
+  "circ_band02": {
    "target": 0.71,
    "else": 0.6786
   },
-  "circ_key": {
-   "target": 0.5721,
-   "else": 0.4385
-  },
-  "circ_qry": {
-   "target": 0.71,
-   "else": 0.6786
-  },
-  "circ_both": {
-   "target": 0.71,
-   "else": 0.6786
+  "circ_band05": {
+   "target": 0.8595,
+   "else": 0.8804
   }
  },
  "gap_target": 6.5064,
  "gap_else": 4.0899,
- "pred_a_extraction_carries": true,
- "pred_b_query_dominates": true,
- "pred_c_owner_conditional": true,
- "runtime_s": 122.8
+ "pred_a_carries": true,
+ "pred_b_pair_conditional": true,
+ "pred_c_depth_matters": true,
+ "runtime_s": 95.2
 }

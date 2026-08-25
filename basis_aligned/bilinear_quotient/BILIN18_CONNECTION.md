@@ -33427,3 +33427,17 @@ close_bracket_missing_band_results.json; runlogs/close_bracket_missing_band.log 
 - The rewritten band-conditionality version (arms: solo / +a02 / +a05, preds a >= 0.50 on a05+pair, b conditional, c band05 >= band02 + 0.05) is on disk and REQUEUED as written; §1350 will score it.
 
 exclaim_gates_results.json; runlogs/exclaim_gates.log (123s).
+
+## §1350 — EXCLAIM v2 (the intended arms): ALL THREE PREDS TRUE — a05+pair reaches 0.860, the highest recovery in the program, and depth matters (+0.150 for adding L3-5 to the band; the "!" annotator service extends mid-stack like question's) — BUT the number is quoted with its generalist bill up front: elsewhere recovery 0.880 (a05 fully live is most of front+mid attention), so this is NOT a capability-specific kit and cannot be until a probe gate exists (exclaim_gates.py v2)
+
+  arm            target-rec  else-rec
+  route          0.540       0.421
+  circ_solo      0.566       0.427    (pair conditional — §1349's finding, reproduced)
+  circ_band02    0.710       0.679
+  circ_band05    0.860       0.880    <- highest target number in the program; equally generalist
+
+- pred_c (DEPTH MATTERS) TRUE at 3x its bar: band05 - band02 = +0.150. The exclamation criterion's service extends through L3-5, the same mid-stack extension the question circuit needed (§1335) — long-scope/accumulating criteria (question clause, exclamatory register) recruit the early-mid band; short lexically-anchored ones (comparative, brackets) do not. That taxonomy — CRITERION SCOPE PREDICTS ANNOTATOR DEPTH — now has two circuits on each side.
+- THE HONEST FRAME FOR 0.860: elsewhere is 0.880 — the arm is a generalist reconstruction, not an extraction of the "!" capability. Without an input-computable gate (none exists, §1349), band arms price the model, not the circuit. The exclaim capability-specific kit is BLOCKED ON the backlog-#7 mode-labeler (probe gate); registered expectation for when it runs: gating a05 by a "!"-mode probe should keep most of the 0.32 target increment while dropping most of the 0.46 elsewhere increment — that ratio will measure how token-legible the exclamatory register is.
+- Fifth all-preds-TRUE template run; the pair's conditionality replicates across both versions. Exclamation thread RESTS at: G3 done, conditionality done, band/depth mapped, capability-specific G1 blocked on probe-gate infra.
+
+exclaim_gates_results.json (v2); runlogs/exclaim_gates.log (95s).
