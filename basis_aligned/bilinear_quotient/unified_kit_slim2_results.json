@@ -1,0 +1,122 @@
+{
+ "ref28": {
+  "question": 0.644,
+  "comparative": 0.9176,
+  "closer": 0.8458,
+  "capitalized": 0.8259,
+  "else": 0.8115
+ },
+ "trail": [
+  {
+   "dropped": "13.8",
+   "worst_marginal": 0.0004,
+   "scores": {
+    "question": 0.644,
+    "comparative": 0.9172,
+    "closer": 0.8561,
+    "capitalized": 0.826,
+    "else": 0.8114
+   }
+  },
+  {
+   "dropped": "4.8",
+   "worst_marginal": 0.0019,
+   "scores": {
+    "question": 0.645,
+    "comparative": 0.917,
+    "closer": 0.8549,
+    "capitalized": 0.824,
+    "else": 0.8099
+   }
+  },
+  {
+   "dropped": "4.4",
+   "worst_marginal": 0.003,
+   "scores": {
+    "question": 0.642,
+    "comparative": 0.916,
+    "closer": 0.8527,
+    "capitalized": 0.8243,
+    "else": 0.8079
+   }
+  },
+  {
+   "dropped": "3.6",
+   "worst_marginal": 0.0036,
+   "scores": {
+    "question": 0.6432,
+    "comparative": 0.9152,
+    "closer": 0.8544,
+    "capitalized": 0.8226,
+    "else": 0.8043
+   }
+  },
+  {
+   "dropped": "3.5",
+   "worst_marginal": 0.0035,
+   "scores": {
+    "question": 0.6458,
+    "comparative": 0.9195,
+    "closer": 0.8508,
+    "capitalized": 0.8236,
+    "else": 0.8034
+   }
+  },
+  {
+   "dropped": "1.7",
+   "worst_marginal": 0.0043,
+   "scores": {
+    "question": 0.6471,
+    "comparative": 0.9163,
+    "closer": 0.8472,
+    "capitalized": 0.8205,
+    "else": 0.7991
+   }
+  },
+  {
+   "dropped": "1.5",
+   "worst_marginal": 0.0074,
+   "scores": {
+    "question": 0.6397,
+    "comparative": 0.9116,
+    "closer": 0.8443,
+    "capitalized": 0.8176,
+    "else": 0.7934
+   }
+  },
+  {
+   "dropped": "3.4",
+   "worst_marginal": 0.0082,
+   "scores": {
+    "question": 0.6376,
+    "comparative": 0.9033,
+    "closer": 0.8383,
+    "capitalized": 0.8133,
+    "else": 0.7858
+   }
+  }
+ ],
+ "dropped": [
+  "13.8",
+  "4.8",
+  "4.4",
+  "3.6",
+  "3.5",
+  "1.7",
+  "1.5",
+  "3.4"
+ ],
+ "n_final": 20,
+ "final_scores": {
+  "question": 0.6376,
+  "comparative": 0.9033,
+  "closer": 0.8383,
+  "capitalized": 0.8133,
+  "else": 0.7858
+ },
+ "holds_within_02": false,
+ "pred_a_5_and_holds": false,
+ "pred_b_closer_dropped": true,
+ "pred_c_le_23": true,
+ "runtime_s": 1262.8
+}

@@ -86,4 +86,7 @@ its full table (null -0.001, 42% of residual variance) — real, fast context at
 meaned values, MLPs live: question .644 / comparative .918 / closer .846 / capitalized
 .826 / elsewhere .812 recovery of ymean-gap. Co-residence synergistic (+.03-.04 for
 closer/capitalized over solo kits). Question is the only gated family (gate = functional
-state protection, S1402). Slim pass: unified_kit_slim.
+state protection, S1402). Slim (S1405): 20 heads at ~.01-.03 haircut; 13.8 droppable
+(construction-redundant). JOINT BILL (S1406): 28 heads + 9/18 MLPs live + gmean tables
+for mlp5,10-15 = comparative .9886 / closer .868 / question .662 / capitalized .730 /
+else .687 — comparative/question/closer BEAT all-mids-live under the smaller machine.
