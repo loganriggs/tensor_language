@@ -5184,3 +5184,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1447 — 18-layer kernel map: front .62-.85, content layers collapse (a5 NEGATIVE — sink demands exact pattern; a8/a13/a14/a17 ~0); kernel-resistance = specialist share, quantified; hybrid queued (attn_kernel_sweep)
 §1448 — hybrid: content layers .58-.90 with kernels + 3-4 named specialists live (gains +.21-.75; a5 missed bar by .0031; a10 roster flagged incomplete); attention = "distance + a named roster of exceptions" (attn_hybrid)
 §1449 — attn composite 0-for-3: kernel_all Δ1.78 (3.0x super-additive vs Σ per-layer .60); live roster NEGATIVE (rec −.31) — local fid ≠ composite fid; composite2 + mlp7_ladder queued
+§1450 — composite autopsy 3-for-3: teacher patterns repair (+.33) — corruption confirmed; marg map: sink layer 5 = +.68 alone, layer 8 +.11, five layers HELP; composite3 queued (constants for 5.7/a8)
+§1451 — mlp7 resists ladder (1-for-3): lin2 .43 / linall .47 / quad .52 — local chain breaks at 7, most nonlinear MLP yet; board .056→.027; a10 roster screen queued

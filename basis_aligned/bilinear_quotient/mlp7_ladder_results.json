@@ -1,6 +1,28 @@
 {
- "partial": true,
- "res": {
-  "None": 2.9455
- }
+ "ce": {
+  "None": 2.9455,
+  "mean": 3.0027,
+  "lin2": 2.9783,
+  "linall": 2.9756,
+  "quad_r256_F8192": 2.9727
+ },
+ "stake": 0.0572,
+ "recovery": {
+  "lin2": 0.4266,
+  "linall": 0.4738,
+  "quad_r256": 0.5245
+ },
+ "fid_opt": {
+  "lin2": 0.4174,
+  "linall": 0.4654,
+  "quad_r256_F8192": 0.5169
+ },
+ "frozen_anchor": {
+  "ce_mean": 3.0027,
+  "ce_opt": 3.0018
+ },
+ "pred_a_lin2_50": false,
+ "pred_b_linall_60": false,
+ "pred_c_quad_adds_03": true,
+ "runtime_s": 165.1
 }

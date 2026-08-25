@@ -34416,3 +34416,59 @@ arms (roster live at ONE layer each; pred_b layer 5's live sink head 5.7 is the 
 offender; pred_c ≥2 of 7 marginals are individually harmful). mlp7_ladder (lane 2) —
 board #3, .056 unexplained, no stand-in yet; standard lin2/linall/quad ladder with
 frozen-anchor fid scoring.
+
+## §1450 Composite autopsy 3-for-3: the corruption hypothesis CONFIRMED, and the sink head is the single biggest offender
+
+**Setup** (attn_composite2, 162s). Two diagnostics against kernel_all (4.7302):
+hybrid_frozen = roster heads get TEACHER patterns (captured from a clean pass on the
+same rows — diagnostic only, not a legitimate stand-in); marg_L = roster live at ONE
+layer L only, for each of the 7 roster layers.
+
+**Registered predictions, scored as written:**
+- pred_a hybrid_frozen recovers ≥ .30 of the kernel gap: **PASSED** — recovery .3252
+  (4.1498 vs 4.7302). Same roster that LOST −.31 live (§1449) GAINS +.33 with clean
+  patterns. The roster idea is right; the live computation of it inside the composite
+  is what failed. Corruption hypothesis confirmed.
+- pred_b layer 5's marginal is the worst: **PASSED** — marg_5 = +.6841 over kernel_all,
+  6.5× the next worst. The live sink head 5.7, reading q/k from a corrupted stream,
+  misfires catastrophically — it alone MORE than accounts for the full hybrid_all
+  damage (+.55).
+- pred_c ≥ 2 marginals harmful: **PASSED** — exactly 2: layer 5 (+.68) and layer 8
+  (+.11). The other five (10/13/14/16/17) HELP even singly: marginals −.02 to −.13.
+
+**The marginal map licenses a legitimate best composite:** live roster at
+{10,13,14,16,17} only ≈ 4.73 − .33 = 4.40 predicted (marginals near-additive: they sum
+to +.46 vs hybrid_all's actual +.55). And for the sink: head 5.7 is the certified
+bias-head (§1089 — ONE fixed vector ≈ .985 local fid), so its frozen optimal constant
+is a priced data-independent stand-in that cannot be corrupted. Same logic for a8's
+four roster heads.
+
+**Queued (attn_composite3, lane 1):** best_roster (live at the 5 helpful layers) /
++ 5.7 = its optimal constant / + 8.{1,2,3,7} = their constants. Preds: best ≤ 4.45;
+sink constant gains ≥ .10; final ≤ 4.20.
+
+## §1451 mlp7 resists the mid-MLP ladder (1-for-3) — the local-chain template breaks at layer 7
+
+**Setup** (mlp7_ladder, lane 2, 165s). Board #3 (.056 unexplained, no stand-in).
+Standard ladder: lin2 = ridge from [attn7, mlp6]; linall = ridge from [attn7,
+mlp0..mlp6]; + r=256/F=8192 sampled-pair quadratic over [attn7; mlp6]. Frozen-anchor
+scored, held-out.
+
+**Registered predictions, scored as written:**
+- pred_a lin2 ≥ .50: **FAILED** — .4266.
+- pred_b linall ≥ .60: **FAILED** — .4738.
+- pred_c quad adds ≥ .03: **PASSED** — +.0507 (.4738 → .5245 recovery; fid_opt .5169).
+
+**Reading:** the local-chain regularity (attn_L + mlp_{L-1} explains .6–.7 linear at
+layers 2/4/5/6) BREAKS at mlp7 — linear-in-everything-upstream only gets .47, and the
+quadratic's relative contribution (+.05) is larger than at mlp4/5. mlp7 is the most
+nonlinear-in-its-inputs MLP measured so far. Note the anchor: Δ_opt = .0563 with
+opt/mean ≈ 1.0 — a small-stake but structurally different module. Board effect:
+best fid .5169 cuts mlp7's unexplained .056 → .027, dropping it below mlp0.
+Follow-up candidate (not queued yet): wider quadratic (r=512) or attention-input
+features (a7 per-head slices) — flagged for the board to arbitrate.
+
+**Queued (attn10_roster_screen, lane 2):** the §1448 flagged roster gap, now with
+composite leverage (a10's live roster HELPS in composite per §1450): add each of
+{0,1,3,4,7,8} singly to {2,5,6} at kernel-layer-10, then greedy pair. Preds: ≥1 single
+adds ≥.05 fid; best 4-head ≥ .70; greedy 5-head ≥ .75.
