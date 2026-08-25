@@ -5188,3 +5188,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1451 — mlp7 resists ladder (1-for-3): lin2 .43 / linall .47 / quad .52 — local chain breaks at 7, most nonlinear MLP yet; board .056→.027; a10 roster screen queued
 §1452 — composite v3 0-for-3: best_roster 4.4522 (missed by .0022); clean-context opt constant for 5.7 HURTS (−.073) — LESSON 2: optimality is (stand-in, context), constants need composite calibration
 §1453 — a10 roster completes 3-for-3: +10.4 (+.146) +10.3 → {2,3,4,5,6} = .821 (was .598); damage mine missed the pattern-critical heads; composite4 (calibrated consts) + mlp9_ladder queued
+§1454 — composite v4 0-for-3 but ladder monotone: 5.28→4.73→4.45→4.41→4.39; calibration flips sign (+.013) yet small — kernel core is the bottleneck; kernel refit in-composite = next; weight-topk + mlp1 clusters queued (user directive)

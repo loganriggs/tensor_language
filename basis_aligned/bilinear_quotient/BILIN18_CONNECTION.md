@@ -34520,3 +34520,35 @@ heads). attn10's layer stand-in moves .598 → .821; SPEC[10] = {2,3,4,5,6} from
 constants inside the composite, same price; pred_b calib57 gains ≥ .05, pred_c all-5
 calibrated ≤ 4.25; loss curves + data budget recorded). mlp9_ladder (lane 2) — board
 #5, no stand-in; bars calibrated down per §1451 (lin2 ≥ .40, linall ≥ .50, quad ≥ .04).
+
+## §1454 Composite v4: 0-for-3 on the bars, but every fix moved it the right way — the KERNEL CORE is now the bottleneck
+
+**Setup** (attn_composite4, 93s; loss curves + data budget in results json per the
+standing rule). best_roster2 = composite with the completed a10 roster {2,3,4,5,6};
++ composite-CALIBRATED constants (trained IN the composite: Adam 3e-3, 150 steps,
+480 rows, batch 8, mean-of-composite-context init) for 5.7, then 5.7+a8.{1,2,3,7}.
+
+**Registered predictions, scored as written:**
+- pred_a best_roster2 ≤ 4.40: **FAILED by .0125** — 4.4125 (a10 completion gained
+  +.0397 over §1452's 4.4522; the direction was right, the bar too tight).
+- pred_b calib57 gains ≥ .05: **FAILED** — gain +.0128. Recalibration DID flip
+  §1452's sign (clean-context constant: −.073; composite-calibrated: +.013) but the
+  magnitude is small: the sink head under a kernelized stream just matters less.
+- pred_c calib_all5 ≤ 4.25: **FAILED** — 4.3889 (a8 constants add +.0108).
+
+**Reading:** the composite ladder so far: 5.28 (naive hybrid §1449) → 4.73 (kernel-all)
+→ 4.45 (drop harmful rosters §1452) → 4.41 (complete a10) → 4.39 (calibrated
+constants). Every §1450-53 lesson cashed out, but the remaining 1.44 CE over clean is
+now dominated by the KERNEL CORE — the 13 non-roster layers' generic heads under
+compounding. The per-layer kernels were fit on the CLEAN stream's mean patterns; a
+composite-context refit of the kernels themselves (same 37 Kbit price, patterns
+re-averaged under the composite — the same §1452 calibration move one level up) is
+the registered next step on this thread.
+
+**Also queued this tick (user directive — the mlp0 weight-composition thread):**
+mlp0_mlp1_weight_topk (lane 1): Cl = Left1@Down0, Cr = Right1@Down0 read from weights,
+concentration stats vs Gaussian control, then CAUSAL row-wise top-k (k 0/8/32/128/full)
+on the direct mlp0→mlp1 edge with per-position rms scale and λ0 kept exact
+(k=full must reproduce clean — §1426 ledger assert). mlp1_downstream_clusters (lane 2):
+the §1442 downstream-cluster win repeated one layer up (block-2 weight images, same
+5-map embedding, K=2/16/64/256 vs activation control).
