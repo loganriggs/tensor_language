@@ -5144,3 +5144,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1407 — capitalized's late-mid need is DIFFUSE (top single add mlp13 +.041 of −.096 gap; preds a,b FAILED): no late-mid handle; register assembled through whole mlp10-15 stack; bonus: mlp11 lifts question to .693 (matches §1395) (capitalized_mid_adds)
 §1408 — BILL CERTIFIED 3-for-3: keep7 = comparative .984 / closer .864 / capitalized .797 / question .690 / else .750 with 28/162 heads + 11/18 MLPs; unified-bill arc CLOSED (unified_bill_final)
 §1409 — sentence_end AND open_bracket both DEMOTED (dirty jitter, front-generic damage; atlas small-n leader fails 3/3); POOL EMPTY -> damage_cluster_mine generator queued (pool_screen_a10_a17)
+§1410 — damage mine refills pool: capitalized band extends to a13/a14 (31%/24% of their mass; ~1400 positions each); a13 is majority NON-bracket (closer = minority tenant of its layer, pred_b informative miss); mine recovers inventory blind (damage_cluster_mine)
