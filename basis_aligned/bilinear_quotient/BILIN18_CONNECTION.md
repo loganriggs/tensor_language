@@ -34304,3 +34304,16 @@ swarm2/ complete for waves 1-3; worker reports in session log.
 
   ladder so far: mlp4 .617/.679/+.057 | mlp5 .574/.635/+.018 | mlp2 running (the
   priority board's .726-nat top target).
+
+## §1437 — THE BOARD'S TOP TARGET FELL IN ONE SHOT: mlp2 IS 92% A LINEAR MAP OF [attn2, mlp1] (pred_a PASSED at .9202 vs the registered .40 — the biggest single prediction beat of the program; pred_b PASSED trivially at .9172; pred_c FAILED: the quadratic adds .024, under my .05 front-modules-are-nonlinear guess): mlp2, which carried .726 nats unexplained and NO certified stand-in an hour ago, is now described at .944 fidelity (lin2 + r256 quadratic) — its unexplained CE drops from .726 to .041 nats (mlp2_ladder_results.json; stake .7284 matches the sweep's Δ_mean .726, anchors verified consistent)
+
+  mlp2: lin2 [attn2, mlp1] .9202 | lin-all (adds mlp0) .9172 — the third input is
+  NOISE, the two-input chain description is exact | +quad .9445.
+- The chain template (attn_L + mlp_{L-1} → mostly-linear map) now holds at FIVE layers (2, 4, 5, 6, and mlp1-residual below) and describes the front better than the mids: mlp2 .92 linear vs mlp4's .62. The front "dense mixers" of §1431 are dense IN WEIGHTS but nearly linear IN FUNCTION on-distribution.
+
+## §1438 — mlp1'S RESIDUAL YIELDS TOO — .93 → .975 FIDELITY — WITH AN ANCHOR-ORDER BUG DISCLOSED AND RE-ANCHORED (pred_a FAILED AS WRITTEN: the script's own "mean" arm was computed AFTER residualization — a near-zero vector, not the mean — so the in-script anchor was wrong and tok scored .6439 against it; re-anchored against the FROZEN sweep anchors (ce_mean 10.6851 / ce_opt 10.1988, same rows and mask) the token table reproduces .9343 fid_opt exactly as the benchmark row claims; pred_b PASSED: the residual ridge from [attn1, mlp0] lifts to .9676 (+.033 fid ≈ .24 nats); pred_c PASSED: +quad reaches .9752): mlp1's unexplained CE drops from .508 to .180 nats — the context-conditional residual (§1329) is two-thirds a LINEAR read of same-block attention + mlp0 (mlp1_residual_ladder_results.json)
+
+  fid_opt ladder: tok .9343 | tok+lin2 .9676 | tok+quad .9752 (CE 3.42/3.18/3.13
+  against clean 2.9455).
+- LESSON, and it is exactly the benchmark's Invariant 4 learned by stepping on it: anchors must come FROZEN from the sweep, never recomputed inside a submission script — my in-script "mean" was silently corrupted by an order-of-operations slip that frozen anchors are immune to. The practice build's verifier will read bench/anchors/, not compute its own.
+- BOARD MOVEMENT after one directed hour: the top two targets went from 1.234 nats unexplained (mlp2 .726 + mlp1 .508) to .221 (.041 + .180). New top-3: mlp1-residual (.180), mlp0-residual (.091), mlp17 (.053). Queued (mlp0_residual_ladder): same stack for mlp0 — token map + residual ridge from [attn0, embed] + quad, with the mean arm taken from the FROZEN anchor this time.

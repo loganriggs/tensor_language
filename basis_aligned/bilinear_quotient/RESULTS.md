@@ -5171,3 +5171,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1434 — mlp5 ladder: lin2 .574 / lin-all .635 / quad +.018 (flatter tail than mlp4); chain template holds for the mid stack; opt-ablation sweep restarted with full loss curves + data budget (mlp5_ladder)
 §1435 — joint diagonalization: 5x weight-mass concentration (first basis that concentrates; user's jointly-defined features vindicated at weight level) but causal gain .005 — mlp4 quad = ~1/5 shared squares, ~4/5 dense (mlp4_jointdiag)
 §1436 — mlp6 ladder: lin2 .515/linall .572/quad +.046 — tail flattening REFUTED (non-monotone by depth) (mlp6_ladder)
+§1437 — mlp2 = 92% linear map of [attn2, mlp1] (.944 with quad); top board target: .726 -> .041 nats unexplained in one run; chain template now 5-for-5 (mlp2_ladder)
+§1438 — mlp1 residual: tok .934 -> +ridge .968 -> +quad .975 fid_opt; unexplained .508 -> .180; anchor-order bug disclosed + re-anchored on frozen sweep anchors = Invariant 4 learned in practice (mlp1_residual_ladder)

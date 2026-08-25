@@ -1,13 +1,47 @@
 {
-  "_comment": "Best-known fidelity per component from the bilinear_quotient program (opt-anchored where available, mean-anchored otherwise - S1433 showed they differ by <1% for tested comps). 0 = only the baseline zoo exists. Edit as frontiers move; make_priorities.py consumes this.",
-  "mlp0": {"fidelity": 0.90, "ref": "class-code writer / token map, S905/S1045"},
-  "mlp1": {"fidelity": 0.93, "ref": "static per-token table held-out, S1088"},
-  "mlp2": {"fidelity": 0.0,  "ref": "NO certified stand-in despite front-tier stake"},
-  "mlp3": {"fidelity": 0.95, "ref": "own-basis projection r256, S1130"},
-  "mlp4": {"fidelity": 0.69, "ref": "lin5 ridge on [attn4,mlp0-3], opt-anchored, S1428/S1433"},
-  "mlp5": {"fidelity": 0.65, "ref": "linall+quad ladder, S1434"},
-  "mlp16": {"fidelity": 0.81, "ref": "fitted linear read, S1131-32"},
-  "mlp17": {"fidelity": 0.84, "ref": "fitted linear read, S1131-32"},
-  "head5.7": {"fidelity": 0.985, "ref": "ONE fixed vector (the bias-head), S1089/S1091"},
-  "attn0": {"fidelity": 0.95, "ref": "token+position pattern + per-token value table, sink arc (~1.00 claimed; conservatively seeded)"}
+ "_comment": "Best-known fidelity per component from the bilinear_quotient program (opt-anchored where available, mean-anchored otherwise - S1433 showed they differ by <1% for tested comps). 0 = only the baseline zoo exists. Edit as frontiers move; make_priorities.py consumes this.",
+ "mlp0": {
+  "fidelity": 0.9,
+  "ref": "class-code writer / token map, S905/S1045"
+ },
+ "mlp1": {
+  "fidelity": 0.975,
+  "ref": "tok table + residual ridge [attn1,mlp0] + quad, fid_opt, S1438"
+ },
+ "mlp2": {
+  "fidelity": 0.944,
+  "ref": "lin2 [attn2,mlp1] + r256 quad, S1437 (lin2 alone .920)"
+ },
+ "mlp3": {
+  "fidelity": 0.95,
+  "ref": "own-basis projection r256, S1130"
+ },
+ "mlp4": {
+  "fidelity": 0.69,
+  "ref": "lin5 ridge on [attn4,mlp0-3], opt-anchored, S1428/S1433"
+ },
+ "mlp5": {
+  "fidelity": 0.65,
+  "ref": "linall+quad ladder, S1434"
+ },
+ "mlp16": {
+  "fidelity": 0.81,
+  "ref": "fitted linear read, S1131-32"
+ },
+ "mlp17": {
+  "fidelity": 0.84,
+  "ref": "fitted linear read, S1131-32"
+ },
+ "head5.7": {
+  "fidelity": 0.985,
+  "ref": "ONE fixed vector (the bias-head), S1089/S1091"
+ },
+ "attn0": {
+  "fidelity": 0.95,
+  "ref": "token+position pattern + per-token value table, sink arc (~1.00 claimed; conservatively seeded)"
+ },
+ "mlp6": {
+  "fidelity": 0.62,
+  "ref": "ladder linall+quad, S1436"
+ }
 }
