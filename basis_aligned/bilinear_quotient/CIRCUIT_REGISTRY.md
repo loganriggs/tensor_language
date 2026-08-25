@@ -63,10 +63,12 @@ function is useful). Capability kits share function-heads; price them once.
 
 ## Transfer thread (opened §1373)
 
-bilin12 HAS a closer layer: a7, +0.953 (stronger than bilin18's), conc 21.1, controls
-clean, rel depth 0.64 (vs 0.72). First specialist-grain universality evidence. Owner-head
-stage in flight; if an owner exists, the template ports next (route grain needs a bilin12
-adapter — lamb/lambdas API identical per tt_model).
+3-FOR-3 (§1373-75): bilin12's 7.1 = THE CLOSER — brackets 105.0% + quotes 105.3% solo,
+rel depth 0.64, neighbors net-negative. Function, single-owner grain, depth, and the
+interference signature ALL transfer: 13.8 and 7.1 are the same part in two machines;
+heads-are-functions is a claim about TRAINING. In flight: sqrd12 boundary test (the
+score-function sibling — §1215 precedent says implementation may differ). Logged: the
+bilin12 template port; commons transfer.
 
 ## Generators (when the pool runs low — run one, refill the pool)
 

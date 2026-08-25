@@ -33750,3 +33750,16 @@ bilin12_closer_screen_results.json; runlogs/bilin12_closer_screen.log (81s).
 - Queued (bilin12_closer_quotes.py): the delimiter-GENERAL claim in the sibling — does 7.1 also own quote-closing (13.8's second surface, §1356)? Quote-parity targets, same head battery. Registered: pred_a 7.1 carries >= 60% of a7's quote-close damage (the FUNCTION transfers, not just the bracket surface); pred_b both directions agree on 7.1; pred_c surgical. A win completes the strongest cross-model statement available to this program: THE CLOSER — one head, delimiter-general, mid-stack, interference-wrapped — is what this architecture-and-data recipe reproducibly builds.
 
 bilin12_closer_heads_results.json; runlogs/bilin12_closer_heads.log (89s).
+
+## §1375 — THE CLOSER IS WHAT THIS RECIPE REPRODUCIBLY BUILDS: bilin12's 7.1 owns quote-closing at 105.3% solo (+0.871 of +0.828; all-but −0.009 — neighbors net-negative AGAIN) — the delimiter-general function, the single-owner implementation, the >100% share, and the interference wrapping all replicate across two independently trained models; preds a, b, c ALL TRUE, third clean sweep of the transfer thread (bilin12_closer_quotes.py; n=1058)
+
+  THE CROSS-MODEL CLOSER TABLE:
+  model    head   bracket solo-share  quote solo-share  rel depth  neighbors at targets
+  bilin18  13.8   96.5% (§1340)       107.9% (§1356)    0.72       net-negative
+  bilin12  7.1    105.0% (§1374)      105.3% (here)     0.64       net-negative
+
+- THE STRONGEST STATEMENT THIS PROGRAM CAN MAKE ABOUT TRAINING, earned in three registered runs: this architecture-and-data recipe does not just learn to close delimiters — it reproducibly builds THE SAME PART: one mid-stack head owning both delimiter families with a solo share at or above the whole layer, wrapped in layer-mates that are net interference at its targets. Function, grain, depth, and even the interference signature transfer. The heads-are-functions frame is now a claim about the TRAINING PROCESS, not about one network.
+- Transfer thread scoreboard: layer-grain ✓ (§1373), owner-grain ✓ (§1374), function-generality ✓ (here) — three for three, every bet registered in advance. Logged, not chased now: the template port (route-grain kit on bilin12) and the commons-transfer question.
+- Queued (sqrd12_closer_screen.py): the boundary of the universality claim — sqrd12 is the SINGLE-BRANCH, ROW-NORMALIZED sibling, and §1215-18 showed the score function decides implementation (sqrd12 has NO matcher where both bilinear models do). Does a different score function still build a closer? Registered: pred_a a concentrated close-bracket layer exists (dmg >= 0.20, conc >= 8) — closing is too useful not to build; pred_b mid-stack (rel depth 0.5-0.85); pred_c controls clean. The INTERESTING outcome space: a sweep extends the family property across score functions; a miss localizes the closer to bilinear scoring, rhyming with the matcher result.
+
+bilin12_closer_quotes_results.json; runlogs/bilin12_closer_quotes.log (91s).
