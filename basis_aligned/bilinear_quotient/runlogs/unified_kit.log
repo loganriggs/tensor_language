@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets: question 307 comparative 110 closer 1779 capitalized 39173
+full: question 0.946 comparative 1.254 closer 1.213 capitalized 4.620 | else 2.9577
+ymean: question 8.907 comparative 8.272 closer 10.675 capitalized 10.019 | else 6.8614
+unified_ungated: question 3.780 comparative 1.832 closer 2.673 capitalized 5.560 | else 3.6934
+unified_uniongate: question 3.650 comparative 2.055 closer 2.955 capitalized 6.457 | else 4.7335
+question: unified-ungated 0.644 uniongate 0.660
+comparative: unified-ungated 0.918 uniongate 0.886
+closer: unified-ungated 0.846 uniongate 0.816
+capitalized: unified-ungated 0.826 uniongate 0.660
+else 0.812 | pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/unified_kit_results.json (72.1s)

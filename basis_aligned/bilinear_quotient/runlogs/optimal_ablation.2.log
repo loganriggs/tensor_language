@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+clean 2.9455
+/workspace/tensor_language/basis_aligned/bilinear_quotient/optimal_ablation.py:135: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  losses.append(float(loss))
+mlp4 step 50: loss 3.2562
+mlp4 step 100: loss 3.1944
+mlp4 step 150: loss 3.2413
+mlp4: d_mean 0.1056 -> d_opt 0.1051 (ratio 0.9954)
+mlp1 step 50: loss 10.4584
+mlp1 step 100: loss 10.3173
+mlp1 step 150: loss 10.2268
+mlp1: d_mean 7.7396 -> d_opt 7.2533 (ratio 0.9372)
+mlp16 step 50: loss 3.2537
+mlp16 step 100: loss 3.2510
+mlp16 step 150: loss 3.2179
+mlp16: d_mean 0.1403 -> d_opt 0.1399 (ratio 0.9971)
+head13.8 step 50: loss 3.1152
+head13.8 step 100: loss 3.1035
+head13.8 step 150: loss 3.1115
+head13.8: d_mean 0.0040 -> d_opt 0.0039 (ratio 0.9813)
+ratios {'mlp4': 0.9954, 'mlp1': 0.9372, 'mlp16': 0.9971, 'head13.8': 0.9813} | lin5 fidelity 0.6902
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/optimal_ablation_results.json (149.9s)

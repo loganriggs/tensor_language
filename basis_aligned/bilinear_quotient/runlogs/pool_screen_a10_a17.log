@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+sentence_end: n=8778
+open_bracket: n=749
+a0: sentence_end T +0.194 J +0.191 | open_bracket T +0.137 J +0.191
+a1: sentence_end T +0.111 J +0.152 | open_bracket T +0.121 J +0.194
+a2: sentence_end T +0.080 J +0.157 | open_bracket T +0.171 J +0.149
+a3: sentence_end T +0.107 J +0.104 | open_bracket T +0.192 J +0.091
+a4: sentence_end T +0.178 J +0.162 | open_bracket T +0.336 J +0.245
+a5: sentence_end T +0.100 J +0.115 | open_bracket T +0.042 J +0.117
+a6: sentence_end T +0.038 J +0.046 | open_bracket T +0.028 J +0.065
+a7: sentence_end T +0.034 J +0.036 | open_bracket T +0.016 J +0.071
+a8: sentence_end T -0.005 J +0.031 | open_bracket T +0.000 J +0.085
+a9: sentence_end T +0.038 J +0.045 | open_bracket T +0.058 J +0.064
+a10: sentence_end T +0.085 J +0.017 | open_bracket T +0.019 J +0.018
+a11: sentence_end T +0.002 J +0.016 | open_bracket T +0.004 J +0.043
+a12: sentence_end T +0.051 J +0.010 | open_bracket T +0.077 J +0.002
+a13: sentence_end T +0.047 J +0.013 | open_bracket T +0.005 J +0.031
+a14: sentence_end T +0.006 J +0.025 | open_bracket T +0.013 J +0.018
+a15: sentence_end T +0.006 J +0.007 | open_bracket T +0.027 J -0.003
+a16: sentence_end T +0.004 J +0.017 | open_bracket T -0.009 J +0.011
+a17: sentence_end T -0.008 J +0.014 | open_bracket T +0.035 J +0.017
+sentence_end: top a0 dmg +0.1937 conc 3.8x jit +0.1906 clean False
+open_bracket: top a4 dmg +0.3360 conc 6.1x jit +0.2447 clean False
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/pool_screen_a10_a17_results.json (139.1s)

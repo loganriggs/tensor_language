@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+all 18 kernels cached
+clean 2.9455
+attn0 kernel: CE 2.9822 fid 0.8471
+attn1 kernel: CE 2.9856 fid 0.8165
+attn2 kernel: CE 2.9966 fid 0.6780
+attn3 kernel: CE 2.9893 fid 0.6232
+attn4 kernel: CE 2.9876 fid 0.8109
+attn5 kernel: CE 3.0893 fid -0.0550
+attn6 kernel: CE 2.9756 fid 0.5314
+attn7 kernel: CE 2.9692 fid 0.6018
+attn8 kernel: CE 2.9916 fid 0.0398
+attn9 kernel: CE 2.9653 fid 0.6920
+attn10 kernel: CE 2.9615 fid 0.3907
+attn11 kernel: CE 2.9723 fid 0.4172
+attn12 kernel: CE 2.9531 fid 0.2057
+attn13 kernel: CE 2.9613 fid 0.0420
+attn14 kernel: CE 2.9735 fid 0.0555
+attn15 kernel: CE 2.9509 fid 0.2793
+attn16 kernel: CE 2.9569 fid 0.1537
+attn17 kernel: CE 2.9577 fid -0.0291
+median 0.4172 | bottom5 ['attn5', 'attn17', 'attn8', 'attn13', 'attn14']
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_kernel_sweep_results.json (147.7s)

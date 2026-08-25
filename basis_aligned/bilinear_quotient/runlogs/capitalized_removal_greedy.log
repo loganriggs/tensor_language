@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 18039
+round 1: 17.2 -> tgt +0.0351 else -0.0008
+round 2: 14.4 -> tgt +0.0747 else +0.0027
+round 3: 13.0 -> tgt +0.1272 else +0.0075
+round 4: 16.4 -> tgt +0.1835 else +0.0119
+round 5: 16.0 -> tgt +0.2402 else +0.0189
+round 6: 15.3 -> tgt +0.3000 else +0.0234
+chosen ['17.2', '14.4', '13.0', '16.4', '16.0', '15.3'] final {'t': 0.3, 'j': 0.0155, 'r': 0.0239, 'e': 0.0234}
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/capitalized_removal_greedy_results.json (386.6s)

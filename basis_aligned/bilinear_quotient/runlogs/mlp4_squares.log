@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+fit capture done
+ridges fit
+fit sq_r64
+fit sq_r256
+fit pair_r64_F64
+fit pair_r256_F256
+fit pair_r512_F8192
+None: 2.9455
+mean: 3.0472
+lin5: 2.9781
+sq_r64: 2.9779
+sq_r256: 2.9777
+pair_r64_F64: 2.9780
+pair_r256_F256: 2.9777
+pair_r512_F8192: 2.9716
+lin5 0.679 | {'sq_r64': 0.6814, 'sq_r256': 0.6834, 'pair_r64_F64': 0.6804, 'pair_r256_F256': 0.6834, 'pair_r512_F8192': 0.7434}
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp4_squares_results.json (136.5s)

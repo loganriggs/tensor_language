@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets: question 307 comparative 110 closer 1779 capitalized 39173
+full: question 0.946 comparative 1.254 closer 1.213 capitalized 4.620 | else 2.9577
+ymean: question 8.907 comparative 8.272 closer 10.675 capitalized 10.019 | else 6.8614
+question_gated: question 3.364 comparative 4.769 closer 5.459 capitalized 7.403 | else 5.1976
+question_ungated: question 3.866 comparative 2.510 closer 2.673 capitalized 5.696 | else 3.8018
+comparative_gated: question 5.459 comparative 2.136 closer 5.140 capitalized 7.273 | else 5.0446
+comparative_ungated: question 3.780 comparative 1.835 closer 2.574 capitalized 5.560 | else 3.6939
+closer_gated: question 6.191 comparative 5.137 closer 3.442 capitalized 7.395 | else 5.2001
+closer_ungated: question 5.406 comparative 2.898 closer 3.013 capitalized 5.723 | else 3.8269
+capitalized_gated: question 6.786 comparative 4.948 closer 5.084 capitalized 6.698 | else 5.0087
+capitalized_ungated: question 5.408 comparative 2.902 closer 2.910 capitalized 5.723 | else 3.8275
+question: gated 0.696 ungated 0.633 gain -0.063
+comparative: gated 0.874 ungated 0.917 gain +0.043
+closer: gated 0.764 ungated 0.810 gain +0.045
+capitalized: gated 0.615 ungated 0.796 gain +0.181
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/commons_ungated_crosskit_results.json (150.8s)

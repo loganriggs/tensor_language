@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+commons 22 heads
+refit mlp4 installed (rmsref 582.6)
+refit mlp5 installed (rmsref 175.0)
+refit mlp6 installed (rmsref 206.3)
+refit mlp7 installed (rmsref 190.5)
+refit mlp8 installed (rmsref 282.7)
+refit mlp9 installed (rmsref 311.1)
+refit mlp10 installed (rmsref 324.7)
+refit mlp11 installed (rmsref 434.3)
+refit mlp12 installed (rmsref 524.9)
+refit mlp13 installed (rmsref 535.5)
+refit mlp14 installed (rmsref 629.5)
+refit mlp15 installed (rmsref 740.4)
+targets: q 307 | than 110 | bracket 1779 | quote 1058
+full: question 0.946 comparative 1.254 closer_b 1.213 capitalized 4.620 | else 2.9613
+ymean: question 8.907 comparative 8.272 closer_b 10.675 capitalized 10.019 | else 6.8532
+unified_keep5: question 3.641 comparative 1.334 closer_b 2.465 capitalized 6.078 | else 4.1805
+unified_keep6: question 3.388 comparative 1.331 closer_b 2.438 capitalized 5.916 | else 4.0519
+unified_keep7: question 3.417 comparative 1.365 closer_b 2.497 capitalized 5.719 | else 3.9348
+keep5: {'question': 0.6615, 'comparative': 0.9886, 'closer_b': 0.8677, 'capitalized': 0.73, 'else': 0.6867}
+keep6: {'question': 0.6933, 'comparative': 0.989, 'closer_b': 0.8705, 'capitalized': 0.7599, 'else': 0.7198}
+keep7: {'question': 0.6897, 'comparative': 0.9842, 'closer_b': 0.8643, 'capitalized': 0.7965, 'else': 0.7499}
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/unified_bill_final_results.json (158.1s)

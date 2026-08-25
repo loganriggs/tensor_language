@@ -1,0 +1,8 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+mlp1: mean top-8 eig mass 0.0249
+mlp2: mean top-8 eig mass 0.0269
+mlp3: mean top-8 eig mass 0.0284
+native block mass: {'a4xa4': 0.0611, 'a4xm0': 0.1015, 'a4xm2': 0.1139, 'a4xm3': 0.1593, 'm0xm0': 0.0472, 'm0xm2': 0.0973, 'm0xm3': 0.1249, 'm2xm2': 0.0553, 'm2xm3': 0.1385, 'm3xm3': 0.1011}
+chain: {'m3_feature': 'm3#1', 'hub_count_top20': 5, 'top8_eig_mass': 0.0348, 'top_eigs': [-111.3936, -101.7018, -96.0064, -92.2254, -82.1372, -78.6428, -77.1356, -74.4818]}
+pred_a False | pred_b False (0.524) | pred_c True (('m3#1', 5))
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/weight_tensor_chain_results.json (1.1s)

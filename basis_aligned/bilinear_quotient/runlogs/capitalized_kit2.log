@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+cap vocab 12360 gate vocab 17104 commons 22
+targets 39173 (gated 18983 / ungated 20190) | coverage 0.485
+full: t 4.6201 tg 4.1841 tu 5.0300 e 2.9458
+ymean: t 10.0186 tg 9.1050 tu 10.8776 e 6.8842
+kit: t 6.5432 tg 5.1934 tu 7.8124 e 4.9662
+kit_nocommittee: t 6.6977 tg 5.2334 tu 8.0744 e 5.0107
+kit_allgate: t 5.6311 tg 5.0270 tu 6.1991 e 3.8266
+gated 0.795 ungated 0.524 | allgate 0.813 vs kit 0.644 | committee-marginal-gated 0.008
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/capitalized_kit2_results.json (84.3s)

@@ -1,0 +1,638 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+clean 2.9455
+/workspace/tensor_language/basis_aligned/bilinear_quotient/optimal_ablation_all.py:166: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  losses.append(float(loss))
+mlp0 step 50: loss 4.0723
+mlp0 step 100: loss 3.9961
+mlp0 step 150: loss 4.0436
+mlp0: d_mean 0.9193 -> d_opt 0.9080 (ratio 0.9876)
+mlp1 step 50: loss 10.4584
+mlp1 step 100: loss 10.3173
+mlp1 step 150: loss 10.2268
+mlp1: d_mean 7.7396 -> d_opt 7.2533 (ratio 0.9372)
+mlp2 step 50: loss 3.9278
+mlp2 step 100: loss 3.9165
+mlp2 step 150: loss 3.8668
+mlp2: d_mean 0.7337 -> d_opt 0.7260 (ratio 0.9895)
+mlp3 step 50: loss 3.7329
+mlp3 step 100: loss 3.7231
+mlp3 step 150: loss 3.7258
+mlp3: d_mean 0.6168 -> d_opt 0.6099 (ratio 0.9888)
+mlp4 step 50: loss 3.2545
+mlp4 step 100: loss 3.1994
+mlp4 step 150: loss 3.2375
+mlp4: d_mean 0.1056 -> d_opt 0.1051 (ratio 0.9954)
+mlp5 step 50: loss 3.2211
+mlp5 step 100: loss 3.1865
+mlp5 step 150: loss 3.2139
+mlp5: d_mean 0.0842 -> d_opt 0.0821 (ratio 0.9748)
+mlp6 step 50: loss 3.1952
+mlp6 step 100: loss 3.1951
+mlp6 step 150: loss 3.2052
+mlp6: d_mean 0.0780 -> d_opt 0.0760 (ratio 0.9735)
+mlp7 step 50: loss 3.1664
+mlp7 step 100: loss 3.2052
+mlp7 step 150: loss 3.1645
+mlp7: d_mean 0.0572 -> d_opt 0.0563 (ratio 0.9847)
+mlp8 step 50: loss 3.1376
+mlp8 step 100: loss 3.1482
+mlp8 step 150: loss 3.1598
+mlp8: d_mean 0.0480 -> d_opt 0.0474 (ratio 0.9866)
+mlp9 step 50: loss 3.1414
+mlp9 step 100: loss 3.1826
+mlp9 step 150: loss 3.1521
+mlp9: d_mean 0.0502 -> d_opt 0.0496 (ratio 0.9884)
+mlp10 step 50: loss 3.1510
+mlp10 step 100: loss 3.1238
+mlp10 step 150: loss 3.1229
+mlp10: d_mean 0.0413 -> d_opt 0.0409 (ratio 0.9916)
+mlp11 step 50: loss 3.1475
+mlp11 step 100: loss 3.1480
+mlp11 step 150: loss 3.1074
+mlp11: d_mean 0.0462 -> d_opt 0.0460 (ratio 0.9964)
+mlp12 step 50: loss 3.1592
+mlp12 step 100: loss 3.1027
+mlp12 step 150: loss 3.1635
+mlp12: d_mean 0.0417 -> d_opt 0.0416 (ratio 0.9973)
+mlp13 step 50: loss 3.1658
+mlp13 step 100: loss 3.1648
+mlp13 step 150: loss 3.1544
+mlp13: d_mean 0.0394 -> d_opt 0.0393 (ratio 0.9974)
+mlp14 step 50: loss 3.1414
+mlp14 step 100: loss 3.1109
+mlp14 step 150: loss 3.1674
+mlp14: d_mean 0.0301 -> d_opt 0.0301 (ratio 0.9983)
+mlp15 step 50: loss 3.1510
+mlp15 step 100: loss 3.1321
+mlp15 step 150: loss 3.1052
+mlp15: d_mean 0.0380 -> d_opt 0.0379 (ratio 0.9988)
+mlp16 step 50: loss 3.2263
+mlp16 step 100: loss 3.2112
+mlp16 step 150: loss 3.2547
+mlp16: d_mean 0.1403 -> d_opt 0.1399 (ratio 0.9971)
+mlp17 step 50: loss 3.4444
+mlp17 step 100: loss 3.4395
+mlp17 step 150: loss 3.4588
+mlp17: d_mean 0.3333 -> d_opt 0.3323 (ratio 0.9971)
+head0.0 step 50: loss 3.0939
+head0.0 step 100: loss 3.1443
+head0.0: d_mean 0.0019 -> d_opt 0.0018 (ratio 0.9588)
+head0.1 step 50: loss 3.1148
+head0.1 step 100: loss 3.1251
+head0.1: d_mean 0.0002 -> d_opt 0.0003 (ratio 1.0444)
+head0.2 step 50: loss 3.1538
+head0.2 step 100: loss 3.1226
+head0.2: d_mean 0.0003 -> d_opt 0.0003 (ratio 0.9698)
+head0.3 step 50: loss 3.1714
+head0.3 step 100: loss 3.1992
+head0.3: d_mean 0.0633 -> d_opt 0.0621 (ratio 0.9812)
+head0.4 step 50: loss 3.1178
+head0.4 step 100: loss 3.1069
+head0.4: d_mean 0.0010 -> d_opt 0.0010 (ratio 0.9969)
+head0.5 step 50: loss 3.1078
+head0.5 step 100: loss 3.0962
+head0.5: d_mean 0.0015 -> d_opt 0.0015 (ratio 0.9926)
+head0.6 step 50: loss 3.1371
+head0.6 step 100: loss 3.1203
+head0.6: d_mean 0.0042 -> d_opt 0.0041 (ratio 0.9795)
+head0.7 step 50: loss 3.1796
+head0.7 step 100: loss 3.1083
+head0.7: d_mean 0.0035 -> d_opt 0.0034 (ratio 0.9691)
+head0.8 step 50: loss 3.1243
+head0.8 step 100: loss 3.1238
+head0.8: d_mean 0.0044 -> d_opt 0.0043 (ratio 0.9889)
+head1.0 step 50: loss 3.0667
+head1.0 step 100: loss 3.0580
+head1.0: d_mean 0.0016 -> d_opt 0.0016 (ratio 0.983)
+head1.1 step 50: loss 3.1427
+head1.1 step 100: loss 3.1238
+head1.1: d_mean 0.0276 -> d_opt 0.0259 (ratio 0.9405)
+head1.2 step 50: loss 3.1454
+head1.2 step 100: loss 3.0896
+head1.2: d_mean 0.0009 -> d_opt 0.0009 (ratio 1.0019)
+head1.3 step 50: loss 3.0992
+head1.3 step 100: loss 3.1057
+head1.3: d_mean 0.0094 -> d_opt 0.0094 (ratio 0.9914)
+head1.4 step 50: loss 3.1419
+head1.4 step 100: loss 3.1225
+head1.4: d_mean 0.0133 -> d_opt 0.0126 (ratio 0.9474)
+head1.5 step 50: loss 3.0718
+head1.5 step 100: loss 3.0974
+head1.5: d_mean 0.0051 -> d_opt 0.0051 (ratio 0.9938)
+head1.6 step 50: loss 3.1268
+head1.6 step 100: loss 3.1052
+head1.6: d_mean 0.0010 -> d_opt 0.0010 (ratio 0.9874)
+head1.7 step 50: loss 3.0993
+head1.7 step 100: loss 3.0855
+head1.7: d_mean 0.0034 -> d_opt 0.0034 (ratio 0.9946)
+head1.8 step 50: loss 3.1513
+head1.8 step 100: loss 3.1036
+head1.8: d_mean 0.0074 -> d_opt 0.0073 (ratio 0.9887)
+head2.0 step 50: loss 3.1135
+head2.0 step 100: loss 3.0940
+head2.0: d_mean 0.0027 -> d_opt 0.0027 (ratio 0.9995)
+head2.1 step 50: loss 3.1289
+head2.1 step 100: loss 3.0971
+head2.1: d_mean 0.0009 -> d_opt 0.0009 (ratio 0.9967)
+head2.2 step 50: loss 3.1256
+head2.2 step 100: loss 3.0885
+head2.2: d_mean 0.0083 -> d_opt 0.0083 (ratio 0.9987)
+head2.3 step 50: loss 3.1005
+head2.3 step 100: loss 3.0735
+head2.3: d_mean 0.0094 -> d_opt 0.0094 (ratio 0.9988)
+head2.4 step 50: loss 3.0729
+head2.4 step 100: loss 3.1420
+head2.4: d_mean 0.0009 -> d_opt 0.0009 (ratio 0.9988)
+head2.5 step 50: loss 3.1041
+head2.5 step 100: loss 3.1618
+head2.5: d_mean 0.0286 -> d_opt 0.0284 (ratio 0.9928)
+head2.6 step 50: loss 3.1263
+head2.6 step 100: loss 3.1262
+head2.6: d_mean 0.0102 -> d_opt 0.0102 (ratio 0.9993)
+head2.7 step 50: loss 3.1439
+head2.7 step 100: loss 3.1350
+head2.7: d_mean 0.0062 -> d_opt 0.0062 (ratio 0.9997)
+head2.8 step 50: loss 3.0690
+head2.8 step 100: loss 3.0982
+head2.8: d_mean 0.0043 -> d_opt 0.0043 (ratio 0.999)
+head3.0 step 50: loss 3.1172
+head3.0 step 100: loss 3.1050
+head3.0: d_mean 0.0055 -> d_opt 0.0055 (ratio 0.9976)
+head3.1 step 50: loss 3.1054
+head3.1 step 100: loss 3.1242
+head3.1: d_mean 0.0024 -> d_opt 0.0024 (ratio 1.0)
+head3.2 step 50: loss 3.1260
+head3.2 step 100: loss 3.1081
+head3.2: d_mean 0.0014 -> d_opt 0.0014 (ratio 0.9968)
+head3.3 step 50: loss 3.1231
+head3.3 step 100: loss 3.1255
+head3.3: d_mean 0.0039 -> d_opt 0.0039 (ratio 0.9982)
+head3.4 step 50: loss 3.1182
+head3.4 step 100: loss 3.0886
+head3.4: d_mean 0.0065 -> d_opt 0.0065 (ratio 0.9989)
+head3.5 step 50: loss 3.1066
+head3.5 step 100: loss 3.1333
+head3.5: d_mean 0.0110 -> d_opt 0.0109 (ratio 0.9954)
+head3.6 step 50: loss 3.0801
+head3.6 step 100: loss 3.1318
+head3.6: d_mean 0.0057 -> d_opt 0.0057 (ratio 0.9987)
+head3.7 step 50: loss 3.1351
+head3.7 step 100: loss 3.0921
+head3.7: d_mean 0.0026 -> d_opt 0.0026 (ratio 0.9984)
+head3.8 step 50: loss 3.1466
+head3.8 step 100: loss 3.1340
+head3.8: d_mean 0.0107 -> d_opt 0.0106 (ratio 0.9958)
+head4.0 step 50: loss 3.1001
+head4.0 step 100: loss 3.1266
+head4.0: d_mean 0.0133 -> d_opt 0.0133 (ratio 0.9978)
+head4.1 step 50: loss 3.1332
+head4.1 step 100: loss 3.1287
+head4.1: d_mean 0.0114 -> d_opt 0.0114 (ratio 0.9971)
+head4.2 step 50: loss 3.0988
+head4.2 step 100: loss 3.1172
+head4.2: d_mean 0.0017 -> d_opt 0.0017 (ratio 0.9979)
+head4.3 step 50: loss 3.1041
+head4.3 step 100: loss 3.1497
+head4.3: d_mean 0.0029 -> d_opt 0.0029 (ratio 0.9989)
+head4.4 step 50: loss 3.1143
+head4.4 step 100: loss 3.1543
+head4.4: d_mean 0.0032 -> d_opt 0.0032 (ratio 0.9963)
+head4.5 step 50: loss 3.1262
+head4.5 step 100: loss 3.1254
+head4.5: d_mean 0.0125 -> d_opt 0.0125 (ratio 0.9982)
+head4.6 step 50: loss 3.1025
+head4.6 step 100: loss 3.1522
+head4.6: d_mean 0.0032 -> d_opt 0.0032 (ratio 0.9978)
+head4.7 step 50: loss 3.1230
+head4.7 step 100: loss 3.1045
+head4.7: d_mean 0.0089 -> d_opt 0.0089 (ratio 0.9986)
+head4.8 step 50: loss 3.1328
+head4.8 step 100: loss 3.1175
+head4.8: d_mean 0.0030 -> d_opt 0.0030 (ratio 0.9987)
+head5.0 step 50: loss 3.0599
+head5.0 step 100: loss 3.1419
+head5.0: d_mean 0.0050 -> d_opt 0.0049 (ratio 0.9846)
+head5.1 step 50: loss 3.1066
+head5.1 step 100: loss 3.1247
+head5.1: d_mean 0.0028 -> d_opt 0.0027 (ratio 0.9803)
+head5.2 step 50: loss 3.1282
+head5.2 step 100: loss 3.0536
+head5.2: d_mean 0.0038 -> d_opt 0.0037 (ratio 0.9898)
+head5.3 step 50: loss 3.0903
+head5.3 step 100: loss 3.1609
+head5.3: d_mean 0.0085 -> d_opt 0.0085 (ratio 0.9942)
+head5.4 step 50: loss 3.0630
+head5.4 step 100: loss 3.0940
+head5.4: d_mean 0.0032 -> d_opt 0.0031 (ratio 0.9873)
+head5.5 step 50: loss 3.1034
+head5.5 step 100: loss 3.1553
+head5.5: d_mean 0.0126 -> d_opt 0.0125 (ratio 0.9892)
+head5.6 step 50: loss 3.1279
+head5.6 step 100: loss 3.1064
+head5.6: d_mean 0.0085 -> d_opt 0.0085 (ratio 0.9957)
+head5.7 step 50: loss 3.1592
+head5.7 step 100: loss 3.0987
+head5.7: d_mean 0.0120 -> d_opt 0.0119 (ratio 0.9894)
+head5.8 step 50: loss 3.1208
+head5.8 step 100: loss 3.1365
+head5.8: d_mean 0.0080 -> d_opt 0.0080 (ratio 0.9926)
+head6.0 step 50: loss 3.1228
+head6.0 step 100: loss 3.1259
+head6.0: d_mean 0.0010 -> d_opt 0.0010 (ratio 0.9907)
+head6.1 step 50: loss 3.0965
+head6.1 step 100: loss 3.1432
+head6.1: d_mean 0.0132 -> d_opt 0.0128 (ratio 0.9724)
+head6.2 step 50: loss 3.0755
+head6.2 step 100: loss 3.0989
+head6.2: d_mean 0.0004 -> d_opt 0.0004 (ratio 0.9394)
+head6.3 step 50: loss 3.1392
+head6.3 step 100: loss 3.1300
+head6.3: d_mean 0.0212 -> d_opt 0.0211 (ratio 0.998)
+head6.4 step 50: loss 3.0497
+head6.4 step 100: loss 3.0880
+head6.4: d_mean 0.0010 -> d_opt 0.0010 (ratio 0.9964)
+head6.5 step 50: loss 3.1370
+head6.5 step 100: loss 3.1228
+head6.5: d_mean 0.0020 -> d_opt 0.0020 (ratio 0.9877)
+head6.6 step 50: loss 3.1364
+head6.6 step 100: loss 3.1020
+head6.6: d_mean 0.0012 -> d_opt 0.0012 (ratio 0.9911)
+head6.7 step 50: loss 3.0763
+head6.7 step 100: loss 3.0707
+head6.7: d_mean 0.0077 -> d_opt 0.0076 (ratio 0.9885)
+head6.8 step 50: loss 3.0867
+head6.8 step 100: loss 3.0758
+head6.8: d_mean 0.0010 -> d_opt 0.0009 (ratio 0.971)
+head7.0 step 50: loss 3.1408
+head7.0 step 100: loss 3.0938
+head7.0: d_mean 0.0139 -> d_opt 0.0136 (ratio 0.9762)
+head7.1 step 50: loss 3.1013
+head7.1 step 100: loss 3.0840
+head7.1: d_mean 0.0028 -> d_opt 0.0027 (ratio 0.9882)
+head7.2 step 50: loss 3.1337
+head7.2 step 100: loss 3.0697
+head7.2: d_mean 0.0026 -> d_opt 0.0026 (ratio 0.9864)
+head7.3 step 50: loss 3.0999
+head7.3 step 100: loss 3.0685
+head7.3: d_mean 0.0024 -> d_opt 0.0024 (ratio 0.996)
+head7.4 step 50: loss 3.1240
+head7.4 step 100: loss 3.1399
+head7.4: d_mean 0.0013 -> d_opt 0.0013 (ratio 0.9965)
+head7.5 step 50: loss 3.0917
+head7.5 step 100: loss 3.1172
+head7.5: d_mean 0.0021 -> d_opt 0.0021 (ratio 0.9768)
+head7.6 step 50: loss 3.1687
+head7.6 step 100: loss 3.1398
+head7.6: d_mean 0.0002 -> d_opt 0.0001 (ratio 0.9257)
+head7.7 step 50: loss 3.0718
+head7.7 step 100: loss 3.1221
+head7.7: d_mean 0.0021 -> d_opt 0.0021 (ratio 0.9926)
+head7.8 step 50: loss 3.1367
+head7.8 step 100: loss 3.1133
+head7.8: d_mean 0.0184 -> d_opt 0.0180 (ratio 0.9801)
+head8.0 step 50: loss 3.1370
+head8.0 step 100: loss 3.0818
+head8.0: d_mean 0.0000 -> d_opt 0.0000 (ratio 0.5187)
+head8.1 step 50: loss 3.1231
+head8.1 step 100: loss 3.1019
+head8.1: d_mean 0.0055 -> d_opt 0.0055 (ratio 0.9981)
+head8.2 step 50: loss 3.1131
+head8.2 step 100: loss 3.0851
+head8.2: d_mean 0.0026 -> d_opt 0.0026 (ratio 0.9964)
+head8.3 step 50: loss 3.1259
+head8.3 step 100: loss 3.1341
+head8.3: d_mean 0.0107 -> d_opt 0.0107 (ratio 0.9999)
+head8.4 step 50: loss 3.1001
+head8.4 step 100: loss 3.1104
+head8.4: d_mean 0.0041 -> d_opt 0.0041 (ratio 0.9982)
+head8.5 step 50: loss 3.0902
+head8.5 step 100: loss 3.1677
+head8.5: d_mean 0.0004 -> d_opt 0.0004 (ratio 0.9763)
+head8.6 step 50: loss 3.1092
+head8.6 step 100: loss 3.0745
+head8.6: d_mean 0.0012 -> d_opt 0.0012 (ratio 0.9977)
+head8.7 step 50: loss 3.0582
+head8.7 step 100: loss 3.0988
+head8.7: d_mean 0.0033 -> d_opt 0.0033 (ratio 0.9972)
+head8.8 step 50: loss 3.1206
+head8.8 step 100: loss 3.0979
+head8.8: d_mean 0.0034 -> d_opt 0.0034 (ratio 0.9971)
+head9.0 step 50: loss 3.1286
+head9.0 step 100: loss 3.0967
+head9.0: d_mean 0.0008 -> d_opt 0.0008 (ratio 0.9963)
+head9.1 step 50: loss 3.1200
+head9.1 step 100: loss 3.1488
+head9.1: d_mean 0.0041 -> d_opt 0.0041 (ratio 0.9952)
+head9.2 step 50: loss 3.0920
+head9.2 step 100: loss 3.1124
+head9.2: d_mean 0.0005 -> d_opt 0.0005 (ratio 0.986)
+head9.3 step 50: loss 3.0763
+head9.3 step 100: loss 3.1314
+head9.3: d_mean 0.0014 -> d_opt 0.0014 (ratio 0.9933)
+head9.4 step 50: loss 3.0741
+head9.4 step 100: loss 3.1170
+head9.4: d_mean 0.0018 -> d_opt 0.0018 (ratio 0.996)
+head9.5 step 50: loss 3.0897
+head9.5 step 100: loss 3.0782
+head9.5: d_mean 0.0009 -> d_opt 0.0008 (ratio 0.9873)
+head9.6 step 50: loss 3.1117
+head9.6 step 100: loss 3.0916
+head9.6: d_mean 0.0042 -> d_opt 0.0042 (ratio 0.9951)
+head9.7 step 50: loss 3.1323
+head9.7 step 100: loss 3.1187
+head9.7: d_mean 0.0192 -> d_opt 0.0191 (ratio 0.9908)
+head9.8 step 50: loss 3.1443
+head9.8 step 100: loss 3.1051
+head9.8: d_mean 0.0044 -> d_opt 0.0044 (ratio 0.996)
+head10.0 step 50: loss 3.1188
+head10.0 step 100: loss 3.1140
+head10.0: d_mean 0.0009 -> d_opt 0.0009 (ratio 0.9995)
+head10.1 step 50: loss 3.1152
+head10.1 step 100: loss 3.1283
+head10.1: d_mean 0.0017 -> d_opt 0.0017 (ratio 1.0021)
+head10.2 step 50: loss 3.1325
+head10.2 step 100: loss 3.0905
+head10.2: d_mean 0.0030 -> d_opt 0.0030 (ratio 0.993)
+head10.3 step 50: loss 3.0902
+head10.3 step 100: loss 3.1190
+head10.3: d_mean 0.0016 -> d_opt 0.0016 (ratio 1.0019)
+head10.4 step 50: loss 3.1493
+head10.4 step 100: loss 3.1054
+head10.4: d_mean 0.0027 -> d_opt 0.0027 (ratio 0.9994)
+head10.5 step 50: loss 3.0941
+head10.5 step 100: loss 3.0976
+head10.5: d_mean 0.0052 -> d_opt 0.0052 (ratio 0.9863)
+head10.6 step 50: loss 3.1105
+head10.6 step 100: loss 3.1132
+head10.6: d_mean 0.0009 -> d_opt 0.0009 (ratio 0.9962)
+head10.7 step 50: loss 3.0639
+head10.7 step 100: loss 3.0912
+head10.7: d_mean 0.0010 -> d_opt 0.0010 (ratio 0.997)
+head10.8 step 50: loss 3.1350
+head10.8 step 100: loss 3.1122
+head10.8: d_mean 0.0014 -> d_opt 0.0014 (ratio 0.9989)
+head11.0 step 50: loss 3.1029
+head11.0 step 100: loss 3.1353
+head11.0: d_mean 0.0012 -> d_opt 0.0012 (ratio 0.996)
+head11.1 step 50: loss 3.1154
+head11.1 step 100: loss 3.1334
+head11.1: d_mean 0.0034 -> d_opt 0.0034 (ratio 0.998)
+head11.2 step 50: loss 3.1009
+head11.2 step 100: loss 3.1095
+head11.2: d_mean 0.0103 -> d_opt 0.0103 (ratio 0.999)
+head11.3 step 50: loss 3.1148
+head11.3 step 100: loss 3.0919
+head11.3: d_mean 0.0037 -> d_opt 0.0036 (ratio 0.9956)
+head11.4 step 50: loss 3.1490
+head11.4 step 100: loss 3.1156
+head11.4: d_mean 0.0011 -> d_opt 0.0011 (ratio 0.9957)
+head11.5 step 50: loss 3.1144
+head11.5 step 100: loss 3.1223
+head11.5: d_mean 0.0025 -> d_opt 0.0025 (ratio 0.9977)
+head11.6 step 50: loss 3.1268
+head11.6 step 100: loss 3.0841
+head11.6: d_mean 0.0102 -> d_opt 0.0102 (ratio 0.9953)
+head11.7 step 50: loss 3.1315
+head11.7 step 100: loss 3.0963
+head11.7: d_mean 0.0009 -> d_opt 0.0009 (ratio 0.9909)
+head11.8 step 50: loss 3.1209
+head11.8 step 100: loss 3.0927
+head11.8: d_mean 0.0020 -> d_opt 0.0020 (ratio 0.9969)
+head12.0 step 50: loss 3.1205
+head12.0 step 100: loss 3.1158
+head12.0: d_mean 0.0006 -> d_opt 0.0006 (ratio 0.9999)
+head12.1 step 50: loss 3.1407
+head12.1 step 100: loss 3.0891
+head12.1: d_mean 0.0007 -> d_opt 0.0007 (ratio 0.9955)
+head12.2 step 50: loss 3.0594
+head12.2 step 100: loss 3.0892
+head12.2: d_mean 0.0007 -> d_opt 0.0007 (ratio 0.9972)
+head12.3 step 50: loss 3.1410
+head12.3 step 100: loss 3.1337
+head12.3: d_mean 0.0011 -> d_opt 0.0011 (ratio 0.9991)
+head12.4 step 50: loss 3.1346
+head12.4 step 100: loss 3.1067
+head12.4: d_mean 0.0018 -> d_opt 0.0018 (ratio 0.9967)
+head12.5 step 50: loss 3.0897
+head12.5 step 100: loss 3.0920
+head12.5: d_mean 0.0003 -> d_opt 0.0003 (ratio 0.9889)
+head12.6 step 50: loss 3.0994
+head12.6 step 100: loss 3.0995
+head12.6: d_mean 0.0010 -> d_opt 0.0010 (ratio 0.9894)
+head12.7 step 50: loss 3.0502
+head12.7 step 100: loss 3.1147
+head12.7: d_mean 0.0010 -> d_opt 0.0010 (ratio 0.9982)
+head12.8 step 50: loss 3.1483
+head12.8 step 100: loss 3.0980
+head12.8: d_mean 0.0006 -> d_opt 0.0006 (ratio 1.0014)
+head13.0 step 50: loss 3.1398
+head13.0 step 100: loss 3.1212
+head13.0: d_mean 0.0053 -> d_opt 0.0053 (ratio 0.9989)
+head13.1 step 50: loss 3.0744
+head13.1 step 100: loss 3.0936
+head13.1: d_mean 0.0005 -> d_opt 0.0005 (ratio 0.9934)
+head13.2 step 50: loss 3.1234
+head13.2 step 100: loss 3.1032
+head13.2: d_mean 0.0011 -> d_opt 0.0011 (ratio 0.9977)
+head13.3 step 50: loss 3.0946
+head13.3 step 100: loss 3.0836
+head13.3: d_mean 0.0015 -> d_opt 0.0015 (ratio 0.9965)
+head13.4 step 50: loss 3.1184
+head13.4 step 100: loss 3.0616
+head13.4: d_mean 0.0003 -> d_opt 0.0003 (ratio 1.0015)
+head13.5 step 50: loss 3.1052
+head13.5 step 100: loss 3.1319
+head13.5: d_mean 0.0019 -> d_opt 0.0019 (ratio 0.999)
+head13.6 step 50: loss 3.1221
+head13.6 step 100: loss 3.0567
+head13.6: d_mean 0.0005 -> d_opt 0.0005 (ratio 0.9953)
+head13.7 step 50: loss 3.1203
+head13.7 step 100: loss 3.0784
+head13.7: d_mean 0.0004 -> d_opt 0.0004 (ratio 0.9965)
+head13.8 step 50: loss 3.1178
+head13.8 step 100: loss 3.0934
+head13.8: d_mean 0.0040 -> d_opt 0.0039 (ratio 0.9872)
+head14.0 step 50: loss 3.1701
+head14.0 step 100: loss 3.1254
+head14.0: d_mean 0.0022 -> d_opt 0.0022 (ratio 1.0001)
+head14.1 step 50: loss 3.0633
+head14.1 step 100: loss 3.1150
+head14.1: d_mean 0.0017 -> d_opt 0.0017 (ratio 0.9991)
+head14.2 step 50: loss 3.0684
+head14.2 step 100: loss 3.0735
+head14.2: d_mean 0.0004 -> d_opt 0.0004 (ratio 0.992)
+head14.3 step 50: loss 3.0899
+head14.3 step 100: loss 3.1138
+head14.3: d_mean 0.0008 -> d_opt 0.0008 (ratio 0.9976)
+head14.4 step 50: loss 3.0944
+head14.4 step 100: loss 3.1116
+head14.4: d_mean 0.0075 -> d_opt 0.0075 (ratio 0.9995)
+head14.5 step 50: loss 3.1295
+head14.5 step 100: loss 3.1076
+head14.5: d_mean 0.0003 -> d_opt 0.0003 (ratio 0.9963)
+head14.6 step 50: loss 3.1320
+head14.6 step 100: loss 3.1408
+head14.6: d_mean 0.0034 -> d_opt 0.0034 (ratio 0.9988)
+head14.7 step 50: loss 3.0970
+head14.7 step 100: loss 3.1079
+head14.7: d_mean 0.0019 -> d_opt 0.0019 (ratio 0.9993)
+head14.8 step 50: loss 3.1474
+head14.8 step 100: loss 3.0697
+head14.8: d_mean 0.0008 -> d_opt 0.0008 (ratio 0.9951)
+head15.0 step 50: loss 3.1350
+head15.0 step 100: loss 3.1345
+head15.0: d_mean 0.0003 -> d_opt 0.0003 (ratio 0.9959)
+head15.1 step 50: loss 3.0992
+head15.1 step 100: loss 3.1227
+head15.1: d_mean 0.0023 -> d_opt 0.0023 (ratio 0.9956)
+head15.2 step 50: loss 3.0911
+head15.2 step 100: loss 3.1146
+head15.2: d_mean 0.0002 -> d_opt 0.0002 (ratio 0.9775)
+head15.3 step 50: loss 3.0863
+head15.3 step 100: loss 3.1215
+head15.3: d_mean 0.0017 -> d_opt 0.0017 (ratio 0.9994)
+head15.4 step 50: loss 3.1162
+head15.4 step 100: loss 3.0698
+head15.4: d_mean 0.0006 -> d_opt 0.0006 (ratio 0.9994)
+head15.5 step 50: loss 3.1527
+head15.5 step 100: loss 3.0734
+head15.5: d_mean 0.0008 -> d_opt 0.0008 (ratio 0.9983)
+head15.6 step 50: loss 3.0925
+head15.6 step 100: loss 3.0950
+head15.6: d_mean 0.0003 -> d_opt 0.0003 (ratio 0.9947)
+head15.7 step 50: loss 3.1112
+head15.7 step 100: loss 3.1206
+head15.7: d_mean 0.0004 -> d_opt 0.0004 (ratio 0.9996)
+head15.8 step 50: loss 3.0912
+head15.8 step 100: loss 3.1103
+head15.8: d_mean 0.0002 -> d_opt 0.0002 (ratio 1.0021)
+head16.0 step 50: loss 3.1297
+head16.0 step 100: loss 3.1174
+head16.0: d_mean 0.0023 -> d_opt 0.0023 (ratio 1.0002)
+head16.1 step 50: loss 3.1047
+head16.1 step 100: loss 3.1068
+head16.1: d_mean 0.0004 -> d_opt 0.0004 (ratio 0.9981)
+head16.2 step 50: loss 3.0765
+head16.2 step 100: loss 3.1243
+head16.2: d_mean 0.0003 -> d_opt 0.0003 (ratio 0.9957)
+head16.3 step 50: loss 3.1148
+head16.3 step 100: loss 3.0904
+head16.3: d_mean 0.0034 -> d_opt 0.0034 (ratio 0.9999)
+head16.4 step 50: loss 3.0693
+head16.4 step 100: loss 3.0966
+head16.4: d_mean 0.0021 -> d_opt 0.0021 (ratio 1.0)
+head16.5 step 50: loss 3.1356
+head16.5 step 100: loss 3.1205
+head16.5: d_mean 0.0009 -> d_opt 0.0009 (ratio 0.9989)
+head16.6 step 50: loss 3.0934
+head16.6 step 100: loss 3.1083
+head16.6: d_mean 0.0001 -> d_opt 0.0001 (ratio 0.9898)
+head16.7 step 50: loss 3.0983
+head16.7 step 100: loss 3.0858
+head16.7: d_mean 0.0003 -> d_opt 0.0003 (ratio 0.9963)
+head16.8 step 50: loss 3.0963
+head16.8 step 100: loss 3.1469
+head16.8: d_mean 0.0007 -> d_opt 0.0007 (ratio 0.9981)
+head17.0 step 50: loss 3.0962
+head17.0 step 100: loss 3.1035
+head17.0: d_mean 0.0015 -> d_opt 0.0015 (ratio 0.9986)
+head17.1 step 50: loss 3.0903
+head17.1 step 100: loss 3.1009
+head17.1: d_mean 0.0008 -> d_opt 0.0008 (ratio 0.9994)
+head17.2 step 50: loss 3.0970
+head17.2 step 100: loss 3.1285
+head17.2: d_mean 0.0028 -> d_opt 0.0028 (ratio 0.9984)
+head17.3 step 50: loss 3.0997
+head17.3 step 100: loss 3.0762
+head17.3: d_mean 0.0004 -> d_opt 0.0004 (ratio 0.9986)
+head17.4 step 50: loss 3.1141
+head17.4 step 100: loss 3.0983
+head17.4: d_mean 0.0011 -> d_opt 0.0011 (ratio 1.0001)
+head17.5 step 50: loss 3.1375
+head17.5 step 100: loss 3.1019
+head17.5: d_mean 0.0002 -> d_opt 0.0002 (ratio 0.999)
+head17.6 step 50: loss 3.1521
+head17.6 step 100: loss 3.0726
+head17.6: d_mean 0.0019 -> d_opt 0.0019 (ratio 0.9982)
+head17.7 step 50: loss 3.0979
+head17.7 step 100: loss 3.1216
+head17.7: d_mean 0.0005 -> d_opt 0.0005 (ratio 0.9982)
+head17.8 step 50: loss 3.0952
+head17.8 step 100: loss 3.1300
+head17.8: d_mean 0.0005 -> d_opt 0.0005 (ratio 0.998)
+attn0 step 50: loss 3.3752
+attn0 step 100: loss 3.4259
+attn0 step 150: loss 3.3857
+attn0: d_mean 0.2753 -> d_opt 0.2395 (ratio 0.8699)
+attn1 step 50: loss 3.3422
+attn1 step 100: loss 3.3297
+attn1 step 150: loss 3.3211
+attn1: d_mean 0.2339 -> d_opt 0.2186 (ratio 0.9343)
+attn2 step 50: loss 3.2341
+attn2 step 100: loss 3.2244
+attn2 step 150: loss 3.2343
+attn2: d_mean 0.1600 -> d_opt 0.1585 (ratio 0.9908)
+attn3 step 50: loss 3.2114
+attn3 step 100: loss 3.2089
+attn3 step 150: loss 3.2745
+attn3: d_mean 0.1175 -> d_opt 0.1162 (ratio 0.9896)
+attn4 step 50: loss 3.3608
+attn4 step 100: loss 3.3247
+attn4 step 150: loss 3.3512
+attn4: d_mean 0.2258 -> d_opt 0.2226 (ratio 0.9856)
+attn5 step 50: loss 3.2374
+attn5 step 100: loss 3.2766
+attn5 step 150: loss 3.2305
+attn5: d_mean 0.1392 -> d_opt 0.1362 (ratio 0.9787)
+attn6 step 50: loss 3.1744
+attn6 step 100: loss 3.1894
+attn6 step 150: loss 3.1360
+attn6: d_mean 0.0653 -> d_opt 0.0642 (ratio 0.9828)
+attn7 step 50: loss 3.1759
+attn7 step 100: loss 3.1756
+attn7 step 150: loss 3.1781
+attn7: d_mean 0.0604 -> d_opt 0.0594 (ratio 0.9842)
+attn8 step 50: loss 3.1835
+attn8 step 100: loss 3.1705
+attn8 step 150: loss 3.1385
+attn8: d_mean 0.0480 -> d_opt 0.0479 (ratio 0.9978)
+attn9 step 50: loss 3.1906
+attn9 step 100: loss 3.1935
+attn9 step 150: loss 3.1544
+attn9: d_mean 0.0644 -> d_opt 0.0640 (ratio 0.994)
+attn10 step 50: loss 3.1060
+attn10 step 100: loss 3.0744
+attn10 step 150: loss 3.1489
+attn10: d_mean 0.0264 -> d_opt 0.0263 (ratio 0.9966)
+attn11 step 50: loss 3.1743
+attn11 step 100: loss 3.1005
+attn11 step 150: loss 3.1491
+attn11: d_mean 0.0461 -> d_opt 0.0460 (ratio 0.9979)
+attn12 step 50: loss 3.1628
+attn12 step 100: loss 3.1606
+attn12 step 150: loss 3.1234
+attn12: d_mean 0.0095 -> d_opt 0.0095 (ratio 0.9988)
+attn13 step 50: loss 3.0984
+attn13 step 100: loss 3.1653
+attn13 step 150: loss 3.1157
+attn13: d_mean 0.0164 -> d_opt 0.0164 (ratio 0.9988)
+attn14 step 50: loss 3.0988
+attn14 step 100: loss 3.1440
+attn14 step 150: loss 3.1393
+attn14: d_mean 0.0296 -> d_opt 0.0296 (ratio 0.999)
+attn15 step 50: loss 3.0750
+attn15 step 100: loss 3.0938
+attn15 step 150: loss 3.1354
+attn15: d_mean 0.0075 -> d_opt 0.0074 (ratio 0.9985)
+attn16 step 50: loss 3.1027
+attn16 step 100: loss 3.1428
+attn16 step 150: loss 3.1354
+attn16: d_mean 0.0135 -> d_opt 0.0135 (ratio 0.9994)
+attn17 step 50: loss 3.1458
+attn17 step 100: loss 3.1291
+attn17 step 150: loss 3.1342
+attn17: d_mean 0.0118 -> d_opt 0.0118 (ratio 0.9985)
+median 0.9964 | helped<0.8: 1
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/optimal_ablation_all_results.json (5217.5s)

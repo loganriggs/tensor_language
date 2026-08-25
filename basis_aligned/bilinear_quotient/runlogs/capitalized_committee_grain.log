@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+refs cached
+targets 18039
+ov_all: tgt +0.2080 jit -0.0018 rand +0.0038 else +0.0042
+qk_all: tgt +0.1396 jit +0.0024 rand +0.0013 else +0.0013
+ov_L15: tgt +0.0222 jit -0.0009 rand -0.0008 else -0.0008
+qk_L15: tgt +0.0184 jit -0.0006 rand -0.0006 else -0.0006
+ov_L16: tgt +0.0626 jit -0.0010 rand -0.0006 else +0.0000
+qk_L16: tgt +0.0607 jit -0.0014 rand -0.0010 else -0.0009
+ov_L17: tgt +0.0851 jit -0.0039 rand -0.0011 else -0.0010
+qk_L17: tgt +0.0327 jit +0.0041 rand +0.0023 else +0.0022
+ov/qk ratio 1.49 | pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/capitalized_committee_grain_results.json (77.5s)

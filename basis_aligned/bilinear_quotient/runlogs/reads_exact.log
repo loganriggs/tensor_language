@@ -1,0 +1,43 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ledger self-test passed (rel 5.89e-08)
+mlp4 patch wte: dCE +0.0001
+mlp4 patch attn0: dCE -0.0000
+mlp4 patch attn1: dCE +0.0000
+mlp4 patch attn2: dCE +0.0003
+mlp4 patch attn3: dCE +0.0015
+mlp4 patch attn4: dCE +0.0526
+mlp4 patch mlp0: dCE +0.0000
+mlp4 patch mlp1: dCE +0.0008
+mlp4 patch mlp2: dCE +0.0033
+mlp4 patch mlp3: dCE +0.0316
+mlp4: ranked ['attn4', 'mlp3', 'mlp2', 'attn3'] full 0.0939
+mlp5 patch wte: dCE +0.0005
+mlp5 patch attn0: dCE +0.0000
+mlp5 patch attn1: dCE +0.0000
+mlp5 patch attn2: dCE +0.0001
+mlp5 patch attn3: dCE +0.0004
+mlp5 patch attn4: dCE +0.0037
+mlp5 patch attn5: dCE +0.0319
+mlp5 patch mlp0: dCE +0.0000
+mlp5 patch mlp1: dCE +0.0003
+mlp5 patch mlp2: dCE +0.0011
+mlp5 patch mlp3: dCE +0.0054
+mlp5 patch mlp4: dCE +0.0143
+mlp5: ranked ['attn5', 'mlp4', 'mlp3', 'attn4'] full 0.0741
+mlp6 patch wte: dCE +0.0013
+mlp6 patch attn0: dCE -0.0000
+mlp6 patch attn1: dCE +0.0000
+mlp6 patch attn2: dCE +0.0000
+mlp6 patch attn3: dCE +0.0001
+mlp6 patch attn4: dCE +0.0012
+mlp6 patch attn5: dCE +0.0066
+mlp6 patch attn6: dCE +0.0100
+mlp6 patch mlp0: dCE +0.0000
+mlp6 patch mlp1: dCE +0.0001
+mlp6 patch mlp2: dCE +0.0004
+mlp6 patch mlp3: dCE +0.0016
+mlp6 patch mlp4: dCE +0.0040
+mlp6 patch mlp5: dCE +0.0132
+mlp6: ranked ['mlp5', 'attn6', 'attn5', 'mlp4'] full 0.0467
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/reads_exact_results.json (288.8s)

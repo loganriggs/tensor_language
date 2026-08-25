@@ -1,0 +1,34 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+commons 22 heads
+refit mlp4 installed (rmsref 582.6)
+refit mlp5 installed (rmsref 175.0)
+refit mlp6 installed (rmsref 206.3)
+refit mlp7 installed (rmsref 190.5)
+refit mlp8 installed (rmsref 282.7)
+refit mlp9 installed (rmsref 311.1)
+refit mlp10 installed (rmsref 324.7)
+refit mlp11 installed (rmsref 434.3)
+refit mlp12 installed (rmsref 524.9)
+refit mlp13 installed (rmsref 535.5)
+refit mlp14 installed (rmsref 629.5)
+refit mlp15 installed (rmsref 740.4)
+targets: q 307 | than 110 | bracket 1779 | quote 1058
+full: question 0.946 comparative 1.254 closer_b 1.213 capitalized 4.620 | else 2.9613
+ymean: question 8.907 comparative 8.272 closer_b 10.675 capitalized 10.019 | else 6.8532
+unified_keep5: question 3.641 comparative 1.334 closer_b 2.465 capitalized 6.078 | else 4.1805
+unified_keep5+10: question 3.622 comparative 1.461 closer_b 2.382 capitalized 5.970 | else 4.0642
+unified_keep5+11: question 3.388 comparative 1.331 closer_b 2.438 capitalized 5.916 | else 4.0519
+unified_keep5+12: question 3.670 comparative 1.364 closer_b 2.397 capitalized 5.928 | else 4.0561
+unified_keep5+13: question 3.671 comparative 1.347 closer_b 2.497 capitalized 5.857 | else 4.0364
+unified_keep5+14: question 3.596 comparative 1.388 closer_b 2.497 capitalized 5.996 | else 4.0656
+unified_keep5+15: question 3.635 comparative 1.541 closer_b 2.502 capitalized 5.975 | else 4.0745
+keep5: {'question': 0.6615, 'comparative': 0.9886, 'closer_b': 0.8677, 'capitalized': 0.73, 'else': 0.6867}
+keep5+10: {'question': 0.6639, 'comparative': 0.9705, 'closer_b': 0.8765, 'capitalized': 0.7499, 'else': 0.7166}
+keep5+11: {'question': 0.6933, 'comparative': 0.989, 'closer_b': 0.8705, 'capitalized': 0.7599, 'else': 0.7198}
+keep5+12: {'question': 0.6579, 'comparative': 0.9843, 'closer_b': 0.8749, 'capitalized': 0.7577, 'else': 0.7187}
+keep5+13: {'question': 0.6577, 'comparative': 0.9868, 'closer_b': 0.8643, 'capitalized': 0.7709, 'else': 0.7238}
+keep5+14: {'question': 0.6672, 'comparative': 0.9808, 'closer_b': 0.8643, 'capitalized': 0.7452, 'else': 0.7163}
+keep5+15: {'question': 0.6623, 'comparative': 0.9592, 'closer_b': 0.8638, 'capitalized': 0.749, 'else': 0.714}
+cap adds {10: 0.01990000000000003, 11: 0.029900000000000038, 12: 0.027700000000000058, 13: 0.04090000000000005, 14: 0.015199999999999991, 15: 0.019000000000000017} top mlp13
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/capitalized_mid_adds_results.json (208.4s)

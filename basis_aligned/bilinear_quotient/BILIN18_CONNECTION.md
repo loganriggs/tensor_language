@@ -34379,3 +34379,40 @@ swarm2/ complete for waves 1-3; worker reports in session log.
   a17 +.607 | a10 +.207 (a10's residue suggests its roster is incomplete — flagged).
 - The attention stack's glass-ship sentence is now: "every head attends by distance, EXCEPT this named roster of ~24 specialists who keep their own patterns" — .6-.9 per layer at ~kernel + 3-4 heads' QK weights per content layer. attn10's small gain flags a roster gap (10.5/10.6/10.2 insufficient — the §1414 mine listed more a10 candidates).
 - Queued (attn_composite): the spec's headline shape — ALL 18 layers simultaneously: kernel-all-18 vs hybrid-all-18 (kernels everywhere + the roster live at the 7 content layers). Preds: pred_a kernel-all-18 composite costs ≤ 1.2 CE over clean (compounding stays bounded); pred_b hybrid-all-18 recovers ≥ .60 of the kernel-all gap; pred_c hybrid composite ≤ clean + 0.5.
+
+## §1449 The attention composite FAILS 0-for-3 — and the live roster makes it WORSE (compounding is the whole story)
+
+**Setup** (attn_composite, 45s). All 18 attention layers replaced SIMULTANEOUSLY (MLPs
+live, values live): kernel_all = every head on its distance kernel; hybrid_all = kernels
+everywhere + the §1448 named roster (21 heads at layers 5/8/10/13/14/16/17) computing
+their patterns live. Held-out NR=960, mask ≥64.
+
+**Registered predictions, scored as written:**
+- pred_a kernel_all ≤ clean + 1.2 CE: **FAILED** — Δ = 1.7846.
+- pred_b hybrid recovers ≥ .60 of the kernel gap: **FAILED** — recovery = **−0.3075**
+  (hybrid 5.2789 vs kernel_all 4.7302: keeping the specialists live made it WORSE).
+- pred_c hybrid ≤ clean + 0.5: **FAILED** — Δ = 2.3334.
+
+**Two findings, both structural:**
+1. **Compounding is 3.0× super-additive.** Sum of the 18 per-layer kernel deltas
+   (§1447) = 0.60 CE; the composite costs 1.78 CE. Per-layer fidelities do NOT
+   predict the composite — which is exactly why the spec's nightly composite exists.
+   The per-layer scores (.58–.90 hybrids, §1448) are real but LOCAL facts.
+2. **Live subcomponents are error amplifiers under composition.** The roster heads
+   compute q/k from a stream corrupted by 17 kernelized layers; their data-DEPENDENT
+   patterns misfire, while the data-INDEPENDENT kernels are robust to upstream
+   perturbation by construction. A stand-in that wins locally (roster gains +.21–.75
+   per-layer) can lose globally. Hypothesis (registered in attn_composite2): it's the
+   corrupted inputs, not the roster idea — teacher (clean-pass) patterns should repair.
+
+**LESSON (new, for the library): local fidelity ≠ composite fidelity — data-dependent
+stand-in parts must be re-validated inside the composite, because they read corrupted
+inputs there.** This is TheseusBench Invariant-0 material: the composite IS the
+verification, per-layer numbers are only candidates.
+
+**Queued:** attn_composite2 (lane 1) — hybrid_frozen (roster heads get clean-pass
+teacher patterns inside the composite; pred_a repairs ≥.30 of the gap), and 7 marginal
+arms (roster live at ONE layer each; pred_b layer 5's live sink head 5.7 is the worst
+offender; pred_c ≥2 of 7 marginals are individually harmful). mlp7_ladder (lane 2) —
+board #3, .056 unexplained, no stand-in yet; standard lin2/linall/quad ladder with
+frozen-anchor fid scoring.

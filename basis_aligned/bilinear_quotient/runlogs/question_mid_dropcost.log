@@ -22,3 +22,15 @@ drop5: q 3.3723 else 5.2170
 drop6: q 3.6038 else 5.2298
 drop7: q 3.7255 else 5.3408
 drop8: q 3.6899 else 5.4074
+drop9: q 3.6590 else 5.3896
+drop10: q 3.3666 else 5.3961
+drop11: q 3.4750 else 5.3913
+drop12: q 3.3475 else 5.4090
+drop13: q 3.3564 else 5.4214
+drop14: q 3.4043 else 5.4292
+drop15: q 3.3719 else 5.4574
+pruned-mid ranking: mlp8(+0.326) mlp9(+0.295) mlp11(+0.111) mlp14(+0.041) mlp15(+0.008) mlp10(+0.003) mlp13(-0.007) mlp12(-0.016)
+keep4+8: q 3.7578 else 5.5597
+keep4+8+9: q 3.5038 else 5.5389
+top pruned mlp8 | pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_mid_dropcost_results.json (518.5s)

@@ -1,0 +1,36 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+cap vocab 12360
+targets 18039
+a15 full: tgt +0.0456 jit +0.0008 rand +0.0035 else +0.0032
+a16 full: tgt +0.0808 jit +0.0035 rand +0.0037 else +0.0043
+a17 full: tgt +0.0854 jit +0.0081 rand +0.0056 else +0.0056
+15.0: solo +0.0005 (else +0.0002) | all-but +0.0450
+15.1: solo +0.0049 (else +0.0025) | all-but +0.0414
+15.2: solo +0.0001 (else +0.0003) | all-but +0.0454
+15.3: solo +0.0222 (else -0.0008) | all-but +0.0218
+15.4: solo +0.0137 (else -0.0007) | all-but +0.0303
+15.5: solo +0.0000 (else +0.0006) | all-but +0.0456
+15.6: solo +0.0003 (else +0.0004) | all-but +0.0453
+15.7: solo +0.0016 (else +0.0003) | all-but +0.0440
+15.8: solo +0.0009 (else +0.0003) | all-but +0.0445
+16.0: solo +0.0159 (else +0.0006) | all-but +0.0596
+16.1: solo +0.0048 (else -0.0000) | all-but +0.0745
+16.2: solo -0.0062 (else +0.0011) | all-but +0.0873
+16.3: solo +0.0143 (else +0.0012) | all-but +0.0611
+16.4: solo +0.0177 (else -0.0001) | all-but +0.0571
+16.5: solo +0.0242 (else -0.0015) | all-but +0.0526
+16.6: solo +0.0012 (else -0.0000) | all-but +0.0795
+16.7: solo -0.0002 (else +0.0001) | all-but +0.0810
+16.8: solo -0.0018 (else +0.0012) | all-but +0.0829
+17.0: solo +0.0195 (else -0.0002) | all-but +0.0639
+17.1: solo +0.0274 (else -0.0016) | all-but +0.0560
+17.2: solo +0.0351 (else -0.0008) | all-but +0.0475
+17.3: solo +0.0015 (else +0.0002) | all-but +0.0836
+17.4: solo -0.0010 (else +0.0013) | all-but +0.0865
+17.5: solo +0.0003 (else +0.0003) | all-but +0.0852
+17.6: solo +0.0001 (else +0.0025) | all-but +0.0845
+17.7: solo -0.0027 (else +0.0008) | all-but +0.0886
+17.8: solo +0.0016 (else +0.0009) | all-but +0.0839
+per-layer top: a15={'head': 3, 'solo': 0.0222, 'share': 0.4868} a16={'head': 5, 'solo': 0.0242, 'share': 0.2995} a17={'head': 2, 'solo': 0.0351, 'share': 0.411}
+pred_a no-owner True | pred_b expressive-top2 True | pred_c distributed True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/capitalized_band_heads_results.json (384.6s)

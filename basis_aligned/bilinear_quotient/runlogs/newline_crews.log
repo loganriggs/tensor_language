@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+newline: n=7397
+capitalized: n=37910
+early: nl +0.1938 cap -0.0016
+late: nl +0.3437 cap -0.0108
+all5: nl +0.6166 cap -0.0076
+c12: nl -0.0308 cap +0.5767
+c13: nl -0.0352 cap +0.6536
+early 0.1938 late 0.3437 all5 0.6166 | c12 0.5767 c13 0.6536
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_crews_results.json (94.2s)

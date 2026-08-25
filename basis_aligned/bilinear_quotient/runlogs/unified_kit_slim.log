@@ -1,0 +1,36 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets: question 307 comparative 110 closer 1779 capitalized 39173
+full: question 0.946 comparative 1.254 closer 1.213 capitalized 4.620 | else 2.9577
+ymean: question 8.907 comparative 8.272 closer 10.675 capitalized 10.019 | else 6.8614
+kit28: question 3.780 comparative 1.832 closer 2.673 capitalized 5.560 | else 3.6934
+drop 0.3: worst +0.0105 ({'question': 0.0071, 'comparative': 0.0105, 'closer': 0.0058, 'capitalized': 0.0064, 'else': 0.0063})
+drop 1.1: worst +0.0278 ({'question': 0.0043, 'comparative': 0.013, 'closer': 0.0278, 'capitalized': 0.0249, 'else': 0.0188})
+drop 1.3: worst +0.0091 ({'question': 0.0055, 'comparative': 0.0002, 'closer': 0.0037, 'capitalized': 0.0091, 'else': 0.0065})
+drop 1.4: worst +0.0108 ({'question': 0.0032, 'comparative': 0.0108, 'closer': 0.0033, 'capitalized': -0.0004, 'else': 0.0052})
+drop 1.5: worst +0.0048 ({'question': 0.0048, 'comparative': 0.0043, 'closer': 0.002, 'capitalized': 0.0021, 'else': 0.0035})
+drop 1.7: worst +0.0038 ({'question': -0.0012, 'comparative': 0.0031, 'closer': 0.0038, 'capitalized': 0.003, 'else': 0.0038})
+drop 2.0: worst +0.0122 ({'question': -0.0039, 'comparative': 0.0012, 'closer': 0.0122, 'capitalized': 0.0003, 'else': 0.0004})
+drop 2.2: worst +0.0100 ({'question': 0.0022, 'comparative': 0.01, 'closer': -0.0001, 'capitalized': 0.0033, 'else': 0.0043})
+drop 2.5: worst +0.0084 ({'question': 0.0041, 'comparative': 0.0055, 'closer': 0.0014, 'capitalized': 0.0083, 'else': 0.0084})
+drop 2.6: worst +0.0065 ({'question': -0.0003, 'comparative': 0.0045, 'closer': 0.0065, 'capitalized': 0.0048, 'else': 0.0061})
+drop 2.7: worst +0.0108 ({'question': -0.0022, 'comparative': 0.0108, 'closer': 0.0046, 'capitalized': 0.0082, 'else': 0.0085})
+drop 3.0: worst +0.0053 ({'question': 0.0029, 'comparative': 0.0027, 'closer': 0.0053, 'capitalized': -0.0003, 'else': 0.0016})
+drop 3.4: worst +0.0050 ({'question': -0.0028, 'comparative': 0.005, 'closer': 0.0031, 'capitalized': 0.0026, 'else': 0.0036})
+drop 3.5: worst +0.0041 ({'question': -0.0017, 'comparative': -0.0016, 'closer': 0.0041, 'capitalized': -0.0009, 'else': 0.0011})
+drop 3.6: worst +0.0031 ({'question': -0.0008, 'comparative': 0.0012, 'closer': -0.0018, 'capitalized': 0.0012, 'else': 0.0031})
+drop 4.0: worst +0.0235 ({'question': 0.0056, 'comparative': 0.0048, 'closer': 0.0235, 'capitalized': 0.0028, 'else': 0.0073})
+drop 4.1: worst +0.0163 ({'question': 0.0085, 'comparative': 0.0163, 'closer': 0.0038, 'capitalized': 0.0019, 'else': 0.0099})
+drop 4.4: worst +0.0032 ({'question': 0.0032, 'comparative': 0.0008, 'closer': 0.0023, 'capitalized': -0.0001, 'else': 0.0021})
+drop 4.5: worst +0.0088 ({'question': 0.0069, 'comparative': 0.0088, 'closer': 0.0073, 'capitalized': 0.0083, 'else': 0.0078})
+drop 4.7: worst +0.0058 ({'question': 0.0056, 'comparative': -0.0087, 'closer': 0.0058, 'capitalized': 0.0031, 'else': 0.0053})
+drop 4.8: worst +0.0019 ({'question': -0.0009, 'comparative': 0.0002, 'closer': 0.0013, 'capitalized': 0.0019, 'else': 0.0015})
+drop 5.6: worst +0.0247 ({'question': 0.0119, 'comparative': 0.0162, 'closer': 0.0247, 'capitalized': 0.0193, 'else': 0.0226})
+drop 8.1: worst +0.0483 ({'question': 0.0043, 'comparative': 0.0483, 'closer': 0.0001, 'capitalized': 0.0034, 'else': 0.004})
+drop 10.5: worst +0.1953 ({'question': 0.1953, 'comparative': 0.0474, 'closer': 0.0239, 'capitalized': 0.0045, 'else': 0.0061})
+drop 11.6: worst +0.0195 ({'question': 0.0052, 'comparative': 0.0006, 'closer': 0.0086, 'capitalized': 0.0184, 'else': 0.0195})
+drop 11.7: worst +0.0154 ({'question': -0.0003, 'comparative': 0.0154, 'closer': -0.0007, 'capitalized': 0.0024, 'else': 0.0013})
+drop 12.8: worst +0.0232 ({'question': 0.002, 'comparative': 0.0232, 'closer': 0.0022, 'capitalized': 0.0001, 'else': 0.0019})
+drop 13.8: worst +0.0004 ({'question': 0.0, 'comparative': 0.0004, 'closer': -0.0104, 'capitalized': -0.0001, 'else': 0.0001})
+droppable 14 (['1.3', '1.5', '1.7', '2.5', '2.6', '3.0', '3.4', '3.5', '3.6', '4.4', '4.5', '4.7', '4.8', '13.8']) -> slim 14 heads: {'question': 0.552, 'comparative': 0.8403, 'closer': 0.7696, 'capitalized': 0.7289, 'else': 0.6982}
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/unified_kit_slim_results.json (441.6s)

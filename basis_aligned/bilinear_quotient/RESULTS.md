@@ -5183,3 +5183,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1446 — attention layers = ~81% DISTANCE KERNELS @ 37 Kbit (kernel BEATS full positional table at attn4 — small-description-generalizes again); best fid-per-bit in repo; attn1/attn4 leave board top-3 (attn_layer_ladder)
 §1447 — 18-layer kernel map: front .62-.85, content layers collapse (a5 NEGATIVE — sink demands exact pattern; a8/a13/a14/a17 ~0); kernel-resistance = specialist share, quantified; hybrid queued (attn_kernel_sweep)
 §1448 — hybrid: content layers .58-.90 with kernels + 3-4 named specialists live (gains +.21-.75; a5 missed bar by .0031; a10 roster flagged incomplete); attention = "distance + a named roster of exceptions" (attn_hybrid)
+§1449 — attn composite 0-for-3: kernel_all Δ1.78 (3.0x super-additive vs Σ per-layer .60); live roster NEGATIVE (rec −.31) — local fid ≠ composite fid; composite2 + mlp7_ladder queued

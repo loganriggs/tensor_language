@@ -1,0 +1,10 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets: question 307 comparative 110 closer 1779 capitalized 39173 newline 7004
+full: question 0.946 comparative 1.254 closer 1.213 capitalized 4.620 newline 0.989 | else 3.0007
+ymean: question 8.907 comparative 8.272 closer 10.675 capitalized 10.019 newline 3.091 | else 6.9439
+kit28: question 3.780 comparative 1.832 closer 2.673 capitalized 5.560 newline 1.277 | else 3.7462
+kit30: question 3.668 comparative 1.843 closer 2.658 capitalized 5.553 newline 1.217 | else 3.7433
+kit28: {'question': 0.644, 'comparative': 0.9176, 'closer': 0.8458, 'capitalized': 0.8259, 'newline': 0.8627, 'else': 0.8109}
+kit30: {'question': 0.6581, 'comparative': 0.9161, 'closer': 0.8473, 'capitalized': 0.8272, 'newline': 0.8915, 'else': 0.8117}
+newline 0.863 -> 0.891 | pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/newline_bill_results.json (76.1s)

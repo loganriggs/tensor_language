@@ -1,0 +1,8 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 18039
+all27: tgt +0.2923 jit +0.0234 rand +0.0263 else +0.0257
+committee_only: tgt +0.2080 jit -0.0018 rand +0.0038 else +0.0042
+rest20: tgt +0.0398 jit +0.0201 rand +0.0162 else +0.0160
+committee 0.7116 | rest 0.1362 | addgap 0.0445
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/capitalized_band_slim_results.json (47.1s)

@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+component means cached (positional)
+base 3.0114
+patch wte: dCE +0.0000
+patch attn0: dCE +0.0000
+patch attn1: dCE +0.0001
+patch attn2: dCE +0.0059
+patch attn3: dCE +0.0089
+patch attn4: dCE +0.0526
+patch mlp0: dCE +0.6740
+patch mlp1: dCE +0.0032
+patch mlp2: dCE +0.1206
+patch mlp3: dCE +0.3729
+patch ALL: dCE +0.3991
+ranked ['mlp0', 'mlp3', 'mlp2', 'attn4', 'attn3', 'attn2', 'mlp1', 'attn1', 'wte', 'attn0'] | full 0.3991
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp4_reads_results.json (94.3s)

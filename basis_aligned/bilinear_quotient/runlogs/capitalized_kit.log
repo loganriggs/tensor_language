@@ -1,0 +1,11 @@
+cap vocab 12360 gate vocab 17104 commons 22
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 39173 | gate coverage of targets 0.485 | gate frac of all pos 0.209
+full: t 4.6201 else 2.9458
+ymean: t 10.0186 else 6.8842
+route: t 7.4438 else 5.2581
+kit: t 6.5432 else 4.9662
+kit_nocommittee: t 6.6977 else 5.0107
+recovery route 0.477 kit 0.644 nocommittee 0.615 | coverage 0.485
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/capitalized_kit_results.json (83.5s)

@@ -1,0 +1,31 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+mlp5 patch wte: dCE +0.0000
+mlp5 patch attn0: dCE +0.0014
+mlp5 patch attn1: dCE +0.0035
+mlp5 patch attn2: dCE +1.2706
+mlp5 patch attn3: dCE +1.4016
+mlp5 patch attn4: dCE +1.7355
+mlp5 patch attn5: dCE +0.0319
+mlp5 patch mlp0: dCE +3.5630
+mlp5 patch mlp1: dCE +0.5846
+mlp5 patch mlp2: dCE +2.7860
+mlp5 patch mlp3: dCE +2.8664
+mlp5 patch mlp4: dCE +2.5727
+mlp5: ranked ['mlp0', 'mlp3', 'mlp2', 'mlp4'] full 2.934
+mlp6 patch wte: dCE -0.0000
+mlp6 patch attn0: dCE +0.0021
+mlp6 patch attn1: dCE +0.0052
+mlp6 patch attn2: dCE +2.0013
+mlp6 patch attn3: dCE +2.2941
+mlp6 patch attn4: dCE +2.7578
+mlp6 patch attn5: dCE +0.0275
+mlp6 patch attn6: dCE +0.0100
+mlp6 patch mlp0: dCE +3.5235
+mlp6 patch mlp1: dCE +0.9015
+mlp6 patch mlp2: dCE +3.0759
+mlp6 patch mlp3: dCE +3.0220
+mlp6 patch mlp4: dCE +2.9259
+mlp6 patch mlp5: dCE +0.0490
+mlp6: ranked ['mlp0', 'mlp2', 'mlp3', 'mlp4'] full 2.3725
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mids_reads_results.json (211.1s)

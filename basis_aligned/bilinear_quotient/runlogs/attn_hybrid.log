@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+all 18 kernels cached
+clean 2.9455
+attn5 hybrid: CE 3.0005 fid 0.5969 (kernel-all was -0.055)
+attn8 hybrid: CE 2.9554 fid 0.7941 (kernel-all was +0.040)
+attn10 hybrid: CE 2.9561 fid 0.5978 (kernel-all was +0.391)
+attn13 hybrid: CE 2.9499 fid 0.7335 (kernel-all was +0.042)
+attn14 hybrid: CE 2.9524 fid 0.7690 (kernel-all was +0.056)
+attn16 hybrid: CE 2.9469 fid 0.8971 (kernel-all was +0.154)
+attn17 hybrid: CE 2.9506 fid 0.5775 (kernel-all was -0.029)
+gains {'5': 0.6519, '8': 0.7543, '10': 0.2071, '13': 0.6915, '14': 0.7135, '16': 0.7434, '17': 0.6066}
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_hybrid_results.json (77.8s)
