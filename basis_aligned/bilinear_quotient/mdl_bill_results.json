@@ -1,0 +1,50 @@
+{
+ "per_head_params": 884736,
+ "kits": [
+  {
+   "kit": "question",
+   "heads": 17,
+   "params": 15040530,
+   "nats": 5.105,
+   "recovery": 0.641,
+   "params_per_nat": 2946158,
+   "desc": "16 gated heads + 10.5, clause gate"
+  },
+  {
+   "kit": "comparative",
+   "heads": 32,
+   "params": 28311570,
+   "nats": 5.463,
+   "recovery": 0.778,
+   "params_per_nat": 5182749,
+   "desc": "a02 gated + 8.1 + refine {10.5,12.8,11.7,11.6}"
+  },
+  {
+   "kit": "closer",
+   "heads": 55,
+   "params": 48660498,
+   "nats": 11.229,
+   "recovery": 0.644,
+   "params_per_nat": 4333466,
+   "desc": "a05 union-gated + 13.8 (brackets + quotes, one kit)"
+  },
+  {
+   "kit": "exclaim",
+   "heads": 56,
+   "params": 49547538,
+   "nats": 4.191,
+   "recovery": 0.676,
+   "params_per_nat": 11821961,
+   "desc": "a05 probe-gated + pair (deploy-legal, recall-capped)"
+  }
+ ],
+ "naive_sum_params": 141560136,
+ "dedup_params": 54855954,
+ "dedup_saving": 0.6125,
+ "unique_heads": 62,
+ "total_capability_nats": 25.988,
+ "shared_line_items": "live patterns (162 window-foldable weights fns, priced once model-wide, \u00a71161-66); v1-route scalars; generic mid-pool (+0.226 elsewhere-invariant, \u00a71348)",
+ "pred_a_under_5M_each": false,
+ "pred_b_dedup_15pct": true,
+ "pred_c_closer_cheapest": false
+}

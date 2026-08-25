@@ -33642,3 +33642,18 @@ exclaim_probe_gate_results.json; runlogs/exclaim_probe_gate.log (120s).
 - Queued (mdl_bill.py — the registry's open MDL-BRIDGE item, and the deliverable the user's framing has pointed at all along): the per-function bill. For each closed kit (comparative 4-stage, question 16-head, closer union, exclaim probe-gated): heads kept and their parameter counts (raw counts, gauge-invariant per balanced_gauge_spec; per-head = 6 slices x D x 128), gate/probe description costs, and capability-nats recovered — with SHARED HEADS PRICED ONCE (10.5 serves two kits; the pair serves two). Registered: pred_a every kit lands under 5M attention parameters; pred_b shared-head dedup saves >= 15% of the naive per-kit sum; pred_c the closer kit is the cheapest per capability-nat (one head, two surfaces).
 
 exclaim_probe_gate2_results.json; runlogs/exclaim_probe_gate2.log (116s).
+
+## §1366 — THE BILL FLIPS THE ACCOUNTING FRAME: kits cost 15-50M params NOT because of specialists (1-5 heads each) but because each lugs its ANNOTATOR BAND (27-54 heads) — dedup saves 61.2% (pred_b TRUE at 4x its bar) because the bands are SHARED infrastructure; preds a & c FALSE and both misses teach: no kit is under 5M (the bands), and the cheapest per-nat is QUESTION (2.95M/nat) not the closer — because question is the only kit whose band was ever SLIMMED (§1342); the two-tier bill is the real deliverable (mdl_bill.py; accounting run)
+
+  kit          heads  params   nats   M-params/nat
+  question     17     15.0M    5.11   2.95   <- cheapest BECAUSE slimmed (§1342 drop-cost)
+  comparative  32     28.3M    5.46   5.18
+  closer       55     48.7M    11.23  4.33
+  exclaim      56     49.6M    4.19   11.82  (recall-capped kit, §1365)
+  naive sum 141.6M -> shared-heads-once 54.9M (61.2% saving); 62 of 162 heads touched.
+
+- THE TWO-TIER BILL, the frame this arc's MDL accounting should have had from the start: TIER 1, SHARED ANNOTATION INFRASTRUCTURE — the front/mid bands (a02/a05), the route scalars, the folded patterns, the generic pool — priced ONCE model-wide (~50M raw params before slimming); TIER 2, PER-CAPABILITY MARGINALS — the specialist heads and gates: question +1 head, closer +1, exclaim +2 (+a 2.3k-float probe), comparative +5. At the margin, A CAPABILITY COSTS 1-5 HEADS (~1-4.4M params) on top of infrastructure every capability shares. That is the quantitative form of heads-are-functions: the functions are the marginals, the annotation substrate is the commons.
+- pred_c's MISS NAMES THE LEVER: question is cheapest per nat only because §1342 drop-cost-slimmed its band from 36 to 16 heads; the closer still lugs all 54 a05 heads unslimmed, exclaim likewise. The §1342 result (16 of 36 heads carried everything) predicts the shared band slims by ~half or better — which cuts TIER 1, the dominant term, for every kit at once.
+- Queued (closer_band_slim.py, the §1342 instrument on the closer's union kit): drop-cost over the 54 band heads (13.8 always kept), nested top-24/16/12 band kits scored on BOTH families. Registered: pred_a a 16-head band lands within 0.03 of the full-54 band on brackets AND quotes; pred_b the surviving 16 span BOTH tiers (>= 4 heads from a02 and >= 4 from L3-5 — the two-tier annotator structure survives slimming); pred_c selectivity holds (elsewhere within 0.05 of route). If pred_a lands, the shared-infrastructure tier drops toward ~15-20M and the whole bill re-prices; cross-kit reuse of ONE slimmed band (does question's 16 == closer's 16?) is the follow-up logged for the tick after.
+
+mdl_bill_results.json; MDL_BILL.md (committed).

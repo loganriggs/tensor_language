@@ -1,0 +1,9 @@
+question: 17 heads | 15.04M params | 5.11 nats | 2.95M/nat
+comparative: 32 heads | 28.31M params | 5.46 nats | 5.18M/nat
+closer: 55 heads | 48.66M params | 11.23 nats | 4.33M/nat
+exclaim: 56 heads | 49.55M params | 4.19 nats | 11.82M/nat
+
+naive sum 141.56M | dedup (shared heads once) 54.86M | saving 61.2%
+unique heads 62 of 162 (38% of attention heads touched)
+pred_a under-5M False | pred_b dedup True (61.2%) | pred_c closer False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mdl_bill_results.json and /workspace/tensor_language/basis_aligned/bilinear_quotient/MDL_BILL.md
