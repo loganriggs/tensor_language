@@ -145,6 +145,8 @@ when dropped together.
 closer). 11.0: +.0894, clean. Distinct from the old front-attention newline ROUTING
 circuit (item 7) — these predict where newlines GO. 10.6 = SECOND close-quote server
 (close .044 / open .029, S1416 — NOT the opener; open-quote remains unserved).
-Pair structure (S1416): 8.2+11.0 joint removal 1.70x max solo — third instance of the
-TWO-CREW MOTIF (redundant pairs ~3 layers apart: capitalized crews, 13.8+10.6 quotes,
-8.2+11.0 newlines). Corpus emits newlines only as bare '\n' (subtype split vacuous).
+Crew structure (S1419): NO crisp sub-band split — near-additive ensemble (cross-split
+synergy 1.15x vs capitalized's 1.5x). TWO-CREW MOTIF DEMOTED to "observed sometimes":
+redundancy structure varies by service (capitalized = 2 strong crews; newline = 1 loose
+crew; quotes = owner + helpers). Corpus emits newlines only as bare '\n'.
+Committee-13 joint = .654 (S1419; 16.3's joint marginal +.077 = 5x its solo).
