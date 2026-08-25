@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+digit ids 1692
+copy-supported 1968 | fresh 7088
+targets 9056 | jitter 6406 | rand 9056
+base: copy 1.8849 | fresh 4.5645
+h3: copy 2.0457 | fresh 4.6209
+h7: copy 1.8749 | fresh 4.6416
+pair: copy 2.0521 | fresh 4.7430
+layer: copy 2.1686 | fresh 4.7534
+
+copyfrac 8.3 0.442 | 8.7 -0.037 | base copy 1.8849 fresh 4.5645
+pred_a copy-conc False | pred_b division True | pred_c easy True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_copy_split_results.json (84.6s)

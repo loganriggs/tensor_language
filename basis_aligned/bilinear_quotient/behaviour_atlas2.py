@@ -1,228 +1,193 @@
-"""BEHAVIOUR ATLAS 2 -- the same screen on an unbiased denominator.
-The first run (513) answered the generalization question: six
-behaviour classes beyond newlines have a concentrated component,
-led by four distinct components, with the newline/a12 positive
-control recovered at 14.44. But its NULL failed for two classes,
-and the cause was the denominator. "Elsewhere" was the complement
-of the target, position-control and random masks, so for a class
-with many targets or large effects the remainder is a biased,
-unusually easy set of positions, and any position set scores above
-it -- including a random one. Capitalized covers 1693 of ~8000
-positions; its remainder is mostly easy lowercase continuations.
-Same screen, same classes, same controls, one change: the
-denominator is the GLOBAL mean damage over all positions, which
-cannot move when a class is large. Every ratio in 513 is
-superseded by this run; the absolute target/elsewhere pairs and
-the position-matched comparisons were never affected.
-Original framing follows.
---- does the method that found the newline head generalize? ---
-510 retired the damage-cluster screen: across sixty leaves, on two
-different decompositions, it produced no writer-level mechanism
-that survived a causal test. The method that DID work three times
-(induction, the position-0 bias, the newline head) starts from a
-behaviour and works outward, and 495 reduced its first step to a
-single cheap statistic: rank components not by how expensive they
-are to delete, but by how CONCENTRATED their damage is on the
-target behaviour relative to their own damage elsewhere. That
-found attention layer 12 for newlines in 97 seconds, after the
-magnitude ranking had spent the whole program pointing at the
-front of the model.
-The obvious question is whether newlines were special. This runs
-the same screen over ten behaviour classes at once. Ablating each
-of the 36 components once gives per-position costs, and every
-class is a different readout of the SAME forward passes, so ten
-behaviours cost what one did.
-Classes, defined on the token being predicted: newline, digit,
-sentence-final punctuation, comma, colon, opening quote, closing
-quote, open bracket, close bracket, capitalized word.
-Three masks per class: the targets; a POSITION-MATCHED control
-(the same positions jittered by up to six tokens, which catches a
-component that merely matters at certain places in a sequence);
-and a FULLY RANDOM set of the same size, which catches a screen
-that fires on any arbitrary position set at all.
-REGISTERED PREDICTIONS:
-  (a) POSITIVE CONTROL: newline recovers a12 as its top component
-      with a concentration ratio >= 5.0 (495 measured 10.64 on a
-      different sample). If the control fails, the screen is not
-      reproducing a known result and the whole run is VOID --
-      checked and reported before anything else is scored;
-  (b) IT GENERALIZES: at least three of the other nine classes
-      have a top component with ratio >= 2.0 that also beats its
-      own position-matched control by >= 50%;
-  (c) NOT ONE COMPONENT FOR EVERYTHING: across the classes that
-      qualify under (b), at least three DISTINCT components lead.
-      If one component leads every behaviour, the screen has found
-      a general-purpose component and not behaviour-specific
-      structure, which would be a negative result about the method
-      and must be reported as one.
-  NULL: for every class, the top component measured against the
-      FULLY RANDOM target set must have ratio < 2.0. A screen that
-      fires on random position sets is measuring nothing. THIS IS
-      THE BAR THE FIRST RUN FAILED for newline (2.41) and
-      capitalized (9.11); the denominator is now the global mean
-      damage over all positions rather than the complement of the
-      masks, which is what caused it.
-Reporting rules from 497/500/501: absolute pairs alongside every
-ratio, and every bar scored through cl.score_bar so that a
-near-zero denominator returns UNEVALUABLE rather than a verdict."""
-import json, time, torch
+# behaviour_atlas2: GENERATOR #1 — refill the candidate pool. Seven unscreened behavior
+# classes through a per-attention-layer ablation sweep (18 layers + base = 19 passes,
+# every class scored from the same passes). Denominator note (§513's bug corrected): the
+# elsewhere reference is the global non-target complement per class; all seven classes
+# are SMALL (<2% of positions), so complement ~ global and the §513 large-class bias
+# does not arise — stated, not assumed. This is a GENERATOR: flags feed the registry
+# pool; every promoted candidate still gets its own §1302-standard screen with controls.
+#
+# Classes (masks from the token stream, boundary phenomena separated per §1339's rule):
+#   possessive   next tok strips to "'s"
+#   ellipsis     next tok contains '...' or the unicode ellipsis
+#   ordinal      next tok strips to st/nd/rd/th AND current tok is pure digits
+#   year         next tok is a 4-digit 19xx/20xx number
+#   unit         next tok in a small unit lexicon (km, kg, mm, cm, mph, GB, MB, lbs, ft)
+#   hyphen       next tok strips to '-' AND both neighbors are alphabetic (word join)
+#   quote_close  next tok contains '"' AND an odd number of '"' tokens precede (parity)
+#
+# Registered predictions:
+#   pred_a THE POOL REFILLS: >= 2 classes show a top layer with target damage >= 0.05
+#          nats AND target/else ratio >= 3.
+#   pred_b NEW CAPABILITIES, NOT ECHOES: no class's top layer is a8 or a13.
+#   pred_c GRAMMAR-BAND PRIOR: possessive-'s peaks in the front band (L0-2) — syntactic
+#          attachment, not content.
+import json, time, sys, torch
 import torch.nn.functional as F
-import census_lib as cl
+sys.path.insert(0, '/workspace/rspd')
 from bilin18_joint_removal import m, DEV
-D=1152; T=256
-PT='/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT=PT+'behaviour_atlas2_results.json'
-NFRESH=48
+import census_lib as cl
 
-def build_classes(rows):
-    nxt=rows[:,1:257]
-    R,Tn=nxt.shape
-    names=['newline','digit','sentence_end','comma','colon',
-           'open_quote','close_quote','open_bracket',
-           'close_bracket','capitalized']
-    M={n:torch.zeros(R,Tn,dtype=torch.bool) for n in names}
-    for r in range(R):
-        for q in range(Tn):
-            s=cl.d1(int(nxt[r,q])); t=s.strip()
-            if '\n' in s: M['newline'][r,q]=True
-            if not t: continue
-            if t[0].isdigit(): M['digit'][r,q]=True
-            if t in ('.','!','?'): M['sentence_end'][r,q]=True
-            if t==',': M['comma'][r,q]=True
-            if t==':' or t==';': M['colon'][r,q]=True
-            if t in ('"',"'",'``',"'"):
-                (M['open_quote'] if s.startswith(' ') or s==t
-                 else M['close_quote'])[r,q]=True
-            if t in ('(','[','{'): M['open_bracket'][r,q]=True
-            if t in (')',']','}'): M['close_bracket'][r,q]=True
-            if t[0].isupper(): M['capitalized'][r,q]=True
-    return M
+D = 1152; T = 256; PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
+OUT = PT + 'behaviour_atlas2_results.json'
+NMEAN = 24; NR = 960
+H = m.transformer.h
+CUR = {'abl': None, 'mean': None}
 
-def matched_controls(M,seed=29):
-    g=torch.Generator().manual_seed(seed)
-    ctrl={}; rnd={}
-    for nm,mask in M.items():
-        c=torch.zeros_like(mask); rr=torch.zeros_like(mask)
-        R,Tn=mask.shape
-        for r in range(R):
-            k=int(mask[r].sum())
-            if k==0: continue
-            pos=mask[r].nonzero().squeeze(1)
-            j=(torch.randint(-6,7,(k,),generator=g)+pos).clamp(0,Tn-1)
-            c[r,j]=True
-            rr[r,torch.randint(0,Tn,(k,),generator=g)]=True
-        ctrl[nm]=c; rnd[nm]=rr
-    return ctrl,rnd
+
+def mk_hook(L):
+    def hook(mod, args, out):
+        if CUR['abl'] == L:
+            y = out[0] if isinstance(out, tuple) else out
+            rep = CUR['mean'][L].to(y.dtype).expand_as(y)
+            return (rep,) + tuple(out[1:]) if isinstance(out, tuple) else rep
+        return out
+    return hook
+
+
+@torch.no_grad()
+def fwd(idx):
+    x = F.rms_norm(m.transformer.wte(idx), (D,)); x0 = x; v1 = None
+    for blk in H:
+        x, v1 = blk(x, v1, x0)
+    return 30.0 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30.0)
+
 
 @torch.no_grad()
 def main():
-    t0=time.time()
-    cl.use_state(PT+'census_state_diverse.pt')
-    mus=cl.comp_means()
-    MODS={f'a{li}':m.transformer.h[li].attn for li in range(18)}
-    MODS.update({f'm{li}':m.transformer.h[li].mlp for li in range(18)})
-    fresh=cl.fineweb_rows(NFRESH)
-    M=build_classes(fresh)
-    CT,RN=matched_controls(M)
-    for nm in M: print(f'{nm}: {int(M[nm].sum())} targets',flush=True)
+    t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
+    import tiktoken; enc = tiktoken.get_encoding('gpt2')
+    UNITS = {'km', 'kg', 'mm', 'cm', 'mph', 'gb', 'mb', 'lbs', 'ft', 'mi', 'oz', 'ml'}
+    sets = {k: set() for k in ('poss', 'ell', 'ordn', 'year', 'unit', 'hyph', 'q')}
+    digits = set(); alpha = set()
+    for tok in range(50257):
+        try:
+            d = enc.decode([tok])
+        except Exception:
+            continue
+        ds = d.strip()
+        if ds == "'s":
+            sets['poss'].add(tok)
+        if '...' in d or '…' in d:
+            sets['ell'].add(tok)
+        if ds in ('st', 'nd', 'rd', 'th'):
+            sets['ordn'].add(tok)
+        if ds.isdigit() and len(ds) == 4 and ds[:2] in ('19', '20'):
+            sets['year'].add(tok)
+        if ds.lower() in UNITS:
+            sets['unit'].add(tok)
+        if ds == '-':
+            sets['hyph'].add(tok)
+        if '"' in d:
+            sets['q'].add(tok)
+        if ds.isdigit():
+            digits.add(tok)
+        if ds.isalpha():
+            alpha.add(tok)
+    tt = lambda s: torch.tensor(sorted(s)) if s else torch.tensor([-1])
+    ids = {k: tt(v) for k, v in sets.items()}
+    dig_t, alp_t = tt(digits), tt(alpha)
 
-    def hooks(key):
-        mu=mus[key].to(DEV); mod=MODS[key]
-        if key[0]=='a':
-            def fh(mo,i_,o_,mu=mu):
-                y,v1=o_
-                return (mu.expand_as(y).to(y.dtype),v1)
-        else:
-            def fh(mo,i_,o_,mu=mu):
-                return mu.expand_as(o_).to(o_.dtype)
-        return [mod.register_forward_hook(fh)]
+    ROWS = cl.fineweb_rows(NMEAN + NR)[:, :T + 1].contiguous()
+    MEANR, EVR = ROWS[:NMEAN], ROWS[NMEAN:]
+    toks = EVR[:, :-1]; tgt = EVR[:, 1:]
 
-    def run(key):
-        ce=torch.zeros(NFRESH,T)
-        for i in range(0,NFRESH,4):
-            bb=fresh[i:i+4,:257].to(DEV)
-            idx=bb[:,:-1].contiguous(); tg=bb[:,1:].reshape(-1)
-            B=bb.shape[0]
-            hs=hooks(key) if key else []
-            x=F.rms_norm(m.transformer.wte(idx),(D,)); x0=x; v1=None
-            for blk in m.transformer.h: x,v1=blk(x,v1,x0)
-            lg=(30*torch.tanh(m.lm_head(F.rms_norm(x,(D,)))/30)).float()
-            ce[i:i+B]=F.cross_entropy(lg.view(-1,lg.size(-1)),tg,
-                                      reduction='none').view(B,T).cpu()
-            for h in hs: h.remove()
-        return ce
+    MASKS = {}
+    MASKS['possessive'] = torch.isin(tgt, ids['poss'])
+    MASKS['ellipsis'] = torch.isin(tgt, ids['ell'])
+    MASKS['ordinal'] = torch.isin(tgt, ids['ordn']) & torch.isin(toks, dig_t)
+    MASKS['year'] = torch.isin(tgt, ids['year'])
+    MASKS['unit'] = torch.isin(tgt, ids['unit'])
+    nxt = torch.cat([tgt[:, 1:], torch.zeros_like(tgt[:, :1])], 1)
+    MASKS['hyphen'] = torch.isin(tgt, ids['hyph']) & torch.isin(toks, alp_t) \
+        & torch.isin(nxt, alp_t)
+    isq = torch.isin(toks, ids['q'])
+    parity = (isq.long().cumsum(1) % 2) == 1
+    MASKS['quote_close'] = torch.isin(tgt, ids['q']) & parity
+    for k in MASKS:
+        MASKS[k][:, :64] = False
+        print(f"{k}: n {int(MASKS[k].sum())}", flush=True)
+    ANY = torch.zeros_like(tgt, dtype=torch.bool)
+    for k in MASKS:
+        ANY |= MASKS[k]
+    ELSE = ~ANY; ELSE[:, :64] = False
 
-    base=run(None)
-    per={}
-    for key in list(MODS):
-        d=run(key)-base
-        row={}
-        for nm,mask in M.items():
-            # 2026-08-20 (writeup 513): "elsewhere" was the
-            # complement of the three masks, which biases the
-            # denominator downward for large or high-damage
-            # classes and inflated two nulls. The global mean over
-            # ALL positions cannot move when a class is large.
-            do=float(d.mean())
-            row[nm]={
-              'target':round(float(d[mask].mean()),5)
-                       if int(mask.sum()) else None,
-              'ctrl':round(float(d[CT[nm]].mean()),5)
-                     if int(CT[nm].sum()) else None,
-              'rand':round(float(d[RN[nm]].mean()),5)
-                     if int(RN[nm].sum()) else None,
-              'other':round(do,5)}
-        per[key]=row
-        print(f'{key} done',flush=True)
-        json.dump(per,open(OUT,'w'),indent=1)
+    # per-layer means
+    caps = {L: [] for L in range(18)}
+    hs = []
+    for L in range(18):
+        def mk(L):
+            def h(mod, args, out):
+                y = out[0] if isinstance(out, tuple) else out
+                caps[L].append(y.detach().float().mean((0, 1)))
+                return out
+            return h
+        hs.append(H[L].attn.register_forward_hook(mk(L)))
+    CUR['abl'] = None
+    for i in range(0, NMEAN, 4):
+        fwd(MEANR[i:i + 4, :-1].to(DEV).contiguous())
+    for h in hs:
+        h.remove()
+    CUR['mean'] = {L: torch.stack(caps[L]).mean(0) for L in range(18)}
+    hooks = [H[L].attn.register_forward_hook(mk_hook(L)) for L in range(18)]
 
-    summary={}
-    for nm in M:
-        cands=[]
-        for key,row in per.items():
-            r=row[nm]
-            if r['target'] is None or r['other'] is None: continue
-            if abs(r['other'])<1e-4: continue
-            cands.append((r['target']/r['other'],key,r))
-        cands.sort(key=lambda x:-x[0])
-        if not cands: summary[nm]=None; continue
-        ratio,key,r=cands[0]
-        cr=(r['ctrl']/r['other']) if r['other'] else float('nan')
-        rr=(r['rand']/r['other']) if r['other'] else float('nan')
-        summary[nm]={'top':key,'ratio':round(ratio,2),
-                     'ctrl_ratio':round(cr,2),'rand_ratio':round(rr,2),
-                     'target':r['target'],'other':r['other'],
-                     'n':int(M[nm].sum()),
-                     'qualifies':bool(ratio>=2.0 and
-                                      ratio>=1.5*max(cr,1e-6))}
-        s=summary[nm]
-        print(f"{nm:>14}: {key:>4} ratio {ratio:6.2f} "
-              f"(target {r['target']:+.5f} vs other {r['other']:+.5f})"
-              f" | pos-ctrl {cr:6.2f} | random {rr:6.2f} | "
-              f"{'QUALIFIES' if s['qualifies'] else '-'}",flush=True)
-    nl=summary.get('newline')
-    pa=bool(nl and nl['top']=='a12' and nl['ratio']>=5.0)
-    print(f"\n(a) POSITIVE CONTROL newline -> a12 with ratio >=5: "
-          f"{'HELD' if pa else 'FAILED -- RUN VOID'}")
-    qual=[nm for nm,s in summary.items()
-          if nm!='newline' and s and s['qualifies']]
-    pb=len(qual)>=3
-    leaders={summary[nm]['top'] for nm in qual}
-    pc=len(leaders)>=3
-    nullbad=[nm for nm,s in summary.items()
-             if s and s['rand_ratio']>=2.0]
-    print(f"(b) >=3 other classes qualify: {qual} -> "
-          f"{'HELD' if pb else 'FAILED'}")
-    print(f"(c) >=3 distinct leaders among them: {sorted(leaders)} -> "
-          f"{'HELD' if pc else 'FAILED'}")
-    print(f"NULL (no class fires on fully random targets): "
-          f"{'ok' if not nullbad else 'VIOLATED for '+str(nullbad)}")
-    out={'summary':summary,'per_component':per,
-         'qualifying':qual,'leaders':sorted(leaders),
-         'pred_a':pa,'pred_b':bool(pb),'pred_c':bool(pc),
-         'null_violations':nullbad,'n_rows':NFRESH,
-         'runtime_s':time.time()-t0}
-    json.dump(out,open(OUT,'w'),indent=1)
-    print(f'wrote {OUT} ({out["runtime_s"]:.0f}s)')
+    def ce_all(abl):
+        CUR['abl'] = abl
+        sums = {k: 0.0 for k in MASKS}; ns = {k: 0 for k in MASKS}
+        se = 0.0; ne = 0
+        for i in range(0, NR, 8):
+            bb = EVR[i:i + 8].to(DEV)
+            idx = bb[:, :-1].contiguous(); tg2 = bb[:, 1:].contiguous()
+            lo = fwd(idx).float()
+            ce = F.cross_entropy(lo.reshape(-1, lo.shape[-1]), tg2.reshape(-1),
+                                 reduction='none').view(tg2.shape)
+            for k in MASKS:
+                mm = MASKS[k][i:i + 8].to(DEV)
+                sums[k] += float(ce[mm].sum()); ns[k] += int(mm.sum())
+            me = ELSE[i:i + 8].to(DEV)
+            se += float(ce[me].sum()); ne += int(me.sum())
+        return {k: sums[k] / max(ns[k], 1) for k in MASKS}, se / max(ne, 1), ns
 
-if __name__=='__main__': main()
+    base, base_e, ns = ce_all(None)
+    print('base:', {k: round(v, 3) for k, v in base.items()}, flush=True)
+    prof = {k: {} for k in MASKS}
+    else_prof = {}
+    for L in range(18):
+        r, re_, _ = ce_all(L)
+        else_prof[L] = re_ - base_e
+        for k in MASKS:
+            prof[k][L] = round(r[k] - base[k], 4)
+        print(f"a{L}: " + " ".join(f"{k} {prof[k][L]:+.3f}" for k in MASKS)
+              + f" | else {else_prof[L]:+.3f}", flush=True)
+        json.dump({'partial': True, 'profiles': prof}, open(OUT, 'w'), indent=1)
+    for h in hooks:
+        h.remove()
+
+    summary = {}
+    for k in MASKS:
+        top = max(prof[k], key=prof[k].get)
+        dmg = prof[k][top]
+        ratio = dmg / max(abs(else_prof[top]), 1e-4)
+        summary[k] = {'n': ns[k], 'base_ce': round(base[k], 3), 'top': f'a{top}',
+                      'dmg': round(dmg, 4), 'else_dmg_of_top': round(else_prof[top], 4),
+                      'ratio': round(ratio, 2),
+                      'qualifies': bool(dmg >= 0.05 and ratio >= 3.0)}
+        print(f"{k}: top a{top} dmg {dmg:+.3f} ratio {ratio:.1f} "
+              f"{'QUALIFIES' if summary[k]['qualifies'] else 'no'}", flush=True)
+    qual = [k for k in summary if summary[k]['qualifies']]
+    pa = len(qual) >= 2
+    pb = all(summary[k]['top'] not in ('a8', 'a13') for k in qual) if qual else False
+    poss_top = int(summary['possessive']['top'][1:])
+    pc = poss_top <= 2
+    out = {'n_rows': NR, 'classes': summary, 'profiles': prof,
+           'else_profile': {str(L): round(v, 4) for L, v in else_prof.items()},
+           'qualifying': qual, 'pred_a_pool_refills': bool(pa),
+           'pred_b_new_not_echo': bool(pb), 'pred_c_possessive_front': bool(pc),
+           'runtime_s': round(time.time() - t0, 1)}
+    json.dump(out, open(OUT, 'w'), indent=1)
+    print(f"\nqualifying: {qual}")
+    print(f"pred_a refills {pa} | pred_b new {pb} | pred_c poss-front {pc}")
+    print(f"wrote {OUT} ({out['runtime_s']}s)")
+
+
+if __name__ == '__main__':
+    main()
