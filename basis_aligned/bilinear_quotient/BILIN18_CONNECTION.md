@@ -33962,3 +33962,15 @@ swarm2/ complete for waves 1-3; worker reports in session log.
 
 - The stable 0.019-0.0195 across four independent samples (two waves, four skips) says the floor is doing its job on a genuinely small effect, not clipping noise: 7.8 contributes a diffuse fixed-collocation nudge spread over ever-different surface forms — exactly the profile the floor exists to keep out of the named-function inventory.
 - Methodological note for the atlas: "coherent flavor, zero surface overlap" is now a recognized THIRD outcome between category and noise. The named specialists all have both (flavor AND recurring surfaces); the floor separates them from flavor-only helpers.
+
+## §1395 — QUESTION'S MID BAND IS mlp4-9 MINUS 5 (pred_a PASSED, pred_b PASSED, pred_c PASSED): single-drop costs inside the question kit rank mlp4 (+0.724!) >> mlp7 (+0.362) > mlp8 (+0.326) > mlp9 (+0.295) > mlp6 (+0.240) > mlp11 (+0.111), with mlp5 (+0.009) and mlp10 (+0.003) contributing NOTHING — and greedy build-back confirms: keep-4 (+8) = .647, keep-4 (+8+9) = .679 recovery vs live .696, inside the 0.03 bar with exactly two adds (question_mid_dropcost_results.json, 518s)
+
+  drops from all-mid-live, question targets (else in parens): mlp4 +.724 (−.237) |
+  mlp7 +.362 (−.093) | mlp8 +.326 (−.026) | mlp9 +.295 (−.044) | mlp6 +.240 (−.204) |
+  mlp11 +.111 | mlp5 +.009 | mlp10 +.003 | mlp12-15 ≈ 0.
+  pred_a top pruned mid in 8-11: mlp8 → PASSED. pred_b two adds reach live−0.03:
+  .679 ≥ .666 → PASSED. pred_c mlp8 selective (q +.326 vs else −.026) → PASSED.
+
+- The §1393 story sharpens: question's real owner set is {4,6,7,8,9} — one layer DEEPER than comparative's {4,5,6,7} on each end and skipping mlp5 entirely. The "generic middle" bands are capability-shaped: comparative stops at 7, question extends to 9, and BOTH carry dead weight when frozen as contiguous bands (5 for question, and §1386 found comparative's inversion precisely because extra live layers can hurt). Six live mids {4,5,6,7,8,9} buy .679 of .696 — the remaining .017 is spread over 11/14/15 dust.
+- mlp4 is question's single dominant mid (+0.724, 2x the runner-up) — the same layer that anchored comparative's band. mlp4 is shaping up as the middle's universal FIRST layer: every capability's mid service starts there.
+- A width-inversion echo at the ELSEWHERE mask: dropping mlp4 or mlp6 IMPROVES elsewhere CE by ~0.2 under the kit (live mids are a net liability off-target when the attention diet is meaned) while costing question 0.7/0.24 on-target. Owner-as-liability, now at MLP grain: the 8th sighting of the width-inversion family.

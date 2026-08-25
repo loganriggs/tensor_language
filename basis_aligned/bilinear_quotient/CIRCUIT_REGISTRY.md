@@ -60,7 +60,7 @@ mean). Any thread opened from this pool starts with its own §1302-standard scre
 ## Swarm program (waves 1-3, §1387-92): easy-distribution ownership map COMPLETE
 mlp1 owns non-structural easy tokens (2 modes); structure layer = sub-floor helpers +
 specialists at triggers; de-novo naming exhausted there. MAGNITUDE FLOOR law (§1391):
-no category below scope-mean 0.02. Wave-4 = medium-CE behavior-conditioned enrichment (launched). 7.8 CLOSED (S1394: sub-floor both skips at 2x power; flavor-only helper).
+no category below scope-mean 0.02. Wave-4 = medium-CE behavior-conditioned enrichment (launched). 7.8 CLOSED (S1394). Mid bands are capability-shaped (S1393/95): comparative {4,5,6,7}, question {4,6,7,8,9}, mlp4 universal first layer.
 Yield: pipe surface (§1390), 2.5 + mlp1 enrichments, the floor law, this map.
 
 ## Search heuristic (§1354): heads are FUNCTIONS, capabilities are CONTEXTS
