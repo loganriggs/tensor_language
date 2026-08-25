@@ -124,4 +124,6 @@ qry-vs-key +-0.05, selectivity +-0.05 of route elsewhere.
 7 late heads {17.2, 17.1, 16.5, 15.3, 17.0, 16.4, 16.0} across a15-17, solo dCE .016-.035
 each, NO owner (top shares .49/.30/.41). First named late-band shared capability at head
 grain. 17.2 (expressive-broad) leads = its 3rd moonlight. Members under .02 solo stay
-unnamed individually; the committee is the named unit. Unit pricing (S1398): committee-only = 71% of band, else 2% (surgical); rest-20 unselective generic. REMOVAL GOAL DONE (7/162 heads). Grain split in flight.
+unnamed individually; the committee is the named unit. Unit pricing (S1398): committee-only = 71% of band, else 2% (surgical); rest-20 unselective generic. REMOVAL GOAL DONE (7/162 heads). Grain (S1399): a16 trio conjunctive,
+a17 trio payload-dominant. Kit (S1400-01): committee is a REMOVAL HANDLE ONLY — construction
+marginal .008-.029 (redundant with commons+upstream); ungated commons serves capitalized .813.

@@ -1,0 +1,47 @@
+{
+ "n_targets": 39173,
+ "coverage": 0.4846,
+ "res": {
+  "full": {
+   "t": 4.6201,
+   "tg": 4.1841,
+   "tu": 5.03,
+   "e": 2.9458
+  },
+  "ymean": {
+   "t": 10.0186,
+   "tg": 9.105,
+   "tu": 10.8776,
+   "e": 6.8842
+  },
+  "kit": {
+   "t": 6.5432,
+   "tg": 5.1934,
+   "tu": 7.8124,
+   "e": 4.9662
+  },
+  "kit_nocommittee": {
+   "t": 6.6977,
+   "tg": 5.2334,
+   "tu": 8.0744,
+   "e": 5.0107
+  },
+  "kit_allgate": {
+   "t": 5.6311,
+   "tg": 5.027,
+   "tu": 6.1991,
+   "e": 3.8266
+  }
+ },
+ "recovery": {
+  "kit_gated": 0.7949,
+  "kit_ungated": 0.5242,
+  "kit_all": 0.6438,
+  "kit_allgate_all": 0.8127,
+  "committee_marginal_gated": 0.0081
+ },
+ "pred_a_gate_binds": true,
+ "pred_b_scope_costs": true,
+ "pred_c_committee_in_context": false,
+ "runtime_s": 84.3
+}
