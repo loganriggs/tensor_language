@@ -34293,3 +34293,14 @@ swarm2/ complete for waves 1-3; worker reports in session log.
   mlp5: stake .0844 | lin2 .574 | lin-all .635 | +quad_r256 .653.
   mlp4 (ref): stake .1017 | lin2 .617 | lin-all .679 | +quad_r256 .736.
 - OPS: the optimal-ablation sweep was restarted (user request) with FULL PER-STEP LOSS CURVES persisted per component + a data-budget block in the results (train: 480 rows/skip 80, ~1536 scored positions per step, 150 or 100 steps; eval: 960 held-out rows/skip 7000 = 184,320 paired positions). The 21 no-curve components were re-cleared for uniformity (backup kept: optimal_ablation_all_results.nocurves.bak.json); sweep running fresh on lane 2.
+
+## §1435 — JOINT DIAGONALIZATION FINDS REAL SHARED STRUCTURE IN THE WEIGHTS (5x) BUT THE CAUSAL GAIN STAYS NEGLIGIBLE (pred_a PASSED: simultaneous diagonalization of mlp4's 64 interaction matrices lifts diagonal-mass fraction .041 → .203, five-fold — the first basis that CONCENTRATES anything; pred_b FAILED: the joint-diag squares stand-in gains .005 over lin5, far under the .02 bar; pred_c PASSED AS WRITTEN BUT WITHIN NOISE: jd .6844 vs matched random .6814 — a .003 edge the new benchmark's own frontier-admission rule would refuse): the user's jointly-defined-features idea is vindicated at the WEIGHT level — a shared basis in which mlp4's output channels are simultaneously ~20% diagonal exists — while the causal ladder confirms yet again that the quadratic residual's VALUE is spread across far more than 128 directions (mlp4_jointdiag_results.json, 375s)
+
+  diag mass: native .041 → joint-diag .203 (6 Jacobi sweeps). recovery: lin5 .679 |
+  jd-squares .684 | rand-pairs .681. First basis to beat random at all; not by enough.
+- Reconciliation of the two views, stated cleanly: the weight tensor HAS preferred joint coordinates (5x concentration is not noise), but 20% diagonal mass across 64 channels still leaves the tensor 80% off-diagonal — and causal recovery tracks TOTAL mass, not its prettiest fifth. Joint diagonalization is the right tool and the honest measurement of how far it goes; mlp4's quadratic is ~1/5 "shared squared features", ~4/5 dense mixing.
+
+## §1436 — mlp6's TAIL DOES NOT KEEP FLATTENING: THE DEPTH TREND IS NON-MONOTONE (pred_a PASSED: lin2 [attn6, mlp5] = .5146; pred_b PASSED: lin-all .572; pred_c FAILED: the quadratic adds .046 — DOUBLE mlp5's .018 and past the ≤.03 flattening bar I registered): the ladder template holds at mlp6 (chain inputs, linear majority) but my extrapolated "tail shrinks with depth" story is dead after one test — quadratic share by layer: mlp4 +.057, mlp5 +.018, mlp6 +.046 (mlp6_ladder_results.json, 176s)
+
+  ladder so far: mlp4 .617/.679/+.057 | mlp5 .574/.635/+.018 | mlp2 running (the
+  priority board's .726-nat top target).

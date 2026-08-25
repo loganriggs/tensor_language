@@ -2,8 +2,8 @@
 
 Ranked by **unexplained global CE** = Δ_opt × (1 − best fidelity).
 A low-importance head at 100% understood ranks below a big MLP at 50%.
-Anchors from the optimal-ablation sweep (53/198 components so far;
-attention layers land last). Generated 2026-08-25 20:40 UTC; regenerate with
+Anchors from the optimal-ablation sweep (57/198 components so far;
+attention layers land last). Generated 2026-08-25 20:43 UTC; regenerate with
 `python bench/make_priorities.py` after any frontier move or sweep progress.
 
 ## Top targets
@@ -44,8 +44,11 @@ attention layers land last). Generated 2026-08-25 20:40 UTC; regenerate with
 | head2.5 | 0.0284 | 0.00 | 0.0284 | baseline zoo only |
 | mlp16 | 0.1399 | 0.81 | 0.0266 | fitted linear read, S1131-32 |
 | head1.1 | 0.0259 | 0.00 | 0.0259 | baseline zoo only |
+| head4.0 | 0.0133 | 0.00 | 0.0133 | baseline zoo only |
 | head1.4 | 0.0126 | 0.00 | 0.0126 | baseline zoo only |
+| head4.1 | 0.0114 | 0.00 | 0.0114 | baseline zoo only |
 | head3.5 | 0.0109 | 0.00 | 0.0109 | baseline zoo only |
+| head3.8 | 0.0106 | 0.00 | 0.0106 | baseline zoo only |
 | head2.6 | 0.0102 | 0.00 | 0.0102 | baseline zoo only |
 | head2.3 | 0.0094 | 0.00 | 0.0094 | baseline zoo only |
 | head1.3 | 0.0094 | 0.00 | 0.0094 | baseline zoo only |
@@ -66,6 +69,7 @@ attention layers land last). Generated 2026-08-25 20:40 UTC; regenerate with
 | head3.7 | 0.0026 | 0.00 | 0.0026 | baseline zoo only |
 | head3.1 | 0.0024 | 0.00 | 0.0024 | baseline zoo only |
 | head0.0 | 0.0018 | 0.00 | 0.0018 | baseline zoo only |
+| head4.2 | 0.0017 | 0.00 | 0.0017 | baseline zoo only |
 | head1.0 | 0.0016 | 0.00 | 0.0016 | baseline zoo only |
 | head0.5 | 0.0015 | 0.00 | 0.0015 | baseline zoo only |
 | head3.2 | 0.0014 | 0.00 | 0.0014 | baseline zoo only |

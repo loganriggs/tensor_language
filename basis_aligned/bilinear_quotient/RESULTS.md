@@ -5169,3 +5169,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1432 — squares motif refuted causally (matched pairs tie exactly); quad curve flattening ~.74 at r=512 (missed bar by .0016); mlp4 description near-final: 62% two-input linear + 68% all-linear + dense rank-~512 quadratic +.07 (mlp4_squares)
 §1433 — optimal-ablation pilot: mean anchor near-optimal (ratios .94-1.00; only mlp1 gains 6.3%); historical mean-anchored numbers validated; lin5 fidelity .690; FULL 198-component sweep launched lane2 (optimal_ablation)
 §1434 — mlp5 ladder: lin2 .574 / lin-all .635 / quad +.018 (flatter tail than mlp4); chain template holds for the mid stack; opt-ablation sweep restarted with full loss curves + data budget (mlp5_ladder)
+§1435 — joint diagonalization: 5x weight-mass concentration (first basis that concentrates; user's jointly-defined features vindicated at weight level) but causal gain .005 — mlp4 quad = ~1/5 shared squares, ~4/5 dense (mlp4_jointdiag)
+§1436 — mlp6 ladder: lin2 .515/linall .572/quad +.046 — tail flattening REFUTED (non-monotone by depth) (mlp6_ladder)
