@@ -1,0 +1,156 @@
+# quote_close_heads: THE CLOSER HYPOTHESIS (§1355). quote_close -> a13 at ratio 30.5 —
+# the close-BRACKET layer. If 13.8 (owner of every bracket subtype, §1341) also owns
+# quote-closing, it is THE CLOSER — a delimiter-general close-what's-open function —
+# and the §1346 kit generalizes across delimiters. If another a13 head owns quotes,
+# the layer divides by delimiter type. §1340-pattern: solo + all-but-one at quote-close
+# targets (next token contains '"' AND an odd count of '"'-tokens precede — parity).
+#
+# Registered predictions:
+#   pred_a THE GENERALIZED-CLOSER BET: 13.8 is the top head with >= 50% of the layer's
+#          quote-close damage.
+#   pred_b knockout and keep-only AGREE on the top head.
+#   pred_c surgical: top head's elsewhere damage <= 10% of its target damage.
+import json, time, sys, torch
+import torch.nn.functional as F
+sys.path.insert(0, '/workspace/rspd')
+from bilin18_joint_removal import m, DEV
+import census_lib as cl
+
+D = 1152; T = 256; PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
+OUT = PT + 'quote_close_heads_results.json'
+NMEAN = 24; NR = 1920
+L13 = 13
+H = m.transformer.h
+LAYERS = (13,)
+CUR = {'heads': None, 'mean': None}       # heads: set of head idx to ABLATE
+
+
+def cproj_hook(mod, args):
+    if CUR['heads'] is None:
+        return None
+    y = args[0].clone()
+    for h in CUR['heads']:
+        y[..., h * 128:(h + 1) * 128] = CUR['mean'][h].to(y.dtype)
+    return (y,)
+
+
+@torch.no_grad()
+def fwd(idx):
+    x = F.rms_norm(m.transformer.wte(idx), (D,)); x0 = x; v1 = None
+    for blk in H:
+        x, v1 = blk(x, v1, x0)
+    return 30.0 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30.0)
+
+
+@torch.no_grad()
+def main():
+    t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
+    import tiktoken; enc = tiktoken.get_encoding('gpt2')
+    q = set()
+    for tok in range(50257):
+        try:
+            d = enc.decode([tok])
+        except Exception:
+            continue
+        if '"' in d:
+            q.add(tok)
+    q_ids = torch.tensor(sorted(q))
+    print(f"quote ids {len(q)}", flush=True)
+
+    ROWS = cl.fineweb_rows(NMEAN + NR)[:, :T + 1].contiguous()
+    MEANR, EVR = ROWS[:NMEAN], ROWS[NMEAN:]
+
+    # per-head y means at L13's c_proj input from MEANR
+    caps = []
+    hk = H[L13].attn.c_proj.register_forward_pre_hook(
+        lambda mod, args: caps.append(args[0].detach().float().reshape(-1, 9, 128).mean(0)))
+    CUR['heads'] = None
+    for i in range(0, NMEAN, 4):
+        fwd(MEANR[i:i + 4, :-1].to(DEV).contiguous())
+    hk.remove()
+    CUR['mean'] = torch.stack(caps).mean(0)
+
+    # target mask: next tok contains '"' AND odd count of quote tokens precede (parity)
+    toks = EVR[:, :-1]; tgt_all = EVR[:, 1:]
+    isq = torch.isin(toks, q_ids)
+    parity = (isq.long().cumsum(1) % 2) == 1
+    TARGET = torch.isin(tgt_all, q_ids) & parity
+    TARGET[:, :64] = False
+    # jitter control: target positions shifted +2 (clamped), excluding real targets
+    JIT = torch.zeros_like(TARGET)
+    JIT[:, 2:] = TARGET[:, :-2]
+    JIT &= ~TARGET
+    # random control: count-matched draw from non-target positions
+    g = torch.Generator().manual_seed(97)
+    scores = torch.rand(TARGET.shape, generator=g)
+    scores[TARGET | JIT] = -1.0; scores[:, :64] = -1.0
+    k = int(TARGET.sum())
+    flat = scores.flatten()
+    idx_top = flat.topk(k).indices
+    RAND = torch.zeros_like(flat, dtype=torch.bool); RAND[idx_top] = True
+    RAND = RAND.view(TARGET.shape)
+    ELSE = ~TARGET & ~JIT & ~RAND; ELSE[:, :64] = False
+    print(f"targets {k} | jitter {int(JIT.sum())} | rand {int(RAND.sum())}", flush=True)
+
+    hooks = [H[L13].attn.c_proj.register_forward_pre_hook(cproj_hook)]
+
+    def ce_all(abl):
+        CUR['heads'] = abl
+        outs = {}
+        st = sj = sr = se = 0.0; nt = nj = nr_ = ne = 0
+        for i in range(0, NR, 8):
+            bb = EVR[i:i + 8].to(DEV)
+            idx = bb[:, :-1].contiguous(); tg = bb[:, 1:].contiguous()
+            lo = fwd(idx).float()
+            ce = F.cross_entropy(lo.reshape(-1, lo.shape[-1]), tg.reshape(-1),
+                                 reduction='none').view(tg.shape)
+            for M, acc in (('t', TARGET), ('j', JIT), ('r', RAND), ('e', ELSE)):
+                mm = acc[i:i + 8].to(DEV)
+                s = float(ce[mm].sum()); n = int(mm.sum())
+                if M == 't':
+                    st += s; nt += n
+                elif M == 'j':
+                    sj += s; nj += n
+                elif M == 'r':
+                    sr += s; nr_ += n
+                else:
+                    se += s; ne += n
+        return {'target': st / max(nt, 1), 'jitter': sj / max(nj, 1),
+                'random': sr / max(nr_, 1), 'else': se / max(ne, 1)}
+
+    base = ce_all(None)
+    full = ce_all(set(range(9)))
+    layer_dmg = full['target'] - base['target']
+    print(f"layer dmg {layer_dmg:+.4f} (vs §1355 atlas +0.475)", flush=True)
+    solo = {}; keep = {}
+    for h in range(9):
+        r = ce_all({h})
+        solo[h] = {kk: round(r[kk] - base[kk], 4) for kk in r}
+        r2 = ce_all(set(range(9)) - {h})
+        keep[h] = {kk: round(r2[kk] - base[kk], 4) for kk in r2}
+        print(f"L13.{h}: solo {solo[h]['target']:+.4f} (else {solo[h]['else']:+.4f}) | "
+              f"all-but {keep[h]['target']:+.4f}", flush=True)
+        json.dump({'partial': True, 'solo': {str(x): solo[x] for x in solo},
+                   'keep': {str(x): keep[x] for x in keep}}, open(OUT, 'w'), indent=1)
+    for h in hooks:
+        h.remove()
+
+    top_solo = max(solo, key=lambda h: solo[h]['target'])
+    top_keep = min(keep, key=lambda h: keep[h]['target'])
+    pa = top_solo == 8 and solo[top_solo]['target'] >= 0.50 * max(layer_dmg, 1e-4)
+    pb = top_solo == top_keep
+    pc = abs(solo[top_solo]['else']) <= 0.10 * max(solo[top_solo]['target'], 1e-4)
+    out = {'n_targets': k, 'n_rows': NR, 'layer_dmg': round(layer_dmg, 4),
+           'solo': {str(h): solo[h] for h in solo}, 'keep': {str(h): keep[h] for h in keep},
+           'top_solo': int(top_solo), 'top_keep': int(top_keep),
+           'top_share_of_layer': round(solo[top_solo]['target'] / max(layer_dmg, 1e-4), 4),
+           'pred_a_owner': bool(pa), 'pred_b_directions_agree': bool(pb),
+           'pred_c_surgical': bool(pc), 'runtime_s': round(time.time() - t0, 1)}
+    json.dump(out, open(OUT, 'w'), indent=1)
+    print(f"\ntop solo L13.{top_solo} share {out['top_share_of_layer']} | top keep L13.{top_keep}")
+    print(f"pred_a owner {pa} | pred_b agree {pb} | pred_c surgical {pc}")
+    print(f"wrote {OUT} ({out['runtime_s']}s)")
+
+
+if __name__ == '__main__':
+    main()

@@ -33499,3 +33499,20 @@ digit_heads_results.json; runlogs/digit_heads.log (272s).
 - Queued (behaviour_atlas2.py, GENERATOR #1 — the pool is drained): seven unscreened behavior classes (possessive 's, ellipsis, ordinal suffix, 4-digit year, unit suffix, hyphen join, close-quote parity) through a per-attn-layer sweep with the §513 denominator CORRECTED (small-class complements; bias noted). Registered: pred_a >= 2 classes show a top layer at damage >= 0.05 with target/else >= 3 (the pool refills); pred_b no new class's top layer is a8 or a13 (new capabilities, not echoes of digits/brackets); pred_c possessive-'s peaks in the FRONT band L0-2 (grammar-band prior — it is a syntactic attachment, not content).
 
 digit_copy_split_results.json; runlogs/digit_copy_split.log (85s).
+
+## §1355 — THE GENERATOR REFILLS THE POOL AND VALIDATES THE HEURISTIC BY FAILING ITS OWN BAR: three classes qualify — ellipsis->a17 (0.318, ratio 23.8), unit->a8 (0.278, 7.5), quote_close->a13 (0.475, ratio 30.5!) — but pred_b ("new capabilities won't land on a8/a13") is FALSE and that is the finding: new capabilities land on KNOWN FUNCTION-LAYERS precisely as §1354's heads-are-functions heuristic predicts; preds a TRUE, b & c FALSE (behaviour_atlas2.py; NR=960, generator grain)
+
+  class        top    dmg      ratio   verdict
+  quote_close  a13    +0.475   30.5    QUALIFIES — the CLOSE-BRACKET layer, on close-quotes
+  ellipsis     a17    +0.318   23.8    QUALIFIES — new late-layer flag
+  unit         a8     +0.278   7.5     QUALIFIES — the DIGIT layer, on units (units follow numbers)
+  year         a1     +0.367   1.8     no (front-generalist profile)
+  possessive   a4     +0.308   1.2     no (pred_c FALSE — distributed, not front-band)
+  hyphen       a4     +0.207   0.8     no
+  ordinal      a4     +0.063   0.3     no
+
+- pred_b's FAILURE IS THE HEURISTIC'S SUCCESS: I registered "no echo of a8/a13" as the null against re-finding old capabilities; instead quote-closing lands on the bracket-closing layer at the program's second-highest generator ratio, and units land on the number layer. Under §1354's frame these are not echoes — they are the same FUNCTIONS appearing in new CONTEXTS: something in a13 closes-what-is-open regardless of delimiter type; something in a8 serves number-adjacent prediction. The generator, built to find new capabilities, is functioning as a FUNCTION-DISCOVERY instrument.
+- THE CLOSER HYPOTHESIS, now the sharpest open question of the arc: if 13.8 itself owns quote-closing (it owns every bracket subtype, §1341), then "close-bracket head" is the wrong name — 13.8 is THE CLOSER, a delimiter-general close-what's-open function, and the §1346 kit generalizes across delimiters with the same gates re-keyed. If instead a DIFFERENT a13 head owns quotes, the layer divides by delimiter type. Queued (quote_close_heads.py, §1340 pattern at quote-close targets — parity mask): registered pred_a 13.8 is the top head with >= 50% share (the GENERALIZED-CLOSER bet); pred_b knockout and keep-only agree; pred_c surgical (else <= 10% of target).
+- pred_c FALSE, recorded: possessive-'s is NOT front-band-owned (top a4 at ratio 1.2 — distributed). The grammar-band prior misfired; possessive attachment joins comma/colon/open_quote in the distributed class. Ellipsis->a17 enters the pool behind the closer test (late-layer, likely register-adjacent — a17 also led capitalized).
+
+behaviour_atlas2_results.json; runlogs/behaviour_atlas2.log (138s).

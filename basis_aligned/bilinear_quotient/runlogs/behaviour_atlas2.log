@@ -1,61 +1,38 @@
-newline: 350 targets
-digit: 223 targets
-sentence_end: 482 targets
-comma: 476 targets
-colon: 74 targets
-open_quote: 90 targets
-close_quote: 0 targets
-open_bracket: 59 targets
-close_bracket: 30 targets
-capitalized: 1693 targets
-a0 done
-a1 done
-a2 done
-a3 done
-a4 done
-a5 done
-a6 done
-a7 done
-a8 done
-a9 done
-a10 done
-a11 done
-a12 done
-a13 done
-a14 done
-a15 done
-a16 done
-a17 done
-m0 done
-m1 done
-m2 done
-m3 done
-m4 done
-m5 done
-m6 done
-m7 done
-m8 done
-m9 done
-m10 done
-m11 done
-m12 done
-m13 done
-m14 done
-m15 done
-m16 done
-m17 done
-       newline:  a12 ratio  10.59 (target +0.09934 vs other +0.00938) | pos-ctrl  -0.02 | random   1.77 | QUALIFIES
-         digit:   a8 ratio   3.59 (target +0.13355 vs other +0.03715) | pos-ctrl   1.45 | random   0.75 | QUALIFIES
-  sentence_end:  a10 ratio   3.05 (target +0.06537 vs other +0.02142) | pos-ctrl   0.78 | random   0.64 | QUALIFIES
-         comma:  a12 ratio   0.80 (target +0.00754 vs other +0.00938) | pos-ctrl   1.22 | random   0.87 | -
-         colon:  a15 ratio   4.08 (target +0.01839 vs other +0.00451) | pos-ctrl   2.85 | random   0.55 | -
-    open_quote:  a10 ratio  12.72 (target +0.27248 vs other +0.02142) | pos-ctrl   8.33 | random   0.82 | QUALIFIES
-  open_bracket:  a17 ratio   6.94 (target +0.06986 vs other +0.01007) | pos-ctrl   0.05 | random  -3.07 | QUALIFIES
- close_bracket:  a13 ratio  41.94 (target +0.69408 vs other +0.01655) | pos-ctrl   1.12 | random  -1.96 | QUALIFIES
-   capitalized:  a15 ratio   8.68 (target +0.03913 vs other +0.00451) | pos-ctrl   2.12 | random   1.78 | QUALIFIES
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+possessive: n 649
+ellipsis: n 208
+ordinal: n 69
+year: n 424
+unit: n 59
+hyphen: n 1132
+quote_close: n 488
+base: {'possessive': 1.523, 'ellipsis': 5.382, 'ordinal': 1.198, 'year': 3.708, 'unit': 2.995, 'hyphen': 1.814, 'quote_close': 1.98}
+a0: possessive +0.276 ellipsis +0.249 ordinal -0.044 year +0.357 unit +0.270 hyphen +0.206 quote_close +0.246 | else +0.288
+a1: possessive +0.185 ellipsis +0.042 ordinal +0.024 year +0.367 unit +0.161 hyphen +0.188 quote_close +0.139 | else +0.207
+a2: possessive +0.167 ellipsis +0.062 ordinal +0.026 year +0.254 unit +0.141 hyphen +0.154 quote_close +0.221 | else +0.157
+a3: possessive +0.156 ellipsis +0.131 ordinal -0.023 year +0.139 unit +0.026 hyphen +0.107 quote_close +0.197 | else +0.124
+a4: possessive +0.308 ellipsis +0.272 ordinal +0.063 year +0.274 unit +0.106 hyphen +0.207 quote_close +0.392 | else +0.252
+a5: possessive +0.131 ellipsis +0.094 ordinal +0.051 year +0.141 unit +0.078 hyphen +0.080 quote_close +0.138 | else +0.129
+a6: possessive +0.040 ellipsis +0.044 ordinal +0.053 year +0.125 unit +0.085 hyphen +0.045 quote_close +0.143 | else +0.058
+a7: possessive +0.031 ellipsis -0.057 ordinal +0.033 year +0.052 unit -0.069 hyphen +0.025 quote_close +0.067 | else +0.062
+a8: possessive +0.006 ellipsis +0.030 ordinal +0.012 year +0.110 unit +0.278 hyphen +0.005 quote_close +0.025 | else +0.037
+a9: possessive -0.004 ellipsis +0.081 ordinal +0.034 year +0.080 unit +0.077 hyphen +0.036 quote_close +0.115 | else +0.062
+a10: possessive +0.045 ellipsis +0.102 ordinal -0.039 year +0.015 unit +0.017 hyphen -0.019 quote_close +0.223 | else +0.024
+a11: possessive +0.016 ellipsis -0.064 ordinal -0.041 year +0.007 unit +0.049 hyphen +0.037 quote_close +0.189 | else +0.042
+a12: possessive -0.014 ellipsis +0.071 ordinal -0.041 year -0.003 unit +0.021 hyphen +0.048 quote_close +0.057 | else +0.011
+a13: possessive -0.048 ellipsis +0.105 ordinal +0.017 year +0.026 unit +0.012 hyphen +0.046 quote_close +0.475 | else +0.016
+a14: possessive -0.010 ellipsis +0.155 ordinal +0.035 year +0.092 unit +0.054 hyphen +0.022 quote_close +0.032 | else +0.024
+a15: possessive -0.046 ellipsis +0.046 ordinal -0.025 year -0.003 unit +0.048 hyphen -0.033 quote_close +0.091 | else +0.007
+a16: possessive -0.019 ellipsis +0.033 ordinal -0.008 year +0.020 unit +0.038 hyphen +0.000 quote_close +0.041 | else +0.012
+a17: possessive +0.015 ellipsis +0.318 ordinal -0.037 year +0.047 unit +0.082 hyphen -0.049 quote_close +0.085 | else +0.013
+possessive: top a4 dmg +0.308 ratio 1.2 no
+ellipsis: top a17 dmg +0.318 ratio 23.8 QUALIFIES
+ordinal: top a4 dmg +0.063 ratio 0.3 no
+year: top a1 dmg +0.367 ratio 1.8 no
+unit: top a8 dmg +0.278 ratio 7.5 QUALIFIES
+hyphen: top a4 dmg +0.207 ratio 0.8 no
+quote_close: top a13 dmg +0.475 ratio 30.5 QUALIFIES
 
-(a) POSITIVE CONTROL newline -> a12 with ratio >=5: HELD
-(b) >=3 other classes qualify: ['digit', 'sentence_end', 'open_quote', 'open_bracket', 'close_bracket', 'capitalized'] -> HELD
-(c) >=3 distinct leaders among them: ['a10', 'a13', 'a15', 'a17', 'a8'] -> HELD
-NULL (no class fires on fully random targets): ok
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/behaviour_atlas2_results.json (115s)
+qualifying: ['ellipsis', 'unit', 'quote_close']
+pred_a refills True | pred_b new False | pred_c poss-front False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/behaviour_atlas2_results.json (137.5s)

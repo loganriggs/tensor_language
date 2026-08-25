@@ -44,6 +44,10 @@ conditionality measured).
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |
 | **digit** | **8.3 + 8.7 COMPLEMENTARY** | §1354: divides by EVIDENCE TYPE — 8.3 copy-flavored (2.9x per-position), 8.7 fresh-specialist NEGATIVE on copyable (interference inside a pair); moonlighting #4 | 9056 | thread rests fully mapped |
 | sentence_end | a10 | +0.065 vs +0.020 | 482 | overlaps newline thread — dedup before opening |
+| **quote_close** | a13 | atlas2 §1355: +0.475, ratio 30.5 — CLOSER-hypothesis test in flight (does 13.8 own it?) | — | generator-flagged |
+| ellipsis | a17 | atlas2 §1355: +0.318, ratio 23.8 | — | pool, behind closer test |
+| unit | a8 | atlas2 §1355: +0.278, ratio 7.5 (units follow numbers — a8 function context) | — | pool |
+| ~~possessive, hyphen, ordinal, year~~ | — | fail generator bars §1355 (distributed / generalist profiles) | — | negative, recorded |
 | ~~comma~~ | — | fails screen (distributed) | 476 | negative, recorded |
 | ~~colon~~ | — | fails both controls | 74 | negative, recorded |
 
