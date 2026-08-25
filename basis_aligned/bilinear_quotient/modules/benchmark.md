@@ -14,7 +14,7 @@ compounding-dominated; content passthrough 0.39; §1070-1071). Whole-model simul
 | mlp0 | ~0.90 | class-code writer / token map | §905/§1045 |
 | mlp1 | ~0.93 | static per-token table (held-out) | §1088 |
 | mlp3 | **0.95 (r256) / 0.83 (r64)** certified | own-basis projection (held-out) | §1130 |
-| mlp4 | 0.82 (r256) / 0.48 (r64) certified | own-basis projection; token table HURTS held-out. WIRING (S1427, exact ledger; S1422 RETRACTED): marginal diet = attn4 .053 + mlp3 .032, all else <.01 — local chain attn_L + mlp_{L-1} -> mlp_L; token/topic-blind (S1423); lin3 ridge from front-MLP outputs = .61 held-out (S1424) | §1130, S1422-23 |
+| mlp4 | 0.82 (r256) / 0.48 (r64) certified | own-basis projection; token table HURTS held-out. WIRING (S1427, exact ledger; S1422 RETRACTED): marginal diet = attn4 .053 + mlp3 .032, all else <.01 — local chain attn_L + mlp_{L-1} -> mlp_L; token/topic-blind (S1423); ridge ladder (S1424/28): lin2 [attn4,mlp3] .617 / lin3 [front MLPs] .612 / lin5 [all] .679 held-out; ~32% quadratic residual open | §1130, S1422-23 |
 | mlp5-14 | ~0.10 as variables | NO TESTED FORM WORKS YET (token table / low-rank / linear read) — NOT a claim of no structure; "content" is a residual label. Open program (user directive 2026-08-25): input decomposition vs understood components + semantic (BoW-topic) conditioned tables + sectional decomposition. Starts at mlp4: mlp4_reads | §1000/38/42, S1421+ |
 | middle attn (collective) | 0.58 partial | static distance-kernel (values dynamic); kernel+content-sim next | §1099 |
 | readout mlp16/17 | **0.81/0.84 certified** (mlp15 0.40, tiny stakes) | fitted linear read; CEILING: top-256 own-neurons also 0.81 — functional tail is neither sparse nor linear | §1131-1132 |

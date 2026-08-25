@@ -5162,3 +5162,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1425 — weight tensor: mlp3-centered mass (.655), hub feature m3#5 (9 of top-20 pairs), DENSE in PC basis; PC-projection .13 vs ridge .61 — variance PCs ≠ function basis (mlp4_weight_tensor)
 §1426 — RETRACTION: path-patch ledger stale under λ-mixing; mids_reads VOID (full-patch 30x over module stake); §1422 ranking provisionally retained, magnitudes flagged; exact-ledger re-run queued (mids_reads bug exhibit)
 §1427 — corrected diets (exact ledger, self-test 5.9e-08): mid MLPs read same-block attention + predecessor mid (chain attn_L + mlp_{L-1} -> mlp_L); mlp0-dominance and coherent-code sensitivity were 100% ledger artifact, retracted; near-additive singles (reads_exact)
+§1428 — mlp4 compresses: lin2 [attn4, mlp3] = .617 (matches 3-component .612, disjoint regressors — redundancy in useful form), lin5 = .679 (pred_a missed .70 by .021); ~32% quadratic residual remains (mlp4_lin4)
