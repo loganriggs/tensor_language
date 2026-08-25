@@ -39,7 +39,7 @@ conditionality measured).
 | Behavior | Leader | Target dmg vs elsewhere | n | Note |
 |---|---|---|---|---|
 | **close_bracket** | **CLOSED, 4-stage** | kit 0.657 (§1346); a14 does NOT port (§1347 — ablation names roles, construction prices kits); refine = L14-17 by construction (ratio 2.4, +0.062, §1348) — downstream motif holds 2-for-2; generic-pool invariant +0.227==+0.225 across circuits | 1779 | thread rests; head-grain refine deprioritized (thin vs draw spread) |
-| capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | NO layer-owner (1.1x) — first late-band shared capability; PARKED behind close-bracket; extraction starts from a band gate |
+| capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | THREAD OPENED: capitalized_band_heads queued (27-head battery, preds no-owner/expressive-moonlight/distributed) |
 | ~~open_quote~~ | — | DEMOTED §1351: clean screen fails every bar (a10 +0.067, conc 2.7, jitter dirty); mask-sensitive (atlas n=90 vs clean n=1087); distributed-no-owner class | 1087 | negative, recorded |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |
 | **digit** | **8.3 + 8.7 COMPLEMENTARY** | §1354: divides by EVIDENCE TYPE — 8.3 copy-flavored (2.9x per-position), 8.7 fresh-specialist NEGATIVE on copyable (interference inside a pair); moonlighting #4 | 9056 | thread rests fully mapped |
