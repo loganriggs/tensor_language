@@ -178,7 +178,8 @@ def main():
                          'ce_opt': round(ce_opt, 4), 'delta_mean': round(d_mean, 4),
                          'delta_opt': round(d_opt, 4),
                          'opt_over_mean': round(d_opt / max(d_mean, 1e-6), 4),
-                         'rel_drift_from_mean': round(drift, 4)}
+                         'rel_drift_from_mean': round(drift, 4),
+                         'loss_curve': [round(x, 4) for x in losses]}
         consts[name] = a.detach().cpu()
         print(f"{name}: d_mean {d_mean:.4f} -> d_opt {d_opt:.4f} "
               f"(ratio {results[name]['opt_over_mean']})", flush=True)
@@ -195,6 +196,11 @@ def main():
     pb = (attn_helped / max(len(helped), 1)) >= 0.75 if helped else True
     pc = all(v['delta_opt'] > 0 for v in results.values())
     out = {'clean': round(clean, 4), 'results': results,
+           'data_budget': {'train_rows': NFIT, 'train_skip': 80,
+                           'steps_mlp_attn': 150, 'steps_head': 100, 'batch_rows': BS,
+                           'positions_per_step': BS * 192,
+                           'eval_rows': NEV, 'eval_skip': 7000,
+                           'eval_positions': NEV * 192},
            'median_opt_over_mean': round(med, 4),
            'n_helped_lt_080': len(helped),
            'helped': {k: v['opt_over_mean'] for k, v in helped},

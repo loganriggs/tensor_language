@@ -34287,3 +34287,9 @@ swarm2/ complete for waves 1-3; worker reports in session log.
   fidelity convention now live: fidelity = (Δ_opt − Δ_repl)/Δ_opt. mlp4 ladder
   re-anchored: lin5 .690 (was .679 mean-anchored) — the anchors barely move the story.
 - FULL SWEEP LAUNCHED (user directive): optimal_ablation_all on lane 2 — all 198 components (18 MLPs + 162 heads + 18 attention layers), resumable, per-component checkpoints, ~5h; opt_ablation_consts_all.pt = THE standing baseline for every future stand-in. Registered preds at completion: median ratio ≥ .90; ratio-<0.8 components are ≥ 75% attention-side; all deltas positive.
+
+## §1434 — THE LADDER GENERALIZES TO mlp5 WITH THE SAME SHAPE, SLIGHTLY SOFTER (pred_a PASSED: lin2 [attn5, mlp4] = .5735 of mlp5's held-out stake; pred_b PASSED: lin-all = .6351; pred_c FAILED: the r256 quadratic adds only .018, under the .03 bar): mlp5 repeats mlp4's profile — a two-named-input linear map carries the majority, the full linear ceiling sits in the mid-.60s, and the quadratic tail is even flatter than mlp4's (+.018 vs +.057 at the same rank/capacity) — the chain description "attn_L + mlp_{L-1} → linear map → dense small quadratic" is holding as a TEMPLATE for the mid stack (mlp5_ladder_results.json, 170s)
+
+  mlp5: stake .0844 | lin2 .574 | lin-all .635 | +quad_r256 .653.
+  mlp4 (ref): stake .1017 | lin2 .617 | lin-all .679 | +quad_r256 .736.
+- OPS: the optimal-ablation sweep was restarted (user request) with FULL PER-STEP LOSS CURVES persisted per component + a data-budget block in the results (train: 480 rows/skip 80, ~1536 scored positions per step, 150 or 100 steps; eval: 960 held-out rows/skip 7000 = 184,320 paired positions). The 21 no-curve components were re-cleared for uniformity (backup kept: optimal_ablation_all_results.nocurves.bak.json); sweep running fresh on lane 2.
