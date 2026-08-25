@@ -50,21 +50,25 @@ def fwd(idx):
 def main():
     t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
     import tiktoken; enc = tiktoken.get_encoding('gpt2')
-    nl = set(); pu = set(); qu = set()
+    nl1 = set(); nlp = set(); nlw = set(); qu = set()
     for tok in range(50257):
         try:
             d = enc.decode([tok])
         except Exception:
             continue
-        ds = d.strip()
-        if '\n' in d:
-            nl.add(tok)
         if '"' in d or "'" in d:
             qu.add(tok)
-        elif ds and all(not c.isalnum() for c in ds) and '\n' not in d \
-                and not any(c in ds for c in ')]}(['):
-            pu.add(tok)
-    IDS = {'newline': torch.tensor(sorted(nl)), 'punct': torch.tensor(sorted(pu)),
+        if '\n' not in d:
+            continue
+        if d == '\n':
+            nl1.add(tok)
+        elif d.strip('\n') == '' or '\n\n' in d:
+            nlp.add(tok)          # pure multi-newline / paragraph
+        else:
+            nlw.add(tok)          # mixed word+newline
+    IDS = {'nl_single': torch.tensor(sorted(nl1)),
+           'nl_para': torch.tensor(sorted(nlp)),
+           'nl_mixed': torch.tensor(sorted(nlw)),
            'quote': torch.tensor(sorted(qu))}
 
     ROWS = cl.fineweb_rows(NMEAN + NR, skip=5600)[:, :T + 1].contiguous()
