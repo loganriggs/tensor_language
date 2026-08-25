@@ -170,3 +170,4 @@ activation (norm max/mean can still be ~1.5) — they are different diagnostics.
   template script in the same commit; generated screens must report BOTH raw winner and
   best specificity-passing candidate with bars keyed to the latter.
 - Existence-check subtype masks against the corpus BEFORE registering ratio predictions on them (S1416: nl_para/nl_mixed n=0 made pred_b vacuous — the corpus tokenizes newlines only as bare '\n').
+- Path-patching a residual contribution requires an EXACT running ledger under lambda-mixing: rescale every stored contribution by lambda0 each layer, credit lambda1*x0 to the embedding, and ASSERT sum(contrib)==x on the first batch BEFORE patching (S1426: unscaled ledger over-subtracted 30x at depth; the docstring even had the caveat and reasoned it away).

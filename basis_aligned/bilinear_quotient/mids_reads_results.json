@@ -1,0 +1,82 @@
+{
+ "targets": {
+  "mlp5": {
+   "base": 3.0114,
+   "patch_dce": {
+    "wte": 0.0,
+    "attn0": 0.0014,
+    "attn1": 0.0035,
+    "attn2": 1.2706,
+    "attn3": 1.4016,
+    "attn4": 1.7355,
+    "attn5": 0.0319,
+    "mlp0": 3.563,
+    "mlp1": 0.5846,
+    "mlp2": 2.786,
+    "mlp3": 2.8664,
+    "mlp4": 2.5727
+   },
+   "full_input_patch": 2.934,
+   "ranked": [
+    "mlp0",
+    "mlp3",
+    "mlp2",
+    "mlp4",
+    "attn4",
+    "attn3",
+    "attn2",
+    "mlp1",
+    "attn5",
+    "attn1",
+    "attn0",
+    "wte"
+   ],
+   "attn_sum": 4.4445,
+   "all_sum": 16.8172,
+   "top3_sum": 9.2154
+  },
+  "mlp6": {
+   "base": 3.0114,
+   "patch_dce": {
+    "wte": -0.0,
+    "attn0": 0.0021,
+    "attn1": 0.0052,
+    "attn2": 2.0013,
+    "attn3": 2.2941,
+    "attn4": 2.7578,
+    "attn5": 0.0275,
+    "attn6": 0.01,
+    "mlp0": 3.5235,
+    "mlp1": 0.9015,
+    "mlp2": 3.0759,
+    "mlp3": 3.022,
+    "mlp4": 2.9259,
+    "mlp5": 0.049
+   },
+   "full_input_patch": 2.3725,
+   "ranked": [
+    "mlp0",
+    "mlp2",
+    "mlp3",
+    "mlp4",
+    "attn4",
+    "attn3",
+    "attn2",
+    "mlp1",
+    "mlp5",
+    "attn5",
+    "attn6",
+    "attn1",
+    "attn0",
+    "wte"
+   ],
+   "attn_sum": 7.098,
+   "all_sum": 20.5958,
+   "top3_sum": 9.6214
+  }
+ },
+ "pred_a_code_chains": false,
+ "pred_b_attn_minority": true,
+ "pred_c_concentrated": true,
+ "runtime_s": 211.1
+}

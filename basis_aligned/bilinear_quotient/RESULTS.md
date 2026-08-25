@@ -5159,3 +5159,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1422 — mlp4's diet named: mlp0 .674 / mlp3 .373 / mlp2 .121; mlp1 ≈ 0 (token table passes THROUGH); attn 5%; single-patches 3x the all-mean ceiling (coherent-code sensitivity) (mlp4_reads)
 §1423 — mlp4 is not topical: BoW-topic table = shuffled null, token table < constant; mlp4 = class-code transformer, token/topic/attention-blind; stand-in family shifts to functions-of-upstream-outputs (mlp4_bow)
 §1424 — lin3 (ridge from mlp0+mlp2+mlp3 outputs) recovers .61 of mlp4 held-out; mlp0-alone −.96 (coherent-code sensitivity #3); class64 .06; mlp4 = "mostly a linear map on the front joint code" (mlp4_from_inputs)
+§1425 — weight tensor: mlp3-centered mass (.655), hub feature m3#5 (9 of top-20 pairs), DENSE in PC basis; PC-projection .13 vs ridge .61 — variance PCs ≠ function basis (mlp4_weight_tensor)
+§1426 — RETRACTION: path-patch ledger stale under λ-mixing; mids_reads VOID (full-patch 30x over module stake); §1422 ranking provisionally retained, magnitudes flagged; exact-ledger re-run queued (mids_reads bug exhibit)
