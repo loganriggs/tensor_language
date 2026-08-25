@@ -33686,3 +33686,10 @@ closer_band_slim_results.json; runlogs/closer_band_slim.log (856s).
 - ARC DISPOSITION: the circuit program's extraction arc rests at this capstone. Queued (mdl_bill2.py): the bill regenerated with measured commons numbers (registered: pred_a the three-kit total <= 28M; pred_b params-per-nat improves >= 1.8x vs the §1366 dedup bill; pred_c the average per-capability MARGINAL cost <= 1.5M). The circuit-board viewer gets the commons story on the next republish.
 
 shared_band_kit_results.json; runlogs/shared_band_kit.log (102s).
+
+## §1369 — THE BILL, FINAL FORM: 22-head commons (19.5M) + 6 unique specialists (5.3M) = 24.8M params — 4.5% of the model — buying 24.2 capability-nats at 1.03M/nat, 2.4x better than the §1366 bill; preds a & b TRUE, pred_c FALSE (average marginal 1.77M vs the 1.5M bar — comparative's four refine heads weigh it; question's marginal is 0.44M and the closer's 0.88M, both far under) (mdl_bill2.py; accounting run; MDL_BILL.md appended)
+
+- The per-capability marginals, the numbers the two-tier frame exists for: question 0.44M (10.5, half-shared), closer 0.88M (13.8 alone), comparative 3.98M (8.1 + the refine four). pred_c's miss is comparative-shaped — its refine stage is the one specialist set not yet slimmed to necessity (11.6/11.7 were the optional tail in §1345); dropping them puts the average under the bar, logged as the obvious trim, not run (their +0.02 recovery is real and the trade is Logan's kind of call, recorded as a fork).
+- The extraction arc RESTS here at its capstone. The registry's status board, the two-tier bill, and the circuit-board viewer are consistent as of §1368-69; the standing open items are the deep-refine gate (comparative elsewhere 0.0006 over), cross-model transfer of the commons (nothing tested off bilin18), and the MLP side of every kit — all logged, none in flight.
+
+mdl_bill2_results.json; MDL_BILL.md.
