@@ -10,7 +10,7 @@ READ THIS BEFORE screening a new behavior or ablating any of these heads.
 
 | Circuit | Heads | Capability | Key numbers | §refs |
 |---|---|---|---|---|
-| Question | **10.5** | "?" after WH-openers | dmg 0.726 at "?", 5% at ".", 0.4% elsewhere; question-specific | §1284, §1313 |
+| Question | **10.5** | "?" after WH-openers; ALSO top comparative-refine carrier (§1345, drop +0.343 in the "than" kit — §1310 off-diagonal confirmed) | dmg 0.726 at "?", 5% at ".", 0.4% elsewhere; "question-specific" true at terminal grain only | §1284, §1313, §1345 |
 | Comparative | **8.1** | "than" after non-adjacent comparative | 100.7% of L8's 1.64-nat damage; conc 276; criterion STREAM-computed (weights ratio 1.01); mark written by a02 band | §1303-1306 |
 | Exclamation | **17.2 + 17.3** | "!" continuation | pair carries 91% (48.5/42.6); perfectly ADDITIVE half-heads (2.6%); criterion stream-computed | §1315-1320 |
 | Stem matcher | **1.1 + 1.8** | inflection-variant induction | weights say STEM matcher; 78% of identical-support damage at 1569 natural variant positions (inside registered 30-80% band); control flat | §1307-1308 |

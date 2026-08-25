@@ -1,0 +1,42 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 110
+kit+b1012 (NR1) target 2.8921
+drop L10.0: +0.0007
+drop L10.1: +0.0018
+drop L10.2: +0.0048
+drop L10.3: +0.0068
+drop L10.4: +0.0194
+drop L10.5: +0.3433
+drop L10.6: +-0.0222
+drop L10.7: +-0.0013
+drop L10.8: +-0.0199
+drop L11.0: +0.0093
+drop L11.1: +-0.0386
+drop L11.2: +0.0122
+drop L11.3: +0.0316
+drop L11.4: +0.0257
+drop L11.5: +-0.0170
+drop L11.6: +0.0328
+drop L11.7: +0.0662
+drop L11.8: +0.0023
+drop L12.0: +0.0192
+drop L12.1: +0.0012
+drop L12.2: +0.0066
+drop L12.3: +-0.0040
+drop L12.4: +-0.0075
+drop L12.5: +-0.0122
+drop L12.6: +-0.0021
+drop L12.7: +0.0176
+drop L12.8: +0.2100
+full: target 1.2539 | else 3.1243
+ymean: target 8.2717 | else 7.2170
+route: target 5.2029 | else 5.4904
+kit: target 3.6485 | else 5.4324
+kit_b1012: target 2.8289 | else 5.1647
+kit_top8: target 2.7763 | else 5.2675
+kit_top4: target 2.8090 | else 5.3071
+kit_top2: target 2.9419 | else 5.3847
+
+top4 ['10.5', '12.8', '11.7', '11.6'] | band inc 0.1168 top4 inc 0.1196
+pred_a localizes True | pred_b 10.5 True | pred_c specific False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/comparative_refine_heads_results.json (305.9s)
