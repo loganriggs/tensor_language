@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 1779
+layer dmg +0.9534 (vs §1373 +0.953)
+a7.0: solo -0.0010 (else +0.0122) | all-but +0.9633
+a7.1: solo +1.0014 (else +0.0121) | all-but -0.0026
+a7.2: solo +0.0016 (else +0.0098) | all-but +0.9705
+a7.3: solo +0.0036 (else +0.0023) | all-but +0.9471
+a7.4: solo -0.0074 (else +0.0012) | all-but +0.9803
+a7.5: solo +0.0014 (else +0.0062) | all-but +0.9559
+
+top solo a7.1 share 1.0504 | top keep a7.1
+pred_a owner True | pred_b agree True | pred_c surgical True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_closer_heads_results.json (88.8s)

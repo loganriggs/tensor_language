@@ -33740,3 +33740,13 @@ comparative_refine_gate_results.json; runlogs/comparative_refine_gate.log (86s).
 - Queued (bilin12_closer_heads.py): the sharpest transfer claim — does bilin12's a7 have a single OWNER head like 13.8 (96.5% solo, §1340)? §1340-pattern at head grain (6 heads, solo + all-but-one). Registered: pred_a an owner exists (top head >= 60% of layer damage solo); pred_b knockout and keep-only agree; pred_c surgical (elsewhere <= 10% of target). A win would make owner-structure itself a family property; a crowd verdict would say the FUNCTION transfers but its implementation grain is model-specific — either outcome is a §-worthy fact about what training reproducibly builds.
 
 bilin12_closer_screen_results.json; runlogs/bilin12_closer_screen.log (81s).
+
+## §1374 — OWNER STRUCTURE IS A FAMILY PROPERTY: bilin12's a7.1 carries 105.0% of its layer's close-bracket damage solo (+1.001 of +0.953; all-but-7.1 = −0.003 — keeping only the owner BEATS the intact layer, the same neighbors-are-noise signature as 13.8's quote result §1356), knockout and keep-only agree, surgical at 1.2% elsewhere — two independently trained models both build the closer as ONE HEAD at matched relative depth; preds a, b, c ALL TRUE (bilin12_closer_heads.py; n=1779)
+
+  a7.1 solo +1.001 (105.0% of layer) | every other head |solo| <= 0.007, several negative
+  keep-only-7.1: −0.003 — the other five heads are jointly net interference at bracket targets
+
+- THE TRANSFER LADDER, two rungs in: layer-grain (§1373: concentrated closer layer, matched relative depth) and now HEAD-grain (a single owner with a >100% share and net-negative neighbors — the exact §1356 signature). Training does not merely reproduce the close-bracket FUNCTION across this family; it reproduces the IMPLEMENTATION SHAPE: one surgical owner head, mid-stack, whose layer-mates interfere at its targets. bilin18's 13.8 and bilin12's 7.1 are, structurally, the same part in two machines.
+- Queued (bilin12_closer_quotes.py): the delimiter-GENERAL claim in the sibling — does 7.1 also own quote-closing (13.8's second surface, §1356)? Quote-parity targets, same head battery. Registered: pred_a 7.1 carries >= 60% of a7's quote-close damage (the FUNCTION transfers, not just the bracket surface); pred_b both directions agree on 7.1; pred_c surgical. A win completes the strongest cross-model statement available to this program: THE CLOSER — one head, delimiter-general, mid-stack, interference-wrapped — is what this architecture-and-data recipe reproducibly builds.
+
+bilin12_closer_heads_results.json; runlogs/bilin12_closer_heads.log (89s).
