@@ -164,3 +164,8 @@ activation (norm max/mean can still be ~1.5) — they are different diagnostics.
   positions sit inside the service's own support and the control is not evaluable — use a
   matched-phrase-elsewhere draw instead, and say which regime the screen uses. (Two
   contamination classes + one refuted account: §1339 mask contamination, §1361-62.)
+- PATCH TEMPLATES, NOT MEMORIES (§1376): three bar-keying failures (§1348, §1354, §1376)
+  shared one root — a bar-design lesson recorded in prose while the template file that
+  embodies the old design kept being copied. When a design lesson lands, patch every
+  template script in the same commit; generated screens must report BOTH raw winner and
+  best specificity-passing candidate with bars keyed to the latter.
