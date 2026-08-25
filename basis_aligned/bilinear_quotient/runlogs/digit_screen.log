@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+digit token ids: 1692
+targets 9056 | jitter 6406 | rand 9056
+base: {k: round(v, 4) for k, v in base.items()}
+a8: dmg target +0.2095 | jit +0.0387 | rand +0.0336 | else +0.0354
+a7: dmg target +0.0482 | jit +0.0536 | rand +0.0606 | else +0.0604
+a9: dmg target +0.0765 | jit +0.0515 | rand +0.0596 | else +0.0619
+a13: dmg target +0.0012 | jit +0.0252 | rand +0.0214 | else +0.0192
+a5: dmg target +0.0993 | jit +0.1540 | rand +0.1241 | else +0.1307
+
+a8 conc 5.9 | jitter 1.09 | random 0.95
+pred_a conc True | pred_b controls True | pred_c ownership True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_screen_results.json (97.4s)

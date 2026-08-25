@@ -33456,3 +33456,18 @@ exclaim_gates_results.json (v2); runlogs/exclaim_gates.log (95s).
 - Queued (digit_screen.py, pool #5): targets = next token is purely digits; candidate a8 (atlas +0.134/+0.035; independently expected from the a8-counting arc, backlog #3 — a cross-method confirmation opportunity). Registered with honest bars for a weaker-concentration candidate: pred_a a8 damage >= 0.08 AND conc >= 3; pred_b both controls <= 1.5; pred_c a8 >= 2x every competitor (a7/a9/a13/a5).
 
 open_quote_screen_results.json; runlogs/open_quote_screen.log (102s).
+
+## §1352 — DIGIT CERTIFIES CLEAN AND CONFIRMS a8 CROSS-METHOD: target damage +0.210 (BETTER than the atlas's +0.134) at n=9,056, concentration 5.9, both controls clean (1.09/0.95), ownership 2x-clear over every competitor — the atlas flag and the independent a8-counting arc (backlog #3) name the same owner from different instruments; preds a, b, c ALL TRUE (digit_screen.py)
+
+  layer  target-dmg  jitter   random   else
+  a8     +0.210      +0.039   +0.034   +0.035   conc 5.9, controls clean
+  a5     +0.099      +0.154   +0.124   +0.131   generalist (2x bar passes at 0.210 vs 0.199 — slim, quoted)
+  a9     +0.077      +0.052   +0.060   +0.062
+  a7     +0.048      +0.054   +0.061   +0.060
+  a13    +0.001      +0.025   +0.021   +0.019   the bracket layer is IRRELEVANT to digits — good dissociation
+
+- The pool's fifth candidate certifies at the first attempt: digit -> a8 is OWNED at layer grain, with the largest n of any screen (9,056 targets) and the cross-method agreement that makes it more than a screen result — the §513 atlas (behavior-first ablation) and the a8-counting/symbolic-count arc (backlog #3, weight-side) converge on the same layer. Concentration is moderate (5.9) rather than bracket-sharp (46.8), consistent with digits being a broad token class rather than a single structural event.
+- a13's flat +0.001 at digit targets is a clean dissociation: the bracket owner's layer carries nothing digit-specific, and vice versa (§1341's a13 map had no digit term). The named-owner map is carving at real joints.
+- Queued (digit_heads.py): the §1340-pattern head stage on a8 — solo and all-but-one over its 9 heads at digit targets. Registered with a modest owner bar (digits are broad): pred_a top head >= 50% of the layer's target damage; pred_b knockout and keep-only AGREE on the top head; pred_c the top head's elsewhere damage <= 10% of its target damage.
+
+digit_screen_results.json; runlogs/digit_screen.log (97s).
