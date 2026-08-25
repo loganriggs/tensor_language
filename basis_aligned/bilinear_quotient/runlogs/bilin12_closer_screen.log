@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 1779
+base target 1.325
+a0: t +0.184 j +0.147 r +0.203 e +0.193
+a1: t +0.414 j +0.250 r +0.305 e +0.314
+a2: t +0.283 j +0.213 r +0.249 e +0.245
+a3: t +0.568 j +0.131 r +0.148 e +0.166
+a4: t +0.627 j +0.239 r +0.316 e +0.285
+a5: t +0.559 j +0.221 r +0.212 e +0.207
+a6: t +0.250 j +0.157 r +0.195 e +0.200
+a7: t +0.953 j +0.048 r +0.046 e +0.045
+a8: t -0.006 j +0.044 r +0.060 e +0.076
+a9: t +0.069 j +0.037 r +0.047 e +0.052
+a10: t +0.087 j +0.038 r +0.038 e +0.029
+a11: t +0.025 j +0.031 r +0.039 e +0.029
+
+winner a7 (rel depth 0.64) conc 21.1 | jitter 1.05 random 1.01
+pred_a conc True | pred_b mid True | pred_c controls True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin12_closer_screen_results.json (80.6s)

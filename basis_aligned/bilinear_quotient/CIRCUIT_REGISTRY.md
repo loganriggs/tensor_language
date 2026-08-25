@@ -61,6 +61,13 @@ To find a head's true function, intersect its capability appearances (0.3=bigram
 1.1=stem match, 10.5=terminal-state cashing, 8.3=copy — each shows up wherever its
 function is useful). Capability kits share function-heads; price them once.
 
+## Transfer thread (opened §1373)
+
+bilin12 HAS a closer layer: a7, +0.953 (stronger than bilin18's), conc 21.1, controls
+clean, rel depth 0.64 (vs 0.72). First specialist-grain universality evidence. Owner-head
+stage in flight; if an owner exists, the template ports next (route grain needs a bilin12
+adapter — lamb/lambdas API identical per tt_model).
+
 ## Generators (when the pool runs low — run one, refill the pool)
 
 1. ~~**Token-class taxonomies through the behaviour screen**~~ EXHAUSTED §1363 (14

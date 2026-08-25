@@ -33728,3 +33728,15 @@ full_description_kit2_results.json; runlogs/full_description_kit2.log (194s; one
 - THE EXTRACTION ARC CLOSES (§1311-1372, sixty-one sections): three capability kits at 0.66-0.88 on one 22-head commons, a delimiter-general closer, a probe-gate instrument with a named recall ceiling, the two-tier bill at 25M attention params, and the description bottleneck located in the twice-implemented generic middle. FINDINGS.md gains the arc as a standing item this commit; the registry board is current; the viewer carries the capstone.
 
 comparative_refine_gate_results.json; runlogs/comparative_refine_gate.log (86s).
+
+## §1373 — THE CLOSER TRANSFERS: bilin12 has a concentrated close-bracket layer — a7, target damage +0.953 (STRONGER than bilin18's +0.71), concentration 21.1, both controls clean (1.05/1.01), at relative depth 0.64 vs bilin18's 0.72 — all three registered transfer bets TRUE on the first rung of the cross-model thread (bilin12_closer_screen.py; n=1779, full 12-layer sweep)
+
+  bilin12 per-layer target damage: a7 +0.953 | a4 +0.627 | a3 +0.568 | a5 +0.559 (all with
+  generalist-shaped controls except a7, whose jitter/random sit at 1.05/1.01 — the only
+  concentrated layer). Late layers a8-a11 near zero, a8 slightly negative.
+
+- THE SPECIALIST STRUCTURE IS A FAMILY PROPERTY, first evidence: a sibling model trained independently at 12L/6-heads develops a close-bracket layer at matched relative depth (0.64 vs 0.72) with the same signature — sharp concentration, clean controls, surrounded by generalist layers. The §FINDINGS "universal" results were about the CONTENT code (CCA 0.95-0.97); this is the first universality evidence at the SPECIALIST-CIRCUIT grain.
+- The damage is larger in the smaller model (+0.953 vs +0.71) — consistent with less redundancy to cover a specialist's removal in a 6-head layer than a 9-head one.
+- Queued (bilin12_closer_heads.py): the sharpest transfer claim — does bilin12's a7 have a single OWNER head like 13.8 (96.5% solo, §1340)? §1340-pattern at head grain (6 heads, solo + all-but-one). Registered: pred_a an owner exists (top head >= 60% of layer damage solo); pred_b knockout and keep-only agree; pred_c surgical (elsewhere <= 10% of target). A win would make owner-structure itself a family property; a crowd verdict would say the FUNCTION transfers but its implementation grain is model-specific — either outcome is a §-worthy fact about what training reproducibly builds.
+
+bilin12_closer_screen_results.json; runlogs/bilin12_closer_screen.log (81s).
