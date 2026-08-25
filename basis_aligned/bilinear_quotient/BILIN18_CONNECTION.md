@@ -33827,3 +33827,10 @@ swiglu18_closer_screen_results.json; runlogs/swiglu18_closer_screen.log (221s).
 - The universality claim reaches its strongest defensible form: EXISTENCE, SINGLE-OWNER GRAIN, MID-LATE DEPTH, AND THE INTERFERENCE WRAPPING are properties of the training problem — invariant across every architecture variant tested. STRENGTH is architecture-modulated on two axes: score function (sqrd12 half) and MLP type (SwiGLU a third) — the specialists shrink when other components can absorb their service. Transfer thread CLOSES at six sweeps in seven runs.
 
 swiglu18_closer_heads_results.json; runlogs/swiglu18_closer_heads.log (230s).
+
+## §1381 — THE CAPSTONE IS DRAW-ROBUST: on fully disjoint fresh rows all four family scores land within +-0.025 of §1368 (question 0.671 vs 0.696, comparative 0.867 vs 0.874, closer brackets 0.771 vs 0.767, quotes 0.646 vs 0.657), the ordering is preserved exactly, selectivity holds — preds a, b, c ALL TRUE; the standing +-0.05 single-draw caveat is MEASURED at half that size for the headline result (shared_band_kit_seed2.py)
+
+- The one number the whole arc rested on now has its spread: max |delta| = 0.025 across four families on disjoint text. The §1368/§1369 claims (one 22-head commons + specialists ~ two-thirds of four capability families at 4.5% of the model) carry a measured error bar instead of a feared one.
+- Queued (bilin12_closer_kit.py): the RECIPE-transfer question — the §1346 kit template ported whole to bilin12 ([route + depth/parity union gate on the front band + 7.1], 12L/6h adapter). The screens transferred (§1373-75); this asks whether the EXTRACTION GRAMMAR does. Registered: pred_a the kit carries >= 0.55 bracket recovery; pred_b conditionality transfers (7.1 solo <= route + 0.08); pred_c selectivity (elsewhere within 0.05 of route).
+
+shared_band_kit_seed2_results.json; runlogs/shared_band_kit_seed2.log (105s).

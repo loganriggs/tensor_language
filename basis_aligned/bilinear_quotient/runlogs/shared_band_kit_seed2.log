@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+commons 22 heads
+targets: q 291 | than 109 | bracket 1759 | quote 1010
+full: question 0.940 comparative 1.263 closer_b 1.211 closer_q 1.730 | else 3.1287
+ymean: question 7.179 comparative 7.725 closer_b 10.004 closer_q 8.709 | else 7.1438
+route: question 5.544 comparative 4.643 closer_b 5.262 closer_q 6.790 | else 5.4025
+kit_question: question 2.995 comparative 4.244 closer_b 5.084 closer_q 6.586 | else 5.3621
+kit_comparative: question 4.791 comparative 2.125 closer_b 4.824 closer_q 6.341 | else 5.2271
+kit_closer: question 5.262 comparative 4.549 closer_b 3.229 closer_q 4.201 | else 5.2883
+
+scores: question 0.671 (bar 0.696) comparative 0.867 (bar 0.874) closer_b 0.771 (bar 0.767) closer_q 0.646 (bar 0.657)
+pred_a all-within True | pred_b commons<=22 True (22) | pred_c selective True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/shared_band_kit_seed2_results.json (104.7s)
