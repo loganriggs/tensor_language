@@ -1,0 +1,30 @@
+{
+  "datapoint": {
+    "row": 1206,
+    "pos": 96,
+    "context": " \"Francois Pienaar – Biography\". sporting-hero",
+    "target": "es",
+    "ce": 0.0003,
+    "mlp1_dce": 0.443,
+    "bucket": "fragment",
+    "nrows": 1600
+  },
+  "top_heads_ov": [[3, 8, 0.0015], [3, 7, 0.0009], [4, 5, 0.0009]],
+  "top_heads_qk": [[3, 8, 0.0016], [4, 5, 0.0005], [8, 4, 0.0004]],
+  "top_mlps": [[1, 0.443], [0, 0.0063], [3, 0.0042]],
+  "qk_vs_ov_reading": "mlp1 (dCE=0.443) dwarfs every head by ~280-290x at this position -- an ordinary mid-word subword completion ('sporting-hero'+'es') is essentially all mlp1 table, attention is decorative. Among heads: 3.8 (KNOWN COPY STATION, rediscovery) is top at both grains, ov=0.0015 approx= qk=0.0016 -> matched/SELECTION regime, but both values are already at raw-local noise scale before any scoping.",
+  "chosen_spec": ["head_qk", 3, 8],
+  "scope_stats": {
+    "spec": ["head_qk", 3, 8],
+    "skip": 900,
+    "n_positions": 18431,
+    "mean_dce": 0.00731,
+    "frac_gt_0.5": 0.00678
+  },
+  "two_skip_check": {
+    "skip_1700": "not run -- magnitude (0.00731) is far under the 0.02 floor (>2.5x margin) and d0's floor-boundary case already confirmed cross-skip stability for a comparably-sized head effect; skipped to conserve budget.",
+    "verdict": "N/A -- no category claimed, floor rule applies outright."
+  },
+  "category_story": "FLOOR: mean_dce 0.0073 < 0.02 -> NO category story. Record: minor generic helper, magnitude 0.0073. Top-30 hurt examples for 3.8 here show no coherent theme ('keep on checking it until it has'->'ac', 'medical'->'follow', 'crockpot, it will take the'->'the', 'basic form of stabilization'->'rel', 'annual media'->'X') -- consistent with 3.8 acting as a low-salience generic walk-on rather than a driver of this position.",
+  "surprises": "3.8, the canonical copy-station head, is rediscovered as the top head here but contributes almost nothing (dCE ~0.0015 locally, 0.0073 in scope) -- mlp1 alone handles this ordinary subword continuation. This reconfirms mlp1's already-established giant token-identity table (writeup 1322: 94.4% of the 7-nat stake) rather than revealing anything new; not separately re-scoped since it is the identical component already characterized in d0 of this record set (mean_dce 8.36/8.63 nats, frac_gt_0.5 94.4%/95.0% across skip=900/1700)."
+}

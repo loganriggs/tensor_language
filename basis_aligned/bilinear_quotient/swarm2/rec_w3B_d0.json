@@ -1,0 +1,37 @@
+{
+  "datapoint": {
+    "row": 883,
+    "pos": 139,
+    "context": "ounting kit is compatible with your resin plate. You'll need",
+    "target": " to",
+    "ce": 0.7016,
+    "mlp1_dce": 0.4543,
+    "bucket": "word",
+    "nrows": 1600
+  },
+  "top_heads_ov": [[7, 8, 0.198], [3, 8, 0.087], [7, 0, 0.0723]],
+  "top_heads_qk": [[7, 8, 0.0977], [2, 5, 0.0975], [3, 8, 0.0696]],
+  "top_mlps": [[1, 0.4543], [3, 0.2138], [7, 0.1819]],
+  "qk_vs_ov_reading": "Head 7.8 tops both grains: ov=0.198 vs qk=0.0977, ratio~2.0 -> mildly PAYLOAD-leaning regime (not clean OV>>QK, but tilted). mlp1 (dCE=0.4543) is ~2.3x head 7.8's ov effect and ~440x head 7.8's local dCE is still the same order of magnitude as the head here (unlike d1/d2 where mlp1 dwarfs everything) -- this is a comparatively 'head-competitive' position. 3.8 (known copy station) is a walk-on in both top-3 lists (rank 2/3) at negligible magnitude. Per protocol the top head (7.8) is scoped regardless of mlp1's presence.",
+  "chosen_spec": ["head_ov", 7, 8],
+  "scope_stats": {
+    "spec": ["head_ov", 7, 8],
+    "skip": 900,
+    "n_positions": 18432,
+    "mean_dce": 0.01908,
+    "frac_gt_0.5": 0.01731
+  },
+  "two_skip_check": {
+    "skip_1700": {"mean_dce": 0.01757, "frac_gt_0.5": 0.01525, "n_positions": 18432},
+    "verdict": "Magnitude stable across skips (0.01908 vs 0.01757, both < 0.02) -- confirms this is a genuine, reproducible but sub-floor effect, not sampling noise. No category is named per the floor rule; two-skip run here served to confirm the floor call itself rather than validate a category (none claimed)."
+  },
+  "category_story": "FLOOR: mean_dce 0.019 (skip=900) / 0.0176 (skip=1700), both under the 0.02 magnitude floor -> NO category story. Record: minor generic helper, magnitude ~0.018. Head 7.8 is not in the known-head list -- worth a note for future waves: its top-30 hurt examples at both skips cluster suggestively around idiomatic/collocational final-word completions ('made the grade', 'leave well enough alone', 'adrenaline flowing', 'no fiscal impact', 'honorable mention Pac', 'taking direct aim', 'come into contact') -- but the effect sits right at the floor boundary and is not asserted as a category under this protocol.",
+  "top_mlp_scope": {
+    "spec": ["mlp", 1],
+    "note": "Top MLP (0.4543), different from chosen head -- scoped per protocol.",
+    "skip_900": {"mean_dce": 8.35646, "frac_gt_0.5": 0.9439, "n_positions": 18432},
+    "skip_1700": {"mean_dce": 8.62647, "frac_gt_0.5": 0.94976, "n_positions": 18432},
+    "verdict": "Stable across skips (94.4% / 95.0%). This is the already-known mlp1 giant token-identity table (writeup 1322: 94.4% of the 7-nat stake) -- broad, not a narrow category; a rediscovery/reconfirmation, not a new finding."
+  },
+  "surprises": "Head 7.8 is a fresh, unlisted head that lands almost exactly on the 0.02 magnitude floor on two disjoint skips -- a genuine near-miss rather than noise (skip=900: 0.0191, skip=1700: 0.0176). Its top hurt-examples look thematically coherent (idiom/collocation completion) even though we can't name a category under the floor rule; flagging for a future wave with a larger scope sample (topk/nrows increase) to see if it clears the bar. Known copy station 3.8 makes its usual negligible cameo in both top-3 lists. mlp1 does not dwarf the head here by orders of magnitude the way it does in d1/d2 -- this position is unusually 'balanced' between mlp1 and attention, yet mlp1's own scope reconfirms the known 94%-coverage giant table rather than anything datapoint-specific."
+}

@@ -1,0 +1,17 @@
+{
+  "datapoint": {"row": 347, "pos": 173, "context": "! And I love the story behind the name!\nOh wow. This", "target": " is", "ce": 0.5984, "class": "word", "nrows": 1600},
+  "top_heads_ov": [[2, 5, 0.3465], [1, 4, 0.1951], [11, 6, 0.1408]],
+  "top_heads_qk": [[2, 5, 0.2656], [1, 4, 0.1954], [11, 6, 0.0823]],
+  "top_mlps": [[5, 0.4282], [0, 0.3808], [2, 0.3456]],
+  "qk_vs_ov_reading": "Top head (2,5): ov=0.3465 vs qk=0.2656, ratio ~1.3x -- largely matched, mildly OV-leaning -> SELECTION-dominant regime with some payload contribution. Notably the top MLP (mlp5, dCE=0.4282) outranks the top head numerically for this ordinary function-word completion ('This' -> 'is'), which is a bit surprising for such a simple word-continuation target.",
+  "scoped_specs": [["head_ov", 2, 5], ["mlp", 5]],
+  "scope_stats": {
+    "head_2_5_skip900": {"mean_dce": 0.02766, "frac_gt_0.5": 0.02913, "n_positions": 24576},
+    "head_2_5_skip1700": {"mean_dce": 0.02609, "frac_gt_0.5": 0.02751, "n_positions": 24576},
+    "mlp_5_skip900": {"mean_dce": 0.08165, "frac_gt_0.5": 0.11941, "n_positions": 24576}
+  },
+  "category_story_or_floor_note": "Head (2,5) NAMED: completes the next BPE fragment of an unfamiliar/low-frequency multi-token string -- rare proper names (surnames, foreign names: 'McKit'->'rick', 'Thomas and Br'->'iner', 'Deborah D'->'work', 'George E. Kos'->'kim') or alphanumeric codes (GPS coordinates '41.01361'->';'->'28.955', account numbers, technical IDs like 'GES_DISC_'->'GS'). In short: 'predict the next chunk of an unusual token sequence that isn't ordinary English vocabulary.' Above floor and consistent across two disjoint skips (mean_dce 0.0277 / 0.0261, frac_gt_0.5 2.9% / 2.8%). mlp5 NOT named as a tight category: examples are a heterogeneous mix of rare surnames, digits, codes and ordinary low-frequency words (mean_dce 0.0817, frac 11.9%) -- broader magnitude than the head but too diffuse to support one falsifiable class; reported as a generic rare/low-frequency-continuation MLP, not a named story.",
+  "two_skip_check": "held",
+  "local_global_match": "Mismatch. The single largest local dCE at this exact position is mlp5 (0.4282), not head (2,5)'s ov/qk (0.35/0.27) -- yet head (2,5) is the part with the interesting, falsifiable global specialty (rare-name/code BPE continuation), and mlp5 is a broad generic table. The datapoint itself (ordinary word 'is' after 'This') doesn't exemplify either part's discovered global function -- neither head 2.5's name/code completion nor mlp5's rare-token table role has anything to do with predicting 'is' here.",
+  "surprises": "For a trivial, everyday word completion ('This' -> ' is', ce=0.60), the top MLP (mlp5) outranks the top head in dCE, and the top head (2,5) turns out via scoping to specialize in something unrelated to this specific position: BPE continuation of rare proper names and alphanumeric codes. Head (11,6) reappears in the top-3 ov/qk list (as it did in an earlier wave-3 record for a name-list position) despite no list context here -- possibly a generic contributor rather than list-specific, worth flagging but not scoped this round (not top head)."
+}

@@ -1,0 +1,13 @@
+{
+  "datapoint": {"row": 1206, "pos": 96, "context": " \"Francois Pienaar – Biography\". sporting-hero", "target": "es", "ce": 0.0003, "mlp1_dce": 0.443, "class": "fragment", "nrows": 1600},
+  "top_heads_ov": [[3, 8, 0.0015], [3, 7, 0.0009], [4, 5, 0.0009]],
+  "top_heads_qk": [[3, 8, 0.0016], [4, 5, 0.0005], [8, 4, 0.0004]],
+  "top_mlps": [[1, 0.443], [0, 0.0063], [3, 0.0042]],
+  "qk_vs_ov_reading": "mlp1's dCE (0.443) dwarfs every head's dCE (max 0.0016) by ~275x at this position -- essentially all model confidence for this trivial mid-word BPE completion ('sporting-hero'+'es') comes from mlp1's token table, none from attention. Top head (3,8): ov=0.0015 approx= qk=0.0016 -> matched/selection regime, but negligible in magnitude. (3,8) matches the KNOWN copy-station head (3.8/8.3 in the known-heads list) -- a flagged rediscovery, though its causal weight here is noise-level.",
+  "scoped_specs": [["head_ov", 3, 8]],
+  "scope_stats": {"head_3_8_skip900": {"mean_dce": 0.0082, "frac_gt_0.5": 0.00814, "n_positions": 24576}},
+  "category_story_or_floor_note": "BELOW MAGNITUDE FLOOR (0.0082 < 0.02) -- per protocol, no category named. Recorded as: minor generic helper, magnitude 0.0082. (Consistent with 3.8 being a known copy-station head in general, but at this skip/scale its scoped effect is not distinguishable from noise, so no fresh category claim is made.) mlp1's table dominance is the real explanation for this datapoint but is the already-established mlp1 token-table mechanism (characterized extensively elsewhere in the swarm/benchmark work) -- not re-scoped here given time budget and because it is not a novel finding.",
+  "two_skip_check": "n/a-below-floor",
+  "local_global_match": "Good match at the coarse level: the local top-MLP dominance (mlp1) correctly predicts that this position is a pure-table completion, not an attention-driven one. The nominal top head (3,8) is a rediscovery-in-name-only -- present in the top-3 by rank but carrying ~300x less weight than mlp1, and its own scoped global effect is below the noise floor.",
+  "surprises": "The canonical copy-station head (3,8) appears in the top-3 by both ov and qk grain for this fragment-completion position, but at 0.0015-0.0016 dCE it is roughly 300x smaller than mlp1's contribution (0.443) -- a rediscovery that turns out to carry no real causal weight here. This reinforces that mid-word BPE suffix completions ('-es', '-ing', etc.) are handled almost entirely by mlp1's table, with copy-station attention playing at most a vestigial role at this specific position."
+}

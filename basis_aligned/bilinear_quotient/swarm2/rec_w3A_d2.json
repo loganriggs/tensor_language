@@ -1,0 +1,16 @@
+{
+  "datapoint": {"row": 1113, "pos": 66, "context": " Water||0.10 sq mi (0.26 km2)|\n", "target": "|", "ce": 0.0951, "mlp1_dce": 0.0547, "class": "punct", "nrows": 1600},
+  "top_heads_ov": [[7, 1, 0.1054], [8, 5, 0.0412], [13, 8, 0.0362]],
+  "top_heads_qk": [[7, 1, 0.0832], [8, 5, 0.0403], [13, 8, 0.0302]],
+  "top_mlps": [[8, 0.1197], [4, 0.0891], [3, 0.0625]],
+  "qk_vs_ov_reading": "Top head (7,1): ov=0.1054 vs qk=0.0832, ratio ~1.27x -- largely matched, mildly OV-leaning -> SELECTION-dominant with modest payload contribution. Top MLP (mlp8, dCE=0.1197) is close behind/slightly above the top head, so both were scoped per protocol. Rank-3 head is (13,8) -- the KNOWN 'closer' head (brackets+quotes+pipes) -- appearing exactly as expected for a table-pipe-delimiter target ('|'), a clean rediscovery matching its documented third surface.",
+  "scoped_specs": [["head_ov", 7, 1], ["mlp", 8]],
+  "scope_stats": {
+    "head_7_1_skip900": {"mean_dce": 0.00233, "frac_gt_0.5": 0.00098, "n_positions": 24576},
+    "mlp_8_skip900": {"mean_dce": 0.0498, "frac_gt_0.5": 0.06896, "n_positions": 24576}
+  },
+  "category_story_or_floor_note": "Head (7,1) BELOW MAGNITUDE FLOOR (0.00233 < 0.02) -- no category named; recorded as minor generic helper, magnitude 0.00233. mlp8: mean_dce 0.0498 (above floor) but its top examples are a heterogeneous mix -- rare surnames ('Cen'->'ac', 'Hatik'->'v'), sports-roster continuations ('A.J.'->' Ellis', 'Ted Lilly, Jason'->' Marqu'), brand/place fragments ('Sous'->' Vide'), document-header fragments ('PIL'->'OT') -- the same generic rare/low-frequency-continuation flavor seen for mlp5/mlp1 in the other two datapoints of this batch. Too diffuse to support one falsifiable category name; reported but not claimed (no two-skip performed, given breadth and time budget).",
+  "two_skip_check": "n/a-below-floor (head 7,1); category not named for mlp8, so no two-skip performed",
+  "local_global_match": "Mismatch for the nominal top part: local top-dCE head (7,1) is globally negligible (mean_dce 0.0023, essentially noise). Meanwhile the KNOWN 13.8 closer head shows up in the top-3 at both grains for a genuine table-pipe-delimiter target, consistent with its documented role -- but it wasn't the top-ranked part, so per protocol it wasn't separately scoped this round.",
+  "surprises": "A table-cell delimiter '|' recruits the documented 13.8 'closer' head (brackets/quotes/pipes) at rank 3, exactly matching its known third surface (PIPES) -- a clean confirmation. But the actual top-ranked head (7,1) is a nothing-burger globally (0.0023 mean dCE), a good illustration of why local top-dCE rank alone can mislead: the on-story, previously-catalogued head is not always #1 at any given position."
+}

@@ -1,0 +1,31 @@
+{
+  "datapoint": {
+    "row": 486,
+    "pos": 77,
+    "context": " Estate Lawyers by Robert O. Hetlage, David A. Richards",
+    "target": ",",
+    "ce": 0.056,
+    "mlp1_dce": 0.355,
+    "bucket": "punct",
+    "nrows": 1600
+  },
+  "top_heads_ov": [[5, 0, 0.0744], [4, 0, 0.0513], [0, 3, 0.0489]],
+  "top_heads_qk": [[5, 0, 0.0565], [4, 0, 0.0289], [3, 3, 0.0259]],
+  "top_mlps": [[2, 0.3833], [1, 0.355], [0, 0.3389], [3, 0.3264]],
+  "qk_vs_ov_reading": "Four MLPs (2, 1, 0, 3) cluster tightly around 0.33-0.38 dCE -- no single dominant table-lookup component like d0/d1's clean mlp1 spike; suggests distributed early-MLP-stack contribution to this name-list-continuation comma. Top head 5.0 (new, not in known list) leads both grains: ov=0.0744, qk=0.0565, ratio~1.32 -> close to matched, mild PAYLOAD lean. 4.0 is a consistent runner-up at both grains (ov=0.0513, qk=0.0289, ratio~1.8, more payload-leaning).",
+  "chosen_spec": ["head_ov", 5, 0],
+  "scope_stats": {
+    "spec": ["head_ov", 5, 0],
+    "skip": 900,
+    "n_positions": 18432,
+    "mean_dce": 0.00344,
+    "frac_gt_0.5": 0.00141
+  },
+  "two_skip_check": {
+    "skip_1700": "not run for head 5.0 -- magnitude (0.00344) is nearly 6x under the 0.02 floor, the widest margin of the three datapoints in this record; skipped to conserve budget.",
+    "mlp2_skip_1700": {"mean_dce": 0.801, "frac_gt_0.5": 0.52365, "n_positions": 18432, "note": "run instead on the top MLP (mlp2) to check the 'distributed/broad' reading, since it is the numerically dominant and more interesting component here."},
+    "verdict": "Head 5.0: N/A -- no category claimed, floor rule applies outright. mlp2: stable across skips (52.8% vs 52.4% frac_gt_0.5, 0.795 vs 0.801 mean_dce) -- confirms mlp2 is a genuine broad/generic contributor here, not sampling noise, but still too diffuse to name a specific category (see below)."
+  },
+  "category_story": "Head 5.0: FLOOR -- mean_dce 0.0034 < 0.02 -> NO category story. Record: minor generic helper, magnitude 0.0034. Top-30 hurt examples span disparate contexts (name-list continuations, disjunctions, pipe-table closes, conjunctions) with no coherent theme. Top MLP (mlp2, different from chosen head): mean_dce 0.795-0.801 nats, frac_gt_0.5 ~52-53% -- broad and stable, but its top hurt-examples ('EKG at an Orlando, Fla.,'->' hospital', 'Rowlett, Texas,'->' native', 'not by'->' design', 'Pew Center...a'->' nonpartisan', 'leave well enough'->' alone', 'Suleiman the'->' Magn', \"'Heartbeat' is\"->' filmed') span too many unrelated completion types to name a single falsifiable category -- reads as generic broad completion support (mlp1-adjacent capacity at a different depth), not a narrow circuit.",
+  "surprises": "This datapoint has no clean dominant component at all: four MLPs (0,1,2,3) sit within a narrow 0.33-0.38 nat band, unlike d0/d1's single mlp1 spike -- a genuinely 'distributed' position. Top head 5.0 is entirely new (not in the known-head list, not a rediscovery) but is floor-negligible. No struck heads (11.6/6.5/7.8) and no canonical named heads (3.8/8.3/8.1/10.5/13.8/17.2/17.3/8.7/0.3) appear anywhere in either top-3 list for this datapoint -- a clean non-rediscovery, consistent with this being an ordinary name-list comma with no special-purpose circuit driving it."
+}
