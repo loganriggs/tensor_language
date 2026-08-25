@@ -1,0 +1,20 @@
+{
+ "anchor_version": "v0-practice",
+ "source": "/workspace/tensor_language/basis_aligned/bilinear_quotient/optimal_ablation_all_results.json",
+ "generated": "2026-08-25 21:57 UTC",
+ "clean_ce": 2.9455,
+ "data_budget": {
+  "train_rows": 480,
+  "train_skip": 80,
+  "steps_mlp_attn": 150,
+  "steps_head": 100,
+  "batch_rows": 8,
+  "positions_per_step": 1536,
+  "eval_rows": 960,
+  "eval_skip": 7000,
+  "eval_positions": 184320
+ },
+ "partial": false,
+ "n_components": 198,
+ "reference": "Li & Janson arXiv 2409.09951"
+}

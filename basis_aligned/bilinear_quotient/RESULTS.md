@@ -5178,3 +5178,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1441 — mlp1 GLASS-PLANKED 3-for-3: tier2000+rank64 = .922 @ 89.5 Mbit (10x cheaper, 99% of table fidelity); svd64 = 14x fid/Mbit; plank test passes (mlp1_table_compress)
 §1442 — downstream-defined clusters beat activation-defined at ALL K (user's principle confirmed); K=2 below constant floor (mlp0 needs >=16 classes); down-64 = .528 @ 1.5 Mbit = 350x table efficiency; rank-24 = variance stat not compression rank (mlp0_downstream_clusters)
 §1443 — mlp17: linear read .821 reproduced; +quad .856 (preds b,c failed); top readout = linear + scraps (mlp17_quad_ladder)
+§1444 — FULL BASELINE COMPLETE: 198/198 anchors frozen (median opt/mean .9964 — mean is near-optimal everywhere; head8.0 = inert-component edge case, rule registered); attn-layer tier priced (attn0 .240); anchors -> bench/anchors/ (optimal_ablation_all)

@@ -135,7 +135,7 @@ def main():
         return s_ / max(n_, 1)
 
     res = {}
-    for mode in [None, 'mean', 'full', 'svd64', 'svd256', 'tier2000', 'tier8000']:
+    for mode in [None, 'mean', 'tier', 'tier_ridge', 'tier_ridge128']:
         res[str(mode)] = round(ce_run(mode), 4)
         print(f"{mode}: {res[str(mode)]:.4f}", flush=True)
         json.dump({'partial': True, 'res': res}, open(OUT, 'w'), indent=1)

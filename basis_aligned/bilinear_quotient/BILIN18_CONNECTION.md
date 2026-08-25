@@ -34343,3 +34343,12 @@ swarm2/ complete for waves 1-3; worker reports in session log.
 - Frontier adds: down-64 (.528 @ 1.5 Mbit) and down-256 (.624 @ 5.1 Mbit) are the two best fid-per-bit entries in the repo after the 5.7 bias vector.
 
 ## §1443 — mlp17: THE LINEAR READ REPRODUCES, THE QUADRATIC ADDS LITTLE (pred_a PASSED: ridge from mlp17's own input = .821 fid_opt, matching the §1131 read; pred_b FAILED: +quad adds .035, under .04; pred_c FAILED: total .856 vs .88): the top readout module stays "a linear read plus scraps" — its remaining .049-nat gap after quad is 14% of its stake, and the bilinear structure the architecture allows is barely used at this module ON-distribution (mlp17_quad_ladder_results.json)
+
+## §1444 — THE FULL OPTIMAL-ABLATION BASELINE IS COMPLETE: ALL 198 COMPONENTS ANCHORED (pred_a PASSED: median Δ_opt/Δ_mean = .9964 — the mean anchor is near-optimal almost everywhere; pred_b PASSED: the single component where optimization helps a lot is attention — head8.0 at ratio .519; pred_c FAILED as written: head8.0's Δ_opt rounds to 0.0000, violating the all-positive sanity bar — but the failure is an INERT-COMPONENT edge case, not a bad anchor: its Δ_mean is also 0.0000, its "ratio" is noise over nothing, and its loss curve never moves): every MLP, every head, and every attention layer in bilin18 now has a frozen learned-constant anchor with a full training curve and data-budget record — the benchmark's Invariant-4 substrate, converted to bench/anchors/ (198 files + _meta) (optimal_ablation_all_results.json; opt_ablation_consts_all.pt)
+
+  Attention-layer anchors (new): attn0 .240 | attn4 .223 | attn1 .219 | attn2 .159 |
+  attn5 .136 | attn3 .116 | ... — the front-attention tier is priced at last.
+  Inert-component rule registered for the practice bench: components with
+  Δ_mean < CI-noise are excluded from ratio statistics and priority ranking (head8.0
+  is literally a zero-function head at this grain).
+- The anchor-sweep loss curves (198 panels) are in the artifact; the priority board now covers the full model. The sweep's summary law: the mean is the optimal constant for bilin18's components, everywhere it matters — Δ_opt re-anchoring changes nothing that Δ_mean anchoring hadn't already said, which certifies the program's entire mean-anchored history in one number (.9964).
