@@ -127,3 +127,11 @@ grain. 17.2 (expressive-broad) leads = its 3rd moonlight. Members under .02 solo
 unnamed individually; the committee is the named unit. Unit pricing (S1398): committee-only = 71% of band, else 2% (surgical); rest-20 unselective generic. REMOVAL GOAL DONE (7/162 heads). Grain (S1399): a16 trio conjunctive,
 a17 trio payload-dominant. Kit (S1400-01): committee is a REMOVAL HANDLE ONLY — construction
 marginal .008-.029 (redundant with commons+upstream); ungated commons serves capitalized .813.
+
+## Two inventories, closed form (S1404)
+Removal handles != construction components, now certified at the flagship: 13.8 (97%
+bracket owner by ablation) has NEGATIVE drop cost in the unified 28-head kit — closer
+targets are served without it under co-residence. Only 10.5 (question) is a load-bearing
+specialist in construction (.195); 8.1 marginal .048. Individual drop costs do not
+compose (redundancy = shared resource): 14 individually-cheap heads collapse the kit
+when dropped together.
