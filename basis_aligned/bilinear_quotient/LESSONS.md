@@ -159,3 +159,8 @@ activation (norm max/mean can still be ~1.5) — they are different diagnostics.
   bqrunner popped exclaim_gates.py between generation and an in-place rewrite, running
   the version already diagnosed as ill-posed. All edits and the ast.parse check complete
   BEFORE the echo into queue.txt, never after. (Related: asserted transforms, §1347.)
+- JITTER CONTROL SCOPE (§1362): jitter ("wrong position, same text") is valid only for
+  POSITION-SPIKED capabilities. For phrase-scoped services (a8's numeric-context), jitter
+  positions sit inside the service's own support and the control is not evaluable — use a
+  matched-phrase-elsewhere draw instead, and say which regime the screen uses. (Two
+  contamination classes + one refuted account: §1339 mask contamination, §1361-62.)
