@@ -138,3 +138,9 @@ targets are served without it under co-residence. Only 10.5 (question) is a load
 specialist in construction (.195); 8.1 marginal .048. Individual drop costs do not
 compose (redundancy = shared resource): 14 individually-cheap heads collapse the kit
 when dropped together.
+
+## NEWLINE-SETTER PAIR: 8.2 + 11.0 (S1415, from the head-grain damage mine)
+8.2: newline-target damage +.1457, controls <= .0025 (cleanest first screen since the
+closer). 11.0: +.0894, clean. Distinct from the old front-attention newline ROUTING
+circuit (item 7) — these predict where newlines GO. 10.6 = quote helper +.036 clean
+(possible open-side partner to 13.8's close ownership). Characterization: newline_pair_quote.
