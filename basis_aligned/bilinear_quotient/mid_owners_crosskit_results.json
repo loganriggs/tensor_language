@@ -1,0 +1,109 @@
+{
+ "ce": {
+  "full": {
+   "question": 0.9464,
+   "comparative": 1.2539,
+   "closer_b": 1.2133,
+   "closer_q": 1.7717,
+   "else": 3.1392
+  },
+  "ymean": {
+   "question": 8.907,
+   "comparative": 8.2717,
+   "closer_b": 10.6752,
+   "closer_q": 9.7251,
+   "else": 7.1925
+  },
+  "route": {
+   "question": 6.296,
+   "comparative": 5.2029,
+   "closer_b": 5.6685,
+   "closer_q": 7.5544,
+   "else": 5.4837
+  },
+  "comparative_live": {
+   "question": 5.4588,
+   "comparative": 2.1355,
+   "closer_b": 5.1399,
+   "closer_q": 6.9601,
+   "else": 5.2785
+  },
+  "comparative_mean": {
+   "question": 5.742,
+   "comparative": 4.4397,
+   "closer_b": 4.4723,
+   "closer_q": 6.3647,
+   "else": 5.5973
+  },
+  "comparative_keep4": {
+   "question": 5.4243,
+   "comparative": 2.0832,
+   "closer_b": 4.9841,
+   "closer_q": 6.3043,
+   "else": 5.5634
+  },
+  "question_live": {
+   "question": 3.3638,
+   "comparative": 4.7692,
+   "closer_b": 5.4587,
+   "closer_q": 7.3188,
+   "else": 5.4284
+  },
+  "question_mean": {
+   "question": 5.2492,
+   "comparative": 5.5401,
+   "closer_b": 4.6459,
+   "closer_q": 6.4846,
+   "else": 5.6042
+  },
+  "question_keep4": {
+   "question": 4.1091,
+   "comparative": 4.8644,
+   "closer_b": 5.2242,
+   "closer_q": 6.4973,
+   "else": 5.6157
+  },
+  "closer_live": {
+   "question": 5.9721,
+   "comparative": 5.0749,
+   "closer_b": 3.4169,
+   "closer_q": 4.4965,
+   "else": 5.3515
+  },
+  "closer_mean": {
+   "question": 6.1035,
+   "comparative": 5.7336,
+   "closer_b": 4.3591,
+   "closer_q": 5.8373,
+   "else": 5.5812
+  },
+  "closer_keep4": {
+   "question": 5.8477,
+   "comparative": 5.0743,
+   "closer_b": 3.5935,
+   "closer_q": 4.4509,
+   "else": 5.5552
+  }
+ },
+ "recovery_table": {
+  "comparative": {
+   "live": 0.8744,
+   "mean": 0.546,
+   "keep4": 0.8818
+  },
+  "question": {
+   "live": 0.6963,
+   "mean": 0.4595,
+   "keep4": 0.6027
+  },
+  "closer": {
+   "live": 0.7671,
+   "mean": 0.6675,
+   "keep4": 0.7484
+  }
+ },
+ "pred_a_question_holds": false,
+ "pred_b_closer_holds": true,
+ "pred_c_selective": false,
+ "runtime_s": 244.5
+}

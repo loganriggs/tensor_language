@@ -1,0 +1,32 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+commons 22 heads
+refit mlp4 installed (rmsref 529.8)
+refit mlp5 installed (rmsref 221.3)
+refit mlp6 installed (rmsref 144.0)
+refit mlp7 installed (rmsref 189.6)
+refit mlp8 installed (rmsref 287.7)
+refit mlp9 installed (rmsref 307.8)
+refit mlp10 installed (rmsref 327.1)
+refit mlp11 installed (rmsref 438.1)
+refit mlp12 installed (rmsref 536.8)
+refit mlp13 installed (rmsref 547.8)
+refit mlp14 installed (rmsref 642.1)
+refit mlp15 installed (rmsref 755.9)
+targets: q 307 | than 110 | bracket 1779 | quote 1058
+full: question 0.946 comparative 1.254 closer_b 1.213 closer_q 1.772 | else 3.1392
+ymean: question 8.907 comparative 8.272 closer_b 10.675 closer_q 9.725 | else 7.1925
+route: question 6.296 comparative 5.203 closer_b 5.668 closer_q 7.554 | else 5.4837
+comparative_live: question 5.459 comparative 2.136 closer_b 5.140 closer_q 6.960 | else 5.2785
+comparative_mean: question 5.742 comparative 4.440 closer_b 4.472 closer_q 6.365 | else 5.5973
+comparative_keep4: question 5.424 comparative 2.083 closer_b 4.984 closer_q 6.304 | else 5.5634
+question_live: question 3.364 comparative 4.769 closer_b 5.459 closer_q 7.319 | else 5.4284
+question_mean: question 5.249 comparative 5.540 closer_b 4.646 closer_q 6.485 | else 5.6042
+question_keep4: question 4.109 comparative 4.864 closer_b 5.224 closer_q 6.497 | else 5.6157
+closer_live: question 5.972 comparative 5.075 closer_b 3.417 closer_q 4.496 | else 5.3515
+closer_mean: question 6.103 comparative 5.734 closer_b 4.359 closer_q 5.837 | else 5.5812
+closer_keep4: question 5.848 comparative 5.074 closer_b 3.593 closer_q 4.451 | else 5.5552
+comparative: live 0.874 | mean 0.546 | keep4 0.882
+question: live 0.696 | mean 0.460 | keep4 0.603
+closer: live 0.767 | mean 0.667 | keep4 0.748
+pred_a question False | pred_b closer True | pred_c selective False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mid_owners_crosskit_results.json (244.5s)

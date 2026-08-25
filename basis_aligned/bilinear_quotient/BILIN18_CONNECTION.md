@@ -33944,3 +33944,16 @@ candidate_confirm_65_78_results.json; runlogs/candidate_confirm_65_78.log.
 - Swarm economics after three waves: 27 records + 1 adversarial review, ~2.5h wall clock, ~10 worker-runs; discoveries: 1 new circuit surface (pipe, promoted+confirmed §1390), 2 function enrichments (2.5, mlp1x2 modes), 1 calibration law (§1391), 1 ownership map (here). The user's 20-quick-surrogates model holds; what changed is what the surrogates are FOR — enrichment and mapping over de-novo naming.
 
 swarm2/ complete for waves 1-3; worker reports in session log.
+
+## §1393 — MID OWNER-BAND IS COMPARATIVE-SPECIFIC, NOT CAPABILITY-GENERAL (pred_a FAILED, pred_b PASSED, pred_c FAILED): keep-{4,5,6,7} reproduces its §1388 width-inversion on the comparative kit (0.882 vs live 0.874) and rides within noise on closer (0.748 vs 0.767, gap 0.019 ≤ 0.03 bar) — but QUESTION loses 0.094 recovery (0.603 vs live 0.696, 3× the bar): the deepest-annotator family needs mid-MLPs beyond 4-7, exactly where criterion-scope-predicts-annotator-depth said it would (mid_owners_crosskit_results.json, 244s)
+
+  recovery (frac of ymean-gap closed): comparative live .874 / mean .546 / keep4 .882
+                                       question    live .696 / mean .460 / keep4 .603
+                                       closer      live .767 / mean .667 / keep4 .748
+  pred_a keep4 ≥ live−0.03 on question: .603 vs .666 → FAILED (gap .094)
+  pred_b same on closer: .748 vs .737 → PASSED
+  pred_c elsewhere |keep4−live| ≤ 0.05 CE: gaps .285/.187/.204 → FAILED all three kits
+
+- The verdict reshapes §1388's "generic middle = one redundant service": mlp4-7 is the middle's owner-band FOR SHALLOW-CRITERION families (comparative: mark is the query token itself; closer: depth counter, largely attn-side) but the question family — whose criterion spans the whole clause and which the scope law already placed deepest — draws real service from the pruned mids (8-11). Width inversion is a property of the (band, capability) PAIR, not of the band.
+- pred_c's clean triple failure is its own datum: dropping mlp8-11 costs a near-constant ~0.2 CE ELSEWHERE regardless of which kit is installed — the pruned mids carry generic background service that no kit's specialists replace. So the two-tier MDL bill can't just delete mlp8-11; they'd need their own stand-in line.
+- Next: drop-cost ranking of individual mids INSIDE the question kit to find which of 8-11 question actually buys (queued: question_mid_dropcost).
