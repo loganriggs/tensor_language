@@ -33815,3 +33815,15 @@ sqrd12_closer_quotes_results.json; runlogs/sqrd12_closer_quotes.log (79s).
 - Queued (swiglu18_closer_heads.py): the settling test — §1340 battery at swiglu18's a14 (9 heads). Registered: pred_a an owner >= 60% solo; pred_b both directions agree; pred_c surgical. An owner completes the four-model table; a crowd or a null localizes what SwiGLU changes.
 
 swiglu18_closer_screen_results.json; runlogs/swiglu18_closer_screen.log (221s).
+
+## §1380 — FOUR MODELS, ONE PART: swiglu18's a14.1 is its closer at 113.6% solo (+0.277 of +0.244; all-but −0.013 — neighbors net-negative, the sixth model-layer with the exact signature), both directions agree, surgical; preds a, b, c ALL TRUE — the closer table now spans TWO SCORE FUNCTIONS x TWO MLP TYPES, every model building one surgical owner head at mid-late depth; and the §1379 hypothesis firms: with the same attention architecture as bilin18, swiglu18's closer is 3x weaker (+0.24 vs +0.71) — MLP TYPE MODULATES SPECIALIST STRENGTH (swiglu18_closer_heads.py; n=1779)
+
+  FINAL FOUR-MODEL CLOSER TABLE (brackets; every bet registered pre-run):
+  bilin18 (bilinear attn, bilinear MLP)  13.8  96.5%   depth 0.72  dmg +0.71
+  bilin12 (bilinear attn, bilinear MLP)  7.1   105.0%  depth 0.64  dmg +0.95
+  sqrd12  (sqrd attn, ReLU2 MLP)         7.0   103.4%  depth 0.64  dmg +0.40
+  swiglu18 (bilinear attn, SwiGLU MLP)   14.1  113.6%  depth 0.82  dmg +0.24
+
+- The universality claim reaches its strongest defensible form: EXISTENCE, SINGLE-OWNER GRAIN, MID-LATE DEPTH, AND THE INTERFERENCE WRAPPING are properties of the training problem — invariant across every architecture variant tested. STRENGTH is architecture-modulated on two axes: score function (sqrd12 half) and MLP type (SwiGLU a third) — the specialists shrink when other components can absorb their service. Transfer thread CLOSES at six sweeps in seven runs.
+
+swiglu18_closer_heads_results.json; runlogs/swiglu18_closer_heads.log (230s).
