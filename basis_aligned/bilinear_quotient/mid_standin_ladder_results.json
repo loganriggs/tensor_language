@@ -1,0 +1,80 @@
+{
+ "ce": {
+  "full": {
+   "question": 0.9464,
+   "comparative": 1.2539,
+   "closer_b": 1.2133,
+   "closer_q": 1.7717,
+   "else": 3.1392
+  },
+  "ymean": {
+   "question": 8.907,
+   "comparative": 8.2717,
+   "closer_b": 10.6752,
+   "closer_q": 9.7251,
+   "else": 7.1925
+  },
+  "route": {
+   "question": 6.296,
+   "comparative": 5.2029,
+   "closer_b": 5.6685,
+   "closer_q": 7.5544,
+   "else": 5.4837
+  },
+  "kit_attn": {
+   "question": 5.4588,
+   "comparative": 2.1355,
+   "closer_b": 5.1399,
+   "closer_q": 6.9601,
+   "else": 5.2785
+  },
+  "kit_mid_mean": {
+   "question": 5.7394,
+   "comparative": 5.8711,
+   "closer_b": 4.817,
+   "closer_q": 6.5151,
+   "else": 6.1595
+  },
+  "kit_mid_gain": {
+   "question": NaN,
+   "comparative": NaN,
+   "closer_b": NaN,
+   "closer_q": NaN,
+   "else": NaN
+  },
+  "kit_mid_rank1": {
+   "question": 9.0225,
+   "comparative": 11.3658,
+   "closer_b": 9.5868,
+   "closer_q": 11.1372,
+   "else": 12.1462
+  },
+  "kit_mid_outlier": {
+   "question": 5.8492,
+   "comparative": 5.6766,
+   "closer_b": 4.3802,
+   "closer_q": 6.6756,
+   "else": 6.0593
+  }
+ },
+ "comparative_recovery": {
+  "kit_attn": 0.8744,
+  "mid_mean": 0.3421,
+  "mid_gain": NaN,
+  "mid_rank1": -0.4409,
+  "mid_outlier": 0.3698
+ },
+ "else_recovery": {
+  "full": 1.0,
+  "route": 0.4216,
+  "kit_attn": 0.4722,
+  "kit_mid_mean": 0.2549,
+  "kit_mid_gain": NaN,
+  "kit_mid_rank1": -1.2221,
+  "kit_mid_outlier": 0.2796
+ },
+ "pred_a_user_outlier": false,
+ "pred_b_gain": false,
+ "pred_c_rank1": false,
+ "runtime_s": 131.1
+}

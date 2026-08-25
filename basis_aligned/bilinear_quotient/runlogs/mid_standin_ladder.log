@@ -1,19 +1,16 @@
-commons 22 heads
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mid_standin_ladder.py", line 383, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mid_standin_ladder.py", line 237, in main
-    fwd_arm(idx3, 'kit', vmeans, ymeans, km, qm_)
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-TypeError: fwd_arm() takes 5 positional arguments but 6 were given
-Fatal Python error: PyGILState_Release: thread state 0x72e3f867c3f0 must be current when releasing
-Python runtime state: finalizing (tstate=0x00005f6f43d045d0)
+commons 22 heads
+mid stand-ins fit
+targets: q 307 | than 110 | bracket 1779 | quote 1058
+full: question 0.946 comparative 1.254 closer_b 1.213 closer_q 1.772 | else 3.1392
+ymean: question 8.907 comparative 8.272 closer_b 10.675 closer_q 9.725 | else 7.1925
+route: question 6.296 comparative 5.203 closer_b 5.668 closer_q 7.554 | else 5.4837
+kit_attn: question 5.459 comparative 2.136 closer_b 5.140 closer_q 6.960 | else 5.2785
+kit_mid_mean: question 5.739 comparative 5.871 closer_b 4.817 closer_q 6.515 | else 6.1595
+kit_mid_gain: question nan comparative nan closer_b nan closer_q nan | else nan
+kit_mid_rank1: question 9.022 comparative 11.366 closer_b 9.587 closer_q 11.137 | else 12.1462
+kit_mid_outlier: question 5.849 comparative 5.677 closer_b 4.380 closer_q 6.676 | else 6.0593
 
-Thread 0x000072e82d5c1740 (most recent call first):
-  <no Python frame>
+mid ladder: mean 0.342 | gain nan | rank1 -0.441 | outlier 0.370 | live 0.874
+pred_a outlier False | pred_b gain False | pred_c rank1 False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mid_standin_ladder_results.json (131.1s)
