@@ -1,0 +1,41 @@
+{
+ "ce": {
+  "None": 2.9455,
+  "mean": 10.6287,
+  "full": 3.4219,
+  "svd64": 4.754,
+  "svd256": 3.6204,
+  "tier2000": 3.5107,
+  "tier8000": 3.444
+ },
+ "fid_opt": {
+  "full": 0.9343,
+  "svd64": 0.7507,
+  "svd256": 0.907,
+  "tier2000": 0.9221,
+  "tier8000": 0.9313
+ },
+ "mbits": {
+  "full": 926.3,
+  "svd64": 52.6,
+  "svd256": 210.6,
+  "tier2000": 89.5,
+  "tier8000": 200.1
+ },
+ "fid_per_mbit": {
+  "full": 0.00101,
+  "svd64": 0.01426,
+  "svd256": 0.00431,
+  "tier2000": 0.0103,
+  "tier8000": 0.00465
+ },
+ "best": "svd64",
+ "frozen_anchor": {
+  "ce_mean": 10.6851,
+  "ce_opt": 10.1988
+ },
+ "pred_a_svd256_90": true,
+ "pred_b_tier2000_88": true,
+ "pred_c_5x_efficiency": true,
+ "runtime_s": 211.3
+}

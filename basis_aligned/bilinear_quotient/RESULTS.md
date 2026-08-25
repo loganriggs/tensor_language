@@ -5174,3 +5174,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1437 — mlp2 = 92% linear map of [attn2, mlp1] (.944 with quad); top board target: .726 -> .041 nats unexplained in one run; chain template now 5-for-5 (mlp2_ladder)
 §1438 — mlp1 residual: tok .934 -> +ridge .968 -> +quad .975 fid_opt; unexplained .508 -> .180; anchor-order bug disclosed + re-anchored on frozen sweep anchors = Invariant 4 learned in practice (mlp1_residual_ladder)
 §1439 — mlp0: tok .866/+ridge .908/+quad .932 fid_opt (3-for-3, frozen anchors); front story uniform: table + linear same-block-attention correction + small quad (mlp0_residual_ladder)
+§1440 — mlp2 rank curve measured (0-for-3 preds, honest): mid-rank map, r128 = .82 @ 7 Mbit, r256 = .89 @ 14 Mbit; no sharp knee (mlp2_rank_curve)
+§1441 — mlp1 GLASS-PLANKED 3-for-3: tier2000+rank64 = .922 @ 89.5 Mbit (10x cheaper, 99% of table fidelity); svd64 = 14x fid/Mbit; plank test passes (mlp1_table_compress)

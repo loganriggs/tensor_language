@@ -34323,3 +34323,14 @@ swarm2/ complete for waves 1-3; worker reports in session log.
   Front ladder summary (fid_opt): mlp0 .87/.91/.93 | mlp1 .93/.97/.975 | mlp2 —/.92/.94
   (mlp2 needs no table at all: pure linear chain). Board after update: mlp1-resid .18,
   mlp0-resid .06, then the head tail.
+
+## §1440 — mlp2'S MAP IS GENUINELY RANK-~200, AND THE CURVE IS THE DELIVERABLE (all three preds FAILED, honestly: rank-64 .6865 vs the registered .80; rank-256 .8893 vs .90 by .011; the knee prediction failed too — marginal gains decline smoothly (.13 per doubling at 64→128, .073 at 128→256) with no sharp elbow): the first bits-vs-fidelity frontier is measured — rank-128 at 7.1 Mbit holds .816 (36x cheaper than the module's 255 Mbit), rank-256 at 14.2 Mbit holds .889 — mlp2 is a mid-rank linear map, not low-rank, and the frontier now says exactly what each Mbit buys (mlp2_rank_curve_results.json)
+
+  fid_opt by rank: 8 .27 | 16 .36 | 32 .51 | 64 .69 | 128 .82 | 256 .89 | 512 .91 |
+  full .92. Frontier picks: r128 (.82 @ 7 Mbit), r256 (.89 @ 14 Mbit).
+
+## §1441 — mlp1'S TABLE IS GLASS-PLANKED, 3-FOR-3: "2000 COMMON TOKENS EXACT + RANK-64 TAIL" HOLDS .922 AT 89.5 MBIT (pred_a PASSED: SVD-256 .907 at 210.6 Mbit — under the module's 255, the plank test passes; pred_b PASSED: the tiered variant .9221 at 89.5 Mbit; pred_c PASSED: SVD-64 has 14x the full table's fidelity-per-Mbit, past the 5x bar): the 926-Mbit table embarrassment is fixed — the honest description "a rank-64 vocabulary map, with the 2000 most frequent tokens getting exact vectors" costs a tenth of the naive table and keeps 99% of its fidelity (mlp1_table_compress_results.json)
+
+  frontier: full .934 @ 926 | tier8000 .931 @ 200 | tier2000 .922 @ 89.5 | svd256
+  .907 @ 211 | svd64 .751 @ 53 (best fid/Mbit .0143 vs full's .0010).
+- The tier structure is itself interpretable: frequent tokens have individually-learned outputs; the tail rides a 64-dim "vocabulary subspace". Combined with §1438's residual ridge, mlp1's benchmark entry becomes: tiered table (89.5 Mbit) + chain ridge (+.033 fid at 42.5 Mbit) — a full glass plank at ~132 Mbit, half the module's own weight.
