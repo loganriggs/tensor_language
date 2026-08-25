@@ -269,6 +269,16 @@
   <tr><td>Closer, brackets (union gate + <span class="headid">13.8</span>)</td><td class="num">0.657</td><td class="num"><b>0.767</b></td><td class="num">+0.033</td></tr>
   <tr><td>Closer, quotes</td><td class="num">0.630</td><td class="num"><b>0.657</b></td><td class="num">+0.033</td></tr>
 </table></div>
+<h2>The closer, across the family</h2>
+<p class="lede">The flagship universality result (§1373–78): three independently trained sibling models — spanning two attention score functions — all build the closer as <em>one surgical head</em> at matched relative depth, with layer-mates that are net interference at its targets. Every bet registered before its run; five clean sweeps.</p>
+<div class="tablewrap"><table>
+  <tr><th>Model</th><th>Score function</th><th>Head</th><th>Brackets (solo share)</th><th>Quotes (solo share)</th><th>Rel. depth</th></tr>
+  <tr><td>bilin18</td><td>two-branch bilinear</td><td><span class="headid">13.8</span></td><td class="num">96.5%</td><td class="num">107.9%</td><td class="num">0.72</td></tr>
+  <tr><td>bilin12</td><td>two-branch bilinear</td><td><span class="headid">7.1</span></td><td class="num">105.0%</td><td class="num">105.3%</td><td class="num">0.64</td></tr>
+  <tr><td>sqrd12</td><td>single-branch, normalized</td><td><span class="headid">7.0</span></td><td class="num">103.4%</td><td class="num">75.7% (+7.5 ~11%)</td><td class="num">0.64</td></tr>
+</table></div>
+<p class="note">Shares above 100% mean keeping <em>only</em> the owner beats the intact layer — the other heads are net noise at its targets. The training problem, not the architecture, determines that a closer exists, that it is one head, and where it lives; the score function modulates only its strength (sqrd12's softened quote cell is exactly where its whole closer is weaker). §1373–78.</p>
+
 <p class="note"><b>The two-tier bill:</b> one 22-head commons (~19.5M params, twice-vetted — the union of two independent drop-cost rankings with both bands' dead weight removed) + 6 unique specialist heads (~5.3M) + zero-bit token-computed gates + the ~free route ≈ <b>25M params — 4.6% of the model — for 66–87% of four capability families</b>. At the margin a new capability costs 1–5 heads. Six "width inversions" along the way taught the design rule: past the necessary depth, more live heads subtract — and one sharp corollary, <em>never gate a constant</em> (gating the sink head cost 0.44 nats of boundary seam). Ledger: §1366–68.</p>
 
 <p class="note">About the examples below: every example is real held-out FineWeb text. <b>Illustrative</b> = the 5 targets where silencing the circuit's specialist hurt most (selection criterion disclosed: sorted by dCE). <b>Random</b> = 5 targets drawn with a fixed seed, damage as it fell. The spread between the two groups is honest information: it shows how evenly the circuit's load is distributed over its targets.</p>
@@ -674,6 +684,6 @@
 <p class="note">When the pool runs low, five generators refill it: new behavior taxonomies through the screen (~10 classes per 2-minute run), damage-cluster mining over the 147 certified ownership clusters, selectivity-matrix off-diagonals (shared-subroutine candidates), the 24% of well-predicted tokens no certified slice covers, and the benchmark backlog.</p>
 
 <footer>
-  Model: bilin18 (546M bilinear-attention GPT-2, 18L × 9 heads). All recoveries are fractions of the mean-ablation gap on held-out FineWeb; "route" = the ~free-in-bits λ·v1 baseline every extraction keeps. Examples extracted by circuit_examples.py on 480 fresh rows (⏎ marks a newline in the source text). Ledger: BILIN18_CONNECTION.md §1280–1337 · Status: CIRCUIT_REGISTRY.md · Updated 2026-08-25 (§1368 capstone).
+  Model: bilin18 (546M bilinear-attention GPT-2, 18L × 9 heads). All recoveries are fractions of the mean-ablation gap on held-out FineWeb; "route" = the ~free-in-bits λ·v1 baseline every extraction keeps. Examples extracted by circuit_examples.py on 480 fresh rows (⏎ marks a newline in the source text). Ledger: BILIN18_CONNECTION.md §1280–1337 · Status: CIRCUIT_REGISTRY.md · Updated 2026-08-25 (§1378: the cross-model closer table).
 </footer>
 </main>

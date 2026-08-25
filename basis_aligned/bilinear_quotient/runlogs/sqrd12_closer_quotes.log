@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 1058
+layer dmg +0.6146 (quote targets)
+a7.0: solo +0.4651 (else +0.0077) | all-but +0.0690
+a7.1: solo -0.0099 (else +0.0060) | all-but +0.6313
+a7.2: solo +0.0064 (else +0.0040) | all-but +0.6095
+a7.3: solo +0.0017 (else +0.0045) | all-but +0.6226
+a7.4: solo +0.0082 (else +0.0076) | all-but +0.6101
+a7.5: solo +0.0682 (else +0.0156) | all-but +0.4635
+
+top solo a7.0 share 0.7568 | top keep a7.0
+pred_a owner True | pred_b agree True | pred_c surgical True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/sqrd12_closer_quotes_results.json (78.9s)

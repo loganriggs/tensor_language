@@ -33788,3 +33788,17 @@ sqrd12_closer_screen_results.json; runlogs/sqrd12_closer_screen.log (77s).
 - Queued (sqrd12_closer_quotes.py): the last symmetric cell — is sqrd12's 7.0 delimiter-general (quote-parity targets)? Registered: pred_a 7.0 >= 60% of a7's quote-close damage; pred_b directions agree; pred_c surgical. A sweep completes a 3x2 table (three models x two delimiter families) with every cell owner-carried; then the transfer thread RESTS.
 
 sqrd12_closer_heads_results.json; runlogs/sqrd12_closer_heads.log (82s).
+
+## §1378 — THE 3x2 CLOSER TABLE COMPLETES AND THE TRANSFER THREAD RESTS: sqrd12's 7.0 owns quote-closing at 75.7% solo (+0.465 of +0.615; a small helper 7.5 carries ~11% — the first cell with a secondary contributor), both directions agree, surgical — preds a, b, c ALL TRUE, fifth clean sweep (sqrd12_closer_quotes.py; n=1058)
+
+  THE CLOSER, ACROSS THE FAMILY (every bet registered before its run):
+                 brackets              quotes
+  bilin18 (2-branch bilinear)  13.8  96.5%    13.8  107.9%
+  bilin12 (2-branch bilinear)  7.1   105.0%   7.1   105.3%
+  sqrd12  (1-branch, normed)   7.0   103.4%   7.0   75.7% (+7.5 ~11%)
+
+- EVERY CELL OWNER-CARRIED. Three independently trained models, two attention score functions, two delimiter families: one delimiter-general closer head each, at relative depth 0.64-0.72, with net-negative neighbors in five of six cells. The score-function attenuation shows up in the sixth: sqrd12's quote ownership drops to 76% with a small helper — the single place the shape softens, and it softens exactly where §1376 found the whole function attenuated. This is the program's flagship universality result: THE TRAINING PROBLEM, NOT THE ARCHITECTURE, DETERMINES THAT A CLOSER EXISTS, THAT IT IS ONE HEAD, AND WHERE IT LIVES; the architecture modulates only its strength.
+- The transfer thread RESTS (§1373-78, six sections, five sweeps and one honestly-mis-keyed screen). Logged open: the bilin12/sqrd12 template ports, commons transfer, swiglu18 extension.
+- Queued (swiglu18_closer_screen.py): the fourth sibling — bilinear attention with SwiGLU MLPs at 18L. Extends the table along the MLP-architecture axis (the closer is an ATTENTION part; MLP type should not matter — the registered bet). Bars keyed to the BEST SPECIFICITY-PASSING layer per the §1376 patched-template rule (both winners reported). Registered: pred_a a concentrated closer layer exists (dmg >= 0.20, conc >= 8 at the specificity winner); pred_b rel depth in [0.55, 0.85]; pred_c controls clean at the specificity winner.
+
+sqrd12_closer_quotes_results.json; runlogs/sqrd12_closer_quotes.log (79s).
