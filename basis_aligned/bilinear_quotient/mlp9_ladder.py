@@ -72,12 +72,19 @@ def main():
     Yf = FT['m9'].reshape(-1, D)
 
     def ridge(X, Y):
-        Xg = X.to(DEV); Yg = Y.to(DEV)
-        xm = Xg.mean(0); ym = Yg.mean(0)
-        Xc = Xg - xm; Yc = Yg - ym
-        XtX = Xc.T @ Xc
+        # streamed accumulation: X stays on CPU, chunks to GPU (10*D wide OOMed whole)
+        n, d = X.shape
+        xm = X.mean(0).to(DEV); ym = Y.mean(0).to(DEV)
+        XtX = torch.zeros(d, d, device=DEV)
+        XtY = torch.zeros(d, Y.shape[1], device=DEV)
+        CH = 32768
+        for i in range(0, n, CH):
+            Xc = X[i:i + CH].to(DEV) - xm
+            Yc = Y[i:i + CH].to(DEV) - ym
+            XtX += Xc.T @ Xc; XtY += Xc.T @ Yc
+            del Xc, Yc
         lam = 0.01 * float(torch.diagonal(XtX).mean())
-        W = torch.linalg.solve(XtX + lam * torch.eye(X.shape[1], device=DEV), Xc.T @ Yc)
+        W = torch.linalg.solve(XtX + lam * torch.eye(d, device=DEV), XtY)
         return W, xm, ym
 
     W2, xm2, ym2 = ridge(X2f, Yf)

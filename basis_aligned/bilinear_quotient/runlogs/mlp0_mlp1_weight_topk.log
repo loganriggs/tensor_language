@@ -1,1 +1,11 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+stage1 {"Cl": {"top8": 0.0075, "top32": 0.0264, "top128": 0.0895}, "Cr": {"top8": 0.0075, "top32": 0.0264, "top128": 0.0895}, "ctrl": {"top8": 0.0074, "top32": 0.0261, "top128": 0.0888}, "Cl_sv_top128_share": 0.2048}
+clean 2.9455
+kfull: 2.9455
+k0: 3.1665
+k8: 3.1272
+k32: 3.0775
+k128: 3.0016
+gap 0.2210 rec {'k8': 0.1778, 'k32': 0.4027, 'k128': 0.7462}
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_mlp1_weight_topk_results.json (72.2s)
