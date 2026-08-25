@@ -34198,3 +34198,11 @@ swarm2/ complete for waves 1-3; worker reports in session log.
 - Quote-side architecture, final form: closes have an OWNER (13.8, ~105%) plus two helpers; opens have ONLY the helper crew (no owner — which is why the §1351 layer screen and §1416's 10.6-solo read both looked empty). "Unserved" was an artifact of looking for owners; crew-served-without-owner is a THIRD service pattern between owner and unserved.
 - The §1414 mine pool is now fully dispositioned: 5 named finds (newline crew ×5), 1 roster addition (16.3), 2 quote helpers (10.6, 11.5), 2 argmax mirages (13.3, 11.7), 1 sub-bar moonlight (14.7), punct class discredited. Damage mining's first full cycle: 11 real objects from one 526-second run.
 - Queued (bill_fresh_cert — backlog rule: fresh-window certification for every new winner): the §1408 keep7 bill re-run on FRESH rows (skip=7000). Preds: pred_a comparative ≥ .95 fresh; pred_b every family within .04 below its §1408 number; pred_c else within .03.
+
+## §1421 — THE BILL CERTIFIES ON FRESH ROWS, 3-FOR-3, WITH COMPARATIVE AT .9976 (pred_a PASSED: comparative .9976 ≥ .95 on rows the bill never touched; pred_b PASSED: every family within .04 of §1408 — question .6946 vs .690, closer .8586 vs .864, capitalized .7990 vs .797; pred_c PASSED: else .7514 vs .750): no row-fit anywhere — the keep7 configuration's numbers are properties of the MODEL, not of the evaluation sample, and comparative on fresh rows is a rounding error from FULL recovery (bill_fresh_cert_results.json, 134s, skip=7000 eval rows + skip=9200 refit stream)
+
+  fresh vs §1408: question .695/.690 | comparative .998/.984 | closer .859/.864 |
+  capitalized .799/.797 | else .751/.750. Every line reproduces within .006 except
+  comparative, which IMPROVED to .998.
+- The backlog's fresh-window rule is satisfied for the program's headline artifact. The certified statement, final form: 28 of 162 heads + 11 of 18 MLPs + mean tables = full comparative capability (.998), 86% of closer, 80% of capitalized, 69% of question, 75% of everything else — reproducible across disjoint samples.
+- Thread handoff: with the bill certified and the mine pool dispositioned, the program's front burner moves to the user-directed MID-MLP DECOMPOSITION thread (mlp4_reads running; mlp4_bow next).

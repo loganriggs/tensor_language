@@ -5155,3 +5155,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1418 — newline = FIVE-head crew {7.2, 8.2, 10.2, 11.0, 12.6} L7-12, joint .617 (2.8x pair); 16.3 = 13th committee member; every structural service is a distributed crew — the closer is the exception, not the paradigm (newline_crew_screen)
 §1419 — two-crew motif DEMOTED (newline crew is near-additive, 1.15x; late trio alone = 56%); redundancy structure varies by service; committee-13 joint .654 (+.077 from 16.3 — joint marginals 5x solos, rosters priced jointly) (newline_crews)
 §1420 — quote service final: owner 13.8 + helpers {10.6, 11.5} (joint 1.79x); OPEN-quote is crew-served-without-owner (3rd service pattern, "unserved" revised); 14.7 sub-bar; mine pool fully dispositioned — 11 real objects from one run (quote_digit_screen)
+§1421 — BILL CERTIFIED FRESH 3-for-3: comparative .9976 (≈full), all lines within .006 of §1408; no row-fit; headline artifact reproducible (bill_fresh_cert)
