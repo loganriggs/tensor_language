@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+open-quote token ids: 29
+targets 1087 | jitter 1069 | rand 1087
+base: {k: round(v, 4) for k, v in base.items()}
+a10: dmg target +0.0671 | jit +0.0412 | rand +0.0193 | else +0.0246
+a9: dmg target +0.0330 | jit +0.0682 | rand +0.0703 | else +0.0621
+a11: dmg target -0.0267 | jit +0.0705 | rand +0.0452 | else +0.0423
+a13: dmg target -0.0237 | jit +0.0549 | rand +0.0297 | else +0.0189
+a5: dmg target +0.0107 | jit +0.0988 | rand +0.1409 | else +0.1306
+
+a10 conc 2.7 | jitter 1.67 | random 0.78
+pred_a conc False | pred_b controls False | pred_c ownership False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/open_quote_screen_results.json (102.1s)

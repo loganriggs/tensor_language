@@ -33441,3 +33441,18 @@ exclaim_gates_results.json; runlogs/exclaim_gates.log (123s).
 - Fifth all-preds-TRUE template run; the pair's conditionality replicates across both versions. Exclamation thread RESTS at: G3 done, conditionality done, band/depth mapped, capability-specific G1 blocked on probe-gate infra.
 
 exclaim_gates_results.json (v2); runlogs/exclaim_gates.log (95s).
+
+## §1351 — OPEN-QUOTE FAILS ITS CLEAN SCREEN ON EVERY BAR: a10's damage is +0.067 (atlas said +0.272), concentration 2.7 (bar 8), the jitter control is DIRTY (1.67), and ownership fails (a9 within 3x) — preds a, b, c ALL FALSE; the candidate is DEMOTED, with the mask mismatch disclosed as the likely story rather than a clean refutation (open_quote_screen.py; n=1087)
+
+  layer  target-dmg  jitter   random   else
+  a10    +0.067      +0.041   +0.019   +0.025   conc 2.7; jitter 1.67 DIRTY
+  a9     +0.033      +0.068   +0.070   +0.062
+  a11    −0.027      +0.071   +0.045   +0.042   NEGATIVE at quote targets
+  a13    −0.024      +0.055   +0.030   +0.019   NEGATIVE here too
+  a5     +0.011      +0.099   +0.141   +0.131   generalist flat
+
+- THE HONEST DISPOSITION: this is a failure to reproduce under a DIFFERENT mask, not a controlled refutation of the atlas. The atlas's open_quote had n=90 at ~960 rows; my space-led-quote definition (29 token ids) yields n=1087 at 1920 — five times the density, so the two masks select materially different position sets. Under the broad, well-defined mask there is no concentrated owner for quote-opening: the effect is small, control-dirty, and shared. Whether the atlas's narrow n=90 subset contains a genuine concentrated sub-capability is possible but not worth a third screen now — the candidate is DEMOTED from the pool (screen-failed, mask-sensitive), and the registry entry carries both numbers.
+- Two structural notes worth keeping: a11 and a13 are NEGATIVE at quote-opening targets (removing them helps — the interference motif at yet another site); and quote-opening joins comma/colon in the "distributed, no owner" class, which now holds most of the atlas's weaker flags. The pool's surviving strength came from its top two entries (close_bracket, capitalized) — consistent with the atlas ratio column's known bias (§513): the big absolute-damage flags reproduced, the ratio-flattered ones have not.
+- Queued (digit_screen.py, pool #5): targets = next token is purely digits; candidate a8 (atlas +0.134/+0.035; independently expected from the a8-counting arc, backlog #3 — a cross-method confirmation opportunity). Registered with honest bars for a weaker-concentration candidate: pred_a a8 damage >= 0.08 AND conc >= 3; pred_b both controls <= 1.5; pred_c a8 >= 2x every competitor (a7/a9/a13/a5).
+
+open_quote_screen_results.json; runlogs/open_quote_screen.log (102s).

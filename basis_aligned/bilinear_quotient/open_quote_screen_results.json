@@ -1,0 +1,49 @@
+{
+ "n_targets": 1087,
+ "n_rows": 1920,
+ "base": {
+  "target": 3.0351,
+  "jitter": 3.2483,
+  "random": 3.0614,
+  "else": 3.1238
+ },
+ "damage": {
+  "a10": {
+   "target": 0.0671,
+   "jitter": 0.0412,
+   "random": 0.0193,
+   "else": 0.0246
+  },
+  "a9": {
+   "target": 0.033,
+   "jitter": 0.0682,
+   "random": 0.0703,
+   "else": 0.0621
+  },
+  "a11": {
+   "target": -0.0267,
+   "jitter": 0.0705,
+   "random": 0.0452,
+   "else": 0.0423
+  },
+  "a13": {
+   "target": -0.0237,
+   "jitter": 0.0549,
+   "random": 0.0297,
+   "else": 0.0189
+  },
+  "a5": {
+   "target": 0.0107,
+   "jitter": 0.0988,
+   "random": 0.1409,
+   "else": 0.1306
+  }
+ },
+ "a10_concentration": 2.73,
+ "a10_jitter_conc": 1.67,
+ "a10_random_conc": 0.78,
+ "pred_a_concentration": false,
+ "pred_b_controls_clean": false,
+ "pred_c_ownership": false,
+ "runtime_s": 102.1
+}
