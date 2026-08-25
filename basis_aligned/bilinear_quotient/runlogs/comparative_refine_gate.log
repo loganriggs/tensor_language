@@ -1,0 +1,12 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+commons 22 heads
+targets: q 307 | than 110 | bracket 1779 | quote 1058
+full: question 0.946 comparative 1.254 closer_b 1.213 closer_q 1.772 | else 3.1392
+ymean: question 8.907 comparative 8.272 closer_b 10.675 closer_q 9.725 | else 7.1925
+route: question 6.296 comparative 5.203 closer_b 5.668 closer_q 7.554 | else 5.4837
+kit_comparative: question 5.459 comparative 2.136 closer_b 5.140 closer_q 6.960 | else 5.2785
+kit_comp_rg: question 6.222 comparative 2.131 closer_b 5.524 closer_q 7.396 | else 5.3954
+
+comparative: anchor 0.874 -> gated 0.875 | else incr 0.0506 -> 0.0218
+pred_a holds True | pred_b under-bar True | pred_c clean False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/comparative_refine_gate_results.json (85.6s)

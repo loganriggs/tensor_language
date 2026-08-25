@@ -24,7 +24,7 @@ conditionality measured).
 
 | Circuit | Stage | Key facts | §refs |
 |---|---|---|---|
-| **Comparative (8.1)** | **CLOSED, 4-stage** | annotate(a02, gated)->fetch(8.1)->refine({10.5!, 12.8} +11.7/11.6)->readout = 0.76-0.78, else +0.01-0.03; 10.5 is the TOP refine carrier (+0.343 — §1310 off-diagonal confirmed causally); remaining gap = generic pool + unpriced MLP side | §1303-08, §1329-45 |
+| **Comparative (8.1)** | **FINAL** | [commons in 2 windows + 8.1 + refine-4 gated] = 0.875 at else +0.022 (§1372); 4-stage, all heads named, moonlighting confined per-kit; MLP side priced §1370-71 (mid must stay live) | §1303-08, §1329-45, §1368-72 |
 | **Question (10.5)** | **CLOSED at head grain** | slim kit = 16 heads + 10.5 = 0.641 (§1342); L4 crowd = trio 4.0/4.1/4.7; guests 0.3 + 1.1. NOTE §1345: 10.5 also = TOP comparative-refine carrier — "question-specific" label narrowed (terminal-grain true, service-grain shared) | §1284-§1342, §1345 |
 | Exclamation (17.2+17.3) | **CLOSED at its boundary** | §1365: AUC ceiling ~0.61 across two feature sets — the mode is carried by the live values the kit ablates (§1350 loop closes on itself); deploy-legal recall ceiling ~44%; kit keeps 44% at 6% of the elsewhere bill | §1315-20, §1349-50, §1364-65 |
 | Stem matcher (1.1+1.8) | G3 done | weights-read certified on natural text (78% variant-support damage, in-band) | §1307-08 |

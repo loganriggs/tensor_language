@@ -1,0 +1,51 @@
+{
+ "ce": {
+  "full": {
+   "question": 0.9464,
+   "comparative": 1.2539,
+   "closer_b": 1.2133,
+   "closer_q": 1.7717,
+   "else": 3.1392
+  },
+  "ymean": {
+   "question": 8.907,
+   "comparative": 8.2717,
+   "closer_b": 10.6752,
+   "closer_q": 9.7251,
+   "else": 7.1925
+  },
+  "route": {
+   "question": 6.296,
+   "comparative": 5.2029,
+   "closer_b": 5.6685,
+   "closer_q": 7.5544,
+   "else": 5.4837
+  },
+  "kit_comparative": {
+   "question": 5.4588,
+   "comparative": 2.1355,
+   "closer_b": 5.1399,
+   "closer_q": 6.9601,
+   "else": 5.2785
+  },
+  "kit_comp_rg": {
+   "question": 6.2217,
+   "comparative": 2.1315,
+   "closer_b": 5.5241,
+   "closer_q": 7.396,
+   "else": 5.3954
+  }
+ },
+ "comparative": {
+  "anchor": 0.8744,
+  "refine_gated": 0.8749
+ },
+ "else_incr": {
+  "anchor": 0.0506,
+  "refine_gated": 0.0218
+ },
+ "pred_a_target_holds": true,
+ "pred_b_else_under_bar": true,
+ "pred_c_no_regressions": false,
+ "runtime_s": 85.6
+}

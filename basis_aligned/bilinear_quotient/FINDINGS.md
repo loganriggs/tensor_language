@@ -17,6 +17,19 @@ circuit moves stage.**
 
 ## The established results
 
+0. **THE CIRCUIT-KIT ARC (§1311-1372, 2026-08-24/25) — capabilities as kits on a commons.** Behavior-first
+   screens + a route-grain extraction template produced: ~8 named specialist FUNCTIONS (closer 13.8
+   [brackets+quotes, 107.9% solo], comparative 8.1, question 10.5, expressive pair 17.2/17.3, numeric
+   pair 8.3/8.7 [copy/fresh split], matchers 1.1/1.8, sink 5.7, router 0.3); a 22-HEAD ANNOTATION
+   COMMONS that serves every kit BETTER than dedicated bands (§1367-68); three kits at 0.66-0.88
+   recovery for ~25M attention params (4.5% of model, §1369); laws: criterion scope predicts annotator
+   depth (4-for-4, §1358), owners are annotator-conditional (4-for-4), width inversions (6x — kits
+   have interior optima), never gate a constant (§1367), ablation names roles / construction prices
+   kits (§1347). BOTTLENECK: the generic middle is ONE redundant service with TWO implementations
+   (mid attention + mid MLPs) — extraction removes either half, never both (§1370-71); attention
+   compresses, the MLP side does not. Dossiers: CIRCUIT_REGISTRY.md, MDL_BILL.md. **HIGH.**
+
+
 1. **THE TWO MACHINES — the organizing fact.** bilin18 = a GRAMMAR machine (front L0-1, low-rank,
    local, token-driven, near-linear per layer, ~90% understood as smooth per-token functions §905/§941,
    §1088: L1 tok-only held-out 0.93 of a 6.5-nat stake) + a CONTENT machine (deep-middle L5-14,
