@@ -1,0 +1,63 @@
+{
+ "n_rows": 1920,
+ "probe_auc": 0.6179,
+ "gate_threshold_q": 0.9,
+ "ce": {
+  "full": {
+   "target": 3.063,
+   "else": 3.0844
+  },
+  "ymean": {
+   "target": 9.262,
+   "else": 7.2042
+  },
+  "route": {
+   "target": 5.9658,
+   "else": 5.4675
+  },
+  "route_solo": {
+   "target": 5.8271,
+   "else": 5.4352
+  },
+  "band05": {
+   "target": 3.9249,
+   "else": 3.5708
+  },
+  "gated": {
+   "target": 5.1295,
+   "else": 5.342
+  }
+ },
+ "recovery": {
+  "full": {
+   "target": 1.0,
+   "else": 1.0
+  },
+  "route": {
+   "target": 0.5317,
+   "else": 0.4215
+  },
+  "route_solo": {
+   "target": 0.5541,
+   "else": 0.4294
+  },
+  "band05": {
+   "target": 0.861,
+   "else": 0.8819
+  },
+  "gated": {
+   "target": 0.6666,
+   "else": 0.452
+  }
+ },
+ "increments": {
+  "band_t": 0.3293,
+  "band_e": 0.4604,
+  "gate_t": 0.1349,
+  "gate_e": 0.0305
+ },
+ "pred_a_keeps_capability": false,
+ "pred_b_sheds_bill": true,
+ "pred_c_mode_legible": false,
+ "runtime_s": 119.5
+}

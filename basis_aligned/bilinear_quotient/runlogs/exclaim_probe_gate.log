@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  [assert_disjoint probe_fit_vs_eval] 0 of 1920 priced rows appear in the fitting corpus -> ok
+probe: fit n 61440 | pos rate 0.025 | holdout AUC 0.618 | gate thr q90 (rate 0.10)
+targets 541
+full: target 3.0630 | else 3.0844
+ymean: target 9.2620 | else 7.2042
+route: target 5.9658 | else 5.4675
+route_solo: target 5.8271 | else 5.4352
+band05: target 3.9249 | else 3.5708
+gated: target 5.1295 | else 5.3420 | gate frac 0.09
+
+increments over route: band t+0.329/e+0.460 | gated t+0.135/e+0.031
+pred_a keeps False | pred_b sheds True | pred_c legible False (AUC 0.618)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/exclaim_probe_gate_results.json (119.5s)
