@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+targets 1779
+plain: n 889
+comma: n 274
+period: n 374
+quote: n 26
+other: n 212
+double: n 4
+full: target 1.2133 | else 3.1330 | plain 0.917 comma 1.552 period 1.172 quote 1.740 other 1.951 double 5.130
+ymean: target 10.6752 | else 7.2005 | plain 9.605 comma 11.038 period 10.839 quote 16.331 other 13.645 double 14.296
+route: target 5.6685 | else 5.4895 | plain 4.603 comma 6.368 period 5.960 quote 11.004 other 7.957 double 11.334
+kit: target 4.4572 | else 5.4513 | plain 3.485 comma 4.909 period 4.908 quote 9.465 other 6.389 double 12.607
+kit+b35: target 2.6215 | else 4.5267 | plain 1.786 comma 3.074 period 3.004 quote 5.540 other 4.346 double 11.210
+kit+b69: target 3.6414 | else 5.0488 | plain 2.598 comma 4.184 period 4.107 quote 7.303 other 5.918 double 10.404
+kit+b1012: target 3.8855 | else 5.1860 | plain 2.930 comma 4.531 period 4.354 quote 7.538 other 5.632 double 11.925
+kit+b1417: target 3.8667 | else 5.3447 | plain 2.907 comma 4.369 period 4.339 quote 8.359 other 5.714 double 11.433
+
+increments: b35 t+0.194/e+0.227 b69 t+0.086/e+0.099 b1012 t+0.060/e+0.065 b1417 t+0.062/e+0.026
+winner b35 | pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/close_bracket_missing_band_results.json (131.4s)

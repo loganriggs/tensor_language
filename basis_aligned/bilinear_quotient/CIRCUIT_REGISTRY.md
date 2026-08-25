@@ -26,7 +26,7 @@ conditionality measured).
 |---|---|---|---|
 | **Comparative (8.1)** | **CLOSED, 4-stage** | annotate(a02, gated)->fetch(8.1)->refine({10.5!, 12.8} +11.7/11.6)->readout = 0.76-0.78, else +0.01-0.03; 10.5 is the TOP refine carrier (+0.343 — §1310 off-diagonal confirmed causally); remaining gap = generic pool + unpriced MLP side | §1303-08, §1329-45 |
 | **Question (10.5)** | **CLOSED at head grain** | slim kit = 16 heads + 10.5 = 0.641 (§1342); L4 crowd = trio 4.0/4.1/4.7; guests 0.3 + 1.1. NOTE §1345: 10.5 also = TOP comparative-refine carrier — "question-specific" label narrowed (terminal-grain true, service-grain shared) | §1284-§1342, §1345 |
-| Exclamation (17.2+17.3) | G3 done | additive half-head pair, 91% share; criterion stream-computed; template NOT yet applied (L17 → expect route to carry more) | §1315-20 |
+| Exclamation (17.2+17.3) | G1 in flight | template adapted (no input-computable gate exists for "!" — gate stage replaced by band-conditionality arms); exclaim_gates queued | §1315-20 |
 | Stem matcher (1.1+1.8) | G3 done | weights-read certified on natural text (78% variant-support damage, in-band) | §1307-08 |
 | Induction/copy stations | G1 partial | route-grain closure 79% (§1316); payload rungs 4-5 negative; stations 2.5/3.8/8.3/8.4 | §1311-16, §1204-18 |
 | Sink (5.7) | CLOSED (pre-template) | one constant vector, mean-replacement free | sink arc, §1089-91 |
@@ -38,7 +38,7 @@ conditionality measured).
 
 | Behavior | Leader | Target dmg vs elsewhere | n | Note |
 |---|---|---|---|---|
-| **close_bracket** | **13.8** | KIT CLOSED §1346: [route + depth>0 gate on a02 + 13.8] = 0.657 at else +0.009; a02-annotator HOLDS; 13.8 solo BELOW route (sharpest conditionality); a14 subtype rung in flight | 1779 | ~0.65 plateau noted across all 3 kits |
+| **close_bracket** | **CLOSED, 4-stage** | kit 0.657 (§1346); a14 does NOT port (§1347 — ablation names roles, construction prices kits); refine = L14-17 by construction (ratio 2.4, +0.062, §1348) — downstream motif holds 2-for-2; generic-pool invariant +0.227==+0.225 across circuits | 1779 | thread rests; head-grain refine deprioritized (thin vs draw spread) |
 | capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | NO layer-owner (1.1x) — first late-band shared capability; PARKED behind close-bracket; extraction starts from a band gate |
 | open_quote | a10 | +0.272 vs +0.020 | 90 | ctrl 8.9 dirty — re-screen |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |

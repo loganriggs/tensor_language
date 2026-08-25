@@ -1,0 +1,157 @@
+{
+ "n_targets": 1779,
+ "n_rows": 1920,
+ "ce": {
+  "full": {
+   "target": 1.2133,
+   "else": 3.133
+  },
+  "ymean": {
+   "target": 10.6752,
+   "else": 7.2005
+  },
+  "route": {
+   "target": 5.6685,
+   "else": 5.4895
+  },
+  "kit": {
+   "target": 4.4572,
+   "else": 5.4513
+  },
+  "kit+b35": {
+   "target": 2.6215,
+   "else": 4.5267
+  },
+  "kit+b69": {
+   "target": 3.6414,
+   "else": 5.0488
+  },
+  "kit+b1012": {
+   "target": 3.8855,
+   "else": 5.186
+  },
+  "kit+b1417": {
+   "target": 3.8667,
+   "else": 5.3447
+  }
+ },
+ "subtype_ce": {
+  "full": {
+   "plain": 0.9173,
+   "comma": 1.5522,
+   "period": 1.1719,
+   "quote": 1.7398,
+   "other": 1.9512,
+   "double": 5.1296
+  },
+  "ymean": {
+   "plain": 9.6046,
+   "comma": 11.038,
+   "period": 10.839,
+   "quote": 16.3308,
+   "other": 13.6446,
+   "double": 14.2959
+  },
+  "route": {
+   "plain": 4.6031,
+   "comma": 6.3679,
+   "period": 5.9596,
+   "quote": 11.0038,
+   "other": 7.9574,
+   "double": 11.3341
+  },
+  "kit": {
+   "plain": 3.4846,
+   "comma": 4.9094,
+   "period": 4.9076,
+   "quote": 9.4653,
+   "other": 6.3889,
+   "double": 12.6072
+  },
+  "kit+b35": {
+   "plain": 1.7863,
+   "comma": 3.0737,
+   "period": 3.0035,
+   "quote": 5.5397,
+   "other": 4.3459,
+   "double": 11.2102
+  },
+  "kit+b69": {
+   "plain": 2.598,
+   "comma": 4.184,
+   "period": 4.1068,
+   "quote": 7.3031,
+   "other": 5.9175,
+   "double": 10.4038
+  },
+  "kit+b1012": {
+   "plain": 2.9299,
+   "comma": 4.5312,
+   "period": 4.3538,
+   "quote": 7.5377,
+   "other": 5.6319,
+   "double": 11.9246
+  },
+  "kit+b1417": {
+   "plain": 2.9071,
+   "comma": 4.3688,
+   "period": 4.3394,
+   "quote": 8.3594,
+   "other": 5.7143,
+   "double": 11.4335
+  }
+ },
+ "recovery": {
+  "full": {
+   "target": 1.0,
+   "else": 1.0
+  },
+  "route": {
+   "target": 0.5291,
+   "else": 0.4207
+  },
+  "kit": {
+   "target": 0.6572,
+   "else": 0.43
+  },
+  "kit+b35": {
+   "target": 0.8512,
+   "else": 0.6574
+  },
+  "kit+b69": {
+   "target": 0.7434,
+   "else": 0.529
+  },
+  "kit+b1012": {
+   "target": 0.7176,
+   "else": 0.4953
+  },
+  "kit+b1417": {
+   "target": 0.7196,
+   "else": 0.4563
+  }
+ },
+ "band_increments": {
+  "b35": {
+   "target": 0.194,
+   "else": 0.2274
+  },
+  "b69": {
+   "target": 0.0862,
+   "else": 0.099
+  },
+  "b1012": {
+   "target": 0.0604,
+   "else": 0.0653
+  },
+  "b1417": {
+   "target": 0.0624,
+   "else": 0.0263
+  }
+ },
+ "winner": "b35",
+ "pred_a_band_carries": true,
+ "pred_b_specific": false,
+ "pred_c_downstream": false,
+ "runtime_s": 131.4
+}
