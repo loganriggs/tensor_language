@@ -61,7 +61,12 @@ To find a head's true function, intersect its capability appearances (0.3=bigram
 1.1=stem match, 10.5=terminal-state cashing, 8.3=copy — each shows up wherever its
 function is useful). Capability kits share function-heads; price them once.
 
-## Transfer thread (opened §1373)
+## USER DIRECTIVE (2026-08-25): bilin18 ONLY from here — other models parked.
+## The middle-MLP wall (§1370-71) is the active frontier: the mean is the dumbest
+## stand-in; ladder of cheap upgrades (gain scalar / rank-1 / outlier-dims-live) in
+## flight per the user's OOD + outlier-dimension hypotheses.
+
+## Transfer thread (CLOSED per user; §1373-82)
 
 3-FOR-3 (§1373-75): bilin12's 7.1 = THE CLOSER — brackets 105.0% + quotes 105.3% solo,
 rel depth 0.64, neighbors net-negative. Function, single-owner grain, depth, and the
