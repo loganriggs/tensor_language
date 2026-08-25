@@ -1,0 +1,108 @@
+{
+ "res": {
+  "full": {
+   "question": 0.9464,
+   "comparative": 1.2539,
+   "closer": 1.2133,
+   "capitalized": 4.6201,
+   "else": 2.9577
+  },
+  "ymean": {
+   "question": 8.907,
+   "comparative": 8.2717,
+   "closer": 10.6752,
+   "capitalized": 10.0186,
+   "else": 6.8614
+  },
+  "question_gated": {
+   "question": 3.3638,
+   "comparative": 4.7692,
+   "closer": 5.4587,
+   "capitalized": 7.4029,
+   "else": 5.1976
+  },
+  "question_ungated": {
+   "question": 3.8663,
+   "comparative": 2.5104,
+   "closer": 2.673,
+   "capitalized": 5.6958,
+   "else": 3.8018
+  },
+  "comparative_gated": {
+   "question": 5.4588,
+   "comparative": 2.1355,
+   "closer": 5.1399,
+   "capitalized": 7.273,
+   "else": 5.0446
+  },
+  "comparative_ungated": {
+   "question": 3.7803,
+   "comparative": 1.835,
+   "closer": 2.5745,
+   "capitalized": 5.5597,
+   "else": 3.6939
+  },
+  "closer_gated": {
+   "question": 6.1909,
+   "comparative": 5.1368,
+   "closer": 3.4417,
+   "capitalized": 7.3955,
+   "else": 5.2001
+  },
+  "closer_ungated": {
+   "question": 5.4064,
+   "comparative": 2.8977,
+   "closer": 3.0135,
+   "capitalized": 5.7233,
+   "else": 3.8269
+  },
+  "capitalized_gated": {
+   "question": 6.7857,
+   "comparative": 4.9479,
+   "closer": 5.0838,
+   "capitalized": 6.6977,
+   "else": 5.0087
+  },
+  "capitalized_ungated": {
+   "question": 5.4076,
+   "comparative": 2.9019,
+   "closer": 2.91,
+   "capitalized": 5.7228,
+   "else": 3.8275
+  }
+ },
+ "table": {
+  "question": {
+   "gated": 0.6963,
+   "ungated": 0.6332,
+   "gain": -0.0631,
+   "else_gated": 0.4262,
+   "else_ungated": 0.7838
+  },
+  "comparative": {
+   "gated": 0.8744,
+   "ungated": 0.9172,
+   "gain": 0.0428,
+   "else_gated": 0.4654,
+   "else_ungated": 0.8114
+  },
+  "closer": {
+   "gated": 0.7645,
+   "ungated": 0.8097,
+   "gain": 0.0453,
+   "else_gated": 0.4256,
+   "else_ungated": 0.7773
+  },
+  "capitalized": {
+   "gated": 0.6152,
+   "ungated": 0.7957,
+   "gain": 0.1806,
+   "else_gated": 0.4746,
+   "else_ungated": 0.7772
+  }
+ },
+ "pred_a_all_four_improve": false,
+ "pred_b_mean_gain_05": true,
+ "pred_c_else_gain_10": true,
+ "runtime_s": 150.8
+}
