@@ -143,8 +143,10 @@ when dropped together.
 ## NEWLINE-SETTER CREW: {7.2, 8.2, 10.2, 11.0, 12.6} (S1415/S1418) — joint handle .617
 8.2: newline-target damage +.1457, controls <= .0025 (cleanest first screen since the
 closer). 11.0: +.0894, clean. Distinct from the old front-attention newline ROUTING
-circuit (item 7) — these predict where newlines GO. 10.6 = SECOND close-quote server
-(close .044 / open .029, S1416 — NOT the opener; open-quote remains unserved).
+circuit (item 7) — these predict where newlines GO. Quote service (S1420): owner 13.8
+(closes ~105%) + helper crew {10.6, 11.5} (joint .133 close / .105 open, 1.79x solo).
+OPEN-quote = crew-served WITHOUT owner (3rd service pattern; "unserved" was an
+owner-hunting artifact).
 Crew structure (S1419): NO crisp sub-band split — near-additive ensemble (cross-split
 synergy 1.15x vs capitalized's 1.5x). TWO-CREW MOTIF DEMOTED to "observed sometimes":
 redundancy structure varies by service (capitalized = 2 strong crews; newline = 1 loose
