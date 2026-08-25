@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+unit token ids: 47
+targets 161 | jitter 160 | rand 161
+base: {k: round(v, 4) for k, v in base.items()}
+a8: dmg target +0.2031 | jit +0.0674 | rand +0.0392 | else +0.0396
+a7: dmg target +0.0524 | jit +0.0803 | rand +0.0496 | else +0.0600
+a9: dmg target +0.1134 | jit +0.0724 | rand +0.0650 | else +0.0620
+a13: dmg target -0.0108 | jit +0.0214 | rand +0.0169 | else +0.0189
+a5: dmg target +0.1315 | jit +0.2603 | rand +0.0992 | else +0.1302
+
+a8 conc 5.1 | jitter 1.70 | random 0.99
+pred_a conc True | pred_b controls False | pred_c ownership False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/unit_screen_results.json (96.6s)

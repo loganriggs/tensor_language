@@ -33581,3 +33581,16 @@ ellipsis_screen_results.json; runlogs/ellipsis_screen.log (93s).
 - Queued (unit_screen.py, pool next): units -> a8 at the §1302 standard (generator flag +0.278, ratio 7.5; units follow numbers — the a8 pair's function context). Registered: pred_a a8 damage >= 0.12 and conc >= 5; pred_b both controls <= 1.5; pred_c a8 >= 2x competitors (a7/a9/a13/a5) — and if it certifies, the head stage's registered expectation is the FRESH half 8.7 (a unit is inferred from the number's context, not copied).
 
 ellipsis_heads_results.json; runlogs/ellipsis_heads.log (266s).
+
+## §1361 — UNIT SCREEN: CONCENTRATION REAL, VERDICT WITHHELD — AND THE DIRTY JITTER EXPOSES AN INSTRUMENT BLIND SPOT FOR MULTI-SURFACE FUNCTION LAYERS: a8 +0.203 at conc 5.1 (pred_a TRUE) but jitter 1.70 (pred_b FALSE) and ownership fails at n=161 (a5 +0.132, a9 +0.113 inside 2x; pred_c FALSE) — the jitter suspect: unit targets sit next to NUMBERS, so jitter positions land on a8's OWN DIGIT territory — a function-head's control neighborhood is contaminated by its other capability surfaces (unit_screen.py; n=161, thin)
+
+  layer  target-dmg  jitter   random   else
+  a8     +0.203      +0.067   +0.039   +0.040   conc 5.1; jitter 1.70 DIRTY; random 0.99 clean
+  a5     +0.132      +0.260   +0.099   +0.130   (2x bar fails: 0.263 > 0.203)
+  a9     +0.113      +0.072   +0.065   +0.062   (2x fails: 0.227 > 0.203)
+  a13    −0.011      —        —        —        closer irrelevant to units — dissociation again
+
+- THE INSTRUMENT INSIGHT, worth more than the screen: the jitter control assumes target-adjacent positions are NEUTRAL ground. For a MULTI-SURFACE function layer that assumption breaks by construction — "80 km"'s jitter positions sit on and around the number, where a8's DIGIT surface (§1352-54) is live, so a8's jitter damage is inflated by its own other job. §513's dirty capitalized control was mask contamination (§1339); this is a second, distinct contamination class: FUNCTION-SURFACE OVERLAP. Standing rule for screens of layers with known other surfaces: exclude the other surfaces' target positions from the control sets, and report the overlap.
+- Queued (unit_screen2.py): 2x data (NR=3840, fresh seed, the §1338 path) with the CLEANED jitter (digit-target positions excluded from the jitter set; overlap fraction reported). Registered: pred_a concentration reproduces (>= 0.12, conc >= 5); pred_b the CLEANED controls pass (both <= 1.5) — if the raw jitter stays dirty while the cleaned one passes, the contamination account is confirmed in the same run; pred_c ownership at 2x data (a8 >= 2x a7/a9/a13/a5) — an honest FALSE at full n would mean units are a8-led but shared, and the thread parks rather than forces.
+
+unit_screen_results.json; runlogs/unit_screen.log (97s).
