@@ -155,3 +155,7 @@ RULE: before calling a keep-only score negative or a component "not low-rank", c
 mean-norm / output-norm; if it's large, redo keep with the mean PRESERVED
 (v_kept = mean + proj_U(v − mean)). A large constant MEAN is NOT a per-token massive
 activation (norm max/mean can still be ~1.5) — they are different diagnostics.
+- EDIT-BEFORE-QUEUE (§1349): a path in queue.txt is LIVE the moment it is echoed —
+  bqrunner popped exclaim_gates.py between generation and an in-place rewrite, running
+  the version already diagnosed as ill-posed. All edits and the ast.parse check complete
+  BEFORE the echo into queue.txt, never after. (Related: asserted transforms, §1347.)

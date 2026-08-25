@@ -1,0 +1,74 @@
+{
+ "n_targets": 561,
+ "n_rows": 1920,
+ "ce": {
+  "full": {
+   "target": 3.1354,
+   "else": 3.1237
+  },
+  "ymean": {
+   "target": 9.6418,
+   "else": 7.2136
+  },
+  "route": {
+   "target": 6.1293,
+   "else": 5.4894
+  },
+  "circ_solo": {
+   "target": 5.9596,
+   "else": 5.4569
+  },
+  "circ_band": {
+   "target": 5.0221,
+   "else": 4.438
+  },
+  "circ_key": {
+   "target": 5.9193,
+   "else": 5.42
+  },
+  "circ_qry": {
+   "target": 5.0221,
+   "else": 4.438
+  },
+  "circ_both": {
+   "target": 5.0221,
+   "else": 4.438
+  }
+ },
+ "recovery": {
+  "full": {
+   "target": 1.0,
+   "else": 1.0
+  },
+  "route": {
+   "target": 0.5399,
+   "else": 0.4216
+  },
+  "circ_solo": {
+   "target": 0.5659,
+   "else": 0.4295
+  },
+  "circ_band": {
+   "target": 0.71,
+   "else": 0.6786
+  },
+  "circ_key": {
+   "target": 0.5721,
+   "else": 0.4385
+  },
+  "circ_qry": {
+   "target": 0.71,
+   "else": 0.6786
+  },
+  "circ_both": {
+   "target": 0.71,
+   "else": 0.6786
+  }
+ },
+ "gap_target": 6.5064,
+ "gap_else": 4.0899,
+ "pred_a_extraction_carries": true,
+ "pred_b_query_dominates": true,
+ "pred_c_owner_conditional": true,
+ "runtime_s": 122.8
+}
