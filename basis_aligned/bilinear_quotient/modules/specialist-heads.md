@@ -142,5 +142,8 @@ when dropped together.
 ## NEWLINE-SETTER PAIR: 8.2 + 11.0 (S1415, from the head-grain damage mine)
 8.2: newline-target damage +.1457, controls <= .0025 (cleanest first screen since the
 closer). 11.0: +.0894, clean. Distinct from the old front-attention newline ROUTING
-circuit (item 7) — these predict where newlines GO. 10.6 = quote helper +.036 clean
-(possible open-side partner to 13.8's close ownership). Characterization: newline_pair_quote.
+circuit (item 7) — these predict where newlines GO. 10.6 = SECOND close-quote server
+(close .044 / open .029, S1416 — NOT the opener; open-quote remains unserved).
+Pair structure (S1416): 8.2+11.0 joint removal 1.70x max solo — third instance of the
+TWO-CREW MOTIF (redundant pairs ~3 layers apart: capitalized crews, 13.8+10.6 quotes,
+8.2+11.0 newlines). Corpus emits newlines only as bare '\n' (subtype split vacuous).

@@ -169,3 +169,4 @@ activation (norm max/mean can still be ~1.5) — they are different diagnostics.
   embodies the old design kept being copied. When a design lesson lands, patch every
   template script in the same commit; generated screens must report BOTH raw winner and
   best specificity-passing candidate with bars keyed to the latter.
+- Existence-check subtype masks against the corpus BEFORE registering ratio predictions on them (S1416: nl_para/nl_mixed n=0 made pred_b vacuous — the corpus tokenizes newlines only as bare '\n').
