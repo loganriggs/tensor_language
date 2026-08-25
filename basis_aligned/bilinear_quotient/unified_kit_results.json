@@ -1,0 +1,60 @@
+{
+ "res": {
+  "full": {
+   "question": 0.9464,
+   "comparative": 1.2539,
+   "closer": 1.2133,
+   "capitalized": 4.6201,
+   "else": 2.9577
+  },
+  "ymean": {
+   "question": 8.907,
+   "comparative": 8.2717,
+   "closer": 10.6752,
+   "capitalized": 10.0186,
+   "else": 6.8614
+  },
+  "unified_ungated": {
+   "question": 3.7801,
+   "comparative": 1.8322,
+   "closer": 2.6726,
+   "capitalized": 5.5602,
+   "else": 3.6934
+  },
+  "unified_uniongate": {
+   "question": 3.65,
+   "comparative": 2.0553,
+   "closer": 2.9553,
+   "capitalized": 6.457,
+   "else": 4.7335
+  }
+ },
+ "table": {
+  "question": {
+   "ungated": 0.644,
+   "uniongate": 0.6604
+  },
+  "comparative": {
+   "ungated": 0.9176,
+   "uniongate": 0.8858
+  },
+  "closer": {
+   "ungated": 0.8458,
+   "uniongate": 0.8159
+  },
+  "capitalized": {
+   "ungated": 0.8259,
+   "uniongate": 0.6597
+  }
+ },
+ "else_recovery_ungated": 0.8115,
+ "solo_refs": {
+  "comparative": 0.9172,
+  "closer": 0.8097,
+  "capitalized": 0.7957
+ },
+ "pred_a_coresidence_cheap": false,
+ "pred_b_question_60": true,
+ "pred_c_else_75": true,
+ "runtime_s": 72.1
+}

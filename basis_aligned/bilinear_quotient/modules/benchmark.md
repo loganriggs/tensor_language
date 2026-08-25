@@ -80,3 +80,10 @@ and eval; the null scatters them — an advantage that GROWS with data, so §133
 growth criterion cannot catch it). Verdicts: mlp1 ~95% token table, un-tableable residue
 0.045 of stake, ctx16 reaches +0.0066 of it ("menu" withdrawn); mlp17 +0.1328 ON TOP of
 its full table (null -0.001, 42% of residual variance) — real, fast context at the top.
+
+## ONE-MODEL BILL (S1403)
+28/162 heads live (22 commons ungated + 6 specialists), all other heads v1-routed with
+meaned values, MLPs live: question .644 / comparative .918 / closer .846 / capitalized
+.826 / elsewhere .812 recovery of ymean-gap. Co-residence synergistic (+.03-.04 for
+closer/capitalized over solo kits). Question is the only gated family (gate = functional
+state protection, S1402). Slim pass: unified_kit_slim.
