@@ -91,12 +91,30 @@ of band service from positions outside both windows.
 gates on a02 + specialist head; arms full/ymean/route/band/key/qry/both; bars = band>=0.60,
 qry-vs-key +-0.05, selectivity +-0.05 of route elsewhere.
 
+## Post-template state (§1334-1345) — read CIRCUIT_REGISTRY.md for stages
+
+- QUESTION closed at head grain (§1342): 16-head clause-gated kit + 10.5 = 0.641; the L4
+  "crowd" is a TRIO by drop-cost (4.0/4.1/4.7) — add-grain masked it. Drop-grain is the
+  kit instrument; add-grain only screens.
+- COMPARATIVE closed 4-STAGE (§1344-45): annotate(a02, two zero-bit gates) -> fetch(8.1)
+  -> refine({10.5, 12.8} + 11.7/11.6) -> readout = 0.76-0.78. Missing rest = generic
+  mid-pool (L3-5, NOT kit material — elsewhere > target) + the UNPRICED MLP side
+  (ATTENTION-ONLY convention: all 18 MLPs live in every extraction arm).
+- ENTROPY-SETTER REFUTED for comparative (§1343, three ways: rank collapse = content
+  missing; gain-freeze hurts; temperature s*=0.95). First gain-frozen leg of the template.
+- CROSS-CIRCUIT MOONLIGHTING is standard, both directions: 0.3 + 1.1 serve the question
+  kit (§1342); 10.5 is the TOP comparative-refine carrier (§1345 — §1310's off-diagonal
+  seen causally). Kit costs across circuits are NOT additive; price shared heads once.
+  Labels of the form "X-specific" hold at behavior grain, not service grain.
+- CLOSE-BRACKET: 13.8 owns every subtype in-layer (§1341); a14 = trailing-punctuation
+  assistant (compound closes only, NEGATIVE on plain). Template run in flight
+  (close_bracket_gates.py: key = open-paren positions, qry = depth>0).
+
 ## Open
 
-- question_gates.py QUEUED: the template on 10.5 (targets = "?" in WH-opened sentences
-  via §1313 QSTATE; key gate = WH openers, query gate = open clause). Assumption
-  registered: annotator band = a02 by §1286-88; a band-arm miss localizes it elsewhere.
-- Exclamation circuit (17.2+17.3): template not yet applied; L17 position means the
-  "band" may be the whole stack below — expect the route to carry much more there.
-- MDL bridge: price each specialist's kept description (patterns + route + head params at
-  balanced gauge) against its capability nats — connects to modules/benchmark.md ladder.
+- Exclamation circuit (17.2+17.3): template not yet applied; L17 position — expect the
+  route to carry much more.
+- Capitalized: late-band shared (a15-17, no owner, §1339) — parked; band-gate extraction.
+- The MLP side of every kit: unpriced. Bridge to modules/benchmark.md ladder (mlp1 table,
+  top-MLP 16x16 context tables) is the exact-extraction frontier.
+- Double-close "))" unevaluable on natural rows (n=4) — needs targeted corpus (§1341).
