@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ellipsis ids 45
+targets 382 | jitter 363 | rand 382
+layer dmg +0.3020 (vs §1359 screen +0.302)
+L13.0: solo -0.0068 (else +0.0017) | all-but +0.3095
+L13.1: solo +0.0009 (else +0.0010) | all-but +0.3010
+L13.2: solo +0.2346 (else +0.0028) | all-but +0.0627
+L13.3: solo +0.0467 (else +0.0004) | all-but +0.2498
+L13.4: solo -0.0068 (else +0.0011) | all-but +0.3090
+L13.5: solo +0.0038 (else +0.0002) | all-but +0.2981
+L13.6: solo +0.0268 (else +0.0024) | all-but +0.2747
+L13.7: solo -0.0026 (else +0.0005) | all-but +0.3044
+L13.8: solo +0.0003 (else +0.0009) | all-but +0.3014
+
+top solo L13.2 share 0.7768 | top keep L13.2
+pred_a owner True | pred_b agree True | pred_c surgical True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ellipsis_heads_results.json (265.5s)

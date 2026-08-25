@@ -33567,3 +33567,17 @@ closer_quote_depth_results.json; runlogs/closer_quote_depth.log (104s).
 - THE PAIR BET, registered for the head stage: a17's two named heads are the EXCLAIM PAIR 17.2+17.3 (§1318-19) — and "…" is an expressive terminal marker like "!". If the pair carries the a17 ellipsis service, that is its THIRD capability surface (!, and now …), the function being something like EXPRESSIVE-TERMINAL EMISSION, and the §1354 heuristic scores again. Queued (ellipsis_heads.py, §1340 pattern at ellipsis targets): pred_a THE PAIR CARRIES IT: heads 17.2+17.3 jointly >= 60% of the layer's target damage (solo-sum grain); pred_b directions agree on the top head; pred_c surgical (top head's elsewhere <= 10% of its target damage).
 
 ellipsis_screen_results.json; runlogs/ellipsis_screen.log (93s).
+
+## §1360 — THE PAIR BET WINS AT 93% — AND SPLITS ASYMMETRICALLY: 17.2 carries ellipsis nearly alone (solo +0.235, 77.7% share; keep-only confirms) with 17.3 at just 15.5% — so the exclaim pair's ellipsis service is real (third expressive-terminal surface) but the "perfectly additive half-heads" of §1319 are NOT interchangeable: 17.2 is the BROAD expressive-terminal head, 17.3 the "!"-leaning half; preds a, b, c ALL TRUE (ellipsis_heads.py; n=382; the L13.x label artifact prints a third time — template variable renamed in future generations, data unambiguous: layer 17)
+
+  head   solo (ellipsis)  share   (vs "!" §1318 share)
+  17.2   +0.235           77.7%   48.5%   <- the generalist half
+  17.3   +0.047           15.5%   42.6%   <- the "!"-specialist half
+  pair   jointly 93.2%    (pred_a bar 60%)
+
+- THE REFINEMENT THE BET BOUGHT: at "!" the pair splits 49/43 (balanced, §1318); at "…" it splits 78/15. The two halves share a function family — expressive-terminal emission — but with DIFFERENT BREADTHS: 17.2 serves the family generally ("!", "…", plausibly other expressive marks), 17.3 concentrates on "!". §1319's "perfectly additive half-heads" stands as an additivity claim at "!" targets and now carries a breadth asymmetry the "!"-only view could not see. Function labels need a breadth axis: OWNER (13.8: one function, all its surfaces), GENERALIST-HALF + SPECIALIST-HALF (17.2/17.3).
+- MOONLIGHTING LEDGER: 17.2's ellipsis service is entry five, and the pattern is now bidirectional at layer 17 too. The function inventory reads: closer (13.8), copy (8.3), fresh-inference (8.7), bigram route (0.3), stem match (1.1+1.8), terminal-state cashing (10.5), expressive-terminal broad (17.2) + "!"-focused (17.3). Ellipsis's a13 second-place (§1359) remains logged as the closer's delimited-span tail, unchased.
+- Ellipsis RESOLVED at head grain in two runs (screen -> heads); no extraction rung queued — its kit would be the exclaim kit's (blocked on the same probe gate, §1350), and the a17 service is now known to route through 17.2 when that gate exists.
+- Queued (unit_screen.py, pool next): units -> a8 at the §1302 standard (generator flag +0.278, ratio 7.5; units follow numbers — the a8 pair's function context). Registered: pred_a a8 damage >= 0.12 and conc >= 5; pred_b both controls <= 1.5; pred_c a8 >= 2x competitors (a7/a9/a13/a5) — and if it certifies, the head stage's registered expectation is the FRESH half 8.7 (a unit is inferred from the number's context, not copied).
+
+ellipsis_heads_results.json; runlogs/ellipsis_heads.log (266s).

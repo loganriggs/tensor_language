@@ -45,8 +45,8 @@ conditionality measured).
 | **digit** | **8.3 + 8.7 COMPLEMENTARY** | §1354: divides by EVIDENCE TYPE — 8.3 copy-flavored (2.9x per-position), 8.7 fresh-specialist NEGATIVE on copyable (interference inside a pair); moonlighting #4 | 9056 | thread rests fully mapped |
 | sentence_end | a10 | +0.065 vs +0.020 | 482 | overlaps newline thread — dedup before opening |
 | **THE CLOSER (13.8)** | **CLOSED** | final form: [route + (depth-gate a02) UNION (parity-gate a05) + 13.8] = brackets 0.657 / quotes 0.630; per-function MDL merge measured (§1357); taxonomy LAW 4-for-4 (§1358); width inversion 5th sighting | — | brackets+quotes one entry |
-| ellipsis | a17 (a13 2nd) | §1359: clean screen, a17 +0.302 conc 22.7 at 2.5x — 3x broken by the CLOSER layer (delimited-span suspicion); PAIR BET in flight (17.2+17.3 = expressive-terminal?) | 382 | heads stage running |
-| unit | a8 | atlas2 §1355: +0.278, ratio 7.5 (units follow numbers — a8 function context) | — | pool |
+| ellipsis | **17.2** (17.3 minor) | RESOLVED §1360: pair carries 93% but ASYMMETRIC (17.2 78% vs 17.3 15%) — 17.2 = BROAD expressive-terminal, 17.3 = "!"-specialist; breadth axis added to function labels | 382 | kit blocked on same probe gate as exclaim |
+| unit | a8 | atlas2 §1355: +0.278, ratio 7.5 | — | §1302 screen IN FLIGHT (head-stage expectation registered: 8.7 fresh-half) |
 | ~~possessive, hyphen, ordinal, year~~ | — | fail generator bars §1355 (distributed / generalist profiles) | — | negative, recorded |
 | ~~comma~~ | — | fails screen (distributed) | 476 | negative, recorded |
 | ~~colon~~ | — | fails both controls | 74 | negative, recorded |
