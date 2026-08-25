@@ -1,0 +1,68 @@
+{
+  "datapoint": {
+    "context": " justices will devote 110 minutes to hear arguments on the so-called federal Defense",
+    "target": " of",
+    "ce": 0.0009
+  },
+  "top_heads_ov": [
+    [
+      11,
+      6,
+      0.0012
+    ],
+    [
+      6,
+      1,
+      0.0006
+    ],
+    [
+      0,
+      3,
+      0.0005
+    ]
+  ],
+  "top_heads_qk": [
+    [
+      10,
+      5,
+      0.0005
+    ],
+    [
+      9,
+      0,
+      0.0003
+    ],
+    [
+      11,
+      1,
+      0.0003
+    ]
+  ],
+  "top_mlps": [
+    [
+      1,
+      4.4184
+    ],
+    [
+      16,
+      1.1125
+    ],
+    [
+      17,
+      0.1957
+    ]
+  ],
+  "qk_vs_ov_reading": "Heads are almost silent (max ov 0.0012, ~3600x below mlp1's 4.42), and the top-ov head (11.6) doesn't even appear in the top-qk list, while the top-qk head (10.5, the known 'question head') has both ov and qk ~0.0005 -- equal, i.e. pure selection, but at negligible magnitude. So there is no meaningful ov-vs-qk story at the head level for this datapoint; the decision is made by mlp1 (+ a secondary mlp16 contribution) essentially before attention's payload matters.",
+  "chosen_spec": [
+    "mlp",
+    1
+  ],
+  "scope_stats": {
+    "mean_dce": 8.35646,
+    "frac_gt_0.5": 0.9439,
+    "frac_lt_-0.5": 0.02577,
+    "n_positions": 18432
+  },
+  "category_story": "mlp1 is a giant front token-table keyed on the current token's surface identity/spelling: it fires hardest on subword/compound continuations that are near-deterministic given the current token alone -- completing a word split across BPE tokens (e.g. 'six-re'->'actor', 'epitom'->'izes', 'BRU'->'CE', 'TOGET'->'HER'), repeated legal-boilerplate compounds (e.g. 'Transferor'/'Transferee'->' spouse'), and form-filler boilerplate ('Yes___No__'->'____'). Its scope is 'the next BPE fragment of an in-progress multi-token word or fixed phrase', not context-dependent selection at all.",
+  "surprises": "The context ('federal Defense' -> ' of') strongly evokes 'Defense of Marriage Act' (DOMA), a very specific institutional phrase, yet the circuit responsible is the generic mlp1 token-table plus mlp16, not a specialized long-range lookup head -- 'Defense' alone is apparently enough to make ' of' the modal continuation without needing to reference anything upstream. mlp16 showing up as a secondary contributor (1.11 dCE) at a much later layer than mlp1 is new; not previously flagged in the known circuit list."
+}

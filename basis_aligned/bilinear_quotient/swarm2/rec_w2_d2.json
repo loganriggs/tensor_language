@@ -1,0 +1,67 @@
+{
+  "datapoint": {
+    "context": " and we supported that effort by taking in a few people. As it turned",
+    "target": " out",
+    "ce": 0.0111
+  },
+  "top_heads_ov": [
+    [
+      1,
+      5,
+      0.0375
+    ],
+    [
+      0,
+      3,
+      0.0331
+    ],
+    [
+      7,
+      8,
+      0.0207
+    ]
+  ],
+  "top_heads_qk": [
+    [
+      1,
+      5,
+      0.0278
+    ],
+    [
+      1,
+      6,
+      0.0132
+    ],
+    [
+      4,
+      4,
+      0.0076
+    ]
+  ],
+  "top_mlps": [
+    [
+      1,
+      8.5258
+    ],
+    [
+      3,
+      0.6968
+    ],
+    [
+      0,
+      0.5255
+    ]
+  ],
+  "qk_vs_ov_reading": "mlp1 again dominates (8.53 nats) three orders of magnitude above any head (max 0.0375) -- the collocation 'turned out' is resolved mostly by the token-table. Top head 1.5 has qk~ov (0.0278 vs 0.0375), a mixed/SELECTION-leaning regime: it partly depends on where it attends, not pure payload. Head 0.3 (ov=0.0331, qk=-0.0013) is cleanly PAYLOAD-only -- mean-patching its attention pattern doesn't hurt at all (slightly helps), so its value content alone carries the effect regardless of where it looks.",
+  "chosen_spec": [
+    "mlp",
+    1
+  ],
+  "scope_stats": {
+    "mean_dce": 8.35646,
+    "frac_gt_0.5": 0.9439,
+    "n_positions": 18432
+  },
+  "category_story": "Same mlp1 scope as DP1 (94% of positions hurt >0.5 nats): dominant failure modes are subword continuations and fixed multi-word templates -- a common phrasal collocation like 'turned out' falls into the same broad token-table bucket rather than needing a dedicated bigram head.",
+  "surprises": "None of the known named heads (3.8/8.3 copy, 8.1 comparative, 10.5 question, 13.8 closer, 17.2/17.3 expressive) show up in the top-3 at either grain for this phrasal-collocation datapoint -- the small residual head contribution here comes from generic early heads (1.5, 1.6, 0.3), not the catalogued specialists."
+}

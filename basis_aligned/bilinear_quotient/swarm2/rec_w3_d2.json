@@ -1,0 +1,11 @@
+{
+  "datapoint": {"row": 449, "pos": 216, "context": ".|\n|Show||New Jersey Theatre Alliance|\n|Save 10", "target": "%", "ce": 0.0193},
+  "top_heads_ov": [[6, 3, 0.0113], [14, 6, 0.0108], [7, 3, 0.0083]],
+  "top_heads_qk": [[14, 6, 0.01], [7, 3, 0.0083], [8, 6, 0.0039]],
+  "top_mlps": [[1, 10.5071], [2, 0.0996], [3, 0.0665]],
+  "qk_vs_ov_reading": "mlp1 dominates again (dCE=10.51). Among heads: (14,6) ov=0.0108 approx= qk=0.01, and (7,3) ov=0.0083 EXACTLY equal qk=0.0083 -- both clean matched/selection regime heads (contribution comes from WHERE they look at the digit '10', not special payload). (6,3) is the single strongest head overall (ov=0.0113) but absent from the qk top-5 -> OV>>QK, payload-dominant. So this datapoint shows both regimes side by side: a selection pair (14,6)+(7,3) finding the right numeric context, plus one payload-heavy head (6,3) supplying the actual '%' content.",
+  "chosen_spec": ["head_ov", 6, 3],
+  "scope_stats": {"mean_dce": 0.02009, "frac_gt_0.5": 0.01975, "n_positions": 18432},
+  "category_story": "Falsifiable class: the target completes the SECOND token of a specific low-frequency compound noun or proper name that forms a fixed two-token unit -- e.g. 'Sous_[Vide]' and 'sous_[vide]' (both capitalizations independently in the top-10), 'Cen[ac]', 'PALTR[OW]', 'scot[omas]', 'Daryle_[Ward]'. Effect is narrow (frac_gt_0.5 ~2%, mean_dce 0.02): looks like a cache of specific rare compound/proper-noun continuations rather than a broad subword-completion mechanism.",
+  "surprises": "Head (7,3) recurs as a small, exactly-matched-regime (ov=qk=0.0083) contributor in both d0 and d2's top-3 lists, yet stays tiny in dCE both times -- likely a low-salience generic selection component rather than a distinct named circuit. Head (6,3)'s scope test surfaced 'sous vide' completed correctly TWICE (once capitalized, once lowercase) among just the top-10 examples, suggesting this head specifically caches a handful of particular rare compound terms rather than a broad class -- an unusually item-specific payload circuit for a mid-depth head (layer 6)."
+}

@@ -1,0 +1,11 @@
+{
+  "datapoint": {"row": 22, "pos": 89, "context": " Museums Service\nSandwell Community History and Archives Service\nSandwell Muse", "target": "ums", "ce": 0.0013},
+  "top_heads_ov": [[1, 1, 0.001], [7, 3, 0.0007], [2, 5, 0.0004]],
+  "top_heads_qk": [[11, 6, 0.0015], [7, 3, 0.0006], [3, 8, 0.0004]],
+  "top_mlps": [[1, 14.1982], [16, 0.0109], [17, 0.0103]],
+  "qk_vs_ov_reading": "mlp1 (dCE=14.2) dwarfs every head by ~4 orders of magnitude at this position, so effectively all confidence for this copy-completion ('Muse'+'ums', repeating the earlier 'Museums Service') comes from mlp1's token table, not attention. Among the negligible head contributions: (11,6) is qk-only in the top list (qk=0.0015, not present in ov top-5) -> selection-leaning; (7,3) has ov=0.0007 approx= qk=0.0006 -> matched/selection regime, consistent with a minor copy-station-style mechanic, but both are noise-level next to mlp1.",
+  "chosen_spec": ["head_qk", 11, 6],
+  "scope_stats": {"mean_dce": 0.00454, "frac_gt_0.5": 0.00467, "n_positions": 18431},
+  "category_story": "Falsifiable class: the target token completes a person's SURNAME immediately following a given name/initial in an enumerated list of people (sports rosters, author/cast lists) -- e.g. 'Nate_[Jones]', 'A.J._[Ellis]', 'Bobby_[Heck]', 'Chris_[Miles]', free-agent list 'Mark_[De]Rosa'. Effect is narrow (frac_gt_0.5 ~0.5%, mean_dce 0.0045): a small, selection-type circuit for 'next name in a roster'.",
+  "surprises": "mlp1's dCE here (14.2 nats) is ~9000x any single head's dCE (~0.0015) at this position -- essentially all model confidence for this in-context copy comes from mlp1's token table, not attention. Neither canonical copy-station head (3.8, 8.3) appears in the top-3 at either grain for this position, suggesting mlp1 alone executes simple repeats like 'Museum(s)' without leaning on the attention-based copy circuit here (or their contribution is masked because ablating mlp1 already collapses the position). Also, the strongest attention part (11,6) turns out via scope testing to specialize in name-list continuation, not word-copying -- a mismatch between the local top-dCE part and its actual global function."
+}

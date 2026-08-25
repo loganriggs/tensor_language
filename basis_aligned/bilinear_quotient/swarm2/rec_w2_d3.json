@@ -1,0 +1,67 @@
+{
+  "datapoint": {
+    "context": "ists expect the unemployment rate climbed to 9.7 percent last month from 9",
+    "target": ".",
+    "ce": 0.0499
+  },
+  "top_heads_ov": [
+    [
+      10,
+      0,
+      0.035
+    ],
+    [
+      1,
+      4,
+      0.0302
+    ],
+    [
+      1,
+      1,
+      0.0271
+    ]
+  ],
+  "top_heads_qk": [
+    [
+      10,
+      0,
+      0.0373
+    ],
+    [
+      1,
+      4,
+      0.0285
+    ],
+    [
+      5,
+      5,
+      0.0178
+    ]
+  ],
+  "top_mlps": [
+    [
+      1,
+      6.4798
+    ],
+    [
+      0,
+      0.7347
+    ],
+    [
+      4,
+      0.0756
+    ]
+  ],
+  "qk_vs_ov_reading": "mlp1 dominates yet again (6.48 nats, ~180x the top head) -- even numeric-formatting continuations (predicting '.' to complete a truncated decimal '9' echoing the earlier '9.7') are mostly resolved by the token-table. Both top heads are cleanly in the SELECTION regime: 10.0 (qk=0.0373 ~ ov=0.035) and 1.4 (qk=0.0285 ~ ov=0.0302) -- ablating their attention pattern hurts almost as much as ablating their output, meaning WHERE they look (plausibly back to the earlier '9.7') matters more than any special payload content.",
+  "chosen_spec": [
+    "mlp",
+    1
+  ],
+  "scope_stats": {
+    "mean_dce": 8.35646,
+    "frac_gt_0.5": 0.9439,
+    "n_positions": 18432
+  },
+  "category_story": "Consistent with DP1/DP2: mlp1 removal devastates the same broad class (subword continuations + fixed templates) across 94% of all positions; this decimal-point datapoint is just one more instance the giant token-table happens to cover, not evidence of a numeric-specific submodule.",
+  "surprises": "This is the one datapoint where BOTH top heads are unambiguously selection-driven (qk~ov) rather than payload-driven -- suggesting decimal/number-echo prediction leans on copy-by-attention (finding the earlier occurrence of the number) more than the acronym or phrasal datapoints did, even though the overall CE is still owned by mlp1."
+}

@@ -1,0 +1,68 @@
+{
+  "datapoint": {
+    "context": " the offensive side, the Padres are showing an ability to hit with runners in",
+    "target": " scoring",
+    "ce": 0.0147
+  },
+  "top_heads_ov": [
+    [
+      6,
+      3,
+      0.0188
+    ],
+    [
+      9,
+      7,
+      0.0083
+    ],
+    [
+      7,
+      8,
+      0.0078
+    ]
+  ],
+  "top_heads_qk": [
+    [
+      6,
+      3,
+      0.0112
+    ],
+    [
+      14,
+      3,
+      0.0056
+    ],
+    [
+      1,
+      3,
+      0.0054
+    ]
+  ],
+  "top_mlps": [
+    [
+      1,
+      13.3665
+    ],
+    [
+      3,
+      0.4603
+    ],
+    [
+      0,
+      0.2229
+    ]
+  ],
+  "qk_vs_ov_reading": "mlp1 dwarfs every head by ~700x (13.37 vs max head 0.019), so the head layer is basically irrelevant here. Among heads, 6.3 is top at both grains with ov (0.0188) only ~1.7x qk (0.0112) -- same order of magnitude, so head 6.3's small contribution is mostly SELECTION (finding the right context token), not a distinctive payload. Net verdict: this well-predicted 'runners in scoring [position]' collocation is essentially entirely an mlp1 token-identity completion, not an attention circuit.",
+  "chosen_spec": [
+    "mlp",
+    1
+  ],
+  "scope_stats": {
+    "mean_dce": 8.35646,
+    "frac_gt_0.5": 0.9439,
+    "frac_lt_-0.5": 0.02577,
+    "n_positions": 18432
+  },
+  "category_story": "mlp1 is a giant front token-table keyed on the current token's surface identity/spelling: it fires hardest on subword/compound continuations that are near-deterministic given the current token alone -- completing a word split across BPE tokens (e.g. 'six-re'->'actor', 'epitom'->'izes', 'BRU'->'CE', 'TOGET'->'HER'), repeated legal-boilerplate compounds (e.g. 'Transferor'/'Transferee'->' spouse'), and form-filler boilerplate ('Yes___No__'->'____'). Its scope is 'the next BPE fragment of an in-progress multi-token word or fixed phrase', not context-dependent selection at all.",
+  "surprises": "Expected a baseball-collocation/bigram head to show up given the sports context, but no head comes remotely close to mlp1's dCE -- mlp1 alone accounts for the position being 'well predicted'. This matches the known mlp1=giant front token-table finding directly: 'in scoring' is apparently frequent/predictable enough from token identity alone that no selection circuit is needed."
+}

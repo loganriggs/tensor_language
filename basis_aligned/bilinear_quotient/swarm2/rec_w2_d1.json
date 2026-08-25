@@ -1,0 +1,67 @@
+{
+  "datapoint": {
+    "context": " I guess we are the only country in the world that does it? BT",
+    "target": "W",
+    "ce": 0.0116
+  },
+  "top_heads_ov": [
+    [
+      7,
+      8,
+      0.0119
+    ],
+    [
+      0,
+      3,
+      0.007
+    ],
+    [
+      9,
+      7,
+      0.0055
+    ]
+  ],
+  "top_heads_qk": [
+    [
+      10,
+      5,
+      0.0051
+    ],
+    [
+      1,
+      7,
+      0.0017
+    ],
+    [
+      4,
+      3,
+      0.0017
+    ]
+  ],
+  "top_mlps": [
+    [
+      1,
+      14.0856
+    ],
+    [
+      0,
+      3.6099
+    ],
+    [
+      2,
+      0.5676
+    ]
+  ],
+  "qk_vs_ov_reading": "mlp1 dwarfs every head by ~3 orders of magnitude (14.09 vs 0.012 max) -- the giant front token-table is doing essentially all the work of completing the acronym 'BTW'. Top-OV head 7.8 (ov=0.0119, qk=0.0015) is PAYLOAD-dominant (its value content matters, not where it looks) but numerically negligible. Top-QK head 10.5 (qk=0.0051 ~ ov=0.005) is in the SELECTION regime -- this is the known 10.5 'question head'; it shows up here but contributes almost nothing next to mlp1.",
+  "chosen_spec": [
+    "mlp",
+    1
+  ],
+  "scope_stats": {
+    "mean_dce": 8.35646,
+    "frac_gt_0.5": 0.9439,
+    "n_positions": 18432
+  },
+  "category_story": "mlp1 ablation catastrophically raises CE (mean dCE=8.36 nats, hits 94% of all positions >0.5 nats) most on multi-token subword continuations of specific words/names and fixed repeated templates (e.g. 'Transferor spouse', form-blank '____', capitalized completions like 'BRU'->'CE') -- consistent with a broad token-identity/n-gram lookup table, not a narrow acronym-specific mechanism, even though this datapoint's target ('W' after 'BT') looks like exactly that category.",
+  "surprises": "Known circuit 10.5 (question head) does appear as the top QK-regime head here, confirming its role, but its effect (0.005 nats) is utterly swamped by mlp1 (14.09 nats) -- for well-predicted acronym completions the specialized heads are essentially decorative next to the token-table."
+}

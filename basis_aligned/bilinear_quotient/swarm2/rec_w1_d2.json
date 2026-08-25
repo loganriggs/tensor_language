@@ -1,0 +1,68 @@
+{
+  "datapoint": {
+    "context": " and Farmland Foods. The barrow was donated to the Missouri 4-",
+    "target": "H",
+    "ce": 0.0008
+  },
+  "top_heads_ov": [
+    [
+      8,
+      7,
+      0.0057
+    ],
+    [
+      1,
+      1,
+      0.0042
+    ],
+    [
+      0,
+      3,
+      0.0032
+    ]
+  ],
+  "top_heads_qk": [
+    [
+      8,
+      7,
+      0.0044
+    ],
+    [
+      2,
+      6,
+      0.0003
+    ],
+    [
+      3,
+      6,
+      0.0003
+    ]
+  ],
+  "top_mlps": [
+    [
+      1,
+      5.8959
+    ],
+    [
+      3,
+      2.1532
+    ],
+    [
+      2,
+      0.2484
+    ]
+  ],
+  "qk_vs_ov_reading": "Again mlp1 dominates by ~1000x over any head. Head 8.7 is the (tiny) top head at both grains, with ov (0.0057) close to qk (0.0044) -- ratio 1.3, i.e. mostly SELECTION, not a distinctive payload -- but its absolute size is negligible next to mlp1 (5.90) and mlp3 (2.15). No head here matches the known 8.1/8.3 circuits; this is a different, much weaker head (8.7) contributing almost nothing to the prediction.",
+  "chosen_spec": [
+    "mlp",
+    1
+  ],
+  "scope_stats": {
+    "mean_dce": 8.35646,
+    "frac_gt_0.5": 0.9439,
+    "frac_lt_-0.5": 0.02577,
+    "n_positions": 18432
+  },
+  "category_story": "mlp1 is a giant front token-table keyed on the current token's surface identity/spelling: it fires hardest on subword/compound continuations that are near-deterministic given the current token alone -- completing a word split across BPE tokens (e.g. 'six-re'->'actor', 'epitom'->'izes', 'BRU'->'CE', 'TOGET'->'HER'), repeated legal-boilerplate compounds (e.g. 'Transferor'/'Transferee'->' spouse'), and form-filler boilerplate ('Yes___No__'->'____'). Its scope is 'the next BPE fragment of an in-progress multi-token word or fixed phrase', not context-dependent selection at all.",
+  "surprises": "'4-' -> 'H' (completing the fixed organization name '4-H') is exactly the kind of subword/compound-completion event the mlp1 scope-scan turns up as its top examples (e.g. 'six-re'->'actor'), confirming the category story on a fresh case not in the original top-25 list. mlp3 (2.15 dCE) is a nontrivial secondary contributor here, unlike in datapoint 0, suggesting mlp3 may pick up some of the same token-identity work as a backup/refinement to mlp1 specifically for rarer compound tokens."
+}

@@ -1,0 +1,11 @@
+{
+  "datapoint": {"row": 41, "pos": 181, "context": " media and fans spellbound. It also leads me to believe it's part", "target": " of", "ce": 0.0194},
+  "top_heads_ov": [[0, 3, 0.021], [4, 5, 0.0095], [4, 1, 0.0075]],
+  "top_heads_qk": [[5, 6, 0.008], [5, 3, 0.0051], [4, 5, 0.0044]],
+  "top_mlps": [[1, 9.5895], [0, 1.0018], [2, 0.7355]],
+  "qk_vs_ov_reading": "mlp1 still dominates (dCE=9.59) but is less overwhelming than d0 (mlp0 also contributes 1.00, mlp2 0.74 -- a broader multi-layer stack for this common function-word bigram). Head (0,3): ov=0.021 with no matching entry in the qk top-5 -> clean OV>>QK, payload regime: this head's specific written content (not where it looks) drives 'part_[of]' beyond generic selection. Heads (4,5) ov=0.0095/qk=0.0044 and (5,3) not in ov top3 but qk=0.0051 close to some ov values -> mixed, payload-leaning heads rather than pure selection.",
+  "chosen_spec": ["head_ov", 0, 3],
+  "scope_stats": {"mean_dce": 0.06895, "frac_gt_0.5": 0.08013, "n_positions": 18432},
+  "category_story": "Broader/less crisp than a single tight class: top-hurt positions split between (a) the remaining subword suffix of a word whose stem just appeared (e.g. 'Narrow'->'[var]', 'Billings'->'[ley]', 'Guelph_professor'->'[professor]') and (b) the expected noun/adjective completing a stereotyped 2-3 word collocation opener (e.g. 'Been there,_[done]', 'Rewind!_(Cue_[fast])', 'Plant_[operator]'). Effect is broad (frac_gt_0.5 ~8%, mean_dce 0.069) -- a general-purpose payload head for common collocations/word completions, not a single narrow category.",
+  "surprises": "Head (0,3)'s ov effect (0.021) with total absence from the qk top-5 is the cleanest OV>>QK payload example among the three datapoints -- for this preposition-after-'part' prediction, what the head writes matters far more than where it attends. It is not on the known-heads list (3.8/8.3/8.1/10.5/13.8/17.2/17.3), so this looks like an uncatalogued layer-0 payload head worth flagging. Also notable: unlike d0/d2, three separate MLP layers (0,1,2) all contribute meaningfully here rather than mlp1 alone, suggesting common function-word prediction is spread across the early MLP stack rather than concentrated in the single giant token-table layer."
+}

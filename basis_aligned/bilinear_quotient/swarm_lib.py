@@ -231,3 +231,38 @@ def specificity_and_scope(spec, nrows=96, topk=30, skip=900):
             'frac_gt_0.5': round(float((dce > 0.5).float().sum() / max(n, 1)), 5),
             'frac_lt_-0.5': round(float((dce < -0.5).float().sum() / max(n, 1)), 5),
             'top_examples': examples}
+
+
+@torch.no_grad()
+def well_predicted_nontable(n=20, ce_max=0.05, mlp1_dce_max=0.5, seed=0, nrows=480):
+    """Wave-2 sampler (§1387): well-predicted positions whose skill does NOT come from
+    the mlp1 table — one extra pass with mlp1 globally mean-ablated; keep positions
+    where mlp1's dCE < mlp1_dce_max. These are the datapoints owned by attention or
+    other circuits (the swarm's undiscovered territory)."""
+    _ensure_refs()
+    rows = _rows(nrows)
+    bce = _base_ce(rows)
+    key = ('m1ce', nrows)
+    if key not in _C:
+        out = []
+        for i in range(0, rows.shape[0], 8):
+            bb = rows[i:i + 8].to(DEV)
+            idx = bb[:, :-1].contiguous(); tg = bb[:, 1:].contiguous()
+            lo = _forward(idx, ('mlp', 1)).float()
+            ce = F.cross_entropy(lo.reshape(-1, lo.shape[-1]), tg.reshape(-1),
+                                 reduction='none').view(tg.shape)
+            out.append(ce.cpu())
+        _C[key] = torch.cat(out)
+    m1dce = _C[key] - bce
+    mask = (bce < ce_max) & (m1dce < mlp1_dce_max)
+    mask[:, :64] = False
+    pos = torch.nonzero(mask)
+    g = torch.Generator().manual_seed(seed)
+    sel = pos[torch.randperm(pos.shape[0], generator=g)[:n]]
+    out = []
+    for r, p in sel.tolist():
+        pre, tgt = context(rows, r, p)
+        out.append({'row': r, 'pos': p, 'ce': round(float(bce[r, p]), 4),
+                    'mlp1_dce': round(float(m1dce[r, p]), 4),
+                    'context': pre, 'target': tgt})
+    return out

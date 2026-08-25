@@ -1,0 +1,38 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+commons 22 heads
+refit mlp4 installed (rmsref 529.8)
+refit mlp5 installed (rmsref 221.3)
+refit mlp6 installed (rmsref 144.0)
+refit mlp7 installed (rmsref 189.6)
+refit mlp8 installed (rmsref 287.7)
+refit mlp9 installed (rmsref 307.8)
+refit mlp10 installed (rmsref 327.1)
+refit mlp11 installed (rmsref 438.1)
+refit mlp12 installed (rmsref 536.8)
+refit mlp13 installed (rmsref 547.8)
+refit mlp14 installed (rmsref 642.1)
+refit mlp15 installed (rmsref 755.9)
+targets: q 307 | than 110 | bracket 1779 | quote 1058
+full: question 0.946 comparative 1.254 closer_b 1.213 closer_q 1.772 | else 3.1392
+ymean: question 8.907 comparative 8.272 closer_b 10.675 closer_q 9.725 | else 7.1925
+route: question 6.296 comparative 5.203 closer_b 5.668 closer_q 7.554 | else 5.4837
+kit_attn: comparative 2.136 | else 5.2785
+kit_mid_mean: comparative 4.440 | else 5.5973
+mlp4: add-one −+0.6499CE | drop-one ++0.5959CE
+mlp5: add-one −+0.3639CE | drop-one ++0.2005CE
+mlp6: add-one −+0.4227CE | drop-one ++0.3254CE
+mlp7: add-one −+0.4281CE | drop-one ++0.2307CE
+mlp8: add-one −+0.2396CE | drop-one ++0.1544CE
+mlp9: add-one −+0.1631CE | drop-one ++0.0425CE
+mlp10: add-one −+0.0468CE | drop-one +-0.1359CE
+mlp11: add-one −+0.1019CE | drop-one +-0.0374CE
+mlp12: add-one −+0.0490CE | drop-one +-0.0909CE
+mlp13: add-one −+0.0802CE | drop-one +-0.0419CE
+mlp14: add-one −+0.0401CE | drop-one +-0.0801CE
+mlp15: add-one −-0.0323CE | drop-one +-0.1979CE
+kit_top4 (live [4, 5, 6, 7]): comparative 2.083 | else 5.5634
+
+top4 by drop [4, 6, 7, 5] | by add [4, 7, 6, 5] | overlap 4
+recovery: mean 0.546 -> top4 0.882 (live 0.874)
+pred_a collapses True | pred_b disagree False | pred_c selective True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mid_mlp_dropcost_results.json (500.6s)
