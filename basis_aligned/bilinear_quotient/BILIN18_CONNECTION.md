@@ -33671,3 +33671,18 @@ mdl_bill_results.json; MDL_BILL.md (committed).
 - Queued (shared_band_kit.py, THE CAPSTONE): one 22-head commons serving THREE kits at once — question (clause gate + 10.5), comparative (two-window gate + 8.1 + refine-4), closer (union gate + 13.8) — each scored on its own family with the SAME live band. Registered: pred_a each kit lands within 0.04 of its own-band closing number (question 0.641, comparative 0.778, closer 0.657/0.630); pred_b sink excluded costs nothing (the never-gate-a-constant rule applied: 5.7 stays routed everywhere); pred_c selectivity holds for all three (elsewhere within 0.05 of route). If pred_a sweeps, the program's headline MDL statement becomes: ONE 22-HEAD ANNOTATION COMMONS + ONE SPECIALIST HEAD PER CAPABILITY + ZERO-BIT GATES ~ two-thirds of every measured capability.
 
 closer_band_slim_results.json; runlogs/closer_band_slim.log (856s).
+
+## §1368 — THE CAPSTONE LANDS, ABOVE ITS OWN BARS: one 22-head commons serves all three kits BETTER than their own dedicated bands did — question 0.696 (own band: 0.641), comparative 0.874 (0.778!), closer brackets 0.767 (0.657), closer quotes 0.657 (0.630) — preds a & b TRUE; pred_c FALSE BY 0.0006 (comparative's elsewhere +0.0506 vs the 0.05 bar — quoted, not rounded; the ungated refine heads carry a sliver of generic service) (shared_band_kit.py)
+
+  kit (on the SAME 22-head commons)   own-band close   commons score   else vs route
+  question  (clause gate + 10.5)      0.641            0.696           +0.014
+  comparative (2-window + 8.1 + r4)   0.778            0.874           +0.051  <- pred_c miss, by 0.0006
+  closer brackets (union gate + 13.8) 0.657            0.767           +0.033
+  closer quotes                       0.630            0.657           +0.033
+
+- EVERY KIT IMPROVED ON THE SHARED BAND. This is §1367's band-16-beats-54 compounding: the commons is the union of two independently drop-cost-distilled rankings, i.e. twice-vetted carriers with the dead weight of BOTH original bands removed. The annotation commons is not a compromise between kits — it is a better band than any kit had alone. Six inversions taught that less is more; the capstone shows WHOSE less: everyone's, jointly.
+- THE HEADLINE MDL STATEMENT, now measured end to end: ONE 22-HEAD ANNOTATION COMMONS (~19.5M params) + ONE-TO-FIVE SPECIALIST HEADS PER CAPABILITY (6 unique specialists across the three kits, ~5.3M) + ZERO-BIT TOKEN-COMPUTED GATES + THE ~FREE ROUTE = 66-87% of four capability families' attention service, at elsewhere within ~0.05 of the route floor. Total ~25M params — 4.6% of the 546M model — with the cross-kit off-diagonals in this run's table showing the specialists' moonlighting directly (the comparative kit, which carries 10.5, recovers a third of the question gap as a side effect).
+- pred_c's 0.0006 MISS, quoted per house style: the comparative kit's elsewhere sits at +0.0506 over route against a 0.05 bar — its four refine heads run UNGATED (they have no token-computable window). A refine gate (probe or positional) would close it; logged as the thread's tail. Second 0.0006-class miss of the arc (§1345) — the bars are well-calibrated to the instrument's edge.
+- ARC DISPOSITION: the circuit program's extraction arc rests at this capstone. Queued (mdl_bill2.py): the bill regenerated with measured commons numbers (registered: pred_a the three-kit total <= 28M; pred_b params-per-nat improves >= 1.8x vs the §1366 dedup bill; pred_c the average per-capability MARGINAL cost <= 1.5M). The circuit-board viewer gets the commons story on the next republish.
+
+shared_band_kit_results.json; runlogs/shared_band_kit.log (102s).

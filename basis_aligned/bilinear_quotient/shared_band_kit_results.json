@@ -1,0 +1,87 @@
+{
+ "commons_heads": [
+  "0.3",
+  "1.1",
+  "1.3",
+  "1.4",
+  "1.5",
+  "1.7",
+  "2.0",
+  "2.2",
+  "2.5",
+  "2.6",
+  "2.7",
+  "3.0",
+  "3.4",
+  "3.5",
+  "3.6",
+  "4.0",
+  "4.1",
+  "4.4",
+  "4.5",
+  "4.7",
+  "4.8",
+  "5.6"
+ ],
+ "n_commons": 22,
+ "ce": {
+  "full": {
+   "question": 0.9464,
+   "comparative": 1.2539,
+   "closer_b": 1.2133,
+   "closer_q": 1.7717,
+   "else": 3.1392
+  },
+  "ymean": {
+   "question": 8.907,
+   "comparative": 8.2717,
+   "closer_b": 10.6752,
+   "closer_q": 9.7251,
+   "else": 7.1925
+  },
+  "route": {
+   "question": 6.296,
+   "comparative": 5.2029,
+   "closer_b": 5.6685,
+   "closer_q": 7.5544,
+   "else": 5.4837
+  },
+  "kit_question": {
+   "question": 3.3638,
+   "comparative": 4.7692,
+   "closer_b": 5.4587,
+   "closer_q": 7.3188,
+   "else": 5.4284
+  },
+  "kit_comparative": {
+   "question": 5.4588,
+   "comparative": 2.1355,
+   "closer_b": 5.1399,
+   "closer_q": 6.9601,
+   "else": 5.2785
+  },
+  "kit_closer": {
+   "question": 5.9721,
+   "comparative": 5.0749,
+   "closer_b": 3.4169,
+   "closer_q": 4.4965,
+   "else": 5.3515
+  }
+ },
+ "scores": {
+  "question": 0.6963,
+  "comparative": 0.8744,
+  "closer_b": 0.7671,
+  "closer_q": 0.6574
+ },
+ "bars": {
+  "question": 0.601,
+  "comparative": 0.738,
+  "closer_b": 0.617,
+  "closer_q": 0.59
+ },
+ "pred_a_all_within": true,
+ "pred_b_commons_22": true,
+ "pred_c_selective": false,
+ "runtime_s": 101.9
+}
