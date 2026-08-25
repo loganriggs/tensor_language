@@ -1,0 +1,25 @@
+{
+  "datapoint": {
+    "row": 90,
+    "pos": 206,
+    "context": ".\nThe collection of black diamond jewelry is perfect match up for both day",
+    "target": " and",
+    "ce": 0.2243,
+    "mlp1_dce": 0.1845
+  },
+  "top_heads_ov": [[7, 8, 0.1759], [16, 8, 0.0913], [8, 7, 0.0784]],
+  "top_heads_qk": [[8, 7, 0.0777], [14, 8, 0.0409], [16, 8, 0.0396]],
+  "top_mlps": [[3, 1.3535], [0, 0.1879], [1, 0.1845]],
+  "qk_vs_ov_reading": "mlp3 (dCE=1.3535) is the single strongest part at this position, ~7.7x bigger than the top head and bigger than mlp1 (0.1845, matching the sampler's filter value) -- for this idiom-collocation completion ('both day [and] night') the mid-stack MLP outweighs both the front token-table and every head. Top-OV head 7.8 (ov=0.1759, qk=0.0385) is cleanly PAYLOAD-regime: its value content matters, not where it looks. Top-QK head 8.7 (qk=0.0777, ov=0.0784, matched) is SELECTION-regime -- WHERE it attends carries essentially all of its effect.",
+  "chosen_spec": ["mlp", 3],
+  "scope_stats": {
+    "mean_dce": 0.61224,
+    "frac_gt_0.5": 0.47282,
+    "frac_lt_-0.5": 0.10645,
+    "n_positions": 18432
+  },
+  "category_story": "Falsifiable class: mlp3's global scope is multi-token continuation of specific nouns/names -- second-or-later BPE pieces of a specific word or name already strongly implied by context (top hurt examples: 'Rowlett, Texas, [native]', 'LIA [thickness]', 'Orlando, Fla., [hospital]', 'do, re, mi... [scale]', 'arm in [arm]', 'the [Stevenson]s', '[Orlando]', 'by [design]'). This is essentially the SAME broad token/entity-completion story as mlp1's known front table, just realized one layer 3 deeper -- not a narrow circuit for idiomatic conjunctions.",
+  "local_global_match": false,
+  "local_global_match_note": "MISMATCH: locally, mlp3 was the strongest part for predicting the conjunction ' and' inside the idiom 'day and night'. Globally, mlp3's scope has nothing to do with conjunctions or idioms -- it is a broad appositive/name/subword completion table (nouns after commas, second BPE pieces of technical or proper nouns). This datapoint is very likely NOT an instance of mlp3's real specialty; it just happened to sit on a position where mlp3's generic activation also nudged CE down, which is exactly the failure mode the swarm's category-story step is designed to catch.",
+  "surprises": "Head 7.8 appears here as a clean PAYLOAD-regime head with a non-trivial dCE (0.1759) -- not on the known-head list (3.8/8.3 copy, 8.1 comparative, 10.5 question, 13.8 closer, 17.2/17.3 expressive, 8.7 fresh-digits, 0.3 bigram router, 11.6 roster-surnames, 6.3 compound-cache). It also recurs as the top-OV head in datapoint 2 of this record set (a completely different target kind, ' is'), which is suspicious enough to flag for a dedicated follow-up rather than treat as coincidence from n=2."
+}

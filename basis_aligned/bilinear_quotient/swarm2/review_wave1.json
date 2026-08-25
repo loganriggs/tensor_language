@@ -1,0 +1,99 @@
+{
+  "recompute_checks": [
+    {
+      "record": "rec_w1_d0.json",
+      "found_at": {"row": 42, "pos": 87},
+      "check": "head_dce(ov) top3, head_dce(qk) top3, mlp_dce top3",
+      "recorded_vs_recomputed": "EXACT MATCH on all 9 numbers (6.3 ov=0.0188, qk=0.0112; mlp1=13.3665; mlp3=0.4603; mlp0=0.2229; 9.7 ov=0.0083; 7.8 ov=0.0078; 14.3 qk=0.0056; 1.3 qk=0.0054)",
+      "pct_diff": 0.0,
+      "verdict": "CONFIRM"
+    },
+    {
+      "record": "rec_w2_d2.json",
+      "found_at": {"row": 356, "pos": 194},
+      "check": "head_dce(ov) top3, head_dce(qk) top3, mlp_dce top3",
+      "recorded_vs_recomputed": "EXACT MATCH on all 9 numbers (1.5 ov=0.0375/qk=0.0278; 0.3 ov=0.0331; mlp1=8.5258; mlp3=0.6968; mlp0=0.5255; 7.8 ov=0.0207; 1.6 qk=0.0132; 4.4 qk=0.0076)",
+      "pct_diff": 0.0,
+      "verdict": "CONFIRM"
+    },
+    {
+      "record": "rec_w3_d2.json",
+      "found_at": {"row": 449, "pos": 216},
+      "check": "head_dce(ov) top3, head_dce(qk) top3, mlp_dce top3",
+      "recorded_vs_recomputed": "EXACT MATCH on all 9 numbers (6.3 ov=0.0113; 14.6 ov=0.0108/qk=0.01; 7.3 ov=0.0083/qk=0.0083; mlp1=10.5071; mlp2=0.0996; mlp3=0.0665; 8.6 qk=0.0039)",
+      "pct_diff": 0.0,
+      "verdict": "CONFIRM"
+    },
+    {
+      "note": "All three spot-checks reproduce to the last decimal, as expected from a deterministic fp32 no-dropout forward pass on fixed rows -- this confirms the recorded numbers were not mistranscribed or hand-edited, but it is not evidence of robustness (see gerrymander hunt below for that)."
+    }
+  ],
+  "claim_11_6": {
+    "original_claim": "head (11,6), narrow selection circuit: completes a person's SURNAME immediately following a given name/initial in an enumerated roster/list (sports rosters, author/cast lists). scope_stats (skip=900): mean_dce=0.00454, frac_gt_0.5=0.00467",
+    "fresh_run": "specificity_and_scope(('head_qk',11,6), nrows=96, skip=1100): mean_dce=0.00445, frac_gt_0.5=0.00331, n_positions=18430",
+    "fresh_top15_examples": [
+      "'Allenii' and 'Rob[inson]' -- plant cultivar name, NOT a person/roster",
+      "Senator Maurice[ Cumm]... -- fits (given name -> surname start)",
+      "Aechmea blanc[het] -- Latin plant binomial, NOT a person",
+      "Trail Master Outdoors[ radio] -- generic phrase, no name involved",
+      "mockingbird, warbler, and fin[ch] -- bird-list subword completion, NOT a person",
+      "praying mant[ids] -- subword completion, NOT a person",
+      "Trillium and Hep[atic] -- plant name subword, NOT a person",
+      "Bun[reach] -- Irish-constitution-article subword, NOT a person",
+      "the biggest[ venue] -- generic, unrelated",
+      "epiphytic bromeliad which att[ains] -- subword, NOT a person",
+      "cupcake crawl, with the most[ seating] -- generic",
+      "chairman Mark[ Olson] -- fits (given name -> surname)",
+      "his left[che] -- subword ('cheek'?), NOT a person",
+      "seating preference.\\nInf[inity] -- subword, NOT a person",
+      "outside of a[ display] -- generic"
+    ],
+    "fragment_fit_count": "2/15 clearly match 'given-name -> surname in a roster'; the other 13/15 are Latin binomials, bird names, generic subword completions, or unrelated function words",
+    "verdict": "WEAKEN",
+    "evidence": "Magnitude reproduces closely (mean_dce 0.00445 vs 0.00454, frac_gt_0.5 0.00331 vs 0.00467 -- both within ~30%, so the head really is narrow/small), but the QUALITATIVE category label does not survive a fresh sample: only 2 of 15 top-dCE fresh examples are people's-surname-after-given-name completions. The dominant pattern in fresh data is completing the SECOND token of any low-frequency, often Latin/botanical or otherwise unusual capitalized multi-token term -- 'helps rare multi-token proper nouns/technical terms in general' fits the fresh evidence at least as well as, arguably better than, 'roster-surname predictor'. This looks like a case of the wave-1 author writing a narrative that fit their particular 10-example sample (skip=900) and not checking it against a different sample."
+  },
+  "claim_6_3": {
+    "original_claim": "head (6,3), item-specific compound/proper-noun cache: completes the second token of a specific low-frequency compound noun or proper name (e.g. 'Sous Vide', 'PALTROW', 'Daryle Ward'). scope_stats (skip=900): mean_dce=0.02009, frac_gt_0.5=0.01975",
+    "fresh_run": "specificity_and_scope(('head_ov',6,3), nrows=96, skip=1100): mean_dce=0.01614, frac_gt_0.5=0.01877, n_positions=18432",
+    "fresh_top15_examples": [
+      "F. Yuse[f] -- name completion, fits",
+      "non-overl[apping] -- ordinary common-word subword, NOT proper-noun/compound-specific",
+      "Matthew (Cel[este]) -- name completion, fits",
+      "Proins[ias] -- Irish given name, fits",
+      "specific passe[rell] -- ambiguous/unclear word, weak fit",
+      "Barnes, D., Kukl[inski] -- surname completion, fits",
+      "interrogate Jamal Abaza behind the[ scenes] -- common IDIOM, NOT a name/compound at all",
+      "Waltrip, Biffle and K[na...] -- surname-list completion, fits",
+      "megal[ocrats] -- unusual coinage, weak/ambiguous fit",
+      "sweet interview (F[f]) -- ambiguous, likely name initial",
+      "sushi loll[ip] -- ordinary word fragment, NOT proper-noun",
+      "bitterest ENEM[Y] -- common word in caps, NOT a name/compound",
+      "along Pilc[ke] -- place/surname, fits",
+      "Dear Class of[ �] -- garbled/artifact token, uninterpretable",
+      "Mark Pfe[ifle] -- surname completion, fits"
+    ],
+    "fragment_fit_count": "roughly 8-9/15 clearly fit 'rare proper-noun/name second-token'; 4/15 are ordinary-word subword completions or an idiom ('behind the scenes') that have nothing to do with proper nouns",
+    "verdict": "CONFIRM (weakly)",
+    "evidence": "Magnitude reproduces reasonably (mean_dce down ~20% at 0.01614 vs 0.02009 -- right at the tolerance boundary; frac_gt_0.5 close, 0.01877 vs 0.01975), and a clear majority of the fresh top examples are indeed rare-name/surname completions, consistent with the claim. But it is not as item-specific as claimed: 'behind the scenes' (a common idiom, not remotely a rare compound/proper noun) and several ordinary-word subword completions ('overlapping', 'ENEMY') sit in the same top-15, so the head's true scope is closer to 'rare/low-frequency second-token continuation in general, with a bias toward proper nouns' rather than a pure 'item-specific compound/proper-noun cache'."
+  },
+  "claim_mlp1_category": {
+    "original_claim": "mlp1 = giant front token-table; scope is 'the next BPE fragment of an in-progress multi-token word or fixed phrase', not context-dependent selection at all",
+    "fresh_run": "specificity_and_scope(('mlp',1), nrows=96, skip=1100): mean_dce=8.0806, frac_gt_0.5=0.94548",
+    "fresh_top10_examples_classified": [
+      "ratification ... reform[ treaty] -- NOT a fragment: full recurring topic word, context-dependent recall",
+      "Rich[boro] -- FRAGMENT (mid-word BPE completion)",
+      "Third Planting of\\nRich[boro] -- FRAGMENT (repeat occurrence)",
+      "Third Planting of\\n[Rich] -- NOT a fragment: predicts the START of a repeated proper-noun phrase from earlier context (copy/recency), not completion of an in-progress word",
+      "have the power to accept or reject this[ treaty] -- NOT a fragment: topic-word recall",
+      "Ratification of the[ treaty] -- NOT a fragment: topic-word recall",
+      "would er[ode] -- FRAGMENT",
+      "instit[utes] -- FRAGMENT",
+      "constell[ations] -- FRAGMENT",
+      "Portsmouth, Ock[endon] -- FRAGMENT (proper-noun subword)"
+    ],
+    "fragment_count": "6/10",
+    "verdict": "WEAKEN",
+    "evidence": "6 of the top-10 fresh dCE positions are genuine mid-word BPE-fragment completions (Rich->boro x2, er->ode, instit->utes, constell->ations, Ock->endon), consistent with the claim. But 4/10 -- and the single highest-dCE example overall (30.65 nats, 'reform treaty') -- are NOT subword fragments at all: they are full, already-complete words ('treaty' x3, 'Rich' as a whole start-of-phrase token) that recur as the salient topic/proper-noun of THIS specific document. That is a document-level repetition/recency-recall mechanism, not 'the next BPE fragment of an in-progress word or fixed phrase' as claimed. The category story captures a real and large chunk of mlp1's behavior but omits an equally prominent failure mode (topical word repetition) that shows up as soon as the sample changes."
+  },
+  "strongest_objection": "The wave-1 workflow is structurally prone to gerrymandering: a category narrative is written from a single specificity_and_scope() call's top-10/30 examples (one skip value, one 96-row sample), then reported as 'the' scope of the circuit without ever re-sampling to see if the label survives. Concretely, head 11.6's 'roster-surname predictor' story falls apart on a fresh sample (2/15 genuine matches; the rest are botanical Latin binomials, bird names, and generic subwords), and even mlp1's well-established 'next-BPE-fragment' story -- the most robust, most-replicated claim in this whole wave -- turns out to omit a second, equally strong failure mode (document-topic-word repetition, e.g. 'treaty' recurring 5x in one sample) that a different skip immediately surfaces. Given that every one of the 9 records reused the SAME mlp1 scope_stats (mean_dce=8.35646, frac_gt_0.5=0.9439, n_positions=18432, skip=900, presumably cached and never independently re-verified per-datapoint), the wave-1 authors were pattern-matching against one fixed reference sample throughout, which is exactly the setup that produces narratives fit to noise. Recommendation: any circuit-category claim should be scope-tested against at least 2 disjoint skips before being written into a final record, and the mlp1 scope stats specifically should be refreshed rather than copy-pasted 9 times."
+}

@@ -1,0 +1,25 @@
+{
+  "datapoint": {
+    "row": 48,
+    "pos": 161,
+    "context": " coupon offers:\n- 69% of consumers worldwide would welcome them.\n",
+    "target": "-",
+    "ce": 0.0096,
+    "mlp1_dce": 0.0475
+  },
+  "top_heads_ov": [[4, 0, 0.0123], [5, 7, 0.0099], [6, 8, 0.0081]],
+  "top_heads_qk": [[6, 8, 0.0087], [5, 7, 0.0048], [2, 5, 0.0039]],
+  "top_mlps": [[0, 0.3177], [2, 0.1753], [3, 0.0989]],
+  "qk_vs_ov_reading": "This is an extremely well-predicted position (base CE=0.0096, a bullet-list marker repeating the '- ' pattern already seen at the start of the paragraph), so every dCE is small in absolute terms, but the ordering is still informative: mlp0 (0.3177) is the strongest single part, well above mlp1 (0.0475) and every head. Top-OV head 4.0 (ov=0.0123, qk=0.0038) is PAYLOAD-leaning. Top-QK head 6.8 (qk=0.0087, ov=0.0081, matched) is SELECTION-regime.",
+  "chosen_spec": ["mlp", 0],
+  "scope_stats": {
+    "mean_dce": 0.96237,
+    "frac_gt_0.5": 0.53494,
+    "frac_lt_-0.5": 0.10178,
+    "n_positions": 18432
+  },
+  "category_story": "Falsifiable class: mlp0's global scope is completion of the SECOND-OR-LATER BPE piece of a long, specific, low-frequency word or name whose first piece(s) just appeared (top hurt examples: 'che[wed]', 'University of Pennsylvania in [Philadelphia]', 'carniv[ores]', 'well-circum[scribed]', 'Vanderbilt right-[hander]', 'Darwin [Barney]', 'The Merc[ant]', 'Smugg[ler]'). This is the earliest-layer instance of the same subword/entity-completion story found for mlp2 and mlp3 in datapoints 0-1 of this record set -- a family resemblance across mlp0/1/2/3, not four independent narrow circuits.",
+  "local_global_match": false,
+  "local_global_match_note": "MISMATCH: locally mlp0 is the strongest part for a punctuation bullet-marker ('-') that is trivially predictable from the paragraph's own repeated list format (near-zero base CE). Globally mlp0's scope is exclusively rare/technical multi-token WORD completion -- no punctuation or list-structure examples appear in its top-30. The local top-dCE signal at this position almost certainly reflects mlp0's generic low-level activation rather than any bullet-list-specific mechanism; the position is so easy (CE=0.0096) that the entire competition among parts is over noise-scale dCE values, not a real causal story.",
+  "surprises": "All three datapoints in this record share one structural surprise: the well_predicted_nontable sampler (which filters OUT mlp1-table-owned positions) does not surface sharp attention circuits as the top part -- it instead surfaces OTHER mlp layers (mlp0, mlp2, mlp3), each of which turns out to run essentially the SAME broad subword/entity-continuation program as mlp1, just at a different depth. None of the three chosen specs produced a category story that matched its triggering datapoint's local target kind (conjunction / copula / bullet marker) -- a 3-for-3 local-global mismatch rate that is itself worth flagging to the driver as a pattern, not three independent misses."
+}

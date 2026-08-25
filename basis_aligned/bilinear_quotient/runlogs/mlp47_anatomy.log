@@ -1,0 +1,42 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+commons 22 heads
+mean mlp8 installed
+mean mlp9 installed
+mean mlp10 installed
+mean mlp11 installed
+mean mlp12 installed
+mean mlp13 installed
+mean mlp14 installed
+mean mlp15 installed
+stats mlp4 fit (top-64 PCs + ridge)
+stats mlp5 fit (top-64 PCs + ridge)
+stats mlp6 fit (top-64 PCs + ridge)
+stats mlp7 fit (top-64 PCs + ridge)
+targets: q 307 | than 110 | bracket 1779 | quote 1058
+full: question 0.946 comparative 1.254 closer_b 1.213 closer_q 1.772 | else 3.1392
+ymean: question 8.907 comparative 8.272 closer_b 10.675 closer_q 9.725 | else 7.1925
+route: question 6.296 comparative 5.203 closer_b 5.668 closer_q 7.554 | else 5.4837
+anchor_keep4: comparative 2.393 | else 5.6090
+swap mlp4 k=1: comparative 3.624 | else 5.5252
+swap mlp4 k=4: comparative 3.541 | else 5.6214
+swap mlp4 k=16: comparative 3.375 | else 5.6278
+swap mlp4 k=64: comparative 2.965 | else 5.6176
+swap mlp5 k=1: comparative 3.518 | else 5.8086
+swap mlp5 k=4: comparative 3.666 | else 5.7974
+swap mlp5 k=16: comparative 3.600 | else 5.7992
+swap mlp5 k=64: comparative 3.251 | else 5.7933
+swap mlp6 k=1: comparative 3.329 | else 5.6652
+swap mlp6 k=4: comparative 3.044 | else 5.6637
+swap mlp6 k=16: comparative 3.118 | else 5.6860
+swap mlp6 k=64: comparative 2.840 | else 5.6841
+swap mlp7 k=1: comparative 2.864 | else 5.7095
+swap mlp7 k=4: comparative 2.850 | else 5.7034
+swap mlp7 k=16: comparative 2.758 | else 5.7018
+swap mlp7 k=64: comparative 2.586 | else 5.6895
+mlp4: k1=0.662 k4=0.674 k16=0.698 k64=0.756
+mlp5: k1=0.677 k4=0.656 k16=0.666 k64=0.715
+mlp6: k1=0.704 k4=0.745 k16=0.734 k64=0.774
+mlp7: k1=0.771 k4=0.772 k16=0.786 k64=0.810
+anchor 0.838 | rank64-ok 1 | rank1-ok 0
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp47_anatomy_results.json (548.9s)

@@ -33892,3 +33892,13 @@ mid_mlp_dropcost_results.json; runlogs/mid_mlp_dropcost.log (501s).
 - WAVE-2 CALIBRATION FIXES: a stratified sampler (well_predicted_nontable: one pass with mlp1 globally ablated -> keep well-predicted positions where mlp1's dCE is SMALL — the datapoints whose skill lives OUTSIDE the table); workers may reuse a spec's scope run across records (w1's efficiency note, adopted); everything else unchanged. Wave 2 = 4 workers on the new sampler, then a reviewer pass per the runbook.
 
 swarm2/ records committed; worker reports in the session log.
+
+## §1388 — THE OWNER-BAND RESISTS LOW-RANK REPLACEMENT: no mlp4-7 module admits a rank-1 stand-in at 30% of its contribution (0 of 4) and only mlp7 comes within 0.03 of the anchor at rank-64 (0.810 vs 0.838) — the four mid owners are individually HIGH-RANK, CONTEXT-COMPUTED maps inside the kit, and the middle's collapse stops at FOUR LIVE MODULES as this description grammar's floor; preds a & b FALSE, pred_c TRUE (mlp47_anatomy.py; 549s; anchor note: this run's base config anchors at 0.838 vs §1386's 0.882 — different refit-mean protocols for mlp8-15, both quoted, the rank conclusions are internal to this run's anchor)
+
+  rank-k swap recovery (others live): mlp4: 0.66/0.67/0.70/0.76 | mlp5: 0.68/0.66/0.67/0.72 |
+  mlp6: 0.70/0.75/0.73/0.77 | mlp7: 0.77/0.77/0.79/0.81  (k = 1/4/16/64; anchor 0.838)
+
+- THE SHAPE OF THE CURVES IS THE FINDING: shallow and nearly flat — going from rank-1 to rank-64 buys each module only 0.04-0.10, and even rank-64 leaves half of every module's contribution on the table. This is not "moderately high-rank"; it is the §1000-class signature (real high-rank, three-way confirmed) now measured INSIDE the kit at per-module grain. Combined with §1385 (no gain/outlier/rank-1 shortcut) and §1386 (exactly four owners, both grains agreeing), the middle's final description is: FOUR LIVE EARLY-MID MLPs, ~64M params, irreducible below module grain by every cheap family tried. The two-sided comparative kit closes at [attention 25M + tables + 4 live MLPs + means] ~ 0.84-0.88.
+- The dose-response ordering (mlp7 most replaceable, mlp4 least) inversely tracks §1386's drop-costs — the biggest contributor is also the least compressible, which is what genuine distributed computation should look like and what a hidden low-rank structure would not.
+
+mlp47_anatomy_results.json; runlogs/mlp47_anatomy.log (549s).

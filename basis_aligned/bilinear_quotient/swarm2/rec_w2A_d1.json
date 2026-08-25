@@ -1,0 +1,38 @@
+{
+  "datapoint": {
+    "row": 352,
+    "pos": 242,
+    "context": "ore) only to be regaled endlessly with praises of her brother-in",
+    "target": "-",
+    "ce": 0.0028,
+    "mlp1_dce": 0.2994
+  },
+  "top_heads_ov": [
+    [6, 8, 0.0077],
+    [0, 3, 0.0029],
+    [1, 3, 0.0015]
+  ],
+  "top_heads_qk": [
+    [6, 8, 0.0058],
+    [1, 3, 0.0014],
+    [5, 8, 0.0005]
+  ],
+  "top_mlps": [
+    [0, 1.0364],
+    [1, 0.2994],
+    [2, 0.1539]
+  ],
+  "qk_vs_ov_reading": "Head 6.8 tops both grains and ov (0.0077) ~ qk (0.0058) -- roughly SELECTION regime, but the magnitude is negligible (<0.008 nats either way). Every head is swamped: mlp0 alone is 0.0364/0.077 ~ 130x head 6.8's ov effect, and even mlp1 (0.2994, the sampler's own filter target) is ~40x head 6.8. This is an MLP-only story at this position; attention is essentially decorative.",
+  "chosen_spec": ["mlp", 0],
+  "scope_stats": {
+    "spec": ["mlp", 0],
+    "n_positions": 18432,
+    "mean_dce": 0.96237,
+    "frac_gt_0.5": 0.53494,
+    "frac_lt_-0.5": 0.10178
+  },
+  "category_story": "mlp0's global scope is rare multi-token word-PIECE continuation: che[wed], Philadelph[ia], well-circum[scribed], right-[hander], Smugg[ler], W[ishers]. It completes the tail subword of an already-started rare/compound word or name. Notably 10% of positions are HURT by keeping mlp0 (frac_lt_-0.5), i.e. it also actively interferes at some positions -- a messier, more mixed role than mlp1's near-purely-positive table.",
+  "local_global_match": false,
+  "local_global_match_note": "Partial mismatch, flagged explicitly per wave-1 lesson. mlp0's own top-30 hurt examples are all subword continuations that complete the REMAINDER of a word already in progress (e.g. 'right-' -> 'hander') -- not one example has a bare hyphen/glue-punctuation as the target itself. This datapoint's target is exactly that glue punctuation ('brother-in' -> '-', the hyphen that opens '-law'). The categories are adjacent (both about specific/rare compound-word construction, both operate right after a hyphen appears in nearby context) but not the same task -- mlp0's headline role is 'finish this word', not 'insert this hyphen'. Calling this a mismatch rather than forcing a match.",
+  "surprises": "mlp0 (1.04 nats), not mlp1 (0.30, the sampler's filter target), is by far the dominant component here -- a reminder that filtering only on mlp1's dCE can still leave a different, even larger, MLP-table effect (mlp0) unexamined. Also worth flagging: known circuit 6.3 ('compound-cache', wave-1) was NOT among the top heads for this literal compound-word-hyphen datapoint; instead an obscure head 6.8 showed up with negligible magnitude. No evidence 6.3 is involved here -- a non-rediscovery worth noting so the registry doesn't over-generalize 6.3's scope to all hyphen sites."
+}

@@ -1,0 +1,25 @@
+{
+  "datapoint": {
+    "row": 232,
+    "pos": 181,
+    "context": "\"Same for soldiers. Don't state that you think this \"war\"",
+    "target": " is",
+    "ce": 0.3415,
+    "mlp1_dce": 0.2913
+  },
+  "top_heads_ov": [[7, 8, 0.0721], [9, 7, 0.0668], [6, 3, 0.0583]],
+  "top_heads_qk": [[6, 7, 0.0338], [1, 4, 0.0262], [3, 6, 0.0237]],
+  "top_mlps": [[2, 2.6209], [3, 2.326], [0, 0.9442]],
+  "qk_vs_ov_reading": "mlp2 (dCE=2.6209) and mlp3 (2.326) both dwarf every head and mlp1 (0.2913, matching the sampler filter value) for this copula-after-quote completion ('this \"war\" [is]') -- mid-stack MLPs, not the front table or attention, own most of the confidence. Top-OV head 7.8 (ov=0.0721, qk=0.023) is again PAYLOAD-regime -- same head as datapoint 1's top OV head, on a different target kind. Top-QK head 6.7 (qk=0.0338, ov=0.041, roughly matched) leans SELECTION -- its attention destination matters about as much as its payload.",
+  "chosen_spec": ["mlp", 2],
+  "scope_stats": {
+    "mean_dce": 0.79523,
+    "frac_gt_0.5": 0.52827,
+    "frac_lt_-0.5": 0.10167,
+    "n_positions": 18432
+  },
+  "category_story": "Falsifiable class: mlp2's global scope, like mlp3's, is dominated by multi-token noun/name continuation and appositive completion (top hurt examples: 'an Orlando, Fla., [hospital]', 'Rowlett, Texas, [native]', 'not by [design]', 'a 2011 report ... a [nonpartisan]', 'leave well enough [alone]', 'travelling to [Orlando]', 'the government's ... capital, [Bog]ota', '\"closed\" prisons ... their U.S. [counterparts]'). Nothing in the top-30 involves a copula or sentence-continuation function -- it is the same broad subword/entity-table behavior seen for mlp0/mlp1/mlp3, not a copula-specific circuit.",
+  "local_global_match": false,
+  "local_global_match_note": "MISMATCH: locally mlp2 (and mlp3) look like the mechanism for predicting the copula ' is' after a quoted noun phrase. Globally, mlp2's actual scope is generic noun/name subword completion with zero copula examples in its top-30 hurt positions. The local top-part signal at this one position is again not representative of what the part is FOR -- it is coincidental overlap with a broad completion table's activation, echoing datapoint 0's finding with a different mlp layer and a different target kind.",
+  "surprises": "Head 7.8 reappears as the single top-OV, PAYLOAD-regime head across two datapoints with unrelated target kinds (' and' idiom-conjunction here vs. copula ' is'), and neither is a canonical known circuit -- worth a dedicated future datapoint set targeting head 7.8 directly rather than following it opportunistically. Also notable: for BOTH of the first two datapoints in this record set, the strongest single part overall is a non-mlp1 MLP layer (mlp3, then mlp2/mlp3 tied), contradicting the wave-1/wave-2-worker-B pattern where mlp1 always wins -- the well_predicted_nontable filter is doing its job of surfacing non-token-table datapoints, but it surfaces OTHER broad MLP layers rather than sharp attention circuits."
+}

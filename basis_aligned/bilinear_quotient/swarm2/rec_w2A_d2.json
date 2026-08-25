@@ -1,0 +1,39 @@
+{
+  "datapoint": {
+    "row": 449,
+    "pos": 228,
+    "context": "|Save 10% on single ticket performances at local theatres.|\n",
+    "target": "|",
+    "ce": 0.0963,
+    "mlp1_dce": 0.4831
+  },
+  "top_heads_ov": [
+    [6, 5, 0.0461],
+    [13, 8, 0.038],
+    [10, 2, 0.0277]
+  ],
+  "top_heads_qk": [
+    [6, 5, 0.0434],
+    [13, 8, 0.0369],
+    [12, 6, 0.0269]
+  ],
+  "top_mlps": [
+    [1, 0.4831],
+    [0, 0.0767],
+    [7, 0.0439]
+  ],
+  "qk_vs_ov_reading": "Two heads, both clean SELECTION regime (qk ~ ov): 6.5 (ov 0.0461, qk 0.0434) and 13.8 (ov 0.038, qk 0.0369). 13.8 is the KNOWN 'closer' head (brackets+quotes) -- a plausible rediscovery, since a closing '|' at the end of a pipe-delimited field/row is structurally similar to a closing bracket/quote. mlp1 (0.4831) again dwarfs every head (~10-13x), same sub-threshold-but-still-dominant pattern as rec_w2A_d0.",
+  "chosen_spec": ["mlp", 1],
+  "scope_stats": {
+    "spec": ["mlp", 1],
+    "n_positions": 18432,
+    "mean_dce": 8.35646,
+    "frac_gt_0.5": 0.9439,
+    "frac_lt_-0.5": 0.02577,
+    "note": "same scope run as rec_w2A_d0 (spec reused, dominates twice)"
+  },
+  "category_story": "Same mlp1 category as rec_w2A_d0: a broad multi-token subword/name/template-blank continuation table (six-re[actor], transfer[or spouse], repeated '____' form blanks, BRU[CE], TOGET[HER]). Not a delimiter/table-formatting predictor by trade.",
+  "local_global_match": false,
+  "local_global_match_note": "Mismatch for the chosen (strongest) part: mlp1's category is word/name completion, and a closing pipe in a coupon/ticket template row is not that. BUT unlike rec_w2A_d0, a genuinely well-matched category exists among the secondary heads: I ran specificity_and_scope on head_qk 6.5 (recurs as top head in both this record and rec_w2A_d0) and its global scope is punctuation/delimiter continuation in structured or templated text -- top hurt examples are table pipes ('||' after 'Study Completion Date:'), list commas, digit-sequence continuations, field-label colons, and list-item newlines (mean_dce tiny at 0.0011, frac_gt_0.5 only 0.15% -- a narrow, specific niche, not a broad table). That is an excellent categorical match for this exact datapoint (a pipe-delimited template row). So: dominant part mismatches, a much weaker but highly specific secondary part (6.5) matches cleanly, and known head 13.8 (closer) plausibly rediscovers here too.",
+  "surprises": "Head 6.5 is a strong candidate for a new registry entry -- 'structured-format delimiter head' (pipes/commas/colons/digit-lists in tables, forms, enumerations) -- distinct from all nine heads in the known list. Its recurrence across two different punctuation targets (newline in rec_w2A_d0, pipe here) with matching QK~OV selection-regime signature and a scope story that fits both is the strongest single finding of this batch, despite its small raw dCE."
+}

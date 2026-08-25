@@ -1,0 +1,39 @@
+{
+  "datapoint": {
+    "row": 419,
+    "pos": 236,
+    "context": " much to explore there.\nWhat do you refuse to spend money on?",
+    "target": "\n",
+    "ce": 0.0727,
+    "mlp1_dce": 0.4622
+  },
+  "top_heads_ov": [
+    [6, 5, 0.0823],
+    [5, 7, 0.0791],
+    [10, 2, 0.0407]
+  ],
+  "top_heads_qk": [
+    [6, 5, 0.0846],
+    [5, 7, 0.0467],
+    [11, 0, 0.0418]
+  ],
+  "top_mlps": [
+    [1, 0.4622],
+    [0, 0.2739],
+    [3, 0.0963]
+  ],
+  "qk_vs_ov_reading": "Head 6.5 is top by both grains and qk (0.0846) >= ov (0.0823) -- clean SELECTION regime (where it looks matters as much as what it carries). Head 5.7 is second (ov 0.0791 > qk 0.0467, ratio ~1.7x) -- mild PAYLOAD lean but not extreme. Neither head is new to the known list. All of this is dwarfed by mlp1 (0.4622) and even mlp0 (0.2739): despite this datapoint being sampled specifically because mlp1's dCE < 0.5 ('non-table'), mlp1 is still the single largest component here, ~5.6x head 6.5's effect -- it just falls under the wave-2 sampler's 0.5 cutoff. This is itself a calibration note: 'non-table' by this threshold does not mean mlp1-free, only mlp1-subordinate-but-still-present.",
+  "chosen_spec": ["mlp", 1],
+  "scope_stats": {
+    "spec": ["mlp", 1],
+    "n_positions": 18432,
+    "mean_dce": 8.35646,
+    "frac_gt_0.5": 0.9439,
+    "frac_lt_-0.5": 0.02577,
+    "note": "scope run reused verbatim from rec_w2A_d2 (same spec dominates both)"
+  },
+  "category_story": "mlp1's global scope (fresh 96-row sample) is a broad rare-token/subword continuation and fixed-template-blank table: top-30 hurt positions are things like six-re[actor], transfer[or spouse], BRU[CE], GWYNETH PALTROW TOGET[HER], and repeated form blanks ('____'). This is the same giant n-gram/token-identity table documented in wave 1 (rec_w2_d1). It is NOT a newline/dialogue-boundary predictor by trade.",
+  "local_global_match": false,
+  "local_global_match_note": "Mismatch. mlp1 is the largest numeric driver here (0.46 nats) but its global role is completing specific rare words/names/templates, not predicting a bare '\\n' after a question mark in Q&A-style dialogue. The datapoint's target isn't a subword continuation at all. Secondarily, head 6.5 (SELECTION regime, tiny 0.08 nats locally) turns out on scope (see rec_w2A_d2) to specialize in punctuation/delimiter prediction in structured/listy text -- a much better categorical fit for a line-final newline in a Q&A list, even though it is quantitatively minor here. So the STRONGEST part and the MOST CATEGORY-CONSISTENT part are different components.",
+  "surprises": "Sub-threshold mlp1 (dCE just under the 0.5 nontable cutoff) still outweighs every attention head by 5-10x at this position -- the wave-2 sampler filters the position-level table effect but doesn't remove the component's continued dominance. Head 6.5 recurs as the top head in both this record and rec_w2A_d2 (different token: newline vs pipe), suggesting a shared delimiter/line-boundary role worth a dedicated registry entry (not in the known-heads list)."
+}
