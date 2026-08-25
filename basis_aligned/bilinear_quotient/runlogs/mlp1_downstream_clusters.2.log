@@ -6,3 +6,17 @@ K=64 built
 K=256 built
 variants built
 None: 2.9455
+mean: 10.6287
+full: 3.4219
+svd24: 7.0501
+down2: 9.9367
+act2: 10.0013
+down16: 8.6998
+act16: 8.6489
+down64: 7.5084
+act64: 6.4996
+down256: 4.9234
+act256: 4.7990
+fids {'full': 0.9343, 'svd24': 0.4341, 'down2': 0.0361, 'act2': 0.0272, 'down16': 0.2067, 'act16': 0.2137, 'down64': 0.3709, 'act64': 0.51, 'down256': 0.7273, 'act256': 0.7445}
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp1_downstream_clusters_results.json (221.6s)

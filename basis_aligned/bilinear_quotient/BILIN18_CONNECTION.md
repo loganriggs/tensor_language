@@ -34552,3 +34552,68 @@ on the direct mlp0→mlp1 edge with per-position rms scale and λ0 kept exact
 (k=full must reproduce clean — §1426 ledger assert). mlp1_downstream_clusters (lane 2):
 the §1442 downstream-cluster win repeated one layer up (block-2 weight images, same
 5-map embedding, K=2/16/64/256 vs activation control).
+
+## §1455 The mlp0→mlp1 weight edge: causally REAL (.221 CE), algebraically EXACT, and top-k works — but NOT because the weights are sparse (2-for-3)
+
+**Setup** (mlp0_mlp1_weight_topk, 72s; user directive). Cl = Left1@Down0, Cr =
+Right1@Down0 ([4608,4608], mlp0 hidden → mlp1 hidden; the bilinear needs both, and
+mlp1 unit u's mlp0-term is the rank-1 quadratic (Cl_u·h0)(Cr_u·h0)). Per-position rms
+scale and block-1 λ0 kept exact; only the weight edge sparsified row-wise.
+
+**Registered predictions, scored as written:**
+- pred_a |Cl| top-32 row mass ≥ 3× Gaussian control: **FAILED, decisively** — .0264
+  vs .0261. At the ENTRY level the composed matrices are statistically
+  indistinguishable from dense Gaussian. (Top-128 singular share .205 — some low-rank
+  structure, ~4× a Gaussian's, but no entry sparsity.)
+- pred_b exactness ledger: **PASSED** — k=full reproduces clean to 4 decimals
+  (2.9455 = 2.9455). The decomposition algebra (rms scalar + λ0 factored out) is
+  exact; the §1426 lesson institutionalized.
+- pred_c causal top-128 recovers ≥ .70 of the edge: **PASSED** — .746 (k32 .40, k8 .18).
+
+**Two findings:**
+1. **The direct mlp0→mlp1 edge is causally substantial: cutting it costs .221 CE** —
+   despite block 1's λ0 = 0.0127. The weight path matters even through the tiny
+   mixing coefficient.
+2. **The tension is the discovery:** 2.8% of entries hold only 9.0% of weight mass
+   (Gaussian-level) yet recover 74.6% of the causal effect. The concentration is NOT
+   in the weights — it must be in h0's statistics (a few high-variance mlp0 hidden
+   units dominate the product). Registered follow-up: rank edges by |w_ij|·std(h0_j)
+   — if importance ordering beats mass ordering, the sparse object is the
+   (weights × input-statistics) product, readable from weights + 4608 measured floats.
+
+## §1456 The downstream-cluster win REVERSES at mlp1 (1-for-3): next-block weights are not "downstream" for a module with global reach
+
+**Setup** (mlp1_downstream_clusters, lane 2, 222s). Exact §1442 repeat one layer up:
+mlp1's token table clustered by block-2 weight images vs activation-defined control,
+K = 2/16/64/256, frozen anchors (mlp1 Δ is the model's largest: ce_mean 10.63!).
+
+**Registered predictions, scored as written:**
+- pred_a downstream beats activation at K=16 AND K=64: **FAILED** — act wins at 16
+  (.214 vs .207) and CRUSHES at 64 (.510 vs .371).
+- pred_b down256 ≥ .60: **PASSED** — .727 (act256 .745, still ahead).
+- pred_c K=2 below the constant floor: **PASSED** — .036.
+
+**Reading:** §1442's principle held at mlp0 but the OPERATIONALIZATION (next block's
+weights) fails at mlp1. Diagnosis: mlp1 (94% token table, Δ_opt 7.25) feeds the ENTIRE
+stack and the final logits — block 2 is a minor reader, so embedding tokens by block-2
+images throws away the distinctions the deeper stack (and lm_head path) actually uses.
+"Downstream-defined" must mean the module's REAL consumers: for global-reach modules
+that is many blocks + the direct path to logits, not the adjacent block. Registered
+follow-up candidate (pool): cluster by [lm_head image + multi-block images].
+
+## §1457 mlp9 confirms deep-mid resistance 0-for-3 — the ladder ceiling ~.52 repeats
+
+**Setup** (mlp9_ladder, lane 2 after chunked-ridge OOM fix, 103s). Bars pre-lowered
+per §1451: lin2 ≥ .40, linall ≥ .50, quad adds ≥ .04.
+
+**Scored as written:** pred_a **FAILED** (.3871, by .0129); pred_b **FAILED** (.4819,
+by .0181); pred_c **FAILED** (+.0383, by .0017). All three narrow misses against
+already-lowered bars. mlp7: .43/.47/.52; mlp9: .39/.48/.52 — the deep-mid MLPs
+(7, 9) share a profile: weak local chain, quad ceiling ≈ .52. Board: mlp9 unexplained
+.050 → .024. The template is exhausted here; deep-mid MLPs need a different
+description class (flagged for the pool, not requeued).
+
+**Queued:** mlp0_mlp1_weight_topk2 (lane 1) — variance-weighted importance top-k
+(preds: var-k32 ≥ plain+.10; var-k128 ≥ .85; var-k8 ≥ plain-k32). attn_composite5
+(lane 2) — kernels REFIT in composite context, fixed-point v0→v1→v2 (preds: v1 ≤
+4.60; roster+v1 ≤ 4.30; converges).

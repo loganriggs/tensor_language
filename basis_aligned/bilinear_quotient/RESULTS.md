@@ -5189,3 +5189,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1452 — composite v3 0-for-3: best_roster 4.4522 (missed by .0022); clean-context opt constant for 5.7 HURTS (−.073) — LESSON 2: optimality is (stand-in, context), constants need composite calibration
 §1453 — a10 roster completes 3-for-3: +10.4 (+.146) +10.3 → {2,3,4,5,6} = .821 (was .598); damage mine missed the pattern-critical heads; composite4 (calibrated consts) + mlp9_ladder queued
 §1454 — composite v4 0-for-3 but ladder monotone: 5.28→4.73→4.45→4.41→4.39; calibration flips sign (+.013) yet small — kernel core is the bottleneck; kernel refit in-composite = next; weight-topk + mlp1 clusters queued (user directive)
+§1455 — weight edge mlp0→mlp1: causal .221 CE, ledger EXACT, top-128 = .746 recovery — but entries are Gaussian-dense: concentration lives in h0 stats, not weights (2-for-3); var-weighted topk queued
+§1456 — downstream-cluster win REVERSES at mlp1 (act64 .51 vs down64 .37): next-block weights ≠ downstream for global-reach modules; lm_head+multi-block embedding pooled (1-for-3)
+§1457 — mlp9 0-for-3 (.39/.48/.52 vs lowered bars): deep-mid profile repeats mlp7; ladder template exhausted at 7/9; board .050→.024; composite5 kernel-refit queued
