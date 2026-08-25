@@ -5186,3 +5186,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1449 — attn composite 0-for-3: kernel_all Δ1.78 (3.0x super-additive vs Σ per-layer .60); live roster NEGATIVE (rec −.31) — local fid ≠ composite fid; composite2 + mlp7_ladder queued
 §1450 — composite autopsy 3-for-3: teacher patterns repair (+.33) — corruption confirmed; marg map: sink layer 5 = +.68 alone, layer 8 +.11, five layers HELP; composite3 queued (constants for 5.7/a8)
 §1451 — mlp7 resists ladder (1-for-3): lin2 .43 / linall .47 / quad .52 — local chain breaks at 7, most nonlinear MLP yet; board .056→.027; a10 roster screen queued
+§1452 — composite v3 0-for-3: best_roster 4.4522 (missed by .0022); clean-context opt constant for 5.7 HURTS (−.073) — LESSON 2: optimality is (stand-in, context), constants need composite calibration
+§1453 — a10 roster completes 3-for-3: +10.4 (+.146) +10.3 → {2,3,4,5,6} = .821 (was .598); damage mine missed the pattern-critical heads; composite4 (calibrated consts) + mlp9_ladder queued

@@ -1,0 +1,37 @@
+{
+ "ce": {
+  "clean": 2.9455,
+  "base_256": 2.9561,
+  "add_0": 2.9547,
+  "add_1": 2.9538,
+  "add_3": 2.9535,
+  "add_4": 2.9523,
+  "add_7": 2.9552,
+  "add_8": 2.954,
+  "greedy5_4_3": 2.9503
+ },
+ "fid_opt": {
+  "base": 0.5978,
+  "add_0": 0.6526,
+  "add_1": 0.6857,
+  "add_3": 0.6963,
+  "add_4": 0.7441,
+  "add_7": 0.631,
+  "add_8": 0.6774,
+  "greedy5": 0.8208
+ },
+ "best_single_add": 4,
+ "greedy_pair": [
+  4,
+  3
+ ],
+ "best_single_gain": 0.1463,
+ "frozen_anchor": {
+  "ce_mean": 2.9719,
+  "ce_opt": 2.9718
+ },
+ "pred_a_single_adds_05": true,
+ "pred_b_4head_70": true,
+ "pred_c_5head_75": true,
+ "runtime_s": 113.1
+}

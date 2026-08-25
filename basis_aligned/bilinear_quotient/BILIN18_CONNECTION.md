@@ -34472,3 +34472,51 @@ features (a7 per-head slices) — flagged for the board to arbitrate.
 composite leverage (a10's live roster HELPS in composite per §1450): add each of
 {0,1,3,4,7,8} singly to {2,5,6} at kernel-layer-10, then greedy pair. Preds: ≥1 single
 adds ≥.05 fid; best 4-head ≥ .70; greedy 5-head ≥ .75.
+
+## §1452 Composite v3 FAILS 0-for-3 — and teaches the SECOND composite lesson: constants are context-calibrated too
+
+**Setup** (attn_composite3, 112s). The legitimate best composite the §1450 marginal map
+licenses: best_roster = kernel_all + live roster only at the five helpful layers
+{10,13,14,16,17}; then head 5.7's y-slice = its frozen CLEAN-context optimal constant
+(the certified §1089 bias-head, .985 local fid); then a8's four roster heads likewise.
+
+**Registered predictions, scored as written:**
+- pred_a best_roster ≤ 4.45: **FAILED by .0022** — 4.4522. (Marginal additivity held
+  almost exactly: predicted 4.40–4.47 range; the bar was just inside the noise.)
+- pred_b sink constant gains ≥ .10: **FAILED, wrong SIGN** — the constant made it
+  WORSE by .0726 (4.5248). A constant that is 98.5% faithful in clean context LOSES
+  to a distance kernel in composite context.
+- pred_c final ≤ 4.20: **FAILED** — 4.5287; the a8 constants also slightly hurt
+  (−.0039).
+
+**The lesson (LESSON library, pairs with §1449's):** §1449 showed data-DEPENDENT
+stand-in parts break in composite (corrupted inputs). §1452 shows even data-INDEPENDENT
+constants break: an optimal constant is optimal AGAINST THE CONTEXT IT WAS TRAINED IN.
+Clean-context constants are miscalibrated inside a composite whose stream statistics
+have shifted. Both lessons say the same thing at different grains: **fidelity and
+optimality are properties of (stand-in, context) pairs, not of stand-ins.** For
+TheseusBench this endorses the spec's design: composite entries must be scored (and
+their constant parts calibrated) IN the composite — same price, different fit context.
+
+## §1453 The a10 roster completes 3-for-3: {2,3,4,5,6} = .821 per-layer (was .598)
+
+**Setup** (attn10_roster_screen, lane 2, 113s). Kernel at layer 10 only; add each of
+{0,1,3,4,7,8} singly to the §1448 roster {2,5,6}; greedy pair on top. Frozen-anchor
+fid.
+
+**Registered predictions, scored as written:**
+- pred_a some single adds ≥ .05 fid: **PASSED** — head 10.4 adds +.1463 (.5978→.7441);
+  in fact EVERY candidate adds ≥ .033.
+- pred_b best 4-head roster ≥ .70: **PASSED** — {2,4,5,6} = .7441.
+- pred_c greedy 5-head ≥ .75: **PASSED** — {2,3,4,5,6} = **.8208**.
+
+The §1448 flag was right: the a10 roster was missing its two strongest members (10.4,
+10.3 — neither in the §1414 damage-mine's a10 list, which is itself informative:
+damage mining found a10's QUOTE/newline specialists but not these pattern-critical
+heads). attn10's layer stand-in moves .598 → .821; SPEC[10] = {2,3,4,5,6} from here on.
+
+**Queued:** attn_composite4 (lane 1) — best_roster2 with the completed a10 roster
+(pred_a ≤ 4.40), + composite-CALIBRATED constants (the §1452 fix: retrain the 128-dim
+constants inside the composite, same price; pred_b calib57 gains ≥ .05, pred_c all-5
+calibrated ≤ 4.25; loss curves + data budget recorded). mlp9_ladder (lane 2) — board
+#5, no stand-in; bars calibrated down per §1451 (lin2 ≥ .40, linall ≥ .50, quad ≥ .04).
