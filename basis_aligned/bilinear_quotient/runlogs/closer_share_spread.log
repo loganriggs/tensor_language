@@ -1,0 +1,8 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+draw 0 (skip 0): share 0.9652 | solo +0.6865 of +0.7113 | else +0.0012
+draw 1 (skip 160): share 0.9897 | solo +0.7010 of +0.7083 | else +0.0012
+draw 2 (skip 320): share 0.9767 | solo +0.7177 of +0.7348 | else +0.0013
+
+shares [0.9652, 0.9897, 0.9767] | spread 0.0245
+pred_a spread True | pred_b >0.90 True | pred_c surgical True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/closer_share_spread_results.json (151.5s)

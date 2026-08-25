@@ -33845,3 +33845,10 @@ shared_band_kit_seed2_results.json; runlogs/shared_band_kit_seed2.log (105s).
 - Queued (closer_share_spread.py): the error-bar leg for the flagship table — 13.8's bracket solo-share re-measured on three disjoint row draws (the table's key column is single-draw everywhere). Registered: pred_a share spread <= +-0.05 across draws; pred_b share > 0.90 in every draw; pred_c surgical in every draw.
 
 bilin12_closer_kit_results.json; runlogs/bilin12_closer_kit.log (227s).
+
+## §1383 — THE FLAGSHIP SHARE HAS ITS ERROR BAR: 13.8's bracket solo-share across three disjoint draws = 0.965 / 0.990 / 0.977 (spread 0.024, always > 0.96, surgical every draw) — preds a, b, c ALL TRUE; the closer table's key column is draw-stable at +-0.012 (closer_share_spread.py)
+
+- The ownership number that anchors the §1380 four-model table is now measured, not sampled: share 0.977 +- 0.012 across disjoint text, elsewhere damage stable at +0.0012-0.0013 (~570x surgical every time). With §1381's kit-score spread (+-0.025), both headline results of the arc carry real error bars.
+- USER DIRECTIVE LOGGED (this tick): bilin18 ONLY from here — the sibling models are parked, the transfer thread's results stand as recorded (§1373-82). The active frontier per the user is the §1371 MIDDLE-MLP WALL, with his two hypotheses queued as the mid_standin_ladder (running): the mean is the dumbest stand-in — try (i) per-position GAIN tracking (the OOD/calibration account), (ii) rank-1 with an input-computed coefficient, (iii) OUTLIER-DIMENSIONS-LIVE (the massive/gain dims 645/990/981 + per-layer top-8 — his registered pred_a: keeping ~11 of 1152 dims live recovers >= 60% of the 0.334 mid-meaning gap).
+
+closer_share_spread_results.json; runlogs/closer_share_spread.log (152s).
