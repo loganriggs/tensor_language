@@ -33909,3 +33909,14 @@ mlp47_anatomy_results.json; runlogs/mlp47_anatomy.log (549s).
 - SCOREBOARD AFTER TWO WAVES + REVIEW: 18 records; 4 rediscoveries confirming the instrument; 2 surviving new candidates (6.5, 7.8) + 1 downgraded (11.6) + 1 weak (6.3); one promoted-to-queue lead (pipe = closer's third surface); mlp1's category enriched (BPE-fragment completion + document-topical recall); mlp16 scoped narrowly (10.7% — sports-surname-flavored register). Cost: ~6 worker-runs, ~90 min wall clock, on-target for the user's 20/hour at steady state once the sampler stops fighting the workers.
 
 swarm2/rec_w2*_d*.json + review_wave1.json (committed); worker reports in session log.
+
+## §1390 — THE PIPE IS THE CLOSER'S THIRD SURFACE: 13.8 carries 83.2% of a13's pipe-target damage solo (+0.112 of +0.134, concentration 25x, directions agree, surgical at 3.9%) — brackets, quotes, and now TABLE PIPES, three delimiter families one head; preds a, b, c ALL TRUE, and the swarm-to-queue pipeline closes its first full loop: a Sonnet worker's single-datapoint observation (§1389, worker A's closing-pipe row) became a registered third-surface confirmation within the hour (closer_pipe_test.py; n=538)
+
+  13.8 at pipe targets: solo +0.1117 (83.2% of layer) | conc 25.4x | all-but-13.8: +0.0107
+  surface comparison: brackets +0.69 (97%) | quotes +0.52 (105%) | pipes +0.11 (83%)
+
+- The 83% share on an UNDILUTED-parity mask is strong: pipe targets include OPENING pipes (tables open and close with the same token; no parity filter was possible — registered simplification), which the closer presumably does not serve — so 83% of the mixed mask likely understates its share of genuine closes. The magnitude ordering (brackets > quotes > pipes) tracks how lexically anchored each family's "open" state is.
+- THE CLOSER's final function statement for the dossier: one head, THREE delimiter families, mid-stack, interference-wrapped, reproducible across the model family (§1373-80) — the single best-characterized component in the program.
+- Queued (candidate_confirm_65_78.py): the reviewer's TWO-SKIP RULE applied to the wave's two surviving candidates — 6.5 (structured-format delimiters) and 7.8 (payload-recurrer) scoped on two disjoint fresh skips each, with mechanical category proxies registered: pred_a 6.5's top-15 targets are >= 50% delimiter-type tokens in BOTH skips; pred_b 7.8's two skips share >= 5 target token types in their top-15s (some consistent category exists); pred_c magnitudes within +-50% across skips for both heads.
+
+closer_pipe_test_results.json; runlogs/closer_pipe_test.log (271s).

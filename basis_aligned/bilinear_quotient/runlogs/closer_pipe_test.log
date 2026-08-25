@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+pipe ids 10
+targets 538 | jitter 380 | rand 538
+layer dmg +0.1343 (vs §1355 atlas +0.475)
+L13.0: solo -0.0016 (else +0.0064) | all-but +0.1354
+L13.1: solo +0.0026 (else +0.0004) | all-but +0.1312
+L13.2: solo -0.0019 (else +0.0011) | all-but +0.1361
+L13.3: solo +0.0101 (else +0.0019) | all-but +0.1154
+L13.4: solo -0.0005 (else +0.0003) | all-but +0.1346
+L13.5: solo +0.0069 (else +0.0021) | all-but +0.1205
+L13.6: solo -0.0033 (else +0.0007) | all-but +0.1390
+L13.7: solo -0.0028 (else +0.0004) | all-but +0.1374
+L13.8: solo +0.1117 (else +0.0044) | all-but +0.0107
+
+top solo L13.8 share 0.832 | top keep L13.8
+pred_a owner True | pred_b agree True | pred_c surgical True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/closer_pipe_test_results.json (270.8s)
