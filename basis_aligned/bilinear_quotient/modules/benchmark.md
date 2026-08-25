@@ -87,6 +87,7 @@ meaned values, MLPs live: question .644 / comparative .918 / closer .846 / capit
 .826 / elsewhere .812 recovery of ymean-gap. Co-residence synergistic (+.03-.04 for
 closer/capitalized over solo kits). Question is the only gated family (gate = functional
 state protection, S1402). Slim (S1405): 20 heads at ~.01-.03 haircut; 13.8 droppable
-(construction-redundant). JOINT BILL (S1406): 28 heads + 9/18 MLPs live + gmean tables
-for mlp5,10-15 = comparative .9886 / closer .868 / question .662 / capitalized .730 /
-else .687 — comparative/question/closer BEAT all-mids-live under the smaller machine.
+(construction-redundant). FINAL BILL (S1408, certified 3-for-3): 28/162 heads + 11/18 MLPs live
+({4,6,7,8,9,11,13} mid + 0-3 + 16-17) + gmean tables for mlp5,10,12,14,15 = comparative
+.984 / closer .864 / capitalized .797 / question .690 / else .750. Three families beat
+all-mids-live (width-inv #10). 20-head variant at ~.02 haircut (S1405).
