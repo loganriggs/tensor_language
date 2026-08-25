@@ -47,7 +47,7 @@ def fwd(idx):
 
 @torch.no_grad()
 def capture(rows):
-    CAP['on'] = True; CAP['store'] = {n: [] for n in ('m0', 'm1', 'm2', 'm3', 'm4', 'a4')}
+    CAP['on'] = True; CAP['store'] = {n: [] for n in ('m0', 'm1', 'm2', 'm3', 'm4', 'm5', 'a5')}
     for i in range(0, rows.shape[0], 8):
         fwd(rows[i:i + 8, :-1].to(DEV).contiguous())
     CAP['on'] = False
