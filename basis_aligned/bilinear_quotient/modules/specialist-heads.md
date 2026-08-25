@@ -125,7 +125,9 @@ TWELVE heads across a13-a17: {13.0, 13.5, 14.4, 14.6, 14.7, 15.3, 16.0, 16.4, 16
 17.0, 17.1, 17.2}, solo dCE .016-.035 each, NO owner anywhere (top shares .38-.55).
 Sharp edge: next head below the .015 bar sits at .004. a14 is the band's biggest layer
 (.089), missed by the S1339 screen (looked only at a15-17). 17.2 (expressive-broad)
-leads = its 3rd moonlight. The committee is the named unit. Unit pricing (S1398): committee-only = 71% of band, else 2% (surgical); rest-20 unselective generic. REMOVAL GOAL DONE (7/162 heads). Grain (S1399): a16 trio conjunctive,
+leads = its 3rd moonlight. The committee is the named unit. REMOVAL HANDLE RE-PRICED (S1412): all-12 = .603
+target damage (super-additive 1.5x parts; a13-14 and a15-17 crews are redundant
+implementations — either alone ~.20); else spillover 6.7%. S1398's .21 undercounted 3x. Unit pricing (S1398): committee-only = 71% of band, else 2% (surgical); rest-20 unselective generic. REMOVAL GOAL DONE (7/162 heads). Grain (S1399): a16 trio conjunctive,
 a17 trio payload-dominant. Kit (S1400-01): committee is a REMOVAL HANDLE ONLY — construction
 marginal .008-.029 (redundant with commons+upstream); ungated commons serves capitalized .813.
 
