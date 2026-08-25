@@ -44,8 +44,8 @@ conditionality measured).
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |
 | **digit** | **8.3 + 8.7 COMPLEMENTARY** | §1354: divides by EVIDENCE TYPE — 8.3 copy-flavored (2.9x per-position), 8.7 fresh-specialist NEGATIVE on copyable (interference inside a pair); moonlighting #4 | 9056 | thread rests fully mapped |
 | sentence_end | a10 | +0.065 vs +0.020 | 482 | overlaps newline thread — dedup before opening |
-| **quote_close** | **13.8 = THE CLOSER** | §1357: ONE KIT TWO CAPS lands (union==dedicated to 0.001) — first measured per-FUNCTION MDL merge; quote side 0.468 (taxonomy-predicted miss: long spans need mid-stack annotator) — depth rung in flight | 1058 | merged with close_bracket |
-| ellipsis | a17 | atlas2 §1355: +0.318, ratio 23.8 | — | pool, behind closer test |
+| **THE CLOSER (13.8)** | **CLOSED** | final form: [route + (depth-gate a02) UNION (parity-gate a05) + 13.8] = brackets 0.657 / quotes 0.630; per-function MDL merge measured (§1357); taxonomy LAW 4-for-4 (§1358); width inversion 5th sighting | — | brackets+quotes one entry |
+| ellipsis | a17 | atlas2 §1355: +0.318, ratio 23.8 | — | §1302 screen IN FLIGHT (a17 owner-vs-band risk registered) |
 | unit | a8 | atlas2 §1355: +0.278, ratio 7.5 (units follow numbers — a8 function context) | — | pool |
 | ~~possessive, hyphen, ordinal, year~~ | — | fail generator bars §1355 (distributed / generalist profiles) | — | negative, recorded |
 | ~~comma~~ | — | fails screen (distributed) | 476 | negative, recorded |
