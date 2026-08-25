@@ -1,68 +1,17 @@
-a6 projector rank 16
-a8 projector rank 16
-[skip=1200] all heads: digit +0.0891
-  [skip=1200] 6.0: digit +0.0010 punct +0.0001
-  [skip=1200] 6.1: digit -0.0018 punct -0.0107
-  [skip=1200] 6.2: digit -0.0002 punct -0.0000
-  [skip=1200] 6.3: digit +0.0192 punct -0.0046
-  [skip=1200] 6.4: digit +0.0011 punct -0.0005
-  [skip=1200] 6.5: digit +0.0015 punct +0.0004
-  [skip=1200] 6.6: digit +0.0001 punct +0.0018
-  [skip=1200] 6.7: digit +0.0058 punct -0.0026
-  [skip=1200] 6.8: digit -0.0020 punct -0.0000
-  [skip=1200] 8.0: digit +0.0001 punct -0.0000
-  [skip=1200] 8.1: digit -0.0004 punct -0.0005
-  [skip=1200] 8.2: digit +0.0004 punct -0.0005
-  [skip=1200] 8.3: digit +0.0153 punct -0.0026
-  [skip=1200] 8.4: digit -0.0000 punct -0.0011
-  [skip=1200] 8.5: digit -0.0001 punct +0.0000
-  [skip=1200] 8.6: digit +0.0021 punct -0.0027
-  [skip=1200] 8.7: digit +0.0092 punct -0.0004
-  [skip=1200] 8.8: digit +0.0004 punct -0.0011
-[skip=1400] all heads: digit +0.1429
-  [skip=1400] 6.0: digit +0.0006 punct +0.0005
-  [skip=1400] 6.1: digit +0.0164 punct -0.0112
-  [skip=1400] 6.2: digit +0.0001 punct -0.0000
-  [skip=1400] 6.3: digit +0.0098 punct -0.0012
-  [skip=1400] 6.4: digit +0.0009 punct -0.0002
-  [skip=1400] 6.5: digit +0.0019 punct -0.0004
-  [skip=1400] 6.6: digit +0.0006 punct +0.0023
-  [skip=1400] 6.7: digit +0.0051 punct -0.0028
-  [skip=1400] 6.8: digit -0.0000 punct +0.0005
-  [skip=1400] 8.0: digit -0.0000 punct -0.0000
-  [skip=1400] 8.1: digit +0.0003 punct -0.0003
-  [skip=1400] 8.2: digit +0.0007 punct -0.0009
-  [skip=1400] 8.3: digit +0.0427 punct -0.0063
-  [skip=1400] 8.4: digit +0.0009 punct -0.0008
-  [skip=1400] 8.5: digit +0.0000 punct +0.0000
-  [skip=1400] 8.6: digit +0.0038 punct -0.0027
-  [skip=1400] 8.7: digit +0.0086 punct -0.0008
-  [skip=1400] 8.8: digit +0.0004 punct -0.0012
-[skip=1600] all heads: digit +0.1570
-  [skip=1600] 6.0: digit +0.0006 punct +0.0005
-  [skip=1600] 6.1: digit +0.0225 punct -0.0113
-  [skip=1600] 6.2: digit +0.0001 punct -0.0000
-  [skip=1600] 6.3: digit +0.0074 punct -0.0066
-  [skip=1600] 6.4: digit +0.0006 punct -0.0004
-  [skip=1600] 6.5: digit -0.0004 punct -0.0005
-  [skip=1600] 6.6: digit -0.0011 punct +0.0019
-  [skip=1600] 6.7: digit +0.0035 punct -0.0031
-  [skip=1600] 6.8: digit -0.0007 punct +0.0003
-  [skip=1600] 8.0: digit -0.0000 punct -0.0000
-  [skip=1600] 8.1: digit -0.0002 punct -0.0003
-  [skip=1600] 8.2: digit +0.0007 punct -0.0007
-  [skip=1600] 8.3: digit +0.0392 punct -0.0038
-  [skip=1600] 8.4: digit +0.0002 punct -0.0009
-  [skip=1600] 8.5: digit +0.0000 punct -0.0000
-  [skip=1600] 8.6: digit +0.0023 punct -0.0028
-  [skip=1600] 8.7: digit +0.0107 punct -0.0008
-  [skip=1600] 8.8: digit +0.0011 punct -0.0013
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+digit ids 1692
+targets 9056 | jitter 6406 | rand 9056
+layer dmg +0.2095 (vs §1352 +0.210)
+L13.0: solo -0.0001 (else -0.0000) | all-but +0.2096
+L13.1: solo +0.0046 (else +0.0066) | all-but +0.2043
+L13.2: solo +0.0016 (else +0.0032) | all-but +0.2077
+L13.3: solo +0.0791 (else +0.0059) | all-but +0.0742
+L13.4: solo +0.0066 (else +0.0027) | all-but +0.1885
+L13.5: solo -0.0014 (else +0.0006) | all-but +0.2114
+L13.6: solo -0.0007 (else +0.0009) | all-but +0.2023
+L13.7: solo +0.0582 (else +0.0017) | all-but +0.1134
+L13.8: solo +0.0034 (else +0.0036) | all-but +0.2069
 
-mean over samples -- whole +0.1297, sum of heads +0.0770
-(0) per-head parts sum to the whole within 20%: FAILED -- RUN VOID
-  8.3: digit +0.0324 punct -0.0042
-  6.1: digit +0.0124 punct -0.0111
-  6.3: digit +0.0121 punct -0.0041
-  8.7: digit +0.0095 punct -0.0007
-  6.7: digit +0.0048 punct -0.0028
-  8.6: digit +0.0027 punct -0.0027
+top solo L13.3 share 0.3776 | top keep L13.3
+pred_a owner False | pred_b agree True | pred_c surgical True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/digit_heads_results.json (271.8s)

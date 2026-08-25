@@ -42,7 +42,7 @@ conditionality measured).
 | capitalized | a15-a17 BAND | +0.109/+0.098/+0.057 (a17/a16/a15), controls clean (§1339) | 29697 | NO layer-owner (1.1x) — first late-band shared capability; PARKED behind close-bracket; extraction starts from a band gate |
 | ~~open_quote~~ | — | DEMOTED §1351: clean screen fails every bar (a10 +0.067, conc 2.7, jitter dirty); mask-sensitive (atlas n=90 vs clean n=1087); distributed-no-owner class | 1087 | negative, recorded |
 | open_bracket | a17 | +0.070 vs +0.010 | 59 | shares a17 with capitalized — joint thread? |
-| **digit** | **a8** | CERTIFIED §1352: +0.210 at n=9056, conc 5.9, controls clean, ownership 2x; CROSS-METHOD (atlas + counting arc); a13 flat = dissociation | 9056 | head stage in flight |
+| **digit** | **8.3 + 8.7 PAIR** | §1353: redundant pair (solo 38/28%, keep-only 65/46%); 8.3 IS the copy station — copying suspicion; copy-split in flight | 9056 | third moonlighting candidate |
 | sentence_end | a10 | +0.065 vs +0.020 | 482 | overlaps newline thread — dedup before opening |
 | ~~comma~~ | — | fails screen (distributed) | 476 | negative, recorded |
 | ~~colon~~ | — | fails both controls | 74 | negative, recorded |

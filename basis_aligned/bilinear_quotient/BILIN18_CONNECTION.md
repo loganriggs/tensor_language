@@ -33471,3 +33471,16 @@ open_quote_screen_results.json; runlogs/open_quote_screen.log (102s).
 - Queued (digit_heads.py): the §1340-pattern head stage on a8 — solo and all-but-one over its 9 heads at digit targets. Registered with a modest owner bar (digits are broad): pred_a top head >= 50% of the layer's target damage; pred_b knockout and keep-only AGREE on the top head; pred_c the top head's elsewhere damage <= 10% of its target damage.
 
 digit_screen_results.json; runlogs/digit_screen.log (97s).
+
+## §1353 — DIGITS ARE A REDUNDANT PAIR, NOT AN OWNER — AND ONE HALF IS A KNOWN COPY STATION: 8.3 (solo 37.8% / keep-only 65%) + 8.7 (solo 27.8% / keep-only 46%) carry the a8 digit service between them with classic partial redundancy (solo and keep grains disagree exactly as redundancy predicts); 8.3 is the §1207-09 COPY STATION — pred_a FALSE (owner bar 50% missed at 37.8%), preds b & c TRUE (digit_heads.py; n=9056; DISCLOSED: the log prints "L13.x" for a8's heads — a variable-name reuse from the §1340 template, same §1304 label-bug class; the data rows are unambiguous, layer 8)
+
+  head   solo-dmg  (share)  keep-only-dmg  (keeps)
+  8.3    +0.079    37.8%    +0.074         65% carried alone   <- the §1207-09 copy station
+  8.7    +0.058    27.8%    +0.113         46% carried alone
+  others <= +0.007 each     >= +0.19       (jointly ~nothing)
+
+- pred_a FALSE AND THE STRUCTURE IS THE FINDING: digits land in the PAIR column of the taxonomy (with 17.2/17.3 and the matchers), but unlike the exclamation pair's clean additivity, this pair is PARTIALLY REDUNDANT — solo drops sum to 66% while keep-only shows 8.3 alone carrying 65%. The two grains disagree in exactly the way overlapping function predicts (§3.1's trap, here measured on both sides deliberately).
+- THE CROSS-CIRCUIT HOOK: 8.3 is one of the two named COPY STATIONS (§1207-09: pair 8.3/8.4, 69% of copy-read necessity). Digits repeat constantly in natural text (years, page numbers, scores, citations) — so the immediate suspicion is that a8's "digit capability" is substantially COPYING of earlier digits, with 8.3 moonlighting its copy service and 8.7 carrying the non-copy remainder. Third moonlighting sighting if it holds (after 0.3/1.1 in question, 10.5 in comparative).
+- Queued (digit_copy_split.py): split digit targets into COPY-SUPPORTED (the same digit token occurred within 128 back) vs FRESH, and decompose a8 / 8.3-solo / 8.7-solo / pair damage per side. Registered: pred_a 8.3's damage is copy-concentrated (>= 60% of its total on the copy-supported side); pred_b DIVISION OF LABOR: 8.7's fresh-side share exceeds 8.3's fresh-side share by >= 0.15; pred_c copy-supported digits have materially lower base CE (>= 1.0 nat below fresh — copyable digits are easy digits).
+
+digit_heads_results.json; runlogs/digit_heads.log (272s).
