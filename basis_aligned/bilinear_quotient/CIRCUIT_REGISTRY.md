@@ -57,6 +57,12 @@ CAVEAT carried from §513: the atlas RATIO column used a biased elsewhere-denomi
 absolute damage pairs are quotable, ratios need the behaviour_atlas2 re-screen (vs global
 mean). Any thread opened from this pool starts with its own §1302-standard screen anyway.
 
+## Swarm program (waves 1-3, §1387-92): easy-distribution ownership map COMPLETE
+mlp1 owns non-structural easy tokens (2 modes); structure layer = sub-floor helpers +
+specialists at triggers; de-novo naming exhausted there. MAGNITUDE FLOOR law (§1391):
+no category below scope-mean 0.02. Wave-4 = medium-CE behavior-conditioned enrichment.
+Yield: pipe surface (§1390), 2.5 + mlp1 enrichments, the floor law, this map.
+
 ## Search heuristic (§1354): heads are FUNCTIONS, capabilities are CONTEXTS
 
 To find a head's true function, intersect its capability appearances (0.3=bigram routing,

@@ -1,0 +1,22 @@
+{
+  "datapoint": {"row": 430, "pos": 167, "context": " more sociable and connected with integrations from the hugely popular Facebook website.", "target": "\n", "ce": 0.1485, "mlp1_dce": -0.085},
+  "screen_note": "From the same nontable pool (well_predicted_nontable, ce_max=0.2, mlp1_dce_max=0.5, seed=73). Cheap mlp_dce screen: top MLP dCE 0.0481 (mlp16) < 1.0 -- passed. This is the ONE datapoint of all 20 candidates checked (8 pre-registered + 12 exploratory) where a HEAD actually out-dCE's every single MLP layer at the position.",
+  "top_heads_ov": [[6, 5, 0.0585], [3, 8, 0.0574], [2, 5, 0.0417]],
+  "top_heads_qk": [[6, 5, 0.0572], [12, 6, 0.039], [3, 8, 0.0385]],
+  "top_mlps": [[16, 0.0481], [6, 0.0442], [3, 0.043]],
+  "qk_vs_ov_reading": "Top head 6.5 (ov=0.0585, qk=0.0572, ratio 1.02) is MATCHED regime, and it edges out the top MLP (mlp16, 0.0481) at this position -- the rare local case where a head genuinely wins. RESULT FLAGGED AS A REDISCOVERY: 6.5 is on the STRUCK list (§1391 -- two-skip rule already killed its 'structured-format delimiter' story: delimiter-fraction 0.00 vs 0.33 across skips, magnitude unstable 2.8x, scope mean_dce 0.0026/0.0009, both sub-floor). Per the wave-3 instruction ('do not resurrect'), this local win is NOT treated as new evidence for a 6.5 category -- see two_skip_check below, which independently reconfirms the prior kill. Also notable: 3.8 (a KNOWN copy-station head, not struck) is a close #2 in both grains (0.0574 ov / 0.0385 qk) at the same position.",
+  "chosen_spec": ["head_ov", 6, 5],
+  "scope_stats_skip900": {"mean_dce": 0.00122, "frac_gt_0.5": 0.00152, "n_positions": 18431},
+  "scope_stats_skip1700": {"mean_dce": 0.00255, "frac_gt_0.5": 0.00266, "n_positions": 18432},
+  "two_skip_check": {
+    "rule": "named categories must hold at skip=1700 as well as the default (skip=900); 6.5 is pre-struck from §1391 (candidate_confirm_65_78.py) -- this is an independent reconfirmation on a fresh pair of skips, not a first test",
+    "skip900_mean_dce": 0.00122,
+    "skip1700_mean_dce": 0.00255,
+    "magnitude_ratio": 2.09,
+    "top5_skip900": [[2.424, "|\n|Study Completion Date:", "||"], [2.165, "benefit of, and vested in", ","], [1.523, "ing 4 notes of the do, re", ","], [1.028, "8 2213272 2196389 2200318", " 219"], [1.007, " varve data in Mann et al", " 2008"]],
+    "top5_skip1700": [[1.936, " is more than 60 percent.", "Climate"], [1.698, "027 Ike: An American Hero", " Michael"], [1.539, "dsay\nBreakout and Pursuit", " Martin"], [1.332, "merican Logistics in WWII", " John"], [1.269, "ily musical performances.", "We"]],
+    "verdict": "UNSTABLE, matching the original §1391 kill: skip900's top-5 leans toward pipes/commas/digits (a 'structured token' flavor consistent with the ORIGINAL 6.5 hypothesis), but skip1700's top-5 is capitalized personal names / sentence-starters -- no overlap. Reconfirms the strike from a fully independent datapoint and skip pair."
+  },
+  "category_story": "MAGNITUDE FLOOR + PRIOR STRIKE: scope mean_dce is 0.00122 (skip900) / 0.00255 (skip1700), both far below the 0.02 threshold and consistent with 6.5's existing §1391 characterization. No category story issued. Recorded as: minor generic helper (struck head, rediscovered -- not resurrected).",
+  "surprises": "This is the single cleanest local 'head beats every MLP' example found in the whole wave-3C search (20 datapoints screened), and it lands on an already-struck head. That is itself informative: even the BEST local head-vs-MLP win in this sample is still sub-floor globally, which is a stronger version of §1391's law than the original discovery -- local head dominance at one position, even outright dominance over every MLP layer, still does not imply a nameable global category. 3.8 (known copy station) riding along as a close #2 at the same newline-after-period position is also worth noting for anyone building a 'sentence-end newline' story later."
+}

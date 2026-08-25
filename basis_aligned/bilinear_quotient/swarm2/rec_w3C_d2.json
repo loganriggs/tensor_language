@@ -1,0 +1,22 @@
+{
+  "datapoint": {"row": 449, "pos": 227, "context": "\n|Save 10% on single ticket performances at local theatres.|", "target": "\n", "ce": 0.0274, "mlp1_dce": 0.4525},
+  "screen_note": "From the same nontable pool. Cheap mlp_dce screen: top MLP dCE 0.4525 (mlp1) < 1.0 -- passed. Picked for the surface: a closing table pipe '|' immediately before the newline, i.e. plausible territory for 13.8 (the closer, whose §1390 third surface IS table pipes).",
+  "top_heads_ov": [[3, 8, 0.04], [1, 1, 0.0112], [8, 8, 0.0089]],
+  "top_heads_qk": [[3, 8, 0.031], [7, 5, 0.0116], [8, 8, 0.0097]],
+  "top_mlps": [[1, 0.4525], [3, 0.0336], [17, 0.0082]],
+  "qk_vs_ov_reading": "Top head is 3.8 (ov=0.04, qk=0.031, ratio 1.29) -- MATCHED-leaning-OV regime, a mild payload tilt. 3.8 is a KNOWN head (copy station, on the do-not-rediscover-as-new list) so this is a REDISCOVERY, not a new candidate. Interestingly, 13.8 (the closer, whose established scope includes pipes) does NOT appear in either top-3 here -- at this pipe-before-newline position the closer is not the story; 3.8 is, though at a magnitude (0.04) 11x smaller than mlp1 (0.4525), which still dominates the position overall.",
+  "chosen_spec": ["head_ov", 3, 8],
+  "scope_stats_skip900": {"mean_dce": 0.0082, "frac_gt_0.5": 0.00814, "n_positions": 18431},
+  "scope_stats_skip1700": {"mean_dce": 0.00846, "frac_gt_0.5": 0.00787, "n_positions": 18432},
+  "two_skip_check": {
+    "rule": "named categories must hold at skip=1700 as well as the default (skip=900)",
+    "skip900_mean_dce": 0.0082,
+    "skip1700_mean_dce": 0.00846,
+    "magnitude_ratio": 1.03,
+    "top5_skip900": [[5.374, " checking it until it has", " ac"], [3.68, "e questionnaires, medical", " follow"], [3.165, "c form of stabilization (", "rel"], [3.031, " a crockpot, it will take", " the"], [2.678, "ot, it will take the bath", " forever"]],
+    "top5_skip1700": [[4.596, "urface turbulent fluxes (", "book"], [3.247, "nganything asked fuckyeah", "fl"], [3.178, "'s this video. [[MORE]] /", " Anonymous"], [2.637, "him to access the cave. (", "sc"], [2.43, "quire.\n'Defend the rights", " or"]],
+    "verdict": "MAGNITUDE STABLE (0.0082 vs 0.00846, ratio 1.03) but still sub-floor at both skips. Top examples in both draws skew toward short mid-word/fragment-style continuations ('ac', 'follow', 'rel'; 'book', 'fl', 'sc'), loosely consistent with 3.8's existing copy-station characterization, but the effect is too small here to add anything to that record."
+  },
+  "category_story": "MAGNITUDE FLOOR: scope mean_dce is 0.0082 (skip900) / 0.00846 (skip1700) -- both below the 0.02 threshold. No new category story issued for this datapoint. Recorded as: minor generic helper (known head 3.8, weak rediscovery, consistent with existing copy-station characterization but not adding new territory).",
+  "surprises": "The pipe-before-newline surface that motivated picking this datapoint (hoping for 13.8, the established brackets/quotes/pipes closer) did NOT surface 13.8 at all in the top-3 of either grain -- mlp1 (0.4525) and a faint 3.8 (0.04) own this position instead. This is a useful negative: not every pipe-adjacent target routes through the closer; here it is squarely mlp1's token table with a small assist from the copy-station head, both well inside the floor for any head-level story."
+}

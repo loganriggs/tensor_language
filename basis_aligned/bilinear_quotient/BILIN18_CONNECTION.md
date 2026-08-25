@@ -33930,3 +33930,17 @@ closer_pipe_test_results.json; runlogs/closer_pipe_test.log (271s).
 - Registry: 6.5 and 7.8 struck (recorded, not renamed). The swarm's net new-component yield after full review: the pipe surface (§1390, promoted and confirmed) plus mlp1's second mode — and the negative yield is equally real: the map of what is NOT nameable (small-head territory, the structure-layer complement of mlp1).
 
 candidate_confirm_65_78_results.json; runlogs/candidate_confirm_65_78.log.
+
+## §1392 — WAVE-3 CONSOLIDATION (9 records, 9/9 protocol adherence): ONE two-skip-held category — head 2.5 = rare-name/code BPE continuation (a FETCHER ENRICHMENT, not a discovery: 2.5 was already the dossier's copy-fetcher, omitted from the worker prompt list — its datapoint-grain category is copy-supported rare-name completion, the same shape as 8.3's digit finding) — plus the strongest form yet of the §1391 law: worker C's dedicated head-star hunt (20 pre-screened non-mlp1 candidates) found exactly ONE position where a head out-dCEs every MLP, and that head was struck 6.5, RECONFIRMED sub-floor from a fresh datapoint/skip pair; the easy distribution's ownership map is now effectively COMPLETE (swarm2/rec_w3*_d*.json)
+
+  Wave-3 ledger: 1 held category (2.5 enrichment) | 1 stable near-miss (7.8 at 0.019/0.018,
+  idiom-flavored, flagged for one bigger-sample test, NOT named) | 4 sub-floor "minor
+  generic helpers" correctly left storyless | rediscoveries: 3.8 x2, 13.8 pipe rank-3,
+  mlp1 x3 | sampler telemetry: the digit bucket is EMPTY (no well-predicted digits
+  outside mlp1/a8); 40/40 uniform well-predicted positions were mlp1-owned.
+
+- THE MAP, stated as the swarm's product after three waves: bilin18's EASY distribution belongs to mlp1 (non-structural tokens, two modes: BPE-fragment + document-topical recall) and a thin structure layer (newlines/hyphens/pipes) served by sub-floor generic helpers plus the named specialists at their trigger sites. De-novo nameable heads are EXHAUSTED in easy territory — every candidate the three waves surfaced either enriched a known function (pipe surface, 2.5, mlp1's modes) or died at the floor/two-skip gates (11.6, 6.5, 7.8-as-category). The floor rule converted the swarm's error mode from confident-wrong to conservative-verified in one wave.
+- WAVE-4 PIVOT, registered: the hunting ground moves to MEDIUM-CE territory (CE 1-3 — where the specialists demonstrably earn their keep; every named head's targets sit there) with BEHAVIOR-CONDITIONED pools instead of easiness-conditioned ones: workers get medium-CE positions grouped by target class and ask WHICH KNOWN FUNCTION serves each (enrichment mode) plus flag classes NO known function serves (the genuinely unserved residue — the real de-novo territory, if any exists).
+- Swarm economics after three waves: 27 records + 1 adversarial review, ~2.5h wall clock, ~10 worker-runs; discoveries: 1 new circuit surface (pipe, promoted+confirmed §1390), 2 function enrichments (2.5, mlp1x2 modes), 1 calibration law (§1391), 1 ownership map (here). The user's 20-quick-surrogates model holds; what changed is what the surrogates are FOR — enrichment and mapping over de-novo naming.
+
+swarm2/ complete for waves 1-3; worker reports in session log.

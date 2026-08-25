@@ -1,0 +1,22 @@
+{
+  "datapoint": {"row": 365, "pos": 194, "context": " anything with you, on stage, with the Pink Dots' set?", "target": "\n", "ce": 0.0976, "mlp1_dce": 0.3331},
+  "screen_note": "Wave-3C angle: pool drawn with sw.well_predicted_nontable(n=40, ce_max=0.2, mlp1_dce_max=0.5, seed=73) since sw.well_predicted(seed=73) put mlp1's token-table dCE at 2.5-21 nats on all 40 of its positions (0/40 passed the cheap top-MLP<1.0 screen -- see report). This datapoint's cheap mlp_dce screen: top MLP dCE 0.3331 (mlp1) < 1.0, so it advanced to the full head screen.",
+  "top_heads_ov": [[11, 0, 0.0646], [5, 7, 0.0267], [5, 6, 0.022]],
+  "top_heads_qk": [[11, 0, 0.0612], [6, 5, 0.0214], [10, 2, 0.0179]],
+  "top_mlps": [[1, 0.3331], [2, 0.3285], [3, 0.2393]],
+  "qk_vs_ov_reading": "Top head is 11.0 (ov=0.0646, qk=0.0612, ratio 1.06) -- MATCHED regime: selection and payload contribute almost identically, so neither 'where it looks' nor 'what it carries' alone explains the head's local effect. 11.0 is not on the known-head list (3.8/8.3 copy, 8.1 comparative, 10.5 question, 13.8 closer, 17.2/17.3 expressive, 8.7 fresh-digits, 0.3 bigram router) nor the struck list (11.6, 6.5, 7.8), so this is a genuinely fresh candidate. mlp1 and mlp2 are close rivals (0.333 vs 0.329) rather than one dominant MLP, which is exactly why this position cleared the 'no MLP dominates' screen; 11.0's head-level dCE (0.065) is still ~5x smaller than mlp1's, so this is 'head is locally the most interesting single PART' rather than 'head beats every MLP combined'.",
+  "chosen_spec": ["head_ov", 11, 0],
+  "scope_stats_skip900": {"mean_dce": 0.002, "frac_gt_0.5": 0.00288, "n_positions": 18429},
+  "scope_stats_skip1700": {"mean_dce": 0.00101, "frac_gt_0.5": 0.00152, "n_positions": 18429},
+  "two_skip_check": {
+    "rule": "named categories must hold at skip=1700 as well as the default (skip=900)",
+    "skip900_mean_dce": 0.002,
+    "skip1700_mean_dce": 0.00101,
+    "magnitude_ratio": 1.98,
+    "top5_skip900": [[2.016, "ex.php?title=Judith_Curry", ")"], [1.605, "r Bobby Abreu's screaming", " liner"], [1.329, "to the right-center-field", " gap"], [1.271, " plays, the ball hits the", " bag"], [1.26, "atile catcher also played", " first"]],
+    "top5_skip1700": [[2.768, "omes for rent Floral Park", "\n"], [2.001, ".955°E / 41.01361; 28.955", "|"], [1.798, "o: Demographics of Turkey", "\n"], [1.68, "Floral Park New York FRBO", "\n"], [1.482, "Istanbul radio operations", "\n"]],
+    "verdict": "UNSTABLE -- skip900's top-5 reads like sports-play completions (liner/gap/bag/first) while skip1700's top-5 is newlines/pipe after address- and demographics-style headers. No shared category between the two draws."
+  },
+  "category_story": "MAGNITUDE FLOOR: scope mean_dce is 0.002 (skip900) / 0.00101 (skip1700), both far below the 0.02 naming threshold. Per the wave-3 rule this gets NO category story. Recorded as: minor generic helper, magnitude ~0.001-0.002 nats.",
+  "surprises": "11.0 is a genuinely new (unstruck, unlisted) head that locally out-dCE's the top-2 MLPs' near-tie by ~5x margin isn't there -- rather 11.0 sits well BELOW mlp1/mlp2 locally (0.065 vs 0.33) even though it screened as the datapoint's most interesting single PART among heads. Its global scope is sub-floor and the top-example lists don't even agree with each other across skips, so this candidate should NOT be promoted or revisited -- it is exactly the kind of one-sample noise draw the two-skip rule exists to catch, just reached this time from the 'head beats MLP locally' angle rather than random small-head sampling."
+}
