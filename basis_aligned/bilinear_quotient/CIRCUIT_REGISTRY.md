@@ -63,10 +63,10 @@ function is useful). Capability kits share function-heads; price them once.
 
 ## Generators (when the pool runs low — run one, refill the pool)
 
-1. **New class taxonomies through the behaviour screen** (one 136s run covers ~10
-   classes, §513): unscreened candidates — possessive 's, hyphenation joins, ellipsis,
-   list-item numerals, year/date completion, unit suffixes, pronoun case, subject-verb
-   agreement s, quote-style matching (" vs '), URL/code tokens, ordinals.
+1. ~~**Token-class taxonomies through the behaviour screen**~~ EXHAUSTED §1363 (14
+   classes over two batches: 3 found, all resolved; batch two 0/7 — remaining token
+   classes land front-distributed or shared). The specialist inventory reachable this
+   way is ~8 functions, enumerated in the status board.
 2. **Damage-cluster mining** (CIRCUITS_SCOREBOARD.md, 147 certified clusters, 76%
    coverage): clusters with a dominant top component and no thread — e.g. 77 (attn13
    .202), 4 (attn1 .186), 25 (attn1 .168), 99 (mlp17 .159), 68 (mlp16 .146), 115

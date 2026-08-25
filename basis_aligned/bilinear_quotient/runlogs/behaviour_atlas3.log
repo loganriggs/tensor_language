@@ -1,0 +1,38 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+semicolon: n 208
+attribution: n 18
+thousands: n 239
+decimal: n 150
+open_bracket: n 749
+month: n 360
+ordinal_day: n 69
+base: {'semicolon': 3.586, 'attribution': 2.342, 'thousands': 0.774, 'decimal': 0.762, 'open_bracket': 3.527, 'month': 3.917, 'ordinal_day': 1.198}
+a0: semicolon +0.176 attribution +0.003 thousands +0.306 decimal +0.073 open_bracket +0.137 month +0.149 ordinal_day -0.044 | else +0.289
+a1: semicolon +0.206 attribution -0.071 thousands +0.197 decimal +0.175 open_bracket +0.121 month +0.150 ordinal_day +0.024 | else +0.207
+a2: semicolon +0.120 attribution +0.311 thousands +0.108 decimal +0.049 open_bracket +0.171 month +0.092 ordinal_day +0.026 | else +0.158
+a3: semicolon +0.134 attribution +0.106 thousands +0.070 decimal +0.068 open_bracket +0.192 month +0.065 ordinal_day -0.023 | else +0.124
+a4: semicolon +0.281 attribution +0.036 thousands +0.167 decimal +0.108 open_bracket +0.336 month +0.176 ordinal_day +0.063 | else +0.252
+a5: semicolon +0.255 attribution +0.129 thousands +0.032 decimal +0.006 open_bracket +0.042 month +0.113 ordinal_day +0.051 | else +0.129
+a6: semicolon +0.167 attribution +0.143 thousands +0.077 decimal +0.038 open_bracket +0.028 month +0.051 ordinal_day +0.053 | else +0.058
+a7: semicolon +0.048 attribution +0.002 thousands +0.032 decimal +0.022 open_bracket +0.016 month +0.059 ordinal_day +0.033 | else +0.061
+a8: semicolon +0.014 attribution +0.057 thousands -0.002 decimal +0.028 open_bracket +0.000 month +0.077 ordinal_day +0.012 | else +0.037
+a9: semicolon +0.152 attribution -0.046 thousands +0.010 decimal +0.046 open_bracket +0.058 month +0.086 ordinal_day +0.034 | else +0.062
+a10: semicolon +0.080 attribution +0.060 thousands -0.008 decimal +0.044 open_bracket +0.019 month +0.036 ordinal_day -0.039 | else +0.024
+a11: semicolon +0.099 attribution +0.076 thousands +0.033 decimal +0.033 open_bracket +0.004 month +0.029 ordinal_day -0.041 | else +0.042
+a12: semicolon +0.081 attribution +0.062 thousands -0.002 decimal +0.025 open_bracket +0.077 month -0.007 ordinal_day -0.041 | else +0.011
+a13: semicolon +0.030 attribution -0.081 thousands -0.015 decimal +0.005 open_bracket +0.005 month +0.010 ordinal_day +0.017 | else +0.017
+a14: semicolon -0.003 attribution -0.188 thousands +0.016 decimal -0.000 open_bracket +0.013 month +0.063 ordinal_day +0.035 | else +0.024
+a15: semicolon +0.057 attribution -0.044 thousands -0.014 decimal -0.015 open_bracket +0.027 month +0.027 ordinal_day -0.025 | else +0.007
+a16: semicolon -0.018 attribution -0.189 thousands -0.005 decimal -0.021 open_bracket -0.009 month +0.005 ordinal_day -0.008 | else +0.012
+a17: semicolon +0.024 attribution -0.078 thousands -0.009 decimal -0.017 open_bracket +0.035 month +0.008 ordinal_day -0.037 | else +0.014
+semicolon: top a4 dmg +0.281 ratio 1.1 no
+attribution: top a2 dmg +0.311 ratio 2.0 no
+thousands: top a0 dmg +0.306 ratio 1.1 no
+decimal: top a1 dmg +0.175 ratio 0.8 no
+open_bracket: top a4 dmg +0.336 ratio 1.3 no
+month: top a4 dmg +0.176 ratio 0.7 no
+ordinal_day: top a4 dmg +0.063 ratio 0.3 no
+
+qualifying: []
+pred_a refills False | pred_b known-fn False | pred_c a8-numeric False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/behaviour_atlas3_results.json (141.2s)
