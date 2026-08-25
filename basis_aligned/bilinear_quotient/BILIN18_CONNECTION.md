@@ -34109,3 +34109,12 @@ swarm2/ complete for waves 1-3; worker reports in session log.
   10=question-punct, 13=brackets, 15-17=capitalized) AND find the a13/a14 extension.
 - pred_b's miss revises the closer dossier: 13.8 owns brackets, but LAYER a13's total service is majority word/capitalized — the bracket family is a minority tenant of its own layer. Consistent with §1397's committee finding that no layer is one thing.
 - Pool refilled: capitalized@a13, capitalized@a14 (is the committee bigger than 7?). Queued (capitalized_band_ext): §1397-style head battery on a13+a14 at capitalized targets. Preds: pred_a a14 layer damage ≥ .04 on capitalized targets (comparable to a15's .046); pred_b ≥ 1 head in a13/a14 clears .015 solo (committee-grade); pred_c controls clean at the top layer (jitter ≤ .33x target).
+
+## §1411 — THE COMMITTEE IS TWELVE, NOT SEVEN (pred_a PASSED: a14 layer damage .0892 on capitalized targets — BIGGER than a15's .046 and on par with a16/a17's .081/.085; pred_b PASSED: FIVE heads clear the .015 committee bar — 14.4 (.034), 13.5 (.030), 14.7 (.024), 13.0 (.022), 14.6 (.020); pred_c PASSED: controls clean, jitter .013 vs targets .053/.089): the §1339 screen's a15-a17 band was a truncation artifact — it never looked below a15 — and the §1410 mine's a13/a14 signal is real head-grain structure: the capitalized committee spans a13-a17 with ~12 members of comparable size (capitalized_band_ext_results.json, 268s)
+
+  new members' solo ladder: 14.4 .034 | 13.5 .030 | 14.7 .024 | 13.0 .022 | 14.6 .020
+  (next head 13.2 at .004 — a clean gap, the committee edge is sharp). Shares: a13 top
+  head 55%, a14 top 38% — same no-owner crowd shape as §1397's three layers.
+- REVISION to §1397/§1398: "committee-of-7" undercounted by 5. The §1398 removal handle (.208 surgical) was measured on the 7 known members; the full-band handle should be re-priced. Dossier updated: capitalized committee = {13.0, 13.5, 14.4, 14.6, 14.7, 15.3, 16.0, 16.4, 16.5, 17.0, 17.1, 17.2}, five layers, edge at .015 solo with a 5x gap below it.
+- Instrument note: this is the damage mine's first confirmed catch — a real band extension the behaviour screen missed. Generator validated end-to-end (mine → battery → confirmed members) in two runs.
+- Queued (capitalized_committee12): re-price the removal handle with all 12 — arms: old-7 / new-5 / all-12. Preds: pred_a all-12 target damage ≥ .30 (vs .208 for the 7); pred_b still surgical (else ≤ 10% of target); pred_c sub-additive (all-12 ≤ .85x the sum of the two parts' damages — redundancy expected per §1404).

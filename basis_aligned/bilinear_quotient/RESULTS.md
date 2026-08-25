@@ -5145,3 +5145,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1408 — BILL CERTIFIED 3-for-3: keep7 = comparative .984 / closer .864 / capitalized .797 / question .690 / else .750 with 28/162 heads + 11/18 MLPs; unified-bill arc CLOSED (unified_bill_final)
 §1409 — sentence_end AND open_bracket both DEMOTED (dirty jitter, front-generic damage; atlas small-n leader fails 3/3); POOL EMPTY -> damage_cluster_mine generator queued (pool_screen_a10_a17)
 §1410 — damage mine refills pool: capitalized band extends to a13/a14 (31%/24% of their mass; ~1400 positions each); a13 is majority NON-bracket (closer = minority tenant of its layer, pred_b informative miss); mine recovers inventory blind (damage_cluster_mine)
+§1411 — capitalized committee = TWELVE heads across a13-a17 (new: 14.4, 13.5, 14.7, 13.0, 14.6; a14 dmg .089 > a15's .046; sharp edge at .015); §1339 band was truncated; damage mine's first confirmed catch (capitalized_band_ext)
