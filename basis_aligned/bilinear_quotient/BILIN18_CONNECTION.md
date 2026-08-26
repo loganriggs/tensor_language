@@ -35669,3 +35669,31 @@ heads WORK when their inputs are faithful, and the needed inputs live in layers
 0-6, but a SELECTIVE extraction requires finding the small subset of lower
 components the circuit actually reads. Queued: extract5 narrows the input set
 ({0-3} vs {4-6} attention exact) with a selectivity bar registered.
+
+## §1515 Greedy sweep 3 (2-for-3): close_paren = ONE head (13.8) at 363×; newline's greedy set has ZERO measurable global cost
+
+**Setup** (circuit_greedy4, 273s). **Scored:** pred_a all 4 beat top-5: **PASSED**
+— question 47→158.9× (4 heads), close_paren 200→**362.7× with ONE head, 13.8** (the
+old quote-owner head — also the close-paren owner), open_quote 17→48.3×, newline's
+5-head set {10.2, 12.6, 16.2, 11.0, 14.2} raised class CE .5935 with global rise
+BELOW MEASUREMENT NOISE at NR=960 (the raw ratio 593461× is a divide-by-noise
+artifact; recorded as ≥1000×, unbounded within noise). pred_b ≥2 shrink to ≤3:
+**FAILED** — only close_paren (1 head). pred_c close_paren ≥ 300×: **PASSED**.
+
+**Registry:** 14 recipe-built ensembles; single-head circuits now: colon (12.6),
+months (14.7), close_paren (13.8).
+
+## §1516 The early stack is a SHARED TRUNK (1-for-3): early beats late 3/3, but layer-grain exactness cannot be selective
+
+**Setup** (circuit_extract5, lane 2, 282s). **Scored:** pred_a early(0-3) ≥ half
+the 0-6 reference: **FAILED** — 1 of 3 (recovery accumulates across 0-6). pred_b
+early > late: **PASSED 3/3** (late_exact ≈ 0 or negative for 2 of 3 — the
+circuits' inputs are formed in layers 0-3 and merely carried later). pred_c class
+≥ 1.2× global: **FAILED** — exacting whole early layers recovers global .44
+uniformly.
+
+**Standing conclusion for extraction:** whole-layer input restoration is shared
+infrastructure, not circuit-specific wiring — selectivity requires SUB-LAYER grain
+(which early heads/components feed a given circuit). Queued: trunk search on the
+semicolon circuit — 63 early heads scored singly for class-recovery gain, then
+greedy over the top-10, with a selectivity bar registered.

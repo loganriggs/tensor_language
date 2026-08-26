@@ -5249,3 +5249,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1512 — extraction-by-restoration fails mid-stack (class recovery NEGATIVE all 3): circuits need their input paths, not just their heads; extract4 diagnosis queued
 §1513 — greedy sweep 2: comma 160x (4 heads), colon = head 12.6 alone @ 58x, months = 14.7 alone @ 21.7x; 10 recipe-built ensembles (3-for-3)
 §1514 — extraction: class recovers (.57-.93) once layers 0-6 attention is exact, but NON-selectively — minimal input-path search queued (3-for-3 + caveat)
+§1515 — greedy sweep 3: close_paren = head 13.8 alone @ 363x; newline set global cost = 0 within noise (sel >= 1000x, artifact flagged); 14 recipe ensembles (2-for-3)
+§1516 — early stack = shared trunk (early>late 3/3, but layer-grain non-selective): sub-layer trunk search queued (1-for-3)
