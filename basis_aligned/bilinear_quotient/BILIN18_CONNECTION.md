@@ -35399,3 +35399,19 @@ worst deep sites (mlp7, mlp14): products of the module's own top-16 INPUT stream
 directions (136 features) on the linall residual — the module's bilinear form
 restricted to its dominant input subspace (preds: +.05 at each; beats
 random-projection quads).
+
+## §1499 THE TOTAL GLASS NUMBER: everything replaced = 5.5347 (+2.59 CE), 1-for-3 — and it is remarkably STABLE across row sets
+
+**Setup** (ship_all36, 146s). All 18 attention layers (three-tier) + all 18 MLPs
+(planks/projections/stream-linalls + mlp2 glue) simultaneously.
+
+**Scored as written:** pred_a ≤ 5.5: **FAILED by .0347** — 5.5347. pred_b
+compounding ≤ 2× the marginal-sum estimate: **FAILED** — 2.3×. pred_c fresh-row
+band ≤ .15: **PASSED, remarkably** — the fresh-row value is 5.5320, a band of
+−.003: the fully-glass model's behavior is essentially row-set independent.
+
+**The program's honest bottom line (2026-08-26):** clean 2.946 → full glass 5.535.
+The ship line: 18 attn = 3.107; +5 best MLPs = 3.685; +3 weak MLPs = 3.902; all 36
+= 5.535. The deep-mid MLPs (4-13, solo fids .33-.74) contribute ~1.6 CE of the 2.59
+total — they remain THE frontier, exactly as the board has said since §1474.
+(deep_stream_quad crashed on a missing m14 capture hook — fixed, requeued.)

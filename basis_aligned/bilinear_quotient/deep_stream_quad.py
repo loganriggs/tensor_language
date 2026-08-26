@@ -23,7 +23,7 @@ H = m.transformer.h
 TARGETS = [7, 14]
 STAND = {'L': None, 'tensor': None}
 CAP = {'on': False, 'store': None}
-NAMES = [f'm{L}' for L in range(14)] + [f'a{L}' for L in TARGETS] \
+NAMES = [f'm{L}' for L in range(15)] + [f'a{L}' for L in TARGETS] \
     + [f'z{L}' for L in TARGETS]
 
 
@@ -90,7 +90,7 @@ def main():
     FITR = cl.fineweb_rows(NFIT, skip=80)[:, :T + 1].contiguous()
     EVR = cl.fineweb_rows(NEV, skip=7000)[:, :T + 1].contiguous()
 
-    hooks = [H[L].mlp.register_forward_hook(cap_hook_for(f'm{L}')) for L in range(14)]
+    hooks = [H[L].mlp.register_forward_hook(cap_hook_for(f'm{L}')) for L in range(15)]
     hooks += [H[L].attn.c_proj.register_forward_hook(cap_hook_for(f'a{L}'))
               for L in TARGETS]
     hooks += [H[L].mlp.register_forward_pre_hook(cap_pre_hook_for(f'z{L}'))

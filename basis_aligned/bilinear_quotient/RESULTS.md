@@ -5233,3 +5233,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1496 — 23-module ship 3.685 (+.74 CE; 3-for-3): mlp3 projection .015 solo, additions .08; glue persisted; ship4 (deep-mid stream-linalls) + r16 price sweep queued
 §1497 — weak planks cost 2.4x solo in-ship: robustness tracks plank fid, not class; ship26 = 3.902 (+.96) (1-for-3)
 §1498 — r16 rung: median .848 @ 11.8 Mbit (misses .85 by .0016), all beat kernels; price curve measured (1-for-3); ship_all36 + own-basis deep quads queued
+§1499 — TOTAL GLASS: all 36 modules = 5.535 (+2.59 CE; fresh band -.003!); deep-mid 4-13 carry ~1.6 of it — the frontier confirmed (1-for-3)
