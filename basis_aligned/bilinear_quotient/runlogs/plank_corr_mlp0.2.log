@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+plank fit
+clean 2.9455 plank 3.0667
+/workspace/tensor_language/basis_aligned/bilinear_quotient/plank_corr_mlp0.py:155: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  print(f"  step {step} loss {float(loss):.4f}", flush=True)
+  step 0 loss 3.0910
+  step 100 loss 3.2482
+  step 200 loss 3.3011
+  step 300 loss 3.1941
+{'clean': 2.9455, 'ce_plank': 3.0667, 'ce_corrected': 3.0838, 'fid_plank': 0.8665, 'fid_corrected': 0.8477, 'gain_7000': -0.0171, 'gain_5000': -0.0147, 'pred_a_fid': False, 'pred_b_gain': False, 'pred_c_generalizes': False, 'runtime_s': 201.0}
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/plank_corr_mlp0_results.json (201.0s)

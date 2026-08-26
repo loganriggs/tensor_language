@@ -5294,3 +5294,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1557 — pronouns VERIFIED 347x (12.4 single-head); h124 surgical + neutral, coreference split underpowered (3-for-3 / 2-for-3)
 §1558 — 12.4 = pronoun announcer, NOT coreference (1.05x ante ratio, powered); state distributed (2-for-3)
 §1559 — greedy fails on small classes (titles worsened): recipe needs class support; ordinals 15.5x, about 9.9x (0-for-3)
+§1560 — corrections hurt solo planks (mlp1/mlp0 both negative): the class works only vs large systematic error; board top stays hard (0-for-3 x2)

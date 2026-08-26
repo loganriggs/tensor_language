@@ -36262,3 +36262,14 @@ screening rows are too noisy at this class size). pred_b median ≤ 3: **FAILED*
 ordinals 2.7→**15.5×**, about 4.3→9.9×, days 4.6→5.5×. Recipe boundary noted:
 greedy construction needs class support (≥ ~40 frequent tokens or ≥ ~300 eval
 positions); below that, keep the screen top-5. Registry updated.
+
+## §1560 Trained corrections HURT solo planks (0-for-3 twice): the correction class works only against large systematic error
+
+**Setup** (plank_corr_mlp1/mlp0, ~200s each). **Scored:** all six predictions
+**FAILED** — mlp1 .9498→.9490, mlp0 .8665→.8477, gains negative on BOTH row sets.
+**The completed theory of CE-trained corrections:** they recover large composite
+interaction error (+.80 in the ship, §1489) and train kernels from scratch
+(§1460) but DEGRADE already-good solo stand-ins (here, and the §1533 warm
+starts) — at residual scales below ~.5 CE the batch-8 full-model-CE gradient is
+noise. mlp1's last .18 unexplained CE remains the board's honest hard problem;
+the token-table class is at its ceiling.
