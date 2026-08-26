@@ -35805,3 +35805,29 @@ output norm. **Scored:** pred_a 5.7 out of all three top-5s: **PASSED**. pred_b
 induction ≥ 5×: **PASSED** — 12.49× (heads {7.3, 6.5, 8.4, 8.3, 8.6}; raw was
 3.14×). pred_c copy ≥ 30×: **FAILED** — 26.19×. Cosine-normalized attribution
 replaces raw attribution as the standard method-T; the sink confound is closed.
+
+## §1525 The movers are ONE head deep (1-for-3): 5.5 is the primary context-matcher, 10.8 a minor assistant
+
+**Setup** (circuit_movers, 53s). **Scored:** pred_a pair ≥ 1.5× max single:
+**FAILED** — 1.22× (5.5 alone carries .0567 of copy damage; 10.8 alone .0114 and
+globally inert at −.0002). pred_b context ≥ 5× cap: **FAILED** — 4.5× (just under).
+pred_c global ≤ .01: **PASSED** — .0072. Head 5.5 is THE context-matching mover.
+
+## §1526 NO DIVISION OF LABOR — the capitalization committee IS a copying apparatus (2-for-3; the failed prediction is the discovery)
+
+**Setup** (circuit_readouts, lane 2, 47s). Copy readouts {16.3, 16.4, 17.1} vs the
+committee's other 10 heads, profiled on copy/induction/capitalized/global.
+
+**Scored as written:** pred_a readouts serve both: **PASSED** — copy .1308 + cap
+.0531 at global −.0013. pred_b division of labor (rest damages cap but NOT copy):
+**FAILED, decisively** — the committee-minus-readouts damages COPY (+.6846) MORE
+than capitalized (+.4585). pred_c global ≤ .05: **PASSED**.
+
+**Reinterpretation (unifies two program arcs):** the late-stack "capitalization
+committee" (13 heads, L13-17, §1339-1418) is substantially a CONTENT-COPYING
+apparatus — capitalized continuation is largely copying earlier names from context.
+The removal program discovered it through the capitalized class; the contextual
+screens now show the same heads carry general (non-name) copying at even larger
+effect. Queued test of the unification: decompose the capitalized class into
+COPIED-capitalized vs NOVEL-capitalized — if the committee is a copier, its damage
+should concentrate ≥3× on the copied subclass.
