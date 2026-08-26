@@ -5322,3 +5322,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1585 — serial routing REFUTED at z-level (payload elevation −16% only): is sub-additivity = parallel pathways + CE saturation; logit-additivity discriminator queued (1-for-3)
 §1586 — determiner gate = blunt precision damper: removal damage 44× concentrated at almost-the, class +.24 recovered; suppresses true and false positives alike (2-for-3)
 §1587 — gender gate = magnitude detector: quadratic gates are EVEN in their axis (opposite-signs pred ill-posed); both named gates = "strong axis signal → damp class"; 54× damage concentration (2-for-3)
+§1588 — saturation partial: logit additivity .90/.93 vs CE .84 — small real overlap remains; joint-family bookkeeping model settled (1-for-3)
+§1589 — REFLECTION: flipping the gender axis at mlp17 destroys he-prediction (p_he −67%, CE +.49, 5× the even gate) without creating she — signed odd-pathway readout, asymmetric coding (2-for-3)

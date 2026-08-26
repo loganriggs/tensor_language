@@ -36790,3 +36790,41 @@ positions). Registered follow-up: the REFLECTION test — flip the gender state
 (z′ = z − 2(z·v)v at the mlp17 input; v is an eigenvector of the class form,
 so the even/quadratic pathway is exactly invariant) and watch whether the
 model's he/she preference flips through the non-even pathways.
+
+## §1588 SATURATION EXPLAINS ONLY PART (1-for-3): logit-level additivity .90/.93 vs CE .84/.84 — the direction is right but ~8% of the overlap is real
+
+**Setup** (parallel_logit, 80s; mean class-target logit drops for heads-only /
+slice-only / joint, is and months full ensembles, NR=960). **Scored:** pred_a
+is logit additivity ≥ .95: **FAILED** — .902. pred_b months ≥ .95: **FAILED**
+— .927. pred_c CE additivity < logit additivity at both (saturation
+signature): **PASSED** — .840 < .902, .842 < .927.
+
+**Verdict on the §1585 model:** parallel-with-saturation is directionally
+confirmed (moving from CE to logit closes 40-55% of the additivity gap) but
+incomplete — 7-10% of the joint shortfall survives at the logit level, i.e. a
+small genuine mechanistic overlap remains between the head ensembles and the
+mlp17 payload slice. Bookkeeping model for the joint family: mostly parallel
+pathways + CE saturation + a small shared component. Thread closes here; the
+overlap remainder is below the effect sizes this program acts on.
+
+## §1589 REFLECTION BREAKS THE PRONOUN CHANNEL (2-for-3): flipping the gender axis at the mlp17 input DESTROYS he-prediction (p_he −67%) without creating she — the signed readout dwarfs the even gate
+
+**Setup** (reflect_gender, 50s; z′ = reflection of the gender axis about its
+mean at the mlp17 input only; v is an eigenvector of the pronoun class form,
+so the quadratic (even) class pathway is exactly invariant; NR=960).
+**Scored:** pred_a class CE change < .033: **FAILED** spectacularly — +.4915.
+pred_b preference moves toward she (p_she up, p_he down): **PASSED** — p_he
+.1204→.0397, p_she .0444→.0492. pred_c global cost < .01: **PASSED** —
+non-class positions net +.0006 (almost-pronoun positions actually IMPROVE
+−.026).
+
+**The discovery in the failed prediction:** mlp17 carries a large SIGNED
+gender readout through its odd pathways (the unit cross-terms (l_u·z)(r_u·z)
+are odd in (z·v) even when the class form is even) — and it is worth .49 CE at
+pronoun positions, 5× the even gate's .099. The asymmetry is the striking
+part: reflected "he-state" does NOT become she-prediction (p_she +11% only) —
+the he-mass simply leaves the pronoun family. The model's gender coding is not
+a symmetric contrast on this axis: he-prediction requires the axis in its
+he-pole; the she-pole is not the mirror condition. Follow-ups queued: where
+the lost he-mass goes + whether the signed channel is unit-localized (lane 1);
+depth profile of the same reflection at mlp13-16 inputs (lane 2).
