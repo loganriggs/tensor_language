@@ -35952,3 +35952,24 @@ BEST stand-ins at nine modules (mlp4 .70, mlp6 .71, mlp10 .59, mlp11 .61, mlp12
 unit core + a stream ridge fit on the CORE'S RESIDUAL (the concentrated part in the
 module's own basis, the diffuse tail as linear-in-stream). Preds per part: hybrid ≥
 .65 at most sites; beats both parents by ≥ .08; mlp14 ≥ .45.
+
+## §1535 Core+ridge hybrid improves ALL 12 sites but fails its bars and its PRICE (0-for-3 / 1-for-3): the unit class wins on economics
+
+**Setup** (deep_hybrid_a/b, both lanes). **Scored:** part a 0-for-3, part b 1-for-3
+(bars: majority ≥ .65 — only 3 of 12 reach it; beats-both-parents-by-.08 — most
+gains are +.05-.07; mlp14 .41 < .45; mlp15 .52 ≥ .45 ✓).
+
+**What the run actually showed:** the hybrid (top-256-unit core + stream ridge on
+its residual) improves on BOTH parents at every one of 12 sites (mlp4 .759, mlp5
+.694, mlp6 .658, mlp7 .573, ... mlp14 .412). But the PRICE audit is disqualifying:
+the wide linall ridge costs (L+1)·D² ≈ 190-380 Mbit at deep layers — MORE than the
+255-Mbit module it describes. The K=1024 unit truncation (57 Mbit, zero fitting)
+matches or beats hybrid-256 fidelity at most sites and is the price-efficient
+class. Seeds updated only where the hybrid strictly wins (mlp4 .7585, mlp5 .6935,
+mlp15 .5239, price-flagged); rank-truncating the ridge tail is pooled.
+
+**Queued:** ship_all36_v2 (lane 1) — the total-glass number rebuilt with unit-1024
+planks for mlps 4-17 (replacing the ~.45-recovery stream-linalls); preds ≤ 5.25 /
+beats v1 by ≥ .25 / fresh band ≤ .05. deep_units_tail (lane 2) — the curve's tail
+priced directly at the stragglers (K = 2048 and full-K sanity at mlps 10, 12, 13,
+14).
