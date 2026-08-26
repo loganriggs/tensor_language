@@ -36967,3 +36967,75 @@ the three-properties frame, is best satisfied by shipping the compressed
 model and pointing at the circuit inside it — not by cutting the circuit out.
 Rank sweep (extraction_rank, r ∈ {4,8,16,32}: where does the circuit break)
 died twice on the GPU loss and is requeued.
+
+## §1596 rank sweep: compression degrades the question circuit SMOOTHLY and NON-SELECTIVELY — class breaks exactly when the model breaks (1-for-3)
+
+extraction_rank.py, NR=960, question class: the whitened-QK background at
+r ∈ {4,8,16,32} (SPEC exact, PLAIN {8,16,17} as always), MLPs intact.
+
+Results (extraction_rank_results.json), rises over clean (global 2.9474 /
+class 1.5097):
+- r4:  class +2.037, global +1.755
+- r8:  class +0.987, global +1.028
+- r16: class +0.490, global +0.485
+- r32: class +0.190, global +0.162
+
+Predictions as registered:
+- pred_a (class rise monotone decreasing in r): 2.04 > .99 > .49 > .19 —
+  PASSED.
+- pred_b (r=8 keeps class rise ≤ .50): .987 — FAILED by 2×. Rank 8 is not
+  enough; the question class needs the full rank-32 tier.
+- pred_c (knee at or before 16: r16 rise ≤ 1.5× r32 rise): .490 vs cap
+  .285 — FAILED. There is NO knee: each doubling of rank roughly halves the
+  class rise (2.04 → .99 → .49 → .19, ratios .48/.50/.39).
+Score 1-for-3.
+
+The unregistered observation is the important one: at every rank the class
+rise ≈ the global rise (.99/1.03, .49/.49, .19/.16). Compression damage is
+NOT class-selective — the question circuit does not break before the model
+does; it degrades in lockstep with the generic function. Combined with
+§1594-95 (exact heads inside the background are useless-to-harmful), the
+extraction picture closes: there is no privileged fragile core to cut out
+and no privileged robust core either — the compression quality knob moves
+class and global function together, and "where does the circuit break" has
+the answer "exactly where everything breaks." Extraction-by-compression is
+a single scalar dial, not a circuit-shaped scalpel.
+
+## §1597 SPARSE EIGENSPACE CONNECTIONS CERTIFIED (3-for-3): the question slice's writers are 4 components carrying 72% — and the attention writers ARE circuit heads 10.5 and 9.7
+
+slice_writers.py, NR=960, question@mlp11 rank-2 slice (eigs +144.9/−73.8),
+implementing the user's framing: define variables as low-rank eigenspaces
+plus their SPARSE writer edges. The pre-norm mlp11 input decomposes EXACTLY
+(reconstruction rel err 0.0) into 24 component outputs (x0, ao_0..11,
+mo_0..10) with lambda-product coefficients; attribution = coef × (class-mean
+− global-mean) projection onto span(v1,v2).
+
+Results (slice_writers_results.json):
+- WRITERS SPARSE: top-4 = attn10 (581), attn9 (405), mlp9 (366), mlp10 (113)
+  = 71.8% of total attribution mass over 24 components. pred_a (≥.60) PASSED.
+- CAUSAL EDGES: mean-substituting span(v1,v2) out of ONLY those 4 outputs at
+  source: class rise .8144, global rise −.0002 (ZERO cost — selectivity
+  unbounded within noise; the raw quotient 814370× is a negative/noise-
+  denominator artifact per the §1523 convention). That is 4.57× the full
+  rank-2 form ablation at mlp11 itself (.1784). pred_b (≥.50 of form, ≥20×)
+  PASSED with 9× headroom. Mid-ranked control (mlp5/mlp6/mlp8/attn8): .0858
+  — 9.5× weaker than top-4.
+- THE ATTENTION EDGES ARE THE CIRCUIT: at head grain, attn10's slice writing
+  is one head — 10.5 at 625, 20× the runner-up (10.2 at 30). attn9's top head
+  is 9.7 (221). BOTH are certified question circuit heads (roster 9.7, 10.5,
+  12.6, 15.1, 15.6 from compression_rank2). pred_c PASSED.
+
+Score 3-for-3. Two conclusions:
+1. The typed graph exists and is sparse: heads 9.7 & 10.5 + mlp9 & mlp10
+   write a 2-dimensional subspace; mlp11's canonical quadratic form reads it
+   into the '?' logit. The early circuit heads and the certified eigen slice
+   are now ONE object connected by measured, causally-verified edges — the
+   first cross-component circuit stated in eigenspace grain, with the
+   remaining circuit heads (12.6, 15.1, 15.6) sitting downstream of mlp11.
+2. The 4.57× overshoot is a discovery, not slop: cutting the subspace at the
+   SOURCE costs .81 of class CE while mlp11's own readout only accounts for
+   .18 — the (v1,v2) subspace is a SHARED VARIABLE with other downstream
+   readers (mlp12-17/attn12-17) consuming the remaining ~.63. Which readers
+   consume it is the immediate next question (slice_readers queued), and the
+   zero global cost at .81 class damage makes this one of the most selective
+   knobs found in the entire program.

@@ -1,0 +1,199 @@
+{
+ "res": {
+  "slice_eigs": [
+   144.8641,
+   -73.8464
+  ],
+  "recon_rel_err": 0.0,
+  "attr_top10": {
+   "attn10": {
+    "delta_abs": 581.3102,
+    "delta_signed": [
+     480.657,
+     100.6533
+    ]
+   },
+   "attn9": {
+    "delta_abs": 405.342,
+    "delta_signed": [
+     290.6916,
+     114.6504
+    ]
+   },
+   "mlp9": {
+    "delta_abs": 366.4985,
+    "delta_signed": [
+     215.9503,
+     150.5482
+    ]
+   },
+   "mlp10": {
+    "delta_abs": 112.9135,
+    "delta_signed": [
+     91.0683,
+     21.8452
+    ]
+   },
+   "mlp7": {
+    "delta_abs": 96.911,
+    "delta_signed": [
+     65.1718,
+     -31.7392
+    ]
+   },
+   "attn11": {
+    "delta_abs": 93.6803,
+    "delta_signed": [
+     55.2292,
+     38.4511
+    ]
+   },
+   "attn7": {
+    "delta_abs": 77.4752,
+    "delta_signed": [
+     62.1223,
+     15.3529
+    ]
+   },
+   "attn5": {
+    "delta_abs": 63.9473,
+    "delta_signed": [
+     51.5059,
+     12.4414
+    ]
+   },
+   "mlp5": {
+    "delta_abs": 44.0193,
+    "delta_signed": [
+     29.8051,
+     14.2142
+    ]
+   },
+   "mlp6": {
+    "delta_abs": 43.1441,
+    "delta_signed": [
+     26.7318,
+     -16.4123
+    ]
+   }
+  },
+  "head_grain": {
+   "attn10": [
+    [
+     5,
+     625.2451
+    ],
+    [
+     2,
+     30.3423
+    ],
+    [
+     6,
+     6.4886
+    ]
+   ],
+   "attn9": [
+    [
+     7,
+     221.4379
+    ],
+    [
+     3,
+     173.39
+    ],
+    [
+     4,
+     19.0939
+    ]
+   ],
+   "attn11": [
+    [
+     0,
+     48.0361
+    ],
+    [
+     3,
+     24.4532
+    ],
+    [
+     7,
+     16.3332
+    ]
+   ],
+   "attn7": [
+    [
+     8,
+     37.7423
+    ],
+    [
+     6,
+     28.8205
+    ],
+    [
+     5,
+     20.3509
+    ]
+   ],
+   "attn5": [
+    [
+     7,
+     59.5247
+    ],
+    [
+     3,
+     5.4557
+    ],
+    [
+     6,
+     4.4863
+    ]
+   ]
+  },
+  "top4": [
+   "attn10",
+   "attn9",
+   "mlp9",
+   "mlp10"
+  ],
+  "top4_share": 0.7179,
+  "form_r2_ref": {
+   "rise_class": 0.1784,
+   "rise_global": -0.0002
+  },
+  "edit_top4": {
+   "set": [
+    "attn10",
+    "attn9",
+    "mlp9",
+    "mlp10"
+   ],
+   "rise_class": 0.8144,
+   "rise_global": -0.0002,
+   "selectivity": 814369.69,
+   "frac_of_form": 4.566
+  },
+  "edit_mid4": {
+   "set": [
+    "mlp5",
+    "mlp6",
+    "mlp8",
+    "attn8"
+   ],
+   "rise_class": 0.0858,
+   "rise_global": 0.0001,
+   "selectivity": 1673.26,
+   "frac_of_form": 0.481
+  }
+ },
+ "circuit_heads_ref": [
+  "10.5",
+  "12.6",
+  "15.1",
+  "15.6",
+  "9.7"
+ ],
+ "pred_a_sparse_60": true,
+ "pred_b_causal_edges": true,
+ "pred_c_attn_edge_is_circuit_head": true,
+ "runtime_s": 69.1
+}

@@ -1,26 +1,11 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/slice_writers.py", line 30, in <module>
-    from bilin18_joint_removal import m, DEV
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_joint_removal.py", line 59, in <module>
-    m, cfg = load_elriggs('bilin18')
-             ^^^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/qk_mdl/tier2_model.py", line 54, in load_elriggs
-    m = TT.GPT(TT.GPTConfig(**cfg)).to(device=device, dtype=dtype).eval()
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1384, in to
-    return self._apply(convert)
-           ^^^^^^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 934, in _apply
-    module._apply(fn)
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 934, in _apply
-    module._apply(fn)
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 965, in _apply
-    param_applied = fn(param)
-                    ^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1370, in convert
-    return t.to(
-           ^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/cuda/__init__.py", line 478, in _lazy_init
-    torch._C._cuda_init()
-RuntimeError: No CUDA GPUs are available
+slice eigs [144.8641, -73.8464]
+fit pass done, class n=44
+reconstruction rel err 0.0
+top writers {"attn10": 581.3102, "attn9": 405.342, "mlp9": 366.4985, "mlp10": 112.9135, "mlp7": 96.911, "attn11": 93.6803, "attn7": 77.4752, "attn5": 63.9473}
+head grain {"attn10": [[5, 625.2451], [2, 30.3423], [6, 6.4886]], "attn9": [[7, 221.4379], [3, 173.39], [4, 19.0939]], "attn11": [[0, 48.0361], [3, 24.4532], [7, 16.3332]], "attn7": [[8, 37.7423], [6, 28.8205], [5, 20.3509]], "attn5": [[7, 59.5247], [3, 5.4557], [6, 4.4863]]}
+form ref {'rise_class': 0.1784, 'rise_global': -0.0002}
+edit_top4 {'set': ['attn10', 'attn9', 'mlp9', 'mlp10'], 'rise_class': 0.8144, 'rise_global': -0.0002, 'selectivity': 814369.69, 'frac_of_form': 4.566}
+edit_mid4 {'set': ['mlp5', 'mlp6', 'mlp8', 'attn8'], 'rise_class': 0.0858, 'rise_global': 0.0001, 'selectivity': 1673.26, 'frac_of_form': 0.481}
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/slice_writers_results.json (69.1s)

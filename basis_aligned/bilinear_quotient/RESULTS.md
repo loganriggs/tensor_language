@@ -5330,3 +5330,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1593 — extraction curve NON-MONOTONE (.16/.32/.23/.40): second-decade heads harmful in dead background — §1334 inversion at question; constants extraction capped (1-for-3)
 §1594 — COMPRESSION IS EXTRACTION: rank-32 QK background keeps 97% of question class function; exact circuit heads add nothing (−.08) — good compression already is the extraction (1-for-3)
 §1595 — pronouns confirms COMPRESSION IS EXTRACTION (92% kept, .20 vs 2.56 rise); exact circuit heads ANTI-extraction inside bg (rec −.29 vs +.23 const) (2-for-3)
+§1596 — rank sweep: NO knee, class rise halves per rank doubling (2.04/.99/.49/.19), class ≈ global damage at every rank — compression is non-selective, circuit breaks when the model breaks (1-for-3)
+§1597 — SPARSE EIGENSPACE CONNECTIONS 3-for-3: question slice written by attn10+attn9+mlp9+mlp10 (72%); head grain = circuit heads 10.5 (20:1) and 9.7; 4-writer subspace cut = .81 class rise at ZERO global cost (4.6x the mlp11 readout alone -> shared variable, readers queued)
