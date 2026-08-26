@@ -36097,3 +36097,19 @@ targets) and a smaller novel-name channel carried by its 13.0/13.5 core. Registr
 updated. Queued: NR=1920 verification of the full mid-tier circuit registry (11
 ensembles, split across lanes) — after which every registry claim carries
 large-row verification.
+
+## §1547 REGISTRY COMPLETE: every circuit claim now carries NR=1920 verification (3-for-3 twice, ordering ρ = 1.0)
+
+**Setup** (circuit_verify_mid_a/b after the placeholder fix, ~207s each). All eight
+mid-tier ensembles verify within tight bands: is 17.8× (ref 16.9), the 11.6×
+(9.8), close_quote 49.9× (48.0), dollar 23.7× (24.9), said 12.4× (11.1), months
+17.4× (21.7), digits 7.7× (8.9), and 4.9× (5.1). Selectivity ordering preserved
+EXACTLY (Spearman 1.0 in both parts). Combined with §1530-31, the certified
+registry — 20 circuits, 1-13 heads each, 2-416× selectivity — is fully
+measurement-hardened. Registry stamped.
+
+**Queued (behavior-refinement probes of certified circuits):** does the copula
+circuit {11.3, 15.5} carry subject-verb AGREEMENT (is-vs-are choice) or merely
+copula probability? (argmax-accuracy metric — a new metric type.) And does the
+close-quote ensemble track QUOTE PARITY (damage concentrated on positions where a
+close-quote is properly pending)?

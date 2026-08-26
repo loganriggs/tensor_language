@@ -1,16 +1,7 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_verify_mid_b.py", line 144, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_verify_mid_b.py", line 75, in main
-    for cn in __b_CLASSES__:
-              ^^^^^^^^^^^^^
-NameError: name '__b_CLASSES__' is not defined
-Fatal Python error: PyGILState_Release: thread state 0x7747ac2051c0 must be current when releasing
-Python runtime state: finalizing (tstate=0x00006460418325d0)
-
-Thread 0x0000774be089a740 (most recent call first):
-  <no Python frame>
+close_quote {'sel_1920': 49.94, 'sel_ref': 47.96, 'rise_1920': 0.4372, 'rise_ref': 0.4065}
+dollar {'sel_1920': 23.65, 'sel_ref': 24.89, 'rise_1920': 0.1387, 'rise_ref': 0.1377}
+said {'sel_1920': 12.4, 'sel_ref': 11.07, 'rise_1920': 0.1622, 'rise_ref': 0.1449}
+months {'sel_1920': 17.44, 'sel_ref': 21.69, 'rise_1920': 0.0317, 'rise_ref': 0.0405}
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_verify_mid_b_results.json (209.5s)
