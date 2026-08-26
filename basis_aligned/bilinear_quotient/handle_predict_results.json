@@ -1,0 +1,29 @@
+{
+ "buckets": {
+  "named": {
+   "rise": 0.0341,
+   "n_tokens": 12,
+   "n_positions": 711
+  },
+  "predicted": {
+   "rise": 0.0238,
+   "n_tokens": 69,
+   "n_positions": 12971
+  },
+  "lookalikes": {
+   "rise": 0.0257,
+   "n_tokens": 26,
+   "n_positions": 1778
+  },
+  "nonmembers": {
+   "rise": 0.0179,
+   "n_tokens": 274,
+   "n_positions": 83607
+  }
+ },
+ "spearman_st_vs_rise": -0.013,
+ "pred_a_predicted_members": true,
+ "pred_b_lookalikes_inert": false,
+ "pred_c_pertoken_rho_5": false,
+ "runtime_s": 52.6
+}

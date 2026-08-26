@@ -1,13 +1,9 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 capture done
 fits done L7
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/deep_stream_quad.py", line 207, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/deep_stream_quad.py", line 109, in main
-    Yf = FT[f'm{L}'].reshape(-1, D)
-         ~~^^^^^^^^^
-KeyError: 'm14'
+fits done L14
+mlp7: stake 0.0572 linall 0.460 quad+ 0.007 fid 0.458
+mlp14: stake 0.0298 linall 0.340 quad+ 0.002 fid 0.349
+adds {7: 0.006991190314339575, 14: 0.001852814687680912} fids {7: 0.4578141051093056, 14: 0.34859492398321557}
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/deep_stream_quad_results.json (131.0s)

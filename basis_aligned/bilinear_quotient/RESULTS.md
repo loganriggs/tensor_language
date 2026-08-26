@@ -5234,3 +5234,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1497 — weak planks cost 2.4x solo in-ship: robustness tracks plank fid, not class; ship26 = 3.902 (+.96) (1-for-3)
 §1498 — r16 rung: median .848 @ 11.8 Mbit (misses .85 by .0016), all beat kernels; price curve measured (1-for-3); ship_all36 + own-basis deep quads queued
 §1499 — TOTAL GLASS: all 36 modules = 5.535 (+2.59 CE; fresh band -.003!); deep-mid 4-13 carry ~1.6 of it — the frontier confirmed (1-for-3)
+§1500 — token-grain prediction FAILS (rho -.01; lookalikes hit as hard): weight score predicts classes not tokens; readout-aware score pooled (1-for-3)
+§1501 — 5th quad class flat deep (+.007/+.002): deep-mid missing half is not low-dim quadratic in ANY basis tried; parked (0-for-3)

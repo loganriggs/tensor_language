@@ -35415,3 +35415,35 @@ The ship line: 18 attn = 3.107; +5 best MLPs = 3.685; +3 weak MLPs = 3.902; all 
 = 5.535. The deep-mid MLPs (4-13, solo fids .33-.74) contribute ~1.6 CE of the 2.59
 total — they remain THE frontier, exactly as the board has said since §1474.
 (deep_stream_quad crashed on a missing m14 capture hook — fixed, requeued.)
+
+## §1500 Predictive generalization at token grain FAILS (1-for-3): the weight score predicts classes, not tokens
+
+**Setup** (handle_predict, 53s; user's corrected criterion — the structure must
+PREDICT behavior on unseen cases). Weight score s_t = channel-8 projection norm of
+token t's h0-table row; buckets named/predicted/lookalikes/nonmembers; per-prev-token
+CE rise under channel removal.
+
+**Scored as written:** pred_a predicted (held-out) members ≥ .5× named: **PASSED** —
+.0238 vs .0341. pred_b lookalikes ≤ .3× named: **FAILED** — .0257 (the
+surface-says-member/weights-say-no bucket was hit as hard as the predicted bucket).
+pred_c per-token Spearman ≥ .5: **FAILED, decisively** — ρ = −.013.
+
+**Honest verdict:** the channel's class-level selectivity (§1486's 4.3×) does NOT
+resolve to token-level prediction — removal damage is broad (nonmembers .0179) with
+only mild bucket separation, and the weight score carries NO per-token signal about
+removal damage. Generalization-as-prediction is not achieved by this score.
+(Confound noted: damage lives at the NEXT-token position and depends on the target,
+not only the cue token — a better score may need the readout direction. Pooled.)
+
+## §1501 The fifth quadratic class fails deep (0-for-3): own-basis quads add .007/.002
+
+**Setup** (deep_stream_quad, lane 2, 131s). The module's own bilinear form
+restricted to its top-16 input directions, mlp7/mlp14.
+
+**Scored as written:** all three **FAILED** — quad additions +.0070 (mlp7) and
++.0019 (mlp14); mlp7's linall here (.458) is below its ladder seed (.517).
+**Accumulated verdict (5 quad classes: local random-pair, wide random-pair,
+channel-basis, stream-PCA, own-input-basis):** the deep-mid missing half is NOT a
+low-dimensional quadratic in any basis tried. The remaining hypotheses worth
+registering: high-rank memorization, or position/attention-conditioned computation
+invisible to position-pooled fits. Thread parked pending a new idea.

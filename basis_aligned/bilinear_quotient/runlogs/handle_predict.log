@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+mu, rms measured
+weight scores built
+{'named': 22, 'predicted': 100, 'lookalikes': 34, 'nonmembers': 300}
+lookalikes: A|B|C|D|E|F|G|H|I|K|L|M|N|O|P
+both arms measured
+named {'rise': 0.0341, 'n_tokens': 12, 'n_positions': 711}
+predicted {'rise': 0.0238, 'n_tokens': 69, 'n_positions': 12971}
+lookalikes {'rise': 0.0257, 'n_tokens': 26, 'n_positions': 1778}
+nonmembers {'rise': 0.0179, 'n_tokens': 274, 'n_positions': 83607}
+rho -0.013
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/handle_predict_results.json (52.6s)

@@ -1,0 +1,31 @@
+{
+ "ce": {
+  "clean": 2.9455,
+  "mlp7": {
+   "mean": 3.0027,
+   "linall": 2.9764,
+   "quad": 2.976
+  },
+  "mlp14": {
+   "mean": 2.9753,
+   "linall": 2.9652,
+   "quad": 2.9651
+  }
+ },
+ "linall_recovery": {
+  "7": 0.4595,
+  "14": 0.3401
+ },
+ "quad_addition": {
+  "7": 0.007,
+  "14": 0.0019
+ },
+ "fid_opt": {
+  "7": 0.4578,
+  "14": 0.3486
+ },
+ "pred_a_mlp14_quad_05": false,
+ "pred_b_mlp7_quad_05": false,
+ "pred_c_beats_seeds": false,
+ "runtime_s": 131.0
+}
