@@ -5192,3 +5192,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1455 — weight edge mlp0→mlp1: causal .221 CE, ledger EXACT, top-128 = .746 recovery — but entries are Gaussian-dense: concentration lives in h0 stats, not weights (2-for-3); var-weighted topk queued
 §1456 — downstream-cluster win REVERSES at mlp1 (act64 .51 vs down64 .37): next-block weights ≠ downstream for global-reach modules; lm_head+multi-block embedding pooled (1-for-3)
 §1457 — mlp9 0-for-3 (.39/.48/.52 vs lowered bars): deep-mid profile repeats mlp7; ladder template exhausted at 7/9; board .050→.024; composite5 kernel-refit queued
+§1458 — var-weighted topk 0-for-3 but monotone better (.29/.49/.77): edge is dense-low-rank, no sparse core; rank-truncation pooled
+§1459 — moment-matching kernel refit DIVERGES (v1 6.74 vs v0 4.73, oscillates): composite lesson #3 — fit by CE-in-context, never by matching composite statistics; CE-trained kernels queued (composite6)

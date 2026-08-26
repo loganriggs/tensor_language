@@ -34617,3 +34617,49 @@ description class (flagged for the pool, not requeued).
 (preds: var-k32 ≥ plain+.10; var-k128 ≥ .85; var-k8 ≥ plain-k32). attn_composite5
 (lane 2) — kernels REFIT in composite context, fixed-point v0→v1→v2 (preds: v1 ≤
 4.60; roster+v1 ≤ 4.30; converges).
+
+## §1458 Variance-weighted top-k helps at every k but misses every bar (0-for-3): the mlp0→mlp1 edge has NO small sparse core
+
+**Setup** (mlp0_mlp1_weight_topk2, 61s). Edges ranked by importance = |w_ij|·std(h0_j)
+(std measured on 96 rows, 4608 floats) instead of |w_ij|; same exact causal harness.
+
+**Registered predictions, scored as written:**
+- pred_a var-k32 beats plain-k32 by ≥ .10: **FAILED** — +.0883 (.4910 vs .4027).
+- pred_b var-k128 ≥ .85: **FAILED** — .7683 (plain .7462).
+- pred_c var-k8 ≥ plain-k32: **FAILED** — .2932 vs .4027.
+
+**Reading:** importance ordering IS better than mass ordering at every k (k8 .18→.29,
+k32 .40→.49, k128 .746→.768) — the h0-statistics hypothesis from §1455 is
+directionally right — but the recovery curve stays smooth: no elbow, no small core.
+Honest summary of the thread: the mlp0→mlp1 edge is a DENSE, moderately-low-rank
+object (.221 CE causal); ~50% of it fits in 32 edges/unit, ~77% in 128, and the rest
+is genuinely distributed. The next natural compression is RANK truncation of the
+composed matrices in the h0-whitened metric (dense-but-low-rank beats sparse for
+Gaussian-entry matrices) — pooled, not auto-queued (the edge thread has had two runs;
+board arbitrates).
+
+## §1459 Kernel refit by moment-matching DIVERGES (0-for-3): composite lesson #3
+
+**Setup** (attn_composite5, lane 2, 84s). Fixed-point iteration: v_{i+1} = per-layer
+offset-mean patterns measured while running under kernel-all(v_i).
+
+**Registered predictions, scored as written:**
+- pred_a v1 ≤ 4.60: **FAILED, badly** — v1 = **6.7403**, WORSE than v0's 4.7302 by 2.0.
+- pred_b roster+v1 ≤ 4.30: **FAILED** — 6.3099.
+- pred_c convergent (v2 gain ≤ half v1 gain): **FAILED** — the iteration OSCILLATES:
+  v0 4.73 → v1 6.74 → v2 5.41.
+
+**LESSON (composite #3, completing the triptych):** §1449 live parts read corrupted
+inputs; §1452 clean-fit constants are miscalibrated in composite; §1459 SELF-CONSISTENT
+MOMENT REFIT amplifies corruption — averaging the patterns the model produces under a
+degraded composite imitates the degradation, and the map is not a contraction. What
+DID work (v4's constants, +.013) was training against the TRUE objective (full-model
+CE) inside the composite. Rule: composite stand-in parts are fit by optimizing CE in
+context, never by matching the composite's own statistics.
+
+**Queued:** attn_composite6 (lane 1) — kernels as trainable [9,T] offset curves
+(identical 37 Kbit price), init v0, Adam vs CE in-composite, 300 steps, loss curve +
+budget recorded. Preds: trained ≤ 4.43; +roster ≤ 4.20; held-out within .10 of train
+tail. mlp1_deep_clusters (lane 2) — the §1456 fix: discrimination embedding from
+lm_head image + ALL blocks 2-17 images (not block 2 alone). Preds: deep64 > act64
+(.5100); deep256 ≥ .75; deep16 > act16 (.2137).

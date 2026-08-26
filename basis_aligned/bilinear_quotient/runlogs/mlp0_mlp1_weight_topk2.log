@@ -1,1 +1,9 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+h0 std measured
+clean 2.9455 k0 3.1665
+vark8: 3.1017
+vark32: 3.058
+vark128: 2.9967
+recs {'vark8': 0.2932, 'vark32': 0.491, 'vark128': 0.7683} vs plain {'k8': 0.1778, 'k32': 0.4027, 'k128': 0.7462}
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_mlp1_weight_topk2_results.json (61.4s)
