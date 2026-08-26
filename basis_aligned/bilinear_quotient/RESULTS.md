@@ -5198,3 +5198,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1461 — full-stack weight images TIE activation clusters at mlp1 (0-for-3): downstream-cluster win is a layer-0 fact; act256 .745 stays the frontier; topk3 (data check + joint L&R match-in-both) + edge_rank queued
 §1462 — topk3 1-for-3: 96-row stats were enough (overlap .93); rms +.005 marginal; JOINT L&R selection LOSES .07 — L and R read different units
 §1463 — edge rank 3-for-3 DECISIVE: rank32 .814 / rank128 .920 (sparse .49/.77) — mlp0→mlp1 = ~32-direction bilinear channel @ 9.4 Mbit; attn double-QK analog + composite7 queued
+§1464 — mlp0→attn1-pattern edge: .655 CE (3x mlp1 edge), 98% RANK-8 (3-for-3) — user double-QK prediction exact; values edge queued
+§1465 — composite record 3.9166 (config-matched training); §1460 gap = skip-region variance ±.10, NOT memorization (memo .002); method note ledgered; lowrank-QK stand-in class queued

@@ -34750,3 +34750,48 @@ attn_composite7 (lane 2) — config-matched kernel training (roster live during
 training), 2× data/steps, and the §1460 gap diagnosed: eval on skip=7000 vs fresh
 skip=2000 vs training rows separates memorization from shift; preds: ≤ 3.95;
 fresh-gap ≤ .03; memo-gap ≥ .10.
+
+## §1464 The mlp0→attn1-PATTERN edge is 3× BIGGER than the mlp1 edge and 98% RANK-8 (3-for-3) — the user's double-QK prediction lands exactly
+
+**Setup** (mlp0_attn1_edge_rank, 99s). Down0 composed into block-1's four pattern maps
+(c_q/c_k/c_q2/c_k2), rank-truncated simultaneously in the h0-whitened metric; delta
+subtracted BEFORE the per-head rms/rotary so the ledger stays exact; values live.
+
+**Registered predictions, scored as written:**
+- pred_a edge ≥ .03 CE: **PASSED, x22** — cutting the pattern path costs **.6552 CE**
+  (3× the mlp1 edge's .221; block-1's patterns depend on mlp0 far more than mlp1 does).
+- pred_b rank-32 ≥ .70: **PASSED** — **.9940**.
+- pred_c rank-8 ≥ .40: **PASSED** — **.9803**.
+
+**Reading:** the pattern edge is essentially a RANK-8 object: 4×8×(4608+1152) floats
+≈ 2.9 Mbit carries 98% of a .655 CE pathway. The user's prediction ("the same applies
+to bilinear attn, to a larger degree for the double QK") is confirmed with room to
+spare — the double product doesn't just tolerate compression, it concentrates the
+edge harder than the MLP side. Block-1's read of mlp0 so far: patterns .655 (rank-8),
+mlp1 .221 (rank-32); values edge queued to complete the map.
+
+## §1465 Composite record 3.9166 + the §1460 gap diagnosis INVERTS: no memorization, but skip-region variance ≈ .10 (1-for-3)
+
+**Setup** (attn_composite7, lane 2, 174s). Kernels trained WITH roster live (config
+matched to eval), 960 rows / 600 steps; trained kernels evaluated on skip=7000,
+fresh skip=2000, and the training rows.
+
+**Registered predictions, scored as written:**
+- pred_a roster-trained ≤ 3.95: **PASSED** — **3.9166** (record; ladder 5.28 → 4.73 →
+  4.45 → 4.41 → 4.39 → 4.01 → 3.92; gap to clean now .97).
+- pred_b fresh-row gap ≤ .03: **FAILED** — skip2000 evaluates .1011 ABOVE skip7000.
+  Two "fresh" row sets from the same corpus differ by .10 CE at composite severity.
+- pred_c training rows ≥ .10 below fresh: **FAILED** — memo gap .0021. NO
+  memorization at all: training rows evaluate identically to fresh skip=7000 rows.
+**METHOD NOTE (ledger-wide):** the §1460 train/eval gap was NEITHER overfit NOR
+memorization — it was row-set variance across skip regions (plus batch-loss vs
+full-eval). All composite comparisons remain valid (fixed skip=7000 eval set), but
+absolute composite CEs carry ~±.10 row-set uncertainty; cross-skip comparisons are
+not evidence.
+
+**Queued:** mlp0_attn1_values_edge (lane 1) — the remaining block-1 pathway (c_v
+composition; preds: edge ≥ .10; rank-32 ≥ .80; rank-8 ≥ .50). attn_lowrank_qk
+(lane 2) — new mid-price stand-in class licensed by §1464: per-head rank-r truncation
+of all four QK maps at the 7 kernel-resistant layers (r=32: 23.6 Mbit/layer vs 85
+full / .037 kernel); preds: attn5 r32 ≥ .80 (kernel was −.055!), median r32 ≥ .85,
+median r8 ≥ .60.
