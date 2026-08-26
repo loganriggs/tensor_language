@@ -1,0 +1,48 @@
+{
+ "res": {
+  "clean": 2.9455,
+  "mlp7": {
+   "ce_zeroshot": 2.9855,
+   "rec_zeroshot": 0.3014,
+   "ce_trained": 2.9939,
+   "fid_opt": 0.1412,
+   "rec_trained": 0.1548,
+   "linall_ref": 0.4595
+  },
+  "mlp8": {
+   "ce_zeroshot": 2.9743,
+   "rec_zeroshot": 0.4008,
+   "ce_trained": 2.9882,
+   "fid_opt": 0.1003,
+   "rec_trained": 0.1134,
+   "linall_ref": 0.4568
+  },
+  "mlp9": {
+   "ce_zeroshot": 2.9745,
+   "rec_zeroshot": 0.4217,
+   "ce_trained": 2.9894,
+   "fid_opt": 0.1155,
+   "rec_trained": 0.1261,
+   "linall_ref": 0.4819
+  },
+  "mlp14": {
+   "ce_zeroshot": 2.9719,
+   "rec_zeroshot": 0.125,
+   "ce_trained": 2.998,
+   "fid_opt": -0.7468,
+   "rec_trained": -0.741,
+   "linall_ref": 0.3401
+  }
+ },
+ "mbits_per_module": 3.56,
+ "data_budget": {
+  "steps": 300,
+  "batch": 8,
+  "lr": 0.001,
+  "rows": 480
+ },
+ "pred_a_zeroshot_30_3of4": true,
+ "pred_b_train_adds_10": false,
+ "pred_c_mlp7_55": false,
+ "runtime_s": 184.9
+}

@@ -35916,3 +35916,19 @@ in itself), measured zero-shot, then CE-finetuned 300 steps. Preds: zero-shot �
 recovery for ≥3 of 4; training adds ≥ .10 everywhere; mlp7 reaches ≥ .55. If the
 retry also fails, the trained-replacement class is parked alongside the five
 quadratic bases.
+
+## §1533 Unit concentration is REAL, CE-finetuning is HARMFUL (1-for-3): the top-64-unit sub-MLP recovers .30-.42 zero-shot; training degrades it everywhere
+
+**Setup** (deep_trained2, 185s). **Scored:** pred_a zero-shot ≥ .30 for 3 of 4:
+**PASSED** — mlp7 .3014, mlp8 .4008, mlp9 .4217 (mlp14 .125). 64 of 4608 hidden
+units — 1.4% — carry a third to two-fifths of these modules' function. pred_b
+training adds ≥ .10: **FAILED, sign reversed** — CE-finetuning DEGRADED every
+target (.40→.11; mlp14 to −.74). pred_c: **FAILED**.
+
+**Two conclusions:** (1) full-model-CE gradients at batch 8 help zero-contribution
+corrections (§1489) but DESTROY good warm starts — the trained-replacement class is
+PARKED. (2) The salvage is better than the plan: deep MLPs have usable
+UNIT-GRAIN CONCENTRATION, a structure none of the five quadratic bases could see
+(they all worked in rotated bases; the concentration lives in the MODULE'S OWN unit
+basis). Queued: the unit-truncation curve — top-K units zero-shot, K ∈ {64, 256,
+1024}, for ALL mlps 4-17, split across both lanes.

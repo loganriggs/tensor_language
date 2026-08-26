@@ -5267,3 +5267,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1530 — >50x rule: 4 claims harden (close_paren 416x, comma 207x, question 149x, colon 49x; ordering rho .90); semicolon arm had transcribed WRONG heads — LESSON: parse head lists; rerun queued (2-for-3)
 §1531 — semicolon verified 68x with parsed heads (3-for-3): high-selectivity tier fully hardened
 §1532 — trained bilinear replacements 0-for-3: flat losses from bias-only init (run failure, not class evidence); top-64-unit-init retry queued
+§1533 — unit concentration real (top-64 = .30-.42 zero-shot at mlp7/8/9); CE-finetune HARMS warm starts — trained class parked; unit-truncation sweep queued (1-for-3)
