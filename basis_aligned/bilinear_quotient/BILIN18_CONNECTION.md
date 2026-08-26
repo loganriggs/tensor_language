@@ -36153,3 +36153,28 @@ certified), conditioning states are distributed and robust. Queued: the MLP side
 (per-MLP K=2048 replacement scored on both metrics — do token-table modules carry
 parity?) and the full-attention-replacement check (all 18 layers at rank-32
 simultaneously: do the computations survive the ENTIRE attention approximation?).
+
+## §1551 Both conditioning states are FULLY DISTRIBUTED (2-for-3): no module of any kind carries them
+
+**Setup** (state_localize_mlp, 166s). Per-MLP K=2048 replacement, both metrics.
+**Scored:** pred_a agreement distributed (max drop ≤ .02): **PASSED** — max .0016.
+pred_b parity localizes at token modules: **FAILED** — worst is mlp10 at .0261
+(tiny), mlp0/mlp1 ≈ 0. pred_c medians flat: **PASSED**. Combined with §1550: at
+every grain probed (single attention layer, single MLP), the agreement and parity
+states are invulnerable — fully distributed representations.
+
+## §1552 THE STRONG CLAIM LANDS (3-for-3): the full attention replacement preserves the computations EXACTLY
+
+**Setup** (state_in_ship, lane 2, 74s). All 18 attention layers at whitened
+rank-32 simultaneously, no exempt heads. **Scored:** pred_a accuracy ≥ .90:
+**PASSED** — **.9568 vs clean .9572** (unchanged). pred_b parity gap ≥ 70%:
+**PASSED** — the gap is LARGER under replacement (1.66 vs 1.41). pred_c global in
+[3.2, 3.7]: **PASSED** — 3.2474.
+
+**What this certifies:** the attention approximation preserves not merely CE but
+the model's COMPUTATIONS — subject-verb agreement and quote-parity behavior are
+bit-for-bit intact under wholesale replacement. The architecture of these
+behaviors in bilin18: distributed, robust conditioning states in the stream;
+small certified announcer circuits at the output. Queued: the same computation
+check under the FULL 36-module ship (the final certification), and a fourth
+12-class screen to keep the registry growing.

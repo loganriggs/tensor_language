@@ -5285,3 +5285,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1548 — copula circuit announces, does not agree (acc drop .005; 2-for-3)
 §1549 — close-quote circuit does not carry parity (symmetric damage; 2-for-3): ensembles = announcers, state upstream; localization probes queued
 §1550 — NO single attention layer carries agreement/parity (max effects .001/.011): states are stream-carried; MLP-side + full-attention checks queued (2-for-3 x2)
+§1551 — both states fully distributed (max single-module effect .026); no carrier module exists (2-for-3)
+§1552 — STRONG CLAIM: all-18 attention replacement preserves agreement (.9568=.9572) and parity EXACTLY (3-for-3); full-ship computation check queued

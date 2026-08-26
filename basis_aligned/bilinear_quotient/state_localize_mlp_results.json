@@ -1,0 +1,92 @@
+{
+ "res": {
+  "clean": {
+   "acc": 0.9572,
+   "gap": 1.4097
+  },
+  "mlp0": {
+   "acc_drop": 0.0008,
+   "gap_shrink": -0.0272
+  },
+  "mlp1": {
+   "acc_drop": 0.0004,
+   "gap_shrink": -0.0225
+  },
+  "mlp2": {
+   "acc_drop": 0.0008,
+   "gap_shrink": -0.0296
+  },
+  "mlp3": {
+   "acc_drop": 0.0012,
+   "gap_shrink": -0.0069
+  },
+  "mlp4": {
+   "acc_drop": 0.0,
+   "gap_shrink": -0.0245
+  },
+  "mlp5": {
+   "acc_drop": -0.0008,
+   "gap_shrink": 0.0116
+  },
+  "mlp6": {
+   "acc_drop": 0.0008,
+   "gap_shrink": -0.0078
+  },
+  "mlp7": {
+   "acc_drop": 0.0004,
+   "gap_shrink": 0.0059
+  },
+  "mlp8": {
+   "acc_drop": 0.0016,
+   "gap_shrink": 0.001
+  },
+  "mlp9": {
+   "acc_drop": 0.0,
+   "gap_shrink": -0.0156
+  },
+  "mlp10": {
+   "acc_drop": -0.0004,
+   "gap_shrink": 0.0261
+  },
+  "mlp11": {
+   "acc_drop": 0.0008,
+   "gap_shrink": 0.0086
+  },
+  "mlp12": {
+   "acc_drop": 0.0016,
+   "gap_shrink": 0.0055
+  },
+  "mlp13": {
+   "acc_drop": 0.0004,
+   "gap_shrink": -0.0195
+  },
+  "mlp14": {
+   "acc_drop": 0.0004,
+   "gap_shrink": -0.0474
+  },
+  "mlp15": {
+   "acc_drop": -0.0004,
+   "gap_shrink": -0.0311
+  },
+  "mlp16": {
+   "acc_drop": 0.0,
+   "gap_shrink": -0.0509
+  },
+  "mlp17": {
+   "acc_drop": 0.0,
+   "gap_shrink": -0.1533
+  }
+ },
+ "worst_agreement": [
+  8,
+  0.0016
+ ],
+ "worst_parity": [
+  10,
+  0.0261
+ ],
+ "pred_a_agreement_distributed": true,
+ "pred_b_parity_token_modules": false,
+ "pred_c_medians_flat": true,
+ "runtime_s": 166.3
+}
