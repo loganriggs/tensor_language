@@ -36681,3 +36681,46 @@ payload subspace; for months, head 9.7 routes two-thirds of the overlap.
 Follow-up queued: re-certify the joints with carriers dropped (is minus both,
 months minus 9.7) — prediction: additivity restores to ≥ .92/.95 while keeping
 most of the head-side class damage.
+
+## §1583 THE GATES ARE INTERPRETABLE AXES (3-for-3): the-gate = the DETERMINER axis (own token rank #1 of 50257, AUC .92); pronouns-gate = the she↔he GENDER axis
+
+**Setup** (gate_semantics, 36s; the certified mlp17 gate directions
+characterized as linear objects: vocabulary alignment of the unembedding
+projection, class-conditional (z·v) statistics, readout AUC on fit rows).
+**Scored:** pred_a ' the' in the top-20 aligned tokens: **PASSED** — rank #1 of
+50257 (top-10: the, its, their, a, those, our, this, some, these, your — the
+DETERMINER cluster). pred_b class-conditional effect ≥ 1 std: **PASSED** —
+1.57σ. pred_c AUC ≥ .70: **PASSED** — .922.
+
+**Mechanism naming:** the the-gate is the model's determiner-prediction axis
+itself — mlp17's quadratic form reads "a determiner is coming" and pushes DOWN
+on it (self-inhibition on the class's own axis). The pronouns gate is different
+in kind: its direction is the she↔He GENDER CONTRAST axis (top+: she/She/Her/
+Ms; top−: his/he/him/He; AUC .69 for the class) — the pronoun gate suppresses
+using gender-state information, i.e. a within-class contrast axis rather than
+the class axis. Late-MLP gating (§1563) now has faces: calibration devices
+sitting on nameable prediction axes. WHY the model keeps a gate that costs it
+class CE (removal HELPS the by .249) is the queued question — hypothesis: the
+gate buys global precision (fewer false 'the' predictions) at the price of
+class recall; the false-positive accounting run is registered on lane 2.
+
+## §1584 THE is "OVERLAP" IS SERIAL ROUTING (1-for-3): heads 11.3/7.8 ARE the is-circuit's attention side, and they work THROUGH mlp17
+
+**Setup** (joints_v2, 83s; carrier-dropped joints: is minus {11.3, 7.8} → 3
+heads, months minus 9.7 → 4 heads, same payload slices, NR=960). **Scored:**
+pred_a is additivity ≥ .92: **PASSED** — .954. pred_b months ≥ .95: **FAILED**
+— .939 (misses by .011). pred_c reduced ensembles keep ≥ 60% of full head
+rise: **FAILED** — months keeps 66% but is keeps 6.8% (.0150 of .2209).
+
+**The reframe the numbers force:** dropping 11.3/7.8 didn't "fix" the is
+ensemble — it GUTTED it (93% of the attention-side class effect gone). Combined
+with §1582 (each head's effect flows through the mlp17 payload subspace), the
+correct model of the is circuit is SERIAL: heads 11.3/7.8 write the
+is-prediction signal INTO the subspace that mlp17's quadratic form amplifies;
+the "overlap" was double-counting one pipeline measured at two stages, not
+redundancy. Additivity restores (.954) precisely because the two removal
+handles now touch DISJOINT mechanisms (the residual 3-head channel + the MLP
+stage). Echoes the user's mlp0 principle — "attention matters via feeding the
+MLP" — now demonstrated at the top of the stack. The direct mechanistic
+confirmation (do the payload-subspace activations collapse at class positions
+when 11.3/7.8 are substituted?) is queued on lane 1.

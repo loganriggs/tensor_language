@@ -1,0 +1,53 @@
+{
+ "res": {
+  "is": {
+   "heads": [
+    "10.5",
+    "9.7",
+    "6.7"
+   ],
+   "heads_only": {
+    "rise_class": 0.015,
+    "rise_global": 0.0451
+   },
+   "slice_only": {
+    "rise_class": 0.2604,
+    "rise_global": 0.0002
+   },
+   "joint": {
+    "rise_class": 0.2628,
+    "rise_global": 0.0461
+   },
+   "slice_marginal_on_heads": 0.2478
+  },
+  "months": {
+   "heads": [
+    "6.7",
+    "14.7",
+    "7.3",
+    "11.5"
+   ],
+   "heads_only": {
+    "rise_class": 0.0984,
+    "rise_global": 0.0168
+   },
+   "slice_only": {
+    "rise_class": 0.1273,
+    "rise_global": 0.0001
+   },
+   "joint": {
+    "rise_class": 0.212,
+    "rise_global": 0.0169
+   },
+   "slice_marginal_on_heads": 0.1137
+  }
+ },
+ "additivity": {
+  "is": 0.954,
+  "months": 0.939
+ },
+ "pred_a_is_92": true,
+ "pred_b_months_95": false,
+ "pred_c_heads_keep_60": false,
+ "runtime_s": 82.7
+}
