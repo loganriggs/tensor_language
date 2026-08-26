@@ -37105,3 +37105,42 @@ gates against. slice_direct queued to certify: WU token rankings of ±v1/±v2
 (is '?' itself top-10?), a final-residual-only span cut, and the
 completeness decomposition (final + readers ≈ source?). Held-out replication
 (skip=15000) queued on lane 2 per the §1523 discipline.
+
+## §1600 OUTPUT CHANNEL CERTIFIED (2-for-3, replicated held-out): the mlp11 slice eigendirections ARE the '?' unembedding channel — logit-lens rank 1
+
+slice_direct.py (NR=960, skip=7000) + slice_direct_h.py (held-out,
+skip=15000), question class. Both completed at 22:28 before the third GPU
+loss of the day.
+
+Results (slice_direct_results.json / _h):
+- LOGIT LENS: WU @ v1+ top-10 = ['?', ')?', '"?', "'?", '?).', '?)', '?!',
+  '?"', '??', ' ?'] — rank 1 is '?' ITSELF and the entire top-10 is
+  question-mark variants. v2+ the same (rank 2). The negative directions are
+  unrelated junk (>200). pred_a PASSED at the strongest possible value.
+  The canonical eigenbasis of the class quadratic form at mlp11 — computed
+  from weights alone — points at the class's own unembedding direction:
+  the model reads '?' evidence from the same subspace where '?' evidence is
+  written.
+- FINAL-RESIDUAL CUT: removing span(v1,v2) only at the final readout costs
+  class +2.017 (global +.0012) — 2.5× the 4-writer source cut (.812,
+  re-replicated). pred_b (≥.5× source, global ≤.02) PASSED. The channel at
+  the END carries far more class signal than the 4 early writers put in:
+  mlp11 and later components keep writing into it.
+- COMPLETENESS: final + all-reader cut = 1.462, ratio to source 1.80 —
+  pred_c ([.75, 1.25]) FAILED. The decomposition doesn't close because the
+  three cuts remove different amounts of channel content: the source cut
+  removes only the 4 writers' share, the final cut removes everything
+  accumulated by depth 18, and reader relief (mlp17 gate −.39) offsets part
+  of the final cut (1.46 < 2.02, consistent).
+- HELD-OUT (skip=15000): identical picture — rank 1, source .928, final
+  2.050, final+readers 1.502, same 2-for-3. The channel is not an artifact
+  of the eval rows.
+
+Score 2-for-3 on both row sets. The full circuit statement, now certified
+end-to-end: heads 9.7 & 10.5 + mlp9 & mlp10 write '?' evidence into
+span(v1,v2) — which IS the '?' unembed channel; mlp11's quadratic form
+amplifies it (reading and writing the same channel); mlp17 gates against
+it; the accumulated channel content carries the class at the readout.
+Remaining budget question — who writes the final 2.02 (mlp11's own
+amplification? late layers?) — is channel_budget, queued for after the GPU
+returns.

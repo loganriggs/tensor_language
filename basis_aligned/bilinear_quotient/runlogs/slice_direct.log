@@ -1,0 +1,149 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+{
+ "v1+": {
+  "top10": [
+   "?",
+   ")?",
+   "\"?",
+   "'?",
+   "?).",
+   "?)",
+   "?!",
+   "?\"",
+   "??",
+   " ?"
+  ],
+  "first_question_rank": 1
+ },
+ "v1-": {
+  "top10": [
+   "\":",
+   "CLUS",
+   "xp",
+   ")\"",
+   "llular",
+   ":[",
+   "kt",
+   "args",
+   "!!\"",
+   " diversity"
+  ],
+  "first_question_rank": ">200"
+ },
+ "v2+": {
+  "top10": [
+   "?).",
+   " ?",
+   "?),",
+   "?",
+   "?\".",
+   "?)",
+   "?:",
+   "?\"",
+   "??",
+   " ?)"
+  ],
+  "first_question_rank": 2
+ },
+ "v2-": {
+  "top10": [
+   "istics",
+   "lic",
+   "gery",
+   "ary",
+   "ayers",
+   "istic",
+   "ized",
+   "ite",
+   "!),",
+   ",'\""
+  ],
+  "first_question_rank": ">200"
+ }
+}
+fit means done
+{
+ "rankings": {
+  "v1+": {
+   "top10": [
+    "?",
+    ")?",
+    "\"?",
+    "'?",
+    "?).",
+    "?)",
+    "?!",
+    "?\"",
+    "??",
+    " ?"
+   ],
+   "first_question_rank": 1
+  },
+  "v1-": {
+   "top10": [
+    "\":",
+    "CLUS",
+    "xp",
+    ")\"",
+    "llular",
+    ":[",
+    "kt",
+    "args",
+    "!!\"",
+    " diversity"
+   ],
+   "first_question_rank": ">200"
+  },
+  "v2+": {
+   "top10": [
+    "?).",
+    " ?",
+    "?),",
+    "?",
+    "?\".",
+    "?)",
+    "?:",
+    "?\"",
+    "??",
+    " ?)"
+   ],
+   "first_question_rank": 2
+  },
+  "v2-": {
+   "top10": [
+    "istics",
+    "lic",
+    "gery",
+    "ary",
+    "ayers",
+    "istic",
+    "ized",
+    "ite",
+    "!),",
+    ",'\""
+   ],
+   "first_question_rank": ">200"
+  }
+ },
+ "best_question_rank": 1,
+ "clean": {
+  "global": 2.9474,
+  "class": 1.5097
+ },
+ "source_cut": {
+  "rise_class": 0.8124,
+  "rise_global": -0.0002
+ },
+ "final_cut": {
+  "rise_class": 2.0172,
+  "rise_global": 0.0012,
+  "frac_of_source": 2.483
+ },
+ "final_plus_readers": {
+  "rise_class": 1.4615,
+  "rise_global": 0.0018,
+  "ratio_to_source": 1.799
+ }
+}
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/slice_direct_results.json (73.6s)
