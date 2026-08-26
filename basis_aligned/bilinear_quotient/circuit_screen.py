@@ -103,7 +103,7 @@ def main():
     t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
     EVR = cl.fineweb_rows(NR, skip=7000)[:, :T + 1].contiguous()
     CLS = class_masks()
-    WU = m.lm_head.weight.float().to(DEV)
+    WU = m.lm_head.weight.float().to(DEV)[:50257]
     UDIR = {}
     for cn, v in CLS.items():
         rows = WU[v.to(DEV)]

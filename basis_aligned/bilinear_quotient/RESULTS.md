@@ -5238,3 +5238,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1501 — 5th quad class flat deep (+.007/+.002): deep-mid missing half is not low-dim quadratic in ANY basis tried; parked (0-for-3)
 §1502 — circuit suites v1: distributions were prev-side, behaviors are TARGET-side (cap 0-for-3, newline 1 vacuous); v2 queued with target masks + FP/FN classifier grading
 §1503 — capitalization circuit certified target-side: removal 9.1x, extraction 2.9x, classifier rho .74 but FN .62 (2-for-3); FN rank-sweep + scatter queued
+§1504 — newline circuit: removal 99x selective (.532 class / .005 global) — cleanest removal in ledger; extraction non-vacuity fails; classifier vacuous on 1-token class (2-for-3); crashes fixed

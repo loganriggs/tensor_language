@@ -35498,3 +35498,27 @@ INCOMPLETE membership classifier — the damage tail has structure the rank-64 o
 subspace misses. Queued: FN analysis — score-subspace rank sweep (16/64/128/256)
 with per-token arrays SAVED and the s_w-vs-damage scatter PLOTTED (per the new
 plotting default).
+
+## §1504 Newline circuit: removal selectivity 99× (2-for-3) — but extraction on the offset-averaged background fails non-vacuity again, and single-token classes break the classifier leg
+
+**Setup** (circuit_newline2, lane 2, 117s). Target-side distribution (target
+contains '\n'); 5-head ensemble {7.2, 8.2, 10.2, 11.0, 12.6}.
+
+**Scored as written:**
+- pred_a removal ≥ 3× selective: **PASSED, ×33 over the bar** — class rise **.5323**
+  vs global **.0054** (99× selectivity; the cleanest circuit removal in the ledger:
+  five heads at their optimal constants erase half a nat of newline prediction and
+  touch essentially nothing else).
+- pred_b extraction ≥ 2× with positive global recovery: **FAILED** — class recovers
+  .189 but global recovery is −.124 (restoring the 5 heads exact on the
+  offset-averaged background HURTS globally; their patterns depend on stream state
+  the crude background does not reproduce — the §1449 composite lesson at circuit
+  grain).
+- pred_c classifier: **PASSED but VACUOUS** — the newline class has 1 frequent
+  token, so ρ=1.0 over n=1 is meaningless. The classifier leg requires multi-token
+  classes; suite template amended.
+
+**Registry:** newline circuit → removal-certified (99×), extraction-open. (Two
+crashes handled: circuit_screen hit the PADDED lm_head vocab (50304 vs 50257 —
+sliced); circuit_cap_fn lost its forward function in cloning — respliced. Both
+requeued.)
