@@ -118,3 +118,16 @@ bilin12 template port; commons transfer.
   run the gated arm even when the band arm exists.
 - Route grain (§1316) is the extraction floor; additive payload injection is dead
   (§1321-22, two strikes).
+
+## MLP-grain circuit members (S1566-S1572, 2026-08-26)
+
+| class | site | grain | fact | status |
+|---|---|---|---|---|
+| question (token-class ?) | mlp11 | 16 units (0.35%) | rise .091 @ 183x, NR=1920, held-out replicated to 0.2% (S1568) | CERTIFIED |
+| question | mlp11 | rank-2 eigen slice of class quadratic form | rise .178 (2x the 64-unit set, 1/64 params) at ZERO global cost (S1570) | screen-verified; NR=1920 queued |
+| is / months / the | mlp17 | K16 units | rises .21/.15/.05, selectivity 15x/8.7x/6.8x at K16 (S1572) — skinny sets beat K64 | candidates |
+| pronouns | mlp17 | form / units | aggregate class-direction form NET-SUPPRESSIVE (form ablation IMPROVES class .15-.28) while 64 promoter units hurt (+.086) — late-MLP gate (S1570) | mechanism note |
+
+- Discovery recipe: CLASS-CONDITIONAL activation scoring only (weight-side rankings fail — signed units, S1563/S1565).
+- Cross-class top-64 unit sharing at mlp16/17 = generic frequency pool, causally inert (S1571) — do NOT read overlap as feature reuse.
+- Eigen-slice split (canonical, gauge-free) dominates unit split at question; disagrees in SIGN at late layers (S1570).

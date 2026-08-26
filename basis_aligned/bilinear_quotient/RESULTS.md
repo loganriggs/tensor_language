@@ -5304,3 +5304,6 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1567 — SELECTIVITY LEG: W median 30.7× vs Tn 10.9× vs raw 2.5× — weights-only wins both ranking axes (3-for-3); unit-truncation preservation leg queued
 §1568 — VERIFIED at NR=1920: question@mlp11 = 16 units, 183× selectivity, generalizes to 0.2% on held-out slice; pronouns diffuse — contrast case (3-for-3)
 §1569 — unit truncation (K=2048) preserves circuits: Spearman .976, 6/8 within 2×, median 13.5× — compression is circuit-safe (3-for-3)
+§1570 — EIGEN-SLICE WINS: rank-2 form ablation at question = .178 rise (2× the 64-unit set, 1/64 params, zero global cost); pronouns@mlp17 form is net-SUPPRESSIVE; encoder subspace NOT low-rank (2-for-3)
+§1571 — cross-class unit sharing = generic frequency pool at mlp16/17, causally inert (comma|is 31/64 shared, rises .007/−.002) — not reused features (1-for-3)
+§1572 — 8-class unit screen: membership common + concentrated (is@mlp17 K16 .21 @ 14.9×) but weakly selective outside question; K=64 was the wrong grain (2-for-3)

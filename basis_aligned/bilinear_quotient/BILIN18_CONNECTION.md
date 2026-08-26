@@ -36432,3 +36432,67 @@ inside the compressed model on frequency-flavored classes. Full ranking now:
 weights-only discovery ≻ attribution (both legs, §1564/§1567); unit compression
 preserves circuit structure (this section); MLP-unit membership itself is real
 and can be as sharp as 16 units (§1568).
+
+## §1570 THE EIGEN-SLICE WINS (2-for-3): TWO eigenvector pairs of the class quadratic form beat 64 units — 2× the effect at 1/64 the parameters and zero global cost
+
+**Setup** (mlp_unit_geometry, 132s; the bilinear MLP's exact class-logit
+contribution is s(z) = zᵀQz, Q = Leftᵀ·diag(u_c·Down)·Right; ablate the top-r
+|eigenvalue| interaction subspace of sym(Q) as output correction −(s_r−mean)·u_c;
+question@mlp11, pronouns@mlp17; NR=960). **Scored:** pred_a full-form ablation
+rise ≥ .08 at selectivity ≥ 20×: **PASSED** — rise .2407; global rise is
+NEGATIVE (−.0002), so the formal 240668× is a divide-by-negative-noise artifact —
+recorded per the newline convention as "≥1000×, unbounded within noise"; the
+honest claim is class rise .24 at zero-to-negative global cost. pred_b rank-32 ≥
+70% of full-form: **PASSED** — 82%. pred_c encoder SVD rank-16 ≥ .80 energy:
+**FAILED** — .346 (Left) / .340 (Right): the top-64 units do NOT read from a
+low-rank input subspace.
+
+**The headline:** the RANK-2 form ablation (2 eigenvector pairs, ~2×1152
+params) removes class CE .1784 — 1.97× the top-64-unit ablation (.0906,
+64×2×1152 params) — with zero global damage. Spectral mass is diffuse (top-2 =
+2.8% of |λ|) yet behavioral effect concentrates: the functional object is a tiny
+canonical slice of the third-order tensor, not a unit subset. The unit split is
+gauge-dependent and strictly dominated here.
+
+**The sign discovery generalizes:** at pronouns@mlp17 the form ablation IMPROVES
+the class (rise −.15 to −.28 at every r) while the 64 promoter units' ablation
+hurts it (+.0856): mlp17's aggregate pronoun-direction quadratic form is
+NET-SUPPRESSIVE, with promoter units embedded inside it. Unit and eigen splits
+genuinely disagree at late layers — the eigen view sees the gate, the unit view
+sees only its positive half.
+
+## §1571 Cross-class unit sharing is GENERIC POOL, not reused features (1-for-3)
+
+**Setup** (unit_reuse_clusters, 76s; 8 classes × MLPs 4-17, top-64 contribution
+sets, overlap + causal test on the largest shared set). **Scored:** pred_a some
+pair shares ≥ 10/64: **PASSED** — comma|is share 31/64 at mlp16 (Jaccard .32).
+pred_b relatedness ordering (question|close_paren > months|comma): **FAILED** —
+.103 vs .113. pred_c ablating the largest shared set (31 units, mlp16) raises
+both classes ≥ .01: **FAILED** — comma +.0066, is −.0015, selectivity ≤ .64.
+
+**Reading:** the big overlaps all sit at mlp16/17 and pair frequency-flavored
+classes — a high-variance generic/function-token pool, not semantic features.
+Sharing tracks token frequency, not relatedness, and the shared units are
+causally inert for the specific classes. "Clusters of hidden dimensions reused
+across behaviors" is NOT visible at top-64-overlap grain; if reusable features
+exist they live elsewhere (e.g., the §1570 eigen slices).
+
+## §1572 The 8-class unit-membership screen (2-for-3): membership is common and CONCENTRATED but weakly selective outside question
+
+**Setup** (circuit_mlp_units5, 179s; class-conditional scores, best layer per
+class over MLPs 4-17, ablate top-16/top-64, NR=960). **Scored:** pred_a ≥ 4/8
+with K=64 rise ≥ .05: **PASSED** — exactly 4 (question .0906, pronouns .0856,
+is .2144, months .2314). pred_b ≥ 2 non-question with K=64 selectivity ≥ 10×:
+**FAILED** — 0 (best: months 6.6×, is 4.8×). pred_c ≥ 2 non-question
+concentrated (K16 ≥ .6·K64): **PASSED** — 4 (is .96, the >1, close_paren .93,
+months .64).
+
+**Reading:** best sites split early/late: comma/semicolon/close_paren → mlp4
+(tiny rises), question → mlp11 (the certified sharp component), is/the/months/
+pronouns → mlp17 (big rises, low selectivity — function-token processing).
+Notable: at K=16, is@mlp17 reaches rise .206 at 14.9× — GROWING K to 64 adds
+generic units that triple the global damage and halve selectivity. Skinny unit
+sets are more selective; the screen's K=64 convention was the wrong grain for
+pred_b. Next: the §1570 eigen-slice screen across all 8 classes (form ablation
+at these same sites, signed), plus NR=1920 verification of the question rank-2
+form.

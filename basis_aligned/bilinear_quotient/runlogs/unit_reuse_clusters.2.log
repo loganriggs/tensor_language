@@ -1,1 +1,58 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+stats done
+top shared pairs: {
+ "comma|is": {
+  "shared": 31,
+  "jaccard": 0.32,
+  "layer": 16
+ },
+ "comma|question": {
+  "shared": 24,
+  "jaccard": 0.231,
+  "layer": 16
+ },
+ "comma|the": {
+  "shared": 21,
+  "jaccard": 0.196,
+  "layer": 16
+ },
+ "question|is": {
+  "shared": 21,
+  "jaccard": 0.196,
+  "layer": 16
+ },
+ "semicolon|close_paren": {
+  "shared": 21,
+  "jaccard": 0.196,
+  "layer": 17
+ },
+ "pronouns|the": {
+  "shared": 21,
+  "jaccard": 0.196,
+  "layer": 16
+ },
+ "pronouns|months": {
+  "shared": 20,
+  "jaccard": 0.185,
+  "layer": 17
+ },
+ "is|the": {
+  "shared": 20,
+  "jaccard": 0.185,
+  "layer": 17
+ },
+ "semicolon|months": {
+  "shared": 17,
+  "jaccard": 0.153,
+  "layer": 17
+ },
+ "is|months": {
+  "shared": 16,
+  "jaccard": 0.143,
+  "layer": 17
+ }
+}
+reuse comma {'rise_class': 0.0066, 'rise_global': 0.0103, 'selectivity': 0.64}
+reuse is {'rise_class': -0.0015, 'rise_global': 0.0103, 'selectivity': -0.14}
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/unit_reuse_clusters_results.json (76.4s)
