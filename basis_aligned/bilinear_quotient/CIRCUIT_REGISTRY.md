@@ -132,3 +132,5 @@ bilin12 template port; commons transfer.
 - Discovery recipe: CLASS-CONDITIONAL activation scoring only (weight-side rankings fail — signed units, S1563/S1565).
 - Cross-class top-64 unit sharing at mlp16/17 = generic frequency pool, causally inert (S1571) — do NOT read overlap as feature reuse.
 - Eigen-slice split (canonical, gauge-free) dominates unit split at question; disagrees in SIGN at late layers (S1570).
+- SIGNED split S = S+ - S- resolves late layers into (payload, gate) pairs (S1575): pronouns@17 payload +.12 / gate -.29; is pure payload .30; rank-8 suffices.
+- FIRST HEAD+MLP JOINT CIRCUIT (S1576): question = heads {10.5,12.6,15.6,15.1,9.7} + rank-2 mlp11 slice — 99.4% additive, slice marginal .166 at zero added global cost. Circuits extend across module types at slice grain.

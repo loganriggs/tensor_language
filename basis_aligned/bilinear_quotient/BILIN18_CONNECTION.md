@@ -36531,3 +36531,42 @@ follow-ups: (i) SIGNED-part ablation — split S = S₊ − S₋ and ablate each
 separately at the four mlp17 sites (gate vs payload disentangling); (ii) joint
 circuit integration — add the certified mlp11 rank-2 slice to the question
 attention-head circuit and test additivity.
+
+## §1575 SIGNED SLICES DISENTANGLE GATE FROM PAYLOAD (3-for-3): mlp17 resolves into per-class (payload, gate) eigen-pairs; slices beat units again at 2 of 4
+
+**Setup** (mlp_form_signed, 172s; the class form split S = S₊ − S₋, positive and
+negative eigenparts ablated separately at the four mlp17 sites, r ∈ {8,32},
+NR=960). **Scored:** pred_a positive-part r=32 rise ≥ .05 at ≥ 3/4: **PASSED** —
+pronouns .116, is .304, months .135 (the .018 misses). pred_b negative-part
+lowers class CE ≥ .05 at ≥ 2/4: **PASSED** — pronouns −.263, the −.079. pred_c
+positive part beats unit-K64 at ≥ 2/4: **PASSED** — pronouns .116 vs .086, is
+.304 vs .214.
+
+**The resolved picture of mlp17:** each class direction carries BOTH a payload
+and a gate, and the signed eigen split separates them cleanly where the
+|λ|-mixed slice (§1574) could not. Per class: pronouns = strong payload (+.12 at
+zero global cost) INSIDE a stronger gate (−.29) — the §1570 net-suppression was
+the sum of these; is = pure payload (.30, no gate); the = gate-dominant; months
+= payload .135 + mild gate. The canonical decomposition of a bilinear-MLP class
+effect is the (S₊, S₋) pair, and with the sign respected the slice grain beats
+the unit grain at half the late sites too (with rank-8 sufficing — pos_r8 ≈
+pos_r32 throughout).
+
+## §1576 THE FIRST HEAD+MLP JOINT CIRCUIT (3-for-3): question = 5 heads + rank-2 mlp11 slice — perfectly additive, slice marginal .166 at ZERO added global cost
+
+**Setup** (question_joint, 76s; heads {10.5, 12.6, 15.6, 15.1, 9.7} parsed from
+the weights-only top-5 (§1567), certified mlp11 rank-2 slice (§1573), removals
+separate and joint, NR=960). **Scored:** pred_a joint ≥ .9×sum of parts:
+**PASSED** — 2.020 vs sum 2.032 (99.4%: essentially perfect additivity). pred_b
+joint global rise ≤ heads-only + .002: **PASSED** — .0425 vs .0425 (the slice
+adds LITERALLY zero global cost on top of the heads). pred_c slice marginal on
+top of heads ≥ .10: **PASSED** — .166.
+
+**Registry consequence:** the question circuit is the program's first certified
+CROSS-MODULE-TYPE circuit: 5 attention heads + a 2-eigenvector slice of mlp11,
+composing additively with no interference. The MLP member carries class signal
+the attention ensemble does not (marginal .166 ≈ its solo .178), i.e. head and
+slice remove DIFFERENT question-mark mechanisms. Answer to the user's original
+framing now complete: circuits are not attention-only — the right MLP grain
+(canonical signed slices, not units, not whole modules) extends them, and the
+extension is compositional.

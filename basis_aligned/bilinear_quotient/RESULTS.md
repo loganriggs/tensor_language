@@ -5309,3 +5309,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1572 — 8-class unit screen: membership common + concentrated (is@mlp17 K16 .21 @ 14.9×) but weakly selective outside question; K=64 was the wrong grain (2-for-3)
 §1573 — CERTIFIED: question mlp11 component = rank-2 tensor slice, .180 rise @ zero global cost (−.0002), NR=1920 + held-out 4% (3-for-3)
 §1574 — eigen slice not universal: late-layer spectra sign-interleaved (months r2 −.07 → r32 +.10); slice wins at dedicated mid sites, units win at diffuse late sites (1-for-3)
+§1575 — signed eigen split resolves mlp17: per-class (payload, gate) pairs — pronouns +.12 payload inside −.29 gate; is pure payload .30; slices beat units 2/4 (3-for-3)
+§1576 — FIRST HEAD+MLP JOINT CIRCUIT: question = 5 heads + rank-2 mlp11 slice, 99.4% additive, marginal .166 at zero added global cost (3-for-3)

@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+z captured
+{
+ "heads": [
+  "10.5",
+  "12.6",
+  "15.6",
+  "15.1",
+  "9.7"
+ ],
+ "clean": {
+  "global": 2.9474,
+  "class": 1.5097
+ },
+ "heads_only": {
+  "rise_class": 1.854,
+  "rise_global": 0.0425
+ },
+ "slice_only": {
+  "rise_class": 0.1784,
+  "rise_global": -0.0002
+ },
+ "joint": {
+  "rise_class": 2.0199,
+  "rise_global": 0.0425
+ },
+ "slice_marginal_on_heads": 0.1659
+}
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_joint_results.json (75.9s)
