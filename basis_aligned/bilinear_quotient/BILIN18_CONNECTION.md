@@ -35697,3 +35697,29 @@ infrastructure, not circuit-specific wiring — selectivity requires SUB-LAYER g
 (which early heads/components feed a given circuit). Queued: trunk search on the
 semicolon circuit — 63 early heads scored singly for class-recovery gain, then
 greedy over the top-10, with a selectivity bar registered.
+
+## §1517 The classifier leg needs large open classes (0-for-3, 5/6 vacuous): per-token prediction is class-dependent
+
+**Setup** (circuit_classify6, 105s). **Scored:** all three **FAILED** — 5 of 6
+classes have ≤3 tokens above the occurrence floor (skip-flagged, predictions
+vacuously failed); digits, the one measurable case, scored ρ .089 / FN .79.
+**Standing picture:** per-token membership prediction works where it has room —
+capitalization (77 tokens, ρ .74) — and fails for digits; closed classes (months,
+copulas) need a different generalization test: held-out CLASS-HALF damage (queued).
+
+## §1518 The trunk is DISTRIBUTED (1-for-3): no small early feeder set reconstructs the semicolon circuit's inputs — extraction redefined
+
+**Setup** (circuit_trunk, lane 2, 182s). 63 early heads scored singly; greedy over
+top-10; verified. **Scored:** pred_a ≤10 heads ≥ .40 recovery: **FAILED** — the
+greedy set collapsed to ONE head (0.3) recovering .064. pred_b selective ≥1.3×:
+**FAILED** — .064 class vs .079 global. pred_c top-10 singles early-concentrated:
+**PASSED** — 6/10 in layers 0-2, led by 0.3 (.030), 1.4, 2.3.
+
+**Closing the extraction thread (S1512→18):** circuit inputs are built by BROAD
+early-stack computation (no single head above .03; effects spread over dozens) —
+consistent with the atlas (front-loaded dense channels) and the deep-MLP
+diffuseness. The operational definition going forward: a circuit = a small head
+ensemble (removal/construction certified, 1-5 heads, up to 360× selective) READING
+A SHARED TRUNK; "extraction" means isolating the ensemble GIVEN the trunk, not
+carving a standalone sub-network. This matches the joint-replacement results: the
+trunk is exactly what the module approximations approximate.

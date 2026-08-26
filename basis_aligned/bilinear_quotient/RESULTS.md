@@ -5251,3 +5251,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1514 — extraction: class recovers (.57-.93) once layers 0-6 attention is exact, but NON-selectively — minimal input-path search queued (3-for-3 + caveat)
 §1515 — greedy sweep 3: close_paren = head 13.8 alone @ 363x; newline set global cost = 0 within noise (sel >= 1000x, artifact flagged); 14 recipe ensembles (2-for-3)
 §1516 — early stack = shared trunk (early>late 3/3, but layer-grain non-selective): sub-layer trunk search queued (1-for-3)
+§1517 — classifier leg class-dependent: works for large open classes (cap .74), vacuous for closed ones; held-out class-half test queued (0-for-3)
+§1518 — trunk DISTRIBUTED (best single feeder .03): extraction redefined = ensemble GIVEN shared trunk; thread closed (1-for-3)

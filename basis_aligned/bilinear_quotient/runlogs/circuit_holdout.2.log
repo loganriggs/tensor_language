@@ -1,0 +1,7 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+clean measured
+months {'ensemble': ['6.7', '7.3', '14.7', '11.5'], 'n_members': 12, 'dmg_fit_half': 0.1196, 'dmg_heldout_half': 0.0605, 'dmg_controls': -0.0063, 'holdout_ratio': 0.506, 'control_ratio': -0.103}
+said {'ensemble': ['7.8', '11.3', '6.7', '15.5'], 'n_members': 4, 'dmg_fit_half': 0.052, 'dmg_heldout_half': 0.1231, 'dmg_controls': 0.0496, 'holdout_ratio': 2.368, 'control_ratio': 0.403}
+digits {'ensemble': ['7.3', '6.7', '11.5', '5.5'], 'n_members': 241, 'dmg_fit_half': 0.1491, 'dmg_heldout_half': 0.1513, 'dmg_controls': 0.1016, 'holdout_ratio': 1.015, 'control_ratio': 0.672}
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_holdout_results.json (42.4s)
