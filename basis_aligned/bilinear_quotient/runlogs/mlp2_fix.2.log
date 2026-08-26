@@ -5,20 +5,15 @@ context capture done
 planks 0/1 context-fit
 ctx + clean ridges fit
 {'clean': 2.9455, 'all4_ctxfit': 4.3578, 'all4_cleanfit': 4.505}
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp2_fix.py", line 404, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp2_fix.py", line 375, in main
-    opt.zero_grad(); loss.backward(); opt.step()
-                     ^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
-    torch.autograd.backward(
-  File "/venv/main/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
-    _engine_run_backward(
-  File "/venv/main/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
-    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp2_fix.py:377: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  curve.append(round(float(loss), 4))
+  step 0 loss 3.9351
+  step 40 loss 3.5220
+  step 80 loss 3.4440
+  step 120 loss 3.4746
+  step 160 loss 3.2995
+{'clean': 2.9455, 'all4_ctxfit': 4.3578, 'all4_cleanfit': 4.505, 'all4_corrected': 3.56, 'attn_m2_corrected': 3.1653, 'attn_m2_ctxfit': 3.3009}
+gap 0.1472 rec 0.7978 transfer 0.1356
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp2_fix_results.json (133.2s)

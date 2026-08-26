@@ -35232,3 +35232,43 @@ read it).
 (mlp2_fix crashed on a no_grad decorator inherited from the eval lineage — the
 training loss had no grad path; fixed by freezing model params at main start and
 removing the decorator, requeued lane 2.)
+
+## §1489 The mlp2 repair WORKS: a 1.8-Mbit CE-trained correction recovers .80 CE of the ship (2-for-3)
+
+**Setup** (mlp2_fix, lane 2, 133s). Clean-fit vs context-fit discriminator + rank-32
++ bias correction trained against full-model CE inside the all4 ship (111k params,
+200 steps; curve + budget in json).
+
+**Registered predictions, scored as written:**
+- pred_a clean-fit ≈ ctx-fit: **FAILED** — clean-fit is .147 WORSE (4.505 vs 4.358).
+  Fit context matters; combined with the residual .35 excess after context-fitting,
+  mlp2's brittleness = input-distribution shift AND changed function, both real.
+- pred_b correction recovers ≥ .15: **PASSED, ×5** — **.798 recovered** (all4:
+  4.358 → 3.560; the corrected ship beats even the all3 ship's 3.888).
+- pred_c transfers ≥ .05: **PASSED** — +.136 in the attn+mlp2 context it was never
+  trained in.
+
+**Reading + caveat:** CE-trained low-rank "glue" in a plank's slot is the same
+lesson-3 move that fixed the kernels (§1460), now at module grain — and it beats
+context-refitting by an order of magnitude. CAVEAT (flagged): the correction is a
+composite patch trained through mlp2's slot — some of the .80 is compensation for
+OTHER planks' errors, not mlp2 understanding; its transfer (+.136, partial) shows
+both components exist. Queued: joint glue for all three MLP slots.
+
+## §1490 Handle score at site 2 (1-for-3): mlp1's channel is NOT selective for mlp0's classes — handle scores are class-relative
+
+**Setup** (handle_score_mlp1, 200s). Same three-property protocol at mlp1, det/frag
+classes.
+
+**Scored as written:** pred_a w8 frag-keep ≥ .30: **FAILED** — .133. pred_b
+selectivity ≥ 2× PCA: **FAILED** — 0.99 (UNSELECTIVE) vs PCA 1.27. pred_c
+generalizes: **PASSED** — every number replicates on skip=2000 (stable, just
+unselective).
+
+**Reading:** the §1486 selectivity (4.3×) is NOT a general law of weight-composed
+bases — at mlp1, whose output is 94% token-table, block-2's channel reads broad
+content and the det/frag classes (mlp0-derived names) are the WRONG classes for
+this site. Registered follow-up: self-derived classes — name mlp1's channel
+directions by their own token spectra (§1470 method), build masks from those, and
+re-score. If the channel is selective for ITS OWN classes, the handle lane needs
+per-site class discovery as a standard step; if not, mlp0's selectivity was special.

@@ -5223,3 +5223,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1486 — channel circuits work (k8 keeps .52 frag, monotone, random=0) BUT PCA-8 beats weight-basis on coverage — weight basis wins only selectivity (3.8x vs 1.2x); 2-for-3
 §1487 — wiring predicts propagation 10/10 (front-loaded, rho .994); specialist roster predicts consumers 0/30 — roster is NOT a consumer map; 2-for-3
 §1488 — channel circuit GENERALIZES 3-for-3 (frag keep .529≈.522, selectivity 4.3x, removal .022): first certified channel-grain circuit; mlp2_fix no_grad bug fixed + requeued
+§1489 — mlp2 glue: 1.8-Mbit CE-trained correction recovers .80 CE (ship 4.36→3.56, transfers +.14); brittleness = distribution AND function (2-for-3); joint glue queued
+§1490 — handle score site 2: mlp1 channel UNSELECTIVE for mlp0 classes (0.99x) — handle scores are class-relative; self-derived classes queued (1-for-3)
