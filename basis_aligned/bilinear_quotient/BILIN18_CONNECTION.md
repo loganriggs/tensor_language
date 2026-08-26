@@ -35333,3 +35333,20 @@ is only at mlp0 (where the next block's discrimination differs most from the
 activation geometry); (3) removal-specificity and generalization hold at every site
 tested — those two properties are robust across bases; selectivity is the
 discriminating axis. Registry table added to theseus-bench.
+
+## §1495 Site map complete (2-for-3): selectivity decays monotonically-ish after mlp0 — the front map is mlp0 4.3× > mlp2 1.9 > mlp3 1.4 > mlp1 1.0
+
+**Setup** (handle_site_mlp3, lane 2, 200s). **Scored as written:** pred_a frag-keep
+≥ .20: **PASSED** — .426 (and removal is the largest yet at a non-mlp0 site: .031
+global, .055 frag; random still .0001). pred_b site selectivity ≥ 1.5: **FAILED** —
+1.41 (weight) / 1.11 (PCA), missing by .09. pred_c generalizes: **PASSED** — .419
+on fresh rows.
+
+**The four-site map (frag class, weight-basis / PCA):** mlp0 4.3/1.2 → mlp1 1.0/1.3
+→ mlp2 1.7/1.9 → mlp3 1.4/1.1. Handle-lane conclusions final for the front stack:
+class-selective extraction is essentially an mlp0 phenomenon (where token identity
+IS the signal); everywhere else channels are causally real (removal 10-300× above
+random, generalization universal) but class-diffuse. registry/handle_scores.json
+updated. (full_ship3 crashed on the inherited @torch.no_grad decorator on fwd_arm —
+the third instance of this bug class; fixed, requeued, and noted in LESSONS: strip
+grad decorators when a cloned eval harness gains a training loop.)

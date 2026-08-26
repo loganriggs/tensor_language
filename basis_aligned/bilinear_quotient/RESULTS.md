@@ -5229,3 +5229,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1492 — joint glue 3.615 UNDERPERFORMS single-slot 3.560 (0-for-3, unconverged): sequential glue queued
 §1493 — glue saturates at one slot (mlp1/mlp0 stages NEGATIVE): thread closed; accepted ship = 3.56 (+.61 CE, 21 modules + 1.8-Mbit glue) (0-for-3)
 §1494 — site map: mlp0 4.3x/1.2, mlp1 1.0/1.3, mlp2 1.7/1.9 — weight-basis advantage unique to mlp0; removal+generalization robust everywhere (2-for-3)
+§1495 — site map complete: mlp0 4.3 > mlp2 1.9 > mlp3 1.4 > mlp1 1.0; selective extraction is an mlp0 phenomenon; removal/generalization universal (2-for-3); ship3 no_grad bug fixed + requeued

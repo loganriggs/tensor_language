@@ -73,7 +73,6 @@ SHIP = {'t0': None, 'r0': None, 't1': None, 'r1': None, 'r2': None, 'r17': None,
 CORR = {'on': False, 'b': None, 'U': None, 'V': None}
 
 
-@torch.no_grad()
 def fwd_arm(idx, layers, TWALL, mlps=frozenset(), cap=None):
     """layers: attn layers replaced. mlps: subset of {0,1,2,17} replaced inline.
     cap: optional dict collecting fit-pass tensors."""
