@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+whiteners built
+attn maps built
+context capture done
+planks 0/1 context-fit
+ctx + clean ridges fit
+{'clean': 2.9455, 'all4_noglue': 4.3578}
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_glue.py:382: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  curve.append(round(float(loss), 4))
+  step 0 loss 3.9351
+  step 60 loss 3.1984
+  step 120 loss 3.4577
+  step 180 loss 3.3477
+  step 240 loss 3.3300
+{'clean': 2.9455, 'all4_noglue': 4.3578, 'all4_glued': 3.6151}
+glued 3.6151 gain 0.7427
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ship_glue_results.json (146.1s)

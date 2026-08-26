@@ -35272,3 +35272,33 @@ this site. Registered follow-up: self-derived classes — name mlp1's channel
 directions by their own token spectra (§1470 method), build masks from those, and
 re-score. If the channel is selective for ITS OWN classes, the handle lane needs
 per-site class discovery as a standard step; if not, mlp0's selectivity was special.
+
+## §1491 Self-derived classes don't rescue mlp1's channel (1-for-3): selectivity is a SITE property, not a method property
+
+**Setup** (handle_score_mlp1b, 190s). Classes = the channel's own top-40 token sets
+(direction spectra: diffuse suffix/name fragments — 'TT', 'igan', ' Beck', '600').
+
+**Scored as written:** pred_a own-class keep ≥ .30: **FAILED** — .199/.221. pred_b
+own-class selectivity ≥ 2: **FAILED** — 1.47 (up from 0.99 on foreign classes, still
+weak). pred_c generalizes: **PASSED**.
+
+**Handle-lane verdict after 4 runs:** mlp0's block-1 channel is a genuinely
+class-selective handle (4.3×) because mlp0's residual signal IS token-classed;
+mlp1's block-2 channel carries diffuse content and no class probe makes it
+selective. Selectivity must be MEASURED per site, never assumed from the method.
+The lane's next map: front sites mlp2/mlp3 (queued).
+
+## §1492 Joint 3-slot glue UNDERPERFORMS single-slot (0-for-3): glue optimization interferes
+
+**Setup** (ship_glue, lane 2, 146s). Rank-32+bias corrections on mlp0/1/2 slots,
+trained jointly 300 steps in the all4 ship.
+
+**Scored as written:** pred_a glued ≤ 3.35: **FAILED** — 3.6151. pred_b beats
+mlp2-only by ≥ .10: **FAILED** — WORSE by .055 (3.615 vs 3.560). pred_c gap to
+attn-only ≤ .30: **FAILED** — .508.
+
+**Reading:** joint training of 300k params in 300 steps landed short of the
+200-step single-slot run — the loss curve is visibly unconverged (tail 3.2-3.6) and
+slots plausibly interfere early in training. Queued: SEQUENTIAL glue (train mlp2's
+slot, freeze, then mlp1's slot) with doubled steps — greedy coordinate descent
+instead of joint.

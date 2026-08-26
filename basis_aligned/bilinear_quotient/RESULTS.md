@@ -5225,3 +5225,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1488 — channel circuit GENERALIZES 3-for-3 (frag keep .529≈.522, selectivity 4.3x, removal .022): first certified channel-grain circuit; mlp2_fix no_grad bug fixed + requeued
 §1489 — mlp2 glue: 1.8-Mbit CE-trained correction recovers .80 CE (ship 4.36→3.56, transfers +.14); brittleness = distribution AND function (2-for-3); joint glue queued
 §1490 — handle score site 2: mlp1 channel UNSELECTIVE for mlp0 classes (0.99x) — handle scores are class-relative; self-derived classes queued (1-for-3)
+§1491 — mlp1 channel weakly selective even for OWN classes (1.47x): selectivity is a SITE property; mlp0 was special (1-for-3)
+§1492 — joint glue 3.615 UNDERPERFORMS single-slot 3.560 (0-for-3, unconverged): sequential glue queued
