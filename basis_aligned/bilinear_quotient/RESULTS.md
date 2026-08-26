@@ -5200,3 +5200,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1463 — edge rank 3-for-3 DECISIVE: rank32 .814 / rank128 .920 (sparse .49/.77) — mlp0→mlp1 = ~32-direction bilinear channel @ 9.4 Mbit; attn double-QK analog + composite7 queued
 §1464 — mlp0→attn1-pattern edge: .655 CE (3x mlp1 edge), 98% RANK-8 (3-for-3) — user double-QK prediction exact; values edge queued
 §1465 — composite record 3.9166 (config-matched training); §1460 gap = skip-region variance ±.10, NOT memorization (memo .002); method note ledgered; lowrank-QK stand-in class queued
+§1466 — values edge 1.149 CE (biggest; 94% rank-8; 3-for-3): block-1 read map complete — values > patterns > mlp1, all low-rank; caveat: cut-to-zero conflates mean transport; centered cuts queued
+§1467 — plain per-head QK SVD 0-for-3: five layers fine (.76-.89 @ 23.6 Mbit) but attn5 −1.61 — unwhitened metric suspect; whitened version queued

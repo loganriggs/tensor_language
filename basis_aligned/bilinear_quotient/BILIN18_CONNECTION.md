@@ -34795,3 +34795,38 @@ composition; preds: edge ≥ .10; rank-32 ≥ .80; rank-8 ≥ .50). attn_lowrank
 of all four QK maps at the 7 kernel-resistant layers (r=32: 23.6 Mbit/layer vs 85
 full / .037 kernel); preds: attn5 r32 ≥ .80 (kernel was −.055!), median r32 ≥ .85,
 median r8 ≥ .60.
+
+## §1466 The values edge is the BIGGEST pathway yet — 1.149 CE, 94% rank-8 (3-for-3) — and block-1's read map of mlp0 is complete (with one caveat)
+
+**Setup** (mlp0_attn1_values_edge, 92s). Av = c_v1@Down0, exact centered-scale harness,
+patterns live.
+
+**Registered predictions, scored as written:** pred_a edge ≥ .10: **PASSED, ×11** —
+cut = **1.1487 CE**. pred_b rank-32 ≥ .80: **PASSED** — .9819. pred_c rank-8 ≥ .50:
+**PASSED** — .9403.
+
+**Block-1's complete read of mlp0 (cut-to-zero sizes):** values 1.149 (rank-8 94%) >
+patterns .655 (rank-8 98%) > mlp1 .221 (rank-32 81%). Every pathway is low-rank.
+
+**CAVEAT (drives the next run):** the values cut (1.149) EXCEEDS mlp0's entire Δ_opt
+(.908). Cut-to-zero removes the MEAN transport that the optimal constant would keep —
+these edge sizes conflate "carries mlp0's mean" with "carries mlp0's signal". Queued:
+mean-preserving (centered) cuts to size the true information content of each pathway.
+
+## §1467 Plain per-head SVD of QK maps FAILS where it matters (0-for-3): attn5 −1.61, the whitening assumption is the suspect
+
+**Setup** (attn_lowrank_qk, lane 2, 148s). Per-head rank-r truncation (plain SVD,
+whitening deliberately omitted — registered assumption) of all four QK maps at the 7
+content layers.
+
+**Scored as written:** pred_a attn5 r32 ≥ .80: **FAILED** — **−1.6097** (worse than
+the kernel's −.055!). pred_b median r32 ≥ .85: **FAILED** — .7655. pred_c median r8
+≥ .60: **FAILED** — .3013.
+
+**Reading:** the class is promising for five layers (r32: a10 .886, a16 .882, a17
+.799, a13 .766, a14 .763 — all ≥ their kernel fids at 23.6 Mbit) but catastrophic at
+the sink layer (a5) and at a8 r8 (−2.49). Plain SVD ranks directions by weight norm;
+the stream is far from isotropic, so the kept directions can miss exactly the
+high-variance inputs the sink head reads — the same metric error §1463 already
+punished once (rank had to be h0-whitened to win). Queued: input-whitened truncation
+(per-layer xin covariance), same price, same bars.
