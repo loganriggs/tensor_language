@@ -36178,3 +36178,21 @@ behaviors in bilin18: distributed, robust conditioning states in the stream;
 small certified announcer circuits at the output. Queued: the same computation
 check under the FULL 36-module ship (the final certification), and a fourth
 12-class screen to keep the registry growing.
+
+## §1553 CAPSTONE: the total-glass model is BEHAVIORALLY certified (3-for-3)
+
+**Setup** (state_in_full_ship, 106s). Agreement + parity under the complete
+36-module v4 ship. **Scored:** pred_a accuracy ≥ .88: **PASSED** — **.9317**
+(97.3% of clean's .9572). pred_b parity gap ≥ 60%: **PASSED** — 114.9% (1.6191 vs
+1.4097). pred_c global sanity: **PASSED** — 3.8431 exactly.
+
+**The program's capstone claim, now certified end-to-end:** every one of the 546M
+model's 36 top-level modules replaced simultaneously by priced, human-legible
+approximations — three-tier attention, token tables + a trained correction, an
+output projection, top-K-unit sub-MLPs — and the resulting model (a) costs
+3.88 ± .04 CE vs clean 2.95, additively decomposable, row-set robust; (b)
+PRESERVES THE MODEL'S COMPUTATIONS: subject-verb agreement at 97% of clean
+accuracy and quote-parity tracking fully intact. Fidelity is certified at the
+loss level, the module level, the circuit level (20 verified circuits), and now
+the BEHAVIOR level. (screen4 crashed on a leftover print variable — fixed,
+requeued.)

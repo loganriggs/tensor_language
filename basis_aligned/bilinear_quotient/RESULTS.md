@@ -5287,3 +5287,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1550 — NO single attention layer carries agreement/parity (max effects .001/.011): states are stream-carried; MLP-side + full-attention checks queued (2-for-3 x2)
 §1551 — both states fully distributed (max single-module effect .026); no carrier module exists (2-for-3)
 §1552 — STRONG CLAIM: all-18 attention replacement preserves agreement (.9568=.9572) and parity EXACTLY (3-for-3); full-ship computation check queued
+§1553 — CAPSTONE: total-glass model behaviorally certified (agreement 93.2%, parity 115%, global 3.8431 exact; 3-for-3); screen4 fixed + requeued

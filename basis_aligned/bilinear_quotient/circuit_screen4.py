@@ -265,7 +265,7 @@ def main():
            'pred_a_7of12_selective': bool(pa), 'pred_b_w_wins_7': bool(pb),
            'pred_c_single_head_class': bool(pc), 'runtime_s': round(time.time() - t0, 1)}
     json.dump(out, open(OUT, 'w'), indent=1)
-    print(f"selective {n_sel}/12 w_wins {w_wins} 12.6 in {n126}")
+    print(f"selective {n_sel}/12 w_wins {w_wins} concentrated {conc}")
     print(f"pred_a {pa} | pred_b {pb} | pred_c {pc}")
     print(f"wrote {OUT} ({out['runtime_s']}s)")
 
