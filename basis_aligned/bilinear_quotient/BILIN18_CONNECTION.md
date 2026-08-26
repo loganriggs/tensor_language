@@ -36273,3 +36273,18 @@ interaction error (+.80 in the ship, §1489) and train kernels from scratch
 starts) — at residual scales below ~.5 CE the batch-8 full-model-CE gradient is
 noise. mlp1's last .18 unexplained CE remains the board's honest hard problem;
 the token-table class is at its ceiling.
+
+## §1561 The remaining .9 CE, mapped (2-for-3): 47% novel-rare content, 27% ubiquitous function-token background, 26% copied
+
+**Setup** (ship_error_mine, NR=1920, 107s). **Scored:** pred_a novel-rare ≥ 45% of
+ship damage: **PASSED** — 47.3%. pred_b copied ≤ 15%: **FAILED** — 25.8% (the copy
+ADVANTAGE survives at 117%, §1554, but absolute copy damage does not vanish).
+pred_c top-100 tokens ≥ 20%: **PASSED** — 50%.
+
+**The twist worth keeping:** ranked by total damage mass, the top tokens are the
+MOST FREQUENT ones (' the', ',', '.', ' and'...) — tiny per-token rises times huge
+counts: the planks' diffuse background error on function tokens. The forward map
+for the next round: (1) severe per-token damage on rare/novel content (the deep-mid
+unit tail + the mlp1 table tail); (2) a ubiquitous small background on function
+tokens (plank residuals everywhere). Queued: attribution of the function-token
+background to plank groups (lane 1) and the damage-vs-frequency curve (lane 2).
