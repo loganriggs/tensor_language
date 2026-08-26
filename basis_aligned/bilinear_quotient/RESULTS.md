@@ -5204,3 +5204,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1467 — plain per-head QK SVD 0-for-3: five layers fine (.76-.89 @ 23.6 Mbit) but attn5 −1.61 — unwhitened metric suspect; whitened version queued
 §1468 — centered cuts 3-for-3: ~95% of block-1 edges = MEAN transport; true mlp0→attn1 signal ≈ .09 CE — "big fixed bias + small low-rank signal"
 §1469 — whitened QK: sink fixed (a5 +.53) but a17 breaks; best-of class = 4 new records (a10 .920, a13 .893, a14 .898, a17 .799 @ 23.6 Mbit); metric is per-layer; direction-naming queued
+§1470 — edge directions NAMED (2-for-3): D1 determiner/NP-start (all 3 edges, stab .9+, read 40% by k2@head1.1), D2 capitalized-name-fragment (ancestor of the capitalized committee), D3 verb-vs-connective (mlp1, stab .83); shared subspace .473; unstable dirs left unnamed

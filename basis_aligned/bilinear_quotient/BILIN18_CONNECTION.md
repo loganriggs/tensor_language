@@ -34871,3 +34871,39 @@ directions: centered h0 token table, whitened SVD per edge (pattern/values/mlp1)
 top/bottom-25 example tokens per direction with split-half stability, head/map
 loadings, cross-edge subspace overlap. Preds: stability ≥ .50; pattern loadings
 concentrated ≥ .30 in one (map,head) block; shared subspace energy ≥ .40.
+
+## §1470 THE EDGE DIRECTIONS HAVE NAMES (2-for-3): a shared determiner axis, a capitalized-name-fragment axis, and a verb-vs-connective axis
+
+**Setup** (edge_direction_names, user directive). Centered h0 token table (960 rows,
+split-half stability), whitened SVD of each composed edge (pattern/values/mlp1),
+top/bottom-25 example tokens per direction, head/map loadings, cross-edge overlap.
+
+**Registered predictions, scored as written:**
+- pred_a spectra stable (median top-30 overlap ≥ .50): **PASSED** — .617; the
+  nameable directions replicate at .60-.97.
+- pred_b each top-4 pattern direction ≥ 30% in one (map,head) block: **FAILED** —
+  only dir0 concentrates (40% in k2@head1.1); the rest spread across heads.
+- pred_c the three edges share a signal subspace (energy ≥ .40): **PASSED** — .473.
+
+**The names (stability in parens):**
+- **D1 "DETERMINER / noun-phrase-start"** — top: " the, our, his, a, your, their, an,
+  my, this"; bottom: proper-noun and topic fragments (Rhode, Medicare, Cruz). It is
+  the #1 direction of ALL THREE edges (stab .93/.90/.97) — the single strongest thing
+  mlp0 tells block 1 is "a noun phrase just started here". Its most concentrated
+  reader is head 1.1's SECOND key channel (k2, 40%) — the bilinear attention's extra
+  factor is what reads it.
+- **D2 "CAPITALIZED NAME-FRAGMENT"** — top: " Ch, Pl, Sh, H, G, Br, Th, B, W, Howard";
+  bottom: lowercase suffix fragments. Appears in all three edges (stab .63-.73).
+  mlp0 marks "we are mid-proper-name" — the weight-level ancestor of the capitalized
+  committee the removal program found at layers 8-17.
+- **D3 "VERB/AUX vs CONNECTIVE"** (mlp1 edge, stab .83) — top: " are, was, has, were,
+  have, also, is"; bottom: " towards, including, despite, onto, but". A syntactic
+  category split feeding mlp1's bilinear features.
+- Unnamed (unstable, .03-.27): a punctuation-ish and a numbers-vs-titlecase direction
+  — flagged, not named (naming requires stability, per the registered bar).
+
+**Reading:** the downstream-defined decomposition program now has its first NAMED,
+weight-derived, causally-sized objects: mlp0's signal into block 1 ≈ mean bias +
+{determiner axis, name-fragment axis, syntax axis} + tail. pred_b's failure is itself
+informative: these axes are read by MANY heads at once (broadcast signals), not
+routed point-to-point — except the determiner axis's k2@1.1 concentration.
