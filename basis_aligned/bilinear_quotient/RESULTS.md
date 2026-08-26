@@ -5257,3 +5257,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1520 — induction circuit FOUND at 28.9x by the attention-pattern method (attribution only 2.9x): discovery methods are complementary; sink-head confound flagged (1-for-3)
 §1521 — induction: 4 heads, one mechanism across lags (short 8.6x / long 12.6x); top-5 @ 28.9x stays the selective handle (2-for-3)
 §1522 — CONTENT-COPY 138.6x (near-noise denom, verify queued): movers {5.5,10.8} shared with induction; attribution ensemble = capitalization heads (names get copied) (1-for-3)
+§1523 — content-copy VERIFIED 31.3x (138x was denom noise; >50x claims now require NR=1920); movers carry ~30%; T .474 replicates (1-for-3)
+§1524 — sink-normalized attribution certified: 5.7 out everywhere, induction-T 3.1->12.5x (2-for-3)

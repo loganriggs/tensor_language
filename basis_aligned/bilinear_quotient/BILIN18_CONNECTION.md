@@ -35787,3 +35787,21 @@ induction and content-copying; class-specific readout heads differentiate the
 circuits downstream. Queued: NR=1920 verification of the near-noise denominators +
 movers-only arm (lane 1); sink-normalized attribution rerun (lane 2 — the 5.7
 confound fix).
+
+## §1523 Content-copy VERIFIED at 31.3× (1-for-3): the 138× was denominator noise; both discovery methods land 26-31× at honest scale
+
+**Setup** (circuit_copy_verify, NR=1920, 77s). **Scored:** pred_a P ≥ 50×:
+**FAILED** — 31.32× (the screening-scale 138.6× divided a real class effect by a
+noise-floor global rise; the §1515 newline flag generalizes: SELECTIVITY NUMBERS
+ABOVE ~50× REQUIRE the large-row verification before registry entry — rule
+adopted). pred_b T class rise ≥ .45: **PASSED** — .4736 (26.3×). pred_c movers ≥
+.10: **FAILED** — {5.5, 10.8} alone = .0584 (~30% of the P-ensemble's damage; the
+readout heads carry the rest).
+
+## §1524 Sink-normalized attribution certified (2-for-3): head 5.7 out of every list, induction attribution 3.1→12.5×
+
+**Setup** (circuit_attr2, lane 2, 73s). Per-position contributions divided by head
+output norm. **Scored:** pred_a 5.7 out of all three top-5s: **PASSED**. pred_b
+induction ≥ 5×: **PASSED** — 12.49× (heads {7.3, 6.5, 8.4, 8.3, 8.6}; raw was
+3.14×). pred_c copy ≥ 30×: **FAILED** — 26.19×. Cosine-normalized attribution
+replaces raw attribution as the standard method-T; the sink confound is closed.
