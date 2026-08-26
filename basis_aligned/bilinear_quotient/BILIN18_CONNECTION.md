@@ -36288,3 +36288,15 @@ for the next round: (1) severe per-token damage on rare/novel content (the deep-
 unit tail + the mlp1 table tail); (2) a ubiquitous small background on function
 tokens (plank residuals everywhere). Queued: attribution of the function-token
 background to plank groups (lane 1) and the damage-vs-frequency curve (lane 2).
+
+## §1562 Function-token background attributed (3-for-3): HALF comes from the mlp0/1/2 planks; frequency-curve tail UNMEASURABLE per-token (1-for-3, artifact flagged)
+
+**ship_error_attrib:** the frequent-token background decomposes 49.9% mlp0/1/2
+planks / 36.4% deep unit planks / 13.7% attention, additive within 15%. The
+single best lever for the ubiquitous background is the mlp1 plank (known: table
+class at ceiling). **ship_error_freq:** per-token damage rises monotonically with
+rarity (1 inversion) but the tail predictions FAILED as an artifact: tokens beyond
+rank ~10k have < 5 occurrences at NR=1920, so the per-token filter empties those
+bins — the tail is UNMEASURED at this grain, not zero; the position-based cell
+number (novel-rare = 47.3%, §1561) remains the valid tail estimate. Rule noted:
+per-token curves need occurrence-weighted bins, not per-token filters.

@@ -1,0 +1,50 @@
+{
+ "bins": {
+  "rank_0_16": {
+   "per_token_damage": 0.6154,
+   "mass_share": 0.224,
+   "n_tokens": 16
+  },
+  "rank_16_64": {
+   "per_token_damage": 0.6641,
+   "mass_share": 0.111,
+   "n_tokens": 48
+  },
+  "rank_64_256": {
+   "per_token_damage": 0.8047,
+   "mass_share": 0.134,
+   "n_tokens": 192
+  },
+  "rank_256_1024": {
+   "per_token_damage": 0.9628,
+   "mass_share": 0.175,
+   "n_tokens": 768
+  },
+  "rank_1024_4096": {
+   "per_token_damage": 1.0516,
+   "mass_share": 0.227,
+   "n_tokens": 3072
+  },
+  "rank_4096_10000": {
+   "per_token_damage": 1.1525,
+   "mass_share": 0.129,
+   "n_tokens": 4516
+  },
+  "rank_10000_25000": {
+   "per_token_damage": 0.0,
+   "mass_share": 0.0,
+   "n_tokens": 0
+  },
+  "rank_25000_50257": {
+   "per_token_damage": 0.0,
+   "mass_share": 0.0,
+   "n_tokens": 0
+  }
+ },
+ "inversions": 1,
+ "mass_beyond_10k": 0.0,
+ "pred_a_monotone_1inv": true,
+ "pred_b_rarest_5x": false,
+ "pred_c_tail_30": false,
+ "runtime_s": 111.9
+}

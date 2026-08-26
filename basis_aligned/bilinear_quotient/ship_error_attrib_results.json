@@ -1,0 +1,22 @@
+{
+ "freq_ce": {
+  "clean": 1.753,
+  "attn": 1.8403,
+  "attn_m012": 2.1585,
+  "full": 2.3904
+ },
+ "increments": {
+  "attention": 0.0872,
+  "mlp012_planks": 0.3182,
+  "deep_unit_planks": 0.232
+ },
+ "shares": {
+  "attention": 0.137,
+  "mlp012": 0.499,
+  "deep": 0.364
+ },
+ "pred_a_attn_le_35": true,
+ "pred_b_m012_ge_35": true,
+ "pred_c_additive_15": true,
+ "runtime_s": 137.6
+}

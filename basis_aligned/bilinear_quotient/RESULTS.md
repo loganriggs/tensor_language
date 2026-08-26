@@ -5296,3 +5296,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1559 — greedy fails on small classes (titles worsened): recipe needs class support; ordinals 15.5x, about 9.9x (0-for-3)
 §1560 — corrections hurt solo planks (mlp1/mlp0 both negative): the class works only vs large systematic error; board top stays hard (0-for-3 x2)
 §1561 — ship damage mapped: 47% novel-rare / 27% function-token background / 26% copied; top-100 = 50% of damage (2-for-3)
+§1562 — background: 50% mlp012 planks / 36% deep / 14% attn (3-for-3); freq-curve tail unmeasurable per-token — artifact flagged (1-for-3)
