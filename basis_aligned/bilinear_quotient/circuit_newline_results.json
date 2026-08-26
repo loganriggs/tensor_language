@@ -1,0 +1,50 @@
+{
+ "res": {
+  "clean": {
+   "global": 2.9243,
+   "cls": 4.0246
+  },
+  "rm_ens": {
+   "global": 2.94,
+   "cls": 4.0292
+  },
+  "rm_sub": {
+   "global": 2.9443,
+   "cls": 4.0358
+  },
+  "rm_both": {
+   "global": 2.9597,
+   "cls": 4.0425
+  },
+  "bg": {
+   "global": 4.7111,
+   "cls": 5.6956
+  },
+  "bg_ens": {
+   "global": 4.9316,
+   "cls": 5.6945
+  }
+ },
+ "rises": {
+  "rm_ens": {
+   "global": 0.0157,
+   "cls": 0.0046
+  },
+  "rm_sub": {
+   "global": 0.02,
+   "cls": 0.0112
+  },
+  "rm_both": {
+   "global": 0.0354,
+   "cls": 0.0179
+  }
+ },
+ "extraction_recovery": {
+  "global": -0.1234,
+  "cls": 0.0007
+ },
+ "pred_a_removal_selective_3x": false,
+ "pred_b_extraction_selective_2x": true,
+ "pred_c_stage_synergy_11x": true,
+ "runtime_s": 115.3
+}

@@ -35447,3 +35447,31 @@ channel-basis, stream-PCA, own-input-basis):** the deep-mid missing half is NOT 
 low-dimensional quadratic in any basis tried. The remaining hypotheses worth
 registering: high-rank memorization, or position/attention-conditioned computation
 invisible to position-pooled fits. Thread parked pending a new idea.
+
+## §1502 First per-circuit suites: 0-for-3 and 1-vacuous — because the DISTRIBUTIONS were specified on the wrong side
+
+**Setup** (circuit_cap 78s; circuit_newline lane 2, 115s). Three-property suites for
+the capitalization ensemble (13 heads, L13-17) and newline ensemble (5 heads).
+
+**Scored as written:** capitalization: all three **FAILED** — ensemble removal
+raised GLOBAL CE (.126) more than class CE (.048); extraction ratio 1.65 < 2;
+stages sub-additive. newline: pred_a **FAILED** (.0046 class vs .0157 global);
+pred_b **PASSED but VACUOUS** (the global recovery is negative, so the clamped
+comparator makes any nonneg class recovery pass — §1416 lesson recurs at a new
+spot); pred_c **PASSED** (.0179 ≥ 1.1× sum — real two-stage synergy signal).
+
+**Diagnosis (the real content):** my class masks conditioned on the PREVIOUS token
+(positions after a name-fragment / after '\n'), but both ensembles were certified
+on TARGET-side distributions — the newline ensemble's job is predicting WHEN '\n'
+comes next; the capitalization ensemble's job is predicting capitalized
+continuations. A circuit's distribution must be specified on the side the behavior
+lives. v2 queued with target-side masks.
+
+**Also adopted (user): the generalization leg is a CLASSIFIER evaluation.** The
+structure-derived score predicting "affected by this intervention" is graded by
+false-positive rate (high score, no measured effect — the 'lookalike' bucket was
+one engineered subtype) and false-negative rate (low score, real effect — the
+bucket v1 lacked entirely), plus rank correlation. v2 scores: s_w = fraction of
+lm_head row w's norm inside the ensemble's output subspace (span of the ensemble
+heads' c_proj image slices, top-64 SVD — weights only); ground truth = per-target-
+token CE rise under ensemble removal.

@@ -5236,3 +5236,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1499 — TOTAL GLASS: all 36 modules = 5.535 (+2.59 CE; fresh band -.003!); deep-mid 4-13 carry ~1.6 of it — the frontier confirmed (1-for-3)
 §1500 — token-grain prediction FAILS (rho -.01; lookalikes hit as hard): weight score predicts classes not tokens; readout-aware score pooled (1-for-3)
 §1501 — 5th quad class flat deep (+.007/+.002): deep-mid missing half is not low-dim quadratic in ANY basis tried; parked (0-for-3)
+§1502 — circuit suites v1: distributions were prev-side, behaviors are TARGET-side (cap 0-for-3, newline 1 vacuous); v2 queued with target masks + FP/FN classifier grading
