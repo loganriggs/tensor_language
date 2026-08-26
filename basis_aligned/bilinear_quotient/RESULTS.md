@@ -5332,3 +5332,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1595 — pronouns confirms COMPRESSION IS EXTRACTION (92% kept, .20 vs 2.56 rise); exact circuit heads ANTI-extraction inside bg (rec −.29 vs +.23 const) (2-for-3)
 §1596 — rank sweep: NO knee, class rise halves per rank doubling (2.04/.99/.49/.19), class ≈ global damage at every rank — compression is non-selective, circuit breaks when the model breaks (1-for-3)
 §1597 — SPARSE EIGENSPACE CONNECTIONS 3-for-3: question slice written by attn10+attn9+mlp9+mlp10 (72%); head grain = circuit heads 10.5 (20:1) and 9.7; 4-writer subspace cut = .81 class rise at ZERO global cost (4.6x the mlp11 readout alone -> shared variable, readers queued)
+§1598 — pronouns writer graph: writers DIFFUSE (48%, late MLPs + embedding) but head-grain law replicates: attn edges = circuit heads 9.6 (6.8:1) and 12.4 (9.1:1); pred_b ill-posed (|λ|-top-8 at mlp17 is suppression-dominated, use pos_r8) (1-for-3)
+§1599 — READERS DON'T CONSUME THE VARIABLE: joint reader cut HELPS (−.205) vs source cut +.812 — span(v1,v2) is an OUTPUT CHANNEL (direct path to unembed); mlp17 reads it suppressively (−.39); slice_direct queued (1-for-3, discovery)

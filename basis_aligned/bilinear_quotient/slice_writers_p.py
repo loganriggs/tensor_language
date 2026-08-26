@@ -181,7 +181,7 @@ def main():
     # exact coefficients from lambdas
     lam0 = [float(blk.lambdas[0]) for blk in H]
     lam1 = [float(blk.lambdas[1]) for blk in H]
-    coef = {'attn11': 1.0}
+    coef = {f'attn{SITE}': 1.0}
     for l in range(SITE):
         c = 1.0
         for k in range(l + 1, SITE + 1):

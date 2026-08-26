@@ -37039,3 +37039,69 @@ Score 3-for-3. Two conclusions:
    consume it is the immediate next question (slice_readers queued), and the
    zero global cost at .81 class damage makes this one of the most selective
    knobs found in the entire program.
+
+## §1598 pronouns writer graph: DIFFUSE writers (48%), but the head-grain law REPLICATES — both attention edges are circuit heads 9.6 and 12.4 (1-for-3, one ill-posed)
+
+slice_writers_p.py, NR=960, pronouns@mlp17 rank-8 |λ|-ordered slice (eigs
+−161.9/−133.6/−102.9/−55.5/+53.9/−47.1/+43.3/+37.4 — 6 of 8 NEGATIVE),
+36 components, exact decomposition (recon err 0.0). Note: died twice first
+(hardcoded rank-2 accumulator shapes, then hardcoded 'attn11' coefficient
+key — both transform bugs, fixed and rerun).
+
+Results (slice_writers_p_results.json):
+- WRITERS DIFFUSE: top-6 = mlp16 (2746), x0 (1728), mlp15 (1291), mlp9
+  (1084), mlp14 (1071), attn9 (1057) — 48.2% of mass. pred_a (≥.55) FAILED.
+  Unlike question (4 writers, 72%), the pronoun slice is fed by the late-MLP
+  gender-state accumulation (mlp14-16) plus the EMBEDDING — consistent with
+  §1591 (state distributed, readout at mlp17).
+- pred_b ILL-POSED AS REGISTERED and does not count as a pass (the script
+  printed True via a max(ref,1e-6) guard — overridden here): the form_r8
+  reference rise is NEGATIVE (−.283) because the |λ|-top-8 slice at mlp17 is
+  suppression-dominated (§1587 sign-interleaving; the honest payload
+  reference is pos_r8 = +.111 from mlp_form_signed). Against that payload
+  reference the top-6 writer cut (class +.607, global +.004, selectivity
+  152×) is 5.5× — the same shared-variable overshoot as question's 4.6×.
+- pred_c PASSED, and it is the important one: at head grain attn9 = head 9.6
+  (834, 6.8:1 over the next head) and attn12 = head 12.4 (859, 9.1:1). Both
+  are certified pronoun circuit heads (roster 6.7, 7.3, 9.6, 12.4, 13.2).
+  On BOTH classes tested, every attention writer of a certified eigen slice
+  resolves at head grain to a certified circuit head of that class. The
+  writer-graph edge and the circuit membership are the same fact found by
+  two independent methods.
+
+Score 1-for-3. Lesson recorded: for mlp17 sites, slice references must be
+sign-split (payload = positive eigenpart), never |λ|-ordered.
+
+## §1599 THE VARIABLE ISN'T CONSUMED BY READERS — IT IS AN OUTPUT CHANNEL: joint reader cut HELPS (−.21) while the source cut costs .81 (1-for-3, discovery)
+
+slice_readers.py, NR=960, question class: mean-substitute span(v1,v2) in the
+INPUT of each downstream component individually (mlp11..17 via z, attn11..17
+via xin to all five projections), vs the S1597 source cut re-measured in the
+same rows (.8124, global −.0002 — replicates .8144).
+
+Results (slice_readers_results.json):
+- Individual readers are TINY or NEGATIVE: mlp11 +.0816 (largest positive),
+  attn12 +.0219, attn11 +.0119; mlp17 −.3922 (!), attn15 −.0566, mlp16
+  −.0546. Late layers read the subspace SUPPRESSIVELY — removing their read
+  of it helps the class. mlp17's gate story (§1584-89) reappears as the
+  biggest single reader, with the opposite sign to the payload.
+- JOINT all-reader edit: class −.205 (helps!), global +.0013. frac_of_source
+  = −.25.
+- pred_a (mlp11 largest but <.50 of summed positive rises): largest yes, but
+  share .641 — FAILED.
+- pred_b (joint readers ≥ .70 of source cut): −.25 — FAILED, spectacularly.
+- pred_c (joint reader edit global ≤ .01): .0013 — PASSED.
+
+Score 1-for-3, but the failure pattern is the finding: cutting the subspace
+signal out of EVERY downstream computational reader while leaving the
+residual stream intact HELPS class CE. The ~.81 source-cut damage is
+therefore carried by the one path the reader edits cannot touch — the DIRECT
+path from the residual stream to the unembedding. Reconciliation: source cut
+= lose direct '?' evidence (large +) + lose mlp11 payload read (+.08~.18)
++ lose mlp17 suppressive read (−.39 worth of relief). The writer graph
+{9.7, 10.5, mlp9, mlp10} → span(v1,v2) is primarily writing the ANSWER
+itself into an output channel, which mlp11 amplifies quadratically and mlp17
+gates against. slice_direct queued to certify: WU token rankings of ±v1/±v2
+(is '?' itself top-10?), a final-residual-only span cut, and the
+completeness decomposition (final + readers ≈ source?). Held-out replication
+(skip=15000) queued on lane 2 per the §1523 discipline.
