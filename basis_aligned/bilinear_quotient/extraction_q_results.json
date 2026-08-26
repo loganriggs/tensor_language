@@ -1,0 +1,57 @@
+{
+ "res": {
+  "clean": {
+   "global": 2.9474,
+   "class": 1.5097
+  },
+  "all_substituted": {
+   "global": 7.2677,
+   "class": 7.5056
+  },
+  "circuit_live": {
+   "global": 7.1521,
+   "class": 6.5521
+  },
+  "class_recovery": 0.159,
+  "global_recovery": 0.0268,
+  "random_0": {
+   "heads": [
+    "1.0",
+    "3.4",
+    "9.1",
+    "2.5",
+    "9.6"
+   ],
+   "class_recovery": 0.0342
+  },
+  "random_1": {
+   "heads": [
+    "17.5",
+    "16.8",
+    "10.5",
+    "6.2",
+    "5.4"
+   ],
+   "class_recovery": 0.0391
+  },
+  "random_2": {
+   "heads": [
+    "10.7",
+    "15.7",
+    "5.3",
+    "0.6",
+    "5.5"
+   ],
+   "class_recovery": 0.0369
+  }
+ },
+ "random_class_recoveries": [
+  0.0342,
+  0.0391,
+  0.0369
+ ],
+ "pred_a_recovery_50": false,
+ "pred_b_selective_3x": true,
+ "pred_c_beats_random_5x": false,
+ "runtime_s": 116.1
+}

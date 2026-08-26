@@ -5325,3 +5325,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1588 — saturation partial: logit additivity .90/.93 vs CE .84 — small real overlap remains; joint-family bookkeeping model settled (1-for-3)
 §1589 — REFLECTION: flipping the gender axis at mlp17 destroys he-prediction (p_he −67%, CE +.49, 5× the even gate) without creating she — signed odd-pathway readout, asymmetric coding (2-for-3)
 §1590 — gender channel = 64-unit committee (101% of effect); reflected he-mass flows to NEUTRAL referents (they/it/the) — "gender uncertain," not "female" (2-for-3)
+§1591 — signed gender readout = mlp17 only (20:1 depth ratio); states distributed, readout localized (3-for-3)
+§1592 — EXTRACTION HARD: removal-certified 5-head circuits recover only .16/.23 of the attention gap (selective but 4.1×/3.2× over random, under the 5× bar); extraction curve + compressed-background queued (1-for-3 ×2)

@@ -147,3 +147,5 @@ bilin12 template port; commons transfer.
 - REFLECTION DISCOVERY (S1589): mlp17 carries a SIGNED gender readout through odd pathways worth .49 CE at pronoun positions (5x the even gate). ASYMMETRIC coding: reflected he-state does not become she-prediction (p_he -67%, p_she +11% only).
 - GENDER COMMITTEE NAMED (S1590): the signed channel = 64 units of mlp17 (1.4%), reproducing 101% of the reflection effect; axis-specific (random-dir control .013). Lost he-mass flows to NEUTRAL referents (the/they/it) — reflection reads as "gender uncertain," not "female".
 - Joint-family bookkeeping SETTLED (S1588): mostly parallel pathways + CE saturation + ~8% genuine logit-level overlap (logit additivity .90/.93 vs CE .84/.84). Thread closed.
+- Gender readout DEPTH-LOCALIZED (S1591): mlp17 only (20:1 vs mlp13-16); state distributed, readout single-layer.
+- EXTRACTION ASYMMETRY MEASURED (S1592): the removal-certified 5-head circuits recover only .159 (question) / .230 (pronouns) of the class attention gap under all-heads substitution — removal certifies announcers, extraction needs the context assembly. Extraction curve + compressed-background extraction pending.

@@ -36849,3 +36849,42 @@ model hedge to gender-NEUTRAL referents (they/it/the) with only a sliver
 becoming she. Semantically coherent asymmetry: the he-pole is a specific
 signal; its reflection reads as "gender uncertain," not "female." Registry:
 mlp17 gender committee (64 units) added as a named component.
+
+## §1591 THE SIGNED READOUT LIVES ONLY AT mlp17 (3-for-3): depth profile 20:1 — a single output-adjacent readout layer
+
+**Setup** (reflect_depth, 98s; the same gender-axis reflection applied at one
+MLP input at a time, layers 13-17, per-layer axis means; NR=960). **Scored:**
+pred_a mlp17 ≥ 2× any earlier layer: **PASSED** — .4915 vs max .0242 (20×).
+pred_b mlp13/14/15 each < .10: **PASSED** — .024/.014/.014. pred_c sum of
+13-16 < mlp17: **PASSED** — .056 vs .492.
+
+**Reading:** the signed gender→pronoun channel is a SINGLE-LAYER readout at
+the output-adjacent MLP, not a distributed code — consistent with the §1553-era
+announcer law (states distributed, announcers localized): the gender STATE
+exists in the residual stream throughout (heads read it), but the conversion
+to token probability happens once, at mlp17, through the §1590 64-unit
+committee.
+
+## §1592 EXTRACTION IS THE HARD PROPERTY (1-for-3 twice): removal-certified circuits recover only 16-23% of the attention gap when everything else is removed
+
+**Setup** (extraction_q + extraction_p, 116/118s; all 162 heads
+optimal-constant substituted, MLPs intact; reinstate only the 5 certified
+circuit heads; 3 random-5 control draws; NR=960). **Scored, question:** pred_a
+class recovery ≥ .50: **FAILED** — .159. pred_b selectivity ≥ 3× global
+recovery: **PASSED** — .159 vs .027. pred_c beats best random-5 by ≥ 5×:
+**FAILED** — 4.1× (.159 vs .039). **Scored, pronouns:** pred_a: **FAILED** —
+.230. pred_b: **PASSED** (global recovery is −.079 — the live heads make
+global CE slightly WORSE than full substitution). pred_c: **FAILED** — 3.2×
+(.230 vs .072).
+
+**The property asymmetry, now measured:** the same 5-head circuits that carry
+1.85/0.79 removal effects at 44-186× selectivity recover only 16%/23% of their
+class's attention function when the rest of attention is gone. Removal
+certifies announcers; extraction demands the CONTEXT-ASSEMBLY the rest of
+attention performs (the announcer's inputs die with the substitution). This is
+the cleanest statement yet of the program's announcer law as a benchmark
+datum: removal ≠ extraction, and extraction difficulty is the right price
+signal for "does a compression help circuits STAND ALONE." Follow-ups queued:
+the extraction curve (recovery vs ensemble size K) on lane 1, and extraction
+inside the COMPRESSED attention background (rank-32 whitened QK ship tier) on
+lane 2 — the direct "does compression make extraction easier" cell.
