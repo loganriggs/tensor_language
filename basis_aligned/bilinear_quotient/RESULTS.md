@@ -5315,3 +5315,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1578 — second joint circuit: pronouns = 5 heads + mlp17 payload slice, 101% additive, marginal .121, slice free (3-for-3)
 §1579 — gates private at computation level too; .89 direction = THE's gate (z-removal −.174, 2× output-side) + months payload; single z-directions are the stronger gate handle (1-for-3)
 §1580 — is/months joints: 84% additive (16% head↔slice overlap at late sites), slices free, marginals .18/.08 — joint family now 4 classes (2-for-3)
+§1581 — the-gate z-direction VERIFIED −.249 @ NR=1920; single directions site-specific (question .10, months nothing); signed-r8 slices remain the default grain (2-for-3)
+§1582 — overlap carriers found: is = split channel {11.3, 7.8} (47% each), months = 9.7 (69%); joint re-certification queued (2-for-3)

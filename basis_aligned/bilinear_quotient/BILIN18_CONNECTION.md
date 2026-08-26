@@ -36643,3 +36643,41 @@ a consistent ~16% head↔slice overlap: part of what heads {11.3, 7.8, 10.5, 9.7
 subspace the slice reads). Slices stay free (zero global cost) everywhere.
 Follow-up queued: per-head leave-one-out overlap attribution — find the
 overlap-carrying head, drop it, test additivity restoration.
+
+## §1581 Single z-directions are SITE-SPECIFIC handles, not universal (2-for-3): the-gate VERIFIED at −.249/NR=1920; payload concentrates to one direction only at the sharp sites
+
+**Setup** (zdir_screen, 394s; each class's own top-positive (payload) and
+top-negative (gate) eigenvector of the class form, single-direction z-space
+mean-substitution at the class's best MLP, NR=960; the@mlp17 gate at NR=1920).
+**Scored:** pred_a payload-direction rise ≥ .05 at ≥ 3/8: **FAILED** — 2
+(question .1012, is .0506). pred_b the-gate at NR=1920 ≤ −.10: **PASSED** —
+−.2492 (stronger than the §1579 cross-class direction's −.174; global +.0179).
+pred_c selectivity ≥ 5× at ≥ 3 eligible: **PASSED** — question/pronouns/is.
+
+**Reading:** one z-direction carries 57% of question's rank-2 slice effect
+(.101 vs .178) and half of is's r8 payload — but months' payload is spread
+(top direction alone −.018) and the token-class sites (comma/semicolon/
+close_paren@mlp4) have nothing at single-direction grain. The certified gate
+handle: ONE input direction at mlp17 whose mean-substitution removes .249 of
+the-class CE (NR=1920) at .018 global cost. Oddity logged: is's most-negative
+eigenvector REMOVAL raises is CE +.128 — consistent with §1575 (is has no
+gate): for a gateless class the negative-λ directions still carry payload
+through sign-mixed quadratic terms. Grain hierarchy after this screen: signed
+r8 slices are the reliable default; single directions win only where the
+component is sharp (question) or the gate strong (the, pronouns).
+
+## §1582 The is-overlap is a TWO-HEAD channel, months' is 9.7 (2-for-3): carriers identified, both ensembles fixable
+
+**Setup** (joint_overlap, 387s; per-head leave-one-out slice marginals for the
+is and months ensembles, NR=960). **Scored:** pred_a one is-head carries ≥ 50%
+of the overlap: **FAILED** — 11.3 and 7.8 each recover 47% (a SPLIT channel;
+.473 misses .50 by .027). pred_b the carrier is 11.3 or 7.8: **PASSED** — 7.8
+(.473). pred_c months has a ≥ 40% carrier: **PASSED** — 9.7 recovers 68.7%.
+
+**Reading:** the §1580 sub-additivity decomposes exactly as predicted in kind
+but split in degree: for is, heads 11.3 AND 7.8 (the two heads unique to the
+is ensemble) each route roughly half their class effect through the mlp17
+payload subspace; for months, head 9.7 routes two-thirds of the overlap.
+Follow-up queued: re-certify the joints with carriers dropped (is minus both,
+months minus 9.7) — prediction: additivity restores to ≥ .92/.95 while keeping
+most of the head-side class damage.

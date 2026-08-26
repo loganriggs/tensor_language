@@ -137,4 +137,6 @@ bilin12 template port; commons transfer.
 - SECOND JOINT (S1578): pronouns = W-top5 heads + mlp17 pos_r8 payload slice — 101% additive, marginal .121, slice free. Recipe works even where the raw class form is net-suppressive.
 - mlp17 gates are CLASS-PRIVATE at BOTH levels (S1577 output, S1579 z-space): the .89 shared direction is functionally THE's gate (+ months payload feed); pronouns' gate is orthogonal. Shared-suppressor hypothesis CLOSED.
 - Single z-DIRECTION mean-substitution is the strongest gate handle: the@mlp17 one direction = -.174 class CE (2x the output-side r8 correction) (S1579).
-- JOINT FAMILY (S1576/78/80): question 99.4% / pronouns 101% / is 84% / months 84% additive; payload slices free (global <= .0003) in all four; late-site head ensembles overlap the slice ~16% — leave-one-out attribution pending.
+- JOINT FAMILY (S1576/78/80): question 99.4% / pronouns 101% / is 84% / months 84% additive; payload slices free (global <= .0003) in all four.
+- Overlap carriers IDENTIFIED (S1582): is = split two-head channel {11.3, 7.8} (47% each — they route class effect THROUGH the mlp17 payload subspace); months = 9.7 (69%). Carrier-dropped re-certification pending.
+- the-gate z-direction VERIFIED at NR=1920: -.249 class CE, +.018 global (S1581). Single z-directions are site-specific (question payload .10 = 57% of its rank-2 slice; months payload spread); signed-r8 slices are the reliable default grain.

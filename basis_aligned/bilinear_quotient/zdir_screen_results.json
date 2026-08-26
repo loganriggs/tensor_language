@@ -1,0 +1,100 @@
+{
+ "res": {
+  "comma": {
+   "mlp": 4,
+   "payload_dir": {
+    "rise_class": 0.006,
+    "rise_global": 0.0005
+   },
+   "gate_dir": {
+    "rise_class": -0.0021,
+    "rise_global": 0.0004
+   }
+  },
+  "question": {
+   "mlp": 11,
+   "payload_dir": {
+    "rise_class": 0.1012,
+    "rise_global": -0.0001
+   },
+   "gate_dir": {
+    "rise_class": -0.0126,
+    "rise_global": 0.0001
+   }
+  },
+  "semicolon": {
+   "mlp": 4,
+   "payload_dir": {
+    "rise_class": 0.0035,
+    "rise_global": 0.0001
+   },
+   "gate_dir": {
+    "rise_class": -0.0033,
+    "rise_global": 0.0004
+   }
+  },
+  "pronouns": {
+   "mlp": 17,
+   "payload_dir": {
+    "rise_class": 0.027,
+    "rise_global": 0.0003
+   },
+   "gate_dir": {
+    "rise_class": -0.0991,
+    "rise_global": 0.0013
+   }
+  },
+  "is": {
+   "mlp": 17,
+   "payload_dir": {
+    "rise_class": 0.0506,
+    "rise_global": -0.0002
+   },
+   "gate_dir": {
+    "rise_class": 0.1276,
+    "rise_global": 0.002
+   }
+  },
+  "the": {
+   "mlp": 17,
+   "payload_dir": {
+    "rise_class": 0.012,
+    "rise_global": 0.0002
+   },
+   "gate_dir": {
+    "rise_class": -0.2423,
+    "rise_global": 0.0181
+   }
+  },
+  "months": {
+   "mlp": 17,
+   "payload_dir": {
+    "rise_class": -0.0177,
+    "rise_global": 0.0041
+   },
+   "gate_dir": {
+    "rise_class": -0.0079,
+    "rise_global": 0.0015
+   }
+  },
+  "close_paren": {
+   "mlp": 4,
+   "payload_dir": {
+    "rise_class": 0.002,
+    "rise_global": 0.0002
+   },
+   "gate_dir": {
+    "rise_class": -0.0007,
+    "rise_global": 0.0001
+   }
+  },
+  "the_gate_1920": {
+   "rise_class": -0.2492,
+   "rise_global": 0.0179
+  }
+ },
+ "pred_a_payload_3of8": false,
+ "pred_b_the_gate_1920": true,
+ "pred_c_selective_3": true,
+ "runtime_s": 393.7
+}

@@ -1,0 +1,84 @@
+{
+ "res": {
+  "is": {
+   "heads": [
+    "11.3",
+    "7.8",
+    "10.5",
+    "9.7",
+    "6.7"
+   ],
+   "slice_solo": 0.2604,
+   "marginal_full": 0.1835,
+   "overlap_full": 0.0769,
+   "loo": {
+    "11.3": {
+     "marginal": 0.2197,
+     "overlap_recovered": 0.47
+    },
+    "7.8": {
+     "marginal": 0.2199,
+     "overlap_recovered": 0.473
+    },
+    "10.5": {
+     "marginal": 0.1957,
+     "overlap_recovered": 0.159
+    },
+    "9.7": {
+     "marginal": 0.1969,
+     "overlap_recovered": 0.174
+    },
+    "6.7": {
+     "marginal": 0.1839,
+     "overlap_recovered": 0.005
+    }
+   }
+  },
+  "months": {
+   "heads": [
+    "6.7",
+    "14.7",
+    "7.3",
+    "11.5",
+    "9.7"
+   ],
+   "slice_solo": 0.1273,
+   "marginal_full": 0.0836,
+   "overlap_full": 0.0437,
+   "loo": {
+    "6.7": {
+     "marginal": 0.085,
+     "overlap_recovered": 0.031
+    },
+    "14.7": {
+     "marginal": 0.0907,
+     "overlap_recovered": 0.162
+    },
+    "7.3": {
+     "marginal": 0.0859,
+     "overlap_recovered": 0.051
+    },
+    "11.5": {
+     "marginal": 0.0939,
+     "overlap_recovered": 0.235
+    },
+    "9.7": {
+     "marginal": 0.1137,
+     "overlap_recovered": 0.687
+    }
+   }
+  }
+ },
+ "carrier_is": [
+  "7.8",
+  0.473
+ ],
+ "carrier_months": [
+  "9.7",
+  0.687
+ ],
+ "pred_a_is_50": false,
+ "pred_b_carrier_identity": true,
+ "pred_c_months_40": true,
+ "runtime_s": 387.1
+}
