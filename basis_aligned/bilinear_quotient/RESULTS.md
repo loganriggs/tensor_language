@@ -5277,3 +5277,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1540 — TOTAL GLASS v4 = 3.843 (compounding 0.80x SUB-additive; band .079 missed) (2-for-3)
 §1541 — K3072: all deep MLPs .83-.97, curve fully mapped; deep problem closed as an economics table (2-for-3)
 §1542 — CERTIFIED: total glass 3.88 ± .04 (spread .036 over 3 row sets; 3-for-3); price-opt ordering bug fixed + requeued
+§1543 — Pareto frontier measured: 4.31@2.1 / 4.12@2.6 / 3.88@3.3 Gbit (model 8.7); r16 tier a poor trade; rank-truncated ridge tails queued (2-for-3)

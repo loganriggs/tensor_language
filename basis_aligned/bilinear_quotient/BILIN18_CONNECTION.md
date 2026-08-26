@@ -36046,3 +36046,17 @@ The program's headline number now carries proper error bars: the fully-replaced
 546M model runs at **3.88 ± .04 CE vs clean 2.95**, robust across corpus regions.
 (ship_price_opt crashed twice on a constants-defined-after-use ordering bug —
 moved to module scope, requeued.)
+
+## §1543 The price-optimized ship: 4.31 @ 2.12 Gbit (2-for-3) — the Pareto frontier has three measured points
+
+**Setup** (ship_price_opt after the ordering fix, 92s). **Scored:** pred_a ≤ 4.15:
+**FAILED** — 4.3065 (the r16 attention tier at 5 layers plus K-mixing cost .19 CE
+over v3 to save .43 Gbit). pred_b price ≤ 2.6 Gbit: **PASSED** — **2.123** (vs the
+model's 8.7). pred_c band ≤ .08: **PASSED** — .043.
+
+**The measured joint-replacement Pareto frontier:** 4.31 @ 2.12 Gbit / 4.12 @ ~2.6
+/ 3.88 ± .04 @ ~3.3. The r16 attention downgrade is a poor trade at these points;
+the dominant frontier inefficiency is the deep planks' unit tables. Queued: the
+§1535 pooled fix — core-256 sub-MLP + RANK-64-TRUNCATED stream ridge tail (~35
+Mbit/module, 3× cheaper than units-1024) at four sites split across lanes; if it
+retains the hybrid's fidelity it re-prices the whole deep tier.

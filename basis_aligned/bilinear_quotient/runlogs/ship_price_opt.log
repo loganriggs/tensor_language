@@ -1,9 +1,13 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 whiteners built
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_price_opt.py", line 427, in <module>
-    main()
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_price_opt.py", line 249, in main
-    rr_ = 16 if LT in R16_LAYERS else 32
-                      ^^^^^^^^^^
-UnboundLocalError: cannot access local variable 'R16_LAYERS' where it is not associated with a value
+attn maps built
+context capture done
+planks 0/1 context-fit
+planks 2/3 fit
+unit planks built
+{'clean': 2.9455, 'ship26': 3.967}
+{'clean': 2.9455, 'ship26': 3.967, 'ship36': 4.3065}
+{'clean': 2.9455, 'ship26': 3.967, 'ship36': 4.3065, 'ship36_fresh2000': 4.3494}
+ship36 4.3065 delta 1.3610
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ship_price_opt_results.json (92.1s)
