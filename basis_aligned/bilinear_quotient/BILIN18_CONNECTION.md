@@ -35002,3 +35002,42 @@ pred_b ≥80% low-rank: **FAILED** — 60%. pred_c mlp largest: **PASSED** — 8
 .006. Program consequence: for deep-mid MLPs the folding-in unit must be the
 STREAM (accumulated sum), not the adjacent module — registered as the next
 description class to build for the board's new top tier.
+
+## §1477 THE ATTENTION COMPOSITE IS SOLVED: all 18 layers simultaneously cost .162 CE (3-for-3) — compounding 1.96x, record 3.92 → 3.11
+
+**Setup** (attn_composite8, 224s). Three-tier class at every layer at once (whitened
+r32, plain SVD at 8/16/17, full QK for the 30 named roster heads); per-layer singles
+measured in-script.
+
+**Registered predictions, scored as written:** pred_a ≤ 3.60: **PASSED** — **3.1074**.
+pred_b beats the 3.9166 record: **PASSED** — by .81. pred_c compounding ≤ 3×:
+**PASSED** — **1.955×** (singles sum .0828, composite delta .1619).
+
+**Reading:** the composite ladder ends: 5.28 → 4.73 → 4.45 → 4.41 → 4.39 → 4.01 →
+3.92 → **3.11** (clean 2.946). The whole attention stack replaced at once costs .16
+CE at ~460 Mbit (vs 1530 full). Compounding dropped from 3.0× (kernels) to 1.96×
+(high-fidelity per-layer stand-ins) — errors compound gently when each layer is
+≥ .84. The lesson-3 pattern held without composite-specific retraining because the
+stand-ins are computed FROM the (mildly perturbed) stream rather than being
+data-independent constants.
+
+## §1478 mlp17's channel quadratic adds nothing (0-for-3) — its read of mlp16 is LINEAR, and linall sets a new best .878
+
+**Setup** (mlp17_channel, lane 2, 187s). Channel-basis quadratic (528 features from
+the mlp16→mlp17 top-32 directions) vs random r256/F8192, both on a linall ridge.
+
+**Scored as written:** pred_a chanquad ≥ .90: **FAILED** — .8809. pred_b chan ≥ rand:
+**FAILED** — +.0027 vs +.0042. pred_c chan adds ≥ .04: **FAILED** — +.0027.
+
+**Reading:** linall (18-block ridge) alone = **.8782**, already beating the prior
+.856 — but BOTH quadratics are inert. The .1075 mlp16→mlp17 channel is consumed
+LINEARLY (its content reaches mlp17's output without bilinear mixing that a
+quadratic-in-32-dims can capture). mlp17 stays "a linear reader of the stream" —
+seed updated to .8824 (randquad, price-heavy ridge noted). Deep-mid MLPs' missing
+~.12 fid is NOT in adjacent-channel quadratics.
+
+**Queued:** full_ship (lane 1) — attention three-tier composite + context-fit
+mlp0/mlp1 planks, all simultaneously; arms clean/attn/mlp1/mlp0/attn+mlp1/all3;
+preds attn+mlp1 ≤ 3.65, all3 ≤ 3.90, ship compounding ≤ 2.5×. mlp1_scale (lane 2) —
+board #1 mechanical scaling: tier8000 + rank-256 ridge; preds ≥ .965 / ≥ .960 /
+beats .9507 by ≥ .008.

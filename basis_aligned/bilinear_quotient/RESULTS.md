@@ -5211,3 +5211,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1474 — whitened r32 QK sweeps 11/11 layers (median .937, a12 .206→.887): attention per-layer SOLVED ≥.84 everywhere; board top now deep-mid MLPs (3-for-3)
 §1475 — atlas L0-7: front-loaded edges (L0/L1 mlp .14/.13), mlp channel dominant 87%, but mlp edges higher-rank than attn (2-for-3)
 §1476 — atlas L8-16: deep adjacent edges ~0 (median .002) — deep MLPs read the STREAM; exception mlp16→mlp17 = .108 cleanly low-rank (1-for-3)
+§1477 — ATTENTION COMPOSITE SOLVED: 18 layers at once = +.162 CE (3.1074; compounding 1.96x; 3-for-3); ladder closed 5.28→3.11
+§1478 — mlp17 channel quad inert (0-for-3): reads mlp16 LINEARLY; linall .878 = new best; deep-mid missing fid not in adjacent quadratics; full_ship + mlp1_scale queued
