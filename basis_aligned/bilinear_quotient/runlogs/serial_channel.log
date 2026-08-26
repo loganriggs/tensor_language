@@ -1,11 +1,6 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/serial_channel.py", line 221, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/serial_channel.py", line 101, in main
-    WU = m.lm_head.weight.float().to(DEV)[:50257]
-         ^
-UnboundLocalError: cannot access local variable 'm' where it is not associated with a value
+z captured
+is {'elev_base': 610.3616, 'elev_abl': 512.6442, 'elev_drop_frac': 0.16, 'global_mean_base': 731.2876, 'global_mean_abl': 676.8049, 'n_class': 141}
+months {'elev_base': 442.9341, 'elev_abl': 377.0333, 'elev_drop_frac': 0.149, 'global_mean_base': 797.6582, 'global_mean_abl': 736.5671, 'n_class': 8}
+pred_a False | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/serial_channel_results.json (46.2s)

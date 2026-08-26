@@ -36724,3 +36724,46 @@ stage). Echoes the user's mlp0 principle — "attention matters via feeding the
 MLP" — now demonstrated at the top of the stack. The direct mechanistic
 confirmation (do the payload-subspace activations collapse at class positions
 when 11.3/7.8 are substituted?) is queued on lane 1.
+
+## §1585 SERIAL ROUTING NOT CONFIRMED (1-for-3): substituting 11.3/7.8 drops the payload activation only 16% — the §1584 story revises to PARALLEL PATHWAYS + CE SATURATION
+
+**Setup** (serial_channel, 46s; z captured at the mlp17 input with and without
+heads 11.3/7.8 optimal-constant substituted; class-conditional elevation of the
+is payload form compared; months as specificity control). **Scored:** pred_a
+elevation drops ≥ 40%: **FAILED** — 16.0%. pred_b months elevation change
+< 15%: **PASSED** — 14.9% (by .001; barely — and note months' n_class is only
+8 fit positions, so this control is weak). pred_c background shift < 20% of the
+class shift: **FAILED** — the global mean moved 54.5 vs a 97.7 elevation
+change.
+
+**The honest revision of §1584:** the is-heads do NOT primarily work by feeding
+the mlp17 payload subspace — the payload's class-conditional activation
+survives their removal nearly intact. The §1580/§1582 sub-additivity is better
+explained as PARALLEL pathways with CE-level saturation: heads and slice both
+push down the same class logit, and once one handle has damaged it, the second
+buys less CE (diminishing returns), which masquerades as overlap. The §1582
+leave-one-out "carriers" are then just the biggest parallel contributors, not
+routers. Discriminating test queued: LOGIT-level additivity — if the pathways
+are parallel-with-saturation, the class-logit drops should be near-additive
+even where the CE rises were 84%-additive.
+
+## §1586 THE GATE IS A PRECISION DEVICE (2-for-3): its damage under removal concentrates 44× at almost-the positions — but it suppresses true and false positives alike
+
+**Setup** (gate_function, 56s; token-level p(the) and CE with the determiner-
+axis gate on vs z-removed, positions split into class (target=the) /
+almost-the (the in clean top-5, target≠the) / background; NR=960). **Scored:**
+pred_a p(the) at almost-the rises ≥ 50% relative: **FAILED** — +33.3%
+(.149→.199). pred_b class p(the) rises ≥ 20%: **PASSED** — +22.4% (.388→.475).
+pred_c damage concentrated ≥ 3× at almost-the: **PASSED** — CE rise .1007 vs
+background .0023 = 44×.
+
+**Function certified, magnitude corrected:** the determiner gate trades class
+recall for precision at exactly the confusable positions — its removal's global
+cost sits 44× disproportionately on almost-the positions, while class
+positions IMPROVE by .24 CE. But it is a blunt device: it suppresses true
+positives (+22%) almost as strongly as false ones (+33%), so it is a uniform
+determiner-axis damper, not a context-sensitive discriminator. Why the model
+nets out ahead: almost-the positions outnumber class positions ~3:1 in this
+row set, so uniform damping is globally profitable. Pronouns-gate accounting
+(the gender-contrast axis — where removal should show OPPOSITE-sign effects on
+he vs she) queued as the discriminating companion.

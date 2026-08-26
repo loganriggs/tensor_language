@@ -5319,3 +5319,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1582 — overlap carriers found: is = split channel {11.3, 7.8} (47% each), months = 9.7 (69%); joint re-certification queued (2-for-3)
 §1583 — gates NAMED: the-gate = determiner axis (rank #1/50257, 1.57σ, AUC .92); pronouns-gate = she↔he gender axis — late-MLP calibrators on nameable axes (3-for-3)
 §1584 — is "overlap" = SERIAL pipeline: heads 11.3/7.8 are 93% of the attention side and work THROUGH mlp17; additivity .954 once stages separated (1-for-3)
+§1585 — serial routing REFUTED at z-level (payload elevation −16% only): is sub-additivity = parallel pathways + CE saturation; logit-additivity discriminator queued (1-for-3)
+§1586 — determiner gate = blunt precision damper: removal damage 44× concentrated at almost-the, class +.24 recovered; suppresses true and false positives alike (2-for-3)

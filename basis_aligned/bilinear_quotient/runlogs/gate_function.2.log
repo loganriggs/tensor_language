@@ -1,11 +1,7 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/gate_function.py", line 212, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/gate_function.py", line 88, in main
-    WU = m.lm_head.weight.float().to(DEV)[:50257]
-         ^
-UnboundLocalError: cannot access local variable 'm' where it is not associated with a value
+z captured
+class {'p_the_gate_on': 0.38765, 'p_the_gate_off': 0.47457, 'rel_p_change': 0.224, 'ce_rise': -0.2423}
+almost {'p_the_gate_on': 0.14912, 'p_the_gate_off': 0.19871, 'rel_p_change': 0.333, 'ce_rise': 0.1007}
+background {'p_the_gate_on': 0.0017, 'p_the_gate_off': 0.00202, 'rel_p_change': 0.19, 'ce_rise': 0.0023}
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gate_function_results.json (55.8s)
