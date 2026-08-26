@@ -1,0 +1,56 @@
+{
+ "res": {
+  "clean": {
+   "global": 2.7924,
+   "cls": 4.3452
+  },
+  "rm_ens": {
+   "global": 2.8623,
+   "cls": 4.983
+  },
+  "rm_sub": {
+   "global": 2.8111,
+   "cls": 4.3748
+  },
+  "rm_both": {
+   "global": 2.8776,
+   "cls": 5.0051
+  },
+  "bg": {
+   "global": 4.5116,
+   "cls": 6.7275
+  },
+  "bg_ens": {
+   "global": 4.3464,
+   "cls": 6.0725
+  }
+ },
+ "rises": {
+  "rm_ens": {
+   "global": 0.0699,
+   "cls": 0.6378
+  },
+  "rm_sub": {
+   "global": 0.0187,
+   "cls": 0.0296
+  },
+  "rm_both": {
+   "global": 0.0852,
+   "cls": 0.6599
+  }
+ },
+ "extraction_recovery": {
+  "global": 0.0961,
+  "cls": 0.2749
+ },
+ "classifier": {
+  "spearman": 0.739,
+  "n_tokens": 77,
+  "fn_rate_top50_damaged": 0.62,
+  "fp_rate_top50_scored": 0.26
+ },
+ "pred_a_removal_selective_3x": true,
+ "pred_b_extraction_selective_2x": true,
+ "pred_c_classifier": false,
+ "runtime_s": 118.1
+}

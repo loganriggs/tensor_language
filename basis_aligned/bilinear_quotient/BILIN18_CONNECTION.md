@@ -35475,3 +35475,26 @@ bucket v1 lacked entirely), plus rank correlation. v2 scores: s_w = fraction of
 lm_head row w's norm inside the ensemble's output subspace (span of the ensemble
 heads' c_proj image slices, top-64 SVD — weights only); ground truth = per-target-
 token CE rise under ensemble removal.
+
+## §1503 Capitalization circuit CERTIFIED on the target-side distribution (2-for-3): removal 9.1× selective, extraction 2.9× — the classifier ranks well but misses the damage tail
+
+**Setup** (circuit_cap2 after fwd-def fix, 118s). Distribution = positions whose
+TARGET is a capitalized word (' X...'); ensemble = 13 heads L13-17; classifier =
+weights-only score s_w (fraction of unembedding row in the ensemble's output
+subspace, rank-64).
+
+**Scored as written:**
+- pred_a removal class-selective ≥ 3×: **PASSED** — 9.1× (class +.6378, global
+  +.0699). The v1 failure was entirely the mis-specified distribution (§1502).
+- pred_b extraction selective ≥ 2×, non-vacuous: **PASSED** — class recovery .275
+  vs global .096 (2.9×), global positive.
+- pred_c classifier (ρ ≥ .3 AND FN ≤ .5): **FAILED on FN** — Spearman .739 (the
+  weights-only score ranks per-token damage remarkably well) but FN rate .62: 31 of
+  the 50 most-damaged class tokens sit outside the score's top quartile. FP .26.
+
+**Reading:** the capitalization circuit now passes removal + extraction on its
+proper distribution, and the weight score is a genuinely predictive (ρ .74) but
+INCOMPLETE membership classifier — the damage tail has structure the rank-64 output
+subspace misses. Queued: FN analysis — score-subspace rank sweep (16/64/128/256)
+with per-token arrays SAVED and the s_w-vs-damage scatter PLOTTED (per the new
+plotting default).

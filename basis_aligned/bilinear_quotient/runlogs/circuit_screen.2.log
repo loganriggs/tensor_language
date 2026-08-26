@@ -1,0 +1,14 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_screen.py", line 277, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_screen.py", line 109, in main
+    rows = WU[v.to(DEV)]
+           ~~^^^^^^^^^^^
+IndexError: The shape of the mask [50257] at index 0 does not match the shape of the indexed tensor [50304, 1152] at index 0
+Fatal Python error: PyGILState_Release: auto-releasing thread-state, but no thread-state for this thread
+Python runtime state: finalizing (tstate=0x0000572210d915d0)
+
