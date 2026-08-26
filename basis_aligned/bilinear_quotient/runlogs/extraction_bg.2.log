@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+attn maps built
+{
+ "clean": {
+  "global": 2.9474,
+  "class": 1.5097
+ },
+ "bg": {
+  "global": 3.1093,
+  "class": 1.6999
+ },
+ "bg_plus_circuit": {
+  "global": 3.1094,
+  "class": 1.7145
+ },
+ "bg_class_rise": 0.1902,
+ "const_class_rise_ref": 5.9959,
+ "rec_in_bg": -0.0768,
+ "rec_const_ref": 0.159
+}
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/extraction_bg_results.json (60.9s)

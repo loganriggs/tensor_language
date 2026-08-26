@@ -36888,3 +36888,42 @@ signal for "does a compression help circuits STAND ALONE." Follow-ups queued:
 the extraction curve (recovery vs ensemble size K) on lane 1, and extraction
 inside the COMPRESSED attention background (rank-32 whitened QK ship tier) on
 lane 2 — the direct "does compression make extraction easier" cell.
+
+## §1593 THE EXTRACTION CURVE IS NON-MONOTONE (1-for-3): heads 11-20 HURT recovery — the §1334 inversion reappears at question extraction
+
+**Setup** (extraction_curve, 92s; top-K weights-only heads live in the optimal-
+constant background, K ∈ {5,10,20,40}, question class, NR=960). **Scored:**
+pred_a monotone in K: **FAILED** — .159 / .323 / .231 / .403 (K=20 DROPS below
+K=10). pred_b K=40 ≥ .50: **FAILED** — .403. pred_c diminishing returns:
+**PASSED** — .033/head (5→10) vs .009/head (20→40).
+
+**Reading:** the second decade of heads (6.5, 9.3, 5.7, 13.3, 6.7, 11.0, 13.8,
+14.2, 4.1, 11.3) is NET-HARMFUL when live in a dead background — heads whose
+useful function depends on upstream attention context inject miscalibrated
+signal without it. This is the registry's §1334 inversion ("under partial
+extraction, MORE live components can be worse") reproduced at the question
+circuit, and it caps constant-background extraction well below 1: even 25% of
+heads recovers only .40. Extraction against constants is structurally limited —
+which makes the compressed-background result (§1594) the important one.
+
+## §1594 COMPRESSION IS EXTRACTION (1-for-3): the rank-32 QK background alone preserves 97% of the question class function — exact circuit heads add NOTHING
+
+**Setup** (extraction_bg, 61s; ship three-tier attention background — per-head
+rank-32 whitened QK, plain SVD at {8,16,17}, SPEC roster exact (question heads
+NOT in SPEC) — MLPs intact; then + the 5 exact question heads; NR=960).
+**Scored:** pred_a background class rise ≤ .5× the constants rise: **PASSED**
+overwhelmingly — .190 vs 5.996 (3.2%). pred_b exact heads close ≥ .30 of the
+background deficit: **FAILED** — −.077 (they make class CE trivially WORSE,
+1.6999→1.7145). pred_c extraction ≥ 1.5× easier than constants: **FAILED** —
+vacuously (the marginal is negative).
+
+**The benchmark cell, answered opposite to its framing:** compression doesn't
+"make extraction easier" — a good compression already IS the extraction. The
+rank-32 whitened QK maps preserve the question circuit's function (97% of class
+CE kept) because the circuit heads' QK computation is effectively low-rank;
+substituting the exact heads back adds only calibration noise. The properties
+matrix now reads: extraction against a DEAD background is structurally capped
+(.16-.40, §1592-93 inversions); extraction via a COMPRESSED background is
+nearly free. The price signal for a compression is therefore its class-CE
+preservation directly — pronouns confirmation + a rank sweep (where does the
+circuit break: r ∈ {4,8,16,32}) queued.

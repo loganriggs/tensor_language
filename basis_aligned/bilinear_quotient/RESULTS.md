@@ -5327,3 +5327,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1590 — gender channel = 64-unit committee (101% of effect); reflected he-mass flows to NEUTRAL referents (they/it/the) — "gender uncertain," not "female" (2-for-3)
 §1591 — signed gender readout = mlp17 only (20:1 depth ratio); states distributed, readout localized (3-for-3)
 §1592 — EXTRACTION HARD: removal-certified 5-head circuits recover only .16/.23 of the attention gap (selective but 4.1×/3.2× over random, under the 5× bar); extraction curve + compressed-background queued (1-for-3 ×2)
+§1593 — extraction curve NON-MONOTONE (.16/.32/.23/.40): second-decade heads harmful in dead background — §1334 inversion at question; constants extraction capped (1-for-3)
+§1594 — COMPRESSION IS EXTRACTION: rank-32 QK background keeps 97% of question class function; exact circuit heads add nothing (−.08) — good compression already is the extraction (1-for-3)
