@@ -5245,3 +5245,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1508 — digits 0-for-3: top-8 dilutes with generalists; rank-32 background fixes non-vacuity; per-class ensemble sizing needed
 §1509 — head 12.6 = clause-boundary punctuation head (6 classes hit, global .001, 13x chosen-concentration; 2-for-3)
 §1510 — greedy v1 objective mis-specified (walks to the selectivity floor; 0-for-3); v2 corrected rule queued
+§1511 — greedy v2 3-for-3: 2-4 head ensembles, 5-17x, 4/4 beat top-5; recipe settled (is/was/are = 2 heads @ 16.9x)
+§1512 — extraction-by-restoration fails mid-stack (class recovery NEGATIVE all 3): circuits need their input paths, not just their heads; extract4 diagnosis queued

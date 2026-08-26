@@ -35611,3 +35611,33 @@ converged to selectivity ≈ 2.0-2.4, WORSE than the plain top-5 on 3 of 4 class
 (digits 2.3× vs 5.2×). A constrained-maximization rule saturates its constraint;
 the objective must BE selectivity (or a product), not damage-with-a-floor. v2
 queued with the corrected acceptance rule.
+
+## §1511 Greedy v2: 3-for-3 — the circuit-construction recipe is settled (2-4 head ensembles, 5-17× selective, all four beat top-5)
+
+**Setup** (circuit_greedy2, 219s). Selectivity-preserving acceptance (add a head
+only if class damage grows ≥15% and selectivity drops ≤10%).
+
+**Scored as written:** pred_a beats top-5 on ≥2 of 4: **PASSED** — **4/4**. pred_b
+median size ≤ 5: **PASSED** — 3.5 (sizes 2-4). pred_c digits ≥ 6×: **PASSED** —
+8.86×. Highlights: 'is/was/are' = TWO heads {11.3, 15.5} at **16.9×**; 'the' =
+{7.3, 10.8, 11.7} at 9.8×; 'and/or/but' = 4 heads at 5.1×.
+
+**The finalized recipe:** candidates from the weights-only score (class unembedding
+∘ head output slices), greedy growth under a selectivity-preservation rule, verify
+at full row count. Registry updated with the four improved ensembles.
+
+## §1512 Extraction-by-restoration FAILS for mid-stack circuits (0-for-3): class recovery NEGATIVE for all three punctuation circuits
+
+**Setup** (circuit_extract3, lane 2, 197s). 5-head ensembles exact on the rank-32
+background. **Scored:** all three predictions **FAILED** — class recoveries are
+NEGATIVE (question −.37, semicolon −.60, close_paren −.29 of the class gap) while
+global ≈ 0.
+
+**Reading:** the mid-stack (L7-15) punctuation heads restored exact on an
+approximated stream fire on distorted inputs and OVERWRITE the background's generic
+behavior with confidently-wrong patterns — worse than leaving them approximated.
+Contrast: the capitalization ensemble (L13-17, §1503) extracted at 2.9× even on a
+cruder background. Hypothesis for the diagnosis run: mid-stack circuits' inputs
+need exactness BELOW them; extraction must include the input paths, not just the
+heads. Queued: extract4 — same circuits with layers below the ensemble kept exact
+(and a half-depth arm to locate how much input fidelity is needed).
