@@ -34907,3 +34907,42 @@ weight-derived, causally-sized objects: mlp0's signal into block 1 ≈ mean bias
 {determiner axis, name-fragment axis, syntax axis} + tail. pred_b's failure is itself
 informative: these axes are read by MANY heads at once (broadcast signals), not
 routed point-to-point — except the determiner axis's k2@1.1 concentration.
+
+## §1471 The named axes' causal footprints: control clean, D2 specific, D1's damage lands MORE on name-fragments than determiners (2-for-3)
+
+**Setup** (edge_axis_causal, 83s). Rank-1 mean-preserving cuts of each named axis at
+block-1's pattern+values reads; global + class-conditional CE (position's PREVIOUS
+token in the axis's top set; n_det = 14,110, n_frag = 778 positions).
+
+**Registered predictions, scored as written:**
+- pred_a D1 determiner-following rise ≥ 3× global: **FAILED** — 1.45× (.0112 vs
+  .0077 global).
+- pred_b control axis inert ≤ .003: **PASSED** — 0.0000 exactly. The cuts are
+  surgical; whatever damage appears is the axis, not the surgery.
+- pred_c D2 name-fragment rise ≥ 2× global: **PASSED** — 3.2× (.0019 vs .0006).
+
+**The informative miss:** D1's LARGEST class-conditional rise is on name-fragment
+positions (.0169 — 2.2× global), not determiner positions. The determiner axis is
+named for its input spectrum (what activates it), but its downstream USE concentrates
+where determiners and names interact (e.g. "the" preceding capitalized entities).
+Lesson for the naming program: an axis needs two names — what EXCITES it (input
+spectrum, §1470) and what it is FOR (causal footprint, this run) — and they need not
+coincide. Magnitudes are small throughout, consistent with §1468's ~.09 CE total
+signal budget.
+
+## §1472 Roster-live + whitened rank-32 CRACKS both hard layers (3-for-3): attn5 .597→.923, attn8 .794→.935
+
+**Setup** (attn5_hybrid2, lane 2, 69s). Named roster heads keep full QK (a5={7},
+a8={1,2,3,7}); the other heads get whitened per-head rank-32.
+
+**Registered predictions, scored as written:** pred_a attn5 ≥ .75: **PASSED** —
+**.9228** @ 30.4 Mbit. pred_b attn8 ≥ .85: **PASSED** — **.9346** @ 50.7 Mbit.
+pred_c both beat both parents: **PASSED**.
+
+**Board impact:** attn5 (board #3, .055 unexplained) collapses to .011; attn8 to
+~.003. The attention description now has a three-tier grammar: distance kernel
+(37 Kbit) where it holds, whitened rank-32 QK (23.6 Mbit) for generic content heads,
+full QK (9.4 Mbit/head) only for the named specialists. Queued: the class swept
+across the 11 remaining layers (kernel fids .21-.85) — preds: median ≥ .85, all beat
+kernel, a12 (worst, .206) ≥ .70. Lane 2: mlp1_edge_centered (§1468 pool) — the .221
+mlp1 edge's mean/signal split + is-the-signal-low-rank.

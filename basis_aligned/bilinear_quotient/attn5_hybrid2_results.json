@@ -1,0 +1,29 @@
+{
+ "ce": {
+  "clean": 2.9455,
+  "attn5_r32": 2.9561,
+  "attn8_r32": 2.9487
+ },
+ "fid_opt": {
+  "attn5_r32": 0.9228,
+  "attn8_r32": 0.9346
+ },
+ "parents": {
+  "kernel_roster": {
+   "5": 0.597,
+   "8": 0.794
+  },
+  "whitened_r32": {
+   "5": 0.531,
+   "8": 0.675
+  }
+ },
+ "mbits": {
+  "a5_hybrid": 30.4,
+  "a8_hybrid": 50.7
+ },
+ "pred_a_a5_75": true,
+ "pred_b_a8_85": true,
+ "pred_c_beats_parents": true,
+ "runtime_s": 69.2
+}
