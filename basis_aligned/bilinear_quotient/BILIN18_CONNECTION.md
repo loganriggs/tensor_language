@@ -35877,3 +35877,18 @@ apparatus, whose most visible cargo is repeated proper names and which the remov
 program had originally certified under the name "capitalization." Removal handles:
 2-160× selective. Extraction: works given the shared trunk. Generalization: class-
 conditional damage decompositions replicate across row sets and class splits.
+
+## §1530 High-selectivity re-verification (2-for-3): four claims HARDEN (close_paren 416×, comma 207×), and the process caught a transcription error
+
+**Setup** (circuit_verify_high, NR=1920, 142s). **Scored:** pred_a all five ≥ 30×:
+**FAILED** — semicolon read 0.24×... because the arm used HAND-TRANSCRIBED WRONG
+heads ({12.6, 13.3, 15.1, 10.5, 13.8} instead of the screen's {12.6, 6.5, 11.7,
+13.5, 15.2}); the other four verified: close_paren 362.7→**416.3×**, comma
+160.6→**206.6×**, question 158.9→148.9×, colon 58.1→49.3×. pred_b close_paren ≥
+200×: **PASSED**. pred_c ordering preserved: **PASSED** — ρ .90.
+
+**LESSON (library): head lists are DATA — parse them from results files, never
+hand-transcribe.** (Silver lining: the phantom set's near-zero class effect is
+itself a specificity control — five arbitrary punctuation-adjacent heads do NOT
+move the semicolon class.) Registry updated with the four hardened numbers;
+semicolon re-verification with parsed heads queued.
