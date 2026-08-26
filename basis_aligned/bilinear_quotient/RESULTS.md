@@ -5247,3 +5247,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1510 — greedy v1 objective mis-specified (walks to the selectivity floor; 0-for-3); v2 corrected rule queued
 §1511 — greedy v2 3-for-3: 2-4 head ensembles, 5-17x, 4/4 beat top-5; recipe settled (is/was/are = 2 heads @ 16.9x)
 §1512 — extraction-by-restoration fails mid-stack (class recovery NEGATIVE all 3): circuits need their input paths, not just their heads; extract4 diagnosis queued
+§1513 — greedy sweep 2: comma 160x (4 heads), colon = head 12.6 alone @ 58x, months = 14.7 alone @ 21.7x; 10 recipe-built ensembles (3-for-3)
+§1514 — extraction: class recovers (.57-.93) once layers 0-6 attention is exact, but NON-selectively — minimal input-path search queued (3-for-3 + caveat)

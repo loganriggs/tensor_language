@@ -1,0 +1,82 @@
+{
+ "res": {
+  "comma": {
+   "heads": [
+    "6.5",
+    "15.2",
+    "9.5",
+    "11.7"
+   ],
+   "size": 4,
+   "screen_sel": 110686.88,
+   "verified_sel": 160.59,
+   "verified_cls_rise": 0.1122,
+   "top5_ref_sel": 20.81
+  },
+  "colon": {
+   "heads": [
+    "12.6"
+   ],
+   "size": 1,
+   "screen_sel": 54.87,
+   "verified_sel": 58.11,
+   "verified_cls_rise": 0.0434,
+   "top5_ref_sel": 7.65
+  },
+  "close_quote": {
+   "heads": [
+    "12.6",
+    "13.3",
+    "14.8",
+    "10.7",
+    "10.6"
+   ],
+   "size": 5,
+   "screen_sel": 65.02,
+   "verified_sel": 47.96,
+   "verified_cls_rise": 0.4065,
+   "top5_ref_sel": 30.99
+  },
+  "dollar": {
+   "heads": [
+    "10.3",
+    "12.6",
+    "17.2"
+   ],
+   "size": 3,
+   "screen_sel": 28.42,
+   "verified_sel": 24.89,
+   "verified_cls_rise": 0.1377,
+   "top5_ref_sel": 4.16
+  },
+  "said": {
+   "heads": [
+    "11.3",
+    "9.1",
+    "11.5",
+    "12.2"
+   ],
+   "size": 4,
+   "screen_sel": 14.99,
+   "verified_sel": 11.07,
+   "verified_cls_rise": 0.1449,
+   "top5_ref_sel": 3.5
+  },
+  "months": {
+   "heads": [
+    "14.7"
+   ],
+   "size": 1,
+   "screen_sel": 26.55,
+   "verified_sel": 21.69,
+   "verified_cls_rise": 0.0405,
+   "top5_ref_sel": 3.7
+  }
+ },
+ "wins_vs_top5": 6,
+ "median_size": 3.5,
+ "pred_a_all6_beat_top5": true,
+ "pred_b_size_le_4": true,
+ "pred_c_one_100x": true,
+ "runtime_s": 358.1
+}

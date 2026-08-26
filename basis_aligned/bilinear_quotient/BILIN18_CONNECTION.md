@@ -35641,3 +35641,31 @@ cruder background. Hypothesis for the diagnosis run: mid-stack circuits' inputs
 need exactness BELOW them; extraction must include the input paths, not just the
 heads. Queued: extract4 — same circuits with layers below the ensemble kept exact
 (and a half-depth arm to locate how much input fidelity is needed).
+
+## §1513 Greedy recipe sweep 2: 3-for-3 — comma at 160×, and the first SINGLE-HEAD circuits (colon = 12.6 @ 58×, months = 14.7 @ 21.7×)
+
+**Setup** (circuit_greedy3, 358s). **Scored:** pred_a all 6 beat top-5: **PASSED**
+— 6/6 (comma 20.8→**160.6×** with 4 heads; colon 7.7→58.1× with ONE head; dollar
+4.2→24.9×; months 3.7→21.7× with ONE head; close_quote 31→48×; said 3.5→11.1×).
+pred_b median size ≤ 4: **PASSED** — 3.5. pred_c ≥1 class ≥ 100×: **PASSED** —
+comma 160.6×.
+
+**Ten classes now carry recipe-built ensembles (sizes 1-5, selectivity 5-160×).**
+The single-head circuits close loops: colon's circuit IS the clause-boundary head
+12.6 (§1509); months' is head 14.7 (the §1420 "sub-bar moonlight" head — now a
+certified specialist).
+
+## §1514 Extraction needs the INPUT STREAM, and gets it non-selectively (3-for-3 as registered, with the selectivity caveat)
+
+**Setup** (circuit_extract4, lane 2, 296s). **Scored:** pred_a below-exact turns
+class recovery positive for ≥2 of 3: **PASSED** — 3/3 (question .89, semicolon .93,
+close_paren .57 from −.37/−.60/−.29). pred_b ≥ .30 somewhere: **PASSED**. pred_c
+half-depth (layers 0-6 exact) suffices for ≥2 of 3: **PASSED** — 3/3 (.79/.72/.57).
+
+**The caveat that defines the next problem:** these arms recover GLOBAL almost as
+much as class (.77-.90) — "exact attention below layer 7 + ensemble heads" is not a
+minimal circuit, it is most of the model. The honest statement: mid-stack circuit
+heads WORK when their inputs are faithful, and the needed inputs live in layers
+0-6, but a SELECTIVE extraction requires finding the small subset of lower
+components the circuit actually reads. Queued: extract5 narrows the input set
+({0-3} vs {4-6} attention exact) with a selectivity bar registered.
