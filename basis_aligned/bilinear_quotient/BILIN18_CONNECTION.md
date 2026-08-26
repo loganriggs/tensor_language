@@ -35997,3 +35997,23 @@ units, with no sharp cutoff. K=2048 (114 Mbit, 2.2× cheaper than the module) se
 new bests at mlps 10/12/13/14. Queued: K=2048 completion at the remaining deep
 MLPs (lane 2) and ship v3 with K=2048 planks (lane 1; preds ≤ 4.30, beats v2 by ≥
 .20, band ≤ .05).
+
+## §1538 TOTAL GLASS v3: 4.1214 — compounding 1.04×, the ship is now the SUM OF ITS PARTS (2-for-3)
+
+**Setup** (ship_all36_v3, K=2048 planks, 117s). **Scored:** pred_a ≤ 4.30:
+**PASSED** — **4.1214**. pred_b beats v2 by ≥ .20: **PASSED** — by .4326. pred_c
+fresh band ≤ .05: **FAILED by .0097** — .0597. Ship line: 5.535 (v1) → 4.554 (v2)
+→ **4.121** (v3); delta 1.176 vs solo-sum estimate 1.127 → compounding **1.04×**.
+With interactions eliminated, further ship progress is exactly plank-by-plank
+progress; the ledger of remaining costs is now additive and readable.
+
+## §1539 K=2048 completes: deep MLPs all at .70-.94; the log-linear law holds UNTIL SATURATION (1-for-3)
+
+**Setup** (deep_units_2048, lane 2, 132s). **Scored:** pred_a every module gains ≥
+.08: **FAILED** — the near-saturated modules gain less (mlp17 +.051 at .9384).
+pred_b median ≥ .72: **PASSED** — .81. pred_c strict log-linearity: **FAILED** at
+the saturating modules (16/17). Refined law: log-linear in K until ~.9, then
+saturating. Ten seeds updated (mlp4 .858 ... mlp17 .938); EVERY deep MLP now sits
+at .65-.94 via plain unit truncation — the deep-mid frontier, which resisted five
+fitted classes for two days, is now dominated by the module's own unit basis at
+K=2048 (114 Mbit).
