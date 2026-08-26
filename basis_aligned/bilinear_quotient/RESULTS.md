@@ -5298,3 +5298,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1561 — ship damage mapped: 47% novel-rare / 27% function-token background / 26% copied; top-100 = 50% of damage (2-for-3)
 §1562 — background: 50% mlp012 planks / 36% deep / 14% attn (3-for-3); freq-curve tail unmeasurable per-token — artifact flagged (1-for-3)
 §1563 — MLP units v1: abs-ranking mixed promoters and SUPPRESSORS (class got BETTER under ablation); late MLPs gate classes down; signed version queued (0-for-3)
+§1564 — DISCOVERY RANKING: weights-only > attribution (6/8, mean 2.40); normalization no avg effect; selectivity leg queued (2-for-3)
+§1565 — bilinear units are SIGNED: weight-rank fails both directions; class-conditional scoring queued as v3 (1-for-3)

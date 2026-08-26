@@ -36314,3 +36314,32 @@ class-conditional structure (effects 100×+ the random-64 control); (2) late MLP
 (16/17) carry class SUPPRESSION — the announcer heads push classes up, the late
 MLPs gate them down. Queued: the SIGNED version (promoters and suppressors ranked
 separately, both directions ablated).
+
+## §1564 THE DISCOVERY-COMPRESSION RANKING (2-for-3): weights-only > attribution; normalization doesn't matter on average
+
+**Setup** (compression_rank, 444s; 8 verified circuits × 3 methods, identical
+budgets, NR=960). **Scored:** pred_a W mean ≥ .60 of greedy references: **PASSED**
+— 2.40 (top-5s by weight composition do MORE class damage than the lean greedy
+ensembles). pred_b W beats normalized attribution ≥ 5/8: **PASSED** — 6/8. pred_c
+normalization beats raw ≥ 5/8: **FAILED** — 4/8 (the sink fix mattered for
+specific ensembles, §1524, but not on average).
+
+**Ranking (discovery leg): weights-only ≻ normalized-attr ≈ raw-attr** (means
+2.40 / 2.07 / 2.14). CAVEAT registered: this grades class-damage at fixed
+ensemble size; fractions > 1 reflect 5-head sets out-damaging 1-4-head greedy
+ensembles — the selectivity-adjusted leg is queued (lane 2).
+
+## §1565 Signed unit ranking fails BOTH directions (1-for-3): in a bilinear MLP, weight-side sign ≠ functional sign
+
+**Setup** (circuit_mlp_units2, 190s). **Scored:** pred_a promoter ablation raises
+class CE: **FAILED** — promoter ablation IMPROVED the class at 3 of 4 (−.14 to
+−.19). pred_b suppressor ablation lowers class CE: **PASSED** — 2 of 4. pred_c
+selectivity: **FAILED**.
+
+**The mechanism lesson:** bilinear hidden units are SIGNED — a unit whose Down
+column aligns with the class direction can fire negatively at class positions, so
+weight-side ranking cannot assign functional roles. Answer to the user's question
+so far: the top-K-unit compression (weight/std-ranked) does NOT transfer directly
+to circuit membership. The clean design is CLASS-CONDITIONAL activation scoring —
+contribution = (mean h_u | class − mean h_u) × (Down_col · u_class), measured from
+data — queued as v3.
