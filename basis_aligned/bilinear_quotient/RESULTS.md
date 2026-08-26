@@ -5324,3 +5324,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1587 — gender gate = magnitude detector: quadratic gates are EVEN in their axis (opposite-signs pred ill-posed); both named gates = "strong axis signal → damp class"; 54× damage concentration (2-for-3)
 §1588 — saturation partial: logit additivity .90/.93 vs CE .84 — small real overlap remains; joint-family bookkeeping model settled (1-for-3)
 §1589 — REFLECTION: flipping the gender axis at mlp17 destroys he-prediction (p_he −67%, CE +.49, 5× the even gate) without creating she — signed odd-pathway readout, asymmetric coding (2-for-3)
+§1590 — gender channel = 64-unit committee (101% of effect); reflected he-mass flows to NEUTRAL referents (they/it/the) — "gender uncertain," not "female" (2-for-3)

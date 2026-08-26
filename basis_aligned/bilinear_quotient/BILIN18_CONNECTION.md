@@ -36828,3 +36828,24 @@ a symmetric contrast on this axis: he-prediction requires the axis in its
 he-pole; the she-pole is not the mirror condition. Follow-ups queued: where
 the lost he-mass goes + whether the signed channel is unit-localized (lane 1);
 depth profile of the same reflection at mlp13-16 inputs (lane 2).
+
+## §1590 THE SIGNED GENDER CHANNEL IS 64 UNITS — AND THE LOST HE-MASS GOES TO NEUTRAL REFERENTS (2-for-3)
+
+**Setup** (reflect_units, 83s; mass accounting over the pronoun family + top
+token gainers under reflection; partial reflection applied to only the top-64
+units by |l_u·v|+|r_u·v|; random-direction control; NR=960). **Scored:** pred_a
+family probability drops ≥ 30%: **FAILED** — 28.8% (.2476→.1764; misses by 1.2
+points, partly because the family mask includes they/she which GAIN). pred_b
+top-64 units carry ≥ 50% of the effect: **PASSED** — 100.9% (the 64-unit subset
+reproduces the ENTIRE .49 reflection effect). pred_c random-direction control
+< .05: **PASSED** — .013.
+
+**Two upgrades to §1589:** (1) the signed gender readout is FULLY localized — a
+64-unit committee (1.4% of mlp17) with strong static alignment to the gender
+axis carries all of it; the channel is a nameable object, not diffuse. (2) The
+he-mass does not vanish incoherently: the top gainers are ' the' (+5.9),
+' they' (+3.8), ' she' (+3.2), ' it' (+2.8) — reflected gender state makes the
+model hedge to gender-NEUTRAL referents (they/it/the) with only a sliver
+becoming she. Semantically coherent asymmetry: the he-pole is a specific
+signal; its reflection reads as "gender uncertain," not "female." Registry:
+mlp17 gender committee (64 units) added as a named component.
