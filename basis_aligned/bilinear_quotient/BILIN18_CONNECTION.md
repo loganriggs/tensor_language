@@ -35892,3 +35892,11 @@ hand-transcribe.** (Silver lining: the phantom set's near-zero class effect is
 itself a specificity control — five arbitrary punctuation-adjacent heads do NOT
 move the semicolon class.) Registry updated with the four hardened numbers;
 semicolon re-verification with parsed heads queued.
+
+## §1531 Semicolon verified at 68.0× (3-for-3): the registry's high-selectivity tier is fully measurement-hardened
+
+**Setup** (circuit_verify_semi, 44s; heads PARSED from the screen results per the
+§1530 lesson). **Scored:** pred_a ≥ 30×: **PASSED** — 68.03×. pred_b class rise ≥
+.40: **PASSED** — .4973 (replicates the screen's .5108). pred_c phantom-set
+specificity: **PASSED**. All five >50× registry claims now carry NR=1920
+verification: close_paren 416×, comma 207×, question 149×, semicolon 68×, colon 49×.
