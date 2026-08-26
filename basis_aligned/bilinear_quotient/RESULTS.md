@@ -5297,3 +5297,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1560 — corrections hurt solo planks (mlp1/mlp0 both negative): the class works only vs large systematic error; board top stays hard (0-for-3 x2)
 §1561 — ship damage mapped: 47% novel-rare / 27% function-token background / 26% copied; top-100 = 50% of damage (2-for-3)
 §1562 — background: 50% mlp012 planks / 36% deep / 14% attn (3-for-3); freq-curve tail unmeasurable per-token — artifact flagged (1-for-3)
+§1563 — MLP units v1: abs-ranking mixed promoters and SUPPRESSORS (class got BETTER under ablation); late MLPs gate classes down; signed version queued (0-for-3)

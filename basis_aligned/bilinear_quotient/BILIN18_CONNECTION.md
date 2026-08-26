@@ -36300,3 +36300,17 @@ rank ~10k have < 5 occurrences at NR=1920, so the per-token filter empties those
 bins — the tail is UNMEASURED at this grain, not zero; the position-based cell
 number (novel-rare = 47.3%, §1561) remains the valid tail estimate. Rule noted:
 per-token curves need occurrence-weighted bins, not per-token filters.
+
+## §1563 MLP units-in-circuits v1: 0-for-3 with a SIGN discovery — the class-aligned unit sets contain SUPPRESSORS
+
+**Setup** (circuit_mlp_units, 106s). Top-64 units by |class-unembedding·Down
+column| × std, replaced by their means at the best-scoring MLP. **Scored:** all
+three **FAILED** — but informatively: ablation made the CLASS BETTER (question
+−.307, pronouns −.163, newline −.156 class-CE) while worsening global (+.06-.10).
+The |·|-ranking mixed class-PROMOTER and class-SUPPRESSOR units, and mean-
+substitution removed conditional suppression. Two real findings inside the miss:
+(1) deep-MLP units with strong (anti-)class alignment exist and act with huge
+class-conditional structure (effects 100×+ the random-64 control); (2) late MLPs
+(16/17) carry class SUPPRESSION — the announcer heads push classes up, the late
+MLPs gate them down. Queued: the SIGNED version (promoters and suppressors ranked
+separately, both directions ablated).
