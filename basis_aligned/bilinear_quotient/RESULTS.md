@@ -5329,3 +5329,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1592 — EXTRACTION HARD: removal-certified 5-head circuits recover only .16/.23 of the attention gap (selective but 4.1×/3.2× over random, under the 5× bar); extraction curve + compressed-background queued (1-for-3 ×2)
 §1593 — extraction curve NON-MONOTONE (.16/.32/.23/.40): second-decade heads harmful in dead background — §1334 inversion at question; constants extraction capped (1-for-3)
 §1594 — COMPRESSION IS EXTRACTION: rank-32 QK background keeps 97% of question class function; exact circuit heads add nothing (−.08) — good compression already is the extraction (1-for-3)
+§1595 — pronouns confirms COMPRESSION IS EXTRACTION (92% kept, .20 vs 2.56 rise); exact circuit heads ANTI-extraction inside bg (rec −.29 vs +.23 const) (2-for-3)

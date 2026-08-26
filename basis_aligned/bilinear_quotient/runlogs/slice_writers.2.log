@@ -1,9 +1,7 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_canary2.py", line 14, in <module>
-    from bilin18_canary import main as canary1_main
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_canary.py", line 9, in <module>
-    from bilin18_joint_removal import fwd, orth, m, FW, DEV
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/slice_writers.py", line 30, in <module>
+    from bilin18_joint_removal import m, DEV
   File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_joint_removal.py", line 59, in <module>
     m, cfg = load_elriggs('bilin18')
              ^^^^^^^^^^^^^^^^^^^^^^^

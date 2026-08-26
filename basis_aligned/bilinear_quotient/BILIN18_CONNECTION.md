@@ -36927,3 +36927,43 @@ matrix now reads: extraction against a DEAD background is structurally capped
 nearly free. The price signal for a compression is therefore its class-CE
 preservation directly — pronouns confirmation + a rank sweep (where does the
 circuit break: r ∈ {4,8,16,32}) queued.
+
+## §1595 pronouns confirms COMPRESSION IS EXTRACTION — and sharpens it: un-compressing the circuit is ANTI-extraction (rec −.29) (2-for-3)
+
+extraction_bg_p.py, NR=960, pronouns class, second class for the §1594 cell:
+rank-32 whitened-QK background everywhere (SPEC exact, PLAIN {8,16,17}), MLPs
+intact, then overlay the 5 certified pronoun heads exactly on top.
+
+Results (extraction_bg_p_results.json):
+- clean global 2.9483 / class 2.3912.
+- background: global 3.1100 (rise .1617), class 2.5889 (rise .1978). The
+  all-constants reference class rise is 2.562 — the compressed background
+  keeps 92.3% of the pronoun class function that constants destroy.
+- background + exact circuit: class 2.6471 — the exact heads made class CE
+  WORSE by .0582. rec_in_bg = −.294 (vs rec_const = +.230 in the constant
+  background). Global meanwhile improved slightly (3.0981): exact heads help
+  global, hurt class.
+
+Predictions as registered:
+- pred_a (bg class rise ≤ .5× constants rise): .1978 ≤ 1.281 — PASSED, with
+  huge margin (.077× actual ratio).
+- pred_b (|exact-circuit marginal recovery| ≤ .15, i.e. circuit heads are a
+  no-op inside the bg): |−.294| > .15 — FAILED, in the interesting direction.
+  The prediction assumed "compression already extracted it, exact weights add
+  ~nothing"; the truth is stronger and asymmetric: substituting the exact QK
+  weights back into the 5 circuit heads inside an otherwise-compressed
+  attention field actively DAMAGES the class (−.29 recovery), i.e. the
+  compressed pattern field is self-consistent and mixed-fidelity patching
+  breaks it. Question showed the same sign at −.08 (§1594); pronouns
+  triples it.
+- pred_c (bg global rise ≤ .20): .1617 — PASSED.
+
+Score 2/3. Verdict: compression-is-extraction replicates on the second class
+(92% class function kept vs 8% under constants), and the §1594 "exact heads
+add nothing" hardens into "exact heads are anti-extraction": on both classes
+tested the best circuit-preserving object is the compression itself, not the
+compression-plus-original-weights hybrid. The extraction property, graded per
+the three-properties frame, is best satisfied by shipping the compressed
+model and pointing at the circuit inside it — not by cutting the circuit out.
+Rank sweep (extraction_rank, r ∈ {4,8,16,32}: where does the circuit break)
+died twice on the GPU loss and is requeued.
