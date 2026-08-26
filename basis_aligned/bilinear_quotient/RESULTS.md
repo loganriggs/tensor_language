@@ -5282,3 +5282,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1545 — path-aware score WORSE (rho .53): membership-prediction ceiling stands at .74/.62; thread closed (0-for-3)
 §1546 — novel-name circuit = {13.0,13.5} @ 9.8x, INSIDE the committee: the apparatus predicts names copied or novel (2-for-3); full registry verification queued
 §1547 — REGISTRY COMPLETE: all 20 circuits NR=1920-verified, ordering rho 1.0 (3-for-3 x2); agreement + quote-parity probes queued
+§1548 — copula circuit announces, does not agree (acc drop .005; 2-for-3)
+§1549 — close-quote circuit does not carry parity (symmetric damage; 2-for-3): ensembles = announcers, state upstream; localization probes queued

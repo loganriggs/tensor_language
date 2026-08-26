@@ -36113,3 +36113,26 @@ circuit {11.3, 15.5} carry subject-verb AGREEMENT (is-vs-are choice) or merely
 copula probability? (argmax-accuracy metric — a new metric type.) And does the
 close-quote ensemble track QUOTE PARITY (damage concentrated on positions where a
 close-quote is properly pending)?
+
+## §1548 The copula circuit announces, it does not AGREE (2-for-3): is/are accuracy survives its removal at .952
+
+**Setup** (circuit_agreement, 67s). **Scored:** pred_a clean restricted accuracy ≥
+.75: **PASSED** — **.9568** (the model does subject-verb number agreement well).
+pred_b removal drops accuracy ≥ .10: **FAILED** — drop .0052. pred_c global ≤ .01:
+**PASSED**.
+
+## §1549 The close-quote circuit does not carry PARITY either (2-for-3): damage is symmetric across proper/improper contexts
+
+**Setup** (circuit_quoteparity, lane 2, 70s). **Scored:** pred_a the model tracks
+parity: **PASSED** — proper-context close-quote CE 1.31 vs improper 2.46. pred_b
+damage ≥ 2× on proper: **FAILED** — .4427 vs .4350 (symmetric). pred_c global ≤
+.02: **PASSED**.
+
+**The law both probes converge on (and the §1518 trunk result predicted):**
+certified head ensembles are OUTPUT-SIDE ANNOUNCERS — they write "a copula/close-
+quote/name is coming" into the logits — while the CONDITIONING STATE (which number,
+whether a quote is pending) is computed upstream and survives their removal. This
+is the honest boundary of head-grain circuits in this model. Queued: state
+LOCALIZATION — per-layer attention replacement (whitened rank-32, one layer at a
+time) scored on agreement accuracy (lane 1) and the parity CE-gap (lane 2): the
+layer whose approximation destroys the computation is where the state lives.
