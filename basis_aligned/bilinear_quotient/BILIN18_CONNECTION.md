@@ -35758,3 +35758,32 @@ head 5.7 tops both attribution lists (large-output artifact — attribution scor
 need sink-head normalization). Queued: greedy induction refinement + lag-split
 generalization (lane 1); content-copy retest with infrequent-target restriction
 (lane 2).
+
+## §1521 Induction refined (2-for-3): 4 heads serve BOTH lag regimes — one mechanism across distances
+
+**Setup** (circuit_induction, 72s). **Scored:** pred_a greedy ≥ 40×: **FAILED** —
+15.7× (greedy grew class damage .116→.165 at selectivity cost; the top-5 pattern
+ensemble at 28.9× remains the more selective handle — both kept in the registry).
+pred_b both lag-halves ≥ 2×: **PASSED** — short-lag (≤16) 8.6×, long-lag (17-64)
+12.6× under the SAME 4 heads {5.5, 10.8, 8.6, 8.4}: induction here is one
+mechanism, not a short-range and a long-range one. pred_c ≤ 4 heads: **PASSED**.
+
+## §1522 CONTENT-COPYING at 138.6× (1-for-3): the S1520 class fix lands the strongest contextual circuit; copying shares movers with induction and late heads with capitalization
+
+**Setup** (circuit_copy2, lane 2, 54s). Copy restricted to infrequent targets.
+
+**Scored as written:** pred_a content-copy ≥ 2×: **PASSED, ×69** — pattern-method
+ensemble {5.5, 10.8, 16.3, 16.4, 17.1} at **138.6×** (class +.2152, global +.0016 —
+denominator near noise, verification at NR=1920 queued before the number is
+trusted). pred_b overlap with induction ≥ .3: **FAILED** — Jaccard .25: the two
+MOVERS {5.5, 10.8} are shared, the readout heads differ. pred_c P beats T:
+**FAILED** — attribution's ensemble {14.4, 13.0, 16.3, 14.6, 8.3} does MORE class
+damage (+.4868 at 40.0×), and its members are largely CAPITALIZATION-committee
+heads: content-copying's output side and the capitalization circuit share
+machinery (names are what gets copied).
+
+**Picture forming:** {5.5, 10.8} = the context-matching movers feeding both
+induction and content-copying; class-specific readout heads differentiate the
+circuits downstream. Queued: NR=1920 verification of the near-noise denominators +
+movers-only arm (lane 1); sink-normalized attribution rerun (lane 2 — the 5.7
+confound fix).

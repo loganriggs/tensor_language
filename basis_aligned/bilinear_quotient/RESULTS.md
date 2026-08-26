@@ -5255,3 +5255,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1518 — trunk DISTRIBUTED (best single feeder .03): extraction redefined = ensemble GIVEN shared trunk; thread closed (1-for-3)
 §1519 — member-holdout: no memorization effect where measurable; power-limited for closed classes; standard leg for classes >= 8 members (1-for-3)
 §1520 — induction circuit FOUND at 28.9x by the attention-pattern method (attribution only 2.9x): discovery methods are complementary; sink-head confound flagged (1-for-3)
+§1521 — induction: 4 heads, one mechanism across lags (short 8.6x / long 12.6x); top-5 @ 28.9x stays the selective handle (2-for-3)
+§1522 — CONTENT-COPY 138.6x (near-noise denom, verify queued): movers {5.5,10.8} shared with induction; attribution ensemble = capitalization heads (names get copied) (1-for-3)
