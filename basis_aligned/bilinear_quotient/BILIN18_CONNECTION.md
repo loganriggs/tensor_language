@@ -35932,3 +35932,23 @@ UNIT-GRAIN CONCENTRATION, a structure none of the five quadratic bases could see
 (they all worked in rotated bases; the concentration lives in the MODULE'S OWN unit
 basis). Queued: the unit-truncation curve — top-K units zero-shot, K ∈ {64, 256,
 1024}, for ALL mlps 4-17, split across both lanes.
+
+## §1534 The unit-truncation curve (0-for-3 on bars, new class regardless): a ~64-unit concentrated core + a long diffuse tail; K=1024 sets new records at nine deep MLPs
+
+**Setup** (deep_units_a/b, both lanes, ~305s each). Zero-shot top-K-unit sub-MLPs,
+K ∈ {64, 256, 1024}, mlps 4-17. **Scored:** pred_a median K=256 ≥ .55: **FAILED** —
+.43. pred_b median K=1024 ≥ .75: **FAILED** — .58-.65. pred_c all ≥ .20 at K=64:
+**FAILED** — mlp5 .179, mlp14 .125.
+
+**The law the curve shows:** deep MLPs = a CONCENTRATED CORE of ~64 units carrying
+.30-.45 of function (mlp16/17: .63/.64 — strongly concentrated; mlp14 diffuse at
+.125), then a LONG TAIL — K 64→256 adds only ~.08, so roughly half of each module
+is spread over thousands of units. The tail is precisely the standing deep-mid
+mystery. Meanwhile K=1024 (57 Mbit, still 4.5× cheaper than the module) sets NEW
+BEST stand-ins at nine modules (mlp4 .70, mlp6 .71, mlp10 .59, mlp11 .61, mlp12
+.58, mlp13 .57, mlp7 .61, mlp8 .64, mlp9 .65). Seeds updated; board regenerated.
+
+**Queued (both lanes): the two known structures combined** — deep_hybrid: top-256
+unit core + a stream ridge fit on the CORE'S RESIDUAL (the concentrated part in the
+module's own basis, the diffuse tail as linear-in-stream). Preds per part: hybrid ≥
+.65 at most sites; beats both parents by ≥ .08; mlp14 ≥ .45.

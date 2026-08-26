@@ -5268,3 +5268,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1531 — semicolon verified 68x with parsed heads (3-for-3): high-selectivity tier fully hardened
 §1532 — trained bilinear replacements 0-for-3: flat losses from bias-only init (run failure, not class evidence); top-64-unit-init retry queued
 §1533 — unit concentration real (top-64 = .30-.42 zero-shot at mlp7/8/9); CE-finetune HARMS warm starts — trained class parked; unit-truncation sweep queued (1-for-3)
+§1534 — unit curve: ~64-unit core (.30-.45) + long tail; K=1024 = new best at 9 deep MLPs (mlp10 .59, mlp11 .61...); core+ridge hybrid queued (0-for-3 on bars)
