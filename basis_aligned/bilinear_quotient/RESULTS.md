@@ -5276,3 +5276,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1539 — K2048 row complete: deep MLPs .70-.94, log-linear until saturation; 10 seeds updated (1-for-3)
 §1540 — TOTAL GLASS v4 = 3.843 (compounding 0.80x SUB-additive; band .079 missed) (2-for-3)
 §1541 — K3072: all deep MLPs .83-.97, curve fully mapped; deep problem closed as an economics table (2-for-3)
+§1542 — CERTIFIED: total glass 3.88 ± .04 (spread .036 over 3 row sets; 3-for-3); price-opt ordering bug fixed + requeued

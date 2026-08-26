@@ -1,1 +1,9 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+whiteners built
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_price_opt.py", line 427, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_price_opt.py", line 249, in main
+    rr_ = 16 if LT in R16_LAYERS else 32
+                      ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'R16_LAYERS' where it is not associated with a value

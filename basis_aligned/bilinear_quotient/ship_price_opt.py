@@ -53,6 +53,8 @@ from bilin18_joint_removal import m, DEV
 import census_lib as cl
 
 D = 1152; T = 256; PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
+R16_LAYERS = {0, 1, 4, 7, 9}
+K1024_LAYERS = {16, 17}
 OUT = PT + 'ship_price_opt_results.json'
 NR = 960
 are = sys.modules[type(m.transformer.h[0].attn).__module__].apply_rotary_emb
@@ -349,8 +351,6 @@ def main():
     for h in pre_hooks:
         h.remove()
     KU = 2048
-    R16_LAYERS = {0, 1, 4, 7, 9}
-    K1024_LAYERS = {16, 17}
     for L in range(4, 18):
         mu = acc1[L] / n0
         hsd = (acc2[L] / n0 - mu * mu).clamp_min(0).sqrt()

@@ -36036,3 +36036,13 @@ curve (K = 64/256/1024/2048/3072/4608): log-linear per doubling, saturating ~.95
 exact at full K. Seeds updated (price-noted); the deep-MLP description problem is
 CLOSED as an economics table rather than a mystery: any target fidelity up to ~.95
 is purchasable at log-linear unit cost in the module's own basis.
+
+## §1542 The headline is CERTIFIED: total glass = 3.88 ± .04 (3-for-3)
+
+**Setup** (ship_v4_certify, NR=1920 × three disjoint row sets, 111s). **Scored:**
+pred_a spread ≤ .15: **PASSED** — **.0364** (3.858 / 3.894 / 3.888). pred_b mean
+within .06 of 3.8431: **PASSED** — 3.8801. pred_c every set below v3: **PASSED**.
+The program's headline number now carries proper error bars: the fully-replaced
+546M model runs at **3.88 ± .04 CE vs clean 2.95**, robust across corpus regions.
+(ship_price_opt crashed twice on a constants-defined-after-use ordering bug —
+moved to module scope, requeued.)
