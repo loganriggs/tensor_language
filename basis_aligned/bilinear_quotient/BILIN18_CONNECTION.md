@@ -35723,3 +35723,38 @@ ensemble (removal/construction certified, 1-5 heads, up to 360× selective) READ
 A SHARED TRUNK; "extraction" means isolating the ensemble GIVEN the trunk, not
 carving a standalone sub-network. This matches the joint-replacement results: the
 trunk is exactly what the module approximations approximate.
+
+## §1519 Held-out class halves (1-for-3): generalization holds where measurable; the test is power-limited for closed classes
+
+**Setup** (circuit_holdout, lane 2, 42s). **Scored:** pred_a ≥.7 holdout ratio for
+4 of 6: **FAILED** — only 3 classes gradeable (is/the/and have ≤3 frequent members)
+and 2 of 3 clear .7 (digits 1.02, said 2.37 — n=4, noisy; months .51). pred_b
+controls ≤ .3× for 5 of 6: **FAILED** — months clean (−.10) but said .40 and
+digits .67 leak. pred_c small classes ≥ .5: **PASSED**.
+
+**Reading:** ensembles selected on half a class damage the unseen half comparably
+(no memorization-of-members effect anywhere), but control leakage tracks each
+circuit's underlying selectivity (digits was weak in every leg). Member-holdout is
+now a standard suite leg for classes with ≥ 8 frequent members.
+
+## §1520 CONTEXTUAL SCREEN (1-for-3): induction found at 28.9× BY THE PATTERN METHOD — the discovery methods are complementary
+
+**Setup** (circuit_screen3, 53s). Contextual classes (copy / induction /
+novel-capitalized); methods: target-logit attribution (T) vs attention-to-
+matching-source (P).
+
+**Scored as written:** pred_a copy AND induction ≥ 2×: **FAILED** — copy's best is
+0.61 (copy-damage is diffuse; the class as defined — any target repeated within 64
+tokens — is dominated by frequent function words). pred_b copy/induction overlap ≥
+.3: **FAILED** — .25. pred_c T beats P on class effect: **PASSED** — 2/2.
+
+**The discovery:** method P (rank heads by attention mass on the context position
+holding the target) found **induction = {5.5, 10.8, 12.6, 4.2, 8.6} at 28.9×
+selectivity** (class +.1163, global +.0040) — where the attribution method's
+ensemble was only 2.9× at 17× the global cost. Attention-DEFINED circuits are found
+by attention-pattern scores; output-defined circuits by unembedding-composition
+scores; the method must match the circuit's defining side. CONFOUND flagged: sink
+head 5.7 tops both attribution lists (large-output artifact — attribution scores
+need sink-head normalization). Queued: greedy induction refinement + lag-split
+generalization (lane 1); content-copy retest with infrequent-target restriction
+(lane 2).

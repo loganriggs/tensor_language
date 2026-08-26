@@ -1,0 +1,64 @@
+{
+ "res": {
+  "months": {
+   "ensemble": [
+    "6.7",
+    "7.3",
+    "14.7",
+    "11.5"
+   ],
+   "n_members": 12,
+   "dmg_fit_half": 0.1196,
+   "dmg_heldout_half": 0.0605,
+   "dmg_controls": -0.0063,
+   "holdout_ratio": 0.506,
+   "control_ratio": -0.103
+  },
+  "said": {
+   "ensemble": [
+    "7.8",
+    "11.3",
+    "6.7",
+    "15.5"
+   ],
+   "n_members": 4,
+   "dmg_fit_half": 0.052,
+   "dmg_heldout_half": 0.1231,
+   "dmg_controls": 0.0496,
+   "holdout_ratio": 2.368,
+   "control_ratio": 0.403
+  },
+  "is": {
+   "skip": true,
+   "n_members": 3
+  },
+  "the": {
+   "skip": true,
+   "n_members": 3
+  },
+  "and": {
+   "skip": true,
+   "n_members": 3
+  },
+  "digits": {
+   "ensemble": [
+    "7.3",
+    "6.7",
+    "11.5",
+    "5.5"
+   ],
+   "n_members": 241,
+   "dmg_fit_half": 0.1491,
+   "dmg_heldout_half": 0.1513,
+   "dmg_controls": 0.1016,
+   "holdout_ratio": 1.015,
+   "control_ratio": 0.672
+  }
+ },
+ "n_holdout_07": 2,
+ "n_control_03": 1,
+ "pred_a_holdout_4of6": false,
+ "pred_b_controls_5of6": false,
+ "pred_c_small_classes": true,
+ "runtime_s": 42.4
+}

@@ -5253,3 +5253,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1516 — early stack = shared trunk (early>late 3/3, but layer-grain non-selective): sub-layer trunk search queued (1-for-3)
 §1517 — classifier leg class-dependent: works for large open classes (cap .74), vacuous for closed ones; held-out class-half test queued (0-for-3)
 §1518 — trunk DISTRIBUTED (best single feeder .03): extraction redefined = ensemble GIVEN shared trunk; thread closed (1-for-3)
+§1519 — member-holdout: no memorization effect where measurable; power-limited for closed classes; standard leg for classes >= 8 members (1-for-3)
+§1520 — induction circuit FOUND at 28.9x by the attention-pattern method (attribution only 2.9x): discovery methods are complementary; sink-head confound flagged (1-for-3)

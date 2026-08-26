@@ -1,0 +1,70 @@
+{
+ "res": {
+  "copy_T": {
+   "heads": [
+    "5.7",
+    "6.1",
+    "10.5",
+    "9.7",
+    "4.7"
+   ],
+   "rise_class": 0.0696,
+   "rise_global": 0.1148,
+   "selectivity": 0.61
+  },
+  "induction_T": {
+   "heads": [
+    "5.7",
+    "8.3",
+    "8.4",
+    "6.1",
+    "4.0"
+   ],
+   "rise_class": 0.193,
+   "rise_global": 0.0661,
+   "selectivity": 2.92
+  },
+  "novel_cap_T": {
+   "heads": [
+    "13.0",
+    "3.4",
+    "5.7",
+    "4.0",
+    "14.4"
+   ],
+   "rise_class": 0.1054,
+   "rise_global": 0.0542,
+   "selectivity": 1.94
+  },
+  "copy_P": {
+   "heads": [
+    "12.6",
+    "10.6",
+    "9.8",
+    "10.5",
+    "10.8"
+   ],
+   "rise_class": 0.0228,
+   "rise_global": 0.0156,
+   "selectivity": 1.46
+  },
+  "induction_P": {
+   "heads": [
+    "5.5",
+    "10.8",
+    "12.6",
+    "4.2",
+    "8.6"
+   ],
+   "rise_class": 0.1163,
+   "rise_global": 0.004,
+   "selectivity": 28.89
+  }
+ },
+ "copy_induction_jaccard": 0.25,
+ "t_wins": 2,
+ "pred_a_both_selective": false,
+ "pred_b_overlap_3": false,
+ "pred_c_T_beats_P": true,
+ "runtime_s": 53.3
+}
