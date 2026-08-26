@@ -1,0 +1,53 @@
+{
+ "res": {
+  "pronouns": {
+   "heads": [
+    "12.4"
+   ],
+   "size": 1,
+   "screen_sel": 639.66,
+   "verified_sel": 275.23,
+   "verified_cls_rise": 0.2076,
+   "top5_ref_sel": 41.45
+  },
+  "however": {
+   "heads": [
+    "10.5",
+    "6.0",
+    "8.5"
+   ],
+   "size": 3,
+   "screen_sel": 64.35,
+   "verified_sel": 46.27,
+   "verified_cls_rise": 0.3294,
+   "top5_ref_sel": 12.55
+  },
+  "open_paren": {
+   "heads": [
+    "12.6",
+    "9.5"
+   ],
+   "size": 2,
+   "screen_sel": 78.69,
+   "verified_sel": 62.51,
+   "verified_cls_rise": 0.097,
+   "top5_ref_sel": 5.08
+  },
+  "hyphen": {
+   "heads": [
+    "12.6"
+   ],
+   "size": 1,
+   "screen_sel": 25.46,
+   "verified_sel": 16.82,
+   "verified_cls_rise": 0.0139,
+   "top5_ref_sel": 7.19
+  }
+ },
+ "wins_vs_top5": 4,
+ "median_size": 1.5,
+ "pred_a_all4_beat": true,
+ "pred_b_size_le_4": true,
+ "pred_c_pronouns_60x": true,
+ "runtime_s": 171.8
+}

@@ -36219,3 +36219,17 @@ parity 115%, copying 117%, induction 117%.
 **FAILED** — none this batch. Vacuous class flagged: decades (n=0 — the tokenizer
 splits '1990s'). Registry grows to 28-29 certified circuits; greedy refinement of
 the four strongest queued.
+
+## §1556 Greedy sweep 4: 3-for-3 — head 12.4 IS the pronoun circuit (275×, single head)
+
+**Setup** (circuit_greedy5, 172s). **Scored:** pred_a all 4 beat top-5: **PASSED**
+— pronouns 41.5→**275.2× with ONE head (12.4)**, open_paren 5.1→62.5× ({12.6,
+9.5}), however 12.6→46.3× (3 heads), hyphen 7.2→16.8× (12.6 alone — its THIRD
+single-head circuit: colon, hyphen, and a member of six more). pred_b median size
+≤ 4: **PASSED** — 1.5. pred_c pronouns ≥ 60×: **PASSED**.
+
+Single-head circuits now: colon (12.6), months (14.7), close_paren (13.8), hyphen
+(12.6), pronouns (12.4). Per the §1523 rule, pronouns (275×) and open_paren
+(62.5×) require NR=1920 verification before registry entry — queued, alongside a
+characterization of head 12.4 (is it a coreference head? damage split by whether a
+capitalized antecedent is present in context).
