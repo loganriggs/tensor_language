@@ -36767,3 +36767,26 @@ nets out ahead: almost-the positions outnumber class positions ~3:1 in this
 row set, so uniform damping is globally profitable. Pronouns-gate accounting
 (the gender-contrast axis — where removal should show OPPOSITE-sign effects on
 he vs she) queued as the discriminating companion.
+
+## §1587 THE GENDER GATE IS A MAGNITUDE DETECTOR, NOT A DIFFERENTIAL DEVICE (2-for-3): quadratic forms are EVEN — the opposite-signs prediction was ill-posed
+
+**Setup** (gate_function2, 55s; pronoun-gate (gender-axis) z-removal, token-
+level p(he-side)/p(she-side)/CE at class / almost-pronoun / background
+positions, NR=960). **Scored:** pred_a class CE improves ≥ .05: **PASSED** —
+−.0991. pred_b p(he) and p(she) move with OPPOSITE signs at class positions:
+**FAILED** — both rose (he .1204→.1475, she .0444→.0481). pred_c damage ≥ 3×
+concentrated at almost-pronoun: **PASSED** — .0272 vs .0005 = 54×.
+
+**The mechanistic lesson in the failure:** the prediction ignored that a
+quadratic gate s(z) = λ(v·z)² is an EVEN function of the axis — a gate ON a
+contrast axis is a |magnitude| detector, structurally incapable of
+differential he-vs-she action. Both named gates now have one form: "when the
+axis signal is strong, damp the class" — determiner gate on the class axis,
+pronoun gate on the gender-contrast axis (strong gender signal of EITHER pole
+→ damp pronouns; removal lifts he +22.5% rel, she +8.4% rel; the asymmetry
+comes from the nonzero axis mean, not from sign sensitivity). Damage
+concentration replicates the §1586 precision story (54× at confusable
+positions). Registered follow-up: the REFLECTION test — flip the gender state
+(z′ = z − 2(z·v)v at the mlp17 input; v is an eigenvector of the class form,
+so the even/quadratic pathway is exactly invariant) and watch whether the
+model's he/she preference flips through the non-even pathways.

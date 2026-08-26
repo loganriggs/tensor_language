@@ -5321,3 +5321,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1584 — is "overlap" = SERIAL pipeline: heads 11.3/7.8 are 93% of the attention side and work THROUGH mlp17; additivity .954 once stages separated (1-for-3)
 §1585 — serial routing REFUTED at z-level (payload elevation −16% only): is sub-additivity = parallel pathways + CE saturation; logit-additivity discriminator queued (1-for-3)
 §1586 — determiner gate = blunt precision damper: removal damage 44× concentrated at almost-the, class +.24 recovered; suppresses true and false positives alike (2-for-3)
+§1587 — gender gate = magnitude detector: quadratic gates are EVEN in their axis (opposite-signs pred ill-posed); both named gates = "strong axis signal → damp class"; 54× damage concentration (2-for-3)

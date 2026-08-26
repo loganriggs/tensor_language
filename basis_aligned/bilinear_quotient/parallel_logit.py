@@ -135,6 +135,10 @@ def main():
             ls += float(tgt_logit[cm].sum())
         return gs / max(gn, 1), cs / max(cn_, 1), ls / max(cn_, 1)
 
+    head_hooks = [H[LL].attn.c_proj.register_forward_pre_hook(mk_head_hook(LL))
+                  for LL in range(18)]
+    r2 = json.load(open(PT + 'compression_rank2_results.json'))['res']
+
     res = {}
     oks = {}
     for cname, L in SITES.items():
