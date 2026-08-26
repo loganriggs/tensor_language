@@ -1,0 +1,29 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+whiteners built
+attn maps built
+context capture done
+planks 0/1 context-fit
+ctx + clean ridges fit
+{'clean': 2.9455, 'all4_noglue': 4.3578}
+/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_glue2.py:392: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  cur.append(round(float(loss), 4))
+  slot2 step 0 loss 3.9351
+  slot2 step 80 loss 3.4632
+  slot2 step 160 loss 3.3274
+  slot2 step 240 loss 3.4443
+  slot2 step 320 loss 3.0639
+after mlp2 3.5677
+  slot1 step 0 loss 3.3848
+  slot1 step 80 loss 3.1155
+  slot1 step 160 loss 3.4143
+  slot1 step 240 loss 3.5047
+  slot1 step 320 loss 3.4370
+after mlp1 3.6051
+  slot0 step 0 loss 3.1006
+  slot0 step 80 loss 3.3701
+  slot0 step 160 loss 3.2694
+{'clean': 2.9455, 'all4_noglue': 4.3578, 'after_mlp2': 3.5677, 'after_mlp1': 3.6051, 'after_mlp0': 3.6182}
+final 3.6182 stages {'mlp2': 0.7901, 'mlp1': -0.0374, 'mlp0': -0.0131}
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ship_glue2_results.json (277.3s)

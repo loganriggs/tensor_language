@@ -5227,3 +5227,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1490 — handle score site 2: mlp1 channel UNSELECTIVE for mlp0 classes (0.99x) — handle scores are class-relative; self-derived classes queued (1-for-3)
 §1491 — mlp1 channel weakly selective even for OWN classes (1.47x): selectivity is a SITE property; mlp0 was special (1-for-3)
 §1492 — joint glue 3.615 UNDERPERFORMS single-slot 3.560 (0-for-3, unconverged): sequential glue queued
+§1493 — glue saturates at one slot (mlp1/mlp0 stages NEGATIVE): thread closed; accepted ship = 3.56 (+.61 CE, 21 modules + 1.8-Mbit glue) (0-for-3)
+§1494 — site map: mlp0 4.3x/1.2, mlp1 1.0/1.3, mlp2 1.7/1.9 — weight-basis advantage unique to mlp0; removal+generalization robust everywhere (2-for-3)

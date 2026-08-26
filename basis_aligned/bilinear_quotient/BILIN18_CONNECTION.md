@@ -35302,3 +35302,34 @@ attn-only ≤ .30: **FAILED** — .508.
 slots plausibly interfere early in training. Queued: SEQUENTIAL glue (train mlp2's
 slot, freeze, then mlp1's slot) with doubled steps — greedy coordinate descent
 instead of joint.
+
+## §1493 Sequential glue saturates at ONE slot (0-for-3): the glue thread closes at 3.56
+
+**Setup** (ship_glue2, 277s). Coordinate descent: mlp2 slot 400 steps → freeze →
+mlp1 slot 400 → mlp0 slot 200.
+
+**Scored as written:** pred_a ≤ 3.50: **FAILED** — 3.6182 final. pred_b mlp1 stage
+adds ≥ .05: **FAILED** — the mlp1 stage made it WORSE (−.0374), mlp0 worse again
+(−.0131). pred_c gap ≤ .38: **FAILED** — .511.
+
+**Thread verdict:** slot-glue saturates at the mlp2 correction (3.5677 after stage
+1 ≈ the §1489 single-slot 3.560); further slots subtract. The remaining ~.45 CE over
+the attention-only composite is the mlp1 plank's intrinsic cost plus irreducible
+interactions — not reachable by rank-32 slot patches. ACCEPTED ENTRY: ship =
+attn(3-tier) + mlp0/mlp1 planks + mlp2 plank + one 1.8-Mbit CE-trained mlp2-slot
+correction = **3.56** (+.61 CE over clean at 21 modules replaced + glue).
+
+## §1494 Site map third point (2-for-3): mlp2 is moderately selective for BOTH bases — the weight-composition advantage exists only at mlp0
+
+**Setup** (handle_site_mlp2, lane 2, 200s). **Scored:** pred_a w8 frag-keep ≥ .25:
+**PASSED** — .376. pred_b w8 ≥ 2× PCA: **FAILED** — 1.73 vs 1.86 (PCA slightly MORE
+selective here). pred_c generalizes: **PASSED** — .369 on fresh rows.
+
+**The site-selectivity map (frag class):** mlp0: weight 4.3× / PCA 1.2×; mlp1:
+1.0 / 1.3 (no selectivity); mlp2: 1.7 / 1.9 (moderate, basis-agnostic). Handle-lane
+summary for the bench: (1) class-selective handles exist at sites whose signal is
+token-classed (mlp0, mlp2 — both front); (2) the weight-composed basis's UNIQUE win
+is only at mlp0 (where the next block's discrimination differs most from the
+activation geometry); (3) removal-specificity and generalization hold at every site
+tested — those two properties are robust across bases; selectivity is the
+discriminating axis. Registry table added to theseus-bench.
