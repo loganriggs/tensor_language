@@ -1,8 +1,43 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-canary: score-rank 4.1 | L1 cost +0.275 | ratios 0.253/0.043
-(a) OK | (b) OK | (c) OK
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_canary_results.json (11s)
-
-canary2: c1 OK | atlases OK | leverage 0.78 OK | fraction spot L7 OK | smooth 35/36 OK
-ALL: GREEN
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_canary2_results.json (13s)
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_canary2.py", line 14, in <module>
+    from bilin18_canary import main as canary1_main
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_canary.py", line 9, in <module>
+    from bilin18_joint_removal import fwd, orth, m, FW, DEV
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_joint_removal.py", line 59, in <module>
+    m, cfg = load_elriggs('bilin18')
+             ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/qk_mdl/tier2_model.py", line 55, in load_elriggs
+    m.load_state_dict(torch.load(_fetch(repo, 'pytorch_model.bin'),
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/serialization.py", line 1570, in load
+    return _load(
+           ^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/serialization.py", line 2190, in _load
+    result = unpickler.load()
+             ^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/_weights_only_unpickler.py", line 541, in load
+    self.append(self.persistent_load(pid))
+                ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/serialization.py", line 2154, in persistent_load
+    typed_storage = load_tensor(
+                    ^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/serialization.py", line 2116, in load_tensor
+    wrap_storage = restore_location(storage, location)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/serialization.py", line 1915, in restore_location
+    return default_restore_location(storage, map_location)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/serialization.py", line 734, in default_restore_location
+    result = fn(storage, location)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/serialization.py", line 668, in _deserialize
+    return obj.to(device=device)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/storage.py", line 289, in to
+    return _to(self, device, non_blocking)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/venv/main/lib/python3.12/site-packages/torch/_utils.py", line 106, in _to
+    untyped_storage = torch.UntypedStorage(self.size(), device=device)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 22.00 MiB. GPU 0 has a total capacity of 31.36 GiB of which 10.94 MiB is free. Process 62281 has 27.62 GiB memory in use. Including non-PyTorch memory, this process has 3.70 GiB memory in use. Of the allocated memory 2.84 GiB is allocated by PyTorch, and 388.34 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

@@ -5216,3 +5216,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1479 — THE SHIP SAILS: attn stack + mlp0 + mlp1 planks at once = 3.888 (+.94 CE, compounding 1.59x; 3-for-3); remaining live: mlps 2-16
 §1480 — mlp1 priced frontier: tier8000+r256 = .9624 @ 214 Mbit (3-for-3); class ceiling near — new class pooled for the last .18
 §1481 — mlp8: 2-for-3 (.39/.46/+.01): deep-mid profile now a 3-layer law; mlp10-15 amortized sweep queued
+§1482 — ship v2: mlp2 = weak plank (+.470 in-ship vs .119 solo); mlp17 composes better than solo; ship = 4.40 with 22 modules replaced (1-for-3)
+§1483 — deep-mid law universal: mlp10-15 linall .34-.45, quads ~0/negative; all 18 MLPs now seeded; d2_circuit + mlp2 diagnosis queued (2-for-3)

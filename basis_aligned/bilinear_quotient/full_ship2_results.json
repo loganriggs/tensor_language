@@ -1,0 +1,23 @@
+{
+ "ce": {
+  "clean": 2.9455,
+  "mlp2_solo": 3.0641,
+  "mlp17_solo": 3.0138,
+  "all3": 3.8879,
+  "all4": 4.3578,
+  "all5": 4.4011
+ },
+ "solo_deltas": {
+  "attn": 0.1619,
+  "mlp1": 0.3125,
+  "mlp0": 0.1184,
+  "mlp2": 0.1186,
+  "mlp17": 0.0683
+ },
+ "all5_delta": 1.4556,
+ "ship_compounding": 1.867,
+ "pred_a_all4_le_415": false,
+ "pred_b_all5_le_445": true,
+ "pred_c_factor_le_18": false,
+ "runtime_s": 91.5
+}

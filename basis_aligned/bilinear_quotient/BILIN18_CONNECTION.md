@@ -35090,3 +35090,38 @@ neither local-linear nor random-projection-quadratic. Seed mlp8 = .4684. Queued:
 deep_mid_sweep (lane 2) — mlp10-15 in ONE amortized run (one capture, six ridge+quad
 fits; preds: median linall ≥ .40, median quad-add ≤ .03 — registering the FLATNESS
 as the hypothesis — median fid ≥ .45). full_ship2 still running lane 1.
+
+## §1482 Ship v2 (1-for-3): mlp2 is the weak plank (4× its solo cost in-ship), mlp17 composes BETTER than solo
+
+**Setup** (full_ship2, 92s). Ship + context-fit mlp2 (lin2 ridge) and mlp17
+(stream-linall).
+
+**Scored as written:** pred_a all4 ≤ 4.15: **FAILED** — 4.3578 (mlp2 adds +.470
+in-ship vs .119 solo). pred_b all5 ≤ 4.45: **PASSED** — 4.4011 (mlp17 adds only
++.043 in-ship vs .068 solo — the stream-linall reader is MORE robust in composite).
+pred_c compounding ≤ 1.8×: **FAILED** — 1.867.
+
+**Ship state: 18 attn layers + mlp0/1/2/17 = 4.40 (+1.46 CE).** The mlp2 anomaly is
+the interesting object: its lin2 stand-in reads [attn2, m1], and in-ship m1 is the
+mlp1 plank — suspicion: the plank strips exactly the non-token-table components mlp2
+consumes. Diagnosis queued (subset algebra). Also noted: canary2 hit a transient OOM
+while deep_mid_sweep held 27.6 GB — concurrency cost, expect green on next cycle.
+
+## §1483 Deep-mid sweep (2-for-3): the profile is UNIVERSAL — mlp10-15 land .33-.47, quadratics ≈ zero or NEGATIVE
+
+**Setup** (deep_mid_sweep, lane 2, 339s; six modules, one capture pass — the
+amortized format). **Scored:** pred_a median linall ≥ .40: **PASSED** — .4277.
+pred_b median quad-add ≤ .03: **PASSED** — **−.003** (negative at 13/14/15:
+random-projection quadratics now OVERFIT). pred_c median fid ≥ .45: **FAILED** —
+.4243 (mlp14 .328 drags).
+
+**The deep-MLP law (9 layers measured, 7-15):** roughly half of every deep-mid MLP
+is linear in the accumulated stream; random-quadratic features add nothing; the
+missing half is the program's standing open problem. Seeds filled for all six —
+every MLP 0-17 now has a measured stand-in.
+
+**Queued (user directive — circuits through the compression):** d2_circuit (lane 1)
+— the D2 name-fragment axis as a pilot circuit with the three properties: EXTRACTION
+(mlp0 → mean + D2 axis ONLY), REMOVAL (output-level axis cut), GENERALIZATION (both
+scored class-conditionally on skip=7000 AND fresh skip=2000). ship_mlp2_diag
+(lane 2) — subset algebra on the mlp2 anomaly.
