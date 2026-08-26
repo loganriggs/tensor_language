@@ -1,0 +1,76 @@
+{
+ "res": {
+  "clean": {
+   "global": 3.0855,
+   "frag": 2.3121,
+   "det": 4.4271
+  },
+  "mean": {
+   "global": 3.9984,
+   "frag": 3.6222,
+   "det": 5.4152
+  },
+  "ex_w8": {
+   "global": 3.886,
+   "frag": 2.9288,
+   "det": 5.3987
+  },
+  "ex_pca8": {
+   "global": 3.4774,
+   "frag": 2.6593,
+   "det": 4.9034
+  },
+  "rm_w8": {
+   "global": 3.1073,
+   "frag": 2.3241,
+   "det": 4.4539
+  },
+  "rm_pca8": {
+   "global": 3.1175,
+   "frag": 2.3564,
+   "det": 4.4673
+  }
+ },
+ "effect": {
+  "global": 0.9129,
+  "frag": 1.3101,
+  "det": 0.9881
+ },
+ "keeps": {
+  "ex_w8": {
+   "global": 0.1231,
+   "frag": 0.5293,
+   "det": 0.0167
+  },
+  "ex_pca8": {
+   "global": 0.5707,
+   "frag": 0.735,
+   "det": 0.518
+  }
+ },
+ "rises": {
+  "rm_w8": {
+   "global": 0.0218,
+   "frag": 0.012,
+   "det": 0.0268
+  },
+  "rm_pca8": {
+   "global": 0.032,
+   "frag": 0.0443,
+   "det": 0.0402
+  }
+ },
+ "selectivity": {
+  "w8": 4.3,
+  "pca8": 1.288
+ },
+ "ref_7000": {
+  "ex_w8_frag": 0.522,
+  "ratio_w": 3.84,
+  "ratio_p": 1.19
+ },
+ "pred_a_frag_keep_generalizes": true,
+ "pred_b_selectivity_replicates": true,
+ "pred_c_removal_generalizes": true,
+ "runtime_s": 105.8
+}

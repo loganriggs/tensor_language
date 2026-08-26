@@ -35206,3 +35206,29 @@ jobs): single named axes as handles (§1484), the specialist roster as a consume
 map (§1487), weight-basis for coverage (PCA wins, §1486), random-projection
 quadratics deep (§1483). The naming layer's value is DESCRIPTIVE (what flows) —
 selectivity, not coverage.
+
+## §1488 The channel circuit GENERALIZES 3-for-3 — all three properties now certified at channel grain
+
+**Setup** (channel_generalize, 97s). The §1486 extraction/removal arms re-scored on
+FRESH skip=2000 rows, same bases, no refit.
+
+**Registered predictions, scored as written:**
+- pred_a frag-keep generalizes: **PASSED** — .5293 on fresh rows vs .522 on skip=7000
+  (near-identical, well above the .261 bar).
+- pred_b selectivity replicates: **PASSED** — weight-channel ratio 4.30 vs PCA 1.29
+  (was 3.84 vs 1.19).
+- pred_c removal generalizes: **PASSED** — .0218 CE global (was .0198).
+
+**Circuit status (the user's three properties, channel grain, mlp0's block-1
+channel):** EXTRACTION — mean + 8 weight-derived directions keeps ~52% of the
+name-fragment-class effect at only ~13% of the global effect (selective, 4.3×);
+REMOVAL — cutting the same 8 directions costs .02 CE, random-8 costs nothing;
+GENERALIZATION — every number replicates on a disjoint row set. This is the
+program's first certified channel-grain circuit object. The red-team caveats stand
+(§1486-87): PCA carries more total signal; the roster is not a consumer map — the
+weight channel's specific value is class-selectivity and consumer-side (which maps
+read it).
+
+(mlp2_fix crashed on a no_grad decorator inherited from the eval lineage — the
+training loss had no grad path; fixed by freezing model params at main start and
+removing the decorator, requeued lane 2.)

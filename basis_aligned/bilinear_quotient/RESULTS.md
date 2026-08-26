@@ -5222,3 +5222,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1485 — mlp2 plank brittle in EVERY context (+.24/+.42/+.40 excess; solo .944): strongest local≠composite at module grain (1-for-3)
 §1486 — channel circuits work (k8 keeps .52 frag, monotone, random=0) BUT PCA-8 beats weight-basis on coverage — weight basis wins only selectivity (3.8x vs 1.2x); 2-for-3
 §1487 — wiring predicts propagation 10/10 (front-loaded, rho .994); specialist roster predicts consumers 0/30 — roster is NOT a consumer map; 2-for-3
+§1488 — channel circuit GENERALIZES 3-for-3 (frag keep .529≈.522, selectivity 4.3x, removal .022): first certified channel-grain circuit; mlp2_fix no_grad bug fixed + requeued

@@ -185,9 +185,10 @@ def fwd_arm(idx, layers, TWALL, mlps=frozenset(), cap=None):
     return 30.0 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30.0)
 
 
-@torch.no_grad()
 def main():
     t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
+    for p in m.parameters():
+        p.requires_grad_(False)
     EVR = cl.fineweb_rows(NR, skip=7000)[:, :T + 1].contiguous()
 
     def ce_run(layers, TWALL):
