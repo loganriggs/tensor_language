@@ -36074,3 +36074,26 @@ truncating it forfeits the hybrid's advantage. The final table: unit truncation 
 the module's own basis at K chosen by budget (log-linear returns to ~.95); the
 full-ridge hybrid only where description cost is no object. Ship Pareto frontier
 stands as measured (§1543).
+
+## §1545 The path-aware membership score is WORSE (0-for-3): the FN ceiling stands at ρ .74 / FN .62
+
+**Setup** (circuit_cap_path, lane 2, 21s). Final-residual delta subspace (top-32)
+under ensemble removal as the score. **Scored:** all three **FAILED** — ρ .527
+(direct: .739), FN .66, FP .34. The delta subspace encodes the removal's dominant
+global directions, not per-token membership. Membership prediction for the
+capitalization circuit CLOSES at the direct score's ρ .74 / FN .62 — a real,
+honestly-bounded capability of the weights-only classifier.
+
+## §1546 The novel-name circuit is INSIDE the committee (2-for-3): {13.0, 13.5} at 9.8× — the apparatus predicts names, copied or not
+
+**Setup** (circuit_novelcap, 49s). **Scored:** pred_a ≥ 5×: **PASSED** — 9.76×
+(class +.0479, global +.0049). pred_b ≤ 1 committee head: **FAILED** — BOTH heads
+are committee members (13.5 is also the top attention-matcher, §1529). pred_c ≤ 5
+heads: **PASSED** — 2.
+
+**Refinement of §1527:** the late committee is the model's PROPER-NAME PREDICTION
+apparatus, with copying as its dominant mode (4.8× damage concentration on copied
+targets) and a smaller novel-name channel carried by its 13.0/13.5 core. Registry
+updated. Queued: NR=1920 verification of the full mid-tier circuit registry (11
+ensembles, split across lanes) — after which every registry claim carries
+large-row verification.

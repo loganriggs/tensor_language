@@ -5279,3 +5279,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1542 — CERTIFIED: total glass 3.88 ± .04 (spread .036 over 3 row sets; 3-for-3); price-opt ordering bug fixed + requeued
 §1543 — Pareto frontier measured: 4.31@2.1 / 4.12@2.6 / 3.88@3.3 Gbit (model 8.7); r16 tier a poor trade; rank-truncated ridge tails queued (2-for-3)
 §1544 — rank-64 tails retain only .65-.80, never beat units (1-for-3 x2): deep-tier economics FINAL — unit truncation at budgeted K
+§1545 — path-aware score WORSE (rho .53): membership-prediction ceiling stands at .74/.62; thread closed (0-for-3)
+§1546 — novel-name circuit = {13.0,13.5} @ 9.8x, INSIDE the committee: the apparatus predicts names copied or novel (2-for-3); full registry verification queued
