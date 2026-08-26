@@ -5202,3 +5202,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1465 — composite record 3.9166 (config-matched training); §1460 gap = skip-region variance ±.10, NOT memorization (memo .002); method note ledgered; lowrank-QK stand-in class queued
 §1466 — values edge 1.149 CE (biggest; 94% rank-8; 3-for-3): block-1 read map complete — values > patterns > mlp1, all low-rank; caveat: cut-to-zero conflates mean transport; centered cuts queued
 §1467 — plain per-head QK SVD 0-for-3: five layers fine (.76-.89 @ 23.6 Mbit) but attn5 −1.61 — unwhitened metric suspect; whitened version queued
+§1468 — centered cuts 3-for-3: ~95% of block-1 edges = MEAN transport; true mlp0→attn1 signal ≈ .09 CE — "big fixed bias + small low-rank signal"
+§1469 — whitened QK: sink fixed (a5 +.53) but a17 breaks; best-of class = 4 new records (a10 .920, a13 .893, a14 .898, a17 .799 @ 23.6 Mbit); metric is per-layer; direction-naming queued

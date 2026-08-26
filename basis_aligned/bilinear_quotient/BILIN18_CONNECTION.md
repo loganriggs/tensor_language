@@ -34830,3 +34830,44 @@ the stream is far from isotropic, so the kept directions can miss exactly the
 high-variance inputs the sink head reads — the same metric error §1463 already
 punished once (rank had to be h0-whitened to win). Queued: input-whitened truncation
 (per-layer xin covariance), same price, same bars.
+
+## §1468 CENTERED CUTS (3-for-3): ~95% of the block-1 edges was MEAN TRANSPORT — mlp0's signal into attention is small and low-rank
+
+**Setup** (mlp0_block1_centered, 83s). Mean-preserving cuts: subtract
+corr·((h0−μ0)@C.T) so the mean flows and only the data-dependent signal is removed.
+
+**Registered predictions, scored as written:** pred_a centered values ≤ .40:
+**PASSED** — **.0552** (vs 1.1487 uncentered). pred_b centered patterns ≤ .30:
+**PASSED** — **.0290** (vs .6552). pred_c near-additive: **PASSED** — both .0905 ≤
+1.2×(.0552+.0290)=.1010.
+
+**The corrected picture of mlp0 → block-1 attention:** the huge §1464/66 edge sizes
+were ~95% TRANSPORT OF mlp0'S MEAN — a constant the optimal-ablation baseline would
+happily carry. The genuine information mlp0 sends block-1's attention is ~.09 CE
+(values .055 + patterns .029), on top of a .221 mlp1 edge (uncentered — its centered
+size is pooled). Description implication: "mlp0 feeds block 1 a large fixed bias plus
+a small low-rank signal" — the bias is 4608 floats, the signal a handful of
+directions. The §1464 rank-8/98% result is now understood: direction #1 ≈ the mean;
+the remaining directions carry the .09 signal.
+
+## §1469 Whitened QK truncation fixes the sink but breaks a17 (1-for-3): the class needs per-layer metric choice
+
+**Setup** (attn_lowrank_qk2, lane 2, 154s). Per-layer xin-covariance whitening before
+per-head SVD; same layers, ranks, price.
+
+**Scored as written:** pred_a attn5 r32 ≥ 0: **PASSED** — −1.61 → **+.531**.
+pred_b median r32 ≥ .85: **FAILED** — .7916. pred_c median r8 ≥ .50: **FAILED** —
+.291 (a17 r8 collapses to −1.03 whitened).
+
+**Class verdict (best of plain/whitened per layer, r32 @ 23.6 Mbit):** a10 **.920**,
+a14 **.898**, a13 **.893**, a16 .882, a17 .799, a8 .714, a5 .531. Four NEW per-layer
+records (a10 .821→.920, a13 .734→.893, a14 .769→.898, a17 .578→.799); whitening
+matters at sink-ish layers (a5, a13, a14, a10) and hurts at a17/a16/a8 — the metric
+is a per-layer choice, not a global one. Seeds updated; low-rank-QK is now the
+default mid-price rung for content layers.
+
+**Queued (user directive):** edge_direction_names (lane 1) — NAME the composed-edge
+directions: centered h0 token table, whitened SVD per edge (pattern/values/mlp1),
+top/bottom-25 example tokens per direction with split-half stability, head/map
+loadings, cross-edge subspace overlap. Preds: stability ≥ .50; pattern loadings
+concentrated ≥ .30 in one (map,head) block; shared subspace energy ≥ .40.
