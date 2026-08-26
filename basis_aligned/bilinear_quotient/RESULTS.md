@@ -5243,3 +5243,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1506 — FN tail is indirect-path damage: no direct-output rank captures it (FN .62 at all ranks); path-composed scores pooled (1-for-3)
 §1507 — screen2 3-for-3: 15 certified circuits across 22 classes; weights-only 16/22; head 12.6 generalist (10/22 ensembles)
 §1508 — digits 0-for-3: top-8 dilutes with generalists; rank-32 background fixes non-vacuity; per-class ensemble sizing needed
+§1509 — head 12.6 = clause-boundary punctuation head (6 classes hit, global .001, 13x chosen-concentration; 2-for-3)
+§1510 — greedy v1 objective mis-specified (walks to the selectivity floor; 0-for-3); v2 corrected rule queued

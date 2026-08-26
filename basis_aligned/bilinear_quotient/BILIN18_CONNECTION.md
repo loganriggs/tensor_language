@@ -35589,3 +35589,25 @@ score's tail is generalists; greedy-with-selectivity-check beats top-k. (2) The
 background fix works (non-vacuity achieved) — extraction failures are now about
 ENSEMBLE composition, not background quality. (3) digits is a weaker, more
 distributed circuit than the punctuation family.
+
+## §1509 Head 12.6 characterized (2-for-3): a clause-boundary punctuation head with ~zero off-target cost
+
+**Setup** (circuit_h126, lane 2, 73s). Single-head removal profiled on all 22 class
+masks. **Scored:** pred_a ≥ 8 classes hit ≥ .02: **FAILED** — 6 (question .079,
+newline .065, semicolon .059, colon .043, dollar .040, close_paren .025). pred_b
+global rise ≤ .02: **PASSED** — **.001**. pred_c chosen-classes hit 2× harder:
+**PASSED** — 13× (.0245 vs .0019).
+
+**Characterization:** head 12.6 predicts CLAUSE/SENTENCE BOUNDARIES (?, \n, ;, :,
+$-figure ends, close-paren) — a generalist across boundary classes, near-invisible
+elsewhere. The screens' recurring pick is a real shared component of six certified
+circuits, not an artifact.
+
+## §1510 Greedy ensemble v1: 0-for-3 — objective mis-specification (maximize damage with a selectivity FLOOR walks to the floor)
+
+**Setup** (circuit_greedy, 245s). **Scored:** all three **FAILED** — the greedy rule
+(grow class damage subject to selectivity ≥ 2) accepted 6-15 heads per class and
+converged to selectivity ≈ 2.0-2.4, WORSE than the plain top-5 on 3 of 4 classes
+(digits 2.3× vs 5.2×). A constrained-maximization rule saturates its constraint;
+the objective must BE selectivity (or a product), not damage-with-a-floor. v2
+queued with the corrected acceptance rule.
