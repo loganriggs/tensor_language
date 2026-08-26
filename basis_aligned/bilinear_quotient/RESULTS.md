@@ -5215,3 +5215,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1478 — mlp17 channel quad inert (0-for-3): reads mlp16 LINEARLY; linall .878 = new best; deep-mid missing fid not in adjacent quadratics; full_ship + mlp1_scale queued
 §1479 — THE SHIP SAILS: attn stack + mlp0 + mlp1 planks at once = 3.888 (+.94 CE, compounding 1.59x; 3-for-3); remaining live: mlps 2-16
 §1480 — mlp1 priced frontier: tier8000+r256 = .9624 @ 214 Mbit (3-for-3); class ceiling near — new class pooled for the last .18
+§1481 — mlp8: 2-for-3 (.39/.46/+.01): deep-mid profile now a 3-layer law; mlp10-15 amortized sweep queued

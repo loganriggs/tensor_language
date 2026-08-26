@@ -35075,3 +35075,18 @@ what do the 6,000 mid-frequency tokens' rows encode that rank-64 tails lose?).
 **Queued:** full_ship2 (lane 1) — extend the ship with context-fit mlp2 (lin2 ridge)
 and mlp17 (stream-linall); preds all4 ≤ 4.15, all5 ≤ 4.45, compounding ≤ 1.8×.
 mlp8_ladder (lane 2) — coverage seed for board #3 (bars at the mlp7/9 profile).
+
+## §1481 mlp8 completes the deep-mid trio (2-for-3): linall .456, quad adds only .013 — the profile is now a LAW of layers 7-9
+
+**Setup** (mlp8_ladder, lane 2, 100s). Bars pre-set to the mlp7/9 profile.
+
+**Registered predictions, scored as written:** pred_a lin2 ≥ .35: **PASSED** — .3924.
+pred_b linall ≥ .45: **PASSED** — .4557. pred_c quad adds ≥ .03: **FAILED** — +.0127
+(the flattest quadratic of the three).
+
+**Deep-mid profile, three layers measured:** mlp7 .43/.47/+.05; mlp8 .39/.46/+.01;
+mlp9 .39/.48/+.04. Half of each module is linear-in-the-stream; the other half is
+neither local-linear nor random-projection-quadratic. Seed mlp8 = .4684. Queued:
+deep_mid_sweep (lane 2) — mlp10-15 in ONE amortized run (one capture, six ridge+quad
+fits; preds: median linall ≥ .40, median quad-add ≤ .03 — registering the FLATNESS
+as the hypothesis — median fid ≥ .45). full_ship2 still running lane 1.
