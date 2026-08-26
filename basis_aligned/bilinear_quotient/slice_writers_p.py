@@ -163,11 +163,11 @@ def main():
 
     comps = ['x0'] + [f'attn{L}' for L in range(SITE + 1)] \
         + [f'mlp{L}' for L in range(SITE)]
-    acc = {'sum': {c: torch.zeros(2, device=DEV) for c in comps},
-           'csum': {c: torch.zeros(2, device=DEV) for c in comps},
-           'hsum': {L: {h: torch.zeros(2, device=DEV) for h in range(9)}
+    acc = {'sum': {c: torch.zeros(8, device=DEV) for c in comps},
+           'csum': {c: torch.zeros(8, device=DEV) for c in comps},
+           'hsum': {L: {h: torch.zeros(8, device=DEV) for h in range(9)}
                     for L in range(SITE + 1)},
-           'hcsum': {L: {h: torch.zeros(2, device=DEV) for h in range(9)}
+           'hcsum': {L: {h: torch.zeros(8, device=DEV) for h in range(9)}
                      for L in range(SITE + 1)},
            's_sum': 0.0, 's_n': 0, 'n': 0, 'cn': 0, 'P_proj': []}
     for i in range(0, 96, 8):
