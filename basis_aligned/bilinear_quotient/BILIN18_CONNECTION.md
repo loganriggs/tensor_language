@@ -34946,3 +34946,59 @@ full QK (9.4 Mbit/head) only for the named specialists. Queued: the class swept
 across the 11 remaining layers (kernel fids .21-.85) — preds: median ≥ .85, all beat
 kernel, a12 (worst, .206) ≥ .70. Lane 2: mlp1_edge_centered (§1468 pool) — the .221
 mlp1 edge's mean/signal split + is-the-signal-low-rank.
+
+## §1473 The mlp1 edge is 64% GENUINE SIGNAL (2-for-3) — unlike attention's 5%, and its signal is (barely) rank-32
+
+**Setup** (mlp1_edge_centered, lane 2, 107s). Centered cut + centered-beyond-rank-32.
+
+**Scored as written:** pred_a centered ≤ .110: **FAILED** — .1419 (the edge carries
+MORE information than the attention-edge precedent suggested: 64% of the .221 is
+signal, vs ~5% for block-1's pattern/values edges). pred_b ≥ .02: **PASSED**.
+pred_c beyond-r32 ≤ 30% of signal: **PASSED by .0002** — .0424 vs bar .0426.
+
+**Reading:** mlp→mlp edges are information-carrying; mlp→attention edges are mostly
+mean-transport. And the mlp signal is higher-rank than the attention signal (30% of
+it lives beyond 32 directions — consistent with §1463's rank-32=81%).
+
+## §1474 Whitened rank-32 QK sweeps ALL 11 remaining layers 3-for-3 — the attention stack is now ≥ .84 everywhere
+
+**Setup** (attn_lowrank_sweep, 147s). Whitened per-head rank-32, no roster, 11 layers.
+
+**Scored as written:** pred_a median ≥ .85: **PASSED** — **.9367**. pred_b every
+layer beats its kernel: **PASSED** — 11/11 (a0 .847→.955, a1 .817→.964, a2
+.678→.936, a3 .623→.910, a4 .811→.971, a6 .531→.937, a7 .602→.946, a9 .692→.958,
+a11 .417→.844, a12 .206→.887, a15 .279→.864). pred_c a12 ≥ .70: **PASSED** — .8868
+(was the worst kernel layer at .206).
+
+**The attention stack is per-layer SOLVED to ≥ .84 at ≤ 50.7 Mbit/layer** under the
+three-tier grammar (kernel / whitened-r32 / full-QK-for-named-roster). Board: attn2
+(#3) collapses to .010; ALL attention layers leave the board top-10. The frontier
+moves to the deep-mid MLPs (8, 11, 17, 9...) — exactly where the ladder template
+failed. Seeds updated for all 11.
+
+## §1475 Edge atlas part 1 (L0-7, 2-for-3): the adjacent-edge economy is FRONT-LOADED, and mlp→mlp is the dominant channel
+
+**Setup** (edge_atlas_part1, 384s; one stats pass, 24 edges × 2 arms, NR=480
+screening). **Scored:** pred_a median signal ≥ .01: **PASSED** — .0337. pred_b ≥80%
+of real edges low-rank: **FAILED** — 47.4% (mlp→mlp edges carry big beyond-r32
+residuals: L1_mlp .070 of .130, L2_mlp .042 of .068). pred_c mlp edge largest at
+≥60% of layers: **PASSED** — 87.5%.
+
+**Map (signal CE):** L0: mlp .140 / val .054 / pat .027. L1: mlp .130 / pat .096 /
+val .064. L2-4: .01-.08. L5-7: < .015 everywhere. The front of the model is where
+adjacent modules genuinely talk; the mlp→mlp channel dominates and is HIGHER-rank
+than the attention channels (the §1473 law repeats at every front layer).
+
+## §1476 Edge atlas part 2 (L8-16, 1-for-3): deep layers barely read their neighbor — EXCEPT mlp16→mlp17 (.108, cleanly low-rank)
+
+**Setup** (edge_atlas_part2, lane 2, 403s). **Scored:** pred_a median ≥ .01:
+**FAILED** — .0019 (deep adjacent edges are near-zero: the mid/deep stack reads the
+ACCUMULATED stream, not its neighbor — this is WHY the lin2 ladder failed at mlp7/9).
+pred_b ≥80% low-rank: **FAILED** — 60%. pred_c mlp largest: **PASSED** — 88.9%.
+
+**The exception is the headline:** L16_mlp = **.1075** signal with beyond-r32 only
+.0044 — mlp17 reads mlp16 through a clean ≤32-direction channel (fits §1443's
+"mlp17 = linear read + scraps"). L15_mlp .0149 is the only other deep edge above
+.006. Program consequence: for deep-mid MLPs the folding-in unit must be the
+STREAM (accumulated sum), not the adjacent module — registered as the next
+description class to build for the board's new top tier.

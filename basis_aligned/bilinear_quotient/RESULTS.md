@@ -5207,3 +5207,7 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1470 — edge directions NAMED (2-for-3): D1 determiner/NP-start (all 3 edges, stab .9+, read 40% by k2@head1.1), D2 capitalized-name-fragment (ancestor of the capitalized committee), D3 verb-vs-connective (mlp1, stab .83); shared subspace .473; unstable dirs left unnamed
 §1471 — axis causality 2-for-3: control 0.0000, D2 specific (3.2x), D1 misses 3x bar (1.45x) and lands harder on name-fragments — axes need input-name AND function-name
 §1472 — attn5 .597→.923, attn8 .794→.935 (roster-live + whitened r32; 3-for-3): board #3 cracked; three-tier attention grammar; class swept to 11 remaining layers + mlp1 centered edge queued
+§1473 — mlp1 edge = 64% signal (.142 of .221; barely rank-32): mlp→mlp carries information, attn edges carry mean (2-for-3)
+§1474 — whitened r32 QK sweeps 11/11 layers (median .937, a12 .206→.887): attention per-layer SOLVED ≥.84 everywhere; board top now deep-mid MLPs (3-for-3)
+§1475 — atlas L0-7: front-loaded edges (L0/L1 mlp .14/.13), mlp channel dominant 87%, but mlp edges higher-rank than attn (2-for-3)
+§1476 — atlas L8-16: deep adjacent edges ~0 (median .002) — deep MLPs read the STREAM; exception mlp16→mlp17 = .108 cleanly low-rank (1-for-3)
