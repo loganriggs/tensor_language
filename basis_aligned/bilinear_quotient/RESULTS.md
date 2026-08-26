@@ -5231,3 +5231,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1494 — site map: mlp0 4.3x/1.2, mlp1 1.0/1.3, mlp2 1.7/1.9 — weight-basis advantage unique to mlp0; removal+generalization robust everywhere (2-for-3)
 §1495 — site map complete: mlp0 4.3 > mlp2 1.9 > mlp3 1.4 > mlp1 1.0; selective extraction is an mlp0 phenomenon; removal/generalization universal (2-for-3); ship3 no_grad bug fixed + requeued
 §1496 — 23-module ship 3.685 (+.74 CE; 3-for-3): mlp3 projection .015 solo, additions .08; glue persisted; ship4 (deep-mid stream-linalls) + r16 price sweep queued
+§1497 — weak planks cost 2.4x solo in-ship: robustness tracks plank fid, not class; ship26 = 3.902 (+.96) (1-for-3)
+§1498 — r16 rung: median .848 @ 11.8 Mbit (misses .85 by .0016), all beat kernels; price curve measured (1-for-3); ship_all36 + own-basis deep quads queued

@@ -35368,3 +35368,34 @@ solo delta in-ship, unlike input-fitted lin2 (mlp2's 4× blowup).
 the WEAK deep-mid planks: mlp16 (.81), mlp15 (.43), mlp14 (.33) as stream-linalls;
 26-module ship ≤ 3.80; fresh-row band ≤ .12. attn_lowrank_r16 (lane 2) — price
 optimization: does half the rank (11.8 Mbit/layer) keep the attention class ≥ .85?
+
+## §1497 Weak planks cost 2.4× solo in-ship (1-for-3): stream-linall robustness was a HIGH-FID property, not a class property
+
+**Setup** (full_ship4, 164s). **Scored as written:** pred_a each ≤ .06: **FAILED** —
+.0621/.0736/.0808 (≈2.3-2.6× each plank's solo delta). pred_b ship26 ≤ 3.80:
+**FAILED** — 3.9017. pred_c fresh band ≤ .12: **PASSED** — .0919.
+
+**Reading:** mlp17 (solo fid .88) composed at LESS than solo cost; mlp16/15/14
+(solo .81/.43/.33) compose at 2.4× solo. The composition-robustness taxonomy
+refines: robustness tracks the plank's own fidelity, not its class. Ship economics:
+each weak module added buys "glassness" at 2.4× its solo price — the honest
+marginal cost curve for the remaining deep-mid stack. Ship line: 3.107 (18 attn) →
+3.685 (23) → 3.902 (26, +.96 CE).
+
+## §1498 r16 half-price rung (1-for-3): median .848, all beat kernels — r32 stays the sweet spot
+
+**Setup** (attn_lowrank_r16, lane 2, 152s). **Scored:** pred_a median ≥ .85:
+**FAILED by .0016** — .8484. pred_b all beat kernels: **PASSED** — 11/11 (a12
+.206→.701 even at 11.8 Mbit). pred_c drop ≤ .06: **FAILED** — .0883.
+
+**Price curve for the attention class (median fid @ Mbit/layer):** kernel .42 @
+.037 → r16 .848 @ 11.8 → r32 .937 @ 23.6 → full ~1.0 @ 85. The Pareto rung
+structure is now measured; frontier updated.
+
+**Queued:** ship_all36 (lane 1) — the TOTAL glass number: stream-linalls for the
+remaining mlps 4-13, everything replaced at once (preds: ≤ 5.5; compounding ≤ 2×;
+fresh band ≤ .15). deep_stream_quad (lane 2) — own-basis quadratic for the two
+worst deep sites (mlp7, mlp14): products of the module's own top-16 INPUT stream
+directions (136 features) on the linall residual — the module's bilinear form
+restricted to its dominant input subspace (preds: +.05 at each; beats
+random-projection quads).
