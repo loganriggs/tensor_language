@@ -191,14 +191,14 @@ def main():
         Vr, lr = FORMS[cn]
         s_b = ((z_base @ Vr) ** 2) @ lr
         s_a = ((z_abl @ Vr) ** 2) @ lr
-        m = pm[cn]
-        elev_b = float(s_b[m].mean() - s_b.mean())
-        elev_a = float(s_a[m].mean() - s_a.mean())
+        msk = pm[cn]
+        elev_b = float(s_b[msk].mean() - s_b.mean())
+        elev_a = float(s_a[msk].mean() - s_a.mean())
         res[cn] = {'elev_base': round(elev_b, 4), 'elev_abl': round(elev_a, 4),
                    'elev_drop_frac': round(1 - elev_a / max(elev_b, 1e-9), 3),
                    'global_mean_base': round(float(s_b.mean()), 4),
                    'global_mean_abl': round(float(s_a.mean()), 4),
-                   'n_class': int(m.sum())}
+                   'n_class': int(msk.sum())}
         print(cn, res[cn], flush=True)
     for hk in head_hooks + hooks:
         hk.remove()

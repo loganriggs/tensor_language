@@ -185,12 +185,13 @@ def main():
     back = (~is_the) & (rk0 >= 5)
     res = {'n': {'class': int(is_the.sum()), 'almost': int(almost.sum()),
                  'background': int(back.sum())}}
-    for nm, m in (('class', is_the), ('almost', almost), ('background', back)):
-        res[nm] = {'p_the_gate_on': round(float(p0[m].mean()), 5),
-                   'p_the_gate_off': round(float(p1[m].mean()), 5),
-                   'rel_p_change': round(float(p1[m].mean() / p0[m].mean()
+    for nm, msk in (('class', is_the), ('almost', almost),
+                    ('background', back)):
+        res[nm] = {'p_the_gate_on': round(float(p0[msk].mean()), 5),
+                   'p_the_gate_off': round(float(p1[msk].mean()), 5),
+                   'rel_p_change': round(float(p1[msk].mean() / p0[msk].mean()
                                                - 1), 3),
-                   'ce_rise': round(float((ce1[m] - ce0[m]).mean()), 4)}
+                   'ce_rise': round(float((ce1[msk] - ce0[msk]).mean()), 4)}
         print(nm, res[nm], flush=True)
     zp_hook.remove()
     for hk in hooks:
