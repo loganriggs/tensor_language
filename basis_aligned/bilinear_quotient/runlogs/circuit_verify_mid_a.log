@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_verify_mid_a.py", line 144, in <module>
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_verify_mid_a.py", line 75, in main
+    for cn in __a_CLASSES__:
+              ^^^^^^^^^^^^^
+NameError: name '__a_CLASSES__' is not defined
+Fatal Python error: PyGILState_Release: thread state 0x71c530022cb0 must be current when releasing
+Python runtime state: finalizing (tstate=0x00006047ec3655d0)
+
+Thread 0x000071c96b358740 (most recent call first):
+  <no Python frame>

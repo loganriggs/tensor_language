@@ -72,7 +72,7 @@ def main():
         'months': rx(r'^ (January|February|March|April|May|June|July|August|September|October|November|December)$'),
     }
     SPECS = {}
-    for cn in __b_CLASSES__:
+    for cn in ['close_quote', 'dollar', 'said', 'months']:
         if cn in g2:
             SPECS[cn] = {'heads': parse(g2[cn]['heads']),
                          'ref': g2[cn]['verified_sel'],
