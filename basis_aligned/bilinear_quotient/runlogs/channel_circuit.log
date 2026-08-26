@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+mu, rms measured
+bases built
+mean out measured
+mean {'global': 3.8167, 'frag': 3.4166, 'det': 5.1549}
+ex_w1 {'global': 4.1005, 'frag': 3.5345, 'det': 5.4256}
+ex_w8 {'global': 3.6982, 'frag': 2.7862, 'det': 5.1296}
+ex_w32 {'global': 3.1326, 'frag': 2.3842, 'det': 4.4661}
+ex_pca8 {'global': 3.3162, 'frag': 2.5883, 'det': 4.6628}
+rm_w8 {'global': 2.9653, 'frag': 2.2366, 'det': 4.258}
+rm_pca8 {'global': 2.9771, 'frag': 2.2642, 'det': 4.2731}
+rm_rand8 {'global': 2.9456, 'frag': 2.2096, 'det': 4.2318}
+keeps {'ex_w1': {'global': -0.3258, 'frag': -0.0976, 'det': -0.2932}, 'ex_w8': {'global': 0.136, 'frag': 0.522, 'det': 0.0274}, 'ex_w32': {'global': 0.7852, 'frag': 0.8549, 'det': 0.7461}, 'ex_pca8': {'global': 0.5745, 'frag': 0.6859, 'det': 0.533}}
+rises {'rm_w8': {'global': 0.0198, 'frag': 0.0276, 'det': 0.0263}, 'rm_pca8': {'global': 0.0316, 'frag': 0.0552, 'det': 0.0414}, 'rm_rand8': {'global': 0.0001, 'frag': 0.0006, 'det': 0.0001}}
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/channel_circuit_results.json (96.7s)

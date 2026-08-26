@@ -5220,3 +5220,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1483 — deep-mid law universal: mlp10-15 linall .34-.45, quads ~0/negative; all 18 MLPs now seeded; d2_circuit + mlp2 diagnosis queued (2-for-3)
 §1484 — circuit pilot 0-for-3 = red-team finding #1: single axes carry ~.002 CE, too small for circuit wires; channel-grain + baselines queued
 §1485 — mlp2 plank brittle in EVERY context (+.24/+.42/+.40 excess; solo .944): strongest local≠composite at module grain (1-for-3)
+§1486 — channel circuits work (k8 keeps .52 frag, monotone, random=0) BUT PCA-8 beats weight-basis on coverage — weight basis wins only selectivity (3.8x vs 1.2x); 2-for-3
+§1487 — wiring predicts propagation 10/10 (front-loaded, rho .994); specialist roster predicts consumers 0/30 — roster is NOT a consumer map; 2-for-3

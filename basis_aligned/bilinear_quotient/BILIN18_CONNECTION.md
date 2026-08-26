@@ -35163,3 +35163,46 @@ lin2's fitted coefficients are OOD-brittle. Either way, module-grain lesson for 
 bench: solo fidelity .944 with composite behavior this bad is the strongest
 local≠composite case measured. (Context-refit under the full ship is the registered
 fix candidate, pooled.)
+
+## §1486 Channel-grain circuits WORK, but the red-team lands its hit: activation-PCA beats the weight channel on coverage (2-for-3)
+
+**Setup** (channel_circuit, 97s). Extraction/removal at mlp0's output with the top-k
+weight-channel basis (stacked block-1 composed edges) vs activation-PCA-8 vs
+random-8; global + frag-class + det-class CE.
+
+**Registered predictions, scored as written:**
+- pred_a monotone + channel-8 keeps ≥ .30 of the frag effect: **PASSED** — k=1/8/32
+  keep −.10/.52/.85 of frag; the §1484 failure was grain, not concept.
+- pred_b weight-channel ≥ PCA − .05: **FAILED** — PCA-8 keeps MORE of everything
+  (frag .686 vs .522; global .575 vs .136; removal .032 vs .020). For coverage at
+  matched rank, plain activation structure wins; the weight composition was NOT
+  needed to pick the subspace.
+- pred_c subspace causality specific: **PASSED** — channel-8 removal .0198 CE,
+  random-8 .0001.
+
+**The nuance worth keeping:** the weight channel is far more SELECTIVE — it keeps
+frag at 3.8× its global keep (\.522/.136), where PCA keeps everything at ~1.2× —
+i.e., PCA extracts "mlp0's biggest variance", the weight channel extracts "what
+block-1 discriminates". For surgical class-specific handles, the weight basis is
+the right tool; for maximal-fidelity compression, PCA/rank is. Both readings
+recorded; the registered bar failed as written.
+
+## §1487 The wiring predicts propagation PERFECTLY; the specialist roster predicts nothing (2-for-3)
+
+**Setup** (channel_consumers, lane 2, 33s). Channel-8 removed at mlp0; all 162 heads
+ranked by relative output change; split-half stability.
+
+**Scored as written:** pred_a ≥ 6 of top-10 in layers 1-4: **PASSED** — **10/10**
+(all in layers 1-2; per-layer effect decays smoothly .46 → .11 with depth — the
+atlas's front-loading is a real propagation law). pred_b roster heads ≥ 2× enriched
+in top-30: **FAILED at 0/30** — the named specialists are special for their OWN
+pattern computation, NOT as consumers of mlp0's channel; the roster is the wrong
+structure for propagation prediction. pred_c split-half ρ ≥ .7: **PASSED** — .994.
+
+**Red-team ledger after two rounds:** USEFUL structure: channel/rank grain (causal,
+specific, monotone), the edge atlas's front-loading (predicts propagation), centered
+mean/signal split, exact λ-ledger surgery (controls at 1e-4). NOT useful (for these
+jobs): single named axes as handles (§1484), the specialist roster as a consumer
+map (§1487), weight-basis for coverage (PCA wins, §1486), random-projection
+quadratics deep (§1483). The naming layer's value is DESCRIPTIVE (what flows) —
+selectivity, not coverage.
