@@ -36136,3 +36136,20 @@ is the honest boundary of head-grain circuits in this model. Queued: state
 LOCALIZATION — per-layer attention replacement (whitened rank-32, one layer at a
 time) scored on agreement accuracy (lane 1) and the parity CE-gap (lane 2): the
 layer whose approximation destroys the computation is where the state lives.
+
+## §1550 NO single attention layer carries the states (2-for-3 twice): agreement and parity are stream-carried and robust
+
+**Setup** (state_localize_A/Q, ~260s each). Per-layer whitened rank-32 replacement,
+scored on the computation. **Scored:** pred_a some layer disrupts ≥ .05 (A) / ≥ .20
+(Q): **FAILED BOTH, decisively** — max agreement drop .0012 (any layer!), max
+parity-gap shrink .0108 of a ~1.15 gap. pred_b/c: **PASSED** (trivially, given the
+flatness).
+
+**The completed law of conditioning state:** subject-verb agreement and quote
+parity survive rank-32 approximation of EVERY attention layer individually — the
+states ride in the residual stream's content (token/MLP features), not in fragile
+attention routing. Combined with §1548-49: announcers are localized (1-5 heads,
+certified), conditioning states are distributed and robust. Queued: the MLP side
+(per-MLP K=2048 replacement scored on both metrics — do token-table modules carry
+parity?) and the full-attention-replacement check (all 18 layers at rank-32
+simultaneously: do the computations survive the ENTIRE attention approximation?).
