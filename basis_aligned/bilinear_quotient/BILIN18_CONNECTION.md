@@ -35522,3 +35522,41 @@ contains '\n'); 5-head ensemble {7.2, 8.2, 10.2, 11.0, 12.6}.
 crashes handled: circuit_screen hit the PADDED lm_head vocab (50304 vs 50257 —
 sliced); circuit_cap_fn lost its forward function in cloning — respliced. Both
 requeued.)
+
+## §1505 TEN-CLASS CIRCUIT SCREEN (1-for-3 as registered, but the pred_c miss is a WIN): 8/10 selective circuits in one run; the weights-only method BEATS the data baseline 6/10
+
+**Setup** (circuit_screen, lane 2, 195s; plot: plots/circuit_screen_10class.png).
+Ten target-token classes; per class, top-5 head ensembles by (W) the weights-only
+score — class unembedding direction projected onto each head's output slice — and
+(B) data logit-attribution; graded by optimal-constant removal selectivity.
+
+**Scored as written:**
+- pred_a ≥ 6/10 selective (≥2×): **PASSED** — **8/10**: close_paren 200×(W),
+  newline 90×(W), question 47×(W), comma 21×(W), open_quote 17×(W), digits 5.2×(W),
+  is 2.5×(W), the 2.2×(W). Below bar: capitalized (needs its 13-head ensemble, not
+  5) and 'of'.
+- pred_b methods overlap (Jaccard ≥ .25): **FAILED** — median .125. The two methods
+  find DIFFERENT heads.
+- pred_c baseline wins ≥ 5: **FAILED — in the compression's favor** — the baseline
+  won only 4/10; the weights-only method wins 6/10 on class effect and dominates on
+  selectivity (comma: 20.8× vs 0.87×). The registered honest expectation (data ≥
+  weights) was WRONG: composing unembeddings with output-slice weights finds
+  cleaner circuits than measured attribution, at zero forward passes.
+
+**New circuits for the registry (removal-certified at 5 heads):** close_paren,
+question-mark, comma, open-quote, digits — plus confirmations of newline. Recurring
+member: head 12.6 sits in 6/10 weight-method ensembles (formatting/punctuation
+generalist — flagged for dedup across circuit claims).
+
+## §1506 The FN tail is INDIRECT-PATH damage (1-for-3): no output-subspace rank captures it
+
+**Setup** (circuit_cap_fn, 169s; plots/cap_classifier_scatter.png; per-token arrays
+saved). **Scored:** pred_a ρ monotone in rank: **FAILED** (.637/.703/.745/.723 —
+peaks at 128). pred_b FN(256) ≤ .45: **FAILED** — FN is .62 at EVERY rank. pred_c
+FP(256) ≤ .30: **PASSED** — .26.
+
+**Reading:** the 50 most-damaged capitalized tokens are NOT reachable by ANY rank
+of the ensemble's direct output subspace — their damage arrives through indirect
+paths (ensemble → downstream attention/MLPs → logits). The membership classifier's
+ceiling with direct-path scores is ρ≈.74 / FN≈.6; closing the FN gap needs
+path-composed scores (ensemble output composed through downstream blocks). Pooled.

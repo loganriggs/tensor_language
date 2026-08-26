@@ -5239,3 +5239,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1502 — circuit suites v1: distributions were prev-side, behaviors are TARGET-side (cap 0-for-3, newline 1 vacuous); v2 queued with target masks + FP/FN classifier grading
 §1503 — capitalization circuit certified target-side: removal 9.1x, extraction 2.9x, classifier rho .74 but FN .62 (2-for-3); FN rank-sweep + scatter queued
 §1504 — newline circuit: removal 99x selective (.532 class / .005 global) — cleanest removal in ledger; extraction non-vacuity fails; classifier vacuous on 1-token class (2-for-3); crashes fixed
+§1505 — 10-class screen: 8/10 selective circuits in 195s; weights-only BEATS data baseline 6/10 (comma 21x vs 0.9x); head 12.6 in 6/10 ensembles (1-for-3, pred_c miss = win)
+§1506 — FN tail is indirect-path damage: no direct-output rank captures it (FN .62 at all ranks); path-composed scores pooled (1-for-3)

@@ -2,16 +2,11 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 patterns cached
 subspace built
 target class size: 12356 tokens
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_cap_fn.py", line 231, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_cap_fn.py", line 162, in main
-    r0, ts_c, tn_c = ce_run()
-                     ^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_cap_fn.py", line 148, in ce_run
-    lo = fwd(idx, **kw).float()
-         ^^^
-NameError: name 'fwd' is not defined
+both arms measured
+16 {'spearman': 0.637, 'fn': 0.62, 'fp': 0.28}
+64 {'spearman': 0.703, 'fn': 0.62, 'fp': 0.26}
+128 {'spearman': 0.745, 'fn': 0.62, 'fp': 0.26}
+256 {'spearman': 0.723, 'fn': 0.62, 'fp': 0.26}
+plot saved
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_cap_fn_results.json (168.5s)

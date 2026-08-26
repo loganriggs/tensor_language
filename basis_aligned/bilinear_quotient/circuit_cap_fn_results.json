@@ -1,0 +1,40 @@
+{
+ "summary": {
+  "ranks": {
+   "16": {
+    "spearman": 0.637,
+    "fn": 0.62,
+    "fp": 0.28
+   },
+   "64": {
+    "spearman": 0.703,
+    "fn": 0.62,
+    "fp": 0.26
+   },
+   "128": {
+    "spearman": 0.745,
+    "fn": 0.62,
+    "fp": 0.26
+   },
+   "256": {
+    "spearman": 0.723,
+    "fn": 0.62,
+    "fp": 0.26
+   }
+  }
+ },
+ "arm_ce": {
+  "clean": {
+   "global": 2.7924,
+   "cls": 4.3452
+  },
+  "rm_ens": {
+   "global": 2.8623,
+   "cls": 4.983
+  }
+ },
+ "pred_a_rho_monotone": false,
+ "pred_b_fn256_le_45": false,
+ "pred_c_fp256_le_30": true,
+ "runtime_s": 168.5
+}

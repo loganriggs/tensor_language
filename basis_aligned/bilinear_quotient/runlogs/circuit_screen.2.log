@@ -1,14 +1,28 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_screen.py", line 277, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_screen.py", line 109, in main
-    rows = WU[v.to(DEV)]
-           ~~^^^^^^^^^^^
-IndexError: The shape of the mask [50257] at index 0 does not match the shape of the indexed tensor [50304, 1152] at index 0
-Fatal Python error: PyGILState_Release: auto-releasing thread-state, but no thread-state for this thread
-Python runtime state: finalizing (tstate=0x0000572210d915d0)
-
+{'newline': 3, 'capitalized': 12356, 'digits': 1691, 'open_quote': 23, 'close_paren': 38, 'comma': 1, 'question': 2, 'the': 3, 'of': 1, 'is': 3}
+method W scored
+method B scored
+clean measured
+newline W {'heads': ['10.2', '12.6', '6.5', '16.2', '7.2'], 'rise_global': 0.0053, 'rise_class': 0.4748, 'selectivity': 89.59}
+newline B {'heads': ['12.6', '10.2', '14.2', '3.4', '8.2'], 'rise_global': 0.0099, 'rise_class': 0.509, 'selectivity': 51.34}
+capitalized W {'heads': ['7.3', '6.7', '6.5', '12.6', '5.5'], 'rise_global': 0.045, 'rise_class': 0.0757, 'selectivity': 1.68}
+capitalized B {'heads': ['17.8', '3.0', '16.3', '15.2', '2.2'], 'rise_global': 0.0192, 'rise_class': 0.038, 'selectivity': 1.98}
+digits W {'heads': ['7.3', '6.7', '6.5', '12.6', '11.5'], 'rise_global': 0.0193, 'rise_class': 0.1, 'selectivity': 5.17}
+digits B {'heads': ['17.8', '15.2', '3.7', '3.6', '17.3'], 'rise_global': 0.0106, 'rise_class': 0.0328, 'selectivity': 3.1}
+open_quote W {'heads': ['12.6', '13.3', '14.8', '6.7', '17.2'], 'rise_global': 0.018, 'rise_class': 0.3062, 'selectivity': 17.03}
+open_quote B {'heads': ['13.3', '17.2', '13.8', '10.6', '3.0'], 'rise_global': 0.0157, 'rise_class': 0.0315, 'selectivity': 2.0}
+close_paren W {'heads': ['13.8', '15.1', '7.2', '12.6', '16.8'], 'rise_global': 0.011, 'rise_class': 2.2094, 'selectivity': 200.39}
+close_paren B {'heads': ['13.8', '4.0', '2.0', '16.8', '3.0'], 'rise_global': 0.041, 'rise_class': 1.8194, 'selectivity': 44.35}
+comma W {'heads': ['6.5', '15.2', '12.6', '9.5', '12.5'], 'rise_global': 0.0032, 'rise_class': 0.0657, 'selectivity': 20.81}
+comma B {'heads': ['5.7', '6.1', '10.5', '9.7', '2.5'], 'rise_global': 0.1079, 'rise_class': 0.094, 'selectivity': 0.87}
+question W {'heads': ['10.5', '12.6', '15.6', '15.1', '9.7'], 'rise_global': 0.042, 'rise_class': 1.9611, 'selectivity': 46.7}
+question B {'heads': ['10.5', '3.0', '15.1', '12.6', '5.7'], 'rise_global': 0.0362, 'rise_class': 1.7504, 'selectivity': 48.39}
+the W {'heads': ['7.3', '10.8', '6.7', '6.5', '11.7'], 'rise_global': 0.0191, 'rise_class': 0.0425, 'selectivity': 2.23}
+the B {'heads': ['5.7', '6.1', '9.7', '4.2', '4.7'], 'rise_global': 0.0811, 'rise_class': 0.0482, 'selectivity': 0.59}
+of W {'heads': ['7.3', '16.8', '5.5', '6.5', '7.8'], 'rise_global': 0.0508, 'rise_class': 0.0551, 'selectivity': 1.09}
+of B {'heads': ['5.7', '4.7', '2.2', '6.1', '4.2'], 'rise_global': 0.0562, 'rise_class': 0.0576, 'selectivity': 1.02}
+is W {'heads': ['11.3', '7.8', '10.5', '9.7', '6.7'], 'rise_global': 0.0929, 'rise_class': 0.231, 'selectivity': 2.49}
+is B {'heads': ['5.7', '4.0', '9.7', '6.1', '11.3'], 'rise_global': 0.0948, 'rise_class': 0.1423, 'selectivity': 1.5}
+selective 8/10 jaccard 0.12 baseline_wins 4
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_screen_results.json (195.0s)
