@@ -1,0 +1,27 @@
+{
+ "res": {
+  "clean": 2.9455,
+  "mlp5": {
+   "rec_hybrid64": 0.4773,
+   "hyb_full_ref": 0.6935,
+   "units1024_ref": 0.6577,
+   "price_mbit": 22.4
+  },
+  "mlp7": {
+   "rec_hybrid64": 0.3899,
+   "hyb_full_ref": 0.5734,
+   "units1024_ref": 0.6119,
+   "price_mbit": 24.8
+  },
+  "mlp12": {
+   "rec_hybrid64": 0.3536,
+   "hyb_full_ref": 0.5085,
+   "units1024_ref": 0.5818,
+   "price_mbit": 30.7
+  }
+ },
+ "pred_a_retains_90": false,
+ "pred_b_price_45": true,
+ "pred_c_beats_units_half": false,
+ "runtime_s": 219.6
+}

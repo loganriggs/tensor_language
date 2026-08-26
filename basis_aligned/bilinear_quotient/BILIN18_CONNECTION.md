@@ -36060,3 +36060,17 @@ the dominant frontier inefficiency is the deep planks' unit tables. Queued: the
 §1535 pooled fix — core-256 sub-MLP + RANK-64-TRUNCATED stream ridge tail (~35
 Mbit/module, 3× cheaper than units-1024) at four sites split across lanes; if it
 retains the hybrid's fidelity it re-prices the whole deep tier.
+
+## §1544 Rank-64 ridge tails lose too much (1-for-3 twice): the deep-tier economics table is FINAL — unit truncation wins at every price point
+
+**Setup** (deep_tail_rank_a/b, both lanes). **Scored:** pred_a retains ≥ .90 of the
+full hybrid: **FAILED** — retention .65-.80 at all six sites. pred_b price ≤ 45
+Mbit: **PASSED** — 22-34. pred_c beats units-1024 at half the sites: **FAILED** —
+0 of 6.
+
+**Closing the deep-tier pricing question:** the stream-ridge tail is genuinely
+HIGH-RANK (the §1463 law again — mlp-side signal resists rank compression), so
+truncating it forfeits the hybrid's advantage. The final table: unit truncation in
+the module's own basis at K chosen by budget (log-linear returns to ~.95); the
+full-ridge hybrid only where description cost is no object. Ship Pareto frontier
+stands as measured (§1543).
