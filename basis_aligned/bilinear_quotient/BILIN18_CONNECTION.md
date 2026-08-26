@@ -35041,3 +35041,37 @@ mlp0/mlp1 planks, all simultaneously; arms clean/attn/mlp1/mlp0/attn+mlp1/all3;
 preds attn+mlp1 ≤ 3.65, all3 ≤ 3.90, ship compounding ≤ 2.5×. mlp1_scale (lane 2) —
 board #1 mechanical scaling: tier8000 + rank-256 ridge; preds ≥ .965 / ≥ .960 /
 beats .9507 by ≥ .008.
+
+## §1479 THE SHIP SAILS: attention stack + mlp0 + mlp1 planks simultaneously = +.94 CE, compounding 1.59× (3-for-3)
+
+**Setup** (full_ship, 131s). Three-tier attention composite at all 18 layers PLUS
+context-fit mlp0/mlp1 planks (tier tables + ridges fit on captures taken UNDER the
+attention composite, computed inline single-pass; mlp1's ridge reads the stand-in m0
+when both are replaced).
+
+**Registered predictions, scored as written:** pred_a attn+mlp1 ≤ 3.65: **PASSED** —
+3.5434. pred_b all3 ≤ 3.90: **PASSED** — **3.8879** (margin .0121). pred_c ship
+compounding ≤ 2.5×: **PASSED** — **1.59×** (deltas: attn .162, mlp1 .313, mlp0 .118;
+joint .942 vs sum .593).
+
+**The glass-ship line:** ALL 18 attention layers + the two biggest MLPs replaced by
+priced, human-legible stand-ins at once, and the model runs at 3.89 vs 2.95 clean —
+against a mean-ablation of just mlp1 alone costing 7.7. Context-fitting (lesson 3
+applied constructively) plus compute-from-stream stand-ins keep compounding at 1.6×.
+The remaining live modules: mlps 2-16. Next extension queued (mlp2, mlp17).
+
+## §1480 mlp1 priced frontier moves: tier8000 + rank-256 ridge = .9624 @ 214 Mbit (3-for-3) — but the max-fid .975 stands
+
+**Setup** (mlp1_scale, lane 2, 133s). **Scored:** pred_a tier8000+full ridge ≥ .965:
+**PASSED** — .9679. pred_b rank-256 ≥ .960: **PASSED** — .9624. pred_c beats the
+.9507 plank by ≥ .008: **PASSED** — +.0117.
+
+**Frontier reading:** the priced curve now has tier2000+r128 .9507 @ 96.6 Mbit and
+tier8000+r256 .9624 @ 214 Mbit; the unpriced ceiling .9752 (full table + ridge +
+quad). Diminishing: +117 Mbit bought +.0117 — the plank is near its class ceiling;
+mlp1's remaining ~.18 unexplained CE needs a NEW class, not a bigger table (pooled:
+what do the 6,000 mid-frequency tokens' rows encode that rank-64 tails lose?).
+
+**Queued:** full_ship2 (lane 1) — extend the ship with context-fit mlp2 (lin2 ridge)
+and mlp17 (stream-linall); preds all4 ≤ 4.15, all5 ≤ 4.45, compounding ≤ 1.8×.
+mlp8_ladder (lane 2) — coverage seed for board #3 (bars at the mlp7/9 profile).

@@ -1,0 +1,21 @@
+{
+ "ce": {
+  "clean": 2.9455,
+  "attn": 3.1074,
+  "mlp1": 3.258,
+  "mlp0": 3.0639,
+  "attn_mlp1": 3.5434,
+  "all3": 3.8879
+ },
+ "deltas": {
+  "attn": 0.1619,
+  "mlp1": 0.3125,
+  "mlp0": 0.1184,
+  "all3": 0.9424
+ },
+ "ship_compounding": 1.59,
+ "pred_a_attn_mlp1_le_365": true,
+ "pred_b_all3_le_390": true,
+ "pred_c_factor_le_25": true,
+ "runtime_s": 130.6
+}
