@@ -5307,3 +5307,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1570 — EIGEN-SLICE WINS: rank-2 form ablation at question = .178 rise (2× the 64-unit set, 1/64 params, zero global cost); pronouns@mlp17 form is net-SUPPRESSIVE; encoder subspace NOT low-rank (2-for-3)
 §1571 — cross-class unit sharing = generic frequency pool at mlp16/17, causally inert (comma|is 31/64 shared, rises .007/−.002) — not reused features (1-for-3)
 §1572 — 8-class unit screen: membership common + concentrated (is@mlp17 K16 .21 @ 14.9×) but weakly selective outside question; K=64 was the wrong grain (2-for-3)
+§1573 — CERTIFIED: question mlp11 component = rank-2 tensor slice, .180 rise @ zero global cost (−.0002), NR=1920 + held-out 4% (3-for-3)
+§1574 — eigen slice not universal: late-layer spectra sign-interleaved (months r2 −.07 → r32 +.10); slice wins at dedicated mid sites, units win at diffuse late sites (1-for-3)

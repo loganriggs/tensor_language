@@ -1,0 +1,136 @@
+{
+ "res": {
+  "comma": {
+   "mlp": 4,
+   "unit_K64_ref": 0.0041,
+   "form_r2": {
+    "rise_class": 0.0018,
+    "rise_global": -0.0
+   },
+   "form_r8": {
+    "rise_class": 0.0033,
+    "rise_global": -0.0001
+   },
+   "form_r32": {
+    "rise_class": 0.0054,
+    "rise_global": -0.0001
+   }
+  },
+  "question": {
+   "mlp": 11,
+   "unit_K64_ref": 0.0906,
+   "form_r2": {
+    "rise_class": 0.1784,
+    "rise_global": -0.0002
+   },
+   "form_r8": {
+    "rise_class": 0.1862,
+    "rise_global": -0.0002
+   },
+   "form_r32": {
+    "rise_class": 0.1972,
+    "rise_global": -0.0002
+   }
+  },
+  "semicolon": {
+   "mlp": 4,
+   "unit_K64_ref": 0.0184,
+   "form_r2": {
+    "rise_class": 0.0057,
+    "rise_global": -0.0
+   },
+   "form_r8": {
+    "rise_class": 0.0099,
+    "rise_global": -0.0
+   },
+   "form_r32": {
+    "rise_class": 0.0134,
+    "rise_global": -0.0
+   }
+  },
+  "pronouns": {
+   "mlp": 17,
+   "unit_K64_ref": 0.0856,
+   "form_r2": {
+    "rise_class": -0.1519,
+    "rise_global": 0.0013
+   },
+   "form_r8": {
+    "rise_class": -0.2827,
+    "rise_global": 0.0026
+   },
+   "form_r32": {
+    "rise_class": -0.1772,
+    "rise_global": 0.0018
+   }
+  },
+  "is": {
+   "mlp": 17,
+   "unit_K64_ref": 0.2144,
+   "form_r2": {
+    "rise_class": -0.0082,
+    "rise_global": 0.0016
+   },
+   "form_r8": {
+    "rise_class": 0.0227,
+    "rise_global": 0.0019
+   },
+   "form_r32": {
+    "rise_class": 0.2645,
+    "rise_global": 0.0006
+   }
+  },
+  "the": {
+   "mlp": 17,
+   "unit_K64_ref": 0.0447,
+   "form_r2": {
+    "rise_class": -0.0963,
+    "rise_global": 0.0065
+   },
+   "form_r8": {
+    "rise_class": -0.0103,
+    "rise_global": 0.0035
+   },
+   "form_r32": {
+    "rise_class": -0.0724,
+    "rise_global": 0.0085
+   }
+  },
+  "months": {
+   "mlp": 17,
+   "unit_K64_ref": 0.2314,
+   "form_r2": {
+    "rise_class": -0.0702,
+    "rise_global": 0.0001
+   },
+   "form_r8": {
+    "rise_class": 0.0665,
+    "rise_global": 0.0001
+   },
+   "form_r32": {
+    "rise_class": 0.1005,
+    "rise_global": 0.0001
+   }
+  },
+  "close_paren": {
+   "mlp": 4,
+   "unit_K64_ref": 0.0029,
+   "form_r2": {
+    "rise_class": 0.0048,
+    "rise_global": -0.0
+   },
+   "form_r8": {
+    "rise_class": 0.0062,
+    "rise_global": 0.0
+   },
+   "form_r32": {
+    "rise_class": 0.0072,
+    "rise_global": 0.0001
+   }
+  }
+ },
+ "pred_a_4of8_05": false,
+ "pred_b_form_beats_units_5of8": false,
+ "pred_c_2_late_suppressive": true,
+ "runtime_s": 280.1
+}

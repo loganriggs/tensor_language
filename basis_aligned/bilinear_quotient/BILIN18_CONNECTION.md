@@ -36496,3 +36496,38 @@ sets are more selective; the screen's K=64 convention was the wrong grain for
 pred_b. Next: the §1570 eigen-slice screen across all 8 classes (form ablation
 at these same sites, signed), plus NR=1920 verification of the question rank-2
 form.
+
+## §1573 CERTIFIED (3-for-3): the question-mark component of mlp11 is a rank-2 slice of the tensor — .18 class rise, zero global cost, NR=1920, held-out replicated to 4%
+
+**Setup** (mlp_form_verify, 145s; rank-2/8 eigen slices of the question quadratic
+form at mlp11, NR=1920 + second held-out set skip=15000). **Scored:** pred_a
+rank-2 class rise ≥ .15 at NR=1920: **PASSED** — .1802. pred_b global rise
+within ±.001: **PASSED** — −.00021 (negative: removing the slice very slightly
+HELPS everything else). pred_c second-set rise within 35%: **PASSED** — .1874
+(4% apart).
+
+**Certified object, upgraded from §1568:** the question-mark MLP component is
+TWO eigenvector pairs (~2.3k params) of mlp11's class-projected quadratic form —
+double the effect of the 16-unit set at a hundredth of a percent of the layer,
+zero measurable global cost, generalizing across corpus slices. This is the
+cleanest single circuit component in the program at any grain.
+
+## §1574 The eigen slice is NOT universal (1-for-3): late-layer forms are SIGN-INTERLEAVED — units and slices are complementary grains
+
+**Setup** (mlp_form_screen, 280s; r ∈ {2,8,32} eigen-slice ablation at all 8
+classes' best sites, signed rises, sites parsed from units5). **Scored:** pred_a
+|rise| ≥ .05 at r=8 for ≥ 4/8: **FAILED** — 3 (question .186, pronouns −.283,
+months .067). pred_b form r=8 beats unit K=64 at ≥ 5/8: **FAILED** — 3/8
+(question, pronouns by magnitude, close_paren). pred_c ≥ 2 of the 4 mlp17 sites
+suppressive at r=8: **PASSED** — pronouns −.283, the −.010.
+
+**The structural lesson:** |λ|-ordered slices are non-monotone in r at late
+layers (months: r2 −.070 → r32 +.100; is: r2 −.008 → r32 +.265): positive and
+negative eigen-directions INTERLEAVE in the spectrum, so a small |λ| slice mixes
+gate and payload. Where a class has a dedicated mid-layer site (question@mlp11,
+close_paren@mlp4) the slice dominates units; where the effect is spread across
+many same-sign units at mlp17 (is, months) the unit split wins. Registered
+follow-ups: (i) SIGNED-part ablation — split S = S₊ − S₋ and ablate each part
+separately at the four mlp17 sites (gate vs payload disentangling); (ii) joint
+circuit integration — add the certified mlp11 rank-2 slice to the question
+attention-head circuit and test additivity.
