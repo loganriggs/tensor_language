@@ -1,1 +1,15 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+v0 curves
+clean 2.9455 v0 4.7302
+/workspace/tensor_language/basis_aligned/bilinear_quotient/attn_composite6.py:153: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  curve_log.append(round(float(loss), 4))
+  step 0 loss 5.0933
+  step 50 loss 4.1181
+  step 100 loss 3.8962
+  step 150 loss 3.8068
+  step 200 loss 4.0528
+  step 250 loss 4.0060
+trained 4.2566 roster 4.013
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/attn_composite6_results.json (148.3s)

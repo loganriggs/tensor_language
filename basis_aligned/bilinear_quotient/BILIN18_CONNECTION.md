@@ -34663,3 +34663,46 @@ budget recorded. Preds: trained ≤ 4.43; +roster ≤ 4.20; held-out within .10 
 tail. mlp1_deep_clusters (lane 2) — the §1456 fix: discrimination embedding from
 lm_head image + ALL blocks 2-17 images (not block 2 alone). Preds: deep64 > act64
 (.5100); deep256 ≥ .75; deep16 > act16 (.2137).
+
+## §1460 CE-TRAINED KERNELS BREAK THE COMPOSITE RECORD: 4.01 (2-for-3) — composite lesson #3 validated from the constructive side
+
+**Setup** (attn_composite6, 148s). Kernels as trainable [9,T] offset curves (same
+37 Kbit/layer price), init v0, Adam 3e-3 vs full-model CE inside kernel-all, 300 steps,
+batch 8 of 480 rows; loss curve + budget in results json.
+
+**Registered predictions, scored as written:**
+- pred_a trained kernel-all ≤ 4.43: **PASSED** — 4.2566 (v0: 4.7302; the same object
+  that LOST 2.0 CE when moment-matched GAINS .47 when CE-trained).
+- pred_b trained + roster ≤ 4.20: **PASSED** — **4.0130**, the composite record
+  (ladder: 5.28 → 4.73 → 4.45 → 4.41 → 4.39 → 4.01; remaining gap to clean 1.07).
+- pred_c held-out within .10 of train tail: **FAILED** — train tail 4.0127 (kernel_all
+  config) vs held-out 4.2566: gap .244. Some of this is skip=80 vs skip=7000
+  distribution shift rather than overfit (the roster eval landing at 4.013 ≈ the
+  train tail is suggestive), but as registered it is a miss; a train-row eval arm
+  would separate overfit from shift (pooled).
+
+## §1461 Full-stack weight images only TIE activation clustering at mlp1 (0-for-3): the downstream-cluster principle is a LAYER-0 fact for now
+
+**Setup** (mlp1_deep_clusters, lane 2, 164s). §1456 fix: embedding = lm_head image
+(proj 256) + all blocks 2-17 images (proj 24 each).
+
+**Scored as written:** pred_a deep64 > act64: **FAILED** (.4820 vs .5100); pred_b
+deep256 ≥ .75: **FAILED by .002** (.7480); pred_c deep16 > act16: **FAILED**
+(.2042 vs .2137).
+
+**Reading:** going from block-2-only to full-stack+lm_head recovered most of the gap
+(down64 .371 → deep64 .482 vs act64 .510; deep256 .748 ≈ act256 .745) but never wins.
+At mlp1 the activation geometry of the token table already encodes what the readers
+discriminate — weight-image embeddings add nothing here. The §1442 downstream WIN
+stands only at mlp0 (where block 1's five matrices beat raw activations at every K).
+Thread closed unless a new operationalization appears; the priced frontier keeps
+act256 .7445 @ 5.1 Mbit as mlp1's best cluster entry.
+
+**Queued (user directives):** mlp0_mlp1_weight_topk3 (lane 1) — (1) data check: h0
+stats re-measured at 960 rows, top-128 ranking overlap vs the 96-row stats scored;
+(2) rms upgrade (std underrates high-mean units in a product); (3) JOINT L&R
+shared-set selection per user ("you need a match in both"): one index set per mlp1
+unit zeroing both Cl and Cr outside it — half the index bits; additive and
+match-in-both product scores. Bilinear-attention analog (double QK = match-in-four)
+pooled behind it. mlp0_mlp1_edge_rank (lane 2) — §1458 pool: rank truncation in the
+h0-whitened metric (dense-low-rank vs sparse; rank-32 ≥ .60 bar).

@@ -5194,3 +5194,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1457 — mlp9 0-for-3 (.39/.48/.52 vs lowered bars): deep-mid profile repeats mlp7; ladder template exhausted at 7/9; board .050→.024; composite5 kernel-refit queued
 §1458 — var-weighted topk 0-for-3 but monotone better (.29/.49/.77): edge is dense-low-rank, no sparse core; rank-truncation pooled
 §1459 — moment-matching kernel refit DIVERGES (v1 6.74 vs v0 4.73, oscillates): composite lesson #3 — fit by CE-in-context, never by matching composite statistics; CE-trained kernels queued (composite6)
+§1460 — CE-trained kernels: composite RECORD 4.013 (roster+trained; 2-for-3, ladder 5.28→4.01); pred_c train/eval gap .24 flagged (shift vs overfit pooled)
+§1461 — full-stack weight images TIE activation clusters at mlp1 (0-for-3): downstream-cluster win is a layer-0 fact; act256 .745 stays the frontier; topk3 (data check + joint L&R match-in-both) + edge_rank queued
