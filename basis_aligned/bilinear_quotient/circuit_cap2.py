@@ -137,6 +137,42 @@ def main():
     s_w = (WU @ P64).norm(dim=1) / WU.norm(dim=1).clamp_min(1e-6)
     print("weight scores built", flush=True)
 
+    @torch.no_grad()
+    def fwd(idx, rm_ens=False, rm_sub=False, bg=False, ens_exact=False):
+        x = F.rms_norm(m.transformer.wte(idx), (D,)); x0 = x; v1 = None
+        B = idx.shape[0]
+        for L, blk in enumerate(H):
+            at = blk.attn
+            xm = blk.lambdas[0] * x + blk.lambdas[1] * x0
+            xin = F.rms_norm(xm, (D,))
+            pat = block_pat(at, xin, B)
+            if bg:
+                newp = KERNS[L].unsqueeze(0).expand(B, -1, -1, -1) \
+                    .to(pat.dtype).clone()
+                if ens_exact and L in ENSEMBLE:
+                    for hh in ENSEMBLE[L]:
+                        newp[:, hh] = pat[:, hh]
+                pat = newp
+            v = at.c_v(xin).view(B, T, 9, 128)
+            if v1 is None:
+                v1 = v
+            vv = (1 - at.lamb) * v + at.lamb * v1.view_as(v)
+            y = torch.einsum('bhqk,bkhd->bqhd', pat.to(vv.dtype), vv)
+            if rm_ens and L in ENSEMBLE:
+                y = y.clone()
+                for hh in ENSEMBLE[L]:
+                    y[:, :, hh, :] = ENS_C[(L, hh)].to(y.dtype)
+            x = xm + at.c_proj(y.reshape(B, T, D))
+            z = F.rms_norm(x, (D,))
+            if L == 0 and rm_sub:
+                h0 = (blk.mlp.Left(z).float() * blk.mlp.Right(z).float())
+                hw = (h0 - MU) / RMS
+                comp = ((hw @ W8.T) @ W8) * RMS
+                x = x + (blk.mlp(z).float() - comp @ Wd0.T).to(x.dtype)
+            else:
+                x = x + blk.mlp(z)
+        return 30.0 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30.0)
+
     def ce_run(**kw):
         s_ = 0.0; n_ = 0; sc = 0.0; nc = 0
         tsum = torch.zeros(50257); tn = torch.zeros(50257)
