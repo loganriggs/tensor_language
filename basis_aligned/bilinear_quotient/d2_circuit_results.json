@@ -1,0 +1,77 @@
+{
+ "res": {
+  "s7000": {
+   "None": {
+    "global": 2.9455,
+    "frag": 2.209,
+    "det": 4.2317
+   },
+   "removal": {
+    "global": 2.9461,
+    "frag": 2.2084,
+    "det": 4.2322
+   },
+   "extract": {
+    "global": 4.0264,
+    "frag": 3.6028,
+    "det": 5.3779
+   },
+   "mean_out": {
+    "global": 3.8167,
+    "frag": 3.4166,
+    "det": 5.1549
+   }
+  },
+  "s2000": {
+   "None": {
+    "global": 3.0855,
+    "frag": 2.3121,
+    "det": 4.4271
+   },
+   "removal": {
+    "global": 3.0861,
+    "frag": 2.3143,
+    "det": 4.4279
+   },
+   "extract": {
+    "global": 4.2128,
+    "frag": 3.8546,
+    "det": 5.6401
+   },
+   "mean_out": {
+    "global": 3.9984,
+    "frag": 3.6222,
+    "det": 5.4152
+   }
+  }
+ },
+ "effect_7000": {
+  "global": 0.8712,
+  "frag": 1.2076,
+  "det": 0.9232
+ },
+ "keep_extract_7000": {
+  "global": -0.2407,
+  "frag": -0.1542,
+  "det": -0.2416
+ },
+ "rise_removal_7000": {
+  "global": 0.0006,
+  "frag": -0.0006,
+  "det": 0.0005
+ },
+ "keep_extract_2000": {
+  "global": -0.2349,
+  "frag": -0.1774,
+  "det": -0.2276
+ },
+ "rise_removal_2000": {
+  "global": 0.0006,
+  "frag": 0.0022,
+  "det": 0.0008
+ },
+ "pred_a_selective_extract": false,
+ "pred_b_removal_3x": false,
+ "pred_c_generalizes": false,
+ "runtime_s": 138.3
+}

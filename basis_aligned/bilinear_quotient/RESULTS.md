@@ -5218,3 +5218,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1481 — mlp8: 2-for-3 (.39/.46/+.01): deep-mid profile now a 3-layer law; mlp10-15 amortized sweep queued
 §1482 — ship v2: mlp2 = weak plank (+.470 in-ship vs .119 solo); mlp17 composes better than solo; ship = 4.40 with 22 modules replaced (1-for-3)
 §1483 — deep-mid law universal: mlp10-15 linall .34-.45, quads ~0/negative; all 18 MLPs now seeded; d2_circuit + mlp2 diagnosis queued (2-for-3)
+§1484 — circuit pilot 0-for-3 = red-team finding #1: single axes carry ~.002 CE, too small for circuit wires; channel-grain + baselines queued
+§1485 — mlp2 plank brittle in EVERY context (+.24/+.42/+.40 excess; solo .944): strongest local≠composite at module grain (1-for-3)

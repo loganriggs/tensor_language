@@ -35125,3 +35125,41 @@ every MLP 0-17 now has a measured stand-in.
 (mlp0 → mean + D2 axis ONLY), REMOVAL (output-level axis cut), GENERALIZATION (both
 scored class-conditionally on skip=7000 AND fresh skip=2000). ship_mlp2_diag
 (lane 2) — subset algebra on the mlp2 anomaly.
+
+## §1484 CIRCUIT PILOT FAILS 0-for-3 — and that IS the first red-team finding: single named axes are too small to be circuit wires
+
+**Setup** (d2_circuit, 138s). D2 name-fragment axis at mlp0's OUTPUT: removal
+(rank-1 cut everywhere), extraction (mean + axis only), generalization (skip=2000).
+
+**Scored as written:** pred_a selective extraction: **FAILED** — keep values are
+NEGATIVE (−.15 frag): mean+axis-alone is WORSE than mean-only. An isolated axis of a
+correlated signal is miscalibrated without its companions (the §1452 constant lesson
+at axis grain). pred_b removal 3×-specific: **FAILED** — removal rise ≈ .0006,
+indistinguishable from zero. pred_c generalization: **FAILED** (signs flip in noise).
+
+**Honest structural verdict:** the naming results (§1470-71) were REAL — stable
+spectra, 3.2× class-specific damage at block-1 reads — but the MAGNITUDE is ~.002 CE:
+a single axis carries a thousandth of the model. Circuits must be built at CHANNEL
+grain (8-32 direction subspaces, which carry .05-.22 CE), not single-axis grain.
+Registered next: channel-grain extraction/removal WITH red-team baselines
+(activation-PCA subspace of the same rank; random subspace) — testing whether the
+WEIGHT-derived structure specifically, and not just any low-rank structure, does the
+work.
+
+## §1485 mlp2's plank is brittle in EVERY context (1-for-3): the strongest local≠composite case at module grain
+
+**Setup** (ship_mlp2_diag, lane 2, 128s). Subset algebra on the +.470 anomaly.
+
+**Scored as written:** pred_a attn-context excess ≤ 2× solo: **FAILED** — attn+mlp2
+= +.355 (3× its .119 solo; the attention composite alone breaks it). pred_b mlp1
+pair effect: **PASSED** — +.415 excess when mlp1's plank is added. pred_c mlp0 adds
+little: **FAILED** — +.400 more.
+
+**Reading:** mlp2's lin2 stand-in (solo fid .944!) degrades under EVERY upstream
+approximation — attention (+.24 excess), mlp1 (+.42), mlp0 (+.40), roughly additive.
+Two readings, discriminable later: (a) mlp2 is an error-correcting module whose true
+job grows when upstream degrades — the stand-in reproduces its CLEAN job only; (b)
+lin2's fitted coefficients are OOD-brittle. Either way, module-grain lesson for the
+bench: solo fidelity .944 with composite behavior this bad is the strongest
+local≠composite case measured. (Context-refit under the full ship is the registered
+fix candidate, pooled.)
