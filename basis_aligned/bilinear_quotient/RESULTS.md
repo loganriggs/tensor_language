@@ -5288,3 +5288,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1551 — both states fully distributed (max single-module effect .026); no carrier module exists (2-for-3)
 §1552 — STRONG CLAIM: all-18 attention replacement preserves agreement (.9568=.9572) and parity EXACTLY (3-for-3); full-ship computation check queued
 §1553 — CAPSTONE: total-glass model behaviorally certified (agreement 93.2%, parity 115%, global 3.8431 exact; 3-for-3); screen4 fixed + requeued
+§1554 — ship errors concentrate on NOVEL content: copy/induction advantages 117%; behavior set = agreement 97 / parity 115 / copy 117 / induction 117 (2-for-3, spec-sloppiness flagged)
+§1555 — screen4: 9 more circuits (pronouns 41.5x); weights-only 24/34 cumulative; greedy refinement queued (2-for-3)

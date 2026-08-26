@@ -36196,3 +36196,26 @@ accuracy and quote-parity tracking fully intact. Fidelity is certified at the
 loss level, the module level, the circuit level (20 verified circuits), and now
 the BEHAVIOR level. (screen4 crashed on a leftover print variable — fixed,
 requeued.)
+
+## §1554 The ship's errors concentrate on NOVEL content (2-for-3): copying/induction advantages retained at 117%
+
+**Setup** (state_in_full_ship2, 105s). **Scored:** pred_a copy advantage ≥ 60%:
+**PASSED** — 117.5%. pred_b induction ≥ 60%: **PASSED** — 116.7%. pred_c global
+sanity vs 3.8431: **FAILED as written** — this script's "global" EXCLUDES copy
+positions (non-copy CE 4.859 vs clean 3.810); the overall ship CE remains 3.843.
+The registered comparison was apples-to-oranges (prediction-spec sloppiness,
+flagged), but the miss exposes the real structure: the total-glass model's ~.9 CE
+cost is concentrated on NOVEL-content prediction, while context-repeated content
+is preserved essentially clean. Behavioral certification set now: agreement 97%,
+parity 115%, copying 117%, induction 117%.
+
+## §1555 Screen 4: nine more circuits (2-for-3) — pronouns at 41.5×, discourse markers, titles, hyphens
+
+**Setup** (circuit_screen4 after the print fix, lane 2, 174s). **Scored:** pred_a
+≥ 7/12 selective: **PASSED** — 9 (pronouns 41.5×, however-class 12.6×, titles
+7.5×, hyphen 7.2×, open_paren 5.1×, days 4.6×, about 4.3×, ordinals 2.7×, percent
+1.7× borderline out). pred_b weights-only ≥ 7: **PASSED** — 8/12 (cumulative
+24/34 across four screens). pred_c a score-concentrated single-head class:
+**FAILED** — none this batch. Vacuous class flagged: decades (n=0 — the tokenizer
+splits '1990s'). Registry grows to 28-29 certified circuits; greedy refinement of
+the four strongest queued.

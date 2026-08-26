@@ -27,13 +27,6 @@ hyphen W {'heads': ['12.6', '6.5', '13.5', '14.5', '7.3'], 'rise_global': 0.0099
 hyphen B {'heads': ['5.7', '6.1', '4.2', '1.1', '17.2'], 'rise_global': 0.0632, 'rise_class': 0.0713, 'selectivity': 1.13}
 about W {'heads': ['7.3', '13.8', '6.7', '7.8', '16.8'], 'rise_global': 0.0396, 'rise_class': 0.1719, 'selectivity': 4.34}
 about B {'heads': ['5.7', '3.4', '2.0', '17.6', '4.1'], 'rise_global': 0.046, 'rise_class': 0.0574, 'selectivity': 1.25}
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_screen4.py", line 274, in <module>
-    main()
-  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
-    return func(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_screen4.py", line 268, in main
-    print(f"selective {n_sel}/12 w_wins {w_wins} 12.6 in {n126}")
-                                                          ^^^^
-NameError: name 'n126' is not defined
+selective 9/12 w_wins 8 concentrated 0
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_screen4_results.json (173.6s)
