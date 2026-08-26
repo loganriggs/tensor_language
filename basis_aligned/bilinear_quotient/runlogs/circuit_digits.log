@@ -1,1 +1,31 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+patterns cached
+subspace built
+target class size: 1691 tokens
+ensemble: {7: [3], 6: [7, 5], 12: [6], 11: [5], 5: [5], 15: [1], 9: [7]}
+bg maps L0
+bg maps L1
+bg maps L2
+bg maps L3
+bg maps L4
+bg maps L5
+bg maps L6
+bg maps L7
+bg maps L8
+bg maps L9
+bg maps L10
+bg maps L11
+bg maps L12
+bg maps L13
+bg maps L14
+bg maps L15
+bg maps L16
+bg maps L17
+clean {'global': 2.9318, 'cls': 3.4231}
+rm_ens {'global': 3.0178, 'cls': 3.7434}
+bg {'global': 3.2258, 'cls': 4.0007}
+bg_ens {'global': 3.2058, 'cls': 4.0507}
+rises {'rm_ens': {'global': 0.086, 'cls': 0.3203}}
+classifier {'spearman': 0.352, 'n_tokens': 36, 'fn_rate_top50_damaged': 0.75, 'fp_rate_top50_scored': 0.5}
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_digits_results.json (122.9s)

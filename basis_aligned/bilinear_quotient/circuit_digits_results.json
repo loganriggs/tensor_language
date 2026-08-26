@@ -1,0 +1,40 @@
+{
+ "res": {
+  "clean": {
+   "global": 2.9318,
+   "cls": 3.4231
+  },
+  "rm_ens": {
+   "global": 3.0178,
+   "cls": 3.7434
+  },
+  "bg": {
+   "global": 3.2258,
+   "cls": 4.0007
+  },
+  "bg_ens": {
+   "global": 3.2058,
+   "cls": 4.0507
+  }
+ },
+ "rises": {
+  "rm_ens": {
+   "global": 0.086,
+   "cls": 0.3203
+  }
+ },
+ "extraction_recovery": {
+  "global": 0.068,
+  "cls": -0.0866
+ },
+ "classifier": {
+  "spearman": 0.352,
+  "n_tokens": 36,
+  "fn_rate_top50_damaged": 0.75,
+  "fp_rate_top50_scored": 0.5
+ },
+ "pred_a_removal_selective_3x": false,
+ "pred_b_extraction_selective_2x": false,
+ "pred_c_classifier": false,
+ "runtime_s": 122.9
+}

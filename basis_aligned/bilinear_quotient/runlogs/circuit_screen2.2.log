@@ -2,3 +2,31 @@ Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF
 {'months': 12, 'units': 30, 'not': 1, 'close_quote': 2, 'colon': 1, 'semicolon': 1, 'to': 1, 'and': 3, 'years': 192, 'said': 5, 'ing': 1823, 'dollar': 6}
 method W scored
 method B scored
+clean measured
+months W {'heads': ['6.7', '14.7', '7.3', '11.5', '9.7'], 'rise_global': 0.0414, 'rise_class': 0.1432, 'selectivity': 3.46}
+months B {'heads': ['5.7', '4.1', '2.8', '8.7', '9.7'], 'rise_global': 0.0652, 'rise_class': 0.241, 'selectivity': 3.7}
+units W {'heads': ['7.3', '6.5', '6.7', '10.3', '5.5'], 'rise_global': 0.0481, 'rise_class': 0.0756, 'selectivity': 1.57}
+units B {'heads': ['3.3', '3.6', '3.5', '2.2', '3.7'], 'rise_global': 0.0545, 'rise_class': 0.0405, 'selectivity': 0.74}
+not W {'heads': ['7.8', '16.8', '7.3', '6.7', '10.8'], 'rise_global': 0.0372, 'rise_class': 0.0244, 'selectivity': 0.66}
+not B {'heads': ['5.7', '6.1', '9.7', '17.6', '4.0'], 'rise_global': 0.0888, 'rise_class': 0.0032, 'selectivity': 0.04}
+close_quote W {'heads': ['12.6', '13.3', '17.2', '14.8', '10.7'], 'rise_global': 0.011, 'rise_class': 0.3414, 'selectivity': 30.99}
+close_quote B {'heads': ['5.7', '13.3', '17.2', '13.8', '6.1'], 'rise_global': 0.0397, 'rise_class': 0.1427, 'selectivity': 3.59}
+colon W {'heads': ['12.6', '6.5', '11.5', '6.7', '9.7'], 'rise_global': 0.0411, 'rise_class': 0.3146, 'selectivity': 7.65}
+colon B {'heads': ['5.7', '4.0', '11.5', '9.7', '3.0'], 'rise_global': 0.0859, 'rise_class': 0.3032, 'selectivity': 3.53}
+semicolon W {'heads': ['12.6', '6.5', '11.7', '13.5', '15.2'], 'rise_global': 0.008, 'rise_class': 0.5108, 'selectivity': 64.23}
+semicolon B {'heads': ['5.7', '4.0', '10.5', '13.5', '8.4'], 'rise_global': 0.0481, 'rise_class': 0.1421, 'selectivity': 2.95}
+to W {'heads': ['11.3', '7.8', '7.3', '16.8', '8.4'], 'rise_global': 0.0354, 'rise_class': 0.1338, 'selectivity': 3.79}
+to B {'heads': ['5.7', '4.1', '6.1', '9.7', '2.7'], 'rise_global': 0.0926, 'rise_class': 0.054, 'selectivity': 0.58}
+and W {'heads': ['10.5', '16.8', '7.3', '7.8', '6.5'], 'rise_global': 0.0342, 'rise_class': 0.0551, 'selectivity': 1.61}
+and B {'heads': ['5.7', '6.1', '10.5', '9.7', '4.7'], 'rise_global': 0.0992, 'rise_class': 0.1016, 'selectivity': 1.02}
+years W {'heads': ['6.7', '7.3', '11.5', '5.5', '6.5'], 'rise_global': 0.0488, 'rise_class': 0.0691, 'selectivity': 1.42}
+years B {'heads': ['3.0', '6.7', '17.8', '14.7', '5.5'], 'rise_global': 0.0317, 'rise_class': 0.0194, 'selectivity': 0.61}
+said W {'heads': ['11.3', '7.8', '6.7', '9.1', '15.5'], 'rise_global': 0.0479, 'rise_class': 0.1676, 'selectivity': 3.5}
+said B {'heads': ['5.7', '17.6', '2.0', '4.0', '15.5'], 'rise_global': 0.0432, 'rise_class': 0.046, 'selectivity': 1.07}
+ing W {'heads': ['6.7', '11.3', '7.3', '5.5', '6.5'], 'rise_global': 0.0484, 'rise_class': 0.0661, 'selectivity': 1.37}
+ing B {'heads': ['17.8', '17.6', '3.0', '2.2', '3.6'], 'rise_global': 0.0433, 'rise_class': 0.0524, 'selectivity': 1.21}
+dollar W {'heads': ['10.3', '12.6', '6.7', '13.7', '6.3'], 'rise_global': 0.0332, 'rise_class': 0.1379, 'selectivity': 4.16}
+dollar B {'heads': ['12.4', '11.3', '11.4', '11.5', '11.6'], 'rise_global': 0.0204, 'rise_class': 0.0259, 'selectivity': 1.27}
+selective 7/12 w_wins 10 12.6 in 4
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/circuit_screen2_results.json (152.8s)

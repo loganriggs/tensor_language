@@ -35560,3 +35560,32 @@ of the ensemble's direct output subspace — their damage arrives through indire
 paths (ensemble → downstream attention/MLPs → logits). The membership classifier's
 ceiling with direct-path scores is ρ≈.74 / FN≈.6; closing the FN gap needs
 path-composed scores (ensemble output composed through downstream blocks). Pooled.
+
+## §1507 Screen 2: 3-for-3 — the circuit generator is validated (15 selective circuits across 22 classes; weights-only wins 16/22; head 12.6 is a formatting generalist)
+
+**Setup** (circuit_screen2, lane 2, 153s; combined plot
+plots/circuit_screen_22class.png). **Scored as written:** pred_a ≥ 7/12 selective:
+**PASSED** — 7 (semicolon 64×, close_quote 31×, colon 7.7×, dollar 4.2×, to 3.8×,
+said 3.5×, months 3.5×). pred_b weights-only wins ≥ 6: **PASSED** — **10/12**
+(cumulative 16/22). pred_c head 12.6 in ≥ 3 ensembles: **PASSED** — 4 (cumulative
+10/22 — a punctuation/formatting generalist, not a per-class specialist).
+
+**Registry additions (removal-certified):** semicolon, close_quote, colon, dollar,
+' to', ' said', months. Cumulative certified circuits from the two screens: 15.
+Non-circuits (nothing selective at 5 heads): 'of', 'not', 'and', 'years', 'ing',
+capitalized-at-5 (needs its 13-head ensemble), units (n=6 positions — underpowered).
+
+## §1508 Digits full suite: 0-for-3 — top-8-by-weights dilutes with generalists, and restoring generalists on the background hurts the class
+
+**Setup** (circuit_digits, 123s). **Scored:** pred_a ≥ 5×: **FAILED** — 3.7× (the
+8-head ensemble added generalists; the screen's 5-head version had been 5.2×).
+pred_b extraction ≥ 2× with positive global: **FAILED** — the rank-32 background
+FIXED non-vacuity (global +.068) but class recovery is −.087: restoring the
+generalist-heavy ensemble exact perturbs the class MORE than the background alone.
+pred_c classifier ρ ≥ .4: **FAILED** — .352 (FN .75).
+
+**Lessons:** (1) ensemble size is per-class — bigger is not more selective when the
+score's tail is generalists; greedy-with-selectivity-check beats top-k. (2) The
+background fix works (non-vacuity achieved) — extraction failures are now about
+ENSEMBLE composition, not background quality. (3) digits is a weaker, more
+distributed circuit than the punctuation family.

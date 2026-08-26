@@ -5241,3 +5241,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1504 — newline circuit: removal 99x selective (.532 class / .005 global) — cleanest removal in ledger; extraction non-vacuity fails; classifier vacuous on 1-token class (2-for-3); crashes fixed
 §1505 — 10-class screen: 8/10 selective circuits in 195s; weights-only BEATS data baseline 6/10 (comma 21x vs 0.9x); head 12.6 in 6/10 ensembles (1-for-3, pred_c miss = win)
 §1506 — FN tail is indirect-path damage: no direct-output rank captures it (FN .62 at all ranks); path-composed scores pooled (1-for-3)
+§1507 — screen2 3-for-3: 15 certified circuits across 22 classes; weights-only 16/22; head 12.6 generalist (10/22 ensembles)
+§1508 — digits 0-for-3: top-8 dilutes with generalists; rank-32 background fixes non-vacuity; per-class ensemble sizing needed
