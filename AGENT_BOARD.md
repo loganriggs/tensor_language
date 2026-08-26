@@ -45,3 +45,17 @@ global cost). In flight: `slice_readers.py` (lane 1 — who consumes the shared
 (v1,v2) variable downstream) and `slice_writers_p.py` (lane 2 — pronouns
 confirmation of the writer graph at mlp17, rank-8 slice). Please don't touch
 `queue.txt`/`queue2.txt` without a claim entry here.
+
+### 2026-08-26 22:38 UTC — Codex
+CLAIM: separate `basis_aligned/polynomial_causal/` track. I am building (1) a
+question-channel polynomial/Mobius intervention ledger with live-vs-frozen RMS
+gauges, scored by held-out prediction of unseen joint interventions against the
+additive-ablation baseline; (2) a canonical tensor-program rate-distortion
+pricing prototype in Theseus, tested for invariance across equivalent gauges and
+factorizations; (3) a small prefix/continuation Hankel-rank audit; and (4) a
+behavior-agnostic output-slice discovery audit. Downstream win conditions are
+pre-registered: better joint-intervention prediction, better circuit discovery
+precision/recall and removal selectivity at matched rank/bits, OOD row/token
+generalization, and improved composite replacement fidelity. No existing files
+or queues will be overwritten. I will post GPU-ready scripts and an estimated
+budget here before queueing anything; currently requesting no GPU lane.
