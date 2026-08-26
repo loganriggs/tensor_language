@@ -5196,3 +5196,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1459 — moment-matching kernel refit DIVERGES (v1 6.74 vs v0 4.73, oscillates): composite lesson #3 — fit by CE-in-context, never by matching composite statistics; CE-trained kernels queued (composite6)
 §1460 — CE-trained kernels: composite RECORD 4.013 (roster+trained; 2-for-3, ladder 5.28→4.01); pred_c train/eval gap .24 flagged (shift vs overfit pooled)
 §1461 — full-stack weight images TIE activation clusters at mlp1 (0-for-3): downstream-cluster win is a layer-0 fact; act256 .745 stays the frontier; topk3 (data check + joint L&R match-in-both) + edge_rank queued
+§1462 — topk3 1-for-3: 96-row stats were enough (overlap .93); rms +.005 marginal; JOINT L&R selection LOSES .07 — L and R read different units
+§1463 — edge rank 3-for-3 DECISIVE: rank32 .814 / rank128 .920 (sparse .49/.77) — mlp0→mlp1 = ~32-direction bilinear channel @ 9.4 Mbit; attn double-QK analog + composite7 queued

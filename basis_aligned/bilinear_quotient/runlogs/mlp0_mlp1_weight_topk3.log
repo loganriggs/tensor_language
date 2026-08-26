@@ -1,1 +1,12 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+h0 stats measured (96 and 960 rows)
+top128 overlap 96v960: 0.9297
+clean 2.9455 k0 3.1665
+rms32: 3.0558
+rms128: 2.9956
+shadd32: 3.0631
+shadd128: 3.0113
+shprod128: 3.0137
+recs {'rms32': 0.5009, 'rms128': 0.7733, 'shadd32': 0.4679, 'shadd128': 0.7023, 'shprod128': 0.6914} overlap 0.930
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_mlp1_weight_topk3_results.json (138.9s)

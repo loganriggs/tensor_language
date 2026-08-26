@@ -34706,3 +34706,47 @@ unit zeroing both Cl and Cr outside it — half the index bits; additive and
 match-in-both product scores. Bilinear-attention analog (double QK = match-in-four)
 pooled behind it. mlp0_mlp1_edge_rank (lane 2) — §1458 pool: rank truncation in the
 h0-whitened metric (dense-low-rank vs sparse; rank-32 ≥ .60 bar).
+
+## §1462 topk3 (1-for-3): the data was enough, rms barely helps, and JOINT selection COSTS fidelity — L and R read different unit sets
+
+**Setup** (mlp0_mlp1_weight_topk3, 139s; both user directives). h0 stats at 96 vs 960
+rows; rms ranking; shared-set (joint L&R) selection with additive and match-in-both
+product scores.
+
+**Registered predictions, scored as written:**
+- pred_a 96v960 top-128 overlap ≥ .90: **PASSED** — .9297. The §1458 numbers were not
+  data-starved; the user's data concern is answered with a measurement.
+- pred_b rms-128 ≥ .78: **FAILED** — .7733 (rms beats std's .7683 by only +.005; the
+  mean-component refinement is marginal).
+- pred_c shared-set 128 ≥ .74: **FAILED** — best .7023 (additive; match-in-both
+  product .6914). Joint selection at matched k LOSES ~.07 recovery vs independent.
+
+**Reading:** the "match in both" structure is NOT dominant at this edge — Left1 and
+Right1 read substantially DIFFERENT mlp0 unit sets (shared indices save half the
+index bits but cost real fidelity, and the product score is the worst of the three).
+Combined with §1463 this makes sense: the edge is a dense low-rank channel, and
+unit-level sparsity of any flavor is the wrong compression axis.
+
+## §1463 RANK TRUNCATION WINS DECISIVELY (3-for-3): the mlp0→mlp1 edge is a ~32-direction bilinear channel
+
+**Setup** (mlp0_mlp1_edge_rank, lane 2, 147s). Cl/Cr truncated to rank r in the
+h0-whitened metric (rms from 960 rows), exact causal harness.
+
+**Registered predictions, scored as written:** pred_a rank-32 ≥ .60: **PASSED** —
+**.8140**. pred_b rank-128 ≥ .85: **PASSED** — **.9195**. pred_c rank-8 ≥ .35:
+**PASSED** — .5878.
+
+**The thread's conclusion (5 runs, §1455-58, 62-63):** the mlp0→mlp1 edge (.221 CE
+causal, algebra exact) is a DENSE, LOW-RANK bilinear channel: 32 whitened directions
+carry 81% of it, 128 carry 92% — while the best sparse-unit selection at matched
+description cost gets ~.49/.77 and joint-sparse loses further. The right sentence is
+"mlp1 reads mlp0 through ~32 directions", not "through these units". Rank-32 cost:
+2×32×9216 floats/side ≈ 9.4 Mbit vs the 679 Mbit dense pair.
+
+**Queued:** mlp0_attn1_edge_rank (lane 1) — the user's double-QK analog: compose
+Down0 into block-1's c_q/c_k/c_q2/c_k2, rank-truncate all four (values live), exact
+pre-rms subtraction; preds: edge ≥ .03 CE, rank-32 ≥ .70, rank-8 ≥ .40.
+attn_composite7 (lane 2) — config-matched kernel training (roster live during
+training), 2× data/steps, and the §1460 gap diagnosed: eval on skip=7000 vs fresh
+skip=2000 vs training rows separates memorization from shift; preds: ≤ 3.95;
+fresh-gap ≤ .03; memo-gap ≥ .10.
