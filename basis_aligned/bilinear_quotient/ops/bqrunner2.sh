@@ -16,6 +16,12 @@ cd "$BQ" || exit 1
 echo "[bqrunner2] started $(date -u +%H:%M:%S)" >> "$RUNLOGS/runner.log"
 
 while true; do
+    # never pop queue entries onto a dead GPU (S1601 ops; lane 1 owns the
+    # watchdog that reboots the box)
+    if ! nvidia-smi > /dev/null 2>&1; then
+        sleep 30
+        continue
+    fi
     line=""
     if [ -s "$QUEUE" ]; then
         line=$(head -n 1 "$QUEUE")

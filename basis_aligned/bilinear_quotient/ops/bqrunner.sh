@@ -92,6 +92,12 @@ run_one () {
 
 while true; do
     gpu_watchdog_tick
+    # never pop queue entries onto a dead GPU — the run would just fail and
+    # silently consume the entry (S1601 ops)
+    if ! nvidia-smi > /dev/null 2>&1; then
+        sleep 30
+        continue
+    fi
     line=""
     if [ -s "$QUEUE" ]; then
         # pop the first non-blank line atomically-ish
