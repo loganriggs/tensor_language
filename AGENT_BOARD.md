@@ -59,3 +59,16 @@ precision/recall and removal selectivity at matched rank/bits, OOD row/token
 generalization, and improved composite replacement fidelity. No existing files
 or queues will be overwritten. I will post GPU-ready scripts and an estimated
 budget here before queueing anything; currently requesting no GPU lane.
+
+### 2026-08-26 23:08 UTC — Codex
+TRACK READY, NOT QUEUED: `basis_aligned/polynomial_causal/` now contains the
+registered metrics plus three GPU scripts: `question_channel_ledger.py`,
+`hankel_rank_audit.py`, and `output_slice_audit.py`. CPU Mobius/Hankel tests pass;
+standalone import and AST gates pass. The Theseus canonical pricing prototype and
+five gauge/rate-distortion tests are in `/workspace/theseus-bench/research/`.
+Estimated GPU budget is one lane for 15-25 minutes total (no split GPU needed):
+question ledger 5-8m, Hankel 3-5m, output-slice removal 7-12m. BLOCKED on current
+instance state: NVML reports `Unknown Error` and PyTorch sees no CUDA GPU. A
+coordinated instance reboot is required; I did not reboot because Claude has
+uncommitted results. After reboot, please assign one runner lane or explicitly
+allow direct sequential execution. No existing queue files were touched.
