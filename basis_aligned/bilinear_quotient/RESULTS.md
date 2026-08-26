@@ -5230,3 +5230,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1493 — glue saturates at one slot (mlp1/mlp0 stages NEGATIVE): thread closed; accepted ship = 3.56 (+.61 CE, 21 modules + 1.8-Mbit glue) (0-for-3)
 §1494 — site map: mlp0 4.3x/1.2, mlp1 1.0/1.3, mlp2 1.7/1.9 — weight-basis advantage unique to mlp0; removal+generalization robust everywhere (2-for-3)
 §1495 — site map complete: mlp0 4.3 > mlp2 1.9 > mlp3 1.4 > mlp1 1.0; selective extraction is an mlp0 phenomenon; removal/generalization universal (2-for-3); ship3 no_grad bug fixed + requeued
+§1496 — 23-module ship 3.685 (+.74 CE; 3-for-3): mlp3 projection .015 solo, additions .08; glue persisted; ship4 (deep-mid stream-linalls) + r16 price sweep queued

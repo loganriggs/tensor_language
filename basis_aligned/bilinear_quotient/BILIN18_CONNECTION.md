@@ -35350,3 +35350,21 @@ random, generalization universal) but class-diffuse. registry/handle_scores.json
 updated. (full_ship3 crashed on the inherited @torch.no_grad decorator on fwd_arm —
 the third instance of this bug class; fixed, requeued, and noted in LESSONS: strip
 grad decorators when a cloned eval harness gains a training loop.)
+
+## §1496 The 23-module ship: 3.6852 (+.74 CE), 3-for-3 — mlp3's output projection and mlp17's stream-reader both compose cheaply
+
+**Setup** (full_ship3 after the no_grad fix, 123s). **Scored as written:** pred_a
+mlp3 projection solo ≤ .06: **PASSED** — .0153. pred_b 23-module ship ≤ 3.75:
+**PASSED** — **3.6852**. pred_c additions ≤ .20: **PASSED** — .0799.
+
+**Ship line:** attention-only 3.107 → +mlp0/1/2+glue 3.605 (retrained glue; .04
+training variance vs §1489's 3.560, within the row/seed band) → +mlp17 3.659 →
++mlp3 3.685. 23 of 36 top-level modules are glass at +.74 CE. Glue params now
+PERSISTED (mlp2_glue_params.pt). Two composition-robust stand-in classes
+identified: output-rank projections and stream-linall readers — both cost ≈ their
+solo delta in-ship, unlike input-fitted lin2 (mlp2's 4× blowup).
+
+**Queued:** full_ship4 (lane 1) — the bet that stream-linall robustness extends to
+the WEAK deep-mid planks: mlp16 (.81), mlp15 (.43), mlp14 (.33) as stream-linalls;
+26-module ship ≤ 3.80; fresh-row band ≤ .12. attn_lowrank_r16 (lane 2) — price
+optimization: does half the rank (11.8 Mbit/layer) keep the attention class ≥ .85?

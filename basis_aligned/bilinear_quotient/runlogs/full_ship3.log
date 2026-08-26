@@ -5,17 +5,15 @@ context capture done
 planks 0/1 context-fit
 planks 2/17/3 context-fit
 {'clean': 2.9455, 'mlp3_solo': 2.9608}
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/full_ship3.py", line 403, in <module>
-    main()
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/full_ship3.py", line 372, in main
-    opt.zero_grad(); loss.backward(); opt.step()
-                     ^^^^^^^^^^^^^^^
-  File "/venv/main/lib/python3.12/site-packages/torch/_tensor.py", line 631, in backward
-    torch.autograd.backward(
-  File "/venv/main/lib/python3.12/site-packages/torch/autograd/__init__.py", line 381, in backward
-    _engine_run_backward(
-  File "/venv/main/lib/python3.12/site-packages/torch/autograd/graph.py", line 869, in _engine_run_backward
-    return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-RuntimeError: element 0 of tensors does not require grad and does not have a grad_fn
+/workspace/tensor_language/basis_aligned/bilinear_quotient/full_ship3.py:373: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  print(f"  glue step {step} loss {float(loss):.4f}", flush=True)
+  glue step 0 loss 3.9351
+  glue step 80 loss 3.4478
+  glue step 160 loss 3.2988
+  glue step 240 loss 3.3826
+  glue step 320 loss 3.0236
+{'clean': 2.9455, 'mlp3_solo': 2.9608, 'ship_glued': 3.6053, 'ship_p17': 3.6593, 'ship_full': 3.6852}
+ship_full 3.6852 adds 0.0799
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/full_ship3_results.json (123.2s)
