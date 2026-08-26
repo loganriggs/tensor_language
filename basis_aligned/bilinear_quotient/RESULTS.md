@@ -5266,3 +5266,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1529 — matching is widespread (committee 7.7x own base but only 1.8x all-head); committee = WRITE-side specialist; copying story closed (2-for-3)
 §1530 — >50x rule: 4 claims harden (close_paren 416x, comma 207x, question 149x, colon 49x; ordering rho .90); semicolon arm had transcribed WRONG heads — LESSON: parse head lists; rerun queued (2-for-3)
 §1531 — semicolon verified 68x with parsed heads (3-for-3): high-selectivity tier fully hardened
+§1532 — trained bilinear replacements 0-for-3: flat losses from bias-only init (run failure, not class evidence); top-64-unit-init retry queued

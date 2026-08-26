@@ -35900,3 +35900,19 @@ semicolon re-verification with parsed heads queued.
 .40: **PASSED** — .4973 (replicates the screen's .5108). pred_c phantom-set
 specificity: **PASSED**. All five >50× registry claims now carry NR=1920
 verification: close_paren 416×, comma 207×, question 149×, semicolon 68×, colon 49×.
+
+## §1532 Trained rank-64 bilinear replacements: 0-for-3, an OPTIMIZATION failure — flat losses from a bias-only init
+
+**Setup** (deep_trained, 182s). **Scored:** all three **FAILED**, with recoveries
+strongly negative (mlp14 −8.6): final CEs sit ABOVE the mean-ablation baselines.
+The training logs show flat/oscillating losses — the zero-initialized Down factor
+put the stand-in at bias-only output, and 400 steps of full-model-CE signal never
+escaped it. This is a failure of the RUN (init + conditioning), not yet evidence
+against the class.
+
+**One registered retry (deep_trained2):** init = the module's OWN TOP-64 HIDDEN
+UNITS (ranked by std(h)×‖Down column‖ — a faithful sub-MLP and a describable class
+in itself), measured zero-shot, then CE-finetuned 300 steps. Preds: zero-shot ≥ .30
+recovery for ≥3 of 4; training adds ≥ .10 everywhere; mlp7 reaches ≥ .55. If the
+retry also fails, the trained-replacement class is parked alongside the five
+quadratic bases.

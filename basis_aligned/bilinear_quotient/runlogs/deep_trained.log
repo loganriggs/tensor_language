@@ -1,0 +1,27 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+clean 2.9455
+/workspace/tensor_language/basis_aligned/bilinear_quotient/deep_trained.py:105: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+  print(f"  L{L} step {step} loss {float(loss):.4f}", flush=True)
+  L7 step 0 loss 3.1950
+  L7 step 100 loss 3.0772
+  L7 step 200 loss 3.2629
+  L7 step 300 loss 3.1103
+mlp7: {'ce': 3.0427, 'fid_opt': -0.7277, 'recovery': -0.7005, 'linall_ref': 0.4595}
+  L8 step 0 loss 3.2865
+  L8 step 100 loss 3.0674
+  L8 step 200 loss 3.1153
+  L8 step 300 loss 3.0366
+mlp8: {'ce': 3.0609, 'fid_opt': -1.4369, 'recovery': -1.4014, 'linall_ref': 0.4568}
+  L9 step 0 loss 3.1228
+  L9 step 100 loss 3.0974
+  L9 step 200 loss 3.2028
+  L9 step 300 loss 3.2405
+mlp9: {'ce': 3.1425, 'fid_opt': -2.9737, 'recovery': -2.9262, 'linall_ref': 0.4819}
+  L14 step 0 loss 3.3368
+  L14 step 100 loss 3.2587
+  L14 step 200 loss 3.2130
+  L14 step 300 loss 2.8355
+mlp14: {'ce': 3.2345, 'fid_opt': -8.6155, 'recovery': -8.5836, 'linall_ref': 0.3401}
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/deep_trained_results.json (181.5s)

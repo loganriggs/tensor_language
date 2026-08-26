@@ -1,0 +1,40 @@
+{
+ "res": {
+  "clean": 2.9455,
+  "mlp7": {
+   "ce": 3.0427,
+   "fid_opt": -0.7277,
+   "recovery": -0.7005,
+   "linall_ref": 0.4595
+  },
+  "mlp8": {
+   "ce": 3.0609,
+   "fid_opt": -1.4369,
+   "recovery": -1.4014,
+   "linall_ref": 0.4568
+  },
+  "mlp9": {
+   "ce": 3.1425,
+   "fid_opt": -2.9737,
+   "recovery": -2.9262,
+   "linall_ref": 0.4819
+  },
+  "mlp14": {
+   "ce": 3.2345,
+   "fid_opt": -8.6155,
+   "recovery": -8.5836,
+   "linall_ref": 0.3401
+  }
+ },
+ "mbits_per_module": 3.56,
+ "data_budget": {
+  "steps": 400,
+  "batch": 8,
+  "lr": 0.003,
+  "rows": 480
+ },
+ "pred_a_mlp14_55": false,
+ "pred_b_mlp7_60": false,
+ "pred_c_beats_linall_10": false,
+ "runtime_s": 181.5
+}
