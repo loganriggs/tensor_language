@@ -36393,3 +36393,42 @@ agreement-flavored classes favor attribution. Next ranking leg queued (lane 2):
 does the unit-truncation compression (K=2048 sub-MLPs, the ship's deep planks)
 PRESERVE circuit structure — the "compression × circuit properties" cell the
 user asked for directly.
+
+## §1568 VERIFIED (3-for-3): the question-mark MLP component is 16 UNITS at 183× — and it generalizes across corpora slices to 0.2%
+
+**Setup** (circuit_mlp_units4, 293s; sites fixed from §1566, class-conditional
+scores recomputed on the same 96 fit rows, NR=1920 per the §1523 rule; K sweep
+16/64/256; second held-out row set skip=15000). **Scored:** pred_a question@mlp11
+K=64 selectivity ≥ 50× at NR=1920: **PASSED** — 127.4× (rise .1001 / global
+.0008). pred_b second-set rise within 35%: **PASSED** — .0999 vs .1001 (0.2%
+apart; essentially perfect generalization). pred_c K=16 keeps ≥ half the K=64
+rise: **PASSED** — .0912 = 91%, at 182.6× selectivity.
+
+**The certified object:** SIXTEEN hidden units of mlp11 (0.35% of the layer's
+4608) carry a .09 question-mark CE effect at 183× selectivity, replicated on a
+disjoint corpus slice. This is the sharpest MLP-grain circuit component in the
+program and upgrades §1566's provisional membership to certified. Pronouns is
+the contrast case: diffuse (K16 = 30% of K64; K256 grows to .198 at only 4.3×;
+set2 rise 23% lower) — mlp17's pronoun mass is a broad shoulder, not a
+component. Registry: question circuit gains an MLP-unit member
+(mlp11/top-16); pronouns does not.
+
+## §1569 UNIT-TRUNCATION PRESERVES CIRCUITS (3-for-3): K=2048 sub-MLPs keep the circuit map — Spearman .976, median selectivity 13.5×
+
+**Setup** (compression_rank3, 296s; all deep MLPs 4-17 truncated to top-2048
+units by the ship recipe std(h)×‖Down col‖, zero-shot; the 8 weights-only top-5
+circuit removals re-measured inside the truncated model, same rows). **Scored:**
+pred_a Spearman(class rise full, truncated) ≥ .8: **PASSED** — .976. pred_b
+selectivity within 2× at ≥ 5/8: **PASSED** — 6/8. pred_c median truncated
+selectivity ≥ 2×: **PASSED** — 13.5×.
+
+**Answer to the user's compression question, completed:** the top-K unit
+compression is CIRCUIT-SAFE — damage ordering is preserved almost exactly and
+selectivity survives (halved from 30.7× median, chiefly because truncation
+itself adds background damage to the denominator). Comma and months rises
+INFLATE under truncation (+84%/+143%): truncation hurts those classes'
+processing, so removals look more damaging — flag when doing circuit work
+inside the compressed model on frequency-flavored classes. Full ranking now:
+weights-only discovery ≻ attribution (both legs, §1564/§1567); unit compression
+preserves circuit structure (this section); MLP-unit membership itself is real
+and can be as sharp as 16 units (§1568).

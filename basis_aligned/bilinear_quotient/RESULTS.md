@@ -5302,3 +5302,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1565 — bilinear units are SIGNED: weight-rank fails both directions; class-conditional scoring queued as v3 (1-for-3)
 §1566 — MLP-unit circuits v3 (class-conditional): question@mlp11 64 units 105× / pronouns@mlp17 2.9× — first real MLP-unit membership, but both rises < .10 bar (1-for-3); NR=1920 verify queued
 §1567 — SELECTIVITY LEG: W median 30.7× vs Tn 10.9× vs raw 2.5× — weights-only wins both ranking axes (3-for-3); unit-truncation preservation leg queued
+§1568 — VERIFIED at NR=1920: question@mlp11 = 16 units, 183× selectivity, generalizes to 0.2% on held-out slice; pronouns diffuse — contrast case (3-for-3)
+§1569 — unit truncation (K=2048) preserves circuits: Spearman .976, 6/8 within 2×, median 13.5× — compression is circuit-safe (3-for-3)

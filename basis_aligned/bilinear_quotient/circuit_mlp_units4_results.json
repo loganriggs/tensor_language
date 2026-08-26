@@ -1,0 +1,52 @@
+{
+ "res": {
+  "question": {
+   "mlp": 11,
+   "K16": {
+    "rise_class": 0.0912,
+    "rise_global": 0.0005,
+    "selectivity": 182.63
+   },
+   "K64": {
+    "rise_class": 0.1001,
+    "rise_global": 0.0008,
+    "selectivity": 127.44
+   },
+   "K256": {
+    "rise_class": 0.1131,
+    "rise_global": 0.0017,
+    "selectivity": 67.43
+   },
+   "K64_set2": {
+    "rise_class": 0.0999,
+    "rise_global": 0.0006
+   }
+  },
+  "pronouns": {
+   "mlp": 17,
+   "K16": {
+    "rise_class": 0.0246,
+    "rise_global": 0.0082,
+    "selectivity": 2.99
+   },
+   "K64": {
+    "rise_class": 0.0832,
+    "rise_global": 0.0295,
+    "selectivity": 2.83
+   },
+   "K256": {
+    "rise_class": 0.198,
+    "rise_global": 0.0461,
+    "selectivity": 4.3
+   },
+   "K64_set2": {
+    "rise_class": 0.0641,
+    "rise_global": 0.0319
+   }
+  }
+ },
+ "pred_a_sel50_1920": true,
+ "pred_b_set2_within_35": true,
+ "pred_c_K16_half": true,
+ "runtime_s": 292.9
+}
