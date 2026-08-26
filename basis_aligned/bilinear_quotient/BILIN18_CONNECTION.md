@@ -36244,3 +36244,21 @@ only 39 of 2112 pronoun positions lack a capitalized token in the prior 64 (the
 absent-class is nearly empty; a §1416-class power failure — flagged, better
 antecedent definition pooled). Standing description: head 12.4 = the pronoun-
 prediction head, gender/number-neutral, near-zero off-target cost.
+
+## §1558 Head 12.4 does NOT track antecedents (2-for-3): powered split shows a 1.05× ratio — a pronoun-prediction head, coreference in the distributed state
+
+**Setup** (circuit_h124b, window 16, 71s). **Scored:** pred_a powered (≥300 absent
+positions): **PASSED** — 623. pred_b antecedent effect ≥ 1.5×: **FAILED** — .2191
+vs .2095 (1.05×; no effect). pred_c global ≤ .005: **PASSED** — .0019. Head 12.4's
+final description: the pronoun ANNOUNCER (347×, gender/number-neutral, surgical);
+antecedent tracking — like agreement and parity — is distributed.
+
+## §1559 Greedy on the weak classes: 0-for-3 — the recipe does not shrink small/diffuse circuits
+
+**Setup** (circuit_greedy6, lane 2, 188s). **Scored:** pred_a all 4 beat top-5:
+**FAILED** — 3/4, and titles got WORSE (3.8× vs 7.45×; an 11-token class — the
+screening rows are too noisy at this class size). pred_b median ≤ 3: **FAILED** —
+5. pred_c a single-head circuit: **FAILED**. Gains where classes are real:
+ordinals 2.7→**15.5×**, about 4.3→9.9×, days 4.6→5.5×. Recipe boundary noted:
+greedy construction needs class support (≥ ~40 frequent tokens or ≥ ~300 eval
+positions); below that, keep the screen top-5. Registry updated.
