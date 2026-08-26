@@ -1,0 +1,100 @@
+{
+ "res": {
+  "angles_vs_pronouns": {
+   "is": [
+    0.4753,
+    0.4531,
+    0.258,
+    0.1472
+   ],
+   "the": [
+    0.8932,
+    0.368,
+    0.3517,
+    0.1796
+   ],
+   "months": [
+    0.3447,
+    0.2071,
+    0.121,
+    0.0742
+   ]
+  },
+  "ablate_pronouns_gate": {
+   "pronouns": {
+    "d_class": -0.2949,
+    "d_global": 0.0027
+   },
+   "is": {
+    "d_class": 0.0016,
+    "d_global": 0.0013
+   },
+   "the": {
+    "d_class": 0.0078,
+    "d_global": 0.001
+   },
+   "months": {
+    "d_class": 0.0028,
+    "d_global": 0.0013
+   }
+  },
+  "ablate_is_gate": {
+   "pronouns": {
+    "d_class": 0.0054,
+    "d_global": 0.0023
+   },
+   "is": {
+    "d_class": 0.0215,
+    "d_global": 0.0021
+   },
+   "the": {
+    "d_class": 0.0111,
+    "d_global": 0.0019
+   },
+   "months": {
+    "d_class": -0.0061,
+    "d_global": 0.0023
+   }
+  },
+  "ablate_the_gate": {
+   "pronouns": {
+    "d_class": 0.0488,
+    "d_global": 0.0032
+   },
+   "is": {
+    "d_class": 0.0149,
+    "d_global": 0.0034
+   },
+   "the": {
+    "d_class": -0.08,
+    "d_global": 0.0068
+   },
+   "months": {
+    "d_class": 0.0163,
+    "d_global": 0.0035
+   }
+  },
+  "ablate_months_gate": {
+   "pronouns": {
+    "d_class": -0.0008,
+    "d_global": 0.0001
+   },
+   "is": {
+    "d_class": 0.0004,
+    "d_global": 0.0
+   },
+   "the": {
+    "d_class": -0.0007,
+    "d_global": 0.0001
+   },
+   "months": {
+    "d_class": -0.0399,
+    "d_global": 0.0001
+   }
+  }
+ },
+ "pred_a_geometry_50": false,
+ "pred_b_transfers_to_the": false,
+ "pred_c_broad_gate": false,
+ "runtime_s": 177.4
+}

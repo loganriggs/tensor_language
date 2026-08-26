@@ -36570,3 +36570,39 @@ slice remove DIFFERENT question-mark mechanisms. Answer to the user's original
 framing now complete: circuits are not attention-only — the right MLP grain
 (canonical signed slices, not units, not whole modules) extends them, and the
 extension is compositional.
+
+## §1577 GATES ARE CLASS-PRIVATE (0-for-3): the mlp17 cross-ablation matrix is diagonal — no shared suppressor at the output-correction level
+
+**Setup** (gate_identity, 177s; neg-r8 gate subspaces for the four mlp17
+classes; principal angles vs the pronouns gate; 4×4 cross-ablation matrix,
+NR=960). **Scored:** pred_a mean top-4 principal cosine (pronouns, the) ≥ .5:
+**FAILED** — .448 (.893/.368/.352/.180: ONE strongly shared direction, then
+divergence). pred_b pronouns-gate removal lowers THE-class CE ≥ .02: **FAILED**
+— +.0078 (it slightly HURTS). pred_c mean effect on the other three ≤ −.01:
+**FAILED** — +.0041.
+
+**Reading:** the cross-ablation matrix is diagonal — each gate's removal helps
+only its own class (pronouns −.295, the −.080, months −.040; is has no gate and
+removing its neg-part hurts it +.02). The "one shared late suppressor"
+hypothesis is dead at this level. CAVEAT registered: the §1570 correction is
+output-side along u_c BY CONSTRUCTION, so cross-class transfer can only flow
+through u_A·u_B overlap — this run rules out shared output-side gating, but the
+.89 first principal cosine says the gates partially SHARE INPUT GEOMETRY. The
+computation-level test (z-space ablation of the shared direction, which changes
+everything mlp17 computes from it) is queued as the clean discriminator.
+
+## §1578 SECOND JOINT CIRCUIT (3-for-3): pronouns = 5 heads + mlp17 payload slice — 101% additive, marginal .121, slice still free
+
+**Setup** (pronouns_joint, 82s; heads parsed from the weights-only top-5, slice
+= the §1575 pos_r8 payload part at mlp17 — NOT the net-suppressive |λ| mix;
+NR=960). **Scored:** pred_a joint ≥ .85×sum: **PASSED** — .9136 vs sum .9036
+(101.1%: slightly SUPER-additive). pred_b joint global ≤ heads + .003:
+**PASSED** — .0190 vs .0188. pred_c marginal ≥ .05: **PASSED** — .1209.
+
+**Registry consequence:** second certified head+MLP circuit, and the recipe
+generalizes to the hard case: a LATE-layer site whose raw class form is
+net-suppressive still contributes a clean payload member once the signed split
+isolates it. The joint recipe is now: heads (weights-only top-5) + pos-part
+eigen slice at the class's best MLP — additive both times, slice global cost ~0
+both times. Extension to is/months queued (third/fourth joints); z-space gate
+test queued on lane 1.

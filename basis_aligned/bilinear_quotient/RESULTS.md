@@ -5311,3 +5311,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1574 — eigen slice not universal: late-layer spectra sign-interleaved (months r2 −.07 → r32 +.10); slice wins at dedicated mid sites, units win at diffuse late sites (1-for-3)
 §1575 — signed eigen split resolves mlp17: per-class (payload, gate) pairs — pronouns +.12 payload inside −.29 gate; is pure payload .30; slices beat units 2/4 (3-for-3)
 §1576 — FIRST HEAD+MLP JOINT CIRCUIT: question = 5 heads + rank-2 mlp11 slice, 99.4% additive, marginal .166 at zero added global cost (3-for-3)
+§1577 — gate cross-ablation matrix DIAGONAL: gates class-private at output level (pronouns→the +.008, mean +.004); one shared input direction (cos .89) — z-space test queued (0-for-3)
+§1578 — second joint circuit: pronouns = 5 heads + mlp17 payload slice, 101% additive, marginal .121, slice free (3-for-3)

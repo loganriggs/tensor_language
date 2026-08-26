@@ -134,3 +134,5 @@ bilin12 template port; commons transfer.
 - Eigen-slice split (canonical, gauge-free) dominates unit split at question; disagrees in SIGN at late layers (S1570).
 - SIGNED split S = S+ - S- resolves late layers into (payload, gate) pairs (S1575): pronouns@17 payload +.12 / gate -.29; is pure payload .30; rank-8 suffices.
 - FIRST HEAD+MLP JOINT CIRCUIT (S1576): question = heads {10.5,12.6,15.6,15.1,9.7} + rank-2 mlp11 slice — 99.4% additive, slice marginal .166 at zero added global cost. Circuits extend across module types at slice grain.
+- SECOND JOINT (S1578): pronouns = W-top5 heads + mlp17 pos_r8 payload slice — 101% additive, marginal .121, slice free. Recipe works even where the raw class form is net-suppressive.
+- mlp17 gates are CLASS-PRIVATE at output level (S1577, 0-for-3: cross-ablation diagonal); input geometry partially shared (first principal cosine .89 pronouns-the) — computation-level z-space test pending.

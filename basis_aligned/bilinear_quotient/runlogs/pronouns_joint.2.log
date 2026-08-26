@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+z captured
+{
+ "heads": [
+  "12.4",
+  "9.6",
+  "7.3",
+  "6.7",
+  "13.2"
+ ],
+ "clean": {
+  "global": 2.9483,
+  "class": 2.3912
+ },
+ "heads_only": {
+  "rise_class": 0.7928,
+  "rise_global": 0.0188
+ },
+ "slice_only": {
+  "rise_class": 0.1108,
+  "rise_global": -0.0003
+ },
+ "joint": {
+  "rise_class": 0.9136,
+  "rise_global": 0.019
+ },
+ "slice_marginal_on_heads": 0.1209
+}
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/pronouns_joint_results.json (82.2s)
