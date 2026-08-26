@@ -35858,3 +35858,22 @@ which matches AND writes its own copied content (its heads are attention heads �
 they can find the earlier occurrence themselves). Queued: direct pattern test —
 committee heads' attention mass on the context position holding the target, by
 class (does the committee attend-to-match at copied-capitalized positions?).
+
+## §1529 Matching is WIDESPREAD; the committee's specialness is the WRITE side (2-for-3) — the copying-circuit story closes
+
+**Setup** (circuit_match_attn, 31s). Per-head attention mass on the context
+position holding the current target, by class. **Scored:** pred_a committee ≥ 5×
+its base rate at copied-capitalized positions: **PASSED** — 7.7× (.0394 vs .0051).
+pred_b committee ≥ 2× the all-head average: **FAILED** — 1.8× (many heads shift
+attention to the match; top matchers mix committee members (13.5 leads at .079)
+with generic movers (5.5, 8.3, 8.6)). pred_c 5.5's matching is generic: **PASSED**
+— .109 at generic copy vs .062 at copied-capitalized.
+
+**The closed story of copying in bilin18 (S1520-29, 10 runs):** context-matching is
+a broadly distributed attention behavior; TWO write-side channels turn matches into
+predictions — head 5.5's generic copy/induction channel (globally invisible,
+one-mechanism-across-lags) and the 13-head late committee, the model's copying
+apparatus, whose most visible cargo is repeated proper names and which the removal
+program had originally certified under the name "capitalization." Removal handles:
+2-160× selective. Extraction: works given the shared trunk. Generalization: class-
+conditional damage decompositions replicate across row sets and class splits.

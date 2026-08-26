@@ -5263,3 +5263,4 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1526 — capitalization committee IS a copying apparatus (copy +.685 > cap +.459): two arcs unified; copied-vs-novel decomposition queued (2-for-3)
 §1527 — UNIFIED: committee damage 4.8x concentrated on COPIED targets, copies non-names too — capitalization committee = copying apparatus (3-for-3)
 §1528 — 5.5 is a separate generic copy/induction channel, NOT the committee supplier: two copying channels (2-for-3); committee attention-to-match test queued
+§1529 — matching is widespread (committee 7.7x own base but only 1.8x all-head); committee = WRITE-side specialist; copying story closed (2-for-3)
