@@ -5313,3 +5313,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1576 — FIRST HEAD+MLP JOINT CIRCUIT: question = 5 heads + rank-2 mlp11 slice, 99.4% additive, marginal .166 at zero added global cost (3-for-3)
 §1577 — gate cross-ablation matrix DIAGONAL: gates class-private at output level (pronouns→the +.008, mean +.004); one shared input direction (cos .89) — z-space test queued (0-for-3)
 §1578 — second joint circuit: pronouns = 5 heads + mlp17 payload slice, 101% additive, marginal .121, slice free (3-for-3)
+§1579 — gates private at computation level too; .89 direction = THE's gate (z-removal −.174, 2× output-side) + months payload; single z-directions are the stronger gate handle (1-for-3)
+§1580 — is/months joints: 84% additive (16% head↔slice overlap at late sites), slices free, marginals .18/.08 — joint family now 4 classes (2-for-3)

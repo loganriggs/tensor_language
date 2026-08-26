@@ -135,4 +135,6 @@ bilin12 template port; commons transfer.
 - SIGNED split S = S+ - S- resolves late layers into (payload, gate) pairs (S1575): pronouns@17 payload +.12 / gate -.29; is pure payload .30; rank-8 suffices.
 - FIRST HEAD+MLP JOINT CIRCUIT (S1576): question = heads {10.5,12.6,15.6,15.1,9.7} + rank-2 mlp11 slice — 99.4% additive, slice marginal .166 at zero added global cost. Circuits extend across module types at slice grain.
 - SECOND JOINT (S1578): pronouns = W-top5 heads + mlp17 pos_r8 payload slice — 101% additive, marginal .121, slice free. Recipe works even where the raw class form is net-suppressive.
-- mlp17 gates are CLASS-PRIVATE at output level (S1577, 0-for-3: cross-ablation diagonal); input geometry partially shared (first principal cosine .89 pronouns-the) — computation-level z-space test pending.
+- mlp17 gates are CLASS-PRIVATE at BOTH levels (S1577 output, S1579 z-space): the .89 shared direction is functionally THE's gate (+ months payload feed); pronouns' gate is orthogonal. Shared-suppressor hypothesis CLOSED.
+- Single z-DIRECTION mean-substitution is the strongest gate handle: the@mlp17 one direction = -.174 class CE (2x the output-side r8 correction) (S1579).
+- JOINT FAMILY (S1576/78/80): question 99.4% / pronouns 101% / is 84% / months 84% additive; payload slices free (global <= .0003) in all four; late-site head ensembles overlap the slice ~16% — leave-one-out attribution pending.

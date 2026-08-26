@@ -36606,3 +36606,40 @@ isolates it. The joint recipe is now: heads (weights-only top-5) + pos-part
 eigen slice at the class's best MLP — additive both times, slice global cost ~0
 both times. Extension to is/months queued (third/fourth joints); z-space gate
 test queued on lane 1.
+
+## §1579 GATES ARE PRIVATE AT COMPUTATION LEVEL TOO (1-for-3): the .89 "shared" direction is functionally THE's gate — and a single z-direction removal DOUBLES the output-side gate effect
+
+**Setup** (gate_zspace, 156s; z-space mean-substitution of the top shared
+principal direction between the pronouns and the gate subspaces at the mlp17
+INPUT, vs a control direction least aligned with the's subspace; NR=960).
+**Scored:** pred_a shared-direction removal lowers pronouns CE ≥ .05: **FAILED**
+— +.0129 (slightly HURTS pronouns). pred_b it lowers the-class CE ≥ .02:
+**PASSED** — −.174. pred_c double dissociation: **FAILED** — the control helps
+pronouns (−.131 ✓) but moves the by +.0111, over the .01 bar by .0011 (a miss
+is a miss).
+
+**Reading:** the geometric overlap (§1577's cosine .89) is NOT a shared gate —
+functionally that direction IS the's gate (z-removal −.174) and feeds months'
+payload (+.051), while pronouns' functional gate lives in the "control"
+direction (−.131), nearly orthogonal to the's. Gate privacy now holds at BOTH
+levels; the shared-suppressor hypothesis is fully closed. Bonus discovery: a
+SINGLE z-direction mean-substitution (−.174 for the) doubles the output-side
+rank-8 correction (−.079) — z-space directions are a stronger removal handle
+than output-side slices for gates. Registered follow-up: single-z-direction
+screen across all 8 classes + NR=1920 verification of the −.174.
+
+## §1580 THIRD AND FOURTH JOINTS at 84% ADDITIVITY (2-for-3): the recipe holds but late-site head ensembles overlap the payload slice ~16%
+
+**Setup** (joints_extend, 134s; is and months = weights-only top-5 heads +
+mlp17 pos_r8 payload slice, NR=960). **Scored:** pred_a joint ≥ .85×sum at
+both: **FAILED** — is .840, months .842 (both under by < .011). pred_b slices
+free at both: **PASSED** — global +.0002/+.0001. pred_c marginal ≥ .05 at both:
+**PASSED** — .184/.084.
+
+**Reading:** the joint family now spans four classes — question 99.4%, pronouns
+101%, is 84.0%, months 84.2% additive. The two late-site verb/noun classes show
+a consistent ~16% head↔slice overlap: part of what heads {11.3, 7.8, 10.5, 9.7,
+6.7} remove for is flows THROUGH the mlp17 payload (attention writes into the
+subspace the slice reads). Slices stay free (zero global cost) everywhere.
+Follow-up queued: per-head leave-one-out overlap attribution — find the
+overlap-carrying head, drop it, test additivity restoration.

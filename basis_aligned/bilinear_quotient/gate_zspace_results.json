@@ -1,0 +1,54 @@
+{
+ "res": {
+  "principal_cosines": [
+   0.893,
+   0.368,
+   0.352,
+   0.18,
+   0.105,
+   0.04,
+   0.029,
+   0.006
+  ],
+  "shared": {
+   "pronouns": {
+    "d_class": 0.0129,
+    "d_global": 0.0056
+   },
+   "is": {
+    "d_class": -0.0136,
+    "d_global": 0.0058
+   },
+   "the": {
+    "d_class": -0.174,
+    "d_global": 0.0129
+   },
+   "months": {
+    "d_class": 0.0507,
+    "d_global": 0.0056
+   }
+  },
+  "control": {
+   "pronouns": {
+    "d_class": -0.1313,
+    "d_global": 0.0015
+   },
+   "is": {
+    "d_class": -0.0009,
+    "d_global": 0.0008
+   },
+   "the": {
+    "d_class": 0.0111,
+    "d_global": 0.0004
+   },
+   "months": {
+    "d_class": -0.0004,
+    "d_global": 0.0008
+   }
+  }
+ },
+ "pred_a_shared_helps_pronouns": false,
+ "pred_b_shared_helps_the": true,
+ "pred_c_double_dissociation": false,
+ "runtime_s": 156.4
+}
