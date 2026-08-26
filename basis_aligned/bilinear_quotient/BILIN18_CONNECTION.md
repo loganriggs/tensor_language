@@ -35831,3 +35831,30 @@ screens now show the same heads carry general (non-name) copying at even larger
 effect. Queued test of the unification: decompose the capitalized class into
 COPIED-capitalized vs NOVEL-capitalized — if the committee is a copier, its damage
 should concentrate ≥3× on the copied subclass.
+
+## §1527 UNIFICATION CONFIRMED 3-for-3: the committee's damage is 4.8× concentrated on COPIED capitalized targets — it is a copying apparatus
+
+**Setup** (circuit_capcopy, 53s). Capitalized class split by whether the target
+occurs in the previous 64 tokens. **Scored:** pred_a committee-rest ≥ 3× on copied:
+**PASSED** — +1.1713 vs +.2434 (4.8×). pred_b copies non-names ≥ .30: **PASSED** —
++.4494 on copied infrequent non-capitalized targets. pred_c full 13-head committee
+same: **PASSED** — +1.6060 vs +.3456 (4.6×).
+
+**The §1339-1418 "capitalized" family and the §1522 content-copying circuit are one
+mechanism seen through two distributions.** Registry updated: the committee's
+certified description is now "the late-stack copying apparatus (L13-17); most
+visible cargo: repeated proper names."
+
+## §1528 Head 5.5 is a GENERIC copy/induction mover, NOT the committee's supplier (2-for-3): the pipeline story is wrong
+
+**Setup** (circuit_h55, lane 2, 49s). **Scored:** pred_a 5.5's cap_copied ≥ 3×
+cap_novel: **FAILED** — .0091 vs .0138 (its damage does NOT concentrate on the
+committee's cargo; the committee does not depend on 5.5's matching). pred_b
+induction ≥ .04: **PASSED** — .0623. pred_c global ≤ .01: **PASSED** — .0073.
+
+**Corrected map:** TWO copying channels — (1) a generic short-scale copy/induction
+channel through head 5.5 (mid-stack, global-invisible), and (2) the late committee,
+which matches AND writes its own copied content (its heads are attention heads —
+they can find the earlier occurrence themselves). Queued: direct pattern test —
+committee heads' attention mass on the context position holding the target, by
+class (does the committee attend-to-match at copied-capitalized positions?).

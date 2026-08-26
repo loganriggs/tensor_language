@@ -5261,3 +5261,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1524 — sink-normalized attribution certified: 5.7 out everywhere, induction-T 3.1->12.5x (2-for-3)
 §1525 — mover = head 5.5 (10.8 minor, inert alone); global .007 (1-for-3)
 §1526 — capitalization committee IS a copying apparatus (copy +.685 > cap +.459): two arcs unified; copied-vs-novel decomposition queued (2-for-3)
+§1527 — UNIFIED: committee damage 4.8x concentrated on COPIED targets, copies non-names too — capitalization committee = copying apparatus (3-for-3)
+§1528 — 5.5 is a separate generic copy/induction channel, NOT the committee supplier: two copying channels (2-for-3); committee attention-to-match test queued
