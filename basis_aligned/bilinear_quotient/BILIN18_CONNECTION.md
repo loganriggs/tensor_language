@@ -36233,3 +36233,14 @@ Single-head circuits now: colon (12.6), months (14.7), close_paren (13.8), hyphe
 (62.5×) require NR=1920 verification before registry entry — queued, alongside a
 characterization of head 12.4 (is it a coreference head? damage split by whether a
 capitalized antecedent is present in context).
+
+## §1557 Pronouns verify at 347× (3-for-3); head 12.4 is surgical and pronoun-neutral, but the coreference split was underpowered (2-for-3)
+
+**verify_g5:** pronouns **347.2×** at NR=1920 (class +.2162, global +.0006 — even
+higher than the 275× claim), open_paren 55.5×. Both registry-grade. **h124:**
+global rise .0019 (surgical ✓); damage even across he/she/they (.27/.27/.13 ✓);
+the antecedent-present-vs-absent split FAILED as written but is UNMEASURABLE —
+only 39 of 2112 pronoun positions lack a capitalized token in the prior 64 (the
+absent-class is nearly empty; a §1416-class power failure — flagged, better
+antecedent definition pooled). Standing description: head 12.4 = the pronoun-
+prediction head, gender/number-neutral, near-zero off-target cost.
