@@ -36017,3 +36017,22 @@ saturating. Ten seeds updated (mlp4 .858 ... mlp17 .938); EVERY deep MLP now sit
 at .65-.94 via plain unit truncation — the deep-mid frontier, which resisted five
 fitted classes for two days, is now dominated by the module's own unit basis at
 K=2048 (114 Mbit).
+
+## §1540 TOTAL GLASS v4: 3.8431, compounding 0.80× — SUB-additive (2-for-3)
+
+**Setup** (ship_all36_v4, K=3072 planks, 142s). **Scored:** pred_a ≤ 4.00:
+**PASSED** — **3.8431**. pred_b beats v3 by ≥ .10: **PASSED** — by .2783. pred_c
+band ≤ .07: **FAILED** — .079. Ship line: 5.535 → 4.554 → 4.121 → **3.843**
+(+.90 CE over clean; compounding 0.80× — replacement errors now partially CANCEL).
+Price note: K=3072 planks cost 171 Mbit/module (only 1.5× below the module) — v4
+is a fidelity point, not a price point; the economic knee is K≤2048.
+
+## §1541 K=3072 row: all deep MLPs .83-.97 (2-for-3) — the unit curve is fully mapped
+
+**Setup** (deep_units_3072, lane 2, 171s). **Scored:** pred_a median ≥ .85:
+**PASSED** — .897. pred_b all ≥ .75: **PASSED** — min .826 (mlp14). pred_c
+saturation (16/17 gain ≤ .04): **FAILED by .0055** — mlp16 +.0455. The complete
+curve (K = 64/256/1024/2048/3072/4608): log-linear per doubling, saturating ~.95,
+exact at full K. Seeds updated (price-noted); the deep-MLP description problem is
+CLOSED as an economics table rather than a mystery: any target fidelity up to ~.95
+is purchasable at log-linear unit cost in the module's own basis.

@@ -5274,3 +5274,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1537 — tail is log-uniform in K (each doubling +.07-.15); K=2048 = .65-.75 at stragglers; full-K exact (3-for-3)
 §1538 — TOTAL GLASS v3 = 4.121 (compounding 1.04x — ship = sum of parts; fresh band missed by .0097) (2-for-3)
 §1539 — K2048 row complete: deep MLPs .70-.94, log-linear until saturation; 10 seeds updated (1-for-3)
+§1540 — TOTAL GLASS v4 = 3.843 (compounding 0.80x SUB-additive; band .079 missed) (2-for-3)
+§1541 — K3072: all deep MLPs .83-.97, curve fully mapped; deep problem closed as an economics table (2-for-3)
