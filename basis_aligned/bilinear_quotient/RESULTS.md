@@ -5300,3 +5300,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1563 — MLP units v1: abs-ranking mixed promoters and SUPPRESSORS (class got BETTER under ablation); late MLPs gate classes down; signed version queued (0-for-3)
 §1564 — DISCOVERY RANKING: weights-only > attribution (6/8, mean 2.40); normalization no avg effect; selectivity leg queued (2-for-3)
 §1565 — bilinear units are SIGNED: weight-rank fails both directions; class-conditional scoring queued as v3 (1-for-3)
+§1566 — MLP-unit circuits v3 (class-conditional): question@mlp11 64 units 105× / pronouns@mlp17 2.9× — first real MLP-unit membership, but both rises < .10 bar (1-for-3); NR=1920 verify queued
+§1567 — SELECTIVITY LEG: W median 30.7× vs Tn 10.9× vs raw 2.5× — weights-only wins both ranking axes (3-for-3); unit-truncation preservation leg queued

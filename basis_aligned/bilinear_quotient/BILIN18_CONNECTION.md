@@ -36343,3 +36343,53 @@ so far: the top-K-unit compression (weight/std-ranked) does NOT transfer directl
 to circuit membership. The clean design is CLASS-CONDITIONAL activation scoring —
 contribution = (mean h_u | class − mean h_u) × (Down_col · u_class), measured from
 data — queued as v3.
+
+## §1566 Class-conditional unit scoring WORKS where weight ranking failed (1-for-3 as registered): first MLP-unit circuit membership — question@mlp11, 64 units, 105×
+
+**Setup** (circuit_mlp_units3, 124s; unit score = (mean h_u | class − mean h_u) ×
+(u_class · Down column) on 96 fit rows; ablate top-64 positive contributors at
+the best MLP, NR=960). **Scored as registered:** pred_a class-CE rise ≥ .10 at
+≥ 2 of 4: **FAILED** — 0 of 4 (question .0906, pronouns .0856 — both under the
+.10 bar by < .015; a miss is a miss). pred_b selectivity ≥ 2× at those: **FAILED**
+— vacuous (no class passed pred_a). pred_c top-64 concentration ≥ .50 at ≥ 2:
+**PASSED** — 3 of 4 (newline .756, question .696, pronouns .500).
+
+**The substantive result the thresholds hid:** the v3 data-driven scorer found
+the first genuine MLP-unit circuit membership. Ablating 64 units of mlp11 (1.4%
+of its 4608 hidden units) raises question-mark CE by .0906 at 104.8× selectivity
+(global rise .0009) — a real, sharply selective sub-MLP circuit component.
+Pronouns: 64 units of mlp17, rise .0856 at 2.9×. Newline is still a suppressor
+site (rise −.031 at mlp17: even data-scored positive contributors NET-IMPROVE
+the class when removed — late-MLP gating, §1563/§1565 confirmed on the third
+method). Comma is diffuse (rise .0041, concentration .222).
+
+**Answer to the user's question ("does top-K unit compression help circuits?"):**
+partially and asymmetrically. Head circuits carry rises of .1–2.1; the best
+MLP-unit component carries .09. Circuits remain predominantly attention-head
+objects, but for SOME classes a tiny unit set is a certified, highly selective
+member — and only class-conditional activation scoring (not weight structure)
+finds it. The 104.8× claim exceeds 50× → NR=1920 verification REQUIRED (§1523
+rule) — queued as units4 together with a K sweep (16/64/256) and a second
+held-out row set.
+
+## §1567 SELECTIVITY LEG (3-for-3): weights-only discovery wins BOTH axes — median 30.7× vs 10.9× (normalized) vs 2.5× (raw)
+
+**Setup** (compression_rank2, 384s; same 8 circuits × 3 methods × top-5
+ensembles as §1564, now graded by removal selectivity = class-CE rise /
+global-CE rise, NR=960). **Scored:** pred_a W median ≥ 5×: **PASSED** — 30.74×.
+pred_b W beats Tn at ≥ 5/8: **PASSED** — exactly 5/8. pred_c all three medians
+≥ 2×: **PASSED** — 30.74 / 10.87 / 2.46.
+
+**The completed ranking (both legs):** weights-only ≻ normalized-attribution ≻
+raw-attribution. Leg 1 (class damage at fixed size): 2.40 / 2.07 / 2.14 of
+greedy reference. Leg 2 (selectivity): 30.7× / 10.9× / 2.5× median. Weights-only
+top-5s are not just more damaging — they are 3× more SELECTIVE than normalized
+attribution and 12× more than raw; raw attribution barely clears the 2× floor
+(its top-5s recruit generalist heads that damage everything). Per-circuit: W wins
+selectivity at comma (19.3 vs 1.7), semicolon (73.5 vs 16.7), the, is,
+close_paren (185.8 vs 69.3); Tn wins at question (79.3 vs 43.6), pronouns,
+months. Pattern: TOKEN-class circuits favor weight composition; the contextual/
+agreement-flavored classes favor attribution. Next ranking leg queued (lane 2):
+does the unit-truncation compression (K=2048 sub-MLPs, the ship's deep planks)
+PRESERVE circuit structure — the "compression × circuit properties" cell the
+user asked for directly.
