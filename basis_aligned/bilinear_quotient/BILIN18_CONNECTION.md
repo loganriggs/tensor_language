@@ -35973,3 +35973,27 @@ planks for mlps 4-17 (replacing the ~.45-recovery stream-linalls); preds ≤ 5.2
 beats v1 by ≥ .25 / fresh band ≤ .05. deep_units_tail (lane 2) — the curve's tail
 priced directly at the stragglers (K = 2048 and full-K sanity at mlps 10, 12, 13,
 14).
+
+## §1536 TOTAL GLASS v2: 4.554 (3-for-3) — the unit planks buy back a full nat; compounding drops to 1.43×
+
+**Setup** (ship_all36_v2, 90s). Unit-1024 planks for mlps 4-17 replacing v1's
+stream-ridges. **Scored (against the REGISTERED docstring bars; the pred code
+still carried v1's looser bars — flagged, outcome unaffected):** pred_a ≤ 5.25:
+**PASSED** — **4.5540**. pred_b beats v1 by ≥ .25: **PASSED** — by .9807. pred_c
+fresh band ≤ .05: **PASSED** — .0409. Ship line: clean 2.946 → attention-only
+3.107 → 26-module 3.862 → ALL 36 = 4.554 (+1.61 CE, compounding 1.43×).
+LESSON-adjacent flag: prediction code must be regenerated together with the
+registered docstring.
+
+## §1537 The tail is LOG-UNIFORM, not flat (3-for-3): K=2048 reaches .65-.75 at the stragglers; full-K is exact
+
+**Setup** (deep_units_tail, lane 2, 94s). **Scored:** pred_a K=2048 adds ≥ .10
+everywhere: **PASSED** — +.13-.23 (mlp14 .417→.6455!). pred_b mlp14 ≥ .55:
+**PASSED**. pred_c full-K ≥ .95: **PASSED** — 1.0 exactly (machinery sanity).
+
+**The corrected law:** unit recovery grows roughly LOG-LINEARLY in K (64: .3-.45;
+each doubling adds ~.07-.15) — the deep MLP is a log-uniform spread over its own
+units, with no sharp cutoff. K=2048 (114 Mbit, 2.2× cheaper than the module) sets
+new bests at mlps 10/12/13/14. Queued: K=2048 completion at the remaining deep
+MLPs (lane 2) and ship v3 with K=2048 planks (lane 1; preds ≤ 4.30, beats v2 by ≥
+.20, band ≤ .05).

@@ -5270,3 +5270,5 @@ Full detail in `BILIN18_CONNECTION.md` §260.
 §1533 — unit concentration real (top-64 = .30-.42 zero-shot at mlp7/8/9); CE-finetune HARMS warm starts — trained class parked; unit-truncation sweep queued (1-for-3)
 §1534 — unit curve: ~64-unit core (.30-.45) + long tail; K=1024 = new best at 9 deep MLPs (mlp10 .59, mlp11 .61...); core+ridge hybrid queued (0-for-3 on bars)
 §1535 — hybrid improves all 12 sites but ridge price disqualifies (190-380 Mbit); units-1024 wins economics; ship v2 + tail pricing queued
+§1536 — TOTAL GLASS v2 = 4.554 (−.98 vs v1; compounding 1.43x; 3-for-3); pred-code/docstring mismatch flagged
+§1537 — tail is log-uniform in K (each doubling +.07-.15); K=2048 = .65-.75 at stragglers; full-K exact (3-for-3)
