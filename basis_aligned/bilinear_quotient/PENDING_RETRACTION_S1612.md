@@ -81,6 +81,21 @@ This does NOT change what is being asked of Logan. The second pending item — t
 mlp17 — rests on §1634's direct measurement at mlp17 and is unaffected. Both
 withdrawals remain drafted and unapplied.
 
+## STATUS 2026-08-27 12:06 — BOTH ITEMS FULLY EVIDENCED, NEITHER APPLIED
+
+Item 1 (membership): §1628, 20 independent random bases x 3 disjoint chunks. attn10
+appears in the random top-4 in 32/60 = 53.3% of trials, attn9 in 53/60 = 88.3%, and
+§1612's OWN seed 1729 places attn10 in 2 of 3 chunks, contradicting "absent 3/3".
+
+Item 2 (pronoun structural reading): confirmed TWICE on independent control sets.
+§1634 used five function-word classes at mlp17 (margin 0). §1638 answered the
+subtype worry §1637 raised by using four OTHER PERSONAL PRONOUNS at the identical
+cell -- ` it`, ` we`, ` I` all reach 60/60 and ` I` is MORE below-null (−.1795) than
+the certified class (−.1320). Margin 0 again. The control is now matched on cell,
+rank, TOP, rows, seeds, statistic and exact subtype.
+
+Neither item requires further measurement. Both await a decision.
+
 ## The rule this earns either way
 
 A top-K membership test against ONE random basis is a sample of size one dressed as

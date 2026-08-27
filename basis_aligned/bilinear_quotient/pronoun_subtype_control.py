@@ -300,7 +300,7 @@ def main():
     pb = cert['separation'] - best_fresh <= 5
     pc = n_neg == 4
 
-    print(f"\n  SEPARATION at mlp11 r2 TOP-4, site held FIXED, {N_RANDOM*CHUNKS} trials each:",
+    print(f"\n  SEPARATION at mlp17 r8 TOP-6, exact-subtype pronoun controls, {N_RANDOM*CHUNKS} trials each:",
           flush=True)
     for k in sorted(out_cells, key=lambda x: -out_cells[x]['separation']):
         v = out_cells[k]

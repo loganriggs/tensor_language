@@ -39502,3 +39502,61 @@ that turned out to matter.
 **Sixth generalisation to die on its own follow-up.** The rate is not improving; what
 is improving is that §1636 and §1637 were both tests I designed against my own stated
 caveat, before anyone had to point it out.
+
+## §1638 THE SECOND PENDING RETRACTION SURVIVES ITS OWN STRESS TEST (3-for-3): against FOUR OTHER PERSONAL PRONOUNS at the identical cell, he/she/they has a margin of ZERO — and ` I` is MORE below-null than the certified class
+
+**Setup** (pronoun_subtype_control, 608 s, rung 3 — testing whether §1637's
+class-type lesson destroys my own §1634 the way it destroyed §1633). §1634 is the
+sole surviving basis for the second pending item in `PENDING_RETRACTION_S1612.md`,
+and it used function-word controls against a pronoun target. Checked rather than
+assumed: both are closed-class, so §1634 was far better matched than §1633 — but
+prepositions are a different SUBTYPE from personal pronouns, and §1637 showed subtype
+can decide the answer. Exact-subtype control: four other personal pronoun classes at
+pronouns' own cell, mlp17 rank-8 TOP-6, 20 bases x 3 disjoint chunks = 60 trials each.
+
+```
+class                     separation   mean gap     λ shares
+pronouns (he/she/they)      60/60       −.1320      .4782 .4840 .4871   [certified]
+it                          60/60       −.1190      .5003 .4837 .4949
+we                          60/60       −.0940      .4693 .4896 .4924
+I                           60/60       −.1795      .4360 .4065 .4362   <- MORE below-null
+you                         58/60       −.0965      .4706 .4721 .4951
+MARGIN of the certified class over the best other pronoun: 0
+```
+
+- **pred_a PASSED** — 4 of 4 other pronoun classes separate ≥ 52/60; three hit 60/60.
+- **pred_b PASSED** — the margin is **0**, against a ≤5 bar.
+- **pred_c PASSED** — 4 of 4 have negative mean gaps.
+
+**The second pending item is CONFIRMED on the strongest available control.** §1637
+raised a real worry — that §1634's function-word controls were subtype-mismatched the
+way §1633's were type-mismatched — and the worry is answered: below-null at mlp17 is
+generic among personal pronouns exactly as it is among prepositions. `he/she/they`
+has **no margin at all** over `it`, `we` or `I`, and **` I` is more below-null
+(−.1795) than the certified class (−.1320)**.
+
+So §1612's `S1598_verdict_strengthened` — "the pronoun slice is DRAMATICALLY less
+concentrated than a meaningless basis, a positive structural claim about distributed
+writing" — describes every personal pronoun tested and licenses nothing about
+pronouns specifically. The item stands, now on a control matched at cell, rank, TOP,
+rows, seeds, statistic AND exact subtype.
+
+**Both pending items are now fully evidenced and neither needs further testing:**
+- **Item 1 (membership)** — §1628, 20 independent bases: attn10 in 53.3% of 60 trials,
+  attn9 in 88.3%, and §1612's own seed 1729 contradicts its "absent 3/3" in 2 of 3
+  chunks.
+- **Item 2 (pronoun structural reading)** — §1634 (function-word controls, margin 0)
+  and §1638 (exact-subtype controls, margin 0).
+
+Still **NOT APPLIED**. Retracting published claims is outside delegated autonomy and
+both remain drafted for Logan.
+
+**A fifth cross-script replication.** `pronouns` returned 60/60 and −.1320, identical
+to §1634 under a different script. The harness has now reproduced itself exactly on
+mlp11 (§1633/§1635), mlp11 gaps (§1630/§1636), and mlp17 (§1634/§1638).
+
+**Housekeeping.** The run's stdout header read "SEPARATION at mlp11 r2 TOP-4" — a
+stale format string inherited from the script this was copied from. The measurement
+is mlp17 rank-8 TOP-6 and the ARTIFACT config records that correctly; only the printed
+banner was wrong. Fixed. Same class as §1625's provenance mislabel, and the reason
+LESSONS 22 says to assert what you wrote rather than trust what you printed.
