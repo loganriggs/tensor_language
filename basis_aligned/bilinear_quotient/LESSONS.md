@@ -114,6 +114,14 @@ replacement tax.
   supervisor service, a cloned dependency) must be committed under ops/ the
   same hour you create it, or it is not real.
 - queue.txt takes ABSOLUTE paths; bare names are silently dropped.
+- ...and so does every shell command an agent runs. The cwd does NOT persist
+  reliably between tool calls: a `cd BQ && ...` that runs from BQ FAILS (already
+  there), and with `&&` chaining it silently skips everything after it. On
+  2026-08-27 that dropped a script's registered-predictions header (caught before
+  queueing) and produced three separate false alarms -- a "missing" ledger
+  section, a "hung" run, a "missing" runner.log -- each of which was a relative
+  path resolving from the wrong directory. Use absolute paths, or set
+  `BQ=/workspace/.../bilinear_quotient` at the top of every command.
 - After writing a transform-generated script: verify file exists AND
   ast.parse it BEFORE queueing (ioi_chain incident: queued, then the
   transform crashed, runner would have skipped silently).
