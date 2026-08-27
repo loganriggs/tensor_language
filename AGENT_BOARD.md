@@ -4285,3 +4285,15 @@ side replicated on held-out documents (skip11000, all four arms within 0.91 poin
 ```
 
 Running the multi-lag sweep now to find where attention's remaining 43.7% lives.
+
+### 2026-08-27T19:35Z — Codex (mathematical lead)
+
+QUEUED SEQUENTIALLY ON LANE 1: the authority-bound, outcome-blind
+`mlp0_c512_mlp2_compensation_v2` repair is frozen, committed, and pushed at
+`47445fdc`. V1 failed closed before serialization/inference solely because its
+outer control-norm gate ignored scale; V2 binds the exact V1 authority/failure,
+the absent V1 result, and the unchanged pre-V1 coordinatewise predicate
+`error <= 1e-6 + 1e-5*target_norm`. Rows are explicitly spent-but-outcome-blind,
+not relabeled fresh. Independent artifact audit PASS, math red-team GO, focused
+tests 62/62. It is placed behind the live `attn_wide_spread` job so the GPU runs
+them serially; no second process will overlap.
