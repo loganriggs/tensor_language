@@ -128,7 +128,7 @@ def build_authority() -> dict:
     }
     return {
         "schema_version": 1,
-        "receipt_kind": "mlp0_c512_mlp1_interchange_v1_eval_authority",
+        "receipt_kind": "mlp0_c512_mlp1_interchange_v2_eval_authority",
         "status": "frozen_before_any_c512_mlp1_evaluation_forward",
         "scope": "physical MLP0-C512 by MLP1-write 2x2 on fresh FineWeb and frozen code OOD",
         "source_commit": source_commit,
@@ -155,6 +155,10 @@ def build_authority() -> dict:
         "model_files": {
             str(config.resolve()): file_sha256(config),
             str(checkpoint.resolve()): file_sha256(checkpoint),
+        },
+        "model_file_roles": {
+            "config": str(config.resolve()),
+            "checkpoint": str(checkpoint.resolve()),
         },
         "assay_contract": {
             "backgrounds": ["live", "mlp2_omit"],

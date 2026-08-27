@@ -47,10 +47,10 @@ V = 50257
 T = 256
 BATCH_WINDOWS = 4
 FIT_BATCH = 4
-AUTHORITY = BQ / "mlp0_c512_mlp1_interchange_v1_eval_authority.json"
-OUT = BQ / "mlp0_c512_mlp1_interchange_v1_results.json"
-FAILURE = BQ / "mlp0_c512_mlp1_interchange_v1_failure.json"
-LOCK = Path("/workspace/runs/.bilin18_mlp0_c512_mlp1_interchange_v1.lock")
+AUTHORITY = BQ / "mlp0_c512_mlp1_interchange_v2_eval_authority.json"
+OUT = BQ / "mlp0_c512_mlp1_interchange_v2_results.json"
+FAILURE = BQ / "mlp0_c512_mlp1_interchange_v2_failure.json"
+LOCK = Path("/workspace/runs/.bilin18_mlp0_c512_mlp1_interchange_v2.lock")
 FIT_RECEIPT = BQ / "mlp0_native_down_hierarchy_v1_fit_receipt.json"
 STAGE0_FIT_RECEIPT = BQ / "mlp0_quotient_stage0_v2_fit_receipt.json"
 STAGE0_ROW_RECEIPT = BQ / "mlp0_quotient_stage0_v1_rows_receipt.json"
@@ -343,18 +343,19 @@ def verify_preflight_artifacts(
     program_path: Path,
 ) -> dict[str, str]:
     """Validate all outcome-bearing artifacts before the first evaluation forward."""
-    model_checkpoints = [
-        Path(raw) for raw in authority["model_files"] if raw.endswith("pytorch_model.bin")
-    ]
-    if len(model_checkpoints) != 1:
-        raise RuntimeError("authority must bind exactly one model checkpoint")
+    roles = authority.get("model_file_roles", {})
+    if set(roles) != {"config", "checkpoint"}:
+        raise RuntimeError("authority must bind explicit config/checkpoint roles")
+    model_checkpoint = Path(roles["checkpoint"])
+    if str(model_checkpoint) not in authority["model_files"]:
+        raise RuntimeError("checkpoint role is outside authority model files")
     source_hashes = {raw: file_sha256(Path(raw)) for raw in authority["source_hashes"]}
     observed = {
         "source_closure_sha256": closure_sha256(source_hashes),
         "row_receipt_sha256": file_sha256(ROW_RECEIPT),
         "row_tensor_sha256": tensor_sha256(frozen_rows),
         "c512_program_sha256": file_sha256(program_path),
-        "model_checkpoint_sha256": file_sha256(model_checkpoints[0]),
+        "model_checkpoint_sha256": file_sha256(model_checkpoint),
         "code_register_sha256": file_sha256(CODE_REGISTER),
     }
     if observed != authority["integrity_contract"]["bound_hashes"]:

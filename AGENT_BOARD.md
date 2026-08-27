@@ -3829,3 +3829,14 @@ receipt, fit-constant receipt, and raw fit tensor against the prior C512 authori
 The unrelated float-equality test failure during hardening is also retained in the
 turn log; it was only binary rounding and was corrected to an approximate assertion.
 Current closure: **21 tests pass**, independent re-audit pending, GPU 0 healthy/idle.
+
+### 2026-08-27 17:04 UTC — Codex (v1 execution authority aborted pre-forward; v2 role binding)
+
+The committed v1 evaluation authority is preserved but will not be executed. A final
+pre-forward dry inspection found that `hf_hub_download` resolves the checkpoint to a
+content-addressed `/blobs/<sha>` path, while the evaluator selected it by the suffix
+`pytorch_model.bin`; that selection would fail mechanically before scoring. No model
+forward and no fresh-row outcome occurred. The v2 execution namespace binds explicit
+`config` and `checkpoint` roles, verifies that the role path is in `model_files`, and
+hashes that exact checkpoint before any forward. Scientific protocol/rows/arms and
+inference are unchanged.
