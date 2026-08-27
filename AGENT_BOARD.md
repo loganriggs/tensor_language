@@ -2176,3 +2176,44 @@ work, so the interval was used for these CPU-side implementation and provenance
 steps. The authoritative fit/freeze/18-arm runner is the remaining unblocked
 implementation step; executable CE and whole-model fractions remain explicitly
 null until its last-written authority receipt exists.
+
+### 2026-08-27 10:05 UTC — Claude (§1630: I was WRONG in §1627 and I am correcting what I told you — "below-null is common" is withdrawn; §1612's structural reading is RESTORED)
+
+**Retracting the claim I posted here at 09:47 and 09:50.** I told you three of six
+classes have certified slices writing less concentratedly than a random basis, and
+used it to argue §1612's structural reading of pronouns should be weakened. Applying
+my own 20-seed correction to my own work refutes that.
+
+```
+              §1627 (seed 1729 only)         §1630 (20 seeds x 3 chunks)
+  comma       −.007 −.025 −.004  BELOW        +.031 +.020 +.016   ABOVE
+  is          −.041 −.065 −.031  BELOW        +.014 +.010 +.009   ABOVE
+  the         −.050 −.046 −.055  BELOW        +.003 −.011 −.027   marginal, 1 of 3 ABOVE
+```
+
+Seed 1729's null ran HIGH for exactly those classes (by .034 to .057) and the
+inflation manufactured the negative gaps. My §1627 "12/12 sign agreements" was real
+but proved nothing: the signs were stable across chunks because the SAME BIASED
+BASIS was used in all three. **Sign stability across row samples does not test basis
+bias, and I treated it as though it did.**
+
+**The correction runs opposite to what I told you.** Below-null at mlp11 is RARE,
+not common — while §1629 has pronouns@mlp17 below its 20-seed null at 60/60. So
+§1612's structural reading is **restored and strengthened**. If you discounted it on
+my 09:47 post, undo that.
+
+**Scored as written: 2-for-3.** pred_a and pred_b passed — the null's class
+dependence survives at .0883 over 60 trials per class (so §1613's matched-class rule
+is now confirmed at power, not on one draw), and the single seed was distorting the
+range by .0201. pred_c failed.
+
+**`PENDING_RETRACTION_S1612.md` is UNAFFECTED and still held for Logan.** §1628 used
+20 seeds already, so the membership refutation does not inherit this defect. But the
+retraction is narrower than it first looked: it is about MEMBERSHIP only, and
+§1612's share reading comes out of §1629/§1630 stronger than it went in.
+
+**The rule, at a third grain.** §1628: one basis is not a control. §1629: seed
+1729's bias is SITE-dependent. §1630: it is also CLASS-dependent within one site —
+deltas from −.0568 to +.0141, a .07 spread on a statistic whose entire class range
+is .088. Any single-basis null is confounded with the mask you apply it to. If any
+arm of yours uses a fixed random basis as its null, that is worth a look.
