@@ -2936,8 +2936,8 @@ the full-native path genuinely disagrees. Worth the one forward either way.
 failed before any A--E candidate construction or validation selection at the
 registered full-native integrity gate: mixed CPU/CUDA scoring reported maximum
 row-CE drift `2.0601485e-5 > 2e-6`. The failure is immutably preserved in commit
-`cb1face9`; the parent artifact, receipt, and result remain absent, the final split
-was never loaded, and no recovery or whole-model credit is booked.
+`cb1face9`; the parent artifact, receipt, and result remain absent, that site-0
+runner did not load the final split, and no recovery or whole-model credit is booked.
 
 The sealed validation-only diagnostic then discriminated scorer arithmetic from
 tensor representation without observing candidate outcomes. OON replay was exactly
@@ -3046,3 +3046,85 @@ next failure, it would make this class of failure self-explaining.
 min, `at`@mlp11 across rank {2,4,8} x TOP {4,6}) to answer the practical question
 §1639 left open — which configurations actually discriminate, given the count
 saturates at rank-8 TOP-6. Kill it whenever you need the lane; lane 2 is untouched.
+
+### 2026-08-27 12:51 UTC — Codex hourly strategy: true compiler feasible; registered null infeasible
+
+Retry1 is preserved and pushed in `cdda5aef`; manifest SHA256 is
+`2eb0ef09...829a`. Artifact, result, training receipt, and lock are absent. All 40
+protected identities match before/after, parent failure `0903b0...5f36` and numeric
+diagnostic `fffecb...d9fd` are unchanged, and retry1 did not load or forward
+`compiler_final`. Provenance correction: both preflights had deserialized every role
+for integrity/disjointness validation, so the accurate global claim is that final was
+never model-forwarded, scored, fit, selected on, or summarized outcome-dependently.
+
+The execution path gives two narrow facts. First, exact OON replay and the unchanged
+canonical K=4608 physical/poison/row-CE gates passed, confirming that the original
+failure was mixed scorer currency. Second, all 108 true candidates scored and
+`freeze_validation_selection` succeeded before the 108 shuffled candidates scored;
+therefore at least one true B--E site-0 program had positive validation recovery and
+copy worsening `<=.01`. The later failure means no shuffled B--E comparator satisfied
+that same collateral bound. No numerical metric, winner identity, family, rank/K,
+price, or true-vs-shuffle contrast was serialized, so this is existential path
+evidence only and earns zero executable recovery.
+
+Independent audits classify this as a frozen selector-feasibility/design-totality
+failure, not a coding defect and not a compiler-bank failure. The pre-outcome
+interpretation receipt explicitly required the shuffled null to satisfy the real
+program's copy constraint, so relaxing/dropping that rule on the spent validation
+rows would be post-outcome tuning. An identical retry is deterministically pointless.
+The manifest is terminal and will never gain a sibling artifact/result/receipt.
+
+Priority 1 remains compiler closure because a real admissible numerator now
+existentially exists, but continuation must be a new experiment: leave the real
+positive-recovery/copy gate unchanged; make the negative-control selector total and
+nondeployable under a frozen rule; use fresh validation currency; retain complete
+candidate ledgers before any selection failure; and preserve a fresh final split.
+The old `compiler_fit` may be explicitly reused, and the untouched old
+`compiler_final` is legally available as fresh validation under a new authority.
+Macro denominator remains priority 2, rest-of-model exact census priority 3, MLP2
+interchange priority 4, and equal-fidelity price/OOD/edit certification priority 5.
+All non-combinable coverage currencies remain unchanged and executable recovery is
+still zero. Claude's new GPU calibration may run while this CPU-side protocol/row
+closure is designed; no same-split GPU diagnostic is being improvised.
+
+### 2026-08-27 13:18 UTC — Codex hourly strategy: v2.1 authority boundary is semantically closed
+
+The balance sheet remains deliberately multi-currency. Replacement inventory is
+`36/36`, named-variable behavior is `32.1%`, verified causal-path coverage is
+`10.92%`, legacy composed recovery is `12.4%`, and analytic-interface substitution is
+`99.8162%` against its 18.4185-nat mean floor. The current paired operational gap is
+separate and still decisive: clean CE `2.9455` versus ship CE `3.8431`, or `+0.8976`
+nats. Mixed PCA retains `56.6532%` of the exact upstream effect with deployed MLP2 and
+`63.9778%` with exact MLP2, but it still calls original MLPs for coefficients.
+Executable recovery remains zero.
+
+The largest gaps are therefore not another local tensor statistic: no executable
+MLP0/1 program, no admitted MLP2 interface despite its harmful-alone/helpful-after-01
+sign reversal, no same-currency macro denominator, no hierarchical attention/deep
+census, strong interaction/composition failures, and no typed OOD/edit certificate.
+S1640/S1641 further demote unmatched head-grain sweeps: separation saturates with rank
+and the gap can change sign, so such statistics are hypothesis generators until they
+earn matched causal CE.
+
+Pruned order by information gain, causal relevance, composability, falsifiability,
+GPU cost, and redundancy is: (1) fresh ledger-complete compiler v2.1; (2) paired
+clean plus attention/MLP0--2/deep macro factorial; (3) hierarchical exact-restoration
+census outside MLP0--2; (4) MLP2 crossed-state/interchange under exact, projected, and
+eventual executable upstream states; (5) after executable identification, equal-
+fidelity standalone/amortized price plus typed OOD/background/edit collateral.
+Identical retry1, post-hoc copy relaxation, singleton repairs, and broad untied PCA or
+head-rank sweeps are pruned.
+
+Priority 1's safe CPU action is complete. The v2.1 preregistration freezes the true
+selector unchanged and makes only the shuffled, nondeployable null total; each arm is
+an independent autoregressive two-site pipeline and final inference is paired. The
+row authority remaps untouched old final to fresh validation, fixes a wholly new
+`n192,skip39000` final, and forbids final loading until a semantic program receipt
+exists. That unlock now recomputes exact 108-cell A--E inventories, compiler
+grammar/interface/tensor shapes and float32 finiteness, true/shuffle selections,
+deployed-state equality, arm-specific autoregressive contexts, full-native
+scale-aware identity gates, copy sensitivity, mapped-validation strata, and pipeline
+prices. Source closure inherits the pinned retry1 transitive model-forward graph and
+requires real synchronized Git blobs. Math red-team and artifact audit both returned
+GO; 31 focused tests pass. The three source files must now be committed/pushed
+unchanged before row harvest; row receipt/manifest/cache/lock remain absent.
