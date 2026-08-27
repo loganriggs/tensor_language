@@ -229,7 +229,14 @@ def depth_curve(rows, V2, lam2, mask_v):
 
 
 
-SAMPLES = [15000, 20000, 25000]
+# Skips chosen CHEAP on purpose. census_lib.fineweb_rows streams to its offset
+# example-by-example, so skip=25000 iterates 25,000 examples per call; with no
+# HF_TOKEN the first attempt at [15000, 20000, 25000] spent 29 min at 0% GPU
+# util and had not finished the first load. These three are disjoint from each
+# other and from the eval window (skip=7000, NR=960 -> 7000-7960), and cost ~600
+# examples of streaming in total instead of ~60,000. Row-set IDENTITY is not
+# load-bearing for this control -- only disjointness and separation from eval.
+SAMPLES = [80, 300, 600]
 SITE_Q = 11
 RANK_Q = 2
 QPAT = r'^\?$| \?$'
