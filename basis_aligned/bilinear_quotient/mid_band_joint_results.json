@@ -1,0 +1,62 @@
+{
+ "config": {
+  "band": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "substitution": "HYBRID -- table at covered positions, MLP live elsewhere (\u00a71661)",
+  "scoring": "covered positions only",
+  "ablation": "optimal constants, opt_ablation_consts_all.pt",
+  "front_band_stakes": {
+   "mlp0": 0.8552,
+   "mlp1": 7.005,
+   "mlp2": 0.7719,
+   "mlp3": 0.6201
+  },
+  "motivation": "S1663 -- redundant computation is invisible to single-component ablation"
+ },
+ "ce_live": 3.27946,
+ "individual_stakes": {
+  "mlp4": 0.1062,
+  "mlp5": 0.08034,
+  "mlp6": 0.0777,
+  "mlp7": 0.05784,
+  "mlp8": 0.04688,
+  "mlp9": 0.04731,
+  "mlp10": 0.0363,
+  "mlp11": 0.03978,
+  "mlp12": 0.03729,
+  "mlp13": 0.03308,
+  "mlp14": 0.02605,
+  "mlp15": 0.03198
+ },
+ "sum_of_individual": 0.62075,
+ "joint_stake": 2.64528,
+ "joint_over_sum": 4.2614,
+ "joint_table_ceiling_live": 0.21729,
+ "instrument_check": {
+  "known_answer": 1.0,
+  "observed": 1.0,
+  "frozen_arm_ce_live": 6.42799,
+  "frozen_arm_stake": 0.55993,
+  "passed": true
+ },
+ "predictions": {
+  "pred_a_band_not_small_ge_1nat": true,
+  "pred_b_redundant_joint_gt_sum": true,
+  "pred_c_instrument_check_ge_097": true
+ },
+ "runtime_s": 24.6
+}
