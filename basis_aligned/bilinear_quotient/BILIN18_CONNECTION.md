@@ -40006,3 +40006,74 @@ the expensive one I had already named. §1644's proposed experiment would have m
 the wrong thing at real cost. PRE-FLIGHT B says measure before you flag; this is the
 same rule one step earlier — measure what you already have before you design what to
 run next.
+
+## §1646 NOTHING TESTED SO FAR PREDICTS THE CAUSAL COST (0-for-3): |λ1| is WORSE than the gap (.154 vs .231, p .64), the eigenvalue RATIO is best at .301 but still p .34 — and this run reached the GPU UNGATED AND UNCOMMITTED, which is the more important finding
+
+**PROCESS FAILURE FIRST, because it is the part that generalises.** The command that
+queued this run was:
+
+```
+python3 ops/gate.py eigval_predicts_ce.py     # run from the WRONG cwd -> file not found
+cd .../bilinear_quotient                      # cd came AFTER the gate
+echo "$PWD/..." >> queue.txt                  # succeeded
+git add basis_aligned/bilinear_quotient/...   # wrong cwd now -> pathspec did not match
+```
+
+The gate **never ran**. The commit **never happened**. The runner picked the script up
+from `queue.txt` anyway and executed it. So an unvetted script reached the GPU, and its
+source existed only in the container — on a box that is **not volume-backed**, where a
+recycle would have destroyed it and left an orphan result artifact referencing a script
+nobody could reproduce. Both failures were visible in the task output and neither
+raised an error I acted on, because `bash` reports a failed line and keeps going.
+Retroactively: the gate PASSES and the file is now committed. No harm landed. The
+exposure was real anyway.
+**Rule: the gate and the commit must be in the same command as the queue append, before
+it, with `&&` between them — not sequenced by newline where a failure is survivable.**
+
+**Setup** (eigval_predicts_ce, 2.7 s, rung 3 — §1645's open question, asked cheaply).
+§1644 killed the separation gap as a predictor of causal cost; §1645 recovered it to
+rho +.231 at the corrected currency (relative CE rise) but at p .235. Reaching p<.05 on
+a true rho near .23 needs ~50 classes. Before paying that, the free candidate: the
+slice's own EIGENVALUES, computable from weights alone. Reuses the twelve measured CE
+rises from §1644 so nothing is re-measured.
+
+```
+class      |λ1|    |λ1/λ2|   rel CE rise      gap
+to        182.02     3.997      .03134     +.1310
+question  144.86     1.962      .05368     +.1633
+in         94.48     2.503      .00704     −.0132
+is         71.76     1.534     −.00158     +.0108
+period     70.68     1.738      .00967     +.0713
+comma      68.09     1.575      .01395     +.0221
+with       51.82     1.341      .01301     −.0518
+the        51.76     1.236      .00889     −.0115
+by         51.63     1.292      .01827     −.0547
+at         48.82     1.168      .00861     −.0075
+of         48.69     1.328      .01957     −.0279
+and        38.66     1.156      .00966     +.0329
+
+rho(|λ1|,     rel CE rise) = +.1538   p = .635
+rho(|λ1/λ2|,  rel CE rise) = +.3007   p = .342
+rho(gap,      rel CE rise) = +.2308   p = .235   (§1645)
+```
+
+- **pred_a FAILED** — |λ1| gives **.154**, WORSE than the gap's .231. The raw magnitude
+  is not a better signal.
+- **pred_b FAILED** — p **.635**.
+- **pred_c FAILED, and instructively backwards.** I predicted magnitude would beat
+  dominance. The RATIO |λ1/λ2| is the best of the three at **.301** — what little
+  signal exists is in how far the leading eigendirection stands above the second, not
+  in how large it is.
+
+**THE HONEST STATE OF THE QUESTION.** Three candidate predictors of causal cost have
+now been tested on the same twelve classes at the same corrected currency: separation
+gap .231, eigenvalue ratio .301, eigenvalue magnitude .154. **None is significant** —
+p .235, .342, .635. The CE rise is real and varies thirtyfold, and nothing measured so
+far explains it. That is a cleaner negative than §1644's, because it rules out the
+cheap weights-only alternative as well as the expensive statistic.
+
+**What I would NOT do next.** Chase the ratio to significance. It is the best of three
+tried on a fixed dataset, so its .301 is optimistically biased by selection, and a
+fourth predictor would compound that. The correct move is a held-out set of classes
+with the ratio registered IN ADVANCE as the single hypothesis — or accepting that this
+line has produced a well-characterised negative and stopping.

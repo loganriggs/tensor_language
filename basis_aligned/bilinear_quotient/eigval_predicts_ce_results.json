@@ -1,0 +1,119 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "n_classes": 12,
+  "reused_from": "gap_ce_12class_results.json (\u00a71644/\u00a71645)",
+  "new_computation": "eigendecompositions only; no forward passes",
+  "currency": "relative CE rise = ce_rise / base_ce (\u00a71645)"
+ },
+ "per_class": {
+  "question": {
+   "lam1": 144.864,
+   "lam2": -73.846,
+   "abs_lam1": 144.864,
+   "ratio": 1.9617,
+   "rel_ce_rise": 0.05368,
+   "gap": 0.1633
+  },
+  "to": {
+   "lam1": 182.017,
+   "lam2": -45.538,
+   "abs_lam1": 182.017,
+   "ratio": 3.9971,
+   "rel_ce_rise": 0.03134,
+   "gap": 0.131
+  },
+  "period": {
+   "lam1": 70.681,
+   "lam2": 40.657,
+   "abs_lam1": 70.681,
+   "ratio": 1.7384,
+   "rel_ce_rise": 0.00967,
+   "gap": 0.0713
+  },
+  "and": {
+   "lam1": 38.663,
+   "lam2": 33.445,
+   "abs_lam1": 38.663,
+   "ratio": 1.156,
+   "rel_ce_rise": 0.00966,
+   "gap": 0.0329
+  },
+  "comma": {
+   "lam1": 68.087,
+   "lam2": 43.244,
+   "abs_lam1": 68.087,
+   "ratio": 1.5745,
+   "rel_ce_rise": 0.01395,
+   "gap": 0.0221
+  },
+  "the": {
+   "lam1": 51.761,
+   "lam2": 41.862,
+   "abs_lam1": 51.761,
+   "ratio": 1.2365,
+   "rel_ce_rise": 0.00889,
+   "gap": -0.0115
+  },
+  "is": {
+   "lam1": 71.76,
+   "lam2": -46.781,
+   "abs_lam1": 71.76,
+   "ratio": 1.534,
+   "rel_ce_rise": -0.00158,
+   "gap": 0.0108
+  },
+  "at": {
+   "lam1": 48.825,
+   "lam2": 41.806,
+   "abs_lam1": 48.825,
+   "ratio": 1.1679,
+   "rel_ce_rise": 0.00861,
+   "gap": -0.0075
+  },
+  "with": {
+   "lam1": 51.816,
+   "lam2": 38.627,
+   "abs_lam1": 51.816,
+   "ratio": 1.3414,
+   "rel_ce_rise": 0.01301,
+   "gap": -0.0518
+  },
+  "by": {
+   "lam1": 51.628,
+   "lam2": 39.944,
+   "abs_lam1": 51.628,
+   "ratio": 1.2925,
+   "rel_ce_rise": 0.01827,
+   "gap": -0.0547
+  },
+  "of": {
+   "lam1": 48.691,
+   "lam2": 36.662,
+   "abs_lam1": 48.691,
+   "ratio": 1.3281,
+   "rel_ce_rise": 0.01957,
+   "gap": -0.0279
+  },
+  "in": {
+   "lam1": 94.482,
+   "lam2": -37.745,
+   "abs_lam1": 94.482,
+   "ratio": 2.5032,
+   "rel_ce_rise": 0.00704,
+   "gap": -0.0132
+  }
+ },
+ "rho_lam1_vs_rel_rise": 0.1538,
+ "rho_ratio_vs_rel_rise": 0.3007,
+ "rho_gap_vs_rel_rise": 0.2308,
+ "permutation_p_two_sided": 0.635235,
+ "n_permutations": 200000,
+ "predictions": {
+  "pred_a_lam1_beats_gap": false,
+  "pred_b_perm_p_lt_05": false,
+  "pred_c_magnitude_beats_ratio": false
+ },
+ "runtime_s": 2.7
+}

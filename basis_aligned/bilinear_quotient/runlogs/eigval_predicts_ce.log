@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+reusing 12 measured CE rises from gap_ce_12class (§1644/§1645); computing 12 eigendecompositions, no forward passes
+
+  class         |lam1|  |lam1/lam2|  rel CE rise       gap
+  to            182.02        3.997      0.03134   +0.1310
+  question      144.86        1.962      0.05368   +0.1633
+  in             94.48        2.503      0.00704   -0.0132
+  is             71.76        1.534     -0.00158   +0.0108
+  period         70.68        1.738      0.00967   +0.0713
+  comma          68.09        1.575      0.01395   +0.0221
+  with           51.82        1.341      0.01301   -0.0518
+  the            51.76        1.236      0.00889   -0.0115
+  by             51.63        1.292      0.01827   -0.0547
+  at             48.82        1.168      0.00861   -0.0075
+  of             48.69        1.328      0.01957   -0.0279
+  and            38.66        1.156      0.00966   +0.0329
+
+  rho(|lam1|,      rel CE rise) = +0.1538   two-sided perm p = 0.63523
+  rho(|lam1/lam2|, rel CE rise) = +0.3007
+  rho(gap,         rel CE rise) = +0.2308   (§1645, p .235)
+
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/eigval_predicts_ce_results.json (2.7s)
