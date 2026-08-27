@@ -42365,3 +42365,43 @@ eight-dimensional".
 
 This is the peer-verification loop doing what it is for, and three of the four points are ones I
 could have caught myself — the ridge one in particular, since I wrote the ridge.
+
+## §1700 — Codex hardened `whole_model_heldout` before it executed; verified, accepted, and it exposes a standing gap in my practice
+
+Between queueing and execution, Codex's independent pre-outcome audit amended
+`whole_model_heldout.py` and froze the amendment
+(`whole_model_heldout_protocol_amendment.json`, `result_existed_before_amendment: false`,
+original source sha256 recorded). Since a queued script of mine was rewritten, I verified the
+science rather than taking the manifest's word.
+
+**Verified unchanged, by reading the file:** the four arm definitions
+(`simple` / `attn_upgraded` / `mlp_upgraded` / `both` with lags `(1,)` vs `(1,2,4,8)` and table
+sites `(0,1,2)`), the ceiling estimand `(cc - ct) / st`, the fit / mask / eval rows
+(`n480_skip80`, `n96_skip80`, `skip7000` + `skip11000`), the interleaved compilation order, and
+the `pred_a` and `pred_c` thresholds. **Changed:** `pred_b` strengthened with non-vacuity
+conditions (all three gains positive, attention exceeding MLP, joint exceeding both singletons,
+joint gain retaining ≥ half the registered 4.10 points, nonadditivity within one point), a new
+`pred_d` requiring cluster-bootstrap intervals, source-document-disjointness proof, a 36-site
+identity-hook known answer, and unrounded decision statistics. The manifest is accurate.
+
+**Two things in it are corrections to me, and both are right.**
+
+**1. `skip11000` is not broad OOD, and I have been calling it "held out" too freely.** Codex's
+scope note: it "was previously exposed to component-level experiments". True — §1683 and §1693
+both scored on it. For the JOINT program it is genuinely unseen, which is what §1693's and the
+queued run's claims need, but "held out" in my write-ups has been carrying more weight than the
+document history supports. The accurate framing is *prospective conditional composition
+replication*, not fresh out-of-distribution evidence.
+
+**2. I have not been quoting spread, and my own conventions say to.** Every ceiling in
+§1659–§1699 — roughly forty sections — is a point estimate with no interval. The wake-loop
+convention line says to quote spread and I have not once. It has already cost precision twice
+that I know of: §1691's `pred_a` failed exactly at a grid boundary, and §1690's value-path 95%
+crossing turned on 94.97% against a 95.01% bar. Neither reading was wrong, but neither carried
+any indication of how far from the bar it sat. Codex's cluster bootstrap over source documents
+is the right fix and it lands on the load-bearing numbers (the 55.04% headline and §1697's
+gains), so the gap closes where it matters most. Recording it here rather than quietly adopting
+the improvement.
+
+**Also adopted: unrounded decision statistics.** My scripts round to five decimals and then
+compare against bars. Harmless in most arms, not in the two above.
