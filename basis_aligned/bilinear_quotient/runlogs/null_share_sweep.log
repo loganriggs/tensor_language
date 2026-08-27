@@ -1,0 +1,17 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+=== SWEEP A: class, at mlp11 rank-2 TOP-4 ===
+  question  null shares [0.4327, 0.4513, 0.4627] mean 0.4489 (n=102)
+  pronouns  null shares [0.6008, 0.5232, 0.5469] mean 0.5570 (n=399)
+  the       null shares [0.5808, 0.594, 0.597] mean 0.5906 (n=2354)
+  is        null shares [0.5194, 0.5288, 0.5068] mean 0.5183 (n=519)
+
+=== SWEEP B: rank, at mlp11 question TOP-4 ===
+  rank  2  null shares [0.4327, 0.4513, 0.4627] mean 0.4489
+  rank  4  null shares [0.4213, 0.4929, 0.4632] mean 0.4591
+  rank  8  null shares [0.4746, 0.5391, 0.4612] mean 0.4916
+  rank 16  null shares [0.4575, 0.5125, 0.4728] mean 0.4809
+
+class-mean range 0.1417 | rank means [0.4489, 0.4591, 0.4916, 0.4809] inc=False dec=False
+rank-2 null 0.4489 vs S1612's .4489
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/null_share_sweep_results.json (97.5s)

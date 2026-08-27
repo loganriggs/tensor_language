@@ -1,0 +1,96 @@
+{
+ "config": {
+  "site": 11,
+  "top": 4,
+  "chunks": 3,
+  "rows_per_chunk": 333,
+  "row_source": "curated_rows.pt",
+  "rows_are_fresh": false,
+  "arm": "RANDOM only",
+  "statistic": "absolute attribution mass (slice_writers.py:216)"
+ },
+ "class_sweep": {
+  "question": {
+   "shares": [
+    0.4327,
+    0.4513,
+    0.4627
+   ],
+   "mean": 0.4489,
+   "last_n": 102
+  },
+  "pronouns": {
+   "shares": [
+    0.6008,
+    0.5232,
+    0.5469
+   ],
+   "mean": 0.557,
+   "last_n": 399
+  },
+  "the": {
+   "shares": [
+    0.5808,
+    0.594,
+    0.597
+   ],
+   "mean": 0.5906,
+   "last_n": 2354
+  },
+  "is": {
+   "shares": [
+    0.5194,
+    0.5288,
+    0.5068
+   ],
+   "mean": 0.5183,
+   "last_n": 519
+  }
+ },
+ "class_mean_range": 0.1417,
+ "rank_sweep": {
+  "2": {
+   "shares": [
+    0.4327,
+    0.4513,
+    0.4627
+   ],
+   "mean": 0.4489
+  },
+  "4": {
+   "shares": [
+    0.4213,
+    0.4929,
+    0.4632
+   ],
+   "mean": 0.4591
+  },
+  "8": {
+   "shares": [
+    0.4746,
+    0.5391,
+    0.4612
+   ],
+   "mean": 0.4916
+  },
+  "16": {
+   "shares": [
+    0.4575,
+    0.5125,
+    0.4728
+   ],
+   "mean": 0.4809
+  }
+ },
+ "rank_monotone": {
+  "increasing": false,
+  "decreasing": false
+ },
+ "S1612_reference_null": 0.4489,
+ "predictions": {
+  "pred_a_class_independent_range_le05": false,
+  "pred_b_monotone_in_rank": false,
+  "pred_c_reproduces_S1612_null_within_05": true
+ },
+ "runtime_s": 97.5
+}

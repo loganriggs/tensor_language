@@ -37826,3 +37826,52 @@ matched-rank random share beside it, because the null is cell-dependent (.45 at
 question@mlp11 rank-2, .73 at pronouns@mlp17 rank-8) and a share can be above or
 below it. LESSONS 15 said report the random top-k; it must also say report the
 random SHARE.
+
+## §1613 THE NULL SHARE CANNOT BE LOOKED UP (1-for-3): it is CLASS-dependent (range .142) and non-monotone in rank, with the class effect 3.3x the rank effect — every writer claim needs its own matched-class random arm
+
+**Setup** (null_share_sweep, 98 s). §1612 left the practical question: if the null
+share is predictable from (rank, TOP), it can be tabulated instead of re-measured
+per claim. Random arm only, absolute-mass statistic
+(`slice_writers.py:216`), local `curated_rows.pt`, 3 x 333 rows, site mlp11,
+TOP=4 throughout, same seed per rank so arms are comparable.
+
+```
+SWEEP A -- class, at rank-2 TOP-4        SWEEP B -- rank, question, TOP-4
+  question  .4489   (n =  102)             rank  2   .4489
+  is        .5183   (n =  519)             rank  4   .4591
+  pronouns  .5570   (n =  399)             rank  8   .4916
+  the       .5906   (n = 2354)             rank 16   .4809
+  range     .1417                          range     .0427
+```
+
+**Scored as written:**
+- **pred_a FAILED** — class-mean range **.1417**, bar was ≤ .05. **The null is NOT
+  class-independent.**
+- **pred_b FAILED** — rank means .4489 / .4591 / .4916 / .4809 rise then fall, so
+  not monotone in either direction.
+- **pred_c PASSED exactly** — the question rank-2 null reproduces §1612's
+  **.4489** to four decimals. The harness is self-consistent, which is what makes
+  the two failures trustworthy rather than noise.
+
+**The practical answer is no.** A null share cannot be tabulated from (rank, TOP)
+and reused: the class effect (.1417) is **3.3x** the rank effect (.0427), so the
+dominant term is the one that changes with every claim. **Every writer-graph claim
+needs its own matched-CLASS, matched-rank random arm.** That is a standing tax on
+this method, not a one-time calibration, and it should be built into the harness
+rather than remembered.
+
+**An n-hypothesis that is NOT supported, recorded so nobody re-derives it.** The
+null loosely tracks class count — question (n=102) lowest, `the` (n=2354) highest
+— which would imply low-n classes show artificially LOW concentration and that
+shares are incomparable across classes with different n. Tested properly:
+Spearman **rho = .800** on N=4 classes, exact permutation **p = .167**. `is`
+(n=519, .5183) and `pronouns` (n=399, .5570) invert the ordering. **Underpowered,
+not supported.** It would take ~7+ classes to test at conventional significance;
+worth doing before any cross-class share comparison is trusted, and until then
+cross-class share comparisons should simply be avoided.
+
+**Bearing on §1612:** the pronouns-vs-question null gap there (.7295 vs .4489) is
+now known to confound at least rank, TOP and class together. §1612's WITHIN-cell
+conclusions stand — each compared a slice to its own matched null on identical
+rows — but nothing in §1612 licenses comparing the two cells' shares to each
+other, and §1598's .482 must not be set against §1597's .718 for the same reason.
