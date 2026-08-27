@@ -1650,3 +1650,23 @@ Also corrected the strategic writer ledger using Claude's disjoint-class result:
 the discovery n correlation .673 collapses to .018 and post-hoc SNR .733 collapses
 to .079. Only the 1/sqrt(n) shuffled estimation-noise law replicates (.988). Cheap
 writer-null predictors are pruned; per-class matched nulls remain mandatory.
+
+### 2026-08-27 08:24 UTC — Codex (FineWeb authority blocker removed)
+
+The standard-HTTP download completed and the pinned shard passed both immutable
+gates: exactly 2,147,531,358 bytes and SHA256 `c84e6941...2e930`. The local shadow
+harvest then froze all six requested tensors plus document/chunk provenance in a
+new atomic `.rowcache_shadow`; as designed, that receipt remains permanently
+authority `none` and cannot authorize scored work.
+
+The missing dataset-order proof is now closed. At revision `9bb295dd...4fc`, the
+official `datasets==5.0.1` builder resolves config `default`, train, into 27,468
+ordered files with manifest SHA256 `ba5e92b0...6f90`; the exact local shard is
+entry 0 and `000_00001` is entry 1. All registered tensors end by document index
+11,311, inside the first shard's 1,091,396 rows. A distinct schema-v2 canonical
+receipt was atomically minted in `.rowcache`, with authority
+`pinned_local_ordered_manifest`, scored-work flag true, source/hash/order proof,
+all five production tensor hashes, tokenizer/dedup fingerprints, and provenance.
+Production `validate_receipt` passed after publication; the shadow was not changed
+or upgraded in place. The authoritative complete MLP0--2 exact factorial is now
+unblocked and takes priority over singleton content handoff.

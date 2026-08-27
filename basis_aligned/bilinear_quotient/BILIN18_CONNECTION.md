@@ -38206,6 +38206,25 @@ The next valid test is therefore simultaneous live PCA0/PCA1 composition with th
 conditional exact MLP2 arm; independent predictor fitting would repeat the same
 upstream-state mismatch that made MLP2 look harmful in isolation.
 
+### 2026-08-27 — pinned FineWeb row authority is content-addressed and network-free
+
+The exact FineWeb revision used by the oracle pipeline is now locally frozen. The
+first default-config shard has size 2,147,531,358 bytes and SHA256
+`c84e6941...2e930`. A shadow harvester reproduced the frozen census tokenizer,
+513-token chunking, document skip, and prefix-dedup semantics for every registered
+row set while preserving document/chunk provenance. That shadow remains authority
+none by construction.
+
+Authority comes from a separate ordered-manifest proof. With `datasets==5.0.1`,
+the pinned revision's default train builder resolves 27,468 files; the complete
+ordered URI list hashes to `ba5e92b0...6f90`, and the local
+`data/CC-MAIN-2013-20/000_00000.parquet` is entry zero. Every consumed row ends by
+document index 11,311, far inside that shard's 1,091,396 rows. A new canonical
+receipt therefore content-addresses the source, full ordering, five production
+row tensors, tokenizer/dedup implementation, and document provenance. It validates
+without network and is authorized for scored experiments; it never mutates or
+relabels the shadow receipt.
+
 ## §1617 THE HEAD-GRAIN LAW GENERALISES BUT MUCH MORE WEAKLY THAN ITS TWO FOUNDING CELLS (2-for-3): 40% match over 30 cells vs 13.3% random — and a HEAD-GRAIN FLOOR exists, so the slice's genuine discrimination is 26.7%
 
 **Setup** (headgrain_extension, 674 s). §1608 certified the law on TWO cells at

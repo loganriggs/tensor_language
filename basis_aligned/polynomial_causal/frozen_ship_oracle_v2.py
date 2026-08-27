@@ -2,7 +2,8 @@
 """Authoritative no-network FineWeb oracle with exact same-state code handoff.
 
 Preconditions: active streaming lanes are clear and
-``prepare_fineweb_oracle_rows.py`` has passed its real-stream identity gate.
+``prepare_fineweb_oracle_rows.py`` accepts a content-addressed identity gate
+(real-stream tensor identity or pinned ordered-manifest/local-parquet identity).
 This pipeline freezes the derived ship state before scoring, upgrades the
 FineWeb null decision to the exact 20-null test, and conditionally invokes the
 code-OOD callback without rebuilding or mutating the ship realization.
