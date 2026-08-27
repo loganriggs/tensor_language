@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows x 20 seeds (receipt sha256[:16]=815b21618c2e477e)
+  --- at@mlp11: SITE=11, 24 upstream components (TOP-6 share is NOT comparable across sites; separation IS)
+  at@mlp11  fresh     sep 57/60 | mean gap +0.0492 | lambda [0.6512, 0.6797, 0.6772] | null20 0.6202
+  --- at@mlp17: SITE=17, 36 upstream components (TOP-6 share is NOT comparable across sites; separation IS)
+  at@mlp17  fresh     sep 60/60 | mean gap -0.1094 | lambda [0.4519, 0.4524, 0.4435] | null20 0.5587
+  --- period@mlp11: SITE=11, 24 upstream components (TOP-6 share is NOT comparable across sites; separation IS)
+  period@mlp11 fresh     sep 60/60 | mean gap +0.0680 | lambda [0.6874, 0.6875, 0.6875] | null20 0.6195
+  --- period@mlp17: SITE=17, 36 upstream components (TOP-6 share is NOT comparable across sites; separation IS)
+  period@mlp17 fresh     sep 60/60 | mean gap -0.0440 | lambda [0.408, 0.4028, 0.3942] | null20 0.4457
+  --- cap@mlp11: SITE=11, 24 upstream components (TOP-6 share is NOT comparable across sites; separation IS)
+  cap@mlp11 fresh     sep 60/60 | mean gap +0.0905 | lambda [0.6845, 0.685, 0.6613] | null20 0.5865
+  --- cap@mlp17: SITE=17, 36 upstream components (TOP-6 share is NOT comparable across sites; separation IS)
+  cap@mlp17 fresh     sep 59/60 | mean gap -0.1067 | lambda [0.6185, 0.6086, 0.6091] | null20 0.7188
+
+  per-class profile, sites [11, 17], 60 trials each:
+    at      sep [57 60]  gap [+0.049 -0.109]
+    period  sep [60 60]  gap [+0.068 -0.044]
+    cap     sep [60 59]  gap [+0.090 -0.107]
+
+  RANK-8 TOP-6 separation by class type:
+    at      mlp11 57/60   mlp17 60/60
+    period  mlp11 60/60   mlp17 60/60
+    cap     mlp11 60/60   mlp17 59/60
+  spread across types: mlp11 3/60 | mlp17 1/60
+  rank-2 TOP-4 reference: mlp11 at 17 / cap 52 / period 58 (spread 41); mlp17 at 51 / period 54 / cap 59 (spread 8)
+  ` at` lowest at mlp11: True
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/type_config_robustness_results.json (611.2s)

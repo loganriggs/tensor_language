@@ -39560,3 +39560,68 @@ stale format string inherited from the script this was copied from. The measurem
 is mlp17 rank-8 TOP-6 and the ARTIFACT config records that correctly; only the printed
 banner was wrong. Fixed. Same class as §1625's provenance mislabel, and the reason
 LESSONS 22 says to assert what you wrote rather than trust what you printed.
+
+## §1639 THE SEPARATION COUNT SATURATES AT rank-8 TOP-6 AND THE ENTIRE CLASS-TYPE STORY IS A rank-2 TOP-4 PHENOMENON (2-for-3): the same six cells span 17-59 at one configuration and 57-60 at the other — §1635-§1637's depth/type results do not transfer, and one leg of §1638's argument weakens
+
+**Setup** (type_config_robustness, 611 s, rung 3 — testing the MEDIUM-confidence
+weakness I declared in FINDINGS entry 12 myself: "seven classes, one rank, one TOP").
+One class per type (` at` function, `period` punctuation, `cap` capitalised) at mlp11
+and mlp17, re-run at **rank-8 TOP-6** instead of rank-2 TOP-4. 20 bases x 3 chunks =
+60 trials per cell.
+
+```
+cell         rank-2 TOP-4        rank-8 TOP-6
+at@mlp11        17/60      ->       57/60      gap −.0075 -> +.0492
+at@mlp17        51/60      ->       60/60      gap −.0880 -> −.1094
+period@mlp11    58/60      ->       60/60      gap +.0710 -> +.0680
+period@mlp17    54/60      ->       60/60      gap −.0600 -> −.0440
+cap@mlp11       52/60      ->       60/60      gap +.0800 -> +.0905
+cap@mlp17       59/60      ->       59/60      gap −.2046 -> −.1070
+span across the six cells:  17-59 (42)  ->  57-60 (3)
+cells at >= 57/60:                2 of 6  ->   6 of 6
+type spread at mlp11:               41    ->    3
+```
+
+- **pred_a PASSED** — ` at` is still the lowest of the three at mlp11, but by **3 of
+  60**. Technically the ordering survives; substantively it is nothing.
+- **pred_b FAILED** — the type spread at mlp11 is **3**, against a ≥15 bar. It was 41
+  at rank-2 TOP-4.
+- **pred_c PASSED** — mlp17's spread (1) is below mlp11's (3), but both are trivial,
+  so this passes on numbers too small to mean anything.
+
+**THE SEPARATION COUNT SATURATES.** At rank-8 TOP-6 all six cells sit at 57-60 of 60.
+The statistic has no dynamic range left, so it cannot discriminate class, type or
+site. At rank-2 TOP-4 the same six cells span 17-59 and discriminate strongly. `at`
+at mlp11 moves from **17/60 — no signal at all — to 57/60** on nothing but a change
+of rank and TOP.
+
+**§1635, §1636 and §1637 are rank-2 TOP-4 results and do not transfer.** The U-shaped
+depth profile, the mlp11 minimum across 4/4 function words, and the class-type
+dependence of the profile were all measured at one configuration. At rank-8 TOP-6
+none of them is visible, because nothing is. FINDINGS entry 12's claim (e) is
+**refuted as stated** and needs restating as a rank-2 TOP-4 phenomenon; the same
+qualifier attaches to claim (d), margins being cell-dependent — they are
+configuration-dependent too.
+
+**ONE LEG OF §1638 WEAKENS, AND ITS CONCLUSION SURVIVES ON THE OTHER.** §1638
+reported that pronouns@mlp17 has a **margin of 0** in separation count against four
+other personal pronouns, all at rank-8 TOP-6. That is now revealed as partly
+structural: at rank-8 TOP-6 essentially everything reaches 58-60/60, so a zero margin
+in COUNT is close to uninformative. But §1638 also reported mean GAPS, which are not
+saturated and vary meaningfully — pronouns −.1320 against `it` −.1190, `we` −.0940,
+`you` −.0965 and **` I` −.1795**. `I` being MORE below-null than the certified class
+is a gap comparison, unaffected by count saturation, and it is what actually carries
+the argument. **Pending item 2 stands, on the gap evidence rather than the count
+evidence**, and `PENDING_RETRACTION_S1612.md` is amended to say so.
+
+**Pending item 1 is untouched** — §1628's membership fractions (attn10 53.3%, attn9
+88.3% of 60 trials) are frequencies, not separation counts, and have no saturation
+mechanism.
+
+**The transferable rule, which is now the fourth in this family.** A control must
+match the claim on CELL (§1634), on CLASS TYPE (§1637), and on CONFIGURATION —
+(rank, TOP) here — because a statistic can lose all of its dynamic range between two
+configurations that both look reasonable. Before reporting any margin, check whether
+the statistic is saturated in the regime you measured it in: if most cells sit at the
+ceiling, a small margin means the instrument stopped working, not that the effect is
+absent.

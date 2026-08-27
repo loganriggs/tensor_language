@@ -1,0 +1,302 @@
+{
+ "config": {
+  "cells": {
+   "at@mlp11": {
+    "site": 11,
+    "rank": 8,
+    "top": 6,
+    "certified": false,
+    "cls": "at"
+   },
+   "at@mlp17": {
+    "site": 17,
+    "rank": 8,
+    "top": 6,
+    "certified": false,
+    "cls": "at"
+   },
+   "period@mlp11": {
+    "site": 11,
+    "rank": 8,
+    "top": 6,
+    "certified": false,
+    "cls": "period"
+   },
+   "period@mlp17": {
+    "site": 17,
+    "rank": 8,
+    "top": 6,
+    "certified": false,
+    "cls": "period"
+   },
+   "cap@mlp11": {
+    "site": 11,
+    "rank": 8,
+    "top": 6,
+    "certified": false,
+    "cls": "cap"
+   },
+   "cap@mlp17": {
+    "site": 17,
+    "rank": 8,
+    "top": 6,
+    "certified": false,
+    "cls": "cap"
+   }
+  },
+  "chunks": 3,
+  "rows_per_chunk": 160,
+  "n_random": 20,
+  "seeds": "1729..1748",
+  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "statistic": "ABSOLUTE attribution mass, corrected quantity; null is a 60-trial mean"
+ },
+ "cells": {
+  "at@mlp11": {
+   "separation": 57,
+   "trials": 60,
+   "mean_gap": 0.0492,
+   "certified": false,
+   "random_range": [
+    0.5406,
+    0.6682
+   ],
+   "lambda": [
+    0.6512,
+    0.6797,
+    0.6772
+   ],
+   "null_20seed_per_chunk": [
+    0.6284,
+    0.6147,
+    0.6174
+   ],
+   "null_20seed": 0.6202,
+   "null_seed1729": 0.6252,
+   "gaps_20seed": [
+    0.0228,
+    0.065,
+    0.0598
+   ],
+   "gaps_seed1729": [
+    0.015,
+    0.0517,
+    0.0658
+   ]
+  },
+  "at@mlp17": {
+   "separation": 60,
+   "trials": 60,
+   "mean_gap": -0.1094,
+   "certified": false,
+   "random_range": [
+    0.4729,
+    0.6164
+   ],
+   "lambda": [
+    0.4519,
+    0.4524,
+    0.4435
+   ],
+   "null_20seed_per_chunk": [
+    0.5669,
+    0.5665,
+    0.5427
+   ],
+   "null_20seed": 0.5587,
+   "null_seed1729": 0.576,
+   "gaps_20seed": [
+    -0.1149,
+    -0.114,
+    -0.0991
+   ],
+   "gaps_seed1729": [
+    -0.1371,
+    -0.1185,
+    -0.1246
+   ]
+  },
+  "period@mlp11": {
+   "separation": 60,
+   "trials": 60,
+   "mean_gap": 0.068,
+   "certified": false,
+   "random_range": [
+    0.5506,
+    0.6683
+   ],
+   "lambda": [
+    0.6874,
+    0.6875,
+    0.6875
+   ],
+   "null_20seed_per_chunk": [
+    0.6235,
+    0.6189,
+    0.616
+   ],
+   "null_20seed": 0.6195,
+   "null_seed1729": 0.6253,
+   "gaps_20seed": [
+    0.0639,
+    0.0686,
+    0.0715
+   ],
+   "gaps_seed1729": [
+    0.0609,
+    0.0636,
+    0.0621
+   ]
+  },
+  "period@mlp17": {
+   "separation": 60,
+   "trials": 60,
+   "mean_gap": -0.044,
+   "certified": false,
+   "random_range": [
+    0.4085,
+    0.4996
+   ],
+   "lambda": [
+    0.408,
+    0.4028,
+    0.3942
+   ],
+   "null_20seed_per_chunk": [
+    0.443,
+    0.4574,
+    0.4368
+   ],
+   "null_20seed": 0.4457,
+   "null_seed1729": 0.4715,
+   "gaps_20seed": [
+    -0.035,
+    -0.0546,
+    -0.0425
+   ],
+   "gaps_seed1729": [
+    -0.0528,
+    -0.0945,
+    -0.0623
+   ]
+  },
+  "cap@mlp11": {
+   "separation": 60,
+   "trials": 60,
+   "mean_gap": 0.0905,
+   "certified": false,
+   "random_range": [
+    0.5088,
+    0.657
+   ],
+   "lambda": [
+    0.6845,
+    0.685,
+    0.6613
+   ],
+   "null_20seed_per_chunk": [
+    0.5937,
+    0.5827,
+    0.583
+   ],
+   "null_20seed": 0.5865,
+   "null_seed1729": 0.5968,
+   "gaps_20seed": [
+    0.0908,
+    0.1023,
+    0.0783
+   ],
+   "gaps_seed1729": [
+    0.0836,
+    0.0924,
+    0.0643
+   ]
+  },
+  "cap@mlp17": {
+   "separation": 59,
+   "trials": 60,
+   "mean_gap": -0.1067,
+   "certified": false,
+   "random_range": [
+    0.6163,
+    0.8078
+   ],
+   "lambda": [
+    0.6185,
+    0.6086,
+    0.6091
+   ],
+   "null_20seed_per_chunk": [
+    0.719,
+    0.7213,
+    0.7162
+   ],
+   "null_20seed": 0.7188,
+   "null_seed1729": 0.6947,
+   "gaps_20seed": [
+    -0.1004,
+    -0.1127,
+    -0.1071
+   ],
+   "gaps_seed1729": [
+    -0.0845,
+    -0.0875,
+    -0.0759
+   ]
+  }
+ },
+ "predictions": {
+  "pred_a_at_lowest_at_mlp11": true,
+  "pred_b_mlp11_type_spread_ge_15": false,
+  "pred_c_mlp17_spread_lt_mlp11": true
+ },
+ "sep_at_mlp11": {
+  "at": 57,
+  "period": 60,
+  "cap": 60
+ },
+ "sep_at_mlp17": {
+  "at": 60,
+  "period": 60,
+  "cap": 59
+ },
+ "spread_mlp11": 3,
+ "spread_mlp17": 1,
+ "sites": [
+  11,
+  17
+ ],
+ "by_class": {
+  "at": {
+   "sep": [
+    57,
+    60
+   ],
+   "gap": [
+    0.0492,
+    -0.1094
+   ]
+  },
+  "period": {
+   "sep": [
+    60,
+    60
+   ],
+   "gap": [
+    0.068,
+    -0.044
+   ]
+  },
+  "cap": {
+   "sep": [
+    60,
+    59
+   ],
+   "gap": [
+    0.0905,
+    -0.1067
+   ]
+  }
+ },
+ "runtime_s": 611.2
+}

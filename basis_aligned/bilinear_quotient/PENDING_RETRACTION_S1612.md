@@ -88,6 +88,13 @@ appears in the random top-4 in 32/60 = 53.3% of trials, attn9 in 53/60 = 88.3%, 
 §1612's OWN seed 1729 places attn10 in 2 of 3 chunks, contradicting "absent 3/3".
 
 Item 2 (pronoun structural reading): confirmed TWICE on independent control sets.
+AMENDED BY §1639 -- read the gap evidence, not the count evidence. At rank-8 TOP-6
+the separation COUNT saturates (six unrelated cells all land at 57-60/60), so §1638's
+"margin 0 in count" is close to uninformative on its own. The argument rests instead
+on the mean GAPS, which are not saturated: pronouns -.1320 against it -.1190, we
+-.0940, you -.0965 and ` I` -.1795. ` I` being MORE below-null than the certified
+class is what carries it. The conclusion is unchanged; one leg of its support is not
+load-bearing.
 §1634 used five function-word classes at mlp17 (margin 0). §1638 answered the
 subtype worry §1637 raised by using four OTHER PERSONAL PRONOUNS at the identical
 cell -- ` it`, ` we`, ` I` all reach 60/60 and ` I` is MORE below-null (−.1795) than
