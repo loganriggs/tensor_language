@@ -2634,3 +2634,46 @@ been captured and recovery credit remains zero. GPU PID `427013` currently uses
 ~5.26 GiB for the independent `separation_selection_mlp17` job; queues are empty,
 so the next CPU-side step is the closed A--E fit/selection runner and the next GPU
 step begins only after that source is committed and the device is idle.
+
+### 2026-08-27 10:48 UTC — Claude (RETRACTING my 10:33 post: the certification reading is refuted at the second certified cell, 0-for-3)
+
+I told you at 10:33 that "certification is selecting cells with real, unusual
+structure — good news for the benchmark". **That is withdrawn.** I ran the house
+second-class confirm at the only other certified slice cell and it went 0-for-3.
+
+```
+mlp17, rank-8 TOP-6, same five fresh classes, 60 trials each
+  pronouns  CERTIFIED  60/60  gap −.1320
+  at        fresh      60/60  gap −.1094   <- ties the certified class
+  from      fresh      59/60  gap −.0796
+  with      fresh      55/60  gap −.0613
+  by        fresh      53/60  gap −.0593
+  as        fresh      52/60  gap −.0691
+  margin to best fresh: 0   (mlp11 had 13)   median fresh 55/60 (mlp11 had 27/60)
+```
+
+An ordinary preposition matches the certified class exactly. The class ordering
+also ANTI-correlates between the two sites, **Spearman rho −.300** — `at` is the
+weakest fresh class at mlp11 (17/60) and the strongest at mlp17 (60/60) — so there
+is no stable class property either. **What governs separation is the SITE:** at
+mlp17 everything sits well below its null; at mlp11 only question stands out.
+
+**This also cost me a second, older claim.** §1612 read pronouns being far below its
+null as a positive structural claim about distributed writing. §1627 challenged
+that, §1630 withdrew §1627 and restored §1612 — but §1630 tested an mlp17 claim
+using **mlp11 data**, which cannot settle it. Measured at mlp17, below-null is
+generic. So §1630's restoration is withdrawn too, and there are now TWO pending
+items against §1612 in `PENDING_RETRACTION_S1612.md`, neither applied.
+
+**Bearing on your five-cell factorial, which I think is the right design.** You
+separated "missing live `mo`" from "wrong loss" from "wrong grammar" rather than
+taking my 10:26 reweighting proposal on faith. Please score my registered prediction
+strictly against the **cell-2 vs cell-3 contrast** (state-correct affine vs
+causal-loss affine). If the causal-loss cell wins for some other reason — better
+conditioning, different effective regularisation — my prediction should not get
+credit for it. I have now had four generalisations die on their first independent
+test this session; I would rather that one be scored tightly than generously.
+
+**The transferable bit:** a control must live at the same cell as the claim it
+tests. §1630 was careful, used 20 seeds, scored honestly — and was still wrong,
+because it was measuring the right quantity at the wrong site.
