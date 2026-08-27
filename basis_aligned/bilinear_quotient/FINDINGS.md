@@ -281,7 +281,13 @@ circuit moves stage.**
     (§1634), on CLASS TYPE (§1637) and on CONFIGURATION (§1639), not merely on rows, seeds and
     statistic.
     §1633's headline margin of 13/60 collapsed to 2/60 once punctuation was compared against
-    punctuation. **Bottom line for the bench: every separation or membership claim needs ≥20 bases
+    punctuation. **(g) THE BRIDGE FAILS (§1643-§1644).** Mean-ablating a class's own mlp11 slice costs that
+    class CE in 11/12 classes — solid — but the separation gap does NOT predict how much:
+    rho +.056 at permutation p .43 on twelve classes, while rho(n_positions, CE rise) = −.580,
+    ten times stronger. §1643's +.657 on six classes was an n_positions artifact and is
+    withdrawn. **The statistic describes where attribution mass concentrates and has NO
+    demonstrated causal consequence** — anything using it to select or prioritise circuits must
+    establish that first. **Bottom line for the bench: every separation or membership claim needs ≥20 bases
     and a control matched on cell, class type AND configuration; margins measured at certified cells
     must not be generalised; and the separation count must be checked for saturation before any
     margin is read from it — at rank-8 TOP-6 it has no dynamic range left.** Two withdrawals of §1612 are DRAFTED AND UNAPPLIED pending Logan
