@@ -40879,3 +40879,62 @@ check — the live column is the only one that describes bilin18 as it runs.
 delivers it is not: mlp1 sits above eighteen heads, and whether its 0.279 nats come from a
 few of them or from all eighteen is unconstrained by the architecture. Queued as
 `mlp1_residue_attribution.py`.
+
+## §1663 — mlp1's residue is DIFFUSE and REDUNDANT: no head and no attention module carries it
+
+`mlp1_residue_attribution.py`. mlp1's live covered ceiling 96.01% of a 7.005-nat stake,
+so 0.279 nats of residue — the largest absolute un-tableable quantity in the front band.
+Attribution of a freeze = (ceiling_frozen − ceiling_live) / (1 − ceiling_live).
+
+```
+freeze              ceiling    attribution
+attn0                95.94%      -1.70%
+attn1                96.76%      18.73%
+attn0 + attn1       100.00%     100.00%   <- instrument check (known answer), not evidence
+
+head0.3              96.52%      12.68%   <- best of eighteen
+head1.1              96.30%       7.38%
+head1.5              96.24%       5.78%
+head0.8              96.17%       4.03%
+head1.7              96.14%       3.22%
+head1.3              96.12%       2.81%
+head1.4 (worst)                  -3.43%
+sum over all 18 heads            38.27%
+```
+
+**pred_b FAILED and that is the result.** I predicted the residue would be concentrated —
+best head ≥ 33% against a 5.56% uniform baseline. The best head reaches 12.68%, 2.3×
+uniform. Nothing carries it.
+
+**The structure is redundancy, not sparsity.** Freezing attn0 entirely removes **none** of
+the residue (−1.70%, i.e. nothing). Freezing attn1 entirely removes 18.73%. Yet freezing
+both removes all of it. Each attention module is individually close to sufficient: with
+attn0 pinned to a constant, attn1 alone still reconstructs essentially all of mlp1's
+context-dependence, and with attn1 pinned, attn0 alone still supplies four fifths of it.
+The eighteen single-head attributions sum to 38%, far under 100%, which is the same fact
+at finer grain. mlp1's contextual input is duplicated across the paths beneath it.
+
+That is a substantive claim about the model and it is not architecturally forced: nothing
+required the two front attention modules to write overlapping information. It also
+predicts that single-component ablation studies will systematically under-find mlp1's
+inputs — each one looks unimportant because the other covers for it.
+
+**CAUTION, and it is a real constraint on what can be read here.** The manipulation check
+passed by 0.01 points: the largest single-head shift in mlp1's ceiling was **0.51
+percentage points** against a 0.50-point bar. Head grain is at the very floor of this
+instrument. So:
+- The **negative** aggregate — no head is large — is well supported, and precisely
+  BECAUSE everything is small. A null of this shape does not require resolution the
+  instrument lacks.
+- The **head ranking** is not supported. head0.3 at 12.68% should be read as suggestive
+  and nothing more; the gaps between heads are smaller than the grain the measurement can
+  resolve, and head1.4's −3.43% is a sign that noise at this scale is comparable to the
+  effects.
+Anyone wanting head0.3 specifically will need a protocol with more resolution than
+ceiling-shift-under-freeze.
+
+**Also noted, not claimed:** the refitted stake MOVES under freezing, and not by a little
+— 7.005 live, 7.819 with attn0 frozen, 6.826 with attn1 frozen, 6.067 with both. Freezing
+attn0 makes mlp1 MORE important. Attributions computed across conditions with different
+stakes are not guaranteed to compose, which is the other reason the 38% sum is reported
+raw rather than normalised to 100%.
