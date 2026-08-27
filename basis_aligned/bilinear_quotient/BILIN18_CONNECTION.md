@@ -41761,3 +41761,44 @@ saying it up front.
 **The usable decomposition is therefore nested, not additive:** v1 is worth 0.7066 nats
 *given a live write path*, and nothing at all without one. Anyone combining these two numbers
 into a total for attention would be double-counting.
+
+## §1685 — more than half of attention's output write is a linear function of the current and previous position
+
+`attn_lag_family.py`. Least-squares maps from `[x_t, x_{t-lag}]` to each attention module's
+output write, compiled bottom-up, mask pinned. The lag-8 arm has the identical parameter
+count and no privileged relation to position t.
+
+```
+family                     ceiling
+lag 0   (x_t alone)        16.38%   <- §1682's figure, reproduced exactly
+lag 1   (x_t, x_{t-1})     56.26%
+lag 8   (x_t, x_{t-8})     23.67%   <- control, same parameter count
+```
+
+**Adding one previous position takes attention's write from 16.4% to 56.3%, a +39.9-point
+jump — and the control shows 32.6 of those points are specific to lag 1.** A generic second
+slot is worth about 7 points (lag 8 over lag 0); the rest is the previous position in
+particular. This is §843's previous-token finding priced at whole-stack scale: it is not one
+head's quirk, it is the largest single component of what all eighteen attention modules write.
+
+**pred_b FAILED, and it is the more interesting half.** I predicted attention would stay
+below 50% under a two-position family, on the reasoning that §1682's 83.6% non-locality
+implied something deeper. It reaches **56.26%**. So §1682's number was a statement about the
+strictly-local FAMILY, not about the depth of attention's non-locality — most of that 83.6%
+dissolves the moment the description is allowed to see one position back.
+
+Attention's output write now decomposes as:
+
+```
+16.4%   computable from the current position alone
+39.9%   added by the previous position (32.6 of it lag-1-specific, 7.3 generic)
+43.7%   still requires more than two positions
+```
+
+**What this does NOT say.** It does not say attention is a previous-token copier — 43.7% of
+the write still needs something wider, and the fitted map is free to use `x_{t-1}` for
+anything, not just copying. It prices what a two-position linear description buys, which is
+the honest reading and already a large correction to how §1682 could be read.
+
+Queued `attn_multilag.py` to find where the remaining 43.7% lives: how many recent positions
+does attention's write actually need?

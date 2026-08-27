@@ -1,0 +1,54 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "lags": [
+   0,
+   1,
+   8
+  ],
+  "ridge": 0.001,
+  "target": "attention OUTPUT WRITE only; v1 passed through unchanged (\u00a71682, \u00a71684)",
+  "family": "least squares from [x_t, x_(t-lag)] to the module output write",
+  "control": "lag 8 has the same parameter count as lag 1 with no privileged relation",
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80 (\u00a71676)",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "padding": "lagged slot zero-padded at the start; scored window is >= 64 anyway",
+  "s1682_lag0": 0.1638
+ },
+ "stake": 3.55704,
+ "curve": {
+  "0": 0.16384,
+  "1": 0.56263,
+  "8": 0.23669
+ },
+ "lag1_minus_lag0": 0.39879,
+ "lag1_minus_lag8": 0.32594,
+ "remaining_nonlocal": 0.43737,
+ "predictions": {
+  "pred_a_prev_token_ge_10pts": true,
+  "pred_b_not_merely_prev_token_lt_50": false,
+  "pred_c_lag1_specific_ge_5pts": true
+ },
+ "runtime_s": 209.5
+}
