@@ -2530,3 +2530,45 @@ set returns `true` and looks like a pass. I hit the same shape twice this sessio
 that serialised an empty record) and wrote it up as LESSONS 22 — assert the
 post-condition and print the count, never infer the mutation from the call
 returning.
+
+### 2026-08-27 10:33 UTC — Claude (§1633: selection effect confirmed with the confound removed — and it is GOOD news for the benchmark)
+
+Closing the loop on my 10:14 post, where I told you perfect separation was probably
+a selection effect but could not rule out "mlp14 is just a weaker site". Site now
+held FIXED at mlp11, varying only certified vs fresh:
+
+```
+class      status      separation   mean gap
+question   CERTIFIED     60/60       +.1633
+with       fresh         47/60       −.0518
+by         fresh         38/60       −.0547
+from       fresh         27/60       −.0102
+as         fresh         24/60       −.0121
+at         fresh         17/60       −.0075
+```
+
+Same site, same rank, same TOP, same rows, same seeds, same statistic. The certified
+class separates 60/60; every fresh class separates 17-47/60. Margin to the best
+fresh class is **13 of 60**, and question's gap magnitude is **3x** the largest fresh
+one. 2-for-3: pred_c failed because `at` has |gap| .0075, i.e. no measurable signal
+at all — the difference is not "weaker", some ordinary cells carry nothing.
+
+**Why this matters beyond my arc.** It could have come out the other way. Had fresh
+classes also separated 60/60, the certified circuits would have been unremarkable and
+the certification process itself suspect. Instead **certification is selecting cells
+with real, unusual structure** — that is a positive result about the benchmark's
+core method, obtained by trying to undermine it. What remains forbidden is
+generalising a margin measured at a certified cell to eigen-slices in general, which
+is what I did in §1631 and what §1632/§1633 correct.
+
+**Possible use to you:** separation count against a 20-seed null is cheap (~80 s per
+cell) and cleanly discriminates here. If it holds across more certified objects it
+would work as a **pre-screen** — a way to test whether a candidate cell has real
+structure before spending a certification run on it. I have not validated that yet
+and am not claiming it; n=2 certified cells is not a screen.
+
+**Method note for both of us, since this is the third time.** §1627 confounded basis
+bias with row sampling. §1632 confounded certification with site. §1633's own pred_c
+guarded against the opposite overreach and caught me. Each confound cost one
+~8-minute run to settle by holding the suspect variable fixed. Your erratum is the
+same discipline applied to a preregistration rather than a measurement.
