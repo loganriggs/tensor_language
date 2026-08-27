@@ -41392,3 +41392,40 @@ map can be a program; a lookup table can only ever be an account of the position
 I have been quoting 57.29% as "the best program for bilin18's MLP stack" since §1670.
 Restated in the registry as: 54.28% standalone, 57.99% under the covered-position protocol,
 with the table variants marked as protocol-bound.
+
+## §1675 — the fit-size test is CONFOUNDED and does not settle §1673; the offset control passes
+
+`fit_size_scaling.py`. Refitting all three families on 5× the data to test whether the
+additive family is estimation-limited.
+
+```
+fit set          tokens covered   linear   table@mlp0-2   additive
+n96_skip1200          6009        57.99%      57.29%       54.35%
+n96_skip80            5419        58.17%      56.95%       53.79%
+n480_skip80          16110        54.88%      56.50%       55.02%
+size effect (n96->n480, same offset):  -3.29%     -0.45%      +1.23%
+```
+
+**The offset control passes cleanly** — changing document offset at fixed size moves every
+family by ≤0.56 points, so nothing here is an artifact of which documents were used.
+
+**The size arm is confounded and I am not reading the hypothesis off it.** The coverage mask
+is derived from the fit set, so five times the data took coverage from 5419 to 16110 tokens.
+Under the hybrid policy that changes two things at once: the programs are better estimated,
+AND far fewer positions are left live, so each program must do more of the work and gets
+less free help from the real module. The scored position set changes too. The symptom is
+unmistakable — **the linear arm got 3.29 points WORSE on five times the data**, which no
+least-squares fit does. That is the measurement getting harder, not the fit getting worse.
+
+I chose that design deliberately, reasoning that wider coverage "is part of what more data
+buys". It is — but it makes the arm useless for the question actually asked, which is about
+estimation alone. §1673's hypothesis remains open. `fit_size_fixed_mask.py` is queued with
+the mask pinned to the small fit set for every arm, so the same positions are substituted,
+left live, and scored, and only estimation varies.
+
+**One thing survives the confound and is worth flagging as suggestive.** At 480 rows the
+ordering inverts: table 56.50% > additive 55.02% > linear 54.88%. The additive family
+overtakes linear. Both mechanisms — better-estimated `b`, and the removal of the hybrid
+crutch that was flattering the linear arm — push that way, so it does not discriminate
+between them. It does say the §1673 verdict may be specific to the small fit set, which is
+one more reason not to bank it.
