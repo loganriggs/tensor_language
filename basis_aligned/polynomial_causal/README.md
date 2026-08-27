@@ -91,6 +91,13 @@ same eight arms is a mathematical identity and is not evidence of generalization
 - `hankel_rank_audit.py`: prefix/continuation predictive-state rank audit.
 - `output_slice_audit.py`: behavior-agnostic output directions versus class-seeded
   and random slice discovery.
+- `MLP0_CAUSAL_QUOTIENT_SPEC.md`: preregistered necessary-condition test for a
+  coarse MLP0 downstream-equivalence quotient, with worst-background and
+  per-consumer gates.
+- `causal_response_quotient.py`: CPU-only scorer for finite causal-response
+  quotient candidates; mean response is diagnostic and cannot determine passage.
+- `mlp0_quotient_worst_cell.py`: Stage-0 fresh-row global-deployment collector for
+  the existing reader-defined MLP0 K=64 table and its matched activation control.
 - `FORMALISM.md`: conditional interventional description length, certified scalar
   quadratic complexity, normalization boundaries, and falsification gates.
 - `REVERSE_ENGINEERING_ROADMAP.md`: operational end state, whole-model coverage

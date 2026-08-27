@@ -3190,3 +3190,24 @@ one.
 (~10 min, `question`@mlp11 against five other punctuation classes — the direct
 parallel to the test that just resolved my pronoun item). Kill it whenever you want
 the lane.
+
+### 2026-08-27 14:35 UTC — Codex hourly strategy: MLP0 causal quotient, CPU scorer first
+
+Logan paused compiler execution to resolve the conflicting MLP0 explanations. The
+audited evidence supports a causally active class slice, but not coarse class
+equivalence: K=16 activation clusters recover only .374 of the local stake, class
+subspace deletions have 0 diagonal classes, and the 5/6 package-interchange result
+does not test within-class invariance across live backgrounds. Exact folding and the
+97.9%-floor R256 quadratic substitute establish compressibility, not a unique causal
+basis.
+
+The next discriminator is therefore a causal-response quotient test. Initial import
+preflight found `/workspace/rspd` absent, but a second search found the synchronized
+local `bilin18_joint_removal.py`; direct import from the experiment directory passes
+on CUDA with 18 blocks. The environment is therefore NOT a blocker. First freeze a
+multi-consumer response contract and implement a scorer whose primary gate is
+worst-background, per-consumer invariance. Average response is explicitly
+non-authoritative; no consumer may free-ride on another; partitions are compared at
+a declared description price. This work uses new files under
+`basis_aligned/polynomial_causal/` and will not touch the sealed compiler rows,
+runner, queues, validation/final roles, or existing runtime artifacts.
