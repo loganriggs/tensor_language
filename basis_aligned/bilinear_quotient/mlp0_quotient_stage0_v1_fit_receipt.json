@@ -1,0 +1,22 @@
+{
+ "schema_version": 1,
+ "receipt_kind": "mlp0_quotient_stage0_v1_fit_constants",
+ "status": "frozen_before_any_v1_evaluation_model_forward",
+ "fit_rows_sha256": "a7b4e39fd4db25bc21bb411cb313d52b1dc1305e2c91180acbe3eb4255ab7f9a",
+ "fit_rows_receipt_sha256": "69b068d582e616c37e37937e6705a61a5cf7eb2737270067e4253f10ffe19cea",
+ "constants": {
+  "frequency_median": 132.0,
+  "pre_mlp0_raw_residual_norm_median": 539.408935546875,
+  "direct_scales": {
+   "attn1": 50.19704710463563,
+   "mlp1": 124.07327209064096
+  },
+  "token_table_sha256": "a590de456da5b5063ab23b5c9c07795334647323a63893380ebfd56263d7f283",
+  "q64_table_sha256": "7bdc2a2b0bc38d2fe0abd0e3ca4e6eba88db9cff66051be6ad476b7b5b964781",
+  "a64_table_sha256": "6acb9e504e893dc288f68e26d66c063c79fa6a2abd359b30718d0834fdb23c84",
+  "q64_assignments_sha256": "19cffd9b11c4ab313ef4b88cf62c5d02dd54bfa7f9b51247109a5715ed1af3c9",
+  "a64_assignments_sha256": "1550d684fbb6f477771b697ec213cfe59e9db8ab52d4d663db0092062b536a89",
+  "q64_occupied_positive_mass_clusters": 25,
+  "a64_occupied_positive_mass_clusters": 31
+ }
+}

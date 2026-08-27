@@ -93,6 +93,9 @@ def validate_authority() -> dict:
     for raw, expected in authority.get('source_hashes', {}).items():
         if file_sha256(Path(raw)) != expected:
             raise RuntimeError(f'authority-bound source changed: {raw}')
+    for raw, expected in authority.get('model_files', {}).items():
+        if file_sha256(Path(raw)) != expected:
+            raise RuntimeError(f'authority-bound model file changed: {raw}')
     if OUT.exists() or FAILURE.exists():
         raise RuntimeError('v1 output namespace is already spent')
     return authority
