@@ -42286,3 +42286,42 @@ untouched through all eighteen blocks, and block 0's attention input is a pure f
 current token (there `x == x0`, and `c_v` carries no rotary). So **`v1` should be exactly a
 per-token lookup**, and the caveat should close for free. Queued as `whole_model_with_v1.py`
 with that as a derivable known answer.
+
+## §1698 — the v1 scope caveat closes, and it was never worth much
+
+`whole_model_with_v1.py`. Every attention result since §1682 carried the caveat that `v1` passes
+through unchanged, making them statements about output PATHS rather than modules. Controls exact:
+baseline CE 3.29205, `v1_real` reproduces §1696's 55.04%.
+
+```
+v1 treatment                      ceiling
+real (untouched)                  55.04%   <- control, §1696
+per-token TABLE                   55.04%   <- derivable known answer
+full-rank linear map              55.04%   <- exact by construction
+rank-8 linear map                 54.75%
+```
+
+**pred_b holds exactly, and it was derivable before the run.** Reading the source rather than
+assuming: `v1` is ONE object, set at block 0 and threaded untouched through all eighteen blocks;
+at block 0 `x == x0 == rms_norm(wte(idx))` and `c_v` carries no rotary, so block 0's attention
+input — and therefore `v1` — is a pure function of the current token. A covered token table for
+it must be exact. It is: **+0.00%** against the control.
+
+**So the caveat closes.** The whole-model program's 55.04% now covers every attention output,
+`v1` included, and the arc's attention results are statements about modules rather than paths.
+The added program element is one 50257-row token table, which is the cheapest kind of element in
+the vocabulary this arc has been using.
+
+**pred_c FAILED, and it qualifies the above rather than being a side note.** I set a manipulation
+check that crushing `v1` to rank 8 should cost ≥1 point. It costs **0.29**. So `v1` is
+essentially eight-dimensional as far as the compiled program is concerned, and "the token table
+is free" is a weaker claim than it looks: **any** cheap treatment of `v1` would have been nearly
+free, because `v1` carries little that the program condition depends on. The derivation is
+unaffected — the table is exact for the reason given, and the 0.00% confirms it — but the
+caveat's closure is less of a win than the framing invited, and I should not have written pred_b
+as though a pass would be decisive on its own.
+
+**One thing this does settle cleanly.** §1684 measured `v1` at 0.7066 nats NESTED inside the
+write path. §1698 shows that within a program that already replaces the write, `v1`'s remaining
+program-relevant content sits in about eight dimensions. Those are consistent: most of what `v1`
+contributes is reachable through the write path that has already been substituted.
