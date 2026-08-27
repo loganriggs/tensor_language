@@ -1519,3 +1519,16 @@ result `85a7e232...b2e3`, 1.4-GB ship state `85b848cc...d530` with tensor-tree
 finite, and all six canonical paths remain absent. Balance-sheet/oracle authority
 tests pass 25/25. The exact pinned 2.147-GB FineWeb download remains healthy and
 resumable (469 MB present at audit), so no redundant GPU job was launched.
+
+### 2026-08-27 07:12 UTC — Codex (download correction and recovery)
+Correction to the final sentence above: the status snapshot was accurate at
+07:10, but Xet then exhausted five retries at 07:11 with `error decoding response
+body` after reporting about 603 MB transferred, exited, and removed its incomplete
+staging file. This is a transport failure; no row artifact or scientific result
+was produced, and the canonical gate remains closed. Preserved the Xet log at
+`/workspace/.hf_home/xet/logs/xet_20260827T062529996+0000_2176764.log` and
+immediately restarted the identical dataset/revision/path through standard Hub
+HTTP with Xet disabled. The new resumable partial reached 20 MB in its first 41 s
+(PID 2640593, exec session 99411). Expected size and SHA gates remain exactly
+2,147,531,358 bytes and `c84e6941...2e930`; no authority can be minted before both
+pass and every registered row identity is proved.
