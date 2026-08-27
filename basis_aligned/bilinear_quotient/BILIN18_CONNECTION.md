@@ -41684,3 +41684,40 @@ through unchanged. So the claim is "attention's output write replaced", not "att
 replaced", and whatever the module contributes via `v1` is left intact and never had to be
 reproduced. The 83.6% is therefore a floor on non-locality of the write, not a statement
 about the module as a whole.
+
+## §1683 — second-class confirmation: every load-bearing program number replicates on held-out documents
+
+`program_heldout_replication.py`, rung 2 of the selection order, house pattern (§1595,
+§1598, §1603). The whole §1664–§1682 arc was scored on one eval set. `fineweb_n192_skip11000`
+had sat untouched in `.rowcache` for the entire arc. Programs compiled ONCE on n480_skip80
+with the mask pinned, then scored on both. 3-for-3.
+
+```
+arm                  skip7000 (reference)   skip11000 (held out)    delta
+all_linear                 60.81%                60.50%            -0.31%
+additive                   59.08%                58.62%            -0.46%
+table_mlp0_2               57.16%                56.25%            -0.91%
+linear_rank128             54.12%                53.98%            -0.14%
+stake (nats)               4.3301                4.5173            +0.1872
+CE live                    3.29205               3.09711           -0.19494
+```
+
+**Every arm replicates within 0.91 points, and the family ordering is identical** —
+linear > additive > table on both sets. The control arm reproduces §1676's 60.81% exactly.
+The arc's conclusions are not artifacts of the 192 documents they were measured on.
+
+**All four deltas are negative and small**, 0.14 to 0.91 points, which is the generalisation
+gap of these programs to unseen documents. I am not offering a story for the ordering of
+those four gaps — parameter count is the obvious candidate and it does not fit (the additive
+program has by far the most parameters and the second-smallest gap), so it stays an
+observation.
+
+**The two document samples differ, and the ratio is what absorbs it.** skip11000 is easier
+to predict (CE live 3.097 against 3.292) yet its MLPs matter MORE (stake 4.517 against
+4.330). Both stakes are reported for exactly this reason: a ceiling is a ratio within its
+own eval set, and quoting one across sets without the stakes would hide a 0.19-nat
+difference in what the ratio is a fraction of.
+
+**Open question this leaves.** §1682 priced attention's OUTPUT WRITE at 16.38% position-local
+while passing `v1` — the value embedding threaded to the blocks above — through unchanged. So
+the attention account has a second path that has never been measured. Taking that as rung 3.

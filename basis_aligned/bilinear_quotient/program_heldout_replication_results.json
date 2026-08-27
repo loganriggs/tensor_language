@@ -1,0 +1,85 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "coverage_mask": "fineweb_n96_skip80.pt, pinned (\u00a71676)",
+  "eval_sets": [
+   "skip7000",
+   "skip11000"
+  ],
+  "held_out": "fineweb_n192_skip11000 -- untouched for the whole \u00a71664-\u00a71681 arc",
+  "compilation": "bottom-up (\u00a71669); programs compiled ONCE and scored on both evals",
+  "stake": "recomputed per eval set (a property of the eval documents); the ceiling is a ratio within its own set, which is what makes the two comparable",
+  "pattern": "house second-class confirmation (\u00a71595, \u00a71598, \u00a71603)",
+  "s1676_reference": {
+   "linear": 0.6081,
+   "additive": 0.5908,
+   "table_mlp0_2": 0.5716
+  },
+  "s1680_rank128": 0.5412
+ },
+ "evals": {
+  "skip7000": {
+   "ce_live": 3.29205,
+   "ce_const": 7.62217,
+   "stake": 4.33011,
+   "all_linear": 0.60814,
+   "table_mlp0_2": 0.57161,
+   "additive": 0.59084,
+   "linear_rank128": 0.54124
+  },
+  "skip11000": {
+   "ce_live": 3.09711,
+   "ce_const": 7.6144,
+   "stake": 4.51729,
+   "all_linear": 0.60501,
+   "table_mlp0_2": 0.56246,
+   "additive": 0.58624,
+   "linear_rank128": 0.53982
+  }
+ },
+ "deltas": {
+  "all_linear": -0.00313,
+  "table_mlp0_2": -0.00915,
+  "additive": -0.0046,
+  "linear_rank128": -0.00142
+ },
+ "ordering": {
+  "reference": [
+   "all_linear",
+   "additive",
+   "table_mlp0_2"
+  ],
+  "held_out": [
+   "all_linear",
+   "additive",
+   "table_mlp0_2"
+  ]
+ },
+ "predictions": {
+  "pred_a_headline_replicates_within_3pts": true,
+  "pred_b_ordering_replicates": true,
+  "pred_c_control_reproduces_s1676": true
+ },
+ "runtime_s": 466.7
+}
