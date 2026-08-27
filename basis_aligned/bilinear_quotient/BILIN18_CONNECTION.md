@@ -42237,3 +42237,52 @@ the two conditions mean what they are supposed to.
 compiled program of eighteen token-or-linear maps and eighteen four-position maps, reproducing
 **3.065 of 5.568 nats — 55.04%**. Scope unchanged: attention `v1` passes through, so these are
 output paths rather than whole modules.
+
+## §1697 — it is COMPOUNDING, not redundancy: the two half-upgrades are additive and each is damped
+
+`whole_model_upgrade_attribution.py`, rung 3 — the arm §1696 named as needed to separate its two
+candidate mechanisms. Upgrading one half at a time inside the joint 36-site condition. Both
+controls exact: the simple arm reproduces §1694's 50.94%, the both arm §1696's 55.04%.
+
+```
+program                                      ceiling    gain over simple
+simple   (linear everywhere, lag-1)          50.94%          —
+attn upgraded only (lags 1,2,4,8)            53.60%        +2.66%
+MLP upgraded only  (tables mlp0-2)           52.25%        +1.31%
+BOTH upgraded                                55.04%        +4.10%
+sum of the two single gains                                 +3.97%
+```
+
+**pred_a FAILED and the failure identifies the mechanism.** I predicted the gains would be
+strongly SUB-additive if redundancy dominated — each upgrade capturing shared information the
+other also recovers. They are not: the two singles sum to **+3.97** against a joint **+4.10**, a
+gap of **0.13 points**. That is an order of magnitude smaller than the 7.7-point shortfall the
+two mechanisms were competing to explain, so on this measurement redundancy is not detectable
+and the upgrades are additive to within 0.13 points.
+
+**So §1696's shortfall is COMPOUNDING.** Each half's upgrade is independently damped by the other
+half's residual error, and the damping is per-half rather than an interaction between them:
+
+```
+                   worth alone     worth inside the joint program     damping
+attention upgrade    +11.79%              +2.66%                       4.4x
+MLP upgrade          <= +3.5%             +1.31%                       ~2.7x
+```
+
+**pred_b holds:** attention is the bigger single contributor, +2.66 against +1.31.
+
+**What this changes for the pricing programme.** §1696 established that half-level upgrades do
+not transfer at face value; §1697 says the reason is that improvements are attenuated by the
+other half's error, not that the halves are doing each other's work. That is the more tractable
+of the two diagnoses: attenuation is reduced by improving BOTH halves together, and the additive
+structure means gains from independent work on the two halves can be summed and then discounted,
+rather than being unpredictable. On this evidence the discount is roughly 4x for attention-side
+work and roughly 3x for MLP-side work.
+
+**Open question this leaves.** Every attention result since §1682 — including the 55.04% program
+— passes `v1` through unchanged, so all of them describe output PATHS rather than modules.
+Reading the source rather than assuming: `v1` is ONE object, set at block 0 and threaded
+untouched through all eighteen blocks, and block 0's attention input is a pure function of the
+current token (there `x == x0`, and `c_v` carries no rotary). So **`v1` should be exactly a
+per-token lookup**, and the caveat should close for free. Queued as `whole_model_with_v1.py`
+with that as a derivable known answer.

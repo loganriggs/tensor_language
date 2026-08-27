@@ -1,0 +1,144 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "question": "S1696 left two mechanisms for why half-upgrades do not transfer: COMPOUNDING (each half damped by the other's error, gains roughly ADD) vs REDUNDANCY (both halves recovering shared information, gains strongly SUB-ADDITIVE)",
+  "arms": [
+   {
+    "name": "simple",
+    "lags": [
+     1
+    ],
+    "tables": []
+   },
+   {
+    "name": "attn_upgraded",
+    "lags": [
+     1,
+     2,
+     4,
+     8
+    ],
+    "tables": []
+   },
+   {
+    "name": "mlp_upgraded",
+    "lags": [
+     1
+    ],
+    "tables": [
+     0,
+     1,
+     2
+    ]
+   },
+   {
+    "name": "both",
+    "lags": [
+     1,
+     2,
+     4,
+     8
+    ],
+    "tables": [
+     0,
+     1,
+     2
+    ]
+   }
+  ],
+  "compilation": "INTERLEAVED bottom-up (\u00a71669)",
+  "controls": [
+   "baseline 3.29205 (\u00a71695)",
+   "simple arm = \u00a71694 50.94%",
+   "both arm = \u00a71696 55.04%"
+  ],
+  "s1657_caution": "gains are compared at a single total effect size, not as ratios across conditions of different size",
+  "coverage": "hybrid, mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "v1_scope": "attention v1 passed through unchanged",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt"
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "arms": {
+  "simple": {
+   "lags": [
+    1
+   ],
+   "table_sites": [],
+   "ce": 6.02395,
+   "ceiling": 0.50939
+  },
+  "attn_upgraded": {
+   "lags": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "table_sites": [],
+   "ce": 5.87559,
+   "ceiling": 0.53603
+  },
+  "mlp_upgraded": {
+   "lags": [
+    1
+   ],
+   "table_sites": [
+    0,
+    1,
+    2
+   ],
+   "ce": 5.95098,
+   "ceiling": 0.52249
+  },
+  "both": {
+   "lags": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "table_sites": [
+    0,
+    1,
+    2
+   ],
+   "ce": 5.7957,
+   "ceiling": 0.55038
+  }
+ },
+ "gains": {
+  "attn": 0.02664,
+  "mlp": 0.0131,
+  "both": 0.04099,
+  "sum_of_singles": 0.03974
+ },
+ "predictions": {
+  "pred_a_subadditive_redundancy": false,
+  "pred_b_attention_bigger": true,
+  "pred_c_controls_hold": true
+ },
+ "runtime_s": 791.6
+}
