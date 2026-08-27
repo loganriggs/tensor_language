@@ -34,14 +34,15 @@ GLUE_SHA256 = "76148b072c22f3c0d0ccdcaa08d8a6ade89d7231d0dd5a328597e10f6a0a3ef4"
 MODEL_SNAPSHOT = Path("/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240")
 MODEL_CONFIG_SHA256 = "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c"
 MODEL_WEIGHTS_SHA256 = "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
-DEV_RESULT = BQ / "ship_content_oracle_curated_dev_results.json"
-DEV_PREREG = BQ / "ship_content_oracle_curated_dev_preregistration.json"
-DEV_MANIFEST = BQ / "ship_content_oracle_curated_dev_manifest.json"
-DEV_STATE = Path("/workspace/runs/bilin18_curated_dev_ship.pt")
-DEV_ORACLE_STATE = Path("/workspace/runs/bilin18_curated_dev_oracle_bases.pt")
-DEV_LOCK = BQ / ".ship_content_oracle_curated_dev.lock"
+DEV_RESULT = BQ / "ship_content_oracle_curated_dev_v2_results.json"
+DEV_PREREG = BQ / "ship_content_oracle_curated_dev_v2_preregistration.json"
+DEV_MANIFEST = BQ / "ship_content_oracle_curated_dev_v2_manifest.json"
+DEV_STATE = Path("/workspace/runs/bilin18_curated_dev_v2_ship.pt")
+DEV_ORACLE_STATE = Path("/workspace/runs/bilin18_curated_dev_v2_oracle_bases.pt")
+DEV_LOCK = BQ / ".ship_content_oracle_curated_dev_v2.lock"
 SHIP_SEED = 27182818
-T_LEN = 513
+SOURCE_ROW_LEN = 513
+MODEL_ROW_LEN = 257
 REQUEST_ROLES = {
     (96, 80): "covariance",
     (480, 80): "ship_fit",
@@ -91,7 +92,7 @@ def allocate_whole_document_splits(payload: dict[str, torch.Tensor]) -> dict[str
     if not isinstance(payload, dict) or set(payload) < {"rows", "docid"}:
         raise RuntimeError("curated corpus must contain rows and docid tensors")
     rows, docids = payload["rows"], payload["docid"]
-    if tuple(rows.shape) != (1000, T_LEN) or rows.dtype != torch.long:
+    if tuple(rows.shape) != (1000, SOURCE_ROW_LEN) or rows.dtype != torch.long:
         raise RuntimeError(f"invalid curated rows: {rows.shape} {rows.dtype}")
     if tuple(docids.shape) != (1000,) or docids.dtype != torch.long:
         raise RuntimeError(f"invalid curated docids: {docids.shape} {docids.dtype}")
@@ -122,7 +123,7 @@ def allocate_whole_document_splits(payload: dict[str, torch.Tensor]) -> dict[str
         indices = sorted(index for document in role_documents for index in grouped[document])
         if len(indices) != expected[role]:
             raise RuntimeError(f"{role} has {len(indices)} rows, expected {expected[role]}")
-        tensor = rows[indices].contiguous()
+        tensor = rows[indices, :MODEL_ROW_LEN].contiguous()
         output[role] = {
             "rows": tensor,
             "indices": indices,
@@ -152,7 +153,7 @@ def allocate_whole_document_splits(payload: dict[str, torch.Tensor]) -> dict[str
 def manifest_for_splits(splits: dict[str, dict[str, Any]]) -> dict[str, Any]:
     return {
         "schema_version": 1,
-        "receipt_kind": "curated_ship_oracle_development_v1",
+        "receipt_kind": "curated_ship_oracle_development_v2",
         "status": "preregistered_not_run",
         "authority": "none",
         "authorized_for_scored_experiments": False,

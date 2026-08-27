@@ -17,6 +17,8 @@ def test_whole_document_split_sizes_and_no_leakage():
         "ship_fit": 480, "basis": 96, "discovery": 192,
         "heldout": 192, "spare": 40, "covariance": 96,
     }
+    assert all(row["rows"].shape[1] == DEV.MODEL_ROW_LEN for row in splits.values())
+    assert DEV.MODEL_ROW_LEN == 257
     role_documents = {
         role: set(row["document_ids"])
         for role, row in splits.items() if role != "covariance"
