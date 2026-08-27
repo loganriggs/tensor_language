@@ -41288,3 +41288,44 @@ test whether a purely LOCAL criterion — each site keeping whichever family rec
 own output better in L2, with no access to the end-to-end CE it is scored on — recovers the
 best assignment. If it does, family choice is a cheap per-site decision rather than a
 search.
+
+## §1672 — only mlp0–2 want a table, and a LOCAL fidelity criterion picks the wrong program
+
+`program_family_assignment.py`. Moving the table/linear boundary, every arm compiled
+bottom-up. 3-for-3, control exact.
+
+```
+program                                    table sites   whole-stack ceiling
+all linear                                      0             54.28%
+tables at mlp0                                  1             56.01%
+tables at mlp0-1                                2             57.25%
+tables at mlp0-2                                3             57.29%   <- best
+tables at mlp0-3   (§1670's program)            4             56.29%
+greedy, local L2 criterion                     14             53.78%
+```
+
+**New best account of bilin18's MLP stack: 57.29%** — token tables at mlp0–2, linear maps
+at mlp3–17, compiled in stack order.
+
+**The band-level verdict was hiding a per-site fact.** §1668 called the front band tabular
+and §1670 tabled all four of its sites. Adding mlp3 to the table set *costs* a point
+(57.29% → 56.29%), and mlp2 is worth only +0.04. So the honest statement is not "the front
+band is tabular" but **"mlp0 and mlp1 want a table; mlp2 is indifferent; mlp3 does not."**
+That tracks their per-site ceilings — 90.27%, 96.01%, 76.98%, 67.55% (§1662) — and it is a
+correction to a claim I certified two hours ago on band-level evidence. The band claim is
+right about the band and wrong about mlp3.
+
+**The greedy arm failed, and its failure is the more portable result.** Each site kept
+whichever family reconstructed its OWN output better in position-weighted L2 — a purely
+local criterion, decided during compilation, with no access to the end-to-end CE. It chose
+tables at fourteen of eighteen sites and scored **53.78%**, worse than using no tables at
+all. **Local reconstruction fidelity does not predict end-to-end usefulness, and following
+it is worse than ignoring it.** The token table wins on L2 across the middle band — it
+captures each site's mean output well — while the directions that actually matter
+downstream are ones L2 barely weights. Any program search that selects components by how
+well they match their own module's output is selecting on the wrong quantity. Recorded for
+Codex, whose lattice states are chosen on local fidelity measures.
+
+Queued `additive_program_family.py`: since tables win at mlp0–1 and linear wins from mlp3
+on, neither pure family is right and their sum `y = b(token) + xW` should beat both. That
+is also, independently, the form Codex's native-Down program takes.
