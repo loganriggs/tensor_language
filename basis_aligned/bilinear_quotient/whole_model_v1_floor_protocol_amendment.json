@@ -1,0 +1,25 @@
+{
+ "schema_version": 1,
+ "status": "frozen_before_first_execution",
+ "timestamp_utc": "2026-08-27T23:20:00Z",
+ "experiment": "whole_model_v1_floor",
+ "original_source_sha256": "fc8bd010ad7c953a2fd0a00ab3dfde14a317a72f18d372a447e90c7911c55e17",
+ "result_existed_before_amendment": false,
+ "reason": "S1700 recorded that every ceiling in S1659-S1699 is a point estimate with no interval, against a standing convention to quote spread. This arm's decisive quantity is a 0.29-point difference (rank-8 v1 vs real v1); a point estimate cannot say whether it is distinguishable from zero, which is precisely the question S1699 owes.",
+ "scope": "Adds uncertainty only. ROW-LEVEL cluster bootstrap: each of the 192 evaluation rows is one cluster. The rowcache carries no per-row document identifiers, so this is NOT a source-document bootstrap. Rows are 513-token census-prefix-deduped chunks and are therefore PLAUSIBLY but not verifiably distinct documents; the interval is labelled row-level throughout and must not be reported as document-clustered.",
+ "changes": [
+  "Serialize per-row loss sums and covered counts for every arm and for the live and constant baselines.",
+  "Add a paired 2000-draw row-level cluster bootstrap of each arm ceiling and of the two decision differences (real - rank8, real - const).",
+  "Add a reconstruction known-answer check: the scalar CE recomputed from the per-row sums must equal the directly accumulated scalar to 1e-9.",
+  "Add pred_d: the 95% interval on (real - const) must exclude zero if the path contributes at all, and the interval on (real - rank8) is reported so the 0.29-point figure carries a spread.",
+  "Use unrounded estimands for every decision (S1700)."
+ ],
+ "unchanged": [
+  "Arm definitions (v1_real, v1_rank8, v1_const)",
+  "Fit, mask and evaluation rows",
+  "Interleaved compilation order",
+  "The ceiling estimand (cc - ct) / (cc - cl)",
+  "pred_a, pred_b and pred_c thresholds"
+ ],
+ "ledger_effect": "No change to the 55.04% headline or any certified number; adds spread to S1699's owed arm."
+}

@@ -25,6 +25,16 @@
 #          something and the arm is not vacuous.
 #   pred_c CONTROLS: v1_real reproduces §1696's 55.04% and v1_rank8 reproduces §1698's 54.75%,
 #          both within 0.5 points, and the baseline CE reproduces 3.29205 (§1695).
+#   pred_d SPREAD (added pre-execution, §1700 / amendment manifest): the 95% row-level cluster
+#          interval on (real - const) EXCLUDES ZERO. §1699's question is whether the v1 path
+#          contributes at all inside a substituted-write program, and a point estimate cannot
+#          answer it. The interval on (real - rank8) is reported alongside so the 0.29-point
+#          figure from §1698 finally carries a spread.
+#
+# BOOTSTRAP SCOPE, stated because it is weaker than it could be: the rowcache carries no per-row
+# document identifiers, so this is a ROW-LEVEL cluster bootstrap over the 192 evaluation rows,
+# NOT a source-document bootstrap. Rows are 513-token census-prefix-deduped chunks and are
+# therefore plausibly but not verifiably distinct documents. Labelled row-level throughout.
 import json, time, sys, os, torch
 import torch.nn.functional as F
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -221,16 +231,31 @@ def seen_mask(rows):
 
 
 @torch.no_grad()
-def ce(rows, seen, hooks=()):
+def ce_rows(rows, seen, hooks=()):
+    """Per-row covered loss sums and counts, plus the pooled scalar. The scalar is recomputed
+    from the per-row arrays and cross-checked against direct accumulation (known answer)."""
+    S, N = [], []
     acc = {'t': 0.0, 'n': 0}
 
     def score(lg, tg, idx):
         e = F.cross_entropy(lg.reshape(-1, lg.shape[-1]).float(), tg.reshape(-1),
                             reduction='none').reshape(tg.shape)[:, 64:]
         cov = seen[idx[:, 64:]]
+        masked = e * cov
+        S.append(masked.sum(dim=1).double().cpu())
+        N.append(cov.sum(dim=1).double().cpu())
         acc['t'] += float(e[cov].sum()); acc['n'] += int(cov.sum())
     sweep(rows, hooks=hooks, score=score)
-    return acc['t'] / max(acc['n'], 1)
+    s_all = torch.cat(S); n_all = torch.cat(N)
+    pooled = float(s_all.sum() / n_all.sum())
+    assert abs(pooled - acc['t'] / max(acc['n'], 1)) < 1e-9, (
+        f'per-row reconstruction {pooled} != direct accumulation {acc["t"] / max(acc["n"], 1)}')
+    return pooled, s_all, n_all
+
+
+@torch.no_grad()
+def ce(rows, seen, hooks=()):
+    return ce_rows(rows, seen, hooks)[0]
 
 
 @torch.no_grad()
@@ -288,6 +313,36 @@ def fit_v1(rows, prog, mode, rank):
     return W
 
 
+def boot_ceilings(SL, NL, SC, NC, arms_rows, draws=2000, seed=20260827):
+    """Paired row-level cluster bootstrap. SL/NL live, SC/NC constant, arms_rows per arm."""
+    g = torch.Generator().manual_seed(seed)
+    R = NL.numel()
+    out = {k: [] for k in arms_rows}
+    diffs = {'real_minus_rank8': [], 'real_minus_const': []}
+    for _ in range(draws):
+        pick = torch.randint(0, R, (R,), generator=g)
+        nl = NL[pick].sum()
+        cl = SL[pick].sum() / nl
+        cc = SC[pick].sum() / NC[pick].sum()
+        st = cc - cl
+        vals = {}
+        for k, (S, N) in arms_rows.items():
+            ct = S[pick].sum() / N[pick].sum()
+            v = float((cc - ct) / st) if abs(float(st)) > 1e-12 else float('nan')
+            vals[k] = v
+            out[k].append(v)
+        diffs['real_minus_rank8'].append(vals['v1_real'] - vals['v1_rank8'])
+        diffs['real_minus_const'].append(vals['v1_real'] - vals['v1_const'])
+
+    def ci(v):
+        t = torch.tensor(v, dtype=torch.float64)
+        t = t[~torch.isnan(t)].sort().values
+        lo = float(t[max(0, int(0.025 * t.numel()))])
+        hi = float(t[min(t.numel() - 1, int(0.975 * t.numel()))])
+        return [round(lo, 5), round(hi, 5)]
+    return {k: ci(v) for k, v in out.items()}, {k: ci(v) for k, v in diffs.items()}
+
+
 @torch.no_grad()
 def main():
     t0 = time.time()
@@ -302,20 +357,22 @@ def main():
 
     CFG['v1'] = None
     V1P.pop('W', None)
-    cl = ce(ev, seen)
+    cl, SL, NL = ce_rows(ev, seen)
     assert abs(cl - S1683_CE_LIVE) <= 1e-3, (
         f'baseline CE {cl:.5f} disagrees with {S1683_CE_LIVE:.5f} (§1695)')
+    assert float(NL.sum()) > 0, 'no covered support'
     hs = [H[L].mlp.register_forward_hook(mlp_const_hook(K[f'mlp{L}'].to(DEV).float()))
           for L in ALL18]
     hs += [H[L].attn.register_forward_hook(attn_const_hook(K[f'attn{L}'].to(DEV).float()))
            for L in ALL18]
-    cc = ce(ev, seen, hooks=hs)
+    cc, SC, NC = ce_rows(ev, seen, hooks=hs)
     st = cc - cl
-    print(f'WHOLE MODEL v1 FLOOR | the rank-0 arm §1699 owes | CE live {cl:.5f} | stake '
-          f'{st:.4f} | targets: real {S1696_BOTH:.2%}, rank8 {S1698_RANK8:.2%}', flush=True)
+    assert st > 0, f'non-positive stake {st}'
+    print(f'WHOLE MODEL v1 FLOOR | the rank-0 arm §1699 owes, with row-level spread (§1700) | '
+          f'CE live {cl:.5f} | stake {st:.4f} | {NL.numel()} eval rows', flush=True)
 
     prog = compile_stack(fit, ('mlp', 'attn'))
-    arms = {}
+    arms, arms_rows = {}, {}
     for name, mode, rank in (('v1_real', None, D), ('v1_rank8', 'linear', 8),
                              ('v1_const', 'const', 0)):
         CFG['v1'] = None
@@ -323,17 +380,21 @@ def main():
         if mode is not None:
             V1P['W'] = fit_v1(fit, prog, mode, rank)
         CFG['v1'] = mode
-        ct = ce(ev, seen, hooks=install(prog))
+        ct, S, N = ce_rows(ev, seen, hooks=install(prog))
+        arms_rows[name] = (S, N)
         arms[name] = {'mode': mode, 'rank': rank, 'ce': round(ct, 5),
-                      'ceiling': round((cc - ct) / st if st > 1e-6 else float('nan'), 5)}
+                      'ceiling': round((cc - ct) / st, 5), 'ceiling_exact': (cc - ct) / st}
         print(f'  {name:9s} mode {str(mode):7s}: CEILING {arms[name]["ceiling"]:8.2%}', flush=True)
     CFG['v1'] = None
     V1P.pop('W', None)
 
-    real = arms['v1_real']['ceiling']
-    r8 = arms['v1_rank8']['ceiling']
-    const = arms['v1_const']['ceiling']
+    real = arms['v1_real']['ceiling_exact']
+    r8 = arms['v1_rank8']['ceiling_exact']
+    const = arms['v1_const']['ceiling_exact']
     assert abs(const - real) > 1e-9, 'constant v1 identical to real -- the arm is a no-op'
+
+    print('  bootstrapping (2000 draws, ROW-level clusters -- not document-level)...', flush=True)
+    ci_arms, ci_diff = boot_ceilings(SL, NL, SC, NC, arms_rows)
 
     cost_const = real - const
     cost_r8 = real - r8
@@ -341,35 +402,50 @@ def main():
     pb = cost_const >= 0.001
     pc = (abs(real - S1696_BOTH) <= 0.005 and abs(r8 - S1698_RANK8) <= 0.005
           and abs(cl - S1683_CE_LIVE) <= 1e-3)
+    lo, hi = ci_diff['real_minus_const']
+    pd = (lo > 0) or (hi < 0)
 
-    print(f'\n  cost of removing v1 entirely (constant): {cost_const:.2%} | cost at rank 8: '
-          f'{cost_r8:.2%}', flush=True)
+    print(f'\n  cost of removing v1 entirely (constant): {cost_const:.2%}  95% CI '
+          f'[{lo:.2%}, {hi:.2%}]', flush=True)
+    print(f'  cost at rank 8: {cost_r8:.2%}  95% CI '
+          f'[{ci_diff["real_minus_rank8"][0]:.2%}, {ci_diff["real_minus_rank8"][1]:.2%}]',
+          flush=True)
+    for k in ('v1_real', 'v1_rank8', 'v1_const'):
+        print(f'    {k:9s} ceiling {arms[k]["ceiling"]:.2%}  95% CI '
+              f'[{ci_arms[k][0]:.2%}, {ci_arms[k][1]:.2%}]', flush=True)
     print(f'  whole path under 1 point -> no dimensionality claim licensed {pa}', flush=True)
-    print(f'  not literally free {pb} | CONTROLS {pc}', flush=True)
-    print(f'  rank-8 recovers {1 - cost_r8 / cost_const:.1%} of the path\'s contribution'
-          if cost_const > 1e-9 else '  path contributes nothing measurable', flush=True)
+    print(f'  not literally free {pb} | CONTROLS {pc} | path CI excludes zero {pd}', flush=True)
 
     res = {'config': {'sites': ALL18, 'ridge': RIDGE,
                       'program': 'the §1696 best-families 36-site program',
                       'question': "S1699 -- does rank-8 v1's 0.29-point cost mean eight dimensions "
                                   "suffice, or that the whole v1 path contributes little inside a "
-                                  "program that already replaces the write? A constant-v1 arm bounds it.",
+                                  "program that already replaces the write?",
+                      'amendment': 'whole_model_v1_floor_protocol_amendment.json, frozen before first '
+                                   'execution; adds uncertainty only',
+                      'bootstrap_scope': 'ROW-LEVEL cluster bootstrap over the 192 evaluation rows, 2000 '
+                                         'draws, paired. The rowcache carries no per-row document ids, so '
+                                         'this is NOT a source-document bootstrap. Rows are 513-token '
+                                         'census-prefix-deduped chunks, plausibly but not verifiably '
+                                         'distinct documents.',
                       'v1_hybrid_scope': 'covered positions only; uncovered occurrences retain native v1 (§1699)',
-                      'not_the_same_as_S1684': "S1684's 0.7066 nats was v1 against a LIVE write path; "
-                                               "this is v1 against a SUBSTITUTED one",
                       'compilation': 'INTERLEAVED bottom-up (§1669)',
                       'coverage': 'mask pinned to n96_skip80', 'scoring': 'covered positions only',
                       'fit_rows': 'fineweb_n480_skip80.pt', 'eval_rows': 'fineweb_n192_skip7000.pt',
                       's1696_both': S1696_BOTH, 's1698_rank8': S1698_RANK8},
-           'ce_live': round(cl, 5), 'joint_stake': round(st, 5), 'arms': arms,
+           'ce_live': round(cl, 5), 'joint_stake': round(st, 5), 'eval_rows': int(NL.numel()),
+           'arms': {k: {kk: vv for kk, vv in v.items() if kk != 'ceiling_exact'}
+                    for k, v in arms.items()},
+           'ceiling_ci95_rowlevel': ci_arms, 'difference_ci95_rowlevel': ci_diff,
            'cost_of_constant_v1': round(cost_const, 5), 'cost_of_rank8_v1': round(cost_r8, 5),
            'predictions': {'pred_a_whole_path_under_1pt': bool(pa),
                            'pred_b_not_literally_free': bool(pb),
-                           'pred_c_controls_hold': bool(pc)},
+                           'pred_c_controls_hold': bool(pc),
+                           'pred_d_path_ci_excludes_zero': bool(pd)},
            'runtime_s': round(time.time() - t0, 1)}
     json.dump(res, open(OUT, 'w'), indent=1,
               default=lambda o: sorted(o) if isinstance(o, set) else str(o))
-    print(f'\npred_a {pa} | pred_b {pb} | pred_c {pc}', flush=True)
+    print(f'\npred_a {pa} | pred_b {pb} | pred_c {pc} | pred_d {pd}', flush=True)
     print(f'wrote {OUT} ({res["runtime_s"]}s)', flush=True)
     sys.stdout.flush(); sys.stderr.flush(); os._exit(0)
 

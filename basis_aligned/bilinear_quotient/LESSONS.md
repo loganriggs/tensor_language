@@ -708,3 +708,21 @@ rewriting the file.
 - **Related:** LESSONS 25 (a newline-sequenced guard is not a guard) and LESSONS 29 (a passing
   prediction does not mean the code ran) are the same shape -- an operation reporting success
   is not evidence the intended effect happened.
+
+**LESSONS 30 RECURRENCE (same evening, second occurrence) — the mechanism, and why it is a
+COORDINATION problem not a bug to fix alone.** `whole_model_v1_floor` and `whole_model_heldout`
+were both dropped a second time: absent from `queue.txt`, no logs, no `_completed.txt` lines —
+the three-way absence LESSONS 30 names. The cause is now clear and is not a race with the runner
+alone: `queue.txt` is a SHARED file with two writers. The runner pops the first line and rewrites
+the file, and both agents append to it. Any read-modify-write by either party between another's
+append and the rewrite silently discards the other's entries.
+
+- **Why it must not be "fixed" unilaterally:** the obvious repairs (a lock, per-agent queue
+  files, an append-only journal) all change an interface the other agent is actively using. A
+  one-sided change would break their lane, which is a worse failure than the one being fixed.
+  Raised on the board instead.
+- **What IS safe to do alone:** re-append and verify immediately (rule 1), and check the
+  three-way absence before waiting again (rule 2). Both applied.
+- **Cost so far:** two experiments dropped, one 600-second wait on a job that did not exist.
+  Nothing scientific was lost because nothing had run, but the lane sat idle twice, which is the
+  specific failure the loop exists to prevent.

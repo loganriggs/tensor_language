@@ -89,12 +89,21 @@ def gate(path):
                        for n in ast.walk(fn)):
                 fails.append(f'{fn.name}(): called as a value but has no `return <value>`')
 
-    # exactly three DISTINCT registered predictions (LESSONS 19)
-    keys = re.findall(r"'(pred_[A-Za-z0-9_]+)':", s)       # LESSONS 21 fix 1: [A-Za-z]
-    if len(keys) != 3:
-        fails.append(f'expected 3 pred_* keys, found {len(keys)}: {keys}')
-    if len({k.split("_")[1] for k in keys}) != 3:
-        fails.append(f'pred keys not distinct a/b/c: {keys}')
+    # AT LEAST three DISTINCT registered predictions (LESSONS 19).
+    # LESSONS 21 fix 1: [A-Za-z] in the key pattern.
+    # S1700 fix: the rule was `== 3`, which rejected a legitimate FOURTH prediction. Codex's
+    # pre-execution hardening of whole_model_heldout added a pred_d carrying bootstrap
+    # intervals, and my own amended whole_model_v1_floor does the same. Three was a floor
+    # against under-registering, never a ceiling; enforcing it as a ceiling penalised adding
+    # MORE falsifiable content. Distinctness and the a/b/c core are still required.
+    keys = re.findall(r"'(pred_[A-Za-z0-9_]+)':", s)
+    letters = {k.split("_")[1] for k in keys}
+    if len(keys) < 3:
+        fails.append(f'expected at least 3 pred_* keys, found {len(keys)}: {keys}')
+    if len(letters) != len(keys):
+        fails.append(f'pred keys not distinct: {keys}')
+    if not {'a', 'b', 'c'} <= letters:
+        fails.append(f'pred keys must include a, b and c: {sorted(letters)}')
 
     # site consistency (LESSONS 20: forward extent must match the component set)
     st = re.search(r'SITE_STOP = (\d+)', s)
