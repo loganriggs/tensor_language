@@ -37972,3 +37972,49 @@ because its comparisons were all within-run.
 experiment: position-in-sequence distribution, document concentration (do the
 positions cluster in few documents?), and local context entropy. The measurement
 is cheap now that everything is local.
+
+### §1614n — EXPLORATORY NOTE (unregistered, NOT a scored experiment): three obvious position features fail to separate from n
+
+Run ad hoc on CPU after §1614, with **no predictions registered beforehand**, so
+it is recorded as exploration and carries no score. It rules candidates out; it
+establishes nothing.
+
+§1614 left open which property of a class's POSITIONS sets its null. Measured on
+`curated_rows.pt` (999 x 257, target-side, positions >=64), Spearman vs the
+§1614 natural-n null shares over the same 10 classes, 20k-permutation 2-sided p:
+
+```
+feature              rho    p(2-sided)
+n                   .673      .0345
+docs_touched        .673      .0345
+per_doc_mean        .697      .0286
+doc_concentration  -.673      .0362
+pos_mean           -.176      .6320     <- position-in-sequence: NO relationship
+pos_std             .127      .7207     <- spread within a document: NO relationship
+```
+
+**Two things this does establish, both negative.** (1) WHERE in the sequence a
+class occurs is unrelated to its null — both positional features sit at |rho| <
+.18 with p > .63, and every class has pos_mean ~149-170 out of 256 with
+pos_std ~52-56, i.e. the classes are positionally indistinguishable. (2) The
+document-level features are **collinear with n and do not separate from it**:
+docs_touched is numerically identical to n (rho .673), and per_doc_mean's .697 is
+not distinguishable from n's .673 at N=10. Since §1614 showed n is NOT causal
+(equalising it removes 6.1% of the spread), features that merely track n are not
+causal either.
+
+**So the mechanism remains unidentified**, and the three cheapest candidates are
+eliminated. What is left is the actual token/context identity of the positions —
+i.e. the null may be set by what the residual stream looks like at those
+positions, not by any summary statistic of where or how many they are. That would
+require a representational probe, not a counting one.
+
+**Note on p-values:** these are 2-sided; §1614's rho = .6727 at p = .0192 was
+1-sided. The same association, reported both ways, and the difference is the
+sidedness not the data.
+
+**Method flag on myself:** the marker column in the raw output labelled `n` as
+"beats n" through a float comparison of .673 against the stored .6727. Cosmetic in
+a throwaway probe, but exactly the kind of self-flattering artifact that would be
+serious in a scored run. Predictions registered in advance would have made the
+comparison explicit and the bug impossible.
