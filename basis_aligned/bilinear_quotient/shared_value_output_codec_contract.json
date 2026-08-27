@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "contract_id": "bilin18.shared-value-output-codec-fixture.v1",
+  "status": "cpu_joint_interface_fixture_only_not_checkpoint_priced",
+  "scope": "one or more heads across all layers; common S9 fixed by externally supplied canonical QK bytes",
+  "canonicalization": "shared_value_gauge.canonicalize_shared_value_bus",
+  "exact_gauge": "one GL(head_dimension) action shared across depth",
+  "encoding": {
+    "header": "canonical sorted compact JSON",
+    "tensor_order": "V0..V(L-1), O0..O(L-1)",
+    "quantization": "round(canonical_tensor * 2^exponent) to signed little-endian int32",
+    "literal_bits_are_descriptive_only": true
+  },
+  "common_head_permutation": {
+    "canonical_key": "full canonical QK routing bytes, sorted lexicographically",
+    "stored_reference": "SHA256 of the external routing bytes",
+    "accounting": "routing payload is not stored or charged again",
+    "tie_policy": "equal QK keys are ordered by canonical V/O bytes; equal complete heads are indistinguishable",
+    "collision_policy": "distinct routing keys with the same SHA256 digest fail closed",
+    "reason_v_o_cannot_order_heads_alone": "a head permutation is a symmetry only when QK, V, and O move together"
+  },
+  "checkpoint_audit": {
+    "result": "shared_value_output_checkpoint_results.json",
+    "descriptive_bits": 1528849152,
+    "fixed_width_warning": "int32 storage gives identical length at exponents 10, 14, and 18; this is not a rate-distortion frontier",
+    "relative_action_rmse": {"10": 0.008743236078010244, "14": 0.0005430920232427868, "18": 0.00003375492079068174},
+    "promotion_status": "absent pending variable-rate encoding and full operational rectangle"
+  },
+  "variable_rate_fixture": {
+    "implementation": "shared_value_output_variable_codec.py",
+    "integer_stream": "the canonical SVOC1 signed little-endian int32 stream",
+    "compressor": "zlib DEFLATE level 9 with version recorded in every header",
+    "status": "CPU gauge-invariant round-trip and rate-ordering tests pass; checkpoint frontier not yet run",
+    "interpretation_limit": "compressor length is a reproducible descriptive code length, not universal Kolmogorov complexity or a promoted operational price"
+  },
+  "required_tests": [
+    "byte equality under a shared GL gauge away from quantization boundaries",
+    "decoded action approaches canonical action within a quantization bound",
+    "independent per-layer gauges are not treated as equivalent",
+    "rank-deficient shared parent and malformed containers fail closed",
+    "literal bytes are not promoted without held-out, composite, extraction, removal, and OOD gates",
+    "common head permutation plus independent per-head shared GL actions produce identical bundle bytes",
+    "equal-routing heads are canonically ordered by V/O without rejecting a valid symmetry stratum"
+  ]
+}

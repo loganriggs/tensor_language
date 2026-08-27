@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp2-loss-sensitive-shift.rank128.v1",
+  "parent_protocol_id": "bilin18.mlp03.progressive-chain.rank128.v1",
+  "rank": 128,
+  "programs": [
+    {
+      "layer": 0,
+      "family_id": "mlp0.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "quotient_bits": 77982968,
+      "inputs": [
+        "token",
+        "attn0.c_proj",
+        "x0"
+      ]
+    },
+    {
+      "layer": 1,
+      "family_id": "mlp1.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:2e150112e4c294a2ed017665ac41724065c8c473e0241f7073ff9a70aa686e43",
+      "quotient_bits": 81229000,
+      "inputs": [
+        "token",
+        "attn1.c_proj",
+        "mlp0.output"
+      ]
+    },
+    {
+      "layer": 2,
+      "family_id": "mlp2.lin2.svd",
+      "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+      "quotient_bits": 7652856,
+      "inputs": [
+        "attn2.c_proj",
+        "mlp1.output"
+      ]
+    },
+    {
+      "layer": 3,
+      "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+      "program_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "inputs": [
+        "token",
+        "attn3.c_proj",
+        "mlp2.output"
+      ]
+    }
+  ],
+  "projection": {
+    "dimension": 64,
+    "seed": 22031987,
+    "distribution": "iid Rademacher / sqrt(64)",
+    "capture_alpha": 0.0,
+    "comparison_reference": "clean upstream arm",
+    "sign_matrix_hash": "sha256:4563ade76bd1426079ce61ddfddc347a438ad87b5def834ebbd1dbb761dd23fd"
+  },
+  "arms": [
+    {
+      "active_upstream_layers": [],
+      "curve": [
+        {
+          "alpha": 0.0,
+          "ce": 2.94554523229599
+        },
+        {
+          "alpha": 0.125,
+          "ce": 2.9459719830089144
+        },
+        {
+          "alpha": 1.0,
+          "ce": 3.0790748728646173
+        }
+      ],
+      "initial_loss_secant": 0.0034140057033944515,
+      "endpoint_delta_ce": 0.13352964056862726,
+      "endpoint_to_initial_secant_ratio": 39.112307409405446,
+      "covariance_observations": 245760,
+      "projected_covariance_distance_from_clean": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        0
+      ],
+      "curve": [
+        {
+          "alpha": 0.0,
+          "ce": 3.049853342109256
+        },
+        {
+          "alpha": 0.125,
+          "ce": 3.0556663870811462
+        },
+        {
+          "alpha": 1.0,
+          "ce": 3.5588805516560873
+        }
+      ],
+      "initial_loss_secant": 0.04650435977512046,
+      "endpoint_delta_ce": 0.5090272095468311,
+      "endpoint_to_initial_secant_ratio": 10.945795448175538,
+      "covariance_observations": 245760,
+      "projected_covariance_distance_from_clean": 0.41495822771004776
+    },
+    {
+      "active_upstream_layers": [
+        1
+      ],
+      "curve": [
+        {
+          "alpha": 0.0,
+          "ce": 3.312364833884769
+        },
+        {
+          "alpha": 0.125,
+          "ce": 3.3289770166079204
+        },
+        {
+          "alpha": 1.0,
+          "ce": 3.8829958385891383
+        }
+      ],
+      "initial_loss_secant": 0.13289746178521256,
+      "endpoint_delta_ce": 0.5706310047043694,
+      "endpoint_to_initial_secant_ratio": 4.2937690234191015,
+      "covariance_observations": 245760,
+      "projected_covariance_distance_from_clean": 0.2835021636334851
+    },
+    {
+      "active_upstream_layers": [
+        0,
+        1
+      ],
+      "curve": [
+        {
+          "alpha": 0.0,
+          "ce": 3.5352043827374775
+        },
+        {
+          "alpha": 0.125,
+          "ce": 3.547447670830621
+        },
+        {
+          "alpha": 1.0,
+          "ce": 4.263934485117594
+        }
+      ],
+      "initial_loss_secant": 0.09794630474514676,
+      "endpoint_delta_ce": 0.7287301023801165,
+      "endpoint_to_initial_secant_ratio": 7.440097962615839,
+      "covariance_observations": 245760,
+      "projected_covariance_distance_from_clean": 0.3581776812685357
+    }
+  ],
+  "joint_projected_covariance_shift_largest": false,
+  "joint_initial_loss_secant_largest": false,
+  "joint_endpoint_to_initial_ratio_largest": false,
+  "runtime_s": 280.0618770122528
+}

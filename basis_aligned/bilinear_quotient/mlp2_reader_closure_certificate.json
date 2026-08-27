@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "dependency_id": "mlp2.rank128->attn5.head7.product_route",
+  "model": "bilin18",
+  "writer": {
+    "component_id": "mlp2",
+    "family_id": "mlp2.lin2.svd",
+    "rank": 128,
+    "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+    "base_quotient_bits": 7652856,
+    "declared_inputs": [
+      "attn2.c_proj",
+      "mlp1.output"
+    ]
+  },
+  "reader": {
+    "component_id": "head5.7",
+    "layer": 5,
+    "head": 7,
+    "first_crossover": {
+      "layer": 5,
+      "stage": "mlp_input"
+    },
+    "head7_fraction_of_unpatched_margin_removed": 0.5266953636275007,
+    "all_attention_fraction_of_unpatched_margin_removed": 0.685703992253242
+  },
+  "composition_failure": {
+    "isolated_mlp2_delta_ce": 0.13352964056862726,
+    "conditioned_on_mlp0_mlp1_delta_ce": 0.7287301023801165,
+    "conditioned_to_isolated_ratio": 5.457440754553573,
+    "reader_closure_excess_delta_ce": 0.5952004618114892,
+    "same_rows_no_refit": true
+  },
+  "exact_reader_factorization": {
+    "formula": "((q7 k7^T)/128)*((qprime7 kprime7^T)/128) @ ((1-lambda5)*v5_7+lambda5*v1_7)",
+    "route_fraction_of_total_joint_margin": 0.46576939054199396,
+    "payload_fraction_of_total_joint_margin": 0.039524988685032875,
+    "score1_fraction_of_route_effect": 0.5171235687805392,
+    "score2_fraction_of_route_effect": 0.4012449880477141,
+    "query_aggregate_reduction": 0.009339265774925137,
+    "key_aggregate_reduction": 0.007696062030800199,
+    "four_side_reductions": {
+      "q": 0.0051783001631060255,
+      "k": 0.004682212614433273,
+      "qprime": 0.004160965611819112,
+      "kprime": 0.003013849416366926
+    },
+    "all_reconstruction_and_parent_anchor_errors_zero": true
+  },
+  "typed_interface": {
+    "interface_id": "attn5.head7.product_route.v1",
+    "status": "typed_unpriced_interface",
+    "primary_preservation_target": "causally masked K or its action K@payload",
+    "lifted_normal_form": "K=(row_kron(q,qprime) row_kron(k,kprime)^T)/(128^2)",
+    "quotient_symmetry_ids": [
+      "score1_inverse_transpose",
+      "score2_inverse_transpose",
+      "reciprocal_factor_scale"
+    ],
+    "coordinate_sides_are_primary": false,
+    "candidate_contract": {
+      "declared_inputs_only": true,
+      "forbidden_oracles": [
+        "live MLP2 output",
+        "activation cache",
+        "checkpoint side tensors",
+        "future tokens"
+      ],
+      "must_emit": [
+        "causal product kernel or routed payload",
+        "serializable state/constants",
+        "stable object hash",
+        "quotient bits"
+      ],
+      "natural_row_gate": "held-out causal kernel/action error under the exact MLP0+MLP1 parent",
+      "interventional_gates": [
+        "current-query edits with stored-prefix keys fixed",
+        "stored-prefix key edits with current query fixed",
+        "short-local and long-range lag support",
+        "composed next-token CE and head7 route patch anchors"
+      ]
+    },
+    "proof_obligations": [
+      "native and lifted product kernels agree",
+      "kernel/action is invariant under declared factor gauges",
+      "causal mask excludes every future key",
+      "candidate has no live-model oracle",
+      "behavioral state minimality requires a complete prefix/suffix Hankel test, not side covariance",
+      "CE enters MDL only under a declared residual data code and sample count"
+    ]
+  },
+  "temporal_support": {
+    "local_lags": [
+      0,
+      15
+    ],
+    "long_lags": [
+      16,
+      255
+    ],
+    "local_effect_density_over_long": 6.171532070437935,
+    "long_causal_pair_fraction": 0.8791342412451362,
+    "highest_effect_density_band": "lag4_7",
+    "highest_total_effect_band": "lag128_255",
+    "band_nonadditivity_ratio": 1.314230123276699
+  },
+  "compactness_falsifier": {
+    "joint_side_delta_rank90_of_512": 295,
+    "joint_side_delta_entropy_effective_rank": 292.68874260698635,
+    "side_rank90_of_128": {
+      "q": 98,
+      "k": 100,
+      "qprime": 88,
+      "kprime": 93
+    },
+    "generic_rank64_correction_supported": false,
+    "behavioral_hankel_minimality_certified": false
+  },
+  "writer_rank_resolution": {
+    "ranks": [
+      128,
+      256,
+      512,
+      1152
+    ],
+    "quotient_bits": [
+      7652856,
+      15245288,
+      30458544,
+      68571448
+    ],
+    "reader_closure_excess_delta_ce": [
+      0.5952004233996075,
+      0.4424528810713029,
+      0.37539371781879005,
+      0.3530167433950635
+    ],
+    "conditioned_to_isolated_ratio": [
+      5.4574404226724,
+      6.503949071414981,
+      6.971859165883061,
+      7.082858485263253
+    ],
+    "closure_excess_nonincreasing": true,
+    "rank128_closure_excess_fraction_remaining_at_full_rank": 0.5931056657835305,
+    "all_rank_points_bits_vs_closure_pareto_nondominated": true,
+    "writer_rank_fully_eliminates_observed_excess": false,
+    "interpretation": "writer rank helps monotonically but full affine rank leaves a material broad reader dependency; rank and reader-interface preservation are not interchangeable"
+  },
+  "simplicity_accounting": {
+    "reader_closure_status": "unpriced_broad_dependency",
+    "reader_closure_bits": null,
+    "composition_complete_quotient_bits": null,
+    "eligible_for_whole_program_mdl": false,
+    "unexplained_operational_charge": {
+      "metric": "conditioned_minus_isolated_delta_ce",
+      "value": 0.5952004618114892,
+      "nonadditive_warning": "operational CE charge; not convertible to bits and not summable across overlapping readers"
+    },
+    "promotion_rule": "either preserve the certified product-routing interface, price and verify a reader-aware correction, choose another MLP2 frontier point, or retain live MLP2"
+  },
+  "source_artifacts": {
+    "loss": "mlp2_loss_sensitive_shift_results.json",
+    "propagation": "mlp2_downstream_angular_results.json",
+    "heads": "mlp2_layer5_head_patch_results.json",
+    "route_payload": "mlp2_layer5_head7_factor_results.json",
+    "product": "mlp2_layer5_head7_product_factor_results.json",
+    "sides": "mlp2_layer5_head7_qk_side_results.json",
+    "lags": "mlp2_layer5_head7_lag_results.json",
+    "lag_support": "mlp2_layer5_head7_lag_support_analysis.json",
+    "side_rank": "mlp2_layer5_head7_side_rank_results.json",
+    "conditioned_rank_sweep": "mlp2_conditioned_rank_sweep_results.json",
+    "interface_contract": "mlp2_head7_interface_contract.json"
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "family_id": "mlp0.tier2000-ridge.canonical.v1",
+  "join": "exact_program_hash",
+  "points": [
+    {
+      "ridge_rank": 0,
+      "program_hash": "sha256:dc551399929ac56a98fb5a2b30c2cef9b81b5941e45c7430f22abaf3286dffba",
+      "quotient_bits": 73768576,
+      "held_out_ce": 3.087831992573208,
+      "composed_ce": 3.2912855015860663,
+      "extraction_fidelity": 0.8432925554419597,
+      "global_causal_excess_ce": 0.10499794085820513,
+      "median_target_causal_excess_ce": 0.08979329290284865,
+      "code_delta_ce": 0.13437654283311629,
+      "pile_delta_ce": 0.13340337117513013,
+      "synthetic_induction_delta_ce": 1.511005497685185
+    },
+    {
+      "ridge_rank": 32,
+      "program_hash": "sha256:b4be05e9a57d19b5492351f5d997beb8a38dccbd336aee61027c5f6f16db22cd",
+      "quotient_bits": 74830096,
+      "held_out_ce": 3.0638536082373724,
+      "composed_ce": 3.233539402484894,
+      "extraction_fidelity": 0.869701165357148,
+      "global_causal_excess_ce": 0.12026867204242242,
+      "median_target_causal_excess_ce": 0.10294794175431576,
+      "code_delta_ce": 0.11693647596571166,
+      "pile_delta_ce": 0.11057051764594172,
+      "synthetic_induction_delta_ce": 2.517321480241402
+    },
+    {
+      "ridge_rank": 64,
+      "program_hash": "sha256:3df5b06ceb293f3eb7cebe0f7c411a4787458c4bf33b9d30ad889336ca9d0a5a",
+      "quotient_bits": 75881272,
+      "held_out_ce": 3.0575403028064305,
+      "composed_ce": 3.2268669803937278,
+      "extraction_fidelity": 0.876654308087938,
+      "global_causal_excess_ce": 0.12319350242614746,
+      "median_target_causal_excess_ce": 0.1095808995686054,
+      "code_delta_ce": 0.1129802110460072,
+      "pile_delta_ce": 0.10506724039713555,
+      "synthetic_induction_delta_ce": 2.3082303292410713
+    },
+    {
+      "ridge_rank": 128,
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "quotient_bits": 77982968,
+      "held_out_ce": 3.049853342109256,
+      "composed_ce": 3.2189277278052435,
+      "extraction_fidelity": 0.885120358611567,
+      "global_causal_excess_ce": 0.12859412299262152,
+      "median_target_causal_excess_ce": 0.11725444594265233,
+      "code_delta_ce": 0.10814939710828986,
+      "pile_delta_ce": 0.09941644456651488,
+      "synthetic_induction_delta_ce": 2.1128279105696097
+    },
+    {
+      "ridge_rank": 256,
+      "program_hash": "sha256:95fd925d8534f63c94581c9e1f79eac509326254ecc363d856136bc49614cfe4",
+      "quotient_bits": 82199944,
+      "held_out_ce": 3.0419002572695413,
+      "composed_ce": 3.211194070180257,
+      "extraction_fidelity": 0.893879459545931,
+      "global_causal_excess_ce": 0.13643323977788313,
+      "median_target_causal_excess_ce": 0.12918753817531337,
+      "code_delta_ce": 0.10065882364908862,
+      "pile_delta_ce": 0.09232729593912747,
+      "synthetic_induction_delta_ce": 1.9178900824652776
+    },
+    {
+      "ridge_rank": 1152,
+      "program_hash": "sha256:d271c295c80eef7a16d4d6a242fb1d09823f4d18acdfb3791713234e9c602915",
+      "quotient_bits": 111874464,
+      "held_out_ce": 3.034006957213084,
+      "composed_ce": 3.2034037205908032,
+      "extraction_fidelity": 0.9025727792801553,
+      "global_causal_excess_ce": 0.14774028990003796,
+      "median_target_causal_excess_ce": 0.1371285266163631,
+      "code_delta_ce": 0.09394292195638032,
+      "pile_delta_ce": 0.0851341417100695,
+      "synthetic_induction_delta_ce": 1.769206207113922
+    }
+  ],
+  "bit_metric_correlations": {
+    "held_out_ce": {
+      "spearman_rho": -1.0
+    },
+    "composed_ce": {
+      "spearman_rho": -1.0
+    },
+    "extraction_fidelity": {
+      "spearman_rho": 1.0
+    },
+    "global_causal_excess_ce": {
+      "spearman_rho": 1.0
+    },
+    "median_target_causal_excess_ce": {
+      "spearman_rho": 1.0
+    },
+    "code_delta_ce": {
+      "spearman_rho": -1.0
+    },
+    "pile_delta_ce": {
+      "spearman_rho": -1.0
+    },
+    "synthetic_induction_delta_ce": {
+      "spearman_rho": -0.14285714285714285
+    }
+  },
+  "operational_directions": {
+    "lower_is_better": [
+      "code_delta_ce",
+      "composed_ce",
+      "held_out_ce",
+      "pile_delta_ce",
+      "synthetic_induction_delta_ce"
+    ],
+    "higher_is_better": [
+      "extraction_fidelity",
+      "global_causal_excess_ce",
+      "median_target_causal_excess_ce"
+    ]
+  },
+  "operationally_nondominated_ranks": [
+    0,
+    1152
+  ],
+  "interpretation": "canonical bits monotonically improve natural, composed, extraction, and causal metrics, but not synthetic induction; ranks 0 and 1152 form the operational Pareto set under the declared directions"
+}

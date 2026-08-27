@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp3.local-dag-frontier.v1",
+  "status": "preregistered_cpu_scope_no_candidate_artifact_yet",
+  "module": "mlp3",
+  "purpose": "First executable and quotient-priced MLP3 family; legacy input/output projections are structural evidence only because they still execute the checkpoint MLP.",
+  "legacy_evidence": [
+    {
+      "kind": "input_subspace_then_original_mlp",
+      "source": "transition_standin_heldout.py",
+      "source_sha256": "e7c8fb0f942e8fb1bb09529ee0cd6f23b9d57b8f909a08f73f6b056f047da6f7",
+      "result": "transition_standin_heldout_results.json",
+      "result_sha256": "3ad3e454eb359cca71f6f8d78a13fc90ec381d039406e391dbacf7b1ed08f8ff",
+      "observed": {"rank64_fidelity": 0.831, "rank256_fidelity": 0.952},
+      "replacement_eligible": false,
+      "reason": "The projected input is passed through mo.Left, mo.Right, and mo.Down from the original checkpoint."
+    },
+    {
+      "kind": "original_mlp_then_output_projection",
+      "source": "full_ship3.py",
+      "source_sha256": "8f1921add13786c05db27e07ebb643bc19ae83e46a11994c606832e703247c3f",
+      "result": "full_ship3_results.json",
+      "result_sha256": "8d8508b02b800533d515a0fa83b67ecbe7e8cd312266676864feaab3dbcb8b82",
+      "observed": {"rank256_solo_delta_ce": 0.0153, "ship_additions_delta_ce": 0.0799},
+      "replacement_eligible": false,
+      "reason": "The hook computes mo_full = blk.mlp(z) before projecting its output."
+    }
+  ],
+  "family": {
+    "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+    "semantic_id": "mlp3|table[token]+ridge[attn3.c_proj,mlp2]",
+    "formula": "y_hat(t,a3,m2)=table[t]+[a3,m2]@W",
+    "required_runtime_inputs": ["token_id", "attn3.c_proj", "mlp2.output"],
+    "forbidden_runtime_dependencies": ["mlp3.Left", "mlp3.Right", "mlp3.Down", "mlp3.forward", "captured_mlp3.output"],
+    "architecture_rationale": "The exact residual ledger identifies same-block attention and the predecessor MLP as the local writers available at block 3. The token table captures the established lexical component; the affine map tests whether MLP3's matcher-evidence re-encoding is a low-rank local DAG edge.",
+    "table": {"rank": 64, "exception_count": 2000, "exception_rule": "largest fit-row token counts, ties by ascending token id"},
+    "ridge_ranks": [0, 32, 64, 128, 256, 1152],
+    "nesting": "one frozen reduced-rank ridge decomposition in the penalized input-covariance metric; every candidate is an exact prefix without refit",
+    "fit_loss": "table fit first; for its residual minimize ||Y-XW||_F^2+lambda||W||_F^2 at each rank using the truncated SVD of (Xc.T@Xc+lambda*I)^(-1/2) Xc.T@Yc, with lambda=0.01*mean(diag(Xc.T@Xc))",
+    "codec": {
+      "implementation": "tiered_table_codec.py",
+      "source_sha256": "9bdf4d890ab6739e0b946eb22cb070acb9274a0e62b177a2a131d98aab10bfb8",
+      "codec_id": "canonical-tiered-table-affine-svd",
+      "required_gauges": ["table-ridge constant shift", "ridge internal GL", "SVD sign", "exception ordering"],
+      "singular_strata": "reject selected repeated, near-repeated, zero, or nonfinite singular strata rather than claiming canonical bytes",
+      "quantization_selection": "finest power-of-two step whose every required encoded stream fits signed int32; freeze before evaluation",
+      "price_field": "quotient_bits",
+      "not_equivalent_to": "bits_params"
+    }
+  },
+  "data": {
+    "rows_manifest": "fineweb_protocol_rows_manifest.json",
+    "rows_manifest_file_sha256": "18ca658c9efa2a4199616d9cdf9cdb9316045f916542151d294114290373fc8c",
+    "rows_artifact_sha256": "9efb11b2bc3519d826f0442b508909302e976228294ebd52dc2c3988b895566d",
+    "fit_member": "fit_skip80_rows960",
+    "held_out_member": "id_skip7000_rows960",
+    "fit_only_on_fit_member": true,
+    "no_evaluation_or_ood_refit": true,
+    "target_suite": {"path": "target_suite_manifest.json", "suite_id": "bilin18.lexical22.v1", "file_sha256": "1918b617b452dd580b7f0c51a9310ecc267960e191f6db38c683ea8ca617eff9"},
+    "ood_suite": {"path": "ood_suite_manifest.json", "suite_id": "bilin18-ood-v1", "file_sha256": "b229d39a30a4e1ac8215b141ea644596fa07086dc293cf5cbba6b9ae84c09a0a"}
+  },
+  "operational_lanes": {
+    "held_out": "isolated exact-hash substitution on id_skip7000_rows960",
+    "composition": "same exact hashes under canonical all-attention rank32+roster v8",
+    "extraction": "install decoded program output and report optimal-anchor fidelity",
+    "removal": "subtract decoded program minus its saved optimal constant; fixed-seed signed output permutation is the norm-matched control",
+    "ood": ["code", "pile", "synthetic_induction"]
+  },
+  "preregistered_gates": {
+    "artifact": ["all tensors derive only from fit member", "all six streams decode and reproduce their hash", "quotient_bits strictly increase"],
+    "held_out": ["full-rank fidelity >= 0.80", "no adjacent CE increase > 0.01"],
+    "composition": ["full composed CE <= 3.45", "full compounding <= 2.0", "no adjacent CE increase > 0.02"],
+    "causal": ["full extraction fidelity >= 0.75", "full global matched-removal excess CE > 0", "full median lexical22 matched-removal excess CE > 0"],
+    "ood": ["execute every member without refit", "full median delta CE <= 0.30", "full worst delta CE <= 4.50"],
+    "representation_falsifier": "Reject the affine family as MLP3's sufficient representation language if full rank misses any held-out, causal, or OOD gate, even if its isolated CE is favorable. Escalate to an explicitly priced quadratic residual only after that result."
+  },
+  "resource_contract": {
+    "fit_passes": 2,
+    "gpu_batch": 8,
+    "estimated_fit_runtime_minutes": [3, 6],
+    "estimated_fit_peak_gib": [7, 10],
+    "hard_abort_peak_gib": 11,
+    "hard_abort_temperature_c": 82,
+    "gpu_launch_requires": ["append-only AGENT_BOARD claim", "process collision check", "working nvidia-smi telemetry"]
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp2-rmsnorm-tangent.rank128.v1",
+  "parent_protocol_id": "bilin18.mlp03.progressive-chain.rank128.v1",
+  "rank": 128,
+  "programs": [
+    {
+      "layer": 0,
+      "family_id": "mlp0.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "quotient_bits": 77982968,
+      "inputs": [
+        "token",
+        "attn0.c_proj",
+        "x0"
+      ]
+    },
+    {
+      "layer": 1,
+      "family_id": "mlp1.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:2e150112e4c294a2ed017665ac41724065c8c473e0241f7073ff9a70aa686e43",
+      "quotient_bits": 81229000,
+      "inputs": [
+        "token",
+        "attn1.c_proj",
+        "mlp0.output"
+      ]
+    },
+    {
+      "layer": 2,
+      "family_id": "mlp2.lin2.svd",
+      "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+      "quotient_bits": 7652856,
+      "inputs": [
+        "attn2.c_proj",
+        "mlp1.output"
+      ]
+    },
+    {
+      "layer": 3,
+      "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+      "program_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "inputs": [
+        "token",
+        "attn3.c_proj",
+        "mlp2.output"
+      ]
+    }
+  ],
+  "boundary": "layer3 mixed residual before RMSNorm",
+  "arms": [
+    {
+      "active_upstream_layers": [],
+      "observations": 245760,
+      "raw_delta_rms": 213.62075283470628,
+      "radial_energy_fraction": 0.3953634570493551,
+      "tangent_energy_fraction": 0.6046365356588033,
+      "linearized_rmsnorm_tangent_rms": 0.3893630678997895,
+      "exact_rmsnorm_angular_rms": 0.5111010225132941,
+      "exact_to_linearized_angular_ratio": 1.3126592238708075
+    },
+    {
+      "active_upstream_layers": [
+        0
+      ],
+      "observations": 245760,
+      "raw_delta_rms": 184.39509157635868,
+      "radial_energy_fraction": 0.4393976634172026,
+      "tangent_energy_fraction": 0.5606023336043112,
+      "linearized_rmsnorm_tangent_rms": 0.3956197755992439,
+      "exact_rmsnorm_angular_rms": 0.5359938714211699,
+      "exact_to_linearized_angular_ratio": 1.3548207255547373
+    },
+    {
+      "active_upstream_layers": [
+        1
+      ],
+      "observations": 245760,
+      "raw_delta_rms": 172.57733626879937,
+      "radial_energy_fraction": 0.28176756465601965,
+      "tangent_energy_fraction": 0.7182324402016587,
+      "linearized_rmsnorm_tangent_rms": 0.4064112922317044,
+      "exact_rmsnorm_angular_rms": 0.4866182234427648,
+      "exact_to_linearized_angular_ratio": 1.1973540911489549
+    },
+    {
+      "active_upstream_layers": [
+        0,
+        1
+      ],
+      "observations": 245760,
+      "raw_delta_rms": 174.73462637860675,
+      "radial_energy_fraction": 0.34742463044357125,
+      "tangent_energy_fraction": 0.6525753705041232,
+      "linearized_rmsnorm_tangent_rms": 0.40484092061398647,
+      "exact_rmsnorm_angular_rms": 0.4998677084921531,
+      "exact_to_linearized_angular_ratio": 1.2347262419373217
+    }
+  ],
+  "joint_linearized_tangent_rms_largest": false,
+  "joint_exact_angular_rms_largest": false,
+  "joint_exact_to_linearized_ratio_largest": false,
+  "runtime_s": 70.71516871452332
+}

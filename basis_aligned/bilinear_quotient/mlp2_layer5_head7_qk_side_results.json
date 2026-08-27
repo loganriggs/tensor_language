@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp2-layer5-head7-qk-side.rank128.v1",
+  "parent_protocol_id": "bilin18.mlp03.progressive-chain.rank128.v1",
+  "rank": 128,
+  "programs": [
+    {
+      "layer": 0,
+      "family_id": "mlp0.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "quotient_bits": 77982968,
+      "inputs": [
+        "token",
+        "attn0.c_proj",
+        "x0"
+      ]
+    },
+    {
+      "layer": 1,
+      "family_id": "mlp1.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:2e150112e4c294a2ed017665ac41724065c8c473e0241f7073ff9a70aa686e43",
+      "quotient_bits": 81229000,
+      "inputs": [
+        "token",
+        "attn1.c_proj",
+        "mlp0.output"
+      ]
+    },
+    {
+      "layer": 2,
+      "family_id": "mlp2.lin2.svd",
+      "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+      "quotient_bits": 7652856,
+      "inputs": [
+        "attn2.c_proj",
+        "mlp1.output"
+      ]
+    },
+    {
+      "layer": 3,
+      "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+      "program_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "inputs": [
+        "token",
+        "attn3.c_proj",
+        "mlp2.output"
+      ]
+    }
+  ],
+  "layer": 5,
+  "head": 7,
+  "arms": [
+    {
+      "active_upstream_layers": [],
+      "angular_rms_by_patch": {
+        "none": 0.11504487937047693,
+        "q": 0.11449798035449364,
+        "k": 0.11486367645428236,
+        "qprime": 0.11463360628831,
+        "kprime": 0.11507366073086564,
+        "score1": 0.11439478933247235,
+        "score2": 0.11461412887168611,
+        "route7": 0.11441929456088042
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        0
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.15448010291949565,
+        "q": 0.151461165774955,
+        "k": 0.15317328571902766,
+        "qprime": 0.1518476129598487,
+        "kprime": 0.15370264107701437,
+        "score1": 0.15012451075410266,
+        "score2": 0.15091852849570708,
+        "route7": 0.14348717262672286
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        1
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.21129418234559452,
+        "q": 0.20079005208081693,
+        "k": 0.1921501216217343,
+        "qprime": 0.20351087524377495,
+        "kprime": 0.19556852881256798,
+        "score1": 0.18419522152943812,
+        "score2": 0.1888830066686157,
+        "route7": 0.16003476331992197
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        0,
+        1
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.24829699148147366,
+        "q": 0.23261456105359005,
+        "k": 0.22447071814318018,
+        "qprime": 0.23635271876783498,
+        "kprime": 0.2295574885320802,
+        "score1": 0.21228552186568883,
+        "score2": 0.2189704483707206,
+        "route7": 0.17980279659624096
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    }
+  ],
+  "unpatched_joint_margin": 0.03700280913587914,
+  "joint_margin_reduction_by_patch": {
+    "q": 0.0051783001631060255,
+    "k": 0.004682212614433273,
+    "qprime": 0.004160965611819112,
+    "kprime": 0.003013849416366926,
+    "score1": 0.008912508799628432,
+    "score2": 0.006915367433774244,
+    "route7": 0.017234775859560153
+  },
+  "fraction_of_parent_score_effect_by_side": {
+    "q": 0.5810148724141413,
+    "k": 0.5253529303251265,
+    "qprime": 0.6016984132321304,
+    "kprime": 0.43581912967450787
+  },
+  "query_aggregate_reduction": 0.009339265774925137,
+  "key_aggregate_reduction": 0.007696062030800199,
+  "dominant_side": "query",
+  "anchor_errors": {
+    "[]": {
+      "none": 0.0,
+      "score1": 0.0,
+      "score2": 0.0,
+      "route7": 0.0
+    },
+    "[0]": {
+      "none": 0.0,
+      "score1": 0.0,
+      "score2": 0.0,
+      "route7": 0.0
+    },
+    "[1]": {
+      "none": 0.0,
+      "score1": 0.0,
+      "score2": 0.0,
+      "route7": 0.0
+    },
+    "[0, 1]": {
+      "none": 0.0,
+      "score1": 0.0,
+      "score2": 0.0,
+      "route7": 0.0
+    }
+  },
+  "angular_anchors_reproduced": true,
+  "routed_head_reconstruction_gate": true,
+  "one_side_removes_at_least_half_parent_score_effect": true,
+  "dominant_query_or_key_aggregate_at_least_twice_other": false,
+  "at_least_three_side_patches_have_positive_margin_reduction": true,
+  "runtime_s": 125.512690782547
+}

@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp03.progressive-chain.rank128.v1",
+  "rank": 128,
+  "programs": [
+    {
+      "layer": 0,
+      "family_id": "mlp0.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "quotient_bits": 77982968,
+      "inputs": [
+        "token",
+        "attn0.c_proj",
+        "x0"
+      ]
+    },
+    {
+      "layer": 1,
+      "family_id": "mlp1.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:2e150112e4c294a2ed017665ac41724065c8c473e0241f7073ff9a70aa686e43",
+      "quotient_bits": 81229000,
+      "inputs": [
+        "token",
+        "attn1.c_proj",
+        "mlp0.output"
+      ]
+    },
+    {
+      "layer": 2,
+      "family_id": "mlp2.lin2.svd",
+      "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+      "quotient_bits": 7652856,
+      "inputs": [
+        "attn2.c_proj",
+        "mlp1.output"
+      ]
+    },
+    {
+      "layer": 3,
+      "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+      "program_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "inputs": [
+        "token",
+        "attn3.c_proj",
+        "mlp2.output"
+      ]
+    }
+  ],
+  "conditional_program_bits_sum": 247374872,
+  "arms": [
+    {
+      "active_layers": [],
+      "ce": 2.94554523229599,
+      "delta_ce": 0.0
+    },
+    {
+      "active_layers": [
+        0
+      ],
+      "ce": 3.049853342109256,
+      "delta_ce": 0.1043081098132661
+    },
+    {
+      "active_layers": [
+        0,
+        1
+      ],
+      "ce": 3.5352043827374775,
+      "delta_ce": 0.5896591504414874
+    },
+    {
+      "active_layers": [
+        0,
+        1,
+        2
+      ],
+      "ce": 4.26393444803026,
+      "delta_ce": 1.3183892157342698
+    },
+    {
+      "active_layers": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "ce": 4.258728914790684,
+      "delta_ce": 1.3131836824946936
+    }
+  ],
+  "full_chain_compounding": 1.8252072460108797,
+  "pred_full_chain_ce_at_most_4_25": false,
+  "pred_full_chain_compounding_at_most_2_0": true,
+  "pred_every_prefix_ce_finite": true,
+  "runtime_s": 158.4536154270172
+}

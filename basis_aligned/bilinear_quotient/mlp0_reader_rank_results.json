@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp0-immediate-reader-rank.v1",
+  "model_width": 1152,
+  "reader_shapes": {
+    "block1.attn.c_q": [
+      1152,
+      1152
+    ],
+    "block1.attn.c_k": [
+      1152,
+      1152
+    ],
+    "block1.attn.c_q2": [
+      1152,
+      1152
+    ],
+    "block1.attn.c_k2": [
+      1152,
+      1152
+    ],
+    "block1.attn.c_v": [
+      1152,
+      1152
+    ],
+    "block1.mlp.Left": [
+      4608,
+      1152
+    ],
+    "block1.mlp.Right": [
+      4608,
+      1152
+    ]
+  },
+  "reader_stack": {
+    "rank": 1152,
+    "nullity": 0,
+    "relative_rank_tolerance": 1e-10,
+    "minimum_eigenvalue": 335.8219335910658,
+    "maximum_eigenvalue": 1877.4311930569197,
+    "condition_number": 5.590555604813738,
+    "effective_rank_by_energy": {
+      "0.9": 969,
+      "0.99": 1131,
+      "0.999": 1150
+    },
+    "observable_projector_is_identity": true
+  },
+  "mlp0_down": {
+    "shape": [
+      1152,
+      4608
+    ],
+    "rank": 1152,
+    "zero_columns": 0,
+    "exact_duplicate_column_count": 0,
+    "minimum_relative_singular_value": 0.1484368992856922
+  },
+  "interpretation": {
+    "nontrivial_exact_immediate_reader_clusters_possible": false,
+    "approximate_clustering_still_open": true,
+    "full_network_equivalence_claimed": false
+  },
+  "runtime_s": 2.8127095699310303
+}

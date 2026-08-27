@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "family_id": "mlp0.tier2000-ridge.canonical.v1",
+  "protocol": {
+    "rows_artifact": "fineweb_protocol_rows.pt",
+    "member": "id_skip7000_rows960",
+    "rows": 960,
+    "sequence_length": 256,
+    "scored_position_minimum": 64,
+    "no_evaluation_refit": true
+  },
+  "artifact_sha256": "058494a5c64b2ba9eba176228f6f2da7196cae8cac49db77f8ba3c2279a8ddd4",
+  "codec_source_sha256": "9bdf4d890ab6739e0b946eb22cb070acb9274a0e62b177a2a131d98aab10bfb8",
+  "clean_ce": 2.94554523229599,
+  "optimal_constant_ce": 3.8535223987367417,
+  "anchor_delta_ce": 0.9079771664407517,
+  "points": [
+    {
+      "ridge_rank": 0,
+      "quotient_bits": 73768576,
+      "program_hash": "sha256:dc551399929ac56a98fb5a2b30c2cef9b81b5941e45c7430f22abaf3286dffba",
+      "ce": 3.087831992573208,
+      "delta_ce": 0.14228676027721798,
+      "fidelity": 0.8432925787825936
+    },
+    {
+      "ridge_rank": 32,
+      "quotient_bits": 74830096,
+      "program_hash": "sha256:b4be05e9a57d19b5492351f5d997beb8a38dccbd336aee61027c5f6f16db22cd",
+      "ce": 3.0638536082373724,
+      "delta_ce": 0.11830837594138233,
+      "fidelity": 0.8697011551456209
+    },
+    {
+      "ridge_rank": 64,
+      "quotient_bits": 75881272,
+      "program_hash": "sha256:3df5b06ceb293f3eb7cebe0f7c411a4787458c4bf33b9d30ad889336ca9d0a5a",
+      "ce": 3.0575403028064305,
+      "delta_ce": 0.11199507051044044,
+      "fidelity": 0.8766543095467275
+    },
+    {
+      "ridge_rank": 128,
+      "quotient_bits": 77982968,
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "ce": 3.049853342109256,
+      "delta_ce": 0.1043081098132661,
+      "fidelity": 0.8851203381885127
+    },
+    {
+      "ridge_rank": 256,
+      "quotient_bits": 82199944,
+      "program_hash": "sha256:95fd925d8534f63c94581c9e1f79eac509326254ecc363d856136bc49614cfe4",
+      "ce": 3.0419002572695413,
+      "delta_ce": 0.0963550249735512,
+      "fidelity": 0.8938794624635105
+    },
+    {
+      "ridge_rank": 1152,
+      "quotient_bits": 111874464,
+      "program_hash": "sha256:d271c295c80eef7a16d4d6a242fb1d09823f4d18acdfb3791713234e9c602915",
+      "ce": 3.034006957213084,
+      "delta_ce": 0.08846172491709403,
+      "fidelity": 0.9025727428104147
+    }
+  ],
+  "pred_rank0_fidelity_at_least_0_80": true,
+  "pred_full_fidelity_at_least_0_87": true,
+  "pred_no_downward_step_over_0_01": true,
+  "runtime_s": 159.60622882843018
+}

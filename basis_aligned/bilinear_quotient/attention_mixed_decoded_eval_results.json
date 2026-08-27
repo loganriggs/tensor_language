@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "protocol_sha256": "42125d6711191ecf0a82b696e725d4c2e6e4fc346ea13f5c632968a73c34d211",
+  "mixed_container_sha256": "d760d12b8c180c7719aabfd8dbaf134f72d819308a790e1da26bede79684c22c",
+  "evaluation_member": "replication_skip15000_rows960",
+  "scores": {
+    "clean_native_attention_ce": 3.132441911432478,
+    "canonical_rank32_ce": 3.273997253841824,
+    "semantic_sequential_ce": 3.2615545908610026,
+    "decoded_mixed_ce": 3.261600082450443
+  },
+  "decoded_minus_semantic_ce": 4.549158944033849e-05,
+  "decoded_improvement_over_canonical_ce": 0.012397171391381079,
+  "semantic_improvement_over_canonical_ce": 0.012442662980821417,
+  "replay_gates": {
+    "canonical": true,
+    "semantic": true
+  },
+  "promotion_gates": {
+    "decoded_cost": true,
+    "decoded_improves_canonical": true,
+    "replays": true
+  },
+  "decoded_evaluation_passes": true,
+  "quotient_bits": 290859424,
+  "descriptive_container_bits": 290859424,
+  "isotropic_l11h3_failure_retained": true,
+  "missing_operational_lanes": [
+    "extraction",
+    "selective_removal",
+    "ood"
+  ],
+  "runtime_s": 50.49638843536377
+}

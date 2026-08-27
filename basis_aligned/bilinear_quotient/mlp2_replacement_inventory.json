@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "object_id": "mlp2",
+  "family_id": "mlp2.lin2.svd",
+  "candidate_count": 8,
+  "coverage": {
+    "quotient_price": 8,
+    "held_out": 8,
+    "composite": 8,
+    "extraction": 8,
+    "removal": 8,
+    "ood": 8
+  },
+  "protocol": {
+    "heldout_member": "fineweb id_skip7000_rows960 positions>=64",
+    "ood_suite_id": "bilin18-ood-v1",
+    "removal_null": "Gaussian QR / Haar Grassmann",
+    "removal_control_seeds": [
+      20260827,
+      20260828,
+      20260829,
+      20260830,
+      20260831,
+      20260832,
+      20260833
+    ]
+  },
+  "interpretation": {
+    "comparison_scope": "within this frozen family and protocol only",
+    "price_definition": "exact canonical affine-SVD serialized quotient bits",
+    "full_rank_causal_warning": "At rank 1152 the candidate and Haar control both span the full output space, so matched-subspace excess is geometrically forced to zero and cannot measure specificity.",
+    "causal_selection_rule": "Use non-full ranks for matched-subspace specificity; retain aligned damage separately at full rank."
+  },
+  "selection_summary": {
+    "smallest_rank_meeting_frozen_operational_bars": 128,
+    "full_rank_matched_excess_identifiable": false,
+    "highest_rank_with_identifiable_matched_excess": 512
+  },
+  "candidates": [
+    {
+      "candidate_id": "mlp2.canonical.affine-svd-r8",
+      "rank": 8,
+      "program_hash": "sha256:0d0095dc0d6cb138f9a722e065188bc2b704d2636731c7b6a3ffedb3a7ee7695",
+      "quotient_bits": 526992,
+      "held_out": {
+        "ce": 3.4737405750486587,
+        "delta_ce": 0.5281953427526687,
+        "fidelity": 0.2724128743954648
+      },
+      "composite": {
+        "ce": 3.916455215877957,
+        "delta_ce": 0.9709099835819668,
+        "compounding_factor": 1.406934253835251
+      },
+      "extraction": {
+        "global_retained_fraction": 0.2724500917007709,
+        "median_target_retained_fraction": 0.3054436625471471
+      },
+      "removal": {
+        "aligned_damage_ce": 0.00926423337724458,
+        "control_median_damage_ce": 0.0002115183406403709,
+        "global_excess_damage_ce": 0.009052715036604209,
+        "global_superiority_fraction": 1.0,
+        "median_target_excess_damage_ce": 0.003230533872022656,
+        "median_target_superiority_fraction": 1.0
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.35593867831759995,
+        "worst_member_delta_ce": 2.997293565538194,
+        "per_member_delta_ce": {
+          "code": 0.20174814860026036,
+          "pile": 0.35593867831759995,
+          "synthetic_induction": 2.997293565538194
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp2.canonical.affine-svd-r16",
+      "rank": 16,
+      "program_hash": "sha256:aeff372518f5807ef402e2dd48fa7e99a434fe3849739f159d763299326bfc8e",
+      "quotient_bits": 1002896,
+      "held_out": {
+        "ce": 3.408744039800432,
+        "delta_ce": 0.46319880750444176,
+        "fidelity": 0.3619453606325792
+      },
+      "composite": {
+        "ce": 3.7518385741445752,
+        "delta_ce": 0.8062933418485851,
+        "compounding_factor": 1.2898783251285948
+      },
+      "extraction": {
+        "global_retained_fraction": 0.361977998200617,
+        "median_target_retained_fraction": 0.3811303742538915
+      },
+      "removal": {
+        "aligned_damage_ce": 0.014085794819725717,
+        "control_median_damage_ce": 0.00035984516143772183,
+        "global_excess_damage_ce": 0.013725949658287995,
+        "global_superiority_fraction": 1.0,
+        "median_target_excess_damage_ce": 0.010699774015551888,
+        "median_target_superiority_fraction": 1.0
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.31255786471896707,
+        "worst_member_delta_ce": 2.494152160321594,
+        "per_member_delta_ce": {
+          "code": 0.18136316935221375,
+          "pile": 0.31255786471896707,
+          "synthetic_induction": 2.494152160321594
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp2.canonical.affine-svd-r32",
+      "rank": 32,
+      "program_hash": "sha256:3e5ad656fe7f1699eaa34a395ca35a5d581e25c8f95dfc0200e9c732fcc438b4",
+      "quotient_bits": 1953200,
+      "held_out": {
+        "ce": 3.2983578695191276,
+        "delta_ce": 0.3528126372231375,
+        "fidelity": 0.5140019007809753
+      },
+      "composite": {
+        "ce": 3.628328201505873,
+        "delta_ce": 0.682782969209883,
+        "compounding_factor": 1.3265484661041909
+      },
+      "extraction": {
+        "global_retained_fraction": 0.5140267604012191,
+        "median_target_retained_fraction": 0.5171324401091808
+      },
+      "removal": {
+        "aligned_damage_ce": 0.0224692609575059,
+        "control_median_damage_ce": 0.0008089886771305288,
+        "global_excess_damage_ce": 0.02166027228037537,
+        "global_superiority_fraction": 1.0,
+        "median_target_excess_damage_ce": 0.018894843188766774,
+        "median_target_superiority_fraction": 1.0
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.23889801025390645,
+        "worst_member_delta_ce": 1.8276158182457012,
+        "per_member_delta_ce": {
+          "code": 0.15456234402126734,
+          "pile": 0.23889801025390645,
+          "synthetic_induction": 1.8276158182457012
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp2.canonical.affine-svd-r64",
+      "rank": 64,
+      "program_hash": "sha256:8f358114d606ea2a4d245ebd9f7d7de915cfbc5ca75bd3ee99e10f3fbc9cc49c",
+      "quotient_bits": 3853616,
+      "held_out": {
+        "ce": 3.173113845454322,
+        "delta_ce": 0.22756861315833188,
+        "fidelity": 0.686525079409469
+      },
+      "composite": {
+        "ce": 3.4901840885480246,
+        "delta_ce": 0.5446388562520346,
+        "compounding_factor": 1.398437710514388
+      },
+      "extraction": {
+        "global_retained_fraction": 0.6865411141789349,
+        "median_target_retained_fraction": 0.6838141021907937
+      },
+      "removal": {
+        "aligned_damage_ce": 0.0376667870415579,
+        "control_median_damage_ce": 0.001610546641879651,
+        "global_excess_damage_ce": 0.03605624039967825,
+        "global_superiority_fraction": 1.0,
+        "median_target_excess_damage_ce": 0.032225786094139286,
+        "median_target_superiority_fraction": 1.0
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.16276356167263462,
+        "worst_member_delta_ce": 1.5868650276951057,
+        "per_member_delta_ce": {
+          "code": 0.1256856960720487,
+          "pile": 0.16276356167263462,
+          "synthetic_induction": 1.5868650276951057
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp2.canonical.affine-svd-r128",
+      "rank": 128,
+      "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+      "quotient_bits": 7652856,
+      "held_out": {
+        "ce": 3.079074874189165,
+        "delta_ce": 0.13352964189317484,
+        "fidelity": 0.8160634135436683
+      },
+      "composite": {
+        "ce": 3.358390669027964,
+        "delta_ce": 0.41284543673197405,
+        "compounding_factor": 1.3974703671956634
+      },
+      "extraction": {
+        "global_retained_fraction": 0.8160728222094544,
+        "median_target_retained_fraction": 0.8083709740662435
+      },
+      "removal": {
+        "aligned_damage_ce": 0.07216310236189072,
+        "control_median_damage_ce": 0.0035269392861261295,
+        "global_excess_damage_ce": 0.06863616307576459,
+        "global_superiority_fraction": 1.0,
+        "median_target_excess_damage_ce": 0.06195100054950309,
+        "median_target_superiority_fraction": 1.0
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.10375883314344625,
+        "worst_member_delta_ce": 1.189582287016369,
+        "per_member_delta_ce": {
+          "code": 0.09406879001193591,
+          "pile": 0.10375883314344625,
+          "synthetic_induction": 1.189582287016369
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp2.canonical.affine-svd-r256",
+      "rank": 256,
+      "program_hash": "sha256:eeed0e3b05543f576716e59f0901cd82b584ebfda0e81c8f2374f3617f9ee2b6",
+      "quotient_bits": 15245288,
+      "held_out": {
+        "ce": 3.0259334908591375,
+        "delta_ce": 0.08038825856314746,
+        "fidelity": 0.8892654719833402
+      },
+      "composite": {
+        "ce": 3.259684465991126,
+        "delta_ce": 0.3141392336951361,
+        "compounding_factor": 1.296585061474292
+      },
+      "extraction": {
+        "global_retained_fraction": 0.8892711362407083,
+        "median_target_retained_fraction": 0.8754935713174157
+      },
+      "removal": {
+        "aligned_damage_ce": 0.1890860146946376,
+        "control_median_damage_ce": 0.008804146448770922,
+        "global_excess_damage_ce": 0.18028186824586667,
+        "global_superiority_fraction": 1.0,
+        "median_target_excess_damage_ce": 0.1787095366734588,
+        "median_target_superiority_fraction": 1.0
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.07440209282769095,
+        "worst_member_delta_ce": 0.6992237232349536,
+        "per_member_delta_ce": {
+          "code": 0.07440209282769095,
+          "pile": 0.06817198859320728,
+          "synthetic_induction": 0.6992237232349536
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp2.canonical.affine-svd-r512",
+      "rank": 512,
+      "program_hash": "sha256:d3a2aa742b312dc8cf7bef8f9c3162034e442a57010d5bf3ae887ee4d32496a9",
+      "quotient_bits": 30458544,
+      "held_out": {
+        "ce": 3.008405676152971,
+        "delta_ce": 0.06286044385698109,
+        "fidelity": 0.9134099717317224
+      },
+      "composite": {
+        "ce": 3.217612875832452,
+        "delta_ce": 0.27206764353646173,
+        "compounding_factor": 1.2105119739378682
+      },
+      "extraction": {
+        "global_retained_fraction": 0.9134144009573163,
+        "median_target_retained_fraction": 0.9023699442724862
+      },
+      "removal": {
+        "aligned_damage_ce": 0.4554587920506794,
+        "control_median_damage_ce": 0.03042263189951555,
+        "global_excess_damage_ce": 0.42503616015116386,
+        "global_superiority_fraction": 1.0,
+        "median_target_excess_damage_ce": 0.39119171659947427,
+        "median_target_superiority_fraction": 1.0
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.06354105631510443,
+        "worst_member_delta_ce": 0.503106876756779,
+        "per_member_delta_ce": {
+          "code": 0.06354105631510443,
+          "pile": 0.0557219526502819,
+          "synthetic_induction": 0.503106876756779
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp2.canonical.affine-svd-r1152",
+      "rank": 1152,
+      "program_hash": "sha256:e00c534a536e2349546b35ab92ce3450dd09abe6bc5ed3ea15e54128192619fd",
+      "quotient_bits": 68571448,
+      "held_out": {
+        "ce": 3.0035799119207596,
+        "delta_ce": 0.05803467962476949,
+        "fidelity": 0.9200574440631931
+      },
+      "composite": {
+        "ce": 3.205765644709269,
+        "delta_ce": 0.260220412413279,
+        "compounding_factor": 1.1832049735123202
+      },
+      "extraction": {
+        "global_retained_fraction": 0.9200615332593959,
+        "median_target_retained_fraction": 0.9115588543107552
+      },
+      "removal": {
+        "aligned_damage_ce": 0.7283108141687182,
+        "control_median_damage_ce": 0.7283108141687182,
+        "global_excess_damage_ce": 0.0,
+        "global_superiority_fraction": 0.14285714285714285,
+        "median_target_excess_damage_ce": 0.0,
+        "median_target_superiority_fraction": 0.0
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.06012698703342023,
+        "worst_member_delta_ce": 0.3808006068638392,
+        "per_member_delta_ce": {
+          "code": 0.06012698703342023,
+          "pile": 0.05267685784233933,
+          "synthetic_induction": 0.3808006068638392
+        }
+      }
+    }
+  ]
+}

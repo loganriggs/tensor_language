@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp2-composed-moment-audit.rank128.v1",
+  "parent_protocol_id": "bilin18.mlp03.progressive-chain.rank128.v1",
+  "rank": 128,
+  "programs": [
+    {
+      "layer": 0,
+      "family_id": "mlp0.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "quotient_bits": 77982968,
+      "inputs": [
+        "token",
+        "attn0.c_proj",
+        "x0"
+      ]
+    },
+    {
+      "layer": 1,
+      "family_id": "mlp1.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:2e150112e4c294a2ed017665ac41724065c8c473e0241f7073ff9a70aa686e43",
+      "quotient_bits": 81229000,
+      "inputs": [
+        "token",
+        "attn1.c_proj",
+        "mlp0.output"
+      ]
+    },
+    {
+      "layer": 2,
+      "family_id": "mlp2.lin2.svd",
+      "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+      "quotient_bits": 7652856,
+      "inputs": [
+        "attn2.c_proj",
+        "mlp1.output"
+      ]
+    },
+    {
+      "layer": 3,
+      "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+      "program_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "inputs": [
+        "token",
+        "attn3.c_proj",
+        "mlp2.output"
+      ]
+    }
+  ],
+  "arms": [
+    {
+      "active_upstream_layers": [],
+      "observations": 245760,
+      "input_mean_displacement_rms": 9.667526774674906,
+      "attn2_mean_displacement_rms": 13.070452814613008,
+      "mlp1_mean_displacement_rms": 4.010662177133254,
+      "program_residual_rms": 372.0198137095657,
+      "program_r2_about_fit_output_center": 0.29035141564793143,
+      "bias_vector_l2": 326.96841395207974,
+      "bias_removable_residual_energy_fraction": 0.00067054353602836,
+      "bias_corrected_residual_rms": 371.8950650530289,
+      "bias_corrected_r2_about_fit_output_center": 0.2908272659190204
+    },
+    {
+      "active_upstream_layers": [
+        0
+      ],
+      "observations": 245760,
+      "input_mean_displacement_rms": 23.57216200081734,
+      "attn2_mean_displacement_rms": 29.227029006288372,
+      "mlp1_mean_displacement_rms": 16.033540415364655,
+      "program_residual_rms": 321.1234237323381,
+      "program_r2_about_fit_output_center": 0.29544962973740974,
+      "bias_vector_l2": 835.862083762391,
+      "bias_removable_residual_energy_fraction": 0.0058812927891711934,
+      "bias_corrected_residual_rms": 320.17772075459413,
+      "bias_corrected_r2_about_fit_output_center": 0.29959329674964297
+    },
+    {
+      "active_upstream_layers": [
+        1
+      ],
+      "observations": 245760,
+      "input_mean_displacement_rms": 30.527889752098645,
+      "attn2_mean_displacement_rms": 43.084332573465346,
+      "mlp1_mean_displacement_rms": 2.764849386786229,
+      "program_residual_rms": 300.5428448628843,
+      "program_r2_about_fit_output_center": 0.28451263587365105,
+      "bias_vector_l2": 1593.9718491804583,
+      "bias_removable_residual_energy_fraction": 0.024417209482704687,
+      "bias_corrected_residual_rms": 296.8509604086123,
+      "bias_corrected_r2_about_fit_output_center": 0.3019828407257523
+    },
+    {
+      "active_upstream_layers": [
+        0,
+        1
+      ],
+      "observations": 245760,
+      "input_mean_displacement_rms": 13.590109697486326,
+      "attn2_mean_displacement_rms": 16.987166509972894,
+      "mlp1_mean_displacement_rms": 8.989901953963624,
+      "program_residual_rms": 304.2997575058914,
+      "program_r2_about_fit_output_center": 0.3024149683670657,
+      "bias_vector_l2": 1590.325051370924,
+      "bias_removable_residual_energy_fraction": 0.023709156790575454,
+      "bias_corrected_residual_rms": 300.67077310441255,
+      "bias_corrected_r2_about_fit_output_center": 0.31895412125680955
+    }
+  ],
+  "joint_input_mean_shift_largest": false,
+  "joint_program_residual_rms_largest": false,
+  "joint_bias_removable_fraction_at_least_0_1": false,
+  "runtime_s": 126.1956160068512
+}

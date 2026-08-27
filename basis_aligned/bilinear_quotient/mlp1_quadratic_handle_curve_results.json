@@ -1,0 +1,1229 @@
+{
+  "schema_version": 1,
+  "family_id": "mlp1.tier2000-fullridge+exact-bilinear-residual.known-gauge.v1",
+  "target_suite_id": "bilin18.lexical22.v1",
+  "target_manifest_hash": "sha256:3de872742affe70bb57d7a6ace28ec26f8e4a744787d11825260e30a84f20461",
+  "artifact_sha256": "da9e3455807aa66065c876bcf548186e5844129c478b01af3f2701a6df458c1c",
+  "protocol": {
+    "rows_artifact": "fineweb_protocol_rows.pt",
+    "member": "id_skip7000_rows960",
+    "rows": 960,
+    "sequence_length": 256,
+    "scored_position_minimum": 64,
+    "no_refit": true,
+    "random_control_seed": 20260827,
+    "removal_signal_center": "saved_optimal_mlp1_constant",
+    "matched_control": "fixed_signed_output_permutation"
+  },
+  "clean": {
+    "global_ce": 2.94554523229599,
+    "target_ce": {
+      "digits": 3.4230735150844747,
+      "the": 1.4089354508635894,
+      "is": 1.7132305974326227,
+      "and": 2.2007625803034356,
+      "comma": 1.3247100317959293,
+      "colon": 1.334263025002705,
+      "close_quote": 2.130673247295738,
+      "dollar": 1.3315297272311497,
+      "said": 2.037496883224583,
+      "months": 3.715821628009572,
+      "question": 1.509728084376791,
+      "close_paren": 1.1354448705384828,
+      "open_quote": 2.1718041722270693,
+      "newline": 0.908690766711443,
+      "pronouns": 2.391162893004205,
+      "however": 4.683151080058171,
+      "open_paren": 3.195413255283975,
+      "hyphen": 1.3754690449242166,
+      "days": 3.5371893150241753,
+      "titles": 6.072659329934553,
+      "about": 2.8095773145086786,
+      "ordinals": 3.586367581039667
+    },
+    "target_counts": {
+      "digits": 5143,
+      "the": 8145,
+      "is": 3023,
+      "and": 4700,
+      "comma": 7136,
+      "colon": 888,
+      "close_quote": 596,
+      "dollar": 146,
+      "said": 396,
+      "months": 170,
+      "question": 239,
+      "close_paren": 693,
+      "open_quote": 601,
+      "newline": 3555,
+      "pronouns": 919,
+      "however": 52,
+      "open_paren": 702,
+      "hyphen": 1784,
+      "days": 76,
+      "titles": 22,
+      "about": 349,
+      "ordinals": 496
+    }
+  },
+  "optimal_constant_anchor": {
+    "global_ce": 10.198817814721002,
+    "target_ce": {
+      "digits": 12.839865248374338,
+      "the": 6.495149255311145,
+      "is": 5.757114111332163,
+      "and": 4.155291097925065,
+      "comma": 3.751388937903092,
+      "colon": 7.257578639833777,
+      "close_quote": 9.444365350192026,
+      "dollar": 12.019231280235395,
+      "said": 8.78476071357727,
+      "months": 11.436260888155768,
+      "question": 11.605806861462453,
+      "close_paren": 5.722948131107149,
+      "open_quote": 9.501561762290866,
+      "newline": 1.5408986875611854,
+      "pronouns": 10.764378651441506,
+      "however": 10.429165225762587,
+      "open_paren": 6.720519843264523,
+      "hyphen": 2.5419382676816307,
+      "days": 12.837401214398836,
+      "titles": 13.166014888069846,
+      "about": 11.089858918613555,
+      "ordinals": 9.682894055881809
+    },
+    "target_counts": {
+      "digits": 5143,
+      "the": 8145,
+      "is": 3023,
+      "and": 4700,
+      "comma": 7136,
+      "colon": 888,
+      "close_quote": 596,
+      "dollar": 146,
+      "said": 396,
+      "months": 170,
+      "question": 239,
+      "close_paren": 693,
+      "open_quote": 601,
+      "newline": 3555,
+      "pronouns": 919,
+      "however": 52,
+      "open_paren": 702,
+      "hyphen": 1784,
+      "days": 76,
+      "titles": 22,
+      "about": 349,
+      "ordinals": 496
+    }
+  },
+  "linear_full_global_excess_damage_ce": 0.9226192063755456,
+  "linear_full_median_target_excess_damage_ce": 0.9247405956435724,
+  "points": [
+    {
+      "program_hash": "sha256:4b71a1e3e24a9637f615df3bed874e9d45fb8fe5f8c5c9aa13756deba7c3b803",
+      "extraction": {
+        "global_retained_fraction": 0.9689896236186013,
+        "per_target": {
+          "digits": {
+            "retained_fraction": 0.9822494874726799,
+            "selectivity": 1.0136842165600917
+          },
+          "the": {
+            "retained_fraction": 0.9827636944496161,
+            "selectivity": 1.0142148795975512
+          },
+          "is": {
+            "retained_fraction": 0.9673207566291372,
+            "selectivity": 0.9982777246022182
+          },
+          "and": {
+            "retained_fraction": 0.9281457790894069,
+            "selectivity": 0.9578490382831274
+          },
+          "comma": {
+            "retained_fraction": 0.9429849233555546,
+            "selectivity": 0.9731630766427255
+          },
+          "colon": {
+            "retained_fraction": 0.9630199452426332,
+            "selectivity": 0.9938392752301363
+          },
+          "close_quote": {
+            "retained_fraction": 0.9699724591222146,
+            "selectivity": 1.0010142889868552
+          },
+          "dollar": {
+            "retained_fraction": 0.9652997577090602,
+            "selectivity": 0.996192048067799
+          },
+          "said": {
+            "retained_fraction": 0.9820373993141382,
+            "selectivity": 1.0134653409876684
+          },
+          "months": {
+            "retained_fraction": 0.96559116998517,
+            "selectivity": 0.9964927863512717
+          },
+          "question": {
+            "retained_fraction": 0.9658351502647694,
+            "selectivity": 0.9967445746817682
+          },
+          "close_paren": {
+            "retained_fraction": 0.9629053253290011,
+            "selectivity": 0.9937209871588935
+          },
+          "open_quote": {
+            "retained_fraction": 0.9705082668944035,
+            "selectivity": 1.001567244105392
+          },
+          "newline": {
+            "retained_fraction": 0.874220106161238,
+            "selectivity": 0.9021975930934582
+          },
+          "pronouns": {
+            "retained_fraction": 0.9833326659192134,
+            "selectivity": 1.0148020597445093
+          },
+          "however": {
+            "retained_fraction": 0.9524245926138525,
+            "selectivity": 0.9829048417021348
+          },
+          "open_paren": {
+            "retained_fraction": 0.9549765223783087,
+            "selectivity": 0.9855384403519596
+          },
+          "hyphen": {
+            "retained_fraction": 0.8150697204237829,
+            "selectivity": 0.8411542296809961
+          },
+          "days": {
+            "retained_fraction": 0.9657349532129864,
+            "selectivity": 0.9966411710442671
+          },
+          "titles": {
+            "retained_fraction": 0.984290320770797,
+            "selectivity": 1.0157903622280873
+          },
+          "about": {
+            "retained_fraction": 0.9694737783646157,
+            "selectivity": 1.000499649051149
+          },
+          "ordinals": {
+            "retained_fraction": 0.9595235250527351,
+            "selectivity": 0.9902309598213075
+          }
+        },
+        "median_target_retained_fraction": 0.9656630615990782,
+        "median_selectivity": 0.9965669786977693
+      },
+      "removal": {
+        "global_damage_ce": 0.9280873656272886,
+        "global_matched_random_damage_ce": 0.0346130092938739,
+        "global_excess_damage_ce": 0.8934743563334147,
+        "per_target": {
+          "digits": {
+            "damage_ce": 0.7243493871653608,
+            "matched_random_damage_ce": 0.029294441350350642,
+            "excess_damage_ce": 0.6950549458150102
+          },
+          "the": {
+            "damage_ce": 0.39888052943295826,
+            "matched_random_damage_ce": 0.029645191049780584,
+            "excess_damage_ce": 0.3692353383831777
+          },
+          "is": {
+            "damage_ce": 1.133986749122208,
+            "matched_random_damage_ce": 0.03306619213229167,
+            "excess_damage_ce": 1.1009205569899163
+          },
+          "and": {
+            "damage_ce": 0.7262093065140096,
+            "matched_random_damage_ce": 0.029670726289140248,
+            "excess_damage_ce": 0.6965385802248694
+          },
+          "comma": {
+            "damage_ce": 0.5586319210283426,
+            "matched_random_damage_ce": 0.04052147523170113,
+            "excess_damage_ce": 0.5181104457966415
+          },
+          "colon": {
+            "damage_ce": 0.9761266445590031,
+            "matched_random_damage_ce": 0.050642124335239735,
+            "excess_damage_ce": 0.9254845202237634
+          },
+          "close_quote": {
+            "damage_ce": 0.9313901322800042,
+            "matched_random_damage_ce": 0.03563843567499392,
+            "excess_damage_ce": 0.8957516966050103
+          },
+          "dollar": {
+            "damage_ce": 1.1353713599582242,
+            "matched_random_damage_ce": 0.03030943365333849,
+            "excess_damage_ce": 1.1050619263048858
+          },
+          "said": {
+            "damage_ce": 0.993405152987124,
+            "matched_random_damage_ce": 0.050406072034754335,
+            "excess_damage_ce": 0.9429990809523696
+          },
+          "months": {
+            "damage_ce": 0.8984150395673862,
+            "matched_random_damage_ce": 0.07881422323339127,
+            "excess_damage_ce": 0.819600816333995
+          },
+          "question": {
+            "damage_ce": 2.0352969410747415,
+            "matched_random_damage_ce": 0.02370002025652629,
+            "excess_damage_ce": 2.0115969208182154
+          },
+          "close_paren": {
+            "damage_ce": 0.7541711370031985,
+            "matched_random_damage_ce": 0.02761931827595565,
+            "excess_damage_ce": 0.7265518187272428
+          },
+          "open_quote": {
+            "damage_ce": 0.9338835745603591,
+            "matched_random_damage_ce": 0.03466054970730159,
+            "excess_damage_ce": 0.8992230248530575
+          },
+          "newline": {
+            "damage_ce": 0.4127530520475362,
+            "matched_random_damage_ce": 0.009081657694026468,
+            "excess_damage_ce": 0.40367139435350974
+          },
+          "pronouns": {
+            "damage_ce": 1.121491411629906,
+            "matched_random_damage_ce": 0.045470383338492404,
+            "excess_damage_ce": 1.0760210282914136
+          },
+          "however": {
+            "damage_ce": 1.1723627493931694,
+            "matched_random_damage_ce": 0.13893477733318615,
+            "excess_damage_ce": 1.0334279720599833
+          },
+          "open_paren": {
+            "damage_ce": 0.7358078652637299,
+            "matched_random_damage_ce": 0.016762519154453592,
+            "excess_damage_ce": 0.7190453461092763
+          },
+          "hyphen": {
+            "damage_ce": 0.7995512039763977,
+            "matched_random_damage_ce": 0.05984458476806176,
+            "excess_damage_ce": 0.7397066192083359
+          },
+          "days": {
+            "damage_ce": 1.0453371993805227,
+            "matched_random_damage_ce": 0.017698495011580384,
+            "excess_damage_ce": 1.0276387043689423
+          },
+          "titles": {
+            "damage_ce": 0.6855733502994887,
+            "matched_random_damage_ce": -0.029541633345863794,
+            "excess_damage_ce": 0.7151149836453525
+          },
+          "about": {
+            "damage_ce": 0.9957371023630346,
+            "matched_random_damage_ce": 0.06611055912807551,
+            "excess_damage_ce": 0.9296265432349591
+          },
+          "ordinals": {
+            "damage_ce": 1.1890395998714434,
+            "matched_random_damage_ce": 0.028975041132540458,
+            "excess_damage_ce": 1.160064558738903
+          }
+        },
+        "median_damage_ce": 0.9326368534201817,
+        "median_matched_random_damage_ce": 0.03168781289281508,
+        "median_excess_damage_ce": 0.8974873607290339
+      },
+      "quadratic_rank": 8,
+      "known_gauge_bits": 123609912
+    },
+    {
+      "program_hash": "sha256:0e63101700cad060a53d73434c83f998ecb849b456a38a569a9dd01acd84ad65",
+      "extraction": {
+        "global_retained_fraction": 0.9691277981670233,
+        "per_target": {
+          "digits": {
+            "retained_fraction": 0.9823907771592898,
+            "selectivity": 1.0136854798895993
+          },
+          "the": {
+            "retained_fraction": 0.9828959274050214,
+            "selectivity": 1.0142067220278261
+          },
+          "is": {
+            "retained_fraction": 0.9676121686031329,
+            "selectivity": 0.9984360890619823
+          },
+          "and": {
+            "retained_fraction": 0.9285298917790662,
+            "selectivity": 0.9581088206687057
+          },
+          "comma": {
+            "retained_fraction": 0.9434242524283761,
+            "selectivity": 0.9734776509483455
+          },
+          "colon": {
+            "retained_fraction": 0.9631630005122007,
+            "selectivity": 0.993845189802517
+          },
+          "close_quote": {
+            "retained_fraction": 0.9699892037351311,
+            "selectivity": 1.0008888462076282
+          },
+          "dollar": {
+            "retained_fraction": 0.9654117721864903,
+            "selectivity": 0.9961655975738583
+          },
+          "said": {
+            "retained_fraction": 0.9819343236169102,
+            "selectivity": 1.0132144857201586
+          },
+          "months": {
+            "retained_fraction": 0.9657825953693228,
+            "selectivity": 0.9965482335724684
+          },
+          "question": {
+            "retained_fraction": 0.9661627856116715,
+            "selectivity": 0.9969405350244211
+          },
+          "close_paren": {
+            "retained_fraction": 0.9633877426643761,
+            "selectivity": 0.994077091263398
+          },
+          "open_quote": {
+            "retained_fraction": 0.9705492931183033,
+            "selectivity": 1.001466777605563
+          },
+          "newline": {
+            "retained_fraction": 0.8739374268041893,
+            "selectivity": 0.9017772769051987
+          },
+          "pronouns": {
+            "retained_fraction": 0.9835195326241805,
+            "selectivity": 1.0148501926003746
+          },
+          "however": {
+            "retained_fraction": 0.9525577855027808,
+            "selectivity": 0.9829021387111354
+          },
+          "open_paren": {
+            "retained_fraction": 0.9553640853486245,
+            "selectivity": 0.985797835079717
+          },
+          "hyphen": {
+            "retained_fraction": 0.8161636785341062,
+            "selectivity": 0.8421631079799502
+          },
+          "days": {
+            "retained_fraction": 0.9658810897117288,
+            "selectivity": 0.9966498655167716
+          },
+          "titles": {
+            "retained_fraction": 0.9837856076473309,
+            "selectivity": 1.0151247436179531
+          },
+          "about": {
+            "retained_fraction": 0.9692102864559778,
+            "selectivity": 1.000085116007518
+          },
+          "ordinals": {
+            "retained_fraction": 0.9594290018852274,
+            "selectivity": 0.9899922421994912
+          }
+        },
+        "median_target_retained_fraction": 0.9658318425405258,
+        "median_selectivity": 0.99659904954462
+      },
+      "removal": {
+        "global_damage_ce": 0.9405180599954392,
+        "global_matched_random_damage_ce": 0.03482685089111337,
+        "global_excess_damage_ce": 0.9056912091043259,
+        "per_target": {
+          "digits": {
+            "damage_ce": 0.7372331691117409,
+            "matched_random_damage_ce": 0.02954670229983547,
+            "excess_damage_ce": 0.7076864668119054
+          },
+          "the": {
+            "damage_ce": 0.40489871245794595,
+            "matched_random_damage_ce": 0.02952115297171143,
+            "excess_damage_ce": 0.3753775594862345
+          },
+          "is": {
+            "damage_ce": 1.1471155482414264,
+            "matched_random_damage_ce": 0.03283514078981309,
+            "excess_damage_ce": 1.1142804074516133
+          },
+          "and": {
+            "damage_ce": 0.738039382366424,
+            "matched_random_damage_ce": 0.029922903750805308,
+            "excess_damage_ce": 0.7081164786156187
+          },
+          "comma": {
+            "damage_ce": 0.5681006427303024,
+            "matched_random_damage_ce": 0.04032146342666709,
+            "excess_damage_ce": 0.5277791793036353
+          },
+          "colon": {
+            "damage_ce": 0.9877351573794277,
+            "matched_random_damage_ce": 0.05088114543809552,
+            "excess_damage_ce": 0.9368540119413322
+          },
+          "close_quote": {
+            "damage_ce": 0.9461721109863896,
+            "matched_random_damage_ce": 0.03609534513030299,
+            "excess_damage_ce": 0.9100767658560867
+          },
+          "dollar": {
+            "damage_ce": 1.1534530768451625,
+            "matched_random_damage_ce": 0.029632473543082405,
+            "excess_damage_ce": 1.1238206033020801
+          },
+          "said": {
+            "damage_ce": 1.0112025234377895,
+            "matched_random_damage_ce": 0.05137637834243369,
+            "excess_damage_ce": 0.9598261450953558
+          },
+          "months": {
+            "damage_ce": 0.91265575465034,
+            "matched_random_damage_ce": 0.07881161465364306,
+            "excess_damage_ce": 0.8338441399966969
+          },
+          "question": {
+            "damage_ce": 2.0908168201884214,
+            "matched_random_damage_ce": 0.023235140999615433,
+            "excess_damage_ce": 2.067581679188806
+          },
+          "close_paren": {
+            "damage_ce": 0.7666329955695597,
+            "matched_random_damage_ce": 0.027915906343840335,
+            "excess_damage_ce": 0.7387170892257193
+          },
+          "open_quote": {
+            "damage_ce": 0.9486841980907168,
+            "matched_random_damage_ce": 0.035126190564398474,
+            "excess_damage_ce": 0.9135580075263183
+          },
+          "newline": {
+            "damage_ce": 0.42109599643283424,
+            "matched_random_damage_ce": 0.008974194694336579,
+            "excess_damage_ce": 0.41212180173849766
+          },
+          "pronouns": {
+            "damage_ce": 1.1377523662086668,
+            "matched_random_damage_ce": 0.045771534995493024,
+            "excess_damage_ce": 1.0919808312131738
+          },
+          "however": {
+            "damage_ce": 1.1808744210463304,
+            "matched_random_damage_ce": 0.13965337551557067,
+            "excess_damage_ce": 1.0412210455307598
+          },
+          "open_paren": {
+            "damage_ce": 0.7452013173334282,
+            "matched_random_damage_ce": 0.01740673940066273,
+            "excess_damage_ce": 0.7277945779327655
+          },
+          "hyphen": {
+            "damage_ce": 0.8082375954043104,
+            "matched_random_damage_ce": 0.06048960646305379,
+            "excess_damage_ce": 0.7477479889412566
+          },
+          "days": {
+            "damage_ce": 1.0458697982524567,
+            "matched_random_damage_ce": 0.016341333326540308,
+            "excess_damage_ce": 1.0295284649259164
+          },
+          "titles": {
+            "damage_ce": 0.7016503702510493,
+            "matched_random_damage_ce": -0.030931245196948787,
+            "excess_damage_ce": 0.732581615447998
+          },
+          "about": {
+            "damage_ce": 1.011049421861725,
+            "matched_random_damage_ce": 0.06706454957112173,
+            "excess_damage_ce": 0.9439848722906032
+          },
+          "ordinals": {
+            "damage_ce": 1.1960260297261902,
+            "matched_random_damage_ce": 0.029737679167620712,
+            "excess_damage_ce": 1.1662883505585695
+          }
+        },
+        "median_damage_ce": 0.9474281545385532,
+        "median_matched_random_damage_ce": 0.0313790222703092,
+        "median_excess_damage_ce": 0.9118173866912025
+      },
+      "quadratic_rank": 16,
+      "known_gauge_bits": 124168392
+    },
+    {
+      "program_hash": "sha256:5356bcd0da74de188f6d0983368c85d6aaf17d1b451428144b7101398a07e942",
+      "extraction": {
+        "global_retained_fraction": 0.9697041320647202,
+        "per_target": {
+          "digits": {
+            "retained_fraction": 0.9828266909392295,
+            "selectivity": 1.0135325388854108
+          },
+          "the": {
+            "retained_fraction": 0.9830926231388861,
+            "selectivity": 1.0138067794407133
+          },
+          "is": {
+            "retained_fraction": 0.9686074352091099,
+            "selectivity": 0.9988690397211414
+          },
+          "and": {
+            "retained_fraction": 0.9294974451229012,
+            "selectivity": 0.9585371603437332
+          },
+          "comma": {
+            "retained_fraction": 0.944358482012991,
+            "selectivity": 0.9738624914408042
+          },
+          "colon": {
+            "retained_fraction": 0.9643422571685663,
+            "selectivity": 0.9944706073544956
+          },
+          "close_quote": {
+            "retained_fraction": 0.9707135313854215,
+            "selectivity": 1.001040935360925
+          },
+          "dollar": {
+            "retained_fraction": 0.9667648038878948,
+            "selectivity": 0.9969688402063762
+          },
+          "said": {
+            "retained_fraction": 0.9821171226393497,
+            "selectivity": 1.0128008019809087
+          },
+          "months": {
+            "retained_fraction": 0.9654319238282479,
+            "selectivity": 0.9955943177973515
+          },
+          "question": {
+            "retained_fraction": 0.9660756162181151,
+            "selectivity": 0.9962581206714267
+          },
+          "close_paren": {
+            "retained_fraction": 0.9636730432760534,
+            "selectivity": 0.9937804856252132
+          },
+          "open_quote": {
+            "retained_fraction": 0.9712943390830839,
+            "selectivity": 1.0016398888751539
+          },
+          "newline": {
+            "retained_fraction": 0.8815366479730269,
+            "selectivity": 0.9090779535981096
+          },
+          "pronouns": {
+            "retained_fraction": 0.9838984016095657,
+            "selectivity": 1.014637732351024
+          },
+          "however": {
+            "retained_fraction": 0.952672476564404,
+            "selectivity": 0.9824362349946351
+          },
+          "open_paren": {
+            "retained_fraction": 0.9568476348435124,
+            "selectivity": 0.9867418351679771
+          },
+          "hyphen": {
+            "retained_fraction": 0.8209539402433441,
+            "selectivity": 0.8466024977075707
+          },
+          "days": {
+            "retained_fraction": 0.9679286673598843,
+            "selectivity": 0.9981690655467709
+          },
+          "titles": {
+            "retained_fraction": 0.9824917437729445,
+            "selectivity": 1.0131871271714565
+          },
+          "about": {
+            "retained_fraction": 0.9699324958865054,
+            "selectivity": 1.0002354984517794
+          },
+          "ordinals": {
+            "retained_fraction": 0.9609168210966001,
+            "selectivity": 0.9909381524966694
+          }
+        },
+        "median_target_retained_fraction": 0.9664202100530049,
+        "median_selectivity": 0.9966134804389015
+      },
+      "removal": {
+        "global_damage_ce": 0.9617212494214376,
+        "global_matched_random_damage_ce": 0.035744175646040155,
+        "global_excess_damage_ce": 0.9259770737753974,
+        "per_target": {
+          "digits": {
+            "damage_ce": 0.7548123568197922,
+            "matched_random_damage_ce": 0.03048534855035001,
+            "excess_damage_ce": 0.7243270082694422
+          },
+          "the": {
+            "damage_ce": 0.4153798430590925,
+            "matched_random_damage_ce": 0.030159595365389702,
+            "excess_damage_ce": 0.3852202476937028
+          },
+          "is": {
+            "damage_ce": 1.174518110733966,
+            "matched_random_damage_ce": 0.033436002299125356,
+            "excess_damage_ce": 1.1410821084348406
+          },
+          "and": {
+            "damage_ce": 0.7552012768197569,
+            "matched_random_damage_ce": 0.030684741811549454,
+            "excess_damage_ce": 0.7245165350082075
+          },
+          "comma": {
+            "damage_ce": 0.5819129601722342,
+            "matched_random_damage_ce": 0.041061143704059555,
+            "excess_damage_ce": 0.5408518164681746
+          },
+          "colon": {
+            "damage_ce": 1.0092239254699635,
+            "matched_random_damage_ce": 0.050995199966269666,
+            "excess_damage_ce": 0.9582287255036939
+          },
+          "close_quote": {
+            "damage_ce": 0.9682688469054717,
+            "matched_random_damage_ce": 0.037561360821627865,
+            "excess_damage_ce": 0.9307074860838438
+          },
+          "dollar": {
+            "damage_ce": 1.1891772056074994,
+            "matched_random_damage_ce": 0.032851035362237324,
+            "excess_damage_ce": 1.156326170245262
+          },
+          "said": {
+            "damage_ce": 1.0541884991801296,
+            "matched_random_damage_ce": 0.05242159091538223,
+            "excess_damage_ce": 1.0017669082647473
+          },
+          "months": {
+            "damage_ce": 0.9278577972860895,
+            "matched_random_damage_ce": 0.07970904181985272,
+            "excess_damage_ce": 0.8481487554662368
+          },
+          "question": {
+            "damage_ce": 2.155216770862311,
+            "matched_random_damage_ce": 0.024636731938961542,
+            "excess_damage_ce": 2.1305800389233496
+          },
+          "close_paren": {
+            "damage_ce": 0.7789801155817715,
+            "matched_random_damage_ce": 0.02838847500743813,
+            "excess_damage_ce": 0.7505916405743334
+          },
+          "open_quote": {
+            "damage_ce": 0.9706123517872687,
+            "matched_random_damage_ce": 0.03662060044966209,
+            "excess_damage_ce": 0.9339917513376066
+          },
+          "newline": {
+            "damage_ce": 0.42843091994230575,
+            "matched_random_damage_ce": 0.009345831917978664,
+            "excess_damage_ce": 0.4190850880243271
+          },
+          "pronouns": {
+            "damage_ce": 1.1619809710940547,
+            "matched_random_damage_ce": 0.04732215015361563,
+            "excess_damage_ce": 1.114658820940439
+          },
+          "however": {
+            "damage_ce": 1.2183498327548685,
+            "matched_random_damage_ce": 0.14347615608802222,
+            "excess_damage_ce": 1.0748736766668463
+          },
+          "open_paren": {
+            "damage_ce": 0.7586623236664343,
+            "matched_random_damage_ce": 0.018432683329976385,
+            "excess_damage_ce": 0.7402296403364579
+          },
+          "hyphen": {
+            "damage_ce": 0.8214678350009126,
+            "matched_random_damage_ce": 0.06156974165353746,
+            "excess_damage_ce": 0.7598980933473751
+          },
+          "days": {
+            "damage_ce": 1.0589368523735745,
+            "matched_random_damage_ce": 0.017657585442066193,
+            "excess_damage_ce": 1.0412792669315083
+          },
+          "titles": {
+            "damage_ce": 0.714694879271768,
+            "matched_random_damage_ce": -0.030063092708587646,
+            "excess_damage_ce": 0.7447579719803556
+          },
+          "about": {
+            "damage_ce": 1.037956172808535,
+            "matched_random_damage_ce": 0.06792691742793178,
+            "excess_damage_ce": 0.9700292553806031
+          },
+          "ordinals": {
+            "damage_ce": 1.217629734667078,
+            "matched_random_damage_ce": 0.0320419987903966,
+            "excess_damage_ce": 1.1855877358766813
+          }
+        },
+        "median_damage_ce": 0.9694405993463702,
+        "median_matched_random_damage_ce": 0.03314351883068134,
+        "median_excess_damage_ce": 0.9323496187107252
+      },
+      "quadratic_rank": 32,
+      "known_gauge_bits": 125308920
+    },
+    {
+      "program_hash": "sha256:7f5f8fea7ad59bbad580f51cd4b22a770cb7a9b46d8b0077a3a26ed9f7ca1a71",
+      "extraction": {
+        "global_retained_fraction": 0.9706467928955469,
+        "per_target": {
+          "digits": {
+            "retained_fraction": 0.9837202570401827,
+            "selectivity": 1.0134688171231023
+          },
+          "the": {
+            "retained_fraction": 0.9838746935978064,
+            "selectivity": 1.013627923977165
+          },
+          "is": {
+            "retained_fraction": 0.9700637697203551,
+            "selectivity": 0.9993993456945831
+          },
+          "and": {
+            "retained_fraction": 0.9319003990010724,
+            "selectivity": 0.9600818813001074
+          },
+          "comma": {
+            "retained_fraction": 0.945615036781863,
+            "selectivity": 0.9742112617103371
+          },
+          "colon": {
+            "retained_fraction": 0.9649312950402383,
+            "selectivity": 0.994111660495721
+          },
+          "close_quote": {
+            "retained_fraction": 0.971354454125257,
+            "selectivity": 1.0007290615236044
+          },
+          "dollar": {
+            "retained_fraction": 0.968150712892287,
+            "selectivity": 0.9974284363565311
+          },
+          "said": {
+            "retained_fraction": 0.982807097633232,
+            "selectivity": 1.0125280429778267
+          },
+          "months": {
+            "retained_fraction": 0.9664203276921025,
+            "selectivity": 0.9956457227959963
+          },
+          "question": {
+            "retained_fraction": 0.968361243417561,
+            "selectivity": 0.9976453335088371
+          },
+          "close_paren": {
+            "retained_fraction": 0.9629009788832396,
+            "selectivity": 0.992019945804178
+          },
+          "open_quote": {
+            "retained_fraction": 0.9719497171229663,
+            "selectivity": 1.001342325794466
+          },
+          "newline": {
+            "retained_fraction": 0.8842440631150721,
+            "selectivity": 0.9109843761779443
+          },
+          "pronouns": {
+            "retained_fraction": 0.9845003644681233,
+            "selectivity": 1.0142725156812702
+          },
+          "however": {
+            "retained_fraction": 0.9535825443214038,
+            "selectivity": 0.9824197136393573
+          },
+          "open_paren": {
+            "retained_fraction": 0.9581788950352764,
+            "selectivity": 0.9871550620148063
+          },
+          "hyphen": {
+            "retained_fraction": 0.8262520177088322,
+            "selectivity": 0.8512386006489867
+          },
+          "days": {
+            "retained_fraction": 0.9690453718724384,
+            "selectivity": 0.9983501506059365
+          },
+          "titles": {
+            "retained_fraction": 0.9826052132645038,
+            "selectivity": 1.012320053449395
+          },
+          "about": {
+            "retained_fraction": 0.9709994398247344,
+            "selectivity": 1.0003633112804458
+          },
+          "ordinals": {
+            "retained_fraction": 0.9627852909569251,
+            "selectivity": 0.9919007593738912
+          }
+        },
+        "median_target_retained_fraction": 0.968255978154924,
+        "median_selectivity": 0.9975368849326841
+      },
+      "removal": {
+        "global_damage_ce": 0.9853463821940953,
+        "global_matched_random_damage_ce": 0.03678750726911728,
+        "global_excess_damage_ce": 0.948558874924978,
+        "per_target": {
+          "digits": {
+            "damage_ce": 0.781368960857669,
+            "matched_random_damage_ce": 0.03149141658958721,
+            "excess_damage_ce": 0.7498775442680818
+          },
+          "the": {
+            "damage_ce": 0.42744956347311547,
+            "matched_random_damage_ce": 0.03135494843372322,
+            "excess_damage_ce": 0.39609461503939225
+          },
+          "is": {
+            "damage_ce": 1.209385429278849,
+            "matched_random_damage_ce": 0.033789209289500244,
+            "excess_damage_ce": 1.1755962199893488
+          },
+          "and": {
+            "damage_ce": 0.7710372182156178,
+            "matched_random_damage_ce": 0.03098984860359355,
+            "excess_damage_ce": 0.7400473696120242
+          },
+          "comma": {
+            "damage_ce": 0.5932693722002176,
+            "matched_random_damage_ce": 0.04261596213541763,
+            "excess_damage_ce": 0.5506534100648
+          },
+          "colon": {
+            "damage_ce": 1.0280995398155743,
+            "matched_random_damage_ce": 0.05148668741589213,
+            "excess_damage_ce": 0.9766128523996822
+          },
+          "close_quote": {
+            "damage_ce": 1.0036906978027935,
+            "matched_random_damage_ce": 0.038761943878743654,
+            "excess_damage_ce": 0.9649287539240499
+          },
+          "dollar": {
+            "damage_ce": 1.2403884590284466,
+            "matched_random_damage_ce": 0.03306241971376833,
+            "excess_damage_ce": 1.2073260393146783
+          },
+          "said": {
+            "damage_ce": 1.0915751706413697,
+            "matched_random_damage_ce": 0.052167075319272005,
+            "excess_damage_ce": 1.0394080953220977
+          },
+          "months": {
+            "damage_ce": 0.9376887784284702,
+            "matched_random_damage_ce": 0.08214725746827956,
+            "excess_damage_ce": 0.8555415209601906
+          },
+          "question": {
+            "damage_ce": 2.2170811259815135,
+            "matched_random_damage_ce": 0.02787438868915193,
+            "excess_damage_ce": 2.189206737292362
+          },
+          "close_paren": {
+            "damage_ce": 0.797082668651449,
+            "matched_random_damage_ce": 0.029105994463354046,
+            "excess_damage_ce": 0.7679766741880949
+          },
+          "open_quote": {
+            "damage_ce": 1.0062629956373952,
+            "matched_random_damage_ce": 0.037816254053258724,
+            "excess_damage_ce": 0.9684467415841365
+          },
+          "newline": {
+            "damage_ce": 0.4357987265714278,
+            "matched_random_damage_ce": 0.00980719674991648,
+            "excess_damage_ce": 0.42599152982151134
+          },
+          "pronouns": {
+            "damage_ce": 1.1891963983256617,
+            "matched_random_damage_ce": 0.04873422615157086,
+            "excess_damage_ce": 1.1404621721740908
+          },
+          "however": {
+            "damage_ce": 1.2385292878517733,
+            "matched_random_damage_ce": 0.1440911613977871,
+            "excess_damage_ce": 1.0944381264539862
+          },
+          "open_paren": {
+            "damage_ce": 0.7792810104851031,
+            "matched_random_damage_ce": 0.0196434619419934,
+            "excess_damage_ce": 0.7596375485431097
+          },
+          "hyphen": {
+            "damage_ce": 0.8376617825176615,
+            "matched_random_damage_ce": 0.06346338875215896,
+            "excess_damage_ce": 0.7741983937655026
+          },
+          "days": {
+            "damage_ce": 1.0787108815030049,
+            "matched_random_damage_ce": 0.014962200663591663,
+            "excess_damage_ce": 1.0637486808394132
+          },
+          "titles": {
+            "damage_ce": 0.7470763921737671,
+            "matched_random_damage_ce": -0.0353284153071316,
+            "excess_damage_ce": 0.7824048074808987
+          },
+          "about": {
+            "damage_ce": 1.0703924753433651,
+            "matched_random_damage_ce": 0.07126393145681442,
+            "excess_damage_ce": 0.9991285438865507
+          },
+          "ordinals": {
+            "damage_ce": 1.2374190170197714,
+            "matched_random_damage_ce": 0.03367617702291836,
+            "excess_damage_ce": 1.203742839996853
+          }
+        },
+        "median_damage_ce": 1.0049768467200944,
+        "median_matched_random_damage_ce": 0.033732693156209304,
+        "median_excess_damage_ce": 0.9666877477540932
+      },
+      "quadratic_rank": 64,
+      "known_gauge_bits": 127594168
+    },
+    {
+      "program_hash": "sha256:be817300bea126e5029e96c04cf4ca6c6cd206e2467de75adafb9937bdfe065d",
+      "extraction": {
+        "global_retained_fraction": 0.9724408061967746,
+        "per_target": {
+          "digits": {
+            "retained_fraction": 0.9846129736660021,
+            "selectivity": 1.0125171294660422
+          },
+          "the": {
+            "retained_fraction": 0.9851109281198788,
+            "selectivity": 1.0130291960624904
+          },
+          "is": {
+            "retained_fraction": 0.9724811294274532,
+            "selectivity": 1.0000414660002148
+          },
+          "and": {
+            "retained_fraction": 0.9347217197520169,
+            "selectivity": 0.9612119460594445
+          },
+          "comma": {
+            "retained_fraction": 0.9484410433525619,
+            "selectivity": 0.9753200784137431
+          },
+          "colon": {
+            "retained_fraction": 0.9664634113381044,
+            "selectivity": 0.9938532044104074
+          },
+          "close_quote": {
+            "retained_fraction": 0.9730112486943949,
+            "selectivity": 1.0005866089678521
+          },
+          "dollar": {
+            "retained_fraction": 0.9690875115214264,
+            "selectivity": 0.9965516721902457
+          },
+          "said": {
+            "retained_fraction": 0.9838137284308199,
+            "selectivity": 1.0116952334389637
+          },
+          "months": {
+            "retained_fraction": 0.9677224243430734,
+            "selectivity": 0.995147898130525
+          },
+          "question": {
+            "retained_fraction": 0.9702179829754085,
+            "selectivity": 0.9977141814625616
+          },
+          "close_paren": {
+            "retained_fraction": 0.9666539109240807,
+            "selectivity": 0.9940491027980134
+          },
+          "open_quote": {
+            "retained_fraction": 0.9736499359417813,
+            "selectivity": 1.001243396757213
+          },
+          "newline": {
+            "retained_fraction": 0.8903767210373172,
+            "selectivity": 0.915610199986968
+          },
+          "pronouns": {
+            "retained_fraction": 0.9857566275089013,
+            "selectivity": 1.0136931947191776
+          },
+          "however": {
+            "retained_fraction": 0.956158521013573,
+            "selectivity": 0.9832562711483881
+          },
+          "open_paren": {
+            "retained_fraction": 0.9601809499752835,
+            "selectivity": 0.9873926966624945
+          },
+          "hyphen": {
+            "retained_fraction": 0.8338950839017129,
+            "selectivity": 0.8575278603980889
+          },
+          "days": {
+            "retained_fraction": 0.9700900490006016,
+            "selectivity": 0.9975826218097872
+          },
+          "titles": {
+            "retained_fraction": 0.9858337839150771,
+            "selectivity": 1.0137725377554676
+          },
+          "about": {
+            "retained_fraction": 0.972299851553188,
+            "selectivity": 0.9998550506697288
+          },
+          "ordinals": {
+            "retained_fraction": 0.9660067346910641,
+            "selectivity": 0.9933835854432371
+          }
+        },
+        "median_target_retained_fraction": 0.9695887802610139,
+        "median_selectivity": 0.9970671470000164
+      },
+      "removal": {
+        "global_damage_ce": 1.0334544552697076,
+        "global_matched_random_damage_ce": 0.03844636148876601,
+        "global_excess_damage_ce": 0.9950080937809416,
+        "per_target": {
+          "digits": {
+            "damage_ce": 0.818742222065548,
+            "matched_random_damage_ce": 0.03309554602185161,
+            "excess_damage_ce": 0.7856466760436964
+          },
+          "the": {
+            "damage_ce": 0.452060867131598,
+            "matched_random_damage_ce": 0.03248974804207916,
+            "excess_damage_ce": 0.41957111908951883
+          },
+          "is": {
+            "damage_ce": 1.2605750780802785,
+            "matched_random_damage_ce": 0.03503888102110908,
+            "excess_damage_ce": 1.2255361970591694
+          },
+          "and": {
+            "damage_ce": 0.8054585643524819,
+            "matched_random_damage_ce": 0.0321397314680385,
+            "excess_damage_ce": 0.7733188328844434
+          },
+          "comma": {
+            "damage_ce": 0.6243875956856082,
+            "matched_random_damage_ce": 0.04377800413311328,
+            "excess_damage_ce": 0.5806095915524949
+          },
+          "colon": {
+            "damage_ce": 1.073981903258476,
+            "matched_random_damage_ce": 0.05380200893358067,
+            "excess_damage_ce": 1.0201798943248954
+          },
+          "close_quote": {
+            "damage_ce": 1.049418486604755,
+            "matched_random_damage_ce": 0.04020509203808453,
+            "excess_damage_ce": 1.0092133945666704
+          },
+          "dollar": {
+            "damage_ce": 1.3025083789882594,
+            "matched_random_damage_ce": 0.04183980700087875,
+            "excess_damage_ce": 1.2606685719873807
+          },
+          "said": {
+            "damage_ce": 1.1511460024242597,
+            "matched_random_damage_ce": 0.05746402421194796,
+            "excess_damage_ce": 1.0936819782123117
+          },
+          "months": {
+            "damage_ce": 1.000380973254933,
+            "matched_random_damage_ce": 0.08345574771656672,
+            "excess_damage_ce": 0.9169252255383662
+          },
+          "question": {
+            "damage_ce": 2.3711021596635984,
+            "matched_random_damage_ce": 0.02937873491869314,
+            "excess_damage_ce": 2.341723424744905
+          },
+          "close_paren": {
+            "damage_ce": 0.8372285525229843,
+            "matched_random_damage_ce": 0.03126779345400399,
+            "excess_damage_ce": 0.8059607590689803
+          },
+          "open_quote": {
+            "damage_ce": 1.0523407546533718,
+            "matched_random_damage_ce": 0.03929729568779772,
+            "excess_damage_ce": 1.0130434589655741
+          },
+          "newline": {
+            "damage_ce": 0.4522152649870066,
+            "matched_random_damage_ce": 0.01098365434949744,
+            "excess_damage_ce": 0.44123161063750915
+          },
+          "pronouns": {
+            "damage_ce": 1.2539013976371067,
+            "matched_random_damage_ce": 0.05083084709626151,
+            "excess_damage_ce": 1.2030705505408452
+          },
+          "however": {
+            "damage_ce": 1.2978977056650018,
+            "matched_random_damage_ce": 0.14412592007563685,
+            "excess_damage_ce": 1.153771785589365
+          },
+          "open_paren": {
+            "damage_ce": 0.8162079290447068,
+            "matched_random_damage_ce": 0.020794505237514027,
+            "excess_damage_ce": 0.7954134238071928
+          },
+          "hyphen": {
+            "damage_ce": 0.869462987295281,
+            "matched_random_damage_ce": 0.06597832612893773,
+            "excess_damage_ce": 0.8034846611663433
+          },
+          "days": {
+            "damage_ce": 1.1375082409695576,
+            "matched_random_damage_ce": 0.014049918635895331,
+            "excess_damage_ce": 1.1234583223336623
+          },
+          "titles": {
+            "damage_ce": 0.7979003407738432,
+            "matched_random_damage_ce": -0.028664231300354004,
+            "excess_damage_ce": 0.8265645720741972
+          },
+          "about": {
+            "damage_ce": 1.1311873101060916,
+            "matched_random_damage_ce": 0.07296448476335016,
+            "excess_damage_ce": 1.0582228253427415
+          },
+          "ordinals": {
+            "damage_ce": 1.283523364052657,
+            "matched_random_damage_ce": 0.03545641193106297,
+            "excess_damage_ce": 1.2480669521215941
+          }
+        },
+        "median_damage_ce": 1.0508796206290634,
+        "median_matched_random_damage_ce": 0.037376853809430344,
+        "median_excess_damage_ce": 1.0111284267661222
+      },
+      "quadratic_rank": 128,
+      "known_gauge_bits": 132153920
+    }
+  ],
+  "pred_all_global_extraction_at_least_0_96": true,
+  "pred_full_global_excess_at_least_linear_plus_0_05": true,
+  "pred_full_median_target_excess_at_least_linear_plus_0_05": true,
+  "pred_no_adjacent_global_excess_decrease_over_0_03": true,
+  "runtime_s": 213.5752820968628
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.shared-vo-checkpoint-distortion.v1",
+  "architecture": {
+    "layers": 18,
+    "heads": 9,
+    "head_dimension": 128,
+    "model_dimension": 1152
+  },
+  "mixing_coefficients": [
+    0.5,
+    -0.053466796875,
+    -4.0,
+    -4.0,
+    -4.1875,
+    -0.056396484375,
+    0.361328125,
+    0.26171875,
+    4.0,
+    -0.65625,
+    0.416015625,
+    -1.75,
+    0.267578125,
+    4.1875,
+    4.625,
+    0.55859375,
+    1.453125,
+    -0.0888671875
+  ],
+  "frontier": {
+    "10": {
+      "maximum_absolute_action_error": 11.095280273450129,
+      "descriptive_bits": 1528849152,
+      "relative_parameter_rmse": 0.00021225750260764264,
+      "relative_action_rmse": 0.008743236078010244
+    },
+    "14": {
+      "maximum_absolute_action_error": 0.6259579076727277,
+      "descriptive_bits": 1528849152,
+      "relative_parameter_rmse": 1.3265976226804602e-05,
+      "relative_action_rmse": 0.0005430920232427868
+    },
+    "18": {
+      "maximum_absolute_action_error": 0.034141812892130474,
+      "descriptive_bits": 1528849152,
+      "relative_parameter_rmse": 8.291117671098109e-07,
+      "relative_action_rmse": 3.375492079908174e-05
+    }
+  },
+  "interpretation": {
+    "checkpoint_compatible": true,
+    "operational_price_promoted": false
+  },
+  "runtime_s": 4.32746958732605
+}

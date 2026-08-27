@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp2-layer5-head7-product-factor.rank128.v1",
+  "parent_protocol_id": "bilin18.mlp03.progressive-chain.rank128.v1",
+  "rank": 128,
+  "programs": [
+    {
+      "layer": 0,
+      "family_id": "mlp0.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "quotient_bits": 77982968,
+      "inputs": [
+        "token",
+        "attn0.c_proj",
+        "x0"
+      ]
+    },
+    {
+      "layer": 1,
+      "family_id": "mlp1.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:2e150112e4c294a2ed017665ac41724065c8c473e0241f7073ff9a70aa686e43",
+      "quotient_bits": 81229000,
+      "inputs": [
+        "token",
+        "attn1.c_proj",
+        "mlp0.output"
+      ]
+    },
+    {
+      "layer": 2,
+      "family_id": "mlp2.lin2.svd",
+      "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+      "quotient_bits": 7652856,
+      "inputs": [
+        "attn2.c_proj",
+        "mlp1.output"
+      ]
+    },
+    {
+      "layer": 3,
+      "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+      "program_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "inputs": [
+        "token",
+        "attn3.c_proj",
+        "mlp2.output"
+      ]
+    }
+  ],
+  "layer": 5,
+  "head": 7,
+  "arms": [
+    {
+      "active_upstream_layers": [],
+      "angular_rms_by_patch": {
+        "none": 0.11504487937047693,
+        "score1": 0.11439478933247235,
+        "score2": 0.11461412887168611,
+        "route7": 0.11441929456088042
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        0
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.15448010291949565,
+        "score1": 0.15012451075410266,
+        "score2": 0.15091852849570708,
+        "route7": 0.14348717262672286
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        1
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.21129418234559452,
+        "score1": 0.18419522152943812,
+        "score2": 0.1888830066686157,
+        "route7": 0.16003476331992197
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        0,
+        1
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.24829699148147366,
+        "score1": 0.21228552186568883,
+        "score2": 0.2189704483707206,
+        "route7": 0.17980279659624096
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    }
+  ],
+  "unpatched_joint_margin": 0.03700280913587914,
+  "joint_margin_reduction_by_patch": {
+    "score1": 0.008912508799628432,
+    "score2": 0.006915367433774244,
+    "route7": 0.017234775859560153
+  },
+  "dominant_score": "score1",
+  "anchor_errors": {
+    "[]": {
+      "none": 0.0,
+      "route7": 0.0
+    },
+    "[0]": {
+      "none": 0.0,
+      "route7": 0.0
+    },
+    "[1]": {
+      "none": 0.0,
+      "route7": 0.0
+    },
+    "[0, 1]": {
+      "none": 0.0,
+      "route7": 0.0
+    }
+  },
+  "angular_anchors_reproduced": true,
+  "routed_head_reconstruction_gate": true,
+  "one_score_removes_at_least_half_route_margin_reduction": true,
+  "dominant_score_reduction_at_least_twice_other": false,
+  "both_score_patches_have_positive_margin_reduction": true,
+  "runtime_s": 124.39931321144104
+}

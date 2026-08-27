@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "protocol_sha256": "9071a7f8301c918b1ff594cbde035695d2735e6af4a7563a2cb74e2883fa2b35",
+  "suite_id": "bilin18-ood-v1",
+  "suite_semantic_sha256": "bf256d037364d220be70b5c184540b737296475b21f9fe3ad902bfe625aa067a",
+  "program_hash": "d760d12b8c180c7719aabfd8dbaf134f72d819308a790e1da26bede79684c22c",
+  "quotient_bits": 290859424,
+  "members": {
+    "code": {
+      "rows": 150,
+      "row_tokens": 257,
+      "clean_native_attention_ce": 3.7519827779134114,
+      "canonical_rank32_ce": 4.065680084228515,
+      "semantic_sequential_ce": 4.026065538194445,
+      "decoded_mixed_ce": 4.0263572862413195,
+      "decoded_minus_semantic_ce": 0.00029174804687492895,
+      "decoded_minus_canonical_ce": -0.039322797987195734,
+      "decoded_delta_from_clean_ce": 0.2743745083279081
+    },
+    "pile": {
+      "rows": 150,
+      "row_tokens": 257,
+      "clean_native_attention_ce": 3.1131986660427517,
+      "canonical_rank32_ce": 3.355169118245443,
+      "semantic_sequential_ce": 3.3245706261528865,
+      "decoded_mixed_ce": 3.3248000081380207,
+      "decoded_minus_semantic_ce": 0.00022938198513422492,
+      "decoded_minus_canonical_ce": -0.03036911010742216,
+      "decoded_delta_from_clean_ce": 0.21160134209526893
+    },
+    "synthetic_induction": {
+      "rows": 150,
+      "row_tokens": 128,
+      "clean_native_attention_ce": 1.360925757998512,
+      "canonical_rank32_ce": 8.960092747602513,
+      "semantic_sequential_ce": 6.4959901258680555,
+      "decoded_mixed_ce": 6.501867843708664,
+      "decoded_minus_semantic_ce": 0.005877717840608199,
+      "decoded_minus_canonical_ce": -2.458224903893849,
+      "decoded_delta_from_clean_ce": 5.140942085710152
+    }
+  },
+  "aggregate": {
+    "max_absolute_decode_cost_ce": 0.005877717840608199,
+    "median_decoded_minus_canonical_ce": -0.039322797987195734,
+    "worst_decoded_minus_canonical_ce": -0.03036911010742216,
+    "median_decoded_delta_from_clean_ce": 0.2743745083279081,
+    "worst_decoded_delta_from_clean_ce": 5.140942085710152
+  },
+  "gates": {
+    "decode_cost": true,
+    "median_transfer": true,
+    "worst_transfer": true
+  },
+  "ood_passes": true,
+  "runtime_s": 21.558523893356323
+}

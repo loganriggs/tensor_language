@@ -1,0 +1,501 @@
+{
+  "schema_version": 1,
+  "protocol_sha256": "a14c0e6e826770456544f8012c3812ae07895ed135812ae4c3e1a128e6042434",
+  "evaluation_member": "replication_skip15000_rows960",
+  "arms": {
+    "clean_native_attention": {
+      "global_ce": 3.132441911432478,
+      "target_ce": {
+        "digits": 4.099619574174729,
+        "the": 1.5385177966589667,
+        "is": 1.8129228718883634,
+        "and": 2.2227376864506647,
+        "comma": 1.4334740819793015,
+        "colon": 1.9684618439091168,
+        "close_quote": 2.1357786309653224,
+        "dollar": 1.9528890863316608,
+        "said": 2.3331912873733427,
+        "months": 4.4282025464473325,
+        "question": 1.3926771526874016,
+        "close_paren": 1.0362014406534474,
+        "open_quote": 2.165880966992875,
+        "newline": 0.9500085938863413,
+        "pronouns": 2.2260675935509937,
+        "however": 5.171506302697318,
+        "open_paren": 3.3874468620979425,
+        "hyphen": 1.800135690664195,
+        "days": 4.096597911654548,
+        "titles": 4.698415314449983,
+        "about": 2.623843801977374,
+        "ordinals": 3.9067010658054415
+      },
+      "target_counts": {
+        "digits": 3191,
+        "the": 7774,
+        "is": 2982,
+        "and": 4680,
+        "comma": 6979,
+        "colon": 592,
+        "close_quote": 543,
+        "dollar": 102,
+        "said": 372,
+        "months": 163,
+        "question": 330,
+        "close_paren": 627,
+        "open_quote": 547,
+        "newline": 3738,
+        "pronouns": 1378,
+        "however": 35,
+        "open_paren": 660,
+        "hyphen": 1839,
+        "days": 110,
+        "titles": 34,
+        "about": 449,
+        "ordinals": 486
+      }
+    },
+    "zero_nonroster_qk_anchor": {
+      "global_ce": 13.722015656365288,
+      "target_ce": {
+        "digits": 21.80676438807694,
+        "the": 8.495964601839113,
+        "is": 9.043149198484773,
+        "and": 2.5299475115588588,
+        "comma": 2.5130284078860115,
+        "colon": 10.210274074528668,
+        "close_quote": 8.515727716695318,
+        "dollar": 18.713552755468033,
+        "said": 12.387055386779128,
+        "months": 17.91075891366034,
+        "question": 12.336071707985617,
+        "close_paren": 17.11910309403707,
+        "open_quote": 8.663076544592542,
+        "newline": 4.835298967846196,
+        "pronouns": 12.912804610497373,
+        "however": 24.031242534092495,
+        "open_paren": 4.919557758894833,
+        "hyphen": 2.667144149071889,
+        "days": 12.545594068007036,
+        "titles": 16.935023672440472,
+        "about": 8.951827166075164,
+        "ordinals": 9.900822638484186
+      },
+      "target_counts": {
+        "digits": 3191,
+        "the": 7774,
+        "is": 2982,
+        "and": 4680,
+        "comma": 6979,
+        "colon": 592,
+        "close_quote": 543,
+        "dollar": 102,
+        "said": 372,
+        "months": 163,
+        "question": 330,
+        "close_paren": 627,
+        "open_quote": 547,
+        "newline": 3738,
+        "pronouns": 1378,
+        "however": 35,
+        "open_paren": 660,
+        "hyphen": 1839,
+        "days": 110,
+        "titles": 34,
+        "about": 449,
+        "ordinals": 486
+      }
+    },
+    "decoded_mixed_replacement": {
+      "global_ce": 3.261600082450443,
+      "target_ce": {
+        "digits": 4.282058759454424,
+        "the": 1.5903176105755412,
+        "is": 1.896812081736738,
+        "and": 2.2977141143929245,
+        "comma": 1.4692241634812186,
+        "colon": 2.0326239774507044,
+        "close_quote": 2.307949830813961,
+        "dollar": 2.031955253698078,
+        "said": 2.5508184443398187,
+        "months": 4.503238954427052,
+        "question": 1.5571870585508418,
+        "close_paren": 1.111943031909268,
+        "open_quote": 2.340841717650293,
+        "newline": 1.0973659804187528,
+        "pronouns": 2.4158629113254078,
+        "however": 5.392479794366019,
+        "open_paren": 3.376692046179916,
+        "hyphen": 1.8846941739725898,
+        "days": 4.215351544456048,
+        "titles": 4.83018888094846,
+        "about": 2.7533999301808447,
+        "ordinals": 4.056240713170158
+      },
+      "target_counts": {
+        "digits": 3191,
+        "the": 7774,
+        "is": 2982,
+        "and": 4680,
+        "comma": 6979,
+        "colon": 592,
+        "close_quote": 543,
+        "dollar": 102,
+        "said": 372,
+        "months": 163,
+        "question": 330,
+        "close_paren": 627,
+        "open_quote": 547,
+        "newline": 3738,
+        "pronouns": 1378,
+        "however": 35,
+        "open_paren": 660,
+        "hyphen": 1839,
+        "days": 110,
+        "titles": 34,
+        "about": 449,
+        "ordinals": 486
+      }
+    },
+    "native_minus_decoded_joint_input_handle": {
+      "global_ce": 12.731875541475084,
+      "target_ce": {
+        "digits": 19.879520165214192,
+        "the": 7.2795526118336165,
+        "is": 8.466647130222947,
+        "and": 2.2071429268926637,
+        "comma": 2.053128155720475,
+        "colon": 9.144965054215612,
+        "close_quote": 7.894370917676782,
+        "dollar": 16.846643204782524,
+        "said": 11.883211674228791,
+        "months": 16.793074403072428,
+        "question": 11.17513610088464,
+        "close_paren": 16.221030375223602,
+        "open_quote": 8.018395374200463,
+        "newline": 3.8171343402852345,
+        "pronouns": 12.022175865699314,
+        "however": 21.867923900059292,
+        "open_paren": 4.972838900667249,
+        "hyphen": 2.621402042724958,
+        "days": 12.915782581676137,
+        "titles": 15.56694154178395,
+        "about": 8.996658834954413,
+        "ordinals": 9.788620477841224
+      },
+      "target_counts": {
+        "digits": 3191,
+        "the": 7774,
+        "is": 2982,
+        "and": 4680,
+        "comma": 6979,
+        "colon": 592,
+        "close_quote": 543,
+        "dollar": 102,
+        "said": 372,
+        "months": 163,
+        "question": 330,
+        "close_paren": 627,
+        "open_quote": 547,
+        "newline": 3738,
+        "pronouns": 1378,
+        "however": 35,
+        "open_paren": 660,
+        "hyphen": 1839,
+        "days": 110,
+        "titles": 34,
+        "about": 449,
+        "ordinals": 486
+      }
+    },
+    "native_minus_rank_matched_haar_input_handle": {
+      "global_ce": 3.4261841615041098,
+      "target_ce": {
+        "digits": 4.552547918371705,
+        "the": 1.5763703604605683,
+        "is": 1.9010020982971294,
+        "and": 2.277607571365487,
+        "comma": 1.5970695294457942,
+        "colon": 2.225210397730808,
+        "close_quote": 2.3433378401382194,
+        "dollar": 2.275574962298075,
+        "said": 2.469554370970175,
+        "months": 4.940876198692556,
+        "question": 1.642928312402783,
+        "close_paren": 1.3024061466470669,
+        "open_quote": 2.3706335834001058,
+        "newline": 1.019983782495261,
+        "pronouns": 2.409752880886781,
+        "however": 5.30940660067967,
+        "open_paren": 3.705498253215443,
+        "hyphen": 2.0538222018372045,
+        "days": 4.56846304915168,
+        "titles": 4.853355442776399,
+        "about": 2.9986675579457613,
+        "ordinals": 4.290960387560566
+      },
+      "target_counts": {
+        "digits": 3191,
+        "the": 7774,
+        "is": 2982,
+        "and": 4680,
+        "comma": 6979,
+        "colon": 592,
+        "close_quote": 543,
+        "dollar": 102,
+        "said": 372,
+        "months": 163,
+        "question": 330,
+        "close_paren": 627,
+        "open_quote": 547,
+        "newline": 3738,
+        "pronouns": 1378,
+        "however": 35,
+        "open_paren": 660,
+        "hyphen": 1839,
+        "days": 110,
+        "titles": 34,
+        "about": 449,
+        "ordinals": 486
+      }
+    }
+  },
+  "handle_rank_histogram": {
+    "128": 139
+  },
+  "extraction": {
+    "global_retained_fraction": 0.9878032700721531,
+    "median_lexical22_retained_fraction": 0.9854559209288198,
+    "per_target": {
+      "digits": {
+        "retained_fraction": 0.9896968603805363,
+        "anchor_damage_ce": 17.70714481390221
+      },
+      "the": {
+        "retained_fraction": 0.9925547668035339,
+        "anchor_damage_ce": 6.957446805180146
+      },
+      "is": {
+        "retained_fraction": 0.9883974296157525,
+        "anchor_damage_ce": 7.2302263265964095
+      },
+      "and": {
+        "retained_fraction": 0.7559439125494949,
+        "anchor_damage_ce": 0.30720982510819406
+      },
+      "comma": {
+        "retained_fraction": 0.9668844071632144,
+        "anchor_damage_ce": 1.07955432590671
+      },
+      "colon": {
+        "retained_fraction": 0.9922150454601215,
+        "anchor_damage_ce": 8.241812230619551
+      },
+      "close_quote": {
+        "retained_fraction": 0.9730137031604638,
+        "anchor_damage_ce": 6.379949085729995
+      },
+      "dollar": {
+        "retained_fraction": 0.995282635047918,
+        "anchor_damage_ce": 16.76066366913637
+      },
+      "said": {
+        "retained_fraction": 0.9783538791836923,
+        "anchor_damage_ce": 10.053864099405786
+      },
+      "months": {
+        "retained_fraction": 0.9944345563307124,
+        "anchor_damage_ce": 13.482556367213009
+      },
+      "question": {
+        "retained_fraction": 0.9849671959617143,
+        "anchor_damage_ce": 10.943394555298216
+      },
+      "close_paren": {
+        "retained_fraction": 0.9952905518613374,
+        "anchor_damage_ce": 16.082901653383622
+      },
+      "open_quote": {
+        "retained_fraction": 0.9730713430790617,
+        "anchor_damage_ce": 6.497195577599667
+      },
+      "newline": {
+        "retained_fraction": 0.962073005528741,
+        "anchor_damage_ce": 3.8852903739598545
+      },
+      "pronouns": {
+        "retained_fraction": 0.9822401058926175,
+        "anchor_damage_ce": 10.68673701694638
+      },
+      "however": {
+        "retained_fraction": 0.9882833201399257,
+        "anchor_damage_ce": 18.85973623139518
+      },
+      "open_paren": {
+        "retained_fraction": 1.007019606701128,
+        "anchor_damage_ce": 1.5321108967968908
+      },
+      "hyphen": {
+        "retained_fraction": 0.9024709822742781,
+        "anchor_damage_ce": 0.867008458407694
+      },
+      "days": {
+        "retained_fraction": 0.9859446458959253,
+        "anchor_damage_ce": 8.448996156352488
+      },
+      "titles": {
+        "retained_fraction": 0.9892312017641369,
+        "anchor_damage_ce": 12.23660835799049
+      },
+      "about": {
+        "retained_fraction": 0.9795264745892799,
+        "anchor_damage_ce": 6.32798336409779
+      },
+      "ordinals": {
+        "retained_fraction": 0.9750522832158893,
+        "anchor_damage_ce": 5.994121572678745
+      }
+    }
+  },
+  "removal": {
+    "global_aligned_damage_ce": 9.599433630042606,
+    "global_random_damage_ce": 0.2937422500716318,
+    "global_aligned_minus_random_damage_ce": 9.305691379970973,
+    "median_lexical22_aligned_minus_random_damage_ce": 6.742699844205312,
+    "per_target": {
+      "digits": {
+        "aligned_damage_ce": 15.779900591039464,
+        "random_damage_ce": 0.4529283441969758,
+        "aligned_minus_random_damage_ce": 15.326972246842487
+      },
+      "the": {
+        "aligned_damage_ce": 5.7410348151746495,
+        "random_damage_ce": 0.037852563801601624,
+        "aligned_minus_random_damage_ce": 5.703182251373048
+      },
+      "is": {
+        "aligned_damage_ce": 6.6537242583345835,
+        "random_damage_ce": 0.08807922640876598,
+        "aligned_minus_random_damage_ce": 6.5656450319258175
+      },
+      "and": {
+        "aligned_damage_ce": -0.015594759558001048,
+        "random_damage_ce": 0.054869884914822364,
+        "aligned_minus_random_damage_ce": -0.07046464447282341
+      },
+      "comma": {
+        "aligned_damage_ce": 0.6196540737411733,
+        "random_damage_ce": 0.16359544746649268,
+        "aligned_minus_random_damage_ce": 0.45605862627468063
+      },
+      "colon": {
+        "aligned_damage_ce": 7.176503210306496,
+        "random_damage_ce": 0.25674855382169115,
+        "aligned_minus_random_damage_ce": 6.919754656484805
+      },
+      "close_quote": {
+        "aligned_damage_ce": 5.75859228671146,
+        "random_damage_ce": 0.20755920917289705,
+        "aligned_minus_random_damage_ce": 5.551033077538563
+      },
+      "dollar": {
+        "aligned_damage_ce": 14.893754118450863,
+        "random_damage_ce": 0.3226858759664144,
+        "aligned_minus_random_damage_ce": 14.571068242484449
+      },
+      "said": {
+        "aligned_damage_ce": 9.550020386855449,
+        "random_damage_ce": 0.13636308359683236,
+        "aligned_minus_random_damage_ce": 9.413657303258617
+      },
+      "months": {
+        "aligned_damage_ce": 12.364871856625095,
+        "random_damage_ce": 0.5126736522452235,
+        "aligned_minus_random_damage_ce": 11.85219820437987
+      },
+      "question": {
+        "aligned_damage_ce": 9.782458948197238,
+        "random_damage_ce": 0.25025115971538137,
+        "aligned_minus_random_damage_ce": 9.532207788481857
+      },
+      "close_paren": {
+        "aligned_damage_ce": 15.184828934570154,
+        "random_damage_ce": 0.26620470599361945,
+        "aligned_minus_random_damage_ce": 14.918624228576535
+      },
+      "open_quote": {
+        "aligned_damage_ce": 5.852514407207588,
+        "random_damage_ce": 0.20475261640723064,
+        "aligned_minus_random_damage_ce": 5.647761790800358
+      },
+      "newline": {
+        "aligned_damage_ce": 2.867125746398893,
+        "random_damage_ce": 0.0699751886089196,
+        "aligned_minus_random_damage_ce": 2.7971505577899736
+      },
+      "pronouns": {
+        "aligned_damage_ce": 9.79610827214832,
+        "random_damage_ce": 0.18368528733578726,
+        "aligned_minus_random_damage_ce": 9.612422984812532
+      },
+      "however": {
+        "aligned_damage_ce": 16.696417597361975,
+        "random_damage_ce": 0.13790029798235182,
+        "aligned_minus_random_damage_ce": 16.558517299379623
+      },
+      "open_paren": {
+        "aligned_damage_ce": 1.585392038569306,
+        "random_damage_ce": 0.31805139111750025,
+        "aligned_minus_random_damage_ce": 1.2673406474518059
+      },
+      "hyphen": {
+        "aligned_damage_ce": 0.821266352060763,
+        "random_damage_ce": 0.25368651117300955,
+        "aligned_minus_random_damage_ce": 0.5675798408877535
+      },
+      "days": {
+        "aligned_damage_ce": 8.819184670021588,
+        "random_damage_ce": 0.4718651374971321,
+        "aligned_minus_random_damage_ce": 8.347319532524455
+      },
+      "titles": {
+        "aligned_damage_ce": 10.868526227333966,
+        "random_damage_ce": 0.15494012832641602,
+        "aligned_minus_random_damage_ce": 10.71358609900755
+      },
+      "about": {
+        "aligned_damage_ce": 6.372815032977039,
+        "random_damage_ce": 0.37482375596838713,
+        "aligned_minus_random_damage_ce": 5.997991277008651
+      },
+      "ordinals": {
+        "aligned_damage_ce": 5.881919412035783,
+        "random_damage_ce": 0.38425932175512445,
+        "aligned_minus_random_damage_ce": 5.497660090280659
+      }
+    }
+  },
+  "gates": {
+    "clean_replay": true,
+    "decoded_replay": true,
+    "global_extraction": true,
+    "lexical22_extraction": true,
+    "global_selective_removal": true,
+    "lexical22_selective_removal": true,
+    "head_count": true
+  },
+  "operational_lanes_pass": true,
+  "declared_live_dependencies": {
+    "exact_live_roster_heads": 23,
+    "decoded_nonroster_heads": 139,
+    "values_outputs_mlps": "live",
+    "removal_target": "joint rowspace of decoded Q/K/Q2/K2 maps per nonroster head",
+    "quotient_invariances": [
+      "even sign parity",
+      "branch exchange",
+      "independent orthogonal output gauges"
+    ],
+    "relative_rank_tolerance": 1e-07,
+    "haar_seed_base": 2026082700
+  },
+  "runtime_s": 66.65840744972229
+}

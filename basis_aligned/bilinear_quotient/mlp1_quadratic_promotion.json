@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "decision": "promote_rank32_under_known_gauge_accounting",
+  "price_certification_warning": "quadratic bytes remove explicit CP gauges but global CP uniqueness is unproven",
+  "linear_baseline": {
+    "program_hash": "sha256:72b464f118ed688e5d1719918a8c7bceb31fc74821ba334056f7c0b0b4bc2530",
+    "certified_quotient_bits": 123020000,
+    "held_out_ce": 3.1837240126397877,
+    "composed_ce": 3.452922444873386,
+    "global_causal_excess_ce": 0.9226192063755456,
+    "median_target_causal_excess_ce": 0.9247405956435724,
+    "ood_aggregate_delta_ce": 0.3176018439398871,
+    "ood_worst_delta_ce": 4.709500984312996,
+    "global_induction_retention": 0.5977714980395306
+  },
+  "candidates": [
+    {
+      "quadratic_rank": 8,
+      "program_hash": "sha256:4b71a1e3e24a9637f615df3bed874e9d45fb8fe5f8c5c9aa13756deba7c3b803",
+      "known_gauge_bits": 123609912,
+      "incremental_known_gauge_bits_over_linear": 589912,
+      "held_out_ce": 3.1704719450738694,
+      "composed_ce": 3.402721851401859,
+      "global_causal_excess_ce": 0.8934743563334147,
+      "median_target_causal_excess_ce": 0.8974873607290339,
+      "ood_aggregate_delta_ce": 0.27380067613389736,
+      "ood_worst_delta_ce": 3.397740627066799,
+      "global_induction_retention": 0.7023892569630146,
+      "dominance_gates": {
+        "held_out_ce_lower": true,
+        "composed_ce_lower": true,
+        "global_causal_excess_not_lower": false,
+        "target_causal_excess_not_lower": false,
+        "ood_aggregate_lower": true,
+        "ood_worst_lower": true,
+        "induction_retention_higher": true
+      },
+      "operationally_dominates_linear": false
+    },
+    {
+      "quadratic_rank": 16,
+      "program_hash": "sha256:0e63101700cad060a53d73434c83f998ecb849b456a38a569a9dd01acd84ad65",
+      "known_gauge_bits": 124168392,
+      "incremental_known_gauge_bits_over_linear": 1148392,
+      "held_out_ce": 3.1694697274102106,
+      "composed_ce": 3.400162527296278,
+      "global_causal_excess_ce": 0.9056912091043259,
+      "median_target_causal_excess_ce": 0.9118173866912025,
+      "ood_aggregate_delta_ce": 0.272408464219835,
+      "ood_worst_delta_ce": 3.4110156508349867,
+      "global_induction_retention": 0.7011067397488058,
+      "dominance_gates": {
+        "held_out_ce_lower": true,
+        "composed_ce_lower": true,
+        "global_causal_excess_not_lower": false,
+        "target_causal_excess_not_lower": false,
+        "ood_aggregate_lower": true,
+        "ood_worst_lower": true,
+        "induction_retention_higher": true
+      },
+      "operationally_dominates_linear": false
+    },
+    {
+      "quadratic_rank": 32,
+      "program_hash": "sha256:5356bcd0da74de188f6d0983368c85d6aaf17d1b451428144b7101398a07e942",
+      "known_gauge_bits": 125308920,
+      "incremental_known_gauge_bits_over_linear": 2288920,
+      "held_out_ce": 3.1652894205517237,
+      "composed_ce": 3.3891515572865805,
+      "global_causal_excess_ce": 0.9259770737753974,
+      "median_target_causal_excess_ce": 0.9323496187107252,
+      "ood_aggregate_delta_ce": 0.27245730929904477,
+      "ood_worst_delta_ce": 3.237757833167989,
+      "global_induction_retention": 0.7160234570965055,
+      "dominance_gates": {
+        "held_out_ce_lower": true,
+        "composed_ce_lower": true,
+        "global_causal_excess_not_lower": true,
+        "target_causal_excess_not_lower": true,
+        "ood_aggregate_lower": true,
+        "ood_worst_lower": true,
+        "induction_retention_higher": true
+      },
+      "operationally_dominates_linear": true
+    },
+    {
+      "quadratic_rank": 64,
+      "program_hash": "sha256:7f5f8fea7ad59bbad580f51cd4b22a770cb7a9b46d8b0077a3a26ed9f7ca1a71",
+      "known_gauge_bits": 127594168,
+      "incremental_known_gauge_bits_over_linear": 4574168,
+      "held_out_ce": 3.158452044592963,
+      "composed_ce": 3.3791371054119534,
+      "global_causal_excess_ce": 0.948558874924978,
+      "median_target_causal_excess_ce": 0.9666877477540932,
+      "ood_aggregate_delta_ce": 0.26139938354492154,
+      "ood_worst_delta_ce": 3.183763201678241,
+      "global_induction_retention": 0.7201223567561803,
+      "dominance_gates": {
+        "held_out_ce_lower": true,
+        "composed_ce_lower": true,
+        "global_causal_excess_not_lower": true,
+        "target_causal_excess_not_lower": true,
+        "ood_aggregate_lower": true,
+        "ood_worst_lower": true,
+        "induction_retention_higher": true
+      },
+      "operationally_dominates_linear": true
+    },
+    {
+      "quadratic_rank": 128,
+      "program_hash": "sha256:be817300bea126e5029e96c04cf4ca6c6cd206e2467de75adafb9937bdfe065d",
+      "known_gauge_bits": 132153920,
+      "incremental_known_gauge_bits_over_linear": 9133920,
+      "held_out_ce": 3.1454395771026613,
+      "composed_ce": 3.3685232506857976,
+      "global_causal_excess_ce": 0.9950080937809416,
+      "median_target_causal_excess_ce": 1.0111284267661222,
+      "ood_aggregate_delta_ce": 0.23964135064019088,
+      "ood_worst_delta_ce": 3.041878991505456,
+      "global_induction_retention": 0.7321590710512355,
+      "dominance_gates": {
+        "held_out_ce_lower": true,
+        "composed_ce_lower": true,
+        "global_causal_excess_not_lower": true,
+        "target_causal_excess_not_lower": true,
+        "ood_aggregate_lower": true,
+        "ood_worst_lower": true,
+        "induction_retention_higher": true
+      },
+      "operationally_dominates_linear": true
+    }
+  ],
+  "first_dominating_rank": 32,
+  "promoted_program_hash": "sha256:5356bcd0da74de188f6d0983368c85d6aaf17d1b451428144b7101398a07e942",
+  "incremental_known_gauge_bits": 2288920
+}

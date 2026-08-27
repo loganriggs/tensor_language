@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "family_id": "mlp1.tier2000-fullridge+exact-bilinear-residual.known-gauge.v1",
+  "suite_id": "bilin18-ood-v1",
+  "manifest_hash": "sha256:bf256d037364d220be70b5c184540b737296475b21f9fe3ad902bfe625aa067a",
+  "artifact_sha256": "da9e3455807aa66065c876bcf548186e5844129c478b01af3f2701a6df458c1c",
+  "protocol": {
+    "executed_members": [
+      "code",
+      "pile"
+    ],
+    "synthetic_source": "mlp1_quadratic_residual_eval_results.json",
+    "synthetic_pointer": "points/*/synthetic_induction_delta_ce",
+    "no_ood_refit": true
+  },
+  "members": {
+    "code": {
+      "rows": 150,
+      "row_tokens": 257,
+      "clean_ce": 3.7519827779134114,
+      "points": [
+        {
+          "quadratic_rank": 8,
+          "program_hash": "sha256:4b71a1e3e24a9637f615df3bed874e9d45fb8fe5f8c5c9aa13756deba7c3b803",
+          "known_gauge_bits": 123609912,
+          "ce": 4.025783454047309,
+          "delta_ce": 0.27380067613389736
+        },
+        {
+          "quadratic_rank": 16,
+          "program_hash": "sha256:0e63101700cad060a53d73434c83f998ecb849b456a38a569a9dd01acd84ad65",
+          "known_gauge_bits": 124168392,
+          "ce": 4.024391242133246,
+          "delta_ce": 0.272408464219835
+        },
+        {
+          "quadratic_rank": 32,
+          "program_hash": "sha256:5356bcd0da74de188f6d0983368c85d6aaf17d1b451428144b7101398a07e942",
+          "known_gauge_bits": 125308920,
+          "ce": 4.024440087212456,
+          "delta_ce": 0.27245730929904477
+        },
+        {
+          "quadratic_rank": 64,
+          "program_hash": "sha256:7f5f8fea7ad59bbad580f51cd4b22a770cb7a9b46d8b0077a3a26ed9f7ca1a71",
+          "known_gauge_bits": 127594168,
+          "ce": 4.013382161458333,
+          "delta_ce": 0.26139938354492154
+        },
+        {
+          "quadratic_rank": 128,
+          "program_hash": "sha256:be817300bea126e5029e96c04cf4ca6c6cd206e2467de75adafb9937bdfe065d",
+          "known_gauge_bits": 132153920,
+          "ce": 3.9916241285536023,
+          "delta_ce": 0.23964135064019088
+        }
+      ]
+    },
+    "pile": {
+      "rows": 150,
+      "row_tokens": 257,
+      "clean_ce": 3.1131986660427517,
+      "points": [
+        {
+          "quadratic_rank": 8,
+          "program_hash": "sha256:4b71a1e3e24a9637f615df3bed874e9d45fb8fe5f8c5c9aa13756deba7c3b803",
+          "known_gauge_bits": 123609912,
+          "ce": 3.351695285373264,
+          "delta_ce": 0.23849661933051225
+        },
+        {
+          "quadratic_rank": 16,
+          "program_hash": "sha256:0e63101700cad060a53d73434c83f998ecb849b456a38a569a9dd01acd84ad65",
+          "known_gauge_bits": 124168392,
+          "ce": 3.349939007229275,
+          "delta_ce": 0.2367403411865232
+        },
+        {
+          "quadratic_rank": 32,
+          "program_hash": "sha256:5356bcd0da74de188f6d0983368c85d6aaf17d1b451428144b7101398a07e942",
+          "known_gauge_bits": 125308920,
+          "ce": 3.349215783013238,
+          "delta_ce": 0.2360171169704861
+        },
+        {
+          "quadratic_rank": 64,
+          "program_hash": "sha256:7f5f8fea7ad59bbad580f51cd4b22a770cb7a9b46d8b0077a3a26ed9f7ca1a71",
+          "known_gauge_bits": 127594168,
+          "ce": 3.3384855651855467,
+          "delta_ce": 0.22528689914279498
+        },
+        {
+          "quadratic_rank": 128,
+          "program_hash": "sha256:be817300bea126e5029e96c04cf4ca6c6cd206e2467de75adafb9937bdfe065d",
+          "known_gauge_bits": 132153920,
+          "ce": 3.3226356336805556,
+          "delta_ce": 0.20943696763780384
+        }
+      ]
+    }
+  },
+  "points": [
+    {
+      "quadratic_rank": 8,
+      "program_hash": "sha256:4b71a1e3e24a9637f615df3bed874e9d45fb8fe5f8c5c9aa13756deba7c3b803",
+      "known_gauge_bits": 123609912,
+      "per_member_delta_ce": {
+        "code": 0.27380067613389736,
+        "pile": 0.23849661933051225,
+        "synthetic_induction": 3.397740627066799
+      },
+      "aggregate_delta_ce": 0.27380067613389736,
+      "worst_member_delta_ce": 3.397740627066799
+    },
+    {
+      "quadratic_rank": 16,
+      "program_hash": "sha256:0e63101700cad060a53d73434c83f998ecb849b456a38a569a9dd01acd84ad65",
+      "known_gauge_bits": 124168392,
+      "per_member_delta_ce": {
+        "code": 0.272408464219835,
+        "pile": 0.2367403411865232,
+        "synthetic_induction": 3.4110156508349867
+      },
+      "aggregate_delta_ce": 0.272408464219835,
+      "worst_member_delta_ce": 3.4110156508349867
+    },
+    {
+      "quadratic_rank": 32,
+      "program_hash": "sha256:5356bcd0da74de188f6d0983368c85d6aaf17d1b451428144b7101398a07e942",
+      "known_gauge_bits": 125308920,
+      "per_member_delta_ce": {
+        "code": 0.27245730929904477,
+        "pile": 0.2360171169704861,
+        "synthetic_induction": 3.237757833167989
+      },
+      "aggregate_delta_ce": 0.27245730929904477,
+      "worst_member_delta_ce": 3.237757833167989
+    },
+    {
+      "quadratic_rank": 64,
+      "program_hash": "sha256:7f5f8fea7ad59bbad580f51cd4b22a770cb7a9b46d8b0077a3a26ed9f7ca1a71",
+      "known_gauge_bits": 127594168,
+      "per_member_delta_ce": {
+        "code": 0.26139938354492154,
+        "pile": 0.22528689914279498,
+        "synthetic_induction": 3.183763201678241
+      },
+      "aggregate_delta_ce": 0.26139938354492154,
+      "worst_member_delta_ce": 3.183763201678241
+    },
+    {
+      "quadratic_rank": 128,
+      "program_hash": "sha256:be817300bea126e5029e96c04cf4ca6c6cd206e2467de75adafb9937bdfe065d",
+      "known_gauge_bits": 132153920,
+      "per_member_delta_ce": {
+        "code": 0.23964135064019088,
+        "pile": 0.20943696763780384,
+        "synthetic_induction": 3.041878991505456
+      },
+      "aggregate_delta_ce": 0.23964135064019088,
+      "worst_member_delta_ce": 3.041878991505456
+    }
+  ],
+  "linear_full_per_member_delta_ce": {
+    "code": 0.3176018439398871,
+    "pile": 0.2703843180338543,
+    "synthetic_induction": 4.709500984312996
+  },
+  "pred_each_member_no_adjacent_increase_over_0_02": true,
+  "pred_full_code_and_pile_each_improve_linear_by_0_01": true,
+  "pred_full_aggregate_delta_ce_at_most_0_28": true,
+  "pred_full_worst_member_delta_ce_at_most_3_20": true,
+  "runtime_s": 50.855188846588135
+}

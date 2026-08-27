@@ -1,0 +1,298 @@
+{
+  "schema_version": 1,
+  "object_id": "mlp3",
+  "protocol_id": "bilin18.mlp3.local-dag-frontier.v1",
+  "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+  "candidate_count": 6,
+  "coverage": {
+    "quotient_price": 6,
+    "held_out": 6,
+    "composite": 6,
+    "extraction": 6,
+    "removal": 6,
+    "ood": 6
+  },
+  "interpretation": {
+    "comparison_scope": "within this frozen family and protocol only",
+    "price_definition": "exact canonical serialized quotient bits",
+    "monotonicity_warning": "rank is nested, so correlations establish ordering consistency rather than independent causal prediction",
+    "knee_rule": "inspect marginal operational gain per added Mbit; no task-loss exchange rate is assumed"
+  },
+  "selection_summary": {
+    "marginal_efficiency_knee_rank": 32,
+    "smallest_rank_meeting_full_style_operational_bars": 128,
+    "full_minus_rank128_added_mbits": 38.7424,
+    "full_minus_rank128_fidelity_gain": 0.0479412608811044,
+    "rank128_minus_full_worst_ood_delta": 0.24156799639343562,
+    "warning": "knee and adequacy are distinct; choosing one candidate requires a declared operational loss or bit exchange rate"
+  },
+  "candidates": [
+    {
+      "candidate_id": "mlp3.canonical.tier2000-local-affine-r0",
+      "ridge_rank": 0,
+      "program_hash": "sha256:666df0fe10e89f613b493f34d9732f5013c55f5bbd09140f7c87d50d11110a6a",
+      "quotient_bits": 75682144,
+      "held_out": {
+        "ce": 3.236223104265001,
+        "delta_ce": 0.29067787196901085,
+        "fidelity": 0.5233942695243097
+      },
+      "composite": {
+        "ce": 3.5304736720191108,
+        "delta_ce": 0.5849284397231207,
+        "compounding_factor": 1.2968320923647272
+      },
+      "extraction": {
+        "global_retained_fraction": 0.5233942695243097,
+        "median_target_retained_fraction": 0.530565131142737
+      },
+      "removal": {
+        "global_excess_damage_ce": 0.035131817393832865,
+        "median_excess_damage_ce": 0.024929822601057916
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.4415064663357202,
+        "worst_member_delta_ce": 4.89782142598793,
+        "per_member_delta_ce": {
+          "code": 0.4415064663357202,
+          "pile": 0.38111814710828984,
+          "synthetic_induction": 4.89782142598793
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp3.canonical.tier2000-local-affine-r32",
+      "ridge_rank": 32,
+      "program_hash": "sha256:ad8f6cc373d26ceacb5675e1ce4eea336844eb9d7ce7f6a38608b917b6de5f30",
+      "quotient_bits": 76891784,
+      "held_out": {
+        "ce": 3.12462172375785,
+        "delta_ce": 0.1790764914618599,
+        "fidelity": 0.7063798443064752
+      },
+      "composite": {
+        "ce": 3.3334595521291095,
+        "delta_ce": 0.3879143198331194,
+        "compounding_factor": 1.1427976471656767
+      },
+      "extraction": {
+        "global_retained_fraction": 0.7063798443064752,
+        "median_target_retained_fraction": 0.7051777485007247
+      },
+      "removal": {
+        "global_excess_damage_ce": 0.06592680348290347,
+        "median_excess_damage_ce": 0.05225743517329484
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.20185568915473118,
+        "worst_member_delta_ce": 1.30777339874752,
+        "per_member_delta_ce": {
+          "code": 0.20185568915473118,
+          "pile": 0.17843852572970897,
+          "synthetic_induction": 1.30777339874752
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp3.canonical.tier2000-local-affine-r64",
+      "ridge_rank": 64,
+      "program_hash": "sha256:21de3fa6ae250657ab32432a75db3abd929a880a281c59862f7bb220e3511be4",
+      "quotient_bits": 78097816,
+      "held_out": {
+        "ce": 3.089809845553504,
+        "delta_ce": 0.14426461325751383,
+        "fidelity": 0.7634586323422632
+      },
+      "composite": {
+        "ce": 3.2878801067670187,
+        "delta_ce": 0.3423348744710286,
+        "compounding_factor": 1.1237696551615601
+      },
+      "extraction": {
+        "global_retained_fraction": 0.7634586323422632,
+        "median_target_retained_fraction": 0.7682101327336377
+      },
+      "removal": {
+        "global_excess_damage_ce": 0.08004023234049518,
+        "median_excess_damage_ce": 0.06321154836712184
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.1772561136881512,
+        "worst_member_delta_ce": 1.2722086071841932,
+        "per_member_delta_ce": {
+          "code": 0.1772561136881512,
+          "pile": 0.1494771830240884,
+          "synthetic_induction": 1.2722086071841932
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp3.canonical.tier2000-local-affine-r128",
+      "ridge_rank": 128,
+      "program_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "held_out": {
+        "ce": 3.0603588766521876,
+        "delta_ce": 0.11481364435619756,
+        "fidelity": 0.8117474836791311
+      },
+      "composite": {
+        "ce": 3.2527031872007584,
+        "delta_ce": 0.30715795490476827,
+        "compounding_factor": 1.1162080027664296
+      },
+      "extraction": {
+        "global_retained_fraction": 0.8117474836791311,
+        "median_target_retained_fraction": 0.8223805140304054
+      },
+      "removal": {
+        "global_excess_damage_ce": 0.1000189012951318,
+        "median_excess_damage_ce": 0.08534250758697037
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.15445151435004334,
+        "worst_member_delta_ce": 1.1090152348916997,
+        "per_member_delta_ce": {
+          "code": 0.15445151435004334,
+          "pile": 0.12685623168945304,
+          "synthetic_induction": 1.1090152348916997
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp3.canonical.tier2000-local-affine-r256",
+      "ridge_rank": 256,
+      "program_hash": "sha256:9f60de0c9747e82ad7d878230b0038b66eea02c5adc1d98014b8a4804f1fb82f",
+      "quotient_bits": 85344032,
+      "held_out": {
+        "ce": 3.0409571329752603,
+        "delta_ce": 0.09541190067927019,
+        "fidelity": 0.8435592695402505
+      },
+      "composite": {
+        "ce": 3.2308817863464356,
+        "delta_ce": 0.28533655405044556,
+        "compounding_factor": 1.1155628369447892
+      },
+      "extraction": {
+        "global_retained_fraction": 0.8435592695402506,
+        "median_target_retained_fraction": 0.8494061085288982
+      },
+      "removal": {
+        "global_excess_damage_ce": 0.12141620715459212,
+        "median_excess_damage_ce": 0.11050814430000777
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.13205017089843762,
+        "worst_member_delta_ce": 0.944549709098049,
+        "per_member_delta_ce": {
+          "code": 0.13205017089843762,
+          "pile": 0.10867200215657569,
+          "synthetic_induction": 0.944549709098049
+        }
+      }
+    },
+    {
+      "candidate_id": "mlp3.canonical.tier2000-local-affine-r1152",
+      "ridge_rank": 1152,
+      "program_hash": "sha256:0ca635e2eff5ed37f8cbc7a072a682356a7bcaed53458f17b5dae4e5e2dc23d1",
+      "quotient_bits": 119252448,
+      "held_out": {
+        "ce": 3.031119900279575,
+        "delta_ce": 0.0855746679835847,
+        "fidelity": 0.8596887445602355
+      },
+      "composite": {
+        "ce": 3.2207543836699593,
+        "delta_ce": 0.2752091513739692,
+        "compounding_factor": 1.119005325019136
+      },
+      "extraction": {
+        "global_retained_fraction": 0.8596887445602355,
+        "median_target_retained_fraction": 0.86312013144789
+      },
+      "removal": {
+        "global_excess_damage_ce": 0.13637071185641814,
+        "median_excess_damage_ce": 0.13189399641352206
+      },
+      "ood": {
+        "aggregate_delta_ce": 0.12006688435872404,
+        "worst_member_delta_ce": 0.8674472384982641,
+        "per_member_delta_ce": {
+          "code": 0.12006688435872404,
+          "pile": 0.09972533331976985,
+          "synthetic_induction": 0.8674472384982641
+        }
+      }
+    }
+  ],
+  "correlations": {
+    "held_out.fidelity": {
+      "direction": "higher_is_better",
+      "pearson_r_with_quotient_bits": 0.5646622255173622,
+      "spearman_rho_with_quotient_bits": 1.0
+    },
+    "composite.ce": {
+      "direction": "lower_is_better",
+      "pearson_r_with_quotient_bits": -0.509065313658356,
+      "spearman_rho_with_quotient_bits": -1.0
+    },
+    "composite.compounding_factor": {
+      "direction": "closer_to_one_is_better",
+      "pearson_r_with_quotient_bits": -0.3465656308307154,
+      "spearman_rho_with_quotient_bits": -0.8285714285714286
+    },
+    "removal.global_excess_damage_ce": {
+      "direction": "higher_is_better",
+      "pearson_r_with_quotient_bits": 0.7515314464987006,
+      "spearman_rho_with_quotient_bits": 1.0
+    },
+    "ood.aggregate_delta_ce": {
+      "direction": "lower_is_better",
+      "pearson_r_with_quotient_bits": -0.4698987673064338,
+      "spearman_rho_with_quotient_bits": -1.0
+    },
+    "ood.worst_member_delta_ce": {
+      "direction": "lower_is_better",
+      "pearson_r_with_quotient_bits": -0.3845315413064678,
+      "spearman_rho_with_quotient_bits": -1.0
+    }
+  },
+  "marginal_efficiency": [
+    {
+      "from_rank": 0,
+      "to_rank": 32,
+      "added_mbits": 1.20964,
+      "heldout_fidelity_gain_per_mbit": 0.15127275452379674,
+      "synthetic_induction_delta_reduction_per_mbit": 2.967864841804512
+    },
+    {
+      "from_rank": 32,
+      "to_rank": 64,
+      "added_mbits": 1.206032,
+      "heldout_fidelity_gain_per_mbit": 0.047327755843781946,
+      "synthetic_induction_delta_reduction_per_mbit": 0.029489094454646987
+    },
+    {
+      "from_rank": 64,
+      "to_rank": 128,
+      "added_mbits": 2.412232,
+      "heldout_fidelity_gain_per_mbit": 0.02001832797876319,
+      "synthetic_induction_delta_reduction_per_mbit": 0.06765243653698874
+    },
+    {
+      "from_rank": 128,
+      "to_rank": 256,
+      "added_mbits": 4.833984,
+      "heldout_fidelity_gain_per_mbit": 0.00658086287855306,
+      "synthetic_induction_delta_reduction_per_mbit": 0.03402276999544283
+    },
+    {
+      "from_rank": 256,
+      "to_rank": 1152,
+      "added_mbits": 33.908416,
+      "heldout_fidelity_gain_per_mbit": 0.00047567763177097276,
+      "synthetic_induction_delta_reduction_per_mbit": 0.002273844658499675
+    }
+  ]
+}

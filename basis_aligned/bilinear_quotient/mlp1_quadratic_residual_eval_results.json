@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "family_id": "mlp1.tier2000-fullridge+exact-bilinear-residual.known-gauge.v1",
+  "protocol": {
+    "fit_member": "fit_skip80_rows960",
+    "id_member": "id_skip7000_rows960",
+    "no_ood_refit": true,
+    "induction_suite_id": "bilin18.mlp1-induction-localization.v1",
+    "induction_manifest_hash": "sha256:b08ebc60832c47d59ace9d98eb3c77ff4ac50bf565ec984e1d8d37bac69c730a"
+  },
+  "base_program_hash": "sha256:72b464f118ed688e5d1719918a8c7bceb31fc74821ba334056f7c0b0b4bc2530",
+  "base_id_ce": 3.1837240126397877,
+  "base_advantage_retained_fraction": {
+    "within_row_permuted": 0.58300332730423,
+    "global_permuted": 0.5977714980395306
+  },
+  "clean_id_ce": 2.94554523229599,
+  "id_anchor_delta_ce": 7.253272582425012,
+  "clean_induction_ce": {
+    "repeated": 1.360925757998512,
+    "within_row_permuted": 12.097316261574075,
+    "global_permuted": 12.735399047205688
+  },
+  "clean_induction_advantage_ce": {
+    "within_row_permuted": 10.736390503575562,
+    "global_permuted": 11.374473289207176
+  },
+  "points": [
+    {
+      "quadratic_rank": 8,
+      "program_hash": "sha256:4b71a1e3e24a9637f615df3bed874e9d45fb8fe5f8c5c9aa13756deba7c3b803",
+      "known_gauge_bits": 123609912,
+      "id_ce": 3.1704719450738694,
+      "id_delta_ce": 0.22492671277787935,
+      "id_fidelity": 0.9689896236186013,
+      "induction_ce": {
+        "repeated": 4.758666385065311,
+        "within_row_permuted": 12.168083147321429,
+        "global_permuted": 12.747974227017195
+      },
+      "synthetic_induction_delta_ce": 3.397740627066799,
+      "induction_advantage_ce": {
+        "within_row_permuted": 7.409416762256118,
+        "global_permuted": 7.989307841951884
+      },
+      "advantage_retained_fraction": {
+        "within_row_permuted": 0.6901217648322818,
+        "global_permuted": 0.7023892569630146
+      }
+    },
+    {
+      "quadratic_rank": 16,
+      "program_hash": "sha256:0e63101700cad060a53d73434c83f998ecb849b456a38a569a9dd01acd84ad65",
+      "known_gauge_bits": 124168392,
+      "id_ce": 3.1694697274102106,
+      "id_delta_ce": 0.22392449511422052,
+      "id_fidelity": 0.9691277981670234,
+      "induction_ce": {
+        "repeated": 4.771941408833499,
+        "within_row_permuted": 12.17712658110119,
+        "global_permuted": 12.746661292989417
+      },
+      "synthetic_induction_delta_ce": 3.4110156508349867,
+      "induction_advantage_ce": {
+        "within_row_permuted": 7.405185172267691,
+        "global_permuted": 7.974719884155919
+      },
+      "advantage_retained_fraction": {
+        "within_row_permuted": 0.6897276295791893,
+        "global_permuted": 0.7011067397488058
+      }
+    },
+    {
+      "quadratic_rank": 32,
+      "program_hash": "sha256:5356bcd0da74de188f6d0983368c85d6aaf17d1b451428144b7101398a07e942",
+      "known_gauge_bits": 125308920,
+      "id_ce": 3.1652894205517237,
+      "id_delta_ce": 0.2197441882557336,
+      "id_fidelity": 0.9697041320647203,
+      "induction_ce": {
+        "repeated": 4.598683591166501,
+        "within_row_permuted": 12.17482757729828,
+        "global_permuted": 12.743073278356482
+      },
+      "synthetic_induction_delta_ce": 3.237757833167989,
+      "induction_advantage_ce": {
+        "within_row_permuted": 7.57614398613178,
+        "global_permuted": 8.144389687189982
+      },
+      "advantage_retained_fraction": {
+        "within_row_permuted": 0.7056509339529594,
+        "global_permuted": 0.7160234570965055
+      }
+    },
+    {
+      "quadratic_rank": 64,
+      "program_hash": "sha256:7f5f8fea7ad59bbad580f51cd4b22a770cb7a9b46d8b0077a3a26ed9f7ca1a71",
+      "known_gauge_bits": 127594168,
+      "id_ce": 3.158452044592963,
+      "id_delta_ce": 0.21290681229697306,
+      "id_fidelity": 0.9706467928955469,
+      "induction_ce": {
+        "repeated": 4.544688959676753,
+        "within_row_permuted": 12.16175724413029,
+        "global_permuted": 12.735701471560846
+      },
+      "synthetic_induction_delta_ce": 3.183763201678241,
+      "induction_advantage_ce": {
+        "within_row_permuted": 7.617068284453538,
+        "global_permuted": 8.191012511884093
+      },
+      "advantage_retained_fraction": {
+        "within_row_permuted": 0.7094626710826893,
+        "global_permuted": 0.7201223567561803
+      }
+    },
+    {
+      "quadratic_rank": 128,
+      "program_hash": "sha256:be817300bea126e5029e96c04cf4ca6c6cd206e2467de75adafb9937bdfe065d",
+      "known_gauge_bits": 132153920,
+      "id_ce": 3.1454395771026613,
+      "id_delta_ce": 0.19989434480667123,
+      "id_fidelity": 0.9724408061967748,
+      "induction_ce": {
+        "repeated": 4.402804749503968,
+        "within_row_permuted": 12.158752996858466,
+        "global_permuted": 12.730728546626985
+      },
+      "synthetic_induction_delta_ce": 3.041878991505456,
+      "induction_advantage_ce": {
+        "within_row_permuted": 7.755948247354498,
+        "global_permuted": 8.327923797123017
+      },
+      "advantage_retained_fraction": {
+        "within_row_permuted": 0.7223981136650645,
+        "global_permuted": 0.7321590710512355
+      }
+    }
+  ],
+  "pred_all_id_ce_no_worse_than_base_plus_0_01": true,
+  "pred_full_improves_both_retention_by_at_least_0_05": true,
+  "pred_retention_non_decreasing_tolerance_0_05": true,
+  "runtime_s": 104.11096596717834
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "artifact": "mlp3_tier2000_local_affine_artifact.pt",
+  "artifact_sha256": "9feed44f7062ea4bebcfbb69bf4976f1898b73fb5dad13b26d28632ed6291ae9",
+  "protocol_id": "bilin18.mlp3.local-dag-frontier.v1",
+  "protocol_rows_artifact_sha256": "9efb11b2bc3519d826f0442b508909302e976228294ebd52dc2c3988b895566d",
+  "fit_rows_tensor_sha256": "eb9cb436378dd09ffe12cb667e2bb7676e40092c8249f10f2f30c5bf4af88e7f",
+  "fit_rows": 960,
+  "sequence_length": 256,
+  "table_rank": 64,
+  "exceptions": 2000,
+  "ridge_max_rank": 1152,
+  "fit_observations": 245760,
+  "random_seed": 1603,
+  "tensor_sha256": {
+    "table_mean": "45b8bcacc68cbe7242bc93c3c0f83236dcade8e197d000bd3fe9b2c5131fe6be",
+    "table_left": "67636809d38dd775f8803981f4f538ce0f5409a0099f201a426dd15d235f854d",
+    "table_right": "f2de19284efca6052bd987226805c2a5ff1b076bb01da3bc3faad1f263a6ed09",
+    "exception_ids": "f6aa0cde8dd9d2122fb004308c769ea617ef061dbf0f2dfafd99f3599ceb4a00",
+    "exception_values": "0a51663dd5d64eee411436b545e2d293f6899e548ca119ad3bb02efbe6bf351c",
+    "ridge_left": "0c74b87693d2db80ec9be50ead1c5e4071aeca665221d6b07430cbeb3fa61796",
+    "ridge_right": "a5f2bf252eaf66657fcc8cf3717c4ed05063031ef6dc60a734f767f8419ab6c6",
+    "ridge_metric_eigenvalues": "0c974e07acb3fabafa45074adfa64e5d5a1c0cf23bc726d1b55813114fdb3eb3",
+    "ridge_prediction_singular_values": "3b59959e328b62c874c8e14ea35eded7461026e967478744d1b08335568ef88b",
+    "ridge_xmean": "07dadda3a0cc9581f77ee37c38ced1f98f1c99b6579932aad6a834f8615833b6",
+    "ridge_ymean": "e03a0f33081ba0f3348e9dc57679959d360f73062c31f2793e59bb15913472ce"
+  },
+  "runtime_s": 5.543341875076294
+}

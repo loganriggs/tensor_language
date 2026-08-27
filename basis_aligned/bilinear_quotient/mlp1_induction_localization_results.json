@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "family_id": "mlp1.tier2000-ridge.canonical.v1",
+  "suite_id": "bilin18.mlp1-induction-localization.v1",
+  "manifest_hash": "sha256:b08ebc60832c47d59ace9d98eb3c77ff4ac50bf565ec984e1d8d37bac69c730a",
+  "ranks": [
+    0,
+    128,
+    1152
+  ],
+  "clean_ce": {
+    "repeated": 1.360925757998512,
+    "within_row_permuted": 12.097316261574074,
+    "global_permuted": 12.735399047205687
+  },
+  "clean_induction_advantage_ce": {
+    "within_row_permuted": 10.736390503575562,
+    "global_permuted": 11.374473289207176
+  },
+  "points": [
+    {
+      "ridge_rank": 0,
+      "program_hash": "sha256:ceb6d0dcb839b0a28dafe659b14c2f1874b3f024613e4fae9616f3d999b24987",
+      "quotient_bits": 75986664,
+      "ce": {
+        "repeated": 10.093951616236772,
+        "within_row_permuted": 13.064588707010582,
+        "global_permuted": 13.479055886243387
+      },
+      "induction_advantage_ce": {
+        "within_row_permuted": 2.9706370907738098,
+        "global_permuted": 3.3851042700066145
+      },
+      "clean_induction_advantage_ce": {
+        "within_row_permuted": 10.736390503575562,
+        "global_permuted": 11.374473289207176
+      },
+      "advantage_retained_fraction": {
+        "within_row_permuted": 0.2766886217285495,
+        "global_permuted": 0.29760536456827563
+      }
+    },
+    {
+      "ridge_rank": 128,
+      "program_hash": "sha256:2e150112e4c294a2ed017665ac41724065c8c473e0241f7073ff9a70aa686e43",
+      "quotient_bits": 81229000,
+      "ce": {
+        "repeated": 8.408480205233134,
+        "within_row_permuted": 12.560751333085317,
+        "global_permuted": 13.17381412243717
+      },
+      "induction_advantage_ce": {
+        "within_row_permuted": 4.152271127852183,
+        "global_permuted": 4.765333917204035
+      },
+      "clean_induction_advantage_ce": {
+        "within_row_permuted": 10.736390503575562,
+        "global_permuted": 11.374473289207176
+      },
+      "advantage_retained_fraction": {
+        "within_row_permuted": 0.38674740141664404,
+        "global_permuted": 0.4189498534165699
+      }
+    },
+    {
+      "ridge_rank": 1152,
+      "program_hash": "sha256:72b464f118ed688e5d1719918a8c7bceb31fc74821ba334056f7c0b0b4bc2530",
+      "quotient_bits": 123020000,
+      "ce": {
+        "repeated": 6.070426742311508,
+        "within_row_permuted": 12.329778129133597,
+        "global_permuted": 12.869762679811508
+      },
+      "induction_advantage_ce": {
+        "within_row_permuted": 6.25935138682209,
+        "global_permuted": 6.7993359375
+      },
+      "clean_induction_advantage_ce": {
+        "within_row_permuted": 10.736390503575562,
+        "global_permuted": 11.374473289207176
+      },
+      "advantage_retained_fraction": {
+        "within_row_permuted": 0.58300332730423,
+        "global_permuted": 0.5977714980395306
+      }
+    }
+  ],
+  "pred_clean_advantage_at_least_5_ce": true,
+  "pred_full_retains_at_least_0_25": true,
+  "pred_full_retains_at_most_0_75": true,
+  "pred_retention_non_decreasing_with_rank_tolerance_0_05": true,
+  "runtime_s": 51.60704207420349
+}

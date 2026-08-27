@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "contract_id": "bilin18.mlp0-exact-fold-reader-quotient.v1",
+  "status": "cpu_math_primitive_complete_checkpoint_audit_pending",
+  "objects": {
+    "input_fold": {
+      "formula": "m0(z)=((z Left^T) elementwise_product (z Right^T)) Down^T+bias",
+      "scope": "exact for any supplied pre-MLP state z",
+      "context_free_use": "supply the exact per-token T=1 state after embedding, block0 attention, residual assembly, and RMSNorm",
+      "contextual_limit": "does not linearize or discard attention/RMSNorm; actual contextual states must be supplied"
+    },
+    "immediate_reader_equivalence": {
+      "declared_reader_family": [
+        "block1.attn.Q",
+        "block1.attn.K",
+        "block1.attn.Q2",
+        "block1.attn.K2",
+        "block1.attn.V",
+        "block1.mlp.Left",
+        "block1.mlp.Right"
+      ],
+      "exact_linear_equivalence": "v~w iff every declared W_i(v-w)=0",
+      "quotient": "write space modulo intersection_i kernel(W_i)",
+      "canonical_object": "orthogonal projector onto rowspace(stack_i W_i)",
+      "random_projection_required": false,
+      "clustering_required": false
+    },
+    "state_local_equivalence": {
+      "rmsnorm": "n(x)=x/sqrt(mean(x^2)+epsilon)",
+      "jacobian": "J_x=sigma^-1 I - x x^T/(d sigma^3)",
+      "observable_maps": "W_i J_x",
+      "multi_state_quotient": "joint rowspace over every declared state-local map",
+      "interpretation": "first-order equivalence at audited residual states, not global nonlinear equivalence"
+    },
+    "hidden_unit_composition": {
+      "literal_native_metric": "Down^T (sum_i W_i^T W_i) Down",
+      "quotient_metric": "Down^T P_reader Down",
+      "meaning": "compares MLP0 hidden-unit output columns by declared downstream use without activation clustering"
+    }
+  },
+  "distinctions": {
+    "hard_equivalence": "an exact joint-kernel statement",
+    "approximate_clustering": "requires a declared metric, scale convention, clustering algorithm, and tolerance",
+    "semantic_equivalence": "requires causal interchange or another behavior-level validation after mathematical grouping",
+    "full_network_equivalence": "not claimed because residual identity paths and later nonlinear composition remain"
+  },
+  "implementation": "mlp0_exact_fold_reader.py",
+  "tests": "test_mlp0_exact_fold_reader.py",
+  "checkpoint_audit_required": {
+    "reader_stack_rank_and_spectrum": true,
+    "token_pair_exact_equivalence_count": true,
+    "unit_output_exact_equivalence_count": true,
+    "reader_metric_cluster_frontier_without_random_projection": true,
+    "causal_interchange_on_disjoint_rows": true
+  },
+  "literature": [
+    {
+      "title": "Root Mean Square Layer Normalization",
+      "url": "https://proceedings.neurips.cc/paper/2019/hash/1e8a19426224ca89e83cef47f1e7f53b-Abstract.html",
+      "use": "RMS normalization and its scale/Jacobian structure"
+    },
+    {
+      "title": "The Mathematical Theory of Communication",
+      "url": "https://people.math.harvard.edu/~ctm/home/text/others/shannon/entropy/entropy.pdf",
+      "use": "operational indistinguishability motivates quotienting only distinctions a declared channel can transmit"
+    }
+  ]
+}

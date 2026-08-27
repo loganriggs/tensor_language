@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp2-layer5-head7-lag.rank128.v1",
+  "parent_protocol_id": "bilin18.mlp03.progressive-chain.rank128.v1",
+  "rank": 128,
+  "programs": [
+    {
+      "layer": 0,
+      "family_id": "mlp0.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "quotient_bits": 77982968,
+      "inputs": [
+        "token",
+        "attn0.c_proj",
+        "x0"
+      ]
+    },
+    {
+      "layer": 1,
+      "family_id": "mlp1.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:2e150112e4c294a2ed017665ac41724065c8c473e0241f7073ff9a70aa686e43",
+      "quotient_bits": 81229000,
+      "inputs": [
+        "token",
+        "attn1.c_proj",
+        "mlp0.output"
+      ]
+    },
+    {
+      "layer": 2,
+      "family_id": "mlp2.lin2.svd",
+      "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+      "quotient_bits": 7652856,
+      "inputs": [
+        "attn2.c_proj",
+        "mlp1.output"
+      ]
+    },
+    {
+      "layer": 3,
+      "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+      "program_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "inputs": [
+        "token",
+        "attn3.c_proj",
+        "mlp2.output"
+      ]
+    }
+  ],
+  "layer": 5,
+  "head": 7,
+  "lag_bands": [
+    {
+      "id": "lag0",
+      "minimum": 0,
+      "maximum": 0
+    },
+    {
+      "id": "lag1",
+      "minimum": 1,
+      "maximum": 1
+    },
+    {
+      "id": "lag2_3",
+      "minimum": 2,
+      "maximum": 3
+    },
+    {
+      "id": "lag4_7",
+      "minimum": 4,
+      "maximum": 7
+    },
+    {
+      "id": "lag8_15",
+      "minimum": 8,
+      "maximum": 15
+    },
+    {
+      "id": "lag16_31",
+      "minimum": 16,
+      "maximum": 31
+    },
+    {
+      "id": "lag32_63",
+      "minimum": 32,
+      "maximum": 63
+    },
+    {
+      "id": "lag64_127",
+      "minimum": 64,
+      "maximum": 127
+    },
+    {
+      "id": "lag128_255",
+      "minimum": 128,
+      "maximum": 255
+    }
+  ],
+  "arms": [
+    {
+      "active_upstream_layers": [],
+      "angular_rms_by_patch": {
+        "none": 0.11504487937047693,
+        "lag0": 0.11498869603711809,
+        "lag1": 0.11498893820453643,
+        "lag2_3": 0.11495293380256048,
+        "lag4_7": 0.11482170469583869,
+        "lag8_15": 0.1147352725157766,
+        "lag16_31": 0.1148260398707305,
+        "lag32_63": 0.11494443958992275,
+        "lag64_127": 0.11504544016337905,
+        "lag128_255": 0.11514083627376084,
+        "all_bands": 0.11441929456088042,
+        "route7": 0.11441929456088042
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        0
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.15448010291949565,
+        "lag0": 0.15410797625271366,
+        "lag1": 0.1539917445554076,
+        "lag2_3": 0.1537711472988089,
+        "lag4_7": 0.15295353033219541,
+        "lag8_15": 0.15234816491376554,
+        "lag16_31": 0.15252170656667494,
+        "lag32_63": 0.15266211569077914,
+        "lag64_127": 0.15223003052856662,
+        "lag128_255": 0.15073887621795057,
+        "all_bands": 0.14348717262672286,
+        "route7": 0.14348717262672286
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        1
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.21129418234559452,
+        "lag0": 0.20953591211779343,
+        "lag1": 0.2092483236474631,
+        "lag2_3": 0.20821505043167277,
+        "lag4_7": 0.20491349513411689,
+        "lag8_15": 0.20348211939946026,
+        "lag16_31": 0.2046276827018724,
+        "lag32_63": 0.2043182916763617,
+        "lag64_127": 0.20123702670810906,
+        "lag128_255": 0.19236548984609134,
+        "all_bands": 0.16003476331992197,
+        "route7": 0.16003476331992197
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        0,
+        1
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.24829699148147366,
+        "lag0": 0.24599637796898396,
+        "lag1": 0.24556430162385057,
+        "lag2_3": 0.2437014018262026,
+        "lag4_7": 0.23823989689987451,
+        "lag8_15": 0.23651007393357087,
+        "lag16_31": 0.23888424509516426,
+        "lag32_63": 0.23890349941954014,
+        "lag64_127": 0.23565531191600536,
+        "lag128_255": 0.2248631036001049,
+        "all_bands": 0.17980279659624096,
+        "route7": 0.17980279659624096
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    }
+  ],
+  "unpatched_joint_margin": 0.03700280913587914,
+  "joint_margin_reduction_by_patch": {
+    "lag0": 0.0005423432846886067,
+    "lag1": 0.0006868311594916687,
+    "lag2_3": 0.001516457741349314,
+    "lag4_7": 0.0036764073701215094,
+    "lag8_15": 0.003974854601768524,
+    "lag16_31": 0.002746246742587277,
+    "lag32_63": 0.0024176013927006967,
+    "lag64_127": 0.0025845239279828347,
+    "lag128_255": 0.004505195381865584,
+    "all_bands": 0.017234775859560153,
+    "route7": 0.017234775859560153
+  },
+  "band_ranking": [
+    {
+      "band": "lag128_255",
+      "joint_margin_reduction": 0.004505195381865584,
+      "fraction_of_route_effect": 0.26140144894118517
+    },
+    {
+      "band": "lag8_15",
+      "joint_margin_reduction": 0.003974854601768524,
+      "fraction_of_route_effect": 0.23062989818713928
+    },
+    {
+      "band": "lag4_7",
+      "joint_margin_reduction": 0.0036764073701215094,
+      "fraction_of_route_effect": 0.21331332650213733
+    },
+    {
+      "band": "lag16_31",
+      "joint_margin_reduction": 0.002746246742587277,
+      "fraction_of_route_effect": 0.15934333959231217
+    },
+    {
+      "band": "lag64_127",
+      "joint_margin_reduction": 0.0025845239279828347,
+      "fraction_of_route_effect": 0.1499598224568262
+    },
+    {
+      "band": "lag32_63",
+      "joint_margin_reduction": 0.0024176013927006967,
+      "fraction_of_route_effect": 0.14027460597113886
+    },
+    {
+      "band": "lag2_3",
+      "joint_margin_reduction": 0.001516457741349314,
+      "fraction_of_route_effect": 0.08798824851024291
+    },
+    {
+      "band": "lag1",
+      "joint_margin_reduction": 0.0006868311594916687,
+      "fraction_of_route_effect": 0.039851470369467124
+    },
+    {
+      "band": "lag0",
+      "joint_margin_reduction": 0.0005423432846886067,
+      "fraction_of_route_effect": 0.03146796274624994
+    }
+  ],
+  "local_aggregate_reduction": 0.010396894157419623,
+  "long_aggregate_reduction": 0.012253567445136393,
+  "dominant_temporal_support": "long",
+  "anchor_errors": {
+    "[]": {
+      "none": 0.0,
+      "route7": 0.0,
+      "all_bands_vs_route7": 0.0
+    },
+    "[0]": {
+      "none": 0.0,
+      "route7": 0.0,
+      "all_bands_vs_route7": 0.0
+    },
+    "[1]": {
+      "none": 0.0,
+      "route7": 0.0,
+      "all_bands_vs_route7": 0.0
+    },
+    "[0, 1]": {
+      "none": 0.0,
+      "route7": 0.0,
+      "all_bands_vs_route7": 0.0
+    }
+  },
+  "parent_anchors_reproduced": true,
+  "causal_partition_exactly_once": true,
+  "all_bands_equals_route7": true,
+  "routed_head_reconstruction_gate": true,
+  "one_band_removes_at_least_quarter_route_effect": true,
+  "dominant_local_or_long_aggregate_at_least_twice_other": false,
+  "at_least_four_bands_have_positive_margin_reduction": true,
+  "runtime_s": 126.26715874671936
+}

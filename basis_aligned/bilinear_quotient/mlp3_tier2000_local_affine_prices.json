@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp3.local-dag-frontier.v1",
+  "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+  "artifact_sha256": "9feed44f7062ea4bebcfbb69bf4976f1898b73fb5dad13b26d28632ed6291ae9",
+  "protocol_rows_artifact_sha256": "9efb11b2bc3519d826f0442b508909302e976228294ebd52dc2c3988b895566d",
+  "codec_source_sha256": "9bdf4d890ab6739e0b946eb22cb070acb9274a0e62b177a2a131d98aab10bfb8",
+  "runtime_source_sha256": "20b8f40ef0bdfd8ff3d4322851518cdb79cb67906c71479ea35f667691f0eae3",
+  "quantization_step": 0.00048828125,
+  "ranks": [
+    0,
+    32,
+    64,
+    128,
+    256,
+    1152
+  ],
+  "points": [
+    {
+      "ridge_rank": 0,
+      "codec_id": "canonical-tiered-table-affine-svd",
+      "codec_version": 1,
+      "canonical_bytes_hash": "sha256:666df0fe10e89f613b493f34d9732f5013c55f5bbd09140f7c87d50d11110a6a",
+      "quotient_bits": 75682144,
+      "graph_bits": 4512,
+      "parameter_bits": 75677632,
+      "table_rank": 64,
+      "exception_count": 2000,
+      "step": 0.00048828125,
+      "semantic_id": "mlp3|table[token]+ridge[attn3.c_proj,mlp2]",
+      "encoded_bytes": 9460268,
+      "decoded_table_shape": [
+        50257,
+        1152
+      ],
+      "decoded_ridge_shape": [
+        2304,
+        1152
+      ]
+    },
+    {
+      "ridge_rank": 32,
+      "codec_id": "canonical-tiered-table-affine-svd",
+      "codec_version": 1,
+      "canonical_bytes_hash": "sha256:ad8f6cc373d26ceacb5675e1ce4eea336844eb9d7ce7f6a38608b917b6de5f30",
+      "quotient_bits": 76891784,
+      "graph_bits": 4544,
+      "parameter_bits": 76887240,
+      "table_rank": 64,
+      "exception_count": 2000,
+      "step": 0.00048828125,
+      "semantic_id": "mlp3|table[token]+ridge[attn3.c_proj,mlp2]",
+      "encoded_bytes": 9611473,
+      "decoded_table_shape": [
+        50257,
+        1152
+      ],
+      "decoded_ridge_shape": [
+        2304,
+        1152
+      ]
+    },
+    {
+      "ridge_rank": 64,
+      "codec_id": "canonical-tiered-table-affine-svd",
+      "codec_version": 1,
+      "canonical_bytes_hash": "sha256:21de3fa6ae250657ab32432a75db3abd929a880a281c59862f7bb220e3511be4",
+      "quotient_bits": 78097816,
+      "graph_bits": 4544,
+      "parameter_bits": 78093272,
+      "table_rank": 64,
+      "exception_count": 2000,
+      "step": 0.00048828125,
+      "semantic_id": "mlp3|table[token]+ridge[attn3.c_proj,mlp2]",
+      "encoded_bytes": 9762227,
+      "decoded_table_shape": [
+        50257,
+        1152
+      ],
+      "decoded_ridge_shape": [
+        2304,
+        1152
+      ]
+    },
+    {
+      "ridge_rank": 128,
+      "codec_id": "canonical-tiered-table-affine-svd",
+      "codec_version": 1,
+      "canonical_bytes_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "graph_bits": 4576,
+      "parameter_bits": 80505472,
+      "table_rank": 64,
+      "exception_count": 2000,
+      "step": 0.00048828125,
+      "semantic_id": "mlp3|table[token]+ridge[attn3.c_proj,mlp2]",
+      "encoded_bytes": 10063756,
+      "decoded_table_shape": [
+        50257,
+        1152
+      ],
+      "decoded_ridge_shape": [
+        2304,
+        1152
+      ]
+    },
+    {
+      "ridge_rank": 256,
+      "codec_id": "canonical-tiered-table-affine-svd",
+      "codec_version": 1,
+      "canonical_bytes_hash": "sha256:9f60de0c9747e82ad7d878230b0038b66eea02c5adc1d98014b8a4804f1fb82f",
+      "quotient_bits": 85344032,
+      "graph_bits": 4576,
+      "parameter_bits": 85339456,
+      "table_rank": 64,
+      "exception_count": 2000,
+      "step": 0.00048828125,
+      "semantic_id": "mlp3|table[token]+ridge[attn3.c_proj,mlp2]",
+      "encoded_bytes": 10668004,
+      "decoded_table_shape": [
+        50257,
+        1152
+      ],
+      "decoded_ridge_shape": [
+        2304,
+        1152
+      ]
+    },
+    {
+      "ridge_rank": 1152,
+      "codec_id": "canonical-tiered-table-affine-svd",
+      "codec_version": 1,
+      "canonical_bytes_hash": "sha256:0ca635e2eff5ed37f8cbc7a072a682356a7bcaed53458f17b5dae4e5e2dc23d1",
+      "quotient_bits": 119252448,
+      "graph_bits": 4608,
+      "parameter_bits": 119247840,
+      "table_rank": 64,
+      "exception_count": 2000,
+      "step": 0.00048828125,
+      "semantic_id": "mlp3|table[token]+ridge[attn3.c_proj,mlp2]",
+      "encoded_bytes": 14906556,
+      "decoded_table_shape": [
+        50257,
+        1152
+      ],
+      "decoded_ridge_shape": [
+        2304,
+        1152
+      ]
+    }
+  ],
+  "runtime_s": 131.52825093269348
+}

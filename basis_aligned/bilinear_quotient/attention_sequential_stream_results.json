@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "protocol_sha256": "2ab60f60b600d36b9b34e0ab12808f8b56cb24879c0fe067a6bd91c93f36db27",
+  "rows_artifact_sha256": "9efb11b2bc3519d826f0442b508909302e976228294ebd52dc2c3988b895566d",
+  "frozen_maps_artifact_sha256": "e87dd580577491e667e61404c1c51ea0169d348e5805e6d319396a5d0d29cd5b",
+  "evaluation_member": "replication_skip15000_rows960",
+  "canonical_composite_ce": 3.273997253841824,
+  "checkpoints": [
+    {
+      "through_layer": 3,
+      "composite_ce": 3.260480356216431,
+      "improvement_ce": 0.01351689762539321
+    },
+    {
+      "through_layer": 4,
+      "composite_ce": 3.2599438243442114,
+      "improvement_ce": 0.01405342949761268
+    },
+    {
+      "through_layer": 7,
+      "composite_ce": 3.2615750895606146,
+      "improvement_ce": 0.012422164281209458
+    },
+    {
+      "through_layer": 11,
+      "composite_ce": 3.26143831676907,
+      "improvement_ce": 0.012558937072753906
+    },
+    {
+      "through_layer": 15,
+      "composite_ce": 3.2615545908610026,
+      "improvement_ce": 0.012442662980821417
+    },
+    {
+      "through_layer": 17,
+      "composite_ce": 3.2615545908610026,
+      "improvement_ce": 0.012442662980821417
+    }
+  ],
+  "final_improvement_ce": 0.012442662980821417,
+  "success_threshold_ce": 0.01,
+  "replication_passes": true,
+  "positive_checkpoint_count": 6,
+  "monotonicity_violation_count": 2,
+  "runtime_s": 88.56606888771057
+}

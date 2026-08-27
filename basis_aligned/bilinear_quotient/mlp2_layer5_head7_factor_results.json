@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp2-layer5-head7-factor.rank128.v1",
+  "parent_protocol_id": "bilin18.mlp03.progressive-chain.rank128.v1",
+  "rank": 128,
+  "programs": [
+    {
+      "layer": 0,
+      "family_id": "mlp0.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:8f50bffab872a4afd8c4520c8cf20a3629f7c30189ec371580df6d16d21b3bac",
+      "quotient_bits": 77982968,
+      "inputs": [
+        "token",
+        "attn0.c_proj",
+        "x0"
+      ]
+    },
+    {
+      "layer": 1,
+      "family_id": "mlp1.tier2000-ridge.canonical.v1",
+      "program_hash": "sha256:2e150112e4c294a2ed017665ac41724065c8c473e0241f7073ff9a70aa686e43",
+      "quotient_bits": 81229000,
+      "inputs": [
+        "token",
+        "attn1.c_proj",
+        "mlp0.output"
+      ]
+    },
+    {
+      "layer": 2,
+      "family_id": "mlp2.lin2.svd",
+      "program_hash": "sha256:af5d3f8cb9324712d2500f146b1284230fb95bfcdb302949c56c90a6ef92d22d",
+      "quotient_bits": 7652856,
+      "inputs": [
+        "attn2.c_proj",
+        "mlp1.output"
+      ]
+    },
+    {
+      "layer": 3,
+      "family_id": "mlp3.tier2000-local-affine.canonical.v1",
+      "program_hash": "sha256:95c44c0fbca61c8a197561f31b2af129c0ff2cd07d1fde1a3eb7b169cb4e99b5",
+      "quotient_bits": 80510048,
+      "inputs": [
+        "token",
+        "attn3.c_proj",
+        "mlp2.output"
+      ]
+    }
+  ],
+  "layer": 5,
+  "head": 7,
+  "attention_lambda": -0.056396484375,
+  "arms": [
+    {
+      "active_upstream_layers": [],
+      "angular_rms_by_patch": {
+        "none": 0.11504487937047693,
+        "route7": 0.11441929456088042,
+        "payload7": 0.1130660383866318,
+        "head7": 0.11187885347739178
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        0
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.15448010291949565,
+        "route7": 0.14348717262672286,
+        "payload7": 0.15332841089111582,
+        "head7": 0.138249032289852
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        1
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.21129418234559452,
+        "route7": 0.16003476331992197,
+        "payload7": 0.20480960786276753,
+        "head7": 0.14877939989669042
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    },
+    {
+      "active_upstream_layers": [
+        0,
+        1
+      ],
+      "angular_rms_by_patch": {
+        "none": 0.24829699148147366,
+        "route7": 0.17980279659624096,
+        "payload7": 0.2403498813862366,
+        "head7": 0.1662930010195087
+      },
+      "routed_head_reconstruction_rms_error": 0.0
+    }
+  ],
+  "unpatched_joint_margin": 0.03700280913587914,
+  "joint_margin_reduction_by_patch": {
+    "route7": 0.017234775859560153,
+    "payload7": 0.0014625356124100541,
+    "head7": 0.019489208013060866
+  },
+  "anchor_errors": {
+    "[]": {
+      "none": 0.0,
+      "head7": 0.0
+    },
+    "[0]": {
+      "none": 0.0,
+      "head7": 0.0
+    },
+    "[1]": {
+      "none": 0.0,
+      "head7": 0.0
+    },
+    "[0, 1]": {
+      "none": 0.0,
+      "head7": 0.0
+    }
+  },
+  "angular_anchors_reproduced": true,
+  "routed_head_reconstruction_gate": true,
+  "route_margin_reduction_exceeds_payload": true,
+  "one_factor_removes_at_least_quarter_joint_margin": true,
+  "both_factor_patches_have_positive_margin_reduction": true,
+  "runtime_s": 125.75112819671631
+}
