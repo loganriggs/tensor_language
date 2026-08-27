@@ -495,3 +495,16 @@ gates, exact raw row sufficient statistics, a paired 2,000-draw source-document
 bootstrap, interval equivalence and factorial-interaction gates, and atomic
 create-only result/failure publication. The CPU-only statistics suite passes `3/3`.
 The run remains dequeued until the amended committed source receives final audit GO.
+
+Post-transaction update: site0 completed and the lifecycle loader independently
+reproduced both frozen selectors. The true-data winner is `B_l5_r64`, a rank-64
+state-complete affine program using `153,920` float parameters (`0.966%` of the
+registered original-MLP parameter count). On site0 validation it recovers `66.07%`
+of the teacher KL denominator (`0.03862 / 0.11380` KL remaining), with global CE
+`3.65882`; its copy CE improves by `0.04514` rather than worsening. The matched
+shuffle selector chooses native `E_k256` but recovers `-16.99%`, while the mean
+control recovers `-151.34%`. This is strong validation separation for a compact
+continuous MLP0 state program, not a final or whole-model result. The outer-return
+receipt authorizes training at site1 only and forbids final scoring. Site1 has been
+launched from the frozen source. The amended joint held-out source received final
+mathematical and lifecycle GO at pushed commit `9ba2cb13`; it remains behind site1.
