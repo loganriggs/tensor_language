@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+INTERCHANGE: 12 classes at mlp11, donor content in receiver basis. 480 canonical rows (receipt 815b21618c2e477e). Single registered hypothesis: |lam1/lam2|.
+donor map (fixed cyclic, chosen before any measurement): {'exclaim': 'semicolon', 'semicolon': 'colon', 'colon': 'quote', 'quote': 'dash'} ...
+  exclaim    <- semicolon  ratio  1.430 | n=   97 | CE 3.0988 -> 3.1017 | rel rise +0.00095
+  semicolon  <- colon      ratio  2.134 | n=  114 | CE 3.2618 -> 3.2846 | rel rise +0.00700
+  colon      <- quote      ratio  2.000 | n=  330 | CE 1.5607 -> 1.5767 | rel rise +0.01027
+  quote      <- dash       ratio  1.209 | n=  296 | CE 2.4925 -> 2.5352 | rel rise +0.01714
+  dash       <- digit      ratio  1.059 | n=  861 | CE 1.4733 -> 1.4796 | rel rise +0.00425
+  digit      <- cap        ratio  1.135 | n= 1702 | CE 3.9711 -> 3.9718 | rel rise +0.00017
+  cap        <- we         ratio  1.116 | n= 7156 | CE 4.7095 -> 4.7081 | rel rise -0.00030
+  we         <- you        ratio  1.313 | n=  290 | CE 2.6724 -> 2.7286 | rel rise +0.02103
+  you        <- it         ratio  1.376 | n=  481 | CE 1.7797 -> 1.7946 | rel rise +0.00839
+  it         <- an         ratio  1.533 | n=  613 | CE 2.4852 -> 2.5262 | rel rise +0.01647
+  an         <- my         ratio  1.036 | n=  218 | CE 3.5917 -> 3.6004 | rel rise +0.00244
+  my         <- exclaim    ratio  1.011 | n=  244 | CE 2.5405 -> 2.5433 | rel rise +0.00112
+
+  INTERCHANGE vs REMOVAL on the same twelve classes:
+    mean relative rise: interchange +0.00741 vs removal +0.00676  (1.10x)
+    MANIPULATION CHECK: mean |difference| 0.00193 (need >0.002); classes moved past that: 5/12
+    rho(|lam1/lam2|, interchange rise) = +0.4406
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ratio_interchange_results.json (112.7s)

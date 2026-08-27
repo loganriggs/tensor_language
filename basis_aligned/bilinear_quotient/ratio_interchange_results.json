@@ -1,0 +1,134 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "n_rows": 480,
+  "classes": "TYPE-SPANNING held out -- punctuation, digits, capitalised, function words; no CE rise ever measured for any",
+  "single_registered_hypothesis": "abs(lam1/lam2) predicts relative CE rise",
+  "currency": "relative CE rise = ce_rise / base_ce (\u00a71645)",
+  "removal_meanrise_S1648": 0.00676,
+  "intervention": "INTERCHANGE (donor class-conditional mean)"
+ },
+ "per_class": {
+  "exclaim": {
+   "donor": "semicolon",
+   "ratio": 1.43,
+   "base_ce": 3.0988,
+   "interchange_ce": 3.10173,
+   "rel_ce_rise": 0.00095,
+   "n_positions": 97
+  },
+  "semicolon": {
+   "donor": "colon",
+   "ratio": 2.1344,
+   "base_ce": 3.26178,
+   "interchange_ce": 3.2846,
+   "rel_ce_rise": 0.007,
+   "n_positions": 114
+  },
+  "colon": {
+   "donor": "quote",
+   "ratio": 1.9996,
+   "base_ce": 1.56065,
+   "interchange_ce": 1.57668,
+   "rel_ce_rise": 0.01027,
+   "n_positions": 330
+  },
+  "quote": {
+   "donor": "dash",
+   "ratio": 1.2086,
+   "base_ce": 2.49251,
+   "interchange_ce": 2.53523,
+   "rel_ce_rise": 0.01714,
+   "n_positions": 296
+  },
+  "dash": {
+   "donor": "digit",
+   "ratio": 1.0592,
+   "base_ce": 1.47334,
+   "interchange_ce": 1.4796,
+   "rel_ce_rise": 0.00425,
+   "n_positions": 861
+  },
+  "digit": {
+   "donor": "cap",
+   "ratio": 1.1345,
+   "base_ce": 3.97108,
+   "interchange_ce": 3.97175,
+   "rel_ce_rise": 0.00017,
+   "n_positions": 1702
+  },
+  "cap": {
+   "donor": "we",
+   "ratio": 1.1157,
+   "base_ce": 4.7095,
+   "interchange_ce": 4.7081,
+   "rel_ce_rise": -0.0003,
+   "n_positions": 7156
+  },
+  "we": {
+   "donor": "you",
+   "ratio": 1.3128,
+   "base_ce": 2.67239,
+   "interchange_ce": 2.7286,
+   "rel_ce_rise": 0.02103,
+   "n_positions": 290
+  },
+  "you": {
+   "donor": "it",
+   "ratio": 1.3757,
+   "base_ce": 1.77967,
+   "interchange_ce": 1.7946,
+   "rel_ce_rise": 0.00839,
+   "n_positions": 481
+  },
+  "it": {
+   "donor": "an",
+   "ratio": 1.5327,
+   "base_ce": 2.48525,
+   "interchange_ce": 2.52617,
+   "rel_ce_rise": 0.01647,
+   "n_positions": 613
+  },
+  "an": {
+   "donor": "my",
+   "ratio": 1.0365,
+   "base_ce": 3.59169,
+   "interchange_ce": 3.60044,
+   "rel_ce_rise": 0.00244,
+   "n_positions": 218
+  },
+  "my": {
+   "donor": "exclaim",
+   "ratio": 1.0108,
+   "base_ce": 2.54047,
+   "interchange_ce": 2.54331,
+   "rel_ce_rise": 0.00112,
+   "n_positions": 244
+  }
+ },
+ "predictions": {
+  "pred_a_interchange_costs_more_than_removal": true,
+  "pred_b_axis_actually_varied": false,
+  "pred_c_ratio_still_predicts": true
+ },
+ "mean_relative_rise": 0.00741,
+ "rho": 0.4406,
+ "mean_abs_diff_vs_removal": 0.00193,
+ "classes_moved": 5,
+ "donor_map": {
+  "exclaim": "semicolon",
+  "semicolon": "colon",
+  "colon": "quote",
+  "quote": "dash",
+  "dash": "digit",
+  "digit": "cap",
+  "cap": "we",
+  "we": "you",
+  "you": "it",
+  "it": "an",
+  "an": "my",
+  "my": "exclaim"
+ },
+ "runtime_s": 112.7
+}

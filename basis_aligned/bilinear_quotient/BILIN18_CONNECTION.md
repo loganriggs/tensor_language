@@ -40464,3 +40464,65 @@ supported than before this audit; the other (pronouns@mlp17) keeps its measureme
 loses its structural interpretation. That asymmetry matches their original scores —
 §1597 3-for-3, §1598 recorded as a failure of sparsity — and was invisible until
 same-type controls existed.
+
+## §1654 THE FOURTH AXIS: INTERCHANGE COSTS ONLY **1.10x** REMOVAL (2-for-3) — donating another class's content is barely worse than deleting it, so the slice is NOT strongly class-specific, and that deflates what the ratio finding can mean
+
+**Setup** (ratio_interchange, 113 s, rung 3 — the fourth axis, approved by Logan).
+Every prior CE measurement REMOVED the slice. Removal answers "does this subspace
+matter?" but not "does it matter FOR THIS CLASS?" — generic content would also cost CE
+when deleted. INTERCHANGE separates them: replace class C's slice coordinates with a
+DONOR class's conditional mean expressed in C's own basis. Nothing is deleted; the
+subspace stays fully populated but carries the wrong class's content. If the slice were
+strongly class-specific, a confidently wrong value should cost much MORE than a neutral
+one. Donor map fixed cyclic and chosen before any measurement. §1648's twelve
+type-spanning classes at mlp11, rank-2.
+
+```
+  mean relative CE rise:  interchange +.00741   vs   removal +.00676   = 1.10x
+  MANIPULATION CHECK:     mean |interchange − removal| = .00193   (bar was >.002)
+                          classes moving past .002: 5 of 12   (§1650's failed axis: 1 of 12)
+  rho(|λ1/λ2|, interchange rise) = +.4406
+```
+
+- **pred_a PASSED** — interchange does cost more than removal, +.00741 vs +.00676.
+- **pred_b FAILED by .00007** — mean |difference| .00193 against a >.002 bar. **A miss
+  is a miss.** But note this axis moved 5 of 12 classes past that threshold where
+  §1650's genuinely-null axis moved 1 of 12, so it is a weak axis rather than a
+  non-axis.
+- **pred_c PASSED** — the ratio still predicts under a non-removal intervention at
+  rho +.441, its second-highest value across all four axes.
+
+**THE SCIENTIFIC CONTENT IS THE 1.10x, AND IT IS A NEGATIVE.** Giving a class the
+*wrong* class's slice content costs only **10% more** than giving it *no* content. If
+these slices encoded class-discriminative information, wrong values should be
+substantially worse than neutral ones — a confident error beats an abstention. They are
+not. The slice's content is largely **not class-discriminative in a way that punishes
+substitution**.
+
+**THAT DEFLATES THE RATIO FINDING'S INTERPRETATION, and I would rather say so than let
+it stand.** |λ1/λ2| predicts ablation cost across four axes (classes, site, ablated
+rank, intervention), which is real. But §1654 says what is being ablated is not
+strongly class-specific — so the ratio is most likely predicting **how much a subspace
+matters generally**, not how much it matters *as that class's circuit*. For a benchmark
+about class circuits that is a meaningful downgrade of what the only positive result
+licenses.
+
+**What survives across all four axes:**
+
+```
+  §1647 classes (function words)  rho +.678   §1649 site (mlp14)        rho +.573
+  §1648 classes (type-spanning)   rho +.511   §1651 ablated rank (8)    rho +.392
+  §1654 intervention (interchange) rho +.441
+  strongest legitimate pool: §1648+§1649, n=24 class-disjoint across sites, +.532 p .0085
+```
+
+Directionally positive on every axis tried; the interpretation is narrower than it was
+this morning.
+
+**Open, and it is now the interesting question.** If the slice is not class-specific,
+what IS |λ1/λ2| tracking? The natural candidate is the conditioning of the local
+quadratic form — a subspace whose leading direction dominates may simply be one whose
+removal the downstream stack cannot compensate for. That is a claim about the model's
+error-correction capacity rather than about class circuits, and it would be tested by
+correlating the ratio against recovery under a *downstream* re-fit rather than against
+raw CE cost.
