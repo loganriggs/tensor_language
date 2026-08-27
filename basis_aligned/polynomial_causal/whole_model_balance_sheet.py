@@ -31,6 +31,7 @@ DEFAULT_SOURCES = {
     "ship_error_groups": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_attrib_results.json",
     "ship_error_factorial": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_factorial_results.json",
     "ship_behavior_state": TENSOR_ROOT / "basis_aligned/bilinear_quotient/state_in_full_ship_results.json",
+    "ship_cross_row_certificate": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_v4_certify_results.json",
     "mlp_product_rank": HERE / "mlp_product_rank_audit_results.json",
     "question_one_product": HERE / "question_one_product_results.json",
     "content_product_frontier": HERE / "content_product_frontier_results.json",
@@ -41,6 +42,7 @@ DEFAULT_SOURCES = {
     "writer_floor_question": TENSOR_ROOT / "basis_aligned/bilinear_quotient/writer_floor_question_results.json",
     "writer_floor_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/writer_floor_pronouns_results.json",
     "writer_floor_absmass": TENSOR_ROOT / "basis_aligned/bilinear_quotient/writer_floor_absmass_results.json",
+    "writer_null_n_control": TENSOR_ROOT / "basis_aligned/bilinear_quotient/null_n_control_results.json",
     "extraction_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_rank_results.json",
     "extraction_question": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_results.json",
     "extraction_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_p_results.json",
@@ -107,12 +109,14 @@ def registry_inventory(theseus_root: Path | None) -> dict[str, Any]:
         },
         "current_composite": {
             "top_level_targets_replaced": "36/36",
-            "clean_ce": anchor["clean_ce"],
-            "composite_ce": fidelity_point["ce"] if fidelity_point else None,
-            "delta_ce": round(fidelity_point["ce"] - anchor["clean_ce"], 4) if fidelity_point else None,
-            "approximate_gbit": fidelity_point.get("gbit") if fidelity_point else None,
-            "ce_error": fidelity_point.get("err") if fidelity_point else None,
             "behavioral_certification": ship.get("behavioral_certification"),
+            "registry_pareto_display": {
+                "composite_ce": fidelity_point["ce"] if fidelity_point else None,
+                "approximate_gbit": fidelity_point.get("gbit") if fidelity_point else None,
+                "ce_error": fidelity_point.get("err") if fidelity_point else None,
+                "paired_clean": False,
+                "rule": "The certified/Pareto CE is a cross-row aggregate and may not be subtracted from the anchor clean CE.",
+            },
             "pricing_caveat": "ship price is manually approximated and is not yet produced by bench/complexity.py",
         },
         "sources": {name: {"path": str(path), "sha256": digest(path)} for name, path in paths.items()},
@@ -133,6 +137,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     ship_groups = data["ship_error_groups"]
     ship_factorial = data["ship_error_factorial"]
     ship_state = data["ship_behavior_state"]
+    ship_certificate = data["ship_cross_row_certificate"]
     product_rank = data["mlp_product_rank"]
     question_product = data["question_one_product"]
     content_frontier = data["content_product_frontier"]
@@ -143,6 +148,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     writer_floor = data["writer_floor_question"]
     writer_floor_pronouns = data["writer_floor_pronouns"]
     writer_floor_absmass = data["writer_floor_absmass"]
+    writer_null_n = data["writer_null_n_control"]
     extraction_rank = data["extraction_rank"]
     extraction_question = data["extraction_question"]
     extraction_pronouns = data["extraction_pronouns"]
@@ -368,16 +374,22 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "pronoun_absolute_mass_share_gap_lambda_minus_random": writer_floor_absmass["cells"]["pronouns@mlp17"]["mean_share"]["lambda"] - writer_floor_absmass["cells"]["pronouns@mlp17"]["mean_share"]["random"],
             "pronoun_absolute_mass_lambda_members_absent_from_random": writer_floor_absmass["cells"]["pronouns@mlp17"]["absent_from_random"],
             "absolute_mass_registered_predictions": writer_floor_absmass["predictions"],
+            "null_share_natural_n_range": writer_null_n["range_natural"],
+            "null_share_equalized_n_range": writer_null_n["range_controlled"],
+            "null_share_natural_n_spearman": writer_null_n["spearman_natural"],
+            "null_share_equalized_n_spearman": writer_null_n["spearman_controlled"],
+            "null_share_n_control_predictions": writer_null_n["predictions"],
+            "null_share_equalized_budget_per_chunk": writer_null_n["budget_per_chunk"],
             "currency": "matched-rank within-run absolute attribution-mass top-k share and component membership at question@MLP11 and pronouns@MLP17",
             "measured_currency": "top-k share and membership over positive signed component contributions",
             "original_currency": "top-k share and membership over absolute component attribution mass",
             "currency_matches_original_writer_claims": True,
             "original_absolute_mass_null_tested": True,
             "positive_only_audit_status": "noncommensurate with the published statistic; question within-run comparison narrow, pronoun measurement saturated; cross-references withdrawn",
-            "status": "absolute-mass null is cell-dependent: question slice is more concentrated than random, pronoun slice is substantially less concentrated than random",
+            "status": "absolute-mass null is cell-dependent and cannot be repaired by sample-size equalization: natural n correlates with null share, but equalizing n removes only 6.1% of the between-class spread",
             "scope": "three disjoint 333-row chunks from curated_rows.pt; question counts 105/127/102 and pronoun counts 434/408/399; local census rows, not fresh oracle rows",
-            "claim": "With the published absolute-mass statistic, question@MLP11 concentrates above its matched-rank null (.5563 versus .4489), while pronouns@MLP17 concentrates far below its null (.5846 versus .7295). Concentration has slice-specific sign; matched-rank null subtraction, not raw share, is the informative quantity.",
-            "caveat": "The published .718/.482 values used different rows and are not numerically comparable to this local corpus. The within-run null gaps are valid, but they establish a local structural diagnostic—not causal sufficiency, generalization, selective editability, or whole-model programmability.",
+            "claim": "With the published absolute-mass statistic, question@MLP11 concentrates above its matched-rank null (.5563 versus .4489), while pronouns@MLP17 concentrates far below its null (.5846 versus .7295). A powered ten-class control finds natural n associated with null share (rho .673, p .019), but equalizing each class to roughly 117 positions leaves the range at .167 versus .178 natural. Concentration has class-specific sign and geometry; every claim needs its own matched-class, matched-rank, matched-statistic null.",
+            "caveat": "The published .718/.482 values used different rows and are not numerically comparable to this local corpus. The n-control and within-run null gaps use nonfresh curated rows and establish a local structural diagnostic and measurement law—not causal sufficiency, generalization, selective editability, or whole-model programmability.",
         },
         "compression_selectivity_boundary": {
             "question_class_function_kept_rank32": 1.0 - extraction_question["res"]["bg_class_rise"] / extraction_question["res"]["const_class_rise_ref"],
@@ -424,6 +436,28 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     }
 
     current_ship = inventory.get("current_composite", {})
+    same_run_clean = ship_state["clean"]["global"]
+    same_run_composite = ship_state["full_ship"]["global"]
+    same_run_delta = same_run_composite - same_run_clean
+    current_ship.update({
+        "clean_ce": same_run_clean,
+        "composite_ce": same_run_composite,
+        "delta_ce": round(same_run_delta, 4),
+        "same_run": {
+            "clean_ce": same_run_clean,
+            "composite_ce": same_run_composite,
+            "delta_ce": round(same_run_delta, 4),
+            "paired_clean": True,
+            "source": str(sources["ship_behavior_state"]),
+        },
+        "cross_row_certificate": {
+            "composite_ce_mean": ship_certificate["mean"],
+            "composite_ce_values": ship_certificate["res"],
+            "spread": ship_certificate["spread"],
+            "paired_clean": False,
+            "source": str(sources["ship_cross_row_certificate"]),
+        },
+    })
     current_delta = current_ship.get("delta_ce")
     return {
         "schema_version": 1,
@@ -439,7 +473,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "observed_global_delta_ce": current_delta,
             "composite_ce": current_ship.get("composite_ce"),
             "clean_ce": current_ship.get("clean_ce"),
-            "interpretation": "The tensor structure supplies exact identities and useful interfaces, and every top-level module has a replacement, but the certified composite still loses about 0.93 nats. Replacement scope is not reverse-engineering completeness.",
+            "interpretation": "The tensor structure supplies exact identities and useful interfaces, and every top-level module has a replacement, but the same-run composite still loses 0.8976 nats. The separate 3.8801 cross-row certificate has no paired clean and is not used to derive delta CE. Replacement scope is not reverse-engineering completeness.",
         },
         "ranked_actions": [
             {

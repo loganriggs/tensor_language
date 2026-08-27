@@ -34,6 +34,14 @@ def test_current_composite_uses_frozen_registry():
     ship = sheet["registry_inventory"]["current_composite"]
     assert ship["top_level_targets_replaced"] == "36/36"
     assert abs(ship["delta_ce"] - (ship["composite_ce"] - ship["clean_ce"])) < 1e-6
+    assert ship["same_run"]["paired_clean"] is True
+    assert ship["same_run"]["clean_ce"] == 2.9455
+    assert ship["same_run"]["composite_ce"] == 3.8431
+    assert ship["same_run"]["delta_ce"] == 0.8976
+    assert ship["cross_row_certificate"]["paired_clean"] is False
+    assert ship["cross_row_certificate"]["composite_ce_mean"] == 3.8801
+    assert ship["registry_pareto_display"]["paired_clean"] is False
+    assert "may not be subtracted" in ship["registry_pareto_display"]["rule"]
     assert sheet["current_bottleneck"]["observed_global_delta_ce"] == ship["delta_ce"]
 
 
@@ -133,7 +141,13 @@ def test_writer_null_preserves_metric_mismatch_and_measurement_failure():
     assert writer["question_absolute_mass_lambda_members_absent_from_random"] == [2, 2, 2]
     assert writer["pronoun_absolute_mass_lambda_members_absent_from_random"] == [3, 3, 3]
     assert all(value is False for value in writer["absolute_mass_registered_predictions"].values())
+    assert writer["null_share_natural_n_spearman"]["rho"] > 0.60
+    assert writer["null_share_natural_n_spearman"]["p"] < 0.05
+    assert writer["null_share_equalized_n_range"] > 0.16
+    assert writer["null_share_equalized_n_range"] > 0.9 * writer["null_share_natural_n_range"]
+    assert writer["null_share_n_control_predictions"]["pred_b_controlled_range_lt05"] is False
     assert "cell-dependent" in writer["status"]
+    assert "matched-class" in writer["claim"]
     assert "local structural diagnostic" in writer["caveat"]
 
 

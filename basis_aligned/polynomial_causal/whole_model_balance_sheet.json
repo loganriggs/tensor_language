@@ -314,16 +314,33 @@
         "pred_b_pronouns_share_gap_le10_2of3": false,
         "pred_c_question_membership_ge3_absent_3of3": false
       },
+      "null_share_natural_n_range": 0.178,
+      "null_share_equalized_n_range": 0.1672,
+      "null_share_natural_n_spearman": {
+        "rho": 0.6727,
+        "p": 0.0192,
+        "method": "monte-carlo n=20000"
+      },
+      "null_share_equalized_n_spearman": {
+        "rho": 0.1515,
+        "p": 0.3413
+      },
+      "null_share_n_control_predictions": {
+        "pred_a_powered_rho_ge60_p_lt05": true,
+        "pred_b_controlled_range_lt05": false,
+        "pred_c_controlled_range_ge01": true
+      },
+      "null_share_equalized_budget_per_chunk": 39,
       "currency": "matched-rank within-run absolute attribution-mass top-k share and component membership at question@MLP11 and pronouns@MLP17",
       "measured_currency": "top-k share and membership over positive signed component contributions",
       "original_currency": "top-k share and membership over absolute component attribution mass",
       "currency_matches_original_writer_claims": true,
       "original_absolute_mass_null_tested": true,
       "positive_only_audit_status": "noncommensurate with the published statistic; question within-run comparison narrow, pronoun measurement saturated; cross-references withdrawn",
-      "status": "absolute-mass null is cell-dependent: question slice is more concentrated than random, pronoun slice is substantially less concentrated than random",
+      "status": "absolute-mass null is cell-dependent and cannot be repaired by sample-size equalization: natural n correlates with null share, but equalizing n removes only 6.1% of the between-class spread",
       "scope": "three disjoint 333-row chunks from curated_rows.pt; question counts 105/127/102 and pronoun counts 434/408/399; local census rows, not fresh oracle rows",
-      "claim": "With the published absolute-mass statistic, question@MLP11 concentrates above its matched-rank null (.5563 versus .4489), while pronouns@MLP17 concentrates far below its null (.5846 versus .7295). Concentration has slice-specific sign; matched-rank null subtraction, not raw share, is the informative quantity.",
-      "caveat": "The published .718/.482 values used different rows and are not numerically comparable to this local corpus. The within-run null gaps are valid, but they establish a local structural diagnostic\u2014not causal sufficiency, generalization, selective editability, or whole-model programmability."
+      "claim": "With the published absolute-mass statistic, question@MLP11 concentrates above its matched-rank null (.5563 versus .4489), while pronouns@MLP17 concentrates far below its null (.5846 versus .7295). A powered ten-class control finds natural n associated with null share (rho .673, p .019), but equalizing each class to roughly 117 positions leaves the range at .167 versus .178 natural. Concentration has class-specific sign and geometry; every claim needs its own matched-class, matched-rank, matched-statistic null.",
+      "caveat": "The published .718/.482 values used different rows and are not numerically comparable to this local corpus. The n-control and within-run null gaps use nonfresh curated rows and establish a local structural diagnostic and measurement law\u2014not causal sufficiency, generalization, selective editability, or whole-model programmability."
     },
     "compression_selectivity_boundary": {
       "question_class_function_kept_rank32": 0.9682783235210727,
@@ -494,10 +511,10 @@
     "metric": "current_36_of_36_composite_delta_ce",
     "top_level_replacement_scope": "36/36",
     "target_global_delta_ce": 0.02,
-    "observed_global_delta_ce": 0.9345,
-    "composite_ce": 3.88,
+    "observed_global_delta_ce": 0.8976,
+    "composite_ce": 3.8431,
     "clean_ce": 2.9455,
-    "interpretation": "The tensor structure supplies exact identities and useful interfaces, and every top-level module has a replacement, but the certified composite still loses about 0.93 nats. Replacement scope is not reverse-engineering completeness."
+    "interpretation": "The tensor structure supplies exact identities and useful interfaces, and every top-level module has a replacement, but the same-run composite still loses 0.8976 nats. The separate 3.8801 cross-row certificate has no paired clean and is not used to derive delta CE. Replacement scope is not reverse-engineering completeness."
   },
   "ranked_actions": [
     {
@@ -552,23 +569,46 @@
     },
     "current_composite": {
       "top_level_targets_replaced": "36/36",
-      "clean_ce": 2.9455,
-      "composite_ce": 3.88,
-      "delta_ce": 0.9345,
-      "approximate_gbit": 3.3,
-      "ce_error": 0.04,
       "behavioral_certification": {
         "agreement_acc": 0.9317,
         "clean_acc": 0.9572,
         "parity_gap_retention": 1.149,
         "ref": "S1553 VERIFIED \u2014 computations preserved under full replacement"
       },
-      "pricing_caveat": "ship price is manually approximated and is not yet produced by bench/complexity.py"
+      "registry_pareto_display": {
+        "composite_ce": 3.88,
+        "approximate_gbit": 3.3,
+        "ce_error": 0.04,
+        "paired_clean": false,
+        "rule": "The certified/Pareto CE is a cross-row aggregate and may not be subtracted from the anchor clean CE."
+      },
+      "pricing_caveat": "ship price is manually approximated and is not yet produced by bench/complexity.py",
+      "clean_ce": 2.9455,
+      "composite_ce": 3.8431,
+      "delta_ce": 0.8976,
+      "same_run": {
+        "clean_ce": 2.9455,
+        "composite_ce": 3.8431,
+        "delta_ce": 0.8976,
+        "paired_clean": true,
+        "source": "/workspace/tensor_language/basis_aligned/bilinear_quotient/state_in_full_ship_results.json"
+      },
+      "cross_row_certificate": {
+        "composite_ce_mean": 3.8801,
+        "composite_ce_values": {
+          "skip7000": 3.8578,
+          "skip2000": 3.8942,
+          "skip5000": 3.8883
+        },
+        "spread": 0.0364,
+        "paired_clean": false,
+        "source": "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_v4_certify_results.json"
+      }
     },
     "sources": {
       "circuits": {
         "path": "/workspace/theseus-bench/registry/circuits.json",
-        "sha256": "8f5c313714e07006103bb004032d0de7e7ee88cb0ffb09e82499fe8b36e6849f"
+        "sha256": "a0c483d9cff4538c4f52670ddc75265d81dae378218740bbfa10f096f1dbe0df"
       },
       "frontier": {
         "path": "/workspace/theseus-bench/registry/frontier_seed.json",
@@ -633,6 +673,10 @@
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/state_in_full_ship_results.json",
       "sha256": "4b60c0e51fdf0606eb184e2d3d785d251948cff8838538b6f0f428226f498523"
     },
+    "ship_cross_row_certificate": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_v4_certify_results.json",
+      "sha256": "01a199acc2bdf58db895fb5f9822c52959fa6d60f7c1ff57bc0db2346c159b71"
+    },
     "mlp_product_rank": {
       "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp_product_rank_audit_results.json",
       "sha256": "6c96ec8633ac57bcd97e6318583dd0a51a4fdf66a3e401d6ffad679ac3c03532"
@@ -672,6 +716,10 @@
     "writer_floor_absmass": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/writer_floor_absmass_results.json",
       "sha256": "dd6989f7db4e60939f56630d32ca9720dc301e5795e97e9e000ae00bd981c2c4"
+    },
+    "writer_null_n_control": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/null_n_control_results.json",
+      "sha256": "48ebc6cc9ca157405fa46a439eda151c99d805ab32797df740c44bc7bc63696f"
     },
     "extraction_rank": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/extraction_rank_results.json",

@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_not_run",
+  "registered_at_utc": "2026-08-27T07:17:00Z",
+  "source_commit_before_implementation": "97aad7f305ef600ca64d60a95c0cbbcceef63acc",
+  "experiment": "curated_v2_mlp01_local_pca_dual_strength_control",
+  "motivation": "The exploratory curated oracle reported large local-PCA gains at MLP0 and MLP1, but its twenty Haar nulls were scaled to the smaller content-arm correction RMS. Comparing local PCA against those nulls would mix causal direction with intervention strength.",
+  "scope": "Isolated authority-none delta run reusing the frozen curated-v2 ship, exact row allocation, PCA bases, and twenty null identities without refitting. This preregistration does not authorize the local curated result, create a FineWeb receipt, license code OOD, or certify a simpler program.",
+  "fixed_design": {
+    "sites": [0, 1],
+    "projection_rank": 64,
+    "support_rank": 256,
+    "nulls_per_arm_per_site": 20,
+    "null_geometry": "Reuse each frozen Haar rank-64 direction inside the site's local top-256 residual support for both comparisons.",
+    "strength_matching_primary": "On the frozen 40-row spare calibration split, scale each null monotonically to match local PCA's median suffix KL from the deployed ship. Freeze every scale before discovery or heldout scoring.",
+    "strength_matching_secondary": "Independently scale the same null identities to local PCA's raw correction RMS measured only on the frozen basis split. Both primary downstream-KL and secondary raw-RMS controls must pass before advancing.",
+    "scale_guard": "Fail closed unless every scale is finite and in [0.1,10].",
+    "evaluation": "Score discovery and heldout rows without fitting on either split; use the frozen ship realization and paired per-row CE gains.",
+    "joint_split_statistic": "For each arm define S=min(global paired-CE gain on discovery, global paired-CE gain on heldout). The exact one-sided Monte Carlo p=(1+#null S>=candidate S)/21.",
+    "local_interface_gate": "For each of the downstream-KL and raw-RMS controls: local-PCA mean gain > 0 on discovery and heldout; heldout row-bootstrap 95% CI lower bound > 0; and local PCA beats all twenty same-identity nulls under the joint split statistic. Also require heldout local-PCA gain/full-oracle gain >= 0.40.",
+    "content_gate_unchanged": "Existing content exact-null and positive-full-oracle conjunction remains the only training-license gate and the only trigger for code OOD."
+  },
+  "registered_predictions": {
+    "pred_a_mlp0_local_interface_passes": true,
+    "pred_b_mlp1_local_interface_passes": true,
+    "pred_c_both_strength_controls_agree_at_both_sites": true
+  },
+  "interpretation": {
+    "pass": "Licenses only an out-of-fit-row causal oracle bottleneck as an interface for a separately priced coefficient predictor. Top PCA is selected from the missing residual, so this does not license semantic content, OOD transfer, or simplicity because the exact oracle residual is still used to produce coefficients.",
+    "fail": "Prunes rank-64 activation PCA as an early residual interface at the tested site and strength; do not fit a predictor through it.",
+    "local_pca_vs_content": "Never compare raw gains across these arms without their own strength-matched null excesses."
+  },
+  "failure_policy": "Preserve any partial artifact under a new versioned namespace; never overwrite the completed curated v2 result or an authoritative canonical result."
+}
