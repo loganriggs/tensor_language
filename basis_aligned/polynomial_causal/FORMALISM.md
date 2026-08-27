@@ -1,0 +1,167 @@
+# Conditional simplicity for interventional tensor programs
+
+This is the mathematical contract for the polynomial-causal experiments. It is a
+falsifiable proposal, not a claim that neural networks have a unique intrinsic
+description length.
+
+## 1. The conditioning must be visible
+
+Fix a specification
+
+```
+Sigma = (grammar, decoder, frozen substrate, tokenizer, task distribution,
+         intervention vocabulary, numeric semantics, compiler/search budget).
+```
+
+Changing any member of `Sigma` can change what is simple. In particular, a decoder
+containing the original weights or an unpriced lookup library can make an arbitrary
+behavior cheap. Results therefore report `Sigma`, and rankings must be stable across
+at least two genuinely different reasonable grammars before they are treated as
+structural evidence.
+
+For an original system `F`, candidate program `P`, and a priced intervention
+transport `tau`, define the conditional structure function
+
+```
+C_Sigma(F; epsilon) = inf [L_grammar(P) + L(tau)]
+                      subject to D_j(F, P, tau; Q) <= epsilon_j for every j.
+```
+
+`tau` maps a declared intervention on `F` to one on `P`. It is unnecessary for
+interventions at a shared typed module boundary, where the identity map is fixed.
+It is mandatory for latent-variable interventions: coordinates in two different
+programs are otherwise incomparable and basis-dependent. A useful causal distortion
+compares responses, `(P^tau(I) - P)` with `(F^I - F)`, rather than only comparing the
+two intervened outputs.
+
+The constraint vector contains, separately:
+
+1. natural-distribution output KL/CE and task loss;
+2. held-out interventional response error, using worst-case or high-quantile error
+   within each intervention family rather than one pooled expectation;
+3. OOD row, corpus, and token-class error;
+4. composition error for simultaneous replacements/interventions;
+5. collateral damage outside the targeted behavior.
+
+Intervention families used to price or fit `P` cannot also be counted as evidence
+that the price predicts intervention behavior. The present ledger fits singleton and
+pair cuts and tests an unseen triple cut on disjoint rows; later tests must hold out
+whole intervention families.
+
+## 2. Simplicity is a vector
+
+The primary report is
+
+```
+K(P) = (standalone bits, amortized/library bits, multiplication and FLOP counts,
+        precision-aware interface capacity, graph locality, conditioning/robustness,
+        certificate or compiler upper-bound status).
+```
+
+These coordinates answer different questions. Short description length does not
+imply modular removal. A low-dimensional real interface can transmit arbitrary
+information if precision is free. A low multiplication count does not imply a small
+causal interface. We may scalarize `K` only after declaring an application-specific
+cost vector.
+
+The implemented JSON/zlib codec is currently an executable prototype of one upper
+bound, not `C_Sigma` itself. Broad arithmetic-circuit minimization and tensor-rank
+optimization are intractable, and bounded-rank tensor approximants need not exist.
+Heuristic search results must be labeled with compiler version, rewrite set, and
+budget. Exact language is reserved for fragments with certificates.
+
+## 3. A certified fragment: real scalar quadratics
+
+Let
+
+```
+q(x) = x^T S x
+```
+
+and let a multiplication gate be the product of two arbitrary real linear forms.
+Only the symmetric part of `S` matters. If its inertia is `(p, q)`, the exact minimum
+number of product gates is
+
+```
+max(p, q),
+```
+
+not `rank(S) = p + q`.
+
+For the lower bound, one gate has symmetric coefficient matrix
+`(a b^T + b a^T)/2`, whose positive and negative indices are each at most one. A sum
+of `k` gates therefore has positive and negative indices at most `k`. For the matching
+construction, pair a positive and a negative eigendirection:
+
+```
+lambda (u.x)^2 - mu (v.x)^2
+  = (sqrt(lambda) u.x + sqrt(mu) v.x)
+    (sqrt(lambda) u.x - sqrt(mu) v.x),
+```
+
+then use squares for unpaired same-sign modes.
+
+The certified question slice at `mlp11` has one positive and one negative mode, so it
+is one multiplication gate in this grammar while retaining a two-dimensional input
+interface. The two facts are complementary, not contradictory. Vector-valued
+quadratics require a harder joint partially symmetric tensor factorization; scalar
+inertia must not be generalized to that setting without a proof.
+
+## 4. Polynomial boundaries
+
+The bilinear layers and residual additions are polynomial. RMSNorm is not: its scale
+contains
+
+```
+(mean(x^2) + epsilon)^(-1/2).
+```
+
+Thus exact polynomial normal forms apply only between normalization nodes, or in the
+clean-frozen-gauge intervention arm. A whole-model grammar must instead do one of:
+
+1. admit `rsqrt`/division as explicit priced primitives;
+2. approximate them on a declared norm interval and certify the error;
+3. freeze the gauges and restrict the claim to that intervention semantics.
+
+Softcaps and any other analytic operations require the same treatment. Quantization
+also belongs to the semantics: coefficient rescaling and algebraic rewrites can
+change coordinatewise rounding. Programs with cancellation or border-rank behavior
+must pay a precision/condition cost or pass a coefficient-perturbation robustness
+test.
+
+## 5. Falsification gates
+
+At matched replacement site and natural KL, candidate prices are compared with plain
+parameter bits, compressed bytes, multiplication/FLOP count, numerical rank, edge
+count, and interface dimension. A proposed simplicity coordinate fails as an
+explanatory metric if any of the following holds:
+
+- it adds no held-out predictive value for unseen intervention families, OOD
+  generalization, composition error, or selective-removal collateral;
+- behavior-equivalent gauges and registered rewrites change it by more than 1%;
+- rankings across two frozen reasonable grammars have Kendall tau below 0.8;
+- apparent prediction uses the same intervention outcomes that defined the price;
+- a claimed exact minimum lacks a certificate.
+
+The synthetic certificate suite begins with linear rank, scalar quadratics stratified
+by inertia (including the rank-two/one-product case), and tree tensor networks. It
+then randomizes gauges, permutations, residual reassociation, common-subexpression
+elimination, distributivity, and duplicate/canceling terms. This separates codec
+invariance failures from discoveries about the model.
+
+## Literature anchors
+
+- Li and Vitanyi, *An Introduction to Kolmogorov Complexity and Its Applications*:
+  description length is conditional on a reference machine; invariance is only up
+  to an additive compiler constant.
+- Blier and Ollivier, “The Description Length of Deep Learning Models” (NeurIPS
+  2018), and Lotfi et al., “PAC-Bayes Compression Bounds So Tight That They Can
+  Explain Generalization” (NeurIPS 2022): executable/compressed descriptions and
+  generalization, with the decoder and coding protocol fixed.
+- Hillar and Lim, “Most Tensor Problems Are NP-Hard” (JACM 2013), and de Silva and
+  Lim, “Tensor Rank and the Ill-Posedness of the Best Low-Rank Approximation Problem”
+  (SIAM J. Matrix Analysis and Applications 2008): computational and topological
+  limits of tensor-rank minimization.
+- Geiger et al., “Causal Abstraction: A Theoretical Foundation for Mechanistic
+  Interpretability” (JMLR 2025): interventions between systems require an explicit
+  abstraction/alignment, motivating the priced transport above.

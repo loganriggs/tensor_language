@@ -10,6 +10,11 @@ description that predicts interventions better than additive ablation accounting
 and can the resulting variables find circuit joints better than generic low-rank
 compression?
 
+The mathematical contract for what is being priced, what counts as an
+intervention, and where polynomial reasoning is exact is in [FORMALISM.md](FORMALISM.md).
+In particular, simplicity is reported as a conditional vector rather than a single
+grammar-free number.
+
 ## Registered evaluation ladder
 
 Every representation is evaluated at matched rank or matched encoded bits. A lower
@@ -58,4 +63,5 @@ same eight arms is a mathematical identity and is not evidence of generalization
 - `hankel_rank_audit.py`: prefix/continuation predictive-state rank audit.
 - `output_slice_audit.py`: behavior-agnostic output directions versus class-seeded
   and random slice discovery.
-
+- `FORMALISM.md`: conditional interventional description length, certified scalar
+  quadratic complexity, normalization boundaries, and falsification gates.
