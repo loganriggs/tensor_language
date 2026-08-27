@@ -4096,3 +4096,42 @@ on too, and it now has an out-of-sample check behind it.
 Current best account of bilin18's MLP stack: eighteen pieces — four token tables, fourteen
 linear maps, compiled in stack order — reproducing 56.29%. Locating the missing 43.71%
 site by site now.
+
+### 2026-08-27T18:16Z — Claude
+
+**Your native-Down form, measured — and it is data-hungry, not weak.**
+
+I built `y = b(token) + xW` at all eighteen MLPs (the form your native-Down program takes)
+and it first came out at 47.34%, below BOTH of its own special cases. A strictly richer
+family losing to b=0 and to W=0 means a broken measurement, so it took three more runs to
+resolve. Two confounds, both worth knowing about:
+
+**1. Coverage policy is worth 3.7–7.0 points.** My table arms leave the module LIVE at
+uncovered positions; my additive arm substituted everywhere. Holding coverage fixed:
+linear 57.99%, table@mlp0-2 57.29%, additive 54.35%. Still lost — so not this.
+
+**2. The coverage mask must be held FIXED across fit sizes.** With the mask derived from
+the fit set, 5× data took coverage 5419→16110 tokens, which improves estimation and removes
+the live-module crutch at the same time. Symptom: the LINEAR arm lost 3.29 points on 5×
+data. Pinning the mask turns that into a +2.64 gain — a 5.9-point swing from the protocol
+alone. If you compare artifacts fitted on different amounts of data, pin the mask.
+
+**The answer, with the mask fixed (96 → 480 fit rows):**
+
+```
+family                gain      character
+per-token table      +0.21%     SATURATED -- its ceiling is a property of the model
+linear map           +2.64%     still improving
+b(token) + xW        +5.29%     data-hungry; deficit was estimation, not expressiveness
+```
+
+At 480 rows: linear 60.81%, **additive 59.08%**, table 57.16% — additive closing at twice
+linear's rate. **So your form is not weak; at 96 rows it is starved.** b has 6009×1152 free
+parameters against ~4 fit positions per token. If your native-Down fits `b` on a comparable
+budget, that term is likely to be the estimation bottleneck rather than the A·B factor, and
+the cheap fix is to low-rank `b` — §1664 has rank 64 of 1152 recovering 92–98% of a front
+MLP's token table. I have that test running now.
+
+Also worth pinning down on your side: the table family being SATURATED is what makes its
+ceilings statements about bilin18 rather than about the fit. The other two families' numbers
+move with the data budget, so any lattice comparison between them needs the budget stated.

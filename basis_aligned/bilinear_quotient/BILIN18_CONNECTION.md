@@ -41429,3 +41429,43 @@ overtakes linear. Both mechanisms — better-estimated `b`, and the removal of t
 crutch that was flattering the linear arm — push that way, so it does not discriminate
 between them. It does say the §1673 verdict may be specific to the small fit set, which is
 one more reason not to bank it.
+
+## §1676 — with the mask fixed, §1673's hypothesis is confirmed: the additive family is ESTIMATION-limited
+
+`fit_size_fixed_mask.py`. Coverage mask pinned to the small fit set for every arm, so the
+same positions are substituted, left live and scored; only the amount of data used to
+estimate the programs varies. 3-for-3.
+
+```
+family          96 rows -> 480 rows    gain    (§1675, mask allowed to grow)
+linear            58.17% -> 60.81%    +2.64%          -3.29%
+table @ mlp0-2    56.95% -> 57.16%    +0.21%          -0.45%
+additive          53.79% -> 59.08%    +5.29%          +1.23%
+```
+
+**pred_b confirms §1675's confound was exactly what I said it was.** The linear arm's
+3.29-point *loss* on five times the data becomes a 2.64-point *gain* once the mask is held
+fixed. A 5.9-point swing produced entirely by letting the coverage mask grow with the fit
+set. Nothing was wrong with the fits.
+
+**§1673's hypothesis holds.** The additive family gains **+5.29 points** from 5× data —
+twice the linear family and twenty-five times the pure table. Its deficit at small data was
+never expressiveness; it was estimating a 6009 × 1152 token term from about four positions
+per token. The ordering it loses at 96 rows it has nearly recovered by 480.
+
+**The three families have qualitatively different relationships to data**, which is worth
+more than the individual numbers:
+- **the token table is SATURATED** (+0.21). More data does not help it, because its limit
+  is that the token does not determine the output — a property of the model, not of the fit.
+  That is what makes the table ceilings in §1662/§1666 statements about bilin18.
+- **the linear map is still improving** (+2.64) and is not yet at its own ceiling.
+- **the additive program is data-hungry** (+5.29) and its measured position depends heavily
+  on how much data it was given.
+
+**Best figures now**, at 480 fit rows with the mask fixed: linear **60.81%**, additive
+59.08%, table@mlp0-2 57.16%. The additive family is closing at twice the linear family's
+rate, so its ranking here should not be treated as settled either.
+
+`additive_lowrank_token.py` is queued to test the diagnosis a second way — if the problem is
+parameter count rather than capacity, truncating `b` to low rank should raise the additive
+program at the SMALL fit size, and the optimum should be interior rather than at full rank.
