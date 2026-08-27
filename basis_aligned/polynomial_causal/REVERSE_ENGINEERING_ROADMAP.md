@@ -87,6 +87,13 @@ misses. The question form already demonstrates this: spectral interface rank 2 b
 exact multiplicative complexity 1. The harder payoff is shared vector-valued forms,
 where one factor library may serve many outputs and circuits.
 
+**Scope correction (2026-08-27):** the full-vector output flattening has stable
+numerical rank 1152/1152 for audited MLPs 0,1,2,11,17, against 4608 native products.
+So an unchanged full MLP permits at most a 4x exact product reduction under this
+bound, whereas the selected question scalar permits 4608-to-1 at its interface.
+The compiler target must be a jointly discovered causally sufficient output/content
+API, not the whole 1152-output tensor by default.
+
 ### P3 — Synthesize replacements jointly, not one module at a time
 
 Fit tensor-program fragments against natural outputs plus selected intervention

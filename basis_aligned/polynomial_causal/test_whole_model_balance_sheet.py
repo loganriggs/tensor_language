@@ -50,3 +50,12 @@ def test_current_ship_residual_partitions_close_without_conflation():
     assert abs(sum(residual["target_cell_damage_shares"].values()) - 1.0) < 0.002
     assert abs(sum(residual["frequent_target_group_shares"].values()) - 1.0) < 0.002
     assert "restricted" in residual["scope"]
+
+
+def test_full_vector_and_scalar_complexity_are_separate_scopes():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    arithmetic = sheet["ledgers"]["arithmetic_complexity_bounds"]
+    assert arithmetic["full_vector_numerical_product_lower"] == 1152
+    assert arithmetic["native_product_upper"] == 4608
+    assert arithmetic["question_scalar_exact_products"] == 1
+    assert "not a symbolic rank proof" in arithmetic["caveat"]

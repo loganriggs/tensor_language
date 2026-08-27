@@ -146,6 +146,15 @@ The general minimization remains computationally hard, and even best bounded-ran
 tensor approximations need not exist. Approximate compiler outputs are therefore
 upper bounds whose conditioning and achieved distortion must be recorded.
 
+The first weights-only audit sharpens the choice of scope. On MLPs 0, 1, 2, 11,
+and 17, two independent Gaussian evaluation sketches give output-flattening rank
+1152/1152 at relative thresholds through `1e-4`. This is a stable randomized
+numerical lower bound of 1152 products for each unchanged full vector map, versus
+the native 4608-product upper bound. It is not a symbolic proof, but it rules out
+the fantasy that the complete MLP tensor will collapse to a tiny exact program.
+The one-product question result survives because it is a selected scalar causal
+interface. Therefore interface discovery and tensor compilation must be joint.
+
 ## 4. Polynomial boundaries
 
 The bilinear layers and residual additions are polynomial. RMSNorm is not: its scale

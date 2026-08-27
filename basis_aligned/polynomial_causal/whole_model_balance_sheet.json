@@ -98,6 +98,22 @@
       "currency": "held-out intervention prediction and circuit-localization diagnostics",
       "scope": "question circuit and disjoint output classes",
       "claim": "Polynomial pairwise terms predict interventions; a weights-only output basis locates circuits but is not yet a sufficient causal control basis."
+    },
+    "arithmetic_complexity_bounds": {
+      "audited_layers": [
+        0,
+        1,
+        2,
+        11,
+        17
+      ],
+      "full_vector_numerical_product_lower": 1152,
+      "native_product_upper": 4608,
+      "question_scalar_exact_products": 1,
+      "currency": "scalar multiplication gates in the frozen sum_i c_i(a_i.x)(b_i.x) grammar",
+      "scope": "randomized numerical output-flattening bounds for full MLPs 0,1,2,11,17; exact inertia certificate for the question scalar slice",
+      "claim": "All audited full-vector maps have stable numerical lower bound 1152 versus 4608 native products, while a causal scalar slice can collapse to one product.",
+      "caveat": "The 1152 result is a two-sketch floating-point lower-bound audit, not a symbolic rank proof. It motivates compiling a causally sufficient output interface rather than the unchanged full vector map."
     }
   },
   "current_bottleneck": {
@@ -122,8 +138,8 @@
     },
     {
       "priority": 3,
-      "action": "Compile joint vector-valued quadratic fragments with shared projection dictionaries between RMSNorm boundaries.",
-      "why": "The scalar question slice proves exact multiplicative simplification is possible; sharing is required for whole-program savings."
+      "action": "Compile a causally sufficient joint output/content interface with shared quadratic factors between RMSNorm boundaries.",
+      "why": "The question scalar needs one exact product, but full MLP maps have a stable 1152-product numerical lower bound versus 4608 native; major savings require choosing the right causal interface, not preserving all 1152 outputs."
     },
     {
       "priority": 4,
@@ -178,7 +194,7 @@
     "sources": {
       "circuits": {
         "path": "/workspace/theseus-bench/registry/circuits.json",
-        "sha256": "be5361cb4f5f205cfe1d58570145c9b46c557c34277eed03214aaed5435ebe43"
+        "sha256": "521e5f18a870b536f0272b07436694072a8bf41ef3b564d438437fb66c2c30d1"
       },
       "frontier": {
         "path": "/workspace/theseus-bench/registry/frontier_seed.json",
@@ -238,6 +254,10 @@
     "ship_behavior_state": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/state_in_full_ship_results.json",
       "sha256": "4b60c0e51fdf0606eb184e2d3d785d251948cff8838538b6f0f428226f498523"
+    },
+    "mlp_product_rank": {
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp_product_rank_audit_results.json",
+      "sha256": "6c96ec8633ac57bcd97e6318583dd0a51a4fdf66a3e401d6ffad679ac3c03532"
     }
   }
 }

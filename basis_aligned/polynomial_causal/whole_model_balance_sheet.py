@@ -30,6 +30,7 @@ DEFAULT_SOURCES = {
     "ship_error_cells": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_mine_results.json",
     "ship_error_groups": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_attrib_results.json",
     "ship_behavior_state": TENSOR_ROOT / "basis_aligned/bilinear_quotient/state_in_full_ship_results.json",
+    "mlp_product_rank": HERE / "mlp_product_rank_audit_results.json",
 }
 
 
@@ -116,6 +117,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     ship_cells = data["ship_error_cells"]
     ship_groups = data["ship_error_groups"]
     ship_state = data["ship_behavior_state"]
+    product_rank = data["mlp_product_rank"]
     inventory = registry_inventory(theseus_root)
 
     subst_recovery = 1.0 - subst["chain_pca"]["dCE"] / subst["available_headroom_to_floor"]
@@ -216,6 +218,16 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "scope": "question circuit and disjoint output classes",
             "claim": "Polynomial pairwise terms predict interventions; a weights-only output basis locates circuits but is not yet a sufficient causal control basis.",
         },
+        "arithmetic_complexity_bounds": {
+            "audited_layers": product_rank["config"]["layers"],
+            "full_vector_numerical_product_lower": min(row["conservative_numerical_lower_rtol_1e-6"] for row in product_rank["layers"].values()),
+            "native_product_upper": min(row["explicit_products_upper"] for row in product_rank["layers"].values()),
+            "question_scalar_exact_products": 1,
+            "currency": "scalar multiplication gates in the frozen sum_i c_i(a_i.x)(b_i.x) grammar",
+            "scope": "randomized numerical output-flattening bounds for full MLPs 0,1,2,11,17; exact inertia certificate for the question scalar slice",
+            "claim": "All audited full-vector maps have stable numerical lower bound 1152 versus 4608 native products, while a causal scalar slice can collapse to one product.",
+            "caveat": "The 1152 result is a two-sketch floating-point lower-bound audit, not a symbolic rank proof. It motivates compiling a causally sufficient output interface rather than the unchanged full vector map.",
+        },
     }
 
     current_ship = inventory.get("current_composite", {})
@@ -249,8 +261,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             },
             {
                 "priority": 3,
-                "action": "Compile joint vector-valued quadratic fragments with shared projection dictionaries between RMSNorm boundaries.",
-                "why": "The scalar question slice proves exact multiplicative simplification is possible; sharing is required for whole-program savings.",
+                "action": "Compile a causally sufficient joint output/content interface with shared quadratic factors between RMSNorm boundaries.",
+                "why": "The question scalar needs one exact product, but full MLP maps have a stable 1152-product numerical lower bound versus 4608 native; major savings require choosing the right causal interface, not preserving all 1152 outputs.",
             },
             {
                 "priority": 4,
