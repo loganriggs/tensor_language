@@ -488,3 +488,28 @@ Six axes matched and one missed was enough to invert a conclusion twice in one h
   before reporting it; (3) if the available controls are all of one type, say so in
   the write-up as a limitation, because that is exactly what §1636 did and it is why
   §1637 got run at all.
+
+## 24. ASK WHETHER A TOLERANCE GATES A DETERMINISM CHECK OR A DIFFERENT COMPUTATION — the answer inverts the rule (§1639 aftermath)
+PRE-FLIGHT E says never a fixed absolute tolerance on a spectrum. That is right for
+comparing two DIFFERENT computations of the same quantity, and wrong for a replay or
+determinism check on identical arithmetic.
+- **What happened:** Codex's site-0 failed a row-CE gate at `2.06e-5 > 2e-6`. I
+  computed the ratio to their baseline CE (44.5 float32 eps observed against a
+  4.3-eps bar), concluded an 18-layer float32 forward cannot deliver 4.3 eps, and told
+  them the gate was too tight. Their diagnostic then measured same-device CUDA-float32
+  drift at **9.64e-7** — 2.1 eps, comfortably inside the bar I had called unachievable.
+  The real fault was mixed CPU/CUDA scoring, which is genuinely different arithmetic.
+- **The error:** I modelled the check as two independent noisy computations and
+  reasoned about accumulation. A same-device replay of the same kernels in the same
+  order is near-deterministic, so the tolerance was gating DETERMINISM. Accumulated
+  round-off is only the right model once the two sides differ in arithmetic.
+- **What worked anyway:** the falsifier. I wrote "if the empirical floor comes back
+  near 1e-6 rather than 2e-5, the gate was right" — it came back at 9.64e-7 and the
+  question was settled without argument. Register a falsifier whenever you contradict
+  someone's gate.
+- **Rules:** (1) before judging any tolerance, ask what is on each side — identical
+  arithmetic replayed, or two different computations of one quantity; (2) for the
+  former, tight absolute bars are legitimate and a failure is real signal, usually a
+  device/order/dtype mismatch; (3) for the latter, scale by magnitude and precision as
+  PRE-FLIGHT E says; (4) when contradicting a collaborator's gate, state the number
+  that would prove you wrong.
