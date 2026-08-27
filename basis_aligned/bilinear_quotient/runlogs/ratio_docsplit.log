@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DOCUMENT-SPLIT: 12 classes scored on two document-disjoint halves. 480 canonical rows (receipt 815b21618c2e477e). Single registered hypothesis: |lam1/lam2|.
+document-disjoint split: half A 246 rows / 118 docs | half B 234 rows / 91 docs | no document straddles
+  exclaim    ratio  1.430 | A -0.00467 (n=   58) | B +0.00181 (n=   39)
+  semicolon  ratio  2.134 | A +0.00598 (n=   63) | B +0.00679 (n=   51)
+  colon      ratio  2.000 | A +0.01207 (n=  156) | B +0.01103 (n=  174)
+  quote      ratio  1.209 | A +0.02238 (n=  112) | B +0.01519 (n=  184)
+  dash       ratio  1.059 | A +0.00246 (n=  474) | B +0.00330 (n=  387)
+  digit      ratio  1.135 | A -0.00009 (n=  928) | B +0.00021 (n=  774)
+  cap        ratio  1.116 | A -0.00088 (n= 3874) | B -0.00076 (n= 3282)
+  we         ratio  1.313 | A +0.02187 (n=  134) | B +0.01659 (n=  156)
+  you        ratio  1.376 | A +0.00759 (n=  243) | B -0.00135 (n=  238)
+  it         ratio  1.533 | A +0.02126 (n=  326) | B +0.01874 (n=  287)
+  an         ratio  1.036 | A +0.00333 (n=  131) | B +0.00631 (n=   87)
+  my         ratio  1.011 | A -0.00467 (n=  142) | B +0.00204 (n=  102)
+
+  rho(|lam1/lam2|, rel CE rise)  half A = +0.4685   half B = +0.3427
+  |difference| = 0.1259   mean of halves = +0.4056
+  full 480 rows (§1648) = +0.5105
+  attenuation as predicted (mean of halves BELOW full): True
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ratio_docsplit_results.json (78.6s)

@@ -1,0 +1,109 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "n_rows": 480,
+  "classes": "TYPE-SPANNING held out -- punctuation, digits, capitalised, function words; no CE rise ever measured for any",
+  "single_registered_hypothesis": "abs(lam1/lam2) predicts relative CE rise",
+  "currency": "relative CE rise = ce_rise / base_ce (\u00a71645)",
+  "full_data_rho_S1648": 0.5105
+ },
+ "per_class": {
+  "exclaim": {
+   "ratio": 1.43,
+   "rel_rise_A": -0.00467,
+   "n_positions_A": 58,
+   "rel_rise_B": 0.00181,
+   "n_positions_B": 39
+  },
+  "semicolon": {
+   "ratio": 2.1344,
+   "rel_rise_A": 0.00598,
+   "n_positions_A": 63,
+   "rel_rise_B": 0.00679,
+   "n_positions_B": 51
+  },
+  "colon": {
+   "ratio": 1.9996,
+   "rel_rise_A": 0.01207,
+   "n_positions_A": 156,
+   "rel_rise_B": 0.01103,
+   "n_positions_B": 174
+  },
+  "quote": {
+   "ratio": 1.2086,
+   "rel_rise_A": 0.02238,
+   "n_positions_A": 112,
+   "rel_rise_B": 0.01519,
+   "n_positions_B": 184
+  },
+  "dash": {
+   "ratio": 1.0592,
+   "rel_rise_A": 0.00246,
+   "n_positions_A": 474,
+   "rel_rise_B": 0.0033,
+   "n_positions_B": 387
+  },
+  "digit": {
+   "ratio": 1.1345,
+   "rel_rise_A": -9e-05,
+   "n_positions_A": 928,
+   "rel_rise_B": 0.00021,
+   "n_positions_B": 774
+  },
+  "cap": {
+   "ratio": 1.1157,
+   "rel_rise_A": -0.00088,
+   "n_positions_A": 3874,
+   "rel_rise_B": -0.00076,
+   "n_positions_B": 3282
+  },
+  "we": {
+   "ratio": 1.3128,
+   "rel_rise_A": 0.02187,
+   "n_positions_A": 134,
+   "rel_rise_B": 0.01659,
+   "n_positions_B": 156
+  },
+  "you": {
+   "ratio": 1.3757,
+   "rel_rise_A": 0.00759,
+   "n_positions_A": 243,
+   "rel_rise_B": -0.00135,
+   "n_positions_B": 238
+  },
+  "it": {
+   "ratio": 1.5327,
+   "rel_rise_A": 0.02126,
+   "n_positions_A": 326,
+   "rel_rise_B": 0.01874,
+   "n_positions_B": 287
+  },
+  "an": {
+   "ratio": 1.0365,
+   "rel_rise_A": 0.00333,
+   "n_positions_A": 131,
+   "rel_rise_B": 0.00631,
+   "n_positions_B": 87
+  },
+  "my": {
+   "ratio": 1.0108,
+   "rel_rise_A": -0.00467,
+   "n_positions_A": 142,
+   "rel_rise_B": 0.00204,
+   "n_positions_B": 102
+  }
+ },
+ "predictions": {
+  "pred_a_both_halves_ge_020": true,
+  "pred_b_halves_agree_within_035": true,
+  "pred_c_attenuation_not_inflation": true
+ },
+ "rho_half_A": 0.4685,
+ "rho_half_B": 0.3427,
+ "mean_of_halves": 0.4056,
+ "full_data_rho": 0.5105,
+ "docs_A": 118,
+ "docs_B": 91,
+ "runtime_s": 78.6
+}

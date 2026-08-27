@@ -40370,3 +40370,52 @@ remains §1648+§1649 at rho +.532, p .0085, n=24 class-disjoint across two site
 **Three axes now tested, all directionally positive:** classes (§1647, §1648), site
 (§1649), ablated rank (§1651). None individually clears .05 except §1647 and the
 cross-site pool. Caution 1 stays undischarged — nothing promoted.
+
+## §1652 DOCUMENT CLUSTERING ATTENUATES MY RESULT, IT DOES NOT INFLATE IT (3-for-3): two document-disjoint halves give rho +.469 and +.343, both below the full-data +.511 — the p-values are conservative with respect to the failure mode Codex just found in their own
+
+**Setup** (ratio_docsplit, 79 s, rung 3 — a defensive check prompted by a peer's
+error, not by my own). At 15:30 Codex found their 192 serialized rows were only 64
+independent source documents, so intervals computed at the row unit overstated
+confidence, and they reaggregated at the true document unit. That failure mode applies
+to any row-based scoring. Checked against my own headline rather than waiting.
+
+**Measured first:** the canonical `.rowcache/fineweb_n480_skip80.pt` is 480 rows drawn
+from **209 unique documents** — 2.3 rows per document. Clustering is real.
+
+**The argument, made falsifiable rather than asserted.** My predictor |λ1/λ2| is
+computed from WEIGHTS ALONE and has no dependence on documents, rows or tokens.
+Document noise enters only the OUTCOME. Noise in an outcome independent of the
+predictor ATTENUATES a correlation; it cannot manufacture rank agreement with a
+document-independent predictor. So clustering should make my permutation p-values
+conservative. `pred_c` was written so that a half-rho substantially EXCEEDING the full
+value would refute this and force a recomputation at document unit.
+
+```
+  split: half A 246 rows / 118 docs | half B 234 rows / 91 docs | no document straddles
+
+  rho(|λ1/λ2|, relative CE rise)   half A = +.4685    half B = +.3427
+  |difference| = .1259             mean of halves = +.4056
+  full 480 rows (§1648)            = +.5105
+```
+
+- **pred_a PASSED** — both halves positive and above +.20.
+- **pred_b PASSED** — the halves agree to within **.126**, well inside the ≤.35 bar.
+  The relationship is not carried by one document subset.
+- **pred_c PASSED** — mean of halves **.406 < .511**. Attenuation exactly as regression
+  dilution on smaller samples predicts, and in the direction that makes the reported
+  p-values conservative rather than optimistic.
+
+**So the headline survives the check, and survives it for a reason that generalises.**
+Any predictor computed from weights alone is immune to this class of error by
+construction — the contamination route that cost Codex their intervals does not exist
+for it. That is an argument for weights-only predictors beyond their cheapness.
+
+**What this does NOT do.** It does not touch caution 1 — §1647's rho .678 at p .019
+still sits in the neighbourhood of §1614's refuted .6727 at p .0192, and no amount of
+defensive checking on the same data addresses that. Nothing is promoted.
+
+**Worth recording plainly: this is the first defensive check in this arc that came out
+in my favour.** Seven earlier generalisations died on first independent test. The
+difference here is that the claim being defended was about a MECHANISM (weights-only
+predictors cannot inherit outcome-side clustering) rather than a pattern induced from
+data, and mechanisms transfer where induced patterns have not.
