@@ -224,6 +224,38 @@ circuit moves stage.**
        benchmark stand-ins must match the removal point/scale (§1066).
    (f) Per-head/per-component sums ≠ collective cost (5.7× gap §1093) — measure both granularities.
 
+11. **COMPRESSION: IT HELPS, BUT NEVER SPECIFICALLY AT CIRCUITS (§1593-96 + the 2026-08-27
+    polynomial track).** Four independent probes, three different senses of "compressible",
+    pointing three different ways. (a) COMPRESSION IS EXTRACTION (§1594-95): the rank-32
+    whitened-QK background alone preserves **97%** of question class function (class rise .190
+    vs 5.996 under optimal constants) and substituting the exact circuit heads back adds
+    NOTHING (−.077, i.e. trivially worse); on pronouns the exact heads are ANTI-extraction
+    (rec −.29). A good compression already IS the extraction. (b) BUT IT IS NOT CLASS-SELECTIVE
+    (§1596, the load-bearing negative): across r ∈ {4,8,16,32} the class rise ≈ the GLOBAL rise
+    at every rank (.99/1.03, .49/.49, .19/.16). The circuit does not break before the model
+    does — it degrades in lockstep. There is no privileged fragile core to cut out and no
+    privileged robust core either. r8 is explicitly insufficient ("needs the full rank-32 tier").
+    (c) DISCOVERY DEGRADES FASTER THAN FIDELITY (output_slice_audit, 2026-08-27): a rank-8
+    class-trained output basis recovers **exactly half** of oracle head-recall (97/30 vs 97/15 —
+    an exact-arithmetic tie, its bar passed at 0.000 margin) while delivering only **13.5%** of
+    oracle removal damage, though at 8.6× random selectivity. It finds heads that are clean but
+    not the heads that carry the damage; it misses head 13.8 entirely (oracle 1.000, winner
+    0.000) — the §1515 single-head close_paren circuit at 363×. (d) THE ALGEBRAIC SAVINGS ARE
+    REAL BUT SMALL AND GEOMETRY-BLIND: a real quadratic with inertia (p,q) needs max(p,q)
+    products, not rank(S) — verified both bounds, so the certified rank-2 question form is **ONE**
+    multiplication, a true 2×. Yet a single SQUARE, **32% wrong** in scalar reconstruction,
+    retains **99.3-99.6%** of that slice's behavioural effect: the hyperbolic geometry that makes
+    the theorem interesting is behaviourally irrelevant, and the saving is in the product COUNT,
+    not the sign structure. Against that, MLP product rank is FULL (1152/1152 at layers 0,1,2,11,17,
+    ≤4.21× bound) — but under GAUSSIAN probes, which measure coefficient-space rank, not
+    natural-activation fidelity, and (a) falsifies the naive reading empirically. And a learned
+    paired-product content decoder is DOMINATED by a plain linear map on both axes (heldout R²
+    .542 vs .639 at 75,840 vs 73,792 params). **Bottom line for the bench: compression buys real
+    fidelity cheaply, buys a bounded 2× on quadratic slices, and buys nothing circuit-specific —
+    class and generic function move together at every rank tested.** Dossiers: registry
+    `_extraction_asymmetry`, `_discovery_compression_ranking`, AGENT_BOARD 2026-08-27. **HIGH**
+    for (a),(b),(d-inertia); **MEDIUM** for (c) — one harness, one rank, bar met at zero margin.
+
 ## Open / focus
 - **A. CLOSED at read grain (§1222):** no compact carrier ensemble exists — best 12-head set
   = 43% of prose pooling; nameable edge = copy/induction core (2.5/3.8/5.5, 23%); rest is a
