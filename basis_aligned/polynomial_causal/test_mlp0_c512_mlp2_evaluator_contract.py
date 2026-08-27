@@ -7,19 +7,19 @@ import torch
 import mlp0_c512_mlp2_evaluator_contract as contract
 
 
-def prior_receipt():
+def frozen_receipt():
     path = contract.__file__.replace(
         "polynomial_causal/mlp0_c512_mlp2_evaluator_contract.py",
-        "bilinear_quotient/mlp0_c512_mlp1_interchange_v1_rows_receipt.json",
+        "bilinear_quotient/mlp0_c512_mlp2_compensation_v1_rows_receipt.json",
     )
     return json.load(open(path))
 
 
 def test_unit_identity_rebuilds_registered_document_waves():
-    identity = contract.build_unit_identity(prior_receipt())
+    identity = contract.build_unit_identity(frozen_receipt())
     assert len(identity["ordered_ids"]) == 384
     assert identity["wave_labels"] == ["A"] * 192 + ["B"] * 192
-    assert len(identity["row_to_unit"]) == 1170
+    assert len(identity["row_to_unit"]) == 1256
     occupancy = torch.bincount(torch.tensor(identity["row_to_unit"]), minlength=384)
     assert set(occupancy.tolist()).issubset({2, 4, 6})
     assert set(contract.unit_identity_hashes(identity)) == {
@@ -29,7 +29,7 @@ def test_unit_identity_rebuilds_registered_document_waves():
 
 
 def test_document_cannot_cross_waves():
-    receipt = copy.deepcopy(prior_receipt())
+    receipt = copy.deepcopy(frozen_receipt())
     records = receipt["document_provenance"]["sets"]["eval"]
     duplicate = next(record for record in records if record["source_document_ordinal"] == 0)
     duplicate["wave"] = "B"
@@ -38,20 +38,20 @@ def test_document_cannot_cross_waves():
 
 
 def test_expected_call_contract_is_phase_and_site_complete():
-    result = contract.expected_call_contract(1170)
-    # ceil(1170 / 4) = 293 evaluation batches.
+    result = contract.expected_call_contract(1256)
+    # 1256 / 4 = 314 evaluation batches.
     assert result["exact_call_counts"] == {
         "candidate_original_down_calls": 0,
         "poison_canary_calls": 1,
-        "c512_proxy_calls": 1172,
+        "c512_proxy_calls": 1256,
     }
-    assert result["n_eval_windows"] == 1170
+    assert result["n_eval_windows"] == 1256
     phases = result["exact_phase_site_call_counts"]
-    assert phases["mlp1_teacher_capture"] == {"1": 1172}
-    assert phases["mlp2_teacher_capture"] == {"2": 1172}
-    assert phases["parent_replay_mlp_sites"]["1"] == 1172
-    assert phases["parent_replay_mlp_sites"]["2"] == 586
-    assert set(phases["crossed_suffix_replay"].values()) == {2344}
+    assert phases["mlp1_teacher_capture"] == {"1": 1256}
+    assert phases["mlp2_teacher_capture"] == {"2": 1256}
+    assert phases["parent_replay_mlp_sites"]["1"] == 1256
+    assert phases["parent_replay_mlp_sites"]["2"] == 628
+    assert set(phases["crossed_suffix_replay"].values()) == {2512}
 
 
 def test_contrast_orientations_are_literal():
@@ -65,7 +65,7 @@ def test_contrast_orientations_are_literal():
 
 
 def test_coverage_uses_wave_labels_not_row_boundary():
-    identity = contract.build_unit_identity(prior_receipt())
+    identity = contract.build_unit_identity(frozen_receipt())
     unit_ids = torch.tensor([0, 192, 1, 193])
     valid = torch.tensor([[1, 1], [0, 0], [1, 0], [1, 1]], dtype=torch.bool)
     result = contract.coverage_by_wave(valid, unit_ids, identity["wave_labels"])
