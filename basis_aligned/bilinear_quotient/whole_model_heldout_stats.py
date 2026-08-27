@@ -96,9 +96,8 @@ def document_cluster_bootstrap(records, document_ids, draws=2000, seed=1699):
     def summarize(values):
         values = torch.stack(values)
         return {
-            "mean": round(float(values.mean()), 7),
-            "ci95": [round(float(torch.quantile(values, q)), 7)
-                     for q in (0.025, 0.975)],
+            "mean": float(values.mean()),
+            "ci95": [float(torch.quantile(values, q)) for q in (0.025, 0.975)],
         }
 
     return {

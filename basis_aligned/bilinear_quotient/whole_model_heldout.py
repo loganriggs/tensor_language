@@ -475,6 +475,7 @@ def main():
 
     out = {}
     exact_ceilings = {}
+    exact_live_ce = {}
     for ename, epath in EVAL_SETS:
         ev = load(epath)
         CFG['lags'], CFG['tables'], CFG['v1'] = (1,), (), None
@@ -537,6 +538,7 @@ def main():
         }
         out[ename] = row
         exact_ceilings[ename] = exact_values
+        exact_live_ce[ename] = cl
         del ev
         torch.cuda.empty_cache()
 
@@ -551,7 +553,7 @@ def main():
     pb = gain_structure_holds(gh, S1697_GAINS['both'])
     pc = (abs(ref_exact['both'] - S1696_BOTH) <= 0.005
           and abs(ref_exact['simple'] - 0.5094) <= 0.005
-          and abs(ref['ce_live'] - S1683_CE_LIVE) <= 1e-3)
+          and abs(exact_live_ce['skip7000'] - S1683_CE_LIVE) <= 1e-3)
     held_boot = held['cluster_bootstrap']
     both_ci = held_boot['ceilings']['both']['ci95']
     joint_gain_ci = held_boot['gains']['both']['ci95']
