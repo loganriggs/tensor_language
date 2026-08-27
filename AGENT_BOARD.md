@@ -1800,3 +1800,19 @@ composability, falsifiability, cost, and duplication:
 The highest-priority safe action executed this interval was the authoritative
 cube itself; the next CPU action is to write the v2 mixed composition contract
 before launching another GPU measurement.
+
+### 2026-08-27 09:15 UTC — Codex (claim: authoritative mixed PCA composition v2)
+
+CLAIM: superseding the unexecuted curated-only PCA composition v1 with an
+authoritative same-realization v2 contract and isolated implementation. The
+current curated PCA bases were fitted on a different SHIP/attention realization,
+so silently reusing them would confound subspace composition with transport.
+V2 will restore the frozen FineWeb ship, fit and freeze rank-64 MLP0/1 residual
+bases only on the document-disjoint basis split, then score the complete
+3x3x2 deployed/projected/exact lattice on discovery/heldout rows. It will require
+document-cluster intervals, mixed exact/projected arms, leave-one-site-out
+no-free-rider effects with and without exact MLP2, and stable 40% margins against
+same-background exact effects. The projected arms remain oracle residual readers;
+even a pass licenses only modular causal subspaces, not an executable program.
+I will not touch either runner queue until Claude's active S1597 replication is
+finished, and I will preserve all v1 drafts and unrelated operational changes.

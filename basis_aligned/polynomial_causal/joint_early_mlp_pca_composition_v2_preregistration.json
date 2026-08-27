@@ -1,0 +1,70 @@
+{
+  "schema_version": 2,
+  "status": "preregistered_not_run",
+  "registered_at_utc": "2026-08-27T09:15:00Z",
+  "source_commit_before_implementation": "625b3180f25447b4c944ee805b8ed06846b73eb5",
+  "experiment": "authoritative_fineweb_joint_early_mlp_pca_composition_v2",
+  "supersedes": {
+    "experiment": "curated_v2_joint_early_mlp_pca_composition_v1",
+    "preregistration_path": "basis_aligned/polynomial_causal/joint_early_mlp_pca_composition_v1_preregistration.json",
+    "reason": "V1 uses a different curated ship realization, omits mixed exact/projected cells and leave-one-site-out gates, and specifies a row rather than document-cluster bootstrap. It has never been executed and cannot support a modular same-realization claim."
+  },
+  "motivation": "The authoritative exact-live MLP0--2 cube shows that early-block recovery is dominated by interactions: heldout joint gain is 0.514344 nats, joint-minus-singletons is 0.458603, and MLP2 changes from harmful alone to helpful after upstream restoration. Singleton rank-64 PCA evidence therefore cannot establish composition. The decisive next question is whether independently frozen low-rank MLP0/1 residual interfaces make positive, non-free-riding contributions across projected and exact neighbor states while preserving MLP2 compatibility.",
+  "scope": "One fixed authoritative FineWeb ship realization. Fit rank-64 residual bases on the document-disjoint basis split, freeze them before any discovery or heldout arm, and score oracle projections on the fixed discovery and heldout splits. No coefficient predictor, semantic variable, OOD, training, edit, compression, whole-model-fraction, or simplicity license is created.",
+  "pinned_inputs": {
+    "fineweb_row_receipt_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+    "frozen_ship_artifact_sha256": "fe21ead35b1dcb3c0914a36b04d7be36e9c3f179c57bc63eee62bd78d34fe9df",
+    "frozen_ship_manifest_sha256": "21c89c4d1bd03e1c4be34023781c027b13d2c98202b855938488e33c99e9ba04",
+    "frozen_ship_realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e",
+    "exact_factorial_result_sha256": "0bf3988e82c8d381063d7badfc1a143d2dc0d9921bac76570d7ba4c370e5aa98",
+    "exact_factorial_manifest_sha256": "de6524fd4c91b19a4cae7f9942c59792ee30b181568a9afcd3498ce73bdf8406",
+    "exact_factorial_authority_sha256": "62a62262bf89b1a2a59b9a1dab092f57910f02e4550f17bd75689a9b3e583e33"
+  },
+  "fixed_design": {
+    "sites": [0, 1, 2],
+    "states": {
+      "MLP0": ["N_deployed", "P_rank64", "E_exact"],
+      "MLP1": ["N_deployed", "P_rank64", "E_exact"],
+      "MLP2": ["N_deployed", "E_exact"]
+    },
+    "arms": "Complete 3x3x2=18 lattice. Arm keys are three letters in MLP0,MLP1,MLP2 order, using N/P/E. Rescore all arms in this execution; do not splice row outcomes from prior runs.",
+    "basis_fit": "On all 96 registered basis rows only, capture the exact original-minus-deployed residual at positions 64::3 under the restored deployed ship, compute uncentered rank-256 PCA with torch.pca_lowrank(niter=4), and freeze the first 64 orthonormal output directions separately for MLP0 and MLP1 at absolute scale 1. Seed 161803. Persist an immutable basis artifact and receipt before discovery/heldout scoring.",
+    "sequential_semantics": "Every arm runs in model order. P and E corrections are recomputed from the live exact original-minus-deployed residual at that arm's current state. Thus MLP1 sees the state produced by the selected MLP0 arm and MLP2 sees both upstream selections. Clear and verify correction state between arms.",
+    "evaluation": "Score paired per-row global CE on all 192 discovery and 192 heldout FineWeb rows using positions 64--255 and the discovery-frozen rare-vocabulary mask. Restore and behaviorally verify the exact frozen ship; require component-tree identity, an epsilon-scaled exact-patch canary, exact-subcube rowwise reproduction of authoritative v4, and exact heldout baseline replay.",
+    "bootstrap": "For discovery and heldout separately, use 2000 paired source-document-cluster draws. Sample unique documents with replacement, retain all their chunks, divide by the sampled row count to preserve the registered row/token-weighted estimand, and share document multiplicities across all 18 arms. Seed 31415926 plus split index. Recompute every conditional, max/best-arm comparison, exact-effect check, and 0.40 margin inside each draw.",
+    "ratio_rule": "Do not gate on a bootstrap ratio. For projected effect dP and exact effect dE from the identical background, require dE>0 and dP-0.40*dE>0. Forty percent is an advancement threshold for a partial oracle subprogram, not high-fidelity certification.",
+    "denominator_rule": "Only paired effects within this 18-arm execution are denominators or exact references. The 0.8976-nat whole-ship gap and all cross-realization values are forbidden as MLP0--2 denominators."
+  },
+  "registered_contrast_families": {
+    "no_free_rider": {
+      "MLP0": ["PPN-NPN", "PPE-NPE", "PEN-NEN", "PEE-NEE"],
+      "MLP1": ["PPN-PNN", "PPE-PNE", "EPN-ENN", "EPE-ENE"],
+      "gate": "Every contrast is positive on discovery and heldout and has heldout document-cluster CI95 lower bound above zero."
+    },
+    "same_background_retention": {
+      "MLP0": ["(PPN-NPN)-0.40*(EPN-NPN)", "(PPE-NPE)-0.40*(EPE-NPE)", "(PEN-NEN)-0.40*(EEN-NEN)", "(PEE-NEE)-0.40*(EEE-NEE)"],
+      "MLP1": ["(PPN-PNN)-0.40*(PEN-PNN)", "(PPE-PNE)-0.40*(PEE-PNE)", "(EPN-ENN)-0.40*(EEN-ENN)", "(EPE-ENE)-0.40*(EEE-ENE)"],
+      "gate": "For every listed background the paired exact effect is itself positive on discovery and heldout with heldout CI95 lower bound above zero, and the 0.40 margin is positive on both splits with heldout CI95 lower bound above zero. A nonpositive exact effect is non-identifying and fails closed."
+    },
+    "package_and_downstream": {
+      "contrasts": ["PPN-max(PNN,NPN)", "PPE-max(PNE,NPE,NNE)", "PPE-PPN", "PPN-0.40*EEN", "(PPE-NNE)-0.40*(EEE-NNE)"],
+      "gate": "Every contrast is positive on discovery and heldout with heldout document-cluster CI95 lower bound above zero."
+    }
+  },
+  "registered_predictions": {
+    "pred_a_all_eight_no_free_rider_gates_pass": true,
+    "pred_b_all_eight_same_background_40pct_retention_gates_pass": true,
+    "pred_c_projected_package_beats_constituents_with_and_without_mlp2": true,
+    "pred_d_exact_mlp2_remains_conditionally_helpful_after_projected_upstream": true,
+    "pred_e_projected_upstream_retains_40pct_with_and_without_fixed_exact_mlp2": true,
+    "pred_f_complete_modular_oracle_subspace_gate_passes": true
+  },
+  "interpretation": {
+    "complete_pass": "Licenses the frozen rank-64 MLP0 and MLP1 residual subspaces as individually non-free-riding, mix-and-match oracle interfaces that compose with each other and live exact MLP2 on this realization and these FineWeb splits. The next licensed experiment is a separately fitted no-teacher-forcing coefficient program.",
+    "package_only": "If PPN/PPE pass but mixed P/E or leave-one-site-out gates fail, treat PCA0+PCA1 as one co-adapted joint oracle component and price it jointly; do not claim modular sites.",
+    "downstream_failure": "If projected arms pass without MLP2 but fail with MLP2, the subspaces do not preserve the downstream state interface. If only live exact MLP2 rescues CE, label it adaptive compensation rather than transported state equivalence.",
+    "oracle_only": "Every P arm still evaluates the missing original MLP to obtain residual coefficients. Even complete success identifies causal output subspaces, not a replacement program. A program claim requires frozen coefficient maps, original-MLP calls poisoned during evaluation, reusable components across backgrounds, gauge-invariant physical-response tests, and explicit standalone/amortized pricing.",
+    "failure": "Report all signed point estimates and intervals. Prune any free-riding site or redefine/preregister the interface before predictor fitting; never tune rank, scale, background family, or thresholds on these outcomes."
+  },
+  "failure_and_authority_policy": "Use an isolated v2 namespace, atomic partial artifacts, and fail closed. The result and manifest payloads remain non-self-authorizing. Only a last-written atomic authority receipt may authorize scored interpretation by binding the exact result, manifest, basis artifact/receipt, preregistration, frozen realization, row receipt, and committed source hashes. Preserve every failure and never overwrite v1 or v4 artifacts."
+}
