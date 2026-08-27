@@ -69,5 +69,5 @@ def test_canonical_validator_rejects_shadow_authority(tmp_path):
         "status": LOCAL.UNLICENSED_STATUS,
         "authorized_for_scored_experiments": False,
     }))
-    with pytest.raises(RuntimeError, match="real-stream identity gate"):
+    with pytest.raises(RuntimeError, match="accepted identity gate"):
         CANONICAL.validate_receipt(receipt)

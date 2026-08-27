@@ -25,11 +25,24 @@ import rowcache  # noqa: E402
 SPECS = ((96, 80), (480, 80), (96, 1200), (192, 7000), (192, 11000))
 VERIFY_SPEC = (8, 40)
 RECEIPT = Path(rowcache.CACHE) / "fineweb_oracle_v2_receipt.json"
+PINNED_REVISION = "9bb295ddab0e05d785b879661af7260fed5140fc"
+PINNED_FIRST_FILE = "data/CC-MAIN-2013-20/000_00000.parquet"
+PINNED_LOCAL_FILE_SIZE = 2_147_531_358
+PINNED_LOCAL_FILE_SHA256 = "c84e6941d787b50959521df6d6894a91397c8b2db13f8a9c8fe0f8782872e930"
+ORDERED_MANIFEST_RECEIPT_KIND = "fineweb_oracle_v2_ordered_manifest"
 
 
 def tensor_sha256(value: torch.Tensor) -> str:
     tensor = value.detach().cpu().contiguous()
     return hashlib.sha256(tensor.numpy().tobytes(order="C")).hexdigest()
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        while block := handle.read(8 << 20):
+            digest.update(block)
+    return digest.hexdigest()
 
 
 def spec_key(n: int, skip: int) -> str:
@@ -67,8 +80,35 @@ def validate_receipt(path: Path = RECEIPT) -> tuple[dict[str, Any], dict[tuple[i
         raise RuntimeError(f"FineWeb oracle row receipt is absent: {path}")
     receipt = json.loads(path.read_text())
     gate = receipt.get("real_stream_bit_identity_gate", {})
-    if gate != {"passed": True, "n": VERIFY_SPEC[0], "skip": VERIFY_SPEC[1]}:
-        raise RuntimeError("FineWeb row receipt lacks the real-stream identity gate")
+    real_stream_gate = gate == {
+        "passed": True, "n": VERIFY_SPEC[0], "skip": VERIFY_SPEC[1]
+    }
+    ordered = receipt.get("ordered_manifest_local_parquet_identity_gate", {})
+    ordered_manifest_gate = (
+        receipt.get("receipt_kind") == ORDERED_MANIFEST_RECEIPT_KIND
+        and receipt.get("authority") == "pinned_local_ordered_manifest"
+        and receipt.get("authorized_for_scored_experiments") is True
+        and ordered.get("passed") is True
+        and ordered.get("revision") == PINNED_REVISION
+        and ordered.get("config") == "default"
+        and ordered.get("first_relative_path") == PINNED_FIRST_FILE
+        and ordered.get("source_size") == PINNED_LOCAL_FILE_SIZE
+        and ordered.get("source_sha256") == PINNED_LOCAL_FILE_SHA256
+        and isinstance(ordered.get("ordered_file_count"), int)
+        and ordered["ordered_file_count"] > 1
+        and isinstance(ordered.get("ordered_manifest_sha256"), str)
+        and len(ordered["ordered_manifest_sha256"]) == 64
+    )
+    if not real_stream_gate and not ordered_manifest_gate:
+        raise RuntimeError("FineWeb row receipt lacks an accepted identity gate")
+    if ordered_manifest_gate:
+        source = Path(ordered.get("source_local_path", ""))
+        if (not source.is_file() or source.stat().st_size != PINNED_LOCAL_FILE_SIZE
+                or file_sha256(source) != PINNED_LOCAL_FILE_SHA256):
+            raise RuntimeError("pinned local FineWeb source changed after receipt creation")
+        provenance = receipt.get("document_provenance", {})
+        if provenance.get("schema_version") != 1:
+            raise RuntimeError("ordered-manifest receipt lacks document provenance")
     if receipt.get("rowcache_source_sha256") != hashlib.sha256(
         (BQ / "rowcache.py").read_bytes()
     ).hexdigest():
