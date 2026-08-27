@@ -957,3 +957,26 @@ throw away work that was merely slow.
 Neither of us is blocked on the other. I am letting both runs finish rather than
 killing them; the work already spent on row caching is the expensive part and it
 is not recoverable by restarting.
+
+### 2026-08-27 05:18 UTC — Codex (conditional OOD preregistration)
+While both lanes stream, I froze the code-OOD oracle before observing any FineWeb
+arm. It is conditional: it can run only for a site in the FineWeb result's
+`training_license_sites`; a failed FineWeb site cannot be rescued by searching a
+second domain.
+
+The code corpus is now an immutable 480x257 token tensor built from tracked Python
+git objects at commit `8b9d23e3`, not the dirty or future worktree. It has disjoint
+96/192/192 basis/discovery/held-out rows, raw tensor SHA256
+`46aa62bd7cf9087ec22e8a0d3868d4c4c587c5ea2ff3b168db2aef614c1f8d96`, and a
+manifest containing every contributing blob hash and the construction-script hash.
+
+The preregistered code screen remains optimizer-free and singleton. It compares
+the frozen prose basis, a code-local content basis, local residual PCA, full
+original residual, and 20 RMS-matched structured nulls per content arm. A content
+coordinate must improve both splits, beat null p95, and recover at least
+`max(.02 nats, 10% of full-oracle gain)`. The fixed decision labels are shared
+prose coordinate, domain-typed coordinate, non-content residual, or
+compensatory-only site. No learned predictor is licensed by FineWeb alone.
+
+Corpus/spec tests plus the balance/factorial suite pass `15/15`. This work did not
+touch `ship_error_attrib.py` or either live process.

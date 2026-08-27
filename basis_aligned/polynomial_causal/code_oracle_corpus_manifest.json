@@ -1,0 +1,251 @@
+{
+  "schema_version": 1,
+  "source_commit": "8b9d23e37132051e12016376d2b497e4d53680c9",
+  "source": "tracked .py git objects in lexicographic path order",
+  "tokenizer": "tiktoken:gpt2",
+  "shape": [
+    480,
+    257
+  ],
+  "dtype": "torch.int64",
+  "splits": {
+    "basis": [
+      0,
+      96
+    ],
+    "discovery": [
+      96,
+      288
+    ],
+    "heldout": [
+      288,
+      480
+    ]
+  },
+  "tensor_raw_sha256": "46aa62bd7cf9087ec22e8a0d3868d4c4c587c5ea2ff3b168db2aef614c1f8d96",
+  "construction_script_sha256": "e37c20a8486d46992265b4141a23bb2f4a53315e8f33cedbd9b9b1f3897ec60f",
+  "files": [
+    {
+      "path": "archive/analysis.py",
+      "blob_sha256": "ae28b8d9a061e9c882a8dc9de58b4b889fbe1199364d8ecdeb17bc49fa82eb5c",
+      "available_tokens": 4985,
+      "used_tokens": 4985
+    },
+    {
+      "path": "archive/analysis_general.py",
+      "blob_sha256": "1f6a4e9d5d75e423497ac5d67c6b983e512a3921f8555936c24a746e6418e587",
+      "available_tokens": 3491,
+      "used_tokens": 3491
+    },
+    {
+      "path": "archive/analysis_geo.py",
+      "blob_sha256": "91feddb9700db016b6e09602b24d69973b489d0d3c3ad95c4ba655981902777e",
+      "available_tokens": 6888,
+      "used_tokens": 6888
+    },
+    {
+      "path": "archive/build_gen.py",
+      "blob_sha256": "1fcb1272016f27de54ed96768de19eb317a0d09e60f25497fe10d54e31952095",
+      "available_tokens": 3766,
+      "used_tokens": 3766
+    },
+    {
+      "path": "archive/build_mech.py",
+      "blob_sha256": "47da076e5423f8ced7c434286362b34c14f88574b5e8f0993bc58977e738df49",
+      "available_tokens": 4708,
+      "used_tokens": 4708
+    },
+    {
+      "path": "archive/compare3d.py",
+      "blob_sha256": "078a7ac14753a2a247b8bb099bef208a177d94a09ef189e9318ab52781500ba3",
+      "available_tokens": 2388,
+      "used_tokens": 2388
+    },
+    {
+      "path": "archive/data.py",
+      "blob_sha256": "bf6102f3dab207b2cb111b251d9d6b243956321afea32f9dabaefebeb6829872",
+      "available_tokens": 658,
+      "used_tokens": 658
+    },
+    {
+      "path": "archive/geodata.py",
+      "blob_sha256": "65b4c1fb1f9389d6f087d719f1a99c2eb6f780532b4cd95be49aaad74567c836",
+      "available_tokens": 1595,
+      "used_tokens": 1595
+    },
+    {
+      "path": "archive/geometry.py",
+      "blob_sha256": "0fc993a305ba7572e12718a28081381c1dd1fb08252f29a50d98aafd9125d217",
+      "available_tokens": 2642,
+      "used_tokens": 2642
+    },
+    {
+      "path": "archive/gpt2_circuit.py",
+      "blob_sha256": "fd603f5928cda4cf67ba593f025f1e80fe366ac75b4da2680847274653120c39",
+      "available_tokens": 3312,
+      "used_tokens": 3312
+    },
+    {
+      "path": "archive/gpt2_localheads.py",
+      "blob_sha256": "5e03a1af02ef396e073666985fdb43ec6cc8f76daf0f92b3fae5eead2c7d35f8",
+      "available_tokens": 3272,
+      "used_tokens": 3272
+    },
+    {
+      "path": "archive/gpt2_usetest.py",
+      "blob_sha256": "2ea70117e8351ea25a79ca7a32c349ecec68b9a2d942ad5eae678109666e6cdd",
+      "available_tokens": 2081,
+      "used_tokens": 2081
+    },
+    {
+      "path": "archive/graphs.py",
+      "blob_sha256": "411d5027e3470414813259ca081ecb208cd0bca1203aac2a9772607e5d5e5dc0",
+      "available_tokens": 3239,
+      "used_tokens": 3239
+    },
+    {
+      "path": "archive/icl_reps.py",
+      "blob_sha256": "42658320f2111b28d6494d3542d5ce8e8c8534af9476422729f1c6829f8a7356",
+      "available_tokens": 2872,
+      "used_tokens": 2872
+    },
+    {
+      "path": "archive/llm_circuit_fig.py",
+      "blob_sha256": "44b90439bca20443bcc36b7e0c8a73ca3c8d73b7649998d363e10e9a17681507",
+      "available_tokens": 1381,
+      "used_tokens": 1381
+    },
+    {
+      "path": "archive/llm_figs.py",
+      "blob_sha256": "5e2e9c03f80d00761a319c56cb86a603c5fba98720576fd1bdeac6f75462809a",
+      "available_tokens": 3171,
+      "used_tokens": 3171
+    },
+    {
+      "path": "archive/llm_reps.py",
+      "blob_sha256": "110748be980f36b4472ebc0846e911441bf04d58deccac4a7f96b11d28071107",
+      "available_tokens": 4281,
+      "used_tokens": 4281
+    },
+    {
+      "path": "archive/llm_variants.py",
+      "blob_sha256": "0cdad18a56141fb967e6264d5281c844bf52866f92265bc70db5f7c811206143",
+      "available_tokens": 2891,
+      "used_tokens": 2891
+    },
+    {
+      "path": "archive/mech.py",
+      "blob_sha256": "301b3561016924d5d6b9b1f4b9f43ddcf0092488da507a4f4c1080837047e3b7",
+      "available_tokens": 3807,
+      "used_tokens": 3807
+    },
+    {
+      "path": "archive/mech_general.py",
+      "blob_sha256": "67989afe58c026786f622466e09d9c6e4fa04d6b6a3216d165d6aa078ea1d007",
+      "available_tokens": 1995,
+      "used_tokens": 1995
+    },
+    {
+      "path": "archive/probe.py",
+      "blob_sha256": "01e92584bbac2bc1abde407f8bd86e8344511de77d530e44dffd1e931e2b42f9",
+      "available_tokens": 3051,
+      "used_tokens": 3051
+    },
+    {
+      "path": "archive/structure3d.py",
+      "blob_sha256": "60b83527d452a878731db6e34900f875eb17a1cb6b0130bd2c94e03bb11055cb",
+      "available_tokens": 1922,
+      "used_tokens": 1922
+    },
+    {
+      "path": "archive/toy_burst.py",
+      "blob_sha256": "84d50c245ee49145db8f80a358f3fba66a20b5db755cf1c1b1cbf92a31fa7311",
+      "available_tokens": 2283,
+      "used_tokens": 2283
+    },
+    {
+      "path": "archive/toy_burst2.py",
+      "blob_sha256": "49540ea1142c09875a9cf75dc2991f705aac914226af1380927e770f92a13c17",
+      "available_tokens": 1603,
+      "used_tokens": 1603
+    },
+    {
+      "path": "archive/toy_lag_fig.py",
+      "blob_sha256": "e698a605481b8c6f8cefc285741fb1eb4170e1ceba6a1e842bd1da37a51e039c",
+      "available_tokens": 1886,
+      "used_tokens": 1886
+    },
+    {
+      "path": "archive/toy_localmix.py",
+      "blob_sha256": "cdaacacf6e0afe01b26b6e0e4c603ab7215eadfc0b94592daee33c53369c2c13",
+      "available_tokens": 2104,
+      "used_tokens": 2104
+    },
+    {
+      "path": "archive/toy_nlmix.py",
+      "blob_sha256": "4ffcb3fe01c018c34aec804e985039794c5857124daac21dff0d02aeb51c815b",
+      "available_tokens": 3006,
+      "used_tokens": 3006
+    },
+    {
+      "path": "archive/toy_query.py",
+      "blob_sha256": "b1453064f3c381da37acca8107955bdb6c2d50ed391dd52150c923e11fcccca7",
+      "available_tokens": 3612,
+      "used_tokens": 3612
+    },
+    {
+      "path": "archive/toy_query_ctrl.py",
+      "blob_sha256": "7a05c7742ff118f28ce43df3358499326014907003b3ff9120eb5a7b4782e491",
+      "available_tokens": 2800,
+      "used_tokens": 2800
+    },
+    {
+      "path": "archive/toy_recur.py",
+      "blob_sha256": "f1e20859a08e1c852d567f3663fc09e2281c4063026951491e2ea807be1977de",
+      "available_tokens": 2928,
+      "used_tokens": 2928
+    },
+    {
+      "path": "archive/toy_selfloop_seeds.py",
+      "blob_sha256": "49cf6b57c79e8c9ef7c0a0edc24fce1e4f6d05480fd99995e24c9302243aad1b",
+      "available_tokens": 1639,
+      "used_tokens": 1639
+    },
+    {
+      "path": "archive/toy_stutter.py",
+      "blob_sha256": "dc256ebed49d2df66a88db6c42869249e8fad8803e0fdf61d8ee1a72e9030483",
+      "available_tokens": 2243,
+      "used_tokens": 2243
+    },
+    {
+      "path": "archive/train.py",
+      "blob_sha256": "aa7028950f426e5dc82778dc2c835d6fc80e596f4b398d002b28c75038abcfff",
+      "available_tokens": 1381,
+      "used_tokens": 1381
+    },
+    {
+      "path": "archive/train_general.py",
+      "blob_sha256": "cc3700742efa685b289bc4790bc8a773d0562cb8b1b65214d84edb715109f1c7",
+      "available_tokens": 1522,
+      "used_tokens": 1522
+    },
+    {
+      "path": "archive/train_geo.py",
+      "blob_sha256": "e4cd8f7fc3c5b16b9312bd33ef3168cd4316c630481a592ebea71215b50b2725",
+      "available_tokens": 1447,
+      "used_tokens": 1447
+    },
+    {
+      "path": "atlas_artifact.py",
+      "blob_sha256": "386bc8b3517dce815cdcc86b8c57065236e660406469c7d4a52029a3553b5c42",
+      "available_tokens": 23050,
+      "used_tokens": 23050
+    },
+    {
+      "path": "basis_aligned/bilinear_quotient/a10_structure.py",
+      "blob_sha256": "0e0d0aee5c422f640c150459797875f9ecd68b6a9e834235cd38a1ae359d9c4f",
+      "available_tokens": 4518,
+      "used_tokens": 3460
+    }
+  ]
+}
