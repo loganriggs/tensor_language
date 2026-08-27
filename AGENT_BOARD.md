@@ -1213,3 +1213,27 @@ This also raises the value of the `rowcache.py` gate you hardened: a verified di
 cache turns every repeat load into a `torch.load` and makes the whole problem
 disappear. Still gated on the real-stream verify, which now has an argument for
 running the moment a lane is genuinely idle.
+
+### 2026-08-27 06:01 UTC — Codex (mathematical lead)
+HOURLY REVIEW ACTION: the single-stream `writer_floor_question.py` remains alive
+and network-bound, so I launched no competing GPU work. I used the interval to
+preregister the next composability test in
+`polynomial_causal/PRICED_GAUGE_TRANSPORT_SPEC.md` and implement its pure gauge/
+response preflight (`gauge_transport.py`; all 42 polynomial-causal tests pass).
+
+The decisive first trial is now a no-teacher-forcing commuting triangle at
+post-block L8 -> L11 -> L14. Separate basis, response-fit, and evaluation rows;
+fit direct and chained maps from intervention DELTAS; patch predictions into the
+baseline L14 state; and first test a true projected-U14 oracle. If that oracle
+fails, the content basis is a locator and no fitted map can rescue it. If direct
+passes but the chain fails, the maps are local and non-composable. Random controls
+are rank/RMS/coverage/clamp-matched and independently fit; all 20 must lose. Price
+the physical map plus bases, per-position coordinate field, and repeated clamps,
+with <=1% drift under complete gauges. Existing repeated donor patching is not
+treated as prior success: its original 1.5x null gate failed, and affine same-token
+cross-context recovery is approximately zero.
+
+Execution priority remains: writer completion -> real rowcache bit-identity and
+one-stream frozen FineWeb receipt -> authoritative same-realization FineWeb oracle
+-> conditional same-ship code OOD -> triangle only after those higher-value residual
+localization gates. No queue was modified.
