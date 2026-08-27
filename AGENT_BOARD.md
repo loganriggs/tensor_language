@@ -1332,3 +1332,16 @@ top-four concentration is generic (random .6507 > question slice .5977), whereas
 writer identity is slice-specific (0/4 consensus overlap), so concentration is
 not admitted as a simplicity measure. All 33 focused transport, ledger, harvester,
 and source-preflight tests pass. No competing GPU job was launched.
+
+### 2026-08-27 06:36 UTC — Codex (mathematical lead, correction to 06:32)
+The 06:32 phrase "before the remote `(8,40)` bit-identity gate" was too weak:
+an early prefix match through a different loader cannot authorize shadow tensors
+at skips 1,200--11,000. The shadow receipt now has kind
+`fineweb_shadow_identity_only_v1`, authority `none`, and an irrevocably false
+scored-work flag. Every scored `(n,skip)` tensor must independently match a pinned
+canonical remote tensor (or file/config ordering must be separately proved), and
+a new authoritative receipt must then be minted; the shadow receipt can never be
+upgraded in place. Added post-harvest source rehashing, same-skip tensor/provenance
+prefix invariants, dedup-reference and tokenizer fingerprints, code/dependency
+hashes, parquet metadata, and an explicit unverified dataset-order claim. The
+canonical validator rejects a shadow receipt in test; 35 focused tests pass.

@@ -5,8 +5,9 @@ This is an infrastructure recovery path for the unauthenticated streaming failur
 It intentionally does *not* license scored experiments by itself.  It reproduces
 ``census_lib.fineweb_rows`` tokenization, 513-token chunking, skip, and census-prefix
 dedup semantics while additionally preserving document/chunk provenance.  Outputs
-are marked ``shadow_unlicensed_pending_remote_bit_identity`` until the registered
-remote identity gate compares them bit-for-bit.
+are marked ``shadow_unlicensed_pending_per_spec_remote_identity``.  The shadow
+receipt can never authorize them: every scored tensor needs independent canonical
+bit identity and a separately minted authoritative receipt.
 
 The first pinned shard is downloaded separately with the resumable Xet client:
 
@@ -40,6 +41,8 @@ T_LEN = 513
 SPECS = ((8, 40), (96, 80), (480, 80), (96, 1200), (192, 7000), (192, 11000))
 SHADOW = BQ / ".rowcache_shadow"
 RECEIPT = SHADOW / "fineweb_local_shadow_v1_receipt.json"
+RECEIPT_KIND = "fineweb_shadow_identity_only_v1"
+UNLICENSED_STATUS = "shadow_unlicensed_pending_per_spec_remote_identity"
 
 
 def tensor_sha256(value: torch.Tensor) -> str:
@@ -57,6 +60,21 @@ def file_sha256(path: Path, chunk_size: int = 8 << 20) -> str:
 
 def spec_key(spec: tuple[int, int]) -> str:
     return f"n{spec[0]}_skip{spec[1]}"
+
+
+def encoding_fingerprint(encoding: Any) -> str:
+    """Fingerprint GPT-2's actual merge table, not just its package version."""
+    digest = hashlib.sha256()
+    for token, rank in sorted(encoding._mergeable_ranks.items(), key=lambda item: item[1]):
+        digest.update(len(token).to_bytes(8, "little"))
+        digest.update(token)
+        digest.update(int(rank).to_bytes(8, "little"))
+    for token, rank in sorted(encoding._special_tokens.items()):
+        encoded = token.encode("utf-8")
+        digest.update(len(encoded).to_bytes(8, "little"))
+        digest.update(encoded)
+        digest.update(int(rank).to_bytes(8, "little"))
+    return digest.hexdigest()
 
 
 def harvest_texts(
@@ -122,7 +140,7 @@ def parquet_texts(paths: list[Path]) -> Iterator[tuple[str, str]]:
 
     for path in paths:
         parquet_file = parquet.ParquetFile(path)
-        relative = path.name
+        relative = PINNED_RELATIVE_PATH if len(paths) == 1 else path.name
         row_index = 0
         for batch in parquet_file.iter_batches(columns=["text"], batch_size=256):
             for text in batch.column(0).to_pylist():
@@ -161,6 +179,24 @@ def build_shadow(parquet_paths: list[Path]) -> dict[str, Any]:
     tensors, provenance = harvest_texts(
         parquet_texts(parquet_paths), SPECS, encoding.encode_ordinary, seen
     )
+    # Hash both before and after selection so the receipt cannot name one source
+    # while PyArrow read replacement bytes (TOCTOU).
+    if source.stat().st_size != PINNED_SIZE or file_sha256(source) != source_hash:
+        raise RuntimeError("pinned parquet changed during shadow harvest")
+    if not torch.equal(tensors[(96, 80)], tensors[(480, 80)][:96]):
+        raise RuntimeError("same-skip shadow row sets are not prefix-identical")
+    if provenance[(96, 80)] != provenance[(480, 80)][:96]:
+        raise RuntimeError("same-skip shadow provenance is not prefix-identical")
+    for spec in SPECS:
+        rows = provenance[spec]
+        if len(rows) != spec[0]:
+            raise RuntimeError(f"provenance count mismatch for {spec}")
+        if any(row["token_start"] != row["chunk_id"] * T_LEN for row in rows):
+            raise RuntimeError(f"invalid chunk provenance for {spec}")
+
+    import pyarrow
+    import pyarrow.parquet as parquet
+    parquet_file = parquet.ParquetFile(source)
     staging = SHADOW.with_name(f"{SHADOW.name}.tmp.{os.getpid()}")
     if staging.exists():
         raise RuntimeError(f"refusing to overwrite staging directory: {staging}")
@@ -181,18 +217,43 @@ def build_shadow(parquet_paths: list[Path]) -> dict[str, Any]:
             provenance_sets[spec_key(spec)] = provenance[spec]
         receipt = {
             "schema_version": 1,
-            "status": "shadow_unlicensed_pending_remote_bit_identity",
+            "receipt_kind": RECEIPT_KIND,
+            "authority": "none",
+            "status": UNLICENSED_STATUS,
             "authorized_for_scored_experiments": False,
-            "license_rule": "No scored experiment may consume these tensors until n8_skip40 is bit-identical to census_lib.fineweb_rows(8, skip=40) and the registered gate is upgraded.",
+            "license_rule": "This shadow receipt can never self-authorize. Every scored tensor must be independently bit-identical to a pinned canonical remote tensor for the same (n,skip), after which a new authoritative receipt must be minted; n8_skip40 alone authorizes nothing else.",
             "dataset": "HuggingFaceFW/fineweb split=train",
             "revision": PINNED_REVISION,
+            "exact_specs": [{"n": n, "skip": skip} for n, skip in SPECS],
+            "dataset_order_claim": {
+                "verified_equivalent_to_streaming_default_config": False,
+                "assumption": "the pinned parquet is the first file of the resolved FineWeb default-config train manifest and its row order equals streaming enumerate(ds)",
+                "required_upgrade_evidence": "pinned config plus ordered data-file manifest, or independent per-spec canonical tensor identity",
+            },
             "source_files": [{
                 "relative_path": PINNED_RELATIVE_PATH,
                 "local_path": str(source.resolve()),
                 "size": PINNED_SIZE,
                 "sha256": source_hash,
+                "parquet_num_rows": parquet_file.metadata.num_rows,
+                "parquet_num_row_groups": parquet_file.metadata.num_row_groups,
             }],
             "loader_semantics": "pinned parquet row order; gpt2 encode_ordinary; census-prefix dedup; range(0,len(tokens)-513,513)",
+            "implementation_provenance": {
+                "harvester_source_sha256": file_sha256(Path(__file__)),
+                "census_lib_source_sha256": file_sha256(BQ / "census_lib.py"),
+                "torch_version": torch.__version__,
+                "tiktoken_version": tiktoken.__version__,
+                "gpt2_encoding_sha256": encoding_fingerprint(encoding),
+                "pyarrow_version": pyarrow.__version__,
+            },
+            "dedup_reference": {
+                "path": str((BQ / "bilin18_eval_tokens_large.pt").resolve()),
+                "shape": list(reference.shape),
+                "dtype": str(reference.dtype),
+                "file_sha256": file_sha256(BQ / "bilin18_eval_tokens_large.pt"),
+                "tensor_raw_sha256": tensor_sha256(reference),
+            },
             "entries": entries,
             "document_provenance": {"schema_version": 1, "sets": provenance_sets},
         }
