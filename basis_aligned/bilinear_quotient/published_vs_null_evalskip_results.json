@@ -1,0 +1,266 @@
+{
+ "config": {
+  "cells": {
+   "question@mlp11": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": 0.718,
+    "published_top": [
+     "attn10",
+     "attn9",
+     "mlp9",
+     "mlp10"
+    ]
+   },
+   "pronouns@mlp17": {
+    "site": 17,
+    "rank": 8,
+    "top": 6,
+    "published": 0.482,
+    "published_top": [
+     "mlp16",
+     "x0",
+     "mlp15",
+     "mlp9",
+     "mlp14",
+     "attn9"
+    ]
+   }
+  },
+  "chunks": 3,
+  "rows_per_chunk": 64,
+  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "rows_are_fresh": true,
+  "receipt": "fineweb_oracle_v2_receipt.json",
+  "statistic": "ABSOLUTE attribution mass, matching slice_writers.py:216"
+ },
+ "cells": {
+  "question@mlp11": {
+   "published": 0.718,
+   "published_top": [
+    "attn10",
+    "attn9",
+    "mlp9",
+    "mlp10"
+   ],
+   "rank": 2,
+   "top": 4,
+   "arms": {
+    "lambda": [
+     {
+      "chunk": 0,
+      "class_n": 22,
+      "share": 0.5508,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "attn10",
+       "attn9"
+      ],
+      "recon": 1.0402460048908324e-07
+     },
+     {
+      "chunk": 1,
+      "class_n": 13,
+      "share": 0.5109,
+      "top": [
+       "mlp11",
+       "mlp17",
+       "attn9",
+       "attn10"
+      ],
+      "recon": 9.09904827040009e-08
+     },
+     {
+      "chunk": 2,
+      "class_n": 11,
+      "share": 0.5835,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "attn10",
+       "attn9"
+      ],
+      "recon": 8.793919192839894e-08
+     }
+    ],
+    "random": [
+     {
+      "chunk": 0,
+      "class_n": 22,
+      "share": 0.3711,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "attn17",
+       "mlp10"
+      ],
+      "recon": 0.0
+     },
+     {
+      "chunk": 1,
+      "class_n": 13,
+      "share": 0.3372,
+      "top": [
+       "mlp16",
+       "mlp17",
+       "attn17",
+       "mlp14"
+      ],
+      "recon": 5.0308997856518545e-08
+     },
+     {
+      "chunk": 2,
+      "class_n": 11,
+      "share": 0.3605,
+      "top": [
+       "mlp17",
+       "mlp10",
+       "mlp11",
+       "mlp16"
+      ],
+      "recon": 1.9849174748287624e-07
+     }
+    ]
+   },
+   "gaps": [
+    0.1797,
+    0.1737,
+    0.223
+   ],
+   "mean_share": {
+    "lambda": 0.5484,
+    "random": 0.3563
+   },
+   "absent_from_random": [
+    3,
+    3,
+    2
+   ]
+  },
+  "pronouns@mlp17": {
+   "published": 0.482,
+   "published_top": [
+    "mlp16",
+    "x0",
+    "mlp15",
+    "mlp9",
+    "mlp14",
+    "attn9"
+   ],
+   "rank": 8,
+   "top": 6,
+   "arms": {
+    "lambda": [
+     {
+      "chunk": 0,
+      "class_n": 82,
+      "share": 0.5383,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp9",
+       "mlp11",
+       "mlp10"
+      ],
+      "recon": 2.8652735295509046e-07
+     },
+     {
+      "chunk": 1,
+      "class_n": 100,
+      "share": 0.596,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp15",
+       "attn9",
+       "mlp9"
+      ],
+      "recon": 2.1008804651501123e-07
+     },
+     {
+      "chunk": 2,
+      "class_n": 84,
+      "share": 0.5691,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp9",
+       "mlp15",
+       "mlp11"
+      ],
+      "recon": 2.3471987731227273e-07
+     }
+    ],
+    "random": [
+     {
+      "chunk": 0,
+      "class_n": 82,
+      "share": 0.6131,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp10",
+       "attn17",
+       "x0"
+      ],
+      "recon": 1.9973998632849543e-07
+     },
+     {
+      "chunk": 1,
+      "class_n": 100,
+      "share": 0.7372,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp12",
+       "mlp15",
+       "attn17"
+      ],
+      "recon": 2.3494567358284257e-07
+     },
+     {
+      "chunk": 2,
+      "class_n": 84,
+      "share": 0.6882,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp12",
+       "mlp15",
+       "mlp9"
+      ],
+      "recon": 2.137892636255856e-07
+     }
+    ]
+   },
+   "gaps": [
+    0.0748,
+    0.1412,
+    0.1191
+   ],
+   "mean_share": {
+    "lambda": 0.5678,
+    "random": 0.6795
+   },
+   "absent_from_random": [
+    2,
+    3,
+    2
+   ]
+  }
+ },
+ "predictions": {
+  "pred_a_reproduces_718_within_10": false,
+  "pred_b_skip_moves_share_ge05": false,
+  "pred_c_directions_hold": true
+ },
+ "runtime_s": 10.1
+}

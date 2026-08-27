@@ -38482,3 +38482,54 @@ in §1620 comparing a measured share to a PUBLISHED share is withdrawn.
 tensor at §1597's own eval skip. It carries only 192 rows (47 question positions)
 against §1597's 960, but this section establishes the share is flat in n, so the
 smaller sample should still be informative.
+
+## §1622 CORRECTING §1621: §1620 USED THE RIGHT ROWS AFTER ALL — §1597's .718 IS COMPUTED ON THE 96 FIT ROWS AT skip=80, NOT ON EVR. Skip does not move the share (.5484 vs .545), so the .718 gap is now UNEXPLAINED (1-for-3)
+
+**Setup** (published_vs_null_evalskip, 10 s). §1621 concluded that §1620 had
+"measured the wrong rows" because `slice_writers.py:159` loads
+`EVR = fineweb_rows(960, skip=7000)`. This ran the same test at skip=7000 to check
+— and in reading the source properly afterwards, **§1621's correction turns out to
+be wrong**.
+
+```
+slice_writers.py:184   for i in range(0, 96, 8):
+slice_writers.py:185       bb = FR[i:i + 8]          <- the ATTRIBUTION pass
+                           ...capture_fwd(...) -> acc
+slice_writers.py:215   delta = {c: (coef[c] * (cmu[c] - mu[c])).abs().sum()}
+slice_writers.py:220   top4_share = ...              <- THE .718 COMES FROM HERE
+
+slice_writers.py:249       bb = EVR[i:i + 8]         <- the CAUSAL pass only
+```
+
+**`acc` — and therefore `mu`, `cmu`, `delta` and `top4_share` — is filled ENTIRELY
+from `FR`, the 96 FIT rows at skip=80.** `EVR` at skip=7000 feeds only the removal
+measurements further down. So §1620's use of skip=80 rows was **correct**, and
+§1621's "wrong rows" finding is **withdrawn**. §1621's other conclusion — that the
+share is flat in n — stands and was measured independently.
+
+**Measured at skip=7000 anyway, and it changes nothing:**
+```
+question@mlp11   skip=7000  lambda .5484  null .3563    (skip=80 was .545 / .426)
+pronouns@mlp17   skip=7000  lambda .5678  null .6795    (skip=80 was .5808 / .7331)
+```
+- **pred_a FAILED** — .5484 against published .718, off by .1696.
+- **pred_b FAILED** — the skip moves the share by **.0034** (.545 → .5484),
+  nowhere near the .05 bar. **Row skip does not explain the gap.**
+- **pred_c PASSED** — question above its null (.5484 > .3563), pronouns below
+  (.5678 < .6795), at both skips. The directional findings are robust to corpus,
+  skip and sample size.
+
+**STATE OF THE .718 QUESTION.** Three candidate explanations have now been tested
+and eliminated: corpus (§1620, canonical FineWeb), sample size (§1621, share flat
+across a 2.7x change in class positions), and row skip (§1622, .0034 difference).
+The measured share on the same rows §1597 used is **~.545-.548 against a published
+.718**. I have not reproduced the published number and I no longer have a
+candidate artifact of my own to blame.
+
+**NOT ESCALATING TO A DISCREPANCY CLAIM YET — one difference remains untested.**
+§1597 uses **96 rows**; my runs used 160-480. §1621 verified flatness over
+78-214 class positions, but §1597's 96 rows give roughly 25-30, BELOW that range.
+The next run should use exactly 96 rows at skip=80 — §1597's precise
+configuration — before anything is said about §1597 being wrong. Given that I have
+twice now blamed §1597 and twice found the fault in my own setup, that ordering is
+not optional.
