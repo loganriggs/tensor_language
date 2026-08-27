@@ -37709,3 +37709,59 @@ says the same thing: the real slice concentrates LESS (.5946) than the random on
 presence in a top-k writer list is not evidence unless that component is absent
 from the matched-rank random list. Report the random top-k alongside, per
 component, not just the aggregate share.
+
+## §1611 CORRECTION TO §1610, AND A MEASUREMENT FAILURE AT THE PRONOUNS CELL: my floor harness ranks by POSITIVE-ONLY signed contribution; §1597/§1598 rank by ABSOLUTE attribution mass. The within-run comparisons stand; every cross-reference to .718 and .482 is withdrawn.
+
+**What I got wrong.** `writer_floor_question` (§1609/§1610) and
+`writer_floor_pronouns` compute
+
+```python
+pos   = [c for c in signed if signed[c] > 0]          # POSITIVE-ONLY
+share = sum(signed[c] for c in top) / sum over pos
+```
+
+while `slice_writers.py:216` (§1597) and `slice_writers_p.py:205` (§1598) both compute
+
+```python
+delta = {c: (coef[c] * (cmu[c] - mu[c])).abs().sum()}  # ABSOLUTE MASS
+share = sum(delta[c] for c in top) / sum(delta.values())
+```
+
+Different statistic, different ranking, different denominator. **§1610's headline
+— that a random basis's .7223 is "statistically indistinguishable from §1597's
+headline .718" — compares two different quantities and is WITHDRAWN.** The
+numerical closeness is a coincidence. Whether §1597's actual .718 is a null result
+remains **UNTESTED**, and the same goes for §1598's .482.
+
+**What still stands from §1610,** because both arms used the same statistic on the
+same rows: the WITHIN-RUN comparison. On positive-only share at question@mlp11, a
+matched-rank random basis scores **.7223** against the certified slice's **.5946**,
+in 3/3 samples at n≈110. A random basis does concentrate more by that measure.
+The weaker form of §1610's conclusion survives; the citation to .718 does not.
+
+**§1610's attn10 result needs the same qualification.** attn10 appears in the
+RANDOM top-4 in 3/3 samples — but that is my positive-only top-4, not §1597's
+absolute-mass top-4. My |λ| consensus {mlp11, attn10, mlp9, attn9} matches §1597's
+published {attn10, attn9, mlp9, mlp10} on only 3 of 4, which is itself the
+signature of the ranking difference. The finding is real for the statistic
+measured and must be stated that way.
+
+**The pronouns run (writer_floor_pronouns, 26 s, n = 434/408/399) is a MEASUREMENT
+FAILURE and is not scored as evidence about §1598.** Positive-only share came out
+**1.0000 / 0.9891 / 1.0000** for the |λ| arm — saturated, because the mlp17
+|λ|-top-8 slice is suppression-dominated (6 of 8 eigenvalues negative, §1587), so
+almost no component has a positive signed contribution and the top-6 captures
+essentially all of it by construction. A statistic pinned at 1.0 cannot
+discriminate anything. Registered bars as written: pred_a FAILED (gaps
+.120/.111/.112 > .10), pred_b FAILED (only 1 of §1598's six in the random top-6),
+pred_c PASSED (5 of 6 absent) — but all three were computed in a degenerate regime
+and none should be cited.
+
+**Incidental but worth keeping:** the run's own printed label says
+`question@mlp17` — a hardcoded string left from the copied harness. The MASK was
+correct (n≈420 matches the pronoun counts, not the question counts of ~110), so
+the science was on the right class; only the label was stale. Fixed.
+
+**Queued:** both cells rerun with `.abs().sum()` ranking matching §1597/§1598
+exactly, so that the .718 and .482 statistics are finally tested rather than
+approximated.

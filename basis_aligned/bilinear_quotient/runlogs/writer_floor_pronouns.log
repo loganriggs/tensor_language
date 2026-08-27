@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+question@mlp17 rank-8 |lambda| eigs [-161.883, -133.565, -102.911, -55.541, 53.943, -47.116, 43.327, 37.351]  (S1598 ref: top-6 share .482, called DIFFUSE)
+LOCAL curated_rows.pt -> 3 disjoint chunks of 333 rows (no network; rows are the FW dedup set, NOT fresh -- see docstring)
+  lambda  skip=     0 n=434 top=['mlp16', 'mlp15', 'attn17', 'attn15', 'attn14', 'attn1'] share=1.0000 recon=2.9e-07
+  lambda  skip=     1 n=408 top=['mlp16', 'mlp15', 'attn17', 'mlp12', 'attn16', 'mlp13'] share=0.9891 recon=1.9e-07
+  lambda  skip=     2 n=399 top=['mlp16', 'mlp15', 'attn17', 'attn1', 'attn16', 'attn3'] share=1.0000 recon=3.0e-07
+  random  skip=     0 n=434 top=['mlp15', 'mlp13', 'attn8', 'attn6', 'attn16', 'attn17'] share=0.8798 recon=2.0e-07
+  random  skip=     1 n=408 top=['mlp15', 'mlp13', 'attn17', 'attn16', 'attn13', 'attn14'] share=0.8778 recon=1.7e-07
+  random  skip=     2 n=399 top=['mlp15', 'attn14', 'mlp13', 'attn17', 'attn16', 'attn6'] share=0.8881 recon=1.5e-07
+
+S1598 published top-6: ['mlp16', 'x0', 'mlp15', 'mlp9', 'mlp14', 'attn9']  (share .482, called DIFFUSE)
+  of those, IN random top-6 per sample: [1, 1, 1]
+  of those, ABSENT from random top-6:   [5, 5, 5]
+  share gaps |random - lambda|: [0.1202, 0.1113, 0.1119]
+  mean share: lambda 0.9964 vs random 0.8819
+  consensus lambda ['mlp16', 'mlp15', 'attn17', 'attn1', 'attn16', 'attn15']
+  consensus random ['mlp15', 'mlp13', 'attn17', 'attn16', 'attn14', 'attn8']
+  overlap 3/6 | floor-corrected lambda -> ['mlp16', 'attn1', 'attn15']
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/writer_floor_pronouns_results.json (25.6s)

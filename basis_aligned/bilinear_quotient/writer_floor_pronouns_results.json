@@ -1,0 +1,173 @@
+{
+ "config": {
+  "class": "question",
+  "site": 17,
+  "rank": 8,
+  "chunks": 3,
+  "rows_per_chunk": 333,
+  "row_source": "curated_rows.pt",
+  "rows_are_fresh": false,
+  "top": 6,
+  "S1598_reference": {
+   "top6": [
+    "mlp16",
+    "x0",
+    "mlp15",
+    "mlp9",
+    "mlp14",
+    "attn9"
+   ],
+   "share": 0.482,
+   "verdict": "DIFFUSE (its pred_a >=.55 FAILED)"
+  }
+ },
+ "arms": {
+  "lambda": [
+   {
+    "top": [
+     "mlp16",
+     "mlp15",
+     "attn17",
+     "attn15",
+     "attn14",
+     "attn1"
+    ],
+    "share": 1.0,
+    "class_n": 434,
+    "recon": 2.9327443940019293e-07
+   },
+   {
+    "top": [
+     "mlp16",
+     "mlp15",
+     "attn17",
+     "mlp12",
+     "attn16",
+     "mlp13"
+    ],
+    "share": 0.9891,
+    "class_n": 408,
+    "recon": 1.94313997781137e-07
+   },
+   {
+    "top": [
+     "mlp16",
+     "mlp15",
+     "attn17",
+     "attn1",
+     "attn16",
+     "attn3"
+    ],
+    "share": 1.0,
+    "class_n": 399,
+    "recon": 2.951487090285809e-07
+   }
+  ],
+  "random": [
+   {
+    "top": [
+     "mlp15",
+     "mlp13",
+     "attn8",
+     "attn6",
+     "attn16",
+     "attn17"
+    ],
+    "share": 0.8798,
+    "class_n": 434,
+    "recon": 1.9865564127030666e-07
+   },
+   {
+    "top": [
+     "mlp15",
+     "mlp13",
+     "attn17",
+     "attn16",
+     "attn13",
+     "attn14"
+    ],
+    "share": 0.8778,
+    "class_n": 408,
+    "recon": 1.6660651169786433e-07
+   },
+   {
+    "top": [
+     "mlp15",
+     "attn14",
+     "mlp13",
+     "attn17",
+     "attn16",
+     "attn6"
+    ],
+    "share": 0.8881,
+    "class_n": 399,
+    "recon": 1.525868782437101e-07
+   }
+  ]
+ },
+ "consensus": {
+  "lambda": [
+   "mlp16",
+   "mlp15",
+   "attn17",
+   "attn1",
+   "attn16",
+   "attn15"
+  ],
+  "random": [
+   "mlp15",
+   "mlp13",
+   "attn17",
+   "attn16",
+   "attn14",
+   "attn8"
+  ]
+ },
+ "floor": [
+  "attn14",
+  "attn16",
+  "attn17",
+  "attn8",
+  "mlp13",
+  "mlp15"
+ ],
+ "lambda_top_floor_corrected": [
+  "mlp16",
+  "attn1",
+  "attn15"
+ ],
+ "overlap_lambda_random_ofTOP": 3,
+ "mean_share": {
+  "lambda": 0.9964,
+  "random": 0.8819
+ },
+ "published_in_random": [
+  1,
+  1,
+  1
+ ],
+ "published_absent_from_random": [
+  5,
+  5,
+  5
+ ],
+ "share_gaps": [
+  0.1202,
+  0.1113,
+  0.1119
+ ],
+ "S1598_published": [
+  "mlp16",
+  "x0",
+  "mlp15",
+  "mlp9",
+  "mlp14",
+  "attn9"
+ ],
+ "predictions": {
+  "pred_a_share_gap_le10_2of3": false,
+  "pred_b_ge2_published_in_random_3of3": false,
+  "pred_c_ge2_published_absent_3of3": true
+ },
+ "runtime_s": 25.6
+}
