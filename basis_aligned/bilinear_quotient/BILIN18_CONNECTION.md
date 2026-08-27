@@ -37266,3 +37266,53 @@ during interpreter finalization, from the HF datasets streaming thread that had
 retried an SSL EOF mid-run. `runlogs/_completed.txt` records `exit=134`, which
 reads as a failed experiment. It was not — all output was written and is exact.
 See LESSONS ops rules.
+
+## §1603 CHANNEL DEPTH SPREAD (3-for-3): the '?' channel drawdown is .358 ± .029 and the shape is 6/6 — §1602's non-replication was an unlucky two-sample draw of the MIN and the MAX
+
+**Setup** (channel_depth_spread, 588 s). Six disjoint 96-row samples
+(skip = 80 / 15000 / 20000 / 25000 / 30000 / 35000), same exact decomposition as
+§1601-02, no refitting. Reconstruction rel err 0.0–1.5e-07 on every sample.
+
+```
+skip      n   peak     drawdown   largest drop
+80       44   attn16    0.2494    mlp17
+15000    31   attn16    0.4687    mlp17
+20000    32   attn16    0.3806    mlp17
+25000    47   attn16    0.3477    mlp17
+30000    45   attn16    0.3500    mlp17
+35000    33   attn16    0.3541    mlp17
+```
+
+**Scored as written:**
+- **pred_a PASSED** — peak = attn16 in **6/6** (registered bar: ≥ 5/6).
+- **pred_b PASSED** — largest negative step = mlp17 in **6/6**.
+- **pred_c PASSED** — sem **.0287** < .05, and mean **.3584** ≥ .25.
+
+**The §1602 magnitude question is closed: drawdown = .358 ± .029 (sem), sd .0703,
+n = 6.** The channel loses ~36% of its attn16 peak before the readout.
+
+**Why §1602 looked non-replicating, and the lesson in it.** §1602's two samples
+were skip=80 (.2494) and skip=15000 (.4687) — the **minimum and the maximum of
+the six**. The other four cluster tightly at .3477 / .3500 / .3541 / .3806
+(spread .033, an eighth of the §1602 range). Drawing both extremes in two draws
+from six has probability ~1/15, so this was bad luck rather than a real
+instability, and the "88% relative gap" that failed §1602's replication leg was
+an artifact of which two rows the harness happened to use.
+
+This does NOT retroactively pass §1602's pred_c: that was scored as written and
+FAILED (.249442 against a .25 bar, missing by .00056), and it stays failed. What
+changes is the estimate of the underlying quantity — the fit sample was simply
+the low outlier, and .2494 was never the right number to have registered a bar
+against. §511's rule is vindicated in the sharpest possible way: a two-sample
+class number here was off by ±.11 on a quantity whose true sem is .029.
+
+**Standing statement of the channel, §1600-1603.** Heads 9.7/10.5 and mlp9/mlp10
+write '?' evidence into span(v1,v2), which IS the '?' unembedding direction
+(logit-lens rank 1, §1600). The channel accumulates MONOTONICALLY across the whole
+stack — no front or middle reversal — peaking at **attn16** (§1602, 6/6 in §1603),
+with mlp11 the largest single positive step (+1028) but only ~69% of the peak
+reached by then. Suppression is **MLP-only and late**: mlp16 (−292) and mlp17
+(−1151, the largest contribution of any sign in the budget) cut it back by
+**.358 ± .029**, while attn17 still writes positively (+139). No small component
+set reproduces the final cut (top-4 positive = .414 of it, §1601) because the
+quantity is assembled by ~34 positive steps against 2 large negative ones.

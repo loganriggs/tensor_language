@@ -1,0 +1,131 @@
+{
+ "config": {
+  "samples": [
+   80,
+   15000,
+   20000,
+   25000,
+   30000,
+   35000
+  ],
+  "rows_per_sample": 96
+ },
+ "per_sample": [
+  {
+   "skip": 80,
+   "class_n": 44,
+   "recon_rel_err": 6.27519582963032e-08,
+   "peak_component": "attn16",
+   "peak_layer": 16,
+   "peak_value": 5228.142315266887,
+   "final_value": 3924.02279317216,
+   "drawdown": 0.249442238457534,
+   "largest_drop_component": "mlp17",
+   "largest_drop_value": -1150.830810546875
+  },
+  {
+   "skip": 15000,
+   "class_n": 31,
+   "recon_rel_err": 0.0,
+   "peak_component": "attn16",
+   "peak_layer": 16,
+   "peak_value": 5188.923364670249,
+   "final_value": 2756.9233875584323,
+   "drawdown": 0.46869067168548706,
+   "largest_drop_component": "mlp17",
+   "largest_drop_value": -1997.69580078125
+  },
+  {
+   "skip": 20000,
+   "class_n": 32,
+   "recon_rel_err": 6.704632937726274e-08,
+   "peak_component": "attn16",
+   "peak_layer": 16,
+   "peak_value": 6837.021390190581,
+   "final_value": 4234.513295402983,
+   "drawdown": 0.38064940070562703,
+   "largest_drop_component": "mlp17",
+   "largest_drop_value": -2277.033447265625
+  },
+  {
+   "skip": 25000,
+   "class_n": 47,
+   "recon_rel_err": 7.003591662169129e-08,
+   "peak_component": "attn16",
+   "peak_layer": 16,
+   "peak_value": 6003.82922347961,
+   "final_value": 3916.3844068902545,
+   "drawdown": 0.3476855751369199,
+   "largest_drop_component": "mlp17",
+   "largest_drop_value": -1796.0321044921875
+  },
+  {
+   "skip": 30000,
+   "class_n": 45,
+   "recon_rel_err": 0.0,
+   "peak_component": "attn16",
+   "peak_layer": 16,
+   "peak_value": 5896.636576067656,
+   "final_value": 3833.058977495879,
+   "drawdown": 0.349958416455086,
+   "largest_drop_component": "mlp17",
+   "largest_drop_value": -1795.466796875
+  },
+  {
+   "skip": 35000,
+   "class_n": 33,
+   "recon_rel_err": 1.4878260401474108e-07,
+   "peak_component": "attn16",
+   "peak_layer": 16,
+   "peak_value": 5649.075236788834,
+   "final_value": 3648.7483477507485,
+   "drawdown": 0.35409811432696614,
+   "largest_drop_component": "mlp17",
+   "largest_drop_value": -1710.4906005859375
+  }
+ ],
+ "drawdown": {
+  "values": [
+   0.2494,
+   0.4687,
+   0.3806,
+   0.3477,
+   0.35,
+   0.3541
+  ],
+  "mean": 0.3584,
+  "sd": 0.0703,
+  "sem": 0.0287,
+  "min": 0.2494,
+  "max": 0.4687,
+  "spread": 0.2192
+ },
+ "peak_counts": {
+  "attn16": 6,
+  "all": [
+   "attn16",
+   "attn16",
+   "attn16",
+   "attn16",
+   "attn16",
+   "attn16"
+  ]
+ },
+ "drop_counts": {
+  "mlp17": 6,
+  "all": [
+   "mlp17",
+   "mlp17",
+   "mlp17",
+   "mlp17",
+   "mlp17",
+   "mlp17"
+  ]
+ },
+ "predictions": {
+  "pred_a_peak_attn16_5of6": true,
+  "pred_b_drop_mlp17_6of6": true,
+  "pred_c_sem_lt_05_and_mean_ge_25": true
+ },
+ "runtime_s": 587.7
+}
