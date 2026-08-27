@@ -47,9 +47,16 @@ def test_output_basis_is_locator_not_controller():
 def test_current_ship_residual_partitions_close_without_conflation():
     sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
     residual = sheet["ledgers"]["current_composite_residual_localization"]
-    assert abs(sum(residual["target_cell_damage_shares"].values()) - 1.0) < 0.002
-    assert abs(sum(residual["frequent_target_group_shares"].values()) - 1.0) < 0.002
-    assert "restricted" in residual["scope"]
+    assert abs(sum(residual["legacy_target_cell_damage_shares"].values()) - 1.0) < 0.002
+    assert abs(sum(residual["legacy_sequential_top100_most_frequent_group_shares"].values()) - 1.0) < 0.002
+    assert abs(sum(residual["factorial_heldout_cell_damage_shares"].values()) - 1.0) < 1e-9
+    shapley = residual["factorial_heldout_weighted_group_shapley_nats"]
+    assert abs(sum(shapley.values()) - 0.8727067046695285) < 1e-6
+    assert shapley["mlp012"] > 0.7
+    assert residual["factorial_heldout_cell_group_shapley_nats"]["novel_rare"]["mlp012"] > 1.0
+    assert min(residual["factorial_heldout_cell_interaction_l1_fraction"].values()) > 0.4
+    assert residual["top100_most_damaged_token_type_damage_share"] != residual["top100_most_frequent_token_damage_share"]
+    assert "cannot be multiplied" in residual["caveat"]
 
 
 def test_full_vector_and_scalar_complexity_are_separate_scopes():

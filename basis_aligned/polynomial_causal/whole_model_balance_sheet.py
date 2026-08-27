@@ -29,6 +29,7 @@ DEFAULT_SOURCES = {
     "output_slice": HERE / "output_slice_audit_results.json",
     "ship_error_cells": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_mine_results.json",
     "ship_error_groups": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_attrib_results.json",
+    "ship_error_factorial": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_factorial_results.json",
     "ship_behavior_state": TENSOR_ROOT / "basis_aligned/bilinear_quotient/state_in_full_ship_results.json",
     "mlp_product_rank": HERE / "mlp_product_rank_audit_results.json",
     "question_one_product": HERE / "question_one_product_results.json",
@@ -118,10 +119,14 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     output = data["output_slice"]
     ship_cells = data["ship_error_cells"]
     ship_groups = data["ship_error_groups"]
+    ship_factorial = data["ship_error_factorial"]
     ship_state = data["ship_behavior_state"]
     product_rank = data["mlp_product_rank"]
     question_product = data["question_one_product"]
     content_frontier = data["content_product_frontier"]
+    factorial_heldout = ship_factorial["splits"]["heldout"]
+    factorial_primary = factorial_heldout["primary"]
+    factorial_cells = factorial_primary["cells"]
     inventory = registry_inventory(theseus_root)
 
     subst_recovery = 1.0 - subst["chain_pca"]["dCE"] / subst["available_headroom_to_floor"]
@@ -204,13 +209,22 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "current_composite_residual_localization": {
             "global_clean_ce_same_run": ship_state["clean"]["global"],
             "global_ship_ce_same_run": ship_state["full_ship"]["global"],
-            "target_cell_damage_shares": ship_cells["cell_shares"],
-            "top100_target_damage_share": ship_cells["top100_damage_share"],
-            "frequent_target_group_shares": ship_groups["shares"],
-            "currency": "share of current K=3072 ship CE damage within each declared residual partition",
-            "scope": "target cells are global over evaluated targets; plank-group attribution is restricted to the 100 most frequent targets",
-            "claim": "The residual is concentrated enough to act on: novel-rare targets carry 47.3%, the top 100 targets carry 50%, and early MLP0-2 planks cause 49.9% of frequent-target damage.",
-            "caveat": "Do not apply the frequent-target plank shares to the novel-rare cell; that cross-tab has not been measured.",
+            "legacy_target_cell_damage_shares": ship_cells["cell_shares"],
+            "top100_most_damaged_token_type_damage_share": ship_cells["top100_damage_share"],
+            "legacy_sequential_top100_most_frequent_group_shares": ship_groups["shares"],
+            "factorial_heldout_cell_damage_shares": factorial_primary["cell_damage_shares"],
+            "factorial_heldout_weighted_group_shapley_nats": factorial_primary["weighted_shapley"],
+            "factorial_heldout_cell_group_shapley_nats": {
+                cell: row["shapley"] for cell, row in factorial_cells.items()
+            },
+            "factorial_heldout_cell_interaction_l1_fraction": {
+                cell: row["interaction_l1_fraction_of_total"] for cell, row in factorial_cells.items()
+            },
+            "top100_most_frequent_token_damage_share": factorial_heldout["frequency"]["cell_damage_shares"]["top100"],
+            "currency": "signed nats and shares of current K=3072 ship CE damage within explicitly named partitions",
+            "scope": "the 2^3 factorial crosses attention, MLP0-2, and deep replacements over global copy/novel-frequency cells and the separate most-frequent-token partition",
+            "claim": "Held-out MLP0-2 Shapley effect is 0.728 of 0.873 global ship nats and 1.078 of 1.176 novel-rare nats; the early group is the stable dominant residual source.",
+            "caveat": "The prior 0.500 result selects the 100 most-damaged token types, whereas the prior 0.499 group share and factorial 0.319 partition use the 100 most-frequent token types. They cannot be multiplied. Interactions consume 43-64% of each cell's total effect, so the Shapley localization licenses only a joint-ship correction, not an independent module claim.",
         },
         "causal_instrument_validation": {
             "question_pairwise_frozen_normalized_error": question["frozen"]["comparisons"]["question_true_raw"]["pairwise_normalized_error"],
@@ -298,18 +312,18 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "Run the complete attention x MLP0-2 x deep factorial under the current ship and score Mobius/Shapley effects separately for copy, novel/frequent, novel/rare, output slices, and intervention families.",
-                "why": "The current 47.3% novel-rare and 49.9% early-MLP facts are different marginals: the latter is restricted to top-100 targets. A joint factorial is required before assigning the novel/rare residual to an interface, and existing composition interactions make sequential attribution unsafe.",
+                "action": "Fit a content-restricted live-activation correction at MLP0-2 inside the complete ship and compare it with a matched random output basis and the already-installed generic rank-32 MLP2 glue.",
+                "why": "The factorial assigns 0.728/0.873 held-out global nats and 1.078/1.176 novel-rare nats to MLP0-2, but 43-64% interaction forbids a marginal correction. This directly tests whether the clean-model content API is the missing composable interface rather than merely a predictive local basis.",
             },
             {
                 "priority": 2,
-                "action": "If the factorial licenses MLP0-2 on the target cell, fit and install a linear current-ship residual correction at the frozen content API before trying more products.",
-                "why": "At matched standalone parameters the early learned paired programs lose to linear by 0.097-0.170 held-out R2; the local tensor-specific gate failed, while linear reaches 0.639 at MLP0.",
+                "action": "Extend the same frozen attention x MLP0-2 x deep factorial to powered output slices and held-out intervention families.",
+                "why": "Token CE localizes the current residual but cannot establish that the simplified program transports causal behavior or selective edits; these are still the largest missing whole-model interfaces.",
             },
             {
                 "priority": 3,
-                "action": "Move the matched product ladder to a deep content boundary only if the factorial assigns unique target-cell damage there; retain linear and native baselines unchanged.",
-                "why": "Early products improved over native units but not over linearity. Existing evidence places created-in-flight nonlinear content in the middle, so products should be retested only where the ship residual causally requires them.",
+                "action": "Factor the licensed MLP0-2 correction internally only after it passes whole-ship CE and matched-random controls, preserving standalone and amortized prices.",
+                "why": "The clean local product frontier rejected paired products in favor of linear maps. Tensor/product structure becomes useful only if it compresses a causally licensed live-ship correction without losing its held-out gain.",
             },
             {
                 "priority": 4,

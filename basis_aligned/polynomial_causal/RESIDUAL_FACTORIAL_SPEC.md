@@ -10,11 +10,12 @@ localizations exist:
   deep MLPs `0.364`.
 
 These do not show that MLP0-2 causes the novel/rare error. Novel/rare targets are
-outside the top-100 target set by construction. Multiplying `0.500 * 0.499` says
-that the registered sequential MLP0-2 increment occupies `0.2495` of total ship
-damage *inside the top-100 partition*; it says nothing about group attribution in
-the other half. The current four arms are also order-dependent, while existing
-whole-model evidence shows large replacement interactions.
+mostly outside the top-100 **most-frequent-token** set. More importantly, the
+published `0.500` and `0.499` use different sets: `0.500` is the share carried by
+the 100 most-damaged token types, whereas `0.499` is the sequential MLP0-2 share
+within the 100 most-frequent token types. Multiplying them is invalid. The current
+four arms are also order-dependent, while existing whole-model evidence shows
+large replacement interactions.
 
 ## Registered factorial audit
 
@@ -71,3 +72,28 @@ clipped. `factorial_causal_attribution.py` is the frozen CPU scorer.
 
 This audit chooses the target of the next compiler; it does not itself increase the
 fraction of the model reverse engineered.
+
+## Completed token-cell stage
+
+`ship_error_factorial_results.json` completed the eight arms on 480 discovery and
+480 untouched held-out rows. The output-slice and intervention-family extensions
+remain pending.
+
+On held-out rows, the full ship adds `0.8727` nats. The cell damage shares are copy
+`0.2486`, novel/frequent `0.2818`, and novel/rare `0.4697`. Exact weighted Shapley
+effects are attention `-0.0670`, MLP0-2 `+0.7277`, and deep MLPs `+0.2120` nats.
+MLP0-2 is the dominant group in every cell on both splits. In novel/rare its
+held-out Shapley effect is `1.0776 / 1.1755` nats, so the early-content license
+passes decisively.
+
+The result does **not** license an independently optimized early module. The
+held-out interaction L1 fractions are `0.429` (copy), `0.576` (novel/frequent),
+and `0.636` (novel/rare), all beyond the registered joint-compilation gate. In
+novel/rare the largest term is the attention x MLP0-2 interaction at `-0.6389`
+nats. The next correction must therefore read live full-ship activations and be
+trained and evaluated with all other replacements installed.
+
+As a denominator cross-check, the 100 most-frequent token types carry `0.3187` of
+held-out ship damage. This is not the earlier `0.500` result for the 100
+most-damaged token types, and both labels must remain explicit in downstream
+reports.

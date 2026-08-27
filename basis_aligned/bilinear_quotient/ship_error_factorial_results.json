@@ -1,0 +1,494 @@
+{
+  "config": {
+    "model": "bilin18",
+    "groups": [
+      "attention",
+      "mlp012",
+      "deep"
+    ],
+    "rows_per_split": 480,
+    "discovery_skip": 7000,
+    "heldout_skip": 11000,
+    "status": "token_cell_factorial_stage; output/intervention cross-tab pending"
+  },
+  "splits": {
+    "discovery": {
+      "primary": {
+        "groups": [
+          "attention",
+          "mlp012",
+          "deep"
+        ],
+        "cell_counts": {
+          "copy": 32816,
+          "novel_freq": 27140,
+          "novel_rare": 32204
+        },
+        "cells": {
+          "copy": {
+            "baseline": 1.559286174281291,
+            "full": 2.190941835251859,
+            "total_effect": 0.6316556609705679,
+            "mobius": {
+              "baseline": 1.559286174281291,
+              "attention": 0.13381620618205492,
+              "mlp012": 0.5356591148878644,
+              "deep": 0.12270616915445687,
+              "attention+mlp012": -0.1937562281303089,
+              "attention+deep": 0.028366817956084756,
+              "mlp012+deep": 0.020396762217387288,
+              "attention+mlp012+deep": -0.015533181296971232
+            },
+            "shapley": {
+              "attention": 0.04594377399595243,
+              "mlp012": 0.44380165483241324,
+              "deep": 0.14191023214220247
+            },
+            "shapley_closure_error": 2.220446049250313e-16,
+            "interaction_l1": 0.2580529896007522,
+            "interaction_l1_fraction_of_total": 0.4085342783190479
+          },
+          "novel_freq": {
+            "baseline": 2.7723200011622318,
+            "full": 3.6142932506721515,
+            "total_effect": 0.8419732495099197,
+            "mobius": {
+              "baseline": 2.7723200011622318,
+              "attention": 0.11267748321780591,
+              "mlp012": 0.8677869151599635,
+              "deep": 0.2546140801493699,
+              "attention+mlp012": -0.4136395448081709,
+              "attention+deep": 0.006127958923205057,
+              "mlp012+deep": -0.001610471293956195,
+              "attention+mlp012+deep": 0.016016828161702357
+            },
+            "shapley": {
+              "attention": -0.08573936700410956,
+              "mlp012": 0.6655008498294674,
+              "deep": 0.2622117666845618
+            },
+            "shapley_closure_error": 0.0,
+            "interaction_l1": 0.4373948031870345,
+            "interaction_l1_fraction_of_total": 0.5194877669113896
+          },
+          "novel_rare": {
+            "baseline": 4.751742674628928,
+            "full": 5.911937936790655,
+            "total_effect": 1.1601952621617269,
+            "mobius": {
+              "baseline": 4.751742674628928,
+              "attention": 0.20477277485424938,
+              "mlp012": 1.3162370178806402,
+              "deep": 0.2200155185921684,
+              "attention+mlp012": -0.6245317403432997,
+              "attention+deep": -0.029465921383261318,
+              "mlp012+deep": 0.06315688035041234,
+              "attention+mlp012+deep": 0.010010732210818496
+            },
+            "shapley": {
+              "attention": -0.11888914527209164,
+              "mlp012": 1.038886498621136,
+              "deep": 0.2401979088126834
+            },
+            "shapley_closure_error": 8.881784197001252e-16,
+            "interaction_l1": 0.7271652742877919,
+            "interaction_l1_fraction_of_total": 0.6267611134119834
+          }
+        },
+        "weighted_total_effect": 0.8782822741402521,
+        "cell_damage_shares": {
+          "copy": 0.25608813180226747,
+          "novel_freq": 0.2823134395027995,
+          "novel_rare": 0.461598428694933
+        },
+        "weighted_shapley": {
+          "attention": -0.05043382777108071,
+          "mlp012": 0.7170333004660078,
+          "deep": 0.2116828014453253
+        },
+        "weighted_shapley_closure_error": 3.3306690738754696e-16
+      },
+      "frequency": {
+        "groups": [
+          "attention",
+          "mlp012",
+          "deep"
+        ],
+        "cell_counts": {
+          "top100": 40538,
+          "non_top100": 51622
+        },
+        "cells": {
+          "top100": {
+            "baseline": 1.775408216759969,
+            "full": 2.416252255551504,
+            "total_effect": 0.6408440387915351,
+            "mobius": {
+              "baseline": 1.775408216759969,
+              "attention": 0.08285545346486245,
+              "mlp012": 0.5769761906218782,
+              "deep": 0.20909804390710574,
+              "attention+mlp012": -0.253825495631125,
+              "attention+deep": 0.025077817189369522,
+              "mlp012+deep": -0.008139236377172399,
+              "attention+mlp012+deep": 0.008801265616616316
+            },
+            "shapley": {
+              "attention": -0.028584630550476515,
+              "mlp012": 0.4489275798232683,
+              "deep": 0.22050108951874306
+            },
+            "shapley_closure_error": -2.220446049250313e-16,
+            "interaction_l1": 0.29584381481428323,
+            "interaction_l1_fraction_of_total": 0.46164713550611725
+          },
+          "non_top100": {
+            "baseline": 4.018905130647726,
+            "full": 5.0836442088190354,
+            "total_effect": 1.0647390781713097,
+            "mobius": {
+              "baseline": 4.018905130647726,
+              "attention": 0.20698712005207298,
+              "mlp012": 1.164785628621578,
+              "deep": 0.1849195165472688,
+              "attention+mlp012": -0.5309232747484112,
+              "attention+deep": -0.016820831257446045,
+              "mlp012+deep": 0.057911052942544394,
+              "attention+mlp012+deep": -0.002120133986296402
+            },
+            "shapley": {
+              "attention": -0.0675916442796211,
+              "mlp012": 0.9275728063898793,
+              "deep": 0.2047579160610525
+            },
+            "shapley_closure_error": 8.881784197001252e-16,
+            "interaction_l1": 0.607775292934698,
+            "interaction_l1_fraction_of_total": 0.5708208756445312
+          }
+        },
+        "weighted_total_effect": 0.8782822953330143,
+        "cell_damage_shares": {
+          "top100": 0.3209505120287505,
+          "non_top100": 0.6790494879712495
+        },
+        "weighted_shapley": {
+          "attention": -0.05043380657831833,
+          "mlp012": 0.7170333077510199,
+          "deep": 0.21168279416031316
+        },
+        "weighted_shapley_closure_error": 4.440892098500626e-16
+      }
+    },
+    "heldout": {
+      "primary": {
+        "groups": [
+          "attention",
+          "mlp012",
+          "deep"
+        ],
+        "cell_counts": {
+          "copy": 32401,
+          "novel_freq": 27624,
+          "novel_rare": 32135
+        },
+        "cells": {
+          "copy": {
+            "baseline": 1.5218962459835585,
+            "full": 2.138878325695484,
+            "total_effect": 0.6169820797119254,
+            "mobius": {
+              "baseline": 1.5218962459835585,
+              "attention": 0.12899367451163735,
+              "mlp012": 0.5418010874260488,
+              "deep": 0.1280107336579117,
+              "attention+mlp012": -0.19776460967760467,
+              "attention+deep": 0.029996723191414,
+              "mlp012+deep": 0.011446134716135425,
+              "attention+mlp012+deep": -0.025501664113616762
+            },
+            "shapley": {
+              "attention": 0.03660917656400309,
+              "mlp012": 0.4401412952407753,
+              "deep": 0.1402316079071475
+            },
+            "shapley_closure_error": 4.440892098500626e-16,
+            "interaction_l1": 0.26470913169877086,
+            "interaction_l1_fraction_of_total": 0.4290386064735721
+          },
+          "novel_freq": {
+            "baseline": 2.773800040962314,
+            "full": 3.5942105608955868,
+            "total_effect": 0.8204105199332727,
+            "mobius": {
+              "baseline": 2.773800040962314,
+              "attention": 0.11322126214551886,
+              "mlp012": 0.8725257937610582,
+              "deep": 0.25032774579721817,
+              "attention+mlp012": -0.4441155268771042,
+              "attention+deep": 0.011754557114906472,
+              "mlp012+deep": 0.012253808519510745,
+              "attention+mlp012+deep": 0.004442879472164485
+            },
+            "shapley": {
+              "attention": -0.10147826291152517,
+              "mlp012": 0.6580758944063163,
+              "deep": 0.2638128884384816
+            },
+            "shapley_closure_error": 0.0,
+            "interaction_l1": 0.4725667719836859,
+            "interaction_l1_fraction_of_total": 0.5760125699291638
+          },
+          "novel_rare": {
+            "baseline": 4.643532111994564,
+            "full": 5.819035249849269,
+            "total_effect": 1.1755031378547045,
+            "mobius": {
+              "baseline": 4.643532111994564,
+              "attention": 0.19005598558206582,
+              "mlp012": 1.3599172793670737,
+              "deep": 0.2118603530819687,
+              "attention+mlp012": -0.6388994040340066,
+              "attention+deep": -0.018290258169879614,
+              "mlp012+deep": 0.08086686218176276,
+              "attention+mlp012+deep": -0.01000768015428033
+            },
+            "shapley": {
+              "attention": -0.1418747389046374,
+              "mlp012": 1.0775651150561918,
+              "deep": 0.23981276170315016
+            },
+            "shapley_closure_error": 0.0,
+            "interaction_l1": 0.7480642045399293,
+            "interaction_l1_fraction_of_total": 0.6363778882846267
+          }
+        },
+        "weighted_total_effect": 0.8727067046695285,
+        "cell_damage_shares": {
+          "copy": 0.24855367321245497,
+          "novel_freq": 0.2817779513911287,
+          "novel_rare": 0.46966837539641637
+        },
+        "weighted_shapley": {
+          "attention": -0.06701612781595301,
+          "mlp012": 0.7277263627008157,
+          "deep": 0.21199646978466613
+        },
+        "weighted_shapley_closure_error": 3.3306690738754696e-16
+      },
+      "frequency": {
+        "groups": [
+          "attention",
+          "mlp012",
+          "deep"
+        ],
+        "cell_counts": {
+          "top100": 40733,
+          "non_top100": 51427
+        },
+        "cells": {
+          "top100": {
+            "baseline": 1.763408783852792,
+            "full": 2.3927153203675458,
+            "total_effect": 0.6293065365147537,
+            "mobius": {
+              "baseline": 1.763408783852792,
+              "attention": 0.08396704576861436,
+              "mlp012": 0.5849574566695193,
+              "deep": 0.21255148302618188,
+              "attention+mlp012": -0.270343488231958,
+              "attention+deep": 0.024077431878694266,
+              "mlp012+deep": -0.011363434076888446,
+              "attention+mlp012+deep": 0.005460041480590316
+            },
+            "shapley": {
+              "attention": -0.037345968581154056,
+              "mlp012": 0.44592400934195947,
+              "deep": 0.22072849575394823
+            },
+            "shapley_closure_error": 0.0,
+            "interaction_l1": 0.311244395668131,
+            "interaction_l1_fraction_of_total": 0.49458312858448134
+          },
+          "non_top100": {
+            "baseline": 3.9536699832863818,
+            "full": 5.019162938371685,
+            "total_effect": 1.0654929550853032,
+            "mobius": {
+              "baseline": 3.9536699832863818,
+              "attention": 0.19434088895880297,
+              "mlp012": 1.1964807784274312,
+              "deep": 0.1791471358597505,
+              "attention+mlp012": -0.5482557354128792,
+              "attention+deep": -0.005286515427814997,
+              "mlp012+deep": 0.07332518496333318,
+              "attention+mlp012+deep": -0.024258782283320457
+            },
+            "shapley": {
+              "attention": -0.09051649722265094,
+              "mlp012": 0.9509292424415513,
+              "deep": 0.20508020986640277
+            },
+            "shapley_closure_error": 0.0,
+            "interaction_l1": 0.6511262180873478,
+            "interaction_l1_fraction_of_total": 0.6111032597444239
+          }
+        },
+        "weighted_total_effect": 0.872706698709064,
+        "cell_damage_shares": {
+          "top100": 0.3187115954085161,
+          "non_top100": 0.681288404591484
+        },
+        "weighted_shapley": {
+          "attention": -0.06701611589502407,
+          "mlp012": 0.7277263544223924,
+          "deep": 0.21199646018169563
+        },
+        "weighted_shapley_closure_error": -1.1102230246251565e-16
+      }
+    }
+  },
+  "raw_cell_ce": {
+    "discovery": {
+      "primary": {
+        "copy": {
+          "clean": 1.559286174281291,
+          "attention": 1.6931023804633458,
+          "mlp012": 2.0949452891691553,
+          "deep": 1.6819923434357478,
+          "attention+mlp012": 2.0350052672209014,
+          "attention+deep": 1.8441753675738874,
+          "mlp012+deep": 2.2380482205409993,
+          "attention+mlp012+deep": 2.190941835251859
+        },
+        "novel_freq": {
+          "clean": 2.7723200011622318,
+          "attention": 2.8849974843800377,
+          "mlp012": 3.6401069163221953,
+          "deep": 3.0269340813116017,
+          "attention+mlp012": 3.3391448547318303,
+          "attention+deep": 3.1457395234526127,
+          "mlp012+deep": 3.893110525177609,
+          "attention+mlp012+deep": 3.6142932506721515
+        },
+        "novel_rare": {
+          "clean": 4.751742674628928,
+          "attention": 4.956515449483177,
+          "mlp012": 6.067979692509568,
+          "deep": 4.971758193221096,
+          "attention+mlp012": 5.648220727020518,
+          "attention+deep": 5.147065046692084,
+          "mlp012+deep": 6.351152091452149,
+          "attention+mlp012+deep": 5.911937936790655
+        }
+      },
+      "frequency": {
+        "top100": {
+          "clean": 1.775408216759969,
+          "attention": 1.8582636702248314,
+          "mlp012": 2.352384407381847,
+          "deep": 1.9845062606670747,
+          "attention+mlp012": 2.1814143652155846,
+          "attention+deep": 2.0924395313213067,
+          "mlp012+deep": 2.5533432149117803,
+          "attention+mlp012+deep": 2.416252255551504
+        },
+        "non_top100": {
+          "clean": 4.018905130647726,
+          "attention": 4.225892250699799,
+          "mlp012": 5.183690759269304,
+          "deep": 4.2038246471949945,
+          "attention+mlp012": 4.859754604572966,
+          "attention+deep": 4.393990935989621,
+          "mlp012+deep": 5.426521328759117,
+          "attention+mlp012+deep": 5.0836442088190354
+        }
+      }
+    },
+    "heldout": {
+      "primary": {
+        "copy": {
+          "clean": 1.5218962459835585,
+          "attention": 1.650889920495196,
+          "mlp012": 2.0636973334096074,
+          "deep": 1.6499069796414703,
+          "attention+mlp012": 1.9949263982436403,
+          "attention+deep": 1.8088973773445216,
+          "mlp012+deep": 2.2031542017836543,
+          "attention+mlp012+deep": 2.138878325695484
+        },
+        "novel_freq": {
+          "clean": 2.773800040962314,
+          "attention": 2.887021303107833,
+          "mlp012": 3.6463258347233722,
+          "deep": 3.024127786759532,
+          "attention+mlp012": 3.315431569991787,
+          "attention+deep": 3.1491036060199575,
+          "mlp012+deep": 3.908907389040101,
+          "attention+mlp012+deep": 3.5942105608955868
+        },
+        "novel_rare": {
+          "clean": 4.643532111994564,
+          "attention": 4.83358809757663,
+          "mlp012": 6.003449391361638,
+          "deep": 4.855392465076533,
+          "attention+mlp012": 5.554605972909697,
+          "attention+deep": 5.027158192488719,
+          "mlp012+deep": 6.2961766066253695,
+          "attention+mlp012+deep": 5.819035249849269
+        }
+      },
+      "frequency": {
+        "top100": {
+          "clean": 1.763408783852792,
+          "attention": 1.8473758296214065,
+          "mlp012": 2.3483662405223114,
+          "deep": 1.975960266878974,
+          "attention+mlp012": 2.161989798058968,
+          "attention+deep": 2.0840047445262826,
+          "mlp012+deep": 2.5495542894716046,
+          "attention+mlp012+deep": 2.3927153203675458
+        },
+        "non_top100": {
+          "clean": 3.9536699832863818,
+          "attention": 4.148010872245185,
+          "mlp012": 5.150150761713813,
+          "deep": 4.132817119146132,
+          "attention+mlp012": 4.796235915259737,
+          "attention+deep": 4.32187149267712,
+          "mlp012+deep": 5.402623082536897,
+          "attention+mlp012+deep": 5.019162938371685
+        }
+      }
+    }
+  },
+  "dominant_group": {
+    "discovery": {
+      "copy": "mlp012",
+      "novel_freq": "mlp012",
+      "novel_rare": "mlp012"
+    },
+    "heldout": {
+      "copy": "mlp012",
+      "novel_freq": "mlp012",
+      "novel_rare": "mlp012"
+    }
+  },
+  "interaction_material_20pct": {
+    "discovery": {
+      "copy": true,
+      "novel_freq": true,
+      "novel_rare": true
+    },
+    "heldout": {
+      "copy": true,
+      "novel_freq": true,
+      "novel_rare": true
+    }
+  },
+  "decisions": {
+    "early_mlp012_novel_rare_license": true,
+    "dominant_group_stable": true,
+    "shapley_closure": true
+  },
+  "runtime_s": 638.4
+}
