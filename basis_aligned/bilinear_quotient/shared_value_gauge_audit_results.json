@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "audit_id": "bilin18.shared-value-gauge-genericity.v1",
+  "repository": "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd",
+  "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+  "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+  "attention_value_mixing_coefficients": [
+    0.5,
+    -0.053466796875,
+    -4.0,
+    -4.0,
+    -4.1875,
+    -0.056396484375,
+    0.361328125,
+    0.26171875,
+    4.0,
+    -0.65625,
+    0.416015625,
+    -1.75,
+    0.267578125,
+    4.1875,
+    4.625,
+    0.55859375,
+    1.453125,
+    -0.0888671875
+  ],
+  "all_layers_have_nonzero_shared_value_edge": true,
+  "layer0_shared_value_heads": [
+    {
+      "head": 0,
+      "minimum_singular_value": 4.613868132019607,
+      "maximum_singular_value": 11.180195425457345,
+      "relative_minimum_singular_value": 0.41268224359601197,
+      "rank_at_relative_tolerance_1e_7": 128
+    },
+    {
+      "head": 1,
+      "minimum_singular_value": 3.7313730791192,
+      "maximum_singular_value": 9.20947611392227,
+      "relative_minimum_singular_value": 0.4051667036171971,
+      "rank_at_relative_tolerance_1e_7": 128
+    },
+    {
+      "head": 2,
+      "minimum_singular_value": 3.2224102636406298,
+      "maximum_singular_value": 8.171617570395245,
+      "relative_minimum_singular_value": 0.39434178556214156,
+      "rank_at_relative_tolerance_1e_7": 128
+    },
+    {
+      "head": 3,
+      "minimum_singular_value": 6.034381632109067,
+      "maximum_singular_value": 14.139340604939687,
+      "relative_minimum_singular_value": 0.4267795649537511,
+      "rank_at_relative_tolerance_1e_7": 128
+    },
+    {
+      "head": 4,
+      "minimum_singular_value": 5.338754430614333,
+      "maximum_singular_value": 12.30473365226214,
+      "relative_minimum_singular_value": 0.433878097770352,
+      "rank_at_relative_tolerance_1e_7": 128
+    },
+    {
+      "head": 5,
+      "minimum_singular_value": 3.2451395076720604,
+      "maximum_singular_value": 8.198877040829412,
+      "relative_minimum_singular_value": 0.39580292417018326,
+      "rank_at_relative_tolerance_1e_7": 128
+    },
+    {
+      "head": 6,
+      "minimum_singular_value": 3.9050236410275456,
+      "maximum_singular_value": 8.842233681362044,
+      "relative_minimum_singular_value": 0.44163316439585676,
+      "rank_at_relative_tolerance_1e_7": 128
+    },
+    {
+      "head": 7,
+      "minimum_singular_value": 3.246116774348627,
+      "maximum_singular_value": 7.506156836784562,
+      "relative_minimum_singular_value": 0.4324605580369377,
+      "rank_at_relative_tolerance_1e_7": 128
+    },
+    {
+      "head": 8,
+      "minimum_singular_value": 4.056133164895317,
+      "maximum_singular_value": 9.467583132774191,
+      "relative_minimum_singular_value": 0.4284232953660676,
+      "rank_at_relative_tolerance_1e_7": 128
+    }
+  ],
+  "all_shared_value_heads_full_row_rank": true,
+  "minimum_relative_singular_value": 0.39434178556214156,
+  "conclusion": "one GL(128) value/output gauge per head is tied across all 18 layers"
+}

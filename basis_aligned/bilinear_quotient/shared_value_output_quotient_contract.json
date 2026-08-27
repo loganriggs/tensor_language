@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "contract_id": "bilin18.shared-value-output-quotient.v1",
+  "status": "exact_algebra_cpu_verified_codec_not_yet_priced",
+  "object": "all 18 c_v maps and all 18 head-sliced c_proj writers",
+  "architecture": {
+    "layers": 18,
+    "heads": 9,
+    "model_dimension": 1152,
+    "head_dimension": 128,
+    "shared_parent": "layer0 c_v output v0",
+    "fanout": "v0 is mixed into every layer before that layer's c_proj"
+  },
+  "exact_continuous_gauge": {
+    "group": "GL(128)^9 shared across depth",
+    "per_head_action": {
+      "all_value_maps": "V_l -> G_h V_l",
+      "all_output_head_blocks": "O_lh -> O_lh G_h^-1"
+    },
+    "why_not_independent_per_layer": "For every nonzero shared-value mixing coefficient, one V0' must equal G_l V0. Full row rank of V0 implies the layer gauges coincide.",
+    "generic_freeness_condition": "each layer0 head value map V0_h has full row rank 128"
+  },
+  "generic_dimension": {
+    "raw_parameters": 47775744,
+    "continuous_gauge_dimension": 147456,
+    "quotient_dimension": 47628288,
+    "incorrect_independent_layer_quotient_dimension": 45121536,
+    "independent_layer_undercount": 2506752
+  },
+  "discrete_symmetry": {
+    "group": "common S9 head permutation",
+    "scope": "only when corresponding QK branches, V maps, and c_proj head blocks move together across all layers",
+    "not_independent_per_layer": true
+  },
+  "canonical_section": {
+    "implementation": "shared_value_gauge.canonicalize_shared_value_bus",
+    "invariant": "rowspace projector of V0_h",
+    "basis_rule": "lexicographic Gram-Schmidt of projected ambient coordinate axes",
+    "failure_policy": "reject rank-deficient or tolerance-boundary generic strata",
+    "codec_status": "not implemented; quotient_bits remains null"
+  },
+  "checkpoint_genericity_evidence": {
+    "source": "shared_value_gauge_audit_results.json",
+    "checkpoint_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "all_18_shared_edges_nonzero": true,
+    "all_9_v0_head_maps_rank_128": true,
+    "minimum_relative_singular_value": 0.39434178556214156
+  },
+  "accounting_rule": "Charge V0 once as a shared DAG object; canonicalize one headwise GL basis across every value map and output writer; never subtract one GL gauge per layer.",
+  "literature": [
+    {
+      "title": "Matrix Product State Representations",
+      "url": "https://arxiv.org/abs/quant-ph/0608197",
+      "use": "canonical-form and virtual-bond gauge analogy"
+    },
+    {
+      "title": "Matrix Product States and Projected Entangled Pair States: Concepts, Symmetries, Theorems",
+      "url": "https://arxiv.org/abs/2011.12127",
+      "use": "gauge-equivalence and singular-stratum discipline"
+    }
+  ],
+  "interpretation_limits": [
+    "Parameter dimension is not a canonical bit price.",
+    "The contract does not establish a distortion-qualified V/O replacement.",
+    "QK quotient bits and the 23 exact-live QK roster heads are outside this V/O contract."
+  ]
+}
