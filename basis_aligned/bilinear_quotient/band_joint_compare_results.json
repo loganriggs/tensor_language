@@ -1,0 +1,158 @@
+{
+ "config": {
+  "bands": {
+   "front": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "middle": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "late": [
+    16,
+    17
+   ],
+   "all18": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ]
+  },
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "substitution": "HYBRID -- table at covered positions, MLP live elsewhere (\u00a71661)",
+  "scoring": "covered positions only",
+  "instrument_check": "freeze attn0..attn_max(band); joint covered table must be exact",
+  "s1657_caution": "joint/sum ratios track total effect size and are NOT compared across bands here; the comparison is between CEILINGS",
+  "s1665_middle": {
+   "joint_stake": 2.6453,
+   "joint_ceiling": 0.2173,
+   "sum_individual": 0.6208
+  },
+  "s1662_per_site_front": {
+   "mlp0": 0.90265,
+   "mlp1": 0.9601,
+   "mlp2": 0.7698,
+   "mlp3": 0.6755
+  }
+ },
+ "bands": {
+  "front": {
+   "joint_stake": 4.39216,
+   "joint_ceiling": 0.76451,
+   "ce_live": 3.27946,
+   "ce_const": 7.67162,
+   "ce_table": 4.31377,
+   "individual_stakes": {
+    "mlp0": 0.85521,
+    "mlp1": 7.00496,
+    "mlp2": 0.7719,
+    "mlp3": 0.62013
+   },
+   "instrument_check": {
+    "known_answer": 1.0,
+    "observed": 1.0,
+    "frozen_arm_stake": 3.34913
+   },
+   "sum_individual": 9.2522,
+   "joint_over_sum": 0.4747
+  },
+  "middle": {
+   "joint_stake": 2.64528,
+   "joint_ceiling": 0.21729,
+   "ce_live": 3.27946,
+   "ce_const": 5.92474,
+   "ce_table": 5.34996,
+   "individual_stakes": {
+    "mlp4": 0.1062,
+    "mlp5": 0.08034,
+    "mlp6": 0.0777,
+    "mlp7": 0.05784,
+    "mlp8": 0.04688,
+    "mlp9": 0.04731,
+    "mlp10": 0.0363,
+    "mlp11": 0.03978,
+    "mlp12": 0.03729,
+    "mlp13": 0.03308,
+    "mlp14": 0.02605,
+    "mlp15": 0.03198
+   },
+   "instrument_check": {
+    "known_answer": 1.0,
+    "observed": 1.0,
+    "frozen_arm_stake": 0.55993
+   },
+   "sum_individual": 0.62075,
+   "joint_over_sum": 4.2614
+  },
+  "late": {
+   "joint_stake": 0.71742,
+   "joint_ceiling": 0.51015,
+   "ce_live": 3.27946,
+   "ce_const": 3.99688,
+   "ce_table": 3.63089,
+   "individual_stakes": {
+    "mlp16": 0.08641,
+    "mlp17": 0.33357
+   },
+   "instrument_check": {
+    "known_answer": 1.0,
+    "observed": 1.0,
+    "frozen_arm_stake": 0.64239
+   },
+   "sum_individual": 0.41998,
+   "joint_over_sum": 1.7082
+  },
+  "all18": {
+   "joint_stake": 4.3196,
+   "joint_ceiling": 0.34268,
+   "ce_live": 3.27946,
+   "ce_const": 7.59906,
+   "ce_table": 6.11883,
+   "individual_stakes": null,
+   "instrument_check": {
+    "known_answer": 1.0,
+    "observed": 1.0,
+    "frozen_arm_stake": 1.98427
+   },
+   "sum_individual": null,
+   "joint_over_sum": null
+  }
+ },
+ "front_minus_middle_ceiling": 0.54722,
+ "sum_of_band_joint_stakes": 7.75486,
+ "predictions": {
+  "pred_a_contrast_survives_matching_ge_30pts": true,
+  "pred_b_superadditivity_compounds": false,
+  "pred_c_instrument_check_all_bands": true
+ },
+ "runtime_s": 59.0
+}
