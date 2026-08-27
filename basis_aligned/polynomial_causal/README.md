@@ -18,6 +18,13 @@ grammar-free number.
 The whole-model strategy, coverage accounting, ranked workstreams, and pruning rules
 are in [REVERSE_ENGINEERING_ROADMAP.md](REVERSE_ENGINEERING_ROADMAP.md).
 
+The generated `whole_model_balance_sheet.json` is the north-star accounting view.
+It intentionally keeps exact representation, analytic-interface substitutability,
+named-variable understanding, causal path coverage, current composite distortion,
+and intervention prediction in separate currencies.  Its current operational fact
+is not merely that 36/36 top-level modules have replacements, but that the certified
+fidelity-oriented ship is still roughly +0.93 CE above the frozen clean anchor.
+
 ## Registered evaluation ladder
 
 Every representation is evaluated at matched rank or matched encoded bits. A lower
@@ -70,5 +77,10 @@ same eight arms is a mathematical identity and is not evidence of generalization
   quadratic complexity, normalization boundaries, and falsification gates.
 - `REVERSE_ENGINEERING_ROADMAP.md`: operational end state, whole-model coverage
   ledger, ranked priorities, and explicit pruning rules.
+- `whole_model_balance_sheet.py`: CPU-only, source-hashed aggregator over the frozen
+  Theseus anchor/registry and existing causal/composition results. It derives
+  summaries but does not create a competing registry or evaluator.
+- `test_whole_model_balance_sheet.py`: denominator-closure and source-hierarchy
+  regression tests for the balance sheet.
 - `hourly_strategic_review.sh`: queues an hourly high-level reprioritization prompt
   into the active Codex session (the cron itself is session-local).

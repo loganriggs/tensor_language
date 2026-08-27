@@ -52,6 +52,17 @@ and intervention family.
 missing. Without it, another named circuit may duplicate an existing service or
 explain no additional model behavior.
 
+**First synthesis (2026-08-27):** `whole_model_balance_sheet.py` now assembles the
+frozen Theseus anchor, current ship registry, causal coverage ledger, named-variable
+draws, and composition diagnostics without flattening their denominators. The
+current fidelity ship replaces 36/36 top-level modules but is still about +0.93 CE
+above the 2.9455 clean anchor. Separately, analytic-interface substitution recovers
+0.9982 of its own mean-floor denominator, named token+topic+previous variables score
+0.321, named causal paths cover 0.1092 of global ablation headroom, and the older
+all-stand-in composition stress test recovers 0.124. These facts are complementary,
+not candidates for one averaged “percent understood.” The next P0 increment is
+residual localization and a manifest-complete composite record, not a new registry.
+
 ### P1 — Trace typed causal interfaces backward from outputs
 
 For each behaviorally important output slice, identify the minimal residual channel,
@@ -111,8 +122,8 @@ defense against a merely descriptive compression.
 ## Immediate queue after the current registered batch
 
 1. Score and preserve the behavior-agnostic output-slice audit now running.
-2. Build the P0 balance-sheet generator from the registry, replacement artifacts,
-   and existing composite results; report uncovered residual rather than raw counts.
+2. Extend the P0 balance sheet with manifest-complete current-composite residuals by
+   layer group, token class, output slice, and held-out intervention family.
 3. Preregister a matched-one-product question test: the exact indefinite paired form
    versus the best single square, measuring scalar reconstruction, class/global CE,
    finite-precision stability, and composition with the known question circuit.

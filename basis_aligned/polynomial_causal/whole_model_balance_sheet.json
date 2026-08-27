@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "model": "bilin18",
+  "north_star": "a smaller typed tensor program that predicts natural/OOD behavior and held-out interventions, composes, and supports selective edits",
+  "reporting_rule": "Never average or substitute ledger values across currencies. Every percentage must retain its scope, null, and denominator.",
+  "metrics_not_averagable": true,
+  "ledgers": {
+    "representation": {
+      "status": "exact_by_architecture_and_verified_elsewhere",
+      "value": null,
+      "currency": "tensor-network algebraic identity",
+      "scope": "all model layers",
+      "claim": "The network is exactly writable as typed tensor operations; this alone does not compress or interpret it."
+    },
+    "analytic_interface_substitutability": {
+      "value": 0.998162,
+      "residual_delta_ce": 0.03385,
+      "residual_delta_ce_se": 0.001041,
+      "currency": "1 - replacement delta-CE / joint-MLP mean-floor delta-CE",
+      "denominator_delta_ce": 18.4185,
+      "scope": "whole-model PCA/head bottleneck plus composed analytic fold",
+      "claim": "A compressed analytic interface can preserve nearly all floor-relative behavior.",
+      "caveat": "This is interface fidelity, not a short human-legible program and not the composed named-stand-in result."
+    },
+    "named_variable_understanding": {
+      "value": 0.321,
+      "std_across_draws": 0.064,
+      "range": [
+        0.247,
+        0.4
+      ],
+      "currency": "recovery of module behavior by frozen token+topic+previous-token variables",
+      "scope": "four independent FineWeb draws; local/module replacement ledger",
+      "claim": "Simple named covariates explain a stable minority of module behavior.",
+      "caveat": "Not directly comparable to path-ablation headroom or whole-model composed recovery."
+    },
+    "causal_path_coverage": {
+      "value": 0.1092,
+      "unnamed_fraction": 0.8908,
+      "named_joint_delta_ce": 0.57968,
+      "full_headroom_delta_ce": 5.30682,
+      "non_axis_aligned_fraction": 0.3637,
+      "hard_fraction_of_unnamed_axis_paths": 0.8257,
+      "currency": "joint mean-ablation delta-CE / all-head+all-MLP mean-ablation delta-CE",
+      "scope": "26 named head/top-SVD paths on held FW[448:600,:128]",
+      "claim": "The verified named paths cover about one ninth of global ablation headroom.",
+      "caveat": "Mean-ablation interactions are large: joint-234 is 2.87x the sum of positive single paths."
+    },
+    "legacy_composition_stress_test": {
+      "value": 0.124,
+      "residual_fraction": 0.876,
+      "standin_delta_ce": 3.7462,
+      "currency": "1 - all-stand-in delta-CE / all-module mean-ablation delta-CE",
+      "scope": "36 stand-ins installed together in the running model",
+      "claim": "This older controlled arc demonstrates severe composition failure among individually useful stand-ins.",
+      "caveat": "This is a diagnostic predecessor, not the current shipped composite. It uses a different surrogate family and denominator from analytic-interface substitutability."
+    },
+    "content_passthrough_diagnostic": {
+      "value": 0.392,
+      "scaffold_local_denominator_value": 0.284,
+      "currency": "recovery with middle content preserved, reported against the all-36 mean-ablation denominator",
+      "scope": "26 scaffold replacements with selected content live",
+      "claim": "Preserving content triples whole-model recovery from 0.124 to 0.392, localizing much of the gap to contextual content and compounding."
+    },
+    "smooth_interface_predictability": {
+      "value": 0.721,
+      "shuffled_null": -0.103,
+      "currency": "recovery by a low-rank upstream smooth-map feature interface",
+      "scope": "separate upstream-interface benchmark",
+      "claim": "A distributed learned interface is strongly predictive even when named covariates are not.",
+      "caveat": "This measures predictive compression, not semantic legibility."
+    },
+    "causal_instrument_validation": {
+      "question_pairwise_frozen_normalized_error": 0.05159357910744122,
+      "question_additive_frozen_normalized_error": 0.44344457576943297,
+      "output_basis_recall": 0.4041666666666667,
+      "output_basis_random_recall": 0.07500000000000001,
+      "output_basis_damage_fraction_of_oracle": 0.13541790950368068,
+      "currency": "held-out intervention prediction and circuit-localization diagnostics",
+      "scope": "question circuit and disjoint output classes",
+      "claim": "Polynomial pairwise terms predict interventions; a weights-only output basis locates circuits but is not yet a sufficient causal control basis."
+    }
+  },
+  "current_bottleneck": {
+    "metric": "current_36_of_36_composite_delta_ce",
+    "top_level_replacement_scope": "36/36",
+    "target_global_delta_ce": 0.02,
+    "observed_global_delta_ce": 0.9345,
+    "composite_ce": 3.88,
+    "clean_ce": 2.9455,
+    "interpretation": "The tensor structure supplies exact identities and useful interfaces, and every top-level module has a replacement, but the certified composite still loses about 0.93 nats. Replacement scope is not reverse-engineering completeness."
+  },
+  "ranked_actions": [
+    {
+      "priority": 1,
+      "action": "Build and evaluate replacements against the residual of the current whole-model composite, with content live and shared factors priced once.",
+      "why": "Directly attacks the current 36/36 ship's roughly 0.93-nat gap and avoids duplicating already-substitutable interfaces."
+    },
+    {
+      "priority": 2,
+      "action": "Localize that residual by layer, token/output class, and held-out intervention family.",
+      "why": "The causal ledger says 89.08% of ablation headroom is unnamed, including a 36.37% non-axis-aligned residual."
+    },
+    {
+      "priority": 3,
+      "action": "Compile joint vector-valued quadratic fragments with shared projection dictionaries between RMSNorm boundaries.",
+      "why": "The scalar question slice proves exact multiplicative simplification is possible; sharing is required for whole-program savings."
+    },
+    {
+      "priority": 4,
+      "action": "Use behavior-agnostic output bases for discovery only, then learn/test a distinct causal control basis on disjoint classes.",
+      "why": "The current output basis has 40.4% circuit recall versus 7.5% random but only 13.5% of oracle removal damage."
+    },
+    {
+      "priority": 5,
+      "action": "Preregister selective edit/transplant tests for every fragment admitted to the composite.",
+      "why": "Editing and held-out intervention transport, not reconstruction alone, are the final reverse-engineering criterion."
+    }
+  ],
+  "registry_inventory": {
+    "available": true,
+    "scope": "inventory only; counts are not a fraction of model computation",
+    "certified_behavior_entries": 31,
+    "unique_listed_heads": 52,
+    "components_with_frontier_candidates": 14,
+    "components_with_best_fidelity_seed": 37,
+    "frozen_anchor": {
+      "version": "v0-practice",
+      "clean_ce": 2.9455,
+      "n_components": 198,
+      "partial": false,
+      "data_budget": {
+        "train_rows": 480,
+        "train_skip": 80,
+        "steps_mlp_attn": 150,
+        "steps_head": 100,
+        "batch_rows": 8,
+        "positions_per_step": 1536,
+        "eval_rows": 960,
+        "eval_skip": 7000,
+        "eval_positions": 184320
+      }
+    },
+    "current_composite": {
+      "top_level_targets_replaced": "36/36",
+      "clean_ce": 2.9455,
+      "composite_ce": 3.88,
+      "delta_ce": 0.9345,
+      "approximate_gbit": 3.3,
+      "ce_error": 0.04,
+      "behavioral_certification": {
+        "agreement_acc": 0.9317,
+        "clean_acc": 0.9572,
+        "parity_gap_retention": 1.149,
+        "ref": "S1553 VERIFIED \u2014 computations preserved under full replacement"
+      },
+      "pricing_caveat": "ship price is manually approximated and is not yet produced by bench/complexity.py"
+    },
+    "sources": {
+      "circuits": {
+        "path": "/workspace/theseus-bench/registry/circuits.json",
+        "sha256": "0fe97a57dc089aec54d2290a60d94d9fbd86e5570e651a0c47033e4992238dd5"
+      },
+      "frontier": {
+        "path": "/workspace/theseus-bench/registry/frontier_seed.json",
+        "sha256": "3e20cb156c93df257e9a2a2cf21b91c4ba8b9adeb075818090bdc48f2a9b0788"
+      },
+      "fidelity": {
+        "path": "/workspace/theseus-bench/registry/fidelity_seed.json",
+        "sha256": "88bafdea906c9cbc5f61611987d12545a88aa7d9f66e2a4b9b05154631e4218e"
+      },
+      "anchor_meta": {
+        "path": "/workspace/theseus-bench/bench/anchors/_meta.json",
+        "sha256": "8b4b5d8df010623a33572fe5d798fdb173431786a781281ccf5c8f00abc3c1b0"
+      }
+    }
+  },
+  "sources": {
+    "causal_coverage": {
+      "path": "/workspace/tensor_language/basis_aligned/qk_mdl/qk_coverage_ledger.json",
+      "sha256": "4d54c8956f2fc580230c89270356d6684e5b8c6f0a075a2f345a951a2e0c1d6e"
+    },
+    "analytic_substitution": {
+      "path": "/workspace/tensor_language/basis_aligned/qk_mdl/qk_wholemodel_substitutable.json",
+      "sha256": "173b741e8f46ea30a714533b1eee02b3cf793f5dd86bfa73cceec180c5c56395"
+    },
+    "named_understanding": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_understanding_multidraw_results.json",
+      "sha256": "e2b75b31af28d53b7b16553e070570edc92fc2c36d4c763b31418fdab22bb913"
+    },
+    "composed_replacement": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_greedy_results.json",
+      "sha256": "a2de66e5aaf49c87c90e47f63083f53127482e94cd80a7b36aefb9d6d7b9fc9f"
+    },
+    "content_passthrough": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_content_passthrough_results.json",
+      "sha256": "af9ddd0ce3d3eae9235bbb99517b6942b7ef86738306a26ba1a1da6fc4f244da"
+    },
+    "upstream_interface": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/whole_model_upstream_results.json",
+      "sha256": "81509d30a05b921beb3cfb689e7acea9cd366f7438491ab4468a47673f98a57b"
+    },
+    "question_channel": {
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/question_channel_ledger_results.json",
+      "sha256": "e15c037321bafc0b8a5552c101b82918b415adf84a4461cea364f211903d6928"
+    },
+    "output_slice": {
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/output_slice_audit_results.json",
+      "sha256": "5c0b0cb873de861796490fa622a980f7bec33f4a21a4146cde2d5a1252f405cc"
+    }
+  }
+}
