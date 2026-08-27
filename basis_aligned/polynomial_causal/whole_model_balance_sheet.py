@@ -38,6 +38,7 @@ DEFAULT_SOURCES = {
     "content_ood": TENSOR_ROOT / "basis_aligned/bilinear_quotient/content_ood_code_results.json",
     "ood_bands": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ood_band_importance_results.json",
     "headgrain_control": TENSOR_ROOT / "basis_aligned/bilinear_quotient/headgrain_control2_results.json",
+    "writer_floor_question": TENSOR_ROOT / "basis_aligned/bilinear_quotient/writer_floor_question_results.json",
     "extraction_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_rank_results.json",
     "extraction_question": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_results.json",
     "extraction_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_p_results.json",
@@ -136,6 +137,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     content_ood = data["content_ood"]
     ood_bands = data["ood_bands"]
     headgrain = data["headgrain_control"]
+    writer_floor = data["writer_floor_question"]
     extraction_rank = data["extraction_rank"]
     extraction_question = data["extraction_question"]
     extraction_pronouns = data["extraction_pronouns"]
@@ -337,6 +339,19 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "scope": "question@MLP11 rank 2 and pronouns@MLP17 rank 8 over three disjoint 96-row samples",
             "claim": "The tensor slice identifies sharply concentrated reader heads at the registered circuit layers, but the whole-stack median separation gate fails.",
             "caveat": "This is a controlled local wiring law, not yet a replacement, CE recovery, or proof that the same grain composes across behaviors and layers.",
+        },
+        "tensor_writer_specificity": {
+            "lambda_mean_top4_share": writer_floor["mean_share"]["lambda"],
+            "random_mean_top4_share": writer_floor["mean_share"]["random"],
+            "lambda_random_consensus_overlap_of4": writer_floor["overlap_lambda_random_of4"],
+            "lambda_consensus": writer_floor["consensus"]["lambda"],
+            "random_consensus": writer_floor["consensus"]["random"],
+            "lambda_floor_corrected_top4": writer_floor["lambda_top4_floor_corrected"],
+            "registered_predictions": writer_floor["predictions"],
+            "currency": "top-four positive writer-mass concentration and consensus identity for the question |eigenvalue| slice versus a matched-rank random output slice",
+            "scope": "three local 96-row chunks from the frozen bilin18 evaluation tensor; question counts 25/3/5; rows are the FineWeb dedup set, not fresh oracle rows",
+            "claim": "A concentrated four-writer cast is generic for a rank-2 output direction, but its identity is tensor-slice specific: random directions concentrate even more strongly while sharing zero consensus writers with the question slice; attn9/attn10 remain question-specific in two of three chunks.",
+            "caveat": "The registered generic-floor overlap prediction failed and only two chunks met the circuit-clean rule. This licenses the tensor slice as a local writer locator, not concentration as simplicity, causal sufficiency, or whole-model programmability.",
         },
         "compression_selectivity_boundary": {
             "question_class_function_kept_rank32": 1.0 - extraction_question["res"]["bg_class_rise"] / extraction_question["res"]["const_class_rise_ref"],

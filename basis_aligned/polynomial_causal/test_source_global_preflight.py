@@ -26,6 +26,7 @@ def test_authoritative_oracle_sources_have_no_undefined_globals():
         PATH.with_name("code_ood_oracle.py"),
         PATH.with_name("prepare_fineweb_oracle_rows.py"),
         PATH.with_name("frozen_ship_oracle_v2.py"),
+        PATH.with_name("local_fineweb_harvest.py"),
     ]
     assert {str(path): PREFLIGHT.undefined_global_names(path) for path in files} == {
         str(path): [] for path in files

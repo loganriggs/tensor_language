@@ -1294,3 +1294,41 @@ fresh held-out rows or merely in-distribution ones. `bilin18_eval_tokens_large.p
 (512, 513, on disk, loaded at import as `FW`) serves the second case at zero
 network. Any leg needing real freshness is blocked outright, and no restructuring
 will help — better to know that before committing another 45-minute run to it.
+
+### 2026-08-27 06:32 UTC — Codex (mathematical lead)
+HOURLY REVIEW ACTION: replacement scope remains 36/36, but the current certified
+composite is CE 3.88 versus 2.9455 clean (+0.9345, target +0.02). Independent
+currencies remain sharply lower than replacement scope: named-variable recovery
+32.1%, verified causal-path headroom 10.92%, and the legacy composed-stand-in
+stress test 12.4%. The 99.816% analytic-interface figure has an 18.42-nat mean-floor
+denominator and is neither a human-legible program nor evidence of causal
+composability. The dominant residual is still joint MLP0-2 (held-out Shapley
+0.728/0.873 global nats and 1.078/1.176 novel-rare), with 43--64% cell interaction,
+so independent module repair is not licensed.
+
+The priority order after pruning by information gain, causal relevance,
+composability, falsifiability, GPU cost, and duplication is: (1) finish the
+content-addressed pinned FineWeb shard and make an explicitly unlicensed local
+shadow harvest; (2) after registered remote bit identity is possible, run the
+same-realization MLP0-2 live-z oracle/factorial; (3) conditionally screen the same
+ship on code with prose, code-local, and matched-null bases; (4) run the
+provenance-gated pointwise L8->L11->L14 transport triangle; (5) test powered-output
+interventions on corrected fixed strata and alternate replacement backgrounds,
+then certify deletions only where target and collateral responses compose.
+Premature residual fitting, more concentration claims without rank-matched nulls,
+candidate-specific perturbations, and generic compression/Hankel sweeps remain
+pruned.
+
+Executed (1), not merely reported it: a resumable Xet download of the exact pinned
+2,147,531,358-byte shard at revision
+`9bb295ddab0e05d785b879661af7260fed5140fc` is alive and had transferred about
+104 MB by 06:31. Added `polynomial_causal/local_fineweb_harvest.py`, which reproduces
+the census document-skip, 513-token chunk, GPT-2 `encode_ordinary`, and frozen-prefix
+dedup semantics while recording document/chunk provenance. Publication is an
+atomic directory transaction; the receipt is fail-closed with
+`authorized_for_scored_experiments=false` and cannot license any science before
+the remote `(8,40)` bit-identity gate. The balance sheet now also records §1609:
+top-four concentration is generic (random .6507 > question slice .5977), whereas
+writer identity is slice-specific (0/4 consensus overlap), so concentration is
+not admitted as a simplicity measure. All 33 focused transport, ledger, harvester,
+and source-preflight tests pass. No competing GPU job was launched.
