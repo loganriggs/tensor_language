@@ -69,6 +69,17 @@ def test_capture_and_live_suffix_exactly_replay_parent():
     torch.testing.assert_close(replay, ordinary_forward(model, idx), rtol=0, atol=0)
 
 
+def test_raw_and_capped_suffix_readout_are_consistent():
+    torch.manual_seed(22)
+    model = FakeModel()
+    idx = torch.randint(0, 7, (2, 4))
+    cap = assay.capture_through_mlp1(model, model.transformer.h, idx)
+    raw, capped = assay.suffix_forward(
+        model, model.transformer.h, cap["post"], cap["v1"], cap["x0"], return_raw=True
+    )
+    torch.testing.assert_close(capped, 30 * torch.tanh(raw / 30), rtol=0, atol=0)
+
+
 def test_mlp2_omit_suffix_matches_manual_parent():
     torch.manual_seed(3)
     model = FakeModel()

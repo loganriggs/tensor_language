@@ -101,6 +101,13 @@ called a frozen repository-Python OOD register, not a pristine confirmatory data
 It is never pooled with FineWeb. A pass supports only that narrow code register; a
 failure blocks a broad OOD-interface claim.
 
+The result serializes the ordered 384 FineWeb document ids, ordered 48 code-file ids,
+and complete row-to-source-unit mappings. FineWeb has exactly 1,170 windows with two
+to six per document; code has exactly 192 rows with four per file. Every ledger has
+exactly 16 cells, integer nonnegative counts, and identical counts across all arms
+and consumers. The scorer fails closed if any identity, occupancy, cell, or count
+invariant changes. Code requires at least 12 independent source files in every cell.
+
 ## Estimands
 
 Use the same fit-frozen 16 cells and margins as native-Down v1. For every source
@@ -148,28 +155,46 @@ An equivalence claim requires, for each FineWeb wave independently and pooled:
 4. exact parent replay and call-integrity gates.
 
 A positive-control claim requires a simultaneous one-sided 95% LCB above 1.0 in at
-least one final-output consumer under each background. A practical rejection of
+least one final-output consumer under each background independently in wave A, wave
+B, and pooled FineWeb. The code register must pass its own file-bootstrap positive
+control and may not borrow sensitivity from FineWeb. A practical rejection of
 equivalence requires the corresponding pooled simultaneous LCB above 1.0; otherwise
 the outcome is an ordinary failure or inconclusive rather than a powered rejection.
+
+Signed CE coordinates are retained through resampling. Their simultaneous error is
+`abs(theta*_CE - theta_CE)` and their UCB is `abs(theta_CE) + c`; centering bootstrap
+absolute estimates is forbidden because it is invalid when resamples cross zero.
+KL and nRMSE retain their registered one-sided centered deviations.
+
+Every promotive decision is conjoined with the complete integrity contract: frozen
+source/row/program hashes, exact native and C512 parent replay at raw logits,
+softcapped logits and CE in both backgrounds, zero poisoned-original-Down calls, and
+exact registered C512-proxy and MLP1-teacher call counts. A scientific point estimate
+cannot override failed integrity.
 
 ## Frozen decision tree
 
 - **Fresh observational break:** if CC versus OO fails, C512 does not reproduce its
   v1 behavioral proximity on new rows. Reject promotion and do not fit a joint MLP1
   adapter from this assay.
-- **Cancellation/interface break:** if CC versus OO passes but either MLP1-write
-  contrast or the interaction fails, the ordinary suffix hides causal terms that do
-  not compose modularly. C512 is not a manipulable MLP0 interface.
+- **Cancellation/interface break:** if CC versus OO passes but an MLP1-write contrast
+  or interaction is poweredly rejected after every mechanical gate passes, the
+  ordinary suffix hides causal terms that do not compose modularly. Missing an
+  equivalence UCB, losing support, or failing integrity is merely practical failure
+  or inconclusive, not a promoted causal-break claim.
 - **Downstream-null on tested backgrounds:** only if CC, both write contrasts, and
   interaction all pass in both backgrounds and the native-write sensitivity control
   is positive. This certifies a physical suffix-null effect on the tested rows and
   backgrounds, not an internal gauge symmetry.
-- **Conditional null:** if aligned writes pass but shuffle fails, the suffix null is
-  alignment-dependent. Any later executable program must model the condition.
+- **Conditional null:** if aligned writes pass and shuffle is poweredly rejected with
+  valid support in both waves and pooled, the suffix null is alignment-dependent. An
+  ordinary, mechanical, or underpowered shuffle failure is inconclusive.
 - **MLP1-repair license:** if CO improves CC versus OO by a positive simultaneous
-  lower bound in both waves, a conditional MLP1 compiler under live C512 states is
-  the next licensed rung. If CO does not improve CC, joint MLP0-to-MLP1 fitting is
-  deprioritized because MLP1 write repair does not address the observed suffix error.
+  lower bound in both waves under the live background, is pointwise no worse in every
+  registered consumer/cell in both waves, fresh observational CC passes, and all
+  integrity gates pass, a conditional MLP1 compiler under live C512 states is the
+  next licensed rung. MLP2-omit rescue remains diagnostic. Otherwise joint
+  MLP0-to-MLP1 fitting is not licensed by this assay.
 
 The OOD register can veto a broad generalization statement but cannot rescue a
 FineWeb failure.

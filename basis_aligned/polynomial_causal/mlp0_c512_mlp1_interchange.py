@@ -65,7 +65,8 @@ def suffix_forward(
     x0: torch.Tensor,
     *,
     background: str = "live",
-) -> torch.Tensor:
+    return_raw: bool = False,
+) -> torch.Tensor | tuple[torch.Tensor, torch.Tensor]:
     """Replay blocks 2..end and the readout from a physical post-MLP1 state."""
     if background not in BACKGROUNDS:
         raise ValueError(f"unknown suffix background: {background}")
@@ -82,7 +83,9 @@ def suffix_forward(
         if background == "mlp2_omit" and layer == 2:
             write = torch.zeros_like(write)
         x = x + write
-    return (30.0 * torch.tanh(model.lm_head(F.rms_norm(x, (d_model,))) / 30.0)).float()
+    raw = model.lm_head(F.rms_norm(x, (d_model,))).float()
+    capped = 30.0 * torch.tanh(raw / 30.0)
+    return (raw, capped) if return_raw else capped
 
 
 def physical_post_states(
