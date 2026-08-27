@@ -2386,6 +2386,95 @@
       "scope": "fresh rank-64 MLP0/1 residual bases fitted on the document-disjoint authoritative basis split, then frozen before discovery/heldout scoring on the exact v4 ship realization; MLP2 is deployed or exact, never projected",
       "claim": "The low-rank causal interfaces compose authoritatively. Heldout PCA0+PCA1 gains 0.2268 nats versus 0.4003 exact upstream (56.7%); with exact MLP2 held fixed their conditional upstream gain retains 64.0% of exact. All twelve leave-one-site-out effects and all twelve same-background 40% margins have positive heldout document-cluster lower bounds, and all six registered prediction families pass.",
       "caveat": "This is a modular oracle-subspace result, not an executable replacement: every projected arm still calls the missing original MLP to obtain residual coefficients, MLP2 remains unsimplified, and no original-MLP-disabled predictor, gauge-invariant state transport, OOD/background transfer, edit collateral, compression, training, or simplicity certificate exists. Exact MLP2 after projected upstream is small (+0.0194 heldout, CI lower 0.0002), and its discovery cluster interval crosses zero even though the preregistered discovery point/heldout-interval gate passes. The same-currency whole-model and MLP0--2 residual denominators remain absent, so global coverage fractions do not change."
+    },
+    "early_mlp_affine_compiler_preexecution": {
+      "stage": "licensed_preregistered_contract_ready_not_scored",
+      "authority": "isolated_compiler_experiment",
+      "preregistration_status": "preregistered_not_run",
+      "row_receipt_status": "frozen_before_predictor_fit",
+      "authorized_for_scored_experiments": true,
+      "authorized_for_training": true,
+      "training_license_sites": [
+        0,
+        1
+      ],
+      "license_scope": "Only early_mlp_affine_compiler_v1 affine maps; no base-model, ship, basis, or other training.",
+      "scored_executable_result_available": false,
+      "executable_ce_gain_nats": null,
+      "whole_model_recovery_fraction": null,
+      "fresh_row_requests": {
+        "compiler_fit": {
+          "n": 480,
+          "skip": 15000
+        },
+        "compiler_validation": {
+          "n": 192,
+          "skip": 19000
+        },
+        "compiler_final": {
+          "n": 192,
+          "skip": 23000
+        }
+      },
+      "fresh_row_unique_document_counts": {
+        "compiler_fit": 191,
+        "compiler_validation": 114,
+        "compiler_final": 100
+      },
+      "disjointness_gates": {
+        "pairwise_new_document_disjoint": true,
+        "pairwise_new_full_row_disjoint": true,
+        "pairwise_new_prefix32_disjoint": true,
+        "all_new_documents_disjoint_from_prior_oracle_roles": true
+      },
+      "sequential_fit": {
+        "step_1": "Fit and freeze g0 on deployed-MLP0 compiler_fit states; choose rank/lambda on deployed-MLP0 compiler_validation states.",
+        "step_2": "Run the frozen ship with the frozen g0 correction actually applied. Capture the resulting live MLP1 compiler_fit/validation states and labels, then fit and freeze exactly one g1.",
+        "forbidden": [
+          "joint refit",
+          "teacher-forced original or oracle MLP0 states for g1",
+          "scheduled sampling",
+          "background-specific refit",
+          "final-split tuning"
+        ],
+        "reuse": "The same frozen g0 and g1 are reused under every N/Q/O neighbor and N/E MLP2 background."
+      },
+      "allowed_inference_inputs": [
+        "current live z_l",
+        "frozen map parameters",
+        "frozen B_l"
+      ],
+      "forbidden_inference_inputs": [
+        "original MLP0/1",
+        "future tokens",
+        "targets",
+        "token or position lookup",
+        "cached coefficients",
+        "clean-model states",
+        "arm-specific calibration"
+      ],
+      "poison_rule": "For every scored arm, original MLP0/1 forward calls are replaced by raise-on-call poison unless that exact site is O. All N/Q-only arms, including QQN and QQE, must finish with both original-call counters equal to zero. MLP2 original is allowed only in E arms.",
+      "registered_gates": {
+        "integrity": "All pins, fresh-row disjointness, artifact freeze, component-tree, replay, source-closure, hook-clear, and original-call poison gates pass.",
+        "core_no_free_rider": "All eight Q-site effects over N/Q neighbor x N/E MLP2 backgrounds have positive point estimates and document-cluster 95% lower bounds above zero.",
+        "oracle_neighbor_reuse": "The four additional Q-site effects with an O neighbor have positive point estimates and 95% lower bounds above zero; failure demotes the result to a sequential package rather than modular sites.",
+        "same_background_fidelity": "Every core Q effect is at least 0.50 of its positive same-background O effect, with the 0.50 margin and denominator recomputed within every bootstrap draw and a 95% lower bound above zero.",
+        "composition": "QQN-max(QNN,NQN)>0 and QQE-max(QNE,NQE,NNE)>0, both with 95% lower bounds above zero.",
+        "joint_fidelity": "(QQN-NNN)-0.50*(OON-NNN)>0 and (QQE-NNE)-0.50*(OOE-NNE)>0, both with positive oracle references and 95% lower bounds above zero.",
+        "controls": "QQN beats both joint-mean-N and joint-shuffled-N in paired CE with 95% lower bounds above zero.",
+        "collateral": "QQ causes no copy or novel-frequent CE worsening greater than 0.01 nats relative to the matched deployed arm.",
+        "mlp2_compatibility_diagnostic": "Report QQE-QQN and its interval, but do not make it conjunctive because the admitted v3 downstream rescue was only +0.0194 nats with a +0.0002 lower bound."
+      },
+      "state_integrity": {
+        "ship_realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e",
+        "preregistration_sha256": "f4da5a8085f9aad3b0cf22f377b04b6dfc39d7950089ba8b9a2c50af587cbc5f",
+        "row_receipt_sha256": "762528ea02cd98071ea55e6b4e904a8fc453f3eb4e545946b8e7149aaf8caa04",
+        "contract_sha256": "9714c6d46d7fef395b99d5eae8d9aeb7e9a5c591201d0fdc87aa730a1f7ec321"
+      },
+      "currency": "pre-execution affine compiler authority, provenance, and contract status; no scored causal effect",
+      "scope": "fresh compiler-fit/validation/final FineWeb roles, pairwise disjoint and document-disjoint from every prior oracle role; isolated affine maps at MLP0/1 only",
+      "claim": "The first executable no-teacher-forcing compiler run is preregistered, its isolated MLP0/1 fit is licensed, its fresh rows are frozen and disjoint, and its pure fitting/scoring contract exists. No executable arm has been scored yet.",
+      "caveat": "Preparation is not evidence of recovery. The authoritative v3 interfaces remain oracle-only, executable CE gain and whole-model recovery fraction remain null, and no coverage, OOD, edit, simplicity, or MLP2-interface claim is added until a bound scored result exists."
     }
   },
   "current_bottleneck": {
@@ -2400,8 +2489,8 @@
   "ranked_actions": [
     {
       "priority": 1,
-      "action": "Fit a no-teacher-forcing sequential coefficient program for the admitted rank-64 MLP0/1 interfaces, poison original-MLP calls in predicted arms, and reuse one frozen component per site across all deployed/projected/exact-neighbor backgrounds.",
-      "why": "The authoritative 3x3x2 lattice now proves the subspaces compose, but their coefficients still read the exact missing residual. Disabling that oracle call is the shortest path from a causal locator to an executable reverse-engineered program."
+      "action": "Run the preregistered affine no-teacher-forcing compiler on its frozen fresh fit/validation/final rows, poison original-MLP calls in predicted arms, and score the complete reused-component lattice.",
+      "why": "The isolated MLP0/1 fit is now licensed, the disjoint row receipt is frozen, and the pure contract exists, but there is no scored executable result. Disabling the oracle coefficient read is still the shortest path from a causal locator to an executable reverse-engineered program."
     },
     {
       "priority": 2,
@@ -2649,6 +2738,18 @@
     "joint_early_mlp_pca_composition_authority_v3": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_authority.json",
       "sha256": "38cf5a349e4426b4ed3227ad11f37499ffa9c3959de5d85d606580aa32c39f1e"
+    },
+    "early_mlp_affine_compiler_v1_preregistration": {
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/early_mlp_affine_compiler_v1_preregistration.json",
+      "sha256": "f4da5a8085f9aad3b0cf22f377b04b6dfc39d7950089ba8b9a2c50af587cbc5f"
+    },
+    "early_mlp_affine_compiler_v1_rows_receipt": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_rows_receipt.json",
+      "sha256": "762528ea02cd98071ea55e6b4e904a8fc453f3eb4e545946b8e7149aaf8caa04"
+    },
+    "early_mlp_affine_compiler_v1_contract": {
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/early_mlp_affine_compiler_v1.py",
+      "sha256": "9714c6d46d7fef395b99d5eae8d9aeb7e9a5c591201d0fdc87aa730a1f7ec321"
     }
   }
 }

@@ -17,6 +17,11 @@ from typing import Any
 
 HERE = Path(__file__).resolve().parent
 TENSOR_ROOT = HERE.parents[1]
+AFFINE_COMPILER_CONTRACT = HERE / "early_mlp_affine_compiler_v1.py"
+AFFINE_COMPILER_RESULT = (
+    TENSOR_ROOT
+    / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_results.json"
+)
 
 DEFAULT_SOURCES = {
     "causal_coverage": TENSOR_ROOT / "basis_aligned/qk_mdl/qk_coverage_ledger.json",
@@ -55,6 +60,8 @@ DEFAULT_SOURCES = {
     "local_pca_strength_control_v1": TENSOR_ROOT / "basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_results.json",
     "joint_early_mlp_pca_composition_authoritative_v3": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_results.json",
     "joint_early_mlp_pca_composition_authority_v3": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_authority.json",
+    "early_mlp_affine_compiler_v1_preregistration": HERE / "early_mlp_affine_compiler_v1_preregistration.json",
+    "early_mlp_affine_compiler_v1_rows_receipt": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_rows_receipt.json",
 }
 
 
@@ -168,6 +175,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     local_pca_strength = data["local_pca_strength_control_v1"]
     joint_pca = data["joint_early_mlp_pca_composition_authoritative_v3"]
     joint_pca_authority = data["joint_early_mlp_pca_composition_authority_v3"]
+    affine_compiler_prereg = data["early_mlp_affine_compiler_v1_preregistration"]
+    affine_compiler_rows = data["early_mlp_affine_compiler_v1_rows_receipt"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
     factorial_cells = factorial_primary["cells"]
@@ -193,6 +202,19 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     assert joint_pca_authority["ship_realization_sha256"] == joint_early_authority[
         "ship_realization_sha256"
     ], "mixed-PCA and exact cubes use different ship realizations"
+    assert affine_compiler_prereg["status"] == "preregistered_not_run"
+    assert affine_compiler_rows["status"] == "frozen_before_predictor_fit"
+    assert affine_compiler_rows["preregistration_sha256"] == digest(
+        sources["early_mlp_affine_compiler_v1_preregistration"]
+    ), "affine compiler row receipt no longer binds its preregistration"
+    assert affine_compiler_rows["authorized_for_scored_experiments"] is True
+    assert affine_compiler_rows["authorized_for_training"] is True
+    assert affine_compiler_rows["training_license_sites"] == [0, 1]
+    assert all(affine_compiler_rows["disjointness_gates"].values())
+    assert AFFINE_COMPILER_CONTRACT.exists(), "affine compiler contract is missing"
+    assert not AFFINE_COMPILER_RESULT.exists(), (
+        "affine compiler result now exists; promote scored evidence before regenerating"
+    )
 
     ledgers = {
         "representation": {
@@ -556,6 +578,54 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "The low-rank causal interfaces compose authoritatively. Heldout PCA0+PCA1 gains 0.2268 nats versus 0.4003 exact upstream (56.7%); with exact MLP2 held fixed their conditional upstream gain retains 64.0% of exact. All twelve leave-one-site-out effects and all twelve same-background 40% margins have positive heldout document-cluster lower bounds, and all six registered prediction families pass.",
             "caveat": "This is a modular oracle-subspace result, not an executable replacement: every projected arm still calls the missing original MLP to obtain residual coefficients, MLP2 remains unsimplified, and no original-MLP-disabled predictor, gauge-invariant state transport, OOD/background transfer, edit collateral, compression, training, or simplicity certificate exists. Exact MLP2 after projected upstream is small (+0.0194 heldout, CI lower 0.0002), and its discovery cluster interval crosses zero even though the preregistered discovery point/heldout-interval gate passes. The same-currency whole-model and MLP0--2 residual denominators remain absent, so global coverage fractions do not change.",
         },
+        "early_mlp_affine_compiler_preexecution": {
+            "stage": "licensed_preregistered_contract_ready_not_scored",
+            "authority": affine_compiler_rows["authority"],
+            "preregistration_status": affine_compiler_prereg["status"],
+            "row_receipt_status": affine_compiler_rows["status"],
+            "authorized_for_scored_experiments": affine_compiler_rows[
+                "authorized_for_scored_experiments"
+            ],
+            "authorized_for_training": affine_compiler_rows["authorized_for_training"],
+            "training_license_sites": affine_compiler_rows["training_license_sites"],
+            "license_scope": affine_compiler_rows["license_scope"],
+            "scored_executable_result_available": False,
+            "executable_ce_gain_nats": None,
+            "whole_model_recovery_fraction": None,
+            "fresh_row_requests": {
+                role: row["request"] for role, row in affine_compiler_rows["entries"].items()
+            },
+            "fresh_row_unique_document_counts": {
+                role: row["unique_document_count"]
+                for role, row in affine_compiler_rows["entries"].items()
+            },
+            "disjointness_gates": affine_compiler_rows["disjointness_gates"],
+            "sequential_fit": affine_compiler_prereg["sequential_fit"],
+            "allowed_inference_inputs": affine_compiler_prereg["grammar"][
+                "allowed_inference_inputs"
+            ],
+            "forbidden_inference_inputs": affine_compiler_prereg["grammar"][
+                "forbidden_inference_inputs"
+            ],
+            "poison_rule": affine_compiler_prereg["evaluation"]["poison_rule"],
+            "registered_gates": affine_compiler_prereg["registered_gates"],
+            "state_integrity": {
+                "ship_realization_sha256": affine_compiler_prereg["pinned_inputs"][
+                    "ship_realization_sha256"
+                ],
+                "preregistration_sha256": affine_compiler_rows[
+                    "preregistration_sha256"
+                ],
+                "row_receipt_sha256": digest(
+                    sources["early_mlp_affine_compiler_v1_rows_receipt"]
+                ),
+                "contract_sha256": digest(AFFINE_COMPILER_CONTRACT),
+            },
+            "currency": "pre-execution affine compiler authority, provenance, and contract status; no scored causal effect",
+            "scope": "fresh compiler-fit/validation/final FineWeb roles, pairwise disjoint and document-disjoint from every prior oracle role; isolated affine maps at MLP0/1 only",
+            "claim": "The first executable no-teacher-forcing compiler run is preregistered, its isolated MLP0/1 fit is licensed, its fresh rows are frozen and disjoint, and its pure fitting/scoring contract exists. No executable arm has been scored yet.",
+            "caveat": "Preparation is not evidence of recovery. The authoritative v3 interfaces remain oracle-only, executable CE gain and whole-model recovery fraction remain null, and no coverage, OOD, edit, simplicity, or MLP2-interface claim is added until a bound scored result exists.",
+        },
     }
 
     current_ship = inventory.get("current_composite", {})
@@ -601,8 +671,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "Fit a no-teacher-forcing sequential coefficient program for the admitted rank-64 MLP0/1 interfaces, poison original-MLP calls in predicted arms, and reuse one frozen component per site across all deployed/projected/exact-neighbor backgrounds.",
-                "why": "The authoritative 3x3x2 lattice now proves the subspaces compose, but their coefficients still read the exact missing residual. Disabling that oracle call is the shortest path from a causal locator to an executable reverse-engineered program.",
+                "action": "Run the preregistered affine no-teacher-forcing compiler on its frozen fresh fit/validation/final rows, poison original-MLP calls in predicted arms, and score the complete reused-component lattice.",
+                "why": "The isolated MLP0/1 fit is now licensed, the disjoint row receipt is frozen, and the pure contract exists, but there is no scored executable result. Disabling the oracle coefficient read is still the shortest path from a causal locator to an executable reverse-engineered program.",
             },
             {
                 "priority": 2,
@@ -626,7 +696,14 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             },
         ],
         "registry_inventory": inventory,
-        "sources": {name: {"path": str(path), "sha256": digest(path)} for name, path in sources.items()},
+        "sources": {
+            **{name: {"path": str(path), "sha256": digest(path)}
+               for name, path in sources.items()},
+            "early_mlp_affine_compiler_v1_contract": {
+                "path": str(AFFINE_COMPILER_CONTRACT),
+                "sha256": digest(AFFINE_COMPILER_CONTRACT),
+            },
+        },
     }
 
 
