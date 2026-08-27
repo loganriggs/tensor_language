@@ -1,0 +1,295 @@
+{
+ "config": {
+  "cells": {
+   "r2t4": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "certified": false
+   },
+   "r2t6": {
+    "site": 11,
+    "rank": 2,
+    "top": 6,
+    "certified": false
+   },
+   "r4t4": {
+    "site": 11,
+    "rank": 4,
+    "top": 4,
+    "certified": false
+   },
+   "r4t6": {
+    "site": 11,
+    "rank": 4,
+    "top": 6,
+    "certified": false
+   },
+   "r8t4": {
+    "site": 11,
+    "rank": 8,
+    "top": 4,
+    "certified": false
+   },
+   "r8t6": {
+    "site": 11,
+    "rank": 8,
+    "top": 6,
+    "certified": false
+   }
+  },
+  "chunks": 3,
+  "rows_per_chunk": 160,
+  "n_random": 20,
+  "seeds": "1729..1748",
+  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "statistic": "ABSOLUTE attribution mass, corrected quantity; null is a 60-trial mean"
+ },
+ "cells": {
+  "r2t4": {
+   "separation": 17,
+   "trials": 60,
+   "mean_gap": -0.0075,
+   "certified": false,
+   "random_range": [
+    0.4492,
+    0.6332
+   ],
+   "lambda": [
+    0.5373,
+    0.5116,
+    0.4976
+   ],
+   "null_20seed_per_chunk": [
+    0.5247,
+    0.518,
+    0.5263
+   ],
+   "null_20seed": 0.523,
+   "null_seed1729": 0.4749,
+   "gaps_20seed": [
+    0.0127,
+    -0.0063,
+    -0.0287
+   ],
+   "gaps_seed1729": [
+    0.0881,
+    0.028,
+    0.0057
+   ]
+  },
+  "r2t6": {
+   "separation": 21,
+   "trials": 60,
+   "mean_gap": -0.0121,
+   "certified": false,
+   "random_range": [
+    0.6019,
+    0.7508
+   ],
+   "lambda": [
+    0.6845,
+    0.6499,
+    0.6509
+   ],
+   "null_20seed_per_chunk": [
+    0.6771,
+    0.6735,
+    0.6711
+   ],
+   "null_20seed": 0.6739,
+   "null_seed1729": 0.6542,
+   "gaps_20seed": [
+    0.0075,
+    -0.0236,
+    -0.0202
+   ],
+   "gaps_seed1729": [
+    0.0608,
+    -0.0345,
+    -0.0037
+   ]
+  },
+  "r4t4": {
+   "separation": 40,
+   "trials": 60,
+   "mean_gap": 0.037,
+   "certified": false,
+   "random_range": [
+    0.4112,
+    0.5617
+   ],
+   "lambda": [
+    0.5108,
+    0.4872,
+    0.5469
+   ],
+   "null_20seed_per_chunk": [
+    0.4821,
+    0.4838,
+    0.4682
+   ],
+   "null_20seed": 0.478,
+   "null_seed1729": 0.4667,
+   "gaps_20seed": [
+    0.0287,
+    0.0035,
+    0.0788
+   ],
+   "gaps_seed1729": [
+    0.0274,
+    0.0418,
+    0.0756
+   ]
+  },
+  "r4t6": {
+   "separation": 51,
+   "trials": 60,
+   "mean_gap": 0.0492,
+   "certified": false,
+   "random_range": [
+    0.5779,
+    0.7
+   ],
+   "lambda": [
+    0.6698,
+    0.6571,
+    0.7075
+   ],
+   "null_20seed_per_chunk": [
+    0.6328,
+    0.6337,
+    0.6203
+   ],
+   "null_20seed": 0.6289,
+   "null_seed1729": 0.615,
+   "gaps_20seed": [
+    0.037,
+    0.0234,
+    0.0872
+   ],
+   "gaps_seed1729": [
+    0.04,
+    0.0687,
+    0.0806
+   ]
+  },
+  "r8t4": {
+   "separation": 52,
+   "trials": 60,
+   "mean_gap": 0.0527,
+   "certified": false,
+   "random_range": [
+    0.3786,
+    0.5258
+   ],
+   "lambda": [
+    0.4953,
+    0.5329,
+    0.5242
+   ],
+   "null_20seed_per_chunk": [
+    0.473,
+    0.4592,
+    0.4623
+   ],
+   "null_20seed": 0.4648,
+   "null_seed1729": 0.4841,
+   "gaps_20seed": [
+    0.0224,
+    0.0737,
+    0.0619
+   ],
+   "gaps_seed1729": [
+    -0.0053,
+    0.0498,
+    0.0556
+   ]
+  },
+  "r8t6": {
+   "separation": 57,
+   "trials": 60,
+   "mean_gap": 0.0492,
+   "certified": false,
+   "random_range": [
+    0.5406,
+    0.6682
+   ],
+   "lambda": [
+    0.6512,
+    0.6797,
+    0.6772
+   ],
+   "null_20seed_per_chunk": [
+    0.6284,
+    0.6147,
+    0.6174
+   ],
+   "null_20seed": 0.6202,
+   "null_seed1729": 0.6252,
+   "gaps_20seed": [
+    0.0228,
+    0.065,
+    0.0598
+   ],
+   "gaps_seed1729": [
+    0.015,
+    0.0517,
+    0.0658
+   ]
+  }
+ },
+ "predictions": {
+  "pred_a_rank_moves_more_than_top": true,
+  "pred_b_a_usable_regime_exists": true,
+  "pred_c_monotone_in_rank": true
+ },
+ "grid": [
+  [
+   2,
+   4
+  ],
+  [
+   2,
+   6
+  ],
+  [
+   4,
+   4
+  ],
+  [
+   4,
+   6
+  ],
+  [
+   8,
+   4
+  ],
+  [
+   8,
+   6
+  ]
+ ],
+ "separation": {
+  "r2t4": 17,
+  "r2t6": 21,
+  "r4t4": 40,
+  "r4t6": 51,
+  "r8t4": 52,
+  "r8t6": 57
+ },
+ "gap": {
+  "r2t4": -0.0075,
+  "r2t6": -0.0121,
+  "r4t4": 0.037,
+  "r4t6": 0.0492,
+  "r8t4": 0.0527,
+  "r8t6": 0.0492
+ },
+ "delta_rank": 35,
+ "delta_top": 5,
+ "n_unsaturated": 2,
+ "site": 11,
+ "class": "at",
+ "runtime_s": 477.3
+}

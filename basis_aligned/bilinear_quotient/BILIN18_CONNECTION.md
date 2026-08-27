@@ -39625,3 +39625,53 @@ configurations that both look reasonable. Before reporting any margin, check whe
 the statistic is saturated in the regime you measured it in: if most cells sit at the
 ceiling, a small margin means the instrument stopped working, not that the effect is
 absent.
+
+## §1640 RANK DRIVES THE SATURATION 7:1 OVER TOP, THE STATISTIC IS MONOTONE IN RANK, AND THE GAP SIGN ITSELF FLIPS BETWEEN rank-2 AND rank-4 (3-for-3) — so the usable regime is rank ≤ 4, and §1638's pronoun evidence sits in the saturated one
+
+**Setup** (rank_top_calibration, 477 s, rung 3 — answering the practical question
+§1639 left open). One class (` at`) at one site (mlp11), 3x2 grid of rank {2,4,8} x
+TOP {4,6}, 20 bases x 3 disjoint chunks = 60 trials per cell. Class and site fixed, so
+every difference is configuration.
+
+```
+              TOP=4              TOP=6
+  rank2    17/60  −.0075      21/60  −.0121
+  rank4    40/60  +.0370      51/60  +.0492
+  rank8    52/60  +.0527      57/60  +.0492
+
+  moving RANK at fixed TOP=4:   |52 − 17| = 35
+  moving TOP  at fixed rank=8:  |52 − 57| =  5
+```
+
+- **pred_a PASSED** — rank moves the statistic **35 of 60**, TOP moves it **5**. Rank
+  is **7x** more influential.
+- **pred_b PASSED** — 2 of 5 non-(2,4) configurations still discriminate at ≤ 45/60:
+  rank-2 TOP-6 (21) and rank-4 TOP-4 (40). A usable regime beyond rank-2 TOP-4 exists,
+  so the arc is not trapped on a single setting with no independent check.
+- **pred_c PASSED** — monotone in rank at TOP=4: 17 ≤ 40 ≤ 52.
+
+**Practical calibration for the bench: use rank ≤ 4.** rank-8 sits at 52-57/60 and is
+near the ceiling; rank-4 TOP-6 (51) is already marginal. rank-2 at either TOP, and
+rank-4 TOP-4, retain dynamic range.
+
+**THE GAP SIGN IS ALSO RANK-DEPENDENT, and that is the sharper finding.** At rank-2
+` at`@mlp11 sits slightly BELOW its null (−.0075, −.0121); at rank-4 and rank-8 the
+same class at the same site sits clearly ABOVE it (+.0370 to +.0527). The sign is not
+a property of the cell — it is a property of (cell, rank). Every below-null
+observation in §1627, §1630 and §1637 was measured at rank-2, and nothing licenses
+carrying those signs to other ranks.
+
+**CONSEQUENCE FOR PENDING ITEM 2, which I am flagging against my own conclusion.**
+§1638 established pronouns@mlp17 has no distinctiveness against four other personal
+pronouns, and I amended it in §1639 to rest on the GAP evidence because the COUNT
+saturates at rank-8 TOP-6. But §1638 was measured entirely at rank-8 TOP-6 — the
+regime this section shows to be saturated AND the regime where, at least at mlp11,
+the gap sign inverts relative to rank-2. The gaps at mlp17 are large (pronouns −.1320,
+` I` −.1795), which is unlike the near-zero mlp11 case where the flip happened, so I
+do not expect the conclusion to move. But "I do not expect it to move" is exactly the
+reasoning that has failed six times today. **The pronoun comparison needs re-running
+at rank-2 TOP-4 before the item is acted on, and I have queued it rather than
+asserting the conclusion holds.**
+
+**Sixth exact cross-script replication.** `r2t4` returned 17/60 with gap −.0075,
+identical to §1635's independent measurement of the same cell.

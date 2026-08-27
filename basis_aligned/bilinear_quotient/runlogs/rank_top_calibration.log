@@ -1,0 +1,28 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows x 20 seeds (receipt sha256[:16]=815b21618c2e477e)
+  --- r2t4: SITE=11, 24 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  r2t4      fresh     sep 17/60 | mean gap -0.0075 | lambda [0.5373, 0.5116, 0.4976] | null20 0.5230
+  --- r2t6: SITE=11, 24 upstream components (TOP-6 share is NOT comparable across sites; separation IS)
+  r2t6      fresh     sep 21/60 | mean gap -0.0121 | lambda [0.6845, 0.6499, 0.6509] | null20 0.6739
+  --- r4t4: SITE=11, 24 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  r4t4      fresh     sep 40/60 | mean gap +0.0370 | lambda [0.5108, 0.4872, 0.5469] | null20 0.4780
+  --- r4t6: SITE=11, 24 upstream components (TOP-6 share is NOT comparable across sites; separation IS)
+  r4t6      fresh     sep 51/60 | mean gap +0.0492 | lambda [0.6698, 0.6571, 0.7075] | null20 0.6289
+  --- r8t4: SITE=11, 24 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  r8t4      fresh     sep 52/60 | mean gap +0.0527 | lambda [0.4953, 0.5329, 0.5242] | null20 0.4648
+  --- r8t6: SITE=11, 24 upstream components (TOP-6 share is NOT comparable across sites; separation IS)
+  r8t6      fresh     sep 57/60 | mean gap +0.0492 | lambda [0.6512, 0.6797, 0.6772] | null20 0.6202
+
+  ` at`@mlp11, rank x TOP grid, 60 trials per cell:
+                  TOP=4        TOP=6
+    rank2   17/60 -0.007  21/60 -0.012
+    rank4   40/60 +0.037  51/60 +0.049
+    rank8   52/60 +0.053  57/60 +0.049
+  moving RANK at fixed TOP=4:  |52 - 17| = 35
+  moving TOP  at fixed rank=8: |52 - 57| = 5
+  non-(2,4) configs still discriminating (<=45/60): 2/5
+  monotone in rank at TOP=4: True
+  (§1639 anchors: (2,4) gave 17/60 gap -.0075; (8,6) gave 57/60 gap +.0492)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/rank_top_calibration_results.json (477.3s)
