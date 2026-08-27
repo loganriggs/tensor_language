@@ -70,6 +70,25 @@
       "claim": "A distributed learned interface is strongly predictive even when named covariates are not.",
       "caveat": "This measures predictive compression, not semantic legibility."
     },
+    "current_composite_residual_localization": {
+      "global_clean_ce_same_run": 2.9455,
+      "global_ship_ce_same_run": 3.8431,
+      "target_cell_damage_shares": {
+        "copy": 0.258,
+        "novel_freq": 0.27,
+        "novel_rare": 0.473
+      },
+      "top100_target_damage_share": 0.5,
+      "frequent_target_group_shares": {
+        "attention": 0.137,
+        "mlp012": 0.499,
+        "deep": 0.364
+      },
+      "currency": "share of current K=3072 ship CE damage within each declared residual partition",
+      "scope": "target cells are global over evaluated targets; plank-group attribution is restricted to the 100 most frequent targets",
+      "claim": "The residual is concentrated enough to act on: novel-rare targets carry 47.3%, the top 100 targets carry 50%, and early MLP0-2 planks cause 49.9% of frequent-target damage.",
+      "caveat": "Do not apply the frequent-target plank shares to the novel-rare cell; that cross-tab has not been measured."
+    },
     "causal_instrument_validation": {
       "question_pairwise_frozen_normalized_error": 0.05159357910744122,
       "question_additive_frozen_normalized_error": 0.44344457576943297,
@@ -93,13 +112,13 @@
   "ranked_actions": [
     {
       "priority": 1,
-      "action": "Build and evaluate replacements against the residual of the current whole-model composite, with content live and shared factors priced once.",
-      "why": "Directly attacks the current 36/36 ship's roughly 0.93-nat gap and avoids duplicating already-substitutable interfaces."
+      "action": "Compile a shared content correction under the current ship, targeting novel/rare generalization and the early MLP0-2 construction interface without fitting a token exception list.",
+      "why": "The current 36/36 ship is roughly +0.93 CE; novel-rare targets carry 47.3% of damage, while early MLP0-2 causes 49.9% of the separately measured frequent-target damage."
     },
     {
       "priority": 2,
-      "action": "Localize that residual by layer, token/output class, and held-out intervention family.",
-      "why": "The causal ledger says 89.08% of ablation headroom is unnamed, including a 36.37% non-axis-aligned residual."
+      "action": "Complete the residual cross-tab by layer group x token cell x output slice x held-out intervention family.",
+      "why": "Token cells and frequent-token plank groups are localized separately, but their joint attribution and causal-response residual are still missing."
     },
     {
       "priority": 3,
@@ -159,7 +178,7 @@
     "sources": {
       "circuits": {
         "path": "/workspace/theseus-bench/registry/circuits.json",
-        "sha256": "0fe97a57dc089aec54d2290a60d94d9fbd86e5570e651a0c47033e4992238dd5"
+        "sha256": "be5361cb4f5f205cfe1d58570145c9b46c557c34277eed03214aaed5435ebe43"
       },
       "frontier": {
         "path": "/workspace/theseus-bench/registry/frontier_seed.json",
@@ -207,6 +226,18 @@
     "output_slice": {
       "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/output_slice_audit_results.json",
       "sha256": "5c0b0cb873de861796490fa622a980f7bec33f4a21a4146cde2d5a1252f405cc"
+    },
+    "ship_error_cells": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_error_mine_results.json",
+      "sha256": "6646fcbcce7b824a371c7fcbd6b77c7b9c4798cae2331da2ded7169e442defde"
+    },
+    "ship_error_groups": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_error_attrib_results.json",
+      "sha256": "939d42ca33c0f4fb3df49d7ddd05f13db5e5a37b4495a1b24cc6d05e48ec6299"
+    },
+    "ship_behavior_state": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/state_in_full_ship_results.json",
+      "sha256": "4b60c0e51fdf0606eb184e2d3d785d251948cff8838538b6f0f428226f498523"
     }
   }
 }

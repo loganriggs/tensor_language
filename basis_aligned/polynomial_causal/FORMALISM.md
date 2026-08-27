@@ -107,6 +107,45 @@ interface. The two facts are complementary, not contradictory. Vector-valued
 quadratics require a harder joint partially symmetric tensor factorization; scalar
 inertia must not be generalized to that setting without a proof.
 
+### Vector-valued quadratics: the shared-product object
+
+Between normalization boundaries a bilinear MLP is a quadratic map
+
+```
+F(x) = sum_i c_i (a_i.x)(b_i.x),     T_F in Y tensor Sym^2(X*)
+```
+
+The multiplication-minimal number of terms is the real product rank of this
+partially symmetric tensor under the stated grammar. This is the right quantity
+for shared vector output slices: one product is computed once and its vector
+coefficient `c_i` can feed every output coordinate. It reduces to `max(p,q)` for a
+scalar quadratic, but for multiple outputs it is neither the rank of any one output
+matrix nor the sum of scalar minima. Simultaneous and partially symmetric ranks are
+a developed algebraic object; see [Gesmundo, Oneto, and Ventura
+(2019)](https://arxiv.org/abs/1810.07679).
+
+Three cheap certificate lower bounds follow for any proposed `k`-product program:
+
+1. `k >= rank(T_[Y | Sym2 X])`, the output flattening rank;
+2. `k >= ceil(rank(T_[X | Y tensor X]) / 2)`, because one symmetrized product has
+   input flattening rank at most two;
+3. `k >= max(max(p_lambda,q_lambda))` over any tested output contractions `lambda`,
+   using the scalar inertia theorem above.
+
+The original hidden-unit factorization is an explicit upper bound. Equality with
+any lower bound certifies a minimum. Otherwise we report an interval, not an exact
+complexity. `vector_quadratic_complexity.py` implements these certificates and
+gauge-regression tests on small tensors.
+
+This reframes the next compiler experiment. For an output basis or content API,
+factor the joint tensor once, price shared projections and products once, and score
+the result inside the current composite. Fitting each scalar direction separately
+would discard precisely the tensor-network advantage we are trying to exploit.
+
+The general minimization remains computationally hard, and even best bounded-rank
+tensor approximations need not exist. Approximate compiler outputs are therefore
+upper bounds whose conditioning and achieved distortion must be recorded.
+
 ## 4. Polynomial boundaries
 
 The bilinear layers and residual additions are polynomial. RMSNorm is not: its scale

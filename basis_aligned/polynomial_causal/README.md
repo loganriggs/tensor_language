@@ -68,6 +68,9 @@ same eight arms is a mathematical identity and is not evidence of generalization
 ## Files
 
 - `mobius.py`: CPU-only Boolean Mobius and low-order effect fitting utilities.
+- `vector_quadratic_complexity.py`: CPU-only product-rank certificates for joint
+  vector-valued quadratic maps, including output/input flattening and scalar
+  contraction-inertia lower bounds.
 - `question_channel_ledger.py`: GPU experiment for writer/reader/final question
   channel interventions with live and frozen RMS gauges.
 - `hankel_rank_audit.py`: prefix/continuation predictive-state rank audit.

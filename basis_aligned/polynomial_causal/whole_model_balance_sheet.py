@@ -27,6 +27,9 @@ DEFAULT_SOURCES = {
     "upstream_interface": TENSOR_ROOT / "basis_aligned/bilinear_quotient/whole_model_upstream_results.json",
     "question_channel": HERE / "question_channel_ledger_results.json",
     "output_slice": HERE / "output_slice_audit_results.json",
+    "ship_error_cells": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_mine_results.json",
+    "ship_error_groups": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_attrib_results.json",
+    "ship_behavior_state": TENSOR_ROOT / "basis_aligned/bilinear_quotient/state_in_full_ship_results.json",
 }
 
 
@@ -110,6 +113,9 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     upstream = data["upstream_interface"]
     question = data["question_channel"]
     output = data["output_slice"]
+    ship_cells = data["ship_error_cells"]
+    ship_groups = data["ship_error_groups"]
+    ship_state = data["ship_behavior_state"]
     inventory = registry_inventory(theseus_root)
 
     subst_recovery = 1.0 - subst["chain_pca"]["dCE"] / subst["available_headroom_to_floor"]
@@ -123,6 +129,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     assert close(recomputed_composed, composed_recovery), "composition denominator changed"
     assert close(named_fraction, 1.0 - coverage["not_found_fraction_of_headroom"]["ext"]), "coverage does not close"
     assert close(content["recovery_vs_1070_denominator"], 1.0 - (content["ce_standin_scaffold"] - content["ce_full"]) / (composed["ce_meanablate_all"] - composed["ce_full"])), "content passthrough denominator changed"
+    assert close(sum(ship_cells["cell_shares"].values()), 1.0, atol=2e-3), "ship error cells do not close"
+    assert close(sum(ship_groups["shares"].values()), 1.0, atol=2e-3), "ship group attribution does not close"
 
     ledgers = {
         "representation": {
@@ -187,6 +195,17 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "A distributed learned interface is strongly predictive even when named covariates are not.",
             "caveat": "This measures predictive compression, not semantic legibility.",
         },
+        "current_composite_residual_localization": {
+            "global_clean_ce_same_run": ship_state["clean"]["global"],
+            "global_ship_ce_same_run": ship_state["full_ship"]["global"],
+            "target_cell_damage_shares": ship_cells["cell_shares"],
+            "top100_target_damage_share": ship_cells["top100_damage_share"],
+            "frequent_target_group_shares": ship_groups["shares"],
+            "currency": "share of current K=3072 ship CE damage within each declared residual partition",
+            "scope": "target cells are global over evaluated targets; plank-group attribution is restricted to the 100 most frequent targets",
+            "claim": "The residual is concentrated enough to act on: novel-rare targets carry 47.3%, the top 100 targets carry 50%, and early MLP0-2 planks cause 49.9% of frequent-target damage.",
+            "caveat": "Do not apply the frequent-target plank shares to the novel-rare cell; that cross-tab has not been measured.",
+        },
         "causal_instrument_validation": {
             "question_pairwise_frozen_normalized_error": question["frozen"]["comparisons"]["question_true_raw"]["pairwise_normalized_error"],
             "question_additive_frozen_normalized_error": question["frozen"]["comparisons"]["question_true_raw"]["additive_normalized_error"],
@@ -220,13 +239,13 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "Build and evaluate replacements against the residual of the current whole-model composite, with content live and shared factors priced once.",
-                "why": "Directly attacks the current 36/36 ship's roughly 0.93-nat gap and avoids duplicating already-substitutable interfaces.",
+                "action": "Compile a shared content correction under the current ship, targeting novel/rare generalization and the early MLP0-2 construction interface without fitting a token exception list.",
+                "why": "The current 36/36 ship is roughly +0.93 CE; novel-rare targets carry 47.3% of damage, while early MLP0-2 causes 49.9% of the separately measured frequent-target damage.",
             },
             {
                 "priority": 2,
-                "action": "Localize that residual by layer, token/output class, and held-out intervention family.",
-                "why": "The causal ledger says 89.08% of ablation headroom is unnamed, including a 36.37% non-axis-aligned residual.",
+                "action": "Complete the residual cross-tab by layer group x token cell x output slice x held-out intervention family.",
+                "why": "Token cells and frequent-token plank groups are localized separately, but their joint attribution and causal-response residual are still missing.",
             },
             {
                 "priority": 3,

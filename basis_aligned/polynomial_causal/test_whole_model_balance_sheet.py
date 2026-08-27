@@ -42,3 +42,11 @@ def test_output_basis_is_locator_not_controller():
     instrument = sheet["ledgers"]["causal_instrument_validation"]
     assert instrument["output_basis_recall"] > 2 * instrument["output_basis_random_recall"]
     assert instrument["output_basis_damage_fraction_of_oracle"] < 0.5
+
+
+def test_current_ship_residual_partitions_close_without_conflation():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    residual = sheet["ledgers"]["current_composite_residual_localization"]
+    assert abs(sum(residual["target_cell_damage_shares"].values()) - 1.0) < 0.002
+    assert abs(sum(residual["frequent_target_group_shares"].values()) - 1.0) < 0.002
+    assert "restricted" in residual["scope"]
