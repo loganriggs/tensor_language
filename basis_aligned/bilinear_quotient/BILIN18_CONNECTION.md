@@ -41847,3 +41847,43 @@ positional dependence of attention's write beyond lag 1. Three grains, same shap
 Queued `attn_wide_spread.py` to test whether the remaining third is genuinely long-range: if
 widening the spread to (1,2,4,8,16,32) keeps buying ground, it is; if it plateaus, the
 residue is something a positional description cannot reach at all.
+
+## §1687 — attention's remaining third is NOT long-range: it is outside any fixed-position description
+
+`attn_wide_spread.py`. Geometric spreads out to lag 64, a quarter of the 256-token window,
+plus a control that removes lag 1 from an otherwise six-slot spread. Control arm reproduces
+§1686's 68.05% exactly.
+
+```
+lag set                  input dim    ceiling
+1,2,4,8                    5760       68.05%   <- control, §1686
+1,2,4,8,16                 6912       69.27%
+1,2,4,8,16,32              8064       69.89%
+1,2,4,8,16,32,64           9216       70.08%
+2,4,8,16,32,64             8064       41.99%   <- same spread, LAG 1 REMOVED
+```
+
+**pred_a failed and that is the answer.** I predicted widening to lag 64 would buy ≥3 points
+if the residue were long-range. It buys **2.03**, and the last three doublings of window
+width together buy **0.82**. The positional description saturates at four or five slots.
+**So the remaining ~30% is not long-range structure that a wider fixed window would catch —
+it is outside any fixed-position linear description at all.** That is content-dependent
+routing: which positions attention reads depends on what is in them, and no fixed lag set can
+express that. It is what attention is for, and it is now bounded rather than assumed.
+
+**Lag 1 is irreplaceable.** Removing it from the six-slot spread costs **27.90 points**
+(69.89% → 41.99%), even with six other positions available to reconstruct it from. Whatever
+lag 1 supplies is not recoverable from its neighbours.
+
+The full account of attention's output write, one protocol throughout:
+
+```
+16.4%   current position alone
++39.9%  the previous position (irreplaceable: 27.9 points even against a six-slot spread)
++13.8%  a handful of further positions, and it barely matters which
+ 29.9%  outside ANY fixed-position linear description -- content-routed
+```
+
+**Scope, restated because it bounds all of the above:** this prices the output write only;
+`v1` is passed through unchanged (§1682, §1684), and `v1`'s own path is worth 0.7066 nats
+nested inside the write rather than additively.

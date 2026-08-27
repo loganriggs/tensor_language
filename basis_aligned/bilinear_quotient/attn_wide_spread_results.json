@@ -1,0 +1,96 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "lagsets": [
+   [
+    1,
+    2,
+    4,
+    8
+   ],
+   [
+    1,
+    2,
+    4,
+    8,
+    16
+   ],
+   [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32
+   ],
+   [
+    1,
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+   ],
+   [
+    2,
+    4,
+    8,
+    16,
+    32,
+    64
+   ]
+  ],
+  "ridge": 0.001,
+  "target": "attention OUTPUT WRITE only; v1 passed through unchanged",
+  "family": "least squares from [x_t, x_(t-l) for l in lags] to the write",
+  "controls": [
+   "(1,2,4,8) must reproduce \u00a71686 68.05%",
+   "(2,4,8,16,32,64) is the same spread with LAG 1 REMOVED"
+  ],
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1686_spread4": 0.6805,
+  "s1686_lag1_step": 0.1179
+ },
+ "stake": 3.55704,
+ "curve": {
+  "1,2,4,8": 0.68051,
+  "1,2,4,8,16": 0.69268,
+  "1,2,4,8,16,32": 0.69889,
+  "1,2,4,8,16,32,64": 0.70084,
+  "2,4,8,16,32,64": 0.41988
+ },
+ "widest_minus_spread4": 0.02034,
+ "width5_to_width7": 0.00816,
+ "cost_of_dropping_lag1": -0.27901,
+ "remaining_outside_widest": 0.29916,
+ "control_reproduces": true,
+ "predictions": {
+  "pred_a_partly_long_range_ge_3pts": false,
+  "pred_b_plateauing": true,
+  "pred_c_lag1_not_recoverable_ge_10pts": true
+ },
+ "runtime_s": 1193.8
+}
