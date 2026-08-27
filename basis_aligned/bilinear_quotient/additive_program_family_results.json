@@ -1,0 +1,55 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "program": "y_hat = b(token) + xW, table fitted first, W by least squares on the residual y - b(token)",
+  "compilation": "bottom-up (\u00a71669)",
+  "unseen_tokens": "b falls back to the position-weighted mean; the additive program is defined at every position so no hybrid hook is used",
+  "scoring": "covered positions only",
+  "converges_with": "Codex's native-Down form y_hat = b(token) + c + A.B.h(z)",
+  "s1672_best_pure": 0.5729,
+  "s1669_all_linear": 0.5428
+ },
+ "stake": 4.3196,
+ "arms": {
+  "pure_table_mlp0_2": {
+   "ceiling": 0.57291,
+   "ce": 5.12432
+  },
+  "all_linear": {
+   "ceiling": 0.54282,
+   "ce": 5.2543
+  },
+  "all_additive": {
+   "ceiling": 0.47338,
+   "ce": 5.55423
+  }
+ },
+ "predictions": {
+  "pred_a_additive_beats_best_pure_ge_3pts": false,
+  "pred_b_token_term_helps_everywhere": false,
+  "pred_c_control_reproduces_s1672": true
+ },
+ "runtime_s": 52.2
+}
