@@ -39439,3 +39439,66 @@ WORDS (` at`, ` the`, ` and`, ` is`). The mlp11 minimum may be a property of
 function-word prediction rather than of the network. A content-word or
 punctuation class could break it, and that is the next test — not a claim that the
 middle of the network is unstructured in general.
+
+## §1637 THE mlp11 MINIMUM IS A FUNCTION-WORD PROPERTY, NOT A NETWORK ONE (0-for-3) — and the same-TYPE control demolishes §1636's reconciliation: `period` separates 58/60 at mlp11 against question's 60/60, a margin of 2, not the 13 §1633 measured against function words
+
+**Setup** (depth_nonfunction, 1202 s, rung 3 — testing the limitation I stated in
+§1636 myself). Three non-function classes (`period`, `digit`, `cap`) across
+mlp5/8/11/14/17, rank-2 TOP-4, 20 bases x 3 chunks = 60 trials per cell.
+
+```
+class    separation (5, 8, 11, 14, 17)   mean gap                              min@11  monotone
+period   [46  57  58  55  54]            +.046 +.072 +.071 −.050 −.060          no       no
+digit    [48  31  31  60  41]            −.044 +.023 −.009 +.183 +.045         TIE       no
+cap      [37  39  52  54  59]            +.026 −.027 +.080 +.102 −.205          no      YES
+function-word reference at mlp11 (§1636): at 17, the 24, is 33, and 45 — all strict minima
+```
+
+- **pred_a FAILED** — 1 of 3, against a ≥2 bar, and that one is a **TIE** (`digit`
+  scores 31 at both mlp8 and mlp11). My criterion counted a tie as a minimum; a tie is
+  weaker evidence than the strict minima every function word showed, and I am not
+  banking it.
+- **pred_b FAILED** — `cap` is **monotone increasing** [37 39 52 54 59]. §1635's
+  "non-monotonicity is general" is refuted by the first non-function class tested.
+- **pred_c FAILED** — 1 of 3 has mlp11 ≤ 45. `period` sits at **58/60**, near the top
+  of its own range.
+
+**The mlp11 minimum is about FUNCTION WORDS.** §1636's caveat was the right one and
+the test kills the general reading. Depth profiles are class-TYPE dependent: function
+words bottom out at mlp11, punctuation PEAKS near it, capitalised tokens rise
+monotonically with depth.
+
+**AND THAT DESTROYS §1636's RECONCILIATION, which I must withdraw.** §1636 argued
+question@mlp11's 60/60 is exceptional *because mlp11 is where nothing else separates*.
+But `question` is the class `^\?$| \?$` — **sentence-terminal punctuation**. Its
+correct same-type control is `period` (`^\.$|^ \.$`), not the five function words
+§1633 used. At the identical cell and configuration:
+
+```
+  question@mlp11   60/60     (§1633, rank-2 TOP-4)
+  period  @mlp11   58/60     (§1637, rank-2 TOP-4)
+  margin                2/60   -- not the 13/60 §1633 reported
+```
+
+§1633 compared punctuation against function words at the one site where function
+words are weakest. The margin it found is largely a **class-TYPE artifact**. Against
+a same-type control question@mlp11 is barely distinguishable, and §1636's claim that
+its separation is exceptional does not survive.
+
+**What this does and does not touch.** It does NOT refute §1597: its share (.718,
+replicated .7179), its writer graph and its 20:1 head-grain are different statistics,
+all still standing. What falls is the inference I built in §1636 that question@mlp11's
+SEPARATION is exceptional, and with it the mechanism I added to
+`PENDING_RETRACTION_S1612.md` — removed there in the same commit.
+
+**The lesson, one level deeper than the last one.** §1634 taught me a control must
+live at the same CELL as the claim. §1637 teaches that it must also be the same
+CLASS TYPE. Every fresh-class control I have run this session — §1633, §1634, §1636 —
+used function words, so every one of them was silently comparing punctuation and
+pronouns against a class type with a different depth profile. The controls were
+matched on rank, TOP, rows, seeds, site and statistic, and mismatched on the one axis
+that turned out to matter.
+
+**Sixth generalisation to die on its own follow-up.** The rate is not improving; what
+is improving is that §1636 and §1637 were both tests I designed against my own stated
+caveat, before anyone had to point it out.

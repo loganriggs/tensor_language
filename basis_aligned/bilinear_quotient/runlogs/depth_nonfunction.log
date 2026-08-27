@@ -1,0 +1,43 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows x 20 seeds (receipt sha256[:16]=815b21618c2e477e)
+  --- period@mlp5: SITE=5, 12 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  period@mlp5 fresh     sep 46/60 | mean gap +0.0458 | lambda [0.8676, 0.8536, 0.8586] | null20 0.8142
+  --- period@mlp8: SITE=8, 18 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  period@mlp8 fresh     sep 57/60 | mean gap +0.0725 | lambda [0.7261, 0.7396, 0.7263] | null20 0.6581
+  --- period@mlp11: SITE=11, 24 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  period@mlp11 fresh     sep 58/60 | mean gap +0.0713 | lambda [0.5774, 0.5834, 0.5897] | null20 0.5122
+  --- period@mlp14: SITE=14, 30 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  period@mlp14 fresh     sep 55/60 | mean gap -0.0504 | lambda [0.3505, 0.3443, 0.3427] | null20 0.3962
+  --- period@mlp17: SITE=17, 36 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  period@mlp17 fresh     sep 54/60 | mean gap -0.0604 | lambda [0.305, 0.3098, 0.3055] | null20 0.3671
+  --- digit@mlp5: SITE=5, 12 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  digit@mlp5 fresh     sep 48/60 | mean gap -0.0445 | lambda [0.7549, 0.7682, 0.7682] | null20 0.8083
+  --- digit@mlp8: SITE=8, 18 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  digit@mlp8 fresh     sep 31/60 | mean gap +0.0230 | lambda [0.6212, 0.6777, 0.6454] | null20 0.6250
+  --- digit@mlp11: SITE=11, 24 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  digit@mlp11 fresh     sep 31/60 | mean gap -0.0091 | lambda [0.5074, 0.5322, 0.5202] | null20 0.5291
+  --- digit@mlp14: SITE=14, 30 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  digit@mlp14 fresh     sep 60/60 | mean gap +0.1833 | lambda [0.6494, 0.5984, 0.6211] | null20 0.4397
+  --- digit@mlp17: SITE=17, 36 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  digit@mlp17 fresh     sep 41/60 | mean gap +0.0450 | lambda [0.6159, 0.5758, 0.5717] | null20 0.5428
+  --- cap@mlp5: SITE=5, 12 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  cap@mlp5  fresh     sep 37/60 | mean gap +0.0264 | lambda [0.7697, 0.7762, 0.7912] | null20 0.7526
+  --- cap@mlp8: SITE=8, 18 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  cap@mlp8  fresh     sep 39/60 | mean gap -0.0271 | lambda [0.6123, 0.6365, 0.6289] | null20 0.6530
+  --- cap@mlp11: SITE=11, 24 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  cap@mlp11 fresh     sep 52/60 | mean gap +0.0802 | lambda [0.5572, 0.5844, 0.525] | null20 0.4754
+  --- cap@mlp14: SITE=14, 30 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  cap@mlp14 fresh     sep 54/60 | mean gap +0.1022 | lambda [0.5468, 0.5438, 0.4849] | null20 0.4230
+  --- cap@mlp17: SITE=17, 36 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  cap@mlp17 fresh     sep 59/60 | mean gap -0.2046 | lambda [0.4525, 0.4357, 0.4376] | null20 0.6466
+
+  DEPTH PROFILE per class, sites [5, 8, 11, 14, 17], 60 trials each:
+    class  separation (5,8,11,14,17)      mean gap                               min@11  pos@14  monotone
+    period [46 57 58 55 54]              [+0.046 +0.072 +0.071 -0.050 -0.060]   no     no      no
+    digit  [48 31 31 60 41]              [-0.044 +0.023 -0.009 +0.183 +0.045]  YES    YES      no
+    cap    [37 39 52 54 59]              [+0.026 -0.027 +0.080 +0.102 -0.205]   no    YES     YES
+  §1636 FUNCTION-WORD reference at mlp11: at 17, the 24, is 33, and 45 (all min@11)
+  min at mlp11: 1/3 | monotone: 1/3 | mlp11 sep <= 45: 1/3 | positive gap at mlp14: 2/3
+
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/depth_nonfunction_results.json (1202.2s)

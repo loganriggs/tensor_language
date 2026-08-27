@@ -68,19 +68,18 @@ Note this also WITHDRAWS §1630's restoration of §1612, which I made on mlp11 d
 the wrong site for a claim about mlp17. §1598's .482 and §1624's .4823 are
 unaffected; this concerns interpretation, not measurement.
 
-## MECHANISM FOR THE SECOND ITEM (added §1636)
+## WITHDRAWN MECHANISM (was added §1636, removed §1637)
 
-§1636 swept four function-word classes across mlp5/8/11/14/17 and found the
-separation minimum at mlp11 in 4 of 4, while mlp17 gives 52-60/60 for every class
-tested. So the two published cells are not symmetric:
+A mechanism paragraph stood here claiming question@mlp11 is distinctive because mlp11
+is the separation minimum. §1637 withdrew it: the mlp11 minimum is a FUNCTION-WORD
+property, and `question` is punctuation. Against its same-type control `period`
+(58/60 at the same cell and configuration) question's 60/60 is a margin of 2, not the
+13 measured against function words.
 
-- question@mlp11 separates 60/60 at the site where ordinary classes manage 17-45.
-  Its distinctiveness is REAL and nothing here argues for withdrawing §1597.
-- pronouns@mlp17 separates 60/60 at a site where every class does. Its
-  distinctiveness is NOT established, which is exactly the second pending item.
-
-This supplies the mechanism the second item was missing. It does not change what is
-being asked: both withdrawals remain drafted and unapplied.
+This does NOT change what is being asked of Logan. The second pending item — that
+§1612's pronoun structural reading is unsupported because below-null is generic at
+mlp17 — rests on §1634's direct measurement at mlp17 and is unaffected. Both
+withdrawals remain drafted and unapplied.
 
 ## The rule this earns either way
 
