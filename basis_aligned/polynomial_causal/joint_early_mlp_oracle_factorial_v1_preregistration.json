@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_not_run",
+  "registered_at_utc": "2026-08-27T07:19:38Z",
+  "source_commit_before_implementation": "97aad7f305ef600ca64d60a95c0cbbcceef63acc",
+  "experiment": "joint_early_mlp_live_oracle_factorial_v1",
+  "motivation": "The singleton local oracle found positive exact-live correction gains at MLP0 and MLP1 but a negative gain at MLP2, while the deployed ship's MLP0-2 residual has large interactions. Singleton gains cannot determine the joint restoration ceiling, whether MLP2 changes sign after upstream restoration, or how much of the same-background MLP0-2 residual is jointly recoverable.",
+  "scope": "Implementation and CPU-only analysis contract first. Any later scoring must reuse one frozen ship realization and one paired row set. This preregistration does not authorize the exploratory curated-v2 result, create a FineWeb receipt, license a predictor, or overwrite any v1/v2 artifact.",
+  "fixed_design": {
+    "groups": [
+      "mlp0",
+      "mlp1",
+      "mlp2"
+    ],
+    "arms": "All eight subsets of {mlp0, mlp1, mlp2}, including the empty deployed-ship baseline.",
+    "intervention": "At every selected site, recompute the exact live original MLP output on that arm's current normalized input and add original-minus-deployed-plank. Downstream selected corrections therefore see the state produced by upstream selected corrections; no cached residual or teacher-forced activation may be injected.",
+    "evaluation": "Use paired per-row CE from one frozen ship realization and the same rows for all eight arms. Positive gain means baseline deployed-ship CE minus arm CE.",
+    "analysis": "Run factorial_causal_attribution.analyze_cube on the complete gain cube. Preserve signed singleton, pairwise, and triple Mobius terms and signed Shapley values; require exact cube completeness and numerical closure.",
+    "primary_metrics": [
+      "joint full-live gain for {mlp0,mlp1,mlp2}",
+      "joint gain divided by the same-row deployed MLP0-2 residual denominator",
+      "all pairwise Mobius coefficients",
+      "the triple Mobius coefficient",
+      "Shapley closure error",
+      "MLP2 conditional marginal after {mlp0,mlp1}"
+    ],
+    "denominator_rule": "The MLP0-2 residual denominator must come from the same ship realization, rows, scoring mask, and CE currency as the subset cube. If unavailable, report the joint gain but leave the fraction null; never import the legacy 0.728-nat Shapley number as a denominator.",
+    "runtime_state": "The per-site correction selection must be frozen before a forward pass. Existing singleton site/basis/scale behavior remains supported and takes precedence when explicitly selected.",
+    "artifact_policy": "Any future result uses a new joint-factorial-v1 namespace. Existing curated development v1/v2, preliminary FineWeb, and authoritative canonical artifacts are read-only inputs and must not be overwritten."
+  },
+  "registered_predictions": {
+    "pred_a_joint_gain_exceeds_best_singleton": true,
+    "pred_b_mlp2_conditional_marginal_after_mlp0_mlp1_is_positive": true,
+    "pred_c_interaction_l1_fraction_is_at_least_0p20": true
+  },
+  "interpretation": {
+    "positive_joint_ceiling": "Licenses the early MLP0-2 block as a joint residual target and measures its maximum live-restoration headroom on the tested background. It does not identify a simpler predictor.",
+    "mlp2_sign_reversal": "Supports the hypothesis that MLP2's negative singleton gain was caused by upstream state mismatch; it does not establish a semantic interface.",
+    "no_sign_reversal": "Treat MLP2 as a potentially compensatory plank on this background and do not force an independent exact-restoration target there.",
+    "large_interaction": "Requires future candidate replacements to be evaluated as a joint block or by leave-one-out conditional marginals, not by summing singleton recovery."
+  },
+  "failure_policy": "Reject incomplete cubes, unequal row counts, non-finite row CE, non-positive supplied denominators, and closure failures. Preserve partial experimental artifacts under a new failed namespace; never reinterpret them as a completed factorial."
+}
