@@ -37658,3 +37658,54 @@ random share beside its own, or say nothing about concentration.
 samples are n≤5. A rerun at NR-scale class counts is required before the share
 comparison is quoted as a number rather than a direction — queued behind HF_TOKEN
 or a larger local corpus.
+
+## §1610 AT PROPER CLASS COUNTS THE FLOOR IS WORSE THAN §1609 REPORTED (1-for-3): a random rank-2 basis's top-4 share is .7223 — statistically indistinguishable from §1597's headline .718 — and attn10 sits in the RANDOM top-4 in 3/3 samples
+
+**Setup** (writer_floor_question rerun, 25 s). §1609 was marked PROVISIONAL
+because its corpus gave class counts 25/3/5. Measured this pass: the local
+`curated_rows.pt` (== `census_state_diverse['rows']` == what `cl.rows()` returns,
+1000x513) holds **335** question positions against the 39 in
+`bilin18_eval_tokens_large.pt`. Rerun at **n = 105 / 127 / 102** — higher than any
+FineWeb sample this program has drawn for this class (31/32/47). Same rows for
+both arms; recon rel err 0.0-2.2e-07.
+
+```
+arm      n=105              n=127              n=102              mean share
+lambda   .5942              .5973              .5924              .5946
+random   .7871              .7801              .5997              .7223
+lambda top-4 is {mlp11, attn10, mlp9, attn9} in 3/3 samples (order varies)
+random top-4 contains attn10 in 3/3 samples
+consensus overlap 1/4 (attn10)
+```
+
+**Scored as written:**
+- **pred_a FAILED** — overlap 1/4, bar was ≥ 2. A floor exists but is thin.
+- **pred_b FAILED** — I required attn10 and attn9 both in the |λ| top-4 AND
+  **neither** in the random top-4, in ≥2/3 samples. **attn10 is in the random
+  top-4 in 3/3 samples**, so this is 0/3.
+- **pred_c PASSED, emphatically** — random top-4 share **.7223**, far above the
+  .40 bar and well above the |λ| arm's **.5946**.
+
+**§1609 IS SUPERSEDED ON pred_b AND I AM CORRECTING IT.** §1609 concluded
+"§1597's MEMBERSHIP claim is vindicated" on the strength of pred_b passing at
+n = 25/3/5. At n ≈ 110 it FAILS: attn10, the headline circuit head, is exactly the
+component a random rank-2 basis also selects, every time. §1609 was scored
+correctly on its own data and its PROVISIONAL marking is what caught this — but
+its membership conclusion does not survive and must not be cited.
+
+**What survives, and it is narrower than §1609 claimed:** the |λ| top-4 is
+perfectly STABLE ({mlp11, attn10, mlp9, attn9} in 3/3) and three of its four
+members — **mlp11, mlp9, attn9** — are absent from the random consensus. Those
+three are rule-specific. attn10 is not distinguishable from floor by this test.
+
+**The headline number is the coincidence.** §1597 reported the certified slice's
+top-4 share as **.718**. A random rank-2 basis on this corpus gives **.7223**. The
+two are not directly comparable (different rows — see §1609's row caveat) so this
+is suggestive rather than an identity, but the WITHIN-run comparison that IS valid
+says the same thing: the real slice concentrates LESS (.5946) than the random one
+(.7223). **"The top-4 carry ~72%" is the null result, not the finding.**
+
+**Standing consequence, stronger than LESSONS 15 as written:** a component's
+presence in a top-k writer list is not evidence unless that component is absent
+from the matched-rank random list. Report the random top-k alongside, per
+component, not just the aggregate share.
