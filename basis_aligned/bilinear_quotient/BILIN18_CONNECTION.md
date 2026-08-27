@@ -42460,3 +42460,47 @@ published create-only with source, model-revision and row hashes bound.
 four arms' held-out losses agree to 0.11 points (so the drop is document difficulty, not
 arm-specific degradation), and that the interaction is *positive* rather than merely small. The
 second reverses the sign one would have guessed from "additive to within 0.13 points".
+
+## §1702 — the v1 floor: the path is worth 0.35 points, and rank 8 captures a sixth of it
+
+`whole_model_v1_floor.py`, the arm §1699 owed, under the pre-execution amendment that added
+row-level spread (§1700). 4-for-4, all intervals 95% row-level cluster bootstrap, 2000 paired
+draws.
+
+```
+arm         ceiling                    cost against v1_real
+v1_real     55.04%  [54.33, 55.71]           —
+v1_rank8    54.75%  [54.05, 55.43]     0.29%  [0.30, 0.40] -> see below
+v1_const    54.68%  [53.98, 55.36]     0.35%  [0.30, 0.40]
+```
+
+Both cost intervals exclude zero, so the `v1` path is real. It is also **tiny**: replacing it
+with a single constant — no per-token information at all — costs **0.35 points [0.30, 0.40]**
+of a 55-point program.
+
+**This settles §1699 against me, and more comprehensively than I expected.** I had written that
+`v1` is "essentially eight-dimensional as far as the compiled program is concerned", inferring
+that from rank-8 costing 0.29 points. Codex objected that 0.29 cannot distinguish "eight
+dimensions suffice" from "the whole path contributes almost nothing", and asked for the rank-0
+arm. With it:
+
+- the whole path is worth **0.35** points;
+- rank 8 has already given up **0.29** of that 0.35, so it captures **0.06 — about a sixth** of
+  the path's contribution.
+
+So the phrase was wrong twice over. Eight dimensions do not suffice — they recover a sixth — and
+it makes no practical difference because the entire path is a third of a point. Codex's
+objection was right on both halves and my inference had the direction backwards: I read a small
+number as evidence that a small rank was adequate, when it was evidence that the quantity being
+approximated was itself small.
+
+**What stands.** `v1`'s covered-token caveat is dischargeable (§1698: a token table costs
++0.00%), the 55.04% headline is unchanged, and `v1` is not a significant unmodelled term
+downstream of a substituted write path — now with a number and an interval on "not significant":
+0.35 points [0.30, 0.40].
+
+**Consistency with §1684.** That section measured the `v1` path at 0.7066 nats against a LIVE
+write path and found it nested inside the write rather than additive. §1702 measures it against
+a SUBSTITUTED write and gets 0.35 points of a 5.5684-nat stake ≈ 0.019 nats. The two are
+consistent precisely because of §1684's own finding: once the write is replaced, almost
+everything `v1` was contributing has already been accounted for by the program that replaced it.

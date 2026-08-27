@@ -1,0 +1,93 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "program": "the \u00a71696 best-families 36-site program",
+  "question": "S1699 -- does rank-8 v1's 0.29-point cost mean eight dimensions suffice, or that the whole v1 path contributes little inside a program that already replaces the write?",
+  "amendment": "whole_model_v1_floor_protocol_amendment.json, frozen before first execution; adds uncertainty only",
+  "bootstrap_scope": "ROW-LEVEL cluster bootstrap over the 192 evaluation rows, 2000 draws, paired. The rowcache carries no per-row document ids, so this is NOT a source-document bootstrap. Rows are 513-token census-prefix-deduped chunks, plausibly but not verifiably distinct documents.",
+  "v1_hybrid_scope": "covered positions only; uncovered occurrences retain native v1 (\u00a71699)",
+  "compilation": "INTERLEAVED bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1696_both": 0.5504,
+  "s1698_rank8": 0.5475
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "eval_rows": 192,
+ "arms": {
+  "v1_real": {
+   "mode": null,
+   "rank": 1152,
+   "ce": 5.7957,
+   "ceiling": 0.55038
+  },
+  "v1_rank8": {
+   "mode": "linear",
+   "rank": 8,
+   "ce": 5.81169,
+   "ceiling": 0.54751
+  },
+  "v1_const": {
+   "mode": "const",
+   "rank": 0,
+   "ce": 5.81535,
+   "ceiling": 0.54685
+  }
+ },
+ "ceiling_ci95_rowlevel": {
+  "v1_real": [
+   0.54334,
+   0.5571
+  ],
+  "v1_rank8": [
+   0.54051,
+   0.55433
+  ],
+  "v1_const": [
+   0.53976,
+   0.55361
+  ]
+ },
+ "difference_ci95_rowlevel": {
+  "real_minus_rank8": [
+   0.00233,
+   0.00342
+  ],
+  "real_minus_const": [
+   0.00302,
+   0.00405
+  ]
+ },
+ "cost_of_constant_v1": 0.00353,
+ "cost_of_rank8_v1": 0.00287,
+ "predictions": {
+  "pred_a_whole_path_under_1pt": true,
+  "pred_b_not_literally_free": true,
+  "pred_c_controls_hold": true,
+  "pred_d_path_ci_excludes_zero": true
+ },
+ "runtime_s": 241.7
+}
