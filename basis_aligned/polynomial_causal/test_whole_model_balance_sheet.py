@@ -178,3 +178,21 @@ def test_local_live_correction_oracle_prunes_content_without_licensing_science()
     assert oracle["site_decisions"]["2"]["exact_twenty_null_test"]["passes_5pct"] is True
     assert "regularizing sign" in oracle["claim"]
     assert "authority none" in oracle["caveat"]
+
+
+def test_joint_early_oracle_requires_coupled_program_and_same_currency_denominator():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    oracle = sheet["ledgers"]["early_mlp_joint_live_oracle_exploratory"]
+    assert oracle["authority"] == "none"
+    assert oracle["authorized_for_scored_experiments"] is False
+    assert oracle["training_license_sites"] == []
+    heldout = oracle["heldout"]
+    assert heldout["joint_gain"] > 0.50
+    assert heldout["singleton_gain_sum"] < 0.06
+    assert heldout["mlp2_conditional_marginal_after_mlp0_mlp1"] > 0.11
+    assert heldout["interaction_l1_fraction_of_joint_gain"] > 1.7
+    assert heldout["joint_gain_fraction_of_mlp012_residual"] is None
+    assert abs(heldout["shapley_closure_error"]) < 1e-12
+    assert all(oracle["registered_predictions"].values())
+    assert "coupled causal program" in oracle["claim"]
+    assert "deliberately null" in oracle["caveat"]

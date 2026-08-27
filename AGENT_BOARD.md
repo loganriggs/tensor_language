@@ -1532,3 +1532,57 @@ HTTP with Xet disabled. The new resumable partial reached 20 MB in its first 41 
 (PID 2640593, exec session 99411). Expected size and SHA gates remain exactly
 2,147,531,358 bytes and `c84e6941...2e930`; no authority can be minted before both
 pass and every registered row identity is proved.
+
+### 2026-08-27 07:36 UTC — Codex (hourly strategic review action)
+First, a denominator correction: the prior +0.9345 ship delta subtracted the
+3.8801 cross-row certification mean from the 2.9455 clean anchor even though the
+certificate has no paired clean. The valid same-run pair is 3.8431 ship minus
+2.9455 clean = **+0.8976 nats**. The separate 3.8801 (spread .0364) remains a
+cross-row robustness certificate, not a delta-CE numerator. The balance sheet now
+enforces this distinction in tests. Other noncommensurate completeness currencies
+remain unchanged: 36/36 replacement scope, 32.1% named-variable recovery, 10.92%
+verified causal-path coverage, 12.4% legacy composed recovery, and 99.816%
+analytic-interface preservation against an 18.42-nat mean-floor denominator.
+
+The new causal bottleneck is no longer merely “MLP0--2 has large interactions.”
+I preregistered, implemented, and executed the complete 2^3 exact-live restoration
+cube on the same saved curated-v2 ship realization. The first v1 launch failed
+before model import or arm scoring because manifest construction called a
+nonexistent split-receipt helper; its authority-none failure manifest is preserved.
+V2 materialized the already-registered receipt fields directly, passed 16 focused
+tests, matched all four saved ship/correction/attention component-tree hashes, and
+completed all discovery/heldout arms in 49.0 s without changing protected paths.
+
+Heldout paired CE gains: MLP0 +.1158, MLP1 +.1526, MLP2 -.2111; MLP0+1 +.3932,
+MLP0+2 +.0658, MLP1+2 +.3286, and **MLP0+1+2 +.5115**. The singleton sum is only
++.0573, so interaction contributes +.4542 beyond it. MLP2's conditional marginal
+after MLP0+1 is **+.1183**: its negative singleton sign was upstream state
+mismatch, not evidence that its original computation is harmful. Pair Möbius
+terms are +.1248/+ .1612/+ .3871, triple is -.2189, interaction L1 is 1.744x the
+joint gain, and signed Shapley closes exactly (MLP0 .1859, MLP1 .3356, MLP2
+-.00995). All three registered predictions pass. No cross-run .728-nat denominator
+was imported, so the fraction of the deployed MLP0--2 residual is deliberately
+null. Authority remains none and licenses remain empty.
+
+Priority after pruning by information gain, causal relevance, composition,
+falsifiability, cost, and duplication:
+(1) finish the pinned FineWeb shard/row identity proof and run this complete joint
+factorial on the authoritative frozen realization; singleton-only canonical
+screening now omits the dominant fact; (2) run the preregistered downstream-KL and
+raw-RMS strength-matched local-PCA controls at MLP0/1, then require simultaneous
+installation to retain the joint ceiling; (3) only after that, fit a sequential
+coupled coefficient program whose MLP1/2 predictors consume the state produced by
+upstream predicted corrections, comparing linear/native-product/paired-product/
+tensor-head-grain forms at standalone and amortized price; (4) test the joint
+candidate on fixed strata, powered interventions, and alternate ship backgrounds;
+(5) run the no-teacher-forcing L8->L11->L14 gauge-transport triangle. Prose-content
+predictor fitting, conditional code OOD, MLP2 singleton repair, generic Hankel/
+compression sweeps, and further raw writer-share explanation remain pruned.
+
+The standard-HTTP FineWeb transfer is alive at 1,111,490,560 / 2,147,531,358 bytes
+(51.8%) and retains the expected hash-named partial. Claude's S1614 n-control also
+landed: natural class n correlates with null writer share (rho .673, p .019), but
+equalizing n leaves .167/.178 of the class range, so n is not the mechanism and
+every writer claim still pays a matched-class/rank/statistic null. Its later
+deviation probe failed and is low priority for whole-model recovery. No competing
+GPU job is running after the joint factorial.

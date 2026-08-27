@@ -48,6 +48,7 @@ DEFAULT_SOURCES = {
     "extraction_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_p_results.json",
     "compression_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/compression_rank3_results.json",
     "local_ship_oracle_curated_dev_v2": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_content_oracle_curated_dev_v2_results.json",
+    "joint_early_mlp_oracle_curated_dev_v2": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_curated_dev_v2_results.json",
 }
 
 
@@ -154,6 +155,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     extraction_pronouns = data["extraction_pronouns"]
     compression_rank = data["compression_rank"]
     local_oracle = data["local_ship_oracle_curated_dev_v2"]
+    joint_early_oracle = data["joint_early_mlp_oracle_curated_dev_v2"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
     factorial_cells = factorial_primary["cells"]
@@ -433,6 +435,18 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "The unrestricted live correction is strongly beneficial at MLP0 and MLP1 (+0.116 and +0.153 nats), while the proposed rank-64 content arm recovers only 8.1% and 1.9% of those gains and loses to every matched null. At MLP2 the unrestricted correction is harmful (-0.211 nats), so the content arm's +0.031-nat null win is a regularizing sign rather than a faithful replacement. No site passes the complete candidate gate.",
             "caveat": "This run has authority none and licenses no site: the content factor may overlap the curated corpus, so it is exploratory within-realization evidence only. Local-PCA arms are not compared to the content-matched nulls because their correction RMS differs. The result prunes the current prose-content factorization; it does not prune a fresh authoritative live oracle or a differently typed causal interface.",
         },
+        "early_mlp_joint_live_oracle_exploratory": {
+            "authority": joint_early_oracle["authority"],
+            "authorized_for_scored_experiments": joint_early_oracle["authorized_for_scored_experiments"],
+            "training_license_sites": joint_early_oracle["training_license_sites"],
+            "discovery": joint_early_oracle["split_analyses"]["discovery"],
+            "heldout": joint_early_oracle["split_analyses"]["heldout"],
+            "registered_predictions": joint_early_oracle["registered_predictions"],
+            "currency": "paired per-row CE gain for the complete 2^3 cube of exact live MLP0/1/2 restoration on one frozen deployed-ship realization",
+            "scope": "document-disjoint curated discovery and heldout rows; exact component-tree match to the saved curated-v2 ship, authority none",
+            "claim": "The heldout joint early-block restoration gains 0.5115 nats even though the singleton gains sum to only 0.0573. MLP2 flips from -0.2111 alone to +0.1183 conditional on MLP0+1 restoration. Interaction L1 is 1.744 times the joint gain, so the early block is a coupled causal program and singleton repair is invalid.",
+            "caveat": "No same-currency MLP0-2 residual denominator was measured, so the recovery fraction is deliberately null; the legacy 0.728-nat Shapley number is not imported. This is nonfresh authority-none evidence and identifies a joint live-restoration ceiling, not a simpler deployable predictor.",
+        },
     }
 
     current_ship = inventory.get("current_composite", {})
@@ -478,28 +492,28 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "Finish the pinned FineWeb shard, prove every registered row tensor against the canonical file/config order, freeze the complete rowcache, and rerun the same-realization live-correction oracle at MLP0-2 with authoritative provenance.",
-                "why": "The isolated local run found strong unrestricted correction at MLP0/1 but decisively falsified the current content arm there; MLP2 was sign-unstable. A canonical rerun is the highest-information test of whether those causal signs survive fresh data and which site, if any, can license downstream composition.",
+                "action": "Finish the pinned FineWeb shard, prove every registered row tensor, freeze the rowcache, and run the complete 2^3 joint MLP0-2 live-restoration factorial on the authoritative frozen realization before any singleton content handoff.",
+                "why": "The local factorial shows +0.5115 heldout joint gain versus +0.0573 summed singleton gain, and MLP2 reverses sign only after MLP0+1 restoration. Fresh provenance must confirm this coupled-block ceiling; a singleton-only canonical screen would now omit the dominant causal fact.",
             },
             {
                 "priority": 2,
-                "action": "If and only if the authoritative oracle licenses a site, repeat the optimizer-free singleton screen on code using frozen prose, code-local, transported, and matched-null bases before fitting a predictor.",
-                "why": "The local oracle now joins the earlier code result in rejecting prose content as a universal API: it loses to all nulls at MLP0/1, while prose retains only 16.6% of code variation versus 51.5% for code-local coordinates. Conditional OOD screening distinguishes a typed interface from a non-content residual without spending training compute.",
+                "action": "Run the preregistered dual-strength local-PCA control at MLP0/1, then require simultaneous installation to retain the joint ceiling before admitting any residual subspace.",
+                "why": "Local PCA captured large singleton gains but at roughly twice the content/null correction RMS. Downstream-KL and raw-RMS matched nulls decide whether a low-rank oracle bottleneck exists; the new factorial requires an additional joint-composition gate even if both singleton controls pass.",
             },
             {
                 "priority": 3,
-                "action": "Extend the frozen group factorial to powered output slices and held-out intervention families, with corrected fixed token strata and alternate ship backgrounds.",
-                "why": "Token CE localizes the deployed residual but cannot establish causal transport or selective edits; large negative interactions also require checking whether a fragment's intervention response changes with its replacement background.",
+                "action": "Only after a joint subspace passes, fit a sequential coupled coefficient program and factor it through linear, native-product, paired-product, and tensor-head-grain forms at standalone and amortized price.",
+                "why": "The coefficients must be predicted on each arm's updated state (MLP0, then MLP1, then MLP2); independent regressors would recreate the state-mismatch failure. Tensor/polynomial simplicity becomes meaningful only at this causally licensed joint interface.",
             },
             {
                 "priority": 4,
-                "action": "Execute the preregistered no-teacher-forcing L8-to-L11-to-L14 gauge-transport triangle, first gating destination-subspace sufficiency, then direct response prediction, chain composition, and alternate-background transfer.",
-                "why": "Local bases often locate circuits, but affine donor transport has near-zero median fidelity, repeated content patching teacher-forces every clamp, and the output basis preserves only 13.5% of oracle removal damage. The commuting triangle separates a locator failure from transport failure and transport failure from composition failure while pricing the physical map, coordinate field, and repeated interfaces.",
+                "action": "Evaluate the joint early-block candidate on corrected fixed strata, powered interventions, and alternate ship backgrounds before selective edits.",
+                "why": "A half-nat CE ceiling does not prove response prediction or modular editability. The exceptionally large interaction terms make background transfer and collateral-effect prediction mandatory rather than optional certification extras.",
             },
             {
                 "priority": 5,
-                "action": "Only after oracle and transport gates pass, fit the residual predictor and factor it through linear, native-product, paired-product, and tensor-head-grain programs at standalone and amortized prices.",
-                "why": "The early product frontier and Hankel probe rejected premature structural compression, while the compression rank sweep shows class and global behavior degrade together rather than exposing a privileged circuit core. Tensor structure should compete only at a causally licensed, OOD-scoped interface where simplicity can be tested for composition and editability.",
+                "action": "Execute the no-teacher-forcing L8-to-L11-to-L14 gauge-transport triangle with destination sufficiency, direct map, chain, and alternate-background gates.",
+                "why": "This remains the highest-value non-early-block interface test: it distinguishes a locator from a transportable coordinate program. It ranks below the early block because it addresses less of the current 0.8976-nat same-run composite gap.",
             },
         ],
         "registry_inventory": inventory,

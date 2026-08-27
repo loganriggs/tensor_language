@@ -37915,6 +37915,55 @@ nulls. Local-PCA numbers are reported but not compared to the content nulls beca
 their intervention RMS differs. This result narrows the program without turning a
 failed basis into a vague success.
 
+## §1616 — THE EARLY BLOCK IS A COUPLED CAUSAL PROGRAM: JOINT LIVE MLP0+1+2 RESTORATION GAINS .5115 NATS VS .0573 SINGLETON SUM, AND MLP2 FLIPS SIGN AFTER UPSTREAM REPAIR (joint_early_mlp_oracle_factorial_curated_dev_v2)
+
+The singleton oracle in §1614 could not answer the central composition question:
+MLP0--2 owns most of the deployed ship residual and prior factorials showed large
+group interactions, so was MLP2's -.211 singleton gain a genuinely harmful
+original computation or a state-mismatch artifact? We preregistered all eight
+subsets of exact live original-minus-plank correction. Each selected downstream
+site recomputes its residual on the state produced by the selected upstream
+corrections—no cached residual or teacher forcing. The fresh deterministic ship
+matched the saved curated-v2 SHIP, CORR, attention-map, and all-attention component
+tree hashes before any arm scored.
+
+The v1 execution namespace failed before model import or arm scoring because its
+manifest called a nonexistent receipt helper. That failure manifest is retained.
+V2 changed only receipt materialization, under a new preregistration/manifest/result
+namespace, and completed in 49.0 seconds. Authority is `none`, licenses are empty,
+and every canonical plus prior development artifact hash is unchanged.
+
+| arm | discovery gain | heldout gain |
+|---|---:|---:|
+| MLP0 | +.1190 | +.1158 |
+| MLP1 | +.1354 | +.1526 |
+| MLP2 | -.2942 | -.2111 |
+| MLP0+1 | +.3357 | +.3932 |
+| MLP0+2 | -.0223 | +.0658 |
+| MLP1+2 | +.2086 | +.3286 |
+| MLP0+1+2 | **+.3906** | **+.5115** |
+
+Heldout singleton sum is only +.0573; the joint arm adds **+.4542 beyond the
+singleton sum**. Pair Möbius terms are +.1248 (0×1), +.1612 (0×2), and +.3871
+(1×2); the triple term is -.2189. Interaction L1 / joint gain is **1.744**.
+MLP2's marginal after MLP0+1 is **+.1183**, reversing the singleton sign. This is
+the clean causal resolution: MLP2's original computation is useful on the state it
+was trained to receive and damaging when inserted alone downstream of incorrect
+MLP0/1 planks. Signed Shapley closes exactly: MLP0 +.1859, MLP1 +.3356, MLP2
+-.00995. All three registered predictions pass on heldout and the qualitative
+pattern replicates on discovery.
+
+**Method and program consequence:** early residual predictors must be sequential
+and jointly evaluated. Predicting three independent residuals on the deployed
+plank state is structurally wrong even if every singleton regression looks good.
+The next candidate program has typed interfaces
+`z0 -> delta0 -> z1(delta0) -> delta1 -> z2(delta0,delta1) -> delta2`, and its
+complexity/fidelity must be priced as one coupled block. The .5115 is an oracle
+ceiling, not a simpler implementation. A same-currency MLP0--2 residual denominator
+was not measured in this cube, so recovery fraction is intentionally null; §154x's
+.728 Shapley number is not imported across rows/realizations. Fresh authoritative
+replication and low-rank strength-matched joint composition remain required.
+
 ## §1614 THE n-CORRELATION IS REAL BUT n IS NOT THE MECHANISM (2-for-3): rho = .673 at p = .019 over 10 classes, yet EQUALISING n removes only 6.1% of the class spread and leaves the class ordering intact (rank rho .952)
 
 **Setup** (null_n_control, 243 s). §1613 saw the null share track class count at
