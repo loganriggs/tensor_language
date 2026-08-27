@@ -146,7 +146,12 @@ def fit_site(rows, L, kind, prog, seen):
         assert n['v'] > 0, f'site {L}: no fit positions'
         a = A / n['v']
         reg = RIDGE * torch.diag(a).mean() * torch.eye(D, device=DEV, dtype=torch.float64)
-        return ('linear', torch.linalg.solve(a + reg, B / n['v']).float())
+        W = torch.linalg.solve(a + reg, B / n['v']).float()
+        r = RANKSTATE.get('r', D)
+        if r < D:
+            U, S, Vh = torch.linalg.svd(W.double(), full_matrices=False)
+            W = ((U[:, :r] * S[:r]) @ Vh[:r]).float()
+        return ('linear', W)
     s = torch.zeros(50257, D, device=DEV)
     c = torch.zeros(50257, device=DEV)
 
@@ -254,6 +259,10 @@ def main():
         del prog
         torch.cuda.empty_cache()
 
+    vals = [curve[r]['ceiling'] for r in RANKS]
+    assert len(set(vals)) > 1, (
+        'every rank returned an identical ceiling -- the truncation is a no-op. '
+        f'{vals}')
     full = curve[D]['ceiling']
     mono = all(curve[RANKS[i + 1]]['ceiling'] >= curve[RANKS[i]]['ceiling'] - 0.005
                for i in range(len(RANKS) - 1))

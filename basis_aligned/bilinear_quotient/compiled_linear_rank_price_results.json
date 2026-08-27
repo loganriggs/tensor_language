@@ -1,0 +1,78 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ranks": [
+   8,
+   32,
+   128,
+   512,
+   1152
+  ],
+  "ridge": 0.001,
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "coverage": "mask pinned to n96_skip80 (\u00a71676)",
+  "compilation": "bottom-up (\u00a71669); W REFITTED at each rank, not truncated after",
+  "price": "a rank-r map costs r*2*1152 reals per site; full rank costs 1152^2",
+  "repeats_under_fix": "\u00a71668 measured this family NAIVELY and got a non-monotone curve; monotonicity here is the check that compilation fixed it",
+  "s1676_full_rank_480": 0.6081,
+  "s1668_naive_nonmonotone": [
+   0.301,
+   -0.09,
+   0.098,
+   0.123,
+   0.526,
+   0.687
+  ]
+ },
+ "stake": 4.33011,
+ "curve": {
+  "8": {
+   "ceiling": 0.60814,
+   "reals": 331776
+  },
+  "32": {
+   "ceiling": 0.60814,
+   "reals": 1327104
+  },
+  "128": {
+   "ceiling": 0.60814,
+   "reals": 5308416
+  },
+  "512": {
+   "ceiling": 0.60814,
+   "reals": 21233664
+  },
+  "1152": {
+   "ceiling": 0.60814,
+   "reals": 23887872
+  }
+ },
+ "monotone": true,
+ "rank128_frac_of_full": 1.0,
+ "predictions": {
+  "pred_a_monotone_after_compilation": true,
+  "pred_b_rank128_ge_90pct_of_full": true,
+  "pred_c_identity_reproduces_s1676": true
+ },
+ "runtime_s": 300.2
+}
