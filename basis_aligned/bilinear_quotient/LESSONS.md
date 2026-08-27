@@ -290,6 +290,21 @@ with the largest output norm, whether or not the subspace means anything.
   random-subspace control at matched rank, and only the floor-corrected set is
   named. Report both the raw and the corrected overlap; the difference between
   them is often the whole result.
+- **EXTENSION (§1612): report the random SHARE too, not just the random top-k —
+  and match the published statistic exactly.** The null share is CELL-DEPENDENT:
+  .4489 at question@mlp11 (rank-2, TOP=4) but .7295 at pronouns@mlp17 (rank-8,
+  TOP=6). A certified slice sat ABOVE its null at the first cell (.5563) and FAR
+  BELOW at the second (.5846), so a bare share cannot be read as evidence of
+  either concentration or diffuseness. The informative quantity is always
+  **share minus null**.
+- **And the currency must match.** §1609-§1611 measured POSITIVE-ONLY signed
+  share while the published figures use ABSOLUTE attribution mass
+  (`slice_writers.py:216`, `slice_writers_p.py:205`). That mismatch did not just
+  weaken a conclusion, it INVERTED one: §1610 reported attn10 as
+  indistinguishable from floor, and under the published currency attn10 is absent
+  from the random top-4 in 3/3 and is rule-specific. **Read the source of any
+  published number before testing it; a control in the wrong currency can impugn
+  a result that was fine.**
 
 ## 16. Validate serialisation BEFORE the expensive compute, not after (§1608 era)
 `json.dump` runs last, so a non-serialisable value in the results dict destroys
