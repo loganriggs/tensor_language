@@ -314,6 +314,29 @@ def validate_coverage(coverage: Mapping[str, object]) -> None:
         raise ValueError("coverage must contain finite proportions")
 
 
+def coverage_from_common_ledger(
+    ledgers: Mapping[str, Mapping[str, Mapping[str, object]]],
+    identity: Mapping[str, object],
+) -> dict[str, float]:
+    """Recompute valid-token coverage from the shared sufficient-statistic support."""
+    mapping = np.asarray(identity["row_to_unit"], dtype=np.int64)
+    occupancy = np.bincount(mapping, minlength=384)
+    exemplar = np.asarray(
+        ledgers[CONTRASTS[0]][next(iter(MARGINS))]["counts"], dtype=np.float64
+    )
+    output = {}
+    for name, units in (
+        ("wave_A", np.arange(192)),
+        ("wave_B", np.arange(192, 384)),
+        ("pooled", np.arange(384)),
+    ):
+        denominator = float(occupancy[units].sum() * 256)
+        if denominator <= 0:
+            raise ValueError("source-document occupancy has an empty coverage scope")
+        output[name] = float(exemplar[units].sum() / denominator)
+    return output
+
+
 def validate_integrity(authority: Mapping[str, object], integrity: Mapping[str, object]) -> bool:
     if authority.get("status") != "frozen_before_any_c512_mlp2_compensation_evaluation_forward":
         return False
@@ -336,8 +359,9 @@ def validate_integrity(authority: Mapping[str, object], integrity: Mapping[str, 
     expected_phases = contract.get("exact_phase_site_call_counts", {})
     actual_phases = integrity.get("phase_site_call_counts", {})
     required_phases = {
-        "mlp1_teacher_capture", "mlp2_teacher_capture", "crossed_suffix_replay",
-        "parent_suffix_replay", "crossed_forbidden_teacher",
+        "mlp1_teacher_capture", "mlp2_teacher_capture", "parent_replay_mlp_sites",
+        "crossed_suffix_replay",
+        "crossed_forbidden_teacher",
     }
     if (set(expected_phases) != required_phases or actual_phases != expected_phases):
         return False
@@ -345,26 +369,44 @@ def validate_integrity(authority: Mapping[str, object], integrity: Mapping[str, 
             or any(type(value) is not int or value < 0
                    for values in actual_phases.values() for value in values.values())):
         return False
-    if (set(expected_phases["mlp1_teacher_capture"]) != {"1"}
+    n_eval_windows = contract.get("n_eval_windows")
+    if type(n_eval_windows) is not int or n_eval_windows <= 0:
+        return False
+    batches = (n_eval_windows + 3) // 4
+    algebraic_phases = {
+        "mlp1_teacher_capture": {"1": 4 * batches},
+        "mlp2_teacher_capture": {"2": 4 * batches},
+        "parent_replay_mlp_sites": {
+            **{str(i): 4 * batches for i in range(18)},
+            "2": 2 * batches,
+        },
+        "crossed_suffix_replay": {str(i): 8 * batches for i in range(3, 18)},
+        "crossed_forbidden_teacher": {"1": 0, "2": 0},
+    }
+    if (expected_counts["c512_proxy_calls"] != 4 * batches
+            or expected_phases != algebraic_phases
+            or set(expected_phases["mlp1_teacher_capture"]) != {"1"}
             or set(expected_phases["mlp2_teacher_capture"]) != {"2"}
             or set(expected_phases["crossed_suffix_replay"]) != {str(i) for i in range(3, 18)}
-            or set(expected_phases["parent_suffix_replay"]) != {str(i) for i in range(3, 18)}
+            or set(expected_phases["parent_replay_mlp_sites"]) != {str(i) for i in range(18)}
             or set(expected_phases["crossed_forbidden_teacher"]) != {"1", "2"}
             or any(type(value) is not int or value <= 0
                    for phase in ("mlp1_teacher_capture", "mlp2_teacher_capture",
-                                 "crossed_suffix_replay", "parent_suffix_replay")
+                                 "crossed_suffix_replay",
+                                 "parent_replay_mlp_sites")
                    for value in expected_phases[phase].values())
             or any(type(value) is not int or value != 0
                    for value in expected_phases["crossed_forbidden_teacher"].values())
             or any(type(value) is not int or value != 0
                    for value in actual_phases["crossed_forbidden_teacher"].values())
             or len(set(expected_phases["crossed_suffix_replay"].values())) != 1
-            or len(set(expected_phases["parent_suffix_replay"].values())) != 1):
+            or len(set(expected_phases["parent_replay_mlp_sites"][str(i)]
+                       for i in range(3, 18))) != 1):
         return False
     hash_keys = {
         "source_closure_sha256", "row_receipt_sha256", "row_tensor_sha256",
         "c512_program_sha256", "model_checkpoint_sha256", "model_config_sha256",
-        "inherited_currency_sha256", "control_realization_sha256",
+        "inherited_currency_sha256", "control_contract_sha256",
     }
     bound_hashes = contract.get("bound_hashes", {})
     observed_hashes = integrity.get("observed_hashes", {})
@@ -409,10 +451,15 @@ def validate_integrity(authority: Mapping[str, object], integrity: Mapping[str, 
         return False
     norm_tolerance = contract.get("native_control_norm_tolerance")
     if (set(controls) != {
+            "derangement_bijection", "donor_arrays_indexed_by_permutation",
             "derangement_no_same_document", "derangement_wave_cell_preserving",
-            "native_control_norm_max_abs", "passes",
-        } or controls.get("derangement_no_same_document") is not True
+            "control_realization_sha256", "native_control_norm_max_abs", "passes",
+        } or controls.get("derangement_bijection") is not True
+            or controls.get("donor_arrays_indexed_by_permutation") is not True
+            or controls.get("derangement_no_same_document") is not True
             or controls.get("derangement_wave_cell_preserving") is not True
+            or not isinstance(controls.get("control_realization_sha256"), str)
+            or len(controls["control_realization_sha256"]) != 64
             or controls.get("passes") is not True
             or not isinstance(norm_tolerance, (int, float))
             or not np.isfinite(norm_tolerance) or norm_tolerance < 0
@@ -420,6 +467,16 @@ def validate_integrity(authority: Mapping[str, object], integrity: Mapping[str, 
             or not np.isfinite(controls["native_control_norm_max_abs"])
             or controls["native_control_norm_max_abs"] < 0
             or controls["native_control_norm_max_abs"] > norm_tolerance):
+        return False
+    expected_currency = contract.get("inherited_centered_capped_logit_rms")
+    currency = integrity.get("scoring_currency", {})
+    if (not isinstance(expected_currency, (int, float))
+            or not np.isfinite(expected_currency) or expected_currency <= 0
+            or set(currency) != {"centered_capped_logit_rms", "matches_authority"}
+            or currency.get("matches_authority") is not True
+            or not isinstance(currency.get("centered_capped_logit_rms"), (int, float))
+            or not np.isfinite(currency["centered_capped_logit_rms"])
+            or currency["centered_capped_logit_rms"] != expected_currency):
         return False
     return True
 
@@ -457,6 +514,11 @@ def score_result(
     contract = authority.get("integrity_contract", {})
     validate_unit_identity(payload["unit_identity"], contract.get("unit_identity_hashes", {}))
     validate_coverage(payload["coverage"])
+    ledger_coverage = coverage_from_common_ledger(ledgers, payload["unit_identity"])
+    coverage_matches = all(
+        np.isclose(payload["coverage"][scope], ledger_coverage[scope], rtol=0, atol=1e-12)
+        for scope in SCOPES
+    )
     integrity_passes = validate_integrity(authority, payload["integrity"])
     scopes = {
         "wave_A": score_scope(ledgers, np.arange(192), minimum_support=MIN_DOCUMENTS_PER_CELL,
@@ -470,6 +532,10 @@ def score_result(
     common_gates = {
         "authoritative_inference": authoritative,
         "integrity": integrity_passes,
+        "evaluation_windows_match_unit_identity": (
+            contract.get("n_eval_windows") == len(payload["unit_identity"]["row_to_unit"])
+        ),
+        "reported_coverage_matches_common_ledger": coverage_matches,
         "coverage_each_wave_ge_90pct": (
             payload["coverage"]["wave_A"] >= .9 and payload["coverage"]["wave_B"] >= .9
         ),
@@ -522,6 +588,7 @@ def score_result(
         "margins": MARGINS,
         "minimum_documents_per_cell": MIN_DOCUMENTS_PER_CELL,
         "scopes": scopes,
+        "coverage_recomputed_from_common_ledger": ledger_coverage,
         "common_gates": common_gates,
         "authoritative_inference": authoritative,
         "integrity_passes": integrity_passes,

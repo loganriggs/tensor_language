@@ -10,7 +10,8 @@ def synthetic_ledgers(n_units=384, effects=None):
         output[contrast] = {}
         value = effects.get(contrast, .2)
         for metric, margin in score.MARGINS.items():
-            counts = np.ones((n_units, 16), dtype=np.int64)
+            # Synthetic identity has two 256-token windows per unit.
+            counts = np.full((n_units, 16), 32, dtype=np.int64)
             output[contrast][metric] = {
                 "sums": (counts * margin * value).tolist(),
                 "counts": counts.tolist(),
@@ -36,16 +37,20 @@ def authority_binding(identity):
         "status": "frozen_before_any_c512_mlp2_compensation_evaluation_forward",
         "inference_contract": score.frozen_inference_contract(),
         "integrity_contract": {
+            "n_eval_windows": 768,
             "exact_call_counts": {
                 "candidate_original_down_calls": 0,
                 "poison_canary_calls": 1,
-                "c512_proxy_calls": 100,
+                "c512_proxy_calls": 768,
             },
             "exact_phase_site_call_counts": {
-                "mlp1_teacher_capture": {"1": 200},
-                "mlp2_teacher_capture": {"2": 100},
-                "crossed_suffix_replay": {str(i): 400 for i in range(3, 18)},
-                "parent_suffix_replay": {str(i): 200 for i in range(3, 18)},
+                "mlp1_teacher_capture": {"1": 768},
+                "mlp2_teacher_capture": {"2": 768},
+                "crossed_suffix_replay": {str(i): 1536 for i in range(3, 18)},
+                "parent_replay_mlp_sites": {
+                    **{str(i): 768 for i in range(18)},
+                    "2": 384,
+                },
                 "crossed_forbidden_teacher": {"1": 0, "2": 0},
             },
             "bound_hashes": {
@@ -56,7 +61,7 @@ def authority_binding(identity):
                 "model_checkpoint_sha256": "e" * 64,
                 "model_config_sha256": "f" * 64,
                 "inherited_currency_sha256": "1" * 64,
-                "control_realization_sha256": "2" * 64,
+                "control_contract_sha256": "2" * 64,
             },
             "parent_replay_tolerances": {
                 "raw_logits_max_abs": 1e-6,
@@ -66,6 +71,7 @@ def authority_binding(identity):
             "same_realization_delta_tolerance": 1e-6,
             "carried_state_identity_tolerance": 1e-6,
             "native_control_norm_tolerance": 1e-6,
+            "inherited_centered_capped_logit_rms": 2.5,
             "unit_identity_hashes": {
                 "ordered_ids_sha256": score.ordered_ids_sha256(identity["ordered_ids"]),
                 "row_to_unit_sha256": score.integer_array_sha256(mapping),
@@ -99,10 +105,19 @@ def passing_integrity(authority):
         "same_realization_delta": {"max_abs": 0.0, "passes": True},
         "carried_state_identity": {"x0_max_abs": 0.0, "v1_max_abs": 0.0, "passes": True},
         "control_checks": {
+            "derangement_bijection": True,
+            "donor_arrays_indexed_by_permutation": True,
             "derangement_no_same_document": True,
             "derangement_wave_cell_preserving": True,
+            "control_realization_sha256": "3" * 64,
             "native_control_norm_max_abs": 0.0,
             "passes": True,
+        },
+        "scoring_currency": {
+            "centered_capped_logit_rms": contract[
+                "inherited_centered_capped_logit_rms"
+            ],
+            "matches_authority": True,
         },
     }
 
@@ -287,6 +302,60 @@ def test_nonuniform_suffix_site_counts_fail_closed():
         "crossed_suffix_replay"
     ]["17"] += 1
     candidate["integrity"]["phase_site_call_counts"]["crossed_suffix_replay"]["17"] += 1
+    assert not score.validate_integrity(candidate["authority"], candidate["integrity"])
+
+
+def test_self_consistent_but_algebraically_wrong_call_counts_fail_closed():
+    candidate = payload({})
+    phases = candidate["authority"]["integrity_contract"][
+        "exact_phase_site_call_counts"
+    ]
+    phases["mlp1_teacher_capture"]["1"] += 4
+    candidate["integrity"]["phase_site_call_counts"]["mlp1_teacher_capture"]["1"] += 4
+    assert not score.validate_integrity(candidate["authority"], candidate["integrity"])
+
+
+def test_batch_count_is_bound_to_evaluation_window_identity(monkeypatch):
+    monkeypatch.setattr(score, "MIN_DOCUMENTS_PER_CELL", 1)
+    candidate = payload({})
+    candidate["authority"]["integrity_contract"]["n_eval_windows"] = 100
+    # Make all forward counts self-consistent with the false 100-window claim.
+    fake = {
+        "mlp1_teacher_capture": {"1": 100},
+        "mlp2_teacher_capture": {"2": 100},
+        "parent_replay_mlp_sites": {
+            **{str(i): 100 for i in range(18)}, "2": 50,
+        },
+        "crossed_suffix_replay": {str(i): 200 for i in range(3, 18)},
+        "crossed_forbidden_teacher": {"1": 0, "2": 0},
+    }
+    candidate["authority"]["integrity_contract"]["exact_call_counts"][
+        "c512_proxy_calls"
+    ] = 100
+    candidate["integrity"]["call_counts"]["c512_proxy_calls"] = 100
+    candidate["authority"]["integrity_contract"]["exact_phase_site_call_counts"] = fake
+    candidate["integrity"]["phase_site_call_counts"] = {
+        phase: dict(values) for phase, values in fake.items()
+    }
+    result = score.score_result(
+        candidate, n_bootstrap=20, seed=8, authoritative=False
+    )
+    assert not result["common_gates"]["evaluation_windows_match_unit_identity"]
+
+
+def test_reported_coverage_must_equal_common_ledger_support(monkeypatch):
+    monkeypatch.setattr(score, "MIN_DOCUMENTS_PER_CELL", 1)
+    candidate = payload({})
+    candidate["coverage"]["wave_A"] = .99
+    result = score.score_result(
+        candidate, n_bootstrap=20, seed=8, authoritative=False
+    )
+    assert not result["common_gates"]["reported_coverage_matches_common_ledger"]
+
+
+def test_scoring_currency_must_equal_inherited_numeric():
+    candidate = payload({})
+    candidate["integrity"]["scoring_currency"]["centered_capped_logit_rms"] = 2.6
     assert not score.validate_integrity(candidate["authority"], candidate["integrity"])
 
 
