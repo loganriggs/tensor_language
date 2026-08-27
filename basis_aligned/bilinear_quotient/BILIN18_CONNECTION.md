@@ -37765,3 +37765,64 @@ the science was on the right class; only the label was stale. Fixed.
 **Queued:** both cells rerun with `.abs().sum()` ranking matching §1597/§1598
 exactly, so that the .718 and .482 statistics are finally tested rather than
 approximated.
+
+## §1612 THE SHARE STATISTIC IS NOT UNINFORMATIVE — ITS SIGN IS CELL-DEPENDENT (0-for-3): question@mlp11 concentrates MORE than its null (.556 vs .449), pronouns@mlp17 concentrates FAR LESS (.585 vs .730) — and §1598's "DIFFUSE" verdict is stronger than it claimed
+
+**Setup** (writer_floor_absmass, 49 s). The test §1609-§1611 should have been: the
+**absolute attribution mass** statistic that §1597 (slice_writers.py:216) and
+§1598 (slice_writers_p.py:205) actually use — `delta_c = |coef_c *
+(class_mean - global_mean)|` summed over slice directions, share = top-K delta /
+total delta. Both published cells, each vs a matched-RANK random orthonormal arm
+on identical rows. Local `curated_rows.pt`, 3 chunks x 333 rows, recon rel err
+0.0-3.0e-07.
+
+```
+question@mlp11  rank-2 TOP=4      (S1597 published .718)
+  lambda  .5408  .5686  .5596   mean .5563
+  random  .4327  .4513  .4627   mean .4489      gaps .108 .117 .097
+  lambda top: mlp17 mlp11 attn10 mlp9   random top: mlp17 mlp10 mlp11 mlp16
+  lambda-top ABSENT from random: 2, 2, 2  ->  attn10 and mlp9 are rule-specific
+
+pronouns@mlp17  rank-8 TOP=6      (S1598 published .482, called DIFFUSE)
+  lambda  .5939  .5699  .5899   mean .5846
+  random  .7443  .7246  .7196   mean .7295      gaps .150 .155 .130
+  lambda top: mlp17 mlp16 x0 mlp9 mlp15 (attn9|mlp11)
+  random top: mlp17 mlp16 mlp13 mlp12 (mlp11|attn17) ...
+  lambda-top ABSENT from random: 3, 3, 3
+```
+
+**Scored as written — 0-for-3.** pred_a and pred_b both predicted the share
+statistic would NOT discriminate (|gap| ≤ .10). It discriminates at both cells
+(question gaps .108/.117/.097 — 1 of 3 inside the bar; pronouns .150/.155/.130 —
+0 of 3). pred_c predicted ≥3 of the question |λ| top-4 absent from random; it is
+**2, 2, 2**.
+
+**THE SIGN FLIPS BETWEEN CELLS, and that is the finding.**
+- **question@mlp11: the certified slice concentrates MORE than its null**
+  (.5563 vs .4489). §1597's concentration claim has real content — but the
+  informative quantity is **share minus null**, and the null here is ~.45, not 0.
+- **pronouns@mlp17: the certified slice concentrates FAR LESS than its null**
+  (.5846 vs .7295, every sample).
+
+So a share is neither self-evidently meaningful nor self-evidently null. Read
+against the wrong reference it can be inverted in either direction.
+
+**§1598's "WRITERS DIFFUSE" verdict is STRONGER than §1598 claimed.** §1598 scored
+its share against an arbitrary registered bar of .55 and called .482 a failure of
+sparsity. The actual matched-rank null at that cell is **.7295**. Measured against
+the null rather than the bar, the pronoun slice is not merely "not sparse" — it is
+**dramatically less concentrated than a meaningless basis**, which is a positive
+structural claim about distributed writing, not a negative result.
+
+**CORRECTION TO §1610's attn10 CLAIM.** §1610 reported attn10 in the RANDOM top-4
+in 3/3 samples and concluded it was "not distinguishable from floor". That was the
+positive-only statistic. Under the **correct absolute-mass statistic attn10 is
+ABSENT from the random top-4 in 3/3 samples** and is rule-specific, together with
+mlp9. §1597's headline head survives the control. §1610's attn10 sentence is
+withdrawn; the floor at this cell is **mlp17 and mlp11**, which appear in both arms.
+
+**Standing rule, now in its final form:** never report a top-K share without the
+matched-rank random share beside it, because the null is cell-dependent (.45 at
+question@mlp11 rank-2, .73 at pronouns@mlp17 rank-8) and a share can be above or
+below it. LESSONS 15 said report the random top-k; it must also say report the
+random SHARE.

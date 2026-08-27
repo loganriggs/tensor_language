@@ -1,0 +1,265 @@
+{
+ "config": {
+  "cells": {
+   "question@mlp11": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": 0.718,
+    "published_top": [
+     "attn10",
+     "attn9",
+     "mlp9",
+     "mlp10"
+    ]
+   },
+   "pronouns@mlp17": {
+    "site": 17,
+    "rank": 8,
+    "top": 6,
+    "published": 0.482,
+    "published_top": [
+     "mlp16",
+     "x0",
+     "mlp15",
+     "mlp9",
+     "mlp14",
+     "attn9"
+    ]
+   }
+  },
+  "chunks": 3,
+  "rows_per_chunk": 333,
+  "row_source": "curated_rows.pt",
+  "rows_are_fresh": false,
+  "statistic": "ABSOLUTE attribution mass, matching slice_writers.py:216"
+ },
+ "cells": {
+  "question@mlp11": {
+   "published": 0.718,
+   "published_top": [
+    "attn10",
+    "attn9",
+    "mlp9",
+    "mlp10"
+   ],
+   "rank": 2,
+   "top": 4,
+   "arms": {
+    "lambda": [
+     {
+      "chunk": 0,
+      "class_n": 105,
+      "share": 0.5408,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "attn10",
+       "mlp9"
+      ],
+      "recon": 7.771190979610765e-08
+     },
+     {
+      "chunk": 1,
+      "class_n": 127,
+      "share": 0.5686,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "attn10",
+       "attn9"
+      ],
+      "recon": 1.511246807694988e-07
+     },
+     {
+      "chunk": 2,
+      "class_n": 102,
+      "share": 0.5596,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "attn10",
+       "mlp9"
+      ],
+      "recon": 0.0
+     }
+    ],
+    "random": [
+     {
+      "chunk": 0,
+      "class_n": 105,
+      "share": 0.4327,
+      "top": [
+       "mlp17",
+       "mlp10",
+       "mlp11",
+       "mlp16"
+      ],
+      "recon": 1.6448599637897132e-07
+     },
+     {
+      "chunk": 1,
+      "class_n": 127,
+      "share": 0.4513,
+      "top": [
+       "mlp17",
+       "mlp10",
+       "mlp16",
+       "mlp11"
+      ],
+      "recon": 2.1428337504403316e-07
+     },
+     {
+      "chunk": 2,
+      "class_n": 102,
+      "share": 0.4627,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp10",
+       "mlp11"
+      ],
+      "recon": 2.2419362721848302e-07
+     }
+    ]
+   },
+   "gaps": [
+    0.1081,
+    0.1173,
+    0.0969
+   ],
+   "mean_share": {
+    "lambda": 0.5563,
+    "random": 0.4489
+   },
+   "absent_from_random": [
+    2,
+    2,
+    2
+   ]
+  },
+  "pronouns@mlp17": {
+   "published": 0.482,
+   "published_top": [
+    "mlp16",
+    "x0",
+    "mlp15",
+    "mlp9",
+    "mlp14",
+    "attn9"
+   ],
+   "rank": 8,
+   "top": 6,
+   "arms": {
+    "lambda": [
+     {
+      "chunk": 0,
+      "class_n": 434,
+      "share": 0.5939,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp9",
+       "mlp15",
+       "attn9"
+      ],
+      "recon": 2.9327443940019293e-07
+     },
+     {
+      "chunk": 1,
+      "class_n": 408,
+      "share": 0.5699,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp9",
+       "mlp15",
+       "mlp11"
+      ],
+      "recon": 1.94313997781137e-07
+     },
+     {
+      "chunk": 2,
+      "class_n": 399,
+      "share": 0.5899,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp9",
+       "mlp15",
+       "mlp11"
+      ],
+      "recon": 2.951487090285809e-07
+     }
+    ],
+    "random": [
+     {
+      "chunk": 0,
+      "class_n": 434,
+      "share": 0.7443,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp12",
+       "mlp11",
+       "mlp9"
+      ],
+      "recon": 1.9865564127030666e-07
+     },
+     {
+      "chunk": 1,
+      "class_n": 408,
+      "share": 0.7246,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp12",
+       "attn17",
+       "mlp11"
+      ],
+      "recon": 1.6660651169786433e-07
+     },
+     {
+      "chunk": 2,
+      "class_n": 399,
+      "share": 0.7196,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp12",
+       "attn17",
+       "mlp11"
+      ],
+      "recon": 1.525868782437101e-07
+     }
+    ]
+   },
+   "gaps": [
+    0.1504,
+    0.1547,
+    0.1297
+   ],
+   "mean_share": {
+    "lambda": 0.5846,
+    "random": 0.7295
+   },
+   "absent_from_random": [
+    3,
+    3,
+    3
+   ]
+  }
+ },
+ "predictions": {
+  "pred_a_question_share_gap_le10_2of3": false,
+  "pred_b_pronouns_share_gap_le10_2of3": false,
+  "pred_c_question_membership_ge3_absent_3of3": false
+ },
+ "runtime_s": 49.0
+}

@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+LOCAL curated_rows.pt: 3 chunks x 333 rows (census rows, NOT fresh)
+
+=== question@mlp11 rank-2 TOP=4 (published share 0.718) ===
+  lambda  chunk0 n= 105 share=0.5408 top=['mlp17', 'mlp11', 'attn10', 'mlp9'] recon=7.8e-08
+  lambda  chunk1 n= 127 share=0.5686 top=['mlp17', 'mlp11', 'attn10', 'attn9'] recon=1.5e-07
+  lambda  chunk2 n= 102 share=0.5596 top=['mlp17', 'mlp11', 'attn10', 'mlp9'] recon=0.0e+00
+  random  chunk0 n= 105 share=0.4327 top=['mlp17', 'mlp10', 'mlp11', 'mlp16'] recon=1.6e-07
+  random  chunk1 n= 127 share=0.4513 top=['mlp17', 'mlp10', 'mlp16', 'mlp11'] recon=2.1e-07
+  random  chunk2 n= 102 share=0.4627 top=['mlp17', 'mlp16', 'mlp10', 'mlp11'] recon=2.2e-07
+  -> mean share lambda 0.5563 vs random 0.4489 | gaps [0.1081, 0.1173, 0.0969] | lambda-top absent from random [2, 2, 2]
+
+=== pronouns@mlp17 rank-8 TOP=6 (published share 0.482) ===
+  lambda  chunk0 n= 434 share=0.5939 top=['mlp17', 'mlp16', 'x0', 'mlp9', 'mlp15', 'attn9'] recon=2.9e-07
+  lambda  chunk1 n= 408 share=0.5699 top=['mlp17', 'mlp16', 'x0', 'mlp9', 'mlp15', 'mlp11'] recon=1.9e-07
+  lambda  chunk2 n= 399 share=0.5899 top=['mlp17', 'mlp16', 'x0', 'mlp9', 'mlp15', 'mlp11'] recon=3.0e-07
+  random  chunk0 n= 434 share=0.7443 top=['mlp17', 'mlp16', 'mlp13', 'mlp12', 'mlp11', 'mlp9'] recon=2.0e-07
+  random  chunk1 n= 408 share=0.7246 top=['mlp17', 'mlp16', 'mlp13', 'mlp12', 'attn17', 'mlp11'] recon=1.7e-07
+  random  chunk2 n= 399 share=0.7196 top=['mlp17', 'mlp16', 'mlp13', 'mlp12', 'attn17', 'mlp11'] recon=1.5e-07
+  -> mean share lambda 0.5846 vs random 0.7295 | gaps [0.1504, 0.1547, 0.1297] | lambda-top absent from random [3, 3, 3]
+
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/writer_floor_absmass_results.json (49.0s)
