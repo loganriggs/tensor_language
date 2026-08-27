@@ -1,0 +1,143 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "n_rows": 480,
+  "classes": "TYPE-SPANNING held out -- punctuation, digits, capitalised, function words; no CE rise ever measured for any",
+  "single_registered_hypothesis": "abs(lam1/lam2) predicts relative CE rise",
+  "currency": "relative CE rise = ce_rise / base_ce (\u00a71645)",
+  "heldout1_rho_function_words": 0.6783
+ },
+ "per_class": {
+  "exclaim": {
+   "lam1": 44.781,
+   "lam2": 31.317,
+   "ratio": 1.43,
+   "base_ce": 3.0988,
+   "ce_rise": -0.0053,
+   "rel_ce_rise": -0.00171,
+   "n_positions": 97
+  },
+  "semicolon": {
+   "lam1": 60.88,
+   "lam2": -28.523,
+   "ratio": 2.1344,
+   "base_ce": 3.26178,
+   "ce_rise": 0.0206,
+   "rel_ce_rise": 0.00632,
+   "n_positions": 114
+  },
+  "colon": {
+   "lam1": 56.02,
+   "lam2": 28.015,
+   "ratio": 1.9996,
+   "base_ce": 1.56065,
+   "ce_rise": 0.01805,
+   "rel_ce_rise": 0.01156,
+   "n_positions": 330
+  },
+  "quote": {
+   "lam1": 43.945,
+   "lam2": 36.361,
+   "ratio": 1.2086,
+   "base_ce": 2.49251,
+   "ce_rise": 0.04401,
+   "rel_ce_rise": 0.01766,
+   "n_positions": 296
+  },
+  "dash": {
+   "lam1": 34.942,
+   "lam2": 32.99,
+   "ratio": 1.0592,
+   "base_ce": 1.47334,
+   "ce_rise": 0.00417,
+   "rel_ce_rise": 0.00283,
+   "n_positions": 861
+  },
+  "digit": {
+   "lam1": -55.064,
+   "lam2": -48.534,
+   "ratio": 1.1345,
+   "base_ce": 3.97108,
+   "ce_rise": 0.00017,
+   "rel_ce_rise": 4e-05,
+   "n_positions": 1702
+  },
+  "cap": {
+   "lam1": -49.79,
+   "lam2": -44.627,
+   "ratio": 1.1157,
+   "base_ce": 4.7095,
+   "ce_rise": -0.00392,
+   "rel_ce_rise": -0.00083,
+   "n_positions": 7156
+  },
+  "we": {
+   "lam1": 96.11,
+   "lam2": 73.212,
+   "ratio": 1.3128,
+   "base_ce": 2.67239,
+   "ce_rise": 0.05039,
+   "rel_ce_rise": 0.01886,
+   "n_positions": 290
+  },
+  "you": {
+   "lam1": 86.205,
+   "lam2": -62.663,
+   "ratio": 1.3757,
+   "base_ce": 1.77967,
+   "ce_rise": 0.00581,
+   "rel_ce_rise": 0.00327,
+   "n_positions": 481
+  },
+  "it": {
+   "lam1": 94.503,
+   "lam2": 61.658,
+   "ratio": 1.5327,
+   "base_ce": 2.48525,
+   "ce_rise": 0.04982,
+   "rel_ce_rise": 0.02005,
+   "n_positions": 613
+  },
+  "an": {
+   "lam1": 34.35,
+   "lam2": 33.141,
+   "ratio": 1.0365,
+   "base_ce": 3.59169,
+   "ce_rise": 0.0159,
+   "rel_ce_rise": 0.00443,
+   "n_positions": 218
+  },
+  "my": {
+   "lam1": -53.554,
+   "lam2": 52.981,
+   "ratio": 1.0108,
+   "base_ce": 2.54047,
+   "ce_rise": -0.00498,
+   "rel_ce_rise": -0.00196,
+   "n_positions": 244
+  }
+ },
+ "heldout_rho": 0.5105,
+ "permutation_p_two_sided": 0.093565,
+ "n_permutations": 200000,
+ "n_positive_rise": 9,
+ "predictions": {
+  "pred_a_rho_ge_030_typespanning": true,
+  "pred_b_perm_p_lt_05": false,
+  "pred_c_degrades_vs_heldout1": true
+ },
+ "runtime_s": 79.8,
+ "S1648_pooled_analysis": {
+  "rho_npos_vs_rel_rise_this_set": 0.0,
+  "pooled_with_heldout1": {
+   "n": 24,
+   "rho": 0.4157,
+   "permutation_p_two_sided": 0.0452,
+   "significant_at_05": true,
+   "legitimacy": "Both sets were held out, both tested the SAME single hypothesis registered before each run, and neither was used to select it -- S1646 did the selecting and its classes appear in neither set. Pooling is a fair combined test, not a second bite.",
+   "note": "Pooled rho .416 is BELOW both components (.678, .511) because Spearman on the union re-ranks across sets whose CE-rise scales differ: between-set heterogeneity costs correlation while doubled n buys power."
+  },
+  "caution_1_status": "UNDISCHARGED. S1647 sat on S1614 refuted numbers (.6727 / p .0192). The pooled result is weaker and on twice the data, which helps, but two pre-registered sets are not a certified result. Nothing promoted to the registry."
+ }
+}

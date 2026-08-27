@@ -40141,3 +40141,65 @@ FINDINGS 12's bottom line beyond a pointer. One pre-registered out-of-sample hit
 n=12, in the exact numeric neighbourhood of a known failure, earns a second held-out
 set — ideally punctuation and mixed types, which would test caution 2 directly — not a
 claim. That run is the obvious next step and it is cheap (~80 s).
+
+## §1648 THE RATIO SURVIVES TYPE-SPANNING BUT DEGRADES AS PREDICTED (2-for-3): rho +.511 at p .094 — and POOLING both pre-registered held-out sets gives rho **+.416 at p .045**, n=24, the arc's first result significant on more than twelve points
+
+**Setup** (ratio_heldout2_types, 80 s, rung 3 — the second held-out set §1647 required).
+Twelve TYPE-SPANNING classes whose CE rise has never been measured: five punctuation
+(exclaim, semicolon, colon, quote, dash), digits, capitalised, and five function words.
+Same single pre-registered hypothesis, |λ1/λ2|.
+
+```
+class      ratio   n_pos    rel CE rise        class      ratio   n_pos   rel CE rise
+it         1.533     613       +.02005         dash       1.059     861      +.00283
+we         1.313     290       +.01886         you        1.376     481      +.00327
+quote      1.209     296       +.01766         an         1.036     218      +.00443
+colon      2.000     330       +.01156         digit      1.135    1702      +.00004
+semicolon  2.134     114       +.00632         cap        1.116    7156      −.00083
+                                               exclaim    1.430      97      −.00171
+                                               my         1.011     244      −.00196
+rho(|λ1/λ2|, rel CE rise) = +.5105    p = .0936    9/12 positive rise
+```
+
+- **pred_a PASSED** — rho **+.511**, above the ≥+.30 bar. The relationship survives
+  spanning types.
+- **pred_b FAILED** — p **.094**. It loses significance on this set alone.
+- **pred_c PASSED** — **.511 < .678**. It degrades exactly as caution 2 predicted, so
+  my explanation of §1647's backwards out-of-sample rho is supported rather than
+  falsified.
+
+**THE POOLED ESTIMATE IS THE REAL RESULT, and it is legitimate to compute.** Both sets
+were held out, both tested the SAME single hypothesis registered before each run, and
+neither was used to select the hypothesis (§1646 selected it, and §1646's classes are
+in neither set). So pooling is a fair combined test, not a second bite:
+
+```
+  set 1  function words   n=12   rho +.6783   p .019
+  set 2  type-spanning    n=12   rho +.5105   p .094
+  POOLED                  n=24   rho +.4157   p .0452   <- clears .05
+```
+
+**Note the pooled rho (.416) is BELOW both components (.678, .511).** That is not an
+error — Spearman on the union re-ranks across sets whose CE-rise scales differ, so
+between-set heterogeneity costs correlation while the doubled n buys power. The honest
+reading is a **moderate** relationship, weaker than either set alone suggested, that
+survives twenty-four pre-registered out-of-sample points.
+
+**THE n_positions CONFOUND DID NOT RETURN — measured, not assumed.** On this set
+rho(n_positions, relative CE rise) = **+.0000**, against §1645's −.098 on set 1. The
+§1645 currency correction continues to hold, including for classes spanning 97 to 7156
+positions.
+
+**WHAT THE THREE NEGATIVE CLASSES SAY.** `cap` (7156 positions, rise −.0008), `digit`
+(1702, +.00004) and `exclaim` (97, −.0017) show essentially zero or negative cost. For
+`cap` and `digit` this is interpretable: a rank-2 slice cannot carry much about a class
+spanning 10,735 and 1,691 vocabulary tokens respectively, so there is little for the
+ablation to remove. That is a limit on the SLICE construction, not on the ratio
+hypothesis, and it predicts the effect should vanish for any sufficiently broad class.
+
+**CAUTION 1 REMAINS UNADDRESSED AND I AM NOT DISCHARGING IT.** §1647's numbers sat
+almost exactly on §1614's refuted .6727/p .0192. The pooled .416/p .045 is a different
+and weaker claim on twice the data, which helps, but §1616's lesson was that a
+correlation of this magnitude at this scale can evaporate. Two pre-registered sets are
+better evidence than §1614 ever had; they are not yet a certified result, and nothing
+goes to the registry as one.

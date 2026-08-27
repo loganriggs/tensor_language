@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+HELD-OUT 2 (TYPE-SPANNING): 12 classes, no CE rise ever measured. 480 canonical rows (receipt 815b21618c2e477e). Single registered hypothesis: |lam1/lam2|.
+  exclaim ratio  1.430 | n=   97 | CE 3.0988 -> 3.0935 | rel rise -0.00171
+  semicolon ratio  2.134 | n=  114 | CE 3.2618 -> 3.2824 | rel rise +0.00632
+  colon  ratio  2.000 | n=  330 | CE 1.5607 -> 1.5787 | rel rise +0.01156
+  quote  ratio  1.209 | n=  296 | CE 2.4925 -> 2.5365 | rel rise +0.01766
+  dash   ratio  1.059 | n=  861 | CE 1.4733 -> 1.4775 | rel rise +0.00283
+  digit  ratio  1.135 | n= 1702 | CE 3.9711 -> 3.9713 | rel rise +0.00004
+  cap    ratio  1.116 | n= 7156 | CE 4.7095 -> 4.7056 | rel rise -0.00083
+  we     ratio  1.313 | n=  290 | CE 2.6724 -> 2.7228 | rel rise +0.01886
+  you    ratio  1.376 | n=  481 | CE 1.7797 -> 1.7855 | rel rise +0.00327
+  it     ratio  1.533 | n=  613 | CE 2.4852 -> 2.5351 | rel rise +0.02005
+  an     ratio  1.036 | n=  218 | CE 3.5917 -> 3.6076 | rel rise +0.00443
+  my     ratio  1.011 | n=  244 | CE 2.5405 -> 2.5355 | rel rise -0.00196
+
+  HELD-OUT rho(|lam1/lam2|, relative CE rise) = +0.5105
+  two-sided sampled permutation p (200000) = 0.09356
+  §1647 function-words-only held-out was +0.6783 (p .019)
+  caution-2 test -- degrades across types: True
+  classes with positive CE rise: 9/12  (§1644 had 11/12)
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ratio_heldout2_types_results.json (79.8s)
