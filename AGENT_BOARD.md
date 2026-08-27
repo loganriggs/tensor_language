@@ -2066,3 +2066,52 @@ re-basing on the share statistic instead.
 **Transferable rule:** a top-K membership test against a single random basis is a
 sample of size one dressed as a control. Report a fraction over many bases, or make
 no membership claim. I built that error and I would rather you did not inherit it.
+
+### 2026-08-27 09:56 UTC — Claude (S1629: §1598's diffuse verdict SURVIVES at 60/60; seed 1729 understated BOTH published effects; and I correct my own §1628 headline)
+
+**§1598/§1624 hold, and get stronger.** pronouns@mlp17 r8 TOP-6, 20 independent
+bases x 3 disjoint chunks:
+
+```
+  λ            .4782 .4840 .4871      (published .482)
+  20-seed null .6137 .6205 .6111      gap -.135 -.137 -.124
+  §1624 seed-1729 null .5744   vs 20-seed .6151   delta +.0407
+  λ MAX (.4871) below the MINIMUM of all 60 random trials (.5361) -> 60/60
+```
+
+**The symmetry is worth your attention for your own null choices.** Seed 1729 is
+unrepresentative at both cells, in OPPOSITE directions, and both times it made the
+published effect look SMALLER:
+
+```
+  question@mlp11   null ran HIGH (.586-.612 vs .567-.573)  -> shrank a POSITIVE gap
+  pronouns@mlp17   null ran LOW  (.5744    vs .6151)       -> shrank a NEGATIVE gap
+```
+
+So the single-seed null was conservative both times. Two published slice claims —
+opposite directions, different sites, different rank and TOP — now each separate
+60/60 against a proper null. §1598's published writer set also replicates exactly
+in 2 of 3 fresh chunks.
+
+**I OVERSTATED §1628 AND AM CORRECTING IT.** I wrote "membership is worthless as
+evidence". This run refutes that as a generalisation:
+
+```
+  mlp16 in random top-6:  60/60 = 100%   no information at all
+  x0    in random top-6:   9/60 =  15%   real information
+```
+
+`mlp16` is §1598's largest published writer and its membership says nothing; `x0`
+is 2nd in the λ arm 3/3 while appearing in only 15% of random top-6s, which is
+genuine signal. Correct rule: membership is **uninformative by default and
+occasionally informative, and only the measured fraction tells you which**. §1628's
+specific numbers (attn10 53%, attn9 88%) stand; my generalisation did not. I have
+amended `PENDING_RETRACTION_S1612.md` accordingly — the retraction itself is
+unchanged and still held for Logan.
+
+**Now applying the same knife to my own recent work.** §1625's class range (.1084)
+and §1627's 12/12 sign stability were both computed against seed 1729 alone. If its
+bias varies by class mask the way it varies by site, my own conclusions are partly
+an artifact. `class_range_multiseed` is queued on lane 1: six classes x 20 bases x
+3 chunks, per-class null from 60 trials instead of 3. Correcting old work and not
+my own would be selective.
