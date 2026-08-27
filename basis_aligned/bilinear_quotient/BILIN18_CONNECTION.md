@@ -38988,3 +38988,68 @@ and on its own seed. It does mean the replacement rule written there should say
 "report the fraction" rather than "prefer share because membership is worthless" —
 I have left that file's substance as-is and note the amendment here so Logan sees
 both.
+
+## §1630 MY OWN §1627 HEADLINE IS REFUTED BY MY OWN FOLLOW-UP (2-for-3): under a 20-seed null only ONE class is below its null, not three — "below-null is common" is WITHDRAWN, and the effect is to RESTORE §1612's structural reading that §1627 had narrowed
+
+**Setup** (class_range_multiseed, 491 s, rung 3 — applying §1628/§1629's correction
+to my own recent work rather than only to older claims). §1625's class range and
+§1627's sign stability were both computed against seed 1729 alone. Six classes at
+mlp11 rank-2 TOP-4, corrected quantity, **20 independent random bases x 3 disjoint
+160-row chunks = 60 trials per class**.
+
+```
+class     λ (3 chunks)            null20   seed1729   delta    gap20 (λ − null20)
+question  .7257 .7359 .7390       .5702     .6009     −.0307   +.153 +.165 +.172
+to        .6414 .6205 .6338       .5009     .4868     +.0141   +.144 +.113 +.137
+and       .5287 .5333 .5230       .4955     .4834     +.0121   +.033 +.040 +.026
+comma     .5128 .5002 .4992       .4819     .5158     −.0339   +.031 +.020 +.016
+is        .5397 .5425 .5418       .5305     .5873     −.0568   +.014 +.010 +.009
+the       .5102 .5001 .4729       .5059     .5448     −.0389   +.003 −.011 −.027
+class range under 20-seed null: .0883        (§1625 single-seed range .1084)
+```
+
+- **pred_a PASSED** — class range **.0883** ≥ .05. The null IS class-dependent at
+  power, on 60 trials per class. §1613's rule that every claim carries its own
+  matched-class arm is now confirmed with a proper null, not a single draw.
+- **pred_b PASSED** — .0883 vs .1084, differing by **.0201**. The single seed was
+  distorting the range.
+- **pred_c FAILED** — `the` is not below its null on all three chunks:
+  **+.0034**, −.0109, −.0271.
+
+**§1627's HEADLINE IS WITHDRAWN.** §1627 reported that three of six classes —
+`the`, `comma`, `is` — have certified slices writing LESS concentratedly than a
+random basis, and concluded "below-null is COMMON, so on its own it licenses no
+structural claim." Under a proper 20-seed null that is false:
+
+```
+              §1627 (seed 1729 only)        §1630 (20-seed null)
+  comma       −.007 −.025 −.004   BELOW      +.031 +.020 +.016   ABOVE
+  is          −.041 −.065 −.031   BELOW      +.014 +.010 +.009   ABOVE
+  the         −.050 −.046 −.055   BELOW      +.003 −.011 −.027   marginal, 1 of 3 ABOVE
+```
+
+Seed 1729's null ran HIGH for exactly these classes (by .034 to .057), and that
+inflation manufactured the negative gaps. §1627's 12/12 sign stability was real but
+uninformative: the signs were stable across chunks because the SAME BIASED BASIS was
+used in all three, not because the underlying quantity was stable. **Sign stability
+across row samples does not test basis bias, and I used it as though it did.**
+
+**The consequence runs OPPOSITE to what §1627 claimed.** §1627 used "below-null is
+common" to narrow §1612's reading of pronouns@mlp17 as structurally interesting.
+With `comma` and `is` now above their nulls and `the` only marginal, below-null at
+mlp11 is RARE — while §1629 showed pronouns@mlp17 is below its 20-seed null at
+**60/60, perfect separation**. So §1612's structural reading is **restored and
+strengthened**, not narrowed. My §1627 narrowing of it is withdrawn.
+
+**What this does NOT touch.** `PENDING_RETRACTION_S1612.md` is unaffected: §1628
+refuted the MEMBERSHIP claim using 20 seeds already, so it does not inherit the
+single-seed defect. That retraction still stands and is still held for Logan — but
+it is now narrower than it looked, being about membership ONLY, while §1612's share
+reading comes out of §1629/§1630 in better shape than it went in.
+
+**The rule, stated for the third time in three sections because I keep re-learning
+it at a different grain.** §1628: one random basis is not a control. §1629: seed
+1729's bias is SITE-dependent. §1630: it is also CLASS-dependent, within a single
+site — the deltas here run from −.0568 (`is`) to +.0141 (`to`), a spread of .07 on a
+statistic whose whole class range is .088. **Any null from a single basis is
+confounded with whatever mask it is being applied to.**

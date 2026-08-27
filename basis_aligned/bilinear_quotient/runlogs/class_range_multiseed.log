@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows x 20 seeds (receipt sha256[:16]=815b21618c2e477e)
+  question  lambda [0.7257, 0.7359, 0.739] | null20 0.5702 | null_1729 0.6009 | gap20 [0.153, 0.1648, 0.1723]
+  the       lambda [0.5102, 0.5001, 0.4729] | null20 0.5059 | null_1729 0.5448 | gap20 [0.0034, -0.0109, -0.0271]
+  is        lambda [0.5397, 0.5425, 0.5418] | null20 0.5305 | null_1729 0.5873 | gap20 [0.0135, 0.0096, 0.0093]
+  comma     lambda [0.5128, 0.5002, 0.4992] | null20 0.4819 | null_1729 0.5158 | gap20 [0.0308, 0.0197, 0.0159]
+  and       lambda [0.5287, 0.5333, 0.523] | null20 0.4955 | null_1729 0.4834 | gap20 [0.0331, 0.0401, 0.0255]
+  to        lambda [0.6414, 0.6205, 0.6338] | null20 0.5009 | null_1729 0.4868 | gap20 [0.1435, 0.1129, 0.1368]
+
+  20-SEED mean null per class (mlp11 r2 TOP4, 60 trials each):
+    question  null20 0.5702  (seed1729 0.6009, delta -0.0307)  gap20 [0.153, 0.1648, 0.1723]
+    is        null20 0.5305  (seed1729 0.5873, delta -0.0568)  gap20 [0.0135, 0.0096, 0.0093]
+    the       null20 0.5059  (seed1729 0.5448, delta -0.0389)  gap20 [0.0034, -0.0109, -0.0271]
+    to        null20 0.5009  (seed1729 0.4868, delta +0.0141)  gap20 [0.1435, 0.1129, 0.1368]
+    and       null20 0.4955  (seed1729 0.4834, delta +0.0121)  gap20 [0.0331, 0.0401, 0.0255]
+    comma     null20 0.4819  (seed1729 0.5158, delta -0.0339)  gap20 [0.0308, 0.0197, 0.0159]
+  class range under 20-seed null: 0.0883   (§1625 single-seed range 0.1084)
+  'the' negative on all 3 chunks under 20-seed null: False
+
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/class_range_multiseed_results.json (490.9s)

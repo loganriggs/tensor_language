@@ -1,0 +1,208 @@
+{
+ "config": {
+  "cells": {
+   "question": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": 0.718,
+    "published_top": []
+   },
+   "the": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": null,
+    "published_top": []
+   },
+   "is": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": null,
+    "published_top": []
+   },
+   "comma": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": null,
+    "published_top": []
+   },
+   "and": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": null,
+    "published_top": []
+   },
+   "to": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": null,
+    "published_top": []
+   }
+  },
+  "chunks": 3,
+  "rows_per_chunk": 160,
+  "n_random": 20,
+  "seeds": "1729..1748",
+  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "statistic": "ABSOLUTE attribution mass, corrected quantity; null is a 60-trial mean"
+ },
+ "cells": {
+  "question": {
+   "lambda": [
+    0.7257,
+    0.7359,
+    0.739
+   ],
+   "null_20seed_per_chunk": [
+    0.5727,
+    0.5712,
+    0.5667
+   ],
+   "null_20seed": 0.5702,
+   "null_seed1729": 0.6009,
+   "gaps_20seed": [
+    0.153,
+    0.1648,
+    0.1723
+   ],
+   "gaps_seed1729": [
+    0.1138,
+    0.1307,
+    0.1535
+   ]
+  },
+  "the": {
+   "lambda": [
+    0.5102,
+    0.5001,
+    0.4729
+   ],
+   "null_20seed_per_chunk": [
+    0.5067,
+    0.511,
+    0.4999
+   ],
+   "null_20seed": 0.5059,
+   "null_seed1729": 0.5448,
+   "gaps_20seed": [
+    0.0034,
+    -0.0109,
+    -0.0271
+   ],
+   "gaps_seed1729": [
+    -0.05,
+    -0.046,
+    -0.0552
+   ]
+  },
+  "is": {
+   "lambda": [
+    0.5397,
+    0.5425,
+    0.5418
+   ],
+   "null_20seed_per_chunk": [
+    0.5262,
+    0.5329,
+    0.5324
+   ],
+   "null_20seed": 0.5305,
+   "null_seed1729": 0.5873,
+   "gaps_20seed": [
+    0.0135,
+    0.0096,
+    0.0093
+   ],
+   "gaps_seed1729": [
+    -0.0414,
+    -0.0653,
+    -0.0315
+   ]
+  },
+  "comma": {
+   "lambda": [
+    0.5128,
+    0.5002,
+    0.4992
+   ],
+   "null_20seed_per_chunk": [
+    0.4819,
+    0.4806,
+    0.4833
+   ],
+   "null_20seed": 0.4819,
+   "null_seed1729": 0.5158,
+   "gaps_20seed": [
+    0.0308,
+    0.0197,
+    0.0159
+   ],
+   "gaps_seed1729": [
+    -0.007,
+    -0.0246,
+    -0.0036
+   ]
+  },
+  "and": {
+   "lambda": [
+    0.5287,
+    0.5333,
+    0.523
+   ],
+   "null_20seed_per_chunk": [
+    0.4956,
+    0.4932,
+    0.4976
+   ],
+   "null_20seed": 0.4955,
+   "null_seed1729": 0.4834,
+   "gaps_20seed": [
+    0.0331,
+    0.0401,
+    0.0255
+   ],
+   "gaps_seed1729": [
+    0.0614,
+    0.0689,
+    0.0044
+   ]
+  },
+  "to": {
+   "lambda": [
+    0.6414,
+    0.6205,
+    0.6338
+   ],
+   "null_20seed_per_chunk": [
+    0.498,
+    0.5076,
+    0.497
+   ],
+   "null_20seed": 0.5009,
+   "null_seed1729": 0.4868,
+   "gaps_20seed": [
+    0.1435,
+    0.1129,
+    0.1368
+   ],
+   "gaps_seed1729": [
+    0.1737,
+    0.138,
+    0.1235
+   ]
+  }
+ },
+ "class_range_20seed": 0.0883,
+ "S1625_single_seed_range": 0.1084,
+ "predictions": {
+  "pred_a_class_range_ge_05": true,
+  "pred_b_differs_from_S1625_range_ge_01": true,
+  "pred_c_the_still_below_null": false
+ },
+ "runtime_s": 490.9
+}
