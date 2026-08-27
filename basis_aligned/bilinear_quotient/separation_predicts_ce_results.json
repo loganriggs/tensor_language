@@ -1,0 +1,65 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "n_rows": 480,
+  "ablation": "mean-ablation of the slice coordinates at the mlp input via forward_pre_hook; rest of the model unmodified",
+  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "gaps_from": "S1630/S1636/S1642, mlp11 rank-2 TOP-4, 20-seed null"
+ },
+ "classes": {
+  "question": {
+   "gap": 0.1633,
+   "base_ce": 1.40263,
+   "abl_ce": 1.47792,
+   "ce_rise": 0.07529,
+   "n_positions": 214
+  },
+  "to": {
+   "gap": 0.1435,
+   "base_ce": 1.09359,
+   "abl_ce": 1.12786,
+   "ce_rise": 0.03427,
+   "n_positions": 1987
+  },
+  "period": {
+   "gap": 0.0713,
+   "base_ce": 1.00756,
+   "abl_ce": 1.0173,
+   "ce_rise": 0.00974,
+   "n_positions": 3766
+  },
+  "and": {
+   "gap": 0.0331,
+   "base_ce": 2.07349,
+   "abl_ce": 2.09351,
+   "ce_rise": 0.02002,
+   "n_positions": 1716
+  },
+  "comma": {
+   "gap": 0.0221,
+   "base_ce": 1.42879,
+   "abl_ce": 1.44872,
+   "ce_rise": 0.01993,
+   "n_positions": 3599
+  },
+  "the": {
+   "gap": 0.0034,
+   "base_ce": 1.52396,
+   "abl_ce": 1.53751,
+   "ce_rise": 0.01355,
+   "n_positions": 3080
+  }
+ },
+ "spearman_rho": 0.6571,
+ "predictions": {
+  "pred_a_5of6_positive_rise": true,
+  "pred_b_rho_ge_060": true,
+  "pred_c_question_largest": true
+ },
+ "runtime_s": 39.0,
+ "exact_permutation_p_one_sided": 0.0875,
+ "n_permutations": 720,
+ "significant_at_05": false,
+ "verdict": "SUGGESTIVE, NOT ESTABLISHED. pred_b's .60 bar was not a significance bar; the exact permutation test over all 720 rank orderings gives p = 63/720 = .0875, which does not clear .05. The 6/6 positive CE rise is solid; the gap->rise correlation is underpowered, driven by its top two points, and inverts at `period` (gap rank 3, rise rank 6). n_positions ranges 214-3766 and the class carrying the result has the fewest positions."
+}

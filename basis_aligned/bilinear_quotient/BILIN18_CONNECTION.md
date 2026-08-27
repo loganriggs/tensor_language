@@ -39798,3 +39798,63 @@ than registering a vacuous bar (LESSONS 19) because it still produces a clean
 3-for-3. The bar has to be on the quantity the claim is about, in a regime where that
 quantity can move. I had every piece of information needed to see this before the run
 and did not.
+
+## §1643 THE BRIDGE: SEPARATION DOES PREDICT CAUSAL COST, BUT THE ASSOCIATION IS UNDERPOWERED (3-for-3 as written, exact permutation p = .0875) — the two largest-gap classes have the two largest CE rises, and `period` inverts hard
+
+**Setup** (separation_predicts_ce, 39 s, rung 3 — the bridge from twenty-one
+methodology runs to the benchmark's actual question). §1623-§1642 established what the
+separation statistic measures and how to measure it honestly. None of them established
+that it measures anything that MATTERS. Each class's rank-2 eigen slice at mlp11 is
+**mean-ablated** via a `forward_pre_hook` on `H[11].mlp` — the slice coordinates of the
+MLP input replaced by their global mean, rest of the model untouched — and the CE cost
+is measured on that class's own positions, 480 canonical rows.
+
+```
+class      gap      n_pos    CE base -> ablated     CE rise   gap rank / rise rank
+question  +.1633      214    1.40263 -> 1.47792     +.07529        1 / 1
+to        +.1435     1987    1.09359 -> 1.12786     +.03427        2 / 2
+period    +.0713     3766    1.00756 -> 1.01730     +.00974        3 / 6   <- INVERTS
+and       +.0331     1716    2.07349 -> 2.09351     +.02002        4 / 3
+comma     +.0221     3599    1.42879 -> 1.44872     +.01993        5 / 4
+the       +.0034     3080    1.52396 -> 1.53751     +.01355        6 / 5
+Spearman rho = +.6571
+```
+
+- **pred_a PASSED** — **6 of 6** classes show a positive CE rise. Mean-ablating a
+  class's own slice at mlp11 always costs that class something.
+- **pred_b PASSED as written** — rho **+.657** ≥ .60.
+- **pred_c PASSED** — `question`, the largest gap, has the largest rise (+.0753).
+- **Sanity gate PASSED** — max |CE move| .0753, so the hook was live. Had it been dead
+  every rise would have been 0, rho undefined, and the run would have reported
+  "separation predicts nothing" with no error at all. It aborts instead.
+
+**pred_b's BAR WAS NOT A SIGNIFICANCE BAR, AND THE EXACT TEST SAYS UNDERPOWERED.**
+Computed over all 720 permutations of six ranks, **p = 63/720 = .0875** one-sided.
+That does not clear .05. The house precedent is directly on point: §1614 reported
+rho .6727 at p .0192 on TEN classes as "REAL at power", and §1616 then found rho .0182
+at p .9601 on ten DISJOINT classes. A six-point rank correlation is weaker evidence
+than the one that already failed to generalise once.
+
+**What the data actually supports.** The TOP of the range behaves — the two largest
+gaps give the two largest CE rises, in order. Below that it does not: `period` has the
+third-largest gap and the **smallest** rise of the six (rank 3 → rank 6), and `the`
+(gap .0034) costs more to ablate (+.0136) than `period` (gap .0713, +.0097) despite a
+21x smaller gap. Magnitudes do not scale either — question's gap is 2.3x period's while
+its rise is 7.7x.
+
+**A confound I am naming rather than burying.** `n_positions` ranges from **214**
+(question) to **3766** (period). CE estimated on 214 positions is far noisier than on
+3766, and the class with the fewest positions is also the one carrying the result. The
+top-of-range behaviour could be partly a small-sample effect and this run cannot
+distinguish that.
+
+**Verdict, stated at the strength the evidence supports: SUGGESTIVE, NOT ESTABLISHED.**
+Ablating a class's own slice reliably costs that class CE (6/6, and that part is solid).
+Whether the separation gap PREDICTS how much is an underpowered association driven by
+its top two points with a hard inversion at rank 3. The next step is more classes —
+twelve or more, spanning the gap range, with position counts recorded — not a stronger
+claim from these six.
+
+**Recorded as the first result in this arc to connect the statistic to a causal
+quantity at all.** That much is new: before this run, nothing established that the
+thing twenty-one sections measured had any consequence.

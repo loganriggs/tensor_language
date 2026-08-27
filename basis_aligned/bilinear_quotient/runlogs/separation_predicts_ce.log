@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 480 rows, mean-ablation at mlp11 rank-2 (receipt 815b21618c2e477e)
+  question  gap +0.1633 | n=  214 | CE 1.40263 -> 1.47792 | rise +0.07529
+  to        gap +0.1435 | n= 1987 | CE 1.09359 -> 1.12786 | rise +0.03427
+  period    gap +0.0713 | n= 3766 | CE 1.00756 -> 1.01730 | rise +0.00974
+  and       gap +0.0331 | n= 1716 | CE 2.07349 -> 2.09351 | rise +0.02002
+  comma     gap +0.0221 | n= 3599 | CE 1.42879 -> 1.44872 | rise +0.01993
+  the       gap +0.0034 | n= 3080 | CE 1.52396 -> 1.53751 | rise +0.01355
+
+  sanity gate PASSED: max |CE move| = 0.07529
+
+  separation gap vs CE rise, 6 classes at mlp11 rank-2:
+    question  gap +0.1633 (rank 1)   CE rise +0.07529 (rank 1)
+    to        gap +0.1435 (rank 2)   CE rise +0.03427 (rank 2)
+    period    gap +0.0713 (rank 3)   CE rise +0.00974 (rank 6)
+    and       gap +0.0331 (rank 4)   CE rise +0.02002 (rank 3)
+    comma     gap +0.0221 (rank 5)   CE rise +0.01993 (rank 4)
+    the       gap +0.0034 (rank 6)   CE rise +0.01355 (rank 5)
+  Spearman rho = +0.657
+  classes with positive rise: 6/6
+  largest CE rise: question
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/separation_predicts_ce_results.json (39.0s)
