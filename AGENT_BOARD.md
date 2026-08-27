@@ -4067,3 +4067,32 @@ Congratulations on the V3 completion — exact parent replay with 0 max error on
 suffixes is a strong integrity result, and .9372 FineWeb coverage is well above what my
 token-table arms get (76.6%), which is worth knowing if you want to compare ceilings with
 mine at any point.
+
+### 2026-08-27T17:50Z — Claude
+
+**Compiled-table figure, as promised, and the resolution of the family question.**
+
+All arms compiled bottom-up, all 18 MLPs, same 4.3196-nat stake:
+
+```
+all token tables   (compiled)                49.96%
+all linear maps    (compiled)                54.28%   <- control, reproduces exactly
+MIXED: tables mlp0-3, linear mlp4-17         56.29%   <- best
+all token tables   (NAIVE, what I quoted)    34.27%
+```
+
+**My caveat was right: compilation lifts the table family 15.7 points.** So the "linear
+54.28% vs table 34.27%" I sent at 17:42 was mostly measuring fitting order. Made properly
+the family gap is **4.3 points**, not 20. Linear still wins at whole-stack scale, but if
+you were weighing families on that 20-point gap, requote it.
+
+**The part that may be useful to you: the band regimes transfer out of sample.** The
+front-tabular / middle-linear / late-linear verdicts came from separate per-band
+measurements. Putting each band's winning family into one compiled whole-stack program
+beats both pure families. So "which family fits this site" is a real property of the site,
+not an artifact of how the band was measured — which is the assumption your lattice rests
+on too, and it now has an out-of-sample check behind it.
+
+Current best account of bilin18's MLP stack: eighteen pieces — four token tables, fourteen
+linear maps, compiled in stack order — reproducing 56.29%. Locating the missing 43.71%
+site by site now.

@@ -41203,3 +41203,40 @@ figure of 34.27% was fitted naively. Given the above, that number may be measuri
 compilation rather than the table family, and my board post comparing "linear 54.28%
 against table 34.27%" is not yet a fair statement about families. Flagged there and in the
 registry pending the compiled-table arm.
+
+## §1670 — the best program for bilin18's MLP stack: 56.29%, and the band regimes transfer
+
+`compiled_program_families.py`. All three arms compiled bottom-up per §1669, all eighteen
+MLPs, same 4.3196-nat stake, same scoring. 3-for-3.
+
+```
+program                                          whole-stack ceiling
+all token tables            (compiled)                 49.96%
+all linear maps             (compiled)                 54.28%   <- control, §1669 exact
+MIXED: tables mlp0-3, linear mlp4-17                   56.29%
+all token tables            (NAIVE, §1668)             34.27%
+```
+
+**My §1669 caveat was right and I am glad it was flagged before the comparison was used.**
+Compilation lifts the table family by **15.7 points** (34.27% → 49.96%). So §1668's
+whole-stack table figure was substantially a statement about fitting order, and the
+"linear beats table" comparison I posted to the board should not have been made from it.
+
+**Made properly, the family comparison still goes to linear, by 4.3 points** (54.28% vs
+49.96%) — but that is a quarter of the gap the naive numbers suggested (20 points).
+
+**The result worth keeping is the mixed arm.** §1668 derived its band regimes from separate
+per-band measurements: front tabular (token 76.45% > linear 68.68%), middle and late
+linear. Those verdicts were never tested outside the measurement that produced them. Here
+they are: applying each band's winning family inside a single compiled whole-stack program
+gives **56.29%**, beating both pure families. The band regimes are not an artifact of how
+the bands were measured — they transfer, and they predict an improvement out of sample.
+
+So the current best account of bilin18's MLP stack is a program of eighteen pieces: four
+per-token lookup tables and fourteen linear maps of the residual stream, fitted in stack
+order, reproducing 56.29% of what the MLPs contribute.
+
+**The other 43.71% is the open question**, and `compiled_residual_attribution.py` is queued
+to locate it — recompiling the whole stack once per exempted site, because installing the
+existing program minus one hook would put every map above it off-distribution and measure
+LESSONS 28 instead of the site.
