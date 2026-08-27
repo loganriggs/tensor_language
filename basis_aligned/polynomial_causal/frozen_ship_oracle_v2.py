@@ -19,6 +19,7 @@ import shutil
 import subprocess
 import sys
 import time
+from contextlib import contextmanager
 from pathlib import Path
 from typing import Any
 
@@ -32,6 +33,7 @@ CANONICAL_FINEWEB = BQ / "ship_content_oracle_screen_results.json"
 PRELIMINARY_ARCHIVE = BQ / "ship_content_oracle_screen_preliminary_results.json"
 FROZEN_STATE = Path("/workspace/runs/bilin18_frozen_ship_v2.pt")
 FROZEN_MANIFEST = Path("/workspace/runs/bilin18_frozen_ship_v2_manifest.json")
+FROZEN_LOCK = Path("/workspace/runs/.bilin18_frozen_ship_v2.lock")
 SHIP_SEED = 27182818
 SENTINEL_ROWS = 2
 SENTINEL_POSITIONS = (64, 127, 191, 255)
@@ -73,6 +75,96 @@ def atomic_torch_save(payload: Any, path: Path) -> None:
     finally:
         if temporary.exists():
             temporary.unlink()
+
+
+def atomic_json_save(payload: dict[str, Any], path: Path) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(f"{path.name}.tmp.{os.getpid()}")
+    try:
+        temporary.write_text(json.dumps(payload, indent=2) + "\n")
+        os.replace(temporary, path)
+    finally:
+        temporary.unlink(missing_ok=True)
+
+
+@contextmanager
+def frozen_state_claim():
+    """Serialize every creator or loader of the canonical frozen realization."""
+
+    try:
+        FROZEN_LOCK.mkdir()
+    except FileExistsError as error:
+        raise RuntimeError(f"canonical frozen-state operation already claimed: {FROZEN_LOCK}") from error
+    try:
+        yield
+    finally:
+        FROZEN_LOCK.rmdir()
+
+
+def device_tree(value: Any, device: Any) -> Any:
+    if torch.is_tensor(value):
+        return value.detach().to(device).contiguous().clone()
+    if isinstance(value, dict):
+        return {key: device_tree(child, device) for key, child in value.items()}
+    if isinstance(value, list):
+        return [device_tree(child, device) for child in value]
+    if isinstance(value, tuple):
+        return tuple(device_tree(child, device) for child in value)
+    if isinstance(value, (str, int, float, bool)) or value is None:
+        return value
+    raise TypeError(f"unsupported restored ship state: {type(value)}")
+
+
+def _logical_receipt_sha256(row_receipt: dict[str, Any]) -> str:
+    return hashlib.sha256(
+        json.dumps(row_receipt, sort_keys=True, separators=(",", ":")).encode()
+    ).hexdigest()
+
+
+def _load_frozen_pair(row_receipt: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    state_exists, manifest_exists = FROZEN_STATE.is_file(), FROZEN_MANIFEST.is_file()
+    if state_exists != manifest_exists:
+        raise RuntimeError(
+            "inconsistent canonical frozen-state pair: "
+            f"state_exists={state_exists} manifest_exists={manifest_exists}"
+        )
+    if not state_exists:
+        raise RuntimeError("canonical frozen-state pair is absent")
+    manifest = json.loads(FROZEN_MANIFEST.read_text())
+    if manifest.get("schema_version") != 2:
+        raise RuntimeError("canonical frozen-state manifest schema changed")
+    if manifest.get("artifact_path") != str(FROZEN_STATE):
+        raise RuntimeError("canonical frozen-state manifest path changed")
+    if manifest.get("artifact_bytes") != FROZEN_STATE.stat().st_size:
+        raise RuntimeError("canonical frozen-state artifact size changed")
+    artifact_hash = file_sha256(FROZEN_STATE)
+    if manifest.get("artifact_sha256") != artifact_hash:
+        raise RuntimeError("canonical frozen-state artifact hash changed")
+    if manifest.get("row_receipt_sha256") != _logical_receipt_sha256(row_receipt):
+        raise RuntimeError("canonical frozen-state row receipt changed")
+    payload = torch.load(FROZEN_STATE, map_location="cpu", weights_only=True)
+    if payload.get("schema_version") != 2 or payload.get("ship_seed") != SHIP_SEED:
+        raise RuntimeError("canonical frozen-state payload metadata changed")
+    realization_hash = code_oracle.tensor_tree_sha256(payload.get("state"))
+    if not (
+        payload.get("ship_realization_sha256")
+        == manifest.get("ship_realization_sha256")
+        == realization_hash
+    ):
+        raise RuntimeError("canonical frozen-state realization tree changed")
+    fingerprint = payload.get("baseline_fingerprint")
+    if not isinstance(fingerprint, dict) or not isinstance(
+        fingerprint.get("full_logits_raw_sha256"), str
+    ):
+        raise RuntimeError("canonical frozen-state baseline fingerprint is invalid")
+    return payload, manifest
+
+
+def validate_frozen_ship_pair(
+    row_receipt: dict[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    with frozen_state_claim():
+        return _load_frozen_pair(row_receipt)
 
 
 def archive_preliminary_result() -> str | None:
@@ -118,46 +210,105 @@ def freeze_ship_realization(
     sa: Any, twall: dict, all_attention: frozenset[int],
     row_receipt: dict[str, Any], sentinel_rows: torch.Tensor,
 ) -> tuple[str, dict[str, Any]]:
-    if FROZEN_STATE.exists() or FROZEN_MANIFEST.exists():
-        raise RuntimeError("frozen ship artifact/manifest already exists")
-    state_for_hash = {
-        "TWALL": twall,
-        "SHIP": sa.SHIP,
-        "CORR": {key: sa.CORR[key] for key in ("on", "b", "U", "V")},
-        "all_attention": sorted(all_attention),
-    }
-    realization_hash = code_oracle.tensor_tree_sha256(state_for_hash)
-    fingerprint = baseline_fingerprint(sa, twall, all_attention, sentinel_rows)
-    payload = {
-        "schema_version": 2,
-        "ship_realization_sha256": realization_hash,
-        "ship_seed": SHIP_SEED,
-        "state": cpu_tree(state_for_hash),
-        "baseline_fingerprint": cpu_tree(fingerprint),
-    }
-    atomic_torch_save(payload, FROZEN_STATE)
-    artifact_hash = file_sha256(FROZEN_STATE)
-    manifest = {
-        "schema_version": 2,
-        "artifact_path": str(FROZEN_STATE),
-        "artifact_sha256": artifact_hash,
-        "artifact_bytes": FROZEN_STATE.stat().st_size,
-        "ship_realization_sha256": realization_hash,
-        "ship_seed": SHIP_SEED,
-        "row_receipt_sha256": hashlib.sha256(
-            json.dumps(row_receipt, sort_keys=True, separators=(",", ":")).encode()
-        ).hexdigest(),
-        "baseline_fingerprint": {
-            key: value for key, value in fingerprint.items() if key != "sample_logits"
-        },
-        "source_commit": subprocess.run(
-            ["git", "rev-parse", "HEAD"], cwd=HERE, check=True,
-            capture_output=True, text=True,
-        ).stdout.strip(),
-        "pipeline_sha256": file_sha256(Path(__file__)),
-    }
-    FROZEN_MANIFEST.write_text(json.dumps(manifest, indent=2) + "\n")
-    return realization_hash, manifest
+    with frozen_state_claim():
+        if FROZEN_STATE.exists() or FROZEN_MANIFEST.exists():
+            raise RuntimeError("frozen ship artifact/manifest already exists")
+        state_for_hash = {
+            "TWALL": twall,
+            "SHIP": sa.SHIP,
+            "CORR": {key: sa.CORR[key] for key in ("on", "b", "U", "V")},
+            "all_attention": sorted(all_attention),
+        }
+        realization_hash = code_oracle.tensor_tree_sha256(state_for_hash)
+        fingerprint = baseline_fingerprint(sa, twall, all_attention, sentinel_rows)
+        payload = {
+            "schema_version": 2,
+            "ship_realization_sha256": realization_hash,
+            "ship_seed": SHIP_SEED,
+            "state": cpu_tree(state_for_hash),
+            "baseline_fingerprint": cpu_tree(fingerprint),
+        }
+        atomic_torch_save(payload, FROZEN_STATE)
+        artifact_hash = file_sha256(FROZEN_STATE)
+        manifest = {
+            "schema_version": 2,
+            "artifact_path": str(FROZEN_STATE),
+            "artifact_sha256": artifact_hash,
+            "artifact_bytes": FROZEN_STATE.stat().st_size,
+            "ship_realization_sha256": realization_hash,
+            "ship_seed": SHIP_SEED,
+            "row_receipt_sha256": _logical_receipt_sha256(row_receipt),
+            "baseline_fingerprint": {
+                key: value for key, value in fingerprint.items() if key != "sample_logits"
+            },
+            "source_commit": subprocess.run(
+                ["git", "rev-parse", "HEAD"], cwd=HERE, check=True,
+                capture_output=True, text=True,
+            ).stdout.strip(),
+            "pipeline_sha256": file_sha256(Path(__file__)),
+        }
+        atomic_json_save(manifest, FROZEN_MANIFEST)
+        _load_frozen_pair(row_receipt)
+        return realization_hash, manifest
+
+
+def restore_ship_realization(
+    sa: Any, twall: dict, all_attention: frozenset[int],
+    row_receipt: dict[str, Any], sentinel_rows: torch.Tensor,
+) -> tuple[str, dict[str, Any]]:
+    """Restore and behaviorally verify the canonical realization in this process."""
+
+    with frozen_state_claim():
+        payload, manifest = _load_frozen_pair(row_receipt)
+        state = payload["state"]
+        expected_attention = list(state["all_attention"])
+        if expected_attention != sorted(all_attention):
+            raise RuntimeError("fresh callback attention topology differs from frozen state")
+        restored_twall = device_tree(state["TWALL"], sa.DEV)
+        restored_ship = device_tree(state["SHIP"], sa.DEV)
+        restored_corr = device_tree(state["CORR"], sa.DEV)
+        twall.clear()
+        twall.update(restored_twall)
+        sa.SHIP.clear()
+        sa.SHIP.update(restored_ship)
+        sa.CORR.clear()
+        sa.CORR.update(restored_corr)
+        current_state = {
+            "TWALL": twall,
+            "SHIP": sa.SHIP,
+            "CORR": {key: sa.CORR[key] for key in ("on", "b", "U", "V")},
+            "all_attention": sorted(all_attention),
+        }
+        realization_hash = code_oracle.tensor_tree_sha256(current_state)
+        if realization_hash != payload["ship_realization_sha256"]:
+            raise RuntimeError("restored ship realization tree differs from frozen payload")
+        observed = baseline_fingerprint(sa, twall, all_attention, sentinel_rows)
+        expected = payload["baseline_fingerprint"]
+        if observed["full_logits_raw_sha256"] != expected["full_logits_raw_sha256"]:
+            raise RuntimeError("restored ship baseline logits differ from frozen fingerprint")
+        if abs(float(observed["global_ce"]) - float(expected["global_ce"])) > 1e-12:
+            raise RuntimeError("restored ship baseline CE differs from frozen fingerprint")
+        if not torch.equal(observed["sample_logits"], expected["sample_logits"]):
+            raise RuntimeError("restored ship sampled logits differ from frozen fingerprint")
+        return realization_hash, manifest
+
+
+def obtain_ship_realization(
+    sa: Any, twall: dict, all_attention: frozenset[int],
+    row_receipt: dict[str, Any], sentinel_rows: torch.Tensor,
+) -> tuple[str, dict[str, Any], str]:
+    state_exists, manifest_exists = FROZEN_STATE.exists(), FROZEN_MANIFEST.exists()
+    if state_exists != manifest_exists:
+        raise RuntimeError("inconsistent canonical frozen-state pair blocks obtain")
+    if state_exists:
+        realization_hash, manifest = restore_ship_realization(
+            sa, twall, all_attention, row_receipt, sentinel_rows
+        )
+        return realization_hash, manifest, "restored"
+    realization_hash, manifest = freeze_ship_realization(
+        sa, twall, all_attention, row_receipt, sentinel_rows
+    )
+    return realization_hash, manifest, "created"
 
 
 def exact_fineweb_decisions(result: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -214,7 +365,7 @@ def main() -> None:
     def authoritative_callback(
         twall: dict, all_attention: frozenset[int], start_time: float
     ) -> None:
-        realization_hash, frozen_manifest = freeze_ship_realization(
+        realization_hash, frozen_manifest, lifecycle = obtain_ship_realization(
             sa, twall, all_attention, row_receipt, code_rows
         )
         original_callback(twall, all_attention, start_time)
@@ -227,6 +378,7 @@ def main() -> None:
             "ship_realization_sha256": realization_hash,
             "ship_seed": SHIP_SEED,
             "frozen_ship_artifact_sha256": frozen_manifest["artifact_sha256"],
+            "frozen_ship_lifecycle": lifecycle,
             "fineweb_row_receipt_sha256": frozen_manifest["row_receipt_sha256"],
             "preliminary_result_sha256": archive_hash,
             "null_gate": "exact one-sided Monte Carlo; content beats all 20",
