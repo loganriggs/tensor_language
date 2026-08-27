@@ -234,3 +234,20 @@ TWICE in one hour, independently, in two agents' code.
   actually carries (the dtype it was COMPUTED in, not the one it is stored in).
   Upcasting does not clean float32 noise. Test any spectral code on a dense,
   float32-derived matrix at real width (D=1152), never only on exact diagonals.
+
+## 14. A nonzero exit does not mean a failed experiment — check for the result file (§1602)
+Scripts that stream FineWeb can abort during interpreter *finalization*, long
+after the science is done and written. `_completed.txt` records the signal, so
+the run looks failed to every watcher and to the next wake.
+- **Example:** `channel_depth` exited **134** (SIGABRT) with
+  `PyGILState_Release: thread state must be current` during shutdown, from the
+  HF datasets streaming thread that had retried an SSL EOF mid-run. Every result
+  was written and exact (reconstruction rel err 6.3e-08). A wake that trusted
+  `exit=134` would have re-queued 491 s of completed work.
+- **Near non-example:** a nonzero exit with NO result JSON, or one whose JSON is
+  short of the registered keys, is a real failure — do not rationalise those.
+  The test is the artifact, not the exit code.
+- **Rule:** on any nonzero exit, check whether the results file exists and
+  contains every registered prediction key BEFORE requeueing. Mitigation for new
+  scripts that stream data: `sys.stdout.flush(); os._exit(0)` after the final
+  write, which skips the finalizer that crashes.
