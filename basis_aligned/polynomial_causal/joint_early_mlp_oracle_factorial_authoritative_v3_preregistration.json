@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_not_run",
+  "registered_at_utc": "2026-08-27T08:38:00Z",
+  "experiment": "joint_early_mlp_live_oracle_factorial_authoritative_v3",
+  "supersedes": "joint_early_mlp_oracle_factorial_authoritative_v2_preregistration.json",
+  "v2_status": "preregistered_but_not_run",
+  "v2_failure": "Artifact review found that v2 would create the shared canonical frozen state without a resumable downstream handoff, use an experiment-only rather than shared state lock, and mark partial artifacts authorized before protected-after validation. No ship was built, frozen artifact created, arm scored, or result written under v2.",
+  "frozen_scientific_design": "Every scientific arm, split, document-cluster bootstrap rule, registered prediction, descriptive metric, state canary, prefix identity, interpretation guardrail, and denominator rule is inherited unchanged from joint_early_mlp_oracle_factorial_authoritative_v2_preregistration.json.",
+  "only_design_changes": [
+    "The canonical frozen ship is a resumable protocol: one shared lock for every creator/loader; atomic state and manifest publication; pair consistency, input, realization-tree, and baseline-fingerprint validation; and a tested restore path into the existing same-memory FineWeb-content then conditional-code pipeline.",
+    "A failed run records frozen-state lifecycle phase, existence, hashes, and validation status and preserves every artifact. A state-only or inconsistent pair is never silently reused or deleted.",
+    "Running and scored-pending-integrity result/manifest artifacts set experiment authorization false. Only after cube completeness, finite and closure checks, bootstrap completion, duplicate-baseline and component-tree controls, and protected-after equality does finalization atomically set authoritative scored-evidence authorization true. Row-receipt authority is recorded separately.",
+    "Before launch, commit the runner, tests, frozen lifecycle/restore changes, and all behavior-bearing source dependencies. The execution manifest must hash the complete explicit import/runtime closure, including code_ood_oracle, factorial_causal_attribution, source_global_preflight, oracle_authority, and bilin18_joint_removal entry points, plus the source commit containing those exact bytes.",
+    "Use a new authoritative-v3 result/manifest/lock namespace and preserve v1/v2 preregistrations and absence of results."
+  ],
+  "required_lifecycle_tests": [
+    "shared frozen-state lock collision and creator refusal",
+    "atomic consistent-pair creation and no overwrite",
+    "state-only and manifest-only fail closed",
+    "artifact/hash/row-receipt/realization/fingerprint mismatch fail closed",
+    "validated CPU-to-device restoration reproduces the frozen component tree and baseline fingerprint",
+    "failure manifest preserves and describes frozen artifacts",
+    "running authorization false and final authorization only after protected equality",
+    "correct provenance extraction, prefix hashes, cluster counts, and four-way document disjointness",
+    "protected contamination invalidates rather than finalizes",
+    "same-realization downstream FineWeb-content/code callback can load the pair without rebuilding its scientific state"
+  ],
+  "launch_gate": "Do not launch until the v2 scientific-design tests and all v3 lifecycle tests pass, source-global preflight passes, the GPU is idle, no canonical shared-state lock exists, final v3 paths are absent, the committed source closure matches its execution hashes, and all registered input hashes validate.",
+  "authority": {
+    "row_receipt_authorized_for_scoring": true,
+    "running_experiment_authorized": false,
+    "final_experiment_authorized_only_after_integrity_commit": true,
+    "authorized_for_training": false,
+    "training_license_sites": []
+  },
+  "interpretation_guardrail": "The v2 wording remains controlling: exact-restoration oracle headroom and state-dependent causal nonadditivity on one fixed deployed ship and two pinned first-shard FineWeb blocks only; no corpus-wide, performance-ceiling, clean-model, transported-variable, predictor, compressed-interface, training, OOD, whole-model-fraction, or simplicity claim."
+}
