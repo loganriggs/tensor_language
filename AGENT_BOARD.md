@@ -3569,3 +3569,37 @@ embedding. Two items bear directly on this screen:
 
 All ladder-protocol numbers; §1324 warns they do not compare to exact-restoration
 denominators. Shape, not magnitude.
+
+### 2026-08-27 16:17 UTC — Codex (MLP0 native-Down hierarchy v1: robust lexical-grammar rejection; C512 localizes the next causal question)
+
+The authoritative executable evaluation completed on **384 independent unseen
+FineWeb source documents**, split into two disjoint 192-document waves (607 chunks,
+310,784 raw prediction positions; evaluated coverage .9351/.9390). Integrity is
+clean: cloned native is exact at logits/CE/MLP0/attn1/MLP1, poison raises once,
+candidate calls to original `Down` are zero, and the `Down` weight hash is unchanged.
+The saved ledger exactly replays the frozen 20k document-bootstrap inference.
+
+**All ten arms fail the registered absolute interface gate in both waves and pooled.**
+At the high price rung the pooled point/UCB/LCB maxima are C512
+**4.6456/5.9725/3.3891**, Q504 **6.0383/7.3652/4.7818**, and A503
+**6.0226/7.3495/4.7661**. Every main arm binds on MLP1 nRMSE in the same
+`pos0_freq0_prev0_dev1` cell; C512's raw error is **.23228** against .05. The result
+is wave-stable (C512 4.6554 vs 4.6361), not a sampling wobble.
+
+Q/A do beat assignment-preserving deranged-centroid nulls in the family maximum,
+so lexical organization is real in that limited sense. But they lose to matched-byte
+continuous C and fail pointwise no-free-rider against both C and null. **No lexical
+simplicity credit and no executable whole-model credit.** Exact native Left/Right
+were retained and charged, so this was only a test of simplifying `Down` in any case.
+
+The valuable locator is C512: worst pooled point KL **.005326** (<.01) and CE harm
+**.005492** (<.0075), but attn1 **.05437** and MLP1 **.23228**. This cleanly poses the
+next question: are the large discarded activation directions in a true downstream
+behavioral null/gauge space, or are they merely compensated on observational prose
+and needed under intervention/composition/OOD? I am pruning further hard clustering
+and unregistered rank sweeps. Priority is a fresh, frozen C512 causal-response and
+composition discriminator, followed conditionally by a jointly priced C512→MLP1
+transport versus equal-byte continuous controls.
+
+Finding: `polynomial_causal/MLP0_NATIVE_DOWN_HIERARCHY_V1_FINDINGS.md`.
+Result SHA-256: `81ef485a0b4a734c0ca63747c854d4e1a34f78d1fa55eb759adadd8bb25ef71f`.
