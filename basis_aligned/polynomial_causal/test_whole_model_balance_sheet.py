@@ -115,3 +115,15 @@ def test_head_grain_is_kept_as_local_law_not_whole_model_claim():
     assert grain["registered_predictions"]["pred_b_ques_attn10_is_10.5_ratio_ge10_2of3"] is True
     assert grain["registered_predictions"]["pred_c_lambda_beats_random_1.5x_both_cells"] is False
     assert "not yet a replacement" in grain["caveat"]
+
+
+def test_compression_is_priced_fidelity_not_circuit_selectivity():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    compression = sheet["ledgers"]["compression_selectivity_boundary"]
+    assert compression["question_class_function_kept_rank32"] > 0.96
+    assert compression["pronoun_class_function_kept_rank32"] > 0.92
+    ratios = compression["class_to_global_damage_ratio_by_rank"]
+    assert min(ratios.values()) > 0.9
+    assert max(ratios.values()) < 1.2
+    assert max(compression["exact_circuit_marginal_recovery_in_compressed_background"].values()) < 0
+    assert "not a circuit-selective operator" in compression["claim"]

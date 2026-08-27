@@ -38,6 +38,10 @@ DEFAULT_SOURCES = {
     "content_ood": TENSOR_ROOT / "basis_aligned/bilinear_quotient/content_ood_code_results.json",
     "ood_bands": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ood_band_importance_results.json",
     "headgrain_control": TENSOR_ROOT / "basis_aligned/bilinear_quotient/headgrain_control2_results.json",
+    "extraction_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_rank_results.json",
+    "extraction_question": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_results.json",
+    "extraction_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_p_results.json",
+    "compression_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/compression_rank3_results.json",
 }
 
 
@@ -132,6 +136,10 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     content_ood = data["content_ood"]
     ood_bands = data["ood_bands"]
     headgrain = data["headgrain_control"]
+    extraction_rank = data["extraction_rank"]
+    extraction_question = data["extraction_question"]
+    extraction_pronouns = data["extraction_pronouns"]
+    compression_rank = data["compression_rank"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
     factorial_cells = factorial_primary["cells"]
@@ -330,6 +338,28 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "The tensor slice identifies sharply concentrated reader heads at the registered circuit layers, but the whole-stack median separation gate fails.",
             "caveat": "This is a controlled local wiring law, not yet a replacement, CE recovery, or proof that the same grain composes across behaviors and layers.",
         },
+        "compression_selectivity_boundary": {
+            "question_class_function_kept_rank32": 1.0 - extraction_question["res"]["bg_class_rise"] / extraction_question["res"]["const_class_rise_ref"],
+            "pronoun_class_function_kept_rank32": 1.0 - extraction_pronouns["res"]["bg_class_rise"] / extraction_pronouns["res"]["const_class_rise_ref"],
+            "exact_circuit_marginal_recovery_in_compressed_background": {
+                "question": extraction_question["res"]["rec_in_bg"],
+                "pronouns": extraction_pronouns["res"]["rec_in_bg"],
+            },
+            "class_to_global_damage_ratio_by_rank": {
+                rank: row["class_rise"] / row["global_rise"]
+                for rank, row in extraction_rank["res"]["by_rank"].items()
+            },
+            "rank_sweep_predictions": {
+                key: extraction_rank[key]
+                for key in ("pred_a_monotone", "pred_b_r8_half", "pred_c_knee_16")
+            },
+            "unit_truncation_class_rise_spearman": compression_rank["spearman_class_rise"],
+            "unit_truncation_selectivity_within_2x": compression_rank["sel_within_2x"],
+            "currency": "class-specific versus global CE damage under rank compression, plus circuit-head marginal recovery inside the compressed background",
+            "scope": "question rank sweep r4/r8/r16/r32; rank-32 question/pronoun backgrounds; eight class-specific top-unit truncation controls",
+            "claim": "Compression is a useful self-consistent replacement background, but not a circuit-selective operator: class and global damage move together at every tested rank, and restoring exact named heads does not recover function inside that background.",
+            "caveat": "This rejects generic compression as an extraction or selective-edit primitive at the tested interfaces. It does not reject compression as a priced fidelity component, nor behavior-specific gauges that pass direct intervention-transport tests.",
+        },
     }
 
     current_ship = inventory.get("current_composite", {})
@@ -353,8 +383,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "Run an optimizer-free live-z oracle screen at MLP0-2: inject the exact original-minus-plank residual, its frozen-content and local-PCA projections, and covariance/energy-matched null projections inside the complete ship.",
-                "why": "The factorial licenses the early bundle but does not identify a slot or content, and a trained CE patch could merely compensate downstream errors. This cheaper singleton screen tests whether the missing original computation actually repairs CE and whether its useful part is unusually content-aligned before any new glue is trained.",
+                "action": "After the remaining streaming control clears, pass the real rowcache identity gate, freeze all registered FineWeb rows, and run the authoritative same-realization live-z oracle v2 at MLP0-2.",
+                "why": "The preliminary oracle failed before science and could not preserve its randomized derived ship. The v2 path tests whether exact missing original computation repairs CE, compares content/local/null projections, and freezes the realization so any conditional OOD conclusion is composable and reproducible.",
             },
             {
                 "priority": 2,
@@ -374,7 +404,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             {
                 "priority": 5,
                 "action": "Only after oracle and transport gates pass, fit the residual predictor and factor it through linear, native-product, paired-product, and tensor-head-grain programs at standalone and amortized prices.",
-                "why": "The early product frontier and Hankel probe both rejected premature structural compression. Tensor structure should now compete only at a causally licensed, OOD-scoped interface where simplicity can be tested for composition and editability.",
+                "why": "The early product frontier and Hankel probe rejected premature structural compression, while the compression rank sweep shows class and global behavior degrade together rather than exposing a privileged circuit core. Tensor structure should compete only at a causally licensed, OOD-scoped interface where simplicity can be tested for composition and editability.",
             },
         ],
         "registry_inventory": inventory,

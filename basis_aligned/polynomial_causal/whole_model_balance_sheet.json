@@ -253,6 +253,31 @@
       "scope": "question@MLP11 rank 2 and pronouns@MLP17 rank 8 over three disjoint 96-row samples",
       "claim": "The tensor slice identifies sharply concentrated reader heads at the registered circuit layers, but the whole-stack median separation gate fails.",
       "caveat": "This is a controlled local wiring law, not yet a replacement, CE recovery, or proof that the same grain composes across behaviors and layers."
+    },
+    "compression_selectivity_boundary": {
+      "question_class_function_kept_rank32": 0.9682783235210727,
+      "pronoun_class_function_kept_rank32": 0.9227946916471507,
+      "exact_circuit_marginal_recovery_in_compressed_background": {
+        "question": -0.0768,
+        "pronouns": -0.2942
+      },
+      "class_to_global_damage_ratio_by_rank": {
+        "r4": 1.160647145949641,
+        "r8": 0.9595448798988623,
+        "r16": 1.0090646889163577,
+        "r32": 1.1747992588017295
+      },
+      "rank_sweep_predictions": {
+        "pred_a_monotone": true,
+        "pred_b_r8_half": false,
+        "pred_c_knee_16": false
+      },
+      "unit_truncation_class_rise_spearman": 0.976,
+      "unit_truncation_selectivity_within_2x": 6,
+      "currency": "class-specific versus global CE damage under rank compression, plus circuit-head marginal recovery inside the compressed background",
+      "scope": "question rank sweep r4/r8/r16/r32; rank-32 question/pronoun backgrounds; eight class-specific top-unit truncation controls",
+      "claim": "Compression is a useful self-consistent replacement background, but not a circuit-selective operator: class and global damage move together at every tested rank, and restoring exact named heads does not recover function inside that background.",
+      "caveat": "This rejects generic compression as an extraction or selective-edit primitive at the tested interfaces. It does not reject compression as a priced fidelity component, nor behavior-specific gauges that pass direct intervention-transport tests."
     }
   },
   "current_bottleneck": {
@@ -267,8 +292,8 @@
   "ranked_actions": [
     {
       "priority": 1,
-      "action": "Run an optimizer-free live-z oracle screen at MLP0-2: inject the exact original-minus-plank residual, its frozen-content and local-PCA projections, and covariance/energy-matched null projections inside the complete ship.",
-      "why": "The factorial licenses the early bundle but does not identify a slot or content, and a trained CE patch could merely compensate downstream errors. This cheaper singleton screen tests whether the missing original computation actually repairs CE and whether its useful part is unusually content-aligned before any new glue is trained."
+      "action": "After the remaining streaming control clears, pass the real rowcache identity gate, freeze all registered FineWeb rows, and run the authoritative same-realization live-z oracle v2 at MLP0-2.",
+      "why": "The preliminary oracle failed before science and could not preserve its randomized derived ship. The v2 path tests whether exact missing original computation repairs CE, compares content/local/null projections, and freezes the realization so any conditional OOD conclusion is composable and reproducible."
     },
     {
       "priority": 2,
@@ -288,7 +313,7 @@
     {
       "priority": 5,
       "action": "Only after oracle and transport gates pass, fit the residual predictor and factor it through linear, native-product, paired-product, and tensor-head-grain programs at standalone and amortized prices.",
-      "why": "The early product frontier and Hankel probe both rejected premature structural compression. Tensor structure should now compete only at a causally licensed, OOD-scoped interface where simplicity can be tested for composition and editability."
+      "why": "The early product frontier and Hankel probe rejected premature structural compression, while the compression rank sweep shows class and global behavior degrade together rather than exposing a privileged circuit core. Tensor structure should compete only at a causally licensed, OOD-scoped interface where simplicity can be tested for composition and editability."
     }
   ],
   "registry_inventory": {
@@ -425,6 +450,22 @@
     "headgrain_control": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/headgrain_control2_results.json",
       "sha256": "218420051c9a392732f676e13fc19839e6735a87804cd8407f16e091659dc524"
+    },
+    "extraction_rank": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/extraction_rank_results.json",
+      "sha256": "fc5848828d735fbe173877a60a3b45277f9878d39f27014d339f2b60bc9392d9"
+    },
+    "extraction_question": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/extraction_bg_results.json",
+      "sha256": "03e70c27cc57389182834e840052d650298cef8876be97aea8db4b070d28ccc3"
+    },
+    "extraction_pronouns": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/extraction_bg_p_results.json",
+      "sha256": "61b22e85c3823cd2bea83bab760890d91418e9b6783e5a054488e531b306efd1"
+    },
+    "compression_rank": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/compression_rank3_results.json",
+      "sha256": "1b486b97e4c9da586161e4649e833a42ad80db787e8ac64798f944f5fb3c98aa"
     }
   }
 }
