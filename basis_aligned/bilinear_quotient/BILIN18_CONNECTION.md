@@ -38621,3 +38621,47 @@ null while pronouns sits far below (§1620-§1622). Those stand.
 (lambda .6828, null .6577) was computed with `SITE_STOP = 11` applied to a
 site-17 cell. It is meaningless and was excluded from scoring (`pl = pr = nan`).
 pronouns@mlp17 needs its own run at SITE_STOP = 17.
+
+## §1624 §1598 ALSO REPRODUCES EXACTLY (.4823 vs .482) — both published shares confirmed, and its "DIFFUSE" verdict holds against a proper null (2-for-3)
+
+**Setup** (replicate_s1598_upstream, 5 s). The §1623 correction applied at
+§1598's cell: forward stops at SITE=17 with P = the site's input residual,
+36 upstream components (`x0` + attn0..17 + mlp0..16), site-relative depth
+coefficients, rank-8 |λ|, TOP=6, canonical `.rowcache/fineweb_n96_skip80.pt`.
+
+```
+pronouns@mlp17 rank-8 TOP-6    lambda .4823    null .5744    published .482
+question@mlp11 (same run, SITE_STOP=17 -- INVALID for this cell, ignore)
+```
+
+**Scored as written:**
+- **pred_a PASSED** — **.4823 against .482, a difference of .0003.** Exact
+  reproduction, at a second site, under the same correction.
+- **pred_b FAILED, and my reasoning was wrong in an instructive way.** I predicted
+  the restriction would barely move the share here (≤ .05) because at SITE=17
+  upstream is **36 of 37** components. It moved **.5819 → .4823 = .0996**. I
+  counted components and forgot WHICH one the stop excludes: **mlp17**, whose
+  contribution §1601 measured at **−1151, the largest magnitude of any component
+  in the budget**. The forward STOP matters more than the component COUNT — one
+  excluded component can dominate.
+- **pred_c PASSED** — .4823 sits **below** its matched-rank null of .5744.
+
+**BOTH PUBLISHED FIGURES NOW REPRODUCE EXACTLY.**
+```
+S1597  question@mlp11   measured .7179   published .718   delta .0001
+S1598  pronouns@mlp17   measured .4823   published .482   delta .0003
+```
+That the same correction lands both, at different sites, ranks and TOP values,
+confirms §1623's mechanism rather than a coincidence that happened to hit .718.
+
+**§1598's "WRITERS DIFFUSE" verdict is confirmed AND its bar was nearly right.**
+§1598 registered pred_a ≥ .55 and failed it at .482, concluding diffuse. The
+matched-rank null measured here is **.5744** — so its arbitrary .55 threshold sat
+within .025 of the true null. The diffuseness is real: .482 is .092 BELOW what a
+meaningless basis achieves on the same rows.
+
+**And the directional finding survives the correction.** §1612, §1620 and §1622
+all found pronouns below its null while measuring the WRONG quantity
+(final-residual attribution). Measured correctly it is still below its null. The
+within-run comparisons held up exactly as §1623 predicted they would, because both
+arms always shared a quantity even when that quantity was not the published one.
