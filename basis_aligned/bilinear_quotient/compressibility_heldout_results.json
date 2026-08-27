@@ -1,0 +1,113 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ranks": [
+   64,
+   1152
+  ],
+  "arms": {
+   "Down": [
+    "Down"
+   ],
+   "LeftRight": [
+    "Left",
+    "Right"
+   ],
+   "routing": [
+    "c_q",
+    "c_k",
+    "c_q2",
+    "c_k2"
+   ],
+   "values": [
+    "c_v"
+   ]
+  },
+  "eval_sets": [
+   "skip7000",
+   "skip11000"
+  ],
+  "held_out": "fineweb_n192_skip11000 -- untouched by the \u00a71689-\u00a71692 rank work",
+  "compilation": "bottom-up (\u00a71669); programs compiled ONCE and scored on both evals",
+  "coverage": "mask pinned to n96_skip80",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "pattern": "house second-class confirmation (\u00a71595, \u00a71598, \u00a71603; \u00a71683 precedent)",
+  "s1692_rank64": {
+   "routing": 0.6282,
+   "values": 0.0237,
+   "Down": -0.1516,
+   "LeftRight": -0.5288
+  }
+ },
+ "evals": {
+  "skip7000": {
+   "stake_mlp": 4.33011,
+   "stake_attn": 3.55704,
+   "routing_r64": 0.62825,
+   "routing_r1152": 0.99997,
+   "values_r64": 0.02373,
+   "values_r1152": 1.00005,
+   "Down_r64": -0.15164,
+   "Down_r1152": 0.99999,
+   "LeftRight_r64": -0.52884,
+   "LeftRight_r1152": 0.99996
+  },
+  "skip11000": {
+   "stake_mlp": 4.51729,
+   "stake_attn": 3.75522,
+   "routing_r64": 0.63,
+   "routing_r1152": 0.99999,
+   "values_r64": 0.02288,
+   "values_r1152": 1.00004,
+   "Down_r64": -0.14423,
+   "Down_r1152": 1.00001,
+   "LeftRight_r64": -0.5339,
+   "LeftRight_r1152": 0.99991
+  }
+ },
+ "rank64_deltas": {
+  "routing": 0.00175,
+  "values": -0.00085,
+  "Down": 0.00741,
+  "LeftRight": -0.00506
+ },
+ "ordering": {
+  "reference": [
+   "routing",
+   "values",
+   "Down",
+   "LeftRight"
+  ],
+  "held_out": [
+   "routing",
+   "values",
+   "Down",
+   "LeftRight"
+  ]
+ },
+ "predictions": {
+  "pred_a_ordering_preserved": true,
+  "pred_b_levels_stable_le_5pts": true,
+  "pred_c_identity_checks_travel": true
+ },
+ "runtime_s": 880.9
+}

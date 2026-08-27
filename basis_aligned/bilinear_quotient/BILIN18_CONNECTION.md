@@ -42105,3 +42105,40 @@ the MLP's 4608 bilinear features are not sparse-SELECTABLE — keeping the top 5
 the rest is worse than constant ablation, because the readout sums cancelling contributions.
 §1692 finds the same feature-forming path is not low-rank COMPRESSIBLE either: rank 256 of
 1152 leaves it at −37.10%. Two different compressions, two failures, same object.
+
+## §1693 — the compressibility ordering replicates on held-out documents
+
+`compressibility_heldout.py`, rung 2, house second-class-confirmation pattern (§1595, §1598,
+§1603; §1683 precedent). §1692's four-path ordering was measured on one eval set and every
+later decision about where to spend program budget would rest on it.
+`fineweb_n192_skip11000` had not been touched by any of the §1689–§1692 rank work. Programs
+compiled ONCE, scored on both. 3-for-3.
+
+```
+path (rank 64 of 1152)   skip7000   skip11000    delta     identity check
+attention ROUTING         62.82%     63.00%     +0.18%     100.00 / 100.00
+attention VALUES           2.37%      2.29%     -0.09%     100.01 / 100.00
+MLP readout (Down)       -15.16%    -14.42%     +0.74%     100.00 / 100.00
+MLP features (Left/Right) -52.88%    -53.39%    -0.51%     100.00 /  99.99
+stake, MLP                 4.3301     4.5173
+stake, attention           3.5570     3.7552
+CE live                    3.29205    3.09711
+```
+
+**The ordering is identical and no path moves by more than 0.74 points.** The skip7000 arm
+reproduces §1692 to `+0.00%` on all four paths, and the full-rank identity checks return
+~100% on BOTH document samples — a known answer that travels rather than one tuned to a
+sample. So "only attention's routing is compressible" is a property of bilin18, not of the
+192 documents it was measured on.
+
+**The two document samples do differ, and in the same direction §1683 found.** skip11000 is
+easier to predict (CE live 3.097 against 3.292) while BOTH stakes are larger there (MLP 4.517
+against 4.330; attention 3.755 against 3.557). The modules matter more on the easier
+documents. Ceilings are ratios within their own eval set, which is what absorbs this; the
+stakes are reported so it is visible rather than hidden inside a ratio.
+
+**Open question this leaves.** Every ceiling in §1664–§1693 was measured with the OTHER half of
+the model running exactly as trained — the MLP programs against real attention, the attention
+programs against real MLPs. Nothing in the arc has substituted both at once, and §1668 showed
+that installing independently-fitted programs jointly can go negative. Taken as the next rung:
+`whole_model_program.py`, thirty-six sites with interleaved bottom-up compilation.
