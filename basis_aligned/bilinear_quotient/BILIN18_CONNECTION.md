@@ -42142,3 +42142,57 @@ the model running exactly as trained — the MLP programs against real attention
 programs against real MLPs. Nothing in the arc has substituted both at once, and §1668 showed
 that installing independently-fitted programs jointly can go negative. Taken as the next rung:
 `whole_model_program.py`, thirty-six sites with interleaved bottom-up compilation.
+
+## §1694 — the whole model: 36 compiled sites reproduce 50.94% of what bilin18's modules do
+
+`whole_model_program.py`. Every ceiling in §1664–§1693 was measured with the OTHER half of the
+model running exactly as trained. This substitutes both halves at once: a linear map of the
+residual stream at each of the eighteen MLPs, and a lag-1 map `[x_t, x_{t-1}]` at each of the
+eighteen attention output writes, compiled INTERLEAVED bottom-up — within block L, attn_L is
+fitted against everything already substituted below it, installed, then mlp_L is fitted with
+attn_L also substituted. 3-for-3, and both controls reproduce their sections exactly.
+
+```
+condition             sites   stake (nats)   ceiling
+MLPs only               18       4.3301      60.81%   <- control, §1676 exact
+attention only          18       3.5570      56.26%   <- control, §1685 exact
+BOTH                    36       5.5684      50.94%
+sum of the half-stakes            7.8872
+```
+
+**A thirty-six-piece program reproduces 50.94% of everything bilin18's modules contribute** —
+2.836 of 5.568 nats. That is the first number in this arc for the model rather than for one of
+its halves.
+
+**pred_a holds: the halves compound rather than compose**, but gently. The joint ceiling is 9.9
+points below the MLP-only arm and 5.3 below the attention-only arm. Each half's program was
+fitted against a real other half and has never had to absorb the other's error; doing so costs
+about ten points, not the collapse §1668 produced when independently-fitted programs were
+installed together (−42.99%). Interleaved compilation is what makes the difference.
+
+**The joint stake is subadditive** — 5.5684 against 7.8872 for the two halves summed — which is
+the §1666 CE-saturation effect showing up again: at 5.57 nats above a 3.29 live CE the model is
+at 8.86 against a 10.82 uniform ceiling, and there is not much room left to damage. The joint
+CEILING is a ratio within its own condition and is unaffected, but the joint STAKE should not
+be read as "the modules are worth 5.57 nats" in any additive sense.
+
+**Scope:** attention's `v1` is passed through unchanged throughout (§1682, §1684), so this is
+thirty-six output paths replaced, not thirty-six modules.
+
+## §1695 — LESSONS 29 addendum: identity arms check the INTERVENTION, nothing was checking the BASELINE
+
+The first execution of §1694 returned `CE live 8.86042` where every other run in this arc
+reports `3.29205`, and every stake came out negative with every ceiling NaN. The cause: I
+registered the constant-ablation hooks directly on the modules and then measured the baseline
+**through** them, before removing them. The baseline was the fully-ablated model.
+
+This is the LESSONS 29 family in a place I had not guarded. Every run in this arc since §1659
+carries a known-answer identity arm, and those check the SUBSTITUTION — that a full-rank map
+recovers the projection, that a frozen-attention table is exact. **None of them constrains the
+baseline the substitution is measured against**, and the baseline is just as available a known
+answer: §1683 and §1693 both report 3.29205 for this eval set and mask.
+
+Added to the script as `assert abs(cl - S1683_CE_LIVE) <= 1e-3` and stated as the rule: **a
+ceiling is a ratio of three numbers, and a known-answer check on one of them is not a check on
+the other two.** What saved this run was that 8.86 is visibly wrong to anyone who has read the
+arc — the same kind of luck that caught §1681, and not a control.

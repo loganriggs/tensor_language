@@ -33,36 +33,36 @@
   "s1676_mlp": 0.6081,
   "s1685_attn": 0.5626
  },
- "ce_live": 8.86042,
+ "ce_live": 3.29205,
  "stakes": {
-  "mlp": -1.23826,
-  "attn": -2.01133,
-  "mlp_attn": 0.0
+  "mlp": 4.33011,
+  "attn": 3.55704,
+  "mlp_attn": 5.56837
  },
  "arms": {
   "mlp_only": {
    "sites": 18,
-   "stake": -1.23826,
+   "stake": 4.33011,
    "ce": 4.98886,
-   "ceiling": NaN
+   "ceiling": 0.60814
   },
   "attn_only": {
    "sites": 18,
-   "stake": -2.01133,
+   "stake": 3.55704,
    "ce": 4.84779,
-   "ceiling": NaN
+   "ceiling": 0.56263
   },
   "both": {
    "sites": 36,
-   "stake": 0.0,
+   "stake": 5.56837,
    "ce": 6.02395,
-   "ceiling": NaN
+   "ceiling": 0.50939
   }
  },
  "predictions": {
-  "pred_a_halves_compound": false,
-  "pred_b_does_not_collapse_gt_30": false,
-  "pred_c_controls_hold": false
+  "pred_a_halves_compound": true,
+  "pred_b_does_not_collapse_gt_30": true,
+  "pred_c_controls_hold": true
  },
- "runtime_s": 554.9
+ "runtime_s": 299.9
 }

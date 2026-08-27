@@ -666,3 +666,21 @@ assert the EDIT had landed. The variable it set was written every iteration and 
 - **The general shape:** predictions constrain the SCIENCE, instrument checks constrain the
   MEASUREMENT, and neither constrains whether the INTERVENTION was applied. That needs its
   own check, and the cheapest one is that varying a parameter must vary the output.
+
+**LESSONS 29 addendum — the BASELINE needs a known-answer check too (§1694-§1695).** Every run
+in this arc since §1659 carries an identity arm with a pre-derivable answer. All of them check
+the SUBSTITUTION: that a full-rank map recovers its projection, that a frozen-attention table
+is exact, that k=all keeps everything. None of them constrains the BASELINE.
+
+A ceiling is `(ce_const - ce_program) / (ce_const - ce_live)` -- three measured numbers. I
+registered constant-ablation hooks directly on the modules and measured `ce_live` THROUGH them,
+getting 8.86042 where the arc's own value is 3.29205. Every stake went negative, every ceiling
+NaN. The identity arms would have passed had the run reached them, because the substitution
+was fine.
+
+- **The rule:** a known-answer check on one term of a ratio is not a check on the other two.
+  Pin `ce_live` against its published value the same way the identity arm pins the substitution.
+- **Why it is easy to miss:** the baseline feels like setup rather than measurement, so it does
+  not attract a control. It is a measurement.
+- **What actually caught it:** 8.86 being visibly wrong to a reader of the ledger. That is the
+  same luck that caught §1681's no-op, and luck is not a control.
