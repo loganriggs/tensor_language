@@ -445,3 +445,23 @@ of an `ast.Expr` as statement-use.
 - **Rule:** a checker with no negative control is an assertion, not a test. Any new
   gate arm ships with a broken-copy that it must catch, and the whole gate is
   re-run over the known-good corpus before use.
+
+## 22. A WRITE THAT MATCHES NOTHING SUCCEEDS SILENTLY — verify the mutation, not the call (§1632)
+Twice in one session an operation reported success while doing nothing.
+- **Registry flag (§1632):** I looped `for k, v in d.items()` looking for
+  `v.get('section') == 'S1613'` to attach a pending-withdrawal flag. The entry is
+  nested at `_slice_writer_graph/share_null_calibration`, not at top level, so the
+  loop matched zero entries, the script printed "registry updated", and the flag
+  warning readers off a refuted claim was never written. Only a separate
+  `flag placed: {bool}` assertion caught it.
+- **Artifact record (§1632):** `NAMED` became `[]` after a rewiring while the
+  results dict still did `{c: ... for c in NAMED}`. The run scored correctly and
+  wrote a file, but `fraction` serialised as `{}`. Nothing errored.
+- **Why this class is nastier than a crash.** A crash is loud and stops the
+  pipeline. A silent no-op leaves a committed artifact or registry that LOOKS
+  updated, and the failure is only discovered later by someone trusting it.
+- **Rules:** (1) never report a mutation from the fact that the code ran — assert
+  the post-condition (`'X' in obj`, `len(matched) > 0`, `bool(d['fraction'])`) and
+  print it; (2) any loop that selects by a key or path prints how many items it
+  matched; (3) `ops/gate.py` now catches the empty-literal case for results dicts —
+  the registry case is not statically checkable, so it needs the assertion habit.
