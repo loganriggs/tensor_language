@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "frozen_after_preserved_integrity_failure_before_numeric_diagnostic",
+  "authority": "compiler_v2_full_native_numeric_diagnostic_v1_protocol",
+  "authorized_for_scored_experiments": false,
+  "parent_failure_manifest_sha256": "0903b0822b935e7dd6225da46dd1e58064ec275b80fd9c599685cea8b8b05f36",
+  "scope": "Validation-only implementation-currency diagnosis. No fit, A-E candidate score, support, family, collateral, selection, final row, threshold change, or recovery credit is licensed.",
+  "frozen_tolerance": {
+    "max_absolute_validation_row_ce_drift": 0.000002,
+    "change_after_failure_forbidden": true
+  },
+  "predeclared_variants": [
+    "OON_replay_same_device_scorer",
+    "canonical_q64cast_eval32",
+    "uncanonical_q64cast_eval32",
+    "uncanonical_q32_eval32",
+    "canonical_eval64",
+    "uncanonical_eval64",
+    "staged_original_association_eval32",
+    "staged_original_association_eval64"
+  ],
+  "primary_diagnosis_rule": "A scorer-currency repair is licensed only if OON replay and canonical_q64cast_eval32 both have same-device float32 max absolute row-CE drift <=2e-6. In that case a retry may change only scoring device/dtype/reduction consistency; it may not change serialized program tensors, price, tolerance, rows, candidates, or selection.",
+  "noncanonical_variants": "Raw, float64, and staged variants are diagnostic only and can never be selected by this protocol. Float64 violates registered float32 serialization. Staged D-then-B evaluation uses a differently priced full original down projection and would require a new preregistration.",
+  "stop_rule": "If the canonical same-device scorer remains above 2e-6, preserve the diagnostic and stop this projected K4608 retry path. No tolerance relaxation or post-outcome representation choice is licensed.",
+  "output_rule": "Write only implementation IDs, physical/logit/row-CE drifts, KL diagnostic, poison counters, hashes, and pass/fail. Raw logits, tokens, labels, candidate metrics, and activations are forbidden."
+}
