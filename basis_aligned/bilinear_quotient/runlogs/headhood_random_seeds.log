@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows (receipt sha256[:16]=815b21618c2e477e)
+  lambda chunk0 n=  78 share=0.7257 top=['attn10', 'attn9', 'mlp9', 'mlp10'] recon=1.1e-07
+  lambda chunk1 n=  56 share=0.7359 top=['attn10', 'mlp9', 'attn9', 'mlp10'] recon=8.6e-08
+  lambda chunk2 n=  80 share=0.7390 top=['attn10', 'mlp9', 'attn9', 'mlp10'] recon=9.2e-08
+  random seed 1729 done (1/20)
+  random seed 1734 done (6/20)
+  random seed 1739 done (11/20)
+  random seed 1744 done (16/20)
+
+  question@mlp11 rank-2 TOP-4, 20 random bases x 3 chunks = 60 trials
+    attn10  in random top-4: 32/60 = 53.3%   | S1612's own seed 1729: chunks [0, 2]
+    attn9   in random top-4: 53/60 = 88.3%   | S1612's own seed 1729: chunks [0, 2]
+  lambda share  [0.7257, 0.7359, 0.739]
+  mean random   [0.5727, 0.5712, 0.5667]
+  gap           [0.153, 0.1648, 0.1723]
+  lambda top-4 per chunk: [['attn10', 'attn9', 'mlp9', 'mlp10'], ['attn10', 'mlp9', 'attn9', 'mlp10'], ['attn10', 'mlp9', 'attn9', 'mlp10']]
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/headhood_random_seeds_results.json (78.6s)

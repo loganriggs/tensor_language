@@ -1,0 +1,777 @@
+{
+ "config": {
+  "cell": "question@mlp11 rank-2 TOP-4",
+  "named": [
+   "attn10",
+   "attn9"
+  ],
+  "n_random": 20,
+  "seeds": "1729..1748",
+  "chunks": 3,
+  "rows_per_chunk": 160,
+  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "statistic": "ABSOLUTE attribution mass, corrected quantity (forward stops at site, upstream comps, site-relative coefs)"
+ },
+ "lambda_share": [
+  0.7257,
+  0.7359,
+  0.739
+ ],
+ "lambda_top": [
+  [
+   "attn10",
+   "attn9",
+   "mlp9",
+   "mlp10"
+  ],
+  [
+   "attn10",
+   "mlp9",
+   "attn9",
+   "mlp10"
+  ],
+  [
+   "attn10",
+   "mlp9",
+   "attn9",
+   "mlp10"
+  ]
+ ],
+ "mean_random_share": [
+  0.5727,
+  0.5712,
+  0.5667
+ ],
+ "gaps": [
+  0.153,
+  0.1648,
+  0.1723
+ ],
+ "present_in_random_top4": {
+  "attn10": 32,
+  "attn9": 53
+ },
+ "trials": 60,
+ "fraction": {
+  "attn10": 0.5333,
+  "attn9": 0.8833
+ },
+ "seed1729_chunks_present": {
+  "attn10": [
+   0,
+   2
+  ],
+  "attn9": [
+   0,
+   2
+  ]
+ },
+ "per_seed": [
+  {
+   "seed": 1729,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.6119,
+     "top": [
+      "mlp10",
+      "attn9",
+      "attn10",
+      "mlp9"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.6052,
+     "top": [
+      "mlp10",
+      "mlp8",
+      "mlp9",
+      "attn11"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5855,
+     "top": [
+      "mlp10",
+      "attn10",
+      "attn9",
+      "attn11"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1730,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.4971,
+     "top": [
+      "mlp9",
+      "attn11",
+      "attn9",
+      "mlp10"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5564,
+     "top": [
+      "mlp9",
+      "mlp8",
+      "attn9",
+      "attn11"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5973,
+     "top": [
+      "mlp9",
+      "mlp10",
+      "mlp8",
+      "attn9"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1731,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.5523,
+     "top": [
+      "attn9",
+      "mlp9",
+      "mlp10",
+      "mlp8"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5636,
+     "top": [
+      "mlp9",
+      "attn9",
+      "attn10",
+      "mlp10"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5687,
+     "top": [
+      "attn9",
+      "mlp10",
+      "mlp9",
+      "mlp8"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1732,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.5224,
+     "top": [
+      "attn9",
+      "mlp8",
+      "attn10",
+      "mlp10"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5321,
+     "top": [
+      "mlp10",
+      "attn9",
+      "mlp8",
+      "attn10"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5829,
+     "top": [
+      "mlp8",
+      "attn9",
+      "attn10",
+      "mlp10"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1733,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.7185,
+     "top": [
+      "attn9",
+      "attn7",
+      "mlp8",
+      "attn5"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5632,
+     "top": [
+      "attn9",
+      "attn7",
+      "mlp9",
+      "mlp10"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5823,
+     "top": [
+      "attn9",
+      "attn7",
+      "mlp9",
+      "mlp10"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1734,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.6034,
+     "top": [
+      "attn9",
+      "attn10",
+      "attn7",
+      "mlp10"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5634,
+     "top": [
+      "attn9",
+      "attn10",
+      "attn7",
+      "attn11"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.4825,
+     "top": [
+      "attn10",
+      "attn9",
+      "mlp9",
+      "mlp10"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1735,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.4835,
+     "top": [
+      "mlp9",
+      "mlp10",
+      "attn9",
+      "mlp8"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5034,
+     "top": [
+      "mlp9",
+      "mlp10",
+      "attn10",
+      "attn7"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.515,
+     "top": [
+      "mlp9",
+      "mlp8",
+      "attn10",
+      "x0"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1736,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.6284,
+     "top": [
+      "attn9",
+      "mlp9",
+      "attn10",
+      "mlp10"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5726,
+     "top": [
+      "mlp9",
+      "attn9",
+      "attn10",
+      "mlp8"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5379,
+     "top": [
+      "attn9",
+      "mlp9",
+      "mlp6",
+      "mlp10"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1737,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.6559,
+     "top": [
+      "attn9",
+      "mlp9",
+      "attn10",
+      "attn7"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5492,
+     "top": [
+      "attn9",
+      "mlp9",
+      "mlp8",
+      "attn7"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5561,
+     "top": [
+      "attn9",
+      "mlp9",
+      "attn10",
+      "mlp10"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1738,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.5883,
+     "top": [
+      "attn9",
+      "mlp9",
+      "attn10",
+      "mlp6"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5762,
+     "top": [
+      "attn9",
+      "mlp9",
+      "attn7",
+      "mlp10"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.6724,
+     "top": [
+      "attn9",
+      "mlp9",
+      "mlp8",
+      "attn7"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1739,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.5234,
+     "top": [
+      "attn10",
+      "mlp7",
+      "attn7",
+      "attn11"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5531,
+     "top": [
+      "attn10",
+      "mlp9",
+      "mlp10",
+      "attn9"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.4955,
+     "top": [
+      "attn10",
+      "attn7",
+      "mlp9",
+      "attn9"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1740,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.6078,
+     "top": [
+      "attn9",
+      "attn10",
+      "mlp10",
+      "attn7"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5985,
+     "top": [
+      "attn9",
+      "attn10",
+      "attn7",
+      "x0"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.579,
+     "top": [
+      "attn9",
+      "attn10",
+      "mlp10",
+      "mlp9"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1741,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.5818,
+     "top": [
+      "attn9",
+      "mlp9",
+      "mlp8",
+      "mlp10"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.556,
+     "top": [
+      "attn9",
+      "mlp9",
+      "mlp8",
+      "attn7"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.6015,
+     "top": [
+      "attn9",
+      "mlp9",
+      "mlp8",
+      "attn7"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1742,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.5537,
+     "top": [
+      "attn9",
+      "attn10",
+      "mlp9",
+      "attn11"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.557,
+     "top": [
+      "attn9",
+      "mlp9",
+      "attn10",
+      "attn7"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5062,
+     "top": [
+      "attn9",
+      "mlp10",
+      "attn10",
+      "mlp9"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1743,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.5645,
+     "top": [
+      "attn9",
+      "mlp8",
+      "mlp7",
+      "mlp9"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5841,
+     "top": [
+      "mlp10",
+      "attn9",
+      "mlp9",
+      "mlp7"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.616,
+     "top": [
+      "attn9",
+      "mlp10",
+      "mlp9",
+      "mlp8"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1744,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.4962,
+     "top": [
+      "attn9",
+      "attn10",
+      "mlp6",
+      "mlp8"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.6517,
+     "top": [
+      "attn9",
+      "mlp8",
+      "attn7",
+      "attn10"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5603,
+     "top": [
+      "attn9",
+      "mlp10",
+      "attn10",
+      "x0"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1745,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.6009,
+     "top": [
+      "mlp9",
+      "mlp8",
+      "mlp10",
+      "mlp7"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5438,
+     "top": [
+      "mlp10",
+      "mlp7",
+      "attn9",
+      "mlp8"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5565,
+     "top": [
+      "mlp10",
+      "mlp7",
+      "attn9",
+      "mlp9"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1746,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.593,
+     "top": [
+      "attn9",
+      "mlp9",
+      "mlp10",
+      "attn7"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.6293,
+     "top": [
+      "attn9",
+      "mlp10",
+      "attn7",
+      "mlp9"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.6141,
+     "top": [
+      "attn9",
+      "mlp9",
+      "attn7",
+      "mlp10"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1747,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.4926,
+     "top": [
+      "attn11",
+      "attn10",
+      "mlp9",
+      "mlp8"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5715,
+     "top": [
+      "mlp9",
+      "mlp10",
+      "mlp8",
+      "attn9"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5988,
+     "top": [
+      "mlp9",
+      "mlp10",
+      "mlp8",
+      "attn11"
+     ]
+    }
+   ]
+  },
+  {
+   "seed": 1748,
+   "chunks": [
+    {
+     "chunk": 0,
+     "share": 0.5788,
+     "top": [
+      "attn9",
+      "attn10",
+      "mlp8",
+      "attn11"
+     ]
+    },
+    {
+     "chunk": 1,
+     "share": 0.5929,
+     "top": [
+      "attn9",
+      "mlp8",
+      "attn10",
+      "attn7"
+     ]
+    },
+    {
+     "chunk": 2,
+     "share": 0.5256,
+     "top": [
+      "attn9",
+      "attn10",
+      "mlp8",
+      "x0"
+     ]
+    }
+   ]
+  }
+ ],
+ "predictions": {
+  "pred_a_attn10_in_random_top4_ge_third": true,
+  "pred_b_attn9_in_random_top4_ge_third": true,
+  "pred_c_share_gap_ge_08_all_chunks": true
+ },
+ "runtime_s": 78.6
+}

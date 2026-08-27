@@ -38854,3 +38854,70 @@ the *interpretation* of that sign must be weaker than §1612 gave it.
 **Method note.** Registering the ≥.03 scoring bar and the expected-unstable list
 BEFORE the run is what made this readable: `is` flipping sign is informative
 evidence here rather than a failed prediction to explain away.
+
+## §1628 MEMBERSHIP IS WORTHLESS AS EVIDENCE, SHARE IS DECISIVE (3-for-3): attn10 sits in a RANDOM top-4 in 53% of 60 trials and attn9 in 88%, while the λ slice's share exceeds ALL 60 random draws — §1612's "attn10 ABSENT from random in 3/3" is refuted ON ITS OWN SEED, and its withdrawal of §1610 must be reversed
+
+**RETRACTION REQUIRED — NOT APPLIED. This section reports the experiment; the
+correction to §1612 and to `theseus-bench/registry/circuits.json` is held pending
+Logan, because withdrawing a published claim is outside delegated autonomy.**
+
+**Setup** (headhood_random_seeds, 79 s, rung 3 — §1627's open observation #2).
+§1612 registered that "under the correct absolute-mass statistic attn10 is ABSENT
+from the random top-4 in 3/3 — §1597's headline head SURVIVES the control", and on
+that basis WITHDREW §1610's claim that attn10 is not distinguishable from floor.
+Two defects: it used the pre-§1623 wrong quantity, and "3/3" is three correlated
+looks at ONE random basis (seed 1729), not three controls. Here: question@mlp11
+rank-2 TOP-4, corrected quantity, **20 independent random rank-2 bases (seeds
+1729-1748, so §1612's own draw is i=0) x 3 disjoint 160-row chunks = 60 trials**.
+
+```
+                       in random top-4     seeds by #chunks present (of 3)
+  attn10                32/60 = 53.3%      0x:6  1x:3  2x:4  3x:7
+  attn9                 53/60 = 88.3%      1x:2  2x:3  3x:15
+
+  §1612's OWN seed 1729: attn10 present in chunks [0, 2]  <- refutes "absent 3/3"
+                          attn9 present in chunks [0, 2]
+
+  λ share        .7257  .7359  .7390
+  mean random    .5727  .5712  .5667
+  gap            .1530  .1648  .1723
+  random share over all 60 trials: .4825 - .7185
+  λ minimum (.7257) EXCEEDS THE MAXIMUM OF ALL 60 RANDOM TRIALS (.7185)
+```
+
+- **pred_a PASSED** — attn10 in ≥ 1/3 of trials: **53.3%**.
+- **pred_b PASSED** — attn9 in ≥ 1/3 of trials: **88.3%**.
+- **pred_c PASSED** — λ−null gap ≥ .08 on all three chunks: **.153/.165/.172**.
+
+**The two halves come apart cleanly, and this is the point.**
+1. **MEMBERSHIP CARRIES NO INFORMATION HERE.** Whether attn10 lands in a random
+   top-4 is close to a coin flip that depends entirely on which random basis you
+   drew — 6 of 20 seeds never place it, 7 of 20 place it every time. attn9 is in a
+   random top-4 **88%** of the time. Naming a component "rule-specific" because it
+   is absent from *one* random arm's top-4 is not a control; it is a report of that
+   arm's draw. §1612 got "absent 3/3" from seed 1729 under the wrong quantity, and
+   under the corrected quantity **that very seed contradicts it in 2 of 3 chunks**.
+2. **SHARE IS DECISIVE AND SURVIVES UNTOUCHED.** The λ slice concentrates .726-.739
+   against a 20-seed mean null of .567-.573, and its worst chunk beats the best of
+   all sixty random draws. The separation is **perfect, 60/60**. Measured against a
+   proper multi-seed null the gap is LARGER (.153-.172) than against seed 1729
+   alone (.114-.154, §1627) — the single seed was flattering the null, not the slice.
+
+**What must change, and what must not.**
+- §1612's `membership_at_question` and its `WITHDRAWS` of §1610 are **refuted**.
+  §1610's original claim — attn10 is not distinguishable from floor *by membership*
+  — is **correct** and should be restored.
+- Note §1612's λ top-4 was `{mlp17, mlp11, attn10, mlp9}`, which includes mlp17,
+  DOWNSTREAM of the site. Under the corrected quantity the λ top-4 is
+  `{attn10, attn9, mlp9, mlp10}` — §1597's published set, stable 3/3. §1612's
+  membership analysis was not a slightly-off measurement; it ranked a different
+  component set entirely.
+- **§1597's headline is NOT retracted by this.** Its share (.718, replicated .7179
+  in §1623) stands, and its head-grain claim (attn10 = head 10.5 at 20:1 over the
+  next head within the layer) is a DIFFERENT and stronger statistic that this run
+  does not test. What falls is only the top-4 *membership* control §1612 built.
+
+**General rule this earns.** A top-K membership test against a single random basis
+is a sample of size one dressed as a control. Either use many bases and report a
+FRACTION, or do not make membership claims at all — and prefer share, which here
+separated 60/60 where membership separated at 53%.
