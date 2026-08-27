@@ -149,6 +149,13 @@ def scaled_tolerance(value: torch.Tensor, relative: float) -> dict[str, float]:
             "tolerance": relative * scale}
 
 
+def model_type_config(config: Any) -> dict[str, bool | None]:
+    """Read the two registered fields without assuming a transformers config API."""
+
+    return {"gated": getattr(config, "gated", None),
+            "squared_mlp": getattr(config, "squared_mlp", None)}
+
+
 def _native_tensors(block: Any) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
     mlp = block.mlp
     for name in ("Left", "Right", "Down", "Down_bias"):
@@ -287,9 +294,7 @@ def run_claimed(before: Mapping[str, str | None]) -> None:
             raise RuntimeError("frozen ship realization changed")
         exact_runner.require_inert_correction_state(sa)
         component_before = exact_runner.component_tree_sha256(sa, twall, all_attention)
-        config = sa.m.config.to_dict()
-        type_config = {"gated": config.get("gated"),
-                       "squared_mlp": config.get("squared_mlp")}
+        type_config = model_type_config(sa.m.config)
         if type_config != {"gated": False, "squared_mlp": False}:
             raise RuntimeError(f"model is not the registered ungated bilinear form: {type_config}")
         sites = {

@@ -39,6 +39,16 @@ def test_scale_aware_bounds_are_explicit_and_finite() -> None:
         preflight.scaled_tolerance(value, 0.0)
 
 
+def test_model_type_config_does_not_require_transformers_to_dict() -> None:
+    config = SimpleNamespace(gated=False, squared_mlp=False)
+    assert preflight.model_type_config(config) == {
+        "gated": False, "squared_mlp": False
+    }
+    assert preflight.model_type_config(SimpleNamespace()) == {
+        "gated": None, "squared_mlp": None
+    }
+
+
 def test_native_type_gate_rejects_missing_or_biased_factors() -> None:
     with pytest.raises(RuntimeError, match="lacks"):
         preflight._native_tensors(SimpleNamespace(mlp=SimpleNamespace()))
