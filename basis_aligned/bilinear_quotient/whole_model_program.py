@@ -50,6 +50,7 @@ CONSTS = PT + 'opt_ablation_consts_all.pt'
 H = m.transformer.h
 S1676_MLP = 0.6081
 S1685_ATTN = 0.5626
+S1683_CE_LIVE = 3.29205
 STATE = {}
 SEENREF = {}
 
@@ -190,13 +191,16 @@ def main():
     torch.cuda.empty_cache()
     fit = load(FIT_ROWS)
 
-    mlp_c = [H[L].mlp.register_forward_hook(mlp_const_hook(K[f'mlp{L}'].to(DEV).float()))
-             for L in ALL18]
-    att_c = [H[L].attn.register_forward_hook(attn_const_hook(K[f'attn{L}'].to(DEV).float()))
-             for L in ALL18]
     cl = ce(ev, seen)
-    for h in mlp_c + att_c:
-        h.remove()
+    # KNOWN-ANSWER CHECK ON THE BASELINE. The first version of this script registered the
+    # constant hooks directly on the modules and then measured cl THROUGH them, returning
+    # CE live 8.86042 instead of 3.29205 -- every stake came out negative and every ceiling
+    # NaN. Identity arms verify the INTERVENTION; nothing was verifying the BASELINE, and it
+    # is just as available a known answer (§1683 and §1693 both report 3.29205 for this eval
+    # set and mask).
+    assert abs(cl - S1683_CE_LIVE) <= 1e-3, (
+        f'baseline CE {cl:.5f} disagrees with the known live CE {S1683_CE_LIVE:.5f} -- '
+        'something is substituted that should not be')
 
     def const_ce(which):
         hs = []

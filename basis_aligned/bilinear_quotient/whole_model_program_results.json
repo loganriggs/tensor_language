@@ -1,0 +1,68 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "programs": "linear map of the residual stream at each MLP; lag-1 map [x_t, x_(t-1)] at each attention output write (\u00a71685)",
+  "compilation": "INTERLEAVED bottom-up -- within block L, attn_L is fitted against everything substituted below it, installed, then mlp_L is fitted with attn_L also substituted (\u00a71669)",
+  "why_interleaved": "fitting the halves independently and installing them together is the \u00a71668 configuration that returned -42.99%",
+  "coverage": "hybrid, mask pinned to n96_skip80 (\u00a71676)",
+  "scoring": "covered positions only",
+  "stake": "recomputed per condition; the joint stake is a larger object than either half-stake, so the joint ceiling is not a fraction comparable to 60.81% or 56.26%",
+  "v1_scope": "attention v1 passed through unchanged (\u00a71682, \u00a71684)",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1676_mlp": 0.6081,
+  "s1685_attn": 0.5626
+ },
+ "ce_live": 8.86042,
+ "stakes": {
+  "mlp": -1.23826,
+  "attn": -2.01133,
+  "mlp_attn": 0.0
+ },
+ "arms": {
+  "mlp_only": {
+   "sites": 18,
+   "stake": -1.23826,
+   "ce": 4.98886,
+   "ceiling": NaN
+  },
+  "attn_only": {
+   "sites": 18,
+   "stake": -2.01133,
+   "ce": 4.84779,
+   "ceiling": NaN
+  },
+  "both": {
+   "sites": 36,
+   "stake": 0.0,
+   "ce": 6.02395,
+   "ceiling": NaN
+  }
+ },
+ "predictions": {
+  "pred_a_halves_compound": false,
+  "pred_b_does_not_collapse_gt_30": false,
+  "pred_c_controls_hold": false
+ },
+ "runtime_s": 554.9
+}
