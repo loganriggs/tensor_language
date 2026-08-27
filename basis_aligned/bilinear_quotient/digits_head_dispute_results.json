@@ -1,0 +1,123 @@
+{
+ "config": {
+  "disputes": [
+   [
+    7,
+    3,
+    8
+   ],
+   [
+    6,
+    5,
+    7
+   ],
+   [
+    12,
+    6,
+    7
+   ],
+   [
+    11,
+    5,
+    6
+   ]
+  ],
+  "chunks": 3,
+  "rows_per_chunk": 333,
+  "row_source": "curated_rows.pt",
+  "rows_are_fresh": false,
+  "removal": "optimal constants, one head at a time"
+ },
+ "digits_baseline": {
+  "class_ce": 3.9145,
+  "global_ce": 3.0398,
+  "n": 4333
+ },
+ "layers": [
+  {
+   "layer": 7,
+   "certified": {
+    "head": "7.3",
+    "class_rise": 0.0131,
+    "global_rise": 0.00116,
+    "sel": 11.24
+   },
+   "slice": {
+    "head": "7.8",
+    "class_rise": 0.0047,
+    "global_rise": 0.01972,
+    "sel": 0.24
+   },
+   "cert_wins_rise": true,
+   "cert_wins_sel": true
+  },
+  {
+   "layer": 6,
+   "certified": {
+    "head": "6.5",
+    "class_rise": 0.0054,
+    "global_rise": 0.0019,
+    "sel": 2.84
+   },
+   "slice": {
+    "head": "6.7",
+    "class_rise": 0.0176,
+    "global_rise": 0.00598,
+    "sel": 2.95
+   },
+   "cert_wins_rise": false,
+   "cert_wins_sel": false
+  },
+  {
+   "layer": 12,
+   "certified": {
+    "head": "12.6",
+    "class_rise": 0.0071,
+    "global_rise": 0.00105,
+    "sel": 6.73
+   },
+   "slice": {
+    "head": "12.7",
+    "class_rise": 0.0001,
+    "global_rise": 0.00096,
+    "sel": 0.1
+   },
+   "cert_wins_rise": true,
+   "cert_wins_sel": true
+  },
+  {
+   "layer": 11,
+   "certified": {
+    "head": "11.5",
+    "class_rise": 0.0225,
+    "global_rise": 0.00242,
+    "sel": 9.3
+   },
+   "slice": {
+    "head": "11.6",
+    "class_rise": 0.0126,
+    "global_rise": 0.01045,
+    "sel": 1.2
+   },
+   "cert_wins_rise": true,
+   "cert_wins_sel": true
+  }
+ ],
+ "control_comma": {
+  "layer": 11,
+  "certified": "11.7",
+  "neighbour": "11.6",
+  "cert_rise": 0.0339,
+  "neigh_rise": 0.0023,
+  "cert_wins": true,
+  "n": 7394
+ },
+ "cert_wins_rise": 3,
+ "cert_wins_sel": 3,
+ "predictions": {
+  "pred_a_cert_rise_ge3of4": true,
+  "pred_b_cert_sel_ge3of4": true,
+  "pred_c_control_cert_wins": true
+ },
+ "runtime_s": 81.1
+}

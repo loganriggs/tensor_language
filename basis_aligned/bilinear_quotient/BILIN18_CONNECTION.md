@@ -38260,3 +38260,51 @@ classes and sites the certified eigen slice resolves at head grain to the
 certified head, at ~3x the rate of a matched-rank random basis and ~27% in
 absolute terms after floor correction; at others (digits, months) it resolves to a
 neighbouring head instead.* The registry entry must carry that, not the universal.
+
+## §1618 THE REGISTRY'S digits HEADS ARE RIGHT AND THE SLICE IS WRONG (3-for-3): the |λ| neighbours are high-norm GENERALISTS with selectivity 0.10-1.20, against the certified heads' 6.7-11.2 — which explains §1617's digits 0/8 as the head-grain floor, not a registry error
+
+**Setup** (digits_head_dispute, 81 s). §1617 found the |λ| slice resolving to a
+consistent NEIGHBOUR of every certified digits head, 4/4. Attribution cannot
+adjudicate a dispute attribution created, so this settles it causally:
+optimal-constant removal of one head at a time (the `circuit_verify_high.py`
+mechanism), digits-class CE rise and selectivity, local curated_rows.pt 3 x 333,
+digits n = 4333, baseline class 3.9145 / global 3.0398.
+
+```
+layer  certified            slice (neighbour)        winner
+L7     7.3   +.0131  sel 11.24   7.8   +.0047  sel  0.24   CERT (47x selectivity)
+L6     6.5   +.0054  sel  2.84   6.7   +.0176  sel  2.95   SLICE on rise, tied on sel
+L12    12.6  +.0071  sel  6.73   12.7  +.0001  sel  0.10   CERT (67x selectivity)
+L11    11.5  +.0225  sel  9.30   11.6  +.0126  sel  1.20   CERT (7.8x selectivity)
+CONTROL comma L11: certified 11.7 +.0339 vs neighbour 11.6 +.0023 -> CERT by 15x
+```
+
+**Scored as written — all three PASSED:** certified wins class rise in **3/4**
+(bar 3), wins selectivity in **3/4** (bar 3), and the comma control discriminates
+(certified 11.7 beats its neighbour by 15x), so the comparison has resolution and
+the digits verdict is readable.
+
+**THE REGISTRY IS CORRECT. No correction is required.** The registered prior held:
+the certified heads came from greedy CAUSAL search (§1513/§1515, which beat the
+weights-only top-5 on 4/4 classes), and causal search outranks attribution.
+
+**And the selectivity numbers explain §1617's digits 0/8 mechanistically.** The
+slice's neighbours at L7 and L12 have selectivity **0.24 and 0.10** — BELOW 1,
+meaning they damage global function MORE than the digits class. They are
+high-norm GENERALISTS. The |λ| head-grain statistic resolves to whichever head
+projects largest onto the slice subspace, and that favours exactly such heads:
+**§1617's digits failure is the head-grain floor (§1606/§1617) selecting
+generalists, not evidence against the registry.** §1617's "the slice resolves to a
+nearby but different head" now has a cause.
+
+**The one exception, recorded rather than smoothed over.** At L6 the slice head
+6.7 beats certified 6.5 on class rise (+.0176 vs +.0054, 3.3x) with selectivity
+essentially tied (2.95 vs 2.84). One layer of four, and the only cell where the
+slice may have found something real. Not enough to move a registry entry — the
+selectivity tie means it is not a cleaner specialist, just a bigger effect — but
+it is the single cell worth a second look if digits is revisited.
+
+**Method note worth carrying forward:** this is the first time in the arc that
+attribution and causal removal DISAGREED and were adjudicated head-to-head. Causal
+won 3/4 on rise and 3/4 on selectivity, with the losses concentrated where
+selectivity was tied. Where the two methods conflict, prefer removal.
