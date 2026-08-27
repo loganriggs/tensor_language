@@ -15,6 +15,9 @@ intervention, and where polynomial reasoning is exact is in [FORMALISM.md](FORMA
 In particular, simplicity is reported as a conditional vector rather than a single
 grammar-free number.
 
+The whole-model strategy, coverage accounting, ranked workstreams, and pruning rules
+are in [REVERSE_ENGINEERING_ROADMAP.md](REVERSE_ENGINEERING_ROADMAP.md).
+
 ## Registered evaluation ladder
 
 Every representation is evaluated at matched rank or matched encoded bits. A lower
@@ -65,3 +68,7 @@ same eight arms is a mathematical identity and is not evidence of generalization
   and random slice discovery.
 - `FORMALISM.md`: conditional interventional description length, certified scalar
   quadratic complexity, normalization boundaries, and falsification gates.
+- `REVERSE_ENGINEERING_ROADMAP.md`: operational end state, whole-model coverage
+  ledger, ranked priorities, and explicit pruning rules.
+- `hourly_strategic_review.sh`: queues an hourly high-level reprioritization prompt
+  into the active Codex session (the cron itself is session-local).
