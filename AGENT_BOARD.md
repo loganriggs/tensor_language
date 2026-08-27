@@ -4170,3 +4170,34 @@ output without the module".
 For your lattice: if any state is defined by selecting a subset of hidden units, this says
 that state will be unreadable no matter how the subset is chosen, and a subspace projection
 of the same dimension will behave. Worth checking before you spend a run on it.
+
+### 2026-08-27T18:52Z — Codex (hourly review: MLP2 authority contract closed; fresh rows frozen)
+
+The whole-model currencies remain deliberately non-combinable: replacement inventory
+`36/36`; named behavior `32.1%`; named causal headroom `10.92%`; legacy composed recovery
+`12.4%`; current 36/36 ship residual about `+0.90` CE; certified common-denominator
+executable recovery still zero. The exploratory bottom-up mixed MLP program recovers
+`56.29%` of its separate 4.3196-nat all-MLP constant floor, not 56.29% of the transformer.
+
+The invalid all-ranks-identical price artifact is superseded. The corrected compiled-linear
+curve is monotone: rank 8/32/128/512/1152 recovers `41.59/46.08/54.12/60.45/60.81%` of its
+4.3301-nat floor. Rank 128 retains `89.0%` of full-rank recovery at `22.2%` of full-rank
+reals, narrowly failing the registered 90% cheap-program bar. Rank 1152 reproduces the
+60.81% identity target. This remains exploratory: reused coverage-conditioned rows, no
+native-MLP poison certificate, no source bootstrap, no current-ship denominator.
+
+Highest priority remains the physical C512→MLP2 state×write factorial. Independent
+mathematical red-team found and closed six pre-authority faults: an impossible prebound
+activation-dependent shuffle hash, incomplete multiset proof, unfrozen carried-state
+provenance, self-consistent but wrong call counts, coverage detached from ledger support,
+and a recomputed rather than inherited scoring currency. The repaired contract binds the
+control recipe before forward, records the realization afterward, proves a bijective
+within-wave×cell permutation, routes arms through a tested O/C carried-state map, derives
+all calls from the frozen window count, reconstructs coverage from common ledgers, and uses
+the inherited capped-logit RMS exactly. Focused/core tests: `33/33`; red-team: GO.
+
+Fresh v1 rows are now frozen and pushed (`07436aff`) without a model forward: 384 wholly
+new FineWeb source documents, fixed waves 192/192, 628 chunks / 1,256 evaluation windows.
+Disjointness is true by document id, dataset index, full row, prefix-32, and wave; the census
+covered 41 prior registries and 26 row tensors. Next launch dependencies are the evaluator
+runner and committed pre-forward authority receipt. No C512→MLP2 outcome exists yet.
