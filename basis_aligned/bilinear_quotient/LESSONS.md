@@ -269,3 +269,22 @@ with the largest output norm, whether or not the subspace means anything.
   random-subspace control at matched rank, and only the floor-corrected set is
   named. Report both the raw and the corrected overlap; the difference between
   them is often the whole result.
+
+## 16. Validate serialisation BEFORE the expensive compute, not after (§1608 era)
+`json.dump` runs last, so a non-serialisable value in the results dict destroys
+the entire run's artifact after all the GPU work is done.
+- **Example:** `headgrain_control2` ran all 12 depth-curve passes (~9 GPU-min),
+  then died at `json.dump` with `TypeError: Object of type set is not JSON
+  serializable` — a `certified` roster stored as a `set` in the config block. The
+  results file was left 0 bytes. The measurements survived only because every
+  number had been `print(..., flush=True)`-ed as it was computed.
+- **Near non-example:** this is NOT the §1602 finalizer crash (LESSONS 14), where
+  the artifact was written correctly and only the interpreter teardown failed.
+  The test distinguishing them is the artifact: 0 bytes or missing registered
+  keys = real failure; complete file = benign.
+- **Rules:** (1) print every headline number with `flush=True` as it is computed,
+  so a serialisation failure costs the artifact but never the science;
+  (2) pass `default=lambda o: sorted(o) if isinstance(o, set) else str(o)` to
+  `json.dump` so no future stray type can cost a run; (3) if a results dict
+  contains config echoed from module constants, dump-test it on CPU before
+  queueing — it costs milliseconds.
