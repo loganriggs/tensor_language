@@ -41802,3 +41802,48 @@ the honest reading and already a large correction to how §1682 could be read.
 
 Queued `attn_multilag.py` to find where the remaining 43.7% lives: how many recent positions
 does attention's write actually need?
+
+## §1686 — beyond lag 1 attention's dependence is DIFFUSE: a spread window beats a contiguous one
+
+`attn_multilag.py`. Both controls reproduce exactly — the empty set gives §1682's 16.38%,
+the single lag gives §1685's 56.26%.
+
+```
+lag set        input dim    ceiling
+none             1152       16.38%   <- control, §1682
+1                2304       56.26%   <- control, §1685
+1,2              3456       62.59%
+1,2,3,4          5760       66.71%
+1,2,4,8          5760       68.05%   <- same slot count, SPREAD
+```
+
+**pred_a holds: lag 1 is the cliff and everything after it is a slope.** The first previous
+position buys +39.88 points; three more recent positions buy +10.45 between them.
+
+**pred_b failed** — four recent positions reach 66.71%, under the 70% I predicted. About a
+third of attention's write needs more than four positions.
+
+**pred_c failed in the opposite direction, and that is the result.** I predicted the
+contiguous window would beat the spread one by ≥3 points, on a recency reading. The spread
+window **wins** by 1.34 points at identical slot count. So beyond lag 1, what attention's
+write depends on is *some history*, not *the immediately preceding tokens* — and sampling the
+context more widely is, if anything, slightly better than sampling it densely. My recency
+framing was wrong for every slot except the first.
+
+The structure that survives both runs:
+
+```
+16.4%   the current position
+39.9%   the previous position specifically (§1685: 32.6 of it lag-1-specific vs a lag-8 control)
+11.8%   any four-ish further positions, and it barely matters which -- spread slightly better
+31.9%   still outside a five-position linear description
+```
+
+**One privileged position, then a diffuse dependence on context.** That is the third
+diffuse-not-sparse result of this arc — §1663 found mlp1's residue spread across eighteen
+heads, §1671 found the compiled program's shortfall spread across eighteen sites, and now the
+positional dependence of attention's write beyond lag 1. Three grains, same shape.
+
+Queued `attn_wide_spread.py` to test whether the remaining third is genuinely long-range: if
+widening the spread to (1,2,4,8,16,32) keeps buying ground, it is; if it plateaus, the
+residue is something a positional description cannot reach at all.

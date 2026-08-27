@@ -1,0 +1,75 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "lagsets": [
+   [],
+   [
+    1
+   ],
+   [
+    1,
+    2
+   ],
+   [
+    1,
+    2,
+    3,
+    4
+   ],
+   [
+    1,
+    2,
+    4,
+    8
+   ]
+  ],
+  "ridge": 0.001,
+  "target": "attention OUTPUT WRITE only; v1 passed through unchanged",
+  "family": "least squares from [x_t, x_(t-l) for l in lags] to the write",
+  "control": "(1,2,4,8) has the same slot count as (1,2,3,4) but spread, so contiguity is separated from mere history",
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1682_lag0": 0.1638,
+  "s1685_lag1": 0.5626
+ },
+ "stake": 3.55704,
+ "curve": {
+  "none": 0.16384,
+  "1": 0.56263,
+  "1,2": 0.62594,
+  "1,2,3,4": 0.66713,
+  "1,2,4,8": 0.68051
+ },
+ "first_step": 0.39879,
+ "three_more": 0.1045,
+ "contiguous_minus_spread": -0.01338,
+ "remaining_after_four": 0.33287,
+ "controls_reproduce": true,
+ "predictions": {
+  "pred_a_diminishing_returns": true,
+  "pred_b_four_positions_gt_70": false,
+  "pred_c_contiguity_matters_ge_3pts": false
+ },
+ "runtime_s": 639.3
+}
