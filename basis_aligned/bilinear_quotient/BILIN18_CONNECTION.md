@@ -37316,3 +37316,66 @@ reached by then. Suppression is **MLP-only and late**: mlp16 (−292) and mlp17
 **.358 ± .029**, while attn17 still writes positively (+139). No small component
 set reproduces the final cut (top-4 positive = .414 of it, §1601) because the
 quantity is assembled by ~34 positive steps against 2 large negative ones.
+
+## §1604 PRONOUNS DEPTH PROFILE (1-for-3): the late-peak SHAPE replicates 12/12 across two classes and two sites, but mlp17 writes AGAINST its own payload subspace — the §1601 read-write coincidence does NOT generalise
+
+**Setup** (channel_depth_p, 1148 s). Second-class confirmation of §1602/03 at the
+pronouns site mlp17, using the **pos_r8 payload slice** (the 8 most POSITIVE
+eigendirections of the class-projected form) per the §1598 rule that mlp17 slices
+must be sign-split, never |λ|-ordered. Payload eigs all positive
+(53.94 … 26.60), asserted at runtime. Six disjoint 96-row samples, no refitting,
+recon rel err 1.1e-07 – 3.6e-07 throughout. RANK threaded through every
+accumulator (§1598 died twice on rank-2 hardcodes).
+
+```
+skip      n    peak     drawdown   mlp17 signed   top-2 positive writers
+80      224   attn16     +0.9737      -5111.4     mlp12, mlp13
+15000   194   attn16     +0.3514      -2627.7     mlp12, mlp13
+20000   195   attn16     +0.5026      -2639.9     mlp12, mlp13
+25000   185   attn17     +0.2365      -1374.5     mlp12, mlp13
+30000   152   attn16     +0.3358      -2139.3     mlp12, mlp13
+35000   128   attn16     +0.6303      -3237.0     mlp12, mlp13
+```
+
+**Scored as written:**
+- **pred_a PASSED** — peak at or after layer 14 in **6/6** (attn16 ×5, attn17 ×1).
+  With question's attn16 6/6 (§1603) that is **12/12 across two classes and two
+  slice sites**. The late-peak, whole-stack-accumulation shape is the most robust
+  thing in this arc.
+- **pred_b FAILED, 0/6.** I predicted mlp17 would be among the top-2 POSITIVE
+  writers of its own payload subspace, on the theory that §1601's read-write
+  coincidence (mlp11 was the LARGEST positive writer of the subspace mlp11 reads)
+  would replicate. mlp17 is instead a large NEGATIVE writer in every sample
+  (−1374 to −5111). **My reasoning error, stated plainly: I conflated how a form
+  READS with how a module WRITES.** The eigen-sign of the class-projected form
+  describes mlp17's structure as a *reader* of the residual; it carries no
+  information about the sign of mlp17's *output* projected on those same
+  directions. Sign-splitting the read basis does not sign-split the write.
+- **pred_c FAILED** — mean drawdown **.5050**, five times the registered ≤ .10.
+  Same error: excluding negative-eigenvalue READ directions did not remove late
+  suppression, because the suppression is a WRITE.
+
+**Two things NOT to over-read.**
+1. Pronouns drawdown .5050 ± .1095 vs question .3584 ± .0287 is a **1.30 σ**
+   difference — **not significant**. The point estimate is higher; the claim
+   "pronouns is suppressed more than question" is NOT supported and must not be
+   made.
+2. Pronouns sem is **.1095**, well above the .05 that closed question's magnitude
+   in §1603 (sd .2682 vs question's .0703). **Six samples do NOT pin the pronouns
+   drawdown** — its magnitude stays OPEN. The sign is certain (suppression in
+   6/6); the size is not.
+
+**Unregistered and highly stable: the top-2 positive writers are mlp12 and mlp13
+in 6/6 samples.** Note these are NOT §1598's writer set (mlp16, x0, mlp15, mlp9,
+mlp14, attn9) — because §1598 measured contributions into the |λ|-top-8 slice,
+which is suppression-dominated and mixes gate with payload, while this measures
+signed contribution into the all-positive payload. **The slice convention decides
+which components look like writers**, which is §1598's own lesson confirmed from
+the other side, and a caution for every writer-graph number in this program: the
+writer set is a property of the (site, slice-rule) pair, not of the class alone.
+
+**Standing statement, revised.** The late-peak accumulation shape is general
+(12/12, two classes, two sites). The read-write relationship is NOT: at mlp11 the
+module amplifies the channel it reads (+1028, largest positive writer); at mlp17
+it opposes its own payload directions (−1374 to −5111, never positive). Any
+"module X reads and writes the same variable" claim needs testing per site.

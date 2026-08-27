@@ -1,0 +1,11 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+payload eigs (pos_r8) [53.9429, 43.3271, 37.3512, 31.9728, 30.0383, 29.0709, 27.6717, 26.5962]
+skip=    80 n=224 peak=attn16 (L16) dd=+0.9737 top2+=['mlp12', 'mlp13'] mlp17=-5111.4(rank None) recon=1.5e-07
+skip= 15000 n=194 peak=attn16 (L16) dd=+0.3514 top2+=['mlp12', 'mlp13'] mlp17=-2627.7(rank None) recon=3.6e-07
+skip= 20000 n=195 peak=attn16 (L16) dd=+0.5026 top2+=['mlp12', 'mlp13'] mlp17=-2639.9(rank None) recon=1.1e-07
+skip= 25000 n=185 peak=attn17 (L17) dd=+0.2365 top2+=['mlp12', 'mlp13'] mlp17=-1374.5(rank None) recon=2.3e-07
+skip= 30000 n=152 peak=attn16 (L16) dd=+0.3358 top2+=['mlp12', 'mlp13'] mlp17=-2139.3(rank None) recon=1.1e-07
+skip= 35000 n=128 peak=attn16 (L16) dd=+0.6303 top2+=['mlp12', 'mlp13'] mlp17=-3237.0(rank None) recon=2.3e-07
+drawdown mean +0.5050 sd 0.2682 sem 0.1095 (question ref .3584) | peak>=L14 6/6 | mlp17 top2+ 0/6
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/channel_depth_p_results.json (1147.6s)
