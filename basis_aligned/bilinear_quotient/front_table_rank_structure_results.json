@@ -1,0 +1,212 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "ranks": [
+   1,
+   2,
+   4,
+   8,
+   16,
+   23,
+   32,
+   64,
+   128
+  ],
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "svd": "centred on the position-weighted mean, rows scaled by sqrt(count) so truncation minimises POSITION-weighted error",
+  "substitution": "HYBRID -- table at covered positions, MLP live elsewhere (\u00a71661)",
+  "scoring": "covered positions only",
+  "s780_effective_rank": 22.7,
+  "supersedes": "S1655 (discarded: unweighted mean constant + zero fallback)"
+ },
+ "sites": {
+  "mlp0": {
+   "tokens_seen": 6009,
+   "stake": 0.85521,
+   "full_ceiling": 0.90265,
+   "s1662_ceiling": 0.90265,
+   "curve": {
+    "1": {
+     "ceiling": 0.58699,
+     "frac_of_full": 0.65029
+    },
+    "2": {
+     "ceiling": 0.62796,
+     "frac_of_full": 0.69568
+    },
+    "4": {
+     "ceiling": 0.6375,
+     "frac_of_full": 0.70625
+    },
+    "8": {
+     "ceiling": 0.69662,
+     "frac_of_full": 0.77175
+    },
+    "16": {
+     "ceiling": 0.77218,
+     "frac_of_full": 0.85546
+    },
+    "23": {
+     "ceiling": 0.80554,
+     "frac_of_full": 0.89242
+    },
+    "32": {
+     "ceiling": 0.83049,
+     "frac_of_full": 0.92006
+    },
+    "64": {
+     "ceiling": 0.87122,
+     "frac_of_full": 0.96519
+    },
+    "128": {
+     "ceiling": 0.893,
+     "frac_of_full": 0.98931
+    }
+   }
+  },
+  "mlp1": {
+   "tokens_seen": 6009,
+   "stake": 7.00496,
+   "full_ceiling": 0.9601,
+   "s1662_ceiling": 0.9601,
+   "curve": {
+    "1": {
+     "ceiling": 0.22473,
+     "frac_of_full": 0.23407
+    },
+    "2": {
+     "ceiling": 0.36416,
+     "frac_of_full": 0.3793
+    },
+    "4": {
+     "ceiling": 0.41,
+     "frac_of_full": 0.42704
+    },
+    "8": {
+     "ceiling": 0.63896,
+     "frac_of_full": 0.66551
+    },
+    "16": {
+     "ceiling": 0.84947,
+     "frac_of_full": 0.88478
+    },
+    "23": {
+     "ceiling": 0.88325,
+     "frac_of_full": 0.91996
+    },
+    "32": {
+     "ceiling": 0.89901,
+     "frac_of_full": 0.93638
+    },
+    "64": {
+     "ceiling": 0.93151,
+     "frac_of_full": 0.97023
+    },
+    "128": {
+     "ceiling": 0.95183,
+     "frac_of_full": 0.99139
+    }
+   }
+  },
+  "mlp2": {
+   "tokens_seen": 6009,
+   "stake": 0.7719,
+   "full_ceiling": 0.76982,
+   "s1662_ceiling": 0.7698,
+   "curve": {
+    "1": {
+     "ceiling": 0.40827,
+     "frac_of_full": 0.53034
+    },
+    "2": {
+     "ceiling": 0.41491,
+     "frac_of_full": 0.53897
+    },
+    "4": {
+     "ceiling": 0.40888,
+     "frac_of_full": 0.53113
+    },
+    "8": {
+     "ceiling": 0.50773,
+     "frac_of_full": 0.65955
+    },
+    "16": {
+     "ceiling": 0.5822,
+     "frac_of_full": 0.75628
+    },
+    "23": {
+     "ceiling": 0.61659,
+     "frac_of_full": 0.80095
+    },
+    "32": {
+     "ceiling": 0.64966,
+     "frac_of_full": 0.84391
+    },
+    "64": {
+     "ceiling": 0.7057,
+     "frac_of_full": 0.9167
+    },
+    "128": {
+     "ceiling": 0.74846,
+     "frac_of_full": 0.97225
+    }
+   }
+  },
+  "mlp3": {
+   "tokens_seen": 6009,
+   "stake": 0.62013,
+   "full_ceiling": 0.67546,
+   "s1662_ceiling": 0.6755,
+   "curve": {
+    "1": {
+     "ceiling": 0.40353,
+     "frac_of_full": 0.59742
+    },
+    "2": {
+     "ceiling": 0.44859,
+     "frac_of_full": 0.66412
+    },
+    "4": {
+     "ceiling": 0.51412,
+     "frac_of_full": 0.76114
+    },
+    "8": {
+     "ceiling": 0.5634,
+     "frac_of_full": 0.8341
+    },
+    "16": {
+     "ceiling": 0.61235,
+     "frac_of_full": 0.90656
+    },
+    "23": {
+     "ceiling": 0.62326,
+     "frac_of_full": 0.92272
+    },
+    "32": {
+     "ceiling": 0.63091,
+     "frac_of_full": 0.93404
+    },
+    "64": {
+     "ceiling": 0.65866,
+     "frac_of_full": 0.97512
+    },
+    "128": {
+     "ceiling": 0.68055,
+     "frac_of_full": 1.00754
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_rank64_ge_90pct_all_sites": true,
+  "pred_b_s780_rank23_ge_80pct_mlp0": true,
+  "pred_c_curve_informative_rank1_le_80pct": true
+ },
+ "runtime_s": 66.8
+}
