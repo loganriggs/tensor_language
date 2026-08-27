@@ -270,11 +270,16 @@ circuit moves stage.**
     53.3% of 60 trials, attn9 88.3%, mlp16 100%, head 10.5 in 100% — while λ-vs-random SHARE
     separates cleanly. Naming a component "rule-specific" because it appears in a top-K is not a
     control. **(d) But separation margins are cell-dependent and NOT generalisable from certified
-    cells** — 60/60 at two published cells, 54/60 at a fresh one. **(e) Depth profiles are
-    CLASS-TYPE dependent:** function words bottom out at mlp11 (4/4 strict minima), punctuation
-    peaks near it (period 58/60), capitalised tokens rise monotonically. No single depth law holds.
+    cells** — 60/60 at two published cells, 54/60 at a fresh one. **(e) AMENDED BY §1639 — a rank-2 TOP-4 phenomenon that does NOT
+    transfer.** At rank-8 TOP-6 the separation count SATURATES: six cells spanning 17–59 at rank-2
+    TOP-4 all land at 57–60, and ` at`@mlp11 goes from 17/60 (no signal) to 57/60 on nothing but a
+    change of rank and TOP. As measured AT rank-2 TOP-4, depth profiles are CLASS-TYPE dependent —
+    function words bottom out at mlp11 (4/4 strict minima), punctuation peaks near it (period
+    58/60), capitalised tokens rise monotonically — but none of this is visible at rank-8 TOP-6
+    because nothing is.
     **(f) The control-matching rule this produced:** a control must match the claim on CELL
-    (§1634) and on CLASS TYPE (§1637), not merely on rank, TOP, rows, seeds and statistic.
+    (§1634), on CLASS TYPE (§1637) and on CONFIGURATION (§1639), not merely on rows, seeds and
+    statistic.
     §1633's headline margin of 13/60 collapsed to 2/60 once punctuation was compared against
     punctuation. **Bottom line for the bench: every separation or membership claim needs ≥20 bases
     and a control matched on cell, class type AND configuration; margins measured at certified cells
