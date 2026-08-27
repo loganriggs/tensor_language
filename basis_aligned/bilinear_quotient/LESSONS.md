@@ -324,3 +324,25 @@ the entire run's artifact after all the GPU work is done.
   `json.dump` so no future stray type can cost a run; (3) if a results dict
   contains config echoed from module constants, dump-test it on CPU before
   queueing — it costs milliseconds.
+
+## 17. On ~10 units, p < .05 carries almost no information — confirm on a DISJOINT set before quoting (§1614-§1616)
+Two correlations that looked solid on ten classes evaporated on ten fresh ones.
+This is not a caution about post-hoc analysis alone; one of them had **passed a
+pre-registered bar**.
+- **Example (post-hoc):** §1615's signal-to-noise candidate, chosen from four
+  options on the same 10 points after the registered hypothesis failed, gave
+  rho = **.7333, p = .0201**. On 10 disjoint classes: **.0788, p = .84**.
+- **Example (PRE-REGISTERED, and the more alarming one):** §1614's
+  rho(class n, null share) = **.6727 at p = .0192** was registered in advance,
+  passed, was scored as "REAL at power", and was mirrored to the theseus registry.
+  On disjoint classes: **.0182 at p = .96**. Withdrawn.
+- **Near non-example:** the 1/sqrt(n) noise-floor law reproduced at rho .988-1.000
+  across BOTH 10-class sets. Mechanistic laws with a known functional form survive;
+  free-form rank correlations on 10 points do not. The difference is whether the
+  relationship was PREDICTED from structure or SELECTED from data.
+- **Rules:** (1) any correlational claim on ~10 units is provisional until it
+  replicates on a disjoint set of comparable size and range -- budget the
+  confirmatory run when you plan the first one; (2) never mirror such a claim into
+  the registry before it replicates (§1614 was mirrored and had to be withdrawn);
+  (3) a COMPARATIVE bar needs an absolute floor -- §1616's "SNR beats n" passed
+  vacuously because |.0788| > |.0182| while both were indistinguishable from zero.
