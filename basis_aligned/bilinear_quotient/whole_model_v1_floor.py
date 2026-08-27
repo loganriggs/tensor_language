@@ -248,8 +248,16 @@ def ce_rows(rows, seen, hooks=()):
     sweep(rows, hooks=hooks, score=score)
     s_all = torch.cat(S); n_all = torch.cat(N)
     pooled = float(s_all.sum() / n_all.sum())
-    assert abs(pooled - acc['t'] / max(acc['n'], 1)) < 1e-9, (
-        f'per-row reconstruction {pooled} != direct accumulation {acc["t"] / max(acc["n"], 1)}')
+    # PRE-FLIGHT E: scale by the precision the data was COMPUTED in, never a fixed absolute
+    # bar. Both paths accumulate float32 losses in different ORDERS before the double sum, so
+    # they can differ by a few float32 ulps of the CE magnitude. My first bar was 1e-9
+    # absolute, which is 0.0006 of the achievable floor and fired on a correct run at 1.41e-08
+    # -- the same error I had flagged in a peer's 1e-12 gate three hours earlier.
+    direct = acc['t'] / max(acc['n'], 1)
+    tol = 4 * 1.1920929e-07 * max(abs(direct), 1.0)
+    assert abs(pooled - direct) <= tol, (
+        f'per-row reconstruction {pooled} != direct accumulation {direct} '
+        f'(|diff| {abs(pooled - direct):.3e} > tol {tol:.3e})')
     return pooled, s_all, n_all
 
 
