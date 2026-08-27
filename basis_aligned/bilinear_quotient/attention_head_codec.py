@@ -109,3 +109,103 @@ def canonical_head_bytes(maps, quantization_step, *, degeneracy_tol=1e-10,
             candidates.append(_candidate_bytes(candidate, quantization_step,
                                                degeneracy_tol, semantic_id))
     return min(candidates)
+
+
+def _canonical_svd(value, rank, degeneracy_tol):
+    left, singular, right = torch.linalg.svd(value, full_matrices=False)
+    if not 0 < rank <= singular.numel():
+        raise ValueError("rank outside matrix dimensions")
+    scale = float(singular[0].abs().clamp_min(torch.finfo(singular.dtype).tiny))
+    relevant = singular[:rank]
+    gaps = (relevant[:-1]-relevant[1:]).abs()/scale
+    if gaps.numel() and bool(torch.any(gaps <= degeneracy_tol)):
+        raise DegenerateAttentionPlane("repeated retained singular-value stratum")
+    if rank < singular.numel():
+        boundary_gap = float((singular[rank-1]-singular[rank]).abs()/scale)
+        if boundary_gap <= degeneracy_tol:
+            raise DegenerateAttentionPlane("ambiguous truncation boundary")
+    left = left[:, :rank].clone()
+    singular = singular[:rank].clone()
+    right = right[:rank].clone()
+    for component in range(rank):
+        pivot = int(torch.argmax(right[component].abs()))
+        if float(right[component, pivot]) < 0:
+            left[:, component].neg_()
+            right[component].neg_()
+    return left, singular, right
+
+
+def _lowrank_candidate_bytes(maps, rank, quantization_step, degeneracy_tol,
+                             semantic_id):
+    first = _canonicalize_branch(maps["q"], maps["k"], degeneracy_tol)
+    second = _canonicalize_branch(maps["q2"], maps["k2"], degeneracy_tol)
+    factors = [_canonical_svd(value, rank, degeneracy_tol)
+               for value in first+second]
+    header = json.dumps({
+        "codec": "product_attention_head_lowrank_quotient_v1",
+        "semantic_id": semantic_id,
+        "shape": list((first+second)[0].shape),
+        "rank": rank,
+        "quantization_step": quantization_step,
+        "order": list(NAMES),
+    }, sort_keys=True, separators=(",", ":")).encode()
+    payload = []
+    for triple in factors:
+        for value in triple:
+            quantized = torch.round(value/quantization_step).to(torch.int32).numpy()
+            payload.append(np.asarray(quantized, dtype="<i4", order="C").tobytes())
+    return struct.pack("<I", len(header))+header+b"".join(payload)
+
+
+def canonical_lowrank_head_bytes(maps, rank, quantization_step, *,
+                                 degeneracy_tol=1e-10,
+                                 semantic_id="bilin18.product_attention.head"):
+    """Canonical rank-aware bytes over the exact sign/swap/centralizer orbit."""
+    _validate(maps)
+    if not quantization_step > 0:
+        raise ValueError("quantization_step must be positive")
+    candidates = []
+    for signs in itertools.product((-1, 1), repeat=4):
+        if np.prod(signs) != 1:
+            continue
+        signed = {name: signs[index]*maps[name]
+                  for index, name in enumerate(NAMES)}
+        for swapped in (False, True):
+            candidate = signed if not swapped else {
+                "q": signed["q2"], "k": signed["k2"],
+                "q2": signed["q"], "k2": signed["k"],
+            }
+            candidates.append(_lowrank_candidate_bytes(
+                candidate, rank, quantization_step, degeneracy_tol, semantic_id))
+    return min(candidates)
+
+
+def decode_lowrank_head(encoded):
+    """Decode canonical low-rank bytes to its four canonical dense representatives."""
+    header_length = struct.unpack("<I", encoded[:4])[0]
+    header = json.loads(encoded[4:4+header_length])
+    if header["codec"] != "product_attention_head_lowrank_quotient_v1":
+        raise ValueError("wrong codec")
+    rows, columns = header["shape"]
+    rank = header["rank"]
+    step = header["quantization_step"]
+    offset = 4+header_length
+
+    def take(count, shape):
+        nonlocal offset
+        size = 4*count
+        values = np.frombuffer(encoded[offset:offset+size], dtype="<i4").copy()
+        if values.size != count:
+            raise ValueError("truncated payload")
+        offset += size
+        return torch.from_numpy(values.reshape(shape)).to(torch.float64)*step
+
+    decoded = {}
+    for name in NAMES:
+        left = take(rows*rank, (rows, rank))
+        singular = take(rank, (rank,))
+        right = take(rank*columns, (rank, columns))
+        decoded[name] = (left*singular) @ right
+    if offset != len(encoded):
+        raise ValueError("trailing payload")
+    return header, decoded
