@@ -50,9 +50,20 @@ def test_nonfinite_or_missing_saved_components_fail_closed():
 
 
 def test_joint_namespace_is_distinct_and_protected_snapshot_includes_prior_runs():
-    assert DEV.RESULT.name.startswith("joint_early_mlp_oracle_factorial_curated_dev_v1")
+    assert DEV.RESULT.name.startswith("joint_early_mlp_oracle_factorial_curated_dev_v2")
     assert DEV.RESULT not in DEV.PROTECTED_EXISTING
     snapshot = DEV.protected_snapshot()
     assert str(DEV.PREREG) in snapshot
     assert str(DEV.SAVED_SHIP) in snapshot
     assert all(str(path) in snapshot for path in DEV.local.CANONICAL_PATHS)
+
+
+def test_row_split_receipt_is_materialized_without_external_helper():
+    splits = DEV.local.allocate_whole_document_splits(
+        torch.load(DEV.local.CORPUS, map_location="cpu", weights_only=True)
+    )
+    receipts = DEV.row_split_receipts(splits)
+    assert receipts["discovery"]["shape"] == [192, 257]
+    assert receipts["heldout"]["dtype"] == "torch.int64"
+    assert len(receipts["ship_fit"]["indices"]) == 480
+    assert receipts["covariance"]["tensor_raw_sha256"] == splits["covariance"]["tensor_raw_sha256"]

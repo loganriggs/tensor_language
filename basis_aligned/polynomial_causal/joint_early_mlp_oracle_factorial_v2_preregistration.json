@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_not_run",
+  "registered_at_utc": "2026-08-27T07:38:00Z",
+  "experiment": "joint_early_mlp_live_oracle_factorial_v2",
+  "supersedes_execution_namespace": "joint_early_mlp_live_oracle_factorial_v1",
+  "v1_status": "failed_exploratory_run_before_model_import_or_any_arm_scoring",
+  "v1_failure": "Manifest construction referenced a nonexistent split_receipt helper. No result artifact or scientific arm was produced; the fail-closed v1 manifest is preserved.",
+  "only_design_change": "Materialize the already-registered split receipt fields directly from allocate_whole_document_splits output and test receipt construction before launch.",
+  "frozen_design_reference": "joint_early_mlp_oracle_factorial_v1_preregistration.json",
+  "design_sha256": "7ca376be66e80f69f0bc14fad316d76337ce2092002818475070429a6cddaa58",
+  "groups": ["mlp0", "mlp1", "mlp2"],
+  "arms": "all eight subsets including deployed-ship baseline",
+  "primary_metrics": [
+    "joint full-live gain",
+    "pairwise and triple Mobius coefficients",
+    "signed Shapley closure",
+    "MLP2 conditional marginal after MLP0+MLP1"
+  ],
+  "registered_predictions": {
+    "pred_a_joint_gain_exceeds_best_singleton": true,
+    "pred_b_mlp2_conditional_marginal_after_mlp0_mlp1_is_positive": true,
+    "pred_c_interaction_l1_fraction_is_at_least_0p20": true
+  },
+  "authority": "none",
+  "authorized_for_scored_experiments": false,
+  "training_license_sites": [],
+  "artifact_policy": "Use a new v2 result/manifest/lock namespace; preserve every v1 and curated oracle artifact; fail closed on any pinned hash or protected-path change."
+}

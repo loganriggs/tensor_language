@@ -25,10 +25,11 @@ import torch
 HERE = Path(__file__).resolve().parent
 TENSOR_ROOT = HERE.parents[1]
 BQ = HERE.parent / "bilinear_quotient"
-PREREG = HERE / "joint_early_mlp_oracle_factorial_v1_preregistration.json"
-RESULT = BQ / "joint_early_mlp_oracle_factorial_curated_dev_v1_results.json"
-MANIFEST = BQ / "joint_early_mlp_oracle_factorial_curated_dev_v1_manifest.json"
-LOCK = Path("/workspace/runs/.bilin18_joint_early_mlp_oracle_factorial_curated_dev_v1.lock")
+V1_PREREG = HERE / "joint_early_mlp_oracle_factorial_v1_preregistration.json"
+PREREG = HERE / "joint_early_mlp_oracle_factorial_v2_preregistration.json"
+RESULT = BQ / "joint_early_mlp_oracle_factorial_curated_dev_v2_results.json"
+MANIFEST = BQ / "joint_early_mlp_oracle_factorial_curated_dev_v2_manifest.json"
+LOCK = Path("/workspace/runs/.bilin18_joint_early_mlp_oracle_factorial_curated_dev_v2.lock")
 SAVED_SHIP = Path("/workspace/runs/bilin18_curated_dev_v2_ship.pt")
 SAVED_SHIP_SHA256 = "85b848cc5d355bd99a29d43d7168f95113a11fb4c84a42fa9efe3393225dd530"
 CORPUS_SHA256 = "faaf89f38ddf1471234a1d30d978213367a566a9927bb3c73b274ab32afaa9dd"
@@ -48,6 +49,8 @@ PROTECTED_EXISTING = (
     Path("/workspace/runs/bilin18_curated_dev_ship.pt"),
     SAVED_SHIP,
     Path("/workspace/runs/bilin18_curated_dev_v2_oracle_bases.pt"),
+    V1_PREREG,
+    BQ / "joint_early_mlp_oracle_factorial_curated_dev_v1_manifest.json",
     PREREG,
 )
 
@@ -79,6 +82,19 @@ def write_json_atomic(payload: dict[str, Any], path: Path) -> None:
 def protected_snapshot() -> dict[str, str | None]:
     paths = tuple(local.CANONICAL_PATHS) + PROTECTED_EXISTING
     return {str(path): file_sha256(path) if path.exists() else None for path in paths}
+
+
+def row_split_receipts(splits: dict[str, dict[str, Any]]) -> dict[str, dict[str, Any]]:
+    return {
+        role: {
+            "shape": list(row["rows"].shape),
+            "dtype": str(row["rows"].dtype),
+            "tensor_raw_sha256": row["tensor_raw_sha256"],
+            "indices": row["indices"],
+            "document_ids": row["document_ids"],
+        }
+        for role, row in splits.items()
+    }
 
 
 def tensor_tree_sha256(value: Any) -> str:
@@ -216,10 +232,7 @@ def run_claimed(canonical_before: dict[str, str | None]) -> None:
             "local_split_allocator": file_sha256(HERE / "local_ship_oracle_development.py"),
         },
         "pinned_input_hashes": {str(path): value for path, value in pinned_inputs.items()},
-        "row_splits": {
-            role: local.split_receipt(row)
-            for role, row in splits.items()
-        },
+        "row_splits": row_split_receipts(splits),
     }
     write_json_atomic(manifest, MANIFEST)
 
