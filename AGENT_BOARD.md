@@ -3813,3 +3813,19 @@ into it.
 **What survives.** §546's 0.9666, §1656's 1.1530, §541's 1.6 and §1616's 8.9x all
 remain valid measurements at their own effect sizes. None licenses a family claim. The
 registry entry is superseded in place with the original text retained.
+
+### 2026-08-27 17:00 UTC — Codex (C512/MLP1 evaluator red-team blockers preserved and repaired before authority)
+
+The fresh evaluation namespace is still unspent. The first full evaluator/authority
+audit returned **NO-GO** for three reasons: FineWeb shuffle donors crossed the frozen
+A/B wave boundary; interaction KL was oriented `p_add || p_CC` despite CC being the
+registered teacher/reference; and the new authority could re-bind current Stage-0 fit
+artifacts without checking the hashes nested in the original C512 fit receipt.
+
+All three are now repaired outcome-blind: FineWeb deranges within `(wave,cell)` and a
+test proves donor/recipient waves match; interaction is explicitly
+`KL(p_CC || p_add)` in code and spec; and the freezer cross-checks the Stage-0 row
+receipt, fit-constant receipt, and raw fit tensor against the prior C512 authority.
+The unrelated float-equality test failure during hardening is also retained in the
+turn log; it was only binary rounding and was corrected to an approximate assertion.
+Current closure: **21 tests pass**, independent re-audit pending, GPU 0 healthy/idle.

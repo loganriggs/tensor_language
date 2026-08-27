@@ -21,7 +21,7 @@ sys.path.insert(0, str(BQ))
 
 from evaluate_mlp0_c512_mlp1_interchange_v1 import (  # noqa: E402
     AUTHORITY, CODE_REGISTER, FAILURE, FIT_RECEIPT, LOCK, OUT, PROGRAM_KEY,
-    ROW_RECEIPT, STAGE0_FIT_RECEIPT, build_unit_identity, closure_sha256,
+    ROW_RECEIPT, STAGE0_FIT_RECEIPT, STAGE0_ROW_RECEIPT, build_unit_identity, closure_sha256,
     expected_call_counts, file_sha256, load_domains, tensor_sha256,
     unit_identity_hashes,
 )
@@ -102,6 +102,13 @@ def build_authority() -> dict:
     fit_receipt = json.loads(FIT_RECEIPT.read_text())
     if fit_receipt.get("status") != "frozen_before_evaluation_authority":
         raise RuntimeError("C512 fit receipt is not authoritative")
+    nested = fit_receipt["authority"]
+    if (file_sha256(STAGE0_ROW_RECEIPT)
+            != nested["stage0_fit_rows"]["receipt_sha256"]
+            or file_sha256(STAGE0_FIT_RECEIPT)
+            != nested["stage0_fit_constants"]["receipt_sha256"]
+            or tensor_sha256(fit_rows) != fit_receipt["fit_rows"]["sha256"]):
+        raise RuntimeError("C512's originally frozen fit rows or cell constants changed")
     program_receipt = fit_receipt["programs"][PROGRAM_KEY]
     program_path = Path(program_receipt["path"])
     if (program_path.stat().st_size != program_receipt["bytes"]
@@ -134,6 +141,7 @@ def build_authority() -> dict:
         },
         "fit_authority": {
             "fit_receipt_sha256": file_sha256(FIT_RECEIPT),
+            "stage0_row_receipt_sha256": file_sha256(STAGE0_ROW_RECEIPT),
             "stage0_fit_receipt_sha256": file_sha256(STAGE0_FIT_RECEIPT),
             "fit_rows_tensor_sha256": tensor_sha256(fit_rows),
             "fit_rows": len(fit_rows),
@@ -152,7 +160,7 @@ def build_authority() -> dict:
             "backgrounds": ["live", "mlp2_omit"],
             "arms": list(ARMS), "contrasts": list(CONTRASTS),
             "cells": 16, "margins": MARGINS,
-            "shuffle": "deterministic largest-occupancy circular derangement within cell",
+            "shuffle": "deterministic largest-occupancy circular derangement within wave and cell on FineWeb; within cell on code",
             "native_control": "per-position norm-matched exact native MLP1 write",
             "factorial": {"OO": "sO+mO", "CC": "sC+mC", "CO": "sC+mO", "OC": "sO+mC"},
         },

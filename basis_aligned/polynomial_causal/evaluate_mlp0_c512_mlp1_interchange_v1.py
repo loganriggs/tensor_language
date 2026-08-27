@@ -53,6 +53,7 @@ FAILURE = BQ / "mlp0_c512_mlp1_interchange_v1_failure.json"
 LOCK = Path("/workspace/runs/.bilin18_mlp0_c512_mlp1_interchange_v1.lock")
 FIT_RECEIPT = BQ / "mlp0_native_down_hierarchy_v1_fit_receipt.json"
 STAGE0_FIT_RECEIPT = BQ / "mlp0_quotient_stage0_v2_fit_receipt.json"
+STAGE0_ROW_RECEIPT = BQ / "mlp0_quotient_stage0_v1_rows_receipt.json"
 CODE_REGISTER = PC / "code_oracle_corpus_v2.pt"
 PROGRAM_KEY = "C512_at_C512"
 CELL_NAMES = [
@@ -161,6 +162,19 @@ def coverage_by_unit_partition(
         "wave_B": float(valid[second].float().mean()),
         "pooled": float(valid.float().mean()),
     }
+
+
+def derangement_groups(name: str, cells: torch.Tensor, unit_ids: torch.Tensor) -> torch.Tensor:
+    """Keep FineWeb shuffle donors inside their preregistered replication wave."""
+    if cells.ndim != 2 or unit_ids.shape != (cells.shape[0],):
+        raise ValueError("derangement tensors have incompatible shapes")
+    groups = cells.long()
+    if name == "fineweb":
+        wave = (unit_ids >= 192).long()[:, None]
+        groups = groups + 16 * wave
+    elif name != "code":
+        raise ValueError("unknown derangement domain")
+    return groups
 
 
 def load_domains() -> tuple[dict[str, dict[str, Any]], dict[str, object], torch.Tensor, dict[str, object]]:
@@ -295,7 +309,7 @@ def contrast_logits(logits: Mapping[str, torch.Tensor]) -> dict[str, tuple[torch
         "write_on_O": (logits["OO"], logits["OC"]),
         "write_on_C": (logits["CO"], logits["CC"]),
         "upstream_state": (logits["OO"], logits["CO"]),
-        "interaction": (additive, logits["CC"]),
+        "interaction": (logits["CC"], additive),
         "shuffle": (logits["OO"], logits["shuffle"]),
         "native_write": (logits["OO"], logits["native_write"]),
     }
@@ -348,6 +362,7 @@ def verify_preflight_artifacts(
     fit_contract = authority.get("fit_authority", {})
     expected_fit = {
         "fit_receipt_sha256": file_sha256(FIT_RECEIPT),
+        "stage0_row_receipt_sha256": file_sha256(STAGE0_ROW_RECEIPT),
         "stage0_fit_receipt_sha256": file_sha256(STAGE0_FIT_RECEIPT),
         "fit_rows_tensor_sha256": tensor_sha256(fit_rows),
         "fit_rows": int(len(fit_rows)),
@@ -414,7 +429,8 @@ def prepare_domain(
                 state_identity_max[key], float((candidate[key] - exact[key]).abs().max())
             )
     flat_units = unit_ids[:, None].expand(-1, T).reshape(-1)
-    permutation = document_derangement(flat_units, cells_all.long().reshape(-1))
+    groups = derangement_groups(name, cells_all.long(), unit_ids)
+    permutation = document_derangement(flat_units, groups.reshape(-1))
     coverage = float(valid_all.sum() / valid_all.numel())
     print(f"prepared {name}: rows={len(rows)} coverage={coverage:.6f}", flush=True)
     return {

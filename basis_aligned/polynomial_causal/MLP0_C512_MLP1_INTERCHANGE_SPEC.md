@@ -129,12 +129,15 @@ For interaction, form the additive centered-logit prediction
 z_add = center(z_CO + z_OC - z_OO)
 ```
 
-and compare `softmax(z_CC)` with `softmax(z_add)` by KL, symmetric CE difference,
+and use the observational teacher as reference: compare `softmax(z_CC)` with
+`softmax(z_add)` by `KL(p_CC || p_add)`, symmetric CE difference,
 and centered-logit nRMSE using the same margins. Also report the scalar CE
 interaction `CE_CC - CE_CO - CE_OC + CE_OO`, but do not use a cancellation-prone
 mean as the sole gate.
 
-The shuffle and native-write controls are compared with OO at the same margins. No
+For FineWeb, the shuffle is performed separately inside each preregistered wave and
+cell, so wave A never consumes a wave-B donor; for code it is within cell. The shuffle
+and native-write controls are compared with OO at the same margins. No
 outcome-defined cell, direction, sign, amplitude, or statistic may be added.
 
 ## Simultaneous inference

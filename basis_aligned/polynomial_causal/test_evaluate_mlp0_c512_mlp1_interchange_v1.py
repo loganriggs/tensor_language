@@ -38,6 +38,18 @@ def test_registered_unit_identity_has_exact_occupancy_and_hashes():
     assert all(len(value) == 64 for domain in hashes.values() for value in domain.values())
 
 
+def test_fineweb_derangement_never_crosses_replication_wave():
+    unit_ids = torch.tensor([0, 1, 192, 193])
+    cells = torch.zeros((4, 2), dtype=torch.long)
+    groups = evaluator.derangement_groups("fineweb", cells, unit_ids)
+    flat_units = unit_ids[:, None].expand_as(cells).reshape(-1)
+    permutation = evaluator.document_derangement(flat_units, groups.reshape(-1))
+    recipient_wave = flat_units >= 192
+    donor_wave = flat_units[permutation] >= 192
+    assert torch.equal(recipient_wave, donor_wave)
+    assert not bool((flat_units == flat_units[permutation]).any())
+
+
 def test_contrast_orientation_and_signed_ce_effect():
     logits = {
         "OO": torch.tensor([[[0.0, 0.0]]]),
@@ -51,6 +63,9 @@ def test_contrast_orientation_and_signed_ce_effect():
     assert contrasts["write_on_O"] == (logits["OO"], logits["OC"])
     assert contrasts["write_on_C"] == (logits["CO"], logits["CC"])
     assert contrasts["upstream_state"] == (logits["OO"], logits["CO"])
+    assert contrasts["interaction"][0] is logits["CC"]
+    expected_additive = evaluator.additive_interaction_prediction(logits)
+    torch.testing.assert_close(contrasts["interaction"][1], expected_additive)
     target = torch.zeros((1, 1), dtype=torch.long)
     effect = evaluator.pair_effects(logits["OO"], logits["OC"], target, logit_scale=1.0)
     assert float(effect["ce_abs"]) < 0  # candidate improves CE; sign must not be discarded
