@@ -56,6 +56,14 @@ def test_price_is_small_and_counts_original_tensor_program() -> None:
     assert price["original_native_hadamard_products_per_token"] == 4608
 
 
+def test_physical_rms_uses_orthonormal_basis_currency() -> None:
+    target = torch.zeros(5, compiler.COEFFICIENT_DIM)
+    prediction = torch.ones_like(target)
+    metrics = compiler.coefficient_metrics(prediction, target)
+    expected = (compiler.COEFFICIENT_DIM / compiler.D_MODEL) ** 0.5
+    assert abs(metrics["physical_rms"] - expected) < 1e-12
+
+
 def test_ridge_frontier_recovers_low_rank_affine_map() -> None:
     generator = torch.Generator().manual_seed(11)
     x = torch.randn(320, 12, generator=generator, dtype=torch.float64)

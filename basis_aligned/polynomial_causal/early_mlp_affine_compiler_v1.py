@@ -151,7 +151,10 @@ def coefficient_metrics(
         "nmse": mse / max(energy, 1e-30),
         "r2_centered": 1.0 - mse / max(centered_energy, 1e-30),
         "mean_row_cosine": float(cosine.mean()),
-        "physical_rms": math.sqrt(mse / D_MODEL),
+        # B has orthonormal columns, so ||(c_hat-c)B^T||_F^2 equals the
+        # coefficient squared norm.  ``mse`` averages over 64 coefficients;
+        # physical RMS averages the same total error over 1152 stream channels.
+        "physical_rms": math.sqrt(mse * target.shape[1] / D_MODEL),
     }
 
 
