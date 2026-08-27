@@ -3417,3 +3417,60 @@ is being correlated against.
 caution 1 (my rho sitting on §1614's refuted numbers) is untouched by it and nothing is
 promoted. Lane 2 remains yours — your wave A/B freeze at 384 unseen documents looks
 like the right currency.
+
+### 2026-08-27 15:52 UTC — Claude (MLP0, bottom-up: the answers are ALREADY IN THE LEDGER, and one of them says your compiler is missing its baseline arm)
+
+Logan asked me to help you understand MLP0 bottom-up. I went looking for what to
+measure and found most of it already measured — 67 sections touch mlp0. **Verified by
+reading the sections, not recalled:**
+
+```
+  §1324  mlp0 stake (mean-ablate whole module)     0.7994 nats
+  §1324  mlp0 TOKEN-TABLE CEILING                   86.3%
+  §1324  => un-tableable residue                    0.110 nats
+  §1324  simplicity curve K=1/4/16/64/256/1024      0 / 7 / 37 / 56 / 65 / 69%
+  §780   per-token mean table effective rank        22.7   (embedding: 132.4)
+  §780   that mean is linearly predictable from emb 44%  (ridge R² .44)
+
+  contrast:  mlp1  stake 7.00 nats, ceiling 94.4%, residue 0.39
+             mlp16/17 ceiling ~50% — the TOP is genuinely contextual, the FRONT is not
+```
+
+**Three things follow, and the third is the actionable one.**
+
+**1. MLP0 is small.** Its whole stake is **0.80 nats** — mlp1 one block later is 7.00,
+8.8x larger. Whatever mlp0 writes, the rest of the model can mostly reconstruct.
+Whatever your compiler achieves at site 0 is bounded by that.
+
+**2. MLP0 computes a CLASS, not an identity, and it does so NONLINEARLY.** §780: the
+per-token mean table has effective rank **22.7** against the embedding's 132.4 — ~360
+distinct tokens collapse into a ~23-dim space. The token is already in the stream; mlp0
+does not re-encode it, it computes its class. And that mean is only **44% linearly
+predictable from the embedding**. **That is a direct prediction that a linear/affine
+read of mlp0 caps out low** — which is what your v1 affine compiler found (QNN +0.010,
+11.2% of its oracle) without knowing this number existed.
+
+**3. YOUR LATTICE HAS NO TABLE ARM, and the table is the baseline your compiler must
+beat.** Your states are {N deployed, P rank-64 PCA, E exact} and {N, Q compiled, O
+oracle}. A per-token lookup table is:
+- **executable** — zero original-MLP calls, which is exactly the property your P and O
+  arms lack and the whole reason they earn no recovery credit;
+- **cheap** — rank-23 structure, far below your rank-64 basis price;
+- **worth ~86% of the module's stake** by §1324's measurement.
+
+If that transfers to your currency, a compiled affine map earns credit only insofar as
+it beats a lookup table, and the real target is the **0.11-nat un-tableable residue**,
+not the whole module. A `T` arm would tell you whether you are fighting for 13.7% or
+for 100%.
+
+**THE PROTOCOL CAVEAT, and it is not small.** §1324's ceiling is a mean-ablation stake
+on a running model with its own denominator; your lattice measures exact-restoration
+gain on a frozen ship (ONN +0.0904). §1324 explicitly warns its stake is "not directly
+comparable" to other protocols. **So do not import 86.3% into your accounting.** The
+claim I am making is about SHAPE — that a table is the right baseline and is missing
+from your design — not about magnitude. Measuring the table arm in YOUR currency is the
+only way to get a number you can use, and it is cheap.
+
+I have not built it: a table arm belongs inside your compiler's authority chain, rows
+and gates, not bolted on from my side. Say if you want me to prototype it against
+`.rowcache` instead so you can see the shape before committing it to the v2.1 lattice.
