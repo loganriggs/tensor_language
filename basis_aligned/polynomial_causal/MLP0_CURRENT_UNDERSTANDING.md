@@ -32,6 +32,14 @@ This resolves the apparent conflict between:
 
 Both can be true. Numbers can share a common feature without becoming identical.
 
+We also already have direct evidence that this continuous computation is
+compressible. An older 256-feature quadratic surrogate reproduced about 97.8–97.9%
+of MLP0 under its legacy behavioral denominator, and the later C512 program replaced
+the native `Down` map by a rank-512 factorization with about 72% fewer `Down` bytes
+while retaining small ordinary final-output point errors. These are approximate
+behavioral low-rank results, not a proof that the original `Down` matrix or the exact
+stack of all downstream readers has low algebraic rank.
+
 ---
 
 ## 1. What MLP0 computes exactly
@@ -483,7 +491,7 @@ showing a large internal MLP1 mismatch.
 
 ---
 
-## 8. The current unresolved MLP0 question
+## 8. What the C512-to-MLP1 interchange resolved
 
 C512's final-output point errors are small, but its internal error is much larger:
 
@@ -497,9 +505,9 @@ $$
 \text{MLP1-output nRMSE}\approx0.2323.
 $$
 
-There are two possible explanations.
+There were two possible explanations.
 
-### Explanation A: downstream-null detail
+### Candidate explanation A: downstream-null detail
 
 C512 may discard information that is visible to MLP1 in activation space but has
 little behavioral importance.
@@ -507,7 +515,7 @@ little behavioral importance.
 In that case, C512 is a useful behavioral compression, even though it does not
 reconstruct the native interface exactly.
 
-### Explanation B: compensated error
+### Candidate explanation B: compensated error
 
 The downstream network may compensate for C512's errors on ordinary inputs. The
 discarded information could become necessary under interventions, composition, or
@@ -516,8 +524,8 @@ distribution shift.
 In that case, C512's small ordinary KL and CE would not make it a manipulable causal
 interface.
 
-The current MLP0-to-MLP1 interchange experiment is designed to distinguish these
-possibilities.
+The completed MLP0-to-MLP1 interchange experiment distinguished these possibilities
+more sharply.
 
 For an exact MLP0 path $O$ and C512 path $C$, it constructs:
 
@@ -541,10 +549,32 @@ $$
 
 where $s$ is the state before the MLP1 write and $m$ is the physical MLP1 write.
 
-The decisive comparison asks whether placing the exact MLP1 write into the C512
-upstream state repairs the behavioral error. If it does, we have evidence for a
-small conditional MLP1 adapter. If it does not, C512's missing information is not
-localized to that interface in a simple way.
+On 384 new FineWeb documents, the pre-MLP1 state difference and the local
+state-by-write interaction were small. Almost all of the measured internal mismatch
+was carried by the changed physical MLP1 write. With MLP2 omitted, replacing that
+write by the exact MLP1 write reduced the standardized family maximum by about
+
+$$
+3.34,
+$$
+
+with a positive simultaneous lower confidence bound. Thus the missing interface is
+strongly localized to the MLP1 write in the MLP2-omitted suffix.
+
+With the deployed MLP2 present, however, C512's ordinary final-output point error was
+much smaller, and the registered sensitivity control did not license the same repair
+claim. The best current interpretation is therefore:
+
+$$
+\boxed{
+\text{C512 changes the MLP1 write, and deployed MLP2 suppresses or compensates the
+resulting error.}
+}
+$$
+
+This rules against treating C512's discarded directions as a certified downstream
+null space. It also does not license a standalone MLP1 adapter. The next physical
+interface question is where and how MLP2 performs the compensation.
 
 ---
 
@@ -603,7 +633,8 @@ z &= \operatorname{RMSNorm}(x),\\
 h &= (Lz)\odot(Rz),\\
 u &= \text{compressed causal coordinates of }h,\\
 m_0 &\approx D_{\mathrm{simple}}u,\\
-\text{MLP1 write} &\approx g_1(u,\text{current state}).
+\text{MLP1 write} &\approx g_1(u,\text{current state}),\\
+\text{MLP2 write} &\approx g_2(u,\text{MLP1 state and write}).
 \end{aligned}
 }
 $$
@@ -620,3 +651,4 @@ original network.
 - `MLP0_QUOTIENT_STAGE0_V2_FINDINGS.md`
 - `MLP0_NATIVE_DOWN_HIERARCHY_V1_FINDINGS.md`
 - `MLP0_C512_MLP1_INTERCHANGE_SPEC.md`
+- `MLP0_C512_MLP1_INTERCHANGE_V3_FINDINGS.md`
