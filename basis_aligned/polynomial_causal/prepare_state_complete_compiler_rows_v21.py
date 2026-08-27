@@ -39,6 +39,9 @@ RECEIPT = BQ / "early_mlp_state_complete_compiler_v21_rows_receipt.json"
 MANIFEST = BQ / "early_mlp_state_complete_compiler_v21_rows_manifest.json"
 PROGRAMS_ARTIFACT = BQ / "early_mlp_state_complete_compiler_v21_programs.pt"
 PROGRAMS_RECEIPT = BQ / "early_mlp_state_complete_compiler_v21_programs_receipt.json"
+SITE0_TRAINING_RECEIPT = BQ / (
+    "early_mlp_state_complete_compiler_v21_site0_training_receipt.json"
+)
 SITE0_LEDGER_ARTIFACT = BQ / "early_mlp_state_complete_compiler_v21_site0_ledger.pt"
 SITE0_LEDGER_RECEIPT = BQ / "early_mlp_state_complete_compiler_v21_site0_ledger_receipt.json"
 SITE1_LEDGER_ARTIFACT = BQ / "early_mlp_state_complete_compiler_v21_site1_ledger.pt"
@@ -855,6 +858,70 @@ def _validate_context_diagnostics(
         )
 
 
+def _validate_candidate_sufficient_statistics(
+    candidates: Mapping[str, Any], context: Mapping[str, Any], label: str,
+) -> None:
+    """Recompute every selector-facing scalar from serialized raw sums/counts."""
+
+    required_metrics = {
+        "candidate_teacher_kl", "oracle_denominator_kl", "remaining_kl_ratio",
+        "recovery", "global_ce", "copy_ce", "copy_count", "copy_worsening",
+        "price", "raw_sufficient_statistics",
+    }
+    required_raw = {
+        "candidate_teacher_kl_sum", "candidate_teacher_kl_count",
+        "global_ce_sum", "global_ce_count", "copy_ce_sum", "copy_ce_count",
+    }
+    denominator = float(context["teacher_denominator"])
+    baseline_copy = float(context["copy_baseline"])
+    expected_copy_count = context["copy_token_count"]
+    for candidate_name, candidate in candidates.items():
+        metrics = candidate.get("metrics") if isinstance(candidate, Mapping) else None
+        if not isinstance(metrics, Mapping) or set(metrics) != required_metrics:
+            raise RuntimeError(
+                f"v2.1 {label}:{candidate_name} metric schema changed"
+            )
+        raw = metrics["raw_sufficient_statistics"]
+        if not isinstance(raw, Mapping) or set(raw) != required_raw:
+            raise RuntimeError(
+                f"v2.1 {label}:{candidate_name} raw scorer schema changed"
+            )
+        kl_sum = float(raw["candidate_teacher_kl_sum"])
+        global_sum = float(raw["global_ce_sum"])
+        copy_sum = float(raw["copy_ce_sum"])
+        kl_count = raw["candidate_teacher_kl_count"]
+        global_count = raw["global_ce_count"]
+        copy_count = raw["copy_ce_count"]
+        numeric = torch.tensor([kl_sum, global_sum, copy_sum], dtype=torch.float64)
+        if not bool(torch.isfinite(numeric).all()) or (
+            kl_count != VALIDATION_TOKEN_COUNT
+            or global_count != VALIDATION_TOKEN_COUNT
+            or copy_count != expected_copy_count
+        ):
+            raise RuntimeError(
+                f"v2.1 {label}:{candidate_name} scorer counts changed"
+            )
+        candidate_kl = kl_sum / kl_count
+        global_ce = global_sum / global_count
+        copy_ce = copy_sum / copy_count
+        expected = {
+            "candidate_teacher_kl": candidate_kl,
+            "oracle_denominator_kl": denominator,
+            "remaining_kl_ratio": candidate_kl / denominator,
+            "recovery": 1.0 - candidate_kl / denominator,
+            "global_ce": global_ce,
+            "copy_ce": copy_ce,
+            "copy_count": copy_count,
+            "copy_worsening": copy_ce - baseline_copy,
+            "price": selection.state_price(candidate["state"]),
+            "raw_sufficient_statistics": dict(raw),
+        }
+        if any(not _same_value(metrics.get(key), value) for key, value in expected.items()):
+            raise RuntimeError(
+                f"v2.1 {label}:{candidate_name} selector metric does not recompute"
+            )
+
+
 def _validate_mean_site1_diagnostics(value: Any, programs: Mapping[str, Any]) -> None:
     if not isinstance(value, Mapping) or set(value) != {
         "context", "upstream_state_sha256", "scorer", "p_sum", "p_sum_sha256",
@@ -996,8 +1063,47 @@ def _validate_stage_binding(
             contexts[name], stage=stage, name=name,
             expected_upstream=expected_upstream, candidates=external[name],
         )
+        _validate_candidate_sufficient_statistics(
+            external[name], contexts[name], name,
+        )
     if stage == "site1":
         _validate_mean_site1_diagnostics(diagnostics["mean_control"], programs)
+
+
+def _validate_site0_training_authorization(
+    bundle: Mapping[str, Any], programs: Mapping[str, Any],
+) -> None:
+    binding = bundle.get("site0_training_authorization")
+    if not isinstance(binding, Mapping) or set(binding) != {
+        "path", "sha256", "bytes", "receipt",
+    } or binding.get("path") != str(SITE0_TRAINING_RECEIPT.resolve()) or not (
+        SITE0_TRAINING_RECEIPT.is_file()
+    ) or binding.get("sha256") != file_sha256(SITE0_TRAINING_RECEIPT) or binding.get(
+        "bytes"
+    ) != SITE0_TRAINING_RECEIPT.stat().st_size:
+        raise RuntimeError("v2.1 site0 training authorization binding changed")
+    receipt = json.loads(SITE0_TRAINING_RECEIPT.read_text())
+    if not _same_value(binding.get("receipt"), receipt) or receipt.get(
+        "status"
+    ) != "frozen_v21_site0_programs_after_outer_return" or receipt.get(
+        "authority"
+    ) != "compiler_v21_site0_to_site1_training_unlock" or receipt.get(
+        "authorized_for_training"
+    ) is not True or receipt.get("training_license_sites") != [1] or receipt.get(
+        "authorized_for_final_scoring"
+    ) is not False or receipt.get("outer_model_returned") is not True or receipt.get(
+        "hook_restored_and_inert"
+    ) is not True:
+        raise RuntimeError("v2.1 site0 training authorization changed")
+    expected_hashes = {
+        arm: state_logical_sha256(programs[arm][0]) for arm in ("true", "shuffle")
+    }
+    if receipt.get("selected_state_sha256") != expected_hashes or receipt.get(
+        "mean_state_sha256"
+    ) != state_logical_sha256(programs["mean"][0]) or receipt.get(
+        "stage_binding"
+    ) != bundle.get("stage_bindings", {}).get("site0"):
+        raise RuntimeError("v2.1 site0 training states differ from deployed bundle")
 
 
 def _validate_historical_row_authority(receipt: Mapping[str, Any]) -> None:
@@ -1090,6 +1196,7 @@ def _validate_program_bundle(bundle: Any) -> None:
         bundle, "site1", SITE1_LEDGER_ARTIFACT, SITE1_LEDGER_RECEIPT,
         {"true_site1", "shuffle_site1"},
     )
+    _validate_site0_training_authorization(bundle, programs)
 
     for arm in ("true", "shuffle", "mean"):
         if not isinstance(programs[arm], Mapping) or set(programs[arm]) != {0, 1}:

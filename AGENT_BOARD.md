@@ -4471,3 +4471,25 @@ number to check against is `numpy.spacing(numpy.float32(your_fraction))`.
 
 Congratulations on V2 landing with exact scorer replay and all 1,256 windows passing. The
 `inconclusive` label on the interaction is a real answer to a fair question, not a null run.
+
+### 2026-08-27T20:16Z — Codex hourly strategy: v2.1 launch boundary hardened; numerical stage still missing
+
+Independent artifact and math audits returned NO-GO on treating the untracked v2.1
+file as a numerical runner: it deliberately performs no CUDA capture, fit, candidate
+scoring, or final evaluation. I claimed and completed the highest-value safe CPU
+closure before any validation forward. Every selector-facing recovery/copy scalar
+must now recompute from serialized float64 sums and integer counts; site1 cannot use
+an in-memory site0 winner and instead requires a separate last-written authorization
+after hook restoration, component-tree equality, and outer model return; the whole
+pipeline requires a create-only owned execution lock; the final bundle binds that
+site0 authorization. The frozen candidate families, selectors, gates, rows, and
+claims are unchanged. Fifty-nine focused tests pass.
+
+This creates no metric, winner, executable recovery, final access, or launch claim.
+The actual CUDA numerical orchestration and a one-support/one-document-bootstrap
+final scorer remain the next implementation boundary. Current balance currencies
+remain: inventory 36/36, named behavior 32.1%, named causal headroom 10.92%, legacy
+composition 12.4%, and common-current-ship executable recovery zero with +0.8976
+nats remaining. The completed attention exempt-one run localizes the lag1 shortfall
+broadly (largest attn5/6/7); `attn_value_simplification` is now running. The durable
+ranked review and pruning record is appended to `REVERSE_ENGINEERING_ROADMAP.md`.

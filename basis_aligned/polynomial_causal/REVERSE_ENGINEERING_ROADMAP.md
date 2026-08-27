@@ -186,3 +186,68 @@ The local session receives an hourly prompt from
 actions, prunes them by the rules above, ranks the top five, and executes the highest
 priority safe unblocked action. The cron is session-local and must be recreated after
 a container/session recycle; this file and the script are the durable policy.
+
+## Strategic checkpoint — 2026-08-27 20:16 UTC
+
+The balance sheet still has several deliberately non-combinable currencies. Exact
+top-level replacement inventory is `36/36`; named-variable behavior is
+`32.1% +/- 6.4%`; named causal paths cover `0.57968 / 5.30682 = 10.92%` of the
+registered causal headroom; the legacy all-stand-in composition recovers `12.4%` on
+its own mean-ablation denominator. Analytic interface substitution reaches
+`99.8162%` only against its separate `18.4185`-nat joint-MLP mean floor. On the live
+paired operational currency, clean CE `2.9455` becomes ship CE `3.8431`, leaving
+`+0.8976` nat/token, and no candidate yet has an admitted common-denominator
+executable numerator. Thus certified executable whole-program recovery remains zero.
+
+The largest gaps are now: no end-to-end executable MLP0/1 numerical compiler; no
+admitted MLP2 interface despite strong suffix attenuation of C512 mismatch; no
+content-routed attention/value program; twelve middle MLPs whose singleton stakes
+are too small/noisy for the current instrument; strong early/middle composition
+interactions; and no whole-program second-corpus OOD or selective-edit certificate.
+The new attention exempt-one result localizes the lag-1 shortfall broadly rather than
+to an early-only subsystem: `attn5/6/7` each restore `22.5--26.5%` of the shortfall,
+while the mean exemption gain is `5.12` points for `attn0--3` and `6.60` for
+`attn4--17`. These shares are nonadditive. More fixed lags are therefore demoted;
+the remaining target is content-routed value/routing structure.
+
+After pruning by expected information gain, causal relevance, whole-model
+composability, falsifiability, GPU cost, and overlap with completed work, the current
+top five are:
+
+1. Complete the source-closed compiler-v2.1 CUDA stages and exact common-support
+   final scorer. This is the nearest path to an admitted executable early-MLP
+   numerator and directly tests autoregressive MLP0-to-MLP1 composition. Its claim is
+   narrow: because Q0 is selected greedily before Q1, failure falsifies the ordered
+   search pipeline, not joint A--E expressivity.
+2. Mint the same-row current-ship macro denominator and score admitted early-MLP,
+   attention, and deep arms on one integer support ledger. This converts the decisive
+   `+0.8976` gap into additive/Mobius allocations and prevents denominator mixing.
+3. Promote the replicated rank-128 all-MLP program to authority grade with fresh
+   rows, poison/call guards, document bootstrap, current-ship currency, and OOD. It
+   retains about `54.0%` of the all-MLP constant stake at `5,308,416` reals, but has
+   no present claim because its rows and denominator are exploratory.
+4. Compile the full attention interface, targeting content-routed values/routing
+   rather than further positional-lag widening. The live value-simplification job is
+   the cheapest discriminator of whether fixed real routing plus simple values is a
+   composable half-program.
+5. Cross the first admitted MLP and attention packages in a same-row `2 x 2`
+   composition, then test a second corpus and preregistered removal/edit collateral.
+   This is required before either local success can be called a whole-model circuit.
+
+The highest-priority safe CPU action during the attention GPU run was executed. The
+v2.1 lifecycle was audited and found to be a nonnumerical scaffold, not a launchable
+runner. Before any validation forward, it was hardened so every selector metric must
+recompute from serialized float64 sums and integer counts; site1 requires a separate
+last-written site0 authorization after hook restoration and outer model return; and
+the whole pipeline requires a create-only owned run lock. Fifty-nine focused tests
+pass. This creates no metric, winner, final access, or recovery credit. The remaining
+implementation boundary is the actual CUDA capture/scoring orchestration and the
+one-support, one-bootstrap final evaluator.
+
+Pruned for now: widening MLP0's regressors (its `[a0; x0]` input is information
+complete), another hard token clustering pass, more fixed attention lags, identical
+compiler-v2 retry, importing the token-table `86%` number across denominators, and
+adding a table/direct-rank arm post hoc to frozen v2.1. A token table with explicit
+unseen-token fallback and a matched-price direct-rank comparator remain high-value
+prospective controls for the next jointly priced compiler, not amendments to this
+confirmatory run.

@@ -255,12 +255,31 @@ def _write_final_unlock(monkeypatch, tmp_path):
         for candidate_name, spec in specs.items():
             state = candidate_state(spec)
             recovery = 0.0 if candidate_name.startswith("A_") else 0.1
+            candidate_kl = 1.0 - recovery
+            candidate_kl_sum = candidate_kl * rows.VALIDATION_TOKEN_COUNT
+            candidate_kl = candidate_kl_sum / rows.VALIDATION_TOKEN_COUNT
+            recovery = 1.0 - candidate_kl
+            raw = {
+                "candidate_teacher_kl_sum": candidate_kl_sum,
+                "candidate_teacher_kl_count": rows.VALIDATION_TOKEN_COUNT,
+                "global_ce_sum": float(rows.VALIDATION_TOKEN_COUNT),
+                "global_ce_count": rows.VALIDATION_TOKEN_COUNT,
+                "copy_ce_sum": 2.0,
+                "copy_ce_count": 2,
+            }
             ledger[candidate_name] = {
                 "state": state,
                 "metrics": {
+                    "candidate_teacher_kl": candidate_kl,
+                    "oracle_denominator_kl": 1.0,
+                    "remaining_kl_ratio": candidate_kl,
                     "recovery": recovery,
+                    "global_ce": 1.0,
+                    "copy_ce": 1.0,
+                    "copy_count": 2,
                     "copy_worsening": 0.0,
                     "price": rows.selection.state_price(state),
+                    "raw_sufficient_statistics": raw,
                 },
             }
         ledgers[ledger_name] = ledger
@@ -476,6 +495,25 @@ def _write_final_unlock(monkeypatch, tmp_path):
         }
         monkeypatch.setattr(rows, f"{stage.upper()}_LEDGER_ARTIFACT", artifact)
         monkeypatch.setattr(rows, f"{stage.upper()}_LEDGER_RECEIPT", receipt)
+    site0_training_receipt = tmp_path / "site0_training_receipt.json"
+    site0_training_payload = {
+        "status": "frozen_v21_site0_programs_after_outer_return",
+        "authority": "compiler_v21_site0_to_site1_training_unlock",
+        "authorized_for_training": True,
+        "training_license_sites": [1],
+        "authorized_for_final_scoring": False,
+        "selected_state_sha256": {
+            arm: rows.state_logical_sha256(states[arm][0])
+            for arm in ("true", "shuffle")
+        },
+        "mean_state_sha256": rows.state_logical_sha256(states["mean"][0]),
+        "stage_binding": stage_bindings["site0"],
+        "component_tree_sha256": "component-tree",
+        "outer_model_returned": True,
+        "hook_restored_and_inert": True,
+    }
+    site0_training_receipt.write_text(json.dumps(site0_training_payload))
+    monkeypatch.setattr(rows, "SITE0_TRAINING_RECEIPT", site0_training_receipt)
     token_frequency = rows.derive_token_frequency_strata(
         fit_rows, validation_rows, rows.TOKEN_FREQUENCY_BOUNDARIES,
     )
@@ -508,6 +546,12 @@ def _write_final_unlock(monkeypatch, tmp_path):
         "candidate_ledgers": ledgers,
         "selection_receipts": receipts,
         "stage_bindings": stage_bindings,
+        "site0_training_authorization": {
+            "path": str(site0_training_receipt.resolve()),
+            "sha256": rows.file_sha256(site0_training_receipt),
+            "bytes": site0_training_receipt.stat().st_size,
+            "receipt": site0_training_payload,
+        },
         "controls": controls,
         "strata": {
             "source": "compiler_validation_v21",
