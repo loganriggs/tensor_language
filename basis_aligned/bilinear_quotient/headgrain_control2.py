@@ -296,14 +296,16 @@ def main():
 
     out = {'config': {'samples': SAMPLES, 'rows_per_sample': 96,
                       'rule': '|lambda|-ordered (the published rule)',
-                      'cells': {k: {kk: vv for kk, vv in v.items() if kk != 'pat'}
+                      'cells': {k: {kk: (sorted(vv) if isinstance(vv, set) else vv)
+                                    for kk, vv in v.items() if kk != 'pat'}
                                 for k, v in CELLS.items()}},
            'cells': out_cells,
            'predictions': {'pred_a_pron_attn9_is_9.6_ratio_ge4_2of3': bool(pa),
                            'pred_b_ques_attn10_is_10.5_ratio_ge10_2of3': bool(pb),
                            'pred_c_lambda_beats_random_1.5x_both_cells': bool(pc)},
            'runtime_s': round(time.time() - t0, 1)}
-    json.dump(out, open(OUT, 'w'), indent=1)
+    json.dump(out, open(OUT, 'w'), indent=1,
+              default=lambda o: sorted(o) if isinstance(o, set) else str(o))
     print(f"\npred_a {pa} | pred_b {pb} | pred_c {pc}", flush=True)
     print(f"wrote {OUT} ({out['runtime_s']}s)", flush=True)
     sys.stdout.flush(); sys.stderr.flush(); os._exit(0)   # LESSONS 14
