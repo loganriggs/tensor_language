@@ -74,7 +74,7 @@ def build_authority() -> dict[str, Any]:
     return {
         "schema_version": 1,
         "receipt_kind": "mlp0_quotient_stage0_v1_collector_authority",
-        "status": "frozen_before_any_v1_model_forward",
+        "status": "frozen_before_any_v1_evaluation_model_forward",
         "scope": "single prospective evaluation on frozen skip-21000 rows",
         "source_commit": source_commit,
         "source_hashes": {str(path.resolve()): file_sha256(path) for path in SOURCE_CLOSURE},

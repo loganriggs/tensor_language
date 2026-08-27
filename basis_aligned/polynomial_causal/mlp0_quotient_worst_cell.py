@@ -85,7 +85,7 @@ def validate_authority() -> dict:
     if not AUTHORITY.is_file():
         raise RuntimeError(f'collector authority absent: {AUTHORITY}')
     authority = json.loads(AUTHORITY.read_text())
-    if (authority.get('status') != 'frozen_before_any_v1_model_forward'
+    if (authority.get('status') != 'frozen_before_any_v1_evaluation_model_forward'
             or authority.get('output_path') != str(OUT)
             or authority.get('row_receipt_sha256') != file_sha256(ROW_RECEIPT)
             or authority.get('fit_receipt_sha256') != file_sha256(FIT_RECEIPT)):
@@ -557,8 +557,25 @@ def main() -> None:
         LOCK.unlink(missing_ok=True)
 
 
+def authoritative_entry() -> None:
+    try:
+        main()
+    except BaseException as error:
+        if not OUT.exists() and not FAILURE.exists():
+            write_json_atomic({
+                'schema_version': 1,
+                'experiment': 'mlp0_quotient_stage0_v1',
+                'status': 'failed_closed_without_scientific_result',
+                'error_type': type(error).__name__,
+                'error': str(error),
+                'authority_sha256': file_sha256(AUTHORITY) if AUTHORITY.exists() else None,
+            }, FAILURE)
+        LOCK.unlink(missing_ok=True)
+        raise
+
+
 if __name__ == '__main__':
     if '--freeze-fit-receipt' in sys.argv:
         freeze_fit_receipt()
     else:
-        main()
+        authoritative_entry()
