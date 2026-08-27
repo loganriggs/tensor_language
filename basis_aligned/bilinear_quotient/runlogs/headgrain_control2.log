@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+
+=== pronouns@mlp17 (rank 8, |lambda| rule) eigs [-161.88, -133.57, -102.91, -55.54, 53.94, -47.12, 43.33, 37.35]  ref: S1598 9.6@6.8:1, 12.4@9.1:1
+  lambda  skip= 15000 n=194 median=  1.53 focus={9: ('9.6', 6.4), 12: ('12.4', 6.92)}
+  lambda  skip= 20000 n=195 median=  1.71 focus={9: ('9.6', 6.58), 12: ('12.4', 5.09)}
+  lambda  skip= 25000 n=185 median=  1.54 focus={9: ('9.6', 7.8), 12: ('12.4', 13.34)}
+  random  skip= 15000 n=194 median=  1.35 focus={9: ('9.6', 2.69), 12: ('12.4', 1.01)}
+  random  skip= 20000 n=195 median=  1.34 focus={9: ('9.6', 1.83), 12: ('12.8', 1.08)}
+  random  skip= 25000 n=185 median=  1.41 focus={9: ('9.6', 2.21), 12: ('12.4', 1.6)}
+  -> pronouns@mlp17: median lambda 1.627 vs random 1.396 (x1.165)
+
+=== question@mlp11 (rank 2, |lambda| rule) eigs [144.86, -73.85]  ref: S1597 10.5@20:1
+  lambda  skip= 15000 n= 31 median=  1.73 focus={10: ('10.5', 29.5), 9: ('9.7', 1.09)}
+  lambda  skip= 20000 n= 32 median=  1.65 focus={10: ('10.5', 43.57), 9: ('9.7', 1.08)}
+  lambda  skip= 25000 n= 47 median=  1.95 focus={10: ('10.5', 26.37), 9: ('9.7', 1.18)}
+  random  skip= 15000 n= 31 median=  1.31 focus={10: ('10.5', 1.86), 9: ('9.3', 1.13)}
+  random  skip= 20000 n= 32 median=  1.24 focus={10: ('10.5', 1.7), 9: ('9.3', 1.21)}
+  random  skip= 25000 n= 47 median=  1.23 focus={10: ('10.5', 1.73), 9: ('9.7', 1.13)}
+  -> question@mlp11: median lambda 1.758 vs random 1.26 (x1.395)
+
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/headgrain_control2_results.json (417.5s)

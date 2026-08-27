@@ -37544,3 +37544,56 @@ that remains accurate.
 **Queued:** `headgrain_control2` — the same harness on the |λ| rule at BOTH
 published cells (question@mlp11 rank-2, pronouns@mlp17 rank-8), each against a
 matched-rank random arm. That is the test §1607 should have been.
+
+## §1608 THE HEAD-GRAIN LAW SURVIVES THE RANDOM CONTROL (2-for-3): at circuit layers the |λ| slice concentrates 3.1-18.8x harder than a matched-rank random basis, and the published ratios reproduce — but a whole-stack median cannot see the effect
+
+**Setup** (headgrain_control2, ~8 min, artifact 16.9 KB with all registered keys).
+The control §1607 should have been: the **|λ|-ordered** rule — the one §1597/§1598
+actually used — at BOTH published cells, each against a matched-RANK random
+orthonormal arm. 3 disjoint 96-row samples per arm; `depth_curve` infers rank from
+the basis (cells are rank 2 and rank 8; the §1598 hardcode trap).
+
+```
+cell / layer      |λ| top head    ratios                mean   random top      ratios              mean   SEPARATION
+pronouns attn9    9.6  9.6  9.6   6.40  6.58  7.80      6.93   9.6 9.6 9.6     2.69 1.83 2.21      2.24      3.1x
+pronouns attn12   12.4 12.4 12.4  6.92  5.09 13.35      8.45   12.4 12.8 12.4  1.01 1.08 1.60      1.23      6.9x
+question attn10   10.5 10.5 10.5 29.50 43.57 26.37     33.15   10.5 10.5 10.5  1.86 1.70 1.73      1.76     18.8x
+question attn9    9.7  9.7  9.7   1.09  1.08  1.18      1.11   9.3 9.3 9.7     1.13 1.21 1.13      1.16      1.0x
+```
+
+**Scored as written:**
+- **pred_a PASSED, 3/3** (bar 2/3) — pronouns@mlp17 attn9's top head is 9.6 with
+  ratio ≥ 4.0 in every sample.
+- **pred_b PASSED, 3/3** (bar 2/3) — question@mlp11 attn10's top head is 10.5 with
+  ratio ≥ 10.0 in every sample.
+- **pred_c FAILED** — the whole-stack MEDIAN ratio beats random by only **1.165x**
+  (pronouns) and **1.395x** (question), against a 1.5x bar.
+
+**The law is real.** The published ratios reproduce on fresh disjoint rows:
+§1598's attn9 6.8:1 → measured mean **6.93**; §1598's attn12 9.1:1 → **8.45**;
+§1597's attn10 20:1 → **33.15**, exceeding the original. Against matched-rank
+random the separation at circuit layers is **3.1x, 6.9x and 18.8x**. §1606's
+high-norm floor is a COMPONENT-attribution artifact and does NOT reach within-layer
+head grain — the LESSONS 15 near-non-example, offered there as a hypothesis, is now
+a result.
+
+**Why pred_c failed, and it is a measurement lesson not a physics one.** The median
+is taken over all 18 attention layers, but the law is layer-SPECIFIC by
+construction: only layers containing a circuit head for that class should
+concentrate. The other ~16 layers sit at ~1.2-1.7 for BOTH arms, so a whole-stack
+median averages a 19x effect at one layer into noise from sixteen. The registered
+statistic could not see the thing it was registered to detect. Scored FAILED as
+written; the right statistic is per-circuit-layer separation, which is what the
+table above reports.
+
+**The negative control inside the positive result.** question@mlp9 is the honest
+counter-case: |λ| gives head 9.7 at ratio **1.11** vs random's **1.16** —
+separation **1.0x**, no concentration at all, and the random arm even picks a
+different head (9.3) twice. §1597 reported attn9's slice writing as secondary
+(221 vs attn10's 625) and did not claim a sharp head there. So the law holds
+exactly where the writer graph says the circuit is, and is silent where it is not.
+That asymmetry is what makes this a mechanism rather than a norm artifact.
+
+**Consequence for the registry:** the FLOOR_CAVEAT §1606 stamped on `head_grain`
+can be LIFTED — head grain has now had its control and passed. The caveat on the
+COMPONENT-level `writers` lists stands unchanged; nothing here tests those.
