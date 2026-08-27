@@ -1,0 +1,127 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "front_sites": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "ridge": 0.001,
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "compilation": "bottom-up -- site L fitted with sites below already substituted (\u00a71669)",
+  "table_substitution": "HYBRID -- table at covered positions, module live elsewhere (\u00a71661)",
+  "scoring": "covered positions only",
+  "s1669_all_linear": 0.5428,
+  "s1668_naive_all_table": 0.3427,
+  "s1668_band_ceilings": {
+   "front_token": 0.7645,
+   "front_linear": 0.6868,
+   "middle_linear": 0.6233,
+   "late_linear": 0.836
+  }
+ },
+ "stake": 4.3196,
+ "ce_live": 3.27946,
+ "ce_const": 7.59906,
+ "arms": {
+  "all_table": {
+   "ceiling": 0.49955,
+   "ce": 5.4412,
+   "kinds": {
+    "mlp0": "table",
+    "mlp1": "table",
+    "mlp2": "table",
+    "mlp3": "table",
+    "mlp4": "table",
+    "mlp5": "table",
+    "mlp6": "table",
+    "mlp7": "table",
+    "mlp8": "table",
+    "mlp9": "table",
+    "mlp10": "table",
+    "mlp11": "table",
+    "mlp12": "table",
+    "mlp13": "table",
+    "mlp14": "table",
+    "mlp15": "table",
+    "mlp16": "table",
+    "mlp17": "table"
+   }
+  },
+  "all_linear": {
+   "ceiling": 0.54282,
+   "ce": 5.2543,
+   "kinds": {
+    "mlp0": "linear",
+    "mlp1": "linear",
+    "mlp2": "linear",
+    "mlp3": "linear",
+    "mlp4": "linear",
+    "mlp5": "linear",
+    "mlp6": "linear",
+    "mlp7": "linear",
+    "mlp8": "linear",
+    "mlp9": "linear",
+    "mlp10": "linear",
+    "mlp11": "linear",
+    "mlp12": "linear",
+    "mlp13": "linear",
+    "mlp14": "linear",
+    "mlp15": "linear",
+    "mlp16": "linear",
+    "mlp17": "linear"
+   }
+  },
+  "mixed_front_table": {
+   "ceiling": 0.5629,
+   "ce": 5.16755,
+   "kinds": {
+    "mlp0": "table",
+    "mlp1": "table",
+    "mlp2": "table",
+    "mlp3": "table",
+    "mlp4": "linear",
+    "mlp5": "linear",
+    "mlp6": "linear",
+    "mlp7": "linear",
+    "mlp8": "linear",
+    "mlp9": "linear",
+    "mlp10": "linear",
+    "mlp11": "linear",
+    "mlp12": "linear",
+    "mlp13": "linear",
+    "mlp14": "linear",
+    "mlp15": "linear",
+    "mlp16": "linear",
+    "mlp17": "linear"
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_compilation_helps_tables_ge_10pts": true,
+  "pred_b_mixing_beats_both_pure_families": true,
+  "pred_c_control_all_linear_stable": true
+ },
+ "runtime_s": 39.9
+}
