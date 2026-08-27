@@ -52,7 +52,24 @@ E. NEVER a fixed absolute tolerance on a spectrum; scale by max|eig| and by the
    queueing a guess — but first check BENCHMARK_BACKLOG.md, whose markers may be
    stale (verify against _completed.txt before trusting them).
 
+=== AUTONOMY (granted 2026-08-27 03:43 by Logan: "You can pursue what you think
+is best. I won't be here to supervise for long stretches") ===
+Experiment SELECTION is delegated. Do not idle a lane waiting for approval, and
+do not ask which of two reasonable experiments to run — pick one and record why.
+Choose in this order, and say in the ledger which rung you took:
+  1. CONSOLIDATE anything finished but unwritten. Always first.
+  2. REPLICATE / SECOND-CLASS CONFIRM a just-certified result. This program's
+     standing pattern (S1595, S1598, S1603) and the cheapest real evidence.
+  3. The open question named at the end of the most recent ledger section.
+  4. An open rung of BENCHMARK_BACKLOG (4-8 as of 2026-08-27; verify against
+     _completed.txt first, the markers have been stale before).
+STILL STOP AND ASK for: anything irreversible or outside the research scope
+(destroying/rebooting the instance, force-pushing, rewriting history, deleting
+results, spending outside the two lanes), a result that would require RETRACTING
+a published claim, or a genuine scientific fork where the two branches lead to
+materially different programs rather than materially different experiments.
+Autonomy is over WHAT TO RUN. It is not permission to relax any bar below: score
+as written, a miss by 0.001 is a FAIL, quote spread, say plainly when wrong.
+
 Conventions: NR=960 (1920 for >50x claims), eval skip=7000, fit skip=80,
-positions >=64, class masks target-side. Never launch onto a busy GPU. On a
-genuine decision point — ambiguous result, a design choice with materially
-different follow-ups, anything that would burn real GPU on a guess — STOP AND ASK.
+positions >=64, class masks target-side. Never launch onto a busy GPU.
