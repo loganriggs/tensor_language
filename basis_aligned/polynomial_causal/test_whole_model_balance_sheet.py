@@ -94,3 +94,24 @@ def test_failed_early_product_frontier_promotes_linear_only_as_local_candidate()
     assert 0.68 < frontier["mlp0_native_fraction_of_linear_r2"] < 0.70
     assert frontier["mlp0_native_amortized_r2_per_parameter_advantage"] > 20
     assert "does not make them free" in frontier["pricing_rule"]
+
+
+def test_failed_hankel_and_ood_content_claims_prune_the_strategy():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    hankel = sheet["ledgers"]["sequence_state_program_test"]
+    ood = sheet["ledgers"]["ood_content_interface"]
+    assert hankel["registered_predictions"]["low_rank_beats_additive"] is False
+    assert hankel["heldout_splice_ce_excess"] > 3.5
+    assert ood["content_generalization_prediction"] is False
+    assert ood["code_variance_retained_by_prose_basis"] < 0.2
+    assert ood["code_variance_retained_by_code_basis"] > 0.5
+    assert ood["value"] < 0.35
+
+
+def test_head_grain_is_kept_as_local_law_not_whole_model_claim():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    grain = sheet["ledgers"]["controlled_tensor_head_grain"]
+    assert grain["registered_predictions"]["pred_a_pron_attn9_is_9.6_ratio_ge4_2of3"] is True
+    assert grain["registered_predictions"]["pred_b_ques_attn10_is_10.5_ratio_ge10_2of3"] is True
+    assert grain["registered_predictions"]["pred_c_lambda_beats_random_1.5x_both_cells"] is False
+    assert "not yet a replacement" in grain["caveat"]

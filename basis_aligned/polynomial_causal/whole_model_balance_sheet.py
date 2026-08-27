@@ -34,6 +34,10 @@ DEFAULT_SOURCES = {
     "mlp_product_rank": HERE / "mlp_product_rank_audit_results.json",
     "question_one_product": HERE / "question_one_product_results.json",
     "content_product_frontier": HERE / "content_product_frontier_results.json",
+    "sequence_hankel": HERE / "hankel_rank_audit_results.json",
+    "content_ood": TENSOR_ROOT / "basis_aligned/bilinear_quotient/content_ood_code_results.json",
+    "ood_bands": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ood_band_importance_results.json",
+    "headgrain_control": TENSOR_ROOT / "basis_aligned/bilinear_quotient/headgrain_control2_results.json",
 }
 
 
@@ -124,6 +128,10 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     product_rank = data["mlp_product_rank"]
     question_product = data["question_one_product"]
     content_frontier = data["content_product_frontier"]
+    sequence_hankel = data["sequence_hankel"]
+    content_ood = data["content_ood"]
+    ood_bands = data["ood_bands"]
+    headgrain = data["headgrain_control"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
     factorial_cells = factorial_primary["cells"]
@@ -289,6 +297,39 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "At standalone price, learned paired and selected native products are dominated by a smaller linear map at all three early MLPs; tensor-specific compilation is rejected at this interface. Native products are a conditional amortized frontier only if their factors are legitimately shared.",
             "caveat": "The MLP0 native arm retains 69% of linear R2 for 1/35 the new parameters, but that price excludes its two factor projections. The linear winner predicts clean local outputs rather than the current ship residual, so it licenses a ship-correction test only after group x token-cell attribution, not whole-model admission.",
         },
+        "sequence_state_program_test": {
+            "value": sequence_hankel["heldout"]["suffix_logprob"]["best_improvement"],
+            "heldout_rank90": sequence_hankel["heldout"]["suffix_logprob"]["rank90"],
+            "heldout_stable_rank": sequence_hankel["heldout"]["suffix_logprob"]["stable_rank"],
+            "heldout_splice_ce_excess": sequence_hankel["heldout"]["splice_ce_excess"],
+            "registered_predictions": sequence_hankel["predictions"],
+            "currency": "best held-out low-rank RMSE improvement over row-plus-column additive prefix/suffix baseline",
+            "scope": "48 prefixes x 48 suffixes, 64-token prefixes and 8-token suffixes; discovery and held-out spliced FineWeb grids",
+            "claim": "The registered compact Hankel-state hypothesis is rejected at this interface: low rank does not beat the additive baseline and the apparent ranks replicate near 19-24 rather than collapsing.",
+            "caveat": "Splicing is strongly distribution-shifting (held-out +3.54 CE), so this rejects the present probe, not every finite-state or predictive-state representation of natural continuations.",
+        },
+        "ood_content_interface": {
+            "value": content_ood["code_frac_of_own_captured_by_prose"],
+            "code_variance_retained_by_prose_basis": content_ood["retained"]["code_by_prose_subspace"],
+            "code_variance_retained_by_code_basis": content_ood["retained"]["code_by_own_top64"],
+            "code_variance_retained_by_random_basis": content_ood["retained"]["code_by_random64"],
+            "prose_code_subspace_overlap": content_ood["prose_code_subspace_overlap"],
+            "content_generalization_prediction": content_ood["pred_a_register_general"],
+            "grammar_band_holds_on_code": ood_bands["grammar_holds_on_code"],
+            "currency": "code contextual-variation capture by the prose content basis divided by code's own top-64 capture",
+            "scope": "150 code and 150 prose sequences at residual layers 8, 10, and 12",
+            "claim": "The current prose-derived content basis is not a universal OOD interface: it captures only 16.6% of code variation, or 32.2% of the code-local top-64 ceiling.",
+            "caveat": "It remains 3.0x above a random 64D basis on code, so it contains transferable signal; a universal compiler must test a transported or typed mixture of content coordinates rather than treating this basis as domain invariant.",
+        },
+        "controlled_tensor_head_grain": {
+            "question_lambda_to_random_median_ratio": headgrain["cells"]["question@mlp11"]["ratio_lambda_over_random"],
+            "pronoun_lambda_to_random_median_ratio": headgrain["cells"]["pronouns@mlp17"]["ratio_lambda_over_random"],
+            "registered_predictions": headgrain["predictions"],
+            "currency": "published |eigenvalue|-slice head-read concentration divided by matched-rank random-subspace concentration",
+            "scope": "question@MLP11 rank 2 and pronouns@MLP17 rank 8 over three disjoint 96-row samples",
+            "claim": "The tensor slice identifies sharply concentrated reader heads at the registered circuit layers, but the whole-stack median separation gate fails.",
+            "caveat": "This is a controlled local wiring law, not yet a replacement, CE recovery, or proof that the same grain composes across behaviors and layers.",
+        },
     }
 
     current_ship = inventory.get("current_composite", {})
@@ -317,23 +358,23 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             },
             {
                 "priority": 2,
-                "action": "If and only if the oracle screen licenses a site, fit its content-projected residual predictor under the full ship and require matched-null, alternate-background, OOD, and collateral controls.",
-                "why": "A passing oracle separates recovery of missing computation from arbitrary CE compensation. Learned prediction is useful only if it retains that gain beyond the basis-building and deployed-ship context.",
+                "action": "If the FineWeb oracle licenses a site, repeat the optimizer-free singleton screen on code using the frozen prose basis, a code-local basis, and matched nulls before fitting any predictor.",
+                "why": "The registered prose-content OOD claim already failed: the basis captures only 16.6% of code variation versus 51.5% for code's own top-64 basis. A FineWeb pass cannot support a whole-model content API without deciding between transported, domain-typed, and non-content residual coordinates.",
             },
             {
                 "priority": 3,
-                "action": "Extend the frozen group factorial to powered output slices and held-out intervention families, with corrected fixed token strata.",
-                "why": "Token CE localizes the current residual but cannot establish causal transport or selective edits, and the current output/intervention cross-tab is still absent.",
+                "action": "Extend the frozen group factorial to powered output slices and held-out intervention families, with corrected fixed token strata and alternate ship backgrounds.",
+                "why": "Token CE localizes the deployed residual but cannot establish causal transport or selective edits; large negative interactions also require checking whether a fragment's intervention response changes with its replacement background.",
             },
             {
                 "priority": 4,
-                "action": "Use behavior-agnostic output bases for discovery only, then learn/test a distinct causal control basis on disjoint classes.",
-                "why": "The current output basis has 40.4% circuit recall versus 7.5% random but only 13.5% of oracle removal damage.",
+                "action": "Preregister a priced gauge-transport interface: map interventions between local tensor bases and test it on disjoint behaviors, depths, and backgrounds.",
+                "why": "Local bases often locate circuits, but affine donor transport has near-zero median fidelity and the output basis preserves only 13.5% of oracle removal damage. Intervention transport is the missing interface between gauge freedom and manipulability.",
             },
             {
                 "priority": 5,
-                "action": "Preregister selective edit/transplant tests for every fragment admitted to the composite.",
-                "why": "Editing and held-out intervention transport, not reconstruction alone, are the final reverse-engineering criterion.",
+                "action": "Only after oracle and transport gates pass, fit the residual predictor and factor it through linear, native-product, paired-product, and tensor-head-grain programs at standalone and amortized prices.",
+                "why": "The early product frontier and Hankel probe both rejected premature structural compression. Tensor structure should now compete only at a causally licensed, OOD-scoped interface where simplicity can be tested for composition and editability.",
             },
         ],
         "registry_inventory": inventory,

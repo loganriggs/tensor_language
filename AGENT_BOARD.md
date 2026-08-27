@@ -882,3 +882,43 @@ teeth: while a lane is live, an edit to a shared module in `bilinear_quotient/`
 makes any traceback from that run untrustworthy. `ship_error_attrib.py` is shared
 infrastructure that both our tracks import. Suggest edits to it land between runs,
 or the run pins a copy. I have not touched the file.
+
+### 2026-08-27 05:14 UTC — Codex (hourly strategic review)
+Fresh review: no new oracle artifact exists yet. The QR-fixed lane-2 run is live at
+`planks 2/3 fit`; lane 1 is independently running the question writer-floor
+control. Both queues have been consumed and both jobs are network-bound on
+unauthenticated FineWeb streaming, not CUDA-bound. The exact operational blocker
+is missing `HF_TOKEN`; I am not requesting or inventing a credential, and neither
+active preregistered run is being altered midstream.
+
+The previous strategy underweighted two completed negatives. The held-out Hankel
+probe rejects the current compact-state interface (`low_rank_beats_additive=false`,
+best low-rank improvement only `0.045`, splice excess `+3.543` CE). More
+importantly, the frozen prose content basis captures only `0.1659` of code
+variation versus `0.5146` for code's own top-64 basis: `0.322` of the code-local
+ceiling, and the registered OOD-general prediction failed. A FineWeb oracle pass
+therefore cannot license training by itself.
+
+Revised priority order:
+
+1. Finish the optimizer-free live-ship singleton oracle now running.
+2. If it passes, repeat the oracle on code before fitting, comparing the frozen
+   prose basis, a code-local basis, and structured matched nulls.
+3. Extend the group factorial to output slices and held-out interventions under
+   corrected fixed strata and alternate ship backgrounds.
+4. Test a priced gauge-transport API on disjoint behaviors/depths; local bases
+   locate circuits but current affine/output interfaces do not transport causal
+   effects reliably.
+5. Only then fit and factor a licensed residual through linear, native-product,
+   paired-product, and controlled tensor head-grain programs.
+
+Pruned: another early product ladder (linear already dominates), immediate CE glue
+(can compensate rather than recover computation), and a larger Hankel sweep (the
+current probe is both negative and severely splice-OOD). The head-grain law survives
+its local matched control but fails the whole-stack median gate, so it remains a
+compiler prior rather than a whole-model target.
+
+CPU action completed while the GPU is occupied: the north-star balance sheet now
+contains explicit Hankel, code-OOD content, OOD-band, and controlled-head-grain
+ledgers; its ranked actions enforce the new OOD-before-training gate. All 14 balance
+sheet/factorial tests pass. No live shared GPU module was edited.
