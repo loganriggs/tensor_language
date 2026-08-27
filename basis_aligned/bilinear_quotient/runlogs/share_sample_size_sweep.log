@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL fineweb_n480_skip80.pt sizes [160, 320, 480] (receipt 815b21618c2e477e)
+
+=== question@mlp11 rank-2 TOP=4 (published 0.718) ===
+  n_rows= 160 class_n=   78  lambda=0.5427  null=0.3926
+  n_rows= 320 class_n=  134  lambda=0.5421  null=0.4220
+  n_rows= 480 class_n=  214  lambda=0.5462  null=0.4589
+
+=== pronouns@mlp17 rank-8 TOP=6 (published 0.482) ===
+  n_rows= 160 class_n=  351  lambda=0.5824  null=0.7413
+  n_rows= 320 class_n=  593  lambda=0.5833  null=0.7458
+  n_rows= 480 class_n=  808  lambda=0.5855  null=0.7433
+
+  question lambda by size [0.5427, 0.5421, 0.5462]  |  null by size [0.3926, 0.422, 0.4589]
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/share_sample_size_sweep_results.json (46.8s)

@@ -38427,3 +38427,58 @@ That is testable in one run (single 480-row sample, no chunking) and until it is
 run, **the .718/.545 gap must NOT be reported as a discrepancy in §1597** — it may
 be a sample-size effect of MY design. What is already safe to say is the
 directional pair: question sits ABOVE its null, pronouns far BELOW.
+
+## §1621 SAMPLE SIZE DOES NOT EXPLAIN THE GAP — AND §1620 COMPARED THE WRONG ROWS (2-for-3): the |λ| share is FLAT in n (.5427/.5421/.5462) while the NULL rises (.393→.459), but §1597's .718 was computed at skip=7000 and §1620 measured skip=80
+
+**Setup** (share_sample_size_sweep, 47 s). §1620 recorded an explicit guard that
+its .545-vs-.718 gap must not be cited as a §1597 discrepancy until a sample-size
+sweep ruled out an artifact of the 3x160-chunk design. Single sample at 160 / 320
+/ 480 rows, no chunking, canonical `.rowcache/fineweb_n480_skip80.pt`
+(receipt 815b21618c2e477e), both cells with matched-rank nulls.
+
+```
+question@mlp11    class_n    lambda    null          pronouns@mlp17  lambda   null
+  160 rows           78      .5427    .3926            351            .5824   .7413
+  320 rows          134      .5421    .4220            593            .5833   .7458
+  480 rows          214      .5462    .4589            808            .5855   .7433
+```
+
+**Scored as written:**
+- **pred_a FAILED** — the |λ| share is NOT monotone in n; it dips (.5427 → .5421)
+  before rising. In truth it is **flat**: range .004 across a 2.7x change in
+  class positions.
+- **pred_b PASSED VACUOUSLY, and I am flagging it as such** — |.5462 − .718| =
+  .1718 versus |.5427 − .718| = .1753. "Strictly smaller" is satisfied by
+  **.0035**, a 0.35% move. This is the THIRD vacuous pass tonight (§1616 pred_b,
+  §1619 pred_b): I keep writing directional bars with no minimum effect size.
+  A bar that any epsilon satisfies tests nothing.
+- **pred_c PASSED** — the null rises .3926 → .4589 across the same sweep, a 6.6
+  point climb against the signal's 0.4. Consistent with §1615's 1/sqrt(n)
+  noise-floor law: more data estimates the null's class mean better, so the null
+  concentrates.
+
+**FIRST CONCLUSION: sample size is NOT the explanation.** Tripling the class
+count moved the |λ| share by 0.4% while moving the null by 6.6 points. The
+statistic is well estimated at these sizes; §1620's chunking is not why .545 ≠
+.718.
+
+**SECOND CONCLUSION, and it supersedes the first in importance: §1620 MEASURED THE
+WRONG ROWS.** Checking `slice_writers.py` before declaring a reproduction failure:
+
+```
+slice_writers.py:159   EVR = cl.fineweb_rows(NR=960, skip=7000)   <- S1597's EVAL rows
+slice_writers.py:160   FR  = cl.fineweb_rows(96,     skip=80)     <- its FIT rows only
+```
+
+§1597's .718 is computed on **skip=7000**. §1620 used
+`fineweb_n480_skip80.pt` — **skip=80**, which §1597 uses only to fit. **The
+.545-vs-.718 comparison in §1620 was never valid**, and its guard against citing
+the gap as a discrepancy was correct for a reason I had not yet identified.
+§1620's DIRECTIONAL findings are unaffected — each slice was compared to its own
+matched null on identical rows, which is valid on any corpus — but every sentence
+in §1620 comparing a measured share to a PUBLISHED share is withdrawn.
+
+**Queued:** the same test on `.rowcache/fineweb_n192_skip7000.pt`, the canonical
+tensor at §1597's own eval skip. It carries only 192 rows (47 question positions)
+against §1597's 960, but this section establishes the share is flat in n, so the
+smaller sample should still be informative.
