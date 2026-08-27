@@ -18,9 +18,9 @@ from typing import Any
 HERE = Path(__file__).resolve().parent
 TENSOR_ROOT = HERE.parents[1]
 AFFINE_COMPILER_CONTRACT = HERE / "early_mlp_affine_compiler_v1.py"
-AFFINE_COMPILER_RESULT = (
+AFFINE_COMPILER_PROGRAM = (
     TENSOR_ROOT
-    / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_results.json"
+    / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_programs.pt"
 )
 
 DEFAULT_SOURCES = {
@@ -62,6 +62,10 @@ DEFAULT_SOURCES = {
     "joint_early_mlp_pca_composition_authority_v3": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_authority.json",
     "early_mlp_affine_compiler_v1_preregistration": HERE / "early_mlp_affine_compiler_v1_preregistration.json",
     "early_mlp_affine_compiler_v1_rows_receipt": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_rows_receipt.json",
+    "early_mlp_affine_compiler_v1_results": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_results.json",
+    "early_mlp_affine_compiler_v1_manifest": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_manifest.json",
+    "early_mlp_affine_compiler_v1_programs_receipt": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_programs_receipt.json",
+    "early_mlp_affine_compiler_v1_authority": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_authority.json",
 }
 
 
@@ -177,6 +181,12 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     joint_pca_authority = data["joint_early_mlp_pca_composition_authority_v3"]
     affine_compiler_prereg = data["early_mlp_affine_compiler_v1_preregistration"]
     affine_compiler_rows = data["early_mlp_affine_compiler_v1_rows_receipt"]
+    affine_compiler = data["early_mlp_affine_compiler_v1_results"]
+    affine_compiler_manifest = data["early_mlp_affine_compiler_v1_manifest"]
+    affine_compiler_program_receipt = data[
+        "early_mlp_affine_compiler_v1_programs_receipt"
+    ]
+    affine_compiler_authority = data["early_mlp_affine_compiler_v1_authority"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
     factorial_cells = factorial_primary["cells"]
@@ -212,9 +222,27 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     assert affine_compiler_rows["training_license_sites"] == [0, 1]
     assert all(affine_compiler_rows["disjointness_gates"].values())
     assert AFFINE_COMPILER_CONTRACT.exists(), "affine compiler contract is missing"
-    assert not AFFINE_COMPILER_RESULT.exists(), (
-        "affine compiler result now exists; promote scored evidence before regenerating"
+    assert affine_compiler_authority["authorized_for_scored_experiments"] is True
+    assert affine_compiler_authority["result_sha256"] == digest(
+        sources["early_mlp_affine_compiler_v1_results"]
+    ), "affine compiler authority no longer binds its result"
+    assert affine_compiler_authority["manifest_sha256"] == digest(
+        sources["early_mlp_affine_compiler_v1_manifest"]
+    ), "affine compiler authority no longer binds its manifest"
+    assert affine_compiler_authority["program_receipt_sha256"] == digest(
+        sources["early_mlp_affine_compiler_v1_programs_receipt"]
+    ), "affine compiler authority no longer binds its program receipt"
+    assert AFFINE_COMPILER_PROGRAM.exists(), "affine compiler program is missing"
+    assert affine_compiler_authority["program_artifact_sha256"] == digest(
+        AFFINE_COMPILER_PROGRAM
+    ), "affine compiler authority no longer binds its program artifact"
+    assert affine_compiler_program_receipt["artifact_sha256"] == digest(
+        AFFINE_COMPILER_PROGRAM
+    ), "affine compiler program receipt no longer binds its artifact"
+    assert affine_compiler_manifest["result_sha256"] == digest(
+        sources["early_mlp_affine_compiler_v1_results"]
     )
+    assert affine_compiler["component_tree_unchanged"] is True
 
     ledgers = {
         "representation": {
@@ -578,53 +606,83 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "The low-rank causal interfaces compose authoritatively. Heldout PCA0+PCA1 gains 0.2268 nats versus 0.4003 exact upstream (56.7%); with exact MLP2 held fixed their conditional upstream gain retains 64.0% of exact. All twelve leave-one-site-out effects and all twelve same-background 40% margins have positive heldout document-cluster lower bounds, and all six registered prediction families pass.",
             "caveat": "This is a modular oracle-subspace result, not an executable replacement: every projected arm still calls the missing original MLP to obtain residual coefficients, MLP2 remains unsimplified, and no original-MLP-disabled predictor, gauge-invariant state transport, OOD/background transfer, edit collateral, compression, training, or simplicity certificate exists. Exact MLP2 after projected upstream is small (+0.0194 heldout, CI lower 0.0002), and its discovery cluster interval crosses zero even though the preregistered discovery point/heldout-interval gate passes. The same-currency whole-model and MLP0--2 residual denominators remain absent, so global coverage fractions do not change.",
         },
-        "early_mlp_affine_compiler_preexecution": {
-            "stage": "licensed_preregistered_contract_ready_not_scored",
-            "authority": affine_compiler_rows["authority"],
+        "early_mlp_affine_compiler_authoritative_failure": {
+            "stage": "completed_authoritative_executable_failure",
+            "authority": affine_compiler_authority["authority"],
             "preregistration_status": affine_compiler_prereg["status"],
             "row_receipt_status": affine_compiler_rows["status"],
-            "authorized_for_scored_experiments": affine_compiler_rows[
+            "authorized_for_scored_experiments": affine_compiler_authority[
                 "authorized_for_scored_experiments"
             ],
-            "authorized_for_training": affine_compiler_rows["authorized_for_training"],
-            "training_license_sites": affine_compiler_rows["training_license_sites"],
-            "license_scope": affine_compiler_rows["license_scope"],
-            "scored_executable_result_available": False,
-            "executable_ce_gain_nats": None,
+            "payload_self_authorized": affine_compiler[
+                "authorized_for_scored_experiments"
+            ],
+            "fit_was_isolated_and_licensed": (
+                affine_compiler_rows["authorized_for_training"] is True
+                and affine_compiler_rows["training_license_sites"] == [0, 1]
+            ),
+            "post_result_authorized_for_training": affine_compiler_authority[
+                "authorized_for_training"
+            ],
+            "post_result_training_license_sites": affine_compiler_authority[
+                "training_license_sites"
+            ],
+            "scored_executable_result_available": True,
+            "credited_executable_recovery_nats": 0.0,
             "whole_model_recovery_fraction": None,
-            "fresh_row_requests": {
-                role: row["request"] for role, row in affine_compiler_rows["entries"].items()
-            },
-            "fresh_row_unique_document_counts": {
-                role: row["unique_document_count"]
-                for role, row in affine_compiler_rows["entries"].items()
-            },
-            "disjointness_gates": affine_compiler_rows["disjointness_gates"],
-            "sequential_fit": affine_compiler_prereg["sequential_fit"],
-            "allowed_inference_inputs": affine_compiler_prereg["grammar"][
-                "allowed_inference_inputs"
-            ],
-            "forbidden_inference_inputs": affine_compiler_prereg["grammar"][
-                "forbidden_inference_inputs"
-            ],
-            "poison_rule": affine_compiler_prereg["evaluation"]["poison_rule"],
-            "registered_gates": affine_compiler_prereg["registered_gates"],
-            "state_integrity": {
-                "ship_realization_sha256": affine_compiler_prereg["pinned_inputs"][
-                    "ship_realization_sha256"
-                ],
-                "preregistration_sha256": affine_compiler_rows[
-                    "preregistration_sha256"
-                ],
-                "row_receipt_sha256": digest(
-                    sources["early_mlp_affine_compiler_v1_rows_receipt"]
+            "arm_gains_nats": {
+                "QNN": affine_compiler["analysis"]["core_no_free_rider"][
+                    "mlp0_neighbor_N_mlp2_N"
+                ]["point_estimate"],
+                "NQN": affine_compiler["analysis"]["core_no_free_rider"][
+                    "mlp1_neighbor_N_mlp2_N"
+                ]["point_estimate"],
+                "QQN": (
+                    affine_compiler["evaluations"]["NNN"]["ce"]["global"]
+                    - affine_compiler["evaluations"]["QQN"]["ce"]["global"]
                 ),
-                "contract_sha256": digest(AFFINE_COMPILER_CONTRACT),
             },
-            "currency": "pre-execution affine compiler authority, provenance, and contract status; no scored causal effect",
-            "scope": "fresh compiler-fit/validation/final FineWeb roles, pairwise disjoint and document-disjoint from every prior oracle role; isolated affine maps at MLP0/1 only",
-            "claim": "The first executable no-teacher-forcing compiler run is preregistered, its isolated MLP0/1 fit is licensed, its fresh rows are frozen and disjoint, and its pure fitting/scoring contract exists. No executable arm has been scored yet.",
-            "caveat": "Preparation is not evidence of recovery. The authoritative v3 interfaces remain oracle-only, executable CE gain and whole-model recovery fraction remain null, and no coverage, OOD, edit, simplicity, or MLP2-interface claim is added until a bound scored result exists.",
+            "control_contrasts_nats": {
+                name: affine_compiler["analysis"]["controls"][name]["point_estimate"]
+                for name in ("QQN_beats_mean", "QQN_beats_shuffle")
+            },
+            "local_validation_r2_centered": {
+                "mlp0": 0.162343086751225,
+                "mlp1": 0.34114138330266286,
+            },
+            "collateral_worsening_nats": affine_compiler["collateral_worsening"],
+            "statistical_decisions": affine_compiler["analysis"]["decisions"],
+            "registered_decisions": affine_compiler["decisions"],
+            "program_summary": affine_compiler["program_summary"],
+            "disjointness_gates": affine_compiler_rows["disjointness_gates"],
+            "state_integrity": {
+                "component_tree_unchanged": affine_compiler[
+                    "component_tree_unchanged"
+                ],
+                "baseline_replay": affine_compiler["baseline_replay"],
+                "original_call_counters": affine_compiler["original_call_counters"],
+                "gauge_replay_passed": affine_compiler["decisions"]["gauge_replay"],
+                "integrity_passed": affine_compiler["decisions"]["integrity"],
+                "atomic_authority_result_sha256": affine_compiler_authority[
+                    "result_sha256"
+                ],
+                "atomic_authority_manifest_sha256": affine_compiler_authority[
+                    "manifest_sha256"
+                ],
+                "atomic_authority_program_sha256": affine_compiler_authority[
+                    "program_artifact_sha256"
+                ],
+                "atomic_authority_program_receipt_sha256": affine_compiler_authority[
+                    "program_receipt_sha256"
+                ],
+                "atomic_authority_receipt_sha256": digest(
+                    sources["early_mlp_affine_compiler_v1_authority"]
+                ),
+            },
+            "currency": "paired compiler-final CE gains from original-MLP-poisoned executable affine arms, with admission credit after registered gates",
+            "scope": "frozen sequential affine coefficient maps at MLP0/1 on 192 fresh FineWeb final rows from 100 documents; complete 18-arm lattice on one frozen ship realization",
+            "claim": "The affine compiler is an authoritative executable failure. Integrity and gauge replay pass, but every statistical gate fails: MLP0 alone gains only 0.0101 nats, MLP1 alone loses 0.0982, the joint QQN arm loses 0.0505, and QQN loses to mean and shuffled controls. The MLP1 response is the dominant causal bottleneck despite local coefficient R2 of 0.341.",
+            "caveat": "The isolated affine grammar is rejected, not the authoritative rank-64 oracle subspaces. Copy and novel-frequent collateral worsen by 0.0198 and 0.0494 nats. This result earns zero executable recovery credit; v3 remains oracle-only, all prior coverage fractions stay unchanged, and the absent same-currency whole-model denominator remains null.",
         },
     }
 
@@ -671,8 +729,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "Run the preregistered affine no-teacher-forcing compiler on its frozen fresh fit/validation/final rows, poison original-MLP calls in predicted arms, and score the complete reused-component lattice.",
-                "why": "The isolated MLP0/1 fit is now licensed, the disjoint row receipt is frozen, and the pure contract exists, but there is no scored executable result. Disabling the oracle coefficient read is still the shortest path from a causal locator to an executable reverse-engineered program.",
+                "action": "Preregister a state-complete, causally selected native bilinear-product frontier focused on the MLP1 response bottleneck, with c(z,mo)=p(z)-B^T mo and a causally weighted state-corrected affine map as the matched-price control; preserve the fresh-row, sequential, poison, control, and complete-lattice contract.",
+                "why": "The v1 affine executable predicts the original-minus-plank residual from z alone even though the live plank output mo contains token/context state not determined by z. It fails all statistical gates despite integrity/gauge success: NQN loses 0.0982 nats, QQN loses 0.0505, and local MLP1 R2 of 0.341 does not translate causally. The next rung should separate missing state, wrong Euclidean loss, and wrong grammar while exploiting the exact bilinear tensor.",
             },
             {
                 "priority": 2,
@@ -702,6 +760,10 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "early_mlp_affine_compiler_v1_contract": {
                 "path": str(AFFINE_COMPILER_CONTRACT),
                 "sha256": digest(AFFINE_COMPILER_CONTRACT),
+            },
+            "early_mlp_affine_compiler_v1_program": {
+                "path": str(AFFINE_COMPILER_PROGRAM),
+                "sha256": digest(AFFINE_COMPILER_PROGRAM),
             },
         },
     }

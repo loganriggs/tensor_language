@@ -268,35 +268,54 @@ def test_authoritative_mixed_pca_composes_but_remains_an_oracle_subspace():
     assert "still calls the missing original MLP" in oracle["caveat"]
 
 
-def test_affine_compiler_is_ready_but_not_promoted_before_scoring():
+def test_authoritative_affine_compiler_failure_gets_zero_recovery_credit():
     sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
-    compiler = sheet["ledgers"]["early_mlp_affine_compiler_preexecution"]
-    assert compiler["stage"] == "licensed_preregistered_contract_ready_not_scored"
+    compiler = sheet["ledgers"]["early_mlp_affine_compiler_authoritative_failure"]
+    assert compiler["stage"] == "completed_authoritative_executable_failure"
     assert compiler["authority"] == "isolated_compiler_experiment"
     assert compiler["preregistration_status"] == "preregistered_not_run"
     assert compiler["row_receipt_status"] == "frozen_before_predictor_fit"
     assert compiler["authorized_for_scored_experiments"] is True
-    assert compiler["authorized_for_training"] is True
-    assert compiler["training_license_sites"] == [0, 1]
+    assert compiler["payload_self_authorized"] is False
+    assert compiler["fit_was_isolated_and_licensed"] is True
+    assert compiler["post_result_authorized_for_training"] is False
+    assert compiler["post_result_training_license_sites"] == []
     assert all(compiler["disjointness_gates"].values())
-    assert compiler["fresh_row_requests"] == {
-        "compiler_fit": {"n": 480, "skip": 15000},
-        "compiler_validation": {"n": 192, "skip": 19000},
-        "compiler_final": {"n": 192, "skip": 23000},
-    }
-    assert compiler["scored_executable_result_available"] is False
-    assert compiler["executable_ce_gain_nats"] is None
+    assert compiler["scored_executable_result_available"] is True
+    assert compiler["credited_executable_recovery_nats"] == 0.0
     assert compiler["whole_model_recovery_fraction"] is None
-    assert "No executable arm has been scored yet" in compiler["claim"]
-    assert "Preparation is not evidence" in compiler["caveat"]
+    assert 0.0100 < compiler["arm_gains_nats"]["QNN"] < 0.0102
+    assert -0.0983 < compiler["arm_gains_nats"]["NQN"] < -0.0980
+    assert -0.0507 < compiler["arm_gains_nats"]["QQN"] < -0.0504
+    assert compiler["control_contrasts_nats"]["QQN_beats_mean"] < -0.043
+    assert compiler["control_contrasts_nats"]["QQN_beats_shuffle"] < -0.046
+    assert 0.16 < compiler["local_validation_r2_centered"]["mlp0"] < 0.17
+    assert 0.34 < compiler["local_validation_r2_centered"]["mlp1"] < 0.35
+    assert compiler["collateral_worsening_nats"]["copy"] > 0.019
+    assert compiler["collateral_worsening_nats"]["novel_freq"] > 0.049
+    assert all(value is False for value in compiler["statistical_decisions"].values())
+    assert compiler["registered_decisions"]["integrity"] is True
+    assert compiler["registered_decisions"]["gauge_replay"] is True
+    assert compiler["registered_decisions"]["all_registered_gates"] is False
+    integrity = compiler["state_integrity"]
+    assert integrity["atomic_authority_result_sha256"].startswith("f189cd4f")
+    assert integrity["atomic_authority_manifest_sha256"].startswith("8ed7ce44")
+    assert integrity["atomic_authority_program_sha256"].startswith("165b656a")
+    assert integrity["atomic_authority_program_receipt_sha256"].startswith("9ed63cd0")
+    assert integrity["atomic_authority_receipt_sha256"].startswith("2c1ad6ca")
+    assert "authoritative executable failure" in compiler["claim"]
+    assert "zero executable recovery credit" in compiler["caveat"]
     assert sheet["ledgers"]["early_mlp_mixed_pca_oracle_authoritative"][
         "heldout_projected_upstream_fraction_of_exact"
     ] > 0.56
     assert sheet["ranked_actions"][0]["priority"] == 1
-    assert "Run the preregistered affine" in sheet["ranked_actions"][0]["action"]
+    assert "native bilinear-product" in sheet["ranked_actions"][0]["action"]
+    assert "MLP1 response bottleneck" in sheet["ranked_actions"][0]["action"]
+    assert "c(z,mo)=p(z)-B^T mo" in sheet["ranked_actions"][0]["action"]
     assert sheet["ranked_actions"][1]["priority"] == 2
     assert "macro factorial" in sheet["ranked_actions"][1]["action"]
     assert "early_mlp_affine_compiler_v1_contract" in sheet["sources"]
+    assert "early_mlp_affine_compiler_v1_program" in sheet["sources"]
 
 
 def test_writer_null_predictors_are_withdrawn_after_disjoint_replication():
