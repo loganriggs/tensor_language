@@ -20,6 +20,12 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 BQ = HERE.parent / "bilinear_quotient"
 PROTOCOL = HERE / "early_mlp_state_complete_compiler_v21_preregistration.json"
+IMPLEMENTATION_AMENDMENT = (
+    HERE / "early_mlp_state_complete_compiler_v21_implementation_amendment.json"
+)
+IMPLEMENTATION_AMENDMENT_SHA256 = (
+    "0ac129411a89b94867635253493e53f04aef77e0361bea2fe6af589b7ae5d988"
+)
 OLD_RECEIPT = BQ / "early_mlp_state_complete_compiler_v2_rows_receipt.json"
 RETRY1_FAILURE = BQ / "early_mlp_state_complete_compiler_v2_site0_retry1_manifest.json"
 PARENT_FAILURE = BQ / "early_mlp_state_complete_compiler_v2_site0_manifest.json"
@@ -33,12 +39,23 @@ RECEIPT = BQ / "early_mlp_state_complete_compiler_v21_rows_receipt.json"
 MANIFEST = BQ / "early_mlp_state_complete_compiler_v21_rows_manifest.json"
 PROGRAMS_ARTIFACT = BQ / "early_mlp_state_complete_compiler_v21_programs.pt"
 PROGRAMS_RECEIPT = BQ / "early_mlp_state_complete_compiler_v21_programs_receipt.json"
+SITE0_LEDGER_ARTIFACT = BQ / "early_mlp_state_complete_compiler_v21_site0_ledger.pt"
+SITE0_LEDGER_RECEIPT = BQ / "early_mlp_state_complete_compiler_v21_site0_ledger_receipt.json"
+SITE1_LEDGER_ARTIFACT = BQ / "early_mlp_state_complete_compiler_v21_site1_ledger.pt"
+SITE1_LEDGER_RECEIPT = BQ / "early_mlp_state_complete_compiler_v21_site1_ledger_receipt.json"
 CACHE = BQ / ".rowcache_compiler_v21"
 LOCK = Path("/workspace/runs/.early_mlp_state_complete_compiler_v21_rows.lock")
 OUTPUTS = (RECEIPT, MANIFEST)
 FINAL_SPEC = (192, 39000)
 T_LEN = 513
 MODEL_LEN = 257
+TOKEN_VOCAB = 50257
+TOKEN_FREQUENCY_BOUNDARIES = [1, 2, 4, 8, 16, 32, 64, 128]
+CAUSAL_CAPTURE_COUNT = 192 * 64
+VALIDATION_TOKEN_COUNT = 192 * 192
+FIT_CAPTURE_COUNT = 480 * 64
+ROWS_RECEIPT_SHA256 = "7fa45e9a9e77e6622167fbf024400177f581cdd40958c1fb722ca13d8fcc018b"
+ROWS_MANIFEST_SHA256 = "1cfe4b383c8298ca79164dc42098a9c9e5bce8c47b4411605e1aa1fb2dc44975"
 
 PINS = {
     PROTOCOL: "69c1bb3bdb0cbf576c41775d4a0881c20a1154642a5ac8deacef780fe9b08ee3",
@@ -83,6 +100,7 @@ sys.path.insert(0, str(HERE))
 import prepare_state_complete_compiler_rows_v2 as old  # noqa: E402
 import early_mlp_affine_compiler_v1 as affine_v1  # noqa: E402
 import early_mlp_state_complete_compiler_v2 as compiler  # noqa: E402
+import state_complete_compiler_fit_v2 as compiler_fit  # noqa: E402
 import state_complete_compiler_selection_v2 as selection  # noqa: E402
 
 PINS.update(old.PRIOR_RECEIPTS)
@@ -109,6 +127,7 @@ PROGRAM_SOURCE_CLOSURE = tuple(dict.fromkeys((
     HERE / "early_mlp_state_complete_compiler_v21.py",
     HERE / "test_early_mlp_state_complete_compiler_v21.py",
     PROTOCOL,
+    IMPLEMENTATION_AMENDMENT,
     Path(__file__),
     HERE / "test_prepare_state_complete_compiler_rows_v21.py",
     *_RETRY1_TRANSITIVE_SOURCES,
@@ -130,6 +149,34 @@ def tensor_sha256(value: torch.Tensor) -> str:
 
 def logical_json_sha256(value: Any) -> str:
     return old.logical_json_sha256(value)
+
+
+def _is_sha256(value: Any) -> bool:
+    if not isinstance(value, str) or len(value) != 64 or value != value.lower():
+        return False
+    try:
+        int(value, 16)
+    except ValueError:
+        return False
+    return True
+
+
+def expected_fit_permutation_sha256(receipt: Mapping[str, Any]) -> str:
+    records = receipt.get("document_provenance", {}).get("sets", {}).get(
+        "compiler_fit_v21"
+    )
+    if not isinstance(records, list) or len(records) != 480 or any(
+        not isinstance(record, Mapping) or not isinstance(record.get("document_id"), str)
+        or not record["document_id"] for record in records
+    ):
+        raise RuntimeError("v2.1 fit permutation provenance changed")
+    row_permutation = compiler_fit.document_block_permutation(
+        [record["document_id"] for record in records], compiler_fit.FIT_SEED,
+    )
+    expanded = compiler_fit.expand_capture_permutation(row_permutation)
+    if expanded.dtype != torch.long or tuple(expanded.shape) != (480 * 64,):
+        raise RuntimeError("v2.1 expanded fit permutation changed")
+    return tensor_sha256(expanded)
 
 
 def write_json_atomic(value: Mapping[str, Any], path: Path) -> None:
@@ -485,11 +532,36 @@ def _validate_candidate_state(
             raise RuntimeError(f"native candidate indices are invalid: {name}")
 
 
-def _validate_full_native_control(value: Any, site: int) -> None:
+def state_logical_sha256(state: Mapping[str, Any]) -> str:
+    logical = {}
+    for key in sorted(state):
+        value = state[key]
+        logical[key] = ({
+            "dtype": str(value.dtype),
+            "shape": list(value.shape),
+            "sha256": tensor_sha256(value),
+        } if torch.is_tensor(value) else value)
+    return logical_json_sha256(logical)
+
+
+def _validate_full_native_control(
+    value: Any, site: int, *, context: str,
+    upstream_state_sha256: str, validation_document_ids_sha256: str,
+) -> None:
     if not isinstance(value, Mapping) or set(value) != {
-        "state", "integrity_gates", "observed",
+        "state", "context", "upstream_state_sha256",
+        "validation_document_ids_sha256", "scorer", "integrity_gates",
+        "observed", "measurement_sha256",
     }:
         raise RuntimeError(f"full-native site{site} control schema changed")
+    if value.get("context") != context or value.get(
+        "upstream_state_sha256"
+    ) != upstream_state_sha256 or value.get(
+        "validation_document_ids_sha256"
+    ) != validation_document_ids_sha256 or value.get("scorer") != (
+        "CUDA float32 per-token; float64 row/aggregate"
+    ):
+        raise RuntimeError(f"full-native site{site} context binding changed")
     state = value["state"]
     spec = (
         "full_native_ceiling_control", "state_complete_p", None,
@@ -507,7 +579,8 @@ def _validate_full_native_control(value: Any, site: int) -> None:
     observed = value["observed"]
     if not isinstance(observed, Mapping) or set(observed) != {
         "physical_max_abs_error", "physical_reference_scale", "physical_tolerance",
-        "original_mlp_calls", "max_row_ce_abs_error",
+        "target_original_mlp_calls", "capture_call_counters",
+        "scored_arm_call_counters", "max_row_ce_abs_error",
     }:
         raise RuntimeError(f"full-native site{site} observations changed")
     physical = float(observed["physical_max_abs_error"])
@@ -521,9 +594,30 @@ def _validate_full_native_control(value: Any, site: int) -> None:
         physical_tolerance - expected_tolerance
     ) <= 1e-12 * max(1.0, expected_tolerance) or (
         physical > physical_tolerance or row_ce > 2e-6
-        or observed["original_mlp_calls"] != 0
+        or observed["target_original_mlp_calls"] != 0
     ):
         raise RuntimeError(f"full-native site{site} observations fail the frozen gate")
+    capture_calls = observed["capture_call_counters"]
+    scored_calls = observed["scored_arm_call_counters"]
+    expected_capture = ({0: 24, 1: 0, 2: 0} if site == 0 else {
+        0: 0, 1: 24, 2: 0,
+    })
+    expected_scored = ({0: 0, 1: 24, 2: 0} if site == 0 else {
+        0: 0, 1: 0, 2: 0,
+    })
+    if capture_calls != expected_capture or scored_calls != expected_scored:
+        raise RuntimeError(f"full-native site{site} call counters changed")
+    measurement = {
+        "context": context,
+        "upstream_state_sha256": upstream_state_sha256,
+        "validation_document_ids_sha256": validation_document_ids_sha256,
+        "scorer": value["scorer"],
+        "state_sha256": state_logical_sha256(state),
+        "integrity_gates": gates,
+        "observed": observed,
+    }
+    if value.get("measurement_sha256") != logical_json_sha256(measurement):
+        raise RuntimeError(f"full-native site{site} measurement binding changed")
 
 
 def _same_value(left: Any, right: Any) -> bool:
@@ -591,6 +685,352 @@ def _pipeline_price(site0: Mapping[str, Any], site1: Mapping[str, Any]) -> dict[
     }
 
 
+def derive_token_frequency_strata(
+    fit_rows: torch.Tensor, validation_rows: torch.Tensor, boundaries: list[int],
+) -> dict[str, Any]:
+    if tuple(fit_rows.shape[1:]) != (T_LEN,) or tuple(
+        validation_rows.shape[1:]
+    ) != (T_LEN,) or fit_rows.dtype != torch.long or validation_rows.dtype != torch.long:
+        raise RuntimeError("v2.1 token-frequency rows have wrong shape or dtype")
+    if boundaries != TOKEN_FREQUENCY_BOUNDARIES:
+        raise RuntimeError("v2.1 token-frequency boundaries changed")
+    fit_targets = fit_rows[:, 65:MODEL_LEN].contiguous()
+    validation_targets = validation_rows[:, 65:MODEL_LEN].contiguous()
+    if bool((fit_targets < 0).any()) or bool((fit_targets >= TOKEN_VOCAB).any()) or bool(
+        (validation_targets < 0).any()
+    ) or bool((validation_targets >= TOKEN_VOCAB).any()):
+        raise RuntimeError("v2.1 token-frequency target is outside GPT-2 vocabulary")
+    fit_counts = torch.bincount(fit_targets.flatten(), minlength=TOKEN_VOCAB).long()
+    boundary_tensor = torch.tensor(boundaries, dtype=torch.long)
+    assignments = torch.bucketize(
+        fit_counts.index_select(0, validation_targets.flatten()),
+        boundary_tensor, right=True,
+    ).view_as(validation_targets)
+    counts = torch.bincount(assignments.flatten(), minlength=len(boundaries) + 1).tolist()
+    return {
+        "rule": "fit target counts at positions 64..255; torch.bucketize right=True",
+        "boundaries": boundaries,
+        "counts": counts,
+        "fit_token_counts_sha256": tensor_sha256(fit_counts),
+        "validation_assignment_sha256": tensor_sha256(assignments),
+    }
+
+
+def derive_causal_weights(
+    omission_losses: torch.Tensor, target_second_moments: torch.Tensor,
+) -> tuple[float, torch.Tensor]:
+    for name, value in (
+        ("omission losses", omission_losses),
+        ("target second moments", target_second_moments),
+    ):
+        if not torch.is_tensor(value) or value.dtype != torch.float64 or tuple(
+            value.shape
+        ) != (compiler.COEFFICIENT_DIM,) or not bool(torch.isfinite(value).all()):
+            raise RuntimeError(f"v2.1 causal {name} changed")
+    losses = omission_losses
+    moments = target_second_moments
+    if bool((moments < 0).any()):
+        raise RuntimeError("v2.1 target coefficient second moments are negative")
+    raw = losses.abs() / moments.clamp_min(1e-12)
+    positive = raw[raw > 0]
+    if positive.numel() == 0:
+        raise RuntimeError("v2.1 causal omission audit has no positive direction")
+    floor = float(torch.quantile(positive, 0.05))
+    weights = raw.clamp_min(floor)
+    weights = (weights / weights.mean()).float().contiguous()
+    return floor, weights
+
+
+def derive_causal_audit(
+    full_oracle_row_ce: torch.Tensor, omit_row_ce: torch.Tensor,
+    target_p_square_sums: torch.Tensor, target_p_count: int,
+) -> dict[str, Any]:
+    for name, value, shape in (
+        ("full oracle row CE", full_oracle_row_ce, (192,)),
+        ("omit row CE", omit_row_ce, (compiler.COEFFICIENT_DIM, 192)),
+        ("target p square sums", target_p_square_sums, (compiler.COEFFICIENT_DIM,)),
+    ):
+        if not torch.is_tensor(value) or value.dtype != torch.float64 or tuple(
+            value.shape
+        ) != shape or not bool(torch.isfinite(value).all()):
+            raise RuntimeError(f"v2.1 causal audit {name} changed")
+    if target_p_count != CAUSAL_CAPTURE_COUNT or bool(
+        (target_p_square_sums < 0).any()
+    ):
+        raise RuntimeError("v2.1 causal audit target sufficient statistics changed")
+    omission_losses = (
+        omit_row_ce.mean(dim=1) - full_oracle_row_ce.mean()
+    ).double().contiguous()
+    moments = (target_p_square_sums / target_p_count).double().contiguous()
+    floor, weights = derive_causal_weights(omission_losses, moments)
+    return {
+        "omission_losses": omission_losses,
+        "target_second_moments": moments,
+        "positive_floor": floor,
+        "weights": weights,
+    }
+
+
+def _load_role_cache_for_strata(receipt: Mapping[str, Any], role: str) -> torch.Tensor:
+    entry = receipt.get("entries", {}).get(role, {})
+    path = Path(entry.get("cache_path", ""))
+    if not path.is_file() or file_sha256(path) != entry.get("cache_file_sha256"):
+        raise RuntimeError(f"v2.1 strata role cache changed: {role}")
+    value = torch.load(path, map_location="cpu", weights_only=True)
+    expected_rows = 480 if role == "compiler_fit_v21" else 192
+    if tuple(value.shape) != (expected_rows, T_LEN) or value.dtype != torch.long:
+        raise RuntimeError(f"v2.1 strata role cache shape changed: {role}")
+    return value
+
+
+def _validate_exact_call_counter(value: Any, expected: Mapping[int, int], label: str) -> None:
+    if not isinstance(value, Mapping) or value != expected:
+        raise RuntimeError(f"v2.1 {label} original-MLP call counter changed")
+
+
+def _validate_context_diagnostics(
+    context: Any, *, stage: str, name: str, expected_upstream: str,
+    candidates: Mapping[str, Any],
+) -> None:
+    required = {
+        "upstream_state_sha256", "scorer", "teacher_denominator",
+        "teacher_kl_sum", "teacher_token_count", "copy_baseline",
+        "copy_ce_sum", "copy_token_count", "call_counters",
+    }
+    if not isinstance(context, Mapping) or set(context) != required or context.get(
+        "upstream_state_sha256"
+    ) != expected_upstream or context.get(
+        "scorer"
+    ) != "CUDA float32 per-token; float64 row/aggregate":
+        raise RuntimeError(f"v2.1 {name} context binding changed")
+    denominator = float(context["teacher_denominator"])
+    teacher_sum = float(context["teacher_kl_sum"])
+    teacher_count = context["teacher_token_count"]
+    copy_baseline = float(context["copy_baseline"])
+    copy_sum = float(context["copy_ce_sum"])
+    copy_count = context["copy_token_count"]
+    numeric = torch.tensor(
+        [denominator, teacher_sum, copy_baseline, copy_sum], dtype=torch.float64,
+    )
+    if not bool(torch.isfinite(numeric).all()) or denominator <= 0 or teacher_sum <= 0 or (
+        teacher_count != VALIDATION_TOKEN_COUNT
+    ) or denominator != teacher_sum / teacher_count or not isinstance(
+        copy_count, int
+    ) or not 0 < copy_count <= VALIDATION_TOKEN_COUNT or copy_baseline != (
+        copy_sum / copy_count
+    ):
+        raise RuntimeError(f"v2.1 {name} scorer sufficient statistics changed")
+
+    calls = context["call_counters"]
+    if not isinstance(calls, Mapping) or set(calls) != {
+        "fit_capture", "validation_capture", "teacher", "copy_baseline",
+        "candidates",
+    }:
+        raise RuntimeError(f"v2.1 {name} call-counter schema changed")
+    if stage == "site0":
+        expected = {
+            "fit_capture": {0: 60, 1: 60, 2: 0},
+            "validation_capture": {0: 24, 1: 0, 2: 0},
+            "teacher": {0: 24, 1: 24, 2: 0},
+            "copy_baseline": {0: 0, 1: 24, 2: 0},
+            "candidate": {0: 0, 1: 24, 2: 0},
+        }
+    else:
+        expected = {
+            "fit_capture": {0: 0, 1: 60, 2: 0},
+            "validation_capture": {0: 0, 1: 24, 2: 0},
+            "teacher": {0: 0, 1: 24, 2: 0},
+            "copy_baseline": {0: 0, 1: 0, 2: 0},
+            "candidate": {0: 0, 1: 0, 2: 0},
+        }
+    for arm in ("fit_capture", "validation_capture", "teacher", "copy_baseline"):
+        _validate_exact_call_counter(calls[arm], expected[arm], f"{name} {arm}")
+    candidate_calls = calls["candidates"]
+    if not isinstance(candidate_calls, Mapping) or set(candidate_calls) != set(candidates):
+        raise RuntimeError(f"v2.1 {name} candidate call-counter coverage changed")
+    for candidate_name in candidates:
+        _validate_exact_call_counter(
+            candidate_calls[candidate_name], expected["candidate"],
+            f"{name} {candidate_name}",
+        )
+
+
+def _validate_mean_site1_diagnostics(value: Any, programs: Mapping[str, Any]) -> None:
+    if not isinstance(value, Mapping) or set(value) != {
+        "context", "upstream_state_sha256", "scorer", "p_sum", "p_sum_sha256",
+        "p_count", "capture_call_counter",
+    } or value.get("context") != "mean_site0" or value.get(
+        "upstream_state_sha256"
+    ) != state_logical_sha256(programs["mean"][0]) or value.get(
+        "scorer"
+    ) != "CUDA float32 capture; float64 coefficient sums":
+        raise RuntimeError("v2.1 mean-site1 provenance changed")
+    p_sum = value["p_sum"]
+    if not torch.is_tensor(p_sum) or p_sum.dtype != torch.float64 or tuple(
+        p_sum.shape
+    ) != (compiler.COEFFICIENT_DIM,) or not bool(torch.isfinite(p_sum).all()) or (
+        value.get("p_sum_sha256") != tensor_sha256(p_sum)
+    ) or value.get("p_count") != FIT_CAPTURE_COUNT:
+        raise RuntimeError("v2.1 mean-site1 sufficient statistics changed")
+    expected_bias = (p_sum / FIT_CAPTURE_COUNT).float().contiguous()
+    mean_site1 = programs["mean"][1]
+    mean_bias = mean_site1.get("bias") if isinstance(mean_site1, Mapping) else None
+    if not torch.is_tensor(mean_bias) or not torch.equal(mean_bias, expected_bias):
+        raise RuntimeError("v2.1 mean-site1 bias does not recompute")
+    _validate_exact_call_counter(
+        value["capture_call_counter"], {0: 0, 1: 60, 2: 0},
+        "mean-site1 fit capture",
+    )
+
+
+def _validate_stage_binding(
+    bundle: Mapping[str, Any], stage: str, artifact_path: Path, receipt_path: Path,
+    ledger_names: set[str],
+) -> None:
+    bindings = bundle.get("stage_bindings")
+    binding = bindings.get(stage) if isinstance(bindings, Mapping) else None
+    if not isinstance(binding, Mapping) or set(binding) != {
+        "artifact_path", "artifact_sha256", "artifact_bytes",
+        "receipt_path", "receipt_sha256", "receipt_bytes",
+    }:
+        raise RuntimeError(f"v2.1 {stage} stage binding is incomplete")
+    expected_binding = {
+        "artifact_path": str(artifact_path.resolve()),
+        "artifact_sha256": file_sha256(artifact_path) if artifact_path.is_file() else None,
+        "artifact_bytes": artifact_path.stat().st_size if artifact_path.is_file() else None,
+        "receipt_path": str(receipt_path.resolve()),
+        "receipt_sha256": file_sha256(receipt_path) if receipt_path.is_file() else None,
+        "receipt_bytes": receipt_path.stat().st_size if receipt_path.is_file() else None,
+    }
+    if binding != expected_binding:
+        raise RuntimeError(f"v2.1 {stage} stage files are not exactly bound")
+    receipt = json.loads(receipt_path.read_text())
+    required_receipt = {
+        "status": f"frozen_v21_{stage}_preselector_ledger",
+        "authority": f"compiler_v21_{stage}_preselector_ledger",
+        "authorized_for_training": False,
+        "authorized_for_final_scoring": False,
+        "protocol_sha256": PINS[PROTOCOL],
+        "implementation_amendment_sha256": IMPLEMENTATION_AMENDMENT_SHA256,
+        "rows_receipt_sha256": file_sha256(RECEIPT),
+        "artifact_path": str(artifact_path.resolve()),
+        "artifact_sha256": file_sha256(artifact_path),
+        "artifact_bytes": artifact_path.stat().st_size,
+    }
+    if any(receipt.get(key) != value for key, value in required_receipt.items()):
+        raise RuntimeError(f"v2.1 {stage} preselector receipt changed")
+    payload = torch.load(artifact_path, map_location="cpu", weights_only=True)
+    if not isinstance(payload, Mapping) or payload.get(
+        "status"
+    ) != f"pending_v21_{stage}_preselector_ledger" or payload.get(
+        "authorized_for_training"
+    ) is not False or payload.get("authorized_for_final_scoring") is not False:
+        raise RuntimeError(f"v2.1 {stage} preselector artifact changed")
+    external = payload.get("candidate_ledgers")
+    embedded = bundle.get("candidate_ledgers")
+    if not isinstance(external, Mapping) or set(external) != ledger_names or any(
+        not _same_value(external[name], embedded[name]) for name in ledger_names
+    ):
+        raise RuntimeError(f"v2.1 {stage} external ledgers differ from program bundle")
+    controls = payload.get("controls")
+    bundle_controls = bundle.get("controls")
+    programs = bundle.get("programs")
+    if not isinstance(bundle_controls, Mapping) or not isinstance(programs, Mapping) or any(
+        not isinstance(programs.get(arm), Mapping) for arm in ("true", "shuffle", "mean")
+    ):
+        raise RuntimeError(f"v2.1 {stage} bundle controls/programs are incomplete")
+    needed_controls = ({"full_native_site0"} if stage == "site0" else {
+        "full_native_site1_true_context", "full_native_site1_shuffle_context",
+    })
+    if not needed_controls.issubset(bundle_controls):
+        raise RuntimeError(f"v2.1 {stage} bundle controls are incomplete")
+    if stage == "site0":
+        expected_controls = {
+            "mean_site0": programs["mean"][0],
+            "full_native_site0": bundle_controls["full_native_site0"],
+        }
+        upstream = {"true_site0": "baseline", "shuffle_site0": "baseline"}
+    else:
+        expected_controls = {
+            "mean_site1": programs["mean"][1],
+            "full_native_site1_true_context": bundle_controls[
+                "full_native_site1_true_context"
+            ],
+            "full_native_site1_shuffle_context": bundle_controls[
+                "full_native_site1_shuffle_context"
+            ],
+        }
+        upstream = {
+            "true_site1": state_logical_sha256(programs["true"][0]),
+            "shuffle_site1": state_logical_sha256(programs["shuffle"][0]),
+        }
+    if not _same_value(controls, expected_controls):
+        raise RuntimeError(f"v2.1 {stage} external controls differ from program bundle")
+    diagnostics = payload.get("diagnostics")
+    diagnostic_keys = {
+        "fit_permutation_sha256", "capture_hashes", "contexts",
+    } | ({"mean_control"} if stage == "site1" else set())
+    if not isinstance(diagnostics, Mapping) or set(diagnostics) != diagnostic_keys:
+        raise RuntimeError(f"v2.1 {stage} external diagnostics are incomplete")
+    permutation_hash = diagnostics["fit_permutation_sha256"]
+    captures = diagnostics["capture_hashes"]
+    contexts = diagnostics["contexts"]
+    row_receipt = json.loads(RECEIPT.read_text())
+    expected_permutation_hash = expected_fit_permutation_sha256(row_receipt)
+    capture_keys = ({
+        "fit_original", "fit_shuffled", "validation_site0",
+    } if stage == "site0" else {
+        "true_fit_site1", "shuffle_fit_site1",
+        "true_validation_site1", "shuffle_validation_site1", "mean_fit_site1",
+    })
+    if permutation_hash != expected_permutation_hash or not isinstance(
+        captures, Mapping
+    ) or set(captures) != capture_keys or any(
+        not _is_sha256(value) for value in captures.values()
+    ):
+        raise RuntimeError(f"v2.1 {stage} capture/permutation hashes changed")
+    if not isinstance(contexts, Mapping) or set(contexts) != ledger_names:
+        raise RuntimeError(f"v2.1 {stage} context diagnostics changed")
+    for name, expected_upstream in upstream.items():
+        _validate_context_diagnostics(
+            contexts[name], stage=stage, name=name,
+            expected_upstream=expected_upstream, candidates=external[name],
+        )
+    if stage == "site1":
+        _validate_mean_site1_diagnostics(diagnostics["mean_control"], programs)
+
+
+def _validate_historical_row_authority(receipt: Mapping[str, Any]) -> None:
+    if file_sha256(RECEIPT) != ROWS_RECEIPT_SHA256 or not MANIFEST.is_file() or (
+        file_sha256(MANIFEST) != ROWS_MANIFEST_SHA256
+    ) or receipt.get("manifest_sha256") != ROWS_MANIFEST_SHA256:
+        raise RuntimeError("v2.1 realized row authority identity changed")
+    manifest = json.loads(MANIFEST.read_text())
+    source_commit = receipt.get("source_commit")
+    source_hashes = receipt.get("source_hashes")
+    if manifest.get("source_commit") != source_commit or manifest.get(
+        "source_hashes"
+    ) != source_hashes or not isinstance(source_commit, str) or not isinstance(
+        source_hashes, Mapping
+    ) or not source_hashes:
+        raise RuntimeError("v2.1 historical row source closure changed")
+    commit_check = subprocess.run(
+        ["git", "cat-file", "-e", f"{source_commit}^{{commit}}"], cwd=ROOT,
+        capture_output=True,
+    )
+    if commit_check.returncode:
+        raise RuntimeError("v2.1 historical row source commit is absent")
+    for relative, expected in source_hashes.items():
+        committed = subprocess.run(
+            ["git", "show", f"{source_commit}:{relative}"], cwd=ROOT,
+            capture_output=True,
+        )
+        if committed.returncode or hashlib.sha256(committed.stdout).hexdigest() != expected:
+            raise RuntimeError(f"v2.1 historical row source blob changed: {relative}")
+    if manifest.get("protected_before") != manifest.get("protected_after"):
+        raise RuntimeError("v2.1 historical row protected snapshot changed")
+
+
 def _validate_program_bundle(bundle: Any) -> None:
     if not isinstance(bundle, Mapping):
         raise RuntimeError("v2.1 program artifact is not a mapping")
@@ -642,6 +1082,15 @@ def _validate_program_bundle(bundle: Any) -> None:
         if not _same_value(programs[arm][site], ledger[expected["selected"]]["state"]):
             raise RuntimeError(f"v2.1 deployed state differs from selected ledger: {name}")
 
+    _validate_stage_binding(
+        bundle, "site0", SITE0_LEDGER_ARTIFACT, SITE0_LEDGER_RECEIPT,
+        {"true_site0", "shuffle_site0"},
+    )
+    _validate_stage_binding(
+        bundle, "site1", SITE1_LEDGER_ARTIFACT, SITE1_LEDGER_RECEIPT,
+        {"true_site1", "shuffle_site1"},
+    )
+
     for arm in ("true", "shuffle", "mean"):
         if not isinstance(programs[arm], Mapping) or set(programs[arm]) != {0, 1}:
             raise RuntimeError(f"v2.1 {arm} program lacks exact sites 0 and 1")
@@ -656,14 +1105,32 @@ def _validate_program_bundle(bundle: Any) -> None:
 
     controls = bundle.get("controls")
     control_names = {
-        "full_native_site0", "full_native_site1",
+        "full_native_site0", "full_native_site1_true_context",
+        "full_native_site1_shuffle_context",
         "copy_constrained_shuffle_sensitivity_site0",
         "copy_constrained_shuffle_sensitivity_site1",
     }
     if not isinstance(controls, Mapping) or set(controls) != control_names:
         raise RuntimeError("v2.1 program artifact controls are incomplete")
+    validation_identity = bundle.get("strata", {}).get(
+        "validation_document_ids_sha256"
+    ) if isinstance(bundle.get("strata"), Mapping) else None
+    _validate_full_native_control(
+        controls["full_native_site0"], 0, context="baseline",
+        upstream_state_sha256="baseline",
+        validation_document_ids_sha256=validation_identity,
+    )
+    _validate_full_native_control(
+        controls["full_native_site1_true_context"], 1, context="true_site0",
+        upstream_state_sha256=state_logical_sha256(programs["true"][0]),
+        validation_document_ids_sha256=validation_identity,
+    )
+    _validate_full_native_control(
+        controls["full_native_site1_shuffle_context"], 1, context="shuffle_site0",
+        upstream_state_sha256=state_logical_sha256(programs["shuffle"][0]),
+        validation_document_ids_sha256=validation_identity,
+    )
     for site in (0, 1):
-        _validate_full_native_control(controls[f"full_native_site{site}"], site)
         ledger = ledgers[f"shuffle_site{site}"]
         try:
             sensitivity = {
@@ -678,7 +1145,7 @@ def _validate_program_bundle(bundle: Any) -> None:
     strata = bundle.get("strata")
     if not isinstance(strata, Mapping) or set(strata) != {
         "source", "validation_document_ids_sha256", "token_frequency",
-        "causal_weights_site1",
+        "causal_omission_audit",
     } or strata.get("source") != "compiler_validation_v21":
         raise RuntimeError("v2.1 program artifact strata schema changed")
     identity = strata.get("validation_document_ids_sha256")
@@ -700,27 +1167,61 @@ def _validate_program_bundle(bundle: Any) -> None:
     ):
         raise RuntimeError("v2.1 strata validation document identity changed")
     frequency = strata.get("token_frequency")
-    if not isinstance(frequency, Mapping) or set(frequency) != {"boundaries", "counts"}:
+    if not isinstance(frequency, Mapping) or set(frequency) != {
+        "rule", "boundaries", "counts", "fit_token_counts_sha256",
+        "validation_assignment_sha256",
+    }:
         raise RuntimeError("v2.1 token-frequency strata changed")
     boundaries, counts = frequency["boundaries"], frequency["counts"]
-    if not isinstance(boundaries, list) or not boundaries or boundaries != sorted(set(boundaries)):
-        raise RuntimeError("v2.1 token-frequency boundaries are invalid")
-    if not isinstance(counts, list) or len(counts) != len(boundaries) + 1 or any(
-        not isinstance(count, int) or count <= 0 for count in counts
-    ):
-        raise RuntimeError("v2.1 token-frequency counts are invalid")
-    shape = validation_entry.get("shape_model_prefix")
-    expected_tokens = (
-        int(shape[0]) * (int(shape[1]) - 1 - 64)
-        if isinstance(shape, list) and len(shape) == 2 else -1
+    fit_rows = _load_role_cache_for_strata(row_receipt, "compiler_fit_v21")
+    validation_rows = _load_role_cache_for_strata(
+        row_receipt, "compiler_validation_v21"
     )
-    if expected_tokens <= 0 or sum(counts) != expected_tokens:
-        raise RuntimeError("v2.1 token-frequency counts do not cover validation tokens")
-    causal = _finite_tensor(
-        strata.get("causal_weights_site1"), (compiler.COEFFICIENT_DIM,),
+    expected_frequency = derive_token_frequency_strata(
+        fit_rows, validation_rows, boundaries,
     )
-    if bool((causal <= 0).any()) or abs(float(causal.double().mean()) - 1.0) > 1e-6:
-        raise RuntimeError("v2.1 causal weights are not positive mean-one")
+    if frequency != expected_frequency:
+        raise RuntimeError("v2.1 token-frequency strata do not recompute")
+
+    audit = strata.get("causal_omission_audit")
+    if not isinstance(audit, Mapping) or set(audit) != {
+        "context", "upstream_state_sha256", "validation_document_ids_sha256",
+        "scorer", "quantile_currency", "rule", "full_oracle_row_ce",
+        "omit_row_ce", "full_oracle_row_ce_sha256", "omit_row_ce_sha256",
+        "target_p_square_sums", "target_p_square_sums_sha256", "target_p_count",
+        "omission_losses", "target_second_moments", "positive_floor", "weights",
+        "call_counters",
+    } or audit.get("context") != "true_site0" or audit.get("rule") != (
+        "abs(loss)/max(second_moment,1e-12); positive 5pct floor; mean-one"
+    ) or audit.get("upstream_state_sha256") != state_logical_sha256(
+        programs["true"][0]
+    ) or audit.get("validation_document_ids_sha256") != expected_identity or audit.get(
+        "scorer"
+    ) != "CUDA float32 per-token; float64 row/aggregate" or audit.get(
+        "quantile_currency"
+    ) != "torch.float64 q=0.05 interpolation=linear":
+        raise RuntimeError("v2.1 causal omission audit schema changed")
+    full_row_ce = audit["full_oracle_row_ce"]
+    omit_row_ce = audit["omit_row_ce"]
+    square_sums = audit["target_p_square_sums"]
+    if audit.get("full_oracle_row_ce_sha256") != tensor_sha256(full_row_ce) or audit.get(
+        "omit_row_ce_sha256"
+    ) != tensor_sha256(omit_row_ce) or audit.get(
+        "target_p_square_sums_sha256"
+    ) != tensor_sha256(square_sums):
+        raise RuntimeError("v2.1 causal omission sufficient-stat hashes changed")
+    derived = derive_causal_audit(
+        full_row_ce, omit_row_ce, square_sums, audit.get("target_p_count"),
+    )
+    if any(not _same_value(audit.get(key), value) for key, value in derived.items()):
+        raise RuntimeError("v2.1 causal omission weights do not recompute")
+    counters = audit.get("call_counters")
+    if not isinstance(counters, Mapping) or set(counters) != {
+        "full_oracle", "omissions"
+    } or counters["full_oracle"] != {0: 0, 1: 0, 2: 0} or counters[
+        "omissions"
+    ] != {0: 0, 1: 0, 2: 0}:
+        raise RuntimeError("v2.1 causal omission call counters changed")
 
     prices = bundle.get("prices")
     expected_prices = {
@@ -738,6 +1239,13 @@ def _validate_program_bundle(bundle: Any) -> None:
 def validate_final_unlock(path: Path) -> dict[str, Any]:
     if path.resolve() != PROGRAMS_RECEIPT.resolve() or not path.is_file():
         raise RuntimeError("v2.1 final unlock authority is absent")
+    if not IMPLEMENTATION_AMENDMENT.is_file() or file_sha256(
+        IMPLEMENTATION_AMENDMENT
+    ) != IMPLEMENTATION_AMENDMENT_SHA256:
+        raise RuntimeError("v2.1 implementation amendment changed")
+    if not RECEIPT.is_file() or file_sha256(RECEIPT) != ROWS_RECEIPT_SHA256:
+        raise RuntimeError("v2.1 realized row receipt changed")
+    _validate_historical_row_authority(json.loads(RECEIPT.read_text()))
     unlock = json.loads(path.read_text())
     required = {
         "status": "frozen_v21_programs_controls_strata_prices_before_final",
@@ -745,6 +1253,7 @@ def validate_final_unlock(path: Path) -> dict[str, Any]:
         "authorized_for_training": False,
         "authorized_for_final_scoring": True,
         "protocol_sha256": PINS[PROTOCOL],
+        "implementation_amendment_sha256": IMPLEMENTATION_AMENDMENT_SHA256,
         "rows_receipt_path": str(RECEIPT.resolve()),
         "rows_receipt_sha256": file_sha256(RECEIPT),
         "programs_artifact_path": str(PROGRAMS_ARTIFACT.resolve()),
@@ -766,6 +1275,9 @@ def validate_final_unlock(path: Path) -> dict[str, Any]:
         "controls_frozen": True,
         "strata_frozen": True,
         "standalone_prices_frozen": True,
+        "preselector_stage_receipts_bound": True,
+        "strata_derivations_recomputed": True,
+        "site1_full_native_contexts": ["true", "shuffle"],
     }
     if unlock.get("frozen_contents") != expected_contents:
         raise RuntimeError("v2.1 final unlock contents are incomplete")
@@ -783,6 +1295,7 @@ def validate_final_unlock(path: Path) -> dict[str, Any]:
         "authorized_for_training": False,
         "authorized_for_final_scoring": False,
         "protocol_sha256": PINS[PROTOCOL],
+        "implementation_amendment_sha256": IMPLEMENTATION_AMENDMENT_SHA256,
         "rows_receipt_sha256": file_sha256(RECEIPT),
     }
     for key, expected in bundle_required.items():
@@ -814,7 +1327,11 @@ def validate_final_unlock(path: Path) -> dict[str, Any]:
         ["git", "rev-parse", "origin/main"], cwd=ROOT, check=True,
         capture_output=True, text=True,
     ).stdout.strip()
-    if source_commit != head or head != origin:
+    ancestor = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", source_commit, head], cwd=ROOT,
+        capture_output=True,
+    )
+    if head != origin or ancestor.returncode:
         raise RuntimeError("v2.1 final unlock source commit is not synchronized")
     for relative, expected in source_hashes.items():
         source = (ROOT / relative).resolve()
@@ -848,6 +1365,7 @@ def load_roles_and_validate(
     if not RECEIPT.is_file():
         raise RuntimeError("v2.1 row receipt is absent")
     receipt = json.loads(RECEIPT.read_text())
+    _validate_historical_row_authority(receipt)
     required = {
         "status": "frozen_before_any_v21_validation_model_forward",
         "authority": "compiler_v21_prospective_role_designation",
