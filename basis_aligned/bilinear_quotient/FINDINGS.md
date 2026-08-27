@@ -277,8 +277,9 @@ circuit moves stage.**
     (§1634) and on CLASS TYPE (§1637), not merely on rank, TOP, rows, seeds and statistic.
     §1633's headline margin of 13/60 collapsed to 2/60 once punctuation was compared against
     punctuation. **Bottom line for the bench: every separation or membership claim needs ≥20 bases
-    and a same-type, same-cell control, and margins measured at certified cells must not be
-    generalised.** Two withdrawals of §1612 are DRAFTED AND UNAPPLIED pending Logan
+    and a control matched on cell, class type AND configuration; margins measured at certified cells
+    must not be generalised; and the separation count must be checked for saturation before any
+    margin is read from it — at rank-8 TOP-6 it has no dynamic range left.** Two withdrawals of §1612 are DRAFTED AND UNAPPLIED pending Logan
     (`PENDING_RETRACTION_S1612.md`); §1597's own statistics are untouched. Dossiers: registry
     `multiseed_null_methodology`, LESSONS 21–23. **HIGH** for (a)–(c) and (f); **MEDIUM** for (e) —
     seven classes, one rank, one TOP.
