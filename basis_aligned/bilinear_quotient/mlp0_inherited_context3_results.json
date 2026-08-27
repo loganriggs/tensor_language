@@ -1,0 +1,56 @@
+{
+ "config": {
+  "site": 0,
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "ablation_constants": "opt_ablation_consts_all.pt (\u00a71655 fix)",
+  "unseen_token_fallback": "position-weighted mean (\u00a71655 fix)",
+  "table_refitted_per_condition": true,
+  "s1326_normal_ceiling_other_rows": 0.863
+ },
+ "conditions": {
+  "normal": {
+   "mlp0_output_rms": 49864.0237,
+   "all_positions": {
+    "ce_live": 3.13704,
+    "ce_const": 3.989,
+    "ce_table": 3.35495,
+    "stake": 0.85196,
+    "ceiling": 0.74423
+   },
+   "covered_only": {
+    "ce_live": 3.27946,
+    "ce_const": 4.13467,
+    "ce_table": 3.36272,
+    "stake": 0.85521,
+    "ceiling": 0.90265
+   }
+  },
+  "attn0_frozen": {
+   "mlp0_output_rms": 58188.1399,
+   "all_positions": {
+    "ce_live": 3.35865,
+    "ce_const": 3.99113,
+    "ce_table": 3.67886,
+    "stake": 0.63247,
+    "ceiling": 0.49372
+   },
+   "covered_only": {
+    "ce_live": 3.50924,
+    "ce_const": 4.13684,
+    "ce_table": 3.50924,
+    "stake": 0.6276,
+    "ceiling": 1.0
+   }
+  }
+ },
+ "instrument_check_frozen_covered": 1.0,
+ "coverage_artifact_points": 0.50628,
+ "real_delta_covered": 0.09735,
+ "predictions": {
+  "pred_a_instrument_check_ge_097": true,
+  "pred_b_beats_v2_by_ge_35pts": true,
+  "pred_c_live_attn0_injects_context_ge_5pts": true
+ },
+ "runtime_s": 16.7
+}
