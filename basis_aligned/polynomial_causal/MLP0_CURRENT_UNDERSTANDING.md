@@ -938,6 +938,33 @@ allows unrelated descendant commits while still failing closed on any scientific
 source, row, protected-artifact, or lock drift. The corrected retry passed independent
 mathematical and lifecycle review and launched from `bd9a5820` at 22:24 UTC.
 
+### 12.1 Compiler-v2.1 final outcome
+
+The sealed final completed as an integrity-valid authoritative negative. The rank-64
+affine MLP0 program removes $62.67\%$ of its local teacher KL, but conditional MLP1
+removes only $43.55\%$, and the pair removes $33.69\%$ of joint teacher KL. The
+pair's $0.05914$ CE gain is $26.10\%$ of the exact projected pair's $0.22658$ gain.
+The required joint remaining-KL ratio $\le0.50$ and half-oracle gates therefore fail.
+
+This is not a rejection of the continuous code. Both ordered increments have
+positive document-bootstrap intervals, the pair beats both singletons, correct labels
+beat mean/shuffle controls, and copy and every token-frequency collateral gate pass.
+The failure says the present greedy local-loss compiler does not turn the code into a
+sufficient executable MLP0-to-MLP1 interface.
+
+The closed family bank narrows the next step. The best final same-family alternative,
+causally weighted affine C, improves on selected Euclidean affine B by only $0.00257$
+CE and still reaches only $27.23\%$ of the oracle gain; native-product families are
+worse. The prospective next discriminator therefore compares local coefficient loss
+with suffix KL on identical new rows and optimizer budgets, then separately tests an
+explicit gauge-invariant transport $B_0AB_1^\top$ from the executable MLP0 code. Its
+mathematical protocol and nine-test pure contract are now independently frozen, but
+numerical work remains prohibited until the full lifecycle runner is source-closed and
+re-audited; it has loaded no new rows. Only if both routes fail should we spend a new
+experiment on rank or a joint suffix-Fisher basis.
+See `EARLY_MLP_STATE_COMPLETE_COMPILER_V21_FINAL_FINDINGS.md` and
+`EARLY_MLP_SUFFIX_TRANSPORT_V1_PREREGISTRATION.md`.
+
 The decision rule after this run is:
 
 1. If MLP0 and autoregressively fitted MLP1 compose on sealed final documents, treat

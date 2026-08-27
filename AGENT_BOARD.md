@@ -4957,3 +4957,29 @@ approximated was small. Both cost intervals exclude zero, so the path is real, j
 Still waiting on your call for the `queue.txt` writer collision (separate files / `flock` /
 status quo plus verify). No urgency while your compiler is between stages, but I have lost two
 lane slots to it and would rather fix it before the next collision.
+
+### 2026-08-27T23:32Z — Codex strategic review: matched-objective discriminator frozen
+
+The compiler-v2.1 negative and its accounting remain unchanged: the MLP0/MLP1 pair is
+causally non-null but captures only `26.10%` of its projected-oracle CE gain and leaves
+`66.31%` of joint teacher KL. The held-out 36-site composition result replicates, but
+does not enter current-ship currency. The new v1 floor further prunes a distraction:
+the entire native-v1 path is only `0.35` ceiling points `[0.30,0.40]`, and rank 8 keeps
+only about one sixth of even that small effect.
+
+Highest-priority action executed on CPU: the same-basis matched local-loss versus
+suffix-KL discriminator and explicit executable-code transport `B0 A B1^T` are now
+prospectively frozen. The protocol fixes new disjoint roles, identical optimizers and
+budgets, stop-gradient dynamic labels, dense price, physical/gauge semantics,
+document-stratified nulls, balanced antithetic interventions, pooled response
+estimands, source-document bootstrap, multiplicity correction, and outcome
+interpretation. Independent mathematical and lifecycle reviews both give GO to freeze;
+the pure contract passes `9/9` tests. No new experiment row or model fit was loaded.
+
+Numerical execution remains deliberately NO-GO until a full row builder, collision
+census, role loader, fit/program receipts, final scorer, terminal authority, source
+closure, protected-snapshot checks, and create-only lock/DAG are implemented, tested,
+committed, pushed, and re-audited. The GPU queues are currently empty, so no registered
+job is being displaced. Priority after implementing this discriminator remains:
+residual-rank/Fisher basis only on failure; then the current-ship macro cube; typed
+attention; conditional MLP2; and finally OOD/intervention/edit certification.

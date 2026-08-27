@@ -508,3 +508,50 @@ continuous MLP0 state program, not a final or whole-model result. The outer-retu
 receipt authorizes training at site1 only and forbids final scoring. Site1 has been
 launched from the frozen source. The amended joint held-out source received final
 mathematical and lifecycle GO at pushed commit `9ba2cb13`; it remains behind site1.
+
+## Strategic checkpoint — 2026-08-27 23:11 UTC
+
+Compiler-v2.1 completed with intact authority and an authoritative scientific
+negative. MLP0 recovers `62.67%` of its local projected-teacher KL, conditional MLP1
+recovers `43.55%`, and the pair recovers `33.69%`; the latter two miss the registered
+50% rung. In common CE currency the executable pair gains `0.05914` against the
+projected-oracle pair's `0.22658`, or `26.10%`, and the half-oracle interval is wholly
+negative. Every other gate passes, including both ordered increments, joint over
+singletons, true over mean/shuffle, label alignment, alternate MLP2 background, copy,
+and all token-frequency collateral. The result is a real but insufficient
+parent-conditional interface.
+
+No global currency moves: inventory `36/36`; named behavior `32.1% +/- 6.4%`; named
+causal headroom `10.92%`; current-ship executable recovery zero against `+0.8976`
+nats; separate 36-site constant-stake ceiling `55.038%`. The main gaps are the
+MLP0-to-MLP1 transported interface, a common current-ship denominator, typed
+attention routing/value composition, conditional MLP2 after adequate upstream
+transport, and OOD/edit certification.
+
+Pruned priority is: (1) same-basis matched local-versus-suffix refits plus an explicit
+gauge-invariant `B0 A B1^T` cross-map and teacher-response perturbation assay; (2)
+only after its failure, an oracle residual rank curve and joint suffix-Fisher basis;
+(3) the one-support current-ship macro cube; (4) typed attention compilation; (5)
+conditional MLP2 followed by OOD/intervention/edit certification. Ordinary
+ridge/native-K sweeps, semantic rotation of gauge-equivalent axes, isolated MLP0
+clustering, and another MLP2 alignment factorial are pruned.
+
+Executed this interval: the full negative transaction and program bundle were
+committed, with the two large numerical artifacts tracked through Git LFS. The next
+protocol's pure physical-map/gauge/intervention contract passes `9/9` tests. Independent review
+rejected its first draft before any new rows were loaded because objective/data/
+optimizer and intervention semantics were confounded. The revised draft now adds a
+same-new-rows local-loss comparator, executable-code semantics, teacher-response
+differences, true document-derangement nulls, dense-only price, and a complete
+lifecycle. Mathematical and lifecycle reviewers now give GO to freeze the exact
+protocol and pure contract. Numerical execution remains NO-GO until the complete
+runner, source closure, and create-only artifact transaction are implemented, tested,
+committed, pushed, and re-audited. Concurrently,
+the hardened 36-site prospective composition replication completed `4/4` registered
+predictions on skip11000 at `53.69% [52.92,54.39]`, versus
+`55.04% [54.18,56.00]` on skip7000; this is replication of the joint program, not
+broad OOD or current-ship recovery. A concurrent value-path floor also shows that the
+entire native-v1 path contributes only `0.35` ceiling points `[0.30,0.40]` inside this
+36-site program, while rank 8 retains only about one sixth of that small effect. This
+prunes interpreting the earlier small rank-8 decrement as evidence that v1 is itself
+eight-dimensional; the path is real but currently low leverage.
