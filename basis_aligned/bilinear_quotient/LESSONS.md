@@ -572,3 +572,35 @@ PUSHED appeared in the same output.
   post-condition check that cannot stop the commit is decoration.
 - **Correct form:** `python3 verify.py && git add X && git commit -m ...` — one chain,
   no newlines between the check and the thing it guards.
+
+## 27. POSITION-WISE MASKING AT SCORING TIME CANNOT ISOLATE A POSITION-WISE INTERVENTION IN A TRANSFORMER (§1659-§1661)
+
+I measured mlp0's token-table ceiling with a table that covered 76.6% of eval positions.
+The uncovered positions got a fallback value. I then excluded those positions from the CE
+average, believing that isolated the coverage problem.
+
+It does not. The substituted forward pass still ran with WRONG mlp0 outputs at the
+uncovered positions, and attention in layers 1-17 mixed that error into the predictions
+at the covered positions. The score-time mask removes the directly-damaged rows and
+leaves all of the indirect damage.
+
+- **How wrong it was:** the frozen-attn0 arm has a KNOWN ANSWER of 1.0. Substituting
+  everywhere and masking the score gave 55.83%. Substituting only where covered gave
+  100.00% (ce_table == ce_live to five decimals). A 44-point error, in a quantity whose
+  true value was derivable in advance.
+- **Why it fooled me twice:** the first version's headline moved 25 points in the
+  DIRECTION OPPOSITE the hypothesis, which reads as a strong negative result rather than
+  as a bug. The second version's "obvious fix" moved it 6 points and still read as a
+  clean negative. Neither looked like an artifact from the outside.
+- **What caught it:** an instrument check with an answer known before the run. Not a
+  sanity check on the output's plausibility -- a quantity I could derive analytically
+  (attn0 constant + position-wise MLP => mlp0 is a token function => a covered table is
+  exact) and refuse to proceed past. It is the only reason the 25-point "finding" is not
+  in FINDINGS.
+- **The rule:** when substituting position-wise, FIX THE FORWARD PASS, do not repair the
+  score. Apply the intervention only where it is valid and leave the module live
+  elsewhere (`torch.where(valid, substitute, out)`). In a model with attention, no
+  post-hoc row mask can undo a bad value that has already been mixed forward.
+- **Scope:** this contaminates every table-ceiling in this project that used an
+  unseen-token fallback and substituted at all positions -- they are UNDERSTATED. On
+  mlp0 the understatement was 15.9 points (74.42% -> 90.27%).

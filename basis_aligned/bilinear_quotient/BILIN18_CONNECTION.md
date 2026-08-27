@@ -40741,3 +40741,86 @@ alone, so equal compounding at a smaller total effect is a real gain, not a plat
 **Rung taken: 1 (consolidate/verify), no GPU.** §1657 called every composition ratio in
 the ledger into question; this checks the most load-bearing one rather than leaving the
 doubt hanging over it.
+
+## §1659 — mlp0's un-tableable residue: two broken measurements, and the reason both were broken
+
+The open question in `registry/_mlp0_dossier` was what mlp0's un-tableable residue IS.
+§1324/§1326: mlp0's token-table ceiling is 86.3% of a .799-nat stake, leaving ~.110 nats
+that no token-indexed function reproduces. §843 supplied a hypothesis: attn0 writes the
+previous token's identity into the stream, so mlp0 may be a token function of a
+CONTEXTUALISED input — its residue INHERITED from attention rather than computed.
+
+The test: measure mlp0's table ceiling normally, and again with attn0 frozen at its
+optimal constant (`opt_ablation_consts_all.pt`), refitting the table under each condition.
+
+**v1 returned the opposite of the hypothesis** — ceiling 74.42% → 49.37%, a 25-point
+FALL under the freeze. I suspected the coverage gap: 23.4% of eval positions carry a
+token unseen at fit time and receive the position-weighted mean.
+
+**v2 scored covered positions only, and carried an instrument check with a known answer.**
+With attn0 frozen, the residual stream below mlp0 is embedding + constant, and MLPs are
+position-wise, so mlp0 is a deterministic function of the current token and a covered
+table must reproduce it exactly: the frozen covered ceiling MUST be ~1.0. v2 returned
+**55.83%**. The check failed, so no number in the run was reportable — including the
+normal-condition ceiling I would otherwise have written up.
+
+Two diagnostics, each ruling something out:
+- **Is the freeze real?** Within-token variance of mlp0's output under freeze:
+  8.13e-06, ratio 0.0000 of total (0.2711 unfrozen). The freeze works; mlp0 IS
+  token-deterministic under it.
+- **Is the table wrong?** Relative L2 error of table vs actual mlp0 output on covered
+  eval positions: **3e-06**, max per-position 7e-06. The table is exact.
+
+Exact freeze, exact table, ceiling 55.83%. The fault was in neither.
+
+## §1660 — the cause: position-wise masking at SCORING time cannot isolate a position-wise intervention in a transformer
+
+v2 substituted the table at EVERY position — including the 23.4% whose token had no
+fitted entry and got the position-weighted mean — and then merely EXCLUDED those
+positions from the CE average. That is not a conservative approximation. A wrong mlp0
+output at an uncovered position propagates up through layers 1–17, and **attention mixes
+it into the predictions at covered positions**. The damage is non-local; masking the
+score does not undo it.
+
+The fix is to not create the damage: substitute the table ONLY where it has a fitted
+entry and let the MLP run LIVE elsewhere (`torch.where(covered, table, out)`).
+
+This is worth stating in general form because it is not specific to this run: **any
+position-wise substitution whose fallback is wrong contaminates positions it was never
+applied to.** Recorded as LESSONS 27.
+
+## §1661 — with the instrument passing: mlp0 is ~90% a current-token table, and 100% of the residue is attn0's write
+
+`mlp0_inherited_context3.py`, hybrid hook, covered-position scoring. 3-for-3.
+
+```
+                          v1 (all pos)   v2 (masked score)   v3 (hybrid hook)
+normal        covered        74.42%           75.78%             90.27%
+attn0_frozen  covered        49.37%           55.83%            100.00%   <- known answer
+```
+
+The instrument check passes at **100.00%**, and not by rounding: under freeze+covered,
+`ce_table = 3.50924` and `ce_live = 3.50924`, equal to five decimals. The table IS mlp0.
+
+**The result, read off the live arm:**
+- mlp0's covered-position table ceiling in the running model is **90.27%** of a 0.855-nat
+  stake. mlp0 is very nearly a current-token lookup.
+- Freezing attn0 raises that to exactly **100%**. So the entire 9.73-point residue —
+  about 0.083 nats — is context that **attn0 delivered**. mlp0 computes no
+  context-dependence of its own.
+
+This answers the `_mlp0_dossier` open question. mlp0 = token table + an
+attention-delivered correction, with nothing else in it.
+
+**What is NOT claimed.** The 100% is a check, not a discovery: with attn0 constant, mlp0
+is a token function BY CONSTRUCTION. Its scientific content is that the instrument is
+sound, which is exactly what v1 and v2 lacked. The discovery is the live arm's 90.27%
+and the fact that freezing one module accounts for all of the remainder.
+
+**Scope note on earlier ceilings.** §1326's dossier ceilings, and every table-ceiling
+number in this project fitted with an unseen-token fallback and substituted everywhere,
+are contaminated in the §1660 direction and therefore **understated**. mlp0 is the
+measured case: 74.42% all-positions vs 90.27% covered-hybrid, a 15.9-point understatement.
+The dossier's ORDERING across modules is probably preserved (the bias is a coverage
+artifact of similar size at every site) but the LEVELS are not trustworthy. Flagged in
+the registry rather than silently corrected, since only mlp0 has been remeasured.

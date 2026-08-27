@@ -349,3 +349,47 @@ circuit moves stage.**
   transfer maps (incremental). Census name-circuit reconciliation (induction dossier) — now
   easier with stations named (2.5/3.8 matchers).
 - **E. FINDINGS hygiene:** keep this file ≤ 2 pages; add every closed arc as it lands.
+
+## 14. mlp0 is a current-token table plus an attn0-delivered correction — and the measurement that shows it took three tries (§1659–§1661)
+
+**The finding.** In the running model, mlp0's per-token lookup table recovers **90.27%**
+of its 0.855-nat mean-ablation stake on positions the table covers. Freezing attn0 at its
+optimal constant raises that to exactly **100%**. So mlp0's un-tableable residue — about
+0.083 nats, the quantity `_mlp0_dossier` listed as open — is **entirely context that attn0
+wrote into the stream**. mlp0 itself computes no context-dependence. It is a token table
+plus a correction it inherits.
+
+This is the first front-band module with a complete account: `mlp0 = table(token) +
+f(attn0's write)`, with nothing left over.
+
+**The instrument check, and why it matters more than the number.** With attn0 held
+constant, the residual stream below mlp0 is embedding + constant, and MLPs are
+position-wise — so mlp0 is a deterministic function of the current token and a covered
+table must reproduce it exactly. The frozen ceiling therefore has a value known BEFORE the
+run: 1.0. Observed: 1.0, with `ce_table = ce_live = 3.50924` equal to five decimals.
+
+Two earlier versions of this measurement failed that check and **neither was reported**:
+
+| | substitute at | score on | frozen ceiling (true: 1.0) |
+|---|---|---|---|
+| v1 | all positions | all positions | 49.37% |
+| v2 | all positions | covered only | 55.83% |
+| v3 | covered only, mlp0 live elsewhere | covered only | **100.00%** |
+
+v1's headline was mlp0's ceiling *falling* 25 points under the freeze — the opposite of
+the hypothesis, which reads as a strong negative result rather than as a bug. Without a
+pre-derivable answer to check against, it would have gone into this file.
+
+**The general lesson (LESSONS 27).** Excluding positions from a CE average does not
+isolate a substitution applied at those positions. The forward pass still ran with wrong
+values there, and attention in the layers above mixes them into the retained positions.
+Interventions must be restricted in the forward pass — `torch.where(valid, sub, out)` —
+not repaired in the score. On a quantity whose answer was known, the difference was 44
+points.
+
+**Scope of the correction.** Every table ceiling in this project fitted with an
+unseen-token fallback and substituted at all positions is contaminated the same way and is
+therefore **understated**. On mlp0 the understatement is 15.9 points (74.42% → 90.27%).
+Entry 13's dossier levels are flagged in the registry rather than silently revised: only
+mlp0 has been remeasured, and while the bias is probably similar at every site (so the
+ordering across modules likely survives), the levels are not trustworthy until remeasured.
