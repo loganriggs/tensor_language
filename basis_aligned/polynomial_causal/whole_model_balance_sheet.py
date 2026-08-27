@@ -398,8 +398,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             },
             {
                 "priority": 4,
-                "action": "Preregister a priced gauge-transport interface: map interventions between local tensor bases and test it on disjoint behaviors, depths, and backgrounds.",
-                "why": "Local bases often locate circuits, but affine donor transport has near-zero median fidelity and the output basis preserves only 13.5% of oracle removal damage. Intervention transport is the missing interface between gauge freedom and manipulability.",
+                "action": "Execute the preregistered no-teacher-forcing L8-to-L11-to-L14 gauge-transport triangle, first gating destination-subspace sufficiency, then direct response prediction, chain composition, and alternate-background transfer.",
+                "why": "Local bases often locate circuits, but affine donor transport has near-zero median fidelity, repeated content patching teacher-forces every clamp, and the output basis preserves only 13.5% of oracle removal damage. The commuting triangle separates a locator failure from transport failure and transport failure from composition failure while pricing the physical map, coordinate field, and repeated interfaces.",
             },
             {
                 "priority": 5,
