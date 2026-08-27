@@ -40982,3 +40982,48 @@ direction. mlp1 computes many token features, not one big one.
 Truncation slightly BEATS the full table there. The plain reading is that low-rank
 truncation denoises the per-token means of rarely-seen tokens, and 0.75 points is within
 what that would produce; it is not evidence of anything and is not being claimed as such.
+
+## §1665 — the twelve middle MLPs are not small, they are REDUNDANT: 2.645 nats invisible to single-module ablation
+
+`mid_band_joint.py`. FINDINGS 13 has carried a caveat since §1326 that the middle twelve
+MLPs are UNMEASURED rather than measured-as-small — each falls below the ~0.15-nat floor
+of single-module ablation. §1663 gave the reason to take that seriously: mlp1's inputs
+turned out to be redundantly supplied, and a redundant computation is invisible one
+component at a time. This tests the same idea at band scale. 3-for-3.
+
+```
+individual optimal-constant stakes, mlp4..mlp15 (nats):
+  .1062  .0803  .0777  .0578  .0469  .0473  .0363  .0398  .0373  .0331  .0261  .0320
+sum of the twelve                     0.6208
+JOINT stake, all twelve at once       2.6453     <- 4.26x the sum
+JOINT per-token table ceiling         21.73%
+instrument check (attn0..15 frozen)  100.00%
+```
+
+**Every one of the twelve is individually below the floor, and together they are the
+second-largest object in the model.** 2.645 nats — more than mlp0, mlp2 and mlp3 combined
+(2.247), and behind only mlp1's 7.005. The caveat resolves in the direction it was written
+to allow for: the middle band was never small.
+
+**And it is not a token function.** A per-token table recovers 21.73% of the joint stake.
+The front band's tables reach 68–96%. Whatever the middle twelve compute, it is genuinely
+contextual — this is where bilin18 stops being a lookup and starts being a model.
+
+**PROTOCOL WARNING ON THAT LAST COMPARISON, written before anyone uses it.** 21.73% is a
+JOINT ceiling over twelve simultaneous substitutions; the front-band figures are PER-SITE
+ceilings with one module tabled and seventeen live. Those are different quantities and a
+joint substitution is strictly harder, so the gap is suggestive and not yet evidence. This
+is precisely the error I flagged twice on the board and then committed myself at §1656.
+`band_joint_compare.py` is queued to re-measure both bands as joint substitutions under
+one protocol; the contrast stands or falls there, and I will report it either way.
+
+**§1657's caution applies to the 4.26x and is honoured.** Composition ratios track total
+effect size, so 4.26 must not be set against the front band's 1.15 — different scales,
+different ratios, no inference. The claim that does not depend on any ratio is the plain
+arithmetic: **twelve modules each worth ≤0.11 nats are jointly worth 2.6.** That is the
+finding, and it is scale-free.
+
+**Consequence for method, not just for bilin18.** Single-component ablation systematically
+under-finds redundant machinery, and here the under-count is a factor of four. Any
+importance ranking of this model built one module at a time — including the ones in this
+ledger — understates the middle band by roughly that much.
