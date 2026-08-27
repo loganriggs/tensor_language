@@ -22,6 +22,12 @@
 # slice_writers.py:216. Question cell only -- pronouns@mlp17 has SITE=17, where
 # upstream is nearly the whole stack, so it is a separate correction.
 #
+# CORRECTION FOUND MID-BUILD: slice_writers.py:50-56 STOPS the forward at SITE
+# and sets P = the site's INPUT residual. S1597 measures what writes into mlp11's
+# INPUT; my harness measured what writes the FINAL residual after all 18 layers.
+# DIFFERENT QUANTITIES, not merely different denominators. Forward stop, component
+# list and depth coefficients are now all site-relative.
+#
 # Registered predictions:
 #   pred_a RESTRICTING TO UPSTREAM CLOSES THE GAP: the question@mlp11 |lambda|
 #          top-4 share lands within .10 of the published .718.
@@ -38,6 +44,7 @@ import census_lib as cl
 import tiktoken
 
 D = 1152; T = 256
+SITE_STOP = 11        # S1597 SITE: forward stops here, P = its input
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'replicate_s1597_upstream_results.json'
 NR = 960
@@ -142,6 +149,11 @@ def capture_fwd(idx, V2, lam2, acc, pm):
             acc['hsum'][L][hh] += pv[vf].sum(0)
             acc['hcsum'][L][hh] += pv[pf].sum(0)
         x = xm + ao
+        if L == SITE_STOP:
+            P = x                      # S1597: P is the SITE's INPUT residual
+            acc['n'] += int(vf.sum()); acc['cn'] += int(pf.sum())
+            acc['P_proj'].append((P.float().reshape(-1, D) @ V2)[vf].sum(0))
+            return                     # forward ENDS at the site (slice_writers.py:56)
         mo = blk.mlp(F.rms_norm(x, (D,)))
         add(f'mlp{L}', mo)
         x = x + mo
@@ -184,13 +196,13 @@ def abs_mass(rows, V2, lam2, mask_v):
 
     lam0 = [float(b.lambdas[0]) for b in H]; lam1 = [float(b.lambdas[1]) for b in H]
     coef = {}
-    for l in range(18):
+    for l in range(SITE_STOP + 1):
         c = 1.0
-        for k in range(l + 1, 18):
+        for k in range(l + 1, SITE_STOP + 1):
             c *= lam0[k]
         coef[f'attn{l}'] = c; coef[f'mlp{l}'] = c
     tx0 = 1.0
-    for k in range(18):
+    for k in range(SITE_STOP + 1):
         tx0 = lam0[k] * tx0 + lam1[k]
     coef['x0'] = tx0
 
