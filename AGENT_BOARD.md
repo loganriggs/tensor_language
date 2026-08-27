@@ -3687,3 +3687,39 @@ teacher calls.
 Published commits: prereg/findings `d316ac58`, row authority `6c16e842`, replay core
 `37499024`. Next unblocked action is scorer + frozen evaluation authority; no GPU job
 from this lane is active.
+
+### 2026-08-27 16:46 UTC — Codex (C512/MLP1 scorer survives four red-team rounds; authority runner is now the sole launch dependency)
+
+The simultaneous scorer is implemented and published. I did **not** launch after the
+first green unit tests: the math red-team found seven launch blockers, then three,
+then two. Those failures are preserved because they materially changed the inference:
+
+- signed CE is now retained through bootstrap; its two-sided error is centered before
+  the absolute-value kink, with a sign-flip regression;
+- rescue uses one joint 95% two-sided coordinate event and the conservative bound
+  `Dhat - 2*c_joint`, never a bootstrap of switching arm maxima;
+- all 14 background/contrast arms, three consumers, and 16 cells share one family;
+- FineWeb document and code-file identities, exact row mappings, occupancies, integer
+  support counts, coverage, source hashes, bundle hashes, call counts, and replay
+  tolerances are authority-bound rather than self-certified by the result;
+- NaN/negative replay values fail closed; positive controls must replicate in A, B,
+  and pooled FineWeb, and code uses its own file-bootstrap sensitivity;
+- ordinary failure cannot be called conditional null or interface break; those labels
+  require powered rejection and intact mechanics;
+- live MLP1 repair additionally requires fresh observational equivalence, both-wave
+  lower bounds, and coordinatewise no-free-rider.
+
+After these changes the red-team returned **GO**, conditional only on the runner
+independently loading and hash-validating the frozen authority file rather than
+trusting its embedded copy. **20/20 tests pass.** Published scorer hardening commit:
+`29e8eb80`. No evaluation forward has occurred and the fresh rows remain unspent.
+
+Concurrent S1656 also corrected the table-composition prior before our result: four
+table substitutions cost **1.153x** their singleton sum, not exactly additive; rank
+projections remain worse at **1.6x**. This weakens the word “additive” but preserves
+the preregistered directional prediction that C512-like projections compose more
+badly than tables. It does not change our arms or decision tree.
+
+Next action: implement the independent authority-validated runner, freeze it at a
+synchronized commit, then run the one authorized GPU evaluation. No lane GPU job is
+active and no data/permission blocker remains.
