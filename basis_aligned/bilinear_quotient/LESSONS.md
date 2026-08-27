@@ -428,3 +428,20 @@ a real defect while believing I was removing one.
   string-matching and string-matching is where it is thin; (3) fix the gate and
   re-run rather than working around it in the script — a gate weakened to pass one
   script silently stops protecting the next one.
+
+**LESSONS 21 addendum — the gate is now a FILE with a REGRESSION TEST (`ops/gate.py`).**
+Two more false positives appeared after LESSONS 21 was written, taking the total to
+four: (3) the undefined-name arm did not bind NESTED `def`s or LAMBDA arguments, so
+it flagged `hook`, `add` and a `sorted(key=lambda h: ...)` variable; (4) the
+"function used as a value must return something" arm used a SUBSTRING match
+(`f'{name}(' in s`), which flagged `capture_fwd` — a function called as a bare
+STATEMENT. Fixed by walking `ast.Call` nodes and treating a call that is the whole
+of an `ast.Expr` as statement-use.
+- **The fix that actually matters is the harness, not the four patches.** The gate
+  now lives at `ops/gate.py` and is run BOTH directions before it is trusted:
+  against every script already known good (must all PASS) and against deliberately
+  broken copies (must all FAIL). Defect 4 was caught by that regression pass within
+  seconds of writing it, not by inspection.
+- **Rule:** a checker with no negative control is an assertion, not a test. Any new
+  gate arm ships with a broken-copy that it must catch, and the whole gate is
+  re-run over the known-good corpus before use.

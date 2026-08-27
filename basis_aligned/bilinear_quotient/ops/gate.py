@@ -1,0 +1,127 @@
+#!/usr/bin/env python3
+"""Pre-queue static gate for BQ experiment scripts. LESSONS 18, 19, 21.
+
+Usage: python3 ops/gate.py <script.py>
+
+LESSONS 21: this gate has produced THREE false positives (regex case-sensitivity,
+module-level tuple unpacking, nested defs / lambda args). On FAIL, reproduce the
+finding by hand before touching the script -- fix the GATE if the gate is wrong.
+"""
+import re, ast, sys, builtins
+
+
+def _targets(n):
+    out = set()
+    for t in getattr(n, 'targets', []):
+        if isinstance(t, ast.Name):
+            out.add(t.id)
+        elif isinstance(t, ast.Tuple):                      # LESSONS 21 fix 2
+            out |= {e.id for e in t.elts if isinstance(e, ast.Name)}
+    return out
+
+
+def _args(fn):
+    a = fn.args
+    got = {x.arg for x in list(a.args) + list(a.posonlyargs) + list(a.kwonlyargs)}
+    if a.vararg:
+        got.add(a.vararg.arg)
+    if a.kwarg:
+        got.add(a.kwarg.arg)
+    return got
+
+
+def _bound(scope, fn=None):
+    loc = _args(fn) if fn else set()
+    for n in ast.walk(scope):
+        if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Store):
+            loc.add(n.id)
+        if isinstance(n, ast.Assign):
+            loc |= _targets(n)
+        if isinstance(n, (ast.Import, ast.ImportFrom)):
+            loc |= {a.asname or a.name.split('.')[0] for a in n.names}
+        if isinstance(n, ast.FunctionDef) and n is not scope:  # LESSONS 21 fix 3a
+            loc.add(n.name); loc |= _args(n)
+        if isinstance(n, ast.Lambda):                          # LESSONS 21 fix 3b
+            loc |= _args(n)
+        if isinstance(n, (ast.For, ast.comprehension)):
+            t = n.target
+            if isinstance(t, ast.Name):
+                loc.add(t.id)
+            elif isinstance(t, ast.Tuple):
+                loc |= {e.id for e in t.elts if isinstance(e, ast.Name)}
+    return loc
+
+
+def gate(path):
+    s = open(path).read()
+    fails = []
+    try:
+        tree = ast.parse(s)
+    except SyntaxError as e:
+        return [f'SYNTAX ERROR: {e}']
+
+    mod = {n.name for n in tree.body if isinstance(n, ast.FunctionDef)}
+    for n in tree.body:
+        if isinstance(n, ast.Assign):
+            mod |= _targets(n)
+        if isinstance(n, (ast.Import, ast.ImportFrom)):
+            mod |= {a.asname or a.name.split('.')[0] for a in n.names}
+
+    for fn in [f for f in tree.body if isinstance(f, ast.FunctionDef)]:
+        used = {n.id for n in ast.walk(fn)
+                if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Load)}
+        u = sorted(used - _bound(fn, fn) - mod - set(dir(builtins)))
+        if u:
+            fails.append(f'{fn.name}(): possibly undefined {u}')
+
+    # every function used AS A VALUE must return something (LESSONS 18).
+    # A call that is the whole of an Expr statement is statement-use, not value-use.
+    stmt_calls = {id(n.value) for n in ast.walk(tree) if isinstance(n, ast.Expr)
+                  and isinstance(n.value, ast.Call)}
+    value_used = set()
+    for n in ast.walk(tree):
+        if isinstance(n, ast.Call) and isinstance(n.func, ast.Name) \
+                and id(n) not in stmt_calls:
+            value_used.add(n.func.id)
+    for fn in [f for f in tree.body if isinstance(f, ast.FunctionDef)]:
+        if fn.name in value_used and fn.name != 'main':
+            if not any(isinstance(n, ast.Return) and n.value is not None
+                       for n in ast.walk(fn)):
+                fails.append(f'{fn.name}(): called as a value but has no `return <value>`')
+
+    # exactly three DISTINCT registered predictions (LESSONS 19)
+    keys = re.findall(r"'(pred_[A-Za-z0-9_]+)':", s)       # LESSONS 21 fix 1: [A-Za-z]
+    if len(keys) != 3:
+        fails.append(f'expected 3 pred_* keys, found {len(keys)}: {keys}')
+    if len({k.split("_")[1] for k in keys}) != 3:
+        fails.append(f'pred keys not distinct a/b/c: {keys}')
+
+    # site consistency (LESSONS 20: forward extent must match the component set)
+    st = re.search(r'SITE_STOP = (\d+)', s)
+    up = re.search(r'SITE_UP = (\d+)', s)
+    sites = set(re.findall(r"'site': (\d+)", s))
+    if st and up and st.group(1) != up.group(1):
+        fails.append(f'SITE_STOP={st.group(1)} != SITE_UP={up.group(1)}')
+    if st and sites and sites != {st.group(1)}:
+        fails.append(f'cell sites {sites} != SITE_STOP {st.group(1)}')
+
+    # call-arity consistency for the helpers whose return shape varies
+    for helper in ('abs_mass',):
+        n_ret = [len(n.value.elts) for f in ast.walk(tree)
+                 if isinstance(f, ast.FunctionDef) and f.name == helper
+                 for n in ast.walk(f)
+                 if isinstance(n, ast.Return) and isinstance(n.value, ast.Tuple)]
+        if n_ret:
+            want = n_ret[0]
+            for u in re.findall(rf'(\S[^=\n]*)=\s*{helper}\(', s):
+                if len(u.split(',')) != want:
+                    fails.append(f'{helper}() returns {want} values; unpack `{u.strip()}` '
+                                 f'takes {len(u.split(","))}')
+    return fails
+
+
+if __name__ == '__main__':
+    f = gate(sys.argv[1])
+    print('\n'.join(f) if f else 'no findings')
+    print('GATE:', 'FAIL' if f else 'PASS')
+    sys.exit(1 if f else 0)
