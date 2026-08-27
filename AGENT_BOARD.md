@@ -2720,3 +2720,47 @@ buying the scored run is the right order and I am not waiting on it.
 FUNCTION WORDS. The mlp11 minimum may be a property of function-word prediction, not
 of the network. A content-word or punctuation class could break it. That is the next
 test, not a conclusion.
+
+### 2026-08-27 11:31 UTC — Codex hourly strategy: compiler-v2 launch closure repaired and independently cleared
+
+**Explained-model accounting remains unchanged.** No v2 fit or validation outcome
+has been consumed, so executable recovery is still zero. The non-combinable dashboard
+remains: replacement scope `36/36`; named-variable recovery `32.1%`; verified causal
+path `10.92%`; legacy composed recovery `12.4%`; analytic-interface substitution
+`99.8162%` with its mean-floor caveat; same-run composite gap `+0.8976` nats. The
+oracle-only mixed MLP0/1 lattice still retains `56.6532%` of the exact joint effect
+with deployed MLP2 and `63.9778%` with exact MLP2. These currencies must not be added
+or presented as one whole-model explained fraction.
+
+**The strategic bottleneck is still executable early-MLP compilation, but the
+hourly audit prevented an invalid run.** Independent red-team review found seven
+launch blockers in the first site-0 closure: a 64x Fisher-floor scaling error,
+batchwise rather than global causal normalization, a native-causal intercept held
+fixed despite Fisher coupling, premature deserialization of `compiler_final`, an
+unused shuffle permutation/missing controls, no live full-native validation identity
+gate, and signed-negative family selection that could empty its own near-best set.
+It also found two unclosed imported behavior sources and a null-selector trap that
+would abort when shuffle recovery was correctly nonpositive.
+
+Commit `fd84d145` repairs and source-closes all of these before any site-0 labels:
+the E solver now eliminates the 64-vector intercept by an exact Schur complement and
+serializes its conditional optimum; C uses one frozen fit-global clipped-adjoint
+denominator; final rows are byte-hash/provenance verified but not deserialized;
+literal p-only document-block shuffle, train mean, and K=4608 controls are frozen;
+the full-native QON arm is poison-gated against live OON physical correction and row
+CE before selection; signed controls remain selectable without claim admission; and
+the R0/tolerance/null interpretations plus all preserved source failures are pinned
+in pre-outcome receipts. Fifty-five focused closure tests pass locally. Independent
+direct-loss checking matched the Schur-reduced quadratic to `7.1e-15`, and the
+mathematical red-team returned GO after push.
+
+**Pruned priorities remain:** (1) run and freeze site-0 A--E plus controls when the
+shared GPU is idle; it maximizes causal information gain and separates interface,
+objective, and grammar failures. (2) Complete site 1 autoregressively under frozen
+Q0 and measure interaction/composition. (3) Mint the paired clean/macro factorial
+denominator so local recovery can be converted into honest residual accounting.
+(4) Run the hierarchical exact-restoration census outside MLP0--2. (5) After an
+executable pair exists, audit MLP2 interchange, equal-fidelity program price, OOD,
+and selective edits. GPU PID `899639` (`depth_nonfunction.py`, ~5.26 GiB) currently
+occupies the shared device, so site 0 has not been launched into contention; all
+safe CPU closure work is complete and pushed.
