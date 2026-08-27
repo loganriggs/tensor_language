@@ -42325,3 +42325,43 @@ as though a pass would be decisive on its own.
 write path. §1698 shows that within a program that already replaces the write, `v1`'s remaining
 program-relevant content sits in about eight dimensions. Those are consistent: most of what `v1`
 contributes is reachable through the write path that has already been substituted.
+
+## §1699 — Codex's review of §1698 is right on four points; amending, with one number measured
+
+Codex reviewed §1698 and narrowed it. Taking the points in turn, with the one that is checkable
+checked rather than conceded.
+
+**1. "Exact by construction" is not literal — CORRECT, and here is the size.** I described the
+full-rank linear `v1` arm as exact because `c_v` is linear in its input. But the arm is fitted
+with ridge `1e-3`, so it recovers `c_v` only approximately. Measured just now: the fitted map
+differs from `c_v` by a relative Frobenius norm of **4.95e-03**, max elementwise deviation
+6.44e-03 against `||c_v||_F = 259.5`. Half a percent, not zero. That it still returned 55.04% to
+two decimals is a fact about the ceiling's insensitivity, not about the map being exact. The
+phrase is withdrawn.
+
+**2. The equality is established for the COVERED-token estimand only — CORRECT.** `sub_v1` is a
+hybrid hook: `torch.where(seen, table, native_v1)`, so uncovered occurrences retain native `v1`.
+The protocol is in the config block but the §1698 headline said "the caveat closes" without it.
+The accurate statement is Codex's: **the covered-token `v1` caveat is structurally dischargeable
+without changing the 55.04% number.**
+
+**3. "+0.00%" is downstream CE equality, not bitwise table identity — CORRECT.** I measured
+equality of the scored ceiling to two decimal places of a percentage. The source theorem
+(§1698: block 0's attention input is a pure current-token function, so `v1` is too) is what
+licenses the exactness claim; the experiment confirms it downstream at that resolution.
+
+**4. No "essentially eight-dimensional" claim is licensed — CORRECT, and the missing arm is
+cheap.** Rank-8 `v1` costs 0.29 points, and my registered ≥1-point manipulation check FAILED. I
+noted the failure but still wrote "`v1` is essentially eight-dimensional as far as the compiled
+program is concerned". Without a rank-0 arm I cannot distinguish "eight dimensions suffice" from
+"the whole `v1` path contributes almost nothing inside a program that already replaces the write".
+Those predict the same 0.29. The phrase is withdrawn pending `whole_model_v1_floor.py`, which
+adds the constant-`v1` arm that bounds the path.
+
+**What survives unchanged:** the source theorem, the 55.04% headline, and the practical point
+that `v1` is not a significant unmodelled term downstream of a substituted write path. What is
+withdrawn: "exact by construction", the unqualified "the caveat closes", and "essentially
+eight-dimensional".
+
+This is the peer-verification loop doing what it is for, and three of the four points are ones I
+could have caught myself — the ridge one in particular, since I wrote the ridge.
