@@ -30,6 +30,18 @@ FINAL_RULINGS = HERE / "early_mlp_state_complete_compiler_v21_final_rulings.json
 FINAL_RULINGS_SHA256 = (
     "d47beafc368705deffb7c12441494579b34f1d9c39d8ddfafdfc7e10c1ae025f"
 )
+EXECUTION_RETRY_AMENDMENT = (
+    HERE / "early_mlp_state_complete_compiler_v21_execution_retry_amendment.json"
+)
+EXECUTION_RETRY_AMENDMENT_SHA256 = (
+    "f38ded1c729bc76495c77c4a9a4071d3409238fbff4ea5b39181482f2e10e983"
+)
+ABORTED_SITE0_MANIFEST = BQ / (
+    "early_mlp_state_complete_compiler_v21_site0_aborted_shared_head_drift_manifest.json"
+)
+ABORTED_SITE0_MANIFEST_SHA256 = (
+    "60f08aee6890c885a0e19567d731b629bb5384ca26bc9ac43309cfe22b9a9ea3"
+)
 PARENT_PROTOCOL = HERE / "early_mlp_state_complete_compiler_v2_preregistration.json"
 OLD_RECEIPT = BQ / "early_mlp_state_complete_compiler_v2_rows_receipt.json"
 RETRY1_FAILURE = BQ / "early_mlp_state_complete_compiler_v2_site0_retry1_manifest.json"
@@ -70,6 +82,8 @@ ROWS_MANIFEST_SHA256 = "1cfe4b383c8298ca79164dc42098a9c9e5bce8c47b4411605e1aa1fb
 PINS = {
     PROTOCOL: "69c1bb3bdb0cbf576c41775d4a0881c20a1154642a5ac8deacef780fe9b08ee3",
     FINAL_RULINGS: FINAL_RULINGS_SHA256,
+    EXECUTION_RETRY_AMENDMENT: EXECUTION_RETRY_AMENDMENT_SHA256,
+    ABORTED_SITE0_MANIFEST: ABORTED_SITE0_MANIFEST_SHA256,
     PARENT_PROTOCOL: "45b0a6c055779449bf5fee815a0ecc7471336e95963db67e74166a2270978d54",
     OLD_RECEIPT: "23319ece1d8542d51e024bde0e2253d740b08ad18ad4f2d8565ba5120473fd82",
     RETRY1_FAILURE: "2eb0ef098a93d5562bb1abd0b3e94187a461e86cc1c3aec055a1bb719632829a",
@@ -147,6 +161,7 @@ PROGRAM_SOURCE_CLOSURE = tuple(dict.fromkeys((
     PROTOCOL,
     IMPLEMENTATION_AMENDMENT,
     FINAL_RULINGS,
+    EXECUTION_RETRY_AMENDMENT,
     PARENT_PROTOCOL,
     Path(__file__),
     HERE / "test_prepare_state_complete_compiler_rows_v21.py",

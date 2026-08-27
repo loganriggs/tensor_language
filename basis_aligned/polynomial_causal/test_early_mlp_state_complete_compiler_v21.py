@@ -254,7 +254,7 @@ def test_launch_token_detects_source_row_and_protected_drift(monkeypatch, tmp_pa
     manifest.write_text("manifest")
     monkeypatch.setattr(runner, "ROWS_RECEIPT", receipt)
     monkeypatch.setattr(runner.authority, "MANIFEST", manifest)
-    monkeypatch.setattr(runner, "_source_identity", lambda: ("commit", {"a": "hash"}))
+    monkeypatch.setattr(runner, "_current_program_source_hashes", lambda: {"a": "hash"})
     monkeypatch.setattr(runner.authority, "protected_snapshot", lambda: {"pin": "ok"})
     monkeypatch.setattr(
         runner.authority, "_validate_historical_row_authority", lambda _: None,
@@ -271,7 +271,7 @@ def test_launch_token_detects_source_row_and_protected_drift(monkeypatch, tmp_pa
         runner._validate_launch_state(state)
 
 
-def test_resume_after_site0_requires_same_committed_source_closure(
+def test_resume_after_site0_inherits_commit_and_requires_same_content_closure(
     monkeypatch, tmp_path,
 ) -> None:
     paths = _install_stage_paths(monkeypatch, tmp_path)
@@ -299,23 +299,80 @@ def test_resume_after_site0_requires_same_committed_source_closure(
     monkeypatch.setattr(runner, "PROGRAMS_RECEIPT", final_receipt)
     monkeypatch.setattr(runner.authority, "MANIFEST", manifest)
     monkeypatch.setattr(runner, "_require_run_claim", lambda _: None)
-    monkeypatch.setattr(runner, "_source_identity", lambda: ("commit", {"a": "hash"}))
+    monkeypatch.setattr(runner, "_current_program_source_hashes", lambda: {"a": "hash"})
+    monkeypatch.setattr(runner, "_require_commit_source_binding", lambda *_: None)
     monkeypatch.setattr(runner.authority, "protected_snapshot", lambda: {"pin": "ok"})
     monkeypatch.setattr(
         runner.authority, "_validate_historical_row_authority", lambda _: None,
     )
+    # Use a real-length audit anchor; later stages inherit it even if unrelated
+    # descendant commits have advanced the shared worktree.
     monkeypatch.setattr(
         runner, "load_site0_training_authorization",
-        lambda: {"source_commit": "commit", "source_hashes": {"a": "hash"}},
+        lambda: {"source_commit": "c" * 40, "source_hashes": {"a": "hash"}},
     )
     state = runner.resume_after_site0(lock_nonce="nonce")
-    assert state.source_commit == "commit"
+    assert state.source_commit == "c" * 40
     monkeypatch.setattr(
         runner, "load_site0_training_authorization",
-        lambda: {"source_commit": "older", "source_hashes": {"a": "hash"}},
+        lambda: {"source_commit": "d" * 40, "source_hashes": {"a": "hash"}},
     )
-    with pytest.raises(RuntimeError, match="differs at resume"):
+    state = runner.resume_after_site0(lock_nonce="nonce")
+    assert state.source_commit == "d" * 40
+    monkeypatch.setattr(
+        runner, "load_site0_training_authorization",
+        lambda: {"source_commit": "d" * 40, "source_hashes": {"a": "drift"}},
+    )
+    with pytest.raises(RuntimeError, match="source closure differs at resume"):
         runner.resume_after_site0(lock_nonce="nonce")
+
+
+def test_launch_state_ignores_unrelated_head_movement_but_not_source_hash_drift(
+    monkeypatch, tmp_path,
+) -> None:
+    receipt = tmp_path / "rows.json"
+    manifest = tmp_path / "manifest.json"
+    receipt.write_text("{}")
+    manifest.write_text("manifest")
+    monkeypatch.setattr(runner, "ROWS_RECEIPT", receipt)
+    monkeypatch.setattr(runner.authority, "MANIFEST", manifest)
+    monkeypatch.setattr(runner, "_require_run_claim", lambda _: None)
+    monkeypatch.setattr(runner.authority, "protected_snapshot", lambda: {"pin": "ok"})
+    monkeypatch.setattr(
+        runner.authority, "_validate_historical_row_authority", lambda _: None,
+    )
+    monkeypatch.setattr(runner, "_current_program_source_hashes", lambda: {"a": "hash"})
+    state = runner.LaunchState(
+        protected=(("pin", "ok"),), source_commit="launch-commit",
+        source_hashes=(("a", "hash"),),
+        rows_receipt_sha256=runner.authority.file_sha256(receipt),
+        rows_manifest_sha256=runner.authority.file_sha256(manifest),
+    )
+    runner._validate_launch_state(state)
+    monkeypatch.setattr(runner, "_current_program_source_hashes", lambda: {"a": "drift"})
+    with pytest.raises(RuntimeError, match="identity drifted"):
+        runner._validate_launch_state(state)
+
+
+def test_commit_source_binding_rejects_commit_hash_mismatch(
+    monkeypatch, tmp_path,
+) -> None:
+    source = tmp_path / "source.py"
+    source.write_text("current source")
+    monkeypatch.setattr(runner, "ROOT", tmp_path)
+    monkeypatch.setattr(runner.authority, "PROGRAM_SOURCE_CLOSURE", (source,))
+
+    def run(command, **_kwargs):
+        if command[1] == "cat-file":
+            return type("Completed", (), {"returncode": 0, "stdout": b""})()
+        assert command[1] == "show"
+        return type("Completed", (), {"returncode": 0, "stdout": b"older source"})()
+
+    monkeypatch.setattr(runner.subprocess, "run", run)
+    with pytest.raises(RuntimeError, match="not bound to launch commit"):
+        runner._require_commit_source_binding(
+            "c" * 40, {"source.py": runner.authority.file_sha256(source)},
+        )
 
 
 @pytest.mark.parametrize("candidate_valid", [False, True])

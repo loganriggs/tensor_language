@@ -13,6 +13,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from contextlib import contextmanager
+import hashlib
 import os
 from pathlib import Path
 import secrets
@@ -112,8 +113,49 @@ def _require_run_claim(nonce: str) -> None:
         raise RuntimeError("compiler-v2.1 exclusive run claim changed")
 
 
+def _current_program_source_hashes() -> dict[str, str]:
+    """Return the committed-clean content identity of the scientific closure."""
+
+    hashes = {}
+    for path in authority.PROGRAM_SOURCE_CLOSURE:
+        authority.require_committed_clean(path)
+        relative = path.resolve().relative_to(ROOT.resolve())
+        hashes[str(relative)] = authority.file_sha256(path)
+    return hashes
+
+
+def _require_commit_source_binding(
+    source_commit: str, source_hashes: Mapping[str, str],
+) -> None:
+    """Prove that the audit commit contains every frozen scientific blob."""
+
+    if not isinstance(source_commit, str) or len(source_commit) != 40:
+        raise RuntimeError("compiler-v2.1 source commit is malformed")
+    commit_check = subprocess.run(
+        ["git", "cat-file", "-e", f"{source_commit}^{{commit}}"], cwd=ROOT,
+        capture_output=True,
+    )
+    if commit_check.returncode:
+        raise RuntimeError("compiler-v2.1 source commit is absent")
+    expected_paths = {
+        str(path.resolve().relative_to(ROOT.resolve()))
+        for path in authority.PROGRAM_SOURCE_CLOSURE
+    }
+    if set(source_hashes) != expected_paths:
+        raise RuntimeError("compiler-v2.1 source closure path set changed")
+    for relative, expected in sorted(source_hashes.items()):
+        committed = subprocess.run(
+            ["git", "show", f"{source_commit}:{relative}"], cwd=ROOT,
+            capture_output=True,
+        )
+        if committed.returncode or hashlib.sha256(committed.stdout).hexdigest() != expected:
+            raise RuntimeError(
+                f"compiler-v2.1 source hash is not bound to launch commit: {relative}"
+            )
+
+
 def _source_identity() -> tuple[str, dict[str, str]]:
-    """Return the synchronized committed program closure or fail before scoring."""
+    """Return the synchronized launch commit plus its scientific closure."""
 
     head = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, check=True,
@@ -125,11 +167,8 @@ def _source_identity() -> tuple[str, dict[str, str]]:
     ).stdout.strip()
     if head != origin:
         raise RuntimeError("compiler-v2.1 requires HEAD==origin/main")
-    hashes = {}
-    for path in authority.PROGRAM_SOURCE_CLOSURE:
-        authority.require_committed_clean(path)
-        relative = path.resolve().relative_to(ROOT.resolve())
-        hashes[str(relative)] = authority.file_sha256(path)
+    hashes = _current_program_source_hashes()
+    _require_commit_source_binding(head, hashes)
     return head, hashes
 
 
@@ -188,14 +227,17 @@ def resume_after_site0(*, lock_nonce: str) -> LaunchState:
         path.exists() for path in forbidden
     ):
         raise RuntimeError("compiler-v2.1 site0 resume output state changed")
-    source_commit, source_hashes = _source_identity()
     protected = authority.protected_snapshot()
     authority._validate_historical_row_authority(json.loads(ROWS_RECEIPT.read_text()))
     receipt = load_site0_training_authorization()
-    if receipt.get("source_commit") != source_commit or receipt.get(
-        "source_hashes"
-    ) != source_hashes:
+    source_commit = receipt.get("source_commit")
+    source_hashes = receipt.get("source_hashes")
+    current_hashes = _current_program_source_hashes()
+    if not isinstance(source_commit, str) or len(source_commit) != 40 or (
+        source_hashes != current_hashes
+    ):
         raise RuntimeError("compiler-v2.1 site0 source closure differs at resume")
+    _require_commit_source_binding(source_commit, source_hashes)
     return LaunchState(
         protected=tuple(sorted(protected.items())),
         source_commit=source_commit,
@@ -210,10 +252,10 @@ def _validate_launch_state(state: LaunchState) -> None:
     if not isinstance(state, LaunchState):
         raise RuntimeError("v2.1 immutable launch state is absent")
     _require_run_claim(state.lock_nonce)
-    source_commit, source_hashes = _source_identity()
-    if source_commit != state.source_commit or tuple(sorted(source_hashes.items())) != (
-        state.source_hashes
-    ) or tuple(sorted(authority.protected_snapshot().items())) != state.protected or (
+    source_hashes = _current_program_source_hashes()
+    if tuple(sorted(source_hashes.items())) != state.source_hashes or tuple(sorted(
+        authority.protected_snapshot().items()
+    )) != state.protected or (
         authority.file_sha256(ROWS_RECEIPT) != state.rows_receipt_sha256
     ) or authority.file_sha256(authority.MANIFEST) != state.rows_manifest_sha256:
         raise RuntimeError("v2.1 launch-bound source/row/protected identity drifted")

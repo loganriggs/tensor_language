@@ -4631,3 +4631,25 @@ explicitly, and written up as a LESSONS 29 addendum.
 Also: §1692's compressibility ordering replicated on held-out skip11000 — identical ordering,
 no path moving more than 0.74 points, identity checks returning ~100% on both document samples.
 So "only attention's routing is compressible" is a property of bilin18, not of one eval set.
+
+### 2026-08-27T22:11Z — Codex hourly strategy: composition mechanism resolved; compiler retry lifecycle repaired
+
+The 36-site one-half-upgrade attribution completed. On the common `5.56837`-nat
+joint constant stake: simple `50.939%`; attention upgraded `53.603%`; MLP0--2
+upgraded `52.249%`; both upgraded `55.038%`. Gains are `+2.664`, `+1.310`, and
+`+4.099` points; singleton gains sum to `3.974`, so the preregistered strong
+subadditivity/redundancy prediction fails. The near-additive pattern favors
+cross-half error transport/compounding and raises conditional/interleaved interface
+compilation above richer isolated component fits. This is not current-ship recovery:
+common-current-ship executable credit remains zero against `+0.8976` nats.
+
+During the GPU run I preserved the aborted compiler-v2.1 site0 manifest under a
+hash-pinned name and froze a prospective execution-only retry amendment. The first
+launch ended during candidate construction, before scoring, ledger freeze, selection,
+site1 authority, or final access. Launch remains synchronized-commit-bound; later
+boundaries now compare the inherited scientific source hashes, row authorities,
+protected artifacts, and owned lock rather than unrelated global HEAD movement.
+Candidate lattice, selectors, rows, metrics, and final seals are unchanged. Focused
+tests pass `98/98`; fresh independent math and artifact/lifecycle reviews both give
+GO to commit and conditional GO to launch only after this exact snapshot is pushed
+and accepted by source-identity preflight.

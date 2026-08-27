@@ -1,9 +1,11 @@
 # What We Currently Understand About MLP0
 
-*Last updated: 2026-08-27 20:05 UTC. The MLP2 compensation factorial has
-completed; its registered labels are mechanically inconclusive, while its stable
-descriptive pattern shows strong attenuation by deployed MLP2 and the ensuing
-suffix but provides no support for the specifically aligned-write mechanism.*
+*Last updated: 2026-08-27 22:01 UTC. Compiler-v2.1 site0 began from reviewed
+source-frozen commit `4ce0a70e`, but was stopped before candidate scoring or
+selection after unrelated work advanced the shared branch. Its literal
+commit-equality gate would therefore have rejected the run despite unchanged
+registered source hashes. No result is claimed and final rows remain sealed. A
+retry must isolate repository lifecycle from concurrent unrelated commits.*
 
 ## Short version
 
@@ -798,6 +800,61 @@ of $u$.
 The main remaining task is to find an executable, causally sufficient coordinate
 system $u$ whose producer and downstream consumers are jointly simpler than the
 original network.
+
+## 12. Current experiment and when to pivot downstream
+
+We are no longer spending the main experimental budget asking whether MLP0 tokens
+form hard clusters. That question has already been answered negatively in its strong
+form and positively in its weaker shared-structure form.
+
+Compiler-v2.1 asks the more useful question: can we predict the causally concentrated
+MLP0 write coordinates without calling the original MLP, and can MLP1 then be
+compiled in the state actually produced by that replacement? It compares five typed
+families at each site:
+
+- a $z$-only affine anchor;
+- a state-complete affine Euclidean map;
+- a state-complete affine causally weighted map;
+- a native-product Euclidean program;
+- a native-product causally weighted program.
+
+The site0 stage is designed to fit and score both true-label and
+document-block-shuffled 108-cell
+banks. Only after the complete ledgers are frozen does it select an MLP0 program.
+The site1 stage then captures and fits MLP1 under that frozen upstream program rather
+than under native MLP0. This is therefore already a joint producer/consumer search,
+not another isolated MLP0 probe. The first numerical launch produced no candidate
+scores: concurrent commits changed the shared repository HEAD after launch, and the
+frozen lifecycle bound both the relevant source hashes and the literal global commit.
+Because the latter would fail at ledger freeze even when the former were unchanged,
+the run was stopped before paying the full GPU search cost. This is a lifecycle
+failure, not evidence for or against any MLP0 program family.
+
+The decision rule after this run is:
+
+1. If MLP0 and autoregressively fitted MLP1 compose on sealed final documents, treat
+   their frozen coefficient interface as the current executable hypothesis and move
+   immediately to MLP2 plus whole-model composition.
+2. If MLP0 looks adequate locally but the pair fails, stop adding MLP0 clusters or
+   regressors. The failure localizes the missing object to the transported
+   MLP0-to-MLP1 state/write interface or to a jointly selected latent basis.
+3. If the pair works until deployed MLP2 is changed or omitted, fit a conditional
+   MLP2 program on the compiled upstream state. The existing factorial says MLP2 and
+   the suffix attenuate the mismatch but does not support a specially aligned repair
+   write, so the target should be the complete state-conditioned MLP2 map rather than
+   a hand-designed correction vector.
+4. If early-MLP compilation succeeds but whole-model recovery remains weak, shift to
+   attention interfaces. Attention-0 is the only non-token contextual input to MLP0;
+   attention-1 is an immediate consumer of the changed residual state. Routing can
+   use a compact low-rank grammar, while values require a richer grammar: on untouched
+   documents rank-64 routing retained about $63.0\%$, but rank-64 values retained only
+   about $2.29\%$.
+
+So it does make sense to interpret MLP1, MLP2, and the adjacent attention paths and
+then return to MLP0. The precise version is stronger: use those downstream modules as
+the operational definition of which MLP0 coordinates matter. Do not return to MLP0
+unless a downstream composition failure identifies a missing interface that MLP0's
+current program cannot express.
 
 ## Related authoritative write-ups
 

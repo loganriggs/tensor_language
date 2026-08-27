@@ -379,3 +379,58 @@ the corrected rerun gives MLP-only `60.814%`, attention-only `56.263%`, and join
 `50.939%` on a larger `5.56837`-nat 36-site joint constant stake. The halves therefore
 compound instead of reproducing the old independent-fit collapse, but this remains a
 separate ceiling currency—not recovery of the paired `+0.8976` current-ship residual.
+
+## Strategic checkpoint — 2026-08-27 22:11 UTC
+
+The newest 36-site experiment separates the two explanations left open by the
+`50.939% -> 55.038%` best-family upgrade. On the same `5.56837`-nat joint constant
+stake, upgrading attention alone gives `53.603%` (`+2.664` points), upgrading the
+MLP0--2 family alone gives `52.249%` (`+1.310` points), and upgrading both gives
+`55.038%` (`+4.099` points). The singleton gains sum to `3.974` points, slightly
+*less* than the joint gain. The registered strong-redundancy prediction therefore
+fails; the data favor error transport/compounding across approximate halves over
+the hypothesis that both upgrades recover the same information. This makes
+conditional, interleaved interfaces the main simplification target.
+
+No global accounting fraction is upgraded by that result. The valid currencies
+remain: replacement inventory `36/36`; named-variable behavior `32.1% +/- 6.4%`;
+named causal paths `10.92%` of their mean-ablation headroom; current-ship executable
+recovery credit zero against the paired `+0.8976` nat/token residual. The 36-site
+`55.038%` is useful evidence about a separate constant-ablation stake, not a fraction
+of that current-ship residual. The largest gaps are now executable MLP0-to-MLP1 state
+transport, conditional MLP2 behavior, attention routing-to-value semantics, a shared
+current-ship composition denominator, and OOD/edit certification.
+
+After pruning by information gain, causal relevance, composability, falsifiability,
+GPU cost, and duplication, the top five are:
+
+1. Run the source-frozen autoregressive MLP0-to-MLP1 compiler. It directly tests the
+   interface implicated by the new near-additive upgrade result and is the nearest
+   path to an admitted executable early-MLP numerator.
+2. Insert the first admitted early program into a same-row current-ship
+   `attention x early-MLP x deep` cube with one integer support ledger and document
+   bootstrap. This converts local fidelity into recovery of the actual `+0.8976`
+   residual and exposes cross-group interactions.
+3. If greedy MLP0-to-MLP1 compilation fails, preregister a jointly selected latent
+   and conditional MLP2 interface. The failure would localize missing transported
+   state; more isolated MLP0 clusters or Euclidean regressors would be redundant.
+4. Compile attention with typed grammars: low-rank/content-dependent routing and a
+   richer covariance- or suffix-weighted value program. Uniform low-rank treatment
+   is ruled out by the replicated routing/value/MLP path ordering.
+5. Once one program earns common-denominator recovery, require second-corpus and
+   code OOD, held-out interventions, selective removal/edit collateral, and a
+   gauge-minimized conditional-description-length ledger before calling it reverse
+   engineered.
+
+The highest-priority safe CPU action was executed while the upgrade-attribution run
+owned the GPU. The pre-selection compiler abort is preserved and hash-pinned. A
+prospective execution-only amendment now distinguishes the scientific source
+closure from unrelated global repository movement: launch still requires
+`HEAD==origin/main` and committed-clean registered source, while later transaction
+boundaries inherit the launch commit and require exact source hashes, row authority,
+protected snapshots, and the owned run lock. Candidate families, rows, selectors,
+gates, and final seals are unchanged. The focused retry suite passes `98/98`, with a
+new regression proving unrelated HEAD movement is accepted but source-hash drift
+fails closed. Independent lifecycle and mathematical re-audits both give GO to
+commit, and conditional GO to launch only after the exact snapshot is pushed and
+accepted by source-identity preflight.

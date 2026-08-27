@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_retry_after_preselection_operator_abort",
+  "timestamp_utc": "2026-08-27T22:10:00Z",
+  "parent_protocol": "early_mlp_state_complete_compiler_v21_preregistration.json",
+  "scope": "Execution-lifecycle correction only. Candidate families, grids, selectors, rows, metrics, controls, gates, program grammar, and final evaluation remain unchanged.",
+  "exposed_facts": {
+    "first_launch_commit": "4ce0a70e717354af4c45ca42e4b34aa6568386c4",
+    "abort_manifest": "basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site0_aborted_shared_head_drift_manifest.json",
+    "abort_manifest_sha256": "60f08aee6890c885a0e19567d731b629bb5384ca26bc9ac43309cfe22b9a9ea3",
+    "abort_stage": "candidate construction before candidate scoring, ledger freeze, or selection",
+    "site0_candidate_ledgers_written": false,
+    "site0_selection_observed": false,
+    "site0_training_authorized": false,
+    "site1_started": false,
+    "final_rows_loaded": false,
+    "registered_program_source_hashes_changed_during_first_launch": false,
+    "failure_cause": "The shared repository HEAD advanced through unrelated descendant commits after launch. The implementation compared the literal global HEAD to the launch commit at every later transaction boundary, making rejection deterministic despite an unchanged registered source closure."
+  },
+  "prospective_correction": {
+    "launch": "A retry still requires HEAD equal to origin/main and every registered program source committed and clean. The launch commit and exact content hashes are frozen.",
+    "within_process": "After launch, transaction boundaries require the exact frozen program-source content hashes, row authorities, protected snapshots, and owned run lock. Unrelated repository HEAD movement is not scientific source drift and is not compared to the launch commit.",
+    "resume": "A later stage inherits the source commit and content hashes from the last authoritative receipt. It requires the current registered source files to be committed, clean, and content-identical to those hashes; it must not replace the inherited launch commit with the current global HEAD.",
+    "final_authority": "The inherited launch commit remains the audit anchor. Existing final-unlock validation must verify that it exists, is an ancestor of synchronized HEAD, and contains every registered source blob at the frozen hash.",
+    "failure": "Any change to a registered source hash, protected artifact, row authority, or owned lock still fails closed. No failure output may authorize training or final scoring."
+  },
+  "namespace_rule": "The interrupted manifest is preserved under the named abort path and pinned by hash. Because no candidate ledger, selection, or downstream authority existed, the original v2.1 numerical output namespace may be reused once for this lifecycle-only retry. Any later failure follows the parent protocol and requires a fresh committed namespace where specified.",
+  "forbidden_adaptations": [
+    "changing any candidate family or hyperparameter grid",
+    "changing either selector or collateral gate",
+    "changing fit, validation, or sealed-final rows",
+    "using any first-launch activation, coefficient, score, or winner",
+    "claiming the interruption as evidence for or against a program family"
+  ]
+}
