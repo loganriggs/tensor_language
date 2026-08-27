@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/evaluate_mlp0_c512_mlp1_interchange_v1.py", line 732, in <module>
+    authoritative_entry()
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/evaluate_mlp0_c512_mlp1_interchange_v1.py", line 718, in authoritative_entry
+    main()
+  File "/venv/main/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/evaluate_mlp0_c512_mlp1_interchange_v1.py", line 592, in main
+    model = load_authority_model(authority)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/tensor_language/basis_aligned/polynomial_causal/evaluate_mlp0_c512_mlp1_interchange_v1.py", line 383, in load_authority_model
+    import jacclust.tt_model as TT
+ModuleNotFoundError: No module named 'jacclust'
