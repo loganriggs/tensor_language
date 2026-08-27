@@ -2,6 +2,7 @@ import torch
 
 from mlp0_native_down_program import (
     canonical_balanced_factors,
+    compact_centered_codebook,
     deterministic_centroid_derangement,
     fit_reduced_rank_from_statistics,
     load_program,
@@ -71,3 +72,27 @@ def test_fixed_layout_serialization_roundtrips_bf16_and_matches_price(tmp_path):
     for name in ("intercept", "left", "right", "centroids"):
         assert torch.equal(loaded[name], program[name].to(torch.bfloat16))
     assert torch.equal(loaded["assignments"], program["assignments"])
+
+
+def test_continuous_bundle_has_no_codebook_or_vocabulary(tmp_path):
+    program = {
+        "rank": 1, "intercept": torch.zeros(2), "left": torch.ones(2, 1),
+        "right": torch.ones(1, 3), "centroids": torch.empty(0, 2),
+        "assignments": torch.empty(0, dtype=torch.long),
+    }
+    path = tmp_path / "continuous.bin"
+    receipt = serialize_program(path, program)
+    loaded = load_program(path)
+    assert receipt["bytes"] == program_price_bytes(1, vocab=0, d_model=2, hidden=3)["total"]
+    assert loaded["centroids"].shape == (0, 2)
+
+
+def test_codebook_centers_positive_mass_states_and_sentinels_unseen_tokens():
+    table = torch.tensor([[1., 0.], [3., 0.], [9., 0.], [7., 0.]])
+    count = torch.tensor([2., 1., 0., 1.])
+    labels = torch.tensor([0, 0, 1, 2])
+    codebook = compact_centered_codebook(table, count, labels, nominal_states=3)
+    centroids, masses = codebook["centroids"], codebook["masses"]
+    assert torch.allclose((centroids * masses[:, None]).sum(0), torch.zeros(2), atol=1e-6)
+    assert codebook["assignments"].tolist() == [0, 0, 2, 1]
+    assert codebook["sentinel"] == 2

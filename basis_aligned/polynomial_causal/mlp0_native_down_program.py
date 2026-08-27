@@ -41,8 +41,10 @@ def program_price_bytes(
     hidden: int = HIDDEN,
 ) -> dict[str, int]:
     """Exact registered raw-byte price for the fixed decoder wire format."""
-    if rank <= 0 or min(vocab, d_model, hidden) <= 0 or occupied < 0:
+    if rank <= 0 or min(d_model, hidden) <= 0 or vocab < 0 or occupied < 0:
         raise ValueError("invalid program dimensions")
+    if occupied and vocab <= 0:
+        raise ValueError("a hierarchy needs a positive assignment vocabulary")
     factor = COEFFICIENT_BYTES * rank * (d_model + hidden)
     # The additive gauge is fixed to one output intercept.  The fit compiler absorbs
     # -A B mu_h into it; mu_h is never present in the executable bundle.
@@ -190,6 +192,50 @@ def deterministic_centroid_derangement(
         "mean_standardized_mass_norm_mismatch": float(mismatch.norm(dim=1).mean()),
         "max_standardized_mass_norm_mismatch": float(mismatch.norm(dim=1).max()),
         "exact_mass_norm_matching": bool(torch.equal(features, features[permutation])),
+    }
+
+
+def compact_centered_codebook(
+    token_table: torch.Tensor,
+    token_count: torch.Tensor,
+    labels: torch.Tensor,
+    *,
+    nominal_states: int = 64,
+) -> dict[str, torch.Tensor | int]:
+    """Compact positive-mass states and reserve one zero-baseline sentinel.
+
+    Only fit-seen tokens receive an occupied state.  Every unseen token is mapped to
+    the sentinel code ``K``.  Occupied centroids are centered to fit-frequency mean
+    zero, fixing their additive gauge against the single program intercept.
+    """
+    table = token_table.detach().float().cpu()
+    count = token_count.detach().float().cpu()
+    labels = labels.detach().long().cpu()
+    if (table.ndim != 2 or count.shape != (table.shape[0],)
+            or labels.shape != (table.shape[0],)):
+        raise ValueError("token table, counts, and labels have incompatible shapes")
+    if bool(((labels < 0) | (labels >= nominal_states)).any()):
+        raise ValueError("label outside nominal state range")
+    masses = torch.zeros(nominal_states)
+    sums = torch.zeros(nominal_states, table.shape[1])
+    masses.index_add_(0, labels, count)
+    sums.index_add_(0, labels, table * count.unsqueeze(1))
+    occupied_ids = torch.where(masses > 0)[0]
+    occupied_masses = masses[occupied_ids]
+    centroids = sums[occupied_ids] / occupied_masses.unsqueeze(1)
+    weighted_mean = (centroids * occupied_masses.unsqueeze(1)).sum(0) / occupied_masses.sum()
+    centroids = centroids - weighted_mean
+    remap = torch.full((nominal_states,), len(occupied_ids), dtype=torch.long)
+    remap[occupied_ids] = torch.arange(len(occupied_ids))
+    assignments = remap[labels]
+    assignments[count == 0] = len(occupied_ids)
+    return {
+        "centroids": centroids,
+        "masses": occupied_masses,
+        "assignments": assignments,
+        "occupied_original_ids": occupied_ids,
+        "sentinel": int(len(occupied_ids)),
+        "weighted_mean_before_centering": weighted_mean,
     }
 
 
