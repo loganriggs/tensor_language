@@ -22,11 +22,11 @@ from prepare_mlp0_quotient_stage0_v1_rows import file_sha256  # noqa: E402
 
 COLLECTOR = HERE / "mlp0_quotient_worst_cell.py"
 ROW_RECEIPT = BQ / "mlp0_quotient_stage0_v1_rows_receipt.json"
-FIT_RECEIPT = BQ / "mlp0_quotient_stage0_v1_fit_receipt.json"
-AUTHORITY = BQ / "mlp0_quotient_stage0_v1_collector_authority.json"
-RESULT = BQ / "mlp0_quotient_stage0_v1_results.json"
-FAILURE = BQ / "mlp0_quotient_stage0_v1_failure.json"
-LOCK = Path("/workspace/runs/.bilin18_mlp0_quotient_stage0_v1.lock")
+FIT_RECEIPT = BQ / "mlp0_quotient_stage0_v2_fit_receipt.json"
+AUTHORITY = BQ / "mlp0_quotient_stage0_v2_collector_authority.json"
+RESULT = BQ / "mlp0_quotient_stage0_v2_results.json"
+FAILURE = BQ / "mlp0_quotient_stage0_v2_failure.json"
+LOCK = Path("/workspace/runs/.bilin18_mlp0_quotient_stage0_v2.lock")
 MODEL_REPO = "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd"
 SOURCE_CLOSURE = (
     COLLECTOR,
@@ -34,6 +34,7 @@ SOURCE_CLOSURE = (
     HERE / "prepare_mlp0_quotient_stage0_v1_rows.py",
     HERE / "MLP0_CAUSAL_QUOTIENT_SPEC.md",
     HERE / "MLP0_QUOTIENT_STAGE0_V1_AMENDMENT.md",
+    HERE / "MLP0_QUOTIENT_STAGE0_V2_AMENDMENT.md",
     BQ / "bilin18_joint_removal.py",
     ROOT / "basis_aligned" / "qk_mdl" / "tier2_model.py",
     ROOT / "jacclust" / "tt_model.py",
@@ -73,9 +74,9 @@ def build_authority() -> dict[str, Any]:
     ))
     return {
         "schema_version": 1,
-        "receipt_kind": "mlp0_quotient_stage0_v1_collector_authority",
+        "receipt_kind": "mlp0_quotient_stage0_v2_collector_authority",
         "status": "frozen_before_any_v1_evaluation_model_forward",
-        "scope": "single prospective evaluation on frozen skip-21000 rows",
+        "scope": "single deterministic prospective evaluation on frozen skip-21000 rows",
         "source_commit": source_commit,
         "source_hashes": {str(path.resolve()): file_sha256(path) for path in SOURCE_CLOSURE},
         "row_receipt_path": str(ROW_RECEIPT),

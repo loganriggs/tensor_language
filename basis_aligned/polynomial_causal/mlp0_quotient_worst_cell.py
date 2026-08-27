@@ -1,6 +1,6 @@
-"""Authority-bound Stage-0 v1 screen for the existing MLP0 K=64 table.
+"""Authority-bound Stage-0 v2 screen for the existing MLP0 K=64 table.
 
-This implements MLP0_CAUSAL_QUOTIENT_SPEC.md plus the prospective v1 amendment.
+This implements MLP0_CAUSAL_QUOTIENT_SPEC.md plus the prospective v1/v2 amendments.
 The abandoned skip-17000 development attempt produced no result.  V1 consumes only
 the frozen, network-independent skip-21000 row receipt and writes a distinct output.
 It retains document x 16-background-cell sufficient statistics for independent
@@ -49,11 +49,11 @@ FIT_SKIP = 80
 EVAL_SKIP = 21000
 BATCH = 8
 K = 64
-OUT = BQ / 'mlp0_quotient_stage0_v1_results.json'
-AUTHORITY = BQ / 'mlp0_quotient_stage0_v1_collector_authority.json'
-FIT_RECEIPT = BQ / 'mlp0_quotient_stage0_v1_fit_receipt.json'
-FAILURE = BQ / 'mlp0_quotient_stage0_v1_failure.json'
-LOCK = Path('/workspace/runs/.bilin18_mlp0_quotient_stage0_v1.lock')
+OUT = BQ / 'mlp0_quotient_stage0_v2_results.json'
+AUTHORITY = BQ / 'mlp0_quotient_stage0_v2_collector_authority.json'
+FIT_RECEIPT = BQ / 'mlp0_quotient_stage0_v2_fit_receipt.json'
+FAILURE = BQ / 'mlp0_quotient_stage0_v2_failure.json'
+LOCK = Path('/workspace/runs/.bilin18_mlp0_quotient_stage0_v2.lock')
 MARGINS = {'kl': 0.01, 'ce': 0.0075, 'attn1_nrmse': 0.05, 'mlp1_nrmse': 0.05}
 CELL_NAMES = [
     f"pos{pos}_freq{freq}_prev{prev}_dev{dev}"
@@ -172,15 +172,18 @@ def fwd(idx: torch.Tensor, arm: str) -> tuple[torch.Tensor, dict[str, torch.Tens
 
 
 def build_token_tables(fit_rows: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor, dict[str, float]]:
-    token_sum = torch.zeros(V, D, device=DEV)
-    token_count = torch.zeros(V, device=DEV)
+    # Match mlp0_downstream_clusters.py exactly: captures and repeated-token
+    # accumulation are CPU-resident.  CUDA index_add uses atomic addition and made
+    # the v1 fit receipt numerically non-repeatable, which then flipped k-means ties.
+    token_sum = torch.zeros(V, D)
+    token_count = torch.zeros(V)
     attn_sum = attn_sq = mlp_sum = mlp_sq = 0.0
     n_vector = 0
     for start in range(0, NFIT, BATCH):
         idx = fit_rows[start:start + BATCH, :-1].to(DEV).contiguous()
         _, cap = fwd(idx, 'O')
-        flat_token = idx.reshape(-1)
-        flat_m0 = cap['m0'].reshape(-1, D)
+        flat_token = idx.reshape(-1).cpu()
+        flat_m0 = cap['m0'].reshape(-1, D).cpu()
         token_sum.index_add_(0, flat_token, flat_m0)
         token_count.index_add_(0, flat_token, torch.ones_like(flat_token, dtype=torch.float))
         for name, prefix in (('attn1', 'attn'), ('mlp1', 'mlp')):
@@ -203,7 +206,7 @@ def build_token_tables(fit_rows: torch.Tensor) -> tuple[torch.Tensor, torch.Tens
         'attn1': math.sqrt(max(attn_sq / n_vector - (attn_sum / n_vector) ** 2, 1e-20)),
         'mlp1': math.sqrt(max(mlp_sq / n_vector - (mlp_sum / n_vector) ** 2, 1e-20)),
     }
-    return token_table, token_count, scales
+    return token_table.to(DEV), token_count.to(DEV), scales
 
 
 @torch.no_grad()
@@ -241,15 +244,20 @@ def build_cluster_table(token_table: torch.Tensor, token_count: torch.Tensor,
                     embedding[selected] * weights[selected].unsqueeze(1)
                 ).sum(0) / mass
     labels = torch.cdist(embedding, centroids).argmin(1)
-    table_sum = torch.zeros(K, D, device=DEV)
-    table_weight = torch.zeros(K, device=DEV)
-    table_sum.index_add_(0, labels, token_table * weights.unsqueeze(1))
-    table_weight.index_add_(0, labels, weights)
+    # Canonical CPU accumulation makes the emitted table independent of CUDA
+    # atomic scheduling while leaving the registered labels and weighted means intact.
+    labels_cpu = labels.cpu()
+    weights_cpu = weights.cpu()
+    table_sum = torch.zeros(K, D)
+    table_weight = torch.zeros(K)
+    table_sum.index_add_(0, labels_cpu, token_table.cpu() * weights_cpu.unsqueeze(1))
+    table_weight.index_add_(0, labels_cpu, weights_cpu)
+    global_mean_cpu = global_mean.cpu()
     compact = torch.where(
         table_weight.unsqueeze(1) > 0,
         table_sum / table_weight.clamp_min(1e-6).unsqueeze(1),
-        global_mean.unsqueeze(0),
-    )
+        global_mean_cpu.unsqueeze(0),
+    ).to(DEV)
     occupied = int((table_weight > 0).sum())
     return compact[labels], labels, occupied
 
@@ -344,7 +352,7 @@ def fit_state(fit_rows: torch.Tensor) -> dict:
 def fit_receipt_payload(state: dict, fit_rows: torch.Tensor) -> dict:
     return {
         'schema_version': 1,
-        'receipt_kind': 'mlp0_quotient_stage0_v1_fit_constants',
+        'receipt_kind': 'mlp0_quotient_stage0_v2_fit_constants',
         'status': 'frozen_before_any_v1_evaluation_model_forward',
         'fit_rows_sha256': tensor_hash(fit_rows),
         'fit_rows_receipt_sha256': file_sha256(ROW_RECEIPT),
@@ -504,7 +512,7 @@ def main() -> None:
         gates['stage0_passes'] = all(gates.values())
         result = {
             'schema_version': 1,
-            'experiment': 'mlp0_quotient_worst_cell_stage0',
+            'experiment': 'mlp0_quotient_worst_cell_stage0_v2',
             'rows': {
                 'fit': {'n': NFIT, 'skip': FIT_SKIP, 'sha256': tensor_hash(fit_rows)},
                 'eval': {'n': NEVAL, 'skip': EVAL_SKIP, 'sha256': tensor_hash(eval_rows)},
@@ -564,7 +572,7 @@ def authoritative_entry() -> None:
         if not OUT.exists() and not FAILURE.exists():
             write_json_atomic({
                 'schema_version': 1,
-                'experiment': 'mlp0_quotient_stage0_v1',
+                'experiment': 'mlp0_quotient_stage0_v2',
                 'status': 'failed_closed_without_scientific_result',
                 'error_type': type(error).__name__,
                 'error': str(error),

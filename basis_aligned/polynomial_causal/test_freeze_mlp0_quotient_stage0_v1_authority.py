@@ -15,6 +15,7 @@ def test_source_closure_contains_math_rows_model_and_amendment():
     assert "causal_response_quotient.py" in names
     assert "prepare_mlp0_quotient_stage0_v1_rows.py" in names
     assert "MLP0_QUOTIENT_STAGE0_V1_AMENDMENT.md" in names
+    assert "MLP0_QUOTIENT_STAGE0_V2_AMENDMENT.md" in names
     assert "bilin18_joint_removal.py" in names
     assert "tier2_model.py" in names
     assert "tt_model.py" in names
@@ -22,4 +23,4 @@ def test_source_closure_contains_math_rows_model_and_amendment():
 
 def test_result_failure_and_authority_namespaces_are_distinct():
     assert len({AUTH.AUTHORITY, AUTH.RESULT, AUTH.FAILURE, AUTH.FIT_RECEIPT}) == 4
-    assert "stage0_v1" in AUTH.RESULT.name
+    assert "stage0_v2" in AUTH.RESULT.name

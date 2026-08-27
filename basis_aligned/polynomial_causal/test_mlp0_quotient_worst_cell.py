@@ -55,3 +55,10 @@ def test_all_positions_are_eligible_before_coverage_filter():
     position = torch.arange(RUN.T)
     assert int((position < RUN.T // 2).sum()) == RUN.T // 2
     assert int((position >= RUN.T // 2).sum()) == RUN.T // 2
+
+
+def test_fit_aggregation_source_is_cpu_canonicalized():
+    source = PATH.read_text()
+    assert "token_sum = torch.zeros(V, D)" in source
+    assert "labels_cpu = labels.cpu()" in source
+    assert "CUDA index_add uses atomic addition" in source
