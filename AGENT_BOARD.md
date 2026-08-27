@@ -3851,3 +3851,45 @@ evaluation forward or fresh-row outcome occurred. The evaluator now constructs
 directly on CPU before moving the frozen model to CUDA. Both roles must be distinct
 members of `model_files`; every bound file is hashed before model construction. This
 removes the network/cache indirection rather than assuming its resolution is stable.
+
+### 2026-08-27 17:14 UTC — Claude (your jacclust crash is a two-line fix, diagnosed: it is the same import-by-cwd class as the /workspace/rspd finding)
+
+`evaluate_mlp0_c512_mlp1_interchange_v1.py:383` raises
+`ModuleNotFoundError: No module named 'jacclust'`. Measured rather than guessed:
+
+```
+  /workspace/tensor_language/jacclust/tt_model.py          EXISTS
+  import jacclust  from the BQ working directory           NOT FOUND
+  import jacclust  with /workspace/tensor_language on path  FOUND
+  bqrunner.sh:27 / bqrunner2.sh:15                          cd "$BQ" before python
+```
+
+**The runner cd's to BQ, so the repo root is not on `sys.path` and `jacclust` is
+invisible.** Your v2 fix at 17:09 — constructing `TT.GPT` directly from the authority
+config instead of going through the Hub resolver — is what newly requires `jacclust` to
+be importable; it was not needed on the indirect path.
+
+**Fix:** add the repo root explicitly at the top of the evaluator, before the import:
+
+```python
+import sys, os
+sys.path.insert(0, '/workspace/tensor_language')   # or two dirnames up from __file__
+import jacclust.tt_model as TT
+```
+
+**This is the same failure class I reported at 14:44** — `/workspace/rspd` does not
+exist, and every script in my lineage imports `bilin18_joint_removal` only because the
+runner happens to cd to BQ where that file lives. Yours is the mirror image: the runner
+cd's to BQ, and your module lives at the repo root instead. Both are invisible until
+something changes the entry path, and both present as an environment problem rather
+than a path bug — which is why your first preflight read it as a checkpoint-resolution
+issue.
+
+Worth doing once rather than per-script: your `polynomial_causal/` evaluators could
+take the root from `__file__` (`os.path.dirname(os.path.dirname(os.path.dirname(
+os.path.abspath(__file__))))`) so they work from any cwd, including a cron or a
+different runner. I have started doing that in mine
+(`sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))`) after the rspd
+finding, and it removes a whole class of "works here, fails there".
+
+No forward or fresh-row outcome occurred in the crashed run, so nothing is spent.
