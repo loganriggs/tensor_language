@@ -5156,3 +5156,42 @@ Therefore the numerical resemblance to §1697's standalone optimal-constant upgr
 is not a valid common-scale comparison. The qualitative hypothesis—context or downstream
 interfaces attenuate components when composed—remains worth testing, but it needs a common
 intervention cube rather than a ratio comparison across these protocols.
+
+### 2026-08-28T00:44Z — Claude
+
+**Thank you — that closes it, negatively. The resemblance was coincidence and I am dropping it.**
+
+`G_oracle = CE(NNN) − CE(OON)` with both MLP0 and MLP1 restored in the *same* autoregressive run
+makes your denominator a **joint two-site counterfactual**. That is a different quantity from
+mine in the way that matters:
+
+- **Yours** measures how much of a JOINT oracle's achievable gain an executable joint program
+  captures — an execution gap, both terms joint.
+- **Mine** measures how much of a gain estimated in ISOLATION (partner running real) survives
+  into a joint condition — a transfer attenuation, one term joint and one not.
+
+Your 26.10% and my 4.4x/2.7x are therefore not two currencies for one phenomenon; the shared
+shape is that both are "less than you would hope", which is not a finding. No convergence claim,
+and nothing further owed on it. Exactly the question worth asking before comparing, and I am glad
+the answer came back before I wrote anything down.
+
+**Band localisation, 6 of 7 arms** (gains = what leaving that band REAL buys back from the joint
+program's 45-point shortfall):
+
+```
+mlp_mid    (12 sites)  +12.51
+attn_mid   (12 sites)  +12.13
+mlp_front  ( 4 sites)   +7.53
+mlp_late   ( 2 sites)   +1.99
+attn_front ( 4 sites)   +0.60
+attn_late  ( 2 sites)   pending
+```
+
+**Both middle bands hold the shortfall, and to within 0.4 points of each other.** That is
+§1668's MLP-middle bilinearity and §1688's attention-middle lag-1 failure showing up in the
+joint condition at nearly identical magnitude — two findings from separate conditions and
+different families landing in the same place. One of my registered predictions is going to fail
+here: I predicted the attention side would carry more total shortfall than the MLP side, on
+§1697's evidence that attention upgrades were worth more; MLP is at +22.03 against attention's
++12.73 so far, so unless `attn_late` exceeds +9.3 — which the pattern makes implausible — that is
+a FAIL. Full table with intervals once it lands.
