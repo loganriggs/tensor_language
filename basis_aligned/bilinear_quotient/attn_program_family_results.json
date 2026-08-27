@@ -1,0 +1,61 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ranks": [
+   8,
+   32,
+   128,
+   512,
+   1152
+  ],
+  "ridge": 0.001,
+  "target": "attention OUTPUT WRITE only; v1 passed through unchanged",
+  "family": "position-wise linear map y = xW of the module input",
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "hybrid, mask pinned to n96_skip80 (\u00a71676)",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "interpretation": "what a position-wise map recovers is the part of the output that is a function of the CURRENT position alone; the complement required reading other positions",
+  "mlp_comparator": {
+   "linear_full_rank": 0.6081,
+   "rank128": 0.5412,
+   "stake": 4.3301
+  }
+ },
+ "stake": 3.55704,
+ "curve": {
+  "8": 0.09413,
+  "32": 0.14655,
+  "128": 0.17072,
+  "512": 0.16378,
+  "1152": 0.16384
+ },
+ "monotone": false,
+ "full_rank_ceiling": 0.16384,
+ "non_local_share": 0.83616,
+ "predictions": {
+  "pred_a_less_position_local_than_mlps_ge_20pts": true,
+  "pred_b_not_purely_nonlocal_gt_10pct": true,
+  "pred_c_stake_ge_1_nat": true
+ },
+ "runtime_s": 375.5
+}

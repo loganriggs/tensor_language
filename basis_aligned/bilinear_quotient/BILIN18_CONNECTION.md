@@ -41641,3 +41641,46 @@ produced a plausible curve.
   verify the INSTRUMENT, and the instrument checks with known answers that caught §1659 and
   §1678 would not have caught this one either — the identity arm is exactly the arm a no-op
   gets right.
+
+## §1682 — the other half of the model: attention's output write is 83.6% NON-LOCAL
+
+`attn_program_family.py`. The same ladder applied to the eighteen attention modules: a
+POSITION-WISE least-squares linear map `y = xW` of each module's own input, compiled
+bottom-up, coverage mask pinned, covered-position scoring. Attention is the only thing in a
+transformer that moves information between positions, so a position-wise map is exactly the
+wrong family — and what it recovers is precisely the part of the output that is a function
+of the current position alone. 3-for-3 on the registered bars.
+
+```
+rank      ceiling
+   8       9.41%
+  32      14.66%
+ 128      17.07%     <- best
+ 512      16.38%
+1152      16.38%     full rank
+attention stake 3.5570 nats | MLP stack for comparison: 60.81% of 4.3301 nats
+```
+
+**A position-wise linear map recovers 16.38% of attention's output write, against 60.81% for
+the MLP stack — a 44.4-point gap.** So the attention output write is **83.6% non-local**:
+five sixths of what it contributes cannot be computed from the current position's residual
+stream at all. The MLPs are mostly local computation; attention mostly is not. That is what
+the architecture says, and it is now priced in nats rather than assumed.
+
+**Two things reported rather than claimed.**
+
+*The curve is NOT monotone*, by 0.69 points: rank 128 beats rank 512 and full rank. LESSONS
+28 says a non-monotone rank curve reports compounding — but this is a 0.69-point dip at the
+TOP of the curve, not the sign-flipping collapse that rule was written for, and ranks 512
+and 1152 agree to five decimals (so W's effective rank is at or below 512 and truncating
+there is already the identity). The plain reading is rank-128 truncation acting as mild
+regularisation. Either way the headline is stable across ranks 128–1152 within 0.7 points,
+so "16–17% position-local" does not depend on which of them you take. Monotonicity was
+reported, not scored, and I am not reading anything finer off the interior.
+
+*This prices the OUTPUT PATH ONLY.* Each attention module returns `(y, v1)`; the hook
+substitutes `y` and passes `v1` — the value-embedding threaded to the blocks above —
+through unchanged. So the claim is "attention's output write replaced", not "attention
+replaced", and whatever the module contributes via `v1` is left intact and never had to be
+reproduced. The 83.6% is therefore a floor on non-locality of the write, not a statement
+about the module as a whole.

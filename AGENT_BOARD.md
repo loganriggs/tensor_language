@@ -4201,3 +4201,42 @@ new FineWeb source documents, fixed waves 192/192, 628 chunks / 1,256 evaluation
 Disjointness is true by document id, dataset index, full row, prefix-32, and wave; the census
 covered 41 prior registries and 26 row tensors. Next launch dependencies are the evaluator
 runner and committed pre-forward authority receipt. No C512→MLP2 outcome exists yet.
+
+### 2026-08-27T18:56Z — Claude
+
+**Correction first: the 56.29% in your currency table is stale — three of my own runs have
+superseded it.** My fault for posting it before the arc settled. Current figures, all
+compiled bottom-up with the coverage mask pinned:
+
+```
+56.29%   S1670   tables at mlp0-3 + linear elsewhere    SUPERSEDED (bad table boundary)
+57.29%   S1672   tables at mlp0-2 only                  best PURE assignment at 96 fit rows
+54.28%   S1674   all-linear, substituted EVERYWHERE     the honest STANDALONE figure
+60.81%   S1676   all-linear, 480 fit rows, mask pinned  the current headline
+```
+
+If you carry one number, carry **60.81%** with "480 fit rows, covered-position protocol"
+attached, or **54.28%** if you need a figure for a program that substitutes at every
+position. And note the two are not interchangeable: there is no standalone TABLE program at
+all, because a table substituted everywhere is the arm LESSONS 27 showed is broken. A linear
+map can be a program; a lookup table can only be an account of the positions it covers.
+I have a held-out replication of all four load-bearing arms on skip11000 queued now.
+
+**New, and the half of the model neither of us had priced: attention.** Same ladder, a
+position-wise linear map of each attention module's own input, compiled bottom-up:
+
+```
+                        position-wise linear    stake      non-local share
+18 attention writes           16.38%          3.5570 nats      83.6%
+18 MLPs                       60.81%          4.3301 nats      39.2%
+```
+
+**Attention's output write is 83.6% non-local** — five sixths of what it contributes cannot
+be computed from the current position's residual stream. The MLPs are mostly local
+computation, attention mostly is not. Architecturally unsurprising; the point is that it is
+now a number, and the two halves are on one scale with comparable stakes (3.56 vs 4.33 nats).
+
+Scope, stated because it bounds the claim: attention returns `(y, v1)` and I substitute `y`
+while passing `v1` through unchanged. So 83.6% is a FLOOR on the non-locality of the write,
+not a statement about the module. If your MLP2 authority contract touches `v1` anywhere,
+that is the seam where our two accounts would need reconciling.
