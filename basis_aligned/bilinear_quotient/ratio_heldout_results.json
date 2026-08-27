@@ -1,0 +1,131 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "n_rows": 480,
+  "classes": "held out -- appear in no prior section of the arc",
+  "single_registered_hypothesis": "abs(lam1/lam2) predicts relative CE rise",
+  "currency": "relative CE rise = ce_rise / base_ce (\u00a71645)",
+  "discovery_rho_in_sample": 0.3007
+ },
+ "per_class": {
+  "for": {
+   "lam1": 43.278,
+   "lam2": 39.554,
+   "ratio": 1.0941,
+   "base_ce": 2.286,
+   "ce_rise": 0.02153,
+   "rel_ce_rise": 0.00942,
+   "n_positions": 622
+  },
+  "on": {
+   "lam1": 41.908,
+   "lam2": 35.977,
+   "ratio": 1.1649,
+   "base_ce": 2.56517,
+   "ce_rise": 0.02748,
+   "rel_ce_rise": 0.01071,
+   "n_positions": 474
+  },
+  "that": {
+   "lam1": 52.132,
+   "lam2": 43.104,
+   "ratio": 1.2095,
+   "base_ce": 2.21425,
+   "ce_rise": 0.04631,
+   "rel_ce_rise": 0.02091,
+   "n_positions": 909
+  },
+  "as": {
+   "lam1": 38.817,
+   "lam2": 32.314,
+   "ratio": 1.2013,
+   "base_ce": 2.56801,
+   "ce_rise": 0.02388,
+   "rel_ce_rise": 0.0093,
+   "n_positions": 382
+  },
+  "was": {
+   "lam1": 67.673,
+   "lam2": 52.579,
+   "ratio": 1.2871,
+   "base_ce": 1.99808,
+   "ce_rise": 0.02528,
+   "rel_ce_rise": 0.01265,
+   "n_positions": 428
+  },
+  "but": {
+   "lam1": 55.631,
+   "lam2": 35.187,
+   "ratio": 1.581,
+   "base_ce": 2.42946,
+   "ce_rise": 0.03649,
+   "rel_ce_rise": 0.01502,
+   "n_positions": 206
+  },
+  "not": {
+   "lam1": 39.842,
+   "lam2": 32.261,
+   "ratio": 1.235,
+   "base_ce": 2.521,
+   "ce_rise": 0.01731,
+   "rel_ce_rise": 0.00687,
+   "n_positions": 309
+  },
+  "this": {
+   "lam1": 43.536,
+   "lam2": 41.289,
+   "ratio": 1.0544,
+   "base_ce": 3.23571,
+   "ce_rise": 0.03923,
+   "rel_ce_rise": 0.01212,
+   "n_positions": 309
+  },
+  "which": {
+   "lam1": 38.642,
+   "lam2": 29.445,
+   "ratio": 1.3123,
+   "base_ce": 2.74426,
+   "ce_rise": 0.05572,
+   "rel_ce_rise": 0.0203,
+   "n_positions": 108
+  },
+  "or": {
+   "lam1": 30.467,
+   "lam2": 29.093,
+   "ratio": 1.0473,
+   "base_ce": 3.23686,
+   "ce_rise": 0.01567,
+   "rel_ce_rise": 0.00484,
+   "n_positions": 273
+  },
+  "had": {
+   "lam1": 69.04,
+   "lam2": 51.518,
+   "ratio": 1.3401,
+   "base_ce": 2.9908,
+   "ce_rise": 0.04665,
+   "rel_ce_rise": 0.0156,
+   "n_positions": 170
+  },
+  "they": {
+   "lam1": 125.078,
+   "lam2": 90.129,
+   "ratio": 1.3878,
+   "base_ce": 2.43015,
+   "ce_rise": 0.07264,
+   "rel_ce_rise": 0.02989,
+   "n_positions": 197
+  }
+ },
+ "heldout_rho": 0.6783,
+ "permutation_p_two_sided": 0.01858,
+ "n_permutations": 200000,
+ "n_positive_rise": 12,
+ "predictions": {
+  "pred_a_rho_ge_030_heldout": true,
+  "pred_b_perm_p_lt_05": true,
+  "pred_c_10of12_positive_rise": true
+ },
+ "runtime_s": 79.6
+}

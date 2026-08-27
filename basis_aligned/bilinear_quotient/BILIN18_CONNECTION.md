@@ -40077,3 +40077,67 @@ tried on a fixed dataset, so its .301 is optimistically biased by selection, and
 fourth predictor would compound that. The correct move is a held-out set of classes
 with the ratio registered IN ADVANCE as the single hypothesis — or accepting that this
 line has produced a well-characterised negative and stopping.
+
+## §1647 THE EIGENVALUE RATIO REPLICATES OUT OF SAMPLE (3-for-3): rho **+.678** at permutation p **.019** on twelve classes it was never fitted on, single hypothesis registered in advance — the first significant result of this arc, and its numbers are eerily close to the one that failed in §1616
+
+**Setup** (ratio_heldout, 80 s, rung 3 — the completion §1646 said was the correct
+move). §1646 found the eigenvalue ratio |λ1/λ2| the best of three predictors of
+relative CE rise at rho .301 — but best-of-three on fixed data is optimistically
+biased, so I registered the ratio as the SINGLE hypothesis and ran it on twelve
+classes appearing in no prior section: for, on, that, as, was, but, not, this, which,
+or, had, they. Only one predictor is computed, so there is nothing to select over.
+
+```
+class   ratio    n_pos    CE base -> ablated    rel rise
+they    1.388      197    2.4302 -> 2.5028      +.02989
+but     1.581      206    2.4295 -> 2.4660      +.01502
+had     1.340      170    2.9908 -> 3.0374      +.01560
+which   1.312      108    2.7443 -> 2.8000      +.02030
+was     1.287      428    1.9981 -> 2.0234      +.01265
+not     1.235      309    2.5210 -> 2.5383      +.00687
+that    1.209      909    2.2142 -> 2.2606      +.02091
+as      1.201      382    2.5680 -> 2.5919      +.00930
+on      1.165      474    2.5652 -> 2.5927      +.01071
+for     1.094      622    2.2860 -> 2.3075      +.00942
+this    1.054      309    3.2357 -> 3.2749      +.01212
+or      1.047      273    3.2369 -> 3.2525      +.00484
+
+HELD-OUT rho(|λ1/λ2|, relative CE rise) = +.6783   two-sided permutation p = .01858
+```
+
+- **pred_a PASSED** — **+.678**, well past the ≥+.30 bar and above its own in-sample
+  discovery value of .301.
+- **pred_b PASSED** — **p = .019**. The first result in this arc to clear .05.
+- **pred_c PASSED** — **12 of 12** positive CE rise, up from §1644's 11/12.
+
+**WHAT THIS CHANGES.** FINDINGS 12 claim (g) said the separation apparatus has no
+demonstrated causal consequence. That stands for the SEPARATION GAP — §1644 killed it
+and §1645 recovered it only to p .235. But a different, far cheaper quantity does
+predict causal cost: **how far the leading eigenvalue of the class-projected quadratic
+stands above the second**, computable from WEIGHTS ALONE with no rows, no forward
+passes, no 20-basis null. If this holds, twenty-two runs of separation machinery were
+measuring a worse signal than one eigendecomposition.
+
+**THREE CAUTIONS, and the first is severe.**
+
+1. **The numbers are almost exactly those of the claim that failed.** §1614 reported
+   rho **.6727** at p **.0192** on ten classes and called it "REAL at power"; §1616
+   then got rho .0182 at p .9601 on ten disjoint classes. This section reports rho
+   **.6783** at p **.0186** on twelve. That coincidence is not evidence against the
+   result, but it is the exact magnitude and exact n where this ledger has been fooled
+   before. **The one structural difference is that §1614 was in-sample and this is
+   out-of-sample against a hypothesis registered before the run** — which is precisely
+   the protection §1614 lacked.
+2. **Out-of-sample rho (.678) EXCEEDS in-sample (.301), which is backwards.** Normally
+   held-out performance degrades. The likely reason is composition: the discovery set
+   mixed punctuation with function words, while every held-out class is a function
+   word. So the relationship may be clean WITHIN function words and confounded across
+   types — which §1637's class-type lesson would predict, and which is testable.
+3. **n=12 with rho .678 still has a wide interval.** p .019 is a rejection of the null
+   ordering, not a precise estimate.
+
+**WHAT I AM NOT DOING.** Promoting this to the registry as certified, or updating
+FINDINGS 12's bottom line beyond a pointer. One pre-registered out-of-sample hit at
+n=12, in the exact numeric neighbourhood of a known failure, earns a second held-out
+set — ideally punctuation and mixed types, which would test caution 2 directly — not a
+claim. That run is the obvious next step and it is cheap (~80 s).

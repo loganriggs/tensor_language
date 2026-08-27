@@ -281,7 +281,14 @@ circuit moves stage.**
     (§1634), on CLASS TYPE (§1637) and on CONFIGURATION (§1639), not merely on rows, seeds and
     statistic.
     §1633's headline margin of 13/60 collapsed to 2/60 once punctuation was compared against
-    punctuation. **(g) THE BRIDGE FAILS (§1643-§1644).** Mean-ablating a class's own mlp11 slice costs that
+    punctuation. **(g) THE BRIDGE FAILS FOR THE GAP, BUT NOT FOR THE EIGENVALUE RATIO (§1643-§1647).**
+    §1647: |λ1/λ2| — computable from WEIGHTS ALONE — predicts relative CE rise at rho +.678,
+    permutation p .019, on twelve held-out classes with the hypothesis registered in advance.
+    That is the first significant result of the arc and it is NOT yet promoted: its rho and p
+    sit almost exactly on §1614's (.6727, p .0192), which §1616 then refuted, and its
+    out-of-sample rho exceeds in-sample, suggesting the relationship may hold within function
+    words only. A second held-out set spanning types is required before any claim. For the
+    SEPARATION GAP the bridge does fail:  Mean-ablating a class's own mlp11 slice costs that
     class CE in 11/12 classes — solid — but the separation gap does NOT predict how much:
     rho +.056 at permutation p .43 on twelve classes, while rho(n_positions, CE rise) = −.580,
     ten times stronger. §1643's +.657 on six classes was an n_positions artifact and is

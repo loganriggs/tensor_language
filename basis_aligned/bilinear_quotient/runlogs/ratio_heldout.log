@@ -1,0 +1,22 @@
+[tier2_model] hub unreachable for Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd/config.json (RemoteProtocolError); using local cache
+HELD-OUT: 12 classes never used in §1623-§1646. 480 canonical rows (receipt 815b21618c2e477e). Single registered hypothesis: |lam1/lam2|.
+  for    ratio  1.094 | n=  622 | CE 2.2860 -> 2.3075 | rel rise +0.00942
+  on     ratio  1.165 | n=  474 | CE 2.5652 -> 2.5927 | rel rise +0.01071
+  that   ratio  1.209 | n=  909 | CE 2.2142 -> 2.2606 | rel rise +0.02091
+  as     ratio  1.201 | n=  382 | CE 2.5680 -> 2.5919 | rel rise +0.00930
+  was    ratio  1.287 | n=  428 | CE 1.9981 -> 2.0234 | rel rise +0.01265
+  but    ratio  1.581 | n=  206 | CE 2.4295 -> 2.4660 | rel rise +0.01502
+  not    ratio  1.235 | n=  309 | CE 2.5210 -> 2.5383 | rel rise +0.00687
+  this   ratio  1.054 | n=  309 | CE 3.2357 -> 3.2749 | rel rise +0.01212
+  which  ratio  1.312 | n=  108 | CE 2.7443 -> 2.8000 | rel rise +0.02030
+  or     ratio  1.047 | n=  273 | CE 3.2369 -> 3.2525 | rel rise +0.00484
+  had    ratio  1.340 | n=  170 | CE 2.9908 -> 3.0374 | rel rise +0.01560
+  they   ratio  1.388 | n=  197 | CE 2.4302 -> 2.5028 | rel rise +0.02989
+
+  HELD-OUT rho(|lam1/lam2|, relative CE rise) = +0.6783
+  two-sided sampled permutation p (200000) = 0.01858
+  in-sample discovery value was +0.3007 (best of three, p .342)
+  classes with positive CE rise: 12/12  (§1644 had 11/12)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ratio_heldout_results.json (79.6s)
