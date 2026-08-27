@@ -39848,6 +39848,11 @@ its rise is 7.7x.
 top-of-range behaviour could be partly a small-sample effect and this run cannot
 distinguish that.
 
+**REFUTED BY §1644 — see that section. At n=12 the correlation is +.056 at p = .43 and
+the n_positions confound is ten times stronger (rho −.580). The verdict below was the
+right call at the time and the flag it carries is why §1644 is a correction rather than
+a retraction, but the association itself does not hold.**
+
 **Verdict, stated at the strength the evidence supports: SUGGESTIVE, NOT ESTABLISHED.**
 Ablating a class's own slice reliably costs that class CE (6/6, and that part is solid).
 Whether the separation gap PREDICTS how much is an underpowered association driven by
@@ -39869,3 +39874,80 @@ the −.0115, and **the rank order is identical**, so rho = +.657 and all three
 predictions stand exactly as scored. The defect is in provenance, not in the result.
 The successor run computes gap and CE rise in the SAME run for every class, which
 removes this class of error rather than patching it.
+
+## §1644 §1643's BRIDGE IS REFUTED AT PROPER POWER (0-for-3): at n=12 the gap→CE correlation collapses from +.657 to **+.056** (p = .43), and the n_positions confound I named but could not test is **ten times stronger** (rho −.580) — the separation statistic does NOT predict causal cost
+
+**Setup** (gap_ce_12class, 1540 s, rung 3 — §1643's own named next step). Twelve
+classes at mlp11 rank-2 TOP-4, with the separation gap and the CE rise computed **in
+the same run** from the same rows and seeds, removing §1643's provenance defect
+structurally. `pred_b` is a real significance bar (200k sampled permutations, fixed
+seed) and `pred_c` scores the n_positions confound §1643 could only name.
+
+```
+class      gap       CE rise     n_pos
+question  +.1633     +.07529       214
+to        +.1310     +.03427      1987
+period    +.0713     +.00974      3766
+and       +.0329     +.02002      1716
+comma     +.0221     +.01993      3599
+is        +.0108     −.00257       771
+at        −.0075     +.02874       326
+the       −.0115     +.01355      3080
+in        −.0132     +.01685      1060
+of        −.0279     +.01773      1650
+with      −.0518     +.03004       487
+by        −.0547     +.04341       219
+
+rho(gap,    CE rise) = +.0559     permutation p = .434
+rho(n_pos,  CE rise) = −.5804     <- TEN TIMES STRONGER THAN THE SIGNAL
+```
+
+- **pred_a FAILED** — rho **+.056**, against a ≥.60 bar. §1643's +.657 does not
+  survive doubling the sample.
+- **pred_b FAILED** — p = **.434**. Not remotely significant.
+- **pred_c FAILED** — |rho(n_pos)| **.580** > |rho(gap)| **.056**. The association is
+  an n_positions artifact, and not marginally: the confound is an order of magnitude
+  stronger than the effect it was competing with.
+
+**§1643's HEADLINE IS WITHDRAWN, AND THE MECHANISM IS NOW VISIBLE.** CE rise tracks
+how FEW positions a class has, not how large its separation gap is:
+
+```
+  question  n=214  rise +.0753   <- fewest positions, largest rise
+  by        n=219  rise +.0434   <- 2nd fewest, 2nd largest
+  at        n=326  rise +.0287
+  with      n=487  rise +.0300
+  period   n=3766  rise +.0097   <- most positions, smallest rise
+```
+
+§1643's `pred_c` ("question has the largest CE rise") passed **for the wrong reason** —
+question has 214 positions, the fewest of the twelve. And `by`, which has the MOST
+NEGATIVE gap (−.0547), has the second-LARGEST rise (+.0434), exactly inverting the
+hypothesis. §1643's rho of +.657 was six points arranged so that its two lowest-n
+classes happened to sit at the top of the gap ordering.
+
+**This is the §1614→§1616 pattern for the third time in this arc.** §1614 reported rho
+.6727 at p .0192 on ten classes as "REAL at power" and §1616 got rho .0182 at p .96 on
+ten disjoint ones. §1643 reported rho .657 at p .0875 on six and I explicitly flagged
+it UNDERPOWERED and SUGGESTIVE-NOT-ESTABLISHED — which was the right call, and it is
+why this section is a correction rather than a retraction of something I had asserted.
+
+**WHAT SURVIVES.** Mean-ablating a class's own mlp11 slice costs that class CE in
+**11 of 12** classes (`is` is the exception at −.00257). That part replicates and is
+solid. What does NOT survive is that the separation gap predicts how much.
+
+**THE ARC'S HONEST BOTTOM LINE.** Twenty-two runs established how to measure the
+separation statistic without fooling myself — ≥20 bases, controls matched on cell,
+class type and configuration, gap not saturated count, rank ≤ 4. They also established
+that the two published cells are asymmetric under same-type controls (§1641, §1642).
+But the bridge to causal cost **does not hold**: the statistic does not predict how
+much ablating a slice costs. It remains a description of where attribution mass
+concentrates, with no demonstrated causal consequence.
+
+**A NEW OPEN QUESTION worth more than the one it replaces.** Why does CE rise depend on
+n_positions at rho −.58 at all? Rarer classes losing more from mean-ablation could be
+real structure (rarer classes carry more idiosyncratic slice content) or pure
+estimation noise (CE on 214 positions is far noisier than on 3766). Distinguishing
+those needs matched-n subsampling — score every class at a common position count —
+which is the obvious next test and would say something about the model rather than
+about my statistic.

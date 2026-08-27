@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows x 20 seeds (receipt sha256[:16]=815b21618c2e477e)
+  question  fresh     sep 60/60 | mean gap +0.1633 | lambda [0.7257, 0.7359, 0.739] | null20 0.5702
+  to        fresh     sep 59/60 | mean gap +0.1310 | lambda [0.6414, 0.6205, 0.6338] | null20 0.5009
+  period    fresh     sep 58/60 | mean gap +0.0713 | lambda [0.5774, 0.5834, 0.5897] | null20 0.5122
+  and       fresh     sep 45/60 | mean gap +0.0329 | lambda [0.5287, 0.5333, 0.523] | null20 0.4955
+  comma     fresh     sep 42/60 | mean gap +0.0221 | lambda [0.5128, 0.5002, 0.4992] | null20 0.4819
+  the       fresh     sep 24/60 | mean gap -0.0115 | lambda [0.5102, 0.5001, 0.4729] | null20 0.5059
+  is        fresh     sep 33/60 | mean gap +0.0108 | lambda [0.5397, 0.5425, 0.5418] | null20 0.5305
+  at        fresh     sep 17/60 | mean gap -0.0075 | lambda [0.5373, 0.5116, 0.4976] | null20 0.5230
+  with      fresh     sep 47/60 | mean gap -0.0518 | lambda [0.4678, 0.4481, 0.4653] | null20 0.5122
+  by        fresh     sep 38/60 | mean gap -0.0547 | lambda [0.4794, 0.4411, 0.4269] | null20 0.5038
+  of        fresh     sep 33/60 | mean gap -0.0279 | lambda [0.4565, 0.4872, 0.5091] | null20 0.5122
+  in        fresh     sep 20/60 | mean gap -0.0132 | lambda [0.4922, 0.5407, 0.5006] | null20 0.5244
+
+  GAP vs CE RISE across 12 classes at mlp11 rank-2 TOP-4:
+    question  gap +0.1633  CE rise +0.07529  n_pos   214
+    to        gap +0.1310  CE rise +0.03427  n_pos  1987
+    period    gap +0.0713  CE rise +0.00974  n_pos  3766
+    and       gap +0.0329  CE rise +0.02002  n_pos  1716
+    comma     gap +0.0221  CE rise +0.01993  n_pos  3599
+    is        gap +0.0108  CE rise -0.00257  n_pos   771
+    at        gap -0.0075  CE rise +0.02874  n_pos   326
+    the       gap -0.0115  CE rise +0.01355  n_pos  3080
+    in        gap -0.0132  CE rise +0.01685  n_pos  1060
+    of        gap -0.0279  CE rise +0.01773  n_pos  1650
+    with      gap -0.0518  CE rise +0.03004  n_pos   487
+    by        gap -0.0547  CE rise +0.04341  n_pos   219
+  Spearman rho(gap, CE rise)      = +0.0559
+  sampled permutation p (200000)  = 0.43358   (S1643 had rho +.657, p .0875 on n=6)
+  Spearman rho(n_pos, CE rise)    = -0.5804   confound check: |0.5804| < |0.0559| = False
+  classes with positive CE rise: 11/12
+
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/gap_ce_12class_results.json (1540.4s)
