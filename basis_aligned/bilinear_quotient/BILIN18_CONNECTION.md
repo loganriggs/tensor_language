@@ -40526,3 +40526,54 @@ removal the downstream stack cannot compensate for. That is a claim about the mo
 error-correction capacity rather than about class circuits, and it would be tested by
 correlating the ratio against recovery under a *downstream* re-fit rather than against
 raw CE cost.
+
+## §1655 A COMPLETED RUN DISCARDED, RECORDED RATHER THAN LEFT SILENT — mlp0_table_rank_curve duplicated §1326 and was buggy; and the search that found that also surfaced §546, which answers a question I was about to ask
+
+**The discard, recorded because `runlogs/_completed.txt` shows a completed run at 15:58
+with no write-up and a future reader would otherwise re-run it.**
+`mlp0_table_rank_curve` scored 2-for-3 and its numbers are NOT reported as findings.
+Two defects, both mine:
+
+1. It computed its own mean-ablation constant as an **unweighted mean over token-means**
+   rather than using the optimal constants that have been in
+   `opt_ablation_consts_all.pt` (all 198 components) since 02:30. That inflated the
+   stake to **2.549 nats** against the ladder's **0.799**.
+2. **23.4% of eval positions** held tokens unseen at fit and received a **ZERO vector**
+   instead of any fallback, penalising the table for a coverage failure rather than a
+   modelling one. That depressed full-table recovery to **71.9%** against §1326's
+   **86.3%**.
+
+Both disagreements with the established numbers were bugs, not discoveries. Logan
+identified the duplication before the write-up. Recorded as LESSONS 26: a result not in
+FINDINGS or the registry will be re-run, because a 40,000-line ledger is an archive
+until it is consolidated. The dossiers now exist at `registry/_mlp_module_dossier`,
+`_mlp0_dossier` and `_mlp1_dossier`.
+
+**AND THE SEARCH FOUND SOMETHING WORTH MORE THAN THE RUN.** Before proposing a joint
+front-band table substitution I checked whether composition had been measured, and it
+has — §546, `front_table_compose`:
+
+```
+  block 0 table alone                        +0.1666
+  block 1 table alone                        +0.5218
+  both, each fitted against the real model   +0.6654      sum would be 0.6884
+  both, block 1 REFITTED with block 0 active +1.0647      <- refitting makes it WORSE
+  both with shuffled indices                 +2.9389
+```
+
+**Token tables compose ADDITIVELY** (0.6654 against a 0.6884 sum, very slightly
+subadditive) — and §546 contrasts this explicitly with rank truncation, where six
+blocks jointly cost **1.6x their sum** (§541) with cancellation in the increments
+(§543). Replacing a block with a table indexed on its OWN variable does not disturb the
+next block the way projecting its output does.
+
+**That is the single most useful composition fact for a sequential compiler**, and it
+cuts cleanly along the two components of Codex's native-Down program
+`y_hat = b(token) + c + A·B·h(z)`: the **b(token)** term should compose across sites,
+the **A·B** low-rank term should not. It also reconciles §546's additivity with
+§1616's 8.9x superadditivity — those measure different substitution families, not
+contradictory facts about the same one.
+
+**Rung taken: 1 (consolidate) then a record-check that replaced the experiment I was
+going to run.** No GPU spent this tick, deliberately: with 55-67 prior sections per
+front module and an active Codex screen, surfacing beat measuring.
