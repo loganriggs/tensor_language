@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows x 20 seeds (receipt sha256[:16]=815b21618c2e477e)
+  --- mlp5: SITE=5, 12 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  mlp5      fresh     sep 54/60 | mean gap -0.0753 | lambda [0.7189, 0.7252, 0.7243] | null20 0.7981
+  --- mlp8: SITE=8, 18 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  mlp8      fresh     sep 31/60 | mean gap -0.0257 | lambda [0.655, 0.6299, 0.6203] | null20 0.6608
+  --- mlp11: SITE=11, 24 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  mlp11     fresh     sep 17/60 | mean gap -0.0075 | lambda [0.5373, 0.5116, 0.4976] | null20 0.5230
+  --- mlp14: SITE=14, 30 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  mlp14     fresh     sep 40/60 | mean gap +0.0464 | lambda [0.4182, 0.4878, 0.4577] | null20 0.4082
+  --- mlp17: SITE=17, 36 upstream components (TOP-4 share is NOT comparable across sites; separation IS)
+  mlp17     fresh     sep 51/60 | mean gap -0.0880 | lambda [0.3809, 0.389, 0.3772] | null20 0.4704
+
+  CLASS ` at` HELD FIXED, site swept in DEPTH ORDER, 60 trials each:
+    mlp5   separation 54/60  mean gap -0.0753  lambda [0.7189, 0.7252, 0.7243]
+    mlp8   separation 31/60  mean gap -0.0257  lambda [0.655, 0.6299, 0.6203]
+    mlp11  separation 17/60  mean gap -0.0075  lambda [0.5373, 0.5116, 0.4976]
+    mlp14  separation 40/60  mean gap +0.0464  lambda [0.4182, 0.4878, 0.4577]
+    mlp17  separation 51/60  mean gap -0.0880  lambda [0.3809, 0.389, 0.3772]
+  depth sequence [54, 31, 17, 40, 51]   monotone non-decreasing: False
+  deepest - shallowest: separation -3/60, gap -0.0127
+  (§1634 anchors: ` at` was 17/60 at mlp11 and 60/60 at mlp17)
+
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/site_depth_separation_results.json (409.1s)

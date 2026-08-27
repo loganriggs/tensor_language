@@ -39320,3 +39320,65 @@ is about what the diffuseness MEANS, not what it measures.
 attribution (confounded with site), §1633 (certification confounded with cell). Each
 survived until the first genuinely independent test and cost ~8-12 GPU-minutes to
 kill. The rung-2 second-class confirm is earning its place in the selection order.
+
+## §1635 SEPARATION IS NOT MONOTONE IN DEPTH — IT IS U-SHAPED WITH A MINIMUM AT mlp11 (0-for-3), and the GAP SIGN flips positive at mlp14 alone; mlp11 reproduces §1633 exactly across a different script
+
+**Setup** (site_depth_separation, 409 s, rung 3 — §1634's open question). §1634 showed
+the SITE, not the class and not certification, governs whether an eigen-slice
+separates from a random basis. This asks whether that is a depth effect: class ` at`
+held FIXED, rank-2 TOP-4 throughout, sites mlp5/8/11/14/17, 20 independent bases x 3
+disjoint chunks = 60 trials per site.
+
+```
+site    upstream comps   separation   mean gap    λ share (NOT cross-site comparable)
+mlp5         12            54/60       −.0753     .7189 .7252 .7243
+mlp8         18            31/60       −.0257     .6550 .6299 .6203
+mlp11        24            17/60       −.0075     .5373 .5116 .4976
+mlp14        30            40/60       +.0464     .4182 .4878 .4577
+mlp17        36            51/60       −.0880     .3809 .3890 .3772
+depth sequence [54, 31, 17, 40, 51]      monotone: FALSE
+deepest − shallowest: −3/60 separation, −.0127 gap
+```
+
+- **pred_a FAILED** — mlp17 − mlp5 is **−3**, not ≥ +20. The deepest site separates
+  slightly WORSE than the shallowest.
+- **pred_b FAILED** — the sequence falls then rises. Not monotone in either direction.
+- **pred_c FAILED** — the gap deepens by only **.0127**, against a ≥.05 bar.
+
+**The finding is better than the prediction was.** Separation is **U-shaped in depth
+with a minimum at mlp11** (17/60, gap −.0075, i.e. no signal at all). Both ends of
+the network are structured relative to a random basis and the middle is not. That is
+not a weaker version of my monotone hypothesis — it is a different shape, and no
+monotone story survives it.
+
+**The gap SIGN is not U-shaped, and mlp14 is the odd one out.** Four sites are
+negative (slice less concentrated than random); **mlp14 alone is positive** (+.0464).
+§1632 independently measured a different class, ` of`, at mlp14 with a positive gap
+(54/60), so two different classes agree that mlp14 concentrates ABOVE null while its
+neighbours do not. Magnitude and direction are separate phenomena here.
+
+**A clean cross-script replication.** mlp11 returns **17/60 with gap −.0075** —
+identical to §1633's independent measurement of the same class at the same site under
+a different script. Two scripts, two runs, same numbers.
+
+**A caveat on my own printed anchor, stated because the log is misleading.** The run
+prints "§1634 anchors: ` at` was 17/60 at mlp11 and 60/60 at mlp17". The mlp11 anchor
+is a fair comparison — §1633 also used rank-2 TOP-4. **The mlp17 anchor is NOT**:
+§1634 measured ` at` at mlp17 with rank-8 TOP-6, pronouns' configuration, while this
+sweep uses rank-2 TOP-4 everywhere. At matched rank-2 TOP-4, mlp17 gives 51/60 and
+−.0880, not 60/60 and −.1094. Nothing scored here depends on that anchor, but a
+reader comparing the two sections would otherwise conclude the run failed to
+reproduce §1634 when it simply measured a different cell.
+
+**The confound I preregistered did materialise.** Raw λ share declines monotonically
+with depth (.719 → .377) almost entirely because the upstream component count grows
+12 → 36, so a TOP-4 share shrinks mechanically. Had I scored cross-site shares I
+would have "found" a clean monotone decline that is an artifact of counting. Only
+within-site separation counts were scored, which is why the real shape survived.
+
+**WHAT THIS DOES NOT SHOW, stated first this time.** This is **one class**. The
+U-shape may be a property of ` at`, not of the network. §1634 is precisely the
+lesson: I generalised from one certified cell and an ordinary preposition matched it
+at the second. Before "the middle of the network is unstructured" is claimed, the
+sweep needs at least three more classes, and the mlp14 sign flip needs its own test.
+Registered as the open question, not as a finding.
