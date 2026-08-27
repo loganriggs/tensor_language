@@ -38327,3 +38327,53 @@ it is the single cell worth a second look if digits is revisited.
 attribution and causal removal DISAGREED and were adjudicated head-to-head. Causal
 won 3/4 on rise and 3/4 on selectivity, with the losses concentrated where
 selectivity was tied. Where the two methods conflict, prefer removal.
+
+## §1619 THE HEAD-GRAIN FLOOR IS NOT A NORM ARTIFACT (1-for-3): dividing by ||c_proj|| leaves the |λ| hit rate at exactly 40.0% and RAISES the random rate 13.3% -> 20.0% — it helps noise, not signal
+
+**Setup** (headgrain_normcorrect, 294 s). §1618 showed causally that head grain
+misses by selecting heads with selectivity 0.10-0.24 — generalists that damage
+global function more than the class. Since the head-grain score passes through
+`c_proj`, the obvious suspect was output NORM. This divides each head's score by
+its `c_proj` slice norm, on the SAME 30 cells as §1617, both statistics computed
+in one pass so they are exactly comparable. Head norms span **49.0 to 143.7
+(2.93x)**, so the correction had real room to act.
+
+```
+                       raw        corrected
+lambda hit rate       40.0%   ->    40.0%      no change at all
+random hit rate       13.3%   ->    20.0%      correction HELPS NOISE
+digits hits            0/8    ->     0/8       no change
+```
+
+**Scored as written:**
+- **pred_a FAILED** — corrected |λ| rate **40.0%**, identical to raw, against a
+  50% bar.
+- **pred_b PASSED — but read the direction, not the boolean.** I registered
+  "corrected random ≤ 20%" to mean *the correction must not help noise*. It landed
+  at exactly **20.0%**, satisfying the bar while the random rate ROSE by half its
+  value (13.3% -> 20.0%). **The bar was badly designed: a rate that climbs toward
+  the ceiling still passes a ceiling test.** Same class of error as §1616's
+  vacuous pred_b. A directional bar needs a directional test (corrected ≤ raw),
+  not an absolute ceiling.
+- **pred_c FAILED** — digits stays 0/8. The class §1618 diagnosed most precisely
+  is the one the correction helps least.
+
+**The correction barely does anything, and what it does is wrong.** It changed the
+|λ| top head in only **4 of 30** cells, and of those, one moved TOWARD the
+certified head (and@mlp17 L16: 16.3 -> 16.8, correct) while two moved AWAY
+(digits@mlp11 L7: 7.8 -> 7.2 with certified 7.3; digits@mlp17 L7: 7.3 -> 7.7,
+turning a correct pick into a wrong one). The two cells where the RANDOM arm
+gained hits are both comma L11 — so norm-correcting a meaningless basis made it
+find a certified head twice.
+
+**Conclusion: the floor is not a norm artifact.** §1618's phrase "high-norm
+generalists" is half wrong and I am correcting it — the missed heads ARE
+generalists (selectivity 0.10-0.24, measured causally), but their output norm is
+not why they win the head-grain score. Whatever makes them dominate the slice
+projection is something else, and dividing by norm does not reach it.
+
+**Standing position on head grain, after §1617-§1619:** the law is real but
+narrow (26.7% genuine discrimination after floor subtraction, 3.0x random), its
+misses are causally identifiable as generalists (§1618), and the obvious
+instrument fix does not work (§1619). Use it as a weak positive signal, never as
+identification, and always with the matched-rank random arm beside it.
