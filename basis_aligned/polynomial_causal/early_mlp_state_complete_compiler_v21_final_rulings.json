@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "experiment": "early_mlp_state_complete_compiler_v21",
+  "status": "prospective_final_implementation_rulings_before_any_v21_validation_forward",
+  "authorized_for_scored_experiments": false,
+  "authorized_for_training": false,
+  "scope": "Resolve implementation ambiguities without changing the registered candidate grids, selectors, thresholds, absolute package gates, or licensed wording.",
+  "mean_site1_score": {
+    "teacher": "M0O1N",
+    "baseline": "M0N1N",
+    "candidate": "M0M1N",
+    "currency": "KL(M0O1N||M0M1N)/KL(M0O1N||M0N1N), with the matching M0N1N copy baseline",
+    "use": "nondeployable scored control only; cannot select a true or shuffle program"
+  },
+  "causal_omission": {
+    "full_oracle": "validated K4608 full-native executable under frozen selected T0, with zero original MLP0/1/2 calls",
+    "omission": "set the post-live-state correction coefficient c_j=p_j-(mo B)_j to zero before physical reconstruction; do not set p_j to zero",
+    "mlp2": "N",
+    "inference": "validation-only reporting weights; cannot alter either selector"
+  },
+  "causal_direction_prediction": {
+    "predictor": "the validation-frozen true-site1 A-family representative selected by the registered family representative rule",
+    "error_series": "mean squared target-consistent coefficient error of the A representative, (c_hat_j-c_j)^2 because A is the registered z-only-c interface, on the identical 12288 T0 validation coefficient-capture positions",
+    "response_series": "abs(omission_loss_j)/max(target_second_moment_j,1e-12) before the positive floor",
+    "statistic": "ordinary Spearman correlation using average ranks for ties",
+    "gate": "point estimate greater than zero; diagnostic only"
+  },
+  "family_bank": {
+    "original_qqn_bank": "Retain the preregistered same-family QQN combinations as descriptive response comparisons only because nonselected site1 representatives were trained under selected T0, not their same-family site0 parent.",
+    "parent_consistent_reports": [
+      "site0 A-E representatives as X0NN against NNN",
+      "site1 A-E representatives as selected-T0 plus X1N against selected-T0-N1-N"
+    ],
+    "claim_guardrail": "No state/objective/grammar mechanism-identification claim may be made from the context-confounded QQN bank. The registered selected-package admission gates are unchanged."
+  },
+  "final_frequency_collateral": {
+    "assignment": "recompute compiler_fit_v21 token counts at target columns 65:257 and bucketize compiler_final_v21 targets at the same positions with right=True and boundaries [1,2,4,8,16,32,64,128]",
+    "bins": "all nine prespecified bins; report every nonempty bin and mark an empty bin unevaluable rather than silently dropping it",
+    "estimand": "token-weighted candidate CE minus matched-background CE",
+    "backgrounds": [
+      "TTN minus NNN",
+      "TTE minus NNE"
+    ],
+    "gate": "maximum worsening across all prespecified nonempty bin/background cells <=0.01; any empty bin makes the frequency-collateral claim unevaluable"
+  },
+  "inference": {
+    "bootstrap_draws": 2000,
+    "bootstrap_seed": 20260827,
+    "unit": "source-document cluster with row-weighted estimands and one shared resample across every arm",
+    "interval": "torch.quantile float64 linear interpolation at 0.025 and 0.975",
+    "ratio_thresholds": "R0, R1, and Rjoint <=0.50 are point-estimate gates with positive denominators; <=0.25 is the stronger reported rung",
+    "holm": "one-sided paired document-bootstrap p=(1+#(replicate contrast<=0))/(B+1), Holm step-down familywise alpha 0.05",
+    "nonlinear": "recompute maxima, ratios, and margins within every bootstrap draw",
+    "sparse_collateral": "Use the same fixed 2000 source-document draws without rejection or resampling. For a globally nonempty copy/frequency support, retain the point estimate but mark its interval unevaluable, report the exact zero-support draw count, and fail the corresponding collateral conjunct if any registered draw has zero denominator. A globally empty frequency bin remains empty_unevaluable. Sparse collateral can therefore make the package authoritative-negative but cannot abort the one-shot final transaction."
+  },
+  "price_currency": {
+    "selection_and_comparison": "registered standalone real-valued tensor count",
+    "separate_reports": [
+      "serialized index count and encoded bits",
+      "metadata encoding",
+      "artifact bytes",
+      "runtime multiplies and Hadamard products"
+    ],
+    "wording": "P_T<=P_S licenses only no-greater registered standalone real-valued tensor count"
+  },
+  "outcome_transaction": {
+    "order": [
+      "authority-none final attempt before final deserialization",
+      "one final role load and one fixed evaluation",
+      "nonauthorizing result",
+      "nonauthorizing completed manifest binding result",
+      "last-written scientific outcome authority"
+    ],
+    "failure": "After final forwarding begins, preserve all artifacts, write no outcome authority, and require a new committed namespace for retry."
+  }
+}

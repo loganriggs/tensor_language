@@ -206,7 +206,7 @@ def native_program_price(k: int, *, include_basis: bool) -> dict[str, Any]:
     }
 
 
-def corrected_affine_price(rank: int, *, include_basis: bool) -> dict[str, int]:
+def corrected_affine_price(rank: int, *, include_basis: bool) -> dict[str, Any]:
     """Price affine p_hat(z)-mo B including the formerly omitted live-state map."""
 
     if rank not in AFFINE_RANK_GRID:
@@ -220,12 +220,19 @@ def corrected_affine_price(rank: int, *, include_basis: bool) -> dict[str, int]:
         D_MODEL * rank + rank * COEFFICIENT_DIM
         + 2 * D_MODEL * COEFFICIENT_DIM
     )
+    total = basis_reals + predictor_reals
+    original = 3 * NATIVE_PRODUCTS * D_MODEL + D_MODEL
     return {
         "rank": int(rank),
+        "include_basis": bool(include_basis),
         "basis_reals": int(basis_reals),
         "predictor_reals": int(predictor_reals),
-        "total_reals": int(basis_reals + predictor_reals),
+        "total_reals": int(total),
+        "float32_bits": int(32 * total),
         "inference_multiplies_per_token": int(multiplies),
+        "hadamard_products_per_token": 0,
+        "original_mlp_reals": int(original),
+        "fraction_of_original_reals": total / original,
     }
 
 

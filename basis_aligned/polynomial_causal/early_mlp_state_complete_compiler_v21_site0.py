@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import resource
 import sys
 import time
 from typing import Any, Mapping
@@ -27,8 +28,75 @@ import early_mlp_state_complete_compiler_v21 as lifecycle  # noqa: E402
 import prepare_state_complete_compiler_rows_v21 as authority  # noqa: E402
 
 
-MANIFEST = authority.BQ / "early_mlp_state_complete_compiler_v21_site0_manifest.json"
+MANIFEST = authority.SITE0_MANIFEST
 FIT_SEED = 271828
+
+
+def ridge_condition_numbers(z: torch.Tensor) -> dict[str, Any]:
+    normalized, _, _ = old_site0.fit._normalized_fit(z)
+    eigenvalues = torch.linalg.eigvalsh(
+        normalized.T @ normalized / normalized.shape[0]
+    ).double()
+    minimum, maximum = float(eigenvalues[0]), float(eigenvalues[-1])
+    by_lambda = {}
+    for ridge in old_site0.affine_v1.LAMBDA_GRID:
+        denominator = minimum + float(ridge)
+        by_lambda[str(float(ridge))] = {
+            "status": "singular_or_indefinite" if denominator <= 0 else "evaluated",
+            "value": None if denominator <= 0 else (
+                (maximum + float(ridge)) / denominator
+            ),
+        }
+    return {
+        "matrix": "normalized fit Gram plus lambda I",
+        "rows": int(normalized.shape[0]), "columns": int(normalized.shape[1]),
+        "minimum_gram_eigenvalue": minimum,
+        "maximum_gram_eigenvalue": maximum,
+        "condition_number_by_lambda": by_lambda,
+    }
+
+
+def float32_replay(z: torch.Tensor, state: Mapping[str, Any]) -> dict[str, Any]:
+    sample = z[:64].contiguous()
+    deployed = old_site0.runtime.runtime_projected_output(sample, state).double()
+    x = sample.double().reshape(-1, old_site0.compiler.D_MODEL)
+    if state["grammar"] == "affine":
+        normalized = (x - state["mean"].double()) / state["scale"].double()
+        reference = (
+            (normalized @ state["left"].double()) @ state["right"].double()
+            + state["bias"].double()
+        )
+    elif state["grammar"] == "native":
+        reference = old_site0.compiler.native_projected_output(x, state)
+    elif state["grammar"] == "constant":
+        reference = state["bias"].double().expand(x.shape[0], -1)
+    else:
+        raise RuntimeError("v2.1 precision replay encountered unknown grammar")
+    error = deployed - reference
+    return {
+        "status": "evaluated_serialized_float32_parameters",
+        "support_positions": int(sample.shape[0]),
+        "reference": "float64 accumulation", "deployed": "float32 accumulation",
+        "max_abs_coefficient_drift": float(error.abs().max()),
+        "rms_coefficient_drift": float(error.square().mean().sqrt()),
+    }
+
+
+def selected_fit_numerics(
+    z: torch.Tensor, state: Mapping[str, Any], name: str,
+    *, condition_report: Mapping[str, Any] | None = None,
+) -> dict[str, Any]:
+    return {
+        "selected": name, "grammar": state["grammar"],
+        "ridge_condition_numbers": dict(
+            condition_report if condition_report is not None
+            else ridge_condition_numbers(z)
+        ),
+        "float64_to_float32_replay": float32_replay(z, state),
+        "quantization_status": (
+            "none; all floating parameter tensors float32; native indices int64"
+        ),
+    }
 
 
 def _capture_sha256(value: Mapping[str, torch.Tensor]) -> str:
@@ -308,6 +376,8 @@ def _run_numerical(launch_state: lifecycle.LaunchState) -> None:
 
     callback_state: dict[str, Any] = {}
     started = time.time()
+    if torch.cuda.is_available():
+        torch.cuda.reset_peak_memory_stats()
 
     def callback(twall: dict, all_attention: frozenset[int], _: float) -> None:
         realization, _ = old_site0.frozen.restore_ship_realization(
@@ -420,6 +490,21 @@ def _run_numerical(launch_state: lifecycle.LaunchState) -> None:
             selections = freeze_and_select_site0(
                 ledgers, controls, diagnostics, launch_state=launch_state,
             )
+            condition_report = ridge_condition_numbers(captured["z"])
+            callback_state["selected_fit_numerics"] = {
+                arm: selected_fit_numerics(
+                    captured["z"],
+                    ledgers[f"{arm}_site0"][
+                        selections[f"{arm}_site0"]["selected"]
+                    ]["state"],
+                    selections[f"{arm}_site0"]["selected"],
+                    condition_report=condition_report,
+                ) for arm in ("true", "shuffle")
+            }
+            callback_state["selected_fit_numerics"]["mean"] = selected_fit_numerics(
+                captured["z"], mean_state, "mean_site0",
+                condition_report=condition_report,
+            )
             component_after = old_site0.exact_runner.component_tree_sha256(
                 sa, twall, all_attention
             )
@@ -462,6 +547,13 @@ def _run_numerical(launch_state: lifecycle.LaunchState) -> None:
         "outer_model_returned": True,
         "protected_after": after,
         "runtime_s": round(time.time() - started, 1),
+        "peak_cpu_rss_bytes": int(
+            resource.getrusage(resource.RUSAGE_SELF).ru_maxrss * 1024
+        ),
+        "peak_gpu_allocated_bytes": int(
+            torch.cuda.max_memory_allocated() if torch.cuda.is_available() else 0
+        ),
+        "selected_fit_numerics": callback_state["selected_fit_numerics"],
     })
     authority.write_json_atomic(manifest, MANIFEST)
     lifecycle.write_site0_training_authorization_after_outer_return(

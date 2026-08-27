@@ -166,6 +166,12 @@ def test_v21_loader_deserializes_only_requested_roles(monkeypatch, tmp_path) -> 
 
 
 def _write_final_unlock(monkeypatch, tmp_path):
+    site0_manifest = tmp_path / "site0_manifest.json"
+    site1_manifest = tmp_path / "site1_manifest.json"
+    site0_manifest.write_text('{"status":"completed_site0"}')
+    site1_manifest.write_text('{"status":"completed_site1"}')
+    monkeypatch.setattr(rows, "SITE0_MANIFEST", site0_manifest)
+    monkeypatch.setattr(rows, "SITE1_MANIFEST", site1_manifest)
     source = rows.HERE / "state_complete_compiler_selection_v2.py"
     source_relative = str(source.resolve().relative_to(rows.ROOT.resolve()))
     source_commit = subprocess.run(
@@ -369,10 +375,7 @@ def _write_final_unlock(monkeypatch, tmp_path):
     prices = {
         "true": rows._pipeline_price(states["true"][0], states["true"][1]),
         "shuffle": rows._pipeline_price(states["shuffle"][0], states["shuffle"][1]),
-        "mean": {
-            "site0": rows._constant_price(), "site1": rows._constant_price(),
-            "total_reals": 2 * rows._constant_price()["total_reals"],
-        },
+        "mean": rows._pipeline_price(states["mean"][0], states["mean"][1]),
     }
     stage_bindings = {}
     for stage, names in {
@@ -464,6 +467,43 @@ def _write_final_unlock(monkeypatch, tmp_path):
                 "p_count": rows.FIT_CAPTURE_COUNT,
                 "capture_call_counter": {0: 0, 1: 60, 2: 0},
             }
+            mean_raw = {
+                "candidate_teacher_kl_sum": float(rows.VALIDATION_TOKEN_COUNT),
+                "candidate_teacher_kl_count": rows.VALIDATION_TOKEN_COUNT,
+                "global_ce_sum": float(rows.VALIDATION_TOKEN_COUNT),
+                "global_ce_count": rows.VALIDATION_TOKEN_COUNT,
+                "copy_ce_sum": 2.0,
+                "copy_ce_count": 2,
+            }
+            diagnostics["mean_context"] = {
+                "upstream_state_sha256": rows.state_logical_sha256(states["mean"][0]),
+                "scorer": "CUDA float32 per-token; float64 row/aggregate",
+                "teacher_denominator": 1.0,
+                "teacher_kl_sum": float(rows.VALIDATION_TOKEN_COUNT),
+                "teacher_token_count": rows.VALIDATION_TOKEN_COUNT,
+                "copy_baseline": 1.0,
+                "copy_ce_sum": 2.0,
+                "copy_token_count": 2,
+            }
+            diagnostics["mean_score"] = {
+                "context": "mean_site0",
+                "upstream_state_sha256": rows.state_logical_sha256(states["mean"][0]),
+                "metrics": {
+                    "candidate_teacher_kl": 1.0,
+                    "oracle_denominator_kl": 1.0,
+                    "remaining_kl_ratio": 1.0,
+                    "recovery": 0.0,
+                    "global_ce": 1.0,
+                    "copy_ce": 1.0,
+                    "copy_count": 2,
+                    "copy_worsening": 0.0,
+                    "price": rows._constant_price(),
+                    "raw_sufficient_statistics": mean_raw,
+                },
+                "call_counter": {0: 0, 1: 0, 2: 0},
+                "teacher_call_counter": {0: 0, 1: 24, 2: 0},
+                "baseline_call_counter": {0: 0, 1: 0, 2: 0},
+            }
         else:
             mean_raw = {
                 "candidate_teacher_kl_sum": float(rows.VALIDATION_TOKEN_COUNT),
@@ -506,6 +546,7 @@ def _write_final_unlock(monkeypatch, tmp_path):
             "authorized_for_final_scoring": False,
             "protocol_sha256": rows.PINS[rows.PROTOCOL],
             "implementation_amendment_sha256": rows.IMPLEMENTATION_AMENDMENT_SHA256,
+            "final_rulings_sha256": rows.FINAL_RULINGS_SHA256,
             "rows_receipt_sha256": rows.file_sha256(row_receipt),
             "artifact_path": str(artifact.resolve()),
             "artifact_sha256": rows.file_sha256(artifact),
@@ -534,6 +575,11 @@ def _write_final_unlock(monkeypatch, tmp_path):
         },
         "mean_state_sha256": rows.state_logical_sha256(states["mean"][0]),
         "stage_binding": stage_bindings["site0"],
+        "site0_manifest": {
+            "path": str(site0_manifest.resolve()),
+            "sha256": rows.file_sha256(site0_manifest),
+            "bytes": site0_manifest.stat().st_size,
+        },
         "component_tree_sha256": "component-tree",
         "outer_model_returned": True,
         "hook_restored_and_inert": True,
@@ -544,15 +590,22 @@ def _write_final_unlock(monkeypatch, tmp_path):
         fit_rows, validation_rows, rows.TOKEN_FREQUENCY_BOUNDARIES,
     )
     full_oracle_row_ce = torch.zeros(192, dtype=torch.float64)
-    omit_row_ce = torch.ones(
-        rows.compiler.COEFFICIENT_DIM, 192, dtype=torch.float64,
-    )
+    omit_row_ce = torch.arange(
+        1, rows.compiler.COEFFICIENT_DIM + 1, dtype=torch.float64,
+    )[:, None].expand(-1, 192).contiguous()
     target_p_count = 192 * 64
     target_p_square_sums = torch.full(
         (rows.compiler.COEFFICIENT_DIM,), float(target_p_count), dtype=torch.float64,
     )
     causal = rows.derive_causal_audit(
         full_oracle_row_ce, omit_row_ce, target_p_square_sums, target_p_count,
+    )
+    predictor_error_square_sums = (
+        causal["omission_losses"] * target_p_count
+    ).double().contiguous()
+    direction_prediction = rows.derive_direction_prediction(
+        causal["omission_losses"], causal["target_second_moments"],
+        predictor_error_square_sums, target_p_count,
     )
     bundle = {
         "schema_version": 1,
@@ -562,6 +615,7 @@ def _write_final_unlock(monkeypatch, tmp_path):
         "authorized_for_final_scoring": False,
         "protocol_sha256": rows.PINS[rows.PROTOCOL],
         "implementation_amendment_sha256": rows.IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": rows.FINAL_RULINGS_SHA256,
         "rows_receipt_sha256": rows.file_sha256(row_receipt),
         "programs": states,
         "pipeline_contexts": {
@@ -571,6 +625,10 @@ def _write_final_unlock(monkeypatch, tmp_path):
         },
         "candidate_ledgers": ledgers,
         "selection_receipts": receipts,
+        "family_representatives": {
+            name: dict(receipts[name]["family_representatives"])
+            for name in ("true_site0", "true_site1")
+        },
         "stage_bindings": stage_bindings,
         "site0_training_authorization": {
             "path": str(site0_training_receipt.resolve()),
@@ -598,6 +656,22 @@ def _write_final_unlock(monkeypatch, tmp_path):
                 "target_p_square_sums_sha256": rows.tensor_sha256(target_p_square_sums),
                 "target_p_count": target_p_count,
                 **causal,
+                "direction_prediction": {
+                    "predictor_family": "A_v1_like_z_only_affine_euclidean",
+                    "predictor_state_sha256": rows.state_logical_sha256(
+                        ledgers["true_site1"][
+                            receipts["true_site1"]["family_representatives"][
+                                "A_v1_like_z_only_affine_euclidean"
+                            ]
+                        ]["state"]
+                    ),
+                    "predictor_error_square_sums": predictor_error_square_sums,
+                    "predictor_error_square_sums_sha256": rows.tensor_sha256(
+                        predictor_error_square_sums
+                    ),
+                    "predictor_error_count": target_p_count,
+                    **direction_prediction,
+                },
                 "call_counters": {
                     "full_oracle": {0: 0, 1: 0, 2: 0},
                     "omissions": {0: 0, 1: 0, 2: 0},
@@ -618,6 +692,7 @@ def _write_final_unlock(monkeypatch, tmp_path):
         "authorized_for_final_scoring": True,
         "protocol_sha256": rows.PINS[rows.PROTOCOL],
         "implementation_amendment_sha256": rows.IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": rows.FINAL_RULINGS_SHA256,
         "rows_receipt_path": str(row_receipt.resolve()),
         "rows_receipt_sha256": rows.file_sha256(row_receipt),
         "programs_artifact_path": str(programs.resolve()),
@@ -634,6 +709,18 @@ def _write_final_unlock(monkeypatch, tmp_path):
             "preselector_stage_receipts_bound": True,
             "strata_derivations_recomputed": True,
             "site1_full_native_contexts": ["true", "shuffle"],
+            "family_representatives_frozen": True,
+        },
+        "execution_closure": {
+            "outer_model_returned": True,
+            "hook_restored_and_inert": True,
+            "component_tree_before": "component-tree",
+            "component_tree_after": "component-tree",
+        },
+        "site1_manifest": {
+            "path": str(site1_manifest.resolve()),
+            "sha256": rows.file_sha256(site1_manifest),
+            "bytes": site1_manifest.stat().st_size,
         },
         "source_commit": source_commit,
         "source_hashes": {source_relative: rows.file_sha256(source)},
@@ -646,6 +733,27 @@ def test_v21_final_unlock_validates_exact_program_freeze(monkeypatch, tmp_path) 
     authority, _, _, _ = _write_final_unlock(monkeypatch, tmp_path)
     validated = rows.validate_final_unlock(authority)
     assert validated["authorized_for_final_scoring"] is True
+
+
+def test_parent_v2_protocol_is_pinned_protected_and_in_program_closure() -> None:
+    assert rows.PARENT_PROTOCOL in rows.PINS
+    assert rows.PINS[rows.PARENT_PROTOCOL] == (
+        "45b0a6c055779449bf5fee815a0ecc7471336e95963db67e74166a2270978d54"
+    )
+    assert rows.PARENT_PROTOCOL in rows.PROTECTED
+    assert rows.PARENT_PROTOCOL in rows.PROGRAM_SOURCE_CLOSURE
+
+
+def test_direction_prediction_constant_ranks_is_diagnostic_unevaluable() -> None:
+    result = rows.derive_direction_prediction(
+        torch.ones(64, dtype=torch.float64),
+        torch.ones(64, dtype=torch.float64),
+        torch.ones(64, dtype=torch.float64),
+        rows.CAUSAL_CAPTURE_COUNT,
+    )
+    assert result["status"] == "unevaluable_constant_ranks"
+    assert result["spearman_average_rank"] is None
+    assert result["registered_prediction_positive"] is False
 
 
 @pytest.mark.parametrize("failure", [

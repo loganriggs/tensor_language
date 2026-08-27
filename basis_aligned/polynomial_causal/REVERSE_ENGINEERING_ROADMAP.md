@@ -309,3 +309,73 @@ next safe CPU task is therefore site1 plus bundle/strata/final implementation an
 tests. More fixed-lag sweeps, ordinary-SVD value-rank interpretation, standalone
 rank-128 promotion, new token clustering, and another MLP2 alignment factorial stay
 pruned.
+
+## Strategic checkpoint — 2026-08-27 22:05 UTC
+
+The global certified fractions have not moved. Inventory remains `36/36`, the
+named-variable behavioral account remains `32.1% +/- 6.4%`, named causal headroom
+remains `10.92%`, and the common-current-ship executable numerator remains zero
+against the paired `+0.8976` nat/token residual. The compiler-v2.1 work in this
+interval is source closure, not recovery evidence: no v2.1 validation/final role has
+been loaded and every authoritative output namespace is still absent.
+
+The strongest new structural evidence is a four-way matched rank comparison. At
+rank 64/1152, attention routing retains `62.82%` of its separate stake, attention
+values `2.37%`, MLP Down `-15.16%`, and MLP Left/Right `-52.88%`; every full-rank
+identity check is exact and every curve is monotone. Thus low-rank routing is a real
+compression opportunity, but low-rank feature formation is not. This supports a
+typed program whose routing and nonlinear feature/value components have different
+grammars, not one uniform low-rank factorization. A new interleaved
+whole-model-program source has also been committed to test the known composition
+problem, but it has not produced an artifact and carries no result yet.
+
+The largest unresolved interfaces are: executable MLP0-to-MLP1 composition; MLP2's
+conditional dependence on the upstream state; the attention routing-to-value
+interface; cross-half composition on one current-ship denominator; and OOD/edit
+collateral. Compiler-v2.1 now implements the complete ordered MLP0/1 experiment,
+but adversarial review found that its one-shot final transaction and registered
+description-length ledger had to be completed before launch. This interval added a
+semantic RESULT-to-MANIFEST-to-OUTCOME validator, fail-closed sparse collateral,
+parent-v2 protocol pinning, constant-rank diagnostic handling, physical/native
+gauge canaries, exact original-call counters, and planned reports for standalone and
+amortized bits, native index encoding, metadata, artifact bytes, operations,
+runtime/memory, conditioning, precision replay, quantization, search budget, and the
+full-original comparator.
+
+After pruning by information gain, causal relevance, composability, falsifiability,
+GPU cost, and overlap, the current priority order is:
+
+1. Finish adversarial transaction/report tests, independently re-audit the exact
+   source closure, commit/push it, and only then run the frozen compiler-v2.1 stages.
+2. Refresh the current-ship attention/early-MLP/deep cube on one integer support and
+   insert the admitted compiler arm, converting local success into recovery of the
+   actual `+0.8976` residual and exposing interactions.
+3. Complete the interleaved bottom-up whole-program composition test. Jointly
+   installing independently fitted halves is a specific, falsifiable distribution
+   shift hypothesis, not another generic scaling sweep.
+4. If attention retains positive conditional residual, compile routing and values
+   with separate typed budgets: routing can use the observed low-rank family;
+   values require a covariance/suffix-weighted or programmatic grammar.
+5. After the first admitted common-denominator executable numerator, run the second
+   corpus, code OOD, held-out intervention, and selective removal/edit certificate.
+
+Executed this tick: the compiler closure was extended and `97` focused tests passed
+before the newest transaction cases. Synthetic sparse cells now yield an
+authoritative-negative package instead of consuming the final namespace through an
+exception, and synthetic semantic-result corruption preserves RESULT in a failure
+manifest while forbidding outcome authority. Launch remains blocked until the
+enlarged full suite and fresh independent audit pass on committed source.
+
+Post-checkpoint closure: the enlarged focused suite passes `105/105`. Independent
+mathematical review and artifact/lifecycle review both give GO-to-commit; launch is
+GO only after this exact snapshot is committed, pushed, and accepted by the
+source-identity guard. The untouched-row rank replication also passed all three
+registered checks, with rank-64 routing `63.00%`, values `2.288%`, Down `-14.423%`,
+and Left/Right `-53.390%`, preserving the full ordering within `0.75` percentage
+points. The first interleaved whole-program attempt emitted zero/negative stakes
+and NaN ratios because its baseline was accidentally evaluated through active
+constant hooks. A new baseline known-answer assertion caught the instrument error;
+the corrected rerun gives MLP-only `60.814%`, attention-only `56.263%`, and joint
+`50.939%` on a larger `5.56837`-nat 36-site joint constant stake. The halves therefore
+compound instead of reproducing the old independent-fit collapse, but this remains a
+separate ceiling currency—not recovery of the paired `+0.8976` current-ship residual.

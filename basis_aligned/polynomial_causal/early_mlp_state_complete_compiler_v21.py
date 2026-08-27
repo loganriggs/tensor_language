@@ -27,11 +27,20 @@ import prepare_state_complete_compiler_rows_v21 as authority
 ROOT = authority.ROOT
 PROTOCOL = authority.PROTOCOL
 AMENDMENT = authority.IMPLEMENTATION_AMENDMENT
+FINAL_RULINGS = authority.FINAL_RULINGS
 ROWS_RECEIPT = authority.RECEIPT
 PROGRAMS_ARTIFACT = authority.PROGRAMS_ARTIFACT
 PROGRAMS_RECEIPT = authority.PROGRAMS_RECEIPT
 SITE0_TRAINING_RECEIPT = authority.SITE0_TRAINING_RECEIPT
 RUN_LOCK = Path("/workspace/runs/.early_mlp_state_complete_compiler_v21.lock")
+SITE0_MANIFEST = authority.SITE0_MANIFEST
+SITE1_MANIFEST = authority.SITE1_MANIFEST
+FINAL_OUTPUTS = tuple(authority.BQ / name for name in (
+    "early_mlp_state_complete_compiler_v21_final_attempt.json",
+    "early_mlp_state_complete_compiler_v21_final_result.pt",
+    "early_mlp_state_complete_compiler_v21_final_manifest.json",
+    "early_mlp_state_complete_compiler_v21_final_authority.json",
+))
 STAGE_PATHS = {
     "site0": (authority.SITE0_LEDGER_ARTIFACT, authority.SITE0_LEDGER_RECEIPT),
     "site1": (authority.SITE1_LEDGER_ARTIFACT, authority.SITE1_LEDGER_RECEIPT),
@@ -124,10 +133,19 @@ def _source_identity() -> tuple[str, dict[str, str]]:
     return head, hashes
 
 
+def _validate_all_pins_and_historical_absences() -> None:
+    for path, expected in authority.PINS.items():
+        if not path.is_file() or authority.file_sha256(path) != expected:
+            raise RuntimeError(f"compiler-v2.1 pinned input changed: {path}")
+    if any(path.exists() for path in authority.ORIGINAL_ABSENT):
+        raise RuntimeError("compiler-v2.1 failed historical namespace changed")
+
+
 def verify_launch(*, lock_nonce: str) -> LaunchState:
     """Verify the committed launch boundary without deserializing validation/final."""
 
     _require_run_claim(lock_nonce)
+    _validate_all_pins_and_historical_absences()
     if authority.file_sha256(PROTOCOL) != authority.PINS[PROTOCOL] or (
         authority.file_sha256(AMENDMENT) != authority.IMPLEMENTATION_AMENDMENT_SHA256
     ) or authority.file_sha256(ROWS_RECEIPT) != authority.ROWS_RECEIPT_SHA256:
@@ -135,6 +153,7 @@ def verify_launch(*, lock_nonce: str) -> LaunchState:
     outputs = (
         *(path for pair in STAGE_PATHS.values() for path in pair),
         SITE0_TRAINING_RECEIPT, PROGRAMS_ARTIFACT, PROGRAMS_RECEIPT,
+        SITE0_MANIFEST, SITE1_MANIFEST, *FINAL_OUTPUTS,
     )
     if any(path.exists() for path in outputs):
         raise RuntimeError("compiler-v2.1 output namespace is not empty")
@@ -155,12 +174,16 @@ def resume_after_site0(*, lock_nonce: str) -> LaunchState:
     """Reconstruct launch authority for site1 from a completed site0 receipt."""
 
     _require_run_claim(lock_nonce)
+    _validate_all_pins_and_historical_absences()
     if authority.file_sha256(PROTOCOL) != authority.PINS[PROTOCOL] or (
         authority.file_sha256(AMENDMENT) != authority.IMPLEMENTATION_AMENDMENT_SHA256
     ) or authority.file_sha256(ROWS_RECEIPT) != authority.ROWS_RECEIPT_SHA256:
         raise RuntimeError("compiler-v2.1 resume authority changed")
-    required = (*STAGE_PATHS["site0"], SITE0_TRAINING_RECEIPT)
-    forbidden = (*STAGE_PATHS["site1"], PROGRAMS_ARTIFACT, PROGRAMS_RECEIPT)
+    required = (*STAGE_PATHS["site0"], SITE0_MANIFEST, SITE0_TRAINING_RECEIPT)
+    forbidden = (
+        *STAGE_PATHS["site1"], SITE1_MANIFEST, PROGRAMS_ARTIFACT,
+        PROGRAMS_RECEIPT, *FINAL_OUTPUTS,
+    )
     if any(not path.is_file() for path in required) or any(
         path.exists() for path in forbidden
     ):
@@ -347,6 +370,10 @@ def _validate_stage_semantics(stage: str, payload: Mapping[str, Any]) -> None:
                 "mean": {0: programs["mean"], 1: controls["mean_site1"]},
             },
         )
+        authority._validate_mean_site1_score(
+            diagnostics["mean_context"], diagnostics["mean_score"],
+            programs["mean"], controls["mean_site1"],
+        )
     for name, expected_upstream in upstream.items():
         authority._validate_context_diagnostics(
             contexts[name], stage=stage, name=name,
@@ -379,7 +406,8 @@ def _expected_stage_payload(
         raise RuntimeError(f"v2.1 {stage} control schema changed")
     expected_diagnostics = {
         "fit_permutation_sha256", "capture_hashes", "contexts",
-    } | ({"mean_control"} if stage == "site1" else {"mean_score"})
+    } | ({"mean_control", "mean_context", "mean_score"}
+         if stage == "site1" else {"mean_score"})
     if not isinstance(diagnostics, Mapping) or set(diagnostics) != expected_diagnostics:
         raise RuntimeError(f"v2.1 {stage} diagnostic schema changed")
     payload = {
@@ -421,6 +449,7 @@ def freeze_preselector_stage(
         "authorized_for_final_scoring": False,
         "protocol_sha256": authority.PINS[PROTOCOL],
         "implementation_amendment_sha256": authority.IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": authority.FINAL_RULINGS_SHA256,
         "rows_receipt_sha256": authority.file_sha256(ROWS_RECEIPT),
         "artifact_path": str(artifact_path.resolve()),
         "artifact_sha256": authority.file_sha256(artifact_path),
@@ -444,6 +473,7 @@ def load_frozen_stage(stage: str) -> tuple[dict[str, Any], dict[str, Any]]:
         "authorized_for_final_scoring": False,
         "protocol_sha256": authority.PINS[PROTOCOL],
         "implementation_amendment_sha256": authority.IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": authority.FINAL_RULINGS_SHA256,
         "rows_receipt_sha256": authority.file_sha256(ROWS_RECEIPT),
         "artifact_path": str(artifact_path.resolve()),
         "artifact_sha256": authority.file_sha256(artifact_path),
@@ -491,6 +521,7 @@ def _site0_training_receipt_candidate(
         "authorized_for_final_scoring": False,
         "protocol_sha256": authority.PINS[PROTOCOL],
         "implementation_amendment_sha256": authority.IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": authority.FINAL_RULINGS_SHA256,
         "rows_receipt_sha256": authority.file_sha256(ROWS_RECEIPT),
         "stage_binding": _stage_binding("site0"),
         "selected": {
@@ -504,6 +535,11 @@ def _site0_training_receipt_candidate(
         "mean_state_sha256": authority.state_logical_sha256(
             payload["controls"]["mean_site0"]
         ),
+        "site0_manifest": {
+            "path": str(SITE0_MANIFEST.resolve()),
+            "sha256": authority.file_sha256(SITE0_MANIFEST),
+            "bytes": SITE0_MANIFEST.stat().st_size,
+        },
         "component_tree_sha256": execution_closure.component_tree_after,
         "outer_model_returned": execution_closure.outer_model_returned,
         "hook_restored_and_inert": execution_closure.hook_restored_and_inert,
@@ -549,6 +585,7 @@ def load_site0_training_authorization() -> dict[str, Any]:
         "authorized_for_final_scoring": False,
         "protocol_sha256": authority.PINS[PROTOCOL],
         "implementation_amendment_sha256": authority.IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": authority.FINAL_RULINGS_SHA256,
         "rows_receipt_sha256": authority.file_sha256(ROWS_RECEIPT),
         "stage_binding": _stage_binding("site0"),
         "selected": {
@@ -560,6 +597,11 @@ def load_site0_training_authorization() -> dict[str, Any]:
             for arm in ("true", "shuffle")
         },
         "mean_state_sha256": authority.state_logical_sha256(programs["mean"]),
+        "site0_manifest": {
+            "path": str(SITE0_MANIFEST.resolve()),
+            "sha256": authority.file_sha256(SITE0_MANIFEST),
+            "bytes": SITE0_MANIFEST.stat().st_size,
+        },
     }
     if not isinstance(receipt, Mapping) or not set(required).issubset(receipt) or any(
         not authority._same_value(receipt.get(key), value)
@@ -624,6 +666,7 @@ def freeze_program_bundle(
         "authorized_for_final_scoring": False,
         "protocol_sha256": authority.PINS[PROTOCOL],
         "implementation_amendment_sha256": authority.IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": authority.FINAL_RULINGS_SHA256,
         "rows_receipt_sha256": authority.file_sha256(ROWS_RECEIPT),
         "programs": programs,
         "pipeline_contexts": {
@@ -633,6 +676,10 @@ def freeze_program_bundle(
         },
         "candidate_ledgers": candidate_ledgers,
         "selection_receipts": selections,
+        "family_representatives": {
+            name: dict(selections[name]["family_representatives"])
+            for name in ("true_site0", "true_site1")
+        },
         "stage_bindings": {stage: _stage_binding(stage) for stage in STAGE_PATHS},
         "site0_training_authorization": {
             "path": str(SITE0_TRAINING_RECEIPT.resolve()),
@@ -650,7 +697,7 @@ def freeze_program_bundle(
             "mean": {
                 "site0": authority._constant_price(),
                 "site1": authority._constant_price(),
-                "total_reals": 2 * authority._constant_price()["total_reals"],
+                **authority._pipeline_price(programs["mean"][0], programs["mean"][1]),
             },
         },
     }
@@ -668,6 +715,7 @@ def freeze_program_bundle(
 
 def _validate_receipt_candidate(
     receipt: Mapping[str, Any], bundle: Mapping[str, Any], launch_state: LaunchState,
+    execution_closure: ExecutionClosure,
 ) -> None:
     _validate_launch_state(launch_state)
     authority._validate_program_bundle(bundle)
@@ -678,6 +726,7 @@ def _validate_receipt_candidate(
         "authorized_for_final_scoring": True,
         "protocol_sha256": authority.PINS[PROTOCOL],
         "implementation_amendment_sha256": authority.IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": authority.FINAL_RULINGS_SHA256,
         "rows_receipt_path": str(ROWS_RECEIPT.resolve()),
         "rows_receipt_sha256": authority.file_sha256(ROWS_RECEIPT),
         "programs_artifact_path": str(PROGRAMS_ARTIFACT.resolve()),
@@ -694,6 +743,18 @@ def _validate_receipt_candidate(
             "preselector_stage_receipts_bound": True,
             "strata_derivations_recomputed": True,
             "site1_full_native_contexts": ["true", "shuffle"],
+            "family_representatives_frozen": True,
+        },
+        "execution_closure": {
+            "outer_model_returned": True,
+            "hook_restored_and_inert": True,
+            "component_tree_before": execution_closure.component_tree_before,
+            "component_tree_after": execution_closure.component_tree_after,
+        },
+        "site1_manifest": {
+            "path": str(SITE1_MANIFEST.resolve()),
+            "sha256": authority.file_sha256(SITE1_MANIFEST),
+            "bytes": SITE1_MANIFEST.stat().st_size,
         },
         "source_commit": launch_state.source_commit,
         "source_hashes": dict(launch_state.source_hashes),
@@ -729,6 +790,7 @@ def write_final_unlock_after_outer_return(
         "authorized_for_final_scoring": True,
         "protocol_sha256": authority.PINS[PROTOCOL],
         "implementation_amendment_sha256": authority.IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": authority.FINAL_RULINGS_SHA256,
         "rows_receipt_path": str(ROWS_RECEIPT.resolve()),
         "rows_receipt_sha256": authority.file_sha256(ROWS_RECEIPT),
         "programs_artifact_path": str(PROGRAMS_ARTIFACT.resolve()),
@@ -745,11 +807,23 @@ def write_final_unlock_after_outer_return(
             "preselector_stage_receipts_bound": True,
             "strata_derivations_recomputed": True,
             "site1_full_native_contexts": ["true", "shuffle"],
+            "family_representatives_frozen": True,
+        },
+        "execution_closure": {
+            "outer_model_returned": execution_closure.outer_model_returned,
+            "hook_restored_and_inert": execution_closure.hook_restored_and_inert,
+            "component_tree_before": execution_closure.component_tree_before,
+            "component_tree_after": execution_closure.component_tree_after,
+        },
+        "site1_manifest": {
+            "path": str(SITE1_MANIFEST.resolve()),
+            "sha256": authority.file_sha256(SITE1_MANIFEST),
+            "bytes": SITE1_MANIFEST.stat().st_size,
         },
         "source_commit": launch_state.source_commit,
         "source_hashes": dict(launch_state.source_hashes),
     }
-    _validate_receipt_candidate(receipt, bundle, launch_state)
+    _validate_receipt_candidate(receipt, bundle, launch_state, execution_closure)
     authority.write_json_atomic(receipt, PROGRAMS_RECEIPT)
     return dict(receipt)
 

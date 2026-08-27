@@ -26,6 +26,11 @@ IMPLEMENTATION_AMENDMENT = (
 IMPLEMENTATION_AMENDMENT_SHA256 = (
     "0ac129411a89b94867635253493e53f04aef77e0361bea2fe6af589b7ae5d988"
 )
+FINAL_RULINGS = HERE / "early_mlp_state_complete_compiler_v21_final_rulings.json"
+FINAL_RULINGS_SHA256 = (
+    "d47beafc368705deffb7c12441494579b34f1d9c39d8ddfafdfc7e10c1ae025f"
+)
+PARENT_PROTOCOL = HERE / "early_mlp_state_complete_compiler_v2_preregistration.json"
 OLD_RECEIPT = BQ / "early_mlp_state_complete_compiler_v2_rows_receipt.json"
 RETRY1_FAILURE = BQ / "early_mlp_state_complete_compiler_v2_site0_retry1_manifest.json"
 PARENT_FAILURE = BQ / "early_mlp_state_complete_compiler_v2_site0_manifest.json"
@@ -46,6 +51,8 @@ SITE0_LEDGER_ARTIFACT = BQ / "early_mlp_state_complete_compiler_v21_site0_ledger
 SITE0_LEDGER_RECEIPT = BQ / "early_mlp_state_complete_compiler_v21_site0_ledger_receipt.json"
 SITE1_LEDGER_ARTIFACT = BQ / "early_mlp_state_complete_compiler_v21_site1_ledger.pt"
 SITE1_LEDGER_RECEIPT = BQ / "early_mlp_state_complete_compiler_v21_site1_ledger_receipt.json"
+SITE0_MANIFEST = BQ / "early_mlp_state_complete_compiler_v21_site0_manifest.json"
+SITE1_MANIFEST = BQ / "early_mlp_state_complete_compiler_v21_site1_manifest.json"
 CACHE = BQ / ".rowcache_compiler_v21"
 LOCK = Path("/workspace/runs/.early_mlp_state_complete_compiler_v21_rows.lock")
 OUTPUTS = (RECEIPT, MANIFEST)
@@ -62,6 +69,8 @@ ROWS_MANIFEST_SHA256 = "1cfe4b383c8298ca79164dc42098a9c9e5bce8c47b4411605e1aa1fb
 
 PINS = {
     PROTOCOL: "69c1bb3bdb0cbf576c41775d4a0881c20a1154642a5ac8deacef780fe9b08ee3",
+    FINAL_RULINGS: FINAL_RULINGS_SHA256,
+    PARENT_PROTOCOL: "45b0a6c055779449bf5fee815a0ecc7471336e95963db67e74166a2270978d54",
     OLD_RECEIPT: "23319ece1d8542d51e024bde0e2253d740b08ad18ad4f2d8565ba5120473fd82",
     RETRY1_FAILURE: "2eb0ef098a93d5562bb1abd0b3e94187a461e86cc1c3aec055a1bb719632829a",
     PARENT_FAILURE: "0903b0822b935e7dd6225da46dd1e58064ec275b80fd9c599685cea8b8b05f36",
@@ -131,8 +140,14 @@ PROGRAM_SOURCE_CLOSURE = tuple(dict.fromkeys((
     HERE / "test_early_mlp_state_complete_compiler_v21.py",
     HERE / "early_mlp_state_complete_compiler_v21_site0.py",
     HERE / "test_early_mlp_state_complete_compiler_v21_site0.py",
+    HERE / "early_mlp_state_complete_compiler_v21_site1.py",
+    HERE / "test_early_mlp_state_complete_compiler_v21_site1.py",
+    HERE / "early_mlp_state_complete_compiler_v21_final.py",
+    HERE / "test_early_mlp_state_complete_compiler_v21_final.py",
     PROTOCOL,
     IMPLEMENTATION_AMENDMENT,
+    FINAL_RULINGS,
+    PARENT_PROTOCOL,
     Path(__file__),
     HERE / "test_prepare_state_complete_compiler_rows_v21.py",
     *_RETRY1_TRANSITIVE_SOURCES,
@@ -673,20 +688,64 @@ def _total_shuffle_selection(candidates: Mapping[str, Mapping[str, Any]]) -> dic
     }
 
 
-def _constant_price() -> dict[str, int]:
-    basis_reals = compiler.D_MODEL * compiler.COEFFICIENT_DIM
+def _constant_price(*, include_basis: bool = True) -> dict[str, Any]:
+    basis_reals = compiler.D_MODEL * compiler.COEFFICIENT_DIM if include_basis else 0
+    total = basis_reals + compiler.COEFFICIENT_DIM
+    multiplies = 2 * compiler.D_MODEL * compiler.COEFFICIENT_DIM
+    original = 3 * compiler.NATIVE_PRODUCTS * compiler.D_MODEL + compiler.D_MODEL
     return {
+        "include_basis": bool(include_basis),
         "basis_reals": basis_reals,
         "program_reals": compiler.COEFFICIENT_DIM,
-        "total_reals": basis_reals + compiler.COEFFICIENT_DIM,
+        "total_reals": total,
+        "float32_bits": 32 * total,
+        "inference_multiplies_per_token": multiplies,
+        "hadamard_products_per_token": 0,
+        "original_mlp_reals": original,
+        "fraction_of_original_reals": total / original,
     }
 
 
+def _state_price(state: Mapping[str, Any], *, include_basis: bool) -> dict[str, Any]:
+    if state.get("grammar") == "affine":
+        return compiler.corrected_affine_price(
+            int(state["rank"]), include_basis=include_basis,
+        )
+    if state.get("grammar") == "native":
+        return compiler.native_program_price(
+            int(state["k"]), include_basis=include_basis,
+        )
+    if state.get("grammar") == "constant":
+        return _constant_price(include_basis=include_basis)
+    raise RuntimeError("v2.1 program price encountered unknown grammar")
+
+
 def _pipeline_price(site0: Mapping[str, Any], site1: Mapping[str, Any]) -> dict[str, Any]:
-    prices = [selection.state_price(site0), selection.state_price(site1)]
+    standalone = [_state_price(state, include_basis=True) for state in (site0, site1)]
+    amortized = [_state_price(state, include_basis=False) for state in (site0, site1)]
     return {
-        "site0": prices[0], "site1": prices[1],
-        "total_reals": int(sum(price["total_reals"] for price in prices)),
+        "site0": standalone[0], "site1": standalone[1],
+        "standalone": {
+            "site0": standalone[0], "site1": standalone[1],
+            "total_reals": int(sum(price["total_reals"] for price in standalone)),
+            "total_float32_bits": int(sum(price["float32_bits"] for price in standalone)),
+        },
+        "amortized_admitted_basis_library": {
+            "site0": amortized[0], "site1": amortized[1],
+            "total_reals": int(sum(price["total_reals"] for price in amortized)),
+            "total_float32_bits": int(sum(price["float32_bits"] for price in amortized)),
+        },
+        "total_reals": int(sum(price["total_reals"] for price in standalone)),
+        "total_float32_bits": int(sum(price["float32_bits"] for price in standalone)),
+        "inference_multiplies_per_token": int(sum(
+            price["inference_multiplies_per_token"] for price in standalone
+        )),
+        "hadamard_products_per_token": int(sum(
+            price["hadamard_products_per_token"] for price in standalone
+        )),
+        "full_original_mlp_reals_two_sites": int(sum(
+            price["original_mlp_reals"] for price in standalone
+        )),
     }
 
 
@@ -773,6 +832,60 @@ def derive_causal_audit(
         "target_second_moments": moments,
         "positive_floor": floor,
         "weights": weights,
+    }
+
+
+def _average_ranks(value: torch.Tensor) -> torch.Tensor:
+    if not torch.is_tensor(value) or value.dtype != torch.float64 or value.ndim != 1 or (
+        not bool(torch.isfinite(value).all())
+    ):
+        raise RuntimeError("v2.1 Spearman input changed")
+    order = torch.argsort(value, stable=True)
+    ranks = torch.empty_like(value)
+    start = 0
+    while start < value.numel():
+        stop = start + 1
+        while stop < value.numel() and value[order[stop]] == value[order[start]]:
+            stop += 1
+        ranks[order[start:stop]] = 0.5 * (start + stop - 1) + 1.0
+        start = stop
+    return ranks
+
+
+def derive_direction_prediction(
+    omission_losses: torch.Tensor, target_second_moments: torch.Tensor,
+    predictor_error_square_sums: torch.Tensor, predictor_error_count: int,
+) -> dict[str, Any]:
+    if not torch.is_tensor(predictor_error_square_sums) or (
+        predictor_error_square_sums.dtype != torch.float64
+    ) or tuple(predictor_error_square_sums.shape) != (compiler.COEFFICIENT_DIM,) or (
+        not bool(torch.isfinite(predictor_error_square_sums).all())
+    ) or bool((predictor_error_square_sums < 0).any()) or (
+        predictor_error_count != CAUSAL_CAPTURE_COUNT
+    ):
+        raise RuntimeError("v2.1 direction-prediction error statistics changed")
+    causal_ratio = omission_losses.abs() / target_second_moments.clamp_min(1e-12)
+    error_variance = predictor_error_square_sums / predictor_error_count
+    left = _average_ranks(causal_ratio.double().contiguous())
+    right = _average_ranks(error_variance.double().contiguous())
+    left = left - left.mean()
+    right = right - right.mean()
+    denominator = left.norm() * right.norm()
+    if float(denominator) <= 0:
+        return {
+            "causal_raw_ratios": causal_ratio.double().contiguous(),
+            "predictor_error_variance": error_variance.double().contiguous(),
+            "status": "unevaluable_constant_ranks",
+            "spearman_average_rank": None,
+            "registered_prediction_positive": False,
+        }
+    correlation = float((left @ right) / denominator)
+    return {
+        "causal_raw_ratios": causal_ratio.double().contiguous(),
+        "predictor_error_variance": error_variance.double().contiguous(),
+        "status": "evaluated",
+        "spearman_average_rank": correlation,
+        "registered_prediction_positive": correlation > 0.0,
     }
 
 
@@ -975,6 +1088,61 @@ def _validate_mean_site1_diagnostics(value: Any, programs: Mapping[str, Any]) ->
     )
 
 
+def _validate_mean_site1_score(
+    context: Any, score: Any, mean_site0: Mapping[str, Any],
+    mean_site1: Mapping[str, Any],
+) -> None:
+    """Validate the separate M0O1N/M0N1N/M0M1N scoring currency."""
+
+    upstream = state_logical_sha256(mean_site0)
+    required_context = {
+        "upstream_state_sha256", "scorer", "teacher_denominator",
+        "teacher_kl_sum", "teacher_token_count", "copy_baseline",
+        "copy_ce_sum", "copy_token_count",
+    }
+    if not isinstance(context, Mapping) or set(context) != required_context or (
+        context.get("upstream_state_sha256") != upstream
+    ) or context.get("scorer") != "CUDA float32 per-token; float64 row/aggregate":
+        raise RuntimeError("v2.1 mean-site1 scoring context changed")
+    denominator = float(context["teacher_denominator"])
+    teacher_sum = float(context["teacher_kl_sum"])
+    teacher_count = context["teacher_token_count"]
+    copy_sum = float(context["copy_ce_sum"])
+    copy_count = context["copy_token_count"]
+    if not torch.isfinite(torch.tensor([
+        denominator, teacher_sum, float(context["copy_baseline"]), copy_sum,
+    ], dtype=torch.float64)).all() or denominator <= 0 or (
+        teacher_count != VALIDATION_TOKEN_COUNT
+    ) or denominator != teacher_sum / teacher_count or not isinstance(
+        copy_count, int
+    ) or not 0 < copy_count <= VALIDATION_TOKEN_COUNT or context[
+        "copy_baseline"
+    ] != copy_sum / copy_count:
+        raise RuntimeError("v2.1 mean-site1 scoring statistics changed")
+    if not isinstance(score, Mapping) or set(score) != {
+        "context", "upstream_state_sha256", "metrics", "call_counter",
+        "teacher_call_counter", "baseline_call_counter",
+    } or score.get("context") != "mean_site0" or score.get(
+        "upstream_state_sha256"
+    ) != upstream:
+        raise RuntimeError("v2.1 mean-site1 score binding changed")
+    _validate_scorer_metrics(
+        score["metrics"], context, _constant_price(), "site1:mean_score",
+    )
+    _validate_exact_call_counter(
+        score["teacher_call_counter"], {0: 0, 1: 24, 2: 0},
+        "mean-site1 teacher",
+    )
+    _validate_exact_call_counter(
+        score["baseline_call_counter"], {0: 0, 1: 0, 2: 0},
+        "mean-site1 baseline",
+    )
+    _validate_exact_call_counter(
+        score["call_counter"], {0: 0, 1: 0, 2: 0},
+        "mean-site1 candidate",
+    )
+
+
 def _validate_stage_binding(
     bundle: Mapping[str, Any], stage: str, artifact_path: Path, receipt_path: Path,
     ledger_names: set[str],
@@ -1061,7 +1229,8 @@ def _validate_stage_binding(
     diagnostics = payload.get("diagnostics")
     diagnostic_keys = {
         "fit_permutation_sha256", "capture_hashes", "contexts",
-    } | ({"mean_control"} if stage == "site1" else {"mean_score"})
+    } | ({"mean_control", "mean_context", "mean_score"}
+         if stage == "site1" else {"mean_score"})
     if not isinstance(diagnostics, Mapping) or set(diagnostics) != diagnostic_keys:
         raise RuntimeError(f"v2.1 {stage} external diagnostics are incomplete")
     permutation_hash = diagnostics["fit_permutation_sha256"]
@@ -1093,6 +1262,10 @@ def _validate_stage_binding(
         )
     if stage == "site1":
         _validate_mean_site1_diagnostics(diagnostics["mean_control"], programs)
+        _validate_mean_site1_score(
+            diagnostics["mean_context"], diagnostics["mean_score"],
+            programs["mean"][0], programs["mean"][1],
+        )
     else:
         _validate_mean_score(
             diagnostics["mean_score"], contexts["true_site0"],
@@ -1134,6 +1307,14 @@ def _validate_site0_training_authorization(
         "stage_binding"
     ) != bundle.get("stage_bindings", {}).get("site0"):
         raise RuntimeError("v2.1 site0 training states differ from deployed bundle")
+    site0_manifest = receipt.get("site0_manifest")
+    expected_manifest = SITE0_MANIFEST
+    if not isinstance(site0_manifest, Mapping) or site0_manifest != {
+        "path": str(expected_manifest.resolve()),
+        "sha256": file_sha256(expected_manifest) if expected_manifest.is_file() else None,
+        "bytes": expected_manifest.stat().st_size if expected_manifest.is_file() else None,
+    }:
+        raise RuntimeError("v2.1 site0 training manifest binding changed")
 
 
 def _validate_historical_row_authority(receipt: Mapping[str, Any]) -> None:
@@ -1170,6 +1351,27 @@ def _validate_historical_row_authority(receipt: Mapping[str, Any]) -> None:
 def _validate_program_bundle(bundle: Any) -> None:
     if not isinstance(bundle, Mapping):
         raise RuntimeError("v2.1 program artifact is not a mapping")
+    expected_bundle_keys = {
+        "schema_version", "status", "authority", "authorized_for_training",
+        "authorized_for_final_scoring", "protocol_sha256",
+        "implementation_amendment_sha256", "final_rulings_sha256",
+        "rows_receipt_sha256", "programs", "pipeline_contexts",
+        "candidate_ledgers", "selection_receipts", "family_representatives",
+        "stage_bindings", "site0_training_authorization", "controls", "strata",
+        "prices",
+    }
+    if set(bundle) != expected_bundle_keys or bundle.get("schema_version") != 1 or (
+        bundle.get("status") != "frozen_v21_program_bundle_pending_final_unlock"
+    ) or bundle.get("authority") != "compiler_v21_program_bundle" or bundle.get(
+        "authorized_for_training"
+    ) is not False or bundle.get("authorized_for_final_scoring") is not False or (
+        bundle.get("protocol_sha256") != PINS[PROTOCOL]
+    ) or bundle.get("implementation_amendment_sha256") != (
+        IMPLEMENTATION_AMENDMENT_SHA256
+    ) or bundle.get("final_rulings_sha256") != FINAL_RULINGS_SHA256 or bundle.get(
+        "rows_receipt_sha256"
+    ) != file_sha256(RECEIPT):
+        raise RuntimeError("v2.1 program artifact top-level authority changed")
     programs = bundle.get("programs")
     if not isinstance(programs, Mapping) or set(programs) != {"true", "shuffle", "mean"}:
         raise RuntimeError("v2.1 program artifact lacks the three registered arms")
@@ -1217,6 +1419,18 @@ def _validate_program_bundle(bundle: Any) -> None:
         site = int(site_text)
         if not _same_value(programs[arm][site], ledger[expected["selected"]]["state"]):
             raise RuntimeError(f"v2.1 deployed state differs from selected ledger: {name}")
+
+    representatives = bundle.get("family_representatives")
+    expected_representatives = {
+        name: dict(receipts[name]["family_representatives"])
+        for name in ("true_site0", "true_site1")
+    }
+    if representatives != expected_representatives or any(
+        set(names) != set(selection.ALL_FAMILIES)
+        or any(candidate not in ledgers[name] for candidate in names.values())
+        for name, names in representatives.items()
+    ):
+        raise RuntimeError("v2.1 final family representatives are not frozen")
 
     _validate_stage_binding(
         bundle, "site0", SITE0_LEDGER_ARTIFACT, SITE0_LEDGER_RECEIPT,
@@ -1327,7 +1541,7 @@ def _validate_program_bundle(bundle: Any) -> None:
         "omit_row_ce", "full_oracle_row_ce_sha256", "omit_row_ce_sha256",
         "target_p_square_sums", "target_p_square_sums_sha256", "target_p_count",
         "omission_losses", "target_second_moments", "positive_floor", "weights",
-        "call_counters",
+        "direction_prediction", "call_counters",
     } or audit.get("context") != "true_site0" or audit.get("rule") != (
         "abs(loss)/max(second_moment,1e-12); positive 5pct floor; mean-one"
     ) or audit.get("upstream_state_sha256") != state_logical_sha256(
@@ -1352,6 +1566,35 @@ def _validate_program_bundle(bundle: Any) -> None:
     )
     if any(not _same_value(audit.get(key), value) for key, value in derived.items()):
         raise RuntimeError("v2.1 causal omission weights do not recompute")
+    prediction = audit.get("direction_prediction")
+    if not isinstance(prediction, Mapping) or set(prediction) != {
+        "predictor_family", "predictor_state_sha256",
+        "predictor_error_square_sums", "predictor_error_square_sums_sha256",
+        "predictor_error_count", "causal_raw_ratios", "predictor_error_variance",
+        "status", "spearman_average_rank", "registered_prediction_positive",
+    } or prediction.get("predictor_family") != (
+        "A_v1_like_z_only_affine_euclidean"
+    ):
+        raise RuntimeError("v2.1 causal direction-prediction schema changed")
+    a_name = representatives["true_site1"][
+        "A_v1_like_z_only_affine_euclidean"
+    ]
+    if prediction.get("predictor_state_sha256") != state_logical_sha256(
+        ledgers["true_site1"][a_name]["state"]
+    ):
+        raise RuntimeError("v2.1 direction predictor is not the frozen A representative")
+    error_sums = prediction.get("predictor_error_square_sums")
+    if prediction.get("predictor_error_square_sums_sha256") != tensor_sha256(
+        error_sums
+    ):
+        raise RuntimeError("v2.1 direction-prediction error hash changed")
+    expected_prediction = derive_direction_prediction(
+        derived["omission_losses"], derived["target_second_moments"],
+        error_sums, prediction.get("predictor_error_count"),
+    )
+    if any(not _same_value(prediction.get(key), value)
+           for key, value in expected_prediction.items()):
+        raise RuntimeError("v2.1 causal direction prediction does not recompute")
     counters = audit.get("call_counters")
     if not isinstance(counters, Mapping) or set(counters) != {
         "full_oracle", "omissions"
@@ -1364,10 +1607,7 @@ def _validate_program_bundle(bundle: Any) -> None:
     expected_prices = {
         "true": _pipeline_price(programs["true"][0], programs["true"][1]),
         "shuffle": _pipeline_price(programs["shuffle"][0], programs["shuffle"][1]),
-        "mean": {
-            "site0": _constant_price(), "site1": _constant_price(),
-            "total_reals": 2 * _constant_price()["total_reals"],
-        },
+        "mean": _pipeline_price(programs["mean"][0], programs["mean"][1]),
     }
     if prices != expected_prices:
         raise RuntimeError("v2.1 pipeline prices do not recompute from deployed states")
@@ -1380,6 +1620,10 @@ def validate_final_unlock(path: Path) -> dict[str, Any]:
         IMPLEMENTATION_AMENDMENT
     ) != IMPLEMENTATION_AMENDMENT_SHA256:
         raise RuntimeError("v2.1 implementation amendment changed")
+    if not FINAL_RULINGS.is_file() or file_sha256(
+        FINAL_RULINGS
+    ) != FINAL_RULINGS_SHA256:
+        raise RuntimeError("v2.1 prospective final rulings changed")
     if not RECEIPT.is_file() or file_sha256(RECEIPT) != ROWS_RECEIPT_SHA256:
         raise RuntimeError("v2.1 realized row receipt changed")
     _validate_historical_row_authority(json.loads(RECEIPT.read_text()))
@@ -1391,6 +1635,7 @@ def validate_final_unlock(path: Path) -> dict[str, Any]:
         "authorized_for_final_scoring": True,
         "protocol_sha256": PINS[PROTOCOL],
         "implementation_amendment_sha256": IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": FINAL_RULINGS_SHA256,
         "rows_receipt_path": str(RECEIPT.resolve()),
         "rows_receipt_sha256": file_sha256(RECEIPT),
         "programs_artifact_path": str(PROGRAMS_ARTIFACT.resolve()),
@@ -1404,6 +1649,11 @@ def validate_final_unlock(path: Path) -> dict[str, Any]:
         "programs_artifact_bytes"
     ) != PROGRAMS_ARTIFACT.stat().st_size:
         raise RuntimeError("v2.1 final unlock program artifact binding changed")
+    if set(unlock) != set(required) | {
+        "programs_artifact_sha256", "programs_artifact_bytes", "frozen_contents",
+        "execution_closure", "site1_manifest", "source_commit", "source_hashes",
+    }:
+        raise RuntimeError("v2.1 final unlock key set changed")
     expected_contents = {
         "true_program_sites": [0, 1],
         "shuffle_program_sites": [0, 1],
@@ -1415,9 +1665,29 @@ def validate_final_unlock(path: Path) -> dict[str, Any]:
         "preselector_stage_receipts_bound": True,
         "strata_derivations_recomputed": True,
         "site1_full_native_contexts": ["true", "shuffle"],
+        "family_representatives_frozen": True,
     }
     if unlock.get("frozen_contents") != expected_contents:
         raise RuntimeError("v2.1 final unlock contents are incomplete")
+    closure = unlock.get("execution_closure")
+    if not isinstance(closure, Mapping) or set(closure) != {
+        "outer_model_returned", "hook_restored_and_inert",
+        "component_tree_before", "component_tree_after",
+    } or closure.get("outer_model_returned") is not True or closure.get(
+        "hook_restored_and_inert"
+    ) is not True or not closure.get("component_tree_before") or closure.get(
+        "component_tree_after"
+    ) != closure.get("component_tree_before"):
+        raise RuntimeError("v2.1 final unlock execution closure changed")
+    site1_manifest_path = SITE1_MANIFEST
+    if unlock.get("site1_manifest") != {
+        "path": str(site1_manifest_path.resolve()),
+        "sha256": file_sha256(site1_manifest_path)
+        if site1_manifest_path.is_file() else None,
+        "bytes": site1_manifest_path.stat().st_size
+        if site1_manifest_path.is_file() else None,
+    }:
+        raise RuntimeError("v2.1 final unlock site1 manifest binding changed")
 
     try:
         bundle = torch.load(PROGRAMS_ARTIFACT, map_location="cpu", weights_only=True)
@@ -1433,6 +1703,7 @@ def validate_final_unlock(path: Path) -> dict[str, Any]:
         "authorized_for_final_scoring": False,
         "protocol_sha256": PINS[PROTOCOL],
         "implementation_amendment_sha256": IMPLEMENTATION_AMENDMENT_SHA256,
+        "final_rulings_sha256": FINAL_RULINGS_SHA256,
         "rows_receipt_sha256": file_sha256(RECEIPT),
     }
     for key, expected in bundle_required.items():

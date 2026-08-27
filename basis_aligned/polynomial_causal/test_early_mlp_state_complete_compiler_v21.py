@@ -43,6 +43,8 @@ def _stage_inputs(stage):
     }
     if stage == "site1":
         diagnostics["mean_control"] = {}
+        diagnostics["mean_context"] = {}
+        diagnostics["mean_score"] = {}
     else:
         diagnostics["mean_score"] = {}
     return candidates, controls, diagnostics
@@ -126,6 +128,15 @@ def test_program_source_closure_contains_runner_and_test() -> None:
     names = {path.name for path in runner.authority.PROGRAM_SOURCE_CLOSURE}
     assert "early_mlp_state_complete_compiler_v21.py" in names
     assert "test_early_mlp_state_complete_compiler_v21.py" in names
+
+
+def test_launch_pin_gate_checks_every_inherited_pin(monkeypatch, tmp_path) -> None:
+    parent = tmp_path / "parent.json"
+    parent.write_text("changed")
+    monkeypatch.setattr(runner.authority, "PINS", {parent: "0" * 64})
+    monkeypatch.setattr(runner.authority, "ORIGINAL_ABSENT", ())
+    with pytest.raises(RuntimeError, match="pinned input changed"):
+        runner._validate_all_pins_and_historical_absences()
 
 
 def test_exclusive_run_claim_is_create_only_and_owned(monkeypatch, tmp_path) -> None:
@@ -268,6 +279,13 @@ def test_resume_after_site0_requires_same_committed_source_closure(
         path.write_text("site0")
     training = tmp_path / "training.json"
     training.write_text("training")
+    site0_manifest = tmp_path / "site0_manifest.json"
+    site0_manifest.write_text("site0 manifest")
+    monkeypatch.setattr(runner, "SITE0_MANIFEST", site0_manifest)
+    monkeypatch.setattr(runner, "SITE1_MANIFEST", tmp_path / "site1_manifest.json")
+    monkeypatch.setattr(
+        runner, "FINAL_OUTPUTS", tuple(tmp_path / f"final{i}" for i in range(4)),
+    )
     programs = tmp_path / "programs.pt"
     final_receipt = tmp_path / "final.json"
     manifest = tmp_path / "rows_manifest.json"
@@ -311,6 +329,9 @@ def test_final_receipt_is_prevalidated_and_written_once_last(
     monkeypatch.setattr(runner, "PROGRAMS_RECEIPT", receipt)
     monkeypatch.setattr(runner, "ROWS_RECEIPT", tmp_path / "rows.json")
     runner.ROWS_RECEIPT.write_text("rows")
+    site1_manifest = tmp_path / "site1_manifest.json"
+    site1_manifest.write_text("site1 manifest")
+    monkeypatch.setattr(runner, "SITE1_MANIFEST", site1_manifest)
     monkeypatch.setattr(runner, "_validate_launch_state", lambda _: None)
     monkeypatch.setattr(runner.authority, "_validate_program_bundle", lambda _: None)
     writes = []
