@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "receipt_kind": "mlp0_native_down_hierarchy_v1_fit_authority",
+  "status": "frozen_before_any_native_down_fit_model_forward",
+  "scope": "fit-role compiler only; evaluation receipt/path is outside source closure",
+  "source_commit": "b5e1e529770987c6e3e03358742c92311249095f",
+  "source_hashes": {
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/compile_mlp0_native_down_fit_v1.py": "90c3dc7ee943a89887a5b5f2077a80e4696e90792cd20c4b979ba496f8826135",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp0_native_down_program.py": "2cf7094fa0d3a41b9c2cd795597c1b83ef937f05b665ef49fe3340c52fadbc66",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp0_quotient_worst_cell.py": "28739172b21ec6a1f9b07b070750b5c7c251371890c8bc7d50447615842528c7",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/causal_response_quotient.py": "e3c3d8f06dc4228463fcfa66ded808fb5414ecbe62448284c84cf0a58cdceac0",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/prepare_mlp0_quotient_stage0_v1_rows.py": "4045d6ed7825ad7537085290f25b5f0c71360534a8f2cd7c2f100ee5edc7b718",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/MLP0_NATIVE_DOWN_HIERARCHY_SPEC.md": "5f9a3d0bd3b6fec13b766257102e1592d9065babac14f05002b6568070581a54",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_joint_removal.py": "0ff3d3bd22b2819e60aa0e3ff82226c541735a3b5b43c82b032394eb519af594",
+    "/workspace/tensor_language/basis_aligned/qk_mdl/tier2_model.py": "cda42d758083350e3e1f70b72c5e84d06d274227fd43332622547dc9d41ea4fa",
+    "/workspace/tensor_language/jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+  },
+  "stage0_fit_rows": {
+    "receipt_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v1_rows_receipt.json",
+    "receipt_sha256": "69b068d582e616c37e37937e6705a61a5cf7eb2737270067e4253f10ffe19cea"
+  },
+  "stage0_fit_constants": {
+    "receipt_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v2_fit_receipt.json",
+    "receipt_sha256": "3f46efa1518e7971f076f91d2ce48234fb9e0593ba80e09e3a678460973c609c"
+  },
+  "model_repo": "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd",
+  "model_files": {
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/blobs/f0da83505a9b92d79c7fa3369121f5c4a3675b2d": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/blobs/680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+  },
+  "solver_contract": {
+    "ridge_fraction": 0.0001,
+    "continuous_rungs": [
+      256,
+      512
+    ],
+    "covariance": "float32 CUDA ordered batch addmm",
+    "mean_and_state_sums": "float64 CPU ordered accumulation",
+    "eigensolver": "torch.linalg.eigh descending; balanced SVD largest-loading sign",
+    "torch_version": "2.11.0+cu128",
+    "cuda_version": "12.8",
+    "device": "NVIDIA GeForce RTX 5090",
+    "compute_capability": "12.0"
+  },
+  "fit_receipt_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_fit_receipt.json",
+  "program_directory": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_programs",
+  "failure_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_fit_failure.json",
+  "lock_path": "/workspace/runs/.bilin18_mlp0_native_down_fit_v1.lock",
+  "output_policy": "fail closed; atomic receipt and directory; no evaluation authority exists"
+}
