@@ -39053,3 +39053,69 @@ it at a different grain.** §1628: one random basis is not a control. §1629: se
 site — the deltas here run from −.0568 (`is`) to +.0141 (`to`), a spread of .07 on a
 statistic whose whole class range is .088. **Any null from a single basis is
 confounded with whatever mask it is being applied to.**
+
+## §1631 §1597's 20:1 HEAD-GRAIN REPLICATES EXACTLY AND SURVIVES ITS FIRST REAL CONTROL (2-for-3) — but head IDENTITY is free: every one of 60 random bases also picks head 10.5. The unifying law across §1628-§1631 is that the SITE decides WHICH, the SLICE decides HOW CONCENTRATED
+
+**Setup** (head_grain_multiseed, 80 s, rung 3). §1628 removed the membership support
+for attn10, leaving head-grain as the load-bearing half of §1597's headline —
+registered as `attn10 = "10.5 (625, 20:1 over next)"` and computed with NO random
+control at all. question@mlp11 rank-2, corrected quantity, per-head absolute mass
+within layer 10, λ arm vs **20 independent random rank-2 bases x 3 disjoint chunks
+= 60 control trials**.
+
+```
+  λ top head        10.5, 10.5, 10.5          λ ratio   20.00  27.87  22.61
+  λ per-head mass (chunk0): h5 644.2 | h2 32.21 | h6 7.57 | h8 3.02 | rest ≈ 1.3-1.8
+  random ratio      min 1.03   median 2.91   p95 6.36   max 8.88
+  random picks head 10.5 as top:  60/60 = 100.0%
+  seed 1729 (top head, ratio):    (5, 2.01) (5, 3.61) (5, 3.43)
+```
+
+- **pred_a PASSED** — head 10.5 is λ's top head in all three chunks.
+- **pred_b PASSED** — λ's ratio (20.0-27.9) exceeds the random **p95 of 6.36** on
+  every chunk. In fact λ's MINIMUM (20.00) exceeds the random MAXIMUM (8.88):
+  **perfect separation, 60/60**.
+- **pred_c FAILED** — a random basis picks head 10.5 as layer 10's top head in
+  **60/60 = 100%** of trials, against a bar of < 50%.
+
+**§1597's number replicates exactly.** The published "20:1 over next" comes out at
+**20.00** on chunk0 (published mass 625, measured 644.2 — different rows), and
+higher on the other two. This is the third published §1597/§1598 figure to reproduce
+to the digit under the corrected quantity, after .718 (§1623) and .482 (§1624).
+
+**But the identification is worth nothing, and that must be said.** Head 10.5 is the
+top head of layer 10 for EVERY basis tested — a random rank-2 projection picks it
+100% of the time. So "10.5 is the question head" is not evidence about questions; it
+is a fact about layer 10 at this site, true of anything you project. What the
+question slice contributes is the DEGREE: 20-28:1 where an arbitrary basis gets
+1.03-8.88.
+
+**THE UNIFYING LAW — this is the same split for the fourth time.**
+
+```
+  statistic                       IDENTITY / MEMBERSHIP        MAGNITUDE
+  §1628 question top-4            attn10 53%, attn9 88%        share 60/60 separation
+  §1629 pronouns top-6            mlp16 100%, x0 15%           share 60/60 separation
+  §1631 layer-10 head grain       head 10.5 at 100%            ratio 60/60 separation
+```
+
+**The SITE decides WHICH components and heads carry the mass; the SLICE decides HOW
+CONCENTRATED that mass is.** Every claim of the form "component X / head Y is
+specific to class C" that rests on X or Y merely APPEARING has been uninformative
+wherever measured — except `x0` at 15% (§1629), the single exception, which is why
+the fraction must be measured rather than assumed. Every claim resting on a
+MAGNITUDE has separated perfectly, 60/60, in all three cells.
+
+**What I am NOT claiming, having just been burned by exactly this in §1630.** This
+does NOT show attn10 and attn9 are not question circuit heads. The registry's
+`both_are_certified_question_circuit_heads` rests on REMOVAL evidence (§1595 and the
+5-head circuit work), which is independent of this grain statistic and untouched
+here. What falls is only the use of head-grain IDENTIFICATION as evidence of
+class-specificity. §1597's registered numbers stand; one inference drawn from them
+does not.
+
+**No retraction is requested for §1597.** Its three published figures all replicate
+(.718, .482, 20:1) and its head-grain concentration survives its first proper
+control. The needed change is a QUALIFIER on interpretation, not a withdrawal, and I
+have not applied even that — see PENDING_RETRACTION_S1612.md for the one withdrawal
+actually on the table, which remains membership-only.

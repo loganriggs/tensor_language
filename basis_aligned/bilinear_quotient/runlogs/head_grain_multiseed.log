@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 x 160 rows x 20 seeds | head-grain at layer 10 (receipt 815b21618c2e477e)
+  lambda chunk0 n=  78 top head 10.5 ratio 20.00 order [5, 2, 6]
+  lambda chunk1 n=  56 top head 10.5 ratio 27.87 order [5, 2, 6]
+  lambda chunk2 n=  80 top head 10.5 ratio 22.61 order [5, 2, 6]
+  random seed 1729 done (1/20)
+  random seed 1734 done (6/20)
+  random seed 1739 done (11/20)
+  random seed 1744 done (16/20)
+
+  question@mlp11 r2, head-grain within layer 10, 20 bases x 3 chunks = 60 control trials
+    lambda top head   ['10.5', '10.5', '10.5']
+    lambda ratio      [20.0, 27.87, 22.61]   (§1597 published 20:1)
+    random ratio      min 1.03  median 2.91  p95 6.36  max 8.88
+    random picks head 5 as top: 60/60 = 100.0%
+    seed 1729 (top head, ratio) per chunk: [(5, 2.01), (5, 3.61), (5, 3.43)]
+    lambda per-head mass chunk0: {0: 1.33, 1: 1.31, 2: 32.21, 3: 1.46, 4: 1.81, 5: 644.2, 6: 7.57, 7: 1.37, 8: 3.02}
+
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/head_grain_multiseed_results.json (79.6s)
