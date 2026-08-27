@@ -41,7 +41,7 @@ def test_causal_constant_is_optimal_against_small_perturbations() -> None:
         error = value - target
         directional = (adjoint * error).sum(dim=1).square().mean()
         directional /= adjoint.square().sum(dim=1).mean()
-        isotropic = solver.CAUSAL_FLOOR * error.square().mean() / target.shape[1]
+        isotropic = solver.CAUSAL_FLOOR * error.square().mean()
         return directional + isotropic
 
     base = loss(constant)
@@ -59,9 +59,49 @@ def test_causal_statistics_are_symmetric_finite_and_support_refittable() -> None
     assert torch.allclose(hessian, hessian.T)
     assert torch.isfinite(hessian).all() and torch.isfinite(linear).all()
     assert intercept.shape == (target.shape[1],)
-    assert torch.equal(offset, torch.zeros_like(offset))
+    assert offset.shape == (phi.shape[1], target.shape[1])
     amplitudes = solver.refit_support(hessian, linear, torch.tensor([1, 7]))
     assert torch.isfinite(amplitudes).all()
+    support = torch.tensor([1, 7])
+    beta = solver.materialize_native_intercept(
+        intercept, offset, q, support, amplitudes
+    )
+
+    def loss(value: torch.Tensor) -> torch.Tensor:
+        prediction = (phi[:, support] * amplitudes) @ q[support] + value
+        error = prediction - target
+        directional = (adjoint * error).sum(dim=1).square().mean()
+        directional /= adjoint.square().sum(dim=1).mean()
+        return directional + solver.CAUSAL_FLOOR * error.square().mean()
+
+    base = loss(beta)
+    for coordinate in range(target.shape[1]):
+        for sign in (-1.0, 1.0):
+            moved = beta.clone()
+            moved[coordinate] += sign * 1e-4
+            assert loss(moved) >= base - 1e-10
+
+
+def test_causal_schur_statistics_match_registered_loss_gradient() -> None:
+    phi, q, target, adjoint, _ = _synthetic(causal=True)
+    hessian, linear, beta_zero, beta_shift = solver.native_quadratic_statistics(
+        phi, q, target, adjoint=adjoint
+    )
+    amplitudes = torch.randn(
+        phi.shape[1], generator=torch.Generator().manual_seed(31),
+        dtype=torch.float64, requires_grad=True,
+    )
+    beta = beta_zero - amplitudes @ beta_shift
+    error = (phi * amplitudes) @ q + beta - target
+    loss = (adjoint * error).sum(dim=1).square().mean()
+    loss /= adjoint.square().sum(dim=1).mean()
+    loss += solver.CAUSAL_FLOOR * error.square().mean()
+    loss.backward()
+    assert torch.allclose(
+        amplitudes.grad / 2.0,
+        hessian @ amplitudes.detach() - linear,
+        atol=2e-10, rtol=2e-10,
+    )
 
 
 def test_fista_path_and_fit_only_frontier_find_planted_support() -> None:

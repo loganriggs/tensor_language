@@ -25,11 +25,11 @@ def causal_constant(target: torch.Tensor, adjoint: torch.Tensor) -> torch.Tensor
     if float(gradient_energy) <= 0.0:
         raise ValueError("causal adjoints have zero energy")
     metric = adjoint.T @ adjoint / (n * gradient_energy)
-    metric += (CAUSAL_FLOOR / (coefficients * coefficients)) * torch.eye(
+    metric += (CAUSAL_FLOOR / coefficients) * torch.eye(
         coefficients, dtype=torch.float64, device=target.device
     )
     rhs = (adjoint.T @ (adjoint * target).sum(dim=1)) / (n * gradient_energy)
-    rhs += CAUSAL_FLOOR * target.mean(dim=0) / (coefficients * coefficients)
+    rhs += CAUSAL_FLOOR * target.mean(dim=0) / coefficients
     return torch.linalg.solve(metric, rhs)
 
 
@@ -66,9 +66,14 @@ def native_quadratic_statistics(
         adjoint = adjoint.double()
         if adjoint.shape != target.shape or not torch.isfinite(adjoint).all():
             raise ValueError("causal adjoints must align and be finite")
-        intercept = causal_constant(target, adjoint)
+        # Build the joint gate/intercept normal equations against the raw
+        # target.  The intercept is eliminated below; pre-subtracting its
+        # zero-gate optimum would incorrectly shift the joint linear terms.
+        intercept = torch.zeros(
+            coefficients, dtype=torch.float64, device=phi.device
+        )
         feature_offset = torch.zeros(
-            phi.shape[1], dtype=torch.float64, device=phi.device
+            (phi.shape[1], coefficients), dtype=torch.float64, device=phi.device
         )
         design = phi
     residual = target - intercept
@@ -81,18 +86,41 @@ def native_quadratic_statistics(
         linear = (design * cross).sum(dim=0) / (n * coefficients)
     else:
         gradient_energy = adjoint.square().sum(dim=1).mean()
+        if float(gradient_energy) <= 0.0:
+            raise ValueError("causal adjoints have zero energy")
         q_dot_g = adjoint @ q.T
         directional_design = design * q_dot_g
         directional_target = (adjoint * residual).sum(dim=1)
         hessian = directional_design.T @ directional_design / (n * gradient_energy)
         linear = directional_design.T @ directional_target / (n * gradient_energy)
         hessian += (
-            CAUSAL_FLOOR * (gram_phi * gram_q) / (n * coefficients * coefficients)
+            CAUSAL_FLOOR * (gram_phi * gram_q) / (n * coefficients)
         )
         linear += (
             CAUSAL_FLOOR * (design * cross).sum(dim=0)
-            / (n * coefficients * coefficients)
+            / (n * coefficients)
         )
+        # The row-dependent Fisher metric couples the 64-vector intercept to
+        # native gate amplitudes.  Eliminate that intercept exactly rather than
+        # freezing its zero-gate optimum.  If H partitions as [Haa Hab; Hba Hbb],
+        # the reduced gate problem is the Schur complement and the serialized
+        # conditional optimum is beta0 - beta_shift.T @ a.
+        h_ab = directional_design.T @ adjoint / (n * gradient_energy)
+        h_ab += (
+            CAUSAL_FLOOR * design.mean(dim=0)[:, None] * q / coefficients
+        )
+        h_bb = adjoint.T @ adjoint / (n * gradient_energy)
+        h_bb += (CAUSAL_FLOOR / coefficients) * torch.eye(
+            coefficients, dtype=torch.float64, device=phi.device
+        )
+        b_b = adjoint.T @ directional_target / (n * gradient_energy)
+        b_b += CAUSAL_FLOOR * target.mean(dim=0) / coefficients
+        beta_zero = torch.linalg.solve(h_bb, b_b)
+        beta_shift = torch.linalg.solve(h_bb, h_ab.T).T
+        hessian = hessian - h_ab @ beta_shift.T
+        linear = linear - h_ab @ beta_zero
+        intercept = beta_zero
+        feature_offset = beta_shift
     hessian = 0.5 * (hessian + hessian.T)
     return hessian, linear, intercept, feature_offset
 
@@ -112,9 +140,15 @@ def materialize_native_intercept(
     amplitudes = amplitudes.to(feature_offset.device).double().flatten()
     if support.numel() != amplitudes.numel():
         raise ValueError("support and amplitudes do not align")
-    q = projected_decoder.to(feature_offset.device).double().index_select(0, support)
-    offset = feature_offset.double().index_select(0, support) * amplitudes
-    return base_intercept.double() - offset @ q
+    selected_offset = feature_offset.double().index_select(0, support)
+    if selected_offset.ndim == 1:
+        q = projected_decoder.to(feature_offset.device).double().index_select(0, support)
+        correction = (selected_offset * amplitudes) @ q
+    elif selected_offset.ndim == 2:
+        correction = amplitudes @ selected_offset
+    else:
+        raise ValueError("native intercept offset must be a vector or matrix")
+    return base_intercept.double() - correction
 
 
 def largest_eigenvalue(

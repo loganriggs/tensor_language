@@ -110,8 +110,13 @@ def freeze_validation_selection(
         if not family_rows:
             raise RuntimeError(f"validation bank lacks family {family}")
         best = max(float(row["metrics"]["recovery"]) for row in family_rows)
+        # Multiplicative slack reverses its intended ordering when ``best`` is
+        # negative and can exclude even the argmax.  Nonpositive descriptive
+        # families therefore use their exact best level, then the frozen price
+        # tie-break among maximizers.
+        threshold = recovery_slack * best if best > 0.0 else best
         near = [row for row in family_rows if float(row["metrics"]["recovery"])
-                >= recovery_slack * best]
+                >= threshold]
         representatives[family] = min(near, key=candidate_key)["name"]
     return {
         "selected": selected["name"],
@@ -121,4 +126,47 @@ def freeze_validation_selection(
         "max_copy_worsening": max_copy_worsening,
         "eligible": sorted(row["name"] for row in eligible),
         "family_representatives": representatives,
+    }
+
+
+def freeze_control_selection(
+    candidates: Mapping[str, Mapping[str, Any]],
+    *,
+    recovery_slack: float = 0.99,
+    max_copy_worsening: float = 0.01,
+) -> dict[str, Any]:
+    """Choose a B--E null control without requiring claim admission.
+
+    The shuffle keeps the real selector's family grid, collateral constraint,
+    near-best rule, price, and deterministic tie-break.  Positive recovery is a
+    claim-admission gate, not a requirement for a null control to exist.
+    """
+
+    if not 0.0 < recovery_slack <= 1.0:
+        raise ValueError("recovery slack must lie in (0,1]")
+    rows = []
+    for name, candidate in candidates.items():
+        state = candidate.get("state")
+        metrics = candidate.get("metrics")
+        if not isinstance(state, Mapping) or not isinstance(metrics, Mapping):
+            raise ValueError(f"control candidate {name} lacks state/metrics")
+        family = state.get("family")
+        if family not in ALL_FAMILIES:
+            raise ValueError(f"control candidate {name} has unknown family {family}")
+        if family in FAMILY_ORDER and float(metrics["copy_worsening"]) <= max_copy_worsening:
+            rows.append({"name": name, "state": state, "metrics": metrics})
+    if not rows:
+        raise RuntimeError("no B-E control candidate satisfies the copy constraint")
+    best = max(float(row["metrics"]["recovery"]) for row in rows)
+    threshold = recovery_slack * best if best > 0.0 else best
+    near = [row for row in rows if float(row["metrics"]["recovery"]) >= threshold]
+    selected = min(near, key=candidate_key)
+    return {
+        "selected": selected["name"],
+        "selected_family": selected["state"]["family"],
+        "best_signed_constrained_recovery": best,
+        "positive_recovery_required": False,
+        "recovery_slack": recovery_slack,
+        "max_copy_worsening": max_copy_worsening,
+        "eligible": sorted(row["name"] for row in near),
     }

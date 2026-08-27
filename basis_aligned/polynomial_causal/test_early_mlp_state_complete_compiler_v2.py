@@ -81,8 +81,38 @@ def test_empirical_fisher_loss_weights_suffix_read_direction() -> None:
     unused_error[:, 1] = 1.0
     used = compiler.empirical_fisher_loss(used_error, adjoint)
     unused = compiler.empirical_fisher_loss(unused_error, adjoint)
-    assert used > 100.0 * unused
+    # The exact registered 0.05 Euclidean floor gives a ratio of 81 here.
+    assert used > 80.0 * unused
     assert unused > 0.0
+
+
+def test_empirical_fisher_floor_has_exact_registered_scaling() -> None:
+    error = torch.arange(1, 13, dtype=torch.float64).view(3, 4)
+    adjoint = torch.tensor([[1.0, 0.0, 0.0, 0.0]]).expand_as(error).clone()
+    observed = compiler.empirical_fisher_loss(error, adjoint, isotropic_floor=0.05)
+    directional = (adjoint * error).sum(dim=1).square().mean()
+    directional /= adjoint.square().sum(dim=1).mean()
+    expected = directional + 0.05 * error.square().mean()
+    assert torch.allclose(observed, expected)
+
+
+def test_frozen_global_fisher_denominator_composes_across_minibatches() -> None:
+    generator = torch.Generator().manual_seed(29)
+    error = torch.randn(13, 4, generator=generator, dtype=torch.float64)
+    adjoint = torch.randn(13, 4, generator=generator, dtype=torch.float64)
+    denominator = adjoint.square().sum(dim=1).mean()
+    full = compiler.empirical_fisher_loss(
+        error, adjoint, directional_denominator=denominator
+    )
+    pieces = []
+    counts = []
+    for slc in (slice(0, 5), slice(5, 13)):
+        pieces.append(compiler.empirical_fisher_loss(
+            error[slc], adjoint[slc], directional_denominator=denominator
+        ))
+        counts.append(len(error[slc]))
+    composed = sum(value * count for value, count in zip(pieces, counts)) / sum(counts)
+    assert torch.allclose(full, composed)
 
 
 def test_signed_output_gauge_preserves_physical_correction_with_live_mo() -> None:

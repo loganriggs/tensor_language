@@ -42,6 +42,11 @@ ROLE_SPECS = {
     "compiler_validation": (192, 31000),
     "compiler_final": (192, 35000),
 }
+CACHE_FILE_SHA256 = {
+    "compiler_fit": "cf3abe833dec8ccfc09afef0ff1bdcc74b2ba8a37dc86e9c954c238bb6b7c276",
+    "compiler_validation": "0d66fc0958da4fa8c0aedbe5b4203d474382acf6b5c0ebe77b53a54505a91ac9",
+    "compiler_final": "c9de7d6386668f24414018b330f4182a17c4c73fb2babb395c0654a52f9a3acd",
+}
 SPECS = tuple(ROLE_SPECS.values())
 
 
@@ -320,7 +325,18 @@ def build() -> dict[str, Any]:
     return receipt
 
 
-def load_and_validate() -> tuple[dict[str, Any], dict[str, torch.Tensor]]:
+def load_roles_and_validate(
+    roles: Iterable[str],
+) -> tuple[dict[str, Any], dict[str, torch.Tensor]]:
+    """Load only licensed roles while byte-validating every frozen cache.
+
+    In particular, fit/validation stages can certify the final cache identity
+    and frozen disjointness receipt without deserializing the final tensor.
+    """
+
+    requested = tuple(dict.fromkeys(roles))
+    if not requested or any(role not in ROLE_SPECS for role in requested):
+        raise ValueError(f"invalid compiler-v2 row roles: {requested}")
     if not RECEIPT.is_file():
         raise RuntimeError(f"compiler-v2 row receipt is absent: {RECEIPT}")
     receipt = json.loads(RECEIPT.read_text())
@@ -335,7 +351,10 @@ def load_and_validate() -> tuple[dict[str, Any], dict[str, torch.Tensor]]:
     for key, expected in required.items():
         if receipt.get(key) != expected:
             raise RuntimeError(f"compiler-v2 row receipt changed at {key}")
-    _, prior_receipts = require_pinned_sources()
+    require_pinned_sources()
+    gates = receipt.get("disjointness_gates", {})
+    if not gates or not all(value is True for value in gates.values()):
+        raise RuntimeError("compiler-v2 row disjointness receipt is incomplete")
     rows: dict[str, torch.Tensor] = {}
     for role, spec in ROLE_SPECS.items():
         entry = receipt.get("entries", {}).get(role)
@@ -344,12 +363,29 @@ def load_and_validate() -> tuple[dict[str, Any], dict[str, torch.Tensor]]:
         }:
             raise RuntimeError(f"compiler-v2 row receipt lacks {role}")
         path = Path(entry["cache_path"])
+        if not path.is_file() or file_sha256(path) != CACHE_FILE_SHA256[role]:
+            raise RuntimeError(f"serialized compiler-v2 row cache changed for {role}")
+        records = receipt.get("document_provenance", {}).get("sets", {}).get(role)
+        if not isinstance(records, list) or len(records) != spec[0]:
+            raise RuntimeError(f"compiler-v2 row provenance changed for {role}")
+        if logical_json_sha256(records) != entry["provenance_records_sha256"]:
+            raise RuntimeError(f"compiler-v2 provenance hash changed for {role}")
+        if role not in requested:
+            continue
         tensor = torch.load(path, map_location="cpu", weights_only=True)
         if tuple(tensor.shape) != (spec[0], T_LEN) or tensor.dtype != torch.long:
             raise RuntimeError(f"invalid cached compiler-v2 rows for {role}")
         if tensor_sha256(tensor) != entry["tensor_full_raw_sha256"]:
             raise RuntimeError(f"cached compiler-v2 row hash changed for {role}")
+        if tensor_sha256(tensor[:, :MODEL_LEN]) != entry["tensor_prefix257_raw_sha256"]:
+            raise RuntimeError(f"cached compiler-v2 model prefix changed for {role}")
         rows[role] = tensor
+    return receipt, rows
+
+
+def load_and_validate() -> tuple[dict[str, Any], dict[str, torch.Tensor]]:
+    receipt, rows = load_roles_and_validate(ROLE_SPECS)
+    _, prior_receipts = require_pinned_sources()
     summaries = validate_disjointness(
         {spec: rows[role] for role, spec in ROLE_SPECS.items()},
         {spec: receipt["document_provenance"]["sets"][role]

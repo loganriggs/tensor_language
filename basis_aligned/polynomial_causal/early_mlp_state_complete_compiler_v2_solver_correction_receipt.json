@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_any_compiler_v2_fit_or_validation_outcome",
+  "authority": "compiler_v2_solver_protocol_preoutcome_correction",
+  "authorized_for_scored_experiments": false,
+  "preregistration_sha256": "45b0a6c055779449bf5fee815a0ecc7471336e95963db67e74166a2270978d54",
+  "superseded_solver_protocol_sha256": "9b01d94f44a55ee5306ea48d912ab8c8815cb2522fdee082eeca56c1c29a3103",
+  "preserved_failures": [
+    {
+      "failure": "The first source implementation divided error.square().mean() by 64 a second time and used matching 64^2 denominators in the causal native normal equations.",
+      "effect": "The registered 0.05 Euclidean floor was 64 times too small.",
+      "correction": "Use mean_t ||e_t||^2 / 64 = error.square().mean(), 0.05/64 in the intercept metric, and n*64 in native floor statistics."
+    },
+    {
+      "failure": "Causal affine minibatches recomputed mean ||g||^2 per minibatch.",
+      "effect": "The optimizer minimized an average of batchwise ratios rather than the registered global fit ratio.",
+      "correction": "Freeze mean ||g||^2 from all clipped compiler_fit adjoints and use that scalar in every minibatch and full-fit evaluation."
+    },
+    {
+      "failure": "The first native-causal source held the zero-gate optimal intercept fixed while fitting gates.",
+      "effect": "Gate features and the intercept are coupled under the row-dependent Fisher metric, so E did not minimize its registered objective.",
+      "correction": "Form the joint gate/intercept quadratic, eliminate the 64-vector intercept by its exact Schur complement, refit supports in the reduced gate system, and serialize the conditional intercept for the chosen amplitudes."
+    }
+  ],
+  "determinism_clarification": "Reset the seeded minibatch generator for every C lambda/rank candidate so candidate trajectories are invariant to enumeration order.",
+  "scope": "Pre-outcome solver correction only. It changes no preregistered loss, row, split, family, grid, selection rule, threshold, or final gate; it makes the implementation equal the already-registered objective."
+}

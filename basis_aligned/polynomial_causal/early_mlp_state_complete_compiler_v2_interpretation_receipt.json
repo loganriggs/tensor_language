@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_any_compiler_v2_fit_or_validation_outcome",
+  "authority": "compiler_v2_internal_preregistration_contradiction_resolution",
+  "authorized_for_scored_experiments": false,
+  "preregistration_sha256": "45b0a6c055779449bf5fee815a0ecc7471336e95963db67e74166a2270978d54",
+  "contradiction": {
+    "prose_clause": "The sequential_selection.site0 sentence says candidate MLP0 is scored with deployed MLP1/2.",
+    "explicit_equation": "The same object defines R0=KL(OON||QON)/KL(OON||NON).",
+    "causal_context_clause": "The causal_objective.site0 context requires projected-oracle MLP1 so a correct downstream MLP1/suffix reads the site-0 error."
+  },
+  "resolution": {
+    "site0_teacher": "OON",
+    "site0_candidate": "QON",
+    "site0_denominator": "NON",
+    "rule": "The explicit R0 equation and matching causal-context clause jointly control; 'deployed MLP1/2' is interpreted as deployed MLP2 only for site-0 validation.",
+    "reason": "This is the unique reading consistent with both the explicit arm algebra and the registered causal fit context. It is frozen before any site-0 labels, logits, gradients, or validation outcomes are consumed."
+  },
+  "shuffle_control_selection_clarification": {
+    "rule": "Fit and validate the identical A-E family/rank/lambda grids. Among B-E candidates satisfying the same copy constraint, apply the same 1%-near-best, price, family, size, and lambda tie-break. Positive recovery remains a claim-admission requirement for the real compiler only, not an existence requirement for the literal shuffle null.",
+    "nonpositive_case": "When the best signed shuffle recovery is nonpositive, retain exact recovery maximizers before deterministic price tie-breaking, because multiplicative 0.99 slack reverses order for negative values.",
+    "reason": "Otherwise a successful null with all recovery <=0 aborts before the preregistered final QQN-versus-shuffle comparison can exist."
+  },
+  "full_native_tolerance_interpretation": {
+    "physical_identity": "Use the pinned preflight-r2 convention 4e-6*max(1,max absolute reference physical correction) for serialized full-native versus live O physical correction.",
+    "validation_row_ce": "Use max absolute row-CE drift <=2e-6.",
+    "gauge_distinction": "The separate absolute physical-drift <=2e-6 clause governs signed-output-gauge replay of an already serialized program; it is not the full-native float32 serialization identity tolerance. Applying it to full-native serialization would contradict the pre-outcome pinned preflight-r2 gate, whose observed valid float32 physical drift was approximately 4.9e-4."
+  },
+  "scope": "Interpretation only. No threshold, family, row, objective, real-winner admission rule, or final gate changes."
+}

@@ -22,6 +22,12 @@ ROOT = HERE.parents[1]
 BQ = HERE.parent / "bilinear_quotient"
 PREREG = HERE / "early_mlp_state_complete_compiler_v2_preregistration.json"
 SOLVER_PROTOCOL = HERE / "early_mlp_state_complete_compiler_v2_solver_protocol.json"
+INTERPRETATION_RECEIPT = (
+    HERE / "early_mlp_state_complete_compiler_v2_interpretation_receipt.json"
+)
+SOLVER_CORRECTION_RECEIPT = (
+    HERE / "early_mlp_state_complete_compiler_v2_solver_correction_receipt.json"
+)
 ROWS_RECEIPT = BQ / "early_mlp_state_complete_compiler_v2_rows_receipt.json"
 PREFLIGHT = BQ / "early_mlp_state_complete_compiler_v2_preflight_r2.json"
 PREFLIGHT_MANIFEST = BQ / "early_mlp_state_complete_compiler_v2_preflight_r2_manifest.json"
@@ -36,6 +42,12 @@ FROZEN_MANIFEST = Path("/workspace/runs/bilin18_frozen_ship_v2_manifest.json")
 PINS = {
     PREREG: "45b0a6c055779449bf5fee815a0ecc7471336e95963db67e74166a2270978d54",
     SOLVER_PROTOCOL: "9b01d94f44a55ee5306ea48d912ab8c8815cb2522fdee082eeca56c1c29a3103",
+    INTERPRETATION_RECEIPT: (
+        "7c3d98acfa5f127fd20926acb4c511451183f9fd360e67d17d7675a2ebbb7e25"
+    ),
+    SOLVER_CORRECTION_RECEIPT: (
+        "546ac9ca72eba86747a1ca43fdcab5ceb9834d7e0916e4e13fcbccca824cfee1"
+    ),
     ROWS_RECEIPT: "23319ece1d8542d51e024bde0e2253d740b08ad18ad4f2d8565ba5120473fd82",
     PREFLIGHT: "f73cf247fa91d37d48a20a880bb46e16afe8149b9179971b06c8b5354e8eefc9",
     PREFLIGHT_MANIFEST: "8f78472c0bbcaf4c8b4d89e22a900264073ee0c11eca81887fe777473169c102",
@@ -76,6 +88,8 @@ import state_complete_compiler_solver_v2 as native_solver  # noqa: E402
 SOURCE_CLOSURE = (
     Path(__file__),
     HERE / "test_early_mlp_state_complete_compiler_v2_site0.py",
+    INTERPRETATION_RECEIPT,
+    SOLVER_CORRECTION_RECEIPT,
     HERE / "early_mlp_state_complete_compiler_v2.py",
     HERE / "test_early_mlp_state_complete_compiler_v2.py",
     HERE / "state_complete_compiler_runtime_v2.py",
@@ -90,6 +104,8 @@ SOURCE_CLOSURE = (
     HERE / "test_prepare_state_complete_compiler_rows_v2.py",
     HERE / "early_mlp_affine_compiler_v1.py",
     HERE / "test_early_mlp_affine_compiler_v1.py",
+    *preflight.SOURCE_CLOSURE,
+    *v3.SOURCE_CLOSURE,
     *exact_runner.SOURCE_CLOSURE,
 )
 PROTECTED = tuple(dict.fromkeys((*PINS, *exact_runner.PROTECTED_EXISTING)))
@@ -293,11 +309,42 @@ def build_site0_candidates(
     return candidates, diagnostics
 
 
+def shuffled_fit_capture(
+    captured: Mapping[str, torch.Tensor], permutation: torch.Tensor,
+) -> dict[str, torch.Tensor]:
+    """Permute only fit p-labels; keep z, live mo, and adjoints in place."""
+
+    permutation = permutation.long()
+    if tuple(permutation.shape) != (captured["p"].shape[0],):
+        raise ValueError("shuffle permutation does not align with fit captures")
+    shuffled_p = captured["p"].index_select(0, permutation)
+    return {
+        "z": captured["z"],
+        "p": shuffled_p,
+        "mo": captured["mo"],
+        "c": shuffled_p - captured["mo"],
+        "adjoint": captured["adjoint"],
+    }
+
+
+def full_native_state(block: Any, basis: torch.Tensor) -> dict[str, Any]:
+    left, right, down, bias = preflight._native_tensors(block)
+    state = compiler.project_native_weights(
+        left.detach().cpu(), right.detach().cpu(), down.detach().cpu(),
+        bias.detach().cpu(), basis.detach().cpu(),
+    )
+    state.update({
+        "grammar": "native", "interface": "state_complete_p",
+        "family": "full_native_ceiling_control", "k": compiler.NATIVE_PRODUCTS,
+    })
+    return _cpu_state(state)
+
+
 @torch.no_grad()
 def teacher_bank(
     sa: Any, hook: runtime.StateCompleteCorrectionHook, rows: torch.Tensor,
     twall: Mapping[int, Any], all_attention: frozenset[int],
-) -> tuple[torch.Tensor, float, float, dict[str, Any]]:
+) -> tuple[torch.Tensor, float, float, torch.Tensor, dict[str, Any]]:
     """Cache OON valid-position logits and score the NON teacher-KL denominator."""
 
     teacher_parts = []
@@ -332,11 +379,93 @@ def teacher_bank(
     copy = _copy_mask(idx_all, torch.cat([torch.zeros(
         len(idx_all), 64, dtype=targets.dtype), targets
     ], dim=1))[:, 64:]
+    teacher_ce = F.cross_entropy(
+        teacher.reshape(-1, teacher.shape[-1]), targets.reshape(-1), reduction="none"
+    ).view_as(targets)
+    teacher_row_ce = teacher_ce.mean(dim=1)
     copy_ce = float(non_ce[copy].mean()) if bool(copy.any()) else math.nan
-    return teacher, denominator, copy_ce, {
+    return teacher, denominator, copy_ce, teacher_row_ce, {
         "NON_global_ce": float(non_ce.mean()), "calls": counters,
         "validation_rows": int(len(rows)),
         "validation_tokens": int(targets.numel()),
+    }
+
+
+@torch.no_grad()
+def full_native_validation_gate(
+    sa: Any, hook: runtime.StateCompleteCorrectionHook, rows: torch.Tensor,
+    twall: Mapping[int, Any], all_attention: frozenset[int],
+    state: Mapping[str, Any], validation_capture: Mapping[str, torch.Tensor],
+    teacher: torch.Tensor, teacher_row_ce: torch.Tensor, basis: torch.Tensor,
+) -> dict[str, Any]:
+    """Fail closed on live physical and poison-gated validation-CE identity."""
+
+    device_state = _device_state(state, sa.DEV)
+    predicted_parts = []
+    for start in range(0, validation_capture["z"].shape[0], 1024):
+        z = validation_capture["z"][start:start + 1024].to(sa.DEV)
+        predicted_parts.append(
+            runtime.runtime_projected_output(z, device_state).detach().cpu()
+        )
+    predicted = torch.cat(predicted_parts)
+    coefficient_error = predicted - validation_capture["p"]
+    physical_parts = []
+    basis_device = basis.to(sa.DEV).float()
+    for start in range(0, coefficient_error.shape[0], 1024):
+        physical_parts.append(
+            (coefficient_error[start:start + 1024].to(sa.DEV) @ basis_device.T)
+            .detach().cpu()
+        )
+    physical_error = torch.cat(physical_parts)
+    physical_max = float(physical_error.abs().max())
+    physical_scale = max(1.0, float((validation_capture["c"] @ basis.cpu().float().T)
+                                    .abs().max()))
+    physical_tolerance = 4e-6 * physical_scale
+    if physical_max > physical_tolerance:
+        raise RuntimeError(
+            f"full-native live physical gate failed: {physical_max}>{physical_tolerance}"
+        )
+
+    hook.programs = {"full_native": {0: device_state}}
+    hook.configure({0: "Q", 1: "O"}, program_name="full_native")
+    row_ce_parts = []
+    kl_sum = 0.0
+    token_count = 0
+    with runtime.OriginalMLPCallGuard(sa.H, {1}) as guard:
+        row_offset = 0
+        for start in range(0, len(rows), 8):
+            batch = rows[start:start + 8].to(sa.DEV)
+            idx, targets = batch[:, :-1].contiguous(), batch[:, 1:].contiguous()
+            logits = sa.fwd_arm(idx, all_attention, twall, frozenset(range(18))).float()
+            candidate = logits[:, 64:]
+            teacher_batch = teacher[row_offset:row_offset + len(batch)].to(sa.DEV)
+            teacher_logp = F.log_softmax(teacher_batch, dim=-1)
+            candidate_logp = F.log_softmax(candidate, dim=-1)
+            kl = (teacher_logp.exp() * (teacher_logp - candidate_logp)).sum(dim=-1)
+            kl_sum += float(kl.double().sum())
+            token_count += kl.numel()
+            ce = F.cross_entropy(
+                candidate.reshape(-1, candidate.shape[-1]),
+                targets[:, 64:].reshape(-1), reduction="none",
+            ).view(len(batch), -1)
+            row_ce_parts.append(ce.double().mean(dim=1).cpu())
+            row_offset += len(batch)
+    guard.assert_contract(require_allowed_calls=True)
+    row_ce = torch.cat(row_ce_parts)
+    row_ce_drift = (row_ce - teacher_row_ce.double()).abs()
+    max_row_ce_drift = float(row_ce_drift.max())
+    if max_row_ce_drift > 2e-6:
+        raise RuntimeError(
+            f"full-native live row-CE gate failed: {max_row_ce_drift}>2e-6"
+        )
+    return {
+        "passed": True,
+        "physical_max_abs_error": physical_max,
+        "physical_tolerance": physical_tolerance,
+        "validation_row_ce_max_abs_drift": max_row_ce_drift,
+        "validation_row_ce_mean_abs_drift": float(row_ce_drift.mean()),
+        "validation_teacher_kl": kl_sum / token_count,
+        "poison_calls": dict(guard.counts),
     }
 
 
@@ -391,7 +520,8 @@ def score_candidate(
 
 def artifact_payload(
     candidates: Mapping[str, Mapping[str, Any]], selection_receipt: Mapping[str, Any],
-    diagnostics: Mapping[str, Any], source_commit: str, source_hashes: Mapping[str, str],
+    controls: Mapping[str, Any], diagnostics: Mapping[str, Any],
+    source_commit: str, source_hashes: Mapping[str, str],
 ) -> dict[str, Any]:
     retained = {name: _cpu_state(state) for name, state in candidates.items()}
     return {
@@ -403,10 +533,13 @@ def artifact_payload(
         "training_license_sites": [1],
         "preregistration_sha256": PINS[PREREG],
         "solver_protocol_sha256": PINS[SOLVER_PROTOCOL],
+        "interpretation_receipt_sha256": PINS[INTERPRETATION_RECEIPT],
+        "solver_correction_receipt_sha256": PINS[SOLVER_CORRECTION_RECEIPT],
         "rows_receipt_sha256": PINS[ROWS_RECEIPT],
         "preflight_sha256": PINS[PREFLIGHT],
         "candidates": retained,
         "selection": dict(selection_receipt),
+        "controls": dict(controls),
         "diagnostics": dict(diagnostics),
         "source_commit": source_commit,
         "source_hashes": dict(source_hashes),
@@ -431,13 +564,24 @@ def validate_artifact() -> tuple[dict[str, Any], dict[str, Any]]:
     selected = payload.get("selection", {}).get("selected")
     if selected not in payload.get("candidates", {}):
         raise RuntimeError("site0 selected program is absent")
+    controls = payload.get("controls", {})
+    if set(controls) != {"mean", "shuffle", "full_native"}:
+        raise RuntimeError("site0 registered controls are incomplete")
+    if controls["shuffle"].get("state", {}).get("family") not in selection.ALL_FAMILIES:
+        raise RuntimeError("site0 shuffle control lacks a selected A-E program")
+    if controls["mean"].get("grammar") != "constant":
+        raise RuntimeError("site0 mean control is invalid")
+    if controls["full_native"].get("k") != compiler.NATIVE_PRODUCTS:
+        raise RuntimeError("site0 full-native control is invalid")
     return payload, receipt
 
 
 def run_claimed(before: Mapping[str, str | None]) -> None:
     source_hashes = verify_pins_and_sources()
     old_receipt, _ = old_rows.validate_receipt()
-    row_receipt, rows_full = fresh_rows.load_and_validate()
+    row_receipt, rows_full = fresh_rows.load_roles_and_validate(
+        ("compiler_fit", "compiler_validation")
+    )
     rows = {role: tensor[:, :257].contiguous() for role, tensor in rows_full.items()}
     document_ids = [record["document_id"] for record in
                     row_receipt["document_provenance"]["sets"]["compiler_fit"]]
@@ -452,6 +596,8 @@ def run_claimed(before: Mapping[str, str | None]) -> None:
         "authorized_for_training": False,
         "preregistration_sha256": PINS[PREREG],
         "solver_protocol_sha256": PINS[SOLVER_PROTOCOL],
+        "interpretation_receipt_sha256": PINS[INTERPRETATION_RECEIPT],
+        "solver_correction_receipt_sha256": PINS[SOLVER_CORRECTION_RECEIPT],
         "rows_receipt_sha256": PINS[ROWS_RECEIPT],
         "source_commit": source_commit, "source_hashes": source_hashes,
         "protected_before": dict(before),
@@ -488,11 +634,22 @@ def run_claimed(before: Mapping[str, str | None]) -> None:
             fit_permutation = fit.expand_capture_permutation(
                 fit.document_block_permutation(document_ids, FIT_SEED)
             )
+            shuffled_capture = shuffled_fit_capture(captured, fit_permutation)
+            shuffled_candidates, shuffled_fit_diagnostics = build_site0_candidates(
+                shuffled_capture, sa.H[0], basis, sa.DEV
+            )
+            mean_control = _cpu_state(fit.constant_state(captured["p"]))
+            full_native_control = full_native_state(sa.H[0], basis)
             validation_capture, validation_calls = capture_site0_validation(
                 sa, hook, rows["compiler_validation"], twall, all_attention
             )
-            teacher, denominator, baseline_copy, teacher_diagnostics = teacher_bank(
+            (teacher, denominator, baseline_copy, teacher_row_ce,
+             teacher_diagnostics) = teacher_bank(
                 sa, hook, rows["compiler_validation"], twall, all_attention
+            )
+            full_native_gate = full_native_validation_gate(
+                sa, hook, rows["compiler_validation"], twall, all_attention,
+                full_native_control, validation_capture, teacher, teacher_row_ce, basis,
             )
             bank = {}
             call_counters = {"fit": fit_calls, "validation_capture": validation_calls,
@@ -507,6 +664,28 @@ def run_claimed(before: Mapping[str, str | None]) -> None:
                 print(f"compiler-v2 site0 validation {index + 1}/{len(candidates)} {name}",
                       flush=True)
             frozen_selection = selection.freeze_validation_selection(bank)
+            shuffle_bank = {}
+            for index, (name, state) in enumerate(sorted(shuffled_candidates.items())):
+                metrics, calls = score_candidate(
+                    sa, hook, rows["compiler_validation"], twall, all_attention,
+                    name, state, teacher, denominator, baseline_copy,
+                )
+                shuffle_bank[name] = {"state": state, "metrics": metrics}
+                call_counters[f"shuffle_{name}"] = calls
+                print(
+                    f"compiler-v2 site0 shuffle validation "
+                    f"{index + 1}/{len(shuffled_candidates)} {name}", flush=True,
+                )
+            frozen_shuffle_selection = selection.freeze_control_selection(shuffle_bank)
+            selected_shuffle = frozen_shuffle_selection["selected"]
+            controls = {
+                "mean": mean_control,
+                "shuffle": {
+                    "state": _cpu_state(shuffled_candidates[selected_shuffle]),
+                    "selection": frozen_shuffle_selection,
+                },
+                "full_native": full_native_control,
+            }
             diagnostics = {
                 "fit_capture_tensor_sha256": capture_hashes,
                 "fit_capture_shapes": {key: list(value.shape) for key, value in captured.items()},
@@ -515,15 +694,18 @@ def run_claimed(before: Mapping[str, str | None]) -> None:
                 "fit_document_permutation_moved": int((fit_permutation != torch.arange(
                     len(fit_permutation))).sum()),
                 "fit": fit_diagnostics,
+                "shuffle_fit": shuffled_fit_diagnostics,
                 "validation_capture_tensor_sha256": {
                     key: tensor_sha256(value) for key, value in validation_capture.items()
                 },
                 "teacher_kl_denominator_OON_vs_NON": denominator,
                 "teacher": teacher_diagnostics,
+                "full_native_validation_gate": full_native_gate,
                 "call_counters": call_counters,
             }
             payload = artifact_payload(
-                candidates, frozen_selection, diagnostics, source_commit, source_hashes
+                candidates, frozen_selection, controls, diagnostics,
+                source_commit, source_hashes
             )
             write_torch_atomic(payload, ARTIFACT)
             receipt = {
@@ -535,6 +717,8 @@ def run_claimed(before: Mapping[str, str | None]) -> None:
                 "training_license_sites": [1],
                 "preregistration_sha256": PINS[PREREG],
                 "solver_protocol_sha256": PINS[SOLVER_PROTOCOL],
+                "interpretation_receipt_sha256": PINS[INTERPRETATION_RECEIPT],
+                "solver_correction_receipt_sha256": PINS[SOLVER_CORRECTION_RECEIPT],
                 "rows_receipt_sha256": PINS[ROWS_RECEIPT],
                 "artifact_path": str(ARTIFACT.resolve()),
                 "artifact_sha256": file_sha256(ARTIFACT),
@@ -552,10 +736,20 @@ def run_claimed(before: Mapping[str, str | None]) -> None:
                 "authorized_for_scored_experiments": False,
                 "authorized_for_training": False,
                 "scope": "fit and validation only; no compiler_final rows, site1 claim, executable recovery, or whole-model credit",
+                "preregistration_sha256": PINS[PREREG],
+                "solver_protocol_sha256": PINS[SOLVER_PROTOCOL],
+                "interpretation_receipt_sha256": PINS[INTERPRETATION_RECEIPT],
+                "solver_correction_receipt_sha256": PINS[SOLVER_CORRECTION_RECEIPT],
                 "selection": frozen_selection,
                 "validation": {name: dict(row["metrics"]) for name, row in bank.items()},
+                "shuffle_selection": frozen_shuffle_selection,
+                "shuffle_validation": {
+                    name: dict(row["metrics"]) for name, row in shuffle_bank.items()
+                },
+                "full_native_validation_gate": full_native_gate,
                 "teacher_kl_denominator_OON_vs_NON": denominator,
                 "candidate_count": len(candidates),
+                "shuffle_candidate_count": len(shuffled_candidates),
                 "artifact_sha256": receipt["artifact_sha256"],
                 "source_commit": source_commit, "source_hashes": source_hashes,
                 "runtime_s": round(time.time() - started, 1),

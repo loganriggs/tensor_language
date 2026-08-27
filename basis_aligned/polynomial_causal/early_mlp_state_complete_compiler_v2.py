@@ -234,6 +234,7 @@ def empirical_fisher_loss(
     adjoint: torch.Tensor,
     *,
     isotropic_floor: float = CAUSAL_ISOTROPIC_FLOOR,
+    directional_denominator: torch.Tensor | float | None = None,
 ) -> torch.Tensor:
     """Registered causal fit loss with a nonzero Euclidean identifiability floor."""
 
@@ -245,11 +246,18 @@ def empirical_fisher_loss(
         raise ValueError("error and adjoint must be finite")
     if not 0.0 < isotropic_floor <= 1.0:
         raise ValueError("isotropic floor must be in (0,1]")
-    denominator = adjoint.square().sum(dim=1).mean()
+    denominator = (adjoint.square().sum(dim=1).mean()
+                   if directional_denominator is None
+                   else torch.as_tensor(directional_denominator, dtype=torch.float64,
+                                        device=error.device))
+    if denominator.ndim != 0 or not torch.isfinite(denominator):
+        raise ValueError("causal directional denominator must be a finite scalar")
     if float(denominator) <= 0.0:
         raise ValueError("causal adjoints have zero energy")
     directional = (adjoint * error).sum(dim=1).square().mean() / denominator
-    isotropic = error.square().mean() / error.shape[1]
+    # The tensor mean already equals mean_t ||e_t||^2 / 64.  Dividing by the
+    # coefficient count again would make the registered floor 64x too small.
+    isotropic = error.square().mean()
     return directional + isotropic_floor * isotropic
 
 
@@ -268,4 +276,3 @@ def transport_signed_output_gauge(
     moved["projected_decoder"] = state["projected_decoder"].double() * signs
     moved["beta"] = state["beta"].double() * signs
     return moved, basis * signs
-

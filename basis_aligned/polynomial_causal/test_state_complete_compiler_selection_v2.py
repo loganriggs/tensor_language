@@ -66,3 +66,33 @@ def test_selection_fails_closed_without_positive_B_to_E_candidate() -> None:
     }
     with pytest.raises(RuntimeError, match="no B-E"):
         selection.freeze_validation_selection(bank)
+
+
+def test_nonpositive_family_representative_uses_exact_argmax() -> None:
+    bank = {
+        "A8": _affine("A_v1_like_z_only_affine_euclidean", 8, -0.1),
+        "A64": _affine("A_v1_like_z_only_affine_euclidean", 64, -0.2),
+        "B8": _affine("B_state_complete_affine_euclidean", 8, 0.2),
+        "C8": _affine("C_state_complete_affine_causal", 8, 0.2),
+        "D8": _native("D_state_complete_native_euclidean", 8, 0.2),
+        "E8": _native("E_state_complete_native_causal", 8, 0.2),
+    }
+    frozen = selection.freeze_validation_selection(bank)
+    assert frozen["family_representatives"][
+        "A_v1_like_z_only_affine_euclidean"
+    ] == "A8"
+
+
+def test_shuffle_control_freezes_when_every_recovery_is_nonpositive() -> None:
+    bank = {
+        "A8": _affine("A_v1_like_z_only_affine_euclidean", 8, 0.9),
+        "B8": _affine("B_state_complete_affine_euclidean", 8, -0.1),
+        "B64": _affine("B_state_complete_affine_euclidean", 64, -0.2),
+        "C8": _affine("C_state_complete_affine_causal", 8, -0.1),
+        "D8": _native("D_state_complete_native_euclidean", 8, -0.3),
+        "E8": _native("E_state_complete_native_causal", 8, -0.4),
+    }
+    frozen = selection.freeze_control_selection(bank)
+    assert frozen["selected"] == "B8"
+    assert frozen["best_signed_constrained_recovery"] == -0.1
+    assert frozen["positive_recovery_required"] is False

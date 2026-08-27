@@ -152,11 +152,13 @@ def causal_affine_states(
     x_device, p_device, g_device = (
         normalized.to(device), p.to(device), g.to(device)
     )
-    generator = torch.Generator().manual_seed(seed)
     output: dict[tuple[float, int], dict[str, Any]] = {}
     diagnostics: list[dict[str, Any]] = []
     for ridge in lambdas:
         for rank in ranks:
+            # Every candidate sees the same registered minibatch order.  Its
+            # optimizer trajectory must not depend on enumeration order.
+            generator = torch.Generator().manual_seed(seed)
             start = initial[(float(ridge), int(rank))]
             left = start["left"].double().to(device).requires_grad_(True)
             right = start["right"].double().to(device).requires_grad_(True)
@@ -164,11 +166,15 @@ def causal_affine_states(
             optimizer = torch.optim.AdamW(
                 [left, right, bias], lr=learning_rate, weight_decay=float(ridge)
             )
+            global_directional_denominator = g_device.square().sum(dim=1).mean().detach()
             with torch.no_grad():
                 initial_error = _affine_predict_device(
                     x_device, left, right, bias
                 ) - p_device
-                initial_loss = float(compiler.empirical_fisher_loss(initial_error, g_device))
+                initial_loss = float(compiler.empirical_fisher_loss(
+                    initial_error, g_device,
+                    directional_denominator=global_directional_denominator,
+                ))
             curve = [initial_loss]
             best_loss = initial_loss
             best_epoch = 0
@@ -185,6 +191,7 @@ def causal_affine_states(
                     loss = compiler.empirical_fisher_loss(
                         prediction - p_device.index_select(0, index),
                         g_device.index_select(0, index),
+                        directional_denominator=global_directional_denominator,
                     )
                     optimizer.zero_grad(set_to_none=True)
                     loss.backward()
@@ -196,7 +203,10 @@ def causal_affine_states(
                     full_error = _affine_predict_device(
                         x_device, left, right, bias
                     ) - p_device
-                    full_loss = float(compiler.empirical_fisher_loss(full_error, g_device))
+                    full_loss = float(compiler.empirical_fisher_loss(
+                        full_error, g_device,
+                        directional_denominator=global_directional_denominator,
+                    ))
                 curve.append(full_loss)
                 if full_loss < best_loss:
                     best_loss = full_loss
@@ -219,7 +229,10 @@ def causal_affine_states(
             diagnostics.append({"lambda": float(ridge), "rank": int(rank),
                                 "full_fit_loss_initial_then_epochs": curve,
                                 "selected_fit_epoch": int(best_epoch),
-                                "selected_fit_loss": best_loss})
+                                "selected_fit_loss": best_loss,
+                                "global_directional_denominator": float(
+                                    global_directional_denominator
+                                )})
     return output, diagnostics
 
 

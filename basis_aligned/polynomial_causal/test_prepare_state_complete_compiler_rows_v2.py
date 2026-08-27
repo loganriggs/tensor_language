@@ -88,3 +88,58 @@ def test_load_validator_requires_prelabel_status(monkeypatch, tmp_path: Path) ->
     monkeypatch.setattr(prep, "RECEIPT", path)
     with pytest.raises(RuntimeError, match="status"):
         prep.load_and_validate()
+
+
+def test_role_loader_byte_validates_but_never_deserializes_final(
+    monkeypatch, tmp_path: Path,
+) -> None:
+    specs = {"compiler_fit": (2, 1), "compiler_validation": (2, 2),
+             "compiler_final": (2, 3)}
+    monkeypatch.setattr(prep, "ROLE_SPECS", specs)
+    monkeypatch.setattr(prep, "require_pinned_sources", lambda: ({}, []))
+    entries = {}
+    provenance = {}
+    file_hashes = {}
+    paths = {}
+    for offset, (role, spec) in enumerate(specs.items()):
+        tensor = torch.arange(2 * prep.T_LEN, dtype=torch.long).view(2, prep.T_LEN)
+        tensor += offset * 100_000
+        path = tmp_path / f"{role}.pt"
+        torch.save(tensor, path)
+        records = [_record(f"{role}-{row}", row) for row in range(2)]
+        paths[role] = path
+        file_hashes[role] = prep.file_sha256(path)
+        entries[role] = {
+            "request": {"n": spec[0], "skip": spec[1]},
+            "cache_path": str(path),
+            "tensor_full_raw_sha256": prep.tensor_sha256(tensor),
+            "tensor_prefix257_raw_sha256": prep.tensor_sha256(tensor[:, :257]),
+            "provenance_records_sha256": prep.logical_json_sha256(records),
+        }
+        provenance[role] = records
+    receipt = {
+        "status": "frozen_before_any_label_or_gradient_capture",
+        "authority": "isolated_state_complete_compiler_v2",
+        "authorized_for_scored_experiments": True,
+        "authorized_for_training": True,
+        "training_license_sites": [0, 1],
+        "preregistration_sha256": prep.PREREG_SHA256,
+        "entries": entries,
+        "document_provenance": {"sets": provenance},
+        "disjointness_gates": {"all": True},
+    }
+    receipt_path = tmp_path / "receipt.json"
+    receipt_path.write_text(json.dumps(receipt))
+    monkeypatch.setattr(prep, "RECEIPT", receipt_path)
+    monkeypatch.setattr(prep, "CACHE_FILE_SHA256", file_hashes)
+    original_load = torch.load
+    loaded = []
+
+    def observed_load(path, *args, **kwargs):
+        loaded.append(Path(path))
+        return original_load(path, *args, **kwargs)
+
+    monkeypatch.setattr(torch, "load", observed_load)
+    _, rows = prep.load_roles_and_validate(("compiler_fit", "compiler_validation"))
+    assert set(rows) == {"compiler_fit", "compiler_validation"}
+    assert paths["compiler_final"] not in loaded
