@@ -40419,3 +40419,48 @@ in my favour.** Seven earlier generalisations died on first independent test. Th
 difference here is that the claim being defended was about a MECHANISM (weights-only
 predictors cannot inherit outcome-side clustering) rather than a pattern induced from
 data, and mechanisms transfer where induced patterns have not.
+
+## §1653 BOTH §1612 RETRACTIONS APPLIED (approved by Logan 2026-08-27) — membership withdrawn, §1610 restored, the pronoun structural reading withdrawn; §1597 unaffected and stronger than it started
+
+Logan approved both items drafted in `PENDING_RETRACTION_S1612.md`. Applied to
+`theseus-bench/registry/circuits.json` at `_slice_writer_graph/share_null_calibration`,
+**superseded in place with every original retained** in a `*_ORIGINAL` key so the error
+and its correction are equally legible.
+
+**ITEM 1 — `membership_at_question` WITHDRAWN, and its withdrawal of §1610 REVERSED.**
+§1612 claimed attn10 is absent from the random top-4 in 3/3 and withdrew §1610's
+"not distinguishable from floor" on that basis. §1628, 20 independent bases x 3
+disjoint chunks = 60 trials: **attn10 appears in 32/60 = 53.3%**, attn9 in **88.3%**,
+and **§1612's own seed 1729 places attn10 in 2 of 3 chunks** under the corrected
+quantity. A sample of size one dressed as a control. **§1610 IS RESTORED.** Separately
+noted: §1612's λ top-4 contained mlp17, downstream of the site; the corrected top-4 is
+§1597's published `{attn10, attn9, mlp9, mlp10}`.
+
+**ITEM 2 — `S1598_verdict_strengthened` WITHDRAWN.** The claim that the pronoun slice
+is "dramatically less concentrated than a meaningless basis — a positive structural
+claim about distributed writing" does not survive same-type controls:
+
+```
+  §1634  five function-word classes at mlp17    52-60/60 vs pronouns 60/60   margin  0
+  §1638  exact-subtype, rank-8 TOP-6            it/we/I all 60/60            margin  0
+  §1641  exact-subtype, rank-2 TOP-4 (the DISCRIMINATING regime, §1640)
+         certified class WEAKEST of five: 43/60 gap −.0664 vs ` I` −.2513    margin −17
+```
+
+The reading describes `I`, `it`, `you` and `we` better than it describes he/she/they.
+**§1598's .482 and §1624's .4823 are unaffected** — this concerns interpretation, not
+measurement.
+
+**WHAT SURVIVES, AND IT IS THE STRONGER HALF.** Both withdrawn claims were about
+MEMBERSHIP or about a sign. The SHARE evidence at question@mlp11 is untouched and
+separates perfectly: the λ arm's worst chunk (.7257) exceeds the best of all sixty
+random draws (.7185). **§1597 was tested the same way and came out ahead of where it
+started** — against four punctuation controls at its own cell it has the largest gap of
+five (+.1633 against period's +.0713, 2.3x), and its .718 share, writer graph and 20:1
+head-grain each replicate exactly.
+
+**Net effect on the benchmark.** One published cell (question@mlp11) is better
+supported than before this audit; the other (pronouns@mlp17) keeps its measurements and
+loses its structural interpretation. That asymmetry matches their original scores —
+§1597 3-for-3, §1598 recorded as a failure of sparsity — and was invisible until
+same-type controls existed.

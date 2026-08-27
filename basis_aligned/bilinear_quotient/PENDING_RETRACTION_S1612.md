@@ -1,3 +1,11 @@
+# APPLIED 2026-08-27 — Logan approved both items; see §1653
+
+**STATUS: CLOSED.** Both withdrawals are applied to `theseus-bench/registry/circuits.json` at `_slice_writer_graph/share_null_calibration`, superseded in place with every original retained in a `*_ORIGINAL` key. §1610 is RESTORED. §1597 is unaffected and came out stronger. §1598's .482 and §1624's .4823 are unaffected.
+
+The record below is retained verbatim as the case that was put, so the reasoning behind the decision stays auditable.
+
+---
+
 # PENDING RETRACTION — §1612 membership claim (NOT APPLIED)
 
 **Status: awaiting Logan. Nothing here has been applied to the ledger or the
