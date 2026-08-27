@@ -42054,3 +42054,54 @@ budgets on the same module, fitted and compiled identically:
 Combined with §1687 (positional families saturate at 70.08%, so routing is worth the ~30%
 they cannot reach), attention's write is: a cheap, low-rank *selection* over an expensive,
 nearly-full-rank *payload*.
+
+## §1692 — the only cheaply compressible object in bilin18 is attention's ROUTING
+
+`mlp_path_rank_curve.py`. The §1691 matched-budget split applied to the MLP: `Left`/`Right`
+form the 4608 bilinear features, `Down` reads them out. Both identity arms return exactly
+100.00% and both curves are monotone.
+
+```
+rank        Down (readout)    Left+Right (feature-forming)
+   8            -89.40%              -105.16%
+  32            -38.03%               -61.38%
+  64            -15.16%               -52.88%
+ 256            +43.97%               -37.10%
+1152           +100.00%              +100.00%   <- identity checks
+```
+
+**pred_a holds: the readout is the more compressible side**, by 37.72 points at rank 64. But
+that is a comparison between two very expensive things.
+
+**pred_b failed decisively, and it reverses the framing I gave §1691.** I predicted both MLP
+paths would clear 50% at rank 64 against attention's value path at 2.37%, on the reading that
+attention's payload was unusually expensive. Both MLP arms are **negative** there — worse than
+replacing every MLP with a constant — and `Left+Right` is still at **−37.10%** with a quarter
+of its dimensions. Attention's value path is not the expensive outlier; it is the *second
+cheapest* of the four paths measured.
+
+Ranking all four matched-budget arms at rank 64 (5.6% of the input dimension):
+
+```
+attention ROUTING        +62.82%
+attention VALUES          +2.37%
+MLP readout (Down)       -15.16%
+MLP features (Left/Right) -52.88%
+```
+
+**Only attention's routing survives compression at all.** Everything that forms or carries
+content — attention's values, the MLP readout, and above all the MLP's feature-forming path —
+is close to incompressible in rank. For the pricing question this line of work exists to
+answer, that is the useful shape: **a compact program can afford to approximate WHERE the
+model looks, but not WHAT it computes.**
+
+**These negatives are measurements, not artifacts, and the distinction matters** because I have
+twice dismissed negative ceilings as compounding (§1668, §1678). Here both identity arms return
+exactly 100.00% and both curves are monotone in rank, which is precisely the diagnostic LESSONS
+28 specifies. The substituted models really are worse than constant-ablated ones.
+
+**It also closes a loop with §1679 on the same object from a second direction.** §1679 found
+the MLP's 4608 bilinear features are not sparse-SELECTABLE — keeping the top 512 and pinning
+the rest is worse than constant ablation, because the readout sums cancelling contributions.
+§1692 finds the same feature-forming path is not low-rank COMPRESSIBLE either: rank 256 of
+1152 leaves it at −37.10%. Two different compressions, two failures, same object.

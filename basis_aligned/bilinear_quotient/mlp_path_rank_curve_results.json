@@ -1,0 +1,79 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ranks": [
+   8,
+   32,
+   64,
+   256,
+   1152
+  ],
+  "ridge": 0.001,
+  "arms": {
+   "Down": [
+    "Down"
+   ],
+   "LeftRight": [
+    "Left",
+    "Right"
+   ]
+  },
+  "module": "y = Down((Left x) * (Right x)) + Down_bias; Left/Right FORM the bilinear features (1152->4608), Down READS them out (4608->1152)",
+  "intervention": "rank-r least-squares map at the arm projections; the rest of the module runs exactly as trained",
+  "matched_with": "\u00a71690/\u00a71691 -- same fit, same compilation, same currency",
+  "identity_check": "each projection is LINEAR in its input so the full-rank arm must return ~100%",
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1691_attn_rank64": {
+   "routing_r64": 0.6282,
+   "values_r64": 0.0237
+  },
+  "s1679_output_512_directions": 0.9487
+ },
+ "stake": 4.33011,
+ "curves": {
+  "Down": {
+   "8": -0.89396,
+   "32": -0.38033,
+   "64": -0.15164,
+   "256": 0.43968,
+   "1152": 0.99999
+  },
+  "LeftRight": {
+   "8": -1.0516,
+   "32": -0.61381,
+   "64": -0.52884,
+   "256": -0.37097,
+   "1152": 0.99996
+  }
+ },
+ "monotone": true,
+ "down_minus_leftright_at_64": 0.3772,
+ "predictions": {
+  "pred_a_readout_compressible_ge_20pts": true,
+  "pred_b_both_mlp_arms_gt_50_at_64": false,
+  "pred_c_identity_and_monotone": true
+ },
+ "runtime_s": 1329.4
+}
