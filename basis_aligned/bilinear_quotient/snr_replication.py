@@ -266,6 +266,7 @@ def main():
     nn    = [out_c[c]['n'] for c in names]
     snr   = [out_c[c]['dev'] / max(out_c[c]['dev_shuffled'], 1e-9) for c in names]
 
+    beats = sum(1 for c in names if out_c[c]['dev'] > out_c[c]['dev_shuffled'])
     rho_snr, p_snr = spear(snr, share)
     rho_n,   p_n   = spear(nn, share)
     rho_dev, p_dev = spear(dev, share)
