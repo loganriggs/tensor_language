@@ -1,0 +1,80 @@
+{
+ "config": {
+  "ridge": 0.001,
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "procedure": "bottom-up compilation -- site L fitted with sites below already substituted",
+  "scoring": "covered positions only, joint substitution",
+  "naive_comparators_s1668": {
+   "all18": -0.4299,
+   "middle": 0.6233,
+   "front": 0.6868,
+   "late": 0.836
+  },
+  "s1666_stakes": {
+   "all18": 4.3196,
+   "middle": 2.6453
+  },
+  "s546_prior": "sequential refitting made a 2-block table substitution WORSE"
+ },
+ "arms": {
+  "all18": {
+   "sites": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "stake": 4.3196,
+   "ce_live": 3.27946,
+   "ce_const": 7.59906,
+   "ce_linear": 5.2543,
+   "sequential_ceiling": 0.54282,
+   "naive_ceiling_s1668": -0.4299,
+   "gain_over_naive": 0.97272
+  },
+  "middle": {
+   "sites": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "stake": 2.64528,
+   "ce_live": 3.27946,
+   "ce_const": 5.92474,
+   "ce_linear": 4.25589,
+   "sequential_ceiling": 0.63088,
+   "naive_ceiling_s1668": 0.6233,
+   "gain_over_naive": 0.00758
+  }
+ },
+ "predictions": {
+  "pred_a_sequential_rescues_all18": true,
+  "pred_b_compounding_not_fully_curable": true,
+  "pred_c_control_middle_agrees": true
+ },
+ "runtime_s": 27.4
+}
