@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  question   n=  334 share=0.4489 DEV=  1288.65 shuf=   633.46 ratio=  2.03x
+  months     n=  295 share=0.5444 DEV=  2240.77 shuf=   647.79 ratio=  3.46x
+  days       n=  118 share=0.5051 DEV=  2041.05 shuf=   966.66 ratio=  2.11x
+  semicolon  n=  170 share=0.4181 DEV=  1541.09 shuf=   822.08 ratio=  1.87x
+  colon      n=  762 share=0.5763 DEV=  2049.39 shuf=   451.23 ratio=  4.54x
+  pronouns   n= 1241 share=0.5569 DEV=  1910.70 shuf=   324.99 ratio=  5.88x
+  is         n= 1545 share=0.5183 DEV=  1975.64 shuf=   284.70 ratio=  6.94x
+  said       n=  236 share=0.4126 DEV=  1643.36 shuf=   696.86 ratio=  2.36x
+  to         n= 3743 share=0.5305 DEV=  1268.15 shuf=   181.57 ratio=  6.98x
+  the        n= 6911 share=0.5906 DEV=  1421.15 shuf=   116.38 ratio= 12.21x
+
+  rho(DEV, share)=0.2242 p=0.5237 | rho(n, share)=0.6727 p=0.0345 (S1614 n rho .6727)
+  DEV above shuffled control in 10/10 classes
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/null_deviation_probe_results.json (244.3s)

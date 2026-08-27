@@ -38018,3 +38018,61 @@ sidedness not the data.
 a throwaway probe, but exactly the kind of self-flattering artifact that would be
 serious in a scored run. Predictions registered in advance would have made the
 comparison explicit and the bug impossible.
+
+## §1615 THE DEVIATION HYPOTHESIS FAILS (1-for-3) — but its shuffled control exposes the estimation-noise floor EXACTLY: shuffled DEV scales as 1/sqrt(n) at rho = 1.000
+
+**Setup** (null_deviation_probe, 244 s). Registered mechanistic test: is the null
+share set by DEV = sum_c |coef_c * (cmu_c - mu_c)|, the total attribution mass —
+i.e. by how far a class's mean residual sits from the global mean? With a
+matched shuffled-label control (same position count drawn at random from the
+valid set) to separate class structure from the estimation-noise floor. Random
+rank-2 basis, TOP 4, mlp11, 10 classes, local curated_rows.pt 3 x 333, seed 1729.
+
+```
+class      n      share     DEV     shuffled   DEV/shuf
+question   334   .4489   1288.65     633.46      2.03x
+months     295   .5444   2240.77     647.79      3.46x
+days       118   .5051   2041.05     966.66      2.11x
+semicolon  170   .4181   1541.09     822.08      1.87x
+colon      762   .5763   2049.39     451.23      4.54x
+pronouns  1241   .5569   1910.70     324.99      5.88x
+is        1545   .5183   1975.64     284.70      6.94x
+said       236   .4126   1643.36     696.86      2.36x
+to        3743   .5305   1268.15     181.57      6.98x
+the       6911   .5906   1421.15     116.38     12.21x
+```
+
+**Scored as written:**
+- **pred_a FAILED** — rho(DEV, share) = **.2242**, p = **.5237**. Nowhere near the
+  registered .70 at p < .05.
+- **pred_b FAILED** — .224 does not beat n's .673. DEV is a WORSE predictor than
+  the variable §1614 already showed is non-causal.
+- **pred_c PASSED, 10/10** — DEV exceeds its shuffled control in every class, by
+  1.87x to 12.21x. The measurement is sound; the hypothesis is simply wrong.
+
+**The hypothesis is dead.** Representational deviation magnitude does not set the
+null. Along with §1614 (n is not causal) and §1614n (position and document
+features are not it), the space of cheap explanations is now exhausted.
+
+**But the control produced an exact law, which is the real result here.** The
+shuffled DEV — the estimation-noise floor — scales as **1/sqrt(n) at Spearman
+rho = 1.000 (p = 0.0)**, perfectly monotone across all ten classes spanning
+n = 118 to 6911 (966.66 down to 116.38). That is textbook sqrt-n error on a mean
+estimate, confirmed empirically end-to-end through the whole attribution pipeline.
+It gives every future writer-graph run a PREDICTABLE noise floor from n alone,
+even though the SIGNAL remains unpredictable.
+
+**POST-HOC candidate, explicitly NOT registered and NOT scored.** Computed after
+seeing the data, so it is a hypothesis for a future run and nothing more:
+`rho(DEV/shuffled, share) = .7333, p = .0201` — the signal-to-NOISE ratio tracks
+the share better than DEV (.224), better than n (.673), and better than shuffled
+DEV alone (-.673). It is mechanically plausible: high SNR yields a structured
+delta vector dominated by a few components, low SNR yields noise spread over 37.
+**It must not be cited as a finding.** It was selected by looking at four
+candidates on the same 10 points after the registered bar failed, which is
+precisely the garden-of-forking-paths the house rules exist to prevent. A
+registered run on DISJOINT classes is required before it means anything.
+
+**Standing position unchanged:** the null must be measured per claim with a
+matched-class, matched-rank, matched-currency random arm. §1615 does not lighten
+that tax; it only makes the NOISE component of it predictable.

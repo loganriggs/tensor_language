@@ -1,0 +1,103 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "top": 4,
+  "seed": 1729,
+  "chunks": 3,
+  "rows_per_chunk": 333,
+  "row_source": "curated_rows.pt",
+  "rows_are_fresh": false,
+  "classes": [
+   "question",
+   "months",
+   "days",
+   "semicolon",
+   "colon",
+   "pronouns",
+   "is",
+   "said",
+   "to",
+   "the"
+  ],
+  "arm": "RANDOM basis only"
+ },
+ "per_class": {
+  "question": {
+   "share": 0.4489,
+   "dev": 1288.6459,
+   "dev_shuffled": 633.4634,
+   "n": 334
+  },
+  "months": {
+   "share": 0.5444,
+   "dev": 2240.7655,
+   "dev_shuffled": 647.7903,
+   "n": 295
+  },
+  "days": {
+   "share": 0.5051,
+   "dev": 2041.0469,
+   "dev_shuffled": 966.6595,
+   "n": 118
+  },
+  "semicolon": {
+   "share": 0.4181,
+   "dev": 1541.0904,
+   "dev_shuffled": 822.0845,
+   "n": 170
+  },
+  "colon": {
+   "share": 0.5763,
+   "dev": 2049.3862,
+   "dev_shuffled": 451.2345,
+   "n": 762
+  },
+  "pronouns": {
+   "share": 0.5569,
+   "dev": 1910.7036,
+   "dev_shuffled": 324.9925,
+   "n": 1241
+  },
+  "is": {
+   "share": 0.5183,
+   "dev": 1975.6358,
+   "dev_shuffled": 284.7026,
+   "n": 1545
+  },
+  "said": {
+   "share": 0.4126,
+   "dev": 1643.3553,
+   "dev_shuffled": 696.8596,
+   "n": 236
+  },
+  "to": {
+   "share": 0.5305,
+   "dev": 1268.1476,
+   "dev_shuffled": 181.5696,
+   "n": 3743
+  },
+  "the": {
+   "share": 0.5906,
+   "dev": 1421.1536,
+   "dev_shuffled": 116.3801,
+   "n": 6911
+  }
+ },
+ "spearman_dev_vs_share": {
+  "rho": 0.2242,
+  "p": 0.5237
+ },
+ "spearman_n_vs_share": {
+  "rho": 0.6727,
+  "p": 0.0345
+ },
+ "S1614_n_rho": 0.6727,
+ "classes_dev_above_shuffled": 10,
+ "predictions": {
+  "pred_a_dev_rho_ge70_p_lt05": false,
+  "pred_b_dev_beats_n": false,
+  "pred_c_dev_above_shuffled_8of10": true
+ },
+ "runtime_s": 244.3
+}
