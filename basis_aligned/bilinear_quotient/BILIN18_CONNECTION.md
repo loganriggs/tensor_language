@@ -40633,3 +40633,69 @@ independent test today, and the first where I wrote the claim into a shared arti
 before testing it. The gap between writing `_front_band_account` and running this was
 about twenty minutes; had Codex acted on the registry entry in that window they would
 have acted on a claim that was 15% wrong at the scale they care about.
+
+## §1657 THE SUBSTITUTION-FAMILY COMPOSITION LAW IS REFUTED (0-for-3) — at MATCHED effect size a projection composes BETTER than a table (1.029 vs 1.153). joint/sum tracks TOTAL EFFECT SIZE, not family, and §546, §1656 and everything I told Codex about it today were reading an effect-size curve as a family distinction.
+
+**Setup** (front_proj_compose4, 21.5 s, rung 3 — the missing arm of my own §1656).
+§1656 compared table composition at four MLPs (1.1530) against §541's projection figure
+at six BLOCKS (1.6) — different grain, different rows, different protocol. That is the
+cross-denominator error §1324 warns about, that I flagged for Codex twice today, and
+that I then committed to the shared registry. This measures the projection family at
+the SAME four sites, SAME rows, SAME cost definition, at three ranks so the comparison
+can be made where individual costs match.
+
+```
+  arm            individual costs (mlp0-3)          sum      joint    JOINT/SUM
+  proj r16       .262 1.601 .420 .268              2.5518   2.6269     1.0294
+  TABLE (§1656)  .218 1.291 .336 .345              2.1890   2.5240     1.1530
+  proj r64       .083  .409 .100 .070              0.6623   1.4147     2.1360
+  proj r256      .012  .019 .011 .013              0.0550   0.1186     2.1576
+```
+
+- **pred_a FAILED** — at the matched-cost rank (16, closest individual-cost profile to
+  the table arm) the projection composes at **1.0294** against the table's **1.1530**.
+  The projection composes BETTER. The family distinction does not merely shrink, it
+  **inverts**.
+- **pred_b FAILED** — 1.0294 is nowhere near the ≥1.35 bar.
+- **pred_c PASSED** — all four individual costs clear .01 at that rank, so the sum is
+  signal.
+
+**THE RATIO IS AN EFFECT-SIZE ARTIFACT.** Ordered by total effect rather than by family,
+the four arms fall on one curve:
+
+```
+  sum 2.5518  ->  1.0294     (projection)
+  sum 2.1890  ->  1.1530     (TABLE)
+  sum 0.6623  ->  2.1360     (projection)
+  sum 0.0550  ->  2.1576     (projection)
+```
+
+Large-effect arms compose near-additively (1.03, 1.15); small-effect arms sit at ~2.14
+regardless of family. **The table arm lands exactly where the projection curve predicts
+for its effect size**, between r16 and r64. At matched effect size the two families are
+indistinguishable.
+
+The mechanism is unsurprising once seen: joint/sum is a ratio whose denominator shrinks
+faster than its numerator when individual effects get small, because the interaction
+term does not shrink proportionally. Any "composition law" quoted without holding
+effect size fixed is measuring how big the individual effects happened to be.
+
+**WHAT THIS WITHDRAWS.**
+- **§1656's framing** — "tables compose much better than projections and degrade more
+  slowly" — WITHDRAWN. Its 1.1530 measurement stands; the comparison it was embedded in
+  does not.
+- **The `_front_band_account` composition section** — WITHDRAWN and rewritten. It
+  asserted the family law as the entry's "key operational fact".
+- **Everything I told Codex about it today** — the 16:22 §546-based prediction, the
+  16:49 "calibrated scale", and the claim that C512 being projection-family predicts
+  superadditive composition. **All three rest on a distinction that does not exist at
+  matched effect size.** Corrected on the board in the same pass.
+- **§546's own additivity result is NOT withdrawn** as a measurement (two blocks,
+  0.9666, large effects) — but it is an effect-size point, not evidence that tables are
+  a specially-composing family. §541's 1.6 likewise.
+
+**Ninth generalisation to die on first independent test today, and the most expensive:
+this one I had already given a collaborator three times as a basis for interpreting a
+run they had not yet made.** The rule I keep re-learning at finer grain: a comparison
+across two protocols is not evidence, and consolidating it into a shared artifact
+propagates it faster than testing retracts it.

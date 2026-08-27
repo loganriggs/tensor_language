@@ -1,0 +1,14 @@
+FRONT PROJECTION COMPOSE n=4 | sites [0, 1, 2, 3] | fit (96, 257) skip1200 | eval (192, 257) skip7000 | receipt 815b21618c2e477e
+  CE full (no substitution) 3.13704
+  TABLE arm reference (§1656, same sites/rows): individual [0.2179, 1.2908, 0.3357, 0.3446], joint/sum 1.153
+  rank   16: individual [0.2622, 1.6014, 0.4198, 0.2684] sum +2.5518 joint +2.6269  JOINT/SUM 1.0294  |profile-dist 0.515|
+  rank   64: individual [0.0825, 0.4094, 0.1002, 0.0703] sum +0.6623 joint +1.4147  JOINT/SUM 2.1360  |profile-dist 1.527|
+  rank  256: individual [0.0116, 0.0194, 0.0109, 0.0131] sum +0.0550 joint +0.1186  JOINT/SUM 2.1576  |profile-dist 2.134|
+
+  MATCHED-COST RANK = 16 (closest individual-cost profile to the table arm)
+    projection joint/sum 1.0294  vs  table 1.153
+    family distinction within ONE protocol: False
+  (§541's 1.6 is six BLOCKS, a different grain -- context only, not the comparator)
+
+pred_a False | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_proj_compose4_results.json (21.5s)

@@ -1,0 +1,71 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "arm": "PROJECTION -- rank-r PCA of each MLP output, basis fitted on fit rows",
+  "cost_definition": "CE(table) - CE(full); no ablation constant involved",
+  "table_arm_costs": {
+   "0": 0.21791,
+   "1": 1.2908,
+   "2": 0.3357,
+   "3": 0.34464
+  },
+  "s541_cross_protocol_context_only": 1.6
+ },
+ "ce_full": 3.13704,
+ "by_rank": {
+  "16": {
+   "individual": {
+    "mlp0": 0.26222,
+    "mlp1": 1.60139,
+    "mlp2": 0.41978,
+    "mlp3": 0.26839
+   },
+   "sum": 2.55178,
+   "joint": 2.62687,
+   "joint_over_sum": 1.0294,
+   "profile_distance_to_table": 0.5152,
+   "all_ge_01": true
+  },
+  "64": {
+   "individual": {
+    "mlp0": 0.08248,
+    "mlp1": 0.40936,
+    "mlp2": 0.10015,
+    "mlp3": 0.07034
+   },
+   "sum": 0.66234,
+   "joint": 1.41472,
+   "joint_over_sum": 2.136,
+   "profile_distance_to_table": 1.5267,
+   "all_ge_01": true
+  },
+  "256": {
+   "individual": {
+    "mlp0": 0.01163,
+    "mlp1": 0.01935,
+    "mlp2": 0.01089,
+    "mlp3": 0.01311
+   },
+   "sum": 0.05498,
+   "joint": 0.11863,
+   "joint_over_sum": 2.1576,
+   "profile_distance_to_table": 2.1341,
+   "all_ge_01": true
+  }
+ },
+ "matched_cost_rank": 16,
+ "table_ratio_n4": 1.153,
+ "predictions": {
+  "pred_a_projection_exceeds_table": false,
+  "pred_b_ratio_ge_135": false,
+  "pred_c_manipulation_all_ge_01": true
+ },
+ "runtime_s": 21.5
+}
