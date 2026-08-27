@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows x 20 seeds (receipt sha256[:16]=815b21618c2e477e)
+  pronouns  CERTIFIED sep 43/60 | mean gap -0.0664 | lambda [0.479, 0.524, 0.4615] | null20 0.5546
+  it        fresh     sep 60/60 | mean gap -0.1918 | lambda [0.3627, 0.3557, 0.3653] | null20 0.5531
+  we        fresh     sep 57/60 | mean gap -0.1595 | lambda [0.3623, 0.3675, 0.3739] | null20 0.5274
+  you       fresh     sep 59/60 | mean gap -0.1955 | lambda [0.3315, 0.3221, 0.3395] | null20 0.5266
+  I         fresh     sep 60/60 | mean gap -0.2513 | lambda [0.294, 0.2973, 0.2925] | null20 0.5459
+
+  SEPARATION at mlp17 rank-2 TOP-4 (DISCRIMINATING regime), exact-subtype pronoun controls, 60 trials each:
+    it        fresh     separation 60/60  mean gap -0.1918  lambda [0.3627, 0.3557, 0.3653]  random [0.384, 0.7527]
+    I         fresh     separation 60/60  mean gap -0.2513  lambda [0.294, 0.2973, 0.2925]  random [0.3539, 0.7153]
+    you       fresh     separation 59/60  mean gap -0.1955  lambda [0.3315, 0.3221, 0.3395]  random [0.3365, 0.7235]
+    we        fresh     separation 57/60  mean gap -0.1595  lambda [0.3623, 0.3675, 0.3739]  random [0.3397, 0.6559]
+    pronouns  CERTIFIED separation 43/60  mean gap -0.0664  lambda [0.479, 0.524, 0.4615]  random [0.3752, 0.7403]
+  pronouns(he/she/they) 43/60  vs  best other pronoun 60/60  -> MARGIN -17
+  other-pronoun classes with NEGATIVE gap: 4/4 | classes at <= 45/60 (regime check): 1/5
+  (§1634 same cell, FUNCTION-WORD controls: 52-60/60, margin 0)
+  (§1637: a type-MISmatched control gave §1633 a margin of 13 that was really 2)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/pronoun_rank2_recheck_results.json (614.2s)

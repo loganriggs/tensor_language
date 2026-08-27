@@ -101,14 +101,14 @@ cell -- ` it`, ` we`, ` I` all reach 60/60 and ` I` is MORE below-null (−.1795
 the certified class (−.1320). Margin 0 again. The control is now matched on cell,
 rank, TOP, rows, seeds, statistic and exact subtype.
 
-HOLD ON ITEM 2 (added §1640). §1640 shows the separation statistic is monotone in
-RANK and saturates by rank-8, and that the GAP SIGN itself flips between rank-2 and
-rank-4 at mlp11. §1638's pronoun evidence was measured entirely at rank-8 TOP-6 --
-the saturated regime. The mlp17 gaps are large (-.1320, -.1795) and unlike the
-near-zero mlp11 case where the sign flipped, so I do not expect the conclusion to
-change, but that expectation is exactly the reasoning that failed repeatedly today.
-A rank-2 TOP-4 re-run of the pronoun comparison is QUEUED. Do not act on item 2 until
-it reports.
+HOLD LIFTED (§1641). The hold §1640 placed on item 2 is DISCHARGED. The pronoun
+comparison was re-run at rank-2 TOP-4, the discriminating regime, with the same five
+classes, site, rows and seeds. The conclusion did not merely survive -- it
+strengthened, and in the opposite direction to the risk: the certified class is the
+WEAKEST of the five personal-pronoun classes at 43/60 with gap -.0664, against ` I`
+-.2513 (nearly 4x more below-null), ` you` -.1955, ` it` -.1918 and ` we` -.1595.
+Margin -17. Item 2 is now confirmed in BOTH regimes -- rank-8 TOP-6 (S1634, S1638,
+margin 0) and rank-2 TOP-4 (S1641, margin -17).
 
 ITEM 1 is unaffected -- §1628's membership fractions are frequencies, not separation
 counts, and have no saturation mechanism.

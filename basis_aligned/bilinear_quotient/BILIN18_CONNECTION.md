@@ -39675,3 +39675,64 @@ asserting the conclusion holds.**
 
 **Sixth exact cross-script replication.** `r2t4` returned 17/60 with gap −.0075,
 identical to §1635's independent measurement of the same cell.
+
+## §1641 THE HOLD RESOLVES AND PENDING ITEM 2 GETS STRONGER (3-for-3): in the DISCRIMINATING regime the certified pronoun class is the WEAKEST of five personal-pronoun classes — margin −17, and ` I` is nearly 4x more below-null
+
+**Setup** (pronoun_rank2_recheck, 614 s, rung 3 — discharging the hold §1640 placed on
+my own retraction request). §1638's pronoun evidence was measured entirely at rank-8
+TOP-6, which §1639 showed is saturated and §1640 showed is where the gap SIGN can
+invert relative to rank-2. Identical design to §1638 — same five classes, same site,
+same rows, same seeds — changing ONLY the configuration to rank-2 TOP-4, established
+as discriminating by §1640.
+
+```
+class                     separation   mean gap    λ shares
+I                           60/60       −.2513     .2940 .2973 .2925
+it                          60/60       −.1918     .3627 .3557 .3653
+you                         59/60       −.1955     .3315 .3221 .3395
+we                          57/60       −.1595     .3623 .3675 .3739
+pronouns (he/she/they)      43/60       −.0664     .4790 .5240 .4615   [CERTIFIED]
+MARGIN of the certified class over the best other pronoun: −17
+```
+
+- **pred_a PASSED** — the margin is **−17**, far inside the ≤5 bar.
+- **pred_b PASSED** — 4 of 4 other pronoun classes have negative gaps.
+- **pred_c PASSED** — 1 of 5 classes sits at ≤45/60 (pronouns at 43), so the regime
+  genuinely differs from rank-8 TOP-6 where all five were 58-60. This was a real
+  re-test, not a repeat.
+
+**THE CONCLUSION DID NOT SURVIVE UNCHANGED — IT GOT STRONGER, IN THE OPPOSITE
+DIRECTION TO THE RISK I FLAGGED.** At rank-8 TOP-6 pronouns tied the field at 60/60
+with a mid-range gap, giving margin 0. Measured where the statistic actually
+discriminates, **the certified class is the WEAKEST of the five**: `I` is −.2513
+against pronouns' −.0664, nearly **4x** more below-null, and every other pronoun class
+separates better (57-60 against 43).
+
+So §1612's `S1598_verdict_strengthened` — "the pronoun slice is DRAMATICALLY less
+concentrated than a meaningless basis, a positive structural claim about distributed
+writing" — describes `I`, `it`, `you` and `we` **considerably better than it describes
+he/she/they**. The claim is not merely unsupported for pronouns specifically; the
+certified class is the least good example of it among personal pronouns.
+
+**THE HOLD IS LIFTED. Both pending items are ready for Logan.**
+- **Item 1 (membership)** — §1628, 20 bases, no saturation mechanism (frequencies,
+  not separation counts). Unaffected throughout.
+- **Item 2 (pronoun structural reading)** — now confirmed in BOTH regimes: rank-8
+  TOP-6 (§1634 margin 0, §1638 margin 0) and rank-2 TOP-4 (§1641 margin −17). The
+  saturation concern §1639/§1640 raised is discharged.
+
+Still **NOT APPLIED**.
+
+**Why the hold was worth the ten minutes.** I had already written item 2 up as
+"fully evidenced, no further measurement needed" at 12:06. §1640 then showed its
+evidence sat in a saturated regime where signs can flip. Acting on the earlier
+confidence would have meant asking Logan to withdraw a published claim on evidence I
+had since learned to distrust — and the fact that the re-test strengthened rather than
+weakened it is not something I could have known in advance. That is the whole argument
+for testing rather than expecting.
+
+**Seventh cross-script replication, and a caution with it.** pronouns@mlp17 returned
+60/60 at rank-8 TOP-6 in both §1638 and §1634, and 43/60 here at rank-2 TOP-4. The
+harness is consistent WITHIN a configuration and the numbers differ ACROSS
+configurations exactly as §1640 predicts. Neither fact alone would establish the
+other.

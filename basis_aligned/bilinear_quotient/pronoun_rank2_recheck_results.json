@@ -1,0 +1,215 @@
+{
+ "config": {
+  "cells": {
+   "pronouns": {
+    "site": 17,
+    "rank": 2,
+    "top": 4,
+    "certified": true,
+    "published": 0.482
+   },
+   "it": {
+    "site": 17,
+    "rank": 2,
+    "top": 4,
+    "certified": false
+   },
+   "we": {
+    "site": 17,
+    "rank": 2,
+    "top": 4,
+    "certified": false
+   },
+   "you": {
+    "site": 17,
+    "rank": 2,
+    "top": 4,
+    "certified": false
+   },
+   "I": {
+    "site": 17,
+    "rank": 2,
+    "top": 4,
+    "certified": false
+   }
+  },
+  "chunks": 3,
+  "rows_per_chunk": 160,
+  "n_random": 20,
+  "seeds": "1729..1748",
+  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "statistic": "ABSOLUTE attribution mass, corrected quantity; null is a 60-trial mean"
+ },
+ "cells": {
+  "pronouns": {
+   "separation": 43,
+   "trials": 60,
+   "mean_gap": -0.0664,
+   "certified": true,
+   "random_range": [
+    0.3752,
+    0.7403
+   ],
+   "lambda": [
+    0.479,
+    0.524,
+    0.4615
+   ],
+   "null_20seed_per_chunk": [
+    0.5585,
+    0.5541,
+    0.5512
+   ],
+   "null_20seed": 0.5546,
+   "null_seed1729": 0.5436,
+   "gaps_20seed": [
+    -0.0795,
+    -0.03,
+    -0.0897
+   ],
+   "gaps_seed1729": [
+    -0.1019,
+    -0.0092,
+    -0.055
+   ]
+  },
+  "it": {
+   "separation": 60,
+   "trials": 60,
+   "mean_gap": -0.1918,
+   "certified": false,
+   "random_range": [
+    0.384,
+    0.7527
+   ],
+   "lambda": [
+    0.3627,
+    0.3557,
+    0.3653
+   ],
+   "null_20seed_per_chunk": [
+    0.5559,
+    0.5524,
+    0.5511
+   ],
+   "null_20seed": 0.5531,
+   "null_seed1729": 0.5609,
+   "gaps_20seed": [
+    -0.1931,
+    -0.1966,
+    -0.1857
+   ],
+   "gaps_seed1729": [
+    -0.2232,
+    -0.2025,
+    -0.1731
+   ]
+  },
+  "we": {
+   "separation": 57,
+   "trials": 60,
+   "mean_gap": -0.1595,
+   "certified": false,
+   "random_range": [
+    0.3397,
+    0.6559
+   ],
+   "lambda": [
+    0.3623,
+    0.3675,
+    0.3739
+   ],
+   "null_20seed_per_chunk": [
+    0.5101,
+    0.5382,
+    0.534
+   ],
+   "null_20seed": 0.5274,
+   "null_seed1729": 0.5407,
+   "gaps_20seed": [
+    -0.1478,
+    -0.1707,
+    -0.1601
+   ],
+   "gaps_seed1729": [
+    -0.1774,
+    -0.2009,
+    -0.1402
+   ]
+  },
+  "you": {
+   "separation": 59,
+   "trials": 60,
+   "mean_gap": -0.1955,
+   "certified": false,
+   "random_range": [
+    0.3365,
+    0.7235
+   ],
+   "lambda": [
+    0.3315,
+    0.3221,
+    0.3395
+   ],
+   "null_20seed_per_chunk": [
+    0.537,
+    0.5292,
+    0.5134
+   ],
+   "null_20seed": 0.5266,
+   "null_seed1729": 0.5376,
+   "gaps_20seed": [
+    -0.2055,
+    -0.2071,
+    -0.174
+   ],
+   "gaps_seed1729": [
+    -0.1908,
+    -0.2544,
+    -0.1743
+   ]
+  },
+  "I": {
+   "separation": 60,
+   "trials": 60,
+   "mean_gap": -0.2513,
+   "certified": false,
+   "random_range": [
+    0.3539,
+    0.7153
+   ],
+   "lambda": [
+    0.294,
+    0.2973,
+    0.2925
+   ],
+   "null_20seed_per_chunk": [
+    0.5572,
+    0.5228,
+    0.5577
+   ],
+   "null_20seed": 0.5459,
+   "null_seed1729": 0.5403,
+   "gaps_20seed": [
+    -0.2632,
+    -0.2254,
+    -0.2652
+   ],
+   "gaps_seed1729": [
+    -0.2402,
+    -0.2307,
+    -0.2662
+   ]
+  }
+ },
+ "predictions": {
+  "pred_a_margin_le_5_at_rank2": true,
+  "pred_b_all_4_negative_gap": true,
+  "pred_c_regime_is_unsaturated": true
+ },
+ "n_negative_gap": 4,
+ "n_unsaturated": 1,
+ "certified_separation": 43,
+ "best_fresh_separation": 60,
+ "runtime_s": 614.2
+}
