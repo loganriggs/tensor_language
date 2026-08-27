@@ -1,33 +1,33 @@
-# null_class_dependence_correct: IS S1612's "CELL-DEPENDENT NULL" AN ARTIFACT OF
-# THE WRONG QUANTITY?
+# gap_sign_stability: IS "THE CERTIFIED SLICE WRITES LESS CONCENTRATEDLY THAN A
+# RANDOM BASIS" A REAL CLASS PROPERTY, OR NOISE?
 #
-# S1612 measured matched-rank null shares of .4489 (question@mlp11) and .7295
-# (pronouns@mlp17) -- a .28 spread -- and concluded the null is CELL-DEPENDENT and
-# a bare share uninterpretable. S1613 built on it (null not tabulable, class effect
-# 3.3x the rank effect), S1614/S1616 chased what predicts it, and all of that was
-# measured with the quantity S1623 showed to be WRONG: full 18-layer forward,
-# final-residual attribution, all 37 components.
+# S1625 measured, at a FIXED cell (mlp11, rank-2, TOP-4) under the corrected
+# quantity, the SIGNED gap = lambda_share - null_share for six classes:
 #
-# Under the CORRECT measurement (forward stops at the site, upstream components,
-# site-relative coefficients) the two nulls came out at .5711 (S1623) and .5744
-# (S1624) -- a difference of .0033. That is a 85x reduction in spread and it
-# suggests S1612's headline may be an artifact.
+#     to +.1717 | question +.1468 | and +.0639 | is +.0037 | comma -.0091 | the -.0360
 #
-# CAVEAT that keeps this honest: those two cells also differ in rank (2 vs 8) and
-# TOP (4 vs 6), so their near-equality could be coincidence. This isolates CLASS by
-# holding site, rank and TOP fixed: six classes at mlp11, rank-2, TOP-4, forward
-# stopping at 11, upstream components only, canonical
-# `.rowcache/fineweb_n96_skip80.pt`. RANDOM ARM ONLY -- the null is the object of
-# study. .rowcache_shadow untouched.
+# Two of them are NEGATIVE: the certified eigen slice concentrates its writers LESS
+# than a random basis of the same rank. That was an UNREGISTERED observation on one
+# chunk of 96 rows, so it is a hypothesis and nothing more (LESSONS 17). It matters
+# because S1612 read exactly this sign at pronouns@mlp17 as "a positive structural
+# claim about distributed writing"; if the sign is noise at mlp11, that reading
+# needs re-examining.
 #
-# Registered predictions:
-#   pred_a UNDER THE CORRECT QUANTITY THE NULL IS NEARLY CLASS-INDEPENDENT: the
-#          range of null shares across the six classes is <= .10.
-#   pred_b IT IS SMALLER THAN S1613 MEASURED: the range is below S1613's .1417,
-#          which was computed on the same six-ish classes with the wrong quantity.
-#   pred_c NOT DEGENERATE: at least one class's null differs from question's .5711
-#          by >= .03, so a small range reflects real measurement rather than the
-#          statistic collapsing to a constant.
+# This tests SIGN STABILITY on THREE DISJOINT row chunks (160 rows each) from the
+# canonical `.rowcache/fineweb_n480_skip80.pt`. Same site, rank and TOP for all six
+# classes, so the only thing varying is the class and the rows. .rowcache_shadow
+# untouched; no artifact of Codex's is read or written.
+#
+# Registered predictions (minimum effect sizes, not bare comparisons -- LESSONS 19):
+#   pred_a SIGN IS STABLE WHERE THE EFFECT IS NOT NOISE: for the four classes whose
+#          S1625 |gap| >= .03 (to, question, and, the) the signed gap holds the SAME
+#          sign in all three disjoint chunks -- 12/12 agreements. The two near-zero
+#          classes (comma -.0091, is +.0037) are registered IN ADVANCE as expected-
+#          unstable and are excluded from this bar; their behaviour is reported but
+#          not scored.
+#   pred_b THE BELOW-NULL SIGN IS REAL: `the` has gap < 0 in all three chunks.
+#   pred_c THE STRONG POSITIVE REPLICATES AT MAGNITUDE: `to` has gap >= +.10 in all
+#          three chunks (S1625 saw +.1717).
 import json, time, sys, re, torch
 import torch.nn.functional as F
 sys.path.insert(0, '/workspace/rspd')
@@ -38,7 +38,7 @@ import tiktoken
 D = 1152; T = 256
 SITE_STOP = 11        # S1597 SITE: forward stops here, P = its input
 PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
-OUT = PT + 'null_class_dependence_correct_results.json'
+OUT = PT + 'gap_sign_stability_results.json'
 NR = 960
 # per-cell site/rank set in CELLS below
 are = sys.modules[type(m.transformer.h[0].attn).__module__].apply_rotary_emb
@@ -168,8 +168,8 @@ CELLS = {
     'to':       {'site': 11, 'rank': 2, 'top': 4, 'pat': r'^ to$', 'published': None,
                  'published_top': []},
 }
-CHUNKS, ROWS_PER_CHUNK = 1, 96
-ROWCACHE = PT + '.rowcache/fineweb_n96_skip80.pt'
+CHUNKS, ROWS_PER_CHUNK = 3, 160        # three DISJOINT chunks
+ROWCACHE = PT + '.rowcache/fineweb_n480_skip80.pt'
 RECEIPT  = PT + '.rowcache/fineweb_oracle_v2_receipt.json'
 
 
@@ -225,7 +225,7 @@ def main():
     chunks = [allr[c * ROWS_PER_CHUNK:(c + 1) * ROWS_PER_CHUNK] for c in range(CHUNKS)]
     import hashlib
     rh = hashlib.sha256(open(RECEIPT, 'rb').read()).hexdigest()[:16]
-    print(f'CANONICAL .rowcache/fineweb_n96_skip80.pt: {CHUNKS} chunks x {ROWS_PER_CHUNK} rows '
+    print(f'CANONICAL .rowcache/fineweb_n480_skip80.pt: {CHUNKS} chunks x {ROWS_PER_CHUNK} rows '
           f'(FRESH FineWeb; receipt sha256[:16]={rh})', flush=True)
     WU = m.lm_head.weight.float().to(DEV)[:50257]
     out_cells = {}
@@ -262,7 +262,7 @@ def main():
             cell['arms'][aname] = per
         L = [p['share'] for p in cell['arms']['lambda']]
         R = [p['share'] for p in cell['arms']['random']]
-        cell['gaps'] = [round(abs(r - l), 4) for l, r in zip(L, R)]
+        cell['gaps'] = [round(l - r, 4) for l, r in zip(L, R)]   # SIGNED lambda - null
         cell['mean_share'] = {'lambda': round(sum(L) / len(L), 4), 'random': round(sum(R) / len(R), 4)}
         cell['absent_from_random'] = [
             len([c for c in cell['arms']['lambda'][i]['top']
@@ -272,32 +272,46 @@ def main():
               f"lambda-top absent from random {cell['absent_from_random']}", flush=True)
         out_cells[cname] = cell
 
-    nulls = {k: v['mean_share']['random'] for k, v in out_cells.items()}
-    lams  = {k: v['mean_share']['lambda'] for k, v in out_cells.items()}
-    vals = list(nulls.values())
-    rng = round(max(vals) - min(vals), 4)
-    far = sum(1 for v in vals if abs(v - 0.5711) >= 0.03)
+    # S1625 single-chunk signed gaps (lambda - null), the hypothesis under test
+    S1625_GAP = {'to': 0.1717, 'question': 0.1468, 'and': 0.0639,
+                 'is': 0.0037, 'comma': -0.0091, 'the': -0.0360}
+    SCORED = [c for c in CELLS if abs(S1625_GAP[c]) >= 0.03]      # to, question, and, the
+    NOISE  = [c for c in CELLS if abs(S1625_GAP[c]) < 0.03]       # is, comma (reported, not scored)
 
-    pa = rng <= 0.10
-    pb = rng < 0.1417
-    pc = far >= 1
+    gaps = {k: out_cells[k]['gaps'] for k in out_cells}            # SIGNED, per chunk
+    agree = {c: sum(1 for g in gaps[c] if (g > 0) == (S1625_GAP[c] > 0)) for c in SCORED}
+    n_agree = sum(agree.values())
 
-    print(f"\n  NULL shares (correct quantity, all mlp11 r2 TOP4):", flush=True)
+    pa = n_agree == 3 * len(SCORED)                                # 12/12 sign agreements
+    pb = all(g < 0 for g in gaps['the'])                           # below-null sign is real
+    pc = all(g >= 0.10 for g in gaps['to'])                        # strong positive replicates
+
+    print(f"\n  SIGNED gap (lambda - null) per disjoint chunk, all mlp11 r2 TOP4:", flush=True)
     for k in out_cells:
-        print(f"    {k:9s} null {nulls[k]:.4f}   lambda {lams[k]:.4f}", flush=True)
-    print(f"  range {rng}   (S1613 measured .1417 with the WRONG quantity)", flush=True)
-    print(f"  classes >= .03 from question's .5711: {far}", flush=True)
+        tag = 'SCORED' if k in SCORED else 'noise '
+        gg = ' '.join(f'{g:+.4f}' for g in gaps[k])
+        signs = ''.join('+' if g > 0 else '-' for g in gaps[k])
+        print(f"    {k:9s} {tag}  S1625 {S1625_GAP[k]:+.4f} | chunks {gg} | signs {signs}"
+              f"{'  <- FLIPPED' if k in SCORED and agree[k] != 3 else ''}", flush=True)
+    print(f"  sign agreements on the four scored classes: {n_agree}/12", flush=True)
+    print(f"  'the' below null in all 3: {pb}   |   'to' >= +.10 in all 3: {pc}", flush=True)
+    print(f"  (near-zero classes {NOISE} were registered as expected-unstable and are "
+          f"NOT scored)", flush=True)
 
     out = {'config': {'cells': {k: {kk: vv for kk, vv in v.items() if kk != 'pat'}
                                 for k, v in CELLS.items()},
                       'chunks': CHUNKS, 'rows_per_chunk': ROWS_PER_CHUNK,
-                      'row_source': 'fineweb_n96_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)',
+                      'row_source': 'fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)',
                       'rows_are_fresh': True, 'receipt': 'fineweb_oracle_v2_receipt.json',
-                      'statistic': 'ABSOLUTE attribution mass, matching slice_writers.py:216'},
+                      'statistic': 'ABSOLUTE attribution mass, matching slice_writers.py:216; gap is SIGNED lambda - null'},
            'cells': out_cells,
-           'predictions': {'pred_a_null_range_le10': bool(pa),
-                           'pred_b_smaller_than_S1613_1417': bool(pb),
-                           'pred_c_not_degenerate': bool(pc)},
+           'predictions': {'pred_a_sign_stable_12_of_12': bool(pa),
+                           'pred_b_the_below_null_all_chunks': bool(pb),
+                           'pred_c_to_gap_ge_10_all_chunks': bool(pc)},
+           'signed_gaps_per_chunk': gaps,
+           'S1625_reference_gaps': S1625_GAP,
+           'scored_classes': SCORED, 'unscored_near_zero': NOISE,
+           'sign_agreements': agree,
            'runtime_s': round(time.time() - t0, 1)}
     json.dump(out, open(OUT, 'w'), indent=1,
               default=lambda o: sorted(o) if isinstance(o, set) else str(o))

@@ -46,10 +46,11 @@
   },
   "chunks": 1,
   "rows_per_chunk": 96,
-  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "row_source": "fineweb_n96_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
   "rows_are_fresh": true,
   "receipt": "fineweb_oracle_v2_receipt.json",
-  "statistic": "ABSOLUTE attribution mass, matching slice_writers.py:216"
+  "statistic": "ABSOLUTE attribution mass, matching slice_writers.py:216",
+  "provenance_correction_2026-08-27": "This artifact originally recorded row_source as fineweb_n480_skip80.pt. That string was wrong: ROWCACHE in the script points at fineweb_n96_skip80.pt and rows_per_chunk is 96. The RUN used the 96-row canonical tensor, which is the correct and intended comparison basis (S1623/S1624 used the same). Only the recorded label was wrong; no measured value changes."
  },
  "cells": {
   "question": {
