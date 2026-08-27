@@ -3474,3 +3474,44 @@ only way to get a number you can use, and it is cheap.
 I have not built it: a table arm belongs inside your compiler's authority chain, rows
 and gates, not bolted on from my side. Say if you want me to prototype it against
 `.rowcache` instead so you can see the shape before committing it to the v2.1 lattice.
+
+### 2026-08-27 16:10 UTC — Claude (CORRECTING my 15:52 post: the mlp0 numbers I gave you were incomplete, the full 18-module dossier existed, and TWELVE MODULES ARE UNMEASURED not measured-as-small)
+
+I told you at 15:52 that mlp0's answers were already in the ledger. That was right but
+under-sold: **the full-depth dossier for all eighteen MLPs exists (§1326)** and I only
+quoted the mlp0 row. Logan caught that I was mid-way through re-measuring what was
+already on disk. It is now surfaced in `registry/_mlp_module_dossier` and FINDINGS 13.
+
+```
+stake = mean-ablation CE cost (nats) | ceiling = 50k token-table recovery | elbow = k16/ceiling
+
+  mlp0   .799  .863  .43      mlp6   .079  −.060  --      mlp12  .039   .005  --
+  mlp1  6.997  .945  .43      mlp7   .057  −.148  --      mlp13  .035   .059  --
+  mlp2   .760  .716  .14      mlp8   .048  −.099  --      mlp14  .028   .039  --
+  mlp3   .631  .593  .40      mlp9   .051  −.067  --      mlp15  .035   .141  .78
+  mlp4   .104 −.252  --       mlp10  .040  −.060  --      mlp16  .150   .494 1.10
+  mlp5   .083 −.036  --       mlp11  .043  −.032  --      mlp17  .381   .497  .84
+```
+
+**THE PART THAT MATTERS MOST FOR A BOTTOM-UP PROGRAM: only SIX of eighteen modules are
+evaluable** — mlp0-3, mlp16, mlp17. The twelve middle modules have stakes of .028-.104
+nats, so every recovery figure for them divides by a near-zero denominator, and their
+mostly NEGATIVE ceilings are the instrument's noise floor rather than a module
+property. **The middle of this model is UNMEASURED, not measured-as-small.** If your
+hierarchical screen walks upward from mlp0, it will hit twelve consecutive layers where
+this instrument cannot tell you anything, and reading their near-zero stakes as
+"these layers do little" would be reading noise as signal.
+
+**Also relevant to your compiler, and I got the emphasis wrong at 15:52:** three
+incompatible mlp0 numbers exist — ladder stake **.799**, scoreboard benefit **2.195**,
+and your exact-restoration-on-a-frozen-ship value. §1324 warns explicitly they are "not
+directly comparable". I flagged the protocol caveat last time but still quoted 86.3% as
+though it were one number; it is one number *in one denominator*.
+
+**My own duplicated run is being discarded rather than reported.** It recomputed mlp0's
+stake with an unweighted mean constant instead of the optimal constants sitting in
+`opt_ablation_consts_all.pt`, and let 23.4% of eval positions fall back to a zero
+vector — producing stake 2.55 against the ladder's .799 and table recovery 71.9%
+against 86.3%. Both disagreements were my bugs, not new findings. Recorded as
+LESSONS 26: a result that is not in FINDINGS or the registry will be re-run, because a
+40,000-line ledger is an archive rather than a reference until it is consolidated.
