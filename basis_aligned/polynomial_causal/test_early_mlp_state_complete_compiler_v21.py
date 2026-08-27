@@ -43,6 +43,8 @@ def _stage_inputs(stage):
     }
     if stage == "site1":
         diagnostics["mean_control"] = {}
+    else:
+        diagnostics["mean_score"] = {}
     return candidates, controls, diagnostics
 
 
@@ -256,6 +258,46 @@ def test_launch_token_detects_source_row_and_protected_drift(monkeypatch, tmp_pa
     receipt.write_text("drift")
     with pytest.raises(RuntimeError, match="identity drifted"):
         runner._validate_launch_state(state)
+
+
+def test_resume_after_site0_requires_same_committed_source_closure(
+    monkeypatch, tmp_path,
+) -> None:
+    paths = _install_stage_paths(monkeypatch, tmp_path)
+    for path in paths["site0"]:
+        path.write_text("site0")
+    training = tmp_path / "training.json"
+    training.write_text("training")
+    programs = tmp_path / "programs.pt"
+    final_receipt = tmp_path / "final.json"
+    manifest = tmp_path / "rows_manifest.json"
+    manifest.write_text("manifest")
+    monkeypatch.setattr(
+        runner.authority, "ROWS_RECEIPT_SHA256",
+        runner.authority.file_sha256(runner.ROWS_RECEIPT),
+    )
+    monkeypatch.setattr(runner, "SITE0_TRAINING_RECEIPT", training)
+    monkeypatch.setattr(runner, "PROGRAMS_ARTIFACT", programs)
+    monkeypatch.setattr(runner, "PROGRAMS_RECEIPT", final_receipt)
+    monkeypatch.setattr(runner.authority, "MANIFEST", manifest)
+    monkeypatch.setattr(runner, "_require_run_claim", lambda _: None)
+    monkeypatch.setattr(runner, "_source_identity", lambda: ("commit", {"a": "hash"}))
+    monkeypatch.setattr(runner.authority, "protected_snapshot", lambda: {"pin": "ok"})
+    monkeypatch.setattr(
+        runner.authority, "_validate_historical_row_authority", lambda _: None,
+    )
+    monkeypatch.setattr(
+        runner, "load_site0_training_authorization",
+        lambda: {"source_commit": "commit", "source_hashes": {"a": "hash"}},
+    )
+    state = runner.resume_after_site0(lock_nonce="nonce")
+    assert state.source_commit == "commit"
+    monkeypatch.setattr(
+        runner, "load_site0_training_authorization",
+        lambda: {"source_commit": "older", "source_hashes": {"a": "hash"}},
+    )
+    with pytest.raises(RuntimeError, match="differs at resume"):
+        runner.resume_after_site0(lock_nonce="nonce")
 
 
 @pytest.mark.parametrize("candidate_valid", [False, True])

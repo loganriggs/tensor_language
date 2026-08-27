@@ -129,6 +129,8 @@ _RETRY1_TRANSITIVE_SOURCES = tuple(
 PROGRAM_SOURCE_CLOSURE = tuple(dict.fromkeys((
     HERE / "early_mlp_state_complete_compiler_v21.py",
     HERE / "test_early_mlp_state_complete_compiler_v21.py",
+    HERE / "early_mlp_state_complete_compiler_v21_site0.py",
+    HERE / "test_early_mlp_state_complete_compiler_v21_site0.py",
     PROTOCOL,
     IMPLEMENTATION_AMENDMENT,
     Path(__file__),
@@ -858,11 +860,10 @@ def _validate_context_diagnostics(
         )
 
 
-def _validate_candidate_sufficient_statistics(
-    candidates: Mapping[str, Any], context: Mapping[str, Any], label: str,
+def _validate_scorer_metrics(
+    metrics: Any, context: Mapping[str, Any], expected_price: Mapping[str, Any],
+    label: str,
 ) -> None:
-    """Recompute every selector-facing scalar from serialized raw sums/counts."""
-
     required_metrics = {
         "candidate_teacher_kl", "oracle_denominator_kl", "remaining_kl_ratio",
         "recovery", "global_ce", "copy_ce", "copy_count", "copy_worsening",
@@ -875,51 +876,75 @@ def _validate_candidate_sufficient_statistics(
     denominator = float(context["teacher_denominator"])
     baseline_copy = float(context["copy_baseline"])
     expected_copy_count = context["copy_token_count"]
+    if not isinstance(metrics, Mapping) or set(metrics) != required_metrics:
+        raise RuntimeError(f"v2.1 {label} metric schema changed")
+    raw = metrics["raw_sufficient_statistics"]
+    if not isinstance(raw, Mapping) or set(raw) != required_raw:
+        raise RuntimeError(f"v2.1 {label} raw scorer schema changed")
+    kl_sum = float(raw["candidate_teacher_kl_sum"])
+    global_sum = float(raw["global_ce_sum"])
+    copy_sum = float(raw["copy_ce_sum"])
+    kl_count = raw["candidate_teacher_kl_count"]
+    global_count = raw["global_ce_count"]
+    copy_count = raw["copy_ce_count"]
+    numeric = torch.tensor([kl_sum, global_sum, copy_sum], dtype=torch.float64)
+    if not bool(torch.isfinite(numeric).all()) or (
+        kl_count != VALIDATION_TOKEN_COUNT
+        or global_count != VALIDATION_TOKEN_COUNT
+        or copy_count != expected_copy_count
+    ):
+        raise RuntimeError(f"v2.1 {label} scorer counts changed")
+    candidate_kl = kl_sum / kl_count
+    global_ce = global_sum / global_count
+    copy_ce = copy_sum / copy_count
+    expected = {
+        "candidate_teacher_kl": candidate_kl,
+        "oracle_denominator_kl": denominator,
+        "remaining_kl_ratio": candidate_kl / denominator,
+        "recovery": 1.0 - candidate_kl / denominator,
+        "global_ce": global_ce,
+        "copy_ce": copy_ce,
+        "copy_count": copy_count,
+        "copy_worsening": copy_ce - baseline_copy,
+        "price": dict(expected_price),
+        "raw_sufficient_statistics": dict(raw),
+    }
+    if any(not _same_value(metrics.get(key), value) for key, value in expected.items()):
+        raise RuntimeError(f"v2.1 {label} selector metric does not recompute")
+
+
+def _validate_candidate_sufficient_statistics(
+    candidates: Mapping[str, Any], context: Mapping[str, Any], label: str,
+) -> None:
+    """Recompute every selector-facing scalar from serialized raw sums/counts."""
+
     for candidate_name, candidate in candidates.items():
-        metrics = candidate.get("metrics") if isinstance(candidate, Mapping) else None
-        if not isinstance(metrics, Mapping) or set(metrics) != required_metrics:
-            raise RuntimeError(
-                f"v2.1 {label}:{candidate_name} metric schema changed"
-            )
-        raw = metrics["raw_sufficient_statistics"]
-        if not isinstance(raw, Mapping) or set(raw) != required_raw:
-            raise RuntimeError(
-                f"v2.1 {label}:{candidate_name} raw scorer schema changed"
-            )
-        kl_sum = float(raw["candidate_teacher_kl_sum"])
-        global_sum = float(raw["global_ce_sum"])
-        copy_sum = float(raw["copy_ce_sum"])
-        kl_count = raw["candidate_teacher_kl_count"]
-        global_count = raw["global_ce_count"]
-        copy_count = raw["copy_ce_count"]
-        numeric = torch.tensor([kl_sum, global_sum, copy_sum], dtype=torch.float64)
-        if not bool(torch.isfinite(numeric).all()) or (
-            kl_count != VALIDATION_TOKEN_COUNT
-            or global_count != VALIDATION_TOKEN_COUNT
-            or copy_count != expected_copy_count
-        ):
-            raise RuntimeError(
-                f"v2.1 {label}:{candidate_name} scorer counts changed"
-            )
-        candidate_kl = kl_sum / kl_count
-        global_ce = global_sum / global_count
-        copy_ce = copy_sum / copy_count
-        expected = {
-            "candidate_teacher_kl": candidate_kl,
-            "oracle_denominator_kl": denominator,
-            "remaining_kl_ratio": candidate_kl / denominator,
-            "recovery": 1.0 - candidate_kl / denominator,
-            "global_ce": global_ce,
-            "copy_ce": copy_ce,
-            "copy_count": copy_count,
-            "copy_worsening": copy_ce - baseline_copy,
-            "price": selection.state_price(candidate["state"]),
-            "raw_sufficient_statistics": dict(raw),
-        }
-        if any(not _same_value(metrics.get(key), value) for key, value in expected.items()):
-            raise RuntimeError(
-                f"v2.1 {label}:{candidate_name} selector metric does not recompute"
-            )
+        _validate_scorer_metrics(
+            candidate.get("metrics") if isinstance(candidate, Mapping) else None,
+            context, selection.state_price(candidate["state"]),
+            f"{label}:{candidate_name}",
+        )
+
+
+def _validate_mean_score(
+    value: Any, context: Mapping[str, Any], *, stage: str,
+    expected_upstream: str,
+) -> None:
+    if not isinstance(value, Mapping) or set(value) != {
+        "context", "upstream_state_sha256", "metrics", "call_counter",
+    } or value.get("context") != (
+        "baseline" if stage == "site0" else "mean_site0"
+    ) or value.get("upstream_state_sha256") != expected_upstream:
+        raise RuntimeError(f"v2.1 {stage} mean-score context changed")
+    _validate_scorer_metrics(
+        value["metrics"], context, _constant_price(), f"{stage}:mean_score",
+    )
+    expected_calls = ({0: 0, 1: 24, 2: 0} if stage == "site0" else {
+        0: 0, 1: 0, 2: 0,
+    })
+    _validate_exact_call_counter(
+        value["call_counter"], expected_calls, f"{stage} mean-score",
+    )
 
 
 def _validate_mean_site1_diagnostics(value: Any, programs: Mapping[str, Any]) -> None:
@@ -1036,7 +1061,7 @@ def _validate_stage_binding(
     diagnostics = payload.get("diagnostics")
     diagnostic_keys = {
         "fit_permutation_sha256", "capture_hashes", "contexts",
-    } | ({"mean_control"} if stage == "site1" else set())
+    } | ({"mean_control"} if stage == "site1" else {"mean_score"})
     if not isinstance(diagnostics, Mapping) or set(diagnostics) != diagnostic_keys:
         raise RuntimeError(f"v2.1 {stage} external diagnostics are incomplete")
     permutation_hash = diagnostics["fit_permutation_sha256"]
@@ -1068,6 +1093,11 @@ def _validate_stage_binding(
         )
     if stage == "site1":
         _validate_mean_site1_diagnostics(diagnostics["mean_control"], programs)
+    else:
+        _validate_mean_score(
+            diagnostics["mean_score"], contexts["true_site0"],
+            stage="site0", expected_upstream="baseline",
+        )
 
 
 def _validate_site0_training_authorization(

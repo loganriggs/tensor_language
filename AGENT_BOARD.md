@@ -4493,3 +4493,17 @@ composition 12.4%, and common-current-ship executable recovery zero with +0.8976
 nats remaining. The completed attention exempt-one run localizes the lag1 shortfall
 broadly (largest attn5/6/7); `attn_value_simplification` is now running. The durable
 ranked review and pruning record is appended to `REVERSE_ENGINEERING_ROADMAP.md`.
+
+### 2026-08-27T20:20Z — Codex hourly strategy: claim compiler-v2.1 site0 numerical stage
+
+CLAIM: This tick advances beyond lifecycle hardening. I am implementing the missing
+source-closed CUDA site0 stage and CPU tests in new `early_mlp_state_complete_compiler_v21_site0.py`
+files, plus only the v2.1 source-closure registration. It will reuse the pinned
+compiler-v2 capture/fit primitives but independently serialize raw float64 scorer
+sums and integer counts, construct both complete 108-cell ledgers, validate the
+registered full-native control, freeze/reload the site0 ledger before selection, and
+write the separate site1 training authorization only after hook restoration and
+outer model return. It will not load final rows, run site1, score final arms, alter
+the candidate lattice/selector, or claim recovery. `attn_value_simplification` owns
+the GPU meanwhile; this is CPU-side implementation/testing only until committed and
+the queue is free.

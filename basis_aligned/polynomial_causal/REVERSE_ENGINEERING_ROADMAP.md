@@ -251,3 +251,61 @@ adding a table/direct-rank arm post hoc to frozen v2.1. A token table with expli
 unseen-token fallback and a matched-price direct-rank comparator remain high-value
 prospective controls for the next jointly priced compiler, not amendments to this
 confirmatory run.
+
+## Strategic checkpoint — 2026-08-27 20:40 UTC
+
+No whole-model accounting currency changed: common-current-ship executable recovery
+is still zero and the paired ship residual is still `+0.8976` nat/token. The material
+new evidence is attention-side and changes the interpretation, not the global
+fraction. With real routing left intact, the committed heuristic value-rank curve is
+`-26.10%, 2.37%, 67.05%, 100.01%` at ranks `8,64,256,1152` on the separate
+`3.55704`-nat attention-output-write constant stake. Therefore “simple values, hard
+routing” is falsified for that fitted family at ranks 8--64. It does not prove an
+intrinsic value rank: the fit truncates an ordinary SVD of the ridge map rather than
+solving covariance-optimal reduced-rank regression, optimizes `c_v` MSE rather than
+suffix/CE loss, includes the `v1` path, and is neither nested nor price-matched with
+the fixed-lag programs. The prior phrase “the remaining 29.9% is content routing” is
+withdrawn. The licensed statement is only “29.9% lies outside the tested fixed-lag
+linear family.” A denser exploratory curve and routing-rank follow-up are running in
+Claude's lane; they are not yet authority.
+
+The pruned priority order is now:
+
+1. Finish the complete compiler-v2.1 numerical source closure before any validation
+   forward: site0, site1, bundle/strata freeze, and common-support final scorer. The
+   current ship factorial gives MLP0--2 signed Shapley `+0.7277` nats versus attention
+   `-0.0670` and deep `+0.2120`, so early executable compilation remains the strongest
+   evidence-backed numerator target.
+2. Refresh the clean/current-ship `attention x MLP0--2 x deep` restoration cube on
+   one integer support ledger and one source-document bootstrap, then insert any
+   admitted compiled-early arm. This decides incremental value on the actual
+   `+0.8976` gap rather than on standalone constant stakes.
+3. Only if attention owns positive conditional current-ship residual, run a
+   middle-band routing-by-value `2 x 2` using exact versus frozen/simple routing and
+   exact versus correctly covariance- or suffix-weighted reduced-rank values, with
+   explicit `v1` semantics and a shared price ledger.
+4. If greedy v2.1 fails while exact early restoration stays valuable, preregister a
+   joint early-state/write compiler with a shared latent, table and matched-price
+   direct-rank controls, and an optional MLP2 interface. If it succeeds, test its
+   composition before expanding the grammar.
+5. After the first admitted executable numerator, run second-corpus/code OOD,
+   held-out interventions, and selective removal/edit collateral.
+
+This tick executed the next safe implementation step rather than launching an
+incomplete experiment. A site0 numerical runner now performs the registered OON
+teacher/NON baseline/QON candidate routing; scores both 108-cell banks plus a scored
+mean and full-native control from raw float64 sums and integer support counts; freezes
+and reloads both ledgers before selection; and makes the site1 receipt the last
+fallible write after outer return and hook/component restoration. A source-identical
+`resume_after_site0` boundary was added. Mocked tests cover routing, common support,
+complete-bank-before-selector ordering, failed full-native gates, no-final access,
+and source-equal resume; the combined focused suite is `70 passed`.
+
+The runner is deliberately **not launched**. Site0 would freeze its source commit and
+hashes, while site1/program/final numerical sources do not exist in the closure yet.
+Observing site0 and then writing those sources would make implementation
+outcome-adaptive; changing them would also fail the source-identical resume gate. The
+next safe CPU task is therefore site1 plus bundle/strata/final implementation and
+tests. More fixed-lag sweeps, ordinary-SVD value-rank interpretation, standalone
+rank-128 promotion, new token clustering, and another MLP2 alignment factorial stay
+pruned.

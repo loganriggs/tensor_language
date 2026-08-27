@@ -151,6 +151,38 @@ def verify_launch(*, lock_nonce: str) -> LaunchState:
     )
 
 
+def resume_after_site0(*, lock_nonce: str) -> LaunchState:
+    """Reconstruct launch authority for site1 from a completed site0 receipt."""
+
+    _require_run_claim(lock_nonce)
+    if authority.file_sha256(PROTOCOL) != authority.PINS[PROTOCOL] or (
+        authority.file_sha256(AMENDMENT) != authority.IMPLEMENTATION_AMENDMENT_SHA256
+    ) or authority.file_sha256(ROWS_RECEIPT) != authority.ROWS_RECEIPT_SHA256:
+        raise RuntimeError("compiler-v2.1 resume authority changed")
+    required = (*STAGE_PATHS["site0"], SITE0_TRAINING_RECEIPT)
+    forbidden = (*STAGE_PATHS["site1"], PROGRAMS_ARTIFACT, PROGRAMS_RECEIPT)
+    if any(not path.is_file() for path in required) or any(
+        path.exists() for path in forbidden
+    ):
+        raise RuntimeError("compiler-v2.1 site0 resume output state changed")
+    source_commit, source_hashes = _source_identity()
+    protected = authority.protected_snapshot()
+    authority._validate_historical_row_authority(json.loads(ROWS_RECEIPT.read_text()))
+    receipt = load_site0_training_authorization()
+    if receipt.get("source_commit") != source_commit or receipt.get(
+        "source_hashes"
+    ) != source_hashes:
+        raise RuntimeError("compiler-v2.1 site0 source closure differs at resume")
+    return LaunchState(
+        protected=tuple(sorted(protected.items())),
+        source_commit=source_commit,
+        source_hashes=tuple(sorted(source_hashes.items())),
+        rows_receipt_sha256=authority.file_sha256(ROWS_RECEIPT),
+        rows_manifest_sha256=authority.file_sha256(authority.MANIFEST),
+        lock_nonce=lock_nonce,
+    )
+
+
 def _validate_launch_state(state: LaunchState) -> None:
     if not isinstance(state, LaunchState):
         raise RuntimeError("v2.1 immutable launch state is absent")
@@ -323,6 +355,11 @@ def _validate_stage_semantics(stage: str, payload: Mapping[str, Any]) -> None:
         authority._validate_candidate_sufficient_statistics(
             ledgers[name], contexts[name], name,
         )
+    if stage == "site0":
+        authority._validate_mean_score(
+            diagnostics["mean_score"], contexts["true_site0"],
+            stage="site0", expected_upstream="baseline",
+        )
 
 
 def _expected_stage_payload(
@@ -342,7 +379,7 @@ def _expected_stage_payload(
         raise RuntimeError(f"v2.1 {stage} control schema changed")
     expected_diagnostics = {
         "fit_permutation_sha256", "capture_hashes", "contexts",
-    } | ({"mean_control"} if stage == "site1" else set())
+    } | ({"mean_control"} if stage == "site1" else {"mean_score"})
     if not isinstance(diagnostics, Mapping) or set(diagnostics) != expected_diagnostics:
         raise RuntimeError(f"v2.1 {stage} diagnostic schema changed")
     payload = {
@@ -495,8 +532,7 @@ def write_site0_training_authorization_after_outer_return(
     candidate = _site0_training_receipt_candidate(launch_state, execution_closure)
     _validate_launch_state(launch_state)
     authority.write_json_atomic(candidate, SITE0_TRAINING_RECEIPT)
-    _validate_launch_state(launch_state)
-    return load_site0_training_authorization()
+    return dict(candidate)
 
 
 def load_site0_training_authorization() -> dict[str, Any]:

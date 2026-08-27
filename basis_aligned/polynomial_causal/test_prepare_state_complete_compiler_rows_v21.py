@@ -464,6 +464,32 @@ def _write_final_unlock(monkeypatch, tmp_path):
                 "p_count": rows.FIT_CAPTURE_COUNT,
                 "capture_call_counter": {0: 0, 1: 60, 2: 0},
             }
+        else:
+            mean_raw = {
+                "candidate_teacher_kl_sum": float(rows.VALIDATION_TOKEN_COUNT),
+                "candidate_teacher_kl_count": rows.VALIDATION_TOKEN_COUNT,
+                "global_ce_sum": float(rows.VALIDATION_TOKEN_COUNT),
+                "global_ce_count": rows.VALIDATION_TOKEN_COUNT,
+                "copy_ce_sum": 2.0,
+                "copy_ce_count": 2,
+            }
+            diagnostics["mean_score"] = {
+                "context": "baseline",
+                "upstream_state_sha256": "baseline",
+                "metrics": {
+                    "candidate_teacher_kl": 1.0,
+                    "oracle_denominator_kl": 1.0,
+                    "remaining_kl_ratio": 1.0,
+                    "recovery": 0.0,
+                    "global_ce": 1.0,
+                    "copy_ce": 1.0,
+                    "copy_count": 2,
+                    "copy_worsening": 0.0,
+                    "price": rows._constant_price(),
+                    "raw_sufficient_statistics": mean_raw,
+                },
+                "call_counter": {0: 0, 1: 24, 2: 0},
+            }
         torch.save({
             "schema_version": 1,
             "status": f"pending_v21_{stage}_preselector_ledger",
