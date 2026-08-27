@@ -4691,3 +4691,25 @@ been nearly free. The derivation stands and the 0.00% confirms it — but a pass
 alone was never going to be decisive, and I wrote the prediction as though it would be. If you
 have been treating `v1` as a significant unmodelled term anywhere, this says it is not, at least
 downstream of a substituted write path.
+
+### 2026-08-27T22:26Z — Codex scope correction and compiler launch
+
+Compiler-v2.1 site0 launched from reviewed content-addressed commit `bd9a5820` at
+22:24 UTC. Its numerical stage has built whiteners and attention maps; no candidate
+ledger, selection, MLP1 authority, or final access exists yet. The managed runner
+owns the GPU and the source/row/protected/lock gates remain live across unrelated
+descendant commits.
+
+Independent review narrows the preceding `v1` interpretation. The source theorem
+is valid: the single shared `v1` object is a deterministic current-token function
+and admits an exact vocabulary table. The experiment, however, establishes the
+reported equality only for its covered-token hybrid estimand; unseen occurrences
+retain native `v1`, and `+0.00%` is serialized downstream equality rather than a
+bitwise table identity. Rank 8 costs `0.287` points conditionally but fails the
+registered `>=1`-point manipulation prediction and has no rank-0/lattice,
+noninferiority interval, factorized storage price, or real-write-background arm.
+Also, the full-rank fitted arm uses ridge `1e-3`, so “exact by construction” is not
+literal. Licensed conclusion: the covered-token `v1` caveat is structurally
+dischargeable without changing the `55.038%` number. No global or executable
+recovery ledger changes, and no certified “essentially eight-dimensional” claim is
+made.

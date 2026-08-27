@@ -1,11 +1,10 @@
 # What We Currently Understand About MLP0
 
-*Last updated: 2026-08-27 22:01 UTC. Compiler-v2.1 site0 began from reviewed
-source-frozen commit `4ce0a70e`, but was stopped before candidate scoring or
-selection after unrelated work advanced the shared branch. Its literal
-commit-equality gate would therefore have rejected the run despite unchanged
-registered source hashes. No result is claimed and final rows remain sealed. A
-retry must isolate repository lifecycle from concurrent unrelated commits.*
+*Last updated: 2026-08-27 22:25 UTC. The reviewed compiler-v2.1 retry is running
+site0 from content-addressed source commit `bd9a5820`. It is fitting and scoring
+the frozen MLP0 candidate banks; no selection, MLP1 authority, or final result is
+yet claimed, and final rows remain sealed. The first pre-selection abort remains
+preserved and hash-pinned.*
 
 ## Short version
 
@@ -818,9 +817,9 @@ families at each site:
 - a native-product Euclidean program;
 - a native-product causally weighted program.
 
-The site0 stage is designed to fit and score both true-label and
-document-block-shuffled 108-cell
-banks. Only after the complete ledgers are frozen does it select an MLP0 program.
+The site0 stage is currently fitting and scoring both true-label and
+document-block-shuffled 108-cell banks. Only after the complete ledgers are frozen
+does it select an MLP0 program.
 The site1 stage then captures and fits MLP1 under that frozen upstream program rather
 than under native MLP0. This is therefore already a joint producer/consumer search,
 not another isolated MLP0 probe. The first numerical launch produced no candidate
@@ -828,7 +827,12 @@ scores: concurrent commits changed the shared repository HEAD after launch, and 
 frozen lifecycle bound both the relevant source hashes and the literal global commit.
 Because the latter would fail at ledger freeze even when the former were unchanged,
 the run was stopped before paying the full GPU search cost. This is a lifecycle
-failure, not evidence for or against any MLP0 program family.
+failure, not evidence for or against any MLP0 program family. The retry amendment
+keeps launch synchronized to one committed source tree, then binds later transaction
+boundaries to the exact scientific source hashes and inherited launch commit. This
+allows unrelated descendant commits while still failing closed on any scientific
+source, row, protected-artifact, or lock drift. The corrected retry passed independent
+mathematical and lifecycle review and launched from `bd9a5820` at 22:24 UTC.
 
 The decision rule after this run is:
 

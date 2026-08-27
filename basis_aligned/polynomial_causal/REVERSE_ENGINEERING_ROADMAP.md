@@ -434,3 +434,15 @@ new regression proving unrelated HEAD movement is accepted but source-hash drift
 fails closed. Independent lifecycle and mathematical re-audits both give GO to
 commit, and conditional GO to launch only after the exact snapshot is pushed and
 accepted by source-identity preflight.
+
+Post-launch update: compiler site0 entered its numerical stage from commit
+`bd9a5820` at 22:24 UTC; validation-only whiteners and attention maps are built,
+while selection, MLP1 authority, and final access remain absent. The intervening
+attention-`v1` closure gives identical serialized CE `5.79570` for real and
+covered-token-table `v1`, so the best 36-site program has no functionally live
+`v1` dependency on its registered covered-token estimand. This does not increase
+the `55.038%` ceiling or any global ledger. Unseen tokens still use native fallback
+and originals still execute. Rank 8 loses only `0.287` points, falsifying the
+registered `>=1`-point manipulation prediction, but no rank ladder, noninferiority
+margin, factorized price, or all-token/real-write-background test exists; it is a
+descriptive conditional approximation, not a certified eight-dimensional program.
