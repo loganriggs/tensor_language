@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_not_run",
+  "registered_at_utc": "2026-08-27T09:00:00Z",
+  "experiment": "joint_early_mlp_live_oracle_factorial_authoritative_v4",
+  "supersedes_execution_namespace": "joint_early_mlp_live_oracle_factorial_authoritative_v3",
+  "v3_status": "failed_closed_before_any_arm_scoring",
+  "v3_failure": "The exact-patch algebra canary at MLP0 observed max absolute float32 cancellation error 3.0517578125e-05 against the preregistered absolute cutoff 2e-05. The failure occurred after ship freeze but before partial-result creation or any discovery/heldout arm score. The failed non-authorizing manifest is preserved; no v3 result or authority receipt exists.",
+  "frozen_scientific_design": "Every scientific arm, split, document-cluster bootstrap, registered prediction, descriptive metric, state-integrity control, prefix identity, authority transaction, interpretation guardrail, and denominator rule is inherited unchanged from authoritative v2 and v3.",
+  "only_design_changes": [
+    "Replace the dimensionful fixed 2e-05 exact-patch cutoff with a preregistered per-site float32 forward-error bound: tolerance = 16 * eps_float32 * max(1, max_abs(original) + 2 * max_abs(deployed)). Report the scale, epsilon, multiplier, tolerance, and observed error for every site. This tests whether (original - deployed) + deployed agrees with original to ordinary floating-point precision rather than demanding an unjustified absolute constant.",
+    "Require and restore the exact validated frozen ship created by v3 instead of rebuilding or overwriting it. The frozen artifact, manifest, row receipt, realization tree, and baseline fingerprint must all validate before the canary or any arm score.",
+    "Use a new authoritative-v4 result, manifest, atomic-authority-receipt, experiment-lock, and log namespace. Preserve and protect the v3 failed manifest and absence of v3 result/authority artifacts."
+  ],
+  "pinned_v3_failure": {
+    "failed_manifest_sha256": "5b2d091ff3846bb41e210695eac056e5fffb74fae0053381bb002b99b49e986f",
+    "frozen_state_sha256": "fe21ead35b1dcb3c0914a36b04d7be36e9c3f179c57bc63eee62bd78d34fe9df",
+    "frozen_manifest_sha256": "21c89c4d1bd03e1c4be34023781c027b13d2c98202b855938488e33c99e9ba04",
+    "ship_realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e",
+    "v3_log_sha256": "a7e59b8d0c700e5c088b82a7d321983526a3d96efc6b2e9058917a187e2913c2",
+    "arm_scores_produced": 0,
+    "v3_result_exists": false,
+    "v3_authority_receipt_exists": false
+  },
+  "retry_interpretation": "The revised canary tolerance is fixed before seeing any scientific arm outcome. Reusing the exact frozen state avoids a new realization draw. All v2/v3 scientific predictions remain genuinely unobserved.",
+  "launch_gate": "Commit the v4 preregistration before implementation. Then commit the versioned runner/tests, verify all inherited and v4 tests, exact pinned state/failure/source hashes, successful real restore fingerprint, idle GPU, empty queue, absent v4 paths/locks, and unchanged protected artifacts before launch.",
+  "authority": {
+    "row_receipt_authorized_for_scoring": true,
+    "running_and_payload_artifacts_authorized": false,
+    "last_written_atomic_hash_binding_receipt_is_sole_final_authority": true,
+    "authorized_for_training": false,
+    "training_license_sites": []
+  }
+}
