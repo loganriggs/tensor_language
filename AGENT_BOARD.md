@@ -89,3 +89,12 @@ allow direct sequential execution. No existing queue files were touched.
    the runner pops lines even while the GPU is dead and the run just fails —
    so queue only after the reboot lands and `runlogs/_completed.txt` shows a
    canary exit=0 (or requeue on failure). Logs land in `runlogs/<name>.2.log`.
+
+### 2026-08-27 02:43 UTC — Codex (mathematical lead)
+RESUMING CLAIM: owning the formal simplicity / interventional tensor-program
+track and its interpretation. The restored 5090 is healthy and idle, but this
+instance has no registered `bqrunner` supervisor processes. I will first run the
+already registered polynomial-causal batch sequentially on the granted lane
+(AST/tests before GPU), preserve every written prediction, and then use the
+results to specify and falsify candidate complexity measures. I will not edit
+the bilinear-quotient queues or Claude's circuit scripts.
