@@ -2115,3 +2115,64 @@ bias varies by class mask the way it varies by site, my own conclusions are part
 an artifact. `class_range_multiseed` is queued on lane 1: six classes x 20 bases x
 3 chunks, per-class null from 60 trials instead of 3. Correcting old work and not
 my own would be selective.
+### 2026-08-27 10:03 UTC — Codex hourly strategy: oracle subspace -> licensed executable compiler
+
+**Coverage accounting did not move.** The complete mixed MLP0/1 PCA lattice is
+real causal evidence (heldout projected upstream gain `0.2268` versus exact
+`0.4003`, or `56.7%`; `64.0%` with exact MLP2 fixed), but every `P` arm still
+reads its coefficients from the original MLP. Therefore it adds **zero executable
+whole-model recovery**. The non-combinable dashboard remains: replacement scope
+`36/36`, named-variable recovery `32.1%`, verified causal-path coverage `10.92%`,
+legacy composed recovery `12.4%`, analytic-interface substitution `99.816%` with
+its mean-floor caveat, and same-run composite gap `+0.8976` nats. The largest gaps
+are the missing executable MLP0/1 coordinate maps, absent same-currency macro and
+whole-model denominators, weak projected-upstream compatibility with MLP2
+(`+0.0194`, heldout lower CI `+0.0002`; discovery CI crosses zero), unexplored
+regions beyond MLP0--2, and no OOD/edit/minimality certificate.
+
+**Pruned priority order.** Candidates were compared on information gain, causal
+relevance, whole-model composability, falsifiability, GPU price, and duplication:
+
+1. Run an original-MLP-poisoned sequential coefficient compiler for the admitted
+   MLP0/1 bases. This is the sole immediate action that can convert proven causal
+   coordinates into an executable component and is sharply falsifiable.
+2. Co-score paired clean and a macro attention/early-MLP/deep factorial on the same
+   ship/rows. This mints the missing denominators needed to turn local gains into a
+   whole-model fraction.
+3. Run a hierarchical exact-restoration census outside MLP0--2, using typed windows
+   before local cubes. This expands causal coverage without a whole-model powerset.
+4. Audit MLP2 input/output state transport and crossed-state interchange. Do not
+   compile MLP2 yet: only ~17% of its exact downstream rescue survives projected
+   upstream and the positive conditional effect is borderline.
+5. At equal causal fidelity, price affine, native-product, paired-product, and
+   tensor-head grammars; only then run OOD/background/edit certification. Grammar
+   compactness without executable fidelity earns no recovery credit.
+
+**Highest-priority action executed, with the final GPU score still pending.** A new
+isolated experiment `early_mlp_affine_compiler_v1` is committed and pushed. It does
+not promote v3's `authorized_for_training=false` artifact. Instead it has a new
+experiment-scoped license plus fresh FineWeb roles: fit `480` rows/`191` documents
+at skip `15000`, validation `192`/`114` at `19000`, and untouched final
+`192`/`100` at `23000`. All roles are pairwise document/full-row/prefix-disjoint
+and document-disjoint from every old oracle role; receipt SHA256 is
+`762528ea02cd98071ea55e6b4e904a8fc453f3eb4e545946b8e7149aaf8caa04`.
+
+The frozen grammar is a balanced rank `{8,16,32,64}` affine map from live
+post-RMSNorm state to the 64 causal coefficients, with a fixed ridge grid and
+validation-only MDL selection. `g0` freezes before generating the live rollout
+states used to fit `g1`; one map/site is reused in the complete
+`{N,Q,O}x{N,Q,O}x{N,E}` lattice. Mean and document-shuffle controls are mandatory.
+All `N/Q` arms raise if an original MLP0/1 is called. The pure frontier, shared
+document-cluster nonlinear gates, gauge transport, explicit price, isolated hook,
+capture semantics, and poison/restore guard have focused tests. At rank 64 the
+standalone site price including its basis is `153,920` float reals, `<1%` of the
+original bilinear MLP's `15,926,400`, with zero versus `4,608` native Hadamard
+products. This is an upper bound, not a minimality certificate.
+
+Commits: prereg/source `b3c38346`, frozen rows `5b52925d`, pure contract
+`7e38b373`, gauge/price `99f82cbc`, balance sheet `3123a3a1`, runtime/poison
+`bf68c6c9`. The other lane is currently occupied by independent multiseed null
+work, so the interval was used for these CPU-side implementation and provenance
+steps. The authoritative fit/freeze/18-arm runner is the remaining unblocked
+implementation step; executable CE and whole-model fractions remain explicitly
+null until its last-written authority receipt exists.
