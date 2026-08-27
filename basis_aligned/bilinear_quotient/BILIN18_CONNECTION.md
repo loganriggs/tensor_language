@@ -37144,3 +37144,65 @@ it; the accumulated channel content carries the class at the readout.
 Remaining budget question — who writes the final 2.02 (mlp11's own
 amplification? late layers?) — is channel_budget, queued for after the GPU
 returns.
+
+## §1601 CHANNEL BUDGET (2-for-3): the '?' channel is written by mlp11 (+1028) and cancelled by mlp17 (−1151) — the biggest single contributor is SUPPRESSIVE, and no 4-component cut reproduces the final cut
+
+**Setup** (channel_budget, 254 s, NR=960, 96 fit rows, question class). Exact
+linear decomposition of the final residual's span(v1,v2) coordinates across all
+37 components (x0, ao_0..17, mo_0..17); signed class attribution per component;
+then causal cuts of the top-4 positive and top-4 negative writers against the
+§1600 final-cut reference. Slice eigs [144.8641, −73.8464]; reconstruction rel
+err 0.0.
+
+**Signed budget** (positive = writes the channel, negative = writes against it):
+
+```
+mlp11  +1028.5 (by_dir 674.8 / 353.7)   mlp17  −1150.8
+attn10  +879.9                          mlp16   −292.0
+attn9   +613.5                          mlp2      −0.09
+mlp9    +554.7                          mlp0      −0.008
+attn12  +385.8
+mlp13   +184.3   mlp10 +170.9   mlp12 +168.7
+```
+
+**Scored as written:**
+- **pred_a PASSED** — mlp11 is not merely top-2, it is the **single largest
+  positive writer** (+1028.5 vs attn10's +879.9). The quadratic form that reads
+  the channel is also its biggest mid-depth source: mlp11 reads and writes the
+  same subspace, confirming the §1600 amplification story at signed-budget grain.
+- **pred_b PASSED** — mlp17 is negative (−1150.8) and is the most negative of all
+  37 components. Stronger than registered: **it is the largest-magnitude
+  contribution of any component in either direction** (|−1150.8| > +1028.5). The
+  gate is the biggest single writer in the whole budget, and it writes against
+  the channel.
+- **pred_c FAILED** — top-4 positive cut gives class rise .833 = **.414 of the
+  final cut** (2.0113), against a registered bar of ≥ .60. Global rise −.0003
+  (bar ≤ .02, met, but the first leg misses). A miss is a miss.
+
+**Why pred_c failed, and what it answers.** The §1600 completeness gap
+(final+readers = 1.80× source) is now explained: the channel is not assembled by
+a small writer set that a 4-component cut can capture. Positive mass is spread —
+the top-4 carry only .573 of it — and it is opposed by a comparable negative mass
+concentrated in mlp17/mlp16. The final residual's channel content is a **near-
+cancellation of two large opposing flows** (+1028 vs −1151 at the extremes), so
+any partial cut removes a small difference of large numbers and under-reproduces
+the whole. Cutting the negatives *helps* the class (−.245, i.e. class CE falls),
+which is the same sign as the §1599 reader result and confirms mlp17's role is
+suppression, not readout.
+
+**Head grain replicates the certified circuit exactly.** attn10 → **10.5**
+(946.4, 20:1 over next); attn9 → **9.7** (335.2) and **9.3** (262.4);
+attn12 → **12.6** (401.0). All four are registry question-circuit heads
+(10.5, 12.6, 9.3 certified; 9.7 from the §1597 writer graph). The head-grain law
+holds at full-depth signed-budget grain, on a decomposition that never used the
+circuit labels.
+
+**Selectivity note (house style, §1515 precedent).** The top-4 cut's raw ratio is
+832,967× because the global rise is *negative* (−.0003, below measurement noise
+at NR=960). Recorded as **unbounded within noise**, NOT as 8.3e5. The edit is
+genuinely free globally; the number is a divide-by-noise artifact.
+
+**Open.** Whether the +/− cancellation is a stable design (a regulated channel)
+or an artifact of the linear coordinate choice; the natural next test is a
+depth-resolved partial-sum curve of the channel coordinate, which would show
+whether the cancellation accumulates monotonically or reverses late.
