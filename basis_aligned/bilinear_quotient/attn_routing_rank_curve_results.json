@@ -1,0 +1,71 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ranks": [
+   64,
+   128,
+   256,
+   384,
+   512,
+   1152
+  ],
+  "ridge": 0.001,
+  "projections": [
+   "c_q",
+   "c_k",
+   "c_q2",
+   "c_k2"
+  ],
+  "intervention": "rank-r least-squares maps at all four routing projections; c_v and c_proj run exactly as trained",
+  "why_matched": "same budget kind, same 1152-dim reads, same module, same data-weighted fit and bottom-up compilation as \u00a71690, so routing rank compares directly with value rank (\u00a71689 could not)",
+  "identity_check": "each projection is LINEAR in x so the full-rank arm must return ~100%",
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1690_value_curve": {
+   "64": 0.0237,
+   "256": 0.6705,
+   "384": 0.9497,
+   "512": 0.9832,
+   "1152": 1.0001
+  }
+ },
+ "stake": 3.55704,
+ "curve": {
+  "64": 0.62825,
+  "128": 0.74004,
+  "256": 0.91929,
+  "384": 0.97068,
+  "512": 0.98777,
+  "1152": 0.99997
+ },
+ "monotone": true,
+ "rank_reaching_95pct": 384,
+ "value_path_rank_95pct": 384,
+ "predictions": {
+  "pred_a_routing_lower_rank_than_values": false,
+  "pred_b_rank64_routing_gt_50": true,
+  "pred_c_identity_and_monotone": true
+ },
+ "runtime_s": 818.7
+}

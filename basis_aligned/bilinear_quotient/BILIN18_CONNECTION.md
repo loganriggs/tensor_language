@@ -42011,3 +42011,46 @@ incomparable units. That is fixable with the same machinery: `c_q`, `c_k`, `c_q2
 plain Linears like `c_v`, so a rank-r least-squares map from x to each of them is the matched
 intervention, and routing rank becomes directly comparable to value rank. Queued as
 `attn_routing_rank_curve.py`.
+
+## §1691 — routing is far more compressible than values, and my prediction bar was mis-specified
+
+`attn_routing_rank_curve.py`. Rank-r least-squares maps at all four routing projections
+(`c_q`, `c_k`, `c_q2`, `c_k2`) with `c_v` and `c_proj` exact — the matched-budget comparison
+§1689 said it could not make. Identity arm 100.00%, curve monotone.
+
+```
+rank     % of dims    ROUTING     VALUES (§1690)     gap
+  64        5.6%      62.82%        2.37%          +60.45
+ 128       11.1%      74.00%          —
+ 256       22.2%      91.93%       67.05%          +24.88
+ 384       33.3%      97.07%       94.97%           +2.10
+ 512       44.4%      98.78%       98.32%           +0.46
+1152      100.0%     100.00%      100.01%
+```
+
+**At a twentieth of the dimensions, routing keeps 62.8% of attention's write and values keep
+2.4%.** The gap is 60.5 points at rank 64, still 24.9 at rank 256, and closes to nothing by
+512. Attention selects with a much coarser object than it carries: the pattern is
+low-rank-friendly, the payload is not.
+
+**pred_a FAILED as written, and the bar was my error.** I wrote it as "the smallest tested
+rank reaching 95% of full is BELOW 384, the value path's figure". Routing's crossing is AT
+384, not below, so **the prediction fails**. Separately, the constant was wrong: §1690's own
+output shows the value path does not reach 95% at 384 either — 94.97% against a 95.01% bar —
+so its crossing is **512**, and I typed 384 into the comparison. The corrected crossing
+comparison (routing 384, values 512) does favour the claim, but I do not get to rescue a
+failed prediction by fixing its constant afterwards. It is recorded as a FAIL.
+
+**The claim survives on evidence that does not depend on a crossing point at all.** Crossings
+are a bad statistic here — both curves are steep near their knees, so a single grid step moves
+them. The matched-rank gaps are the real evidence and they are large and consistent: +60.45,
++24.88, +2.10, +0.46 as rank grows. Routing dominates values at every rank where either is
+under saturation.
+
+**Where this leaves the routing-versus-values question §1689 opened.** Two matched rank
+budgets on the same module, fitted and compiled identically:
+- **routing** tolerates heavy compression — 5.6% of dimensions still buys 62.8%;
+- **values** do not — the same 5.6% buys 2.4%, and the path needs ~44% of its dimensions.
+Combined with §1687 (positional families saturate at 70.08%, so routing is worth the ~30%
+they cannot reach), attention's write is: a cheap, low-rank *selection* over an expensive,
+nearly-full-rank *payload*.
