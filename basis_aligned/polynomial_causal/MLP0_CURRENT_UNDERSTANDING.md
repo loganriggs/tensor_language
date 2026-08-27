@@ -1,7 +1,9 @@
 # What We Currently Understand About MLP0
 
-*Last updated: 2026-08-27 19:40 UTC. The authority-bound MLP2 compensation
-factorial is queued but has not yet produced a scientific result.*
+*Last updated: 2026-08-27 20:05 UTC. The MLP2 compensation factorial has
+completed; its registered labels are mechanically inconclusive, while its stable
+descriptive pattern shows strong attenuation by deployed MLP2 and the ensuing
+suffix but provides no support for the specifically aligned-write mechanism.*
 
 ## Short version
 
@@ -391,6 +393,20 @@ This is a different result from the tensor-native 256-feature program. It decomp
 MLP0 into a token table plus a continuous inherited-context correction and uses a
 more conservative held-out operational protocol.
 
+There is also a useful structural bound on this decomposition. MLP0 is position-wise
+and, at layer 0, its complete input is the current-token embedding plus attention-0's
+write. Therefore $(t,a_0)$ is an information-complete regressor set for MLP0; adding
+more upstream variables cannot reveal information MLP0 itself never receives. With
+attention-0 frozen, the covered-token table ceiling is exactly 100.00%. With
+attention-0 live, the same covered-position protocol assigns only about 9.73% of
+MLP0's 0.855-nat stake—roughly 0.083 nats—to context plus unexplained residual.
+
+This bound depends on coverage policy. Leaving MLP0 live for unseen fit tokens gives
+a 90.27% covered-position table ceiling, whereas substituting a backoff everywhere
+can lower the measured recovery by about 15.9 points through propagated uncovered
+token errors. Any comparison of token and context terms must state which policy it
+uses.
+
 ### 5.3 The immediate MLP0-to-MLP1 edge is approximately low-rank
 
 At the declared MLP0-to-MLP1 edge, an earlier causal edge-rank screen found that a
@@ -640,9 +656,9 @@ This rules against treating C512's discarded directions as a certified downstrea
 null space. It also does not license a standalone MLP1 adapter. The next physical
 interface question is where and how MLP2 performs the compensation.
 
-## 9. Current live discriminator: where MLP2 compensates
+## 9. What the MLP2 compensation factorial found
 
-The next experiment is a physical state-by-write factorial at MLP2. For exact MLP0
+The completed experiment is a physical state-by-write factorial at MLP2. For exact MLP0
 path $O$ and C512 path $C$, it separately crosses:
 
 - the state entering MLP2;
@@ -674,11 +690,46 @@ $$
 \le 10^{-6}+10^{-5}\|w_{\Delta}\|_2.
 $$
 
-V2 changes only that redundant outer check, binds the exact V1 authority and failure
-receipt, marks the reused rows as spent-but-outcome-blind rather than fresh, and
-keeps every scientific arm and threshold unchanged. Its source and authority are
-committed, independently audited, and queued. Until it finishes, the MLP2 mechanism
-above remains an unresolved hypothesis rather than a result.
+V2 changed only that redundant outer check, bound the exact V1 authority and failure
+receipt, marked the reused rows as spent-but-outcome-blind rather than fresh, and
+kept every scientific arm and threshold unchanged. It completed all 1,256 windows,
+passed every runtime integrity check, and exactly replayed its frozen inference from
+the serialized source-document ledgers.
+
+One common gate was nevertheless false: float32-reported coverage differed from the
+exact ledger fraction by only $3.3\times10^{-9}$ to $1.14\times10^{-8}$, but the
+scorer required $10^{-12}$ equality. Because this was discovered after outcomes
+were serialized, the registered labels remain false/inconclusive rather than being
+post-hoc repaired.
+
+Here `false` means “not promoted because a common gate failed,” not scientific
+falsification of each mechanism.
+
+The descriptive pattern replicated across both waves:
+
+- omitting MLP2 exposes a large C512 mismatch: about 3.63 practical margins pooled;
+- deployed MLP2 reduces it to about 0.79 margins;
+- the simultaneous suppression reduction is positive in wave A, wave B, and pooled;
+- the local state-by-write interaction point estimate is only about 0.07 margins
+  (pooled UCB 0.616), but its dependency-gated component status is inconclusive;
+- a shuffled within-wave/cell delta-write control is better than the aligned
+  observational arm, so the specific aligned-repair story is not supported;
+- observational equivalence is not certified: pooled UCB is 1.333 against a 0.8 bar.
+
+The best current descriptive reading is therefore:
+
+$$
+\boxed{
+\text{Deployed MLP2 and the ensuing suffix attenuate most C512-induced MLP1
+mismatch, but the assay provides no support for a specially aligned repair write.}
+}
+$$
+
+Because the sensitivity control was unpowered, this is failure to support or certify
+alignment, not proof that aligned compensation is absent.
+
+This narrows the joint compiler target, but it does not yet make C512 a certified
+causal interface or add whole-model executable recovery credit.
 
 ## 10. A principled definition of simplicity
 
@@ -755,3 +806,4 @@ original network.
 - `MLP0_C512_MLP1_INTERCHANGE_SPEC.md`
 - `MLP0_C512_MLP1_INTERCHANGE_V3_FINDINGS.md`
 - `MLP0_C512_MLP2_COMPENSATION_SPEC.md`
+- `MLP0_C512_MLP2_COMPENSATION_V2_FINDINGS.md`
