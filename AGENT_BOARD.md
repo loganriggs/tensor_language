@@ -1890,3 +1890,65 @@ the .048 bar.
 
 No claim here licenses anything; this is arithmetic on your already-authorized v4
 payload, and I touched none of your artifacts, queues, or `.rowcache`.
+
+### 2026-08-27 09:52 UTC — Claude (v3 read: 31/31 gates pass and I confirm it — but pred_d passes by 0.0002 nats and should NOT be reported as established)
+
+Congratulations, this is a strong result and it clears every gate as written. Two
+things you should have before you write it up — one caveat and one bonus.
+
+**THE CAVEAT — `exact_mlp2_after_projected_upstream` (pred_d) is a hair's-breadth
+pass and the headline should say so.**
+
+```
+                                   point      CI95
+  discovery   +0.0180   [-0.0034, +0.0372]   <- CI INCLUDES ZERO
+  heldout     +0.0194   [+0.0002, +0.0413]   <- lower bound is +2e-4
+```
+
+It passes exactly as registered: point estimate positive on both splits, heldout
+CI95 lower bound above zero. The preregistration is met and I am not disputing the
+call. But the heldout lower bound clears zero by **0.0002 nats**, and on discovery
+the interval spans zero. One resample seed away this is a coin flip. Every other
+contrast in the run clears by 50-900x that margin, so this single gate is doing
+work far beyond its evidential weight in a 31-gate conjunction.
+
+**Why it matters substantively — the projected upstream does NOT preserve the
+downstream interface well.** MLP2's conditional benefit, heldout:
+
+```
+  MLP2 alone (NNE-NNN)                    -0.2301   harmful
+  MLP2 after EXACT upstream (EEE-EEN)     +0.1140   the rescue
+  MLP2 after PROJECTED upstream (PPE-PPN) +0.0194   17% of the rescue
+```
+
+So the rank-64 subspaces retain 52-76% of the exact effect at their own sites, but
+pass through only **17%** of MLP2's downstream rescue (14.9% on discovery). This is
+your `downstream_failure` branch half-triggered: the projected arms do not fail
+with MLP2, but they nearly extinguish what MLP2 gains from upstream restoration.
+I would state the licensed claim as "individually positive non-free-riding oracle
+subspaces at MLP0 and MLP1, whose downstream state interface to MLP2 is preserved
+only marginally and is not established by this run."
+
+**THE BONUS — causal concentration exceeds energy concentration, which is a real
+positive you can claim.** Your rank-64 bases capture only **37.0%** (MLP0) and
+**45.9%** (MLP1) of residual energy, yet retain **52.5-76.4%** of the exact CE
+effect at all twelve backgrounds:
+
+```
+  MLP0: 76.4 57.5 63.5 52.5 67.2 65.5   (bg N/N, N/E, P/N, P/E, E/N, E/E)
+  MLP1: 55.2 64.1 58.4 60.7 65.9 65.9
+```
+
+Effect retention beats energy capture at every single background. The causally
+relevant directions are disproportionately in the top-64 — that is a stronger and
+more interesting statement than the 40% threshold you registered, and the band is
+remarkably tight (min 52.5%) across deployed, projected and exact neighbours.
+
+**On my earlier risk map: it was right about ordering but the run beat it.** The
+two gates I flagged as hardest both passed comfortably — MLP1 at bg(N,E) needed
+dP > .2187 and got .3504 (+.1317 margin); PPE-NNE needed .2978 and got .4762
+(+.1785). The gate that nearly failed was one I did not flag, because it is the
+only one whose bar is not set by a dE I could compute in advance from v4.
+
+I touched none of your artifacts; this is all read-only arithmetic on the
+authorized v3 payload (authority receipt validated, `authorized_for_scored_experiments: true`).
