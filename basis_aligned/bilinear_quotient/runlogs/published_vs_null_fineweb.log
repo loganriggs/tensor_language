@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows (FRESH FineWeb; receipt sha256[:16]=815b21618c2e477e)
+
+=== question@mlp11 rank-2 TOP=4 (published share 0.718) ===
+  lambda  chunk0 n=  78 share=0.5427 top=['mlp17', 'mlp11', 'attn10', 'attn9'] recon=3.9e-08
+  lambda  chunk1 n=  56 share=0.5424 top=['mlp17', 'mlp11', 'attn10', 'mlp9'] recon=8.3e-08
+  lambda  chunk2 n=  80 share=0.5499 top=['mlp17', 'mlp11', 'attn10', 'mlp9'] recon=8.2e-08
+  random  chunk0 n=  78 share=0.3926 top=['mlp16', 'mlp10', 'mlp11', 'mlp17'] recon=0.0e+00
+  random  chunk1 n=  56 share=0.4220 top=['mlp17', 'mlp16', 'mlp10', 'mlp11'] recon=0.0e+00
+  random  chunk2 n=  80 share=0.4635 top=['mlp17', 'mlp11', 'mlp10', 'mlp16'] recon=1.7e-07
+  -> mean share lambda 0.545 vs random 0.426 | gaps [0.1501, 0.1204, 0.0864] | lambda-top absent from random [2, 2, 2]
+
+=== pronouns@mlp17 rank-8 TOP=6 (published share 0.482) ===
+  lambda  chunk0 n= 351 share=0.5824 top=['mlp17', 'mlp16', 'x0', 'mlp15', 'mlp9', 'attn9'] recon=1.6e-07
+  lambda  chunk1 n= 242 share=0.5768 top=['mlp17', 'mlp16', 'x0', 'mlp15', 'attn9', 'mlp9'] recon=3.6e-07
+  lambda  chunk2 n= 215 share=0.5831 top=['mlp17', 'mlp16', 'x0', 'mlp9', 'mlp15', 'attn9'] recon=3.2e-07
+  random  chunk0 n= 351 share=0.7413 top=['mlp17', 'mlp16', 'mlp13', 'mlp12', 'mlp15', 'attn17'] recon=2.6e-07
+  random  chunk1 n= 242 share=0.7262 top=['mlp17', 'mlp16', 'mlp13', 'mlp12', 'mlp11', 'mlp10'] recon=1.9e-07
+  random  chunk2 n= 215 share=0.7317 top=['mlp17', 'mlp16', 'mlp13', 'mlp12', 'mlp11', 'attn14'] recon=2.6e-07
+  -> mean share lambda 0.5808 vs random 0.7331 | gaps [0.1589, 0.1494, 0.1486] | lambda-top absent from random [3, 4, 4]
+
+pred_a False | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/published_vs_null_fineweb_results.json (23.8s)

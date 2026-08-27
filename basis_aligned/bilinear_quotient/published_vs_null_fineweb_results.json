@@ -1,0 +1,266 @@
+{
+ "config": {
+  "cells": {
+   "question@mlp11": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": 0.718,
+    "published_top": [
+     "attn10",
+     "attn9",
+     "mlp9",
+     "mlp10"
+    ]
+   },
+   "pronouns@mlp17": {
+    "site": 17,
+    "rank": 8,
+    "top": 6,
+    "published": 0.482,
+    "published_top": [
+     "mlp16",
+     "x0",
+     "mlp15",
+     "mlp9",
+     "mlp14",
+     "attn9"
+    ]
+   }
+  },
+  "chunks": 3,
+  "rows_per_chunk": 160,
+  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "rows_are_fresh": true,
+  "receipt": "fineweb_oracle_v2_receipt.json",
+  "statistic": "ABSOLUTE attribution mass, matching slice_writers.py:216"
+ },
+ "cells": {
+  "question@mlp11": {
+   "published": 0.718,
+   "published_top": [
+    "attn10",
+    "attn9",
+    "mlp9",
+    "mlp10"
+   ],
+   "rank": 2,
+   "top": 4,
+   "arms": {
+    "lambda": [
+     {
+      "chunk": 0,
+      "class_n": 78,
+      "share": 0.5427,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "attn10",
+       "attn9"
+      ],
+      "recon": 3.8927684187228806e-08
+     },
+     {
+      "chunk": 1,
+      "class_n": 56,
+      "share": 0.5424,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "attn10",
+       "mlp9"
+      ],
+      "recon": 8.337419643567046e-08
+     },
+     {
+      "chunk": 2,
+      "class_n": 80,
+      "share": 0.5499,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "attn10",
+       "mlp9"
+      ],
+      "recon": 8.156919761859172e-08
+     }
+    ],
+    "random": [
+     {
+      "chunk": 0,
+      "class_n": 78,
+      "share": 0.3926,
+      "top": [
+       "mlp16",
+       "mlp10",
+       "mlp11",
+       "mlp17"
+      ],
+      "recon": 0.0
+     },
+     {
+      "chunk": 1,
+      "class_n": 56,
+      "share": 0.422,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp10",
+       "mlp11"
+      ],
+      "recon": 0.0
+     },
+     {
+      "chunk": 2,
+      "class_n": 80,
+      "share": 0.4635,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "mlp10",
+       "mlp16"
+      ],
+      "recon": 1.6521036627636931e-07
+     }
+    ]
+   },
+   "gaps": [
+    0.1501,
+    0.1204,
+    0.0864
+   ],
+   "mean_share": {
+    "lambda": 0.545,
+    "random": 0.426
+   },
+   "absent_from_random": [
+    2,
+    2,
+    2
+   ]
+  },
+  "pronouns@mlp17": {
+   "published": 0.482,
+   "published_top": [
+    "mlp16",
+    "x0",
+    "mlp15",
+    "mlp9",
+    "mlp14",
+    "attn9"
+   ],
+   "rank": 8,
+   "top": 6,
+   "arms": {
+    "lambda": [
+     {
+      "chunk": 0,
+      "class_n": 351,
+      "share": 0.5824,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp15",
+       "mlp9",
+       "attn9"
+      ],
+      "recon": 1.6280013426239748e-07
+     },
+     {
+      "chunk": 1,
+      "class_n": 242,
+      "share": 0.5768,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp15",
+       "attn9",
+       "mlp9"
+      ],
+      "recon": 3.577894460704556e-07
+     },
+     {
+      "chunk": 2,
+      "class_n": 215,
+      "share": 0.5831,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp9",
+       "mlp15",
+       "attn9"
+      ],
+      "recon": 3.190530435404071e-07
+     }
+    ],
+    "random": [
+     {
+      "chunk": 0,
+      "class_n": 351,
+      "share": 0.7413,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp12",
+       "mlp15",
+       "attn17"
+      ],
+      "recon": 2.5516121127111546e-07
+     },
+     {
+      "chunk": 1,
+      "class_n": 242,
+      "share": 0.7262,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp12",
+       "mlp11",
+       "mlp10"
+      ],
+      "recon": 1.9297530684525555e-07
+     },
+     {
+      "chunk": 2,
+      "class_n": 215,
+      "share": 0.7317,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp12",
+       "mlp11",
+       "attn14"
+      ],
+      "recon": 2.568974650785094e-07
+     }
+    ]
+   },
+   "gaps": [
+    0.1589,
+    0.1494,
+    0.1486
+   ],
+   "mean_share": {
+    "lambda": 0.5808,
+    "random": 0.7331
+   },
+   "absent_from_random": [
+    3,
+    4,
+    4
+   ]
+  }
+ },
+ "predictions": {
+  "pred_a_question_share_gap_le10_2of3": false,
+  "pred_b_pronouns_share_gap_le10_2of3": false,
+  "pred_c_question_membership_ge3_absent_3of3": false
+ },
+ "runtime_s": 23.8
+}

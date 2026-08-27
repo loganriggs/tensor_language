@@ -364,3 +364,20 @@ is still *defined* — just wrong.
   `return <value>`; (3) the gate must test SEMANTICS it can afford, not just
   names. AST-clean + names-defined has now passed three broken scripts in one
   session (undefined `beats`, dead `if False else`, truncated `rx`).
+
+## 19. Registered predictions live in TWO places — update both or the registration is theatre (§1620)
+The docstring is the registration; the scoring code is what actually runs. Adapt a
+harness and change only one, and the run reports bars nobody registered.
+- **Example:** `published_vs_null_fineweb.py` was adapted from
+  `writer_floor_absmass.py`. I rewrote the docstring's three predictions for the
+  new question and left the scoring block untouched, so the artifact recorded
+  `pred_a_question_share_gap_le10_2of3` — a stale bar from the parent script — and
+  printed **0-for-3**, while the actual registered bars scored **2-for-3**. Both
+  numbers are in the same JSON.
+- **Near non-example:** it was recoverable ONLY because every raw share was
+  printed (LESSONS 16) and the registered bars were simple arithmetic on published
+  values. A registration involving thresholds computed inside the run would have
+  been unrecoverable.
+- **Rule:** add a gate arm that extracts the `pred_*` key names from the results
+  dict and requires each to appear in the docstring's "Registered predictions"
+  block. A name present in one and absent from the other is a FAIL.

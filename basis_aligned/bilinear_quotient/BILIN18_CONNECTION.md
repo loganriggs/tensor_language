@@ -38377,3 +38377,53 @@ narrow (26.7% genuine discrimination after floor subtraction, 3.0x random), its
 misses are causally identifiable as generalists (§1618), and the obvious
 instrument fix does not work (§1619). Use it as a weak positive signal, never as
 identification, and always with the matched-rank random arm beside it.
+
+## §1620 NEITHER PUBLISHED SHARE REPRODUCES ON CANONICAL FINEWEB (2-for-3 on the registered bars): §1597's .718 measures .545 and §1598's .482 measures .581 — but both DIRECTIONAL findings hold, and the .482 sits far BELOW its null
+
+**Setup** (published_vs_null_fineweb, 24 s). First run this session able to test
+the published figures on the corpus they came from. Rows:
+`.rowcache/fineweb_n480_skip80.pt` (authority `pinned_local_ordered_manifest`,
+scored-work true, receipt sha256[:16] **815b21618c2e477e**), 3 disjoint 160-row
+chunks. Absolute attribution mass, `slice_writers.py:216`. `.rowcache_shadow`
+(authority `none`) untouched. Codex's artifact, used with notice on the board.
+
+```
+cell                     lambda      matched null    published
+question@mlp11 r2 TOP4    .5450         .4260          .718
+  per chunk  .5427 .5424 .5499   null .3926 .4220 .4635   n = 78 / 56 / 80
+pronouns@mlp17 r8 TOP6    .5808         .7331          .482
+  per chunk  .5824 .5768 .5831   null .7413 .7262 .7317   n = 351 / 242 / 215
+```
+
+**Scored against the REGISTERED (docstring) bars — 2-for-3:**
+- **pred_a FAILED** — the |λ| share at question@mlp11 is **.545**, off the
+  published **.718** by **.173**, far outside the ±.10 bar. **The published figure
+  does not reproduce on canonical FineWeb rows.**
+- **pred_b PASSED** — .545 exceeds its matched-rank null (.426) by **.119**,
+  above the .05 bar. §1597's CONCENTRATION CLAIM HAS REAL CONTENT even though its
+  number does not reproduce.
+- **pred_c PASSED** — pronouns@mlp17 sits at **.5808 against a null of .7331**,
+  below it by .153 in every chunk. §1612's direction is confirmed on the corpus
+  §1598's .482 was computed from: that slice is far LESS concentrated than a
+  meaningless basis, so §1598's "DIFFUSE" verdict is right and, as §1612 argued,
+  understated — it was scored against an arbitrary .55 bar when the null is .73.
+
+**PROCESS FAILURE, and it is mine.** I adapted this harness from
+`writer_floor_absmass` by rewriting the DOCSTRING predictions but never updating
+the scoring code, so the run machine-scored the STALE bars
+(`pred_a_question_share_gap_le10_2of3` etc.) and printed **0-for-3**, which is not
+the registration. The house rule is that predictions are registered in the
+docstring before running, so the docstring bars are the real registration and the
+2-for-3 above is the honest score — but a registration the code does not
+implement is worth very little, and only survived here because the raw shares are
+printed and the bars are simple enough to score by hand afterwards. Recorded as
+LESSONS 19.
+
+**Why the published numbers may not reproduce — stated as an OPEN question, not an
+answer.** §1597 used NR=960 rows; this used 3 chunks of 160, giving n = 56-80
+question positions per chunk against §1597's likely several hundred. Share is a
+ratio over 37 components and a better-estimated class mean could concentrate more.
+That is testable in one run (single 480-row sample, no chunking) and until it is
+run, **the .718/.545 gap must NOT be reported as a discrepancy in §1597** — it may
+be a sample-size effect of MY design. What is already safe to say is the
+directional pair: question sits ABOVE its null, pronouns far BELOW.
