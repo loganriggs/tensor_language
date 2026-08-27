@@ -111,7 +111,10 @@ def sub_v1(v):
     mode = CFG['v1']
     if mode is None or 'W' not in V1P:
         return v
-    flat = v.reshape(-1, v.shape[-1])
+    # v1 is the HEAD-SPLIT view (B, T, n_head, head_dim) -- last dim is 128, not D.
+    # n_head * head_dim == D and the two dims are adjacent, so reshape(-1, D) flattens
+    # them correctly. The first build indexed v.shape[-1] and died on 1152 vs 128.
+    flat = v.reshape(-1, D)
     if mode == 'table':
         new = V1P['W'][STATE['idx'].reshape(-1)]
     else:
