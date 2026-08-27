@@ -1,0 +1,57 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ranks": [
+   8,
+   64,
+   256,
+   1152
+  ],
+  "ridge": 0.001,
+  "intervention": "replace c_v output with a rank-r least-squares map of x; q, k, q2, k2, rotary, squared-attention mixing, lamb and c_proj all run exactly as the model does",
+  "identity_check": "c_v is LINEAR in x, so the full-rank map is c_v itself up to ridge and the full-rank arm must return ~100%",
+  "why_data_weighted": "the useful rank-r approximation minimises error under the input covariance the module actually sees, not an unweighted norm on c_v.weight",
+  "scope": "hooking c_v also changes the v1 block 0 exports, since v1 is that same pre-mix v -- this is attention with simplified values INCLUDING v1",
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1687_best_positional": 0.7008,
+  "s1685_lag1": 0.5626,
+  "s1682_lag0": 0.1638
+ },
+ "stake": 3.55704,
+ "curve": {
+  "8": -0.26098,
+  "64": 0.02373,
+  "256": 0.67045,
+  "1152": 1.00005
+ },
+ "monotone": true,
+ "rank64_minus_best_positional": -0.67707,
+ "predictions": {
+  "pred_a_routing_was_missing_ge_10pts": false,
+  "pred_b_rank8_clears_positional": false,
+  "pred_c_identity_and_monotone": true
+ },
+ "runtime_s": 286.4
+}

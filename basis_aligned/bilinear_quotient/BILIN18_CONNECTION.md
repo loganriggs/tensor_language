@@ -41928,3 +41928,46 @@ side the middle band (attn5–8) is where a lag-1 positional description fails w
 independent families, two different modules, same location: **bilin18's front and back are
 cheap to describe and its middle is where the computation is.** Neither measurement could
 have produced the other, which is what makes the agreement worth stating.
+
+## §1689 — routing does NOT rescue compressed values: attention's value path is high-rank
+
+`attn_value_simplification.py`. The model's entire routing path — q, k, q2, k2, rotary, the
+squared-attention mixing, lamb, c_proj — runs exactly as trained; only `c_v`'s output is
+replaced by a rank-r least-squares map of x, compiled bottom-up. pred_a and pred_b both
+FAILED; the identity check passed.
+
+```
+value rank    ceiling      (18 attention writes, 3.5570-nat stake)
+      8      -26.10%
+     64       +2.37%
+    256      +67.05%
+   1152     +100.01%   <- identity check: c_v IS linear in x, so this must be ~100%
+comparator: best fixed-position family, NO routing at all, 7 slots -> 70.08%
+```
+
+**The identity arm returns 100.01% with a monotone curve**, so the harness is right: the
+full-rank least-squares map from x to `c_v(x)` recovers `c_v` itself (the 0.01% over is
+numerical, the fitted map differing from `c_v` by ridge-level amounts).
+
+**My framing was wrong and the run says so plainly.** I predicted real routing with rank-64
+values would clear the best fixed-position family by ≥10 points, on the reasoning that
+routing is what those families were missing. It reaches **2.37%** — 67.7 points *below* a
+family that does no routing at all. And rank-8 values with perfect routing land at −26.10%,
+worse than replacing attention with a constant.
+
+**What is actually established: attention's value path is HIGH-RANK.** A quarter of the value
+dimensions (256 of 1152) buys 67.05%, still under what seven positions of full-rank residual
+stream buy with no routing. Exact routing does not compensate for a compressed value path.
+
+**What is NOT established, and I set the run up in a way that invited the error.** "Routing
+versus values" is not a clean contrast here: the positional families constrain WHICH
+POSITIONS may be read while leaving the read full-rank, and these arms constrain the RANK of
+what is read while leaving the routing exact. Those are different budgets, so the 2.37%
+against 70.08% comparison prices two incomparable restrictions and cannot support "values
+matter more than routing". The defensible reading is the rank curve alone.
+
+The routing question does have a clean answer already, from the other direction: §1687's
+positional families saturate at 70.08% with full-rank values and no routing, and exact
+routing with full-rank values is 100% by construction — so routing is worth the ~30% §1687
+identified as content-routed, and this run adds that the value path independently needs high
+rank. Queued `attn_value_rank_curve.py` to locate where it saturates.
