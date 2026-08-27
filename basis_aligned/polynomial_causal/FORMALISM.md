@@ -148,12 +148,74 @@ upper bounds whose conditioning and achieved distortion must be recorded.
 
 The first weights-only audit sharpens the choice of scope. On MLPs 0, 1, 2, 11,
 and 17, two independent Gaussian evaluation sketches give output-flattening rank
-1152/1152 at relative thresholds through `1e-4`. This is a stable randomized
-numerical lower bound of 1152 products for each unchanged full vector map, versus
-the native 4608-product upper bound. It is not a symbolic proof, but it rules out
-the fantasy that the complete MLP tensor will collapse to a tiny exact program.
-The one-product question result survives because it is a selected scalar causal
-interface. Therefore interface discovery and tensor compilation must be joint.
+1152/1152 at relative thresholds through `1e-4`. The smallest observed singular
+value is only `0.00089`--`0.00418` of the largest, however, so full rank at every
+registered threshold is mechanically implied by the measured spectra. The audit is
+therefore evidence against *near-exact coefficient degeneracy at the tested scale*,
+not a symbolic exact-rank certificate and not evidence of incompressibility on the
+natural activation distribution. The practical coefficient-space knee was not
+measured. The native 4608-product factorization remains an upper bound, while 1152
+is a randomized numerical lower bound conditional on the stated tolerance. The
+one-product question result survives because it is a selected scalar causal
+interface. Therefore interface discovery, approximation currency, and tensor
+compilation must be specified jointly.
+
+### Exact, distributional, and causal product rank are different objects
+
+Let `G_k` be the programs with at most `k` shared product gates. The coefficient
+tensor gives the exact algebraic quantity
+
+```
+r_exact(F) = min { k : F = G for some G in G_k }.
+```
+
+For activations `x ~ D` and a declared output metric `M`, the practically relevant
+approximation quantity is instead
+
+```
+r_D(F; epsilon) = min { k : E_D ||F(x)-G(x)||_M^2 <= epsilon^2 }.
+```
+
+On scalar quadratics its geometry is set by the fourth-moment operator
+
+```
+<A,B>_D = E_D[(x^T A x)(x^T B x)],
+```
+
+not by the ordinary Frobenius norm of coefficient matrices. This may be only a
+seminorm: two different tensors can agree on a low-dimensional activation support.
+Consequently, Gaussian coefficient sketches estimate neither `r_D` on natural
+activations nor causal sufficiency.
+
+Finally define `r_I(F; epsilon)` by replacing the natural error with the registered
+worst-family error of intervention *responses*. It depends on the intervention
+vocabulary and transport in `Sigma`. In general there is no ordering between a
+candidate's natural and intervention error: rare causal directions can have tiny
+natural mass, and high-reconstruction directions can be downstream-inert. The
+compiler must therefore report the triple
+
+```
+(r_exact certificate or interval, natural-activation frontier, causal frontier),
+```
+
+and never promote one coordinate into another.
+
+This also fixes the matched baseline for the content compiler. For original product
+features `phi_i(x)=(a_i.x)(b_i.x)`, selecting `k` native units is followed by the
+optimal frozen-discovery decoder regression; retaining their original output weights
+would confound factor choice with decoder quality. Learned paired factors receive the
+same decoder, product count, precision, and output metric. Both are then installed
+and scored under held-out interventions and the whole-ship loss.
+
+The first matched-cost causal test demonstrates why all three ranks are required.
+On the selected `mlp11` question eigenpair, the exact paired gate reconstructs to
+`6.3e-7` relative error and remains below `0.56%` error in bf16. The best one-square
+gate has `35.4%` held-out scalar error, yet its held-out question KL is only
+`6.87e-5`, or `0.39%` of the KL from deleting the rank-2 slice. It therefore failed
+the preregistered causal-separation gate. Exact product geometry is a valid algebraic
+certificate here, but not a necessary behavioral explanation. This scalar route is
+demoted; the next compiler must earn value at a joint content interface and in the
+current whole-model ship.
 
 ## 4. Polynomial boundaries
 

@@ -31,6 +31,7 @@ DEFAULT_SOURCES = {
     "ship_error_groups": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_error_attrib_results.json",
     "ship_behavior_state": TENSOR_ROOT / "basis_aligned/bilinear_quotient/state_in_full_ship_results.json",
     "mlp_product_rank": HERE / "mlp_product_rank_audit_results.json",
+    "question_one_product": HERE / "question_one_product_results.json",
 }
 
 
@@ -118,6 +119,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     ship_groups = data["ship_error_groups"]
     ship_state = data["ship_behavior_state"]
     product_rank = data["mlp_product_rank"]
+    question_product = data["question_one_product"]
     inventory = registry_inventory(theseus_root)
 
     subst_recovery = 1.0 - subst["chain_pca"]["dCE"] / subst["available_headroom_to_floor"]
@@ -223,10 +225,30 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "full_vector_numerical_product_lower": min(row["conservative_numerical_lower_rtol_1e-6"] for row in product_rank["layers"].values()),
             "native_product_upper": min(row["explicit_products_upper"] for row in product_rank["layers"].values()),
             "question_scalar_exact_products": 1,
+            "observed_sigma_min_over_max_range": [
+                min(sketch["sigma_1152_over_max"] for row in product_rank["layers"].values() for sketch in row["sketches"]),
+                max(sketch["sigma_1152_over_max"] for row in product_rank["layers"].values() for sketch in row["sketches"]),
+            ],
             "currency": "scalar multiplication gates in the frozen sum_i c_i(a_i.x)(b_i.x) grammar",
-            "scope": "randomized numerical output-flattening bounds for full MLPs 0,1,2,11,17; exact inertia certificate for the question scalar slice",
-            "claim": "All audited full-vector maps have stable numerical lower bound 1152 versus 4608 native products, while a causal scalar slice can collapse to one product.",
-            "caveat": "The 1152 result is a two-sketch floating-point lower-bound audit, not a symbolic rank proof. It motivates compiling a causally sufficient output interface rather than the unchanged full vector map.",
+            "scope": "randomized numerical coefficient-space output-flattening bounds for full MLPs 0,1,2,11,17; exact inertia certificate for the question scalar slice",
+            "claim": "All audited full-vector maps lack near-exact coefficient degeneracy at registered tolerances through 1e-4, while the selected scalar slice has an exact one-product certificate.",
+            "caveat": "The 1152 result is a two-sketch floating-point diagnostic whose thresholds all lie below the observed spectral tails. It is neither a symbolic rank proof nor a natural-activation incompressibility result, and the practical coefficient-space knee is unmeasured.",
+        },
+        "matched_cost_causal_compiler": {
+            "pair_fp32_max_scalar_relative_rmse": max(row["pair_fp32"]["scalar_relative_rmse"] for row in question_product["evaluations"].values()),
+            "pair_bf16_max_scalar_relative_rmse": max(row["pair_bf16"]["scalar_relative_rmse"] for row in question_product["evaluations"].values()),
+            "square_scalar_relative_rmse": {
+                split: row["square"]["scalar_relative_rmse"] for split, row in question_product["evaluations"].items()
+            },
+            "square_question_kl": {
+                split: row["square"]["question_kl"] for split, row in question_product["evaluations"].items()
+            },
+            "square_question_kl_fraction_of_zero_rank2": question_product["square_question_kl_fraction_of_zero_rank2"],
+            "registered_predictions": question_product["predictions"],
+            "currency": "matched-one-product question-slice replacement fidelity on natural activations",
+            "scope": "mlp11 selected positive/negative question-unembedding eigenpair; discovery and untouched held-out FineWeb rows",
+            "claim": "The exact paired gate is stable even in bf16, but exact product geometry did not earn causal preference over the best one-square program: the registered held-out KL gate failed.",
+            "caveat": "This is a rank-2 slice correction with the orthogonal MLP output live, not an MLP replacement. The square's held-out question KL is only 0.39% of zeroing the slice despite 35.4% scalar error, so reconstruction error badly overstates behavioral necessity here.",
         },
     }
 
@@ -262,7 +284,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             {
                 "priority": 3,
                 "action": "Compile a causally sufficient joint output/content interface with shared quadratic factors between RMSNorm boundaries.",
-                "why": "The question scalar needs one exact product, but full MLP maps have a stable 1152-product numerical lower bound versus 4608 native; major savings require choosing the right causal interface, not preserving all 1152 outputs.",
+                "why": "The question scalar needs one exact product, while full MLP maps show no near-exact coefficient degeneracy at the registered tolerances; major useful savings likely require choosing the right causal interface, not preserving all 1152 outputs.",
             },
             {
                 "priority": 4,

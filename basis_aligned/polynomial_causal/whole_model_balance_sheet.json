@@ -110,10 +110,39 @@
       "full_vector_numerical_product_lower": 1152,
       "native_product_upper": 4608,
       "question_scalar_exact_products": 1,
+      "observed_sigma_min_over_max_range": [
+        0.0008913403914898587,
+        0.004181932087793735
+      ],
       "currency": "scalar multiplication gates in the frozen sum_i c_i(a_i.x)(b_i.x) grammar",
-      "scope": "randomized numerical output-flattening bounds for full MLPs 0,1,2,11,17; exact inertia certificate for the question scalar slice",
-      "claim": "All audited full-vector maps have stable numerical lower bound 1152 versus 4608 native products, while a causal scalar slice can collapse to one product.",
-      "caveat": "The 1152 result is a two-sketch floating-point lower-bound audit, not a symbolic rank proof. It motivates compiling a causally sufficient output interface rather than the unchanged full vector map."
+      "scope": "randomized numerical coefficient-space output-flattening bounds for full MLPs 0,1,2,11,17; exact inertia certificate for the question scalar slice",
+      "claim": "All audited full-vector maps lack near-exact coefficient degeneracy at registered tolerances through 1e-4, while the selected scalar slice has an exact one-product certificate.",
+      "caveat": "The 1152 result is a two-sketch floating-point diagnostic whose thresholds all lie below the observed spectral tails. It is neither a symbolic rank proof nor a natural-activation incompressibility result, and the practical coefficient-space knee is unmeasured."
+    },
+    "matched_cost_causal_compiler": {
+      "pair_fp32_max_scalar_relative_rmse": 6.302106900560354e-07,
+      "pair_bf16_max_scalar_relative_rmse": 0.005577102788485363,
+      "square_scalar_relative_rmse": {
+        "discovery": 0.3576273275175242,
+        "heldout": 0.3537080034838312
+      },
+      "square_question_kl": {
+        "discovery": 0.00010163816433963927,
+        "heldout": 6.874917056720413e-05
+      },
+      "square_question_kl_fraction_of_zero_rank2": {
+        "discovery": 0.006941899581804047,
+        "heldout": 0.0038683573087172278
+      },
+      "registered_predictions": {
+        "A_pair_fp32_exact": true,
+        "B_pair_bf16_stable": true,
+        "C_pair_geometry_beats_best_square": false
+      },
+      "currency": "matched-one-product question-slice replacement fidelity on natural activations",
+      "scope": "mlp11 selected positive/negative question-unembedding eigenpair; discovery and untouched held-out FineWeb rows",
+      "claim": "The exact paired gate is stable even in bf16, but exact product geometry did not earn causal preference over the best one-square program: the registered held-out KL gate failed.",
+      "caveat": "This is a rank-2 slice correction with the orthogonal MLP output live, not an MLP replacement. The square's held-out question KL is only 0.39% of zeroing the slice despite 35.4% scalar error, so reconstruction error badly overstates behavioral necessity here."
     }
   },
   "current_bottleneck": {
@@ -139,7 +168,7 @@
     {
       "priority": 3,
       "action": "Compile a causally sufficient joint output/content interface with shared quadratic factors between RMSNorm boundaries.",
-      "why": "The question scalar needs one exact product, but full MLP maps have a stable 1152-product numerical lower bound versus 4608 native; major savings require choosing the right causal interface, not preserving all 1152 outputs."
+      "why": "The question scalar needs one exact product, while full MLP maps show no near-exact coefficient degeneracy at the registered tolerances; major useful savings likely require choosing the right causal interface, not preserving all 1152 outputs."
     },
     {
       "priority": 4,
@@ -258,6 +287,10 @@
     "mlp_product_rank": {
       "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/mlp_product_rank_audit_results.json",
       "sha256": "6c96ec8633ac57bcd97e6318583dd0a51a4fdf66a3e401d6ffad679ac3c03532"
+    },
+    "question_one_product": {
+      "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/question_one_product_results.json",
+      "sha256": "e923ce29f3d9407a990cde13c531b5747ed4ec537fc7236029b0479a61610ffd"
     }
   }
 }

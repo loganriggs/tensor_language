@@ -17,6 +17,9 @@ grammar-free number.
 
 The whole-model strategy, coverage accounting, ranked workstreams, and pruning rules
 are in [REVERSE_ENGINEERING_ROADMAP.md](REVERSE_ENGINEERING_ROADMAP.md).
+The concrete next compiler contract—typed content boundary, matched baselines,
+whole-ship admission gates, and leakage rules—is in
+[CONTENT_API_COMPILER_SPEC.md](CONTENT_API_COMPILER_SPEC.md).
 
 The generated `whole_model_balance_sheet.json` is the north-star accounting view.
 It intentionally keeps exact representation, analytic-interface substitutability,
@@ -73,6 +76,8 @@ same eight arms is a mathematical identity and is not evidence of generalization
   contraction-inertia lower bounds.
 - `mlp_product_rank_audit.py`: weights-only randomized numerical output-flattening
   bounds for selected full bilin18 MLP tensors.
+- `question_one_product.py`: preregistered matched-one-product causal comparison of
+  the exact paired question form with the best discovery-fitted square.
 - `question_channel_ledger.py`: GPU experiment for writer/reader/final question
   channel interventions with live and frozen RMS gauges.
 - `hankel_rank_audit.py`: prefix/continuation predictive-state rank audit.

@@ -87,12 +87,23 @@ misses. The question form already demonstrates this: spectral interface rank 2 b
 exact multiplicative complexity 1. The harder payoff is shared vector-valued forms,
 where one factor library may serve many outputs and circuits.
 
-**Scope correction (2026-08-27):** the full-vector output flattening has stable
-numerical rank 1152/1152 for audited MLPs 0,1,2,11,17, against 4608 native products.
-So an unchanged full MLP permits at most a 4x exact product reduction under this
-bound, whereas the selected question scalar permits 4608-to-1 at its interface.
-The compiler target must be a jointly discovered causally sufficient output/content
-API, not the whole 1152-output tensor by default.
+**Scope correction (2026-08-27):** the full-vector output flattening has numerical
+rank 1152/1152 at registered relative tolerances `1e-4` through `1e-6` for audited
+MLPs 0,1,2,11,17, against 4608 native products. This rules out near-exact coefficient
+degeneracy at those tolerances, but does not certify symbolic rank, locate the useful
+approximation knee, or measure natural-activation fidelity. In contrast, the selected
+question scalar has an exact one-product algebraic certificate. The compiler target
+must be a jointly discovered causally sufficient output/content API, not the whole
+1152-output tensor by default; every claimed saving must name whether its error is in
+coefficient, activation, or causal-behavior currency.
+
+**Matched-cost causal result (2026-08-27):** the question eigenpair's exact paired
+gate is numerically exact and bf16-stable, but the best one-square gate failed the
+registered held-out causal-separation test. It makes `35.4%` scalar error while
+incurring only `6.87e-5` question KL, `0.39%` of the zero-slice KL. Thus exact
+algebraic simplification does not by itself identify behaviorally necessary geometry.
+Do not extend the scalar direction merely because its identity is elegant; move to
+the joint content/ship-residual frontier where causal value can be earned.
 
 ### P3 — Synthesize replacements jointly, not one module at a time
 
@@ -126,18 +137,22 @@ unseen intervention families, pairwise composition, and all-module composition.
 **Why sixth:** these are the practical benefits of reverse engineering and the final
 defense against a merely descriptive compression.
 
-## Immediate queue after the current registered batch
+## Immediate queue after the matched-product result
 
-1. Score and preserve the behavior-agnostic output-slice audit now running.
-2. Extend the P0 balance sheet with manifest-complete current-composite residuals by
-   layer group, token class, output slice, and held-out intervention family.
-3. Preregister a matched-one-product question test: the exact indefinite paired form
-   versus the best single square, measuring scalar reconstruction, class/global CE,
-   finite-precision stability, and composition with the known question circuit.
-4. Generalize from one scalar output direction to a small joint output basis and test
-   whether projections/factors can be shared at lower bits with equal causal fidelity.
-5. Rebuild the best whole-model partial program and let its residual choose the next
-   target layer/interface.
+1. Execute the first content-API frontier at the early MLP0-2 boundary: compare
+   native-unit products, learned paired products, linear, and random controls with an
+   optimal matched decoder, then install the winner as a current-ship correction.
+2. Complete the residual cross-tab by layer group, token cell, output slice, and
+   held-out intervention family so the content correction is charged only for unique
+   recovery rather than overlapping ablation damage.
+3. Advance a factor library only if it removes at least `0.05` global CE and 10% of
+   novel/rare excess, predicts held-out interventions, and retains 75% under a second
+   correction; otherwise move the same ladder to the deep content boundary.
+4. Use the behavior-agnostic output basis only as a locator. Its rank-8 basis retained
+   exactly half of oracle recall but only 13.5% of oracle causal damage, so it is not
+   presently a control interface.
+5. Rebuild and rescore the best whole-model program after every admitted correction;
+   the remaining ship residual, not local reconstruction, chooses the next target.
 
 ## Pruning rules
 

@@ -57,5 +57,19 @@ def test_full_vector_and_scalar_complexity_are_separate_scopes():
     arithmetic = sheet["ledgers"]["arithmetic_complexity_bounds"]
     assert arithmetic["full_vector_numerical_product_lower"] == 1152
     assert arithmetic["native_product_upper"] == 4608
+    assert arithmetic["observed_sigma_min_over_max_range"][0] > 1e-4
+    assert arithmetic["observed_sigma_min_over_max_range"][1] < 1e-2
+    assert "symbolic rank proof" in arithmetic["caveat"]
+    assert "natural-activation" in arithmetic["caveat"]
     assert arithmetic["question_scalar_exact_products"] == 1
-    assert "not a symbolic rank proof" in arithmetic["caveat"]
+
+
+def test_matched_product_geometry_is_not_promoted_after_causal_failure():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    matched = sheet["ledgers"]["matched_cost_causal_compiler"]
+    assert matched["registered_predictions"]["A_pair_fp32_exact"] is True
+    assert matched["registered_predictions"]["B_pair_bf16_stable"] is True
+    assert matched["registered_predictions"]["C_pair_geometry_beats_best_square"] is False
+    assert matched["square_scalar_relative_rmse"]["heldout"] > 0.35
+    assert matched["square_question_kl"]["heldout"] < 1e-4
+    assert matched["square_question_kl_fraction_of_zero_rank2"]["heldout"] < 0.01
