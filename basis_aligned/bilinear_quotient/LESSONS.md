@@ -637,3 +637,32 @@ run to the digit in the same execution.
 - **Prior art in this ledger:** §546 found the opposite remedy also fails -- refitting a
   block-1 table against a model with block 0 already substituted cost +1.0647 against
   +0.6654 for the naive fit. Neither naive nor refitted composition is safe by default.
+
+## 29. A FULL SET OF PASSING PREDICTIONS IS NOT EVIDENCE THAT THE CODE RAN (§1680-§1681)
+
+A rank sweep returned 60.81% at every rank from 8 to 1152, identical to five decimals, and
+all three registered predictions PASSED: the curve was "monotone" (it was constant), rank
+128 reached "100.0% of full rank", and the identity arm "reproduced" the reference exactly.
+
+The truncation had never been inserted. The script was built by string-patching a previous
+one and the `.replace()` for the truncation matched nothing (LESSONS 22, recurring). My
+post-build check asserted the file parsed and that a marker string was present -- it did not
+assert the EDIT had landed. The variable it set was written every iteration and read nowhere.
+
+- **Why the usual defences all failed.** Registered predictions did not fire because every
+  one of them was a claim about RELATIONSHIPS BETWEEN ARMS, and a no-op makes those
+  trivially true -- monotone, ratios of 100%, identity reproduced. The known-answer
+  instrument check did not fire either: the identity arm is precisely the arm a no-op gets
+  right. Neither mechanism is designed to detect that nothing happened.
+- **What actually caught it:** noticing that five ranks cannot return identical values. That
+  is a person looking at output, not a control, and it would not have fired on a subtler
+  no-op -- a truncation applied at one site only, or to the wrong matrix, produces a
+  plausible curve.
+- **Rule 1, at build time:** when patching one script into another, assert the count of
+  every anchor BEFORE replacing (`assert s.count(old) == 1`). Asserting a marker is present
+  afterwards proves the marker, not the edit.
+- **Rule 2, at run time:** any sweep over a parameter must assert its arms are not all
+  identical. One line, catches the whole class.
+- **The general shape:** predictions constrain the SCIENCE, instrument checks constrain the
+  MEASUREMENT, and neither constrains whether the INTERVENTION was applied. That needs its
+  own check, and the cheapest one is that varying a parameter must vary the output.

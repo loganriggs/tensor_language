@@ -41587,3 +41587,57 @@ features as the units of computation is working in a basis where units cannot be
 pinning even the least important 89% of them is catastrophic — while 512 rotated directions
 capture 95% of the same output. For this model, the interpretable decomposition is a
 subspace, not a feature list.
+
+## §1680 — the program's price curve, and a no-op that passed all three predictions
+
+`compiled_linear_rank_price.py`. Rank-truncated linear maps, refitted at each rank, compiled
+bottom-up, 480 fit rows, mask pinned.
+
+```
+rank    ceiling    reals      % of full-rank fidelity    % of full-rank cost
+   8     41.59%    0.33M              68.4%                     1.4%
+  32     46.08%    1.33M              75.8%                     5.6%
+ 128     54.12%    5.31M              89.0%                    22.2%
+ 512     60.45%   21.23M              99.4%                    88.9%
+1152     60.81%   23.89M             100.0%                   100.0%
+```
+
+**The curve is monotone**, against §1668's non-monotone curve (30.1%, −9.0%, 9.8%, 12.3%,
+52.6%, 68.7%) for the same family fitted naively, and the identity arm reproduces §1676's
+60.81% exactly. That is the check that §1669's compilation fix is real: a measurement that
+previously produced garbage now produces a readable curve, without any change to what is
+being measured.
+
+**pred_b failed narrowly** — rank 128 reaches 89.0% of full-rank fidelity against a 90% bar.
+The program is compressible but not dramatically so: **most of the fidelity is in the first
+128 directions and the last 640 buy 0.4 points for 2.7M reals.** As a price, rank 8 is the
+striking entry — 41.59% of a 4.33-nat stake for 0.33M reals, 1.4% of the full program's cost
+for two thirds of its fidelity.
+
+## §1681 — LESSONS 29: three predictions passed on a script that did nothing
+
+The first run of §1680 returned **60.81% at every rank**, identical to five decimals from
+rank 8 to rank 1152. All three predictions passed: the curve was "monotone" (constant),
+rank 128 reached "100.0% of full rank", and the identity check "reproduced" §1676 exactly.
+
+The rank truncation had never been inserted. I built the script by string-patching a
+previous one, and the `.replace()` for the truncation matched nothing and silently did
+nothing — LESSONS 22, which I wrote, recurring in a new place. My post-build check asserted
+the file parsed and that a marker string was present; it did not assert that the *edit* had
+landed. `RANKSTATE['r']` was written every iteration and read nowhere.
+
+What caught it was not a check. It was that identical values across five ranks are
+impossible, and I noticed. That is not a control, and it would not have fired on a subtler
+no-op — a truncation applied at only one site, or applied to the wrong matrix, would have
+produced a plausible curve.
+
+- **The rule:** when a script is built by patching another, assert the count of every anchor
+  BEFORE replacing (`assert s.count(old) == 1`), not the presence of a marker after.
+- **The arm-level check:** any sweep over a parameter must assert its arms are not all
+  identical. Added to this script and cheap to add anywhere.
+- **The thing to internalise:** a full set of passing predictions is not evidence that the
+  code ran. Every prediction here was about relationships between arms, and a no-op makes
+  all such relationships trivially true. Predictions constrain the SCIENCE; they do not
+  verify the INSTRUMENT, and the instrument checks with known answers that caught §1659 and
+  §1678 would not have caught this one either — the identity arm is exactly the arm a no-op
+  gets right.
