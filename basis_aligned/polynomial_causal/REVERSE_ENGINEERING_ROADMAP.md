@@ -446,3 +446,52 @@ and originals still execute. Rank 8 loses only `0.287` points, falsifying the
 registered `>=1`-point manipulation prediction, but no rank ladder, noninferiority
 margin, factorized price, or all-token/real-write-background test exists; it is a
 descriptive conditional approximation, not a certified eight-dimensional program.
+
+## Strategic checkpoint — 2026-08-27 22:35 UTC
+
+Compiler-v2.1 site0 is healthy and has scored both complete `108`-candidate banks:
+the true validation bank and its matched shuffled-control bank. Selection and the
+receipt transaction are still pending, so there is no MLP1 or final authority yet.
+The global fractions remain unchanged: `36/36` replacement inventory,
+`32.1% +/- 6.4%` named-variable behavior, `10.92%` named causal headroom, and zero
+executable credit against the current-ship `+0.8976` nat/token residual. The separate
+36-site constant-stake account remains `55.038%`; it is not a whole-model explained
+fraction.
+
+The largest gaps are interfaces, not another isolated MLP0 fit. MLP0 already has a
+strong continuous low-rank description, including a 3.60x smaller C512 `Down` and a
+rank-64 causal output subspace recovering about 79.9% of its local effect. What is
+missing is an executable program that transports the right MLP0 state through MLP1
+and into conditional MLP2 behavior. Attention routing is compressible while values
+are not under the same low-rank grammar, and joint improvements are attenuated by
+cross-half error transport. All-token behavior, code OOD, selective edits, and a
+gauge-minimized physical price remain uncertified.
+
+After pruning by expected information gain, causal relevance, whole-model
+composability, falsifiability, GPU cost, and duplication, the top five are:
+
+1. Validate the compiler-v2.1 site0 transaction and run its frozen site1 only if its
+   training receipt authorizes it. This directly tests the MLP0-to-MLP1 state edge.
+2. Run the amended four-arm joint 36-site replication on skip11000 with paired
+   source-document uncertainty. This tests whether the `55.038%` account and its
+   small factorial interaction travel together.
+3. Insert an admitted compiler program into the one-support current-ship
+   `attention x early-MLP x deep` cube, converting local fidelity into an executable
+   numerator against the actual `+0.8976` residual.
+4. If compilation fails, localize missing state with a joint latent plus conditional
+   MLP2 interface; isolated token clustering and Euclidean MLP0 regressors are already
+   saturated and composition-blind.
+5. Compile attention with typed grammars—low-rank/content-dependent routing and a
+   richer value program—then require second-corpus, code-OOD, intervention, edit,
+   and gauge/description-length certificates for the composed program.
+
+Executed during the GPU interval: the queued whole-model replication was dequeued
+before first execution after independent audits found it non-authoritative. A frozen
+prospective amendment now binds the complete committed source/statistics/model-loader
+closure, exact offline model revision and weights, all row/constant/provenance hashes,
+and source-document disjointness. It adds a 36-site identity known answer, the known
+discovery stake, common finite support, non-vacuous singleton/joint/conditional-gain
+gates, exact raw row sufficient statistics, a paired 2,000-draw source-document
+bootstrap, interval equivalence and factorial-interaction gates, and atomic
+create-only result/failure publication. The CPU-only statistics suite passes `3/3`.
+The run remains dequeued until the amended committed source receives final audit GO.

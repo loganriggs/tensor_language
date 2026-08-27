@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_first_execution",
+  "timestamp_utc": "2026-08-27T22:34:00Z",
+  "experiment": "whole_model_heldout",
+  "original_source_commit": "a56d31af",
+  "original_source_sha256": "b001e0293f633a7a9ef7761bfd48b760c1be451da6c410be021a0328872791e2",
+  "result_existed_before_amendment": false,
+  "reason": "Independent pre-outcome audit found missing lifecycle, known-answer, provenance, non-vacuity, and uncertainty gates.",
+  "scope": "Prospective conditional composition replication only. skip11000 was previously exposed to component-level experiments and is not broad OOD or research-process-held-out evidence.",
+  "changes": [
+    "Bind the complete executing source/statistics/model-loading closure to committed blobs on origin/main; bind the exact offline Hub model revision and weights; bind exact fit, mask, evaluation, constants, and provenance hashes; and prove source-document disjointness.",
+    "Require a 36-site identity-hook known answer, the reference live CE, the reference joint stake, finite positive stakes, and nonempty covered support.",
+    "Make pred_b non-vacuous: attention, MLP, and joint gains must be positive; attention must exceed MLP; the joint arm must exceed both singleton arms; joint gain must retain at least half the registered 4.10 points; factorial nonadditivity must remain within one point.",
+    "Add pred_d: the held-out both-arm source-document-cluster 95% interval must lie wholly inside the 55.04% +/- 3-point equivalence band; the joint gain and both conditional increments must exclude zero; and the full interaction interval must lie inside +/-1 point.",
+    "Serialize raw row-level loss sums and covered counts and a paired 2000-draw source-document-cluster bootstrap.",
+    "Publish the result create-only and atomically; preserve failures separately.",
+    "Use unrounded estimands for every decision and serialize an explicit conjunction of all four registered predicates; the completion status itself remains outcome-neutral."
+  ],
+  "unchanged": [
+    "Four arm definitions",
+    "Fit, mask, reference, and held-out rows",
+    "Interleaved compilation order",
+    "Primary ceiling and gain estimands",
+    "pred_a and pred_c thresholds"
+  ],
+  "ledger_effect": "No current-ship, executable, all-token, code-OOD, or global explained-fraction credit is possible from this experiment."
+}
