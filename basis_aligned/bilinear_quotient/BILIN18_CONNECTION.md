@@ -41027,3 +41027,51 @@ finding, and it is scale-free.
 under-finds redundant machinery, and here the under-count is a factor of four. Any
 importance ranking of this model built one module at a time — including the ones in this
 ledger — understates the middle band by roughly that much.
+
+## §1666 — protocols matched: the front band IS a token function, the middle band is NOT. And a saturation caveat on my own stakes.
+
+`band_joint_compare.py`. §1665's front-vs-middle contrast compared a JOINT ceiling against
+PER-SITE ceilings, which is not a comparison. This re-measures every band as a joint
+substitution under one protocol. **The contrast survives.** pred_a True, pred_c True,
+pred_b False.
+
+```
+band                joint stake   JOINT ceiling   instrument check   joint/sum
+front  mlp0-3          4.3922        76.45%          100.00%           0.475
+middle mlp4-15         2.6453        21.73%          100.00%           4.261
+late   mlp16-17        0.7174        51.02%          100.00%           1.708
+all18  mlp0-17         4.3196        34.27%          100.00%             —
+```
+
+**The instrument check reads 100.00% at all four bands**, including the all-eighteen arm
+with every attention module in the model frozen — the strongest check this apparatus can
+run. Front 76.45% against middle 21.73%, same protocol, same grain: **a 54.7-point gap.**
+The front four MLPs are a token lookup; the middle twelve are not. §1665's reading stands
+after the correction it needed.
+
+**pred_b failed, and its failure is the more useful result: CE SATURATES, and my stakes
+are compressed by it.** I predicted the all-eighteen joint stake would exceed the sum of
+the three band stakes. It is *lower than the front band alone* — 4.3196 against 4.3922,
+with a band sum of 7.7549. Ablating every MLP in the model costs less than ablating four
+of them. The mechanism is not subtle: live CE is 3.279 and ln(50257) = 10.82, so a stake
+of 4.4 already puts the model at 7.7 nats, most of the way to uniform. There is not much
+room left to damage.
+
+**This forces a caveat on the number I have been quoting all afternoon.** §1662 reported
+mlp1's individual stake as 7.005 nats, "eight times its neighbours", and I built §1663 and
+§1664 around mlp1 being the front band's dominant module. That stake puts CE at **10.28
+against a 10.82 uniform ceiling**. It is a saturated measurement. What it licenses is
+"ablating mlp1 alone destroys the model"; it does NOT license "mlp1 is eight times mlp0",
+because nats are not linearly comparable up there and the 8× is an artifact of where the
+ceiling sits. §1663's and §1664's findings about mlp1 are unaffected — both are ratios
+computed within mlp1's own condition — but every cross-module comparison of raw stake in
+this ledger that involves mlp1 should be read as ordinal at best. Flagged in the registry.
+
+**The joint/sum column is reported and NOT interpreted.** Front 0.475 (subadditive),
+middle 4.261 (superadditive), late 1.708 reads like a structural dichotomy, and I am not
+claiming it. §1657 established that these ratios track total effect size, and the ordering
+here follows that relationship exactly — sums of 9.25, 0.62 and 0.42 giving ratios of
+0.475, 4.261 and 1.708, monotone in the confound. The ratios are in the results file for
+completeness and carry no inference. The ceilings do not have this defect: each is
+normalised within its own condition, which is why the front/middle comparison is made on
+ceilings and not on ratios.
