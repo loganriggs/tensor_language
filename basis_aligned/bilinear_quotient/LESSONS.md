@@ -402,3 +402,29 @@ the quantity itself differs.
   came from §1601, where they were correct for a different question);
   (3) a stable number reproduced across four configurations is evidence your setup
   is CONSISTENT, not that it is RIGHT.
+
+## 21. A FAILING GATE IS A HYPOTHESIS ABOUT THE SCRIPT, NOT A VERDICT ON IT — check the gate first (§1625, §1627)
+Twice in one session my pre-queue gate reported FAIL on code that was correct. Both
+times the fault was in the gate's own parsing, and both times the tempting move —
+"fix" the flagged script — would have damaged working code and possibly introduced
+a real defect while believing I was removing one.
+- **False positive 1 (§1625):** the prediction-key arm used
+  `'(pred_[a-z0-9_]+)':` and could not match the uppercase in
+  `pred_b_smaller_than_S1613_1417`, so it saw 2 keys where 3 existed and failed the
+  distinctness check. Fix: `[A-Za-z0-9_]+`.
+- **False positive 2 (§1627):** the undefined-name arm collected module-level names
+  from `ast.Assign` targets but only handled `ast.Name`, so the tuple assignment
+  `CHUNKS, ROWS_PER_CHUNK = 3, 160` registered NO names and both were reported
+  undefined in `main()`. Fix: handle `ast.Tuple` targets in every place the gate
+  collects bindings — module level, function level, `for`, and comprehensions.
+- **Why this is the dangerous direction.** A gate false NEGATIVE costs one bad run.
+  A gate false POSITIVE costs correct code, and it arrives wearing the authority of
+  a check — the instinct is to trust the tool over the script. LESSONS 18 built the
+  gate to stop me shipping broken scripts; it can equally stop me shipping working
+  ones.
+- **Rules:** (1) on FAIL, reproduce the specific finding by hand before editing the
+  script — read the actual line the gate objects to; (2) if the gate's complaint is
+  about a NAME or a PATTERN, suspect the gate's parser first, since those arms are
+  string-matching and string-matching is where it is thin; (3) fix the gate and
+  re-run rather than working around it in the script — a gate weakened to pass one
+  script silently stops protecting the next one.
