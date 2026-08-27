@@ -1,0 +1,182 @@
+{
+ "config": {
+  "bands": {
+   "front": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "middle": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "late": [
+    16,
+    17
+   ],
+   "all18": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ]
+  },
+  "ranks": [
+   1,
+   8,
+   32,
+   64,
+   256,
+   1152
+  ],
+  "ridge": 0.001,
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "fit": "least squares, each module OWN input to OWN output, float64 normal equations",
+  "scoring": "covered positions only, joint substitution per band",
+  "token_table_comparators": {
+   "front": 0.7645,
+   "middle": 0.2173,
+   "late": 0.5102,
+   "all18": 0.3427
+  },
+  "quadratic_remainder_meaning": "bilin18 MLPs are pure bilinear, so 1 - (full-rank linear ceiling) prices what the quadratic form does that no linear map of the same input can imitate"
+ },
+ "bands": {
+  "front": {
+   "sites": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "joint_stake": 4.39216,
+   "linear_curve": {
+    "1": 0.3009,
+    "8": -0.08996,
+    "32": 0.09843,
+    "64": 0.12302,
+    "256": 0.52632,
+    "1152": 0.68682
+   },
+   "full_rank_linear": 0.68682,
+   "token_table_ceiling": 0.7645,
+   "linear_minus_table": -0.07768,
+   "quadratic_remainder": 0.31318
+  },
+  "middle": {
+   "sites": [
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+   ],
+   "joint_stake": 2.64528,
+   "linear_curve": {
+    "1": 0.20546,
+    "8": 0.36279,
+    "32": 0.4143,
+    "64": 0.44933,
+    "256": 0.55442,
+    "1152": 0.62327
+   },
+   "full_rank_linear": 0.62327,
+   "token_table_ceiling": 0.2173,
+   "linear_minus_table": 0.40597,
+   "quadratic_remainder": 0.37673
+  },
+  "late": {
+   "sites": [
+    16,
+    17
+   ],
+   "joint_stake": 0.71742,
+   "linear_curve": {
+    "1": -0.1346,
+    "8": 0.72609,
+    "32": 0.78841,
+    "64": 0.80354,
+    "256": 0.82548,
+    "1152": 0.83598
+   },
+   "full_rank_linear": 0.83598,
+   "token_table_ceiling": 0.5102,
+   "linear_minus_table": 0.32578,
+   "quadratic_remainder": 0.16402
+  },
+  "all18": {
+   "sites": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
+   ],
+   "joint_stake": 4.3196,
+   "linear_curve": {
+    "1": -1.34132,
+    "8": -2.28879,
+    "32": -1.9276,
+    "64": -1.47191,
+    "256": -0.46076,
+    "1152": -0.42991
+   },
+   "full_rank_linear": -0.42991,
+   "token_table_ceiling": 0.3427,
+   "linear_minus_table": -0.77261,
+   "quadratic_remainder": 1.42991
+  }
+ },
+ "predictions": {
+  "pred_a_front_linear_beats_table_ge_5pts": false,
+  "pred_b_bilinearity_grows_with_depth": true,
+  "pred_c_middle_control_replicates": true
+ },
+ "runtime_s": 203.1
+}
