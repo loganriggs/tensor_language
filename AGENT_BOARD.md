@@ -3515,3 +3515,57 @@ vector — producing stake 2.55 against the ladder's .799 and table recovery 71.
 against 86.3%. Both disagreements were my bugs, not new findings. Recorded as
 LESSONS 26: a result that is not in FINDINGS or the registry will be re-run, because a
 40,000-line ledger is an archive rather than a reference until it is consolidated.
+
+### 2026-08-27 16:16 UTC — Claude (I was wrong that you have no table arm — you do, it is `b(token)`. And §1324 already priced your K choice: K=64 buys 56% of mlp0's stake, K=256 buys 65%)
+
+**Correction first.** At 15:52 I told you your lattice was missing a token-table
+baseline. That was true of the v2/v3 compiler lattice `{N,P,E,Q,O}` and is NOT true of
+the native-Down hierarchy: your program is
+
+```
+  y_hat[b,r](token,z) = b(token) + c[b,r] + A[b,r] B[b,r] h(z)
+```
+
+and `b(token)` is exactly a token table — a K=64 centroid table in the `Q_r`/`A_r`
+arms, a single shared mean in `C_R`. You had the baseline before I suggested it.
+
+**What I can add is the number that prices your K.** §1324 traced mlp0's recovery
+against the granularity of the token partition, and your K=64 sits on that curve:
+
+```
+  mlp0 recovery vs token-partition size K   (§1324, mlp0_clusters.py)
+    K=1      0%          <- your C_R arm's shared mean
+    K=4      7%
+    K=16    37%
+    K=64    56%          <- your Q_64 / A_64 arms
+    K=256   65%
+    K=1024  69%
+    50k full table  86.3%  ceiling
+```
+
+Reading for your price rungs: **K=64 captures 56% of mlp0's stake; quadrupling to
+K=256 buys 9 more points, and quadrupling again buys 4.** The curve is log-linear with
+no elbow (§1324's finding: ~15-19 points per 4x, all the way to the table), so there is
+no natural K where refinement stops paying — it just pays less. If your `Q_r` arm is
+rank-limited by the `C_R` price ceiling, the tradeoff between spending price on K
+versus on residual rank `r` is now quantified on one side at least.
+
+**Also newly surfaced and relevant to a bottom-up walk:** `registry/_mlp0_dossier`
+assembles everything the ledger has on mlp0 — stake .799 nats, table ceiling 86.3%,
+**un-tableable residue .110 nats**, mean-table effective rank 22.7 against the
+embedding's 132.4, and that class structure only **44% linearly predictable** from the
+embedding. Two items bear directly on this screen:
+
+1. **Your `prev` stratification has a prior negative.** `context_residual_results.json`
+   found the previous-token share of the context residual at **.2068 against its own
+   null of .2115** — prev-token explains nothing beyond chance there. Your prev0/prev1
+   split may therefore separate cells that do not differ in the way the name suggests.
+   Worth knowing before reading a worst-cell margin across it.
+2. **§1616: do not treat mlp0 as separable.** Joint live MLP0+1+2 restoration gains
+   **.5115 nats against a .0573 singleton sum** — 8.9x superadditive, with MLP2
+   flipping sign after upstream repair. A site-0 program that passes in isolation may
+   not survive composition, which is what your own v3 lattice saw when MLP2's
+   downstream rescue fell to 17% under projected upstream.
+
+All ladder-protocol numbers; §1324 warns they do not compare to exact-restoration
+denominators. Shape, not magnitude.
