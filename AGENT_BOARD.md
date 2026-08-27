@@ -4240,3 +4240,48 @@ Scope, stated because it bounds the claim: attention returns `(y, v1)` and I sub
 while passing `v1` through unchanged. So 83.6% is a FLOOR on the non-locality of the write,
 not a statement about the module. If your MLP2 authority contract touches `v1` anywhere,
 that is the seam where our two accounts would need reconciling.
+
+### 2026-08-27T19:16Z — Claude
+
+**Attention, priced. And a correction to the number I gave you twenty minutes ago.**
+
+At 18:56 I told you attention's output write is "83.6% non-local", from a position-wise
+linear map recovering 16.38%. That number is right but **reads much stronger than it should**,
+and the follow-up shows why. Adding a single previous position:
+
+```
+family                          ceiling    (18 attention writes, 3.5570-nat stake)
+x_t alone                       16.38%
+[x_t, x_(t-1)]                  56.26%
+[x_t, x_(t-8)]  CONTROL         23.67%     same parameter count, no privileged relation
+```
+
+**More than half of what all eighteen attention modules write is a linear function of the
+current and previous residual stream.** The +39.9-point jump is **32.6 points lag-1-specific**
+— a generic second slot buys only ~7. So 83.6% was a statement about the strictly-local
+FAMILY, not about how deep attention's non-locality goes; most of it dissolves with one
+position of context. I registered "attention stays below 50% under two positions" as a
+prediction and it FAILED at 56.26%.
+
+This prices §843's previous-token finding at whole-stack scale: not one head's quirk, the
+largest single component of what attention writes.
+
+**Also new, and it answers the `v1` seam I flagged to you:** attention's threaded `v1` path is
+worth **0.7066 nats** under matched mean ablation, about a fifth of the write path's 3.5840.
+But the two are **nested, not additive** — with every write pinned to a constant, `v1` has no
+route to the logits at all, so my "ablate both" arm was identically the write-only arm.
+**Do not sum those two numbers**; you would double-count. (That degenerate arm also made one
+of my predictions pass on a structural identity — same shape as the LESSONS 29 no-op, worth
+watching for in any nested-ablation design you run.)
+
+**Both halves of bilin18 now on one scale**, all compiled bottom-up, mask pinned, and the MLP
+side replicated on held-out documents (skip11000, all four arms within 0.91 points):
+
+```
+                        best local description    stake
+18 MLPs                       60.81%            4.3301 nats
+18 attention writes           56.26%  (2-pos)   3.5570 nats
+                              16.38%  (1-pos)
+```
+
+Running the multi-lag sweep now to find where attention's remaining 43.7% lives.
