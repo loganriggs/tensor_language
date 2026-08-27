@@ -39189,3 +39189,60 @@ numbers are identical across the two independent process launches — `mlp10` .6
 `mlp11` .6333, `mlp8` .3667, `x0` .4667, predictions True/True/False — so the
 determinism of the seeded design is confirmed as a side benefit, and the committed
 artifact now carries the full fraction record.
+
+## §1633 THE SELECTION EFFECT IS REAL WITH THE SITE CONFOUND REMOVED (2-for-3): at ONE site, the certified class separates 60/60 while five fresh classes separate 17-47/60 — certification is picking real structure, and separation statistics must never be generalised from certified cells
+
+**Setup** (separation_selection_effect, 477 s, rung 3 — closing §1632's confound).
+§1632 compared `of@mlp14` at 54/60 against `question@mlp11` at 60/60 and I attributed
+the difference to certification status. Those cells differ in BOTH certification and
+site, so "mlp14 is a weaker site" explains the data equally well — the same
+inferential error as §1627, in different clothes. This holds the SITE FIXED at mlp11
+and varies only whether the class is a certified one. Rank-2 TOP-4, corrected
+quantity, 20 independent bases x 3 disjoint 160-row chunks = 60 trials per class,
+with per-trial shares recorded so a separation COUNT is computable.
+
+```
+class      status      separation   mean gap   λ (3 chunks)              random range
+question   CERTIFIED     60/60       +.1633    .7257 .7359 .7390         .4825-.7185
+with       fresh         47/60       −.0518    .4678 .4481 .4653         .3937-.6568
+by         fresh         38/60       −.0547    .4794 .4411 .4269         .4097-.6461
+from       fresh         27/60       −.0102    .4992 .4666 .4765         .3747-.6243
+as         fresh         24/60       −.0121    .5064 .5668 .5567         .4577-.6907
+at         fresh         17/60       −.0075    .5373 .5116 .4976         .4492-.6332
+```
+
+- **pred_a PASSED** — no fresh class reaches perfect separation; the best is `with`
+  at 47/60, so 13 of its 60 random trials still beat it.
+- **pred_b PASSED** — the certified class exceeds the best fresh class by **13 of
+  60**, far past the ≥3 bar.
+- **pred_c FAILED** — `at` has |mean gap| **.0075**, below the .01 floor. At least
+  one fresh class has no measurable concentration signal at all, so the certified/
+  fresh difference is not merely "weaker": some ordinary cells carry nothing.
+
+**The selection effect is confirmed, and §1632's attribution was right for a reason
+§1632 could not establish.** With site, rank, TOP, rows, seeds and statistic all
+held identical, the only remaining difference is whether the class is one somebody
+had already certified — and the certified class separates 60/60 while every fresh
+class at the same site separates 17-47/60. `question`'s mean gap (+.1633) is **3x
+the largest fresh magnitude** (`by`, −.0547).
+
+**This is GOOD news for the benchmark, and it should be said plainly.** The result
+could have come out the other way: if fresh classes had also separated 60/60, the
+certified circuits would have been unremarkable and the whole certification process
+suspect. Instead certification is selecting cells with real, unusual structure.
+What is NOT licensed is generalising a separation margin measured at a certified
+cell to eigen-slices in general — §1631 did exactly that and §1632/§1633 correct it.
+
+**A nuance that keeps §1627 buried and §1630 intact.** All five fresh classes have
+NEGATIVE mean gaps here (−.0075 to −.0547), while §1630 found `the`, `comma` and
+`is` slightly POSITIVE (+.003 to +.031) at the same site under the same 20-seed
+null. So ordinary classes at mlp11 cluster near zero with EITHER sign — which is
+what "no strong signal" looks like — while the certified class sits far above. That
+is consistent with §1630's withdrawal of §1627: the below-null sign is not a
+phenomenon, it is where small noisy gaps happen to land. But note `with` (−.0518,
+47/60) and `by` (−.0547, 38/60) are NOT nothing; a moderate genuine below-null
+tendency at some ordinary classes remains unexplained and is the open question here.
+
+**Method note, third time this session.** §1627 confounded basis bias with row
+sampling; §1632 confounded certification with site; both were caught by holding the
+suspected confound fixed and re-running. The cost each time was one ~8-minute run.

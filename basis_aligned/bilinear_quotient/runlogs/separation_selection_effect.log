@@ -1,0 +1,20 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows x 20 seeds (receipt sha256[:16]=815b21618c2e477e)
+  question  CERTIFIED sep 60/60 | mean gap +0.1633 | lambda [0.7257, 0.7359, 0.739] | null20 0.5702
+  with      fresh     sep 47/60 | mean gap -0.0518 | lambda [0.4678, 0.4481, 0.4653] | null20 0.5122
+  from      fresh     sep 27/60 | mean gap -0.0102 | lambda [0.4992, 0.4666, 0.4765] | null20 0.4910
+  at        fresh     sep 17/60 | mean gap -0.0075 | lambda [0.5373, 0.5116, 0.4976] | null20 0.5230
+  by        fresh     sep 38/60 | mean gap -0.0547 | lambda [0.4794, 0.4411, 0.4269] | null20 0.5038
+  as        fresh     sep 24/60 | mean gap -0.0121 | lambda [0.5064, 0.5668, 0.5567] | null20 0.5554
+
+  SEPARATION at mlp11 r2 TOP-4, site held FIXED, 60 trials each:
+    question  CERTIFIED separation 60/60  mean gap +0.1633  lambda [0.7257, 0.7359, 0.739]  random [0.4825, 0.7185]
+    with      fresh     separation 47/60  mean gap -0.0518  lambda [0.4678, 0.4481, 0.4653]  random [0.3937, 0.6568]
+    by        fresh     separation 38/60  mean gap -0.0547  lambda [0.4794, 0.4411, 0.4269]  random [0.4097, 0.6461]
+    from      fresh     separation 27/60  mean gap -0.0102  lambda [0.4992, 0.4666, 0.4765]  random [0.3747, 0.6243]
+    as        fresh     separation 24/60  mean gap -0.0121  lambda [0.5064, 0.5668, 0.5567]  random [0.4577, 0.6907]
+    at        fresh     separation 17/60  mean gap -0.0075  lambda [0.5373, 0.5116, 0.4976]  random [0.4492, 0.6332]
+  certified question 60/60  vs  best fresh 47/60  -> margin 13
+
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/separation_selection_effect_results.json (476.9s)
