@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "contract_id": "bilin18.shared-value-output-quotient.v1",
-  "status": "exact_algebra_cpu_verified_codec_not_yet_priced",
+  "status": "exact_algebra_and_cpu_codec_fixture_verified_checkpoint_not_yet_priced",
   "object": "all 18 c_v maps and all 18 head-sliced c_proj writers",
   "architecture": {
     "layers": 18,
@@ -37,7 +37,7 @@
     "invariant": "rowspace projector of V0_h",
     "basis_rule": "lexicographic Gram-Schmidt of projected ambient coordinate axes",
     "failure_policy": "reject rank-deficient or tolerance-boundary generic strata",
-    "codec_status": "not implemented; quotient_bits remains null"
+    "codec_status": "one-head CPU canonicalization/serialization fixture implemented; cross-head S9 canonicalization and checkpoint quotient_bits remain absent"
   },
   "checkpoint_genericity_evidence": {
     "source": "shared_value_gauge_audit_results.json",

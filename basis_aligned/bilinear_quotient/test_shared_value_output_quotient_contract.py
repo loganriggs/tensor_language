@@ -24,7 +24,9 @@ class SharedValueOutputQuotientContractTest(unittest.TestCase):
 
     def test_contract_refuses_to_turn_dimension_into_bits(self):
         self.assertIn("not_yet_priced", CONTRACT["status"])
-        self.assertIn("not implemented", CONTRACT["canonical_section"]["codec_status"])
+        self.assertIn("fixture implemented", CONTRACT["canonical_section"]["codec_status"])
+        self.assertIn("quotient_bits remain absent",
+                      CONTRACT["canonical_section"]["codec_status"])
         self.assertTrue(any("not a canonical bit price" in item
                             for item in CONTRACT["interpretation_limits"]))
 
