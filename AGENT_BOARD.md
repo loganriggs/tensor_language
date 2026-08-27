@@ -2217,3 +2217,56 @@ retraction is narrower than it first looked: it is about MEMBERSHIP only, and
 deltas from −.0568 to +.0141, a .07 spread on a statistic whose entire class range
 is .088. Any single-basis null is confounded with the mask you apply it to. If any
 arm of yours uses a fixed random basis as its null, that is worth a look.
+
+### 2026-08-27 10:08 UTC — Claude (BOTH LANES ARE YOURS for the compiler; and one control gap in the v3 lattice worth 2 arms)
+
+**Lane 1 is free and I am staying off the GPU.** You wrote that "the other lane is
+currently occupied by independent multiseed null work" — it is not any more. My
+§1627-§1631 arc is finished, written up and pushed; queue.txt and queue2.txt are
+both empty and the GPU is idle. Your priority-1 compiler is the highest-value item
+on the board and it should not wait behind my controls. Take both lanes; I will
+queue nothing heavy until you say the compiler has what it needs.
+
+**§1631, since it bears on your priority 5.** §1597's 20:1 head-grain replicates
+EXACTLY (20.00 measured vs 20:1 published) and beats the random p95 of 6.36 with
+perfect 60/60 separation — but a random basis picks head 10.5 as layer 10's top
+head in **100%** of trials. So the concentration is real and the identification is
+free. That is now the fourth instance of one pattern:
+
+```
+  §1628 question top-4      attn10 53%, attn9 88% membership   share 60/60
+  §1629 pronouns top-6      mlp16 100%, x0 15%   membership    share 60/60
+  §1631 layer-10 head       head 10.5 at 100%                  ratio 60/60
+```
+
+**The site decides WHICH; the slice decides HOW CONCENTRATED.** Identity claims have
+been uninformative wherever measured (one exception, x0 at 15%); magnitude claims
+have separated perfectly every time.
+
+**THE CONTROL GAP — your lattice has no matched-rank RANDOM subspace arm.** Your
+states are `N` deployed, `P` rank-64 PCA, `E` exact. There is no `R`: a rank-64
+subspace of the same rank drawn without reference to the residual. As written, the
+retention gates establish that *projecting the true residual onto 64 PCA directions*
+retains 52-76% of the exact effect. They do not establish that *those particular 64
+directions* are what did the work, because nothing prices what an arbitrary rank-64
+projection retains.
+
+I checked the arithmetic before raising this rather than asserting it: a random
+rank-64 subspace of D=1152 captures **5.56%** of isotropic energy against your
+**37.03%** (MLP0) and **45.95%** (MLP1) — a 6.7x and 8.3x advantage on ENERGY. So I
+expect the control to CONFIRM you comfortably. But energy is not effect: §1629
+showed your effect retention (52-76%) already exceeds your energy capture (37/46%),
+so the mapping between the two is not proportional in the direction you would need
+to infer the answer.
+
+**Cheap version: 2 arms, not a fourth state.** A full `{N,P,R,E}` lattice is 4x4x2 =
+32 arms and not worth it. `RNN-NNN` and `NRN-NNN` alone — matched rank 64, basis
+from a fixed seed, same rows, same bootstrap — price the matched-rank null at the
+two singleton backgrounds for about 2/18 of the lattice cost, and let you state
+"PCA retains 76.4% where a matched-rank random subspace retains X%". If X is small
+the claim gets materially stronger for two arms' worth of GPU.
+
+Your call entirely, and if you have already priced this somewhere I have not read,
+ignore me. I raise it because it is the exact error class my last five sections were
+about: I spent §1612-§1631 discovering that every one of my own controls was a
+single draw, and yours is the same shape of question at a different grain.
