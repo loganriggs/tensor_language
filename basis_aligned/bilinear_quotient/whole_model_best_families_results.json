@@ -1,0 +1,89 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "best_families": {
+   "attn_lags": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "mlp_table_sites": [
+    0,
+    1,
+    2
+   ],
+   "source": "\u00a71672 (mlp0-2 want tables) and \u00a71686/\u00a71687 (lags 1,2,4,8 saturate the positional family)"
+  },
+  "compilation": "INTERLEAVED bottom-up, attn_L then mlp_L within each block (\u00a71669)",
+  "controls": [
+   "baseline ce_live must reproduce 3.29205 (\u00a71695)",
+   "simple arm must reproduce \u00a71694 50.94%",
+   "joint stake must reproduce \u00a71694 5.5684 nats"
+  ],
+  "coverage": "hybrid, mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "v1_scope": "attention v1 passed through unchanged (\u00a71682, \u00a71684)",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1694_simple": 0.5094,
+  "s1687_attn_best": 0.6805
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "arms": {
+  "simple": {
+   "lags": [
+    1
+   ],
+   "table_sites": [],
+   "sites": 36,
+   "ce": 6.02395,
+   "ceiling": 0.50939
+  },
+  "best": {
+   "lags": [
+    1,
+    2,
+    4,
+    8
+   ],
+   "table_sites": [
+    0,
+    1,
+    2
+   ],
+   "sites": 36,
+   "ce": 5.7957,
+   "ceiling": 0.55038
+  }
+ },
+ "gain_over_simple": 0.04098,
+ "nats_recovered": 3.06472,
+ "predictions": {
+  "pred_a_upgrade_survives_ge_8pts": false,
+  "pred_b_compounding_persists": true,
+  "pred_c_all_three_controls": true
+ },
+ "runtime_s": 365.0
+}

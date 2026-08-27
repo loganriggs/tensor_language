@@ -42196,3 +42196,44 @@ Added to the script as `assert abs(cl - S1683_CE_LIVE) <= 1e-3` and stated as th
 ceiling is a ratio of three numbers, and a known-answer check on one of them is not a check on
 the other two.** What saved this run was that 8.86 is visibly wrong to anyone who has read the
 arc — the same kind of luck that caught §1681, and not a control.
+
+## §1696 — upgrading each half buys only a third of what the halves promised: the whole model reaches 55.04%
+
+`whole_model_best_families.py`. §1694's thirty-six-site program used the simplest family on each
+side. This rebuilds it from each half's best: token tables at mlp0–2 with linear maps at mlp3–17
+(§1672), and lag-(1,2,4,8) maps at every attention write (§1687). Same interleaved bottom-up
+compilation. All three controls exact — baseline CE 3.29205, simple arm 50.94%, joint stake
+5.5684 nats.
+
+```
+whole-model program                              ceiling    nats of 5.5684
+simple  (linear everywhere, lag-1 everywhere)     50.94%        2.837
+BEST    (tables mlp0-2, lags 1,2,4,8)             55.04%        3.065
+```
+
+**pred_a FAILED, by 3.9 points.** I predicted the upgrade would carry ≥8 points into the joint
+program, because the halves gained that much and more on their own: the attention half went from
+56.26% to 68.05% (+11.79) under exactly this lag set, and the MLP half gains up to 3.5 from the
+table sites. **The joint program gains 4.10.** Roughly two thirds of the half-level improvement
+does not survive into the whole-model program.
+
+**This is the practically important finding of the arc for pricing, and it is a negative one.**
+Half-ceilings measured with the other half real are not additive, not averageable, and not even
+reliable as *directions* of improvement at full scale: an upgrade worth 11.8 points to one half
+alone is worth about 4 to the model. Any budget allocated by improving one half's ceiling and
+assuming it transfers will be over-optimistic by roughly a factor of three on this evidence.
+
+**Two mechanisms could produce this and I cannot separate them here.** Either the improved
+attention program's residual error still compounds through eighteen MLP programs that were refit
+around it, or what the wider lag set recovers is partly information the MLP programs were
+already reconstructing from the stream, so recovering it twice buys less than recovering it
+once. Both predict the observed shape. Distinguishing them needs an arm that upgrades one half
+at a time inside the joint condition, which is a clean next rung and is not run here.
+
+**pred_b holds:** the joint program stays below the attention half's own 68.05%, as it must if
+the two conditions mean what they are supposed to.
+
+**Where the arc stands.** The best account of bilin18's thirty-six module output paths is a
+compiled program of eighteen token-or-linear maps and eighteen four-position maps, reproducing
+**3.065 of 5.568 nats — 55.04%**. Scope unchanged: attention `v1` passes through, so these are
+output paths rather than whole modules.
