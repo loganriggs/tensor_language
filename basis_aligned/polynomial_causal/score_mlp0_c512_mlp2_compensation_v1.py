@@ -45,6 +45,14 @@ N_BOOTSTRAP = 20_000
 SEED = 20260831
 MIN_DOCUMENTS_PER_CELL = 60
 SCOPES = ("wave_A", "wave_B", "pooled")
+NATIVE_CONTROL_NORM_CONTRACT = {
+    "quantity": "per_position_l2_norm_of_native_control_write",
+    "dtype": "torch.float32",
+    "atol": 1e-6,
+    "rtol": 1e-5,
+    "predicate": "abs(realized_norm-target_norm) <= atol + rtol*target_norm",
+    "reduction": "all_positions",
+}
 
 
 def frozen_inference_contract() -> dict[str, object]:
@@ -338,7 +346,8 @@ def coverage_from_common_ledger(
 
 
 def validate_integrity(authority: Mapping[str, object], integrity: Mapping[str, object]) -> bool:
-    if authority.get("status") != "frozen_before_any_c512_mlp2_compensation_evaluation_forward":
+    if (authority.get("status")
+            != "frozen_before_any_v2_c512_mlp2_compensation_evaluation_forward"):
         return False
     contract = authority.get("integrity_contract", {})
     if authority.get("inference_contract") != frozen_inference_contract():
@@ -407,6 +416,7 @@ def validate_integrity(authority: Mapping[str, object], integrity: Mapping[str, 
         "source_closure_sha256", "row_receipt_sha256", "row_tensor_sha256",
         "c512_program_sha256", "model_checkpoint_sha256", "model_config_sha256",
         "inherited_currency_sha256", "control_contract_sha256",
+        "repair_amendment_sha256",
     }
     bound_hashes = contract.get("bound_hashes", {})
     observed_hashes = integrity.get("observed_hashes", {})
@@ -449,11 +459,13 @@ def validate_integrity(authority: Mapping[str, object], integrity: Mapping[str, 
                    or carried[key] < 0 or carried[key] > state_tolerance
                    for key in ("x0_max_abs", "v1_max_abs"))):
         return False
-    norm_tolerance = contract.get("native_control_norm_tolerance")
+    norm_contract = contract.get("native_control_norm_contract")
     if (set(controls) != {
             "derangement_bijection", "donor_arrays_indexed_by_permutation",
             "derangement_no_same_document", "derangement_wave_cell_preserving",
-            "control_realization_sha256", "native_control_norm_max_abs", "passes",
+            "control_realization_sha256", "native_control_norm_max_abs_error",
+            "native_control_norm_max_allowance_ratio",
+            "native_control_norm_all_positions_within_bound", "passes",
         } or controls.get("derangement_bijection") is not True
             or controls.get("donor_arrays_indexed_by_permutation") is not True
             or controls.get("derangement_no_same_document") is not True
@@ -461,12 +473,17 @@ def validate_integrity(authority: Mapping[str, object], integrity: Mapping[str, 
             or not isinstance(controls.get("control_realization_sha256"), str)
             or len(controls["control_realization_sha256"]) != 64
             or controls.get("passes") is not True
-            or not isinstance(norm_tolerance, (int, float))
-            or not np.isfinite(norm_tolerance) or norm_tolerance < 0
-            or not isinstance(controls.get("native_control_norm_max_abs"), (int, float))
-            or not np.isfinite(controls["native_control_norm_max_abs"])
-            or controls["native_control_norm_max_abs"] < 0
-            or controls["native_control_norm_max_abs"] > norm_tolerance):
+            or norm_contract != NATIVE_CONTROL_NORM_CONTRACT
+            or controls.get("native_control_norm_all_positions_within_bound") is not True
+            or not isinstance(controls.get("native_control_norm_max_abs_error"),
+                              (int, float))
+            or not np.isfinite(controls["native_control_norm_max_abs_error"])
+            or controls["native_control_norm_max_abs_error"] < 0
+            or not isinstance(controls.get("native_control_norm_max_allowance_ratio"),
+                              (int, float))
+            or not np.isfinite(controls["native_control_norm_max_allowance_ratio"])
+            or controls["native_control_norm_max_allowance_ratio"] < 0
+            or controls["native_control_norm_max_allowance_ratio"] > 1):
         return False
     expected_currency = contract.get("inherited_centered_capped_logit_rms")
     currency = integrity.get("scoring_currency", {})

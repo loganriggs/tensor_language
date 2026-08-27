@@ -20,8 +20,10 @@ sys.path[:0] = [str(ROOT), str(BQ), str(HERE)]
 
 from evaluate_mlp0_c512_mlp2_compensation_v1 import (  # noqa: E402
     AUTHORITY, FAILURE, FIT_RECEIPT, INHERITED_RESULT, LOCK, OUT, PROGRAM_KEY,
-    ROW_RECEIPT, STAGE0_FIT_RECEIPT, STAGE0_ROW_RECEIPT, closure_sha256,
-    file_sha256, inherited_currency_contract, load_domain, tensor_sha256,
+    ROW_RECEIPT, STAGE0_FIT_RECEIPT, STAGE0_ROW_RECEIPT, V1_AUTHORITY,
+    V1_FAILURE, V1_RESULT, closure_sha256, file_sha256,
+    inherited_currency_contract, load_domain, repair_amendment_contract,
+    tensor_sha256,
 )
 from mlp0_c512_mlp2_evaluator_contract import (  # noqa: E402
     ARM_CARRIED_PATH, control_contract_sha256, expected_call_contract,
@@ -31,8 +33,8 @@ from prepare_mlp0_c512_mlp2_compensation_v1_rows import (  # noqa: E402
     load_frozen_rows,
 )
 from score_mlp0_c512_mlp2_compensation_v1 import (  # noqa: E402
-    MARGINS, MIN_DOCUMENTS_PER_CELL, N_BOOTSTRAP, RAW_ARMS, SEED,
-    frozen_inference_contract,
+    MARGINS, MIN_DOCUMENTS_PER_CELL, NATIVE_CONTROL_NORM_CONTRACT, N_BOOTSTRAP,
+    RAW_ARMS, SEED, frozen_inference_contract,
 )
 
 
@@ -136,6 +138,7 @@ def build_authority() -> dict:
         raise RuntimeError("C512 program changed before MLP2 authority")
 
     inherited, inherited_digest = inherited_currency_contract()
+    repair_amendment, repair_amendment_digest = repair_amendment_contract()
     if inherited["fit_rows_tensor_sha256"] != fit_receipt["fit_rows"]["sha256"]:
         raise RuntimeError("C512 fit-row tensor differs from inherited currency chain")
     config = Path(hf_hub_download(MODEL_REPO, "config.json", local_files_only=True))
@@ -156,13 +159,17 @@ def build_authority() -> dict:
         "model_config_sha256": file_sha256(config),
         "inherited_currency_sha256": inherited_digest,
         "control_contract_sha256": control_contract_sha256(),
+        "repair_amendment_sha256": repair_amendment_digest,
     }
     calls = expected_call_contract(n_windows)
     return {
         "schema_version": 1,
-        "receipt_kind": "mlp0_c512_mlp2_compensation_v1_eval_authority",
-        "status": "frozen_before_any_c512_mlp2_compensation_evaluation_forward",
-        "scope": "physical C512-induced MLP2 state-by-write factorial on fresh FineWeb",
+        "receipt_kind": "mlp0_c512_mlp2_compensation_v2_eval_authority",
+        "status": "frozen_before_any_v2_c512_mlp2_compensation_evaluation_forward",
+        "scope": (
+            "outcome-blind V2 integrity repair of the physical C512-induced "
+            "MLP2 state-by-write factorial"
+        ),
         "source_commit": source_commit,
         "source_hashes": source_hashes,
         "row_authority": {
@@ -173,6 +180,8 @@ def build_authority() -> dict:
             "evaluation_windows": n_windows,
             "source_documents": 384,
             "wave_documents": {"wave_A": 192, "wave_B": 192},
+            "reuse_status": "spent_by_v1_forward_passes_but_outcome_blind",
+            "freshness_claim": False,
         },
         "unit_identity": identity,
         "program_contract": {
@@ -185,6 +194,7 @@ def build_authority() -> dict:
             "fit_receipt_sha256": file_sha256(FIT_RECEIPT),
         },
         "inherited_currency_contract": inherited,
+        "repair_amendment": repair_amendment,
         "model_repo": MODEL_REPO,
         "model_files": {
             str(config.resolve()): file_sha256(config),
@@ -220,7 +230,7 @@ def build_authority() -> dict:
             },
             "same_realization_delta_tolerance": 1e-6,
             "carried_state_identity_tolerance": 1e-6,
-            "native_control_norm_tolerance": 1e-6,
+            "native_control_norm_contract": dict(NATIVE_CONTROL_NORM_CONTRACT),
             "inherited_centered_capped_logit_rms": inherited[
                 "centered_capped_logit_rms"
             ],
@@ -267,6 +277,7 @@ def recompute_bound_snapshot(payload: dict) -> dict:
         "fit_receipt_sha256": file_sha256(FIT_RECEIPT),
     }
     inherited, inherited_digest = inherited_currency_contract()
+    repair_amendment, repair_amendment_digest = repair_amendment_contract()
     roles = payload.get("model_file_roles", {})
     if (set(roles) != {"config", "checkpoint"} or len(set(roles.values())) != 2
             or any(raw not in payload.get("model_files", {}) for raw in roles.values())):
@@ -281,6 +292,7 @@ def recompute_bound_snapshot(payload: dict) -> dict:
         "model_config_sha256": file_sha256(Path(roles["config"])),
         "inherited_currency_sha256": inherited_digest,
         "control_contract_sha256": control_contract_sha256(),
+        "repair_amendment_sha256": repair_amendment_digest,
     }
     return {
         "sources": sources,
@@ -295,6 +307,12 @@ def recompute_bound_snapshot(payload: dict) -> dict:
         "control_contract_sha256": control_contract_sha256(),
         "arm_carried_path": dict(ARM_CARRIED_PATH),
         "inherited_currency_contract": inherited,
+        "repair_amendment": repair_amendment,
+        "v1_namespace": {
+            "authority_exists": V1_AUTHORITY.is_file(),
+            "failure_exists": V1_FAILURE.is_file(),
+            "result_absent": not V1_RESULT.exists(),
+        },
         "fit_rows_match": (
             inherited["fit_rows_tensor_sha256"] == fit_receipt["fit_rows"]["sha256"]
         ),
@@ -322,6 +340,12 @@ def verify_publication_snapshot(payload: dict) -> None:
             != payload["assay_contract"]["arm_carried_path"]
             or current["inherited_currency_contract"]
             != payload["inherited_currency_contract"]
+            or current["repair_amendment"] != payload["repair_amendment"]
+            or current["v1_namespace"] != {
+                "authority_exists": True,
+                "failure_exists": True,
+                "result_absent": True,
+            }
             or current["fit_rows_match"] is not True):
         raise RuntimeError("complete MLP2 authority snapshot changed before publication")
 

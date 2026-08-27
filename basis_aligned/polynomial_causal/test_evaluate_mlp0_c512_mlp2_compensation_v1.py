@@ -72,6 +72,38 @@ def test_inherited_currency_contract_is_complete_and_deterministic():
     assert len(first_hash) == 64
 
 
+def test_v2_repair_amendment_is_complete_deterministic_and_outcome_blind():
+    first, first_hash = evaluate.repair_amendment_contract()
+    second, second_hash = evaluate.repair_amendment_contract()
+    assert first == second and first_hash == second_hash
+    assert first["v1_result_absent"] is True
+    assert first["v1_exposed_scientific_outcomes"] == []
+    assert first["v1_sufficient_statistics_serialized"] is False
+    assert first["preexisting_core_norm_contract"] == (
+        evaluate.NATIVE_CONTROL_NORM_CONTRACT
+    )
+    assert not evaluate.V1_RESULT.exists()
+    assert len(first_hash) == 64
+
+
+def test_native_control_norm_diagnostic_uses_scale_aware_coordinatewise_bound():
+    target = torch.tensor([[[100.0, 0.0], [0.0, 0.0]]], dtype=torch.float32)
+    within = torch.tensor([[[100.0009, 0.0], [0.0, 0.0]]], dtype=torch.float32)
+    report = evaluate.native_control_norm_diagnostics(
+        target, within, evaluate.NATIVE_CONTROL_NORM_CONTRACT
+    )
+    assert report["native_control_norm_max_abs_error"] > 1e-6
+    assert report["native_control_norm_max_allowance_ratio"] < 1
+    assert report["native_control_norm_all_positions_within_bound"] is True
+
+    outside = torch.tensor([[[100.0011, 0.0], [0.0, 0.0]]], dtype=torch.float32)
+    report = evaluate.native_control_norm_diagnostics(
+        target, outside, evaluate.NATIVE_CONTROL_NORM_CONTRACT
+    )
+    assert report["native_control_norm_max_allowance_ratio"] > 1
+    assert report["native_control_norm_all_positions_within_bound"] is False
+
+
 def test_frozen_domain_rebuilds_exact_1256_window_identity():
     domain, identity, rows = evaluate.load_domain()
     assert tuple(rows.shape) == (628, 513)

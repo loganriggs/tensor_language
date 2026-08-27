@@ -43,7 +43,8 @@ from prepare_mlp0_c512_mlp2_compensation_v1_rows import (  # noqa: E402
 )
 from prepare_mlp0_quotient_stage0_v1_rows import load_frozen_role  # noqa: E402
 from score_mlp0_c512_mlp2_compensation_v1 import (  # noqa: E402
-    CONTRASTS, MARGINS, score_result, validate_integrity,
+    CONTRASTS, MARGINS, NATIVE_CONTROL_NORM_CONTRACT, score_result,
+    validate_integrity,
 )
 
 
@@ -51,10 +52,17 @@ D = 1152
 V = 50257
 T = 256
 PROGRAM_KEY = "C512_at_C512"
-AUTHORITY = BQ / "mlp0_c512_mlp2_compensation_v1_eval_authority.json"
-OUT = BQ / "mlp0_c512_mlp2_compensation_v1_results.json"
-FAILURE = BQ / "mlp0_c512_mlp2_compensation_v1_failure.json"
-LOCK = Path("/workspace/runs/.bilin18_mlp0_c512_mlp2_compensation_v1.lock")
+AUTHORITY = BQ / "mlp0_c512_mlp2_compensation_v2_eval_authority.json"
+OUT = BQ / "mlp0_c512_mlp2_compensation_v2_results.json"
+FAILURE = BQ / "mlp0_c512_mlp2_compensation_v2_failure.json"
+LOCK = Path("/workspace/runs/.bilin18_mlp0_c512_mlp2_compensation_v2.lock")
+V1_AUTHORITY = BQ / "mlp0_c512_mlp2_compensation_v1_eval_authority.json"
+V1_FAILURE = BQ / "mlp0_c512_mlp2_compensation_v1_failure.json"
+V1_RESULT = BQ / "mlp0_c512_mlp2_compensation_v1_results.json"
+V1_AUTHORITY_SHA256 = "fb322004f33db15f1ce53e7eec883dd779c49c73a2631790ee7fcc300c5301ba"
+V1_FAILURE_SHA256 = "0b53d8b6b1b5b9092b2a4a1d28a461e8d397729c61b667e52dde47235f269e76"
+V1_EVALUATOR_SOURCE_COMMIT = "bf386cffd5939d375a664633525770acb2fa0f27"
+V1_CORE_SOURCE_SHA256 = "babf320c9f98b143259eb9d5f661a938f5480da00079aac0a9ed3c6d422db315"
 FIT_RECEIPT = BQ / "mlp0_native_down_hierarchy_v1_fit_receipt.json"
 STAGE0_FIT_RECEIPT = BQ / "mlp0_quotient_stage0_v2_fit_receipt.json"
 STAGE0_ROW_RECEIPT = BQ / "mlp0_quotient_stage0_v1_rows_receipt.json"
@@ -143,6 +151,86 @@ def json_sha256(payload: Mapping[str, object]) -> str:
     return hashlib.sha256(
         json.dumps(payload, sort_keys=True, separators=(",", ":")).encode()
     ).hexdigest()
+
+
+def repair_amendment_contract() -> tuple[dict[str, object], str]:
+    """Bind V2 to the outcome-blind V1 failure and its pre-existing invariant."""
+    if file_sha256(V1_AUTHORITY) != V1_AUTHORITY_SHA256:
+        raise RuntimeError("V1 authority changed before the mechanical V2 repair")
+    if file_sha256(V1_FAILURE) != V1_FAILURE_SHA256:
+        raise RuntimeError("V1 failure receipt changed before the mechanical V2 repair")
+    if V1_RESULT.exists():
+        raise RuntimeError("V1 scientific result exists; same-row repair is inadmissible")
+    v1_authority = json.loads(V1_AUTHORITY.read_text())
+    core_path = PC / "mlp0_c512_mlp2_compensation.py"
+    if (v1_authority.get("source_commit") != V1_EVALUATOR_SOURCE_COMMIT
+            or v1_authority.get("source_hashes", {}).get(str(core_path.resolve()))
+            != V1_CORE_SOURCE_SHA256):
+        raise RuntimeError("V1 authority does not bind the audited source lineage")
+    failure = json.loads(V1_FAILURE.read_text())
+    if (failure.get("status") != "failed_closed_without_scientific_result"
+            or failure.get("authority_sha256") != V1_AUTHORITY_SHA256
+            or "'native_control_norm_max_abs': 0.0009765625" not in failure.get("error", "")
+            or "'passes': False" not in failure.get("error", "")):
+        raise RuntimeError("V1 failure is not the audited outer norm-gate failure")
+    if file_sha256(core_path) != V1_CORE_SOURCE_SHA256:
+        raise RuntimeError("pre-V1 scale-aware core predicate changed")
+    payload = {
+        "repair_kind": "outcome_blind_integrity_schema_repair",
+        "v1_evaluator_source_commit": V1_EVALUATOR_SOURCE_COMMIT,
+        "v1_authority_path": str(V1_AUTHORITY.resolve()),
+        "v1_authority_sha256": V1_AUTHORITY_SHA256,
+        "v1_failure_path": str(V1_FAILURE.resolve()),
+        "v1_failure_sha256": V1_FAILURE_SHA256,
+        "v1_result_path": str(V1_RESULT.resolve()),
+        "v1_result_absent": True,
+        "v1_rows_status": "spent_by_forward_passes_but_outcome_blind",
+        "v1_core_source_sha256": V1_CORE_SOURCE_SHA256,
+        "preexisting_core_norm_contract": dict(NATIVE_CONTROL_NORM_CONTRACT),
+        "v1_exposed_integrity_diagnostics": [
+            "call_counts", "phase_site_call_counts", "observed_hashes",
+            "parent_replay", "same_realization_delta", "carried_state_identity",
+            "control_checks", "scoring_currency",
+        ],
+        "v1_exposed_scientific_outcomes": [],
+        "v1_sufficient_statistics_serialized": False,
+        "v1_bootstrap_executed": False,
+        "v1_contrasts_or_decisions_exposed": False,
+        "v1_observed_integrity_failure": {
+            "field": "native_control_norm_max_abs",
+            "value": 0.0009765625,
+            "obsolete_outer_absolute_tolerance": 1e-6,
+        },
+        "authorized_change": (
+            "replace only the V1 outer flat absolute norm gate with the exact "
+            "coordinatewise scale-aware invariant already enforced inside the "
+            "pre-V1 core; rows, model, program, arms, cells, metrics, margins, "
+            "bootstrap, controls, and scientific inference remain unchanged"
+        ),
+    }
+    return payload, json_sha256(payload)
+
+
+def native_control_norm_diagnostics(
+    delta_write: torch.Tensor, native_control: torch.Tensor,
+    contract: Mapping[str, object],
+) -> dict[str, object]:
+    """Evaluate the frozen coordinatewise float32 norm invariant."""
+    if contract != NATIVE_CONTROL_NORM_CONTRACT:
+        raise RuntimeError("authority native-control norm contract changed")
+    target_norm = delta_write.float().norm(dim=-1)
+    realized_norm = native_control.float().norm(dim=-1)
+    error = (realized_norm - target_norm).abs()
+    allowance = float(contract["atol"]) + float(contract["rtol"]) * target_norm
+    ratio = error / allowance
+    if not (torch.isfinite(error).all() and torch.isfinite(ratio).all()):
+        raise RuntimeError("native-control norm diagnostic is nonfinite")
+    within = error <= allowance
+    return {
+        "native_control_norm_max_abs_error": float(error.max()),
+        "native_control_norm_max_allowance_ratio": float(ratio.max()),
+        "native_control_norm_all_positions_within_bound": bool(within.all()),
+    }
 
 
 def inherited_currency_contract() -> tuple[dict[str, object], str]:
@@ -374,13 +462,20 @@ def evaluate_domain(
     logit_scale: float, replay: dict[str, dict[str, float]],
     token_count: torch.Tensor, punctuation: torch.Tensor,
     frequency_median: float, norm_median: float,
-) -> tuple[dict[str, Any], dict[str, float]]:
+    native_norm_contract: Mapping[str, object],
+) -> tuple[dict[str, Any], dict[str, object]]:
     rows, unit_ids = domain["rows"], domain["unit_ids"]
     ledgers = empty_ledgers()
     flat_delta = prepared["delta"].reshape(-1, D)
     permutation = prepared["permutation"]
     same_delta_max = 0.0
-    native_norm_max = 0.0
+    native_norm_max_abs_error = 0.0
+    native_norm_max_allowance_ratio = 0.0
+    native_norm_all_positions_within_bound = True
+    if native_norm_contract != NATIVE_CONTROL_NORM_CONTRACT:
+        raise RuntimeError("authority native-control norm contract changed")
+    norm_atol = float(native_norm_contract["atol"])
+    norm_rtol = float(native_norm_contract["rtol"])
     for start in range(0, len(rows), BATCH_WINDOWS):
         stop = min(start + BATCH_WINDOWS, len(rows))
         idx = rows[start:stop, :-1].to("cuda").contiguous()
@@ -404,11 +499,23 @@ def evaluate_domain(
         matrix = physical_mlp2_matrix(interfaces)
         indices = torch.arange(start * T, stop * T)
         shuffled = flat_delta[permutation[indices]].reshape(stop - start, T, D).to("cuda")
-        native = norm_matched_native_write(realized_delta, interfaces["O"]["m"])
-        native_norm_max = max(
-            native_norm_max,
-            float((native.float().norm(dim=-1)
-                   - realized_delta.float().norm(dim=-1)).abs().max()),
+        native = norm_matched_native_write(
+            realized_delta, interfaces["O"]["m"], atol=norm_atol, rtol=norm_rtol,
+        )
+        norm_diagnostics = native_control_norm_diagnostics(
+            realized_delta, native, native_norm_contract
+        )
+        native_norm_max_abs_error = max(
+            native_norm_max_abs_error,
+            float(norm_diagnostics["native_control_norm_max_abs_error"]),
+        )
+        native_norm_max_allowance_ratio = max(
+            native_norm_max_allowance_ratio,
+            float(norm_diagnostics["native_control_norm_max_allowance_ratio"]),
+        )
+        native_norm_all_positions_within_bound = bool(
+            native_norm_all_positions_within_bound
+            and norm_diagnostics["native_control_norm_all_positions_within_bound"]
         )
         posts = {
             **matrix,
@@ -463,7 +570,11 @@ def evaluate_domain(
         print(f"evaluated FineWeb windows {stop}/{len(rows)}", flush=True)
     return ledgers, {
         "same_realization_delta_max_abs": same_delta_max,
-        "native_control_norm_max_abs": native_norm_max,
+        "native_control_norm_max_abs_error": native_norm_max_abs_error,
+        "native_control_norm_max_allowance_ratio": native_norm_max_allowance_ratio,
+        "native_control_norm_all_positions_within_bound": (
+            native_norm_all_positions_within_bound
+        ),
     }
 
 
@@ -476,7 +587,7 @@ def verify_authority_file() -> dict[str, object]:
         raise RuntimeError("MLP2 authority is not byte-identical to committed HEAD")
     authority = json.loads(AUTHORITY.read_text())
     if (authority.get("status")
-            != "frozen_before_any_c512_mlp2_compensation_evaluation_forward"
+            != "frozen_before_any_v2_c512_mlp2_compensation_evaluation_forward"
             or authority.get("output_path") != str(OUT)
             or authority.get("failure_path") != str(FAILURE)):
         raise RuntimeError("MLP2 authority status or namespace changed")
@@ -509,6 +620,7 @@ def verify_preflight_artifacts(
         "model_config_sha256": file_sha256(Path(roles["config"])),
         "inherited_currency_sha256": inherited_currency()[1],
         "control_contract_sha256": control_contract_sha256(),
+        "repair_amendment_sha256": repair_amendment_contract()[1],
     }
     if observed != authority["integrity_contract"]["bound_hashes"]:
         raise RuntimeError("MLP2 preflight artifacts differ from frozen authority")
@@ -598,6 +710,7 @@ def main() -> None:
             domain, prepared, model, blocks, mlp0, original, original_forward,
             proxy, poisoned_original, counter, logit_scale, replay,
             token_count, punctuation, frequency_median, norm_median,
+            contract["native_control_norm_contract"],
         )
         install_native(mlp0, original, original_forward)
         tolerances = contract["parent_replay_tolerances"]
@@ -611,12 +724,20 @@ def main() -> None:
         control_checks = {
             **prepared["control_checks"],
             "control_realization_sha256": prepared["control_realization_sha256"],
-            "native_control_norm_max_abs": diagnostics["native_control_norm_max_abs"],
+            "native_control_norm_max_abs_error": diagnostics[
+                "native_control_norm_max_abs_error"
+            ],
+            "native_control_norm_max_allowance_ratio": diagnostics[
+                "native_control_norm_max_allowance_ratio"
+            ],
+            "native_control_norm_all_positions_within_bound": diagnostics[
+                "native_control_norm_all_positions_within_bound"
+            ],
         }
         control_checks["passes"] = bool(
             all(prepared["control_checks"].values())
-            and diagnostics["native_control_norm_max_abs"]
-            <= contract["native_control_norm_tolerance"]
+            and diagnostics["native_control_norm_all_positions_within_bound"]
+            and diagnostics["native_control_norm_max_allowance_ratio"] <= 1
         )
         integrity = {
             "call_counts": {
@@ -652,7 +773,7 @@ def main() -> None:
         )
         raw = {
             "schema_version": 1,
-            "experiment": "mlp0_c512_mlp2_compensation_v1",
+            "experiment": "mlp0_c512_mlp2_compensation_v2",
             "authority": authority,
             "authority_file_sha256": file_sha256(AUTHORITY),
             "unit_identity": identity,
@@ -663,6 +784,7 @@ def main() -> None:
             "program": program_receipt,
             "fit_frozen_centered_capped_logit_rms": logit_scale,
             "inherited_currency_contract": inherited_currency_contract()[0],
+            "repair_amendment": repair_amendment_contract()[0],
             "cell_names": CELL_NAMES,
             "coverage": coverage,
             "integrity": integrity,

@@ -34,7 +34,7 @@ def authority_binding(identity):
     mapping = np.asarray(identity["row_to_unit"], dtype=np.int64)
     occupancy = np.bincount(mapping, minlength=384)
     return {
-        "status": "frozen_before_any_c512_mlp2_compensation_evaluation_forward",
+        "status": "frozen_before_any_v2_c512_mlp2_compensation_evaluation_forward",
         "inference_contract": score.frozen_inference_contract(),
         "integrity_contract": {
             "n_eval_windows": 768,
@@ -62,6 +62,7 @@ def authority_binding(identity):
                 "model_config_sha256": "f" * 64,
                 "inherited_currency_sha256": "1" * 64,
                 "control_contract_sha256": "2" * 64,
+                "repair_amendment_sha256": "4" * 64,
             },
             "parent_replay_tolerances": {
                 "raw_logits_max_abs": 1e-6,
@@ -70,7 +71,7 @@ def authority_binding(identity):
             },
             "same_realization_delta_tolerance": 1e-6,
             "carried_state_identity_tolerance": 1e-6,
-            "native_control_norm_tolerance": 1e-6,
+            "native_control_norm_contract": dict(score.NATIVE_CONTROL_NORM_CONTRACT),
             "inherited_centered_capped_logit_rms": 2.5,
             "unit_identity_hashes": {
                 "ordered_ids_sha256": score.ordered_ids_sha256(identity["ordered_ids"]),
@@ -110,7 +111,9 @@ def passing_integrity(authority):
             "derangement_no_same_document": True,
             "derangement_wave_cell_preserving": True,
             "control_realization_sha256": "3" * 64,
-            "native_control_norm_max_abs": 0.0,
+            "native_control_norm_max_abs_error": 0.0,
+            "native_control_norm_max_allowance_ratio": 0.0,
+            "native_control_norm_all_positions_within_bound": True,
             "passes": True,
         },
         "scoring_currency": {
@@ -245,6 +248,23 @@ def test_orientation_wave_and_control_contracts_fail_closed():
 
     candidate = payload({})
     candidate["integrity"]["control_checks"]["derangement_no_same_document"] = False
+    assert not score.validate_integrity(candidate["authority"], candidate["integrity"])
+
+
+def test_scale_aware_native_control_gate_is_exact_and_fail_closed():
+    candidate = payload({})
+    controls = candidate["integrity"]["control_checks"]
+    controls["native_control_norm_max_abs_error"] = 9.75e-4
+    controls["native_control_norm_max_allowance_ratio"] = .97
+    assert score.validate_integrity(candidate["authority"], candidate["integrity"])
+
+    controls["native_control_norm_max_allowance_ratio"] = 1.0000001
+    assert not score.validate_integrity(candidate["authority"], candidate["integrity"])
+
+    candidate = payload({})
+    candidate["authority"]["integrity_contract"]["native_control_norm_contract"][
+        "rtol"
+    ] = 1.1e-5
     assert not score.validate_integrity(candidate["authority"], candidate["integrity"])
 
 
