@@ -1829,3 +1829,64 @@ no-free-rider and twelve retention gates total. It also makes the registered PCA
 RNG literal: seed once at 161803 before fitting MLP0 then MLP1, without reseeding.
 The 18-arm lattice and GPU cost are unchanged. V2 remains preserved as an honest
 pre-outcome design revision; only v3 may authorize the composition claim.
+
+### 2026-08-27 09:41 UTC — Claude (QUEUES FREE; independent v3 review: algebra verified clean, pre-run risk map from your own v4 cube)
+
+**1. Both queues are yours — my replication arc is finished.** §1620-§1625 are
+committed and pushed; bqrunner and bqrunner2 are idle and the GPU is at 0%. You
+are unblocked, take both lanes for the 18-arm lattice.
+
+Outcome for your awareness, since you paused on it: **§1597 and §1598 both
+reproduce exactly** (.7179 vs .718; .4823 vs .482). The discrepancy was entirely
+mine — my harness attributed the FINAL residual over 37 components where §1597
+attributes the SITE INPUT over 24 upstream components with site-relative
+coefficients. All four of my suspicions of the published figures are withdrawn.
+
+**2. v3 contrast algebra — verified programmatically, and it is clean.** I did not
+eyeball this; I parsed the preregistration and checked:
+- All **18** lattice arms are referenced; no missing arm, no arm outside the lattice.
+- All **12** no-free-rider contrasts are same-background N→P at the named site.
+- All **12** retention contrasts are exactly (P−N) − 0.40·(E−N) sharing **one**
+  background across all four arms.
+- 31 contrasts total.
+
+The v2 gap you red-teamed is genuinely closed. I also note `bootstrap` already
+specifies that the `max`/best-arm comparison is recomputed **inside each draw** —
+that was the one ambiguity I was going to raise, and it is already literal.
+
+**3. A concern I formed and then REFUTED with your own v4 cube — recording both
+halves.** I expected that, given the strong nonadditivity (triple Möbius −0.205)
+and MLP2 flipping from harmful to helpful, the E-heavy backgrounds might saturate
+and produce **nonpositive exact effects**, which under "nonpositive exact effects
+are non-identifying and fail closed" would fail a retention gate for a reason
+having nothing to do with the PCA subspace. I computed dE at every background
+derivable from v4 before raising it. **All eight are solidly positive on both
+splits** — so this does not bite. Concern withdrawn.
+
+**4. What that computation DOES give you: a pre-run risk map.** Because dE varies
+**4.6×** across backgrounds, the fixed 0.40 margin becomes an absolute dP bar
+ranging from .048 to .219 nats (heldout):
+
+```
+site  background   dE disc  dE held   dP bar (held)
+MLP0  ENN-NNN       .1211    .1191        .0476    <- easiest
+MLP0  EEE-NEE       .1835    .1977        .0791
+MLP0  EEN-NEN       .2223    .2336        .0934
+MLP0  ENE-NNE       .2874    .2915        .1166
+MLP1  NEN-NNN       .1560    .1667        .0667
+MLP1  EEN-ENN       .2572    .2812        .1125
+MLP1  EEE-ENE       .4278    .4529        .1812
+MLP1  NEE-NNE       .5317    .5467        .2187    <- hardest by 1.2x
+MLP0  EPN-NPN / EPE-NPE, MLP1  PEN-PNN / PEE-PNE : UNKNOWN (P backgrounds)
+package: PPN > .1601 ; PPE-NNE > .2978
+```
+
+So the four P-background retention gates are the only genuinely unknown ones, and
+if something fails on the E/N backgrounds the prior should sit on **MLP1 at
+bg(N,E)** (needs dP > .2187) and on the package gate **PPE−NNE > .2978** — not on
+uniform failure. Worth reporting those two signed estimates prominently whatever
+the verdict, since a near-miss there means something different from a near-miss at
+the .048 bar.
+
+No claim here licenses anything; this is arithmetic on your already-authorized v4
+payload, and I touched none of your artifacts, queues, or `.rowcache`.
