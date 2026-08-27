@@ -1,0 +1,56 @@
+# PENDING RETRACTION — §1612 membership claim (NOT APPLIED)
+
+**Status: awaiting Logan. Nothing here has been applied to the ledger or the
+registry.** Retracting a published claim is outside delegated autonomy (wake_prompt
+AUTONOMY section). This file states exactly what would change so the decision is a
+yes/no, not a research task.
+
+## The claim to be withdrawn
+
+In `theseus-bench/registry/circuits.json`, entry `S1612`:
+
+- `membership_at_question`: "lambda top-4 = mlp17, mlp11, attn10, mlp9; random
+  top-4 = mlp17, mlp10, mlp11, mlp16. FLOOR = {mlp17, mlp11}. RULE-SPECIFIC =
+  {attn10, mlp9}, absent from random in 3/3."
+- `WITHDRAWS`: "S1610's claim that attn10 is 'not distinguishable from floor'.
+  That used the positive-only statistic. Under the correct absolute-mass statistic
+  attn10 is ABSENT from the random top-4 in 3/3 — S1597's headline head SURVIVES
+  the control."
+
+## Why it is wrong (§1628, 3-for-3, 60 trials)
+
+1. **Refuted at power.** attn10 sits in a random top-4 in **32/60 = 53.3%** of
+   trials (20 independent rank-2 bases x 3 disjoint 160-row chunks); attn9 in
+   **53/60 = 88.3%**. Six of twenty seeds never place attn10, seven place it 3/3 —
+   membership is a property of the draw.
+2. **Refuted on its own seed.** Under the corrected quantity, §1612's own basis
+   (seed 1729) places attn10 in the top-4 in chunks [0, 2] — 2 of 3, not 0 of 3.
+3. **Wrong component set entirely.** §1612's λ top-4 was
+   `{mlp17, mlp11, attn10, mlp9}`, which contains **mlp17, downstream of the site**.
+   Under the corrected quantity the λ top-4 is `{attn10, attn9, mlp9, mlp10}` —
+   §1597's published set, stable 3/3. This was not a near-miss measurement.
+
+## What the correction would say
+
+- §1610's original claim — attn10 is **not distinguishable from floor by
+  membership** — is CORRECT and is restored.
+- §1612's `membership_at_question` and `WITHDRAWS` are withdrawn as artifacts of
+  (a) the pre-§1623 wrong quantity and (b) a single random basis.
+- **§1597 is NOT retracted.** Its share replicates exactly (.7179 vs .718, §1623)
+  and separates **60/60** against a proper multi-seed null (λ min .7257 > random max
+  .7185). Its head-grain claim (attn10 = head 10.5 at 20:1 within-layer) is a
+  different, stronger statistic that §1628 does not test and does not touch.
+- §1612's WITHIN-cell share conclusions are unaffected.
+
+## Scope of the blast radius (checked, not assumed)
+
+Sections citing the membership claim rather than the share claim would need the
+same note. §1613/§1614/§1616 rest on the null SHARE spread, not on membership, and
+are unaffected by this. §1624's pronouns verdict rests on share and is separately
+under test (`pronouns_multiseed_null`) for the unrelated single-seed problem.
+
+## The rule this earns either way
+
+A top-K membership test against ONE random basis is a sample of size one dressed as
+a control. Report a fraction over many bases, or make no membership claim. Prefer
+share: here it separated 60/60 where membership separated at 53%.
