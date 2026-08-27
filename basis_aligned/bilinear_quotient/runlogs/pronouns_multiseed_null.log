@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows (receipt sha256[:16]=815b21618c2e477e)
+  lambda chunk0 n= 351 share=0.4782 top=['mlp16', 'x0', 'mlp15', 'mlp9', 'attn9', 'mlp14'] recon=1.2e-07
+  lambda chunk1 n= 242 share=0.4840 top=['mlp16', 'x0', 'mlp15', 'attn9', 'mlp9', 'mlp14'] recon=2.6e-07
+  lambda chunk2 n= 215 share=0.4871 top=['mlp16', 'x0', 'mlp9', 'mlp15', 'attn9', 'mlp11'] recon=2.2e-07
+  random seed 1729 done (1/20)
+  random seed 1734 done (6/20)
+  random seed 1739 done (11/20)
+  random seed 1744 done (16/20)
+
+  pronouns@mlp17 rank-8 TOP-6, 20 random bases x 3 chunks = 60 trials
+    mlp16   in random top-6: 60/60 = 100.0%   | seed 1729: chunks [0, 1, 2]
+    x0      in random top-6: 9/60 = 15.0%   | seed 1729: chunks NONE
+  20-seed mean null overall 0.6151  vs S1624 seed-1729 null 0.5744  (delta +0.0407)
+  60-trial random share range 0.5361 - 0.7104   | lambda max 0.4871
+  lambda share  [0.4782, 0.484, 0.4871]
+  mean random   [0.6137, 0.6205, 0.6111]
+  gap           [-0.1354, -0.1365, -0.1239]
+  lambda top-4 per chunk: [['mlp16', 'x0', 'mlp15', 'mlp9', 'attn9', 'mlp14'], ['mlp16', 'x0', 'mlp15', 'attn9', 'mlp9', 'mlp14'], ['mlp16', 'x0', 'mlp9', 'mlp15', 'attn9', 'mlp11']]
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/pronouns_multiseed_null_results.json (119.5s)

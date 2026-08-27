@@ -38921,3 +38921,70 @@ rank-2 TOP-4, corrected quantity, **20 independent random rank-2 bases (seeds
 is a sample of size one dressed as a control. Either use many bases and report a
 FRACTION, or do not make membership claims at all — and prefer share, which here
 separated 60/60 where membership separated at 53%.
+
+## §1629 §1598's DIFFUSE VERDICT SURVIVES AND STRENGTHENS (3-for-3): perfect 60/60 downward separation, and seed 1729 turns out to have UNDERSTATED the effect at BOTH cells in OPPOSITE directions — plus a correction to how I stated §1628's rule
+
+**Setup** (pronouns_multiseed_null, 120 s, rung 3 — the risk §1628 created).
+§1628 showed seed 1729 gives an unrepresentative null at mlp11. §1598's "diffuse"
+verdict and §1612's reinterpretation of it rest on that same single seed, so if
+1729 ran the same way at mlp17 the below-null gap would shrink. pronouns@mlp17
+rank-8 TOP-6, corrected quantity, 20 independent random rank-8 bases (seeds
+1729-1748) x 3 disjoint 160-row chunks = 60 trials.
+
+```
+  λ share        .4782  .4840  .4871      (published .482; §1624 .4823)
+  20-seed null   .6137  .6205  .6111      overall .6151
+  gap           -.1354 -.1365 -.1239
+
+  §1624's seed-1729 null  .5744     20-seed mean  .6151     delta +.0407
+  60-trial random share range  .5361 - .7104
+  λ MAXIMUM (.4871) BELOW THE MINIMUM OF ALL 60 RANDOM TRIALS (.5361)
+```
+
+- **pred_a PASSED** — λ below its null on all three chunks.
+- **pred_b PASSED** — the 20-seed mean null differs from seed 1729's .5744 by
+  **.0407**, far past the .01 bar. Seed 1729 is unrepresentative here too.
+- **pred_c PASSED** — **perfect downward separation, 60/60**. λ's worst chunk is
+  below the best-concentrated of all sixty random draws.
+
+**The symmetry is the finding.** Seed 1729 is unrepresentative at BOTH cells but in
+OPPOSITE directions, and in both cases it made the published effect look SMALLER:
+
+```
+  question@mlp11   seed-1729 null ran HIGH  (.586-.612 vs 20-seed .567-.573)  -> shrank a POSITIVE gap
+  pronouns@mlp17   seed-1729 null ran LOW   (.5744    vs 20-seed .6151)       -> shrank a NEGATIVE gap
+```
+
+So both published verdicts were CONSERVATIVE. §1597's concentration and §1598's
+diffuseness are each stronger than reported, and each now separates 60/60 against a
+proper multi-seed null — in opposite directions, at different sites, with different
+rank and TOP. Two independent published slice claims, both confirmed at power.
+
+**§1598's writer graph also replicates.** The λ top-6 is §1598's published set
+`{mlp16, x0, mlp15, mlp9, mlp14, attn9}` exactly in chunks 0 and 1, with mlp11 for
+mlp14 in chunk 2 — on rows §1598 never saw.
+
+**CORRECTING MY OWN §1628 HEADLINE.** §1628 said "membership is worthless as
+evidence". That is too strong, and this run shows why:
+
+```
+  mlp16  in random top-6:  60/60 = 100.0%    carries NO information
+  x0     in random top-6:   9/60 =  15.0%    carries REAL information
+```
+
+`mlp16` — §1598's single largest published writer — is in every random top-6 ever
+drawn, so its membership says nothing. But `x0` appears in only 15% of random
+top-6s while being 2nd in the λ arm 3/3, which IS a meaningful signal. Membership
+is therefore not worthless; it is **uninformative by default and occasionally
+informative, and you cannot tell which without measuring the fraction**. The
+correct rule is the one §1628 gave second, not the headline it gave first: report a
+fraction over many bases, and never infer specificity from one draw. §1628's actual
+finding — that attn10 at 53% and attn9 at 88% carry no information — is unaffected;
+only my generalisation of it was overreaching.
+
+**Bearing on the pending retraction.** This does not change
+`PENDING_RETRACTION_S1612.md`: §1612's membership claim is still refuted at power
+and on its own seed. It does mean the replacement rule written there should say
+"report the fraction" rather than "prefer share because membership is worthless" —
+I have left that file's substance as-is and note the amendment here so Logan sees
+both.

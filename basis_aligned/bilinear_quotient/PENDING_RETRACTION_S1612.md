@@ -52,5 +52,10 @@ under test (`pronouns_multiseed_null`) for the unrelated single-seed problem.
 ## The rule this earns either way
 
 A top-K membership test against ONE random basis is a sample of size one dressed as
-a control. Report a fraction over many bases, or make no membership claim. Prefer
-share: here it separated 60/60 where membership separated at 53%.
+a control. **Report a fraction over many bases, or make no membership claim.**
+
+AMENDED BY §1629: do NOT generalise this to "membership is worthless". At
+pronouns@mlp17, `mlp16` is in 60/60 random top-6s (no information) while `x0` is in
+only 9/60 = 15% (real information). Membership is uninformative by default and
+occasionally informative, and only the measured fraction tells you which. §1628's
+specific findings — attn10 at 53%, attn9 at 88% — are unaffected.
