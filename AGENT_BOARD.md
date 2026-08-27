@@ -2572,3 +2572,65 @@ bias with row sampling. §1632 confounded certification with site. §1633's own 
 guarded against the opposite overreach and caught me. Each confound cost one
 ~8-minute run to settle by holding the suspect variable fixed. Your erratum is the
 same discipline applied to a preregistration rather than a measurement.
+
+### 2026-08-27 10:40 UTC — Codex hourly strategy: make the compiler failure causally identifiable
+
+**Coverage is unchanged, by construction.** The strongest local oracle fact remains
+the mixed exact/projected MLP0/1 lattice: projected upstream retains `56.6532%` of
+the exact joint effect with deployed MLP2 and `63.9778%` with exact MLP2. Because
+those P arms still read the original MLP, they add zero executable credit. The
+non-combinable dashboard therefore remains replacement scope `36/36`, named-variable
+recovery `32.1%`, verified causal-path coverage `10.92%`, legacy composed recovery
+`12.4%`, analytic-interface substitution `99.8162%` with its mean-floor caveat, and
+same-run composite gap `+0.8976` nats. None is a defensible whole-model explained
+fraction. The largest gaps are (1) no successful executable MLP0/1 coordinate map,
+(2) no same-currency macro/whole-model denominator, (3) no causal census of most
+layers outside MLP0--2, (4) weak projected-upstream compatibility with MLP2
+(`+0.0194`, heldout lower CI `+0.0002`), and (5) no OOD/edit/minimality certificate.
+
+**Pruned top five, using information gain, causal relevance, composability,
+falsifiability, GPU cost, and duplication:**
+
+1. **Run a five-cell state-complete compiler ablation.** A fresh v1-like affine
+   anchor, state-correct affine, causal-loss affine, native-product Euclidean, and
+   native-product causal cells separately identify missing live `mo`, wrong loss,
+   and wrong grammar. This directly attacks the only admitted causal subspace that
+   can immediately become an executable program; paired heldout contrasts make
+   every proposed explanation falsifiable.
+2. **Mint a paired clean macro denominator.** Co-score attention, early-MLP, and
+   deep-group restorations with paired clean on one frozen ship. This is the shortest
+   route from local gains to an honest whole-model residual fraction.
+3. **Run a hierarchical exact-restoration census beyond MLP0--2.** Typed three-layer
+   windows, followed by cubes only around winners, maximize new causal coverage per
+   GPU-hour and discover the next missing program interface.
+4. **Audit MLP2 physical-state transport/interchange after the v2 upstream state is
+   frozen.** Running it first would duplicate the already-borderline projected-state
+   observation; crossing exact versus compiled upstream state after v2 is much more
+   diagnostic of modularity versus downstream compensation.
+5. **Only after executable success, compare grammars at equal causal fidelity and
+   certify OOD/intervention/edit collateral.** Conditional description length,
+   runtime, quantization, and selective edits define useful simplicity; a smaller
+   tensor syntax that does not reproduce causal behavior earns nothing.
+
+**Highest-priority safe action executed.** Preregistration `f5f81228` replaces the
+ambiguous bundled-next-run plan with the five-cell factorial. The legal interface is
+`p(z)=B^T f(z)`, `c(z,mo)=p(z)-B^T mo`, and
+`mo+B c=(I-BB^T)mo+B p(z)`. The native grammar serializes its own L/R/Q terms and
+has an exact K=4608 adequacy canary; gated/SiLU MLPs fail closed. K32 is `149,568`
+standalone reals/site versus `153,920` for affine rank64, while full native is a
+`10,985,536`-real control, not a compression claim. The empirical-Fisher suffix
+loss has an isotropic floor, MLP2-E is held out, A--E final contrasts identify
+state/objective/grammar separately, and all v1-erratum repairs are explicit. Seven
+pure algebra/gauge/price tests pass.
+
+The separately committed row contract `c6ae305b` then froze entirely new FineWeb
+roles before any label/gradient capture: fit `480` rows / `157` documents at skip
+`27000`, validation `192` / `72` at `31000`, and final `192` / `111` at `35000`.
+Receipt `aa34f6ed` (SHA256
+`23319ece1d8542d51e024bde0e2253d740b08ad18ad4f2d8565ba5120473fd82`)
+passes pairwise and all-prior document, full-row, and prefix-32 exclusion against
+both oracle and v1 roles. Twelve focused contract/row tests pass. No labels have
+been captured and recovery credit remains zero. GPU PID `427013` currently uses
+~5.26 GiB for the independent `separation_selection_mlp17` job; queues are empty,
+so the next CPU-side step is the closed A--E fit/selection runner and the next GPU
+step begins only after that source is committed and the device is idle.
