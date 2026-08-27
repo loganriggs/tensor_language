@@ -257,10 +257,20 @@ def test_finalization_write_failure_never_publishes_authority(monkeypatch, tmp_p
 
 
 def test_namespace_and_authority_guards_are_distinct():
-    assert AUTH.RESULT.name.endswith("authoritative_v3_results.json")
-    assert AUTH.MANIFEST.name.endswith("authoritative_v3_manifest.json")
-    assert AUTH.AUTHORITY_RECEIPT.name.endswith("authoritative_v3_authority.json")
+    assert AUTH.RESULT.name.endswith("authoritative_v4_results.json")
+    assert AUTH.MANIFEST.name.endswith("authoritative_v4_manifest.json")
+    assert AUTH.AUTHORITY_RECEIPT.name.endswith("authoritative_v4_authority.json")
     assert AUTH.RESULT not in AUTH.PROTECTED_EXISTING
     assert AUTH.FROZEN_STATE == AUTH.frozen.FROZEN_STATE
     assert AUTH.FROZEN_MANIFEST == AUTH.frozen.FROZEN_MANIFEST
     assert AUTH.file_sha256(AUTH.PREREG) == AUTH.PREREG_SHA256
+
+
+def test_v4_canary_bound_is_machine_epsilon_scaled_and_fixed():
+    bound = AUTH.float32_exact_patch_tolerance(20.0, 1.0)
+    assert bound["float32_epsilon"] == torch.finfo(torch.float32).eps
+    assert bound["roundoff_multiplier"] == 16.0
+    assert bound["scale_max_1_original_plus_2deployed"] == 22.0
+    assert bound["tolerance"] == pytest.approx(
+        16.0 * torch.finfo(torch.float32).eps * 22.0
+    )

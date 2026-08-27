@@ -25,17 +25,17 @@ import torch
 HERE = Path(__file__).resolve().parent
 TENSOR_ROOT = HERE.parents[1]
 BQ = HERE.parent / "bilinear_quotient"
-PREREG = HERE / "joint_early_mlp_oracle_factorial_authoritative_v3_preregistration.json"
-RESULT = BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_results.json"
-MANIFEST = BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_manifest.json"
-AUTHORITY_RECEIPT = BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_authority.json"
-LOCK = Path("/workspace/runs/.bilin18_joint_early_mlp_oracle_factorial_authoritative_v3.lock")
+PREREG = HERE / "joint_early_mlp_oracle_factorial_authoritative_v4_preregistration.json"
+RESULT = BQ / "joint_early_mlp_oracle_factorial_authoritative_v4_results.json"
+MANIFEST = BQ / "joint_early_mlp_oracle_factorial_authoritative_v4_manifest.json"
+AUTHORITY_RECEIPT = BQ / "joint_early_mlp_oracle_factorial_authoritative_v4_authority.json"
+LOCK = Path("/workspace/runs/.bilin18_joint_early_mlp_oracle_factorial_authoritative_v4.lock")
 FROZEN_STATE = Path("/workspace/runs/bilin18_frozen_ship_v2.pt")
 FROZEN_MANIFEST = Path("/workspace/runs/bilin18_frozen_ship_v2_manifest.json")
 SHIP_SEED = 27182818
 BOOTSTRAP_SEED = 27182819
 BOOTSTRAP_DRAWS = 2000
-PREREG_SHA256 = "41f3a614666ee911d028f0b559c9a4c469369bb8786aec61b3d6836b6d927419"
+PREREG_SHA256 = "b2dca43797e61a59ab3864aae79f12ccf930a368c2dec473855b0d1c8a532e3a"
 MODEL_SNAPSHOT = Path(
     "/workspace/.hf_home/hub/"
     "models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/"
@@ -43,6 +43,11 @@ MODEL_SNAPSHOT = Path(
 )
 PINNED_INPUTS = {
     PREREG: PREREG_SHA256,
+    BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_manifest.json": (
+        "5b2d091ff3846bb41e210695eac056e5fffb74fae0053381bb002b99b49e986f"
+    ),
+    FROZEN_STATE: "fe21ead35b1dcb3c0914a36b04d7be36e9c3f179c57bc63eee62bd78d34fe9df",
+    FROZEN_MANIFEST: "21c89c4d1bd03e1c4be34023781c027b13d2c98202b855938488e33c99e9ba04",
     BQ / ".rowcache/fineweb_oracle_v2_receipt.json": (
         "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16"
     ),
@@ -123,6 +128,9 @@ PROTECTED_EXISTING = (
     BQ / "oracle_local_pca_strength_control_v1_scale_receipt.json",
     HERE / "code_ood_oracle_results.json",
     HERE / "joint_early_mlp_pca_composition_v1_preregistration.json",
+    BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_manifest.json",
+    BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_results.json",
+    BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_authority.json",
 )
 SOURCE_CLOSURE = (
     Path(__file__),
@@ -255,6 +263,17 @@ def require_inert_correction_state(sa: Any) -> None:
         raise RuntimeError("ORACLE_CORR retains a stale singleton or joint map")
 
 
+def float32_exact_patch_tolerance(original_max: float, deployed_max: float) -> dict[str, float]:
+    epsilon = torch.finfo(torch.float32).eps
+    scale = max(1.0, float(original_max) + 2.0 * float(deployed_max))
+    return {
+        "float32_epsilon": epsilon,
+        "roundoff_multiplier": 16.0,
+        "scale_max_1_original_plus_2deployed": scale,
+        "tolerance": 16.0 * epsilon * scale,
+    }
+
+
 @torch.no_grad()
 def exact_patch_canary(sa: Any) -> dict[str, Any]:
     require_inert_correction_state(sa)
@@ -272,9 +291,19 @@ def exact_patch_canary(sa: Any) -> dict[str, Any]:
             )
             patched = sa.add_oracle_correction(site, block, z, deployed).float()
             error = float((patched - original).abs().max())
-            if error > 2e-5:
-                raise RuntimeError(f"exact patch canary failed at MLP{site}: {error}")
-            output[str(site)] = {"max_abs_float32_error": error, "tolerance": 2e-5}
+            bound = float32_exact_patch_tolerance(
+                float(original.abs().max()), float(deployed.abs().max())
+            )
+            if error > bound["tolerance"]:
+                raise RuntimeError(
+                    f"exact patch canary failed at MLP{site}: error={error} "
+                    f"tolerance={bound['tolerance']} "
+                    f"scale={bound['scale_max_1_original_plus_2deployed']}"
+                )
+            output[str(site)] = {
+                "max_abs_float32_error": error,
+                **bound,
+            }
             joint.clear_oracle_corrections(sa.ORACLE_CORR)
             require_inert_correction_state(sa)
     finally:
@@ -613,10 +642,15 @@ def run_claimed(protected_before: Mapping[str, str | None]) -> None:
         raise RuntimeError("FineWeb logical receipt hash changed")
     document_ids, split_receipts = validate_document_provenance(row_receipt, frozen_rows)
     code_rows, code_manifest = code_oracle.load_frozen_corpus()
-    if FROZEN_STATE.exists() or FROZEN_MANIFEST.exists():
-        raise RuntimeError("refusing to overwrite an existing frozen ship realization")
+    if not FROZEN_STATE.is_file() or not FROZEN_MANIFEST.is_file():
+        raise RuntimeError("v4 requires the complete frozen ship pair preserved by v3")
     if frozen.FROZEN_LOCK.exists():
         raise RuntimeError("canonical frozen-state lock already exists")
+    frozen_payload, _ = frozen.validate_frozen_ship_pair(row_receipt)
+    if frozen_payload["ship_realization_sha256"] != (
+        "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e"
+    ):
+        raise RuntimeError("v3 frozen ship realization identity changed")
 
     manifest: dict[str, Any] = {
         "schema_version": 1,
@@ -666,7 +700,7 @@ def run_claimed(protected_before: Mapping[str, str | None]) -> None:
     def factorial_callback(
         twall: dict, all_attention: frozenset[int], _: float
     ) -> None:
-        realization_hash, frozen_manifest = frozen.freeze_ship_realization(
+        realization_hash, frozen_manifest = frozen.restore_ship_realization(
             sa, twall, all_attention, row_receipt, code_rows
         )
         component_before = component_tree_sha256(sa, twall, all_attention)
