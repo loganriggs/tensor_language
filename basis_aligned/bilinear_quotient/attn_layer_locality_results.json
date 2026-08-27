@@ -1,0 +1,157 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "lag": 1,
+  "ridge": 0.001,
+  "target": "attention OUTPUT WRITE only; v1 passed through unchanged",
+  "method": "exempt-one, RECOMPILING the whole stack per exemption so the maps above the exempt layer are never applied off-distribution (LESSONS 28)",
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1685_lag1": 0.5626,
+  "s1682_lag0": 0.1638
+ },
+ "stake": 3.55704,
+ "base_ceiling": 0.56263,
+ "shortfall": 0.43737,
+ "layers": {
+  "attn0": {
+   "ceiling_exempt": 0.59257,
+   "gain": 0.02993,
+   "share_of_shortfall": 0.0684
+  },
+  "attn1": {
+   "ceiling_exempt": 0.61666,
+   "gain": 0.05402,
+   "share_of_shortfall": 0.1235
+  },
+  "attn2": {
+   "ceiling_exempt": 0.62933,
+   "gain": 0.0667,
+   "share_of_shortfall": 0.1525
+  },
+  "attn3": {
+   "ceiling_exempt": 0.61668,
+   "gain": 0.05405,
+   "share_of_shortfall": 0.1236
+  },
+  "attn4": {
+   "ceiling_exempt": 0.62194,
+   "gain": 0.05931,
+   "share_of_shortfall": 0.1356
+  },
+  "attn5": {
+   "ceiling_exempt": 0.67867,
+   "gain": 0.11604,
+   "share_of_shortfall": 0.2653
+  },
+  "attn6": {
+   "ceiling_exempt": 0.66134,
+   "gain": 0.09871,
+   "share_of_shortfall": 0.2257
+  },
+  "attn7": {
+   "ceiling_exempt": 0.66118,
+   "gain": 0.09855,
+   "share_of_shortfall": 0.2253
+  },
+  "attn8": {
+   "ceiling_exempt": 0.64017,
+   "gain": 0.07754,
+   "share_of_shortfall": 0.1773
+  },
+  "attn9": {
+   "ceiling_exempt": 0.61639,
+   "gain": 0.05376,
+   "share_of_shortfall": 0.1229
+  },
+  "attn10": {
+   "ceiling_exempt": 0.62551,
+   "gain": 0.06288,
+   "share_of_shortfall": 0.1438
+  },
+  "attn11": {
+   "ceiling_exempt": 0.61927,
+   "gain": 0.05664,
+   "share_of_shortfall": 0.1295
+  },
+  "attn12": {
+   "ceiling_exempt": 0.60947,
+   "gain": 0.04684,
+   "share_of_shortfall": 0.1071
+  },
+  "attn13": {
+   "ceiling_exempt": 0.63776,
+   "gain": 0.07513,
+   "share_of_shortfall": 0.1718
+  },
+  "attn14": {
+   "ceiling_exempt": 0.641,
+   "gain": 0.07837,
+   "share_of_shortfall": 0.1792
+  },
+  "attn15": {
+   "ceiling_exempt": 0.59173,
+   "gain": 0.0291,
+   "share_of_shortfall": 0.0665
+  },
+  "attn16": {
+   "ceiling_exempt": 0.62071,
+   "gain": 0.05808,
+   "share_of_shortfall": 0.1328
+  },
+  "attn17": {
+   "ceiling_exempt": 0.57537,
+   "gain": 0.01274,
+   "share_of_shortfall": 0.0291
+  }
+ },
+ "mean_gain_early_attn0_3": 0.05117,
+ "mean_gain_rest_attn4_17": 0.06598,
+ "ranking": [
+  "attn5",
+  "attn6",
+  "attn7",
+  "attn14",
+  "attn8",
+  "attn13",
+  "attn2",
+  "attn10",
+  "attn4",
+  "attn16",
+  "attn11",
+  "attn3",
+  "attn1",
+  "attn9",
+  "attn12",
+  "attn0",
+  "attn15",
+  "attn17"
+ ],
+ "predictions": {
+  "pred_a_early_best_described": true,
+  "pred_b_shortfall_concentrated_ge_20pct": true,
+  "pred_c_control_reproduces_s1685": true
+ },
+ "runtime_s": 1426.9
+}

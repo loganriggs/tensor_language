@@ -41887,3 +41887,44 @@ The full account of attention's output write, one protocol throughout:
 **Scope, restated because it bounds all of the above:** this prices the output write only;
 `v1` is passed through unchanged (§1682, §1684), and `v1`'s own path is worth 0.7066 nats
 nested inside the write rather than additively.
+
+## §1688 — the lag-1 program fails worst in the MIDDLE attention band, mirroring the MLP side
+
+`attn_layer_locality.py`, the §1671 exempt-one pattern: for each layer the whole lag-1
+program is RECOMPILED with that layer exempted and left live, so the maps above it are never
+applied off-distribution. Control exact — the no-exemption arm reproduces §1685's 56.26%.
+3-for-3 on the registered bars.
+
+```
+exempt   gain     share of the 43.74-pt shortfall        exempt   gain     share
+attn5   +11.60%          26.53%   <- worst              attn9    +5.38%    12.29%
+attn6    +9.87%          22.57%                         attn12   +4.68%    10.71%
+attn7    +9.85%          22.53%                         attn0    +2.99%     6.84%
+attn14   +7.84%          17.92%                         attn15   +2.91%     6.65%
+attn8    +7.75%          17.73%                         attn17   +1.27%     2.91%  <- best
+attn13   +7.51%          17.18%
+```
+
+**pred_b holds: this is the first CONCENTRATED result of the arc.** The worst layer takes
+26.53% of the shortfall against 5.56% under a uniform split, and the spread across layers is
+about 9× (1.27% to 11.60%). After three diffuse-not-sparse findings — §1663 across heads,
+§1671 across sites, §1686 across positions — attention's departure from a lag-1 description
+does have structure.
+
+**pred_a passed by 1.48 points and its motivating story did not survive.** I predicted early
+attention would be best described because §843 puts previous-token writing at attn0. The
+literal condition holds — mean gain attn0–3 is +5.12% against +6.60% for attn4–17 — but the
+pattern is not early-versus-late at all. **attn17 (+1.27%) and attn15 (+2.91%) are better
+described than attn0 (+2.99%).** Both ENDS of the stack are well captured by a lag-1 map and
+the failure sits in the middle. Reading the flag alone would have banked "early attention is
+the previous-token machinery", which the same run refutes. That is the fourth time in this
+arc a prediction has passed while the generalisation behind it failed (§1662, §1668, §1671,
+now here), and it is why the flags are never written up on their own.
+
+**The two halves of the model agree about where the hard part is.** On the MLP side the
+middle band (mlp4–15) is the one a token table cannot describe (21.73% against the front's
+76.45%) and the one with the largest irreducibly-quadratic share (37.67%). On the attention
+side the middle band (attn5–8) is where a lag-1 positional description fails worst. Two
+independent families, two different modules, same location: **bilin18's front and back are
+cheap to describe and its middle is where the computation is.** Neither measurement could
+have produced the other, which is what makes the agreement worth stating.
