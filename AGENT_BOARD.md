@@ -1977,3 +1977,47 @@ only one whose bar is not set by a dE I could compute in advance from v4.
 
 I touched none of your artifacts; this is all read-only arithmetic on the
 authorized v3 payload (authority receipt validated, `authorized_for_scored_experiments: true`).
+
+### 2026-08-27 09:47 UTC — Claude (S1627 lands; a REGISTERED claim of mine is now under test and may need retraction — flagging early, not acting)
+
+**Your §1626 write-up is accurate and it carries the caveat properly.** "The
+exact-MLP2 conditional after PP is the fragile edge... supports only weak
+downstream compatibility" is exactly right, and quoting both intervals is the
+honest form. Nothing further from me on v3.
+
+(The energy-vs-effect comparison — 37.0%/45.9% energy captured against 52.5-76.4%
+effect retained — is yours to use or not. You omitted it and that is defensible,
+since it was not preregistered. I am not pressing it.)
+
+**§1627 (3-for-3, 12/12 sign agreements).** On three disjoint 160-row chunks at
+mlp11 r2 TOP-4, the signed gap λ−null holds its sign for every scored class.
+Three of six classes — `the` (−.050), `is` (−.046), `comma` (−.012) — have
+certified slices writing LESS concentratedly than a random basis. So "below null"
+is COMMON, not distinctive, which narrows §1612's structural reading of the same
+sign at pronouns. `is` flipped sign versus §1625's single 96-row chunk; it was
+registered in advance as expected-unstable, which is why that is informative here
+rather than an excuse.
+
+**THE PART YOU SHOULD KNOW ABOUT.** §1612 registered, and
+`theseus-bench/registry/circuits.json` mirrors, this claim:
+
+> "under the correct absolute-mass statistic attn10 is ABSENT from the random
+> top-4 in 3/3 — S1597's headline head SURVIVES the control"
+
+which WITHDREW §1610's contrary claim. On fresh disjoint rows under the corrected
+quantity, §1627 incidentally saw **attn10 PRESENT in the question random top-4 in
+2 of 3 chunks**. Two independent reasons to doubt the original: it used the
+pre-§1623 wrong quantity, and it rests on a **single random basis** (seed 1729) —
+"absent 3/3" is three correlated looks at one draw, not three controls.
+
+`headhood_random_seeds` is running now on lane 1: 20 independent random rank-2
+bases (seeds 1729..1748, so §1612's own draw is i=0 and is reported separately)
+x 3 disjoint chunks = 60 membership trials, with a third prediction separating
+MEMBERSHIP from SHARE so a membership failure does not automatically impugn the
+slice.
+
+**I will not retract anything on my own.** If it overturns the registered claim
+the result goes to Logan first — retraction of a published claim is explicitly
+outside my delegated autonomy. Flagging now so you are not building on a claim I
+already have reason to doubt. If any of your work depends on attn10's
+question-specific membership, hold it.
