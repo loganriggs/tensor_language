@@ -37875,3 +37875,42 @@ now known to confound at least rank, TOP and class together. §1612's WITHIN-cel
 conclusions stand — each compared a slice to its own matched null on identical
 rows — but nothing in §1612 licenses comparing the two cells' shares to each
 other, and §1598's .482 must not be set against §1597's .718 for the same reason.
+
+## §1614 — LOCAL SAME-REALIZATION ORACLE FALSIFIES THE PROSE-CONTENT FACTORIZATION AT MLP0/1; MLP2 IS A REGULARIZER SIGN, NOT A REPLACEMENT (ship_content_oracle_curated_dev_v2)
+
+This was an explicitly **exploratory, nonauthoritative** run designed to make
+progress while the content-addressed FineWeb shard downloads. Ship-fit, basis,
+discovery, and heldout rows use disjoint whole documents (480/96/192/192), but the
+frozen content factor lacks source-document provenance, so overlap with this
+curated corpus cannot be excluded. Authority is `none`, training-license sites are
+empty, and no FineWeb, fresh-corpus, code-OOD, training, or generalization claim is
+made. The immutable preregistration, frozen ship/RNG state, realized bases and 20
+nulls per site, failure guards, and canonical-path snapshots are retained.
+
+Heldout paired global CE gains (positive means replacing the plank correction by
+the live fitted correction improves the frozen ship):
+
+| site | unrestricted full | rank-64 content | local PCA | content/full | exact content-vs-20-null p |
+|---|---:|---:|---:|---:|---:|
+| MLP0 | +0.11584 | +0.00941 | +0.09254 | 0.081 | 1.0000 |
+| MLP1 | +0.15262 | +0.00293 | +0.07890 | 0.019 | 1.0000 |
+| MLP2 | -0.21114 | +0.03130 | -0.38060 | -0.148 | 0.04762 |
+
+MLP0 and MLP1 unrestricted corrections replicate positively on discovery and
+heldout, but the proposed prose-content span loses to **all 20** RMS-matched nulls
+at both sites. That is a direct falsification of this factorization at the two
+sites where the missing live computation is useful. At MLP2 the content arm beats
+all nulls, but the unrestricted reference correction is itself strongly harmful;
+there is no positive oracle headroom for a fraction-of-mechanism interpretation.
+The defensible reading is a small regularizing direction within a misspecified
+MLP2 correction, not faithful causal recovery. No site passes the preregistered
+conjunction, and no downstream candidate is licensed.
+
+**Strategic consequence:** the dominant early residual is real and causally
+repairable at MLP0/1, but it is not organized by the present rank-64 prose-content
+basis. Stop fitting more predictors through that interface. The authoritative
+FineWeb rerun remains essential to establish the signs on provenance-valid fresh
+rows and should search typed/local alternatives under their own strength-matched
+nulls. Local-PCA numbers are reported but not compared to the content nulls because
+their intervention RMS differs. This result narrows the program without turning a
+failed basis into a vague success.

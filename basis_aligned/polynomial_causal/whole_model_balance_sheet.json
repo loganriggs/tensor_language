@@ -349,6 +349,145 @@
       "scope": "question rank sweep r4/r8/r16/r32; rank-32 question/pronoun backgrounds; eight class-specific top-unit truncation controls",
       "claim": "Compression is a useful self-consistent replacement background, but not a circuit-selective operator: class and global damage move together at every tested rank, and restoring exact named heads does not recover function inside that background.",
       "caveat": "This rejects generic compression as an extraction or selective-edit primitive at the tested interfaces. It does not reject compression as a priced fidelity component, nor behavior-specific gauges that pass direct intervention-transport tests."
+    },
+    "early_mlp_live_correction_oracle_exploratory": {
+      "authority": "none",
+      "authorized_for_scored_experiments": false,
+      "development_candidate_sites": [],
+      "training_license_sites": [],
+      "projection_rank": 64,
+      "matched_nulls_per_site": 20,
+      "heldout_global_gain_nats": {
+        "0": {
+          "full": 0.11583606898784637,
+          "content": 0.00941414013504982,
+          "local_pca": 0.09254474937915802
+        },
+        "1": {
+          "full": 0.15261724591255188,
+          "content": 0.0029323423902193704,
+          "local_pca": 0.07889982437094052
+        },
+        "2": {
+          "full": -0.2111373965938886,
+          "content": 0.03129575401544571,
+          "local_pca": -0.380599735925595
+        }
+      },
+      "site_decisions": {
+        "0": {
+          "full_oracle_ci95_lower_gt_zero": true,
+          "content_positive_both_splits": true,
+          "content_beats_matched_null95_heldout": false,
+          "content_heldout_gain": 0.00941414013504982,
+          "matched_null95_heldout_gain": 0.02948467619717121,
+          "content_fraction_of_full_oracle_gain": 0.08127123284922212,
+          "exact_twenty_null_test": {
+            "content_gain": 0.00941414013504982,
+            "null_gains": [
+              0.013492324699958166,
+              0.02944943557182948,
+              0.02431068817774455,
+              0.023257092883189518,
+              0.02824838583668073,
+              0.026582999775807064,
+              0.030154280364513397,
+              0.02342007930080096,
+              0.026484762628873188,
+              0.022585070381561916,
+              0.022325824946165085,
+              0.02703103298942248,
+              0.019513897597789764,
+              0.028478528062502544,
+              0.02410741274555524,
+              0.025554051001866657,
+              0.028938941657543182,
+              0.019262300183375675,
+              0.024467488129933674,
+              0.02213601271311442
+            ],
+            "nulls_at_least_content": 20,
+            "exact_one_sided_p": 1.0,
+            "passes_5pct": false
+          }
+        },
+        "1": {
+          "full_oracle_ci95_lower_gt_zero": true,
+          "content_positive_both_splits": true,
+          "content_beats_matched_null95_heldout": false,
+          "content_heldout_gain": 0.0029323423902193704,
+          "matched_null95_heldout_gain": 0.056449465453624725,
+          "content_fraction_of_full_oracle_gain": 0.019213702702377242,
+          "exact_twenty_null_test": {
+            "content_gain": 0.0029323423902193704,
+            "null_gains": [
+              0.04784224679072698,
+              0.04850073282917341,
+              0.048272132873535156,
+              0.0387975238263607,
+              0.04055790727337202,
+              0.03825704132517179,
+              0.048595221092303596,
+              0.038746525843938194,
+              0.048142362385988235,
+              0.04672026882568995,
+              0.04430988555153211,
+              0.053050740311543144,
+              0.056350560237964,
+              0.04793339595198631,
+              0.0391052837173144,
+              0.04741174976030985,
+              0.05087807898720106,
+              0.053735281030337013,
+              0.04835476726293564,
+              0.0583286869029204
+            ],
+            "nulls_at_least_content": 20,
+            "exact_one_sided_p": 1.0,
+            "passes_5pct": false
+          }
+        },
+        "2": {
+          "full_oracle_ci95_lower_gt_zero": false,
+          "content_positive_both_splits": true,
+          "content_beats_matched_null95_heldout": true,
+          "content_heldout_gain": 0.03129575401544571,
+          "matched_null95_heldout_gain": 0.021721282973885536,
+          "content_fraction_of_full_oracle_gain": -0.14822458986572334,
+          "exact_twenty_null_test": {
+            "content_gain": 0.03129575401544571,
+            "null_gains": [
+              -0.0020776577293872833,
+              0.027629068742195766,
+              0.0103211576739947,
+              0.009545536090930304,
+              0.019317959745724995,
+              0.005747061222791672,
+              -0.0038975725571314492,
+              0.015623744577169418,
+              0.009198639541864395,
+              0.014650100221236547,
+              0.01596314087510109,
+              0.01617303987344106,
+              0.0099916805823644,
+              0.019353772203127544,
+              0.021410350998242695,
+              0.016931259383757908,
+              0.0024301024774710336,
+              -0.0043117329478263855,
+              0.011158820241689682,
+              0.011361910651127497
+            ],
+            "nulls_at_least_content": 0,
+            "exact_one_sided_p": 0.047619047619047616,
+            "passes_5pct": true
+          }
+        }
+      },
+      "currency": "paired held-out CE gain from exact live original-minus-plank correction versus frozen ship, with exact one-sided 20-null gate for the rank-64 content arm",
+      "scope": "one frozen same-realization local-curated ship; whole-document-disjoint ship-fit/basis/discovery/heldout rows, but frozen content-factor source-document provenance is unavailable",
+      "claim": "The unrestricted live correction is strongly beneficial at MLP0 and MLP1 (+0.116 and +0.153 nats), while the proposed rank-64 content arm recovers only 8.1% and 1.9% of those gains and loses to every matched null. At MLP2 the unrestricted correction is harmful (-0.211 nats), so the content arm's +0.031-nat null win is a regularizing sign rather than a faithful replacement. No site passes the complete candidate gate.",
+      "caveat": "This run has authority none and licenses no site: the content factor may overlap the curated corpus, so it is exploratory within-realization evidence only. Local-PCA arms are not compared to the content-matched nulls because their correction RMS differs. The result prunes the current prose-content factorization; it does not prune a fresh authoritative live oracle or a differently typed causal interface."
     }
   },
   "current_bottleneck": {
@@ -363,13 +502,13 @@
   "ranked_actions": [
     {
       "priority": 1,
-      "action": "After the remaining streaming control clears, pass the real rowcache identity gate, freeze all registered FineWeb rows, and run the authoritative same-realization live-z oracle v2 at MLP0-2.",
-      "why": "The preliminary oracle failed before science and could not preserve its randomized derived ship. The v2 path tests whether exact missing original computation repairs CE, compares content/local/null projections, and freezes the realization so any conditional OOD conclusion is composable and reproducible."
+      "action": "Finish the pinned FineWeb shard, prove every registered row tensor against the canonical file/config order, freeze the complete rowcache, and rerun the same-realization live-correction oracle at MLP0-2 with authoritative provenance.",
+      "why": "The isolated local run found strong unrestricted correction at MLP0/1 but decisively falsified the current content arm there; MLP2 was sign-unstable. A canonical rerun is the highest-information test of whether those causal signs survive fresh data and which site, if any, can license downstream composition."
     },
     {
       "priority": 2,
-      "action": "If the FineWeb oracle licenses a site, repeat the optimizer-free singleton screen on code using the frozen prose basis, a code-local basis, and matched nulls before fitting any predictor.",
-      "why": "The registered prose-content OOD claim already failed: the basis captures only 16.6% of code variation versus 51.5% for code's own top-64 basis. A FineWeb pass cannot support a whole-model content API without deciding between transported, domain-typed, and non-content residual coordinates."
+      "action": "If and only if the authoritative oracle licenses a site, repeat the optimizer-free singleton screen on code using frozen prose, code-local, transported, and matched-null bases before fitting a predictor.",
+      "why": "The local oracle now joins the earlier code result in rejecting prose content as a universal API: it loses to all nulls at MLP0/1, while prose retains only 16.6% of code variation versus 51.5% for code-local coordinates. Conditional OOD screening distinguishes a typed interface from a non-content residual without spending training compute."
     },
     {
       "priority": 3,
@@ -549,6 +688,10 @@
     "compression_rank": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/compression_rank3_results.json",
       "sha256": "1b486b97e4c9da586161e4649e833a42ad80db787e8ac64798f944f5fb3c98aa"
+    },
+    "local_ship_oracle_curated_dev_v2": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_content_oracle_curated_dev_v2_results.json",
+      "sha256": "85a7e2327c94bba21cc00bd20b8d563bf684fa0c341d03343a398bbda216b2e3"
     }
   }
 }

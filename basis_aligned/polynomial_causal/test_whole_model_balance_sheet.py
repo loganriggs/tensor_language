@@ -147,3 +147,20 @@ def test_compression_is_priced_fidelity_not_circuit_selectivity():
     assert max(ratios.values()) < 1.2
     assert max(compression["exact_circuit_marginal_recovery_in_compressed_background"].values()) < 0
     assert "not a circuit-selective operator" in compression["claim"]
+
+
+def test_local_live_correction_oracle_prunes_content_without_licensing_science():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    oracle = sheet["ledgers"]["early_mlp_live_correction_oracle_exploratory"]
+    assert oracle["authority"] == "none"
+    assert oracle["authorized_for_scored_experiments"] is False
+    assert oracle["development_candidate_sites"] == []
+    assert oracle["training_license_sites"] == []
+    assert oracle["heldout_global_gain_nats"]["0"]["full"] > 0.10
+    assert oracle["heldout_global_gain_nats"]["1"]["full"] > 0.14
+    assert oracle["heldout_global_gain_nats"]["2"]["full"] < -0.20
+    assert oracle["site_decisions"]["0"]["exact_twenty_null_test"]["exact_one_sided_p"] == 1.0
+    assert oracle["site_decisions"]["1"]["exact_twenty_null_test"]["exact_one_sided_p"] == 1.0
+    assert oracle["site_decisions"]["2"]["exact_twenty_null_test"]["passes_5pct"] is True
+    assert "regularizing sign" in oracle["claim"]
+    assert "authority none" in oracle["caveat"]

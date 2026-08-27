@@ -45,6 +45,7 @@ DEFAULT_SOURCES = {
     "extraction_question": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_results.json",
     "extraction_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_p_results.json",
     "compression_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/compression_rank3_results.json",
+    "local_ship_oracle_curated_dev_v2": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_content_oracle_curated_dev_v2_results.json",
 }
 
 
@@ -146,6 +147,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     extraction_question = data["extraction_question"]
     extraction_pronouns = data["extraction_pronouns"]
     compression_rank = data["compression_rank"]
+    local_oracle = data["local_ship_oracle_curated_dev_v2"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
     factorial_cells = factorial_primary["cells"]
@@ -399,6 +401,26 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "Compression is a useful self-consistent replacement background, but not a circuit-selective operator: class and global damage move together at every tested rank, and restoring exact named heads does not recover function inside that background.",
             "caveat": "This rejects generic compression as an extraction or selective-edit primitive at the tested interfaces. It does not reject compression as a priced fidelity component, nor behavior-specific gauges that pass direct intervention-transport tests.",
         },
+        "early_mlp_live_correction_oracle_exploratory": {
+            "authority": local_oracle["config"]["authority"],
+            "authorized_for_scored_experiments": local_oracle["config"]["authorized_for_scored_experiments"],
+            "development_candidate_sites": local_oracle["development_candidate_sites"],
+            "training_license_sites": local_oracle["training_license_sites"],
+            "projection_rank": local_oracle["config"]["projection_rank"],
+            "matched_nulls_per_site": local_oracle["config"]["matched_nulls_per_site"],
+            "heldout_global_gain_nats": {
+                str(site): {
+                    arm: local_oracle["paired_gains"][str(site)]["heldout"][arm]["global"]["mean"]
+                    for arm in ("full", "content", "local_pca")
+                }
+                for site in (0, 1, 2)
+            },
+            "site_decisions": local_oracle["site_decisions"],
+            "currency": "paired held-out CE gain from exact live original-minus-plank correction versus frozen ship, with exact one-sided 20-null gate for the rank-64 content arm",
+            "scope": "one frozen same-realization local-curated ship; whole-document-disjoint ship-fit/basis/discovery/heldout rows, but frozen content-factor source-document provenance is unavailable",
+            "claim": "The unrestricted live correction is strongly beneficial at MLP0 and MLP1 (+0.116 and +0.153 nats), while the proposed rank-64 content arm recovers only 8.1% and 1.9% of those gains and loses to every matched null. At MLP2 the unrestricted correction is harmful (-0.211 nats), so the content arm's +0.031-nat null win is a regularizing sign rather than a faithful replacement. No site passes the complete candidate gate.",
+            "caveat": "This run has authority none and licenses no site: the content factor may overlap the curated corpus, so it is exploratory within-realization evidence only. Local-PCA arms are not compared to the content-matched nulls because their correction RMS differs. The result prunes the current prose-content factorization; it does not prune a fresh authoritative live oracle or a differently typed causal interface.",
+        },
     }
 
     current_ship = inventory.get("current_composite", {})
@@ -422,13 +444,13 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "After the remaining streaming control clears, pass the real rowcache identity gate, freeze all registered FineWeb rows, and run the authoritative same-realization live-z oracle v2 at MLP0-2.",
-                "why": "The preliminary oracle failed before science and could not preserve its randomized derived ship. The v2 path tests whether exact missing original computation repairs CE, compares content/local/null projections, and freezes the realization so any conditional OOD conclusion is composable and reproducible.",
+                "action": "Finish the pinned FineWeb shard, prove every registered row tensor against the canonical file/config order, freeze the complete rowcache, and rerun the same-realization live-correction oracle at MLP0-2 with authoritative provenance.",
+                "why": "The isolated local run found strong unrestricted correction at MLP0/1 but decisively falsified the current content arm there; MLP2 was sign-unstable. A canonical rerun is the highest-information test of whether those causal signs survive fresh data and which site, if any, can license downstream composition.",
             },
             {
                 "priority": 2,
-                "action": "If the FineWeb oracle licenses a site, repeat the optimizer-free singleton screen on code using the frozen prose basis, a code-local basis, and matched nulls before fitting any predictor.",
-                "why": "The registered prose-content OOD claim already failed: the basis captures only 16.6% of code variation versus 51.5% for code's own top-64 basis. A FineWeb pass cannot support a whole-model content API without deciding between transported, domain-typed, and non-content residual coordinates.",
+                "action": "If and only if the authoritative oracle licenses a site, repeat the optimizer-free singleton screen on code using frozen prose, code-local, transported, and matched-null bases before fitting a predictor.",
+                "why": "The local oracle now joins the earlier code result in rejecting prose content as a universal API: it loses to all nulls at MLP0/1, while prose retains only 16.6% of code variation versus 51.5% for code-local coordinates. Conditional OOD screening distinguishes a typed interface from a non-content residual without spending training compute.",
             },
             {
                 "priority": 3,

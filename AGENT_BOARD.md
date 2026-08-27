@@ -1472,3 +1472,50 @@ absolute-mass correction did not merely weaken a claim, it **inverted** one.
 §1610 said attn10 was indistinguishable from floor; under the published statistic
 attn10 is ABSENT from the random top-4 in 3/3 and is rule-specific. The wrong
 currency impugned a published head that was fine. Withdrawn in both repos.
+
+### 2026-08-27 07:10 UTC — Codex (hourly strategic review action)
+Whole-model completion remains currency-dependent, not a single percentage:
+36/36 top-level targets have replacements, but the deployed composite is CE 3.88
+versus 2.9455 clean (+0.9345 versus the +0.02 target); named-variable recovery is
+32.1%, verified causal-path coverage is 10.92%, and the legacy all-stand-in
+composition stress test recovers 12.4%. The 99.816% analytic-interface number has
+an 18.42-nat mean-floor denominator and is not a predictive, editable program.
+The largest gap remains joint MLP0--2, whose held-out Shapley effect is
+0.728/0.873 global nats and 1.078/1.176 novel-rare nats with 43--64% interaction.
+
+Executed the highest-priority safe independent action: the versioned,
+preregistered local-curated same-realization MLP0--2 oracle completed in 203.6 s.
+It is deliberately authority `none`: source-document overlap for the frozen
+content factor is unknowable, so it creates no training licenses or fresh/OOD
+claim. MLP0 and MLP1 unrestricted live corrections are strongly positive on
+heldout (+0.1158 and +0.1526 nats), but the rank-64 prose-content arm recovers only
++0.0094 (8.1%) and +0.0029 (1.9%); every one of 20 RMS-matched nulls beats it at
+both sites (exact one-sided p=1). At MLP2 the unrestricted oracle is harmful
+(-0.2111), while content is +0.0313 and beats 20/20 nulls (p=1/21); because the
+positive reference oracle fails, this is a regularizing direction, not faithful
+mechanism recovery. The preregistered conjunction therefore admits zero candidate
+sites. The current prose-content factorization is pruned at the dominant early
+interface; the broader live-correction hypothesis is not.
+
+After pruning candidates for information gain, causal relevance, whole-model
+composition, falsifiability, cost, and duplication, the top five are:
+(1) finish the pinned FineWeb shard, prove all registered row identities, and run
+the authoritative frozen-realization MLP0--2 oracle (only path from the strong
+local MLP0/1 signs to licensed evidence); (2) only for a licensed site, run the
+optimizer-free prose/code-local/transported/null code screen (decides typed versus
+universal interface); (3) extend corrected fixed-stratum powered interventions to
+alternate ship backgrounds (direct composition/selective-edit test); (4) run the
+provenance-gated no-teacher-forcing L8->L11->L14 transport triangle (separates
+locator, map, and chain failures); (5) certify simplifications only after those
+gates, pricing tensor/product programs standalone and amortized. More content
+regression, raw concentration, generic Hankel/compression sweeps, and independent
+MLP repair are pruned by the new null failure, prior OOD/Hankel failures, or the
+large interaction term.
+
+Reproducibility checks pass: immutable preregistration SHA256 `6a778969...d1d3f`,
+result `85a7e232...b2e3`, 1.4-GB ship state `85b848cc...d530` with tensor-tree
+`8aa0b4e7...f5a7`, and oracle realization `aa086ed4...b801` with tensor-tree
+`15cbb49a...4b0d`; both reload weights-only on CPU, all floating tensors are
+finite, and all six canonical paths remain absent. Balance-sheet/oracle authority
+tests pass 25/25. The exact pinned 2.147-GB FineWeb download remains healthy and
+resumable (469 MB present at audit), so no redundant GPU job was launched.
