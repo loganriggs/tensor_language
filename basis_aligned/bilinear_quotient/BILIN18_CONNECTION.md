@@ -40824,3 +40824,58 @@ measured case: 74.42% all-positions vs 90.27% covered-hybrid, a 15.9-point under
 The dossier's ORDERING across modules is probably preserved (the bias is a coverage
 artifact of similar size at every site) but the LEVELS are not trustworthy. Flagged in
 the registry rather than silently corrected, since only mlp0 has been remeasured.
+
+## §1662 — the front-band tableability ladder, and a correction to §1661's framing
+
+`mlp_context_share_ladder.py`, sites 0–3, hybrid substitution and covered-position
+scoring throughout, with a per-site instrument check. 3-for-3.
+
+```
+site  live ceiling   stake (nats)   residue (nats)   frozen ceiling (known: 1.0)
+mlp0     90.27%         0.855           0.083            100.00%
+mlp1     96.01%         7.005           0.279            100.00%
+mlp2     76.98%         0.772           0.178            100.00%
+mlp3     67.55%         0.620           0.201            100.00%
+```
+
+The instrument check passes at **all four sites**, and exactly: in every frozen arm
+`ce_table` equals `ce_live` to five decimals. mlp0 reproduces §1661's 90.27% to the digit.
+
+**FIRST — the correction I owe §1661.** I wrote there that "100% of the residue is attn0's
+write", and put it in the registry as the resolution of the `_mlp0_dossier` open question.
+That reads as an empirical attribution and it is not one. Attention is the ONLY module in
+a transformer that moves information between positions, so any MLP whose attention inputs
+are all held constant is token-deterministic **by construction**, and its covered table is
+exact **necessarily**. The frozen arm is an instrument check, not evidence. §1661 said as
+much in its own "what is NOT claimed" paragraph and then contradicted it in the headline.
+
+What survives is the part that was always empirical: **the live split**. mlp0 is 90.27%
+reproducible by a current-token lookup in the running model. That the remaining 9.73% is
+context delivered via attention is architecture, not discovery.
+
+**SECOND — the ladder is NOT monotone, and pred_b passed anyway.** I predicted context
+share grows with depth, on the reasoning that the front band accumulates context so a
+token table should buy less as you climb. The literal condition (mlp3 exceeds mlp0 by ≥5
+points) passed at +22.7. The hypothesis behind it is false: **mlp1 is the most tableable
+of the four at 96.01%**, more than mlp0 despite sitting above it. Depth does not order
+tableability. Recording this as a pass whose motivating claim failed, because reading the
+prediction flag alone would have banked a generalisation the data refutes.
+
+**THIRD — mlp1 is the front band's anomaly, twice.** Its stake is **7.005 nats**, eight
+times each of its three neighbours (0.86 / 0.77 / 0.62). It is by far the largest module
+in the front band, and simultaneously the most nearly a pure token function. Its residue
+is only 3.99% — but of a stake that size, that is **0.279 nats**, the LARGEST absolute
+un-tableable quantity of the four. Percentage tableability and absolute residue rank the
+band differently, and the absolute figure is the one that matters for what remains to be
+explained.
+
+**Limitation, stated with the numbers.** At mlp2 and mlp3 the frozen arm replaces three
+and four attention modules with constants; CE under freeze rises to 5.36 and 5.67 against
+3.28 live. Those arms are badly damaged models. The ceiling is a ratio computed within
+each condition so it stays well defined, and its role here is only as the known-answer
+check — the live column is the only one that describes bilin18 as it runs.
+
+**What this opens.** "The residue is attention" is architecture. **Which** attention
+delivers it is not: mlp1 sits above eighteen heads, and whether its 0.279 nats come from a
+few of them or from all eighteen is unconstrained by the architecture. Queued as
+`mlp1_residue_attribution.py`.

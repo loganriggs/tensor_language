@@ -359,8 +359,19 @@ optimal constant raises that to exactly **100%**. So mlp0's un-tableable residue
 wrote into the stream**. mlp0 itself computes no context-dependence. It is a token table
 plus a correction it inherits.
 
-This is the first front-band module with a complete account: `mlp0 = table(token) +
-f(attn0's write)`, with nothing left over.
+**Correction (§1662), applied here rather than left in the ledger.** The sentence above
+originally read that *100% of the residue is attn0's write*. That is architecture, not a
+finding: attention is the only module in a transformer that moves information between
+positions, so an MLP with its attention inputs frozen is token-deterministic by
+construction and its covered table is exact necessarily. The frozen arm is the instrument
+check; the empirical content is the live 90.27%. **Which** attention delivers the residue
+is a real question and is not answered by this run.
+
+**The front band, same protocol (§1662).** Live covered ceilings are not ordered by depth:
+mlp0 90.27%, mlp1 96.01%, mlp2 76.98%, mlp3 67.55%. mlp1 is the anomaly twice -- the most
+tableable of the four despite sitting above mlp0, and carrying a 7.005-nat stake against
+0.86/0.77/0.62 for its neighbours. Its 3.99% residue is therefore 0.279 nats, the largest
+absolute un-tableable quantity in the band. The instrument check passes at all four sites.
 
 **The instrument check, and why it matters more than the number.** With attn0 held
 constant, the residual stream below mlp0 is embedding + constant, and MLPs are
