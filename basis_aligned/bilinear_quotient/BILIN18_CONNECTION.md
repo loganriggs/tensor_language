@@ -41329,3 +41329,66 @@ Codex, whose lattice states are chosen on local fidelity measures.
 Queued `additive_program_family.py`: since tables win at mlp0–1 and linear wins from mlp3
 on, neither pure family is right and their sum `y = b(token) + xW` should beat both. That
 is also, independently, the form Codex's native-Down program takes.
+
+## §1673 — the additive family y = b(token) + xW loses to BOTH of its own special cases, and coverage is not why
+
+`additive_program_family.py` then `additive_coverage_controlled.py`. The first run put the
+additive program at **47.34%**, below tables-at-mlp0-2 (57.29%) and all-linear (54.28%).
+A strictly richer family — b=0 recovers all-linear, W=0 recovers all-table — cannot really
+lose to both, so I treated it as a broken measurement and did not report it.
+
+My first diagnosis was a confound I had built in myself: the additive arm substituted at
+every position while the table arm used the §1661 hybrid hook. Varying family and coverage
+policy separately, with both reference points reproducing exactly:
+
+```
+                    substitute everywhere    hybrid (module live at uncovered)
+linear                    54.28%                      57.99%     (+3.71)
+additive                  47.34%                      54.35%     (+7.01)
+table @ mlp0-2              n/a                       57.29%
+```
+
+**Coverage is worth 3.7–7.0 points and does NOT explain it.** With coverage matched,
+additive still loses to both pure families. pred_a and pred_b both failed.
+
+**The remaining explanation is estimation, not expressiveness.** The additive arm fits a
+per-token table at all eighteen sites — 6009 tokens × 1152 dims from 24576 fit positions,
+about four positions per token. At mlp0–2 the token genuinely determines the output
+(ceilings 90%, 96%, 77%) so that estimator is sound. At the other fifteen sites the token
+explains almost nothing, so `b` is close to noise, and `W` is then fitted on the residual
+of a noisy `b`. Adding a term you cannot estimate is worse than not having it. This is
+stated as the leading hypothesis, not a finding — `fit_size_scaling.py` is queued to test
+it by refitting everything on 5× the data.
+
+**It also revises the mechanism I gave for §1672's greedy failure.** I wrote there that
+local L2 "weights directions that don't matter downstream". That was a mechanism I had not
+tested. The simpler account is that the greedy criterion was evaluated IN-SAMPLE, on the
+fit rows, where a 6.9M-parameter table beats a 1.3M-parameter linear map by construction.
+The empirical finding stands unchanged — local in-sample selection picks a program that is
+3.5 points worse end-to-end than ignoring it — but the mechanism is unresolved between
+these two, and I should not have asserted one.
+
+## §1674 — correcting how I have been quoting the "best program" number
+
+The hybrid hook leaves the module LIVE at the 23.4% of positions whose token was unseen at
+fit time. For a token table that is a genuine limitation of the artifact: a table has no
+entry there, and the alternative (LESSONS 27) is a broken measurement. For a **linear map,
+which is defined at every position, leaving the module live is simply not substituting**.
+
+The comparison between families stays fair — every arm leaves the same positions live, and
+scoring is on covered positions throughout — but the absolute number overstates what a
+standalone program achieves. Two numbers, and they answer different questions:
+
+- **Under the covered-position protocol** used throughout this ledger:
+  linear 57.99% > table@mlp0-2 57.29% > additive 54.35%.
+- **As a standalone program that fully replaces the MLPs**: eighteen linear maps compiled
+  bottom-up, **54.28%**. This is the honest figure for "a program that runs instead of the
+  model's MLPs".
+
+**And there is no standalone table program at all.** A token table substituted everywhere
+is exactly the arm LESSONS 27 showed is broken. So the asymmetry is structural: a linear
+map can be a program; a lookup table can only ever be an account of the positions it covers.
+
+I have been quoting 57.29% as "the best program for bilin18's MLP stack" since §1670.
+Restated in the registry as: 54.28% standalone, 57.99% under the covered-position protocol,
+with the table variants marked as protocol-bound.

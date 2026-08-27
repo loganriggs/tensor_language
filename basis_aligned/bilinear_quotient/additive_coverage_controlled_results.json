@@ -1,0 +1,67 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "design": "family (linear | additive | table) x coverage policy (substitute everywhere | hybrid, module live at uncovered)",
+  "compilation": "bottom-up (\u00a71669)",
+  "scoring": "covered positions only",
+  "why": "a strictly richer family scoring below both of its own special cases signals a broken measurement, not a bad family",
+  "s1672_best_pure": 0.5729,
+  "s1673_additive_everywhere": 0.4734,
+  "s1669_all_linear": 0.5428
+ },
+ "stake": 4.3196,
+ "arms": {
+  "table_mlp0_2_hybrid": {
+   "ceiling": 0.57291,
+   "ce": 5.12432
+  },
+  "linear_everywhere": {
+   "ceiling": 0.54282,
+   "ce": 5.2543
+  },
+  "linear_hybrid": {
+   "ceiling": 0.57987,
+   "ce": 5.09423
+  },
+  "additive_everywhere": {
+   "ceiling": 0.47338,
+   "ce": 5.55423
+  },
+  "additive_hybrid": {
+   "ceiling": 0.54353,
+   "ce": 5.25121
+  }
+ },
+ "coverage_effect": {
+  "linear": 0.03705,
+  "additive": 0.07015
+ },
+ "predictions": {
+  "pred_a_coverage_explains_failure_ge_8pts": false,
+  "pred_b_additive_beats_best_pure": false,
+  "pred_c_controls_hold": true
+ },
+ "runtime_s": 88.9
+}
