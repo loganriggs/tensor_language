@@ -77,6 +77,39 @@ def trunc_perhead(W, r, Wh, Whi):
 SHIP = {'t0': None, 'r0': None, 't1': None, 'r1': None, 'r2': None, 'r17': None,
         'p3': None, 'mean3': None}
 CORR = {'on': False, 'b': None, 'U': None, 'V': None}
+CONTENT_CORR = {'on': False, 'site': None, 'weight': None, 'bias': None,
+                'basis': None}
+ORACLE_CORR = {'on': False, 'site': None, 'basis': None, 'scale': 1.0,
+               'capture': None}
+
+
+def add_content_correction(site, z, mo):
+    """Apply a fixed-output-basis correction from the live normalized MLP input."""
+    if not CONTENT_CORR['on'] or CONTENT_CORR['site'] != site:
+        return mo
+    coeff = z.float().reshape(-1, D) @ CONTENT_CORR['weight'] + CONTENT_CORR['bias']
+    delta = (coeff @ CONTENT_CORR['basis'].T).view_as(mo)
+    return mo + delta.to(mo.dtype)
+
+
+def add_oracle_correction(site, block, z, mo):
+    """Inject the live original-minus-plank residual, optionally projected."""
+    should_capture = ORACLE_CORR['capture'] is not None and site in ORACLE_CORR['capture']
+    should_inject = ORACLE_CORR['on'] and ORACLE_CORR['site'] == site
+    if not should_capture and not should_inject:
+        return mo
+    residual = block.mlp(z).float() - mo.float()
+    if should_capture:
+        ORACLE_CORR['capture'][site].append(residual[:, 64::3].detach().cpu())
+    if not should_inject:
+        return mo
+    basis = ORACLE_CORR['basis']
+    if basis is None:
+        delta = residual
+    else:
+        flat = residual.reshape(-1, D)
+        delta = ((flat @ basis) @ basis.T).view_as(residual)
+    return mo + (ORACLE_CORR['scale'] * delta).to(mo.dtype)
 
 
 def fwd_arm(idx, layers, TWALL, mlps=frozenset(), cap=None):
@@ -136,6 +169,8 @@ def fwd_arm(idx, layers, TWALL, mlps=frozenset(), cap=None):
                 mo = st.to(x.dtype)
             else:
                 mo = blk.mlp(z)
+            mo = add_oracle_correction(0, blk, z, mo)
+            mo = add_content_correction(0, z, mo)
             m0_stream = mo.float()
             mstream.append(m0_stream)
             x = x + mo
@@ -149,6 +184,8 @@ def fwd_arm(idx, layers, TWALL, mlps=frozenset(), cap=None):
                 mo = st.to(x.dtype)
             else:
                 mo = blk.mlp(z)
+            mo = add_oracle_correction(1, blk, z, mo)
+            mo = add_content_correction(1, z, mo)
             mstream.append(mo.float())
             x = x + mo
         elif L == 2:
@@ -164,6 +201,8 @@ def fwd_arm(idx, layers, TWALL, mlps=frozenset(), cap=None):
                 mo = mo_.view(B, T, D).to(x.dtype)
             else:
                 mo = blk.mlp(z)
+            mo = add_oracle_correction(2, blk, z, mo)
+            mo = add_content_correction(2, z, mo)
             mstream.append(mo.float())
             x = x + mo
         elif L == 3:
@@ -194,6 +233,416 @@ def fwd_arm(idx, layers, TWALL, mlps=frozenset(), cap=None):
             mstream.append(mo.float())
             x = x + mo
     return 30.0 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30.0)
+
+
+def _token_masks(rows):
+    """Match the registered factorial's held-token cell definitions."""
+    counts = torch.zeros(50257)
+    for start in range(0, len(rows), 8):
+        targets = rows[start:start + 8, 1:]
+        valid = torch.ones_like(targets, dtype=torch.bool)
+        valid[:, :64] = False
+        counts.index_add_(0, targets.reshape(-1), valid.reshape(-1).float())
+    threshold = counts.sort(descending=True).values[500]
+    return (counts < threshold).to(DEV)
+
+
+@torch.no_grad()
+def _score_content_rows(rows, TWALL, all_attention, all_mlps, rare_vocab=None,
+                        retain_row_ce=False):
+    rare_vocab = _token_masks(rows) if rare_vocab is None else rare_vocab
+    sums = {cell: 0.0 for cell in ('global', 'copy', 'novel_freq', 'novel_rare')}
+    counts = {cell: 0 for cell in sums}
+    row_values = []
+    for start in range(0, len(rows), 8):
+        batch = rows[start:start + 8].to(DEV)
+        idx, targets = batch[:, :-1].contiguous(), batch[:, 1:].contiguous()
+        logits = fwd_arm(idx, all_attention, TWALL, all_mlps).float()
+        ce = F.cross_entropy(logits.reshape(-1, logits.shape[-1]),
+                             targets.reshape(-1), reduction='none').view_as(targets)
+        valid = torch.ones_like(targets, dtype=torch.bool)
+        valid[:, :64] = False
+        copy = torch.zeros_like(valid)
+        for lag in range(64):
+            past = torch.roll(idx, lag, dims=1)
+            if lag:
+                past[:, :lag] = -1
+            copy |= past == targets
+        copy &= valid
+        rare = rare_vocab[targets] & valid
+        masks = {
+            'global': valid,
+            'copy': copy,
+            'novel_freq': valid & ~copy & ~rare,
+            'novel_rare': valid & ~copy & rare,
+        }
+        for cell, select in masks.items():
+            sums[cell] += float(ce[select].sum())
+            counts[cell] += int(select.sum())
+        if retain_row_ce:
+            row_values.extend(ce[:, 64:].mean(1).detach().cpu().tolist())
+    result = {'ce': {cell: sums[cell] / max(counts[cell], 1) for cell in sums},
+              'counts': counts}
+    if retain_row_ce:
+        result['row_global_ce'] = row_values
+    return result
+
+
+def _set_content_arm(site, basis, state):
+    CONTENT_CORR.update({'on': True, 'site': site, 'basis': basis,
+                         'weight': state['weight'], 'bias': state['bias']})
+
+
+def _train_content_arm(site, basis, train_rows, validation_rows, TWALL,
+                       all_attention, all_mlps, seed, steps=120):
+    """Optimize the restricted correction on end-to-end full-ship CE."""
+    generator = torch.Generator().manual_seed(seed)
+    weight = torch.zeros(D, basis.shape[1], device=DEV, requires_grad=True)
+    bias = torch.zeros(basis.shape[1], device=DEV, requires_grad=True)
+    optimizer = torch.optim.AdamW([weight, bias], lr=2e-3, weight_decay=1e-5)
+    _set_content_arm(site, basis, {'weight': weight, 'bias': bias})
+    best = None
+    curve = []
+    for step in range(1, steps + 1):
+        chosen = torch.randint(len(train_rows), (2,), generator=generator)
+        batch = train_rows[chosen].to(DEV)
+        idx, targets = batch[:, :-1].contiguous(), batch[:, 1:].contiguous()
+        logits = fwd_arm(idx, all_attention, TWALL, all_mlps).float()
+        per_token = F.cross_entropy(logits.reshape(-1, logits.shape[-1]),
+                                    targets.reshape(-1), reduction='none').view_as(targets)
+        loss = per_token[:, 64:].mean()
+        optimizer.zero_grad(set_to_none=True)
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_([weight, bias], 5.0)
+        optimizer.step()
+        if step == 1 or step % 20 == 0 or step == steps:
+            validation = _score_content_rows(validation_rows, TWALL, all_attention,
+                                             all_mlps)['ce']['global']
+            curve.append({'step': step, 'train_ce': float(loss.detach()),
+                          'validation_ce': validation})
+            if best is None or validation < best['validation_ce']:
+                best = {'validation_ce': validation,
+                        'weight': weight.detach().clone(),
+                        'bias': bias.detach().clone(), 'step': step}
+            print(f"content correction site={site} step={step} "
+                  f"train={float(loss):.4f} validation={validation:.4f}", flush=True)
+    _set_content_arm(site, basis, best)
+    return best, curve
+
+
+def run_content_correction(TWALL, all_attention, start_time):
+    """Run the preregistered price-matched whole-ship content-interface test."""
+    from pathlib import Path
+
+    rank = 48
+    seed = 271828
+    steps = 120
+    all_mlps = frozenset(range(18))
+    train_rows = cl.fineweb_rows(192, skip=2000)[:, :T + 1].contiguous()
+    validation_rows = cl.fineweb_rows(64, skip=5000)[:, :T + 1].contiguous()
+    discovery_rows = cl.fineweb_rows(480, skip=7000)[:, :T + 1].contiguous()
+    heldout_rows = cl.fineweb_rows(480, skip=11000)[:, :T + 1].contiguous()
+    factor_path = (Path(__file__).resolve().parent.parent / 'polynomial_causal' /
+                   'content_product_frontier_factors.pt')
+    factors = torch.load(factor_path, map_location='cpu')
+    content_basis = factors['sites']['0']['content_basis'][:, :rank].to(DEV).float()
+    assert torch.allclose(content_basis.T @ content_basis,
+                          torch.eye(rank, device=DEV), atol=2e-4, rtol=2e-4)
+
+    CONTENT_CORR['on'] = False
+    validation_baseline = _score_content_rows(validation_rows, TWALL, all_attention,
+                                              all_mlps)
+    trained = {}
+    curves = {}
+    for site in (0, 1, 2):
+        state, curve = _train_content_arm(site, content_basis, train_rows,
+                                          validation_rows, TWALL, all_attention,
+                                          all_mlps, seed + site, steps)
+        trained[f'content_mlp{site}'] = {'site': site, 'basis': content_basis,
+                                        'weight': state['weight'],
+                                        'bias': state['bias'],
+                                        'validation_ce': state['validation_ce'],
+                                        'best_step': state['step']}
+        curves[f'content_mlp{site}'] = curve
+    winner = min((0, 1, 2),
+                 key=lambda site: trained[f'content_mlp{site}']['validation_ce'])
+
+    random_generator = torch.Generator(device=DEV).manual_seed(seed + 1000)
+    random_matrix = torch.randn(D, rank, device=DEV, generator=random_generator)
+    random_basis = torch.linalg.qr(random_matrix, mode='reduced').Q
+    random_state, random_curve = _train_content_arm(
+        winner, random_basis, train_rows, validation_rows, TWALL, all_attention,
+        all_mlps, seed + 2000, steps)
+    trained['random_winner'] = {'site': winner, 'basis': random_basis,
+                                'weight': random_state['weight'],
+                                'bias': random_state['bias'],
+                                'validation_ce': random_state['validation_ce'],
+                                'best_step': random_state['step']}
+    curves['random_winner'] = random_curve
+
+    evaluations = {}
+    for split, rows in (('discovery', discovery_rows), ('heldout', heldout_rows)):
+        CONTENT_CORR['on'] = False
+        evaluations[split] = {
+            'ship_baseline': _score_content_rows(rows, TWALL, all_attention, all_mlps)
+        }
+        for arm, state in trained.items():
+            _set_content_arm(state['site'], state['basis'], state)
+            evaluations[split][arm] = _score_content_rows(
+                rows, TWALL, all_attention, all_mlps)
+
+    heldout = evaluations['heldout']
+    winner_name = f'content_mlp{winner}'
+    baseline = heldout['ship_baseline']['ce']
+    selected = heldout[winner_name]['ce']
+    random_ce = heldout['random_winner']['ce']
+    gains = {cell: baseline[cell] - selected[cell] for cell in baseline}
+    split_winners = {
+        split: min((0, 1, 2),
+                   key=lambda site: evaluations[split][f'content_mlp{site}']['ce']['global'])
+        for split in evaluations
+    }
+    decisions = {
+        'A_heldout_global_gain_ge_0p05': gains['global'] >= 0.05,
+        'B_novel_rare_gain_ge_10pct_ship_excess': gains['novel_rare'] >= 0.11755031378547045,
+        'C_no_copy_or_novel_freq_regression_gt_0p01': all(
+            selected[cell] - baseline[cell] <= 0.01 for cell in ('copy', 'novel_freq')),
+        'D_content_beats_matched_random_by_0p02_global': (
+            random_ce['global'] - selected['global'] >= 0.02),
+        'E_site_winner_stable_validation_discovery_heldout': all(
+            site == winner for site in split_winners.values()),
+    }
+    standalone_parameters = 2 * D * rank + rank
+    existing_glue_parameters = D + D * 32 + (2 * D) * 32
+    output = {
+        'config': {
+            'model': 'bilin18', 'sites': [0, 1, 2], 'basis_rank': rank,
+            'train_rows': 192, 'validation_rows': 64,
+            'discovery_rows': 480, 'heldout_rows': 480,
+            'train_skip': 2000, 'validation_skip': 5000,
+            'discovery_skip': 7000, 'heldout_skip': 11000,
+            'steps_per_arm': steps, 'batch_sequences': 2, 'seed': seed,
+            'objective': 'end-to-end CE with complete current ship live',
+            'baseline': 'current ship including existing generic rank-32 MLP2 glue',
+        },
+        'pricing': {
+            'content_or_random_standalone_parameters': standalone_parameters,
+            'existing_generic_mlp2_glue_parameters': existing_glue_parameters,
+            'ratio_to_existing_glue': standalone_parameters / existing_glue_parameters,
+            'rule': 'both input map and frozen output basis count at standalone price',
+        },
+        'validation_ship_baseline': validation_baseline,
+        'validation_ce': {arm: state['validation_ce'] for arm, state in trained.items()},
+        'validation_winner_site': winner,
+        'split_winner_sites': split_winners,
+        'evaluations': evaluations,
+        'heldout_winner_gains': gains,
+        'heldout_content_minus_random_global_ce': selected['global'] - random_ce['global'],
+        'decisions': decisions,
+        'training_curves': curves,
+        'runtime_s': round(time.time() - start_time, 1),
+    }
+    out_path = Path(__file__).resolve().parent / 'ship_content_correction_results.json'
+    params_path = Path(__file__).resolve().parent / 'ship_content_correction_params.pt'
+    out_path.write_text(json.dumps(output, indent=2) + '\n')
+    torch.save({
+        'config': output['config'], 'pricing': output['pricing'],
+        'validation_winner_site': winner,
+        'arms': {arm: {key: (value.detach().cpu() if torch.is_tensor(value) else value)
+                       for key, value in state.items()}
+                 for arm, state in trained.items()},
+    }, params_path)
+    CONTENT_CORR['on'] = False
+    print(json.dumps({'winner': winner, 'gains': gains,
+                      'decisions': decisions}, indent=2), flush=True)
+    print(f"wrote {out_path} and {params_path} ({output['runtime_s']}s)", flush=True)
+
+
+def _paired_bootstrap_gain(baseline_rows, arm_rows, seed, draws=2000):
+    baseline = torch.tensor(baseline_rows, dtype=torch.float64)
+    arm = torch.tensor(arm_rows, dtype=torch.float64)
+    difference = baseline - arm
+    generator = torch.Generator().manual_seed(seed)
+    indices = torch.randint(len(difference), (draws, len(difference)),
+                            generator=generator)
+    boot = difference[indices].mean(1)
+    return {
+        'mean': float(difference.mean()),
+        'ci95': [float(torch.quantile(boot, 0.025)),
+                 float(torch.quantile(boot, 0.975))],
+    }
+
+
+def run_oracle_content_screen(TWALL, all_attention, start_time):
+    """Optimizer-free screen for content alignment of the missing early MLP map."""
+    from pathlib import Path
+
+    rank = 64
+    support_rank = 256
+    nulls = 20
+    seed = 161803
+    all_mlps = frozenset(range(18))
+    basis_rows = cl.fineweb_rows(96, skip=1200)[:, :T + 1].contiguous()
+    discovery_rows = cl.fineweb_rows(192, skip=7000)[:, :T + 1].contiguous()
+    heldout_rows = cl.fineweb_rows(192, skip=11000)[:, :T + 1].contiguous()
+    factor_path = (Path(__file__).resolve().parent.parent / 'polynomial_causal' /
+                   'content_product_frontier_factors.pt')
+    factors = torch.load(factor_path, map_location='cpu')
+    content_basis = factors['sites']['0']['content_basis'][:, :rank].to(DEV).float()
+    assert torch.allclose(content_basis.T @ content_basis,
+                          torch.eye(rank, device=DEV), atol=2e-4, rtol=2e-4)
+
+    # Capture the exact original-minus-deployed-plank residual on an independent
+    # corpus with all other ship components and the incumbent MLP2 glue live.
+    CONTENT_CORR['on'] = False
+    ORACLE_CORR.update({'on': False, 'capture': {0: [], 1: [], 2: []}})
+    with torch.no_grad():
+        for start in range(0, len(basis_rows), 8):
+            idx = basis_rows[start:start + 8, :-1].to(DEV).contiguous()
+            fwd_arm(idx, all_attention, TWALL, all_mlps)
+    captured = {site: torch.cat(parts).reshape(-1, D)
+                for site, parts in ORACLE_CORR['capture'].items()}
+    ORACLE_CORR['capture'] = None
+
+    bases = {}
+    fit_metrics = {}
+    for site, cpu_residual in captured.items():
+        residual = cpu_residual.to(DEV)
+        _, _, vectors = torch.pca_lowrank(residual, q=support_rank,
+                                          center=False, niter=4)
+        local_basis = vectors[:, :rank].contiguous()
+        support = vectors[:, :support_rank].contiguous()
+
+        def correction_rms(basis):
+            coefficients = residual @ basis
+            return math.sqrt(float(coefficients.double().square().sum()) /
+                             (len(residual) * D))
+
+        content_rms = correction_rms(content_basis)
+        full_rms = math.sqrt(float(residual.double().square().mean()))
+        site_bases = {
+            'full': {'basis': None, 'scale': 1.0, 'fit_correction_rms': full_rms},
+            'content': {'basis': content_basis, 'scale': 1.0,
+                        'fit_correction_rms': content_rms},
+            'local_pca': {'basis': local_basis, 'scale': 1.0,
+                          'fit_correction_rms': correction_rms(local_basis)},
+        }
+        generator = torch.Generator(device=DEV).manual_seed(seed + site)
+        for null_index in range(nulls):
+            coordinates = torch.randn(support_rank, rank, device=DEV,
+                                      generator=generator)
+            haar = torch.linalg.qr(coordinates, mode='reduced').Q
+            basis = (support @ haar).contiguous()
+            raw_rms = correction_rms(basis)
+            scale = content_rms / max(raw_rms, 1e-12)
+            site_bases[f'null_{null_index:02d}'] = {
+                'basis': basis, 'scale': scale,
+                'fit_correction_rms': raw_rms * scale,
+                'raw_fit_correction_rms': raw_rms,
+            }
+        bases[site] = site_bases
+        fit_metrics[site] = {
+            name: {key: value for key, value in row.items() if key != 'basis'}
+            for name, row in site_bases.items()
+        }
+        del residual, vectors, support
+        torch.cuda.empty_cache()
+
+    # Freeze discovery-derived token-frequency strata for both evaluation splits.
+    rare_vocab = _token_masks(discovery_rows)
+    evaluations = {}
+    for split, rows in (('discovery', discovery_rows), ('heldout', heldout_rows)):
+        ORACLE_CORR['on'] = False
+        baseline = _score_content_rows(rows, TWALL, all_attention, all_mlps,
+                                       rare_vocab=rare_vocab, retain_row_ce=True)
+        evaluations[split] = {'ship_baseline': baseline, 'sites': {}}
+        for site in (0, 1, 2):
+            evaluations[split]['sites'][str(site)] = {}
+            for arm, row in bases[site].items():
+                ORACLE_CORR.update({'on': True, 'site': site,
+                                    'basis': row['basis'], 'scale': row['scale']})
+                evaluations[split]['sites'][str(site)][arm] = _score_content_rows(
+                    rows, TWALL, all_attention, all_mlps, rare_vocab=rare_vocab,
+                    retain_row_ce=True)
+                print(f"oracle screen {split} site={site} arm={arm} done", flush=True)
+
+    gains = {}
+    decisions = {}
+    for site in (0, 1, 2):
+        key = str(site)
+        gains[key] = {}
+        for split in ('discovery', 'heldout'):
+            base = evaluations[split]['ship_baseline']
+            gains[key][split] = {}
+            for arm, scored in evaluations[split]['sites'][key].items():
+                gains[key][split][arm] = {
+                    'global': _paired_bootstrap_gain(
+                        base['row_global_ce'], scored['row_global_ce'],
+                        seed + 10000 * site + (0 if split == 'discovery' else 5000)
+                        + sum(map(ord, arm))),
+                    'cell_ce_gain': {
+                        cell: base['ce'][cell] - scored['ce'][cell]
+                        for cell in ('copy', 'novel_freq', 'novel_rare')
+                    },
+                }
+        heldout_nulls = [gains[key]['heldout'][f'null_{j:02d}']['global']['mean']
+                         for j in range(nulls)]
+        null95 = float(torch.quantile(torch.tensor(heldout_nulls), 0.95))
+        content_discovery = gains[key]['discovery']['content']['global']
+        content_heldout = gains[key]['heldout']['content']['global']
+        full_heldout = gains[key]['heldout']['full']['global']
+        decisions[key] = {
+            'full_oracle_ci95_lower_gt_zero': full_heldout['ci95'][0] > 0.0,
+            'content_positive_both_splits': (
+                content_discovery['mean'] > 0.0 and content_heldout['mean'] > 0.0),
+            'content_beats_matched_null95_heldout': content_heldout['mean'] > null95,
+            'content_heldout_gain': content_heldout['mean'],
+            'matched_null95_heldout_gain': null95,
+            'content_fraction_of_full_oracle_gain': (
+                content_heldout['mean'] / full_heldout['mean']
+                if abs(full_heldout['mean']) > 1e-12 else None),
+        }
+
+    output = {
+        'config': {
+            'model': 'bilin18', 'ship': 'current K=3072 ship with MLP2 glue live',
+            'sites': [0, 1, 2], 'projection_rank': rank,
+            'matched_null_support_rank': support_rank,
+            'matched_nulls_per_site': nulls, 'seed': seed,
+            'basis_rows': 96, 'basis_skip': 1200,
+            'discovery_rows': 192, 'discovery_skip': 7000,
+            'heldout_rows': 192, 'heldout_skip': 11000,
+            'copy_definition': 'target recurs at distance 1 through 64 in context',
+            'frequency_vocab': 'frozen from discovery rows and reused on heldout',
+            'status': 'optimizer-free singleton oracle screen; not a learned correction',
+        },
+        'arms': {
+            'full': 'exact live original MLP output minus deployed plank output',
+            'content': 'full residual projected through frozen deep content basis',
+            'local_pca': 'full residual projected through fit-corpus top residual PCs',
+            'matched_null': 'Haar subspace inside local top-256 residual support, scaled to content correction RMS',
+        },
+        'fit_correction_metrics': fit_metrics,
+        'evaluations': evaluations,
+        'paired_gains': gains,
+        'site_decisions': decisions,
+        'training_license_sites': [int(site) for site, row in decisions.items()
+                                   if row['full_oracle_ci95_lower_gt_zero']
+                                   and row['content_positive_both_splits']
+                                   and row['content_beats_matched_null95_heldout']],
+        'interpretation_guardrail': (
+            'A passing projection licenses prediction of the missing original '
+            'computation. It does not by itself establish semantic content, causal '
+            'transport, or a simpler learned program.'),
+        'runtime_s': round(time.time() - start_time, 1),
+    }
+    out_path = Path(__file__).resolve().parent / 'ship_content_oracle_screen_results.json'
+    out_path.write_text(json.dumps(output, indent=2) + '\n')
+    ORACLE_CORR['on'] = False
+    print(json.dumps({'decisions': decisions,
+                      'training_license_sites': output['training_license_sites']},
+                     indent=2), flush=True)
+    print(f"wrote {out_path} ({output['runtime_s']}s)", flush=True)
 
 
 @torch.no_grad()
@@ -351,7 +800,7 @@ def run_factorial(discovery_rows, TWALL, all_attention, start_time):
     print(f"wrote {out_path} ({result['runtime_s']}s)", flush=True)
 
 
-def main(factorial=False):
+def main(factorial=False, content_correction=False, oracle_content_screen=False):
     t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
     for p in m.parameters():
         p.requires_grad_(False)
@@ -523,6 +972,12 @@ def main(factorial=False):
 
     if factorial:
         run_factorial(EVR, TWALL, ALLL, t0)
+        return
+    if oracle_content_screen:
+        run_oracle_content_screen(TWALL, ALLL, t0)
+        return
+    if content_correction:
+        run_content_correction(TWALL, ALLL, t0)
         return
 
     def ce2(layers, mlps, rows=None):

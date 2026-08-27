@@ -79,6 +79,14 @@ fraction of the model reverse engineered.
 480 untouched held-out rows. The output-slice and intervention-family extensions
 remain pending.
 
+The v1 token-cell labels have two post-run audit caveats. Its recurrence mask uses
+context distances 2 through 65 rather than the intended 1 through 64, and it
+recomputes the rare vocabulary independently on each split. Therefore the global
+factorial and exact group allocations remain valid, but copy/novel cell values are
+provisional engineering localizations rather than fixed-stratum replication. New
+screens freeze the discovery vocabulary and use the corrected lag definition; a
+future factorial v2 must do the same without overwriting this preserved result.
+
 On held-out rows, the full ship adds `0.8727` nats. The cell damage shares are copy
 `0.2486`, novel/frequent `0.2818`, and novel/rare `0.4697`. Exact weighted Shapley
 effects are attention `-0.0670`, MLP0-2 `+0.7277`, and deep MLPs `+0.2120` nats.
