@@ -21,6 +21,41 @@ def test_balanced_factorization_is_exact_at_full_rank_and_sign_canonical() -> No
         assert left[pivot, column] >= 0.0
 
 
+def test_output_gauge_transport_preserves_physical_correction_and_price() -> None:
+    generator = torch.Generator().manual_seed(9)
+    x = torch.randn(17, compiler.D_MODEL, generator=generator)
+    basis = torch.linalg.qr(
+        torch.randn(compiler.D_MODEL, compiler.COEFFICIENT_DIM, generator=generator),
+        mode="reduced",
+    ).Q
+    q = torch.linalg.qr(
+        torch.randn(compiler.COEFFICIENT_DIM, compiler.COEFFICIENT_DIM,
+                    generator=generator, dtype=torch.float64), mode="reduced",
+    ).Q
+    state = {
+        "mean": torch.randn(compiler.D_MODEL, generator=generator),
+        "scale": torch.rand(compiler.D_MODEL, generator=generator) + 0.5,
+        "bias": torch.randn(compiler.COEFFICIENT_DIM, generator=generator),
+        "left": torch.randn(compiler.D_MODEL, 8, generator=generator),
+        "right": torch.randn(8, compiler.COEFFICIENT_DIM, generator=generator),
+    }
+    moved, moved_basis = compiler.transport_output_gauge(state, basis, q)
+    physical = compiler.affine_predict(x, state) @ basis.double().T
+    moved_physical = compiler.affine_predict(x, moved) @ moved_basis.T
+    assert torch.allclose(physical, moved_physical, atol=2e-5, rtol=2e-5)
+    assert compiler.affine_program_price(8, include_basis=True) == (
+        compiler.affine_program_price(8, include_basis=True)
+    )
+
+
+def test_price_is_small_and_counts_original_tensor_program() -> None:
+    price = compiler.affine_program_price(64, include_basis=True)
+    assert price["total_reals"] == 153_920
+    assert price["original_mlp_reals"] == 15_926_400
+    assert price["fraction_of_original_reals"] < 0.01
+    assert price["original_native_hadamard_products_per_token"] == 4608
+
+
 def test_ridge_frontier_recovers_low_rank_affine_map() -> None:
     generator = torch.Generator().manual_seed(11)
     x = torch.randn(320, 12, generator=generator, dtype=torch.float64)

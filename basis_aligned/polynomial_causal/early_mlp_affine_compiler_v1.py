@@ -81,6 +81,55 @@ def affine_predict(x: torch.Tensor, state: Mapping[str, Any]) -> torch.Tensor:
     ].double()
 
 
+def transport_output_gauge(
+    state: Mapping[str, Any], basis: torch.Tensor, rotation: torch.Tensor
+) -> tuple[dict[str, Any], torch.Tensor]:
+    """Transport a predictor through an orthogonal output-basis gauge."""
+
+    basis = basis.double()
+    rotation = rotation.double()
+    if basis.ndim != 2 or rotation.shape != (basis.shape[1], basis.shape[1]):
+        raise ValueError("basis and rotation dimensions do not align")
+    identity = torch.eye(rotation.shape[0], dtype=torch.float64, device=rotation.device)
+    if not torch.allclose(rotation.T @ rotation, identity, atol=2e-6, rtol=2e-6):
+        raise ValueError("output gauge must be orthogonal")
+    transported = dict(state)
+    transported["right"] = state["right"].double() @ rotation
+    transported["bias"] = state["bias"].double() @ rotation
+    return transported, basis @ rotation
+
+
+def affine_program_price(rank: int, *, include_basis: bool) -> dict[str, Any]:
+    """Registered real/FLOP price for one executable site."""
+
+    if rank not in RANK_GRID:
+        raise ValueError("rank is outside the registered frontier")
+    basis_reals = D_MODEL * COEFFICIENT_DIM if include_basis else 0
+    predictor_reals = (
+        2 * D_MODEL + COEFFICIENT_DIM
+        + D_MODEL * rank + rank * COEFFICIENT_DIM
+    )
+    original_reals = 3 * (4 * D_MODEL * D_MODEL) + D_MODEL
+    inference_multiplies = (
+        D_MODEL * rank + rank * COEFFICIENT_DIM
+        + COEFFICIENT_DIM * D_MODEL
+    )
+    return {
+        "rank": rank,
+        "include_basis": include_basis,
+        "basis_reals": basis_reals,
+        "predictor_reals": predictor_reals,
+        "total_reals": basis_reals + predictor_reals,
+        "float32_bits": 32 * (basis_reals + predictor_reals),
+        "counterfactual_float16_bits": 16 * (basis_reals + predictor_reals),
+        "inference_multiplies_per_token": inference_multiplies,
+        "native_hadamard_products_per_token": 0,
+        "original_mlp_reals": original_reals,
+        "fraction_of_original_reals": (basis_reals + predictor_reals) / original_reals,
+        "original_native_hadamard_products_per_token": 4 * D_MODEL,
+    }
+
+
 def coefficient_metrics(
     prediction: torch.Tensor, target: torch.Tensor
 ) -> dict[str, float]:
