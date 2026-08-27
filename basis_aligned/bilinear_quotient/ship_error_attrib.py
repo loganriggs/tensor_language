@@ -196,11 +196,167 @@ def fwd_arm(idx, layers, TWALL, mlps=frozenset(), cap=None):
     return 30.0 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30.0)
 
 
-def main():
+@torch.no_grad()
+def run_factorial(discovery_rows, TWALL, all_attention, start_time):
+    """Score the complete A x M012 x deep cube on two disjoint row sets."""
+    poly = str((__import__('pathlib').Path(__file__).resolve().parent.parent /
+                'polynomial_causal'))
+    if poly not in sys.path:
+        sys.path.insert(0, poly)
+    from factorial_causal_attribution import analyze_cells, powerset
+
+    groups = ('attention', 'mlp012', 'deep')
+    heldout_rows = cl.fineweb_rows(len(discovery_rows), skip=11000)[:, :T + 1].contiguous()
+    row_splits = {'discovery': discovery_rows, 'heldout': heldout_rows}
+    out_path = PT + 'ship_error_factorial_results.json'
+
+    def masks_for_rows(rows):
+        counts = torch.zeros(50257)
+        for start in range(0, len(rows), 8):
+            targets = rows[start:start + 8, 1:]
+            valid = torch.ones_like(targets, dtype=torch.bool)
+            valid[:, :64] = False
+            counts.index_add_(0, targets.reshape(-1), valid.reshape(-1).float())
+        threshold = counts.sort(descending=True).values[500]
+        rare = counts < threshold
+        top100 = torch.zeros(50257, dtype=torch.bool)
+        top100[counts.argsort(descending=True)[:100]] = True
+        return rare.to(DEV), top100.to(DEV)
+
+    split_results = {}
+    raw_values = {}
+    for split, rows in row_splits.items():
+        rare_vocab, top100_vocab = masks_for_rows(rows)
+        cell_sums = {
+            'primary': {cell: {} for cell in ('copy', 'novel_freq', 'novel_rare')},
+            'frequency': {cell: {} for cell in ('top100', 'non_top100')},
+        }
+        cell_counts = {'primary': None, 'frequency': None}
+
+        for arm in powerset(groups):
+            layers = all_attention if 'attention' in arm else frozenset()
+            mlps = set()
+            if 'mlp012' in arm:
+                mlps.update((0, 1, 2))
+            if 'deep' in arm:
+                mlps.update(range(3, 18))
+            mlps = frozenset(mlps)
+            sums = {cell: 0.0 for cell in ('copy', 'novel_freq', 'novel_rare',
+                                                   'top100', 'non_top100')}
+            counts = {cell: 0 for cell in sums}
+            for start in range(0, len(rows), 8):
+                batch = rows[start:start + 8].to(DEV)
+                idx, targets = batch[:, :-1].contiguous(), batch[:, 1:].contiguous()
+                logits = fwd_arm(idx, layers, TWALL, mlps).float()
+                ce = F.cross_entropy(logits.reshape(-1, logits.shape[-1]),
+                                     targets.reshape(-1), reduction='none').view_as(targets)
+                valid = torch.ones_like(targets, dtype=torch.bool)
+                valid[:, :64] = False
+                copy = torch.zeros_like(valid)
+                for lag in range(1, 65):
+                    past = torch.roll(idx, lag, dims=1)
+                    past[:, :lag] = -1
+                    copy |= past == targets
+                copy &= valid
+                rare = rare_vocab[targets] & valid
+                top = top100_vocab[targets] & valid
+                masks = {
+                    'copy': copy,
+                    'novel_freq': valid & ~copy & ~rare,
+                    'novel_rare': valid & ~copy & rare,
+                    'top100': top,
+                    'non_top100': valid & ~top,
+                }
+                for cell, select in masks.items():
+                    sums[cell] += float(ce[select].sum())
+                    counts[cell] += int(select.sum())
+
+            for cell in cell_sums['primary']:
+                cell_sums['primary'][cell][arm] = sums[cell] / max(counts[cell], 1)
+            for cell in cell_sums['frequency']:
+                cell_sums['frequency'][cell][arm] = sums[cell] / max(counts[cell], 1)
+            primary_counts = {cell: counts[cell] for cell in cell_sums['primary']}
+            frequency_counts = {cell: counts[cell] for cell in cell_sums['frequency']}
+            if cell_counts['primary'] is None:
+                cell_counts = {'primary': primary_counts, 'frequency': frequency_counts}
+            else:
+                assert cell_counts['primary'] == primary_counts
+                assert cell_counts['frequency'] == frequency_counts
+            print(f"{split} arm={'+'.join(arm) or 'clean'} done", flush=True)
+
+        split_results[split] = {
+            'primary': analyze_cells(groups, cell_counts['primary'], cell_sums['primary']),
+            'frequency': analyze_cells(groups, cell_counts['frequency'], cell_sums['frequency']),
+        }
+        raw_values[split] = {
+            partition: {
+                cell: {'+'.join(arm) if arm else 'clean': value for arm, value in values.items()}
+                for cell, values in cells.items()
+            }
+            for partition, cells in cell_sums.items()
+        }
+
+    def group_share(split, cell, group):
+        row = split_results[split]['primary']['cells'][cell]
+        return row['shapley'][group] / max(abs(row['total_effect']), 1e-30)
+
+    early_license = all(
+        split_results[split]['primary']['cells']['novel_rare']['shapley']['mlp012'] >= 0.05
+        and group_share(split, 'novel_rare', 'mlp012') >= 0.20
+        for split in row_splits
+    )
+    interaction_material = {
+        split: {
+            cell: split_results[split]['primary']['cells'][cell]
+                  ['interaction_l1_fraction_of_total'] >= 0.20
+            for cell in ('copy', 'novel_freq', 'novel_rare')
+        }
+        for split in row_splits
+    }
+    dominant = {
+        split: {
+            cell: max(groups, key=lambda group: abs(split_results[split]['primary']
+                                                     ['cells'][cell]['shapley'][group]))
+            for cell in ('copy', 'novel_freq', 'novel_rare')
+        }
+        for split in row_splits
+    }
+    stable = all(dominant['discovery'][cell] == dominant['heldout'][cell]
+                 for cell in dominant['discovery'])
+    closure = all(
+        abs(split_results[split][partition]['weighted_shapley_closure_error']) <= 1e-8
+        for split in row_splits for partition in ('primary', 'frequency')
+    )
+    result = {
+        'config': {
+            'model': 'bilin18', 'groups': list(groups),
+            'rows_per_split': len(discovery_rows),
+            'discovery_skip': 7000, 'heldout_skip': 11000,
+            'status': 'token_cell_factorial_stage; output/intervention cross-tab pending',
+        },
+        'splits': split_results,
+        'raw_cell_ce': raw_values,
+        'dominant_group': dominant,
+        'interaction_material_20pct': interaction_material,
+        'decisions': {
+            'early_mlp012_novel_rare_license': early_license,
+            'dominant_group_stable': stable,
+            'shapley_closure': closure,
+        },
+        'runtime_s': round(time.time() - start_time, 1),
+    }
+    with open(out_path, 'w') as handle:
+        json.dump(result, handle, indent=2)
+    print(json.dumps(result['decisions'], indent=2), flush=True)
+    print(f"wrote {out_path} ({result['runtime_s']}s)", flush=True)
+
+
+def main(factorial=False):
     t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
     for p in m.parameters():
         p.requires_grad_(False)
-    EVR = cl.fineweb_rows(NR, skip=7000)[:, :T + 1].contiguous()
+    eval_rows = 480 if factorial else NR
+    EVR = cl.fineweb_rows(eval_rows, skip=7000)[:, :T + 1].contiguous()
 
     def ce_run(layers, TWALL):
         s_ = 0.0; n_ = 0
@@ -364,6 +520,10 @@ def main():
     CORR['b'] = gp['b'].to(DEV); CORR['U'] = gp['U'].to(DEV)
     CORR['V'] = gp['V'].to(DEV)
     CORR['on'] = True
+
+    if factorial:
+        run_factorial(EVR, TWALL, ALLL, t0)
+        return
 
     def ce2(layers, mlps, rows=None):
         rows = EVR if rows is None else rows

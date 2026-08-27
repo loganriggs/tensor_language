@@ -217,6 +217,27 @@ certificate here, but not a necessary behavioral explanation. This scalar route 
 demoted; the next compiler must earn value at a joint content interface and in the
 current whole-model ship.
 
+The first vector content frontier gives the complementary natural-activation result.
+At a frozen 64-dimensional content output API and almost identical standalone
+parameter counts, 32 learned products reach held-out whitened `R2` of `0.542`,
+`0.454`, and `0.295` at MLP0-2, while linear maps reach `0.639`, `0.589`, and
+`0.465`. The products consistently beat selected native and seeded random products,
+so optimization learned real structure, but tensor-specific compilation failed its
+matched-linear gate. A quadratic architecture does not imply that a causally chosen
+slice needs quadratic computation on the natural activation manifold. The early
+paired program is rejected; the linear winner remains only a local candidate until
+it improves the current ship and predicts held-out interventions.
+
+The native-product arm exposes a required pricing distinction. At MLP0 it retains
+`69%` of linear `R2` while adding only `2112` decoder parameters, apparently a
+`24x` advantage in `R2` per new parameter. That is a valid *conditional amortized*
+price only if the two native factor projections have already been admitted, paid for,
+and reused by another program fragment. Their presence in the original model does
+not put them in the frozen decoder for free; otherwise any model could describe
+itself cheaply by pointing to its weights. The primary price for a new fragment is
+therefore standalone (`75840` native versus `73792` linear parameters here).
+Standalone and legitimately amortized Pareto fronts are both reported, never mixed.
+
 ## 4. Polynomial boundaries
 
 The bilinear layers and residual additions are polynomial. RMSNorm is not: its scale

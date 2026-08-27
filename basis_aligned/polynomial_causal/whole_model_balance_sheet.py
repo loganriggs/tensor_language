@@ -32,6 +32,7 @@ DEFAULT_SOURCES = {
     "ship_behavior_state": TENSOR_ROOT / "basis_aligned/bilinear_quotient/state_in_full_ship_results.json",
     "mlp_product_rank": HERE / "mlp_product_rank_audit_results.json",
     "question_one_product": HERE / "question_one_product_results.json",
+    "content_product_frontier": HERE / "content_product_frontier_results.json",
 }
 
 
@@ -120,6 +121,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     ship_state = data["ship_behavior_state"]
     product_rank = data["mlp_product_rank"]
     question_product = data["question_one_product"]
+    content_frontier = data["content_product_frontier"]
     inventory = registry_inventory(theseus_root)
 
     subst_recovery = 1.0 - subst["chain_pca"]["dCE"] / subst["available_headroom_to_floor"]
@@ -250,6 +252,29 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "The exact paired gate is stable even in bf16, but exact product geometry did not earn causal preference over the best one-square program: the registered held-out KL gate failed.",
             "caveat": "This is a rank-2 slice correction with the orthogonal MLP output live, not an MLP replacement. The square's held-out question KL is only 0.39% of zeroing the slice despite 35.4% scalar error, so reconstruction error badly overstates behavioral necessity here.",
         },
+        "local_content_compiler_frontier": {
+            "heldout_r2": {
+                f"mlp{site}": {
+                    arm: row[arm]["heldout_r2"]
+                    for arm in ("linear", "native_selected", "random_products", "learned_paired")
+                }
+                for site, row in content_frontier["sites"].items()
+            },
+            "best_site": content_frontier["best_paired_site"],
+            "registered_predictions": content_frontier["predictions"],
+            "mlp0_native_fraction_of_linear_r2": content_frontier["sites"]["0"]["native_selected"]["heldout_r2"] / content_frontier["sites"]["0"]["linear"]["heldout_r2"],
+            "mlp0_native_amortized_r2_per_parameter_advantage": (
+                content_frontier["sites"]["0"]["native_selected"]["heldout_r2"]
+                / content_frontier["sites"]["0"]["native_selected"]["amortized_new_parameters"]
+                / (content_frontier["sites"]["0"]["linear"]["heldout_r2"]
+                   / content_frontier["sites"]["0"]["linear"]["parameters"])
+            ),
+            "pricing_rule": "Standalone parameters are primary. Native factor projections may use the amortized-new price only after independent admission and payment as a shared library; provenance in the original model does not make them free.",
+            "currency": "held-out whitened R2 at a frozen 64-dimensional local content-output API",
+            "scope": "clean-model MLP0-2 outputs; 32 products; sequence-disjoint 96/48/48 train/validation/test rows; not installed in the ship",
+            "claim": "At standalone price, learned paired and selected native products are dominated by a smaller linear map at all three early MLPs; tensor-specific compilation is rejected at this interface. Native products are a conditional amortized frontier only if their factors are legitimately shared.",
+            "caveat": "The MLP0 native arm retains 69% of linear R2 for 1/35 the new parameters, but that price excludes its two factor projections. The linear winner predicts clean local outputs rather than the current ship residual, so it licenses a ship-correction test only after group x token-cell attribution, not whole-model admission.",
+        },
     }
 
     current_ship = inventory.get("current_composite", {})
@@ -273,18 +298,18 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "Compile a shared content correction under the current ship, targeting novel/rare generalization and the early MLP0-2 construction interface without fitting a token exception list.",
-                "why": "The current 36/36 ship is roughly +0.93 CE; novel-rare targets carry 47.3% of damage, while early MLP0-2 causes 49.9% of the separately measured frequent-target damage.",
+                "action": "Run the complete attention x MLP0-2 x deep factorial under the current ship and score Mobius/Shapley effects separately for copy, novel/frequent, novel/rare, output slices, and intervention families.",
+                "why": "The current 47.3% novel-rare and 49.9% early-MLP facts are different marginals: the latter is restricted to top-100 targets. A joint factorial is required before assigning the novel/rare residual to an interface, and existing composition interactions make sequential attribution unsafe.",
             },
             {
                 "priority": 2,
-                "action": "Complete the residual cross-tab by layer group x token cell x output slice x held-out intervention family.",
-                "why": "Token cells and frequent-token plank groups are localized separately, but their joint attribution and causal-response residual are still missing.",
+                "action": "If the factorial licenses MLP0-2 on the target cell, fit and install a linear current-ship residual correction at the frozen content API before trying more products.",
+                "why": "At matched standalone parameters the early learned paired programs lose to linear by 0.097-0.170 held-out R2; the local tensor-specific gate failed, while linear reaches 0.639 at MLP0.",
             },
             {
                 "priority": 3,
-                "action": "Compile a causally sufficient joint output/content interface with shared quadratic factors between RMSNorm boundaries.",
-                "why": "The question scalar needs one exact product, while full MLP maps show no near-exact coefficient degeneracy at the registered tolerances; major useful savings likely require choosing the right causal interface, not preserving all 1152 outputs.",
+                "action": "Move the matched product ladder to a deep content boundary only if the factorial assigns unique target-cell damage there; retain linear and native baselines unchanged.",
+                "why": "Early products improved over native units but not over linearity. Existing evidence places created-in-flight nonlinear content in the middle, so products should be retested only where the ship residual causally requires them.",
             },
             {
                 "priority": 4,

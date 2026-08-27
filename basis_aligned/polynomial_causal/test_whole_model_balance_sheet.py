@@ -73,3 +73,17 @@ def test_matched_product_geometry_is_not_promoted_after_causal_failure():
     assert matched["square_scalar_relative_rmse"]["heldout"] > 0.35
     assert matched["square_question_kl"]["heldout"] < 1e-4
     assert matched["square_question_kl_fraction_of_zero_rank2"]["heldout"] < 0.01
+
+
+def test_failed_early_product_frontier_promotes_linear_only_as_local_candidate():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    frontier = sheet["ledgers"]["local_content_compiler_frontier"]
+    assert frontier["registered_predictions"]["A_paired_beats_native_and_linear"] is False
+    assert frontier["registered_predictions"]["B_paired_reaches_r2_0p60"] is False
+    for site in ("mlp0", "mlp1", "mlp2"):
+        assert frontier["heldout_r2"][site]["linear"] > frontier["heldout_r2"][site]["learned_paired"]
+        assert frontier["heldout_r2"][site]["learned_paired"] > frontier["heldout_r2"][site]["native_selected"]
+    assert "rather than the current ship residual" in frontier["caveat"]
+    assert 0.68 < frontier["mlp0_native_fraction_of_linear_r2"] < 0.70
+    assert frontier["mlp0_native_amortized_r2_per_parameter_advantage"] > 20
+    assert "does not make them free" in frontier["pricing_rule"]

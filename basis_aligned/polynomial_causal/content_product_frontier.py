@@ -350,6 +350,11 @@ def main() -> None:
         "sites": results,
         "best_paired_site": best_site,
         "predictions": predictions,
+        "pricing_interpretation": {
+            "primary_ledger": "standalone parameters for every factor and decoder",
+            "native_amortized_status": "conditional only after factor projections are independently admitted, paid for, and reused",
+            "rule": "provenance in the original model does not make a factor free",
+        },
         "runtime_s": round(time.time() - start, 1),
     }
     torch.save({"config": output["config"], "sites": factors}, FACTORS)

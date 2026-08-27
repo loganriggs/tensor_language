@@ -105,6 +105,13 @@ algebraic simplification does not by itself identify behaviorally necessary geom
 Do not extend the scalar direction merely because its identity is elegant; move to
 the joint content/ship-residual frontier where causal value can be earned.
 
+**Early content frontier (2026-08-27):** 32 learned paired products consistently
+beat selected native and random products, but lose to a parameter-matched linear map
+at every MLP0-2 content slice. Held-out paired versus linear `R2` is `.542/.639`,
+`.454/.589`, and `.295/.465`. The registered tensor-specific gates fail, so these
+factors are not installed. The content API is locally linearizable; whether a linear
+correction removes unique ship damage is now the live question.
+
 ### P3 — Synthesize replacements jointly, not one module at a time
 
 Fit tensor-program fragments against natural outputs plus selected intervention
@@ -139,15 +146,15 @@ defense against a merely descriptive compression.
 
 ## Immediate queue after the matched-product result
 
-1. Execute the first content-API frontier at the early MLP0-2 boundary: compare
-   native-unit products, learned paired products, linear, and random controls with an
-   optimal matched decoder, then install the winner as a current-ship correction.
-2. Complete the residual cross-tab by layer group, token cell, output slice, and
-   held-out intervention family so the content correction is charged only for unique
-   recovery rather than overlapping ablation damage.
-3. Advance a factor library only if it removes at least `0.05` global CE and 10% of
-   novel/rare excess, predicts held-out interventions, and retains 75% under a second
-   correction; otherwise move the same ladder to the deep content boundary.
+1. Run the complete `attention x MLP0-2 x deep` replacement factorial and score exact
+   Mobius interactions plus Shapley allocations by token cell, output slice, and
+   intervention family. The existing novel/rare and early-MLP headlines are different
+   marginals and must not be multiplied into a causal story.
+2. If MLP0-2 owns at least `.05` novel/rare nats and 20% of that cell under the
+   factorial, fit a *linear* current-ship residual correction first; otherwise split
+   frequent construction from novel/rare content and target the licensed group.
+3. Move paired-product compilation to a deep content boundary only if that boundary
+   has unique factorial residual and it beats the same matched linear/native controls.
 4. Use the behavior-agnostic output basis only as a locator. Its rank-8 basis retained
    exactly half of oracle recall but only 13.5% of oracle causal damage, so it is not
    presently a control interface.

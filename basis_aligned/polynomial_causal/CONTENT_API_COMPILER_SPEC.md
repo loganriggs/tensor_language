@@ -94,6 +94,25 @@ deep content boundary. Failing (3) rejects tensor-specific compilation at that
 interface. Failing (4) keeps the candidate as compression only, not reverse
 engineering. Failing (5) rejects admission to the whole-model program.
 
+## First-stage result (2026-08-27)
+
+At `k=32`, learned paired factors beat native-product selection and seeded random
+products on untouched rows at all of MLP0-2, but lose to the parameter-matched linear
+map by `0.097`, `0.135`, and `0.170` whitened `R2`. The best paired program reaches
+only `0.542`, below the registered `0.60` gate, while the MLP0 linear arm reaches
+`0.639`. Validation generalization and reciprocal factor-gauge tests pass.
+
+Thus gate 3 fails and tensor-specific compilation is rejected at the early local
+interface. No paired factors are installed in the ship. The linear arm is not yet a
+ship win: it predicts clean local output rather than `y_clean-y_ship`. Its next test
+is conditional on the factorial residual cross-tab in `RESIDUAL_FACTORIAL_SPEC.md`.
+
+The selected-native arm retains 69% of MLP0 linear `R2` for 1/35 the decoder
+parameters, but this is only a conditional amortized point. Until its two projection
+factors are independently admitted and paid for as a reused library, its primary
+standalone price is `75840` parameters and it too is dominated by the `73792`-parameter
+linear map. Original-model provenance is not a free decoder.
+
 ## Leakage and accounting rules
 
 - Discovery rows choose `U_l`, compiler parameters, product count, and quantization.

@@ -80,6 +80,12 @@ same eight arms is a mathematical identity and is not evidence of generalization
   the exact paired question form with the best discovery-fitted square.
 - `content_product_frontier.py`: sequence-disjoint matched-cost local compiler
   frontier for learned paired, native, linear, and random content-API programs.
+- `factorial_causal_attribution.py`: CPU-only Mobius/Shapley scorer for complete
+  replacement-group factorials, with count-safe per-cell aggregation.
+- `RESIDUAL_FACTORIAL_SPEC.md`: preregistered group x token-cell x output/intervention
+  cross-tab that decides whether the early content compiler targets novel/rare loss.
+- `ship_error_factorial.py`: GPU entry point that reuses the frozen v4 ship harness
+  and executes the first token-cell stage of the complete replacement-group cube.
 - `question_channel_ledger.py`: GPU experiment for writer/reader/final question
   channel interventions with live and frozen RMS gauges.
 - `hankel_rank_audit.py`: prefix/continuation predictive-state rank audit.
