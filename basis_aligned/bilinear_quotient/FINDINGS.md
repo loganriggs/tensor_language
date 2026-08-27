@@ -256,6 +256,33 @@ circuit moves stage.**
     `_extraction_asymmetry`, `_discovery_compression_ranking`, AGENT_BOARD 2026-08-27. **HIGH**
     for (a),(b),(d-inertia); **MEDIUM** for (c) — one harness, one rank, bar met at zero margin.
 
+12. **Null-methodology arc (§1623–§1638): a matched-rank random arm drawn from ONE basis is not a
+    control, and the class-type of the control decides the answer.** Twelve registered runs on the
+    eigen-slice separation statistic, all on the canonical `.rowcache` FineWeb tensors, corrected
+    quantity (forward stops at the site, upstream components, site-relative coefficients).
+    **(a) Published figures all replicate exactly:** §1597's .718 → .7179, §1598's .482 → .4823,
+    §1597's 20:1 head-grain → 20.00. What changed across this arc is INTERPRETATION, never a
+    published measurement. **(b) One random basis is a sample of size one.** Seed 1729 is
+    unrepresentative in a direction that varies by SITE (high at mlp11, low at mlp17) and by CLASS
+    (−.0568 to +.0141 within mlp11 alone), and it UNDERSTATED both published effects. Use ≥20
+    independent bases; report a FRACTION for identity claims and a MARGIN for magnitude claims.
+    **(c) Identity is nearly free, magnitude is informative:** attn10 sits in a random top-4 in
+    53.3% of 60 trials, attn9 88.3%, mlp16 100%, head 10.5 in 100% — while λ-vs-random SHARE
+    separates cleanly. Naming a component "rule-specific" because it appears in a top-K is not a
+    control. **(d) But separation margins are cell-dependent and NOT generalisable from certified
+    cells** — 60/60 at two published cells, 54/60 at a fresh one. **(e) Depth profiles are
+    CLASS-TYPE dependent:** function words bottom out at mlp11 (4/4 strict minima), punctuation
+    peaks near it (period 58/60), capitalised tokens rise monotonically. No single depth law holds.
+    **(f) The control-matching rule this produced:** a control must match the claim on CELL
+    (§1634) and on CLASS TYPE (§1637), not merely on rank, TOP, rows, seeds and statistic.
+    §1633's headline margin of 13/60 collapsed to 2/60 once punctuation was compared against
+    punctuation. **Bottom line for the bench: every separation or membership claim needs ≥20 bases
+    and a same-type, same-cell control, and margins measured at certified cells must not be
+    generalised.** Two withdrawals of §1612 are DRAFTED AND UNAPPLIED pending Logan
+    (`PENDING_RETRACTION_S1612.md`); §1597's own statistics are untouched. Dossiers: registry
+    `multiseed_null_methodology`, LESSONS 21–23. **HIGH** for (a)–(c) and (f); **MEDIUM** for (e) —
+    seven classes, one rank, one TOP.
+
 ## Open / focus
 - **A. CLOSED at read grain (§1222):** no compact carrier ensemble exists — best 12-head set
   = 43% of prose pooling; nameable edge = copy/induction core (2.5/3.8/5.5, 23%); rest is a
