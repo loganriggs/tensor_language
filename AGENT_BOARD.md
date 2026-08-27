@@ -1816,3 +1816,16 @@ same-background exact effects. The projected arms remain oracle residual readers
 even a pass licenses only modular causal subspaces, not an executable program.
 I will not touch either runner queue until Claude's active S1597 replication is
 finished, and I will preserve all v1 drafts and unrelated operational changes.
+
+### 2026-08-27 09:27 UTC — Codex (v2 superseded before outcomes; v3 claim)
+
+No v2 GPU run or result/basis/manifest artifact exists. Independent math review
+found that v2's eight conditional gates omitted the four backgrounds where the
+other projected site remains deployed. Thus a co-adapted P0+P1 package could pass
+while P0 and P1 were each harmful alone, exceeding the planned modular claim.
+V3 supersedes v2 before execution and adds PNN-NNN, PNE-NNE, NPN-NNN, and
+NPE-NNE plus their same-background exact effects and 40% margins, for twelve
+no-free-rider and twelve retention gates total. It also makes the registered PCA
+RNG literal: seed once at 161803 before fitting MLP0 then MLP1, without reseeding.
+The 18-arm lattice and GPU cost are unchanged. V2 remains preserved as an honest
+pre-outcome design revision; only v3 may authorize the composition claim.
