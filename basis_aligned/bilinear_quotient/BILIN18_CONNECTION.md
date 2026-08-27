@@ -39382,3 +39382,60 @@ lesson: I generalised from one certified cell and an ordinary preposition matche
 at the second. Before "the middle of the network is unstructured" is claimed, the
 sweep needs at least three more classes, and the mlp14 sign flip needs its own test.
 Registered as the open question, not as a finding.
+
+## §1636 THE SEPARATION MINIMUM AT mlp11 REPLICATES ON EVERY CLASS TESTED (3-for-3, 4/4 classes) — and it RECONCILES §1633 with §1634: question@mlp11 is unusual because mlp11 is where nothing else is, while pronouns@mlp17 is ordinary because mlp17 makes everything separate
+
+**Setup** (depth_multiclass, 1218 s, rung 3 — testing §1635's U-shape BEFORE claiming
+it, the discipline §1634 cost me). Three classes never swept in depth (` the`, ` and`,
+` is`) across mlp5/8/11/14/17, rank-2 TOP-4, 20 independent bases x 3 disjoint chunks
+= 60 trials per cell, 15 cells. No cross-site share scored — only within-site
+separation counts and gaps, because the component set grows 12 → 36 with depth.
+
+```
+class   separation (5, 8, 11, 14, 17)     mean gap                              min@11  pos@14  monotone
+the     [35  54  24  55  54]              +.025 +.070 −.011 +.084 −.108          YES     YES      no
+and     [57  49  45  50  47]              −.095 −.078 +.033 +.041 −.074          YES     YES      no
+is      [60  55  33  36  52]              +.147 +.081 +.011 −.023 −.079          YES      no      no
+at (§1635) [54  31  17  40  51]           −.075 −.026 −.008 +.046 −.088          YES     YES      no
+```
+
+- **pred_a PASSED** — **3 of 3** new classes have their separation minimum at mlp11,
+  against a ≥2 bar. With ` at` from §1635 that is **4 of 4**.
+- **pred_b PASSED** — 2 of 3 have a positive gap at mlp14 (`is` is the exception at
+  −.023). With ` at` and ` of` (§1632) that is 4 of 5 classes agreeing on the sign flip.
+- **pred_c PASSED** — 0 of 3 monotone. No depth story is monotone.
+
+**§1635's U-shape survives its own test.** It is not a fact about ` at`: every class
+tested bottoms out at mlp11. This is the first generalisation of mine this session to
+survive an independent test, and the difference is that I ran the test before making
+the claim rather than after.
+
+**IT ALSO RECONCILES §1633 AND §1634, which looked contradictory.** §1633 found the
+certified class separating 60/60 at mlp11 against fresh classes at 17-47. §1634 found
+no such margin at mlp17, where ` at` tied pronouns. I read that as "certification
+means nothing". The real explanation is the site profile:
+
+- **mlp11 is the global separation MINIMUM.** Ordinary classes there manage 17-45 of
+  60. A class that separates 60/60 at mlp11 is genuinely exceptional, so
+  **question@mlp11 standing out is a real signal**, and §1633's measurements were
+  telling the truth even though my "certification" framing of them was wrong.
+- **mlp17 is a high-separation site for everything** (52-60/60 across five fresh
+  classes, §1634). Pronouns separating there is what every class does, so **§1634's
+  narrowing of §1612 stands and now has a mechanism.**
+
+So the two published cells are NOT symmetric. §1597's question circuit sits at the
+site where structure is hardest to find and is found anyway; §1598's pronoun slice
+sits where diffuseness is universal. That asymmetry matches their original scores —
+§1597 went 3-for-3, §1598 was recorded as a failure of sparsity — and it was
+invisible until the site profile was measured.
+
+**Bearing on the pending retraction.** This STRENGTHENS the second pending item
+against §1612 (the pronoun structural reading) by supplying the mechanism, and it
+does NOT support withdrawing anything from §1597. Neither is applied; both remain in
+`PENDING_RETRACTION_S1612.md` for Logan.
+
+**Limitation, stated before anyone else has to.** All four classes are FUNCTION
+WORDS (` at`, ` the`, ` and`, ` is`). The mlp11 minimum may be a property of
+function-word prediction rather than of the network. A content-word or
+punctuation class could break it, and that is the next test — not a claim that the
+middle of the network is unstructured in general.
