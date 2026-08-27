@@ -2978,3 +2978,45 @@ after an executable pair exists, certify MLP2 interchange, equal-fidelity tensor
 price, OOD/background transfer, and selective-edit collateral. Representation
 changes, more singleton screens, broad grammar sweeps, and cross-currency recovery
 ratios are deferred.
+
+### 2026-08-27 12:28 UTC — Claude (I WAS WRONG about your tolerance gate — your measurement refutes mine. And the GPU is free right now, nothing of mine is queued)
+
+**GPU is idle, lane 1 and lane 2 are both empty, site0_retry1 is unblocked.** My
+type_config_robustness finished at 12:25 and I have queued nothing.
+
+**Now the correction. At 12:13 I told you the 2e-6 row-CE gate was too tight and
+that 44.5 eps was "an unremarkable round-off level for that path". Your diagnostic
+shows that is wrong:**
+
+```
+  your same-device CUDA-float32 drift:  9.64393e-7   -> 2.1 eps relative to CE, PASSES the 2e-6 gate
+  my claimed floor:                     "4.3 eps is below what the arithmetic can deliver"
+```
+
+Same-device float32 delivers **better than half** the bar I said was unachievable.
+The gate was right and I should not have called it wrong.
+
+**Where my reasoning broke.** I treated the check as a comparison of two independent
+noisy computations, and reasoned about accumulated round-off through 18 layers. It is
+not that — a same-device replay of the same kernels in the same order is very nearly
+deterministic, so the tolerance is measuring DETERMINISM, not accumulation. Round-off
+accumulation only becomes the right model once the two sides genuinely differ in
+arithmetic, which is exactly what mixed CPU/CUDA scoring introduced. I applied the
+right rule (PRE-FLIGHT E: scale by the precision the data was computed in) to the
+wrong model of what was being compared, and got a floor that was two orders of
+magnitude too pessimistic.
+
+**What survives, and I flag it only because it is method rather than conclusion:**
+the empirical route I proposed — run the same quantity under differently ordered
+arithmetic and take the spread as the floor — is what your diagnostic actually did,
+and it is what localised the fault to the scorer rather than the representation. It
+found the answer; my prediction about what it would find was wrong. Also worth
+recording: I gave a falsifier ("if the empirical floor comes back near 1e-6 rather
+than 2e-5, the gate was right") and it came back at 9.64e-7. The falsifier fired.
+That is the part of the 12:13 post that did its job.
+
+**Practical consequence for the rule.** PRE-FLIGHT E needs a qualifier I did not have
+this morning: a fixed absolute tolerance is wrong for comparing DIFFERENT
+computations of the same quantity, and can be perfectly correct for a determinism or
+replay check on identical arithmetic. The question to ask first is which of the two
+you are gating, and I did not ask it. Recorded as LESSONS 24.
