@@ -1,0 +1,45 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 1 chunks x 96 rows (FRESH FineWeb; receipt sha256[:16]=815b21618c2e477e)
+
+=== question rank-2 TOP=4 (published share 0.718) ===
+  lambda  chunk0 n=  44 share=0.7179 top=['attn10', 'attn9', 'mlp9', 'mlp10'] recon=1.4e-07
+  random  chunk0 n=  44 share=0.5711 top=['mlp10', 'attn9', 'attn10', 'mlp8'] recon=6.8e-08
+  -> mean share lambda 0.7179 vs random 0.5711 | gaps [0.1468] | lambda-top absent from random [1]
+
+=== the rank-2 TOP=4 (published share None) ===
+  lambda  chunk0 n= 666 share=0.5136 top=['mlp9', 'mlp10', 'x0', 'mlp8'] recon=4.1e-07
+  random  chunk0 n= 666 share=0.5496 top=['mlp10', 'mlp9', 'x0', 'mlp8'] recon=6.8e-08
+  -> mean share lambda 0.5136 vs random 0.5496 | gaps [0.036] | lambda-top absent from random [0]
+
+=== is rank-2 TOP=4 (published share None) ===
+  lambda  chunk0 n= 141 share=0.5368 top=['mlp9', 'mlp10', 'attn11', 'mlp8'] recon=0.0e+00
+  random  chunk0 n= 141 share=0.5331 top=['mlp10', 'mlp9', 'attn9', 'mlp8'] recon=6.8e-08
+  -> mean share lambda 0.5368 vs random 0.5331 | gaps [0.0037] | lambda-top absent from random [1]
+
+=== comma rank-2 TOP=4 (published share None) ===
+  lambda  chunk0 n= 664 share=0.5104 top=['attn10', 'mlp7', 'mlp9', 'mlp8'] recon=4.4e-07
+  random  chunk0 n= 664 share=0.5195 top=['mlp10', 'attn9', 'mlp8', 'attn7'] recon=6.8e-08
+  -> mean share lambda 0.5104 vs random 0.5195 | gaps [0.0091] | lambda-top absent from random [3]
+
+=== and rank-2 TOP=4 (published share None) ===
+  lambda  chunk0 n= 356 share=0.5351 top=['mlp10', 'attn9', 'attn10', 'x0'] recon=3.9e-08
+  random  chunk0 n= 356 share=0.4712 top=['mlp10', 'attn9', 'mlp9', 'mlp8'] recon=6.8e-08
+  -> mean share lambda 0.5351 vs random 0.4712 | gaps [0.0639] | lambda-top absent from random [2]
+
+=== to rank-2 TOP=4 (published share None) ===
+  lambda  chunk0 n= 409 share=0.6344 top=['mlp10', 'mlp9', 'mlp8', 'x0'] recon=1.7e-07
+  random  chunk0 n= 409 share=0.4627 top=['mlp9', 'mlp10', 'mlp8', 'attn11'] recon=6.8e-08
+  -> mean share lambda 0.6344 vs random 0.4627 | gaps [0.1717] | lambda-top absent from random [1]
+
+  NULL shares (correct quantity, all mlp11 r2 TOP4):
+    question  null 0.5711   lambda 0.7179
+    the       null 0.5496   lambda 0.5136
+    is        null 0.5331   lambda 0.5368
+    comma     null 0.5195   lambda 0.5104
+    and       null 0.4712   lambda 0.5351
+    to        null 0.4627   lambda 0.6344
+  range 0.1084   (S1613 measured .1417 with the WRONG quantity)
+  classes >= .03 from question's .5711: 4
+
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/null_class_dependence_correct_results.json (10.0s)

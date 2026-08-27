@@ -38665,3 +38665,53 @@ all found pronouns below its null while measuring the WRONG quantity
 (final-residual attribution). Measured correctly it is still below its null. The
 within-run comparisons held up exactly as §1623 predicted they would, because both
 arms always shared a quantity even when that quantity was not the published one.
+
+## §1625 §1612's CLASS-DEPENDENT NULL SURVIVES THE §1623 CORRECTION (2-for-3): the range attenuates from .1417 to .1084, not to zero — and the .5711/.5744 near-equality of §1623/§1624 was coincidence, as flagged
+
+**Setup** (null_class_dependence_correct, 10 s). §1623/§1624 measured nulls of
+.5711 and .5744 under the CORRECT quantity where §1612 had reported .4489 and
+.7295 — an 85x smaller spread, raising the possibility that §1612's headline
+(and §1613-§1616 built on it) was an artifact of the wrong measurement. But those
+two cells also differ in rank (2 vs 8) and TOP (4 vs 6), so this isolates CLASS:
+six classes at mlp11, rank-2, TOP-4, forward stopping at 11, upstream components,
+site-relative coefficients, canonical `.rowcache/fineweb_n96_skip80.pt`.
+
+```
+class      null     lambda    gap (lambda - null)
+question  .5711     .7179       +.1468
+the       .5496     .5136       -.0360     <- slice BELOW its null
+is        .5331     .5368       +.0037
+comma     .5195     .5104       -.0091     <- slice BELOW its null
+and       .4712     .5351       +.0639
+to        .4627     .6344       +.1717     <- largest gap of all six
+range     .1084   (S1613 measured .1417 with the wrong quantity)
+```
+
+**Scored as written:**
+- **pred_a FAILED by .0084** — the null range is **.1084** against a ≤ .10 bar.
+  A miss is a miss. The null is NOT class-independent under the correct quantity.
+- **pred_b PASSED** — .1084 is below §1613's .1417, so the correction does
+  attenuate the effect, by **24%**.
+- **pred_c PASSED** — 4 of 6 classes sit ≥ .03 from question's null, so the small
+  range reflects real measurement rather than a collapsed statistic.
+
+**§1612 AND §1613 SURVIVE.** The null is genuinely class-dependent; the wrong
+quantity exaggerated it (.1417 → .1084) but did not create it. §1613's conclusion
+that the null cannot be tabulated and every claim needs its own matched-class arm
+**stands**, and the practical rule built on it was not wasted. The .5711/.5744
+near-equality was coincidence between two cells differing in rank and TOP — which
+is exactly the caveat I registered before running, and it was the right caveat.
+
+**An unregistered observation worth recording (NOT scored).** The lambda-minus-null
+GAP varies far more than either quantity alone, and for **`the` (−.036) and
+`comma` (−.0091) the certified slice is LESS concentrated than a random basis** at
+mlp11, while `to` (+.1717) and `question` (+.1468) show strong concentration. So
+"the mlp11 eigen slice concentrates its writers" is a class-specific property, not
+a site property. That is a hypothesis from six points at one site and needs its
+own registered run on disjoint classes before it means anything — LESSONS 17
+applies directly.
+
+**Method note.** I suspected five of my own sections were artifacts and tested it
+rather than assuming either way. The correct outcome here was to find the original
+finding intact; had I assumed the correction propagated, I would have withdrawn
+sound work.
