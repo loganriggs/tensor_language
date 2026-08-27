@@ -38787,3 +38787,70 @@ predicted MLP0, poison every original-MLP call in predicted arms, and rerun the
 same lattice. In parallel, a same-row clean/macro factorial must mint valid
 whole-model/group denominators; MLP2 state interchange, the remaining-layer
 causal census, and OOD/edit certification remain independent gaps.
+
+## §1627 HALF THE CLASSES TESTED HAVE CERTIFIED SLICES THAT WRITE *LESS* CONCENTRATEDLY THAN A RANDOM BASIS (3-for-3, 12/12 sign agreements on disjoint rows) — the below-null sign is a stable class property, not noise, and §1612's reading of it needs narrowing
+
+**Setup** (gap_sign_stability, 47 s, rung 3 — the open question at the end of
+§1625). §1625 noted, unregistered, that the SIGNED gap = λ-share − null-share
+varies by class at a fixed cell and is NEGATIVE for two of six. That was one chunk
+of 96 rows, so it was a hypothesis (LESSONS 17). Here: three DISJOINT 160-row
+chunks of the canonical `.rowcache/fineweb_n480_skip80.pt`, six classes, all at
+mlp11 rank-2 TOP-4, forward stopping at the site, upstream components,
+site-relative coefficients.
+
+```
+class     scored  §1625    chunk gaps (λ − null)        signs
+question   yes    +.1468   +.1138 +.1307 +.1535          +++
+to         yes    +.1717   +.1737 +.1380 +.1235          +++
+and        yes    +.0639   +.0614 +.0689 +.0044          +++   (chunk2 nearly 0)
+the        yes    −.0360   −.0499 −.0461 −.0551          −−−
+comma      no     −.0091   −.0070 −.0246 −.0035          −−−
+is         no     +.0037   −.0413 −.0652 −.0314          −−−   SIGN FLIPPED vs §1625
+```
+
+- **pred_a PASSED** — 12/12 sign agreements on the four scored classes.
+- **pred_b PASSED** — `the` is below its null in all three chunks, and in fact
+  *more* negative than §1625 measured (−.050 mean vs −.036).
+- **pred_c PASSED** — `to` clears +.10 in all three chunks.
+
+**The finding.** The below-null sign is a STABLE, REPLICABLE property of the class,
+not sampling noise. Three of the six classes tested — `the`, `comma` and `is` —
+have certified |λ|-ordered rank-2 eigen slices whose writer mass is *less*
+concentrated in its own top-4 than a random rank-2 basis at the same site on the
+same rows. This is not a small effect for `is` (−.065 at chunk1, larger than `the`
+anywhere).
+
+**Why the two unscored classes earn their exclusion, and what they still show.**
+`is` was registered IN ADVANCE as expected-unstable because §1625 put it at +.0037.
+It did not merely wobble — it settled **consistently negative** across all three
+disjoint chunks. So §1625's single 96-row chunk had the SIGN WRONG for `is`, which
+is exactly why the ≥.03 pre-registration bar was drawn where it was. Scoring `is`
+would have been scoring a number I already had reason to distrust; reporting it
+unscored is what lets it inform without contaminating.
+
+**This narrows §1612.** §1612 read pronouns@mlp17 sitting below its null as "a
+positive structural claim about distributed writing" — the slice is *meaningfully*
+diffuse. That reading required below-null to be a notable property. It is not:
+half the ordinary function-word classes tested at mlp11 sit below their null too.
+Below-null is COMMON, so on its own it licenses no structural claim. What §1612 can
+still say is the WITHIN-cell comparison it actually made; what it cannot say is
+that a below-null slice is thereby structurally interesting. §1624 already confirmed
+the pronouns verdict survives against a proper null (.4823 vs .5744); §1627 says
+the *interpretation* of that sign must be weaker than §1612 gave it.
+
+**Two unregistered observations, each needing its own run before it means anything
+(LESSONS 17).**
+1. **§1597's writer graph independently replicates.** question's λ top-4 is
+   `{attn10, attn9, mlp9, mlp10}` — §1597's published set — in all three disjoint
+   chunks, on rows §1597 never saw. Set-identical 3/3.
+2. **But membership may be a SITE property, not a slice property.** In question
+   chunk0 the RANDOM top-4 is the same four components (`absent_from_random = 0`),
+   and `to` gives 0 absent in two of three chunks. Where the λ slice is strongly
+   above null it tends to select the components a random basis also selects; the
+   separation is in the SHARE, not the membership. `comma` is the opposite (3/3
+   absent at a near-zero gap). If this holds it complicates §1610/§1612's
+   membership-based reasoning, and it is testable directly.
+
+**Method note.** Registering the ≥.03 scoring bar and the expected-unstable list
+BEFORE the run is what made this readable: `is` flipping sign is informative
+evidence here rather than a failed prediction to explain away.
