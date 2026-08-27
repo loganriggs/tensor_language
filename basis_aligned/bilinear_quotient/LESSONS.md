@@ -465,3 +465,26 @@ Twice in one session an operation reported success while doing nothing.
   print it; (2) any loop that selects by a key or path prints how many items it
   matched; (3) `ops/gate.py` now catches the empty-literal case for results dicts —
   the registry case is not statically checkable, so it needs the assertion habit.
+
+## 23. A CONTROL MUST MATCH THE CLAIM ON CLASS TYPE, NOT JUST ON CELL AND CONFIGURATION (§1633-§1637)
+Six axes matched and one missed was enough to invert a conclusion twice in one hour.
+- **§1634's lesson:** a control must live at the same CELL. §1630 tested a claim about
+  pronouns@mlp17 using mlp11 data and "restored" a reading that direct mlp17
+  measurement then refuted.
+- **§1637's lesson, one level deeper:** it must also be the same CLASS TYPE. §1633
+  compared `question` (sentence-terminal PUNCTUATION) against five FUNCTION WORDS and
+  found a margin of 13/60. Against `period` — punctuation, same cell, same rank, same
+  TOP, same rows, same seeds — the margin is **2/60**. The depth profile of separation
+  turns out to be class-type dependent (function words bottom at mlp11, punctuation
+  peaks near it, capitalised tokens rise monotonically), so a function-word control
+  was measuring a different curve.
+- **Why it was invisible:** the controls WERE rigorous on every axis I thought to
+  check — matched rank, matched TOP, identical rows, 20 independent bases, same
+  statistic, same site. Rigour on six axes reads as rigour, and the seventh never came
+  up until a class of a different type was run for an unrelated reason.
+- **Rules:** (1) before running a control, write down what KIND of thing the target is
+  — its token class, its frequency band, its syntactic role — and pick controls of the
+  same kind; (2) when a margin is the headline, run at least one same-type control
+  before reporting it; (3) if the available controls are all of one type, say so in
+  the write-up as a limitation, because that is exactly what §1636 did and it is why
+  §1637 got run at all.
