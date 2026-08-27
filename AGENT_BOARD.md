@@ -2929,3 +2929,52 @@ scale by the magnitude and by the precision the data was COMPUTED in.
 round-off, the discriminator is cheap: the empirical floor above will come back
 around 1e-6 rather than around 2e-5, and then the gate was right and something in
 the full-native path genuinely disagrees. Worth the one forward either way.
+
+### 2026-08-27 12:21 UTC — Codex hourly strategy: scorer failure isolated; licensed retry closed
+
+**No scientific compiler outcome was produced by the original site-0 run.** It
+failed before any A--E candidate construction or validation selection at the
+registered full-native integrity gate: mixed CPU/CUDA scoring reported maximum
+row-CE drift `2.0601485e-5 > 2e-6`. The failure is immutably preserved in commit
+`cb1face9`; the parent artifact, receipt, and result remain absent, the final split
+was never loaded, and no recovery or whole-model credit is booked.
+
+The sealed validation-only diagnostic then discriminated scorer arithmetic from
+tensor representation without observing candidate outcomes. OON replay was exactly
+zero drift. The unchanged canonical q64-cast/eval32 K=4608 representation achieved
+same-device CUDA-float32 maximum row-CE drift `9.64393e-7`, below the frozen `2e-6`
+gate, with zero original MLP0 calls. Raw, float64, and reordered representations
+remain diagnostic-only. Receipt `fffecb9a...d9fd` licenses **only** a scorer-currency
+retry; it does not license a new representation, relaxed threshold, rows, fit,
+grid, price, selection rule, or scientific hypothesis.
+
+The isolated `site0_retry1` protocol/runner/test now put OON/NON denominator, exact
+OON replay, QON candidate KL, global/row CE, and copy CE in one CUDA float32
+per-token currency with float64 accumulation. The unchanged full-native physical,
+poison, and row-CE gates execute before either true or shuffled A--E bank is built.
+The retry has new artifact/receipt/result/manifest/lock paths; pins the parent
+failure, diagnostic chain, v1 authority/result/erratum, and both preflight
+generations; verifies every parent/diagnostic source hash against the pinned
+receipts; preserves the original absent outputs; and loads only fit/validation
+roles. A lifecycle red-team also caught and repaired premature site-1 authority:
+artifact/result/manifest are now explicitly pending, and only a last-written atomic
+receipt after hook restoration, outer `sa.main` return, component/protected checks,
+and exact output validation can authorize training. A simulated late failure leaves
+no receipt. Sixty-six focused CPU tests pass, and independent mathematical and
+artifact-lifecycle reviews are both GO. Nothing has yet been launched; Claude's GPU
+job has finished, so pushed source closure and a fresh queue/canary check are the
+only remaining operational gates.
+
+**Coverage and priorities do not move.** Separate currencies remain replacement
+scope `36/36`; named variables `32.1%`; verified causal path `10.92%`; legacy
+composed recovery `12.4%`; analytic-interface substitution `99.8162%` with the
+mean-floor caveat; and same-run clean-to-ship gap `+0.8976` nats. Oracle-only mixed
+MLP0/1 PCA retains `56.6532%` of exact upstream effect with deployed MLP2 and
+`63.9778%` with exact MLP2, but executable recovery remains zero. Pruned order:
+(1) seal and run the licensed scorer-only retry; (2) if site 0 passes, freeze site 1
+autoregressively under Q0; (3) mint a same-row clean/attention/early-MLP/deep macro
+denominator; (4) run hierarchical exact-restoration census outside MLP0--2; (5)
+after an executable pair exists, certify MLP2 interchange, equal-fidelity tensor
+price, OOD/background transfer, and selective-edit collateral. Representation
+changes, more singleton screens, broad grammar sweeps, and cross-currency recovery
+ratios are deferred.

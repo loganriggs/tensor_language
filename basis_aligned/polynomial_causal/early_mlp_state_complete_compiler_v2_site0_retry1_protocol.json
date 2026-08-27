@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "frozen_after_numeric_diagnostic_before_retry1_fit_or_validation",
+  "authority": "compiler_v2_site0_retry1_protocol",
+  "authorized_for_scored_experiments": false,
+  "parent_failure_manifest_sha256": "0903b0822b935e7dd6225da46dd1e58064ec275b80fd9c599685cea8b8b05f36",
+  "numeric_diagnostic": {
+    "protocol_sha256": "faf3de94d6e2bf7f33db52f5bdf074c10926535d10c18ced22d303f3d8ea5418",
+    "result_sha256": "307b74ab95856d943ceaad06f246cfa9cf70466dda84cb80bd559dabf64b634e",
+    "manifest_sha256": "8ce7b8cb38399eb5ac502ef9d0b78825cf97977cfa86384c355bde2d9f041c00",
+    "receipt_sha256": "fffecb9a3d99a4f6b7f615c96caf9bd7e2ac9c4d4788d610df7edf18d6a1d9fd",
+    "source_commit": "d8ffc8d00532894dbf4af118a4f78741a5d1fed4"
+  },
+  "licensed_change": "Scorer currency only. Compute OON replay, OON/NON denominator, QON candidate KL, row/global CE, and copy CE from CUDA float32 logits on CUDA with identical formulas; accumulate token/row sums in float64. The serialized canonical full-native program, runtime, rows, fits, candidate grids, prices, selection, thresholds, and all scientific hypotheses remain unchanged.",
+  "integrity_order": [
+    "Capture fit states without building candidates.",
+    "Capture validation state and teacher/non logits.",
+    "Require exact OON replay logit and row-CE identity in the unified scorer.",
+    "Require the unchanged canonical K4608 QON full-native arm to have max row-CE drift <=2e-6, the frozen physical tolerance, and zero original MLP0 calls.",
+    "Only then build true and literal-shuffle A-E candidates and perform validation selection."
+  ],
+  "frozen_scorer": {
+    "logits": "float32 CUDA",
+    "log_softmax_and_cross_entropy": "float32 CUDA",
+    "kl_per_token": "float32 CUDA, then float64 accumulation",
+    "ce_per_token": "float32 CUDA, then float64 row/global/copy accumulation",
+    "row_ce": "float64 mean of per-token float32 CUDA CE",
+    "valid_positions": "64: over each 256-token target sequence",
+    "teacher_candidate_pairing": "same row order and same device/dtype/reduction formulas"
+  },
+  "unchanged_tolerances": {
+    "full_native_max_row_ce_drift": 0.000002,
+    "full_native_physical": "4e-6*max(1,max absolute reference physical correction)",
+    "copy_worsening": 0.01
+  },
+  "lifecycle": "Use only retry1 output/lock paths. Preserve and pin the original failed manifest and the absence of its program/receipt/result. Artifact, result, and manifest are non-self-authorizing pending outputs. Only an atomic training-authority receipt written after callback completion, hook restoration/inertness, outer sa.main return, component-tree and protected-state checks may license site 1; it binds exact artifact, result, finalized pending-manifest, parent, diagnostic, protocol, source commit, and source hashes. Any pre-authority failure leaves the receipt absent and is preserved without relabeling the parent failure."
+}
