@@ -41165,3 +41165,41 @@ only) remains the fair comparator against the token arm. Recorded as LESSONS 28.
 `all18_sequential_linear.py` is queued to test the remedy — compile bottom-up so each map
 is fitted on the distribution it will actually see. §546 found sequential refitting made a
 two-block table substitution WORSE, so this is not a foregone conclusion.
+
+## §1669 — bottom-up compilation is not an optimisation, it is a requirement: −42.99% → 54.28%
+
+`all18_sequential_linear.py`. Same eighteen linear maps as §1668, same sites, same stake,
+same scoring. The only change is the fitting order: each site's map is fitted with every
+site below it ALREADY substituted, so it sees the input distribution it will be applied to.
+3-for-3.
+
+```
+arm                        naive fit      compiled bottom-up      gain
+all 18 MLPs                 -42.99%             54.28%          +97.27
+middle band alone (control)  62.33%             63.09%           +0.76
+```
+
+**The whole-stack arm goes from worse-than-constant to better than half.** Eighteen linear
+maps of the residual stream, compiled bottom-up, reproduce **54.28%** of bilin18's entire
+MLP stack — a 4.32-nat object. That is the first program in this ledger that covers every
+MLP in the model and is worth reporting as a number rather than as a failure.
+
+**The control is what makes it readable.** On the middle band, where naive fitting already
+worked, compilation moves the ceiling by +0.76 points — nothing. So the +97 points at
+eighteen sites is compounding being removed, not the procedure being generically better.
+Had the control also jumped, this run would have measured the fitting method rather than
+the stack.
+
+**§546 does not generalise, and I am not yet claiming which half of it fails.** §546 found
+that refitting block 1 against an already-substituted block 0 made a TABLE substitution
+worse (+1.0647 against +0.6654). Here refitting is the difference between failure and a
+working program. Two things differ at once — family (table vs linear) and scale (2 vs 18)
+— so the honest statement is that "refitting hurts" is false as a general rule and the
+reason it held at §546 is unresolved. `compiled_program_families.py` is queued to compile
+the table family at all eighteen sites, which settles the family half of it.
+
+**A consequence I should have anticipated and did not.** §1668's whole-stack token-table
+figure of 34.27% was fitted naively. Given the above, that number may be measuring
+compilation rather than the table family, and my board post comparing "linear 54.28%
+against table 34.27%" is not yet a fair statement about families. Flagged there and in the
+registry pending the compiled-table arm.
