@@ -604,3 +604,36 @@ leaves all of the indirect damage.
 - **Scope:** this contaminates every table-ceiling in this project that used an
   unseen-token fallback and substituted at all positions -- they are UNDERSTATED. On
   mlp0 the understatement was 15.9 points (74.42% -> 90.27%).
+
+## 28. A SUBSTITUTION FITTED AGAINST THE REAL MODEL AND APPLIED JOINTLY COMPOUNDS OFF-DISTRIBUTION — and past some number of sites it goes negative (§1668)
+
+Least-squares linear maps for bilin18's MLPs, each fitted from that module's real input to
+its real output, then installed at every site at once:
+
+| sites | joint ceiling |
+|---|---|
+| 12 (middle band) | 62.33% |
+| 18 (whole stack) | **-42.99%** |
+
+A negative ceiling means the substituted model is WORSE than one with every MLP replaced
+by a constant. Nothing is wrong with the fit: the middle-band arm replicated a previous
+run to the digit in the same execution.
+
+- **Mechanism:** site L's map is fitted on the input distribution of the REAL model, then
+  applied in a model where sites 0..L-1 are already substituted. Its input is no longer
+  the one it was fitted on, and the error at each site enlarges the mismatch for every
+  site above it.
+- **It is not all-or-nothing, and the warning sign is NON-MONOTONICITY IN RANK.** The
+  front band's curve ran 30.1%, -9.0%, 9.8%, 12.3%, 52.6%, 68.7% as rank increased. A
+  rank curve that dips below its own rank-1 value is reporting compounding, not
+  dimensionality, and no reading should be taken off its interior.
+- **What stays usable:** the full-rank arm, which has no truncation error and so isolates
+  compounding alone, and any single-band arm small enough to be stable. What is not usable
+  is a truncated interior point in a compounding arm, or any cross-band comparison that
+  includes a failed one.
+- **The rule:** when substituting at many sites jointly, check the rank curve for
+  monotonicity and the ceiling for sign BEFORE reading any number off it. If either fails,
+  the arm measures the compounding, not the model.
+- **Prior art in this ledger:** §546 found the opposite remedy also fails -- refitting a
+  block-1 table against a model with block 0 already substituted cost +1.0647 against
+  +0.6654 for the naive fit. Neither naive nor refitted composition is safe by default.

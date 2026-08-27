@@ -41115,3 +41115,53 @@ This was worth measuring rather than assuming: coverage is exactly what broke §
 
 Queued `band_linear_compare.py` to fill in the same row for the front and late bands and
 price the bilinearity depth by depth.
+
+## §1668 — the program-family table: the front band is the ONLY tabular band, and the whole-stack arm FAILED
+
+`band_linear_compare.py`. Joint substitution per band, one protocol, token table against
+least-squares linear map of the module input. pred_a False, pred_b True, pred_c True.
+
+```
+band       stake    token    linear r64   linear full   QUADRATIC REMAINDER
+front     4.3922   76.45%      12.30%        68.68%          31.32%
+middle    2.6453   21.73%      44.93%        62.33%          37.67%
+late      0.7174   51.02%      80.35%        83.60%          16.40%
+all18     4.3196   34.27%    -147.19%       -42.99%         142.99%   <- FAILED, see below
+```
+
+The middle-band control replicates §1667 **to the digit** (62.33%), which is what licenses
+reading the other rows at all.
+
+**pred_a failed, and the failure is the cleanest result in the table.** I predicted the
+front band would be more linear than tabular, like the middle. It is the reverse: token
+76.45% against full-rank linear 68.68%, the table winning by 7.8 points. **The front band
+is the only band in bilin18 where a lookup beats a computation.** That strengthens §1666
+rather than qualifying it — the front four are not merely cheap functions that correlate
+with the token, they are genuinely reading the token, and a linear map with access to the
+entire residual stream does worse than a table with access to nothing else.
+
+Read across the three real bands, the model has three regimes:
+- **front (mlp0-3): tabular.** Token 76% > linear 69%.
+- **middle (mlp4-15): linear-ish and the most bilinear.** Linear 62% ≫ token 22%, and the
+  largest quadratic remainder at 37.7%.
+- **late (mlp16-17): nearly a linear readout.** Linear 84%, quadratic remainder only 16.4%.
+
+**pred_b passed and its motivating story is again false.** I predicted the quadratic
+remainder grows with depth; the literal condition (front < middle) holds at 31.3% vs 37.7%,
+but the late band drops to **16.4%**, the smallest of the three. Bilinearity does not
+accumulate with depth — it peaks in the middle and largely switches off at the top. That
+is the third time today a prediction has passed while the generalisation behind it failed,
+and it is the reason the flags are never written up on their own.
+
+**THE all18 ROW IS NOT A MEASUREMENT AND IS NOT INTERPRETED.** −42.99% means the
+substituted model is worse than one with all eighteen MLPs replaced by constants. The
+cause is off-distribution application: each map is fitted against the REAL model's inputs
+and applied in a model where every site below has already been replaced. Twelve sites
+tolerated the compounding; eighteen did not. The symptom is visible in the front row too —
+its rank curve is non-monotone (30.1%, −9.0%, 9.8%, 12.3%, 52.6%, 68.7%), so the front's
+r64 = 12.30% is also junk while its full-rank 68.68% (no truncation error, compounding
+only) remains the fair comparator against the token arm. Recorded as LESSONS 28.
+
+`all18_sequential_linear.py` is queued to test the remedy — compile bottom-up so each map
+is fitted on the distribution it will actually see. §546 found sequential refitting made a
+two-block table substitution WORSE, so this is not a foregone conclusion.
