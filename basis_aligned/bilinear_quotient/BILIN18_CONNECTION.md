@@ -40260,3 +40260,60 @@ on n=10. The strongest legitimate result here is rho .532 at p .0085 on n=24 acr
 sites, pre-registered each time — better on every axis than §1614 was, and still one
 model, one statistic, one ablation scheme. Nothing is promoted to the registry as
 certified.
+
+## §1650 THE "THIRD INDEPENDENT AXIS" WAS NOT ONE (2-for-3): zero- and mean-ablation differ by a mean of **.00067** across twelve classes — 11 of 12 agree to within .002 — so this run tested the same manipulation twice and establishes far less than it was designed to
+
+**Setup** (ratio_zero_ablation, 80 s, rung 3). Every CE rise from §1643-§1649 came from
+MEAN-ablation. I designed this as a third independent axis — same pre-registered
+hypothesis, different intervention — on the reasoning that ZERO-ablation is harsher
+because it removes the class-independent component as well as the class-conditional
+deviation. §1648's twelve type-spanning classes at mlp11.
+
+```
+  rho(|λ1/λ2|, relative CE rise under ZERO-ablation) = +.4266   p = .1696   8/12 positive
+  same twelve under MEAN-ablation (§1648)            = +.5105   p = .0936   9/12 positive
+  mean relative rise: zero +.00686  vs  mean +.00676
+```
+
+- **pred_a PASSED** — rho **+.427**, above the ≥+.30 bar.
+- **pred_b FAILED** — .427 is BELOW §1648's .511 on the same twelve classes, against a
+  "at least as strong" bar.
+- **pred_c PASSED BY .0001**, and that is the finding.
+
+**THE MANIPULATION CHECK PASSED IN A WAY THAT INVALIDATES THE PREMISE.** pred_c asked
+whether the harsher intervention costs more. It does — by **.00010** in the mean, on
+quantities of order .01. Per class:
+
+```
+  mean |zero − mean| across the twelve = .00067
+  classes differing by more than .002  = 1 of 12  (only `digit`, at −.00217)
+```
+
+Eleven of twelve classes agree to within .002. **Zero-ablation and mean-ablation are
+very nearly the same manipulation on these slices.** The mechanical reason is visible
+in the definitions: mean-ablation replaces the slice coordinates with their global mean
+μ, zero-ablation sets them to 0, so the two coincide exactly when μ ≈ 0 — which for
+eigendirections of a centred-ish quadratic form is close to true.
+
+**So this run did NOT vary the axis I designed it to vary**, and the .427-vs-.511
+difference is noise between two near-identical interventions rather than evidence about
+robustness across genuinely different ones. The intended test — does the ratio survive
+a materially different intervention — remains **unrun**.
+
+**Owning the design error.** I asserted zero-ablation would be "harsher" from the
+definitions without measuring whether it differs in effect. That is PRE-FLIGHT rule B
+applied one level up: measure before you FLAG became measure before you DESIGN. The
+check that would have caught it costs nothing — compare the two interventions on two
+classes before committing twelve — and I had the mean-ablation numbers on these exact
+classes already on disk from §1648.
+
+**What would be a real third axis.** Interventions that genuinely differ: resample the
+slice coordinates from another class's distribution (interchange rather than removal);
+ablate at a different RANK so a different subspace is removed; or ablate the slice's
+OUTPUT contribution rather than its input coordinates. Any of those changes what is
+removed, not merely what it is replaced by.
+
+**Status of the ratio finding is UNCHANGED by this run.** It still rests on §1647,
+§1648 and §1649, with the strongest legitimate pool at rho +.532, p .0085, n=24
+class-disjoint across two sites, and caution 1 undischarged. This section adds a
+methodological correction, not evidence.

@@ -1,0 +1,141 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "n_rows": 480,
+  "classes": "TYPE-SPANNING held out -- punctuation, digits, capitalised, function words; no CE rise ever measured for any",
+  "single_registered_hypothesis": "abs(lam1/lam2) predicts relative CE rise",
+  "currency": "relative CE rise = ce_rise / base_ce (\u00a71645)",
+  "meanablation_rho_same_classes": 0.5105,
+  "intervention": "ZERO-ablation"
+ },
+ "per_class": {
+  "exclaim": {
+   "lam1": 44.781,
+   "lam2": 31.317,
+   "ratio": 1.43,
+   "base_ce": 3.0988,
+   "ce_rise": -0.00423,
+   "rel_ce_rise": -0.00137,
+   "n_positions": 97
+  },
+  "semicolon": {
+   "lam1": 60.88,
+   "lam2": -28.523,
+   "ratio": 2.1344,
+   "base_ce": 3.26178,
+   "ce_rise": 0.02112,
+   "rel_ce_rise": 0.00647,
+   "n_positions": 114
+  },
+  "colon": {
+   "lam1": 56.02,
+   "lam2": 28.015,
+   "ratio": 1.9996,
+   "base_ce": 1.56065,
+   "ce_rise": 0.01758,
+   "rel_ce_rise": 0.01126,
+   "n_positions": 330
+  },
+  "quote": {
+   "lam1": 43.945,
+   "lam2": 36.361,
+   "ratio": 1.2086,
+   "base_ce": 2.49251,
+   "ce_rise": 0.04484,
+   "rel_ce_rise": 0.01799,
+   "n_positions": 296
+  },
+  "dash": {
+   "lam1": 34.942,
+   "lam2": 32.99,
+   "ratio": 1.0592,
+   "base_ce": 1.47334,
+   "ce_rise": 0.00391,
+   "rel_ce_rise": 0.00265,
+   "n_positions": 861
+  },
+  "digit": {
+   "lam1": -55.064,
+   "lam2": -48.534,
+   "ratio": 1.1345,
+   "base_ce": 3.97108,
+   "ce_rise": -0.00845,
+   "rel_ce_rise": -0.00213,
+   "n_positions": 1702
+  },
+  "cap": {
+   "lam1": -49.79,
+   "lam2": -44.627,
+   "ratio": 1.1157,
+   "base_ce": 4.7095,
+   "ce_rise": -0.00058,
+   "rel_ce_rise": -0.00012,
+   "n_positions": 7156
+  },
+  "we": {
+   "lam1": 96.11,
+   "lam2": 73.212,
+   "ratio": 1.3128,
+   "base_ce": 2.67239,
+   "ce_rise": 0.05547,
+   "rel_ce_rise": 0.02076,
+   "n_positions": 290
+  },
+  "you": {
+   "lam1": 86.205,
+   "lam2": -62.663,
+   "ratio": 1.3757,
+   "base_ce": 1.77967,
+   "ce_rise": 0.005,
+   "rel_ce_rise": 0.00281,
+   "n_positions": 481
+  },
+  "it": {
+   "lam1": 94.503,
+   "lam2": 61.658,
+   "ratio": 1.5327,
+   "base_ce": 2.48525,
+   "ce_rise": 0.05125,
+   "rel_ce_rise": 0.02062,
+   "n_positions": 613
+  },
+  "an": {
+   "lam1": 34.35,
+   "lam2": 33.141,
+   "ratio": 1.0365,
+   "base_ce": 3.59169,
+   "ce_rise": 0.01692,
+   "rel_ce_rise": 0.00471,
+   "n_positions": 218
+  },
+  "my": {
+   "lam1": -53.554,
+   "lam2": 52.981,
+   "ratio": 1.0108,
+   "base_ce": 2.54047,
+   "ce_rise": -0.00328,
+   "rel_ce_rise": -0.00129,
+   "n_positions": 244
+  }
+ },
+ "heldout_rho": 0.4266,
+ "permutation_p_two_sided": 0.16964,
+ "n_permutations": 200000,
+ "n_positive_rise": 8,
+ "predictions": {
+  "pred_a_rho_ge_030_zeroablation": true,
+  "pred_b_rho_ge_meanablation": false,
+  "pred_c_zero_costs_more": true
+ },
+ "mean_relative_rise": 0.00686,
+ "runtime_s": 79.9,
+ "S1650_premise_check": {
+  "mean_abs_difference_vs_mean_ablation": 0.000672,
+  "classes_differing_by_gt_002": 1,
+  "verdict": "THE INTERVENTION AXIS WAS NOT ACTUALLY VARIED. Zero- and mean-ablation agree to within .002 on 11 of 12 classes (mean |difference| .00067 on quantities of order .01). They coincide when the global mean of the slice coordinates is near zero, which for eigendirections is close to true. The rho difference .427 vs .511 is noise between near-identical manipulations, not evidence about robustness. The intended test remains UNRUN.",
+  "design_error": "I asserted zero-ablation would be harsher from the definitions without measuring whether it differs in effect, when the mean-ablation numbers for these exact classes were already on disk from S1648. PRE-FLIGHT rule B one level up: measure before you DESIGN, not just before you flag.",
+  "what_a_real_third_axis_would_be": "Interventions that change WHAT is removed rather than what it is replaced by: resample slice coordinates from another class (interchange), ablate at a different RANK, or ablate the output contribution rather than the input coordinates.",
+  "effect_on_ratio_finding": "UNCHANGED. Still rests on S1647/S1648/S1649; strongest legitimate pool rho +.532 p .0085 n=24."
+ }
+}

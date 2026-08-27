@@ -1,0 +1,23 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+ZERO-ABLATION: 12 type-spanning classes at mlp11. 480 canonical rows (receipt 815b21618c2e477e). Single registered hypothesis: |lam1/lam2|.
+  exclaim ratio  1.430 | n=   97 | CE 3.0988 -> 3.0946 | rel rise -0.00137
+  semicolon ratio  2.134 | n=  114 | CE 3.2618 -> 3.2829 | rel rise +0.00647
+  colon  ratio  2.000 | n=  330 | CE 1.5607 -> 1.5782 | rel rise +0.01126
+  quote  ratio  1.209 | n=  296 | CE 2.4925 -> 2.5373 | rel rise +0.01799
+  dash   ratio  1.059 | n=  861 | CE 1.4733 -> 1.4772 | rel rise +0.00265
+  digit  ratio  1.135 | n= 1702 | CE 3.9711 -> 3.9626 | rel rise -0.00213
+  cap    ratio  1.116 | n= 7156 | CE 4.7095 -> 4.7089 | rel rise -0.00012
+  we     ratio  1.313 | n=  290 | CE 2.6724 -> 2.7279 | rel rise +0.02076
+  you    ratio  1.376 | n=  481 | CE 1.7797 -> 1.7847 | rel rise +0.00281
+  it     ratio  1.533 | n=  613 | CE 2.4852 -> 2.5365 | rel rise +0.02062
+  an     ratio  1.036 | n=  218 | CE 3.5917 -> 3.6086 | rel rise +0.00471
+  my     ratio  1.011 | n=  244 | CE 2.5405 -> 2.5372 | rel rise -0.00129
+
+  HELD-OUT rho(|lam1/lam2|, relative CE rise) = +0.4266
+  two-sided sampled permutation p (200000) = 0.16964
+  same twelve under MEAN-ablation (§1648) = +0.5105
+  mean relative rise: zero-abl +0.00686 vs mean-abl +0.00676
+  classes with positive CE rise: 8/12  (§1644 had 11/12)
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ratio_zero_ablation_results.json (79.9s)
