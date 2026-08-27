@@ -47,3 +47,9 @@ def test_cpu_tree_detaches_tensors_without_changing_structure():
     assert torch.equal(copied["x"][0], source["x"][0])
     source["x"][0][0] = 99
     assert int(copied["x"][0][0]) == 0
+
+
+def test_authoritative_source_explicitly_upgrades_preliminary_authority():
+    source = PATH.read_text()
+    assert '"authority": "canonical_fineweb"' in source
+    assert '"authorized_for_scored_experiments": True' in source

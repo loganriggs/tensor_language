@@ -47,11 +47,13 @@
 #   pred_b the mlp0/1/2 plank group contributes >= .35.
 #   pred_c increments sum to the full-ship damage within 15% (additivity holds on
 #          this class too).
-import json, math, time, sys, torch
+import json, math, os, time, sys, torch
 import torch.nn.functional as F
 sys.path.insert(0, '/workspace/rspd')
+sys.path.insert(0, '/workspace/tensor_language/basis_aligned/polynomial_causal')
 from bilin18_joint_removal import m, DEV
 import census_lib as cl
+from oracle_authority import resolve_oracle_output
 
 D = 1152; T = 256; PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
 OUT = PT + 'ship_error_attrib_results.json'
@@ -474,7 +476,9 @@ def _paired_bootstrap_gain(baseline_rows, arm_rows, seed, draws=2000):
     }
 
 
-def run_oracle_content_screen(TWALL, all_attention, start_time):
+def run_oracle_content_screen(TWALL, all_attention, start_time, *, row_sets=None,
+                              output_path=None, authority='preliminary_fineweb',
+                              realization_path=None):
     """Optimizer-free screen for content alignment of the missing early MLP map."""
     from pathlib import Path
 
@@ -483,11 +487,27 @@ def run_oracle_content_screen(TWALL, all_attention, start_time):
     nulls = 20
     seed = 161803
     all_mlps = frozenset(range(18))
-    basis_rows = cl.fineweb_rows(96, skip=1200)[:, :T + 1].contiguous()
+    canonical_path = Path(__file__).resolve().parent / 'ship_content_oracle_screen_results.json'
+    out_path = resolve_oracle_output(authority, row_sets, output_path, canonical_path)
+    if row_sets is None:
+        basis_rows = cl.fineweb_rows(96, skip=1200)[:, :T + 1].contiguous()
+        discovery_rows = cl.fineweb_rows(192, skip=7000)[:, :T + 1].contiguous()
+        heldout_rows = cl.fineweb_rows(192, skip=11000)[:, :T + 1].contiguous()
+    else:
+        expected = {'basis': 96, 'discovery': 192, 'heldout': 192}
+        if set(row_sets) != set(expected):
+            raise RuntimeError(f'oracle row_sets must be exactly {sorted(expected)}')
+        for name, count in expected.items():
+            rows = row_sets[name]
+            if not isinstance(rows, torch.Tensor) or tuple(rows.shape) != (count, T + 1):
+                raise RuntimeError(f'invalid {name} oracle rows: {getattr(rows, "shape", None)}')
+            if rows.dtype != torch.long:
+                raise RuntimeError(f'invalid {name} oracle dtype: {rows.dtype}')
+        basis_rows = row_sets['basis'].contiguous()
+        discovery_rows = row_sets['discovery'].contiguous()
+        heldout_rows = row_sets['heldout'].contiguous()
     print("oracle basis rows loaded", flush=True)
-    discovery_rows = cl.fineweb_rows(192, skip=7000)[:, :T + 1].contiguous()
     print("oracle discovery rows loaded", flush=True)
-    heldout_rows = cl.fineweb_rows(192, skip=11000)[:, :T + 1].contiguous()
     print("oracle heldout rows loaded", flush=True)
     factor_path = (Path(__file__).resolve().parent.parent / 'polynomial_causal' /
                    'content_product_frontier_factors.pt')
@@ -544,6 +564,11 @@ def run_oracle_content_screen(TWALL, all_attention, start_time):
             basis = (support @ haar).contiguous()
             raw_rms = correction_rms(basis)
             scale = content_rms / max(raw_rms, 1e-12)
+            if (not math.isfinite(raw_rms) or not math.isfinite(scale)
+                    or raw_rms <= 0.0 or not (0.1 <= scale <= 10.0)):
+                raise RuntimeError(
+                    f'invalid matched-null scaling site={site} null={null_index}: '
+                    f'raw_rms={raw_rms} scale={scale}')
             site_bases[f'null_{null_index:02d}'] = {
                 'basis': basis, 'scale': scale,
                 'fit_correction_rms': raw_rms * scale,
@@ -559,6 +584,35 @@ def run_oracle_content_screen(TWALL, all_attention, start_time):
 
     # Freeze discovery-derived token-frequency strata for both evaluation splits.
     rare_vocab = _token_masks(discovery_rows)
+    if realization_path is not None:
+        realization_path = Path(realization_path).resolve()
+        if realization_path.exists():
+            raise RuntimeError(f'refusing to overwrite oracle realization {realization_path}')
+        realization_path.parent.mkdir(parents=True, exist_ok=True)
+        temporary_realization = realization_path.with_name(
+            f'{realization_path.name}.tmp.{os.getpid()}')
+        try:
+            torch.save({
+                'schema_version': 1,
+                'authority': authority,
+                'seed': seed,
+                'sites': {
+                    site: {
+                        name: {
+                            key: (value.detach().cpu().contiguous()
+                                  if torch.is_tensor(value) else value)
+                            for key, value in row.items()
+                        }
+                        for name, row in site_bases.items()
+                    }
+                    for site, site_bases in bases.items()
+                },
+                'rare_vocab': rare_vocab.detach().cpu().contiguous(),
+            }, temporary_realization)
+            os.replace(temporary_realization, realization_path)
+        finally:
+            if temporary_realization.exists():
+                temporary_realization.unlink()
     evaluations = {}
     for split, rows in (('discovery', discovery_rows), ('heldout', heldout_rows)):
         ORACLE_CORR['on'] = False
@@ -612,6 +666,10 @@ def run_oracle_content_screen(TWALL, all_attention, start_time):
                 if abs(full_heldout['mean']) > 1e-12 else None),
         }
 
+    candidate_sites = [int(site) for site, row in decisions.items()
+                       if row['full_oracle_ci95_lower_gt_zero']
+                       and row['content_positive_both_splits']
+                       and row['content_beats_matched_null95_heldout']]
     output = {
         'config': {
             'model': 'bilin18', 'ship': 'current K=3072 ship with MLP2 glue live',
@@ -626,6 +684,8 @@ def run_oracle_content_screen(TWALL, all_attention, start_time):
             'content_basis_treatment': 'QR orthonormalization of frozen serialized span',
             'raw_content_basis_gram_max_error': raw_content_gram_max_error,
             'status': 'optimizer-free singleton oracle screen; not a learned correction',
+            'authority': authority,
+            'authorized_for_scored_experiments': False,
         },
         'arms': {
             'full': 'exact live original MLP output minus deployed plank output',
@@ -637,18 +697,23 @@ def run_oracle_content_screen(TWALL, all_attention, start_time):
         'evaluations': evaluations,
         'paired_gains': gains,
         'site_decisions': decisions,
-        'training_license_sites': [int(site) for site, row in decisions.items()
-                                   if row['full_oracle_ci95_lower_gt_zero']
-                                   and row['content_positive_both_splits']
-                                   and row['content_beats_matched_null95_heldout']],
+        'training_license_sites': [],
+        'preliminary_candidate_sites': candidate_sites if authority == 'preliminary_fineweb' else [],
+        'development_candidate_sites': candidate_sites if authority == 'none' else [],
         'interpretation_guardrail': (
             'A passing projection licenses prediction of the missing original '
             'computation. It does not by itself establish semantic content, causal '
             'transport, or a simpler learned program.'),
         'runtime_s': round(time.time() - start_time, 1),
     }
-    out_path = Path(__file__).resolve().parent / 'ship_content_oracle_screen_results.json'
-    out_path.write_text(json.dumps(output, indent=2) + '\n')
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    temporary_output = out_path.with_name(f'{out_path.name}.tmp.{os.getpid()}')
+    try:
+        temporary_output.write_text(json.dumps(output, indent=2) + '\n')
+        os.replace(temporary_output, out_path)
+    finally:
+        if temporary_output.exists():
+            temporary_output.unlink()
     ORACLE_CORR['on'] = False
     print(json.dumps({'decisions': decisions,
                       'training_license_sites': output['training_license_sites']},

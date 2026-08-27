@@ -39,6 +39,8 @@ DEFAULT_SOURCES = {
     "ood_bands": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ood_band_importance_results.json",
     "headgrain_control": TENSOR_ROOT / "basis_aligned/bilinear_quotient/headgrain_control2_results.json",
     "writer_floor_question": TENSOR_ROOT / "basis_aligned/bilinear_quotient/writer_floor_question_results.json",
+    "writer_floor_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/writer_floor_pronouns_results.json",
+    "writer_floor_absmass": TENSOR_ROOT / "basis_aligned/bilinear_quotient/writer_floor_absmass_results.json",
     "extraction_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_rank_results.json",
     "extraction_question": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_results.json",
     "extraction_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_p_results.json",
@@ -138,6 +140,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     ood_bands = data["ood_bands"]
     headgrain = data["headgrain_control"]
     writer_floor = data["writer_floor_question"]
+    writer_floor_pronouns = data["writer_floor_pronouns"]
+    writer_floor_absmass = data["writer_floor_absmass"]
     extraction_rank = data["extraction_rank"]
     extraction_question = data["extraction_question"]
     extraction_pronouns = data["extraction_pronouns"]
@@ -341,19 +345,37 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "caveat": "This is a controlled local wiring law, not yet a replacement, CE recovery, or proof that the same grain composes across behaviors and layers.",
         },
         "tensor_writer_specificity": {
-            "lambda_mean_top4_share": writer_floor["mean_share"]["lambda"],
-            "random_mean_top4_share": writer_floor["mean_share"]["random"],
-            "lambda_random_consensus_overlap_of4": writer_floor["overlap_lambda_random_of4"],
-            "lambda_consensus": writer_floor["consensus"]["lambda"],
-            "random_consensus": writer_floor["consensus"]["random"],
-            "lambda_floor_corrected_top4": writer_floor["lambda_top4_floor_corrected"],
+            "question_positive_only_lambda_mean_top4_share": writer_floor["mean_share"]["lambda"],
+            "question_positive_only_random_mean_top4_share": writer_floor["mean_share"]["random"],
+            "question_positive_only_consensus_overlap_of4": writer_floor["overlap_lambda_random_of4"],
+            "question_positive_only_lambda_consensus": writer_floor["consensus"]["lambda"],
+            "question_positive_only_random_consensus": writer_floor["consensus"]["random"],
+            "question_positive_only_floor_corrected_top4": writer_floor["lambda_top4_floor_corrected"],
             "question_class_counts": [row["class_n"] for row in writer_floor["arms"]["lambda"]],
-            "circuit_clean_samples": writer_floor["circuit_clean_samples"],
-            "registered_predictions": writer_floor["predictions"],
-            "currency": "top-four positive writer-mass concentration and consensus identity for the question |eigenvalue| slice versus a matched-rank random output slice",
-            "scope": "three disjoint 333-row chunks from curated_rows.pt; question counts 105/127/102; rows are local census rows, not fresh oracle rows",
-            "claim": "Top-four concentration is generic and is stronger for a matched-rank random direction (.7223 versus .5946). The powered control also rejects the preregistered strict writer-specificity rule: attn10 enters the random consensus and zero of three chunks are circuit-clean, although attn9/mlp9 remain in the floor-corrected question consensus.",
-            "caveat": "Concentration is not a simplicity measure, and this test does not license the complete writer set as slice-specific. The surviving attn9/mlp9 membership is a local conditional hypothesis requiring causal removal/transport and fresh-row replication, not causal sufficiency or whole-model programmability.",
+            "question_circuit_clean_samples_positive_only": writer_floor["circuit_clean_samples"],
+            "question_registered_predictions_positive_only": writer_floor["predictions"],
+            "pronoun_positive_only_lambda_mean_top6_share": writer_floor_pronouns["mean_share"]["lambda"],
+            "pronoun_positive_only_random_mean_top6_share": writer_floor_pronouns["mean_share"]["random"],
+            "pronoun_registered_predictions_degenerate": writer_floor_pronouns["predictions"],
+            "question_absolute_mass_lambda_mean_top4_share": writer_floor_absmass["cells"]["question@mlp11"]["mean_share"]["lambda"],
+            "question_absolute_mass_random_mean_top4_share": writer_floor_absmass["cells"]["question@mlp11"]["mean_share"]["random"],
+            "question_absolute_mass_share_gap_lambda_minus_random": writer_floor_absmass["cells"]["question@mlp11"]["mean_share"]["lambda"] - writer_floor_absmass["cells"]["question@mlp11"]["mean_share"]["random"],
+            "question_absolute_mass_lambda_members_absent_from_random": writer_floor_absmass["cells"]["question@mlp11"]["absent_from_random"],
+            "pronoun_absolute_mass_lambda_mean_top6_share": writer_floor_absmass["cells"]["pronouns@mlp17"]["mean_share"]["lambda"],
+            "pronoun_absolute_mass_random_mean_top6_share": writer_floor_absmass["cells"]["pronouns@mlp17"]["mean_share"]["random"],
+            "pronoun_absolute_mass_share_gap_lambda_minus_random": writer_floor_absmass["cells"]["pronouns@mlp17"]["mean_share"]["lambda"] - writer_floor_absmass["cells"]["pronouns@mlp17"]["mean_share"]["random"],
+            "pronoun_absolute_mass_lambda_members_absent_from_random": writer_floor_absmass["cells"]["pronouns@mlp17"]["absent_from_random"],
+            "absolute_mass_registered_predictions": writer_floor_absmass["predictions"],
+            "currency": "matched-rank within-run absolute attribution-mass top-k share and component membership at question@MLP11 and pronouns@MLP17",
+            "measured_currency": "top-k share and membership over positive signed component contributions",
+            "original_currency": "top-k share and membership over absolute component attribution mass",
+            "currency_matches_original_writer_claims": True,
+            "original_absolute_mass_null_tested": True,
+            "positive_only_audit_status": "noncommensurate with the published statistic; question within-run comparison narrow, pronoun measurement saturated; cross-references withdrawn",
+            "status": "absolute-mass null is cell-dependent: question slice is more concentrated than random, pronoun slice is substantially less concentrated than random",
+            "scope": "three disjoint 333-row chunks from curated_rows.pt; question counts 105/127/102 and pronoun counts 434/408/399; local census rows, not fresh oracle rows",
+            "claim": "With the published absolute-mass statistic, question@MLP11 concentrates above its matched-rank null (.5563 versus .4489), while pronouns@MLP17 concentrates far below its null (.5846 versus .7295). Concentration has slice-specific sign; matched-rank null subtraction, not raw share, is the informative quantity.",
+            "caveat": "The published .718/.482 values used different rows and are not numerically comparable to this local corpus. The within-run null gaps are valid, but they establish a local structural diagnostic—not causal sufficiency, generalization, selective editability, or whole-model programmability.",
         },
         "compression_selectivity_boundary": {
             "question_class_function_kept_rank32": 1.0 - extraction_question["res"]["bg_class_rise"] / extraction_question["res"]["const_class_rise_ref"],

@@ -221,6 +221,8 @@ def main() -> None:
         exact_fineweb_decisions(result)
         result["config"].update({
             "status": "authoritative_frozen_ship_v2",
+            "authority": "canonical_fineweb",
+            "authorized_for_scored_experiments": True,
             "ship_realization_sha256": realization_hash,
             "ship_seed": SHIP_SEED,
             "frozen_ship_artifact_sha256": frozen_manifest["artifact_sha256"],

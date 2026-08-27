@@ -117,17 +117,24 @@ def test_head_grain_is_kept_as_local_law_not_whole_model_claim():
     assert "not yet a replacement" in grain["caveat"]
 
 
-def test_powered_writer_null_rejects_concentration_and_strict_identity_claims():
+def test_writer_null_preserves_metric_mismatch_and_measurement_failure():
     sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
     writer = sheet["ledgers"]["tensor_writer_specificity"]
-    assert writer["registered_predictions"]["pred_a_floor_exists_overlap_ge2"] is False
-    assert writer["registered_predictions"]["pred_b_circuit_rule_specific_2of3"] is False
-    assert writer["registered_predictions"]["pred_c_random_share_ge40pct"] is True
-    assert writer["lambda_random_consensus_overlap_of4"] == 1
-    assert writer["circuit_clean_samples"] == 0
+    assert writer["currency_matches_original_writer_claims"] is True
+    assert writer["original_absolute_mass_null_tested"] is True
+    assert writer["question_registered_predictions_positive_only"]["pred_b_circuit_rule_specific_2of3"] is False
+    assert writer["question_positive_only_consensus_overlap_of4"] == 1
+    assert writer["question_circuit_clean_samples_positive_only"] == 0
     assert min(writer["question_class_counts"]) >= 100
-    assert writer["random_mean_top4_share"] > writer["lambda_mean_top4_share"]
-    assert "does not license the complete writer set" in writer["caveat"]
+    assert writer["question_positive_only_random_mean_top4_share"] > writer["question_positive_only_lambda_mean_top4_share"]
+    assert writer["pronoun_positive_only_lambda_mean_top6_share"] > 0.99
+    assert writer["question_absolute_mass_share_gap_lambda_minus_random"] > 0.10
+    assert writer["pronoun_absolute_mass_share_gap_lambda_minus_random"] < -0.12
+    assert writer["question_absolute_mass_lambda_members_absent_from_random"] == [2, 2, 2]
+    assert writer["pronoun_absolute_mass_lambda_members_absent_from_random"] == [3, 3, 3]
+    assert all(value is False for value in writer["absolute_mass_registered_predictions"].values())
+    assert "cell-dependent" in writer["status"]
+    assert "local structural diagnostic" in writer["caveat"]
 
 
 def test_compression_is_priced_fidelity_not_circuit_selectivity():
