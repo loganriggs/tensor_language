@@ -271,7 +271,7 @@ def test_authoritative_mixed_pca_composes_but_remains_an_oracle_subspace():
 def test_authoritative_affine_compiler_failure_gets_zero_recovery_credit():
     sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
     compiler = sheet["ledgers"]["early_mlp_affine_compiler_authoritative_failure"]
-    assert compiler["stage"] == "completed_authoritative_executable_failure"
+    assert compiler["stage"] == "completed_authoritative_descriptive_failure_with_erratum"
     assert compiler["authority"] == "isolated_compiler_experiment"
     assert compiler["preregistration_status"] == "preregistered_not_run"
     assert compiler["row_receipt_status"] == "frozen_before_predictor_fit"
@@ -297,13 +297,17 @@ def test_authoritative_affine_compiler_failure_gets_zero_recovery_credit():
     assert compiler["registered_decisions"]["integrity"] is True
     assert compiler["registered_decisions"]["gauge_replay"] is True
     assert compiler["registered_decisions"]["all_registered_gates"] is False
+    assert compiler["preregistration_conformant"] is False
+    assert compiler["erratum_status"] == "post_authority_preregistration_erratum"
+    assert "literal gauge_replay=true" in compiler["withdrawn_labels"]
+    assert len(compiler["deviations"]) == 5
     integrity = compiler["state_integrity"]
     assert integrity["atomic_authority_result_sha256"].startswith("f189cd4f")
     assert integrity["atomic_authority_manifest_sha256"].startswith("8ed7ce44")
     assert integrity["atomic_authority_program_sha256"].startswith("165b656a")
     assert integrity["atomic_authority_program_receipt_sha256"].startswith("9ed63cd0")
     assert integrity["atomic_authority_receipt_sha256"].startswith("2c1ad6ca")
-    assert "authoritative executable failure" in compiler["claim"]
+    assert "authoritative descriptive evidence" in compiler["claim"]
     assert "zero executable recovery credit" in compiler["caveat"]
     assert sheet["ledgers"]["early_mlp_mixed_pca_oracle_authoritative"][
         "heldout_projected_upstream_fraction_of_exact"

@@ -2388,7 +2388,7 @@
       "caveat": "This is a modular oracle-subspace result, not an executable replacement: every projected arm still calls the missing original MLP to obtain residual coefficients, MLP2 remains unsimplified, and no original-MLP-disabled predictor, gauge-invariant state transport, OOD/background transfer, edit collateral, compression, training, or simplicity certificate exists. Exact MLP2 after projected upstream is small (+0.0194 heldout, CI lower 0.0002), and its discovery cluster interval crosses zero even though the preregistered discovery point/heldout-interval gate passes. The same-currency whole-model and MLP0--2 residual denominators remain absent, so global coverage fractions do not change."
     },
     "early_mlp_affine_compiler_authoritative_failure": {
-      "stage": "completed_authoritative_executable_failure",
+      "stage": "completed_authoritative_descriptive_failure_with_erratum",
       "authority": "isolated_compiler_experiment",
       "preregistration_status": "preregistered_not_run",
       "row_receipt_status": "frozen_before_predictor_fit",
@@ -2439,6 +2439,76 @@
         "integrity": true,
         "all_registered_gates": false
       },
+      "preregistration_conformant": false,
+      "erratum_status": "post_authority_preregistration_erratum",
+      "withdrawn_labels": [
+        "preregistration-conformant registered-gate execution",
+        "literal gauge_replay=true",
+        "complete integrity=true conjunction",
+        "registered shuffle-control pass/fail",
+        "registered novel-frequent and novel-rare collateral interpretation"
+      ],
+      "deviations": [
+        {
+          "id": "shuffle_validation_permuted",
+          "description": "The runner permuted validation labels as well as fit labels for shuffle-map selection. The preregistered null names a permutation of fit labels, so the saved shuffle arm is descriptive rather than the literal registered null.",
+          "affected_claims": [
+            "registered shuffle-control gate"
+          ],
+          "unaffected_claims": [
+            "raw shuffle-arm CE",
+            "main affine arms",
+            "mean control"
+          ]
+        },
+        {
+          "id": "final_defined_rare_vocab",
+          "description": "The rare-vocabulary mask was derived from compiler_final. Final rows were therefore used to define novel-frequent/novel-rare strata, contrary to the no-final-threshold rule.",
+          "affected_claims": [
+            "novel-frequent collateral gate",
+            "novel-rare reporting"
+          ],
+          "unaffected_claims": [
+            "global row CE",
+            "document-cluster global contrasts",
+            "copy collateral"
+          ]
+        },
+        {
+          "id": "gauge_tolerance_not_identity",
+          "description": "The preregistration requires identical gauge CE, but the runner accepted a 2e-5 tolerance. Observed maximum row-CE difference was 1.1920928955078125e-6, nonzero.",
+          "affected_claims": [
+            "literal registered gauge_replay=true"
+          ],
+          "unaffected_claims": [
+            "approximate gauge stability",
+            "physical correction invariance",
+            "price invariance"
+          ]
+        },
+        {
+          "id": "integrity_boolean_underaggregated",
+          "description": "The saved integrity boolean was assigned from gauge_pass rather than an explicit conjunction of every registered integrity criterion.",
+          "affected_claims": [
+            "saved integrity=true as a complete registered conjunction"
+          ],
+          "unaffected_claims": [
+            "the individually audited byte, call, replay, component-tree, and row-analysis checks"
+          ]
+        },
+        {
+          "id": "required_reports_absent",
+          "description": "Condition number, amortized price, memory, and quantization replay were not reported, and the authoritative-runner test was absent from committed source closure.",
+          "affected_claims": [
+            "complete preregistration-conformant reporting and source closure"
+          ],
+          "unaffected_claims": [
+            "serialized standalone float32 price",
+            "focused tests run after completion"
+          ]
+        }
+      ],
+      "descriptive_claim": "On the frozen ship and 192 fresh final rows, the poison-gated affine maps fail in global CE: QNN gains 0.010115 nats, NQN loses 0.098182, and QQN loses 0.050548. QQN is also worse than the raw mean and saved shuffle arms. The complete raw row analysis localizes the dominant failure to MLP1. This is descriptive authoritative evidence rejecting this v1 z-only Euclidean affine interface, not a clean registered-gate pass/fail.",
       "program_summary": {
         "main": {
           "0": {
@@ -2684,8 +2754,8 @@
       },
       "currency": "paired compiler-final CE gains from original-MLP-poisoned executable affine arms, with admission credit after registered gates",
       "scope": "frozen sequential affine coefficient maps at MLP0/1 on 192 fresh FineWeb final rows from 100 documents; complete 18-arm lattice on one frozen ship realization",
-      "claim": "The affine compiler is an authoritative executable failure. Integrity and gauge replay pass, but every statistical gate fails: MLP0 alone gains only 0.0101 nats, MLP1 alone loses 0.0982, the joint QQN arm loses 0.0505, and QQN loses to mean and shuffled controls. The MLP1 response is the dominant causal bottleneck despite local coefficient R2 of 0.341.",
-      "caveat": "The isolated affine grammar is rejected, not the authoritative rank-64 oracle subspaces. Copy and novel-frequent collateral worsen by 0.0198 and 0.0494 nats. This result earns zero executable recovery credit; v3 remains oracle-only, all prior coverage fractions stay unchanged, and the absent same-currency whole-model denominator remains null."
+      "claim": "The affine compiler is authoritative descriptive evidence of executable failure with a bound preregistration erratum. The unaffected global row-CE analysis shows MLP0 alone gains 0.0101 nats, MLP1 alone loses 0.0982, the joint QQN arm loses 0.0505, and the MLP1 response is the dominant bottleneck despite local coefficient R2 of 0.341.",
+      "caveat": "This is not a clean registered-gate execution: the literal gauge/integrity labels, registered shuffle null, and novel-frequency/rare collateral interpretation are withdrawn by the bound erratum. The raw global CE, call counters, baseline replay, component tree, approximate gauge stability, mean comparison, and copy collateral remain descriptive. The v1 z-only Euclidean affine interface earns zero executable recovery credit; v3 remains oracle-only and all prior coverage fractions stay unchanged."
     }
   },
   "current_bottleneck": {
@@ -2973,6 +3043,10 @@
     "early_mlp_affine_compiler_v1_authority": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_authority.json",
       "sha256": "2c1ad6ca099d4910f83531fbc958f070da600f554799947c5118284e7b939e28"
+    },
+    "early_mlp_affine_compiler_v1_erratum": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_erratum.json",
+      "sha256": "0196b5c0402b3a0be03b613453e7976ed5f9f0cfa75565e4c1dfa8d8871251b4"
     },
     "early_mlp_affine_compiler_v1_contract": {
       "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/early_mlp_affine_compiler_v1.py",

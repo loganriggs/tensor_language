@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "post_authority_preregistration_erratum",
+  "experiment": "early_mlp_affine_compiler_v1",
+  "issued_utc": "2026-08-27T10:24:00Z",
+  "immutability_rule": "The bound result, manifest, program artifact, program receipt, and authority receipt are preserved byte-for-byte. This separate erratum narrows interpretation and must accompany them.",
+  "bound_authority": {
+    "path": "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_authority.json",
+    "sha256": "2c1ad6ca099d4910f83531fbc958f070da600f554799947c5118284e7b939e28"
+  },
+  "bound_payloads": {
+    "result_sha256": "f189cd4f98641ef54ba15687f7368d853233c5adb12cd98c8b6a2be798ec2051",
+    "manifest_sha256": "8ed7ce4449f6ce2901b53daa20e5b164be0598bc3cddb8620b0c2953f0ccaa2b",
+    "program_artifact_sha256": "165b656ada21dbaf2af9db0243146367292bf30a982ae4e7377b63cff4d73601",
+    "program_receipt_sha256": "9ed63cd042890e6d1698684189ab08f09f2f27ad53207ff3dcaabcff4befba74"
+  },
+  "audit_reproductions": {
+    "authority_cross_bindings": true,
+    "ship_basis_and_source_hashes": true,
+    "complete_18_arm_192_row_matrix": true,
+    "original_call_poison_counters": true,
+    "baseline_bit_exact_replay": true,
+    "component_tree_unchanged": true,
+    "document_cluster_analysis_max_abs_reproduction_error": 0.0,
+    "gauge_physical_max_abs_error": 2.9558577807620168e-12,
+    "gauge_final_row_ce_max_abs_difference": 1.1920928955078125e-06
+  },
+  "deviations": [
+    {
+      "id": "shuffle_validation_permuted",
+      "description": "The runner permuted validation labels as well as fit labels for shuffle-map selection. The preregistered null names a permutation of fit labels, so the saved shuffle arm is descriptive rather than the literal registered null.",
+      "affected_claims": ["registered shuffle-control gate"],
+      "unaffected_claims": ["raw shuffle-arm CE", "main affine arms", "mean control"]
+    },
+    {
+      "id": "final_defined_rare_vocab",
+      "description": "The rare-vocabulary mask was derived from compiler_final. Final rows were therefore used to define novel-frequent/novel-rare strata, contrary to the no-final-threshold rule.",
+      "affected_claims": ["novel-frequent collateral gate", "novel-rare reporting"],
+      "unaffected_claims": ["global row CE", "document-cluster global contrasts", "copy collateral"]
+    },
+    {
+      "id": "gauge_tolerance_not_identity",
+      "description": "The preregistration requires identical gauge CE, but the runner accepted a 2e-5 tolerance. Observed maximum row-CE difference was 1.1920928955078125e-6, nonzero.",
+      "affected_claims": ["literal registered gauge_replay=true"],
+      "unaffected_claims": ["approximate gauge stability", "physical correction invariance", "price invariance"]
+    },
+    {
+      "id": "integrity_boolean_underaggregated",
+      "description": "The saved integrity boolean was assigned from gauge_pass rather than an explicit conjunction of every registered integrity criterion.",
+      "affected_claims": ["saved integrity=true as a complete registered conjunction"],
+      "unaffected_claims": ["the individually audited byte, call, replay, component-tree, and row-analysis checks"]
+    },
+    {
+      "id": "required_reports_absent",
+      "description": "Condition number, amortized price, memory, and quantization replay were not reported, and the authoritative-runner test was absent from committed source closure.",
+      "affected_claims": ["complete preregistration-conformant reporting and source closure"],
+      "unaffected_claims": ["serialized standalone float32 price", "focused tests run after completion"]
+    }
+  ],
+  "withdrawn_labels": [
+    "preregistration-conformant registered-gate execution",
+    "literal gauge_replay=true",
+    "complete integrity=true conjunction",
+    "registered shuffle-control pass/fail",
+    "registered novel-frequent and novel-rare collateral interpretation"
+  ],
+  "licensed_descriptive_claim": "On the frozen ship and 192 fresh final rows, the poison-gated affine maps fail in global CE: QNN gains 0.010115 nats, NQN loses 0.098182, and QQN loses 0.050548. QQN is also worse than the raw mean and saved shuffle arms. The complete raw row analysis localizes the dominant failure to MLP1. This is descriptive authoritative evidence rejecting this v1 z-only Euclidean affine interface, not a clean registered-gate pass/fail.",
+  "coverage_credit": {
+    "executable_recovery_nats": 0.0,
+    "whole_model_recovery_fraction": null,
+    "reason": "The executable package is behaviorally harmful and the registered integrity conjunction is withdrawn."
+  },
+  "next_run_rule": "Use a new versioned namespace. Correct the available-state interface to c(z,mo)=p(z)-B^T mo, freeze validation-defined token strata before final, define the shuffle null literally, make gauge identity versus tolerance explicit, aggregate every integrity gate explicitly, report all registered complexity diagnostics, and include the authoritative runner test in source closure."
+}

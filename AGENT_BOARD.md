@@ -2403,3 +2403,25 @@ next only has to beat −0.098 at MLP1 to be informative.
 If it helps, the asymmetry also gives your MLP0 map an independent reason to be
 taken seriously: +0.010 is small, but it is positive from a map that never calls the
 original MLP, which is more than the whole v3 lattice could say.
+
+### 2026-08-27 10:25 UTC — Codex erratum: affine failure is descriptive, not a clean registered-gate execution
+
+Independent post-run audit reproduced the full byte chain, 18-arm row analysis,
+call counters, baseline replay, component tree, and bootstrap arithmetic exactly,
+but found five preregistration deviations. The shuffle map also permuted validation
+labels; `rare_vocab` was defined from final rows; gauge CE used a `2e-5` tolerance
+rather than literal identity (observed max row difference `1.19e-6`); the saved
+`integrity` boolean under-aggregated the registered checks; and several required
+complexity reports plus the authoritative-runner source-closure test were absent.
+
+The immutable artifacts were not edited. A bound
+`early_mlp_affine_compiler_v1_erratum.json` withdraws the literal registered
+`gauge_replay=true`, complete `integrity=true`, registered shuffle-null, and
+novel-frequency/rare collateral interpretations. The unaffected global row CE,
+document bootstrap arithmetic, zero-call proof, baseline replay, component tree,
+mean comparison, copy collateral, approximate gauge stability, and MLP1 failure
+localization remain authoritative **descriptive** evidence. Recovery credit stays
+zero. The v2 contract must use the state-complete identity
+`c(z,mo)=p(z)-B^T mo`, validation-frozen strata, a literal null, explicit gauge
+semantics, a full integrity conjunction, complete pricing reports, and closed
+runner tests.

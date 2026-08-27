@@ -66,6 +66,7 @@ DEFAULT_SOURCES = {
     "early_mlp_affine_compiler_v1_manifest": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_manifest.json",
     "early_mlp_affine_compiler_v1_programs_receipt": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_programs_receipt.json",
     "early_mlp_affine_compiler_v1_authority": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_authority.json",
+    "early_mlp_affine_compiler_v1_erratum": TENSOR_ROOT / "basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_erratum.json",
 }
 
 
@@ -187,6 +188,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "early_mlp_affine_compiler_v1_programs_receipt"
     ]
     affine_compiler_authority = data["early_mlp_affine_compiler_v1_authority"]
+    affine_compiler_erratum = data["early_mlp_affine_compiler_v1_erratum"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
     factorial_cells = factorial_primary["cells"]
@@ -243,6 +245,12 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         sources["early_mlp_affine_compiler_v1_results"]
     )
     assert affine_compiler["component_tree_unchanged"] is True
+    assert affine_compiler_erratum["bound_authority"]["sha256"] == digest(
+        sources["early_mlp_affine_compiler_v1_authority"]
+    ), "affine compiler erratum no longer binds its authority"
+    assert affine_compiler_erratum["bound_payloads"]["result_sha256"] == digest(
+        sources["early_mlp_affine_compiler_v1_results"]
+    ), "affine compiler erratum no longer binds its result"
 
     ledgers = {
         "representation": {
@@ -607,7 +615,7 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "caveat": "This is a modular oracle-subspace result, not an executable replacement: every projected arm still calls the missing original MLP to obtain residual coefficients, MLP2 remains unsimplified, and no original-MLP-disabled predictor, gauge-invariant state transport, OOD/background transfer, edit collateral, compression, training, or simplicity certificate exists. Exact MLP2 after projected upstream is small (+0.0194 heldout, CI lower 0.0002), and its discovery cluster interval crosses zero even though the preregistered discovery point/heldout-interval gate passes. The same-currency whole-model and MLP0--2 residual denominators remain absent, so global coverage fractions do not change.",
         },
         "early_mlp_affine_compiler_authoritative_failure": {
-            "stage": "completed_authoritative_executable_failure",
+            "stage": "completed_authoritative_descriptive_failure_with_erratum",
             "authority": affine_compiler_authority["authority"],
             "preregistration_status": affine_compiler_prereg["status"],
             "row_receipt_status": affine_compiler_rows["status"],
@@ -653,6 +661,11 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "collateral_worsening_nats": affine_compiler["collateral_worsening"],
             "statistical_decisions": affine_compiler["analysis"]["decisions"],
             "registered_decisions": affine_compiler["decisions"],
+            "preregistration_conformant": False,
+            "erratum_status": affine_compiler_erratum["status"],
+            "withdrawn_labels": affine_compiler_erratum["withdrawn_labels"],
+            "deviations": affine_compiler_erratum["deviations"],
+            "descriptive_claim": affine_compiler_erratum["licensed_descriptive_claim"],
             "program_summary": affine_compiler["program_summary"],
             "disjointness_gates": affine_compiler_rows["disjointness_gates"],
             "state_integrity": {
@@ -681,8 +694,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             },
             "currency": "paired compiler-final CE gains from original-MLP-poisoned executable affine arms, with admission credit after registered gates",
             "scope": "frozen sequential affine coefficient maps at MLP0/1 on 192 fresh FineWeb final rows from 100 documents; complete 18-arm lattice on one frozen ship realization",
-            "claim": "The affine compiler is an authoritative executable failure. Integrity and gauge replay pass, but every statistical gate fails: MLP0 alone gains only 0.0101 nats, MLP1 alone loses 0.0982, the joint QQN arm loses 0.0505, and QQN loses to mean and shuffled controls. The MLP1 response is the dominant causal bottleneck despite local coefficient R2 of 0.341.",
-            "caveat": "The isolated affine grammar is rejected, not the authoritative rank-64 oracle subspaces. Copy and novel-frequent collateral worsen by 0.0198 and 0.0494 nats. This result earns zero executable recovery credit; v3 remains oracle-only, all prior coverage fractions stay unchanged, and the absent same-currency whole-model denominator remains null.",
+            "claim": "The affine compiler is authoritative descriptive evidence of executable failure with a bound preregistration erratum. The unaffected global row-CE analysis shows MLP0 alone gains 0.0101 nats, MLP1 alone loses 0.0982, the joint QQN arm loses 0.0505, and the MLP1 response is the dominant bottleneck despite local coefficient R2 of 0.341.",
+            "caveat": "This is not a clean registered-gate execution: the literal gauge/integrity labels, registered shuffle null, and novel-frequency/rare collateral interpretation are withdrawn by the bound erratum. The raw global CE, call counters, baseline replay, component tree, approximate gauge stability, mean comparison, and copy collateral remain descriptive. The v1 z-only Euclidean affine interface earns zero executable recovery credit; v3 remains oracle-only and all prior coverage fractions stay unchanged.",
         },
     }
 
