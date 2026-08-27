@@ -1,0 +1,38 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "unseen_token_fallback": "POSITION-WEIGHTED global mean (\u00a71655 fix)",
+  "cost_definition": "CE(table) - CE(full); no ablation constant involved",
+  "s546_pair": {
+   "b0_alone": 0.1666,
+   "b1_alone": 0.5218,
+   "both": 0.6654,
+   "sum": 0.6884
+  },
+  "s541_projection_ratio": 1.6
+ },
+ "ce_full": 3.13704,
+ "ce_joint": 5.66102,
+ "individual_costs": {
+  "mlp0": 0.21791,
+  "mlp1": 1.2908,
+  "mlp2": 0.3357,
+  "mlp3": 0.34464
+ },
+ "joint_cost": 2.52398,
+ "sum_of_individual": 2.18904,
+ "joint_over_sum": 1.153,
+ "predictions": {
+  "pred_a_additive_within_15pct": false,
+  "pred_b_unlike_projection_family": true,
+  "pred_c_manipulation_all_ge_01": true
+ },
+ "runtime_s": 8.5
+}

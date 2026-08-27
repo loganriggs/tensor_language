@@ -1,0 +1,15 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+FRONT TABLE COMPOSE n=4 | sites [0, 1, 2, 3] | fit (96, 257) skip1200 | eval (192, 257) skip7000 | receipt 815b21618c2e477e
+  CE full (no substitution) 3.13704
+  mlp0 table alone: CE 3.35495  cost +0.21791
+  mlp1 table alone: CE 4.42784  cost +1.29080
+  mlp2 table alone: CE 3.47274  cost +0.33570
+  mlp3 table alone: CE 3.48168  cost +0.34464
+
+  ALL FOUR jointly: CE 5.66102  cost +2.52398
+  sum of individual costs: +2.18904
+  JOINT / SUM = 1.1530   (§546 at n=2: 0.9666; projections §541: 1.6)
+  manipulation check -- all four individual costs >= .01 nats: True
+
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/front_table_compose4_results.json (8.5s)

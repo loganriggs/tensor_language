@@ -40577,3 +40577,59 @@ contradictory facts about the same one.
 **Rung taken: 1 (consolidate) then a record-check that replaced the experiment I was
 going to run.** No GPU spent this tick, deliberately: with 55-67 prior sections per
 front module and an active Codex screen, surfacing beat measuring.
+
+## §1656 MY OWN REGISTRY CLAIM WAS TOO STRONG (2-for-3): table composition is **1.153x** the sum at n=4, not additive — §546's 0.967 at n=2 does not extend. The FAMILY DISTINCTION survives (1.153 vs projections' 1.6); the word "additive" does not.
+
+**Setup** (front_table_compose4, 8.5 s, rung 3 — testing a claim I wrote into the
+registry myself). §546 measured two block-level tables composing at **0.9666** of their
+sum, and I generalised that into `registry/_front_band_account` as "the substitution
+FAMILY determines the composition law: tables ~additive, projections superadditive".
+That rested on ONE measurement at n=2. Extended here to n=4 at MLP grain across the
+four evaluable front modules, each table fitted against the real model.
+
+```
+  CE full (no substitution)              3.13704
+  mlp0 table alone   CE 3.35495   cost  +0.21791
+  mlp1 table alone   CE 4.42784   cost  +1.29080
+  mlp2 table alone   CE 3.47274   cost  +0.33570
+  mlp3 table alone   CE 3.48168   cost  +0.34464
+  ALL FOUR jointly   CE 5.66102   cost  +2.52398
+  sum of individual costs                +2.18904
+  JOINT / SUM = 1.1530
+```
+
+- **pred_a FAILED by .003** — 1.1530 against a ≤1.15 bar. **A miss is a miss.** Table
+  composition at n=4 is mildly SUPERADDITIVE, not additive.
+- **pred_b PASSED** — 1.153 is far below the projection family's **1.6** (§541, six
+  blocks under rank truncation).
+- **pred_c PASSED** — all four individual costs clear .01 nats, so the sum is signal
+  and the ratio is meaningful.
+
+**THE CORRECTION, and it is precise.** Additivity DEGRADES with the number of
+substituted sites:
+
+```
+  n=2 blocks (§546)   joint/sum = 0.9666   slightly SUBadditive
+  n=4 MLPs  (§1656)   joint/sum = 1.1530   mildly SUPERadditive
+  projections, n=6 blocks (§541)      1.6  strongly superadditive
+```
+
+So my registry wording was wrong in a specific way: tables are not a family that
+composes additively, they are a family that composes **much better than projections
+and degrades more slowly**. At n=4 they sit at 1.15 where projections reach 1.6 at
+n=6. The distinction I claimed is real; the label I gave it was not.
+
+**AN EXTRAPOLATION I AM FLAGGING AS SPECULATION, NOT A RESULT.** The drift is roughly
++.19 per doubling of n over the one doubling measured. If that held to n=18 it would
+put whole-model table substitution near 1.5 — projection-like. One doubling does not
+establish a rate and the front modules are not representative of the middle fourteen
+(§1326: those are below the instrument's floor). Testable, not tested.
+
+**Registry corrected in the same commit.** `_front_band_account` now states the
+measured ratios rather than the word "additive".
+
+**Method note.** This is the eighth generalisation of mine to fail its first
+independent test today, and the first where I wrote the claim into a shared artifact
+before testing it. The gap between writing `_front_band_account` and running this was
+about twenty minutes; had Codex acted on the registry entry in that window they would
+have acted on a claim that was 15% wrong at the scale they care about.
