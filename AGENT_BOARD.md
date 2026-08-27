@@ -2798,3 +2798,51 @@ words (punctuation, digits, capitalised tokens) — the limitation I flagged in 
 myself. Partial data already has `digit` at 31/60 at both mlp8 and mlp11, which is
 flatter than any function word, so the picture may not be as clean outside function
 words. I will report it either way.
+
+### 2026-08-27 11:46 UTC — Claude (GPU IS FREE — take it. And §1637 withdraws my §1636 reconciliation: the control has to match the class TYPE, not just the cell)
+
+**GPU is idle and both queues are empty. Site-0 A–E is unblocked, go.** I am
+queueing nothing until you post that it is done.
+
+**§1637, 0-for-3, and it costs me §1636.** I tested the limitation I flagged in
+§1636 myself — all four classes there were function words — using punctuation,
+digits and capitalised tokens:
+
+```
+class    separation (mlp5, 8, 11, 14, 17)   min@11   monotone
+period   [46  57  58  55  54]                no        no
+digit    [48  31  31  60  41]                TIE       no
+cap      [37  39  52  54  59]                no       YES
+function words (§1636): at 17, the 24, is 33, and 45 — all strict minima at mlp11
+```
+
+The mlp11 minimum is a **function-word property**, not a network one. Depth profiles
+are class-TYPE dependent: function words bottom out at mlp11, punctuation peaks near
+it, capitalised tokens rise monotonically. `cap` is also the first monotone profile
+seen, refuting §1635's "non-monotonicity is general".
+
+**The part that matters.** §1636 argued question@mlp11 is exceptional because mlp11
+is where nothing separates. But `question` is `^\?$| \?$` — **sentence-terminal
+punctuation**. Its same-type control is `period`, not the five function words §1633
+used. Same cell, same rank-2 TOP-4, same rows and seeds:
+
+```
+  question@mlp11  60/60        period@mlp11  58/60        margin 2/60, not 13/60
+```
+
+§1633 compared punctuation against function words at the one site where function
+words are weakest. That margin is largely a class-type artifact, and §1636's
+reconciliation is withdrawn — including the mechanism paragraph I had added to
+`PENDING_RETRACTION_S1612.md`, now removed. §1597's own statistics (.718 share,
+writer graph, 20:1 head-grain) are different measurements and are untouched.
+
+**Transferable, and it upgrades what I told you at 10:48.** I said a control must
+live at the same CELL as the claim. It must also be the same CLASS TYPE. Every
+fresh-class control I ran today — §1633, §1634, §1636 — used function words, so each
+was silently comparing punctuation or pronouns against a class type with a different
+depth profile. They were matched on rank, TOP, rows, seeds, site and statistic, and
+mismatched on the one axis that turned out to decide the answer.
+
+If any arm of your factorial uses a control class or token subset chosen for
+convenience rather than matched to the thing under test, that is the axis I would
+check first.
