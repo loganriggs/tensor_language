@@ -1,0 +1,305 @@
+# null_deviation_probe: IS THE NULL SET BY HOW FAR THE CLASS MEAN SITS FROM THE
+# GLOBAL MEAN IN THE RANDOM SUBSPACE?
+#
+# S1613: the null share is class-dependent and cannot be tabulated from (rank, TOP).
+# S1614: n CORRELATES with it (rho .673, p .019) but is NOT causal -- equalising n
+#        removes only 6.1% of the spread, class ordering survives at rank rho .952.
+# S1614n (unregistered, unscored): position-in-sequence is unrelated (|rho| < .18);
+#        document features are collinear with n and do not separate from it.
+#
+# MECHANISTIC HYPOTHESIS TESTED HERE. The statistic is
+#     delta_c = |coef_c * (cmu_c - mu_c)|  summed over slice directions,
+#     share   = sum of the TOP-4 delta / sum of all 37.
+# If a class's positions are representationally TYPICAL, (cmu - mu) is small and
+# NOISE-dominated, so delta spreads roughly evenly over 37 components and the
+# share is LOW. If they are IDIOSYNCRATIC, (cmu - mu) is large and structured, a
+# few components dominate, and the share is HIGH. That would also explain why n
+# is not causal: n governs the ESTIMATION NOISE in cmu, not the underlying
+# deviation.
+#
+# Measured per class: DEV = sum_c |coef_c * (cmu_c - mu_c)| over all 37 components
+# -- the total attribution mass, i.e. the denominator of the share -- and its
+# ratio to a matched shuffled-label control (positions drawn at random from the
+# valid set at the same count, same seed), which removes the estimation-noise
+# floor. Random rank-2 basis, TOP=4, absolute-mass statistic, local
+# curated_rows.pt 3 x 333, mlp11, seed 1729, the same 10 classes as S1614.
+#
+# Registered predictions:
+#   pred_a rho(DEV, null share) >= .70 with 20k-permutation 2-sided p < .05.
+#   pred_b it BEATS n: |rho(DEV)| > .673, the S1614 value for n.
+#   pred_c the SHUFFLED control has a materially lower DEV than the real class in
+#          >= 8 of 10 classes, confirming DEV measures class structure rather than
+#          the estimation-noise floor.
+import json, time, sys, re, torch
+import torch.nn.functional as F
+sys.path.insert(0, '/workspace/rspd')
+from bilin18_joint_removal import m, DEV
+import census_lib as cl
+import tiktoken
+
+D = 1152; T = 256
+PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
+OUT = PT + 'null_deviation_probe_results.json'
+NR = 960
+SITE = 11
+RANK = 2
+TOP = 4
+SEED = 1729
+are = sys.modules[type(m.transformer.h[0].attn).__module__].apply_rotary_emb
+H = m.transformer.h
+ENC = tiktoken.get_encoding('gpt2')
+EDIT = {'set': set(), 'V': None, 'mu': None}   # mu: {name: [2]}
+FIN = {'on': False, 'V': None, 'mu': None}
+
+
+def rx(pat):
+    v = torch.zeros(50257, dtype=torch.bool)
+    for t in range(50257):
+        if re.match(pat, ENC.decode([t])):
+            v[t] = True
+    return v
+
+
+def mk_cproj_hook(L):
+    def hook(mod, args, output):
+        nm = f'attn{L}'
+        if nm not in EDIT['set']:
+            return None
+        o = output.float()
+        pv = o @ EDIT['V']                       # [B,T,2]
+        o = o - (pv - EDIT['mu'][nm]) @ EDIT['V'].T
+        return o.to(output.dtype)
+    return hook
+
+
+def mk_mlp_hook(L):
+    def hook(mod, args, output):
+        o = None
+        nm = f'mlp{L}'
+        if nm in EDIT['set']:
+            o = output.float()
+            pv = o @ EDIT['V']
+            o = o - (pv - EDIT['mu'][nm]) @ EDIT['V'].T
+        return None if o is None else o.to(output.dtype)
+    return hook
+
+
+@torch.no_grad()
+def fwd(idx):
+    x = F.rms_norm(m.transformer.wte(idx), (D,)); x0 = x; v1 = None
+    for blk in H:
+        x, v1 = blk(x, v1, x0)
+    if FIN['on']:
+        xf = x.float()
+        pv = xf @ FIN['V']
+        x = (xf - (pv - FIN['mu']) @ FIN['V'].T).to(x.dtype)
+    return 30.0 * torch.tanh(m.lm_head(F.rms_norm(x, (D,))) / 30.0)
+
+
+@torch.no_grad()
+def capture_fwd(idx, V2, lam2, acc, pm):
+    """Exact manual forward through layer SITE, accumulating projections of
+    every component output onto V2 (global + class sums), head-grain scores,
+    mean_s, and the reconstruction check. pm: [B,T] class mask."""
+    x = F.rms_norm(m.transformer.wte(idx), (D,)); x0 = x; v1 = None
+    B = idx.shape[0]
+    vmask = torch.ones(B, T, dtype=torch.bool, device=DEV)
+    vmask[:, :64] = False
+    vf = vmask.reshape(-1); pf = pm.reshape(-1)
+    tril = torch.tril(torch.ones(T, T, device=DEV, dtype=torch.bool))
+
+    def add(nm, o):
+        pv = (o.float().reshape(-1, D) @ V2)      # [N,2]
+        acc['sum'][nm] += pv[vf].sum(0)
+        acc['csum'][nm] += pv[pf].sum(0)
+
+    add('x0', x0)
+    for L, blk in enumerate(H):
+        at = blk.attn
+        xm = blk.lambdas[0] * x + blk.lambdas[1] * x0
+        xin = F.rms_norm(xm, (D,))
+        qp = at.c_q(xin).view(B, T, 9, 128).float()
+        kp = at.c_k(xin).view(B, T, 9, 128).float()
+        q2p = at.c_q2(xin).view(B, T, 9, 128).float()
+        k2p = at.c_k2(xin).view(B, T, 9, 128).float()
+        cos, sin = at.rotary(qp)
+        q = are(F.rms_norm(qp, (128,)), cos, sin)
+        k = are(F.rms_norm(kp, (128,)), cos, sin)
+        q2 = are(F.rms_norm(q2p, (128,)), cos, sin)
+        k2 = are(F.rms_norm(k2p, (128,)), cos, sin)
+        pat = (torch.einsum('bqhd,bkhd->bhqk', q, k) / 128.0) \
+            * (torch.einsum('bqhd,bkhd->bhqk', q2, k2) / 128.0)
+        pat = pat.masked_fill(~tril, 0.0)
+        v = at.c_v(xin).view(B, T, 9, 128)
+        if v1 is None:
+            v1 = v
+        vv = (1 - at.lamb) * v + at.lamb * v1.view_as(v)
+        y = torch.einsum('bhqk,bkhd->bqhd', pat.to(vv.dtype), vv)
+        ao = at.c_proj(y.reshape(B, T, D))
+        add(f'attn{L}', ao)
+        # head grain: y_h @ Wp_h.T projected on V2
+        Wp = at.c_proj.weight.float()             # [D, D]
+        for hh in range(9):
+            M = Wp[:, hh * 128:(hh + 1) * 128].T @ V2      # [128,2]
+            pv = (y[:, :, hh].float().reshape(-1, 128) @ M)
+            acc['hsum'][L][hh] += pv[vf].sum(0)
+            acc['hcsum'][L][hh] += pv[pf].sum(0)
+        x = xm + ao
+        mo = blk.mlp(F.rms_norm(x, (D,)))
+        add(f'mlp{L}', mo)
+        x = x + mo
+    P = x
+    acc['n'] += int(vf.sum()); acc['cn'] += int(pf.sum())
+    acc['P_proj'].append((P.float().reshape(-1, D) @ V2)[vf].sum(0))
+
+
+CLASSES = {
+    'question':  r'^\?$| \?$',
+    'months':    r'^ (January|February|March|April|May|June|July|August|September|October|November|December)$',
+    'days':      r'^ (Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)$',
+    'semicolon': r'^;$|^ ;$',
+    'colon':     r'^:$|^ :$',
+    'pronouns':  r'^ (he|she|they|He|She|They)$',
+    'is':        r'^ is$',
+    'said':      r'^ said$',
+    'to':        r'^ to$',
+    'the':       r'^ the$',
+}
+CHUNKS, ROWS_PER_CHUNK = 3, 333
+
+
+@torch.no_grad()
+def measure(rows, V2, mask_v, shuffle_gen=None):
+    """Returns (top-TOP share, total attribution mass DEV, class_n).
+    If shuffle_gen is given, the class mask is REPLACED by a random mask of the
+    same size drawn from the valid positions -- the matched shuffled-label control."""
+    comps = ['x0'] + [f'attn{L}' for L in range(18)] + [f'mlp{L}' for L in range(18)]
+    rk = V2.shape[1]
+    acc = {'sum': {c: torch.zeros(rk, device=DEV) for c in comps},
+           'csum': {c: torch.zeros(rk, device=DEV) for c in comps},
+           'hsum': {L: {h: torch.zeros(rk, device=DEV) for h in range(9)} for L in range(18)},
+           'hcsum': {L: {h: torch.zeros(rk, device=DEV) for h in range(9)} for L in range(18)},
+           'n': 0, 'cn': 0, 'P_proj': []}
+    lam2 = torch.ones(rk, device=DEV)
+    masks = []
+    for i in range(0, rows.shape[0], 8):
+        tg = rows[i:i + 8, 1:].to(DEV)
+        pm = mask_v.to(DEV)[tg]; pm[:, :64] = False
+        masks.append(pm)
+    if shuffle_gen is not None:
+        flat = torch.cat([p.reshape(-1) for p in masks])
+        valid = torch.zeros_like(flat)
+        off = 0
+        for p in masks:                       # valid = positions >= 64, any token
+            v = torch.ones_like(p); v[:, :64] = False
+            valid[off:off + p.numel()] = v.reshape(-1); off += p.numel()
+        k = int(flat.sum())
+        vidx = valid.nonzero(as_tuple=True)[0]
+        pick = vidx[torch.randperm(vidx.numel(), device=DEV, generator=shuffle_gen)[:k]]
+        newflat = torch.zeros_like(flat); newflat[pick] = True
+        off = 0
+        for j, p in enumerate(masks):
+            masks[j] = newflat[off:off + p.numel()].reshape(p.shape); off += p.numel()
+    for j, i in enumerate(range(0, rows.shape[0], 8)):
+        capture_fwd(rows[i:i + 8, :-1].to(DEV).contiguous(), V2, lam2, acc, masks[j])
+
+    lam0 = [float(b.lambdas[0]) for b in H]; lam1 = [float(b.lambdas[1]) for b in H]
+    coef = {}
+    for l in range(18):
+        c = 1.0
+        for kk in range(l + 1, 18):
+            c *= lam0[kk]
+        coef[f'attn{l}'] = c; coef[f'mlp{l}'] = c
+    tx0 = 1.0
+    for kk in range(18):
+        tx0 = lam0[kk] * tx0 + lam1[kk]
+    coef['x0'] = tx0
+    mu = {c: acc['sum'][c] / max(acc['n'], 1) for c in comps}
+    cmu = {c: acc['csum'][c] / max(acc['cn'], 1) for c in comps}
+    delta = {c: (coef[c] * (cmu[c] - mu[c])).abs().sum().item() for c in comps}
+    ranked = sorted(delta, key=lambda c: -delta[c])
+    tot = sum(delta.values())
+    return sum(delta[c] for c in ranked[:TOP]) / max(tot, 1e-9), tot, acc['cn']
+
+
+def spear(x, y, trials=20000, seed=SEED):
+    import random
+    def rk(v):
+        o = sorted(range(len(v)), key=lambda i: v[i]); r = [0] * len(v)
+        for p, i in enumerate(o): r[i] = p + 1
+        return r
+    rx, ry = rk(x), rk(y); N = len(x)
+    rho = 1 - 6 * sum((a - b) ** 2 for a, b in zip(rx, ry)) / (N * (N * N - 1))
+    rnd = random.Random(seed); base = list(range(1, N + 1)); cnt = 0
+    for _ in range(trials):
+        pm = base[:]; rnd.shuffle(pm)
+        r = 1 - 6 * sum((a - b) ** 2 for a, b in zip(rx, pm)) / (N * (N * N - 1))
+        cnt += (abs(r) >= abs(rho))
+    return round(rho, 4), round(cnt / trials, 4)
+
+
+@torch.no_grad()
+def main():
+    import os
+    t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
+    raw = torch.load(PT + 'curated_rows.pt', map_location='cpu')['rows']
+    allr = raw[:CHUNKS * ROWS_PER_CHUNK, :T + 1].contiguous()
+    chunks = [allr[c * ROWS_PER_CHUNK:(c + 1) * ROWS_PER_CHUNK] for c in range(CHUNKS)]
+    g = torch.Generator(device=DEV).manual_seed(SEED)
+    V2, _ = torch.linalg.qr(torch.randn(D, RANK, device=DEV, generator=g)); V2 = V2.contiguous()
+    masks = {k: rx(v) for k, v in CLASSES.items()}
+    names = list(CLASSES)
+
+    out_c = {}
+    for cname in names:
+        sh, dv, ns = [], [], []
+        for ch in chunks:
+            s_, d_, n_ = measure(ch, V2, masks[cname])
+            sh.append(s_); dv.append(d_); ns.append(n_)
+        sg = torch.Generator(device=DEV).manual_seed(SEED)
+        sdv = []
+        for ch in chunks:
+            _, d2, _ = measure(ch, V2, masks[cname], shuffle_gen=sg)
+            sdv.append(d2)
+        out_c[cname] = {'share': round(sum(sh) / 3, 4), 'dev': round(sum(dv) / 3, 4),
+                        'dev_shuffled': round(sum(sdv) / 3, 4), 'n': sum(ns)}
+        r = out_c[cname]
+        print(f"  {cname:10s} n={r['n']:5d} share={r['share']:.4f} DEV={r['dev']:9.2f} "
+              f"shuf={r['dev_shuffled']:9.2f} ratio={r['dev']/max(r['dev_shuffled'],1e-9):6.2f}x", flush=True)
+
+    share = [out_c[c]['share'] for c in names]
+    dev = [out_c[c]['dev'] for c in names]
+    nn = [out_c[c]['n'] for c in names]
+    rho_dev, p_dev = spear(dev, share)
+    rho_n, p_n = spear(nn, share)
+    beats = sum(1 for c in names if out_c[c]['dev'] > out_c[c]['dev_shuffled'])
+
+    pa = rho_dev >= 0.70 and p_dev < 0.05
+    pb = abs(rho_dev) > 0.673
+    pc = beats >= 8
+
+    out = {'config': {'site': SITE, 'rank': RANK, 'top': TOP, 'seed': SEED,
+                      'chunks': CHUNKS, 'rows_per_chunk': ROWS_PER_CHUNK,
+                      'row_source': 'curated_rows.pt', 'rows_are_fresh': False,
+                      'classes': names, 'arm': 'RANDOM basis only'},
+           'per_class': out_c,
+           'spearman_dev_vs_share': {'rho': rho_dev, 'p': p_dev},
+           'spearman_n_vs_share': {'rho': rho_n, 'p': p_n},
+           'S1614_n_rho': 0.6727,
+           'classes_dev_above_shuffled': beats,
+           'predictions': {'pred_a_dev_rho_ge70_p_lt05': bool(pa),
+                           'pred_b_dev_beats_n': bool(pb),
+                           'pred_c_dev_above_shuffled_8of10': bool(pc)},
+           'runtime_s': round(time.time() - t0, 1)}
+    json.dump(out, open(OUT, 'w'), indent=1,
+              default=lambda o: sorted(o) if isinstance(o, set) else str(o))
+    print(f"\n  rho(DEV, share)={rho_dev} p={p_dev} | rho(n, share)={rho_n} p={p_n} "
+          f"(S1614 n rho .6727)", flush=True)
+    print(f"  DEV above shuffled control in {beats}/10 classes", flush=True)
+    print(f"pred_a {pa} | pred_b {pb} | pred_c {pc}", flush=True)
+    print(f"wrote {OUT} ({out['runtime_s']}s)", flush=True)
+    sys.stdout.flush(); sys.stderr.flush(); os._exit(0)   # LESSONS 14
+
+
+if __name__ == '__main__':
+    main()
