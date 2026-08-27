@@ -53,6 +53,7 @@ sys.path.insert(0, '/workspace/rspd')
 sys.path.insert(0, '/workspace/tensor_language/basis_aligned/polynomial_causal')
 from bilin18_joint_removal import m, DEV
 import census_lib as cl
+from joint_early_mlp_oracle_factorial import resolve_oracle_correction
 from oracle_authority import resolve_oracle_output
 
 D = 1152; T = 256; PT = '/workspace/tensor_language/basis_aligned/bilinear_quotient/'
@@ -82,7 +83,7 @@ CORR = {'on': False, 'b': None, 'U': None, 'V': None}
 CONTENT_CORR = {'on': False, 'site': None, 'weight': None, 'bias': None,
                 'basis': None}
 ORACLE_CORR = {'on': False, 'site': None, 'basis': None, 'scale': 1.0,
-               'capture': None}
+               'corrections': None, 'capture': None}
 
 
 def add_content_correction(site, z, mo):
@@ -97,7 +98,8 @@ def add_content_correction(site, z, mo):
 def add_oracle_correction(site, block, z, mo):
     """Inject the live original-minus-plank residual, optionally projected."""
     should_capture = ORACLE_CORR['capture'] is not None and site in ORACLE_CORR['capture']
-    should_inject = ORACLE_CORR['on'] and ORACLE_CORR['site'] == site
+    correction = resolve_oracle_correction(ORACLE_CORR, site)
+    should_inject = correction is not None
     if not should_capture and not should_inject:
         return mo
     residual = block.mlp(z).float() - mo.float()
@@ -105,13 +107,13 @@ def add_oracle_correction(site, block, z, mo):
         ORACLE_CORR['capture'][site].append(residual[:, 64::3].detach().cpu())
     if not should_inject:
         return mo
-    basis = ORACLE_CORR['basis']
+    basis = correction.basis
     if basis is None:
         delta = residual
     else:
         flat = residual.reshape(-1, D)
         delta = ((flat @ basis) @ basis.T).view_as(residual)
-    return mo + (ORACLE_CORR['scale'] * delta).to(mo.dtype)
+    return mo + (correction.scale * delta).to(mo.dtype)
 
 
 def fwd_arm(idx, layers, TWALL, mlps=frozenset(), cap=None):
