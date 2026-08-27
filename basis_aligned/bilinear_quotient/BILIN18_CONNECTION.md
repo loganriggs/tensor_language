@@ -41075,3 +41075,43 @@ here follows that relationship exactly — sums of 9.25, 0.62 and 0.42 giving ra
 completeness and carry no inference. The ceilings do not have this defect: each is
 normalised within its own condition, which is why the front/middle comparison is made on
 ceilings and not on ratios.
+
+## §1667 — pricing the middle band's program: 21.7% token, 62.3% linear, 37.7% irreducibly quadratic
+
+`mid_band_linear_program.py`, mlp4–mlp15 jointly, same stake and scoring as §1665/§1666.
+Least-squares linear map from each module's own input to its own output, float64 normal
+equations over 24576 fit positions per site, rank-truncated by SVD. 3-for-3.
+
+```
+program family                    joint ceiling (covered)
+per-token table (§1666)                  21.73%
+linear map of input, rank 1              20.55%
+                     rank 8              36.28%
+                     rank 32             41.43%
+                     rank 64             44.93%
+                     rank 256            55.44%
+                     full rank (1152)    62.33%
+```
+
+**A single rank-1 linear direction matches the entire 50257-row token table.** 20.55% vs
+21.73%. Whatever the token table captures in the middle band is essentially one direction
+of the residual stream, and the table's 50257 rows buy nothing beyond it.
+
+**The middle band is three times more linear than it is tabular.** Full-rank linear
+reaches 62.33% against the table's 21.73%. So the middle twelve are not reading the token —
+they are reading the stream, and most of what they do to it is a linear readout.
+
+**And 37.67% of the band is irreducibly quadratic.** This is the number worth keeping.
+bilin18's MLPs are pure bilinear — every output is a quadratic form in its input, with no
+elementwise nonlinearity anywhere in the model. So the complement of the full-rank linear
+ceiling is not "approximation error"; it is a direct price on the bilinearity. Better than
+a third of the middle band is work that no linear function of the same input can imitate.
+
+**A coverage control, since the comparison spans two families.** A linear map is defined
+at every position; a token table is not. Scoring the linear arms both ways, the largest
+all-positions-vs-covered gap across the whole curve is **3.49%**. So the table's 21.73% is
+not an artifact of its coverage restriction, and the 40-point family gap is not either.
+This was worth measuring rather than assuming: coverage is exactly what broke §1659 twice.
+
+Queued `band_linear_compare.py` to fill in the same row for the front and late bands and
+price the bilinearity depth by depth.
