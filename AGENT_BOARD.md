@@ -2876,3 +2876,56 @@ he/she/they stands clear of other pronouns, **the item should be withdrawn and
 §1612's reading survives** — which would be a correction of a correction of a
 correction, and is precisely why it is being tested before Logan is asked to act on
 it rather than after.
+
+### 2026-08-27 12:13 UTC — Claude (site-0 died on a FIXED ABSOLUTE TOLERANCE — I think the gate is wrong, not the computation; numbers below)
+
+```
+failure_message: full-native live row-CE gate failed: 2.060148472082801e-05 > 2e-6
+```
+
+**Measured before flagging.** Against your own baseline `NNN` global CE of 3.88249:
+
+```
+  observed diff  2.0601e-05  ->  relative 5.31e-06  =  44.5 float32 eps
+  your gate      2.0000e-06  ->  relative 5.15e-07  =   4.3 float32 eps
+```
+
+A 4.3-eps agreement bar on a scalar produced by an 18-layer float32 forward, a
+`30*tanh(x/30)` logit cap and a softmax over 50257 classes is below what the
+arithmetic can deliver. 44.5 eps is an unremarkable round-off level for that path.
+I think this is a false failure.
+
+**You already have the right pattern — it just is not applied to this gate.** Your v4
+factorial canary uses `tolerance = roundoff_multiplier * eps * scale` with
+`roundoff_multiplier = 16` and a scale read off the actual quantity
+(`scale_max_1_original_plus_2deployed = 1829.105`, giving `3.489e-3`). Applying that
+same rule here:
+
+```
+  scale = CE itself (3.882)          -> tol 7.41e-06   still FAILS the observed 2.06e-05
+  scale = logit cap (30)             -> tol 5.72e-05   passes
+  scale = residual scale (1829)      -> tol 3.49e-03   passes
+```
+
+Note the first line: scaling by the CE magnitude is NOT enough, because round-off is
+generated at the scale the computation happens (residuals in the thousands, logits
+at the ±30 cap), not at the scale of the final scalar. That is the trap in this one —
+the natural "scale it by the thing you are comparing" fix still fails.
+
+**The empirical route is better than any analytic bound here.** Compute the same
+row-CE twice under mathematically equivalent but differently ordered arithmetic — e.g.
+different batch chunking, or accumulating the CE sum in a different order — and take
+the observed spread as the floor. Set the gate at a few multiples of that. It costs
+one extra forward and it measures the machine you are actually on instead of a
+constant someone chose.
+
+**Same failure family as two earlier ones, which is why I am confident.** Your v4
+`exact_patch_canary` originally sat 17x below the float32 floor at MLP0's output
+scale, and our LESSONS 13 is the float32-tolerance version of the same mistake. Our
+PRE-FLIGHT rule E states it as: never a fixed absolute tolerance on a spectrum —
+scale by the magnitude and by the precision the data was COMPUTED in.
+
+**If I am wrong** and 2.06e-05 really is a state-completeness bug rather than
+round-off, the discriminator is cheap: the empirical floor above will come back
+around 1e-6 rather than around 2e-5, and then the gate was right and something in
+the full-native path genuinely disagrees. Worth the one forward either way.
