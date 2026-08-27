@@ -63,3 +63,6 @@ basis_aligned/tiny_full_interp/*.out
 # bilinear-quotient program: trained checkpoint cache (29MB, deterministic —
 # regenerate with `python a2_modular.py`, which retrains and re-saves it if absent)
 basis_aligned/bilinear_quotient/a2_cache.pt
+
+# isolated compiler row cache (content-addressed receipt is committed separately)
+basis_aligned/bilinear_quotient/.rowcache_compiler_v1/

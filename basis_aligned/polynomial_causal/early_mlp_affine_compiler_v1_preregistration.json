@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "experiment": "early_mlp_affine_compiler_v1",
+  "status": "preregistered_not_run",
+  "authority": "isolated_compiler_experiment",
+  "objective": "Replace the oracle coefficient reads at MLP0 and MLP1 with a frozen, sequential, executable low-rank affine tensor program and measure its causal fidelity on untouched FineWeb documents.",
+  "scope_guardrail": "This experiment may fit two isolated coefficient predictors, but may not update the base model, the deployed ship, or the admitted rank-64 bases. It does not amend the v3 basis artifact's authorized_for_training=false field and does not turn the v3 discovery or heldout rows into training data. A pass licenses only an in-distribution executable early-MLP interface on the frozen ship realization, not whole-model reverse engineering, OOD generalization, minimality, production training, or a globally simplest program.",
+  "training_authority": {
+    "basis_artifact_rule": "The admitted v3 bases are read-only coordinate systems. They are never refit, rotated, sign-normalized, or optimized.",
+    "isolated_fit_rule": "The current project directive authorizes fitting new standalone maps only on the fresh compiler_fit rows below. No prior v3 basis, discovery, or heldout row is a predictor-fit row.",
+    "base_model_updates": false,
+    "deployed_ship_updates": false,
+    "training_license_sites": [0, 1],
+    "licensed_parameters": "Only the two affine coefficient maps, their train-only normalization constants, and their canonical low-rank factors.",
+    "forbidden_parameters": "Base-model weights, ship weights, output bases, token tables, position tables, cached labels, row-index tables, and background-specific maps."
+  },
+  "pinned_inputs": {
+    "ship_realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e",
+    "v3_authority_sha256": "38cf5a349e4426b4ed3227ad11f37499ffa9c3959de5d85d606580aa32c39f1e",
+    "v3_result_sha256": "c3408feb031165b747346107841e2e82066aa80ea223ecde845f085d30006587",
+    "v3_manifest_sha256": "cae4a3092213d3e1d0983448576f9a4c3966a092d731d56ab16169a8c82b7588",
+    "v3_basis_artifact_sha256": "0eee01f39087548a479486d068404f78c4bdc2fd930932add162212da31fe4d9",
+    "v3_basis_receipt_sha256": "b81adb4c78255613997de4cbfc8ffd9e8eec233b40950915a14005ba3efcba0f",
+    "basis_shapes": {"0": [1152, 64], "1": [1152, 64]},
+    "basis_coordinate_rule": "Use the serialized float32 tensors byte-for-byte."
+  },
+  "fresh_rows": {
+    "source": "Pinned first parquet of the ordered FineWeb default train manifest, using the already certified local source identity and census-prefix-dedup/tokenization semantics.",
+    "model_prefix_length": 257,
+    "compiler_fit": {"n": 480, "skip": 15000},
+    "compiler_validation": {"n": 192, "skip": 19000},
+    "compiler_final": {"n": 192, "skip": 23000},
+    "required_gates": [
+      "Every split has row-aligned document/chunk provenance.",
+      "The three new roles are pairwise document-disjoint, full-row-disjoint, and prefix-32-disjoint.",
+      "Every new role is document-disjoint from all ship_fit, basis, discovery, and heldout documents in fineweb_oracle_v2_receipt.json.",
+      "The final split is never used for fitting, rank/lambda choice, stopping, grammar choice, thresholds, or debugging.",
+      "The row receipt is written and content-addressed before any predictor label is captured."
+    ]
+  },
+  "estimand": {
+    "live_input": "z_l is the post-attention RMS-normalized input actually seen at MLP l under the frozen deployed ship plus any already-applied predicted upstream correction.",
+    "label": "c_l(z_l) = (f_l_original(z_l) - f_l_ship(z_l)) @ B_l, with original and ship evaluated on the identical live z_l.",
+    "capture_positions": "64::3 over the 256 model-input positions, used only for predictor fitting and local validation diagnostics.",
+    "physical_correction": "delta_l(z_l) = g_l(z_l) @ B_l.T",
+    "causal_currency": "Paired row-level end-to-end cross entropy on positions 64: of compiler_final, clustered by source document."
+  },
+  "grammar": {
+    "primary": "g_l(z) = ((z - mu_l) / sigma_l) @ (A_l @ C_l) + b_l",
+    "input_normalization": "mu and per-coordinate RMS sigma are computed on compiler_fit only; sigma is clamped below at 1e-6.",
+    "ridge_objective": "For centered targets, minimize mean squared coefficient error plus lambda times squared Frobenius norm of the full affine weight.",
+    "lambda_grid": [0.0, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0],
+    "rank_grid": [8, 16, 32, 64],
+    "factorization": "For each lambda, take the deterministic float64 SVD of the 1152x64 ridge weight, truncate to each registered rank, and serialize the balanced canonical factors A=U*sqrt(S), C=sqrt(S)*Vh. Fix each singular-vector pair's sign by making its largest-absolute A entry positive.",
+    "selection": "On compiler_validation only, choose the least standalone-priced candidate whose coefficient NMSE is at most 1.01 times the minimum validation NMSE. Break remaining ties by smaller rank, larger lambda, then lexicographic candidate order.",
+    "artifact_contents": "For each site: mu, sigma, b, balanced A/C factors, selected rank/lambda, basis hash binding, fit/validation receipts, and pricing. No original weights, clean activations, labels, token IDs, position IDs, row indices, or cached per-example values.",
+    "allowed_inference_inputs": ["current live z_l", "frozen map parameters", "frozen B_l"],
+    "forbidden_inference_inputs": ["original MLP0/1", "future tokens", "targets", "token or position lookup", "cached coefficients", "clean-model states", "arm-specific calibration"]
+  },
+  "sequential_fit": {
+    "step_1": "Fit and freeze g0 on deployed-MLP0 compiler_fit states; choose rank/lambda on deployed-MLP0 compiler_validation states.",
+    "step_2": "Run the frozen ship with the frozen g0 correction actually applied. Capture the resulting live MLP1 compiler_fit/validation states and labels, then fit and freeze exactly one g1.",
+    "forbidden": ["joint refit", "teacher-forced original or oracle MLP0 states for g1", "scheduled sampling", "background-specific refit", "final-split tuning"],
+    "reuse": "The same frozen g0 and g1 are reused under every N/Q/O neighbor and N/E MLP2 background."
+  },
+  "controls": {
+    "mean": "Per-site train mean coefficient, rolled out sequentially and frozen.",
+    "document_shuffle": "A deterministic seed-271828 document-block permutation of fit labels, with the identical affine grammar, lambda/rank search, data budget, and sequential rollout rule.",
+    "oracle": "O uses the live exact residual projected into the same fixed B_l and is a ceiling/control only.",
+    "teacher_forcing_shadow": "Optional and nonprimary: a separately priced g1 fit on O0 states may be reported only as a local failure diagnostic and can never substitute for the autoregressive g1."
+  },
+  "evaluation": {
+    "state_order": "MLP0, MLP1, MLP2",
+    "states": {"N": "deployed", "Q": "predicted affine correction", "O": "oracle projected correction", "E": "exact MLP2 restoration"},
+    "primary_lattice": "Complete 3x3x2 lattice {N,Q,O}x{N,Q,O}x{N,E}, 18 arms, plus joint mean and joint shuffled controls at MLP2=N.",
+    "poison_rule": "For every scored arm, original MLP0/1 forward calls are replaced by raise-on-call poison unless that exact site is O. All N/Q-only arms, including QQN and QQE, must finish with both original-call counters equal to zero. MLP2 original is allowed only in E arms.",
+    "hook_rule": "Use an isolated correction hook with strict install/clear/restore canaries; do not mutate ship_error_attrib.py or reuse its ORACLE_CORR/CONTENT_CORR state as predictor storage.",
+    "statistics": "Paired document-cluster bootstrap with 2000 draws and fixed seeds 31415926 onward. Recompute maxima, oracle denominators, ratios, and nonlinear margins inside each draw.",
+    "report": ["global, copy, novel-frequent, and novel-rare CE", "row CE and document IDs", "coefficient NMSE/R2/cosine and physical RMS", "original-call counters", "component-tree hashes and baseline replay", "standalone and amortized bits/FLOPs/runtime/memory", "condition number and float32/quantization replay"]
+  },
+  "registered_gates": {
+    "integrity": "All pins, fresh-row disjointness, artifact freeze, component-tree, replay, source-closure, hook-clear, and original-call poison gates pass.",
+    "core_no_free_rider": "All eight Q-site effects over N/Q neighbor x N/E MLP2 backgrounds have positive point estimates and document-cluster 95% lower bounds above zero.",
+    "oracle_neighbor_reuse": "The four additional Q-site effects with an O neighbor have positive point estimates and 95% lower bounds above zero; failure demotes the result to a sequential package rather than modular sites.",
+    "same_background_fidelity": "Every core Q effect is at least 0.50 of its positive same-background O effect, with the 0.50 margin and denominator recomputed within every bootstrap draw and a 95% lower bound above zero.",
+    "composition": "QQN-max(QNN,NQN)>0 and QQE-max(QNE,NQE,NNE)>0, both with 95% lower bounds above zero.",
+    "joint_fidelity": "(QQN-NNN)-0.50*(OON-NNN)>0 and (QQE-NNE)-0.50*(OOE-NNE)>0, both with positive oracle references and 95% lower bounds above zero.",
+    "controls": "QQN beats both joint-mean-N and joint-shuffled-N in paired CE with 95% lower bounds above zero.",
+    "collateral": "QQ causes no copy or novel-frequent CE worsening greater than 0.01 nats relative to the matched deployed arm.",
+    "mlp2_compatibility_diagnostic": "Report QQE-QQN and its interval, but do not make it conjunctive because the admitted v3 downstream rescue was only +0.0194 nats with a +0.0002 lower bound."
+  },
+  "failure_localization": {
+    "single_site_failure": "The causal subspace is real but its coordinates are not locally predictable with this affine grammar.",
+    "singletons_pass_joint_fails": "Predictor errors are noncomposable.",
+    "QON_rescues_QQN": "The MLP1 predictor is the main bottleneck.",
+    "OQN_works_QQN_fails": "Predicted-MLP0 exposure shift is the main bottleneck.",
+    "high_local_R2_causal_failure": "Euclidean coefficient loss misses downstream-sensitive error directions.",
+    "mean_or_shuffle_matches_Q": "The apparent benefit is regularization or average correction, not extracted computation.",
+    "affine_failure": "Reject only the affine coefficient grammar; next registered rung is a native bilinear-product or paired-product tensor program."
+  },
+  "pricing": {
+    "precision": "Report float32 storage and an explicit 16-bit counterfactual; do not assume entropy coding without serializing a code.",
+    "standalone": "Count B_l, mu_l, sigma_l, b_l, both balanced factors, metadata/indices, and any quantizer/codebook.",
+    "amortized": "May omit B_l only under the explicit admitted-basis-library assumption; all other predictor state is counted.",
+    "original_comparator": "Price restoration of the original MLP0/1 bilinear modules on the same ship substrate, including 4608 Hadamard products and all Left/Right/Down weights per site.",
+    "gauge_rule": "For orthogonal B->B R, transport output coordinates/factors and require bit-identical physical corrections within tolerance, identical CE, and unchanged balanced-factor price."
+  },
+  "next_rung_if_affine_fails": "Preregister activation-aware native hidden-product truncation or learned paired products, with product count as the main algebraic complexity coordinate and with the same fresh-row, sequential, poison, lattice, and control contract."
+}
