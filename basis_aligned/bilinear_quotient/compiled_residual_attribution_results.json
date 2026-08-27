@@ -1,0 +1,177 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "front_sites": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "ridge": 0.001,
+  "program": "token table at mlp0-3, linear map at mlp4-17",
+  "compilation": "bottom-up, RECOMPILED for every exemption so the maps above the exempt site are never applied off-distribution (LESSONS 28)",
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "scoring": "covered positions only",
+  "s1670_mixed": 0.5629
+ },
+ "stake": 4.3196,
+ "base_ceiling": 0.5629,
+ "shortfall": 0.4371,
+ "sites": {
+  "mlp0": {
+   "ceiling_exempt": 0.56516,
+   "gain": 0.00226,
+   "share_of_shortfall": 0.0052,
+   "family": "table"
+  },
+  "mlp1": {
+   "ceiling_exempt": 0.57946,
+   "gain": 0.01656,
+   "share_of_shortfall": 0.0379,
+   "family": "table"
+  },
+  "mlp2": {
+   "ceiling_exempt": 0.59464,
+   "gain": 0.03174,
+   "share_of_shortfall": 0.0726,
+   "family": "table"
+  },
+  "mlp3": {
+   "ceiling_exempt": 0.60622,
+   "gain": 0.04332,
+   "share_of_shortfall": 0.0991,
+   "family": "table"
+  },
+  "mlp4": {
+   "ceiling_exempt": 0.58235,
+   "gain": 0.01945,
+   "share_of_shortfall": 0.0445,
+   "family": "linear"
+  },
+  "mlp5": {
+   "ceiling_exempt": 0.57773,
+   "gain": 0.01483,
+   "share_of_shortfall": 0.0339,
+   "family": "linear"
+  },
+  "mlp6": {
+   "ceiling_exempt": 0.58175,
+   "gain": 0.01885,
+   "share_of_shortfall": 0.0431,
+   "family": "linear"
+  },
+  "mlp7": {
+   "ceiling_exempt": 0.58162,
+   "gain": 0.01872,
+   "share_of_shortfall": 0.0428,
+   "family": "linear"
+  },
+  "mlp8": {
+   "ceiling_exempt": 0.57859,
+   "gain": 0.01569,
+   "share_of_shortfall": 0.0359,
+   "family": "linear"
+  },
+  "mlp9": {
+   "ceiling_exempt": 0.5814,
+   "gain": 0.0185,
+   "share_of_shortfall": 0.0423,
+   "family": "linear"
+  },
+  "mlp10": {
+   "ceiling_exempt": 0.57867,
+   "gain": 0.01577,
+   "share_of_shortfall": 0.0361,
+   "family": "linear"
+  },
+  "mlp11": {
+   "ceiling_exempt": 0.57948,
+   "gain": 0.01658,
+   "share_of_shortfall": 0.0379,
+   "family": "linear"
+  },
+  "mlp12": {
+   "ceiling_exempt": 0.57764,
+   "gain": 0.01474,
+   "share_of_shortfall": 0.0337,
+   "family": "linear"
+  },
+  "mlp13": {
+   "ceiling_exempt": 0.57673,
+   "gain": 0.01383,
+   "share_of_shortfall": 0.0316,
+   "family": "linear"
+  },
+  "mlp14": {
+   "ceiling_exempt": 0.57472,
+   "gain": 0.01182,
+   "share_of_shortfall": 0.027,
+   "family": "linear"
+  },
+  "mlp15": {
+   "ceiling_exempt": 0.57564,
+   "gain": 0.01274,
+   "share_of_shortfall": 0.0291,
+   "family": "linear"
+  },
+  "mlp16": {
+   "ceiling_exempt": 0.57821,
+   "gain": 0.01531,
+   "share_of_shortfall": 0.035,
+   "family": "linear"
+  },
+  "mlp17": {
+   "ceiling_exempt": 0.58077,
+   "gain": 0.01787,
+   "share_of_shortfall": 0.0409,
+   "family": "linear"
+  }
+ },
+ "ranking": [
+  "mlp3",
+  "mlp2",
+  "mlp4",
+  "mlp6",
+  "mlp7",
+  "mlp9",
+  "mlp17",
+  "mlp11",
+  "mlp1",
+  "mlp10",
+  "mlp8",
+  "mlp16",
+  "mlp5",
+  "mlp12",
+  "mlp13",
+  "mlp15",
+  "mlp14",
+  "mlp0"
+ ],
+ "sum_of_gains": 0.31858,
+ "predictions": {
+  "pred_a_residual_concentrated_ge_25pct": false,
+  "pred_b_worst_site_in_middle_band": false,
+  "pred_c_control_compilation_reproducible": true
+ },
+ "runtime_s": 232.9
+}
