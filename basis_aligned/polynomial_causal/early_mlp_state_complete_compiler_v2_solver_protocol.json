@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "frozen_before_any_compiler_label_or_gradient_capture",
+  "experiment": "early_mlp_state_complete_compiler_v2_solver_protocol",
+  "role": "Implementation-level clarification of the already-preregistered A-E fit solvers; it changes no hypothesis, row, split, candidate family, selection rule, final gate, or tolerance after observing outcomes.",
+  "bindings": {
+    "preregistration_sha256": "45b0a6c055779449bf5fee815a0ecc7471336e95963db67e74166a2270978d54",
+    "rows_receipt_sha256": "23319ece1d8542d51e024bde0e2253d740b08ad18ad4f2d8565ba5120473fd82"
+  },
+  "capture": {
+    "batch_rows": 8,
+    "positions": "64::3 over the 256 model-input positions",
+    "fit_tokens_per_site": 30720,
+    "validation_tokens_per_site": 12288,
+    "adjoint_clip": "Freeze the compiler_fit 99th percentile of row-token ||g||_2 separately per site; scale vectors above it radially to the threshold.",
+    "gradient_boundary": "The teacher coefficient tensor is a detached leaf. The deployed mo and every upstream state are detached at the target site, so backward traverses only the frozen suffix.",
+    "forbidden": "No compiler_final tensor is loaded before the complete validation/program/strata receipt is written. No validation gradient, label, target coefficient, or logit enters a fit loss."
+  },
+  "affine": {
+    "A_and_B_euclidean": "Use the registered analytic ridge frontier and balanced rank truncation from the v1 pure contract, with A targeting c and B targeting p.",
+    "C_causal": {
+      "normalization": "Fit-only per-coordinate z mean and RMS scale, floor 1e-6.",
+      "initialization": "Initialize each lambda from its B full-rank Euclidean ridge map, then take the registered balanced rank truncation.",
+      "optimizer": "Deterministic AdamW on the two low-rank factors and intercept under the exact registered empirical-Fisher-plus-floor loss.",
+      "epochs": 16,
+      "token_batch": 1024,
+      "learning_rate": 0.003,
+      "gradient_norm_clip": 5.0,
+      "seed": 271828,
+      "rank_grid": [8, 16, 32, 64],
+      "lambda_grid": [0.0, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0]
+    }
+  },
+  "native": {
+    "features": "Compute phi_i=(L_i z)(R_i z) once from fit z; temporary feature/cache tensors are fit-only and forbidden from the serialized program.",
+    "intercept": "D uses the Euclidean-optimal fit constant mean(p). E uses the exact fit empirical-Fisher-plus-floor optimal constant from a 64x64 linear solve.",
+    "quadratic": "Form the exact fit-only Hessian and linear term for scalar gates, including the output-direction Gram Q Q^T. E adds the directional design phi_i*(Q_i dot g_t) plus isotropic floor 0.05.",
+    "l1_path_ratios_of_lambda_max": [0.3, 0.1, 0.03, 0.01, 0.003, 0.001, 0.0],
+    "lambda_max": "max absolute smooth gradient at the zero gate vector",
+    "solver": "Warm-start deterministic FISTA, 500 iterations/path point; Lipschitz constant from 64 seeded power iterations.",
+    "support": "For each K in the registered grid, take top-|gate| support at every path point, refit amplitudes by the fixed-support quadratic solve with numerical ridge 1e-8 times max(1,max diagonal), and retain the fit-only support with lowest unpenalized smooth objective.",
+    "K_grid": [8, 16, 32, 64, 128, 256],
+    "serialization": "Serialize independent canonical L_i,R_i and amplitude-scaled Q_i plus the fitted 64-vector intercept; never serialize a checkpoint pointer, token, row index, label, activation, or fit feature."
+  },
+  "selection_boundary": "All families/ranks/supports are fit before direct validation suffix scoring. Validation may choose candidates but may not refit, alter support, or alter amplitudes. The 64-direction validation audit is diagnostic and cannot feed C/E.",
+  "retry_rule": "Any solver/source failure is preserved. Retry uses a versioned namespace and a new committed source closure before another capture."
+}
