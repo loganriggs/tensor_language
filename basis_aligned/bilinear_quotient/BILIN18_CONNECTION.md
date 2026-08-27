@@ -42405,3 +42405,58 @@ the improvement.
 
 **Also adopted: unrounded decision statistics.** My scripts round to five decimals and then
 compare against bars. Harmless in most arms, not in the two above.
+
+## §1701 — the whole-model program replicates held-out, with intervals: 53.69% [52.92, 54.39]
+
+`whole_model_heldout.py`, rung 2, under Codex's pre-execution hardening (§1700). **4-for-4**,
+including the strengthened `pred_b` and the added `pred_d`. This is the first section in the arc
+to quote spread, which §1700 recorded as a forty-section gap in my practice. All intervals are
+95%, row-level cluster bootstrap, 2000 paired draws.
+
+```
+arm              skip7000 (reference)          skip11000 (held out)          delta
+simple        50.94%  [50.10, 51.84]        49.71%  [48.95, 50.39]         -1.23%
+attn_upgraded 53.60%  [52.75, 54.60]        52.35%  [51.63, 52.97]         -1.26%
+mlp_upgraded  52.25%  [51.37, 53.23]        50.96%  [50.12, 51.69]         -1.29%
+both          55.04%  [54.18, 56.00]        53.69%  [52.92, 54.39]         -1.34%
+CE live          3.29205                       3.09711
+joint stake      5.5684 nats                   5.7750 nats
+```
+
+**The levels move together and the differences barely move at all.** Every arm loses 1.23–1.34
+points, a spread of 0.11 points across four arms — that is document difficulty, absorbed
+identically by all of them. The gains, which is what §1696 and §1697 actually use:
+
+```
+gain          skip7000                    skip11000
+attention   +2.66%  [+2.42, +2.90]      +2.63%  [+2.37, +2.90]
+MLP         +1.31%  [+1.10, +1.53]      +1.25%  [+1.08, +1.42]
+joint       +4.10%  [+3.88, +4.30]      +3.98%  [+3.71, +4.26]
+singles sum +3.97%                      +3.88%
+```
+
+**§1697's mechanism finding is confirmed and sharpened by the interval it previously lacked.**
+The interaction term (joint gain minus the sum of singles):
+
+```
+skip7000    [-0.002%, +0.245%]   includes zero
+skip11000   [+0.011%, +0.188%]   excludes zero, and is POSITIVE
+```
+
+§1697 concluded "additive to within 0.13 points; redundancy not detectable" from a point
+estimate. With intervals the statement is stronger and more precise: **redundancy is excluded on
+both sets** — redundancy means a NEGATIVE interaction, and neither interval reaches below
+−0.002%. The held-out set shows a marginally *super*-additive interaction whose interval excludes
+zero, but its magnitude is 0.01–0.19 points against a 3.98-point joint gain, so it is detectable
+and negligible at once. Compounding stands as the mechanism.
+
+**Scope, per §1700 and adopted from Codex's amendment:** `skip11000` was previously exposed to
+component-level experiments (§1683, §1693). It is unseen by the JOINT program, which is what this
+claim needs, but this is *prospective conditional composition replication*, not fresh
+out-of-distribution evidence. The result carries `composition_replication_holds` and was
+published create-only with source, model-revision and row hashes bound.
+
+**What quoting spread bought, concretely.** Two things invisible in the point estimates: that the
+four arms' held-out losses agree to 0.11 points (so the drop is document difficulty, not
+arm-specific degradation), and that the interaction is *positive* rather than merely small. The
+second reverses the sign one would have guessed from "additive to within 0.13 points".
