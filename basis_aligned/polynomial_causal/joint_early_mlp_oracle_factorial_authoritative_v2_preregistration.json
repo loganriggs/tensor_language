@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_not_run",
+  "registered_at_utc": "2026-08-27T08:34:00Z",
+  "experiment": "joint_early_mlp_live_oracle_factorial_authoritative_v2",
+  "supersedes": "joint_early_mlp_oracle_factorial_authoritative_v1_preregistration.json",
+  "v1_status": "preregistered_but_not_run",
+  "v1_failure": "The registered row bootstrap treated multiple chunks from one FineWeb document as independent. Math red-team found 79 unique discovery documents and 105 heldout documents among 192 rows. No ship was built, frozen artifact created, arm scored, or result written under v1.",
+  "design_changes_from_v1": [
+    "Replace row bootstrap with paired document-cluster bootstrap that samples unique documents with replacement, retains every chunk from each sampled document, and preserves the row/token-weighted CE estimand through a variable sampled-row denominator.",
+    "Register robust positivity of the joint arm, both sides and the contrast of the MLP2 sign flip, and signed nonadditivity; make interaction-L1 fraction descriptive.",
+    "Require document-disjoint ship-fit, basis, discovery, and heldout sets and pin the hashes of the actually scored 257-token prefixes.",
+    "Add component-tree before/after hashes, inert shared-state checks, an exact-patch algebra canary, and duplicate-baseline replay."
+  ],
+  "question": "On one fixed deployed ship and two pinned first-shard FineWeb blocks, does exact live restoration of MLP0--2 show reproducible state-dependent causal nonadditivity?",
+  "scope": {
+    "groups": ["mlp0", "mlp1", "mlp2"],
+    "arms": "All eight subsets, including deployed-ship baseline, evaluated on both registered splits.",
+    "intervention": "At every selected site, add the exact original MLP output minus the deployed approximation recomputed on that arm's current state. At MLP2 the deployed approximation includes both the ridge plank and the live rank-32 glue.",
+    "discovery_rows": "canonical FineWeb n192_skip7000[:, :257]",
+    "heldout_rows": "canonical FineWeb n192_skip11000[:, :257]",
+    "rare_vocab_rule": "Derive once from discovery prefixes with ship_error_attrib._token_masks and freeze for both splits and all arms.",
+    "ship_rule": "Seed 27182818; freeze the exact in-memory ship realization before scoring any arm; all arms and later conditional handoffs must reuse that realization.",
+    "currency": "Paired row/token-weighted global cross-entropy gain in nats relative to the deployed-ship baseline; positive lowers CE.",
+    "same_currency_mlp012_residual_denominator": null,
+    "denominator_guardrail": "Do not import a denominator from another realization or row set; report no whole-model or MLP0--2 recovery fraction."
+  },
+  "uncertainty": {
+    "unit": "FineWeb source document",
+    "draws": 2000,
+    "seed": 27182819,
+    "method": "Within each split, sample its D unique document IDs with replacement D times. For every sampled document occurrence retain all of its registered chunks. Apply the same document multiplicities to all eight arms. Compute each arm's total CE numerator divided by the total sampled row count, so the target remains the registered row/token-weighted estimand rather than an equal-document estimand.",
+    "derived_estimands": "Recompute joint gain, best of the three singleton gains, singleton sum, MLP2 singleton, MLP2 conditional after MLP0+1, their sign-flip contrast, every Mobius coefficient, and joint-minus-singleton-sum inside every shared draw.",
+    "interval": "Percentile 95% interval. Report point estimates separately from bootstrap means."
+  },
+  "registered_predictions": {
+    "pred_a_joint_positive_both_splits": true,
+    "pred_a_joint_heldout_ci95_lower_gt_zero": true,
+    "pred_a_joint_exceeds_best_singleton_heldout": true,
+    "pred_a_joint_minus_best_singleton_heldout_ci95_lower_gt_zero": true,
+    "pred_b_mlp2_singleton_negative_both_splits": true,
+    "pred_b_mlp2_singleton_heldout_ci95_upper_lt_zero": true,
+    "pred_b_mlp2_conditional_after_mlp0_mlp1_positive_both_splits": true,
+    "pred_b_mlp2_conditional_heldout_ci95_lower_gt_zero": true,
+    "pred_b_sign_flip_contrast_heldout_ci95_lower_gt_zero": true,
+    "pred_c_joint_minus_singleton_sum_positive_both_splits": true,
+    "pred_c_joint_minus_singleton_sum_heldout_ci95_lower_gt_zero": true
+  },
+  "descriptive_only": [
+    "interaction L1 divided by absolute joint gain",
+    "pairwise and triple Mobius coefficients with cluster-bootstrap intervals",
+    "signed Shapley allocation and its algebraic closure identity"
+  ],
+  "state_integrity_controls": {
+    "document_closure": "Before model import, require row-aligned provenance for every registered set and zero document overlap among ship-fit n480_skip80, basis n96_skip1200, discovery n192_skip7000, and heldout n192_skip11000.",
+    "scored_prefix_identity": "Verify raw SHA256 of each [:, :257] tensor against the preregistered prefix hash.",
+    "shared_state_before_every_arm": "Require CONTENT_CORR.on false, ORACLE_CORR.capture null, and clear the joint correction map before installing an arm.",
+    "component_tree": "Hash SHIP, CORR, TWALL, and all_attention immediately after ship construction and after the complete cube; require equality.",
+    "exact_patch_canary": "Before scoring, for each site 0--2 compare add_oracle_correction with an unrestricted correction against block.mlp(z) on a fixed small tensor; require max absolute float32 error <= 2e-5.",
+    "baseline_replay": "After both cubes, clear all corrections and rescore the heldout baseline. Require max absolute paired row-CE difference <= 1e-7 and mean absolute difference <= 1e-8.",
+    "failure_policy": "Preserve partial result and fail-closed manifest; report every signed arm and failed registered conjunct."
+  },
+  "interpretation_guardrails": [
+    "Passing establishes exact-restoration oracle headroom and state-dependent causal nonadditivity on one fixed deployed ship and two pinned first-shard FineWeb blocks.",
+    "This is not corpus-wide FineWeb generalization, a mathematical performance ceiling, clean-model recovery, an identified transported variable, a predictor, a compressed interface, a training license, an OOD result, or a simplicity certificate.",
+    "A compensating learned correction may outperform the original MLP; exact restoration is only the reference intervention tested here.",
+    "The full exact arm retains every attention and deep stand-in in the deployed ship.",
+    "Shapley closure is an algebraic identity and allocation convention, not independent validation."
+  ],
+  "authority": {
+    "row_authority": "pinned_local_ordered_manifest",
+    "authorized_for_this_scored_factorial": true,
+    "authorized_for_training": false,
+    "training_license_sites": []
+  },
+  "pinned_row_prefixes": {
+    "ship_fit_n480_skip80_prefix257_raw_sha256": "e7b646d5218d3dcc093cb6a37ef4adf17becb907ae87b1943025be9a0107fb7c",
+    "basis_n96_skip1200_prefix257_raw_sha256": "821ce3ce4ecaf6ea63319270d40c56107c7eaafde8636539216b66198fae1d3e",
+    "discovery_n192_skip7000_prefix257_raw_sha256": "4e69a0d692a20386b7d3d978f2d458c92315817df1ff5ee08d6447cd3999cb83",
+    "heldout_n192_skip11000_prefix257_raw_sha256": "83e1b7db4b9d92c243d68ab1f7349664d1425ee4a315700d177c8d714471733a",
+    "unique_document_counts": {"ship_fit": 209, "basis": 33, "discovery": 79, "heldout": 105}
+  },
+  "pinned_inputs_reference": "Use every input hash registered in authoritative v1 unchanged; the v2 manifest must repeat and verify them. Pin the v2 preregistration hash and post-preregistration runner/test hashes before launch.",
+  "artifact_policy": "Use a new authoritative-v2 result/manifest/lock namespace. Refuse overwrite of the frozen ship, final result, or final manifest. Snapshot and verify canonical FineWeb, curated factorial, PCA, and code-OOD artifacts before and after scoring. Atomic-write running artifacts and preserve failures."
+}
