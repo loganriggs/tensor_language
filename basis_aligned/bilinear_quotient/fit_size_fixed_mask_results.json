@@ -1,0 +1,59 @@
+{
+ "config": {
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "ridge": 0.001,
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "HELD FIXED at the n96_skip80 mask (5419 tokens) for every arm -- same positions substituted, left live, and scored",
+  "varies": "only the number of fit rows used to estimate the programs",
+  "fixes": "\u00a71675, where the mask grew 6009->16110 tokens alongside the fit set",
+  "hypothesis_under_test": "\u00a71673 -- the additive family is estimation-limited",
+  "s1675_n96_skip80": {
+   "linear": 0.5817,
+   "table_mlp0_2": 0.5695,
+   "additive": 0.5379
+  },
+  "s1675_growing_mask_size_effect": {
+   "additive": 0.0123,
+   "linear": -0.0329,
+   "table_mlp0_2": -0.0045
+  }
+ },
+ "tokens_covered": 5419,
+ "stake": 4.33011,
+ "fit_sets": {
+  "n96_skip80": {
+   "fit_rows": [
+    96,
+    257
+   ],
+   "linear": 0.58171,
+   "table_mlp0_2": 0.56946,
+   "additive": 0.5379
+  },
+  "n480_skip80": {
+   "fit_rows": [
+    480,
+    257
+   ],
+   "linear": 0.60814,
+   "table_mlp0_2": 0.57161,
+   "additive": 0.59084
+  }
+ },
+ "size_effect_fixed_mask": {
+  "linear": 0.02643,
+  "table_mlp0_2": 0.00215,
+  "additive": 0.05294
+ },
+ "control_vs_s1675": {
+  "linear": 1e-05,
+  "table_mlp0_2": 4e-05,
+  "additive": 0.0
+ },
+ "predictions": {
+  "pred_a_additive_estimation_limited_ge_3pts": true,
+  "pred_b_s1675_linear_drop_was_the_mask": true,
+  "pred_c_control_reproduces_s1675": true
+ },
+ "runtime_s": 322.1
+}
