@@ -1,0 +1,150 @@
+{
+ "config": {
+  "site": 14,
+  "rank": 2,
+  "n_rows": 480,
+  "classes": "S1647's twelve function words, never measured at this site",
+  "single_registered_hypothesis": "abs(lam1/lam2) predicts relative CE rise",
+  "currency": "relative CE rise = ce_rise / base_ce (\u00a71645)",
+  "same_classes_at_mlp11_rho": 0.6783
+ },
+ "per_class": {
+  "for": {
+   "lam1": 85.422,
+   "lam2": 37.113,
+   "ratio": 2.3017,
+   "base_ce": 2.286,
+   "ce_rise": 0.04593,
+   "rel_ce_rise": 0.02009,
+   "n_positions": 622
+  },
+  "on": {
+   "lam1": 115.535,
+   "lam2": -43.673,
+   "ratio": 2.6455,
+   "base_ce": 2.56517,
+   "ce_rise": 0.0495,
+   "rel_ce_rise": 0.0193,
+   "n_positions": 474
+  },
+  "that": {
+   "lam1": 31.843,
+   "lam2": -25.553,
+   "ratio": 1.2461,
+   "base_ce": 2.21425,
+   "ce_rise": 0.01068,
+   "rel_ce_rise": 0.00482,
+   "n_positions": 909
+  },
+  "as": {
+   "lam1": 65.973,
+   "lam2": -36.637,
+   "ratio": 1.8007,
+   "base_ce": 2.56801,
+   "ce_rise": 0.03391,
+   "rel_ce_rise": 0.0132,
+   "n_positions": 382
+  },
+  "was": {
+   "lam1": 53.384,
+   "lam2": -48.051,
+   "ratio": 1.111,
+   "base_ce": 1.99808,
+   "ce_rise": 0.00761,
+   "rel_ce_rise": 0.00381,
+   "n_positions": 428
+  },
+  "but": {
+   "lam1": 42.335,
+   "lam2": -23.914,
+   "ratio": 1.7703,
+   "base_ce": 2.42946,
+   "ce_rise": 0.00482,
+   "rel_ce_rise": 0.00198,
+   "n_positions": 206
+  },
+  "not": {
+   "lam1": 25.051,
+   "lam2": 24.001,
+   "ratio": 1.0438,
+   "base_ce": 2.521,
+   "ce_rise": 0.01946,
+   "rel_ce_rise": 0.00772,
+   "n_positions": 309
+  },
+  "this": {
+   "lam1": 24.116,
+   "lam2": 21.61,
+   "ratio": 1.1159,
+   "base_ce": 3.23571,
+   "ce_rise": 0.04328,
+   "rel_ce_rise": 0.01338,
+   "n_positions": 309
+  },
+  "which": {
+   "lam1": 72.365,
+   "lam2": -46.195,
+   "ratio": 1.5665,
+   "base_ce": 2.74426,
+   "ce_rise": 0.08607,
+   "rel_ce_rise": 0.03136,
+   "n_positions": 108
+  },
+  "or": {
+   "lam1": 22.026,
+   "lam2": 20.269,
+   "ratio": 1.0867,
+   "base_ce": 3.23686,
+   "ce_rise": 0.01093,
+   "rel_ce_rise": 0.00338,
+   "n_positions": 273
+  },
+  "had": {
+   "lam1": 38.974,
+   "lam2": 35.491,
+   "ratio": 1.0981,
+   "base_ce": 2.9908,
+   "ce_rise": 0.03175,
+   "rel_ce_rise": 0.01062,
+   "n_positions": 170
+  },
+  "they": {
+   "lam1": 32.628,
+   "lam2": -30.973,
+   "ratio": 1.0534,
+   "base_ce": 2.43015,
+   "ce_rise": -0.01085,
+   "rel_ce_rise": -0.00446,
+   "n_positions": 197
+  }
+ },
+ "heldout_rho": 0.5734,
+ "permutation_p_two_sided": 0.05546,
+ "n_permutations": 200000,
+ "n_positive_rise": 11,
+ "predictions": {
+  "pred_a_rho_ge_030_at_mlp14": true,
+  "pred_b_perm_p_lt_05": false,
+  "pred_c_10of12_positive_rise_mlp14": true
+ },
+ "runtime_s": 96.4,
+ "S1649_pooling_audit": {
+  "class_overlap_with_heldout1": "12 of 12 -- s1+s3 and s1+s2+s3 pools are INVALID (not independent)",
+  "class_overlap_with_heldout2": "0 -- s2+s3 is class-disjoint and legitimate",
+  "legitimate_pools": {
+   "s1+s2 (both mlp11)": {
+    "n": 24,
+    "rho": 0.4157,
+    "p": 0.0452
+   },
+   "s2+s3 (across sites)": {
+    "n": 24,
+    "rho": 0.5322,
+    "p": 0.00847
+   }
+  },
+  "strongest_legitimate_statement": "rho +.5322 at permutation p .0085 over 24 class-disjoint observations spanning mlp11 and mlp14, hypothesis pre-registered before every run.",
+  "site_transport_warning": "The ratio predicts the ORDERING within a site, not a class's causal cost ACROSS sites: ` they` has the largest relative rise at mlp11 (+.0299) and a negative one at mlp14 (-.0045). Any use must be site-local.",
+  "caution_1_status": "STILL UNDISCHARGED. Nothing promoted to the registry as certified."
+ }
+}

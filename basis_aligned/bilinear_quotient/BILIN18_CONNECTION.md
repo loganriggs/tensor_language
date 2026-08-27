@@ -40203,3 +40203,60 @@ and weaker claim on twice the data, which helps, but §1616's lesson was that a
 correlation of this magnitude at this scale can evaporate. Two pre-registered sets are
 better evidence than §1614 ever had; they are not yet a certified result, and nothing
 goes to the registry as one.
+
+## §1649 THE RATIO GENERALISES TO A SITE IT WAS NEVER TESTED AT (2-for-3): rho +.573 at mlp14, but p **.0555** — a miss by .0055, scored as a miss — and the class-disjoint cross-site pool gives rho **+.532 at p .0085**
+
+**Setup** (ratio_site_generality, 96 s, rung 3 — generality in the SITE dimension).
+Every measurement in this arc has been at mlp11. Rather than a third class set, this
+tests the same pre-registered hypothesis at **mlp14**, where the slice basis,
+eigenvalues, ablation target and CE effect are all recomputed from a different layer.
+mlp14 was chosen deliberately: §1635 found it the one site where the separation gap ran
+POSITIVE while its neighbours ran negative, and §1632 corroborated with a second class.
+A real property of the quadratic form should not care. Reuses §1647's twelve function
+words, never measured at this site.
+
+```
+  rho(|λ1/λ2|, relative CE rise) at mlp14 = +.5734    p = .05546    11/12 positive rise
+  same twelve classes at mlp11 (§1647)    = +.6783    p = .019      12/12 positive
+```
+
+- **pred_a PASSED** — rho **+.573**, well past ≥+.30. The relationship holds at a site
+  it was never fitted at.
+- **pred_b FAILED** — p **.05546** against a <.05 bar. **A miss by .0055 is a miss**
+  and is scored as one; the house rule does not bend for a near-boundary p any more
+  than for a near-boundary effect size.
+- **pred_c PASSED** — 11 of 12 positive CE rise at the new site.
+
+**WHICH POOLINGS ARE LEGITIMATE — checked, not assumed.** There are now three
+pre-registered out-of-sample tests, and the temptation is to pool all three for n=36.
+**That would be invalid**: §1649 reuses §1647's exact twelve classes at a different
+site (overlap 12 of 12), so those observations are not independent and pooling them
+double-counts. Verified rather than eyeballed:
+
+```
+  s1 §1647  mlp11, function words     rho +.6783  p .019
+  s2 §1648  mlp11, type-spanning      rho +.5105  p .094
+  s3 §1649  mlp14, function words     rho +.5734  p .055     <- SAME classes as s1
+
+  s1+s2  class-disjoint, both mlp11        n=24  rho +.4157  p .0452
+  s2+s3  class-disjoint, ACROSS SITES      n=24  rho +.5322  p .0085
+  s1+s3  INVALID -- 12/12 class overlap
+  s1+s2+s3  INVALID -- same reason
+```
+
+**The cross-site class-disjoint pool is the strongest legitimate statement in this
+arc: rho +.532 at p .0085 over twenty-four classes spanning two sites and both class
+groupings**, with the hypothesis registered before every run. It is stronger than the
+same-site pool (+.416, p .045), which is what one would expect if the effect is real
+and mlp11-specific noise was diluting it.
+
+**Class-level effects are strongly site-dependent, which is worth recording.** ` they`
+gives the LARGEST relative rise at mlp11 (+.0299) and a NEGATIVE one at mlp14
+(−.0045). So the ratio predicts the ORDERING within a site; it does not transport a
+class's causal cost between sites. Any use of it must be site-local.
+
+**CAUTION 1 IS STILL NOT DISCHARGED.** §1614's refuted claim was rho .6727 at p .0192
+on n=10. The strongest legitimate result here is rho .532 at p .0085 on n=24 across two
+sites, pre-registered each time — better on every axis than §1614 was, and still one
+model, one statistic, one ablation scheme. Nothing is promoted to the registry as
+certified.

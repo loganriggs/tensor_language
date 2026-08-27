@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SITE GENERALITY: mlp14, 12 classes never measured here. 480 canonical rows (receipt 815b21618c2e477e). Single registered hypothesis: |lam1/lam2|.
+  for    ratio  2.302 | n=  622 | CE 2.2860 -> 2.3319 | rel rise +0.02009
+  on     ratio  2.645 | n=  474 | CE 2.5652 -> 2.6147 | rel rise +0.01930
+  that   ratio  1.246 | n=  909 | CE 2.2142 -> 2.2249 | rel rise +0.00482
+  as     ratio  1.801 | n=  382 | CE 2.5680 -> 2.6019 | rel rise +0.01320
+  was    ratio  1.111 | n=  428 | CE 1.9981 -> 2.0057 | rel rise +0.00381
+  but    ratio  1.770 | n=  206 | CE 2.4295 -> 2.4343 | rel rise +0.00198
+  not    ratio  1.044 | n=  309 | CE 2.5210 -> 2.5405 | rel rise +0.00772
+  this   ratio  1.116 | n=  309 | CE 3.2357 -> 3.2790 | rel rise +0.01338
+  which  ratio  1.567 | n=  108 | CE 2.7443 -> 2.8303 | rel rise +0.03136
+  or     ratio  1.087 | n=  273 | CE 3.2369 -> 3.2478 | rel rise +0.00338
+  had    ratio  1.098 | n=  170 | CE 2.9908 -> 3.0225 | rel rise +0.01062
+  they   ratio  1.053 | n=  197 | CE 2.4302 -> 2.4193 | rel rise -0.00446
+
+  HELD-OUT rho(|lam1/lam2|, relative CE rise) = +0.5734
+  two-sided sampled permutation p (200000) = 0.05546
+  same twelve classes at mlp11 gave +0.6783 (§1647, p .019)
+  classes with positive CE rise: 11/12  (§1644 had 11/12)
+
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ratio_site_generality_results.json (96.4s)
