@@ -1,0 +1,161 @@
+{
+ "config": {
+  "site": 1,
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "substitution": "HYBRID -- table at covered positions, mlp live elsewhere",
+  "scoring": "covered positions only",
+  "head_freeze": "pre-hook on attn.c_proj, 128-dim slice (circuit_holdout pattern)",
+  "attribution_def": "(ceiling_frozen - ceiling_live) / (1 - ceiling_live)",
+  "s1662_ladder": {
+   "mlp0": 0.90265,
+   "mlp1": 0.9601,
+   "mlp2": 0.7698,
+   "mlp3": 0.6755
+  },
+  "limitation": "each freeze is a different model; refitted stakes differ and attributions are not constrained to sum to 1"
+ },
+ "live": {
+  "ceiling": 0.9601,
+  "stake": 7.00496,
+  "residue_frac": 0.0399,
+  "residue_nats": 0.27952
+ },
+ "modules": {
+  "attn0": {
+   "ceiling": 0.95942,
+   "stake": 7.81863,
+   "attribution": -0.017
+  },
+  "attn1": {
+   "ceiling": 0.96757,
+   "stake": 6.82618,
+   "attribution": 0.1873
+  },
+  "attn0+attn1": {
+   "ceiling": 1.0,
+   "stake": 6.06657,
+   "attribution": 1.0
+  }
+ },
+ "heads": {
+  "head0.0": {
+   "ceiling": 0.95997,
+   "stake": 7.07553,
+   "attribution": -0.0033
+  },
+  "head0.1": {
+   "ceiling": 0.96028,
+   "stake": 7.07531,
+   "attribution": 0.0045
+  },
+  "head0.2": {
+   "ceiling": 0.96006,
+   "stake": 7.02911,
+   "attribution": -0.0009
+  },
+  "head0.3": {
+   "ceiling": 0.96516,
+   "stake": 7.22323,
+   "attribution": 0.1268
+  },
+  "head0.4": {
+   "ceiling": 0.96017,
+   "stake": 7.04055,
+   "attribution": 0.0019
+  },
+  "head0.5": {
+   "ceiling": 0.96033,
+   "stake": 7.00418,
+   "attribution": 0.0059
+  },
+  "head0.6": {
+   "ceiling": 0.96106,
+   "stake": 6.9988,
+   "attribution": 0.024
+  },
+  "head0.7": {
+   "ceiling": 0.96024,
+   "stake": 7.25206,
+   "attribution": 0.0036
+  },
+  "head0.8": {
+   "ceiling": 0.9617,
+   "stake": 7.09883,
+   "attribution": 0.0403
+  },
+  "head1.0": {
+   "ceiling": 0.96058,
+   "stake": 7.02868,
+   "attribution": 0.0122
+  },
+  "head1.1": {
+   "ceiling": 0.96304,
+   "stake": 6.89007,
+   "attribution": 0.0738
+  },
+  "head1.2": {
+   "ceiling": 0.95992,
+   "stake": 7.05504,
+   "attribution": -0.0045
+  },
+  "head1.3": {
+   "ceiling": 0.96122,
+   "stake": 6.97415,
+   "attribution": 0.0281
+  },
+  "head1.4": {
+   "ceiling": 0.95873,
+   "stake": 6.96435,
+   "attribution": -0.0343
+  },
+  "head1.5": {
+   "ceiling": 0.9624,
+   "stake": 6.94279,
+   "attribution": 0.0578
+  },
+  "head1.6": {
+   "ceiling": 0.96025,
+   "stake": 7.01807,
+   "attribution": 0.0038
+  },
+  "head1.7": {
+   "ceiling": 0.96138,
+   "stake": 6.9517,
+   "attribution": 0.0322
+  },
+  "head1.8": {
+   "ceiling": 0.96053,
+   "stake": 7.08063,
+   "attribution": 0.0108
+  }
+ },
+ "head_ranking": [
+  "head0.3",
+  "head1.1",
+  "head1.5",
+  "head0.8",
+  "head1.7",
+  "head1.3",
+  "head0.6",
+  "head1.0",
+  "head1.8",
+  "head0.5",
+  "head0.1",
+  "head1.6",
+  "head0.7",
+  "head0.4",
+  "head0.2",
+  "head0.0",
+  "head1.2",
+  "head1.4"
+ ],
+ "head_attribution_sum": 0.3827,
+ "max_single_head_ceiling_shift": 0.00506,
+ "predictions": {
+  "pred_a_instrument_check_ge_097": true,
+  "pred_b_residue_concentrated_best_head_ge_33": false,
+  "pred_c_head_grain_above_floor": true
+ },
+ "runtime_s": 98.6
+}
