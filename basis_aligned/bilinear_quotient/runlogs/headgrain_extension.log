@@ -1,0 +1,35 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  colon@mlp11          L12 cert=12.6   lambda=['12.6', '12.6', '12.6'] HIT  random=['12.3', '12.3', '12.6']    
+  colon@mlp17          L12 cert=12.6   lambda=['12.6', '12.6', '12.6'] HIT  random=['12.3', '12.3', '12.6']    
+  months@mlp11         L14 cert=14.7   lambda=['14.3', '14.3', '14.3']      random=['14.3', '14.3', '14.3']    
+  months@mlp17         L14 cert=14.7   lambda=['14.3', '14.3', '14.3']      random=['14.3', '14.3', '14.3']    
+  close_paren@mlp11    L13 cert=13.8   lambda=['13.8', '13.8', '13.8'] HIT  random=['13.8', '13.8', '13.8'] hit
+  close_paren@mlp17    L13 cert=13.8   lambda=['13.8', '13.8', '13.8'] HIT  random=['13.8', '13.8', '13.8'] hit
+  digits@mlp11         L7  cert=7.3    lambda=['7.8', '7.8', '7.8']      random=['7.8', '7.8', '7.8']    
+  digits@mlp11         L6  cert=6.5    lambda=['6.7', '6.5', '6.1']      random=['6.3', '6.3', '6.3']    
+  digits@mlp11         L12 cert=12.6   lambda=['12.7', '12.7', '12.7']      random=['12.7', '12.2', '12.6']    
+  digits@mlp11         L11 cert=11.5   lambda=['11.6', '11.6', '11.6']      random=['11.6', '11.6', '11.6']    
+  digits@mlp17         L7  cert=7.3    lambda=['7.3', '7.8', '7.8']      random=['7.8', '7.8', '7.8']    
+  digits@mlp17         L6  cert=6.5    lambda=['6.7', '6.7', '6.7']      random=['6.3', '6.3', '6.3']    
+  digits@mlp17         L12 cert=12.6   lambda=['12.6', '12.2', '12.7']      random=['12.7', '12.2', '12.6']    
+  digits@mlp17         L11 cert=11.5   lambda=['11.6', '11.6', '11.6']      random=['11.6', '11.6', '11.6']    
+  comma@mlp11          L6  cert=6.5    lambda=['6.5', '6.5', '6.5'] HIT  random=['6.1', '6.1', '6.1']    
+  comma@mlp11          L15 cert=15.2   lambda=['15.1', '15.1', '15.1']      random=['15.1', '15.1', '15.1']    
+  comma@mlp11          L9  cert=9.5    lambda=['9.7', '9.7', '9.7']      random=['9.7', '9.7', '9.7']    
+  comma@mlp11          L11 cert=11.7   lambda=['11.7', '11.7', '11.7'] HIT  random=['11.6', '11.6', '11.6']    
+  comma@mlp17          L6  cert=6.5    lambda=['6.1', '6.1', '6.1']      random=['6.1', '6.1', '6.1']    
+  comma@mlp17          L15 cert=15.2   lambda=['15.2', '15.2', '15.2'] HIT  random=['15.1', '15.1', '15.1']    
+  comma@mlp17          L9  cert=9.5    lambda=['9.5', '9.5', '9.5'] HIT  random=['9.7', '9.7', '9.7']    
+  comma@mlp17          L11 cert=11.7   lambda=['11.7', '11.7', '11.7'] HIT  random=['11.6', '11.6', '11.6']    
+  and@mlp11            L10 cert=10.5   lambda=['10.5', '10.5', '10.5'] HIT  random=['10.5', '10.5', '10.5'] hit
+  and@mlp11            L16 cert=16.8   lambda=['16.3', '16.3', '16.3']      random=['16.3', '16.3', '16.3']    
+  and@mlp11            L7  cert=7.3    lambda=['7.5', '7.5', '7.5']      random=['7.2', '7.8', '7.8']    
+  and@mlp11            L9  cert=9.5    lambda=['9.7', '9.7', '9.7']      random=['9.7', '9.7', '9.7']    
+  and@mlp17            L10 cert=10.5   lambda=['10.5', '10.5', '10.5'] HIT  random=['10.5', '10.5', '10.5'] hit
+  and@mlp17            L16 cert=16.8   lambda=['16.3', '16.8', '16.8'] HIT  random=['16.3', '16.3', '16.3']    
+  and@mlp17            L7  cert=7.3    lambda=['7.2', '7.8', '7.8']      random=['7.2', '7.8', '7.8']    
+  and@mlp17            L9  cert=9.5    lambda=['9.7', '9.7', '9.7']      random=['9.7', '9.7', '9.7']    
+
+  cells=30  lambda hits 12 (40.0%)  random hits 4 (13.3%)
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/headgrain_extension_results.json (674.1s)

@@ -38205,3 +38205,58 @@ that MLP2 changes sign only after upstream repair and that interactions dominate
 The next valid test is therefore simultaneous live PCA0/PCA1 composition with the
 conditional exact MLP2 arm; independent predictor fitting would repeat the same
 upstream-state mismatch that made MLP2 look harmful in isolation.
+
+## §1617 THE HEAD-GRAIN LAW GENERALISES BUT MUCH MORE WEAKLY THAN ITS TWO FOUNDING CELLS (2-for-3): 40% match over 30 cells vs 13.3% random — and a HEAD-GRAIN FLOOR exists, so the slice's genuine discrimination is 26.7%
+
+**Setup** (headgrain_extension, 674 s). §1608 certified the law on TWO cells at
+3.1x-18.8x separation. This tests generality: **6 new classes** with certified
+circuit heads (colon, months, close_paren, digits, comma, and), each at **both**
+mlp11 and mlp17 since the slice site is not established for them, |λ|-r8 vs a
+matched-rank random arm on identical rows. A cell is (class, site,
+certified-layer); a HIT is the arm's top head matching the certified head in a
+majority of 3 chunks. Local curated_rows.pt 3 x 333, seed 1729.
+
+```
+                      cells   lambda hits   random hits
+overall                 30     12 (40.0%)    4 (13.3%)
+  by site  mlp11        15      5 (33.3%)
+           mlp17        15      7 (46.7%)
+  by class colon         2      2/2      months       2   0/2
+           close_paren   2      2/2      digits       8   0/8
+           comma         8      5/8      and          8   3/8
+```
+
+**Scored as written:**
+- **pred_a FAILED** — 40.0% against a 50% bar. The law does NOT reach the rate
+  §1608's two cells implied.
+- **pred_b PASSED** — random 13.3%, inside the 20% bar.
+- **pred_c PASSED** — 40.0% is 3.0x the random rate.
+
+**A HEAD-GRAIN FLOOR EXISTS, and it must be subtracted.** In **4 of the 12**
+lambda hits the RANDOM arm finds the same certified head — close_paren L13 (both
+sites) and `and` L10 (both sites). At those layers the certified head dominates
+its layer under ANY basis, so the slice deserves no credit. **The |λ| slice
+genuinely discriminates in 8 of 30 cells = 26.7%**, not 40%. This is the §1606
+floor appearing at HEAD grain, where §1608 (correctly, for its two cells) found
+none — so the floor is not confined to component attribution after all, it is just
+rarer at head grain.
+
+**The law is class-dependent, sharply.** colon 2/2 and close_paren 2/2 versus
+**digits 0/8** and months 0/2. digits is the instructive failure: the |λ| top head
+is a consistent NEIGHBOUR of the certified head at every layer — 7.8 vs 7.3, 6.7
+vs 6.5, 12.7 vs 12.6, 11.6 vs 11.5 — so the slice resolves to a nearby but
+different head, not to noise. comma and `and` show exact hits at other layers, so
+this is not an indexing artifact.
+
+**Site matters and points where expected:** mlp17 46.7% vs mlp11 33.3%, consistent
+with mlp17 as the late readout site. Testing both rather than guessing one was the
+right call; a single-site design would have understated the law by a third.
+
+**Revised standing of the law.** §1608 stands as written for its two cells — those
+numbers were measured and controlled. But "every attention writer of a certified
+eigen slice resolves at head grain to a certified circuit head of that class"
+(§1597/§1598) is **too strong as a general claim**. Supported form: *at some
+classes and sites the certified eigen slice resolves at head grain to the
+certified head, at ~3x the rate of a matched-rank random basis and ~27% in
+absolute terms after floor correction; at others (digits, months) it resolves to a
+neighbouring head instead.* The registry entry must carry that, not the universal.
