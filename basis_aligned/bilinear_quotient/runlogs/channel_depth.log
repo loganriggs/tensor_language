@@ -1,0 +1,19 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+slice eigs [144.8641, -73.8464]
+[fit] class_n=44 recon_rel_err=6.28e-08
+[fit] peak attn16 (layer 16) = 5228.1 -> final 3924.0 | drawdown 0.249
+[fit] largest single drop: mlp17 (-1150.8)
+[fit] cum curve @ landmarks {"x0": 87.7, "mlp5": 302.1, "mlp9": 1761.9, "mlp11": 3982.9, "mlp13": 4829.0, "mlp15": 5191.8, "mlp16": 4936.1, "mlp17": 3924.0}
+'[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1010)' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
+Retrying in 1s [Retry 1/5].
+[heldout] class_n=31 recon_rel_err=0.00e+00
+[heldout] peak attn16 (layer 16) = 5188.9 -> final 2756.9 | drawdown 0.469
+[heldout] largest single drop: mlp17 (-1997.7)
+[heldout] cum curve @ landmarks {"x0": -0.0, "mlp5": 233.6, "mlp9": 1906.0, "mlp11": 4496.0, "mlp13": 4894.4, "mlp15": 5162.3, "mlp16": 4689.1, "mlp17": 2756.9}
+pred_a False | pred_b True | pred_c False (rel gap 0.879)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/channel_depth_results.json (491.1s)
+Fatal Python error: PyGILState_Release: thread state 0x7fe5dc015e80 must be current when releasing
+Python runtime state: finalizing (tstate=0x000055c43ae7f5d0)
+
+Thread 0x00007feba1486600 (most recent call first):
+  <no Python frame>

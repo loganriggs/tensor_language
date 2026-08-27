@@ -37206,3 +37206,63 @@ genuinely free globally; the number is a divide-by-noise artifact.
 or an artifact of the linear coordinate choice; the natural next test is a
 depth-resolved partial-sum curve of the channel coordinate, which would show
 whether the cancellation accumulates monotonically or reverses late.
+
+## §1602 CHANNEL DEPTH (1-for-3): the '?' channel accumulates monotonically to LAYER 16 — five layers later than registered — and suppression is MLP-only and late; the drawdown magnitude does NOT replicate
+
+**Setup** (channel_depth, 491 s, 96 fit rows skip=80, 96 held-out rows
+skip=15000, question class). Per-component signed class contribution summed in
+STACK order gives the span(v1,v2) coordinate as a function of depth. No new
+forward machinery — same decomposition as §1601, reordered. Reconstruction rel
+err 6.3e-08 (fit) / 0.0 (held-out), so the curve is exact.
+
+**The curve (fit rows), layers 12-17:**
+
+```
+attn12  +385.8 -> 4368.7      attn15  +113.2 -> 5091.0
+mlp12   +168.7 -> 4537.4      mlp15   +100.8 -> 5191.8
+attn13  +107.3 -> 4644.7      attn16   +36.3 -> 5228.1  <- PEAK
+mlp13   +184.3 -> 4829.0      mlp16   -292.0 -> 4936.1
+attn14   +25.3 -> 4854.3      attn17  +138.7 -> 5074.9  <- attn still ADDS
+mlp14  +123.5 -> 4977.8       mlp17  -1150.8 -> 3924.0
+```
+
+Landmarks: x0 87.7 -> mlp5 302.1 -> mlp9 1761.9 -> mlp11 3982.9 -> mlp13 4829.0
+-> peak attn16 5228.1 -> final 3924.0.
+
+**Scored as written:**
+- **pred_a FAILED.** The curve does peak and then fall on both row sets, but the
+  peak is at **attn16 (layer 16)**, not "at or before layer 13" as registered.
+  The registered clause is what was scored; it missed. This CORRECTS the §1601
+  framing: mlp11 is the biggest single positive step (+1028.5, cum 3982.9) but it
+  is NOT where accumulation ends — the channel keeps gaining for five more
+  layers, adding a further ~1245 (31% of the peak) after mlp11.
+- **pred_b PASSED** — mlp17 is the largest single drop on both row sets
+  (-1150.8 fit, -1997.7 held-out).
+- **pred_c FAILED, by 0.000558.** Fit drawdown (peak-final)/peak = **0.249442**
+  against a registered bar of >= 0.25. A miss by 0.0006 is a miss (house rule,
+  §391/§405/§406). It ALSO fails the replication leg independently and far more
+  seriously: held-out drawdown 0.4687 vs fit 0.2494, a relative gap of **0.879**
+  against a 0.20 bar.
+
+**What replicates and what does not.** The SHAPE is robust across both row sets:
+monotone accumulation with no front or middle reversal, a peak at attn16,
+suppression confined to MLPs (mlp16 and mlp17) while attn17 still writes
+POSITIVELY (+138.7), and mlp17 as the dominant suppressive step. The MAGNITUDE is
+not: the drawdown nearly doubles between samples (0.249 -> 0.469) at class_n = 44
+and 31. Per §511 this is exactly the regime where single-sample class claims carry
+unmeasured spread; the drawdown needs >= 3 disjoint samples with the spread quoted
+before any number is quotable. Recorded here as **shape certified, magnitude
+open**.
+
+**Reading.** The '?' channel is not a mid-stack object that late layers merely
+read. It is built continuously across the whole stack, peaks just before the end,
+and is then cut back by ~25-47% by two MLPs. The §1600 completeness failure and
+the §1601 top-4 shortfall (.414) both follow: no small component set reproduces a
+quantity assembled by ~34 positive steps and removed by 2 large negative ones.
+
+**Ops note (cost one false failure signal).** The run exited **134** (SIGABRT)
+*after* writing its results: `PyGILState_Release: thread state must be current`
+during interpreter finalization, from the HF datasets streaming thread that had
+retried an SSL EOF mid-run. `runlogs/_completed.txt` records `exit=134`, which
+reads as a failed experiment. It was not — all output was written and is exact.
+See LESSONS ops rules.
