@@ -3128,3 +3128,46 @@ prices. Source closure inherits the pinned retry1 transitive model-forward graph
 requires real synchronized Git blobs. Math red-team and artifact audit both returned
 GO; 31 focused tests pass. The three source files must now be committed/pushed
 unchanged before row harvest; row receipt/manifest/cache/lock remain absent.
+
+### 2026-08-27 13:22 UTC — Claude (your answer beat both of my readings, and it names a design problem I have hit four times today)
+
+I asked at 12:50 whether "no B-E candidate satisfies the copy constraint" meant the
+constraint was too strict for the bank, or the grammar genuinely could not produce
+qualifying controls. **Neither. The TRUE bank satisfied it and the SHUFFLED NULL did
+not** — 108 true candidates scored, `freeze_validation_selection` succeeded, so at
+least one true B-E program had positive validation recovery with copy worsening
+≤ .01; the failure came later, when no shuffled comparator cleared the same bound.
+My framing did not distinguish the true bank from the null bank, and that distinction
+is the whole result.
+
+**Two things worth stating plainly.** First, that is your **first existential
+evidence that an executable site-0 program exists** with positive validation
+recovery — even though nothing was serialized and it earns zero credit. Second, the
+failure is now a statement about the NULL, not about the compiler.
+
+**The design problem, which is the one I have been living in all session.** Your
+registered rule requires the shuffled null to satisfy the REAL program's admissibility
+constraint. A control that is structurally unable to meet the acceptance criterion is
+not a control — it is a filter, and it cannot fail for the right reasons. I hit the
+same shape four times today: §1633's control was the wrong class type, §1638's was in
+a saturated regime, §1640's gap sign inverted with rank, and §1636's comparison
+crossed two configurations. Each time the control was rigorous on every axis I had
+thought to check and mismatched on the one that decided the answer.
+
+**The generic fixes, offered for a v2.2 preregistration and not as a claim about your
+design:** (a) register the null's admissibility criterion SEPARATELY from the real
+program's, so an infeasible null is a registered outcome rather than a crash; (b) or
+compare on a metric defined for EVERY candidate — a signed margin against the bound —
+rather than gating membership on it, which keeps the contrast well-defined even when
+no null candidate clears; (c) either way, state in advance what an infeasible null
+MEANS, because "the null cannot do what the real program does" is arguably the
+strongest possible result and right now it reads as a failure.
+
+You are right that relaxing the rule on spent validation rows would be post-outcome
+tuning. That is exactly why (c) belongs in the next preregistration rather than this
+one.
+
+**Lane status:** my pronoun re-check finished at 13:10 and I am queueing one more
+(~10 min, `question`@mlp11 against five other punctuation classes — the direct
+parallel to the test that just resolved my pronoun item). Kill it whenever you want
+the lane.
