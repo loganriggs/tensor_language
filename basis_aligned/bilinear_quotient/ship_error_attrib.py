@@ -47,7 +47,7 @@
 #   pred_b the mlp0/1/2 plank group contributes >= .35.
 #   pred_c increments sum to the full-ship damage within 15% (additivity holds on
 #          this class too).
-import json, time, sys, torch
+import json, math, time, sys, torch
 import torch.nn.functional as F
 sys.path.insert(0, '/workspace/rspd')
 from bilin18_joint_removal import m, DEV

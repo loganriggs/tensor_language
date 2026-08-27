@@ -54,9 +54,13 @@ On basis rows only, construct:
    residual layers 8, 10, and 12;
 3. the site's top-64 through-origin code residual PCs;
 4. a top-256 code residual support for matched nulls.
+5. a basis-only per-token mean of the missing residual at the registered
+   `64::3` positions, with the global residual mean as the unseen-token fallback.
 
 Evaluate singleton injections of full `e_l`, its prose-content projection, its
-code-content projection, and its local residual-PCA projection. For each content
+code-content projection, its local residual-PCA projection, and the frozen lexical
+mean. The lexical arm distinguishes token-table failure from other off-content
+residual rather than allowing both to collapse into “non-content.” For each content
 basis, reuse the same 20 seeded Haar 64D directions inside the site's top-256
 support and scale their basis-set correction RMS separately to that content arm.
 There is no learned decoder or CE optimization. With exactly 20 nulls, a content
@@ -88,16 +92,21 @@ Classify the interface without moving thresholds:
 - **shared prose coordinate:** prose passes all gates and is no more than `0.02`
   nats worse than code-content;
 - **domain-typed coordinate:** code-content passes and beats prose by at least
-  `0.02` nats;
+  `0.02` nats, using the lower endpoint of the paired file-bootstrap interval;
+- **non-contextual lexical residual:** neither content arm passes, but the frozen
+  per-token residual mean passes the same positive/full-fraction gate as local PCA;
 - **non-content residual:** the full or local-PCA oracle passes but neither content
-  arm does;
+  nor lexical arm does;
 - **compensatory-only site:** even the full original residual fails.
 
 The labels above leave one threshold edge case implicit: a content arm can pass
 its own causal/null gates while the prose-versus-code difference is inside the
 `0.02` boundary but the other arm narrowly fails. Before execution, freeze that
-case as **inconclusive content coordinate** and license no learned predictor. This
-is fail-closed rather than silently rounding the result into shared or typed.
+case as **inconclusive content coordinate** and license no learned predictor. The
+shared label additionally requires the upper endpoint of code-minus-prose gain to
+be at most `0.02`; the typed label requires its lower endpoint to be at least
+`0.02`. This is fail-closed rather than silently rounding the result into shared
+or typed.
 
 No learned correction runs until this classification is stable on held-out code.
 Any later predictor must additionally transfer across an alternate ship background

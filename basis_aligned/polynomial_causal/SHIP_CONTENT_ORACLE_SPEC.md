@@ -32,6 +32,11 @@ with every other replacement and the incumbent MLP2 glue active. Inject one of:
    that site's top-256 residual support and is scaled to the content arm's fit-set
    correction RMS.
 
+With exactly 20 nulls, the authoritative v2 gate uses the exact one-sided Monte
+Carlo rule: content must beat all 20, giving
+`p=(1 + #null >= content)/21 = 1/21`. The earlier interpolated 95th-percentile
+rule is retained only in the preliminary result and cannot license OOD work.
+
 There is no optimizer and no learned decoder. Thus a benefit cannot arise from a
 new patch learning a ship-specific compensation. All arms are singleton slot
 interventions.
@@ -52,8 +57,7 @@ A site licenses learned content prediction only if:
 
 1. the full-oracle held-out gain has bootstrap lower bound above zero;
 2. the content projection improves global CE on both splits; and
-3. its held-out gain exceeds the 95th percentile of its 20 covariance/energy-
-   matched null gains.
+3. its held-out gain beats all 20 covariance/energy-matched null gains.
 
 Report the content fraction of full-oracle gain, correction RMS, all cell gains,
 and the local-PCA result without clipping negative values. A full oracle that does
