@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_not_run",
+  "registered_at_utc": "2026-08-27T08:10:00Z",
+  "source_commit_before_implementation": "c304fe36fc9cb3f5767f224e6297e21787cb1710",
+  "experiment": "curated_v2_joint_early_mlp_pca_composition_v1",
+  "motivation": "Rank-64 local-PCA residual interfaces at MLP0 and MLP1 beat all twenty same-identity Haar nulls under both suffix-KL and raw-RMS strength matching, but the exact 2^3 cube showed that early-block effects are dominated by state-dependent interactions and that MLP2 changes sign after upstream restoration. Singleton interface validity therefore does not establish joint composability.",
+  "scope": "Authority-none same-realization composition test on the frozen curated-v2 ship and exact document-disjoint discovery/heldout rows. It reuses the serialized rank-64 PCA bases without refitting and mints no semantic, simplicity, predictor, training, code-OOD, fresh-corpus, or generalization license.",
+  "pinned_inputs": {
+    "saved_ship_sha256": "85b848cc5d355bd99a29d43d7168f95113a11fb4c84a42fa9efe3393225dd530",
+    "saved_oracle_bases_sha256": "aa086ed4a14ea0474882a5443eb0e9add21734649e705398eebf3fce7a09b801",
+    "exact_joint_v2_result_sha256": "2092cf602ebfb5bbf4459b7a42196e689cc6e5d744de928f9dfe1be9fdd26e55",
+    "dual_strength_control_v1_result_sha256": "46c7c2556838b79ccbdac892179b4663e8a74b754b16b622b53d6b9b1204826a"
+  },
+  "fixed_design": {
+    "splits": [
+      "discovery",
+      "heldout"
+    ],
+    "reference_cube": "Complete 2^3 live exact-restoration cube over MLP0, MLP1, and MLP2, rescored in this execution.",
+    "projected_cube": "Complete 2^3 live cube in which MLP0 and MLP1 use their frozen rank-64 local-PCA projections at absolute scale 1 and MLP2 uses unrestricted exact live restoration.",
+    "sequential_semantics": "Every selected correction is computed at that arm's current live state in model order: MLP0, then MLP1 after any MLP0 correction, then MLP2 after any upstream corrections.",
+    "shared_arms": "Baseline and MLP2-only are mathematically identical across cubes and may be scored once, but their paired row CE must populate both complete analyzers.",
+    "evaluation": "No fitting or scale calibration. Score paired per-row CE on all 192 discovery and 192 heldout rows; require exact saved component-tree and row identities and reproduce the pinned exact-v2 cube rowwise before accepting projected results.",
+    "analysis": "Apply the existing complete-cube Mobius/Shapley analyzer separately to exact and projected cubes. Positive gain means lower CE than the deployed ship.",
+    "same_currency_ratios": {
+      "projected_upstream_fraction": "gain(PCA0+PCA1) / gain(exact0+exact1) on the same split",
+      "projected_joint_fraction": "gain(PCA0+PCA1+exact2) / gain(exact0+exact1+exact2) on the same split",
+      "mlp2_conditional_after_projected_upstream": "gain(PCA0+PCA1+exact2) - gain(PCA0+PCA1)"
+    },
+    "bootstrap": "Paired 2000-draw row bootstrap for projected upstream and projected joint heldout gains; freeze seeds in implementation before execution.",
+    "composition_gate": "Pass only if projected upstream and projected joint gains are positive on discovery and heldout; both heldout bootstrap 95% lower bounds exceed zero; projected upstream fraction is at least 0.40 on both splits; projected joint fraction is at least 0.40 on both splits; and the exact-MLP2 conditional marginal after projected upstream restoration is positive on both splits.",
+    "denominator_rule": "Only exact arms rescored on the same realization, rows, mask, and execution may be ratio denominators. Never import the legacy 0.728-nat Shapley number or the whole-ship 0.8976-nat residual as an MLP0-2 denominator."
+  },
+  "registered_predictions": {
+    "pred_a_projected_upstream_retains_at_least_40pct_both_splits": true,
+    "pred_b_exact_mlp2_conditional_after_projected_upstream_positive_both_splits": true,
+    "pred_c_projected_joint_retains_at_least_40pct_both_splits": true,
+    "pred_d_complete_composition_gate_passes": true
+  },
+  "interpretation": {
+    "pass": "Licenses the frozen PCA0/PCA1 subspaces plus exact MLP2 as a coupled oracle interface for separately priced sequential coefficient prediction. It does not license independent site predictors, an MLP2 subspace, a learned program, or any OOD/training claim.",
+    "fail": "Prunes simultaneous use of the current singleton PCA interfaces at the registered scale and state semantics. Do not fit a coupled predictor through them without redesigning the interface.",
+    "partial": "Report every signed interaction and failed conjunct. In particular, a positive projected MLP0+1 gain with a nonpositive conditional MLP2 marginal means the upstream subspaces do not restore the state required by MLP2."
+  },
+  "failure_policy": "Fail closed and preserve partial artifacts in a new isolated v1 result/manifest namespace. Never overwrite the completed exact cube, PCA control, frozen realizations, or canonical FineWeb paths."
+}
