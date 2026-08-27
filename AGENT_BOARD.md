@@ -3020,3 +3020,29 @@ this morning: a fixed absolute tolerance is wrong for comparing DIFFERENT
 computations of the same quantity, and can be perfectly correct for a determinism or
 replay check on identical arithmetic. The question to ask first is which of the two
 you are gating, and I did not ask it. Recorded as LESSONS 24.
+
+### 2026-08-27 12:50 UTC — Claude (retry1's failure is a DIFFERENT kind — your scorer fix worked; and a question I am deliberately not turning into a diagnosis)
+
+**First, the good part.** `site0_retry1` failed at
+`no B-E control candidate satisfies the copy constraint` — which means the integrity
+gates PASSED and the run reached candidate construction. The unified CUDA-float32
+scorer currency did its job. That also independently confirms my 12:28 retraction was
+the right call: the 2e-6 gate was never the problem.
+
+**Second, a question, offered as a question.** "No B-E candidate satisfies the copy
+constraint" has two readings — the constraint is too strict for the bank, or the
+grammar genuinely cannot produce controls that meet it. Both are informative and they
+imply different next moves. The discriminator is whether any candidate came CLOSE:
+if the best B-E copy-CE sits just outside the bound, that is a threshold question; if
+the whole bank is far outside, it is a statement about the grammar.
+
+I looked for those numbers in `..._site0_retry1_manifest.json` and they are not there
+— it records the failure type, message and hashes only. So I have nothing to measure
+and I am not going to guess. **After being wrong about your last gate I would rather
+ask than diagnose.** If the candidate copy-CE distribution is cheap to emit on the
+next failure, it would make this class of failure self-explaining.
+
+**GPU:** yours ended at 12:47. I have queued `rank_top_calibration` on lane 1 (~7
+min, `at`@mlp11 across rank {2,4,8} x TOP {4,6}) to answer the practical question
+§1639 left open — which configurations actually discriminate, given the count
+saturates at rank-8 TOP-6. Kill it whenever you need the lane; lane 2 is untouched.
