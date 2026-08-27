@@ -243,6 +243,31 @@ def test_local_pca_strength_controls_license_only_an_oracle_subspace():
     assert "oracle-selected" in oracle["caveat"]
 
 
+def test_authoritative_mixed_pca_composes_but_remains_an_oracle_subspace():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    oracle = sheet["ledgers"]["early_mlp_mixed_pca_oracle_authoritative"]
+    assert oracle["authority"] == "canonical_fineweb"
+    assert oracle["authorized_for_scored_experiments"] is True
+    assert oracle["payload_self_authorized"] is False
+    assert oracle["authorized_for_training"] is False
+    assert oracle["training_license_sites"] == []
+    assert oracle["projection_rank_per_site"] == 64
+    assert all(oracle["registered_predictions"].values())
+    assert len(oracle["registered_decisions"]["no_free_rider"]) == 12
+    assert len(oracle["registered_decisions"]["same_background_40pct_margin"]) == 12
+    assert all(oracle["registered_decisions"]["no_free_rider"].values())
+    assert all(oracle["registered_decisions"]["same_background_40pct_margin"].values())
+    assert oracle["heldout_projected_upstream_fraction_of_exact"] > 0.56
+    assert oracle["heldout_projected_upstream_fraction_of_exact_with_mlp2_fixed"] > 0.63
+    assert oracle["heldout_full_projected_package_fraction_of_exact_joint"] < 0.49
+    assert oracle["state_integrity"]["component_tree_unchanged"] is True
+    assert max(oracle["state_integrity"]["exact_v4_row_reproduction"]["heldout"].values()) == 0.0
+    assert oracle["state_integrity"]["heldout_baseline_replay"][
+        "max_abs_row_ce_difference"
+    ] == 0.0
+    assert "still calls the missing original MLP" in oracle["caveat"]
+
+
 def test_writer_null_predictors_are_withdrawn_after_disjoint_replication():
     sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
     writer = sheet["ledgers"]["tensor_writer_specificity"]

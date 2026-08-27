@@ -53,6 +53,8 @@ DEFAULT_SOURCES = {
     "joint_early_mlp_oracle_authoritative_v4": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_results.json",
     "joint_early_mlp_oracle_authority_v4": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_authority.json",
     "local_pca_strength_control_v1": TENSOR_ROOT / "basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_results.json",
+    "joint_early_mlp_pca_composition_authoritative_v3": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_results.json",
+    "joint_early_mlp_pca_composition_authority_v3": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_authority.json",
 }
 
 
@@ -164,6 +166,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     joint_early_authoritative = data["joint_early_mlp_oracle_authoritative_v4"]
     joint_early_authority = data["joint_early_mlp_oracle_authority_v4"]
     local_pca_strength = data["local_pca_strength_control_v1"]
+    joint_pca = data["joint_early_mlp_pca_composition_authoritative_v3"]
+    joint_pca_authority = data["joint_early_mlp_pca_composition_authority_v3"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
     factorial_cells = factorial_primary["cells"]
@@ -182,6 +186,13 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     assert close(content["recovery_vs_1070_denominator"], 1.0 - (content["ce_standin_scaffold"] - content["ce_full"]) / (composed["ce_meanablate_all"] - composed["ce_full"])), "content passthrough denominator changed"
     assert close(sum(ship_cells["cell_shares"].values()), 1.0, atol=2e-3), "ship error cells do not close"
     assert close(sum(ship_groups["shares"].values()), 1.0, atol=2e-3), "ship group attribution does not close"
+    assert joint_pca_authority["authorized_for_scored_experiments"] is True
+    assert joint_pca_authority["result_sha256"] == digest(
+        sources["joint_early_mlp_pca_composition_authoritative_v3"]
+    ), "mixed-PCA authority no longer binds its result"
+    assert joint_pca_authority["ship_realization_sha256"] == joint_early_authority[
+        "ship_realization_sha256"
+    ], "mixed-PCA and exact cubes use different ship realizations"
 
     ledgers = {
         "representation": {
@@ -499,7 +510,51 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "currency": "paired discovery/heldout CE gain with S=min(split gains) and exact 20-null tests under independently suffix-KL- and basis-RMS-matched intervention strength",
             "scope": "rank-64 projections of the exact live missing residual at MLP0/1 on one frozen document-disjoint curated-v2 realization; PCA fit only on the basis split and strength fit only on the 40-row spare split",
             "claim": "A low-rank causal residual bottleneck survives strength controls at both early sites. MLP0 PCA restores 0.0925 heldout nats (79.9% of its full oracle) and MLP1 restores 0.0789 nats (51.7%); each candidate beats all twenty same-identity Haar nulls under both suffix-KL and raw-RMS matching (four exact p=1/21 tests).",
-            "caveat": "This authority-none result licenses only an oracle-selected residual subspace for a separately priced coefficient predictor. The PCA coefficients still consume the exact missing residual, simultaneous MLP0/1 composition is untested, MLP2 has no admitted subspace, and no semantic, simplicity, OOD, predictor, or training license is created.",
+            "caveat": "This authority-none result licenses only an oracle-selected residual subspace for a separately priced coefficient predictor. It uses a different curated realization from the later authoritative composition result; its PCA coefficients still consume the exact missing residual, MLP2 has no admitted subspace, and no semantic, simplicity, OOD, predictor, or training license is created.",
+        },
+        "early_mlp_mixed_pca_oracle_authoritative": {
+            "authority": joint_pca_authority["authority"],
+            "authorized_for_scored_experiments": joint_pca_authority["authorized_for_scored_experiments"],
+            "payload_self_authorized": joint_pca["authorized_for_scored_experiments"],
+            "authorized_for_training": joint_pca_authority["authorized_for_training"],
+            "training_license_sites": joint_pca_authority["training_license_sites"],
+            "ship_realization_sha256": joint_pca["ship_realization_sha256"],
+            "projection_rank_per_site": joint_pca["config"]["projection_rank"],
+            "basis_fit_summary": joint_pca["basis_fit_summary"],
+            "discovery": joint_pca["split_analyses"]["discovery"],
+            "heldout": joint_pca["split_analyses"]["heldout"],
+            "registered_decisions": joint_pca["registered_decisions"],
+            "registered_predictions": joint_pca["registered_predictions"],
+            "heldout_projected_upstream_fraction_of_exact": (
+                joint_pca["split_analyses"]["heldout"]["arm_gain"]["PPN"]["point_estimate"]
+                / joint_pca["split_analyses"]["heldout"]["arm_gain"]["EEN"]["point_estimate"]
+            ),
+            "heldout_projected_upstream_fraction_of_exact_with_mlp2_fixed": (
+                (
+                    joint_pca["split_analyses"]["heldout"]["arm_gain"]["PPE"]["point_estimate"]
+                    - joint_pca["split_analyses"]["heldout"]["arm_gain"]["NNE"]["point_estimate"]
+                )
+                / (
+                    joint_pca["split_analyses"]["heldout"]["arm_gain"]["EEE"]["point_estimate"]
+                    - joint_pca["split_analyses"]["heldout"]["arm_gain"]["NNE"]["point_estimate"]
+                )
+            ),
+            "heldout_full_projected_package_fraction_of_exact_joint": (
+                joint_pca["split_analyses"]["heldout"]["arm_gain"]["PPE"]["point_estimate"]
+                / joint_pca["split_analyses"]["heldout"]["arm_gain"]["EEE"]["point_estimate"]
+            ),
+            "state_integrity": {
+                "component_tree_unchanged": joint_pca["component_tree_unchanged"],
+                "heldout_baseline_replay": joint_pca["heldout_baseline_replay"],
+                "exact_v4_row_reproduction": joint_pca["exact_v4_row_reproduction"],
+                "atomic_authority_result_sha256": joint_pca_authority["result_sha256"],
+                "atomic_authority_manifest_sha256": joint_pca_authority["manifest_sha256"],
+                "atomic_authority_basis_sha256": joint_pca_authority["basis_artifact_sha256"],
+            },
+            "currency": "paired row/token-weighted CE effects in a complete 3x3x2 deployed/projected/exact early-MLP lattice, with same-background contrasts and 2,000-draw paired FineWeb document-cluster bootstrap",
+            "scope": "fresh rank-64 MLP0/1 residual bases fitted on the document-disjoint authoritative basis split, then frozen before discovery/heldout scoring on the exact v4 ship realization; MLP2 is deployed or exact, never projected",
+            "claim": "The low-rank causal interfaces compose authoritatively. Heldout PCA0+PCA1 gains 0.2268 nats versus 0.4003 exact upstream (56.7%); with exact MLP2 held fixed their conditional upstream gain retains 64.0% of exact. All twelve leave-one-site-out effects and all twelve same-background 40% margins have positive heldout document-cluster lower bounds, and all six registered prediction families pass.",
+            "caveat": "This is a modular oracle-subspace result, not an executable replacement: every projected arm still calls the missing original MLP to obtain residual coefficients, MLP2 remains unsimplified, and no original-MLP-disabled predictor, gauge-invariant state transport, OOD/background transfer, edit collateral, compression, training, or simplicity certificate exists. Exact MLP2 after projected upstream is small (+0.0194 heldout, CI lower 0.0002), and its discovery cluster interval crosses zero even though the preregistered discovery point/heldout-interval gate passes. The same-currency whole-model and MLP0--2 residual denominators remain absent, so global coverage fractions do not change.",
         },
     }
 
@@ -546,28 +601,28 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "Supersede the local PCA-composition v1 design with a complete same-realization mixed exact/projected MLP0-2 cube on the frozen authoritative ship, including leave-one-site-out conditional gains and document-cluster intervals.",
-                "why": "The authoritative exact cube now establishes +0.5143 heldout joint headroom and +0.4586 interaction excess, while singleton rank-64 PCA locally captures 79.9%/51.7% at MLP0/1. The missing fact is whether those small subspaces preserve the coupled program rather than merely scoring well in the wrong singleton states.",
+                "action": "Fit a no-teacher-forcing sequential coefficient program for the admitted rank-64 MLP0/1 interfaces, poison original-MLP calls in predicted arms, and reuse one frozen component per site across all deployed/projected/exact-neighbor backgrounds.",
+                "why": "The authoritative 3x3x2 lattice now proves the subspaces compose, but their coefficients still read the exact missing residual. Disabling that oracle call is the shortest path from a causal locator to an executable reverse-engineered program.",
             },
             {
                 "priority": 2,
-                "action": "If the joint subspace passes, fit a no-teacher-forcing sequential coefficient program whose MLP1 and MLP2 predictors consume the state produced by upstream predicted corrections.",
-                "why": "Oracle projection still reads the exact missing residual. Sequential prediction is the step that turns a causal bottleneck into an executable simpler program and directly tests whether the interaction can be predicted rather than replayed.",
+                "action": "On the identical frozen ship, co-score paired clean plus a macro factorial over attention, MLP0-2, and deep components to mint same-currency group and whole-model residual denominators.",
+                "why": "The projected lattice measures local causal fidelity but cannot say what fraction of the deployed model is recovered. Paired macro arms close the denominator gap without importing the legacy 0.728-nat or 0.8976-nat currencies.",
             },
             {
                 "priority": 3,
-                "action": "Factor the passing sequential map through linear, native-product, paired-product, and tensor-head-grain grammars, reporting conditional description length and standalone versus amortized price.",
-                "why": "Tensor/polynomial structure is useful only after the causal interface composes. This comparison can then distinguish genuine shared low-degree structure from an expensive coordinate lookup without conflating syntax with fidelity.",
+                "action": "Measure gauge-invariant MLP2-input/post-MLP2 physical-response fidelity and crossed-state MLP2 interchange for projected versus exact upstream states.",
+                "why": "Live exact MLP2 adds only 0.0194 nats after projected upstream and barely clears its heldout interval. State/interchange tests distinguish a transported modular interface from adaptive downstream compensation.",
             },
             {
                 "priority": 4,
-                "action": "Run the restored-state authoritative content/null screen and conditional code-OOD handoff only as a typed-interface probe, not as a singleton repair license.",
-                "why": "The frozen state is now resumable into the existing FineWeb-to-code pipeline, but the exact cube proves singleton semantics are incomplete. This screen is valuable for naming and domain transfer after the joint composition question, not before it.",
+                "action": "Run a hierarchical exact-restoration census outside MLP0-2: typed three-layer windows first, then complete factorials only around winners.",
+                "why": "The early block is only one coupled program. A windowed census maximizes causal coverage and discovers the next missing interface without paying for a combinatorial whole-model cube.",
             },
             {
                 "priority": 5,
-                "action": "Certify the resulting early-block program on fixed strata, powered interventions, alternate ship backgrounds, and selective-edit collateral effects; in parallel retain the L8-to-L11-to-L14 no-teacher-forcing gauge triangle as the next non-early interface.",
-                "why": "A half-nat exact-restoration reference does not prove response prediction or editability. Certification must test interaction and background transfer, while the gauge triangle remains the best independent route to a transportable coordinate program elsewhere in the model.",
+                "action": "After predictor success, compare linear, native-product, paired-product, and tensor-head-grain grammars at equal causal fidelity and conditional description length, then certify OOD/intervention/edit collateral.",
+                "why": "Tensor and polynomial structure should earn simplicity by compressing an executable causal map, not by syntactic relabeling. Equal-fidelity pricing plus transfer/edit tests supplies the missing simplicity and manipulation certificate.",
             },
         ],
         "registry_inventory": inventory,

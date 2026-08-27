@@ -1155,7 +1155,1237 @@
       "currency": "paired discovery/heldout CE gain with S=min(split gains) and exact 20-null tests under independently suffix-KL- and basis-RMS-matched intervention strength",
       "scope": "rank-64 projections of the exact live missing residual at MLP0/1 on one frozen document-disjoint curated-v2 realization; PCA fit only on the basis split and strength fit only on the 40-row spare split",
       "claim": "A low-rank causal residual bottleneck survives strength controls at both early sites. MLP0 PCA restores 0.0925 heldout nats (79.9% of its full oracle) and MLP1 restores 0.0789 nats (51.7%); each candidate beats all twenty same-identity Haar nulls under both suffix-KL and raw-RMS matching (four exact p=1/21 tests).",
-      "caveat": "This authority-none result licenses only an oracle-selected residual subspace for a separately priced coefficient predictor. The PCA coefficients still consume the exact missing residual, simultaneous MLP0/1 composition is untested, MLP2 has no admitted subspace, and no semantic, simplicity, OOD, predictor, or training license is created."
+      "caveat": "This authority-none result licenses only an oracle-selected residual subspace for a separately priced coefficient predictor. It uses a different curated realization from the later authoritative composition result; its PCA coefficients still consume the exact missing residual, MLP2 has no admitted subspace, and no semantic, simplicity, OOD, predictor, or training license is created."
+    },
+    "early_mlp_mixed_pca_oracle_authoritative": {
+      "authority": "canonical_fineweb",
+      "authorized_for_scored_experiments": true,
+      "payload_self_authorized": false,
+      "authorized_for_training": false,
+      "training_license_sites": [],
+      "ship_realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e",
+      "projection_rank_per_site": 64,
+      "basis_fit_summary": {
+        "0": {
+          "basis_sha256": "cb57c81a5b5ecbe8a1ad0f13f0f8b9e9df20d01ea237399db40659da75ab4b52",
+          "captured_residual_shape": [
+            6144,
+            1152
+          ],
+          "captured_residual_sha256": "ccfbc937f275bc8a87a63f3939d3c50ae12cf3d280467336799ce95458f7f969",
+          "captured_residual_rms": 639.6145893519736,
+          "projected_correction_rms": 389.21652944637884,
+          "captured_energy_fraction": 0.370293278699263,
+          "gram_max_abs_error": 5.900859832763672e-05
+        },
+        "1": {
+          "basis_sha256": "17d5cd4be8bbfbac288acb0dc942d94912be78229689bb92eacf0f8b02f6b424",
+          "captured_residual_shape": [
+            6144,
+            1152
+          ],
+          "captured_residual_sha256": "6a7ab08bcb2676a7086af9f658ef00e48d43ddef893e6df571a53a07fc1f263b",
+          "captured_residual_rms": 56.74490732403811,
+          "projected_correction_rms": 38.46515199382654,
+          "captured_energy_fraction": 0.4594953530346274,
+          "gram_max_abs_error": 6.699562072753906e-05
+        }
+      },
+      "discovery": {
+        "draws": 2000,
+        "seed": 31415926,
+        "resampling": "sample unique source documents with replacement; retain all chunks; divide by sampled row count; share multiplicities across all 18 arms",
+        "row_count": 192,
+        "unique_document_count": 79,
+        "cluster_size_range": [
+          1,
+          18
+        ],
+        "arm_gain": {
+          "NNN": {
+            "point_estimate": 0.0,
+            "bootstrap_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "NNE": {
+            "point_estimate": -0.21585717548926672,
+            "bootstrap_mean": -0.2160747793013243,
+            "ci95": [
+              -0.2401484896992141,
+              -0.1917596409005574
+            ]
+          },
+          "NPN": {
+            "point_estimate": 0.08119269460439682,
+            "bootstrap_mean": 0.08094450171171892,
+            "ci95": [
+              0.06358264434213931,
+              0.10168825399158436
+            ]
+          },
+          "NPE": {
+            "point_estimate": 0.12544411544998488,
+            "bootstrap_mean": 0.12449712435128371,
+            "ci95": [
+              0.10111950954444172,
+              0.14864151760679836
+            ]
+          },
+          "NEN": {
+            "point_estimate": 0.15602309380968413,
+            "bootstrap_mean": 0.15608898605720997,
+            "ci95": [
+              0.13813069108512244,
+              0.17684691699588762
+            ]
+          },
+          "NEE": {
+            "point_estimate": 0.3158375695347786,
+            "bootstrap_mean": 0.3151904206080617,
+            "ci95": [
+              0.2888394746422428,
+              0.34574852788813504
+            ]
+          },
+          "PNN": {
+            "point_estimate": 0.0877930757900079,
+            "bootstrap_mean": 0.08775235500454916,
+            "ci95": [
+              0.07977309030854804,
+              0.09661474900586264
+            ]
+          },
+          "PNE": {
+            "point_estimate": -0.047847580164670944,
+            "bootstrap_mean": -0.04812553952982438,
+            "ci95": [
+              -0.06922969596815566,
+              -0.02877662516295423
+            ]
+          },
+          "PPN": {
+            "point_estimate": 0.21552628402908644,
+            "bootstrap_mean": 0.21543520823021126,
+            "ci95": [
+              0.19595433010978808,
+              0.2393976487484231
+            ]
+          },
+          "PPE": {
+            "point_estimate": 0.23352528115113577,
+            "bootstrap_mean": 0.23286202979301387,
+            "ci95": [
+              0.20542392479319152,
+              0.262301594313338
+            ]
+          },
+          "PEN": {
+            "point_estimate": 0.31057777255773544,
+            "bootstrap_mean": 0.31055126560810076,
+            "ci95": [
+              0.285287005091398,
+              0.3413205027542844
+            ]
+          },
+          "PEE": {
+            "point_estimate": 0.4286962089439233,
+            "bootstrap_mean": 0.4286049127367414,
+            "ci95": [
+              0.3990230540679927,
+              0.4630388764747569
+            ]
+          },
+          "ENN": {
+            "point_estimate": 0.1211273620525996,
+            "bootstrap_mean": 0.12114940694382607,
+            "ci95": [
+              0.11129316103167651,
+              0.13183231223551517
+            ]
+          },
+          "ENE": {
+            "point_estimate": 0.07152282694975536,
+            "bootstrap_mean": 0.07151132245270796,
+            "ci95": [
+              0.051332210403361736,
+              0.09133933752473472
+            ]
+          },
+          "EPN": {
+            "point_estimate": 0.2868594278891881,
+            "bootstrap_mean": 0.2867881046521861,
+            "ci95": [
+              0.2614907348687129,
+              0.31873623495268144
+            ]
+          },
+          "EPE": {
+            "point_estimate": 0.3477502688765526,
+            "bootstrap_mean": 0.34743598711049206,
+            "ci95": [
+              0.31778827051735586,
+              0.37935066556525654
+            ]
+          },
+          "EEN": {
+            "point_estimate": 0.37836814547578496,
+            "bootstrap_mean": 0.3782135869955306,
+            "ci95": [
+              0.3481121928137874,
+              0.414431673067503
+            ]
+          },
+          "EEE": {
+            "point_estimate": 0.4993657035132249,
+            "bootstrap_mean": 0.49937950697339306,
+            "ci95": [
+              0.46663082529990224,
+              0.5363749329446428
+            ]
+          }
+        },
+        "no_free_rider": {
+          "p0_given_n1_m2n": {
+            "point_estimate": 0.0877930757900079,
+            "bootstrap_mean": 0.08775235500454916,
+            "ci95": [
+              0.07977309030854804,
+              0.09661474900586264
+            ]
+          },
+          "p0_given_n1_m2e": {
+            "point_estimate": 0.16800959532459578,
+            "bootstrap_mean": 0.16794923977149995,
+            "ci95": [
+              0.15331913135844255,
+              0.18271925031080147
+            ]
+          },
+          "p0_given_p1_m2n": {
+            "point_estimate": 0.13433358942468962,
+            "bootstrap_mean": 0.13449070651849232,
+            "ci95": [
+              0.12009712191176063,
+              0.15157477335075542
+            ]
+          },
+          "p0_given_p1_m2e": {
+            "point_estimate": 0.1080811657011509,
+            "bootstrap_mean": 0.10836490544173012,
+            "ci95": [
+              0.09506155356501794,
+              0.12306214469924155
+            ]
+          },
+          "p0_given_e1_m2n": {
+            "point_estimate": 0.15455467874805132,
+            "bootstrap_mean": 0.1544622795508908,
+            "ci95": [
+              0.1367117348394122,
+              0.1753391321593882
+            ]
+          },
+          "p0_given_e1_m2e": {
+            "point_estimate": 0.1128586394091447,
+            "bootstrap_mean": 0.11341449212867966,
+            "ci95": [
+              0.10218230686970918,
+              0.12719115894863445
+            ]
+          },
+          "p1_given_n0_m2n": {
+            "point_estimate": 0.08119269460439682,
+            "bootstrap_mean": 0.08094450171171892,
+            "ci95": [
+              0.06358264434213931,
+              0.10168825399158436
+            ]
+          },
+          "p1_given_n0_m2e": {
+            "point_estimate": 0.3413012909392516,
+            "bootstrap_mean": 0.34057190365260803,
+            "ci95": [
+              0.3121687719171698,
+              0.37072466063637777
+            ]
+          },
+          "p1_given_p0_m2n": {
+            "point_estimate": 0.12773320823907852,
+            "bootstrap_mean": 0.1276828532256621,
+            "ci95": [
+              0.11311675289273261,
+              0.14608344444878213
+            ]
+          },
+          "p1_given_p0_m2e": {
+            "point_estimate": 0.28137286131580674,
+            "bootstrap_mean": 0.28098756932283825,
+            "ci95": [
+              0.2559342122163499,
+              0.3071319798140381
+            ]
+          },
+          "p1_given_e0_m2n": {
+            "point_estimate": 0.1657320658365885,
+            "bootstrap_mean": 0.16563869770836004,
+            "ci95": [
+              0.14686023539056628,
+              0.18960604016318588
+            ]
+          },
+          "p1_given_e0_m2e": {
+            "point_estimate": 0.2762274419267972,
+            "bootstrap_mean": 0.2759246646577842,
+            "ci95": [
+              0.25188332001106306,
+              0.3005855052216507
+            ]
+          }
+        },
+        "same_background_exact_effect": {
+          "p0_given_n1_m2n": {
+            "point_estimate": 0.1211273620525996,
+            "bootstrap_mean": 0.12114940694382607,
+            "ci95": [
+              0.11129316103167651,
+              0.13183231223551517
+            ]
+          },
+          "p0_given_n1_m2e": {
+            "point_estimate": 0.28738000243902206,
+            "bootstrap_mean": 0.28758610175403226,
+            "ci95": [
+              0.2663428337112074,
+              0.3114675812370166
+            ]
+          },
+          "p0_given_p1_m2n": {
+            "point_estimate": 0.2056667332847913,
+            "bootstrap_mean": 0.20584360294046722,
+            "ci95": [
+              0.18469908298112098,
+              0.23102940056059093
+            ]
+          },
+          "p0_given_p1_m2e": {
+            "point_estimate": 0.2223061534265677,
+            "bootstrap_mean": 0.2229388627592084,
+            "ci95": [
+              0.2048210445170068,
+              0.2432290983685995
+            ]
+          },
+          "p0_given_e1_m2n": {
+            "point_estimate": 0.22234505166610083,
+            "bootstrap_mean": 0.22212460093832068,
+            "ci95": [
+              0.1990624408575544,
+              0.24914882224072543
+            ]
+          },
+          "p0_given_e1_m2e": {
+            "point_estimate": 0.1835281339784463,
+            "bootstrap_mean": 0.18418908636533138,
+            "ci95": [
+              0.16998021218079767,
+              0.20036391480503143
+            ]
+          },
+          "p1_given_n0_m2n": {
+            "point_estimate": 0.15602309380968413,
+            "bootstrap_mean": 0.15608898605720997,
+            "ci95": [
+              0.13813069108512244,
+              0.17684691699588762
+            ]
+          },
+          "p1_given_n0_m2e": {
+            "point_estimate": 0.5316947450240453,
+            "bootstrap_mean": 0.5312651999093859,
+            "ci95": [
+              0.49329539712916104,
+              0.5719831377728615
+            ]
+          },
+          "p1_given_p0_m2n": {
+            "point_estimate": 0.22278469676772755,
+            "bootstrap_mean": 0.22279891060355164,
+            "ci95": [
+              0.20202485939262563,
+              0.24816931578667514
+            ]
+          },
+          "p1_given_p0_m2e": {
+            "point_estimate": 0.47654378910859424,
+            "bootstrap_mean": 0.4767304522665657,
+            "ci95": [
+              0.44616853911021176,
+              0.5114126997725251
+            ]
+          },
+          "p1_given_e0_m2n": {
+            "point_estimate": 0.25724078342318535,
+            "bootstrap_mean": 0.2570641800517045,
+            "ci95": [
+              0.23254280400793903,
+              0.2855032723455307
+            ]
+          },
+          "p1_given_e0_m2e": {
+            "point_estimate": 0.42784287656346953,
+            "bootstrap_mean": 0.42786818452068515,
+            "ci95": [
+              0.3989828710687395,
+              0.4582519773203975
+            ]
+          }
+        },
+        "same_background_40pct_margin": {
+          "p0_given_n1_m2n": {
+            "point_estimate": 0.03934213096896806,
+            "bootstrap_mean": 0.03929259222701871,
+            "ci95": [
+              0.03406261972594397,
+              0.04491013224981713
+            ],
+            "projected_effect_point_estimate": 0.0877930757900079,
+            "exact_effect_point_estimate": 0.1211273620525996,
+            "descriptive_ratio_if_identified": 0.7247997009287112
+          },
+          "p0_given_n1_m2e": {
+            "point_estimate": 0.05305759434898695,
+            "bootstrap_mean": 0.05291479906988702,
+            "ci95": [
+              0.04518591535404895,
+              0.06046644405288207
+            ],
+            "projected_effect_point_estimate": 0.16800959532459578,
+            "exact_effect_point_estimate": 0.28738000243902206,
+            "descriptive_ratio_if_identified": 0.5846252136498086
+          },
+          "p0_given_p1_m2n": {
+            "point_estimate": 0.0520668961107731,
+            "bootstrap_mean": 0.05215326534230543,
+            "ci95": [
+              0.04481331460763323,
+              0.06035543070933972
+            ],
+            "projected_effect_point_estimate": 0.13433358942468962,
+            "exact_effect_point_estimate": 0.2056667332847913,
+            "descriptive_ratio_if_identified": 0.6531614874179721
+          },
+          "p0_given_p1_m2e": {
+            "point_estimate": 0.0191587043305238,
+            "bootstrap_mean": 0.01918936033804677,
+            "ci95": [
+              0.012365330421275229,
+              0.026956384944773825
+            ],
+            "projected_effect_point_estimate": 0.1080811657011509,
+            "exact_effect_point_estimate": 0.2223061534265677,
+            "descriptive_ratio_if_identified": 0.4861816195153245
+          },
+          "p0_given_e1_m2n": {
+            "point_estimate": 0.06561665808161098,
+            "bootstrap_mean": 0.06561243917556257,
+            "ci95": [
+              0.056274290064621736,
+              0.07587331574601615
+            ],
+            "projected_effect_point_estimate": 0.15455467874805132,
+            "exact_effect_point_estimate": 0.22234505166610083,
+            "descriptive_ratio_if_identified": 0.6951118434609851
+          },
+          "p0_given_e1_m2e": {
+            "point_estimate": 0.039447385817766176,
+            "bootstrap_mean": 0.039738857582547096,
+            "ci95": [
+              0.03304562825506662,
+              0.047811663468266735
+            ],
+            "projected_effect_point_estimate": 0.1128586394091447,
+            "exact_effect_point_estimate": 0.1835281339784463,
+            "descriptive_ratio_if_identified": 0.6149391756056263
+          },
+          "p1_given_n0_m2n": {
+            "point_estimate": 0.018783457080523168,
+            "bootstrap_mean": 0.018508907288834947,
+            "ci95": [
+              0.007155026039268287,
+              0.03134766484996162
+            ],
+            "projected_effect_point_estimate": 0.08119269460439682,
+            "exact_effect_point_estimate": 0.15602309380968413,
+            "descriptive_ratio_if_identified": 0.5203889541085187
+          },
+          "p1_given_n0_m2e": {
+            "point_estimate": 0.12862339292963346,
+            "bootstrap_mean": 0.12806582368885364,
+            "ci95": [
+              0.11220130331512165,
+              0.1441706682535318
+            ],
+            "projected_effect_point_estimate": 0.3413012909392516,
+            "exact_effect_point_estimate": 0.5316947450240453,
+            "descriptive_ratio_if_identified": 0.6419121011320444
+          },
+          "p1_given_p0_m2n": {
+            "point_estimate": 0.03861932953198749,
+            "bootstrap_mean": 0.03856328898424144,
+            "ci95": [
+              0.03042340717548554,
+              0.04786732807563762
+            ],
+            "projected_effect_point_estimate": 0.12773320823907852,
+            "exact_effect_point_estimate": 0.22278469676772755,
+            "descriptive_ratio_if_identified": 0.5733482150807311
+          },
+          "p1_given_p0_m2e": {
+            "point_estimate": 0.09075534567236904,
+            "bootstrap_mean": 0.09029538841621194,
+            "ci95": [
+              0.07513734912780515,
+              0.10511730283463848
+            ],
+            "projected_effect_point_estimate": 0.28137286131580674,
+            "exact_effect_point_estimate": 0.47654378910859424,
+            "descriptive_ratio_if_identified": 0.5904449239431548
+          },
+          "p1_given_e0_m2n": {
+            "point_estimate": 0.06283575246731436,
+            "bootstrap_mean": 0.06281302568767821,
+            "ci95": [
+              0.05245194078774531,
+              0.07554476447938104
+            ],
+            "projected_effect_point_estimate": 0.1657320658365885,
+            "exact_effect_point_estimate": 0.25724078342318535,
+            "descriptive_ratio_if_identified": 0.6442682362848492
+          },
+          "p1_given_e0_m2e": {
+            "point_estimate": 0.1050902913014094,
+            "bootstrap_mean": 0.10477739084951011,
+            "ci95": [
+              0.09015598740133997,
+              0.11873874345682506
+            ],
+            "projected_effect_point_estimate": 0.2762274419267972,
+            "exact_effect_point_estimate": 0.42784287656346953,
+            "descriptive_ratio_if_identified": 0.6456282365748808
+          }
+        },
+        "package_and_downstream": {
+          "ppn_minus_best_constituent": {
+            "point_estimate": 0.12773320823907852,
+            "bootstrap_mean": 0.12644698828228532,
+            "ci95": [
+              0.1129481375633116,
+              0.14191097999337035
+            ]
+          },
+          "ppe_minus_best_constituent": {
+            "point_estimate": 0.1080811657011509,
+            "bootstrap_mean": 0.10836490544173012,
+            "ci95": [
+              0.09506155356501794,
+              0.12306214469924155
+            ]
+          },
+          "exact_mlp2_after_projected_upstream": {
+            "point_estimate": 0.01799899712204933,
+            "bootstrap_mean": 0.01742682156280261,
+            "ci95": [
+              -0.0034116813124403476,
+              0.037197976966001155
+            ]
+          },
+          "exact_upstream_effect_mlp2n": {
+            "point_estimate": 0.37836814547578496,
+            "bootstrap_mean": 0.3782135869955306,
+            "ci95": [
+              0.3481121928137874,
+              0.414431673067503
+            ]
+          },
+          "exact_upstream_effect_mlp2e": {
+            "point_estimate": 0.7152228790024916,
+            "bootstrap_mean": 0.7154542862747173,
+            "ci95": [
+              0.6708471660784063,
+              0.7628947657587111
+            ]
+          },
+          "projected_upstream_40pct_margin_mlp2n": {
+            "point_estimate": 0.06417902583877244,
+            "bootstrap_mean": 0.064149773431999,
+            "ci95": [
+              0.053828858686257704,
+              0.07571048402055865
+            ]
+          },
+          "projected_upstream_40pct_margin_mlp2e": {
+            "point_estimate": 0.16329330503940587,
+            "bootstrap_mean": 0.16275509458445123,
+            "ci95": [
+              0.14142046485214668,
+              0.18369361633580755
+            ]
+          }
+        }
+      },
+      "heldout": {
+        "draws": 2000,
+        "seed": 31415927,
+        "resampling": "sample unique source documents with replacement; retain all chunks; divide by sampled row count; share multiplicities across all 18 arms",
+        "row_count": 192,
+        "unique_document_count": 105,
+        "cluster_size_range": [
+          1,
+          10
+        ],
+        "arm_gain": {
+          "NNN": {
+            "point_estimate": 0.0,
+            "bootstrap_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "NNE": {
+            "point_estimate": -0.23005194713672003,
+            "bootstrap_mean": -0.22968205265071764,
+            "ci95": [
+              -0.25173402665663414,
+              -0.20771720455232925
+            ]
+          },
+          "NPN": {
+            "point_estimate": 0.09197258080045383,
+            "bootstrap_mean": 0.09206602675411411,
+            "ci95": [
+              0.07827853776046619,
+              0.1068082297593355
+            ]
+          },
+          "NPE": {
+            "point_estimate": 0.1203429972132047,
+            "bootstrap_mean": 0.12025300765450146,
+            "ci95": [
+              0.09502367553385821,
+              0.14518849698670444
+            ]
+          },
+          "NEN": {
+            "point_estimate": 0.16671866551041603,
+            "bootstrap_mean": 0.16672605110351024,
+            "ci95": [
+              0.152022201243788,
+              0.18235079400667653
+            ]
+          },
+          "NEE": {
+            "point_estimate": 0.31666206071774167,
+            "bootstrap_mean": 0.3163947850499346,
+            "ci95": [
+              0.28999891473634826,
+              0.3406471283173211
+            ]
+          },
+          "PNN": {
+            "point_estimate": 0.09093885123729706,
+            "bootstrap_mean": 0.09091627675122514,
+            "ci95": [
+              0.08280668820076428,
+              0.09937702977824615
+            ]
+          },
+          "PNE": {
+            "point_estimate": -0.06230927258729935,
+            "bootstrap_mean": -0.062169257805621686,
+            "ci95": [
+              -0.08784160064564545,
+              -0.03791857575162022
+            ]
+          },
+          "PPN": {
+            "point_estimate": 0.2267900655666987,
+            "bootstrap_mean": 0.22682384277839857,
+            "ci95": [
+              0.20954817405768802,
+              0.24474931297776997
+            ]
+          },
+          "PPE": {
+            "point_estimate": 0.24619657546281815,
+            "bootstrap_mean": 0.24622741303021292,
+            "ci95": [
+              0.2224994010598839,
+              0.2709967571886341
+            ]
+          },
+          "PEN": {
+            "point_estimate": 0.32361120358109474,
+            "bootstrap_mean": 0.32353743791479284,
+            "ci95": [
+              0.3019214803562796,
+              0.345731399209068
+            ]
+          },
+          "PEE": {
+            "point_estimate": 0.44604688696563244,
+            "bootstrap_mean": 0.4459536147624637,
+            "ci95": [
+              0.4200825472751465,
+              0.4715033106540341
+            ]
+          },
+          "ENN": {
+            "point_estimate": 0.11907455325126648,
+            "bootstrap_mean": 0.11906408963825914,
+            "ci95": [
+              0.10945068109630059,
+              0.1290115747548113
+            ]
+          },
+          "ENE": {
+            "point_estimate": 0.061454535772403084,
+            "bootstrap_mean": 0.06133080105458618,
+            "ci95": [
+              0.038197486213885,
+              0.08483854645349383
+            ]
+          },
+          "EPN": {
+            "point_estimate": 0.30430276319384575,
+            "bootstrap_mean": 0.30409706828933675,
+            "ci95": [
+              0.28313651353798125,
+              0.32514786650737126
+            ]
+          },
+          "EPE": {
+            "point_estimate": 0.3599128679682811,
+            "bootstrap_mean": 0.3599471455239619,
+            "ci95": [
+              0.33548086399465565,
+              0.3854008364455668
+            ]
+          },
+          "EEN": {
+            "point_estimate": 0.4003129303455353,
+            "bootstrap_mean": 0.40008083773614644,
+            "ci95": [
+              0.37524328395014717,
+              0.4252550666459969
+            ]
+          },
+          "EEE": {
+            "point_estimate": 0.5143441880742708,
+            "bootstrap_mean": 0.5143142587811184,
+            "ci95": [
+              0.48736583005693546,
+              0.5401440853236746
+            ]
+          }
+        },
+        "no_free_rider": {
+          "p0_given_n1_m2n": {
+            "point_estimate": 0.09093885123729706,
+            "bootstrap_mean": 0.09091627675122514,
+            "ci95": [
+              0.08280668820076428,
+              0.09937702977824615
+            ]
+          },
+          "p0_given_n1_m2e": {
+            "point_estimate": 0.16774267454942068,
+            "bootstrap_mean": 0.16751279484509593,
+            "ci95": [
+              0.15585673214111057,
+              0.17864322197424684
+            ]
+          },
+          "p0_given_p1_m2n": {
+            "point_estimate": 0.1348174847662449,
+            "bootstrap_mean": 0.13475781602428447,
+            "ci95": [
+              0.12364008748460718,
+              0.1465726826417527
+            ]
+          },
+          "p0_given_p1_m2e": {
+            "point_estimate": 0.12585357824961346,
+            "bootstrap_mean": 0.12597440537571145,
+            "ci95": [
+              0.11189465254617563,
+              0.14171830986987674
+            ]
+          },
+          "p0_given_e1_m2n": {
+            "point_estimate": 0.1568925380706787,
+            "bootstrap_mean": 0.15681138681128265,
+            "ci95": [
+              0.14300885861983914,
+              0.1711800507145595
+            ]
+          },
+          "p0_given_e1_m2e": {
+            "point_estimate": 0.12938482624789077,
+            "bootstrap_mean": 0.12955882971252905,
+            "ci95": [
+              0.11818551996402774,
+              0.14196161229720058
+            ]
+          },
+          "p1_given_n0_m2n": {
+            "point_estimate": 0.09197258080045383,
+            "bootstrap_mean": 0.09206602675411411,
+            "ci95": [
+              0.07827853776046619,
+              0.1068082297593355
+            ]
+          },
+          "p1_given_n0_m2e": {
+            "point_estimate": 0.35039494434992474,
+            "bootstrap_mean": 0.3499350603052191,
+            "ci95": [
+              0.32776673303413656,
+              0.37232783988723295
+            ]
+          },
+          "p1_given_p0_m2n": {
+            "point_estimate": 0.13585121432940164,
+            "bootstrap_mean": 0.13590756602717347,
+            "ci95": [
+              0.12166253109367527,
+              0.1507306658450812
+            ]
+          },
+          "p1_given_p0_m2e": {
+            "point_estimate": 0.3085058480501175,
+            "bootstrap_mean": 0.3083966708358346,
+            "ci95": [
+              0.28607113420448577,
+              0.3327790600815906
+            ]
+          },
+          "p1_given_e0_m2n": {
+            "point_estimate": 0.18522820994257927,
+            "bootstrap_mean": 0.18503297865107757,
+            "ci95": [
+              0.1684998438895039,
+              0.2024065092558032
+            ]
+          },
+          "p1_given_e0_m2e": {
+            "point_estimate": 0.29845833219587803,
+            "bootstrap_mean": 0.29861634446937574,
+            "ci95": [
+              0.2774582546947598,
+              0.3202470721903261
+            ]
+          }
+        },
+        "same_background_exact_effect": {
+          "p0_given_n1_m2n": {
+            "point_estimate": 0.11907455325126648,
+            "bootstrap_mean": 0.11906408963825914,
+            "ci95": [
+              0.10945068109630059,
+              0.1290115747548113
+            ]
+          },
+          "p0_given_n1_m2e": {
+            "point_estimate": 0.2915064829091231,
+            "bootstrap_mean": 0.29101285370530383,
+            "ci95": [
+              0.2735443956093088,
+              0.30753091511100233
+            ]
+          },
+          "p0_given_p1_m2n": {
+            "point_estimate": 0.2123301823933919,
+            "bootstrap_mean": 0.21203104153522262,
+            "ci95": [
+              0.19560241441481308,
+              0.2288742969224555
+            ]
+          },
+          "p0_given_p1_m2e": {
+            "point_estimate": 0.2395698707550764,
+            "bootstrap_mean": 0.23969413786946053,
+            "ci95": [
+              0.2230580238841082,
+              0.2584988328011392
+            ]
+          },
+          "p0_given_e1_m2n": {
+            "point_estimate": 0.23359426483511925,
+            "bootstrap_mean": 0.23335478663263615,
+            "ci95": [
+              0.21610374171421937,
+              0.2513776473276574
+            ]
+          },
+          "p0_given_e1_m2e": {
+            "point_estimate": 0.19768212735652918,
+            "bootstrap_mean": 0.1979194737311838,
+            "ci95": [
+              0.18520600938246026,
+              0.21176716847853222
+            ]
+          },
+          "p1_given_n0_m2n": {
+            "point_estimate": 0.16671866551041603,
+            "bootstrap_mean": 0.16672605110351024,
+            "ci95": [
+              0.152022201243788,
+              0.18235079400667653
+            ]
+          },
+          "p1_given_n0_m2e": {
+            "point_estimate": 0.5467140078544617,
+            "bootstrap_mean": 0.5460768377006522,
+            "ci95": [
+              0.5182934111656498,
+              0.5737451932516885
+            ]
+          },
+          "p1_given_p0_m2n": {
+            "point_estimate": 0.23267235234379768,
+            "bootstrap_mean": 0.23262116116356776,
+            "ci95": [
+              0.2141051748273324,
+              0.2515401132865514
+            ]
+          },
+          "p1_given_p0_m2e": {
+            "point_estimate": 0.5083561595529318,
+            "bootstrap_mean": 0.5081228725680853,
+            "ci95": [
+              0.48105952734763047,
+              0.5363401840863744
+            ]
+          },
+          "p1_given_e0_m2n": {
+            "point_estimate": 0.2812383770942688,
+            "bootstrap_mean": 0.28101674809788724,
+            "ci95": [
+              0.26020770738457855,
+              0.3031043313283026
+            ]
+          },
+          "p1_given_e0_m2e": {
+            "point_estimate": 0.4528896523018678,
+            "bootstrap_mean": 0.4529834577265322,
+            "ci95": [
+              0.42815144780679365,
+              0.47803215415056727
+            ]
+          }
+        },
+        "same_background_40pct_margin": {
+          "p0_given_n1_m2n": {
+            "point_estimate": 0.043309029936790464,
+            "bootstrap_mean": 0.04329064089592147,
+            "ci95": [
+              0.037338616692167904,
+              0.04912268801301204
+            ],
+            "projected_effect_point_estimate": 0.09093885123729706,
+            "exact_effect_point_estimate": 0.11907455325126648,
+            "descriptive_ratio_if_identified": 0.7637135622537373
+          },
+          "p0_given_n1_m2e": {
+            "point_estimate": 0.05114008138577143,
+            "bootstrap_mean": 0.05110765336297442,
+            "ci95": [
+              0.04349958690179482,
+              0.05841274149504965
+            ],
+            "projected_effect_point_estimate": 0.16774267454942068,
+            "exact_effect_point_estimate": 0.2915064829091231,
+            "descriptive_ratio_if_identified": 0.5754337703759209
+          },
+          "p0_given_p1_m2n": {
+            "point_estimate": 0.049885411808888114,
+            "bootstrap_mean": 0.049945399410195414,
+            "ci95": [
+              0.043639698427893725,
+              0.05687253707659661
+            ],
+            "projected_effect_point_estimate": 0.1348174847662449,
+            "exact_effect_point_estimate": 0.2123301823933919,
+            "descriptive_ratio_if_identified": 0.6349426315494968
+          },
+          "p0_given_p1_m2e": {
+            "point_estimate": 0.0300256299475829,
+            "bootstrap_mean": 0.03009675022792726,
+            "ci95": [
+              0.02130377981553899,
+              0.039813416979715285
+            ],
+            "projected_effect_point_estimate": 0.12585357824961346,
+            "exact_effect_point_estimate": 0.2395698707550764,
+            "descriptive_ratio_if_identified": 0.5253314110532685
+          },
+          "p0_given_e1_m2n": {
+            "point_estimate": 0.063454832136631,
+            "bootstrap_mean": 0.06346947215822818,
+            "ci95": [
+              0.05574993474771092,
+              0.0714041238312398
+            ],
+            "projected_effect_point_estimate": 0.1568925380706787,
+            "exact_effect_point_estimate": 0.23359426483511925,
+            "descriptive_ratio_if_identified": 0.6716455054297679
+          },
+          "p0_given_e1_m2e": {
+            "point_estimate": 0.05031197530527909,
+            "bootstrap_mean": 0.05039104022005553,
+            "ci95": [
+              0.043177481990217564,
+              0.05795606313415794
+            ],
+            "projected_effect_point_estimate": 0.12938482624789077,
+            "exact_effect_point_estimate": 0.19768212735652918,
+            "descriptive_ratio_if_identified": 0.6545094793245474
+          },
+          "p1_given_n0_m2n": {
+            "point_estimate": 0.025285114596287406,
+            "bootstrap_mean": 0.02537560631271002,
+            "ci95": [
+              0.016228996764529827,
+              0.03470306316953325
+            ],
+            "projected_effect_point_estimate": 0.09197258080045383,
+            "exact_effect_point_estimate": 0.16671866551041603,
+            "descriptive_ratio_if_identified": 0.5516633696585562
+          },
+          "p1_given_n0_m2e": {
+            "point_estimate": 0.13170934120814007,
+            "bootstrap_mean": 0.13150432522495817,
+            "ci95": [
+              0.11820410522476799,
+              0.14461780005895306
+            ],
+            "projected_effect_point_estimate": 0.35039494434992474,
+            "exact_effect_point_estimate": 0.5467140078544617,
+            "descriptive_ratio_if_identified": 0.6409108589059636
+          },
+          "p1_given_p0_m2n": {
+            "point_estimate": 0.042782273391882564,
+            "bootstrap_mean": 0.04285910156174634,
+            "ci95": [
+              0.03475942106277513,
+              0.05176075688111763
+            ],
+            "projected_effect_point_estimate": 0.13585121432940164,
+            "exact_effect_point_estimate": 0.23267235234379768,
+            "descriptive_ratio_if_identified": 0.5838734725502207
+          },
+          "p1_given_p0_m2e": {
+            "point_estimate": 0.10516338422894478,
+            "bootstrap_mean": 0.10514752180860043,
+            "ci95": [
+              0.09195107280151156,
+              0.11949129226256829
+            ],
+            "projected_effect_point_estimate": 0.3085058480501175,
+            "exact_effect_point_estimate": 0.5083561595529318,
+            "descriptive_ratio_if_identified": 0.606869499371129
+          },
+          "p1_given_e0_m2n": {
+            "point_estimate": 0.07273285910487175,
+            "bootstrap_mean": 0.07262627941192269,
+            "ci95": [
+              0.06334686363839277,
+              0.08231870589610017
+            ],
+            "projected_effect_point_estimate": 0.18522820994257927,
+            "exact_effect_point_estimate": 0.2812383770942688,
+            "descriptive_ratio_if_identified": 0.6586164088142646
+          },
+          "p1_given_e0_m2e": {
+            "point_estimate": 0.11730247127513091,
+            "bootstrap_mean": 0.11742296137876286,
+            "ci95": [
+              0.10443567238475844,
+              0.1308151074053654
+            ],
+            "projected_effect_point_estimate": 0.29845833219587803,
+            "exact_effect_point_estimate": 0.4528896523018678,
+            "descriptive_ratio_if_identified": 0.6590089455100742
+          }
+        },
+        "package_and_downstream": {
+          "ppn_minus_best_constituent": {
+            "point_estimate": 0.1348174847662449,
+            "bootstrap_mean": 0.13244522505635503,
+            "ci95": [
+              0.12083473770568767,
+              0.144268170051295
+            ]
+          },
+          "ppe_minus_best_constituent": {
+            "point_estimate": 0.12585357824961346,
+            "bootstrap_mean": 0.12597440537571145,
+            "ci95": [
+              0.11189465254617563,
+              0.14171830986987674
+            ]
+          },
+          "exact_mlp2_after_projected_upstream": {
+            "point_estimate": 0.019406509896119445,
+            "bootstrap_mean": 0.019403570251814342,
+            "ci95": [
+              0.0001974498915685741,
+              0.041272573300874714
+            ]
+          },
+          "exact_upstream_effect_mlp2n": {
+            "point_estimate": 0.4003129303455353,
+            "bootstrap_mean": 0.40008083773614644,
+            "ci95": [
+              0.37524328395014717,
+              0.4252550666459969
+            ]
+          },
+          "exact_upstream_effect_mlp2e": {
+            "point_estimate": 0.7443961352109909,
+            "bootstrap_mean": 0.7439963114318362,
+            "ci95": [
+              0.7124641311840731,
+              0.7748460973863193
+            ]
+          },
+          "projected_upstream_40pct_margin_mlp2n": {
+            "point_estimate": 0.06666489342848458,
+            "bootstrap_mean": 0.06679150768394002,
+            "ci95": [
+              0.05735286743872651,
+              0.07707639420339406
+            ]
+          },
+          "projected_upstream_40pct_margin_mlp2e": {
+            "point_estimate": 0.17849006851514182,
+            "bootstrap_mean": 0.17831094110819612,
+            "ci95": [
+              0.16327691071447634,
+              0.19359763006958058
+            ]
+          }
+        }
+      },
+      "registered_decisions": {
+        "no_free_rider": {
+          "p0_given_n1_m2n": true,
+          "p0_given_n1_m2e": true,
+          "p0_given_p1_m2n": true,
+          "p0_given_p1_m2e": true,
+          "p0_given_e1_m2n": true,
+          "p0_given_e1_m2e": true,
+          "p1_given_n0_m2n": true,
+          "p1_given_n0_m2e": true,
+          "p1_given_p0_m2n": true,
+          "p1_given_p0_m2e": true,
+          "p1_given_e0_m2n": true,
+          "p1_given_e0_m2e": true
+        },
+        "same_background_exact_effect_positive": {
+          "p0_given_n1_m2n": true,
+          "p0_given_n1_m2e": true,
+          "p0_given_p1_m2n": true,
+          "p0_given_p1_m2e": true,
+          "p0_given_e1_m2n": true,
+          "p0_given_e1_m2e": true,
+          "p1_given_n0_m2n": true,
+          "p1_given_n0_m2e": true,
+          "p1_given_p0_m2n": true,
+          "p1_given_p0_m2e": true,
+          "p1_given_e0_m2n": true,
+          "p1_given_e0_m2e": true
+        },
+        "same_background_40pct_margin": {
+          "p0_given_n1_m2n": true,
+          "p0_given_n1_m2e": true,
+          "p0_given_p1_m2n": true,
+          "p0_given_p1_m2e": true,
+          "p0_given_e1_m2n": true,
+          "p0_given_e1_m2e": true,
+          "p1_given_n0_m2n": true,
+          "p1_given_n0_m2e": true,
+          "p1_given_p0_m2n": true,
+          "p1_given_p0_m2e": true,
+          "p1_given_e0_m2n": true,
+          "p1_given_e0_m2e": true
+        },
+        "package_beats_constituents": {
+          "ppn_minus_best_constituent": true,
+          "ppe_minus_best_constituent": true
+        },
+        "exact_mlp2_after_projected_upstream": true,
+        "exact_upstream_effect_positive": {
+          "exact_upstream_effect_mlp2n": true,
+          "exact_upstream_effect_mlp2e": true
+        },
+        "projected_upstream_40pct_margin": {
+          "projected_upstream_40pct_margin_mlp2n": true,
+          "projected_upstream_40pct_margin_mlp2e": true
+        }
+      },
+      "registered_predictions": {
+        "pred_a_all_twelve_no_free_rider_gates_pass": true,
+        "pred_b_all_twelve_same_background_40pct_retention_gates_pass": true,
+        "pred_c_projected_package_beats_constituents_with_and_without_mlp2": true,
+        "pred_d_exact_mlp2_remains_conditionally_helpful_after_projected_upstream": true,
+        "pred_e_projected_upstream_retains_40pct_with_and_without_fixed_exact_mlp2": true,
+        "pred_f_complete_modular_oracle_subspace_gate_passes": true
+      },
+      "heldout_projected_upstream_fraction_of_exact": 0.5665319513185395,
+      "heldout_projected_upstream_fraction_of_exact_with_mlp2_fixed": 0.6397783385381908,
+      "heldout_full_projected_package_fraction_of_exact_joint": 0.4786611400910154,
+      "state_integrity": {
+        "component_tree_unchanged": true,
+        "heldout_baseline_replay": {
+          "max_abs_row_ce_difference": 0.0,
+          "mean_abs_row_ce_difference": 0.0,
+          "required": "bit-identical paired row CE"
+        },
+        "exact_v4_row_reproduction": {
+          "discovery": {
+            "NNN": 0.0,
+            "NNE": 0.0,
+            "NEN": 0.0,
+            "NEE": 0.0,
+            "ENN": 0.0,
+            "ENE": 0.0,
+            "EEN": 0.0,
+            "EEE": 0.0
+          },
+          "heldout": {
+            "NNN": 0.0,
+            "NNE": 0.0,
+            "NEN": 0.0,
+            "NEE": 0.0,
+            "ENN": 0.0,
+            "ENE": 0.0,
+            "EEN": 0.0,
+            "EEE": 0.0
+          }
+        },
+        "atomic_authority_result_sha256": "c3408feb031165b747346107841e2e82066aa80ea223ecde845f085d30006587",
+        "atomic_authority_manifest_sha256": "cae4a3092213d3e1d0983448576f9a4c3966a092d731d56ab16169a8c82b7588",
+        "atomic_authority_basis_sha256": "0eee01f39087548a479486d068404f78c4bdc2fd930932add162212da31fe4d9"
+      },
+      "currency": "paired row/token-weighted CE effects in a complete 3x3x2 deployed/projected/exact early-MLP lattice, with same-background contrasts and 2,000-draw paired FineWeb document-cluster bootstrap",
+      "scope": "fresh rank-64 MLP0/1 residual bases fitted on the document-disjoint authoritative basis split, then frozen before discovery/heldout scoring on the exact v4 ship realization; MLP2 is deployed or exact, never projected",
+      "claim": "The low-rank causal interfaces compose authoritatively. Heldout PCA0+PCA1 gains 0.2268 nats versus 0.4003 exact upstream (56.7%); with exact MLP2 held fixed their conditional upstream gain retains 64.0% of exact. All twelve leave-one-site-out effects and all twelve same-background 40% margins have positive heldout document-cluster lower bounds, and all six registered prediction families pass.",
+      "caveat": "This is a modular oracle-subspace result, not an executable replacement: every projected arm still calls the missing original MLP to obtain residual coefficients, MLP2 remains unsimplified, and no original-MLP-disabled predictor, gauge-invariant state transport, OOD/background transfer, edit collateral, compression, training, or simplicity certificate exists. Exact MLP2 after projected upstream is small (+0.0194 heldout, CI lower 0.0002), and its discovery cluster interval crosses zero even though the preregistered discovery point/heldout-interval gate passes. The same-currency whole-model and MLP0--2 residual denominators remain absent, so global coverage fractions do not change."
     }
   },
   "current_bottleneck": {
@@ -1170,28 +2400,28 @@
   "ranked_actions": [
     {
       "priority": 1,
-      "action": "Supersede the local PCA-composition v1 design with a complete same-realization mixed exact/projected MLP0-2 cube on the frozen authoritative ship, including leave-one-site-out conditional gains and document-cluster intervals.",
-      "why": "The authoritative exact cube now establishes +0.5143 heldout joint headroom and +0.4586 interaction excess, while singleton rank-64 PCA locally captures 79.9%/51.7% at MLP0/1. The missing fact is whether those small subspaces preserve the coupled program rather than merely scoring well in the wrong singleton states."
+      "action": "Fit a no-teacher-forcing sequential coefficient program for the admitted rank-64 MLP0/1 interfaces, poison original-MLP calls in predicted arms, and reuse one frozen component per site across all deployed/projected/exact-neighbor backgrounds.",
+      "why": "The authoritative 3x3x2 lattice now proves the subspaces compose, but their coefficients still read the exact missing residual. Disabling that oracle call is the shortest path from a causal locator to an executable reverse-engineered program."
     },
     {
       "priority": 2,
-      "action": "If the joint subspace passes, fit a no-teacher-forcing sequential coefficient program whose MLP1 and MLP2 predictors consume the state produced by upstream predicted corrections.",
-      "why": "Oracle projection still reads the exact missing residual. Sequential prediction is the step that turns a causal bottleneck into an executable simpler program and directly tests whether the interaction can be predicted rather than replayed."
+      "action": "On the identical frozen ship, co-score paired clean plus a macro factorial over attention, MLP0-2, and deep components to mint same-currency group and whole-model residual denominators.",
+      "why": "The projected lattice measures local causal fidelity but cannot say what fraction of the deployed model is recovered. Paired macro arms close the denominator gap without importing the legacy 0.728-nat or 0.8976-nat currencies."
     },
     {
       "priority": 3,
-      "action": "Factor the passing sequential map through linear, native-product, paired-product, and tensor-head-grain grammars, reporting conditional description length and standalone versus amortized price.",
-      "why": "Tensor/polynomial structure is useful only after the causal interface composes. This comparison can then distinguish genuine shared low-degree structure from an expensive coordinate lookup without conflating syntax with fidelity."
+      "action": "Measure gauge-invariant MLP2-input/post-MLP2 physical-response fidelity and crossed-state MLP2 interchange for projected versus exact upstream states.",
+      "why": "Live exact MLP2 adds only 0.0194 nats after projected upstream and barely clears its heldout interval. State/interchange tests distinguish a transported modular interface from adaptive downstream compensation."
     },
     {
       "priority": 4,
-      "action": "Run the restored-state authoritative content/null screen and conditional code-OOD handoff only as a typed-interface probe, not as a singleton repair license.",
-      "why": "The frozen state is now resumable into the existing FineWeb-to-code pipeline, but the exact cube proves singleton semantics are incomplete. This screen is valuable for naming and domain transfer after the joint composition question, not before it."
+      "action": "Run a hierarchical exact-restoration census outside MLP0-2: typed three-layer windows first, then complete factorials only around winners.",
+      "why": "The early block is only one coupled program. A windowed census maximizes causal coverage and discovers the next missing interface without paying for a combinatorial whole-model cube."
     },
     {
       "priority": 5,
-      "action": "Certify the resulting early-block program on fixed strata, powered interventions, alternate ship backgrounds, and selective-edit collateral effects; in parallel retain the L8-to-L11-to-L14 no-teacher-forcing gauge triangle as the next non-early interface.",
-      "why": "A half-nat exact-restoration reference does not prove response prediction or editability. Certification must test interaction and background transfer, while the gauge triangle remains the best independent route to a transportable coordinate program elsewhere in the model."
+      "action": "After predictor success, compare linear, native-product, paired-product, and tensor-head-grain grammars at equal causal fidelity and conditional description length, then certify OOD/intervention/edit collateral.",
+      "why": "Tensor and polynomial structure should earn simplicity by compressing an executable causal map, not by syntactic relabeling. Equal-fidelity pricing plus transfer/edit tests supplies the missing simplicity and manipulation certificate."
     }
   ],
   "registry_inventory": {
@@ -1259,7 +2489,7 @@
     "sources": {
       "circuits": {
         "path": "/workspace/theseus-bench/registry/circuits.json",
-        "sha256": "e409521db9dbfae2d7b90b478f805afde21ec45587a459d00065566db4eb6342"
+        "sha256": "f26e6ef66a22923634e36fc2e5e34f0bdf252c057a490d6a96af7bb7a4d26705"
       },
       "frontier": {
         "path": "/workspace/theseus-bench/registry/frontier_seed.json",
@@ -1411,6 +2641,14 @@
     "local_pca_strength_control_v1": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_results.json",
       "sha256": "46c7c2556838b79ccbdac892179b4663e8a74b754b16b622b53d6b9b1204826a"
+    },
+    "joint_early_mlp_pca_composition_authoritative_v3": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_results.json",
+      "sha256": "c3408feb031165b747346107841e2e82066aa80ea223ecde845f085d30006587"
+    },
+    "joint_early_mlp_pca_composition_authority_v3": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_authority.json",
+      "sha256": "38cf5a349e4426b4ed3227ad11f37499ffa9c3959de5d85d606580aa32c39f1e"
     }
   }
 }

@@ -38715,3 +38715,75 @@ applies directly.
 rather than assuming either way. The correct outcome here was to find the original
 finding intact; had I assumed the correction propagated, I would have withdrawn
 sound work.
+
+## §1626 Authoritative rank-64 MLP0/1 oracle subspaces compose across the complete mixed early-block lattice (6-for-6; not yet a program)
+
+**Question.** The exact authoritative MLP0--2 cube in §1622 establishes a
+strongly coupled causal interface, but exact restoration is not simpler. Do two
+fresh rank-64 output subspaces preserve that coupled interface, or were the prior
+singleton PCA gains free-riding/co-adapted artifacts? V1 and v2 were superseded
+before outcomes: V1 used another ship and omitted mixed arms; independent review
+found V2 omitted the other-site-deployed background. V3 therefore registered the
+complete `3 x 3 x 2` lattice with MLP0/1 in `{N deployed, P rank64, E exact}` and
+MLP2 in `{N,E}`, twelve no-free-rider effects, twelve same-background exact/40%
+retention tests, and package/downstream gates.
+
+**Authority and lifecycle.** The exact §1622 frozen realization
+`21ddc9ff...ab8e` was restored. On the document-disjoint 96-row/33-document basis
+split, the run captured each missing residual at positions `64::3`, seeded once
+at 161803, fitted uncentered rank-256 PCA, and atomically froze the first 64
+directions for MLP0 and MLP1 before any discovery/heldout arm. It then rescored
+all 18 arms on the 192-row discovery and heldout blocks using a shared
+2,000-draw source-document bootstrap. The exact N/E subcube reproduces §1622
+rowwise with zero error; the heldout baseline replay is bit-identical and the
+component tree is unchanged. Result and manifest remain non-self-authorizing;
+the last-written authority receipt binds result SHA `c3408feb...587`, manifest
+`cae4a309...588`, basis artifact `0eee01f3...4d9`, and basis receipt
+`b81adb4c...a0f`.
+
+**Heldout primary effects (paired CE gain versus NNN).**
+
+```
+PNN (PCA0)              +.09094   [.08281,.09938]
+NPN (PCA1)              +.09197   [.07828,.10681]
+PPN (PCA0+PCA1)         +.22679   [.20955,.24475]
+EEN (exact0+exact1)     +.40031   [.37524,.42526]
+NNE (exact2 alone)      -.23005   [-.25173,-.20772]
+PPE (PCA0+PCA1+exact2) +.24620   [.22250,.27100]
+EEE (all exact)         +.51434   [.48737,.54014]
+```
+
+Thus P0+P1 retains **56.7%** of the exact upstream gain without MLP2. Holding
+exact MLP2 fixed, the projected upstream conditional effect is
+`.24620 - (-.23005) = .47625`, versus `.51434 - (-.23005) = .74440` exact, or
+**64.0%**. The full PPE gain is 47.9% of EEE, reported descriptively rather than
+as a whole-model recovery fraction.
+
+**No free riders or hidden exact-background failure.** Every projected site is
+positive with the other site deployed, projected, or exact, both without and with
+exact MLP2: all twelve heldout cluster lower bounds exceed zero. Every matched
+contrast `dP - .40 dE` also clears zero on discovery/heldout and by heldout lower
+CI; descriptive projected/exact conditional ratios range .525--.764. The P0+P1
+package beats its best projected constituent by **+.13482**
+`[.12083,.14427]` without MLP2 and **+.12585** `[.11189,.14172]` with it. All six
+registered prediction families pass exactly as written.
+
+**Boundary of the claim.** The result licenses fixed rank-64 MLP0 and MLP1
+*oracle residual subspaces* as causally useful, nonredundant interfaces across
+the tested states on this frozen ship. It is not an executable tensor program:
+every P arm still evaluates the missing original MLP to obtain coefficients;
+MLP2 is unsimplified; there is no predictor, original-call-disabled evaluation,
+gauge-invariant state/interchange test, OOD/alternate-background transfer,
+selective edit, or simplicity price. The exact-MLP2 conditional after PP is the
+fragile edge: +.01941 with heldout CI `[.00020,.04127]`; discovery is +.01800 but
+its cluster CI `[-.00341,.03720]` crosses zero. This passes the preregistered
+discovery-point plus heldout-interval rule, but supports only weak downstream
+compatibility.
+
+**Strategic consequence.** The subspace-selection question is closed positively;
+the next falsifiable bridge is coefficient prediction. Fit one frozen sequential
+map per site on separate documents, require MLP1 to consume the state produced by
+predicted MLP0, poison every original-MLP call in predicted arms, and rerun the
+same lattice. In parallel, a same-row clean/macro factorial must mint valid
+whole-model/group denominators; MLP2 state interchange, the remaining-layer
+causal census, and OOD/edit certification remain independent gaps.
