@@ -41240,3 +41240,51 @@ order, reproducing 56.29% of what the MLPs contribute.
 to locate it — recompiling the whole stack once per exempted site, because installing the
 existing program minus one hook would put every map above it off-distribution and measure
 LESSONS 28 instead of the site.
+
+## §1671 — the compiled program's missing 43.7% is DIFFUSE, but the front band has a clean gradient
+
+`compiled_residual_attribution.py`. For each site, the whole stack is RECOMPILED with that
+site exempted and left live; the gain over the full program is what that site costs. The
+recompilation is the expensive choice and the necessary one — installing the existing
+program minus one hook would put every map above it off-distribution and measure LESSONS 28
+instead of the site. Control exact: the no-exemption arm reproduces §1670's 56.29%.
+
+```
+exempt   family   gain    share of the 43.71-point shortfall
+mlp3     table   +4.33%          9.91%
+mlp2     table   +3.17%          7.26%
+mlp4     linear  +1.94%          4.45%
+mlp6     linear  +1.88%          4.31%
+mlp7     linear  +1.87%          4.28%
+...      linear  1.18-1.85%      2.7-4.2%   (fourteen sites in a narrow band)
+mlp1     table   +1.66%          3.79%
+mlp0     table   +0.23%          0.52%
+sum of eighteen single-site gains: +31.86%
+```
+
+**pred_a and pred_b both failed.** I predicted the residual would be concentrated (≥25% at
+one site) and that the worst site would be in the middle band. It is neither: the worst
+site holds under 10%, and it is mlp3. Fourteen of eighteen sites sit within 0.8 points of
+each other. **There is no bottleneck to attack** — the compiled program is uniformly
+imperfect, not locally broken. That is the second time today a diffuse-not-sparse answer
+has come back (§1663 was the first, at head grain inside mlp1), and it is becoming the
+recurring shape of this model.
+
+**What the run did hand over is a gradient inside the front band**, and it is monotone:
+
+```
+mlp0 +0.23    mlp1 +1.66    mlp2 +3.17    mlp3 +4.33
+```
+
+The token table is nearly perfect at mlp0 and steadily worse by mlp3. That tracks §1662's
+per-site ceilings exactly — 90.27%, 96.01%, 76.98%, 67.55% — and it exposes an assumption
+in §1670's program that I imported without checking. The mlp0–3 table boundary came from
+§1668's BAND-level verdict, which was a joint measurement over four sites that are not
+alike. mlp2 and mlp3 are 77% and 68% tabular; treating them like mlp0 and mlp1 is a choice
+the band measurement hid.
+
+`program_family_assignment.py` is queued to move the boundary and, more interestingly, to
+test whether a purely LOCAL criterion — each site keeping whichever family reconstructs its
+own output better in L2, with no access to the end-to-end CE it is scored on — recovers the
+best assignment. If it does, family choice is a cheap per-site decision rather than a
+search.
