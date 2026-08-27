@@ -20,6 +20,8 @@
 # attribution method, so the certified heads are expected to win. If they do not,
 # a registry entry needs correcting.
 #
+# NOTE: rx() was truncated by a line-range splice on first write and returned
+# None; fixed and LESSONS 18 added (splice by marker, gate for returns).
 # Local curated_rows.pt 3 x 333 (digits ~4357 positions), positions >=64,
 # target-side mask, optimal-constant removal, one head at a time.
 #
@@ -55,6 +57,7 @@ def rx(pat):
     for t in range(50257):
         if re.match(pat, ENC.decode([t])):
             v[t] = True
+    return v
 
 CONSTS = torch.load(PT + 'opt_ablation_consts_all.pt', map_location='cpu')
 HSET = {'set': []}

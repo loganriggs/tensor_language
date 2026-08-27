@@ -346,3 +346,21 @@ pre-registered bar**.
   the registry before it replicates (§1614 was mirrored and had to be withdrawn);
   (3) a COMPARATIVE bar needs an absolute floor -- §1616's "SNR beats n" passed
   vacuously because |.0788| > |.0182| while both were indistinguishable from zero.
+
+## 18. Splicing machinery by LINE RANGE truncates functions, and a name-check will not see it (§1617-era)
+Reusing a working harness by `sed -n 'A,Bp'` is fast and has now silently cut a
+function in half. The undefined-NAME gate cannot catch it, because the function
+is still *defined* — just wrong.
+- **Example:** `digits_head_dispute.py` spliced lines 17-40 of `channel_budget.py`
+  to reuse `rx()`. `rx`'s `return v` is on line 41. The gate reported
+  `rx in module: True` and no undefined names, the script passed `ast.parse`, and
+  it died on the GPU with `AttributeError: 'NoneType' object has no attribute
+  'to'` — because `rx()` silently returned None for every class mask.
+- **Near non-example:** splicing a whole contiguous BLOCK located by its own
+  markers (`src.index('def foo')` to `src.index('def bar')`) is safe; it is the
+  hard-coded numeric range that rots the moment the source file shifts by a line.
+- **Rules:** (1) splice by MARKER, never by line number; (2) add a return-check to
+  the pre-queue gate — every function that callers use as a value must contain a
+  `return <value>`; (3) the gate must test SEMANTICS it can afford, not just
+  names. AST-clean + names-defined has now passed three broken scripts in one
+  session (undefined `beats`, dead `if False else`, truncated `rx`).
