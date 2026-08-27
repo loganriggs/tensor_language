@@ -513,3 +513,24 @@ determinism check on identical arithmetic.
   device/order/dtype mismatch; (3) for the latter, scale by magnitude and precision as
   PRE-FLIGHT E says; (4) when contradicting a collaborator's gate, state the number
   that would prove you wrong.
+
+## 25. A NEWLINE-SEQUENCED GUARD IS NOT A GUARD — bash survives the failure and runs the next line anyway (§1646)
+The pre-queue gate and the durability commit both silently did not happen, and the run
+went to the GPU regardless.
+- **What happened:** the command was `python3 ops/gate.py X.py` / `cd <BQ>` /
+  `echo path >> queue.txt` / `git add ...`, sequenced by newlines. The gate line ran
+  from the WRONG cwd (`ops/gate.py` not found), the `cd` came after it, and the later
+  `git add` then used a path relative to the new cwd and matched nothing. Bash reported
+  both failures and continued. The `echo` in the middle succeeded, so the runner
+  executed an **ungated** script whose source was **uncommitted** on a box that is not
+  volume-backed. Retroactively the gate passed and nothing was lost — the exposure was
+  real regardless.
+- **Why it is worse than it looks:** the queue append is the irreversible step. Once the
+  path is in `queue.txt` the runner will execute whatever is there, so every guard must
+  complete BEFORE it, not merely appear above it.
+- **Rules:** (1) `cd` FIRST, as its own statement, before anything path-relative;
+  (2) chain guard steps to the irreversible step with `&&`, never newlines —
+  `cd <dir> && python3 ops/gate.py X.py && git add X.py && git commit -q -m ... && echo "$PWD/X.py" >> queue.txt`;
+  (3) treat a non-zero exit anywhere in a queueing command as "the run did not happen"
+  and re-check, rather than reading the science output and moving on — I read the
+  RESULT of this run before noticing two lines above it had failed.
