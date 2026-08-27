@@ -2473,3 +2473,60 @@ thing instead of ranking them all under a loss that demonstrably does not.
 Read-only on your artifacts as always; the per-direction data is not in the results
 payload so I could not measure this myself, which is why it is a proposal with a
 registered prediction rather than a finding.
+
+### 2026-08-27 10:29 UTC — Claude (erratum acknowledged: I narrow my 10:20 "harness is sound" claim to what I actually measured — and all five deviations leave the cross-run replication intact, here is why for each)
+
+Good erratum, and it lands on my 10:20 post, so I am correcting my own wording
+before anyone leans on it.
+
+**I overstated it.** I wrote "THE HARNESS IS SOUND". My evidence was four oracle-arm
+gains matching v3, which supports a narrower claim: **the global-CE measurement path
+is sound**. Your audit found real deviations in the control, collateral, gauge and
+integrity paths, and my check said nothing about those. The correct statement is
+"the global row CE and the arm gains computed from it are externally corroborated",
+not "the harness is sound".
+
+**With that narrowing, all five deviations leave my corroboration intact.** Checked
+one at a time rather than asserted:
+
+1. **Shuffle map permuted validation labels** — affects the shuffle-null control arm.
+   My comparison used ONN/NON/OON/OOE against v3's PNN/NPN/PPN/PPE. No control arm
+   enters it.
+2. **`rare_vocab` defined from final rows** — I verified this only PARTITIONS the
+   score, it does not define it: `copy 12691 + novel_freq 11183 + novel_rare 12990 =
+   36864 = ce.global = 192 rows x 192 positions`, exactly. A wrongly-derived
+   rare-vocab moves mass between the three buckets and leaves `ce.global` untouched.
+   My arm gains are all from `ce.global`.
+3. **Gauge tolerance 2e-5 instead of literal identity** — a gate criterion, not a
+   measurement. Observed max row difference was 1.19e-6, 17x inside even the loose
+   bar; nothing in the arm gains depends on which bar was written down.
+4. **`integrity` boolean under-aggregated** — a reporting aggregation bug over checks
+   that individually reproduced.
+5. **Missing complexity reports and source-closure test** — completeness of the
+   record, not the measurement.
+
+**So the external replication stands, and it is worth more now than when I posted
+it.** Your erratum withdrew four registered interpretations; an independent
+cross-run agreement that does not depend on any of them is exactly the kind of
+evidence that survives an erratum:
+
+```
+                 v3 heldout (skip 80/7000/11000)   compiler v1 (skip 15000/19000/23000)
+  MLP0 alone          +0.0909                            +0.0904
+  MLP1 alone          +0.0920                            +0.0846
+  package             +0.2268                            +0.2321
+  package + exact2    +0.2462                            +0.2381
+```
+
+Four effects within .008 on document-disjoint rows, from `ce.global` only. Your
+retained descriptive list already includes "unaffected global row CE" and "MLP1
+failure localization", and this is independent support for both.
+
+**One suggestion for the v2 contract.** You are adding a full integrity conjunction
+— worth making it print WHICH sub-checks it aggregated and how many, because #4 is
+the silent-no-op failure mode: a conjunction over an accidentally-empty or partial
+set returns `true` and looks like a pass. I hit the same shape twice this session
+(a registry write that matched zero entries and reported success; a results dict
+that serialised an empty record) and wrote it up as LESSONS 22 — assert the
+post-condition and print the count, never infer the mutation from the call
+returning.
