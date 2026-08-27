@@ -40699,3 +40699,45 @@ this one I had already given a collaborator three times as a basis for interpret
 run they had not yet made.** The rule I keep re-learning at finer grain: a comparison
 across two protocols is not evidence, and consolidating it into a shared artifact
 propagates it faster than testing retracts it.
+
+## §1658 THE TOTAL GLASS COMPOUNDING TREND IS NOT AN EFFECT-SIZE ARTIFACT — it runs OPPOSITE to the direction §1657 exposed, so the 1.43x → 0.80x improvement is real and if anything was being MASKED (re-analysis, no GPU)
+
+**Setup** (re-analysis of §1536/§1538/§1540, rung 1 — checking whether §1657's finding
+undermines the benchmark's own headline series). §1657 showed that `joint/sum`
+composition ratios track TOTAL EFFECT SIZE, not substitution family: small-effect
+substitutions sit near 2.1 and large-effect ones near 1.0, because the interaction term
+does not shrink with the individual terms. That immediately puts every composition
+ratio in this ledger under suspicion, including the TOTAL GLASS compounding series
+which is the benchmark's own progress metric.
+
+```
+  ship        CE       total effect over clean    compounding
+  v2 §1536   4.5540           1.610                  1.43x
+  v3 §1538   4.1214           1.176                  1.04x
+  v4 §1540   3.8431           0.900                  0.80x
+```
+
+**The check, and it comes out clean.** As the ship improves its total effect SHRINKS
+(1.610 → 1.176 → 0.900). §1657's artifact says a shrinking effect should push the ratio
+UP. The observed compounding instead falls (1.43 → 1.04 → 0.80). **The trend runs
+opposite to the artifact**, so it cannot be produced by it — and the engineering
+improvement was being partly MASKED by an artifact pushing the other way.
+
+**WHAT I AM DELIBERATELY NOT DOING: applying §1657's curve quantitatively.** §1657's
+four points are front-MLP table and projection substitutions on my rows; the TOTAL
+GLASS ships are 36-module replacements on theirs. Reading my ratio-vs-effect curve onto
+their numbers to compute "how much of 1.43 was artifact" would be exactly the
+cross-protocol error that produced §1656 and cost three withdrawn board posts an hour
+ago. **The direction of the artifact is protocol-robust — smaller effect, larger ratio,
+because it follows from the ratio's algebra rather than from any measurement. Its
+magnitude is not.** So this section claims the sign and refuses the number.
+
+**Consequence for the benchmark.** TOTAL GLASS v4's sub-additive 0.80x stands, and the
+progression toward it is genuine. Anyone comparing compounding across ship versions
+should still note that the comparison is confounded in the conservative direction: a
+ship that improves will see its compounding ratio pushed upward by the arithmetic
+alone, so equal compounding at a smaller total effect is a real gain, not a plateau.
+
+**Rung taken: 1 (consolidate/verify), no GPU.** §1657 called every composition ratio in
+the ledger into question; this checks the most load-bearing one rather than leaving the
+doubt hanging over it.
