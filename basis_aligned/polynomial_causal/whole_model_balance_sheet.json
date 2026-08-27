@@ -331,16 +331,39 @@
         "pred_c_controlled_range_ge01": true
       },
       "null_share_equalized_budget_per_chunk": 39,
+      "disjoint_class_replication": {
+        "snr_vs_share": {
+          "rho": 0.0788,
+          "p": 0.8356
+        },
+        "n_vs_share": {
+          "rho": 0.0182,
+          "p": 0.9601
+        },
+        "dev_vs_share": {
+          "rho": 0.1879,
+          "p": 0.6036
+        },
+        "inv_sqrt_n_vs_shuffled": {
+          "rho": 0.9879,
+          "p": 0.0
+        }
+      },
+      "disjoint_class_registered_predictions": {
+        "pred_a_snr_replicates_ge60": false,
+        "pred_b_snr_beats_n": true,
+        "pred_c_noise_floor_law_ge95": true
+      },
       "currency": "matched-rank within-run absolute attribution-mass top-k share and component membership at question@MLP11 and pronouns@MLP17",
       "measured_currency": "top-k share and membership over positive signed component contributions",
       "original_currency": "top-k share and membership over absolute component attribution mass",
       "currency_matches_original_writer_claims": true,
       "original_absolute_mass_null_tested": true,
       "positive_only_audit_status": "noncommensurate with the published statistic; question within-run comparison narrow, pronoun measurement saturated; cross-references withdrawn",
-      "status": "absolute-mass null is cell-dependent and cannot be repaired by sample-size equalization: natural n correlates with null share, but equalizing n removes only 6.1% of the between-class spread",
+      "status": "absolute-mass null is cell-dependent and has no known cheap predictor: the discovery n and post-hoc SNR correlations both collapse on disjoint classes; only the 1/sqrt(n) estimation-noise law replicates",
       "scope": "three disjoint 333-row chunks from curated_rows.pt; question counts 105/127/102 and pronoun counts 434/408/399; local census rows, not fresh oracle rows",
-      "claim": "With the published absolute-mass statistic, question@MLP11 concentrates above its matched-rank null (.5563 versus .4489), while pronouns@MLP17 concentrates far below its null (.5846 versus .7295). A powered ten-class control finds natural n associated with null share (rho .673, p .019), but equalizing each class to roughly 117 positions leaves the range at .167 versus .178 natural. Concentration has class-specific sign and geometry; every claim needs its own matched-class, matched-rank, matched-statistic null.",
-      "caveat": "The published .718/.482 values used different rows and are not numerically comparable to this local corpus. The n-control and within-run null gaps use nonfresh curated rows and establish a local structural diagnostic and measurement law\u2014not causal sufficiency, generalization, selective editability, or whole-model programmability."
+      "claim": "With the published absolute-mass statistic, question@MLP11 concentrates above its matched-rank null (.5563 versus .4489), while pronouns@MLP17 concentrates far below its null (.5846 versus .7295). Equalizing n removes only 6.1% of the discovery class spread, and the apparent n correlation then collapses from rho .673 to .018 on ten disjoint classes; the post-hoc SNR candidate similarly collapses from .733 to .079. Only the shuffled estimation floor's 1/sqrt(n) law replicates (rho .988). Every writer claim therefore still needs its own matched-class, matched-rank, matched-statistic null.",
+      "caveat": "The published .718/.482 values used different rows and are not numerically comparable to this local corpus. Both ten-class sets use nonfresh curated rows; the disjoint replication withdraws cheap null predictors and establishes a measurement-noise law, not causal sufficiency, generalization, selective editability, or whole-model programmability."
     },
     "compression_selectivity_boundary": {
       "question_class_function_kept_rank32": 0.9682783235210727,
@@ -597,6 +620,214 @@
       "scope": "document-disjoint curated discovery and heldout rows; exact component-tree match to the saved curated-v2 ship, authority none",
       "claim": "The heldout joint early-block restoration gains 0.5115 nats even though the singleton gains sum to only 0.0573. MLP2 flips from -0.2111 alone to +0.1183 conditional on MLP0+1 restoration. Interaction L1 is 1.744 times the joint gain, so the early block is a coupled causal program and singleton repair is invalid.",
       "caveat": "No same-currency MLP0-2 residual denominator was measured, so the recovery fraction is deliberately null; the legacy 0.728-nat Shapley number is not imported. This is nonfresh authority-none evidence and identifies a joint live-restoration ceiling, not a simpler deployable predictor."
+    },
+    "early_mlp_local_pca_strength_control_exploratory": {
+      "authority": "none",
+      "authorized_for_scored_experiments": false,
+      "training_license_sites": [],
+      "code_ood_licensed": false,
+      "projection_rank": 64,
+      "site_decisions": {
+        "0": {
+          "downstream_kl": {
+            "candidate_split_gains": {
+              "discovery": 0.09423756847778957,
+              "heldout": 0.09254474937915802
+            },
+            "candidate_joint_split_statistic": 0.09254474937915802,
+            "null_joint_split_statistics": {
+              "null_00": 0.009139845768610636,
+              "null_01": 0.04149008790651957,
+              "null_02": 0.03489361082514127,
+              "null_03": 0.033089312414328255,
+              "null_04": 0.04130725065867106,
+              "null_05": 0.037267969300349556,
+              "null_06": 0.047298092395067215,
+              "null_07": 0.03597952673832575,
+              "null_08": 0.03880338494976362,
+              "null_09": 0.034226162980000176,
+              "null_10": 0.025143613417943318,
+              "null_11": 0.03712450588742892,
+              "null_12": 0.025066247830788296,
+              "null_13": 0.04383649304509163,
+              "null_14": 0.03103020911415418,
+              "null_15": 0.03249306852618853,
+              "null_16": 0.04554341112573942,
+              "null_17": 0.02917915831009547,
+              "null_18": 0.030134829382101696,
+              "null_19": 0.030346903949975967
+            },
+            "nulls_at_least_candidate": 0,
+            "exact_one_sided_p": 0.047619047619047616,
+            "heldout_bootstrap_ci95": [
+              0.08554963994150361,
+              0.09975677070518334
+            ],
+            "full_oracle_heldout_gain": 0.11583606898784637,
+            "heldout_fraction_of_full_oracle_gain": 0.798928608228823,
+            "decision": {
+              "candidate_positive_both_splits": true,
+              "heldout_bootstrap_ci95_lower_gt_zero": true,
+              "candidate_beats_all_twenty_nulls_joint_split": true,
+              "heldout_fraction_of_full_oracle_ge_0p40": true,
+              "passes": true
+            }
+          },
+          "raw_rms": {
+            "candidate_split_gains": {
+              "discovery": 0.09423756847778957,
+              "heldout": 0.09254474937915802
+            },
+            "candidate_joint_split_statistic": 0.09254474937915802,
+            "null_joint_split_statistics": {
+              "null_00": 0.012204587459564209,
+              "null_01": 0.04152903954188029,
+              "null_02": 0.03552002211411794,
+              "null_03": 0.033577154080073036,
+              "null_04": 0.04111096759637197,
+              "null_05": 0.038392106691996254,
+              "null_06": 0.04442571972807249,
+              "null_07": 0.03586807350317637,
+              "null_08": 0.03919321919480959,
+              "null_09": 0.03441490853826205,
+              "null_10": 0.029101678480704624,
+              "null_11": 0.03767678762475649,
+              "null_12": 0.02729546402891477,
+              "null_13": 0.043616545697053276,
+              "null_14": 0.03212716430425644,
+              "null_15": 0.03403509656588236,
+              "null_16": 0.043198589235544205,
+              "null_17": 0.028976183384656906,
+              "null_18": 0.031828947365283966,
+              "null_19": 0.030612433950106304
+            },
+            "nulls_at_least_candidate": 0,
+            "exact_one_sided_p": 0.047619047619047616,
+            "heldout_bootstrap_ci95": [
+              0.08554963994150361,
+              0.09975677070518334
+            ],
+            "full_oracle_heldout_gain": 0.11583606898784637,
+            "heldout_fraction_of_full_oracle_gain": 0.798928608228823,
+            "decision": {
+              "candidate_positive_both_splits": true,
+              "heldout_bootstrap_ci95_lower_gt_zero": true,
+              "candidate_beats_all_twenty_nulls_joint_split": true,
+              "heldout_fraction_of_full_oracle_ge_0p40": true,
+              "passes": true
+            }
+          },
+          "passes_both_strength_controls": true
+        },
+        "1": {
+          "downstream_kl": {
+            "candidate_split_gains": {
+              "discovery": 0.07259154195586841,
+              "heldout": 0.07889982437094052
+            },
+            "candidate_joint_split_statistic": 0.07259154195586841,
+            "null_joint_split_statistics": {
+              "null_00": -0.011563412845134735,
+              "null_01": -0.002594154328107834,
+              "null_02": -0.011946809788544973,
+              "null_03": -0.020106054842472076,
+              "null_04": 0.002640005201101303,
+              "null_05": -0.040522076189517975,
+              "null_06": -0.010198046763737997,
+              "null_07": -0.021535908182462055,
+              "null_08": -0.014471987883249918,
+              "null_09": -0.02163764213522275,
+              "null_10": -0.01754456510146459,
+              "null_11": 0.008603502064943314,
+              "null_12": 0.02419877052307129,
+              "null_13": -0.003970903654893239,
+              "null_14": -0.02184005205829938,
+              "null_15": -0.0355960913002491,
+              "null_16": 0.012988623231649399,
+              "null_17": 0.005137318124373754,
+              "null_18": -0.0016838821272055309,
+              "null_19": 0.0024794588486353555
+            },
+            "nulls_at_least_candidate": 0,
+            "exact_one_sided_p": 0.047619047619047616,
+            "heldout_bootstrap_ci95": [
+              0.06676374208182097,
+              0.0905253969443341
+            ],
+            "full_oracle_heldout_gain": 0.15261724591255188,
+            "heldout_fraction_of_full_oracle_gain": 0.5169784312327934,
+            "decision": {
+              "candidate_positive_both_splits": true,
+              "heldout_bootstrap_ci95_lower_gt_zero": true,
+              "candidate_beats_all_twenty_nulls_joint_split": true,
+              "heldout_fraction_of_full_oracle_ge_0p40": true,
+              "passes": true
+            }
+          },
+          "raw_rms": {
+            "candidate_split_gains": {
+              "discovery": 0.07259154195586841,
+              "heldout": 0.07889982437094052
+            },
+            "candidate_joint_split_statistic": 0.07259154195586841,
+            "null_joint_split_statistics": {
+              "null_00": 0.0393703319132328,
+              "null_01": 0.04214876269300779,
+              "null_02": 0.025507890929778416,
+              "null_03": 0.03353464603424072,
+              "null_04": 0.034035079181194305,
+              "null_05": 0.01131929581363996,
+              "null_06": 0.03847460821270943,
+              "null_07": 0.016564179211854935,
+              "null_08": 0.03348978857199351,
+              "null_09": 0.022724103182554245,
+              "null_10": 0.024159712096055348,
+              "null_11": 0.045693775018056236,
+              "null_12": 0.0505256342391173,
+              "null_13": 0.03992238516608874,
+              "null_14": 0.027266304939985275,
+              "null_15": 0.028431382030248642,
+              "null_16": 0.06035207584500313,
+              "null_17": 0.0399433933198452,
+              "null_18": 0.04338077579935392,
+              "null_19": 0.048505570739507675
+            },
+            "nulls_at_least_candidate": 0,
+            "exact_one_sided_p": 0.047619047619047616,
+            "heldout_bootstrap_ci95": [
+              0.06676374208182097,
+              0.0905253969443341
+            ],
+            "full_oracle_heldout_gain": 0.15261724591255188,
+            "heldout_fraction_of_full_oracle_gain": 0.5169784312327934,
+            "decision": {
+              "candidate_positive_both_splits": true,
+              "heldout_bootstrap_ci95_lower_gt_zero": true,
+              "candidate_beats_all_twenty_nulls_joint_split": true,
+              "heldout_fraction_of_full_oracle_ge_0p40": true,
+              "passes": true
+            }
+          },
+          "passes_both_strength_controls": true
+        }
+      },
+      "registered_predictions": {
+        "pred_a_mlp0_local_interface_passes": true,
+        "pred_b_mlp1_local_interface_passes": true,
+        "pred_c_both_strength_controls_agree_at_both_sites": true
+      },
+      "heldout_local_pca_gain": {
+        "0": 0.09254474937915802,
+        "1": 0.07889982437094052
+      },
+      "heldout_fraction_of_full_oracle": {
+        "0": 0.798928608228823,
+        "1": 0.5169784312327934
+      },
+      "currency": "paired discovery/heldout CE gain with S=min(split gains) and exact 20-null tests under independently suffix-KL- and basis-RMS-matched intervention strength",
+      "scope": "rank-64 projections of the exact live missing residual at MLP0/1 on one frozen document-disjoint curated-v2 realization; PCA fit only on the basis split and strength fit only on the 40-row spare split",
+      "claim": "A low-rank causal residual bottleneck survives strength controls at both early sites. MLP0 PCA restores 0.0925 heldout nats (79.9% of its full oracle) and MLP1 restores 0.0789 nats (51.7%); each candidate beats all twenty same-identity Haar nulls under both suffix-KL and raw-RMS matching (four exact p=1/21 tests).",
+      "caveat": "This authority-none result licenses only an oracle-selected residual subspace for a separately priced coefficient predictor. The PCA coefficients still consume the exact missing residual, simultaneous MLP0/1 composition is untested, MLP2 has no admitted subspace, and no semantic, simplicity, OOD, predictor, or training license is created."
     }
   },
   "current_bottleneck": {
@@ -616,8 +847,8 @@
     },
     {
       "priority": 2,
-      "action": "Run the preregistered dual-strength local-PCA control at MLP0/1, then require simultaneous installation to retain the joint ceiling before admitting any residual subspace.",
-      "why": "Local PCA captured large singleton gains but at roughly twice the content/null correction RMS. Downstream-KL and raw-RMS matched nulls decide whether a low-rank oracle bottleneck exists; the new factorial requires an additional joint-composition gate even if both singleton controls pass."
+      "action": "Run a preregistered simultaneous live composition cube for PCA-projected MLP0/1 with conditional exact MLP2 restoration, and require it to retain a substantial fraction of the exact joint ceiling before admitting the residual subspaces as a coupled interface.",
+      "why": "Both rank-64 singleton PCA interfaces now beat all 20 nulls under suffix-KL and raw-RMS matching, recovering 79.9% and 51.7% of their full singleton oracles. But the exact factorial showed dominant state-dependent interactions, so singleton success is not compositional evidence."
     },
     {
       "priority": 3,
@@ -700,7 +931,7 @@
     "sources": {
       "circuits": {
         "path": "/workspace/theseus-bench/registry/circuits.json",
-        "sha256": "81def586c050431db8698469f1b2915decc8445aec98ee176ef3e620fed2c941"
+        "sha256": "dd654aa27b6f386f5affb8f3df7a3d871ae3c304ae78a2b371e6f0afb3c972e2"
       },
       "frontier": {
         "path": "/workspace/theseus-bench/registry/frontier_seed.json",
@@ -813,6 +1044,10 @@
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/null_n_control_results.json",
       "sha256": "48ebc6cc9ca157405fa46a439eda151c99d805ab32797df740c44bc7bc63696f"
     },
+    "writer_null_snr_replication": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/snr_replication_results.json",
+      "sha256": "0d006af0e1dbb0e8d813b687b7e45afea6965f648cc7034b025071811aa5d05f"
+    },
     "extraction_rank": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/extraction_rank_results.json",
       "sha256": "fc5848828d735fbe173877a60a3b45277f9878d39f27014d339f2b60bc9392d9"
@@ -836,6 +1071,10 @@
     "joint_early_mlp_oracle_curated_dev_v2": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_curated_dev_v2_results.json",
       "sha256": "2092cf602ebfb5bbf4459b7a42196e689cc6e5d744de928f9dfe1be9fdd26e55"
+    },
+    "local_pca_strength_control_v1": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_results.json",
+      "sha256": "46c7c2556838b79ccbdac892179b4663e8a74b754b16b622b53d6b9b1204826a"
     }
   }
 }

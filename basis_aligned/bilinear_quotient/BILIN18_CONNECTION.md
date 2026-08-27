@@ -38176,3 +38176,32 @@ freely chosen predictors, p < .05 carries almost no information.** Every
 correlational claim in this program on ~10 units needs a disjoint confirmatory set
 before it is quoted, and §1615's decision to mark the SNR result unscored is what
 kept it out of the registry.
+
+### 2026-08-27 — rank-64 early residual subspaces pass dual strength-matched causal nulls
+
+The original curated-v2 oracle screen left an important comparison invalid: its
+twenty rank-64 Haar nulls were scaled to the much smaller prose-content correction
+RMS, whereas the local-PCA arms applied substantially stronger corrections. A new
+preregistered delta run reused the exact saved ship, row allocation, PCA bases,
+and null identities without refitting. It independently matched every null to the
+PCA arm by (1) median suffix `KL(ship || intervention)` on the 40 spare rows and
+(2) raw correction RMS on the frozen basis residual samples, freezing a hashed
+scale receipt before discovery/heldout scoring.
+
+Both MLP0 and MLP1 pass both controls. MLP0's local PCA restores **.09254 heldout
+nats**, or **79.9%** of its .11584 full-oracle singleton gain; MLP1 restores
+**.07890**, or **51.7%** of .15262. Their discovery gains are .09424 and .07259,
+and heldout paired-bootstrap 95% lower bounds are .08555 and .06676. In all four
+site/control tests, `S=min(discovery gain, heldout gain)` exceeds all twenty
+same-identity Haar null statistics, giving exact one-sided **p=1/21**. The narrowest
+margin is MLP1 under raw-RMS matching: .07259 candidate versus .06035 maximum null.
+
+This is a real simplification of the *causal interface*: 64 of 1152 output
+directions retain most of the useful singleton repair at both early sites, after
+controlling intervention strength. It is not yet a simpler tensor program. PCA was
+selected using the exact missing residual and every coefficient is still obtained
+by projecting that oracle residual. Moreover, the exact restoration cube showed
+that MLP2 changes sign only after upstream repair and that interactions dominate.
+The next valid test is therefore simultaneous live PCA0/PCA1 composition with the
+conditional exact MLP2 arm; independent predictor fitting would repeat the same
+upstream-state mismatch that made MLP2 look harmful in isolation.

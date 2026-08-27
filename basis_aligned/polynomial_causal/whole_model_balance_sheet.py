@@ -43,12 +43,14 @@ DEFAULT_SOURCES = {
     "writer_floor_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/writer_floor_pronouns_results.json",
     "writer_floor_absmass": TENSOR_ROOT / "basis_aligned/bilinear_quotient/writer_floor_absmass_results.json",
     "writer_null_n_control": TENSOR_ROOT / "basis_aligned/bilinear_quotient/null_n_control_results.json",
+    "writer_null_snr_replication": TENSOR_ROOT / "basis_aligned/bilinear_quotient/snr_replication_results.json",
     "extraction_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_rank_results.json",
     "extraction_question": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_results.json",
     "extraction_pronouns": TENSOR_ROOT / "basis_aligned/bilinear_quotient/extraction_bg_p_results.json",
     "compression_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/compression_rank3_results.json",
     "local_ship_oracle_curated_dev_v2": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_content_oracle_curated_dev_v2_results.json",
     "joint_early_mlp_oracle_curated_dev_v2": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_curated_dev_v2_results.json",
+    "local_pca_strength_control_v1": TENSOR_ROOT / "basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_results.json",
 }
 
 
@@ -150,12 +152,14 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     writer_floor_pronouns = data["writer_floor_pronouns"]
     writer_floor_absmass = data["writer_floor_absmass"]
     writer_null_n = data["writer_null_n_control"]
+    writer_null_snr = data["writer_null_snr_replication"]
     extraction_rank = data["extraction_rank"]
     extraction_question = data["extraction_question"]
     extraction_pronouns = data["extraction_pronouns"]
     compression_rank = data["compression_rank"]
     local_oracle = data["local_ship_oracle_curated_dev_v2"]
     joint_early_oracle = data["joint_early_mlp_oracle_curated_dev_v2"]
+    local_pca_strength = data["local_pca_strength_control_v1"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
     factorial_cells = factorial_primary["cells"]
@@ -382,16 +386,18 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "null_share_equalized_n_spearman": writer_null_n["spearman_controlled"],
             "null_share_n_control_predictions": writer_null_n["predictions"],
             "null_share_equalized_budget_per_chunk": writer_null_n["budget_per_chunk"],
+            "disjoint_class_replication": writer_null_snr["spearman"],
+            "disjoint_class_registered_predictions": writer_null_snr["predictions"],
             "currency": "matched-rank within-run absolute attribution-mass top-k share and component membership at question@MLP11 and pronouns@MLP17",
             "measured_currency": "top-k share and membership over positive signed component contributions",
             "original_currency": "top-k share and membership over absolute component attribution mass",
             "currency_matches_original_writer_claims": True,
             "original_absolute_mass_null_tested": True,
             "positive_only_audit_status": "noncommensurate with the published statistic; question within-run comparison narrow, pronoun measurement saturated; cross-references withdrawn",
-            "status": "absolute-mass null is cell-dependent and cannot be repaired by sample-size equalization: natural n correlates with null share, but equalizing n removes only 6.1% of the between-class spread",
+            "status": "absolute-mass null is cell-dependent and has no known cheap predictor: the discovery n and post-hoc SNR correlations both collapse on disjoint classes; only the 1/sqrt(n) estimation-noise law replicates",
             "scope": "three disjoint 333-row chunks from curated_rows.pt; question counts 105/127/102 and pronoun counts 434/408/399; local census rows, not fresh oracle rows",
-            "claim": "With the published absolute-mass statistic, question@MLP11 concentrates above its matched-rank null (.5563 versus .4489), while pronouns@MLP17 concentrates far below its null (.5846 versus .7295). A powered ten-class control finds natural n associated with null share (rho .673, p .019), but equalizing each class to roughly 117 positions leaves the range at .167 versus .178 natural. Concentration has class-specific sign and geometry; every claim needs its own matched-class, matched-rank, matched-statistic null.",
-            "caveat": "The published .718/.482 values used different rows and are not numerically comparable to this local corpus. The n-control and within-run null gaps use nonfresh curated rows and establish a local structural diagnostic and measurement law—not causal sufficiency, generalization, selective editability, or whole-model programmability.",
+            "claim": "With the published absolute-mass statistic, question@MLP11 concentrates above its matched-rank null (.5563 versus .4489), while pronouns@MLP17 concentrates far below its null (.5846 versus .7295). Equalizing n removes only 6.1% of the discovery class spread, and the apparent n correlation then collapses from rho .673 to .018 on ten disjoint classes; the post-hoc SNR candidate similarly collapses from .733 to .079. Only the shuffled estimation floor's 1/sqrt(n) law replicates (rho .988). Every writer claim therefore still needs its own matched-class, matched-rank, matched-statistic null.",
+            "caveat": "The published .718/.482 values used different rows and are not numerically comparable to this local corpus. Both ten-class sets use nonfresh curated rows; the disjoint replication withdraws cheap null predictors and establishes a measurement-noise law, not causal sufficiency, generalization, selective editability, or whole-model programmability.",
         },
         "compression_selectivity_boundary": {
             "question_class_function_kept_rank32": 1.0 - extraction_question["res"]["bg_class_rise"] / extraction_question["res"]["const_class_rise_ref"],
@@ -447,6 +453,27 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "The heldout joint early-block restoration gains 0.5115 nats even though the singleton gains sum to only 0.0573. MLP2 flips from -0.2111 alone to +0.1183 conditional on MLP0+1 restoration. Interaction L1 is 1.744 times the joint gain, so the early block is a coupled causal program and singleton repair is invalid.",
             "caveat": "No same-currency MLP0-2 residual denominator was measured, so the recovery fraction is deliberately null; the legacy 0.728-nat Shapley number is not imported. This is nonfresh authority-none evidence and identifies a joint live-restoration ceiling, not a simpler deployable predictor.",
         },
+        "early_mlp_local_pca_strength_control_exploratory": {
+            "authority": local_pca_strength["authority"],
+            "authorized_for_scored_experiments": local_pca_strength["authorized_for_scored_experiments"],
+            "training_license_sites": local_pca_strength["training_license_sites"],
+            "code_ood_licensed": local_pca_strength["code_ood_licensed"],
+            "projection_rank": local_pca_strength["config"]["projection_rank"],
+            "site_decisions": local_pca_strength["site_decisions"],
+            "registered_predictions": local_pca_strength["registered_predictions"],
+            "heldout_local_pca_gain": {
+                site: local_pca_strength["site_decisions"][site]["downstream_kl"]
+                ["candidate_split_gains"]["heldout"] for site in ("0", "1")
+            },
+            "heldout_fraction_of_full_oracle": {
+                site: local_pca_strength["site_decisions"][site]["downstream_kl"]
+                ["heldout_fraction_of_full_oracle_gain"] for site in ("0", "1")
+            },
+            "currency": "paired discovery/heldout CE gain with S=min(split gains) and exact 20-null tests under independently suffix-KL- and basis-RMS-matched intervention strength",
+            "scope": "rank-64 projections of the exact live missing residual at MLP0/1 on one frozen document-disjoint curated-v2 realization; PCA fit only on the basis split and strength fit only on the 40-row spare split",
+            "claim": "A low-rank causal residual bottleneck survives strength controls at both early sites. MLP0 PCA restores 0.0925 heldout nats (79.9% of its full oracle) and MLP1 restores 0.0789 nats (51.7%); each candidate beats all twenty same-identity Haar nulls under both suffix-KL and raw-RMS matching (four exact p=1/21 tests).",
+            "caveat": "This authority-none result licenses only an oracle-selected residual subspace for a separately priced coefficient predictor. The PCA coefficients still consume the exact missing residual, simultaneous MLP0/1 composition is untested, MLP2 has no admitted subspace, and no semantic, simplicity, OOD, predictor, or training license is created.",
+        },
     }
 
     current_ship = inventory.get("current_composite", {})
@@ -497,8 +524,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             },
             {
                 "priority": 2,
-                "action": "Run the preregistered dual-strength local-PCA control at MLP0/1, then require simultaneous installation to retain the joint ceiling before admitting any residual subspace.",
-                "why": "Local PCA captured large singleton gains but at roughly twice the content/null correction RMS. Downstream-KL and raw-RMS matched nulls decide whether a low-rank oracle bottleneck exists; the new factorial requires an additional joint-composition gate even if both singleton controls pass.",
+                "action": "Run a preregistered simultaneous live composition cube for PCA-projected MLP0/1 with conditional exact MLP2 restoration, and require it to retain a substantial fraction of the exact joint ceiling before admitting the residual subspaces as a coupled interface.",
+                "why": "Both rank-64 singleton PCA interfaces now beat all 20 nulls under suffix-KL and raw-RMS matching, recovering 79.9% and 51.7% of their full singleton oracles. But the exact factorial showed dominant state-dependent interactions, so singleton success is not compositional evidence.",
             },
             {
                 "priority": 3,

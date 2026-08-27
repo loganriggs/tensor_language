@@ -148,7 +148,7 @@ def test_writer_null_preserves_metric_mismatch_and_measurement_failure():
     assert writer["null_share_n_control_predictions"]["pred_b_controlled_range_lt05"] is False
     assert "cell-dependent" in writer["status"]
     assert "matched-class" in writer["claim"]
-    assert "local structural diagnostic" in writer["caveat"]
+    assert "withdraws cheap null predictors" in writer["caveat"]
 
 
 def test_compression_is_priced_fidelity_not_circuit_selectivity():
@@ -196,3 +196,34 @@ def test_joint_early_oracle_requires_coupled_program_and_same_currency_denominat
     assert all(oracle["registered_predictions"].values())
     assert "coupled causal program" in oracle["claim"]
     assert "deliberately null" in oracle["caveat"]
+
+
+def test_local_pca_strength_controls_license_only_an_oracle_subspace():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    oracle = sheet["ledgers"]["early_mlp_local_pca_strength_control_exploratory"]
+    assert oracle["authority"] == "none"
+    assert oracle["authorized_for_scored_experiments"] is False
+    assert oracle["training_license_sites"] == []
+    assert oracle["code_ood_licensed"] is False
+    assert oracle["projection_rank"] == 64
+    for site in ("0", "1"):
+        assert oracle["site_decisions"][site]["passes_both_strength_controls"] is True
+        for control in ("downstream_kl", "raw_rms"):
+            decision = oracle["site_decisions"][site][control]
+            assert decision["nulls_at_least_candidate"] == 0
+            assert decision["exact_one_sided_p"] == 1 / 21
+            assert decision["decision"]["passes"] is True
+    assert oracle["heldout_fraction_of_full_oracle"]["0"] > 0.79
+    assert oracle["heldout_fraction_of_full_oracle"]["1"] > 0.51
+    assert "oracle-selected" in oracle["caveat"]
+
+
+def test_writer_null_predictors_are_withdrawn_after_disjoint_replication():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    writer = sheet["ledgers"]["tensor_writer_specificity"]
+    replication = writer["disjoint_class_replication"]
+    assert abs(replication["n_vs_share"]["rho"]) < 0.02
+    assert abs(replication["snr_vs_share"]["rho"]) < 0.08
+    assert replication["inv_sqrt_n_vs_shuffled"]["rho"] > 0.98
+    assert writer["disjoint_class_registered_predictions"]["pred_a_snr_replicates_ge60"] is False
+    assert "withdraws cheap null predictors" in writer["caveat"]
