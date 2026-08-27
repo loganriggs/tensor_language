@@ -6,7 +6,8 @@ import torch
 
 from .shared_value_gauge import apply_shared_gauge, value_output_action
 from .shared_value_output_codec import (decode_shared_head, descriptive_bits,
-                                        encode_shared_head)
+                                        decode_qk_keyed_heads, encode_shared_head,
+                                        encode_qk_keyed_heads)
 
 
 HERE = Path(__file__).resolve().parent
@@ -67,8 +68,40 @@ class SharedValueOutputCodecTest(unittest.TestCase):
         self.assertIn("not_checkpoint_priced", contract["status"])
         self.assertIn("S9", contract["scope"])
         self.assertTrue(contract["encoding"]["literal_bits_are_descriptive_only"])
-        self.assertIn("held-out, composite, extraction, removal, and OOD",
-                      contract["required_tests"][-1])
+        self.assertTrue(any("held-out, composite, extraction, removal, and OOD" in item
+                            for item in contract["required_tests"]))
+
+    def test_qk_keyed_bundle_quotients_only_common_head_permutation(self):
+        values2 = [[matrix + 0.25 for matrix in self.values],
+                   [matrix - 0.4 for matrix in self.values]]
+        outputs2 = [[matrix - 0.1 for matrix in self.outputs],
+                    [matrix + 0.3 for matrix in self.outputs]]
+        keys = [b"canonical-qk-head-z", b"canonical-qk-head-a"]
+        expected = encode_qk_keyed_heads(values2, outputs2, keys, 14)
+        gauged_values = []; gauged_outputs = []
+        for values, outputs in zip(values2, outputs2):
+            gv, go = apply_shared_gauge(values, outputs, self.gauge)
+            gauged_values.append(gv); gauged_outputs.append(go)
+        actual = encode_qk_keyed_heads(gauged_values[::-1], gauged_outputs[::-1],
+                                       keys[::-1], 14)
+        self.assertEqual(expected, actual)
+        header, entries = decode_qk_keyed_heads(actual)
+        self.assertEqual(header["heads"], 2)
+        self.assertEqual(len(entries), 2)
+
+    def test_equal_routing_heads_use_canonical_vo_tie_break(self):
+        values = [self.values, [matrix + .3 for matrix in self.values]]
+        outputs = [self.outputs, [matrix - .2 for matrix in self.outputs]]
+        first = encode_qk_keyed_heads(values, outputs, [b"same", b"same"])
+        second = encode_qk_keyed_heads(values[::-1], outputs[::-1], [b"same", b"same"])
+        self.assertEqual(first, second)
+
+    def test_qk_keyed_bundle_rejects_truncation(self):
+        values = [self.values, self.values]
+        outputs = [self.outputs, self.outputs]
+        encoded = encode_qk_keyed_heads(values, outputs, [b"first", b"second"])
+        with self.assertRaises(ValueError):
+            decode_qk_keyed_heads(encoded[:-4])
 
 
 if __name__ == "__main__":

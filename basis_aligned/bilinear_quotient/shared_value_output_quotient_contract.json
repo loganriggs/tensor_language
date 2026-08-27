@@ -37,7 +37,7 @@
     "invariant": "rowspace projector of V0_h",
     "basis_rule": "lexicographic Gram-Schmidt of projected ambient coordinate axes",
     "failure_policy": "reject rank-deficient or tolerance-boundary generic strata",
-    "codec_status": "one-head CPU canonicalization/serialization fixture implemented; cross-head S9 canonicalization and checkpoint quotient_bits remain absent"
+    "codec_status": "CPU serialization fixture implements shared GL canonicalization and QK-keyed common S9 ordering; checkpoint quotient_bits remain absent"
   },
   "checkpoint_genericity_evidence": {
     "source": "shared_value_gauge_audit_results.json",
