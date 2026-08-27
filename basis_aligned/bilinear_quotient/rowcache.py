@@ -34,11 +34,35 @@ def _path(n, skip):
     return os.path.join(CACHE, f'fineweb_n{n}_skip{skip}.pt')
 
 
+def _load_checked(path, n):
+    rows = torch.load(path, map_location='cpu', weights_only=True)
+    expected = (n, T_LEN)
+    if not isinstance(rows, torch.Tensor) or tuple(rows.shape) != expected:
+        raise RuntimeError(
+            f'invalid FineWeb row cache {path}: expected tensor {expected}, '
+            f'got {type(rows).__name__} {getattr(rows, "shape", None)}')
+    if rows.dtype != torch.long:
+        raise RuntimeError(
+            f'invalid FineWeb row cache {path}: expected torch.long, got {rows.dtype}')
+    return rows
+
+
+def _save_atomic(rows, path):
+    """Never expose a truncated torch.save as a valid cache entry."""
+    tmp = f'{path}.tmp.{os.getpid()}'
+    try:
+        torch.save(rows, tmp)
+        os.replace(tmp, path)
+    finally:
+        if os.path.exists(tmp):
+            os.remove(tmp)
+
+
 def get(n, skip):
     """Cached single (n, skip). Falls back to a one-spec multi-harvest."""
     p = _path(n, skip)
     if os.path.exists(p):
-        return torch.load(p, map_location='cpu')
+        return _load_checked(p, n)
     return multi([(n, skip)])[(n, skip)]
 
 
@@ -51,7 +75,7 @@ def multi(specs):
     for n, skip in specs:
         p = _path(n, skip)
         if os.path.exists(p):
-            out[(n, skip)] = torch.load(p, map_location='cpu')
+            out[(n, skip)] = _load_checked(p, n)
         else:
             need.append((n, skip))
     if not need:
@@ -63,13 +87,8 @@ def multi(specs):
     # identical dedup set to census_lib.fineweb_rows
     seen = {tuple(cl.FW[r, :32].tolist()) for r in range(cl.FW.shape[0])}
     active = {spec: [] for spec in need}          # spec -> harvested rows
-    started = {spec: False for spec in need}
     sk = 0
     for ex in ds:
-        for spec in need:
-            n, skip = spec
-            if sk >= skip and len(active[spec]) < n:
-                started[spec] = True
         if not any(sk >= skip for _, skip in need):
             sk += 1
             continue
@@ -90,7 +109,11 @@ def multi(specs):
             break
     for spec in need:
         t = torch.tensor(active[spec], dtype=torch.long)
-        torch.save(t, _path(*spec))
+        if tuple(t.shape) != (spec[0], T_LEN):
+            raise RuntimeError(
+                f'FineWeb stream ended before {spec}: harvested {tuple(t.shape)}; '
+                'refusing to cache an incomplete result')
+        _save_atomic(t, _path(*spec))
         out[spec] = t
     return out
 

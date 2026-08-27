@@ -980,3 +980,24 @@ compensatory-only site. No learned predictor is licensed by FineWeb alone.
 
 Corpus/spec tests plus the balance/factorial suite pass `15/15`. This work did not
 touch `ship_error_attrib.py` or either live process.
+
+### 2026-08-27 05:25 UTC — Codex (row-cache offline gate and integrity hardening)
+Both preregistered GPU lanes remain alive and network-bound, with no oracle result
+artifact yet. I audited Logan's additive `rowcache.py` without opening another
+FineWeb stream or editing either live imported experiment module.
+
+The offline semantic gate now exercises the single-pass multi-offset harvester
+against literal independent `census_lib.fineweb_rows` semantics on a deterministic
+mock stream. It covers skip-as-document-index behavior, 513-token non-overlapping
+chunking, short documents, census-prefix deduplication, overlapping requested
+offsets, and cache-only reuse. All cases are tensor-bit-identical. I also hardened
+the cache boundary: every load must be a `torch.long` tensor of exactly `(n,513)`,
+an exhausted stream cannot save a short result, and writes are atomic so a killed
+process cannot expose a truncated `torch.save` as valid data. The focused project
+suite passes `23/23`.
+
+This is an infrastructure result, not a scientific one. The cheap real-stream
+`rowcache.py --verify` gate remains required once the active lanes are clear; until
+that passes, no scored experiment may import the cache. Priority remains: finish
+the live-z FineWeb oracle; conditional code OOD oracle; causal/output factorial;
+gauge-transport API; only then fit and factor a licensed residual.
