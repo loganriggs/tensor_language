@@ -38,6 +38,7 @@ SENTINEL_POSITIONS = (64, 127, 191, 255)
 sys.path.insert(0, str(HERE))
 import code_ood_oracle as code_oracle  # noqa: E402
 import prepare_fineweb_oracle_rows as row_prep  # noqa: E402
+import source_global_preflight  # noqa: E402
 
 
 def file_sha256(path: Path) -> str:
@@ -183,6 +184,12 @@ def exact_fineweb_decisions(result: dict[str, Any]) -> dict[str, dict[str, Any]]
 
 
 def main() -> None:
+    source_global_preflight.require_defined_globals([
+        BQ / "ship_error_attrib.py",
+        HERE / "code_ood_oracle.py",
+        HERE / "prepare_fineweb_oracle_rows.py",
+        Path(__file__),
+    ])
     archive_hash = archive_preliminary_result()
     row_receipt, frozen_rows = row_prep.validate_receipt()
     code_rows, code_manifest = code_oracle.load_frozen_corpus()
