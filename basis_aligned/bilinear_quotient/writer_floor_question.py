@@ -229,22 +229,28 @@ def depth_curve(rows, V2, lam2, mask_v):
 
 
 
-# ONE STREAM, THREE CHUNKS.  Measured 2026-08-27: census_lib.fineweb_rows opens
-# its OWN load_dataset(streaming=True) per call, and the HF cache holds ZERO
-# fineweb parquet files (48K total) -- streaming caches nothing, so every call
-# re-downloads from scratch.  Three calls = three full re-downloads, which is the
-# dominant cost, NOT the offset: attempts at skips [15000,20000,25000] (29 min)
-# and [80,300,600] (25 min) both died in rows_cache without reaching compute.
-# So: one 288-row load, split into three disjoint 96-row chunks.
-# LIMITATION, stated because it is a real weakening: the chunks are contiguous in
-# the stream rather than separated by large skips, so they are LESS independent
-# than S1603-style disjoint samples.  Acceptable here -- the registered
-# predictions are about writer-set OVERLAP between bases on the same rows, not
-# about across-sample variance -- but this design must NOT be reused for a
-# spread/replication measurement, where independence is the whole point.
+# LOCAL CORPUS -- NO NETWORK.  Decision recorded 2026-08-27 06:08 against a
+# criterion registered BEFORE the fact ("if still in rows_cache past 900 s, a
+# single FineWeb stream is unaffordable").  Three configurations died in
+# rows_cache without reaching compute: skips [15000,20000,25000] (1740 s),
+# [80,300,600] (1526 s), and a SINGLE 288-row stream (1026 s, 0 retries -- not
+# erroring, just too slow).  The HF cache holds ZERO fineweb parquet files, so
+# streaming re-downloads every time, and there is no HF_TOKEN on this box.
+#
+# Rows now come from bilin18_eval_tokens_large.pt (512, 513) int64, already on
+# disk and loaded at import by bilin18_joint_removal as FW.
+#
+# LIMITATION, stated because it is real: FW is the DEDUP set that
+# census_lib.fineweb_rows EXCLUDES, so these rows are not "fresh" in this
+# program's sense, and a share computed on them is NOT directly comparable to
+# S1597's .718 figure.  What survives intact is every REGISTERED bar: pred_a,
+# pred_b and pred_c are all WITHIN-RUN comparisons between the |lambda| arm and
+# the random arm on IDENTICAL rows, so the floor question is answered exactly as
+# designed.  Only the incidental cross-reference to .718 weakens, and the writeup
+# must say so rather than quoting the two side by side.
 CHUNKS = 3
 ROWS_PER_CHUNK = 96
-BASE_SKIP = 80
+LOCAL_ROWS = 'bilin18_eval_tokens_large.pt'
 SITE_Q = 11
 RANK_Q = 2
 QPAT = r'^\?$| \?$'
@@ -271,10 +277,12 @@ def main():
           f"{[round(float(x), 3) for x in lam_l]}  (S1597 ref: +144.9/-73.8, top4 share .718)",
           flush=True)
 
-    _all = cl.fineweb_rows(CHUNKS * ROWS_PER_CHUNK, skip=BASE_SKIP)[:, :T + 1].contiguous()
+    _all = torch.load(PT + LOCAL_ROWS, map_location='cpu')[
+        :CHUNKS * ROWS_PER_CHUNK, :T + 1].contiguous()
     assert _all.shape[0] == CHUNKS * ROWS_PER_CHUNK, f'short load {_all.shape}'
     rows_cache = {c: _all[c * ROWS_PER_CHUNK:(c + 1) * ROWS_PER_CHUNK] for c in range(CHUNKS)}
-    print(f'one stream -> {CHUNKS} disjoint chunks of {ROWS_PER_CHUNK} rows', flush=True)
+    print(f'LOCAL {LOCAL_ROWS} -> {CHUNKS} disjoint chunks of {ROWS_PER_CHUNK} rows '
+          f'(no network; rows are the FW dedup set, NOT fresh -- see docstring)', flush=True)
     arms = {'lambda': (lam_V, lam_l), 'random': (rnd_V.contiguous(), torch.ones(RANK_Q, device=DEV))}
     res = {}
     for name, (V2, lam2) in arms.items():
@@ -314,7 +322,7 @@ def main():
     pc = rnd_share >= 0.40
 
     out = {'config': {'class': 'question', 'site': SITE_Q, 'rank': RANK_Q,
-                      'chunks': CHUNKS, 'rows_per_chunk': ROWS_PER_CHUNK, 'base_skip': BASE_SKIP, 'top': TOP,
+                      'chunks': CHUNKS, 'rows_per_chunk': ROWS_PER_CHUNK, 'row_source': LOCAL_ROWS, 'rows_are_fresh': False, 'top': TOP,
                       'S1597_reference': {'top4': ['attn10', 'attn9', 'mlp9', 'mlp10'],
                                           'share': 0.718}},
            'arms': res,
