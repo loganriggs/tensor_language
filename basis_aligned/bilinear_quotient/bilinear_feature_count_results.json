@@ -1,0 +1,62 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "hidden_dim": 4608,
+  "ks": [
+   8,
+   32,
+   128,
+   512,
+   2048,
+   4608
+  ],
+  "module": "y = Down((Left x) * (Right x)) + Down_bias",
+  "selection": "top-k hidden units by std(h_j) * ||Down[:, j]||, the unit's contribution in the readout metric; the rest pinned to their fit-set mean so their constant contribution is retained",
+  "compilation": "bottom-up (\u00a71669)",
+  "fit_rows": "fineweb_n96_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "coverage": "mask pinned to the fit set (\u00a71676)",
+  "instrument_check": "k=4608 is the identity substitution; ceiling must be 1.0",
+  "s1676_small": {
+   "linear": 0.5817,
+   "table_mlp0_2": 0.5695,
+   "additive": 0.5379
+  },
+  "s1677_lowrank_additive": 0.5726
+ },
+ "stake": 4.33011,
+ "curve": {
+  "8": -0.34682,
+  "32": -0.29951,
+  "128": -0.49624,
+  "512": -0.49929,
+  "2048": 0.61572,
+  "4608": 1.0
+ },
+ "monotone": false,
+ "predictions": {
+  "pred_a_k512_ge_80pct": false,
+  "pred_b_beats_linear": false,
+  "pred_c_instrument_check_and_monotone": false
+ },
+ "runtime_s": 91.8
+}

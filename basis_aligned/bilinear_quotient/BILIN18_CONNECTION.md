@@ -41501,3 +41501,45 @@ at this fit size (57.26% vs 58.17%). Taken with §1676 — where additive gains 
 linear's rate and reaches 59.08% against linear's 60.81% at 480 rows — the honest summary is
 that a token term at all eighteen sites is not yet worth its estimation cost, and whether it
 ever becomes worth it is a question about the data budget rather than about bilin18.
+
+## §1678 — "keep k of the model's own bilinear features" FAILS as a program family, and the failure is diagnostic
+
+`bilinear_feature_count.py`. Each MLP is `y = Down((Left x)*(Right x)) + b` with 4608
+bilinear features; the arm keeps the top k by `std(h_j) * ||Down[:,j]||` and pins the rest
+to their fit-set mean, compiled bottom-up.
+
+```
+k        % of features    whole-stack ceiling
+    8        0.2%            -34.68%
+   32        0.7%            -29.95%
+  128        2.8%            -49.62%
+  512       11.1%            -49.93%
+ 2048       44.4%            +61.57%
+ 4608      100.0%           +100.00%   <- instrument check, exact
+```
+
+**The instrument check is exact** — at k=4608 the substitution is the identity and the
+ceiling is 100.00%, so the recompute of `Down((Left x)*(Right x)) + b` inside the hook is
+right and the harness is sound.
+
+**Everything below k=2048 is negative and the curve is not monotone.** By the rule I wrote
+in LESSONS 28 — a non-monotone rank curve is reporting compounding, not dimensionality — the
+interior is not readable and I am reporting no feature count. pred_a, pred_b and pred_c all
+failed.
+
+**The diagnosis, and it is more interesting than the number would have been.** Pinning a
+feature to its mean removes its varying part, so the output error is
+`sum over pinned j of Down[:,j] * (h_j - mean_j)`. My criterion ranked units by their
+MARGINAL contribution and ignored the covariance between them entirely. In a bilinear
+readout, large contributions routinely cancel: keeping the top 512 by marginal size keeps
+one side of many cancelling pairs and breaks the balance, which is why keeping 512 features
+is *worse* than keeping 8. That is a coherent story for a non-monotone curve, and it is a
+property of the readout rather than of my harness.
+
+If it is right, the model's own feature basis is not sparse-selectable at all, and only a
+ROTATED basis — where the directions are decorrelated by construction — will give a monotone
+curve. That is a real claim about what a faithful account of these MLPs can look like, and
+it is the difference between "this MLP computes k features" and "this MLP's output lies near
+a k-dimensional subspace". Queued as `feature_basis_vs_rotated.py`: top-k features against
+random-k features against rank-k of the output's own principal directions, with an identity
+check on every arm.
