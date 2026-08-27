@@ -1,0 +1,64 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ranks": [
+   256,
+   384,
+   512,
+   768,
+   1024,
+   1152
+  ],
+  "ridge": 0.001,
+  "intervention": "replace c_v output with a rank-r least-squares map of x; the entire routing path runs exactly as the model does",
+  "controls": [
+   "rank 256 must reproduce \u00a71689 67.05%",
+   "rank 1152 is the identity and must return ~100%"
+  ],
+  "why_two_controls": "\u00a71681 showed a no-op satisfies every relationship-between-arms prediction; only pinned values catch it",
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1689_rank256": 0.6705
+ },
+ "stake": 3.55704,
+ "curve": {
+  "256": 0.67045,
+  "384": 0.94966,
+  "512": 0.98322,
+  "768": 0.99713,
+  "1024": 0.99996,
+  "1152": 1.00005
+ },
+ "monotone": true,
+ "ranks_reaching_95pct": [
+  512,
+  768
+ ],
+ "predictions": {
+  "pred_a_rank512_below_90": false,
+  "pred_b_no_knee_below_1024": false,
+  "pred_c_controls_both_ends": true
+ },
+ "runtime_s": 512.3
+}

@@ -41971,3 +41971,43 @@ positional families saturate at 70.08% with full-rank values and no routing, and
 routing with full-rank values is 100% by construction — so routing is worth the ~30% §1687
 identified as content-routed, and this run adds that the value path independently needs high
 rank. Queued `attn_value_rank_curve.py` to locate where it saturates.
+
+## §1690 — the value path has a sharp knee at ~384 of 1152, and §1689's "high-rank" was too strong
+
+`attn_value_rank_curve.py`, filling in the gap §1689 left between rank 256 and full rank.
+Controls at both ends: rank 256 reproduces §1689's 67.05% exactly, the identity arm returns
+100.01%, curve monotone. pred_a and pred_b both FAILED.
+
+```
+value rank    % of dims    ceiling
+     256        22.2%      67.05%   <- control, §1689
+     384        33.3%      94.97%
+     512        44.4%      98.32%
+     768        66.7%      99.71%
+    1024        88.9%     100.00%
+    1152       100.0%     100.01%   <- identity control
+```
+
+**There is a sharp knee, and §1689 sat just below it.** 256 → 384 dimensions buys **27.9
+points**; everything above 512 buys 1.7 between them. §1689 read "attention's value path is
+HIGH-RANK" off a single point at rank 256 that happens to fall on the cliff edge. The
+supported statement is narrower and more useful: **attention's value path needs about a third
+of its dimensions — 384 of 1152 for 95%, 512 for 98.3% — and then saturates.** Correcting the
+registry rather than leaving the stronger wording standing.
+
+I predicted rank 512 would fall below 90% (it reaches 98.32%) and that nothing below 1024
+would reach 95% of full (512 and 768 both do). Both wrong, in the direction of the model being
+more compressible than I said.
+
+**Against the MLP side, the contrast is large and now measured on comparable footing.** §1664
+found the front MLPs' token tables reach 92–98% at **rank 64 of 1152**. Attention's value path
+needs **384** for the same fidelity — six times the rank. Both are rank budgets on a
+1152-dimensional read inside a module, both fitted data-weighted, both compiled bottom-up. So
+the value path is genuinely a wider object than an MLP's token code, even though neither is
+full-rank.
+
+**What this does not settle** is the routing side, which §1689 flagged as priced in
+incomparable units. That is fixable with the same machinery: `c_q`, `c_k`, `c_q2`, `c_k2` are
+plain Linears like `c_v`, so a rank-r least-squares map from x to each of them is the matched
+intervention, and routing rank becomes directly comparable to value rank. Queued as
+`attn_routing_rank_curve.py`.
