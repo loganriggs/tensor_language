@@ -229,14 +229,22 @@ def depth_curve(rows, V2, lam2, mask_v):
 
 
 
-# Skips chosen CHEAP on purpose. census_lib.fineweb_rows streams to its offset
-# example-by-example, so skip=25000 iterates 25,000 examples per call; with no
-# HF_TOKEN the first attempt at [15000, 20000, 25000] spent 29 min at 0% GPU
-# util and had not finished the first load. These three are disjoint from each
-# other and from the eval window (skip=7000, NR=960 -> 7000-7960), and cost ~600
-# examples of streaming in total instead of ~60,000. Row-set IDENTITY is not
-# load-bearing for this control -- only disjointness and separation from eval.
-SAMPLES = [80, 300, 600]
+# ONE STREAM, THREE CHUNKS.  Measured 2026-08-27: census_lib.fineweb_rows opens
+# its OWN load_dataset(streaming=True) per call, and the HF cache holds ZERO
+# fineweb parquet files (48K total) -- streaming caches nothing, so every call
+# re-downloads from scratch.  Three calls = three full re-downloads, which is the
+# dominant cost, NOT the offset: attempts at skips [15000,20000,25000] (29 min)
+# and [80,300,600] (25 min) both died in rows_cache without reaching compute.
+# So: one 288-row load, split into three disjoint 96-row chunks.
+# LIMITATION, stated because it is a real weakening: the chunks are contiguous in
+# the stream rather than separated by large skips, so they are LESS independent
+# than S1603-style disjoint samples.  Acceptable here -- the registered
+# predictions are about writer-set OVERLAP between bases on the same rows, not
+# about across-sample variance -- but this design must NOT be reused for a
+# spread/replication measurement, where independence is the whole point.
+CHUNKS = 3
+ROWS_PER_CHUNK = 96
+BASE_SKIP = 80
 SITE_Q = 11
 RANK_Q = 2
 QPAT = r'^\?$| \?$'
@@ -263,12 +271,15 @@ def main():
           f"{[round(float(x), 3) for x in lam_l]}  (S1597 ref: +144.9/-73.8, top4 share .718)",
           flush=True)
 
-    rows_cache = {s: cl.fineweb_rows(96, skip=s)[:, :T + 1].contiguous() for s in SAMPLES}
+    _all = cl.fineweb_rows(CHUNKS * ROWS_PER_CHUNK, skip=BASE_SKIP)[:, :T + 1].contiguous()
+    assert _all.shape[0] == CHUNKS * ROWS_PER_CHUNK, f'short load {_all.shape}'
+    rows_cache = {c: _all[c * ROWS_PER_CHUNK:(c + 1) * ROWS_PER_CHUNK] for c in range(CHUNKS)}
+    print(f'one stream -> {CHUNKS} disjoint chunks of {ROWS_PER_CHUNK} rows', flush=True)
     arms = {'lambda': (lam_V, lam_l), 'random': (rnd_V.contiguous(), torch.ones(RANK_Q, device=DEV))}
     res = {}
     for name, (V2, lam2) in arms.items():
         per = []
-        for skip in SAMPLES:
+        for skip in range(CHUNKS):
             r = depth_curve(rows_cache[skip], V2, lam2, mask_v)
             signed = r.pop('signed')
             pos = sorted([c for c in signed if signed[c] > 0], key=lambda c: -signed[c])
@@ -303,7 +314,7 @@ def main():
     pc = rnd_share >= 0.40
 
     out = {'config': {'class': 'question', 'site': SITE_Q, 'rank': RANK_Q,
-                      'samples': SAMPLES, 'top': TOP,
+                      'chunks': CHUNKS, 'rows_per_chunk': ROWS_PER_CHUNK, 'base_skip': BASE_SKIP, 'top': TOP,
                       'S1597_reference': {'top4': ['attn10', 'attn9', 'mlp9', 'mlp10'],
                                           'share': 0.718}},
            'arms': res,
