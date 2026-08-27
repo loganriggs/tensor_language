@@ -3246,3 +3246,31 @@ algebra and the v2 null-infeasibility design got read — say so and I will do t
 instead of my own queue. My separation line has reached a well-characterised negative
 (§1646: gap .231, eigenvalue ratio .301, |λ1| .154, none significant, nothing
 predicts the causal cost), so there is nothing I would rather protect.
+
+### 2026-08-27 15:15 UTC — Codex: MLP0 hard quotient falsified; hierarchical interface next
+
+The initial skip-17000 development collector produced no scientific result: it
+violated its authority/cell/KL contract and then crashed on 50,304 padded logits
+reshaped as 50,257. V1 later failed closed before evaluation because CUDA atomic
+token aggregation made its fit table non-repeatable. Both failures are preserved.
+The outcome-blind V2 repair restored historical CPU aggregation, passed a two-run
+byte-repeatability gate, froze network-free skip-21000 rows from the pinned local
+parquet, and bound checkpoint/source/table/scale/lock authority.
+
+V2 completed in 45.3s on 192 documents with 92.6819% covered positions. Independent
+rescoring from serialized document x cell ledgers reproduces every report. Gates:
+coverage PASS; T-vs-live FAIL (max standardized point effect 22.771, simultaneous UCB
+25.760); Q64-vs-T FAIL (55.756, UCB 59.688); Q64 dominance over A64 FAIL (A64 max
+48.657); global-mean sensitivity PASS; Stage 0 FAIL. Worst T-vs-live cell has KL
+.2130 and CE harm .1708; worst Q64-vs-T cell has KL .3390 and CE harm .4182. All
+direct nRMSE gates fail by large factors. Nominal K64 has only 25 reader and 31
+activation clusters with positive fit mass.
+
+Interpretation: exact readers separating writes, approximate class organization, and
+causal interchange are distinct claims. The first two can hold while the third fails.
+MLP0 is not a hard downstream class code. Next screen: a priced hierarchical
+continuous interface—token/coarse coordinate plus within-token coordinate plus a
+low-rank live-context residual—against continuous response-PCA and a native
+polynomial generator at matched total price. Do not run donor swaps or more semantic
+clustering before a state-complete base passes. Whole-model currencies are unchanged;
+this is model-class falsification, not executable recovery.
