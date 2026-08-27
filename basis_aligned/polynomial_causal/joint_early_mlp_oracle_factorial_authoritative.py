@@ -28,6 +28,7 @@ BQ = HERE.parent / "bilinear_quotient"
 PREREG = HERE / "joint_early_mlp_oracle_factorial_authoritative_v3_preregistration.json"
 RESULT = BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_results.json"
 MANIFEST = BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_manifest.json"
+AUTHORITY_RECEIPT = BQ / "joint_early_mlp_oracle_factorial_authoritative_v3_authority.json"
 LOCK = Path("/workspace/runs/.bilin18_joint_early_mlp_oracle_factorial_authoritative_v3.lock")
 FROZEN_STATE = Path("/workspace/runs/bilin18_frozen_ship_v2.pt")
 FROZEN_MANIFEST = Path("/workspace/runs/bilin18_frozen_ship_v2_manifest.json")
@@ -90,6 +91,12 @@ PINNED_INPUTS = {
     BQ / "census_lib.py": (
         "f51c19e83f46dc363a2c5dad1887b55ab5dd9b3684294e940583a6814881cf1f"
     ),
+    TENSOR_ROOT / "basis_aligned/qk_mdl/tier2_model.py": (
+        "cda42d758083350e3e1f70b72c5e84d06d274227fd43332622547dc9d41ea4fa"
+    ),
+    TENSOR_ROOT / "jacclust/tt_model.py": (
+        "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+    ),
 }
 ROW_ROLES = {
     "ship_fit": (480, 80),
@@ -130,6 +137,8 @@ SOURCE_CLOSURE = (
     BQ / "ship_error_attrib.py",
     BQ / "bilin18_joint_removal.py",
     BQ / "census_lib.py",
+    TENSOR_ROOT / "basis_aligned/qk_mdl/tier2_model.py",
+    TENSOR_ROOT / "jacclust/tt_model.py",
 )
 
 sys.path.insert(0, str(HERE))
@@ -542,6 +551,10 @@ def score_decisions(
 
 
 def mark_failed(error: BaseException, protected_after: Mapping[str, str | None]) -> None:
+    if AUTHORITY_RECEIPT.exists():
+        raise RuntimeError(
+            "refusing to invalidate an already-published atomic authority receipt"
+        ) from error
     try:
         manifest = json.loads(MANIFEST.read_text()) if MANIFEST.exists() else {}
     except Exception:
@@ -830,6 +843,8 @@ def run_claimed(protected_before: Mapping[str, str | None]) -> None:
 
 
 def finalize_success(protected_after: Mapping[str, str | None]) -> None:
+    if AUTHORITY_RECEIPT.exists():
+        raise RuntimeError("refusing to overwrite authoritative completion receipt")
     result = json.loads(RESULT.read_text())
     manifest = json.loads(MANIFEST.read_text())
     if result.get("status") != "scored_pending_integrity":
@@ -844,8 +859,12 @@ def finalize_success(protected_after: Mapping[str, str | None]) -> None:
     if not lifecycle.get("validated"):
         raise RuntimeError(f"frozen state does not validate at finalization: {lifecycle}")
     result.update({
-        "status": "completed_authoritative_factorial",
-        "authorized_for_scored_experiments": True,
+        "status": "completed_payload_awaiting_authority_receipt",
+        "authorized_for_scored_experiments": False,
+        "authorization_rule": (
+            "Evidence is authoritative only when the separate atomic authority receipt "
+            "exists and binds this exact payload hash."
+        ),
         "protected_paths_after": dict(protected_after),
         "protected_paths_unchanged": True,
         "frozen_state_lifecycle": lifecycle,
@@ -853,8 +872,12 @@ def finalize_success(protected_after: Mapping[str, str | None]) -> None:
     })
     write_json_atomic(result, RESULT)
     manifest.update({
-        "status": "completed_authoritative_factorial",
-        "authorized_for_scored_experiments": True,
+        "status": "completed_payload_awaiting_authority_receipt",
+        "authorized_for_scored_experiments": False,
+        "authorization_rule": (
+            "Evidence is authoritative only when the separate atomic authority receipt "
+            "exists and binds this exact manifest and result hash."
+        ),
         "protected_paths_after": dict(protected_after),
         "protected_paths_unchanged": True,
         "frozen_state_lifecycle": lifecycle,
@@ -862,10 +885,35 @@ def finalize_success(protected_after: Mapping[str, str | None]) -> None:
         "integrity_finalized": True,
     })
     write_json_atomic(manifest, MANIFEST)
+    result_hash = file_sha256(RESULT)
+    manifest_hash = file_sha256(MANIFEST)
+    receipt = {
+        "schema_version": 1,
+        "status": "completed_authoritative_factorial",
+        "authority": "canonical_fineweb",
+        "authorized_for_scored_experiments": True,
+        "authorized_for_training": False,
+        "training_license_sites": [],
+        "preregistration_path": str(PREREG.resolve()),
+        "preregistration_sha256": PREREG_SHA256,
+        "source_commit": manifest["source_commit"],
+        "ship_realization_sha256": result["ship_realization_sha256"],
+        "result_path": str(RESULT.resolve()),
+        "result_sha256": result_hash,
+        "manifest_path": str(MANIFEST.resolve()),
+        "manifest_sha256": manifest_hash,
+        "protected_paths_unchanged": True,
+        "frozen_state_validated": True,
+        "authorization_rule": (
+            "This last-written atomic receipt is the sole scored-evidence authority; "
+            "the bound result and manifest remain non-self-authorizing payloads."
+        ),
+    }
+    write_json_atomic(receipt, AUTHORITY_RECEIPT)
 
 
 def main() -> None:
-    if RESULT.exists() or MANIFEST.exists():
+    if RESULT.exists() or MANIFEST.exists() or AUTHORITY_RECEIPT.exists():
         raise RuntimeError("refusing to overwrite authoritative factorial artifacts")
     try:
         LOCK.mkdir()
@@ -888,7 +936,11 @@ def main() -> None:
         if run_error is not None:
             mark_failed(run_error, protected_after)
             raise run_error
-        finalize_success(protected_after)
+        try:
+            finalize_success(protected_after)
+        except BaseException as finalization_error:
+            mark_failed(finalization_error, protected_after)
+            raise
     finally:
         LOCK.rmdir()
 

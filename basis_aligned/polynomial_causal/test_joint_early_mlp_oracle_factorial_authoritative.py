@@ -185,17 +185,21 @@ def test_prefix_or_provenance_mutation_fails_closed():
 def test_finalization_is_the_only_step_that_authorizes_result(monkeypatch, tmp_path):
     result_path = tmp_path / "result.json"
     manifest_path = tmp_path / "manifest.json"
+    authority_path = tmp_path / "authority.json"
     result_path.write_text(json.dumps({
         "status": "scored_pending_integrity",
         "authorized_for_scored_experiments": False,
+        "ship_realization_sha256": "b" * 64,
     }))
     manifest_path.write_text(json.dumps({
         "status": "scored_pending_integrity",
         "authorized_for_scored_experiments": False,
         "result_sha256": AUTH.file_sha256(result_path),
+        "source_commit": "c" * 40,
     }))
     monkeypatch.setattr(AUTH, "RESULT", result_path)
     monkeypatch.setattr(AUTH, "MANIFEST", manifest_path)
+    monkeypatch.setattr(AUTH, "AUTHORITY_RECEIPT", authority_path)
     monkeypatch.setattr(
         AUTH, "frozen_lifecycle_receipt",
         lambda _receipt=None: {"validated": True, "artifact_sha256": "a" * 64},
@@ -205,14 +209,57 @@ def test_finalization_is_the_only_step_that_authorizes_result(monkeypatch, tmp_p
     AUTH.finalize_success({"protected": "same"})
     result = json.loads(result_path.read_text())
     manifest = json.loads(manifest_path.read_text())
-    assert result["authorized_for_scored_experiments"] is True
-    assert manifest["authorized_for_scored_experiments"] is True
+    authority = json.loads(authority_path.read_text())
+    assert result["authorized_for_scored_experiments"] is False
+    assert manifest["authorized_for_scored_experiments"] is False
+    assert authority["authorized_for_scored_experiments"] is True
+    assert authority["result_sha256"] == AUTH.file_sha256(result_path)
+    assert authority["manifest_sha256"] == AUTH.file_sha256(manifest_path)
     assert manifest["result_sha256"] == AUTH.file_sha256(result_path)
+
+
+def test_finalization_write_failure_never_publishes_authority(monkeypatch, tmp_path):
+    result_path = tmp_path / "result.json"
+    manifest_path = tmp_path / "manifest.json"
+    authority_path = tmp_path / "authority.json"
+    result_path.write_text(json.dumps({
+        "status": "scored_pending_integrity",
+        "authorized_for_scored_experiments": False,
+        "ship_realization_sha256": "b" * 64,
+    }))
+    manifest_path.write_text(json.dumps({
+        "status": "scored_pending_integrity",
+        "authorized_for_scored_experiments": False,
+        "result_sha256": AUTH.file_sha256(result_path),
+        "source_commit": "c" * 40,
+    }))
+    monkeypatch.setattr(AUTH, "RESULT", result_path)
+    monkeypatch.setattr(AUTH, "MANIFEST", manifest_path)
+    monkeypatch.setattr(AUTH, "AUTHORITY_RECEIPT", authority_path)
+    monkeypatch.setattr(
+        AUTH, "frozen_lifecycle_receipt",
+        lambda _receipt=None: {"validated": True, "artifact_sha256": "a" * 64},
+    )
+    monkeypatch.setattr(AUTH.row_prep, "RECEIPT", tmp_path / "receipt.json")
+    AUTH.row_prep.RECEIPT.write_text("{}")
+    original_write = AUTH.write_json_atomic
+
+    def fail_on_manifest(value, path):
+        if path == manifest_path:
+            raise OSError("injected manifest write failure")
+        original_write(value, path)
+
+    monkeypatch.setattr(AUTH, "write_json_atomic", fail_on_manifest)
+    with pytest.raises(OSError, match="injected"):
+        AUTH.finalize_success({"protected": "same"})
+    assert not authority_path.exists()
+    assert json.loads(result_path.read_text())["authorized_for_scored_experiments"] is False
 
 
 def test_namespace_and_authority_guards_are_distinct():
     assert AUTH.RESULT.name.endswith("authoritative_v3_results.json")
     assert AUTH.MANIFEST.name.endswith("authoritative_v3_manifest.json")
+    assert AUTH.AUTHORITY_RECEIPT.name.endswith("authoritative_v3_authority.json")
     assert AUTH.RESULT not in AUTH.PROTECTED_EXISTING
     assert AUTH.FROZEN_STATE == AUTH.frozen.FROZEN_STATE
     assert AUTH.FROZEN_MANIFEST == AUTH.frozen.FROZEN_MANIFEST
