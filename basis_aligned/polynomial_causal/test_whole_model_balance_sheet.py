@@ -117,15 +117,17 @@ def test_head_grain_is_kept_as_local_law_not_whole_model_claim():
     assert "not yet a replacement" in grain["caveat"]
 
 
-def test_writer_concentration_is_generic_but_identity_is_slice_specific():
+def test_powered_writer_null_rejects_concentration_and_strict_identity_claims():
     sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
     writer = sheet["ledgers"]["tensor_writer_specificity"]
     assert writer["registered_predictions"]["pred_a_floor_exists_overlap_ge2"] is False
-    assert writer["registered_predictions"]["pred_b_circuit_rule_specific_2of3"] is True
+    assert writer["registered_predictions"]["pred_b_circuit_rule_specific_2of3"] is False
     assert writer["registered_predictions"]["pred_c_random_share_ge40pct"] is True
-    assert writer["lambda_random_consensus_overlap_of4"] == 0
+    assert writer["lambda_random_consensus_overlap_of4"] == 1
+    assert writer["circuit_clean_samples"] == 0
+    assert min(writer["question_class_counts"]) >= 100
     assert writer["random_mean_top4_share"] > writer["lambda_mean_top4_share"]
-    assert "local writer locator" in writer["caveat"]
+    assert "does not license the complete writer set" in writer["caveat"]
 
 
 def test_compression_is_priced_fidelity_not_circuit_selectivity():

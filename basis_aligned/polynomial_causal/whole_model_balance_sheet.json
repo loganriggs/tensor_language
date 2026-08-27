@@ -255,36 +255,41 @@
       "caveat": "This is a controlled local wiring law, not yet a replacement, CE recovery, or proof that the same grain composes across behaviors and layers."
     },
     "tensor_writer_specificity": {
-      "lambda_mean_top4_share": 0.5977,
-      "random_mean_top4_share": 0.6507,
-      "lambda_random_consensus_overlap_of4": 0,
+      "lambda_mean_top4_share": 0.5946,
+      "random_mean_top4_share": 0.7223,
+      "lambda_random_consensus_overlap_of4": 1,
       "lambda_consensus": [
-        "attn10",
         "mlp11",
-        "attn9",
-        "mlp9"
+        "attn10",
+        "mlp9",
+        "attn9"
       ],
       "random_consensus": [
-        "mlp14",
+        "attn11",
+        "attn10",
         "mlp17",
-        "attn17",
-        "attn16"
+        "mlp14"
       ],
       "lambda_floor_corrected_top4": [
-        "attn10",
         "mlp11",
-        "attn9",
-        "mlp9"
+        "mlp9",
+        "attn9"
       ],
+      "question_class_counts": [
+        105,
+        127,
+        102
+      ],
+      "circuit_clean_samples": 0,
       "registered_predictions": {
         "pred_a_floor_exists_overlap_ge2": false,
-        "pred_b_circuit_rule_specific_2of3": true,
+        "pred_b_circuit_rule_specific_2of3": false,
         "pred_c_random_share_ge40pct": true
       },
       "currency": "top-four positive writer-mass concentration and consensus identity for the question |eigenvalue| slice versus a matched-rank random output slice",
-      "scope": "three local 96-row chunks from the frozen bilin18 evaluation tensor; question counts 25/3/5; rows are the FineWeb dedup set, not fresh oracle rows",
-      "claim": "A concentrated four-writer cast is generic for a rank-2 output direction, but its identity is tensor-slice specific: random directions concentrate even more strongly while sharing zero consensus writers with the question slice; attn9/attn10 remain question-specific in two of three chunks.",
-      "caveat": "The registered generic-floor overlap prediction failed and only two chunks met the circuit-clean rule. This licenses the tensor slice as a local writer locator, not concentration as simplicity, causal sufficiency, or whole-model programmability."
+      "scope": "three disjoint 333-row chunks from curated_rows.pt; question counts 105/127/102; rows are local census rows, not fresh oracle rows",
+      "claim": "Top-four concentration is generic and is stronger for a matched-rank random direction (.7223 versus .5946). The powered control also rejects the preregistered strict writer-specificity rule: attn10 enters the random consensus and zero of three chunks are circuit-clean, although attn9/mlp9 remain in the floor-corrected question consensus.",
+      "caveat": "Concentration is not a simplicity measure, and this test does not license the complete writer set as slice-specific. The surviving attn9/mlp9 membership is a local conditional hypothesis requiring causal removal/transport and fresh-row replication, not causal sufficiency or whole-model programmability."
     },
     "compression_selectivity_boundary": {
       "question_class_function_kept_rank32": 0.9682783235210727,
@@ -485,7 +490,7 @@
     },
     "writer_floor_question": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/writer_floor_question_results.json",
-      "sha256": "deef347890ea6173e4bf2ea17b93cf10c1450fc14cb86e0cf90f24950306d12e"
+      "sha256": "f2f70501e0d4342f9a8fa65a7617fcae2da569b8921dd8c12c5a7cd897838869"
     },
     "extraction_rank": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/extraction_rank_results.json",
