@@ -23,6 +23,7 @@ import torch.nn.functional as F
 ROOT = Path("/workspace/tensor_language")
 BQ = ROOT / "basis_aligned" / "bilinear_quotient"
 PC = ROOT / "basis_aligned" / "polynomial_causal"
+sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(BQ))
 sys.path.insert(0, str(PC))
 
@@ -47,10 +48,10 @@ V = 50257
 T = 256
 BATCH_WINDOWS = 4
 FIT_BATCH = 4
-AUTHORITY = BQ / "mlp0_c512_mlp1_interchange_v2_eval_authority.json"
-OUT = BQ / "mlp0_c512_mlp1_interchange_v2_results.json"
-FAILURE = BQ / "mlp0_c512_mlp1_interchange_v2_failure.json"
-LOCK = Path("/workspace/runs/.bilin18_mlp0_c512_mlp1_interchange_v2.lock")
+AUTHORITY = BQ / "mlp0_c512_mlp1_interchange_v3_eval_authority.json"
+OUT = BQ / "mlp0_c512_mlp1_interchange_v3_results.json"
+FAILURE = BQ / "mlp0_c512_mlp1_interchange_v3_failure.json"
+LOCK = Path("/workspace/runs/.bilin18_mlp0_c512_mlp1_interchange_v3.lock")
 FIT_RECEIPT = BQ / "mlp0_native_down_hierarchy_v1_fit_receipt.json"
 STAGE0_FIT_RECEIPT = BQ / "mlp0_quotient_stage0_v2_fit_receipt.json"
 STAGE0_ROW_RECEIPT = BQ / "mlp0_quotient_stage0_v1_rows_receipt.json"

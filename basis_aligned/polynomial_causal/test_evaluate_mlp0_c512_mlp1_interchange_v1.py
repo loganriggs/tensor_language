@@ -1,4 +1,6 @@
 import json
+import subprocess
+import sys
 
 import pytest
 import torch
@@ -13,6 +15,17 @@ def test_expected_call_counts_are_mechanically_frozen():
         "mlp1_teacher_calls": 2968,
         "c512_proxy_calls": 1364,
     }
+
+
+def test_runner_style_import_resolves_repository_model_module():
+    script = evaluator.PC / "evaluate_mlp0_c512_mlp1_interchange_v1.py"
+    command = (
+        "import runpy; "
+        f"ns=runpy.run_path({str(script)!r}, run_name='authority_preflight_import'); "
+        "import jacclust.tt_model; "
+        "assert ns['ROOT'].is_dir()"
+    )
+    subprocess.run([sys.executable, "-c", command], cwd=evaluator.BQ, check=True)
 
 
 def test_wave_coverage_uses_source_unit_identity_not_row_boundary():

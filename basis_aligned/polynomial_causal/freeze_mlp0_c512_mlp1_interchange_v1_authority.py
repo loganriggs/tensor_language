@@ -128,7 +128,7 @@ def build_authority() -> dict:
     }
     return {
         "schema_version": 1,
-        "receipt_kind": "mlp0_c512_mlp1_interchange_v2_eval_authority",
+        "receipt_kind": "mlp0_c512_mlp1_interchange_v3_eval_authority",
         "status": "frozen_before_any_c512_mlp1_evaluation_forward",
         "scope": "physical MLP0-C512 by MLP1-write 2x2 on fresh FineWeb and frozen code OOD",
         "source_commit": source_commit,
