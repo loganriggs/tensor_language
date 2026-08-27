@@ -39246,3 +39246,77 @@ tendency at some ordinary classes remains unexplained and is the open question h
 **Method note, third time this session.** §1627 confounded basis bias with row
 sampling; §1632 confounded certification with site; both were caught by holding the
 suspected confound fixed and re-running. The cost each time was one ~8-minute run.
+
+## §1634 §1633'S CERTIFICATION READING IS REFUTED AT THE SECOND CERTIFIED CELL (0-for-3) — at mlp17 an ordinary function word TIES the certified class at 60/60, the class ordering ANTI-correlates across sites (rho −.300), and this undermines §1612's pronoun reading in a way §1630 could not see because §1630 tested it at the wrong site
+
+**Setup** (separation_selection_mlp17, 720 s, rung 2 — house second-class confirm).
+§1633 found the certified class separating 60/60 at mlp11 while five fresh classes
+managed 17-47/60, and I concluded certification selects real structure. The registry
+holds exactly one other certified slice cell, so this repeats the test there with the
+SAME five fresh classes, changing only the cell (site 11→17, rank 2→8, TOP 4→6).
+
+```
+class      status      separation   mean gap        (mlp11 for comparison)
+pronouns   CERTIFIED     60/60       −.1320          question CERTIFIED  60/60  +.1633
+at         fresh         60/60       −.1094          at       fresh      17/60  −.0075
+from       fresh         59/60       −.0796          from     fresh      27/60  −.0102
+with       fresh         55/60       −.0613          with     fresh      47/60  −.0518
+by         fresh         53/60       −.0593          by       fresh      38/60  −.0547
+as         fresh         52/60       −.0691          as       fresh      24/60  −.0121
+margin to best fresh:      0                                                13
+median fresh:             55/60                                            27/60
+```
+
+- **pred_a FAILED** — `at`, a fresh class, reaches **60/60**.
+- **pred_b FAILED** — the certified margin is **0**, against a ≥3 bar.
+- **pred_c FAILED** — median fresh separation is **55/60**, against a ≤47 bar.
+
+**0-for-3. §1633's INTERPRETATION IS WITHDRAWN.** Its measurements stand: at mlp11
+the certified class does separate 60/60 while fresh ones manage 17-47. What does not
+stand is the inference that this reflects CERTIFICATION. At the second certified
+cell there is no margin at all — an ordinary preposition matches the certified class
+exactly, at 60/60 with 83% of its gap magnitude. My 10:33 board claim to Codex that
+"certification is selecting real structure — good news for the benchmark" was not
+supported by two cells and is retracted.
+
+**Nor is there a class-level property.** Across the same five fresh classes the
+ordering ANTI-correlates between sites, **Spearman rho = −.300**: `at` is the
+weakest fresh class at mlp11 (17/60) and the strongest at mlp17 (60/60). So neither
+"certified classes are special" nor "some classes are intrinsically diffuse" survives.
+
+**What actually governs separation is the SITE.** At mlp17 every class tested —
+certified or not — sits well below its null (gaps −.059 to −.132, separations
+52-60/60). At mlp11 only the certified question class stands out, upward, while
+ordinary classes hug zero. mlp17 is simply a site where eigen-slices are broadly
+less concentrated than random bases; mlp11 is not.
+
+**AND THAT UNDERMINES §1612's PRONOUN READING — the point §1627 was reaching for and
+§1630 wrongly dismissed.** §1612 read pronouns@mlp17 sitting far below its null as
+"DRAMATICALLY less concentrated than a meaningless basis — a positive structural
+claim about distributed writing". For that to mean anything, below-null must be
+notable AT mlp17. It is not: `at` gets −.1094 against pronouns' −.1320, and four of
+five fresh classes exceed 52/60.
+
+The arc, stated plainly because I got it wrong twice:
+- §1627 claimed below-null is common → correct instinct, wrong site (mlp11) and
+  wrong method (single biased basis).
+- §1630 withdrew §1627 and RESTORED §1612 → the withdrawal of §1627's method was
+  right, but the restoration was wrong, because **it tested a claim about mlp17
+  using mlp11 data.** A control has to live at the same cell as the claim.
+- §1634 tests it at mlp17 with a proper 20-seed null: below-null is GENERIC there.
+
+**So §1630's restoration of §1612 is itself withdrawn.** pronouns is the most
+diffuse of the six classes measured at mlp17, but it is not qualitatively distinct,
+and "dramatically less concentrated than a meaningless basis" describes ordinary
+prepositions at that site too. §1598's .482 and §1624's .4823 are unaffected — this
+is about what the diffuseness MEANS, not what it measures.
+
+**Registry impact requires Logan.** This is the SECOND pending item against the
+§1612 entry, alongside the membership refutation. Recorded in
+`PENDING_RETRACTION_S1612.md`; NOT applied.
+
+**Fourth failed generalisation this session, and the shape is identical every time.**
+§1627 (basis bias read as signal), §1631 (a law from two hand-picked cells), §1632's
+attribution (confounded with site), §1633 (certification confounded with cell). Each
+survived until the first genuinely independent test and cost ~8-12 GPU-minutes to
+kill. The rung-2 second-class confirm is earning its place in the selection order.

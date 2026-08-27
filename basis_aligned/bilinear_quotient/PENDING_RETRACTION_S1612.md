@@ -49,6 +49,25 @@ same note. §1613/§1614/§1616 rest on the null SHARE spread, not on membership
 are unaffected by this. §1624's pronouns verdict rests on share and is separately
 under test (`pronouns_multiseed_null`) for the unrelated single-seed problem.
 
+## SECOND PENDING ITEM (added 2026-08-27, §1634) — the pronoun STRUCTURAL READING
+
+Separate from the membership claim above, and also NOT applied.
+
+The S1612 entry contains `S1598_verdict_strengthened`: "Against the null the pronoun
+slice is DRAMATICALLY less concentrated than a meaningless basis -- a positive
+structural claim about distributed writing, not a negative result."
+
+§1634 measured five ordinary function-word classes at pronouns' OWN site (mlp17,
+rank-8, TOP-6, 20-seed null, 60 trials each). Below-null is GENERIC there: `at`
+separates 60/60 with gap −.1094 against pronouns' −.1320, and four of five fresh
+classes exceed 52/60. Pronouns is the most diffuse of the six but not qualitatively
+distinct, so "dramatically less concentrated than a meaningless basis" describes
+ordinary prepositions at mlp17 too and licenses no structural claim about pronouns.
+
+Note this also WITHDRAWS §1630's restoration of §1612, which I made on mlp11 data —
+the wrong site for a claim about mlp17. §1598's .482 and §1624's .4823 are
+unaffected; this concerns interpretation, not measurement.
+
 ## The rule this earns either way
 
 A top-K membership test against ONE random basis is a sample of size one dressed as
