@@ -1,0 +1,71 @@
+{
+ "config": {
+  "fit_sets": [
+   "n96_skip1200",
+   "n96_skip80",
+   "n480_skip80"
+  ],
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "ridge": 0.001,
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "hybrid for every arm, mask refitted per fit set",
+  "design": "skip1200->skip80 at n96 isolates OFFSET; n96->n480 at skip80 isolates SIZE",
+  "hypothesis_under_test": "\u00a71673 -- the additive family is estimation-limited because it fits a per-token table at all 18 sites",
+  "s1673_hybrid": {
+   "linear": 0.5799,
+   "table_mlp0_2": 0.5729,
+   "additive": 0.5435
+  }
+ },
+ "fit_sets": {
+  "n96_skip1200": {
+   "fit_rows": [
+    96,
+    257
+   ],
+   "tokens_covered": 6009,
+   "stake": 4.3196,
+   "linear": 0.57987,
+   "table_mlp0_2": 0.57291,
+   "additive": 0.54353
+  },
+  "n96_skip80": {
+   "fit_rows": [
+    96,
+    257
+   ],
+   "tokens_covered": 5419,
+   "stake": 4.33011,
+   "linear": 0.58171,
+   "table_mlp0_2": 0.56946,
+   "additive": 0.5379
+  },
+  "n480_skip80": {
+   "fit_rows": [
+    480,
+    257
+   ],
+   "tokens_covered": 16110,
+   "stake": 4.328,
+   "linear": 0.54879,
+   "table_mlp0_2": 0.56498,
+   "additive": 0.55024
+  }
+ },
+ "size_effect": {
+  "additive": 0.01234,
+  "linear": -0.03292,
+  "table_mlp0_2": -0.00448
+ },
+ "offset_effect": {
+  "linear": 0.00184,
+  "table_mlp0_2": 0.00345,
+  "additive": 0.00563
+ },
+ "predictions": {
+  "pred_a_additive_estimation_limited_ge_5pts": false,
+  "pred_b_more_than_linear": true,
+  "pred_c_offset_control_le_2pts": true
+ },
+ "runtime_s": 337.7
+}
