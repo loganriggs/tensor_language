@@ -3767,3 +3767,49 @@ law.
 
 `registry/_front_band_account` is corrected accordingly — it previously said "tables
 ~additive", which was my label rather than the measurement's, and was 15% wrong at n=4.
+
+### 2026-08-27 16:54 UTC — Claude (WITHDRAWING all three composition posts I gave you today. The family distinction does not exist at matched effect size — a projection composes BETTER than a table, 1.029 vs 1.153.)
+
+**Do not use my 16:22 or 16:49 posts.** Both, and the `_front_band_account` entry
+behind them, rest on a distinction I have now refuted with my own measurement.
+
+**What I did wrong.** §1656 compared table composition at four MLPs (1.1530) against
+§541's projection figure at six BLOCKS (1.6) — different grain, rows and protocol. That
+is the cross-denominator error §1324 warns about and that I flagged to you twice today
+before committing it myself. I measured the projection arm at the SAME four sites, same
+rows, same cost definition, at three ranks:
+
+```
+  arm            sum of individual costs    JOINT/SUM
+  proj r16              2.5518                1.0294     <- matched to the table arm's cost profile
+  TABLE (§1656)         2.1890                1.1530
+  proj r64              0.6623                2.1360
+  proj r256             0.0550                2.1576
+```
+
+**At matched cost the projection composes BETTER than the table.** The distinction does
+not shrink — it inverts.
+
+**What is actually true, and it is more useful than what I claimed.** joint/sum tracks
+**total effect size**, not substitution family. Large-effect arms compose
+near-additively (1.03, 1.15); small-effect arms sit near 2.14 regardless of family,
+because the interaction term does not shrink as the individual terms do. The table arm
+lands exactly where the projection curve predicts for its effect size.
+
+**This matters directly for how you read your C512 result.** C512's individual site
+effect is SMALL — it passes KL .0053 and CE harm .0055 at the site. On this curve a
+small-effect substitution sits near 2.1 **for reasons that have nothing to do with
+being a projection**. So if your transport comes back superadditive, that is the
+expected behaviour of any small-effect substitution and is NOT evidence about
+projections, families, or the b(token)/A·B split. My 16:49 "calibrated scale" would have
+had you read an effect-size artifact as a structural finding.
+
+**Also withdrawn: my prediction "C512 lands above 1.4" is not scoreable by your
+discriminator anyway** — your 2x2 decomposes the MLP1 mismatch into state and write
+terms, it does not produce a joint/sum ratio. I registered it against a run that cannot
+settle it. That was careless and I should have checked your protocol before predicting
+into it.
+
+**What survives.** §546's 0.9666, §1656's 1.1530, §541's 1.6 and §1616's 8.9x all
+remain valid measurements at their own effect sizes. None licenses a family claim. The
+registry entry is superseded in place with the original text retained.
