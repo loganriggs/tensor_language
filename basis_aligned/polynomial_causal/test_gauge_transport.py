@@ -2,8 +2,14 @@ import pytest
 import torch
 
 from gauge_transport import (
+    beats_all_nulls,
+    centered_logit_response_sums,
+    commuting_output_metrics,
+    fit_delta_ridge,
+    haar_basis_in_support,
     physical_transport,
     powered_sign_agreement,
+    response_r2,
     response_metrics,
     rewrite_coordinate_gauge,
 )
@@ -84,3 +90,74 @@ def test_invalid_or_singular_interfaces_fail_closed():
         )
     with pytest.raises(ValueError, match="all-zero"):
         response_metrics(torch.zeros(3, 2), torch.zeros(3, 2))
+
+
+def test_zero_origin_ridge_recovers_direct_and_composed_response_maps():
+    generator = torch.Generator().manual_seed(31)
+    source = torch.randn(400, 5, generator=generator, dtype=torch.float64)
+    map_8_11 = torch.randn(5, 7, generator=generator, dtype=torch.float64)
+    map_11_14 = torch.randn(7, 4, generator=generator, dtype=torch.float64)
+    delta_11 = source @ map_8_11
+    delta_14 = delta_11 @ map_11_14
+    fit_8_11 = fit_delta_ridge(source, delta_11, relative_ridge=1e-10)
+    fit_11_14 = fit_delta_ridge(delta_11, delta_14, relative_ridge=1e-10)
+    fit_8_14 = fit_delta_ridge(source, delta_14, relative_ridge=1e-10)
+    direct = source @ fit_8_14
+    chained = source @ fit_8_11 @ fit_11_14
+    assert response_r2(delta_14, direct) > 1 - 1e-16
+    assert response_r2(delta_14, chained) > 1 - 1e-16
+
+
+def test_triangle_maps_transform_consistently_under_orthogonal_gauges():
+    generator = torch.Generator().manual_seed(41)
+    delta_8 = torch.randn(100, 3, generator=generator, dtype=torch.float64)
+    t_8_11 = torch.randn(3, 4, generator=generator, dtype=torch.float64)
+    t_11_14 = torch.randn(4, 2, generator=generator, dtype=torch.float64)
+    q8, _ = torch.linalg.qr(torch.randn(3, 3, generator=generator, dtype=torch.float64))
+    q11, _ = torch.linalg.qr(torch.randn(4, 4, generator=generator, dtype=torch.float64))
+    q14, _ = torch.linalg.qr(torch.randn(2, 2, generator=generator, dtype=torch.float64))
+    # Row-coordinate convention: c' = c Q, T_ij' = Q_i^T T_ij Q_j.
+    delta_8_prime = delta_8 @ q8
+    t_8_11_prime = q8.T @ t_8_11 @ q11
+    t_11_14_prime = q11.T @ t_11_14 @ q14
+    original = delta_8 @ t_8_11 @ t_11_14
+    rewritten = delta_8_prime @ t_8_11_prime @ t_11_14_prime
+    torch.testing.assert_close(original @ q14, rewritten, rtol=1e-12, atol=1e-12)
+
+
+def test_commuting_output_error_has_exact_and_null_controls():
+    baseline = torch.tensor(
+        [[2.0, 0.0, -1.0], [0.0, 1.0, -2.0]], dtype=torch.float64
+    )
+    early = baseline + torch.tensor(
+        [[0.4, -0.2, 0.1], [-0.3, 0.2, 0.5]], dtype=torch.float64
+    )
+    exact = commuting_output_metrics(baseline, early, early + 17.0)
+    assert exact["e_out"] == pytest.approx(0.0, abs=1e-12)
+    assert exact["centered_logit_relative_rmse"] == pytest.approx(0.0, abs=1e-12)
+    null = commuting_output_metrics(baseline, early, baseline)
+    assert null["e_out"] == pytest.approx(1.0)
+    assert null["centered_logit_relative_rmse"] == pytest.approx(1.0)
+    raw = centered_logit_response_sums(baseline, early, early + 17.0)
+    assert raw["centered_logit_error_sum_squares"] == pytest.approx(0.0, abs=1e-22)
+    assert raw["centered_logit_target_sum_squares"] > 0
+
+
+def test_matched_haar_basis_stays_inside_support_and_null_gate_is_exact():
+    generator = torch.Generator().manual_seed(51)
+    support, _ = torch.linalg.qr(
+        torch.randn(9, 6, generator=generator, dtype=torch.float64), mode="reduced"
+    )
+    basis = haar_basis_in_support(support, 4, generator=generator)
+    torch.testing.assert_close(basis.T @ basis, torch.eye(4, dtype=torch.float64))
+    residual = basis - support @ (support.T @ basis)
+    assert float(residual.norm()) < 1e-12
+    gate = beats_all_nulls(0.1, [0.2 + 0.01 * index for index in range(20)],
+                           lower_is_better=True)
+    assert gate == {
+        "passed": True,
+        "null_at_least_as_good": 0,
+        "finite_null_p": pytest.approx(1 / 21),
+        "n_nulls": 20,
+    }
+    assert not beats_all_nulls(0.3, [0.2, 0.4], lower_is_better=True)["passed"]

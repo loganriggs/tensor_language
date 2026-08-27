@@ -10,6 +10,7 @@ from __future__ import annotations
 import math
 
 import torch
+import torch.nn.functional as F
 
 
 def _matrix(name: str, value: torch.Tensor) -> None:
@@ -132,3 +133,178 @@ def powered_sign_agreement(
     ref = reference_effect[powered]
     pred = predicted_effect[powered]
     return float((torch.sign(ref) == torch.sign(pred)).double().mean())
+
+
+def fit_delta_ridge(
+    source_delta: torch.Tensor,
+    destination_delta: torch.Tensor,
+    *,
+    relative_ridge: float = 1e-3,
+) -> torch.Tensor:
+    """Fit ``destination_delta ~= source_delta @ weight`` with zero origin.
+
+    Intervention responses are differences, so an affine intercept would introduce
+    an arbitrary origin and is intentionally excluded.  The ridge is relative to
+    the mean Gram diagonal, making the declared value invariant to sample count.
+    """
+    if source_delta.ndim != 2 or destination_delta.ndim != 2:
+        raise ValueError("delta regression expects rank-2 [examples, coordinates] tensors")
+    if source_delta.shape[0] != destination_delta.shape[0]:
+        raise ValueError("source and destination deltas need the same examples")
+    if source_delta.shape[0] == 0:
+        raise ValueError("delta regression needs at least one example")
+    if relative_ridge < 0 or not math.isfinite(relative_ridge):
+        raise ValueError("relative_ridge must be finite and nonnegative")
+    source = source_delta.detach().double()
+    destination = destination_delta.detach().double()
+    if not torch.isfinite(source).all() or not torch.isfinite(destination).all():
+        raise ValueError("delta regression contains non-finite values")
+    gram = source.T @ source
+    scale = float(gram.diag().mean()) if gram.numel() else 0.0
+    regularization = relative_ridge * max(scale, torch.finfo(gram.dtype).tiny)
+    gram = gram.clone()
+    gram.diagonal().add_(regularization)
+    try:
+        return torch.linalg.solve(gram, source.T @ destination)
+    except torch.linalg.LinAlgError as error:
+        raise ValueError("delta regression Gram matrix is singular") from error
+
+
+def response_r2(reference: torch.Tensor, prediction: torch.Tensor) -> float:
+    """Zero-origin response R2: ``1 - ||prediction-reference||^2/||reference||^2``."""
+    if reference.shape != prediction.shape:
+        raise ValueError("reference and prediction response shapes disagree")
+    reference = reference.detach().double()
+    prediction = prediction.detach().double()
+    denominator = float(reference.square().sum())
+    if denominator == 0:
+        raise ValueError("response R2 is undefined for an all-zero reference")
+    return 1.0 - float((prediction - reference).square().sum()) / denominator
+
+
+def commuting_output_metrics(
+    baseline_logits: torch.Tensor,
+    early_intervention_logits: torch.Tensor,
+    transported_logits: torch.Tensor,
+) -> dict[str, float]:
+    """Score whether a transported late patch commutes with an early intervention.
+
+    ``E_out`` is the aggregate ``KL(early || transported) / KL(early || baseline)``.
+    Centered-logit error removes the softmax-irrelevant per-token scalar gauge.
+    Inputs may have any leading dimensions but share the final vocabulary axis.
+    """
+    if not (
+        baseline_logits.shape
+        == early_intervention_logits.shape
+        == transported_logits.shape
+    ):
+        raise ValueError("all logit tensors must have identical shapes")
+    if baseline_logits.ndim < 2:
+        raise ValueError("logits need a final vocabulary dimension")
+    tensors = (baseline_logits, early_intervention_logits, transported_logits)
+    if not all(torch.isfinite(value).all() for value in tensors):
+        raise ValueError("logits contain non-finite values")
+    baseline = baseline_logits.detach().double()
+    early = early_intervention_logits.detach().double()
+    transported = transported_logits.detach().double()
+    logp_early = F.log_softmax(early, dim=-1)
+    p_early = logp_early.exp()
+    numerator = float(
+        (p_early * (logp_early - F.log_softmax(transported, dim=-1))).sum()
+    )
+    denominator = float(
+        (p_early * (logp_early - F.log_softmax(baseline, dim=-1))).sum()
+    )
+    if denominator <= torch.finfo(torch.float64).eps:
+        raise ValueError("early intervention has zero output KL relative to baseline")
+    early_centered = early - early.mean(dim=-1, keepdim=True)
+    transported_centered = transported - transported.mean(dim=-1, keepdim=True)
+    baseline_centered = baseline - baseline.mean(dim=-1, keepdim=True)
+    target_delta = early_centered - baseline_centered
+    prediction_error = transported_centered - early_centered
+    target_energy = float(target_delta.square().sum())
+    if target_energy == 0:
+        raise ValueError("early intervention has zero centered-logit response")
+    return {
+        "e_out": numerator / denominator,
+        "centered_logit_relative_rmse": math.sqrt(
+            float(prediction_error.square().sum()) / target_energy
+        ),
+        "early_vs_baseline_kl_sum": denominator,
+        "early_vs_transported_kl_sum": numerator,
+    }
+
+
+def centered_logit_response_sums(
+    baseline_raw_logits: torch.Tensor,
+    early_raw_logits: torch.Tensor,
+    transported_raw_logits: torch.Tensor,
+) -> dict[str, float]:
+    """Streaming-friendly centered pre-softcap response error components."""
+    if not (
+        baseline_raw_logits.shape
+        == early_raw_logits.shape
+        == transported_raw_logits.shape
+    ):
+        raise ValueError("all raw-logit tensors must have identical shapes")
+    if baseline_raw_logits.ndim < 2:
+        raise ValueError("raw logits need a final vocabulary dimension")
+    values = tuple(
+        tensor.detach().double() - tensor.detach().double().mean(dim=-1, keepdim=True)
+        for tensor in (baseline_raw_logits, early_raw_logits, transported_raw_logits)
+    )
+    if not all(torch.isfinite(value).all() for value in values):
+        raise ValueError("raw logits contain non-finite values")
+    baseline, early, transported = values
+    target = early - baseline
+    error = transported - early
+    return {
+        "centered_logit_error_sum_squares": float(error.square().sum()),
+        "centered_logit_target_sum_squares": float(target.square().sum()),
+    }
+
+
+def haar_basis_in_support(
+    support: torch.Tensor,
+    rank: int,
+    *,
+    generator: torch.Generator,
+) -> torch.Tensor:
+    """Sample a Haar rank-``rank`` basis inside an orthonormal support."""
+    _matrix("support", support)
+    if rank <= 0 or rank > support.shape[1]:
+        raise ValueError("rank must lie in [1, support dimension]")
+    identity = torch.eye(support.shape[1], dtype=support.dtype, device=support.device)
+    if not torch.allclose(support.T @ support, identity, rtol=1e-5, atol=1e-6):
+        raise ValueError("support columns must be orthonormal")
+    gaussian = torch.randn(
+        support.shape[1], rank,
+        dtype=support.dtype, device=support.device, generator=generator,
+    )
+    q, r = torch.linalg.qr(gaussian, mode="reduced")
+    signs = torch.where(torch.diag(r) < 0, -torch.ones_like(torch.diag(r)),
+                        torch.ones_like(torch.diag(r)))
+    return support @ (q * signs)
+
+
+def beats_all_nulls(
+    candidate: float,
+    nulls: list[float],
+    *,
+    lower_is_better: bool,
+) -> dict[str, float | bool | int]:
+    """Exact finite-null gate; with 20 nulls the minimum p-value is 1/21."""
+    if not nulls or not math.isfinite(candidate) or not all(map(math.isfinite, nulls)):
+        raise ValueError("candidate and at least one null must be finite")
+    if lower_is_better:
+        null_at_least_as_good = sum(value <= candidate for value in nulls)
+        passed = candidate < min(nulls)
+    else:
+        null_at_least_as_good = sum(value >= candidate for value in nulls)
+        passed = candidate > max(nulls)
+    return {
+        "passed": passed,
+        "null_at_least_as_good": null_at_least_as_good,
+        "finite_null_p": (1 + null_at_least_as_good) / (1 + len(nulls)),
+        "n_nulls": len(nulls),
+    }

@@ -88,25 +88,44 @@ control makes the relevant metric underpowered and also bars promotion.
 
 ### Stage 1: no-teacher-forcing commuting triangle
 
-Use post-block residual boundaries `L8 -> L11 -> L14` at rank 64.  This rank is a
+Use post-block residual boundaries `L8 -> L11 -> L14` at rank 64.  The first
+transport grammar is explicitly pointwise,
+`I_position tensor B_ij`; it does not mix positions.  A failure rejects this narrow
+interface, not causal temporal kernels or general position-indexed transport, which
+would be separately preregistered and priced.  This rank is a
 registered first test, not a claim of minimality: ranks 8 and 16 did not beat the
 existing random-256 alignment control, while rank 64 did.  Split data three ways:
 
 1. **basis rows:** independently fit local token-deviation bases `U8,U11,U14` and
    freeze them before any intervention is observed;
-2. **response-fit rows:** inject small natural-scale perturbations at L8 and,
-   separately, L11; fit centered response maps `T8,11`, `T11,14`, and direct
-   `T8,14` by ridge from `dc_j = U_j^T(x_j^I - x_j)`;
+2. **response rows:** use 16 rows for scale calibration, 64 for response-map fitting,
+   and 16 for row-grouped validation.  At L8 and separately L11, inject the same
+   frozen sparse antithetic physical probes `+/- alpha S_l z` in the rank-256 local
+   support.  Candidate and every null project this one measured perturbation ledger
+   into their own coordinates and fit centered response maps `T8,11`, `T11,14`, and
+   direct `T8,14` by zero-intercept ridge with fixed relative penalty `1e-3`;
 3. **evaluation rows:** choose no basis, rank, ridge penalty, scale, or map.
 
-Use raw orthonormal coordinates.  If whitening is later added, store the full
+The frozen allocation is 96 basis rows, 96 response rows, and 192 evaluation rows;
+every split must carry dataset document/chunk provenance and prove no document
+crosses a split.  Tensor hashes and separated skips alone are insufficient for this
+claim.  Use one sequence per document in the headline and bootstrap by document.
+
+Use raw orthonormal coordinates.  Token-conditional deviations use a global-mean
+fallback for unseen/rare tokens, frozen on basis rows.  If whitening is later added, store the full
 coordinate metric `C_l`, transformed as `C_l' = Q_l^T C_l Q_l`; a diagonal scale
 would reduce the declared gauge to signed permutations.  Downstream RMSNorm stays
 live.  Discovery calibrates perturbation RMS once so median early-intervention KL is
-in `[0.01, 0.20]`, then freezes it.
+in `[0.01, 0.20]`, then freezes it.  The scale grid is the local top-256 mean
+coordinate standard deviation times `{1e-2, 1e-1, 1, 10, 100}`; choose the in-band
+point nearest the geometric center of the KL band.  If no point is in band, stop.
+Each probe edits one per-row position drawn from `[64,255]` by a frozen seed; score
+the complete causal suffix beginning at that position.
 
-On untouched rows and a wholly held-out perturbation family (coordinate cuts or
-position-matched donor-minus-target swaps; fitting uses isotropic perturbations),
+On untouched rows and a wholly held-out position-matched donor-minus-target family,
+make one common physical L8 edit, independent of candidate/null coordinates.  A
+candidate-coordinate cut would structurally favor the candidate and is not a
+headline null comparison.  Fitting uses the shared isotropic-support perturbations;
 intervene once at L8 and compare:
 
 - the true L8-intervened forward pass;
@@ -115,6 +134,11 @@ intervene once at L8 and compare:
 - the direct prediction `U14 T8,14 dc8`;
 - the chain `U14 T11,14 T8,11 dc8`, with no true L11 value;
 - natural-state regression, shuffled-response, and matched random-subspace maps.
+
+Non-promoting L11 diagnostics distinguish an insufficient intermediate basis from a
+bad map: full true `Delta x11` patched onto baseline x11, its true `U11` projection,
+and the predicted `U11 T8,11 dc8`.  All resume through layers 12 onward with the
+baseline `x0` and layer-0 value state, which an L8 edit cannot change.
 
 Every predicted patch is added to the *baseline* L14 state.  Applying it to the true
 early-intervened L14 state leaks the response and invalidates the run.
@@ -173,7 +197,8 @@ For intervention family `f`, with physical response vectors `Delta_i` and predic
 NRE_f = sqrt(sum_i ||Delta_hat_i - Delta_i||^2 / sum_i ||Delta_i||^2).
 ```
 
-The primary coordinate causal error is `max_f NRE_f`; do not pool families.  At the
+The primary coordinate causal error is `max_f NRE_f`; do not pool families.  Score
+only the causal suffix beginning at the frozen sparse intervention position.  At the
 output define the commuting-diagram error
 
 ```text

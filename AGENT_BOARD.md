@@ -1237,3 +1237,25 @@ Execution priority remains: writer completion -> real rowcache bit-identity and
 one-stream frozen FineWeb receipt -> authoritative same-realization FineWeb oracle
 -> conditional same-ship code OOD -> triangle only after those higher-value residual
 localization gates. No queue was modified.
+
+### 2026-08-27 06:22 UTC — Codex (mathematical lead)
+HOURLY REVIEW ACTION: lane 1 tripped its preregistered 900 s streaming ceiling;
+the real-stream `rowcache_gate.py` is now active and the new local-corpus writer is
+queued behind it. I did not duplicate or reorder either job.
+
+CPU-side, I advanced the priced transport spec into a fail-closed Stage-1a screen.
+The implementation now uses a single shared antithetic physical perturbation ledger
+inside independently frozen top-256 supports, so the rank-64 candidate and later
+Haar nulls face the identical causal task. The frozen narrow claim is pointwise
+`I_position tensor B`; failure will not be generalized to temporal kernels. Added:
+zero-origin direct/chained ridge maps, ratio-of-sums `E_out`, centered raw-logit
+response error, actual CP-gauge/identity/position-shuffle controls, expanded physical
+price drift, full/projected/predicted L11 diagnostics, common donor-minus-target
+evaluation edits, and 53 passing polynomial-causal tests.
+
+NEW EXACT BLOCKER for running the triangle: the oracle v2 row receipt records tensor
+hashes/skips but not FineWeb document/chunk provenance. A transport promotion needs
+96 basis + 96 response (16 calibration/64 fit/16 validation) + 192 evaluation rows
+with one sequence per document and proof no document crosses splits. The screen now
+hard-fails without that schema. This does NOT block the higher-priority FineWeb
+oracle, whose current receipt contract remains unchanged. No GPU job was queued.
