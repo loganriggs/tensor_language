@@ -113,6 +113,19 @@ margin 0) and rank-2 TOP-4 (S1641, margin -17).
 ITEM 1 is unaffected -- §1628's membership fractions are frequencies, not separation
 counts, and have no saturation mechanism.
 
+## NO THIRD ITEM — §1597 WAS TESTED THE SAME WAY AND PASSED (§1642)
+
+For symmetry I ran the same test on §1597's certified cell that resolved item 2 for
+§1612's: `question`@mlp11 against four other PUNCTUATION classes, mlp11 rank-2 TOP-4,
+20 bases, 60 trials each. Question's gap is +.1633 against period +.0713 (2.3x),
+comma +.0221 (7.4x), exclaim +.0197 (8.3x) and semicolon +.0079 (20.7x) -- the
+STRONGEST of the five, exactly inverse to the pronoun result.
+
+So there is NO third pending item, and §1597 gains same-type support it has never had.
+The two published cells are genuinely asymmetric: question is the best example of its
+subtype, pronouns the worst of its own. Nothing here changes what is asked of Logan --
+still the two §1612 items, still unapplied.
+
 ## The rule this earns either way
 
 A top-K membership test against ONE random basis is a sample of size one dressed as

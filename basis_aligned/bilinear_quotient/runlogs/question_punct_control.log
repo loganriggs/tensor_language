@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows x 20 seeds (receipt sha256[:16]=815b21618c2e477e)
+  question  CERTIFIED sep 60/60 | mean gap +0.1633 | lambda [0.7257, 0.7359, 0.739] | null20 0.5702
+  period    fresh     sep 58/60 | mean gap +0.0713 | lambda [0.5774, 0.5834, 0.5897] | null20 0.5122
+  comma     fresh     sep 42/60 | mean gap +0.0221 | lambda [0.5128, 0.5002, 0.4992] | null20 0.4819
+  exclaim   fresh     sep 32/60 | mean gap +0.0197 | lambda [0.5005, 0.543, 0.4954] | null20 0.4933
+  semicolon fresh     sep 24/60 | mean gap +0.0079 | lambda [0.4774, 0.4691, 0.5324] | null20 0.4850
+
+  SEPARATION at mlp17 rank-2 TOP-4 (DISCRIMINATING regime), exact-subtype PUNCTUATION controls, 60 trials each:
+    question  CERTIFIED separation 60/60  mean gap +0.1633  lambda [0.7257, 0.7359, 0.739]  random [0.4825, 0.7185]
+    period    fresh     separation 58/60  mean gap +0.0713  lambda [0.5774, 0.5834, 0.5897]  random [0.4237, 0.5942]
+    comma     fresh     separation 42/60  mean gap +0.0221  lambda [0.5128, 0.5002, 0.4992]  random [0.4005, 0.5606]
+    exclaim   fresh     separation 32/60  mean gap +0.0197  lambda [0.5005, 0.543, 0.4954]  random [0.4038, 0.6544]
+    semicolon fresh     separation 24/60  mean gap +0.0079  lambda [0.4774, 0.4691, 0.5324]  random [0.4016, 0.6255]
+  question 60/60  vs  best other punctuation 58/60  -> MARGIN 2
+  other punctuation sharing question's gap sign (positive): 4/4 | classes at <= 45/60 (regime check): 3/5
+  (§1634 same cell, FUNCTION-WORD controls: 52-60/60, margin 0)
+  (§1637: a type-MISmatched control gave §1633 a margin of 13 that was really 2)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/question_punct_control_results.json (400.8s)

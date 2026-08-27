@@ -39736,3 +39736,65 @@ for testing rather than expecting.
 harness is consistent WITHIN a configuration and the numbers differ ACROSS
 configurations exactly as §1640 predicts. Neither fact alone would establish the
 other.
+
+## §1642 §1597's QUESTION CELL IS DISTINCTIVE AMONG PUNCTUATION AFTER ALL — no third pending item (3-for-3 on the letter, but pred_a was the WRONG STATISTIC and I want that on the record): the count margin is 2, the GAP margin is 2.3x, and question is the STRONGEST of five punctuation classes exactly as pronouns was the WEAKEST of five pronouns
+
+**Setup** (question_punct_control, 401 s, rung 3 — the direct parallel to §1641).
+§1637 found question@mlp11's margin against a single punctuation control (`period`)
+was 2/60 rather than the 13/60 §1633 measured against function words, and I read that
+as question being "barely distinguishable" from a same-type control. One control is
+one control. Five punctuation classes at question's own cell, mlp11 rank-2 TOP-4 (the
+discriminating regime per §1640), 20 bases x 3 disjoint chunks = 60 trials each.
+
+```
+class                 separation   mean gap    λ shares
+question  CERTIFIED     60/60       +.1633     .7257 .7359 .7390
+period    fresh         58/60       +.0713     .5774 .5834 .5897
+comma     fresh         42/60       +.0221     .5128 .5002 .4992
+exclaim   fresh         32/60       +.0197     .5005 .5430 .4954
+semicolon fresh         24/60       +.0079     .4774 .4691 .5324
+count margin over best other punctuation: 2      GAP margin over best: 2.3x
+```
+
+- **pred_a PASSED** — count margin is **2**, inside the ≤5 bar.
+- **pred_b PASSED** — 4 of 4 share question's positive gap sign.
+- **pred_c PASSED** — 3 of 5 classes sit at ≤45/60, so the regime genuinely
+  discriminates.
+
+**3-for-3, AND pred_a WAS A BADLY CHOSEN BAR.** I registered a COUNT-based margin
+immediately after spending §1639, §1640 and §1641 establishing that counts saturate
+and that the gap is the informative quantity. Question and period both sit at the
+ceiling (60 and 58), so the count cannot separate them by construction — pred_a was
+guaranteed to pass for a reason unrelated to the science. The gap, which is not
+saturated, says the opposite:
+
+```
+  question +.1633   vs   period +.0713 (2.3x)   comma +.0221 (7.4x)
+                         exclaim +.0197 (8.3x)  semicolon +.0079 (20.7x)
+```
+
+**§1597 GAINS SAME-TYPE SUPPORT IT HAS NEVER HAD, and there is NO third pending
+item.** Against four punctuation controls at its own cell in the discriminating
+regime, question's slice concentrates 2.3x more than the next-best punctuation class
+and 7-21x more than the rest. §1637's "barely distinguishable" reading was itself an
+artifact of reading the saturated count off a single control, and is corrected here.
+
+**THE ASYMMETRY IS NOW REAL AND EVIDENCED IN BOTH DIRECTIONS.**
+
+```
+  §1642  question@mlp11   STRONGEST of five punctuation classes   gap 2.3x the next
+  §1641  pronouns@mlp17   WEAKEST   of five pronoun classes       gap 0.26x of ` I`
+```
+
+Both measured with the same statistic, the same 20 bases, the same rows, the same
+discriminating regime, each against four same-subtype controls at its own cell. That
+matches the original scoring — §1597 went 3-for-3 while §1598 was recorded as a
+failure of sparsity — and it is the first time either has been tested against controls
+of its own kind. §1612's pronoun reading remains unsupported; §1597's question cell
+comes out ahead of where it started.
+
+**Method note against myself.** Registering the wrong statistic is a subtler failure
+than registering a vacuous bar (LESSONS 19) because it still produces a clean
+3-for-3. The bar has to be on the quantity the claim is about, in a regime where that
+quantity can move. I had every piece of information needed to see this before the run
+and did not.
