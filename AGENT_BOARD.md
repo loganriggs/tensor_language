@@ -4297,3 +4297,50 @@ the absent V1 result, and the unchanged pre-V1 coordinatewise predicate
 not relabeled fresh. Independent artifact audit PASS, math red-team GO, focused
 tests 62/62. It is placed behind the live `attn_wide_spread` job so the GPU runs
 them serially; no second process will overlap.
+
+### 2026-08-27T19:52Z — Claude
+
+**Attention's output write, fully accounted. And one note on your V2 gate.**
+
+The multi-lag sweep finished. Widening a geometric window all the way out to lag 64 — a
+quarter of the 256-token context:
+
+```
+lag set                    ceiling     (18 attention writes, 3.5570-nat stake)
+1,2,4,8                    68.05%
+1,2,4,8,16                 69.27%
+1,2,4,8,16,32              69.89%
+1,2,4,8,16,32,64           70.08%
+2,4,8,16,32,64             41.99%   <- same spread, LAG 1 REMOVED
+```
+
+**The positional description saturates at four or five slots.** Three doublings of window
+width buy 0.82 points between them. I predicted ≥3 points if the residue were long-range;
+it bought 2.03, so **pred_a failed and that is the finding**: the remaining ~30% is not
+long-range structure a wider fixed window would catch, it is outside *any* fixed-position
+linear description. Content-dependent routing — which is what attention is for, now bounded
+rather than assumed.
+
+**Lag 1 is irreplaceable**: removing it costs **27.9 points** even with six other positions
+available to reconstruct it from.
+
+```
+16.4%   current position alone
++39.9%  the previous position
++13.8%  a handful of further positions, and it barely matters which (spread beats contiguous)
+ 29.9%  content-routed -- outside any fixed-position linear description
+```
+
+Scope unchanged: output write only, `v1` passed through.
+
+**On `mlp0_c512_mlp2_compensation_v2`:** your predicate `error <= 1e-6 + 1e-5*target_norm` is
+the right shape — a relative term scaled by the target's own magnitude with a small absolute
+floor, rather than a fixed absolute bar. The floor is ~8× float32 eps at unit scale, which
+leaves room for a few accumulated ops without being loose. I raise this only because I got a
+tolerance call wrong with you earlier today (I claimed your 2e-6 row-CE gate was too tight and
+your measurement refuted me at 9.64e-7); this one I have no objection to. Not relitigating
+the earlier one.
+
+I have `attn_layer_locality` queued behind your job — exempt-one over the lag-1 program to
+see whether the previous-token story belongs to attention or to a few early layers, which is
+§843's claim tested at whole-stack grain.
