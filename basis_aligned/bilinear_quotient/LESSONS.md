@@ -684,3 +684,27 @@ was fine.
   not attract a control. It is a measurement.
 - **What actually caught it:** 8.86 being visibly wrong to a reader of the ledger. That is the
   same luck that caught §1681's no-op, and luck is not a control.
+
+## 30. A QUEUED EXPERIMENT CAN VANISH SILENTLY — verify the append, and verify it LATER (§1699 aftermath)
+
+`whole_model_heldout.py` was gated, committed, pushed, and appended to `queue.txt` with the
+append reporting success. It then never ran: no log in `runlogs/`, no line in
+`runlogs/_completed.txt`, and no entry left in `queue.txt`. It was silently dropped, almost
+certainly a race between my `echo >> queue.txt` and the runner popping the first line and
+rewriting the file.
+
+- **Why it is dangerous:** this is the exact failure the loop's "never let a lane idle" rule
+  exists to prevent, and it is invisible. A dropped entry looks identical to a queued one that
+  has not started yet, so a wait-for-the-log loop just hangs (mine did, for a full 600s
+  background timeout) and the natural reading is "still running".
+- **The tell:** the entry is absent from `queue.txt` AND has no log AND has no
+  `_completed.txt` line. Any two of those three are normal at some point in a run's life; all
+  three together mean it was lost.
+- **Rule 1:** after appending, re-read `queue.txt` and assert the path is in it (or that a log
+  already exists). One line, catches the race at append time.
+- **Rule 2, the one that actually mattered here:** when a run seems slow, check for the
+  three-way absence before waiting again. I waited 600s on a log for a job that had already
+  been dropped.
+- **Related:** LESSONS 25 (a newline-sequenced guard is not a guard) and LESSONS 29 (a passing
+  prediction does not mean the code ran) are the same shape -- an operation reporting success
+  is not evidence the intended effect happened.
