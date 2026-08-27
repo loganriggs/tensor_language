@@ -14,7 +14,24 @@ The authoritative result is
 `bilinear_quotient/mlp0_quotient_stage0_v2_results.json` (SHA256
 `35215d561ac12acd2bc1e11138c48c5566701bb5d0b8ea7b8019241ec9b86759`).
 All four reports were independently reproduced exactly from the serialized
-document-by-cell sufficient statistics.
+row-chunk-by-cell sufficient statistics.  The source-document correction below is
+the authoritative uncertainty analysis.
+
+## Source-document resampling correction
+
+The collector called each of its 192 FineWeb chunks a document, but provenance shows
+that they came from only 64 independent source documents.  The immutable sufficient
+statistics were therefore reaggregated by source-document ID before bootstrapping in
+`bilinear_quotient/mlp0_quotient_stage0_v2_source_document_reanalysis.json` (SHA256
+`6189a396aac836de64d9ff97397d886fca86d7bcfc6cb4ed36359ff107279a31`).
+
+Point estimates cannot change under this lossless grouping.  Simultaneous UCBs become
+25.886 for T-vs-O, 61.541 for Q64-vs-T, 54.155 for A64-vs-T, and 148.110 for the
+mean sensitivity assay.  Minimum source-document cell support is 62.  Every gate and
+the interpretation below are unchanged because the failed candidates are tens of
+practical margins away from equivalence.  Nevertheless, references below to the old
+25.760/59.688 intervals are historical chunk-bootstrap values, not valid
+192-independent-document intervals.
 
 ## Registered gates
 
@@ -27,14 +44,15 @@ document-by-cell sufficient statistics.
 | global mean control sensitive for all consumers | pass |
 | Stage 0 overall | fail |
 
-The failures are not near a threshold. For T versus live MLP0, the simultaneous 95%
-upper bound on the maximum standardized effect is 25.760; passing requires less than
+The failures are not near a threshold. For T versus live MLP0, the corrected
+source-document simultaneous 95% upper bound on the maximum standardized effect is
+25.886; passing requires less than
 1. Its worst cell is first-half, low-frequency, non-punctuation predecessor, high raw
 pre-MLP0 residual norm: KL is 0.2130 against a 0.01 margin and signed CE harm is
 0.1708 against a 0.0075 margin. Worst block-1 attention and MLP output nRMSE are
 0.4021 and 0.6089 against 0.05 margins.
 
-For Q64 versus the token table, the simultaneous upper bound is 59.688. The worst CE
+For Q64 versus the token table, the corrected simultaneous upper bound is 61.541. The worst CE
 cell is second-half, high-frequency, non-punctuation predecessor, high residual norm:
 0.4182 nat/token. A64 is also far outside equivalence, but has a smaller maximum
 standardized effect (48.657 versus Q64's 55.756), so the registered reader metric does
@@ -79,17 +97,24 @@ fixed by fit-row centering/whitening, and producer plus consumer wiring must be 
 jointly. “Class” earns explanatory status only if its shared atom reduces total
 description length at the same causal fidelity.
 
-The next discriminator is a matched-price hierarchical screen:
+The next discriminator is a matched-price **executable native-write screen**.  It
+keeps and prices exact `Left`/`Right`, constructs their exact product state, poisons
+the original `Down`, and compares serialized low-rank residual write maps at ranks
+near 256/512.  Reader and activation K64 centroid baselines receive only the residual
+rank affordable at the exact same byte price as a continuous map, and must beat both
+that continuous control and assignment-preserving centroid-derangement nulls.
 
-- `T + P_r(m0_live-T)` for context ranks r=16/32/64;
-- `Q64 + U_k(token) + P_r(context)` with a priced within-cluster continuous code;
-- a continuous response-metric PCA control at matched total bits/rank;
-- a native polynomial/program generator control rather than a 50,257-row lookup.
+The tempting `T + P_r(m0_live-T)` oracle is pruned: it reads the original MLP0 output
+at evaluation and therefore cannot earn executable simplicity credit.  The complete
+registered design is `MLP0_NATIVE_DOWN_HIERARCHY_SPEC.md`.
 
 Every arm must be scored against attention-1, MLP1, final KL/CE, the same worst-cell
-gate, and then the exact MLP0/1/2 composition cube. Since T versus O failed, the
-registered within-class donor-swap Stage 1 is not licensed: a class swap would
-confound token code with missing contextual state.
+gate, and then—only after a program passes—the exact MLP0/1/2 composition cube.
+Evaluation is frozen on 384 new source documents in two independent 192-document
+waves (607 chunks, 310,784 raw prediction positions).  Both waves must pass
+separately and the pooled simultaneous UCB must remain below 0.8 of every practical
+margin. Since T versus O failed, the registered within-class donor-swap Stage 1 is
+not licensed: a class swap would confound token code with missing contextual state.
 
 ## What this changes globally
 

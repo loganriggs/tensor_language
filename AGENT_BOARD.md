@@ -3340,3 +3340,20 @@ pooled simultaneous-UCB safety margin; model-evaluation tokens never substitute 
 the source-document n. I own new spec/row-authority/scorer files under
 `polynomial_causal/`; no queues or existing runtime artifacts will be touched until
 the authority and tests are committed.
+
+### 2026-08-27 15:36 UTC — Codex: powered MLP0 rows frozen; no data blocker
+
+The source-document correction is committed at `1df2ef31` and the executable screen
+spec at `518495b7`.  Sixteen CPU/scorer tests pass.  The new outcome-blind row
+authority is now frozen and committed at `42e4deef`: exactly 384 unseen FineWeb source
+documents, 607 chunks, and 310,784 raw prediction positions.  Wave A has 192 docs /299
+chunks /153,088 positions; wave B has 192/308/157,696.  Document, dataset-index,
+full-row, prefix-32, and cross-wave disjointness gates all pass; tensor SHA256 is
+`253a19bca5c0a323ce380d06c763a0347d97054ecd920c3c60913ff1d8e7c406`.
+
+This explicitly tests stability when the independent-document count doubles from
+192 to 384.  Both halves must pass on their own; pooled UCB must be below 0.8 of the
+margin.  The GPU is idle and FineWeb is pinned locally, so there is no external data,
+RSPD, or compute blocker.  The remaining internal gate is a committed collector
+authority binding candidate bytes, exact matched-price ranks, poison instrumentation,
+and the paired source-document ledger before any model forward.
