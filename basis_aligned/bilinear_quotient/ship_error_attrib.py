@@ -345,7 +345,8 @@ def run_content_correction(TWALL, all_attention, start_time):
     factor_path = (Path(__file__).resolve().parent.parent / 'polynomial_causal' /
                    'content_product_frontier_factors.pt')
     factors = torch.load(factor_path, map_location='cpu')
-    content_basis = factors['sites']['0']['content_basis'][:, :rank].to(DEV).float()
+    raw_content_basis = factors['sites']['0']['content_basis'][:, :rank].to(DEV).float()
+    content_basis = torch.linalg.qr(raw_content_basis, mode='reduced').Q
     assert torch.allclose(content_basis.T @ content_basis,
                           torch.eye(rank, device=DEV), atol=2e-4, rtol=2e-4)
 
@@ -483,12 +484,20 @@ def run_oracle_content_screen(TWALL, all_attention, start_time):
     seed = 161803
     all_mlps = frozenset(range(18))
     basis_rows = cl.fineweb_rows(96, skip=1200)[:, :T + 1].contiguous()
+    print("oracle basis rows loaded", flush=True)
     discovery_rows = cl.fineweb_rows(192, skip=7000)[:, :T + 1].contiguous()
+    print("oracle discovery rows loaded", flush=True)
     heldout_rows = cl.fineweb_rows(192, skip=11000)[:, :T + 1].contiguous()
+    print("oracle heldout rows loaded", flush=True)
     factor_path = (Path(__file__).resolve().parent.parent / 'polynomial_causal' /
                    'content_product_frontier_factors.pt')
     factors = torch.load(factor_path, map_location='cpu')
-    content_basis = factors['sites']['0']['content_basis'][:, :rank].to(DEV).float()
+    raw_content_basis = factors['sites']['0']['content_basis'][:, :rank].to(DEV).float()
+    raw_content_gram_max_error = float((raw_content_basis.T @ raw_content_basis
+                                        - torch.eye(rank, device=DEV)).abs().max())
+    # Factors were serialized with ~5.7e-4 Gram drift. QR changes only the
+    # frozen span, not the subspace intervention being tested.
+    content_basis = torch.linalg.qr(raw_content_basis, mode='reduced').Q
     assert torch.allclose(content_basis.T @ content_basis,
                           torch.eye(rank, device=DEV), atol=2e-4, rtol=2e-4)
 
@@ -614,6 +623,8 @@ def run_oracle_content_screen(TWALL, all_attention, start_time):
             'heldout_rows': 192, 'heldout_skip': 11000,
             'copy_definition': 'target recurs at distance 1 through 64 in context',
             'frequency_vocab': 'frozen from discovery rows and reused on heldout',
+            'content_basis_treatment': 'QR orthonormalization of frozen serialized span',
+            'raw_content_basis_gram_max_error': raw_content_gram_max_error,
             'status': 'optimizer-free singleton oracle screen; not a learned correction',
         },
         'arms': {
@@ -804,8 +815,14 @@ def main(factorial=False, content_correction=False, oracle_content_screen=False)
     t0 = time.time(); cl.use_state(PT + 'census_state_diverse.pt')
     for p in m.parameters():
         p.requires_grad_(False)
-    eval_rows = 480 if factorial else NR
-    EVR = cl.fineweb_rows(eval_rows, skip=7000)[:, :T + 1].contiguous()
+    # Specialized modes own their disjoint splits. Avoid an otherwise unused
+    # 1920-row streaming request before their shared ship construction.
+    if factorial:
+        EVR = cl.fineweb_rows(480, skip=7000)[:, :T + 1].contiguous()
+    elif content_correction or oracle_content_screen:
+        EVR = None
+    else:
+        EVR = cl.fineweb_rows(NR, skip=7000)[:, :T + 1].contiguous()
 
     def ce_run(layers, TWALL):
         s_ = 0.0; n_ = 0

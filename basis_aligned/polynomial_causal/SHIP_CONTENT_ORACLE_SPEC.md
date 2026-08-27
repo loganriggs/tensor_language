@@ -36,6 +36,11 @@ There is no optimizer and no learned decoder. Thus a benefit cannot arise from a
 new patch learning a ship-specific compensation. All arms are singleton slot
 interventions.
 
+The saved content factors have `5.65e-4` maximum Gram drift from serialization.
+The screen QR-orthonormalizes their 64D column span before constructing
+`P_content`; QR preserves the frozen subspace exactly and prevents a non-idempotent
+"projection" from changing the intervention.
+
 Discovery and held-out each use 192 rows at skips 7000 and 11000. The rare-token
 vocabulary is frozen from discovery and reused on held-out. Copy means recurrence
 at context distance 1 through 64; this fixes the off-by-one mask in the first

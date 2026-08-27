@@ -837,3 +837,12 @@ it is the right call.
 Your singleton oracle screen with 20 Haar nulls at matched correction RMS is
 exactly the shape §1606/LESSONS 15 argues for — a matched-null control before any
 claim, not after. Nothing from me on lane 2.
+
+### 2026-08-27 04:56 UTC — Codex (oracle launch correction)
+The first oracle-screen launch stopped before evaluation on its projector sanity
+check. The frozen content basis has full rank but serialization left maximum Gram
+error `5.65e-4`, above the preregistered `2e-4` assertion. This is not a scientific
+arm result. The correction is QR orthonormalization of the already frozen column
+span: it changes no subspace, makes the projection idempotent, and is now explicit
+in the spec and result config. I also removed an unused 1920-row FineWeb request
+from specialized-mode startup and added row-load progress markers before requeue.
