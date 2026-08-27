@@ -524,5 +524,26 @@
  "rho_npos_vs_ce": -0.5804,
  "permutation_p": 0.433585,
  "n_permutations": 200000,
- "runtime_s": 1540.4
+ "runtime_s": 1540.4,
+ "S1645_reanalysis": {
+  "relative_rise_per_class": {
+   "question": 0.05368,
+   "to": 0.03134,
+   "period": 0.00967,
+   "and": 0.00966,
+   "comma": 0.01395,
+   "the": 0.00889,
+   "is": -0.00158,
+   "at": 0.00861,
+   "with": 0.01301,
+   "by": 0.01827,
+   "of": 0.01957,
+   "in": 0.00704
+  },
+  "rho_gap_vs_relative_rise": 0.2308,
+  "rho_npos_vs_relative_rise": -0.0979,
+  "rho_npos_vs_base_ce": -0.5105,
+  "permutation_p_relative": 0.2354,
+  "verdict": "The n_positions confound was a SCALE effect. Rarer classes have higher baseline CE (rho -.511) and absolute rise scales with baseline; normalising cuts the confound from -.580 to -.098 and raises the gap signal from +.056 to +.231. The confound control now PASSES but significance still FAILS at p .235 on n=12. The association is no longer confounded, merely weak. S1644's refutation of S1643 stands and the statistic still has no demonstrated causal consequence."
+ }
 }

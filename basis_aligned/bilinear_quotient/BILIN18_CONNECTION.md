@@ -39951,3 +39951,58 @@ estimation noise (CE on 214 positions is far noisier than on 3766). Distinguishi
 those needs matched-n subsampling — score every class at a common position count —
 which is the obvious next test and would say something about the model rather than
 about my statistic.
+
+## §1645 THE n_positions CONFOUND WAS A SCALE EFFECT — normalising CE rise by baseline CE cuts it from rho −.580 to −.098 and quadruples the gap signal, WITHOUT A NEW RUN (re-analysis of §1644, no GPU)
+
+**Setup** (re-analysis of `gap_ce_12class_results.json`, zero GPU, rung 3 — §1644's
+named open question). §1644 found CE rise tracks n_positions at rho **−.580**, ten
+times the gap signal, and named the open question as "real structure or estimation
+noise, distinguish with matched-n subsampling". Before spending a GPU run on that, the
+cheaper alternative confound was testable from the artifact already on disk: **baseline
+CE**. Classes differ enormously in how hard they are to predict — `of` sits at 0.906
+nats, `at` at 3.340 — so an absolute CE rise of .01 means something different at each.
+
+```
+pair                       Spearman rho (n=12)
+gap    vs ABSOLUTE rise         +.0559
+n_pos  vs ABSOLUTE rise         −.5804      <- §1644's confound
+base_CE vs ABSOLUTE rise        +.1538
+n_pos  vs base_CE               −.5105      <- rarer classes are HARDER to predict
+gap    vs RELATIVE rise         +.2308      <- 4x the absolute-rise signal
+n_pos  vs RELATIVE rise         −.0979      <- confound cut from .580 to .098
+```
+
+**The mechanism.** Rarer classes have higher baseline CE (rho −.511 between n_positions
+and base_CE), and the absolute rise scales with the baseline it is measured against.
+Normalising — rise divided by that class's own base CE — removes most of the n_positions
+dependence, because the dependence was a **scale effect, not a structural one**. So
+§1644's open question has a partial answer that needed no new measurement: it is
+neither "real structure" nor "estimation noise" but a currency error, the same family as
+the whole-model denominator discipline Codex applies on their side of the board.
+
+**WHAT THIS DOES AND DOES NOT RESCUE.** §1644's refutation of §1643 **stands**. Under
+the corrected currency:
+
+- **The confound control now PASSES**: |rho(n_pos, relative rise)| = .098 is well below
+  |rho(gap, relative rise)| = .231. §1644's `pred_c` failed on absolute rise; on
+  relative rise it would pass.
+- **Significance still FAILS**: the sampled permutation p for rho .2308 on twelve
+  classes is **.235**. Nowhere near .05.
+
+So the association is no longer CONFOUNDED — it is simply WEAK. That is a different
+and more honest position than either §1643 ("suggestive") or §1644 ("an n_positions
+artifact"): the gap explains little of the causal cost, but what little it explains is
+not obviously spurious.
+
+**Bottom line, unchanged in substance.** The separation statistic still has **no
+demonstrated causal consequence**. rho .231 at p .235 licenses nothing. The correct
+next test is more classes at the corrected currency — relative rise — not matched-n
+subsampling, which §1644 proposed to chase a confound that turns out to be a scale
+artifact.
+
+**Method note worth more than the result.** The right move here was to test the cheap
+alternative confound from data already on disk before spending twenty minutes of GPU on
+the expensive one I had already named. §1644's proposed experiment would have measured
+the wrong thing at real cost. PRE-FLIGHT B says measure before you flag; this is the
+same rule one step earlier — measure what you already have before you design what to
+run next.
