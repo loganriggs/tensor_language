@@ -37379,3 +37379,63 @@ writer set is a property of the (site, slice-rule) pair, not of the class alone.
 module amplifies the channel it reads (+1028, largest positive writer); at mlp17
 it opposes its own payload directions (−1374 to −5111, never positive). Any
 "module X reads and writes the same variable" claim needs testing per site.
+
+## §1605 READ-WRITE 2x2 (0-for-3): the self-write sign tracks the CLASS, not the site — my site hypothesis was exactly inverted; and the depth-curve instrument is degenerate OFF a class's own certified site
+
+**Setup** (readwrite_2x2, 369 s). §1601 (question@mlp11, self-write +1028) and
+§1604 (pronouns@mlp17, self-write −1374..−5111) differ in BOTH class and site, so
+neither identifies the cause. This fills the 2x2 under one uniform slice rule
+(pos_r8 payload, §1598) with 3 disjoint 96-row samples per cell; recon rel err
+6.3e-08 – 3.6e-07 everywhere.
+
+```
+cell               self-write (3 samples)        mean      sign    peaks           drawdowns
+question@mlp11     +864.1  +644.5  +681.9      + 730.2    3+/0-   attn17 x3       .324 .145 .418
+question@mlp17     +947.6  +272.8  +468.9      + 563.1    3+/0-   attn1,attn1,mlp2 nan nan 35.85
+pronouns@mlp11     −163.6  −136.4   −88.2      − 129.4    0+/3-   mlp17 x3        .000 .000 .000
+pronouns@mlp17    −2627.7 −2639.9 −1374.5      −2214.0    0+/3-   attn16 x2,attn17 .351 .503 .237
+```
+
+**Scored as written — all three FAILED:**
+- **pred_a FAILED.** I predicted question@mlp17 NEGATIVE 3/3. It is **POSITIVE
+  3/3** (+947.6, +272.8, +468.9).
+- **pred_b FAILED.** I predicted pronouns@mlp11 POSITIVE 3/3. It is **NEGATIVE
+  3/3** (−163.6, −136.4, −88.2).
+- **pred_c FAILED.** |mlp17|/|mlp11| = **0.771** for question (bar > 2); it holds
+  only for pronouns (17.11).
+
+**The hypothesis is not merely wrong, it is inverted.** `sign_by_site` reads
+`mlp11 {question +, pronouns −}` and `mlp17 {question +, pronouns −}`: the sign
+is constant DOWN each class column and flips ACROSS classes. **Class decides the
+self-write sign; site does not.** Question writes INTO its payload directions at
+both sites (6/6 samples); pronouns writes AGAINST its own at both (6/6). The
+§1601-vs-§1604 contrast I attributed to depth was a class difference all along.
+
+**Instrument failure that limits what this licenses — two of four cells are
+degenerate and their depth curves must NOT be used.**
+- `question@mlp17`: peaks land at **attn1 / attn1 / mlp2** (layers 1-2) and the
+  drawdowns are **nan, nan, 35.85**. The cumulative curve never rises, so the
+  peak sits at a near-zero early value and the (peak−final)/peak ratio explodes
+  or divides by ~0.
+- `pronouns@mlp11`: peak is **mlp17**, the terminal component, so peak == final
+  and drawdown is exactly 0.000 by construction, not by measurement.
+
+Both degeneracies are OFF-SITE cells (question's certified site is mlp11,
+pronouns' is mlp17). **The depth-curve method yields a coherent accumulation
+profile only at a class's OWN certified site**; projected onto another site's
+class-form payload, the residual coordinate is not a channel and its peak/
+drawdown are meaningless. The self-write attribution is a signed sum with no
+division and stays well-defined in every cell, which is why the class-not-site
+conclusion survives while the cross-cell drawdown comparison does not.
+
+**What is licensed:** the self-write SIGN result (6/6 per class, two sites, three
+samples each). **What is not:** any comparison of drawdown or peak layer between
+cells, and specifically the .771 vs 17.11 ratio — question's mlp11 denominator is
+sound but its mlp17 numerator comes from a degenerate curve, so pred_c failed for
+a reason partly independent of the physics. Recorded as FAILED regardless; the
+bar was registered and missed.
+
+**Open.** Why pronouns' own modules write AGAINST its payload directions at both
+sites while question's write into them. A gender-state readout that is
+suppression-gated (§1587/§1591) would predict it, but that is a story, not a
+measurement, and the off-site instrument cannot test it.

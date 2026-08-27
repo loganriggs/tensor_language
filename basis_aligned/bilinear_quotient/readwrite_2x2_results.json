@@ -1,0 +1,174 @@
+{
+ "config": {
+  "classes": [
+   "question",
+   "pronouns"
+  ],
+  "sites": [
+   11,
+   17
+  ],
+  "rank": 8,
+  "samples": [
+   15000,
+   20000,
+   25000
+  ],
+  "rows_per_sample": 96,
+  "slice_rule": "pos_rRANK payload (S1598), uniform at every cell"
+ },
+ "cells": {
+  "question@mlp11": {
+   "class": "question",
+   "site": 11,
+   "eigs": [
+    144.864,
+    27.113,
+    24.261,
+    22.699,
+    20.337,
+    19.717,
+    19.164,
+    18.849
+   ],
+   "self_write": [
+    864.1,
+    644.5,
+    681.9
+   ],
+   "mean_self_write": 730.2,
+   "n_positive": 3,
+   "n_negative": 0,
+   "peaks": [
+    "attn17",
+    "attn17",
+    "attn17"
+   ],
+   "drawdowns": [
+    0.3237,
+    0.1451,
+    0.4181
+   ]
+  },
+  "question@mlp17": {
+   "class": "question",
+   "site": 17,
+   "eigs": [
+    69.71,
+    36.274,
+    33.275,
+    31.812,
+    28.483,
+    27.24,
+    24.373,
+    23.93
+   ],
+   "self_write": [
+    947.6,
+    272.8,
+    468.9
+   ],
+   "mean_self_write": 563.1,
+   "n_positive": 3,
+   "n_negative": 0,
+   "peaks": [
+    "attn1",
+    "attn1",
+    "mlp2"
+   ],
+   "drawdowns": [
+    NaN,
+    NaN,
+    35.8496
+   ]
+  },
+  "pronouns@mlp11": {
+   "class": "pronouns",
+   "site": 11,
+   "eigs": [
+    108.331,
+    60.729,
+    55.633,
+    34.771,
+    31.876,
+    29.451,
+    28.231,
+    26.358
+   ],
+   "self_write": [
+    -163.6,
+    -136.4,
+    -88.2
+   ],
+   "mean_self_write": -129.4,
+   "n_positive": 0,
+   "n_negative": 3,
+   "peaks": [
+    "mlp17",
+    "mlp17",
+    "mlp17"
+   ],
+   "drawdowns": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "pronouns@mlp17": {
+   "class": "pronouns",
+   "site": 17,
+   "eigs": [
+    53.943,
+    43.327,
+    37.351,
+    31.973,
+    30.038,
+    29.071,
+    27.672,
+    26.596
+   ],
+   "self_write": [
+    -2627.7,
+    -2639.9,
+    -1374.5
+   ],
+   "mean_self_write": -2214.0,
+   "n_positive": 0,
+   "n_negative": 3,
+   "peaks": [
+    "attn16",
+    "attn16",
+    "attn17"
+   ],
+   "drawdowns": [
+    0.3514,
+    0.5026,
+    0.2365
+   ]
+  }
+ },
+ "sign_by_site": {
+  "mlp11": {
+   "question": "+",
+   "pronouns": "-"
+  },
+  "mlp17": {
+   "question": "+",
+   "pronouns": "-"
+  }
+ },
+ "abs_ratio_mlp17_over_mlp11": {
+  "question": 0.771,
+  "pronouns": 17.11
+ },
+ "reference": {
+  "S1601_question_at_mlp11_lambda_top2": 1028.5,
+  "S1604_pronouns_at_mlp17_pos_r8": "-1374 to -5111"
+ },
+ "predictions": {
+  "pred_a_q17_negative_3of3": false,
+  "pred_b_p11_positive_3of3": false,
+  "pred_c_abs_ratio_gt2_both": false
+ },
+ "runtime_s": 369.3
+}
