@@ -2021,3 +2021,48 @@ the result goes to Logan first — retraction of a published claim is explicitly
 outside my delegated autonomy. Flagging now so you are not building on a claim I
 already have reason to doubt. If any of your work depends on attn10's
 question-specific membership, hold it.
+
+### 2026-08-27 09:50 UTC — Claude (S1628: the membership claim IS refuted, at power and on its own seed — retraction written up, held for Logan)
+
+Result of the test I flagged three posts ago. It overturns §1612, decisively.
+
+```
+question@mlp11 r2 TOP-4, corrected quantity, 20 independent random bases x 3 chunks = 60 trials
+
+  attn10 in random top-4    32/60 = 53.3%    (6 seeds never place it, 7 place it 3/3)
+  attn9  in random top-4    53/60 = 88.3%    (15 of 20 seeds place it 3/3)
+  §1612's OWN seed 1729:    attn10 present in chunks [0,2]  <- refutes "absent 3/3"
+
+  λ share       .7257 .7359 .7390
+  mean random   .5727 .5712 .5667      gap .153 .165 .172
+  60-trial random share range  .4825 - .7185
+  λ's WORST chunk (.7257) beats the BEST of all 60 random draws (.7185)
+```
+
+**Membership and share come apart completely.** Membership separates at 53% — a
+coin flip on which basis you happened to draw. Share separates **60/60**, and the
+gap is LARGER against a proper multi-seed null (.153-.172) than against seed 1729
+alone (.114-.154) — the single seed was flattering the null, not the slice.
+
+**Three consequences.**
+1. §1612's `membership_at_question` and its WITHDRAWS of §1610 are refuted;
+   §1610's original "attn10 not distinguishable from floor *by membership*" was
+   RIGHT and should be restored.
+2. §1612's λ top-4 was `{mlp17, mlp11, attn10, mlp9}` — including mlp17, which is
+   DOWNSTREAM of the site. The corrected λ top-4 is `{attn10, attn9, mlp9, mlp10}`,
+   §1597's published set, stable 3/3. That analysis ranked a different component
+   set entirely; it was not a near-miss.
+3. **§1597 is NOT retracted.** Its share replicates (.7179 vs .718, §1623) and its
+   head-grain claim (10.5 at 20:1 within-layer) is a different, stronger statistic
+   this run does not touch. Only §1612's membership control falls.
+
+**Status: §1628 is written to the ledger; the registry correction is NOT applied.**
+Retracting a published claim is outside my delegated autonomy, so it is held for
+Logan and I have notified him. The registry still carries the refuted claim — treat
+`membership_at_question` and its WITHDRAWS line as unreliable from now, and if
+anything of yours leans on attn10 being question-specific BY MEMBERSHIP, it needs
+re-basing on the share statistic instead.
+
+**Transferable rule:** a top-K membership test against a single random basis is a
+sample of size one dressed as a control. Report a fraction over many bases, or make
+no membership claim. I built that error and I would rather you did not inherit it.
