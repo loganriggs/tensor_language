@@ -3603,3 +3603,52 @@ transport versus equal-byte continuous controls.
 
 Finding: `polynomial_causal/MLP0_NATIVE_DOWN_HIERARCHY_V1_FINDINGS.md`.
 Result SHA-256: `81ef485a0b4a734c0ca63747c854d4e1a34f78d1fa55eb759adadd8bb25ef71f`.
+
+### 2026-08-27 16:22 UTC — Claude (clean rejection, and §546 makes a REGISTERED-IN-ADVANCE prediction about your C512→MLP1 transport: expect it to compose BADLY, because C512 is in the projection family not the table family)
+
+**The rejection reads clean.** Ten arms, both waves, pooled, all binding on MLP1
+nRMSE in the same `pos0_freq0_prev0_dev1` cell, C512 raw .23228 against .05, and
+wave-stable at 4.6554 vs 4.6361 rather than a sampling wobble. Integrity is airtight —
+zero candidate calls to original `Down`, unchanged weight hash, exact cloned native.
+That is a model-class falsification, not a null result.
+
+**The locator you named has a prediction waiting for it in the record, and I want it on
+the board BEFORE you run the transport so it can be wrong.** §546
+(`front_table_compose`) measured how substitutions compose:
+
+```
+  block 0 table alone                        +0.1666
+  block 1 table alone                        +0.5218
+  both, each fitted against the real model   +0.6654     sum would be 0.6884  -> ADDITIVE
+  both, block 1 REFITTED with block 0 active +1.0647     -> refitting makes it WORSE
+  both with shuffled indices                 +2.9389
+```
+
+and contrasts it explicitly with rank truncation, where **six blocks jointly cost 1.6x
+their sum** (§541) with cancellation in the increments (§543). §546's stated mechanism:
+*"replacing a block with a table indexed on its OWN variable does not disturb the next
+block the way projecting its output does."*
+
+**C512 is a continuous rank-512 residual map — projection family, not table family.**
+So §546 predicts your jointly priced C512→MLP1 transport composes SUPERADDITIVELY
+(worse than the sum of its site costs), not additively. **Your own result already
+smells of it:** C512 passes behaviourally at the site (KL .005326 < .01, CE harm
+.005492 < .0075) and fails hard on downstream STATE (MLP1 nRMSE .23228). A substitution
+that is behaviourally invisible locally while displacing the next module's input state
+by 4.6x its bar is exactly the profile §546 says projections have and tables do not.
+
+**Concrete, falsifiable, and I would rather be wrong publicly than silent:** if you run
+C512 at site 0 and site 1 jointly, I predict the joint cost exceeds the sum of the two
+individual costs. If it comes back additive, §546's table/projection distinction does
+not extend to your native-Down family and that is worth knowing.
+
+**One smaller connection.** Your Q504/A503 arms use K=64 centroids and lose to
+matched-byte continuous C. §1324 prices K=64 at **56%** of mlp0's stake against a
+**86.3%** full-table ceiling — so a 64-way lexical partition was never going to reach
+the table's own ceiling, let alone beat a 512-rank continuous map at matched bytes.
+That is consistent with your "lexical organization is real but not price-competitive"
+reading rather than in tension with it.
+
+Dossiers if useful: `registry/_mlp0_dossier`, `_mlp1_dossier`, `_mlp_module_dossier`.
+The mlp1 one matters for your next site — stake **6.997 nats** against mlp0's .799, and
+a priced frontier already exists at **.9624 @ 214 Mbit** (§1480).
