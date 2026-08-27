@@ -1,0 +1,2736 @@
+{
+  "config": {
+    "discovery": [
+      "question",
+      "pronouns",
+      "months",
+      "digits",
+      "comma",
+      "the",
+      "is",
+      "and"
+    ],
+    "evaluation": [
+      "colon",
+      "semicolon",
+      "dollar",
+      "open_paren",
+      "close_paren",
+      "to",
+      "said",
+      "days"
+    ],
+    "budgets": [
+      2,
+      4,
+      8
+    ],
+    "removal_rows": 240
+  },
+  "selected_method": "class_trained",
+  "rankings": {
+    "2": {
+      "class_trained": {
+        "question": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "9.7"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "pronouns": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "7.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.027777777777777776
+        },
+        "months": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "9.7"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.043478260869565216
+        },
+        "digits": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5",
+            "12.6"
+          ],
+          "recall_at_5": 0.75,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 1.0
+        },
+        "comma": {
+          "top5": [
+            "6.5",
+            "12.6",
+            "7.3",
+            "10.5",
+            "6.7"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "the": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "7.3",
+            "15.1",
+            "6.7"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "is": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "10.5",
+            "7.3",
+            "6.7"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.05263157894736842
+        },
+        "and": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "12.6",
+            "5.5"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "colon": {
+          "top5": [
+            "12.6",
+            "10.5",
+            "6.5",
+            "7.3",
+            "15.1"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "semicolon": {
+          "top5": [
+            "12.6",
+            "10.5",
+            "6.5",
+            "15.1",
+            "15.6"
+          ],
+          "recall_at_5": 0.4,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "dollar": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "7.3",
+            "15.6",
+            "15.1"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "open_paren": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "12.6",
+            "6.7",
+            "5.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "close_paren": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "6.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.041666666666666664
+        },
+        "to": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5",
+            "12.6"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "said": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "12.6",
+            "5.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.09090909090909091
+        },
+        "days": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "7.3",
+            "15.1",
+            "15.6"
+          ],
+          "recall_at_5": 0.6,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "output_pca": {
+        "question": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "12.6",
+            "6.7",
+            "5.5"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "pronouns": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.023255813953488372
+        },
+        "months": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "5.5",
+            "12.6",
+            "6.7"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.007575757575757576
+        },
+        "digits": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.75,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 1.0
+        },
+        "comma": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "the": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5",
+            "12.6"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "is": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.008928571428571428
+        },
+        "and": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "colon": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "semicolon": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.4,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "dollar": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "5.5",
+            "12.6",
+            "15.1"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "open_paren": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "close_paren": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "5.5",
+            "12.6",
+            "15.1"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.0196078431372549
+        },
+        "to": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "said": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "5.5",
+            "6.7",
+            "12.6"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.1111111111111111
+        },
+        "days": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "5.5",
+            "12.6",
+            "6.7"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        }
+      },
+      "random": {
+        "question": {
+          "top5": [
+            "15.3",
+            "7.8",
+            "7.3",
+            "6.3",
+            "10.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.0625
+        },
+        "pronouns": {
+          "top5": [
+            "15.3",
+            "16.3",
+            "7.3",
+            "7.8",
+            "10.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.14285714285714285
+        },
+        "months": {
+          "top5": [
+            "7.3",
+            "15.3",
+            "10.3",
+            "16.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.04
+        },
+        "digits": {
+          "top5": [
+            "14.4",
+            "7.3",
+            "7.8",
+            "10.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "comma": {
+          "top5": [
+            "7.3",
+            "15.3",
+            "10.3",
+            "16.3",
+            "14.4"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.06666666666666667
+        },
+        "the": {
+          "top5": [
+            "7.3",
+            "15.3",
+            "10.3",
+            "16.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "is": {
+          "top5": [
+            "7.3",
+            "15.3",
+            "16.3",
+            "10.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.01818181818181818
+        },
+        "and": {
+          "top5": [
+            "7.8",
+            "14.4",
+            "7.3",
+            "15.3",
+            "6.3"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "colon": {
+          "top5": [
+            "14.4",
+            "7.3",
+            "7.8",
+            "10.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.02631578947368421
+        },
+        "semicolon": {
+          "top5": [
+            "15.3",
+            "7.3",
+            "16.3",
+            "7.8",
+            "10.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.038461538461538464
+        },
+        "dollar": {
+          "top5": [
+            "14.4",
+            "7.3",
+            "7.8",
+            "10.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "open_paren": {
+          "top5": [
+            "14.4",
+            "7.8",
+            "7.3",
+            "6.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.022222222222222223
+        },
+        "close_paren": {
+          "top5": [
+            "15.3",
+            "7.8",
+            "7.3",
+            "6.3",
+            "16.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.020833333333333332
+        },
+        "to": {
+          "top5": [
+            "15.3",
+            "7.3",
+            "16.3",
+            "10.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.4,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 0.5
+        },
+        "said": {
+          "top5": [
+            "15.3",
+            "7.8",
+            "7.3",
+            "6.3",
+            "16.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.019230769230769232
+        },
+        "days": {
+          "top5": [
+            "7.8",
+            "7.3",
+            "15.3",
+            "14.4",
+            "6.3"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        }
+      },
+      "oracle": {
+        "question": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "9.7"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "pronouns": {
+          "top5": [
+            "12.4",
+            "9.6",
+            "7.3",
+            "6.7",
+            "13.2"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "months": {
+          "top5": [
+            "6.7",
+            "14.7",
+            "7.3",
+            "11.5",
+            "9.7"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "digits": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "11.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        },
+        "comma": {
+          "top5": [
+            "6.5",
+            "12.6",
+            "15.2",
+            "11.7",
+            "9.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        },
+        "the": {
+          "top5": [
+            "10.8",
+            "7.3",
+            "6.7",
+            "6.5",
+            "5.5"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "is": {
+          "top5": [
+            "11.3",
+            "7.8",
+            "15.5",
+            "6.7",
+            "10.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "and": {
+          "top5": [
+            "16.8",
+            "7.3",
+            "7.8",
+            "6.7",
+            "6.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "colon": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "11.5",
+            "6.7",
+            "9.7"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "semicolon": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "11.7",
+            "13.5",
+            "15.2"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "dollar": {
+          "top5": [
+            "10.3",
+            "7.3",
+            "6.7",
+            "12.6",
+            "13.7"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "open_paren": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "close_paren": {
+          "top5": [
+            "15.1",
+            "13.8",
+            "7.2",
+            "12.6",
+            "16.8"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "to": {
+          "top5": [
+            "11.3",
+            "7.8",
+            "7.3",
+            "16.8",
+            "8.4"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "said": {
+          "top5": [
+            "6.7",
+            "7.8",
+            "15.5",
+            "11.3",
+            "9.1"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 0.25
+        },
+        "days": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "9.7",
+            "17.3",
+            "15.1"
+          ],
+          "recall_at_5": 0.8,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        }
+      }
+    },
+    "4": {
+      "class_trained": {
+        "question": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "9.7"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "pronouns": {
+          "top5": [
+            "12.4",
+            "9.6",
+            "7.3",
+            "6.7",
+            "13.2"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "months": {
+          "top5": [
+            "6.7",
+            "7.3",
+            "14.7",
+            "11.5",
+            "9.7"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "digits": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5",
+            "12.6"
+          ],
+          "recall_at_5": 0.75,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 1.0
+        },
+        "comma": {
+          "top5": [
+            "6.5",
+            "12.6",
+            "7.3",
+            "10.5",
+            "6.7"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "the": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "7.3",
+            "15.6",
+            "6.7"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "is": {
+          "top5": [
+            "12.6",
+            "10.5",
+            "6.5",
+            "7.3",
+            "15.1"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.05263157894736842
+        },
+        "and": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5",
+            "12.6"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "colon": {
+          "top5": [
+            "12.6",
+            "10.5",
+            "6.5",
+            "7.3",
+            "6.7"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "semicolon": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "6.5",
+            "15.1",
+            "15.6"
+          ],
+          "recall_at_5": 0.4,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 0.5
+        },
+        "dollar": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "7.3",
+            "6.7",
+            "15.1"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "open_paren": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "12.6",
+            "6.7",
+            "5.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "close_paren": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "9.7"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.041666666666666664
+        },
+        "to": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5",
+            "12.6"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "said": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "5.5",
+            "10.8"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.07692307692307693
+        },
+        "days": {
+          "top5": [
+            "6.7",
+            "7.3",
+            "14.7",
+            "11.5",
+            "9.7"
+          ],
+          "recall_at_5": 0.6,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 0.5
+        }
+      },
+      "output_pca": {
+        "question": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "12.6",
+            "5.5",
+            "6.7"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "pronouns": {
+          "top5": [
+            "6.7",
+            "15.1",
+            "7.3",
+            "6.5",
+            "9.7"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.022222222222222223
+        },
+        "months": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "5.5",
+            "15.1",
+            "6.7"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.010526315789473684
+        },
+        "digits": {
+          "top5": [
+            "6.7",
+            "7.3",
+            "6.5",
+            "12.6",
+            "15.1"
+          ],
+          "recall_at_5": 0.75,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 0.5
+        },
+        "comma": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "the": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5",
+            "15.1"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "is": {
+          "top5": [
+            "6.7",
+            "7.3",
+            "6.5",
+            "15.1",
+            "12.6"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.00980392156862745
+        },
+        "and": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "12.6",
+            "15.1"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "colon": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "semicolon": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "5.5",
+            "15.1"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "dollar": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "16.8",
+            "5.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.14285714285714285
+        },
+        "open_paren": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "12.6",
+            "5.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "close_paren": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "5.5",
+            "12.6",
+            "15.1"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.0196078431372549
+        },
+        "to": {
+          "top5": [
+            "6.7",
+            "7.3",
+            "6.5",
+            "15.1",
+            "12.6"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "said": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "15.1",
+            "5.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.05555555555555555
+        },
+        "days": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "5.5",
+            "6.7",
+            "15.1"
+          ],
+          "recall_at_5": 0.4,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "random": {
+        "question": {
+          "top5": [
+            "15.3",
+            "7.8",
+            "7.3",
+            "14.4",
+            "10.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.0625
+        },
+        "pronouns": {
+          "top5": [
+            "14.4",
+            "7.3",
+            "7.8",
+            "6.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.1111111111111111
+        },
+        "months": {
+          "top5": [
+            "7.3",
+            "15.3",
+            "10.3",
+            "14.4",
+            "16.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.034482758620689655
+        },
+        "digits": {
+          "top5": [
+            "7.3",
+            "14.4",
+            "6.3",
+            "16.0",
+            "7.8"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "comma": {
+          "top5": [
+            "10.3",
+            "7.3",
+            "14.4",
+            "16.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.043478260869565216
+        },
+        "the": {
+          "top5": [
+            "7.3",
+            "15.3",
+            "16.3",
+            "10.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "is": {
+          "top5": [
+            "7.3",
+            "15.3",
+            "16.3",
+            "10.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.0196078431372549
+        },
+        "and": {
+          "top5": [
+            "14.4",
+            "7.8",
+            "7.3",
+            "6.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "colon": {
+          "top5": [
+            "14.4",
+            "7.3",
+            "7.8",
+            "10.3",
+            "6.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.029411764705882353
+        },
+        "semicolon": {
+          "top5": [
+            "15.3",
+            "7.3",
+            "16.3",
+            "6.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.058823529411764705
+        },
+        "dollar": {
+          "top5": [
+            "14.4",
+            "7.3",
+            "7.8",
+            "10.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "open_paren": {
+          "top5": [
+            "7.3",
+            "14.4",
+            "6.3",
+            "7.8",
+            "15.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.014285714285714285
+        },
+        "close_paren": {
+          "top5": [
+            "16.3",
+            "7.3",
+            "15.3",
+            "10.3",
+            "14.4"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.011764705882352941
+        },
+        "to": {
+          "top5": [
+            "14.4",
+            "7.8",
+            "7.3",
+            "16.3",
+            "10.3"
+          ],
+          "recall_at_5": 0.4,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 0.5
+        },
+        "said": {
+          "top5": [
+            "7.3",
+            "14.4",
+            "6.3",
+            "15.3",
+            "10.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.027777777777777776
+        },
+        "days": {
+          "top5": [
+            "7.8",
+            "14.4",
+            "15.3",
+            "7.3",
+            "10.3"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        }
+      },
+      "oracle": {
+        "question": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "9.7"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "pronouns": {
+          "top5": [
+            "12.4",
+            "9.6",
+            "7.3",
+            "6.7",
+            "13.2"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "months": {
+          "top5": [
+            "6.7",
+            "14.7",
+            "7.3",
+            "11.5",
+            "9.7"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "digits": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "11.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        },
+        "comma": {
+          "top5": [
+            "6.5",
+            "12.6",
+            "15.2",
+            "11.7",
+            "9.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        },
+        "the": {
+          "top5": [
+            "10.8",
+            "7.3",
+            "6.7",
+            "6.5",
+            "5.5"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "is": {
+          "top5": [
+            "11.3",
+            "7.8",
+            "15.5",
+            "6.7",
+            "10.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "and": {
+          "top5": [
+            "16.8",
+            "7.3",
+            "7.8",
+            "6.7",
+            "6.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "colon": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "11.5",
+            "6.7",
+            "9.7"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "semicolon": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "11.7",
+            "13.5",
+            "15.2"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "dollar": {
+          "top5": [
+            "10.3",
+            "7.3",
+            "6.7",
+            "12.6",
+            "13.7"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "open_paren": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "close_paren": {
+          "top5": [
+            "15.1",
+            "13.8",
+            "7.2",
+            "12.6",
+            "16.8"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "to": {
+          "top5": [
+            "11.3",
+            "7.8",
+            "7.3",
+            "16.8",
+            "8.4"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "said": {
+          "top5": [
+            "6.7",
+            "7.8",
+            "15.5",
+            "11.3",
+            "9.1"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 0.25
+        },
+        "days": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "9.7",
+            "17.3",
+            "15.1"
+          ],
+          "recall_at_5": 0.8,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        }
+      }
+    },
+    "8": {
+      "class_trained": {
+        "question": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "9.7"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "pronouns": {
+          "top5": [
+            "12.4",
+            "9.6",
+            "7.3",
+            "6.7",
+            "13.2"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "months": {
+          "top5": [
+            "6.7",
+            "14.7",
+            "7.3",
+            "11.5",
+            "9.7"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "digits": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "11.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        },
+        "comma": {
+          "top5": [
+            "6.5",
+            "12.6",
+            "15.2",
+            "11.7",
+            "9.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        },
+        "the": {
+          "top5": [
+            "10.8",
+            "7.3",
+            "6.7",
+            "6.5",
+            "5.5"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "is": {
+          "top5": [
+            "11.3",
+            "7.8",
+            "15.5",
+            "6.7",
+            "10.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "and": {
+          "top5": [
+            "16.8",
+            "7.3",
+            "7.8",
+            "6.7",
+            "6.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "colon": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "10.5",
+            "15.1",
+            "7.3"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "semicolon": {
+          "top5": [
+            "6.5",
+            "12.6",
+            "15.2",
+            "9.5",
+            "5.5"
+          ],
+          "recall_at_5": 0.6,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 1.0
+        },
+        "dollar": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "6.7",
+            "7.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "open_paren": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "12.6",
+            "6.7",
+            "5.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "close_paren": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "10.5",
+            "15.2",
+            "15.6"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.029411764705882353
+        },
+        "to": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "5.5",
+            "12.6"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "said": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "10.8",
+            "6.7",
+            "5.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.1
+        },
+        "days": {
+          "top5": [
+            "6.7",
+            "7.3",
+            "14.7",
+            "11.5",
+            "9.7"
+          ],
+          "recall_at_5": 0.6,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 0.5
+        }
+      },
+      "output_pca": {
+        "question": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "15.1",
+            "12.6",
+            "6.7"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "pronouns": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "15.1",
+            "9.7",
+            "6.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.03225806451612903
+        },
+        "months": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "15.1",
+            "5.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.01282051282051282
+        },
+        "digits": {
+          "top5": [
+            "6.7",
+            "7.3",
+            "6.5",
+            "12.6",
+            "15.1"
+          ],
+          "recall_at_5": 0.75,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 0.5
+        },
+        "comma": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "12.6",
+            "12.8"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "the": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "6.7",
+            "15.1",
+            "5.5"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "is": {
+          "top5": [
+            "6.7",
+            "7.3",
+            "6.5",
+            "12.6",
+            "5.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.012345679012345678
+        },
+        "and": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "12.6",
+            "5.5"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "colon": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "15.1"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "semicolon": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "15.1",
+            "6.7",
+            "5.5"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "dollar": {
+          "top5": [
+            "7.3",
+            "17.2",
+            "15.1",
+            "12.6",
+            "6.7"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 0.5
+        },
+        "open_paren": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "12.6",
+            "5.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.25
+        },
+        "close_paren": {
+          "top5": [
+            "6.5",
+            "7.3",
+            "12.6",
+            "15.1",
+            "5.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.01098901098901099
+        },
+        "to": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "15.1",
+            "9.7"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "said": {
+          "top5": [
+            "7.3",
+            "6.5",
+            "6.7",
+            "15.1",
+            "5.5"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.0625
+        },
+        "days": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "9.7",
+            "15.1",
+            "6.5"
+          ],
+          "recall_at_5": 0.6,
+          "precision_at_5": 0.6,
+          "reciprocal_rank": 1.0
+        }
+      },
+      "random": {
+        "question": {
+          "top5": [
+            "7.8",
+            "10.3",
+            "15.3",
+            "14.4",
+            "7.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.0625
+        },
+        "pronouns": {
+          "top5": [
+            "14.4",
+            "7.3",
+            "6.3",
+            "7.8",
+            "13.0"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.1111111111111111
+        },
+        "months": {
+          "top5": [
+            "14.4",
+            "15.3",
+            "7.3",
+            "10.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.030303030303030304
+        },
+        "digits": {
+          "top5": [
+            "15.3",
+            "7.3",
+            "14.4",
+            "10.3",
+            "15.4"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "comma": {
+          "top5": [
+            "7.3",
+            "14.4",
+            "15.3",
+            "6.3",
+            "10.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.041666666666666664
+        },
+        "the": {
+          "top5": [
+            "15.3",
+            "7.3",
+            "7.8",
+            "16.3",
+            "10.3"
+          ],
+          "recall_at_5": 0.3333333333333333,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "is": {
+          "top5": [
+            "15.3",
+            "7.3",
+            "16.3",
+            "10.3",
+            "14.4"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.023255813953488372
+        },
+        "and": {
+          "top5": [
+            "14.4",
+            "7.3",
+            "7.8",
+            "13.0",
+            "16.3"
+          ],
+          "recall_at_5": 0.25,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "colon": {
+          "top5": [
+            "7.3",
+            "14.4",
+            "7.8",
+            "10.3",
+            "6.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.041666666666666664
+        },
+        "semicolon": {
+          "top5": [
+            "7.3",
+            "15.3",
+            "10.3",
+            "16.3",
+            "6.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.045454545454545456
+        },
+        "dollar": {
+          "top5": [
+            "14.4",
+            "7.3",
+            "7.8",
+            "6.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.1111111111111111
+        },
+        "open_paren": {
+          "top5": [
+            "7.3",
+            "15.3",
+            "7.8",
+            "10.3",
+            "6.3"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.08333333333333333
+        },
+        "close_paren": {
+          "top5": [
+            "7.3",
+            "10.3",
+            "16.3",
+            "15.3",
+            "7.8"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.015151515151515152
+        },
+        "to": {
+          "top5": [
+            "14.4",
+            "10.3",
+            "7.3",
+            "7.8",
+            "16.3"
+          ],
+          "recall_at_5": 0.4,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 0.3333333333333333
+        },
+        "said": {
+          "top5": [
+            "6.3",
+            "7.3",
+            "7.8",
+            "15.3",
+            "14.4"
+          ],
+          "recall_at_5": 0.0,
+          "precision_at_5": 0.0,
+          "reciprocal_rank": 0.017543859649122806
+        },
+        "days": {
+          "top5": [
+            "6.3",
+            "7.3",
+            "14.4",
+            "16.3",
+            "15.3"
+          ],
+          "recall_at_5": 0.2,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        }
+      },
+      "oracle": {
+        "question": {
+          "top5": [
+            "10.5",
+            "12.6",
+            "15.6",
+            "15.1",
+            "9.7"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "pronouns": {
+          "top5": [
+            "12.4",
+            "9.6",
+            "7.3",
+            "6.7",
+            "13.2"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "months": {
+          "top5": [
+            "6.7",
+            "14.7",
+            "7.3",
+            "11.5",
+            "9.7"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "digits": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "6.5",
+            "12.6",
+            "11.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        },
+        "comma": {
+          "top5": [
+            "6.5",
+            "12.6",
+            "15.2",
+            "11.7",
+            "9.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        },
+        "the": {
+          "top5": [
+            "10.8",
+            "7.3",
+            "6.7",
+            "6.5",
+            "5.5"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "is": {
+          "top5": [
+            "11.3",
+            "7.8",
+            "15.5",
+            "6.7",
+            "10.5"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "and": {
+          "top5": [
+            "16.8",
+            "7.3",
+            "7.8",
+            "6.7",
+            "6.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "colon": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "11.5",
+            "6.7",
+            "9.7"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "semicolon": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "11.7",
+            "13.5",
+            "15.2"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "dollar": {
+          "top5": [
+            "10.3",
+            "7.3",
+            "6.7",
+            "12.6",
+            "13.7"
+          ],
+          "recall_at_5": 0.6666666666666666,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 1.0
+        },
+        "open_paren": {
+          "top5": [
+            "12.6",
+            "6.5",
+            "7.3",
+            "6.7",
+            "5.5"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 1.0
+        },
+        "close_paren": {
+          "top5": [
+            "15.1",
+            "13.8",
+            "7.2",
+            "12.6",
+            "16.8"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 0.2,
+          "reciprocal_rank": 0.5
+        },
+        "to": {
+          "top5": [
+            "11.3",
+            "7.8",
+            "7.3",
+            "16.8",
+            "8.4"
+          ],
+          "recall_at_5": 1.0,
+          "precision_at_5": 1.0,
+          "reciprocal_rank": 1.0
+        },
+        "said": {
+          "top5": [
+            "6.7",
+            "7.8",
+            "15.5",
+            "11.3",
+            "9.1"
+          ],
+          "recall_at_5": 0.5,
+          "precision_at_5": 0.4,
+          "reciprocal_rank": 0.25
+        },
+        "days": {
+          "top5": [
+            "7.3",
+            "6.7",
+            "9.7",
+            "17.3",
+            "15.1"
+          ],
+          "recall_at_5": 0.8,
+          "precision_at_5": 0.8,
+          "reciprocal_rank": 1.0
+        }
+      }
+    }
+  },
+  "removals": {
+    "colon": {
+      "clean": {
+        "class_ce": 1.342037241657575,
+        "background_ce": 2.9709234522132864,
+        "class_positions": 150
+      },
+      "class_trained": {
+        "heads": [
+          "12.6",
+          "6.5",
+          "10.5",
+          "15.1",
+          "7.3"
+        ],
+        "class_rise": 0.13769782001773523,
+        "background_rise": 0.01662276600431367,
+        "selectivity": 8.283688766478582
+      },
+      "random": {
+        "heads": [
+          "7.3",
+          "14.4",
+          "7.8",
+          "10.3",
+          "6.3"
+        ],
+        "class_rise": 0.015108555306990956,
+        "background_rise": 0.0687206053199163,
+        "selectivity": 0.2198548053623192
+      },
+      "oracle": {
+        "heads": [
+          "12.6",
+          "6.5",
+          "11.5",
+          "6.7",
+          "9.7"
+        ],
+        "class_rise": 0.2835245617230733,
+        "background_rise": 0.04155540275283043,
+        "selectivity": 6.822808658827444
+      }
+    },
+    "semicolon": {
+      "clean": {
+        "class_ce": 3.2585039028414973,
+        "background_ce": 2.965277417078119,
+        "class_positions": 54
+      },
+      "class_trained": {
+        "heads": [
+          "6.5",
+          "12.6",
+          "15.2",
+          "9.5",
+          "5.5"
+        ],
+        "class_rise": 0.10463981385584242,
+        "background_rise": 0.018898031140007543,
+        "selectivity": 5.537074898470119
+      },
+      "random": {
+        "heads": [
+          "7.3",
+          "15.3",
+          "10.3",
+          "16.3",
+          "6.3"
+        ],
+        "class_rise": 0.024533108428672623,
+        "background_rise": 0.031240239891582977,
+        "selectivity": 0.7853047388180444
+      },
+      "oracle": {
+        "heads": [
+          "12.6",
+          "6.5",
+          "11.7",
+          "13.5",
+          "15.2"
+        ],
+        "class_rise": 0.521074285109838,
+        "background_rise": 0.007722648654089337,
+        "selectivity": 67.47351957205979
+      }
+    },
+    "dollar": {
+      "clean": {
+        "class_ce": 1.2942232879308553,
+        "background_ce": 2.966564667335153,
+        "class_positions": 26
+      },
+      "class_trained": {
+        "heads": [
+          "10.5",
+          "12.6",
+          "6.7",
+          "7.3",
+          "7.8"
+        ],
+        "class_rise": 0.09003170751608347,
+        "background_rise": 0.04370499402705219,
+        "selectivity": 2.059986725094993
+      },
+      "random": {
+        "heads": [
+          "14.4",
+          "7.3",
+          "7.8",
+          "6.3",
+          "15.3"
+        ],
+        "class_rise": 0.042986454871984714,
+        "background_rise": 0.06846429598949033,
+        "selectivity": 0.627866747926297
+      },
+      "oracle": {
+        "heads": [
+          "10.3",
+          "7.3",
+          "6.7",
+          "12.6",
+          "13.7"
+        ],
+        "class_rise": 0.03851974755525589,
+        "background_rise": 0.013907586745993683,
+        "selectivity": 2.7696931364711537
+      }
+    },
+    "open_paren": {
+      "clean": {
+        "class_ce": 3.098221835443529,
+        "background_ce": 2.96510980865902,
+        "class_positions": 177
+      },
+      "class_trained": {
+        "heads": [
+          "6.5",
+          "7.3",
+          "12.6",
+          "6.7",
+          "5.5"
+        ],
+        "class_rise": 0.2154051058709956,
+        "background_rise": 0.043401925025665644,
+        "selectivity": 4.963031149968952
+      },
+      "random": {
+        "heads": [
+          "7.3",
+          "15.3",
+          "7.8",
+          "10.3",
+          "6.3"
+        ],
+        "class_rise": -0.018407048478638277,
+        "background_rise": 0.060854684827925,
+        "selectivity": -0.30247545494133676
+      },
+      "oracle": {
+        "heads": [
+          "12.6",
+          "6.5",
+          "7.3",
+          "6.7",
+          "5.5"
+        ],
+        "class_rise": 0.2154051058709956,
+        "background_rise": 0.043401925025665644,
+        "selectivity": 4.963031149968952
+      }
+    },
+    "close_paren": {
+      "clean": {
+        "class_ce": 0.7133795334672441,
+        "background_ce": 2.970421233954319,
+        "class_positions": 98
+      },
+      "class_trained": {
+        "heads": [
+          "12.6",
+          "6.5",
+          "10.5",
+          "15.2",
+          "15.6"
+        ],
+        "class_rise": 0.01929614023894677,
+        "background_rise": 0.010108495452364696,
+        "selectivity": 1.908903291283847
+      },
+      "random": {
+        "heads": [
+          "7.3",
+          "10.3",
+          "16.3",
+          "15.3",
+          "7.8"
+        ],
+        "class_rise": -0.00844662552889519,
+        "background_rise": 0.02964715218047287,
+        "selectivity": -0.28490512267342055
+      },
+      "oracle": {
+        "heads": [
+          "15.1",
+          "13.8",
+          "7.2",
+          "12.6",
+          "16.8"
+        ],
+        "class_rise": 2.3240021684644177,
+        "background_rise": 0.014214843919903686,
+        "selectivity": 163.49121957015228
+      }
+    },
+    "to": {
+      "clean": {
+        "class_ce": 1.1157802300375017,
+        "background_ce": 3.0030971128864303,
+        "class_positions": 915
+      },
+      "class_trained": {
+        "heads": [
+          "7.3",
+          "6.5",
+          "6.7",
+          "5.5",
+          "12.6"
+        ],
+        "class_rise": 0.011352933039430635,
+        "background_rise": 0.04472533544538093,
+        "selectivity": 0.25383673317095545
+      },
+      "random": {
+        "heads": [
+          "14.4",
+          "10.3",
+          "7.3",
+          "7.8",
+          "16.3"
+        ],
+        "class_rise": 0.04810403813429853,
+        "background_rise": 0.038554585876093395,
+        "selectivity": 1.2476865472993313
+      },
+      "oracle": {
+        "heads": [
+          "11.3",
+          "7.8",
+          "7.3",
+          "16.8",
+          "8.4"
+        ],
+        "class_rise": 0.1432779260020438,
+        "background_rise": 0.03332524125947911,
+        "selectivity": 4.299381507441885
+      }
+    },
+    "said": {
+      "clean": {
+        "class_ce": 1.493663113817428,
+        "background_ce": 2.9689186421930396,
+        "class_positions": 103
+      },
+      "class_trained": {
+        "heads": [
+          "7.3",
+          "6.5",
+          "10.8",
+          "6.7",
+          "5.5"
+        ],
+        "class_rise": 0.021722479497344738,
+        "background_rise": 0.0440227809641911,
+        "selectivity": 0.49343723911976806
+      },
+      "random": {
+        "heads": [
+          "6.3",
+          "7.3",
+          "7.8",
+          "15.3",
+          "14.4"
+        ],
+        "class_rise": 0.057104835521827546,
+        "background_rise": 0.06847532015838054,
+        "selectivity": 0.8339476966262657
+      },
+      "oracle": {
+        "heads": [
+          "6.7",
+          "7.8",
+          "15.5",
+          "11.3",
+          "9.1"
+        ],
+        "class_rise": 0.279679232575361,
+        "background_rise": 0.04801277060914977,
+        "selectivity": 5.825100885181216
+      }
+    },
+    "days": {
+      "clean": {
+        "class_ce": 4.5607654759378145,
+        "background_ce": 2.964477891644678,
+        "class_positions": 33
+      },
+      "class_trained": {
+        "heads": [
+          "6.7",
+          "7.3",
+          "14.7",
+          "11.5",
+          "9.7"
+        ],
+        "class_rise": 0.20924938808787985,
+        "background_rise": 0.04108252548008018,
+        "selectivity": 5.093391548904152
+      },
+      "random": {
+        "heads": [
+          "6.3",
+          "7.3",
+          "14.4",
+          "16.3",
+          "15.3"
+        ],
+        "class_rise": 0.0585068500403203,
+        "background_rise": 0.042212432066692784,
+        "selectivity": 1.3860099306262061
+      },
+      "oracle": {
+        "heads": [
+          "7.3",
+          "6.7",
+          "9.7",
+          "17.3",
+          "15.1"
+        ],
+        "class_rise": 0.3855440472111553,
+        "background_rise": 0.0394041335737807,
+        "selectivity": 9.784355402441694
+      }
+    }
+  },
+  "powered_removal_classes": [
+    "colon",
+    "semicolon",
+    "open_paren",
+    "close_paren",
+    "to",
+    "said"
+  ],
+  "summary": {
+    "evaluation_recall": 0.4041666666666667,
+    "oracle_recall": 0.8083333333333333,
+    "random_recall": 0.07500000000000001,
+    "winner_class_rise": 0.08501904875338256,
+    "oracle_class_rise": 0.6278272132909549,
+    "winner_selectivity": 3.5733286797487036,
+    "random_selectivity": 0.4165688684152005
+  },
+  "predictions": {
+    "recall_win": true,
+    "removal_win": false,
+    "ordering_generalizes": true
+  },
+  "runtime_s": 538.3443820476532
+}
