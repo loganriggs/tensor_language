@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+RANK-8 ABLATION (predictor stays top-2): 12 classes at mlp11. 480 canonical rows (receipt 815b21618c2e477e). Single registered hypothesis: |lam1/lam2|.
+  exclaim ratio  1.430 | n=   97 | CE 3.0988 -> 3.1128 | rel rise +0.00452
+  semicolon ratio  2.134 | n=  114 | CE 3.2618 -> 3.2923 | rel rise +0.00937
+  colon  ratio  2.000 | n=  330 | CE 1.5607 -> 1.5947 | rel rise +0.02185
+  quote  ratio  1.209 | n=  296 | CE 2.4925 -> 2.5662 | rel rise +0.02956
+  dash   ratio  1.059 | n=  861 | CE 1.4733 -> 1.4954 | rel rise +0.01497
+  digit  ratio  1.135 | n= 1702 | CE 3.9711 -> 3.9710 | rel rise -0.00003
+  cap    ratio  1.116 | n= 7156 | CE 4.7095 -> 4.7088 | rel rise -0.00015
+  we     ratio  1.313 | n=  290 | CE 2.6724 -> 2.7170 | rel rise +0.01669
+  you    ratio  1.376 | n=  481 | CE 1.7797 -> 1.8221 | rel rise +0.02383
+  it     ratio  1.533 | n=  613 | CE 2.4852 -> 2.5572 | rel rise +0.02896
+  an     ratio  1.036 | n=  218 | CE 3.5917 -> 3.6382 | rel rise +0.01296
+  my     ratio  1.011 | n=  244 | CE 2.5405 -> 2.5512 | rel rise +0.00424
+
+  HELD-OUT rho(|lam1/lam2|, relative CE rise) = +0.3916
+  two-sided sampled permutation p (200000) = 0.21060
+  same twelve at RANK-2 (§1648): rho +0.5105, mean rise +0.00676
+  MANIPULATION CHECK: rank-8 mean rise +0.01390 = 2.06x rank-2  (need >=2x for the axis to have varied)
+  concentration: 2.06x cost for 4x the dimensions
+  classes with positive CE rise: 10/12  (§1644 had 11/12)
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ratio_rank8_ablation_results.json (79.9s)

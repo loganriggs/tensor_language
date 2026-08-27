@@ -40317,3 +40317,56 @@ removed, not merely what it is replaced by.
 §1648 and §1649, with the strongest legitimate pool at rho +.532, p .0085, n=24
 class-disjoint across two sites, and caution 1 undischarged. This section adds a
 methodological correction, not evidence.
+
+## §1651 A REAL THIRD AXIS, AND A NEW STRUCTURAL FINDING (3-for-3): ablating four times the subspace costs only **2.06x** — cost scales as **rank^0.52**, roughly square-root — and top-2 dominance still predicts at rho +.392
+
+**Setup** (ratio_rank8_ablation, 80 s, rung 3 — the axis §1650 named after failing to
+vary one). Rank-**8** mean-ablation instead of rank-2, four times the subspace removed,
+while the predictor stays |λ1/λ2|, the dominance of the top TWO. Intervention type held
+fixed at mean-ablation precisely because §1650 showed zero-vs-mean is not a real
+difference. §1648's twelve type-spanning classes at mlp11, whose rank-2 numbers are on
+disk for an exact paired comparison.
+
+```
+  rho(|λ1/λ2|, relative CE rise under RANK-8) = +.3916   p = .2106   10/12 positive
+  same twelve at RANK-2 (§1648)               = +.5105   p = .0936    9/12 positive
+  mean relative rise:  rank-2 +.00676   ->   rank-8 +.01390   = 2.06x
+```
+
+- **pred_a PASSED** — rho **+.392**, above the ≥+.30 bar. Top-2 dominance still
+  predicts the cost of removing the top eight.
+- **pred_b PASSED — AND THIS TIME IT MEANS SOMETHING.** The registered manipulation
+  check required ≥2x; the observed multiple is **2.06x**. The axis genuinely varied,
+  unlike §1650 where the "different intervention" moved costs by .0001. Registering the
+  check in advance is what makes this run interpretable and that one not.
+- **pred_c PASSED** — 2.06x is well below 4x. Sub-linear in rank.
+
+**THE NEW FINDING IS THE SCALING, NOT THE rho.** Four times the dimensions costs 2.06
+times as much, which pins the exponent:
+
+```
+  cost ~ rank^0.52          (log 2.056 / log 4 = 0.520)   -- roughly SQUARE-ROOT
+
+  reference points:  content spread evenly over 8 dims  ->  4x cost,  exponent 1.00
+                     content entirely in the leading 2  ->  1x cost,  exponent 0.00
+                     observed                           ->  2.06x,    exponent 0.52
+```
+
+So the causal content of these slices is **concentrated in the leading pair but not
+exclusively** — directions 3-8 carry real content, roughly half the marginal value per
+dimension of the first two. That is a quantitative statement about the eigenstructure
+that none of the previous twenty-seven runs produced, and it is measured on a paired
+comparison over the same twelve classes rather than inferred.
+
+**The rho DEGRADES with ablated rank (.511 -> .392) and loses significance (p .21).**
+That is the expected direction: a top-2 predictor should describe a top-2 removal
+better than a top-8 removal, and the degradation is itself weak evidence that the
+predictor is tracking the leading pair specifically rather than slice size generally.
+
+**Pooling: NOT with §1648.** These are the same twelve classes at a different ablated
+rank, so the two are paired, not independent. The strongest legitimate pool in the arc
+remains §1648+§1649 at rho +.532, p .0085, n=24 class-disjoint across two sites.
+
+**Three axes now tested, all directionally positive:** classes (§1647, §1648), site
+(§1649), ablated rank (§1651). None individually clears .05 except §1647 and the
+cross-site pool. Caution 1 stays undischarged — nothing promoted.

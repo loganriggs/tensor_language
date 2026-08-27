@@ -1,0 +1,146 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "n_rows": 480,
+  "classes": "TYPE-SPANNING held out -- punctuation, digits, capitalised, function words; no CE rise ever measured for any",
+  "single_registered_hypothesis": "abs(lam1/lam2) predicts relative CE rise",
+  "currency": "relative CE rise = ce_rise / base_ce (\u00a71645)",
+  "rank2_rho_same_classes": 0.5105,
+  "ablated_rank": 8,
+  "predictor_rank": 2
+ },
+ "per_class": {
+  "exclaim": {
+   "lam1": 44.781,
+   "lam2": 31.317,
+   "ratio": 1.43,
+   "base_ce": 3.0988,
+   "ce_rise": 0.01401,
+   "rel_ce_rise": 0.00452,
+   "n_positions": 97
+  },
+  "semicolon": {
+   "lam1": 60.88,
+   "lam2": -28.523,
+   "ratio": 2.1344,
+   "base_ce": 3.26178,
+   "ce_rise": 0.03057,
+   "rel_ce_rise": 0.00937,
+   "n_positions": 114
+  },
+  "colon": {
+   "lam1": 56.02,
+   "lam2": 28.015,
+   "ratio": 1.9996,
+   "base_ce": 1.56065,
+   "ce_rise": 0.0341,
+   "rel_ce_rise": 0.02185,
+   "n_positions": 330
+  },
+  "quote": {
+   "lam1": 43.945,
+   "lam2": 36.361,
+   "ratio": 1.2086,
+   "base_ce": 2.49251,
+   "ce_rise": 0.07368,
+   "rel_ce_rise": 0.02956,
+   "n_positions": 296
+  },
+  "dash": {
+   "lam1": 34.942,
+   "lam2": 32.99,
+   "ratio": 1.0592,
+   "base_ce": 1.47334,
+   "ce_rise": 0.02206,
+   "rel_ce_rise": 0.01497,
+   "n_positions": 861
+  },
+  "digit": {
+   "lam1": -55.064,
+   "lam2": -48.534,
+   "ratio": 1.1345,
+   "base_ce": 3.97108,
+   "ce_rise": -0.00013,
+   "rel_ce_rise": -3e-05,
+   "n_positions": 1702
+  },
+  "cap": {
+   "lam1": -49.79,
+   "lam2": -44.627,
+   "ratio": 1.1157,
+   "base_ce": 4.7095,
+   "ce_rise": -0.0007,
+   "rel_ce_rise": -0.00015,
+   "n_positions": 7156
+  },
+  "we": {
+   "lam1": 96.11,
+   "lam2": 73.212,
+   "ratio": 1.3128,
+   "base_ce": 2.67239,
+   "ce_rise": 0.0446,
+   "rel_ce_rise": 0.01669,
+   "n_positions": 290
+  },
+  "you": {
+   "lam1": 86.205,
+   "lam2": -62.663,
+   "ratio": 1.3757,
+   "base_ce": 1.77967,
+   "ce_rise": 0.04241,
+   "rel_ce_rise": 0.02383,
+   "n_positions": 481
+  },
+  "it": {
+   "lam1": 94.503,
+   "lam2": 61.658,
+   "ratio": 1.5327,
+   "base_ce": 2.48525,
+   "ce_rise": 0.07198,
+   "rel_ce_rise": 0.02896,
+   "n_positions": 613
+  },
+  "an": {
+   "lam1": 34.35,
+   "lam2": 33.141,
+   "ratio": 1.0365,
+   "base_ce": 3.59169,
+   "ce_rise": 0.04655,
+   "rel_ce_rise": 0.01296,
+   "n_positions": 218
+  },
+  "my": {
+   "lam1": -53.554,
+   "lam2": 52.981,
+   "ratio": 1.0108,
+   "base_ce": 2.54047,
+   "ce_rise": 0.01077,
+   "rel_ce_rise": 0.00424,
+   "n_positions": 244
+  }
+ },
+ "heldout_rho": 0.3916,
+ "permutation_p_two_sided": 0.210605,
+ "n_permutations": 200000,
+ "n_positive_rise": 10,
+ "predictions": {
+  "pred_a_rho_ge_030_rank8": true,
+  "pred_b_axis_varied_ge_2x": true,
+  "pred_c_sublinear_lt_4x": true
+ },
+ "cost_multiple_vs_rank2": 2.056,
+ "mean_relative_rise": 0.0139,
+ "runtime_s": 79.9,
+ "S1651_scaling": {
+  "rank2_mean_rise": 0.00676,
+  "rank8_mean_rise": 0.0139,
+  "cost_multiple": 2.056,
+  "dimension_multiple": 4.0,
+  "implied_exponent": 0.52,
+  "interpretation": "Cost scales as rank^0.52, roughly square-root. Reference points: content spread evenly over 8 dimensions would give exponent 1.00 (4x cost); content entirely in the leading pair would give 0.00 (1x cost). Observed 0.52 means the causal content is CONCENTRATED IN THE LEADING PAIR BUT NOT EXCLUSIVELY -- directions 3-8 carry roughly half the marginal value per dimension of the first two.",
+  "manipulation_check": "PASSED at 2.06x against a registered >=2x bar. Contrast S1650, where the intended axis moved costs by .0001 and the run was uninterpretable. Registering the check in advance is what separates the two.",
+  "rho_degradation": "rho falls .5105 -> .3916 as ablated rank rises 2 -> 8, in the expected direction: a top-2 predictor should describe a top-2 removal better than a top-8 removal. Weak evidence the predictor tracks the leading pair specifically rather than slice size generally.",
+  "pooling": "NOT poolable with S1648 -- same twelve classes, paired not independent."
+ }
+}
