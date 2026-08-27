@@ -249,9 +249,90 @@ The second is the relevant notion of simplicity for this project.
 
 ---
 
-## 5. The strongest executable compression result so far
+## 5. The earlier continuous and low-rank results
 
-The best tested executable approximation to MLP0's `Down` map is called **C512**.
+There is not just one “MLP0 is low-rank” result. There are several results about
+different maps and different behavioral denominators. They should not be collapsed
+into one number.
+
+### 5.1 The pre-1500 tensor-native quadratic program
+
+The earlier tensor-native program directly approximated the complete normalized
+input-to-write function as
+
+$$
+\widehat m_0(t,z)
+=
+T[t]
++
+\sum_{r=1}^{R}u_r(a_r^\top z)^2.
+$$
+
+This uses $R$ learned quadratic features rather than the original 4608 native
+products. Under its legacy completeness-ledger denominator, the measured
+substitution results were:
+
+| program | final $\Delta\mathrm{CE}$ | legacy understood fraction |
+|---|---:|---:|
+| token table only | 0.34910 | 90.4% |
+| token table + 64 quadratic features | 0.11366 | 96.9% |
+| token table + 256 quadratic features | 0.07480 | 97.9% |
+| 256 quadratic features without the table | 0.07807 | 97.8% |
+
+This is the result summarized in the old commit as “256 quadratic features =
+97.9%.” It is important because it shows that a small continuous quadratic program
+can reproduce most of MLP0's ordinary substitution behavior. It also shows that the
+quadratic program alone nearly matches the table-plus-quadratic program, so a giant
+token table is not essential to that particular fidelity result.
+
+Its `97.9%` is a legacy, mean-floor-relative score. It was not evaluated with the
+later source-document authority, simultaneous worst-cell inference, physical byte
+pricing, or C512's internal MLP1 interface gates. It is therefore strong discovery
+evidence, but it is not interchangeable with the later causal certificate currency.
+
+### 5.2 The canonical token-plus-continuous-context program
+
+A later canonical program used
+
+$$
+\widehat m_0(t,a_0,x_0)
+=
+T[t]+[a_0;x_0]W_R,
+$$
+
+where $T[t]$ is a token-indexed write and $W_R$ is a rank-$R$ continuous correction
+from the attention-0 output and embedding state.
+
+On its frozen held-out FineWeb protocol, the token-only arm retained 84.33% of the
+constant-to-live MLP0 gap. The rank curve rose monotonically:
+
+| correction rank | retained fraction |
+|---:|---:|
+| 0 | 84.33% |
+| 32 | 86.97% |
+| 64 | 87.67% |
+| 128 | 88.51% |
+| 256 | 89.39% |
+| 1152 | 90.26% |
+
+This is a different result from the tensor-native 256-feature program. It decomposes
+MLP0 into a token table plus a continuous inherited-context correction and uses a
+more conservative held-out operational protocol.
+
+### 5.3 The immediate MLP0-to-MLP1 edge is approximately low-rank
+
+At the declared MLP0-to-MLP1 edge, an earlier causal edge-rank screen found that a
+rank-32 connection recovered about 81.4% of the measured edge gap and rank 128
+recovered about 91.95%.
+
+That is evidence that the part of MLP0 consumed by a particular downstream edge is
+much thinner than the complete write. It does not imply that the stack of every
+immediate reader is exactly low-rank: the literal combined reader stack has rank
+$1152/1152$.
+
+### 5.4 C512: a low-rank replacement of `Down` itself
+
+The cleanest later result specifically about the native `Down` map is **C512**.
 
 C512 retains:
 
@@ -260,7 +341,9 @@ C512 retains:
 - the exact `Right` map;
 - all native coordinatewise product features.
 
-It replaces only the original `Down` map with a rank-512 continuous program.
+It replaces only the original `Down` map with a rank-512 continuous program. Thus it
+is narrower than the old 256-feature input-to-output surrogate, but its object and
+physical price are much more explicit.
 
 The original float32 `Down` matrix costs approximately
 
@@ -305,7 +388,10 @@ against a point margin of $0.0075$.
 These results were stable across both waves.
 
 This is strong evidence that much of the original `Down` matrix is unnecessary for
-ordinary final-output behavior.
+ordinary final-output behavior. Together with the earlier quadratic program, it
+supports the user's original summary: **MLP0 has a useful continuous low-rank
+description.** The remaining question is which low-rank description is causally
+sufficient and composable, not whether any such description exists.
 
 It is not yet a compression of all MLP0. The exact `Left` and `Right` maps still cost
 42,467,328 bytes under the registered physical accounting.
