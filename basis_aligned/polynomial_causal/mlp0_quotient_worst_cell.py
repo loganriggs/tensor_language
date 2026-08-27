@@ -85,7 +85,7 @@ def validate_authority() -> dict:
     if not AUTHORITY.is_file():
         raise RuntimeError(f'collector authority absent: {AUTHORITY}')
     authority = json.loads(AUTHORITY.read_text())
-    if (authority.get('status') != 'frozen_before_any_v1_evaluation_model_forward'
+    if (authority.get('status') != 'frozen_before_any_v2_evaluation_model_forward'
             or authority.get('output_path') != str(OUT)
             or authority.get('row_receipt_sha256') != file_sha256(ROW_RECEIPT)
             or authority.get('fit_receipt_sha256') != file_sha256(FIT_RECEIPT)):
@@ -353,7 +353,7 @@ def fit_receipt_payload(state: dict, fit_rows: torch.Tensor) -> dict:
     return {
         'schema_version': 1,
         'receipt_kind': 'mlp0_quotient_stage0_v2_fit_constants',
-        'status': 'frozen_before_any_v1_evaluation_model_forward',
+        'status': 'frozen_before_any_v2_evaluation_model_forward',
         'fit_rows_sha256': tensor_hash(fit_rows),
         'fit_rows_receipt_sha256': file_sha256(ROW_RECEIPT),
         'constants': {

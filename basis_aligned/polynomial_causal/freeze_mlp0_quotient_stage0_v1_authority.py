@@ -58,7 +58,7 @@ def build_authority() -> dict[str, Any]:
     if AUTHORITY.exists() or RESULT.exists() or FAILURE.exists() or LOCK.exists():
         raise RuntimeError("v1 collector namespace is already spent or locked")
     fit = json.loads(FIT_RECEIPT.read_text())
-    if fit.get("status") != "frozen_before_any_v1_evaluation_model_forward":
+    if fit.get("status") != "frozen_before_any_v2_evaluation_model_forward":
         raise RuntimeError("fit constants were not prospectively frozen")
     source_commit = git("rev-parse", "HEAD")
     if source_commit != git("rev-parse", "origin/main"):
@@ -75,7 +75,7 @@ def build_authority() -> dict[str, Any]:
     return {
         "schema_version": 1,
         "receipt_kind": "mlp0_quotient_stage0_v2_collector_authority",
-        "status": "frozen_before_any_v1_evaluation_model_forward",
+        "status": "frozen_before_any_v2_evaluation_model_forward",
         "scope": "single deterministic prospective evaluation on frozen skip-21000 rows",
         "source_commit": source_commit,
         "source_hashes": {str(path.resolve()): file_sha256(path) for path in SOURCE_CLOSURE},
