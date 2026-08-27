@@ -1,0 +1,25 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+abs eigs [-161.88, -133.57, -102.91, -55.54, 53.94, -47.12, 43.33, 37.35]
+pos eigs [53.94, 43.33, 37.35, 31.97, 30.04, 29.07, 27.67, 26.6]
+neg eigs [-161.88, -133.57, -102.91, -55.54, -47.12, -36.54, -30.84, -27.16]
+abs   skip= 15000 n=194 top6=['mlp17', 'mlp16', 'x0', 'mlp15', 'attn12', 'attn17'] recon=2.1e-07
+abs   skip= 20000 n=195 top6=['mlp17', 'mlp16', 'x0', 'mlp15', 'mlp9', 'attn12'] recon=3.6e-07
+abs   skip= 25000 n=185 top6=['mlp17', 'mlp16', 'x0', 'attn12', 'attn10', 'attn9'] recon=5.8e-07
+  -> abs consensus top6: ['mlp17', 'mlp16', 'x0', 'mlp15', 'attn12', 'mlp9']
+pos   skip= 15000 n=194 top6=['mlp17', 'mlp12', 'mlp13', 'mlp15', 'mlp11', 'mlp14'] recon=3.6e-07
+pos   skip= 20000 n=195 top6=['mlp17', 'mlp12', 'mlp16', 'mlp13', 'mlp15', 'mlp11'] recon=1.1e-07
+pos   skip= 25000 n=185 top6=['mlp17', 'mlp12', 'mlp13', 'mlp15', 'mlp11', 'attn17'] recon=2.3e-07
+  -> pos consensus top6: ['mlp17', 'mlp12', 'mlp13', 'mlp15', 'mlp11', 'mlp16']
+neg   skip= 15000 n=194 top6=['mlp17', 'mlp16', 'mlp14', 'x0', 'mlp9', 'mlp15'] recon=2.0e-07
+neg   skip= 20000 n=195 top6=['mlp17', 'mlp16', 'mlp14', 'x0', 'mlp15', 'mlp10'] recon=2.7e-07
+neg   skip= 25000 n=185 top6=['mlp17', 'mlp16', 'mlp14', 'attn12', 'attn10', 'x0'] recon=1.5e-07
+  -> neg consensus top6: ['mlp17', 'mlp16', 'mlp14', 'x0', 'mlp15', 'attn12']
+rand  skip= 15000 n=194 top6=['mlp17', 'mlp16', 'attn17', 'mlp15', 'attn16', 'attn9'] recon=1.9e-07
+rand  skip= 20000 n=195 top6=['mlp17', 'mlp16', 'attn13', 'mlp15', 'attn14', 'mlp10'] recon=2.0e-07
+rand  skip= 25000 n=185 top6=['mlp17', 'mlp16', 'attn16', 'mlp15', 'attn14', 'mlp10'] recon=1.3e-07
+  -> rand consensus top6: ['mlp17', 'mlp16', 'mlp15', 'attn16', 'attn17', 'attn13']
+
+jaccard {"abs|pos": 0.333, "abs|neg": 0.714, "pos|neg": 0.333, "rand|abs": 0.333, "rand|pos": 0.333, "rand|neg": 0.333}
+abs&pos share 3/6 | rand shares {"abs": 3, "pos": 3, "neg": 3}
+pred_a False | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/writer_slice_rule_results.json (255.8s)

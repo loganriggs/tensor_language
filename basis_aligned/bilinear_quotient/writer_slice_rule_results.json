@@ -1,0 +1,218 @@
+{
+ "config": {
+  "class": "pronouns",
+  "site": 17,
+  "rank": 8,
+  "samples": [
+   15000,
+   20000,
+   25000
+  ],
+  "topk": 6
+ },
+ "rules": {
+  "abs": {
+   "eigs": [
+    -161.88,
+    -133.57,
+    -102.91,
+    -55.54,
+    53.94,
+    -47.12,
+    43.33,
+    37.35
+   ],
+   "per_sample_top": [
+    [
+     "mlp17",
+     "mlp16",
+     "x0",
+     "mlp15",
+     "attn12",
+     "attn17"
+    ],
+    [
+     "mlp17",
+     "mlp16",
+     "x0",
+     "mlp15",
+     "mlp9",
+     "attn12"
+    ],
+    [
+     "mlp17",
+     "mlp16",
+     "x0",
+     "attn12",
+     "attn10",
+     "attn9"
+    ]
+   ],
+   "consensus_top": [
+    "mlp17",
+    "mlp16",
+    "x0",
+    "mlp15",
+    "attn12",
+    "mlp9"
+   ]
+  },
+  "pos": {
+   "eigs": [
+    53.94,
+    43.33,
+    37.35,
+    31.97,
+    30.04,
+    29.07,
+    27.67,
+    26.6
+   ],
+   "per_sample_top": [
+    [
+     "mlp17",
+     "mlp12",
+     "mlp13",
+     "mlp15",
+     "mlp11",
+     "mlp14"
+    ],
+    [
+     "mlp17",
+     "mlp12",
+     "mlp16",
+     "mlp13",
+     "mlp15",
+     "mlp11"
+    ],
+    [
+     "mlp17",
+     "mlp12",
+     "mlp13",
+     "mlp15",
+     "mlp11",
+     "attn17"
+    ]
+   ],
+   "consensus_top": [
+    "mlp17",
+    "mlp12",
+    "mlp13",
+    "mlp15",
+    "mlp11",
+    "mlp16"
+   ]
+  },
+  "neg": {
+   "eigs": [
+    -161.88,
+    -133.57,
+    -102.91,
+    -55.54,
+    -47.12,
+    -36.54,
+    -30.84,
+    -27.16
+   ],
+   "per_sample_top": [
+    [
+     "mlp17",
+     "mlp16",
+     "mlp14",
+     "x0",
+     "mlp9",
+     "mlp15"
+    ],
+    [
+     "mlp17",
+     "mlp16",
+     "mlp14",
+     "x0",
+     "mlp15",
+     "mlp10"
+    ],
+    [
+     "mlp17",
+     "mlp16",
+     "mlp14",
+     "attn12",
+     "attn10",
+     "x0"
+    ]
+   ],
+   "consensus_top": [
+    "mlp17",
+    "mlp16",
+    "mlp14",
+    "x0",
+    "mlp15",
+    "attn12"
+   ]
+  },
+  "rand": {
+   "eigs": null,
+   "per_sample_top": [
+    [
+     "mlp17",
+     "mlp16",
+     "attn17",
+     "mlp15",
+     "attn16",
+     "attn9"
+    ],
+    [
+     "mlp17",
+     "mlp16",
+     "attn13",
+     "mlp15",
+     "attn14",
+     "mlp10"
+    ],
+    [
+     "mlp17",
+     "mlp16",
+     "attn16",
+     "mlp15",
+     "attn14",
+     "mlp10"
+    ]
+   ],
+   "consensus_top": [
+    "mlp17",
+    "mlp16",
+    "mlp15",
+    "attn16",
+    "attn17",
+    "attn13"
+   ]
+  }
+ },
+ "jaccard": {
+  "abs|pos": 0.333,
+  "abs|neg": 0.714,
+  "pos|neg": 0.333,
+  "rand|abs": 0.333,
+  "rand|pos": 0.333,
+  "rand|neg": 0.333
+ },
+ "shared_abs_pos_of_6": 3,
+ "rand_shared": {
+  "abs": 3,
+  "pos": 3,
+  "neg": 3
+ },
+ "S1598_reference": [
+  "mlp16",
+  "x0",
+  "mlp15",
+  "mlp9",
+  "mlp14",
+  "attn9"
+ ],
+ "predictions": {
+  "pred_a_abs_pos_share_le2": false,
+  "pred_b_abs_closer_to_neg": true,
+  "pred_c_random_control_le2_all": false
+ },
+ "runtime_s": 255.8
+}

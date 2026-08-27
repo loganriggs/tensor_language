@@ -251,3 +251,21 @@ the run looks failed to every watcher and to the next wake.
   contains every registered prediction key BEFORE requeueing. Mitigation for new
   scripts that stream data: `sys.stdout.flush(); os._exit(0)` after the final
   write, which skips the finalizer that crashes.
+
+## 15. A random subspace has "writers" — control for the high-norm floor (§1606)
+Component attribution onto ANY low-rank subspace is dominated by the components
+with the largest output norm, whether or not the subspace means anything.
+- **Example:** a random orthonormal rank-8 basis at pronouns@mlp17 returns
+  consensus top-6 writers mlp17, mlp16, mlp15, attn16, attn17, attn13. All three
+  real slice rules (|λ|-top, positive payload, negative gate) share exactly
+  {mlp17, mlp16, mlp15} with it. Raw Jaccard(abs, pos) = .333; floor-corrected it
+  is **.000** — the entire apparent agreement between two rules was the floor.
+  Two of §1598's six reported writers are floor components.
+- **Near non-example:** WITHIN-layer relative measures (head grain: which of the
+  9 heads dominates its layer, at what ratio) are not obviously exposed, because a
+  global norm floor largely cancels in a within-layer ratio. That is a hypothesis,
+  not a result — it needs its own control before being relied on.
+- **Rule:** every component-level writer/attribution claim carries a
+  random-subspace control at matched rank, and only the floor-corrected set is
+  named. Report both the raw and the corrected overlap; the difference between
+  them is often the whole result.

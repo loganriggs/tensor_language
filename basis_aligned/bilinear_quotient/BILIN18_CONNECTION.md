@@ -37439,3 +37439,59 @@ bar was registered and missed.
 sites while question's write into them. A gender-state readout that is
 suppression-gated (§1587/§1591) would predict it, but that is a story, not a
 measurement, and the off-site instrument cannot test it.
+
+## §1606 WRITER SETS HAVE A GENERIC HIGH-NORM FLOOR (1-for-3): a RANDOM 8-dim subspace "finds" mlp17/mlp16/mlp15 as its top writers — and once that floor is removed, the |λ| and payload rules share ZERO components
+
+**Setup** (writer_slice_rule, 256 s). Fixed cell pronouns@mlp17. Four rank-8
+slice rules under one harness, 3 disjoint 96-row samples each, recon rel err
+1.1e-07 – 5.8e-07: `abs` (|λ|-top-8, the §1598 rule), `pos` (8 most positive =
+payload, §1604), `neg` (8 most negative = gate), `rand` (random orthonormal —
+the control that decides everything here).
+
+```
+rule  consensus top-6                                    shared w/ RANDOM   rule-specific tail
+rand  mlp17 mlp16 mlp15 attn16 attn17 attn13                    —                 —
+abs   mlp17 mlp16 x0    mlp15  attn12 mlp9              mlp17 mlp16 mlp15   x0 attn12 mlp9
+pos   mlp17 mlp12 mlp13 mlp15  mlp11  mlp16             mlp17 mlp15 mlp16   mlp12 mlp13 mlp11
+neg   mlp17 mlp16 mlp14 x0     mlp15  attn12            mlp17 mlp16 mlp15   mlp14 x0 attn12
+```
+
+**Scored as written:**
+- **pred_a FAILED** — abs and pos share **3 of 6** (bar ≤ 2). But all three shared
+  entries are exactly the random floor. **Floor-corrected they share ZERO**
+  (Jaccard 0.000). The registered bar missed; the claim behind it is confirmed
+  far more strongly than registered.
+- **pred_b PASSED** — Jaccard(abs, neg) **.714** > Jaccard(abs, pos) **.333**, and
+  floor-corrected .500 vs .000. The |λ| slice at this suppression-dominated site
+  is gate-dominated, as §1598's own lesson implied.
+- **pred_c FAILED** — the random control shares **3 with every rule** (bar ≤ 2).
+  **This failure is the finding.**
+
+**A random 8-dimensional subspace has "writers", and they are the high-norm late
+components.** mlp17, mlp16 and mlp15 top the list for a basis with no relationship
+to any class or form, because a large-norm component projects onto ANY subspace.
+Every real rule shares exactly those three. The signal lives entirely in the
+rule-specific tail — and there `abs` picks x0/attn12/mlp9, `pos` picks
+mlp11/mlp12/mlp13 (mid-stack), `neg` picks mlp14/x0/attn12: disjoint answers at
+one fixed (class, site), which is §1604's observation confirmed once the
+confound is removed.
+
+**This qualifies published writer numbers in this program, and the qualification
+is specific.** §1598 reported pronouns@mlp17 top-6 = mlp16, x0, mlp15, mlp9,
+mlp14, attn9 carrying 48.2% of mass. **Two of those six — mlp16 and mlp15 — are
+in the random floor**, so that share is inflated by components a random subspace
+would also return. §1598's conclusion (writers DIFFUSE, pred_a ≥.55 FAILED) is
+not overturned — a floor makes the set MORE diffuse, not less — and §1597/§1598's
+HEAD-GRAIN law is a different measurement (which head WITHIN a layer, a
+within-layer relative quantity where a global norm floor largely cancels), so it
+is untouched pending its own control. No retraction is required; a control is.
+
+**Standing requirement from here: every component-level writer-graph claim needs
+a random-subspace control at matched rank, and only the floor-corrected set may
+be named as writers.** Added to LESSONS.
+
+**Open, and it is the important one:** whether the head-grain law survives the
+same control. §1597/§1598 report head 10.5 at 20:1 over the next head and 12.4 at
+9.1:1 — if a random subspace also concentrates on one head per layer at those
+ratios, the law is an artifact; if it does not, the law is the strongest result in
+the arc. That is `headgrain_control`, queued next.
