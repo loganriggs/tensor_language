@@ -1,0 +1,4789 @@
+{
+  "schema_version": 1,
+  "receipt_kind": "mlp0_c512_mlp1_interchange_v1_rows",
+  "status": "frozen_before_any_c512_interchange_model_forward",
+  "authority": "pinned_local_ordered_manifest_source_document_balanced",
+  "authorized_for_scored_experiments": true,
+  "authorized_for_training": false,
+  "selection": {
+    "start_dataset_document_index": 43000,
+    "n_source_documents": 384,
+    "wave_source_documents": 192,
+    "max_chunks_per_document": 3,
+    "token_length": 513
+  },
+  "sample_summary": {
+    "n_source_documents": 384,
+    "n_chunks": 585,
+    "raw_prediction_positions": 299520,
+    "min_chunks_per_document": 1,
+    "max_chunks_per_document": 3,
+    "chunks_per_document_histogram": {
+      "1": 248,
+      "2": 71,
+      "3": 65
+    },
+    "waves": {
+      "A": {
+        "n_source_documents": 192,
+        "n_chunks": 286,
+        "raw_prediction_positions": 146432
+      },
+      "B": {
+        "n_source_documents": 192,
+        "n_chunks": 299,
+        "raw_prediction_positions": 153088
+      }
+    }
+  },
+  "entries": {
+    "eval": {
+      "shape": [
+        585,
+        513
+      ],
+      "dtype": "torch.int64",
+      "tensor_raw_sha256": "5619897eb7b1d84bbdb598f9c0228c46f6cfd5aa389d29af95284e3a39c298fe",
+      "cache_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_c512_mlp1_interchange_v1/eval_384_source_documents.pt"
+    }
+  },
+  "document_provenance": {
+    "schema_version": 1,
+    "sets": {
+      "eval": [
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43002",
+          "dataset_document_index": 43002,
+          "source_document_ordinal": 0,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43002",
+          "dataset_document_index": 43002,
+          "source_document_ordinal": 0,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43002",
+          "dataset_document_index": 43002,
+          "source_document_ordinal": 0,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43004",
+          "dataset_document_index": 43004,
+          "source_document_ordinal": 1,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43004",
+          "dataset_document_index": 43004,
+          "source_document_ordinal": 1,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43004",
+          "dataset_document_index": 43004,
+          "source_document_ordinal": 1,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43014",
+          "dataset_document_index": 43014,
+          "source_document_ordinal": 2,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43023",
+          "dataset_document_index": 43023,
+          "source_document_ordinal": 3,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43026",
+          "dataset_document_index": 43026,
+          "source_document_ordinal": 4,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43029",
+          "dataset_document_index": 43029,
+          "source_document_ordinal": 5,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43029",
+          "dataset_document_index": 43029,
+          "source_document_ordinal": 5,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43030",
+          "dataset_document_index": 43030,
+          "source_document_ordinal": 6,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43035",
+          "dataset_document_index": 43035,
+          "source_document_ordinal": 7,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43035",
+          "dataset_document_index": 43035,
+          "source_document_ordinal": 7,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43038",
+          "dataset_document_index": 43038,
+          "source_document_ordinal": 8,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43042",
+          "dataset_document_index": 43042,
+          "source_document_ordinal": 9,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43043",
+          "dataset_document_index": 43043,
+          "source_document_ordinal": 10,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43043",
+          "dataset_document_index": 43043,
+          "source_document_ordinal": 10,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43043",
+          "dataset_document_index": 43043,
+          "source_document_ordinal": 10,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43048",
+          "dataset_document_index": 43048,
+          "source_document_ordinal": 11,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43054",
+          "dataset_document_index": 43054,
+          "source_document_ordinal": 12,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43055",
+          "dataset_document_index": 43055,
+          "source_document_ordinal": 13,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43056",
+          "dataset_document_index": 43056,
+          "source_document_ordinal": 14,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43056",
+          "dataset_document_index": 43056,
+          "source_document_ordinal": 14,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43059",
+          "dataset_document_index": 43059,
+          "source_document_ordinal": 15,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43060",
+          "dataset_document_index": 43060,
+          "source_document_ordinal": 16,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43061",
+          "dataset_document_index": 43061,
+          "source_document_ordinal": 17,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43062",
+          "dataset_document_index": 43062,
+          "source_document_ordinal": 18,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43062",
+          "dataset_document_index": 43062,
+          "source_document_ordinal": 18,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43062",
+          "dataset_document_index": 43062,
+          "source_document_ordinal": 18,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43063",
+          "dataset_document_index": 43063,
+          "source_document_ordinal": 19,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43063",
+          "dataset_document_index": 43063,
+          "source_document_ordinal": 19,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43063",
+          "dataset_document_index": 43063,
+          "source_document_ordinal": 19,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43064",
+          "dataset_document_index": 43064,
+          "source_document_ordinal": 20,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43070",
+          "dataset_document_index": 43070,
+          "source_document_ordinal": 21,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43073",
+          "dataset_document_index": 43073,
+          "source_document_ordinal": 22,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43073",
+          "dataset_document_index": 43073,
+          "source_document_ordinal": 22,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43075",
+          "dataset_document_index": 43075,
+          "source_document_ordinal": 23,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43075",
+          "dataset_document_index": 43075,
+          "source_document_ordinal": 23,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43076",
+          "dataset_document_index": 43076,
+          "source_document_ordinal": 24,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43078",
+          "dataset_document_index": 43078,
+          "source_document_ordinal": 25,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43079",
+          "dataset_document_index": 43079,
+          "source_document_ordinal": 26,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43081",
+          "dataset_document_index": 43081,
+          "source_document_ordinal": 27,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43081",
+          "dataset_document_index": 43081,
+          "source_document_ordinal": 27,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43081",
+          "dataset_document_index": 43081,
+          "source_document_ordinal": 27,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43085",
+          "dataset_document_index": 43085,
+          "source_document_ordinal": 28,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43088",
+          "dataset_document_index": 43088,
+          "source_document_ordinal": 29,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43091",
+          "dataset_document_index": 43091,
+          "source_document_ordinal": 30,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43092",
+          "dataset_document_index": 43092,
+          "source_document_ordinal": 31,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43093",
+          "dataset_document_index": 43093,
+          "source_document_ordinal": 32,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43094",
+          "dataset_document_index": 43094,
+          "source_document_ordinal": 33,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43095",
+          "dataset_document_index": 43095,
+          "source_document_ordinal": 34,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43096",
+          "dataset_document_index": 43096,
+          "source_document_ordinal": 35,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43096",
+          "dataset_document_index": 43096,
+          "source_document_ordinal": 35,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43097",
+          "dataset_document_index": 43097,
+          "source_document_ordinal": 36,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43097",
+          "dataset_document_index": 43097,
+          "source_document_ordinal": 36,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43098",
+          "dataset_document_index": 43098,
+          "source_document_ordinal": 37,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43098",
+          "dataset_document_index": 43098,
+          "source_document_ordinal": 37,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43099",
+          "dataset_document_index": 43099,
+          "source_document_ordinal": 38,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43099",
+          "dataset_document_index": 43099,
+          "source_document_ordinal": 38,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43100",
+          "dataset_document_index": 43100,
+          "source_document_ordinal": 39,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43100",
+          "dataset_document_index": 43100,
+          "source_document_ordinal": 39,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43102",
+          "dataset_document_index": 43102,
+          "source_document_ordinal": 40,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43102",
+          "dataset_document_index": 43102,
+          "source_document_ordinal": 40,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43103",
+          "dataset_document_index": 43103,
+          "source_document_ordinal": 41,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43108",
+          "dataset_document_index": 43108,
+          "source_document_ordinal": 42,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43108",
+          "dataset_document_index": 43108,
+          "source_document_ordinal": 42,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43111",
+          "dataset_document_index": 43111,
+          "source_document_ordinal": 43,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43111",
+          "dataset_document_index": 43111,
+          "source_document_ordinal": 43,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43112",
+          "dataset_document_index": 43112,
+          "source_document_ordinal": 44,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43112",
+          "dataset_document_index": 43112,
+          "source_document_ordinal": 44,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43116",
+          "dataset_document_index": 43116,
+          "source_document_ordinal": 45,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43120",
+          "dataset_document_index": 43120,
+          "source_document_ordinal": 46,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43121",
+          "dataset_document_index": 43121,
+          "source_document_ordinal": 47,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43127",
+          "dataset_document_index": 43127,
+          "source_document_ordinal": 48,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43127",
+          "dataset_document_index": 43127,
+          "source_document_ordinal": 48,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43127",
+          "dataset_document_index": 43127,
+          "source_document_ordinal": 48,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43130",
+          "dataset_document_index": 43130,
+          "source_document_ordinal": 49,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43130",
+          "dataset_document_index": 43130,
+          "source_document_ordinal": 49,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43131",
+          "dataset_document_index": 43131,
+          "source_document_ordinal": 50,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43131",
+          "dataset_document_index": 43131,
+          "source_document_ordinal": 50,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43138",
+          "dataset_document_index": 43138,
+          "source_document_ordinal": 51,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43139",
+          "dataset_document_index": 43139,
+          "source_document_ordinal": 52,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43141",
+          "dataset_document_index": 43141,
+          "source_document_ordinal": 53,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43144",
+          "dataset_document_index": 43144,
+          "source_document_ordinal": 54,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43145",
+          "dataset_document_index": 43145,
+          "source_document_ordinal": 55,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43147",
+          "dataset_document_index": 43147,
+          "source_document_ordinal": 56,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43149",
+          "dataset_document_index": 43149,
+          "source_document_ordinal": 57,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43149",
+          "dataset_document_index": 43149,
+          "source_document_ordinal": 57,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43149",
+          "dataset_document_index": 43149,
+          "source_document_ordinal": 57,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43150",
+          "dataset_document_index": 43150,
+          "source_document_ordinal": 58,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43156",
+          "dataset_document_index": 43156,
+          "source_document_ordinal": 59,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43159",
+          "dataset_document_index": 43159,
+          "source_document_ordinal": 60,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43165",
+          "dataset_document_index": 43165,
+          "source_document_ordinal": 61,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43165",
+          "dataset_document_index": 43165,
+          "source_document_ordinal": 61,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43165",
+          "dataset_document_index": 43165,
+          "source_document_ordinal": 61,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43167",
+          "dataset_document_index": 43167,
+          "source_document_ordinal": 62,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43168",
+          "dataset_document_index": 43168,
+          "source_document_ordinal": 63,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43168",
+          "dataset_document_index": 43168,
+          "source_document_ordinal": 63,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43168",
+          "dataset_document_index": 43168,
+          "source_document_ordinal": 63,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43169",
+          "dataset_document_index": 43169,
+          "source_document_ordinal": 64,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43171",
+          "dataset_document_index": 43171,
+          "source_document_ordinal": 65,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43196",
+          "dataset_document_index": 43196,
+          "source_document_ordinal": 66,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43196",
+          "dataset_document_index": 43196,
+          "source_document_ordinal": 66,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43202",
+          "dataset_document_index": 43202,
+          "source_document_ordinal": 67,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43203",
+          "dataset_document_index": 43203,
+          "source_document_ordinal": 68,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43203",
+          "dataset_document_index": 43203,
+          "source_document_ordinal": 68,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43203",
+          "dataset_document_index": 43203,
+          "source_document_ordinal": 68,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43205",
+          "dataset_document_index": 43205,
+          "source_document_ordinal": 69,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43207",
+          "dataset_document_index": 43207,
+          "source_document_ordinal": 70,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43210",
+          "dataset_document_index": 43210,
+          "source_document_ordinal": 71,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43211",
+          "dataset_document_index": 43211,
+          "source_document_ordinal": 72,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43212",
+          "dataset_document_index": 43212,
+          "source_document_ordinal": 73,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43212",
+          "dataset_document_index": 43212,
+          "source_document_ordinal": 73,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43214",
+          "dataset_document_index": 43214,
+          "source_document_ordinal": 74,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43225",
+          "dataset_document_index": 43225,
+          "source_document_ordinal": 75,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43226",
+          "dataset_document_index": 43226,
+          "source_document_ordinal": 76,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43226",
+          "dataset_document_index": 43226,
+          "source_document_ordinal": 76,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43226",
+          "dataset_document_index": 43226,
+          "source_document_ordinal": 76,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43227",
+          "dataset_document_index": 43227,
+          "source_document_ordinal": 77,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43228",
+          "dataset_document_index": 43228,
+          "source_document_ordinal": 78,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43229",
+          "dataset_document_index": 43229,
+          "source_document_ordinal": 79,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43229",
+          "dataset_document_index": 43229,
+          "source_document_ordinal": 79,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43230",
+          "dataset_document_index": 43230,
+          "source_document_ordinal": 80,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43231",
+          "dataset_document_index": 43231,
+          "source_document_ordinal": 81,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43231",
+          "dataset_document_index": 43231,
+          "source_document_ordinal": 81,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43233",
+          "dataset_document_index": 43233,
+          "source_document_ordinal": 82,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43234",
+          "dataset_document_index": 43234,
+          "source_document_ordinal": 83,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43235",
+          "dataset_document_index": 43235,
+          "source_document_ordinal": 84,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43235",
+          "dataset_document_index": 43235,
+          "source_document_ordinal": 84,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43235",
+          "dataset_document_index": 43235,
+          "source_document_ordinal": 84,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43238",
+          "dataset_document_index": 43238,
+          "source_document_ordinal": 85,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43242",
+          "dataset_document_index": 43242,
+          "source_document_ordinal": 86,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43243",
+          "dataset_document_index": 43243,
+          "source_document_ordinal": 87,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43243",
+          "dataset_document_index": 43243,
+          "source_document_ordinal": 87,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43243",
+          "dataset_document_index": 43243,
+          "source_document_ordinal": 87,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43245",
+          "dataset_document_index": 43245,
+          "source_document_ordinal": 88,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43246",
+          "dataset_document_index": 43246,
+          "source_document_ordinal": 89,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43250",
+          "dataset_document_index": 43250,
+          "source_document_ordinal": 90,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43254",
+          "dataset_document_index": 43254,
+          "source_document_ordinal": 91,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43259",
+          "dataset_document_index": 43259,
+          "source_document_ordinal": 92,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43259",
+          "dataset_document_index": 43259,
+          "source_document_ordinal": 92,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43259",
+          "dataset_document_index": 43259,
+          "source_document_ordinal": 92,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43264",
+          "dataset_document_index": 43264,
+          "source_document_ordinal": 93,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43264",
+          "dataset_document_index": 43264,
+          "source_document_ordinal": 93,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43264",
+          "dataset_document_index": 43264,
+          "source_document_ordinal": 93,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43265",
+          "dataset_document_index": 43265,
+          "source_document_ordinal": 94,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43267",
+          "dataset_document_index": 43267,
+          "source_document_ordinal": 95,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43267",
+          "dataset_document_index": 43267,
+          "source_document_ordinal": 95,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43268",
+          "dataset_document_index": 43268,
+          "source_document_ordinal": 96,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43274",
+          "dataset_document_index": 43274,
+          "source_document_ordinal": 97,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43276",
+          "dataset_document_index": 43276,
+          "source_document_ordinal": 98,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43277",
+          "dataset_document_index": 43277,
+          "source_document_ordinal": 99,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43277",
+          "dataset_document_index": 43277,
+          "source_document_ordinal": 99,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43277",
+          "dataset_document_index": 43277,
+          "source_document_ordinal": 99,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43278",
+          "dataset_document_index": 43278,
+          "source_document_ordinal": 100,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43278",
+          "dataset_document_index": 43278,
+          "source_document_ordinal": 100,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43279",
+          "dataset_document_index": 43279,
+          "source_document_ordinal": 101,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43279",
+          "dataset_document_index": 43279,
+          "source_document_ordinal": 101,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43279",
+          "dataset_document_index": 43279,
+          "source_document_ordinal": 101,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43280",
+          "dataset_document_index": 43280,
+          "source_document_ordinal": 102,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43280",
+          "dataset_document_index": 43280,
+          "source_document_ordinal": 102,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43283",
+          "dataset_document_index": 43283,
+          "source_document_ordinal": 103,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43283",
+          "dataset_document_index": 43283,
+          "source_document_ordinal": 103,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43283",
+          "dataset_document_index": 43283,
+          "source_document_ordinal": 103,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43284",
+          "dataset_document_index": 43284,
+          "source_document_ordinal": 104,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43285",
+          "dataset_document_index": 43285,
+          "source_document_ordinal": 105,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43287",
+          "dataset_document_index": 43287,
+          "source_document_ordinal": 106,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43288",
+          "dataset_document_index": 43288,
+          "source_document_ordinal": 107,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43296",
+          "dataset_document_index": 43296,
+          "source_document_ordinal": 108,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43296",
+          "dataset_document_index": 43296,
+          "source_document_ordinal": 108,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43296",
+          "dataset_document_index": 43296,
+          "source_document_ordinal": 108,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43297",
+          "dataset_document_index": 43297,
+          "source_document_ordinal": 109,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43297",
+          "dataset_document_index": 43297,
+          "source_document_ordinal": 109,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43297",
+          "dataset_document_index": 43297,
+          "source_document_ordinal": 109,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43298",
+          "dataset_document_index": 43298,
+          "source_document_ordinal": 110,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43300",
+          "dataset_document_index": 43300,
+          "source_document_ordinal": 111,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43300",
+          "dataset_document_index": 43300,
+          "source_document_ordinal": 111,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43301",
+          "dataset_document_index": 43301,
+          "source_document_ordinal": 112,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43302",
+          "dataset_document_index": 43302,
+          "source_document_ordinal": 113,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43302",
+          "dataset_document_index": 43302,
+          "source_document_ordinal": 113,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43302",
+          "dataset_document_index": 43302,
+          "source_document_ordinal": 113,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43305",
+          "dataset_document_index": 43305,
+          "source_document_ordinal": 114,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43308",
+          "dataset_document_index": 43308,
+          "source_document_ordinal": 115,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43309",
+          "dataset_document_index": 43309,
+          "source_document_ordinal": 116,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43310",
+          "dataset_document_index": 43310,
+          "source_document_ordinal": 117,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43315",
+          "dataset_document_index": 43315,
+          "source_document_ordinal": 118,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43315",
+          "dataset_document_index": 43315,
+          "source_document_ordinal": 118,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43316",
+          "dataset_document_index": 43316,
+          "source_document_ordinal": 119,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43317",
+          "dataset_document_index": 43317,
+          "source_document_ordinal": 120,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43319",
+          "dataset_document_index": 43319,
+          "source_document_ordinal": 121,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43320",
+          "dataset_document_index": 43320,
+          "source_document_ordinal": 122,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43321",
+          "dataset_document_index": 43321,
+          "source_document_ordinal": 123,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43321",
+          "dataset_document_index": 43321,
+          "source_document_ordinal": 123,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43322",
+          "dataset_document_index": 43322,
+          "source_document_ordinal": 124,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43327",
+          "dataset_document_index": 43327,
+          "source_document_ordinal": 125,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43328",
+          "dataset_document_index": 43328,
+          "source_document_ordinal": 126,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43328",
+          "dataset_document_index": 43328,
+          "source_document_ordinal": 126,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43328",
+          "dataset_document_index": 43328,
+          "source_document_ordinal": 126,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43331",
+          "dataset_document_index": 43331,
+          "source_document_ordinal": 127,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43335",
+          "dataset_document_index": 43335,
+          "source_document_ordinal": 128,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43336",
+          "dataset_document_index": 43336,
+          "source_document_ordinal": 129,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43336",
+          "dataset_document_index": 43336,
+          "source_document_ordinal": 129,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43338",
+          "dataset_document_index": 43338,
+          "source_document_ordinal": 130,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43339",
+          "dataset_document_index": 43339,
+          "source_document_ordinal": 131,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43342",
+          "dataset_document_index": 43342,
+          "source_document_ordinal": 132,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43345",
+          "dataset_document_index": 43345,
+          "source_document_ordinal": 133,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43346",
+          "dataset_document_index": 43346,
+          "source_document_ordinal": 134,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43350",
+          "dataset_document_index": 43350,
+          "source_document_ordinal": 135,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43352",
+          "dataset_document_index": 43352,
+          "source_document_ordinal": 136,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43361",
+          "dataset_document_index": 43361,
+          "source_document_ordinal": 137,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43365",
+          "dataset_document_index": 43365,
+          "source_document_ordinal": 138,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43365",
+          "dataset_document_index": 43365,
+          "source_document_ordinal": 138,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43367",
+          "dataset_document_index": 43367,
+          "source_document_ordinal": 139,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43367",
+          "dataset_document_index": 43367,
+          "source_document_ordinal": 139,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43368",
+          "dataset_document_index": 43368,
+          "source_document_ordinal": 140,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43372",
+          "dataset_document_index": 43372,
+          "source_document_ordinal": 141,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43373",
+          "dataset_document_index": 43373,
+          "source_document_ordinal": 142,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43379",
+          "dataset_document_index": 43379,
+          "source_document_ordinal": 143,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43379",
+          "dataset_document_index": 43379,
+          "source_document_ordinal": 143,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43382",
+          "dataset_document_index": 43382,
+          "source_document_ordinal": 144,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43387",
+          "dataset_document_index": 43387,
+          "source_document_ordinal": 145,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43392",
+          "dataset_document_index": 43392,
+          "source_document_ordinal": 146,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43392",
+          "dataset_document_index": 43392,
+          "source_document_ordinal": 146,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43396",
+          "dataset_document_index": 43396,
+          "source_document_ordinal": 147,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43397",
+          "dataset_document_index": 43397,
+          "source_document_ordinal": 148,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43397",
+          "dataset_document_index": 43397,
+          "source_document_ordinal": 148,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43404",
+          "dataset_document_index": 43404,
+          "source_document_ordinal": 149,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43406",
+          "dataset_document_index": 43406,
+          "source_document_ordinal": 150,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43406",
+          "dataset_document_index": 43406,
+          "source_document_ordinal": 150,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43406",
+          "dataset_document_index": 43406,
+          "source_document_ordinal": 150,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43408",
+          "dataset_document_index": 43408,
+          "source_document_ordinal": 151,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43415",
+          "dataset_document_index": 43415,
+          "source_document_ordinal": 152,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43418",
+          "dataset_document_index": 43418,
+          "source_document_ordinal": 153,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43424",
+          "dataset_document_index": 43424,
+          "source_document_ordinal": 154,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43425",
+          "dataset_document_index": 43425,
+          "source_document_ordinal": 155,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43426",
+          "dataset_document_index": 43426,
+          "source_document_ordinal": 156,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43429",
+          "dataset_document_index": 43429,
+          "source_document_ordinal": 157,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43429",
+          "dataset_document_index": 43429,
+          "source_document_ordinal": 157,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43429",
+          "dataset_document_index": 43429,
+          "source_document_ordinal": 157,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43433",
+          "dataset_document_index": 43433,
+          "source_document_ordinal": 158,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43433",
+          "dataset_document_index": 43433,
+          "source_document_ordinal": 158,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43434",
+          "dataset_document_index": 43434,
+          "source_document_ordinal": 159,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43435",
+          "dataset_document_index": 43435,
+          "source_document_ordinal": 160,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43435",
+          "dataset_document_index": 43435,
+          "source_document_ordinal": 160,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43435",
+          "dataset_document_index": 43435,
+          "source_document_ordinal": 160,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43440",
+          "dataset_document_index": 43440,
+          "source_document_ordinal": 161,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43441",
+          "dataset_document_index": 43441,
+          "source_document_ordinal": 162,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43442",
+          "dataset_document_index": 43442,
+          "source_document_ordinal": 163,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43445",
+          "dataset_document_index": 43445,
+          "source_document_ordinal": 164,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43445",
+          "dataset_document_index": 43445,
+          "source_document_ordinal": 164,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43446",
+          "dataset_document_index": 43446,
+          "source_document_ordinal": 165,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43454",
+          "dataset_document_index": 43454,
+          "source_document_ordinal": 166,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43454",
+          "dataset_document_index": 43454,
+          "source_document_ordinal": 166,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43454",
+          "dataset_document_index": 43454,
+          "source_document_ordinal": 166,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43457",
+          "dataset_document_index": 43457,
+          "source_document_ordinal": 167,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43463",
+          "dataset_document_index": 43463,
+          "source_document_ordinal": 168,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43465",
+          "dataset_document_index": 43465,
+          "source_document_ordinal": 169,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43467",
+          "dataset_document_index": 43467,
+          "source_document_ordinal": 170,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43469",
+          "dataset_document_index": 43469,
+          "source_document_ordinal": 171,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43469",
+          "dataset_document_index": 43469,
+          "source_document_ordinal": 171,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43472",
+          "dataset_document_index": 43472,
+          "source_document_ordinal": 172,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43475",
+          "dataset_document_index": 43475,
+          "source_document_ordinal": 173,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43475",
+          "dataset_document_index": 43475,
+          "source_document_ordinal": 173,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43475",
+          "dataset_document_index": 43475,
+          "source_document_ordinal": 173,
+          "wave": "A",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43478",
+          "dataset_document_index": 43478,
+          "source_document_ordinal": 174,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43479",
+          "dataset_document_index": 43479,
+          "source_document_ordinal": 175,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43481",
+          "dataset_document_index": 43481,
+          "source_document_ordinal": 176,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43482",
+          "dataset_document_index": 43482,
+          "source_document_ordinal": 177,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43485",
+          "dataset_document_index": 43485,
+          "source_document_ordinal": 178,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43491",
+          "dataset_document_index": 43491,
+          "source_document_ordinal": 179,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43491",
+          "dataset_document_index": 43491,
+          "source_document_ordinal": 179,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43492",
+          "dataset_document_index": 43492,
+          "source_document_ordinal": 180,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43492",
+          "dataset_document_index": 43492,
+          "source_document_ordinal": 180,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43494",
+          "dataset_document_index": 43494,
+          "source_document_ordinal": 181,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43498",
+          "dataset_document_index": 43498,
+          "source_document_ordinal": 182,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43498",
+          "dataset_document_index": 43498,
+          "source_document_ordinal": 182,
+          "wave": "A",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43500",
+          "dataset_document_index": 43500,
+          "source_document_ordinal": 183,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43501",
+          "dataset_document_index": 43501,
+          "source_document_ordinal": 184,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43505",
+          "dataset_document_index": 43505,
+          "source_document_ordinal": 185,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43506",
+          "dataset_document_index": 43506,
+          "source_document_ordinal": 186,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43508",
+          "dataset_document_index": 43508,
+          "source_document_ordinal": 187,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43509",
+          "dataset_document_index": 43509,
+          "source_document_ordinal": 188,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43510",
+          "dataset_document_index": 43510,
+          "source_document_ordinal": 189,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43511",
+          "dataset_document_index": 43511,
+          "source_document_ordinal": 190,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43512",
+          "dataset_document_index": 43512,
+          "source_document_ordinal": 191,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43514",
+          "dataset_document_index": 43514,
+          "source_document_ordinal": 192,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43518",
+          "dataset_document_index": 43518,
+          "source_document_ordinal": 193,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43519",
+          "dataset_document_index": 43519,
+          "source_document_ordinal": 194,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43527",
+          "dataset_document_index": 43527,
+          "source_document_ordinal": 195,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43527",
+          "dataset_document_index": 43527,
+          "source_document_ordinal": 195,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43527",
+          "dataset_document_index": 43527,
+          "source_document_ordinal": 195,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43528",
+          "dataset_document_index": 43528,
+          "source_document_ordinal": 196,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43535",
+          "dataset_document_index": 43535,
+          "source_document_ordinal": 197,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43536",
+          "dataset_document_index": 43536,
+          "source_document_ordinal": 198,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43541",
+          "dataset_document_index": 43541,
+          "source_document_ordinal": 199,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43541",
+          "dataset_document_index": 43541,
+          "source_document_ordinal": 199,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43541",
+          "dataset_document_index": 43541,
+          "source_document_ordinal": 199,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43546",
+          "dataset_document_index": 43546,
+          "source_document_ordinal": 200,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43546",
+          "dataset_document_index": 43546,
+          "source_document_ordinal": 200,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43546",
+          "dataset_document_index": 43546,
+          "source_document_ordinal": 200,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43549",
+          "dataset_document_index": 43549,
+          "source_document_ordinal": 201,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43550",
+          "dataset_document_index": 43550,
+          "source_document_ordinal": 202,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43551",
+          "dataset_document_index": 43551,
+          "source_document_ordinal": 203,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43552",
+          "dataset_document_index": 43552,
+          "source_document_ordinal": 204,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43552",
+          "dataset_document_index": 43552,
+          "source_document_ordinal": 204,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43554",
+          "dataset_document_index": 43554,
+          "source_document_ordinal": 205,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43555",
+          "dataset_document_index": 43555,
+          "source_document_ordinal": 206,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43561",
+          "dataset_document_index": 43561,
+          "source_document_ordinal": 207,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43561",
+          "dataset_document_index": 43561,
+          "source_document_ordinal": 207,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43563",
+          "dataset_document_index": 43563,
+          "source_document_ordinal": 208,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43563",
+          "dataset_document_index": 43563,
+          "source_document_ordinal": 208,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43563",
+          "dataset_document_index": 43563,
+          "source_document_ordinal": 208,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43564",
+          "dataset_document_index": 43564,
+          "source_document_ordinal": 209,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43565",
+          "dataset_document_index": 43565,
+          "source_document_ordinal": 210,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43566",
+          "dataset_document_index": 43566,
+          "source_document_ordinal": 211,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43567",
+          "dataset_document_index": 43567,
+          "source_document_ordinal": 212,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43568",
+          "dataset_document_index": 43568,
+          "source_document_ordinal": 213,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43573",
+          "dataset_document_index": 43573,
+          "source_document_ordinal": 214,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43575",
+          "dataset_document_index": 43575,
+          "source_document_ordinal": 215,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43577",
+          "dataset_document_index": 43577,
+          "source_document_ordinal": 216,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43579",
+          "dataset_document_index": 43579,
+          "source_document_ordinal": 217,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43579",
+          "dataset_document_index": 43579,
+          "source_document_ordinal": 217,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43582",
+          "dataset_document_index": 43582,
+          "source_document_ordinal": 218,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43583",
+          "dataset_document_index": 43583,
+          "source_document_ordinal": 219,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43585",
+          "dataset_document_index": 43585,
+          "source_document_ordinal": 220,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43589",
+          "dataset_document_index": 43589,
+          "source_document_ordinal": 221,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43590",
+          "dataset_document_index": 43590,
+          "source_document_ordinal": 222,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43596",
+          "dataset_document_index": 43596,
+          "source_document_ordinal": 223,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43601",
+          "dataset_document_index": 43601,
+          "source_document_ordinal": 224,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43601",
+          "dataset_document_index": 43601,
+          "source_document_ordinal": 224,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43604",
+          "dataset_document_index": 43604,
+          "source_document_ordinal": 225,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43605",
+          "dataset_document_index": 43605,
+          "source_document_ordinal": 226,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43606",
+          "dataset_document_index": 43606,
+          "source_document_ordinal": 227,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43606",
+          "dataset_document_index": 43606,
+          "source_document_ordinal": 227,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43608",
+          "dataset_document_index": 43608,
+          "source_document_ordinal": 228,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43609",
+          "dataset_document_index": 43609,
+          "source_document_ordinal": 229,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43612",
+          "dataset_document_index": 43612,
+          "source_document_ordinal": 230,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43614",
+          "dataset_document_index": 43614,
+          "source_document_ordinal": 231,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43627",
+          "dataset_document_index": 43627,
+          "source_document_ordinal": 232,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43627",
+          "dataset_document_index": 43627,
+          "source_document_ordinal": 232,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43628",
+          "dataset_document_index": 43628,
+          "source_document_ordinal": 233,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43628",
+          "dataset_document_index": 43628,
+          "source_document_ordinal": 233,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43632",
+          "dataset_document_index": 43632,
+          "source_document_ordinal": 234,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43632",
+          "dataset_document_index": 43632,
+          "source_document_ordinal": 234,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43632",
+          "dataset_document_index": 43632,
+          "source_document_ordinal": 234,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43634",
+          "dataset_document_index": 43634,
+          "source_document_ordinal": 235,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43635",
+          "dataset_document_index": 43635,
+          "source_document_ordinal": 236,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43637",
+          "dataset_document_index": 43637,
+          "source_document_ordinal": 237,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43638",
+          "dataset_document_index": 43638,
+          "source_document_ordinal": 238,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43639",
+          "dataset_document_index": 43639,
+          "source_document_ordinal": 239,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43639",
+          "dataset_document_index": 43639,
+          "source_document_ordinal": 239,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43639",
+          "dataset_document_index": 43639,
+          "source_document_ordinal": 239,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43642",
+          "dataset_document_index": 43642,
+          "source_document_ordinal": 240,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43642",
+          "dataset_document_index": 43642,
+          "source_document_ordinal": 240,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43646",
+          "dataset_document_index": 43646,
+          "source_document_ordinal": 241,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43646",
+          "dataset_document_index": 43646,
+          "source_document_ordinal": 241,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43646",
+          "dataset_document_index": 43646,
+          "source_document_ordinal": 241,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43647",
+          "dataset_document_index": 43647,
+          "source_document_ordinal": 242,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43648",
+          "dataset_document_index": 43648,
+          "source_document_ordinal": 243,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43649",
+          "dataset_document_index": 43649,
+          "source_document_ordinal": 244,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43649",
+          "dataset_document_index": 43649,
+          "source_document_ordinal": 244,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43649",
+          "dataset_document_index": 43649,
+          "source_document_ordinal": 244,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43650",
+          "dataset_document_index": 43650,
+          "source_document_ordinal": 245,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43650",
+          "dataset_document_index": 43650,
+          "source_document_ordinal": 245,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43650",
+          "dataset_document_index": 43650,
+          "source_document_ordinal": 245,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43652",
+          "dataset_document_index": 43652,
+          "source_document_ordinal": 246,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43664",
+          "dataset_document_index": 43664,
+          "source_document_ordinal": 247,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43664",
+          "dataset_document_index": 43664,
+          "source_document_ordinal": 247,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43664",
+          "dataset_document_index": 43664,
+          "source_document_ordinal": 247,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43665",
+          "dataset_document_index": 43665,
+          "source_document_ordinal": 248,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43667",
+          "dataset_document_index": 43667,
+          "source_document_ordinal": 249,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43667",
+          "dataset_document_index": 43667,
+          "source_document_ordinal": 249,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43667",
+          "dataset_document_index": 43667,
+          "source_document_ordinal": 249,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43672",
+          "dataset_document_index": 43672,
+          "source_document_ordinal": 250,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43672",
+          "dataset_document_index": 43672,
+          "source_document_ordinal": 250,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43672",
+          "dataset_document_index": 43672,
+          "source_document_ordinal": 250,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43683",
+          "dataset_document_index": 43683,
+          "source_document_ordinal": 251,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43684",
+          "dataset_document_index": 43684,
+          "source_document_ordinal": 252,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43692",
+          "dataset_document_index": 43692,
+          "source_document_ordinal": 253,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43692",
+          "dataset_document_index": 43692,
+          "source_document_ordinal": 253,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43699",
+          "dataset_document_index": 43699,
+          "source_document_ordinal": 254,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43702",
+          "dataset_document_index": 43702,
+          "source_document_ordinal": 255,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43706",
+          "dataset_document_index": 43706,
+          "source_document_ordinal": 256,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43710",
+          "dataset_document_index": 43710,
+          "source_document_ordinal": 257,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43710",
+          "dataset_document_index": 43710,
+          "source_document_ordinal": 257,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43710",
+          "dataset_document_index": 43710,
+          "source_document_ordinal": 257,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43712",
+          "dataset_document_index": 43712,
+          "source_document_ordinal": 258,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43712",
+          "dataset_document_index": 43712,
+          "source_document_ordinal": 258,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43716",
+          "dataset_document_index": 43716,
+          "source_document_ordinal": 259,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43716",
+          "dataset_document_index": 43716,
+          "source_document_ordinal": 259,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43716",
+          "dataset_document_index": 43716,
+          "source_document_ordinal": 259,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43725",
+          "dataset_document_index": 43725,
+          "source_document_ordinal": 260,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43728",
+          "dataset_document_index": 43728,
+          "source_document_ordinal": 261,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43731",
+          "dataset_document_index": 43731,
+          "source_document_ordinal": 262,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43732",
+          "dataset_document_index": 43732,
+          "source_document_ordinal": 263,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43734",
+          "dataset_document_index": 43734,
+          "source_document_ordinal": 264,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43735",
+          "dataset_document_index": 43735,
+          "source_document_ordinal": 265,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43735",
+          "dataset_document_index": 43735,
+          "source_document_ordinal": 265,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43737",
+          "dataset_document_index": 43737,
+          "source_document_ordinal": 266,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43738",
+          "dataset_document_index": 43738,
+          "source_document_ordinal": 267,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43742",
+          "dataset_document_index": 43742,
+          "source_document_ordinal": 268,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43745",
+          "dataset_document_index": 43745,
+          "source_document_ordinal": 269,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43749",
+          "dataset_document_index": 43749,
+          "source_document_ordinal": 270,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43751",
+          "dataset_document_index": 43751,
+          "source_document_ordinal": 271,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43760",
+          "dataset_document_index": 43760,
+          "source_document_ordinal": 272,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43760",
+          "dataset_document_index": 43760,
+          "source_document_ordinal": 272,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43760",
+          "dataset_document_index": 43760,
+          "source_document_ordinal": 272,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43761",
+          "dataset_document_index": 43761,
+          "source_document_ordinal": 273,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43762",
+          "dataset_document_index": 43762,
+          "source_document_ordinal": 274,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43764",
+          "dataset_document_index": 43764,
+          "source_document_ordinal": 275,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43766",
+          "dataset_document_index": 43766,
+          "source_document_ordinal": 276,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43771",
+          "dataset_document_index": 43771,
+          "source_document_ordinal": 277,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43771",
+          "dataset_document_index": 43771,
+          "source_document_ordinal": 277,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43772",
+          "dataset_document_index": 43772,
+          "source_document_ordinal": 278,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43774",
+          "dataset_document_index": 43774,
+          "source_document_ordinal": 279,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43778",
+          "dataset_document_index": 43778,
+          "source_document_ordinal": 280,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43782",
+          "dataset_document_index": 43782,
+          "source_document_ordinal": 281,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43783",
+          "dataset_document_index": 43783,
+          "source_document_ordinal": 282,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43783",
+          "dataset_document_index": 43783,
+          "source_document_ordinal": 282,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43784",
+          "dataset_document_index": 43784,
+          "source_document_ordinal": 283,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43785",
+          "dataset_document_index": 43785,
+          "source_document_ordinal": 284,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43789",
+          "dataset_document_index": 43789,
+          "source_document_ordinal": 285,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43789",
+          "dataset_document_index": 43789,
+          "source_document_ordinal": 285,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43789",
+          "dataset_document_index": 43789,
+          "source_document_ordinal": 285,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43790",
+          "dataset_document_index": 43790,
+          "source_document_ordinal": 286,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43791",
+          "dataset_document_index": 43791,
+          "source_document_ordinal": 287,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43791",
+          "dataset_document_index": 43791,
+          "source_document_ordinal": 287,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43792",
+          "dataset_document_index": 43792,
+          "source_document_ordinal": 288,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43792",
+          "dataset_document_index": 43792,
+          "source_document_ordinal": 288,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43792",
+          "dataset_document_index": 43792,
+          "source_document_ordinal": 288,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43797",
+          "dataset_document_index": 43797,
+          "source_document_ordinal": 289,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43797",
+          "dataset_document_index": 43797,
+          "source_document_ordinal": 289,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43798",
+          "dataset_document_index": 43798,
+          "source_document_ordinal": 290,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43799",
+          "dataset_document_index": 43799,
+          "source_document_ordinal": 291,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43799",
+          "dataset_document_index": 43799,
+          "source_document_ordinal": 291,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43799",
+          "dataset_document_index": 43799,
+          "source_document_ordinal": 291,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43800",
+          "dataset_document_index": 43800,
+          "source_document_ordinal": 292,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43800",
+          "dataset_document_index": 43800,
+          "source_document_ordinal": 292,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43814",
+          "dataset_document_index": 43814,
+          "source_document_ordinal": 293,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43814",
+          "dataset_document_index": 43814,
+          "source_document_ordinal": 293,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43815",
+          "dataset_document_index": 43815,
+          "source_document_ordinal": 294,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43820",
+          "dataset_document_index": 43820,
+          "source_document_ordinal": 295,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43821",
+          "dataset_document_index": 43821,
+          "source_document_ordinal": 296,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43821",
+          "dataset_document_index": 43821,
+          "source_document_ordinal": 296,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43824",
+          "dataset_document_index": 43824,
+          "source_document_ordinal": 297,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43834",
+          "dataset_document_index": 43834,
+          "source_document_ordinal": 298,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43836",
+          "dataset_document_index": 43836,
+          "source_document_ordinal": 299,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43836",
+          "dataset_document_index": 43836,
+          "source_document_ordinal": 299,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43837",
+          "dataset_document_index": 43837,
+          "source_document_ordinal": 300,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43840",
+          "dataset_document_index": 43840,
+          "source_document_ordinal": 301,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43845",
+          "dataset_document_index": 43845,
+          "source_document_ordinal": 302,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43846",
+          "dataset_document_index": 43846,
+          "source_document_ordinal": 303,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43847",
+          "dataset_document_index": 43847,
+          "source_document_ordinal": 304,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43847",
+          "dataset_document_index": 43847,
+          "source_document_ordinal": 304,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43847",
+          "dataset_document_index": 43847,
+          "source_document_ordinal": 304,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43848",
+          "dataset_document_index": 43848,
+          "source_document_ordinal": 305,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43848",
+          "dataset_document_index": 43848,
+          "source_document_ordinal": 305,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43849",
+          "dataset_document_index": 43849,
+          "source_document_ordinal": 306,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43850",
+          "dataset_document_index": 43850,
+          "source_document_ordinal": 307,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43850",
+          "dataset_document_index": 43850,
+          "source_document_ordinal": 307,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43850",
+          "dataset_document_index": 43850,
+          "source_document_ordinal": 307,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43853",
+          "dataset_document_index": 43853,
+          "source_document_ordinal": 308,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43857",
+          "dataset_document_index": 43857,
+          "source_document_ordinal": 309,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43858",
+          "dataset_document_index": 43858,
+          "source_document_ordinal": 310,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43860",
+          "dataset_document_index": 43860,
+          "source_document_ordinal": 311,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43864",
+          "dataset_document_index": 43864,
+          "source_document_ordinal": 312,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43864",
+          "dataset_document_index": 43864,
+          "source_document_ordinal": 312,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43865",
+          "dataset_document_index": 43865,
+          "source_document_ordinal": 313,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43865",
+          "dataset_document_index": 43865,
+          "source_document_ordinal": 313,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43865",
+          "dataset_document_index": 43865,
+          "source_document_ordinal": 313,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43867",
+          "dataset_document_index": 43867,
+          "source_document_ordinal": 314,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43869",
+          "dataset_document_index": 43869,
+          "source_document_ordinal": 315,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43869",
+          "dataset_document_index": 43869,
+          "source_document_ordinal": 315,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43869",
+          "dataset_document_index": 43869,
+          "source_document_ordinal": 315,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43870",
+          "dataset_document_index": 43870,
+          "source_document_ordinal": 316,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43875",
+          "dataset_document_index": 43875,
+          "source_document_ordinal": 317,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43875",
+          "dataset_document_index": 43875,
+          "source_document_ordinal": 317,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43875",
+          "dataset_document_index": 43875,
+          "source_document_ordinal": 317,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43876",
+          "dataset_document_index": 43876,
+          "source_document_ordinal": 318,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43882",
+          "dataset_document_index": 43882,
+          "source_document_ordinal": 319,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43884",
+          "dataset_document_index": 43884,
+          "source_document_ordinal": 320,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43884",
+          "dataset_document_index": 43884,
+          "source_document_ordinal": 320,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43884",
+          "dataset_document_index": 43884,
+          "source_document_ordinal": 320,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43885",
+          "dataset_document_index": 43885,
+          "source_document_ordinal": 321,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43887",
+          "dataset_document_index": 43887,
+          "source_document_ordinal": 322,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43887",
+          "dataset_document_index": 43887,
+          "source_document_ordinal": 322,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43887",
+          "dataset_document_index": 43887,
+          "source_document_ordinal": 322,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43890",
+          "dataset_document_index": 43890,
+          "source_document_ordinal": 323,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43893",
+          "dataset_document_index": 43893,
+          "source_document_ordinal": 324,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43893",
+          "dataset_document_index": 43893,
+          "source_document_ordinal": 324,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43893",
+          "dataset_document_index": 43893,
+          "source_document_ordinal": 324,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43896",
+          "dataset_document_index": 43896,
+          "source_document_ordinal": 325,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43896",
+          "dataset_document_index": 43896,
+          "source_document_ordinal": 325,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43897",
+          "dataset_document_index": 43897,
+          "source_document_ordinal": 326,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43901",
+          "dataset_document_index": 43901,
+          "source_document_ordinal": 327,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43902",
+          "dataset_document_index": 43902,
+          "source_document_ordinal": 328,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43902",
+          "dataset_document_index": 43902,
+          "source_document_ordinal": 328,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43905",
+          "dataset_document_index": 43905,
+          "source_document_ordinal": 329,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43907",
+          "dataset_document_index": 43907,
+          "source_document_ordinal": 330,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43909",
+          "dataset_document_index": 43909,
+          "source_document_ordinal": 331,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43915",
+          "dataset_document_index": 43915,
+          "source_document_ordinal": 332,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43921",
+          "dataset_document_index": 43921,
+          "source_document_ordinal": 333,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43921",
+          "dataset_document_index": 43921,
+          "source_document_ordinal": 333,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43921",
+          "dataset_document_index": 43921,
+          "source_document_ordinal": 333,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43923",
+          "dataset_document_index": 43923,
+          "source_document_ordinal": 334,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43923",
+          "dataset_document_index": 43923,
+          "source_document_ordinal": 334,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43923",
+          "dataset_document_index": 43923,
+          "source_document_ordinal": 334,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43925",
+          "dataset_document_index": 43925,
+          "source_document_ordinal": 335,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43929",
+          "dataset_document_index": 43929,
+          "source_document_ordinal": 336,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43930",
+          "dataset_document_index": 43930,
+          "source_document_ordinal": 337,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43931",
+          "dataset_document_index": 43931,
+          "source_document_ordinal": 338,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43932",
+          "dataset_document_index": 43932,
+          "source_document_ordinal": 339,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43946",
+          "dataset_document_index": 43946,
+          "source_document_ordinal": 340,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43947",
+          "dataset_document_index": 43947,
+          "source_document_ordinal": 341,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43947",
+          "dataset_document_index": 43947,
+          "source_document_ordinal": 341,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43951",
+          "dataset_document_index": 43951,
+          "source_document_ordinal": 342,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43954",
+          "dataset_document_index": 43954,
+          "source_document_ordinal": 343,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43954",
+          "dataset_document_index": 43954,
+          "source_document_ordinal": 343,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43954",
+          "dataset_document_index": 43954,
+          "source_document_ordinal": 343,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43957",
+          "dataset_document_index": 43957,
+          "source_document_ordinal": 344,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43958",
+          "dataset_document_index": 43958,
+          "source_document_ordinal": 345,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43959",
+          "dataset_document_index": 43959,
+          "source_document_ordinal": 346,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43959",
+          "dataset_document_index": 43959,
+          "source_document_ordinal": 346,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43961",
+          "dataset_document_index": 43961,
+          "source_document_ordinal": 347,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43961",
+          "dataset_document_index": 43961,
+          "source_document_ordinal": 347,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43961",
+          "dataset_document_index": 43961,
+          "source_document_ordinal": 347,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43964",
+          "dataset_document_index": 43964,
+          "source_document_ordinal": 348,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43965",
+          "dataset_document_index": 43965,
+          "source_document_ordinal": 349,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43967",
+          "dataset_document_index": 43967,
+          "source_document_ordinal": 350,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43967",
+          "dataset_document_index": 43967,
+          "source_document_ordinal": 350,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43967",
+          "dataset_document_index": 43967,
+          "source_document_ordinal": 350,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43969",
+          "dataset_document_index": 43969,
+          "source_document_ordinal": 351,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43969",
+          "dataset_document_index": 43969,
+          "source_document_ordinal": 351,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43969",
+          "dataset_document_index": 43969,
+          "source_document_ordinal": 351,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43970",
+          "dataset_document_index": 43970,
+          "source_document_ordinal": 352,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43970",
+          "dataset_document_index": 43970,
+          "source_document_ordinal": 352,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43971",
+          "dataset_document_index": 43971,
+          "source_document_ordinal": 353,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43971",
+          "dataset_document_index": 43971,
+          "source_document_ordinal": 353,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43976",
+          "dataset_document_index": 43976,
+          "source_document_ordinal": 354,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43976",
+          "dataset_document_index": 43976,
+          "source_document_ordinal": 354,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43977",
+          "dataset_document_index": 43977,
+          "source_document_ordinal": 355,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43978",
+          "dataset_document_index": 43978,
+          "source_document_ordinal": 356,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43981",
+          "dataset_document_index": 43981,
+          "source_document_ordinal": 357,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43981",
+          "dataset_document_index": 43981,
+          "source_document_ordinal": 357,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43981",
+          "dataset_document_index": 43981,
+          "source_document_ordinal": 357,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43984",
+          "dataset_document_index": 43984,
+          "source_document_ordinal": 358,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43984",
+          "dataset_document_index": 43984,
+          "source_document_ordinal": 358,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43985",
+          "dataset_document_index": 43985,
+          "source_document_ordinal": 359,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43992",
+          "dataset_document_index": 43992,
+          "source_document_ordinal": 360,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43995",
+          "dataset_document_index": 43995,
+          "source_document_ordinal": 361,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43995",
+          "dataset_document_index": 43995,
+          "source_document_ordinal": 361,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43996",
+          "dataset_document_index": 43996,
+          "source_document_ordinal": 362,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43996",
+          "dataset_document_index": 43996,
+          "source_document_ordinal": 362,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:43996",
+          "dataset_document_index": 43996,
+          "source_document_ordinal": 362,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44002",
+          "dataset_document_index": 44002,
+          "source_document_ordinal": 363,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44004",
+          "dataset_document_index": 44004,
+          "source_document_ordinal": 364,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44004",
+          "dataset_document_index": 44004,
+          "source_document_ordinal": 364,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44006",
+          "dataset_document_index": 44006,
+          "source_document_ordinal": 365,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44006",
+          "dataset_document_index": 44006,
+          "source_document_ordinal": 365,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44009",
+          "dataset_document_index": 44009,
+          "source_document_ordinal": 366,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44012",
+          "dataset_document_index": 44012,
+          "source_document_ordinal": 367,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44012",
+          "dataset_document_index": 44012,
+          "source_document_ordinal": 367,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44012",
+          "dataset_document_index": 44012,
+          "source_document_ordinal": 367,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44015",
+          "dataset_document_index": 44015,
+          "source_document_ordinal": 368,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44018",
+          "dataset_document_index": 44018,
+          "source_document_ordinal": 369,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44018",
+          "dataset_document_index": 44018,
+          "source_document_ordinal": 369,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44019",
+          "dataset_document_index": 44019,
+          "source_document_ordinal": 370,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44020",
+          "dataset_document_index": 44020,
+          "source_document_ordinal": 371,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44021",
+          "dataset_document_index": 44021,
+          "source_document_ordinal": 372,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44027",
+          "dataset_document_index": 44027,
+          "source_document_ordinal": 373,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44033",
+          "dataset_document_index": 44033,
+          "source_document_ordinal": 374,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44034",
+          "dataset_document_index": 44034,
+          "source_document_ordinal": 375,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44039",
+          "dataset_document_index": 44039,
+          "source_document_ordinal": 376,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44041",
+          "dataset_document_index": 44041,
+          "source_document_ordinal": 377,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44041",
+          "dataset_document_index": 44041,
+          "source_document_ordinal": 377,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44041",
+          "dataset_document_index": 44041,
+          "source_document_ordinal": 377,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44047",
+          "dataset_document_index": 44047,
+          "source_document_ordinal": 378,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44050",
+          "dataset_document_index": 44050,
+          "source_document_ordinal": 379,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44054",
+          "dataset_document_index": 44054,
+          "source_document_ordinal": 380,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44054",
+          "dataset_document_index": 44054,
+          "source_document_ordinal": 380,
+          "wave": "B",
+          "chunk_id": 1,
+          "token_start": 513
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44054",
+          "dataset_document_index": 44054,
+          "source_document_ordinal": 380,
+          "wave": "B",
+          "chunk_id": 2,
+          "token_start": 1026
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44060",
+          "dataset_document_index": 44060,
+          "source_document_ordinal": 381,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44065",
+          "dataset_document_index": 44065,
+          "source_document_ordinal": 382,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:44072",
+          "dataset_document_index": 44072,
+          "source_document_ordinal": 383,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        }
+      ]
+    }
+  },
+  "disjointness_gates": {
+    "source_documents_disjoint_from_prior": true,
+    "dataset_document_indices_disjoint_from_prior": true,
+    "full_rows_disjoint_from_prior": true,
+    "prefix32_disjoint_from_prior": true,
+    "replication_waves_document_disjoint": true
+  },
+  "ordered_manifest_gate": {
+    "passed": true,
+    "revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+    "config": "default",
+    "ordered_file_count": 27468,
+    "ordered_manifest_sha256": "ba5e92b0d157f47cc6f8656eb1c37e46b7aac6957be8be68c1596736b98e6f90",
+    "first_uri": "hf://datasets/HuggingFaceFW/fineweb@9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet",
+    "last_uri": "hf://datasets/HuggingFaceFW/fineweb@9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2025-26/004_00049.parquet",
+    "first_relative_path": "data/CC-MAIN-2013-20/000_00000.parquet",
+    "source_local_path": "/workspace/fineweb_pinned/data/CC-MAIN-2013-20/000_00000.parquet",
+    "source_size": 2147531358,
+    "source_sha256": "c84e6941d787b50959521df6d6894a91397c8b2db13f8a9c8fe0f8782872e930",
+    "source_parquet_rows": 1091396,
+    "maximum_consumed_document_index": 11311,
+    "datasets_version": "5.0.1",
+    "builder_class": "ParquetFineweb"
+  },
+  "source_receipt_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_oracle_v2_receipt.json",
+  "source_receipt_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+  "prior_role_receipts": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_oracle_v2_receipt.json": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_rows_receipt.json": "762528ea02cd98071ea55e6b4e904a8fc453f3eb4e545946b8e7149aaf8caa04",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_rows_receipt.json": "7fa45e9a9e77e6622167fbf024400177f581cdd40958c1fb722ca13d8fcc018b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_rows_receipt.json": "23319ece1d8542d51e024bde0e2253d740b08ad18ad4f2d8565ba5120473fd82",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_rows_receipt.json": "9888c8f718897273cdfa8f2fa1a0a749fde45bce5295712ffd33585aa09fcc7e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v1_rows_receipt.json": "69b068d582e616c37e37937e6705a61a5cf7eb2737270067e4253f10ffe19cea"
+  },
+  "code_ood_register": {
+    "path": "/workspace/tensor_language/basis_aligned/polynomial_causal/code_oracle_corpus_v2.pt",
+    "file_sha256": "6750a72b4232d4d4687946bb379457210555a660c9ef2e0d4967a63ddfaf2d9d",
+    "tensor_raw_sha256": "62adc15486397152102eba6d0fa8b6b77553271a5bd5fb5a0ff73930a1a82d88",
+    "heldout_row_interval": [
+      288,
+      480
+    ],
+    "heldout_rows": 192,
+    "heldout_source_files": 48,
+    "resampling_unit": "source_file"
+  },
+  "implementation_hashes": {
+    "specification": "3e70c28d2005631657d603dbd34a047862018ad8950576f4cf5e05fede7a04a2",
+    "row_freezer": "2641fef3e28478a4424340cf4392ea3e07d26864dda268eedee5b882053c4027",
+    "base_row_freezer": "f7eee860ef40a6301d78461c5d677394757014b6096ecbb853b8e8d48990ab83",
+    "local_harvester": "87d9abeaf1182811650c35bcae25b0373687d2e87aede895bc9f2bc440b90b04"
+  }
+}
