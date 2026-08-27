@@ -302,6 +302,40 @@ circuit moves stage.**
     `multiseed_null_methodology`, LESSONS 21–23. **HIGH** for (a)–(c) and (f); **MEDIUM** for (e) —
     seven classes, one rank, one TOP.
 
+13. **THE FULL-DEPTH MLP DOSSIER (§1326, surfaced 2026-08-27) — and only SIX of eighteen modules are
+    measurable at all.** stake = mean-ablation CE cost (nats); ceiling = 50k token-table recovery;
+    elbow = k16/ceiling.
+
+    ```
+      mlp0   .799  .863  .43      mlp6   .079  −.060  --      mlp12  .039   .005  --
+      mlp1  6.997  .945  .43      mlp7   .057  −.148  --      mlp13  .035   .059  --
+      mlp2   .760  .716  .14      mlp8   .048  −.099  --      mlp14  .028   .039  --
+      mlp3   .631  .593  .40      mlp9   .051  −.067  --      mlp15  .035   .141  .78
+      mlp4   .104 −.252  --       mlp10  .040  −.060  --      mlp16  .150   .494 1.10
+      mlp5   .083 −.036  --       mlp11  .043  −.032  --      mlp17  .381   .497  .84
+    ```
+
+    **(a) EVALUABILITY IS THE HEADLINE.** Only **mlp0-3, mlp16, mlp17** are evaluable. The twelve middle
+    modules have stakes of .028-.104 nats, so every recovery figure divides by a near-zero denominator;
+    their mostly NEGATIVE ceilings are the instrument's noise floor, not a module property. **The
+    instrument is uninformative below ~0.15 nats of stake.** The middle of this model is UNMEASURED, not
+    measured-as-small — a distinction the raw table does not make and that anyone quoting it must.
+    **(b) THREE REGIMES.** Front (mlp0-3) largely token-tableable, ceiling .59-.95. Middle, unmeasured.
+    Top (mlp16/17) genuinely half-contextual, ceiling ~.49. Front-minus-back gap .471 vs .206.
+    **(c) mlp0 SPECIFICALLY,** for the early-block compiler work: stake .799 nats, token-table ceiling
+    86.3%, un-tableable residue .110 nats, per-token mean table effective rank 22.7 against the
+    embedding's 132.4 (§780), and that mean only 44% linearly predictable from the embedding — a standing
+    prediction that any affine read of mlp0 caps out low.
+    **(d) THREE INCOMPATIBLE PROTOCOLS EXIST FOR THE SAME MODULE.** mlp0 reads .799 (ladder stake), 2.195
+    (scoreboard benefit), and a third value under exact-restoration-on-a-frozen-ship. §1324 warns
+    explicitly they are "not directly comparable". Never mix them; always name the denominator.
+    **Why this entry exists:** the ladder lived only in BILIN18_CONNECTION.md, appeared in neither
+    FINDINGS nor the registry, and on 2026-08-27 that cost a duplicated GPU run — I began re-measuring
+    mlp0's stake and ceiling from scratch before Logan pointed out it was already done. Dossiers:
+    registry `_mlp_module_dossier`, `opt_ablation_consts_all.pt` (optimal constants, all 198 components),
+    `bilin18_scoreboard_mp_results.json` (per-component, all 36). **HIGH** for the six evaluable rows;
+    the middle twelve are NOT a result.
+
 ## Open / focus
 - **A. CLOSED at read grain (§1222):** no compact carrier ensemble exists — best 12-head set
   = 43% of prose pooling; nameable edge = copy/induction core (2.5/3.8/5.5, 23%); rest is a

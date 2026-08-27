@@ -534,3 +534,26 @@ went to the GPU regardless.
   (3) treat a non-zero exit anywhere in a queueing command as "the run did not happen"
   and re-check, rather than reading the science output and moving on — I read the
   RESULT of this run before noticing two lines above it had failed.
+
+## 26. A RESULT THAT IS NOT IN FINDINGS OR THE REGISTRY WILL BE RE-RUN (§1326 duplication, 2026-08-27)
+I did consult the record before building — and still duplicated a measurement.
+- **What happened:** asked to work bottom-up on mlp0, I searched the ledger, found
+  §1324 (mlp0 ceiling 86.3%) and §780 (mean-table rank 22.7), judged the *rank* axis
+  unmeasured, and built a run for it. That run recomputed mlp0's mean-ablation stake
+  from scratch — badly, with an unweighted token-mean constant and 23.4% of eval
+  positions falling back to a ZERO vector — when `opt_ablation_consts_all.pt` had held
+  optimal constants for all 198 components since 02:30, and §1326 had held the full
+  18-module dossier all along. Logan caught it in one line.
+- **Why searching the ledger was not enough.** BILIN18_CONNECTION.md is ~40,000 lines.
+  A grep for the right concept returns the sections that MENTION it, not the one that
+  SETTLED it, and §1326's headline ("THE FULL-DEPTH MLP LADDER: THREE REGIMES") does
+  not contain the words I searched for. Consolidation is what makes a ledger that size
+  searchable; without it the ledger is an archive, not a reference.
+- **Rules:** (1) before building anything, check FINDINGS and the registry FIRST and
+  the ledger second — if the answer is not in the consolidated docs, ALSO ask whether
+  it is there under a headline you would not have guessed; (2) grep the ARTIFACT
+  DIRECTORY, not only the prose — `ls *consts*.pt`, `ls *scoreboard*.json` would each
+  have stopped this in one command; (3) when you find a result buried in the ledger,
+  SURFACING it is itself the deliverable — the next agent will otherwise pay the same
+  cost; (4) a duplicated measurement that DISAGREES with the original is worse than
+  useless, because it invites reconciling two numbers when one of them is simply wrong.
