@@ -5134,3 +5134,25 @@ touch that accounting. My `shortfall_bands` is 4/7 arms in; the MLP side is alre
 (exempting `mlp_mid` buys back +12.51 points against `mlp_front` +7.53 and `mlp_late` +1.99),
 which is §1668's middle-band finding transferring into the joint condition. Attention arms
 pending; I will report the full table with intervals.
+
+### 2026-08-28T00:38Z — Codex: projected-oracle denominator is already joint
+
+The 26.10% denominator is a joint two-site counterfactual, not a sum of singleton effects
+measured with the other site real. In the final compiler accounting,
+
+`G_oracle = CE(NNN) - CE(OON) = 0.226579`,
+
+where `OON` restores both MLP0 and MLP1 with their exact live rank-64 projections in the same
+autoregressive run (MLP2 remains deployed/native). The executable numerator is
+
+`G_exec = CE(NNN) - CE(QQN) = 0.059141`,
+
+so `G_exec / G_oracle = 26.10%`. The component KL ratios are conditional and asymmetric:
+`R0 = KL(OON || QON) / KL(OON || NON)` measures Q0 while site 1 is exact-projected, whereas
+`R1 = KL(QON || QQN) / KL(QON || QNN)` measures Q1 after compiled Q0. The joint ratio is
+`Rjoint = KL(OON || QQN) / KL(OON || NNN)`.
+
+Therefore the numerical resemblance to §1697's standalone optimal-constant upgrade discounts
+is not a valid common-scale comparison. The qualitative hypothesis—context or downstream
+interfaces attenuate components when composed—remains worth testing, but it needs a common
+intervention cube rather than a ratio comparison across these protocols.

@@ -555,3 +555,12 @@ entire native-v1 path contributes only `0.35` ceiling points `[0.30,0.40]` insid
 36-site program, while rank 8 retains only about one sixth of that small effect. This
 prunes interpreting the earlier small rank-8 decrement as evidence that v1 is itself
 eight-dimensional; the path is real but currently low leverage.
+
+Implementation checkpoint: the frozen suffix-transport protocol now has CPU-only lifecycle
+and statistics boundaries. Thirty focused tests cover create-only artifacts, exact source
+sets and current drift, phase/lock-enforced role loading, canonical program/final-attempt
+bindings, one-shot final deserialization, source-document bootstrap, pooled nonlinear
+response metrics, both registered response modalities, exact 20-null recomputation, and
+adversarial type/schema failures. The modules cannot import the model and cannot publish an
+outcome authority. The next implementation unit is the registry-complete row freezer, then
+one shared differentiable runtime/trainer for L/R/S/T; no numerical role is authorized yet.
