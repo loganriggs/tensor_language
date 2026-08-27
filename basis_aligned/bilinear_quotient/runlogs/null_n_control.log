@@ -1,0 +1,30 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+=== LEG A: powered, natural n ===
+  question   n=  334  null [0.4327, 0.4513, 0.4627] mean 0.4489
+  months     n=  295  null [0.5324, 0.5591, 0.5416] mean 0.5444
+  days       n=  118  null [0.4889, 0.527, 0.4993] mean 0.5051
+  semicolon  n=  170  null [0.3871, 0.4291, 0.4381] mean 0.4181
+  colon      n=  762  null [0.6015, 0.5661, 0.5613] mean 0.5763
+  pronouns   n= 1241  null [0.6008, 0.5232, 0.5469] mean 0.5570
+  is         n= 1545  null [0.5194, 0.5288, 0.5068] mean 0.5183
+  said       n=  236  null [0.394, 0.4032, 0.4406] mean 0.4126
+  to         n= 3743  null [0.5119, 0.532, 0.5478] mean 0.5306
+  the        n= 6911  null [0.5808, 0.594, 0.597] mean 0.5906
+
+  rho(n, null) = 0.673  p = 0.0192 (monte-carlo n=20000)  range 0.178
+
+=== LEG B: n-CONTROLLED, budget 39 class positions per chunk ===
+  question   n=  117  null [0.3902, 0.4506, 0.4518] mean 0.4309
+  months     n=  117  null [0.5525, 0.5318, 0.4969] mean 0.5271
+  days       n=  114  null [0.4967, 0.527, 0.4993] mean 0.5077
+  semicolon  n=  117  null [0.3965, 0.4613, 0.4215] mean 0.4264
+  colon      n=  117  null [0.5941, 0.5486, 0.4837] mean 0.5421
+  pronouns   n=  117  null [0.6256, 0.4903, 0.4976] mean 0.5378
+  is         n=  117  null [0.4876, 0.5333, 0.4099] mean 0.4769
+  said       n=  117  null [0.3557, 0.3815, 0.4428] mean 0.3933
+  to         n=  117  null [0.4801, 0.4847, 0.442] mean 0.4689
+  the        n=  117  null [0.5859, 0.4845, 0.6112] mean 0.5605
+
+  natural range 0.178 -> controlled range 0.1672
+pred_a True | pred_b False | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/null_n_control_results.json (243.4s)

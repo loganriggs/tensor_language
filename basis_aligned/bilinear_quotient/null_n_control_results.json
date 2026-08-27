@@ -1,0 +1,323 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "top": 4,
+  "chunks": 3,
+  "rows_per_chunk": 333,
+  "seed": 1729,
+  "row_source": "curated_rows.pt",
+  "rows_are_fresh": false,
+  "classes": [
+   "question",
+   "months",
+   "days",
+   "semicolon",
+   "colon",
+   "pronouns",
+   "is",
+   "said",
+   "to",
+   "the"
+  ],
+  "arm": "RANDOM only",
+  "statistic": "absolute attribution mass (slice_writers.py:216)"
+ },
+ "leg_a_natural_n": {
+  "question": {
+   "shares": [
+    0.4327,
+    0.4513,
+    0.4627
+   ],
+   "mean": 0.4489,
+   "n_per_chunk": [
+    105,
+    127,
+    102
+   ],
+   "n_total": 334
+  },
+  "months": {
+   "shares": [
+    0.5324,
+    0.5591,
+    0.5416
+   ],
+   "mean": 0.5444,
+   "n_per_chunk": [
+    77,
+    101,
+    117
+   ],
+   "n_total": 295
+  },
+  "days": {
+   "shares": [
+    0.4889,
+    0.527,
+    0.4993
+   ],
+   "mean": 0.5051,
+   "n_per_chunk": [
+    43,
+    36,
+    39
+   ],
+   "n_total": 118
+  },
+  "semicolon": {
+   "shares": [
+    0.3871,
+    0.4291,
+    0.4381
+   ],
+   "mean": 0.4181,
+   "n_per_chunk": [
+    79,
+    42,
+    49
+   ],
+   "n_total": 170
+  },
+  "colon": {
+   "shares": [
+    0.6015,
+    0.5661,
+    0.5613
+   ],
+   "mean": 0.5763,
+   "n_per_chunk": [
+    249,
+    232,
+    281
+   ],
+   "n_total": 762
+  },
+  "pronouns": {
+   "shares": [
+    0.6008,
+    0.5232,
+    0.5469
+   ],
+   "mean": 0.557,
+   "n_per_chunk": [
+    434,
+    408,
+    399
+   ],
+   "n_total": 1241
+  },
+  "is": {
+   "shares": [
+    0.5194,
+    0.5288,
+    0.5068
+   ],
+   "mean": 0.5183,
+   "n_per_chunk": [
+    533,
+    493,
+    519
+   ],
+   "n_total": 1545
+  },
+  "said": {
+   "shares": [
+    0.394,
+    0.4032,
+    0.4406
+   ],
+   "mean": 0.4126,
+   "n_per_chunk": [
+    86,
+    83,
+    67
+   ],
+   "n_total": 236
+  },
+  "to": {
+   "shares": [
+    0.5119,
+    0.532,
+    0.5478
+   ],
+   "mean": 0.5306,
+   "n_per_chunk": [
+    1287,
+    1282,
+    1174
+   ],
+   "n_total": 3743
+  },
+  "the": {
+   "shares": [
+    0.5808,
+    0.594,
+    0.597
+   ],
+   "mean": 0.5906,
+   "n_per_chunk": [
+    2191,
+    2366,
+    2354
+   ],
+   "n_total": 6911
+  }
+ },
+ "leg_b_n_controlled": {
+  "question": {
+   "shares": [
+    0.3902,
+    0.4506,
+    0.4518
+   ],
+   "mean": 0.4309,
+   "n_per_chunk": [
+    39,
+    39,
+    39
+   ]
+  },
+  "months": {
+   "shares": [
+    0.5525,
+    0.5318,
+    0.4969
+   ],
+   "mean": 0.5271,
+   "n_per_chunk": [
+    39,
+    39,
+    39
+   ]
+  },
+  "days": {
+   "shares": [
+    0.4967,
+    0.527,
+    0.4993
+   ],
+   "mean": 0.5077,
+   "n_per_chunk": [
+    39,
+    36,
+    39
+   ]
+  },
+  "semicolon": {
+   "shares": [
+    0.3965,
+    0.4613,
+    0.4215
+   ],
+   "mean": 0.4264,
+   "n_per_chunk": [
+    39,
+    39,
+    39
+   ]
+  },
+  "colon": {
+   "shares": [
+    0.5941,
+    0.5486,
+    0.4837
+   ],
+   "mean": 0.5421,
+   "n_per_chunk": [
+    39,
+    39,
+    39
+   ]
+  },
+  "pronouns": {
+   "shares": [
+    0.6256,
+    0.4903,
+    0.4976
+   ],
+   "mean": 0.5378,
+   "n_per_chunk": [
+    39,
+    39,
+    39
+   ]
+  },
+  "is": {
+   "shares": [
+    0.4876,
+    0.5333,
+    0.4099
+   ],
+   "mean": 0.4769,
+   "n_per_chunk": [
+    39,
+    39,
+    39
+   ]
+  },
+  "said": {
+   "shares": [
+    0.3557,
+    0.3815,
+    0.4428
+   ],
+   "mean": 0.3933,
+   "n_per_chunk": [
+    39,
+    39,
+    39
+   ]
+  },
+  "to": {
+   "shares": [
+    0.4801,
+    0.4847,
+    0.442
+   ],
+   "mean": 0.4689,
+   "n_per_chunk": [
+    39,
+    39,
+    39
+   ]
+  },
+  "the": {
+   "shares": [
+    0.5859,
+    0.4845,
+    0.6112
+   ],
+   "mean": 0.5605,
+   "n_per_chunk": [
+    39,
+    39,
+    39
+   ]
+  }
+ },
+ "budget_per_chunk": 39,
+ "spearman_natural": {
+  "rho": 0.6727,
+  "p": 0.0192,
+  "method": "monte-carlo n=20000"
+ },
+ "range_natural": 0.178,
+ "range_controlled": 0.1672,
+ "spearman_controlled": {
+  "rho": 0.1515,
+  "p": 0.3413
+ },
+ "S1613_reference": {
+  "4class_rho": 0.8,
+  "4class_p": 0.167,
+  "4class_range": 0.1417
+ },
+ "predictions": {
+  "pred_a_powered_rho_ge60_p_lt05": true,
+  "pred_b_controlled_range_lt05": false,
+  "pred_c_controlled_range_ge01": true
+ },
+ "runtime_s": 243.4
+}

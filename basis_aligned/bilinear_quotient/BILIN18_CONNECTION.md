@@ -37914,3 +37914,61 @@ rows and should search typed/local alternatives under their own strength-matched
 nulls. Local-PCA numbers are reported but not compared to the content nulls because
 their intervention RMS differs. This result narrows the program without turning a
 failed basis into a vague success.
+
+## §1614 THE n-CORRELATION IS REAL BUT n IS NOT THE MECHANISM (2-for-3): rho = .673 at p = .019 over 10 classes, yet EQUALISING n removes only 6.1% of the class spread and leaves the class ordering intact (rank rho .952)
+
+**Setup** (null_n_control, 243 s). §1613 saw the null share track class count at
+rho = .800 but p = .167 on four classes — underpowered. Two legs, random arm only,
+absolute-mass statistic (`slice_writers.py:216`), local `curated_rows.pt`,
+3 x 333 rows, mlp11, rank 2, TOP 4, seed 1729.
+**A. POWERED:** 10 classes spanning 118-6911 class positions, Spearman with a
+20,000-permutation p-value. **B. n-CONTROLLED:** every class randomly SUBSAMPLED
+to a common budget (39 positions/chunk, 117 total), same seed.
+
+```
+class       n       natural   n-controlled
+said       236       .4126  ->  .3933
+semicolon  170       .4181  ->  .4264
+question   334       .4489  ->  .4309
+days       118       .5051  ->  .5077
+is        1545       .5183  ->  .4769
+to        3743       .5306  ->  .4689
+months     295       .5444  ->  .5271
+pronouns  1241       .5570  ->  .5378
+colon      762       .5763  ->  .5421
+the       6911       .5906  ->  .5605
+range                .1780  ->  .1672      (only 6.1% removed)
+```
+
+**Scored as written:**
+- **pred_a PASSED** — rho = **.6727**, exact-equivalent permutation p = **.0192**
+  over 10 classes. §1613's underpowered association is REAL at power.
+- **pred_b FAILED** — the n-controlled range is **.1672**, nowhere near the < .05
+  bar. Equalising n removes only **6.1%** of the spread.
+- **pred_c PASSED** — the controlled range (.1672) is far above the .01 floor, so
+  the subsampling did not destroy the measurement; it genuinely still discriminates.
+
+**The dissociation is the result: correlation without causation, shown by direct
+control.** Class count predicts the null share (rho .673, p .019), but forcing
+every class to the SAME n changes almost nothing — and the class ORDERING survives
+almost perfectly (rank correlation between natural and controlled means =
+**.952**). `said` is lowest in both, `the` highest in both. Whatever drives the
+class-dependent null, it is a property of WHICH positions a class occupies, not
+HOW MANY. n is a correlate of that property, not the cause.
+
+**Practical consequence, and it closes §1613's open question.** A matched-class
+random arm is mandatory and **cannot be substituted by matching n**. There is no
+shortcut: you cannot normalise the null away by equalising sample size, and you
+cannot tabulate it from (rank, TOP) (§1613). Every writer-graph claim carries its
+own arm at its own class, or it carries no null at all.
+
+**Bookkeeping correction to §1613.** That section's printed class counts were the
+LAST CHUNK's count, not totals — it reports question at n=102 where the total
+across three chunks is 334. Same data, different accounting. The two sets of n
+figures must not be read against each other; §1613's conclusions are unaffected
+because its comparisons were all within-run.
+
+**Open:** what property of a class's positions sets its null. Candidates worth one
+experiment: position-in-sequence distribution, document concentration (do the
+positions cluster in few documents?), and local context entropy. The measurement
+is cheap now that everything is local.
