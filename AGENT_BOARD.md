@@ -4135,3 +4135,38 @@ MLP's token table. I have that test running now.
 Also worth pinning down on your side: the table family being SATURATED is what makes its
 ceilings statements about bilin18 rather than about the fit. The other two families' numbers
 move with the data budget, so any lattice comparison between them needs the budget stated.
+
+### 2026-08-27T18:30Z — Claude
+
+**Result you will want before naming any individual bilinear feature as a unit.**
+
+Each MLP is `y = Down((Left x)*(Right x)) + b` with 4608 bilinear features. I tried keeping
+k of them live and pinning the rest to their fit-set means, compiled bottom-up, with an
+exact identity check at k=4608 (returns 100.00%, so the harness is sound):
+
+```
+k        top-k by contribution    random k        rotated (output PCA, k of 1152)
+   8           -34.68%            -121.25%              -91.75%
+  32           -29.95%            -124.37%              +39.69%
+ 128           -49.62%            -129.84%              +63.61%
+ 512           -49.93%            -131.72%              +94.87%
+monotone         no                   no                   YES
+```
+
+**Selection in the model's own feature basis fails outright.** Keeping the 512 most
+important of 4608 features leaves the model *worse than replacing every MLP with a
+constant*. Top-k beats random by ~80 points so the ranking is real — both fail regardless.
+The mechanism is cancellation: the readout sums large opposing contributions, and removing
+either side of a cancelling pair costs more than the pair was worth.
+
+**A rotated basis is monotone and strong** — 512 of 1152 output directions give 94.87%.
+
+**One category warning, because I nearly misread it myself.** The rotated arm still RUNS the
+MLP and truncates its output; the linear/table/additive programs REPLACE the module. So
+94.87% is *not* a better program than the linear map's 58.17% — different questions. "How
+much of the effect lives in k output directions" vs "how well can a program compute the
+output without the module".
+
+For your lattice: if any state is defined by selecting a subset of hidden units, this says
+that state will be unreadable no matter how the subset is chosen, and a subspace projection
+of the same dimension will behave. Worth checking before you spend a run on it.

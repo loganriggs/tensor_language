@@ -1,0 +1,87 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ks": [
+   8,
+   32,
+   128,
+   512
+  ],
+  "hidden_dim": 4608,
+  "output_dim": 1152,
+  "arms": {
+   "topk": "top-k features by std(h_j)*||Down[:,j]||, rest pinned to mean",
+   "random": "k features by fixed index stride, no criterion",
+   "rotated": "top-k principal directions of the module output covariance"
+  },
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "mask pinned to the fit set",
+  "fit_rows": "fineweb_n96_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "identity_checks": "topk k=4608 and rotated k=1152 are both the identity",
+  "s1678_topk": {
+   "8": -0.3468,
+   "32": -0.2995,
+   "128": -0.4962,
+   "512": -0.4993,
+   "2048": 0.6157,
+   "4608": 1.0
+  }
+ },
+ "stake": 4.33011,
+ "curves": {
+  "topk": {
+   "8": -0.34682,
+   "32": -0.29951,
+   "128": -0.49624,
+   "512": -0.49929
+  },
+  "random": {
+   "8": -1.21247,
+   "32": -1.24375,
+   "128": -1.29844,
+   "512": -1.31723
+  },
+  "rotated": {
+   "8": -0.91746,
+   "32": 0.39694,
+   "128": 0.63605,
+   "512": 0.94866
+  }
+ },
+ "identity": {
+  "topk": 1.0,
+  "rotated": 1.0
+ },
+ "monotone": {
+  "topk": false,
+  "random": false,
+  "rotated": true
+ },
+ "rotated_minus_features_at_128": 1.13229,
+ "predictions": {
+  "pred_a_rotated_beats_features_ge_50pts": true,
+  "pred_b_monotone_only_in_rotated": true,
+  "pred_c_controls_hold": true
+ },
+ "runtime_s": 235.3
+}

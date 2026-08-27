@@ -41543,3 +41543,47 @@ it is the difference between "this MLP computes k features" and "this MLP's outp
 a k-dimensional subspace". Queued as `feature_basis_vs_rotated.py`: top-k features against
 random-k features against rank-k of the output's own principal directions, with an identity
 check on every arm.
+
+## §1679 — the model's own bilinear feature basis is NOT sparse-selectable; a rotated basis is
+
+`feature_basis_vs_rotated.py`. Three arms at matched k, compiled bottom-up, with an exact
+identity check on each family. 3-for-3.
+
+```
+k        top-k features    random-k features    rotated (output PCA)
+   8        -34.68%            -121.25%              -91.75%
+  32        -29.95%            -124.37%              +39.69%
+ 128        -49.62%            -129.84%              +63.61%
+ 512        -49.93%            -131.72%              +94.87%
+identity    +100.00% (k=4608)         —              +100.00% (k=1152)
+monotone      no                  no                   YES
+```
+
+**Selection in the model's own feature basis fails completely, and the criterion is not the
+problem.** Top-k beats random by roughly 80 points, so `std(h_j)·||Down[:,j]||` is a real
+ranking — and both are catastrophically negative and non-monotone anyway. Keeping the 512
+most important of 4608 bilinear features and pinning the rest to their means leaves the
+model worse than replacing every MLP with a constant. §1678's diagnosis holds: the readout
+sums large cancelling contributions, and removing either side of a cancelling pair does more
+damage than the pair was worth.
+
+**A rotated basis is monotone and strong.** 128 of 1152 output directions gives 63.61%;
+512 gives **94.87%**. Each MLP's output lives, to a good approximation, in a few hundred
+dimensions.
+
+**These two numbers are NOT the same kind of object, and the comparison is easy to misread —
+including by me.** The linear, table and additive programs REPLACE the module: they compute
+`y` from `x` without running the MLP. The rotated arm still RUNS the MLP and truncates its
+output. So 94.87% is not a better program than the linear map's 58.17%; it answers a
+different question. Stated separately:
+
+- **How much of each MLP's effect lives in k output directions?** 512 of 1152 → 94.87%.
+  This is a description of the module's output.
+- **How well can a program compute that output from the residual stream without the module?**
+  Linear 58.17% at this fit set, 60.81% at 480 rows. This is a replacement.
+
+**The consequence worth carrying forward.** Any account that treats individual bilinear
+features as the units of computation is working in a basis where units cannot be removed —
+pinning even the least important 89% of them is catastrophic — while 512 rotated directions
+capture 95% of the same output. For this model, the interpretable decomposition is a
+subspace, not a feature list.
