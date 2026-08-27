@@ -1,0 +1,16 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+question@mlp11 rank-2 |lambda| eigs [144.864, -73.846]  (S1597 ref: +144.9/-73.8, top4 share .718)
+LOCAL bilin18_eval_tokens_large.pt -> 3 disjoint chunks of 96 rows (no network; rows are the FW dedup set, NOT fresh -- see docstring)
+  lambda  skip=     0 n= 25 top4=['attn10', 'mlp11', 'attn9', 'mlp9'] share=0.6024 recon=2.2e-07
+  lambda  skip=     1 n=  3 top4=['attn10', 'mlp11', 'attn12', 'attn9'] share=0.6301 recon=1.8e-07
+  lambda  skip=     2 n=  5 top4=['mlp11', 'attn10', 'mlp9', 'attn9'] share=0.5605 recon=1.5e-07
+  random  skip=     0 n= 25 top4=['mlp17', 'mlp14', 'attn17', 'attn10'] share=0.6329 recon=8.7e-08
+  random  skip=     1 n=  3 top4=['mlp17', 'attn16', 'mlp14', 'mlp7'] share=0.6375 recon=2.1e-07
+  random  skip=     2 n=  5 top4=['mlp14', 'attn11', 'mlp13', 'attn17'] share=0.6818 recon=7.3e-08
+
+consensus lambda ['attn10', 'mlp11', 'attn9', 'mlp9']
+consensus random ['mlp14', 'mlp17', 'attn17', 'attn16']
+overlap 0/4 | floor-corrected lambda top4 -> ['attn10', 'mlp11', 'attn9', 'mlp9']
+mean share: lambda 0.5977 vs random 0.6507 (S1597 reported .718)
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/writer_floor_question_results.json (7.7s)

@@ -37597,3 +37597,64 @@ That asymmetry is what makes this a mechanism rather than a norm artifact.
 **Consequence for the registry:** the FLOOR_CAVEAT §1606 stamped on `head_grain`
 can be LIFTED — head grain has now had its control and passed. The caveat on the
 COMPONENT-level `writers` lists stands unchanged; nothing here tests those.
+
+## §1609 THE "72% IN FOUR COMPONENTS" STATISTIC IS UNINFORMATIVE — a RANDOM rank-2 basis concentrates MORE (.651 vs .597, 3/3 samples) — but the MEMBERSHIP survives: the |λ| top-4 is circuit-specific and shares nothing with the random one (2-for-3, PROVISIONAL on n)
+
+**Setup** (writer_floor_question, **7.7 s** of compute after ~80 min of failed
+streaming). The matched-rank random control for §1597's component headline:
+question@mlp11 rank-2 |λ| (eigs 144.864/−73.846, matching §1597's published
++144.9/−73.8) vs a random orthonormal rank-2 basis, 3 disjoint 96-row chunks,
+identical rows for both arms.
+
+**ROW SOURCE CAVEAT, stated first because it bounds everything below.** FineWeb
+streaming was dead (§ops: 8 rows at offset 40 did not return in 876 s), so rows
+came from the local `bilin18_eval_tokens_large.pt`. Those are the FW **dedup**
+set that `fineweb_rows` EXCLUDES — not "fresh". Consequence: **the share numbers
+here are NOT comparable to §1597's .718** and must never be quoted beside it. All
+three registered bars are within-run comparisons on identical rows, so they are
+unaffected.
+
+**CLASS COUNTS ARE SMALL AND TWO ARE NEARLY WORTHLESS: n = 25, 3, 5.** The local
+corpus yields far fewer question positions than the FineWeb rows did (31/32/47).
+Everything below is reported only where it holds in ALL THREE samples including
+the n=25 one; anything resting on the n=3 or n=5 sample alone is not claimed.
+
+```
+                  lambda share   random share   random higher?
+n=25                 .6024          .6329            YES
+n= 3                 .6301          .6375            YES
+n= 5                 .5605          .6818            YES
+consensus top-4   attn10 mlp11    mlp14 mlp17
+                  attn9  mlp9     attn17 attn16      consensus overlap 0/4
+```
+
+**Scored as written:**
+- **pred_a FAILED** — I predicted the §1606 floor would appear here too (random
+  and |λ| top-4 sharing ≥ 2 of 4). Consensus overlap is **0/4**. Per-sample it is
+  1, 0, 0 (attn10 appears in the n=25 random top-4). **There is no shared
+  high-norm floor at question@mlp11** — unlike pronouns@mlp17, where all three
+  real rules shared exactly {mlp17, mlp16, mlp15} with random. The floor is
+  CELL-SPECIFIC, not a universal property of component attribution, which
+  narrows §1606's qualification.
+- **pred_b PASSED** (2/3, bar 2/3) — attn10 and attn9 are in the |λ| top-4 in
+  **3/3** samples and the circuit set is clean of the random set in 2/3.
+  Floor-corrected |λ| top-4 = **{attn10, mlp11, attn9, mlp9}**, matching §1597's
+  reported {attn10, attn9, mlp9, mlp10} on 3 of 4 (mlp11 for mlp10).
+  **§1597's MEMBERSHIP claim is vindicated.**
+- **pred_c PASSED, and it is the finding** — the random arm's own top-4 share is
+  **.6507**, above the .40 bar and **HIGHER than the |λ| arm's .5977**, in
+  **3/3 samples**. A basis with no relationship to the class concentrates more of
+  its positive mass in four components than the certified slice does.
+
+**Reading.** §1597's headline splits cleanly into a claim that survives and a
+statistic that does not. WHICH components write the slice is real, rule-specific,
+and reproduces the published set. But "the top-4 carry .718" is **not evidence of
+sparsity**: concentration in four components is what you get from any rank-2
+basis, and here the random one does it better. Positive mass over 37 components
+is simply top-heavy. Any future writer-graph claim must report the matched-rank
+random share beside its own, or say nothing about concentration.
+
+**PROVISIONAL** on n: the direction is 3/3 and includes the n=25 sample, but two
+samples are n≤5. A rerun at NR-scale class counts is required before the share
+comparison is quoted as a number rather than a direction — queued behind HF_TOKEN
+or a larger local corpus.

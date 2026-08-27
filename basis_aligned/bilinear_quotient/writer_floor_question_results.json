@@ -1,0 +1,131 @@
+{
+ "config": {
+  "class": "question",
+  "site": 11,
+  "rank": 2,
+  "chunks": 3,
+  "rows_per_chunk": 96,
+  "row_source": "bilin18_eval_tokens_large.pt",
+  "rows_are_fresh": false,
+  "top": 4,
+  "S1597_reference": {
+   "top4": [
+    "attn10",
+    "attn9",
+    "mlp9",
+    "mlp10"
+   ],
+   "share": 0.718
+  }
+ },
+ "arms": {
+  "lambda": [
+   {
+    "top4": [
+     "attn10",
+     "mlp11",
+     "attn9",
+     "mlp9"
+    ],
+    "share": 0.6024,
+    "class_n": 25,
+    "recon": 2.224624466862224e-07
+   },
+   {
+    "top4": [
+     "attn10",
+     "mlp11",
+     "attn12",
+     "attn9"
+    ],
+    "share": 0.6301,
+    "class_n": 3,
+    "recon": 1.816191996795169e-07
+   },
+   {
+    "top4": [
+     "mlp11",
+     "attn10",
+     "mlp9",
+     "attn9"
+    ],
+    "share": 0.5605,
+    "class_n": 5,
+    "recon": 1.522591475122681e-07
+   }
+  ],
+  "random": [
+   {
+    "top4": [
+     "mlp17",
+     "mlp14",
+     "attn17",
+     "attn10"
+    ],
+    "share": 0.6329,
+    "class_n": 25,
+    "recon": 8.671501916523994e-08
+   },
+   {
+    "top4": [
+     "mlp17",
+     "attn16",
+     "mlp14",
+     "mlp7"
+    ],
+    "share": 0.6375,
+    "class_n": 3,
+    "recon": 2.1126552951500344e-07
+   },
+   {
+    "top4": [
+     "mlp14",
+     "attn11",
+     "mlp13",
+     "attn17"
+    ],
+    "share": 0.6818,
+    "class_n": 5,
+    "recon": 7.261619572318523e-08
+   }
+  ]
+ },
+ "consensus": {
+  "lambda": [
+   "attn10",
+   "mlp11",
+   "attn9",
+   "mlp9"
+  ],
+  "random": [
+   "mlp14",
+   "mlp17",
+   "attn17",
+   "attn16"
+  ]
+ },
+ "floor": [
+  "attn16",
+  "attn17",
+  "mlp14",
+  "mlp17"
+ ],
+ "lambda_top4_floor_corrected": [
+  "attn10",
+  "mlp11",
+  "attn9",
+  "mlp9"
+ ],
+ "overlap_lambda_random_of4": 0,
+ "mean_share": {
+  "lambda": 0.5977,
+  "random": 0.6507
+ },
+ "circuit_clean_samples": 2,
+ "predictions": {
+  "pred_a_floor_exists_overlap_ge2": false,
+  "pred_b_circuit_rule_specific_2of3": true,
+  "pred_c_random_share_ge40pct": true
+ },
+ "runtime_s": 7.7
+}
