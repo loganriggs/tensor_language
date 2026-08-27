@@ -37495,3 +37495,52 @@ same control. §1597/§1598 report head 10.5 at 20:1 over the next head and 12.4
 9.1:1 — if a random subspace also concentrates on one head per layer at those
 ratios, the law is an artifact; if it does not, the law is the strongest result in
 the arc. That is `headgrain_control`, queued next.
+
+## §1607 HEAD-GRAIN CONTROL, WRONG SLICE (1-for-3): the PAYLOAD slice has no head concentration beyond random (1.403 vs 1.396) — but this does NOT test the published law, because §1597/§1598 used the |λ| slice. Design error, stated and corrected.
+
+**Setup** (headgrain_control, 574 s). pronouns@mlp17, pos_r8 payload vs a random
+orthonormal rank-8 basis, 3 disjoint 96-row samples each. Head grain computed
+exactly as §1597/§1598: signed class-minus-global head contribution, |·|-summed
+over slice directions, times the depth coefficient.
+
+```
+arm       median top:second ratio (18 layers x 3 samples)   attn9 top     attn12 top
+payload                 1.403                                9.6 x3        12.2,12.2,12.4
+random                  1.396                                9.6 x3        12.4,12.8,12.4
+```
+
+**Scored as written:**
+- **pred_a PASSED** — random median ratio **1.396** < 3.0. A random subspace does
+  NOT manufacture 6-20:1 head concentration.
+- **pred_b FAILED** — payload hit certified heads at both focus layers in **1/3**
+  samples, random in **2/3**. Do not over-read this: at n=3 a 1-vs-2 split is
+  noise, and the honest reading is "no detectable difference", not "random is
+  better".
+- **pred_c FAILED** — payload beat random at **10/18** layers, against a bar of
+  12. Chance is 9/18. No detectable advantage.
+
+**The result on its own terms: the payload slice's head-grain concentration is
+indistinguishable from a random subspace's** (1.403 vs 1.396, a 0.5% difference).
+At the payload rule, head grain carries no more information about which head
+matters than a random basis does.
+
+**DESIGN ERROR, and it limits this to exactly that statement.** I built this to
+control §1597/§1598's head-grain law. It does not, because those sections used a
+DIFFERENT SLICE: §1597 is question@mlp11 rank-2 **|λ|-ordered** (eigs +144.9/−73.8),
+§1598 is pronouns@mlp17 rank-8 **|λ|-ordered**. I ran pos_r8 payload. Having just
+written §1606 — whose entire content is that the slice rule changes the answer — I
+then controlled the wrong slice. The 10x gap between my ratios (median 1.40, ~3.3
+at the attn9 focus layer) and the published ones (6.8:1, 9.1:1, 20:1) is itself a
+further instance of §1606: **head grain is as slice-rule-dependent as component
+attribution**, which is worth recording even though it was not what I set out to
+measure.
+
+**Licensed:** payload-slice head grain ≈ random-slice head grain at pronouns@mlp17.
+**NOT licensed:** any statement about §1597/§1598's law, which remains untested
+against a random control. The registry's `head_grain` claims keep their existing
+status; the FLOOR_CAVEAT stamped in §1606 already says the control is pending, and
+that remains accurate.
+
+**Queued:** `headgrain_control2` — the same harness on the |λ| rule at BOTH
+published cells (question@mlp11 rank-2, pronouns@mlp17 rank-8), each against a
+matched-rank random arm. That is the test §1607 should have been.

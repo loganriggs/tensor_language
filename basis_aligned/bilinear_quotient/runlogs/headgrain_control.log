@@ -1,0 +1,13 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+payload  skip= 15000 n=194 median_ratio=  1.45 focus={9: ('9.6', 3.49), 12: ('12.2', 1.56)}
+payload  skip= 20000 n=195 median_ratio=  1.61 focus={9: ('9.6', 2.53), 12: ('12.2', 1.61)}
+payload  skip= 25000 n=185 median_ratio=  1.36 focus={9: ('9.6', 3.29), 12: ('12.4', 1.6)}
+random   skip= 15000 n=194 median_ratio=  1.35 focus={9: ('9.6', 2.69), 12: ('12.4', 1.01)}
+random   skip= 20000 n=195 median_ratio=  1.34 focus={9: ('9.6', 1.83), 12: ('12.8', 1.08)}
+random   skip= 25000 n=185 median_ratio=  1.41 focus={9: ('9.6', 2.21), 12: ('12.4', 1.6)}
+
+median top:second ratio -> {"payload": 1.403, "random": 1.396}
+focus layers certified in: payload 1/3, random 2/3
+payload beats random at 10/18 layers
+pred_a True | pred_b False | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/headgrain_control_results.json (573.6s)
