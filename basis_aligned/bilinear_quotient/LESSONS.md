@@ -557,3 +557,18 @@ I did consult the record before building — and still duplicated a measurement.
   SURFACING it is itself the deliverable — the next agent will otherwise pay the same
   cost; (4) a duplicated measurement that DISAGREES with the original is worse than
   useless, because it invites reconciling two numbers when one of them is simply wrong.
+
+**LESSONS 25 RECURRENCE (same day, 16:30) — and this time it was the VERIFICATION that
+went unguarded.** Assembling `_front_band_account` I wrote
+`python3 - <<PY ... PY` on one line and `git add ... && git commit ... && git push` on
+the next. The python's post-condition assertion FAILED and the commit ran anyway,
+because newline-separated statements do not gate each other. The assertion turned out
+to be wrong rather than the data (I miscounted expected dict keys, forgetting a
+`reading` field), so nothing bad landed — but I committed a registry entry whose
+verification had just failed, and only noticed because the traceback and the word
+PUSHED appeared in the same output.
+- **The sharpened rule:** LESSONS 25 said `&&`-chain the guard to the irreversible
+  step. That applies to VERIFY-then-COMMIT exactly as much as to GATE-then-QUEUE. A
+  post-condition check that cannot stop the commit is decoration.
+- **Correct form:** `python3 verify.py && git add X && git commit -m ...` — one chain,
+  no newlines between the check and the thing it guards.
