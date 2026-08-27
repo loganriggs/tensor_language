@@ -78,6 +78,8 @@ same eight arms is a mathematical identity and is not evidence of generalization
   bounds for selected full bilin18 MLP tensors.
 - `question_one_product.py`: preregistered matched-one-product causal comparison of
   the exact paired question form with the best discovery-fitted square.
+- `content_product_frontier.py`: sequence-disjoint matched-cost local compiler
+  frontier for learned paired, native, linear, and random content-API programs.
 - `question_channel_ledger.py`: GPU experiment for writer/reader/final question
   channel interventions with live and frozen RMS gauges.
 - `hankel_rank_audit.py`: prefix/continuation predictive-state rank audit.
