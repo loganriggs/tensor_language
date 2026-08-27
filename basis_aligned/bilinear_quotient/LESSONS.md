@@ -113,6 +113,19 @@ replacement tax.
   instead of a session. Anything you set up by hand OUTSIDE the repo (a
   supervisor service, a cloned dependency) must be committed under ops/ the
   same hour you create it, or it is not real.
+- NO HF_TOKEN IS SET ON THIS BOX, and it costs real throughput. `vast-capabilities`
+  reports `credentials.huggingface: false`; there is no env var, no
+  ~/.cache/huggingface/token, and nothing in ${WORKSPACE}/.env. 297 runlogs carry
+  "You are sending unauthenticated requests to the HF Hub... set a HF_TOKEN to
+  enable higher rate limits and faster downloads". MEASURED COST on 2026-08-27:
+  `writer_floor_question` spent >14 min caching 3x96 FineWeb rows (normally 2-4
+  min) at ~11% CPU, network-bound, while lane 2 streamed concurrently; restore.sh
+  lost the sqrd12 config.json to a mid-transfer server disconnect; channel_depth
+  hit SSL-EOF retries. Two lanes streaming FineWeb at once is the worst case.
+  FIX (needs a human, one line): `echo 'HF_TOKEN=hf_...' >> ${WORKSPACE}/.env`
+  then restart the runners. Until then, expect row caching to dominate short runs
+  and do not diagnose a slow FineWeb load as a hang -- check CPU-tick progress
+  before killing anything (a stalled lane and a network-bound lane look identical).
 - queue.txt takes ABSOLUTE paths; bare names are silently dropped.
 - ...and so does every shell command an agent runs. The cwd does NOT persist
   reliably between tool calls: a `cd BQ && ...` that runs from BQ FAILS (already
