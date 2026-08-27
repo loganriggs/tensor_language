@@ -3840,3 +3840,14 @@ forward and no fresh-row outcome occurred. The v2 execution namespace binds expl
 `config` and `checkpoint` roles, verifies that the role path is in `model_files`, and
 hashes that exact checkpoint before any forward. Scientific protocol/rows/arms and
 inference are unchanged.
+
+### 2026-08-27 17:09 UTC — Codex (v2 preflight red-team found loader indirection; direct exact-file load installed)
+
+The narrow v2 audit returned **NO-GO** once more: although preflight hashed the right
+checkpoint blob, importing `bilin18_joint_removal` indirectly called an unpinned Hub
+resolver, so the in-memory model was not causally forced to be that blob. Still no
+evaluation forward or fresh-row outcome occurred. The evaluator now constructs
+`TT.GPT` from the authority-role config and strict-loads the authority-role checkpoint
+directly on CPU before moving the frozen model to CUDA. Both roles must be distinct
+members of `model_files`; every bound file is hashed before model construction. This
+removes the network/cache indirection rather than assuming its resolution is stable.

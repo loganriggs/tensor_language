@@ -346,9 +346,11 @@ def verify_preflight_artifacts(
     roles = authority.get("model_file_roles", {})
     if set(roles) != {"config", "checkpoint"}:
         raise RuntimeError("authority must bind explicit config/checkpoint roles")
+    if len(set(roles.values())) != 2:
+        raise RuntimeError("authority model roles must be distinct")
+    if any(raw not in authority["model_files"] for raw in roles.values()):
+        raise RuntimeError("authority model role is outside model files")
     model_checkpoint = Path(roles["checkpoint"])
-    if str(model_checkpoint) not in authority["model_files"]:
-        raise RuntimeError("checkpoint role is outside authority model files")
     source_hashes = {raw: file_sha256(Path(raw)) for raw in authority["source_hashes"]}
     observed = {
         "source_closure_sha256": closure_sha256(source_hashes),
@@ -371,6 +373,22 @@ def verify_preflight_artifacts(
     if expected_fit != fit_contract:
         raise RuntimeError("fit-frozen scaling/cell authority changed")
     return observed
+
+
+def load_authority_model(authority: Mapping[str, object]) -> Any:
+    """Instantiate only from the exact config/checkpoint files hashed in authority."""
+    roles = authority["model_file_roles"]
+    config_payload = json.loads(Path(roles["config"]).read_text())
+    config_payload.pop("step", None)
+    import jacclust.tt_model as TT
+    model = TT.GPT(TT.GPTConfig(**config_payload)).eval()
+    state = torch.load(roles["checkpoint"], map_location="cpu", weights_only=True)
+    model.load_state_dict(state, strict=True)
+    del state
+    model = model.to(device="cuda", dtype=torch.float32).eval()
+    for parameter in model.parameters():
+        parameter.requires_grad_(False)
+    return model
 
 
 def install_native(mlp: Any, original: Any, original_forward: Any) -> None:
@@ -571,7 +589,7 @@ def main() -> None:
             raise RuntimeError("C512 bundle differs from frozen fit receipt")
         observed_hashes = verify_preflight_artifacts(authority, frozen_rows, fit_rows, program_path)
 
-        from bilin18_joint_removal import m as model
+        model = load_authority_model(authority)
         blocks = model.transformer.h
         mlp0 = blocks[0].mlp
         original = mlp0.Down
