@@ -248,9 +248,15 @@ def depth_curve(rows, V2, lam2, mask_v):
 # the random arm on IDENTICAL rows, so the floor question is answered exactly as
 # designed.  Only the incidental cross-reference to .718 weakens, and the writeup
 # must say so rather than quoting the two side by side.
+# S1609 was PROVISIONAL on n (class counts 25/3/5) because
+# bilin18_eval_tokens_large.pt holds only 39 question positions in total.
+# Measured 2026-08-27: curated_rows.pt (== census_state_diverse['rows'], the same
+# 1000x513 tensor cl.rows() returns) holds 335 -- 8.6x more, and MORE than the
+# FineWeb samples ever yielded (31/32/47). Local, zero network.
 CHUNKS = 3
-ROWS_PER_CHUNK = 96
-LOCAL_ROWS = 'bilin18_eval_tokens_large.pt'
+ROWS_PER_CHUNK = 333
+LOCAL_ROWS = 'curated_rows.pt'
+LOCAL_KEY = 'rows'          # curated_rows.pt is a dict {rows, docid}
 SITE_Q = 11
 RANK_Q = 2
 QPAT = r'^\?$| \?$'
@@ -277,8 +283,9 @@ def main():
           f"{[round(float(x), 3) for x in lam_l]}  (S1597 ref: +144.9/-73.8, top4 share .718)",
           flush=True)
 
-    _all = torch.load(PT + LOCAL_ROWS, map_location='cpu')[
-        :CHUNKS * ROWS_PER_CHUNK, :T + 1].contiguous()
+    _raw = torch.load(PT + LOCAL_ROWS, map_location='cpu')
+    _raw = _raw[LOCAL_KEY] if isinstance(_raw, dict) else _raw
+    _all = _raw[:CHUNKS * ROWS_PER_CHUNK, :T + 1].contiguous()
     assert _all.shape[0] == CHUNKS * ROWS_PER_CHUNK, f'short load {_all.shape}'
     rows_cache = {c: _all[c * ROWS_PER_CHUNK:(c + 1) * ROWS_PER_CHUNK] for c in range(CHUNKS)}
     print(f'LOCAL {LOCAL_ROWS} -> {CHUNKS} disjoint chunks of {ROWS_PER_CHUNK} rows '
