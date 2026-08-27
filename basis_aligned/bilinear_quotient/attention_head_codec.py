@@ -15,6 +15,7 @@ from __future__ import annotations
 import itertools
 import json
 import struct
+import zlib
 
 import numpy as np
 import torch
@@ -154,7 +155,8 @@ def _lowrank_candidate_bytes(maps, rank, quantization_step, degeneracy_tol,
         for value in triple:
             quantized = torch.round(value/quantization_step).to(torch.int32).numpy()
             payload.append(np.asarray(quantized, dtype="<i4", order="C").tobytes())
-    return struct.pack("<I", len(header))+header+b"".join(payload)
+    compressed = zlib.compress(b"".join(payload), level=9)
+    return struct.pack("<I", len(header))+header+compressed
 
 
 def canonical_lowrank_head_bytes(maps, rank, quantization_step, *,
@@ -175,9 +177,14 @@ def canonical_lowrank_head_bytes(maps, rank, quantization_step, *,
                 "q": signed["q2"], "k": signed["k2"],
                 "q2": signed["q"], "k2": signed["k"],
             }
-            candidates.append(_lowrank_candidate_bytes(
-                candidate, rank, quantization_step, degeneracy_tol, semantic_id))
-    return min(candidates)
+            # Select the finite orbit using canonical dense semantics first. This
+            # avoids 16 redundant large SVDs per head while retaining invariance.
+            key = _candidate_bytes(candidate, quantization_step,
+                                   degeneracy_tol, semantic_id)
+            candidates.append((key, candidate))
+    _, selected = min(candidates, key=lambda item: item[0])
+    return _lowrank_candidate_bytes(selected, rank, quantization_step,
+                                    degeneracy_tol, semantic_id)
 
 
 def decode_lowrank_head(encoded):
@@ -189,12 +196,13 @@ def decode_lowrank_head(encoded):
     rows, columns = header["shape"]
     rank = header["rank"]
     step = header["quantization_step"]
-    offset = 4+header_length
+    raw = zlib.decompress(encoded[4+header_length:])
+    offset = 0
 
     def take(count, shape):
         nonlocal offset
         size = 4*count
-        values = np.frombuffer(encoded[offset:offset+size], dtype="<i4").copy()
+        values = np.frombuffer(raw[offset:offset+size], dtype="<i4").copy()
         if values.size != count:
             raise ValueError("truncated payload")
         offset += size
@@ -206,6 +214,6 @@ def decode_lowrank_head(encoded):
         singular = take(rank, (rank,))
         right = take(rank*columns, (rank, columns))
         decoded[name] = (left*singular) @ right
-    if offset != len(encoded):
+    if offset != len(raw):
         raise ValueError("trailing payload")
     return header, decoded
