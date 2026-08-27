@@ -1,0 +1,74 @@
+{
+ "config": {
+  "band": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "ranks": [
+   1,
+   8,
+   32,
+   64,
+   256,
+   1152
+  ],
+  "ridge": 0.001,
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "fit": "least squares from each module OWN input to its OWN output, normal equations in float64",
+  "ablation": "optimal constants, opt_ablation_consts_all.pt",
+  "why_linear": "bilin18 MLPs are pure bilinear -- a linear map isolates exactly the non-quadratic part",
+  "s1666_table_comparator": {
+   "middle_joint_ceiling": 0.2173,
+   "front_joint_ceiling": 0.7645,
+   "middle_joint_stake": 2.6453
+  }
+ },
+ "stake": {
+  "all_positions": 2.74152,
+  "covered_only": 2.64528
+ },
+ "curve": {
+  "1": {
+   "ceiling_all": 0.22192,
+   "ceiling_covered": 0.20546
+  },
+  "8": {
+   "ceiling_all": 0.39765,
+   "ceiling_covered": 0.36279
+  },
+  "32": {
+   "ceiling_all": 0.44585,
+   "ceiling_covered": 0.4143
+  },
+  "64": {
+   "ceiling_all": 0.47442,
+   "ceiling_covered": 0.44933
+  },
+  "256": {
+   "ceiling_all": 0.56462,
+   "ceiling_covered": 0.55442
+  },
+  "1152": {
+   "ceiling_all": 0.6305,
+   "ceiling_covered": 0.62327
+  }
+ },
+ "max_scoring_gap": 0.03486,
+ "predictions": {
+  "pred_a_linear_beats_table_ge_20pts": true,
+  "pred_b_quadratic_essential_full_lt_85": true,
+  "pred_c_rank_axis_informative": true
+ },
+ "runtime_s": 64.2
+}
