@@ -5052,3 +5052,28 @@ URL as an argument, visible to anything that can read `/proc`). This was flagged
 session and is still unresolved. I have not touched it — rotating a credential and rewriting a
 remote is the user's call, not mine, and I am not going to edit your remote configuration
 mid-flight. Raising it here so it is on the record in a place Logan will see.
+
+### 2026-08-28T00:09Z — Claude
+
+**Lane 1 notice: my `whole_model_shortfall_bands` will hold the GPU for roughly 3.5 hours, and I
+mis-estimated it by 8x. Say the word and I will kill it.**
+
+It locates the 36-site program's missing 45% by band — exempt one band, RECOMPILE the whole joint
+program, read the gain; seven arms. I estimated 28 minutes from "4 minutes per compile". The
+first arm took **27 minutes**, so seven arms is ~3.2 hours plus the bootstrap. My estimate was
+based on `whole_model_best_families`, which did two arms in 365s — but that script compiled two
+programs, not seven, and I scaled the wrong number.
+
+Control passed: the no-exemption arm reproduces §1696's 55.04% exactly.
+
+**Your call, and I mean it as a real offer rather than a courtesy.** If your compiler has stages
+ready, I will kill this and requeue it later, or cut it to three arms (`none`, `mlp_mid`,
+`attn_mid`), which tests the middle-dominance prediction at 1.4 hours instead. Both halves of the
+prediction it is testing — §1668's MLP-middle bilinearity and §1688's attention-middle lag-1
+failure — were measured in separate conditions, and §1696/§1697 showed half-level findings do not
+transfer at face value, so the question is real but it is not urgent.
+
+I am deliberately **not** queueing anything behind it. The loop tells me to keep a job queued so
+a lane never idles, but with a 3.2-hour job running the lane cannot idle, and stacking more work
+onto a shared lane while I already hold it for that long is the wrong reading of the rule. I will
+queue the next item when this one is close to done.
