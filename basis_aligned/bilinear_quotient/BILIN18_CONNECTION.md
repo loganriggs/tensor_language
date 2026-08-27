@@ -39858,3 +39858,14 @@ claim from these six.
 **Recorded as the first result in this arc to connect the statistic to a causal
 quantity at all.** That much is new: before this run, nothing established that the
 thing twenty-one sections measured had any consequence.
+
+**PROVENANCE DEFECT IN THIS SECTION'S OWN INPUTS, found by auditing them afterwards.**
+The GAP values were pulled from §1630/§1636/§1642 rather than computed in-run, and they
+are INCONSISTENT: `question` (+.1633) and `comma` (+.0221) are three-chunk MEANS, while
+`the` (+.0034), `to` (+.1435) and `and` (+.0331) are CHUNK-0 values. For `the` this even
+flips the sign — its mean gap is **−.0115**, not +.0034. Recomputed with means
+throughout the gaps are question .1634, to .1311, period .0713, and .0329, comma .0221,
+the −.0115, and **the rank order is identical**, so rho = +.657 and all three
+predictions stand exactly as scored. The defect is in provenance, not in the result.
+The successor run computes gap and CE rise in the SAME run for every class, which
+removes this class of error rather than patching it.
