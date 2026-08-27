@@ -1,5 +1,8 @@
 # What We Currently Understand About MLP0
 
+*Last updated: 2026-08-27 19:40 UTC. The authority-bound MLP2 compensation
+factorial is queued but has not yet produced a scientific result.*
+
 ## Short version
 
 MLP0 is not best understood as assigning every token to one discrete class.
@@ -203,6 +206,67 @@ The overly strong statement is:
 > Every token in a group is replaced by exactly the same state.
 
 We have evidence for the first statement, not the second.
+
+### 3.1 How the “shared lexical code” and “continuous refinement” are computed
+
+These names describe a fitted decomposition; they are not labels read directly from
+one native hidden unit.
+
+On fit-only documents, we capture the native MLP0 write $m_0(t,c)$. The dense
+token code is the conditional fit mean
+
+$$
+T[t]
+=
+\frac{1}{N_t}\sum_{i:t_i=t}m_0(t_i,c_i),
+$$
+
+with a registered backoff for unseen tokens. It answers: “what part of the write is
+predictable from token identity alone?” It is evaluated on different documents, so
+memorizing fit positions cannot by itself produce held-out fidelity.
+
+For a lexical partition $g(t)$, the shared class atom is the fit-frequency-weighted
+mean of the token codes assigned to that class:
+
+$$
+C[g]
+=
+\frac{\sum_{t:g(t)=g}N_tT[t]}
+     {\sum_{t:g(t)=g}N_t}.
+$$
+
+The within-class token refinement is then $T[t]-C[g(t)]$. The hierarchy experiments
+physically serialized the class assignments and occupied centroids, and compared
+them with assignment-preserving derangements. That is why we can say lexical
+organization is real: the meaningful assignments beat those nulls. But meaningful
+organization did not beat a matched-byte continuous map or satisfy the causal
+interface gate, so it has not earned simplicity credit.
+
+The continuous context term is fitted to what the token code misses. In the
+token-plus-context family this is a held-out low-rank regression
+
+$$
+R(t,c)=m_0(t,c)-T[t]
+\approx [a_0(t,c);x_0(t,c)]W_R,
+$$
+
+where $a_0$ is the same-block attention output and $x_0$ is the inherited embedding
+state. In the tensor-native family, the residual is instead predicted by learned
+quadratic features $(a_r^\top z)^2$. In C512, we retain the exact native product
+state $h=(Lz)\odot(Rz)$ and fit a rank-512 continuous map from $h$ to the write.
+
+So the decomposition is operational:
+
+$$
+\text{class mean}
++\text{within-class token residual}
++\text{context-predicted residual}
++\text{unexplained residual}.
+$$
+
+It is not yet a unique latent ontology. Different gauges can move information among
+these terms; the terms become scientifically useful only when their total producer,
+consumer, and residual price is smaller at matched causal fidelity.
 
 ---
 
@@ -576,9 +640,47 @@ This rules against treating C512's discarded directions as a certified downstrea
 null space. It also does not license a standalone MLP1 adapter. The next physical
 interface question is where and how MLP2 performs the compensation.
 
----
+## 9. Current live discriminator: where MLP2 compensates
 
-## 9. A principled definition of simplicity
+The next experiment is a physical state-by-write factorial at MLP2. For exact MLP0
+path $O$ and C512 path $C$, it separately crosses:
+
+- the state entering MLP2;
+- the physical MLP2 write computed on an exact or C512-conditioned state;
+- omission, within-cell shuffled-write, and norm-matched native-write controls.
+
+Its eight arms can distinguish four mechanisms:
+
+1. the pre-MLP2 state already carries the remaining error;
+2. MLP2's write on the exact state repairs it;
+3. MLP2 adapts its write specifically to the C512-induced state;
+4. apparent repair is merely write magnitude, generic sensitivity, or a shuffled
+   alignment artifact.
+
+The assay uses 384 source documents split into two 192-document waves, 1,256
+evaluation windows, 16 frozen cells, source-document bootstrap resampling, and the
+same inherited capped-logit currency as the MLP1 interchange. All model, row,
+program, arm-routing, call-count, and inference contracts were frozen before its
+current run.
+
+The first execution, V1, failed closed after all forward passes but before any
+sufficient statistic, bootstrap result, contrast, or decision was serialized. The
+sole failure was an outer integrity check that demanded a fixed $10^{-6}$ absolute
+norm error even for large writes. The underlying core had already enforced the
+scale-aware per-position invariant
+
+$$
+|\|w_{\mathrm{control}}\|_2-\|w_{\Delta}\|_2|
+\le 10^{-6}+10^{-5}\|w_{\Delta}\|_2.
+$$
+
+V2 changes only that redundant outer check, binds the exact V1 authority and failure
+receipt, marks the reused rows as spent-but-outcome-blind rather than fresh, and
+keeps every scientific arm and threshold unchanged. Its source and authority are
+committed, independently audited, and queued. Until it finishes, the MLP2 mechanism
+above remains an unresolved hypothesis rather than a result.
+
+## 10. A principled definition of simplicity
 
 The evidence argues against defining simplicity as merely “the number of token
 clusters.”
@@ -622,7 +724,7 @@ and consumers substantially cheaper.
 
 ---
 
-## 10. Current best model of MLP0
+## 11. Current best model of MLP0
 
 The current evidence supports this qualitative program:
 
@@ -652,3 +754,4 @@ original network.
 - `MLP0_NATIVE_DOWN_HIERARCHY_V1_FINDINGS.md`
 - `MLP0_C512_MLP1_INTERCHANGE_SPEC.md`
 - `MLP0_C512_MLP1_INTERCHANGE_V3_FINDINGS.md`
+- `MLP0_C512_MLP2_COMPENSATION_SPEC.md`
