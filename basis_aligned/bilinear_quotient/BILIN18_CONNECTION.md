@@ -39184,5 +39184,8 @@ while two lines of the results dict still iterated it, so `fraction` serialised 
 table, so the science above is sound, but the record was impoverished. Fixed, and
 `ops/gate.py` gained an arm that catches a module-level empty literal being iterated
 in the results dict — verified in both directions (six known-good scripts pass, a
-reconstruction of this exact bug fails). A clean-artifact re-run is queued; seeds and
-rows are fixed so the numbers will be identical.
+reconstruction of this exact bug fails). A clean-artifact re-run has now COMPLETED and the
+numbers are identical across the two independent process launches — `mlp10` .6000,
+`mlp11` .6333, `mlp8` .3667, `x0` .4667, predictions True/True/False — so the
+determinism of the seeded design is confirmed as a side benefit, and the committed
+artifact now carries the full fraction record.
