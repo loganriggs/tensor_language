@@ -1,10 +1,8 @@
 # What We Currently Understand About MLP0
 
-*Last updated: 2026-08-27 22:25 UTC. The reviewed compiler-v2.1 retry is running
-site0 from content-addressed source commit `bd9a5820`. It is fitting and scoring
-the frozen MLP0 candidate banks; no selection, MLP1 authority, or final result is
-yet claimed, and final rows remain sealed. The first pre-selection abort remains
-preserved and hash-pinned.*
+*Last updated: 2026-08-27. Compiler-v2.1 has frozen its MLP0 and MLP1 programs;
+the one-shot sealed final evaluation is running. The local site results below are
+available, but no final composition claim is made before that evaluation closes.*
 
 ## Short version
 
@@ -514,6 +512,111 @@ causal usefulness.
 This result is currently an oracle result. It identifies the target subspace, but it
 does not yet give an executable program for predicting the correct coefficients in
 that subspace.
+
+### 6.1 What the new rank-64 continuous code means
+
+Compiler-v2.1 turns that oracle subspace into an executable interface. Let
+
+$$
+B_0\in\mathbb{R}^{1152\times64}
+$$
+
+be the registered MLP0 output basis, let $z_0\in\mathbb{R}^{1152}$ be MLP0's
+normalized residual input, and let $m_0(z_0)$ be the native MLP0 write. The basis
+was obtained as the top 64 uncentered PCA directions of native MLP0 writes on the
+frozen basis split; downstream causal tests subsequently showed that this subspace
+is far more useful than its raw energy fraction suggests. The target code is
+
+$$
+p_0(z_0)=m_0(z_0)B_0\in\mathbb{R}^{64}.
+$$
+
+The selected `B_l5_r64` program predicts these coefficients with a rank-64 affine
+map (the `l5` means ridge $\lambda=10^{-2}$, not layer or lag):
+
+$$
+\widehat p_0(z_0)
+=b_0+
+\left(\frac{z_0-\mu_0}{\sigma_0}\right)L_0R_0,
+$$
+
+where $L_0\in\mathbb{R}^{1152\times64}$ and
+$R_0\in\mathbb{R}^{64\times64}$. At runtime, if $m_{\mathrm{old}}$ is the write
+already present in that execution, the state-complete correction is
+
+$$
+m_0^Q
+=m_{\mathrm{old}}
++\left(\widehat p_0(z_0)-m_{\mathrm{old}}B_0\right)B_0^\top.
+$$
+
+Thus the program replaces the write *inside the 64-dimensional causal interface*
+while leaving its orthogonal complement as it was. It is continuous: tokens and
+contexts may occupy distinct points in the code even when downstream computation
+only reads a small number of shared directions. It is not a partition of tokens
+into 64 clusters.
+
+The standalone registered price is
+
+$$
+|B_0|+|L_0|+|R_0|+|\mu_0|+|\sigma_0|+|b_0|
+=153{,}920
+$$
+
+float values, or $0.966\%$ of the registered $15{,}926{,}400$ values in native
+MLP0. On mapped validation it recovers $66.07\%$ of the local OON-versus-NON
+teacher-KL denominator and improves the copy collateral. The matched shuffled
+pipeline is negative. This is evidence that the code predicts real input-dependent
+state rather than merely adding a useful low-rank bias.
+
+The $0.966\%$ figure must not be read as a complete $0.966\%$ replacement of all
+MLP0 computation. The program is state-complete relative to an already deployed
+write $m_{\mathrm{old}}$: it overwrites the 64 registered coefficients, while the
+other 1,088 output directions remain whatever the deployed baseline produced. Its
+strong claim is that an important missing causal slice is extremely cheap to
+compile. A complete MLP0 compression claim would additionally have to price and
+validate the baseline/complement, or show that the complement can be deleted.
+
+The immediate MLP1 continuation is also promising but not yet final evidence. With
+the compiled MLP0 program upstream, the same-price rank-64 affine family at MLP1
+recovers $43.91\%$ of its local teacher-KL denominator and improves copy CE; under
+the shuffled upstream pipeline it recovers $-32.96\%$ and harms copying. Both
+selectors chose the same family and price, so the difference is not explained by
+model-class size. Their denominators differ by context, however, and only the sealed
+final common-row contrasts can admit the composed program.
+
+The 64 individual axes do **not** yet have invariant semantic names. For every
+orthogonal $Q\in O(64)$,
+
+$$
+B_0\mapsto B_0Q,
+\qquad
+p_0\mapsto p_0Q
+$$
+
+describes the same physical write. The invariant object currently identified is the
+subspace plus its input-to-code map, not a privileged coordinate system. Calling
+coordinate 17 “number” or coordinate 23 “punctuation” before resolving this gauge
+would be arbitrary.
+
+This nevertheless gives a concrete route to semantics:
+
+1. Treat the 64-dimensional code as the shared contract between MLP0 and its
+   downstream readers.
+2. Fix its rotational gauge jointly, seeking a rotation in which the input program
+   and downstream read maps have minimum conditional description length or maximum
+   structured sparsity.
+3. Factor the rotated input map against token, attention-context, and polynomial
+   features, and factor downstream readers against the same coordinates.
+4. Name only features whose code interventions predict held-out downstream effects
+   and whose edits have bounded collateral.
+5. Test the resulting program off the FineWeb manifold. An affine predictor can be
+   excellent on the observed state manifold while missing the native quadratic
+   extension away from it.
+
+This is the principled joint optimization suggested by the user: simplicity is not
+low rank at one module in isolation, but short input programs **and** sparse/simple
+downstream reads in a common gauge, subject to causal and OOD fidelity.
 
 ---
 
