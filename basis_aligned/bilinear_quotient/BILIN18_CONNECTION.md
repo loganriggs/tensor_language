@@ -41469,3 +41469,35 @@ rate, so its ranking here should not be treated as settled either.
 `additive_lowrank_token.py` is queued to test the diagnosis a second way — if the problem is
 parameter count rather than capacity, truncating `b` to low rank should raise the additive
 program at the SMALL fit size, and the optimum should be interior rather than at full rank.
+
+## §1677 — the estimation diagnosis confirmed a second way: truncating b buys +3.47 points with no extra data
+
+`additive_lowrank_token.py`. Same small fit set (96 rows), same fixed mask, `b` truncated
+to rank r by position-weighted SVD and `W` refitted on the truncated residual.
+
+```
+b rank        ceiling    vs full-rank additive
+     8        57.26%          +3.47%      <- best
+    32        56.89%          +3.10%
+    64        57.01%          +3.22%
+   256        56.89%          +3.10%
+  1152        53.79%          +0.00%      (full rank, §1676's additive)
+comparators:  linear 58.17% | table@mlp0-2 56.95%
+```
+
+**pred_a and pred_c hold: the optimum is interior and truncation cures most of the deficit.**
+§1676 showed more data buys the additive family +5.29 points; §1677 shows fewer parameters
+buy it +3.47 with no extra data at all. Two independent interventions, opposite in kind,
+both pointing at estimation. The diagnosis is no longer a hypothesis.
+
+**The curve's shape says where the damage is.** Ranks 8 through 256 are flat within 0.4
+points (56.89–57.26); only full rank collapses, and it collapses by 3.5. So the harm is
+concentrated in the tail directions beyond rank 256 — the ones estimated from a handful of
+token occurrences each. It is not a capacity trade-off with an optimum to tune; it is that
+the last stretch of the token table is noise, and including it is actively costly.
+
+**pred_b failed: even properly regularised, the additive program does not beat pure linear**
+at this fit size (57.26% vs 58.17%). Taken with §1676 — where additive gains at twice
+linear's rate and reaches 59.08% against linear's 60.81% at 480 rows — the honest summary is
+that a token term at all eighteen sites is not yet worth its estimation cost, and whether it
+ever becomes worth it is a question about the data budget rather than about bilin18.

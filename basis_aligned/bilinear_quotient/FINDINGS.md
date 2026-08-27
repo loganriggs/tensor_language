@@ -404,3 +404,74 @@ therefore **understated**. On mlp0 the understatement is 15.9 points (74.42% →
 Entry 13's dossier levels are flagged in the registry rather than silently revised: only
 mlp0 has been remeasured, and while the bias is probably similar at every site (so the
 ordering across modules likely survives), the levels are not trustworthy until remeasured.
+
+## 15. A compiled program for bilin18's whole MLP stack, and what its failures taught (§1664–§1677)
+
+**The artifact.** bilin18's eighteen MLPs are worth 4.32 nats against optimal-constant
+ablation. Eighteen least-squares linear maps of the residual stream, fitted in stack order,
+reproduce **60.81%** of that. This is the first account in this project covering every MLP
+in the model rather than a hand-picked site.
+
+**The model has three regimes, and they are qualitatively different.** Measured as joint
+substitutions per band, one protocol, with a known-answer instrument check reading 100.00%
+at every band:
+
+| band | stake | token table | linear map | quadratic remainder |
+|---|---|---|---|---|
+| front mlp0–3 | 4.39 | **76.45%** | 68.68% | 31.32% |
+| middle mlp4–15 | 2.65 | 21.73% | **62.33%** | 37.67% |
+| late mlp16–17 | 0.72 | 51.02% | **83.60%** | 16.40% |
+
+The front band is the only place in bilin18 where a lookup beats a computation — a token
+table with access to nothing but the token beats a linear map with access to the whole
+residual stream. The middle band is where the model stops being a lookup. Since every MLP
+here is purely bilinear, `1 − (linear ceiling)` prices what the quadratic form does that no
+linear function can imitate: **bilinearity peaks in the middle and largely switches off at
+the top**, rather than accumulating with depth.
+
+At per-site grain the band verdict sharpens: **mlp0 and mlp1 want a table, mlp2 is
+indifferent, mlp3 does not** (whole-stack program: 54.28% with no tables, 57.25% at mlp0–1,
+57.29% at mlp0–2, 56.29% at mlp0–3).
+
+**Two structural results about the model.** The twelve middle MLPs are individually below
+the instrument's floor (0.026–0.106 nats) but carry a **2.645-nat joint stake** — 4.26× their
+sum. They were never small; they are redundant, and single-module ablation cannot see them.
+The same shape appeared inside mlp1: freezing attn0 removed *none* of its un-tableable
+residue, freezing attn1 removed 19%, and the best of eighteen heads reached 12.68% against a
+5.56% uniform baseline. Redundant, not sparse — twice, at two grains.
+
+**Five methodological results, each of which cost a wrong answer first.**
+
+1. **Position-wise masking at scoring time cannot isolate a position-wise intervention**
+   (LESSONS 27). Excluding uncovered positions from a CE average leaves the substituted
+   forward pass intact, and attention mixes the error into the positions you kept. On a
+   quantity whose true value was derivable in advance (1.0): substitute-everywhere +
+   mask-score gave 0.5583; substitute-only-where-valid gave 1.0000.
+2. **Joint substitution compounds off-distribution** (LESSONS 28). Maps fitted against the
+   real model and installed everywhere: 12 sites → 62.33%, 18 sites → **−42.99%**, worse
+   than constant ablation. Compiling bottom-up fixes it completely (54.28%) while moving a
+   control arm by 0.76 points. §546's "refitting hurts" does not generalise.
+3. **Local, in-sample fidelity selects the wrong program.** Letting each site keep whichever
+   family reconstructed its own output better in L2 chose tables at 14 of 18 sites and
+   scored **53.78%** — worse than using no tables at all.
+4. **The coverage mask must be pinned across fit sizes.** Letting it grow with the fit set
+   made the linear family *lose* 3.29 points on 5× data; pinning it turned that into a
+   +2.64 gain. A 5.9-point swing from protocol alone.
+5. **Stakes saturate.** Live CE is 3.279 against a 10.82 uniform ceiling, so the all-MLP
+   joint stake (4.32) is *below* the front band's alone (4.39). mlp1's headline 7.005 nats
+   sits at CE 10.28 and is ordinal at best.
+
+**The families relate to data differently, and this is what makes the table numbers
+trustworthy.** From 96 to 480 fit rows with the mask fixed: the token table gains **+0.21**
+(saturated — its limit is that the token does not determine the output, a property of the
+model), the linear map **+2.64** (still improving), the additive program `b(token) + xW`
+**+5.29** (data-hungry). The additive family's early loss to both of its own special cases
+was estimation, not expressiveness — confirmed twice, by adding data (+5.29) and by
+truncating `b` to low rank (+3.47 with no extra data).
+
+**What is not claimed.** That a module with its attention frozen becomes a token function is
+architecture, not a finding — those arms are instrument checks. Composition ratios track
+total effect size and are not compared across bands. The all-eighteen linear row of the band
+table (−42.99%) is a failed arm, not a measurement. And there is no standalone table program
+at all: a table substituted everywhere is the broken arm of result 1, so a linear map can be
+a program while a lookup table can only be an account of the positions it covers.

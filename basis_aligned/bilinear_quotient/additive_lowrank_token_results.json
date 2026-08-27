@@ -1,0 +1,60 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ranks": [
+   8,
+   32,
+   64,
+   256,
+   1152
+  ],
+  "ridge": 0.001,
+  "fit_rows": "fineweb_n96_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "program": "y_hat = b_rank_r(token) + xW, W REFITTED on the truncated residual",
+  "truncation": "SVD centred on the position-weighted mean, rows scaled by sqrt(count) so it minimises POSITION-weighted error (\u00a71664)",
+  "compilation": "bottom-up (\u00a71669)",
+  "coverage": "hybrid, mask fixed at n96_skip80",
+  "hypothesis_under_test": "\u00a71676 -- the additive family is estimation-limited, so reducing b's parameter count should help at small data",
+  "s1676_small_fit_comparators": {
+   "linear": 0.5817,
+   "table_mlp0_2": 0.5695,
+   "additive": 0.5379
+  }
+ },
+ "stake": 4.33011,
+ "curve": {
+  "8": 0.57256,
+  "32": 0.5689,
+  "64": 0.57006,
+  "256": 0.56886,
+  "1152": 0.5379
+ },
+ "best_rank": 8,
+ "best_ceiling": 0.57256,
+ "predictions": {
+  "pred_a_truncation_cures_ge_3pts": true,
+  "pred_b_overtakes_linear": false,
+  "pred_c_optimum_is_interior": true
+ },
+ "runtime_s": 126.1
+}
