@@ -50,6 +50,8 @@ DEFAULT_SOURCES = {
     "compression_rank": TENSOR_ROOT / "basis_aligned/bilinear_quotient/compression_rank3_results.json",
     "local_ship_oracle_curated_dev_v2": TENSOR_ROOT / "basis_aligned/bilinear_quotient/ship_content_oracle_curated_dev_v2_results.json",
     "joint_early_mlp_oracle_curated_dev_v2": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_curated_dev_v2_results.json",
+    "joint_early_mlp_oracle_authoritative_v4": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_results.json",
+    "joint_early_mlp_oracle_authority_v4": TENSOR_ROOT / "basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_authority.json",
     "local_pca_strength_control_v1": TENSOR_ROOT / "basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_results.json",
 }
 
@@ -159,6 +161,8 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
     compression_rank = data["compression_rank"]
     local_oracle = data["local_ship_oracle_curated_dev_v2"]
     joint_early_oracle = data["joint_early_mlp_oracle_curated_dev_v2"]
+    joint_early_authoritative = data["joint_early_mlp_oracle_authoritative_v4"]
+    joint_early_authority = data["joint_early_mlp_oracle_authority_v4"]
     local_pca_strength = data["local_pca_strength_control_v1"]
     factorial_heldout = ship_factorial["splits"]["heldout"]
     factorial_primary = factorial_heldout["primary"]
@@ -453,6 +457,29 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
             "claim": "The heldout joint early-block restoration gains 0.5115 nats even though the singleton gains sum to only 0.0573. MLP2 flips from -0.2111 alone to +0.1183 conditional on MLP0+1 restoration. Interaction L1 is 1.744 times the joint gain, so the early block is a coupled causal program and singleton repair is invalid.",
             "caveat": "No same-currency MLP0-2 residual denominator was measured, so the recovery fraction is deliberately null; the legacy 0.728-nat Shapley number is not imported. This is nonfresh authority-none evidence and identifies a joint live-restoration ceiling, not a simpler deployable predictor.",
         },
+        "early_mlp_joint_live_oracle_authoritative": {
+            "authority": joint_early_authority["authority"],
+            "authorized_for_scored_experiments": joint_early_authority["authorized_for_scored_experiments"],
+            "payload_self_authorized": joint_early_authoritative["authorized_for_scored_experiments"],
+            "authorized_for_training": joint_early_authority["authorized_for_training"],
+            "training_license_sites": joint_early_authority["training_license_sites"],
+            "ship_realization_sha256": joint_early_authoritative["ship_realization_sha256"],
+            "discovery": joint_early_authoritative["split_analyses"]["discovery"],
+            "heldout": joint_early_authoritative["split_analyses"]["heldout"],
+            "heldout_cluster_bootstrap": joint_early_authoritative["paired_bootstraps"]["heldout"],
+            "registered_predictions": joint_early_authoritative["registered_predictions"],
+            "state_integrity": {
+                "component_tree_unchanged": joint_early_authoritative["component_tree_unchanged"],
+                "heldout_baseline_replay": joint_early_authoritative["heldout_baseline_replay"],
+                "exact_patch_canary": joint_early_authoritative["exact_patch_canary"],
+                "atomic_authority_result_sha256": joint_early_authority["result_sha256"],
+                "atomic_authority_manifest_sha256": joint_early_authority["manifest_sha256"],
+            },
+            "currency": "paired row/token-weighted CE gain for the complete 2^3 cube of exact live MLP0/1/2 restoration, with 2,000-draw paired FineWeb document-cluster bootstrap",
+            "scope": "one content-addressed deployed-ship realization; canonical first-shard FineWeb discovery/heldout blocks with 79/105 document clusters and four-way ship-fit/basis/evaluation document disjointness",
+            "claim": "The local interaction law replicates authoritatively. Heldout joint restoration gains 0.5143 nats (document-cluster 95% CI 0.4884--0.5399), while the singleton gains sum to only 0.0557 and joint-minus-singletons is 0.4586 (0.4325--0.4834). MLP2 is robustly harmful alone at -0.2301 (-0.2522---0.2087) but beneficial after MLP0+1 restoration at +0.1140 (0.0988--0.1296). All eleven registered predictions pass, establishing state-dependent causal nonadditivity at this early-block interface.",
+            "caveat": "This is exact-restoration oracle headroom on two pinned FineWeb blocks, not corpus-wide generalization, clean-model recovery, an identified transported variable, a coefficient predictor, compression, selective edit, training license, or simplicity certificate. The same-currency MLP0-2 residual denominator remains absent, so the recovery fraction is deliberately null.",
+        },
         "early_mlp_local_pca_strength_control_exploratory": {
             "authority": local_pca_strength["authority"],
             "authorized_for_scored_experiments": local_pca_strength["authorized_for_scored_experiments"],
@@ -519,28 +546,28 @@ def build_balance_sheet(sources: dict[str, Path], theseus_root: Path | None = No
         "ranked_actions": [
             {
                 "priority": 1,
-                "action": "Finish the pinned FineWeb shard, prove every registered row tensor, freeze the rowcache, and run the complete 2^3 joint MLP0-2 live-restoration factorial on the authoritative frozen realization before any singleton content handoff.",
-                "why": "The local factorial shows +0.5115 heldout joint gain versus +0.0573 summed singleton gain, and MLP2 reverses sign only after MLP0+1 restoration. Fresh provenance must confirm this coupled-block ceiling; a singleton-only canonical screen would now omit the dominant causal fact.",
+                "action": "Supersede the local PCA-composition v1 design with a complete same-realization mixed exact/projected MLP0-2 cube on the frozen authoritative ship, including leave-one-site-out conditional gains and document-cluster intervals.",
+                "why": "The authoritative exact cube now establishes +0.5143 heldout joint headroom and +0.4586 interaction excess, while singleton rank-64 PCA locally captures 79.9%/51.7% at MLP0/1. The missing fact is whether those small subspaces preserve the coupled program rather than merely scoring well in the wrong singleton states.",
             },
             {
                 "priority": 2,
-                "action": "Run a preregistered simultaneous live composition cube for PCA-projected MLP0/1 with conditional exact MLP2 restoration, and require it to retain a substantial fraction of the exact joint ceiling before admitting the residual subspaces as a coupled interface.",
-                "why": "Both rank-64 singleton PCA interfaces now beat all 20 nulls under suffix-KL and raw-RMS matching, recovering 79.9% and 51.7% of their full singleton oracles. But the exact factorial showed dominant state-dependent interactions, so singleton success is not compositional evidence.",
+                "action": "If the joint subspace passes, fit a no-teacher-forcing sequential coefficient program whose MLP1 and MLP2 predictors consume the state produced by upstream predicted corrections.",
+                "why": "Oracle projection still reads the exact missing residual. Sequential prediction is the step that turns a causal bottleneck into an executable simpler program and directly tests whether the interaction can be predicted rather than replayed.",
             },
             {
                 "priority": 3,
-                "action": "Only after a joint subspace passes, fit a sequential coupled coefficient program and factor it through linear, native-product, paired-product, and tensor-head-grain forms at standalone and amortized price.",
-                "why": "The coefficients must be predicted on each arm's updated state (MLP0, then MLP1, then MLP2); independent regressors would recreate the state-mismatch failure. Tensor/polynomial simplicity becomes meaningful only at this causally licensed joint interface.",
+                "action": "Factor the passing sequential map through linear, native-product, paired-product, and tensor-head-grain grammars, reporting conditional description length and standalone versus amortized price.",
+                "why": "Tensor/polynomial structure is useful only after the causal interface composes. This comparison can then distinguish genuine shared low-degree structure from an expensive coordinate lookup without conflating syntax with fidelity.",
             },
             {
                 "priority": 4,
-                "action": "Evaluate the joint early-block candidate on corrected fixed strata, powered interventions, and alternate ship backgrounds before selective edits.",
-                "why": "A half-nat CE ceiling does not prove response prediction or modular editability. The exceptionally large interaction terms make background transfer and collateral-effect prediction mandatory rather than optional certification extras.",
+                "action": "Run the restored-state authoritative content/null screen and conditional code-OOD handoff only as a typed-interface probe, not as a singleton repair license.",
+                "why": "The frozen state is now resumable into the existing FineWeb-to-code pipeline, but the exact cube proves singleton semantics are incomplete. This screen is valuable for naming and domain transfer after the joint composition question, not before it.",
             },
             {
                 "priority": 5,
-                "action": "Execute the no-teacher-forcing L8-to-L11-to-L14 gauge-transport triangle with destination sufficiency, direct map, chain, and alternate-background gates.",
-                "why": "This remains the highest-value non-early-block interface test: it distinguishes a locator from a transportable coordinate program. It ranks below the early block because it addresses less of the current 0.8976-nat same-run composite gap.",
+                "action": "Certify the resulting early-block program on fixed strata, powered interventions, alternate ship backgrounds, and selective-edit collateral effects; in parallel retain the L8-to-L11-to-L14 no-teacher-forcing gauge triangle as the next non-early interface.",
+                "why": "A half-nat exact-restoration reference does not prove response prediction or editability. Certification must test interaction and background transfer, while the gauge triangle remains the best independent route to a transportable coordinate program elsewhere in the model.",
             },
         ],
         "registry_inventory": inventory,

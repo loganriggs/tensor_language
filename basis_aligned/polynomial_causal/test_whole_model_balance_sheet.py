@@ -198,6 +198,31 @@ def test_joint_early_oracle_requires_coupled_program_and_same_currency_denominat
     assert "deliberately null" in oracle["caveat"]
 
 
+def test_authoritative_joint_oracle_replication_is_cluster_robust_but_not_a_program():
+    sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
+    oracle = sheet["ledgers"]["early_mlp_joint_live_oracle_authoritative"]
+    assert oracle["authority"] == "canonical_fineweb"
+    assert oracle["authorized_for_scored_experiments"] is True
+    assert oracle["payload_self_authorized"] is False
+    assert oracle["authorized_for_training"] is False
+    assert oracle["training_license_sites"] == []
+    heldout = oracle["heldout"]
+    bootstrap = oracle["heldout_cluster_bootstrap"]
+    assert heldout["joint_gain"] > 0.51
+    assert bootstrap["joint_gain"]["ci95"][0] > 0.48
+    assert heldout["joint_minus_singleton_sum"] > 0.45
+    assert bootstrap["joint_minus_singleton_sum"]["ci95"][0] > 0.43
+    assert bootstrap["mlp2_singleton_gain"]["ci95"][1] < -0.20
+    assert bootstrap["mlp2_conditional_marginal_after_mlp0_mlp1"]["ci95"][0] > 0.09
+    assert all(oracle["registered_predictions"].values())
+    assert heldout["joint_gain_fraction_of_mlp012_residual"] is None
+    assert oracle["state_integrity"]["component_tree_unchanged"] is True
+    assert oracle["state_integrity"]["heldout_baseline_replay"][
+        "max_abs_row_ce_difference"
+    ] == 0.0
+    assert "not corpus-wide" in oracle["caveat"]
+
+
 def test_local_pca_strength_controls_license_only_an_oracle_subspace():
     sheet = MOD.build_balance_sheet(MOD.DEFAULT_SOURCES, None)
     oracle = sheet["ledgers"]["early_mlp_local_pca_strength_control_exploratory"]

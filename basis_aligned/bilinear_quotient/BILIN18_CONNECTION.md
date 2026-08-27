@@ -38533,3 +38533,31 @@ The next run should use exactly 96 rows at skip=80 — §1597's precise
 configuration — before anything is said about §1597 being wrong. Given that I have
 twice now blamed §1597 and twice found the fault in my own setup, that ordering is
 not optional.
+### 2026-08-27 — authoritative early-MLP interaction replication
+
+The complete exact-live MLP0/1/2 restoration cube now has canonical FineWeb row
+authority on the frozen ship realization `21ddc9ff...ab8e`. V3 failed closed
+before any arm at an unjustified fixed float32 canary tolerance; V4 fixed only
+that pre-outcome guard with a preregistered machine-epsilon-scaled bound and
+restored the exact same state. The final atomic authority receipt binds the
+nonauthorizing result and manifest payloads; component-tree and heldout-baseline
+replays are exact.
+
+On heldout n192_skip11000, exact joint restoration gains .51434 nats with paired
+FineWeb document-cluster 95% CI [.48842,.53989]. Singleton gains are .11907,
+.16672, and -.23005 at MLP0/1/2, so their sum is only .05574; the joint excess is
+.45860 [.43254,.48336]. MLP2's conditional gain after MLP0+1 is +.11403
+[.09876,.12956], yielding a robust sign-flip contrast of .34408
+[.32172,.36640]. All pairwise Mobius terms are positive, the triple term is
+-.20834, interaction L1 is 1.702 times the joint gain, and all eleven registered
+predictions pass. Discovery independently shows the same signs and magnitudes.
+
+This converts the former authority-none local observation into a causal design
+constraint: the early block must be modeled and evaluated as a stateful coupled
+program. It invalidates independent singleton repair and any additive accounting
+that sums MLP0/1/2 gains. It does not yet provide a simpler program: the exact
+intervention still reads each missing residual, no same-currency MLP0--2
+denominator exists, and no corpus-wide, code-OOD, training, semantic, compression,
+or selective-edit claim follows. The next decisive test is a mixed
+exact/PCA-projected same-state cube with conditional no-free-rider gates; only a
+passing joint subspace licenses sequential coefficient prediction.

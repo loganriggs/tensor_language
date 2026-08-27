@@ -621,6 +621,334 @@
       "claim": "The heldout joint early-block restoration gains 0.5115 nats even though the singleton gains sum to only 0.0573. MLP2 flips from -0.2111 alone to +0.1183 conditional on MLP0+1 restoration. Interaction L1 is 1.744 times the joint gain, so the early block is a coupled causal program and singleton repair is invalid.",
       "caveat": "No same-currency MLP0-2 residual denominator was measured, so the recovery fraction is deliberately null; the legacy 0.728-nat Shapley number is not imported. This is nonfresh authority-none evidence and identifies a joint live-restoration ceiling, not a simpler deployable predictor."
     },
+    "early_mlp_joint_live_oracle_authoritative": {
+      "authority": "canonical_fineweb",
+      "authorized_for_scored_experiments": true,
+      "payload_self_authorized": false,
+      "authorized_for_training": false,
+      "training_license_sites": [],
+      "ship_realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e",
+      "discovery": {
+        "groups": [
+          "mlp0",
+          "mlp1",
+          "mlp2"
+        ],
+        "row_count": 192,
+        "currency": "paired mean CE gain; positive lowers CE versus deployed ship",
+        "gain_by_arm": {
+          "baseline": 0.0,
+          "mlp0": 0.1211273620525996,
+          "mlp1": 0.15602309380968413,
+          "mlp2": -0.21585717548926672,
+          "mlp0+mlp1": 0.37836814547578496,
+          "mlp0+mlp2": 0.07152282694975536,
+          "mlp1+mlp2": 0.3158375695347786,
+          "mlp0+mlp1+mlp2": 0.4993657035132249
+        },
+        "joint_gain": 0.4993657035132249,
+        "singleton_gain_sum": 0.061293280373017,
+        "joint_minus_singleton_sum": 0.4380724231402079,
+        "joint_gain_fraction_of_mlp012_residual": null,
+        "mlp012_residual_nats": null,
+        "pairwise_mobius": {
+          "mlp0+mlp1": 0.10121768961350125,
+          "mlp0+mlp2": 0.16625264038642248,
+          "mlp1+mlp2": 0.3756716512143612
+        },
+        "triple_mobius": -0.20506955807407706,
+        "mlp2_conditional_marginal_after_mlp0_mlp1": 0.12099755803743995,
+        "shapley": {
+          "mlp0": 0.1865060076945358,
+          "mlp1": 0.3261112448655897,
+          "mlp2": -0.013251549046900568
+        },
+        "shapley_closure_error": 0.0,
+        "interaction_l1": 0.848211539288362,
+        "interaction_l1_fraction_of_joint_gain": 1.6985778825435465
+      },
+      "heldout": {
+        "groups": [
+          "mlp0",
+          "mlp1",
+          "mlp2"
+        ],
+        "row_count": 192,
+        "currency": "paired mean CE gain; positive lowers CE versus deployed ship",
+        "gain_by_arm": {
+          "baseline": 0.0,
+          "mlp0": 0.11907455325126648,
+          "mlp1": 0.16671866551041603,
+          "mlp2": -0.23005194713672003,
+          "mlp0+mlp1": 0.4003129303455353,
+          "mlp0+mlp2": 0.061454535772403084,
+          "mlp1+mlp2": 0.31666206071774167,
+          "mlp0+mlp1+mlp2": 0.5143441880742708
+        },
+        "joint_gain": 0.5143441880742708,
+        "singleton_gain_sum": 0.05574127162496248,
+        "joint_minus_singleton_sum": 0.4586029164493084,
+        "joint_gain_fraction_of_mlp012_residual": null,
+        "mlp012_residual_nats": null,
+        "pairwise_mobius": {
+          "mlp0+mlp1": 0.11451971158385277,
+          "mlp0+mlp2": 0.17243192965785664,
+          "mlp1+mlp2": 0.37999534234404564
+        },
+        "triple_mobius": -0.2083440671364467,
+        "mlp2_conditional_marginal_after_mlp0_mlp1": 0.11403125772873557,
+        "shapley": {
+          "mlp0": 0.19310235149330562,
+          "mlp1": 0.34452817009554965,
+          "mlp2": -0.023286333514584465
+        },
+        "shapley_closure_error": 0.0,
+        "interaction_l1": 0.8752910507222018,
+        "interaction_l1_fraction_of_joint_gain": 1.7017613322303362
+      },
+      "heldout_cluster_bootstrap": {
+        "draws": 2000,
+        "seed": 27182819,
+        "resampling": "sample unique documents with replacement; retain all chunks and use the sampled total row count as denominator; shared multiplicities across arms",
+        "row_count": 192,
+        "unique_document_count": 105,
+        "cluster_size_range": [
+          1,
+          10
+        ],
+        "arm_gain": {
+          "baseline": {
+            "point_estimate": 0.0,
+            "bootstrap_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "mlp0": {
+            "point_estimate": 0.11907455325126648,
+            "bootstrap_mean": 0.11900804342911933,
+            "ci95": [
+              0.1091793993738417,
+              0.12920843437754648
+            ]
+          },
+          "mlp1": {
+            "point_estimate": 0.16671866551041603,
+            "bootstrap_mean": 0.16670339198199194,
+            "ci95": [
+              0.1501777405196754,
+              0.18180394045960588
+            ]
+          },
+          "mlp2": {
+            "point_estimate": -0.23005194713672003,
+            "bootstrap_mean": -0.23005329035553704,
+            "ci95": [
+              -0.2521544615110659,
+              -0.2087078226485444
+            ]
+          },
+          "mlp0+mlp1": {
+            "point_estimate": 0.4003129303455353,
+            "bootstrap_mean": 0.4002295898831839,
+            "ci95": [
+              0.37443933967398957,
+              0.42500255756048677
+            ]
+          },
+          "mlp0+mlp2": {
+            "point_estimate": 0.061454535772403084,
+            "bootstrap_mean": 0.061424831123314344,
+            "ci95": [
+              0.03805977501692909,
+              0.0839733540880811
+            ]
+          },
+          "mlp1+mlp2": {
+            "point_estimate": 0.31666206071774167,
+            "bootstrap_mean": 0.31657914248031177,
+            "ci95": [
+              0.289925010818066,
+              0.34196416762471976
+            ]
+          },
+          "mlp0+mlp1+mlp2": {
+            "point_estimate": 0.5143441880742708,
+            "bootstrap_mean": 0.5141993714860684,
+            "ci95": [
+              0.4884235884241405,
+              0.5398935866030729
+            ]
+          }
+        },
+        "joint_gain": {
+          "point_estimate": 0.5143441880742708,
+          "bootstrap_mean": 0.5141993714860684,
+          "ci95": [
+            0.4884235884241405,
+            0.5398935866030729
+          ]
+        },
+        "joint_minus_best_singleton": {
+          "point_estimate": 0.3476255225638548,
+          "bootstrap_mean": 0.3474959795040767,
+          "ci95": [
+            0.32491576222979823,
+            0.36988952739308323
+          ]
+        },
+        "joint_minus_singleton_sum": {
+          "point_estimate": 0.4586029164493084,
+          "bootstrap_mean": 0.4585412264304944,
+          "ci95": [
+            0.43254162561393383,
+            0.48335887505706665
+          ]
+        },
+        "mlp2_singleton_gain": {
+          "point_estimate": -0.23005194713672003,
+          "bootstrap_mean": -0.23005329035553704,
+          "ci95": [
+            -0.2521544615110659,
+            -0.2087078226485444
+          ]
+        },
+        "mlp2_conditional_marginal_after_mlp0_mlp1": {
+          "point_estimate": 0.11403125772873557,
+          "bootstrap_mean": 0.11396978160288466,
+          "ci95": [
+            0.09876429816388192,
+            0.129555341390828
+          ]
+        },
+        "mlp2_sign_flip_contrast": {
+          "point_estimate": 0.3440832048654556,
+          "bootstrap_mean": 0.3440230719584217,
+          "ci95": [
+            0.32172041172500304,
+            0.36640018896715154
+          ]
+        },
+        "mobius": {
+          "baseline": {
+            "point_estimate": 0.0,
+            "bootstrap_mean": 0.0,
+            "ci95": [
+              0.0,
+              0.0
+            ]
+          },
+          "mlp0": {
+            "point_estimate": 0.11907455325126648,
+            "bootstrap_mean": 0.11900804342911933,
+            "ci95": [
+              0.1091793993738417,
+              0.12920843437754648
+            ]
+          },
+          "mlp1": {
+            "point_estimate": 0.16671866551041603,
+            "bootstrap_mean": 0.16670339198199194,
+            "ci95": [
+              0.1501777405196754,
+              0.18180394045960588
+            ]
+          },
+          "mlp2": {
+            "point_estimate": -0.23005194713672003,
+            "bootstrap_mean": -0.23005329035553704,
+            "ci95": [
+              -0.2521544615110659,
+              -0.2087078226485444
+            ]
+          },
+          "mlp0+mlp1": {
+            "point_estimate": 0.11451971158385277,
+            "bootstrap_mean": 0.11451815447207264,
+            "ci95": [
+              0.09832936637220213,
+              0.13080241751456168
+            ]
+          },
+          "mlp0+mlp2": {
+            "point_estimate": 0.17243192965785664,
+            "bootstrap_mean": 0.17247007804973205,
+            "ci95": [
+              0.15406253143988666,
+              0.19092235817339104
+            ]
+          },
+          "mlp1+mlp2": {
+            "point_estimate": 0.37999534234404564,
+            "bootstrap_mean": 0.37992904085385687,
+            "ci95": [
+              0.3545298062375848,
+              0.4044987340423154
+            ]
+          },
+          "mlp0+mlp1+mlp2": {
+            "point_estimate": -0.2083440671364467,
+            "bootstrap_mean": -0.20837604694516726,
+            "ci95": [
+              -0.2364993500414984,
+              -0.17682733182235183
+            ]
+          }
+        }
+      },
+      "registered_predictions": {
+        "pred_a_joint_positive_both_splits": true,
+        "pred_a_joint_heldout_ci95_lower_gt_zero": true,
+        "pred_a_joint_exceeds_best_singleton_heldout": true,
+        "pred_a_joint_minus_best_singleton_heldout_ci95_lower_gt_zero": true,
+        "pred_b_mlp2_singleton_negative_both_splits": true,
+        "pred_b_mlp2_conditional_after_mlp0_mlp1_positive_both_splits": true,
+        "pred_b_mlp2_singleton_heldout_ci95_upper_lt_zero": true,
+        "pred_b_mlp2_conditional_heldout_ci95_lower_gt_zero": true,
+        "pred_b_sign_flip_contrast_heldout_ci95_lower_gt_zero": true,
+        "pred_c_joint_minus_singleton_sum_positive_both_splits": true,
+        "pred_c_joint_minus_singleton_sum_heldout_ci95_lower_gt_zero": true
+      },
+      "state_integrity": {
+        "component_tree_unchanged": true,
+        "heldout_baseline_replay": {
+          "max_abs_row_ce_difference": 0.0,
+          "mean_abs_row_ce_difference": 0.0,
+          "max_tolerance": 1e-07,
+          "mean_tolerance": 1e-08
+        },
+        "exact_patch_canary": {
+          "0": {
+            "max_abs_float32_error": 3.0517578125e-05,
+            "float32_epsilon": 1.1920928955078125e-07,
+            "roundoff_multiplier": 16.0,
+            "scale_max_1_original_plus_2deployed": 1829.10498046875,
+            "tolerance": 0.003488740883767605
+          },
+          "1": {
+            "max_abs_float32_error": 6.103515625e-05,
+            "float32_epsilon": 1.1920928955078125e-07,
+            "roundoff_multiplier": 16.0,
+            "scale_max_1_original_plus_2deployed": 1329.1524658203125,
+            "tolerance": 0.002535157138481736
+          },
+          "2": {
+            "max_abs_float32_error": 3.0517578125e-05,
+            "float32_epsilon": 1.1920928955078125e-07,
+            "roundoff_multiplier": 16.0,
+            "scale_max_1_original_plus_2deployed": 1395.9324951171875,
+            "tolerance": 0.0026625299360603094
+          }
+        },
+        "atomic_authority_result_sha256": "0bf3988e82c8d381063d7badfc1a143d2dc0d9921bac76570d7ba4c370e5aa98",
+        "atomic_authority_manifest_sha256": "de6524fd4c91b19a4cae7f9942c59792ee30b181568a9afcd3498ce73bdf8406"
+      },
+      "currency": "paired row/token-weighted CE gain for the complete 2^3 cube of exact live MLP0/1/2 restoration, with 2,000-draw paired FineWeb document-cluster bootstrap",
+      "scope": "one content-addressed deployed-ship realization; canonical first-shard FineWeb discovery/heldout blocks with 79/105 document clusters and four-way ship-fit/basis/evaluation document disjointness",
+      "claim": "The local interaction law replicates authoritatively. Heldout joint restoration gains 0.5143 nats (document-cluster 95% CI 0.4884--0.5399), while the singleton gains sum to only 0.0557 and joint-minus-singletons is 0.4586 (0.4325--0.4834). MLP2 is robustly harmful alone at -0.2301 (-0.2522---0.2087) but beneficial after MLP0+1 restoration at +0.1140 (0.0988--0.1296). All eleven registered predictions pass, establishing state-dependent causal nonadditivity at this early-block interface.",
+      "caveat": "This is exact-restoration oracle headroom on two pinned FineWeb blocks, not corpus-wide generalization, clean-model recovery, an identified transported variable, a coefficient predictor, compression, selective edit, training license, or simplicity certificate. The same-currency MLP0-2 residual denominator remains absent, so the recovery fraction is deliberately null."
+    },
     "early_mlp_local_pca_strength_control_exploratory": {
       "authority": "none",
       "authorized_for_scored_experiments": false,
@@ -842,28 +1170,28 @@
   "ranked_actions": [
     {
       "priority": 1,
-      "action": "Finish the pinned FineWeb shard, prove every registered row tensor, freeze the rowcache, and run the complete 2^3 joint MLP0-2 live-restoration factorial on the authoritative frozen realization before any singleton content handoff.",
-      "why": "The local factorial shows +0.5115 heldout joint gain versus +0.0573 summed singleton gain, and MLP2 reverses sign only after MLP0+1 restoration. Fresh provenance must confirm this coupled-block ceiling; a singleton-only canonical screen would now omit the dominant causal fact."
+      "action": "Supersede the local PCA-composition v1 design with a complete same-realization mixed exact/projected MLP0-2 cube on the frozen authoritative ship, including leave-one-site-out conditional gains and document-cluster intervals.",
+      "why": "The authoritative exact cube now establishes +0.5143 heldout joint headroom and +0.4586 interaction excess, while singleton rank-64 PCA locally captures 79.9%/51.7% at MLP0/1. The missing fact is whether those small subspaces preserve the coupled program rather than merely scoring well in the wrong singleton states."
     },
     {
       "priority": 2,
-      "action": "Run a preregistered simultaneous live composition cube for PCA-projected MLP0/1 with conditional exact MLP2 restoration, and require it to retain a substantial fraction of the exact joint ceiling before admitting the residual subspaces as a coupled interface.",
-      "why": "Both rank-64 singleton PCA interfaces now beat all 20 nulls under suffix-KL and raw-RMS matching, recovering 79.9% and 51.7% of their full singleton oracles. But the exact factorial showed dominant state-dependent interactions, so singleton success is not compositional evidence."
+      "action": "If the joint subspace passes, fit a no-teacher-forcing sequential coefficient program whose MLP1 and MLP2 predictors consume the state produced by upstream predicted corrections.",
+      "why": "Oracle projection still reads the exact missing residual. Sequential prediction is the step that turns a causal bottleneck into an executable simpler program and directly tests whether the interaction can be predicted rather than replayed."
     },
     {
       "priority": 3,
-      "action": "Only after a joint subspace passes, fit a sequential coupled coefficient program and factor it through linear, native-product, paired-product, and tensor-head-grain forms at standalone and amortized price.",
-      "why": "The coefficients must be predicted on each arm's updated state (MLP0, then MLP1, then MLP2); independent regressors would recreate the state-mismatch failure. Tensor/polynomial simplicity becomes meaningful only at this causally licensed joint interface."
+      "action": "Factor the passing sequential map through linear, native-product, paired-product, and tensor-head-grain grammars, reporting conditional description length and standalone versus amortized price.",
+      "why": "Tensor/polynomial structure is useful only after the causal interface composes. This comparison can then distinguish genuine shared low-degree structure from an expensive coordinate lookup without conflating syntax with fidelity."
     },
     {
       "priority": 4,
-      "action": "Evaluate the joint early-block candidate on corrected fixed strata, powered interventions, and alternate ship backgrounds before selective edits.",
-      "why": "A half-nat CE ceiling does not prove response prediction or modular editability. The exceptionally large interaction terms make background transfer and collateral-effect prediction mandatory rather than optional certification extras."
+      "action": "Run the restored-state authoritative content/null screen and conditional code-OOD handoff only as a typed-interface probe, not as a singleton repair license.",
+      "why": "The frozen state is now resumable into the existing FineWeb-to-code pipeline, but the exact cube proves singleton semantics are incomplete. This screen is valuable for naming and domain transfer after the joint composition question, not before it."
     },
     {
       "priority": 5,
-      "action": "Execute the no-teacher-forcing L8-to-L11-to-L14 gauge-transport triangle with destination sufficiency, direct map, chain, and alternate-background gates.",
-      "why": "This remains the highest-value non-early-block interface test: it distinguishes a locator from a transportable coordinate program. It ranks below the early block because it addresses less of the current 0.8976-nat same-run composite gap."
+      "action": "Certify the resulting early-block program on fixed strata, powered interventions, alternate ship backgrounds, and selective-edit collateral effects; in parallel retain the L8-to-L11-to-L14 no-teacher-forcing gauge triangle as the next non-early interface.",
+      "why": "A half-nat exact-restoration reference does not prove response prediction or editability. Certification must test interaction and background transfer, while the gauge triangle remains the best independent route to a transportable coordinate program elsewhere in the model."
     }
   ],
   "registry_inventory": {
@@ -931,7 +1259,7 @@
     "sources": {
       "circuits": {
         "path": "/workspace/theseus-bench/registry/circuits.json",
-        "sha256": "dd654aa27b6f386f5affb8f3df7a3d871ae3c304ae78a2b371e6f0afb3c972e2"
+        "sha256": "e409521db9dbfae2d7b90b478f805afde21ec45587a459d00065566db4eb6342"
       },
       "frontier": {
         "path": "/workspace/theseus-bench/registry/frontier_seed.json",
@@ -1071,6 +1399,14 @@
     "joint_early_mlp_oracle_curated_dev_v2": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_curated_dev_v2_results.json",
       "sha256": "2092cf602ebfb5bbf4459b7a42196e689cc6e5d744de928f9dfe1be9fdd26e55"
+    },
+    "joint_early_mlp_oracle_authoritative_v4": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_results.json",
+      "sha256": "0bf3988e82c8d381063d7badfc1a143d2dc0d9921bac76570d7ba4c370e5aa98"
+    },
+    "joint_early_mlp_oracle_authority_v4": {
+      "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_authority.json",
+      "sha256": "62a62262bf89b1a2a59b9a1dab092f57910f02e4550f17bd75689a9b3e583e33"
     },
     "local_pca_strength_control_v1": {
       "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_results.json",

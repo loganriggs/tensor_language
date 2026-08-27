@@ -1741,3 +1741,62 @@ since a genuine mis-patch there would move the output by O(1), not O(1e-5).
 Artifact check per LESSONS 14: no results JSON in `polynomial_causal/`, so this is
 a genuine failure and a requeue is correct once the tolerance is fixed — not
 finalizer noise.
+### 2026-08-27 09:06 UTC — Codex (hourly strategy: authoritative interaction law certified)
+
+The first-shard FineWeb exact-live MLP0--2 cube is complete on the frozen ship
+realization `21ddc9ff...ab8e`. The v3 launch failed closed before any arm because
+its fixed `2e-5` algebra-canary tolerance was below scale-dependent float32
+roundoff (`3.0518e-5` observed). That failure manifest is preserved and
+nonauthorizing. V4 preregistered a `16 eps * max(1, |original| + 2|deployed|)`
+bound before outcomes, pinned and restored the exact v3 state, and passed every
+state check. Result/manifest remain deliberately non-self-authorizing; the atomic
+last-written authority receipt binds SHA256 result `0bf3988e...aa98` and manifest
+`de6524fd...8406`.
+
+All eleven registered predictions pass under a paired 2,000-draw FineWeb
+document-cluster bootstrap (79 discovery and 105 heldout documents). Discovery
+joint gain is .49937 [.46602,.53570]; heldout is .51434 [.48842,.53989]. Heldout
+singleton gains are MLP0 .11907, MLP1 .16672, and MLP2 -.23005
+[-.25215,-.20871], but MLP2 contributes +.11403 [.09876,.12956] after MLP0+1
+restoration. Joint-minus-singleton-sum is .45860 [.43254,.48336], pairwise
+Mobius terms are all positive, the triple is -.20834, and interaction L1 is
+1.702 times joint gain. The component tree is bit-identical before/after, the
+heldout baseline replay is exactly identical, protected artifacts are unchanged,
+and no training or code-OOD license is created.
+
+Whole-model completeness remains a vector, not a single percentage: 36/36
+top-level replacement scope, 32.1% named-variable recovery, 10.92% causal-path
+coverage, 12.4% legacy composed recovery, and 99.816% analytic interface
+substitutability against a loose floor. The deployed same-run composite gap is
+still +.8976 nats. The new .5143-nat number is exact-restoration headroom on a
+different pinned interface and is not subtracted from that gap or divided by a
+foreign denominator.
+
+Largest gaps are now sharper: no projected subspace has composed across the
+coupled early block; PCA coefficients still read the exact missing residual; no
+sequential predictor runs on its own upstream predicted state; corpus/domain and
+alternate-background transfer remain open; and no candidate yet predicts
+interventions or selective-edit collateral effects. Generic tensor-product,
+Hankel, prose-content, singleton MLP2 repair, raw writer-share, and generic
+compression sweeps remain pruned because completed controls reject them or they
+do not close a causal/compositional interface.
+
+Priority order after pruning by information gain, causal relevance,
+composability, falsifiability, cost, and duplication:
+
+1. Supersede the local PCA-composition v1 preregistration with a mixed
+   exact/projected same-realization MLP0--2 cube, conditional no-free-rider gates,
+   and document-cluster intervals.
+2. If that passes, fit a no-teacher-forcing sequential coefficient program whose
+   downstream predictors consume upstream predicted corrections.
+3. Compare linear/native-product/paired-product/tensor-head-grain grammars at
+   conditional description length and standalone/amortized price.
+4. Use the resumable frozen state for the content/null and conditional code-OOD
+   screen only after the joint interface question, not as singleton repair.
+5. Certify the executable candidate on fixed strata, interventions, alternate
+   backgrounds, and edit collateral; retain the L8->L11->L14 gauge triangle as
+   the leading independent non-early interface.
+
+The highest-priority safe action executed this interval was the authoritative
+cube itself; the next CPU action is to write the v2 mixed composition contract
+before launching another GPU measurement.
