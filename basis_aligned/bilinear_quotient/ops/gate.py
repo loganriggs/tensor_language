@@ -105,6 +105,23 @@ def gate(path):
     if st and sites and sites != {st.group(1)}:
         fails.append(f'cell sites {sites} != SITE_STOP {st.group(1)}')
 
+    # a module-level name bound to an EMPTY literal, iterated inside the results
+    # dict, silently writes an empty record even though the run scored correctly
+    empty = set()
+    for n in tree.body:
+        if isinstance(n, ast.Assign) and isinstance(n.value, (ast.List, ast.Dict, ast.Set)):
+            vals = getattr(n.value, 'elts', None)
+            if vals is None:
+                vals = getattr(n.value, 'keys', [])
+            if not vals:
+                empty |= _targets(n)
+    for fn in [f for f in tree.body if isinstance(f, ast.FunctionDef)]:
+        for n in ast.walk(fn):
+            if isinstance(n, ast.comprehension) and isinstance(n.iter, ast.Name) \
+                    and n.iter.id in empty:
+                fails.append(f'{fn.name}(): comprehension iterates `{n.iter.id}`, which is '
+                             f'an EMPTY module-level literal -- the record will serialise empty')
+
     # call-arity consistency for the helpers whose return shape varies
     for helper in ('abs_mass',):
         n_ret = [len(n.value.elts) for f in ast.walk(tree)

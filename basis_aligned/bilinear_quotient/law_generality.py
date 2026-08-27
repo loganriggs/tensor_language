@@ -160,7 +160,6 @@ CELLS = {
     'of@mlp14': {'site': 14, 'rank': 2, 'top': 4, 'pat': r'^ of$', 'published': None,
                  'published_top': []},
 }
-NAMED = []                        # filled at runtime from the lambda top-4
 N_RANDOM = 20                     # seeds 1729+i; i=0 IS S1612's own draw
 CHUNKS, ROWS_PER_CHUNK = 3, 160        # three DISJOINT chunks
 ROWCACHE = PT + '.rowcache/fineweb_n480_skip80.pt'
@@ -291,7 +290,7 @@ def main():
     print(f"  gap           {gaps}", flush=True)
     print(f"  lambda top-4 per chunk: {lam_top}", flush=True)
 
-    out = {'config': {'cell': 'of@mlp14 rank-2 TOP-4', 'named': NAMED,
+    out = {'config': {'cell': 'of@mlp14 rank-2 TOP-4', 'tracked_at_runtime': True,
                       'n_random': N_RANDOM, 'seeds': f'1729..{1729+N_RANDOM-1}',
                       'chunks': CHUNKS, 'rows_per_chunk': ROWS_PER_CHUNK,
                       'row_source': 'fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)',
@@ -299,7 +298,7 @@ def main():
            'lambda_share': [round(x, 4) for x in lam_share], 'lambda_top': lam_top,
            'mean_random_share': [round(x, 4) for x in mean_rnd], 'gaps': gaps,
            'present_in_random_top4': present, 'trials': trials,
-           'fraction': {c: round(frac[c], 4) for c in NAMED},
+           'fraction': {c: round(frac[c], 4) for c in TRACK},
            'seed1729_chunks_present': seed0,
            'per_seed': per_seed,
            'predictions': {'pred_a_top1_identity_free_gt_half': bool(pa),

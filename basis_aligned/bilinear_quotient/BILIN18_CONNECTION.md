@@ -39119,3 +39119,70 @@ does not.
 control. The needed change is a QUALIFIER on interpretation, not a withdrawal, and I
 have not applied even that — see PENDING_RETRACTION_S1612.md for the one withdrawal
 actually on the table, which remains membership-only.
+
+## §1632 §1631's LAW HOLDS AT A FRESH CELL, BUT ITS "PERFECT SEPARATION" DOES NOT (2-for-3): at an ordinary uncertified cell magnitude separates only 54/60, and the x0-type membership exception does NOT recur — the 60/60 results look like a SELECTION EFFECT of studying cells already known to be interesting
+
+**Setup** (law_generality, 100 s, rung 3). §1631's law — the site decides WHICH
+components carry the mass, the slice decides HOW CONCENTRATED it is — was induced
+from three cells I had already studied for other reasons. A law induced from the
+cases that produced it is not yet a law. Fresh site **mlp14**, fresh class **` of`**,
+rank-2 TOP-4, corrected quantity, 20 independent bases x 3 disjoint chunks = 60
+trials. Bars were set from the PRIOR observations so the test could fail.
+
+```
+  λ top-4 (stable 3/3): mlp10, mlp11, mlp8, x0        λ top-1 = mlp10
+  membership in random top-4:
+      mlp11  38/60 = 63.3%      mlp10  36/60 = 60.0%  <- λ top-1
+      x0     28/60 = 46.7%      mlp8   22/60 = 36.7%  <- lowest
+  λ share      .4827  .4866  .4860
+  mean random  .4176  .4124  .4280        gap  +.0651 +.0742 +.0580
+```
+
+- **pred_a PASSED** — λ's top-1 (`mlp10`) sits in **60.0%** of random top-4 sets,
+  above the >50% bar. Identity is free for the dominant writer at a fresh cell too.
+- **pred_b PASSED** — |gap| ≥ .05 on all three chunks (.0651/.0742/.0580).
+- **pred_c FAILED** — no λ top-4 component falls at or below 30%; the lowest is
+  `mlp8` at **36.7%**. The `x0`-type exception does NOT recur.
+
+**`x0`'s informativeness is CELL-SPECIFIC, not a property of x0.** §1629 found x0 in
+only **15%** of random top-6s at pronouns@mlp17 and I flagged it as the one case
+where membership carried real information. Here x0 sits at **46.7%** — ordinary. So
+the exception was a fact about that cell, not about that component, and §1629's
+framing of it as "the single exception" should be read that narrowly.
+
+**THE UNREGISTERED FINDING THAT MATTERS MOST — separation is NOT perfect here.**
+I did not register this and am reporting it as an observation, not a scored result:
+
+```
+  cell                     λ vs the 60 random trials        separation
+  question@mlp11 (§1628)   λ min .7257 > rand max .7185     60/60  PERFECT
+  pronouns@mlp17 (§1629)   λ max .4871 < rand min .5361     60/60  PERFECT
+  of@mlp14       (§1632)   λ min .4827 vs rand max .4975    54/60  SIX OVERLAP
+```
+
+Both cells where I found perfect separation are cells that were **already
+certified and published** — chosen precisely because someone had found strong
+structure there. At an ordinary function-word cell picked only for being fresh, six
+of sixty random bases concentrate MORE than the certified slice. So "the slice
+separates 60/60 on magnitude" is very likely a **selection effect**, and §1631's
+claim that "magnitude claims have separated perfectly every time" was overreaching
+on a sample of two hand-picked cells. The gap here (.058-.074) is also 2-3x smaller
+than at question@mlp11 (.153-.172).
+
+**What survives, stated at the right strength.** The IDENTITY half of the law holds
+at every cell tested including this fresh one (60% here, 53%/88%/100%/100%
+before) — component and head identity is uninformative unless the fraction is
+measured. The MAGNITUDE half holds DIRECTIONALLY at every cell but its STRENGTH
+tracks how structured the cell is, and perfect separation is not the general case.
+The law should be stated as "identity is free; magnitude is informative but its
+margin is cell-dependent", not as §1631 stated it.
+
+**Housekeeping — a real defect in this run's ARTIFACT, not its result.** When I
+rewired the tracked components to be determined at runtime, `NAMED` became `[]`
+while two lines of the results dict still iterated it, so `fraction` serialised as
+`{}`. Predictions scored correctly off the runtime set and the log carries the full
+table, so the science above is sound, but the record was impoverished. Fixed, and
+`ops/gate.py` gained an arm that catches a module-level empty literal being iterated
+in the results dict — verified in both directions (six known-good scripts pass, a
+reconstruction of this exact bug fails). A clean-artifact re-run is queued; seeds and
+rows are fixed so the numbers will be identical.

@@ -1,0 +1,24 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 3 chunks x 160 rows (receipt sha256[:16]=815b21618c2e477e)
+  lambda chunk0 n= 612 share=0.4827 top=['mlp10', 'mlp8', 'mlp11', 'x0'] recon=4.3e-07
+  lambda chunk1 n= 576 share=0.4866 top=['mlp10', 'mlp11', 'mlp8', 'x0'] recon=9.6e-08
+  lambda chunk2 n= 462 share=0.4860 top=['mlp10', 'mlp11', 'x0', 'mlp8'] recon=6.4e-08
+  lambda top-1 = mlp10 | stable across 3 chunks: ['mlp10', 'mlp11', 'mlp8', 'x0'] | union: ['mlp10', 'mlp11', 'mlp8', 'x0']
+  random seed 1729 done (1/20)
+  random seed 1734 done (6/20)
+  random seed 1739 done (11/20)
+  random seed 1744 done (16/20)
+
+  of@mlp14 rank-2 TOP-4, 20 random bases x 3 chunks = 60 trials
+    mlp11   in random top-4: 38/60 =  63.3% *
+    mlp10   in random top-4: 36/60 =  60.0% <- lambda TOP-1
+    x0      in random top-4: 28/60 =  46.7% *
+    mlp8    in random top-4: 22/60 =  36.7% *
+    (* = in lambda's chunk-0 top-4)
+  lambda share  [0.4827, 0.4866, 0.486]
+  mean random   [0.4176, 0.4124, 0.428]
+  gap           [0.0651, 0.0742, 0.058]
+  lambda top-4 per chunk: [['mlp10', 'mlp8', 'mlp11', 'x0'], ['mlp10', 'mlp11', 'mlp8', 'x0'], ['mlp10', 'mlp11', 'x0', 'mlp8']]
+
+pred_a True | pred_b True | pred_c False
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/law_generality_results.json (100.2s)
