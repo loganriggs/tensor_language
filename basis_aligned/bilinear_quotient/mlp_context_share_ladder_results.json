@@ -1,0 +1,103 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "fit_rows": "fineweb_n96_skip1200.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "substitution": "HYBRID -- table at covered positions, MLP live elsewhere",
+  "scoring": "covered positions only",
+  "frozen_arm": "attn_0..attn_L at optimal constants (known ceiling 1.0)",
+  "ablation_constants": "opt_ablation_consts_all.pt",
+  "s1661_mlp0": {
+   "live_covered": 0.9027,
+   "frozen_covered": 1.0
+  },
+  "limitation": "the frozen arm at L=3 replaces four attention modules; it is a damaged model, and only the live arm describes bilin18"
+ },
+ "sites": {
+  "mlp0": {
+   "live": {
+    "ce_live": 3.27946,
+    "ce_const": 4.13467,
+    "ce_table": 3.36272,
+    "stake": 0.85521,
+    "ceiling": 0.90265
+   },
+   "frozen": {
+    "ce_live": 3.50924,
+    "ce_const": 4.13684,
+    "ce_table": 3.50924,
+    "stake": 0.6276,
+    "ceiling": 1.0
+   },
+   "context_share": 0.09735
+  },
+  "mlp1": {
+   "live": {
+    "ce_live": 3.27946,
+    "ce_const": 10.28442,
+    "ce_table": 3.55898,
+    "stake": 7.00496,
+    "ceiling": 0.9601
+   },
+   "frozen": {
+    "ce_live": 4.51864,
+    "ce_const": 10.58521,
+    "ce_table": 4.51864,
+    "stake": 6.06657,
+    "ceiling": 1.0
+   },
+   "context_share": 0.0399
+  },
+  "mlp2": {
+   "live": {
+    "ce_live": 3.27946,
+    "ce_const": 4.05136,
+    "ce_table": 3.45714,
+    "stake": 0.7719,
+    "ceiling": 0.76982
+   },
+   "frozen": {
+    "ce_live": 5.36489,
+    "ce_const": 5.91614,
+    "ce_table": 5.36489,
+    "stake": 0.55125,
+    "ceiling": 1.0
+   },
+   "context_share": 0.23018
+  },
+  "mlp3": {
+   "live": {
+    "ce_live": 3.27946,
+    "ce_const": 3.89959,
+    "ce_table": 3.48072,
+    "stake": 0.62013,
+    "ceiling": 0.67546
+   },
+   "frozen": {
+    "ce_live": 5.67114,
+    "ce_const": 7.73782,
+    "ce_table": 5.67114,
+    "stake": 2.06668,
+    "ceiling": 1.0
+   },
+   "context_share": 0.32454
+  }
+ },
+ "context_shares": {
+  "mlp0": 0.09735,
+  "mlp1": 0.0399,
+  "mlp2": 0.23018,
+  "mlp3": 0.32454
+ },
+ "predictions": {
+  "pred_a_instrument_holds_all_sites": true,
+  "pred_b_context_share_grows_ge_5pts": true,
+  "pred_c_all_stakes_ge_05_nats": true
+ },
+ "runtime_s": 68.1
+}
