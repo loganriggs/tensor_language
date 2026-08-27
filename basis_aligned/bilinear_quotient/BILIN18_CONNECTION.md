@@ -40938,3 +40938,47 @@ ceiling-shift-under-freeze.
 attn0 makes mlp1 MORE important. Attributions computed across conditions with different
 stakes are not guaranteed to compose, which is the other reason the 38% sum is reported
 raw rather than normalised to 100%.
+
+## §1664 — the front band is a LOW-RANK token function: rank 64 of 1152 buys 92–98% of each table
+
+`front_table_rank_structure.py`. This is the measurement discarded at §1655 (unweighted
+mean constant, zero fallback for unseen tokens), redone under the §1661 protocol. The SVD
+is centred on the position-weighted mean with rows scaled by sqrt(token count), so the
+truncation minimises the POSITION-weighted error — the error CE actually sees — rather
+than treating a hapax as equal to a token appearing ten thousand times. 3-for-3.
+
+All four full-table ceilings replicate §1662 **to the digit** (90.27 / 96.01 / 76.98 /
+67.55), which is the run's internal consistency check.
+
+```
+rank      mlp0            mlp1            mlp2            mlp3        (% of that site's full table)
+   1     65.0%           23.4%           53.0%           59.7%
+   8     77.2%           66.6%           66.0%           83.4%
+  16     85.6%           88.5%           75.6%           90.7%
+  23     89.2%           92.0%           80.1%           92.3%
+  64     96.5%           97.0%           91.7%           97.5%
+ 128     98.9%           99.1%           97.2%          100.8%
+```
+
+**Rank 64 of 1152 recovers 91.7–97.5% at every site.** The front MLPs are not
+high-dimensional token functions; they are low-rank ones. Combined with §1662, the whole
+front band — 9.25 nats of mean-ablation stake — is reproduced to roughly 85% of its live
+behaviour by four rank-64 lookup tables, about 1.8M reals against the modules' own
+parameter count.
+
+**§780 replicates under the corrected protocol.** §780 put mlp0's output at effective rank
+22.7. Rank 23 here reaches **89.2%** of mlp0's full table. The §1655 run that I discarded
+for two bugs reported 85.9% for the same quantity; the corrected protocol moves it by 3.3
+points and does not overturn it. Worth recording: those bugs were coverage-related and the
+rank *curve shape* survived them, even though the *ceiling levels* did not.
+
+**mlp1 is again the odd one, and in the direction that fits §1663.** Every other front site
+has a large single dominant direction — rank 1 alone buys 53–65% of the table. mlp1 gets
+only **23.4%** from rank 1 and needs rank 16 to reach 88%. It is the most tableable module
+in the band (96.01%) and simultaneously the one whose table is least concentrated in one
+direction. mlp1 computes many token features, not one big one.
+
+**Reported, not interpreted:** mlp3 at rank 128 scores 100.75% of its own full table.
+Truncation slightly BEATS the full table there. The plain reading is that low-rank
+truncation denoises the per-token means of rarely-seen tokens, and 0.75 points is within
+what that would produce; it is not evidence of anything and is not being claimed as such.
