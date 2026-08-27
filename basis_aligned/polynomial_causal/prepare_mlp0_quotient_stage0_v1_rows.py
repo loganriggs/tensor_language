@@ -216,20 +216,28 @@ def freeze() -> dict[str, Any]:
     return receipt
 
 
-def load_frozen_rows(path: Path = RECEIPT) -> tuple[dict[str, Any], dict[str, torch.Tensor]]:
+def load_frozen_role(role: str, path: Path = RECEIPT) -> tuple[dict[str, Any], torch.Tensor]:
     receipt = json.loads(path.read_text())
     if (receipt.get("status") != "frozen_before_any_v1_model_forward"
             or receipt.get("authorized_for_scored_experiments") is not True
             or not all(receipt.get("disjointness_gates", {}).values())):
         raise RuntimeError("MLP0 v1 row receipt is not authoritative")
-    loaded = {}
-    for role, spec in (("fit", FIT_SPEC), ("eval", EVAL_SPEC)):
-        entry = receipt.get("entries", {}).get(role, {})
-        rows = torch.load(entry.get("cache_path", ""), map_location="cpu", weights_only=True)
-        if (tuple(rows.shape) != (spec[0], 513) or rows.dtype != torch.long
-                or tensor_sha256(rows) != entry.get("tensor_raw_sha256")):
-            raise RuntimeError(f"frozen MLP0 {role} rows changed")
-        loaded[role] = rows
+    specs = {"fit": FIT_SPEC, "eval": EVAL_SPEC}
+    if role not in specs:
+        raise ValueError(f"unknown MLP0 row role: {role}")
+    spec = specs[role]
+    entry = receipt.get("entries", {}).get(role, {})
+    rows = torch.load(entry.get("cache_path", ""), map_location="cpu", weights_only=True)
+    if (tuple(rows.shape) != (spec[0], 513) or rows.dtype != torch.long
+            or tensor_sha256(rows) != entry.get("tensor_raw_sha256")):
+        raise RuntimeError(f"frozen MLP0 {role} rows changed")
+    return receipt, rows
+
+
+def load_frozen_rows(path: Path = RECEIPT) -> tuple[dict[str, Any], dict[str, torch.Tensor]]:
+    receipt, fit = load_frozen_role("fit", path)
+    _, evaluate = load_frozen_role("eval", path)
+    loaded = {"fit": fit, "eval": evaluate}
     return receipt, loaded
 
 
