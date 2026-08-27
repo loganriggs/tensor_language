@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "experiment": "early_mlp_state_complete_compiler_v2",
+  "status": "preregistered_not_run",
+  "objective": "Separate missing live plank state, wrong Euclidean objective, and insufficient affine grammar while compiling the admitted MLP0/1 causal subspaces into a poison-gated executable tensor program.",
+  "scope_guardrail": "This is a new isolated experiment. It preserves v1 and its erratum, does not update the base model, ship, or v3 bases, and earns no executable or whole-model recovery until a clean last-written v2 authority binds a final result. Full-native K=4608 is an executable adequacy ceiling, not a simplicity claim.",
+  "motivation": {
+    "v1_descriptive_failure": "QNN gained 0.010115 nats, NQN lost 0.098182, and QQN lost 0.050548; the dominant failure was MLP1.",
+    "missing_state": "v1 predicted B^T(f_original(z)-mo) from z alone even though live deployed mo contains token/context state not mathematically determined by z.",
+    "correct_interface": "p_l(z)=f_l_original(z) B_l; c_l(z,mo)=p_l(z)-mo B_l; delta_l=c_l B_l^T.",
+    "wrong_loss_hypothesis": "v3 effect retention exceeded basis energy capture in all 12 backgrounds, while v1 MLP1 had higher coefficient R2 but worse causal behavior. Variance/L2 may emphasize behaviorally weak directions.",
+    "wrong_grammar_hypothesis": "The original MLP is exactly bilinear, so a native product program represents p_l(z) exactly at K=4608 and may compress at smaller K where affine prediction fails."
+  },
+  "pinned_prior": {
+    "ship_realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e",
+    "v3_basis_artifact_sha256": "0eee01f39087548a479486d068404f78c4bdc2fd930932add162212da31fe4d9",
+    "v3_basis_receipt_sha256": "b81adb4c78255613997de4cbfc8ffd9e8eec233b40950915a14005ba3efcba0f",
+    "v3_authority_sha256": "38cf5a349e4426b4ed3227ad11f37499ffa9c3959de5d85d606580aa32c39f1e",
+    "v1_authority_sha256": "2c1ad6ca099d4910f83531fbc958f070da600f554799947c5118284e7b939e28",
+    "v1_result_sha256": "f189cd4f98641ef54ba15687f7368d853233c5adb12cd98c8b6a2be798ec2051",
+    "v1_erratum_sha256": "0196b5c0402b3a0be03b613453e7976ed5f9f0cfa75565e4c1dfa8d8871251b4",
+    "v1_role": "Frozen negative/descriptive anchor only; no v1 final row or saved registered boolean is reused for fitting, selection, thresholds, or v2 inference."
+  },
+  "fresh_rows": {
+    "authority": "new versioned receipt from the pinned ordered FineWeb first parquet",
+    "compiler_fit": {"n": 480, "skip": 27000},
+    "compiler_validation": {"n": 192, "skip": 31000},
+    "compiler_final": {"n": 192, "skip": 35000},
+    "model_prefix_length": 257,
+    "requirements": [
+      "All roles have row-aligned document/chunk provenance.",
+      "All v2 roles are pairwise document/full-row/prefix-32 disjoint.",
+      "All v2 roles are document/full-row/prefix-32 disjoint from every v1 and earlier oracle role.",
+      "The row receipt is committed before label capture.",
+      "The token-frequency strata are computed from compiler_validation, serialized and hashed before the first compiler_final forward."
+    ]
+  },
+  "native_algebra": {
+    "type_gate": "Fail closed unless each target block.mlp is the ungated bilinear form f(z)=D[(Lz) odot (Rz)]+b with exactly 4608 products. If gated=True, SiLU, or any additional nonlinearity is present, no native-product result is scored.",
+    "model": "For K_full=4608, f(z)=((z L^T) odot (z R^T)) D^T + b, using PyTorch weight orientation L,R:[K_full,1152], D:[1152,K_full].",
+    "projected_decoder": "Q=D^T B with shape [K_full,64]; beta=b B.",
+    "selected_program": "p_S(z)=sum_{i in S} Q_i (L_i z)(R_i z)+beta.",
+    "state_complete_correction": "c_S(z,mo)=p_S(z)-mo B; delta_S=c_S B^T.",
+    "full_identity_gate": "At S={0,...,4607}, p_S(z) must match block.mlp(z) B on held-out canary tensors before any selection, and the poison-gated full-native arm must match the live O physical correction and validation row CE within preregistered float tolerances.",
+    "product_gauge": "Unit-normalize stored L_i and R_i, absorb the positive norm product into Q_i, and fix the reciprocal joint sign by making the largest-absolute L_i entry positive. Support scores and prices must be invariant to L_i->a L_i,R_i->a^-1 R_i and to swapping L_i/R_i. Price both rows and Q_i; checkpoint pointers are forbidden."
+  },
+  "causal_objective": {
+    "fit_context_site0": "OON teacher states: projected-oracle MLP0 and MLP1, deployed MLP2-N, so the adjoint measures what a correct downstream MLP1/suffix reads.",
+    "fit_context_site1": "After validation freezes Q0, regenerate site-1 fit states autoregressively under Q0 and capture adjoints in QON with projected-oracle MLP1 and deployed MLP2-N.",
+    "adjoint": "For each fit token capture g_t=d CE_suffix/d c_t at the frozen teacher state with one frozen-suffix backward. MLP2-E is forbidden in fitting and remains a held-out intervention background.",
+    "loss": "For projected-output error e_t=p_hat(z_t)-p(z_t), L_causal=mean((g_t^T e_t)^2)/mean(||g_t||_2^2)+0.05*mean(||e_t||_2^2)/64. The exact -mo B term cancels from e_t.",
+    "fit_only_hygiene": "Gradient clipping threshold is the compiler_fit 99th percentile of ||g_t|| and is frozen before validation. No validation or final label, logit, gradient, or target coefficient enters a fit objective.",
+    "confirmatory_metric": "Selection and final confirmation use direct no-grad suffix response and token-weighted teacher KL ratios, not the adjoint surrogate."
+  },
+  "causal_direction_audit": {
+    "site": 1,
+    "split": "compiler_validation only",
+    "background": "selected/frozen state-complete g0 upstream and deployed MLP2",
+    "measurement": "For each of 64 basis directions, score the loss of omitting that direction from the full projected MLP1 oracle correction, using paired row CE and no final rows.",
+    "error_measurement": "On the identical live validation states, record each candidate predictor's coefficient error variance per direction.",
+    "registered_prediction": "Spearman correlation between conditional omission loss per unit target coefficient energy and v1-style affine error variance is positive at MLP1.",
+    "weight_rule": "w_j is max(abs(conditional omission loss_j)/max(target coefficient second moment_j,1e-12), the preregistered 5th-percentile positive floor), normalized to mean one and frozen in a strata/causal-weight receipt before final.",
+    "interpretation": "The audit diagnoses the loss metric; it is not a final causal claim and cannot itself add recovery credit."
+  },
+  "candidate_families": {
+    "A_v1_like_z_only_affine_euclidean": {
+      "fit_target": "c_l(z,mo)=p_l(z)-mo B_l, regressed from z alone",
+      "runtime": "c_hat_l(z); live mo is deliberately omitted",
+      "rank_grid": [8, 16, 32, 64],
+      "lambda_grid": [0.0, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0],
+      "fit_loss": "Euclidean coefficient MSE",
+      "purpose": "Fresh descriptive negative-anchor cell. B-A isolates the missing live-mo state interface; A is never eligible to be the selected compiler."
+    },
+    "B_state_complete_affine_euclidean": {
+      "fit_target": "p_l(z)",
+      "runtime": "p_hat_l(z)-mo B_l",
+      "rank_grid": [8, 16, 32, 64],
+      "lambda_grid": [0.0, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0],
+      "fit_loss": "Euclidean projected-output coefficient MSE",
+      "purpose": "Correct only the state interface while retaining the affine grammar and Euclidean objective."
+    },
+    "C_state_complete_affine_causal": {
+      "fit_target": "p_l(z)",
+      "runtime": "p_hat_l(z)-mo B_l",
+      "rank_grid": [8, 16, 32, 64],
+      "lambda_grid": [0.0, 1e-06, 1e-05, 0.0001, 0.001, 0.01, 0.1, 1.0],
+      "fit_loss": "The preregistered empirical-Fisher causal objective with isotropic floor 0.05.",
+      "purpose": "C-B isolates the fitting objective within the affine grammar."
+    },
+    "D_state_complete_native_euclidean": {
+      "K_grid": [8, 16, 32, 64, 128, 256],
+      "fit": "Optimize 4608 scalar term gates under Euclidean projected-output MSE along a frozen L1 path, choose a support of size K, then refit scalar amplitudes on that fixed support. Absorb amplitudes into serialized Q_i.",
+      "runtime": "p_hat_l(z)-mo B_l",
+      "purpose": "D-B isolates native bilinear grammar under the Euclidean objective."
+    },
+    "E_state_complete_native_causal": {
+      "K_grid": [8, 16, 32, 64, 128, 256],
+      "fit": "Use the identical gate/support/refit solver as D under the preregistered empirical-Fisher causal objective; absorb amplitudes into serialized Q_i.",
+      "runtime": "p_hat_l(z)-mo B_l",
+      "purpose": "E-D isolates objective within native grammar; E-C isolates grammar under the causal objective."
+    },
+    "full_native_ceiling_control": {
+      "K": 4608,
+      "selection_eligible_for_simplicity": false,
+      "fit": "Unit amplitudes and exact beta=B^T b; no fitting.",
+      "purpose": "Fail-closed exact executable adequacy identity and causal ceiling. It is a control, not a selectable program and is never reported as compressed."
+    },
+    "causal_ablation_contrasts": "B-A isolates missing live state; average((C-B),(E-D)) isolates objective; average((D-B),(E-C)) isolates grammar; E-D-C+B is the descriptive interaction.",
+    "deferred": "Learned paired/CP products are deferred until v2 separates state and loss. They are licensed next only if full-native passes and every K<=256 native candidate fails."
+  },
+  "sequential_selection": {
+    "site0": "Fit/build every A-E candidate on compiler_fit baseline states. Score candidate MLP0 alone by direct suffix response on compiler_validation with deployed MLP1/2. Freeze the B-E candidate of smallest standalone price within 1% of the best positive validation teacher-KL recovery R0, subject to no copy worsening above 0.01. A and full-native are controls and cannot win. If no B-E candidate has positive recovery, stop with a clean selection failure; do not substitute full-native.",
+    "site1": "Actually deploy frozen Q0 while regenerating compiler_fit/validation MLP1 states. Original MLP0 is poisoned. Fit/build every A-E MLP1 candidate on identical Q0 states. Freeze the B-E candidate of smallest standalone price within 1% of the best positive validation teacher-KL recovery R1, subject to no copy worsening above 0.01. A and full-native are controls and cannot win. If none is positive, stop with a clean selection failure.",
+    "teacher_kl_ratios": "R0=KL(OON||QON)/KL(OON||NON); R1=KL(QON||QQN)/KL(QON||QNN); Rjoint=KL(OON||QQN)/KL(OON||NNN). All denominators must be positive. Lower is better and ratios are recomputed directly from frozen teacher/student logits.",
+    "tie_break": "Fewer standalone bits, then fewer Hadamard products, then family order B,C,D,E, then smaller rank/K, then larger lambda.",
+    "final_rule": "The selected g0/g1 pair, all program tensors, causal weights, token strata, prices, and receipts are frozen atomically before any compiler_final forward. Final is scored once with no fallback or tuning."
+  },
+  "controls": {
+    "old_v1_anchor": "The frozen v1 z-only affine program may be rescored descriptively on validation only; it is never a selection winner or final arm.",
+    "mean": "Train mean of p_l(z), converted at runtime by subtracting live mo B_l.",
+    "shuffle": "Permute compiler_fit p labels only by equal-size document blocks. Validation targets remain unpermuted; hash the train permutation. Apply the identical family/rank/lambda selection rule.",
+    "oracle": "Live projected O is a causal ceiling only."
+  },
+  "final_evaluation": {
+    "causal_separation_bank": "Freeze one validation representative per A-E cell and score QNN,NQN,QQN for each on compiler_final against one shared NNN. This bank identifies mechanism; no final result changes the representatives.",
+    "lattice": "For the validation-selected B-E program only, score the complete {N,Q,O}x{N,Q,O}x{N,E} 18-arm lattice plus state-complete mean and literal shuffle controls at MLP2=N.",
+    "poison": "Every N/Q site must make zero original MLP0/1 calls. Only O sites and E at MLP2 may call the corresponding original module.",
+    "statistics": "Paired row-weighted source-document cluster bootstrap, 2000 shared draws. Recompute maxima, ratios, and nonlinear margins within every draw.",
+    "paired_mechanism_contrasts": "In one shared document-cluster bootstrap, compute Delta_state=gain(B)-gain(A), Delta_objective=((gain(C)-gain(B))+(gain(E)-gain(D)))/2, Delta_grammar=((gain(D)-gain(B))+(gain(E)-gain(C)))/2, and descriptive interaction gain(E)-gain(D)-gain(C)+gain(B), using QQN gains. Apply Holm-adjusted 95% inference to the first three. A positive selected winner alone does not identify a mechanism.",
+    "primary_gates": [
+      "All pins/integrity/poison/full-native identity gates pass.",
+      "Final direct-response R0,R1,Rjoint are each <=0.50 with positive oracle KL denominators; <=0.25 is reported as the stronger admission rung.",
+      "QNN-NNN>0, QQN-QNN>0, and QQN-max(QNN,NQN)>0 each have positive points and 95% lower bounds.",
+      "(QQN-NNN)-0.5*(OON-NNN)>0 with positive OON-NNN and positive 95% lower bound.",
+      "All four O-neighbor reuse effects have positive points and 95% lower bounds for a modular-site claim; otherwise only an ordered Q0-to-Q1 package claim is eligible.",
+      "QQN beats mean and literal shuffle controls with positive lower bounds.",
+      "QQE-NNE>0 with positive 95% lower bound; copy collateral worsening is <=0.01 and validation-frozen novel-frequency collateral worsening is <=0.01."
+    ],
+    "mlp2_diagnostic": "Report QQE-QQN but do not make it conjunctive."
+  },
+  "gauge_and_integrity": {
+    "output_gauge": "Use a fixed signed-diagonal orthogonal gauge. After float32 serialization require max absolute physical-correction drift <=2e-6 and max absolute row-CE drift <=2e-6; store both observed drifts and never label this bit-identical.",
+    "native_reciprocal_gauge": "Require balanced canonical L/R rows and invariant program output/price under a pre-serialization reciprocal rescaling canary.",
+    "integrity_subgates": [
+      "all pins and protected snapshots unchanged",
+      "HEAD equals origin/main before label capture",
+      "complete committed clean source closure including authoritative runner tests",
+      "fresh-row and document/content disjointness",
+      "validation-frozen token-strata and causal-weight receipts",
+      "full-native algebra/physical/validation-CE adequacy",
+      "program artifact excludes tokens,row indices,labels,cached activations,and checkpoint pointers",
+      "all poison counters exact",
+      "hook identity restored and global correction state inert",
+      "baseline row CE bit-identical",
+      "component tree unchanged",
+      "signed-gauge replay within both preregistered 2e-6 tolerances",
+      "pending result/manifest/program/receipt hashes cross-bound"
+    ],
+    "aggregation": "Store every subgate separately and set integrity=all(integrity_subgates.values()). Any integrity failure writes a nonauthoritative failure record; statistical failure with integrity true remains authoritative."
+  },
+  "pricing_and_reports": {
+    "native_standalone_reals_per_site": "1152*64 basis + K*(2*1152+64) + 64 beta, plus serialized indices and metadata.",
+    "native_amortized_reals_per_site": "Omit the basis only under the explicit admitted-basis-library assumption.",
+    "registered_native_ladder_reals": {"K8": 92736, "K16": 111680, "K32": 149568, "K64": 225344, "K128": 376896, "K256": 680000, "K4608_control": 10985536},
+    "K32_price_note": "Ignoring tiny metadata, K=32 costs 149,568 reals including basis, approximately price-matched to v1 rank-64 affine at 153,920. Full K=4608 is about 69% of the 15,926,400-real original MLP and is only an adequacy control.",
+    "runtime_note": "Native runtime multiplies are 147456+2368*K plus K Hadamard products when B^T mo and B reconstruction are charged. Corrected affine rank64 costs 225280 multiplies/site; the live-state correction must not be omitted from runtime price.",
+    "required": ["standalone and amortized bits", "actual artifact bytes", "multiply/FLOP and Hadamard counts", "runtime", "peak GPU and CPU memory", "ridge condition numbers", "float64-to-float32 replay", "serialized int8 or explicit no-quantization status", "search budget", "full original comparator"]
+  },
+  "authority_lifecycle": "Commit/push prereg before row harvest; commit/push row and validation-receipt sources before labels; freeze rows, strata, causal weights, and programs before final; write nonauthorizing result and manifest with pending hashes; revalidate all pins/protected paths; write authority last. Never overwrite any v1 or v2 artifact; retry requires a new namespace."
+}
