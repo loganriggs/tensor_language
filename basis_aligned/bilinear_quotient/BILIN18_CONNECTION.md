@@ -38125,3 +38125,54 @@ registered run on DISJOINT classes is required before it means anything.
 **Standing position unchanged:** the null must be measured per claim with a
 matched-class, matched-rank, matched-currency random arm. §1615 does not lighten
 that tax; it only makes the NOISE component of it predictable.
+
+## §1616 CONFIRMATORY RUN ON DISJOINT CLASSES (2-for-3): the SNR candidate COLLAPSES (.733 -> .079) — and so does §1614's n-correlation (.673 -> .018). Only the 1/sqrt(n) NOISE-FLOOR LAW replicates (.9879)
+
+**Setup** (snr_replication, 242 s). Pre-registered confirmatory test of §1615's
+POST-HOC SNR candidate, on 10 classes **disjoint** from the §1615 discovery set
+(verified: zero overlap), spanning n = 115-7394 against the discovery range
+118-6911. Everything else identical: random rank-2 basis, TOP 4, absolute-mass
+statistic, mlp11, curated_rows.pt 3 x 333, seed 1729, matched shuffled control.
+
+```
+quantity                 discovery      disjoint      verdict
+rho(SNR, share)            .7333          .0788  p=.84   COLLAPSES
+rho(n, share)              .6727          .0182  p=.96   COLLAPSES
+rho(DEV, share)            .2242          .1879  p=.60   stays null (consistent)
+rho(1/sqrt n, shuffled)   1.0000          .9879  p=0.0   REPLICATES
+```
+
+**Scored as written:**
+- **pred_a FAILED** — SNR rho **.0788** against a .60 bar. The post-hoc candidate
+  does not survive contact with disjoint classes.
+- **pred_b PASSED but VACUOUSLY** — |.0788| > |.0182| is true, so SNR technically
+  "beats n". Both are indistinguishable from zero. **Recorded as a pass because
+  the bar was registered that way, and flagged as meaningless: I wrote a
+  comparative bar without a floor, so it can be satisfied by two null quantities.
+  A future version must require the winner to be significant in its own right.**
+- **pred_c PASSED** — the noise-floor law reproduces at **.9879, p = 0.0**.
+
+**§1614 IS CORRECTED. Its headline does not generalise.** §1614 scored
+`rho(n, null) = .6727 at p = .0192` as a PASS and I mirrored it to the registry as
+"S1613's underpowered association is REAL at power". On disjoint classes the same
+measurement gives **.0182 at p = .96**. The association was a property of that
+particular set of ten classes, not of the method. **§1614's pred_a result is
+withdrawn**; what survives from §1614 is its NEGATIVE finding — that equalising n
+removes only 6.1% of the class spread — which never depended on the correlation.
+
+**What this arc actually established, after five sections and four failed
+hypotheses:** the null share is class-dependent and must be measured per claim
+(§1613, unaffected — that rests on the observed spread, not on any predictor).
+Nothing predicts it: not n (§1614, now withdrawn), not position or document
+structure (§1614n), not deviation magnitude (§1615), not signal-to-noise (§1616).
+The one law that holds is about the NOISE, not the signal: the estimation-noise
+floor scales as **1/sqrt(n)** at rho .988-1.000 across two disjoint 10-class sets.
+
+**The methodological lesson is the strongest result here.** A post-hoc candidate
+selected from four options on ten points reached rho .733 at p .020 — a
+conventionally "significant" number — and evaporated to .079 on fresh classes. So
+did a correlation that had passed a registered bar at p .019. **On N=10 with
+freely chosen predictors, p < .05 carries almost no information.** Every
+correlational claim in this program on ~10 units needs a disjoint confirmatory set
+before it is quoted, and §1615's decision to mark the SNR result unscored is what
+kept it out of the registry.

@@ -1,0 +1,118 @@
+{
+ "config": {
+  "site": 11,
+  "rank": 2,
+  "top": 4,
+  "seed": 1729,
+  "chunks": 3,
+  "rows_per_chunk": 333,
+  "row_source": "curated_rows.pt",
+  "rows_are_fresh": false,
+  "classes": [
+   "dollar",
+   "about",
+   "not",
+   "close_paren",
+   "open_quote",
+   "open_paren",
+   "with",
+   "that",
+   "hyphen",
+   "comma"
+  ],
+  "arm": "RANDOM basis only"
+ },
+ "per_class": {
+  "dollar": {
+   "share": 0.4638,
+   "dev": 2406.768,
+   "dev_shuffled": 1080.2344,
+   "n": 115
+  },
+  "about": {
+   "share": 0.565,
+   "dev": 1718.5702,
+   "dev_shuffled": 650.5361,
+   "n": 309
+  },
+  "not": {
+   "share": 0.6824,
+   "dev": 2082.8956,
+   "dev_shuffled": 544.7766,
+   "n": 497
+  },
+  "close_paren": {
+   "share": 0.5212,
+   "dev": 2739.1342,
+   "dev_shuffled": 527.6624,
+   "n": 537
+  },
+  "open_quote": {
+   "share": 0.519,
+   "dev": 1769.6664,
+   "dev_shuffled": 539.2347,
+   "n": 608
+  },
+  "open_paren": {
+   "share": 0.5595,
+   "dev": 1156.5517,
+   "dev_shuffled": 425.2819,
+   "n": 863
+  },
+  "with": {
+   "share": 0.512,
+   "dev": 1461.7779,
+   "dev_shuffled": 361.2992,
+   "n": 1051
+  },
+  "that": {
+   "share": 0.5821,
+   "dev": 1379.8515,
+   "dev_shuffled": 275.2911,
+   "n": 1564
+  },
+  "hyphen": {
+   "share": 0.6928,
+   "dev": 1904.3398,
+   "dev_shuffled": 270.9346,
+   "n": 2058
+  },
+  "comma": {
+   "share": 0.4529,
+   "dev": 800.5569,
+   "dev_shuffled": 113.6438,
+   "n": 7394
+  }
+ },
+ "spearman": {
+  "snr_vs_share": {
+   "rho": 0.0788,
+   "p": 0.8356
+  },
+  "n_vs_share": {
+   "rho": 0.0182,
+   "p": 0.9601
+  },
+  "dev_vs_share": {
+   "rho": 0.1879,
+   "p": 0.6036
+  },
+  "inv_sqrt_n_vs_shuffled": {
+   "rho": 0.9879,
+   "p": 0.0
+  }
+ },
+ "discovery_reference": {
+  "S1615_snr_posthoc": 0.7333,
+  "S1614_n": 0.6727,
+  "S1615_dev_registered": 0.2242,
+  "S1615_floor_law": 1.0
+ },
+ "classes_dev_above_shuffled": 10,
+ "predictions": {
+  "pred_a_snr_replicates_ge60": false,
+  "pred_b_snr_beats_n": true,
+  "pred_c_noise_floor_law_ge95": true
+ },
+ "runtime_s": 242.3
+}

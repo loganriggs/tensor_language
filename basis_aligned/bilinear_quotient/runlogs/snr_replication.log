@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+  dollar     n=  115 share=0.4638 DEV=  2406.77 shuf=  1080.23 ratio=  2.23x
+  about      n=  309 share=0.5650 DEV=  1718.57 shuf=   650.54 ratio=  2.64x
+  not        n=  497 share=0.6824 DEV=  2082.90 shuf=   544.78 ratio=  3.82x
+  close_paren n=  537 share=0.5212 DEV=  2739.13 shuf=   527.66 ratio=  5.19x
+  open_quote n=  608 share=0.5190 DEV=  1769.67 shuf=   539.23 ratio=  3.28x
+  open_paren n=  863 share=0.5595 DEV=  1156.55 shuf=   425.28 ratio=  2.72x
+  with       n= 1051 share=0.5120 DEV=  1461.78 shuf=   361.30 ratio=  4.05x
+  that       n= 1564 share=0.5821 DEV=  1379.85 shuf=   275.29 ratio=  5.01x
+  hyphen     n= 2058 share=0.6928 DEV=  1904.34 shuf=   270.93 ratio=  7.03x
+  comma      n= 7394 share=0.4529 DEV=   800.56 shuf=   113.64 ratio=  7.04x
+
+  rho(SNR, share)      = 0.0788 p=0.8356   (S1615 post-hoc .7333)
+  rho(n, share)        = 0.0182 p=0.9601   (S1614 .6727)
+  rho(DEV, share)      = 0.1879 p=0.6036   (S1615 registered .2242, FAILED)
+  rho(1/sqrt n, shuf)  = 0.9879 p=0.0   (S1615 law 1.000)
+
+  rho(DEV, share)=0.1879 p=0.6036 | rho(n, share)=0.0182 p=0.9601 (S1614 n rho .6727)
+  DEV above shuffled control in 10/10 classes
+pred_a False | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/snr_replication_results.json (242.3s)
