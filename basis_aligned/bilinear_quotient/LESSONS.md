@@ -173,3 +173,64 @@ activation (norm max/mean can still be ~1.5) — they are different diagnostics.
 - Path-patching a residual contribution requires an EXACT running ledger under lambda-mixing: rescale every stored contribution by lambda0 each layer, credit lambda1*x0 to the embedding, and ASSERT sum(contrib)==x on the first batch BEFORE patching (S1426: unscaled ledger over-subtracted 30x at depth; the docstring even had the caveat and reasoned it away).
 - Terminology (user, 2026-08-25): say "inputs"/"reads", not "diet"; define any abbreviation (PC = principal component) at first use in writeups. Variance-PCs are a computational convenience, NOT a claim about a module's natural features (S1425/1429: two basis families lost to random — the natural basis question is open and belongs to each module's OWN weight structure).
 - Anchors are FROZEN inputs, never recomputed inside experiment scripts (S1438: in-script "mean" arm computed after residualization = near-zero anchor, silently wrong; the sweep's frozen ce_mean/ce_opt on identical rows+mask caught it). This is TheseusBench Invariant 4, learned by stepping on it.
+
+## 11. Consult the repo's record before acting on your model of the situation (2026-08-27 session)
+A fresh session's first instinct is to *build*. This repo has already solved
+most of what a fresh session wants to build, and the cost of checking is one
+grep. Three failures in one hour traced to the same root: producing output
+before consulting the record.
+- **Example:** after a recycle, the driver wrote `bootstrap.sh` (duplicating
+  `ops/restore.sh`), `msg.sh` + `watch_channel.sh` (duplicating
+  `AGENT_BOARD.md`), and nearly committed a SECOND message channel — which
+  would have split Claude<->Codex traffic so that each agent saw half the
+  messages. `SWARM_RUNBOOK.md §0` is literally a new-session bootstrap
+  checklist and was found ~40 min in, after the redundant work. Also in the
+  same hour: told Codex its oracle arm was probably circular (checking §1515
+  showed it was not — greedy explicitly BEAT the weights-only top-5), and
+  flagged a falsifiability risk in Codex's registered bar that a 40-second
+  weights-only measurement later refuted (half-oracle .404 vs random p95 .117).
+- **Near non-example:** the tmux two-agent session (`tools/dev-session.sh`) was
+  genuinely absent and worth adding — the rule is "check first", not "never
+  build". The check is what distinguishes the two cases, and it is cheap.
+- **Standing form:** before writing any script, tool, or doc, grep
+  SWARM_RUNBOOK / LESSONS / ops/ / BENCHMARK_BACKLOG for the thing you are
+  about to create. Before flagging a concern to another agent, ask whether it
+  is measurable in under two minutes — if so, measure it and report the number
+  instead of the worry. A retracted flag costs the other agent a design detour.
+
+## 12. A watcher's own failure modes are the ones nobody watches (2026-08-27 session)
+Monitors get written for the *content* of their filters and shipped without
+testing their *lifecycle*. Both failure directions cost real time in one hour.
+- **Example (too loud):** `watch_runs.sh` announced every pre-existing log in
+  `runlogs/` as "new" — ~1000 events on a freshly cloned repo, which
+  rate-limited the monitor and buried the real signal. Fix: seed all existing
+  files SILENTLY at startup; only post-startup files are events.
+- **Example (too quiet, worse):** `watch_board.sh` used `git pull --rebase`,
+  which FAILS whenever the bqrunner lanes have result JSONs and runlogs dirty
+  — i.e. exactly whenever experiments are running and Codex is most likely to
+  post. On failure it read a stale local file and went silent, which is
+  indistinguishable from "nothing posted". Fix: `git fetch` +
+  `git show origin/main:AGENT_BOARD.md`, which never touches the working tree.
+- **Near non-example:** a watcher that is merely *chatty* about real events is
+  fine; the failure is announcing NON-events (startup backlog) or swallowing
+  real ones. Test both explicitly before arming: run it against the existing
+  state (does it flood?) and against the degraded state — dirty tree, missing
+  file, no network (does it go quiet when it should speak?).
+
+## 13. Never take a fixed absolute tolerance to a spectrum (§1601 era, 2026-08-27)
+Eigenvalue "zeros" sit at the data's noise floor, which scales with the
+spectrum. A constant threshold is wrong at every scale but one. This trap fired
+TWICE in one hour, independently, in two agents' code.
+- **Example (driver):** checking Codex's inertia bound, `tol=1e-8` on a rank-2
+  matrix with eigs (+144.9, −73.8) in float32 reported inertia **(6,5)** — 
+  float32 noise at scale ~145 is ~1e-3, five orders above the threshold.
+- **Example (Codex):** `scalar_quadratic_bilinear_factors` derives
+  `tolerance = finfo(matrix.dtype).eps * max(shape) * scale` AFTER
+  `matrix.double()`, so eps is always float64's 2.2e-16 — read off the STORAGE
+  dtype, never the data's actual precision. A form computed from bilin18's
+  float32 weights prices at **576 gates instead of 1**, and fails silently: the
+  returned factorization still reconstructs to ~1e-13.
+- **Rule:** scale the tolerance by `max|eig|` AND by the precision the data
+  actually carries (the dtype it was COMPUTED in, not the one it is stored in).
+  Upcasting does not clean float32 noise. Test any spectral code on a dense,
+  float32-derived matrix at real width (D=1152), never only on exact diagonals.
