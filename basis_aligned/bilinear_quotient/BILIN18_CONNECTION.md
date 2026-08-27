@@ -41721,3 +41721,43 @@ difference in what the ratio is a fraction of.
 **Open question this leaves.** §1682 priced attention's OUTPUT WRITE at 16.38% position-local
 while passing `v1` — the value embedding threaded to the blocks above — through unchanged. So
 the attention account has a second path that has never been measured. Taking that as rung 3.
+
+## §1684 — attention's v1 path is worth 0.7066 nats, and my joint arm was degenerate by construction
+
+`attn_v1_path.py`, rung 3 — the question §1683 named. Each block runs `x, v1 = blk(x, v1, x0)`,
+so attention contributes along two paths, and §1682 measured only the residual write. All
+three arms use the position-weighted mean as the ablation constant, matched, because
+`opt_ablation_consts_all.pt` has no v1 entry.
+
+```
+ablate            CE          stake
+write only      6.87610      3.5840 nats
+v1 only         3.99861      0.7066 nats
+both            6.87610      3.5840 nats   <- identical to write-only, to five decimals
+```
+
+**The new number: attention's v1 path is worth 0.7066 nats**, about a fifth of the write
+path's 3.5840. That is the first measurement of it in this ledger, and it is what the run was
+for. (§1682's 3.5570 for the write is the optimal-constant figure and is a cross-reference,
+not a comparator — a mean constant is weaker, so every stake here is larger; the +0.027
+difference is the expected direction and size.)
+
+**The joint arm is degenerate and I should have seen it before running.** With all eighteen
+attention output writes pinned to constants, v1 has no causal route to the logits at all —
+it enters the model only through later attention outputs, every one of which is now a
+constant. So "ablate both" is identically "ablate the write", and the CEs agree to five
+decimals because they are the same computation. **pred_b — "the two paths are not additive by
+≥10%" — passed on a structural identity, not on evidence.** It is the LESSONS 29 shape again
+in a new place: a prediction that constrains a RELATIONSHIP between arms is satisfied for
+free when one arm is nested inside the other, and no instrument check catches that because
+each arm individually computes exactly what it claims to.
+
+So the redundancy question the arm was meant to answer is **not** answered, and no
+composition claim is made. What can be said is architectural rather than discovered: v1's
+influence is entirely mediated by the attention writes above it, which follows from the
+wiring and is not a finding — the same category error I corrected at §1662, avoided here by
+saying it up front.
+
+**The usable decomposition is therefore nested, not additive:** v1 is worth 0.7066 nats
+*given a live write path*, and nothing at all without one. Anyone combining these two numbers
+into a total for attention would be double-counting.

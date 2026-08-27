@@ -1,0 +1,59 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "fit_rows": "fineweb_n96_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "ablation": "position-weighted MEAN, matched across all three arms",
+  "why_not_optimal": "opt_ablation_consts_all.pt has no v1 constant; fitting one is a separate optimisation. A mean constant is WEAKER than an optimal one so every stake here exceeds its optimal-constant counterpart -- S1682 is a cross-reference, not a comparator (the S1656 cross-protocol error)",
+  "scoring": "covered positions only",
+  "s1682_write_optimal": {
+   "stake": 3.557,
+   "linear_ceiling": 0.1638,
+   "note": "OPTIMAL-constant ablation; cross-reference only, not a comparator for the mean-ablation stakes here"
+  },
+  "modules_returning_v1": 18
+ },
+ "ce_live": 3.29205,
+ "arms": {
+  "write_only": {
+   "ce": 6.8761,
+   "stake": 3.58405
+  },
+  "v1_only": {
+   "ce": 3.99861,
+   "stake": 0.70656
+  },
+  "both": {
+   "ce": 6.8761,
+   "stake": 3.58405
+  }
+ },
+ "sum_of_singles": 4.29061,
+ "joint_over_sum": 0.8353,
+ "v1_share_of_joint": 0.1971,
+ "predictions": {
+  "pred_a_v1_path_ge_05_nats": true,
+  "pred_b_paths_non_additive_ge_10pct": true,
+  "pred_c_manipulation": true
+ },
+ "runtime_s": 6.0
+}
