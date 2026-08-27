@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "preregistered_not_run",
+  "registered_at_utc": "2026-08-27T08:27:09Z",
+  "experiment": "joint_early_mlp_live_oracle_factorial_authoritative_v1",
+  "question": "Does the coupled MLP0--2 exact-live causal ceiling and the MLP2 state-dependence found on curated development rows replicate on canonical FineWeb rows in one frozen ship realization?",
+  "scope": {
+    "groups": ["mlp0", "mlp1", "mlp2"],
+    "arms": "All eight subsets, including the deployed-ship baseline, evaluated on both registered splits.",
+    "intervention": "At every selected site, add the exact original-minus-deployed-plank residual recomputed on that arm's current live state.",
+    "discovery_rows": "canonical FineWeb n192_skip7000",
+    "heldout_rows": "canonical FineWeb n192_skip11000",
+    "rare_vocab_rule": "Derive once from discovery rows with ship_error_attrib._token_masks and freeze for both splits and all arms.",
+    "ship_rule": "Seed 27182818; freeze the exact in-memory ship realization before scoring any arm; all arms and later conditional handoffs must reuse that realization.",
+    "currency": "Paired per-row global cross-entropy gain in nats relative to the deployed-ship baseline; positive lowers CE.",
+    "same_currency_mlp012_residual_denominator": null,
+    "denominator_guardrail": "Do not import a denominator from another realization or row set; report no recovery fraction."
+  },
+  "analysis": {
+    "primary_metrics": [
+      "gain for every Boolean-cube arm",
+      "joint MLP0+MLP1+MLP2 gain",
+      "joint minus best singleton and joint minus singleton sum",
+      "pairwise and triple Mobius coefficients",
+      "signed Shapley values and closure error",
+      "MLP2 singleton gain and conditional marginal after MLP0+MLP1",
+      "interaction L1 divided by absolute joint gain"
+    ],
+    "uncertainty": "Paired row bootstrap with 2000 shared-index draws and seed 27182819. Report percentile 95% intervals for every arm gain, joint-minus-best-singleton, joint-minus-singleton-sum, and the MLP2 conditional marginal. Bootstrap uses no refitting or arm-specific resampling.",
+    "split_policy": "Discovery is reported but registered decisions use heldout unless explicitly requiring both splits.",
+    "failure_policy": "Preserve partial result and fail-closed manifest; report every signed arm and failed registered conjunct."
+  },
+  "registered_predictions": {
+    "pred_a_joint_exceeds_best_singleton_heldout": true,
+    "pred_a_strong_form_joint_minus_best_singleton_ci95_lower_gt_zero": true,
+    "pred_b_mlp2_singleton_negative_both_splits": true,
+    "pred_b_mlp2_conditional_after_mlp0_mlp1_positive_both_splits": true,
+    "pred_b_strong_form_conditional_heldout_ci95_lower_gt_zero": true,
+    "pred_c_interaction_l1_fraction_at_least_0p20_heldout": true
+  },
+  "interpretation_guardrails": [
+    "Passing certifies an authoritative exact-live coupled causal interface ceiling, not a predictor, semantic program, compressed replacement, training license, OOD claim, or simplicity certificate.",
+    "A negative MLP2 singleton with a positive conditional marginal is evidence that singleton evaluation supplies the wrong upstream state; it does not by itself identify the transported variable.",
+    "Exact residual restoration is an oracle intervention and its coefficients are not an extractable program.",
+    "No whole-model explained fraction is licensed without a same-realization, same-row, same-mask denominator in the same CE currency."
+  ],
+  "authority": {
+    "row_authority": "pinned_local_ordered_manifest",
+    "authorized_for_this_scored_factorial": true,
+    "authorized_for_training": false,
+    "training_license_sites": []
+  },
+  "pinned_inputs": {
+    "source_commit_before_runner_implementation": "a30bd52a9c829bb199a889a1bd1e548f8a7cbf3f",
+    "fineweb_row_receipt_file_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+    "fineweb_row_receipt_logical_sha256": "8c510aed5586b4d950f0688a0e575c7695e51525d69f80c6bc39817c1454e9cb",
+    "fineweb_discovery_tensor_raw_sha256": "10d66676c804569eaa501d0c3c425f357d1d4305eb2581f1e9a5403504f054c0",
+    "fineweb_heldout_tensor_raw_sha256": "5d6c1697f6d05860e4235c21e6324e3451d47924565d8edb62e06fbe37b3a1fa",
+    "code_sentinel_corpus_sha256": "6750a72b4232d4d4687946bb379457210555a660c9ef2e0d4967a63ddfaf2d9d",
+    "code_sentinel_manifest_sha256": "a19def47d44a581a72a6cb8f0d91ac7ae0bb2121007f43964f4f1dcb526cb9ec",
+    "model_config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "model_weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "mlp2_glue_sha256": "76148b072c22f3c0d0ccdcaa08d8a6ade89d7231d0dd5a328597e10f6a0a3ef4",
+    "ship_error_attrib_sha256": "f966110fe53c8997bd5eadaa3ea415130dcb860b3104d4295b8a72b4a5254c8b",
+    "joint_contract_sha256": "ace57bbbd244a5c33ebb97a09d962e3e763ff985a19333a5c2624e2a413625ac",
+    "frozen_ship_contract_sha256": "c320221d2589625858c3deda6d99cadbf05368f136a70ecf06ceb696aabda2f2",
+    "row_validator_sha256": "67362c609eaef883b8f58e09c1fc9fc2b7503cee0e2a58b8933fcff8fa9236ca"
+  },
+  "artifact_policy": "Use a new authoritative-v1 result/manifest/lock namespace. Refuse overwrite of the frozen ship, final result, or final manifest. Snapshot and verify canonical FineWeb, curated factorial, PCA, and code-OOD artifacts before and after scoring. Atomic-write running artifacts and preserve failures."
+}
