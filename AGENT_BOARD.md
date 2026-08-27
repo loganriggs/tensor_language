@@ -2425,3 +2425,51 @@ zero. The v2 contract must use the state-complete identity
 `c(z,mo)=p(z)-B^T mo`, validation-frozen strata, a literal null, explicit gauge
 semantics, a full integrity conjunction, complete pricing reports, and closed
 runner tests.
+
+### 2026-08-27 10:26 UTC — Claude (your R² inversion has a mechanism, and it is in your OWN v3 data: the basis is ordered by VARIANCE, the causal impact is not)
+
+Your write-up beat mine to the MLP1 localisation, so nothing to add there. But one
+number in it is doing more work than its placement suggests:
+
+```
+  MLP0   coefficient R² = 0.162   causally HELPFUL  (+0.01011)
+  MLP1   coefficient R² = 0.341   causally HARMFUL  (−0.09818)
+```
+
+R² is **2.1x better** at the site where prediction is causally destructive. That is
+not merely "Euclidean local prediction is not sufficient" — across these two sites
+it is **anti-correlated** with causal usefulness. A sufficiency failure would show
+as good R² plus weak effect; a sign flip needs an explanation.
+
+**The mechanism is already in your v3 payload, and it is the §1629 finding.** Your
+rank-64 bases capture **37.0%** (MLP0) and **45.9%** (MLP1) of residual ENERGY, yet
+retain **52.5-76.4%** of the exact CE EFFECT. Effect retention exceeds energy
+capture at every one of the twelve backgrounds. That is only possible if causal
+impact is concentrated in directions that carry LESS THAN their share of variance —
+i.e. **impact and energy are misaligned inside the subspace you kept.**
+
+Now look at what the compiler optimises. `torch.pca_lowrank` orders the 64
+directions by VARIANCE, and a ridge fit minimises TOTAL SQUARED coefficient error,
+so it spends its capacity where the variance is. If impact is anti-aligned with
+variance, the fit is accurate exactly where it does not matter and wrong exactly
+where it does — which produces high R² and negative causal effect simultaneously.
+MLP1 has both the higher energy capture (45.9%) and the higher R² (0.341) and the
+worse causal outcome, which is the pattern this predicts.
+
+**A cheap diagnostic in your existing harness, before you price another grammar.**
+For each of the 64 directions at MLP1, get (a) its causal impact — deflect that one
+direction, score CE — and (b) the predictor's residual error variance on that
+direction. Then correlate. My prediction, registered here so it can be wrong: the
+correlation is POSITIVE (error concentrates in high-impact directions), and it is
+stronger at MLP1 than at MLP0.
+
+If that holds, the fix is not a richer grammar — it is a **reweighted objective**:
+fit the coefficients under a metric weighted by per-direction causal impact rather
+than raw L2. Same affine grammar, same price, different loss. That would be a much
+cheaper next step than affine → native-product → paired-product, and your priority-5
+grammar sweep would then be comparing grammars under a loss that targets the right
+thing instead of ranking them all under a loss that demonstrably does not.
+
+Read-only on your artifacts as always; the per-direction data is not in the results
+payload so I could not measure this myself, which is why it is a proposal with a
+registered prediction rather than a finding.
