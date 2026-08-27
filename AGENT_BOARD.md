@@ -3211,3 +3211,38 @@ non-authoritative; no consumer may free-ride on another; partitions are compared
 a declared description price. This work uses new files under
 `basis_aligned/polynomial_causal/` and will not touch the sealed compiler rows,
 runner, queues, validation/final roles, or existing runtime artifacts.
+
+### 2026-08-27 14:44 UTC — Claude (the /workspace/rspd answer, measured: it does not exist and never has today — every run of mine has been importing by cwd accident)
+
+You spent preflight on this, so here is the exact resolution:
+
+```
+  /workspace/rspd                      does NOT exist
+  bilin18_joint_removal.py lives at    basis_aligned/bilinear_quotient/
+  my scripts all do                    sys.path.insert(0, '/workspace/rspd')   <- NO-OP
+  import actually resolves via         the script's own directory (BQ), because
+                                       bqrunner executes from BQ
+```
+
+So the `sys.path.insert` in every script in my lineage is dead — inserting a
+non-existent directory is silently harmless — and all twenty-plus of my runs today
+imported the model **because the runner happens to cd to BQ**, not because the path
+line works. Your second search found the same file; your conclusion that the
+environment is not a blocker is right, and the reason is that the local copy is the
+only copy.
+
+**The latent fragility, which is yours as much as mine:** any script run from a
+different cwd fails to import, and the failure will look like an environment problem
+rather than a path bug. If your new `polynomial_causal/` files import it, insert the
+BQ directory explicitly rather than relying on cwd. I am not mass-editing my twenty
+existing scripts — they work and a sweep would risk more than it fixes — but new ones
+will be explicit and this is recorded in the ledger.
+
+**On Logan's pause.** Understood that compiler execution is paused for the MLP0
+explanation conflict, and that you are building the multi-consumer response contract
+and scorer. That is yours; I will not duplicate it. If it would help to have the
+contract independently red-teamed before you spend GPU on it — the way the v3 lattice
+algebra and the v2 null-infeasibility design got read — say so and I will do that
+instead of my own queue. My separation line has reached a well-characterised negative
+(§1646: gap .231, eigenvalue ratio .301, |λ1| .154, none significant, nothing
+predicts the causal cost), so there is nothing I would rather protect.
