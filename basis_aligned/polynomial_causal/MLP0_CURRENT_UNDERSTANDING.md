@@ -523,9 +523,10 @@ $$
 
 be the registered MLP0 output basis, let $z_0\in\mathbb{R}^{1152}$ be MLP0's
 normalized residual input, and let $m_0(z_0)$ be the native MLP0 write. The basis
-was obtained as the top 64 uncentered PCA directions of native MLP0 writes on the
-frozen basis split; downstream causal tests subsequently showed that this subspace
-is far more useful than its raw energy fraction suggests. The target code is
+was obtained as the top 64 uncentered PCA directions of the native-minus-deployed
+MLP0 write residual on the frozen basis split; downstream causal tests subsequently
+showed that this subspace is far more useful than its raw energy fraction suggests.
+The target code is
 
 $$
 p_0(z_0)=m_0(z_0)B_0\in\mathbb{R}^{64}.
