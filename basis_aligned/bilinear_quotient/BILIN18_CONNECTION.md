@@ -38561,3 +38561,63 @@ denominator exists, and no corpus-wide, code-OOD, training, semantic, compressio
 or selective-edit claim follows. The next decisive test is a mixed
 exact/PCA-projected same-state cube with conditional no-free-rider gates; only a
 passing joint subspace licenses sequential coefficient prediction.
+
+## §1623 §1597 REPRODUCES EXACTLY (.7179 vs .718) — THE GAP WAS MINE ALL ALONG: my harness measured what writes the FINAL residual over 37 components; §1597 measures what writes the SITE'S INPUT over 24 upstream ones (3-for-3)
+
+**Two runs.** `replicate_s1597_exact` (96 rows at skip=80, §1597's exact config,
+all 37 components, full forward) gave **.5255** — 2-for-3, consistent with every
+other configuration and still .19 below the published .718, with all four
+candidate explanations already eliminated. Then reading `slice_writers.py` once
+more before escalating:
+
+```
+slice_writers.py:38    SITE = 11
+slice_writers.py:50-56     if L == SITE:
+                               P = x        <- P is the SITE'S INPUT residual
+                               ...
+                               break        <- THE FORWARD STOPS HERE
+slice_writers.py:175   comps = ['x0'] + [attn0..attn11] + [mlp0..mlp10]   = 24
+```
+
+**§1597 measures what writes into mlp11's INPUT. My harness measured what writes
+the FINAL residual after all 18 layers, over 37 components, with full-stack depth
+coefficients. Those are different QUANTITIES, not different denominators.**
+
+`replicate_s1597_upstream` — forward stopped at the site, 24 upstream components,
+site-relative coefficients, §1597's exact rows:
+
+```
+question@mlp11 rank-2 TOP-4    lambda .7179    null .5711    published .718
+```
+
+**Scored as written — 3-for-3:**
+- **pred_a PASSED** — **.7179 against .718, a difference of .0001.** Exact
+  reproduction.
+- **pred_b PASSED** — the restriction moved the share **.5255 -> .7179**, a
+  **.1924** jump, far above the .10 bar. The measurement choice was the whole gap.
+- **pred_c PASSED** — the matched null also rose (.4083 -> .5711), as a smaller
+  denominator must lift any top-4 share. **So the comparison that matters is the
+  GAP: .718 sits .147 above its own null. §1597's concentration claim has real
+  content, measured correctly.**
+
+**§1597 IS FULLY VINDICATED AND EVERY SUSPICION OF IT IS WITHDRAWN.** Across
+§1620-§1623 I suspected the published figure four times and the fault was mine
+every time: first the corpus, then (wrongly) its row set, then its sample size,
+then its skip — and finally the real cause, which was that I had been measuring a
+different quantity since §1609. The origin is traceable: §1601's `channel_budget`
+correctly used all 37 components and the full forward, because it measured the
+FINAL residual's channel. I carried that setup into the writer-floor work without
+re-deriving whether it suited the new question.
+
+**CONSEQUENCE FOR §1609-§1622.** Every share number in those sections measures
+final-residual attribution, NOT site-input attribution. They are **not comparable
+to §1597's .718 or §1598's .482** — for a reason deeper than the corpus caveat
+already recorded. What survives untouched is every WITHIN-RUN comparison, because
+both arms always measured the same quantity on the same rows: the null is
+cell-dependent (§1612), unpredictable (§1613-§1616), and question sits above its
+null while pronouns sits far below (§1620-§1622). Those stand.
+
+**INVALID NUMBER IN THIS RUN, flagged not buried:** the pronouns@mlp17 line
+(lambda .6828, null .6577) was computed with `SITE_STOP = 11` applied to a
+site-17 cell. It is meaningless and was excluded from scoring (`pl = pr = nan`).
+pronouns@mlp17 needs its own run at SITE_STOP = 17.

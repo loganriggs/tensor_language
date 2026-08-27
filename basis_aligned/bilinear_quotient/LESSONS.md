@@ -381,3 +381,24 @@ harness and change only one, and the run reports bars nobody registered.
 - **Rule:** add a gate arm that extracts the `pred_*` key names from the results
   dict and requires each to appear in the docstring's "Registered predictions"
   block. A name present in one and absent from the other is a FAIL.
+
+## 20. Before comparing to a published number, re-derive WHAT IT MEASURES — not just how it was computed (§1620-§1623)
+Matching the statistic, the corpus, the rows and the sample size is not enough if
+the quantity itself differs.
+- **Example:** chasing §1597's .718 I eliminated corpus (§1620), sample size
+  (§1621), row skip (§1622) and exact config (§1623), measuring .525-.548 every
+  time and coming within one run of reporting a discrepancy in published work.
+  The cause was that `slice_writers.py` STOPS its forward at the slice site and
+  attributes the SITE'S INPUT over 24 upstream components, while my harness ran
+  the full stack and attributed the FINAL residual over 37. Matching that gave
+  **.7179 against .718** — exact.
+- **Near non-example:** the within-run λ-vs-null comparisons stayed valid
+  throughout, because both arms measured the same quantity on the same rows. A
+  quantity mismatch poisons comparisons ACROSS setups, not within one.
+- **Rules:** (1) before quoting your number against a published one, read the
+  source for its projection target, its component set and its forward extent —
+  three things, not one; (2) when reusing a harness for a NEW question, re-derive
+  the component set and projection point rather than inheriting them (this one
+  came from §1601, where they were correct for a different question);
+  (3) a stable number reproduced across four configurations is evidence your setup
+  is CONSISTENT, not that it is RIGHT.

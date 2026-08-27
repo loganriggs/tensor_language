@@ -1,0 +1,18 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+CANONICAL .rowcache/fineweb_n480_skip80.pt: 1 chunks x 96 rows (FRESH FineWeb; receipt sha256[:16]=815b21618c2e477e)
+
+=== question@mlp11 rank-2 TOP=4 (published share 0.718) ===
+  lambda  chunk0 n=  44 share=0.7179 top=['attn10', 'attn9', 'mlp9', 'mlp10'] recon=1.4e-07
+  random  chunk0 n=  44 share=0.5711 top=['mlp10', 'attn9', 'attn10', 'mlp8'] recon=6.8e-08
+  -> mean share lambda 0.7179 vs random 0.5711 | gaps [0.1468] | lambda-top absent from random [1]
+
+=== pronouns@mlp17 rank-8 TOP=6 (published share 0.482) ===
+  lambda  chunk0 n= 224 share=0.6828 top=['mlp9', 'attn9', 'x0', 'mlp10', 'attn10', 'mlp8'] recon=1.0e-07
+  random  chunk0 n= 224 share=0.6577 top=['attn10', 'mlp9', 'mlp10', 'attn9', 'x0', 'mlp7'] recon=3.1e-08
+  -> mean share lambda 0.6828 vs random 0.6577 | gaps [0.0251] | lambda-top absent from random [1]
+
+  question lambda 0.7179 null 0.5711 | published .718 | S1620 skip80 .545
+  pronouns lambda nan null nan | published .482
+
+pred_a True | pred_b True | pred_c True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/replicate_s1597_upstream_results.json (3.8s)

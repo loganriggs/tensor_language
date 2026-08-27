@@ -1,0 +1,154 @@
+{
+ "config": {
+  "cells": {
+   "question@mlp11": {
+    "site": 11,
+    "rank": 2,
+    "top": 4,
+    "published": 0.718,
+    "published_top": [
+     "attn10",
+     "attn9",
+     "mlp9",
+     "mlp10"
+    ]
+   },
+   "pronouns@mlp17": {
+    "site": 17,
+    "rank": 8,
+    "top": 6,
+    "published": 0.482,
+    "published_top": [
+     "mlp16",
+     "x0",
+     "mlp15",
+     "mlp9",
+     "mlp14",
+     "attn9"
+    ]
+   }
+  },
+  "chunks": 1,
+  "rows_per_chunk": 96,
+  "row_source": "fineweb_n480_skip80.pt (.rowcache, authority pinned_local_ordered_manifest)",
+  "rows_are_fresh": true,
+  "receipt": "fineweb_oracle_v2_receipt.json",
+  "statistic": "ABSOLUTE attribution mass, matching slice_writers.py:216"
+ },
+ "cells": {
+  "question@mlp11": {
+   "published": 0.718,
+   "published_top": [
+    "attn10",
+    "attn9",
+    "mlp9",
+    "mlp10"
+   ],
+   "rank": 2,
+   "top": 4,
+   "arms": {
+    "lambda": [
+     {
+      "chunk": 0,
+      "class_n": 44,
+      "share": 0.5255,
+      "top": [
+       "mlp17",
+       "mlp11",
+       "attn10",
+       "attn9"
+      ],
+      "recon": 6.27519582963032e-08
+     }
+    ],
+    "random": [
+     {
+      "chunk": 0,
+      "class_n": 44,
+      "share": 0.4083,
+      "top": [
+       "mlp16",
+       "mlp17",
+       "mlp10",
+       "mlp11"
+      ],
+      "recon": 6.991281509272085e-08
+     }
+    ]
+   },
+   "gaps": [
+    0.1172
+   ],
+   "mean_share": {
+    "lambda": 0.5255,
+    "random": 0.4083
+   },
+   "absent_from_random": [
+    2
+   ]
+  },
+  "pronouns@mlp17": {
+   "published": 0.482,
+   "published_top": [
+    "mlp16",
+    "x0",
+    "mlp15",
+    "mlp9",
+    "mlp14",
+    "attn9"
+   ],
+   "rank": 8,
+   "top": 6,
+   "arms": {
+    "lambda": [
+     {
+      "chunk": 0,
+      "class_n": 224,
+      "share": 0.5819,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "x0",
+       "mlp15",
+       "mlp9",
+       "mlp14"
+      ],
+      "recon": 3.298236492810247e-07
+     }
+    ],
+    "random": [
+     {
+      "chunk": 0,
+      "class_n": 224,
+      "share": 0.736,
+      "top": [
+       "mlp17",
+       "mlp16",
+       "mlp13",
+       "mlp12",
+       "mlp15",
+       "attn10"
+      ],
+      "recon": 1.2530958315437601e-07
+     }
+    ]
+   },
+   "gaps": [
+    0.1541
+   ],
+   "mean_share": {
+    "lambda": 0.5819,
+    "random": 0.736
+   },
+   "absent_from_random": [
+    3
+   ]
+  }
+ },
+ "predictions": {
+  "pred_a_exact_config_reproduces_718": false,
+  "pred_b_consistent_with_other_configs": true,
+  "pred_c_lambda_above_null": true
+ },
+ "runtime_s": 5.3
+}
