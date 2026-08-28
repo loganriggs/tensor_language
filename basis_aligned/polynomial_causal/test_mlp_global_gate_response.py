@@ -17,18 +17,35 @@ def test_trajectory_complete_contraction_equals_shared_alpha_autograd() -> None:
     )
     products = (state @ left.T) * (state @ right.T)
     expected = gate.trajectory_complete_response(products, gradients, down)
+    assert expected.shape == (contexts, probes, hidden)
     separated = torch.empty_like(expected)
     for probe in range(probes):
         for context in range(contexts):
             alpha = torch.ones(hidden, dtype=torch.float64, requires_grad=True)
             write = (products[context] * alpha) @ down.T
             score = (write * gradients[probe, context]).sum()
-            separated[probe, context] = torch.autograd.grad(score, alpha)[0]
+            separated[context, probe] = torch.autograd.grad(score, alpha)[0]
     assert torch.allclose(expected, separated, atol=1e-12, rtol=1e-12)
     local_only = torch.einsum(
-        "cn,pco,on->pcn", products[:, 0], gradients[:, :, 0], down,
+        "cn,pco,on->cpn", products[:, 0], gradients[:, :, 0], down,
     )
     assert not torch.allclose(expected, local_only)
+
+
+def test_contraction_flows_into_selector_without_context_probe_axis_swap() -> None:
+    generator = torch.Generator().manual_seed(19)
+    products = torch.randn(3, 4, 7, generator=generator, dtype=torch.float64)
+    gradients = torch.randn(5, 3, 4, 2, generator=generator, dtype=torch.float64)
+    down = torch.randn(2, 7, generator=generator, dtype=torch.float64)
+    first = gate.trajectory_complete_response(products, gradients, down)
+    second = first + 1e-6 * torch.randn(
+        first.shape, generator=generator, dtype=torch.float64,
+    )
+    report = gate.paired_selector_report(
+        first, second, budgets=(2,), target_rank=2, random_seed=20260828,
+    )
+    assert first.shape == (3, 5, 7)
+    assert report["shape"] == [3, 5, 7]
 
 
 def test_response_is_invariant_to_gate_scale_gauge_and_equivariant_to_permutation() -> None:
@@ -67,6 +84,7 @@ def test_ridge_selector_finds_stable_response_span() -> None:
     assert report["status"] == "paired_gate_response_selector_complete"
     assert report["rows"]["3"]["ridge"]["jaccard"] == 1.0
     assert report["rows"]["3"]["ridge"]["first_to_second_capture"] > 0.999999
+    assert report["rows"]["3"]["ridge"]["first_to_second_cross_fit_css_relative_error"] < 1e-3
     assert report["rows"]["3"]["ridge"]["first_to_second_all_on_relative_error"] < 1e-3
     assert "finite-removal" in report["claim_boundary"]
 
@@ -87,3 +105,45 @@ def test_selector_validation_is_fail_closed() -> None:
         pass
     else:
         raise AssertionError("unpaired response halves were accepted")
+
+
+def test_cross_fit_css_does_not_refit_the_evaluation_half() -> None:
+    fit = torch.tensor([[
+        [1.0, 0.0, 1.0],
+        [0.0, 1.0, 1.0],
+    ]], dtype=torch.float64)
+    evaluate = torch.tensor([[
+        [1.0, 0.0, -1.0],
+        [0.0, 1.0, 2.0],
+    ]], dtype=torch.float64)
+    assert gate.projection_capture(evaluate, (0, 1)) == 1.0
+    transferred = gate.cross_fit_css_relative_error(fit, evaluate, (0, 1))
+    assert transferred > 0.8
+
+
+def test_candidate_path_moves_omitted_gates_toward_zero() -> None:
+    scale = gate.candidate_path_scale(
+        5, (1, 3), torch.tensor([1.0, 0.5], dtype=torch.float64), 0.1,
+    )
+    torch.testing.assert_close(
+        scale, torch.tensor([0.9, 1.0, 0.9, 0.95, 0.9], dtype=torch.float64),
+    )
+    endpoint = gate.candidate_path_scale(
+        5, (1, 3), torch.tensor([1.0, 0.5], dtype=torch.float64), 1.0,
+    )
+    torch.testing.assert_close(
+        endpoint, torch.tensor([0.0, 1.0, 0.0, 0.5, 0.0], dtype=torch.float64),
+    )
+
+
+def test_categorical_fisher_quadratic_predicts_small_kl() -> None:
+    logits = torch.tensor([0.3, -0.7, 1.1, 0.2], dtype=torch.float64)
+    direction = torch.tensor([0.5, -0.2, 0.1, -0.4], dtype=torch.float64)
+    probability = torch.softmax(logits, dim=0)
+    centered = direction - torch.dot(probability, direction)
+    fisher = torch.dot(probability, centered.square())
+    epsilon = 1e-4
+    changed = torch.softmax(logits + epsilon * direction, dim=0)
+    kl = torch.dot(probability, torch.log(probability / changed))
+    predicted = 0.5 * epsilon**2 * fisher
+    assert abs(float(kl - predicted)) / float(predicted) < 2e-4

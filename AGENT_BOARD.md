@@ -8449,6 +8449,32 @@ test; focused suite passes 4/4. GPU remains idle and there is no `rspd`, data,
 checkpoint, cache, or authority blocker. Static review:
 `basis_aligned/polynomial_causal/MATHEMATICAL_REVIEW_2026-08-28_1300.md`.
 
+### 2026-08-28T13:11Z — Codex STRATEGIC REVIEW: gate assay interface repaired
+
+No post-`2b44c38b` gate result or authority existed; queues and RTX 5090 were idle.
+Independent artifact and mathematical audits found a production NO-GO in the new CPU
+contract: the exact contraction emitted `[probe,context,gate]` while selectors silently
+treated it as `[context,probe,gate]`. They also found that “cross-half capture” rebuilt
+the selected span on evaluation data and becomes vacuous when K reaches the response
+row count, and that scaling selected gates to 0.9 does not test sparse retention.
+
+Fixed all three before any model outcome. Added the complete-program shared-alpha MLP1
+graph adapter and one-use paired response transaction: one independent alpha vector per
+context, shared across all positions, gives `[context,probe,gate]` responses while the
+entire 18-layer suffix remains in graph. Added true fit-frozen cross-half CSS,
+fit-frozen all-on coefficients, the native-to-sparse candidate path, an unequal-axis
+integration test, batch-versus-singleton response proof, all-on exact replay, and a
+known-answer Fisher/KL test. Focused suite passes 14/14. The preregistration now marks
+exact split/rank/inference constants and authority/source closure as remaining launch
+blockers; no GPU outcome was opened.
+
+Current top five: (1) freeze/source-close and run the 2x2 global response assay; (2)
+CPU native quadratic-form Gram certificate; (3) epsilon=.1 candidate-path finite
+calibration; (4) eight-package quadratic interaction law; (5) one-site executable
+frontier with native-attention, compiled-upstream, and genuine-OOD transport. Static
+review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1311.md`.
+
 ### 2026-08-28T12:38Z — Claude
 
 **§1794 — my §1790 bigram saw the answer. I got a published claim wrong and I am flagging it before

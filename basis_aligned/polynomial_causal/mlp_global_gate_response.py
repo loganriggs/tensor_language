@@ -35,7 +35,7 @@ def trajectory_complete_response(
     ):
         raise ValueError("trajectory-complete gate-response inputs are malformed")
     return torch.einsum(
-        "ctn,pcto,on->pcn", products.double(), write_gradients.double(), down.double(),
+        "ctn,pcto,on->cpn", products.double(), write_gradients.double(), down.double(),
     ).contiguous()
 
 
@@ -107,7 +107,7 @@ def hash_random_selection(gates: int, count: int, seed: int) -> tuple[int, ...]:
 
 
 def projection_capture(response: torch.Tensor, selected: Sequence[int]) -> float:
-    """Fraction of response-matrix Frobenius energy in selected columns' span."""
+    """In-half support-span diagnostic; not a cross-half promotion metric."""
     matrix = _matrix(response)
     indices = tuple(selected)
     if (
@@ -125,6 +125,67 @@ def projection_capture(response: torch.Tensor, selected: Sequence[int]) -> float
     captured = (basis.T @ matrix).square().sum()
     total = matrix.square().sum()
     return float((captured / total).clamp(0, 1))
+
+
+def cross_fit_css_relative_error(
+    fit_response: torch.Tensor, eval_response: torch.Tensor, selected: Sequence[int],
+) -> float:
+    """Fit a column interpolant on one half and transfer it unchanged to another."""
+    fit, evaluate = _matrix(fit_response), _matrix(eval_response)
+    if fit.shape != evaluate.shape:
+        raise ValueError("cross-fit CSS response halves must have identical shape")
+    indices = tuple(selected)
+    if (
+        not indices or len(indices) != len(set(indices))
+        or any(type(index) is not int or not 0 <= index < fit.shape[1] for index in indices)
+    ):
+        raise ValueError("selected gate indices are malformed")
+    denominator = torch.linalg.matrix_norm(evaluate)
+    if float(denominator) <= 0:
+        raise ValueError("evaluation response must have positive energy")
+    interpolant = torch.linalg.lstsq(fit[:, list(indices)], fit).solution
+    residual = evaluate[:, list(indices)] @ interpolant - evaluate
+    return float(torch.linalg.matrix_norm(residual) / denominator)
+
+
+def fit_all_on_coefficients(
+    response: torch.Tensor, selected: Sequence[int],
+) -> torch.Tensor:
+    """Fit the selected gates to ``E @ 1`` and return the frozen coefficients."""
+    matrix = _matrix(response)
+    indices = tuple(selected)
+    if (
+        not indices or len(indices) != len(set(indices))
+        or any(type(index) is not int or not 0 <= index < matrix.shape[1] for index in indices)
+    ):
+        raise ValueError("selected gate indices are malformed")
+    return torch.linalg.lstsq(
+        matrix[:, list(indices)], matrix.sum(dim=1),
+    ).solution.contiguous()
+
+
+def candidate_path_scale(
+    gates: int, selected: Sequence[int], coefficients: torch.Tensor, epsilon: float,
+) -> torch.Tensor:
+    """Scale on the path from the native all-on MLP to a sparse candidate.
+
+    At epsilon zero every gate is on.  At epsilon one, omitted gates are zero and
+    selected gates have their fitted candidate coefficients.
+    """
+    indices = tuple(selected)
+    if (
+        type(gates) is not int or gates <= 0 or not indices
+        or len(indices) != len(set(indices))
+        or any(type(index) is not int or not 0 <= index < gates for index in indices)
+        or not torch.is_tensor(coefficients) or coefficients.ndim != 1
+        or coefficients.numel() != len(indices) or not coefficients.is_floating_point()
+        or not bool(torch.isfinite(coefficients).all())
+        or not isinstance(epsilon, float) or not 0.0 <= epsilon <= 1.0
+    ):
+        raise ValueError("sparse-candidate path inputs are malformed")
+    candidate = torch.zeros(gates, dtype=coefficients.dtype, device=coefficients.device)
+    candidate[list(indices)] = coefficients
+    return (torch.ones_like(candidate) + epsilon * (candidate - 1.0)).contiguous()
 
 
 def all_on_transfer_relative_error(
@@ -148,7 +209,7 @@ def all_on_transfer_relative_error(
     denominator = torch.linalg.vector_norm(eval_target)
     if float(denominator) <= 0:
         raise ValueError("evaluation all-on target must have positive energy")
-    coefficients = torch.linalg.lstsq(fit[:, list(indices)], fit_target).solution
+    coefficients = fit_all_on_coefficients(fit_response, indices)
     residual = evaluate[:, list(indices)] @ coefficients - eval_target
     return float(torch.linalg.vector_norm(residual) / denominator)
 
@@ -196,6 +257,12 @@ def paired_selector_report(
                 "jaccard": intersection / union,
                 "first_to_second_capture": projection_capture(second_balanced, selected_a),
                 "second_to_first_capture": projection_capture(first_balanced, selected_b),
+                "first_to_second_cross_fit_css_relative_error": cross_fit_css_relative_error(
+                    first_balanced, second_balanced, selected_a,
+                ),
+                "second_to_first_cross_fit_css_relative_error": cross_fit_css_relative_error(
+                    second_balanced, first_balanced, selected_b,
+                ),
                 "first_to_second_all_on_relative_error": all_on_transfer_relative_error(
                     first_balanced, second_balanced, selected_a,
                 ),
@@ -212,7 +279,9 @@ def paired_selector_report(
         "context_balanced": True,
         "rows": rows,
         "claim_boundary": (
-            "response-span selection only; no native hard-retention, refitted-Down, "
+            "tangent response selection only; in-half span capture is diagnostic and "
+            "cross-fit CSS/all-on errors freeze fit-half coefficients; no native "
+            "hard-retention, refitted-Down, "
             "finite-removal, CE, causal-equivalence, or arithmetic-rank claim"
         ),
     }

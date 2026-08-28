@@ -2,8 +2,8 @@
 
 Date: 2026-08-28
 
-Status: CPU mathematical contract only. No rows, targets, model responses, or GPU
-authority are opened by this document.
+Status: CPU mathematical contract only, prospectively amended at 13:12 UTC before
+any rows, targets, model responses, authority, or GPU result were opened.
 
 ## Exact object
 
@@ -51,6 +51,18 @@ matrix-approximation tools; their guarantees concern the measured matrix, not th
 nonlinear transformer ([Cohen, Musco & Musco 2017](https://arxiv.org/abs/1511.07263),
 [Boutsidis, Drineas & Magdon-Ismail 2014](https://arxiv.org/abs/1103.0995)).
 
+The response tensor layout is frozen as `[context, probe, gate]`. Cross-half CSS must
+fit an interpolant only on the fit half,
+
+$$
+X_{\rm fit}=\arg\min_X\|E_{{\rm fit},S}X-E_{\rm fit}\|_F^2,
+$$
+
+then report $\|E_{{\rm eval},S}X_{\rm fit}-E_{\rm eval}\|_F/\|E_{\rm eval}\|_F$
+without refitting on evaluation data. The span recomputed from evaluation columns is
+retained only as a non-promotive diagnostic; at a support as wide as the response row
+dimension it can be vacuously perfect.
+
 ## Frozen pilot comparison
 
 - Site: MLP1 in the admitted rank640 complete shell.
@@ -59,8 +71,10 @@ nonlinear transformer ([Cohen, Musco & Musco 2017](https://arxiv.org/abs/1511.07
 - Selectors: ridge leverage; response energy; factor-product derangement; local
   activation-times-Down norm; equal-$K$ hash-random gates.
 - Report both raw Fisher-energy weighting and context-balanced weighting.
-- Report paired support Jaccard, score-rank stability, cross-half projection capture,
-  per-document capture distribution, and fresh-document replication.
+- Report paired support Jaccard, score-rank stability, fit-frozen cross-half CSS error,
+  fit-frozen all-on error, non-promotive in-half span capture, per-document errors, and
+  fresh-document replication. Fit-half support and coefficients define the only
+  candidate bundle; validation never reselects, unions, intersects, or changes it.
 - The fixed-grammar standalone price of a retained native support is
   $3456K+1152$ values plus support-index/precision metadata, and $K$ bilinear
   multiplications per token. Response rank, bytes, MDL, and causal equivalence remain
@@ -68,9 +82,24 @@ nonlinear transformer ([Cohen, Musco & Musco 2017](https://arxiv.org/abs/1511.07
 
 Advance a budget only if ridge selection beats response-energy and every negative
 control on both independent halves and fresh documents, with support Jaccard at least
-0.5 and no preregistered document-stratum failure. The first finite experiment is a
-small global scaling, $\alpha_n=0.9$ on selected packages, with predicted-versus-observed
-Fisher/KL response. Full removal is forbidden until that calibration passes.
+0.5 and no preregistered document-stratum failure. Exact numerical margins, split
+counts, target-rank rule, bootstrap unit, and multiplicity rule remain launch blockers
+until frozen in a serialized no-outcome plan.
+
+For fitted coefficients $\widetilde\beta_n=\beta_n$ on $S$ and zero off $S$, the
+first finite candidate calibration follows
+
+$$
+\alpha(\epsilon)=\mathbf1+\epsilon(\widetilde\beta-\mathbf1),
+\qquad \epsilon=0.1.
+$$
+
+Thus omitted gates move from 1 to 0.9 and selected gates move toward their proposed
+endpoint. Scaling only selected gates to 0.9 is retained as a sensitivity control; it
+does not test whether omitted gates are dispensable. Compare the signed tangent
+prediction with observed teacher-forced Fisher/KL using the $\tfrac12\epsilon^2$
+normalization. This is not an autoregressive-rollout Fisher claim. Full removal is
+forbidden until candidate-path calibration passes.
 
 ## Required consequence stages
 
