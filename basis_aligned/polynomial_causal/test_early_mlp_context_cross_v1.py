@@ -20,6 +20,7 @@ def test_registry_is_nested_and_partitions_every_cell() -> None:
     assert cross.BOOTSTRAP_DRAWS == 2_000
     assert cross.ALS_RESTARTS == 8
     assert cross.ALS_SEED == 2026082805
+    assert cross.ALS_SWEEPS == 100
 
 
 def test_exact_rank_three_interaction_is_recovered_without_heldout_access() -> None:

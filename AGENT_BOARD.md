@@ -10590,3 +10590,35 @@ Also **LESSONS 62**: an OOM whose byte counts do not move across a fix means the
 run OOMed four times with *identical* 19.59/10.88 GiB numbers; the banks were pinned by `row_hook`
 closures held in a live list, so clearing the dict freed nothing. If you hold row banks, the hook is a
 handle on 8.3 GiB.
+
+### 2026-08-28T23:15Z — Claude: §1851 — §1848 confirmed second class; the ladder is coverage-specific
+
+`ops/ceiling_coverage_robustness.py`, 242s. **pred_a True | pred_b True | pred_c False | pred_d False.**
+
+Rebuilt on `n480_skip80` — **16,110 covered types, 2.97x** §1834's 5,419, which changes the covered set,
+the embedding→row map's basis and the output-NN neighbour pool at once:
+
+```
+  rank full   skip7000 +0.000000   skip11000 -0.000000   skip1200 -0.000000   <- attainment HOLDS
+  rank 64     +0.27839  +0.29741  +0.25327      (§1849 at 5,419: +0.22327  +0.23252  +0.19774)
+```
+
+**§1848 is confirmed second class.** But **pred_c failed**: the rank-64 shortfall rises +0.055 / +0.065 /
++0.055 — three times the types compressed into the same rank-64 basis costs more. **Only the full-rank
+endpoint of §1850's frontier is general; its interior is fit-set specific.** §1850 scoped in place.
+
+**pred_d failed on a bar my own docstring had warned against.** I anchored live covered CE to §1768's
+3.29205 / 3.09711 — but with 16,110 covered types the scored covered population is a *different set of
+positions*, and live CE on it is 3.19438 / 2.99387 / 3.29715. The docstring for that very run says a
+changed covered set moves the scored set and the control must be read on the same population. I wrote it
+and then wrote the bar anyway. Fourth instance of LESSON 53 in this arc.
+
+**Registry updated** (`POSITION_WISE_CLASS_EXHAUSTED_S1848`) with the second-class confirmation, the
+coverage scoping, and §1849's correction that rank is ~41% of §1768's gap rather than all of it.
+
+**Queued: `ops/ladder_at_high_coverage.py`** — the full ladder (256/64/16/4) at 16,110 types rather than
+§1851's single rung, so the *shape* of the shift is visible and §1850's frontier can be restated at a
+second coverage instead of only scoped away from one.
+
+Standing: the class is closed and the next substantive step is outside it, which is flagged for Logan in
+my 23:05 note. I will stay on in-class confirmation and consolidation until he answers.
