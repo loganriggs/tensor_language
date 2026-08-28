@@ -48272,7 +48272,14 @@ correctable by one scalar. §1810 found no *site-level* rescale helps the fully 
 **per-head** correction has never been tried — and §1809 left ~20% of the L5 bottom-up swing
 unattributed after mlp4 took 78-82%.
 
-## §1820 — nine scalars repair the L5 cliff completely, and head 5.7's 85% of the NORM is only 15% of the DAMAGE
+## §1820 — ~~nine scalars~~ repair the L5 cliff completely, and head 5.7's 85% of the NORM is only 15% of the DAMAGE
+
+> **SUPERSEDED IN PART by §1821.** The measurement below is correct — nine per-head scalars do
+> recover 99%. But they are NOT necessary: §1821 found a SINGLE scalar per layer (the
+> live-norm-weighted mean ratio, 1/132.87 at L5) recovers 99.7 / 98.4 / 99.6%, indistinguishable
+> from the nine-vector. The cliff is a LAYER-MAGNITUDE error, not a per-head one. The 15%-vs-85%
+> finding below stands and is explained by §1821: correcting one head leaves the LAYER's scale
+> wrong, which is the quantity that matters.
 
 `ops/head_gain_repair.py`, 216.7s, **DISCOVERY ONLY**, rung 3 (the question §1819 ended on).
 **pred_a FALSE | pred_b True | pred_c True | pred_d FALSE** — pred_d failed on my own control
@@ -48324,3 +48331,61 @@ downstream is a table, and decisive when a live module has to consume the output
 layer, or of this particular compiled stream? A gain vector fitted on one role and applied to the other
 two would separate a calibration from a curve-fit — and if it transfers, the §1806 directional
 poisoning has a cheap general remedy.
+
+## §1821 — ONE scalar per layer is enough: the cliff is a layer-magnitude error, and §1820's nine-vector was over-parameterised
+
+`ops/gain_structure.py`, 212.5s, **DISCOVERY ONLY**, rung 3 (the question §1820 ended on).
+**pred_a True | pred_b FALSE | pred_c FALSE | pred_d True.** Both failures simplify the account.
+
+```
+  delta vs the all-substituted baseline (pp), rank-64 build
+                 L5 raw   per-head   layer-scalar  |   L6 raw   per-head   L5's vector
+    skip7000     -11.88     -0.05        -0.03     |   -10.54     -0.05       -5.01
+    skip11000    -12.37     -0.15        -0.19     |   -11.30     +0.00       -5.37
+    skip1200     -11.92     -0.09        -0.05     |   -10.96     +0.07       -4.76
+```
+
+**pred_a passed at 99.5 / 100.0 / 100.6%: the construction repairs L6 as completely as L5**, despite
+L6's damage sitting on a different head (h1 at 106.8x from a base of 1786.0, against L5's h7 at 158.9x
+from 6657.8). So this is not a special case that happened to work once.
+
+**pred_b FAILED, and it supersedes §1820's framing.** A **single scalar per layer** — the
+live-norm-weighted mean ratio, **1/132.87 at L5** and **1/63.04 at L6** — recovers **99.7 / 98.4 /
+99.6%**, statistically indistinguishable from the nine-vector's 99.6 / 98.8 / 99.2%. **§1820's nine
+scalars were over-parameterised: one number per layer does the whole job.** Its measurement stands; its
+emphasis does not, and pred_b's registered branch said exactly this — *"the whole effect is a
+layer-level magnitude error after all, which would simplify the account considerably and partly
+rehabilitate the site-level framing §1810 closed."*
+
+**pred_c FAILED, and it explains why one scalar suffices.** L5's gain vector applied at **L6** recovers
+**52.5 / 52.5 / 56.6%**, far above the 25% I set. A wrong-but-similar-magnitude correction gets you
+halfway — which is what you would expect if only the OVERALL SCALE matters and the per-head detail does
+not. The two layer scalars differ by only ~2x (1/132.87 vs 1/63.04), so L5's vector lands in roughly the
+right range at L6 and recovers roughly half.
+
+**This also resolves §1820's puzzle without needing the "other heads matter individually" reading.**
+Correcting head 5.7 alone recovered only 15% not because the other eight each carry damage, but because
+correcting one head leaves the LAYER's total output magnitude still wrong — h2 at 240.8x and h6 at 83.9x
+remain untouched. The quantity that has to be right is the layer's scale, and 5.7's 85% norm share does
+not deliver it.
+
+**Relation to §1810, stated carefully because it looks like a contradiction and is not.** §1810 found
+that no site-level rescale helps the FULLY COMPILED program and closed the magnitude line there. This
+finds that a single site-level scalar almost completely repairs a PARTIALLY compiled one. Both hold:
+magnitude is irrelevant when everything downstream is also a table, and nearly sufficient when a live
+module has to consume the output. §1810's conclusion was correctly scoped to its own regime and I am
+not withdrawing it.
+
+**So §1806's directional poisoning has a one-number remedy per layer.** The catastrophe of holding a
+live attention layer above a compiled stream — up to −12.4pp — is a scalar magnitude error, repairable
+to within 0.2pp by dividing that layer's attention output by its measured compiled/live norm ratio.
+
+Controls (pred_d): the L5 raw arm reproduces §1820's published rank-64 deltas −0.1188 / −0.1237 /
+−0.1192 within 0.5pp; the baseline reproduces **§1786's RANK-64** 0.1288 / 0.1349 / 0.1289 within 0.001
+(quoting the right object this time — LESSON 53); live reproduces 0.3932 / 0.4235 / 0.3888; and the
+placement control is exact, L5's gain applied to the fully substituted program moving top-1 by
+**+0.000pp**.
+
+**Open question this ends on.** One scalar per layer repairs the interface at L5 and L6. Does a single
+vector of eighteen such scalars repair the whole bottom-up curve of §1806 — where compiling layers 0-3
+beneath live layers was *worse than compiling all eighteen*?
