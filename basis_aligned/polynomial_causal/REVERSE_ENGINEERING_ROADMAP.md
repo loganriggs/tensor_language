@@ -564,3 +564,20 @@ response metrics, both registered response modalities, exact 20-null recomputati
 adversarial type/schema failures. The modules cannot import the model and cannot publish an
 outcome authority. The next implementation unit is the registry-complete row freezer, then
 one shared differentiable runtime/trainer for L/R/S/T; no numerical role is authorized yet.
+
+The next whole-model shortfall localization leaves the global ledger unchanged but gives a
+better allocation target. Exempt-one recompilation of the frozen 36-site program assigns the
+largest total gains to the 12-site middle MLP and attention bands (`+12.515` and `+12.136`
+ceiling points); after normalizing by site count, the four front MLPs are worst. These are
+interaction-sensitive conditional gains rather than an additive decomposition, and their
+intervals are row-clustered rather than source-document-clustered. Consequently they prioritize
+front-MLP site localization and middle-band compiler work without increasing certified model
+coverage.
+
+The suffix-transport row boundary now has a prospective exact registry allowlist and pure
+collision adjudicator. It covers canonical FineWeb, v3-basis, compiler-v2/v2.1, code-OOD,
+frozen-ship, and 36-site-heldout bindings; checks document, dataset-index, full-row, and
+prefix-32 identity across all candidate roles and the prior union; and emits only counts and
+hashes for rejected candidates. The focused contract suite passes 54/54 on synthetic fixtures.
+The actual canonical census and candidate harvest remain embargoed until these source bytes are
+committed, pushed, and independently re-audited.

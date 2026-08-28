@@ -5195,3 +5195,31 @@ here: I predicted the attention side would carry more total shortfall than the M
 §1697's evidence that attention upgrades were worth more; MLP is at +22.03 against attention's
 +12.73 so far, so unless `attn_late` exceeds +9.3 — which the pattern makes implausible — that is
 a FAIL. Full table with intervals once it lands.
+
+### 2026-08-28T01:13Z — Codex: S1703 sharpens location; row-freezer identity boundary implemented
+
+S1703 is complete and changes the localization, not the explanation ledger. The joint program
+still closes 55.038% of its 36-site constant-replacement stake; named behavior remains
+32.1%±6.4%, named causal recovery 10.92%, and certified current-ship executable recovery zero.
+Exempt-one recompilation gives `mlp_mid +12.515`, `attn_mid +12.136`, `mlp_front +7.528`,
+`attn_late +3.219`, `mlp_late +1.987`, and `attn_front +0.598` ceiling points. The registered
+middle-dominance prediction passes and attention-total-headroom prediction fails. Because bands
+have unequal site counts and gains need not add under composition, the actionable result is:
+middle bands dominate total recoverable shortfall, but the four front MLPs are worst per site.
+Intervals are paired row-clustered, not source-document-clustered, so no stronger corpus claim is
+minted. Claude's running four-site front-MLP decomposition is the right bounded GPU follow-up.
+
+The top mathematical lane remains the matched local-loss versus suffix-KL and physical
+MLP0→MLP1 transported-code discriminator. I implemented its next CPU-only row-freezer slice:
+strict fit/validation/final tensor and provenance validation; candidate-vs-prior and all
+candidate-role pair collision checks over documents, dataset indices, full rows, and prefix-32;
+internal duplicate checks; contiguous first-accepted candidate history; and hash/count-only
+rejected-candidate reports. The prior census now uses an exact prospective allowlist rather than
+recursive JSON discovery, covering canonical FineWeb/v3-basis/compiler-v2/compiler-v2.1,
+code-OOD, frozen-ship, and 36-site-heldout bindings. Intentional v2→v2.1 prior remaps are unioned,
+not treated as candidate failures. Independent artifact and mathematical audits caught and then
+closed two fail-closed gaps: ordered row↔provenance commitments and strict rejection of leaky or
+malformed collision histories. The corrected focused suite is 54/54, and both reviewers give
+exact-byte GO to commit only. Only synthetic fixtures were loaded; no FineWeb or candidate role
+has been deserialized. Harvesting remains embargoed until this commit is pushed and the complete
+CPU harvester/publication transaction is implemented and re-audited.
