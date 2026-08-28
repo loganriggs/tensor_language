@@ -18,6 +18,8 @@ import bilin18_observed_model_facade as facade
 import early_mlp_suffix_transport_v1 as contract
 import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_response_execution as response_execution
+import early_mlp_suffix_transport_v1_response_plan as response_plan
+import early_mlp_suffix_transport_v1_response_reductions as response_reductions
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -1475,4 +1477,285 @@ class ObservedBilin18Adapter:
             consumer_ledger_sha256=consumer_closure.ledger_sha256,
             broker_ledger_sha256=runtime.logical_identity_sha256(asdict(broker_snapshot)),
             observed_closure=observed,
+        )
+
+    def run_final_response_batch(
+        self, *, validated_program_bank: Any, inherited_initialization: Any,
+        final_context: Any, role_rows: torch.Tensor,
+        ordered_batch_indices: Any, batch_ordinal: int,
+    ) -> response_execution.ObservedResponseBatchResult:
+        """Execute the exact ordered 69-forward response transaction for one batch."""
+
+        import early_mlp_suffix_transport_v1_capabilities as capabilities
+
+        if not isinstance(final_context, capabilities.FinalRunContext) or not callable(
+            getattr(inherited_initialization, "clone_bases", None)
+        ) or not callable(getattr(inherited_initialization, "make_program", None)) or not (
+            hasattr(inherited_initialization, "authority")
+        ):
+            raise TypeError("response batch requires final and inherited authorities")
+        indices = tuple(ordered_batch_indices)
+        expected_indices = tuple(range(
+            batch_ordinal * runtime.BATCH_SIZE,
+            (batch_ordinal + 1) * runtime.BATCH_SIZE,
+        ))
+        if not torch.is_tensor(role_rows) or role_rows.dtype != torch.long or tuple(
+            role_rows.shape
+        ) != (runtime.BATCH_SIZE, 513) or role_rows.device.type != "cpu" or not (
+            role_rows.is_contiguous()
+        ) or indices != expected_indices or final_context.inherited_snapshot_sha256 != (
+            inherited_initialization.authority.snapshot_sha256
+        ):
+            raise RuntimeError("response batch rows, schedule, or inherited authority changed")
+        bases = inherited_initialization.clone_bases()
+        if set(bases) != {0, 1}:
+            raise RuntimeError("response batch inherited bases are incomplete")
+        inherited_q = inherited_initialization.make_program("L")
+        sources = final_actions.source_bank_from_validated(
+            validated_program_bank, inherited_q=inherited_q,
+        )
+        payload_sha256 = validated_program_bank.get("payload_sha256")
+        if not runtime._sha256_text(payload_sha256):
+            raise RuntimeError("response batch program payload identity is malformed")
+        common_support_sha256 = runtime.logical_identity_sha256({
+            "role": "early_mlp_suffix_transport_v1_final",
+            "final_role_tensor_sha256": final_context.final_role_tensor_sha256,
+            "rows_receipt_sha256": final_context.rows_receipt_sha256,
+            "row_count": final_context.final_row_count,
+            "score_start": runtime.SCORE_START,
+            "score_stop": runtime.SCORE_STOP,
+        })
+        edits = {
+            sign: response_execution.build_final_response_edit(
+                validated_program_bank=validated_program_bank, role_rows=role_rows,
+                ordered_batch_indices=indices, batch_ordinal=batch_ordinal,
+                basis0=bases[0], edit_sign=sign,
+            ) for sign in response_execution.EDIT_SIGNS
+        }
+        if len({value.unit_identity_sha256 for value in edits.values()}) != 1:
+            raise RuntimeError("response batch edit triplet does not share one unit")
+        unit_identity = edits[0].unit_identity_sha256
+        plan = response_plan.build_response_batch_plan(
+            batch_ordinal=batch_ordinal,
+            ordered_role_rows_sha256=runtime.tensor_identity_sha256(role_rows),
+            intervention_unit_sha256=unit_identity,
+        )
+        issuer_id = runtime.logical_identity_sha256({
+            "kind": "final_response_batch", "batch_plan_sha256": plan.sha256,
+            "final_context_sha256": final_context.sha256,
+            "source_bank_sha256": sources.sha256,
+            "program_payload_sha256": payload_sha256,
+        })
+        coordinator = runtime.ScopeCoordinator()
+        hook = runtime.StudentCorrectionHook(
+            bases, issuer_id=issuer_id, coordinator=coordinator,
+        )
+        broker = self.make_capability_broker(
+            issuer_id=issuer_id, coordinator=coordinator,
+            run_context=final_context, bases=bases,
+        )
+        sign_for = {"baseline": 0, "positive": 1, "negative": -1}
+        forward_receipts: list[response_execution.ObservedResponseForwardReceipt] = []
+        teacher_forwards: list[_ObservedResponseTeacherForward] = []
+
+        for forward_plan in plan.forwards[:3]:
+            edit = edits[sign_for[forward_plan.perturbation]]
+            observed_teacher = self._run_final_response_teacher_forward(
+                edit=edit, role_rows=role_rows, ordered_batch_indices=indices,
+                basis0=bases[0], basis1=bases[1],
+            )
+            execution_identity = runtime.logical_identity_sha256({
+                "kind": "exact_oon_response_teacher",
+                "response_execution_amendment_sha256": (
+                    response_execution.RESPONSE_EXECUTION_AMENDMENT_SHA256
+                ),
+                "forward_plan_sha256": forward_plan.sha256,
+                "edit_sha256": edit.sha256,
+                "final_context_sha256": final_context.sha256,
+                "source_bank_sha256": sources.sha256,
+                "basis1_sha256": runtime.tensor_identity_sha256(
+                    bases[1].detach().cpu().float().contiguous()
+                ),
+            })
+            receipt = response_execution.ObservedResponseForwardReceipt(
+                forward_plan_sha256=forward_plan.sha256,
+                subject_key=forward_plan.subject_key,
+                perturbation=forward_plan.perturbation,
+                batch_ordinal=batch_ordinal,
+                execution_identity_sha256=execution_identity,
+                final_action_identity_sha256=None, materialization_sha256=None,
+                edit_sha256=edit.sha256,
+                semantic_delta_sha256=edit.semantic_delta_sha256,
+                code_edit_sha256=edit.code_edit_sha256,
+                physical_edit_sha256=edit.physical_edit_sha256,
+                code1_sha256=runtime.tensor_identity_sha256(observed_teacher.code1),
+                logits_sha256=runtime.tensor_identity_sha256(observed_teacher.logits),
+                observed_closure_sha256=runtime.logical_identity_sha256(
+                    asdict(observed_teacher.observed_closure)
+                ),
+                student_step_ledger_sha256=None,
+                consumer_ledger_sha256=None, broker_ledger_sha256=None,
+            )
+            teacher_forwards.append(observed_teacher)
+            forward_receipts.append(receipt)
+        teacher_code = response_reductions.ResponseTriplet(
+            baseline=teacher_forwards[0].code1,
+            positive=teacher_forwards[1].code1,
+            negative=teacher_forwards[2].code1,
+        )
+        teacher_logits = response_reductions.ResponseTriplet(
+            baseline=teacher_forwards[0].logits,
+            positive=teacher_forwards[1].logits,
+            negative=teacher_forwards[2].logits,
+        )
+        teacher_receipt_sha256s = tuple(
+            value.sha256 for value in forward_receipts[:3]
+        )
+        arm_reductions: list[response_execution.ObservedResponseArmReduction] = []
+        offset = 3
+        for action_key in response_plan.RESPONSE_ACTION_KEYS:
+            arm, background = action_key.split("/")
+            materialized = final_actions.materialize(
+                final_actions.plan_for(arm, background), sources,
+            )
+            final_identity = final_actions.FinalActionBatchIdentity.from_role_rows(
+                materialized=materialized, role_rows=role_rows,
+                ordered_batch_indices=indices, batch_ordinal=batch_ordinal,
+                source_commit=final_context.source_commit,
+                inherited_snapshot_sha256=final_context.inherited_snapshot_sha256,
+                rows_receipt_sha256=final_context.rows_receipt_sha256,
+                final_role_tensor_sha256=final_context.final_role_tensor_sha256,
+                program_payload_sha256=payload_sha256,
+                common_support_sha256=common_support_sha256,
+            )
+            student_forwards: list[_ObservedResponseStudentForward] = []
+            student_receipts: list[
+                response_execution.ObservedResponseForwardReceipt
+            ] = []
+            action_plans = plan.forwards[offset:offset + 3]
+            offset += 3
+            for forward_plan in action_plans:
+                edit = edits[sign_for[forward_plan.perturbation]]
+                binding = response_execution.bind_runtime_response_program_batch(
+                    materialized=materialized,
+                    final_action_identity=final_identity,
+                    forward_plan=forward_plan, edit=edit,
+                    role_rows=role_rows, ordered_batch_indices=indices,
+                    teacher_mapping_sha256=(
+                        final_context.identity_teacher_mapping_sha256
+                    ),
+                )
+                observed_student = self._run_final_response_student_forward(
+                    broker=broker, hook=hook, materialized=materialized,
+                    final_action_identity=final_identity, binding=binding,
+                    edit=edit, final_context=final_context, role_rows=role_rows,
+                    ordered_batch_indices=indices, basis0=bases[0],
+                )
+                receipt = response_execution.ObservedResponseForwardReceipt(
+                    forward_plan_sha256=forward_plan.sha256,
+                    subject_key=forward_plan.subject_key,
+                    perturbation=forward_plan.perturbation,
+                    batch_ordinal=batch_ordinal,
+                    execution_identity_sha256=(
+                        observed_student.response_execution_identity_sha256
+                    ),
+                    final_action_identity_sha256=final_identity.sha256,
+                    materialization_sha256=materialized.sha256,
+                    edit_sha256=edit.sha256,
+                    semantic_delta_sha256=edit.semantic_delta_sha256,
+                    code_edit_sha256=edit.code_edit_sha256,
+                    physical_edit_sha256=edit.physical_edit_sha256,
+                    code1_sha256=runtime.tensor_identity_sha256(
+                        observed_student.code1
+                    ),
+                    logits_sha256=runtime.tensor_identity_sha256(
+                        observed_student.logits
+                    ),
+                    observed_closure_sha256=runtime.logical_identity_sha256(
+                        asdict(observed_student.observed_closure)
+                    ),
+                    student_step_ledger_sha256=(
+                        observed_student.student_step_ledger_sha256
+                    ),
+                    consumer_ledger_sha256=(
+                        observed_student.consumer_ledger_sha256
+                    ),
+                    broker_ledger_sha256=observed_student.broker_ledger_sha256,
+                )
+                student_forwards.append(observed_student)
+                student_receipts.append(receipt)
+                forward_receipts.append(receipt)
+            student_code = response_reductions.ResponseTriplet(
+                baseline=student_forwards[0].code1,
+                positive=student_forwards[1].code1,
+                negative=student_forwards[2].code1,
+            )
+            student_logits = response_reductions.ResponseTriplet(
+                baseline=student_forwards[0].logits,
+                positive=student_forwards[1].logits,
+                negative=student_forwards[2].logits,
+            )
+            code_reduction = (
+                response_reductions.reduce_code_response(
+                    teacher=teacher_code, student=student_code,
+                    unit_identity=unit_identity,
+                ) if action_key in {"ll/N", "lt/N"} else None
+            )
+            logit_reduction = response_reductions.reduce_centered_logit_response(
+                teacher=teacher_logits, student=student_logits,
+                unit_identity=unit_identity,
+            )
+            output_kl_reduction = response_reductions.reduce_output_kl_response(
+                teacher=teacher_logits, student=student_logits,
+                unit_identity=unit_identity,
+            )
+            arm_reductions.append(response_execution.ObservedResponseArmReduction(
+                action_key=action_key, batch_plan_sha256=plan.sha256,
+                teacher_forward_receipt_sha256s=teacher_receipt_sha256s,
+                student_forward_receipt_sha256s=tuple(
+                    value.sha256 for value in student_receipts
+                ),
+                code_response=code_reduction, logit_response=logit_reduction,
+                output_kl_response=output_kl_reduction,
+            ))
+            student_forwards.clear()
+            student_receipts.clear()
+        if offset != len(plan.forwards) or len(forward_receipts) != 69 or not (
+            coordinator.idle
+        ):
+            raise RuntimeError("response batch forward schedule did not close")
+        broker_snapshot = broker.ledger_snapshot
+        if broker_snapshot.student_identity_count != 66 or (
+            broker_snapshot.teacher_identity_count != 66
+        ) or broker_snapshot.completed_identity_count != 66 or (
+            broker_snapshot.outstanding_identity_sha256 is not None
+        ):
+            raise RuntimeError("response batch broker ledger did not close")
+        batch_receipt = response_execution.ObservedResponseBatchReceipt(
+            batch_plan_sha256=plan.sha256, source_bank_sha256=sources.sha256,
+            program_payload_sha256=payload_sha256,
+            final_context_sha256=final_context.sha256,
+            common_support_sha256=common_support_sha256,
+            basis0_sha256=runtime.tensor_identity_sha256(
+                bases[0].detach().cpu().float().contiguous()
+            ),
+            basis1_sha256=runtime.tensor_identity_sha256(
+                bases[1].detach().cpu().float().contiguous()
+            ),
+            forward_receipt_sha256s=tuple(
+                value.sha256 for value in forward_receipts
+            ),
+            arm_reduction_sha256s=tuple(
+                (value.action_key, value.sha256) for value in arm_reductions
+            ),
+            broker_ledger_sha256=runtime.logical_identity_sha256(
+                asdict(broker_snapshot)
+            ),
+            teacher_forward_count=3, student_forward_count=66,
+            atomic_complete=True,
+        )
+        teacher_forwards.clear()
+        forward_receipts.clear()
+        return response_execution.ObservedResponseBatchResult(
+            arm_reductions=tuple(arm_reductions), receipt=batch_receipt,
         )

@@ -17,6 +17,7 @@ import early_mlp_suffix_transport_v1 as contract
 import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_programs as programs
 import early_mlp_suffix_transport_v1_response_plan as response_plan
+import early_mlp_suffix_transport_v1_response_reductions as response_reductions
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -459,3 +460,185 @@ def bind_runtime_response_program_batch(
     return ResponseProgramBatchBinding(
         execution_identity=execution_identity, runtime_identity=trace,
     )
+
+
+@dataclass(frozen=True, slots=True)
+class ObservedResponseForwardReceipt:
+    """Tensor-free identity of one actually executed response forward."""
+
+    forward_plan_sha256: str
+    subject_key: str
+    perturbation: str
+    batch_ordinal: int
+    execution_identity_sha256: str
+    final_action_identity_sha256: str | None
+    materialization_sha256: str | None
+    edit_sha256: str
+    semantic_delta_sha256: str
+    code_edit_sha256: str
+    physical_edit_sha256: str
+    code1_sha256: str
+    logits_sha256: str
+    observed_closure_sha256: str
+    student_step_ledger_sha256: str | None
+    consumer_ledger_sha256: str | None
+    broker_ledger_sha256: str | None
+
+    def __post_init__(self) -> None:
+        if self.subject_key != response_plan.TEACHER_KEY and self.subject_key not in (
+            response_plan.RESPONSE_ACTION_KEYS
+        ) or self.perturbation not in response_plan.PERTURBATIONS or type(
+            self.batch_ordinal
+        ) is not int or not 0 <= self.batch_ordinal < response_plan.EXPECTED_BATCHES:
+            raise ValueError("observed response forward header is malformed")
+        for name in (
+            "forward_plan_sha256", "execution_identity_sha256", "edit_sha256",
+            "semantic_delta_sha256", "code_edit_sha256", "physical_edit_sha256",
+            "code1_sha256", "logits_sha256", "observed_closure_sha256",
+        ):
+            _sha256(name, getattr(self, name))
+        optional = (
+            self.final_action_identity_sha256, self.materialization_sha256,
+            self.student_step_ledger_sha256, self.consumer_ledger_sha256,
+            self.broker_ledger_sha256,
+        )
+        teacher = self.subject_key == response_plan.TEACHER_KEY
+        if teacher != all(value is None for value in optional) or (
+            not teacher and any(not runtime._sha256_text(value) for value in optional)
+        ):
+            raise ValueError("observed response teacher/student provenance changed")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            name: getattr(self, name) for name in self.__dataclass_fields__
+        })
+
+
+@dataclass(frozen=True, slots=True)
+class ObservedResponseArmReduction:
+    """One action's actual triplets and its typed row-scalar reductions."""
+
+    action_key: str
+    batch_plan_sha256: str
+    teacher_forward_receipt_sha256s: tuple[str, str, str]
+    student_forward_receipt_sha256s: tuple[str, str, str]
+    code_response: response_reductions.BatchResponseReduction | None
+    logit_response: response_reductions.BatchResponseReduction
+    output_kl_response: response_reductions.BatchOutputKLReduction
+
+    def __post_init__(self) -> None:
+        if self.action_key not in response_plan.RESPONSE_ACTION_KEYS:
+            raise ValueError("observed response reduction action is unregistered")
+        _sha256("observed response batch plan", self.batch_plan_sha256)
+        for values in (
+            self.teacher_forward_receipt_sha256s,
+            self.student_forward_receipt_sha256s,
+        ):
+            if not isinstance(values, tuple) or len(values) != 3 or any(
+                not runtime._sha256_text(value) for value in values
+            ):
+                raise ValueError("observed response receipt triplet is malformed")
+        code_expected = self.action_key in {"ll/N", "lt/N"}
+        if (self.code_response is not None) != code_expected or (
+            self.code_response is not None and not isinstance(
+                self.code_response, response_reductions.BatchResponseReduction,
+            )
+        ) or not isinstance(
+            self.logit_response, response_reductions.BatchResponseReduction,
+        ) or not isinstance(
+            self.output_kl_response, response_reductions.BatchOutputKLReduction,
+        ):
+            raise ValueError("observed response reduction modalities changed")
+        identities = {
+            self.logit_response.unit_identity,
+            self.output_kl_response.unit_identity,
+        }
+        if self.code_response is not None:
+            identities.add(self.code_response.unit_identity)
+        if len(identities) != 1:
+            raise ValueError("observed response reduction units differ")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "action_key": self.action_key,
+            "batch_plan_sha256": self.batch_plan_sha256,
+            "teacher_forward_receipt_sha256s": list(
+                self.teacher_forward_receipt_sha256s
+            ),
+            "student_forward_receipt_sha256s": list(
+                self.student_forward_receipt_sha256s
+            ),
+            "code_response_sha256": (
+                None if self.code_response is None else self.code_response.sha256
+            ),
+            "logit_response_sha256": self.logit_response.sha256,
+            "output_kl_response_sha256": self.output_kl_response.sha256,
+        })
+
+
+@dataclass(frozen=True, slots=True)
+class ObservedResponseBatchReceipt:
+    """Atomic closure of one ordered 69-forward four-row response batch."""
+
+    batch_plan_sha256: str
+    source_bank_sha256: str
+    program_payload_sha256: str
+    final_context_sha256: str
+    common_support_sha256: str
+    basis0_sha256: str
+    basis1_sha256: str
+    forward_receipt_sha256s: tuple[str, ...]
+    arm_reduction_sha256s: tuple[tuple[str, str], ...]
+    broker_ledger_sha256: str
+    teacher_forward_count: int
+    student_forward_count: int
+    atomic_complete: bool
+
+    def __post_init__(self) -> None:
+        for name in (
+            "batch_plan_sha256", "source_bank_sha256", "program_payload_sha256",
+            "final_context_sha256", "common_support_sha256", "basis0_sha256",
+            "basis1_sha256", "broker_ledger_sha256",
+        ):
+            _sha256(name, getattr(self, name))
+        if not isinstance(self.forward_receipt_sha256s, tuple) or len(
+            self.forward_receipt_sha256s
+        ) != 69 or any(
+            not runtime._sha256_text(value) for value in self.forward_receipt_sha256s
+        ) or not isinstance(self.arm_reduction_sha256s, tuple) or tuple(
+            key for key, _value in self.arm_reduction_sha256s
+        ) != response_plan.RESPONSE_ACTION_KEYS or any(
+            not runtime._sha256_text(value) for _key, value in self.arm_reduction_sha256s
+        ) or self.teacher_forward_count != 3 or self.student_forward_count != 66 or (
+            self.atomic_complete is not True
+        ):
+            raise ValueError("observed response batch did not close atomically")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            name: (
+                list(getattr(self, name)) if name in {
+                    "forward_receipt_sha256s", "arm_reduction_sha256s",
+                } else getattr(self, name)
+            ) for name in self.__dataclass_fields__
+        })
+
+
+@dataclass(frozen=True, slots=True)
+class ObservedResponseBatchResult:
+    arm_reductions: tuple[ObservedResponseArmReduction, ...]
+    receipt: ObservedResponseBatchReceipt
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.arm_reductions, tuple) or tuple(
+            value.action_key for value in self.arm_reductions
+        ) != response_plan.RESPONSE_ACTION_KEYS or any(
+            not isinstance(value, ObservedResponseArmReduction)
+            for value in self.arm_reductions
+        ) or not isinstance(self.receipt, ObservedResponseBatchReceipt) or tuple(
+            (value.action_key, value.sha256) for value in self.arm_reductions
+        ) != self.receipt.arm_reduction_sha256s:
+            raise ValueError("observed response batch result differs from its receipt")
