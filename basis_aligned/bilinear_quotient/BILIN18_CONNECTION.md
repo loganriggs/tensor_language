@@ -48031,3 +48031,67 @@ within 0.01; live CE reproduces 3.13704 / 2.93450 / 3.23027; coverage 5419.
 **Open question this ends on.** §1811's dominance result — full-rank tables off the Pareto frontier,
 four of five arms dominated — was established on **top-1 only**. If CE punishes truncation four times
 harder, that dominance may not survive on the CE axis, and it is currently a certified registry entry.
+
+## §1816 — §1811's dominance is AXIS-INVARIANT: the CE and top-1 Pareto frontiers are the same nine arms
+
+`ops/ce_dominance_check.py`, 301.6s, **DISCOVERY ONLY**, rung 3 (§1815's closing question).
+**pred_a False | pred_b False | pred_c False | pred_d True** — all three scientific bars failed, and
+every failure strengthens the entry I was trying to break.
+
+Costs use the carryable map rank of §1814, so the cheap arms are priced correctly here for the first
+time:
+
+```
+   CP r16_L-1     5.278M   CE 6.3592   top1 11.68%
+   CP r64_L-1    20.531M   CE 6.1733   top1 12.88%
+   CP r16_L7    194.044M   CE 5.6567   top1 18.71%
+   CP r64_L7    202.518M   CE 5.5174   top1 19.31%
+      rNone_L-1 230.087M   CE 6.0117   top1 13.55%   <- dominated on BOTH axes
+   CP r16_L10   264.832M   CE 4.8802   top1 26.59%
+   CP r64_L10   270.763M   CE 4.7976   top1 26.93%
+      rNone_L7  318.938M   CE 5.4070   top1 20.06%   <- dominated on BOTH
+   CP r16_L13   335.619M   CE 4.2123   top1 32.62%
+   CP r64_L13   339.008M   CE 4.1815   top1 32.80%
+      rNone_L10 352.257M   CE 4.7325   top1 27.41%   <- dominated on BOTH
+   CP rNone_L13 385.576M   CE 4.1599   top1 32.85%
+```
+
+**pred_a FAILED: on CE, r16_L7 beats the full-rank all-sites arm decisively** — 5.6567 against 6.0117
+(lower is better), while costing 36M reals less. I predicted the comparison would flip; it does not.
+§1811's single most quotable pair holds on both axes.
+
+**pred_b FAILED: exactly the same three of four full-rank arms are dominated on CE as on top-1**, at
+every role. The dominance is not weaker in nats; it is identical.
+
+**pred_c FAILED, and this is the strongest of the three.** The CE Pareto set and the top-1 Pareto set
+are **the same nine arms, on all three roles** — `r16_L-1, r16_L7, r16_L10, r16_L13, r64_L-1, r64_L7,
+r64_L10, r64_L13, rNone_L13`. Its registered sentence called this "the most convenient outcome and the
+one to be most suspicious of", so I will state the suspicion and then dismiss it on the evidence: the
+frontiers are computed by dominance over two independently measured quantities (CE from a
+cross-entropy sum, top-1 from an argmax), the CE control reproduces §1786's published 6.17330 / 6.15261
+/ 6.14463, and the arms disagree *within* the frontier — r16_L7 beats r64_L-1 on both axes while
+r16_L-1 loses to r64_L-1 on both. Identical Pareto sets are not a degenerate output here.
+
+**So §1815's finding and §1816's coexist without tension, and the reconciliation is worth stating.** CE
+punishes rank truncation 3.9-4.4x harder in *magnitude* (§1815), yet the *ordering* by dominance is
+unchanged, because the CE penalty for truncation shrinks with depth exactly as the top-1 penalty did
+(§1812):
+
+```
+    r16 vs r64 CE penalty:   L-1 +0.186   L7 +0.139   L10 +0.083   L13 +0.031 nats
+```
+
+The two axes weight the rank knob differently but agree on which designs are efficient.
+
+**§1811's registry entry is therefore strengthened, not scoped.** It was measured on top-1 only and I
+flagged that as a risk; the risk is now discharged with a measurement rather than an argument.
+
+Controls (pred_d): r16_L7 and rNone_L-1 reproduce §1811's published top-1 of 0.1871 / 0.1942 / 0.1852
+and 0.1355 / 0.1425 / 0.1364 within 0.01; r64_L-1's all-position CE reproduces §1786's published
+6.17330 / 6.15261 / 6.14463 within 0.02; live CE reproduces 3.13704 / 2.93450 / 3.23027; coverage 5419.
+**No ratio appears anywhere in this run** (LESSON 51).
+
+**Open question this ends on.** The frontier is now characterised on both fidelity axes, but §1788's
+other two instruments — top-1 AGREEMENT with the live model and KL(live‖program) — have only ever been
+run on the all-sites program, where they gave 23.57% agreement and 2.88 nats. A partial compile is far
+more accurate; is it also functionally closer to the model, or merely better at the task?
