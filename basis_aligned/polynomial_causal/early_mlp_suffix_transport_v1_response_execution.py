@@ -694,6 +694,16 @@ class ObservedRunResponseReduction:
             "batch_reduction_sha256s": list(self.batch_reduction_sha256s),
         })
 
+    def as_statistics(self, unit_identity: str) -> dict[str, Any]:
+        _sha256("run response unit identity", unit_identity)
+        return {
+            **{
+                name: getattr(self, name).detach().clone().contiguous()
+                for name in response_reductions.statistics.RESPONSE_KEYS
+            },
+            "unit_identity": unit_identity,
+        }
+
 
 @dataclass(frozen=True, slots=True)
 class ObservedRunOutputKLReduction:
@@ -733,6 +743,16 @@ class ObservedRunOutputKLReduction:
             "unit_identity_sha256s": list(self.unit_identity_sha256s),
             "batch_reduction_sha256s": list(self.batch_reduction_sha256s),
         })
+
+    def as_statistics(self, unit_identity: str) -> dict[str, Any]:
+        _sha256("run output-KL unit identity", unit_identity)
+        return {
+            **{
+                name: getattr(self, name).detach().clone().contiguous()
+                for name in response_reductions.statistics.OUTPUT_KL_KEYS
+            },
+            "unit_identity": unit_identity,
+        }
 
 
 @dataclass(frozen=True, slots=True)
@@ -830,6 +850,58 @@ class ObservedResponseRunResult:
             (value.action_key, value.sha256) for value in self.arm_reductions
         ) != self.receipt.arm_reduction_sha256s:
             raise ValueError("observed response run differs from its receipt")
+
+    def to_final_statistics_payload(self) -> dict[str, Any]:
+        """Map the frozen LL/LT/null action order into final statistical roles."""
+
+        by_action = {value.action_key: value for value in self.arm_reductions}
+        ordered_units = by_action["ll/N"].logit_response.unit_identity_sha256s
+        if any(
+            value.logit_response.unit_identity_sha256s != ordered_units or (
+                value.output_kl_response.unit_identity_sha256s != ordered_units
+            ) or (
+                value.code_response is not None
+                and value.code_response.unit_identity_sha256s != ordered_units
+            ) for value in self.arm_reductions
+        ):
+            raise RuntimeError("final response payload mixes ordered units")
+        unit_identity = runtime.logical_identity_sha256({
+            "kind": "early_mlp_suffix_transport_v1_response_units",
+            "response_run_receipt_sha256": self.receipt.sha256,
+            "ordered_batch_unit_sha256s": list(ordered_units),
+        })
+        nulls = [
+            by_action[f"a_null_{index:02d}/N"] for index in range(20)
+        ]
+        return {
+            "response_run_receipt_sha256": self.receipt.sha256,
+            "ordered_unit_identity_sha256": unit_identity,
+            "code_baseline": by_action["ll/N"].code_response.as_statistics(
+                unit_identity
+            ),
+            "code_candidate": by_action["lt/N"].code_response.as_statistics(
+                unit_identity
+            ),
+            "logit_baseline": by_action["ll/N"].logit_response.as_statistics(
+                unit_identity
+            ),
+            "logit_candidate": by_action["lt/N"].logit_response.as_statistics(
+                unit_identity
+            ),
+            "logit_nulls": tuple(
+                value.logit_response.as_statistics(unit_identity) for value in nulls
+            ),
+            "output_kl_baseline": by_action[
+                "ll/N"
+            ].output_kl_response.as_statistics(unit_identity),
+            "output_kl_candidate": by_action[
+                "lt/N"
+            ].output_kl_response.as_statistics(unit_identity),
+            "output_kl_nulls": tuple(
+                value.output_kl_response.as_statistics(unit_identity)
+                for value in nulls
+            ),
+        }
 
 
 class ObservedResponseRunAccumulator:

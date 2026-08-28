@@ -623,6 +623,21 @@ def test_run_accumulator_requires_48_canonical_batches_and_emits_exact_ledger():
     assert len(first.code_response.unit_identity_sha256s) == 48
     assert len(set(first.code_response.unit_identity_sha256s)) == 48
     assert result.arm_reductions[2].code_response is None
+    payload = result.to_final_statistics_payload()
+    assert payload["response_run_receipt_sha256"] == result.receipt.sha256
+    assert len(payload["logit_nulls"]) == 20
+    assert len(payload["output_kl_nulls"]) == 20
+    identities = {
+        value["unit_identity"] for value in (
+            payload["code_baseline"], payload["code_candidate"],
+            payload["logit_baseline"], payload["logit_candidate"],
+            *payload["logit_nulls"], payload["output_kl_baseline"],
+            payload["output_kl_candidate"], *payload["output_kl_nulls"],
+        )
+    }
+    assert identities == {payload["ordered_unit_identity_sha256"]}
+    payload["code_baseline"]["error_sum"].zero_()
+    assert bool(first.code_response.error_sum.all())
     with pytest.raises(RuntimeError, match="already closed"):
         accumulator.add(_synthetic_batch_result(0))
     with pytest.raises(RuntimeError, match="already closed"):
