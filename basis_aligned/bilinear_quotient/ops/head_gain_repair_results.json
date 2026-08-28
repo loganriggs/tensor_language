@@ -1,0 +1,52 @@
+{
+ "run": "head_gain_repair",
+ "NH": 9,
+ "HD": 128,
+ "gains_used": {
+  "0": 0.47,
+  "1": 8.68,
+  "2": 240.76,
+  "3": 0.97,
+  "4": 34.02,
+  "5": 36.86,
+  "6": 83.93,
+  "7": 158.91,
+  "8": 6.61
+ },
+ "delta_pp": {
+  "skip7000": {
+   "L5live_raw": -0.11878797743055555,
+   "L5live_fix7": -0.10101996527777778,
+   "L5live_fixall": -0.00048828125,
+   "allsub_fix7": 0.0
+  },
+  "skip11000": {
+   "L5live_raw": -0.12372504340277778,
+   "L5live_fix7": -0.10557725694444445,
+   "L5live_fixall": -0.0015462239583333426,
+   "allsub_fix7": 0.0
+  },
+  "skip1200": {
+   "L5live_raw": -0.11919487847222224,
+   "L5live_fix7": -0.1012912326388889,
+   "L5live_fixall": -0.0009223090277777901,
+   "allsub_fix7": 0.0
+  }
+ },
+ "recovered_fraction_h7": {
+  "skip7000": 0.14957752911623656,
+  "skip11000": 0.14667836000876996,
+  "skip1200": 0.15020482476103783
+ },
+ "recovered_fraction_all9": {
+  "skip7000": 0.9958894724823019,
+  "skip11000": 0.9875027406270553,
+  "skip1200": 0.9922621756941282
+ },
+ "predictions": {
+  "pred_a_one_scalar_recovers_half": false,
+  "pred_b_all_nine_recovers_more": true,
+  "pred_c_placement_control": true,
+  "pred_d_controls": false
+ }
+}

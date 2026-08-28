@@ -1349,3 +1349,24 @@ degraded fixture must be a MINIMAL REPRODUCTION of the actual failure, and the w
 run the real interpreter/tool on the fixture and see the real error. If the fixture does not fail
 WITHOUT your check, it cannot demonstrate anything WITH it. A degraded-state test that passes is
 indistinguishable from a working check and is the more dangerous of the two.
+
+## LESSON 53 — a cross-run control must name the OBJECT, not just the number and its units
+
+§1820's pred_d compared a run built with rank-64 tables against §1789's published figures for the
+FULL-RANK program. The baseline it measured, 0.1288 / 0.1349 / 0.1289, reproduces §1786's rank-64
+values to four decimal places -- |d| = 0.0000 -- and misses §1789's by 0.0067-0.0076 against a 0.001
+bar. The data were right and the predicate asked the wrong question.
+
+This is the second such failure in one session. §1811's pred_d compared a percentage-point delta
+against a gap FRACTION (LESSON 49, units). This one compared the right units of the wrong OBJECT. Both
+times three of four conjuncts held to five decimals and I had to decompose the conjunction by hand to
+learn which had fired -- and both times the honest write-up had to say "the control failed and the
+science is unaffected", which is a sentence that should make anyone suspicious and therefore must be
+backed by the decomposition rather than asserted.
+
+**How to apply.** A quoted constant needs three things in its NAME: the section, the units, and the
+object -- `S1786_RANK64_TOP1_PP`, not `S1789_PROG`. Before registering, ask "which build produced this
+number, and is my run that build?" Here the answer was visible in one line of the script: the arm is
+constructed by `build(NFULL, 64, 64)`, so only rank-64 constants can be quoted against it. Related:
+[[lesson-49]], [[lesson-42]] -- the cross-run control is still the only thing that catches a changed
+definition, which is exactly why mis-specifying it is expensive.

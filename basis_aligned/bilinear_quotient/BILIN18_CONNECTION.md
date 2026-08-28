@@ -48271,3 +48271,56 @@ split is exact; the per-head norms reproduce §1818's published L5h7 6657.833 ->
 correctable by one scalar. §1810 found no *site-level* rescale helps the fully compiled program, but a
 **per-head** correction has never been tried — and §1809 left ~20% of the L5 bottom-up swing
 unattributed after mlp4 took 78-82%.
+
+## §1820 — nine scalars repair the L5 cliff completely, and head 5.7's 85% of the NORM is only 15% of the DAMAGE
+
+`ops/head_gain_repair.py`, 216.7s, **DISCOVERY ONLY**, rung 3 (the question §1819 ended on).
+**pred_a FALSE | pred_b True | pred_c True | pred_d FALSE** — pred_d failed on my own control
+specification, diagnosed below, and the science is unaffected once the right constants are used.
+
+```
+  delta vs the all-substituted baseline (pp), rank-64 tables
+    skip7000    raw -11.88   fix-h7 -10.10   fix-all-9 -0.05    placement control +0.000
+    skip11000   raw -12.37   fix-h7 -10.56   fix-all-9 -0.15    placement control +0.000
+    skip1200    raw -11.92   fix-h7 -10.13   fix-all-9 -0.09    placement control +0.000
+```
+
+**pred_b passed at 99.6 / 98.8 / 99.2%. Nine scalars — one per head, each the reciprocal of §1818's
+measured norm ratio — repair the L5 cliff essentially completely**, taking the deficit from −11.88pp to
+**−0.05pp**. The catastrophe of holding one live attention layer above a compiled stream is, at layer 5,
+a **pure per-head gain miscalibration**. Nothing about the pattern, the direction, or the content needs
+to change.
+
+**pred_a FAILED, and it is the sharpest thing here: correcting head 5.7 alone recovers only 15.0 / 14.7
+/ 15.0%** of the deficit. §1818 measured that same head carrying **85%** of the layer's excess output
+norm. **Norm share is not damage share** — pred_a's registered failure branch named this exactly, and it
+means §1818's attribution, though correct as a statement about norms, does not license a repair. The
+heads that matter for damage are the ones with small norms and large ratios (h2 at 240.8x, h6 at 83.9x
+off bases of 505.7 and 518.3), not the one whose norm dominates.
+
+**pred_c, the placement control, is exact at +0.000pp** on all three roles: applying the identical gain
+to the fully substituted program, where L5's output is replaced by its table and the hook's effect is
+discarded, changes nothing.
+
+**pred_d FAILED because I carried the wrong object's constants.** This run builds with `build(NFULL,
+64, 64)` — **rank-64** tables — but pred_d compared its baseline against §1789's **full-rank** published
+0.1355 / 0.1425 / 0.1364. Measured: the baseline is **0.1288 / 0.1349 / 0.1289**, which reproduces
+§1786's rank-64 figures to **four decimal places (|d| = 0.0000)** and misses §1789's by 0.0067-0.0076
+against a 0.001 bar. The same mismatch propagates to the §1802 conjunct, which quoted the full-rank
+program's L5-live delta. **The data reproduce the right prior exactly; the predicate named the wrong
+one.** Scored FALSE as written.
+
+**That is the second cross-run control I have mis-specified in this session** — §1811's compared a
+percentage-point delta against a gap fraction (units), this one compared a rank-64 object against a
+full-rank constant (object). **LESSON 53.**
+
+**What §1810 did and did not close, now settled.** §1810 found no SITE-level rescale helps the fully
+compiled program and closed the magnitude line there. It said nothing about a per-HEAD gain in a
+partially compiled configuration, which is why this was worth running — and the answer is that in that
+regime the gain is nearly the whole story. Both results stand: magnitude is irrelevant when everything
+downstream is a table, and decisive when a live module has to consume the output.
+
+**Open question this ends on.** Nine measured scalars fix layer 5. Are they a fixed property of the
+layer, or of this particular compiled stream? A gain vector fitted on one role and applied to the other
+two would separate a calibration from a curve-fit — and if it transfers, the §1806 directional
+poisoning has a cheap general remedy.
