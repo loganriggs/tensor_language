@@ -26,6 +26,30 @@ def joint(route="L"):
     )
 
 
+def student_hook():
+    return runtime.StudentCorrectionHook(
+        {0: basis(), 1: basis()}, issuer_id="a" * 64,
+        coordinator=runtime.ScopeCoordinator(),
+    )
+
+
+def trace_identity(hook, ordinal: int, *, route: str | None = None):
+    requested = route or (hook.program.route if hook.program is not None else "L")
+    teacher = "coordinate_labels" if requested in {"Q", "L"} else "oon_logits"
+    inputs = torch.arange(4 * 256, dtype=torch.long).view(4, 256) + ordinal
+    return runtime.TraceIdentity.from_inputs(
+        inputs=inputs, ordered_batch_indices=range(4), source_commit="b" * 40,
+        inherited_snapshot_sha256="c" * 64, rows_receipt_sha256="d" * 64,
+        fit_role_tensor_sha256="e" * 64,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(hook.program),
+        teacher_mapping_sha256="f" * 64, phase="fit", route=requested,
+        control="true", teacher_kind=teacher, trial=0, epoch=0,
+        optimizer_step=ordinal, batch_ordinal=ordinal,
+        student_states=tuple((site, hook.states.get(site, "N")) for site in (0, 1))
+        + ((2, "N"),),
+    )
+
+
 def test_v21_initialization_is_exact_full_product_affine():
     source = state(3)
     program = runtime.AffineCodeProgram.from_v21_state(source)
@@ -118,27 +142,30 @@ def test_route_and_cross_topology_reject_public_or_internal_mutation():
 
 def test_student_hook_has_no_original_capability_and_consumes_one_parent():
     program = joint("T")
-    hook = runtime.StudentCorrectionHook({0: basis(), 1: basis()})
-    z0 = torch.randn(1, 256, runtime.D_MODEL)
-    z1 = torch.randn(1, 256, runtime.D_MODEL)
+    hook = student_hook()
+    z0 = torch.randn(4, 256, runtime.D_MODEL)
+    z1 = torch.randn(4, 256, runtime.D_MODEL)
     mo0, mo1 = torch.randn_like(z0), torch.randn_like(z1)
-    hook.configure(program=program, states={0: "P", 1: "P"}, capture_sites={0, 1})
-    with hook.forward_scope("batch-1"):
-        out0 = hook(0, z0, mo0, forward_nonce="batch-1")
-        out1 = hook(1, z1, mo1, forward_nonce="batch-1")
+    hook.configure(program=program, states={0: "P", 1: "P"})
+    identity1 = trace_identity(hook, 1)
+    with hook.forward_scope(identity1, capture_sites={0, 1}):
+        out0 = hook(0, z0, mo0, forward_nonce=identity1.nonce)
+        out1 = hook(1, z1, mo1, forward_nonce=identity1.nonce)
         with pytest.raises(RuntimeError, match="more than once"):
-            hook(1, z1, mo1, forward_nonce="batch-1")
+            hook(1, z1, mo1, forward_nonce=identity1.nonce)
     assert torch.allclose(out0.float() @ basis(), program.site0_code(z0), atol=2e-5, rtol=0)
     assert torch.allclose(
         out1.float() @ basis(), program.site1_code(z1, program.site0_code(z0)),
         atol=2e-5, rtol=0,
     )
-    captured = hook.captured_inputs()
+    trace = hook.pop_trace(identity1)
+    captured = trace._consume(issuer_id="a" * 64, identity=identity1)
     assert captured[0].grad_fn is None and captured[1].grad_fn is None
     assert hook.parent_code is None
-    with hook.forward_scope("batch-2"):
-        hook(0, z0, mo0, forward_nonce="batch-2")
-        hook(1, z1, mo1, forward_nonce="batch-2")
+    identity2 = trace_identity(hook, 2)
+    with hook.forward_scope(identity2):
+        hook(0, z0, mo0, forward_nonce=identity2.nonce)
+        hook(1, z1, mo1, forward_nonce=identity2.nonce)
     assert hook.calls == {0: 2, 1: 2}
 
 
@@ -146,31 +173,35 @@ def test_student_hook_rejects_missing_stale_native_or_overwritten_parent():
     z = torch.randn(1, 256, runtime.D_MODEL)
     mo = torch.randn_like(z)
     program = joint("T")
-    hook = runtime.StudentCorrectionHook({0: basis(), 1: basis()})
+    hook = student_hook()
     hook.configure(program=program, states={0: "P", 1: "P"})
-    with hook.forward_scope("one"), pytest.raises(RuntimeError, match="lacks one unused"):
-        hook(1, z, mo, forward_nonce="one")
+    one = trace_identity(hook, 3)
+    with hook.forward_scope(one), pytest.raises(RuntimeError, match="lacks one unused"):
+        hook(1, z, mo, forward_nonce=one.nonce)
     hook.configure(program=program, states={0: "N", 1: "P"})
-    with hook.forward_scope("two"), pytest.raises(RuntimeError, match="cannot source"):
-        hook(0, z, mo, forward_nonce="two")
+    with pytest.raises(ValueError, match="P/P/N"):
+        trace_identity(hook, 4)
     hook.configure(program=program, states={0: "P", 1: "P"})
-    with hook.forward_scope("three"):
-        hook(0, z, mo, forward_nonce="three")
+    three = trace_identity(hook, 5)
+    with hook.forward_scope(three):
+        hook(0, z, mo, forward_nonce=three.nonce)
         with pytest.raises(RuntimeError, match="outside a forward scope"):
             hook(1, z, mo, forward_nonce="wrong")
         with pytest.raises(RuntimeError, match="more than once"):
-            hook(0, z, mo, forward_nonce="three")
+            hook(0, z, mo, forward_nonce=three.nonce)
 
 
 def test_student_hook_applies_edit_to_executable_parent_only():
     program = joint("T")
-    hook = runtime.StudentCorrectionHook({0: basis(), 1: basis()})
-    z = torch.randn(1, 256, runtime.D_MODEL)
+    hook = student_hook()
+    z = torch.randn(4, 256, runtime.D_MODEL)
     mo = torch.randn_like(z)
     edit = torch.randn(1, 256, runtime.CODE_DIM)
-    hook.configure(program=program, states={0: "P"}, site0_edit=edit)
-    with hook.forward_scope("edit"):
-        returned = hook(0, z, mo, forward_nonce="edit")
+    edit = edit.expand(4, -1, -1).clone()
+    hook.configure(program=program, states={0: "P", 1: "P"}, site0_edit=edit)
+    identity = trace_identity(hook, 6, route="T")
+    with hook.forward_scope(identity):
+        returned = hook(0, z, mo, forward_nonce=identity.nonce)
         parent = hook.parent_code.detach().clone()
     expected = program.site0_code(z) + edit
     assert torch.allclose(parent, expected, atol=1e-6, rtol=0)
@@ -178,12 +209,82 @@ def test_student_hook_applies_edit_to_executable_parent_only():
 
 
 def test_student_hook_rejects_silently_ignored_edit():
-    hook = runtime.StudentCorrectionHook({0: basis(), 1: basis()})
+    hook = student_hook()
     edit = torch.zeros(1, 256, runtime.CODE_DIM)
     with pytest.raises(ValueError, match="executable predicted"):
         hook.configure(program=joint("L"), states={0: "N"}, site0_edit=edit)
     with pytest.raises(ValueError, match="executable predicted"):
         hook.configure(program=None, states={0: "N"}, site0_edit=edit)
+
+
+def test_forward_local_trace_rejects_missing_exception_replay_and_outstanding():
+    hook = student_hook()
+    prog = joint("L")
+    hook.configure(program=prog, states={0: "P", 1: "P"})
+    z = torch.zeros(4, 256, runtime.D_MODEL)
+    identity1 = trace_identity(hook, 20)
+    with pytest.raises(RuntimeError, match="did not call/capture"):
+        with hook.forward_scope(identity1, capture_sites={0, 1}):
+            hook(0, z, z, forward_nonce=identity1.nonce)
+    with pytest.raises(RuntimeError, match="no completed"):
+        hook.pop_trace(identity1)
+    with pytest.raises(RuntimeError, match="already spent"):
+        with hook.forward_scope(identity1, capture_sites={0, 1}):
+            pass
+
+    identity2 = trace_identity(hook, 21)
+    with pytest.raises(ValueError, match="synthetic"):
+        with hook.forward_scope(identity2, capture_sites={0, 1}):
+            hook(0, z, z, forward_nonce=identity2.nonce)
+            raise ValueError("synthetic")
+    with pytest.raises(RuntimeError, match="no completed"):
+        hook.pop_trace(identity2)
+
+    identity3 = trace_identity(hook, 22)
+    with hook.forward_scope(identity3, capture_sites={0, 1}):
+        hook(0, z, z, forward_nonce=identity3.nonce)
+        hook(1, z, z, forward_nonce=identity3.nonce)
+    trace = hook.pop_trace(identity3)
+    with pytest.raises(RuntimeError, match="outstanding"):
+        with hook.forward_scope(trace_identity(hook, 23), capture_sites={0, 1}):
+            pass
+    with pytest.raises(RuntimeError, match="active trace"):
+        hook.configure(program=prog, states={0: "P", 1: "P"})
+    trace._consume(issuer_id="a" * 64, identity=identity3)
+    hook.configure(program=prog, states={0: "P", 1: "P"})
+
+
+def test_trace_clones_state_and_rejects_program_or_basis_mutation():
+    hook = student_hook()
+    prog = joint("L")
+    hook.configure(program=prog, states={0: "P", 1: "P"})
+    z0 = torch.randn(4, 256, runtime.D_MODEL)
+    z1 = torch.randn(4, 256, runtime.D_MODEL)
+    original0 = z0.clone()
+    identity1 = trace_identity(hook, 24)
+    with hook.forward_scope(identity1, capture_sites={0, 1}):
+        hook(0, z0, z0, forward_nonce=identity1.nonce)
+        z0.add_(100)
+        hook(1, z1, z1, forward_nonce=identity1.nonce)
+    trace = hook.pop_trace(identity1)
+    captured = trace._consume(issuer_id="a" * 64, identity=identity1)
+    assert torch.equal(captured[0], original0)
+
+    identity2 = trace_identity(hook, 25)
+    with pytest.raises(RuntimeError, match="program mutated"):
+        with hook.forward_scope(identity2, capture_sites={0, 1}):
+            hook(0, z1, z1, forward_nonce=identity2.nonce)
+            hook(1, z1, z1, forward_nonce=identity2.nonce)
+            with torch.no_grad():
+                prog.site0.bias.add_(1)
+
+    hook.configure(program=prog, states={0: "P", 1: "P"})
+    identity3 = trace_identity(hook, 26)
+    with pytest.raises(RuntimeError, match="basis mutated"):
+        with hook.forward_scope(identity3, capture_sites={0, 1}):
+            hook(0, z1, z1, forward_nonce=identity3.nonce)
+            hook(1, z1, z1, forward_nonce=identity3.nonce)
+            hook._bases[0][0, 0] += 1
 
 
 def fit_labels(seed=4):

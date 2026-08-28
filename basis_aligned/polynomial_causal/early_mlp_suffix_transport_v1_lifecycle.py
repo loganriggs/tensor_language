@@ -56,6 +56,8 @@ SOURCE_CLOSURE = (
     HERE / "test_early_mlp_suffix_transport_v1_runtime.py",
     HERE / "early_mlp_suffix_transport_v1_inherited.py",
     HERE / "test_early_mlp_suffix_transport_v1_inherited.py",
+    HERE / "early_mlp_suffix_transport_v1_capabilities.py",
+    HERE / "test_early_mlp_suffix_transport_v1_capabilities.py",
 )
 
 ROLE_NAMES = (

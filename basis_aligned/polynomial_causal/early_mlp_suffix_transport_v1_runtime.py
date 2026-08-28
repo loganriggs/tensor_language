@@ -13,6 +13,9 @@ from collections.abc import Iterable, Mapping, Sequence
 from contextlib import contextmanager
 import copy
 from dataclasses import dataclass
+import hashlib
+import json
+import re
 from typing import Any
 
 import torch
@@ -31,6 +34,407 @@ GRADIENT_CLIP_NORM = 1.0
 SEQUENCE_LENGTH = 256
 SCORE_START = 64
 SCORE_STOP = 256
+
+
+def _sha256_text(value: str) -> bool:
+    return isinstance(value, str) and bool(re.fullmatch(r"[0-9a-f]{64}", value))
+
+
+def tensor_identity_sha256(value: torch.Tensor) -> str:
+    if not torch.is_tensor(value):
+        raise TypeError("tensor identity requires a tensor")
+    tensor = value.detach().cpu().contiguous()
+    digest = hashlib.sha256()
+    digest.update(str(tensor.dtype).encode())
+    digest.update(json.dumps(list(tensor.shape), separators=(",", ":")).encode())
+    digest.update(tensor.numpy().tobytes(order="C"))
+    return digest.hexdigest()
+
+
+def logical_identity_sha256(value: Any) -> str:
+    encoded = json.dumps(
+        value, sort_keys=True, separators=(",", ":"), ensure_ascii=False,
+    ).encode()
+    return hashlib.sha256(encoded).hexdigest()
+
+
+PREREGISTRATION_SHA256 = "11577380d65c813cf9e80e92002de9569928d293747c278c065939b3f3b24193"
+IMPLEMENTATION_AMENDMENT_SHA256 = (
+    "f4d019352c9443cbbea3f1f78a025fa94e0ba51c5c3a91e33d81a141b0c6e4a7"
+)
+
+
+@dataclass(frozen=True)
+class TraceIdentity:
+    """Exact fit-step identity shared by student and one named teacher route."""
+
+    schema_version: int
+    protocol_sha256: str
+    implementation_amendment_sha256: str
+    source_commit: str
+    inherited_snapshot_sha256: str
+    rows_receipt_sha256: str
+    fit_role_tensor_sha256: str
+    ordered_batch_indices_sha256: str
+    ordered_input_tokens_sha256: str
+    program_snapshot_sha256: str
+    teacher_mapping_sha256: str
+    role: str
+    phase: str
+    route: str
+    control: str
+    teacher_kind: str
+    trial: int
+    epoch: int
+    optimizer_step: int
+    batch_ordinal: int
+    student_states: tuple[tuple[int, str], ...]
+    batch_rows: int
+    sequence_length: int
+    score_start: int
+    score_stop: int
+    code_dim: int
+
+    def __post_init__(self) -> None:
+        integer_fields = (
+            self.schema_version, self.trial, self.epoch, self.optimizer_step,
+            self.batch_ordinal, self.batch_rows, self.sequence_length,
+            self.score_start, self.score_stop, self.code_dim,
+        )
+        if any(isinstance(value, bool) or not isinstance(value, int) for value in integer_fields):
+            raise ValueError("trace integer identity fields are malformed")
+        if self.schema_version != 1 or self.protocol_sha256 != PREREGISTRATION_SHA256 or (
+            self.implementation_amendment_sha256 != IMPLEMENTATION_AMENDMENT_SHA256
+        ):
+            raise ValueError("trace protocol identity changed")
+        if not isinstance(self.source_commit, str) or not re.fullmatch(
+            r"[0-9a-f]{40}", self.source_commit,
+        ):
+            raise ValueError("trace source commit is malformed")
+        for name, value in (
+            ("inherited snapshot", self.inherited_snapshot_sha256),
+            ("rows receipt", self.rows_receipt_sha256),
+            ("fit role", self.fit_role_tensor_sha256),
+            ("batch indices", self.ordered_batch_indices_sha256),
+            ("input tokens", self.ordered_input_tokens_sha256),
+            ("program snapshot", self.program_snapshot_sha256),
+            ("teacher mapping", self.teacher_mapping_sha256),
+        ):
+            if not _sha256_text(value):
+                raise ValueError(f"trace {name} hash is malformed")
+        if self.role != "early_mlp_suffix_transport_v1_fit":
+            raise ValueError("trace role is not licensed for fitting")
+        if self.phase not in {"initial_denominator", "fit"} or self.route not in {
+            "Q", "L", "R", "S0", "S1", "T",
+        } or self.teacher_kind not in {"coordinate_labels", "oon_logits"}:
+            raise ValueError("trace phase/route/teacher identity is unknown")
+        allowed_controls = {"true", "document_shuffle", "zero_A"} | {
+            f"A_null_{index:02d}" for index in range(20)
+        }
+        if self.control not in allowed_controls:
+            raise ValueError("trace control identity is unknown")
+        legal = (
+            self.phase == "initial_denominator" and self.route == "Q"
+            and self.control == "true" and self.teacher_kind == "coordinate_labels"
+        ) or (
+            self.phase == "fit" and self.route == "L"
+            and self.control in {"true", "document_shuffle"}
+            and self.teacher_kind == "coordinate_labels"
+        ) or (
+            self.phase == "fit" and self.route in {"R", "S0", "S1"}
+            and self.control in {"true", "document_shuffle"}
+            and self.teacher_kind == "oon_logits"
+        ) or (
+            self.phase == "fit" and self.route == "T"
+            and (self.control == "true" or self.control.startswith("A_null_"))
+            and self.teacher_kind == "oon_logits"
+        )
+        if not legal:
+            raise ValueError("trace phase/route/control/teacher combination is illegal")
+        if self.trial not in range(3) or self.epoch not in range(3) or (
+            self.optimizer_step < 0 or self.batch_ordinal < 0
+        ):
+            raise ValueError("trace trial/epoch/step identity changed")
+        # This identity licenses fit/denominator execution, not the later
+        # observational factorial lattice.  Every registered fitted Q/L/R/S/T
+        # package physically executes both rank-64 replacements; S0/S1 name the
+        # trainable subset, not an N/P execution state.
+        if self.student_states != ((0, "P"), (1, "P"), (2, "N")):
+            raise ValueError("fit trace must execute exact P/P/N student states")
+        if self.batch_rows != BATCH_SIZE or self.sequence_length != SEQUENCE_LENGTH or (
+            self.score_start != SCORE_START or self.score_stop != SCORE_STOP
+            or self.code_dim != CODE_DIM
+        ):
+            raise ValueError("trace batch/support dimensions changed")
+
+    @property
+    def sha256(self) -> str:
+        return logical_identity_sha256({
+            field: getattr(self, field) for field in self.__dataclass_fields__
+        })
+
+    @property
+    def nonce(self) -> str:
+        return self.sha256
+
+    @classmethod
+    def from_inputs(
+        cls, *, inputs: torch.Tensor, ordered_batch_indices: Sequence[int],
+        source_commit: str, inherited_snapshot_sha256: str, rows_receipt_sha256: str,
+        fit_role_tensor_sha256: str, program_snapshot_sha256: str,
+        teacher_mapping_sha256: str, phase: str, route: str, control: str,
+        teacher_kind: str, trial: int, epoch: int, optimizer_step: int,
+        batch_ordinal: int, student_states: tuple[tuple[int, str], ...],
+    ) -> "TraceIdentity":
+        if not torch.is_tensor(inputs) or inputs.dtype != torch.long or tuple(inputs.shape) != (
+            BATCH_SIZE, SEQUENCE_LENGTH,
+        ):
+            raise ValueError("trace inputs must be int64 [4,256]")
+        indices = tuple(ordered_batch_indices)
+        if len(indices) != BATCH_SIZE or any(
+            isinstance(value, bool) or not isinstance(value, int) or value < 0
+            for value in indices
+        ) or len(set(indices)) != len(indices):
+            raise ValueError("ordered batch indices are malformed or duplicated")
+        return cls(
+            schema_version=1, protocol_sha256=PREREGISTRATION_SHA256,
+            implementation_amendment_sha256=IMPLEMENTATION_AMENDMENT_SHA256,
+            source_commit=source_commit,
+            inherited_snapshot_sha256=inherited_snapshot_sha256,
+            rows_receipt_sha256=rows_receipt_sha256,
+            fit_role_tensor_sha256=fit_role_tensor_sha256,
+            ordered_batch_indices_sha256=logical_identity_sha256(list(indices)),
+            ordered_input_tokens_sha256=tensor_identity_sha256(inputs),
+            program_snapshot_sha256=program_snapshot_sha256,
+            teacher_mapping_sha256=teacher_mapping_sha256,
+            role="early_mlp_suffix_transport_v1_fit", phase=phase, route=route,
+            control=control, teacher_kind=teacher_kind, trial=trial, epoch=epoch,
+            optimizer_step=optimizer_step, batch_ordinal=batch_ordinal,
+            student_states=student_states, batch_rows=BATCH_SIZE,
+            sequence_length=SEQUENCE_LENGTH, score_start=SCORE_START,
+            score_stop=SCORE_STOP, code_dim=CODE_DIM,
+        )
+
+    def require_inputs(self, inputs: torch.Tensor) -> None:
+        if not torch.is_tensor(inputs) or inputs.dtype != torch.long or tuple(inputs.shape) != (
+            self.batch_rows, self.sequence_length,
+        ) or tensor_identity_sha256(inputs) != self.ordered_input_tokens_sha256:
+            raise RuntimeError("input tokens differ from the trace identity")
+
+    def require_batch_indices(self, ordered_batch_indices: Sequence[int]) -> None:
+        indices = tuple(ordered_batch_indices)
+        if len(indices) != self.batch_rows or any(
+            isinstance(value, bool) or not isinstance(value, int) or value < 0
+            for value in indices
+        ) or len(set(indices)) != len(indices) or logical_identity_sha256(
+            list(indices)
+        ) != self.ordered_batch_indices_sha256:
+            raise RuntimeError("ordered batch indices differ from the trace identity")
+
+
+@dataclass(frozen=True)
+class ScopeLease:
+    name: str
+    serial: int
+
+
+class ScopeCoordinator:
+    """Mutual exclusion for student, coordinate-label, and autonomous-OON scopes."""
+
+    def __init__(self) -> None:
+        self._active: ScopeLease | None = None
+        self._serial = 0
+
+    @contextmanager
+    def enter(self, name: str):
+        if name not in {"student", "coordinate", "oon"}:
+            raise ValueError("unknown suffix-transport capability scope")
+        if self._active is not None:
+            raise RuntimeError(
+                f"capability scope {name} overlaps active {self._active.name} scope"
+            )
+        self._serial += 1
+        lease = ScopeLease(name=name, serial=self._serial)
+        self._active = lease
+        try:
+            yield lease
+        finally:
+            if self._active != lease:
+                raise RuntimeError("capability scope ownership changed")
+            self._active = None
+
+    def require_active(self, lease: ScopeLease) -> None:
+        if self._active != lease:
+            raise RuntimeError("ephemeral capability lease is inactive")
+
+    @property
+    def idle(self) -> bool:
+        return self._active is None
+
+
+class StudentTrace:
+    """Sealed, one-use handoff of detached current student states."""
+
+    __slots__ = (
+        "__basis_sha256", "__calls", "__consumed", "__identity_sha256",
+        "__expected_trace_sha256", "__issuer_id", "__nonce", "__program_sha256",
+        "__release", "__sealed", "__site_metadata", "__trace_sha256", "__values",
+    )
+
+    def __init__(
+        self, *, issuer_id: str, identity: TraceIdentity, program_sha256: str,
+        basis_sha256: Mapping[int, str], values: Mapping[int, torch.Tensor],
+        calls: Mapping[int, int], release: Any,
+    ) -> None:
+        object.__setattr__(self, "_StudentTrace__sealed", False)
+        if not _sha256_text(issuer_id) or not _sha256_text(program_sha256) or set(
+            basis_sha256
+        ) != {0, 1} or any(not _sha256_text(value) for value in basis_sha256.values()):
+            raise RuntimeError("student trace provenance is malformed")
+        if set(values) != {0, 1} or dict(calls) != {0: 1, 1: 1}:
+            raise RuntimeError("student trace requires exactly one MLP0/1 state")
+        copied: dict[int, torch.Tensor] = {}
+        metadata: dict[int, dict[str, Any]] = {}
+        for site in (0, 1):
+            value = values[site]
+            if not torch.is_tensor(value) or tuple(value.shape) != (
+                identity.batch_rows, SEQUENCE_LENGTH, D_MODEL,
+            ) or not bool(torch.isfinite(value).all()) or value.requires_grad or (
+                value.grad_fn is not None
+            ):
+                raise RuntimeError(f"student trace MLP{site} state is malformed")
+            copied[site] = value.detach().cpu().contiguous().clone()
+            metadata[site] = {
+                "shape": list(copied[site].shape),
+                "dtype": str(copied[site].dtype),
+                "sha256": tensor_identity_sha256(copied[site]),
+            }
+        payload = {
+            "issuer_id": issuer_id, "identity_sha256": identity.sha256,
+            "nonce": identity.nonce, "program_sha256": program_sha256,
+            "basis_sha256": {str(site): basis_sha256[site] for site in (0, 1)},
+            "site_metadata": {str(site): metadata[site] for site in (0, 1)},
+            "student_calls": {str(site): int(calls[site]) for site in (0, 1)},
+        }
+        self.__issuer_id = issuer_id
+        self.__identity_sha256 = identity.sha256
+        self.__nonce = identity.nonce
+        self.__program_sha256 = program_sha256
+        self.__basis_sha256 = dict(basis_sha256)
+        self.__site_metadata = metadata
+        self.__calls = dict(calls)
+        self.__values = copied
+        self.__trace_sha256 = logical_identity_sha256(payload)
+        self.__expected_trace_sha256 = self.__trace_sha256
+        self.__consumed = False
+        self.__release = release
+        object.__setattr__(self, "_StudentTrace__sealed", True)
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        if getattr(self, "_StudentTrace__sealed", False):
+            raise AttributeError("student trace is sealed")
+        object.__setattr__(self, name, value)
+
+    def __copy__(self):
+        raise RuntimeError("student traces cannot be copied")
+
+    def __deepcopy__(self, memo):
+        raise RuntimeError("student traces cannot be copied")
+
+    def __reduce__(self):
+        raise RuntimeError("student traces cannot be serialized")
+
+    @property
+    def issuer_id(self) -> str:
+        return self.__issuer_id
+
+    @property
+    def identity_sha256(self) -> str:
+        return self.__identity_sha256
+
+    @property
+    def nonce(self) -> str:
+        return self.__nonce
+
+    @property
+    def trace_sha256(self) -> str:
+        return self.__trace_sha256
+
+    @property
+    def site_metadata(self) -> Mapping[int, Mapping[str, Any]]:
+        return {
+            site: {
+                "shape": list(value["shape"]), "dtype": value["dtype"],
+                "sha256": value["sha256"],
+            }
+            for site, value in self.__site_metadata.items()
+        }
+
+    @property
+    def student_calls(self) -> Mapping[int, int]:
+        return dict(self.__calls)
+
+    @property
+    def consumed(self) -> bool:
+        return self.__consumed
+
+    def _require_integrity(self) -> None:
+        for site in (0, 1):
+            value = self.__values[site]
+            metadata = self.__site_metadata[site]
+            if list(value.shape) != metadata["shape"] or str(value.dtype) != metadata[
+                "dtype"
+            ] or tensor_identity_sha256(value) != metadata["sha256"]:
+                raise RuntimeError("student trace tensor mutated after issuance")
+        payload = {
+            "issuer_id": self.__issuer_id, "identity_sha256": self.__identity_sha256,
+            "nonce": self.__nonce, "program_sha256": self.__program_sha256,
+            "basis_sha256": {
+                str(site): self.__basis_sha256[site] for site in (0, 1)
+            },
+            "site_metadata": {
+                str(site): self.__site_metadata[site] for site in (0, 1)
+            },
+            "student_calls": {str(site): self.__calls[site] for site in (0, 1)},
+        }
+        if self.__trace_sha256 != self.__expected_trace_sha256 or (
+            logical_identity_sha256(payload) != self.__expected_trace_sha256
+        ):
+            raise RuntimeError("student trace metadata mutated after issuance")
+
+    def _consume(self, *, issuer_id: str, identity: TraceIdentity) -> dict[int, torch.Tensor]:
+        if self.__consumed:
+            raise RuntimeError("student trace was already consumed")
+        if issuer_id != self.__issuer_id or identity.sha256 != self.__identity_sha256 or (
+            identity.nonce != self.__nonce
+        ):
+            raise RuntimeError("student trace identity or issuer mismatch")
+        self._require_integrity()
+        object.__setattr__(self, "_StudentTrace__consumed", True)
+        release = self.__release
+        object.__setattr__(self, "_StudentTrace__release", None)
+        if release is None:
+            raise RuntimeError("student trace release capability is absent")
+        output = {site: value.clone() for site, value in self.__values.items()}
+        self.__values.clear()
+        release(self.__trace_sha256)
+        return output
+
+    def _discard(self, *, issuer_id: str, identity: TraceIdentity) -> None:
+        """Spend a failed trace without exposing its captured states."""
+
+        if self.__consumed:
+            raise RuntimeError("student trace was already consumed")
+        if issuer_id != self.__issuer_id or identity.sha256 != self.__identity_sha256:
+            raise RuntimeError("student trace identity or issuer mismatch")
+        self._require_integrity()
+        object.__setattr__(self, "_StudentTrace__consumed", True)
+        self.__values.clear()
+        release = self.__release
+        object.__setattr__(self, "_StudentTrace__release", None)
+        if release is None:
+            raise RuntimeError("student trace release capability is absent")
+        release(self.__trace_sha256)
 
 
 def _finite_tensor(name: str, value: Any, shape: tuple[int, ...]) -> torch.Tensor:
@@ -177,6 +581,31 @@ class JointAffineProgram(nn.Module):
         )
         return tuple(parameter for parameter in ordered if parameter.requires_grad)
 
+    @property
+    def trainable_parameter_names(self) -> tuple[str, ...]:
+        self._validate_topology()
+        return tuple(
+            name for name, parameter in self.named_parameters() if parameter.requires_grad
+        )
+
+    @property
+    def expected_trainable_parameter_names(self) -> tuple[str, ...]:
+        expected = {
+            "L": ("site0.weight", "site0.bias", "site1.weight", "site1.bias"),
+            "R": ("site0.weight", "site0.bias", "site1.weight", "site1.bias"),
+            "S0": ("site0.weight", "site0.bias"),
+            "S1": ("site1.weight", "site1.bias"),
+            "T": ("cross",),
+        }
+        return expected[self.route]
+
+    def require_exact_trainability(self) -> None:
+        if self.trainable_parameter_names != self.expected_trainable_parameter_names:
+            raise RuntimeError(
+                "suffix-transport route trainable tensor set changed: "
+                f"{self.trainable_parameter_names} != {self.expected_trainable_parameter_names}"
+            )
+
     def site1_code(self, z1: torch.Tensor, parent_code: torch.Tensor | None = None) -> torch.Tensor:
         self._validate_topology()
         local = self.site1(z1)
@@ -208,45 +637,95 @@ class JointAffineProgram(nn.Module):
         return deployed_output + replacement.view_as(deployed_output).to(deployed_output.dtype)
 
 
+def program_snapshot_sha256(program: JointAffineProgram | None) -> str:
+    if program is None:
+        return logical_identity_sha256({"program": None})
+    if not isinstance(program, JointAffineProgram):
+        raise TypeError("program snapshot requires the shared runtime program")
+    program._validate_topology()
+    program.require_exact_trainability()
+    state = {
+        name: tensor_identity_sha256(value)
+        for name, value in sorted(program.state_dict().items())
+    }
+    return logical_identity_sha256({
+        "route": program.route, "state": state,
+        "trainable_parameter_names": list(program.trainable_parameter_names),
+    })
+
+
 class StudentCorrectionHook:
     """Original-free N/P student execution with one-use same-forward transport."""
 
-    def __init__(self, bases: Mapping[int, torch.Tensor]) -> None:
+    def __init__(
+        self, bases: Mapping[int, torch.Tensor], *, issuer_id: str,
+        coordinator: ScopeCoordinator,
+    ) -> None:
         if set(bases) != {0, 1}:
             raise ValueError("runtime requires exactly the MLP0/1 bases")
-        self.bases = {
+        if not _sha256_text(issuer_id) or not isinstance(coordinator, ScopeCoordinator):
+            raise ValueError("student trace issuer/coordinator is malformed")
+        self._issuer_id = issuer_id
+        self._coordinator = coordinator
+        self._bases = {
             site: _finite_tensor(f"basis{site}", value, (D_MODEL, CODE_DIM))
             for site, value in bases.items()
         }
-        for site, value in self.bases.items():
+        for site, value in self._bases.items():
             contract.validate_orthonormal_basis(f"basis{site}", value)
+        self._basis_sha256 = {
+            site: tensor_identity_sha256(value) for site, value in self._bases.items()
+        }
         self.program: JointAffineProgram | None = None
         self.states: dict[int, str] = {}
         self.capture_sites: frozenset[int] = frozenset()
         self.site0_edit: torch.Tensor | None = None
         self.parent_code: torch.Tensor | None = None
-        self.captured_z: dict[int, list[torch.Tensor]] = {0: [], 1: []}
+        self.captured_z: dict[int, torch.Tensor] = {}
+        self.captured_codes: dict[int, torch.Tensor] = {}
         self.calls = {0: 0, 1: 0}
         self.scope_calls = {0: 0, 1: 0}
         self.forward_nonce: str | None = None
+        self.forward_identity: TraceIdentity | None = None
         self.parent_nonce: str | None = None
         self.parent_consumed = False
+        self._pending_trace: StudentTrace | None = None
+        self._pending_codes: dict[int, torch.Tensor] | None = None
+        self._outstanding_trace_sha256: str | None = None
+        self._spent_identity_sha256: set[str] = set()
         self.active = False
+
+    @property
+    def issuer_id(self) -> str:
+        return self._issuer_id
+
+    @property
+    def coordinator(self) -> ScopeCoordinator:
+        return self._coordinator
+
+    @property
+    def basis_sha256(self) -> Mapping[int, str]:
+        return dict(self._basis_sha256)
+
+    def _require_basis_integrity(self) -> None:
+        for site in (0, 1):
+            if tensor_identity_sha256(self._bases[site]) != self._basis_sha256[site]:
+                raise RuntimeError("student basis mutated after hook construction")
 
     def configure(
         self,
         *,
         program: JointAffineProgram | None,
         states: Mapping[int, str],
-        capture_sites: Iterable[int] = (),
         site0_edit: torch.Tensor | None = None,
     ) -> None:
+        if self.active or self._pending_trace is not None or self._pending_codes is not None or (
+            self._outstanding_trace_sha256 is not None
+        ):
+            raise RuntimeError("student runtime cannot configure with an active trace")
         allowed = {0: {"N", "P"}, 1: {"N", "P"}}
         if any(site not in allowed or state not in allowed[site] for site, state in states.items()):
             raise ValueError("student runtime permits only MLP0/1 N/P states")
-        captures = frozenset(capture_sites)
-        if not captures.issubset({0, 1}):
-            raise ValueError("only MLP0/1 student inputs may be captured")
         if any(state == "P" for state in states.values()) and program is None:
             raise ValueError("predicted states require an executable program")
         if program is not None and not isinstance(program, JointAffineProgram):
@@ -260,43 +739,153 @@ class StudentCorrectionHook:
             raise ValueError("site0 edit requires an executable predicted MLP0 state")
         self.program = program
         self.states = dict(states)
-        self.capture_sites = captures
+        self.capture_sites = frozenset()
         self.site0_edit = site0_edit
         self.parent_code = None
-        self.captured_z = {0: [], 1: []}
+        self.captured_z = {}
+        self.captured_codes = {}
         self.calls = {0: 0, 1: 0}
         self.scope_calls = {0: 0, 1: 0}
         self.forward_nonce = None
+        self.forward_identity = None
+        self.parent_nonce = None
+        self.parent_consumed = False
+
+    def clear_configuration(self) -> None:
+        """Drop all program/state/edit references after one batch transaction."""
+
+        if self.active or self._pending_trace is not None or self._pending_codes is not None:
+            raise RuntimeError("student runtime cannot clear during an active/pending forward")
+        self.program = None
+        self.states = {}
+        self.site0_edit = None
+        self.capture_sites = frozenset()
+        self.captured_z = {}
+        self.captured_codes = {}
+        self.parent_code = None
+        self.calls = {0: 0, 1: 0}
+        self.scope_calls = {0: 0, 1: 0}
+        self.forward_nonce = None
+        self.forward_identity = None
         self.parent_nonce = None
         self.parent_consumed = False
 
     @contextmanager
-    def forward_scope(self, nonce: str):
+    def forward_scope(
+        self, identity: TraceIdentity, *, capture_sites: Iterable[int] = (),
+    ):
         if self.active:
             raise RuntimeError("runtime forward scope is already active")
-        if not isinstance(nonce, str) or not nonce:
-            raise ValueError("forward nonce must be a nonempty string")
-        self.active = True
-        self.scope_calls = {0: 0, 1: 0}
-        self.forward_nonce = nonce
-        self.parent_code = None
-        self.parent_nonce = None
-        self.parent_consumed = False
-        try:
-            yield self
-        finally:
+        if not isinstance(identity, TraceIdentity):
+            raise ValueError("student forward requires an exact trace identity")
+        captures = frozenset(capture_sites)
+        if captures not in {frozenset(), frozenset({0, 1})}:
+            raise ValueError("student trace capture must be empty or exactly MLP0/1")
+        if self._pending_trace is not None or self._pending_codes is not None or (
+            self._outstanding_trace_sha256 is not None
+        ):
+            raise RuntimeError("previous student trace remains outstanding")
+        if identity.sha256 in self._spent_identity_sha256:
+            raise RuntimeError("student trace identity was already spent")
+        configured_states = tuple(
+            (site, self.states.get(site, "N")) for site in (0, 1)
+        ) + ((2, "N"),)
+        if identity.student_states != configured_states:
+            raise RuntimeError("student configured states differ from trace identity")
+        current_program_sha256 = program_snapshot_sha256(self.program)
+        if identity.program_snapshot_sha256 != current_program_sha256:
+            raise RuntimeError("student program differs from trace identity")
+        expected_program_route = "L" if identity.route == "Q" else identity.route
+        if self.program is None or self.program.route != expected_program_route:
+            raise RuntimeError("student program route differs from trace route")
+        self._spent_identity_sha256.add(identity.sha256)
+        self._require_basis_integrity()
+        with self._coordinator.enter("student"):
+            self.active = True
+            self.capture_sites = captures
+            self.captured_z = {}
+            self.captured_codes = {}
+            self.scope_calls = {0: 0, 1: 0}
+            self.forward_nonce = identity.nonce
+            self.forward_identity = identity
             self.parent_code = None
             self.parent_nonce = None
-            self.forward_nonce = None
-            self.active = False
+            self.parent_consumed = False
+            clean = False
+            try:
+                yield self
+                clean = True
+                if captures:
+                    if program_snapshot_sha256(self.program) != current_program_sha256:
+                        raise RuntimeError("student program mutated during its forward")
+                    self._require_basis_integrity()
+                    if self.scope_calls != {0: 1, 1: 1} or set(self.captured_z) != {0, 1}:
+                        raise RuntimeError("student trace forward did not call/capture MLP0/1 once")
+                    if set(self.captured_codes) != {0, 1}:
+                        raise RuntimeError("student trace forward did not produce both fitted codes")
+                    candidate = StudentTrace(
+                        issuer_id=self._issuer_id, identity=identity,
+                        program_sha256=current_program_sha256,
+                        basis_sha256=self._basis_sha256, values=self.captured_z,
+                        calls=self.scope_calls, release=self._release_trace,
+                    )
+                    self._pending_trace = candidate
+                    # Preserve the exact autograd-bearing values.  The capability
+                    # layer seals them into the same one-use student step as the
+                    # detached state trace before configuration may be cleared.
+                    self._pending_codes = dict(self.captured_codes)
+                    self._outstanding_trace_sha256 = candidate.trace_sha256
+            finally:
+                if not clean:
+                    self._pending_trace = None
+                    self._pending_codes = None
+                    self._outstanding_trace_sha256 = None
+                self.capture_sites = frozenset()
+                self.captured_z = {}
+                self.captured_codes = {}
+                self.parent_code = None
+                self.parent_nonce = None
+                self.forward_nonce = None
+                self.forward_identity = None
+                self.active = False
 
-    def captured_inputs(self) -> dict[int, torch.Tensor]:
-        if any(not self.captured_z[site] for site in self.capture_sites):
-            raise RuntimeError("not every requested current-state input was captured")
-        return {
-            site: torch.cat(self.captured_z[site], dim=0)
-            for site in sorted(self.capture_sites)
-        }
+    def pop_trace(self, identity: TraceIdentity) -> StudentTrace:
+        if self.active:
+            raise RuntimeError("student trace cannot pop during its forward")
+        trace = self._pending_trace
+        if trace is None:
+            raise RuntimeError("no completed student trace is pending")
+        if identity.sha256 != trace.identity_sha256 or identity.nonce != trace.nonce:
+            raise RuntimeError("pending student trace identity mismatch")
+        self._pending_trace = None
+        return trace
+
+    def pop_student_codes(self, identity: TraceIdentity) -> tuple[torch.Tensor, torch.Tensor]:
+        if self.active:
+            raise RuntimeError("student codes cannot pop during their forward")
+        codes = self._pending_codes
+        if codes is None or set(codes) != {0, 1}:
+            raise RuntimeError("no completed student codes are pending")
+        if self._outstanding_trace_sha256 is None or identity.sha256 not in (
+            self._spent_identity_sha256
+        ):
+            raise RuntimeError("pending student code identity mismatch")
+        self._pending_codes = None
+        return codes[0], codes[1]
+
+    def discard_student_codes(self) -> None:
+        if self.active:
+            raise RuntimeError("student codes cannot discard during their forward")
+        self._pending_codes = None
+
+    def _release_trace(self, trace_sha256: str) -> None:
+        if trace_sha256 != self._outstanding_trace_sha256:
+            raise RuntimeError("student trace release identity changed")
+        self._outstanding_trace_sha256 = None
+        # Direct runtime callers do not receive the capability layer's
+        # autograd-bearing student-output handle.  Once their detached trace is
+        # spent, do not retain an inaccessible graph or block the next scope.
+        self._pending_codes = None
 
     def __call__(
         self, site: int, z: torch.Tensor, mo: torch.Tensor, *, forward_nonce: str,
@@ -310,7 +899,12 @@ class StudentCorrectionHook:
         self.scope_calls[site] += 1
         self.calls[site] += 1
         if site in self.capture_sites:
-            self.captured_z[site].append(z.detach().cpu().contiguous())
+            captured = z.detach().cpu().contiguous().clone()
+            if tuple(captured.shape) != (
+                self.forward_identity.batch_rows, SEQUENCE_LENGTH, D_MODEL,
+            ) or not bool(torch.isfinite(captured).all()):
+                raise RuntimeError("captured student state shape or values changed")
+            self.captured_z[site] = captured
         state = self.states.get(site, "N")
         if state == "N":
             if site == 0 and self.program is not None and self.program.route == "T":
@@ -332,6 +926,8 @@ class StudentCorrectionHook:
             else:
                 predicted = self.program.site1_code(z)
 
+        self.captured_codes[site] = predicted
+
         if site == 0 and self.site0_edit is not None:
             if self.site0_edit.shape != predicted.shape:
                 raise RuntimeError("site0 edit shape differs from executable code")
@@ -341,7 +937,7 @@ class StudentCorrectionHook:
                 raise RuntimeError("student parent code would be overwritten")
             self.parent_code = predicted
             self.parent_nonce = forward_nonce
-        return JointAffineProgram.projected_replacement(mo, predicted, self.bases[site])
+        return JointAffineProgram.projected_replacement(mo, predicted, self._bases[site])
 
 
 def scored_positions(value: torch.Tensor) -> torch.Tensor:

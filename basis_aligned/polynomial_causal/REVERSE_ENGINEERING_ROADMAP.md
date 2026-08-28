@@ -721,3 +721,33 @@ float32 full products are bound, and every trial/route receives disjoint clones.
 tests reject source/artifact drift and master/authority mutation. The full focused suite passes
 `106/106`; independent artifact and mathematical audits give exact-byte GO. The slice is
 non-authorizing: no fresh row, model, teacher, forward, or outcome authority was loaded or run.
+
+## Strategic checkpoint — 2026-08-28 02:10 UTC
+
+S1710 updates only the discovery-row exploratory ceiling: k=512 recovers `3.26935/5.56837 =
+58.7129%`, leaving `2.29902` nats or `41.2871%`. Its gain over k=0 is `+3.6749` points with
+row-bootstrap interval [`+3.514,+3.841`]. Structural `36/36`, named behavior `32.1% +/- 6.4%`,
+named causal `10.923%`, current-ship zero recovery against `+0.8976`, and held-out `53.694%`
+remain unchanged. The result is not executable compression: decoder-only pricing omits selected
+Left/Right rows, factor-complete feature cost is `21.234M` reals across the twelve sites before
+the base program, and original factors still execute.
+
+The first full-rank follow-up was terminated outcome-blind after an audit found a guaranteed
+postprocessing key error and a false identity claim: ridge plus no intercept does not exactly
+recover `Down(h)+bias`. The corrected source separates empirical ridge k=4608 from a constructed
+exact native-feature arm inside the same interleaved compiler. Only the latter is a known-answer
+check. The failed attempt and correction are retained in git; the corrected attempt is running.
+
+Current ranked work is: (1) observed model adapter plus mapped shuffled/A-null capability around
+the pure one-use suffix transaction; (2) collector/trainer/freezer/validator closure and matched
+L/R/T execution; (3) fresh-document k=512 replication with factor-complete poison pricing; (4)
+current-ship interaction cube for any admitted early program; (5) conditional MLP2/3 followed by
+typed middle-attention routing/value programs.
+
+The executed CPU slice binds source, rows, schedule, tokens, route, exact trainability, gauge, and
+P/P/N state. Its sealed student step owns the actual graph-bearing codes/logits; loss consumption
+checks connectivity to the exact route parameters. Coordinate and autonomous O/O/N teachers are
+non-overlapping and one-use; Q/L/R/S/T consumers are phase-typed; mutation, incomplete close,
+stale-step, and producer-failure paths revoke cleanly. The complete suffix suite passes `129/129`
+and final exact-byte review is pending. This remains nonauthorizing until a sealed model adapter
+observes real calls, outer return, restoration, and teacher execution.

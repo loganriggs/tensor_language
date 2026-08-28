@@ -5414,3 +5414,58 @@ admitted early program into the one-support current-ship interaction cube to ear
 `+0.8976`; (4) condition MLP2/3 jointly on the admitted early state; (5) compile middle-attention
 routing and value payloads as distinct typed interfaces. OOD, intervention, and selective-edit
 certification attach to the first composed executable program, not to rejected local surrogates.
+
+### 2026-08-28T02:10Z — Codex: capability transaction closes; S1710 raises only the discovery ceiling
+
+The denominators remain separate. Structural inventory is `36/36` scope only; named behavior is
+`32.1% +/- 6.4%` with `67.9%` residual; named causal recovery is `10.923%` with `4.72714` nats
+residual; and current-ship executable recovery remains zero against `+0.8976` CE. S1710 changes
+only the discovery-row exploratory 36-output-path ceiling. At k=512, CE is `5.59107` on the same
+`5.56837`-nat stake, hence recovery is `3.26935` nats or `58.7129%`, and `2.29902` nats or
+`41.2871%` remains. The row-bootstrap gain over k=0 is `+3.6749` points
+[`+3.514,+3.841`]. This supersedes 55.038/55.804 only in that discovery currency; held-out
+`53.694% [52.922,54.387]`, semantic, causal, current-ship, OOD, and edit ledgers do not move.
+The quoted `7.078M` added reals count decoder coefficients only. Selected Left/Right factor rows
+raise the feature-specific standalone cost to `21.234M` reals across twelve sites before the
+`23.89M` base program, and the current hook still executes original factors. It is therefore a
+grammar discovery, not certified compression.
+
+The terminal curve follow-up was caught invalid in flight: its registered arms omitted k=64 but
+postprocessing indexed it, and its ridge/no-intercept k=4608 fit was mislabeled an algebraic
+identity. The invalid attempt was terminated after about three minutes with no artifact. The
+source and ledger now preserve that failure. Ridge k=4608 remains an empirical curve point; a
+separate constructed arm executes exact `Down(Left(x)*Right(x))`, including bias, inside the same
+interleaved compiler and is the only identity check. The corrected attempt is running. Regardless
+of its curve, the next promotable evidence for this family is fresh-document replication plus
+factor-complete/poison pricing at one chosen k, not another unbounded k sweep.
+
+After pruning by information gain, causal relevance, whole-model composability, falsifiability,
+GPU cost, and duplication, the current top five are:
+
+1. Finish the observed model adapter and mapped-control capability around the now-audited
+   one-use suffix transaction. This is the missing boundary between pure tensor math and a legal
+   real forward; shuffled labels and A-null parent mappings remain deliberately unauthorized.
+2. Complete collector/trainer/freezer/validator closure, then execute the matched L versus R and
+   physical T assay. It directly distinguishes a locally reconstructive rank-64 code from a code
+   downstream computation actually reads.
+3. Replicate the k=512 middle-band augmentation on fresh source documents and price a standalone
+   factor-complete program with original-call poison. This is the shortest falsifiable test of
+   whether the new 58.71% discovery ceiling generalizes and is genuinely simpler.
+4. Put the first admitted early program into the common-support current-ship
+   `attention x early-MLP x deep` interaction cube. No local result earns credit against the
+   actual `+0.8976` residual before this bridge.
+5. Condition MLP2/3 jointly on the admitted early state, then move to typed middle-attention
+   routing/value programs. The matched-depth interaction evidence makes an independent MLP2/3
+   fit inadequate, while attention remains the next largest distinct interface.
+
+Executed this checkpoint: the pure capability now binds exact source/row/fit-role context,
+preregistered batch permutations, route, program snapshot, trainable tensor set, gauge, tokens,
+and P/P/N state. A sealed one-use student step owns the actual autograd-bearing codes and suffix
+logits; registered losses consume those tensors directly, verify graph connectivity to every and
+only the route's expected trainable parameters, and cannot accept caller-supplied substitutes.
+Detached current states reach only fresh coordinate teachers; O/O/N receives only tokens and a
+revocable exact-call gateway. Q moments, L local loss, and R/S/T suffix loss are phase-typed.
+Corrupted outputs, incomplete sessions, stale steps, scope overlap, and failed teachers revoke
+without stranding a nonce or ledger entry. The full CPU-only suffix suite passes `129/129` at the
+time of this entry and is in final exact-byte re-audit. It remains explicitly nonauthorizing:
+no fresh role, inherited tensor, model, or real forward was loaded.
