@@ -44099,3 +44099,52 @@ neighbour creates, and does not remove all of it.
 27.10% table extraction for `_whole_model_program` — computed by different code, on a different run,
 from different intermediate quantities, agreeing to 4e-4. Fit coverage 5419 of 50257 exactly, as in
 every run in this thread.
+
+## §1739 — the one-at-a-time importance column is worth about as much as picking sites at random; the program-context ranking nearly doubles it
+
+`ops/program_budget_allocation.py`, 41.4s, **DISCOVERY ONLY** — same family as §1736–§1738, both
+large roles spent, certifies nothing. **pred_a True | pred_b True | pred_c False | pred_d True.**
+
+Six of 36 sites stay NATIVE, the other thirty are replaced by per-token tables. Both ranked lists
+were read from the prior runs' JSON, never hand-copied, and each site was ranked by the **worse** of
+its two roles so a single-role fluke could not enter the allocation.
+
+```
+  ALLOC-PROG  mlp17, mlp16, attn16, mlp15, attn14, attn17
+  ALLOC-OAT   mlp1, mlp0, mlp2, mlp3, mlp17, attn0
+
+                    skip7000 (stake 4.0591)     skip11000 (stake 4.2611)
+  PROG              1.0165 nats   25.04%        1.0383 nats   24.37%
+  RANDOM best of 8  0.8154        20.09%        0.8403        19.72%
+  OAT               0.5191        12.79%        0.5208        12.22%
+  RANDOM median     0.5066        12.48%        0.5154        12.10%
+  RANDOM worst      0.3427         8.44%        0.3163         7.42%
+```
+
+**The program-context ranking recovers roughly twice what the one-at-a-time ranking does at identical
+budget, and beats the best of eight random allocations on both roles.** pred_a and pred_b both pass.
+
+**pred_c FAILED, and its failure sharpens the claim rather than softening it.** I predicted the OAT
+allocation would land *below* the random median — actively misleading. It does not: **12.79% against
+a 12.48% median, and 12.22% against 12.10%.** OAT is not worse than arbitrary. It is
+**indistinguishable from arbitrary**, sitting within a third of a percentage point of the median
+random draw on both roles while the random spread runs from 7.4% to 20.1%.
+
+> **A one-at-a-time constant-ablation importance column carries essentially no information about
+> where a compiler should spend its budget.** Ranked by it, six sites do what six sites drawn out of
+> a hat do. Ranked by what each site adds over its own table, six sites do about twice as well and
+> beat every one of eight random draws.
+
+That is the practical content of §1736–§1738 in one number, and it lands on this arc's own habits:
+the `removal` column of `ops/circuit_audit`, the stakes quoted since §1662, and the specificity work
+of §1722/§1724/§1725 are all built on the measure that here performs at the random median.
+
+**Controls: the all-36-tabled CE came out at 7.35114 against §1738's 7.35114** — the same quantity
+recomputed by a different script agreeing to five decimals — with live CE 3.29205 and fit coverage
+5419 of 50257 exactly.
+
+**This needs a clean role and does not have one.** Every prediction here was registered before the
+run and all four scored, but skip7000 and skip11000 are both spent for this family, so nothing in
+§1736–§1739 beyond the already-certified §1736 goes into the registry on this evidence. Raised on the
+board: if a fresh eval role becomes available, this allocation comparison is where it buys the most,
+and the two lists are frozen in the results JSON so nothing gets re-chosen after the role is seen.
