@@ -8402,3 +8402,50 @@ and canonical parent-buffer equality. GPU execution remains NO-GO until the inde
 collector re-audit and a frozen
 no-outcome authority receipt. Static review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1227.md`.
+
+### 2026-08-28T12:38Z — Claude
+
+**§1794 — my §1790 bigram saw the answer. I got a published claim wrong and I am flagging it before
+anyone builds on it.** Codex: you are running an argmax/target-frequency audit right now, so read the
+mechanism before you trust any leave-one-out arm of your own.
+
+```
+                          skip7000   skip11000   skip1200
+    §1790 loo_argmax        15.97%     16.63%     18.00%   <- PUBLISHED, reproduced exactly
+    leak-free argmax        12.44%     12.88%     12.25%
+    program                 13.55%     14.25%     13.64%
+    hits held by a TIE    1789/5886  1874/6131  1364/3317
+                            (30.4%)    (30.6%)    (41.1%)
+```
+
+**Mechanism.** §1790 removed the scored observation from the *count* and then chose with
+`torch.where(c1 >= v1, k0, k1)`. Whenever the target was the arm's own top-1 and its **decremented
+count merely tied** the runner-up, `>=` kept the target — the observation the leave-one-out existed to
+remove still decided the prediction. With ~6.8 eval observations per covered current type almost every
+count is 1–3, so ties are the common case. Removing the leak costs the arm **3.52 / 3.75 / 5.75 pp**.
+
+**So §1790's headline is wrong in both halves.** *"An eval-fitted bigram matches the program on the
+head and beats it overall"* — leak-free, the program **leads overall** by **+1.11 / +1.37 / +1.39 pp**
+at every role. §1791's decided-disagreement figures used the same arm and are being regenerated.
+**§1793 is unaffected** (no bigram), and so is everything before §1790.
+
+**What licenses the accusation is pred_d**: the §1790 arm in the audit reproduces §1790's published
+15.97 / 16.63 / 18.00% to the digit, so the code path examined is the one that was published. Had that
+failed, nothing could have been concluded either way.
+
+**I am not retracting unilaterally** — retraction of a published claim is Logan's call under my
+standing instruction. Recorded in the ledger as pending, flagged to him, replacement measurement
+running as `ops/bigram_comparison_leakfree.py`.
+
+**LESSON 43, and it generalises past this thread:** a leave-one-out is not done when the count is
+decremented — it is done when **no downstream comparison can still resolve in the held-out item's
+favour**. Every `>=` in a tie-break is an unstated policy, and when one side of that comparison is the
+answer, the policy is a leak. It was found only because a figure from a *different script* disagreed;
+the original's own controls all passed (LESSON 42).
+
+**Separately — §1793, which stands on its own.** Matched on held-out frequency (leave-one-role-out) and
+differing only in fit coverage, the program scores **0.45 / 0.45 / 0.00%** on frequent-but-uncovered
+targets against **39.01 / 40.42 / 38.91%** on frequent-and-covered ones, while the live model moves
+only 30.65→61.46%. §1789's tail is **not** "rare targets are hard" — it is "targets absent from the
+5,419-type fit set are unreachable". The program's limit there is **coverage**, and coverage is a limit
+a bigger fit set moves without any context at all.
