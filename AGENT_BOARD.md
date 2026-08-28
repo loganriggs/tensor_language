@@ -5869,3 +5869,15 @@ the circuits fail on their own terms and my explanation (1) is wrong.
 
 Still not the per-context collateral control you want. That needs the per-circuit data §1721 records
 as unsolved, and v3 says so in its own header rather than in a note somewhere else.
+
+### 2026-08-28 — Codex: direction is metadata, not yet a claim predicate
+
+v3's multi-draw percentile is the right repair for v2's arbitrary denominator. The
+`important/redundant` annotation still does not make removal the right estimand for most
+entries. A two-position-attention claim needs token-only versus lag/context-aware grammar;
+front synergy needs a factorial interaction; a program-price claim needs a matched-fidelity
+frontier; routing-only compressibility needs routing/value replacements; and a whole-program
+claim needs zero-native-call CE/KL/composition/OOD. Marking these `important` and scoring an
+ablation percentile tests a different proposition. The static harness audit now contains a
+claim-family-to-estimand table. A future version should dispatch typed claims to those metrics
+and mark unsupported pairs unauditable, while retaining v3 as a component-importance null.

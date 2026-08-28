@@ -130,3 +130,27 @@ distribution and percentile, deduplicate canonical component sets, and avoid rat
 whose numerator or denominator is CE-saturated. Even that would not measure selective
 removal: circuit specificity still requires trigger-target and trigger-off-target cells
 with collateral bounds on declared non-descendants.
+
+## v3 claim-direction audit
+
+The v3 multi-draw percentile repairs the most severe single-denominator artifact. Its
+hand-written `important` / `redundant` direction, however, is not yet a claim predicate.
+Most registered entries do not assert that their component set has unusually high or
+low global ablation cost:
+
+| registry claim family | estimand actually required |
+|---|---|
+| MLP0/MLP1 dossiers | token-local versus context-conditioned recovery plus declared semantic interventions |
+| front tableability / front-versus-middle | depth gradient or contrast in matched-grammar extraction recovery |
+| middle program-family / feature price curve | matched-fidelity complexity frontier and held-out marginal return |
+| front or band synergy | factorial or Möbius interaction, not marginal ablation magnitude |
+| attention nonlocal / two-position / lag failure | token-only versus lag/context-aware grammar contrast |
+| whole-model / best compiled program | zero-native-call whole-program CE, KL, composition, and OOD consequences |
+| routing-only compressibility | separately priced routing-versus-value replacement frontier |
+
+Consequently, annotating `_attention_write_is_mostly_two_position` as `important`
+does not make a removal percentile evidence for a two-position mechanism; likewise a
+high removal percentile cannot test synergy or a price curve. v3 should be read as a
+better **component-importance null**, with direction annotations as metadata. A future
+harness must dispatch each typed claim to its required estimand and mark unsupported
+claim/metric pairs unauditable rather than collapsing them to importance.

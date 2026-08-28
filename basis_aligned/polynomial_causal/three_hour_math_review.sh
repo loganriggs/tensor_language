@@ -1,0 +1,9 @@
+#!/bin/bash
+set -u
+
+THREAD_ID="01a04100-e4ff-7aa0-9caa-eef5085c4177"
+PROMPT="THREE-HOURLY MATHEMATICAL REVIEW: Step away from the current local fit and ask which established mathematics could materially advance the goal of compiling bilin18 into a smaller predictive, composable, and editable tensor program. Inspect the latest git, AGENT_BOARD, strategic update, result receipts, and running jobs so this is not a generic literature survey. Reconsider tensor and arithmetic-circuit rank, simultaneous factorization and shared dictionaries, polynomial invariant theory and gauge quotients, algebraic complexity, system identification and minimal realizations, Hankel/automata methods, MDL and prequential coding, causal abstraction and bisimulation, information bottlenecks, sparse program synthesis, approximation certificates, and any newly relevant primary literature. For each promising idea, state the exact object in bilin18 it applies to, the theorem or operational definition, assumptions that may fail, the measurable consequence it predicts beyond reconstruction, and the cheapest falsifying experiment. Prune ideas that duplicate completed work, optimize only local MSE, cannot compose across RMSNorm/residual interfaces, or cannot improve prediction, extraction, selective removal, OOD transport, certification, or executable cost. Rank the top three genuinely new mathematical moves, record the reasoning in a static project artifact or AGENT_BOARD, and execute the highest-priority safe unblocked CPU-side analysis, implementation, proof check, or preregistration. Do not merely repeat the hourly plan and do not wait for user confirmation for safe in-scope work. If web research is useful, use current primary sources and preserve citations."
+
+exec /opt/nvm/versions/node/v24.19.0/bin/codex queue \
+    --thread "$THREAD_ID" \
+    --message "$PROMPT"

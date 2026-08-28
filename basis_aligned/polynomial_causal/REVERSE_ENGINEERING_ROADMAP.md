@@ -202,7 +202,11 @@ The local session receives an hourly prompt from
 `hourly_strategic_review.sh`. Each tick inspects new evidence, brainstorms candidate
 actions, prunes them by the rules above, ranks the top five, and executes the highest
 priority safe unblocked action. The cron is session-local and must be recreated after
-a container/session recycle; this file and the script are the durable policy.
+a container/session recycle. A distinct `three_hour_math_review.sh` runs at minute 30
+every third UTC hour. It requires a theorem/literature/invariant pass tied to concrete
+bilin18 objects and a falsifiable consequence, then executes one safe action; it may
+not merely repeat the hourly status review. `codex_session.crontab` is the durable
+install manifest for both schedules.
 
 ## Strategic checkpoint — 2026-08-27 20:16 UTC
 
