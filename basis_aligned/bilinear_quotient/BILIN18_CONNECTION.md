@@ -44467,3 +44467,62 @@ Controls (pred_d): table-only CE 7.35114 across six scripts, native-6 reproducin
 1.2414 within 0.001, coverage 5419 of 50257. The singular spectra are also informative — mlp17's
 leading value is 17320 against attn13's 817, so the residual mlp17 leaves over its table is an order
 of magnitude larger and much more linearly structured than any attention site's.
+
+## §1746 — fitting in the deployed context lifts recovery 6.7x and rescues mlp17 to 92%, and does nothing at all for attention. Both explanations were right, about different sites.
+
+`ops/lowrank_deployed_context_fit.py`, 55.1s, **DISCOVERY ONLY**.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+§1745 left two candidate explanations for its failure and this run was built so they make opposite
+predictions. **Both turn out to be true, of different sites.**
+
+```
+  skip11000 (held out), gap to native-6 = 1.2414 nats
+                       §1745 live fit      §1746 deployed fit     cost
+    rank   8               8.29%               37.94%            0.1106M reals
+    rank  32               7.01%               38.16%            0.4424M
+    rank 128               5.69%               38.14%            1.7695M
+
+  per site, rank 128, fraction of that site's own gap closed
+                       §1745 live          §1746 deployed
+    mlp17                 +20.71%             +92.06%
+    attn17                 +0.31%             +32.01%
+    attn13                 -5.98%              +4.06%
+    attn14                 -1.92%              +0.57%
+    attn16                 -1.32%              -0.06%
+    attn11                -19.64%             -64.32%
+    attention mean         -5.71%              -5.55%
+```
+
+**pred_b passed by a factor of three over its bar: the deployed-context fit lifts held-out recovery
+from 5.69% to 38.14%, a 6.7x improvement.** §1669's mismatch was not a caveat, it was most of the
+result. A program fitted on inputs it will not see is worth a sixth of the same program fitted on
+inputs it will.
+
+**pred_c passed, and this is the finding that matters for the compiler.** The five attention sites'
+mean is **−5.55%**, statistically indistinguishable from §1745's −5.71%. **Removing the mismatch
+changed nothing at attention.** Meanwhile mlp17 went from 20.71% to **92.06%**.
+
+> **mlp17 is compressible and the attention sites are not — by this program class, at these budgets.**
+> A rank-128 linear correction over a per-token table closes **92.06%** of mlp17's own gap for
+> **0.295M reals against a 15.926M native module: a 54x compression at 92% fidelity.** The same
+> program at four of the five attention sites closes between −64% and +4%. Only attn17 responds at
+> all, at 32%.
+>
+> This is §1682 from the program side. The attention output write is 83.6% non-local, so a map that
+> reads only the current position has nothing to read — and no amount of fixing the *fit context*
+> changes what the *input* contains.
+
+**pred_a FAILED, and the correct description is FLAT, not inverted.** Held out: 37.94 → 38.16
+(+0.22) → 38.14 (−0.02). §1745's inversion is gone; what replaces it is a curve with no slope.
+**Rank 8 already captures everything this program class can capture**, and the last step falls by
+0.02 points, so the strictly-increasing bar fails. That makes rank 8 the efficient point by a wide
+margin: **0.4709 nats for 0.1106M reals — 4.26 nats per million against native-6's 0.0223, 191x the
+cost-efficiency**, for 38% of the fidelity.
+
+**attn11 is the worst case and its ratio is unstable**: its own gap is 0.0575 nats, the smallest of
+the six, so −64.32% is a large fraction of a small number. The absolute harm is 0.037 nats. Noted
+rather than headlined, per the denominator lessons (32, 35).
+
+Controls (pred_d): table-only CE 7.35114 across seven scripts now; native-6 reproducing §1741's
+1.2037 and 1.2414 within 0.001; coverage 5419 of 50257.
