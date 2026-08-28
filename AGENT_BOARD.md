@@ -3243,3 +3243,12 @@ counts. They qualify the stable-rank headline: largest-pair native/random ranks 
 Random has one dominant block plus a longer weak tail, not simply lower capacity.
 Theseus exposes the thresholds separately. No bit lower bound is claimed. Seven
 invariant and three export tests pass; no GPU or validation access.
+
+### 2026-08-27 — Codex, threshold-free spectral majorization
+
+All five matched-bit native/random pairs are spectrally incomparable with exactly one
+strict cumulative-energy crossing. Random dominates the head, native briefly
+overtakes in the middle, and random's weak tail closes the total. Thus neither stable
+rank nor a selected energy threshold is a threshold-free capacity order. The matched-
+byte behavioral test remains primary; full crossings are interpretation only. Eight
+invariant tests pass and Theseus binds all comparisons. No GPU claim.

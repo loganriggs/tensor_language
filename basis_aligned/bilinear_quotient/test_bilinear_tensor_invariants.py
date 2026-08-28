@@ -58,3 +58,13 @@ def test_energy_rank_and_eckart_young_tail_are_exact():
     assert inv.energy_rank(singular, 1.0) == 2
     assert abs(inv.best_rank_relative_frobenius_error(singular, 1)-3/5) < 1e-12
     assert inv.best_rank_relative_frobenius_error(singular, 2) == 0
+
+
+def test_energy_majorization_distinguishes_dominance_and_crossing():
+    dominant = inv.energy_majorization(torch.tensor([8., 2.]).sqrt(),
+                                       torch.tensor([5., 5.]).sqrt())
+    assert dominant["relation"] == "left_majorizes_right"
+    crossing = inv.energy_majorization(torch.tensor([6., 2., 2.]).sqrt(),
+                                       torch.tensor([5., 5.]).sqrt())
+    assert crossing["relation"] == "incomparable_crossing"
+    assert crossing["strict_sign_crossings"] >= 1

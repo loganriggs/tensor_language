@@ -68,3 +68,13 @@ needed. Native K512 versus random K1024 has stable rank 77.59 versus 2.44, but t
 larger leading mode while also carrying a longer weak tail; it is not simply
 "lower-capacity." Stable rank, thresholded energy rank, serialized bits, and behavior
 answer different questions and must remain separate evidence columns.
+
+A threshold-free comparison uses majorization of the normalized squared singular
+spectrum: one candidate dominates only if its descending cumulative energy is at
+least the other's at every rank. Every one of the five frozen native/random pairs is
+incomparable, with exactly one strict crossing. Random leads strongly in the head;
+native overtakes by a smaller amount in the middle; random's longer weak tail then
+closes both totals at one. Hence no candidate family has a threshold-independent
+ordering by spectral concentration. The behavioral comparison should remain matched
+by actual bytes, with the full spectral crossing reported as interpretation rather
+than collapsed into a new selection score.

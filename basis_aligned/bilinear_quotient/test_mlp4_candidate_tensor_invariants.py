@@ -16,6 +16,9 @@ def test_frozen_audit_binds_roster_hashes_and_rank_invariants():
         expected.extend((pair["native_candidate_id"], pair["random_candidate_id"]))
     assert [row["candidate_id"] for row in result["rows"]] == expected
     assert len(result["pair_comparisons"]) == 5
+    assert all(pair["energy_majorization"]["relation"] in {
+        "left_majorizes_right", "right_majorizes_left", "equal",
+        "incomparable_crossing"} for pair in result["pair_comparisons"])
     for row in result["rows"]:
         assert row["rank"] == row["components"]
         assert 1 <= row["stable_rank"] <= row["rank"]
@@ -28,6 +31,7 @@ def test_frozen_audit_binds_roster_hashes_and_rank_invariants():
             <= row["energy_rank_99"] <= row["rank"]
         assert row["best_rank8_relative_frobenius_error"] >= \
             row["best_rank32_relative_frobenius_error"] >= 0
+        assert abs(sum(row["normalized_mode_energy"])-1) < 1e-9
 
 
 def test_smallest_production_spectrum_recomputes_from_frozen_bytes():

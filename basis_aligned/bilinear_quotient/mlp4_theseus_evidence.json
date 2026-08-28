@@ -14,7 +14,94 @@
   "inventory_sha256": "aed0af8ae35fa5142847a08e3ddd821f794cd2b09a73ef1abd7edd8562fd2543",
   "validation_protocol": "bilin18.mlp4.z4-heldout-validation.v1",
   "validation_results_sha256": null,
-  "tensor_invariants_sha256": "5f35cb2599575b04906d975262e71fdc36a724daaff6b20ecd67afa21a7d6079",
+  "tensor_invariants_sha256": "11b6b36569db23639d16b4b739170b6c367b2ef079d336c19fa5348e7a3560b3",
+  "tensor_pair_comparisons": [
+    {
+      "native": "native_k32",
+      "random": "random_k64",
+      "native_stable_rank": 10.67680847028015,
+      "random_stable_rank": 2.036298078487538,
+      "native_to_random_stable_rank_ratio": 5.243244386995816,
+      "native_stable_rank_per_mbit": 3.862206945325532,
+      "random_stable_rank_per_mbit": 0.9258795834731671,
+      "energy_majorization": {
+        "relation": "incomparable_crossing",
+        "strict_sign_crossings": 1,
+        "maximum_left_cumulative_advantage": 0.08368165660752336,
+        "maximum_right_cumulative_advantage": 0.3974262907129285,
+        "compared_modes": 1152,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "native": "native_k64",
+      "random": "random_k128",
+      "native_stable_rank": 18.056522052439185,
+      "random_stable_rank": 1.6061514765144123,
+      "native_to_random_stable_rank_ratio": 11.242104070796938,
+      "native_stable_rank_per_mbit": 3.293668308669084,
+      "random_stable_rank_per_mbit": 0.3691338253997145,
+      "energy_majorization": {
+        "relation": "incomparable_crossing",
+        "strict_sign_crossings": 1,
+        "maximum_left_cumulative_advantage": 0.05286426651818321,
+        "maximum_right_cumulative_advantage": 0.5672246316899866,
+        "compared_modes": 1152,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "native": "native_k128",
+      "random": "random_k256",
+      "native_stable_rank": 32.34722174456884,
+      "random_stable_rank": 1.7119205144070757,
+      "native_to_random_stable_rank_ratio": 18.895282504265282,
+      "native_stable_rank_per_mbit": 2.963893446856889,
+      "random_stable_rank_per_mbit": 0.1990431202303096,
+      "energy_majorization": {
+        "relation": "incomparable_crossing",
+        "strict_sign_crossings": 1,
+        "maximum_left_cumulative_advantage": 0.04730632951006142,
+        "maximum_right_cumulative_advantage": 0.556965407860633,
+        "compared_modes": 1152,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "native": "native_k256",
+      "random": "random_k512",
+      "native_stable_rank": 53.07265488725301,
+      "random_stable_rank": 1.8596847329176616,
+      "native_to_random_stable_rank_ratio": 28.538522658078318,
+      "native_stable_rank_per_mbit": 2.438853635628817,
+      "random_stable_rank_per_mbit": 0.10929066636516498,
+      "energy_majorization": {
+        "relation": "incomparable_crossing",
+        "strict_sign_crossings": 1,
+        "maximum_left_cumulative_advantage": 0.035621203930016554,
+        "maximum_right_cumulative_advantage": 0.5260210012035321,
+        "compared_modes": 1152,
+        "tolerance": 1e-10
+      }
+    },
+    {
+      "native": "native_k512",
+      "random": "random_k1024",
+      "native_stable_rank": 77.59290893347408,
+      "random_stable_rank": 2.436318300008881,
+      "native_to_random_stable_rank_ratio": 31.848428398371116,
+      "native_stable_rank_per_mbit": 1.786067659973873,
+      "random_stable_rank_per_mbit": 0.07232525046942576,
+      "energy_majorization": {
+        "relation": "incomparable_crossing",
+        "strict_sign_crossings": 1,
+        "maximum_left_cumulative_advantage": 0.020937747250295402,
+        "maximum_right_cumulative_advantage": 0.4075633946800899,
+        "compared_modes": 1152,
+        "tolerance": 1e-10
+      }
+    }
+  ],
   "controls": {
     "identity": "retained_live_mlp4",
     "zero_fidelity": "fit_mean_mlp4_output"

@@ -96,6 +96,38 @@ def best_rank_relative_frobenius_error(singular_values, rank):
     return float((singular[rank:].square().sum()/total).sqrt())
 
 
+def energy_majorization(left_singular, right_singular, tolerance=1e-10):
+    """Compare normalized descending squared spectra in the majorization order."""
+    left = torch.as_tensor(left_singular, dtype=torch.float64).square()
+    right = torch.as_tensor(right_singular, dtype=torch.float64).square()
+    if left.ndim != 1 or right.ndim != 1 or not left.numel() or not right.numel() \
+            or not torch.isfinite(left).all() or not torch.isfinite(right).all() \
+            or float(left.sum()) <= 0 or float(right.sum()) <= 0:
+        raise ValueError("spectra must be nonempty, finite, and nonzero")
+    width = max(left.numel(), right.numel())
+    left = torch.nn.functional.pad(left/left.sum(), (0, width-left.numel())).sort(
+        descending=True).values
+    right = torch.nn.functional.pad(right/right.sum(), (0, width-right.numel())).sort(
+        descending=True).values
+    difference = left.cumsum(0)-right.cumsum(0)
+    left_dominates = bool((difference >= -tolerance).all())
+    right_dominates = bool((difference <= tolerance).all())
+    if left_dominates and right_dominates:
+        relation = "equal"
+    elif left_dominates:
+        relation = "left_majorizes_right"
+    elif right_dominates:
+        relation = "right_majorizes_left"
+    else:
+        relation = "incomparable_crossing"
+    signs = torch.sign(difference[torch.abs(difference) > tolerance])
+    crossings = int((signs[1:] != signs[:-1]).sum()) if signs.numel() > 1 else 0
+    return {"relation": relation, "strict_sign_crossings": crossings,
+            "maximum_left_cumulative_advantage": float(difference.max()),
+            "maximum_right_cumulative_advantage": float((-difference).max()),
+            "compared_modes": width, "tolerance": tolerance}
+
+
 def explicit_symmetric_tensor(A, B, C):
     """Small-test oracle; never use for the 1152-dimensional production model."""
     A, B, C = _validate(A, B, C)

@@ -25,6 +25,10 @@ def test_unscored_export_preserves_price_claims_and_closed_lanes(tmp_path):
                if row["structural_tensor"]["status"] ==
                "measured_factorization_invariant"]
     assert len(audited) == 10
+    assert len(result["tensor_pair_comparisons"]) == 5
+    assert all(pair["energy_majorization"]["relation"] ==
+               "incomparable_crossing"
+               for pair in result["tensor_pair_comparisons"])
     assert all(row["structural_tensor"]["not_behavioral_evidence"]
                and row["structural_tensor"]["not_description_length"]
                for row in audited)

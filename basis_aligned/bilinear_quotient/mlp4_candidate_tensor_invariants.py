@@ -58,6 +58,7 @@ def summarize(candidate_id, encoded):
         "best_rank32_relative_frobenius_error":
             invariants.best_rank_relative_frobenius_error(singular, min(32, singular.numel())),
         "singular_values_top32": singular[:32].tolist(),
+        "normalized_mode_energy": (energy/total).tolist() if total else [],
         "runtime_s": time.time()-started,
     }
 
@@ -95,6 +96,9 @@ def main():
                 native["stable_rank"]/random["stable_rank"]),
             "native_stable_rank_per_mbit": native["stable_rank_per_mbit"],
             "random_stable_rank_per_mbit": random["stable_rank_per_mbit"],
+            "energy_majorization": invariants.energy_majorization(
+                torch.tensor(native["normalized_mode_energy"], dtype=torch.double).sqrt(),
+                torch.tensor(random["normalized_mode_energy"], dtype=torch.double).sqrt()),
         })
     result = {
         "schema_version": 1,

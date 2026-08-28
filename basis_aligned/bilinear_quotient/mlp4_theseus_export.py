@@ -110,6 +110,8 @@ def build(results_path=RESULTS):
         "validation_protocol": protocol["protocol_id"],
         "validation_results_sha256": sha(results_path) if results is not None else None,
         "tensor_invariants_sha256": sha(INVARIANTS) if invariant_artifact is not None else None,
+        "tensor_pair_comparisons": (
+            invariant_artifact["pair_comparisons"] if invariant_artifact is not None else []),
         "controls": {"identity": "retained_live_mlp4",
                      "zero_fidelity": "fit_mean_mlp4_output"},
         "score_definition": "1-(candidate_ce-live_ce)/(fit_mean_ce-live_ce)",
