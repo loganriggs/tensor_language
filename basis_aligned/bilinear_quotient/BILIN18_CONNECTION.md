@@ -45971,3 +45971,49 @@ Controls (pred_d): the context-free arms reproduce §1775's 7.70737 / 6.46948 an
 within 0.002, and coverage is 5419 of 50257. The first attempt OOMed at 31.2 GiB holding two families
 in the full [50257, D] form; the tables are now stored compactly as [ncov+1, D] through an idmap,
 9.3x smaller, since only 5419 rows are ever looked up.
+
+## §1777 — a nearest-covered fallback removes the last objection: the best all-position program in this arc is now one that never calls a native module
+
+`ops/nearest_neighbour_fallback.py`, 113.4s, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Each of the 44,838 uncovered token ids is sent to the **covered token with the most similar input
+embedding**, and takes that token's table row — instead of a mean over 5,419 unrelated rows. The map
+from token to row does not depend on position, so the program stays position-wise, and it stores no
+extra values: one index of 50,257 entries.
+
+```
+  skip11000, context-free tables, STANDALONE (no native module used for any output)
+  rank      cost      all-position CE            covered CE
+                    mean row   nearest row     (identical, by construction)
+  full   224.778M    6.46948    6.03786          5.97900
+  64      15.223M    6.64292    6.23480          6.21152
+  8        1.975M    6.89892    6.54141          6.55472
+  4        1.029M    7.02245    6.69203          6.72034
+```
+
+**pred_a: the nearest-covered row beats the mean row at every rank**, by 0.432, 0.408, 0.358 and
+0.330 nats. A mean over 5,419 unrelated tokens was a poor stand-in and the obvious better one is
+free.
+
+**pred_b is the milestone.**
+
+> **At rank 64 — 15.223M reals — a fully standalone position-wise program reaches 6.23480
+> all-position CE, better than §1776's best program (fit-mean plus fallback, 6.28596) by 0.051 nats.
+> At full rank it reaches 6.03786, better by 0.248.** Every earlier program that beat it on all
+> positions did so by **calling the native module at 24% of positions** — and a program that calls
+> the module it is replacing is not a replacement. That objection is now gone.
+
+**pred_c is the wiring check and it holds exactly**: covered CE is identical between the two fallback
+arms at every rank (5.97900, 6.21152, 6.55472, 6.72034), so the change is confined to uncovered
+tokens, as it must be.
+
+**What this does and does not claim.** It is still a position-wise program: zero cross-position
+dependence (§1765), a class whose optimum is bounded above by 5.97902 (§1768, corrected at §1771b and
+defended against three attacks at §1772–§1773). It recovers **at least** 32.4% of the stake and
+context is worth **at most** 67.6%. What changed here is that the program no longer needs the native
+model present to run, which was the largest unpriced term in every figure from §1748 onward and is
+now zero.
+
+Controls (pred_d): the mean-fallback arms reproduce §1776's 6.46948, 6.64292, 6.89892 and 7.02245
+within 0.002, and coverage is 5419 of 50257.
