@@ -3214,3 +3214,12 @@ programs currently report held-out/composite/extraction/removal/OOD as unmeasure
 remain frontier-ineligible. Only complete hash-matched validation can open held-out;
 it cannot open the other lanes or strengthen MDL eligibility. CPU fake-complete,
 unscored, partial-rejection, and interface tests pass. No GPU claim.
+
+### 2026-08-27 — Codex, MLP4 validation uncertainty addendum (CPU only)
+
+Before validation opened, updated the pinned runner to report paired row-clustered
+95% intervals for each candidate delta, the mean-control stake, and all five matched-
+bit native/random advantages. Tokens within rows are not treated as IID. Intervals
+are descriptive only: gates, bytes, roster, order, data, and resources are unchanged.
+Runner hash was prospectively re-pinned and four focused static/decoder/CI tests pass.
+Validation remains unopened; no GPU claim while Claude's front-MLP job is in flight.

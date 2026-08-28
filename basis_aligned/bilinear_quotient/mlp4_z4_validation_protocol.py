@@ -24,6 +24,8 @@ def load_and_validate(path=PATH):
     assert p["controls"] == ["retained_live_mlp4", "fit_mean_mlp4_output"]
     assert p["metrics"]["all_candidates_evaluated_once"]
     assert p["metrics"]["no_early_stopping"] and p["metrics"]["no_validation_refit_or_selection"]
+    assert "paired row" in p["metrics"]["uncertainty_unit"]
+    assert p["metrics"]["confidence_intervals_are_descriptive_not_gates"]
     assert not p["data"]["fit_rows_may_be_opened"]
     assert not p["data"]["combined_rows_may_be_opened"]
     assert not p["data"]["ood_may_be_opened"]

@@ -10,6 +10,22 @@ from . import mlp4_seeded_random_bilinear_codec as random_codec
 from . import mlp4_z4_validation_protocol as protocol
 
 
+def test_paired_row_ci_has_expected_center_and_width_without_loading_model():
+    # Extract only the pure helper to avoid importing the model-bearing runner.
+    source = (protocol.HERE/"mlp4_z4_validation.py").read_text()
+    tree = ast.parse(source)
+    node = next(node for node in tree.body
+                if isinstance(node, ast.FunctionDef) and node.name == "paired_row_ci95")
+    module = ast.Module(body=[node], type_ignores=[])
+    namespace = {"torch": torch}
+    exec(compile(module, "<paired_row_ci95>", "exec"), namespace)
+    result = namespace["paired_row_ci95"]([1.0, 2.0, 3.0, 4.0])
+    assert result["mean"] == 2.5 and result["clusters"] == 4
+    assert result["low"] < result["mean"] < result["high"]
+    assert abs((result["high"]-result["mean"])
+               - (result["mean"]-result["low"])) < 1e-12
+
+
 def test_protocol_and_runner_boundary():
     p = protocol.load_and_validate()
     ast.parse((protocol.HERE/"mlp4_z4_validation.py").read_text())

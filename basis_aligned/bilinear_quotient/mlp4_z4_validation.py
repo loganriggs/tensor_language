@@ -70,6 +70,18 @@ def execute(program, z):
         @ program["C"] + program["bias"]
 
 
+def paired_row_ci95(differences):
+    """Normal-approximation CI over independent row clusters, never token IID."""
+    values = torch.as_tensor(differences, dtype=torch.float64)
+    if values.ndim != 1 or values.numel() < 2 or not torch.isfinite(values).all():
+        raise ValueError("paired row differences must be a finite vector")
+    mean = float(values.mean())
+    half_width = 1.959963984540054 * float(values.std(unbiased=True)) \
+        / values.numel()**0.5
+    return {"mean": mean, "low": mean-half_width, "high": mean+half_width,
+            "clusters": values.numel(), "method": "paired_row_normal_95"}
+
+
 @torch.no_grad()
 def forward_inline(idx, mode="live", program=None, mean=None):
     """Exact checkpoint forward except candidate/mean modes never call MLP4."""
@@ -91,19 +103,20 @@ def forward_inline(idx, mode="live", program=None, mean=None):
 
 @torch.no_grad()
 def evaluate(rows, protocol, mode="live", program=None, mean=None):
-    total = 0.0; count = 0; peak = 0.0; temperature = 0
+    row_scores = []; peak = 0.0; temperature = 0
     for batch_id, start in enumerate(range(0, rows.shape[0], BATCH)):
         batch = rows[start:start+BATCH].to(ship.DEV)
         logits = forward_inline(batch[:, :-1].contiguous(), mode, program, mean).float()
         targets = batch[:, 1:].contiguous()
         loss = F.cross_entropy(logits.reshape(-1, logits.shape[-1]),
                                targets.reshape(-1), reduction="none").view_as(targets)
-        mask = torch.ones_like(targets, dtype=torch.bool)
-        mask[:, :protocol["data"]["scored_position_minimum"]] = False
-        total += float(loss[mask].sum()); count += int(mask.sum())
+        scored = loss[:, protocol["data"]["scored_position_minimum"]:]
+        row_scores.extend(scored.mean(1).double().cpu().tolist())
         if batch_id % protocol["resources"]["in_loop_guard_every_batches"] == 0:
             peak, temperature = resource_guard(protocol)
-    return total/count, peak, temperature
+    if len(row_scores) != rows.shape[0]:
+        raise RuntimeError("row-cluster accounting mismatch")
+    return sum(row_scores)/len(row_scores), row_scores, peak, temperature
 
 
 @torch.no_grad()
@@ -121,10 +134,10 @@ def main():
     inventory = json.loads(INVENTORY.read_text())
     controls = torch.load(CONTROLS, map_location="cpu", weights_only=False)
     mean = controls["mean_output"]
-    live, peak, temp = evaluate(rows, protocol)
-    anchor, p, t = evaluate(rows, protocol, "mean", mean=mean)
+    live, live_rows, peak, temp = evaluate(rows, protocol)
+    anchor, anchor_rows, p, t = evaluate(rows, protocol, "mean", mean=mean)
     peak, temp = max(peak, p), max(temp, t)
-    points = []
+    points = []; row_scores_by_id = {}
     inventory_rows = {row["candidate_id"]: row for row in inventory["candidates"]}
     for candidate_id in protocol["candidate_order"]:
         encoded = frozen[candidate_id]
@@ -132,29 +145,41 @@ def main():
         if hashlib.sha256(encoded).hexdigest() != expected_hash:
             raise ValueError(f"candidate hash mismatch: {candidate_id}")
         program = prepare(candidate_id, encoded)
-        ce, p, t = evaluate(rows, protocol, "program", program=program)
+        ce, candidate_rows, p, t = evaluate(
+            rows, protocol, "program", program=program)
         point = {"candidate_id": candidate_id,
                  "family": inventory_rows[candidate_id]["family"],
                  "capacity": inventory_rows[candidate_id]["capacity"],
                  "program_hash": "sha256:"+expected_hash,
                  "ce": ce, "delta_ce": ce-live,
+                 "delta_ce_ci95": paired_row_ci95(
+                     torch.tensor(candidate_rows)-torch.tensor(live_rows)),
                  "fidelity": 1-(ce-live)/(anchor-live)}
         points.append(point); peak, temp = max(peak, p), max(temp, t)
+        row_scores_by_id[candidate_id] = candidate_rows
         print(f"{candidate_id}: CE {ce:.6f}, fidelity {point['fidelity']:.4f}", flush=True)
         del program
         torch.cuda.empty_cache()
     by_id = {point["candidate_id"]: point for point in points}
     pairs = inventory["native_random_actual_bit_pairings"]
-    pair_results = [{"native": pair["native_candidate_id"],
-                     "random": pair["random_candidate_id"],
-                     "native_wins": by_id[pair["native_candidate_id"]]["ce"]
-                                    < by_id[pair["random_candidate_id"]]["ce"]}
-                    for pair in pairs]
+    pair_results = []
+    for pair in pairs:
+        native_id, random_id = pair["native_candidate_id"], pair["random_candidate_id"]
+        advantage = torch.tensor(row_scores_by_id[random_id]) \
+            - torch.tensor(row_scores_by_id[native_id])
+        pair_results.append({"native": native_id, "random": random_id,
+                             "native_advantage_ce": float(advantage.mean()),
+                             "native_advantage_ce_ci95": paired_row_ci95(advantage),
+                             "native_wins": by_id[native_id]["ce"]
+                                            < by_id[random_id]["ce"]})
     family_ces = [[p["ce"] for p in points if p["family"] == family]
                   for family in ("linear", "native_product", "seeded_random_product")]
     result = {"schema_version": 1, "protocol_id": protocol["protocol_id"],
               "partial": False, "live_ce": live, "mean_ce": anchor,
-              "anchor_delta_ce": anchor-live, "points": points,
+              "anchor_delta_ce": anchor-live,
+              "anchor_delta_ce_ci95": paired_row_ci95(
+                  torch.tensor(anchor_rows)-torch.tensor(live_rows)),
+              "points": points,
               "pair_results": pair_results,
               "gates": {
                   "native_wins_at_least_4_of_5": sum(p["native_wins"] for p in pair_results) >= 4,

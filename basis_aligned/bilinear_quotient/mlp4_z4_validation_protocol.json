@@ -21,7 +21,7 @@
     "mlp4_z4_validation_controls.pt": "b7397504fed19f0bb10a80d57bf7c2fee8e16f8902307a4fb11e24979d685640"
   },
   "pinned_sources": {
-    "mlp4_z4_validation.py": "51f58f8f8be900e0db093a714ca0c36bf85c3abce728bf267af0d4ca7fa6a17f",
+    "mlp4_z4_validation.py": "bee342d965e648d67ee78733f7466b1c64c745dd3a75f37d591d83940b92c0e9",
     "affine_codec.py": "f8b475542365e9c175578508b17d05f5516890e3a24db5d16dfa96fecaf14238",
     "mlp4_bilinear_residual_codec.py": "521933802fd552ef97f953814c63e49d4d1fae7a445ac49b11c3fa7d40c97a30",
     "mlp4_seeded_random_bilinear_codec.py": "91860a4d75507267d54c62256b80018daceb43409d3d1b48fe56fccccb653c5f"
@@ -35,6 +35,9 @@
   "metrics": {
     "primary": "next-token cross entropy",
     "fidelity": "1-(candidate_ce-live_ce)/(mean_ce-live_ce)",
+    "uncertainty_unit": "paired row clusters; tokens within a row are not treated as independent",
+    "confidence_intervals": "two-sided 95% normal approximation over 960 paired row means",
+    "confidence_intervals_are_descriptive_not_gates": true,
     "all_candidates_evaluated_once": true,
     "no_early_stopping": true,
     "no_validation_refit_or_selection": true
