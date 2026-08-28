@@ -53,7 +53,7 @@ with the native O/O baseline under the same N or E background. Emit one scalar r
 per row/layer; a near-zero denominator is an integrity failure and native/native must
 equal one. This is a non-selecting interface-health metric, not a new fit objective.
 
-### 2. The cut-rank theorem has no real mask measurements
+### 2. The cut-rank measurement is complete; prospective scoring is pending
 
 The frozen fitter, measurement transaction, and GPU adapter all exist. V1 measures a
 single fixed program family with identity gains; mask-specific scalar refitting is
@@ -64,16 +64,20 @@ rebuilds and hashes the exact 5,419-token context-free/output-nearest-neighbour/
 program, freezes all 64 mask descriptors, enforces 36 native/substitution calls, and
 rehashes model/program state after hook cleanup.
 
-The third exact launch under session 21508 also failed before any mask outcome. It
+The third exact launch under session 21508 failed before any mask outcome. It
 materialized the shared program, but the transaction rejected the backend return as
 not being its exact typed `PreparedProgramBank`. The cause was a Python module-identity
 mismatch: executing the adapter as `__main__` while the backend imported it by canonical
 module name created two distinct class objects with identical schemas. The repair
 closed at `43cd3fa5` with an exact subprocess path-CLI regression and 35 passing tests;
-the namespace remains pristine. A fourth launch is waiting for the active per-site
-table-choice GPU assay. Launch cost remains high because every attempt rebuilds and
-hashes approximately 8.34 GB of dense rows plus the 2.07 GB checkpoint; a certified
-reusable artifact is an engineering priority after the prospective assay is obtained.
+the namespace remained pristine. The repaired fourth launch then completed the full
+64-cell measurement transaction. Its sealed receipt is
+`51a13dc1267bd5e76d58775fff06227f6a44ccf8c66872463b0ce9d8388ac10c`, and the
+authority, payload, and receipt are committed at `8e561eff`. No cell was inspected
+partially. The frozen CPU rank selection, one-shot heldout finalization, document
+bootstrap, and useful-pass gates are now running. Launch cost remains high because
+each wave rebuilds and hashes approximately 8.34 GB of dense rows plus the 2.07 GB
+checkpoint; a certified reusable artifact is an engineering priority for later waves.
 
 The first real launch failed before any row/program outcome while hashing a
 zero-dimensional model tensor: direct `view(torch.uint8)` is invalid for a scalar.
@@ -133,10 +137,47 @@ disqualified as a sufficient simplicity/success metric. The useful object is a
 fixed-cost table judged by downstream transport and then confirmed without selection
 on fresh data.
 
+The registered per-site choice assay supplies that composition test and is a clean
+negative. Fit rows built both banks, `skip7000` chose among the 12 early-site table
+types, and untouched `skip11000`/`skip1200` roles tested the frozen choice. Nine sites
+chose fit-context and three chose length-1, so the choice was genuinely mixed. But
+uniform fit-context reduced whole-program top-1 from 13.55% to 13.19% on the selection
+role, and the mixed program was worse still. On the two untouched roles, mixed scored
+13.45% and 13.02%, versus 14.25% and 13.64% for all length-1: losses of 0.79 and 0.63
+percentage points. Controls passed. The deployable MLP5 gain is real but **does not
+compose under independent site selection**. This is the interaction problem that the
+cut-rank assay is designed to measure.
+
+The architecture supplies a direct explanation. The length-1 rows form a
+self-consistent fixed point for the fully context-free program: each site row was
+generated under the same pure-token recursion the compiled network executes. A
+fit-context mean is estimated under native contextual upstream states. It can improve
+one hybrid site while surrounding sites remain native, yet simultaneous installation
+changes the input distribution under which every mean was defined. The next compiler
+therefore needs either joint closed-program table optimization or a small carried
+context state; independent local replacement is mathematically mismatched to the
+composed program.
+
+Self-consistency is not loss optimality. Reapplying this context-mean refit operator
+to the fully compiled program returns the length-1 rows, but that proves only a fixed
+point of the operator. The earlier current-token-only ceiling has CE 5.979 versus
+6.573 for the 36-site program, leaving roughly 0.55 nats for a better pure-token
+function. The positive B1/B5 context advantages below also directly show that a
+non-self-consistent table can sometimes win. Joint optimization or a new state
+variable therefore remains mathematically live.
+
+A registered depth-crossover assay then falsified “compilation depth” as the missing
+scalar state. The fit-context advantage over length-1 is +1.6 gap points at B1,
+-19.9 at B3, +2.1 at B5, and -1.4 for all 36 sites. All three scientific predictions
+(useful B1 crossover, monotonicity, and an early negative crossover) fail while controls
+pass. Which sites are compiled matters more than how many layers are compiled. This
+prunes a depth-threshold rule and further motivates a low-rank or sparse interaction
+state over masks.
+
 There is an exact local explanation for why the Euclidean mean can fail. Let
-(z_{s,t,c}) be a site's native output for token (t) in context (c), let (q_{s,t})
-be a context-free replacement, and expand downstream negative log likelihood around
-the native output. With gradient (g) and Hessian (H), the conditional quadratic
+\(z_{s,t,c}\) be a site's native output for token \(t\) in context \(c\), let
+\(q_{s,t}\) be a context-free replacement, and expand downstream negative log
+likelihood around the native output. With gradient \(g\) and Hessian \(H\), the conditional quadratic
 objective has minimizer
 
 \[
@@ -145,12 +186,12 @@ q^*_{s,t}=
 \left(\mathbb E[H z-g\mid t]\right),
 \]
 
-up to null-space freedom. The ordinary token mean (\mathbb E[z\mid t]) follows only
+up to null-space freedom. The ordinary token mean \(\mathbb E[z\mid t]\) follows only
 under restrictive conditions such as a context-independent isotropic Hessian and
 vanishing conditional gradient. MLP4 falsifies using the ordinary mean as a universal
 rule; MLP5 shows it can nevertheless be an excellent approximation at a specific
 site. The cheapest next model is not a larger table but a low-description correction
-(q'_{s,t}=a_s q_{s,t}+b_s), or a low-rank Fisher/Gauss--Newton metric, fit only on the
+\(q'_{s,t}=a_s q_{s,t}+b_s\), or a low-rank Fisher/Gauss--Newton metric, fit only on the
 fit role and judged by fresh CE plus composition. A scalar and one shared bias cost
 almost nothing at inference, directly implementing the user's proposed “costless”
 correction. This test must report CE; a current queued per-site table-choice run selects
@@ -220,7 +261,7 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
 
 1. Production completion of the 68-action final role: direct causal and edit evidence.
 2. Fixed-program cut rank: predictive interaction-state certificate on untouched masks.
-3. Fresh confirmation and composition of the fixed-cost fit-context MLP5 table.
+3. Interaction-aware table composition conditional on the cut-rank result.
 4. Downstream-weighted scalar/bias or low-rank correction of token representatives.
 5. Heldout length-1 response-rank test: tensor-factorization claim with a falsifiable
    unmeasured-amplitude prediction.
@@ -249,11 +290,11 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
    mathematical information gain: rank 1/2 must predict untouched early/late
    compositions, not just fit observed cells. Launch immediately after the active GPU
    attribution run releases the lane.
-3. **Confirm and compose the fixed-cost fit-context MLP5 table.** The discovery run
-   passed all controls and three exposed heldout roles while keeping identical table
-   size and calls. Freeze the MLP5 choice, confirm on fresh rows, and test whether its
-   gain survives simultaneous early/deep replacements. Do not use site MSE to select
-   MLP4: it gives the wrong causal ordering there.
+3. **Replace independent table choice with an interaction-aware rule.** The registered
+   per-site policy failed on both untouched roles despite reliable single-site gains.
+   If cut rank 1/2 passes, condition table choices on that small prefix/suffix state;
+   if it fails, freeze a sparse pairwise mask design rather than fitting 12 independent
+   choices. Any successor must optimize/report CE and pass whole-program composition.
 4. **Test a downstream-weighted, nearly costless table correction.** Fit only a
    per-site scalar/shared bias first, then a low-rank Fisher metric only if needed;
    require fresh CE and composition improvement over both length-1 and Euclidean-mean
@@ -277,8 +318,19 @@ not yet have measured response signatures.
 - Protected denominator and terminal-context reconstruction then closed at `1c3a2978`
   with 59 tests. The fit-stage denominator-child publisher and physical 18-consumer
   definition then closed at `500f8e86` and `4b0a4fed`; the latter passes 49 focused
-  tests. Remaining final-role work is integration of capture contexts, 96 native
-  denominator forwards, and the explicit consumer/response join.
+  tests. The exact 96-denominator schedule, reuse across 3,264 action batches, and
+  consumer/response evidence join then closed at `19bc5507` with 50 focused and 35
+  broader regression tests. The remaining production blocker is physical adapter
+  binding: wrap each existing authorized forward in the capture context, execute the
+  independent O/O denominator prepass, and return a captured rather than uncaptured
+  observational batch. That binding then closed at `21bc3e04` with 101 focused and 70
+  staged tests. The top-level callback audit exposed two semantic capabilities that
+  still do not exist: a producer for the preregistered eight full scored-row gauge/DiD
+  replays, and an unambiguous contract naming copy/frequency comparators and interval
+  versus point duplicates. The fail-closed top-level callback closed at `f65a648e` with
+  42 tests: it atomically joins response and 68-action diagnostics but requires an
+  explicit one-shot semantic/replay capability and synthesizes no defaults or zeros.
+  Final-role status remains NO-GO until that scientific reducer/contract is reviewed.
 - The real cut-rank backend closed at `ef0f1584` with 29 tests; all inputs and the
   pristine output namespace are present. When the table rerun exited, the exact
 64-mask command was launched under session 71743. It failed before outcomes on a
@@ -288,8 +340,9 @@ before outcomes because a padded 50,304-row embedding entered a 50,257-token pro
 The validated tokenizer-slice repair closed at `6e255d01` with 34 tests and a pristine
 namespace. After the deployable-table run released the GPU, the third exact 64-mask
 launch began under session 21508, then failed before outcomes on a typed-bank identity
-mismatch. The CLI identity repair closed at `43cd3fa5` with 35 tests; relaunch is queued
-behind the active per-site table-choice GPU assay.
+mismatch. The CLI identity repair closed at `43cd3fa5` with 35 tests. The fourth exact
+launch then completed all 64 cells with sealed receipt `51a13d...`; the frozen CPU
+scorer and bootstrap are active.
 - The first table dispatch failure was repaired and safely rerun. Its target result was
   then rejected because the 5,419-row coverage control exposed 7,822 changed rows; a
   second support-mask run then failed before targets on an unset coverage binding.
@@ -297,6 +350,13 @@ behind the active per-site table-choice GPU assay.
   passed all four predictions: MLP5 gap recovery 47.14% versus 3.57% length-1 and
   50.99% evaluation-fitted, heldout-role spread 1.93 points, persistent MLP4 inversion,
   and all controls true. This is discovery evidence, not new ledger credit.
+- The subsequent per-site choice assay passed its mixed-choice/control checks but
+  failed both useful whole-program predictions: uniform fit-context was -0.37 top-1
+  points versus all length-1, and the frozen mixed rule was -0.79/-0.63 points on its
+  two untouched roles. Local table gains do not compose independently.
+- The depth-crossover follow-up failed 3/3 scientific predictions with controls true:
+  context-table advantage +1.6, -19.9, +2.1, and -1.4 gap points at B1/B3/B5/all.
+  Compilation depth is not a sufficient scalar interaction state.
 - No final data, OOD role, mask outcome, or failed table-versus-site target was inferred
   from infrastructure or partial logs.
 
