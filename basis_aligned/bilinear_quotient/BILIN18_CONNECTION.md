@@ -46017,3 +46017,34 @@ now zero.
 
 Controls (pred_d): the mean-fallback arms reproduce §1776's 6.46948, 6.64292, 6.89892 and 7.02245
 within 0.002, and coverage is 5419 of 50257.
+
+## §1778 — the standalone milestone confirms on three roles, 4/4
+
+`ops/nearest_fallback_three_roles.py`, 130.2s, **SECOND-CLASS CONFIRMATION**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+```
+  all-position CE, context-free STANDALONE       mean row -> nearest-covered row
+  rank      cost      skip7000            skip11000           skip1200
+  full   224.778M   6.42143 -> 6.05666   6.46948 -> 6.03786   6.44227 -> 6.04740
+  64      15.223M   6.59085 -> 6.24543   6.64292 -> 6.23480   6.59218 -> 6.21155
+  8        1.975M   6.83535 -> 6.53214   6.89892 -> 6.54141   6.82385 -> 6.48844
+  4        1.029M   6.95560 -> 6.67601   7.02245 -> 6.69203   6.95547 -> 6.63885
+
+  gains  skip7000 [0.365, 0.345, 0.303, 0.280]
+         skip11000[0.432, 0.408, 0.358, 0.330]
+         skip1200 [0.395, 0.381, 0.335, 0.317]
+```
+
+**All four predictions hold.** The nearest-covered fallback beats the mean row at **every rank on
+every role**; the gains transfer within 0.10 nats (the full spread is 0.280 to 0.432); covered CE is
+untouched everywhere, as it must be; and skip11000 reproduces §1777 exactly.
+
+**The rank-64 standalone program lands at 6.24543, 6.23480 and 6.21155 across three roles** — a
+spread of 0.034 nats on a quantity whose roles differ by 0.30 nats in live CE. §1777's milestone is
+confirmed: **at 15.223M reals a program that never calls a native module for any output beats every
+fallback-using program measured in this arc**, and it does so on all three roles.
+
+Notably skip1200, the hardest role by live CE (3.40277 against 3.09711), gives the **best** standalone
+number at ranks 64, 8 and 4. The nearest-covered map is built from embeddings alone and does not
+depend on the eval role, so nothing was tuned to any of them.
