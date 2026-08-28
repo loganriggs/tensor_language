@@ -47787,3 +47787,68 @@ object — is met, and the arithmetic showing it is above. **LESSON 49.**
 program was never the right object to repair: at its own cost it is beaten by a rank-16 compile of the
 top eleven layers by more than five points. The thread's cost/fidelity story from §1748 onward was
 measured on a point that a cheaper design dominates.
+
+> **CORRECTED by §1812.** "Never the right object" overreaches. The dominance above is exact and
+> stands, but on ACCURACY PER REAL an all-sites arm wins: r8_L-1 buys 0.0065 / 0.0054 / 0.0084 pp
+> per million reals, the best of every arm measured, because depth is paid for by retaining native
+> modules at 23.889M reals per layer. Partial compiles reach higher ABSOLUTE accuracy; they do not
+> buy it efficiently. Read this section as "full-rank tables are dominated", not as "all-sites is
+> the wrong design".
+
+## §1812 — the efficiency optimum is an ALL-SITES program, and rank matters less the less you compile
+
+`ops/frontier_optimum.py`, 486.7s, **DISCOVERY ONLY**, rung 3 (§1811's closing question).
+**pred_a FALSE | pred_b True | pred_c FALSE | pred_d True.**
+
+```
+    r4_L-1     6.337M  10.75%   |   r4_L10   265.244M  26.00%
+    r8_L-1     7.283M  11.36%   |   r8_L10   265.612M  26.52%
+    r16_L-1    9.176M  11.68%   |   r16_L10  266.348M  26.59%
+    r32_L-1   12.961M  12.41%   |   r32_L10  267.819M  26.73%
+    r64_L-1   20.531M  12.88%   |   r64_L10  270.763M  26.93%
+    r4_L7    194.633M  18.32%   |   r4_L13   335.854M  32.30%
+    r16_L7   196.210M  18.71%   |   r64_L13  339.008M  32.80%
+    r32_L7   198.313M  18.51%   |   live     430.000M  39.32%
+```
+
+**pred_a FAILED, and it corrects the framing I gave §1811.** The best accuracy bought per million reals
+is **r8_L−1 — an all-sites arm** — at 0.0065 / 0.0054 / 0.0084 pp per M, on every role. pred_a's
+registered alternative said exactly what that means: *"§1811's dominance result — while true — does not
+move the design point, only the pricing of the full-rank arms."*
+
+> **§1811's headline sentence is corrected.** I wrote that "the all-sites program was never the right
+> object to repair". The **dominance** result stands unchanged — four of five full-rank arms are
+> Pareto-dominated and rNone_L−1 is beaten by r16_L7 by 34M reals and +5.16pp. But on the axis that
+> matters for a *design point* — accuracy per real — an all-sites arm wins, because depth is bought by
+> retaining native modules at 23.889M reals per layer. Partial compiles reach **higher absolute
+> accuracy**; they do not buy it **efficiently**. Both statements are true and I published only the
+> flattering one.
+
+**pred_b passed cleanly**: rank 64 is the best rank at every depth and every role.
+
+**pred_c FAILED, and the failure is a finding.** I asked whether the table rank has a floor at depth,
+requiring rank 8 to lose at least 1pp against rank 64 at L10. It loses **0.41 / 0.65 / 0.22 pp**. There
+is no meaningful floor there — and the reason is visible in the spans:
+
+```
+    rank 4 -> 64 at L-1 (36 sites compiled):   10.75% -> 12.88%   span 2.13pp
+    rank 4 -> 64 at L10 ( 14 sites compiled):  26.00% -> 26.93%   span 0.93pp
+    rank 4 -> 64 at L13 (  8 sites compiled):  32.30% -> 32.80%   span 0.50pp
+```
+
+**The fewer sites you compile, the less their rank matters.** A quarter as many tables halves the value
+of four times the rank. That is a clean interaction and it means the two knobs cannot be tuned
+independently, which §1811's pred_c ("rank 64 transfers unchanged") had suggested they could.
+
+**A non-monotonicity, recorded and not explained.** At L7, **rank 32 is worse than rank 16** on all
+three roles — 18.51 / 19.10 / 17.97 against 18.71 / 19.42 / 18.52 — while at L10 and L13 the ordering
+is monotone. One depth, three roles, and I am not theorising about it (LESSON 37).
+
+Controls (pred_d): r16_L7 and r64_L13 reproduce §1811's published 0.1871 / 0.1942 / 0.1852 and 0.3280 /
+0.3474 / 0.3226 within 0.01; endpoints reproduce §1789 within 0.001; the rank-64 all-sites cost
+reproduces §1786's 20.531M. Constants carried their units in their names this time (LESSON 49) and the
+control passed.
+
+**Open question this ends on.** The efficiency optimum is at rank 8 of the ranks tested, and rank 4 was
+the origin of the efficiency metric so it could not be scored. How low does the rank go before the
+program breaks, and is the optimum below 8?
