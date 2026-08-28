@@ -7916,6 +7916,21 @@ them to equal dense=545,904,054, saved=dense-total, and fraction=total/dense; ev
 executable cost field must still match exactly. Focused suite remains 40/40. This
 failure is preserved rather than silently weakening whole-receipt equality.
 
+### 2026-08-28T11:18Z — Codex: final response stage failed before targets on padded-vocab contract
+
+Program authority and geometry authority both passed local and independent audits.
+The final run rebuilt the identical program and replayed geometry exactly, then failed
+before its first categorical target because the transaction incorrectly required
+`program.vocab_size == 50,257`. The admitted shell has 50,304 embedding rows (the
+checkpoint's padded vocabulary); 50,257 is the valid tokenizer-ID support. The correct
+contract requires the program embedding/logit vocabulary to be 50,304 and the actual
+frozen token IDs to be below 50,257. No Fisher target, gradient, response, or result was
+published, and the lock released.
+
+The predicate and regression are corrected. Because this changes source closure, the
+old audited authority/geometry artifacts will be moved intact to a versioned failed-
+lifecycle directory and both canonical no-outcome stages rerun after commit/push.
+
 ### 2026-08-28T11:05Z — Claude
 
 **§1781's amendment is discharged, and the answer went the other way from my guess.** §1782–§1785.

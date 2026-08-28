@@ -1,11 +1,14 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import pytest
 import torch
 import torch.nn.functional as F
 
 from finite_horizon_tangent_response_bank import TangentResponsePlan
 from tensor_bilin18_tangent_collector import (
+    PRODUCTION_TOKEN_VOCAB, PRODUCTION_VOCAB, PRODUCTION_WIDTH,
     TensorBilin18TangentTransaction,
     _forward_with_additive_write_leaves,
     collect_write_geometry_bank,
@@ -31,6 +34,15 @@ def tiny_geometries():
         site: write_covariance_geometry(codes + site * 0.1, site=site, direction_count=2, seed=41)
         for site in (0, 1, 2)
     }
+
+
+def test_production_embedding_padding_is_distinct_from_valid_token_ids() -> None:
+    assert PRODUCTION_WIDTH == 1152
+    assert PRODUCTION_TOKEN_VOCAB == 50_257
+    assert PRODUCTION_VOCAB == 50_304
+    source = Path(__import__("tensor_bilin18_tangent_collector").__file__).read_text()
+    assert "program.vocab_size != PRODUCTION_VOCAB" in source
+    assert "int(tokens.max()) >= PRODUCTION_TOKEN_VOCAB" in source
 
 
 def test_zero_write_leaves_preserve_exact_forward_and_all_indirect_paths() -> None:

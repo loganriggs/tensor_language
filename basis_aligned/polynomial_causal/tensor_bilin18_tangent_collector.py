@@ -369,10 +369,12 @@ class TensorBilin18TangentTransaction:
                 raise ValueError("production injection positions come only from the frozen plan")
             cost = program.cost_receipt()
             if program.width != PRODUCTION_WIDTH or program.logit_vocab != PRODUCTION_VOCAB or (
-                program.vocab_size != PRODUCTION_TOKEN_VOCAB
+                program.vocab_size != PRODUCTION_VOCAB
             ) or int(cost["total_stored_values"]) != RANK640_STORED_VALUES or (
                 int(cost["native_calls_per_forward"]) != 0
-            ) or not bool(cost["total_input_support"]):
+            ) or not bool(cost["total_input_support"]) or int(tokens.min()) < 0 or (
+                int(tokens.max()) >= PRODUCTION_TOKEN_VOCAB
+            ):
                 raise ValueError("production tangent collection requires the admitted rank640 program")
         if not production:
             positions = tuple(injection_positions_for_test or (0,) * len(rows))
