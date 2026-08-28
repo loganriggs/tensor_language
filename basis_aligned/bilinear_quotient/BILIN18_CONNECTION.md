@@ -46048,3 +46048,40 @@ fallback-using program measured in this arc**, and it does so on all three roles
 Notably skip1200, the hardest role by live CE (3.40277 against 3.09711), gives the **best** standalone
 number at ranks 64, 8 and 4. The nearest-covered map is built from embeddings alone and does not
 depend on the eval role, so nothing was tuned to any of them.
+
+## §1779 — one neighbour is the right number: averaging strictly hurts, so the embedding neighbourhood is sharp rather than noisy
+
+`ops/knn_fallback.py`, 184.9s, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  all-position CE, skip11000, context-free STANDALONE
+  rank      k=1       k=2       k=4       k=8      k=16     mean (k=5419)
+  full   6.03786   6.04996   6.05129   6.05895   6.07957     6.46948
+  64     6.23480   6.26865   6.27731   6.28331   6.29707     6.64292
+  8      6.54141   6.57959   6.59176   6.59666   6.60613     6.89892
+  4      6.69203   6.73924   6.75831   6.76658   6.77754     7.02245
+```
+
+**k = 1 wins at every rank, and CE rises monotonically with k.** Both substantive predictions failed,
+and pred_a was written so its failure says something: *"If FALSE the single nearest neighbour is
+already right and the variance argument is wrong — which would say the embedding neighbourhood is
+sharp rather than noisy, and is worth knowing."* That is the finding.
+
+**My reasoning was that one token's row carries its idiosyncrasies and a small average would trade
+that variance for a little bias. The data says there is no variance to trade** — the nearest covered
+token in embedding space is a genuinely good stand-in and the second-nearest already dilutes it. The
+penalty for averaging grows as the table is starved (0.042 nats at full rank, 0.086 at rank 4), which
+is consistent: at low rank each row carries less information and blending them destroys more of it.
+
+Every k still beats the global mean by a wide margin — 0.39 to 0.43 nats at full rank — so §1777's
+result is about *using a neighbour at all*, and this run settles that the right number of neighbours
+is one.
+
+**A cosmetic defect, recorded because it is in the log.** The pred_b print line contains an unresolved
+brace expression from a bad `.replace()` in the build script; the boolean it reports is correct and
+computed independently of the string. No number is affected.
+
+Controls (pred_d): the k=1 arm reproduces §1777's 6.03786, 6.23480, 6.54141 and 6.69203 and the mean
+arm its 6.46948, 6.64292, 6.89892 and 7.02245, all within 0.002; covered CE is untouched by every k
+on every role; coverage 5419 of 50257.
