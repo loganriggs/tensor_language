@@ -3260,3 +3260,11 @@ step it saves 1.26--1.38% across all native prefixes; exact cross-Gram tensor er
 2.15e-5--2.18e-5. Because re-quantization changes each program hash, no behavior or
 price is inherited and the frozen validation roster is unchanged. Theseus lists the
 five streams as frontier-ineligible alternatives. Seven focused tests pass; no GPU.
+
+### 2026-08-27 — Codex, clean validation runtime correction
+
+Static audit found the old `ship_mlp2_diag` import transitively loaded an unrelated
+evaluation-token artifact and CUDA TRAIN/HELD tensors. Replaced it before validation
+with a cache-only runtime that reads only SHA-pinned config/checkpoint blobs and the
+pinned model source. Five boundary tests reject experiment/row imports. Roster, bytes,
+rows, gates, and resources are unchanged. Dynamic identity check waits for lane release.

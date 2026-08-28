@@ -14,7 +14,7 @@ import torch.nn.functional as F
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-import ship_mlp2_diag as ship
+import bilin18_clean_runtime as ship
 from . import affine_codec
 from . import mlp4_bilinear_residual_codec as native_codec
 from . import mlp4_seeded_random_bilinear_codec as random_codec

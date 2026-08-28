@@ -44,6 +44,17 @@ def test_each_runtime_program_bypasses_native_mlp4():
     assert text.index("execute(program, z)") < text.index("block.mlp(z)")
 
 
+def test_clean_runtime_has_no_transitive_experiment_or_row_imports():
+    source = (protocol.HERE/"bilin18_clean_runtime.py").read_text()
+    tree = ast.parse(source)
+    imported = {alias.name for node in tree.body if isinstance(node, ast.Import)
+                for alias in node.names}
+    imported |= {node.module for node in tree.body if isinstance(node, ast.ImportFrom)}
+    assert imported == {"__future__", "hashlib", "json", "sys", "pathlib",
+                        "torch", "huggingface_hub", "jacclust.tt_model"}
+    assert "local_files_only=True" in source
+
+
 def test_every_frozen_stream_decodes_to_the_promised_z4_interface():
     artifact = torch.load(protocol.HERE/"mlp4_z4_candidate_bytes.pt",
                           map_location="cpu", weights_only=False)

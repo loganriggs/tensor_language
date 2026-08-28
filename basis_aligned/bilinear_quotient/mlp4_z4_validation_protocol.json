@@ -3,6 +3,13 @@
   "protocol_id": "bilin18.mlp4.z4-heldout-validation.v1",
   "status": "preregistered_gpu_launch_requires_claim_and_driver_check",
   "question": "Do frozen checkpoint-aligned bilinear factors beat generic seeded product features at matched actual serialized bits?",
+  "checkpoint": {
+    "repository": "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd",
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "blob_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "config_sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c",
+    "cache_only": true
+  },
   "data": {
     "file": "mlp4_frontier_validation_rows.pt",
     "file_sha256": "77129dcd93548eebea091bd283be246b56bb57bbba1840454e173edeea8d1403",
@@ -21,10 +28,14 @@
     "mlp4_z4_validation_controls.pt": "b7397504fed19f0bb10a80d57bf7c2fee8e16f8902307a4fb11e24979d685640"
   },
   "pinned_sources": {
-    "mlp4_z4_validation.py": "bee342d965e648d67ee78733f7466b1c64c745dd3a75f37d591d83940b92c0e9",
+    "mlp4_z4_validation.py": "cf8e36a3616162c9d8be4fe8b32913aac132642d997a0fb5fe2777718a8595aa",
+    "bilin18_clean_runtime.py": "65344d612f6fe5cf473d0675fc3b968c36ff8e6606640f51bf231173ea60298d",
     "affine_codec.py": "f8b475542365e9c175578508b17d05f5516890e3a24db5d16dfa96fecaf14238",
     "mlp4_bilinear_residual_codec.py": "521933802fd552ef97f953814c63e49d4d1fae7a445ac49b11c3fa7d40c97a30",
     "mlp4_seeded_random_bilinear_codec.py": "91860a4d75507267d54c62256b80018daceb43409d3d1b48fe56fccccb653c5f"
+  },
+  "pinned_external_sources": {
+    "../../jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
   },
   "candidate_order": [
     "linear_r32", "linear_r64", "linear_r128", "linear_r256", "linear_r512", "linear_r1152",
