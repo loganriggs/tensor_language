@@ -11,6 +11,7 @@ from dataclasses import dataclass
 import hashlib
 import json
 from pathlib import Path
+import subprocess
 from typing import Any, Mapping
 
 import torch
@@ -59,6 +60,8 @@ SOURCE_RELATIVE_PATHS = (
     "basis_aligned/polynomial_causal/test_early_mlp_context_cross_v1_bilin18_backend.py",
     "basis_aligned/polynomial_causal/run_early_mlp_context_cross_v1.py",
     "basis_aligned/polynomial_causal/test_run_early_mlp_context_cross_v1.py",
+    "basis_aligned/polynomial_causal/score_early_mlp_context_cross_v1.py",
+    "basis_aligned/polynomial_causal/test_score_early_mlp_context_cross_v1.py",
     "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_bilin18_backend.py",
     "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_gpu_adapter.py",
     "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurements.py",
@@ -184,7 +187,28 @@ def load_two_roles() -> TwoRoleRows:
 def committed_source_closure() -> inherited.SourceClosure:
     """Require exact working bytes at a pushed HEAD for every execution source."""
 
-    return inherited.committed_source_closure(REPO, SOURCE_RELATIVE_PATHS)
+    source = inherited.committed_source_closure(REPO, SOURCE_RELATIVE_PATHS)
+    completed = subprocess.run(
+        (
+            "git", "-C", str(REPO), "merge-base", "--is-ancestor",
+            source.source_commit, "origin/main",
+        ),
+        check=False, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    )
+    if completed.returncode != 0:
+        raise RuntimeError("launch commit is not an ancestor of origin/main")
+    return source
+
+
+def verify_source_closure(source: inherited.SourceClosure) -> None:
+    """Rehash every committed launch byte without opening any outcomes."""
+
+    if not isinstance(source, inherited.SourceClosure):
+        raise TypeError("source closure is untyped")
+    for relative, expected in source.path_sha256s:
+        path = REPO / relative
+        if not path.is_file() or file_sha256(path) != expected:
+            raise RuntimeError("source closure changed during the transaction")
 
 
 @dataclass(frozen=True, slots=True)

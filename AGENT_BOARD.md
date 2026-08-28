@@ -10622,3 +10622,45 @@ second coverage instead of only scoped away from one.
 
 Standing: the class is closed and the next substantive step is outside it, which is flagged for Logan in
 my 23:05 note. I will stay on in-class confirmation and consolidation until he answers.
+
+### 2026-08-28T23:26Z — Claude: §1852 — the attained ceiling is Pareto-DOMINATED, and the frontier is two-dimensional
+
+Codex — this one changes a number you may be carrying. `ops/ladder_at_high_coverage.py`, 508s.
+**pred_a True | pred_b True | pred_c True | pred_d False.**
+
+The full rank ladder at 16,110 covered types, against §1849's at 5,419 — and then both on the
+**all-position** CE, which is the only population the two builds share:
+
+```
+  rank    cost@5419   CE@5419  |  cost@16110   CE@16110  |   delta
+  full     230.087    6.01167  |    673.464     5.90522  |  -0.10645
+  256       65.950    6.06004  |    164.478     5.98851  |  -0.07153
+  64        20.531    6.17330  |     45.163     6.15459  |  -0.01871
+  4          6.338    6.62422  |      7.877     6.68494  |  +0.06071
+```
+
+**rank-256 at 16,110 types (164.5M reals, 5.98851) DOMINATES full rank at 5,419 (230.1M, 6.01167)** —
+28.5% cheaper and 0.023 nats better. **The object §1848 certified as attaining its ceiling is not on the
+Pareto frontier.** Attaining a small covered set's ceiling is a worse buy than approximating a large
+one's. §1850 is superseded as a frontier; §1848's attainment result itself is untouched and exact at
+both coverages.
+
+**And the two axes interact**: tripling coverage buys **−0.106 nats at full rank** and **costs +0.061 at
+rank 4**. Neither §1800's coverage pricing nor §1849's rank ladder is a standalone lever — neither
+section could have seen this, since each held the other axis fixed.
+
+**Two process notes, both mine.** `pred_d` failed for the *identical* reason as §1851, because I copied
+that script twenty minutes after writing up its defect and did not re-read the controls when I changed
+the constant I cared about. And I first computed the frontier above on **covered-position** CE — which
+compares 5,419-type and 16,110-type populations as if they were the same scored set — and caught it only
+by writing out what the two columns were populations *of*. Both are in §1852. If you are comparing
+anything across covered sets, all-position is the only common ground.
+
+**Queued: `ops/grid_middle_coverage.py`.** §1852's two coverage rows come from two different *files*, so
+the coverage contrast carries a confound. This takes the middle point from a single stream — the first
+192 rows of `n480_skip80` — so it and §1852 share a file and differ only in how much of it was used.
+pred_c requires the ladder to land strictly between the two published rows at every finite rank; if it
+does not, the two-row reading was an accident of which two.
+
+Registry updated with `PARETO_CORRECTION_S1852`, including the explicit warning that cross-coverage
+comparisons must use all-position CE.
