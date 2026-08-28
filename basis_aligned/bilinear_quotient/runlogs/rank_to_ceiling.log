@@ -1,0 +1,39 @@
+RANK TO CEILING | covered CE vs the ceiling at table ranks full/256/64/16/4 | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (47s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (111s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (124s)
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+
+  ceiling built; covered ceiling CE skip7000 6.03465  skip11000 5.97900  skip1200 5.96423 (145s)
+    rank full  covered skip7000  6.03465 (+-0.00000)  skip11000  5.97900 (+-0.00000)  skip1200  5.96423 (+-0.00000)   (148s)
+    rank 256   covered skip7000  6.10045 (+0.06580)  skip11000  6.04503 (+0.06603)  skip1200  6.02022 (+0.05599)   (237s)
+    rank 64    covered skip7000  6.25792 (+0.22327)  skip11000  6.21152 (+0.23252)  skip1200  6.16197 (+0.19774)   (319s)
+    rank 16    covered skip7000  6.45531 (+0.42066)  skip11000  6.42299 (+0.44399)  skip1200  6.35086 (+0.38663)   (396s)
+    rank 4     covered skip7000  6.73858 (+0.70393)  skip11000  6.72034 (+0.74134)  skip1200  6.64120 (+0.67697)   (469s)
+
+  COVERED CE above the ceiling, by table rank:
+    rank full  skip7000 +-0.00000  skip11000 +-0.00000  skip1200 +-0.00000
+    rank 256   skip7000 +0.06580  skip11000 +0.06603  skip1200 +0.05599
+    rank 64    skip7000 +0.22327  skip11000 +0.23252  skip1200 +0.19774
+    rank 16    skip7000 +0.42066  skip11000 +0.44399  skip1200 +0.38663
+    rank 4     skip7000 +0.70393  skip11000 +0.74134  skip1200 +0.67697
+
+  rank 64 reproduces §1768 PUBLISHED rank-64 program -> False  skip7000 6.25792 vs 6.57512  skip11000 6.21152 vs 6.57289
+  and FULL rank attains the ceiling (<0.001) -> True  skip7000 -0.000000  skip11000 -0.000000  skip1200 -0.000000
+  and the approach is MONOTONE in rank -> True
+  ceiling/live §1768, full-rank all-position §1811 -> control True
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/rank_to_ceiling_results.json (468.7s)

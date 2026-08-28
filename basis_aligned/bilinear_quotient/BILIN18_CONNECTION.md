@@ -49930,9 +49930,12 @@ different object, so it is a control passing rather than a discovery.
 > time — and a wrong *published anchor* is something the gate cannot catch, because the constant is
 > syntactically fine.
 >
-> **So §1768's 0.54-nat gap to the ceiling is a TABLE-RANK limitation, not a limit of the position-wise
-> class.** At full rank the composition does not approach the ceiling, it **attains** it. Where that
-> 0.54 nats lives is §1813/§1816's rank sweep, which already priced it.
+> **So §1768's 0.54-nat gap to the ceiling is NOT a limit of the position-wise class** — at full rank the
+> composition does not approach the ceiling, it **attains** it. I attributed the whole 0.54 to table
+> rank; **§1849 measured that and rank is only ~41% of it** (+0.223 nats at rank 64 in the settled build,
+> against §1768's +0.540). The remainder is the rest of §1768's build — its fallback and corrections —
+> not rank. The claim that the class is exhausted stands; the attribution of §1768's particular gap
+> did not, and is corrected at §1849.
 
 **This amends my own §1846 correction, which cited that gap as live headroom.** Two hours ago I corrected
 §1846's claim that the length-1 table "wins by construction", citing §1768's ~0.55 nats as proof a better
@@ -49961,3 +49964,53 @@ equals the best per-token function the model itself defines, on the positions wh
 the fallback positions are not a deficit either. The remaining **2.74 nats to live** (6.03465 against
 3.29205) is the class boundary §1768 already named — the price of deleting attention (§1765) — and no
 choice of table, rank or fallback moves it.
+
+## §1849 — rank is only 41% of §1768's gap: the ladder to the ceiling, measured
+
+`ops/rank_to_ceiling.py`, 468.7s, **DISCOVERY ONLY**, rung 3 (§1848's open question).
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+Covered-position CE **above the model's own per-token ceiling**, settled build, by table rank:
+
+```
+              skip7000    skip11000   skip1200
+  rank full   +0.00000    +0.00000    +0.00000
+  rank 256    +0.06580    +0.06603    +0.05599
+  rank 64     +0.22327    +0.23252    +0.19774
+  rank 16     +0.42066    +0.44399    +0.38663
+  rank 4      +0.70393    +0.74134    +0.67697
+  §1768's rank-64 + corr-128 program:  +0.54047    +0.59387
+```
+
+**pred_b PASSED at −0.000000 on all three roles**, replicating §1848: the full-rank composition attains
+the ceiling exactly, not approximately. **pred_c PASSED**: the approach is monotone in rank on every
+role, a clean ladder.
+
+> **pred_a FAILED, and it corrects §1848's attribution.** The settled rank-64 build sits **+0.223** above
+> the ceiling; §1768's rank-64-plus-corrections program sits **+0.540**. They are not the same number, so
+> **rank accounts for only 41% of §1768's gap** (0.223 / 0.540 on skip7000, 0.233 / 0.594 on skip11000).
+> The remaining **~0.32 nats** is the rest of §1768's build — its fallback and its rank-128 corrections —
+> and I had asserted the whole gap was rank after reading the two scripts rather than measuring.
+
+**What survives and what does not.** §1848's *conclusion* — the position-wise class has no internal
+headroom at full rank — is untouched and is now replicated: the composition **is** the model's own
+per-token function on covered positions, exactly, on three roles. §1848's *attribution* of §1768's
+particular 0.54 nats to table rank was wrong by a factor of two and a half, and is corrected in place.
+
+**That is the third time in this arc a measurement stood while my attribution for it did not** — §1840's
+mlp5-interaction guess (corrected by §1841 at 1.31x against the 2x claimed), §1846's "wins by
+construction" (corrected by §1848, then partly restored), and now this. The pattern is consistent enough
+to name: **I have been reliable about what the numbers are and unreliable about why**, and the
+corrections have all come from running the attribution as its own registered prediction rather than from
+re-reading the code. That is the practice to keep.
+
+**Controls (pred_d), two anchors from different sections.** The ceiling reproduces §1768's published
+6.03465 / 5.97902 and live covered CE reproduces its 3.29205 / 3.09711; the full-rank all-position CE
+reproduces §1811's published settled figures 6.01167 / 5.98477 / 6.00165. Coverage 5419 of 50257. Per
+LESSONS 53's addendum both anchors are named with their build, and it is their *agreement* here that
+makes pred_a's failure attributable to §1768's construction rather than to this run.
+
+**A note on the run.** It OOMed four times before completing. Three successive "fixes" changed the
+reported byte counts **not at all** — 19.59 GiB allocated, 10.88 GiB reserved, identically — which was
+the diagnostic I should have read immediately: the row-bank tensors were pinned by `row_hook` closures
+held in a live list, so clearing the bank dict freed nothing. LESSONS 62.

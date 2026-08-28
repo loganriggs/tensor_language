@@ -1615,3 +1615,26 @@ that produced it next to the number — rank, fallback, scored population, and t
 section number. `S1768_PROG` should have been `S1768_PROG_RANK64_CORR128`. And prefer **two** anchors
 from different sections where the run overlaps both: a single anchor can only tell you something is
 wrong, never which side of the comparison it is on.
+
+## LESSONS 62 — an OOM whose byte counts do not move means your fix freed nothing
+
+`ops/rank_to_ceiling.py` OOMed four times. Three times I "fixed" the memory — removed an unneeded row
+bank, freed the previous rank bank, released the full-rank bank before building the next — and three
+times the traceback came back with **exactly** the same numbers:
+
+```
+  19.59 GiB allocated by PyTorch, 10.88 GiB reserved but unallocated, 247.94 MiB free
+```
+
+**Identical byte counts across a change mean the change had no effect on what is resident.** I read each
+recurrence as "still too tight" and made the next allocation smaller, when it was saying "you did not
+free the thing you think you freed".
+
+The cause: `hks = [(st, row_hook(bank[st])) for st in sites]`. `row_hook` closes over the individual
+tensors, so `bank = None` drops the dict and leaves every tensor referenced by a live closure in `hks`.
+Clearing both names fixed it on the first try.
+
+**How to apply:** when an OOM repeats with the same numbers, stop shrinking allocations and find what
+still holds a reference — closures, lists of hooks, and captured loop variables are the usual culprits,
+because none of them look like a tensor. And in this codebase specifically, **a `row_hook` is a handle on
+an 8.3 GiB bank**: clearing the dict it came from is not clearing the bank.
