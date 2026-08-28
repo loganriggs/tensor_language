@@ -42833,3 +42833,50 @@ several more points; if it plateaus, the conclusion is that the model's own feat
 recover the middle band's quadratic content at any tractable k, which would be the stronger
 statement. §1679's replacement arm was catastrophic at k=512 but that is a different operation.
 Queued as `mid_band_feature_ksweep.py`.
+
+## §1710 — path, not plateau: 58.71% at k=512, and §1709's "barely touches it" was wrong
+
+`mid_band_feature_ksweep.py`. pred_a True, pred_b True, **pred_c FALSE**, pred_d True. Control
+exact; k=64 replicates §1709's +0.77 to the digit.
+
+```
+k        ceiling    gain over k=0    95% CI (points)    extra reals total
+  0      55.04%          —                                    —
+ 64      55.80%       +0.77%       [+0.65, +0.89]           0.88M
+256      57.38%       +2.34%       [+2.21, +2.48]           3.54M
+512      58.71%       +3.67%       [+3.51, +3.84]           7.08M
+```
+
+**New best whole-model program: 58.71%**, up from 55.04% before this line and 55.80% at §1709.
+
+**pred_c failed and it was written to catch exactly this.** I predicted the 64→512 step would be
+smaller than the earlier 8→64 step of +0.93, i.e. that returns would be diminishing by now. It is
+**+2.91**, three times larger. The family is still in its steep region at k=512 and the sweep has
+not found the shape — I said in the docstring that a larger jump would mean precisely that, so
+this is a registered failure with a stated consequence rather than a surprise.
+
+**§1709's reading is corrected.** I wrote there that the middle band's irreducible content "is not
+mostly a few missing bilinear features" and that "this family barely touches it", from the k=64
+point alone. At k=512 the augmentation recovers **29.4% of the band's +12.52-point shortfall** —
+not "barely". The k=64 conclusion was drawn from one point on a curve that had not yet turned, and
+generalising from it was the same error §1690 recorded when I read "high-rank" off a single point
+sitting on a cliff edge. Second occurrence, same shape.
+
+**The augmentation/replacement distinction is now large enough to state plainly, with the
+condition attached.** §1679 kept k features and PINNED the rest, replacing the module, and at
+k=512 that was **−49.93%**. Here k=512 features ADDED to a linear map give **+3.67**. The two are
+not numerically comparable — §1679 replaced all eighteen MLPs in the MLP-only condition, this
+augments twelve middle sites inside the joint program — but the qualitative gap is not subtle, and
+it is the cancellation structure that separates them: replacement breaks the readout's balance,
+augmentation leaves the live module's contribution intact and adds to it.
+
+**Price.** 7.08M extra reals across twelve sites, about 30% on top of the linear program's 23.89M
+(§1680), for +3.67 points. Per point that is worse than the base program but the curve has not
+turned, so the marginal price is not yet known.
+
+**What the extension must include, and it is free.** At k = 4608 every feature is retained, and
+since `y = Down(h) + b` is exactly linear in `h`, least squares on `[x, h_all]` recovers the module
+exactly at those sites. The augmented program should then equal the arm that leaves mlp4–15 REAL —
+§1703's band-exempt ceiling of **67.55%**. That is a derivable known answer for the whole family
+construction, of the kind §1659 and §1678 showed this arc cannot do without. Queued as
+`mid_band_feature_ksweep2.py` with k ∈ {512, 1024, 2048, 4608}.
