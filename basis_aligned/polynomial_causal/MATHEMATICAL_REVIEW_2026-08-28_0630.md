@@ -52,6 +52,18 @@ The most relevant local facts are:
   prospectively interleaved bottom-up composition test, so this CPU lane does not
   duplicate it.
 
+Subsequent preregistered receipts sharpened that last point. One bottom-up pass is
+already an exact fixed point for the local per-site objective: two further coordinate
+passes changed held-out recovery by $0.0000$ nat, as depth causality predicts. At the
+same rank-8 cost, replacing local residual fitting with final-CE training raised
+held-out recovery from $+0.3858$ to $+0.5507$ nat, a $43\%$ gain over the local
+compiler, with a discovery/held-out gain ratio of $1.020$. Yet this is only $32\%$ of
+the $+1.7460$-nat sum of one-at-a-time recoveries. Thus downstream weighting is a
+measured missing ingredient, not merely a theoretical preference, while the remaining
+$68\%$ also requires richer program structure or explicit interaction terms. Move 1
+is therefore the cheapest local surrogate worth testing, but its nonlinear and mixture
+gates are essential; a passing Fisher spectrum alone cannot claim composability.
+
 ## Ranked genuinely new moves
 
 ### 1. Finite-horizon balanced predictive quotient

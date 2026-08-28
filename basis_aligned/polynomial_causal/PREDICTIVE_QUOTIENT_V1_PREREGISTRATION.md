@@ -218,6 +218,11 @@ the quotient distributionally transported.
 - mergeable float64 outer-product sufficient statistics;
 - balanced quotient solution and quadratic tail certificate.
 
-The source-closed capability consumer, receipt/collector, validation launcher, and
-nonlinear edit scorer do not yet exist. Until they are committed and tested, numerical
-execution remains NO-GO.
+`predictive_quotient_v1_statistics.py` contains exact eight-probe primary/replication
+batch summaries, row and assigned-position outer sums, source/target hash ledgers, and
+a one-use 48-batch collector. The compatible sealed-consumption design is frozen in
+`PREDICTIVE_QUOTIENT_V1_SOURCE_CLOSURE.md`.
+
+The source-closed capability consumer, authority-bound receipt, validation launcher,
+and nonlinear edit scorer do not yet exist. Until they are committed and tested,
+numerical execution remains NO-GO.
