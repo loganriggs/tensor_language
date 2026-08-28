@@ -92,6 +92,44 @@ def quadratic_jvp(A, B, C, z, direction):
     return (((direction@A)*(z@B)+(z@A)*(direction@B))@C)
 
 
+def quadratic_jacobian(A, B, C, z):
+    """Exact Jacobian, with shape ``[..., din, dout]`` for row-vector JVPs."""
+    A, B, C = _validate(A, B, C)
+    z = torch.as_tensor(z, dtype=torch.float64)
+    if z.shape[-1] != A.shape[0] or not torch.isfinite(z).all():
+        raise ValueError("input has wrong width or nonfinite values")
+    return (torch.einsum("...j,ij,jo->...io", z@B, A, C)
+            + torch.einsum("...j,ij,jo->...io", z@A, B, C))
+
+
+def residual_output_unfolding_spectral_norm(A1, B1, C1, A2, B2, C2):
+    """Spectral norm of the residual tensor's output-mode unfolding."""
+    A1, B1, C1 = _validate(A1, B1, C1)
+    A2, B2, C2 = _validate(A2, B2, C2)
+    if A1.shape[0] != A2.shape[0] or C1.shape[1] != C2.shape[1]:
+        raise ValueError("tensor input/output dimensions differ")
+    gram = output_unfolding_gram(
+        torch.cat((A1, A2), dim=1), torch.cat((B1, B2), dim=1),
+        torch.cat((C1, -C2), dim=0))
+    return float(torch.linalg.eigvalsh(gram)[-1].clamp_min(0).sqrt())
+
+
+def midpoint_residual_lipschitz_bound(A1, B1, C1, A2, B2, C2, z1, z2):
+    """Tight state-pair bound using the exact residual Jacobian at the midpoint.
+
+    A homogeneous quadratic obeys ``e(z2)-e(z1)=J_e((z1+z2)/2)(z2-z1)``.
+    The returned induced 2-norm therefore bounds this particular secant exactly.
+    """
+    z1 = torch.as_tensor(z1, dtype=torch.float64)
+    z2 = torch.as_tensor(z2, dtype=torch.float64)
+    if z1.shape != z2.shape:
+        raise ValueError("states must have identical shapes")
+    midpoint = (z1+z2)/2
+    jacobian = (quadratic_jacobian(A1, B1, C1, midpoint)
+                - quadratic_jacobian(A2, B2, C2, midpoint))
+    return torch.linalg.matrix_norm(jacobian, ord=2)
+
+
 def rms_sphere_residual_lipschitz_bound(A1, B1, C1, A2, B2, C2):
     """Global residual-map Lipschitz bound when both states have RMS norm one.
 
@@ -102,6 +140,15 @@ def rms_sphere_residual_lipschitz_bound(A1, B1, C1, A2, B2, C2):
     if A2.shape[0] != din:
         raise ValueError("input widths differ")
     return 2*din**.5*tensor_frobenius_error(A1, B1, C1, A2, B2, C2)
+
+
+def rms_sphere_residual_spectral_bound(A1, B1, C1, A2, B2, C2):
+    """Sharper global RMS-sphere bound using the output unfolding operator norm."""
+    din = A1.shape[0]
+    if A2.shape[0] != din:
+        raise ValueError("input widths differ")
+    return 2*din**.5*residual_output_unfolding_spectral_norm(
+        A1, B1, C1, A2, B2, C2)
 
 
 def output_unfolding_gram(A, B, C):

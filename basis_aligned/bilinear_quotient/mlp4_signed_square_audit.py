@@ -52,6 +52,9 @@ def main():
         composition_bound = invariants.rms_sphere_residual_lipschitz_bound(
             decoded["A"], decoded["B"], decoded["C"],
             square_A, square_B, square_C)
+        spectral_bound = invariants.rms_sphere_residual_spectral_bound(
+            decoded["A"], decoded["B"], decoded["C"],
+            square_A, square_B, square_C)
         product_bits = source["conditional_known_gauge_bits"]
         rows.append({"candidate_id": candidate_id, "components": source["capacity"],
                      "product_codec_bits": product_bits,
@@ -63,6 +66,9 @@ def main():
                      "relative_coefficient_tensor_frobenius_error": relative_error,
                      "coefficient_tensor_frobenius_error": absolute_error,
                      "rms_sphere_residual_lipschitz_upper_bound": composition_bound,
+                     "rms_sphere_residual_spectral_upper_bound": spectral_bound,
+                     "spectral_to_frobenius_bound_ratio":
+                         spectral_bound/composition_bound,
                      "product_hash": source["canonical_bytes_hash"],
                      "signed_square_hash": price["canonical_bytes_hash"]})
     torch.save({"schema_version": 1, "source_candidate_bytes_sha256": sha(BYTES),
@@ -76,7 +82,7 @@ def main():
         "signed_square_candidate_bytes_sha256": sha(OUTPUT_BYTES),
         "same_quantization_step_as_frozen_product_codec": True,
         "distortion_metric": "exact relative Frobenius error of quadratic coefficient tensor",
-        "composition_bound": "||delta_error|| <= rms_sphere_residual_lipschitz_upper_bound * ||delta_z||",
+        "composition_bound": "||delta_error|| <= rms_sphere_residual_spectral_upper_bound * ||delta_z||; Frobenius fallback also retained",
         "behavioral_roster_changed": False,
         "validation_opened": False,
         "global_cp_nonuniqueness_quotiented": False,

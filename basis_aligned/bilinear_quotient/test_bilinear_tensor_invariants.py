@@ -44,6 +44,9 @@ def test_quadratic_jvp_and_rms_sphere_composition_bound():
                          - inv.execute_quadratic(A1, B1, C1, z-epsilon*direction))/(2*epsilon)
     assert torch.allclose(inv.quadratic_jvp(A1, B1, C1, z, direction),
                           finite_difference, atol=1e-8, rtol=1e-8)
+    jacobian = inv.quadratic_jacobian(A1, B1, C1, z)
+    assert torch.allclose(torch.einsum("bi,bio->bo", direction, jacobian),
+                          inv.quadratic_jvp(A1, B1, C1, z, direction))
     radius = A1.shape[0]**.5
     z1 = radius*z/z.norm(dim=-1, keepdim=True)
     z2 = radius*(z+.2*direction)/(z+.2*direction).norm(dim=-1, keepdim=True)
@@ -54,6 +57,23 @@ def test_quadratic_jvp_and_rms_sphere_composition_bound():
     bound = inv.rms_sphere_residual_lipschitz_bound(A1, B1, C1, A2, B2, C2) \
         * (z2-z1).norm(dim=-1)
     assert bool(((residual2-residual1).norm(dim=-1) <= bound+1e-10).all())
+    spectral_bound = inv.rms_sphere_residual_spectral_bound(
+        A1, B1, C1, A2, B2, C2)*(z2-z1).norm(dim=-1)
+    assert bool(((residual2-residual1).norm(dim=-1) <= spectral_bound+1e-10).all())
+    assert bool((spectral_bound <= bound+1e-10).all())
+    local = inv.midpoint_residual_lipschitz_bound(
+        A1, B1, C1, A2, B2, C2, z1, z2)*(z2-z1).norm(dim=-1)
+    assert bool(((residual2-residual1).norm(dim=-1) <= local+1e-10).all())
+
+
+def test_residual_unfolding_spectral_norm_matches_dense_oracle():
+    A1, B1, C1 = factors(seed=30)
+    A2, B2, C2 = factors(seed=31)
+    residual = inv.explicit_symmetric_tensor(A1, B1, C1) \
+        - inv.explicit_symmetric_tensor(A2, B2, C2)
+    expected = torch.linalg.matrix_norm(residual.reshape(-1, residual.shape[-1]), 2)
+    actual = inv.residual_output_unfolding_spectral_norm(A1, B1, C1, A2, B2, C2)
+    assert abs(actual-float(expected)) < 1e-10
 
 
 def test_invariants_survive_factor_gauges_leg_swaps_and_permutation():

@@ -102,7 +102,7 @@
       }
     }
   ],
-  "signed_square_audit_sha256": "ecae90f8b32d582b9f5d0eaf8067f6f59ee82b04b8d515975a086d52006f582c",
+  "signed_square_audit_sha256": "9b7eed592346540ddcc739c8995f780470dbdd5f42c1310c349598bec5bcdca5",
   "controls": {
     "identity": "retained_live_mlp4",
     "zero_fidelity": "fit_mean_mlp4_output"
@@ -394,6 +394,7 @@
           "conditional_known_gauge_bits": 2729672,
           "relative_coefficient_tensor_frobenius_error": 2.1515608783503175e-05,
           "rms_sphere_residual_lipschitz_upper_bound": 2.083140694930784,
+          "rms_sphere_residual_spectral_upper_bound": 0.7591522536775,
           "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false
@@ -456,6 +457,7 @@
           "conditional_known_gauge_bits": 5407976,
           "relative_coefficient_tensor_frobenius_error": 2.1538894757137332e-05,
           "rms_sphere_residual_lipschitz_upper_bound": 2.7712420303168184,
+          "rms_sphere_residual_spectral_upper_bound": 0.7708149994822148,
           "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false
@@ -518,6 +520,7 @@
           "conditional_known_gauge_bits": 10767672,
           "relative_coefficient_tensor_frobenius_error": 2.175361744446149e-05,
           "rms_sphere_residual_lipschitz_upper_bound": 3.792149747040521,
+          "rms_sphere_residual_spectral_upper_bound": 0.77398465270322,
           "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false
@@ -580,6 +583,7 @@
           "conditional_known_gauge_bits": 21465744,
           "relative_coefficient_tensor_frobenius_error": 2.179886314717547e-05,
           "rms_sphere_residual_lipschitz_upper_bound": 4.9399535444909315,
+          "rms_sphere_residual_spectral_upper_bound": 0.7804023704974966,
           "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false
@@ -642,6 +646,7 @@
           "conditional_known_gauge_bits": 42842560,
           "relative_coefficient_tensor_frobenius_error": 2.1801251180278224e-05,
           "rms_sphere_residual_lipschitz_upper_bound": 6.445482952291569,
+          "rms_sphere_residual_spectral_upper_bound": 0.795246565793677,
           "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false

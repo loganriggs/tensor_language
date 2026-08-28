@@ -42,13 +42,30 @@ D f(z)[h]=\sum_j c_j\left[(a_j^\top h)(b_j^\top z)
  +(a_j^\top z)(b_j^\top h)\right].
 \]
 
-For native prefixes k=32,64,128,256,512, the resulting worst-case Lipschitz
-upper bounds are 2.083, 2.771, 3.792, 4.940, and 6.445. Thus the nearly constant
-relative tensor error does **not** imply a capacity-independent composition
-guarantee. These bounds can certify safety if an upstream perturbation budget is
-small enough, but they are deliberately conservative: they do not show that the
-bound is attained on model states and are not held-out or composed behavioral
-evidence.
+The initial Frobenius fallback gives bounds 2.083, 2.771, 3.792, 4.940, and
+6.445 for native prefixes k=32,64,128,256,512. That apparent capacity growth is
+mostly looseness from summing error energy across output directions. Replacing
+`||DeltaT||_F` by the spectral norm of its output-mode unfolding is still a
+global certificate and tightens the sequence to 0.759, 0.771, 0.774, 0.780, and
+0.795 (36.4% down to 12.3% of the fallback). The production result therefore
+supports an approximately capacity-independent worst-case coefficient sensitivity.
+
+There is a second, state-dependent certificate. Every homogeneous quadratic
+residual satisfies the exact secant identity
+
+\[
+e(z')-e(z)=D e\!\left(\frac{z+z'}2\right)[z'-z].
+\]
+
+The compiler can consequently compute the induced norm of the factorized residual
+Jacobian at the midpoint of an observed upstream perturbation, without finite
+differences. This is the appropriate diagnostic for composed evaluation because it
+uses the actual state pair rather than all points on the RMS sphere.
+
+Neither certificate shows that its bound is attained on model states. Even the
+tighter global coefficient (about 0.8 output-norm units per input-norm unit) is not
+small enough by itself to promote the rewrap. These are structural diagnostics,
+not held-out or composed behavioral evidence.
 
 This is a genuine structural rate--distortion point but not yet a better operational
 replacement. Its hash differs from the frozen product program, so it cannot inherit

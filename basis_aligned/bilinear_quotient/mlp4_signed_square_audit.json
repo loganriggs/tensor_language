@@ -7,7 +7,7 @@
   "signed_square_candidate_bytes_sha256": "14370d99f934c9c4b4fe80ef296bee0d1220404377b7af718e67d006833572c5",
   "same_quantization_step_as_frozen_product_codec": true,
   "distortion_metric": "exact relative Frobenius error of quadratic coefficient tensor",
-  "composition_bound": "||delta_error|| <= rms_sphere_residual_lipschitz_upper_bound * ||delta_z||",
+  "composition_bound": "||delta_error|| <= rms_sphere_residual_spectral_upper_bound * ||delta_z||; Frobenius fallback also retained",
   "behavioral_roster_changed": false,
   "validation_opened": false,
   "global_cp_nonuniqueness_quotiented": false,
@@ -22,6 +22,8 @@
       "relative_coefficient_tensor_frobenius_error": 2.1515608783503175e-05,
       "coefficient_tensor_frobenius_error": 0.030687560657316964,
       "rms_sphere_residual_lipschitz_upper_bound": 2.083140694930784,
+      "rms_sphere_residual_spectral_upper_bound": 0.7591522536775,
+      "spectral_to_frobenius_bound_ratio": 0.3644267790096263,
       "product_hash": "sha256:64a4e61f42a40b00582240cb3d1234e7517e58f328716237e3e5c523f65f2d67",
       "signed_square_hash": "sha256:108cb8ad02329b0412cbe23706e18796fe4f30e68c580a63a47bf285f9f57faf"
     },
@@ -35,6 +37,8 @@
       "relative_coefficient_tensor_frobenius_error": 2.1538894757137332e-05,
       "coefficient_tensor_frobenius_error": 0.0408242506655458,
       "rms_sphere_residual_lipschitz_upper_bound": 2.7712420303168184,
+      "rms_sphere_residual_spectral_upper_bound": 0.7708149994822148,
+      "spectral_to_frobenius_bound_ratio": 0.27814784528007913,
       "product_hash": "sha256:f9f3983f0f25ffa41bfb767b858961a3e24dd3545f5f8a1dd469cd214af6af92",
       "signed_square_hash": "sha256:9e0b177edae59ca764430d1606d1e87a92e40e2a72c1982157406ce68654a914"
     },
@@ -48,6 +52,8 @@
       "relative_coefficient_tensor_frobenius_error": 2.175361744446149e-05,
       "coefficient_tensor_frobenius_error": 0.05586364169598341,
       "rms_sphere_residual_lipschitz_upper_bound": 3.792149747040521,
+      "rms_sphere_residual_spectral_upper_bound": 0.77398465270322,
+      "spectral_to_frobenius_bound_ratio": 0.20410181673528452,
       "product_hash": "sha256:ae605c557b2a7165c731f4f51ed8b25cb83a78e15b0e6bb5954f81c073ead044",
       "signed_square_hash": "sha256:7961b07deddeba113e7d16b39ad9d876c07cdfce1b32316d0146204dd1a10dc2"
     },
@@ -61,6 +67,8 @@
       "relative_coefficient_tensor_frobenius_error": 2.179886314717547e-05,
       "coefficient_tensor_frobenius_error": 0.07277238854283456,
       "rms_sphere_residual_lipschitz_upper_bound": 4.9399535444909315,
+      "rms_sphere_residual_spectral_upper_bound": 0.7804023704974966,
+      "spectral_to_frobenius_bound_ratio": 0.15797767397383858,
       "product_hash": "sha256:4a04e424da25ec887622d6a624e275f529953e55bdfe3a37f758075304debac1",
       "signed_square_hash": "sha256:d27f9eb07d61ac115d2f76fb97b165df35cb67172425e7970da4b384531dcf5f"
     },
@@ -74,6 +82,8 @@
       "relative_coefficient_tensor_frobenius_error": 2.1801251180278224e-05,
       "coefficient_tensor_frobenius_error": 0.09495093132474286,
       "rms_sphere_residual_lipschitz_upper_bound": 6.445482952291569,
+      "rms_sphere_residual_spectral_upper_bound": 0.795246565793677,
+      "spectral_to_frobenius_bound_ratio": 0.12338044669111135,
       "product_hash": "sha256:30a17b62d19a92fa051549d4f828d6517af160d8376544158e0d2d77d32045cc",
       "signed_square_hash": "sha256:3c26c3310d5baffa8ce4aa2dd8aed3f0024b794938665b1eedc0da29e1abef09"
     }

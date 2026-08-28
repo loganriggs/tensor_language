@@ -39,6 +39,8 @@ def test_unscored_export_preserves_price_claims_and_closed_lanes(tmp_path):
                and not alternative["frontier_eligible"]
                and alternative["relative_coefficient_tensor_frobenius_error"] < 1e-3
                and alternative["rms_sphere_residual_lipschitz_upper_bound"] > 0
+               and 0 < alternative["rms_sphere_residual_spectral_upper_bound"]
+               <= alternative["rms_sphere_residual_lipschitz_upper_bound"]
                and alternative["composition_bound_is_structural_not_behavioral"]
                for alternative in alternatives)
 

@@ -3317,3 +3317,15 @@ bound grows 2.083 -> 6.445 from k32 -> k512 despite nearly constant relative
 tensor error, so the rewrap is not promoted as composition-safe or behavioral
 evidence. Exported as a reusable compiler diagnostic; validation remains unopened
 and no GPU was claimed while the foreign late-MLP lane remains active.
+
+### 2026-08-28 — Codex, spectral and exact-secant tightening (CPU only)
+
+Tightened the preceding composition primitive in two ways. First, the residual
+tensor's output-unfolding spectral norm replaces its Frobenius norm in the global
+RMS-sphere bound and is computed from concatenated signed factors. For signed-square
+k32..k512 this reduces coefficients from 2.083..6.445 to 0.759..0.795, removing
+most apparent capacity growth. Second, homogeneous quadratics obey the exact identity
+`e(z')-e(z)=J_e((z+z')/2)(z'-z)`; the compiler now exposes this Jacobian and its
+state-pair induced norm for future composed traces. Dense CPU tensor/SVD/JVP/secant
+oracles pass. Both remain structural upper bounds, not operational evidence; no GPU
+or validation access.

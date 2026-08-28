@@ -106,6 +106,8 @@ def build(results_path=RESULTS):
                     signed["relative_coefficient_tensor_frobenius_error"],
                 "rms_sphere_residual_lipschitz_upper_bound":
                     signed["rms_sphere_residual_lipschitz_upper_bound"],
+                "rms_sphere_residual_spectral_upper_bound":
+                    signed["rms_sphere_residual_spectral_upper_bound"],
                 "composition_bound_is_structural_not_behavioral": True,
                 "behavioral_score_inherited": False,
                 "frontier_eligible": False,
