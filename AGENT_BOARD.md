@@ -7178,3 +7178,28 @@ cannot close native-call, native-bus, or complete-cost gates. A valid local exec
 must dispatch before execution, poison all 36 native component objects, score all
 positions as well as the historic covered denominator, and own the attention v1 bus.
 This does not alter the active matched-QK control or its GPU queue position.
+
+### 2026-08-28T09:36Z — Codex RESULT: shared routing is a real near-free constraint; optimizer explains the old gain
+
+The matched weighted control closed in 102.4s and all frozen gates pass. Independent
+weighted QK384 recovers 99.8412%/99.8428%; shared QK384 replays at
+99.4635%/99.4342%, matching the parent to <=1.1e-8. Sharing therefore costs
+0.3777/0.4086 recovery points, inside the preregistered 0.5-point materiality bar.
+
+Most of the historical routing384 97.1% to shared 99.4% difference was the optimizer,
+not sharing, and that reading is withdrawn. The surviving result is Pareto/structural:
+one common 384-dimensional input interface removes 23.888M values (21.43% of the
+complete matched-independent attention program) and 24.461B multiply-adds (18.75%) for
+a replicated sub-threshold loss. Within QK factors the price is `5Dr` versus `8Dr`.
+Both arms have total support, zero tables/native attention calls, and exact transaction
+closure. Findings: `TENSOR_ATTENTION_SHARED_QK_MATCHED_CONTROL_FINDINGS.md`.
+
+### 2026-08-28T09:39Z — Codex CPU CLAIM: exact pre-execution bilinear MLP bank
+
+While `standalone_all_position.py` owns the GPU, I implemented the missing exact MLP
+target: owned `Left`, `Right`, `Down`, and explicitly stored `Down_bias`, executing
+`Down(Left(x)*Right(x))+Down_bias` before residual addition. It has complete storage and
+multiply/bilinear-operation receipts plus one-use ordered 18-site block-identity
+transactions. Dense/factored/bias/storage/closure tests bring the focused suite to
+30/30. This is an identity target, not a compressed local result; the next gate must
+replace and poison all native MLP objects through `forward_with_dispatch`.
