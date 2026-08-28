@@ -46520,5 +46520,16 @@ measure.)
 `_POSITION_WISE_CLASS_CEILING` is cross-entropy, and the top-1 accuracy of the best standalone program
 is ~1/3 of the live model's.
 
+**Two things follow without another run, from §1782's identity.** At a covered position the full-rank
+program **is** the length-1 model bit-identically, so its covered top-1 accuracy is the **class
+reference's** accuracy:
+
+- **the position-wise class reference itself keeps only 37.5% / 37.0% / 39.2% of the live model's
+  top-1 accuracy** (14.00 vs 37.38, 14.80 vs 39.99, 14.35 vs 36.58). The accuracy deficit is a
+  property of the CLASS, not a shortfall of my program — the program's 34% on all positions differs
+  from the reference's ~37% only by the uncovered quarter.
+- **so context is worth about 25 percentage points of top-1 accuracy**, the accuracy-axis counterpart
+  of the CE-axis statement that context is at most 67.6% of the stake.
+
 Controls (pred_d): the program's all-position CE reproduces §1787's six settled numbers within 0.002,
 live covered CE reproduces 3.29205 / 3.09711 / 3.40277, coverage 5419 of 50257.
