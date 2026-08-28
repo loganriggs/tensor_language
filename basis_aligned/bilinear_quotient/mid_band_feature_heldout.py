@@ -409,11 +409,17 @@ def main():
     print(f'  §1714 reference on skip7000: k0 {S1714_K0:.3%}  k512 {S1714_K512:.3%}  '
           f'gain +{S1714_K512_GAIN:.3%}', flush=True)
 
+    # The feature-selection indices live in the GLOBAL FEAT['sel'], not in the returned
+    # program. The first version of this script cleared FEAT['sel'] between compiling and
+    # scoring, on a comment asserting the indices "live in the stored program" -- they do not,
+    # and the k=512 arm crashed with 2048x1152 @ 1664x1152. Store the selection alongside the
+    # program and restore both before every scoring pass.
     progs = {}
     for k in KS:
         FEAT['k'] = k; FEAT['sel'] = {}
-        progs[k] = compile_stack(fit, ('mlp', 'attn'))
-        print(f'  compiled k={k}', flush=True)
+        prog = compile_stack(fit, ('mlp', 'attn'))
+        progs[k] = (prog, dict(FEAT['sel']))
+        print(f'  compiled k={k} (selection on {len(FEAT["sel"])} sites)', flush=True)
     FEAT['k'] = 0; FEAT['sel'] = {}
     del fit
     torch.cuda.empty_cache()
@@ -436,9 +442,11 @@ def main():
         row = {'ce_live': round(cl, 5), 'stake': round(st, 5)}
         arms_rows = {}
         for k in KS:
-            FEAT['k'] = k; FEAT['sel'] = {}
-            # selection indices were fixed at compile time and live in the stored program
-            ct, S, N = ce_rows(ev, seen, hooks=install(progs[k]))
+            prog, sel = progs[k]
+            FEAT['k'] = k; FEAT['sel'] = sel
+            assert (k == 0) or len(sel) == len(MID), (
+                f'k={k}: selection restored for {len(sel)} sites, expected {len(MID)}')
+            ct, S, N = ce_rows(ev, seen, hooks=install(prog))
             arms_rows[f'k{k}'] = (S, N)
             row[f'k{k}'] = round((cc - ct) / st, 5)
         FEAT['k'] = 0; FEAT['sel'] = {}
