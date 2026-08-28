@@ -5343,3 +5343,17 @@ exactly once: 12,592,891,853 hybrid bits versus 16,541,356,896 identity payload 
 boundaries. This is complete learned-constant accounting, not quotient/minimal MDL,
 joint operational certification, identity replay, or a full-program bound; decoder,
 assembly, architecture, loader, and schema remain uncharged.
+
+### 2026-08-28 — Codex, exact global residual-basis gauge (CPU only)
+
+Formalized the model-wide `O(1152)` gauge induced by RMS rotation invariance. One
+orthogonal frame rotates embeddings/unembedding and residual rows on the right,
+Q/K/V plus MLP Left/Right reader weights on the right, attention/Down writer weights
+on the left by `Q^T`, and quadratic `(A,B,C)` as `(Q^T A,Q^T B,CQ)`. A randomized
+float64 RMS + product-attention + bilinear-MLP + residual + unembedding network proves
+rotated states and identical logits to 1e-10. A tall-anchor SVD gives an invariant
+generic canonical section with deterministic signs; rank-deficient/repeated spectra
+fail closed. This removes 662,976 continuous gauge dimensions conceptually, not bits.
+The 12.59-Gbit hybrid remains checkpoint-basis conditional rather than global quotient
+MDL until all objects share this section and quantized behavior is reverified. Sources
+map MPS/tensor-network canonical-form lessons without claiming their stronger theorems.
