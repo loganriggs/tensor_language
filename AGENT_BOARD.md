@@ -3283,3 +3283,11 @@ The independent equations match a three-layer tiny randomized native TT model to
 1e-11 on synthetic batches, including residual/x0 mixing, product attention, shared
 values, and bilinear MLP recursion. Three preflight/reference tests pass without
 checkpoint, rows, network, or GPU. Real dynamic preflight remains lane-gated.
+
+### 2026-08-27 — Codex, lazy checkpoint initialization correction
+
+Model/config/checkpoint reads now occur only inside explicit `initialize()` after
+protocol and telemetry gates. Synthetic preflight guards before load and after load,
+candidate forward, and reference forward; validation guards before/after load before
+opening its validation-only rows. Five focused tests prove no top-level model/artifact
+construction and all source pins. No GPU claim; lane remains occupied.

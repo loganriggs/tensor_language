@@ -53,6 +53,11 @@ def test_clean_runtime_has_no_transitive_experiment_or_row_imports():
     assert imported == {"__future__", "hashlib", "json", "sys", "pathlib",
                         "torch", "huggingface_hub", "jacclust.tt_model"}
     assert "local_files_only=True" in source
+    tree = ast.parse(source)
+    top_level_text = "\n".join(ast.unparse(node) for node in tree.body
+                               if not isinstance(node, (ast.FunctionDef, ast.ClassDef)))
+    for forbidden_call in ("local_blob(", "TT.GPT(", "torch.load(", "initialize("):
+        assert forbidden_call not in top_level_text
 
 
 def test_every_frozen_stream_decodes_to_the_promised_z4_interface():

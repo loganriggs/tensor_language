@@ -36,18 +36,42 @@ def telemetry():
             "maximum_device_memory_used_mib": max(row[1] for row in rows)}
 
 
+def enforce(resource, protocol):
+    allocated = torch.cuda.max_memory_allocated(runtime.DEV)/2**30 \
+        if torch.cuda.is_initialized() else 0.0
+    if allocated > protocol["resources"]["hard_abort_peak_gib"]:
+        raise RuntimeError(f"peak allocation {allocated:.3f} GiB exceeds preflight")
+    if resource["maximum_temperature_c"] > \
+            protocol["resources"]["hard_abort_temperature_c"]:
+        raise RuntimeError("temperature exceeds preflight")
+    return allocated
+
+
 @torch.no_grad()
 def main():
     started = time.time()
     protocol = json.loads(PROTOCOL.read_text())
+    before = telemetry()
+    enforce(before, protocol)
+    runtime.initialize()
+    after_load = telemetry()
+    enforce(after_load, protocol)
     tokens = torch.arange(protocol["synthetic_input"]["token_count"],
                           device=runtime.DEV, dtype=torch.long).reshape(1, -1)
     candidate_logits = validation.forward_inline(tokens).float()
+    after_candidate = telemetry()
+    enforce(after_candidate, protocol)
     reference_logits = reference.reference_forward(runtime.m, tokens).float()
+    after_reference = telemetry()
     difference = candidate_logits-reference_logits
-    resource = telemetry()
-    resource["peak_torch_allocated_gib"] = \
-        torch.cuda.max_memory_allocated(runtime.DEV)/2**30
+    resource = {"stages": {"before_load": before, "after_load": after_load,
+                           "after_candidate": after_candidate,
+                           "after_reference": after_reference}}
+    resource["maximum_temperature_c"] = max(
+        stage["maximum_temperature_c"] for stage in resource["stages"].values())
+    resource["maximum_device_memory_used_mib"] = max(
+        stage["maximum_device_memory_used_mib"] for stage in resource["stages"].values())
+    resource["peak_torch_allocated_gib"] = enforce(after_reference, protocol)
     parameter_count = sum(parameter.numel() for parameter in runtime.m.parameters())
     result = {
         "schema_version": 1,

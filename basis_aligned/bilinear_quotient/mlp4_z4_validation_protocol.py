@@ -45,11 +45,13 @@ def load_and_validate(path=PATH):
     assert "execute(program, z)" in runner
     assert "resource_guard(protocol)" in runner and "nvidia-smi" in runner
     assert "bilin18_clean_runtime as ship" in runner
+    assert "ship.initialize()" in runner
     clean_runtime = (HERE/"bilin18_clean_runtime.py").read_text()
     for forbidden in ("ship_mlp2_diag", "bilin18_joint_removal", "census_lib",
                       "bilin18_eval_tokens_large.pt", "fineweb", "ROWS"):
         assert forbidden not in clean_runtime
     assert "local_files_only=True" in clean_runtime
+    assert "def initialize()" in clean_runtime
     assert p["checkpoint"]["blob_sha256"] in clean_runtime
     assert p["checkpoint"]["config_sha256"] in clean_runtime
     return p

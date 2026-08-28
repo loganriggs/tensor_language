@@ -126,6 +126,9 @@ def main():
     for filename, expected in protocol["pinned_artifacts"].items():
         if sha(HERE/filename) != expected:
             raise ValueError(f"pinned hash mismatch: {filename}")
+    resource_guard(protocol)
+    ship.initialize()
+    resource_guard(protocol)
     payload = torch.load(ROWS, map_location="cpu", weights_only=False)
     if payload["role"] != "validation" or payload["member"] != protocol["data"]["member"]:
         raise ValueError("validation role/member mismatch")

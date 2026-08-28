@@ -43,14 +43,29 @@ def local_blob(filename, expected):
     return path
 
 
-CONFIG_PATH = local_blob("config.json", CONFIG_SHA256)
-CHECKPOINT_PATH = local_blob("pytorch_model.bin", CHECKPOINT_SHA256)
-config_dict = json.loads(CONFIG_PATH.read_text())
-config_dict.pop("step", None)
-m = TT.GPT(TT.GPTConfig(**config_dict)).to(device=DEV, dtype=torch.float32).eval()
-m.load_state_dict(torch.load(CHECKPOINT_PATH, map_location=DEV, weights_only=True))
-for parameter in m.parameters():
-    parameter.requires_grad_(False)
-H = m.transformer.h
-if len(H) != 18 or m.config.n_embd != D or m.config.n_head != 9:
-    raise ValueError("loaded checkpoint architecture differs from bilin18 contract")
+CONFIG_PATH = None
+CHECKPOINT_PATH = None
+m = None
+H = None
+
+
+def initialize():
+    """Explicit, idempotent initialization after caller-owned resource preflight."""
+    global CONFIG_PATH, CHECKPOINT_PATH, m, H
+    if m is not None:
+        return m
+    CONFIG_PATH = local_blob("config.json", CONFIG_SHA256)
+    CHECKPOINT_PATH = local_blob("pytorch_model.bin", CHECKPOINT_SHA256)
+    config_dict = json.loads(CONFIG_PATH.read_text())
+    config_dict.pop("step", None)
+    model = TT.GPT(TT.GPTConfig(**config_dict)).to(
+        device=DEV, dtype=torch.float32).eval()
+    model.load_state_dict(torch.load(
+        CHECKPOINT_PATH, map_location=DEV, weights_only=True))
+    for parameter in model.parameters():
+        parameter.requires_grad_(False)
+    blocks = model.transformer.h
+    if len(blocks) != 18 or model.config.n_embd != D or model.config.n_head != 9:
+        raise ValueError("loaded checkpoint architecture differs from bilin18 contract")
+    m, H = model, blocks
+    return m

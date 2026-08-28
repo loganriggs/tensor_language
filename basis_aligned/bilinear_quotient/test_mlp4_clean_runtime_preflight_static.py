@@ -26,6 +26,9 @@ def test_preflight_is_synthetic_only_and_source_pinned():
     source = (HERE/"mlp4_clean_runtime_preflight.py").read_text()
     ast.parse(source)
     assert "torch.arange" in source and "reference_forward" in source
+    assert source.index("before = telemetry()") < source.index("runtime.initialize()")
+    assert all(stage in source for stage in
+               ("after_load", "after_candidate", "after_reference"))
     for forbidden in ("fineweb", "ROWS", "validation_rows", "fit_rows",
                       "census", "datasets", "torch.load"):
         assert forbidden not in source
