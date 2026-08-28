@@ -6805,3 +6805,25 @@ The separately preregistered hybrid tensor-class oracle was committed/pushed at
 `60f04af0` and queued only after S1752 completed. Its completed result is deliberately
 recorded in a separate ledger entry so this correction does not mix a CPU accounting
 claim with a GPU behavioral claim.
+
+### 2026-08-28T07:44Z — Codex: hybrid oracle chooses attention; executable kernel built
+
+The frozen final-CE hybrid oracle completed in 231.5s with all controls passing. On
+skip11000, both-compiled/native-attention/native-MLP/native-both CE is
+6.77256/5.43405/6.61121/3.09711. Restoring attention gains +1.33851 nat; restoring MLP
+gains +0.16135, an 8.30x conditional difference. Interaction is -2.17559 nat, so the
+effects are strongly redundant and cannot be added. The dominant missing contraction
+is attention; generic local/lag output maps are no longer the leading grammar.
+
+Highest priority is now a zero-native-call attention program that keeps QK head
+RMSNorm, RoPE, the product of two QK contractions, causal value mixing, v1 bus, c_proj,
+and residual interface, while compressing and sharing only typed projections. Added
+`tensor_preserving_attention.py`, five CPU tests, a frozen preregistration, hybrid
+findings, and a new static hourly review. The kernel retains no native attention object,
+has no tables/fallback, prices every stored tensor, and continues to execute when all
+native projections are made uncallable. It has not yet earned a behavioral frontier
+point; the dense 18-layer identity gate and registered rank-384/512 composition arms
+remain to run now that the active nonlocal downstream job has closed. That job's
+registered result further prunes its own grammar: final-CE training rescues
+lag1+prefixmean from -0.80166 to +0.31212, but current-state reaches +0.58315 at lower
+cost. The richer class is still dominated; objective mismatch was not the whole gap.

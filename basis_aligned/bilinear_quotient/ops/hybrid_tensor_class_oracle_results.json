@@ -1,0 +1,312 @@
+{
+ "config": {
+  "rank": 8,
+  "steps": 180,
+  "every": 30,
+  "batch": 4,
+  "lr": 0.001,
+  "shared_training_seed": 2026082876,
+  "arms": {
+   "both_compiled": [
+    "mlp0",
+    "mlp1",
+    "mlp2",
+    "mlp3",
+    "mlp4",
+    "mlp5",
+    "mlp6",
+    "mlp7",
+    "mlp8",
+    "mlp9",
+    "mlp10",
+    "mlp11",
+    "mlp12",
+    "mlp13",
+    "mlp14",
+    "mlp15",
+    "mlp16",
+    "mlp17",
+    "attn0",
+    "attn1",
+    "attn2",
+    "attn3",
+    "attn4",
+    "attn5",
+    "attn6",
+    "attn7",
+    "attn8",
+    "attn9",
+    "attn10",
+    "attn11",
+    "attn12",
+    "attn13",
+    "attn14",
+    "attn15",
+    "attn16",
+    "attn17"
+   ],
+   "attention_native": [
+    "mlp0",
+    "mlp1",
+    "mlp2",
+    "mlp3",
+    "mlp4",
+    "mlp5",
+    "mlp6",
+    "mlp7",
+    "mlp8",
+    "mlp9",
+    "mlp10",
+    "mlp11",
+    "mlp12",
+    "mlp13",
+    "mlp14",
+    "mlp15",
+    "mlp16",
+    "mlp17"
+   ],
+   "mlp_native": [
+    "attn0",
+    "attn1",
+    "attn2",
+    "attn3",
+    "attn4",
+    "attn5",
+    "attn6",
+    "attn7",
+    "attn8",
+    "attn9",
+    "attn10",
+    "attn11",
+    "attn12",
+    "attn13",
+    "attn14",
+    "attn15",
+    "attn16",
+    "attn17"
+   ],
+   "both_native": []
+  },
+  "objective": "final CE on covered fit positions 64:256",
+  "checkpoint": "minimum skip7000 CE; skip11000 reported at the same step",
+  "role_note": "DISCOVERY ONLY; both compiler eval roles were already spent"
+ },
+ "live_ce": {
+  "skip7000": 3.29205,
+  "skip11000": 3.09711
+ },
+ "table_ce": {
+  "skip7000": 7.35114,
+  "skip11000": 7.35825
+ },
+ "covered_token_types": 5419,
+ "arms": {
+  "both_compiled": {
+   "compiled_sites": 36,
+   "start_ce": {
+    "skip7000": 6.94483,
+    "skip11000": 6.97247
+   },
+   "best_step": 180,
+   "best_ce": {
+    "skip7000": 6.74838,
+    "skip11000": 6.77256
+   },
+   "trajectory": [
+    {
+     "step": 0,
+     "skip7000": 6.94483,
+     "skip11000": 6.97247
+    },
+    {
+     "step": 30,
+     "skip7000": 6.80501,
+     "skip11000": 6.83347
+    },
+    {
+     "step": 60,
+     "skip7000": 6.79029,
+     "skip11000": 6.81874
+    },
+    {
+     "step": 90,
+     "skip7000": 6.76695,
+     "skip11000": 6.79261
+    },
+    {
+     "step": 120,
+     "skip7000": 6.77234,
+     "skip11000": 6.79805
+    },
+    {
+     "step": 150,
+     "skip7000": 6.77691,
+     "skip11000": 6.7963
+    },
+    {
+     "step": 180,
+     "skip7000": 6.74838,
+     "skip11000": 6.77256
+    }
+   ],
+   "factor_reals_M": 0.6636,
+   "active_table_reals_M": 224.7368,
+   "fits_ok": true
+  },
+  "attention_native": {
+   "compiled_sites": 18,
+   "start_ce": {
+    "skip7000": 5.70839,
+    "skip11000": 5.64769
+   },
+   "best_step": 180,
+   "best_ce": {
+    "skip7000": 5.48499,
+    "skip11000": 5.43405
+   },
+   "trajectory": [
+    {
+     "step": 0,
+     "skip7000": 5.70839,
+     "skip11000": 5.64769
+    },
+    {
+     "step": 30,
+     "skip7000": 5.56228,
+     "skip11000": 5.50893
+    },
+    {
+     "step": 60,
+     "skip7000": 5.54236,
+     "skip11000": 5.48865
+    },
+    {
+     "step": 90,
+     "skip7000": 5.51478,
+     "skip11000": 5.45924
+    },
+    {
+     "step": 120,
+     "skip7000": 5.50545,
+     "skip11000": 5.45424
+    },
+    {
+     "step": 150,
+     "skip7000": 5.49423,
+     "skip11000": 5.44088
+    },
+    {
+     "step": 180,
+     "skip7000": 5.48499,
+     "skip11000": 5.43405
+    }
+   ],
+   "factor_reals_M": 0.3318,
+   "active_table_reals_M": 112.3684,
+   "fits_ok": true
+  },
+  "mlp_native": {
+   "compiled_sites": 18,
+   "start_ce": {
+    "skip7000": 6.63026,
+    "skip11000": 6.66831
+   },
+   "best_step": 90,
+   "best_ce": {
+    "skip7000": 6.58064,
+    "skip11000": 6.61121
+   },
+   "trajectory": [
+    {
+     "step": 0,
+     "skip7000": 6.63026,
+     "skip11000": 6.66831
+    },
+    {
+     "step": 30,
+     "skip7000": 6.60412,
+     "skip11000": 6.63437
+    },
+    {
+     "step": 60,
+     "skip7000": 6.60057,
+     "skip11000": 6.62901
+    },
+    {
+     "step": 90,
+     "skip7000": 6.58064,
+     "skip11000": 6.61121
+    },
+    {
+     "step": 120,
+     "skip7000": 6.61237,
+     "skip11000": 6.64043
+    },
+    {
+     "step": 150,
+     "skip7000": 6.60147,
+     "skip11000": 6.62699
+    },
+    {
+     "step": 180,
+     "skip7000": 6.60232,
+     "skip11000": 6.63488
+    }
+   ],
+   "factor_reals_M": 0.3318,
+   "active_table_reals_M": 112.3684,
+   "fits_ok": true
+  },
+  "both_native": {
+   "compiled_sites": 0,
+   "start_ce": {
+    "skip7000": 3.2920516960274653,
+    "skip11000": 3.097110649601694
+   },
+   "best_step": 0,
+   "best_ce": {
+    "skip7000": 3.2920516960274653,
+    "skip11000": 3.097110649601694
+   },
+   "trajectory": [
+    {
+     "step": 0,
+     "skip7000": 3.2920516960274653,
+     "skip11000": 3.097110649601694
+    }
+   ],
+   "factor_reals_M": 0.0,
+   "active_table_reals_M": 0.0,
+   "fits_ok": true
+  }
+ },
+ "heldout_analysis": {
+  "harm": {
+   "both_compiled": 3.67545,
+   "attention_native": 2.33694,
+   "mlp_native": 3.5141,
+   "both_native": 0.0
+  },
+  "attention_restoration_gain": 1.33851,
+  "mlp_restoration_gain": 0.16135,
+  "interaction_harm": -2.17559,
+  "dominant_missing_contraction": "attention"
+ },
+ "controls": {
+  "both_compiled_start_recovery": {
+   "skip7000": 0.40631,
+   "skip11000": 0.38578
+  },
+  "both_compiled_best_recovery": {
+   "skip7000": 0.60276,
+   "skip11000": 0.58569
+  }
+ },
+ "predictions": {
+  "pred_a_attention_dominates": true,
+  "pred_b_each_native_half_helps": true,
+  "pred_c_superadditive_harm": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 231.5
+}
