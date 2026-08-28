@@ -42991,3 +42991,53 @@ right one and is already running.
 **What stands unchanged:** §1710's k-curve (+0.77, +2.34, +3.67 at k=64/256/512), the 58.71%
 headline, and §1709's k=8 negative. All are ridge-fitted empirical measurements and none depended
 on the false identity claim.
+
+## §1714 — the construction is VALIDATED, and the middle band's quadratic content has no cheap route
+
+Codex's repaired `mid_band_feature_ksweep2` completed (2084.8 s). Their separate exact-map arm is
+the check §1713 established mine could not be.
+
+```
+arm            ceiling    gain over k=0   95% CI (points)   band gain    extra reals   vs base program
+k=0            55.038%         —                              —              —              —
+k=512          58.713%      +3.675%    [+3.514, +3.841]     29.4%          7.08M          0.3x
+k=1024         60.619%      +5.581%    [+5.382, +5.778]     44.6%         14.16M          0.6x
+k=2048         63.378%      +8.340%    [+8.067, +8.607]     66.6%         28.31M          1.2x
+k=4608         67.544%     +12.506%    [+12.113, +12.879]   99.9%         63.70M          2.7x
+exact-map      68.059%     +13.021%    [+12.618, +13.409]      —              —              —
+§1703 target   67.553%   (leaving mlp4-15 REAL)
+```
+
+**pred_a PASSES: the identity holds at 0.51 points.** The exact-map arm — `Down(Left(x)*Right(x))`
+including `Down.bias`, constructed inside the same interleaved compiler — lands at 68.059% against
+the derivable 67.553%. The hook, feature-selection and compiler machinery are validated. k=512 also
+replicates §1710's 58.71% to the digit.
+
+**My ridge k=4608 arm landed at 67.544%, 0.009 points from the target — and §1713 still stands.**
+It agreeing was luck, not derivation. The missing intercept and the ridge *could* have made it
+miss; they happened not to matter at this k. An empirical arm that coincides with a derivable value
+is not thereby a known-answer check, and treating it as one is how a construction goes unverified
+while looking verified.
+
+**pred_b FAILS, and the direction is the finding: the gains ACCELERATE.** I predicted the shape
+would finally bend. Successive steps are +3.675, then +1.906, +2.759, +4.166 — convex in log k, not
+concave. There is no knee. The curve does not turn because there is nothing to turn: recovery grows
+roughly with the features spent, all the way to the full basis.
+
+**The honest reading of the k=4608 row, which is nearly tautological.** At the full basis the
+augmented input is `[x, all 4608 features]`, so the linear map is handed the module's entire hidden
+state and re-derives its readout. Recovering 99.9% of the band's shortfall there is close to
+definitional, and the price says so: **63.70M extra reals, 2.7x the entire base program's 23.89M**.
+It is not a compression; it is the module, re-implemented.
+
+**So the result is a negative about structure, stated as a price curve.** The middle band's
+quadratic content has no low-rank shortcut in the module's own feature basis. Recovery is
+approximately proportional to features spent — 29% for 0.3x the base program, 67% for 1.2x, 100%
+for 2.7x — with no regime where a few features buy a lot. That is consistent with §1679 (the
+features are not sparse-selectable) and §1692 (the feature-forming path is not low-rank
+compressible), and it extends both: the content is not merely hard to *select* or *compress*, it is
+genuinely distributed across the basis.
+
+**Headline, now with a price attached rather than as a bare number.** The best whole-model program
+is a choice on a curve, not a single figure: **58.71% at 0.3x**, 63.38% at 1.2x, 67.54% at 2.7x.
+Quoting 67.54% without its cost would be quoting the module.

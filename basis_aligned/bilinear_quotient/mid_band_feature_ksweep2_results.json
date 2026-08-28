@@ -1,0 +1,122 @@
+{
+ "config": {
+  "mid_sites": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "ks": [
+   0,
+   512,
+   1024,
+   2048,
+   4608
+  ],
+  "hidden_dim": 4608,
+  "ridge": 0.001,
+  "family": "y ~ [x, h_k] W, where h_k are the k features of the module OWN bilinear form with the largest std(h_j)*||Down[:,j]|| -- a linear map plus k quadratic corrections in the module basis",
+  "applied_at": "mlp4-15 only, inside the \u00a71696 best-families 36-site program",
+  "why": "\u00a71703 puts the largest total shortfall here and \u00a71668 puts 37.7% of the band beyond any linear map; \u00a71667/\u00a71677 show a token term does not reach it",
+  "caution_S1679": "keeping k features and PINNING the rest replaced the module and failed at -49.93%; here the linear map carries the bulk and the features add a correction, so the cancellation structure is not broken the same way -- an argument, not a result",
+  "compilation": "INTERLEAVED bottom-up (\u00a71669)",
+  "coverage": "hybrid, mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1703_mid_band_gain": 0.12515,
+  "s1696_both": 0.5504
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "arms": {
+  "k0": {
+   "k": 0,
+   "ce": 5.7957,
+   "ceiling": 0.55038,
+   "extra_reals_per_site": 0
+  },
+  "k512": {
+   "k": 512,
+   "ce": 5.59107,
+   "ceiling": 0.58713,
+   "extra_reals_per_site": 589824
+  },
+  "k1024": {
+   "k": 1024,
+   "ce": 5.48491,
+   "ceiling": 0.60619,
+   "extra_reals_per_site": 1179648
+  },
+  "k2048": {
+   "k": 2048,
+   "ce": 5.33129,
+   "ceiling": 0.63378,
+   "extra_reals_per_site": 2359296
+  },
+  "k4608": {
+   "k": 4608,
+   "ce": 5.09934,
+   "ceiling": 0.67544,
+   "extra_reals_per_site": 5308416
+  },
+  "exact4608": {
+   "k": 4608,
+   "ce": 5.07066,
+   "ceiling": 0.68059,
+   "construction": "exact Down(Left(x)*Right(x)) including Down.bias"
+  }
+ },
+ "gains": {
+  "k512": 0.03675,
+  "k1024": 0.05581,
+  "k2048": 0.0834,
+  "k4608": 0.12506
+ },
+ "gain_ci95_rowlevel": {
+  "k512": [
+   0.03514,
+   0.03841
+  ],
+  "k1024": [
+   0.05382,
+   0.05778
+  ],
+  "k2048": [
+   0.08067,
+   0.08607
+  ],
+  "k4608": [
+   0.12113,
+   0.12879
+  ],
+  "exact4608": [
+   0.12618,
+   0.13409
+  ]
+ },
+ "ridge_k4608": 0.67544,
+ "identity_exact_constructed": 0.68059,
+ "identity_target_s1703": 0.67553,
+ "fraction_of_band_recovered": {
+  "k512": 0.2936,
+  "k1024": 0.446,
+  "k2048": 0.6664,
+  "k4608": 0.9993
+ },
+ "predictions": {
+  "pred_a_identity_check_k4608": true,
+  "pred_b_shape_bends": false,
+  "pred_c_k512_replicates_s1710": true,
+  "pred_d_controls_hold": true
+ },
+ "runtime_s": 2084.8
+}
