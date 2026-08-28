@@ -43578,3 +43578,63 @@ the collapse ratio so the denominator is visible, and records `DEDUPLICATION_NOT
 The general rule, added to the harness and to LESSONS 33: **an aggregate over registry entries is an
 aggregate over prose, not over evidence.** Two entries that name the same components contribute one
 measurement no matter how differently they are worded.
+
+## §1727 — the token-class decomposition: two of four predictions fail, and the one clean result is in a statistic I did not register
+
+`ops/circuit_audit_v4.py`, 51.2s, 16 registry rows collapsing to **9 distinct component sets** (the
+§1726 fix, printed so the denominator is visible).
+**pred_a False | pred_b True | pred_c True | pred_d False.**
+
+Every circuit's constant-ablation damage, decomposed over disjoint exhaustive target-side classes
+computed inside the same forwards. Base rates over 27,974 scored tokens: **induction 8.4%, repeat
+38.9%, novel 52.7%.**
+
+```
+  circuit                                   removal | per-token removal (nats/tok) | share of damage
+                                                    |  induc  repeat   novel       | induc repeat novel
+  _mlp0_dossier_resolved                     0.8513 | 0.4367  0.5609  1.1315       |  4.3%  25.6%  70.1%
+  _mlp1_dossier                              7.0213 | 6.4664  6.0996  7.7897       |  7.7%  33.8%  58.5%
+  front band mlp0-3                          4.3928 | 4.0852  3.9626  4.7591       |  7.8%  35.1%  57.1%
+  middle band mlp4-15                        2.6496 | 3.0141  2.0268  3.0515       |  9.5%  29.8%  60.7%
+  mlp16+mlp17                                0.7112 | 0.2667  0.1415  1.2022       |  3.1%   7.7%  89.1%
+  attention, all 18                          3.5570 | 3.6898  3.3562  3.6842       |  8.7%  36.7%  54.6%
+  attention, mlp4-15 band                    2.1137 | 2.2295  1.9056  2.2490       |  8.8%  35.1%  56.1%
+  whole model, 36 sites                      5.5684 | 5.9010  4.0973  6.6013       |  8.9%  28.6%  62.5%
+  MLP stack, all 18                          4.3301 | 4.4708  2.9396  5.3341       |  8.6%  26.4%  64.9%
+```
+
+**pred_a FAILED and the reason matters.** The damage SHARE spread was 3.1%–9.5%, 6.4 points against
+a 10-point bar. It failed because **share is dominated by the class base rate**: induction is 8.4%
+of tokens, so almost every circuit's induction share sits at 8–9% whatever it does. I registered a
+statistic that mostly measures how common a token class is.
+
+**pred_d FAILED, and this is the substantive negative.** §1725 read
+`_lag1_failure_is_middle_band`'s percentile-0.00 result as *removal being the wrong estimand* for a
+lag-1 claim. The first per-context estimand I could build does **not** support that reading: middle-
+band attention damages induction targets at **2.2295** nats/token and novel targets at **2.2490** —
+induction is damaged *slightly less*, and selectivity against the complement is 1.060 against a 1.10
+bar. **The percentile-0.00 result is not explained away by the estimand.** Either the lag-1 claim
+does not localise to those sites the way the entry reads, or `induction` as defined here is not the
+context the entry means. I am not choosing between those without a test that separates them.
+
+**pred_b passed, and it is the one clean structural result:**
+
+> **MLP damage concentrates on targets that cannot be copied from context; attention damage is flat
+> across classes.** Induction/novel per-token ratio — 18-MLP stack **0.838**, 18-attention stack
+> **1.002**.
+
+Per distinct set the ratio runs mlp16+17 **0.222**, mlp0 **0.386**, mlp1 0.830, front band 0.858,
+MLP stack 0.838, whole model 0.894, middle band 0.988, middle attention 0.991, attention stack
+**1.002**. The reading is direct: when the answer is absent from the context, routing has nothing to
+route and the weights are the only source, so ablating an MLP costs most there. The last two MLPs
+are the extreme case at 89.1% of their damage on novel targets.
+
+**But the ratio is a post-hoc statistic.** pred_b used it, so it is registered in the weak sense
+that one comparison was declared — attention above MLP stack — but the *spread across nine sets*,
+which is the interesting part, is something I looked at after the run. **It is not certified and it
+is not going in the registry on this run's evidence.**
+`ops/class_ratio_site_sweep.py` is committed and queued and tests it prospectively: all 36 sites
+individually rather than the sets registry entries happen to name, both eval sets with **skip11000
+carrying the claim**, 2000 row-level bootstrap draws on the two stack medians, and **depth registered
+as a competing explanation** (pred_b there fails unless mlp_L is below attn_L at 12 of 18 matched
+layers).
