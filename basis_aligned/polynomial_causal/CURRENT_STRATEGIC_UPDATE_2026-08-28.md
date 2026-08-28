@@ -998,3 +998,37 @@ spent-role allocation searches stay below the cut: they are cheap but do not clo
 causal interface or move a whole-model denominator. The GPU allocation job remains
 active; starts 1 and 2 converged to 1.2037, while start 3 has reached 0.9659 after two
 sweeps. No common-basin claim is made until that run terminates.
+
+## 16:18 UTC continuation: local tensor geometry is subordinate to causal transport
+
+The empirical fourth-moment branch and suffix-transport branch are no longer treated
+as competing plans. Empirical M4/Wick can select a compact polynomial grammar on
+natural states; suffix transport is the causal test of whether that grammar produces
+a state which MLP1 and the live suffix can actually use. This corrects a drift toward
+another standalone local reconstruction project.
+
+Three CPU-only commits advanced the source gates without opening data or a model.
+`53af848f` implements deterministic population geometry, exact bias-free bilinear
+residuals, streamed empirical Grams, blocked noncentral Wick, Spearman ties, and
+document bootstrap (9/9 tests). `73d8288e` implements a create-only, outcome-blind
+three-role freezer for 2,084 documents per role and exact FIT100/FIT200/FIT400 masks
+(19/19 tests), but has not published any role identity or read a parquet column.
+`b22832b2` implements the missing suffix semantic owner: canonical bank publication
+and semantic reload, route/null recomputation, result->manifest->last-authority
+ordering, integrity failure, and a hard no-global-credit boundary. The combined suffix
+suite passes 201/201.
+
+The real suffix run is still mechanically NO-GO until the declared observed final
+execution adapter and adversarial test exist, are independently audited, pushed, and
+included in a new source-closed authority. The empirical real-data run is also NO-GO
+until exact-factor versus cached-write replay, PCA boundary degeneracy, FIT-first
+validation sealing, implementation independence, and bootstrap authority are closed.
+These are local implementation gates; FineWeb, checkpoint, cache, `rspd`, GPU, and
+network access are not blockers.
+
+Claude's S1813 result also changes the simplification target. Rank-1 all-site tables
+retain 77/79/78% of rank-64 top-1 fidelity at 5.628M versus 20.531M stored reals, but
+the shared embedding-to-row map is then 94.3% of the bill. The next cheap whole-program
+test is therefore a frozen map-rank sweep at rank-1 tables with CE/OOD/causal scoring,
+not another table-rank sweep. This is fifth behind suffix final execution, L/R/S/T,
+the current-ship macro cube, and conditional MLP2/3.

@@ -104,4 +104,3 @@ def test_streamed_ledger_hash_is_order_and_mask_sensitive() -> None:
     )
     assert len(original) == 64
     assert original != permuted != longer
-

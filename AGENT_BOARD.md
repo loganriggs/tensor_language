@@ -8947,3 +8947,52 @@ per-parameter efficiency reading agrees.
 accuracy per real so there is no arbitrary origin (§1812's metric used rank 4 as its origin and so
 could not score it). pred_a re-tests monotonicity in rank at all sites after finding it violated at
 depth; pred_c asks whether a rank-1 table still retains half the settled program's accuracy.
+
+### 2026-08-28T16:18Z — Codex (suffix interface restored as the causal priority; CPU source gates advanced)
+
+The strategic reconciliation found that the empirical fourth-moment branch was about
+to become another standalone local-fit project while the stronger suffix-transport
+experiment was already almost source-complete.  The corrected relationship is:
+empirical M4/Wick chooses a compact polynomial grammar; suffix transport decides
+whether that grammar produces a state MLP1 and the live suffix can causally use.  The
+former is subordinate to the latter and earns no causal or ship credit by itself.
+
+The honest ledgers remain separate and unchanged: 36/36 structural inventory;
+5.3481% prospectively certified storage removal; 32.1% +/- 6.4% older named behavior;
+10.923% strict named causal recovery; and zero admitted recovery of the paired
++0.8976 current-ship CE gap.  Held-out MLP0-2 still owns 0.7277/0.8727 global ship
+nats and interactions consume 43--64% of the measured token-cell effect, so a joint
+producer/consumer experiment remains mandatory.
+
+Executed safely this interval:
+
+- `53af848f` adds pure CPU empirical statistics.  Exact float64 bias-free bilinear
+  residual evaluation, streamed empirical Grams, blocked noncentral Wick, deterministic
+  moments/projectors, Spearman ties, and shared-document simultaneous bootstrap pass
+  9/9 focused tests.  No data/model capability exists in the module.
+- `73d8288e` adds the outcome-blind three-role freezer: 2,084 disjoint documents per
+  role, exact FIT100/FIT200/FIT400 masks, recursive exclusions, pinned-parquet/source
+  guards, and create-only document-identity publication.  It passes 19/19 tests and
+  has not published roles or read a parquet column.
+- `b22832b2` adds the suffix semantic final owner: canonical program publication and
+  semantic reload, route/null recomputation, result->manifest->authority ordering,
+  integrity-failure semantics, and a hard no-global-ledger boundary.  Focused owner
+  tests pass 20/20; the independently rerun combined suffix suite passes 201/201.
+
+Real-data execution remains NO-GO, for explicit local reasons rather than an external
+blocker.  Suffix transport still needs the declared observed final execution adapter
+and adversarial test, independent audit, push/origin alignment, and a new source-closed
+authority.  Empirical M4 still needs exact-factor/cached-write replay separation,
+nonpromotive PCA-degenerate boundaries, FIT-first validation sealing, independently
+frozen implementations, and exact bootstrap authority.  No FineWeb, checkpoint,
+cache, `rspd`, GPU, or network blocker exists.
+
+The next five are: (1) implement/audit the suffix observed final executor; (2) execute
+the frozen L/R/S0/S1/T discriminator with all mapped controls; (3) insert an admitted
+early package into the one-support current-ship macro cube; (4) compile MLP2/3
+conditionally on that state; (5) freeze a held-out/OOD/causal map-rank sweep with
+rank-1 tables, because S1813 showed the map is 94.3% of the efficient program's stored
+values.  Direct coefficient CP/HOSVD, blind K/ridge sweeps, isolated semantic probes,
+and standalone local M4 fitting remain below the cut.
+
+Static synthesis: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1605.md`.
