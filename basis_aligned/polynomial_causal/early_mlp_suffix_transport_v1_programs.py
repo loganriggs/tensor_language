@@ -1458,6 +1458,67 @@ class FrozenMappedProgram:
         return self.program.make_program()
 
 
+@dataclass(frozen=True)
+class FrozenNewFitMeanProgram:
+    """Deterministic constant-code control frozen from initial fit-label moments."""
+
+    fit_moments_sha256: str
+    canonical_tensor_sha256: str
+    site_states: Mapping[int, Mapping[str, Any]]
+
+    def make_program(self) -> runtime.JointAffineProgram:
+        if not _sha256(self.fit_moments_sha256) or set(self.site_states) != {0, 1}:
+            raise RuntimeError("new-fit mean program identity changed")
+        program = runtime.JointAffineProgram.from_v21_states(self.site_states, route="L")
+        if runtime.program_snapshot_sha256(program) != self.canonical_tensor_sha256:
+            raise RuntimeError("new-fit mean program tensors changed")
+        if any(int(torch.count_nonzero(site.weight)) != 0 for site in (
+            program.site0, program.site1,
+        )):
+            raise RuntimeError("new-fit mean program is not constant")
+        return program
+
+
+def freeze_new_fit_mean_program(
+    denominator_pass: fit.DenominatorPass,
+    initialized_q: runtime.JointAffineProgram,
+) -> FrozenNewFitMeanProgram:
+    """Freeze the preregistered new-fit mean before validation/final can be observed."""
+
+    if not isinstance(denominator_pass, fit.DenominatorPass) or not isinstance(
+        initialized_q, runtime.JointAffineProgram
+    ) or initialized_q.route != "L":
+        raise TypeError("new-fit mean requires the frozen Q moment pass and initialization")
+    moment_sha256 = denominator_pass.sha256
+    states = {}
+    for site, affine in ((0, initialized_q.site0), (1, initialized_q.site1)):
+        record = denominator_pass.site_records[site]
+        count = record["count"]
+        coordinate_sum = record["coordinate_sum"].detach().cpu().double()
+        recorded_mean = record["mean"].detach().cpu().double()
+        mean = coordinate_sum / count
+        if tuple(mean.shape) != (runtime.CODE_DIM,) or float(
+            torch.max(torch.abs(mean - recorded_mean))
+        ) > 1e-10:
+            raise RuntimeError("new-fit mean does not replay the frozen coordinate sum")
+        states[site] = MappingProxyType({
+            "grammar": "affine", "interface": "state_complete_p",
+            "mean": affine.mean.detach().cpu().float().contiguous().clone(),
+            "scale": affine.scale.detach().cpu().float().contiguous().clone(),
+            "left": torch.zeros(runtime.D_MODEL, runtime.CODE_DIM, dtype=torch.float32),
+            "right": torch.eye(runtime.CODE_DIM, dtype=torch.float32),
+            "bias": mean.float().contiguous(),
+        })
+    program = runtime.JointAffineProgram.from_v21_states(states, route="L")
+    frozen = FrozenNewFitMeanProgram(
+        fit_moments_sha256=moment_sha256,
+        canonical_tensor_sha256=runtime.program_snapshot_sha256(program),
+        site_states=MappingProxyType(states),
+    )
+    frozen.make_program()
+    return frozen
+
+
 def freeze_selected(candidate: ScoredCandidate) -> FrozenProgram:
     if not candidate.validation.admissible:
         raise RuntimeError("copy-inadmissible candidate cannot be frozen")
@@ -1691,6 +1752,24 @@ def _frozen_program_payload(value: FrozenProgram) -> dict[str, Any]:
     }
 
 
+def _frozen_mean_payload(value: FrozenNewFitMeanProgram) -> dict[str, Any]:
+    if not isinstance(value, FrozenNewFitMeanProgram):
+        raise TypeError("canonical bank requires the frozen new-fit mean program")
+    value.make_program()
+    return {
+        "fit_moments_sha256": value.fit_moments_sha256,
+        "canonical_tensor_sha256": value.canonical_tensor_sha256,
+        "site_states": {
+            str(site): {
+                name: item.detach().cpu().contiguous().clone()
+                if torch.is_tensor(item) else item
+                for name, item in value.site_states[site].items()
+            }
+            for site in (0, 1)
+        },
+    }
+
+
 def _geometry_payload(value: TransportInterventionGeometry) -> dict[str, Any]:
     if not isinstance(value, TransportInterventionGeometry):
         raise TypeError("canonical bank requires transport intervention geometry")
@@ -1727,6 +1806,7 @@ def _payload_identity(value: Any) -> Any:
 def build_canonical_program_bank(
     *, true_programs: Mapping[str, FrozenProgram],
     mapped_programs: Mapping[str, FrozenMappedProgram],
+    new_fit_mean: FrozenNewFitMeanProgram,
     validation_baseline: ValidationBaselineSufficientStatistics,
     validation_execution: ValidationExecutionManifest,
     transport_geometry: TransportInterventionGeometry,
@@ -1736,13 +1816,16 @@ def build_canonical_program_bank(
 
     if set(true_programs) != set(SELECTABLE_ROUTES) or tuple(mapped_programs) != (
         required_mapped_control_keys()
-    ) or not isinstance(validation_baseline, ValidationBaselineSufficientStatistics) or (
+    ) or not isinstance(new_fit_mean, FrozenNewFitMeanProgram) or not isinstance(
+        validation_baseline, ValidationBaselineSufficientStatistics
+    ) or (
         not isinstance(validation_execution, ValidationExecutionManifest)
     ) or validation_baseline.sha256 != validation_execution.baseline_statistics_sha256 or (
         validation_baseline.common_support_sha256 != validation_execution.common_support_sha256
     ):
         raise ValueError("canonical program bank is incomplete or support-mixed")
     common_support = validation_execution.common_support_sha256
+    new_fit_mean.make_program()
     for route in SELECTABLE_ROUTES:
         value = true_programs[route]
         if not isinstance(value, FrozenProgram) or value.route != route or (
@@ -1810,6 +1893,7 @@ def build_canonical_program_bank(
             }
             for key in required_mapped_control_keys()
         },
+        "new_fit_mean": _frozen_mean_payload(new_fit_mean),
         "validation_baseline": {
             "common_support_sha256": validation_baseline.common_support_sha256,
             "baseline_sha256": validation_baseline.sha256,
@@ -1935,11 +2019,42 @@ def _restore_frozen_program_payload(
     return frozen
 
 
+def _restore_frozen_mean_payload(value: Any) -> FrozenNewFitMeanProgram:
+    payload = _exact_payload_keys(value, {
+        "fit_moments_sha256", "canonical_tensor_sha256", "site_states",
+    }, "new-fit mean program")
+    if not _sha256(payload["fit_moments_sha256"]) or not _sha256(
+        payload["canonical_tensor_sha256"]
+    ):
+        raise RuntimeError("canonical new-fit mean identity changed")
+    states_payload = _exact_payload_keys(
+        payload["site_states"], {"0", "1"}, "new-fit mean site states",
+    )
+    states = {}
+    for site in (0, 1):
+        state = _exact_payload_keys(states_payload[str(site)], {
+            "grammar", "interface", "mean", "scale", "left", "right", "bias",
+        }, f"new-fit mean site{site}")
+        states[site] = MappingProxyType({
+            name: item.detach().cpu().contiguous().clone()
+            if torch.is_tensor(item) else item
+            for name, item in state.items()
+        })
+    frozen = FrozenNewFitMeanProgram(
+        fit_moments_sha256=payload["fit_moments_sha256"],
+        canonical_tensor_sha256=payload["canonical_tensor_sha256"],
+        site_states=MappingProxyType(states),
+    )
+    frozen.make_program()
+    return frozen
+
+
 def validate_canonical_program_bank_payload(value: Any) -> Mapping[str, Any]:
     """Reconstruct and replay every typed invariant after artifact deserialization."""
 
     payload = _exact_payload_keys(value, {
         "schema_version", "kind", "true_programs", "mapped_programs",
+        "new_fit_mean",
         "validation_baseline", "validation_execution", "transport_geometry",
         "gauge_bank", "intervention_assignments", "teacher_calibration",
         "payload_sha256",
@@ -1980,6 +2095,7 @@ def validate_canonical_program_bank_payload(value: Any) -> Mapping[str, Any]:
             program=_restore_frozen_program_payload(entry["program"], expected_route=route),
         )
     mapped_programs_proxy = MappingProxyType(mapped_programs)
+    new_fit_mean = _restore_frozen_mean_payload(payload["new_fit_mean"])
 
     baseline_payload = _exact_payload_keys(payload["validation_baseline"], {
         "common_support_sha256", "baseline_sha256", "row_ce_sum", "row_ce_count",
@@ -2079,6 +2195,7 @@ def validate_canonical_program_bank_payload(value: Any) -> Mapping[str, Any]:
     })
     rebuilt = build_canonical_program_bank(
         true_programs=true_programs, mapped_programs=mapped_programs_proxy,
+        new_fit_mean=new_fit_mean,
         validation_baseline=baseline, validation_execution=execution,
         transport_geometry=geometry, teacher_calibration={
             **{key: calibration_payload[key] for key in calibration_payload if key != (
@@ -2095,6 +2212,7 @@ def validate_canonical_program_bank_payload(value: Any) -> Mapping[str, Any]:
     return MappingProxyType({
         "true_programs": true_programs,
         "mapped_programs": mapped_programs_proxy,
+        "new_fit_mean": new_fit_mean,
         "validation_baseline": baseline,
         "validation_execution": execution,
         "transport_geometry": geometry,

@@ -237,6 +237,46 @@ class DenominatorPass:
     def denominators(self) -> tuple[torch.Tensor, torch.Tensor]:
         return tuple(record["denominator"] for record in self.site_records)  # type: ignore[return-value]
 
+    @property
+    def sha256(self) -> str:
+        if len(self.site_records) != 2 or type(self.completed_steps) is not int or (
+            self.completed_steps != capabilities.FIT_BATCHES_PER_EPOCH
+        ) or not runtime._sha256_text(self.transaction_history_sha256):
+            raise RuntimeError("denominator pass identity is malformed")
+        records = []
+        required = {
+            "count", "coordinate_sum", "coordinate_square_sum", "mean",
+            "centered_sum_of_squares", "raw_sum_square_replay", "denominator",
+            "ordered_support_sha256",
+        }
+        for value in self.site_records:
+            if not isinstance(value, Mapping) or set(value) != required or not (
+                runtime._sha256_text(value["ordered_support_sha256"])
+            ):
+                raise RuntimeError("denominator pass site record is malformed")
+            tensor_fields = {}
+            for name in required - {"count", "ordered_support_sha256"}:
+                tensor = value[name]
+                if not torch.is_tensor(tensor) or not bool(torch.isfinite(tensor).all()):
+                    raise RuntimeError("denominator pass site tensor is malformed")
+                tensor_fields[name] = runtime.tensor_identity_sha256(tensor)
+            records.append({
+                "count": value["count"],
+                "ordered_support_sha256": value["ordered_support_sha256"],
+                "tensors": tensor_fields,
+            })
+        if records[0]["count"] != capabilities.FIT_ROW_COUNT * (
+            runtime.SCORE_STOP - runtime.SCORE_START
+        ) or records[1]["count"] != records[0]["count"] or (
+            records[0]["ordered_support_sha256"] != records[1]["ordered_support_sha256"]
+        ):
+            raise RuntimeError("denominator pass support changed")
+        return runtime.logical_identity_sha256({
+            "site_records": records,
+            "transaction_history_sha256": self.transaction_history_sha256,
+            "completed_steps": self.completed_steps,
+        })
+
 
 def run_initial_denominator_pass(
     *, rows: torch.Tensor, context: capabilities.RunContext,

@@ -1,6 +1,43 @@
 # Current project update — 2026-08-28 17:09 UTC
 
-## UPDATE SINCE THE LAST EXPLANATION
+## UPDATE AFTER 17:09 — final programs are now assembled and identity-bound
+
+The action list described below is no longer only a naming contract. A sealed program
+source bank and materializer can now construct the intended physical program for each
+arm. In particular, mixed arms such as `R0-L1` take MLP0's affine map from R and
+MLP1's affine map from L; they cannot silently fall back to the joint R program. True
+transport, zero transport, and all 20 false-parent cross maps remain distinct by both
+component hash and complete program hash. Native and deployed baselines are explicitly
+program-free.
+
+Each four-row final batch also receives a final-only identity binding the semantic
+action, the materialized component hashes, program-bank identity, inherited snapshot,
+common support, exact tokens, and canonical row order. Substituting another hybrid,
+background, program, or row order invalidates the identity before scoring. The full
+suffix/observed CPU suite now passes 247/247 tests.
+
+This work initially found one additional missing artifact: the preregistration requires
+a deterministic “new fit mean” program, but the canonical program-bank schema did not
+serialize it. That gap is now fixed. The initial fit-label moment pass replays each mean
+from its coordinate sum, constructs a zero-weight program with the two 64-dimensional
+means as biases, and freezes its moment hash and tensors into the canonical bank. The
+bank validator reconstructs the constant program, and the final source bank is minted
+only from the validated bank plus inherited Q. The final runner therefore cannot
+recompute or invent a mean after final rows are visible.
+
+The attention explosion was also localized more carefully. L5H7 carries about 85% of
+L5's excess squared output norm and grows from 6,657.8 to 1,057,986.8, confirming that
+the already-known constant-bias/outlier-dimension head dominates the absolute failure.
+However, this is not a one-head-only instability: L5H2 has the largest relative growth
+(about 241x), and the layer-wide median is about 34x. At L6 the dominant excess head is
+H1, not H7. A follow-up refuted the proposed softmax-pattern-dispersal mechanism: H7's
+direction stays almost identical (cosine 0.9990) and remains unusually constant across
+positions; the same fixed vector is simply amplified about 159x. The active falsifier
+now asks whether a single per-head gain repair fixes the partial compile and whether
+the same edit is inert when L5 itself is substituted. The final all-consumer norm
+measurements remain necessary regardless of that result.
+
+## EARLIER UPDATE SINCE THE LAST EXPLANATION
 
 There are four concrete updates.
 
@@ -145,7 +182,7 @@ checkpoint, model, and GPU are available. The remaining final runner must still:
 - aggregate nine frequency bins and all 18 consumer-norm checks; and
 - assemble all 68 actions exactly once without exposing raw model tensors.
 
-The new action-plan compiler closes the first semantic ambiguity, but it also makes a
-remaining schema issue explicit: the old trace identity only knows ordinary fitted
-routes and cannot yet name every hybrid or baseline action. That identity must be
-extended or wrapped by a final-action identity before the full runner can be trusted.
+The new action-plan compiler and final-only batch identity close the first semantic
+ambiguity without widening the old fit trace. The largest remaining implementation
+work is now the observed baseline/edit/diagnostic execution and complete aggregation,
+not action naming or the mean-program artifact.

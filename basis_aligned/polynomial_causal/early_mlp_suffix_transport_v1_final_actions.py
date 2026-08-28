@@ -310,6 +310,60 @@ class FinalProgramSourceBank:
         return self.__expected[key]
 
 
+def source_bank_from_validated(
+    validated_program_bank: Mapping[str, Any],
+    *, inherited_q: runtime.JointAffineProgram,
+) -> FinalProgramSourceBank:
+    """Mint all physical sources only from the replay-validated canonical bank."""
+
+    import early_mlp_suffix_transport_v1_programs as programs
+
+    required = {
+        "true_programs", "mapped_programs", "new_fit_mean", "payload_sha256",
+        "validation_baseline", "validation_execution", "transport_geometry",
+        "teacher_calibration",
+    }
+    if not isinstance(validated_program_bank, Mapping) or set(
+        validated_program_bank
+    ) != required or not runtime._sha256_text(
+        validated_program_bank["payload_sha256"]
+    ) or not isinstance(inherited_q, runtime.JointAffineProgram) or (
+        inherited_q.route != "L"
+    ):
+        raise ValueError("final sources require the replay-validated canonical bank and Q")
+    true = validated_program_bank["true_programs"]
+    mapped = validated_program_bank["mapped_programs"]
+    mean = validated_program_bank["new_fit_mean"]
+    if not isinstance(true, Mapping) or set(true) != set(programs.SELECTABLE_ROUTES) or (
+        not isinstance(mapped, Mapping)
+    ) or tuple(mapped) != programs.required_mapped_control_keys() or not isinstance(
+        mean, programs.FrozenNewFitMeanProgram
+    ):
+        raise ValueError("validated final program families are incomplete")
+    values: dict[str, runtime.JointAffineProgram] = {"inherited_q": inherited_q}
+    for route in programs.SELECTABLE_ROUTES:
+        frozen = true[route]
+        if not isinstance(frozen, programs.FrozenProgram) or frozen.route != route:
+            raise ValueError("validated true final program family changed")
+        values[f"true/{route}"] = frozen.make_program()
+    for route in ("L", "R"):
+        key = f"document_shuffle/{route}"
+        frozen = mapped[key]
+        if not isinstance(frozen, programs.FrozenMappedProgram) or frozen.key != key:
+            raise ValueError("validated shuffled final program family changed")
+        values[f"mapped/{key}"] = frozen.make_program()
+    for index in range(20):
+        key = f"A_null_{index:02d}/T"
+        frozen = mapped[key]
+        if not isinstance(frozen, programs.FrozenMappedProgram) or frozen.key != key:
+            raise ValueError("validated A-null final program family changed")
+        values[f"mapped/{key}"] = frozen.make_program()
+    values["new_fit_mean"] = mean.make_program()
+    if tuple(values) != SOURCE_PROGRAM_KEYS:
+        raise RuntimeError("validated final source ordering changed")
+    return FinalProgramSourceBank(values)
+
+
 _SITE_SOURCE = {
     "inherited_q0": ("inherited_q", 0), "inherited_q1": ("inherited_q", 1),
     "true_l0": ("true/L", 0), "true_l1": ("true/L", 1),

@@ -9213,6 +9213,65 @@ remain pruned or control-only.
 Plain-language static update, with the new material explicitly marked at the top:
 `basis_aligned/polynomial_causal/CURRENT_PROJECT_UPDATE_2026-08-28_1709.md`.
 
+### 2026-08-28T17:20Z — Codex: sealed hybrid materializer and final-action batch identity
+
+Executed the next safe routing slice. `FinalProgramSourceBank` freezes all 29 physical
+program sources needed by the 34-arm lattice. `materialize` composes site0/site1 from
+the named true, inherited, or mapped source and binds true-T, exact-zero, or the named
+A-null cross independently. `MaterializedFinalAction` is sealed, integrity-checks its
+private master, and issues only identity-checked clones. Native/deployed baselines have
+no projected program. `FinalActionBatchIdentity` separately binds action plan,
+materialization, source/program/inherited/role/support hashes, exact tokens, batch, and
+canonical indices. Hybrid and baseline semantics no longer need to masquerade as fit
+`TraceIdentity` controls.
+
+New adversarial tests cover incomplete/reordered source banks, all four mixed-site
+compositions, true/zero/20-null cross separation, program-free baselines, action
+substitution, and row-order substitution. Focused action/capability/lifecycle tests
+pass 31/31; the complete suffix/observed suite passes 247/247 in 91.87s. No role,
+model, row, checkpoint, or outcome was opened.
+
+Audit found a real missing artifact: the canonical bank names `new_fit_mean` only in
+the preregistration/final gates and does not serialize the deterministic program. The
+initial denominator pass already freezes each site's 64-vector fit-label mean. Next
+priority is to construct the registered zero-weight/mean-bias program from those
+moments, commit it to the canonical bank schema and replay validator, then make the
+final source bank mintable only from the validated bank plus inherited capability.
+
+Concurrent S1818 localizes the context-free consumer cliff without reducing it to one
+head. L5H7 carries 84.96% of excess squared norm because it was already 19.5x larger
+than the median live head; it grows 158.9x, while L5H2 grows 240.8x and the layer median
+is 34.0x. L6's excess is instead 89.33% H1. This strengthens per-consumer diagnostics
+but does not establish the constant-head mechanism; `ops/does_the_constant_break` is
+the queued falsifier.
+
+### 2026-08-28T17:27Z — Codex: new-fit mean frozen into bank; canonical source mint closes
+
+Closed the missing deterministic baseline found in the preceding audit. The initial
+denominator pass now has a replayable SHA-256 identity over both sites' complete
+float64 moment records and ordered support. `freeze_new_fit_mean_program` replays each
+64-vector mean from coordinate_sum/count, uses the frozen Q normalizations, and emits
+an exactly constant affine program (zero weights, fit means as biases). The canonical
+program bank now requires, serializes, hashes, reloads, proves constant, and returns
+this typed program. `source_bank_from_validated` mints all 29 physical final sources
+only from the replay-validated canonical bank plus inherited Q; the final runner no
+longer needs an unbound mean-program input.
+
+Together with the preceding slice, final action materialization and batch identity
+now cover ordinary, hybrid, mapped/null, mean, and program-free baseline semantics.
+Fit/program/action focused tests pass 44/44; the complete suffix/observed suite passes
+247/247 in 82.40s. No role/model/data/outcome was opened. The exact implementation
+NO-GO moves to observed native/deployed/QQ baselines, frequency bins, all 18 consumer
+norms, finite edit pairs, row aggregation, and complete canonical execution/bundle.
+
+Concurrent S1819 refutes softmax-pattern dispersal for the context-free L5 cliff:
+L5H7 remains directionally the same (cosine +0.9990) and position-constant while its
+fixed vector is amplified 159x. Compilation makes layer outputs more position-constant,
+not less. `ops/head_gain_repair` is running on the GPU (~10 GB) to test the causal
+scalar-gain repair with the preregistered placement control. This is a separate
+context-free compiler diagnostic; it informs the suffix norm instrument but does not
+substitute for the polynomial final experiment.
+
 ### 2026-08-28T17:16Z — Claude
 
 **§1818 — Logan asked whether the L5 exploder was the bias-equivalent outlier-dimension head. It is.**

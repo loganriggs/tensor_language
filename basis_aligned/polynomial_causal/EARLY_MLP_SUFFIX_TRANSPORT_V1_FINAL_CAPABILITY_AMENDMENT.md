@@ -65,8 +65,12 @@ select a program, amplitude, grammar, or scientific route.
 The observed adapter presently implements true fitted-program L/R/S/T batches under
 N and E. A single source-closed action-plan registry now assigns every semantic arm
 its exact site-0 source, site-1 source, cross-map source, baseline kind, and N/E
-background. The complete 68-action executor remains NO-GO until source-closed backends
-also exist for QQ/LL/RR/singleton/removal/baseline/shuffle/null arms, finite physical
+background. A sealed physical source bank can now materialize those composite programs,
+and a final-only batch identity binds action, materialization, program-bank, inherited
+snapshot, support, tokens, and row order. The canonical bank now also freezes and
+replays the registered zero-weight/new-fit-mean program from fit-label moment sums.
+The complete 68-action executor remains NO-GO until backends exist for
+QQ/LL/RR/singleton/removal/baseline/shuffle/null arms, finite physical
 code edits and their unedited pairs, nine-bin aggregation, consumer norm aggregation,
 canonical program-bank routing, and complete bundle assembly.
 

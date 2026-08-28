@@ -9,6 +9,7 @@ import torch
 import early_mlp_suffix_transport_v1 as contract
 import early_mlp_suffix_transport_v1_capabilities as capabilities
 import early_mlp_suffix_transport_v1_fit as fit
+import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_programs as programs
 import early_mlp_suffix_transport_v1_runtime as runtime
 
@@ -420,6 +421,32 @@ def _canonical_bank_inputs():
         route: programs.freeze_selected(_score(_fit(route, 0, 700 + index), 0.1))
         for index, route in enumerate(programs.SELECTABLE_ROUTES)
     }
+    count_value = capabilities.FIT_ROW_COUNT * (
+        runtime.SCORE_STOP - runtime.SCORE_START
+    )
+    support_sha256 = "8" * 64
+    records = []
+    for site in (0, 1):
+        mean = torch.linspace(0.0, 0.1 + site, runtime.CODE_DIM, dtype=torch.float64)
+        coordinate_sum = mean * count_value
+        centered = torch.tensor(float(count_value * runtime.CODE_DIM), dtype=torch.float64)
+        records.append(MappingProxyType({
+            "count": count_value,
+            "coordinate_sum": coordinate_sum,
+            "coordinate_square_sum": mean.square() * count_value + count_value,
+            "mean": mean,
+            "centered_sum_of_squares": centered,
+            "raw_sum_square_replay": centered.clone(),
+            "denominator": torch.tensor(1.0, dtype=torch.float64),
+            "ordered_support_sha256": support_sha256,
+        }))
+    denominator = fit.DenominatorPass(
+        site_records=tuple(records), transaction_history_sha256="9" * 64,
+        completed_steps=capabilities.FIT_BATCHES_PER_EPOCH,
+    )
+    new_fit_mean = programs.freeze_new_fit_mean_program(
+        denominator, true_programs["L"].make_program(),
+    )
     document_mapping = "1" * 64
     mapped_programs = {}
     for key in programs.required_mapped_control_keys():
@@ -475,7 +502,10 @@ def _canonical_bank_inputs():
     calibration = programs.select_teacher_calibration({
         0.01: 0.005, 0.03: 0.02, 0.1: 0.05, 0.3: 0.19, 1.0: 0.4,
     })
-    return true_programs, mapped_programs, baseline, execution, geometry, calibration
+    return (
+        true_programs, mapped_programs, new_fit_mean, baseline, execution, geometry,
+        calibration,
+    )
 
 
 def test_validation_execution_manifest_requires_all_87_complete_candidates() -> None:
@@ -495,14 +525,18 @@ def test_validation_execution_manifest_requires_all_87_complete_candidates() -> 
 
 
 def test_canonical_program_bank_binds_selection_controls_geometry_and_payload(tmp_path) -> None:
-    true, mapped, baseline, execution, geometry, calibration = _canonical_bank_inputs()
+    true, mapped, mean, baseline, execution, geometry, calibration = (
+        _canonical_bank_inputs()
+    )
     bank = programs.build_canonical_program_bank(
         true_programs=true, mapped_programs=mapped,
+        new_fit_mean=mean,
         validation_baseline=baseline, validation_execution=execution,
         transport_geometry=geometry, teacher_calibration=calibration,
     )
     assert set(bank["true_programs"]) == set(programs.SELECTABLE_ROUTES)
     assert tuple(bank["mapped_programs"]) == programs.required_mapped_control_keys()
+    assert bank["new_fit_mean"]["fit_moments_sha256"] == mean.fit_moments_sha256
     assert len(bank["validation_execution"]["candidate_statistics_sha256s"]) == 87
     assert bank["transport_geometry"]["geometry_sha256"] == geometry.sha256
     assert bank["payload_sha256"] == runtime.logical_identity_sha256(
@@ -520,10 +554,24 @@ def test_canonical_program_bank_binds_selection_controls_geometry_and_payload(tm
     assert validated["true_programs"]["L"].canonical_tensor_sha256 == (
         true["L"].canonical_tensor_sha256
     )
+    source_bank = final_actions.source_bank_from_validated(
+        validated, inherited_q=true["L"].make_program(),
+    )
+    mean_action = final_actions.materialize(
+        final_actions.plan_for("new_fit_mean", "N"), source_bank,
+    )
+    mean_program = mean_action.make_program()
+    assert not torch.count_nonzero(mean_program.site0.weight)
+    assert not torch.count_nonzero(mean_program.site1.weight)
+    torch.testing.assert_close(
+        mean_program.site0.bias.double(),
+        mean.site_states[0]["bias"].double(), rtol=0, atol=0,
+    )
 
     with pytest.raises(ValueError, match="support-mixed"):
         programs.build_canonical_program_bank(
             true_programs=true, mapped_programs=mapped,
+            new_fit_mean=mean,
             validation_baseline=replace(baseline, common_support_sha256="e" * 64),
             validation_execution=execution, transport_geometry=geometry,
             teacher_calibration=calibration,
@@ -536,12 +584,14 @@ def test_canonical_program_bank_binds_selection_controls_geometry_and_payload(tm
     with pytest.raises(RuntimeError, match="duplicated"):
         programs.build_canonical_program_bank(
             true_programs=true, mapped_programs=bad_mapped,
+            new_fit_mean=mean,
             validation_baseline=baseline, validation_execution=execution,
             transport_geometry=geometry, teacher_calibration=calibration,
         )
     with pytest.raises(RuntimeError, match="selected L"):
         programs.build_canonical_program_bank(
             true_programs=true, mapped_programs=mapped,
+            new_fit_mean=mean,
             validation_baseline=baseline, validation_execution=execution,
             transport_geometry=replace(
                 geometry, selected_l_program_sha256="e" * 64,
@@ -553,6 +603,7 @@ def test_canonical_program_bank_binds_selection_controls_geometry_and_payload(tm
     with pytest.raises(RuntimeError, match="selection rule"):
         programs.build_canonical_program_bank(
             true_programs=true, mapped_programs=mapped,
+            new_fit_mean=mean,
             validation_baseline=baseline, validation_execution=execution,
             transport_geometry=geometry, teacher_calibration=changed_calibration,
         )
