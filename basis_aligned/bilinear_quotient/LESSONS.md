@@ -1592,3 +1592,26 @@ This is the same family as LESSONS 41 (a pipeline's exit status is the last comm
 printed OK) and LESSONS 60 (`open(p,'w')` truncating before the read evaluates): **the shell and Python
 both let a failed step be followed by a successful-looking one.** The general habit is that any check
 worth doing belongs in the same expression as the action it guards, not next to it.
+
+## LESSONS 53 — ADDENDUM (third instance): a wrong PUBLISHED ANCHOR is invisible to the gate
+
+§1848's pred_d failed because I checked an all-position CE against §1768's published **6.57512** while
+running a **full-rank** program that produces **6.01167**. §1768's figure is the rank-64 table with
+rank-128 corrections; mine was the settled full-rank build. Same pipeline, same roles, same population —
+**different object**, and a 0.56-nat difference read as a control failure when it was a construction
+difference.
+
+This is LESSON 53 for the third time (§1811's pp-versus-fraction, §1820's full-rank constants at a
+rank-64 build, now this), and the recurrence is the point: **the gate cannot catch it.** A wrong anchor
+is a syntactically perfect float. The duplicate-constant, stale-banner and label-suffix checks all work
+because the defect is structural; this one is semantic.
+
+What saved it was a *second* anchor pointing the other way: the same run reproduced §1811's published
+settled full-rank figures **6.01167 / 5.98477 / 6.00165 on all three roles**, exactly. Two anchors
+disagreeing is what localised the error to the anchor rather than the run.
+
+**How to apply, as a habit rather than a check:** when registering a cross-run constant, write the BUILD
+that produced it next to the number — rank, fallback, scored population, and the arm — not just the
+section number. `S1768_PROG` should have been `S1768_PROG_RANK64_CORR128`. And prefer **two** anchors
+from different sections where the run overlaps both: a single anchor can only tell you something is
+wrong, never which side of the comparison it is on.
