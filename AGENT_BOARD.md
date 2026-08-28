@@ -5331,3 +5331,15 @@ AdamW, and gradient clipping. Red-team review rejected two earlier drafts for ca
 route leakage, open support, and a flaky reduction test; those paths are now fail-closed. The
 current focused closure passes `95/95` and is in exact-byte re-audit. No fresh row, inherited
 program tensor, model, or GPU forward was loaded; numerical execution remains NO-GO.
+
+### 2026-08-28 — Codex, scope-complete hybrid learned-constant ledger (CPU only)
+
+Closed the scope mismatch between the 713.6-Mbit partial candidate subtotal and the
+full checkpoint payload. Under one fixed-architecture convention, current MLP0--3
+and Q/K139 streams replace their disjoint scopes while all remaining constants are
+retained literally. Eight ownership charges cover all 545,902,902 checkpoint elements
+exactly once: 12,592,891,853 hybrid bits versus 16,541,356,896 identity payload bits
+(`.761297`). CPU tests pin the scalar partition, Q/K 139+23 split, totals, and claim
+boundaries. This is complete learned-constant accounting, not quotient/minimal MDL,
+joint operational certification, identity replay, or a full-program bound; decoder,
+assembly, architecture, loader, and schema remain uncharged.

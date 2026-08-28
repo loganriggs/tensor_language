@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "accounting_id": "bilin18.current-partial-program-plus-literal-remainder.v1",
+  "sources": {
+    "checkpoint_payload_inventory_sha256": "836123c84e07ce2f4cbb838b90a3985819026e32d1d1cb02dceb64c8f017cb01",
+    "whole_model_coverage_sha256": "0780470f5df4f95eda2e9a2942b3d2d7ef88166a0125adf1e5411a84f937c1c7",
+    "retained_qk_dtype_audit_sha256": "28082b7cffdd52b84208ddd8b100721b762277df71dab5851c080aab85d3ea08"
+  },
+  "scope": {
+    "checkpoint_element_count": 545902902,
+    "covered_element_count": 545902902,
+    "uncovered_element_count": 0,
+    "double_counted_element_count": 0,
+    "fixed_architecture_loader_schema": true
+  },
+  "charges": [
+    {
+      "charge_id": "candidate_mlp0_3",
+      "kind": "candidate_codec",
+      "covered_checkpoint_elements": 63705600,
+      "bits": 422718360
+    },
+    {
+      "charge_id": "retained_mlp4_17",
+      "kind": "literal_checkpoint_payload",
+      "covered_checkpoint_elements": 222969600,
+      "bits": 7134769152
+    },
+    {
+      "charge_id": "candidate_attention_qk139",
+      "kind": "candidate_codec",
+      "covered_checkpoint_elements": 81985536,
+      "bits": 290859424
+    },
+    {
+      "charge_id": "retained_attention_qk23",
+      "kind": "literal_checkpoint_slices",
+      "covered_checkpoint_elements": 13565952,
+      "bits": 434110464
+    },
+    {
+      "charge_id": "retained_attention_vo",
+      "kind": "literal_checkpoint_payload",
+      "covered_checkpoint_elements": 47775744,
+      "bits": 1528823808
+    },
+    {
+      "charge_id": "structural_schedule",
+      "kind": "exact_candidate_codec",
+      "covered_checkpoint_elements": 54,
+      "bits": 661
+    },
+    {
+      "charge_id": "retained_token_embedding_x0",
+      "kind": "literal_checkpoint_payload",
+      "covered_checkpoint_elements": 57950208,
+      "bits": 927203328
+    },
+    {
+      "charge_id": "retained_unembedding",
+      "kind": "literal_checkpoint_payload",
+      "covered_checkpoint_elements": 57950208,
+      "bits": 1854406656
+    }
+  ],
+  "accounting": {
+    "hybrid_learned_constant_payload_bits": 12592891853,
+    "identity_checkpoint_tensor_payload_bits": 16541356896,
+    "payload_bits_removed": 3948465043,
+    "hybrid_to_identity_payload_ratio": 0.7612973912705547
+  },
+  "claims": {
+    "scope_comparable_to_identity_tensor_payload": true,
+    "complete_learned_constant_payload_accounting": true,
+    "identity_replay": false,
+    "joint_operational_fidelity_certified": false,
+    "decoder_graph_schema_charged": false,
+    "complete_program_bound": false,
+    "quotient_price": false,
+    "minimal_description_length": false
+  },
+  "interpretation": "All checkpoint learned constants are replaced by a candidate stream or retained literally exactly once. Decoder, architecture, loader, tensor schema, and joint assembled fidelity remain outside this accounting."
+}
