@@ -5382,3 +5382,15 @@ tests prove canonical tensor and quantized V/O byte invariance under simultaneou
 global rotation, different headwise nonorthogonal gauges, and head permutation. Route
 keys are assumed already globally canonical, leaving Q/K global-gauge invariance as
 the explicit next cross-family obligation. No behavioral or price promotion.
+
+### 2026-08-28 — Codex, global-gauge-invariant Q/K route bytes (CPU only)
+
+Closed the cross-family obligation left above. A residual-frame wrapper now transforms
+Q/K/Q2/K2 maps before calling the existing production dense or low-rank head codecs,
+then uses those canonical route bytes to bind the existing shared-depth V/O bundle and
+common S9 order. CPU tests prove identical dense and low-rank routes under arbitrary
+global residual rotation. A joint test additionally applies Q/K even-sign/branch-swap
+gauges, different nonorthogonal V/O gauges per head, and common head permutation;
+route multisets and final route-bound payload bytes are identical. This proves the
+nested codec stack, but does not change frozen artifact hashes, prices, or operational
+scores; production use requires a versioned rewrap and replay.

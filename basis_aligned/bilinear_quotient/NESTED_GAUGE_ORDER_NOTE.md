@@ -44,10 +44,19 @@ global orthogonal rotation, a different nonorthogonal value gauge to each head, 
 a common head permutation. Both canonical tensors and final quantized V/O container
 bytes remain identical.
 
-The route keys in this test are treated as already canonical external identities.
-Thus it proves the nested residual/V/O boundary and common ordering, not yet that the
-production Q/K codec is invariant to the newly recognized global residual rotation.
-That is the next required cross-family proof obligation.
+The first adapter treated route keys as already canonical external identities. The
+follow-up `nested_attention_gauge_codec.py` now closes that boundary: it transforms
+Q/K/Q2/K2 reader maps into the same embedding-anchored residual frame before invoking
+the production dense or low-rank head codec. Dense and low-rank route bytes are
+identical after an arbitrary global rotation. The full wrapper then uses those bytes
+to bind the V/O payload and fix the common head permutation.
+
+A joint randomized test simultaneously applies global residual rotation, existing
+even-parity/branch-swap Q/K gauges, independent headwise nonorthogonal value gauges,
+and common head permutation. The route multiset and final route-bound V/O bytes are
+identical. This closes the continuous/discrete gauge-order proof for the CPU codec
+stack. It does not retrofit these bytes into an already frozen production artifact or
+license inherited behavioral scores; that requires a new versioned rewrap and replay.
 
 ## Accounting consequence
 
