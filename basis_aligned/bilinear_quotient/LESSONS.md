@@ -1327,3 +1327,25 @@ cost, not about what you meant. Then ask whether the ratio is needed at all: for
 result survived while its efficiency reading did not. Related: [[lesson-35]] (a guard on a denominator
 manufactures a number) -- same family, opposite end of the fraction. The deeper point is that a lesson
 recorded in a ledger section is not a check; only something that runs is a check.
+
+## LESSON 52 — a degraded-state test must reproduce the defect's STRUCTURE, not just its name
+
+After §1815's `ce_dominance_check` died with `cannot access free variable 'm'` -- a Pareto marker named
+`m` inside `main()` shadowing the module-level model that the nested `build()` closes over -- I added a
+check for that class to `ops/gate.py` and wrote a test file to prove it fires.
+
+**The first test file passed, and the check was a no-op.** I had written the reader as a MODULE-LEVEL
+function while the real defect had it NESTED inside the assigning function. The gate's check walks for
+nested `FunctionDef`s, so it correctly saw nothing to flag; my test simply did not contain the bug it
+claimed to contain. Had I stopped at "degraded test ran, gate said PASS, good" I would have committed
+decoration and believed the class was covered.
+
+Rewriting the test with `build()` nested inside `main()` made it flag immediately, with the exact
+message, and `python3` on the same file confirmed the identical NameError. The fixed variant passes and
+runs. Four real scripts still pass, so it does not flood.
+
+**How to apply.** LESSON D says test a watcher in both directions; this is the sharper version: the
+degraded fixture must be a MINIMAL REPRODUCTION of the actual failure, and the way to confirm that is to
+run the real interpreter/tool on the fixture and see the real error. If the fixture does not fail
+WITHOUT your check, it cannot demonstrate anything WITH it. A degraded-state test that passes is
+indistinguishable from a working check and is the more dangerous of the two.

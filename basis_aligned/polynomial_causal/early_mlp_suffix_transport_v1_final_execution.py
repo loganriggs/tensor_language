@@ -20,6 +20,7 @@ from typing import Any, Callable, Mapping, Sequence
 import torch
 
 import bilin18_observed_adapter as observed
+import early_mlp_suffix_transport_v1_final_capability as final_capability
 import early_mlp_suffix_transport_v1_final as final_owner
 import early_mlp_suffix_transport_v1_lifecycle as lifecycle
 import early_mlp_suffix_transport_v1_runtime as runtime
@@ -32,14 +33,7 @@ FINAL_ROW_WIDTH = 513
 SCORED_TOKENS_PER_ROW = 192
 REPLAY_TOLERANCE = 2e-6
 
-_BASE_ARMS = (
-    "qq", "ll", "s0_l1", "l0_s1", "rr", "r0_l1", "l0_r1", "lt",
-    "zero_a", *(f"a_null_{index:02d}" for index in range(20)),
-    "shuffled_l", "shuffled_r", "n_n", "o_o", "new_fit_mean",
-)
-REQUIRED_FINAL_ARMS = tuple(
-    f"{arm}/{background}" for arm in _BASE_ARMS for background in ("N", "E")
-)
+REQUIRED_FINAL_ARMS = final_capability.CANONICAL_ACTION_KEYS
 
 _CLOSURE_FIELDS = {
     "outer_model_returned", "hooks_restored", "hooks_inert",

@@ -74,6 +74,31 @@ def gate(path):
         if u:
             fails.append(f'{fn.name}(): possibly undefined {u}')
 
+    # A NESTED FUNCTION'S FREE VARIABLE MUST NOT BE ASSIGNED LATER IN ITS ENCLOSING FUNCTION.
+    # §1815's ce_dominance_check named a Pareto marker `m` inside main(); that made `m` a local of
+    # main, shadowing the module-level model that the nested build() closes over, and every arm died
+    # with "cannot access free variable 'm'". The existing undefined-name check cannot see it: `m` IS
+    # assigned in main, just after the nested call runs.
+    for fn in [f for f in tree.body if isinstance(f, ast.FunctionDef)]:
+        outer_assigned = set()
+        for n in ast.walk(fn):
+            if isinstance(n, ast.Assign):
+                outer_assigned |= _targets(n)
+            elif isinstance(n, ast.For):
+                outer_assigned |= _targets(n)
+        nested = [n for n in ast.walk(fn)
+                  if isinstance(n, ast.FunctionDef) and n is not fn]
+        for inner in nested:
+            free = {n.id for n in ast.walk(inner)
+                    if isinstance(n, ast.Name) and isinstance(n.ctx, ast.Load)}
+            free -= _bound(inner, inner)
+            shadowed = sorted((free & outer_assigned & mod) - set(dir(builtins)))
+            if shadowed:
+                fails.append(
+                    f'{fn.name}(): nested {inner.name}() reads module global(s) {shadowed} '
+                    f'that {fn.name}() also assigns -- the assignment shadows the global for the '
+                    f'whole function and the nested call will fail')
+
     # every function used AS A VALUE must return something (LESSONS 18).
     # A call that is the whole of an Expr statement is statement-use, not value-use.
     stmt_calls = {id(n.value) for n in ast.walk(tree) if isinstance(n, ast.Expr)

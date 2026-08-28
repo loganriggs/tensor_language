@@ -60,6 +60,8 @@ NUMERICAL_STAGE_CLOSURE = (
     # tests exist, are tracked, and enter the same source closure.
     HERE / "early_mlp_suffix_transport_v1_final_execution.py",
     HERE / "test_early_mlp_suffix_transport_v1_final_execution.py",
+    HERE / "early_mlp_suffix_transport_v1_final_capability.py",
+    HERE / "test_early_mlp_suffix_transport_v1_final_capability.py",
 )
 FROZEN_SHA256 = {
     PREREGISTRATION: "11577380d65c813cf9e80e92002de9569928d293747c278c065939b3f3b24193",

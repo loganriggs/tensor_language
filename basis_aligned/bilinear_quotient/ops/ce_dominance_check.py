@@ -418,9 +418,11 @@ def main():
     print('   (* = on the Pareto frontier at every role)', flush=True)
     print('\n  cost, CE and top-1 (lower CE is better):', flush=True)
     for k in sorted(keys, key=lambda k: cost[k]):
-        m = ('C' if all(k in ce_par[e] for e in roles) else ' ') + \
-            ('P' if all(k in p1_par[e] for e in roles) else ' ')
-        print(f'   {m} {k:12s} {cost[k]/1e6:9.3f}M  ' + '  '.join(
+        # NB: not `m` -- that is the model, closed over by build(); assigning it here would
+        # shadow it in main's scope and break every arm (it did, on the first attempt).
+        mark = ('C' if all(k in ce_par[e] for e in roles) else ' ') + \
+               ('P' if all(k in p1_par[e] for e in roles) else ' ')
+        print(f'   {mark} {k:12s} {cost[k]/1e6:9.3f}M  ' + '  '.join(
             f'{e} CE {ce[e][k]:.4f} top1 {acc[e][k]:6.2%}' for e in roles), flush=True)
     print('   (C = on the CE Pareto frontier at every role; P = on the top-1 frontier)', flush=True)
     print(f'\n  on CE, r16_L7 does NOT beat the full-rank all-sites arm -> {pa}  ' + '  '.join(

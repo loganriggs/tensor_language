@@ -9070,3 +9070,35 @@ the preregistration is `TYPED_EARLY_OBSERVABLE_CLOSURE_PREREGISTRATION.md`. Clau
 concurrent S1814 correction is incorporated: the rank-1 table's map has rank <=2, so
 the cheap program is 0.485M values, not the withdrawn 5.628M price; its CE audit is
 currently running and remains discovery-only.
+
+### 2026-08-28T16:41Z — Codex: rank-1 CE fails; typed final action boundary implemented
+
+The corrected cheap-table CE audit completed in 433.6 seconds. Rank 1 is exactly cheap
+(0.485M values after the theorem `rank(Ws) <= table_rank + 1`) and retains 77--79% of
+rank-64 top-1, but its CE is 7.51892/7.51560/7.53754 versus rank-64
+6.17330/6.15261/6.14463: +1.34562/+1.36299/+1.39291 nats. CE is monotone in rank, and
+the registered CE-per-real optimum at rank <=4 failed; rank 64 wins under that metric.
+The exact rank cap is a certified cost simplification, not a predictive explanation.
+Further table/map tuning is demoted to control status.
+
+The top five are now: (1) bind/audit a typed final action backend; (2) freeze authority
+and execute suffix L/R/S0/S1/T; (3) run typed observable closure, using empirical M4
+only to choose a replacement grammar if the affine route rejects; (4) put an admitted
+early package in the current-ship macro cube; (5) compile MLP2/3 conditionally on that
+upstream state. Coefficient HOSVD/CP, generic diagonalization/Hankel/gate/local-R2,
+standalone SAE, and MDL/IB without consequences remain pruned or subordinated.
+
+Executed (1)'s source contract. New `early_mlp_suffix_transport_v1_final_capability.py`
+fixes the canonical 68 arm/background actions, single-use poison closure, common
+support, per-row CE/KL/copy/frequency reductions, registered code/logit response inner
+products, and all 18 live-consumer norm ratios without exposing rows/logits/states/model
+or graph tensors. It is now in the mandatory lifecycle source closure, and the final
+executor imports its canonical lattice. Focused tests pass 6/6; combined capability,
+final-executor, and lifecycle tests pass 34/34. The initial lifecycle test failed while
+the files were untracked, as intended, then passed after exact staging. No role/model/
+outcome was opened.
+
+Remaining NO-GO is exact and local: implement the observed adapter backend behind this
+contract, add the prospective consumer-norm amendment, prove no raw/graph escape,
+audit, push, and mint fresh authority. GPU is free. Static review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1641.md`.
