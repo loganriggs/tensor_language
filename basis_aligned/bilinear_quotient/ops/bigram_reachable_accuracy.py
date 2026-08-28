@@ -10,8 +10,9 @@
 #   fit-row bigram  -- add-alpha 0.01 with unigram backoff on the SAME 96x256 fit rows the program was
 #                      fitted on, uncovered current tokens falling back to the unigram argmax. This is
 #                      the FAIR floor: identical data, no layers.
-#   eval-row LOO bigram -- fitted on the very rows it is scored on, leave-one-out exact via top-2
-#                      counts. NOT fair; it is an upper bound on what any bigram could reach here.
+#   eval-row LOO bigram -- fitted on the very rows it is scored on, PER ROLE (no borrowing across
+#                      roles), leave-one-out exact via top-2 counts. NOT fair; it is an upper bound on
+#                      what any bigram could reach here.
 #   live model      -- as in §1789.
 #
 # ROLES. skip7000, skip11000, skip1200; full-rank settled program. DISCOVERY ONLY.
@@ -123,11 +124,14 @@ def compare_by_bucket(rows, hooks, loo_argmax):
     for i in range(0, rows.shape[0], 8):
         bb = rows[i:i + 8]
         idx = bb[:, :-1].to(DEV).contiguous()
+        cur = idx[:, 64:]          # the CURRENT token at each scored position
         tg = bb[:, 1:].to(DEV)[:, 64:]
         hit = {'live': forward_logits(idx)[:, 64:].argmax(-1) == tg,
                'prog': forward_logits(idx, hooks)[:, 64:].argmax(-1) == tg,
-               'fitbg': COV['fitbg'][idx] == tg,
-               'loobg': loo_argmax(idx, tg) == tg}
+               'fitbg': COV['fitbg'][cur] == tg,
+               'loobg': loo_argmax(cur, tg) == tg}
+        for k in ARMS:
+            assert hit[k].shape == tg.shape, f'{k} arm is {hit[k].shape}, targets are {tg.shape}'
         f = COV['freq'][tg]
         tot['n'] += int(tg.numel())
         for k in ARMS:
@@ -248,24 +252,27 @@ def main():
     # ---- arm 4: the EVAL-ROW LEAVE-ONE-OUT bigram -- NOT a fair floor but an upper bound on
     # what any bigram could do here, since it is fitted on the very rows it is scored on. Leave-one-out
     # is exact: take the top-2 counts and, when the top is the target itself, decrement and re-compare.
-    ev_all = torch.cat([load(p) for _, p, _ in EVAL_SETS], 0)
-    loo_cnt = torch.zeros(ncov + 1, V, dtype=torch.float32, device=DEV)
-    ec_cur = ev_all[:, :-1][:, 64:].reshape(-1).long()
-    ec_nxt = ev_all[:, 1:][:, 64:].reshape(-1).long()
-    ec_ri = COV['idmap'][ec_cur.to(DEV)]
-    ec_ri = torch.where(ec_ri >= 0, ec_ri, torch.full_like(ec_ri, ncov))
-    loo_cnt.index_put_((ec_ri, ec_nxt.to(DEV)),
-                       torch.ones(ec_ri.numel(), device=DEV), accumulate=True)
-    loo_top = loo_cnt.topk(2, dim=-1)
-    del ev_all
-    torch.cuda.empty_cache()
-    print(f'  eval-row LOO bigram: {ec_ri.numel()} observations', flush=True)
+    loo_state = {}
 
-    def loo_argmax(idx, tg):
-        """argmax of the eval-row bigram with THIS position's own observation removed."""
-        r = COV['idmap'][idx]
+    def build_loo(rows, ename):
+        """LOO bigram counts on THIS role's own rows only -- no borrowing across roles."""
+        c = torch.zeros(ncov + 1, V, dtype=torch.float32, device=DEV)
+        cu = rows[:, :-1][:, 64:].reshape(-1).long().to(DEV)
+        nx = rows[:, 1:][:, 64:].reshape(-1).long().to(DEV)
+        r = COV['idmap'][cu]
         r = torch.where(r >= 0, r, torch.full_like(r, ncov))
-        v, k = loo_top.values[r], loo_top.indices[r]
+        c.index_put_((r, nx), torch.ones(r.numel(), device=DEV), accumulate=True)
+        loo_state['top'] = c.topk(2, dim=-1)
+        del c
+        torch.cuda.empty_cache()
+        print(f'  eval-row LOO bigram for {ename}: {r.numel()} observations', flush=True)
+
+    def loo_argmax(cur, tg):
+        """argmax of the eval-row bigram with THIS position's own observation removed."""
+        r = COV['idmap'][cur]
+        r = torch.where(r >= 0, r, torch.full_like(r, ncov))
+        lt = loo_state['top']
+        v, k = lt.values[r], lt.indices[r]
         c1 = v[..., 0] - (k[..., 0] == tg).float()
         return torch.where(c1 >= v[..., 1], k[..., 0], k[..., 1])
 
@@ -274,6 +281,7 @@ def main():
     hooks = [(st, row_hook(fr[st])) for st in sites]
     for ename, epath, ce_ref in EVAL_SETS:
         ev = load(epath)
+        build_loo(ev, ename)
         c = compare_by_bucket(ev, hooks, loo_argmax)
         res[ename] = {k: {kk: (round(vv, 5) if isinstance(vv, float) else vv)
                           for kk, vv in v.items()} for k, v in c.items()}
