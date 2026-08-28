@@ -50300,3 +50300,36 @@ buying, and its cost/fidelity curve is measured end to end at three coverages an
 remaining in-class questions are interpolation. **The next substantive step is outside the class, which
 is a different program and is flagged for Logan** (board, 23:05) rather than taken, both because the wake
 prompt reserves that call and because it is adjacent to Codex's attention-shaped work.
+
+## §1855 — the frontier's structure is role-invariant, and skip7000 was the weakest case for it
+
+**DERIVED, not a run.** Arithmetic on the four measured ladders (§1849, §1853, §1852, §1854). Recorded
+because §1853 and §1854 published their Pareto claims on **skip7000 alone**, and I checked the other two
+roles afterwards rather than before.
+
+```
+  dominated set, 18 points, all-position CE
+    skip7000    4 of 18   r4@9,054 · r4@16,110 · FULL@5,419 · FULL@9,054
+    skip11000   4 of 18   r4@9,054 · r4@16,110 · FULL@5,419 · FULL@9,054
+    skip1200    4 of 18   r4@9,054 · r4@16,110 · FULL@5,419 · FULL@9,054
+```
+
+**The dominated set is identical on all three roles** — not merely similar in size, the same four points.
+And the two headline claims hold with **larger** margins on the two roles I did not publish on:
+
+```
+  rank-256@16,110 (164.5M) vs FULL@5,419 (230.1M)   skip7000 -0.02316   skip11000 -0.04371   skip1200 -0.04384
+  rank-384@16,110 (244.0M) vs FULL@9,054 (380.8M)   skip7000 -0.00684   skip11000 -0.01747   skip1200 -0.02075
+```
+
+**skip7000 is the weakest case for both**, by a factor of about two on the first claim and three on the
+second, so §1853's and §1854's headlines are conservative rather than role-lucky. The second claim's
+skip7000 margin of **0.00684 nats** was thin enough to be worth this check — it is the only figure in
+either section that a single-role reading could have made look sturdier than it was.
+
+**Recorded as a process note as much as a result.** Publishing a Pareto claim from one role and verifying
+it on the others afterwards is the right answer in the wrong order. The check cost two minutes of
+arithmetic on data already in hand, and had it come out the other way §1853 and §1854 would both have
+needed qualification after being written into the registry and the board. **The habit to keep: when a
+claim is a comparison between two builds, check it on every role the runs already measured before it
+leaves the ledger** — the runs almost always measured them.
