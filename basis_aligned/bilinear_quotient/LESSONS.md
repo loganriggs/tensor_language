@@ -1067,3 +1067,23 @@ a later `grep -c` on the real file returned a count that could not be right.
 distinguish the state I wanted from a state I already had. For appends to a ledger, use an ABSOLUTE
 path — never a relative one, and never trust cwd across tool calls. For checks, ask what the command
 prints when the thing has NOT happened; if the answer is "the same thing", it is not a check.
+
+## LESSON 42 — internal consistency cannot detect a changed definition; only cross-run reproduction can
+
+`ops/rank_crossover` (§1792) passed every internal control it had: top-k monotone in k for every arm
+and bucket, buckets partitioning every scored position, the fit-row bigram's covered CE reproducing
+§1767's 7.88804 / 7.90729 exactly, coverage 5419. It was still measuring the wrong object. Its "LOO
+bigram" ranked by `counts + alpha*V*back` at alpha=0.01, where `alpha*V = 503.04` multiplies a
+distribution summing to 1 while the actual counts are 1-3 — so the arm was a unigram at the top of its
+ranking, and its top-1 came out 10.31% against the 15.97% the same nominal object scored in §1790.
+
+Every internal check was **invariant to the defect**: monotonicity, partition and coverage hold for
+any scoring whatsoever, and the CE control tested a *different* table. The only bar that failed was
+the one naming a figure produced by an EARLIER RUN OF A DIFFERENT SCRIPT.
+
+**How to apply.** When a run reuses an object from a previous section, one control must be "this arm
+reproduces the number that section published", and it must be checked against the published figure —
+not against a value recomputed inside the new script, which would move with the defect. A run that
+only checks itself can be perfectly consistent and perfectly wrong. Related: [[lesson-34]] (a
+partition needs a known-answer check, not a sum check) is the same defect one level down — there the
+controls could not fail; here they could fail but not for this reason.

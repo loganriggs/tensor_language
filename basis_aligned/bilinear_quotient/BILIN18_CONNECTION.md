@@ -46693,3 +46693,44 @@ bigram CE reproduces §1767's 7.88804 / 7.90729; buckets partition; coverage 541
 
 **Open question this ends on.** CE says the program beats the bigram, top-1 says it loses. Top-1 is one
 point of a ranking. Where in the ranking does the crossover happen?
+
+## §1792 — the control failed and it voids the run: my "bigram" ranking arm was a unigram in disguise
+
+`ops/rank_crossover.py`, 51.7s, **DISCOVERY ONLY**, rung 3.
+**pred_a True | pred_b True | pred_c True | pred_d FALSE — and pred_d's failure invalidates the other
+three.** No claim is drawn from this run.
+
+pred_d required the LOO bigram's rank-1 accuracy to reproduce §1790's 0.1597 / 0.1663 / 0.1800 within
+0.001. It came out **0.1031 / 0.1084 / 0.1004** — short by **5.7 / 5.8 / 8.0 percentage points**. The
+two runs were not scoring the same object.
+
+**Cause, measured not guessed.** §1790's `loo_argmax` ranked by **raw counts**. This run ranked by the
+§1767 smoothed score `counts + alpha*V*back` at alpha=0.01. But `alpha*V = 0.01 x 50304 = 503.04`
+multiplying a unigram distribution that sums to 1, while the eval rows give 36,864 observations over
+5,419 covered current types — **~6.8 observations per current token, so essentially every real bigram
+count is 1-3**. A token holding 2% of unigram mass contributes 10.06 to its score; one holding 5%
+contributes 25.15. The backoff term is one to two orders of magnitude larger than the counts it was
+meant to smooth, so **at the top of its ranking the arm is a unigram**, not a bigram.
+
+**So pred_a, pred_b and pred_c passed against a weaker opponent than the one the question was about**,
+and the reported "CROSSOVER: smallest k where the program overtakes the bigram -> 1 at every role" is
+the artifact itself: k=1 directly contradicts §1790, where the bigram *wins* at k=1. The contradiction
+was the tell and pred_d caught it. The crossover question stands unanswered.
+
+**One thing is worth keeping as a measured fact rather than an error.** The alpha that §1767 selected
+by cross-entropy is not the alpha that preserves the ranking: at alpha=0.01 the smoothed bigram's
+top-1 is **10.31 / 10.84 / 10.04%** against the raw-count bigram's **15.97 / 16.63 / 18.00%**. Smoothing
+chosen to optimise CE cost this object a third of its top-1. That is the same CE-versus-accuracy
+divergence §1788 opened, now appearing inside a *baseline* rather than inside the program — and it is
+a reason to distrust any ranking claim built on a CE-selected hyperparameter.
+
+**Requeued** as `ops/rank_crossover_v2.py`, ranking by raw counts with the unigram used only to break
+ties, carrying §1790's exact top-2 argmax as a separate arm so the control compares like with like,
+and reporting the alpha=0.01 arm alongside so the finding above stays on the record as a number.
+
+**LESSON 42.** The bar I set caught this only because it named a figure from a *different run of a
+different script*. Every internal control in `rank_crossover` passed: top-k was monotone, the buckets
+partitioned, the fit-bigram CE reproduced §1767 exactly, coverage was 5419. A run can be internally
+consistent in every respect and still be measuring the wrong object. **Cross-run reproduction of a
+previously published number is the only control that can catch a changed definition** — and it works
+only if the number comes from the earlier code path, not from a re-derivation inside the new one.
