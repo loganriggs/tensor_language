@@ -10,6 +10,7 @@ def test_preregistration_and_create_only_result_path():
     assert bank.OUTPUT.name == "tensor_bilin18_causal_intervention_bank_results.json"
     assert bank.RANKS == (512, 640)
     assert bank.N_BOOTSTRAP == 10_000
+    assert bank.EVAL_BATCH == 4
 
 
 def test_exact_candidate_prices():

@@ -37,7 +37,7 @@ ROLE_PATHS = {
 }
 N_BOOTSTRAP = 10_000
 BOOTSTRAP_SEED = 20_260_828
-EVAL_BATCH = 2
+EVAL_BATCH = 4
 SOURCES = (
     Path(__file__).resolve(), PREREG,
     HERE / "tensor_bilin18_shared_qk_whole_program.py",
