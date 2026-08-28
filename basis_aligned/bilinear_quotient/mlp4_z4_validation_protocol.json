@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "protocol_id": "bilin18.mlp4.z4-heldout-validation.v1",
+  "status": "preregistered_gpu_launch_requires_claim_and_driver_check",
+  "question": "Do frozen checkpoint-aligned bilinear factors beat generic seeded product features at matched actual serialized bits?",
+  "data": {
+    "file": "mlp4_frontier_validation_rows.pt",
+    "file_sha256": "77129dcd93548eebea091bd283be246b56bb57bbba1840454e173edeea8d1403",
+    "member": "mlp4_validation_skip39000_rows960",
+    "rows": 960,
+    "sequence_length": 256,
+    "scored_position_minimum": 64,
+    "fit_rows_may_be_opened": false,
+    "combined_rows_may_be_opened": false,
+    "ood_may_be_opened": false
+  },
+  "pinned_artifacts": {
+    "mlp4_frontier_validation_rows.pt": "77129dcd93548eebea091bd283be246b56bb57bbba1840454e173edeea8d1403",
+    "mlp4_z4_candidate_bytes.pt": "d8387e3e65c7921dff815f35ba2a5501eb41291a96b788f9e48c3098ab235543",
+    "mlp4_z4_candidate_inventory.json": "aed0af8ae35fa5142847a08e3ddd821f794cd2b09a73ef1abd7edd8562fd2543",
+    "mlp4_z4_validation_controls.pt": "b7397504fed19f0bb10a80d57bf7c2fee8e16f8902307a4fb11e24979d685640"
+  },
+  "pinned_sources": {
+    "mlp4_z4_validation.py": "51f58f8f8be900e0db093a714ca0c36bf85c3abce728bf267af0d4ca7fa6a17f",
+    "affine_codec.py": "f8b475542365e9c175578508b17d05f5516890e3a24db5d16dfa96fecaf14238",
+    "mlp4_bilinear_residual_codec.py": "521933802fd552ef97f953814c63e49d4d1fae7a445ac49b11c3fa7d40c97a30",
+    "mlp4_seeded_random_bilinear_codec.py": "91860a4d75507267d54c62256b80018daceb43409d3d1b48fe56fccccb653c5f"
+  },
+  "candidate_order": [
+    "linear_r32", "linear_r64", "linear_r128", "linear_r256", "linear_r512", "linear_r1152",
+    "native_k32", "native_k64", "native_k128", "native_k256", "native_k512",
+    "random_k32", "random_k64", "random_k128", "random_k256", "random_k512", "random_k1024", "random_k2048"
+  ],
+  "controls": ["retained_live_mlp4", "fit_mean_mlp4_output"],
+  "metrics": {
+    "primary": "next-token cross entropy",
+    "fidelity": "1-(candidate_ce-live_ce)/(mean_ce-live_ce)",
+    "all_candidates_evaluated_once": true,
+    "no_early_stopping": true,
+    "no_validation_refit_or_selection": true
+  },
+  "gates": {
+    "native_beats_matched_random_pairs": "at least 4 of 5 lower-or-equal actual-bit pairs",
+    "family_near_monotonicity": "no adjacent CE increase greater than 0.01",
+    "full_affine_fidelity": "at least 0.65",
+    "failure_action": "block transfer of this representation language to MLP1; do not tune on exposed validation"
+  },
+  "resources": {
+    "batch_size": 4,
+    "model_forward_arms": 20,
+    "estimated_runtime_minutes": [3, 12],
+    "estimated_peak_gib": [4, 8],
+    "hard_abort_peak_gib": 10,
+    "hard_abort_temperature_c": 82,
+    "in_loop_guard_every_batches": 20,
+    "telemetry_query_failure_aborts": true
+  },
+  "artifact_policy": {
+    "held_out_lane_only": true,
+    "no_candidate_promotion": true,
+    "composite_extraction_removal_ood_remain_closed": true
+  }
+}

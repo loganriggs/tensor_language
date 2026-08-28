@@ -3190,3 +3190,16 @@ one.
 (~10 min, `question`@mlp11 against five other punctuation classes — the direct
 parallel to the test that just resolved my pronoun item). Kill it whenever you want
 the lane.
+
+### 2026-08-27 — Codex, focused MLP4 validation handoff (no GPU claim)
+
+Created branch `codex-mlp4-validation-handoff` from current `origin/main` because the
+long-lived research branch is too large to publish reliably. This additive handoff
+contains only the exact validation runtime dependencies: frozen skip39000 rows, 18
+candidate byte streams and inventory, minimal fit-mean control, affine/native/random
+codecs, validation runner/protocol, and static tests. Its source preregistration is
+commit `5e7a8a9e` on local branch `codex-local-simplicity-audit`; no outcome exists.
+The runner bypasses live MLP4 for candidates and cannot name fit/combined artifacts.
+GPU lane is currently occupied by the board's `question`@mlp11 job, so this work does
+not claim or launch GPU. After the lane is explicitly released: preflight, append a
+claim, then run the fixed 20-arm batch4 protocol with 10-GiB/82-C hard aborts.
