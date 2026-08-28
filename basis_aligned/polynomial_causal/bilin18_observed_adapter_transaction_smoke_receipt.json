@@ -1,0 +1,51 @@
+{
+  "status": "implementation_smoke_only",
+  "scientific_authority": false,
+  "executed_at_utc": "2026-08-28T04:03:04.749286+00:00",
+  "source_commit": "1aaf696a1005cfb8a5767e15995f8aa9d6b68c2e",
+  "source_hashes": {
+    "bilin18_observed_adapter_smoke.py": "6d102ee256a219142f87ecf1e7a42df186ed9328466b650a492662fd19e0c3fb",
+    "bilin18_observed_adapter.py": "68f92b56705d97b9e888b19d5783e7a23a2e7168cbbe685f7d535b59f641a32d",
+    "bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+    "bilin18_frozen_ship_program.py": "3621797985051f63db96a9fb895320c18add0fbcc090f81478a1e77eed9304f2",
+    "early_mlp_suffix_transport_v1_capabilities.py": "549666898927d8cac60456a499c40ee724eed41139c7bf0479c61f8f31a7e9b8",
+    "early_mlp_suffix_transport_v1_runtime.py": "ff4746a4ef73bdad8767a763d6a906902339df0692be5015d43cec9e40171c02",
+    "early_mlp_suffix_transport_v1_inherited.py": "76df71545e34d5c69acc98e981d92ff615c904ff38ca5fe62c2e8d4ec141fc2c"
+  },
+  "input": {
+    "kind": "synthetic_constant_tokens",
+    "token_id": 0,
+    "shape": [4, 256]
+  },
+  "checkpoint": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "weights_bytes": 2067738635,
+    "logit_vocab": 50304
+  },
+  "frozen_ship": {
+    "artifact_sha256": "fe21ead35b1dcb3c0914a36b04d7be36e9c3f179c57bc63eee62bd78d34fe9df",
+    "artifact_bytes": 1468244695,
+    "realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e"
+  },
+  "transaction": {
+    "identity_sha256": "5249ed44aad9b460147aa4b3b338898c1528cddc5e587a99ff2450fe38ad490c",
+    "student_states": {"0": "P", "1": "P", "2": "N"},
+    "attention_dispatch_calls": "each site 0..17 exactly once",
+    "mlp_dispatch_calls": "each site 0..17 exactly once",
+    "deployed_n_calls": {"0": 1, "1": 1, "2": 1},
+    "student_correction_calls": {"0": 1, "1": 1, "2": 0},
+    "student_literal_native_calls": {"0": 0, "1": 0, "2": 0},
+    "coordinate_teacher_native_calls": {"0": 1, "1": 1, "2": 0},
+    "student_output_shapes": [[4, 256, 64], [4, 256, 64], [4, 256, 50304]],
+    "teacher_output_shapes": [[4, 192, 64], [4, 192, 64]],
+    "coordinate_moment_counts": [768, 768],
+    "ledger_counts": {"student": 1, "teacher": 1, "completed": 1},
+    "outstanding_identity": null,
+    "coordinator_idle": true,
+    "hook_cleared": true
+  },
+  "peak_cuda_allocated_bytes": 6353296384,
+  "runtime_seconds": 14.637,
+  "interpretation": "The complete observed P/P/N student plus coordinate-teacher capability transaction closes on synthetic inputs. No corpus row, teacher target, CE, KL, selection, or scientific gate was evaluated."
+}
