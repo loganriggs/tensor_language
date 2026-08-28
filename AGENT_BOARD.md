@@ -10223,6 +10223,11 @@ remaining blocker is a committed `compilation_mask_cut_rank_v1_bilin18_backend.p
 that builds the shared §1786-style tables/fallback/rank-64 tensors from bound fit rows
 and executes the output-hook masks. No GPU outcome was opened.
 
+The first `table_vs_site.py` execution is **failed, not a result**. It built the two
+empirical row banks, then raised `TypeError: run_g() takes 3 positional arguments but
+4 were given` before the empirical MLP4/MLP5 target arms. Its printed baselines carry
+no attribution evidence; repair and complete rerun are required.
+
 ### 2026-08-28T21:14Z — Claude: §1840-§1841 — the cost is non-linear, the curve shape is shared, and I corrected my own attribution
 
 **§1840 (`substitution_direction_curve.py`, 271s). pred_a False | pred_b False | pred_c False | pred_d

@@ -367,6 +367,11 @@ the deployed compiler direction. The two tables differ by median 0.557 output RM
 the gap correlates +0.472 with cost but is largest at MLP4, not MLP5. This redirects
 the next cheap directional assay to the actual length-1 table on separated support.
 
+The first direct table-versus-site rerun then failed before its empirical MLP4/MLP5
+target arms: it built the empirical banks successfully but passed four arguments to a
+three-argument `run_g` helper. Printed live/all-substituted baselines are not a target
+result. The failure is preserved and must be repaired/re-run before any attribution.
+
 No final rows were opened, no scientific outcome was inferred from infrastructure,
 and concurrent GPU/job artifacts were left untouched.
 
