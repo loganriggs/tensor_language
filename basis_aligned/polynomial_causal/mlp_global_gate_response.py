@@ -158,11 +158,11 @@ def ridge_leverage_scores(response: torch.Tensor, target_rank: int) -> torch.Ten
     _, singular, vh = torch.linalg.svd(matrix, full_matrices=False)
     tail = singular[target_rank:].square().sum()
     ridge = tail / target_rank
-    tolerance = torch.finfo(singular.dtype).eps * max(matrix.shape) * singular[0]
-    if singular[target_rank] <= tolerance:
-        weights = (singular > tolerance).to(singular.dtype)
-    else:
+    if bool(ridge > 0):
         weights = singular.square() / (singular.square() + ridge)
+    else:
+        tolerance = torch.finfo(singular.dtype).eps * max(matrix.shape) * singular[0]
+        weights = (singular > tolerance).to(singular.dtype)
     scores = (weights[:, None] * vh.square()).sum(dim=0)
     return scores.contiguous()
 

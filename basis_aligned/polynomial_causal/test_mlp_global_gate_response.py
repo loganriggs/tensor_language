@@ -77,7 +77,9 @@ def test_ridge_selector_finds_stable_response_span() -> None:
         [0.0, 1.0, 0.0, 0.0, 0.6, 0.0, 0.2, 0.0],
         [0.0, 0.0, 1.0, 0.0, 0.0, 0.5, 0.0, 0.2],
     ], dtype=torch.float64)
-    first = core @ mixing
+    first = core @ mixing + 1e-4 * torch.randn(
+        4, 5, 8, generator=generator, dtype=torch.float64,
+    )
     second = first + 1e-4 * torch.randn(first.shape, generator=generator, dtype=torch.float64)
     report = gate.paired_selector_report(
         first, second, budgets=(3, 5), target_rank=3, random_seed=20260828,
@@ -88,6 +90,22 @@ def test_ridge_selector_finds_stable_response_span() -> None:
     assert report["rows"]["3"]["ridge"]["first_to_second_cross_fit_css_relative_error"] < 1e-3
     assert report["rows"]["3"]["ridge"]["first_to_second_all_on_relative_error"] < 1e-3
     assert "finite-removal" in report["claim_boundary"]
+
+
+def test_ridge_selector_uses_positive_tail_below_numerical_rank_tolerance() -> None:
+    response = torch.diag(torch.tensor(
+        [1.0, 1e-16, 0.0, 0.0], dtype=torch.float64,
+    )).reshape(1, 4, 4)
+    scores = gate.ridge_leverage_scores(response, 1)
+    assert torch.allclose(
+        scores, torch.tensor([1.0, 0.5, 0.0, 0.0], dtype=torch.float64),
+        atol=1e-14, rtol=1e-14,
+    )
+    for scale in (1e-6, 1e6):
+        assert torch.allclose(
+            gate.ridge_leverage_scores(response * scale, 1), scores,
+            atol=1e-14, rtol=1e-14,
+        )
 
 
 def test_selector_validation_is_fail_closed() -> None:

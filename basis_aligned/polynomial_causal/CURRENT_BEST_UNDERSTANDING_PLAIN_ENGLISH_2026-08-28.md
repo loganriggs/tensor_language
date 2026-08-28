@@ -2,6 +2,11 @@
 
 Date: 2026-08-28
 
+Latest checkpoint: 14:15 UTC. The MLP1 measurement collector described below is now
+implemented and passes its 52-test focused CPU suite. An independent first audit found
+eight launch-integrity defects; those defects have been repaired and a second exact-byte
+audit is in progress. No MLP1 scientific result has been opened yet.
+
 This is the non-audit version of the project update. It explains what we actually
 know, what is still only a hypothesis, why some results seem contradictory, and what
 we are doing next. It deliberately does not explain the basic transformer or tensor
@@ -31,10 +36,11 @@ those gates are directly runnable and removable. If it does not, we will switch 
 new factorization of the underlying quadratic function rather than keep searching for
 a sparse subset of the checkpoint's gates.
 
-There is no current data, checkpoint, cache, GPU, or `rspd` blocker. The immediate
-engineering task is to finish the source-closed measurement program for the already
-frozen MLP1 experiment. The scientific blocker is that we do not yet know whether a
-small, stable set of physical gates exists.
+There is no current data, checkpoint, cache, or `rspd` blocker. The GPU is temporarily
+occupied by a separate registered run, so we are using that interval for the final
+source audit. The source-closed MLP1 measurement program is implemented. The scientific
+blocker is unchanged: we do not yet know whether a small, stable set of physical gates
+exists, because the protected production measurement has not run.
 
 ## What we know with the most confidence
 
@@ -376,9 +382,15 @@ remaining implementation must:
    artifacts;
 6. bind every executed source file and program buffer before GPU launch.
 
-That source-closed collector is the immediate work item. Once it passes its own tests
-and independent audit, the GPU run should be short. The outcome, rather than another
-round of protocol elaboration, should decide the next mathematical branch.
+That source-closed collector now passes its own focused CPU suite. The first independent
+audit found that its artifact write was not crash-safe, some execution counts were
+asserted instead of derived, an incomplete numerical arm could silently reduce the
+registered 48-comparison confidence family, and failure publication was under-bound.
+Those defects have been repaired, including full semantic replay of supports,
+coefficients, comparison statistics, confidence bounds, and decisions from the frozen
+in-memory responses. A second independent audit is the final launch gate;
+then the GPU run should be short. The outcome, rather than another round of protocol
+elaboration, will decide the next mathematical branch.
 
 ## Symbol and jargon glossary for the recent documents
 

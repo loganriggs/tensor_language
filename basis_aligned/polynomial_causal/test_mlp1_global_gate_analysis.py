@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import copy
 
+import pytest
 import torch
 
 import mlp1_global_gate_analysis as analysis
@@ -101,6 +102,100 @@ def test_validation_changes_metrics_but_never_the_frozen_bundle() -> None:
     assert original_result["comparisons"] != changed_result["comparisons"]
 
 
+def test_fit_bundle_can_be_frozen_before_any_validation_response_exists() -> None:
+    cells, deranged, rms, down = synthetic_inputs()
+    fit_summary, frozen = analysis.build_fit_gate_bundle(
+        cells["fit_first"], cells["fit_second"], deranged_fit_first=deranged,
+        activation_rms=rms, down=down, plan=tiny_plan(),
+    )
+    result, rebuilt = analysis.analyze_global_gate_responses(
+        cells, deranged_fit_first=deranged, activation_rms=rms, down=down,
+        plan=tiny_plan(),
+    )
+    assert fit_summary["status"] == "fit_bundle_complete_no_validation_opened"
+    assert fit_summary["validation_metrics_computed"] is False
+    assert analysis.tensor_tree_equal(frozen, rebuilt)
+    assert result["bootstrap"]["status"] == "complete"
+    analysis.validate_fit_gate_bundle(fit_summary, frozen, tiny_plan())
+    analysis.validate_gate_analysis_result(result, tiny_plan())
+
+    frozen["budgets"]["1"]["primary"]["support"][0] = 99
+    with pytest.raises(RuntimeError, match="tensor identity"):
+        analysis.validate_fit_gate_bundle(fit_summary, frozen, tiny_plan())
+
+
+def test_fit_bundle_semantic_replay_rejects_self_consistent_tensor_corruption() -> None:
+    cells, deranged, rms, down = synthetic_inputs()
+    fit_summary, frozen = analysis.build_fit_gate_bundle(
+        cells["fit_first"], cells["fit_second"], deranged_fit_first=deranged,
+        activation_rms=rms, down=down, plan=tiny_plan(),
+    )
+    corrupted = copy.deepcopy(frozen)
+    values = corrupted["budgets"]["1"]["primary"]
+    values["css_coefficients"].zero_()
+    fit_summary = copy.deepcopy(fit_summary)
+    fit_summary["bundle_summaries"]["1"]["primary"]["tensors"][
+        "css_coefficients"
+    ] = analysis.tensor_descriptor(values["css_coefficients"])
+    with pytest.raises(RuntimeError, match="does not replay frozen fit responses"):
+        analysis.validate_fit_gate_bundle(
+            fit_summary, corrupted, tiny_plan(), replay_inputs={
+                "fit_first": cells["fit_first"], "fit_second": cells["fit_second"],
+                "deranged_fit_first": deranged, "activation_rms": rms, "down": down,
+            },
+        )
+
+
+def test_result_validator_recomputes_comparisons_bootstrap_and_decisions() -> None:
+    cells, deranged, rms, down = synthetic_inputs()
+    result, bundle = analysis.analyze_global_gate_responses(
+        cells, deranged_fit_first=deranged, activation_rms=rms, down=down,
+        plan=tiny_plan(),
+    )
+    corrupted = copy.deepcopy(result)
+    name = next(iter(corrupted["comparisons"]))
+    corrupted["comparisons"][name]["observed_improvement"] = 12345.0
+    corrupted["comparisons"][name]["simultaneous_lcb"] = 12345.0
+    corrupted["bootstrap"]["simultaneous_lcb"][name] = 12345.0
+    with pytest.raises(RuntimeError, match="does not replay loss ledgers"):
+        analysis.validate_gate_analysis_result(
+            corrupted, tiny_plan(), replay_inputs={
+                "cells": cells, "deranged_fit_first": deranged,
+                "activation_rms": rms, "down": down, "bundle": bundle,
+            },
+        )
+
+
+def test_solver_rejection_never_bootstraps_a_reduced_registered_family(
+    monkeypatch,
+) -> None:
+    cells, deranged, rms, down = synthetic_inputs()
+    original = analysis._fit_bundle
+
+    def reject_rank_one(*args, target_rank, **kwargs):
+        if target_rank == 1:
+            raise ValueError("synthetic registered-arm rejection")
+        return original(*args, target_rank=target_rank, **kwargs)
+
+    monkeypatch.setattr(analysis, "_fit_bundle", reject_rank_one)
+    result, _ = analysis.analyze_global_gate_responses(
+        cells, deranged_fit_first=deranged, activation_rms=rms, down=down,
+        plan=tiny_plan(),
+    )
+    assert len(result["comparisons"]) == 16
+    assert result["bootstrap"] == {
+        "status": "not_computed_incomplete_registered_family",
+        "planned_comparisons": 32,
+        "comparisons_evaluated": 16,
+        "simultaneous_lcb": {},
+    }
+    assert all(
+        "simultaneous_lcb" not in value for value in result["comparisons"].values()
+    )
+    assert result["decisions"]["promoted_budget"] is None
+    analysis.validate_gate_analysis_result(result, tiny_plan())
+
+
 def test_controls_are_separate_and_no_oracle_union_or_routing_is_published() -> None:
     cells, deranged, rms, down = synthetic_inputs()
     result, bundle = analysis.analyze_global_gate_responses(
@@ -125,6 +220,21 @@ def test_spearman_uses_average_ranks_and_handles_constant_scores() -> None:
     second = torch.tensor([2.0, 2.0, 4.0, 5.0])
     assert analysis.spearman_rank_correlation(first, second) == 1.0
     assert analysis.spearman_rank_correlation(torch.ones(4), second) is None
+
+
+def test_multirank_ridge_scores_use_registered_positive_tail_and_scale_invariance() -> None:
+    response = torch.diag(torch.tensor(
+        [1.0, 1e-16, 0.0, 0.0], dtype=torch.float64,
+    )).reshape(1, 4, 4)
+    scores = analysis._ridge_scores_by_rank(response, (1,))[1]
+    assert torch.allclose(
+        scores, torch.tensor([1.0, 0.5, 0.0, 0.0], dtype=torch.float64),
+        atol=1e-14, rtol=1e-14,
+    )
+    assert torch.allclose(
+        analysis._ridge_scores_by_rank(response * 1e6, (1,))[1], scores,
+        atol=1e-14, rtol=1e-14,
+    )
 
 
 def test_basic_max_error_bootstrap_uses_one_shared_nearest_rank_statistic() -> None:

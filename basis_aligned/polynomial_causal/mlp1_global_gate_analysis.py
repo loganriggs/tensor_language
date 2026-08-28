@@ -83,15 +83,15 @@ def _ridge_scores_by_rank(
     ):
         raise ValueError("ridge target ranks are malformed")
     _, singular, vh = torch.linalg.svd(matrix, full_matrices=False)
-    tolerance = torch.finfo(singular.dtype).eps * max(matrix.shape) * singular[0]
     result = {}
     for rank in ranks:
         tail = singular[rank:].square().sum()
         ridge = tail / rank
-        if singular[rank] <= tolerance:
-            weights = (singular > tolerance).to(singular.dtype)
-        else:
+        if bool(ridge > 0):
             weights = singular.square() / (singular.square() + ridge)
+        else:
+            tolerance = torch.finfo(singular.dtype).eps * max(matrix.shape) * singular[0]
+            weights = (singular > tolerance).to(singular.dtype)
         result[rank] = (weights[:, None] * vh.square()).sum(dim=0).contiguous()
     return result
 
@@ -309,6 +309,7 @@ def _simultaneous_bootstrap(
 def analyze_global_gate_responses(
     cells: Mapping[str, torch.Tensor], *, deranged_fit_first: torch.Tensor,
     activation_rms: torch.Tensor, down: torch.Tensor, plan: Mapping[str, Any],
+    fit_only: bool = False,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     """Build fit/first bundles and return aggregate result plus tensor bundle."""
     documents, probes, gates = _validate_cells(cells)
@@ -418,21 +419,45 @@ def analyze_global_gate_responses(
                 summaries[key][arm] = failure
                 losses[key][arm] = failure
 
+    tensor_bundle = {
+        "status": "fit_first_support_and_coefficients_frozen",
+        "plan_fingerprint": plan["plan_fingerprint"],
+        "budgets": bundles,
+    }
+    if fit_only:
+        return {
+            "status": "fit_bundle_complete_no_validation_opened",
+            "plan_fingerprint": plan["plan_fingerprint"],
+            "dimensions": {
+                "fit_documents": documents, "probes": probes, "gates": gates,
+            },
+            "bundle_summaries": summaries,
+            "stability": stability,
+            "raw_nonpromotive_diagnostics": raw_diagnostics,
+            "validation_metrics_computed": False,
+        }, tensor_bundle
+
     records, comparisons = _comparison_records(losses, budgets)
     bootstrap_plan = plan["metrics"]["bootstrap"]
+    planned_comparisons = len(budgets) * len(CONTROL_NAMES) * len(
+        METRIC_NAMES
+    ) * len(VALIDATION_CELLS)
     bootstrap = (
         _simultaneous_bootstrap(
             records, documents=documents,
             repetitions=int(bootstrap_plan["repetitions"]),
             seed=int(bootstrap_plan["seed"]),
             confidence=float(bootstrap_plan["simultaneous_confidence"]),
-        ) if records else {
-            "status": "not_computed_no_complete_budget", "comparisons_evaluated": 0,
+        ) if len(records) == planned_comparisons else {
+            "status": "not_computed_incomplete_registered_family",
+            "planned_comparisons": planned_comparisons,
+            "comparisons_evaluated": len(records),
             "simultaneous_lcb": {},
         }
     )
-    for comparison_id, value in comparisons.items():
-        value["simultaneous_lcb"] = bootstrap["simultaneous_lcb"][comparison_id]
+    if bootstrap["status"] == "complete":
+        for comparison_id, value in comparisons.items():
+            value["simultaneous_lcb"] = bootstrap["simultaneous_lcb"][comparison_id]
 
     decision_plan = plan["decision"]
     every_observed_positive = len(records) == len(budgets) * len(CONTROL_NAMES) * 2 * 2 and all(
@@ -448,7 +473,7 @@ def analyze_global_gate_responses(
             for control in CONTROL_NAMES for metric in METRIC_NAMES
             for cell in VALIDATION_CELLS
         ]
-        lcb_pass = complete and all(
+        lcb_pass = bootstrap["status"] == "complete" and complete and all(
             comparisons[name]["simultaneous_lcb"] > float(
                 decision_plan["relative_improvement_lcb_over_every_control_minimum"]
             ) for name in ids
@@ -501,9 +526,280 @@ def analyze_global_gate_responses(
             "per_document_sufficient_statistics_published": True,
         },
     }
-    tensor_bundle = {
-        "status": "fit_first_support_and_coefficients_frozen",
-        "plan_fingerprint": plan["plan_fingerprint"],
-        "budgets": bundles,
-    }
     return result, tensor_bundle
+
+
+def build_fit_gate_bundle(
+    fit_first: torch.Tensor, fit_second: torch.Tensor, *,
+    deranged_fit_first: torch.Tensor, activation_rms: torch.Tensor,
+    down: torch.Tensor, plan: Mapping[str, Any],
+) -> tuple[dict[str, Any], dict[str, Any]]:
+    """Build the only outcome bundle before any validation response is available."""
+    cells = {
+        "fit_first": fit_first,
+        "fit_second": fit_second,
+        # These aliases satisfy the common shape validator but are never evaluated in
+        # fit-only mode. They contain no validation outcome.
+        "validation_first": fit_second,
+        "validation_second": fit_second,
+    }
+    return analyze_global_gate_responses(
+        cells, deranged_fit_first=deranged_fit_first,
+        activation_rms=activation_rms, down=down, plan=plan, fit_only=True,
+    )
+
+
+def tensor_tree_equal(first: Any, second: Any) -> bool:
+    """Exact recursive equality used to prove validation did not alter the bundle."""
+    if torch.is_tensor(first) or torch.is_tensor(second):
+        return bool(torch.is_tensor(first) and torch.is_tensor(second) and (
+            first.dtype == second.dtype and first.shape == second.shape
+            and torch.equal(first, second)
+        ))
+    if isinstance(first, dict) or isinstance(second, dict):
+        return bool(isinstance(first, dict) and isinstance(second, dict) and (
+            set(first) == set(second)
+        ) and all(tensor_tree_equal(first[key], second[key]) for key in first))
+    if isinstance(first, (list, tuple)) or isinstance(second, (list, tuple)):
+        return bool(type(first) is type(second) and len(first) == len(second) and all(
+            tensor_tree_equal(left, right) for left, right in zip(first, second, strict=True)
+        ))
+    return first == second
+
+
+def validate_fit_gate_bundle(
+    fit_summary: Mapping[str, Any], tensor_bundle: Mapping[str, Any],
+    plan: Mapping[str, Any], *, replay_inputs: Mapping[str, torch.Tensor] | None = None,
+) -> None:
+    budgets = tuple(int(value) for value in plan["selectors"]["budgets"])
+    gates = int(fit_summary.get("dimensions", {}).get("gates", -1))
+    if (
+        fit_summary.get("status") != "fit_bundle_complete_no_validation_opened"
+        or fit_summary.get("validation_metrics_computed") is not False
+        or fit_summary.get("plan_fingerprint") != plan.get("plan_fingerprint")
+        or tensor_bundle.get("status") != "fit_first_support_and_coefficients_frozen"
+        or tensor_bundle.get("plan_fingerprint") != plan.get("plan_fingerprint")
+        or set(fit_summary.get("bundle_summaries", {})) != {str(k) for k in budgets}
+        or set(tensor_bundle.get("budgets", {})) != {str(k) for k in budgets}
+        or gates <= 0
+    ):
+        raise RuntimeError("fit gate bundle top-level schema changed")
+    for budget in budgets:
+        key = str(budget)
+        summaries = fit_summary["bundle_summaries"][key]
+        tensors = tensor_bundle["budgets"][key]
+        if set(summaries) != set(ARM_NAMES) or set(tensors) != set(ARM_NAMES):
+            raise RuntimeError("fit gate bundle arm schema changed")
+        for arm in ARM_NAMES:
+            summary, values = summaries[arm], tensors[arm]
+            if summary.get("status") == "solver_rejected":
+                if values is not None:
+                    raise RuntimeError("solver-rejected gate arm retained tensors")
+                continue
+            if summary.get("status") != "fit_complete" or not isinstance(values, dict) or set(
+                values
+            ) != {"support", "selection_scores", "css_coefficients", "all_on_coefficients"}:
+                raise RuntimeError("fit gate arm schema changed")
+            support = values["support"]
+            if (
+                support.dtype != torch.int64 or tuple(support.shape) != (budget,)
+                or len(set(support.tolist())) != budget
+                or int(support.min()) < 0 or int(support.max()) >= gates
+                or summary.get("support") != support.tolist()
+                or gate.select_top(values["selection_scores"], budget) != tuple(
+                    support.tolist()
+                )
+                or values["selection_scores"].dtype != torch.float64
+                or tuple(values["selection_scores"].shape) != (gates,)
+                or values["css_coefficients"].dtype != torch.float64
+                or tuple(values["css_coefficients"].shape) != (budget, gates)
+                or values["all_on_coefficients"].dtype != torch.float64
+                or tuple(values["all_on_coefficients"].shape) != (budget,)
+                or any(value.device.type != "cpu" or value.requires_grad or not bool(
+                    torch.isfinite(value).all()
+                ) for value in values.values())
+                or summary.get("tensors") != {
+                    name: tensor_descriptor(value) for name, value in values.items()
+                }
+            ):
+                raise RuntimeError("fit gate arm tensor identity changed")
+    if replay_inputs is not None:
+        required = {
+            "fit_first", "fit_second", "deranged_fit_first", "activation_rms", "down",
+        }
+        if set(replay_inputs) != required:
+            raise RuntimeError("fit gate replay inputs changed")
+        replay_summary, replay_bundle = build_fit_gate_bundle(
+            replay_inputs["fit_first"], replay_inputs["fit_second"],
+            deranged_fit_first=replay_inputs["deranged_fit_first"],
+            activation_rms=replay_inputs["activation_rms"], down=replay_inputs["down"],
+            plan=plan,
+        )
+        if replay_summary != dict(fit_summary) or not tensor_tree_equal(
+            replay_bundle, tensor_bundle,
+        ):
+            raise RuntimeError("fit gate bundle does not replay frozen fit responses")
+
+
+def validate_gate_analysis_result(
+    result: Mapping[str, Any], plan: Mapping[str, Any], *,
+    replay_inputs: Mapping[str, Any] | None = None,
+) -> None:
+    budgets = tuple(int(value) for value in plan["selectors"]["budgets"])
+    documents = int(result.get("dimensions", {}).get("documents_per_cell", -1))
+    expected_ids = {
+        f"K{budget}:{control}:{metric}:{cell}"
+        for budget in budgets for control in CONTROL_NAMES
+        for metric in METRIC_NAMES for cell in VALIDATION_CELLS
+    }
+    comparisons = result.get("comparisons", {})
+    if (
+        result.get("status") not in {"promoted", "no_admitted_support"}
+        or result.get("plan_fingerprint") != plan.get("plan_fingerprint")
+        or result.get("decisions", {}).get("consequence_stage_authorized") is not False
+        or any(result.get("publication", {}).get(name) is not False for name in (
+            "raw_logits_published", "raw_targets_published", "raw_vjps_published",
+            "raw_responses_published",
+        ))
+        or not set(comparisons) <= expected_ids or documents <= 1
+        or set(result.get("decisions", {}).get("budgets", {})) != {str(k) for k in budgets}
+    ):
+        raise RuntimeError("global-gate scientific result top-level schema changed")
+    ledgers = result.get("per_document_loss_ledgers", {})
+    if set(ledgers) != {str(k) for k in budgets}:
+        raise RuntimeError("global-gate per-document budget ledger changed")
+    for budget in budgets:
+        key = str(budget)
+        if set(ledgers[key]) != set(ARM_NAMES):
+            raise RuntimeError("global-gate per-document arm ledger changed")
+        for arm in ARM_NAMES:
+            arm_value = ledgers[key][arm]
+            if arm_value.get("status") != "fit_complete":
+                continue
+            if set(arm_value.get("cells", {})) != set(CELL_NAMES[1:]):
+                raise RuntimeError("global-gate evaluation cell ledger changed")
+            for cell in CELL_NAMES[1:]:
+                for metric in METRIC_NAMES:
+                    record = arm_value["cells"][cell][metric]
+                    if any(len(record[name]) != documents for name in (
+                        "numerator", "denominator", "ratio",
+                    )) or any(float(value) <= 0 for value in record["denominator"]):
+                        raise RuntimeError("global-gate document sufficient statistics changed")
+                    pooled = sum(record["numerator"]) / max(sum(record["denominator"]), 1e-30)
+                    if abs(pooled - float(record["pooled_loss"])) > 1e-12 * max(1.0, abs(pooled)):
+                        raise RuntimeError("global-gate pooled loss does not replay documents")
+    bootstrap = result.get("bootstrap", {})
+    planned_comparisons = len(expected_ids)
+    replay_records = []
+    replay_comparisons = {}
+    for comparison_id, published in comparisons.items():
+        prefix, control, metric, cell = comparison_id.split(":")
+        key = prefix.removeprefix("K")
+        primary = ledgers[key]["primary"]["cells"][cell][metric]
+        baseline = ledgers[key][control]["cells"][cell][metric]
+        primary_loss = float(primary["pooled_loss"])
+        control_loss = float(baseline["pooled_loss"])
+        improvement = (control_loss - primary_loss) / max(control_loss, 1e-30)
+        harm = float((
+            torch.tensor(primary["ratio"], dtype=torch.float64)
+            - torch.tensor(baseline["ratio"], dtype=torch.float64)
+        ).max())
+        expected_public = {
+            "id": comparison_id, "budget": int(key), "control": control,
+            "metric": metric, "cell": cell, "observed_improvement": improvement,
+            "worst_per_document_primary_minus_control_loss": harm,
+        }
+        if any(published.get(name) != value for name, value in expected_public.items()):
+            raise RuntimeError("global-gate comparison does not replay loss ledgers")
+        replay_comparisons[comparison_id] = expected_public
+        replay_records.append({
+            **expected_public,
+            "primary_numerator": torch.tensor(primary["numerator"], dtype=torch.float64),
+            "primary_denominator": torch.tensor(primary["denominator"], dtype=torch.float64),
+            "control_numerator": torch.tensor(baseline["numerator"], dtype=torch.float64),
+            "control_denominator": torch.tensor(baseline["denominator"], dtype=torch.float64),
+        })
+    if len(comparisons) == planned_comparisons:
+        expected_bootstrap = plan["metrics"]["bootstrap"]
+        replay_bootstrap = _simultaneous_bootstrap(
+            replay_records, documents=documents,
+            repetitions=int(expected_bootstrap["repetitions"]),
+            seed=int(expected_bootstrap["seed"]),
+            confidence=float(expected_bootstrap["simultaneous_confidence"]),
+        )
+        if (
+            bootstrap.get("status") != "complete"
+            or bootstrap.get("repetitions") != expected_bootstrap["repetitions"]
+            or bootstrap.get("seed") != expected_bootstrap["seed"]
+            or bootstrap.get("critical_order_statistic_one_indexed") != math.ceil(
+                expected_bootstrap["simultaneous_confidence"]
+                * expected_bootstrap["repetitions"]
+            )
+            or bootstrap.get("comparisons_evaluated") != len(comparisons)
+            or set(bootstrap.get("simultaneous_lcb", {})) != set(comparisons)
+            or bootstrap != replay_bootstrap
+            or any(
+                comparisons[name].get("simultaneous_lcb")
+                != replay_bootstrap["simultaneous_lcb"][name]
+                for name in comparisons
+            )
+        ):
+            raise RuntimeError("global-gate simultaneous bootstrap schema changed")
+    elif (
+        bootstrap.get("status") != "not_computed_incomplete_registered_family"
+        or bootstrap.get("planned_comparisons") != planned_comparisons
+        or bootstrap.get("comparisons_evaluated") != len(comparisons)
+        or bootstrap.get("simultaneous_lcb") != {}
+        or any("simultaneous_lcb" in value for value in comparisons.values())
+    ):
+        raise RuntimeError("incomplete global-gate family reported a registered LCB")
+    promoted = result["decisions"].get("promoted_budget")
+    passing = [
+        budget for budget in budgets
+        if result["decisions"]["budgets"][str(budget)].get("full_numeric_pass") is True
+    ]
+    if promoted != (min(passing) if passing else None) or (
+        (promoted is None) != (result["status"] == "no_admitted_support")
+    ):
+        raise RuntimeError("global-gate promotion decision does not replay budget gates")
+    decision_plan = plan["decision"]
+    every_positive = len(comparisons) == planned_comparisons and all(
+        float(value["observed_improvement"]) > 0 for value in comparisons.values()
+    )
+    for budget in budgets:
+        key = str(budget)
+        complete = all(ledgers[key][arm].get("status") == "fit_complete" for arm in ARM_NAMES)
+        ids = [name for name in expected_ids if name.startswith(f"K{budget}:")]
+        expected_decision = {
+            "all_arms_solver_complete": complete,
+            "support_jaccard_pass": result["stability"][key]["support_jaccard"] >= float(
+                decision_plan["support_jaccard_minimum"]
+            ),
+            "every_simultaneous_lcb_pass": bootstrap.get("status") == "complete" and complete
+            and all(comparisons[name]["simultaneous_lcb"] > float(
+                decision_plan["relative_improvement_lcb_over_every_control_minimum"]
+            ) for name in ids),
+            "every_per_document_harm_pass": complete and all(
+                comparisons[name]["worst_per_document_primary_minus_control_loss"] <= float(
+                    decision_plan["maximum_per_document_primary_minus_each_control_loss"]
+                ) for name in ids
+            ),
+            "all_budgets_every_observed_improvement_positive": every_positive,
+        }
+        expected_decision["full_numeric_pass"] = all(expected_decision.values())
+        if result["decisions"]["budgets"][key] != expected_decision:
+            raise RuntimeError("global-gate budget decision does not replay metrics")
+    if replay_inputs is not None:
+        required = {"cells", "deranged_fit_first", "activation_rms", "down", "bundle"}
+        if set(replay_inputs) != required:
+            raise RuntimeError("global-gate scientific replay inputs changed")
+        replay_result, replay_bundle = analyze_global_gate_responses(
+            replay_inputs["cells"],
+            deranged_fit_first=replay_inputs["deranged_fit_first"],
+            activation_rms=replay_inputs["activation_rms"], down=replay_inputs["down"],
+            plan=plan,
+        )
+        if replay_result != dict(result) or not tensor_tree_equal(
+            replay_bundle, replay_inputs["bundle"],
+        ):
+            raise RuntimeError("global-gate result does not replay frozen response tensors")
