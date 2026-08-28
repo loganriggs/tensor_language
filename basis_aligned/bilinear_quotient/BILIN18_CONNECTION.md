@@ -45628,3 +45628,52 @@ the corrected one is strictly better on fidelity at every comparison made here.
 
 Controls (pred_d): the ceiling lookup recomputed inside this script reproduces §1768's 5.97902 and
 6.03465 to five decimals; live CE reproduces 3.09711 and 3.29205; coverage 5419 of 50257.
+
+## §1770 — context-free tables compress as pure loss, which confirms §1755's explanation, and the new frontier dominates every point in §1748–§1758
+
+`ops/context_free_rank_sweep.py`, 144.9s, **DISCOVERY ONLY**.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+```
+  held out (skip11000), recoveries against the same fit-mean all-tabled base, stake 4.26114
+  rank      cost      covered CE   recovered   % of stake   nats per M
+  full   224.778M      5.97900     +1.37925      32.4%        0.0061
+  256     60.641M      6.04503     +1.31322      30.8%        0.0217
+  64      15.223M      6.21152     +1.14673      26.9%        0.0753
+  16       3.868M      6.42299     +0.93526      21.9%        0.2418
+  8        1.975M      6.55472     +0.80353      18.9%        0.4069
+
+  for comparison: §1758 best   25.839M  +0.78536  18.4%  0.0304
+                  §1741 greedy 243.022M +1.24140  29.1%  0.0051
+```
+
+**pred_a passed and it was a test of an explanation, not a sweep.** CE degrades **monotonically** as
+the rank falls — 5.979, 6.045, 6.212, 6.423, 6.555. §1755 found fit-mean tables *improved* under
+rank-64 truncation and attributed it to their being overfitted to 96 fit rows. A context-free table
+is an exact model output, not a data estimate, and it shows **no denoising benefit whatsoever**.
+§1755's explanation is confirmed by the case where it predicts the opposite sign.
+
+**pred_c passed, and the frontier moves a long way.**
+
+> **Rank-8 context-free tables recover +0.80353 for 1.975M reals. §1758's best recovered +0.78536 for
+> 25.839M. That is 13.1x cheaper AND +0.018 nats better — 13.4x the cost-efficiency.** At matched
+> budget, rank 64 at 15.223M recovers **+1.14673 against §1758's +0.78536**: 46% more fidelity at 59%
+> of the cost. **Every point in §1748–§1758 is dominated.**
+
+Against the native allocation too: rank-64 context-free is **16.0x cheaper than §1741's greedy six
+native modules, at 92.4% of its fidelity and 14.8x its efficiency.**
+
+**pred_b FAILED and the failure is my sweep design, again.** Efficiency rises monotonically to the
+bottom of the range — 0.0061, 0.0217, 0.0753, 0.2418, **0.4069 at rank 8** — with no interior optimum,
+so the sweep ends while its answer is still moving and cannot name a design point. **That is exactly
+the defect §1756 recorded about §1755** and I repeated it in the successor experiment. The low end
+(ranks 4, 2, 1) is queued.
+
+**All of this came from one modelling choice.** §1769 traced the gap to the tables being per-token
+context *averages*; correcting them to context-free values closed it, and this run shows the
+corrected tables also compress far better in cost-efficiency terms even though they compress worse in
+fidelity terms. Nothing in §1748–§1758 is withdrawn — those numbers correctly describe the programs
+they were built on — but **the frontier they define is superseded**.
+
+Controls (pred_d): the full-rank arm reproduces §1769's 6.03465 and 5.97900 to five decimals; live CE
+reproduces 3.29205 and 3.09711; coverage 5419 of 50257.

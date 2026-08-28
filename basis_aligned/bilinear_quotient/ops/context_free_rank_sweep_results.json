@@ -1,0 +1,93 @@
+{
+ "config": {
+  "tables": "CONTEXT-FREE (length-1 forward per covered token), then rank-r truncated; no linear correction anywhere",
+  "costing": "identical accounting to \u00a71755/\u00a71756: r*(5419+1152) + 2*1152 per site",
+  "recovered_against": "the FIT-MEAN all-tabled baseline (7.35114 / 7.35825), so these recoveries are directly comparable to \u00a71747-\u00a71758",
+  "WHY": "\u00a71769 attributed the whole 0.594-nat gap to the tables being context averages. \u00a71755 found fit-mean tables IMPROVED under truncation because they were overfitted to 96 fit rows; a context-free table is an exact model output and is not estimated from data, so truncation should be pure loss. That is a test of \u00a71755's explanation, not just a sweep.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "all_tabled_fitmean": 7.35114
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "all_tabled_fitmean": 7.35825
+  }
+ },
+ "by_table_rank": {
+  "full": {
+   "table_rank": null,
+   "cost_M": 224.7782,
+   "skip7000": {
+    "ce": 6.03465,
+    "recovered_vs_fitmean_base": 1.31649
+   },
+   "skip11000": {
+    "ce": 5.979,
+    "recovered_vs_fitmean_base": 1.37925
+   },
+   "nats_per_Mreal": 0.006136
+  },
+  "256": {
+   "table_rank": 256,
+   "cost_M": 60.6413,
+   "skip7000": {
+    "ce": 6.10045,
+    "recovered_vs_fitmean_base": 1.25069
+   },
+   "skip11000": {
+    "ce": 6.04503,
+    "recovered_vs_fitmean_base": 1.31322
+   },
+   "nats_per_Mreal": 0.021656
+  },
+  "64": {
+   "table_rank": 64,
+   "cost_M": 15.2225,
+   "skip7000": {
+    "ce": 6.25792,
+    "recovered_vs_fitmean_base": 1.09322
+   },
+   "skip11000": {
+    "ce": 6.21152,
+    "recovered_vs_fitmean_base": 1.14673
+   },
+   "nats_per_Mreal": 0.075331
+  },
+  "16": {
+   "table_rank": 16,
+   "cost_M": 3.8678,
+   "skip7000": {
+    "ce": 6.45531,
+    "recovered_vs_fitmean_base": 0.89583
+   },
+   "skip11000": {
+    "ce": 6.42299,
+    "recovered_vs_fitmean_base": 0.93526
+   },
+   "nats_per_Mreal": 0.241804
+  },
+  "8": {
+   "table_rank": 8,
+   "cost_M": 1.9754,
+   "skip7000": {
+    "ce": 6.58011,
+    "recovered_vs_fitmean_base": 0.77103
+   },
+   "skip11000": {
+    "ce": 6.55472,
+    "recovered_vs_fitmean_base": 0.80353
+   },
+   "nats_per_Mreal": 0.40677
+  }
+ },
+ "predictions": {
+  "pred_a_compression_is_pure_loss": true,
+  "pred_b_efficiency_interior_optimum": false,
+  "pred_c_beats_S1758_at_matched_cost": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 144.9
+}
