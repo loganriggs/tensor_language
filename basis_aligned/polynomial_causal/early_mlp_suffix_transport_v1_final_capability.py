@@ -33,6 +33,9 @@ BACKGROUNDS = final_actions.BACKGROUNDS
 CANONICAL_ACTION_KEYS = final_actions.CANONICAL_ACTION_KEYS
 _RESPONSE_ARMS = final_actions.RESPONSE_ARMS
 _CODE_RESPONSE_ARMS = final_actions.CODE_RESPONSE_ARMS
+RESPONSE_ACTION_KEYS = (
+    "ll/N", "lt/N", *(f"a_null_{index:02d}/N" for index in range(20)),
+)
 _MINT_TOKEN = object()
 
 
@@ -289,6 +292,172 @@ class FinalObservationBundle:
             for value in self.observations
         ):
             raise ValueError("final observation bundle mixes scored support")
+
+
+@dataclass(frozen=True, slots=True)
+class FinalEvidenceJoinReceipt:
+    """Tensor-free proof that observational and paired-response owners agree.
+
+    The observational capability and response runner intentionally own different
+    transactions.  This receipt prevents a final callback from combining the 68
+    observational arms from one run with response statistics from another.
+    """
+
+    observation_bundle_sha256: str
+    response_run_receipt_sha256: str
+    program_payload_sha256: str
+    common_support_sha256: str
+    ordered_unit_identity_sha256: str
+    response_action_matches: tuple[tuple[str, str, str], ...]
+    response_statistics_sha256: str
+    join_sha256: str
+
+    def __post_init__(self) -> None:
+        for name in (
+            "observation_bundle_sha256", "response_run_receipt_sha256",
+            "program_payload_sha256", "common_support_sha256",
+            "ordered_unit_identity_sha256", "response_statistics_sha256",
+            "join_sha256",
+        ):
+            _sha256(name, getattr(self, name))
+        if not isinstance(self.response_action_matches, tuple) or tuple(
+            key for key, _observation, _run in self.response_action_matches
+        ) != RESPONSE_ACTION_KEYS or any(
+            not _sha256("response observation", observation)
+            or not _sha256("response run reduction", run)
+            or observation != run
+            for _key, observation, run in self.response_action_matches
+        ):
+            raise ValueError("final evidence join does not match every response action")
+        body = {
+            name: (
+                [list(value) for value in self.response_action_matches]
+                if name == "response_action_matches" else getattr(self, name)
+            )
+            for name in self.__dataclass_fields__ if name != "join_sha256"
+        }
+        if runtime.logical_identity_sha256(body) != self.join_sha256:
+            raise ValueError("final evidence join identity changed")
+
+    @property
+    def sha256(self) -> str:
+        return self.join_sha256
+
+
+def _response_statistics_identity(payload: Mapping[str, Any]) -> str:
+    """Hash exactly the final-owner response roles through their typed schemas."""
+
+    keys = {
+        "response_run_receipt_sha256", "ordered_unit_identity_sha256",
+        "code_baseline", "code_candidate", "logit_baseline", "logit_candidate",
+        "logit_nulls", "output_kl_baseline", "output_kl_candidate",
+        "output_kl_nulls",
+    }
+    if not isinstance(payload, Mapping) or set(payload) != keys or not _sha256(
+        "response run receipt", payload["response_run_receipt_sha256"]
+    ) or not _sha256("ordered response units", payload["ordered_unit_identity_sha256"]):
+        raise ValueError("final response statistics payload schema changed")
+    if not isinstance(payload["logit_nulls"], tuple) or len(
+        payload["logit_nulls"]
+    ) != 20 or not isinstance(payload["output_kl_nulls"], tuple) or len(
+        payload["output_kl_nulls"]
+    ) != 20:
+        raise ValueError("final response null payload changed")
+    typed = {
+        "code_baseline": ResponseReduction(**payload["code_baseline"]),
+        "code_candidate": ResponseReduction(**payload["code_candidate"]),
+        "logit_baseline": ResponseReduction(**payload["logit_baseline"]),
+        "logit_candidate": ResponseReduction(**payload["logit_candidate"]),
+        "output_kl_baseline": OutputKLReduction(**payload["output_kl_baseline"]),
+        "output_kl_candidate": OutputKLReduction(**payload["output_kl_candidate"]),
+    }
+    logit_nulls = tuple(ResponseReduction(**value) for value in payload["logit_nulls"])
+    output_nulls = tuple(
+        OutputKLReduction(**value) for value in payload["output_kl_nulls"]
+    )
+    identities = {
+        value.unit_identity for value in (*typed.values(), *logit_nulls, *output_nulls)
+    }
+    if identities != {payload["ordered_unit_identity_sha256"]}:
+        raise ValueError("final response statistics mix ordered units")
+    return runtime.logical_identity_sha256({
+        "response_run_receipt_sha256": payload["response_run_receipt_sha256"],
+        "ordered_unit_identity_sha256": payload["ordered_unit_identity_sha256"],
+        **{name: value.sha256 for name, value in typed.items()},
+        "logit_null_sha256s": [value.sha256 for value in logit_nulls],
+        "output_kl_null_sha256s": [value.sha256 for value in output_nulls],
+    })
+
+
+def join_observations_with_response_run(
+    observations: FinalObservationBundle, response_run: Any,
+) -> FinalEvidenceJoinReceipt:
+    """Bind the canonical action bundle to one completed response-run result."""
+
+    import early_mlp_suffix_transport_v1_response_execution as response_execution
+
+    if type(observations) is not FinalObservationBundle or type(
+        response_run
+    ) is not response_execution.ObservedResponseRunResult:
+        raise TypeError("final evidence join requires typed complete owners")
+    expected_plan = runtime.logical_identity_sha256(list(CANONICAL_ACTION_KEYS))
+    if observations.action_plan_sha256 != expected_plan or response_run.receipt.atomic_complete is not (
+        True
+    ) or observations.common_support_sha256 != response_run.receipt.common_support_sha256:
+        raise RuntimeError("final evidence owners differ in plan, completion, or support")
+    payload = response_run.to_final_statistics_payload()
+    if payload["response_run_receipt_sha256"] != response_run.receipt.sha256:
+        raise RuntimeError("final response payload escaped its run receipt")
+    by_action = {value.action.key: value for value in observations.observations}
+    by_run = {value.action_key: value for value in response_run.arm_reductions}
+    matches = []
+    for action_key in RESPONSE_ACTION_KEYS:
+        observation = by_action[action_key]
+        run = by_run[action_key]
+        run_identity = runtime.logical_identity_sha256({
+            "code_response_sha256": (
+                None if run.code_response is None else ResponseReduction(
+                    **run.code_response.as_statistics(
+                        response_run.receipt.ordered_unit_identity_sha256
+                    )
+                ).sha256
+            ),
+            "logit_response_sha256": ResponseReduction(
+                **run.logit_response.as_statistics(
+                    response_run.receipt.ordered_unit_identity_sha256
+                )
+            ).sha256,
+            "output_kl_response_sha256": OutputKLReduction(
+                **run.output_kl_response.as_statistics(
+                    response_run.receipt.ordered_unit_identity_sha256
+                )
+            ).sha256,
+        })
+        observation_identity = runtime.logical_identity_sha256({
+            "code_response_sha256": (
+                None if observation.code_response is None
+                else observation.code_response.sha256
+            ),
+            "logit_response_sha256": observation.logit_response.sha256,
+            "output_kl_response_sha256": observation.output_kl_response.sha256,
+        })
+        if observation_identity != run_identity:
+            raise RuntimeError(f"{action_key} observation differs from response run")
+        matches.append((action_key, observation_identity, run_identity))
+    body = {
+        "observation_bundle_sha256": observations.bundle_sha256,
+        "response_run_receipt_sha256": response_run.receipt.sha256,
+        "program_payload_sha256": response_run.receipt.program_payload_sha256,
+        "common_support_sha256": observations.common_support_sha256,
+        "ordered_unit_identity_sha256": response_run.receipt.ordered_unit_identity_sha256,
+        "response_action_matches": [list(value) for value in matches],
+        "response_statistics_sha256": _response_statistics_identity(payload),
+    }
+    return FinalEvidenceJoinReceipt(
+        **{key: value for key, value in body.items() if key != "response_action_matches"},
+        response_action_matches=tuple(matches),
+        join_sha256=runtime.logical_identity_sha256(body),
+    )
 
 
 class FinalActionCapability:

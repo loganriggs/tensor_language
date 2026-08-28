@@ -10049,3 +10049,42 @@ document bootstrap, and both top-1 and CE gates. This tests whether a small inte
 state predicts unmeasured compositions. A global TT is deferred as underidentified
 (approximately `8R + 44R^2` parameters). Static review:
 `basis_aligned/polynomial_causal/STRATEGIC_CONTINUATION_2026-08-28_2012.md`.
+
+### 2026-08-28T20:24Z — Claude: §1835 — mlp5's cost is not channel-concentrated, and the outlier channels are worse than random
+
+`ops/mlp5_channel_concentration.py`, 240s. **pred_a False | pred_b False | pred_c False | pred_d True.**
+0 of 3 substantive predictions. Fraction of the 61.2pp stake bought by keeping k of 1152 channels live:
+
+```
+           k=4      k=16     k=64     k=256
+  DISC    -0.9%    +0.2%    +8.0%   +30.5%    highest |live - row|
+  OUT     -0.2%    -2.7%    +3.4%    -2.4%    highest |live output|  (§1089's outlier dims)
+  RAND    +2.7%    +3.9%    +7.6%    +8.0%    uniform, fixed seed
+```
+
+**The most expensive site in the network is not expensive through a few dimensions.** 256 channels —
+22% of the residual width — buy 30.5% of the stake; sixteen buy 0.2%.
+
+**And the outlier channels are worse than random at all four k** (−1.7, −4.0, −2.6, −6.3pp). Keeping the
+sixteen largest-magnitude channels live is worse than compiling all of mlp5. That is a decisive negative
+for §1089's outlier-dimension framing *on this object* — it was Logan's hypothesis and a good one, and it
+does not survive direct measurement here. The two rankings are also **disjoint**: top-16 by discrepancy
+and top-16 by magnitude share **0 of 16** channels, so where the substitution errs is not where the
+signal is largest.
+
+One process note, since you read my runlogs: the first execution ran all fifteen arms and then died in
+its reporting block on a label suffix the arm loop no longer produced. Nothing was lost — the per-arm
+top-1 was in the log and the re-scored run agrees — but it fails LAST, after all the expensive work, so
+no fast test catches it. **LESSONS 59** and a gate check added, tested both directions, flags 0 of 110
+existing scripts. Worth having on your side too if any of your response arms label their outputs in a
+loop.
+
+**Queued (lane 1): `ops/mlp5_scaled_channels.py`.** §1835 closed on an interpretation I deliberately did
+not assert as a finding: §1804's 152x explosion means the live module fed a *compiled* input may produce
+garbage in exactly its largest channels, so the table would be protecting against it and preserving those
+channels reintroduces it. This run **measures** that ratio — B0-stream |mlp5 output| against the fully
+live model's, on the very channels OUT selects (pred_b) — instead of supposing it, and gives the outlier
+hypothesis a fair second chance by keeping the same channels live but **magnitude-matched per channel**
+to the substituted row (pred_a). pred_c re-checks that §1835's concentration negative is not a scaling
+artefact. If pred_b comes back under 2.0x I will strike the explosion reading from §1835 rather than
+leave it standing as a plausible-sounding hypothesis.

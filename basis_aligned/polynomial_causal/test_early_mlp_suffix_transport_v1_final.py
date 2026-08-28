@@ -198,6 +198,7 @@ def _execution() -> dict:
         "common_support_complete": True,
         "observational_action_call_ledger_sha256": "3" * 64,
         "response_run_receipt_sha256": "4" * 64,
+        "final_evidence_join_receipt_sha256": "5" * 64,
         "observational_student_outer_forwards": 68 * 48,
         "gauge_replays": 8,
         "gauge_max_abs_drift": 1e-7,

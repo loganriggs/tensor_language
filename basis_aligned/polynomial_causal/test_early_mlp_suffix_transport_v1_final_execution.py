@@ -139,6 +139,46 @@ def _reductions(**changes) -> execution.FinalObservedReductions:
         "response_run_receipt": response_receipt,
     }
     values.update(changes)
+    if "evidence_join_receipt" not in values:
+        payload = {
+            "response_run_receipt_sha256": values["response_run_receipt"].sha256,
+            "ordered_unit_identity_sha256": (
+                values["response_run_receipt"].ordered_unit_identity_sha256
+            ),
+            **{
+                name: values[name] for name in (
+                    "code_baseline", "code_candidate", "logit_baseline",
+                    "logit_candidate", "logit_nulls", "output_kl_baseline",
+                    "output_kl_candidate", "output_kl_nulls",
+                )
+            },
+        }
+        matches = tuple(
+            (key, execution.runtime.logical_identity_sha256({"match": key}),
+             execution.runtime.logical_identity_sha256({"match": key}))
+            for key in execution.final_capability.RESPONSE_ACTION_KEYS
+        )
+        body = {
+            "observation_bundle_sha256": "6" * 64,
+            "response_run_receipt_sha256": values["response_run_receipt"].sha256,
+            "program_payload_sha256": SHA,
+            "common_support_sha256": "d" * 64,
+            "ordered_unit_identity_sha256": (
+                values["response_run_receipt"].ordered_unit_identity_sha256
+            ),
+            "response_action_matches": [list(value) for value in matches],
+            "response_statistics_sha256": (
+                execution.final_capability._response_statistics_identity(payload)
+            ),
+        }
+        values["evidence_join_receipt"] = (
+            execution.final_capability.FinalEvidenceJoinReceipt(
+                **{key: value for key, value in body.items()
+                   if key != "response_action_matches"},
+                response_action_matches=matches,
+                join_sha256=execution.runtime.logical_identity_sha256(body),
+            )
+        )
     return execution.FinalObservedReductions(**values)
 
 
@@ -199,6 +239,7 @@ def test_observed_final_callback_builds_only_the_semantic_envelope() -> None:
             execution.final_actions.expected_observational_action_call_ledgers()
         ),
         "response_run_receipt_sha256": _response_run_receipt().sha256,
+        "final_evidence_join_receipt_sha256": _reductions().evidence_join_receipt.sha256,
         "observational_student_outer_forwards": 68 * 48,
         "gauge_replays": 8,
         "gauge_max_abs_drift": 0.0,

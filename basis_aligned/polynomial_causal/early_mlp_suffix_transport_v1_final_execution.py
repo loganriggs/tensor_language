@@ -172,6 +172,7 @@ class FinalObservedReductions:
     numerical_payload: Mapping[str, Any]
     closure_evidence: Mapping[str, Any]
     response_run_receipt: response_execution.ObservedResponseRunReceipt
+    evidence_join_receipt: final_capability.FinalEvidenceJoinReceipt
 
     def __post_init__(self) -> None:
         objective = _exact_mapping(
@@ -228,6 +229,26 @@ class FinalObservedReductions:
             self.response_run_receipt.ordered_unit_identity_sha256
         }:
             raise RuntimeError("final transport responses lack their typed run receipt")
+        if type(self.evidence_join_receipt) is not (
+            final_capability.FinalEvidenceJoinReceipt
+        ) or self.evidence_join_receipt.response_run_receipt_sha256 != (
+            self.response_run_receipt.sha256
+        ) or self.evidence_join_receipt.ordered_unit_identity_sha256 != (
+            self.response_run_receipt.ordered_unit_identity_sha256
+        ):
+            raise RuntimeError("final transport response run lacks its observational join")
+        response_payload = {
+            "response_run_receipt_sha256": self.response_run_receipt.sha256,
+            "ordered_unit_identity_sha256": (
+                self.response_run_receipt.ordered_unit_identity_sha256
+            ),
+            **responses, "logit_nulls": nulls, **output_kl,
+            "output_kl_nulls": output_kl_nulls,
+        }
+        if final_capability._response_statistics_identity(response_payload) != (
+            self.evidence_join_receipt.response_statistics_sha256
+        ):
+            raise RuntimeError("final transport statistics differ from evidence join")
         closure = _exact_mapping(
             self.closure_evidence, _CLOSURE_FIELDS, "final observed closure evidence",
         )
@@ -306,6 +327,10 @@ def _execution_closure(
         raise RuntimeError("observed final component tree changed")
     if evidence["program_payload_sha256"] != program_payload_sha256:
         raise RuntimeError("observed callback did not use the reloaded program bank")
+    if reductions.evidence_join_receipt.program_payload_sha256 != (
+        program_payload_sha256
+    ):
+        raise RuntimeError("joined evidence used a different program bank")
     support = evidence["common_support_sha256"]
     arm_support = _exact_mapping(
         evidence["arm_support_sha256s"], set(REQUIRED_FINAL_ARMS),
@@ -313,6 +338,8 @@ def _execution_closure(
     )
     if not _sha256(support) or any(value != support for value in arm_support.values()):
         raise RuntimeError("final arm support is incomplete or mixed")
+    if reductions.evidence_join_receipt.common_support_sha256 != support:
+        raise RuntimeError("joined evidence used different scored support")
     action_ledgers = _observational_action_call_ledgers(
         evidence["observational_action_call_ledgers"],
     )
@@ -347,6 +374,7 @@ def _execution_closure(
         "common_support_complete": True,
         "observational_action_call_ledger_sha256": action_ledger_sha256,
         "response_run_receipt_sha256": reductions.response_run_receipt.sha256,
+        "final_evidence_join_receipt_sha256": reductions.evidence_join_receipt.sha256,
         "observational_student_outer_forwards": observational_forwards,
         "gauge_replays": 8,
         "gauge_max_abs_drift": gauge,

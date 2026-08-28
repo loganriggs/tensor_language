@@ -3,6 +3,7 @@ import torch
 
 import early_mlp_suffix_transport_v1_capabilities as capabilities
 import early_mlp_suffix_transport_v1_final_capability as capability
+import early_mlp_suffix_transport_v1_response_execution as response_execution
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -168,6 +169,162 @@ def test_direct_construction_without_mint_token_is_forbidden():
             _token=object(), issuer_id="d" * 64,
             common_support_sha256=SHA, executor=lambda action: _observation(action),
         )
+
+
+def _run_response(value: float, units, marker: str):
+    student = torch.full((192,), value, dtype=torch.float64)
+    teacher = torch.full((192,), 4.0, dtype=torch.float64)
+    dot = torch.sqrt(student * teacher)
+    error = student + teacher - 2 * dot
+    return response_execution.ObservedRunResponseReduction(
+        error_sum=error, teacher_sum=teacher, student_sum=student, dot_sum=dot,
+        unit_identity_sha256s=units,
+        batch_reduction_sha256s=tuple(
+            runtime.logical_identity_sha256({"response": marker, "batch": index})
+            for index in range(48)
+        ),
+    )
+
+
+def _run_output(units, marker: str):
+    return response_execution.ObservedRunOutputKLReduction(
+        numerator_sum=torch.ones(192, dtype=torch.float64),
+        denominator_sum=torch.full((192,), 2.0, dtype=torch.float64),
+        unit_identity_sha256s=units,
+        batch_reduction_sha256s=tuple(
+            runtime.logical_identity_sha256({"output": marker, "batch": index})
+            for index in range(48)
+        ),
+    )
+
+
+def _response_run_result():
+    units = tuple(
+        runtime.logical_identity_sha256({"unit": index}) for index in range(48)
+    )
+    arms = tuple(
+        response_execution.ObservedResponseRunArmReduction(
+            action_key=key,
+            code_response=(
+                _run_response(1.0, units, f"{key}/code")
+                if key in {"ll/N", "lt/N"} else None
+            ),
+            logit_response=_run_response(1.0, units, f"{key}/logit"),
+            output_kl_response=_run_output(units, key),
+        ) for key in response_execution.response_plan.RESPONSE_ACTION_KEYS
+    )
+    ordered = runtime.logical_identity_sha256({
+        "kind": "early_mlp_suffix_transport_v1_response_units",
+        "ordered_batch_unit_sha256s": list(units),
+    })
+    receipt = response_execution.ObservedResponseRunReceipt(
+        final_context_sha256="1" * 64, source_bank_sha256="2" * 64,
+        program_payload_sha256="3" * 64, common_support_sha256=SHA,
+        basis0_sha256="4" * 64, basis1_sha256="5" * 64,
+        ordered_unit_identity_sha256=ordered,
+        batch_receipt_sha256s=tuple(
+            runtime.logical_identity_sha256({"receipt": index}) for index in range(48)
+        ),
+        batch_plan_sha256s=tuple(
+            runtime.logical_identity_sha256({"plan": index}) for index in range(48)
+        ),
+        arm_reduction_sha256s=tuple((value.action_key, value.sha256) for value in arms),
+        teacher_forward_count=144, student_forward_count=3168,
+        row_count=192, atomic_complete=True,
+    )
+    return response_execution.ObservedResponseRunResult(
+        arm_reductions=arms, receipt=receipt,
+    )
+
+
+def _observation_bundle(run=None, *, changed_action: str | None = None):
+    run = _response_run_result() if run is None else run
+    by_action = {value.action_key: value for value in run.arm_reductions}
+    observations = []
+    unit = run.receipt.ordered_unit_identity_sha256
+    for action in capability.CANONICAL_ACTIONS:
+        changes = {}
+        if action.key in by_action:
+            arm = by_action[action.key]
+            changes = {
+                "code_response": (
+                    None if arm.code_response is None else capability.ResponseReduction(
+                        **arm.code_response.as_statistics(unit)
+                    )
+                ),
+                "logit_response": capability.ResponseReduction(
+                    **arm.logit_response.as_statistics(unit)
+                ),
+                "output_kl_response": capability.OutputKLReduction(
+                    **arm.output_kl_response.as_statistics(unit)
+                ),
+            }
+        if action.key == changed_action:
+            changes["logit_response"] = capability.ResponseReduction(
+                error_sum=torch.ones(192, dtype=torch.float64),
+                teacher_sum=torch.ones(192, dtype=torch.float64),
+                student_sum=torch.zeros(192, dtype=torch.float64),
+                dot_sum=torch.zeros(192, dtype=torch.float64),
+                unit_identity=unit,
+            )
+        observations.append(_observation(action, **changes))
+    plan_sha256 = runtime.logical_identity_sha256(
+        list(capability.CANONICAL_ACTION_KEYS)
+    )
+    return capability.FinalObservationBundle(
+        common_support_sha256=SHA, observations=tuple(observations),
+        action_plan_sha256=plan_sha256,
+        bundle_sha256=runtime.logical_identity_sha256({
+            "plan": plan_sha256,
+            "observations": [value.sha256 for value in observations],
+        }),
+    )
+
+
+def test_observational_bundle_joins_one_complete_response_run() -> None:
+    run = _response_run_result()
+    bundle = _observation_bundle(run)
+    receipt = capability.join_observations_with_response_run(bundle, run)
+    assert receipt.observation_bundle_sha256 == bundle.bundle_sha256
+    assert receipt.response_run_receipt_sha256 == run.receipt.sha256
+    assert receipt.program_payload_sha256 == run.receipt.program_payload_sha256
+    assert receipt.common_support_sha256 == SHA
+    assert tuple(key for key, _left, _right in receipt.response_action_matches) == (
+        capability.RESPONSE_ACTION_KEYS
+    )
+    assert all(left == right for _key, left, right in receipt.response_action_matches)
+
+
+def test_evidence_join_rejects_substitution_and_mixed_support() -> None:
+    run = _response_run_result()
+    changed = _observation_bundle(run, changed_action="a_null_07/N")
+    with pytest.raises(RuntimeError, match="a_null_07/N observation differs"):
+        capability.join_observations_with_response_run(changed, run)
+
+    mixed = response_execution.ObservedResponseRunReceipt(
+        **{
+            field: ("9" * 64 if field == "common_support_sha256" else getattr(
+                run.receipt, field
+            )) for field in run.receipt.__dataclass_fields__
+        }
+    )
+    mixed_run = response_execution.ObservedResponseRunResult(
+        arm_reductions=run.arm_reductions, receipt=mixed,
+    )
+    with pytest.raises(RuntimeError, match="support"):
+        capability.join_observations_with_response_run(_observation_bundle(run), mixed_run)
+
+
+def test_evidence_join_receipt_is_self_authenticating() -> None:
+    receipt = capability.join_observations_with_response_run(
+        _observation_bundle(), _response_run_result(),
+    )
+    values = {
+        field: getattr(receipt, field) for field in receipt.__dataclass_fields__
+    }
+    values["ordered_unit_identity_sha256"] = "9" * 64
+    with pytest.raises(ValueError, match="identity changed"):
+        capability.FinalEvidenceJoinReceipt(**values)
 
 
 def _final_trace(*, phase="final", role="early_mlp_suffix_transport_v1_final"):
