@@ -32,10 +32,30 @@ MLP5 CHANNEL CONCENTRATION | keep k of 1152 channels live | settled program (con
   RAND64                 skip7000 15.68%  skip11000 16.03%  skip1200 15.39%
   RAND256                skip7000 15.73%  skip11000 15.73%  skip1200 15.79%
   allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
-Traceback (most recent call last):
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp5_channel_concentration.py", line 714, in <module>
-    main()
-  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp5_channel_concentration.py", line 659, in main
-    seq = {k2: frac[PICK_ROLE][f'{k2}_seq'] for k2 in
-               ~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-KeyError: 'B0_seq'
+
+  gap fraction recovered, all roles:
+    B0         skip7000   64.8%  skip11000   65.3%  skip1200   61.3%
+    K0         skip7000    3.6%  skip11000    1.1%  skip1200    3.8%
+    DISC4      skip7000    3.0%  skip11000    0.8%  skip1200    2.5%
+    DISC16     skip7000    3.7%  skip11000    2.3%  skip1200    4.4%
+    DISC64     skip7000    8.4%  skip11000    6.5%  skip1200    8.0%
+    DISC256    skip7000   22.3%  skip11000   23.8%  skip1200   22.7%
+    OUT4       skip7000    3.5%  skip11000    1.4%  skip1200    3.4%
+    OUT16      skip7000    1.9%  skip11000    0.0%  skip1200    2.8%
+    OUT64      skip7000    5.6%  skip11000    3.6%  skip1200    5.6%
+    OUT256     skip7000    2.1%  skip11000    0.3%  skip1200    1.6%
+    RAND4      skip7000    5.2%  skip11000    2.4%  skip1200    5.1%
+    RAND16     skip7000    6.0%  skip11000    3.7%  skip1200    5.7%
+    RAND64     skip7000    8.2%  skip11000    6.3%  skip1200    6.9%
+    RAND256    skip7000    8.5%  skip11000    5.3%  skip1200    8.5%
+
+  MLP5 CHANNELS KEPT LIVE (skip7000, sequential; B0 64.8%, all-of-mlp5 compiled 3.6%, stake 61.2%):
+    DISC  k4   3.0% (-0.9% of stake)  k16   3.7% ( 0.2% of stake)  k64   8.4% ( 8.0% of stake)  k256  22.3% (30.5% of stake)
+    OUT   k4   3.5% (-0.2% of stake)  k16   1.9% (-2.7% of stake)  k64   5.6% ( 3.4% of stake)  k256   2.1% (-2.4% of stake)
+    RAND  k4   5.2% ( 2.7% of stake)  k16   6.0% ( 3.9% of stake)  k64   8.2% ( 7.6% of stake)  k256   8.5% ( 8.0% of stake)
+
+  the cost is CONCENTRATED (16 DISC channels buy >=half of 61.2pp) -> False  DISC16 3.7% vs the 34.2% needed, 0.2% of stake
+  and it is the OUTLIER channels (OUT16 >=80% of DISC16) -> False  OUT16 -2.7% vs DISC16 0.2% of stake
+  and SELECTION matters (both beat RAND by >=10pp at every k) -> False  k4 DISC-2.2% OUT-1.7%  k16 DISC-2.3% OUT-4.0%  k64 DISC+0.2% OUT-2.6%  k256 DISC+13.8% OUT-6.3%
+  K0 reproduces §1834 (3.6%), B0 reproduces §1829 -> control True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp5_channel_concentration_results.json (239.7s)

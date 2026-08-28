@@ -49126,3 +49126,68 @@ mlp5 while keeping the top-k residual channels live — k in 1, 4, 16, 64, 256 o
 whether a handful of dimensions carry the 61.2pp. If sixteen channels buy back most of it, the object is
 nameable at last; if the cost is spread evenly over all 1152, then mlp5 is expensive for reasons that are
 not about outlier dimensions and Logan's hypothesis does not apply here.
+
+## §1835 — mlp5's cost is NOT channel-concentrated, and keeping the OUTLIER channels live is worse than keeping random ones
+
+`ops/mlp5_channel_concentration.py`, 239.7s, **DISCOVERY ONLY**, rung 3 (§1834's open question).
+**pred_a False | pred_b False | pred_c False | pred_d True.** 0 of 3 substantive predictions.
+
+Compiling `mlp5` while keeping k of the 1152 residual channels **live**, as a fraction of the 61.2pp
+stake between B0 (64.8%) and all-of-mlp5-compiled (3.6%), skip7000:
+
+```
+           k=4      k=16     k=64     k=256   (of 1152 channels)
+  DISC    -0.9%    +0.2%    +8.0%   +30.5%    highest mean |live - row|
+  OUT     -0.2%    -2.7%    +3.4%    -2.4%    highest mean |live output|  (§1089's outlier dims)
+  RAND    +2.7%    +3.9%    +7.6%    +8.0%    uniform, fixed seed
+```
+
+**pred_a FAILED by two orders of magnitude.** Sixteen highest-discrepancy channels buy **0.2%** of the
+stake against the 50% the prediction required. Even **256 channels — 22% of the entire residual width —**
+buy only **30.5%**. The most expensive site in the network is not expensive through a nameable handful of
+dimensions; its cost is spread across the map.
+
+**pred_b FAILED with the wrong sign, and this is the result worth carrying.** Keeping the sixteen
+**largest-magnitude** channels live buys **−2.7%** of the stake — it is *worse than compiling all of
+mlp5*. And **pred_c FAILED in the same direction**: the OUT selection is worse than **random** at all four
+k (−1.7, −4.0, −2.6, −6.3pp), while DISC beats random only at k=256 (+13.8pp) and is nominally worse at
+k=4 and k=16.
+
+> **§1089's outlier dimensions do not explain mlp5's compilation cost.** The hypothesis was Logan's and
+> it was a good one — layer 5, the constant-bias head, the outlier channels, and §1804's 152x explosion
+> all point at the same layer. But measured directly, the high-magnitude channels are not merely
+> unhelpful to preserve, they are **consistently worse than an arbitrary channel of the same count, four
+> times out of four.** That is a decisive negative for this object, whatever the outlier framing explains
+> about layer 5 otherwise.
+
+**The two channel rankings are disjoint.** Measured in the B0 stream: mean |live| max 292.4, median 36.9;
+mean |live − row| max 603.9, median 118.8; and the **top-16 by discrepancy and top-16 by magnitude share
+0 channels of 16.** Where the substitution errs most is not where the signal is largest. That is a
+structural fact about the site, measured rather than inferred, and it is why pred_b's two selections
+could and did come apart.
+
+**An interpretation I am flagging as untested.** §1804 found layer 5 exploding 152x when fed a compiled
+stream. If mlp5's live module produces garbage in exactly its largest channels when its input is
+compiled, then the table substitution is *protecting* against that explosion and preserving the outlier
+channels reintroduces it — which would explain the negative sign and the non-monotonicity of the OUT arm
+(+3.4% at k=64, then −2.4% at k=256). **This run did not measure that**, and I am recording it as a
+hypothesis with a named test rather than as a finding.
+
+**Controls (pred_d).** K0 — mlp5 fully compiled — reproduces §1834's published 3.6% gap fraction and
++61.2pp cost exactly, which also confirms that `partial_row_hook` with an all-False mask is arithmetically
+identical to `row_hook`. B0 reproduces §1829's published 64.8%. Endpoints reproduce §1789's full-rank
+top-1; the placement control moves top-1 under 0.05pp. Coverage 5419 of 50257. All three roles agree in
+sign and ordering.
+
+**Note on the run.** The first execution completed every arm and then died in its reporting block on a
+label suffix the arm loop no longer produced (LESSONS 59, with a gate check added and tested in both
+directions). The figures above are from the re-scored second execution; the two agree, since the first
+run's per-arm top-1 is in the log and converts to the same gap fractions.
+
+**Open question this ends on.** Give the outlier hypothesis its fair second chance and measure the
+mechanism instead of asserting it: keep the same channels live but **rescaled per channel** to the
+substituted row's magnitude. If OUT16 turns from −2.7% to positive under scaling, the outlier channels do
+carry signal and the failure was magnitude — §1804's explosion reaching mlp5, and §1089 partially
+rescued. If they remain worthless at the right scale, the outlier framing is closed for this object. The
+same run should measure directly whether mlp5's live output in the B0 stream is inflated against the
+fully live model on those channels, which is the thing the paragraph above only supposes.
