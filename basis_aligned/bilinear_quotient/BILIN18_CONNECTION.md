@@ -43169,3 +43169,55 @@ exact at its limit rather than merely self-consistent.
 documents. §1683, §1693 and §1701 each found levels moving ~1.3 points between skip7000 and
 skip11000 while the *gains* held to within 0.1. The price curve is a claim about gains, so it should
 survive — but that is the prediction, not the result. Named on the board as my next rung.
+
+## §1717 — priced in params/nat, the feature augmentation is a WORSE program than the base. My "new best" framing was fidelity-only.
+
+Logan asked whether the metric accounts for simplicity, since a lookup table or the model itself
+reconstructs perfectly without being simple. The project already answers this and I had drifted
+from it. `LAYER_PROGRAM.md` records the 2026-08-17 directive — "replacement must win on fidelity
+AND on MDL" — `BENCHMARK.md` frames the whole benchmark as "an explicit fidelity-vs-simplicity
+trade-off that is not quantization", `MDL_BILL.md` prices capability in **params/nat**, and
+`RESULTS.md` carries a ΔCE-vs-description-length figure with a Pareto envelope.
+
+**My §1659–§1716 arc reported fidelity ceilings and attached parameter counts only as commentary.**
+I never computed params/nat, never placed a result on the envelope, and selected "best program" by
+fidelity with cost mentioned afterwards. Applying the project's own metric to my own numbers, on
+the joint 36-site stake of 5.5684 nats:
+
+```
+program                params (M)    nats     M/nat    marginal M/nat
+base linear program        23.89     3.065     7.80         —
++ k=512 features           30.97     3.269     9.47       34.6
++ k=1024                   38.05     3.376    11.27       66.7
++ k=2048                   52.20     3.529    14.79       92.1
++ k=4608                   87.59     3.761    23.29      152.6
+```
+
+**Every feature added is worse value than the last, and all of them are far worse than the base
+program.** The base linear program buys a nat for 7.80M parameters; the first block of features
+costs **34.6M per marginal nat**, and by k=4608 the margin is **152.6M per nat** — twenty times
+the base rate. Overall efficiency degrades monotonically, 7.80 → 23.29.
+
+**So §1714's "new best whole-model program: 58.71%" is wrong as a program claim.** It is the best
+*fidelity* at 36 sites, and simultaneously a **worse program** than the 55.038% it replaced once
+simplicity is priced. I reported the price honestly — 0.3×, 1.2×, 2.7× the base parameter count —
+but reported it *alongside* the fidelity rather than *as part of the score*, which let an expensive
+family read as an advance. That is precisely the failure mode the benchmark was designed to
+prevent, committed against the benchmark's own stated rule.
+
+**What this does NOT change.** The §1714 finding itself — recovery is proportional to features
+spent, no low-rank shortcut, gains accelerate in log k — is *strengthened*, not weakened. Convex
+gains in log k is exactly what "no compressible structure" looks like when read on a cost axis:
+each additional nat is bought at a worse rate than the last, monotonically, all the way to the full
+basis. §1716's bit-exact identity is unaffected. §1709's k=8 negative is unaffected.
+
+**One comparison I am NOT making.** `MDL_BILL.md`'s commons bill is 1.03M params/nat, which looks
+like these programs are 8–23× worse. It is a different object in a different currency —
+attention-head kits priced against capability-nats, not MLP programs against an
+optimal-constant stake — so the numbers are not comparable and §1656 is the standing warning
+against exactly that move. The internal comparison (base vs augmented, same protocol, same stake)
+is the valid one and is damning on its own.
+
+**Correction to practice, not just to this result.** Every program figure in this arc should carry
+its params/nat, and "best" should mean best on the frontier rather than best on fidelity. The
+registry headline is updated accordingly.
