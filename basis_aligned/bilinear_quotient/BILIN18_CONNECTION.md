@@ -44831,3 +44831,79 @@ mine and is recorded rather than glossed.
 script — with table-only CE 7.35114, live CE 3.29205, coverage 5419 of 50257, and all 108 per-site
 fits on the full 24576 positions. The feature builder also passed a hand-built causality
 known-answer check before any model ran, so §1733's future-looking error could not recur here.
+
+## §1753 — the rich class was badly steered AND still loses: training moves it +1.11 nats and it ends at half the simple class
+
+`ops/nonlocal_downstream.py`, 222.3s, **DISCOVERY ONLY**.
+**pred_a False | pred_b True | pred_c True | pred_d True.**
+
+```
+  held out (skip11000), rank 8, checkpoint selected on skip7000
+    A  table + x_t W          start +0.38578 -> best +0.58315 (+13.69%) at step 120, gain +0.19737
+    C  + lag1 + prefix mean   start -0.80166 -> best +0.31212  (+7.32%) at step 240, gain +1.11377
+
+    A trajectory:  .3858 .5317 .5685 .5831 .5655 .5736 .5625
+    C trajectory: -.8017 .2414 .2494 .0896 .2172 .0834 .3121
+```
+
+**pred_c passed decisively and confirms the steering hypothesis: the local objective is what broke
+the rich class.** Training moves C by **+1.11377 nats** against A's +0.19737 — the richer class gains
+**5.6x more** from being fitted to the loss it is judged by. §1752's −0.80 was a fitting artifact, not
+a property of the class.
+
+**pred_b passed: C is rescued from −0.802 to +0.312.**
+
+**pred_a FAILED, and that is the finding. Even correctly steered, the rich class loses to the simple
+one: +0.312 against +0.583, at twice the factor cost.** So the extra features are not merely
+mis-steered — with the objective fixed they are still net harmful at this budget. Combined with
+§1751 (capacity is not the constraint) this prunes a direction: **adding local expressiveness to this
+program family does not help, whether the expressiveness is rank or features.**
+
+**Stated as a limit on pred_a's conclusion, in the direction it could be wrong.** C's best is at the
+**last** evaluated step and its trajectory is still climbing and noisy (0.241, 0.249, 0.090, 0.217,
+0.083, 0.312), while A plateaued by step 120. **This run is under-budgeted for C**, so "C loses to A"
+is established at 240 steps and not at convergence. That is exactly the defect LESSONS 31's addendum
+records twice; I am naming it rather than letting the conclusion stand unqualified.
+
+Controls (pred_d): **two exact cross-script reproductions on two different programs** — A's step 0 at
++0.40631 / +0.38578 matching §1748, C's at −0.78273 / −0.80166 matching §1752 — plus table-only CE
+7.35114, live CE 3.29205, coverage 5419 of 50257, and every per-site fit on the full 24576 positions.
+
+## §1754 — CORRECTION: every cost figure in §1748–§1753 counted only the factors and left out the tables, which are 339x larger. Two claims reverse.
+
+Codex caught this and they are right. I have been quoting the compiled program's cost as **0.664M
+reals** — the trainable rank-8 factors — while **the per-token tables are part of the program** and
+cost `36 × 5419 × 1152 =` **224.737M reals**. The tables are 339x the factors. Corrected:
+
+| program | factors | tables | **total** | recovered (held out) | **nats per M** |
+|---|---:|---:|---:|---:|---:|
+| rank-8 compiled, trained (§1751) | 0.664M | 224.737M | **225.400M** | +0.6006 | **0.002665** |
+| rank-8 compiled, §1750 final | 0.664M | 224.737M | 225.400M | +0.5507 | 0.002443 |
+| variant C trained (§1753) | 1.327M | 224.737M | 226.064M | +0.3121 | 0.001381 |
+| **greedy 6 native + 30 tables (§1741)** | — | 187.281M | **243.022M** | **+1.2414** | **0.005108** |
+
+**Two published claims reverse:**
+
+1. **§1748's "26x more cost-efficient than the native allocation" and §1750's "37x" are wrong.**
+   With tables counted, the native allocation is **1.92x MORE cost-efficient than the rank-8
+   compiled program**, not 26–37x less. Withdrawn.
+2. **§1746's "mlp17 is 54x compressible" stands as a statement about the MODULE** — 0.295M of rank-128
+   factors against a 15.926M native module — **but not as a statement about a program**, because that
+   site still needs its 6.24M-real table to function.
+
+**What survives unchanged:** every fidelity number, every ordering result (§1749's fixed-point proof),
+the objective's 43% (§1750), the capacity saturation (§1751), the local-versus-joint anti-correlation
+(§1752), and the steering result above. **The cost axis was wrong; the composition science was not.**
+
+**And the corrected numbers are still a lower bound on a standalone program**, for a reason that
+matters more than the factor of 339. The hybrid hook (§1661) applies the table only where the token
+was seen at fit time; **24% of scored positions fall through to the LIVE module**. So none of these
+programs stands alone — they all require the original 430.00M of native modules present for the
+uncovered quarter. A genuinely standalone program must price that fallback, and none of §1748–§1753
+does.
+
+**This is the fourth cost-axis error in this arc and Codex found all four** (§1714, §1717, §1718,
+§1754). §1720 recorded that "the cost axis has had no instrument checks at all" and that every
+registered prediction I write is about fidelity. Four sections of predictions later, that is still
+true, and it is now the standing gap: **a cost figure in this arc has never once been a registered,
+falsifiable quantity.**

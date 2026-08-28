@@ -1,0 +1,166 @@
+{
+ "config": {
+  "rank": 8,
+  "steps": 240,
+  "batch": 4,
+  "lr": 0.001,
+  "variants": {
+   "A_current": 1,
+   "C_lag1_prefixmean": 3
+  },
+  "question": "\u00a71752 found richer local features improve every site solo and destroy the joint program, under a LOCAL objective. \u00a71750 found a downstream objective worth 43% for the poorest class. This asks whether the rich class was badly STEERED or genuinely does not compose.",
+  "ROLE_NOTE": "DISCOVERY ONLY. Training uses the FIT rows; skip7000 selects the checkpoint; skip11000 is clean of both."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "table_only": 7.35114,
+   "stake": 4.05909
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "table_only": 7.35825,
+   "stake": 4.26114
+  }
+ },
+ "variants": {
+  "A_current": {
+   "n_feature_blocks": 1,
+   "cost_M": 0.6636,
+   "start": {
+    "skip7000": 0.40631,
+    "skip11000": 0.38578
+   },
+   "best_step": 120,
+   "best": {
+    "skip7000": 0.59306,
+    "skip11000": 0.58315
+   },
+   "best_frac": {
+    "skip7000": 0.14611,
+    "skip11000": 0.13685
+   },
+   "train_gain": {
+    "skip7000": 0.18676,
+    "skip11000": 0.19737
+   },
+   "nats_per_Mreal": 0.8788,
+   "trajectory": [
+    {
+     "step": 0,
+     "skip7000": 0.40631,
+     "skip11000": 0.38578
+    },
+    {
+     "step": 40,
+     "skip7000": 0.55109,
+     "skip11000": 0.5317
+    },
+    {
+     "step": 80,
+     "skip7000": 0.58009,
+     "skip11000": 0.56853
+    },
+    {
+     "step": 120,
+     "skip7000": 0.59306,
+     "skip11000": 0.58315
+    },
+    {
+     "step": 160,
+     "skip7000": 0.58038,
+     "skip11000": 0.56546
+    },
+    {
+     "step": 200,
+     "skip7000": 0.58889,
+     "skip11000": 0.57356
+    },
+    {
+     "step": 240,
+     "skip7000": 0.57806,
+     "skip11000": 0.56249
+    }
+   ]
+  },
+  "C_lag1_prefixmean": {
+   "n_feature_blocks": 3,
+   "cost_M": 1.3271,
+   "start": {
+    "skip7000": -0.7827,
+    "skip11000": -0.80166
+   },
+   "best_step": 240,
+   "best": {
+    "skip7000": 0.3255,
+    "skip11000": 0.31212
+   },
+   "best_frac": {
+    "skip7000": 0.08019,
+    "skip11000": 0.07325
+   },
+   "train_gain": {
+    "skip7000": 1.10819,
+    "skip11000": 1.11377
+   },
+   "nats_per_Mreal": 0.2352,
+   "trajectory": [
+    {
+     "step": 0,
+     "skip7000": -0.7827,
+     "skip11000": -0.80166
+    },
+    {
+     "step": 40,
+     "skip7000": 0.25291,
+     "skip11000": 0.2414
+    },
+    {
+     "step": 80,
+     "skip7000": 0.24723,
+     "skip11000": 0.24941
+    },
+    {
+     "step": 120,
+     "skip7000": 0.05769,
+     "skip11000": 0.08958
+    },
+    {
+     "step": 160,
+     "skip7000": 0.2062,
+     "skip11000": 0.21723
+    },
+    {
+     "step": 200,
+     "skip7000": 0.0638,
+     "skip11000": 0.08341
+    },
+    {
+     "step": 240,
+     "skip7000": 0.3255,
+     "skip11000": 0.31212
+    }
+   ]
+  }
+ },
+ "reference": {
+  "A_local_S1748": {
+   "skip7000": 0.40631,
+   "skip11000": 0.38578
+  },
+  "C_local_S1752": {
+   "skip7000": -0.78273,
+   "skip11000": -0.80171
+  },
+  "A_trained_S1751": {
+   "skip11000": 0.6006
+  }
+ },
+ "predictions": {
+  "pred_a_rich_class_wins_when_trained": false,
+  "pred_b_training_rescues_C": true,
+  "pred_c_rich_class_gains_more": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 222.3
+}
