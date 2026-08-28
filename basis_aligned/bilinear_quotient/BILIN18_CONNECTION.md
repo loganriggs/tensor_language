@@ -43395,3 +43395,91 @@ features buy recovery proportionally) and the harness cannot distinguish any of 
 *which components matter and how simply they can be stated*; it does not test what a circuit
 actually says. That is a sharper statement of §1721's third point and it bounds what the tool can
 ever be used for without per-claim predicates.
+
+## §1723 — correction to §1720: 214.991M is a partial fixed-grammar price, not a 2x executable compression
+
+§1720 repeated the denominator error that §1718 had already prohibited. The 214.991M-real
+quantity prices the eighteen-MLP linear base plus selected native `Left`/`Right`/`Down`
+factors for MLP4--15. It is not a complete zero-native-call replacement for the 430M
+parameters in all 36 attention and MLP modules. Dividing it by 430M therefore does not
+establish a 2x executable compression.
+
+The corrected statement is narrower: **214.991M is the factor-complete hypothetical
+price of this partial fixed grammar, before biases, indices, precision, metadata, and
+shared-dependency accounting. No executable compression ratio is currently licensed.**
+The held-out $k=512$ gain remains valid, and the measured frontier still has worsening
+marginal efficiency with no low-cost knee in this chosen native-feature grammar. The
+stronger phrase "no compressible chunk exists" is also withdrawn: the experiment cannot
+exclude a different basis, shared factor dictionary, or typed causal interface.
+
+## §1724 — the specificity control fires, and it fails its own headline prediction: named circuits do NOT beat arbitrary sets of the same size
+
+`ops/circuit_audit_v2.py`, 182.4s, 15 of 16 circuits controlled (`_whole_model_program` names all
+36 sites and correctly reports `null` rather than a fabricated denominator).
+
+**pred_a True | pred_b FALSE | pred_c True | pred_d True.**
+
+Specificity = the named set's constant-ablation cost divided by a matched-size set of components
+the circuit does not name.
+
+```
+  _front_band_tableability_ladder     9.32   (4.3928 vs 0.4712)
+  _front_is_tabular_middle_is_not     9.32
+  _front_mlps_are_synergistic         9.32
+  _mlp1_dossier                       8.25   (7.0213 vs 0.8514)
+  _program_price_curve                1.22   (4.3301 vs 3.5570)
+  _best_compiled_program_for_mlp_stack 1.22
+  _attention_output_write_is_nonlocal 0.82   (3.5570 vs 4.3301)
+  _attention_write_is_mostly_two_position 0.82
+  _only_attention_routing_is_compressible 0.82
+  _middle_band_is_redundant_not_small 0.77   (2.6496 vs 3.4274)
+  _middle_band_program_family_prices  0.77
+  _mid_band_feature_price_curve       0.77
+  _band_synergy_sign_depends_on_band  0.71   (0.7112 vs 0.9990)
+  _lag1_failure_is_middle_band        0.54   (2.1137 vs 3.8874)
+  _mlp0_dossier_resolved              0.12   (0.8514 vs 7.0213)
+```
+
+Spread 0.12 to 9.32, so the control discriminates (pred_a). **Median 0.82: the typical certified
+circuit names a set that matters LESS than an arbitrary set of the same size** (pred_b false, as
+written, at 0.82 against a bar of 1.00). I predicted the opposite and I was wrong.
+
+**Two things are true about that failure and they pull in opposite directions. Both are recorded.**
+
+**(1) The bar was the wrong test, because specificity is UNSIGNED and the claims are not.**
+`_middle_band_is_redundant_not_small` scores 0.77. That entry asserts the middle band is
+*redundant*. A specificity below 1 is exactly what its claim predicts — it is a confirmation being
+counted as a failure. Same for the three attention entries at 0.82: §1707 established attention
+extracts negatively and routes content, and the whole-MLP-stack control out-costing it is the
+already-published result, not a defect. The harness scored fifteen sets against one direction while
+the entries assert both. This is §1722's SETS-not-CLAIMS limitation showing up quantitatively
+instead of as a note, and it is the thing to fix.
+
+**(2) Even so, four of the fifteen rows are a measurement artifact, and I put it there.**
+`control_sites` takes ONE deterministic draw. When a circuit names all of one kind, the only
+available control is all of the other kind — so `_program_price_curve` (all MLPs, control = all
+attention) and `_attention_output_write_is_nonlocal` (the reverse) are **exact reciprocals**:
+4.3301/3.5570 = 1.2173 and 3.5570/4.3301 = 0.8215. Likewise `_mlp1_dossier` 7.0213/0.8514 = 8.2468
+and `_mlp0_dossier_resolved` 0.8514/7.0213 = 0.1213 — mlp0's control is mlp1 and mlp1's control is
+mlp0. **For a one-site circuit the specificity is entirely determined by which single arbitrary
+site the picker happened to choose.** mlp0 does not "matter 8x less than average"; it matters less
+than mlp1 specifically, which §1662 already knew. A single control draw is a coin flip wearing a
+ratio's clothes.
+
+So the number is real and the bar it was scored against was not the right bar. That is not a
+retraction of the control — the control is what surfaced both problems — it is a statement that v2
+answers Codex's point (2) with an instrument that still needs two repairs, named here before
+building them.
+
+**v3, queued next, makes exactly those two repairs and nothing else:**
+- **many control draws, not one.** Sample matched-size control sets and report the named set's
+  PERCENTILE among them plus the ratio to the control MEDIAN. A coin flip becomes a distribution,
+  and the reciprocal pairs cannot survive it.
+- **a declared claim DIRECTION per entry** (`important` / `redundant`), so specificity is scored
+  relative to what the circuit actually asserts. This is the first thing in the harness that reads
+  a CLAIM rather than a component set.
+
+Header/code drift also found and fixed in v3: v2's docstring still lists the v1 predicate meanings
+for a/b/c/d while the code computes the specificity ones. The printed line is authoritative; the
+docstring was stale. No result depends on it, but a reader of the file alone would have mismatched
+every predicate with its bar.
