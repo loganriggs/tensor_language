@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import math
+
 import pytest
 import torch
 
@@ -46,6 +48,72 @@ def _stage(cost: torch.Tensor, stage: str, *, role: str = "skip7000") -> statist
     )
 
 
+def _reference_als_one(cost: torch.Tensor, rank: int) -> torch.Tensor:
+    """Scalar/restart-loop reference, independent of the batched implementation."""
+
+    entries = cross.cross_cells(rank)
+    target = torch.tensor([
+        float(cost[i, j] - cost[i, 0] - cost[0, j] + cost[0, 0])
+        for i, j in entries
+    ], dtype=torch.float64)
+    scale = target.square().mean().sqrt()
+    normalized = target / scale
+    index = {cell: ordinal for ordinal, cell in enumerate(entries)}
+    penalty = len(entries) * cross.ALS_RELATIVE_RIDGE / (7 * rank)
+    identity = torch.eye(rank, dtype=torch.float64)
+    candidates = []
+    objectives = []
+    for restart in range(cross.ALS_RESTARTS):
+        generator = torch.Generator().manual_seed(
+            cross.ALS_SEED + 1000 * rank + restart
+        )
+        left = torch.randn(
+            (7, rank), generator=generator, dtype=torch.float64,
+        ) / math.sqrt(rank)
+        right = torch.randn(
+            (7, rank), generator=generator, dtype=torch.float64,
+        ) / math.sqrt(rank)
+        for _ in range(100):
+            updated_rows = []
+            for i in range(1, 8):
+                columns = [j for j in range(1, 8) if (i, j) in index]
+                design = right[[j - 1 for j in columns]]
+                response = normalized[[index[(i, j)] for j in columns]]
+                updated_rows.append(torch.linalg.solve(
+                    design.T @ design + penalty * identity,
+                    design.T @ response,
+                ))
+            left = torch.stack(updated_rows)
+            updated_columns = []
+            for j in range(1, 8):
+                rows = [i for i in range(1, 8) if (i, j) in index]
+                design = left[[i - 1 for i in rows]]
+                response = normalized[[index[(i, j)] for i in rows]]
+                updated_columns.append(torch.linalg.solve(
+                    design.T @ design + penalty * identity,
+                    design.T @ response,
+                ))
+            right = torch.stack(updated_columns)
+        fitted = torch.tensor([
+            float(left[i - 1] @ right[j - 1]) for i, j in entries
+        ], dtype=torch.float64)
+        objective = (fitted - normalized).square().mean() + (
+            cross.ALS_RELATIVE_RIDGE
+            * (left.square().mean() + right.square().mean())
+        )
+        candidates.append(left @ right.T)
+        objectives.append(objective)
+    # Python min keeps the first occurrence, matching torch.argmin's frozen tie rule.
+    selected = min(range(len(objectives)), key=lambda value: float(objectives[value]))
+    total = torch.stack([
+        torch.stack([
+            cost[i, 0] + cost[0, j] - cost[0, 0] for j in range(8)
+        ]) for i in range(8)
+    ])
+    total[1:, 1:] += scale * candidates[selected]
+    return total
+
+
 def test_stage_statistics_are_sealed_and_capability_sized() -> None:
     stage = _stage(_rank_cost(3), "validation")
     assert stage.top1_correct.shape == (3, 7)
@@ -61,6 +129,15 @@ def test_stage_statistics_are_sealed_and_capability_sized() -> None:
             document_token_count=torch.ones(3, dtype=torch.long),
             top1_correct=torch.zeros((3, 8), dtype=torch.long),
             ce_sum=torch.zeros((3, 8), dtype=torch.float64),
+        )
+    ce = stage.ce_sum
+    ce[0, 0] = float("nan")
+    with pytest.raises(ValueError, match="bounds"):
+        statistics.StageStatistics(
+            role="skip7000", stage="validation", authority_sha256=AUTHORITY,
+            ordered_document_ids_sha256=DOCUMENTS,
+            document_token_count=stage.document_token_count,
+            top1_correct=stage.top1_correct, ce_sum=ce.contiguous(),
         )
 
 
@@ -114,6 +191,88 @@ def test_als_is_scale_equivariant_under_registered_normalization(rank: int) -> N
     prediction, failed = statistics.batched_als_prediction(licensed, rank)
     assert not bool(failed.any())
     assert torch.allclose(prediction[1], 7.0 * prediction[0], atol=1e-9, rtol=1e-9)
+
+
+def test_als_matches_independent_scalar_known_answer_and_exact_sweep_count(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    rank = 3
+    cost = _rank_cost(rank)
+    # Add a deterministic off-rank perturbation so restart selection and update
+    # order matter rather than every restart sharing an exact zero-residual answer.
+    for i, j in cross.cross_cells(rank):
+        cost[i, j] += 0.007 * math.sin(11 * i + 7 * j)
+    licensed = torch.full((1, 8, 8), float("nan"), dtype=torch.float64)
+    for cell in cross.RANK3_DISCOVERY_CELLS:
+        licensed[0][cell] = cost[cell]
+    reference = _reference_als_one(cost, rank)
+    calls = 0
+    original = torch.linalg.solve
+
+    def counted_solve(*args, **kwargs):
+        nonlocal calls
+        calls += 1
+        return original(*args, **kwargs)
+
+    monkeypatch.setattr(torch.linalg, "solve", counted_solve)
+    observed, failed = statistics.batched_als_prediction(licensed, rank)
+    assert not bool(failed[0])
+    assert calls == cross.ALS_SWEEPS * 14
+    assert torch.allclose(observed[0], reference, atol=1e-11, rtol=1e-11)
+
+
+def test_als_restart_ties_select_the_first_seeded_restart() -> None:
+    objective = torch.tensor([
+        [2.0, 1.0, 1.0, 3.0, 4.0, 5.0, 6.0, 7.0],
+        [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0],
+    ], dtype=torch.float64)
+    assert statistics._select_restart(objective).tolist() == [1, 0]
+
+
+def test_type7_quantiles_have_a_known_answer() -> None:
+    values = torch.cat((
+        torch.tensor([-1.0], dtype=torch.float64),
+        torch.arange(cross.BOOTSTRAP_DRAWS, dtype=torch.float64),
+    ))
+    summary = statistics._summary(values)
+    assert summary == pytest.approx({
+        "point": -1.0, "q025": 49.975, "q95": 1899.05, "q975": 1949.025,
+    }, abs=1e-12)
+
+
+def test_singular_draw_is_retained_and_never_replaced() -> None:
+    rank = 3
+    cost = _rank_cost(rank)
+    additive = torch.stack([
+        torch.stack([
+            cost[i, 0] + cost[0, j] - cost[0, 0] for j in range(8)
+        ]) for i in range(8)
+    ])
+    licensed = torch.full((2, 8, 8), float("nan"), dtype=torch.float64)
+    for cell in cross.RANK3_DISCOVERY_CELLS:
+        licensed[0][cell] = cost[cell]
+        licensed[1][cell] = additive[cell]
+    prediction, _, singular = statistics.batched_cross_prediction(licensed, rank)
+    assert singular.tolist() == [False, True]
+    assert bool(torch.isnan(prediction[1]).all())
+
+
+def test_zero_metric_denominators_are_retained_as_nonfinite_hard_failures() -> None:
+    additive = torch.stack([
+        torch.stack([
+            torch.tensor(float(i + j), dtype=torch.float64) for j in range(8)
+        ]) for i in range(8)
+    ])
+    cost = additive.repeat(4, 1, 1).contiguous()
+    metrics = statistics._metric_vectors(
+        cost, cost.clone(), cost.clone(), cross.RANK4_VALIDATION_CELLS,
+    )
+    # Exactly additive truth gives zero interaction and additive-error
+    # denominators. They remain NaN instead of being replaced by 0, 1, epsilon,
+    # or a dropped draw; score_rank's finite-every-draw branch therefore fails.
+    assert bool(torch.isnan(metrics["interaction_nre"]).all())
+    assert bool(torch.isnan(metrics["rmse_over_additive"]).all())
+    assert any(not bool(torch.isfinite(value).all()) for value in metrics.values())
 
 
 def test_rank_three_api_has_no_heldout_capability() -> None:

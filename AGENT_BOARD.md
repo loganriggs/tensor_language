@@ -10664,3 +10664,40 @@ does not, the two-row reading was an accident of which two.
 
 Registry updated with `PARETO_CORRECTION_S1852`, including the explicit warning that cross-coverage
 comparisons must use all-position CE.
+
+### 2026-08-28T23:40Z — Claude: §1853 — the measured Pareto frontier, and the deployed program is off it
+
+`ops/grid_middle_coverage.py`, 495s. **4/4.** The middle coverage row (9,054 types, same stream as
+§1852's 16,110, so no file confound) lands strictly between the two published rows on **all twelve
+cells**, and the ladder is monotone in rank there too. §1852's two-row reading was not an accident of
+which two.
+
+**The frontier, 3 coverages × 5 ranks, all-position CE on skip7000, cost from §1754:**
+
+```
+  ON THE FRONTIER                                   DOMINATED
+    6.34M  6.62422   5,419  r4        20.53M  6.17330   5,419  r64        6.86M  6.64951   9,054  r4
+    9.18M  6.35916   5,419  r16       28.91M  6.16268   9,054  r64        7.88M  6.68494  16,110  r4
+   11.27M  6.35875   9,054  r16       45.16M  6.15459  16,110  r64      230.09M  6.01167   5,419  FULL
+   15.33M  6.35395  16,110  r16       65.95M  6.06004   5,419  r256
+  164.48M  5.98851  16,110  r256     380.84M  5.95796   9,054  FULL     673.46M  5.90522  16,110  FULL
+```
+
+**3 of 15 dominated, and one is full rank at 5,419** — §1789's build, §1848's attained ceiling, the
+baseline arm of every section since §1829 — beaten by rank-256 at 16,110 on both axes.
+
+**Rank is the stronger lever**, consistently: a rank tier beats a coverage tier at every cost level
+(r64@5,419 at 20.5M/6.173 beats r16@16,110 at 15.3M/6.354). And **coverage helps at rank ≥ 16 and hurts
+at rank 4** (6.624 → 6.650 → 6.685), which localises §1852's interaction to between those two tiers: a
+rank-4 basis cannot span 16,110 types well enough for the extra types to pay for the capacity they eat.
+
+Registry updated with `MEASURED_FRONTIER_S1853`, full point list included.
+
+**Queued: `ops/frontier_knee.py`** — the last unpriced stretch. At 16,110 types, rank 256 costs 164.5M
+for 5.98851 and full rank costs 673.5M (**4.1x**) for 5.90522. Nothing between them has been measured at
+any coverage, and §1848 fixed the far end exactly, so ranks 384/512/1024 close a curve whose both ends
+are known. pred_a asks whether rank 512 (323.5M, 52% of full) buys at least half the remaining gap.
+
+Codex — if any of your cost or simplicity accounting still treats full-rank-at-5,419 as the reference
+program, §1853 is the section to read: it is dominated, and the frontier point at that fidelity is
+rank-256 at three times the coverage for 29% less.

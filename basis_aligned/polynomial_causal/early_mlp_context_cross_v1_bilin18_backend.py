@@ -246,6 +246,21 @@ class Bilin18ContextCrossBackend(parent.Bilin18CutRankBackend):
         )
         return self._cross_bank
 
+    def verify_pre_outcome(self, bank: PreparedBank) -> tuple[str, str]:
+        """Exactly rehash model/program immediately before authority publication."""
+
+        if self._closed or bank is not self._cross_bank or self._model_guard is None or (
+            self._program is None
+        ):
+            raise RuntimeError("pre-outcome verification lacks the prepared realization")
+        component = self._model_guard.verify_exact()
+        program = self._program.verify_exact()
+        if component != bank.model.component_tree_sha256 or program != (
+            bank.shared_program_sha256
+        ):
+            raise RuntimeError("pre-outcome model/program content differs from bank")
+        return component, program
+
     @torch.no_grad()
     def execute_cell(
         self, role: str, request: measurement.MeasurementRequest,

@@ -37,12 +37,12 @@ def _model_binding() -> inherited.ModelBinding:
 
 class FakeBackend:
     batch_size = 8
-    source_paths = (
-        "basis_aligned/polynomial_causal/early_mlp_context_cross_v1_bilin18_backend.py",
-    )
+    source_paths = backend_module.SOURCE_PATHS
 
-    def __init__(self, *, fail_at=None):
+    def __init__(self, *, fail_at=None, after_prepare=None, after_verify=None):
         self.fail_at = fail_at
+        self.after_prepare = after_prepare
+        self.after_verify = after_verify
         self.calls = []
         self.closed = False
         self.bank = None
@@ -65,7 +65,15 @@ class FakeBackend:
                 for role in statistics.ROLE_NAMES
             ),
         )
+        if self.after_prepare is not None:
+            self.after_prepare()
         return self.bank
+
+    def verify_pre_outcome(self, bank):
+        assert bank is self.bank
+        if self.after_verify is not None:
+            self.after_verify()
+        return measurement.COMPONENT_TREE_SHA256, measurement.SHARED_PROGRAM_SHA256
 
     def execute_cell(self, role, request, rows, descriptor):
         self.calls.append((role, request.ordinal))
@@ -197,3 +205,32 @@ def test_existing_namespace_fails_before_lock_or_backend_use(tmp_path):
     with pytest.raises(RuntimeError, match="spent"):
         runner.run_transaction(backend=backend, paths=paths)
     assert backend.calls == [] and not backend.closed and not paths.lock.exists()
+
+
+def test_canonical_publication_rejects_a_source_path_spoofing_backend():
+    with pytest.raises(RuntimeError, match="exact production backend"):
+        runner._verify_backend_surface(FakeBackend(), require_production=True)
+
+
+def test_output_created_during_prepare_prevents_false_pre_outcome_authority(
+    tmp_path, frozen_inputs,
+):
+    paths = lifecycle.output_paths(tmp_path, "transaction_prepare_race")
+    backend = FakeBackend(after_prepare=lambda: paths.payload.write_bytes(b"raced"))
+    with pytest.raises(RuntimeError, match="appeared during pre-outcome"):
+        runner.run_transaction(backend=backend, paths=paths)
+    assert not paths.authority.exists() and not paths.receipt.exists()
+    assert paths.payload.read_bytes() == b"raced"
+    assert paths.failure.exists() and backend.closed and not paths.lock.exists()
+
+
+def test_output_created_during_final_rehash_is_caught_by_immediate_guard(
+    tmp_path, frozen_inputs,
+):
+    paths = lifecycle.output_paths(tmp_path, "transaction_verify_race")
+    backend = FakeBackend(after_verify=lambda: paths.receipt.write_text("raced\n"))
+    with pytest.raises(RuntimeError, match="immediately before authority"):
+        runner.run_transaction(backend=backend, paths=paths)
+    assert not paths.authority.exists() and not paths.payload.exists()
+    assert paths.receipt.read_text() == "raced\n"
+    assert paths.failure.exists() and backend.closed and not paths.lock.exists()

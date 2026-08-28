@@ -65,6 +65,7 @@ SOURCE_RELATIVE_PATHS = (
     "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_bilin18_backend.py",
     "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_gpu_adapter.py",
     "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurements.py",
+    "basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1.py",
     "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py",
     "jacclust/tt_model.py",
 )

@@ -11,6 +11,18 @@ import score_early_mlp_context_cross_v1 as scorer
 from test_run_early_mlp_context_cross_v1 import FakeBackend, _source
 
 
+def _write_json(path, value):
+    path.write_text(json.dumps(
+        value, sort_keys=True, indent=2, allow_nan=False,
+    ) + "\n")
+
+
+def _rebind_manifest_in_terminal_receipt(paths):
+    receipt = json.loads(paths.receipt.read_text())
+    receipt["manifest_file_sha256"] = lifecycle.file_sha256(paths.manifest)
+    _write_json(paths.receipt, receipt)
+
+
 @pytest.fixture
 def terminal_measurement(tmp_path, monkeypatch):
     monkeypatch.setattr(lifecycle, "committed_source_closure", _source)
@@ -28,7 +40,7 @@ def terminal_measurement(tmp_path, monkeypatch):
         ({"skip7000": True, "skip11000": False},
          {"skip7000": True, "skip11000": True}, 4, True),
         ({"skip7000": True, "skip11000": True},
-         {"skip7000": True, "skip11000": False}, None, False),
+         {"skip7000": True, "skip11000": False}, 3, True),
     ),
 )
 def test_two_role_conjunction_and_minimal_rank_selection(
@@ -54,7 +66,7 @@ def test_two_role_conjunction_and_minimal_rank_selection(
     )
     results = json.loads(paths.results.read_text())
     assert receipt["selected_minimal_rank"] == expected_rank
-    assert receipt["ce_final_useful_pass"] is expected_final
+    assert receipt["ce_any_registered_pass"] is expected_final
     assert receipt["top1_broad_behavior_pass"] is None
     assert results["two_role_ce_rank3_pass"] is all(rank3_by_role.values())
     assert results["two_role_ce_rank4_pass"] is all(rank4_by_role.values())
@@ -78,3 +90,49 @@ def test_tampered_predecessor_is_rejected_before_scoring(
             measurement_paths=terminal_measurement, paths=paths,
         )
     assert paths.failure.exists() and not paths.results.exists() and not paths.receipt.exists()
+
+
+def test_self_rebound_corrupt_cell_ledger_fails_semantic_replay(
+    terminal_measurement,
+):
+    manifest = json.loads(terminal_measurement.manifest.read_text())
+    record = manifest["cell_audit_records"]["skip7000"][0]
+    record["call_ledger"]["native_module_calls"][0][1] += 1
+    _write_json(terminal_measurement.manifest, manifest)
+    _rebind_manifest_in_terminal_receipt(terminal_measurement)
+    with pytest.raises((RuntimeError, ValueError), match="ledger|census"):
+        scorer.load_terminal_bundles(terminal_measurement)
+
+
+def test_self_rebound_role_authority_cross_link_fails_semantic_replay(
+    terminal_measurement,
+):
+    authority = json.loads(terminal_measurement.authority.read_text())
+    authority["role_authorities"]["skip7000"] = authority[
+        "role_authorities"
+    ]["skip11000"]
+    _write_json(terminal_measurement.authority, authority)
+    manifest = json.loads(terminal_measurement.manifest.read_text())
+    manifest["authority_file_sha256"] = lifecycle.file_sha256(
+        terminal_measurement.authority
+    )
+    _write_json(terminal_measurement.manifest, manifest)
+    receipt = json.loads(terminal_measurement.receipt.read_text())
+    receipt["authority_file_sha256"] = manifest["authority_file_sha256"]
+    receipt["manifest_file_sha256"] = lifecycle.file_sha256(
+        terminal_measurement.manifest
+    )
+    _write_json(terminal_measurement.receipt, receipt)
+    with pytest.raises(RuntimeError, match="authority hash chain"):
+        scorer.load_terminal_bundles(terminal_measurement)
+
+
+def test_self_rebound_stage_manifest_hash_fails_semantic_replay(
+    terminal_measurement,
+):
+    manifest = json.loads(terminal_measurement.manifest.read_text())
+    manifest["stage_payload_sha256s"]["skip7000"]["validation"] = "f" * 64
+    _write_json(terminal_measurement.manifest, manifest)
+    _rebind_manifest_in_terminal_receipt(terminal_measurement)
+    with pytest.raises(RuntimeError, match="stage hash chain"):
+        scorer.load_terminal_bundles(terminal_measurement)

@@ -11,6 +11,7 @@ from typing import Any
 
 import torch
 
+import early_mlp_context_cross_v1_bilin18_backend as backend_module
 import early_mlp_context_cross_v1_lifecycle as lifecycle
 import early_mlp_context_cross_v1_measurements as measurement
 import early_mlp_context_cross_v1_statistics as statistics
@@ -80,6 +81,35 @@ def _load_stage(value: dict[str, Any]) -> statistics.StageStatistics:
     return stage
 
 
+def _site(value: Any) -> tuple[str, int]:
+    if not isinstance(value, (list, tuple)) or len(value) != 2:
+        raise RuntimeError("serialized site changed")
+    return str(value[0]), int(value[1])
+
+
+def _load_descriptor(value: dict[str, Any]) -> backend_module.ProgramDescriptor:
+    copied = dict(value)
+    copied["installed_compiled_sites"] = tuple(
+        _site(site) for site in copied["installed_compiled_sites"]
+    )
+    return backend_module.ProgramDescriptor(**copied)
+
+
+def _load_cell_receipt(value: dict[str, Any]) -> measurement.CellReceipt:
+    copied = dict(value)
+    copied["cell"] = tuple(copied["cell"])
+    return measurement.CellReceipt(**copied)
+
+
+def _load_call_ledger(value: dict[str, Any]) -> backend_module.CellCallLedger:
+    copied = dict(value)
+    for name in ("native_module_calls", "substitution_calls"):
+        copied[name] = tuple(
+            (_site(site), int(count)) for site, count in copied[name]
+        )
+    return backend_module.CellCallLedger(**copied)
+
+
 def load_terminal_bundles(
     paths: lifecycle.OutputPaths,
 ) -> tuple[dict[str, measurement.StagedRoleBundle], dict[str, Any]]:
@@ -106,10 +136,44 @@ def load_terminal_bundles(
         "source_closure_sha256"
     ) or manifest.get("program_bank_sha256") != receipt.get(
         "program_bank_sha256"
+    ) or manifest.get("authority_file_sha256") != receipt.get(
+        "authority_file_sha256"
+    ) or manifest.get("payload_file_sha256") != receipt.get(
+        "payload_file_sha256"
+    ) or manifest.get("two_role_authority_sha256") != receipt.get(
+        "two_role_authority_sha256"
     ) or authority.get("two_role_authority_sha256") != receipt.get(
         "two_role_authority_sha256"
     ):
         raise RuntimeError("measurement authority/manifest/receipt disagree")
+    raw_descriptors = authority.get("program_descriptors")
+    if not isinstance(raw_descriptors, list) or len(raw_descriptors) != 64:
+        raise RuntimeError("authority program descriptors changed")
+    descriptors = tuple(_load_descriptor(value) for value in raw_descriptors)
+    audit_by_role = manifest.get("cell_audit_records")
+    if not isinstance(audit_by_role, dict) or set(audit_by_role) != set(
+        statistics.ROLE_NAMES
+    ):
+        raise RuntimeError("manifest lacks the two-role cell audit records")
+    raw_role_authorities = authority.get("role_authorities")
+    raw_role_hashes = authority.get("role_authority_sha256s")
+    if not isinstance(raw_role_authorities, dict) or not isinstance(
+        raw_role_hashes, dict
+    ) or set(raw_role_authorities) != set(statistics.ROLE_NAMES) or set(
+        raw_role_hashes
+    ) != set(statistics.ROLE_NAMES):
+        raise RuntimeError("two-role authority preimages are incomplete")
+    role_authorities = {
+        role: measurement.RoleAuthority(**raw_role_authorities[role])
+        for role in statistics.ROLE_NAMES
+    }
+    observed_authority_hashes = {
+        role: role_authorities[role].sha256 for role in statistics.ROLE_NAMES
+    }
+    if observed_authority_hashes != raw_role_hashes or measurement._logical_sha256(
+        observed_authority_hashes
+    ) != authority["two_role_authority_sha256"]:
+        raise RuntimeError("two-role authority hash chain differs")
     payload = torch.load(paths.payload, map_location="cpu", weights_only=True)
     if not isinstance(payload, dict) or set(payload) != {
         "schema_version", "status", "two_role_authority_sha256", "roles",
@@ -138,6 +202,7 @@ def load_terminal_bundles(
             role_receipt_value["stage_payload_sha256s"]
         )
         role_receipt = measurement.RoleReceipt(**role_receipt_value)
+        role_authority = role_authorities[role]
         stages = {
             name: _load_stage(value["stages"][name])
             for name in ("discovery", "validation", "heldout")
@@ -150,6 +215,54 @@ def load_terminal_bundles(
             role_receipt.sha256 != receipt["role_receipt_sha256s"][role]
         ) or role_receipt.sha256 != manifest["role_receipt_sha256s"][role]:
             raise RuntimeError("role receipt hash differs")
+        if role_receipt.authority_sha256 != role_authority.sha256 or (
+            role_receipt.source_commit != role_authority.source_commit
+        ) or role_receipt.source_closure_sha256 != (
+            role_authority.source_closure_sha256
+        ) or role_receipt.row_file_sha256 != role_authority.row_file_sha256 or (
+            role_receipt.row_raw_sha256 != role_authority.row_raw_sha256
+        ) or role_receipt.ordered_document_ids_sha256 != (
+            role_authority.ordered_document_ids_sha256
+        ) or role_receipt.shared_program_sha256 != (
+            role_authority.shared_program_sha256
+        ) or manifest.get("stage_payload_sha256s", {}).get(role) != {
+            name: stages[name].sha256
+            for name in ("discovery", "validation", "heldout")
+        }:
+            raise RuntimeError("role authority/receipt/stage hash chain differs")
+        audit_records = audit_by_role[role]
+        if not isinstance(audit_records, list) or len(audit_records) != 64:
+            raise RuntimeError("role cell audit record count changed")
+        for ordinal, (record, descriptor) in enumerate(zip(
+            audit_records, descriptors, strict=True,
+        )):
+            if not isinstance(record, dict) or set(record) != {
+                "ordinal", "program_descriptor_sha256", "cell_receipt",
+                "cell_receipt_sha256", "call_ledger", "call_ledger_sha256",
+            } or record["ordinal"] != ordinal:
+                raise RuntimeError("cell audit record order/schema changed")
+            cell_receipt = _load_cell_receipt(record["cell_receipt"])
+            call_ledger = _load_call_ledger(record["call_ledger"])
+            call_ledger.validate(descriptor)
+            request = measurement.REQUESTS[ordinal]
+            if descriptor.sha256 != record["program_descriptor_sha256"] or (
+                cell_receipt.sha256 != record["cell_receipt_sha256"]
+            ) or call_ledger.sha256 != record["call_ledger_sha256"] or (
+                cell_receipt.call_ledger_sha256 != call_ledger.sha256
+            ) or cell_receipt.sha256 != role_receipt.cell_receipt_sha256s[ordinal] or (
+                cell_receipt.authority_sha256 != role_authority.sha256
+            ) or cell_receipt.request_sha256 != request.sha256 or (
+                cell_receipt.source_closure_sha256 != receipt["source_closure_sha256"]
+            ) or cell_receipt.model_tree_before_sha256 != (
+                measurement.COMPONENT_TREE_SHA256
+            ) or cell_receipt.model_tree_after_sha256 != (
+                measurement.COMPONENT_TREE_SHA256
+            ) or cell_receipt.shared_program_before_sha256 != (
+                measurement.SHARED_PROGRAM_SHA256
+            ) or cell_receipt.shared_program_after_sha256 != (
+                measurement.SHARED_PROGRAM_SHA256
+            ):
+                raise RuntimeError("cell receipt/ledger physical binding differs")
         bundles[role] = bundle
     return bundles, receipt
 
@@ -165,6 +278,13 @@ def score_transaction(
     paths.require_pristine()
     lock = lifecycle.RunLock(paths.lock)
     lock.acquire()
+    existing = [
+        str(path) for path in (paths.results, paths.receipt, paths.failure)
+        if path.exists()
+    ]
+    if existing:
+        lock.release()
+        raise RuntimeError(f"score namespace raced after lock acquisition: {existing}")
     phase = "verify_terminal_measurement"
     try:
         source = lifecycle.committed_source_closure()
@@ -190,7 +310,10 @@ def score_transaction(
             scores[role]["rank4"]["ce_useful_pass"]
             for role in statistics.ROLE_NAMES
         )
-        selected = 3 if rank3_pass and rank4_pass else (4 if rank4_pass else None)
+        # Frozen selection rule: a passing rank three is the minimal model and the
+        # later rank-four score cannot replace it.  Rank four is selected only when
+        # rank three fails and rank four passes.
+        selected = 3 if rank3_pass else (4 if rank4_pass else None)
         results = {
             "schema_version": SCHEMA_VERSION,
             "status": "complete_capability_separated_two_role_score",
@@ -205,7 +328,7 @@ def score_transaction(
             "roles": scores,
             "two_role_ce_rank3_pass": rank3_pass,
             "two_role_ce_rank4_pass": rank4_pass,
-            "ce_final_useful_pass": rank4_pass,
+            "ce_any_registered_pass": rank3_pass or rank4_pass,
             "selected_minimal_rank": selected,
             "top1_broad_behavior_pass": None,
         }
@@ -221,7 +344,7 @@ def score_transaction(
             ],
             "results_file_sha256": results_sha256,
             "selected_minimal_rank": selected,
-            "ce_final_useful_pass": rank4_pass,
+            "ce_any_registered_pass": rank3_pass or rank4_pass,
             "top1_broad_behavior_pass": None,
         }
         phase = "publish_receipt_last"

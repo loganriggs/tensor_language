@@ -8,9 +8,7 @@ scientific access.  No partial outcome is published.
 
 from __future__ import annotations
 
-import argparse
 from dataclasses import asdict
-import importlib
 import json
 from pathlib import Path
 import secrets
@@ -42,6 +40,10 @@ class MeasurementBackend(Protocol):
         self, role: str, request: measurement.MeasurementRequest,
         rows: torch.Tensor, descriptor: backend_module.ProgramDescriptor,
     ) -> backend_module.BackendCellResult: ...
+
+    def verify_pre_outcome(
+        self, bank: backend_module.PreparedBank,
+    ) -> tuple[str, str]: ...
 
     def close(self) -> str: ...
 
@@ -85,16 +87,29 @@ def _validate_payload(path: Path, expected: dict[str, Any]) -> None:
         raise RuntimeError("installed two-role payload changed")
 
 
-def _verify_backend_surface(backend: MeasurementBackend) -> None:
+def _verify_backend_surface(
+    backend: MeasurementBackend, *, require_production: bool,
+) -> None:
     if type(backend.batch_size) is not int or backend.batch_size <= 0 or not isinstance(
         backend.source_paths, tuple
     ) or not backend.source_paths or len(backend.source_paths) != len(
         set(backend.source_paths)
     ) or any(not isinstance(path, str) or not path for path in backend.source_paths) or not all(
         callable(getattr(backend, name, None))
-        for name in ("prepare", "execute_cell", "close")
-    ):
+        for name in ("prepare", "verify_pre_outcome", "execute_cell", "close")
+    ) or backend.source_paths != backend_module.SOURCE_PATHS:
         raise RuntimeError("two-role backend surface is malformed")
+    if require_production and (
+        type(backend) is not backend_module.Bilin18ContextCrossBackend
+        or backend.dimensions != backend_module.parent.PRODUCTION_DIMENSIONS
+        or backend.device != torch.device("cuda")
+        or backend._model_loader is not None
+        or backend._fit_wave_loader is not None
+        or backend._program_builder is not None
+        or backend.expected_shared_program_sha256 != measurement.SHARED_PROGRAM_SHA256
+        or backend._closed
+    ):
+        raise RuntimeError("canonical publication requires the exact production backend")
 
 
 def _role_authority(
@@ -177,11 +192,21 @@ def run_transaction(
 ) -> dict[str, Any]:
     """Execute authority -> 128 cells -> close -> payload -> manifest -> receipt."""
 
-    _verify_backend_surface(backend)
     paths = lifecycle.output_paths() if paths is None else paths
+    canonical_publication = paths.authority.parent.resolve() == lifecycle.HERE.resolve()
+    _verify_backend_surface(backend, require_production=canonical_publication)
     paths.require_pristine()
     lock = lifecycle.RunLock(paths.lock)
     lock.acquire()
+    existing = [
+        str(path) for path in (
+            paths.authority, paths.payload, paths.manifest, paths.receipt,
+            paths.failure,
+        ) if path.exists()
+    ]
+    if existing:
+        lock.release()
+        raise RuntimeError(f"cross namespace raced after lock acquisition: {existing}")
     phase = "verify_source_and_rows"
     role: str | None = None
     ordinal: int | None = None
@@ -221,11 +246,50 @@ def run_transaction(
         )
         authority_bytes = _json_bytes(authority_value)
         phase = "publish_pre_outcome_authority"
+        lock.require_owned()
+        raced = [
+            str(path) for path in (
+                paths.authority, paths.payload, paths.manifest, paths.receipt,
+                paths.failure,
+            ) if path.exists()
+        ]
+        if raced:
+            raise RuntimeError(
+                f"output appeared during pre-outcome preparation: {raced}"
+            )
+        lifecycle.verify_inherited_files()
+        lifecycle.verify_source_closure(source)
+        for name in ROLE_ORDER:
+            if getattr(roles, name).wave.sha256 != authority_value[
+                "row_bindings"
+            ][name]["row_wave_sha256"]:
+                raise RuntimeError("role wave changed before authority publication")
+        component, program = backend.verify_pre_outcome(bank)
+        if component != measurement.COMPONENT_TREE_SHA256 or program != (
+            measurement.SHARED_PROGRAM_SHA256
+        ):
+            raise RuntimeError("pre-outcome model/program revalidation changed")
+        # The checks above are intentionally outcome-blind but can be slow.  Close
+        # the race again at the last possible instant before the authority link.
+        lock.require_owned()
+        raced = [
+            str(path) for path in (
+                paths.authority, paths.payload, paths.manifest, paths.receipt,
+                paths.failure,
+            ) if path.exists()
+        ]
+        if raced:
+            raise RuntimeError(
+                f"output appeared immediately before authority publication: {raced}"
+            )
         lifecycle.publish_json_create_only(paths.authority, authority_value, lock)
         if paths.authority.read_bytes() != authority_bytes:
             raise RuntimeError("published authority bytes do not replay")
 
         collectors: dict[str, measurement.RoleCollector] = {}
+        cell_audit_records: dict[str, list[dict[str, Any]]] = {
+            name: [] for name in ROLE_ORDER
+        }
         for name in ROLE_ORDER:
             mapping, counts = getattr(roles, name).wave.clone_mapping_and_counts()
             collectors[name] = measurement.RoleCollector(
@@ -265,6 +329,14 @@ def run_transaction(
                 collectors[role].add_cell(
                     request=request, values=result.statistics, receipt=receipt,
                 )
+                cell_audit_records[role].append({
+                    "ordinal": request.ordinal,
+                    "program_descriptor_sha256": descriptor.sha256,
+                    "cell_receipt": asdict(receipt),
+                    "cell_receipt_sha256": receipt.sha256,
+                    "call_ledger": asdict(result.call_ledger),
+                    "call_ledger_sha256": result.call_ledger.sha256,
+                })
 
         phase = "close_and_reverify"
         closed_tree = backend.close()
@@ -323,6 +395,10 @@ def run_transaction(
                 }
                 for name in ROLE_ORDER
             },
+            # These are tensor-free preimages, not opaque hashes.  They make the
+            # physical native/substitution census independently replayable after
+            # the in-memory backend and hooks are gone.
+            "cell_audit_records": cell_audit_records,
             "role_order": list(ROLE_ORDER),
             "cell_order": list(range(64)),
         }
@@ -396,22 +472,8 @@ def run_transaction(
                 lock.release()
 
 
-def _load_backend(module_name: str) -> MeasurementBackend:
-    module = importlib.import_module(module_name)
-    creator = getattr(module, "create_backend", None)
-    if not callable(creator):
-        raise RuntimeError("backend module lacks create_backend()")
-    return creator()
-
-
 def main() -> None:
-    parser = argparse.ArgumentParser()
-    parser.add_argument(
-        "--backend-module",
-        default="early_mlp_context_cross_v1_bilin18_backend",
-    )
-    arguments = parser.parse_args()
-    receipt = run_transaction(backend=_load_backend(arguments.backend_module))
+    receipt = run_transaction(backend=backend_module.create_backend())
     print(json.dumps(receipt, sort_keys=True, indent=2))
 
 

@@ -374,7 +374,7 @@ def batched_als_prediction(
     )
     if not bool(torch.isfinite(objective).all()):
         raise RuntimeError("ALS produced a non-finite objective")
-    selected = objective.argmin(1)
+    selected = _select_restart(objective)
     index = torch.arange(draws)
     interaction = left[index, selected] @ right[index, selected].transpose(1, 2)
     interaction *= scale[valid, None, None]
@@ -388,6 +388,16 @@ def batched_als_prediction(
     total[:, 1:, 1:] += interaction
     output[valid] = total
     return output.contiguous(), failed.contiguous()
+
+
+def _select_restart(objective: torch.Tensor) -> torch.Tensor:
+    """Select the first minimum exactly; torch.argmin's tie rule is contractual."""
+
+    if not torch.is_tensor(objective) or objective.ndim != 2 or objective.shape[1] != (
+        cross.ALS_RESTARTS
+    ) or objective.dtype != torch.float64 or not bool(torch.isfinite(objective).all()):
+        raise ValueError("ALS restart objective changed")
+    return objective.argmin(1)
 
 
 def _metric_vectors(
