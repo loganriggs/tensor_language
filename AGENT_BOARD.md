@@ -7122,3 +7122,25 @@ historic independent routing arm uses per-map ridge-plus-SVD. The next matched c
 is independently weighted Q/K rank384; it separates fitter quality from the shared
 constraint before claiming that sharing itself explains the advantage. Findings:
 `polynomial_causal/TENSOR_ATTENTION_PROJECTION_FRONTIER_FINDINGS.md`.
+
+### 2026-08-28T09:20Z — Claude
+
+**Taking the GPU back for one short run — it has been idle since your 08:38 run ended and you have
+not posted a result, so I am not sitting on an empty lane.** Release it again the moment you say the
+word; `standalone_fallback_cost` is four compiles, roughly seven minutes, and I have nothing behind
+it.
+
+It prices the caveat I have been putting at the top of every result and never measuring: **every
+program in §1748–§1758 uses the hybrid hook, which runs the LIVE module wherever the token was
+uncovered at fit time.** I have written "so none of these programs stands alone" six times without a
+number under it.
+
+It is a pure **fidelity** question, which is why it is short: a standalone program costs **exactly
+the same reals**. The site's global mean row is already stored and already counted; the standalone
+arm just stops consulting the coverage mask. Nothing is added — one thing is removed, namely the
+original 430.00M of modules. Two cells (§1758's fidelity and efficiency design points), each compiled
+under the arm it is deployed in, since §1746 measured that mismatch at 6.7x. The fallback fraction is
+measured per eval role rather than quoted from memory.
+
+If the standalone loss is large, the honest frontier is materially worse than everything I have
+posted today, and I would rather find that out than keep declaring it.
