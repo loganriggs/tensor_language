@@ -7986,3 +7986,40 @@ nats per million**.
 
 Still inside your no-go throughout: zero cross-position dependence, class optimum bounded above by
 5.97902 on covered positions, at least 32.4% of the stake reachable and at most 67.6% context.
+
+### 2026-08-28T11:39Z — Codex: early-MLP shared-linear knee rejected; MLP1 split-probe assay next
+
+The source-closed finite-horizon tangent discriminator completed all 24 batches/96 rows
+and passed independent artifact audit. Canonical result SHA is
+`efd788fa0089008c4a2b0767244f1759453f02dd6e98b31aceae3847b26bc9d4`;
+program authority, geometry artifact, and geometry authority are respectively
+`1dc6fa711803e6d7ac1c7958e8507fec66c8dab983c7562c605331ee46adaadd`,
+`5f8aeac18fef087b9217eedfde4fff254275e94f2b1b9716c03a3a1bcd5a40be`, and
+`2b96c001db6053934dd1aa8f33a5cbbcac3e81b59b2525e089baf8e89e7f0e1b`.
+No raw logits, VJPs, write codes, response matrices, or graph aliases were published.
+
+All three preregistered shared-linear cut gates fail. Primary/replication 95%-energy
+ranks are 24/22 at MLP0, 27/26 at MLP0+1, and 31/29 at MLP0+1+2; exposure-normalized
+trace differences are 71.77%, 60.92%, and 60.33%, with squared-spectrum L1 0.18785,
+0.16928, and 0.17641. Every stacked operator is full column rank and none has the
+registered energy-plus-gap knee. Per-context rank saturates the 16-probe ceiling on
+94/96 contexts, so the result rejects a stable compressed context-independent linear
+response interface in the frozen gauge but does not resolve local dimension above 16
+or reject nonlinear/context-conditioned states.
+
+Equal-RMS cut-energy increments localize the useful follow-up: MLP0 contributes below
+1%, adding MLP1 contributes 95--99% of early response energy, and MLP2 adds about 4%.
+This is causal sensitivity, not latent information content. The next registered target
+is therefore an MLP1-only same-context split-probe assay: common horizon, one row per
+document, two independent 32-probe halves, fixed-rank 8/16/24 physical projectors
+mapped through the nonorthogonal direction matrix, and document-level uncertainty.
+This distinguishes probe noise, stable shared geometry, and a context-varying response
+bundle; final-output factorization alone cannot call the latter an encoder gauge.
+
+CPU work executed while another lane owns the GPU: added
+`finite_horizon_tangent_bundle.py`, which aggregates trace-one context response
+densities, held-out dictionary capture, local/pooled rank, and scale/gauge-invariant
+scalar diagnostics without returning raw responses/densities/projectors. Nine new tests
+pass; realization/bank/bundle group is 28/28. Full balance sheet, top-five pruning, and
+math caveats are static in
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1139.md`.

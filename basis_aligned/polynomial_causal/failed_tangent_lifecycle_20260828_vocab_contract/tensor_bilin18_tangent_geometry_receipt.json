@@ -1,0 +1,59 @@
+{
+  "artifact_sha256": "5f8aeac18fef087b9217eedfde4fff254275e94f2b1b9716c03a3a1bcd5a40be",
+  "geometry_receipt": {
+    "direction_rule": "unit-RMS C^1/2 Rademacher; seed + 1000003*site + direction",
+    "geometry_manifest_sha256": "21848f6575711df0a2755ecb5ae3fae9d6038a39038269b120e2289ea3874791",
+    "plan_fingerprint": "b9caa7ce2ecbd63a197262098931541c32dce27ed31b35454753b773f8cf4e20",
+    "psd_rtol": 1e-10,
+    "raw_write_codes_returned": false,
+    "rows": 96,
+    "score_support": [
+      64,
+      256
+    ],
+    "sites": {
+      "0": {
+        "count": 18432,
+        "covariance_sha256": "059075771caee782f5f07a20d876378389b2e0d702e5c5da6c95d7ae731bf5c6",
+        "directions_sha256": "32de2ee74bdbc3cffd1b5168395e8bb5e75724156053523d3d6432656591219c",
+        "support_rank": 1152
+      },
+      "1": {
+        "count": 18432,
+        "covariance_sha256": "7127283d04c700da3a4e047592fbdacd9a450aed0a96cd2209d284c8fe69ad39",
+        "directions_sha256": "efa4a5d3956bfe3a52e561adb6565f54a850e28095f4b9b59a8726f59f918e7f",
+        "support_rank": 1152
+      },
+      "2": {
+        "count": 18432,
+        "covariance_sha256": "70eb37cdcc8b33967bfd028be50ef9793daee410108fb4ea6b13862b09f3a2ca",
+        "directions_sha256": "ad94e3b0766a4e9a0e4097fdcb2cf95293f8f216a4622459118665d58f0bec66",
+        "support_rank": 1152
+      }
+    },
+    "status": "complete",
+    "support_rtol": 1e-12,
+    "write_samples_per_site": 18432
+  },
+  "geometry_receipt_sha256": "ee1a9a9477f0db34fb08c8272be6d4e796fde17e4ffa1847d52b8124cd067981",
+  "plan_fingerprint": "b9caa7ce2ecbd63a197262098931541c32dce27ed31b35454753b773f8cf4e20",
+  "program_authority_sha256": "abd6b038c347faa6d49d3c5111312bb34bec8f1c7977eecce32ad9fb232cd84e",
+  "program_tree_sha256": "74496948a6140ae6837c95dcace4dc04f712960145ef46f41310b60112b91809",
+  "protected_snapshot_fingerprint": "414835e8152923c0f48214e28c9ac04405d5a7369a4c22e066bc99ece0b312b3",
+  "runtime_environment": {
+    "allow_tf32": false,
+    "compute_capability": [
+      12,
+      0
+    ],
+    "cublas_workspace_config": ":4096:8",
+    "cuda_runtime": "12.8",
+    "deterministic_algorithms": true,
+    "device_index": 0,
+    "device_name": "NVIDIA GeForce RTX 5090",
+    "torch": "2.11.0+cu128"
+  },
+  "score_gradients_computed": false,
+  "score_targets_sampled": false,
+  "status": "tangent_geometry_frozen_no_score_outcomes"
+}
