@@ -134,3 +134,17 @@ both storage and products only in the certificate-compatible input-rank window
 $48\le r_i\le95$. Ranks 96--157 can win storage only; above 157, dense Tucker loses
 even on storage. CP can still be useful between the lower bound of 1,152 products
 and the native 4,608, but HOSVD cannot certify that rank.
+
+## Executed measurement and fail-closed outcome
+
+The MLP1 tensor lifecycle passed 42 transitive tests, was pushed, froze a no-outcome
+authority, and received an independent receipt audit. The authorized CPU collector
+then failed before extracting MLP1 or computing any spectrum. The checkpoint has the
+registered keys and shapes but mixed serialization dtypes; the v1 validator wrongly
+compared every dtype to a float32 meta model. It stopped at the bfloat16 token
+embedding, and would also have rejected MLP1's bfloat16 output bias.
+
+This is a source-schema failure, not evidence about the tensor. The v1 namespace is
+preserved as spent with no partial result. A v2 retry is now being implemented in a
+new namespace with an exact mixed-dtype manifest, original-bias hashing, and a
+float64 analysis copy that remains outside all tensor spectra.

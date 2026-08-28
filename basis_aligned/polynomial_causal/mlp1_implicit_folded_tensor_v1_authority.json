@@ -1,0 +1,150 @@
+{
+  "authorized_operation": "one CPU weight-only MLP1 folded-tensor diagnostic",
+  "checkpoint_deserialized": false,
+  "mlp1_tensors_extracted": false,
+  "mode_grams_computed": false,
+  "namespace": {
+    "failure": "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1_failure.json",
+    "outcome_authority": "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1_outcome_authority.json",
+    "result": "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1_results.json",
+    "run_lock": "basis_aligned/polynomial_causal/.mlp1_implicit_folded_tensor_v1.lock",
+    "source_weight_authority": "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1_authority.json"
+  },
+  "projected_cores_computed": false,
+  "protected_snapshot": {
+    "checkpoint": {
+      "config": {
+        "bytes": 227,
+        "path": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/blobs/f0da83505a9b92d79c7fa3369121f5c4a3675b2d",
+        "sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c"
+      },
+      "fingerprint": "961d80404fc88257dc5e530dc5d6a13afc17fead7e42c436f23952ab033a1bcc",
+      "logit_vocab": 50304,
+      "model_repo": "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd",
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "tokenizer_vocab": 50257,
+      "weights": {
+        "bytes": 2067738635,
+        "path": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/blobs/680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+        "sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+      }
+    },
+    "common_contract_sha256": "db10c1f301b963f687863de2174f0077421005d2840b0ce3d92dac326922b656",
+    "decision_addendum_sha256": "e8f6695e35e8de5746b3ce60b3f0164d8435aa610e117b32174e7c785e6f76c7",
+    "fingerprint": "c1c371b9c508c4577c0b894cc13863fb78cbbee97cb4cb8bb8e1c233c68984df",
+    "preregistration_sha256": "1fe714c14ee56a16f87ee2c3a7ab921c7133dd45d624eea55da61f8581b66dc5",
+    "protocol_sha256": "04b8580c949b9f88a0bb0770ccbe8898f0001b205eb6c0cba001c2c3a6d8eb10",
+    "sources": {
+      "fingerprint": "4a0f33f67125b68d280b0def2a02859b94c376bad8e1553ddd2bc50c7fdf5c27",
+      "git": {
+        "latest_source_commit": "3bd7b59d2c75c0c7a3968ad101b253568119f6f0",
+        "reachable_from_origin_main": true
+      },
+      "source_hashes": {
+        "basis_aligned/polynomial_causal/COMMON_EARLY_MLP_DECOMPOSITION_COMPARISON_CONTRACT.md": "db10c1f301b963f687863de2174f0077421005d2840b0ce3d92dac326922b656",
+        "basis_aligned/polynomial_causal/MLP1_IMPLICIT_FOLDED_TENSOR_DECISION_ADDENDUM.md": "e8f6695e35e8de5746b3ce60b3f0164d8435aa610e117b32174e7c785e6f76c7",
+        "basis_aligned/polynomial_causal/MLP1_IMPLICIT_FOLDED_TENSOR_V1_EXECUTION_PROTOCOL.json": "04b8580c949b9f88a0bb0770ccbe8898f0001b205eb6c0cba001c2c3a6d8eb10",
+        "basis_aligned/polynomial_causal/MLP1_IMPLICIT_FOLDED_TENSOR_V1_PREREGISTRATION.md": "1fe714c14ee56a16f87ee2c3a7ab921c7133dd45d624eea55da61f8581b66dc5",
+        "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+        "basis_aligned/polynomial_causal/collect_mlp1_implicit_folded_tensor_v1.py": "683a6e397515eff6cd848464552dfe22c8b51ee25ee3ee86b0ab8d973bc80fc1",
+        "basis_aligned/polynomial_causal/freeze_mlp1_implicit_folded_tensor_v1_authority.py": "0772635ba725a3081fd89cc9df8ea08e10a2dc6fd41abb15c9f127c7acd499cd",
+        "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1.py": "adae8d756e2c5ddf1b6a488b83f766c58e9f12be89efb7c2bad6fd14e10f1a91",
+        "basis_aligned/polynomial_causal/tensor_bilin18_tangent_authority.py": "3a66124707bbf87d847e7b1fb5a04defd45bcb8642470a3f0fd7dead842853eb",
+        "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+        "basis_aligned/polynomial_causal/test_mlp1_implicit_folded_tensor_v1.py": "ad8e86f7a3730c98eb88510d8dbd393c9381feafd236fa6950ccec1fa4352efa",
+        "basis_aligned/polynomial_causal/test_mlp1_implicit_folded_tensor_v1_lifecycle.py": "61085081904f6e537005b7256fe11f3422e957dc364fa3fec7671104bd541d63",
+        "basis_aligned/polynomial_causal/test_tensor_bilin18_tangent_pilot.py": "d4f7537ee6b29ba73a44e774564f1808a03c129a3b182e9fcc764466cc0cf41a",
+        "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+      }
+    }
+  },
+  "protocol": {
+    "arithmetic": "torch.float64",
+    "checkpoint_load_rule": "Only after exact source/checkpoint authority: local torch.load(weights_only=True,mmap=True,map_location=cpu), exact full state-tree schema replay against a meta TT.GPT, clone only MLP1 Left/Right/Down/Down_bias, then delete the state tree.",
+    "claim_boundary": "Weight-space coefficient-Frobenius spectrum and fixed-grammar prices only; no CE, causal, semantic, CP-rank, product-minimality, OOD, edit, removal, or composition credit.",
+    "core_rule": "For each registered r use the top-r output Gram eigenvectors and the shared top-r input Gram eigenvectors; project G[r,r,r], symmetrize input modes, rank unique COO entries by folded Frobenius mass, and use deterministic (output,b,c) ties.",
+    "cp_price_ranks": [
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024,
+      2048,
+      4096,
+      4608
+    ],
+    "device": "cpu",
+    "down_price_ranks": [
+      16,
+      32,
+      64,
+      128,
+      256,
+      512,
+      1024,
+      1152
+    ],
+    "energy_thresholds": [
+      0.9,
+      0.95,
+      0.99,
+      0.999
+    ],
+    "experiment_id": "bilin18_mlp1_implicit_folded_tensor_v1",
+    "failure_rule": "A failure is create-only and may bind a partial result; it can never delete, overwrite, or authorize a result.",
+    "hidden_block": 64,
+    "mode_trace_relative_tolerance": 1e-10,
+    "negative_gram_eigenvalue_relative_tolerance": 1e-10,
+    "numerical_rank_rule": "singular_value > eps_float64 * max(unfolding_rows, unfolding_columns) * largest_singular_value",
+    "object": "bias-separated partially symmetric folded tensor T[o,i,j]",
+    "projected_core_plan": {
+      "16": [
+        64,
+        256,
+        1024,
+        2176
+      ],
+      "32": [
+        128,
+        512,
+        2048,
+        8192,
+        16896
+      ],
+      "64": [
+        256,
+        1024,
+        4096,
+        16384,
+        65536,
+        133120
+      ]
+    },
+    "publication_order": [
+      "source_weight_authority",
+      "nonauthoritative_result",
+      "last_written_outcome_authority"
+    ],
+    "schema_version": 1,
+    "site": 1,
+    "status": "prospective_no_checkpoint_tensor_loaded",
+    "thread_count": 8
+  },
+  "receipt_kind": "mlp1_implicit_folded_tensor_v1_source_weight_authority",
+  "result_computed": false,
+  "rows_loaded": false,
+  "runtime": {
+    "deterministic_algorithms": true,
+    "device": "cpu",
+    "float_dtype": "torch.float64",
+    "python": "3.12.14",
+    "torch": "2.11.0+cu128",
+    "torch_num_threads": 8
+  },
+  "schema_version": 1,
+  "spectra_computed": false,
+  "status": "frozen_before_any_mlp1_checkpoint_tensor_deserialization"
+}
