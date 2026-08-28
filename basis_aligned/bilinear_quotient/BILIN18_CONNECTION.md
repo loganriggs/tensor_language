@@ -49813,10 +49813,20 @@ at every site it was measured on hurts when the sites are combined.**
 **This resolves §1845 and §1846 with one mechanism, and it yields a design rule rather than a fix.**
 Compile **one** site into a live stream and the site should predict what it emits *in that live stream* —
 the context table wins, by up to 43.5pp at mlp5. Compile **every** site and each should predict what it
-emits *in the compiled stream* — the length-1 table wins, and it wins **by construction**, because it is
-that quantity exactly. **No iteration can improve on it**: re-fitting a context table inside the compiled
-program returns the length-1 rows, since at a covered position the compiled forward *is* the length-1
-forward. The line is closed by proof, not by another sweep.
+emits *in the compiled stream* — and the length-1 table **is** that quantity exactly, so re-fitting a
+context table inside the compiled program returns the length-1 rows unchanged: it is the **fixed point of
+the refit operator**, since at a covered position the compiled forward *is* the length-1 forward.
+
+**CORRECTED BY §1847 — I conflated two things here.** I wrote that the length-1 table "wins **by
+construction**" and that "**no iteration can improve on it**". The second is true and is what the
+derivation gives: no *refitting* iteration moves off that point. **The first does not follow, and it is
+false.** Being the fixed point of the refit operator is *self-consistency*, not *loss-optimality*, and
+the record already contains the refutation: **§1768 measured the model's own per-token ceiling at CE
+5.97902 / 6.03465 against the 36-site program's 6.57289** — a better per-token function of the current
+token exists and is worth **~0.55 nats**. §1847 then found the mildly non-self-consistent context table
+*beating* length-1 at B1 (+1.6pp) and B5 (+2.1pp), which is direct evidence that self-consistency and
+optimality come apart. The measurement that the length-1 program beats the context one at all 36 sites
+(−1.4pp, §1846) stands on its own as a measurement; it is not a consequence of the derivation.
 
 **pred_c PASSED (9 FIT, 3 L1)**, so the per-site choice was genuine and not a degenerate one-table
 answer — which is what makes pred_b's failure informative rather than vacuous.
