@@ -23,5 +23,7 @@ def test_audit_binds_every_native_prefix_and_decodes():
         assert decoded["C"].shape == (row["components"], 1152)
         assert row["signed_square_codec_bits"] == 8*len(stream)
         assert 0 <= row["relative_coefficient_tensor_frobenius_error"] < 1e-3
+        assert row["coefficient_tensor_frobenius_error"] > 0
+        assert row["rms_sphere_residual_lipschitz_upper_bound"] > 0
     assert not result["behavioral_roster_changed"]
     assert not result["validation_opened"]

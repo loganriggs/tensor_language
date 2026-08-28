@@ -65,6 +65,45 @@ def relative_tensor_frobenius_error(A1, B1, C1, A2, B2, C2):
     return (max(0.0, error_sq)/norm1)**.5
 
 
+def tensor_frobenius_error(A1, B1, C1, A2, B2, C2):
+    """Absolute Frobenius norm of the coefficient-tensor difference."""
+    norm1 = tensor_frobenius_sq(A1, B1, C1)
+    norm2 = tensor_frobenius_sq(A2, B2, C2)
+    error_sq = norm1+norm2-2*tensor_inner_product(A1, B1, C1, A2, B2, C2)
+    return max(0.0, error_sq)**.5
+
+
+def execute_quadratic(A, B, C, z):
+    A, B, C = _validate(A, B, C)
+    z = torch.as_tensor(z, dtype=torch.float64)
+    if z.shape[-1] != A.shape[0] or not torch.isfinite(z).all():
+        raise ValueError("input has wrong width or nonfinite values")
+    return ((z@A)*(z@B))@C
+
+
+def quadratic_jvp(A, B, C, z, direction):
+    """Exact Jacobian-vector product of the homogeneous quadratic map."""
+    A, B, C = _validate(A, B, C)
+    z = torch.as_tensor(z, dtype=torch.float64)
+    direction = torch.as_tensor(direction, dtype=torch.float64)
+    if z.shape != direction.shape or z.shape[-1] != A.shape[0] \
+            or not torch.isfinite(z).all() or not torch.isfinite(direction).all():
+        raise ValueError("state and direction must be aligned finite tensors")
+    return (((direction@A)*(z@B)+(z@A)*(direction@B))@C)
+
+
+def rms_sphere_residual_lipschitz_bound(A1, B1, C1, A2, B2, C2):
+    """Global residual-map Lipschitz bound when both states have RMS norm one.
+
+    ``e(z')-e(z)=DeltaT(z'+z,z'-z)`` and ``||z||=sqrt(din)`` imply
+    ``||e(z')-e(z)|| <= 2 sqrt(din) ||DeltaT||_F ||z'-z||``.
+    """
+    din = A1.shape[0]
+    if A2.shape[0] != din:
+        raise ValueError("input widths differ")
+    return 2*din**.5*tensor_frobenius_error(A1, B1, C1, A2, B2, C2)
+
+
 def output_unfolding_gram(A, B, C):
     """Return the HOSVD output-mode Gram ``T_(out) T_(out)^T``."""
     A, B, C = _validate(A, B, C)

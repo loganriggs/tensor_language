@@ -22,6 +22,34 @@ factors changes the represented quadratic coefficient tensor by
 2.15e-5--2.18e-5 relative Frobenius norm, measured analytically with cross-factor
 Grams rather than sampled activations.
 
+### What this says about composition
+
+Let `f` be the product-factor program, `g` its quantized signed-square rewrap,
+and `DeltaT` the symmetric coefficient tensor of the residual `e=f-g`. For two
+RMS-normalized interface states `z,z'` of width `D`, polarization and
+Cauchy--Schwarz give the global, factorization-invariant bound
+
+\[
+\|e(z')-e(z)\|_2
+\leq 2\sqrt{D}\,\|\Delta T\|_F\,\|z'-z\|_2.
+\]
+
+The implementation computes `||DeltaT||_F` from cross-factor Gram matrices,
+without materializing the `D x D x D` tensor. It also exposes the exact JVP
+
+\[
+D f(z)[h]=\sum_j c_j\left[(a_j^\top h)(b_j^\top z)
+ +(a_j^\top z)(b_j^\top h)\right].
+\]
+
+For native prefixes k=32,64,128,256,512, the resulting worst-case Lipschitz
+upper bounds are 2.083, 2.771, 3.792, 4.940, and 6.445. Thus the nearly constant
+relative tensor error does **not** imply a capacity-independent composition
+guarantee. These bounds can certify safety if an upstream perturbation budget is
+small enough, but they are deliberately conservative: they do not show that the
+bound is attained on model states and are not held-out or composed behavioral
+evidence.
+
 This is a genuine structural rate--distortion point but not yet a better operational
 replacement. Its hash differs from the frozen product program, so it cannot inherit
 held-out, composite, extraction, removal, or OOD scores. The original product-codec

@@ -104,6 +104,9 @@ def build(results_path=RESULTS):
                 "conditional_known_gauge_bits": signed["signed_square_codec_bits"],
                 "relative_coefficient_tensor_frobenius_error":
                     signed["relative_coefficient_tensor_frobenius_error"],
+                "rms_sphere_residual_lipschitz_upper_bound":
+                    signed["rms_sphere_residual_lipschitz_upper_bound"],
+                "composition_bound_is_structural_not_behavioral": True,
                 "behavioral_score_inherited": False,
                 "frontier_eligible": False,
             })

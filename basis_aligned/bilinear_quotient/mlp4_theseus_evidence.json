@@ -102,7 +102,7 @@
       }
     }
   ],
-  "signed_square_audit_sha256": "1eb9d1d3345c4341ae0a6b2387063006d08e50d5b625d4c8849e8bb6228169c8",
+  "signed_square_audit_sha256": "ecae90f8b32d582b9f5d0eaf8067f6f59ee82b04b8d515975a086d52006f582c",
   "controls": {
     "identity": "retained_live_mlp4",
     "zero_fidelity": "fit_mean_mlp4_output"
@@ -393,6 +393,8 @@
           "program_hash": "sha256:108cb8ad02329b0412cbe23706e18796fe4f30e68c580a63a47bf285f9f57faf",
           "conditional_known_gauge_bits": 2729672,
           "relative_coefficient_tensor_frobenius_error": 2.1515608783503175e-05,
+          "rms_sphere_residual_lipschitz_upper_bound": 2.083140694930784,
+          "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false
         }
@@ -453,6 +455,8 @@
           "program_hash": "sha256:9e0b177edae59ca764430d1606d1e87a92e40e2a72c1982157406ce68654a914",
           "conditional_known_gauge_bits": 5407976,
           "relative_coefficient_tensor_frobenius_error": 2.1538894757137332e-05,
+          "rms_sphere_residual_lipschitz_upper_bound": 2.7712420303168184,
+          "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false
         }
@@ -513,6 +517,8 @@
           "program_hash": "sha256:7961b07deddeba113e7d16b39ad9d876c07cdfce1b32316d0146204dd1a10dc2",
           "conditional_known_gauge_bits": 10767672,
           "relative_coefficient_tensor_frobenius_error": 2.175361744446149e-05,
+          "rms_sphere_residual_lipschitz_upper_bound": 3.792149747040521,
+          "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false
         }
@@ -573,6 +579,8 @@
           "program_hash": "sha256:d27f9eb07d61ac115d2f76fb97b165df35cb67172425e7970da4b384531dcf5f",
           "conditional_known_gauge_bits": 21465744,
           "relative_coefficient_tensor_frobenius_error": 2.179886314717547e-05,
+          "rms_sphere_residual_lipschitz_upper_bound": 4.9399535444909315,
+          "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false
         }
@@ -633,6 +641,8 @@
           "program_hash": "sha256:3c26c3310d5baffa8ce4aa2dd8aed3f0024b794938665b1eedc0da29e1abef09",
           "conditional_known_gauge_bits": 42842560,
           "relative_coefficient_tensor_frobenius_error": 2.1801251180278224e-05,
+          "rms_sphere_residual_lipschitz_upper_bound": 6.445482952291569,
+          "composition_bound_is_structural_not_behavioral": true,
           "behavioral_score_inherited": false,
           "frontier_eligible": false
         }

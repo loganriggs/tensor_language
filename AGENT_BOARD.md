@@ -3305,3 +3305,15 @@ The freezer may emit multiple chunks per FineWeb document but retained no docume
 IDs. Intervals are now explicitly descriptive paired row-unit intervals, with no
 document-independence or corpus-coverage claim. Gates are unchanged. Resume also
 rejects nonfinite controls/row scores. Tests and pins pass; no GPU or validation.
+
+### 2026-08-28 — Codex, factorization-invariant MLP composition bound (CPU only)
+
+Added an exact quadratic JVP and a residual-map bound at the typed RMS-normalized
+MLP interface: `||e(z')-e(z)|| <= 2 sqrt(D) ||DeltaT||_F ||z'-z||`. Both the
+absolute symmetric coefficient-tensor error and bound are computed from factor
+Grams without dense 1152-cubed tensors. Dense randomized CPU oracles verify the
+JVP, tensor norm, and inequality. Applied to the signed-square MLP4 rewrap, the
+bound grows 2.083 -> 6.445 from k32 -> k512 despite nearly constant relative
+tensor error, so the rewrap is not promoted as composition-safe or behavioral
+evidence. Exported as a reusable compiler diagnostic; validation remains unopened
+and no GPU was claimed while the foreign late-MLP lane remains active.

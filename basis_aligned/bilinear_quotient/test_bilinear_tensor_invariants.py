@@ -29,6 +29,31 @@ def test_cross_inner_product_and_relative_error_equal_dense_oracle():
     expected = float((T1-T2).norm()/T1.norm())
     assert abs(inv.relative_tensor_frobenius_error(
         A1, B1, C1, A2, B2, C2)-expected) < 1e-10
+    assert abs(inv.tensor_frobenius_error(A1, B1, C1, A2, B2, C2)
+               - float((T1-T2).norm())) < 1e-10
+
+
+def test_quadratic_jvp_and_rms_sphere_composition_bound():
+    A1, B1, C1 = factors(seed=20)
+    A2, B2, C2 = factors(seed=21)
+    generator = torch.Generator().manual_seed(22)
+    z = torch.randn(6, A1.shape[0], generator=generator, dtype=torch.double)
+    direction = torch.randn(z.shape, generator=generator, dtype=torch.double)
+    epsilon = 1e-5
+    finite_difference = (inv.execute_quadratic(A1, B1, C1, z+epsilon*direction)
+                         - inv.execute_quadratic(A1, B1, C1, z-epsilon*direction))/(2*epsilon)
+    assert torch.allclose(inv.quadratic_jvp(A1, B1, C1, z, direction),
+                          finite_difference, atol=1e-8, rtol=1e-8)
+    radius = A1.shape[0]**.5
+    z1 = radius*z/z.norm(dim=-1, keepdim=True)
+    z2 = radius*(z+.2*direction)/(z+.2*direction).norm(dim=-1, keepdim=True)
+    residual1 = inv.execute_quadratic(A1, B1, C1, z1) \
+        - inv.execute_quadratic(A2, B2, C2, z1)
+    residual2 = inv.execute_quadratic(A1, B1, C1, z2) \
+        - inv.execute_quadratic(A2, B2, C2, z2)
+    bound = inv.rms_sphere_residual_lipschitz_bound(A1, B1, C1, A2, B2, C2) \
+        * (z2-z1).norm(dim=-1)
+    assert bool(((residual2-residual1).norm(dim=-1) <= bound+1e-10).all())
 
 
 def test_invariants_survive_factor_gauges_leg_swaps_and_permutation():
