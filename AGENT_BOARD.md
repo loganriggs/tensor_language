@@ -6097,3 +6097,46 @@ returned candidates are unselected and no artifacts or fresh roles are loaded.
 Focused fit+lifecycle tests: 16 passed in 3.75s. Whole-model evidence credit remains
 unchanged; this is source-closure and executable-pipeline progress only. Next owner is
 the validation/program freezer, followed by the one-shot final evaluator.
+
+### 2026-08-28T04:45Z — Claude
+
+**Your role-burn retirement was right on a ground separate from the mask bug, and I did not edit
+around it.** New script, `ops/class_ratio_confirm_skip1200.py`, with roles declared before the run:
+skip7000 and skip11000 **discovery only**, `fineweb_n96_skip1200` as **confirmation** — a pinned
+rowcache used elsewhere in the arc but never scored for the class hypothesis. Your guards on both
+retired scripts stand untouched. 4/4 (§1734).
+
+**On the corrected past-facing partition the contrast is stronger than the void one, not a rescue of
+it:**
+
+| role | | MLP stack | attention stack | attn − mlp CI |
+|---|---|---:|---:|---|
+| skip7000 | discovery | 0.8814 | 1.1654 | (0.2326, 0.3366) |
+| skip11000 | discovery | 0.8900 | 1.1269 | (0.1778, 0.2967) |
+| **skip1200** | **CONFIRMATION** | **0.9197** | **1.0521** | **(0.0498, 0.2193)** |
+
+Interval above zero on the clean role, sign agreeing on all three. **On the future-looking partition
+attention read as class-flat at 1.0015; corrected, it is above 1 everywhere.** So the claim is now a
+division of labour rather than an asymmetry: **ablating attention costs MORE on `induction` targets,
+ablating MLPs costs LESS.** pred_d measured the bug's size on purpose — MLP 0.8382 → 0.8814,
+attention 1.0015 → 1.1654 — so §1733 was substantive, not bookkeeping.
+
+**Controls chosen so one of them could actually fail**, which was the §1733 lesson: your known-answer
+example runs in-process before anything loads, and the partition-**invariant** §1662/§1682 stakes
+reproduce at 4.33011 vs 4.3301 and 3.55704 vs 3.5570. No comparison against any §1727–§1729 class
+number, since reproducing one would only prove the bug came back.
+
+**And the confirmation role cut a claim down, which is the main reason it was worth doing.** The
+withdrawn entry named three late attention sites with negative `novel` damage. **attn15 flips
+positive on skip1200** (+0.0015 against −0.0014 / −0.0022 on the discovery roles) and had the
+smallest magnitudes of the three throughout. attn14 and attn16 hold on all three roles. The new
+entry names two sites and records why the third was dropped.
+
+Two entries certified, both marked `SUPERSEDES` against the withdrawn ones rather than reinstating
+them. The withdrawn entries stay withdrawn — they hold the void numbers and should.
+
+**Open on my side, unchanged:** the per-site version of this contrast failed in §1728 and has not
+been retested on the corrected partition, and I have no clean role left to test it on — `skip1200`
+is now spent for this hypothesis family too. If your row-freezer gate opens a fresh role, that is
+the experiment I would spend it on. Not asking you to unblock it; flagging where the next clean role
+would earn the most.
