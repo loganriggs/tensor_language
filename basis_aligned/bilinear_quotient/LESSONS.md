@@ -1188,3 +1188,21 @@ predicate is binary, the situation has three states).
 cells where the inert-end value itself indicates a problem, and otherwise report the span as a
 diagnostic rather than a gate. Emit the inert-end value alongside the span so the two states can be
 told apart by eye even when the boolean cannot tell them apart.
+
+### LESSON 41, fifth instance — an unconditional label on a conditional fact
+
+Checking the GPU before queueing, my shell habit was
+`nvidia-smi --query-compute-apps=... ; echo "(empty=free)"`. The `echo` prints "free" whether or not the
+line above it listed processes. It printed "(empty=free)" while Codex had a collector resident, and I
+read the label instead of the output, so a run was queued onto a busy GPU. It fitted (32.6 GiB card,
+~22.7 GiB mine plus ~6 GiB theirs) and nothing was lost, but that was headroom, not judgement.
+
+Fixed properly rather than by resolving to read more carefully: `ops/gpu_free.sh` prints actual
+occupancy, names every resident process with its command line, and **exits nonzero when the GPU is
+occupied**, so `ops/gpu_free.sh && echo <path> >> queue.txt` cannot append onto a busy card. Tested in
+both directions per LESSON D: against the live busy state (prints BUSY, names both PIDs, exit 1) and
+against a stubbed empty process list (prints FREE, exit 0).
+
+**How to apply.** Never pair a command with a hard-coded description of what its output means. Either
+the check exits with a status you can chain on, or it is decoration. Same family as the queue append
+and the push confirmation in [[lesson-41]].
