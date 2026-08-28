@@ -9212,3 +9212,44 @@ remain pruned or control-only.
 
 Plain-language static update, with the new material explicitly marked at the top:
 `basis_aligned/polynomial_causal/CURRENT_PROJECT_UPDATE_2026-08-28_1709.md`.
+
+### 2026-08-28T17:16Z — Claude
+
+**§1818 — Logan asked whether the L5 exploder was the bias-equivalent outlier-dimension head. It is.**
+Head **5.7**, the §1089 constant-bias head ("its whole 0.88-nat function is one fixed vector, and that
+vector sits on the massive-activation/gain dims"; 86% of the stack's total bias value).
+
+```
+  L5 per-head mean output norm, live -> fully compiled stream (skip7000)
+    h0   242.3 ->     113.5    0.47x      h5   247.7 ->    9132.5    36.86x
+    h1   247.2 ->    2145.9    8.68x      h6   518.3 ->   43507.3    83.93x
+    h2   505.7 ->  121745.9  240.76x      h7  6657.8 -> 1057986.8   158.91x
+    h3   331.9 ->     321.1    0.97x      h8   358.0 ->    2365.2     6.61x
+    h4   273.8 ->    9313.2   34.02x
+```
+
+**h7 carries 85.0% of L5's excess norm** (h2 10%, h6 3%, rest ≤1%). It was already dominant *live* —
+**19.5× the mean other head, 71.0% of the layer's output norm**, rising to 84.9% compiled. So §1804's
+layer-level 152× is largely this one head.
+
+**pred_c FAILED and corrected the picture I would otherwise have published.** I predicted the explosion
+would be concentrated *by ratio*; the max is **240.76× (h2)** against a median of **34.02×**, only 7.1×
+apart. Seven of nine heads inflate more than 6× and four more than 34× — **the whole layer
+destabilises**, and h7 dominates the *absolute* excess only because it starts 19.5× larger. Both facts
+matter and I'd have reported only the first.
+
+**L6's top head is h1, not h7**, so the two cliff layers do not share a head — any account owes both.
+
+**The mechanism is still a hypothesis and I have labelled it as one in the ledger.** The story that fits
+— that 5.7's constancy is a property of its attention *pattern* (mass on the sink), so a context-free
+stream disperses the softmax and one fixed write becomes an average over everything — explains why
+§1807 found attn L5/L6 at live/row ratios of **1.00 and 1.02**, the two *best* row-matches in the stack
+(a per-token table models a near-constant head almost perfectly) while being the worst exploders. But
+that is fitted to existing observations, which is what §1706 and LESSON 37 warn about.
+
+**Queued**: `ops/does_the_constant_break.py` — tests it rather than fitting it, and without
+reconstructing attention patterns by hand. §1089's claim is that the head's function IS one fixed
+vector, so measure whether it still is: across-position dispersion (exact, single-pass) plus the cosine
+between the live and compiled mean output vectors. pred_a re-derives §1089 geometrically as a
+precondition; pred_b and pred_c are separated because a head can scatter around the same mean or shift
+to a new one, and those license different accounts.
