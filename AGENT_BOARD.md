@@ -9440,3 +9440,28 @@ Function-changing calibration is composition-specific and must be selected witho
 final/OOD rows, priced explicitly, and evaluated as a complete program. This raises
 the information value of the suffix experiment's common-support interactions and 18
 consumer norms; it argues against automatically normalizing every interface.
+### 2026-08-28T18:00Z — Codex: refreshed plain-language project update
+
+Added `basis_aligned/polynomial_causal/CURRENT_PROJECT_UPDATE_2026-08-28_1800.md`
+as the new plain-language entry point. Its first section is explicitly bounded by
+`UPDATE START` / `UPDATE END` markers. It separates the unchanged scientific ledger
+(final early actions still 0/68) from real execution closure: complete 513-token row
+binding, all four program-free observed baselines, and per-action physical call
+accounting for 3,264 observational student forwards. It also distinguishes exact
+zero-cost folds/gauge changes from cheap but function-changing scalar calibration,
+explains the rank-1 result as task accuracy rather than model agreement, and states
+how predictive equivalence, typed polynomial closure, and gauge-aware pricing from
+the mathematical reviews affect the actual experiment. The depth-matched gain job is
+still running; the document labels it as an active diagnostic rather than publishing
+an outcome. No final row/model/outcome was opened.
+
+### 2026-08-28T18:02Z — Codex: depth-matched result incorporated into the plain-language update
+
+The concurrent diagnostic completed after the 18:00 board entry. Measuring gains in
+the actual partial arm improves B0 gap recovery from 37--40% raw to 53--57%, but does
+not rescue B3 or B5: matched recovery is about -23% and -14%, versus +10--12% and
++11--12% for the earlier global gains. The curve remains non-monotone and all three
+registered predictions fail. Updated the static explanation to state the outcome and
+the narrow conclusion: local norm matching is not a compositional certificate, and a
+function-changing scalar must be selected and evaluated as part of the complete
+program. This does not alter the final suffix scientific ledger (0/68).
