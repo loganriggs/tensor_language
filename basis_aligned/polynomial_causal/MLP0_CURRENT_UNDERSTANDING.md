@@ -270,6 +270,19 @@ It is not yet a unique latent ontology. Different gauges can move information am
 these terms; the terms become scientifically useful only when their total producer,
 consumer, and residual price is smaller at matched causal fidelity.
 
+### 3.2 Do not conflate the lexical decomposition with the rank-64 causal code
+
+The symbol $a(t)$ above is a descriptive token/class factor inferred from native
+MLP0 writes. The later rank-64 vector $p_0(z)=m_0(z)B_0$ is a continuous coordinate
+in a causally selected output subspace. It is not a class label. A compiler is a
+third object: an executable program that predicts such coordinates without calling
+native MLP0, installs them in the live state, and composes with downstream consumers.
+
+Compiler-v2.1 compiled the continuous rank-64 interface, not the class-centroid
+decomposition. The class hierarchy remains a possible producer grammar, but current
+matched-price and causal evidence did not justify selecting it. A focused explanation
+and runtime audit is in `MLP0_COMPILER_AND_RUNTIME_NOTE_2026-08-28.md`.
+
 ---
 
 ## 4. Why “downstream computation separates everything” is not the end of the story
