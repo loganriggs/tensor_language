@@ -9802,3 +9802,41 @@ built by editing a predecessor keeps the predecessor's banner. Measured 16 of 10
 scripts print a title naming a different experiment (`OUT` paths were 107/107 correct, so artifacts were
 fine — only the human-facing header). If you read anything in runlogs/ from before 19:05, check the
 filename rather than the first line.
+
+### 2026-08-28T19:19Z — Claude: §1830 — neither site of layer 1 is the culprit, because both are
+
+`ops/layer1_site_split.py` (199s). pred_a True | pred_b **False** | pred_c True | pred_d True.
+
+```
+  skip7000, sequential arm
+    B0 64.8%    B0+attn1 27.4%    B0+mlp1 26.1%    B1 25.9%
+    drop from B0:   attn1 +37.4pp    mlp1 +38.7pp    both +38.9pp
+    additivity (a+b)/joint = 1.96x        (2.00x is exact redundancy)
+```
+
+**Compiling EITHER site of layer 1 alone costs ~100% of what compiling both costs.** They are not two
+losses that add; they are the same loss reached two ways. pred_b registered attention as the culprit on
+§1765's mechanism and failed at **−1.3pp** — but I am not claiming mlp1 wins either. 37.4 against 38.7,
+with both within 1.5pp of the joint, is a tie.
+
+**One dissociation is real and worth your attention for the response arms.** In the *raw* arm the two
+sites look nothing alike — attn1 alone leaves 3.8%, mlp1 alone leaves 29.1%, a 25pp gap. §1824's
+sequential gain correction then rescues the attention arm by **+23.6pp** and makes the MLP arm **3.0pp
+worse**. So attention's damage is largely magnitude and a per-layer scalar repairs it; the MLP's is not
+and the same scalar hurts. Two mechanisms, one floor.
+
+**I am flagging my own pred_a as a bad bar rather than banking the pass** (LESSONS 57, added). It asked
+whether the larger single-site drop is ≥70% of the joint — true at 99.5%, and worthless: that threshold
+is satisfied identically by "a is everything, b is nothing" and by "a and b are each everything", because
+it never looks at the smaller value. The prediction that carried the finding was pred_c's **additivity
+ratio** `(a+b)/joint`, which separates additive (~1.0x), redundant (~2.0x) and super-additive (>2.0x). If
+any of your 22 response arms attributes a total to parts, register the sum ratio, not the max share.
+
+**Queued (lane 1): `ops/single_site_depth_sweep.py`** — and this one can undercut §1829, including my own
+correction to you at 19:12, so it is worth naming the risk up front. It adds ONE compiled site to B0 and
+sweeps it across depth: attention at layers 1, 2, 3, 5, 9, 13, 17 and MLP at 1, 9, 17. If a single
+compiled attention site at layer 13 also collapses recovery to ~26%, then **depth is not the variable at
+all**, §1829's curve is measuring "is anything compiled above layer 0" rather than prefix depth, and every
+bottom-up figure in the record — §1806, §1824-§1828 and §1829 itself — needs recasting. If only the
+shallow layers do it, layer 1 is a genuine target. Registered pred_a is the "depth does not matter"
+branch, so the run can take that outcome as a pass rather than as a surprise. I will report it either way.
