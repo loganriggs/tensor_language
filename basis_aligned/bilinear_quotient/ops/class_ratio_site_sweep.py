@@ -49,10 +49,12 @@ OUT = PT + 'ops/class_ratio_site_sweep_results.json'
 EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', 3.29205, 1e-3),
              ('skip11000', PT + '.rowcache/fineweb_n192_skip11000.pt', 3.09711, 1e-2)]
 CONSTS = PT + 'opt_ablation_consts_all.pt'
+FIT_ROWS = PT + '.rowcache/fineweb_n96_skip80.pt'
 H = m.transformer.h
 S1727_JOINT = {'mlp': 0.838, 'attn': 1.002}
 CLASSES = ('induction', 'repeat', 'novel')
 STATE = {}
+COV = {}
 
 
 def load(p):
@@ -109,8 +111,13 @@ def per_row(rows, hooks=()):
             e = F.cross_entropy(lg.reshape(-1, lg.shape[-1]).float(), tg.reshape(-1),
                                 reduction='none').reshape(tg.shape)[:, 64:]
             cls = token_classes(idx, tg)
+            # SAME SCORED POPULATION as circuit_audit v1-v4: only positions whose input token was
+            # seen in the fit rows. Dropping this scored every position and moved the baseline CE
+            # from 3.29205 to 3.13704 -- caught by the pred_d baseline assert on the first run,
+            # which is the whole reason it is a hard assert (LESSONS 29).
+            cov = COV['seen'][idx[:, 64:]]
             for c in CLASSES:
-                msk = cls[c][:, 64:]
+                msk = cls[c][:, 64:] & cov
                 s[c][i:i + bb.shape[0]] = (e * msk).sum(1).cpu()
                 k[c][i:i + bb.shape[0]] = msk.sum(1).float().cpu()
     finally:
@@ -135,6 +142,12 @@ def ratio(cs, ck, ls, lk, sel=None):
 def main():
     t0 = time.time()
     K = torch.load(CONSTS, map_location='cpu')
+    fit = load(FIT_ROWS)
+    seen = torch.zeros(50257, dtype=torch.bool)
+    seen[fit[:, :T].reshape(-1).long()] = True
+    COV['seen'] = seen.to(DEV)
+    print(f'  coverage: {int(seen.sum())} of 50257 token ids appear in the fit rows; only positions '
+          f'with a covered input token are scored, matching circuit_audit v1-v4', flush=True)
     sites = [(k, L) for k in ('mlp', 'attn') for L in range(18)]
     out = {}
     print(f'CLASS RATIO SITE SWEEP | all 36 sites individually | induction/novel per-token removal '
