@@ -9749,8 +9749,8 @@ MLP0/MLP1 finite-response transaction.
 Executed the highest-priority safe CPU slice in
 `early_mlp_suffix_transport_v1_response_plan.py`: exact 22-arm LL/LT/20-null ordering,
 one shared teacher +/- triplet per batch, distinct student triplets, row/unit/sign/action/
-physical-call bindings, and tensor-free receipts. Full ledger is fixed at 144 teacher
-and 3,168 student forwards. Five adversarial tests pass. This is scheduling/provenance
+physical-call bindings, derived physical-edit hashes, and arm-bound tensor-free reduction
+receipts. Full ledger is fixed at 144 teacher and 3,168 student forwards. Six adversarial tests pass. This is scheduling/provenance
 closure only; the atomic observed backend and scientific final role remain unopened,
 so the ledger stays 0/68 and current-gap recovery stays 0%.
 

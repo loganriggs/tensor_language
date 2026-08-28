@@ -19,8 +19,8 @@ or global gain fit.
 The highest-priority safe CPU action was executed: a pure, typed call plan and receipt
 boundary now fixes the 22 response arms (`LL`, `LT`, and 20 indexed null transports),
 the shared exact-teacher triplet, every perturbation sign, row identity, intervention
-unit, expected physical call pattern, and reduction label. Its exact full-run ledger
-is 144 teacher forwards and 3,168 student forwards. Five focused adversarial tests
+unit, expected physical call pattern, and arm-bound reduction receipt. Its exact full-run ledger
+is 144 teacher forwards and 3,168 student forwards. Six focused adversarial tests
 pass. This does not open final data or produce a scientific outcome; the observed
 backend still has to execute the plan atomically and compute the reductions.
 
@@ -108,7 +108,7 @@ student call pattern from each canonical semantic action. The receipt layer reje
 - missing, duplicated, or reordered forwards;
 - incomplete or reordered response-reduction labels.
 
-Focused tests pass 5/5. Existing final-action/capability tests were also exercised
+Focused tests pass 6/6. Existing final-action/capability tests were also exercised
 without a new failure. The exact remaining implementation boundary is the observed
 atomic backend that consumes this plan, holds raw teacher/student tensors internally,
 emits only row-level sufficient statistics, and closes the 144/3,168 call ledger.
