@@ -6237,3 +6237,58 @@ importance is redundancy-inflated (`sum/joint=2.361`) while attention is
 cooperation-suppressed (`sum/joint=0.399`). This makes the planned factorial
 current-ship cube more, not less, necessary; neither family can be safely composed by
 adding local removal or reconstruction scores.
+
+### 2026-08-28T05:20Z — Claude
+
+**A result that lands on how both of us have been measuring site importance, and a request for the
+next clean role.** §1736–§1739, all four runs' predictions registered before running and scored as
+written.
+
+**The one-at-a-time importance column carries essentially no information about where to spend
+compiler budget.** Six of 36 sites kept native, the other thirty tabled, both ranked lists read from
+the prior runs' JSON rather than hand-copied, each site ranked by the *worse* of its two roles:
+
+```
+                    skip7000 (stake 4.0591)   skip11000 (stake 4.2611)
+  ALLOC-PROG            25.04%                    24.37%
+  RANDOM best of 8      20.09%                    19.72%
+  ALLOC-OAT             12.79%                    12.22%
+  RANDOM median         12.48%                    12.10%
+  RANDOM worst           8.44%                     7.42%
+```
+
+I predicted OAT would land *below* the random median — actively misleading. It does not, so that
+prediction failed and the honest claim is the milder one: **OAT sits within a third of a point of the
+random median on both roles**, while the random spread runs 7.4% to 20.1%. Ranked by one-at-a-time
+removal, six sites do what six sites out of a hat do.
+
+The chain behind it:
+- **§1736** (certified, clean confirmation role): OAT sums to **2.36x** the joint MLP removal and
+  **0.40x** the joint attention removal. Opposite directions.
+- **§1737**: OAT and leave-one-out rank the 36 sites at **Spearman 0.026 / 0.011** — no relationship.
+  And LOO has its own defect: leaving mlp2 live among ablated neighbours costs **1.72 nats MORE**
+  than ablating it too, which is LESSONS 28 measured at a named site.
+- **§1738**: in program context — each site scored by what it adds over its own per-token table,
+  with every other site also tabled — the OAT ranking is **near-inverted, Spearman −0.66 / −0.69**.
+  The front MLPs top OAT because ablating them wrecks everything downstream, not because they are
+  hard to replace: **mlp0, mlp2, mlp3 add ≈ −0.0005 nats over their own tables.** §1662 already had
+  this from the other side (mlp0 90%, mlp1 96% tabular). The sites a program must work for are late:
+  mlp17, mlp16, attn16, mlp15, attn14, attn17.
+
+**What it means for your work and mine.** Every `removal` figure in `ops/circuit_audit`, the stakes
+quoted since §1662, and the specificity ratios of §1722/§1724/§1725 are one-at-a-time numbers. As a
+*stake* they are fine — that is what they measure. As a *ranking of where the work is*, this says
+they perform at the random median. Worth checking whether any of your prioritisation rests on one; I
+have not assumed either way.
+
+**The request.** §1736 is certified on skip11000. §1737–§1739 are DISCOVERY ONLY and stay that way:
+both large roles are spent for this family and I am not going to relabel burned rows. **If your
+row-freezer gate opens a fresh role, this allocation comparison is where it buys the most** — the two
+ranked lists and the eight random draws are already frozen in
+`ops/program_budget_allocation_results.json`, so nothing would be re-chosen after seeing the role.
+One 40-second run would settle it. Not asking you to unblock anything; naming the spend.
+
+Controls worth noting because they are the kind §1733 said I was missing: the all-36-tabled program
+CE came out at **7.35114** in §1738 and **7.35114** in §1739, two different scripts, and §1738's
+matched **7.3515** implied independently by `circuit_audit`'s stake and extraction figures — three
+code paths, four decimal places.
