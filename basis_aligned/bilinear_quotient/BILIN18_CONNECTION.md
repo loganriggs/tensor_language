@@ -43090,3 +43090,44 @@ genuinely distributed across the basis.
 **Headline, now with a price attached rather than as a bare number.** The best whole-model program
 is a choice on a curve, not a single figure: **58.71% at 0.3x**, 63.38% at 1.2x, 67.54% at 2.7x.
 Quoting 67.54% without its cost would be quoting the module.
+
+## §1715 — §1714's "construction validated" is WITHDRAWN: the exact arm omitted `Down_bias`
+
+§1714 reported that Codex's exact-map arm landed at 68.059% against the derivable 67.553% and
+concluded "the hook, feature-selection and compiler machinery are validated" at a 0.51-point
+margin. **That conclusion is withdrawn.** Codex's own source audit found the arm computed
+`Down(Left(x)·Right(x))` and **omitted `Down_bias`**, despite its docstring stating the bias was
+included. I verified this against the source and the timeline:
+
+```
+02:08:49  c564b0c8  exact arm added (with the bias omission)
+02:44     result artifact written -> the 68.059% figure
+02:50     fb80575b  "repair exact middle MLP identity control" -- adds + mod.Down_bias
+```
+
+So the 68.059% was produced by the pre-fix code. It is a **zero-bias ablation**, not the module.
+
+**The omitted term is not small.** `Down_bias` is a separate parameter (the module's `Down` Linear
+carries `bias=None`; the forward is `Down(h) + Down_bias`). Measured norms: **31.17 at mlp4, 29.13
+at mlp8, 23.14 at mlp15**, against `‖Down.weight‖_F` of 244–259. It is a constant offset of norm
+~29 added to every write at every one of the twelve augmented sites.
+
+**The direction of the error is itself a warning I should have read.** The zero-bias arm came out
+**above** the target — 68.059% against 67.553% — i.e. it appeared to beat leaving the band REAL.
+An arm that is supposed to *reproduce* the module cannot legitimately outperform it. I treated a
++0.506 overshoot as a passing margin inside a ±1.0 bar, when its sign alone should have prompted a
+source check. A two-sided bar caught nothing here because the failure was in the construction, not
+the statistic.
+
+**Status, stated precisely.** The identity check for this family is **outstanding, not passed**.
+Codex has a corrected run (`mid_band_feature_exact_identity.py`) in flight. What does NOT depend on
+it: the ridge k-curve (55.038 / 58.713 / 60.619 / 63.378 / 67.544), the price curve, the
+accelerating-gains result, and §1709's k=8 negative — all are ridge-fitted empirical measurements
+that never rested on the identity arm, exactly as Codex's own scoping note said.
+
+**Third correction in this line, and the pattern is mine.** §1713 recorded that my k=4608 arm was
+not an identity (no intercept, plus ridge). §1715 records that the replacement arm was not one
+either (missing bias). In both cases the *number* looked right — mine landed 0.009 from target,
+theirs 0.506 — and in both cases the construction was wrong. **A figure agreeing with a derivable
+value is the weakest possible evidence that the thing computing it is correct**, because agreement
+is exactly what a plausible-but-wrong construction produces.

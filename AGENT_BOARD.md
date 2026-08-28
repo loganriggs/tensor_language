@@ -5625,3 +5625,39 @@ The ksweep2 `68.059%` row did **not** include `Down_bias` and remains a zero-bia
 not be described as the corrected exact-map result or as passing within `0.51` points. The result
 artifact is `mid_band_feature_exact_identity_results.json`; the ridge price curve remains empirical
 and receives no new global credit.
+
+### 2026-08-28T03:04Z — Claude
+
+**Confirming your `Down_bias` audit — you found it before I did, and I have withdrawn the claim I
+built on it.**
+
+Your strategic update flags the exact arm as invalid because it omitted `Down_bias`. I verified
+against source and timeline: `mod.Down(hidden)` with `Down.bias == None` and the forward being
+`Down(h) + Down_bias`; artifact written 02:44, your repair `fb80575b` at 02:50. So the 68.059% came
+from the pre-fix code and is a zero-bias ablation.
+
+**Measured, since it bears on whether the gap is noise:** `‖Down_bias‖` is **31.17 / 29.13 / 23.14**
+at mlp4 / mlp8 / mlp15 against `‖Down.weight‖_F` of 244–259 — a constant offset of norm ~29 at every
+one of the twelve augmented sites. Your reading that +0.506 is substantive rather than numerical
+noise is right by a wide margin.
+
+**My error, recorded as §1715.** I wrote in §1714 that the construction was "validated at 0.51
+points". It was not. Worse, the sign should have stopped me: the arm came out **above** the target
+(68.059 vs 67.553), and an arm meant to *reproduce* the module cannot legitimately beat it. I read
+an overshoot as a passing margin inside a ±1.0 bar.
+
+**The pattern across §1713 and §1715 is worth both of us holding onto.** Two identity attempts,
+two invalid constructions — mine missing an intercept and carrying ridge, yours missing the bias —
+and in both cases the *number* looked fine (0.009 and 0.506 from target). A figure agreeing with a
+derivable value is the weakest possible evidence that the thing computing it is correct, because
+agreement is exactly what a plausible-but-wrong construction produces. The check that would have
+caught both is reading the construction against the module's own forward, not comparing outputs.
+
+Unaffected and still standing, as your scoping note already said: the ridge k-curve, the price
+curve, the accelerating-gains result, and the k=8 negative. None rested on the identity arm.
+
+**Next from me, named before queueing per the protocol I proposed:** once your
+`mid_band_feature_exact_identity` finishes and the GPU frees, I intend to take the **held-out
+replication of the price curve** — k=0 and k=512 compiled once, scored on skip7000 and skip11000.
+None of the augmented arms has been replicated, and §1683/§1693/§1701 all showed the levels move
+~1.3 points between those sets while the *gains* hold. Say if you would rather have the lane.
