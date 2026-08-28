@@ -23,6 +23,8 @@ import early_mlp_suffix_transport_v1_runtime as runtime
 
 FINAL_ROW_WIDTH = 513
 EDIT_SIGNS = (-1, 0, 1)
+FINAL_BATCH_COUNT = 48
+FINAL_ROW_COUNT = FINAL_BATCH_COUNT * runtime.BATCH_SIZE
 _MINT_TOKEN = object()
 PERTURBATION_TRIAL = {"baseline": 0, "positive": 1, "negative": 2}
 RESPONSE_EXECUTION_AMENDMENT_SHA256 = (
@@ -582,6 +584,7 @@ class ObservedResponseArmReduction:
 class ObservedResponseBatchReceipt:
     """Atomic closure of one ordered 69-forward four-row response batch."""
 
+    batch_ordinal: int
     batch_plan_sha256: str
     source_bank_sha256: str
     program_payload_sha256: str
@@ -597,6 +600,10 @@ class ObservedResponseBatchReceipt:
     atomic_complete: bool
 
     def __post_init__(self) -> None:
+        if type(self.batch_ordinal) is not int or not 0 <= self.batch_ordinal < (
+            FINAL_BATCH_COUNT
+        ):
+            raise ValueError("observed response batch ordinal changed")
         for name in (
             "batch_plan_sha256", "source_bank_sha256", "program_payload_sha256",
             "final_context_sha256", "common_support_sha256", "basis0_sha256",
@@ -611,7 +618,9 @@ class ObservedResponseBatchReceipt:
             key for key, _value in self.arm_reduction_sha256s
         ) != response_plan.RESPONSE_ACTION_KEYS or any(
             not runtime._sha256_text(value) for _key, value in self.arm_reduction_sha256s
-        ) or self.teacher_forward_count != 3 or self.student_forward_count != 66 or (
+        ) or len(set(self.forward_receipt_sha256s)) != 69 or (
+            self.teacher_forward_count != 3
+        ) or self.student_forward_count != 66 or (
             self.atomic_complete is not True
         ):
             raise ValueError("observed response batch did not close atomically")
@@ -642,3 +651,315 @@ class ObservedResponseBatchResult:
             (value.action_key, value.sha256) for value in self.arm_reductions
         ) != self.receipt.arm_reduction_sha256s:
             raise ValueError("observed response batch result differs from its receipt")
+
+
+@dataclass(frozen=True, slots=True)
+class ObservedRunResponseReduction:
+    """All 192 ordered final-row vector-response sufficient statistics."""
+
+    error_sum: torch.Tensor
+    teacher_sum: torch.Tensor
+    student_sum: torch.Tensor
+    dot_sum: torch.Tensor
+    unit_identity_sha256s: tuple[str, ...]
+    batch_reduction_sha256s: tuple[str, ...]
+
+    def __post_init__(self) -> None:
+        checked = response_reductions.statistics.validate_response_sufficient_statistics({
+            "error_sum": self.error_sum, "teacher_sum": self.teacher_sum,
+            "student_sum": self.student_sum, "dot_sum": self.dot_sum,
+            "unit_identity": runtime.logical_identity_sha256(
+                self.unit_identity_sha256s
+            ),
+        }, length=FINAL_ROW_COUNT)
+        for name, value in checked.items():
+            object.__setattr__(self, name, value.detach().clone().contiguous())
+        if len(self.unit_identity_sha256s) != FINAL_BATCH_COUNT or any(
+            not runtime._sha256_text(value) for value in self.unit_identity_sha256s
+        ) or len(set(self.unit_identity_sha256s)) != FINAL_BATCH_COUNT or len(
+            self.batch_reduction_sha256s
+        ) != FINAL_BATCH_COUNT or any(
+            not runtime._sha256_text(value) for value in self.batch_reduction_sha256s
+        ):
+            raise ValueError("run response reduction provenance changed")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            **{
+                name: runtime.tensor_identity_sha256(getattr(self, name))
+                for name in response_reductions.statistics.RESPONSE_KEYS
+            },
+            "unit_identity_sha256s": list(self.unit_identity_sha256s),
+            "batch_reduction_sha256s": list(self.batch_reduction_sha256s),
+        })
+
+
+@dataclass(frozen=True, slots=True)
+class ObservedRunOutputKLReduction:
+    """All 192 ordered final-row output-KL sufficient statistics."""
+
+    numerator_sum: torch.Tensor
+    denominator_sum: torch.Tensor
+    unit_identity_sha256s: tuple[str, ...]
+    batch_reduction_sha256s: tuple[str, ...]
+
+    def __post_init__(self) -> None:
+        checked = response_reductions.statistics.validate_output_kl_sufficient_statistics({
+            "numerator_sum": self.numerator_sum,
+            "denominator_sum": self.denominator_sum,
+            "unit_identity": runtime.logical_identity_sha256(
+                self.unit_identity_sha256s
+            ),
+        }, length=FINAL_ROW_COUNT)
+        for name, value in checked.items():
+            object.__setattr__(self, name, value.detach().clone().contiguous())
+        if len(self.unit_identity_sha256s) != FINAL_BATCH_COUNT or any(
+            not runtime._sha256_text(value) for value in self.unit_identity_sha256s
+        ) or len(set(self.unit_identity_sha256s)) != FINAL_BATCH_COUNT or len(
+            self.batch_reduction_sha256s
+        ) != FINAL_BATCH_COUNT or any(
+            not runtime._sha256_text(value) for value in self.batch_reduction_sha256s
+        ):
+            raise ValueError("run output-KL reduction provenance changed")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            **{
+                name: runtime.tensor_identity_sha256(getattr(self, name))
+                for name in response_reductions.statistics.OUTPUT_KL_KEYS
+            },
+            "unit_identity_sha256s": list(self.unit_identity_sha256s),
+            "batch_reduction_sha256s": list(self.batch_reduction_sha256s),
+        })
+
+
+@dataclass(frozen=True, slots=True)
+class ObservedResponseRunArmReduction:
+    action_key: str
+    code_response: ObservedRunResponseReduction | None
+    logit_response: ObservedRunResponseReduction
+    output_kl_response: ObservedRunOutputKLReduction
+
+    def __post_init__(self) -> None:
+        if self.action_key not in response_plan.RESPONSE_ACTION_KEYS or (
+            (self.code_response is not None) != (self.action_key in {"ll/N", "lt/N"})
+        ) or not isinstance(self.logit_response, ObservedRunResponseReduction) or not (
+            isinstance(self.output_kl_response, ObservedRunOutputKLReduction)
+        ):
+            raise ValueError("run response arm schema changed")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "action_key": self.action_key,
+            "code_response_sha256": (
+                None if self.code_response is None else self.code_response.sha256
+            ),
+            "logit_response_sha256": self.logit_response.sha256,
+            "output_kl_response_sha256": self.output_kl_response.sha256,
+        })
+
+
+@dataclass(frozen=True, slots=True)
+class ObservedResponseRunReceipt:
+    """Terminal ledger for the exact 48-batch paired-response transaction."""
+
+    final_context_sha256: str
+    source_bank_sha256: str
+    program_payload_sha256: str
+    common_support_sha256: str
+    basis0_sha256: str
+    basis1_sha256: str
+    batch_receipt_sha256s: tuple[str, ...]
+    batch_plan_sha256s: tuple[str, ...]
+    arm_reduction_sha256s: tuple[tuple[str, str], ...]
+    teacher_forward_count: int
+    student_forward_count: int
+    row_count: int
+    atomic_complete: bool
+
+    def __post_init__(self) -> None:
+        for name in (
+            "final_context_sha256", "source_bank_sha256", "program_payload_sha256",
+            "common_support_sha256", "basis0_sha256", "basis1_sha256",
+        ):
+            _sha256(name, getattr(self, name))
+        if len(self.batch_receipt_sha256s) != FINAL_BATCH_COUNT or any(
+            not runtime._sha256_text(value) for value in self.batch_receipt_sha256s
+        ) or len(set(self.batch_receipt_sha256s)) != FINAL_BATCH_COUNT or len(
+            self.batch_plan_sha256s
+        ) != FINAL_BATCH_COUNT or any(
+            not runtime._sha256_text(value) for value in self.batch_plan_sha256s
+        ) or len(set(self.batch_plan_sha256s)) != FINAL_BATCH_COUNT or tuple(
+            key for key, _value in self.arm_reduction_sha256s
+        ) != response_plan.RESPONSE_ACTION_KEYS or any(
+            not runtime._sha256_text(value) for _key, value in self.arm_reduction_sha256s
+        ) or self.teacher_forward_count != 144 or self.student_forward_count != 3168 or (
+            self.row_count != FINAL_ROW_COUNT or self.atomic_complete is not True
+        ):
+            raise ValueError("observed response run did not close atomically")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            name: (
+                list(getattr(self, name)) if name in {
+                    "batch_receipt_sha256s", "batch_plan_sha256s",
+                    "arm_reduction_sha256s",
+                } else getattr(self, name)
+            ) for name in self.__dataclass_fields__
+        })
+
+
+@dataclass(frozen=True, slots=True)
+class ObservedResponseRunResult:
+    arm_reductions: tuple[ObservedResponseRunArmReduction, ...]
+    receipt: ObservedResponseRunReceipt
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.arm_reductions, tuple) or not isinstance(
+            self.receipt, ObservedResponseRunReceipt
+        ) or any(
+            not isinstance(value, ObservedResponseRunArmReduction)
+            for value in self.arm_reductions
+        ) or tuple(value.action_key for value in self.arm_reductions) != (
+            response_plan.RESPONSE_ACTION_KEYS
+        ) or tuple(
+            (value.action_key, value.sha256) for value in self.arm_reductions
+        ) != self.receipt.arm_reduction_sha256s:
+            raise ValueError("observed response run differs from its receipt")
+
+
+class ObservedResponseRunAccumulator:
+    """Fail-closed ordered collector; no run reduction exists before batch 48."""
+
+    def __init__(self) -> None:
+        self._batches: list[ObservedResponseBatchResult] = []
+        self._closed = False
+
+    @property
+    def batch_count(self) -> int:
+        return len(self._batches)
+
+    def add(self, batch: ObservedResponseBatchResult) -> None:
+        if self._closed:
+            raise RuntimeError("response run accumulator is already closed")
+        if not isinstance(batch, ObservedResponseBatchResult) or (
+            batch.receipt.batch_ordinal != len(self._batches)
+        ):
+            raise RuntimeError("response batches are not in canonical order")
+        if self._batches:
+            first = self._batches[0].receipt
+            for name in (
+                "final_context_sha256", "source_bank_sha256",
+                "program_payload_sha256", "common_support_sha256",
+                "basis0_sha256", "basis1_sha256",
+            ):
+                if getattr(batch.receipt, name) != getattr(first, name):
+                    raise RuntimeError("response batch run authority changed")
+            if batch.receipt.sha256 in {
+                value.receipt.sha256 for value in self._batches
+            } or batch.receipt.batch_plan_sha256 in {
+                value.receipt.batch_plan_sha256 for value in self._batches
+            }:
+                raise RuntimeError("response batch replayed within run")
+            prior_forwards = {
+                receipt for value in self._batches
+                for receipt in value.receipt.forward_receipt_sha256s
+            }
+            if any(
+                receipt in prior_forwards
+                for receipt in batch.receipt.forward_receipt_sha256s
+            ):
+                raise RuntimeError("response forward receipt replayed within run")
+        self._batches.append(batch)
+
+    @staticmethod
+    def _vector_run(
+        reductions: Sequence[response_reductions.BatchResponseReduction],
+    ) -> ObservedRunResponseReduction:
+        return ObservedRunResponseReduction(
+            **{
+                name: torch.cat([getattr(value, name) for value in reductions])
+                for name in response_reductions.statistics.RESPONSE_KEYS
+            },
+            unit_identity_sha256s=tuple(value.unit_identity for value in reductions),
+            batch_reduction_sha256s=tuple(value.sha256 for value in reductions),
+        )
+
+    @staticmethod
+    def _output_kl_run(
+        reductions: Sequence[response_reductions.BatchOutputKLReduction],
+    ) -> ObservedRunOutputKLReduction:
+        return ObservedRunOutputKLReduction(
+            **{
+                name: torch.cat([getattr(value, name) for value in reductions])
+                for name in response_reductions.statistics.OUTPUT_KL_KEYS
+            },
+            unit_identity_sha256s=tuple(value.unit_identity for value in reductions),
+            batch_reduction_sha256s=tuple(value.sha256 for value in reductions),
+        )
+
+    def finish(self) -> ObservedResponseRunResult:
+        if self._closed:
+            raise RuntimeError("response run accumulator is already closed")
+        if len(self._batches) != FINAL_BATCH_COUNT:
+            raise RuntimeError("response run is incomplete")
+        arm_reductions = []
+        for action_index, action_key in enumerate(response_plan.RESPONSE_ACTION_KEYS):
+            batches = [value.arm_reductions[action_index] for value in self._batches]
+            if any(value.action_key != action_key for value in batches):
+                raise RuntimeError("response run arm order changed")
+            unit_rows = [
+                (
+                    value.logit_response.unit_identity,
+                    value.output_kl_response.unit_identity,
+                    None if value.code_response is None else value.code_response.unit_identity,
+                ) for value in batches
+            ]
+            if any(a != b or (c is not None and a != c) for a, b, c in unit_rows):
+                raise RuntimeError("response run arm unit identities disagree")
+            arm_reductions.append(ObservedResponseRunArmReduction(
+                action_key=action_key,
+                code_response=(
+                    self._vector_run([value.code_response for value in batches])
+                    if action_key in {"ll/N", "lt/N"} else None
+                ),
+                logit_response=self._vector_run([
+                    value.logit_response for value in batches
+                ]),
+                output_kl_response=self._output_kl_run([
+                    value.output_kl_response for value in batches
+                ]),
+            ))
+        first = self._batches[0].receipt
+        receipt = ObservedResponseRunReceipt(
+            final_context_sha256=first.final_context_sha256,
+            source_bank_sha256=first.source_bank_sha256,
+            program_payload_sha256=first.program_payload_sha256,
+            common_support_sha256=first.common_support_sha256,
+            basis0_sha256=first.basis0_sha256, basis1_sha256=first.basis1_sha256,
+            batch_receipt_sha256s=tuple(
+                value.receipt.sha256 for value in self._batches
+            ),
+            batch_plan_sha256s=tuple(
+                value.receipt.batch_plan_sha256 for value in self._batches
+            ),
+            arm_reduction_sha256s=tuple(
+                (value.action_key, value.sha256) for value in arm_reductions
+            ),
+            teacher_forward_count=sum(
+                value.receipt.teacher_forward_count for value in self._batches
+            ),
+            student_forward_count=sum(
+                value.receipt.student_forward_count for value in self._batches
+            ),
+            row_count=FINAL_ROW_COUNT, atomic_complete=True,
+        )
+        self._closed = True
+        self._batches.clear()
+        return ObservedResponseRunResult(
+            arm_reductions=tuple(arm_reductions), receipt=receipt,
+        )

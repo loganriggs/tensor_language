@@ -1732,7 +1732,8 @@ class ObservedBilin18Adapter:
         ):
             raise RuntimeError("response batch broker ledger did not close")
         batch_receipt = response_execution.ObservedResponseBatchReceipt(
-            batch_plan_sha256=plan.sha256, source_bank_sha256=sources.sha256,
+            batch_ordinal=batch_ordinal, batch_plan_sha256=plan.sha256,
+            source_bank_sha256=sources.sha256,
             program_payload_sha256=payload_sha256,
             final_context_sha256=final_context.sha256,
             common_support_sha256=common_support_sha256,

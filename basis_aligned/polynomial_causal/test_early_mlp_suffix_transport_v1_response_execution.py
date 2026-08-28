@@ -11,6 +11,7 @@ import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_programs as programs
 import early_mlp_suffix_transport_v1_response_execution as execution
 import early_mlp_suffix_transport_v1_response_plan as response_plan
+import early_mlp_suffix_transport_v1_response_reductions as reductions
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -540,3 +541,88 @@ def test_atomic_batch_routes_69_forwards_and_binds_actual_receipt_triplets(monke
         receipt for reduction in result.arm_reductions
         for receipt in reduction.student_forward_receipt_sha256s
     }) == 66
+
+
+def _synthetic_batch_result(batch_ordinal):
+    unit = runtime.logical_identity_sha256({"unit": batch_ordinal})
+    batch_plan = runtime.logical_identity_sha256({"plan": batch_ordinal})
+    forwards = tuple(
+        runtime.logical_identity_sha256({"batch": batch_ordinal, "forward": index})
+        for index in range(69)
+    )
+    arm_reductions = []
+    offset = 3
+    for action_key in response_plan.RESPONSE_ACTION_KEYS:
+        vector = reductions.BatchResponseReduction(
+            error_sum=torch.ones(4, dtype=torch.float64),
+            teacher_sum=torch.full((4,), 4.0, dtype=torch.float64),
+            student_sum=torch.ones(4, dtype=torch.float64),
+            dot_sum=torch.full((4,), 2.0, dtype=torch.float64),
+            unit_identity=unit,
+        )
+        output_kl = reductions.BatchOutputKLReduction(
+            numerator_sum=torch.ones(4, dtype=torch.float64),
+            denominator_sum=torch.full((4,), 2.0, dtype=torch.float64),
+            unit_identity=unit,
+        )
+        arm_reductions.append(execution.ObservedResponseArmReduction(
+            action_key=action_key, batch_plan_sha256=batch_plan,
+            teacher_forward_receipt_sha256s=forwards[:3],
+            student_forward_receipt_sha256s=forwards[offset:offset + 3],
+            code_response=vector if action_key in {"ll/N", "lt/N"} else None,
+            logit_response=vector, output_kl_response=output_kl,
+        ))
+        offset += 3
+    receipt = execution.ObservedResponseBatchReceipt(
+        batch_ordinal=batch_ordinal, batch_plan_sha256=batch_plan,
+        source_bank_sha256="1" * 64, program_payload_sha256="2" * 64,
+        final_context_sha256="3" * 64, common_support_sha256="4" * 64,
+        basis0_sha256="5" * 64, basis1_sha256="6" * 64,
+        forward_receipt_sha256s=forwards,
+        arm_reduction_sha256s=tuple(
+            (value.action_key, value.sha256) for value in arm_reductions
+        ),
+        broker_ledger_sha256=runtime.logical_identity_sha256({
+            "broker": batch_ordinal,
+        }),
+        teacher_forward_count=3, student_forward_count=66,
+        atomic_complete=True,
+    )
+    return execution.ObservedResponseBatchResult(
+        arm_reductions=tuple(arm_reductions), receipt=receipt,
+    )
+
+
+def test_run_accumulator_requires_48_canonical_batches_and_emits_exact_ledger():
+    accumulator = execution.ObservedResponseRunAccumulator()
+    with pytest.raises(RuntimeError, match="incomplete"):
+        accumulator.finish()
+    with pytest.raises(RuntimeError, match="canonical order"):
+        accumulator.add(_synthetic_batch_result(1))
+    for batch_ordinal in range(48):
+        accumulator.add(_synthetic_batch_result(batch_ordinal))
+    assert accumulator.batch_count == 48
+    result = accumulator.finish()
+    assert accumulator.batch_count == 0
+    assert result.receipt.teacher_forward_count == 144
+    assert result.receipt.student_forward_count == 3168
+    assert result.receipt.row_count == 192
+    assert result.receipt.atomic_complete
+    assert len(result.receipt.batch_receipt_sha256s) == 48
+    assert len(set(result.receipt.batch_receipt_sha256s)) == 48
+    assert tuple(value.action_key for value in result.arm_reductions) == (
+        response_plan.RESPONSE_ACTION_KEYS
+    )
+    first = result.arm_reductions[0]
+    assert first.code_response is not None
+    assert first.code_response.error_sum.shape == (192,)
+    torch.testing.assert_close(
+        first.code_response.error_sum, torch.ones(192, dtype=torch.float64),
+    )
+    assert len(first.code_response.unit_identity_sha256s) == 48
+    assert len(set(first.code_response.unit_identity_sha256s)) == 48
+    assert result.arm_reductions[2].code_response is None
+    with pytest.raises(RuntimeError, match="already closed"):
+        accumulator.add(_synthetic_batch_result(0))
+    with pytest.raises(RuntimeError, match="already closed"):
+        accumulator.finish()
