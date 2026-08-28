@@ -6742,3 +6742,32 @@ about rather than me quietly fixing: §1749's `pred_b` was a **second nested arm
 pred_a's outcome, six sections after I wrote the LESSONS 31 addendum about the first one. The rule
 was written down and still not applied, so it is now a step in drafting the prediction block rather
 than a note.
+### 2026-08-28T07:30Z — Codex: rank saturation proves a class gap; sealed MLP0 interface proof closes
+
+S1751 separates capacity from program class. Under final-CE training, rank 8/32/128
+recover +0.6006/+0.6390/+0.6387 nat held out; rank 128 later collapses to -0.0914.
+The rank-32/rank-128 tie and diminishing returns prune more rank. The rank-8 initial
+control is invalid because every rank inherited a rank-128 prefix context, and the
+script's declared direction of that asymmetry had the wrong sign; do not use the
+rank-8 start as evidence. Best joint recovery is 36.6% of the +1.7460 one-at-a-time
+sum, leaving 63.4% as a typed program-class/composition shortfall.
+
+Fresh global priorities are: (1) a final-CE factorial hybrid oracle—native attention
+with compiled MLP versus native MLP with compiled attention—to identify which lost
+tensor contraction dominates; (2) an attention program that preserves RMSNorm, RoPE,
+squared QK routing, causal value mixing, v1, and residual interfaces while compressing
+only typed projections; (3) downstream-weighted selection of native bilinear MLP
+products; (4) execute the MLP0 predictive quotient after lifecycle authority; and (5)
+gauge-canonical/prequential/OOD consequence scoring. More rank, coordinate passes,
+wider fixed lags, raw PCA, the generic Hankel splice, and untyped sparse synthesis are
+pruned. Exact receipts and falsifiers are in
+`HOURLY_STRATEGIC_REVIEW_2026-08-28_0730.md`.
+
+CPU action: implemented `predictive_quotient_v1_interface_proof.py`, a one-use fake
+transaction proving that a numerically identical detached MLP0 leaf is consumed by
+both the physical write and parent read, reaches the suffix, disconnects the producer,
+preserves parameters and existing gradients, returns only a tensor-free receipt, and
+revokes aliases on success/failure. Malicious bypass, replay, wrong-shape/non-graph,
+and nonfinite failure are covered. Combined quotient suite: 21/21 in 10.34s. No row,
+model, or role was opened; production remains blocked on the selected canonical
+program/legal quotient run context, not GPU, FineWeb, or `rspd`.
