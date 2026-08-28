@@ -1,0 +1,151 @@
+{
+ "config": {
+  "sites": [
+   "mlp17",
+   "attn16",
+   "attn14",
+   "attn11",
+   "attn17",
+   "attn13"
+  ],
+  "ranks": [
+   8,
+   32,
+   128
+  ],
+  "ridge": 0.01,
+  "program": "table[token] + x W_r, hybrid coverage rule (\u00a71661); W ridge-fitted from the site input to (native output - table output) on the LIVE model, then SVD-truncated",
+  "LIMITATION": "W is fitted in the LIVE model and deployed with the other thirty sites tabled, so its deployment inputs differ from its fit inputs. \u00a71669 is exactly about this mismatch and it is NOT fixed here; every figure is a LOWER bound on a properly compiled rank-r correction.",
+  "costs_M_reals": {
+   "rank_r_per_site": "2*r*1152",
+   "native_attn": 7.963,
+   "native_mlp": 15.926
+  },
+  "ROLE_NOTE": "DISCOVERY ONLY. The SITE SET came from \u00a71739-\u00a71744 using both roles, so neither role is clean for \"is this the right site set\". Both are clean for \"what does rank r buy at this site set\"."
+ },
+ "results": {
+  "skip7000": {
+   "live_ce": 3.29205,
+   "table_only_ce": 7.35114,
+   "native6_ce": 6.14748,
+   "native6_recovered": 1.20366,
+   "arms": {
+    "8": {
+     "ce": 7.24732,
+     "recovered": 0.10382,
+     "frac_of_gap": 0.08625,
+     "cost_M": 0.1106
+    },
+    "32": {
+     "ce": 7.26245,
+     "recovered": 0.08869,
+     "frac_of_gap": 0.07368,
+     "cost_M": 0.4424
+    },
+    "128": {
+     "ce": 7.27766,
+     "recovered": 0.07348,
+     "frac_of_gap": 0.06105,
+     "cost_M": 1.7695
+    }
+   },
+   "per_site_top_rank": {
+    "mlp17": {
+     "site_gap": 0.51279,
+     "lowrank_recovered": 0.10575,
+     "frac_of_site_gap": 0.20622
+    },
+    "attn16": {
+     "site_gap": 0.313,
+     "lowrank_recovered": -0.00379,
+     "frac_of_site_gap": -0.01209
+    },
+    "attn14": {
+     "site_gap": 0.21559,
+     "lowrank_recovered": -0.00407,
+     "frac_of_site_gap": -0.01889
+    },
+    "attn11": {
+     "site_gap": 0.04856,
+     "lowrank_recovered": -0.01116,
+     "frac_of_site_gap": -0.2298
+    },
+    "attn17": {
+     "site_gap": 0.20006,
+     "lowrank_recovered": 0.00125,
+     "frac_of_site_gap": 0.00627
+    },
+    "attn13": {
+     "site_gap": 0.17306,
+     "lowrank_recovered": -0.00956,
+     "frac_of_site_gap": -0.05522
+    }
+   }
+  },
+  "skip11000": {
+   "live_ce": 3.09711,
+   "table_only_ce": 7.35825,
+   "native6_ce": 6.11685,
+   "native6_recovered": 1.2414,
+   "arms": {
+    "8": {
+     "ce": 7.25538,
+     "recovered": 0.10287,
+     "frac_of_gap": 0.08287,
+     "cost_M": 0.1106
+    },
+    "32": {
+     "ce": 7.27121,
+     "recovered": 0.08704,
+     "frac_of_gap": 0.07012,
+     "cost_M": 0.4424
+    },
+    "128": {
+     "ce": 7.28762,
+     "recovered": 0.07063,
+     "frac_of_gap": 0.05689,
+     "cost_M": 1.7695
+    }
+   },
+   "per_site_top_rank": {
+    "mlp17": {
+     "site_gap": 0.5141,
+     "lowrank_recovered": 0.10649,
+     "frac_of_site_gap": 0.20715
+    },
+    "attn16": {
+     "site_gap": 0.31049,
+     "lowrank_recovered": -0.0041,
+     "frac_of_site_gap": -0.01322
+    },
+    "attn14": {
+     "site_gap": 0.2426,
+     "lowrank_recovered": -0.00466,
+     "frac_of_site_gap": -0.01923
+    },
+    "attn11": {
+     "site_gap": 0.05746,
+     "lowrank_recovered": -0.01128,
+     "frac_of_site_gap": -0.19637
+    },
+    "attn17": {
+     "site_gap": 0.20562,
+     "lowrank_recovered": 0.00064,
+     "frac_of_site_gap": 0.00309
+    },
+    "attn13": {
+     "site_gap": 0.18277,
+     "lowrank_recovered": -0.01094,
+     "frac_of_site_gap": -0.05984
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_rank128_closes_half_the_gap": false,
+  "pred_b_monotone_in_rank": false,
+  "pred_c_attention_benefits_more": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 55.2
+}

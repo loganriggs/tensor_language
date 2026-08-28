@@ -44412,3 +44412,58 @@ Controls (pred_d): the greedy reference reproduces §1741's value, all-36-tabled
 scripts now, coverage 5419 of 50257. The value cache keyed by `frozenset` — a set's value cannot
 depend on the path that reached it — saved 1025 of 3610 evaluations, and its correctness is implied
 by the three starts reaching identical values through different swap sequences.
+
+## §1745 — a cheap linear correction fails exactly where it is needed: recovery FALLS with rank, and the five attention sites go negative
+
+`ops/lowrank_at_greedy_sites.py`, 55.2s, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c False | pred_d True.** All three failures are about the model,
+not about my scoring.
+
+At the six sites §1744 identified, `table[token] + x W_r` with W ridge-fitted from the site's own
+input to (native − table) on the live model, then SVD-truncated:
+
+```
+  skip11000 (held out): live 3.09711 | table-only 7.35825 | native-6 6.11685 | gap 1.2414 nats
+    rank   8  recovers 0.1029 nats =  8.29% of the gap, for 0.1106M reals
+    rank  32  recovers 0.0870 nats =  7.01% of the gap, for 0.4424M reals
+    rank 128  recovers 0.0706 nats =  5.69% of the gap, for 1.7695M reals
+
+  per site, rank 128, fraction of that site's OWN gap closed
+    mlp17    own gap 0.5141   +20.71%
+    attn17   own gap 0.2056    +0.31%
+    attn16   own gap 0.3105    -1.32%
+    attn14   own gap 0.2426    -1.92%
+    attn13   own gap 0.1828    -5.98%
+    attn11   own gap 0.0575   -19.64%
+```
+
+**pred_a failed by a wide margin: 5.69% against a 50% bar.** A rank-128 linear read of the current
+position closes a twentieth of the gap that keeping the modules native closes.
+
+**pred_b failed in the opposite direction to the one it guarded: recovery DECREASES with rank**, 8.29%
+→ 7.01% → 5.69%, monotonically, on both roles. More capacity makes the program worse. The natural
+reading is the mismatch this run's header declared in advance: **W is fitted on live inputs and
+deployed where the other thirty sites are tabled**, so a higher-rank map is more finely tuned to
+inputs it will not see. That is §1669's finding — independently-fitted programs installed jointly
+gave −42.99% — appearing as a rank curve. It is the natural reading and it is not yet proven; the
+test is to refit in the deployed context, which is queued.
+
+**pred_c failed, and its failure is the substantive result.** I asked whether attention benefits more
+than mlp17. It does not, and not by a little: **mlp17 closes 20.71% of its own gap while the five
+attention sites average −5.71%**, four of the five actively worse than no correction at all.
+
+> **The cheap program fails precisely where the allocation work says a compiler must spend.**
+> §1744's six sites are five attention plus mlp17. A current-position linear correction helps the one
+> MLP and does nothing, or harm, at all five attention sites. This is §1682 from the program side:
+> the attention output write is 83.6% non-local, so a map that reads only the current position has
+> nothing to read.
+
+**The one positive, stated with its ceiling.** Rank 8 recovers 0.1029 nats for 0.1106M reals —
+**0.93 nats per million against native's 0.0223**, forty-two times the cost-efficiency. It is a real
+frontier point and it saturates at 8% of the gap, so it buys a cheap eighth and cannot be scaled up
+by adding rank.
+
+Controls (pred_d): table-only CE 7.35114 across six scripts, native-6 reproducing §1741's 1.2037 and
+1.2414 within 0.001, coverage 5419 of 50257. The singular spectra are also informative — mlp17's
+leading value is 17320 against attn13's 817, so the residual mlp17 leaves over its table is an order
+of magnitude larger and much more linearly structured than any attention site's.
