@@ -70,16 +70,20 @@ residual mixing are inside $H_{ji}$. They are not approximated as independent mo
 
 ### Theorem and operational definition
 
-If a linearized causal program passes every upstream effect through an $r$-dimensional
-state $z_k$, then $\mathcal H_k=D_kE_k$ and
+For a fixed context, if a linearized causal program passes every upstream effect
+through an $r$-dimensional state $z_k$, then $H_{c,k}=D_{c,k}E_{c,k}$ and
 
 $$
-r\ge\operatorname{rank}(\mathcal H_k).
+r\ge\operatorname{rank}(H_{c,k}).
 $$
 
-Thus the cut rank is a certified lower bound on the required tangent-state/bond
-dimension. Eckart--Young gives the best rank-$r$ approximation at that cut, with exact
-squared response tail $\sum_{q>r}\sigma_q^2$. This is simultaneously:
+If a single context-independent linear encoder $E_k$ is required across contexts, the
+vertically stacked operator additionally factors as $\mathcal H_k=D_kE_k$. Its rank is
+therefore a certified lower bound on that shared linear interface, but not on an
+arbitrary nonlinear state whose encoder Jacobian rotates with context. Per-context and
+stacked ranks must both be reported. Eckart--Young gives the best rank-$r$ shared-linear
+approximation at that cut, with exact squared response tail
+$\sum_{q>r}\sigma_q^2$. Under this explicit shared-encoder restriction this is:
 
 - the operator-Schmidt rank across the tensor-network depth cut;
 - the finite-horizon reachability/observability transmission rank;

@@ -61,3 +61,46 @@ def test_energy_gap_rule_does_not_call_full_support_compression():
     result = realization.analyze_cut(matrix, energy_fraction=1.0)
     assert result["selected_rank"] is None
     assert result["certified_compression_knee"] is False
+
+
+def test_split_comparison_uses_common_right_state_and_passes_left_row_rotation():
+    generator = torch.Generator().manual_seed(31)
+    right = torch.randn(2, 3, generator=generator, dtype=torch.float64)
+    left_a, _ = torch.linalg.qr(torch.randn(6, 2, generator=generator, dtype=torch.float64))
+    left_b, _ = torch.linalg.qr(torch.randn(6, 2, generator=generator, dtype=torch.float64))
+    singular = torch.diag(torch.tensor([5.0, 1.0], dtype=torch.float64))
+    primary = {(3, 0): left_a @ singular @ right}
+    replication = {(3, 0): left_b @ singular @ right}
+    result = realization.compare_split_cuts(
+        primary, replication, {0: 3}, {3: 6}, (1,),
+        energy_fraction=0.90, gap_ratio=2.0,
+    )["1"]
+    assert result["passes"] is True
+    assert result["combined_selected_rank"] == 1
+    assert result["normalized_right_projector_chordal_distance"] < 1e-12
+
+
+def test_split_comparison_rejects_incompatible_right_state():
+    primary = {(3, 0): torch.diag(torch.tensor([5.0, 1.0, 0.1], dtype=torch.float64))}
+    replication = {(3, 0): torch.diag(torch.tensor([0.1, 1.0, 5.0], dtype=torch.float64))}
+    result = realization.compare_split_cuts(
+        primary, replication, {0: 3}, {3: 3}, (1,),
+        energy_fraction=0.90, gap_ratio=2.0,
+    )["1"]
+    assert result["passes"] is False
+    assert result["gates"]["right_projector_stability"] is False
+
+
+def test_contextwise_rank_is_not_conflated_with_stacked_shared_rank():
+    # Each context has a one-dimensional encoder, but the encoder rotates between
+    # contexts. The stacked shared-linear interface therefore needs dimension two.
+    blocks = {(3, 0): torch.tensor([
+        [1.0, 0.0], [2.0, 0.0],
+        [0.0, 1.0], [0.0, 3.0],
+    ], dtype=torch.float64)}
+    contextwise = realization.analyze_contextwise_cuts(
+        blocks, {0: 2}, {3: 4}, (1,), probes_per_context=2,
+    )["1"]
+    stacked, _ = realization.assemble_cut(blocks, {0: 2}, {3: 4}, 1)
+    assert contextwise["minimum_rank"] == contextwise["maximum_rank"] == 1
+    assert realization.analyze_cut(stacked)["exact_cut_rank"] == 2

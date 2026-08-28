@@ -5,11 +5,41 @@
     "file_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
     "path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_oracle_v2_receipt.json"
   },
+  "categorical_fisher_rule": {
+    "inverse_cdf": "full 50304-way float32 softmax; clamped CDF; searchsorted right=True",
+    "probe_seeds": [
+      2026082802,
+      2026082803,
+      2026082804,
+      2026082805,
+      2026082806,
+      2026082807,
+      2026082808,
+      2026082809,
+      2026082810,
+      2026082811,
+      2026082812,
+      2026082813,
+      2026082814,
+      2026082815,
+      2026082816,
+      2026082817
+    ],
+    "uniform": "(uint64_be(sha256(f'{seed}:{row_id}:{absolute_position}')[:8])+0.5)/2**64"
+  },
+  "direction_rule": {
+    "covariance_support": "exact MLP writes on every row at positions 64:256",
+    "normalization": "unit coordinate RMS per direction",
+    "psd_rtol": 1e-10,
+    "rademacher_seed": "direction_seed + 1000003*site + direction",
+    "support_rtol": 1e-12
+  },
   "operator": {
     "categorical_fisher_probes_per_row": 16,
     "directions_per_site": 32,
     "every_direction_on_every_row": true,
     "final_behavioral_target_site": 3,
+    "output_score_support": "for row b, all positions t >= frozen_position[b] through 255",
     "primary_shape_at_cut3": [
       768,
       96
@@ -25,7 +55,7 @@
     ]
   },
   "plan_fingerprint": "062ad87d552112bd2064726848a5f3d1a1e1ee13118e01cf3a4b462c2c8e0141",
-  "remaining_authority": "A separately committed model-side JVP/VJP collector and independent lifecycle audit are still required before GPU execution.",
+  "remaining_authority": "A separately committed model-side Fisher-VJP collector and independent lifecycle audit are still required before GPU execution.",
   "row_cache": {
     "dtype": "torch.int64",
     "file_sha256": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda",

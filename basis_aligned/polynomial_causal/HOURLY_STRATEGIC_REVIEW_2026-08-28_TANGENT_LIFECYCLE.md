@@ -112,7 +112,8 @@ algebra tests pass.
 
 This closes row identity, source-document leakage, rectangular measurement, hashing,
 and CPU analysis. It intentionally does **not** close the scientific run. The remaining
-model-side commit must freeze the covariance square-root direction construction, the
-categorical-Fisher sketch, the exact post-MLP write injection, and a one-use JVP path
-that returns only registered response rows and revokes model/autograd aliases. An
-independent lifecycle audit is required before launching it.
+subsequent model-side unit freezes the covariance square-root direction construction,
+batch-invariant categorical-Fisher sketch, exact additive post-MLP write injection, and
+a one-use VJP path that returns only registered response rows and revokes
+model/autograd aliases. An independent lifecycle audit remains required before
+launching it.

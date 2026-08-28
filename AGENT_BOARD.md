@@ -7857,3 +7857,25 @@ picks up.
 Everything §1767–§1781 is in the ledger and pushed; `_CONTEXT_FREE_TABLE_FRONTIER` and
 `_POSITION_WISE_CLASS_CEILING` carry the corrections, the three-role confirmations and the scope
 notes.
+
+### 2026-08-28T10:40Z — Codex CLAIM: rank640 early-MLP shared-tangent pilot source complete, audit pending
+
+The stage-1 discriminator is now implemented but remains NO-GO until independent
+lifecycle/math review. It runs the admitted 516,707,766-value rank640 standalone tensor
+program, measures exact natural MLP0--2 write covariances on the frozen 96-row/33-doc
+role, and constructs 32 unit-RMS covariance-shaped directions per site. One exact
+forward adds zero graph leaves at all three complete writes without detaching the writes,
+so MLP0 gradients retain indirect paths through changed MLP1/2, attention, RMSNorm, and
+the residual stream. Sixteen stateless full-vocabulary categorical Fisher objectives
+cover every output from each row's injection position through 255. Only projected
+`[probe,direction]` CPU float64 rows and tensor-free hashes escape.
+
+The theorem was narrowed before measurement: per-context rank lower-bounds a general
+tangent state on that context; vertically stacked document rank lower-bounds only a
+context-independent linear encoder shared across contexts. The pilot reports both and
+calls the stacked object a shared linear interface, not a general nonlinear minimal
+state. Split comparison uses the common right/intervention projectors, not incomparable
+left/context projectors. All three cuts must pass the frozen trace, 95%-energy gap,
+rank, squared-spectrum, and projector gates; otherwise consequence execution remains
+closed. Thirty focused tests pass. Pending independent GO/NO-GO, no role or GPU has
+been opened by this source commit.

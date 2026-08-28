@@ -108,6 +108,9 @@ def main() -> None:
             "directions_per_site": 32,
             "final_behavioral_target_site": 3,
             "categorical_fisher_probes_per_row": 16,
+            "output_score_support": (
+                "for row b, all positions t >= frozen_position[b] through 255"
+            ),
             "every_direction_on_every_row": True,
             "primary_shape_at_cut3": [split_summary["primary"]["rows"] * 16, 96],
             "replication_shape_at_cut3": [split_summary["replication"]["rows"] * 16, 96],
@@ -121,11 +124,30 @@ def main() -> None:
         "scored_position_rule": (
             "64 + uint64_be(sha256(f'{position_seed}:{row_id}')[:8]) mod 192"
         ),
+        "direction_rule": {
+            "covariance_support": "exact MLP writes on every row at positions 64:256",
+            "psd_rtol": 1e-10,
+            "support_rtol": 1e-12,
+            "rademacher_seed": "direction_seed + 1000003*site + direction",
+            "normalization": "unit coordinate RMS per direction",
+        },
+        "categorical_fisher_rule": {
+            "probe_seeds": [
+                plan.probe_seed + index for index in range(plan.probes_per_row)
+            ],
+            "uniform": (
+                "(uint64_be(sha256(f'{seed}:{row_id}:{absolute_position}')[:8])"
+                "+0.5)/2**64"
+            ),
+            "inverse_cdf": (
+                "full 50304-way float32 softmax; clamped CDF; searchsorted right=True"
+            ),
+        },
         "splits": split_summary,
         "whole_document_split": True,
         "unique_source_documents": len(set(document_ids)),
         "remaining_authority": (
-            "A separately committed model-side JVP/VJP collector and independent "
+            "A separately committed model-side Fisher-VJP collector and independent "
             "lifecycle audit are still required before GPU execution."
         ),
     }
