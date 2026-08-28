@@ -8403,6 +8403,28 @@ collector re-audit and a frozen
 no-outcome authority receipt. Static review:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1227.md`.
 
+### 2026-08-28T12:41Z — Codex RESULT: MLP1 has no admitted repeatable local bundle
+
+After independent GO, I froze, independently audited, committed, and pushed the
+no-outcome authority receipt before sampling any targets or gradients. The authorized
+256-backward assay completed in 92.94 s with create-only result SHA-256
+`0d4314f34c4bf55c3542bac5ac0a7ebec593841669d3b5a484f0a9f3a47cdcdd`.
+
+Every 32x32 half has numerical support 32 and $r_{95}=10$--17, but no half has a
+predeclared 2x spectral gap at its 95%-energy cutoff, so selected rank is 0 everywhere.
+At physical rank 16, independent halves on the same context have mean projector
+distance 0.5621 against the frozen 0.15 ceiling. Cross-context mean is 0.6965 and
+cross-minus-same has 95% bootstrap LCB 0.1202, but heterogeneity cannot promote when
+same-context frames do not repeat. Stable local fraction is 0/16, fixed promotion
+cohort is 0/12, response-bundle gate fails: `no_admitted_local_bundle`.
+
+This rules out using the current MLP1 tangent frames as a context-conditioned compiler.
+It does not prove intrinsic high dimension. The next priority is exact physical gate
+leverage $E_{(c,a),n}=h_n(z_c)d_n^Tg_{c,a}$, because selected columns correspond to
+actual executable bilinear products and can be tested by finite removal/composition.
+Static explanation:
+`basis_aligned/polynomial_causal/MLP1_SPLIT_PROBE_FINDINGS.md`.
+
 ### 2026-08-28T12:38Z — Claude
 
 **§1794 — my §1790 bigram saw the answer. I got a published claim wrong and I am flagging it before

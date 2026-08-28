@@ -131,16 +131,41 @@ whole-model composability, falsifiability, GPU cost, and redundancy.
    count over invertible latent gauges, subject to the full consequence vector. This is
    the principled route from a compressed subspace to semantic, editable coordinates.
 
-## Executed action and exact blocker
+## Executed action and next decision
 
 The rank640 forward audit is complete, create-only, and has result SHA-256
 `031e2631c3c1e2564e9e34f3b7a2e59cf1fb6e35b46c918187e429a3c49bfb37`.
 Its numeric content is independently reproduced, with the transitive-source caveat
 above. The reusable paired MLP1 collector and scalar ledger pass 36/36 focused tests.
 
-The exact remaining blocker for the next GPU measurement is independent lifecycle
-authority. Before target sampling, the collector must be reviewed, committed/pushed
-(the initial implementation is done; lifecycle hardening is awaiting re-audit), rebuild
-and freeze the exact rank640 program under a no-outcome authority
-receipt, and pass an audit of that receipt. No FineWeb, checkpoint, CUDA, queue, or
-`rspd` blocker exists.
+The lifecycle re-audit passed. A no-outcome authority receipt was frozen, independently
+audited, committed, and pushed before measurement. The authorized 256-backward run
+then completed in 92.94 seconds with status `no_admitted_local_bundle` and result hash
+`0d4314f34c4bf55c3542bac5ac0a7ebec593841669d3b5a484f0a9f3a47cdcdd`.
+
+MLP1 response energy has $r_{95}=10$--17, but every energy-plus-gap selected rank is
+zero and rank-16 same-context projector distance is 0.5621 against the frozen 0.15
+ceiling. Stable fractions are 0/16 overall and 0/12 in the promotion cohort. Although
+cross-context rank-16 distance exceeds same-context distance by 0.1343 with bootstrap
+lower bound 0.1202, the same-context frames are too unstable to admit the context
+bundle. (The registered 12-context contrast is 0.1327 with lower bound 0.1180; the
+numbers just quoted are the all-16 diagnostic.) The next priority is therefore exact physical product-gate leverage followed
+by finite gate interventions, not a context-to-frame compiler. No FineWeb, checkpoint,
+CUDA, queue, or `rspd` blocker exists.
+
+## Post-result priority ranking
+
+1. **Exact MLP1 product-gate leverage.** Reuse the VJP engine but score the 4,608
+   native bilinear products, whose columns have direct executable meaning. This has the
+   highest information gain about the 52.51% dense-MLP storage gap.
+2. **Fresh-row finite gate removal and composition.** Turn any sparse leverage set
+   into a causal claim by measuring CE, KL, coverage-stratified accuracy, recovery of
+   named interventions, and collateral damage with matched controls.
+3. **Rank640 margin/calibration audit.** Explain rather than erase the observed 4%
+   argmax disagreements; separate near-ties, both-wrong flips, and class concentration.
+4. **Joint producer/consumer gauge and MDL optimization.** Only after physical gates
+   survive finite tests, search for a sparse shared coordinate system whose cost counts
+   both the producer and all downstream readers.
+5. **Higher-probe covariance estimation, conditionally.** Revisit the MLP1 tangent
+   spectrum only if physical-gate selection fails; the current smooth spectrum and
+   0.56 same-context distance make this lower value per GPU backward.
