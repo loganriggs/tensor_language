@@ -189,6 +189,11 @@ class LedgerSnapshot:
     student_identities_sha256: str
     teacher_identities_sha256: str
     completed_identities_sha256: str
+    prepared_parent_identity_count: int
+    prepared_parent_identities_sha256: str
+    consumed_parent_identity_count: int
+    consumed_parent_identities_sha256: str
+    outstanding_parent_identity_sha256: str | None
     outstanding_identity_sha256: str | None
     rolling_ledger_sha256: str
 
@@ -368,6 +373,85 @@ class _MappedCoordinateGateway:
         self.__native.clear()
         self.__bases.clear()
         self.__labels.clear()
+        self.__program = None
+
+
+class _MappedParentGateway:
+    """Build one false-paired L0 code through a native-free target P/P/N path."""
+
+    __slots__ = (
+        "__bases", "__coordinator", "__lease", "__parent", "__program",
+        "__program_sha256", "__replace_calls", "__revoked",
+    )
+
+    def __init__(
+        self, *, bases: Mapping[int, torch.Tensor],
+        program: runtime.JointAffineProgram, program_sha256: str,
+        coordinator: runtime.ScopeCoordinator, lease: runtime.ScopeLease,
+    ) -> None:
+        self.__bases = dict(bases)
+        self.__program = program
+        self.__program_sha256 = program_sha256
+        self.__coordinator = coordinator
+        self.__lease = lease
+        self.__parent: torch.Tensor | None = None
+        self.__replace_calls = {0: 0, 1: 0}
+        self.__revoked = False
+
+    def correct(
+        self, site: int, state: torch.Tensor, deployed_output: torch.Tensor,
+    ) -> torch.Tensor:
+        if self.__revoked:
+            raise RuntimeError("mapped parent gateway was revoked")
+        self.__coordinator.require_active(self.__lease)
+        if site not in (0, 1) or self.__replace_calls[site] != 0:
+            raise RuntimeError("mapped parent target must call MLP0/1 exactly once")
+        if site == 1 and self.__replace_calls[0] != 1:
+            raise RuntimeError("mapped parent target MLP1 executed before MLP0")
+        if not torch.is_tensor(state) or not torch.is_tensor(deployed_output) or tuple(
+            state.shape
+        ) != (runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH, runtime.D_MODEL) or (
+            deployed_output.shape != state.shape
+        ) or state.requires_grad or state.grad_fn is not None or (
+            deployed_output.requires_grad or deployed_output.grad_fn is not None
+        ) or not bool(torch.isfinite(state).all()) or not bool(
+            torch.isfinite(deployed_output).all()
+        ):
+            raise RuntimeError("mapped parent target state or deployed write is malformed")
+        self.__replace_calls[site] += 1
+        if site == 0:
+            predicted = self.__program.site0_code(state)
+            self.__parent = predicted.detach().clone().contiguous()
+        else:
+            # The target trajectory represents selected L, not the null's current A.
+            predicted = self.__program.site1(state)
+        basis = self.__bases[site].to(device=state.device, dtype=torch.float32)
+        return runtime.JointAffineProgram.projected_replacement(
+            deployed_output, predicted, basis,
+        )
+
+    def take_parent(self) -> torch.Tensor:
+        if self.__revoked:
+            raise RuntimeError("mapped parent gateway was revoked")
+        self.__coordinator.require_active(self.__lease)
+        if self.__replace_calls != {0: 1, 1: 1} or self.__parent is None:
+            raise RuntimeError("mapped parent target trajectory did not close")
+        if runtime.program_snapshot_sha256(self.__program) != self.__program_sha256:
+            raise RuntimeError("mapped parent program changed during target construction")
+        parent = self.__parent
+        self.__parent = None
+        if tuple(parent.shape) != (
+            runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH, runtime.CODE_DIM,
+        ) or parent.requires_grad or parent.grad_fn is not None or not bool(
+            torch.isfinite(parent).all()
+        ):
+            raise RuntimeError("mapped parent code is malformed")
+        return parent
+
+    def revoke(self) -> None:
+        self.__revoked = True
+        self.__bases.clear()
+        self.__parent = None
         self.__program = None
 
 
@@ -867,8 +951,10 @@ class CapabilityBroker:
 
     __slots__ = (
         "__bases", "__basis_sha256", "__completed_identities", "__coordinator",
+        "__consumed_parent_identities",
         "__issuer_id", "__mapped_authority", "__native_calls",
-        "__outstanding_identity_sha256", "__rolling_ledger_sha256",
+        "__outstanding_identity_sha256", "__outstanding_parent_identity_sha256",
+        "__prepared_parent_identities", "__rolling_ledger_sha256",
         "__run_context", "__run_context_sha256", "__sealed",
         "__student_identities", "__teacher_identities",
     )
@@ -911,7 +997,10 @@ class CapabilityBroker:
         self.__student_identities: set[str] = set()
         self.__teacher_identities: set[str] = set()
         self.__completed_identities: set[str] = set()
+        self.__prepared_parent_identities: set[str] = set()
+        self.__consumed_parent_identities: set[str] = set()
         self.__outstanding_identity_sha256: str | None = None
+        self.__outstanding_parent_identity_sha256: str | None = None
         self.__rolling_ledger_sha256 = "0" * 64
         object.__setattr__(self, "_CapabilityBroker__sealed", True)
 
@@ -945,6 +1034,11 @@ class CapabilityBroker:
             student_identities_sha256=digest(self.__student_identities),
             teacher_identities_sha256=digest(self.__teacher_identities),
             completed_identities_sha256=digest(self.__completed_identities),
+            prepared_parent_identity_count=len(self.__prepared_parent_identities),
+            prepared_parent_identities_sha256=digest(self.__prepared_parent_identities),
+            consumed_parent_identity_count=len(self.__consumed_parent_identities),
+            consumed_parent_identities_sha256=digest(self.__consumed_parent_identities),
+            outstanding_parent_identity_sha256=self.__outstanding_parent_identity_sha256,
             outstanding_identity_sha256=self.__outstanding_identity_sha256,
             rolling_ledger_sha256=self.__rolling_ledger_sha256,
         )
@@ -963,6 +1057,10 @@ class CapabilityBroker:
                     and identity.teacher_kind == "oon_logits"
                 )
             )
+            legal_mapped = legal_mapped or (
+                identity.control.startswith("A_null_") and identity.route == "T"
+                and identity.teacher_kind == "oon_logits"
+            )
             if not legal_mapped:
                 raise RuntimeError(
                     "mapped broker currently licenses only document-shuffled L/R/S"
@@ -978,6 +1076,13 @@ class CapabilityBroker:
             raise RuntimeError("student hook belongs to a different capability broker")
         if dict(hook.basis_sha256) != self.__basis_sha256:
             raise RuntimeError("student hook and teacher broker use different bases")
+        if identity.control.startswith("A_null_"):
+            if identity.sha256 not in self.__consumed_parent_identities or not (
+                hook.has_mapped_parent
+            ) or hook.mapped_parent_identity_sha256 != identity.sha256:
+                raise RuntimeError("A-null student lacks its prepared mapped parent")
+        elif hook.has_mapped_parent:
+            raise RuntimeError("non-A-null student cannot consume a mapped parent")
         expected_program_route = "L" if identity.route == "Q" else identity.route
         if hook.program is None or hook.program.route != expected_program_route or (
             identity.program_snapshot_sha256 != runtime.program_snapshot_sha256(hook.program)
@@ -991,6 +1096,92 @@ class CapabilityBroker:
         self.__student_identities.add(identity.sha256)
         object.__setattr__(self, "_CapabilityBroker__outstanding_identity_sha256", identity.sha256)
         return StudentSession(self, identity, hook)
+
+    def _release_mapped_parent(self, identity_sha256: str) -> None:
+        if self.__outstanding_parent_identity_sha256 != identity_sha256:
+            raise RuntimeError("mapped parent release identity changed")
+        self.__consumed_parent_identities.add(identity_sha256)
+        object.__setattr__(
+            self, "_CapabilityBroker__outstanding_parent_identity_sha256", None,
+        )
+
+    def prepare_mapped_parent(
+        self, identity: runtime.TraceIdentity, *, fit_rows: torch.Tensor,
+        student_inputs: torch.Tensor, student_indices: Sequence[int],
+        teacher_inputs: torch.Tensor, teacher_indices: Sequence[int],
+        program: runtime.JointAffineProgram,
+        autonomous_forward: Callable[[Any, torch.Tensor], Mapping[str, Any]],
+    ) -> tuple[runtime.MappedParentCode, StepClosure]:
+        """Construct one sealed false-paired parent before its source forward."""
+
+        if self.__mapped_authority is None or not identity.control.startswith(
+            "A_null_"
+        ) or identity.route != "T" or identity.teacher_kind != "oon_logits":
+            raise RuntimeError("mapped parent preparation requires an A-null T identity")
+        self.__mapped_authority.require_identity(
+            identity, fit_rows=fit_rows, student_inputs=student_inputs,
+            student_indices=student_indices, teacher_inputs=teacher_inputs,
+            teacher_indices=teacher_indices,
+        )
+        if not isinstance(program, runtime.JointAffineProgram) or program.route != "T":
+            raise RuntimeError("mapped parent preparation requires the frozen-L T topology")
+        program.require_exact_trainability()
+        program_sha256 = runtime.program_snapshot_sha256(program)
+        if identity.program_snapshot_sha256 != program_sha256:
+            raise RuntimeError("mapped parent program differs from the trace identity")
+        if identity.sha256 in self.__prepared_parent_identities or (
+            self.__outstanding_parent_identity_sha256 is not None
+        ) or self.__outstanding_identity_sha256 is not None:
+            raise RuntimeError("mapped parent identity is duplicated or another transaction exists")
+        with self.__coordinator.enter("coordinate") as lease:
+            gateway = _MappedParentGateway(
+                bases=self.__bases, program=program, program_sha256=program_sha256,
+                coordinator=self.__coordinator, lease=lease,
+            )
+            try:
+                with torch.no_grad():
+                    closure_data = autonomous_forward(
+                        gateway, teacher_inputs.detach().clone(),
+                    )
+                required_closure = {
+                    "outer_forward_count": 1,
+                    "hook_calls": {0: 1, 1: 1, 2: 0},
+                    "outer_returned": True, "hook_restored": True,
+                    "hook_inert": True,
+                }
+                if not isinstance(closure_data, Mapping) or dict(
+                    closure_data
+                ) != required_closure:
+                    raise RuntimeError("mapped parent execution closure changed")
+                parent = gateway.take_parent()
+            finally:
+                gateway.revoke()
+        self.__prepared_parent_identities.add(identity.sha256)
+        object.__setattr__(
+            self, "_CapabilityBroker__outstanding_parent_identity_sha256", identity.sha256,
+        )
+        try:
+            handle = runtime.MappedParentCode(
+                value=parent, identity_sha256=identity.sha256,
+                issuer_id=self.issuer_id, program_sha256=program_sha256,
+                release=self._release_mapped_parent,
+            )
+            closure = self._mint_closure(
+                identity=identity, scope="mapped_parent", producer_invocations=1,
+                outer_forward_count=1, hook_calls=((0, 1), (1, 1), (2, 0)),
+                original_calls=EXACT_ZERO_CALLS, outer_returned=True,
+                hook_restored=True, hook_inert=True,
+                output_shapes=(tuple(parent.shape),), output_dtypes=(str(parent.dtype),),
+                support="0:256-mapped-parent-code", requires_grad=False,
+                grad_fn_absent=True, consumed=False, output_sha256=handle.sha256,
+            )
+            return handle, closure
+        except BaseException:
+            self.__prepared_parent_identities.discard(identity.sha256)
+            object.__setattr__(
+                self, "_CapabilityBroker__outstanding_parent_identity_sha256", None,
+            )
+            raise
 
     def _abort_identity(self, identity: runtime.TraceIdentity) -> None:
         if self.__outstanding_identity_sha256 == identity.sha256:
@@ -1193,6 +1384,30 @@ class CapabilityBroker:
         )
         return self._run_oon_teacher_after_authority(
             identity, step, teacher_inputs, autonomous_forward,
+        )
+
+    def run_a_null_oon_teacher(
+        self, identity: runtime.TraceIdentity, step: StudentStep, *,
+        fit_rows: torch.Tensor, student_inputs: torch.Tensor,
+        student_indices: Sequence[int], teacher_inputs: torch.Tensor,
+        teacher_indices: Sequence[int],
+        autonomous_forward: Callable[[Any, torch.Tensor], tuple[torch.Tensor, Mapping[str, Any]]],
+    ) -> OONTeacherResult:
+        """Score an A-null source trajectory against its true source O/O/N teacher."""
+
+        if self.__mapped_authority is None or not identity.control.startswith(
+            "A_null_"
+        ) or identity.route != "T" or identity.teacher_kind != "oon_logits":
+            raise RuntimeError("A-null OON capability requires a mapped T identity")
+        self.__mapped_authority.require_identity(
+            identity, fit_rows=fit_rows, student_inputs=student_inputs,
+            student_indices=student_indices, teacher_inputs=teacher_inputs,
+            teacher_indices=teacher_indices,
+        )
+        if identity.sha256 not in self.__consumed_parent_identities:
+            raise RuntimeError("A-null OON teacher lacks a consumed mapped parent")
+        return self._run_oon_teacher_after_authority(
+            identity, step, student_inputs, autonomous_forward,
         )
 
     def _run_oon_teacher_after_authority(

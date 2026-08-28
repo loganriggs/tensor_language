@@ -54,9 +54,10 @@ class _Hook:
         self.program = None
         self.states = {}
 
-    def configure(self, *, program, states) -> None:
+    def configure(self, *, program, states, mapped_parent=None) -> None:
         self.program = program
         self.states = dict(states)
+        self.mapped_parent = mapped_parent
 
 
 class _Result:
@@ -161,6 +162,32 @@ class _MappedAdapter(_Adapter):
         )
         self.pairs.append((tuple(student_indices), tuple(teacher_indices)))
         return _Result(program=broker.program, denominator=False, ledger="e" * 64)
+
+    def prepare_mapped_parent(
+        self, *, broker, identity, fit_rows, student_tokens, student_indices,
+        teacher_tokens, teacher_indices, program,
+    ):
+        self.context.require_identity(
+            identity, fit_rows=fit_rows, student_inputs=student_tokens,
+            student_indices=student_indices, teacher_inputs=teacher_tokens,
+            teacher_indices=teacher_indices,
+        )
+        assert program.route == "T"
+        self.pairs.append(("parent", tuple(student_indices), tuple(teacher_indices)))
+        return object(), SimpleNamespace(ledger_sha256="f" * 64)
+
+    def run_a_null_oon_teacher(
+        self, *, broker, identity, step, fit_rows, student_tokens,
+        student_indices, teacher_tokens, teacher_indices,
+    ):
+        del step
+        self.context.require_identity(
+            identity, fit_rows=fit_rows, student_inputs=student_tokens,
+            student_indices=student_indices, teacher_inputs=teacher_tokens,
+            teacher_indices=teacher_indices,
+        )
+        self.pairs.append(("teacher", tuple(student_indices), tuple(teacher_indices)))
+        return _Result(program=broker.program, denominator=False, ledger="9" * 64)
 
 
 def test_schedule_and_identity_bind_program_before_forward(monkeypatch) -> None:
@@ -308,3 +335,41 @@ def test_document_shuffle_fit_owns_exact_source_target_schedule(monkeypatch) -> 
             rows=rows, context=context, program=_program("L"), route="L", trial=0,
             adapter=adapter, broker=broker, hook=_Hook(),
         )
+
+
+def test_a_null_fit_owns_false_parent_then_true_source_teacher(monkeypatch) -> None:
+    monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", runtime.BATCH_SIZE)
+    monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 1)
+    monkeypatch.setattr(runtime, "EPOCHS", 1)
+    rows = torch.arange(
+        runtime.BATCH_SIZE * 513, dtype=torch.long,
+    ).view(runtime.BATCH_SIZE, 513)
+    base = _context(rows)
+    records = [{
+        "document_id": f"doc-{index}", "dataset_document_index": index,
+        "chunk_id": 0, "token_start": 0,
+    } for index in range(runtime.BATCH_SIZE)]
+    plan = mapped.build_document_block_plan(records, control="A_null_00")
+    context = mapped.MappedRunContext(base=base, plan=plan)
+    adapter, broker, hook = _MappedAdapter(context), _MappedBroker(context), _Hook()
+
+    candidate = fit.run_a_null_fit_trial(
+        rows=rows, context=context, program=_program("T"), trial=0,
+        adapter=adapter, broker=broker, hook=hook,
+    )
+
+    assert isinstance(candidate, fit.MappedFitCandidate)
+    assert candidate.control == "A_null_00" and candidate.route == "T"
+    assert candidate.mapping_sha256 == plan.sha256 and candidate.completed_steps == 1
+    assert set(candidate.state_dict) == {
+        "cross", "site0.bias", "site0.mean", "site0.scale", "site0.weight",
+        "site1.bias", "site1.mean", "site1.scale", "site1.weight",
+    }
+    identity = broker.identities[0]
+    assert identity.control == "A_null_00" and identity.teacher_kind == "oon_logits"
+    parent_tag, source_indices, target_indices = adapter.pairs[0]
+    teacher_tag, teacher_source, teacher_target = adapter.pairs[1]
+    assert parent_tag == "parent" and teacher_tag == "teacher"
+    assert target_indices == plan.target_indices(source_indices)
+    assert (teacher_source, teacher_target) == (source_indices, target_indices)
+    assert hook.mapped_parent is not None

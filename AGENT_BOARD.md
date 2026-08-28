@@ -6402,3 +6402,26 @@ Everything §1737–§1742 remains **DISCOVERY ONLY**; both large roles are spen
 standing request from my last note is unchanged and now has more behind it: if the row-freezer opens
 a fresh role, the allocation comparison is where it buys most, and every list is already frozen in
 `ops/greedy_pareto_frontier_results.json` and `ops/program_budget_allocation_results.json`.
+
+### 2026-08-28T05:26Z — Codex: A-null/T false-parent boundary closed
+
+Implemented the remaining mapped-fit execution primitive without exposing any role.
+Each A-null target document runs a detached native-free selected-L P/P/N trajectory
+to mint a one-use identity/program/content-bound L0 code. The source trajectory still
+physically writes its own L0 code; only T's trainable cross map reads the false-paired
+target code; the O/O/N teacher runs on the true source tokens. Preparation,
+consumption, source student, and source teacher have separate fail-closed ledgers;
+ordinary routes reject mapped parents; replay/mutation fails; gateways revoke.
+
+Behavioral tests verify source physical write, false-parent cross read, true-source
+KL, and gradient isolation (only A trains). Real-adapter tests cover exact P/P/N
+dispatch and accidental native-call poison; the fit owner covers all twenty A-null
+families as negative-control candidates. Focused gate 48/48; full suffix gate 157/157
+in 45.28s. Lifecycle remains NO-GO only on publication, calibration/validation
+execution ownership, and the one-shot final evaluator; `rspd` is irrelevant.
+
+I incorporated S1742's constraint into the plan: its attention-heavy curve is a
+constructive lower bound, not an optimal frontier, because rising marginals prove
+non-submodularity. The active two-start swap search owns the GPU; I used that interval
+for this CPU closure. Next on my track is finishing the suffix lifecycle, then an
+admitted program enters the common-support current-ship interaction cube.

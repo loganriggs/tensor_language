@@ -617,3 +617,102 @@ registered nulls and the asymmetry survives all-position scoring. Thus independe
 MLP importance is strongly redundancy-inflated and independent attention importance
 is strongly cooperation-suppressed. This changes how local component evidence should
 be interpreted, but not any executable recovery balance.
+
+## 05:26 UTC checkpoint: A-null/T is causally executable; allocation is non-submodular
+
+The accounting currencies remain deliberately unchanged. Structural inventory is
+still $36/36$ sites, named behavior is $32.1\%\pm6.4\%$, named causal recovery is
+$10.923\%$, and strict executable recovery is $0\%$ of the paired current-ship
+$+0.8976$ CE gap. The separate discovery/held-out constant-ablation ceilings remain
+$55.038\%/53.694\%$. Completing a transaction boundary is not a scientific numerator.
+
+The last mapped-fit execution primitive is now implemented. For each registered
+`A_null_00` through `A_null_19`, a target document first runs through a detached,
+native-free selected-L P/P/N trajectory and produces a sealed one-use parent code
+
+$$
+\widetilde p_0=\widehat p_0(z_0^{\mathrm{target}}).
+$$
+
+The subsequent source trajectory still writes its own executable code
+
+$$
+p_0=\widehat p_0(z_0^{\mathrm{source}})
+$$
+
+at physical MLP0. Only the MLP1 cross term is false-paired:
+
+$$
+\widehat p_1
+=L_1(z_1^{\mathrm{source}})+\widetilde p_0A.
+$$
+
+The teacher is the true source O/O/N suffix, not the mapped target suffix. Thus the
+control destroys only the learned parent/child pairing while preserving the source
+task, source residual trajectory outside the cross read, local maps, and loss
+support. The mapped parent is bound to the exact identity, program snapshot, issuer,
+document plan, target indices, target tokens, and content hash; it cannot be copied,
+serialized, mutated, replayed, or consumed by an ordinary route. Broker ledgers
+separately record preparation and consumption, and all ephemeral gateways revoke.
+
+Behavioral tests prove all three estimand-defining facts simultaneously: the physical
+MLP0 output projects to the source code, the MLP1 correction projects to the mapped
+target code when $A=I$, and the KL equals the true source teacher calculation. Only
+$A$ receives gradients; both frozen local maps and native MLP0/1 parameters remain
+gradient-free. Adapter tests prove the real target forward dispatches P/P/N exactly
+once and that an accidental literal early-native call is poisoned. Fit orchestration
+constructs parent, source student, and source teacher in that order under the frozen
+schedule and returns A-null results in the negative-control candidate type. Focused
+verification passes 48/48; the full suffix suite passes 157/157 in 45.28 seconds.
+
+This removes a causal-interface blocker, but the lifecycle remains NO-GO for data
+exposure: publication, calibration/validation execution ownership, and the one-shot
+final evaluator are still absent. `rspd` is absent but irrelevant to this path. The
+cached FineWeb roles needed by current discovery work are local; genuinely fresh
+FineWeb/OOD data remain externally blocked because the instance has no HF token and
+streaming bandwidth has repeatedly failed the registered time gate. That does not
+block CPU implementation or testing.
+
+### Allocation evidence and its limit
+
+S1742 extends conditional greedy selection to fourteen native sites. On the transfer
+role, the nested program recovers $12.1\%$ at $K=1$, $29.1\%$ at $K=6$, and $42.8\%$
+at $K=14$ of its table-program stake. Nine of the first ten choices are attention;
+for every nontrivial budget $K=2,\ldots,14$, it recovers more at no greater native
+cost than the independent program-context ranking. This strongly supports measuring
+simplicity by a *composed program frontier*—description/storage cost versus held-out
+causal fidelity—not by rank, parameter count, or one-at-a-time importance alone.
+
+But the greedy marginal gain rises four times. In particular, `attn7` becomes more
+valuable after `attn9` is admitted. Therefore the utility is demonstrably
+non-submodular and greedy has no $1-1/e$ approximation guarantee. The measured curve
+is a constructive lower bound, not the optimal frontier. A preregistered two-start
+swap search is currently using the GPU to measure whether this theoretical gap is
+material at $K=6$; this checkpoint used the interval for the CPU-side A-null closure.
+
+### Pruned top five
+
+1. **Finish the suffix lifecycle and run matched L/R/S/T plus all mapped controls.**
+   It is the shortest path to the first legal held-out executable numerator and
+   directly decides whether the useful 64-D interface is local, suffix-defined, or
+   transported. Publication/calibration/final ownership is the remaining blocker.
+2. **Insert any admitted early program into a one-support current-ship factorial.**
+   Score attention $\times$ early MLP $\times$ late/deep restoration against the
+   actual $+0.8976$ residual, with Mobius interactions and document bootstrap. This
+   is the first route from a local success to strict whole-model credit.
+3. **Compile MLP2/3 conditional on the admitted MLP0-to-MLP1 state.** Existing
+   off-distribution and interaction evidence rules out treating them as independent
+   regressions; conditional compilation closes the next causal interface.
+4. **Compile typed attention routing and value/content for the interaction-selected
+   attention set.** Start with 16/14/11/17/13 rather than an OAT list, but use the
+   completed local-search result to avoid canonizing a merely greedy set. Routing
+   rank without a value grammar is not an executable attention explanation.
+5. **Run consequence validation on admitted alternatives at matched fidelity.** Use
+   genuine OOD prediction, circuit extraction, selective removal, collateral on
+   non-descendants, and composition stability to decide which description-length,
+   gate-count, interface-rank, sparsity, or program-grammar notion earns the word
+   “simple.”
+
+Further token clustering, isolated MLP0 regressions, OAT/LOO ranking, unpriced rank
+sweeps, and additional spent-role allocation searches are pruned. They do not close
+an executable interface, establish composability, or move a common denominator.

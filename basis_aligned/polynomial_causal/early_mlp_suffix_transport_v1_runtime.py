@@ -730,6 +730,88 @@ class DeployedNWrite:
         return value
 
 
+class MappedParentCode:
+    """One-use false-paired L0 code licensed only for an A-null fit identity."""
+
+    __slots__ = (
+        "__consumed", "__content_sha256", "__identity_sha256", "__issuer_id",
+        "__program_sha256", "__release", "__sealed", "__value", "__version",
+    )
+
+    def __init_subclass__(cls, **kwargs: Any) -> None:
+        raise TypeError("mapped parent code type cannot be subclassed")
+
+    def __init__(
+        self, *, value: torch.Tensor, identity_sha256: str, issuer_id: str,
+        program_sha256: str, release: Any,
+    ) -> None:
+        object.__setattr__(self, "_MappedParentCode__sealed", False)
+        if not torch.is_tensor(value) or tuple(value.shape) != (
+            BATCH_SIZE, SEQUENCE_LENGTH, CODE_DIM,
+        ) or value.requires_grad or value.grad_fn is not None or not bool(
+            torch.isfinite(value).all()
+        ):
+            raise ValueError("mapped parent code is malformed")
+        if not all(_sha256_text(item) for item in (
+            identity_sha256, issuer_id, program_sha256,
+        )) or not callable(release):
+            raise ValueError("mapped parent provenance is malformed")
+        owned = value.detach().clone().contiguous()
+        self.__value = owned
+        self.__version = owned._version
+        self.__content_sha256 = tensor_identity_sha256(owned)
+        self.__identity_sha256 = identity_sha256
+        self.__issuer_id = issuer_id
+        self.__program_sha256 = program_sha256
+        self.__release = release
+        self.__consumed = False
+        object.__setattr__(self, "_MappedParentCode__sealed", True)
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        if getattr(self, "_MappedParentCode__sealed", False):
+            raise AttributeError("mapped parent codes are sealed")
+        object.__setattr__(self, name, value)
+
+    def __copy__(self):
+        raise RuntimeError("mapped parent codes cannot be copied")
+
+    def __deepcopy__(self, memo):
+        raise RuntimeError("mapped parent codes cannot be copied")
+
+    def __reduce__(self):
+        raise RuntimeError("mapped parent codes cannot be serialized")
+
+    @property
+    def identity_sha256(self) -> str:
+        return self.__identity_sha256
+
+    @property
+    def sha256(self) -> str:
+        return logical_identity_sha256({
+            "identity_sha256": self.__identity_sha256,
+            "issuer_id": self.__issuer_id,
+            "program_sha256": self.__program_sha256,
+            "content_sha256": self.__content_sha256,
+        })
+
+    def _consume(self, *, issuer_id: str, program_sha256: str) -> torch.Tensor:
+        if self.__consumed:
+            raise RuntimeError("mapped parent code was already consumed")
+        if issuer_id != self.__issuer_id or program_sha256 != self.__program_sha256:
+            raise RuntimeError("mapped parent issuer or program identity changed")
+        if self.__value._version != self.__version or tensor_identity_sha256(
+            self.__value
+        ) != self.__content_sha256 or not bool(torch.isfinite(self.__value).all()):
+            raise RuntimeError("mapped parent code mutated before consumption")
+        object.__setattr__(self, "_MappedParentCode__consumed", True)
+        value = self.__value
+        object.__setattr__(self, "_MappedParentCode__value", None)
+        release = self.__release
+        object.__setattr__(self, "_MappedParentCode__release", None)
+        release(self.__identity_sha256)
+        return value
+
+
 class NativeOWrite:
     """Marker type for native-original writes; never legal on the student P path."""
 
@@ -797,6 +879,8 @@ class StudentCorrectionHook:
         self.capture_sites: frozenset[int] = frozenset()
         self.site0_edit: torch.Tensor | None = None
         self.parent_code: torch.Tensor | None = None
+        self.mapped_parent_code: torch.Tensor | None = None
+        self.mapped_parent_identity_sha256: str | None = None
         self.captured_z: dict[int, torch.Tensor] = {}
         self.captured_codes: dict[int, torch.Tensor] = {}
         self.calls = {0: 0, 1: 0}
@@ -834,6 +918,7 @@ class StudentCorrectionHook:
         program: JointAffineProgram | None,
         states: Mapping[int, str],
         site0_edit: torch.Tensor | None = None,
+        mapped_parent: MappedParentCode | None = None,
     ) -> None:
         if self.active or self._pending_trace is not None or self._pending_codes is not None or (
             self._outstanding_trace_sha256 is not None
@@ -853,11 +938,26 @@ class StudentCorrectionHook:
             raise ValueError("site0 edit must be finite and end in code_dim")
         if site0_edit is not None and (states.get(0, "N") != "P" or program is None):
             raise ValueError("site0 edit requires an executable predicted MLP0 state")
+        if mapped_parent is not None and (
+            type(mapped_parent) is not MappedParentCode or program is None
+            or program.route != "T" or states.get(0) != "P" or states.get(1) != "P"
+        ):
+            raise ValueError("mapped parent requires an executable P/P T program")
+        mapped_code = None
+        mapped_identity = None
+        if mapped_parent is not None:
+            mapped_identity = mapped_parent.identity_sha256
+            mapped_code = mapped_parent._consume(
+                issuer_id=self._issuer_id,
+                program_sha256=program_snapshot_sha256(program),
+            )
         self.program = program
         self.states = dict(states)
         self.capture_sites = frozenset()
         self.site0_edit = site0_edit
         self.parent_code = None
+        self.mapped_parent_code = mapped_code
+        self.mapped_parent_identity_sha256 = mapped_identity
         self.captured_z = {}
         self.captured_codes = {}
         self.calls = {0: 0, 1: 0}
@@ -879,12 +979,20 @@ class StudentCorrectionHook:
         self.captured_z = {}
         self.captured_codes = {}
         self.parent_code = None
+        self.mapped_parent_code = None
+        self.mapped_parent_identity_sha256 = None
         self.calls = {0: 0, 1: 0}
         self.scope_calls = {0: 0, 1: 0}
         self.forward_nonce = None
         self.forward_identity = None
         self.parent_nonce = None
         self.parent_consumed = False
+
+    @property
+    def has_mapped_parent(self) -> bool:
+        return self.mapped_parent_code is not None and (
+            self.mapped_parent_identity_sha256 is not None
+        )
 
     @contextmanager
     def forward_scope(
@@ -903,6 +1011,10 @@ class StudentCorrectionHook:
             raise RuntimeError("previous student trace remains outstanding")
         if identity.sha256 in self._spent_identity_sha256:
             raise RuntimeError("student trace identity was already spent")
+        if self.mapped_parent_identity_sha256 is not None and (
+            self.mapped_parent_identity_sha256 != identity.sha256
+        ):
+            raise RuntimeError("mapped parent differs from the student identity")
         configured_states = tuple(
             (site, self.states.get(site, "N")) for site in (0, 1)
         ) + ((2, "N"),)
@@ -960,6 +1072,8 @@ class StudentCorrectionHook:
                 self.captured_z = {}
                 self.captured_codes = {}
                 self.parent_code = None
+                self.mapped_parent_code = None
+                self.mapped_parent_identity_sha256 = None
                 self.parent_nonce = None
                 self.forward_nonce = None
                 self.forward_identity = None
@@ -1038,11 +1152,19 @@ class StudentCorrectionHook:
             predicted = self.program.site0_code(z)
         else:
             if self.program.route == "T":
-                if self.parent_code is None or self.parent_nonce != forward_nonce or (
-                    self.parent_consumed
-                ):
-                    raise RuntimeError("T lacks one unused same-forward executable parent")
-                predicted = self.program.site1_code(z, self.parent_code)
+                if self.parent_consumed:
+                    raise RuntimeError("T parent code was already consumed")
+                if self.mapped_parent_code is not None:
+                    if self.mapped_parent_identity_sha256 != self.forward_identity.sha256:
+                        raise RuntimeError("mapped T parent identity changed")
+                    transport_parent = self.mapped_parent_code.to(z.device)
+                    self.mapped_parent_code = None
+                    self.mapped_parent_identity_sha256 = None
+                else:
+                    if self.parent_code is None or self.parent_nonce != forward_nonce:
+                        raise RuntimeError("T lacks one unused same-forward executable parent")
+                    transport_parent = self.parent_code
+                predicted = self.program.site1_code(z, transport_parent)
                 self.parent_consumed = True
                 self.parent_code = None
             else:

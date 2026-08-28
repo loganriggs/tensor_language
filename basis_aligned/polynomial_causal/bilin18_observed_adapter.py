@@ -329,6 +329,88 @@ class ObservedBilin18Adapter:
             autonomous_forward=self._autonomous_mapped_coordinate_forward,
         )
 
+    def prepare_mapped_parent(
+        self, *, broker: Any, identity: runtime.TraceIdentity,
+        fit_rows: torch.Tensor, student_tokens: torch.Tensor,
+        student_indices: Any, teacher_tokens: torch.Tensor,
+        teacher_indices: Any, program: runtime.JointAffineProgram,
+    ) -> tuple[Any, Any]:
+        """Return a sealed false-paired parent and its target-forward receipt."""
+
+        return broker.prepare_mapped_parent(
+            identity, fit_rows=fit_rows, student_inputs=student_tokens,
+            student_indices=student_indices, teacher_inputs=teacher_tokens,
+            teacher_indices=teacher_indices, program=program,
+            autonomous_forward=self._autonomous_mapped_parent_forward,
+        )
+
+    def run_a_null_oon_teacher(
+        self, *, broker: Any, identity: runtime.TraceIdentity, step: Any,
+        fit_rows: torch.Tensor, student_tokens: torch.Tensor,
+        student_indices: Any, teacher_tokens: torch.Tensor,
+        teacher_indices: Any,
+    ) -> Any:
+        """Score the false-parent source trajectory against true source O/O/N."""
+
+        return broker.run_a_null_oon_teacher(
+            identity, step, fit_rows=fit_rows, student_inputs=student_tokens,
+            student_indices=student_indices, teacher_inputs=teacher_tokens,
+            teacher_indices=teacher_indices,
+            autonomous_forward=self._autonomous_oon_forward,
+        )
+
+    def _autonomous_mapped_parent_forward(
+        self, gateway: Any, tokens: torch.Tensor,
+    ) -> dict[str, Any]:
+        """Run native-free selected-L P/P/N and seal its executable L0 code."""
+
+        poison = _EarlyNativePoison(self._model)
+        attention_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        mlp_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        deployed_n_calls = {site: 0 for site in EARLY_SITES}
+        correction_calls = {site: 0 for site in EARLY_SITES}
+        outer_returned = False
+
+        def attention(event: facade.AttentionEvent):
+            attention_calls[event.site] += 1
+            return self._ship.attention(event)
+
+        def mlp(event: facade.EarlyMLPEvent):
+            mlp_calls[event.site] += 1
+            deployed = self._ship.mlp(event)
+            if event.site not in EARLY_SITES:
+                return deployed
+            deployed_n_calls[event.site] += 1
+            if event.site == 2:
+                return deployed
+            correction_calls[event.site] += 1
+            return gateway.correct(event.site, event.state, deployed)
+
+        with poison.scope():
+            facade.forward_with_dispatch(
+                self._model, tokens, attention, mlp,
+                require_production=self._production,
+            )
+            outer_returned = True
+        expected_all = tuple((site, 1) for site in range(len(self._model.transformer.h)))
+        if _counts(attention_calls) != expected_all or _counts(mlp_calls) != expected_all:
+            raise RuntimeError("mapped parent forward did not dispatch every site once")
+        if _counts(deployed_n_calls) != ((0, 1), (1, 1), (2, 1)) or _counts(
+            correction_calls
+        ) != ((0, 1), (1, 1), (2, 0)):
+            raise RuntimeError("mapped parent P/P/N call ledger did not close exactly")
+        if not outer_returned or not poison.restored or not poison.inert or any(
+            poison.calls.values()
+        ):
+            raise RuntimeError("mapped parent native guard did not close cleanly")
+        return {
+            "outer_forward_count": 1,
+            "hook_calls": {0: 1, 1: 1, 2: 0},
+            "outer_returned": True,
+            "hook_restored": True,
+            "hook_inert": True,
+        }
+
     def _autonomous_mapped_coordinate_forward(
         self, gateway: Any, tokens: torch.Tensor,
     ) -> dict[str, Any]:

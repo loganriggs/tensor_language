@@ -322,3 +322,78 @@ def test_mapped_coordinate_adapter_runs_p_p_n_and_poison_closes() -> None:
             poisoned._autonomous_mapped_coordinate_forward(
                 Gateway(), torch.zeros((1, 2), dtype=torch.long),
             )
+
+
+def test_adapter_delegates_a_null_parent_and_source_teacher() -> None:
+    adapter = observed.ObservedBilin18Adapter(tiny_model(), FakeShip(), production=False)
+
+    class Broker:
+        def prepare_mapped_parent(self, identity, **kwargs):
+            self.parent_kwargs = {"identity": identity, **kwargs}
+            return "parent", "parent-closure"
+
+        def run_a_null_oon_teacher(self, identity, step, **kwargs):
+            self.teacher_kwargs = {"identity": identity, "step": step, **kwargs}
+            return "sealed-a-null-result"
+
+    broker = Broker()
+    program = object()
+    fit_rows = torch.zeros((4, 513), dtype=torch.long)
+    source = torch.ones((4, 256), dtype=torch.long)
+    target = torch.full((4, 256), 2, dtype=torch.long)
+    common = {
+        "broker": broker, "identity": "identity", "fit_rows": fit_rows,
+        "student_tokens": source, "student_indices": (0, 1, 2, 3),
+        "teacher_tokens": target, "teacher_indices": (3, 2, 1, 0),
+    }
+    parent = adapter.prepare_mapped_parent(program=program, **common)
+    result = adapter.run_a_null_oon_teacher(step="step", **common)
+
+    assert parent == ("parent", "parent-closure")
+    assert result == "sealed-a-null-result"
+    assert broker.parent_kwargs == {
+        "identity": "identity", "fit_rows": fit_rows,
+        "student_inputs": source, "student_indices": (0, 1, 2, 3),
+        "teacher_inputs": target, "teacher_indices": (3, 2, 1, 0),
+        "program": program,
+        "autonomous_forward": adapter._autonomous_mapped_parent_forward,
+    }
+    assert broker.teacher_kwargs == {
+        "identity": "identity", "step": "step", "fit_rows": fit_rows,
+        "student_inputs": source, "student_indices": (0, 1, 2, 3),
+        "teacher_inputs": target, "teacher_indices": (3, 2, 1, 0),
+        "autonomous_forward": adapter._autonomous_oon_forward,
+    }
+
+
+def test_mapped_parent_adapter_runs_native_free_p_p_n_and_poison_closes() -> None:
+    model = tiny_model()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+
+    class Gateway:
+        def __init__(self):
+            self.calls = []
+
+        def correct(self, site, state, deployed):
+            self.calls.append((site, tuple(state.shape), tuple(deployed.shape)))
+            return deployed
+
+    gateway = Gateway()
+    with torch.no_grad():
+        closure = adapter._autonomous_mapped_parent_forward(
+            gateway, torch.zeros((1, 2), dtype=torch.long),
+        )
+    assert [call[0] for call in gateway.calls] == [0, 1]
+    assert closure == {
+        "outer_forward_count": 1, "hook_calls": {0: 1, 1: 1, 2: 0},
+        "outer_returned": True, "hook_restored": True, "hook_inert": True,
+    }
+
+    poisoned = observed.ObservedBilin18Adapter(
+        model, FakeShip(call_native_at_zero=True), production=False,
+    )
+    with pytest.raises(RuntimeError, match="literal native MLP0"):
+        with torch.no_grad():
+            poisoned._autonomous_mapped_parent_forward(
+                Gateway(), torch.zeros((1, 2), dtype=torch.long),
+            )

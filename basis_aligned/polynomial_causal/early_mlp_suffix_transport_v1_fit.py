@@ -2,6 +2,7 @@
 
 This module is the sole owner of the initial Q denominator pass, the true-row
 L/R/S0/S1 optimization loops, and document-shuffled L/R/S negative controls.  It
+also owns the twenty A-null/T false-parent control families.  It
 deliberately performs no row loading, model
 loading, validation selection, artifact publication, or final scoring.  Callers
 must supply the already validated fit role, inherited program, observed adapter,
@@ -140,6 +141,37 @@ def make_document_shuffle_identity(
     )
 
 
+def make_a_null_identity(
+    *, context: mapped.MappedRunContext, program: runtime.JointAffineProgram,
+    inputs: torch.Tensor, indices: Sequence[int], trial: int, epoch: int,
+    batch_ordinal: int,
+) -> runtime.TraceIdentity:
+    """Bind one T step to an exact registered A-null document map."""
+
+    if not isinstance(context, mapped.MappedRunContext) or not context.plan.control.startswith(
+        "A_null_"
+    ) or program.route != "T":
+        raise ValueError("A-null fit identity is malformed")
+    expected = scheduled_indices(
+        phase="fit", trial=trial, epoch=epoch, batch_ordinal=batch_ordinal,
+    )
+    if tuple(indices) != expected:
+        raise RuntimeError("caller batch differs from the preregistered schedule")
+    return runtime.TraceIdentity.from_inputs(
+        inputs=inputs, ordered_batch_indices=indices,
+        source_commit=context.base.source_commit,
+        inherited_snapshot_sha256=context.base.inherited_snapshot_sha256,
+        rows_receipt_sha256=context.base.rows_receipt_sha256,
+        fit_role_tensor_sha256=context.base.fit_role_tensor_sha256,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256=context.plan.sha256, phase="fit", route="T",
+        control=context.plan.control, teacher_kind="oon_logits", trial=trial,
+        epoch=epoch,
+        optimizer_step=epoch * capabilities.FIT_BATCHES_PER_EPOCH + batch_ordinal,
+        batch_ordinal=batch_ordinal, student_states=STUDENT_STATES,
+    )
+
+
 def _batch_tokens(
     rows: torch.Tensor, indices: Sequence[int], device: torch.device | str | None,
 ) -> torch.Tensor:
@@ -155,9 +187,12 @@ def _student_step(
     *, adapter: Any, broker: capabilities.CapabilityBroker,
     hook: runtime.StudentCorrectionHook, program: runtime.JointAffineProgram,
     identity: runtime.TraceIdentity, inputs: torch.Tensor, indices: Sequence[int],
+    mapped_parent: runtime.MappedParentCode | None = None,
 ) -> tuple[Any, Any, Any]:
     program.require_exact_trainability()
-    hook.configure(program=program, states={0: "P", 1: "P"})
+    hook.configure(
+        program=program, states={0: "P", 1: "P"}, mapped_parent=mapped_parent,
+    )
     session = broker.begin_student(identity, hook, inputs, indices)
     return adapter.run_student(
         session=session, hook=hook, identity=identity, tokens=inputs,
@@ -447,6 +482,86 @@ def run_document_shuffle_fit_trial(
     return MappedFitCandidate(
         control="document_shuffle", mapping_sha256=context.plan.sha256,
         route=route, trial=trial, learning_rate=learning_rate,
+        completed_steps=len(losses), loss_sum=float(sum(losses)),
+        loss_min=float(min(losses)), loss_max=float(max(losses)),
+        final_program_sha256=runtime.program_snapshot_sha256(program),
+        transaction_history_sha256=runtime.logical_identity_sha256(history),
+        state_dict=state,
+    )
+
+
+def run_a_null_fit_trial(
+    *, rows: torch.Tensor, context: mapped.MappedRunContext,
+    program: runtime.JointAffineProgram, trial: int, adapter: Any,
+    broker: capabilities.CapabilityBroker, hook: runtime.StudentCorrectionHook,
+    device: torch.device | str | None = None,
+) -> MappedFitCandidate:
+    """Fit one registered A-null with false parent codes and true source teachers."""
+
+    if not isinstance(context, mapped.MappedRunContext) or not context.plan.control.startswith(
+        "A_null_"
+    ):
+        raise ValueError("A-null fit requires one registered mapped run context")
+    rows = validate_fit_rows(rows, context.base)
+    if program.route != "T" or trial not in range(len(runtime.LEARNING_RATES)):
+        raise ValueError("A-null trial/program is malformed")
+    parameters = program.set_route_trainability()
+    program.require_exact_trainability()
+    learning_rate = runtime.LEARNING_RATES[trial]
+    optimizer = runtime.make_optimizer(parameters, learning_rate)
+    history: list[Mapping[str, Any]] = []
+    losses: list[float] = []
+    for epoch in range(runtime.EPOCHS):
+        for ordinal in range(capabilities.FIT_BATCHES_PER_EPOCH):
+            source_indices = scheduled_indices(
+                phase="fit", trial=trial, epoch=epoch, batch_ordinal=ordinal,
+            )
+            target_indices = context.plan.target_indices(source_indices)
+            source_inputs = _batch_tokens(rows, source_indices, device)
+            target_inputs = _batch_tokens(rows, target_indices, device)
+            identity = make_a_null_identity(
+                context=context, program=program, inputs=source_inputs,
+                indices=source_indices, trial=trial, epoch=epoch,
+                batch_ordinal=ordinal,
+            )
+            parent, parent_closure = adapter.prepare_mapped_parent(
+                broker=broker, identity=identity, fit_rows=rows,
+                student_tokens=source_inputs, student_indices=source_indices,
+                teacher_tokens=target_inputs, teacher_indices=target_indices,
+                program=program,
+            )
+            step, student_closure, observed = _student_step(
+                adapter=adapter, broker=broker, hook=hook, program=program,
+                identity=identity, inputs=source_inputs, indices=source_indices,
+                mapped_parent=parent,
+            )
+            result = adapter.run_a_null_oon_teacher(
+                broker=broker, identity=identity, step=step, fit_rows=rows,
+                student_tokens=source_inputs, student_indices=source_indices,
+                teacher_tokens=target_inputs, teacher_indices=target_indices,
+            )
+            loss, teacher_closure = result.consume_loss()
+            loss_value = float(loss.detach().double().cpu())
+            gradient_norm = runtime.optimizer_step(loss, optimizer)
+            losses.append(loss_value)
+            history.append({
+                "identity_sha256": identity.sha256,
+                "mapping_sha256": context.plan.sha256,
+                "source_indices": list(source_indices),
+                "target_indices": list(target_indices),
+                "loss": loss_value, "gradient_norm": gradient_norm,
+                "parent_ledger_sha256": parent_closure.ledger_sha256,
+                "student_ledger_sha256": student_closure.ledger_sha256,
+                "teacher_ledger_sha256": teacher_closure.ledger_sha256,
+                "observed": _closure_payload(observed),
+            })
+    state = MappingProxyType({
+        name: value.detach().cpu().contiguous().clone()
+        for name, value in sorted(program.state_dict().items())
+    })
+    return MappedFitCandidate(
+        control=context.plan.control, mapping_sha256=context.plan.sha256,
+        route="T", trial=trial, learning_rate=learning_rate,
         completed_steps=len(losses), loss_sum=float(sum(losses)),
         loss_min=float(min(losses)), loss_max=float(max(losses)),
         final_program_sha256=runtime.program_snapshot_sha256(program),

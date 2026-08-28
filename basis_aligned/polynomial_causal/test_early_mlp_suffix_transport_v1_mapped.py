@@ -400,3 +400,146 @@ def test_ordinary_broker_cannot_be_repurposed_for_mapped_execution() -> None:
             student_indices=(), teacher_inputs=None, teacher_indices=(),
             autonomous_forward=_autonomous_forward,
         )
+
+
+def test_a_null_uses_false_parent_only_for_cross_and_true_source_oon(monkeypatch) -> None:
+    monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", runtime.BATCH_SIZE)
+    monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 1)
+    rows = torch.arange(
+        runtime.BATCH_SIZE * 513, dtype=torch.long,
+    ).view(runtime.BATCH_SIZE, 513)
+    plan = mapped.build_document_block_plan(
+        _records((1, 1, 1, 1)), control="A_null_00",
+    )
+    base = capabilities.RunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64,
+        fit_role_tensor_sha256=runtime.tensor_identity_sha256(rows),
+        identity_teacher_mapping_sha256="4" * 64,
+        fit_row_count=runtime.BATCH_SIZE,
+    )
+    context = mapped.MappedRunContext(base=base, plan=plan)
+    source_indices = tuple(int(value) for value in runtime.fit_permutations(4, 0)[0])
+    target_indices = plan.target_indices(source_indices)
+    source = rows[torch.tensor(source_indices), :runtime.SEQUENCE_LENGTH]
+    target = rows[torch.tensor(target_indices), :runtime.SEQUENCE_LENGTH]
+    program = _program("T")
+    with torch.no_grad():
+        program.site0.weight[:runtime.CODE_DIM].copy_(torch.eye(runtime.CODE_DIM))
+        program.cross.copy_(torch.eye(runtime.CODE_DIM))
+    issuer = "8" * 64
+    coordinator = runtime.ScopeCoordinator()
+    projection = torch.eye(runtime.D_MODEL)[:, :runtime.CODE_DIM]
+    native0, native1 = _Native(2.0, 0.25), _Native(-0.5, 1.0)
+    broker = capabilities.CapabilityBroker(
+        issuer_id=issuer, coordinator=coordinator, run_context=base,
+        bases={0: projection, 1: projection},
+        native_calls={0: native0, 1: native1}, mapped_authority=context,
+    )
+    hook = runtime.StudentCorrectionHook(
+        {0: projection, 1: projection}, issuer_id=issuer, coordinator=coordinator,
+    )
+    identity = runtime.TraceIdentity.from_inputs(
+        inputs=source, ordered_batch_indices=source_indices,
+        source_commit=base.source_commit,
+        inherited_snapshot_sha256=base.inherited_snapshot_sha256,
+        rows_receipt_sha256=base.rows_receipt_sha256,
+        fit_role_tensor_sha256=base.fit_role_tensor_sha256,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256=plan.sha256, phase="fit", route="T",
+        control="A_null_00", teacher_kind="oon_logits", trial=0,
+        epoch=0, optimizer_step=0, batch_ordinal=0,
+        student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+
+    saved_gateways = []
+
+    def parent_forward(gateway, inputs):
+        saved_gateways.append(gateway)
+        state0 = inputs.float().unsqueeze(-1).expand(
+            -1, -1, runtime.D_MODEL,
+        ) / 1000
+        out0 = gateway.correct(0, state0, torch.zeros_like(state0))
+        state1 = state0 + out0
+        gateway.correct(1, state1, torch.zeros_like(state1))
+        return {
+            "outer_forward_count": 1, "hook_calls": {0: 1, 1: 1, 2: 0},
+            "outer_returned": True, "hook_restored": True, "hook_inert": True,
+        }
+
+    changed = target.clone(); changed[0, 0] += 1
+    with pytest.raises(RuntimeError, match="teacher tokens"):
+        broker.prepare_mapped_parent(
+            identity, fit_rows=rows, student_inputs=source,
+            student_indices=source_indices, teacher_inputs=changed,
+            teacher_indices=target_indices, program=program,
+            autonomous_forward=parent_forward,
+        )
+    parent, parent_closure = broker.prepare_mapped_parent(
+        identity, fit_rows=rows, student_inputs=source,
+        student_indices=source_indices, teacher_inputs=target,
+        teacher_indices=target_indices, program=program,
+        autonomous_forward=parent_forward,
+    )
+    prepared = broker.ledger_snapshot
+    assert prepared.prepared_parent_identity_count == 1
+    assert prepared.consumed_parent_identity_count == 0
+    assert prepared.outstanding_parent_identity_sha256 == identity.sha256
+    assert parent_closure.scope == "mapped_parent"
+    assert parent_closure.original_calls == capabilities.EXACT_ZERO_CALLS
+    hook.configure(program=program, states={0: "P", 1: "P"}, mapped_parent=parent)
+    consumed = broker.ledger_snapshot
+    assert consumed.consumed_parent_identity_count == 1
+    assert consumed.outstanding_parent_identity_sha256 is None
+
+    source_state0 = source.float().unsqueeze(-1).expand(
+        -1, -1, runtime.D_MODEL,
+    ) / 1000
+    target_state0 = target.float().unsqueeze(-1).expand(
+        -1, -1, runtime.D_MODEL,
+    ) / 1000
+    session = broker.begin_student(identity, hook, source, source_indices)
+    with session.forward_scope() as capability:
+        source_out0 = _call_hook(
+            hook, 0, source_state0, torch.zeros_like(source_state0), identity.nonce,
+        )
+        source_state1 = source_state0 + source_out0
+        source_out1 = _call_hook(
+            hook, 1, source_state1, torch.zeros_like(source_state1), identity.nonce,
+        )
+        student_logits = source_out1[..., :11]
+        capability.bind_outer_logits(student_logits)
+    step, _ = session.close(
+        outer_forward_count=1, outer_returned=True,
+        hook_restored=True, hook_inert=True,
+    )
+    source_code = program.site0_code(source_state0)
+    false_parent_code = program.site0_code(target_state0)
+    torch.testing.assert_close(source_out0 @ projection, source_code)
+    torch.testing.assert_close(source_out1 @ projection, false_parent_code)
+    assert not torch.equal(source_code, false_parent_code)
+
+    result = broker.run_a_null_oon_teacher(
+        identity, step, fit_rows=rows, student_inputs=source,
+        student_indices=source_indices, teacher_inputs=target,
+        teacher_indices=target_indices, autonomous_forward=_autonomous_forward,
+    )
+    loss, closure = result.consume_loss()
+    expected_teacher = native1(source_state0 + native0(source_state0))[..., :11]
+    torch.testing.assert_close(
+        loss, runtime.teacher_student_kl(expected_teacher.detach(), student_logits),
+    )
+    assert closure.original_calls == capabilities.EXACT_EARLY_ORIGINAL_CALLS
+    loss.backward()
+    assert program.cross.grad is not None
+    assert program.site0.weight.grad is None and program.site1.weight.grad is None
+    assert native0.scale.grad is None and native1.scale.grad is None
+    with pytest.raises(RuntimeError, match="revoked"):
+        saved_gateways[-1].correct(0, target_state0, torch.zeros_like(target_state0))
+    with pytest.raises(RuntimeError, match="duplicated"):
+        broker.prepare_mapped_parent(
+            identity, fit_rows=rows, student_inputs=source,
+            student_indices=source_indices, teacher_inputs=target,
+            teacher_indices=target_indices, program=program,
+            autonomous_forward=parent_forward,
+        )

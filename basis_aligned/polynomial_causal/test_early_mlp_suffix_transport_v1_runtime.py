@@ -193,6 +193,56 @@ def test_transport_uses_executable_parent_but_only_cross_is_trainable():
     assert program.site0.weight.grad is None and program.site1.weight.grad is None
 
 
+def test_mapped_transport_writes_source_code_but_cross_reads_false_parent() -> None:
+    program = joint("T")
+    with torch.no_grad():
+        program.cross.copy_(torch.eye(runtime.CODE_DIM))
+    hook = student_hook()
+    inputs = torch.arange(4 * 256, dtype=torch.long).view(4, 256)
+    identity = runtime.TraceIdentity.from_inputs(
+        inputs=inputs, ordered_batch_indices=range(4), source_commit="b" * 40,
+        inherited_snapshot_sha256="c" * 64, rows_receipt_sha256="d" * 64,
+        fit_role_tensor_sha256="e" * 64,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256="f" * 64, phase="fit", route="T",
+        control="A_null_00", teacher_kind="oon_logits", trial=0, epoch=0,
+        optimizer_step=0, batch_ordinal=0,
+        student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+    mapped = torch.full(
+        (runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH, runtime.CODE_DIM), 3.0,
+    )
+    released = []
+    handle = runtime.MappedParentCode(
+        value=mapped, identity_sha256=identity.sha256, issuer_id=hook.issuer_id,
+        program_sha256=runtime.program_snapshot_sha256(program),
+        release=released.append,
+    )
+    hook.configure(
+        program=program, states={0: "P", 1: "P"}, mapped_parent=handle,
+    )
+    assert released == [identity.sha256] and hook.has_mapped_parent
+    state0 = torch.randn(4, 256, runtime.D_MODEL)
+    state1 = torch.randn(4, 256, runtime.D_MODEL)
+    deployed0, deployed1 = torch.randn_like(state0), torch.randn_like(state1)
+    with hook.forward_scope(identity):
+        out0 = call_hook(hook, 0, state0, deployed0, identity.nonce)
+        out1 = call_hook(hook, 1, state1, deployed1, identity.nonce)
+    torch.testing.assert_close(
+        out0.float() @ basis(), program.site0_code(state0), atol=2e-5, rtol=0,
+    )
+    torch.testing.assert_close(
+        out1.float() @ basis(), program.site1(state1) + mapped,
+        atol=2e-5, rtol=0,
+    )
+    assert not hook.has_mapped_parent and hook.parent_code is None
+    with pytest.raises(RuntimeError, match="already consumed"):
+        handle._consume(
+            issuer_id=hook.issuer_id,
+            program_sha256=runtime.program_snapshot_sha256(program),
+        )
+
+
 def test_local_and_zero_transport_have_disjoint_equal_initializations():
     local = joint("L")
     transported = local.independent_clone(route="T")
