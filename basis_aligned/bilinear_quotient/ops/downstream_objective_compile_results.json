@@ -1,0 +1,53 @@
+{
+ "config": {
+  "rank": 8,
+  "steps": 300,
+  "batch": 4,
+  "lr": 0.001,
+  "objective": "final cross-entropy on the FIT rows, covered positions from 64",
+  "init": "\u00a71748 interleaved bottom-up local fit, so step 0 is a control",
+  "trainable": "663552 reals = 0.664M, the same program cost",
+  "ROLE_NOTE": "DISCOVERY ONLY. Training touches the FIT rows only; both eval roles are untouched by training."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "table_only": 7.35114,
+   "stake": 4.05909
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "table_only": 7.35825,
+   "stake": 4.26114
+  }
+ },
+ "start": {
+  "skip7000": 0.40631,
+  "skip11000": 0.38578
+ },
+ "final": {
+  "skip7000": 0.57457,
+  "skip11000": 0.55074
+ },
+ "gain": {
+  "skip7000": 0.16826,
+  "skip11000": 0.16496
+ },
+ "reference": {
+  "interleaved_S1748": {
+   "skip7000": 0.40631,
+   "skip11000": 0.38578
+  },
+  "sum_of_parts_S1747": {
+   "skip7000": 1.8057,
+   "skip11000": 1.746
+  }
+ },
+ "predictions": {
+  "pred_a_beats_local_objective": true,
+  "pred_b_closes_composition_gap": false,
+  "pred_c_transfers_between_roles": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 119.7
+}

@@ -44682,3 +44682,49 @@ of the others before registering — would have caught it in under a minute and 
 **pred_d is the strongest cross-script control in the thread.** Pass 1 here reproduces §1748's
 +0.4063 and +0.3858 from a separately written script, with table-only CE 7.35114, live CE 3.29205,
 coverage 5419 of 50257, and all 108 per-site fits firing on the full 24576 positions.
+
+## §1750 — a downstream objective adds 43% over the local one and still leaves two thirds of the composition gap
+
+`ops/downstream_objective_compile.py`, 119.7s, **DISCOVERY ONLY**.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+§1749 ruled out ordering: one bottom-up pass is a fixed point, so the remaining shortfall had to be
+the objective. This holds the tables fixed, initialises all 36 rank-8 maps at §1748's interleaved
+solution, and trains the 663,552 factor parameters — the same 0.664M-real program — on **final
+cross-entropy** over the fit rows.
+
+```
+  held out (skip11000), table-program stake 4.2611 nats
+    simultaneous local fit      (§1747)   -0.5462    -12.82%
+    interleaved local fit       (§1748)   +0.3858     +9.05%
+    interleaved + downstream training     +0.5507    +12.92%     <- this run
+    (peak during training, step 120)      +0.5742    +13.48%
+    sum of the 36 solo recoveries         +1.7460
+```
+
+**pred_a passed: the downstream objective is worth +0.16496 nats, a 43% improvement on the local
+one**, at identical program cost. Fitting each map to reproduce its own module's write leaves that
+much on the table relative to fitting it to the loss the program is actually judged by.
+
+**pred_c passed cleanly and is worth as much as pred_a.** The gain is **+0.16826 on skip7000 and
++0.16496 on skip11000, a ratio of 1.020** — training on 96 fit rows moved both eval roles by the same
+amount. Whatever the downstream objective found is a property of the model, not of the rows.
+
+**pred_b failed and the residual is large. +0.5507 against +1.7460 is 32% of the sum of the parts.**
+So the composition gap is **not** explained by ordering (§1749 proved that), and **not** by the local
+objective either — correcting the objective closes about a fifth of what was missing and leaves two
+thirds of the total unexplained. What remains is a property of the program class or of genuine
+interaction between sites, and neither the fitting procedure nor the fit order can reach it.
+
+**Reported honestly: the final is not the best.** Held-out recovery peaked at **+0.5742 at step 120**
+and declined to +0.5507 by step 300. The registered quantity was the final value and it is scored as
+such, but the curve says 300 Adam steps at batch 4 overshoots and a properly early-stopped run would
+sit around +0.574. The difference does not change any prediction's outcome.
+
+**Frontier position.** 0.5507 nats for 0.664M reals is **0.829 nats per million**, against §1748's
+interleaved 0.581 and the six native modules' 0.0223 (§1741). **37x the cost-efficiency of keeping
+six modules native, at 44% of their fidelity.**
+
+Controls (pred_d): step 0 reproduced §1748's +0.40631 and +0.38578 exactly — the same program
+rebuilt and re-evaluated by a third script — with table-only CE 7.35114, live CE 3.29205, coverage
+5419 of 50257, and all 36 initialisation fits firing on the full 24576 positions.
