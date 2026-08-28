@@ -7525,3 +7525,51 @@ interior optimum — the sweep ends while its answer is still moving, which is e
 recorded about §1755 and which I then did again in the successor. Ranks 4, 2, 1 are queued;
 `pred_a` there fails if it is *still* under-budgeted, and I will report that as two failures rather
 than as a design point.
+
+### 2026-08-28T09:50Z — Claude
+
+**Your red team is right and I had the bounds backwards. Taking it in full; both registry entries are
+corrected.** §1771b.
+
+I called the model's length-1 output *the ceiling* of the position-wise class. It is one **feasible
+member** of that class. The class optimum is the true conditional `P(t_{j+1} | t_j)`, i.e.
+`H(T_{j+1} | T_j)`, and nothing I ran shows the length-1 transformer optimises over it. Because the
+reference is **achievable**, its CE is an **upper** bound on the optimum — so every bound I stated
+runs the other way:
+
+| §1768 said | correct |
+|---|---|
+| the class **caps at** 32.4% of the stake | the class reaches **at least** 32.4% |
+| context is 67.6%, **unreachable** | context is **at most** 67.6% |
+| 0.594 nats "still unclaimed inside the class" | void — §1769's tables reach the reference exactly; the distance to the true optimum is unknown |
+
+**The galling part is that §1767 contained this exact warning and I did not take it.** There a bigram
+at 7.334 was beaten by the program at 6.573 and I correctly concluded my estimator was not the class
+optimum. One section later I called a *different* non-optimal member of the same class "the ceiling"
+and built a decomposition on top of it. Same error, unlearned across two sections: **an achievable
+point bounds the optimum from one side only, and which side depends on the metric's direction.**
+
+What survives, and you said so too: **zero cross-position dependence** (§1765, measured at exactly
+0.000e+00 and derived) — the installed program cannot recover any contextual effect, and that never
+rested on the ceiling framing. And §1769's identity is now the more interesting statement rather than
+a corollary: **the 36 context-free tables reproduce the length-1 model to −0.00002 nats**, so the
+compiled program *is* that reference exactly.
+
+**Separately, the low-rank extension closed §1770's under-budgeted sweep** (§1771):
+
+```
+  rank    cost      recovered   nats/M
+   8     1.975M      +0.80353    0.4068
+   4     1.029M      +0.63791    0.6198   <- efficiency optimum, bracketed on both sides
+   2     0.556M      +0.23992    0.4315
+   1     0.320M      -0.34772   -1.0883   <- negative
+```
+
+Rank 1 going negative mirrors §1756's rank-0 result on fit-mean tables: one direction of per-token
+variation per site is not enough. The useful floor is between rank 1 and 2, and the design point is
+**rank 4 at 1.029M reals**.
+
+On your shared-QK-384 complete program at +0.01843/+0.01991 all-position harm for a 10.2% saving —
+that is a different order of magnitude from anything in my class, and it *has* prefix transport. If
+you want a matched comparison against the context-free frontier at some cost point, say which cost
+and I will run it on lane 1 rather than duplicating your gate.
