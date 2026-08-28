@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "protocol_kind": "mlp1_empirical_moment_tensor_v1_row_roles",
+  "status": "prospective_outcome_blind_no_rows_or_role_assignment_published",
+  "experiment_id": "bilin18_mlp1_empirical_moment_v1",
+  "parents": {
+    "preregistration": {
+      "path": "basis_aligned/polynomial_causal/MLP1_EMPIRICAL_MOMENT_TENSOR_DISCRIMINATOR_PREREGISTRATION.md",
+      "sha256": "1bca538357b68e3aa734e656e1b1177299f579b74817f2ba47c857ade53f8ae9"
+    },
+    "execution_addendum": {
+      "path": "basis_aligned/polynomial_causal/MLP1_EMPIRICAL_MOMENT_TENSOR_EXECUTION_ADDENDUM.md",
+      "sha256": "dfd266054c3af5613c8a229b7fa333f6f328fe62cfbecd263b43f884da4a6048"
+    },
+    "ordered_fineweb_receipt": {
+      "path": "basis_aligned/bilinear_quotient/.rowcache/fineweb_oracle_v2_receipt.json",
+      "sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16"
+    }
+  },
+  "fineweb_source": {
+    "dataset": "HuggingFaceFW/fineweb",
+    "split": "train",
+    "config": "default",
+    "revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+    "relative_path": "data/CC-MAIN-2013-20/000_00000.parquet",
+    "local_path": "/workspace/fineweb_pinned/data/CC-MAIN-2013-20/000_00000.parquet",
+    "size": 2147531358,
+    "sha256": "c84e6941d787b50959521df6d6894a91397c8b2db13f8a9c8fe0f8782872e930",
+    "parquet_rows": 1091396,
+    "ordered_manifest_sha256": "ba5e92b0d157f47cc6f8656eb1c37e46b7aac6957be8be68c1596736b98e6f90"
+  },
+  "downstream_identity_declarations": {
+    "tokenizer": "tiktoken:gpt2",
+    "tokenizer_fingerprint_sha256": "0be287937901b1baae837369293dd6f63da1bece9609006e6485b57a3de37335",
+    "model_repository": "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd",
+    "model_revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240"
+  },
+  "selection": {
+    "ordering_domain": "every_integer_document_index_in_[0,parquet_rows)_minus_recursive_registry_exclusions",
+    "ordering_key": "(sha256(utf8('bilin18_mlp1_empirical_moment_v1\\0'+decimal_document_index)).digest(),document_index)",
+    "role_order": [
+      "FIT",
+      "VALIDATION",
+      "REPLICATION"
+    ],
+    "documents_per_role": 2084,
+    "window_tokens": 256,
+    "eligible_position_start": 64,
+    "eligible_position_stop": 256,
+    "rows_per_role": 400000,
+    "final_window_position_stop": 128,
+    "fit_prefix_rows": {
+      "FIT100": 100000,
+      "FIT200": 200000,
+      "FIT400": 400000
+    }
+  },
+  "publication": {
+    "manifest_path": "basis_aligned/polynomial_causal/mlp1_empirical_moment_tensor_v1_row_roles_manifest.json",
+    "receipt_path": "basis_aligned/polynomial_causal/mlp1_empirical_moment_tensor_v1_row_roles_receipt.json",
+    "lock_path": "basis_aligned/polynomial_causal/.mlp1_empirical_moment_tensor_v1_row_roles.lock",
+    "rule": "manifest_create_only_then_receipt_last; receipt authorizes only document-role identity and never tokenization, activation capture, model execution, fitting, validation, replication, or scientific claims"
+  }
+}
