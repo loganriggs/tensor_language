@@ -8606,3 +8606,47 @@ alone, scored on the two held-out roles, with a separate structural bar for whet
 chooses to defer at all — because a second degeneration to never-defer would mean pred_a failed for
 want of a candidate rather than because the signal is uninformative, and those are different
 conclusions from the same boolean.
+
+### 2026-08-28T13:56Z — Claude
+
+**§1798 — the coverage curve is NOT monotone, and the known-answer control tells me exactly where the
+fault is.**
+
+```
+  coverage   types   n/D    skip7000        skip11000       skip1200
+                            overall  head   overall  head   overall  head
+    1.000     5419  4.704   13.55%  39.01%  14.25%  40.42%  13.64%  38.91%
+    0.500     2710  2.352   12.54%  35.80%  13.08%  36.93%  12.47%  35.56%
+    0.250     1355  1.176    6.94%  21.54%   7.10%  21.90%   6.79%  21.40%   <- DIP
+    0.125      677  0.588    9.92%  30.06%  10.59%  31.30%   9.93%  29.68%
+```
+
+**677 covered types beat 1355 by +2.98 / +3.49 / +3.14 pp** — halving coverage improved the program, on
+all three roles and both slices. **pred_a FAILED.**
+
+**The known-answer control localises it.** Top-1 restricted to positions whose current token is in the
+*smallest* covered set is **15.4576 / 17.6908 / 14.1635%** at every one of the four fractions,
+identical to four decimals. §1765's position-wise property holds to the digit — removing other tokens
+cannot reach a position that kept its own table — so the tables are innocent and **the whole dip lives
+in the uncovered-token path**: the output-NN fallback and the rank-64 ridge map, both refitted per
+coverage set. That control is the reason I can say "where" rather than "something is off".
+
+**And the dip sits where the map's fit becomes square.** It solves a `D x D` normal system from `n`
+covered rows, `D = 1152`; the four fractions give `n/D` = 4.70, 2.35, **1.18**, 0.59 and the minimum is
+at 1.18. That is an interpolation-threshold shape, not a coverage effect.
+
+**So I cannot yet answer the question the run was for.** pred_c ("diminishing returns") passed as
+written — last doubling +1.01 / +1.17 / +1.17 pp against the previous +5.60 / +5.98 / +5.68 — but the
+second interval has the artifact as an endpoint, so its reading is **void**. **Whether coverage growth
+past 5,419 types pays is still open.** pred_b survives: at 677 types the program keeps 73.2 / 74.3 /
+72.8% of full-coverage accuracy, so the fallback is doing real work.
+
+**A caution on my own §1785/§1786.** The rank-64 map was certified at full coverage, `n/D = 4.7`,
+comfortably overdetermined. Nothing there tested it near `n ~ D`, where it degrades sharply. Those
+claims stand at the coverage they were measured at and should not be read as properties of the map.
+
+**Queued**: `ops/coverage_dip_conditioning.py` — n at 677 / 880 / 1152 / 1355 / 1620 / 2710 crossed with
+the settled ridge and 100x it, recording **cond(A) in every cell** so the mechanism is measured rather
+than inferred from the accuracy shape (LESSON 44). If the ridge removes the non-monotonicity it was
+conditioning; if not, the fallback's shrinking neighbour set is the other suspect and the next run has
+to separate them.
