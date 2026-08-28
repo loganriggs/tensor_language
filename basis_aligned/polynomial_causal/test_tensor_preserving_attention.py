@@ -8,7 +8,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 from tensor_preserving_attention import (
-    PROJECTION_NAMES, StoredLinear, TensorAttentionBank,
+    PROJECTION_NAMES, QK_NAMES, SharedInputLinearBank, StoredLinear, TensorAttentionBank,
     TensorPreservingSquaredAttention,
 )
 
@@ -205,3 +205,29 @@ def test_projection_schema_and_native_topology_validation() -> None:
         TensorPreservingSquaredAttention(
             projections, lamb=torch.tensor(0.5), inv_freq=torch.ones(2), n_head=2,
         )
+
+
+def test_shared_qk_bank_reads_one_basis_and_prices_one_encoder() -> None:
+    torch.manual_seed(41)
+    width, rank = 8, 3
+    basis, _ = torch.linalg.qr(torch.randn(width, rank))
+    weights = {name: torch.randn(width, width) for name in QK_NAMES}
+    shared = SharedInputLinearBank.from_basis(weights, basis)
+    value = torch.randn(2, 4, width)
+    for name in QK_NAMES:
+        expected = (value @ basis) @ (weights[name] @ basis).T
+        assert torch.allclose(shared(name, value), expected, atol=1e-6, rtol=1e-6)
+    assert shared.stored_values == 5 * width * rank
+
+    native = FakeNative(width=width, heads=2)
+    projections = {
+        "v": StoredLinear.from_weight(native.c_v.weight),
+        "proj": StoredLinear.from_weight(native.c_proj.weight),
+    }
+    program = TensorPreservingSquaredAttention(
+        projections, lamb=native.lamb, inv_freq=native.rotary.inv_freq,
+        n_head=2, shared_qk=shared,
+    )
+    receipt = program.cost_receipt()
+    assert receipt.projection_values["qk_shared"] == 5 * width * rank
+    assert receipt.total_stored_values == 5 * width * rank + 2 * width * width + 3

@@ -19,6 +19,7 @@ import torch.nn.functional as F
 
 
 PROJECTION_NAMES = ("q", "k", "q2", "k2", "v", "proj")
+QK_NAMES = ("q", "k", "q2", "k2")
 
 
 class StoredLinear(nn.Module):
@@ -130,6 +131,59 @@ class AttentionBankClosure:
     closed: bool
 
 
+class SharedInputLinearBank(nn.Module):
+    """One encoded input dictionary with multiple typed linear decoders."""
+
+    def __init__(
+        self, input_factor: torch.Tensor,
+        output_factors: Mapping[str, torch.Tensor],
+    ) -> None:
+        super().__init__()
+        if set(output_factors) != set(QK_NAMES) or input_factor.ndim != 2 or (
+            not input_factor.is_floating_point()
+        ):
+            raise ValueError("shared QK bank is malformed")
+        rank, width = input_factor.shape
+        if rank <= 0 or any(
+            factor.ndim != 2 or factor.shape != (width, rank)
+            or not factor.is_floating_point()
+            or not bool(torch.isfinite(factor).all())
+            for factor in output_factors.values()
+        ) or not bool(torch.isfinite(input_factor).all()):
+            raise ValueError("shared QK factors are malformed")
+        self.register_buffer("input_factor", input_factor.detach().clone())
+        for name in QK_NAMES:
+            self.register_buffer(f"output_{name}", output_factors[name].detach().clone())
+        self.width = width
+        self.rank = rank
+
+    @classmethod
+    def from_basis(
+        cls, weights: Mapping[str, torch.Tensor], basis: torch.Tensor,
+    ) -> "SharedInputLinearBank":
+        if set(weights) != set(QK_NAMES) or basis.ndim != 2:
+            raise ValueError("shared QK source is malformed")
+        width, rank = basis.shape
+        if rank <= 0 or any(weight.shape != (width, width) for weight in weights.values()):
+            raise ValueError("shared QK source topology changed")
+        return cls(
+            basis.T,
+            {name: weight.float() @ basis.float() for name, weight in weights.items()},
+        )
+
+    @property
+    def stored_values(self) -> int:
+        return self.input_factor.numel() + sum(
+            getattr(self, f"output_{name}").numel() for name in QK_NAMES
+        )
+
+    def forward(self, name: str, value: torch.Tensor) -> torch.Tensor:
+        if name not in QK_NAMES:
+            raise KeyError("unknown shared QK decoder")
+        hidden = F.linear(value, self.input_factor.to(value.dtype))
+        return F.linear(hidden, getattr(self, f"output_{name}").to(value.dtype))
+
+
 class TensorPreservingSquaredAttention(nn.Module):
     """Squared bilinear attention with compressed typed projections.
 
@@ -141,15 +195,20 @@ class TensorPreservingSquaredAttention(nn.Module):
     def __init__(
         self, projections: Mapping[str, StoredLinear], *, lamb: torch.Tensor | float,
         inv_freq: torch.Tensor, n_head: int,
+        shared_qk: SharedInputLinearBank | None = None,
     ) -> None:
         super().__init__()
-        if set(projections) != set(PROJECTION_NAMES):
+        expected = {"v", "proj"} if shared_qk is not None else set(PROJECTION_NAMES)
+        if set(projections) != expected:
             raise ValueError("attention projection set is incomplete")
         if type(n_head) is not int or n_head <= 0:
             raise ValueError("n_head must be positive")
         self.projections = nn.ModuleDict(dict(projections))
-        q = self.projections["q"]
-        width = q.output_dim
+        self.shared_qk = shared_qk
+        width = (
+            shared_qk.width if shared_qk is not None
+            else self.projections["q"].output_dim
+        )
         if width % n_head:
             raise ValueError("projection width is not divisible by head count")
         if any(
@@ -224,7 +283,11 @@ class TensorPreservingSquaredAttention(nn.Module):
         batch, sequence, _ = state.shape
 
         def head(name: str) -> torch.Tensor:
-            return self.projections[name](state).view(
+            if name in QK_NAMES and self.shared_qk is not None:
+                projected = self.shared_qk(name, state)
+            else:
+                projected = self.projections[name](state)
+            return projected.view(
                 batch, sequence, self.n_head, self.head_dim,
             )
 
@@ -262,6 +325,8 @@ class TensorPreservingSquaredAttention(nn.Module):
 
     def cost_receipt(self) -> AttentionCostReceipt:
         prices = {name: layer.stored_values for name, layer in self.projections.items()}
+        if self.shared_qk is not None:
+            prices["qk_shared"] = self.shared_qk.stored_values
         total = sum(prices.values()) + self.lamb.numel() + self.inv_freq.numel()
         return AttentionCostReceipt(
             projection_values=prices,
@@ -277,6 +342,8 @@ class TensorPreservingSquaredAttention(nn.Module):
         if min(batch, sequence) <= 0:
             raise ValueError("batch and sequence must be positive")
         projection = 0
+        if self.shared_qk is not None:
+            projection += self.shared_qk.stored_values
         for layer in self.projections.values():
             if layer.weight is not None:
                 projection += math.prod(layer.weight.shape)
