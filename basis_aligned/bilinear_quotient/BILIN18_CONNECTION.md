@@ -47279,3 +47279,48 @@ and it is not reachable by restoring any one site.
 **Open question this ends on.** Why L5-L6? A live module there is worth −12.5pp while the same
 restoration at L4 is worth −0.03. That is a 12-point cliff between adjacent layers and it is the
 sharpest structure this thread has found in a while.
+
+## §1803 — the settled ridge costs almost nothing at full coverage, because there is no ill-conditioning there to cost anything
+
+`ops/settled_ridge_scan.py`, 272.0s, **DISCOVERY ONLY**, rung 3 (raised by §1801).
+**pred_a FALSE | pred_b True | pred_c True | pred_d FALSE.**
+
+```
+  n = 5419 (full coverage)   settled   1e-6    1e-4    1e-3    1e-2    1e-1   (x lambda_max)
+    cond(A)                  3.24e+02  3.24e2  3.14e2  2.45e2  7.72e1  1.07e1
+    skip7000                  13.55%   13.55%  13.54%  13.57%  13.70%  13.82%
+    skip11000                 14.25%   14.25%  14.24%  14.25%  14.33%  14.36%
+    skip1200                  13.64%   13.64%  13.64%  13.61%  13.57%  13.83%
+```
+
+**pred_a FAILED, and this is the outcome I warned myself to be suspicious of wanting.** The best scaled
+ridge beats the settled one by **+0.26 / +0.11 / +0.18 pp** — a real, consistently-signed improvement,
+but far below the 1pp bar. §1801's large gains at `n <= D` **do not reach the operating point**.
+
+**And pred_d's failure explains why, rather than blocking it.** Its cross-run half held exactly: the
+'settled' arm reproduces §1789's published 13.55 / 14.25 / 13.64% to the digit, so the scan's other arms
+differ from the published program in the ridge alone. What failed was the knob check again —
+`cond(A)` spans only **30x** across the whole scan (3.24e+02 down to 1.07e+01). **There is no
+ill-conditioning at full coverage to remove.** At `n/D = 4.70` the data term alone conditions the
+problem: cond 324 in a float64 solve costs about two and a half digits of a sixteen-digit budget. The
+settled ridge is inert as a fraction of `lambda_max` — 1.38e-09 of it — and inertness is nearly free
+here precisely because the matrix does not need help.
+
+So this is the **second run in two** where my LESSON 46 gate fired on a cell that had no room to move.
+In §1801 it blocked a conclusion the evidence supported; here it is the mechanism behind the headline.
+Both times the gate demanded a large change in a quantity that was already where it needed to be.
+**LESSON 46 addendum**: make a knob check conditional on there being something to fix — require the
+span only where the inert-end value indicates a problem — or demote it to a diagnostic. A gate that
+cannot distinguish "the knob did not turn" from "the knob had nowhere to turn" reports the same FALSE
+for a broken sweep and a healthy one.
+
+**pred_b passed**: the optimum is `0.1 * lambda_max` on all three roles, so the small gain is a stable
+effect and not per-role noise. **pred_c passed**: it closes 1.0 / 0.4 / 0.7% of the gap — not a lever.
+The known-answer slice is identical (14.0023 / 14.8016 / 14.3491%) across all six arms.
+
+**What this settles for the thread.** §1788 through §1802 were measured on a program within **0.26pp**
+of the best ridge in this family at its own operating point. That is a quantified caveat, not a
+correction: no conclusion in those sections turns on a quarter of a point, and §1800's coverage bound
+(~18pp short at full vocabulary) and §1802's no-minimal-departure finding (best single site 1.4-1.7% of
+the gap) are untouched. **§1786's design point stands**, with the note that its ridge is not optimal —
+merely close — and that it becomes catastrophically wrong below `n ~ 2D` (§1799/§1801).

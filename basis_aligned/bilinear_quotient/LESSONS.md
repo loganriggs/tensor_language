@@ -1171,3 +1171,20 @@ there, and report the other cells as diagnostics rather than as gates. When a co
 first whether it fired inside the claim's support before treating the claim as unreadable. Related:
 [[lesson-45]], [[lesson-40]] (a strict inequality with no margin is not a bar -- pred_b in the same run
 failed on 0.04pp wobbles against a 9.45pp effect for exactly that reason).
+
+### LESSON 46 addendum — a knob check must distinguish "did not turn" from "had nowhere to turn"
+
+The gate LESSON 46 was written about fired twice more, in consecutive runs, and gave the same FALSE for
+opposite situations. In §1801 `cond(A)` spanned 3.7e+06x at the cell the prediction tested and only
+2.9e+02x at a cell no prediction read, so the gate blocked a conclusion the evidence overwhelmingly
+supported. In §1803 it spanned 30x everywhere — because at full coverage the matrix is already well
+conditioned (cond 324) and there was nothing for a ridge to fix, which was itself the run's headline.
+
+A check that reports FALSE both when a sweep is broken and when a sweep is unnecessary is not
+distinguishing the two states it exists to separate (this is [[lesson-44]] again, one level up: the
+predicate is binary, the situation has three states).
+
+**How to apply.** Condition the knob check on there being something to fix: require the span only in
+cells where the inert-end value itself indicates a problem, and otherwise report the span as a
+diagnostic rather than a gate. Emit the inert-end value alongside the span so the two states can be
+told apart by eye even when the boolean cannot tell them apart.
