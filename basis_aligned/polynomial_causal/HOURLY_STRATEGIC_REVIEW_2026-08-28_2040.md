@@ -138,7 +138,7 @@ MLP1 is the sharp counterexample: it is the most token-determined early site
 coexist with greater causal damage. The next instrument must measure what an error
 does downstream, not merely its size or representability.
 
-### 6. The correct substitution direction is nonlinear and still does not beat depth
+### 6. The ideal token-mean direction is nonlinear and still does not beat depth
 
 The discovery-only interpolation
 
@@ -147,7 +147,9 @@ y_s(\alpha)=\mu_s(\text{token})+\alpha
 \bigl(y_s-\mu_s(\text{token})\bigr)
 \]
 
-tests the exact direction in which an ideal current-token table changes site \(s\).
+tests the exact direction in which an **ideal empirical current-token mean** changes
+site \(s\). It is not the deployed compiler's length-1 direction; that distinction was
+not measured until the following comparison.
 Here \(\alpha=1\) is the live site, \(\alpha=0\) is the empirical token mean, and
 \(\alpha=0.9\) is a small local step. The live equality and explained-variance drift
 controls pass exactly/within 0.0005, but the registered monotonicity control fails
@@ -176,6 +178,21 @@ chosen after seeing the outcome, so it is a new hypothesis, not a result. A froz
 heldout-document replication with separately estimated token means and document-level
 uncertainty is required.
 
+### 7. The deployed length-1 table and empirical token mean are different objects
+
+The compiler evaluates each site on a one-token sequence; S1840 instead averaged that
+site over real contexts for each token. A direct 34-site comparison shows a median
+frequency-weighted difference of 0.557 site-output RMS. The largest gaps are MLP4 at
+9.920, MLP5 at 2.781, MLP1 at 2.161, and MLP3 at 2.104. Therefore the ideal-mean curve
+cannot close the mechanism question for the actual compiler.
+
+The length-1 table's local error correlates \(+0.414\) with published replacement
+cost, and the length-1-minus-empirical gap correlates \(+0.472\); both improve on the
+ideal error's \(-0.466\) but remain far below depth's \(+0.853\). MLP4 rather than
+MLP5 has the largest table mismatch, so this difference does not explain MLP5's
+primacy. Controls pass. The cheapest remaining directional falsifier is a curve toward
+the actual length-1 table, fit/scored on separated support with document uncertainty.
+
 ## Candidate actions and pruning
 
 ### Kept
@@ -185,16 +202,16 @@ uncertainty is required.
    response preservation, frequency failure, and closure for the frozen lattice.
 2. The 8-by-8 cut-rank GPU measurement. It makes simplicity predictive: a low-dimensional
    state must forecast unmeasured replacement compositions.
-3. Repair the audited exact-versus-PCA early-MLP factorial. It can cheaply test an
+3. A heldout curve along the actual length-1 compiler direction, including a frozen
+   depth+component-type+local predictor and document bootstrap.
+4. Repair the audited exact-versus-PCA early-MLP factorial. It can cheaply test an
    oracle coupled output-subspace interface and exact MLP2 compensation, but cannot
    establish executable independent compression until native MLP calls are removed.
-4. A finite-amplitude, downstream-weighted MLP5 subspace. Instead of selecting
+5. A finite-amplitude, downstream-weighted MLP5 subspace. Instead of selecting
    residual axes or using an infinitesimal site scalar, find a
    rank-\(k\) subspace minimizing heldout downstream logit/CE distortion, with matched
    PCA and random-subspace controls. This is the proper next MLP5 test if current-token
    variance does not explain its cost.
-5. OOD/extraction/selective-removal tests for candidates that first pass in-domain
-   composition.
 
 The running sensitivity sweep has an important interpretation limit. If \(J_s\) is
 the downstream Jacobian at site \(s\), isotropic Gaussian noise measures an average
@@ -245,6 +262,8 @@ itself.
   **standalone rank** predictor: it correlates only +0.168 with published cost and
   does not predict the full response. A post-hoc depth-and-type-conditioned model is
   promising enough to replicate, but cannot be credited on the discovery sample.
+- The empirical token mean is pruned as a proxy for the deployed length-1 table: their
+  median difference is 0.557 output RMS and reaches 9.920 at MLP4.
 - OOD transport, selective removal, and MDL pricing remain mandatory validation, but
   applying them to candidates that already fail in-domain composition has low value.
 
@@ -257,20 +276,17 @@ itself.
 2. **Implement the cut-rank GPU adapter and run the 64-cell assay.** The measurement
    contract is complete. This is the highest genuinely new mathematical information:
    it can certify or falsify a two-channel interaction state on untouched combinations.
-3. **Repair, then run, the audited exact-versus-PCA early composition cube.** The
+3. **Run a heldout actual-length-1 directional curve.** S1840 used the wrong compiler
+   object for this purpose. Separate table fitting from scoring, retain per-document
+   CE, and test the frozen depth+type+local model as well as the nonlinear full curve.
+4. **Repair, then run, the audited exact-versus-PCA early composition cube.** The
    current runner is no-go: it needs provenance/lifecycle/call-ledger repairs, and a
    pass would only establish an oracle output-subspace interface because it still
    calls the native MLPs. It remains useful for asking whether exact MLP2 compensates,
    but not yet for claiming executable independent compression.
-4. **Freeze and replicate the conditional small-step model, then learn a
-   finite-amplitude downstream-weighted MLP5 subspace if needed.** Use separately fit
-   token means, heldout documents, and a document bootstrap to test whether the
-   discovery-frozen depth+type+local model beats depth+type. The curve rules out the
-   standalone scalar but not this conditional metric, a low-dimensional error
-   covariance, or a nonlinear response surface.
-5. **Validate survivors on OOD, extraction, and selective removal.** Use paired
-   CE/logit response rather than local MSE. Operational tests decide whether the
-   simplification is useful rather than merely compact.
+5. **Learn a finite-amplitude downstream-weighted MLP5 subspace, then validate
+   survivors on OOD, extraction, and selective removal.** Fit on discovery CE/logits
+   and require heldout improvement over PCA/random subspaces before operational tests.
 
 ## Action executed during this review
 
@@ -317,6 +333,17 @@ control is false. This prunes the **standalone first-order scalar** account. A p
 leave-one-layer-out check suggests that the local response may still add information
 conditional on depth and component type; that unregistered finding is queued only as
 a frozen heldout replication, not as scientific credit.
+
+S1841 then found no sharp nonlinear knee: only 41.1% of MLP5's damage occurs below
+\(\alpha=0.2\). Five sites spanning 9x total damage nevertheless share a normalized
+curve shape, with half-damage points between 0.21 and 0.31. The measured compiled-layer-0
+interaction is only 1.31x, so the earlier proposed cause of MLP5's special S1834 cost
+was corrected rather than retained.
+
+Finally, the length-1-versus-empirical comparison shows that S1840's direction is not
+the deployed compiler direction. The two tables differ by median 0.557 output RMS;
+the gap correlates +0.472 with cost but is largest at MLP4, not MLP5. This redirects
+the next cheap directional assay to the actual length-1 table on separated support.
 
 No final rows were opened, no scientific outcome was inferred from infrastructure,
 and concurrent GPU/job artifacts were left untouched.

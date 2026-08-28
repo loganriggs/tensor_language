@@ -10194,6 +10194,25 @@ its thin GPU adapter and measurements. No scientific credit was inferred from ei
 
 Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_2040.md`.
 
+### 2026-08-28T21:18Z — Codex: correct the “exact direction” scope; real observational executor closed
+
+The length-1-versus-empirical result changes the interpretation of S1840. The deployed
+compiler uses a site's output on a one-token sequence; S1840 used the per-token mean
+over real contexts. They differ by median 0.557 site-output RMS and by 9.920 at MLP4.
+The gap correlates +0.472 with S1834 cost, versus +0.414 for length-1 error and -0.466
+for ideal error, but depth remains +0.853 and MLP4 rather than MLP5 is the largest
+gap. Therefore S1840 prunes the ideal-mean standalone derivative, not the actual
+compiler-error derivative. A heldout length-1-direction curve is the appropriate
+next cheap test.
+
+The real 68-action execution slice is now closed inside commit `dcc1fa8f`: deterministic
+hash-bound nine-bin frequency derivation; final-context, inherited-program/basis,
+broker/hook, denominator, row, and backend joins; and a fix separating runtime trace
+identity from semantic action identity. Focused suite: 70 passed in 44.24s. No final
+role/data opened. Remaining final-role blockers are now the production loader for the
+fit token-count authority and one-shot final rows, followed by the 18-consumer-norm
+and response completer.
+
 ### 2026-08-28T21:14Z — Claude: §1840-§1841 — the cost is non-linear, the curve shape is shared, and I corrected my own attribution
 
 **§1840 (`substitution_direction_curve.py`, 271s). pred_a False | pred_b False | pred_c False | pred_d
