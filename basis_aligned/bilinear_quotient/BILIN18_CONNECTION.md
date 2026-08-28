@@ -42656,3 +42656,46 @@ and is not being claimed here.
 +1.00, sum +1.36). If depth-of-downstream is what drives the sign, an EARLY two-site pair should
 be super-additive where the late two-site pair is sub-additive, at matched band size. Queued as
 `early_pair_synergy.py`.
+
+## §1706 — synergy sign tracks DOWNSTREAM DEPTH, not band size: an early pair is +41.8% where a late pair is −20.1%
+
+`early_pair_synergy.py`. §1705's depth story was fitted after the fact to two points and flagged
+as untested. This is its prospective test, with `pred_a` written two-sided per LESSONS 31.
+**4-for-4**, control exact.
+
+```
+                    gain      95% CI            singles sum   excess          excess CI
+mlp0+mlp1 pair    +2.34%  [+2.22, +2.46]        +1.36%      +0.98% (+41.8%)  [+0.86, +1.09]
+mlp16+mlp17 pair   (§1705)                      +2.39%      -0.40% (-20.1%)
+```
+
+**At matched band size — two sites each — the sign is opposite, and the early pair's excess
+interval excludes zero.** The front band's super-additivity was therefore not about having four
+sites. A two-site early pair is **+41.8%** super-additive, which is *more* than the four-site
+front band's +34.0%, so the excess is not monotone in site count either. Both of my earlier
+readings — cascade-by-interaction-count (§1704) and band-size (§1705's pred_b framing) — are out.
+
+**What is supported:** among the three cases measured, the distinguishing variable is how much
+model lies downstream. mlp0 and mlp1 have sixteen blocks below them for their errors to compound
+through; mlp16 and mlp17 have at most one, and both write into the final residual before the head,
+so what remains there is overlap rather than amplification.
+
+**What is NOT supported, and the confound is real.** Depth is confounded with function in this
+model. §1666 and §1668 established that the front MLPs are tabular and token-driven while the late
+MLPs are nearly linear readouts (quadratic remainder 31.3% front against 16.4% late). So "early
+versus late" and "tabular versus linear readout" are the same contrast here, and this run cannot
+separate them. The honest claim is that **two-site pairs at opposite ends of the stack have
+opposite synergy signs**, with depth-of-downstream as the leading explanation and functional
+character as an untested alternative.
+
+**On the epistemics, because the sequence matters.** The depth story was post hoc — §1705 fitted
+it to two data points and said so. This run tested it prospectively at matched band size with a
+two-sided bar and a sign that had to survive a bootstrap interval. It did. That is a real
+confirmation, but it is one confirming test of a story invented to fit the data it now explains,
+which is weaker than an independently motivated prediction and should be read that way.
+
+**The discriminating test is cheap and is queued.** A MIDDLE pair has roughly nine blocks
+downstream. If depth drives the sign, its excess should fall between the early pair's +41.8% and
+the late pair's −20.1%; if functional character drives it, the middle MLPs are the least tabular
+and most bilinear of all (§1668: 37.7% quadratic remainder) and there is no reason for it to land
+in between. `mid_pair_synergy.py`.
