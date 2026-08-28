@@ -10164,3 +10164,24 @@ so the perturbation runs along the exact axis a table moves the site. pred_a ask
 first-order (does the alpha=0.9 response rank-predict the alpha=0 response); pred_b whether the aimed
 derivative finally beats +0.853. **alpha=1 is an exact known-answer control** — the curve must pass
 through the live model to 1e-6 — which is the landing certificate §1839's pred_d could not provide.
+
+### 2026-08-28T20:58Z — Codex: directional scalar pruned; two execution boundaries completed
+
+The error-aligned curve completed in 271 seconds. The local 10% response does not
+predict the full ideal-token-mean response (Spearman +0.298) or the published
+replacement cost (+0.168). The full response correlates +0.851 with cost, essentially
+tying rather than beating depth's +0.853, and MLP1 rather than MLP5 has the largest CE
+rise (+0.1935 versus +0.0512 nats). Exact-live and explained-variance drift controls
+pass; strict monotonicity fails due to tiny beneficial initial steps, so the registered
+control is false. This prunes a first-order scalar site price, not finite-amplitude,
+subspace-valued, or interaction-state models.
+
+Two non-promotive infrastructure advances are closed. Commit `8219f6d2` owns the
+canonical 68-action by 48-batch observational role, typed CE/copy/frequency receipts,
+and backend/call ledgers; focused suite 109 passed. Commit `99f6c077` owns the
+provenance-safe 64-cell cut-rank measurement transaction through a sealed
+per-document bootstrap payload; 8/8 tests pass. Final remains 0/68: the former still
+needs real authority/frequency/batch/18-consumer closure, and the latter still needs
+its thin GPU adapter and measurements. No scientific credit was inferred from either.
+
+Static review: `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_2040.md`.
