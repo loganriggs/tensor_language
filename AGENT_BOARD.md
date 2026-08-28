@@ -6783,3 +6783,25 @@ the squared-attention contraction, loss of the bilinear MLP contraction, or thei
 interaction before either typed grammar is engineered. I will commit a frozen script
 and AST/static tests but will not touch either runner queue while the nonlocal job is
 active.
+
+### 2026-08-28T07:44Z — Codex: cost denominator corrected
+
+The rank-8 compiler's advertised 0.664M reals and 0.905 nat/Mreal count only trainable
+factors. Its active covered-token tables cost
+36 x 5419 x 1152 = 224,736,768 reals, so the conditional program is 225.400M values
+and efficiency is 0.002665 nat/Mreal, 339.7x below the factor-only quotient. Rank
+32/128 conditional efficiencies are 0.002810/0.002714. S1752 A/B/C grow conditional
+storage while fidelity falls, so that family is dominated even before executable
+cost.
+
+The stronger correction is operational: present hooks allocate 2.084B dense table
+values, execute the native module before replacement, and use native output off the
+5,419-token support. They are causal class probes, not standalone compression. Added
+`compiler_program_cost.py`, six known-answer tests, a source-hashed CPU audit artifact,
+and `COMPILER_COST_CORRECTION_2026-08-28.md`. Standalone nats/M now fails closed unless
+the program has total support and zero native calls. Fidelity receipts do not change.
+
+The separately preregistered hybrid tensor-class oracle was committed/pushed at
+`60f04af0` and queued only after S1752 completed. Its completed result is deliberately
+recorded in a separate ledger entry so this correction does not mix a CPU accounting
+claim with a GPU behavioral claim.

@@ -1,0 +1,223 @@
+{
+ "status": "cost-axis correction; fidelity receipts unchanged",
+ "scope": "S1751 and S1752 discovery compilers only",
+ "sources": {
+  "basis_aligned/bilinear_quotient/ops/downstream_rank_sweep_results.json": "02dd90b207c68d52bda377c25e9daa33988d80a89884c509adb758dccc53b9fc",
+  "basis_aligned/bilinear_quotient/ops/nonlocal_program_class_results.json": "3f0eb671fc52a9161ecd3cf5bcd3e652e6742fcb02925ece0b36f3370774c941"
+ },
+ "definitions": {
+  "factor_only": "trainable low-rank factors; valid only as marginal rank cost",
+  "conditional": "active covered-token table values plus factors and shared token IDs",
+  "hook_added": "dense allocated tables plus factors, excluding the retained native model",
+  "standalone": "requires total input support and zero native calls; current artifacts fail"
+ },
+ "s1751_rank_sweep": {
+  "8": {
+   "recovered_nats": 0.6006,
+   "cost": {
+    "site_count": 36,
+    "active_token_types": 5419,
+    "vocabulary_size": 50257,
+    "input_blocks": 1,
+    "rank": 8,
+    "input_dim": 1152,
+    "output_dim": 1152,
+    "coefficient_bits": 32,
+    "native_parameter_reals": null,
+    "native_forward_executed": true,
+    "native_fallback_for_uncovered": true,
+    "factor_reals": 663552,
+    "active_table_value_reals": 224736768,
+    "active_token_index_bits": 86704,
+    "conditional_value_reals": 225400320,
+    "conditional_description_bits": 7212896944,
+    "allocated_dense_table_reals": 2084258304,
+    "hook_added_reals": 2084921856,
+    "current_hook_parameter_reals": null,
+    "standalone_admissible": false,
+    "standalone_parameter_reals": null
+   },
+   "nats_per_Mreal": {
+    "factor_only_incremental": 0.9051287615740741,
+    "conditional_active_table_plus_factors": 0.0026645924903744593,
+    "current_hook_added_tensors_excluding_native_model": 0.00028806835050991953,
+    "standalone_zero_native_call": null
+   },
+   "factor_only_to_conditional_overstatement_ratio": 339.6875,
+   "standalone_status": "not available: hook executes native module at every position and uses native output for uncovered token IDs"
+  },
+  "32": {
+   "recovered_nats": 0.63897,
+   "cost": {
+    "site_count": 36,
+    "active_token_types": 5419,
+    "vocabulary_size": 50257,
+    "input_blocks": 1,
+    "rank": 32,
+    "input_dim": 1152,
+    "output_dim": 1152,
+    "coefficient_bits": 32,
+    "native_parameter_reals": null,
+    "native_forward_executed": true,
+    "native_fallback_for_uncovered": true,
+    "factor_reals": 2654208,
+    "active_table_value_reals": 224736768,
+    "active_token_index_bits": 86704,
+    "conditional_value_reals": 227390976,
+    "conditional_description_bits": 7276597936,
+    "allocated_dense_table_reals": 2084258304,
+    "hook_added_reals": 2086912512,
+    "current_hook_parameter_reals": null,
+    "standalone_admissible": false,
+    "standalone_parameter_reals": null
+   },
+   "nats_per_Mreal": {
+    "factor_only_incremental": 0.24073848017939814,
+    "conditional_active_table_plus_factors": 0.002810005969630035,
+    "current_hook_added_tensors_excluding_native_model": 0.0003061795817150192,
+    "standalone_zero_native_call": null
+   },
+   "factor_only_to_conditional_overstatement_ratio": 85.67187499999999,
+   "standalone_status": "not available: hook executes native module at every position and uses native output for uncovered token IDs"
+  },
+  "128": {
+   "recovered_nats": 0.63865,
+   "cost": {
+    "site_count": 36,
+    "active_token_types": 5419,
+    "vocabulary_size": 50257,
+    "input_blocks": 1,
+    "rank": 128,
+    "input_dim": 1152,
+    "output_dim": 1152,
+    "coefficient_bits": 32,
+    "native_parameter_reals": null,
+    "native_forward_executed": true,
+    "native_fallback_for_uncovered": true,
+    "factor_reals": 10616832,
+    "active_table_value_reals": 224736768,
+    "active_token_index_bits": 86704,
+    "conditional_value_reals": 235353600,
+    "conditional_description_bits": 7531401904,
+    "allocated_dense_table_reals": 2084258304,
+    "hook_added_reals": 2094875136,
+    "current_hook_parameter_reals": null,
+    "standalone_admissible": false,
+    "standalone_parameter_reals": null
+   },
+   "nats_per_Mreal": {
+    "factor_only_incremental": 0.060154479226948304,
+    "conditional_active_table_plus_factors": 0.0027135765078588133,
+    "current_hook_added_tensors_excluding_native_model": 0.00030486303886323847,
+    "standalone_zero_native_call": null
+   },
+   "factor_only_to_conditional_overstatement_ratio": 22.16796875,
+   "standalone_status": "not available: hook executes native module at every position and uses native output for uncovered token IDs"
+  }
+ },
+ "s1752_nonlocal_variants": {
+  "A_current": {
+   "recovered_nats": 0.38578,
+   "cost": {
+    "site_count": 36,
+    "active_token_types": 5419,
+    "vocabulary_size": 50257,
+    "input_blocks": 1,
+    "rank": 8,
+    "input_dim": 1152,
+    "output_dim": 1152,
+    "coefficient_bits": 32,
+    "native_parameter_reals": null,
+    "native_forward_executed": true,
+    "native_fallback_for_uncovered": true,
+    "factor_reals": 663552,
+    "active_table_value_reals": 224736768,
+    "active_token_index_bits": 86704,
+    "conditional_value_reals": 225400320,
+    "conditional_description_bits": 7212896944,
+    "allocated_dense_table_reals": 2084258304,
+    "hook_added_reals": 2084921856,
+    "current_hook_parameter_reals": null,
+    "standalone_admissible": false,
+    "standalone_parameter_reals": null
+   },
+   "nats_per_Mreal": {
+    "factor_only_incremental": 0.5813862364969136,
+    "conditional_active_table_plus_factors": 0.001711532618942156,
+    "current_hook_added_tensors_excluding_native_model": 0.00018503331378574218,
+    "standalone_zero_native_call": null
+   },
+   "factor_only_to_conditional_overstatement_ratio": 339.6875,
+   "standalone_status": "not available: hook executes native module at every position and uses native output for uncovered token IDs"
+  },
+  "B_lag1": {
+   "recovered_nats": 0.35004,
+   "cost": {
+    "site_count": 36,
+    "active_token_types": 5419,
+    "vocabulary_size": 50257,
+    "input_blocks": 2,
+    "rank": 8,
+    "input_dim": 1152,
+    "output_dim": 1152,
+    "coefficient_bits": 32,
+    "native_parameter_reals": null,
+    "native_forward_executed": true,
+    "native_fallback_for_uncovered": true,
+    "factor_reals": 995328,
+    "active_table_value_reals": 224736768,
+    "active_token_index_bits": 86704,
+    "conditional_value_reals": 225732096,
+    "conditional_description_bits": 7223513776,
+    "allocated_dense_table_reals": 2084258304,
+    "hook_added_reals": 2085253632,
+    "current_hook_parameter_reals": null,
+    "standalone_admissible": false,
+    "standalone_parameter_reals": null
+   },
+   "nats_per_Mreal": {
+    "factor_only_incremental": 0.3516830632716049,
+    "conditional_active_table_plus_factors": 0.001550687767502943,
+    "current_hook_added_tensors_excluding_native_model": 0.00016786447203751952,
+    "standalone_zero_native_call": null
+   },
+   "factor_only_to_conditional_overstatement_ratio": 226.79166666666666,
+   "standalone_status": "not available: hook executes native module at every position and uses native output for uncovered token IDs"
+  },
+  "C_lag1_prefixmean": {
+   "recovered_nats": -0.80171,
+   "cost": {
+    "site_count": 36,
+    "active_token_types": 5419,
+    "vocabulary_size": 50257,
+    "input_blocks": 3,
+    "rank": 8,
+    "input_dim": 1152,
+    "output_dim": 1152,
+    "coefficient_bits": 32,
+    "native_parameter_reals": null,
+    "native_forward_executed": true,
+    "native_fallback_for_uncovered": true,
+    "factor_reals": 1327104,
+    "active_table_value_reals": 224736768,
+    "active_token_index_bits": 86704,
+    "conditional_value_reals": 226063872,
+    "conditional_description_bits": 7234130608,
+    "allocated_dense_table_reals": 2084258304,
+    "hook_added_reals": 2085585408,
+    "current_hook_parameter_reals": null,
+    "standalone_admissible": false,
+    "standalone_parameter_reals": null
+   },
+   "nats_per_Mreal": {
+    "factor_only_incremental": -0.6041048779899691,
+    "conditional_active_table_plus_factors": -0.003546387102491105,
+    "current_hook_added_tensors_excluding_native_model": -0.0003844052595135917,
+    "standalone_zero_native_call": null
+   },
+   "factor_only_to_conditional_overstatement_ratio": 170.34375,
+   "standalone_status": "not available: hook executes native module at every position and uses native output for uncovered token IDs"
+  }
+ },
+ "conclusion": "factor-only nats/Mreal is not a whole-program simplicity score. The table dominates conditional storage, and the executed hook retains all native compute."
+}

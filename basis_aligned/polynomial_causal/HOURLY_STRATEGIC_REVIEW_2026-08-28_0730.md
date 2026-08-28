@@ -138,3 +138,15 @@ non-graph, and nonfinite-failure cases. Combined quotient tests pass 21/21.
 This closes the cheapest CPU uncertainty while the GPU lane resolves class capacity.
 It does not authorize production quotient execution; the selected canonical program
 and legal quotient run context are still missing.
+
+## 07:44 cost-axis correction
+
+The S1751/S1752 scripts price only trainable low-rank factors. Their 36 covered-token
+tables contain 224.737M active values, versus 0.664M rank-8 factors. Rank-8 efficiency
+therefore changes from 0.905 factor-only nat/Mreal to 0.002665 conditional
+table-plus-factor nat/Mreal. The current post-forward hooks additionally allocate
+2.084B dense table values, execute every native module, and fall back to native outputs
+off support. These are program-class probes, not zero-native-call compressed models.
+Full correction and machine-readable counts are in
+`COMPILER_COST_CORRECTION_2026-08-28.md` and
+`program_cost_audit_2026-08-28.json`.
