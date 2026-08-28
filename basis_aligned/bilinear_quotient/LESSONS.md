@@ -1151,3 +1151,23 @@ changed the intermediate quantity it acts through -- and emit that quantity, not
 regularisation as a FRACTION of the relevant spectral scale, never as an absolute number, and prefer a
 sweep whose endpoints are known to bracket the behaviour (here: a ridge small enough to be inert and one
 large enough to dominate). Related: [[lesson-44]], [[lesson-35]].
+
+## LESSON 46 — scope a control to the cells its prediction actually reads
+
+§1801's pred_d required `cond(A)` to span >=1000x across the ridge sweep **at every n**, a gate written
+after LESSON 45 to stop me reading a negative from a sweep that never moved its knob. It failed — not
+because the knob failed to turn where it mattered (it turned 3.7e+06x at n = D, the only cell pred_a
+tests) but because at n = 1620 the unregularised matrix was *already* well conditioned (cond 3.22e+03)
+and there was nothing for the ridge to remove. The gate demanded a large change in a quantity that had
+no room to change, in a cell no prediction consulted.
+
+A control that ranges over more cells than its prediction does will eventually fire on one of them, and
+when it does it blocks a conclusion the evidence supports. That is the mirror of the failure it was
+written to prevent: LESSON 45 was a check too weak to fail, this is a check too broad to pass.
+
+**How to apply.** Write the control over exactly the cells the prediction reads, and no more. If the
+prediction is "arm X beats arm Y at cell C", the licensing condition is about cell C — quantify it
+there, and report the other cells as diagnostics rather than as gates. When a control does fire, ask
+first whether it fired inside the claim's support before treating the claim as unreadable. Related:
+[[lesson-45]], [[lesson-40]] (a strict inequality with no margin is not a bar -- pred_b in the same run
+failed on 0.04pp wobbles against a 9.45pp effect for exactly that reason).

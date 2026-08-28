@@ -47160,3 +47160,64 @@ subsets nested at exactly the requested sizes; coverage 5419.
 **Open question this ends on.** Every lever inside the position-wise class is now priced and none
 closes the gap. The next question is not how to improve the class but what the smallest departure from
 it buys — one site restored to live attention, and what that single re-admission of context is worth.
+
+## §1801 — the n=D collapse IS the ridge solve's conditioning; and my control fired on a cell its prediction never reads
+
+`ops/coverage_dip_relative_ridge.py`, 896.1s, **DISCOVERY ONLY**, rung 3.
+**pred_a True | pred_b FALSE | pred_c True | pred_d FALSE.**
+
+With the ridge expressed as a fraction of `lambda_max(Ecov^T Ecov)` — the fix LESSON 45 demanded —
+the knob finally turns and the answer is unambiguous:
+
+```
+  n = D = 1152        inert (1e-8*lmax)   dominant (1e-1*lmax)    gain
+    skip7000                2.40%              11.84%           +9.45pp
+    skip11000               2.51%              12.39%           +9.87pp
+    skip1200                2.28%              11.72%           +9.44pp
+
+  cond(A) at n=880:  1.00e+08 -> 1.00e+05 -> 1.00e+03 -> 1.10e+01 across the four ridges
+```
+
+**pred_a passed decisively. §1799's collapse is the conditioning of the rank-64 map's normal system**,
+not a property of coverage and not the output-NN fallback. A properly scaled ridge recovers essentially
+all of it — the program at `n = D` goes from losing four fifths of its accuracy to sitting level with
+its neighbours.
+
+**pred_b FAILED on wobbles two orders of magnitude below the effect.** At `0.1*lmax` the curves are
+11.80 / 11.84 / 11.88 / 11.90 (monotone), 12.30 / 12.39 / **12.33** / 12.36, and 11.61 / 11.72 / 11.84 /
+**11.80** — residual dips of **0.06pp and 0.04pp** against a 9.45pp effect. I wrote the bar as
+`>= -1e-12`: a **zero-tolerance monotonicity test on a quantity with sampling variation across
+coverage subsets**. That is LESSON 40, my own, applied to the wrong branch. Scored FALSE as written; the
+non-monotonicity it detects is not the phenomenon §1798 found and is at the level of the sampling.
+
+**pred_d FAILED, and its failure is instructive rather than damaging.** It had two conjuncts. The
+cross-run half **held exactly**: at the inert ridge, `n = 1355` gives 6.94 / 7.10 / 6.79% against
+§1799's published 0.0694 / 0.0710 / 0.0679 — identical to the digit — and `n = 1152` reproduces within
+0.0007. The objects are the same. What failed was my knob check, which demanded `cond(A)` span >=1000x
+**at every n**. It spans **9.1e+06x** at n=880 and **3.7e+06x** at n=1152, but only **2.9e+02x** at
+n=1620 — because at n=1620 the inert ridge was *already* well conditioned (cond 3.22e+03) and there was
+no ill-conditioning for the ridge to remove.
+
+**So my control fired on a cell its prediction never reads.** pred_a is about `n = D`, where the knob
+turned by 3.7 million times. I wrote the gate to catch §1799's failure and made it global when the
+defect it guards against is per-cell. **I am recording pred_d as FALSE as written, and stating plainly
+that the conditioning conclusion is nonetheless established** — the evidence at the cell in question is
+overwhelming and its licensing condition is met there. The predicate was mis-scoped, not the run.
+**LESSON 46.**
+
+**pred_c, the known-answer control, passed**: the kept-token slice is 15.2958 / 16.8350 / 14.2029% in
+all sixteen cells, so §1765's position-wise property holds throughout and no ridge reaches a position
+that kept its own table.
+
+**The consequence that matters more than the diagnosis.** At `n = 880`, where there was no collapse at
+all, the dominant ridge still scores **11.80%** against the inert **9.11%** — **+2.69pp**. The ridge is
+not merely fixing a pathology at one coverage; it is better everywhere it was measured. And **the
+settled program of §1786 uses that same inert setting**: `lambda_max ~ 7.26e+06`, so its
+`RIDGE * (n/D)` = 0.01 is **1.38e-09 * lambda_max**. Every accuracy figure from §1788 through §1800 was
+measured on a program regularised at the inert end of this sweep. Whether that costs anything at full
+coverage is untested and is queued as `ops/settled_ridge_scan.py`.
+
+**Scope note for the run now executing.** `ops/one_live_attention_site.py` measures the value of
+restoring one attention layer *relative to the settled program*. If the ridge scan moves that baseline,
+those gains are measured against a shifted reference and will need restating — the sweep across layers
+remains valid, the absolute pp figures may not.
