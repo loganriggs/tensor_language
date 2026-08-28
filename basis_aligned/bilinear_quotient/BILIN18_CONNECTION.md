@@ -48955,3 +48955,59 @@ compilable for nothing, which is a compression claim with teeth rather than anot
 collapses, then deep sites are absorbable singly but not jointly, and this sweep was measuring the
 suffix's tolerance for one perturbation rather than a genuinely redundant region. Sweeping the boundary
 K in {13, 11, 9, 7, 5, 3} for "compile layers K..17" locates the frontier either way.
+
+## §1832 — deep sites are free one at a time and SUPER-ADDITIVE together: the mirror image of layer 1
+
+`ops/deep_suffix_frontier.py`, 278.9s, **DISCOVERY ONLY**, rung 3 (§1831's open question).
+**pred_a False | pred_b False | pred_c True (weakly) | pred_d True.**
+
+```
+  skip7000, sequential arm; B0 = 64.8% at 2/36 sites
+    TOP13 (12/36) 40.6%   TOP11 (16/36) 31.8%   TOP9 (20/36) 22.3%
+    TOP7  (24/36)  6.8%   TOP5  (28/36) -0.5%   TOP3  (32/36)  0.0%
+  consecutive drops   K13->K11 +8.7   K11->K9 +9.5   K9->K7 +15.5   K7->K5 +7.2   K5->K3 -0.5
+```
+
+**pred_a FAILED and the compression claim does not survive.** TOP9 — layer 0 plus every site from layer
+9 to 17, **20 of 36 sites** — retains **22.3%** against a 50% bar and against B0's 64.8%. I registered
+this run as the first shot at a positive result and it is a clean negative: **deep sites are absorbable
+singly but not jointly.** §1831's free deep sites were measuring the live suffix's tolerance for *one*
+perturbation, exactly as pred_a's failure branch said they might be.
+
+**pred_b FAILED too, and that matters more than pred_a.** The largest single step is **15.5pp**, under
+the 20pp bar, and the drops are near-uniform: 8.7, 9.5, 15.5, 7.2. There is **no frontier** — the cost is
+a smooth dose-response in how many sites are compiled, not a boundary between a free region and an
+expensive one. **pred_c passed at K=7 but I am scoring it weak**: "the largest drop" is the largest of a
+nearly flat set, so its location carries little information once pred_b has failed.
+
+> **The finding is a dichotomy in how compiled sites combine, and it is the sharpest structure in this
+> arc.** §1830: two sites at **layer 1** are **sub-additive at 1.96x**, where 2.00x is exact redundancy —
+> they destroy the *same* thing, and either alone suffices. §1832: sites in the **deep band** are
+> **super-additive** — the three single sites I measured inside layers 13-17 (attn13 +0.6pp, attn17
+> −0.5pp, mlp17 +4.0pp) average **1.37pp** of damage each, while all ten of them together cost **24.2pp**,
+> which is **2.42pp per site, 1.8x** the single-site rate. Early sites overlap; deep sites accumulate.
+
+**Depth still beats count, which is the other thing the table shows.** TOP13 compiles **12** sites and
+recovers **40.6%**; B1 compiles **4** and recovers **25.9%**. Ten deep sites are cheaper than two layer-1
+sites. So neither count nor depth alone prices a compiled set — §1831 established depth matters, §1832
+establishes count does too, and the two do not reduce to each other.
+
+**Controls (pred_d).** B0 and B1 reproduce §1829's published sequential figures; B0+attn9 reproduces
+§1831's published 64.1%; B0 reproduces §1806's published raw 37.4%; endpoints reproduce §1789's full-rank
+top-1; the placement control moves top-1 under 0.05pp. Coverage 5419 of 50257. All three roles agree in
+shape, and TOP5/TOP3 sit at the all-substituted floor (−0.5% / 0.0%), which is the expected saturation.
+
+**A caveat I am stating rather than burying.** The 1.8x super-additivity rests on **three** measured
+single-site drops inside the 13-17 band, not ten. It is a sample estimate, and the in-band spread is wide
+(−0.5pp to +4.0pp). The direction is not in doubt — ten sites cost 24.2pp where even the most expensive
+measured single site would predict 40pp only if every site were as bad as mlp17 — but the multiplier is
+approximate.
+
+**Open question this ends on.** Is the deep-band super-additivity about **count** or about
+**contiguity**? TOP13 compiles ten *adjacent* sites, layers 13 through 17 — a contiguous compiled block
+with no live layer inside it. Ten sites *scattered* through the deep half (attn and mlp at layers 9, 11,
+13, 15, 17) is the same count, the same depth character, and no block longer than one layer. If scattering
+recovers substantially more, contiguity is the cost driver — a run of compiled layers severs something a
+spaced set leaves intact — and a practical compiled program should interleave live layers rather than
+compile a suffix. If the two are the same, the cost is purely a function of how many sites are compiled
+and where they sit within the deep half is irrelevant.

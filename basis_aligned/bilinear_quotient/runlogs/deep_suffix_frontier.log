@@ -1,0 +1,64 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+DEEP SUFFIX FRONTIER | B0 + every site from layer K to 17 | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (48s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (113s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+    B0         live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+    B1         live-attn gains L1-L3: L2 0.1984  L3 0.2826  L4 0.6619
+  B1_raw                 skip7000 14.05%  skip11000 15.42%  skip1200 14.27%
+  B1_seq                 skip7000 20.22%  skip11000 21.67%  skip1200 20.17%
+    B0_attn9   live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  B0_attn9_raw           skip7000 23.17%  skip11000 25.27%  skip1200 23.22%
+  B0_attn9_seq           skip7000 30.07%  skip11000 32.42%  skip1200 28.97%
+    TOP13      live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  TOP13_raw              skip7000 19.19%  skip11000 20.69%  skip1200 19.43%
+  TOP13_seq              skip7000 24.00%  skip11000 25.57%  skip1200 23.38%
+    TOP11      live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  TOP11_raw              skip7000 18.19%  skip11000 19.52%  skip1200 18.42%
+  TOP11_seq              skip7000 21.76%  skip11000 23.07%  skip1200 21.03%
+    TOP9       live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  TOP9_raw               skip7000 17.17%  skip11000 18.29%  skip1200 17.48%
+  TOP9_seq               skip7000 19.30%  skip11000 20.49%  skip1200 18.61%
+    TOP7       live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  TOP7_raw               skip7000 14.31%  skip11000 14.75%  skip1200 14.12%
+  TOP7_seq               skip7000 15.30%  skip11000 15.76%  skip1200 14.87%
+    TOP5       live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  TOP5_raw               skip7000 13.12%  skip11000 13.98%  skip1200 13.32%
+  TOP5_seq               skip7000 13.43%  skip11000 14.23%  skip1200 13.63%
+    TOP3       live-attn gains L1-L3: L1 0.3401  L2 0.5641
+  TOP3_raw               skip7000 13.56%  skip11000 14.27%  skip1200 13.61%
+  TOP3_seq               skip7000 13.56%  skip11000 14.30%  skip1200 13.66%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+
+  gap fraction recovered, all roles:
+    B0          2/36 sites  skip7000 raw   37.4% seq   64.8%  skip11000 raw   39.6% seq   65.3%  skip1200 raw   38.1% seq   61.3%
+    B1          4/36 sites  skip7000 raw    1.9% seq   25.9%  skip11000 raw    4.2% seq   26.4%  skip1200 raw    2.5% seq   25.8%
+    B0_attn9    3/36 sites  skip7000 raw   37.3% seq   64.1%  skip11000 raw   39.2% seq   64.7%  skip1200 raw   37.9% seq   60.7%
+    TOP13      12/36 sites  skip7000 raw   21.9% seq   40.6%  skip11000 raw   22.9% seq   40.3%  skip1200 raw   22.9% seq   38.6%
+    TOP11      16/36 sites  skip7000 raw   18.0% seq   31.8%  skip11000 raw   18.7% seq   31.4%  skip1200 raw   18.9% seq   29.3%
+    TOP9       20/36 sites  skip7000 raw   14.0% seq   22.3%  skip11000 raw   14.4% seq   22.2%  skip1200 raw   15.2% seq   19.7%
+    TOP7       24/36 sites  skip7000 raw    3.0% seq    6.8%  skip11000 raw    1.8% seq    5.4%  skip1200 raw    1.9% seq    4.8%
+    TOP5       28/36 sites  skip7000 raw   -1.7% seq   -0.5%  skip11000 raw   -0.9% seq   -0.1%  skip1200 raw   -1.3% seq   -0.0%
+    TOP3       32/36 sites  skip7000 raw    0.0% seq    0.0%  skip11000 raw    0.1% seq    0.2%  skip1200 raw   -0.2% seq    0.1%
+
+  THE FRONTIER (skip7000, sequential; B0 = 64.8% at 2/36 sites):
+    TOP13 (12/36) 40.6%  TOP11 (16/36) 31.8%  TOP9 (20/36) 22.3%  TOP7 (24/36) 6.8%  TOP5 (28/36) -0.5%  TOP3 (32/36) 0.0%
+    consecutive drops: K13->K11 +8.7%  K11->K9 +9.5%  K9->K7 +15.5%  K7->K5 +7.2%  K5->K3 -0.5%
+
+  the DEEP SUFFIX is free in aggregate (TOP9 >=50%) -> False  TOP9 22.3% at 20/36 sites vs B0 64.8% at 2/36
+  and the frontier is SHARP (>20pp in one step) -> False  biggest drop lands at K=7, +15.5%
+  and it matches §1831 single-site band (K in 5..9) -> True  frontier K=7
+  B0/B1 reproduce §1829, B0+attn9 reproduces §1831, endpoints §1789 -> control True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/deep_suffix_frontier_results.json (278.9s)
