@@ -1,0 +1,50 @@
+{
+ "config": {
+  "fit_rows": "96x256 = 24576 tokens",
+  "smoothing": "add-alpha with unigram backoff, alpha swept over (0.01, 0.1, 1.0)",
+  "scoring": "covered positions from 64, identical to every published figure",
+  "WHY": "\u00a71765 showed the installed 36-site program is a pure function of the current token, so a bigram on the same fit rows is the floor it should have been measured against since \u00a71662.",
+  "DATA_LIMITATION": "24,576 fit tokens is very little for a bigram over 5,419 covered types; alpha is swept so one smoothing choice does not decide the comparison.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "live_ce_covered": {
+  "skip7000": 3.29205,
+  "skip11000": 3.09711
+ },
+ "reference": {
+  "best_36_site_program_ce": {
+   "skip7000": 6.57512,
+   "skip11000": 6.57289
+  },
+  "all_tabled_ce": {
+   "skip7000": 7.35114,
+   "skip11000": 7.35825
+  }
+ },
+ "null_models": {
+  "unigram": {
+   "skip7000": 8.38461,
+   "skip11000": 8.40929
+  },
+  "bigram_alpha0.01": {
+   "skip7000": 7.88804,
+   "skip11000": 7.90729
+  },
+  "bigram_alpha0.1": {
+   "skip7000": 8.10836,
+   "skip11000": 8.12803
+  },
+  "bigram_alpha1.0": {
+   "skip7000": 8.31501,
+   "skip11000": 8.33797
+  }
+ },
+ "best_bigram": "bigram_alpha0.01",
+ "predictions": {
+  "pred_a_bigram_beats_best_program": false,
+  "pred_b_bigram_beats_all_tabled": false,
+  "pred_c_bigram_loses_to_live": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 3.2
+}

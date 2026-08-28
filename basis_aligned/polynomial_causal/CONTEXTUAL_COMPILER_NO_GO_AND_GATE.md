@@ -58,6 +58,11 @@ The matched poke diagnostic gives the same conclusion operationally:
 Thus S1747--S1758 measure a per-token null compiled through 36 position-wise layers.
 They do not measure a compressed contextual transformer.
 
+A discovery-only bigram fitted on the same 24,576 rows obtains covered CE $7.88804$
+at skip7000 and $7.90729$ at skip11000, versus $6.57512$ and $6.57289$ for the best
+36-site program. The old program therefore computes a materially richer current-token
+function than a simple bigram. This does not restore any prefix dependence.
+
 ## Mandatory admission gate
 
 A candidate may enter the whole-model simplicity frontier only if all of the following

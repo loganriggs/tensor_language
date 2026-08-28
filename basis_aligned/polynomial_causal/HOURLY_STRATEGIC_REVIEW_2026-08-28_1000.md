@@ -27,6 +27,9 @@ A late diagnostic resolves the earlier covered-position anomaly and narrows the 
 denominator further: every S1747--S1758 local "program" is a pure current-token
 function once installed at all 36 sites. Those values measure a per-token null, not
 contextual transformer reconstruction, and contribute 0% to strict whole-model recovery.
+A same-row bigram null is worse than the 36-layer current-token program
+($7.888$ versus $6.575$ covered CE at skip7000), so the position-wise arithmetic is
+nontrivial; it is still provably noncontextual.
 
 ## Largest gaps
 
