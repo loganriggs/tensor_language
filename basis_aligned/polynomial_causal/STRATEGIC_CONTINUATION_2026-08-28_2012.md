@@ -105,6 +105,14 @@ The qualitative result replicates across the three evaluation roles: DISC16 obta
 the very large miss against the 34.2% registered DISC16 threshold—not a formal
 confidence interval—support the negative claim.
 
+A completed scaling control rules out the simplest rescue. On the top-16
+output-magnitude coordinates, native MLP5 in the B0 stream is 0.899 times—not at
+least 2 times—the fully live magnitude. Matching each preserved channel's magnitude
+to the compiled row does not help: scaled DISC64 recovers -3.6% of the MLP5 stake and
+scaled DISC256 recovers 12.4%, compared with 8.0% and 30.5% unscaled. Thus neither a
+small fixed coordinate set nor a missing scalar/per-coordinate gain explains the
+MLP5 interface failure.
+
 ### 3. The causal response backend is close to a real final measurement
 
 For each four-document batch, the adapter can now run one closed transaction with:
@@ -120,10 +128,17 @@ terminal result now requires the typed completed-run receipt. This closes the ea
 possibility of presenting caller-labelled arrays as if they came from LL, LT, or a
 particular null program.
 
-What remains is the production callback that executes and aggregates all 68
-observational actions, joins those observations to the completed response run, emits
-the registered closure diagnostics, and is invoked once on the final role. The 68
-actions are 34 early-MLP programs under two MLP2 choices; they are evaluations, not 68
+The boundary now also performs a typed join: all 22 response-bearing actions in the
+68-action observational bundle must match the completed response run arm by arm and
+modality by modality, with common program, support, ordered intervention units, and
+receipt identity. A substituted null arm or changed response statistic fails closed.
+The complete suffix/observed CPU suite passes 297 tests.
+
+What remains is the production role owner that executes and aggregates 48 batches for
+each of all 68 observational actions, emits the nine frequency-bin and 18
+consumer-norm reductions plus gauge/SVD/difference-in-differences closure diagnostics,
+computes the registered gates, and invokes the existing join once. The 68 actions are
+34 early-MLP programs under two MLP2 choices; they are evaluations, not 68
 already-discovered circuits.
 
 ## What the mathematical review contributed
@@ -210,6 +225,8 @@ This is experimental progress, not a positive cut-rank result.
 - A global tensor train is underidentified at present.
 - A fixed small set of MLP5 output coordinates is falsified by the completed
   concentration assay.
+- Scalar or per-coordinate magnitude matching does not rescue that MLP5 coordinate
+  hypothesis.
 - Another local SAE, HOSVD, or PCA is deferred unless it predicts downstream response
   or enters the joint composition assay; local reconstruction alone has repeatedly
   failed to compose.
@@ -230,5 +247,10 @@ While this review remained active, the unchanged repaired MLP5 channel assay als
 closed successfully and was committed as `923d0933`. Its three positive predictions
 failed and its control passed, so the fixed-coordinate concentration branch is now
 pruned rather than left as provisional evidence.
+
+The response/observation join landed in `d8294813`, with adversarial arm-substitution
+and identity tests. The MLP5 magnitude-matching follow-up then completed with all
+controls passing and all rescue claims failing. Neither execution changes an
+explained-fraction ledger; both narrow the next experiment.
 
 ## UPDATE END
