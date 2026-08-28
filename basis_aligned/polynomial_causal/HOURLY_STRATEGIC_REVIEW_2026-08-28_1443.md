@@ -148,3 +148,62 @@ This is a source-schema failure, not evidence about the tensor. The v1 namespace
 preserved as spent with no partial result. A v2 retry is now being implemented in a
 new namespace with an exact mixed-dtype manifest, original-bias hashing, and a
 float64 analysis copy that remains outside all tensor spectra.
+
+## Final update: the corrected tensor result is authoritative
+
+The v2 retry was source-closed, independently audited, and completed in 10.02 seconds
+of diagnostic runtime. It made no model forward calls and loaded no data rows. Its
+output and input Gram traces agree exactly at `134315750.03623924`, with positive
+minimum eigenvalues, so clipping or numerical indefiniteness does not explain the
+result.
+
+MLP1's folded coefficient tensor is broad in the ordinary Euclidean metric:
+
+| retained coefficient energy | output rank | input rank | balanced-Down rank |
+|---:|---:|---:|---:|
+| 90% | 835 | 937 | 846 |
+| 95% | 962 | 1,033 | 970 |
+| 99% | 1,103 | 1,123 | 1,105 |
+| 99.9% | 1,147 | 1,147 | 1,147 |
+
+All three numerical ranks are 1,152. The registered $16^3$, $32^3$, and $64^3$
+projected cores retain only 0.0244%, 0.0877%, and 0.3321% of the full tensor's
+coefficient energy. Thus the proposed low-dimensional coefficient-HOSVD/Tucker path
+is decisively pruned. Balanced Down at its 90% rank saves only 2.7342% of MLP1
+storage and still executes all 4,608 products; at 95% it is already larger than
+native.
+
+This does **not** establish behavioral incompressibility. Coefficient Frobenius
+weights quadratic directions the model may never visit. Older exploratory work on
+MLP8 found exactly this metric reversal: an isotropic weight metric looked diffuse,
+while a ridged natural-input Gaussian surrogate gave high fitted similarity at much
+smaller rank. That old result is hypothesis-generating rather than current evidence:
+it used another layer, a Gaussian fourth-moment surrogate, and lacked the present
+held-out causal/composition contract.
+
+## Revised priority after the result
+
+1. **Prospectively test activation- and consequence-weighted MLP1 product rank.**
+   Use independent FineWeb input cohorts, empirical fourth moments or a validated
+   surrogate, data-doubling, executable CP/Tucker/native-gate controls, and complete
+   prices. This directly asks whether the large Euclidean tails are ever exercised.
+2. **Test top-down conditional refitting at the early-MLP interfaces.** The bottom-up
+   failure is directional and survives norm matching. MLP4 explains 78--82% of one
+   off-distribution swing, but the same rescale hurts the fully compiled program and
+   no single-site rescale helps. This is a typed-state problem, not a scalar fix.
+3. **Complete the parallel MLP2 coefficient-tensor audit.** Its source lifecycle is
+   being built independently. Comparison with MLP1 tests whether the compensating
+   stage has genuinely different weight geometry.
+4. **Run a bounded direct CP search only inside a justified metric.** CP remains
+   logically open, with necessary ranks 835/962/1103/1147 at the registered
+   coefficient-energy thresholds and exact lower bound 1,152, but the HOSVD result
+   supplies no positive CP evidence and records `cp_fitted=false`.
+5. **Return to overlapping lexical features only as a joint typed program.** Fit
+   MLP0 lexical atoms, continuous context residuals, and sparse MLP1/2 readers
+   together; admit them only on held-out prediction, OOD, extraction/removal,
+   composition, and executable cost.
+
+The highest-priority action has therefore produced a clean branch decision rather
+than a replacement: ordinary weight-space HOSVD is not the simplicity we want.
+The new mathematical task is to measure simplicity in the distributional and causal
+metric that the model actually uses, while retaining an explicit executable price.
