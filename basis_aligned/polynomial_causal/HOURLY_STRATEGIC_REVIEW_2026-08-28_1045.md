@@ -108,3 +108,22 @@ point, but its single-fixture causal pass is not a stable certificate. Threshold
 relaxation is pruned. The highest-priority next action is a prospectively frozen bank of
 positions, token fixtures, and perturbation magnitudes, comparing rank512 with rank640
 and a causally weighted shared basis on distributional recovery rather than one poke.
+
+## Continuation: rank640 passes the prospective causal bank
+
+The frozen 16-fixture discriminator cleanly separates the ranks. Rank512 has mean
+recovery 0.89821, recovery lower bound 0.86343, mean cosine 0.94983, cosine lower bound
+0.93326, and only 8/16 joint passes. Rank640 obtains 0.94442/0.92726 recovery,
+0.97238/0.96367 cosine, and 14/16 joint passes. It improves recovery on every paired
+fixture, so all capacity-evidence and robust causal gates pass.
+
+All eight natural-prefix interventions pass already at rank512; its failures are the
+eight synthetic stress tests. Rank640 retains 8/8 natural passes and repairs six of
+eight synthetic cases. This identifies insufficient routing capacity as the immediate
+cause while locating the remaining brittleness off the language manifold.
+
+Strict simplified whole-model admission is still pending rather than complete: rank512
+owns the predictive certificate, while rank640 owns the robust causal certificate, and
+certificates cannot be mixed across candidates. The new top priority is therefore the
+cheap rank640 cross-task CE gate. If it inherits rank512's approximately 0.01-nat harm,
+the 516,707,766-value program becomes the first prospectively admitted complete point.

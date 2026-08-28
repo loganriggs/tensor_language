@@ -11,6 +11,7 @@ for prediction and intervention.
 | complete program | stored values | saving | all-position CE harm, 7000 / 11000 | context recovery | delta cosine | status |
 |---|---:|---:|---:|---:|---:|---|
 | dense exact | 545,904,054 | 0% | 0 / 0 | 1.0000 | 1.0000 | exact reference |
+| shared-QK-640 | 516,707,766 | 5.3481% | pending | 0.9444 mean, 0.9273 LCB | 0.9724 mean, 0.9637 LCB | 16-fixture causal pass; predictive gate pending |
 | shared-QK-512 | 503,436,726 | 7.7793% | 0.00866 / 0.00975 | 0.9149 | 0.9565 | opened fixture pass; fresh fixture fails |
 | shared-QK-384 | 490,165,686 | 10.2103% | 0.01843 / 0.01991 | 0.8468 | 0.9211 | causal gate failure |
 
@@ -30,3 +31,10 @@ Cross-task FineWeb validation subsequently reproduces rank512's predictive harm 
 recovery and 0.9454 cosine. Both miss the frozen 0.90/0.95 gates. Rank512 is therefore a
 robust predictive point but not yet a robust causal abstraction; a multi-intervention
 distribution replaces single-fixture admission next.
+
+The prospective 16-fixture bank rejects rank512 (0.8982 mean recovery, 0.8634 lower
+bound, 8/16 individual passes) and admits rank640 causally (0.9444 mean recovery,
+0.9273 lower bound, 0.9724 mean cosine, 0.9637 lower bound, 14/16 passes). Rank640
+improves every paired fixture. It remains a causal candidate until predictive CE is
+measured at the same rank; complementary passes from different candidates are not
+composed into one certificate.
