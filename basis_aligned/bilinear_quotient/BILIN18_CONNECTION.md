@@ -43945,3 +43945,52 @@ largely recoverable by the others. **Attention sites are the reverse** — joint
 sum of their individual costs, so the stack's contribution is mostly *cooperative* and invisible when
 you remove one site at a time. That is measured here as a by-product of a broken control and has not
 been tested on its own terms.
+
+## §1736 — one-at-a-time ablation overstates MLP sites by 2.4x and understates attention sites by 2.5x, confirmed on a clean role and not a coverage artifact
+
+`ops/site_additivity.py`, 102.4s. **pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Roles declared before the run: skip7000 **discovery** (§1735 printed its two sums and I read them),
+skip11000 **CONFIRMATION** — its additivity numbers were computed inside §1735 but never printed,
+stored, or seen, so this is the first time any of them is looked at.
+
+Sum of the 18 one-at-a-time constant-ablation removals, over the removal when all 18 go together:
+
+| role | population | stack | sum of 18 | joint | ratio | 95% CI |
+|---|---|---|---:|---:|---:|---|
+| skip7000 | covered | MLP | 10.2983 | 4.3301 | 2.378 | (2.328, 2.430) |
+| skip7000 | covered | attn | 1.4206 | 3.5570 | 0.399 | (0.380, 0.419) |
+| **skip11000** | **covered** | **MLP** | **10.6655** | **4.5173** | **2.361** | **(2.318, 2.405)** |
+| **skip11000** | **covered** | **attn** | **1.4974** | **3.7552** | **0.399** | **(0.383, 0.416)** |
+| skip11000 | all positions | MLP | 10.7658 | 4.6296 | 2.325 | (2.285, 2.366) |
+| skip11000 | all positions | attn | 1.4839 | 4.2818 | 0.347 | (0.334, 0.360) |
+
+**Both bars cleared on the confirmation role in both directions** (MLP interval entirely above 1.5,
+attention entirely below 0.7), the sign is stable across roles, the joint stakes reproduce
+§1662/§1682 exactly — the control §1735 got wrong — and **pred_d holds: the asymmetry survives
+scoring every position instead of only fit-covered ones**, so it is about the modules and not about
+which tokens are counted.
+
+> **The two stacks compose in opposite ways.** Knock out one MLP and the other seventeen absorb most
+> of it: one-at-a-time ablation costs **2.4x** what the stack costs together. Knock out one attention
+> site and almost nothing happens: one-at-a-time ablation recovers only **40%** of what the stack
+> costs together, so most of attention's contribution exists only when the sites act jointly.
+
+**This is a correction factor on a large amount of existing work, mine and Codex's.** Every
+single-site importance number in this arc is a one-at-a-time constant-ablation cost. Against the
+joint stack they are systematically **inflated ~2.4x for MLP sites and deflated ~2.5x for attention
+sites**, in opposite directions, so a table that ranks MLP and attention sites against each other by
+individual removal is comparing two differently-scaled quantities. §1722's audit table, its
+`removal` column, and the specificity ratios built on it in §1724/§1725 are all in that category.
+
+It also explains a failure I could not account for at the time. **§1728's per-site contrast failed
+partly because attention has almost no per-site signal to find** — 1.42 nats spread over eighteen
+sites against a 3.56-nat joint stake. A test that removes attention sites one at a time is working
+with 40% of the effect it is trying to resolve.
+
+**The float64 fix that got here is worth one line.** The first attempt died on the aggregate-identity
+assert. The identity is exact in real arithmetic; attention's 1.42 nats sits on top of ~95,000 nats
+of total loss, and float32 accumulation across 18 sites left ~3e-5 of noise against a 1.4e-6
+tolerance. Same shape as the 1e-9 tolerance that fired at 1.41e-08 earlier in this arc. **The fix is
+the accumulator, not the tolerance** — the tolerance was right and the arithmetic was too coarse to
+meet it.

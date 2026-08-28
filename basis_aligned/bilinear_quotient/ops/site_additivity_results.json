@@ -1,0 +1,193 @@
+{
+ "config": {
+  "eval_sets": [
+   "skip7000",
+   "skip11000"
+  ],
+  "bootstrap_draws": 2000,
+  "bootstrap": "ROW-level clusters; NOT document-clustered (\u00a71701)",
+  "measure": "sum of the 18 one-at-a-time constant-ablation removals divided by the removal when all 18 are ablated together. Above 1 = the sites are REDUNDANT (others absorb the loss). Below 1 = COOPERATIVE (the contribution only exists jointly).",
+  "roles": "skip7000 DISCOVERY (its sums were printed in \u00a71735); skip11000 CONFIRMATION (computed inside \u00a71735 but never printed, stored or seen)"
+ },
+ "results": {
+  "skip7000": {
+   "role": "discovery",
+   "baseline_ce": 3.29205,
+   "covered": 27974,
+   "all": 36864,
+   "by_population": {
+    "cov": {
+     "mlp": {
+      "sum_individual": 10.29833,
+      "joint": 4.33011,
+      "ratio": 2.3783,
+      "ratio_ci95": [
+       2.3277,
+       2.43
+      ]
+     },
+     "attn": {
+      "sum_individual": 1.42059,
+      "joint": 3.55704,
+      "ratio": 0.39938,
+      "ratio_ci95": [
+       0.38,
+       0.4185
+      ]
+     }
+    },
+    "all": {
+     "mlp": {
+      "sum_individual": 10.31102,
+      "joint": 4.38392,
+      "ratio": 2.35201,
+      "ratio_ci95": [
+       2.3028,
+       2.4011
+      ]
+     },
+     "attn": {
+      "sum_individual": 1.39694,
+      "joint": 4.00813,
+      "ratio": 0.34853,
+      "ratio_ci95": [
+       0.3306,
+       0.3653
+      ]
+     }
+    }
+   },
+   "per_site_removal_cov": {
+    "mlp0": 0.85135,
+    "mlp1": 7.0213,
+    "mlp2": 0.77058,
+    "mlp3": 0.62127,
+    "mlp4": 0.10513,
+    "mlp5": 0.08022,
+    "mlp6": 0.07732,
+    "mlp7": 0.05747,
+    "mlp8": 0.04633,
+    "mlp9": 0.04737,
+    "mlp10": 0.03679,
+    "mlp11": 0.03942,
+    "mlp12": 0.03727,
+    "mlp13": 0.03307,
+    "mlp14": 0.02599,
+    "mlp15": 0.0313,
+    "mlp16": 0.08348,
+    "mlp17": 0.33267,
+    "attn0": 0.22852,
+    "attn1": 0.18675,
+    "attn2": 0.15311,
+    "attn3": 0.12388,
+    "attn4": 0.2386,
+    "attn5": 0.13889,
+    "attn6": 0.05569,
+    "attn7": 0.05373,
+    "attn8": 0.03989,
+    "attn9": 0.05706,
+    "attn10": 0.02065,
+    "attn11": 0.03578,
+    "attn12": 0.00926,
+    "attn13": 0.01664,
+    "attn14": 0.02963,
+    "attn15": 0.00671,
+    "attn16": 0.01373,
+    "attn17": 0.01205
+   }
+  },
+  "skip11000": {
+   "role": "CONFIRMATION",
+   "baseline_ce": 3.09711,
+   "covered": 27497,
+   "all": 36864,
+   "by_population": {
+    "cov": {
+     "mlp": {
+      "sum_individual": 10.66547,
+      "joint": 4.51729,
+      "ratio": 2.36103,
+      "ratio_ci95": [
+       2.3176,
+       2.4047
+      ]
+     },
+     "attn": {
+      "sum_individual": 1.49742,
+      "joint": 3.75522,
+      "ratio": 0.39876,
+      "ratio_ci95": [
+       0.3826,
+       0.4158
+      ]
+     }
+    },
+    "all": {
+     "mlp": {
+      "sum_individual": 10.76578,
+      "joint": 4.6296,
+      "ratio": 2.32542,
+      "ratio_ci95": [
+       2.285,
+       2.3659
+      ]
+     },
+     "attn": {
+      "sum_individual": 1.48394,
+      "joint": 4.28178,
+      "ratio": 0.34657,
+      "ratio_ci95": [
+       0.3341,
+       0.36
+      ]
+     }
+    }
+   },
+   "per_site_removal_cov": {
+    "mlp0": 0.9602,
+    "mlp1": 7.20518,
+    "mlp2": 0.79382,
+    "mlp3": 0.66447,
+    "mlp4": 0.11519,
+    "mlp5": 0.08508,
+    "mlp6": 0.08124,
+    "mlp7": 0.0591,
+    "mlp8": 0.04835,
+    "mlp9": 0.05044,
+    "mlp10": 0.04144,
+    "mlp11": 0.04387,
+    "mlp12": 0.03964,
+    "mlp13": 0.03565,
+    "mlp14": 0.02822,
+    "mlp15": 0.03186,
+    "mlp16": 0.08476,
+    "mlp17": 0.29695,
+    "attn0": 0.2402,
+    "attn1": 0.21357,
+    "attn2": 0.17354,
+    "attn3": 0.12272,
+    "attn4": 0.22762,
+    "attn5": 0.14445,
+    "attn6": 0.06388,
+    "attn7": 0.0582,
+    "attn8": 0.03732,
+    "attn9": 0.0613,
+    "attn10": 0.02337,
+    "attn11": 0.0374,
+    "attn12": 0.01045,
+    "attn13": 0.01752,
+    "attn14": 0.03013,
+    "attn15": 0.00713,
+    "attn16": 0.01585,
+    "attn17": 0.01275
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_confirmed_both_directions": true,
+  "pred_b_sign_stable": true,
+  "pred_c_joint_stakes_reproduce": true,
+  "pred_d_not_a_coverage_artifact": true
+ },
+ "runtime_s": 102.4
+}
