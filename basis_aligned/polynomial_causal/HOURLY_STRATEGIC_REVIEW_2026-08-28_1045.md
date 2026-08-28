@@ -127,3 +127,46 @@ owns the predictive certificate, while rank640 owns the robust causal certificat
 certificates cannot be mixed across candidates. The new top priority is therefore the
 cheap rank640 cross-task CE gate. If it inherits rank512's approximately 0.01-nat harm,
 the 516,707,766-value program becomes the first prospectively admitted complete point.
+
+## Continuation: the strict complete-program frontier is no longer empty
+
+Rank640 passes its own cross-task predictive gate. All-position harm is
++0.00553/+0.00445 nat, seen-current harm +0.00476/+0.00462, and unseen-current harm
++0.00766/+0.00391 on skip31000/35000. It improves on rank512 on both roles while
+storing 29,196,288 fewer values than dense. Ownership, exact price, no fallback, role
+replication, and the immutable causal parent all pass.
+
+Consequently the same 516,707,766-value executable program now owns every required
+certificate. Strict simplified whole-model recovery advances from zero to one admitted
+point: a 5.3481% storage reduction with about 0.005 nat cross-task CE harm and robust
+distributional causal transport. Exact ownership remains 100%; named behavioral
+explanation remains $32.1\%\pm6.4\%$ and named causal recovery remains 10.923%, because
+compression is not being mislabeled as semantic interpretation.
+
+## Revised ranked priorities
+
+1. **Contextual consequence-weighted MLP compiler.** Dense MLPs are 286,675,200 values,
+   52.51% of the model. Compile shared Left/Right input codes and Down quotients inside
+   the admitted rank640 shell, fitted against suffix CE/Fisher consequence rather than
+   local output MSE. Existing PCA/oracle results bound attainable subspaces but do not
+   own coefficients or compose standalone.
+2. **MLP composition discriminator before a large sweep.** Cross the best bounded early-
+   MLP factor candidate with exact downstream MLPs and rank640 attention; require whole-
+   model CE, unseen support, intervention transport, and zero teacher calls. This has
+   high information gain about whether the missing object is capacity or objective.
+3. **Consequence harness on admitted versus rejected points.** Compare rank640, rank512,
+   and dense on circuit extraction, selective removal, collateral damage, and OOD
+   transport. This validates whether the operational simplicity measure buys editability
+   beyond reconstruction.
+4. **Causally weighted routing price recovery.** Use the derived generalized-SVD
+   objective to test whether rank512 cost can attain rank640's synthetic-stress
+   robustness. Deprioritized because rank640 already passes and MLPs dominate storage.
+5. **Semantic/gauge quotient of the retained codes.** Canonicalize shared routing and
+   bilinear MLP factors by downstream predictive metrics, then test basis stability and
+   sparse circuit descriptions. Semantic naming without executable consequence remains
+   pruned.
+
+The highest-priority safe action in this review was executed through the full chain:
+fresh rank512 validation, frozen 16-intervention rank comparison, and rank640 predictive
+promotion. The next implementation should reuse the rank640 shell and the existing
+suffix-Fisher/predictive-quotient machinery rather than duplicate per-token compilers.
