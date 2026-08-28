@@ -49460,6 +49460,17 @@ depth kept winning."*
 > moment, cross-position routing, cross-position mass, channel structure, token-explained variance,
 > random sensitivity — **and now the correctly-aimed local derivative.** They failed for one reason.
 > **Every one of them is a local or first-order measurement of an effect that is neither.**
+>
+> **REFINED BY CODEX, 2026-08-28T21:36Z, and the refinement matters.** They factorised this run's
+> 34-site by 5-amplitude response matrix and found it **98.8355% rank-one** (99.9693% rank-two) — one
+> shape scaled per site, which is §1841's shared-half-alpha finding stated exactly. The shape fits
+> `(1-alpha)^2.8824` to 4.65% curve error; that implies half-damage at alpha 0.214, against the
+> 0.205-0.305 §1841 measured across five sites, so the two agree at the low end of my range. **And a
+> single alpha = 0.25 measurement ranks the full damage at Spearman 0.990.** My sentence above is about
+> *local* instruments and stands as written — alpha = 0.9 gives +0.298 — but a reader could take "no
+> cheap instrument works" from it, and that is now false. **The effect is not first-order, yet it is
+> rank-one, so one well-placed non-local measurement prices a site.** Credit to Codex; the distinction
+> between "not first-order" and "not cheaply measurable" is theirs, not mine.
 
 **pred_d FAILED on monotonicity, and the failure is a finding rather than a defect.** The instrument is
 **certified exactly**: alpha = 1 reproduces the live covered CE to **0.00e+00** — not approximately, bit
@@ -49709,3 +49720,52 @@ the *fit* rows, which §1834's pipeline already streams) is deployable, costs th
 somewhere between the two. Measuring where it lands on the 3.6% / 50.9% scale at mlp5 says whether the
 77% is recoverable in practice or only in principle — and that is the difference between a diagnosis and
 an improvement to the compiler.
+
+## §1845 — the fix is DEPLOYABLE: a fit-row context table recovers 92% of the achievable rescue at mlp5, and holds on three held-out roles
+
+`ops/deployable_table.py`, 262.3s, **DISCOVERY ONLY**, rung 3 (§1844's open question).
+**pred_a True | pred_b True | pred_c True | pred_d True. 4/4.**
+
+```
+  skip7000, sequential; B0 = 64.8%
+    mlp5   length-1  3.6%    FIT-context 47.1%    eval-empirical 51.0%
+    mlp4   length-1 20.3%    FIT-context -3.1%    eval-empirical -2.1%
+  FIT_mlp5 across three HELD-OUT roles:  skip7000 47.1%   skip11000 45.7%   skip1200 45.2%
+```
+
+**pred_a PASSED and this converts §1844 from a diagnosis into a change worth making.** §1844's rescue
+used the empirical per-token mean over the *eval* rows, which is not deployable — it is fitted on the
+distribution it is scored on. A table averaged over the **fit** rows (`skip80`, which §1834's pipeline
+already streams to determine coverage) uses **no new data**, stores **exactly the same 5419 x D**, and
+is honestly held out from every eval role. It recovers **43.5pp of the 61.2pp stake — 71% of the stake
+and 92% of the 47.4pp the eval-fitted upper bound achieves.**
+
+> **The length-1 context-free table is simply the wrong choice at mlp5, and the right one costs nothing
+> extra.** §1834 measured mlp5 at +61.2pp with a single-token forward. Averaging the same site's output
+> over its occurrences in the fit corpus — same interface, same storage, same pipeline — brings that to
+> **+17.7pp**. §1844 attributed 77% of the cost to the table; §1845 shows **71 of those 77 points are
+> recoverable in practice**, not merely in principle.
+
+**pred_b PASSED with room: 1.9pp of spread** across skip7000, skip11000 and skip1200, all held out from
+the fit rows, against a 10pp bar. The fit-context table has learned the token, not the fit corpus.
+
+**pred_c PASSED, and it means the improvement is NOT uniform — which is the actionable part.** At mlp4
+the context table is *worse* than the length-1 row on every arm: 20.3% falls to **−3.1%** with the fit
+table and −2.1% with the eval-fitted one. §1844 saw this inversion with the eval mean and could not tell
+whether it was an artefact of fitting on the eval distribution. It is not: **the inversion is a property
+of context-averaged tables at mlp4.** Averaging a site's output over real contexts is the better
+substitute at mlp5 and the worse one at mlp4, and §1842 says the length-1 row is *further* from the
+conditional mean at mlp4 (9.92x) than anywhere else in the network. Being closer to the conditional mean
+and being a better substitute are different things, and at mlp4 they point opposite ways.
+
+**Controls (pred_d), all clean.** B0 reproduces §1829's published 64.8%; both length-1 arms reproduce
+§1834's published 3.6% and 20.3%; both eval-empirical arms reproduce §1844's published 51.0% and −2.1%
+within 0.03; endpoints reproduce §1789's full-rank top-1; the placement control moves top-1 under
+0.05pp. Coverage 5419 of 50257.
+
+**Open question this ends on.** Two tables over the identical interface and storage, and **which one is
+better is site-dependent** — mlp5 wants the context average, mlp4 wants the single-token forward. That
+is a per-site choice a compiler can actually make, decided by one held-out measurement per site. Running
+both tables at all 34 sites and taking the better of the two **per site** asks whether the mixed program
+beats either uniform choice, and by how much. It is the first thing in this arc that would change the
+artefact rather than describe it, and §1834's cost table is exactly the object it would improve.
