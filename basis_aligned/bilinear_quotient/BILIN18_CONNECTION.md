@@ -44781,3 +44781,53 @@ under-budgeted at the top end.
 
 Controls that did hold: table-only CE 7.35114, live CE 3.29205, coverage 5419 of 50257, all 36
 initialisation fits on the full 24576 positions.
+
+## §1752 — richer local features make every site individually better and the joint program dramatically worse
+
+`ops/nonlocal_program_class.py`, 498.1s, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c False | pred_d True.** All three substantive arms failed, in
+the same direction, and the direction is the result.
+
+Three program classes, identical rank, identical interleaved bottom-up procedure, held out:
+
+```
+                                    cost      joint recovery      median fraction of own gap closed
+                                                                    MLP        attention
+  A   table + x_t W               0.664M       +0.38578   +9.05%    32.50%      -23.69%
+  B   + x_{t-1} W2                0.995M       +0.35004   +8.21%    40.22%       +1.82%
+  C   + causal prefix mean W3     1.327M       -0.80171  -18.81%    55.16%       +8.18%
+```
+
+> **Every added feature block improves each site's solo correctability and degrades the joint
+> program.** MLP median 32.50 → 40.22 → 55.16%. Attention median −23.69 → +1.82 → +8.18%. Joint
+> recovery +0.386 → +0.350 → **−0.802**. Local fidelity and joint fidelity move in **opposite
+> directions**, monotonically, across three classes.
+
+**pred_a failed by 1.19 nats.** Giving the program the previous position and a causal prefix mean —
+exactly what §1682's 83.6% non-locality says an attention site needs — does make attention sites
+individually correctable, lifting the median from −23.69% to +8.18%, and makes the composed program
+**worse than plain tables**. pred_b failed at its 20% bar with 8.18%; pred_c is not scoreable in the
+sense intended, since C's "improvement" over A is −1.19 nats and the arm asked what fraction of a
+gain lag-1 carries.
+
+**This is the sharpest statement the compilation thread has produced, and it is a negative one.**
+More expressive local programs compound error faster. §1747 already showed the simultaneous fit
+going negative; §1748 showed ordering rescues the sign; §1750 showed a downstream objective is worth
+43%; §1751 showed capacity is not the constraint. §1752 adds that **improving the local program is
+not merely insufficient — past a point it is actively harmful to the composed model.** Any compiler
+that optimises per-site fidelity and then installs the pieces is optimising against its own goal.
+
+**A limitation of the per-site column, stated because it changes how the medians should be read.**
+Here each site's solo measurement installs that site's map — fitted against the *interleaved* prefix
+— while every other site carries a plain table. That is a mismatched context, and it is why variant
+A's medians (32.50% / −23.69%) sit well below §1747's (91.23% / −1.45%), which fitted and evaluated
+in the same all-tabled context. **The medians are comparable across the three variants**, which is
+what the trend above rests on, and are **not** comparable to §1747's. pred_b's 20% bar was calibrated
+against §1747's construction and scored against this one; it fails either way, but the mismatch is
+mine and is recorded rather than glossed.
+
+**pred_d is the strongest control in the thread.** Variant A reproduced §1748's +0.40631 and
++0.38578 **exactly** — the same program and procedure rebuilt from scratch in a fourth independent
+script — with table-only CE 7.35114, live CE 3.29205, coverage 5419 of 50257, and all 108 per-site
+fits on the full 24576 positions. The feature builder also passed a hand-built causality
+known-answer check before any model ran, so §1733's future-looking error could not recur here.
