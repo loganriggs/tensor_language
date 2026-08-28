@@ -204,6 +204,30 @@ def gate(path):
                              f'script this one was edited from mis-attributes the run in the log')
             break
 
+
+    # LESSONS 59: the tail indexes an arm label suffix that the arm loop never produces.
+    # A predecessor called run_g twice per arm with '_raw'/'_seq' labels; a successor that calls it
+    # once with a bare label keeps the tail's f'{name}_seq' keys and dies at the reporting step AFTER
+    # every arm has run. The GPU work is done and thrown away, so this is worth a static check.
+    labels = set()
+    for n in ast.walk(tree):
+        if isinstance(n, ast.Call) and getattr(n.func, 'id', '') == 'run_g' and n.args:
+            v = n.args[0]
+            if isinstance(v, ast.Constant) and isinstance(v.value, str):
+                labels.add(v.value)
+            elif isinstance(v, ast.JoinedStr):
+                tailpc = v.values[-1]
+                if isinstance(tailpc, ast.Constant) and isinstance(tailpc.value, str):
+                    labels.add('*' + tailpc.value)
+    if labels:
+        for suf in ('_raw', '_seq', '_global', '_matched'):
+            produced = any(l.endswith(suf) for l in labels)
+            wanted = re.search(rf"\{{[A-Za-z_0-9\[\]'\"]+\}}{suf}'", s) is not None
+            if wanted and not produced:
+                fails.append(f"results are indexed with the suffix '{suf}' but no run_g() call "
+                             f"produces a label ending in it (labels seen: {sorted(labels)}) -- "
+                             f"the reporting step will KeyError after every arm has run")
+
     # call-arity consistency for the helpers whose return shape varies
     for helper in ('abs_mass',):
         n_ret = [len(n.value.elts) for f in ast.walk(tree)

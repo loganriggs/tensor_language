@@ -1501,3 +1501,37 @@ correct, and the *relation* being asserted did not exist between those two arms.
 compiled sets and check that one literally contains the other. If they do not nest, either pick arms that
 do, or state the prediction as the ordering it actually is and drop the monotonicity language. A bar whose
 failure branch does not follow from its own failure is worse than no bar, because it will be quoted.
+
+## LESSONS 59 — the tail indexed a label suffix the arm loop no longer produced, and threw away a finished run
+
+`ops/mlp5_channel_concentration.py` ran **every one of its fifteen arms**, printed all three roles for
+each, and then died at the reporting step:
+
+```
+  KeyError: 'B0_seq'
+```
+
+Its predecessor called `run_g` **twice per arm**, with labels `f'{name}_raw'` and `f'{name}_seq'`. This
+script's arm loop calls it **once** per arm with a bare label, because every arm here uses the same gain
+treatment and varies only in which mlp5 channels are substituted. I changed the loop and left the tail
+indexing `frac[PICK_ROLE][f'{k2}_seq']`. Seven minutes of GPU work completed and was discarded at the
+last step.
+
+Nothing was lost scientifically — the per-arm top-1 for all three roles is in the log and the run was
+re-scored after a two-line fix — but the failure mode is worth a check because **it fails LAST**. A
+KeyError in the tail is invisible to every fast test: the script imports, parses, gates, and runs
+correctly for its entire expensive phase before hitting it.
+
+This is the third member of the family LESSONS 54 (duplicate constants) and 56 (stale banner) belong to:
+**editing a predecessor propagates whatever you did not think to look at**, and the reporting block is
+the easiest thing not to look at because it is at the bottom of the file.
+
+**Gate check added** (`ops/gate.py`), tested in both directions and measured for flooding: it FAILs the
+pre-fix file naming the exact suffix and the labels actually produced, PASSes the fixed one, and flags
+**0 of 110** existing ops scripts. It collects every literal and f-string-suffix label passed to
+`run_g()` and fails if the results dict is indexed with a suffix (`_raw`, `_seq`, `_global`, `_matched`)
+that no call produces.
+
+**How to apply:** when the arm loop's labelling changes, re-read the reporting block in the same edit.
+The gate now enforces the specific case; the general habit is that a script's last block deserves the
+same attention as its first, precisely because nothing reaches it until everything expensive is done.
