@@ -155,6 +155,7 @@ def _authority_payload(
     *, source: inherited.SourceClosure, roles: lifecycle.TwoRoleRows,
     bank: backend_module.PreparedBank,
     authorities: Mapping[str, measurement.RoleAuthority],
+    authoritative_measurement: bool,
 ) -> dict[str, Any]:
     row_bindings = {}
     for role in ROLE_ORDER:
@@ -165,7 +166,11 @@ def _authority_payload(
     }
     return {
         "schema_version": SCHEMA_VERSION,
-        "status": "frozen_before_any_measurement_outcome",
+        "status": (
+            "frozen_before_any_measurement_outcome"
+            if authoritative_measurement else "test_only_non_authoritative_authority"
+        ),
+        "authoritative_measurement": authoritative_measurement,
         "authorized_for_final_role": False,
         "source_closure": asdict(source),
         "source_closure_sha256": source.sha256,
@@ -193,7 +198,11 @@ def run_transaction(
     """Execute authority -> 128 cells -> close -> payload -> manifest -> receipt."""
 
     paths = lifecycle.output_paths() if paths is None else paths
-    canonical_publication = paths.authority.parent.resolve() == lifecycle.HERE.resolve()
+    canonical = lifecycle.output_paths()
+    canonical_publication = all(
+        left.resolve() == right.resolve()
+        for left, right in zip(paths.all_paths(), canonical.all_paths(), strict=True)
+    )
     _verify_backend_surface(backend, require_production=canonical_publication)
     paths.require_pristine()
     lock = lifecycle.RunLock(paths.lock)
@@ -243,6 +252,7 @@ def run_transaction(
         }
         authority_value = _authority_payload(
             source=source, roles=roles, bank=bank, authorities=authorities,
+            authoritative_measurement=canonical_publication,
         )
         authority_bytes = _json_bytes(authority_value)
         phase = "publish_pre_outcome_authority"
@@ -353,7 +363,12 @@ def run_transaction(
         bundles = {name: collectors[name].finalize() for name in ROLE_ORDER}
         payload_value = {
             "schema_version": SCHEMA_VERSION,
-            "status": "complete_two_role_staged_sufficient_statistics",
+            "status": (
+                "complete_two_role_staged_sufficient_statistics"
+                if canonical_publication
+                else "test_only_non_authoritative_sufficient_statistics"
+            ),
+            "authoritative_measurement": canonical_publication,
             "two_role_authority_sha256": authority_value[
                 "two_role_authority_sha256"
             ],
@@ -375,7 +390,11 @@ def run_transaction(
         payload_file_sha256 = lifecycle.file_sha256(paths.payload)
         manifest_value = {
             "schema_version": SCHEMA_VERSION,
-            "status": "terminal_payload_verified",
+            "status": (
+                "terminal_payload_verified"
+                if canonical_publication else "test_only_non_authoritative_manifest"
+            ),
+            "authoritative_measurement": canonical_publication,
             "authorized_for_final_role": False,
             "source_commit": source.source_commit,
             "source_closure_sha256": source.sha256,
@@ -411,7 +430,12 @@ def run_transaction(
 
         receipt_value = {
             "schema_version": SCHEMA_VERSION,
-            "status": "complete_two_role_measurement_receipt_last",
+            "status": (
+                "complete_two_role_measurement_receipt_last"
+                if canonical_publication
+                else "test_only_non_authoritative_receipt_last"
+            ),
+            "authoritative_measurement": canonical_publication,
             "authorized_for_final_role": False,
             "authority_path": str(paths.authority.resolve()),
             "authority_file_sha256": lifecycle.file_sha256(paths.authority),

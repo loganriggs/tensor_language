@@ -101,7 +101,9 @@ def test_self_rebound_corrupt_cell_ledger_fails_semantic_replay(
     _write_json(terminal_measurement.manifest, manifest)
     _rebind_manifest_in_terminal_receipt(terminal_measurement)
     with pytest.raises((RuntimeError, ValueError), match="ledger|census"):
-        scorer.load_terminal_bundles(terminal_measurement)
+        scorer.load_terminal_bundles(
+            terminal_measurement, require_authoritative=False,
+        )
 
 
 def test_self_rebound_role_authority_cross_link_fails_semantic_replay(
@@ -124,7 +126,9 @@ def test_self_rebound_role_authority_cross_link_fails_semantic_replay(
     )
     _write_json(terminal_measurement.receipt, receipt)
     with pytest.raises(RuntimeError, match="authority hash chain"):
-        scorer.load_terminal_bundles(terminal_measurement)
+        scorer.load_terminal_bundles(
+            terminal_measurement, require_authoritative=False,
+        )
 
 
 def test_self_rebound_stage_manifest_hash_fails_semantic_replay(
@@ -135,4 +139,19 @@ def test_self_rebound_stage_manifest_hash_fails_semantic_replay(
     _write_json(terminal_measurement.manifest, manifest)
     _rebind_manifest_in_terminal_receipt(terminal_measurement)
     with pytest.raises(RuntimeError, match="stage hash chain"):
-        scorer.load_terminal_bundles(terminal_measurement)
+        scorer.load_terminal_bundles(
+            terminal_measurement, require_authoritative=False,
+        )
+
+
+def test_non_authoritative_measurement_cannot_receive_canonical_score(
+    terminal_measurement,
+):
+    canonical = scorer.score_paths()
+    with pytest.raises(RuntimeError, match="canonical measurement namespace"):
+        scorer.score_transaction(
+            measurement_paths=terminal_measurement, paths=canonical,
+        )
+    assert not any(path.exists() for path in (
+        canonical.results, canonical.receipt, canonical.failure, canonical.lock,
+    ))

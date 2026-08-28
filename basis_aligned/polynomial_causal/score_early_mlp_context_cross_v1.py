@@ -111,15 +111,26 @@ def _load_call_ledger(value: dict[str, Any]) -> backend_module.CellCallLedger:
 
 
 def load_terminal_bundles(
-    paths: lifecycle.OutputPaths,
+    paths: lifecycle.OutputPaths, *, require_authoritative: bool = True,
 ) -> tuple[dict[str, measurement.StagedRoleBundle], dict[str, Any]]:
     """Open outcomes only after verifying the last-write terminal receipt."""
 
     if not paths.receipt.is_file() or paths.failure.exists():
         raise RuntimeError("measurement lacks a unique successful terminal receipt")
     receipt = _read_json(paths.receipt)
-    if receipt.get("status") != "complete_two_role_measurement_receipt_last" or (
+    authoritative = receipt.get("authoritative_measurement") is True
+    expected_receipt_status = (
+        "complete_two_role_measurement_receipt_last"
+        if authoritative else "test_only_non_authoritative_receipt_last"
+    )
+    if require_authoritative and not authoritative:
+        raise RuntimeError("canonical score requires an authoritative measurement")
+    if receipt.get("status") != expected_receipt_status or (
         receipt.get("authorized_for_final_role") is not False
+    ) or receipt.get("authority_path") != str(paths.authority.resolve()) or (
+        receipt.get("payload_path") != str(paths.payload.resolve())
+    ) or receipt.get("manifest_path") != str(paths.manifest.resolve()) or (
+        not isinstance(receipt.get("authoritative_measurement"), bool)
     ) or lifecycle.file_sha256(paths.authority) != receipt.get(
         "authority_file_sha256"
     ) or lifecycle.file_sha256(paths.payload) != receipt.get(
@@ -130,7 +141,19 @@ def load_terminal_bundles(
         raise RuntimeError("measurement terminal receipt does not bind its predecessors")
     manifest = _read_json(paths.manifest)
     authority = _read_json(paths.authority)
-    if manifest.get("status") != "terminal_payload_verified" or manifest.get(
+    expected_manifest_status = (
+        "terminal_payload_verified"
+        if authoritative else "test_only_non_authoritative_manifest"
+    )
+    expected_authority_status = (
+        "frozen_before_any_measurement_outcome"
+        if authoritative else "test_only_non_authoritative_authority"
+    )
+    if manifest.get("status") != expected_manifest_status or manifest.get(
+        "authoritative_measurement"
+    ) is not authoritative or authority.get("status") != expected_authority_status or (
+        authority.get("authoritative_measurement") is not authoritative
+    ) or manifest.get(
         "authorized_for_final_role"
     ) is not False or manifest.get("source_closure_sha256") != receipt.get(
         "source_closure_sha256"
@@ -176,10 +199,14 @@ def load_terminal_bundles(
         raise RuntimeError("two-role authority hash chain differs")
     payload = torch.load(paths.payload, map_location="cpu", weights_only=True)
     if not isinstance(payload, dict) or set(payload) != {
-        "schema_version", "status", "two_role_authority_sha256", "roles",
+        "schema_version", "status", "authoritative_measurement",
+        "two_role_authority_sha256", "roles",
     } or payload["schema_version"] != SCHEMA_VERSION or payload["status"] != (
         "complete_two_role_staged_sufficient_statistics"
-    ) or payload["two_role_authority_sha256"] != receipt[
+        if authoritative else "test_only_non_authoritative_sufficient_statistics"
+    ) or payload["authoritative_measurement"] is not authoritative or payload[
+        "two_role_authority_sha256"
+    ] != receipt[
         "two_role_authority_sha256"
     ] or not isinstance(payload["roles"], dict) or tuple(payload["roles"]) != (
         statistics.ROLE_NAMES
@@ -275,6 +302,25 @@ def score_transaction(
         lifecycle.output_paths() if measurement_paths is None else measurement_paths
     )
     paths = score_paths() if paths is None else paths
+    canonical_score = all(
+        left.resolve() == right.resolve()
+        for left, right in zip(
+            (paths.results, paths.receipt, paths.failure, paths.lock),
+            (
+                score_paths().results, score_paths().receipt,
+                score_paths().failure, score_paths().lock,
+            ),
+            strict=True,
+        )
+    )
+    canonical_measurement = lifecycle.output_paths()
+    if canonical_score and any(
+        left.resolve() != right.resolve()
+        for left, right in zip(
+            measurement_paths.all_paths(), canonical_measurement.all_paths(), strict=True,
+        )
+    ):
+        raise RuntimeError("canonical score requires the canonical measurement namespace")
     paths.require_pristine()
     lock = lifecycle.RunLock(paths.lock)
     lock.acquire()
@@ -288,7 +334,9 @@ def score_transaction(
     phase = "verify_terminal_measurement"
     try:
         source = lifecycle.committed_source_closure()
-        bundles, measurement_receipt = load_terminal_bundles(measurement_paths)
+        bundles, measurement_receipt = load_terminal_bundles(
+            measurement_paths, require_authoritative=canonical_score,
+        )
         if source.sha256 != measurement_receipt["source_closure_sha256"]:
             raise RuntimeError("scorer source differs from measurement authority")
         phase = "score_capability_separated_roles"
@@ -316,7 +364,11 @@ def score_transaction(
         selected = 3 if rank3_pass else (4 if rank4_pass else None)
         results = {
             "schema_version": SCHEMA_VERSION,
-            "status": "complete_capability_separated_two_role_score",
+            "status": (
+                "complete_capability_separated_two_role_score"
+                if canonical_score else "test_only_non_authoritative_score"
+            ),
+            "authoritative_score": canonical_score,
             "source_commit": source.source_commit,
             "source_closure_sha256": source.sha256,
             "measurement_receipt_file_sha256": lifecycle.file_sha256(
@@ -337,7 +389,11 @@ def score_transaction(
         results_sha256 = lifecycle.file_sha256(paths.results)
         receipt = {
             "schema_version": SCHEMA_VERSION,
-            "status": "complete_score_receipt_last",
+            "status": (
+                "complete_score_receipt_last"
+                if canonical_score else "test_only_non_authoritative_score_receipt_last"
+            ),
+            "authoritative_score": canonical_score,
             "source_closure_sha256": source.sha256,
             "measurement_receipt_file_sha256": results[
                 "measurement_receipt_file_sha256"

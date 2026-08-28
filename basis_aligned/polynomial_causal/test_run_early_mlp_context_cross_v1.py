@@ -152,7 +152,8 @@ def test_transaction_orders_both_roles_and_publishes_receipt_last(
         paths.authority.name, paths.payload.name, paths.manifest.name,
         paths.receipt.name,
     ]
-    assert receipt["status"] == "complete_two_role_measurement_receipt_last"
+    assert receipt["status"] == "test_only_non_authoritative_receipt_last"
+    assert receipt["authoritative_measurement"] is False
     assert paths.receipt.exists() and not paths.failure.exists() and not paths.lock.exists()
     payload = torch.load(paths.payload, map_location="cpu", weights_only=True)
     assert tuple(payload["roles"]) == statistics.ROLE_NAMES
