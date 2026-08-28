@@ -44907,3 +44907,55 @@ does.
 registered prediction I write is about fidelity. Four sections of predictions later, that is still
 true, and it is now the standing gap: **a cost figure in this arc has never once been a registered,
 falsifiable quantity.**
+
+## §1755 — compressing the tables 14x makes the program BETTER, not worse: rank 64 dominates the full table on both axes, and the full per-token table is overfitted
+
+`ops/table_rank_compression.py`, 360.9s, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c False | pred_d True.**
+
+The first cost-registered prediction in this arc, and the answer inverts the premise of the sweep.
+
+```
+  held out (skip11000), stake 4.2611 nats, rank-8 linear correction, interleaved bottom-up
+  table rank   total cost    tables   factors   recovered   nats per M    table ALONE
+    full        225.442M   224.778M   0.664M    +0.38578     0.001711      +0.00000
+    256          61.305M    60.641M   0.664M    +0.51715     0.008436      +0.14197
+    64           15.886M    15.223M   0.664M    +0.54064     0.034033      +0.13130
+    16            4.531M     3.868M   0.664M    +0.46878     0.103451      -0.00460
+```
+
+> **Rank 64 dominates the full table on BOTH axes: 40% more recovered fidelity at 7% of the cost.**
+> That is not a trade-off found on a frontier, it is a strictly better program that was being paid
+> 14x too much for being worse.
+
+**pred_c FAILED because I assumed the sweep would measure degradation.** The bar was "rank 16 falls
+below half of full fidelity"; rank 16 delivers **+0.46878 against the full table's +0.38578** — above
+it, not below half of it. Every compressed arm beats the uncompressed one. The prediction encoded my
+expectation that the full table is the best table, and it is not.
+
+**The reason is in the `table ALONE` column, and it is a fact about the tables rather than about the
+compiler. The full per-token table is OVERFITTED.** Before any linear correction, a rank-256 table
+already recovers **+0.14197** and a rank-64 table **+0.13130** over the full table on held-out rows.
+A per-token mean estimated from 96 fit rows is noisy for the rare end of 5419 covered tokens;
+truncating the covered block to rank 64 denoises it. The compiler was not the thing that needed
+fixing at the cost axis — **the table was, and fixing it improved fidelity for free.**
+
+**What this does to §1754's reversal.** §1754 correctly found that with tables counted, the greedy
+native allocation (0.005108 nats/M) was **1.92x more cost-efficient** than the uncompressed compiled
+program (0.002665). With the tables compressed, the rank-64 program reaches **0.034033 nats/M — 6.7x
+more efficient than the native allocation**, and rank 16 reaches **0.103451, 20x**. §1754's
+arithmetic stands and its conclusion applied to the program as it then was; compressing the dominant
+term reverses it on honest full costing rather than by dropping the term.
+
+Against the native modules: the rank-64 program is **15.886M reals versus 430.00M — a 27x
+compression** recovering 12.7% of the table-program stake. Rank 16 is **95x smaller** at 11.0%.
+
+**Unchanged caveat, and it is still the largest one.** The hybrid hook (§1661) runs the LIVE module
+wherever the token was not covered at fit time — **24% of scored positions**. None of these programs
+stands alone, and none of these figures prices that fallback. Every number above is a lower bound on
+a standalone program's cost.
+
+Controls (pred_d): the full-table arm reproduced §1748's +0.40631 and +0.38578 — the same program
+rebuilt in a fifth independent script — with table-only CE 7.35114, live CE 3.29205, and coverage
+asserted at exactly 5419 of 50257 rather than merely reported, since every cost figure here is
+computed from it.
