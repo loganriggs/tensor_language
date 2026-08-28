@@ -47573,3 +47573,54 @@ arms at L0, L3, L5 reproduce §1806's published gap fractions within 2 points.
 the reason is that a live module requires context in its input. That is the same wall §1800 and §1802
 hit from two other directions. The position-wise thread has now been closed from four sides, and the
 next move is a different rung, not a fifth angle on this one.
+
+## §1808 — the 62-point swing is one depth, one module kind, and almost certainly one site
+
+`ops/scaling_repair_localised.py`, 197.4s, **DISCOVERY ONLY**, rung 3.
+**All four predictions True**, with the largest margins in this arc.
+
+```
+  bottom-up swing from norm-matching (points of gap), skip7000 / skip11000 / skip1200
+    L0  -1.1 / -0.4 / -0.6    L1 -12.0 /-11.2 / -7.5    L2  -6.8 / -6.7 / -8.9
+    L3  -0.1 / +0.1 / -0.1    L4  +2.0 / +1.5 / +1.7    L5 +62.8 /+60.9 /+64.7   <-- the only one
+    L6  +5.5 / +5.7 / +7.5    L7  +2.2 / +1.1 / +2.7    L8 ... L17 all within -5.4 .. +0.0
+
+  decomposition (change vs raw)      attn-only      mlp-only        both
+    L3                              -1.7           +9.0           -0.1
+    L5                              +0.0          +63.2          +62.8
+    L6                              -0.7           +6.3           +5.5
+```
+
+**pred_a passed: exactly one depth of eighteen** shows a swing of 10 points or more. §1807's structural
+conclusion was drawn at L3 and I flagged that it might rest on an unluckily chosen depth; it does not —
+sixteen of the other seventeen depths move by less than 7 points, and several move the wrong way.
+
+**pred_b and pred_c passed at their extremes.** MLP-only scaling reproduces **101 / 102 / 102%** of the
+L5 swing; attention-only reproduces **0 / 0 / 0%**. The repair is entirely the MLP correction, and
+attention's 2.13x-7.07x undersizing has nothing to do with it.
+
+**The likely single site, stated as a hypothesis with its test named.** The compiled prefix at L5 is
+depths 0..5, which is the first prefix containing **mlp4 — whose calibration factor is 0.10, the most
+extreme in the stack, meaning its row is TEN TIMES what mlp4 actually emits.** The prefix at L3 does not
+contain it and shows no swing. That is consistent, and it is one pattern across two depths, which is
+exactly the evidence LESSON 37 says not to build on. **Queued as a direct test**: scale only mlp4 and
+nothing else.
+
+**A non-additivity worth recording.** At L3, MLP-only scaling is worth **+9.0 / +8.3 / +9.8** and
+attention-only **−1.7 / −1.5 / −1.2**, but both together give **−0.1 / +0.1 / −0.1**. The two
+corrections do not sum — attention scaling cancels a 9-point MLP repair. At L5 they are roughly additive
+(+63.2 and +0.0 giving +62.8). Whatever the mechanism is, it is not a per-kind correction that composes.
+
+**And a connection I am not yet claiming.** §1805 found the one negative marginal in its top-down curve
+at layer 4: making layer 4 live is consistently *worse* than compiling it (−0.9 / −0.5 / −0.1 points of
+gap). mlp4 is also the site whose row is most badly oversized. Those may be the same fact seen twice, or
+a coincidence of two small numbers at the same index. The queued run separates them.
+
+Controls (pred_d): endpoints reproduce §1789's published figures within 0.001; raw bottom-up arms at L0,
+L3, L5 reproduce §1806's published gap fractions within 2 points; and the fully scaled L5 arm reproduces
+§1807's published +18.9 / +17.7 / +18.3% within 2 points — the anomaly was rebuilt before being
+explained. Coverage 5419.
+
+**An efficiency fix, measured.** §1807 materialised a second [50257, D] row bank per site and peaked at
+**26.4 GiB**; applying the scale at hook time instead peaked at **18.1 GiB** for a strictly larger run
+(44 arms against 22).
