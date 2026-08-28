@@ -46123,3 +46123,38 @@ stored beyond the map.
 
 Controls (pred_d): the embedding arm reproduces §1777's four numbers and the mean arm §1777's four,
 all within 0.002; covered CE is untouched by either similarity on every role; coverage 5419.
+
+## §1781 — the output-similarity fallback confirms on three roles, 4/4
+
+`ops/similarity_choice_three_roles.py`, 146.4s, **SECOND-CLASS CONFIRMATION**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+```
+  gain of output-distribution similarity over input-embedding similarity, all-position CE
+  rank        full      64        8         4
+  skip7000   0.0386   0.0540   0.0495   0.0415
+  skip11000  0.0374   0.0523   0.0508   0.0406
+  skip1200   0.0391   0.0600   0.0556   0.0466
+```
+
+Output similarity wins at **every rank on every role**, and the magnitudes transfer within 0.02 nats
+everywhere — the full spread is 0.037 to 0.060. skip1200, the hardest role, gains the most. Covered CE
+is untouched by either similarity on every role, and skip11000 reproduces §1777 and §1780 exactly.
+
+**§1780's scope caveat is resolved.** The better map now has the same three-role confirmation the
+embedding map got at §1778, and the design point for the uncovered quarter is settled: **the covered
+token whose length-1 next-token distribution is most similar, one neighbour, no averaging.**
+
+**Where the standalone program stands at the close of this thread**, all-position CE on skip11000
+against a live model at 2.93450:
+
+| program | cost | all-position CE | calls a native module? |
+|---|---:|---:|---|
+| context-free, rank 64, output-NN fallback | **15.223M** | **6.18248** | **no** |
+| context-free, full rank, output-NN fallback | 224.778M | 6.00048 | no |
+| best fallback-using program in the arc (§1776) | 15.223M | 6.28596 | yes, at 24% of positions |
+| position-wise reference (§1768, covered positions) | — | 5.97902 | — |
+
+The full-rank program is **within 0.021 nats of the position-wise reference on all positions**, and
+the rank-64 program beats every program in this arc that needed the native model present, at the same
+cost.
