@@ -685,16 +685,18 @@ def main():
     seen2 = full_seen.to(DEV)
     toks2 = seen2.nonzero(as_tuple=True)[0]
     idmap2 = torch.full((V,), -1, dtype=torch.long, device=DEV)
-    idmap2[toks2] = torch.arange(NCOV, device=DEV)
-    ceil_lp = torch.zeros(NCOV, W, device=DEV)
-    for i2 in range(0, NCOV, 256):
+    idmap2[toks2] = torch.arange(NFULL, device=DEV)
+    # NCOV is §1834's 5419 and is now a PUBLISHED CONSTANT, not this run's coverage: the n480 fit
+    # rows cover 16,110 types. Everything sized to the covered set must use NFULL.
+    ceil_lp = torch.zeros(NFULL, W, device=DEV)
+    for i2 in range(0, NFULL, 256):
         tt = toks2[i2:i2 + 256].unsqueeze(1)
         ceil_lp[i2:i2 + tt.shape[0]] = torch.log_softmax(forward_logits(tt)[:, 0].float(), -1)
     ceilv, livev = {}, {}
     for ename in evs:
         ceilv[ename] = split_ce(evs[ename], [], seen2, ceil_lp, idmap2)['cov'][0]
         livev[ename] = split_ce(evs[ename], [], seen2)['cov'][0]
-    print(f'\n  ceiling built; covered ceiling CE ' + '  '.join(
+    print(f'\n  coverage {NFULL} types ({NFULL / NCOV:.2f}x §1834); ceiling CE ' + '  '.join(
         f'{e} {ceilv[e]:.5f}' for e in evs) + f' ({time.time() - t0:.0f}s)', flush=True)
 
     curve = {}

@@ -50045,8 +50045,58 @@ distance to an **optimum that is actually reached**, not to an unreachable ideal
 the attainable optimum" is a well-posed quantity for the first time, and the answer is that the optimum
 itself is the worst buy on the curve.
 
+**SCOPED BY §1851: this ladder is specific to the 5419-type covered set.** Rebuilding on `n480_skip80`
+(16,110 types, 2.97x) moves the rank-64 shortfall from +0.223 / +0.233 / +0.198 to **+0.278 / +0.297 /
++0.253** — more types compressed into the same rank costs more. The **full-rank** row is unaffected
+(attainment is exact at both coverages, §1851), so the endpoint of the frontier is general and the
+*interior* of it is not. Any cost-per-nat figure above must be quoted with its covered set.
+
 **Caveat, stated rather than buried.** These are covered-position CEs (§1849) against a covered-position
 ceiling, while §1754's cost model prices the whole table including the uncovered fallback. The two
 populations differ, and §1849 measured uncovered positions as −0.095 / +0.023 / +0.155 nats relative to
 covered, so the mismatch is small but real. Any use of this table for a deployment decision should
 re-derive it on the all-position CE the fallback actually serves.
+
+## §1851 — §1848 confirmed second class at 2.97x the coverage; but the rank ladder is coverage-dependent
+
+`ops/ceiling_coverage_robustness.py`, 242.0s, **DISCOVERY ONLY**, second-class confirmation of §1848.
+**pred_a True | pred_b True | pred_c False | pred_d False (bar mis-specified).**
+
+```
+  n480_skip80 fit rows -> 16,110 covered types, 2.97x §1834's 5419
+    rank full   skip7000 +0.000000   skip11000 -0.000000   skip1200 -0.000000     <- ATTAINMENT HOLDS
+    rank 64     skip7000 +0.27839    skip11000 +0.29741    skip1200 +0.25327
+    §1849, 5419 types, same build:   +0.22327    +0.23252    +0.19774
+```
+
+**pred_a PASSED and §1848 is now confirmed second class.** Quintupling the fit rows changes the covered
+set, the embedding→row map's basis and the output-NN fallback's neighbour pool all at once, and the
+full-rank composition still attains the model's own per-token ceiling **exactly** on all three roles.
+§1765's derivation predicted this and the run tested it rather than trusting it. **pred_b PASSED**: the
+covered set really did grow, 5419 → **16,110** types, so pred_a is not passing on an unchanged object.
+
+> **pred_c FAILED, and it scopes §1850.** The rank-64 shortfall rose by **+0.055 / +0.065 / +0.055**
+> nats against a 0.05 bar — outside it on all three roles, and in the direction that makes sense: three
+> times the token types compressed into the same rank-64 basis is a harder problem. **The rank ladder,
+> and therefore §1850's cost-per-nat frontier, is specific to the covered set it was measured on.** The
+> full-rank endpoint is general; the interior is not. §1850 is scoped in place.
+
+**pred_d FAILED on a bar I mis-specified, and my own docstring said why before I wrote it.** The control
+required live covered CE to reproduce §1768's published 3.29205 / 3.09711. With 16,110 covered types the
+scored covered population is a **different set of positions** — it now includes rarer tokens — and live
+CE on it is **3.19438 / 2.99387 / 3.29715**. The docstring for this very run says "a changed covered set
+moves the SCORED SET and this control must be read on the same population it is quoted for", and I then
+wrote the bar as though it would not. The measurement is fine; the anchor was inapplicable by
+construction. That is LESSON 53's family again — the fourth instance in this arc — and this time I had
+already written the warning myself.
+
+**Controls that do hold.** The ceiling is rebuilt over the new covered set and is finite and above live
+on every role (5.90775 / 5.84750 / 5.87767 against live 3.19438 / 2.99387 / 3.29715), and the ceiling
+falls relative to §1768's 6.03465 exactly as a larger, rarer-token population should.
+
+**Where the arc stands.** §1848 → §1851 close the position-wise class: **the full-rank composition is the
+model's own per-token function, exactly, at two different coverages**, and no lever inside the class —
+table choice (§1845-§1847), rank (§1849), fallback (§1848) or coverage (§1851) — moves the 2.74 nats to
+live that §1765 derived. The remaining in-class questions are quantitative refinements of a frontier
+whose endpoint is now known and whose interior is fit-set specific. **The next substantive step is
+outside the class, which is a different program and is flagged for Logan rather than taken.**
