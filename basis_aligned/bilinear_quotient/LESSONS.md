@@ -1107,3 +1107,24 @@ remaining ties by something that cannot see the answer (here, the unigram). More
 `>=` in a tie-break is an unstated policy**, and when one side of that comparison is the target, the
 policy is a leak. Related: [[lesson-42]] — this was found only because a figure from a different
 script disagreed; the original's internal controls all passed.
+
+## LESSON 44 — a binary predicate cannot separate three outcomes; print the discriminating curve
+
+§1797's pred_b asked whether a threshold-selection procedure "chose to defer at all", and I registered
+its failure as meaning "pred_a failed for want of any candidate rather than because the signal is
+uninformative". Both readings map to the same `False`. What actually happened was neither: the grid
+held seven deferring candidates, all were evaluated, and **all seven lost to the null**. The signal was
+uninformative *and* candidates existed — the stronger conclusion, and the one my registered sentence
+explicitly set aside.
+
+I was saved only because the run printed the whole threshold curve rather than the winner. That was a
+design habit, not foresight; had the script printed only the selected threshold and its margin, I would
+have written up the weaker conclusion and been wrong in the ledger.
+
+**How to apply.** Before registering a predicate, enumerate the distinct states its FALSE could
+describe. If there is more than one and they lead to different write-ups, the predicate is not
+sufficient: emit the quantity that separates them — the full sweep, the candidate set, the counts —
+alongside the boolean. A bar tells you whether you passed; only the curve tells you why you failed.
+Related: [[lesson-39]] (write the predicate, then read it back against its own sentence) — this is the
+same discipline applied to the FAILURE branch, which I had been checking far less carefully than the
+pass branch.

@@ -46947,3 +46947,53 @@ applied unchanged; coverage 5419.
 **Open question this ends on.** The deferral signal was taken from the arm doing the deferring. The
 arm being deferred TO has its own confidence — the leave-one-out count behind its argmax — and that is
 equally realizable. Does the bigram know when it is right?
+
+## §1797 — neither arm knows when to defer: the second selection also chose never-defer, and every candidate was worse
+
+`ops/bigram_self_confidence.py`, 48.5s, **DISCOVERY ONLY**, rung 3.
+**pred_a False | pred_b False | pred_c False | pred_d True.**
+
+§1796 took the deferral signal from the arm doing the deferring and found it useless. This took it from
+the arm being deferred **to** — the leave-one-out count behind the bigram's own argmax, a measure of
+evidence rather than of a decision boundary.
+
+```
+  defer to the bigram when the count behind ITS argmax >= tau
+  skip11000 overall (program alone = 14.25%)      head (program alone = 40.42%)
+    never  14.25% (defer  0%)                       40.42% (defer  0%)
+    >=20   13.19% (defer 52%)                       38.55% (defer 52%)
+    >=12   13.18% (defer 58%)                       38.33% (defer 56%)
+    >= 8   13.26% (defer 63%)                       38.27% (defer 60%)
+    >= 5   13.41% (defer 70%)                       38.36% (defer 67%)
+    >= 3   13.64% (defer 79%)                       38.41% (defer 75%)
+    >= 1   13.14% (defer 98%)                       35.96% (defer 97%)
+```
+
+**Every candidate threshold is worse than the program alone, at every role, on both slices.** The
+selection procedure therefore chose never-defer again and the held-out gain is **+0.00pp**. Even at
+the strictest threshold — deferring only where the bigram's choice rests on **20 or more** leave-one-out
+observations, which is 52% of positions — accuracy falls **1.06pp** overall and **1.87pp** on the head.
+A well-evidenced bigram is still worse than the program where it is well-evidenced.
+
+**I registered the wrong interpretation for pred_b's failure and the data corrects me.** I wrote that a
+second degeneration to never-defer "would mean pred_a failed for want of any candidate rather than
+because the signal is uninformative — a different conclusion from the same boolean". That is not what
+happened: the grid did contain deferring candidates, all seven were evaluated, and **all seven lost**.
+So pred_a failed for the stronger reason, not the weaker one. The predicate was binary while the
+situation had three states — no candidate, candidates all worse, candidates better — and only the
+printed curve distinguishes them. **LESSON 44.**
+
+**Taken with §1796, the negative is now two-sided and firm.** ~7-9 points of head accuracy are decided
+by exactly one of the two arms (§1796), and **neither arm's self-assessment locates any of it**: not
+the program's decision margin, not the bigram's evidence count. Two independent selection procedures,
+each choosing its threshold on skip7000 and scored on two held-out roles, both chose to never defer.
+The oracle union is an upper bound that no realizable rule built from these two objects approaches.
+
+Controls (pred_d): program, live and the leak-free bigram reproduce §1789's and §1795's published
+figures within 0.001; the oracle union reproduces §1796's 0.45966 / 0.48224 / 0.47517, confirming the
+bigram arm is the same object despite now also returning its count; the threshold was selected on
+skip7000 only; coverage 5419.
+
+**Open question this ends on.** Two arms cannot be combined, so the remaining lever is the one §1793
+identified: the program's binding constraint is COVERAGE. Does the coverage curve flatten before
+5,419 types, or is the program still on a steep part of it?
