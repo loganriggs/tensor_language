@@ -43845,3 +43845,52 @@ position 2 must be induction and position 0 must not be, which fails loudly unde
 **Re-running from the corrected classifier**, importing the shared module rather than carrying a
 fourth copy. The corrected v4 replay Codex ran is a discovery profile, not a restored result, and
 the joint interval has to be earned again on the corrected population or not at all.
+
+## §1734 — on the corrected partition the contrast is stronger, and it confirms on a role that had never seen it
+
+`ops/class_ratio_confirm_skip1200.py`, 20.2s. **pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Codex retired both follow-on scripts on a second ground independent of the mask bug: the class-ratio
+numbers had been observed on skip7000 **and** skip11000, so neither role can confirm this hypothesis
+again. That is correct, their guards stand, and this is a new script rather than an edit around
+them. Roles declared before the run: skip7000 and skip11000 **discovery only**, `skip1200`
+(`fineweb_n96_skip1200`, a pinned rowcache never scored for the class hypothesis) **confirmation**.
+
+Induction/repeat/novel per-token damage ratio, corrected past-facing classifier:
+
+| role | | MLP stack | 95% CI | attention stack | 95% CI | attn − mlp CI |
+|---|---|---:|---|---:|---|---|
+| skip7000 | discovery | 0.8814 | (0.833, 0.932) | 1.1654 | (1.091, 1.241) | (0.2326, 0.3366) |
+| skip11000 | discovery | 0.8900 | (0.842, 0.938) | 1.1269 | (1.050, 1.205) | (0.1778, 0.2967) |
+| **skip1200** | **CONFIRMATION** | **0.9197** | (0.846, 1.005) | **1.0521** | (0.941, 1.168) | **(0.0498, 0.2193)** |
+
+**The confirmation interval is entirely above zero on a role that had never seen the hypothesis, and
+the sign agrees on all three.** Controls: the classifier passed its hand-built known-answer check
+before anything loaded, and the partition-invariant §1662/§1682 stakes reproduce exactly — 4.33011
+against 4.3301 and 3.55704 against 3.5570. Neither of those could have been faked by a class error,
+which is the point of choosing them (LESSONS 34).
+
+**The corrected result is a sharper claim than the void one, not a rescue of it.** pred_d measured
+the size of the error deliberately: the MLP ratio moves 0.8382 → **0.8814**, and the attention ratio
+moves 1.0015 → **1.1654**. On the future-looking partition attention read as *class-flat*; corrected,
+it is **above 1 on all three roles**. So:
+
+> **Ablating attention costs MORE on `induction` targets than on `novel` ones (1.05–1.17x); ablating
+> the MLP stack costs LESS (0.88–0.92x).** A clean division of labour — attention carries the
+> copy/retrieval work, the MLP stack carries what has to come from the weights.
+
+**The late-attention finding survives only partly, and the confirmation role is what cut it down.**
+
+```
+              skip7000   skip11000   skip1200 (clean)
+  attn14      -0.0128     -0.0096     -0.0102      novel damage, nats/token
+  attn15      -0.0014     -0.0022     +0.0015   <- SIGN FLIPS on the clean role
+  attn16      -0.0138     -0.0145     -0.0120
+```
+
+attn14 and attn16 reproduce a negative `novel` damage on all three roles: replacing them with their
+optimal constant **improves** cross-entropy on targets absent from the context, while their total
+removal stays positive (+0.0213, +0.0165 on skip1200) — net-useful sites that are actively wrong on
+the majority class. **attn15 does not**: it flips positive on the only role that could test it, and
+its magnitudes were the smallest of the three all along (0.0014–0.0022). The withdrawn §1729 entry
+named three sites; the evidence supports two.
