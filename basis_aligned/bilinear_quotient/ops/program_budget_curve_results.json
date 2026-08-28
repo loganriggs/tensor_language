@@ -1,0 +1,499 @@
+{
+ "config": {
+  "budgets": [
+   2,
+   3,
+   6,
+   9,
+   12
+  ],
+  "random_draws": 6,
+  "seed": 1739,
+  "setup": "K of 36 sites stay NATIVE, the other 36-K are replaced by per-token tables (hybrid hook, \u00a71661). Recovered = CE(all tabled) minus CE(this allocation).",
+  "rankings": "read from the prior runs JSON, never hand-copied; each site ranked by the WORSE of its two roles so a single-role fluke cannot enter",
+  "ROLE_NOTE": "DISCOVERY ONLY. Same family as \u00a71736-\u00a71738; both large roles spent."
+ },
+ "allocations": {
+  "2": {
+   "PROG": [
+    "mlp17",
+    "mlp16"
+   ],
+   "OAT": [
+    "mlp1",
+    "mlp0"
+   ]
+  },
+  "3": {
+   "PROG": [
+    "mlp17",
+    "mlp16",
+    "attn16"
+   ],
+   "OAT": [
+    "mlp1",
+    "mlp0",
+    "mlp2"
+   ]
+  },
+  "6": {
+   "PROG": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17"
+   ],
+   "OAT": [
+    "mlp1",
+    "mlp0",
+    "mlp2",
+    "mlp3",
+    "mlp17",
+    "attn0"
+   ]
+  },
+  "9": {
+   "PROG": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13",
+    "attn15",
+    "mlp12"
+   ],
+   "OAT": [
+    "mlp1",
+    "mlp0",
+    "mlp2",
+    "mlp3",
+    "mlp17",
+    "attn0",
+    "attn4",
+    "attn1",
+    "attn2"
+   ]
+  },
+  "12": {
+   "PROG": [
+    "mlp17",
+    "mlp16",
+    "attn16",
+    "mlp15",
+    "attn14",
+    "attn17",
+    "attn13",
+    "attn15",
+    "mlp12",
+    "mlp14",
+    "mlp13",
+    "mlp11"
+   ],
+   "OAT": [
+    "mlp1",
+    "mlp0",
+    "mlp2",
+    "mlp3",
+    "mlp17",
+    "attn0",
+    "attn4",
+    "attn1",
+    "attn2",
+    "attn5",
+    "attn3",
+    "mlp4"
+   ]
+  }
+ },
+ "random_allocations": {
+  "2": [
+   [
+    "mlp15",
+    "mlp17"
+   ],
+   [
+    "attn11",
+    "mlp9"
+   ],
+   [
+    "attn12",
+    "mlp12"
+   ],
+   [
+    "attn8",
+    "mlp17"
+   ],
+   [
+    "attn16",
+    "mlp16"
+   ],
+   [
+    "mlp5",
+    "mlp8"
+   ]
+  ],
+  "3": [
+   [
+    "attn13",
+    "attn14",
+    "attn2"
+   ],
+   [
+    "mlp14",
+    "mlp2",
+    "mlp8"
+   ],
+   [
+    "attn12",
+    "attn17",
+    "mlp7"
+   ],
+   [
+    "attn16",
+    "attn5",
+    "mlp5"
+   ],
+   [
+    "mlp13",
+    "mlp4",
+    "mlp5"
+   ],
+   [
+    "attn9",
+    "mlp1",
+    "mlp6"
+   ]
+  ],
+  "6": [
+   [
+    "attn11",
+    "attn3",
+    "attn8",
+    "mlp10",
+    "mlp15",
+    "mlp2"
+   ],
+   [
+    "attn15",
+    "attn8",
+    "mlp15",
+    "mlp5",
+    "mlp7",
+    "mlp8"
+   ],
+   [
+    "attn11",
+    "attn17",
+    "attn7",
+    "mlp1",
+    "mlp2",
+    "mlp9"
+   ],
+   [
+    "attn12",
+    "attn14",
+    "attn17",
+    "mlp2",
+    "mlp8",
+    "mlp9"
+   ],
+   [
+    "attn10",
+    "attn2",
+    "attn6",
+    "mlp11",
+    "mlp17",
+    "mlp8"
+   ],
+   [
+    "attn0",
+    "attn12",
+    "attn16",
+    "mlp11",
+    "mlp16",
+    "mlp4"
+   ]
+  ],
+  "9": [
+   [
+    "attn0",
+    "attn4",
+    "attn6",
+    "attn8",
+    "mlp11",
+    "mlp13",
+    "mlp16",
+    "mlp4",
+    "mlp7"
+   ],
+   [
+    "attn1",
+    "attn10",
+    "attn12",
+    "attn14",
+    "attn15",
+    "mlp3",
+    "mlp6",
+    "mlp7",
+    "mlp9"
+   ],
+   [
+    "attn1",
+    "attn10",
+    "attn17",
+    "attn3",
+    "mlp11",
+    "mlp13",
+    "mlp14",
+    "mlp16",
+    "mlp7"
+   ],
+   [
+    "attn0",
+    "attn11",
+    "attn13",
+    "attn5",
+    "attn9",
+    "mlp12",
+    "mlp13",
+    "mlp14",
+    "mlp7"
+   ],
+   [
+    "attn0",
+    "attn15",
+    "attn3",
+    "attn4",
+    "attn5",
+    "attn7",
+    "attn8",
+    "mlp1",
+    "mlp13"
+   ],
+   [
+    "attn10",
+    "attn12",
+    "attn15",
+    "attn6",
+    "attn7",
+    "mlp11",
+    "mlp14",
+    "mlp17",
+    "mlp4"
+   ]
+  ],
+  "12": [
+   [
+    "attn0",
+    "attn12",
+    "attn14",
+    "attn15",
+    "attn16",
+    "attn5",
+    "attn6",
+    "attn7",
+    "mlp0",
+    "mlp11",
+    "mlp13",
+    "mlp6"
+   ],
+   [
+    "attn0",
+    "attn10",
+    "attn16",
+    "attn2",
+    "attn4",
+    "attn6",
+    "mlp13",
+    "mlp15",
+    "mlp16",
+    "mlp17",
+    "mlp2",
+    "mlp7"
+   ],
+   [
+    "attn11",
+    "attn15",
+    "attn16",
+    "attn4",
+    "attn6",
+    "attn8",
+    "mlp11",
+    "mlp15",
+    "mlp2",
+    "mlp5",
+    "mlp8",
+    "mlp9"
+   ],
+   [
+    "attn1",
+    "attn10",
+    "attn12",
+    "attn13",
+    "attn2",
+    "attn5",
+    "attn9",
+    "mlp11",
+    "mlp13",
+    "mlp7",
+    "mlp8",
+    "mlp9"
+   ],
+   [
+    "attn12",
+    "attn13",
+    "attn14",
+    "attn2",
+    "attn5",
+    "mlp0",
+    "mlp1",
+    "mlp11",
+    "mlp17",
+    "mlp3",
+    "mlp6",
+    "mlp9"
+   ],
+   [
+    "attn0",
+    "attn1",
+    "attn12",
+    "attn17",
+    "attn4",
+    "attn8",
+    "attn9",
+    "mlp10",
+    "mlp13",
+    "mlp2",
+    "mlp4",
+    "mlp5"
+   ]
+  ]
+ },
+ "results": {
+  "skip7000": {
+   "live_ce": 3.29205,
+   "all_tabled_ce": 7.35114,
+   "stake_nats": 4.05909,
+   "by_budget": {
+    "2": {
+     "PROG": 0.30848,
+     "OAT": -0.00085,
+     "RANDOM_median": 0.26946,
+     "RANDOM_best": 0.64097,
+     "PROG_frac": 0.076,
+     "OAT_frac": -0.00021,
+     "prog_over_oat": 308477470.9839,
+     "prog_marginal_per_site": 0.15424
+    },
+    "3": {
+     "PROG": 0.64378,
+     "OAT": -0.00324,
+     "RANDOM_median": 0.23565,
+     "RANDOM_best": 0.35838,
+     "PROG_frac": 0.1586,
+     "OAT_frac": -0.0008,
+     "prog_over_oat": 643778967.4862,
+     "prog_marginal_per_site": 0.3353
+    },
+    "6": {
+     "PROG": 1.01649,
+     "OAT": 0.51906,
+     "RANDOM_median": 0.53911,
+     "RANDOM_best": 0.749,
+     "PROG_frac": 0.25042,
+     "OAT_frac": 0.12787,
+     "prog_over_oat": 1.9583,
+     "prog_marginal_per_site": 0.12424
+    },
+    "9": {
+     "PROG": 1.19761,
+     "OAT": 0.56375,
+     "RANDOM_median": 0.65103,
+     "RANDOM_best": 0.98834,
+     "PROG_frac": 0.29504,
+     "OAT_frac": 0.13889,
+     "prog_over_oat": 2.1244,
+     "prog_marginal_per_site": 0.06037
+    },
+    "12": {
+     "PROG": 1.25888,
+     "OAT": 0.66711,
+     "RANDOM_median": 0.94323,
+     "RANDOM_best": 1.09418,
+     "PROG_frac": 0.31014,
+     "OAT_frac": 0.16435,
+     "prog_over_oat": 1.8871,
+     "prog_marginal_per_site": 0.02042
+    }
+   }
+  },
+  "skip11000": {
+   "live_ce": 3.09711,
+   "all_tabled_ce": 7.35825,
+   "stake_nats": 4.26114,
+   "by_budget": {
+    "2": {
+     "PROG": 0.29966,
+     "OAT": -0.0008,
+     "RANDOM_median": 0.26307,
+     "RANDOM_best": 0.63233,
+     "PROG_frac": 0.07032,
+     "OAT_frac": -0.00019,
+     "prog_over_oat": 299658589.4828,
+     "prog_marginal_per_site": 0.14983
+    },
+    "3": {
+     "PROG": 0.63558,
+     "OAT": -0.00306,
+     "RANDOM_median": 0.21675,
+     "RANDOM_best": 0.38422,
+     "PROG_frac": 0.14916,
+     "OAT_frac": -0.00072,
+     "prog_over_oat": 635578767.9406,
+     "prog_marginal_per_site": 0.33592
+    },
+    "6": {
+     "PROG": 1.03832,
+     "OAT": 0.52083,
+     "RANDOM_median": 0.55522,
+     "RANDOM_best": 0.7399,
+     "PROG_frac": 0.24367,
+     "OAT_frac": 0.12223,
+     "prog_over_oat": 1.9936,
+     "prog_marginal_per_site": 0.13425
+    },
+    "9": {
+     "PROG": 1.21774,
+     "OAT": 0.5685,
+     "RANDOM_median": 0.65108,
+     "RANDOM_best": 0.99865,
+     "PROG_frac": 0.28578,
+     "OAT_frac": 0.13341,
+     "prog_over_oat": 2.142,
+     "prog_marginal_per_site": 0.05981
+    },
+    "12": {
+     "PROG": 1.28138,
+     "OAT": 0.67629,
+     "RANDOM_median": 0.95171,
+     "RANDOM_best": 1.12458,
+     "PROG_frac": 0.30071,
+     "OAT_frac": 0.15871,
+     "prog_over_oat": 1.8947,
+     "prog_marginal_per_site": 0.02121
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_prog_beats_oat_at_every_budget": true,
+  "pred_b_advantage_converges": false,
+  "pred_c_no_knee_in_marginal": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 115.9
+}

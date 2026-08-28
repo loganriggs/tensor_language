@@ -44148,3 +44148,57 @@ run and all four scored, but skip7000 and skip11000 are both spent for this fami
 §1736–§1739 beyond the already-certified §1736 goes into the registry on this evidence. Raised on the
 board: if a fresh eval role becomes available, this allocation comparison is where it buys the most,
 and the two lists are frozen in the results JSON so nothing gets re-chosen after the role is seen.
+
+## §1740 — the budget curve: strong diminishing returns from K=3, the OAT allocation is NEGATIVE at small budgets, and I printed a 3×10⁸ ratio
+
+`ops/program_budget_curve.py`, 115.9s, **DISCOVERY ONLY**, both large roles spent.
+**pred_a True | pred_b False | pred_c False | pred_d True.**
+
+```
+  skip7000 (stake 4.0591)              skip11000 (stake 4.2611)
+   K    PROG      OAT  rand med rand best      PROG      OAT  rand med rand best
+   2  0.3085  -0.0008   0.2695   0.6410      0.2997  -0.0008   0.2631   0.6323
+   3  0.6438  -0.0032   0.2356   0.3584      0.6356  -0.0031   0.2167   0.3842
+   6  1.0165   0.5191   0.5391   0.7490      1.0383   0.5208   0.5552   0.7399
+   9  1.1976   0.5637   0.6510   0.9883      1.2177   0.5685   0.6511   0.9987
+  12  1.2589   0.6671   0.9432   1.0942      1.2814   0.6763   0.9517   1.1246
+```
+
+**pred_a passed: PROG beats OAT at every budget on both roles.** §1739's result is not
+budget-specific.
+
+**The OAT allocation is NEGATIVE at K=2 and K=3.** Keeping mlp1 and mlp0 native while tabling the
+other thirty-four is **worse than tabling all thirty-six** — −0.0008 and −0.0032 nats, reproduced on
+both roles. §1739's pred_c asked whether an OAT column is *actively misleading* rather than merely
+uninformative and could not establish it at K=6. **At K=2 and K=3 it is established**: following the
+one-at-a-time ranking at a small budget spends the entire budget making the program worse. Same
+mechanism as §1737's mlp2 — a live site surrounded by stand-ins can cost more than a stand-in.
+
+**pred_b FAILED, and the reason is a defect I introduced with a guard.** The PROG/OAT ratio printed
+as **308,477,470.98x** at K=2. That is not a result. The OAT denominator is negative there and
+`max(g['OAT'], 1e-9)` turned it into 1e-9. **A ratio whose denominator crosses zero is not a
+statistic, and a floor guard converts that fact into a large confident-looking number.** §1735 taught
+me exactly this — §1728's per-site ratios blew up at three attention sites and I replaced them with a
+difference — and I then wrote a fresh zero-crossing ratio four sections later. Recorded as LESSONS 35.
+
+On the differences, which are defined everywhere, the PROG−OAT gap runs **0.309, 0.647, 0.497, 0.634,
+0.592** on skip7000. It rises then plateaus; it does not converge over this range, so the
+convergence intuition behind pred_b has no support here either — the advantage is roughly flat in
+absolute nats from K=3 to K=12 while both allocations climb.
+
+**pred_c FAILED, partly on the data and partly on a metric I defined badly.** Marginal recovery per
+added site runs **0.154, 0.335, 0.124, 0.060, 0.020**. The 0.154 → 0.335 step is not a knee in the
+model: the K=2 figure averages over a two-site step while the K=3 figure is a single site, so I
+compared an average against a single. **From K=3 onward, where the steps are all three sites wide,
+the marginal decreases strictly and steeply — 0.335, 0.124, 0.060, 0.020, a 16x fall.** That is
+strong diminishing returns and no knee, but it is what the data supports rather than what pred_c
+scored, and pred_c is recorded as failed.
+
+**PROG is not best at every budget.** At **K=2 the best of six random pairs recovers 0.641 against
+PROG's 0.309** — better than double. At K=3 PROG leads (0.644 vs 0.358) and from K=6 on it beats
+every random draw. So the ranking's usefulness starts at about three sites; below that, which pair
+you pick matters more than any ranking of individual sites, which is what §1736's superadditivity
+would predict.
+
+Controls: all-36-tabled CE 7.35114, matching §1738 and §1739 to five decimals across three scripts;
+K=6 reproduces §1739's 1.0165 / 1.0383 and 0.5191 / 0.5208 within 0.001; coverage 5419 of 50257.

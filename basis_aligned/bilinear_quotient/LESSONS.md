@@ -842,3 +842,25 @@ The rules:
 Sibling of LESSONS 32 (one control is not a control) and 33 (an aggregate over registry entries is
 an aggregate over prose). All three are the same shape: the numerator got the scrutiny and the
 **population, denominator, or comparison set** was assumed.
+
+## LESSON 35 — a guard on a denominator manufactures a number where there was none
+
+§1740 printed `PROG/OAT = 308,477,470.98x`. The denominator was **−0.0008**, and the code said
+`g['PROG'] / max(g['OAT'], 1e-9)`. The guard existed to avoid a division-by-zero crash and instead
+converted "this ratio is undefined" into a large, confident, printable number that then went into a
+registered prediction (`ratio non-increasing in K`) and made it unscoreable.
+
+This is the third time in this arc that a denominator did the damage while the numerator got the
+attention (LESSONS 32: one control is not a control; LESSONS 33: an aggregate over registry entries
+is an aggregate over prose), and the second time specifically that a **zero-crossing denominator**
+did it — §1728's per-site ratios blew up to −3.6 and −5.2 at three attention sites, and §1735
+replaced them with a difference for exactly this reason. I wrote a fresh one four sections later.
+
+- **Before dividing, ask whether the denominator can be zero or negative.** If it can, the ratio is
+  not a statistic on that domain. Report the **difference**, which is defined everywhere and, for
+  quantities in nats, is the unit anyone actually cares about.
+- **Never floor a denominator to make a division succeed.** A crash is information; `max(x, 1e-9)` is
+  a fabricated result. If a guard is genuinely needed, emit `None` and print `n/a`, so the row is
+  visibly missing rather than invisibly wrong.
+- **A guard added for robustness is a silent change to what the number means.** It should be as
+  suspect as any other transformation of the data, and it belongs in the same review as the metric.
