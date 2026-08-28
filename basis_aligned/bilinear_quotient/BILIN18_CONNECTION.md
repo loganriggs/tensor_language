@@ -47369,6 +47369,14 @@ modules emit. **The compiled program runs at a much smaller residual scale than 
 compiled from**, everywhere, not only at L5. Nothing in §1769-§1786 measured that, and it is a property
 of the whole construction rather than of one layer.
 
+> **CORRECTED by §1807.** The ratios above are measured INSIDE THE COMPILED STREAM, where several
+> modules have already diverged, and only for attention. Measured in the fully live model the picture
+> is different: attention rows are 2.13x-7.07x too small, but MLP rows are 0.10x-2.33x and mostly too
+> LARGE (mlp4's row is ten times what mlp4 emits). There is no uniform "smaller everywhere" fact.
+> **The correction sharpens the cliff finding rather than weakening it**: attn L5 and L6 calibrate at
+> 1.00 and 1.02 on live input -- the two BEST matches in the stack -- against 152.62 and 73.97 here.
+> The row models L5 well; the compiled INPUT is what makes L5 explode.
+
 **A compile-depth curve, obtained for free from the prefix arms.** Holding depths 0..L live and
 compiling the rest: L4 gives +0.34pp, L5 +2.39, L6 +3.81, **L13 +19.29** — that last is 32.84% against
 the live model's 39.32%, so **compiling only the top four layers costs 6.5pp** where compiling all
@@ -47505,3 +47513,63 @@ tables were fitted against *live* upstream context (§1669's interleaved compila
 against everything already substituted below). The top-down direction is the one that construction
 already respects. Does the poisoning survive if the live layers above are given tables fitted in their
 presence — that is, is this a fixable calibration problem or a structural one?
+
+## §1807 — the poisoning is not magnitude: norm-matching does nothing at L3, and it corrects §1804's headline ratio
+
+`ops/norm_matched_rows.py`, 87.9s, **DISCOVERY ONLY**, rung 3 (the question §1806 ended on).
+**pred_a FALSE | pred_b True | pred_c FALSE | pred_d True.**
+
+Per-site calibration, mean output norm measured **in the fully live model** against the row's mean norm
+over the same eval positions:
+
+```
+  attn  L0 2.71  L1 2.49  L2 2.26  L3 2.13  L4 4.37  L5 1.00  L6 1.02  L7 3.61  L8 3.59
+        L9 4.83  L10 3.80  L11 4.49  L12 6.72  L13 6.39  L14 7.07  L15 6.33  L16 5.70  L17 5.59
+  mlp   L0 0.88  L1 0.42  L2 0.61  L3 0.49  L4 0.10  L5 0.39  L6 0.52  L7 1.66  L8 2.04
+        L9 1.32  L10 2.33  L11 1.05  L12 1.91  L13 1.26  L14 1.66  L15 1.19  L16 1.13  L17 1.21
+
+  bottom-up gap recovered      raw      scaled
+    L0                        37.4%     36.4%
+    L1                         1.9%    -10.1%
+    L3                       -44.8%    -45.0%
+    L5                       -43.9%    +18.9%
+    L9                         7.5%      7.1%
+    all compiled               0.0%      -5.4%
+```
+
+**pred_a FAILED. Norm-matching does not repair the poisoning.** At L3 the scaled arm is **−45.0 / −43.0
+/ −47.0%** against raw **−44.8 / −43.2 / −46.9%** — unchanged. pred_a's registered alternative: *"the
+mismatch is in what the rows POINT AT, which no per-site scalar can fix and which would make the
+directionality of §1806 structural rather than a calibration failure."* **It is structural.** A
+per-token table cannot sit beneath a live module, and no rescaling of it changes that.
+
+**One large exception, recorded and not explained.** At L5 the scaled arm swings from **−43.9% to
++18.9%** — sixty-two points — while at L3 it moves 0.2 and at L0, L9 it moves under 1. The effect is
+sharply non-uniform across depth and I have one data point for it. Not theorising (LESSON 37, LESSON
+47).
+
+**Scaling also HURTS the fully compiled program**: 0.0% → **−5.4 / −5.1 / −6.1%**. The settled
+program's row magnitudes are better than norm-matched ones, so the rows are not simply mis-scaled.
+
+**pred_c FAILED at 2.62x against a 3x bar, and its failure corrects §1804.** §1804 wrote that the rows
+are "systematically far smaller than what the live modules emit... everywhere, not only at L5", from
+ratios of 2.71 to 152.62. **Those were measured inside the COMPILED stream, where several modules had
+already diverged, and only for attention.** Measured properly in the live model: attention rows are
+**2.13x to 7.07x** too small, but **MLP rows are 0.10x to 2.33x — mostly too LARGE**, with mlp4's row
+ten times bigger than what mlp4 actually emits. The direction of the mismatch is not uniform and the
+magnitude is nothing like 152x. §1804 is corrected in place.
+
+**And the correction sharpens §1804's real finding rather than weakening it.** Attention L5 and L6
+calibrate at **1.00 and 1.02** on live input — the two *best* matches in the whole stack — against
+**152.62 and 73.97** measured on compiled input. The row is an excellent model of what L5 emits
+normally. **It is the compiled input that makes L5 explode**, not any deficiency in the row that
+replaces it. That is a cleaner statement of §1804's mechanism than §1804 made.
+
+**pred_b passed** (trivially, given pred_a): the scaled L3 arm stays far below the top-down value of
+2.2% at the same depth. **pred_d passed**: endpoints reproduce §1789 within 0.001 and the raw bottom-up
+arms at L0, L3, L5 reproduce §1806's published gap fractions within 2 points.
+
+**Open question this ends on.** Bottom-up compilation is structurally blocked, top-down is cheap, and
+the reason is that a live module requires context in its input. That is the same wall §1800 and §1802
+hit from two other directions. The position-wise thread has now been closed from four sides, and the
+next move is a different rung, not a fifth angle on this one.
