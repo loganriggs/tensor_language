@@ -61,6 +61,18 @@ def _logical_sha256(value: Any) -> str:
     ).encode("utf-8")).hexdigest()
 
 
+def _flat_byte_view(value: torch.Tensor) -> torch.Tensor:
+    """Return bytes for any contiguous strided tensor, including a 0-d scalar."""
+
+    tensor = value.detach().contiguous()
+    # PyTorch forbids changing dtype with ``view(dtype)`` on a 0-d tensor.
+    # Reshaping only the scalar to one element preserves its exact storage bytes;
+    # callers separately hash the original shape and dtype.
+    if tensor.ndim == 0:
+        tensor = tensor.reshape(1)
+    return tensor.view(torch.uint8).reshape(-1)
+
+
 def tensor_content_sha256(value: torch.Tensor, *, chunk_bytes: int = 64 << 20) -> str:
     """Hash exact shape/dtype and bytes without retaining a host-sized copy."""
 
@@ -71,7 +83,7 @@ def tensor_content_sha256(value: torch.Tensor, *, chunk_bytes: int = 64 << 20) -
     digest = hashlib.sha256(json.dumps({
         "shape": list(value.shape), "dtype": str(value.dtype),
     }, sort_keys=True, separators=(",", ":")).encode("utf-8"))
-    raw = value.detach().view(torch.uint8).reshape(-1)
+    raw = _flat_byte_view(value)
     for start in range(0, raw.numel(), chunk_bytes):
         block = raw[start:start + chunk_bytes].cpu().numpy().tobytes(order="C")
         digest.update(block)
@@ -88,7 +100,7 @@ def model_tree_sha256(model: torch.nn.Module) -> str:
         }, sort_keys=True, separators=(",", ":")).encode("utf-8")
         digest.update(len(header).to_bytes(8, "little"))
         digest.update(header)
-        raw = value.view(torch.uint8).reshape(-1)
+        raw = _flat_byte_view(value)
         for start in range(0, raw.numel(), 64 << 20):
             digest.update(raw[start:start + (64 << 20)].cpu().numpy().tobytes(order="C"))
     return digest.hexdigest()

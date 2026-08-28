@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import hashlib
+import json
 
 import pytest
 import torch
@@ -12,6 +14,15 @@ import compilation_mask_cut_rank_v1_measurements as measurement
 
 def _hash(label: str) -> str:
     return backend_module._logical_sha256(label)
+
+
+class ScalarStateModel(torch.nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.scalar_parameter = torch.nn.Parameter(
+            torch.tensor(0.5, dtype=torch.float32), requires_grad=False,
+        )
+        self.register_buffer("scalar_buffer", torch.tensor(7, dtype=torch.int64))
 
 
 class TinyAttention(torch.nn.Module):
@@ -312,3 +323,39 @@ def test_tensor_hash_rejects_alias_unsafe_inputs_and_binds_dtype_shape():
     grad = value.clone().requires_grad_()
     with pytest.raises(ValueError, match="detached"):
         backend_module.tensor_content_sha256(grad)
+
+
+def test_scalar_tensor_hash_preserves_original_shape_dtype_and_exact_bytes():
+    scalar = torch.tensor(-3.25, dtype=torch.float32)
+    header = json.dumps({
+        "shape": [], "dtype": "torch.float32",
+    }, sort_keys=True, separators=(",", ":")).encode("utf-8")
+    expected = hashlib.sha256(header)
+    expected.update(scalar.reshape(1).numpy().tobytes(order="C"))
+    assert backend_module.tensor_content_sha256(scalar) == expected.hexdigest()
+    assert backend_module.tensor_content_sha256(scalar) != (
+        backend_module.tensor_content_sha256(scalar.reshape(1))
+    )
+    assert backend_module.tensor_content_sha256(scalar) != (
+        backend_module.tensor_content_sha256(scalar.to(torch.float64))
+    )
+
+
+def test_model_tree_hash_and_guard_cover_scalar_parameter_and_buffer():
+    model = ScalarStateModel()
+    initial = backend_module.model_tree_sha256(model)
+    assert len(initial) == 64
+    guard = backend_module.ModelTreeGuard(model, initial_sha256=initial)
+    assert guard.verify_exact() == initial
+    with torch.no_grad():
+        model.scalar_parameter.add_(1.0)
+    with pytest.raises(RuntimeError, match="model state changed"):
+        guard.verify_metadata()
+
+    model = ScalarStateModel()
+    initial = backend_module.model_tree_sha256(model)
+    guard = backend_module.ModelTreeGuard(model, initial_sha256=initial)
+    model.scalar_buffer.add_(1)
+    assert backend_module.model_tree_sha256(model) != initial
+    with pytest.raises(RuntimeError, match="model state changed"):
+        guard.verify_metadata()
