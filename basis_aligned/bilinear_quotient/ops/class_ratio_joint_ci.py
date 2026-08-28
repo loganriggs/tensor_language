@@ -39,8 +39,10 @@
 #   pred_c AT LEAST ONE OF attn14/15/16 HAS NEGATIVE TOTAL REMOVAL -- replacing it with a constant
 #          IMPROVES pooled CE on the eval rows. If FALSE, the site is net useful and only its `novel`
 #          component is harmful, which is a sharper and more interesting claim than a broken site.
-#   pred_d CONTROLS: baselines reproduce 3.29205 / 3.09711, joint ratios reproduce §1728's
-#          0.838 / 1.002 / 0.843 / 0.974 within 0.01, and class counts sum to the scored count.
+#   pred_d CONTROLS: baselines reproduce 3.29205 / 3.09711 (partition-invariant, so still
+#          valid after §1733) AND the classifier passes a hand-built known-answer check.
+#          §1728's class-dependent ratios are NOT reproduced as a control: they came from the
+#          future-looking mask, so reproducing them would only prove the bug came back.
 import json, time, sys, os, torch
 import torch.nn.functional as F
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -55,10 +57,27 @@ EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', 3.29205, 1e
 FIT_ROWS = PT + '.rowcache/fineweb_n96_skip80.pt'
 CONSTS = PT + 'opt_ablation_consts_all.pt'
 H = m.transformer.h
-S1728 = {'skip7000': {'mlp': 0.838, 'attn': 1.002}, 'skip11000': {'mlp': 0.843, 'attn': 0.974}}
 LATE = [('attn', 14), ('attn', 15), ('attn', 16)]
 CLASSES = ('induction', 'repeat', 'novel')
 COV = {}
+CTRL = {'classifier': False, 'baselines': True}
+
+def assert_classifier_is_past_facing():
+    """The check whose absence let §1733 through: a hand-built four-token example with a known
+    answer, plus an invariance check that a position's label cannot move when the FUTURE changes.
+    Pooled baselines and count-sum asserts are invariant to the partition and cannot catch this."""
+    idx = torch.tensor([[5, 7, 5, 7]]); tg = torch.tensor([[7, 5, 7, 9]])
+    c = target_token_classes(idx, tg)
+    assert c['induction'].tolist() == [[False, False, True, False]], c['induction']
+    assert c['repeat'].tolist() == [[False, True, False, False]], c['repeat']
+    assert c['novel'].tolist() == [[True, False, False, True]], c['novel']
+    l = torch.tensor([[5, 7, 5, 7, 1, 2]]); r = torch.tensor([[5, 7, 5, 7, 5, 7]])
+    t = torch.tensor([[7, 5, 7, 9, 3, 4]])
+    for k in ('induction', 'repeat', 'novel'):
+        assert torch.equal(target_token_classes(l, t)[k][:, :4],
+                           target_token_classes(r, t)[k][:, :4]), k
+
+
 
 
 def load(p):
@@ -129,6 +148,10 @@ def main():
         'induction mask and cannot be repaired after both eval roles were observed'
     )
     t0 = time.time()
+    assert_classifier_is_past_facing()
+    CTRL['classifier'] = True
+    print('  classifier known-answer check PASSED: past-facing induction, labels invariant '
+          'to the future suffix (§1733/LESSONS 34)', flush=True)
     K = torch.load(CONSTS, map_location='cpu')
     fit = load(FIT_ROWS)
     seen = torch.zeros(50257, dtype=torch.bool)
@@ -193,8 +216,7 @@ def main():
              for e in out for L in (14, 15, 16))
     pc = any(out['skip11000']['late_attention'][f'attn{L}']['total_removal_nats'] < 0
              for L in (14, 15, 16))
-    pd = all(abs(out[e]['joint_ratio'][k] - v) <= 0.01
-             for e, kv in S1728.items() for k, v in kv.items())
+    pd = CTRL['classifier'] and CTRL['baselines']
 
     print(f'\n  HELD OUT diff CI {ho["joint_ratio_ci95"]["diff"]} -> joint contrast resolved {pa}',
           flush=True)
@@ -209,6 +231,7 @@ def main():
                                'same on `novel` targets, JOINT over a whole stack. The PER-SITE '
                                'version of this contrast FAILED its held-out predictions in §1728 '
                                'and is not carried forward.'},
+           'VOIDS': 'S1727-S1729 were computed on a future-looking induction mask (S1733). This run uses the shared tested classifier and reproduces NONE of their class-dependent numbers by design; the surviving controls are the partition-invariant baselines plus a known-answer check on the classifier itself.',
            'results': out,
            'predictions': {'pred_a_joint_contrast_resolved': bool(pa),
                            'pred_b_negative_denominator': bool(pb),

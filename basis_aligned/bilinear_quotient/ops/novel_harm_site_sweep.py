@@ -29,8 +29,10 @@
 #   pred_b S1729 UPGRADES FROM SIGN TO INTERVAL: at attn14, attn15 and attn16 the 95% interval on
 #          held-out `novel` damage lies entirely below zero. If FALSE the sign replicates on two
 #          sets but is not resolved at this row count, and the registry entry stays sign-only.
-#   pred_c CONTROLS: the nine held-out per-class damages S1729 published reproduce within 0.002, and
-#          both baselines reproduce 3.29205 / 3.09711.
+#   pred_c CONTROLS: both baselines reproduce 3.29205 / 3.09711 (partition-invariant, so still
+#          valid after §1733) AND the classifier passes a hand-built known-answer check.
+#          §1729's class-dependent damages are NOT reproduced: they came from the future-looking
+#          mask and reproducing them would only prove the bug came back.
 #   pred_d IT IS AN ATTENTION PROPERTY: no MLP site has negative `novel` damage on either eval set.
 #          If FALSE, "the weights are the only source for novel targets" (S1729) is too simple --
 #          some MLP is also actively wrong there.
@@ -48,13 +50,27 @@ EVAL_SETS = [('skip7000', PT + '.rowcache/fineweb_n192_skip7000.pt', 3.29205, 1e
 FIT_ROWS = PT + '.rowcache/fineweb_n96_skip80.pt'
 CONSTS = PT + 'opt_ablation_consts_all.pt'
 H = m.transformer.h
-# the nine held-out per-token damages S1729 certified on sign alone; reproduced here as a control
-S1729_HO = {'attn14': {'induction': 0.0353, 'repeat': 0.0833, 'novel': -0.0100},
-            'attn15': {'induction': 0.0075, 'repeat': 0.0197, 'novel': -0.0022},
-            'attn16': {'induction': 0.0191, 'repeat': 0.0567, 'novel': -0.0148}}
 LATE = ['attn14', 'attn15', 'attn16']
 CLASSES = ('induction', 'repeat', 'novel')
 COV = {}
+CTRL = {'classifier': False, 'baselines': True}
+
+def assert_classifier_is_past_facing():
+    """The check whose absence let §1733 through: a hand-built four-token example with a known
+    answer, plus an invariance check that a position's label cannot move when the FUTURE changes.
+    Pooled baselines and count-sum asserts are invariant to the partition and cannot catch this."""
+    idx = torch.tensor([[5, 7, 5, 7]]); tg = torch.tensor([[7, 5, 7, 9]])
+    c = target_token_classes(idx, tg)
+    assert c['induction'].tolist() == [[False, False, True, False]], c['induction']
+    assert c['repeat'].tolist() == [[False, True, False, False]], c['repeat']
+    assert c['novel'].tolist() == [[True, False, False, True]], c['novel']
+    l = torch.tensor([[5, 7, 5, 7, 1, 2]]); r = torch.tensor([[5, 7, 5, 7, 5, 7]])
+    t = torch.tensor([[7, 5, 7, 9, 3, 4]])
+    for k in ('induction', 'repeat', 'novel'):
+        assert torch.equal(target_token_classes(l, t)[k][:, :4],
+                           target_token_classes(r, t)[k][:, :4]), k
+
+
 
 
 def load(p):
@@ -125,6 +141,10 @@ def main():
         'use corrected discovery and a new untouched confirmation role'
     )
     t0 = time.time()
+    assert_classifier_is_past_facing()
+    CTRL['classifier'] = True
+    print('  classifier known-answer check PASSED: past-facing induction, labels invariant '
+          'to the future suffix (§1733/LESSONS 34)', flush=True)
     K = torch.load(CONSTS, map_location='cpu')
     fit = load(FIT_ROWS)
     seen = torch.zeros(50257, dtype=torch.bool)
@@ -179,8 +199,7 @@ def main():
     neg_ho = out['skip11000']['negative_novel_sites']
     pa = bool(neg_ho) and all(n.startswith('attn') and int(n[4:]) >= 12 for n in neg_ho)
     pb = all(ho[n]['novel_negative_resolved'] for n in LATE)
-    pc = all(abs(ho[n]['per_token_damage'][c] - v) <= 0.002
-             for n, kv in S1729_HO.items() for c, v in kv.items())
+    pc = CTRL['classifier'] and CTRL['baselines']
     pd = not any(ho[f'mlp{L}']['per_token_damage']['novel'] < 0
                  or ref[f'mlp{L}']['per_token_damage']['novel'] < 0 for L in range(18))
 
@@ -195,6 +214,7 @@ def main():
                                    'per-site intervals are comparable to each other.',
                       'measure': 'per-token constant-ablation damage by target class; NEGATIVE means '
                                  'replacing the site with its optimal constant IMPROVES CE there'},
+           'VOIDS': 'S1727-S1729 were computed on a future-looking induction mask (S1733). This run uses the shared tested classifier and reproduces NONE of their class-dependent numbers by design; the surviving controls are the partition-invariant baselines plus a known-answer check on the classifier itself.',
            'results': out,
            'predictions': {'pred_a_confined_to_late_attention': bool(pa),
                            'pred_b_late_attn_novel_resolved': bool(pb),
