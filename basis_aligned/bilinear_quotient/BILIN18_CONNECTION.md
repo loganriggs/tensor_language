@@ -50033,6 +50033,12 @@ GPU time; recorded because the two have never been put side by side and the ceil
 The cost column reproduces §1811's published settled totals exactly (6.338 / 9.176 / 20.531 / 65.950 /
 230.087M), which is the check that the model and the ladder describe the same object.
 
+> **SUPERSEDED AS A FRONTIER BY §1852.** The table below is the frontier *at one coverage*. §1852
+> measured a second and found the full-rank point is **Pareto-dominated**: rank-256 at 16,110 covered
+> types costs 164.5M reals for all-position CE 5.98851, against full rank at 5,419 types costing 230.1M
+> for 6.01167 — cheaper and better. The observations below about the shape of this ladder stand; the
+> conclusion that full rank is the endpoint of the frontier does not.
+>
 > **Marginal cost per nat rises 250x across the ladder.** The last step — rank 256 to full — spends
 > **164.137M reals, 71% of the entire full-rank program**, to buy the final **0.066 nats**, 9% of the
 > distance the rank-4 table starts from. Rank 256 is at **29% of the cost and 91% of the way to the
@@ -50100,3 +50106,62 @@ table choice (§1845-§1847), rank (§1849), fallback (§1848) or coverage (§18
 live that §1765 derived. The remaining in-class questions are quantitative refinements of a frontier
 whose endpoint is now known and whose interior is fit-set specific. **The next substantive step is
 outside the class, which is a different program and is flagged for Logan rather than taken.**
+
+## §1852 — the attained ceiling is NOT on the Pareto frontier: rank-256 at 3x coverage beats it, 29% cheaper
+
+`ops/ladder_at_high_coverage.py`, 507.7s, **DISCOVERY ONLY**, §1851's open question.
+**pred_a True | pred_b True | pred_c True | pred_d False (the same mis-specified anchor as §1851).**
+
+The full ladder at 16,110 covered types against §1849's at 5,419 (CE above each build's own ceiling):
+
+```
+  rank full   +0.000000  -0.000000  -0.000000     (§1849 +0.00000)   rise  0
+  rank 256    +0.09252   +0.09844   +0.08049      (§1849 +0.06580)   rise +0.0267 / +0.0324 / +0.0245
+  rank 64     +0.27839   +0.29741   +0.25327      (§1849 +0.22327)   rise +0.0551 / +0.0649 / +0.0555
+  rank 16     +0.48135   +0.51846   +0.45230      (§1849 +0.42066)   rise +0.0607 / +0.0745 / +0.0657
+  rank 4      +0.82377   +0.88141   +0.81035      (§1849 +0.70393)   rise +0.1198 / +0.1401 / +0.1334
+```
+
+**The shape is preserved and the shift grows as rank falls** — zero at full rank, +0.027 at 256, +0.120
+at 4. A fixed-rank basis asked to span three times the token types loses more the less rank it has, which
+is the expected direction and is now measured rather than assumed. **pred_c PASSED**: still monotone in
+rank at the larger coverage, so §1850's frontier shifts without changing shape.
+
+**The frontier across both coverages, on ALL-POSITION CE — the only population common to the two builds:**
+
+```
+  rank    cost@5419   CE@5419  |  cost@16110   CE@16110  |   delta
+  full     230.087    6.01167  |    673.464     5.90522  |  -0.10645
+  256       65.950    6.06004  |    164.478     5.98851  |  -0.07153
+  64        20.531    6.17330  |     45.163     6.15459  |  -0.01871
+  16         9.176    6.35916  |     15.334     6.35395  |  -0.00521
+  4          6.338    6.62422  |      7.877     6.68494  |  +0.06071
+```
+
+> **rank-256 at 16,110 types — 164.5M reals, CE 5.98851 — DOMINATES full rank at 5,419 types — 230.1M
+> reals, CE 6.01167.** 28.5% cheaper **and** 0.023 nats better. **The object §1848 certified as attaining
+> its ceiling is not on the Pareto frontier.** Attaining the ceiling of a small covered set is a worse
+> buy than approximating the ceiling of a large one.
+
+**And coverage only pays if the rank can use it.** At full rank, tripling coverage buys **−0.106 nats**;
+at rank 4 it **costs +0.061 nats** while still charging 1.24x. The two axes interact, so neither §1800's
+coverage pricing nor §1849's rank ladder is a standalone lever — a fact neither section could have seen,
+since each varied one axis with the other fixed.
+
+**pred_d FAILED for the identical reason as §1851, twenty minutes after I wrote §1851 up.** I copied that
+script to make this one and inherited its live-CE anchor to §1768's 3.29205 / 3.09711, which is measured
+on the 5,419-type covered population and cannot apply to a 16,110-type one. §1851's write-up says exactly
+this. Copying a script copies its mis-specified bars, and I did not re-read the controls when I changed
+the constant I cared about — which is LESSONS 59's family (the reporting block is the thing you do not
+re-read) applied to `pred_d` rather than to labels.
+
+**A second error, caught before it reached the ledger.** I first computed the frontier above on
+**covered-position** CE, which would have compared 5,419-type and 16,110-type populations as though they
+were the same scored set and reported a Pareto claim that did not hold on any common population. The
+all-position column is the fix. Recording the near-miss because it is the third form of the same defect
+in one evening, and because the only reason I caught it was writing out what the two columns were
+populations *of*.
+
+**Controls that hold.** The all-position CEs at 5,419 reproduce §1811's published settled figures exactly
+across the whole ladder — 6.01167 / 6.06004 / 6.17330 / 6.35916 / 6.62422 — which is a five-point
+cross-run check on the object, and full-rank attainment is exact at both coverages on all three roles.
