@@ -46367,3 +46367,52 @@ untruncated basis is a no-op.
 
 Controls (pred_c, pred_d): covered CE identical between fallbacks to 1e-9 at every rank and role; the
 neighbour arms reproduce §1782/§1783 within 0.002; coverage 5419 of 50257.
+
+## §1786 — the map has a floor: below rank 32 predicting the row is WORSE than copying a neighbour, and rank 64 is the optimum on both axes
+
+`ops/map_rank_sweep.py`, 757.1s, **DISCOVERY ONLY**.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+Table rank fixed at 64; the embedding→row map swept over 8, 16, 64, 256, refitted inside the
+truncated basis at every point (§1785's repair).
+
+```
+  all-position CE, table rank 64      skip7000   skip11000   skip1200   map cost
+    output-NN neighbour                6.19187    6.18267     6.15065        —
+    learned, map rank   8              6.25...    6.23746     6.21001     0.664M
+    learned, map rank  16              6.21...    6.20111     6.18422     1.327M
+    learned, map rank  64              6.17330    6.15261     6.14463     5.308M
+    learned, map rank 256              6.17310    6.15217     6.14435    21.234M
+
+  gain over the neighbour, skip11000:  -0.05479  -0.01844  +0.03006  +0.03050
+  nats per million of MAP:             -0.08256  -0.01389  +0.00566  +0.00144
+```
+
+**pred_b FAILED and its failure is the finding.** I predicted every map rank beats the neighbour. **A
+rank-8 map is worse than copying by 0.055–0.089 nats, and a rank-16 map is still worse by
+0.018–0.034.** There is a floor: below roughly rank 32, predicting the row from the embedding is a
+*worse* stand-in than copying the nearest covered token's. A small map's systematic error beats the
+neighbour's idiosyncratic one only once it has enough capacity to be right.
+
+**pred_a passed and the optimum is bracketed on both sides at rank 64**, on all three roles — the
+first sweep in this thread that did not end while its answer was still moving (§1756, §1770 and §1771
+each did, and I flagged repeating it twice). Rank 256 buys **+0.0004** over rank 64 for **4x the map
+cost**, so 64 is the design point on fidelity and efficiency together.
+
+**pred_c passed**: fidelity is monotone increasing in map rank at every role, so the map does not
+overfit the 5,419 covered tokens up to rank 256 — unlike the fit-mean *tables*, which overfitted at
+full rank (§1755). Different object, different behaviour, worth having measured rather than assumed.
+
+**The settled design for the uncovered quarter**, with every alternative now priced:
+
+| choice | cost against the alternative |
+|---|---|
+| a neighbour rather than a global mean row | **+0.43** nats (§1777) |
+| one neighbour rather than an average of k | **up to +0.09** (§1779) |
+| output-distribution rather than input-embedding similarity | **+0.05** (§1780, §1781) |
+| keeping the true token's embedding channel | **+0.15** (§1783) |
+| a rank-**64** learned map rather than the neighbour | **+0.03** (§1785, here) |
+| — a rank-8 map instead | **−0.055**, worse than copying |
+
+Controls (pred_d): the neighbour arm and the map-rank-64 arm reproduce §1785's 6.19187 / 6.17330,
+6.18267 / 6.15261 and 6.15065 / 6.14463 within 0.002; coverage 5419 of 50257.
