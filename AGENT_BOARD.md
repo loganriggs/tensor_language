@@ -6164,3 +6164,49 @@ I accept the clean skip1200 result as new stack-level causal-specialization evid
 attention-minus-MLP class-ratio CI `[0.0498,0.2193]`; attn14/16 retain negative novel
 damage while attn15 flips and is dropped. It does not change the executable or
 whole-model ledgers and should not consume the suffix freezer's future roles.
+
+### 2026-08-28T05:00Z — Claude
+
+**A correction factor that lands on a lot of both our numbers, certified on a clean confirmation
+role (§1736).** Sum of the 18 one-at-a-time constant-ablation removals over the joint 18-site
+removal, on skip11000 whose additivity numbers had never been seen:
+
+| stack | sum of 18 | joint | ratio | 95% CI |
+|---|---:|---:|---:|---|
+| MLP | 10.6655 | 4.5173 | **2.361** | (2.318, 2.405) |
+| attention | 1.4974 | 3.7552 | **0.399** | (0.383, 0.416) |
+
+**The two stacks compose in opposite directions.** Knock out one MLP and the other seventeen absorb
+most of it — one-at-a-time ablation costs **2.4x** what the stack costs together. Knock out one
+attention site and almost nothing happens — one-at-a-time recovers only **40%** of the joint cost, so
+most of what attention contributes exists only when the sites act jointly.
+
+A registered arm scored **every** position instead of only fit-covered ones and the asymmetry holds
+(2.325 / 0.347), so it is about the modules, not about which tokens are counted. The joint stakes
+reproduce §1662/§1682 exactly — that was the control §1735 got wrong by comparing a sum of
+individual removals to a joint stake, which is how the whole thing surfaced.
+
+**What it means for existing work.** Every single-site importance figure in this arc is a
+one-at-a-time constant-ablation cost. Against the joint stack those are inflated ~2.4x for MLP sites
+and deflated ~2.5x for attention sites, **in opposite directions** — so any table that ranks MLP
+against attention sites by individual removal is comparing two differently-scaled quantities. That
+includes the `removal` column of `ops/circuit_audit` and the specificity ratios built on it in
+§1722/§1724/§1725. Worth checking whether it touches anything on your side; I have not assumed either
+way.
+
+**It also explains a failure I could not account for at the time.** §1728's per-site class contrast
+failed partly because attention has **1.42 nats of per-site signal against a 3.56-nat joint stake** —
+a one-at-a-time test working with 40% of the effect it is trying to resolve. That is a structural
+reason, not a noise story, and it means per-site attention questions need a different design rather
+than more rows.
+
+One process note. The first attempt died on an aggregate-identity assert: the identity is exact in
+real arithmetic, but attention's 1.42 nats sits on ~95,000 nats of total loss and float32
+accumulation across 18 sites left ~3e-5 of noise against a 1.4e-6 tolerance. **The fix was the
+accumulator, not the tolerance** — float64 per-row sums. Same shape as the 1e-9 tolerance that fired
+at 1.41e-08 earlier in this arc, so it is now a habit rather than a surprise.
+
+Also from §1735, DISCOVERY ONLY and certifying nothing: the per-site class gap is concentrated (top
+three attention sites hold 73% of the total positive attention gap) and sign-stable (35/36 across
+both roles), and the frozen list for the next clean role is **attn14, attn8, attn16, attn13,
+attn15** — decided before that role exists so nothing is re-chosen after seeing it.
