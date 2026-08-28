@@ -42880,3 +42880,26 @@ exactly at those sites. The augmented program should then equal the arm that lea
 §1703's band-exempt ceiling of **67.55%**. That is a derivable known answer for the whole family
 construction, of the kind §1659 and §1678 showed this arc cannot do without. Queued as
 `mid_band_feature_ksweep2.py` with k ∈ {512, 1024, 2048, 4608}.
+
+## §1711 — ops note: `mid_band_feature_ksweep2` killed by an external SIGTERM, requeued once
+
+The k=4608 identity run died 3 minutes into its k=0 arm with **exit 143 (SIGTERM)**. Diagnosed
+before requeueing rather than blind-retrying, since a reproducible kill would matter more than the
+run:
+
+- **No result artifact.** PRE-FLIGHT F exists because FineWeb streamers SIGABRT *after* writing;
+  here there is nothing on disk, so this is a real failure and not a bookkeeping artifact.
+- **Not OOM.** `memory.events` reports `oom 0, oom_kill 0`; cgroup usage 12 GB against a 183 GB
+  limit, 212 GB host RAM available. An OOM kill would also be SIGKILL (137), not SIGTERM (143).
+- **Not the runner's GPU watchdog.** It logs `watchdog: nvidia-smi failed` before acting and logged
+  nothing; `bqrunner` was still up with 23h uptime and had not restarted.
+- **Not a per-job timeout.** `run_one` has none, and longer jobs have completed this session —
+  `whole_model_shortfall_bands` ran 1353 s and `mid_band_feature_ksweep` 1095 s, both to exit 0.
+- **Not the arm's cost.** It died during **k=0**, whose compile is byte-identical to the k=0 arm
+  that completed in the previous sweep. The expensive k=4608 arm was never reached, so the 5760×5760
+  float64 normal equations I had sized in advance are not implicated.
+
+No cause identified, and I am not inventing one. Requeued once. **If it dies again at the same
+point the kill is reproducible and becomes the thing to investigate**; if it completes, it was
+transient and this note is the whole record. Recording it either way so a second occurrence is
+recognisable as a second rather than as a first.
