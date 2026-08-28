@@ -64,3 +64,17 @@ invocation, and run role-free. It passed in 10.1 seconds with bitwise base/inter
 logits, nonzero exact prefix transport, model-object collection, disjoint storage, zero
 native references/calls, total support, and complete cost accounting. The result is the
 reference harness for priority 1 rather than a claim of simplification.
+
+## Continuation: the first compressed complete point does not pass causally
+
+Shared-QK-384 plus exact MLPs was then preregistered, committed, and run through the
+complete standalone program. Price, ownership, covered/all-position CE, unseen-token CE,
+parent replay, and role replication all pass. It saves 10.21% of the complete model for
+only +0.01843/+0.01991 nat all-position CE harm.
+
+The context gate fails: delta recovery is 0.84682 and cosine 0.92111 against gates of
+0.90 and 0.95. Effect norm is 0.9613 of native, so the problem is primarily rotation,
+not deletion. The candidate is recorded on the multidimensional frontier but is not
+promoted as an admitted simplified whole model. The next priority is the identical
+rank-512 gate; its result distinguishes insufficient rank from a causally misweighted
+basis at the cost of one run.

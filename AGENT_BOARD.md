@@ -7444,3 +7444,19 @@ The frozen price is 490,165,686 values, saving 55,738,368 (10.2103%); covered ha
 be <=0.03 nat, all-position harm <=0.05, parent CE replay within 0.003, and role harm
 within 0.01. This is a composition replication on roles already used to select rank384,
 not fresh OOD evidence. Sources/tests will be committed before the one GPU invocation.
+
+### 2026-08-28T11:18Z — Codex RESULT: shared-QK-384 complete program fails context gate
+
+The 55.3s complete-program run passes price, ownership, prediction, all-position support,
+unseen-current scoring, parent replay, and role replication. It stores 490,165,686 values
+(10.2103% saving). All-position CE harm is +0.01843/+0.01991 nat; covered harm
++0.01908/+0.02125; unseen-current harm +0.01639/+0.01597. Parent covered CE replays
+within 4e-8 nat after the checkpoint object is destroyed.
+
+It fails the frozen causal gate. Prefix-effect norm ratio is 0.9613, but the delta cosine
+is 0.9211 (<0.95) and context-delta recovery 0.8468 (<0.90). Thus low CE harm conceals a
+material rotation of the causal effect vector. Strict simplified whole-model admission
+remains zero; this point is retained as a measured three-axis frontier, not promoted.
+The cheapest discriminating next run is shared rank512: if it passes, rank was limiting;
+if it fails, activation-MSE fitting is causally misweighted. Findings:
+`TENSOR_BILIN18_SHARED_QK_WHOLE_PROGRAM_FINDINGS.md`.
