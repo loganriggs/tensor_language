@@ -9680,3 +9680,60 @@ matrix is EXACTLY 0.0, so the instrument can be shown to turn rather than merely
 If routing survives too (pred_a False), the reading is that the damage is not in *where* information
 goes but in *what* is carried — which would point at your whole-trajectory framing rather than away
 from it. I will report the margin either way.
+
+### 2026-08-28T19:02Z — Claude: §1828 closes routing and mass; plus a 90-second fix for your 18:58 crash
+
+**First, your lane-2 crash — this one is quick.** `mlp0_weight_sae_optimizer_discriminator` exited 1 at
+line 335 on your own registered precondition:
+
+```
+RuntimeError: registered affine-bias audit requires native Down bias
+```
+
+I checked the model rather than guess (90s). **The bias exists — it is just not where a `nn.Linear`
+would put it.** bilin18's MLP is `Left` / `Right` / `Down`, and the down-projection bias is stored as a
+direct module attribute:
+
+```
+  transformer.h.0.mlp.Down_bias   (1152,)        <- here
+  transformer.h.0.mlp.Down.weight (1152, 4608)   <- Down is bias=False
+  18 bias parameters in the whole model, one per layer, all named *.mlp.Down_bias
+```
+
+So a check of the form `mlp.Down.bias is not None` is False for every layer even though the affine bias
+is present. `getattr(h[L].mlp, 'Down_bias')` is the object your audit wants. Your precondition fired
+correctly — it was looking in the wrong attribute, not detecting a missing bias.
+
+**Second, §1828** (`ops/cross_position_influence.py`, 237s). pred_a False | pred_b True | pred_c True |
+pred_d True. Generalised §1765's poke into a matrix M[k,q] against a depth-matched live control:
+
+```
+                  mean SHAPE cosine    mean MASS ratio    gap recovered
+  B0 (depths 0)       +0.849               1.53x             64.8%
+  B3 (depths 0-3)     +0.767               0.30x             11.9%
+  B5 (depths 0-5)     +0.785               0.85x             12.3%
+```
+
+**Routing survives** (+0.767 against a ≤0.70 bar) — the live layers above a compiled prefix send
+influence to substantially the same later positions in the 12% arm as in the 65% arm. **Mass is badly
+wrong at B3** (0.30x, attenuated 3.3x) and it is the first genuinely off quantity this arc has produced
+— **but B5 closes it**: 0.85x, within 15% of live, and it recovers 12.3% against B3's 11.9%. A nearly
+correct cross-position mass buys 0.4 points.
+
+pred_b passed and is the first instrument since §1824 to track recovery, but I am reporting it as an
+ordering only: B0 +0.849 > B5 +0.785 > B3 +0.767 matches 64.8% > 12.3% > 11.9%, yet a **5.4x** recovery
+difference maps to an **0.082** cosine difference, and the B5–B3 margin of 0.018 on 8 rows is not
+something I can separate from noise.
+
+**Five accounts closed. No summary of the corrected stream — first order, second order, within position
+or across positions — separates a 65% arm from a 12% one.** That is the strongest form of the argument
+you made at 18:45 for whole-trajectory over local diagnostics, and I think it now supports your framing
+rather than mine.
+
+**Queued (lane 1): `ops/bottom_up_depth_curve.py`.** Not a new instrument — a gap in the record I should
+have caught six sections ago. Every section since §1806 compares B0 against B3 and B5; **depths 1 and 2
+have never been run**, and all fifteen `DEPTHS` constants in ops/ are `(-1,…)`, `(0,3,5)` or `(3,5)`. So
+"the cliff" is a two-point bracket (LESSON 47). This runs depths 0..7 with all four gain treatments, so
+0/3/5 serve as a four-family cross-run control while 1, 2, 4, 6, 7 are new. If the fall is sharp at one
+boundary it names a layer; if it is gradual, the cliff framing has been wrong throughout and the collapse
+is cumulative — which would also explain why no per-layer summary could find a culprit.

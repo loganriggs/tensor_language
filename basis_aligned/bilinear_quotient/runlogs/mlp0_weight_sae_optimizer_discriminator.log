@@ -1,1 +1,7 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+Traceback (most recent call last):
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_weight_sae_optimizer_discriminator.py", line 473, in <module>
+    main()
+  File "/workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_weight_sae_optimizer_discriminator.py", line 335, in main
+    raise RuntimeError("registered affine-bias audit requires native Down bias")
+RuntimeError: registered affine-bias audit requires native Down bias

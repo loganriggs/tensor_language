@@ -3,32 +3,40 @@
 Why this run exists
 -------------------
 The historical weight-action top-k result (§750) was promising but not convergence
-certified: one seed per k, a fixed 1,200-step budget, no held-out reconstruction
-curve, and no exact native Down bias in the replacement.  Later work found atom
-instability across seeds (§763/§764).  Before building a larger joint MLP0->consumer
-SAE/DAG, decide whether the remaining error is caused by the amortized encoder and
-optimizer, or by the flat sparse-dictionary model class.
+certified: one seed per k, a fixed 1,200-step budget, and no held-out reconstruction
+curve.  Later work found atom instability across seeds (§763/§764).  Before building
+a larger joint MLP0->consumer SAE/DAG, decide whether the remaining error is caused
+by the amortized encoder and optimizer, or by the flat sparse-dictionary model class.
+
+Bias correction: ``Down`` is bias-free.  The containing bilinear MLP adds the
+separate parameter ``Down_bias`` *after* a Down forward hook, so the historical hook
+did not omit that native bias.  Its learned ``b=mean(Wg)`` was a compressor intercept
+on the linear weight action, in addition to the unchanged native ``Down_bias``.  This
+run preserves and audits that distinction explicitly.
 
 Physical object
 ---------------
-For native MLP0 Down, including its exact affine bias,
+For native MLP0 Down,
 
-    y(g) = g W^T + b.
+    a(g) = g W^T,
+    MLP(x) = a(Left(x) * Right(x)) + Down_bias.
 
-Fit executable programs y_hat(g)=D sparse_k(E g)+b_hat on native MLP0 gate inputs.
-The bias is initialized to and anchored at the exact native bias; it is never omitted.
+Fit executable programs ``a_hat(g)=D sparse_k(E g)+c`` on native MLP0 gate
+inputs.  ``c`` is a learned, explicitly priced compressor intercept.  The separate
+native ``Down_bias`` stays in the live MLP and is never approximated or omitted.
 
 Registered arms
 ---------------
   old_relu:
-      Historical positive ReLU top-k parameterization, with exact bias correction.
+      Historical positive ReLU top-k parameterization, with a learned intercept and
+      the exact external native Down_bias retained.
   signed_unit:
       Select k coordinates by |E g|, retain their signs, and row-normalize E inside
       every forward.  This removes encoder scale as a way to win top-k routing and
       avoids needing paired positive/negative atoms.
   signed_unit_noise:
       The signed-unit arm trained with 3% diagonal-covariance Gaussian perturbations
-      of g and exact targets W(g+eps)+b.  This is a local robustness regularizer, not
+      of g and exact targets W(g+eps).  This is a local robustness regularizer, not
       evidence of natural OOD generalization.
 
 All arms use P=512, k=32, 128 fit documents, 64 untouched evaluation documents,
@@ -44,9 +52,10 @@ separate an amortized-encoder/optimization gap from a dictionary-capacity gap.
 
 Registered decisions
 --------------------
-  (0) AFFINE SANITY: float32 Wg+b agrees with captured native Down output to relative
-      RMS <= 3e-3, and zeroing only W while keeping b differs from zero-output
-      ablation (proves the bias is physically present in the assay).
+  (0) INTERFACE SANITY: float32 Wg agrees with captured native Down output to relative
+      RMS <= 3e-3; Down.bias is absent; and zeroing the Down action while retaining
+      Down_bias differs from cancelling the complete MLP output (proves the external
+      bias is physically present in the assay).
   (a) PERFORMANCE CONVERGENCE: for the winning executable arm, held-out R2 range over
       the last three checkpoints <= .01 and final R2 is within .005 of its best.
   (b) SEED ROBUSTNESS: final held-out R2 standard deviation <= .02.  Atom cosine and
@@ -202,25 +211,25 @@ class Fit:
 
 def _train(
     *, arm: str, seed: int, fit_x: torch.Tensor, eval_x: torch.Tensor,
-    weight: torch.Tensor, native_bias: torch.Tensor,
+    weight: torch.Tensor,
 ) -> Fit:
     generator = torch.Generator(device=DEV).manual_seed(2026083300 + 10 * seed + ARMS.index(arm))
     torch.manual_seed(2026083300 + 10 * seed + ARMS.index(arm))
     decoder = (torch.randn(D_MODEL, P, device=DEV) / math.sqrt(D_MODEL)).requires_grad_(True)
     encoder = (torch.randn(P, HIDDEN, device=DEV) / math.sqrt(HIDDEN)).requires_grad_(True)
-    # The exact native bias is a fixed part of the physical affine map.  It is not
-    # optimized into a data mean as in the historical scripts.
-    exact_bias = native_bias.detach().clone()
-    optimizer = torch.optim.Adam((decoder, encoder), lr=3e-3)
+    # This is a compressor intercept for the bias-free Down action.  The bilinear
+    # module's separate Down_bias remains exact outside the hook.
+    intercept = (fit_x @ weight.T).mean(0).detach().clone().requires_grad_(True)
+    optimizer = torch.optim.Adam((decoder, encoder, intercept), lr=3e-3)
     scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, STEPS)
     feature_scale = fit_x.std(0, unbiased=False).clamp_min(1e-6)
-    eval_target = eval_x @ weight.T + exact_bias
+    eval_target = eval_x @ weight.T
     curve: list[dict[str, float | int]] = []
     count = len(fit_x)
     for step in range(STEPS + 1):
         if step % EVAL_EVERY == 0:
             with torch.no_grad():
-                prediction = _predict(eval_x, decoder, encoder, exact_bias, arm)
+                prediction = _predict(eval_x, decoder, encoder, intercept, arm)
                 curve.append({"step": step, "eval_r2": round(_r2(prediction, eval_target), 6)})
         if step == STEPS:
             break
@@ -231,8 +240,8 @@ def _train(
                 batch_x.shape, generator=generator, device=DEV, dtype=batch_x.dtype,
             ) * feature_scale * NOISE_SIGMA
             batch_x = batch_x + noise
-        target = batch_x @ weight.T + exact_bias
-        prediction = _predict(batch_x, decoder, encoder, exact_bias, arm)
+        target = batch_x @ weight.T
+        prediction = _predict(batch_x, decoder, encoder, intercept, arm)
         loss = F.mse_loss(prediction, target)
         optimizer.zero_grad()
         loss.backward()
@@ -241,7 +250,7 @@ def _train(
         scheduler.step()
     return Fit(
         arm=arm, seed=seed, decoder=decoder.detach().cpu(),
-        encoder=encoder.detach().cpu(), bias=exact_bias.detach().cpu(), curve=curve,
+        encoder=encoder.detach().cpu(), bias=intercept.detach().cpu(), curve=curve,
     )
 
 
@@ -253,7 +262,7 @@ def _evaluate_fit(
     decoder = fit.decoder.to(DEV)
     encoder = fit.encoder.to(DEV)
     bias = fit.bias.to(DEV)
-    target = eval_x @ weight.T + bias
+    target = eval_x @ weight.T
     clean = _predict(eval_x, decoder, encoder, bias, fit.arm)
     clean_r2 = _r2(clean, target)
     noise_generator = torch.Generator(device=DEV).manual_seed(2026083390)
@@ -261,7 +270,7 @@ def _evaluate_fit(
         eval_x.shape, generator=noise_generator, device=DEV, dtype=eval_x.dtype,
     ) * feature_scale * NOISE_SIGMA
     noisy_x = eval_x + noise
-    noisy_target = noisy_x @ weight.T + bias
+    noisy_target = noisy_x @ weight.T
     noisy = _predict(noisy_x, decoder, encoder, bias, fit.arm)
     noisy_r2 = _r2(noisy, noisy_target)
     clean_support = _code(eval_x, encoder, fit.arm).ne(0)
@@ -295,7 +304,7 @@ def _oracle_iht_r2(
     encoder = fit.encoder.to(DEV)
     bias = fit.bias.to(DEV)
     sample_x = eval_x[:ORACLE_SAMPLES]
-    target = sample_x @ weight.T + bias
+    target = sample_x @ weight.T
     code = _code(sample_x, encoder, fit.arm)
     spectral = torch.linalg.matrix_norm(decoder, ord=2)
     step_size = 0.95 / spectral.square().clamp_min(1e-12)
@@ -331,26 +340,30 @@ def main() -> None:
     eval_x, captured_eval_y = _capture_gate_and_native_output(eval_rows)
     module = m.transformer.h[LAYER].mlp.Down
     weight = module.weight.detach().float().to(DEV)
-    if module.bias is None:
-        raise RuntimeError("registered affine-bias audit requires native Down bias")
-    native_bias = module.bias.detach().float().to(DEV)
-    exact_fit_y = fit_x @ weight.T + native_bias
-    exact_eval_y = eval_x @ weight.T + native_bias
+    mlp = m.transformer.h[LAYER].mlp
+    if module.bias is not None:
+        raise RuntimeError("expected bias-free Down linear module")
+    if not hasattr(mlp, "Down_bias"):
+        raise RuntimeError("bilinear MLP is missing its external Down_bias")
+    external_bias = mlp.Down_bias.detach().float().to(DEV)
+    exact_fit_y = fit_x @ weight.T
+    exact_eval_y = eval_x @ weight.T
     affine_drift = float(
         torch.sqrt(torch.mean((captured_eval_y - exact_eval_y).square()))
         / torch.sqrt(torch.mean(captured_eval_y.square())).clamp_min(1e-12)
     )
-    bias_rms = float(torch.sqrt(torch.mean(native_bias.square())))
+    bias_rms = float(torch.sqrt(torch.mean(external_bias.square())))
 
     handle = module.register_forward_hook(_down_hook)
     REPLACEMENT["fn"] = None
     ce_full = _ce(eval_rows)
+    # Down's hook fires before the containing MLP adds external Down_bias.
     REPLACEMENT["fn"] = lambda gate: torch.zeros(
         gate.shape[0], D_MODEL, device=gate.device,
     )
-    ce_zero = _ce(eval_rows)
-    REPLACEMENT["fn"] = lambda gate: native_bias.expand(gate.shape[0], -1)
-    ce_bias_only = _ce(eval_rows)
+    ce_zero_action_bias_retained = _ce(eval_rows)
+    REPLACEMENT["fn"] = lambda gate: -external_bias.expand(gate.shape[0], -1)
+    ce_zero_complete_mlp = _ce(eval_rows)
     REPLACEMENT["fn"] = None
     feature_scale = fit_x.std(0, unbiased=False).clamp_min(1e-6)
 
@@ -363,11 +376,12 @@ def main() -> None:
                 with torch.enable_grad():
                     fit = _train(
                         arm=arm, seed=seed, fit_x=fit_x, eval_x=eval_x,
-                        weight=weight, native_bias=native_bias,
+                        weight=weight,
                     )
                 fits_by_arm[arm].append(fit)
                 results[arm][str(seed)] = _evaluate_fit(
-                    fit, eval_x, eval_rows, weight, feature_scale, ce_full, ce_zero,
+                    fit, eval_x, eval_rows, weight, feature_scale, ce_full,
+                    ce_zero_action_bias_retained,
                 )
                 print(
                     f"  clean R2={results[arm][str(seed)]['clean_r2']:.4f} "
@@ -411,7 +425,11 @@ def main() -> None:
     signed_noisy_eval = np.mean([
         results["signed_unit"][str(seed)]["noisy_r2"] for seed in SEEDS
     ])
-    affine_sanity = affine_drift <= 3e-3 and abs(ce_bias_only - ce_zero) > 1e-5
+    affine_sanity = (
+        affine_drift <= 3e-3
+        and module.bias is None
+        and abs(ce_zero_complete_mlp - ce_zero_action_bias_retained) > 1e-5
+    )
     pred_a = winning["last_three_r2_range"] <= 0.01 and winning[
         "final_to_best_r2_gap"
     ] <= 0.005
@@ -429,7 +447,10 @@ def main() -> None:
     )
     output = {
         "status": "mlp0_weight_sae_optimizer_discriminator_complete",
-        "object": "native MLP0 Down affine action including exact bias",
+        "object": (
+            "native MLP0 bias-free Down action with learned compressor intercept; "
+            "external native Down_bias retained exactly"
+        ),
         "data": {"fit_documents": NFIT, "eval_documents": NEVAL},
         "model": {"P": P, "k": K, "seeds": list(SEEDS)},
         "training": {
@@ -438,9 +459,11 @@ def main() -> None:
         },
         "affine_sanity": {
             "captured_vs_float32_relative_rms": affine_drift,
-            "native_bias_rms": bias_rms,
-            "ce_full": ce_full, "ce_zero_output": ce_zero,
-            "ce_bias_only": ce_bias_only,
+            "down_linear_has_bias": module.bias is not None,
+            "external_down_bias_rms": bias_rms,
+            "ce_full": ce_full,
+            "ce_zero_down_action_bias_retained": ce_zero_action_bias_retained,
+            "ce_zero_complete_mlp": ce_zero_complete_mlp,
             "passed": bool(affine_sanity),
         },
         "per_seed": results,
