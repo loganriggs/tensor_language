@@ -58,6 +58,42 @@ def trace_identity(hook, ordinal: int, *, route: str | None = None):
     )
 
 
+@pytest.mark.parametrize(
+    ("route", "control", "teacher_kind"),
+    (
+        ("L", "inherited_q", "coordinate_labels"),
+        ("L", "new_fit_mean", "coordinate_labels"),
+        ("S0", "hybrid_s0_l1", "oon_logits"),
+        ("S1", "hybrid_l0_s1", "oon_logits"),
+        ("R", "hybrid_r0_l1", "oon_logits"),
+        ("R", "hybrid_l0_r1", "oon_logits"),
+        ("T", "zero_A", "oon_logits"),
+    ),
+)
+def test_semantic_action_controls_are_licensed_only_for_final(
+    route, control, teacher_kind,
+) -> None:
+    inputs = torch.arange(4 * 256, dtype=torch.long).view(4, 256)
+    common = dict(
+        inputs=inputs, ordered_batch_indices=(0, 1, 2, 3),
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, fit_role_tensor_sha256="4" * 64,
+        program_snapshot_sha256="5" * 64, teacher_mapping_sha256="6" * 64,
+        route=route, control=control, teacher_kind=teacher_kind,
+        trial=0, epoch=0, optimizer_step=0, batch_ordinal=0,
+        student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+    final = runtime.TraceIdentity.from_inputs(
+        **common, role="early_mlp_suffix_transport_v1_final", phase="final",
+    )
+    assert final.control == control
+    with pytest.raises(ValueError, match="combination is illegal"):
+        runtime.TraceIdentity.from_inputs(
+            **common, role="early_mlp_suffix_transport_v1_validation",
+            phase="validation",
+        )
+
+
 def test_v21_initialization_is_exact_full_product_affine():
     source = state(3)
     program = runtime.AffineCodeProgram.from_v21_state(source)

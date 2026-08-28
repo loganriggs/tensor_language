@@ -225,3 +225,79 @@ def test_all_68_observational_call_ledgers_match_their_physical_paths() -> None:
     assert ledgers["o_o/E"]["literal_early_mlp_calls"] == {
         "0": batches, "1": batches, "2": batches,
     }
+
+
+def test_all_64_program_actions_mint_runtime_trace_only_from_physical_plan() -> None:
+    bank, _ = _sources()
+    rows = (torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 101).contiguous()
+    observed = {}
+    for plan in actions.CANONICAL_ACTION_PLANS:
+        if plan.arm_plan.execution_kind in {"deployed_baseline", "native_baseline"}:
+            continue
+        materialized = actions.materialize(plan, bank)
+        identity = actions.FinalActionBatchIdentity.from_role_rows(
+            materialized=materialized, role_rows=rows,
+            ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+            source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+            rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+            program_payload_sha256="5" * 64, common_support_sha256="6" * 64,
+        )
+        binding = actions.bind_runtime_program_batch(
+            materialized=materialized, identity=identity, role_rows=rows,
+            ordered_batch_indices=(0, 1, 2, 3), teacher_mapping_sha256="7" * 64,
+        )
+        trace = binding.runtime_identity
+        program = materialized.make_program()
+        assert binding.action_key == plan.key
+        assert binding.final_action_identity_sha256 == identity.sha256
+        assert binding.materialization_sha256 == materialized.sha256
+        assert trace.program_snapshot_sha256 == materialized.program_sha256
+        assert trace.route == program.route
+        assert trace.control == plan.arm_plan.identity_control
+        assert trace.teacher_kind == (
+            "coordinate_labels" if program.route == "L" else "oon_logits"
+        )
+        assert trace.student_states == ((0, "P"), (1, "P"), (2, plan.background))
+        observed[plan.key] = (trace.route, trace.control)
+
+    assert len(observed) == 64
+    assert observed["qq/N"] == ("L", "inherited_q")
+    assert observed["s0_l1/N"] == ("S0", "hybrid_s0_l1")
+    assert observed["l0_s1/E"] == ("S1", "hybrid_l0_s1")
+    assert observed["r0_l1/N"] == ("R", "hybrid_r0_l1")
+    assert observed["l0_r1/E"] == ("R", "hybrid_l0_r1")
+    assert observed["new_fit_mean/N"] == ("L", "new_fit_mean")
+
+
+def test_program_runtime_binding_rejects_baseline_and_target_substitution() -> None:
+    bank, _ = _sources()
+    rows = (torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 101).contiguous()
+    baseline = actions.materialize(actions.plan_for("n_n", "N"), bank)
+    identity = actions.FinalActionBatchIdentity.from_role_rows(
+        materialized=baseline, role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+        program_payload_sha256="5" * 64, common_support_sha256="6" * 64,
+    )
+    with pytest.raises(RuntimeError, match="cannot execute a baseline"):
+        actions.bind_runtime_program_batch(
+            materialized=baseline, identity=identity, role_rows=rows,
+            ordered_batch_indices=(0, 1, 2, 3), teacher_mapping_sha256="7" * 64,
+        )
+
+    rr = actions.materialize(actions.plan_for("rr", "N"), bank)
+    identity = actions.FinalActionBatchIdentity.from_role_rows(
+        materialized=rr, role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+        program_payload_sha256="5" * 64, common_support_sha256="6" * 64,
+    )
+    changed = rows.clone()
+    changed[0, 256] += 1
+    with pytest.raises(RuntimeError, match="differs from its sealed identity"):
+        actions.bind_runtime_program_batch(
+            materialized=rr, identity=identity, role_rows=changed,
+            ordered_batch_indices=(0, 1, 2, 3), teacher_mapping_sha256="7" * 64,
+        )

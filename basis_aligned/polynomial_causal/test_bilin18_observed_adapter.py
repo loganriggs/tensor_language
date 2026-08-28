@@ -845,6 +845,19 @@ def _materialized_baseline(arm: str, background: str):
     )
 
 
+def _materialized_program(arm: str, background: str):
+    plan = final_actions.plan_for(arm, background)
+    route = "L" if plan.arm_plan.identity_route == "Q" else (
+        plan.arm_plan.identity_route
+    )
+    program = _validation_program(route)
+    return final_actions.MaterializedFinalAction(
+        plan=plan, source_bank_sha256="a" * 64,
+        component_sha256s={"synthetic_test_program": runtime.program_snapshot_sha256(program)},
+        program=program,
+    )
+
+
 def _final_baseline_identity(materialized, rows):
     return final_actions.FinalActionBatchIdentity.from_role_rows(
         materialized=materialized, role_rows=rows,
@@ -936,4 +949,112 @@ def test_final_baseline_batch_rejects_target_substitution_before_forward(monkeyp
         adapter.run_final_baseline_batch(
             materialized=materialized, identity=identity, role_rows=changed,
             ordered_row_indices=(0, 1, 2, 3),
+        )
+
+
+def test_materialized_final_wrapper_binds_hybrid_action_to_runtime_receipt(
+    monkeypatch,
+) -> None:
+    adapter = observed.ObservedBilin18Adapter(tiny_model(), FakeShip(), production=False)
+    rows = (torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11).contiguous()
+    materialized = _materialized_program("s0_l1", "E")
+    identity = final_actions.FinalActionBatchIdentity.from_role_rows(
+        materialized=materialized, role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+        program_payload_sha256="5" * 64, common_support_sha256="6" * 64,
+    )
+    context = capabilities.FinalRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="7" * 64,
+    )
+    bases = {
+        site: torch.eye(runtime.D_MODEL)[:, :runtime.CODE_DIM] for site in (0, 1)
+    }
+    broker = adapter.make_capability_broker(
+        issuer_id="8" * 64, coordinator=runtime.ScopeCoordinator(),
+        run_context=context, bases=bases,
+    )
+    captured = {}
+    returned = object()
+
+    def lower(**kwargs):
+        trace = kwargs["identity"]
+        captured.update(kwargs)
+        return returned, observed.ObservedFinalProgramBatchReceipt(
+            identity_sha256=trace.sha256, route=trace.route,
+            control=trace.control, batch_ordinal=trace.batch_ordinal,
+            ordered_row_indices_sha256=runtime.logical_identity_sha256([0, 1, 2, 3]),
+            reduction_sha256="9" * 64, student_ledger_sha256="b" * 64,
+            teacher_ledger_sha256="c" * 64, observed_closure_sha256="d" * 64,
+        )
+
+    monkeypatch.setattr(adapter, "run_final_program_batch", lower)
+    reductions, receipt = adapter.run_materialized_final_program_batch(
+        broker=broker, hook=object(), materialized=materialized, identity=identity,
+        final_context=context, role_rows=rows,
+        ordered_row_indices=(0, 1, 2, 3),
+    )
+    trace = captured["identity"]
+    assert reductions is returned
+    assert trace.route == "S0" and trace.control == "hybrid_s0_l1"
+    assert trace.student_states == ((0, "P"), (1, "P"), (2, "E"))
+    assert runtime.program_snapshot_sha256(captured["program"]) == materialized.program_sha256
+    assert receipt.action_key == "s0_l1/E"
+    assert receipt.final_action_identity_sha256 == identity.sha256
+    assert receipt.materialization_sha256 == materialized.sha256
+    assert receipt.runtime_identity_sha256 == trace.sha256
+    assert all(not torch.is_tensor(getattr(receipt, field.name)) for field in fields(receipt))
+
+
+def test_materialized_final_wrapper_rejects_target_or_context_before_lower_forward(
+    monkeypatch,
+) -> None:
+    adapter = observed.ObservedBilin18Adapter(tiny_model(), FakeShip(), production=False)
+    rows = (torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11).contiguous()
+    materialized = _materialized_program("qq", "N")
+    identity = final_actions.FinalActionBatchIdentity.from_role_rows(
+        materialized=materialized, role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+        program_payload_sha256="5" * 64, common_support_sha256="6" * 64,
+    )
+    context = capabilities.FinalRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="7" * 64,
+    )
+    bases = {
+        site: torch.eye(runtime.D_MODEL)[:, :runtime.CODE_DIM] for site in (0, 1)
+    }
+    broker = adapter.make_capability_broker(
+        issuer_id="8" * 64, coordinator=runtime.ScopeCoordinator(),
+        run_context=context, bases=bases,
+    )
+    monkeypatch.setattr(
+        adapter, "run_final_program_batch",
+        lambda **kwargs: (_ for _ in ()).throw(AssertionError("forward must not run")),
+    )
+    changed = rows.clone()
+    changed[0, 256] = (changed[0, 256] + 1) % 11
+    with pytest.raises(RuntimeError, match="differs from its sealed identity"):
+        adapter.run_materialized_final_program_batch(
+            broker=broker, hook=object(), materialized=materialized,
+            identity=identity, final_context=context, role_rows=changed,
+            ordered_row_indices=(0, 1, 2, 3), denominators=(1.0, 1.0),
+        )
+
+    other_context = capabilities.FinalRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="e" * 64,
+    )
+    with pytest.raises(RuntimeError, match="broker and action run context differ"):
+        adapter.run_materialized_final_program_batch(
+            broker=broker, hook=object(), materialized=materialized,
+            identity=identity, final_context=other_context, role_rows=rows,
+            ordered_row_indices=(0, 1, 2, 3), denominators=(1.0, 1.0),
         )

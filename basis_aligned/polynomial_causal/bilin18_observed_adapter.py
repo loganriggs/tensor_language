@@ -97,6 +97,31 @@ class ObservedFinalProgramBatchReceipt:
 
 
 @dataclass(frozen=True)
+class ObservedMaterializedFinalProgramBatchReceipt:
+    """Tensor-free proof joining one named action to its broker transaction."""
+
+    action_key: str
+    final_action_identity_sha256: str
+    materialization_sha256: str
+    binding_sha256: str
+    runtime_identity_sha256: str
+    runtime_receipt_sha256: str
+    batch_ordinal: int
+
+    def __post_init__(self) -> None:
+        if self.action_key not in final_actions.CANONICAL_ACTION_KEYS or any(
+            not runtime._sha256_text(value) for value in (
+                self.final_action_identity_sha256, self.materialization_sha256,
+                self.binding_sha256, self.runtime_identity_sha256,
+                self.runtime_receipt_sha256,
+            )
+        ) or type(self.batch_ordinal) is not int or not 0 <= self.batch_ordinal < (
+            final_actions.OBSERVATIONAL_BATCH_COUNT
+        ):
+            raise ValueError("observed materialized final receipt is malformed")
+
+
+@dataclass(frozen=True)
 class ObservedFinalBaselineBatchReductions:
     """Only per-row scalars released by one native/deployed final baseline."""
 
@@ -744,6 +769,67 @@ class ObservedBilin18Adapter:
             observed_closure_sha256=runtime.logical_identity_sha256(asdict(observed)),
         )
         return reductions, receipt
+
+    def run_materialized_final_program_batch(
+        self, *, broker: Any, hook: runtime.StudentCorrectionHook,
+        materialized: final_actions.MaterializedFinalAction,
+        identity: final_actions.FinalActionBatchIdentity,
+        final_context: Any, role_rows: torch.Tensor,
+        ordered_row_indices: Any, denominators: Any = None,
+    ) -> tuple[Any, ObservedMaterializedFinalProgramBatchReceipt]:
+        """Execute one named program action without accepting a caller-made trace.
+
+        This is the source-closed outer entry point for QQ/LL/RR, hybrids, transport,
+        nulls, shuffles, and the frozen mean.  It derives the broker trace from the
+        sealed materialization and full 513-token row identity, then binds the lower
+        transaction receipt back to that semantic action.
+        """
+
+        import early_mlp_suffix_transport_v1_capabilities as capabilities
+
+        if not isinstance(broker, capabilities.CapabilityBroker) or not isinstance(
+            final_context, capabilities.FinalRunContext
+        ) or not isinstance(materialized, final_actions.MaterializedFinalAction) or not (
+            isinstance(identity, final_actions.FinalActionBatchIdentity)
+        ):
+            raise RuntimeError("materialized final execution lacks typed authorities")
+        if broker.ledger_snapshot.run_context_sha256 != final_context.sha256:
+            raise RuntimeError("final broker and action run context differ")
+        indices = tuple(ordered_row_indices)
+        binding = final_actions.bind_runtime_program_batch(
+            materialized=materialized, identity=identity, role_rows=role_rows,
+            ordered_batch_indices=indices,
+            teacher_mapping_sha256=final_context.identity_teacher_mapping_sha256,
+        )
+        trace = binding.runtime_identity
+        final_context.require_identity(
+            trace, role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous(), indices,
+        )
+        program = materialized.make_program()
+        reductions, runtime_receipt = self.run_final_program_batch(
+            broker=broker, hook=hook, program=program, identity=trace,
+            role_rows=role_rows, ordered_row_indices=indices,
+            denominators=denominators,
+        )
+        if not isinstance(runtime_receipt, ObservedFinalProgramBatchReceipt) or (
+            runtime_receipt.identity_sha256 != trace.sha256
+        ) or runtime_receipt.route != trace.route or runtime_receipt.control != (
+            trace.control
+        ) or runtime_receipt.batch_ordinal != identity.batch_ordinal:
+            raise RuntimeError("runtime receipt escaped its final action binding")
+        outer_receipt = ObservedMaterializedFinalProgramBatchReceipt(
+            action_key=identity.action_key,
+            final_action_identity_sha256=identity.sha256,
+            materialization_sha256=materialized.sha256,
+            binding_sha256=binding.sha256,
+            runtime_identity_sha256=trace.sha256,
+            runtime_receipt_sha256=runtime.logical_identity_sha256(
+                asdict(runtime_receipt)
+            ),
+            batch_ordinal=identity.batch_ordinal,
+        )
+        program = None
+        return reductions, outer_receipt
 
     def _run_final_baseline_forward(
         self, *, tokens: torch.Tensor, execution_kind: str, background: str,

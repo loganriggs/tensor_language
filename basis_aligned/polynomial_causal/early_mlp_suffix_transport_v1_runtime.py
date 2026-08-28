@@ -136,6 +136,9 @@ class TraceIdentity:
             raise ValueError("trace phase/route/teacher identity is unknown")
         allowed_controls = {"true", "document_shuffle", "zero_A"} | {
             f"A_null_{index:02d}" for index in range(20)
+        } | {
+            "inherited_q", "hybrid_s0_l1", "hybrid_l0_s1",
+            "hybrid_r0_l1", "hybrid_l0_r1", "new_fit_mean",
         }
         if self.control not in allowed_controls:
             raise ValueError("trace control identity is unknown")
@@ -163,9 +166,22 @@ class TraceIdentity:
         } and legal_validation_control and self.teacher_kind == (
             "coordinate_labels" if self.route == "L" else "oon_logits"
         )
+        legal_final_action_control = legal_validation_control or (
+            self.route == "L" and self.control in {"inherited_q", "new_fit_mean"}
+        ) or (
+            self.route == "T" and self.control == "zero_A"
+        ) or (
+            self.route == "S0" and self.control == "hybrid_s0_l1"
+        ) or (
+            self.route == "S1" and self.control == "hybrid_l0_s1"
+        ) or (
+            self.route == "R" and self.control in {
+                "hybrid_r0_l1", "hybrid_l0_r1",
+            }
+        )
         legal_final = self.phase == "final" and self.route in {
             "L", "R", "S0", "S1", "T",
-        } and legal_validation_control and self.teacher_kind == (
+        } and legal_final_action_control and self.teacher_kind == (
             "coordinate_labels" if self.route == "L" else "oon_logits"
         )
         if not (legal_fit or legal_validation or legal_final):

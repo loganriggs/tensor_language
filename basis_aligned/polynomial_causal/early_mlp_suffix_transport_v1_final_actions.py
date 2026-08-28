@@ -718,3 +718,94 @@ class FinalActionBatchIdentity:
             != self.ordered_batch_indices_sha256
         ):
             raise RuntimeError("final action batch differs from its sealed identity")
+
+
+@dataclass(frozen=True, slots=True)
+class FinalProgramBatchBinding:
+    """Proof that one semantic final action minted its sole runtime trace.
+
+    The older :class:`TraceIdentity` is the transaction nonce understood by the
+    capability broker.  This outer binding keeps that nonce subordinate to the
+    stronger action identity, which additionally commits to the complete scored row,
+    canonical program bank, physical hybrid/null materialization, and common support.
+    """
+
+    action_key: str
+    final_action_identity_sha256: str
+    materialization_sha256: str
+    runtime_identity: runtime.TraceIdentity
+
+    def __post_init__(self) -> None:
+        if self.action_key not in CANONICAL_ACTION_KEYS or not runtime._sha256_text(
+            self.final_action_identity_sha256
+        ) or not runtime._sha256_text(self.materialization_sha256) or not isinstance(
+            self.runtime_identity, runtime.TraceIdentity
+        ) or self.runtime_identity.phase != "final" or self.runtime_identity.role != (
+            "early_mlp_suffix_transport_v1_final"
+        ):
+            raise ValueError("final program batch binding is malformed")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "action_key": self.action_key,
+            "final_action_identity_sha256": self.final_action_identity_sha256,
+            "materialization_sha256": self.materialization_sha256,
+            "runtime_identity_sha256": self.runtime_identity.sha256,
+        })
+
+
+def bind_runtime_program_batch(
+    *, materialized: MaterializedFinalAction, identity: FinalActionBatchIdentity,
+    role_rows: torch.Tensor, ordered_batch_indices: Sequence[int],
+    teacher_mapping_sha256: str,
+) -> FinalProgramBatchBinding:
+    """Mint the only legal broker trace for one materialized final program batch.
+
+    Baselines have their own direct observed path and are deliberately rejected.
+    Callers cannot choose a runtime route, control, teacher kind, program hash, state
+    tuple, or schedule: all are derived from the sealed physical action.
+    """
+
+    if not isinstance(materialized, MaterializedFinalAction) or not isinstance(
+        identity, FinalActionBatchIdentity
+    ) or not runtime._sha256_text(teacher_mapping_sha256):
+        raise TypeError("final runtime binding requires typed action identities")
+    indices = tuple(ordered_batch_indices)
+    identity.require_role_rows(
+        materialized=materialized, role_rows=role_rows,
+        ordered_batch_indices=indices,
+    )
+    arm = materialized.plan.arm_plan
+    if arm.execution_kind not in {"projected_program", "mean_program"}:
+        raise RuntimeError("program runtime binding cannot execute a baseline action")
+    program = materialized.make_program()
+    if arm.identity_control is None or materialized.program_sha256 != (
+        runtime.program_snapshot_sha256(program)
+    ):
+        raise RuntimeError("materialized final program lost its physical identity")
+    runtime_route = program.route
+    runtime_identity = runtime.TraceIdentity.from_inputs(
+        inputs=role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous(),
+        ordered_batch_indices=indices,
+        source_commit=identity.source_commit,
+        inherited_snapshot_sha256=identity.inherited_snapshot_sha256,
+        rows_receipt_sha256=identity.rows_receipt_sha256,
+        fit_role_tensor_sha256=identity.final_role_tensor_sha256,
+        program_snapshot_sha256=materialized.program_sha256,
+        teacher_mapping_sha256=teacher_mapping_sha256,
+        role="early_mlp_suffix_transport_v1_final", phase="final",
+        route=runtime_route, control=arm.identity_control,
+        teacher_kind=("coordinate_labels" if runtime_route == "L" else "oon_logits"),
+        trial=0, epoch=0, optimizer_step=identity.batch_ordinal,
+        batch_ordinal=identity.batch_ordinal,
+        student_states=(
+            (0, "P"), (1, "P"), (2, materialized.plan.background),
+        ),
+    )
+    return FinalProgramBatchBinding(
+        action_key=identity.action_key,
+        final_action_identity_sha256=identity.sha256,
+        materialization_sha256=materialized.sha256,
+        runtime_identity=runtime_identity,
+    )

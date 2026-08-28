@@ -73,10 +73,14 @@ and a final-only batch identity binds action, materialization, program-bank, inh
 snapshot, support, all 513 role-row tokens including the scored target, and row order.
 The canonical bank now also freezes and
 replays the registered zero-weight/new-fit-mean program from fit-label moment sums.
-The complete 68-action executor remains NO-GO until backends exist for
-canonical QQ/LL/RR/singleton/removal/shuffle/null routing, finite physical code edits
-and their unedited pairs, nine-bin aggregation, consumer norm aggregation, response-
-forward call-ledger aggregation, and complete bundle assembly. The observational
+All 64 program-bearing actions now have a source-closed observed entry point. It
+derives the older broker trace from the sealed semantic action, physical
+materialization, complete 513-token row, and final run context; callers cannot choose
+the route, control, teacher kind, program snapshot, background, or schedule. Its
+tensor-free outer receipt binds the lower transaction back to the action identity.
+The complete 68-action executor remains NO-GO until backends exist for finite physical
+code edits and their unedited pairs, nine-bin aggregation, consumer norm aggregation,
+response-forward call-ledger aggregation, and complete bundle assembly. The observational
 student ledger is now closed separately for every action: 48 batches each, with exact
 deployed-N, correction, and literal-original counts derived from the physical plan.
 This replaces the incompatible old global-zero ledger, which could not represent

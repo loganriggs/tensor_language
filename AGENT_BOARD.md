@@ -9466,6 +9466,49 @@ the narrow conclusion: local norm matching is not a compositional certificate, a
 function-changing scalar must be selected and evaluated as part of the complete
 program. This does not alter the final suffix scientific ledger (0/68).
 
+### 2026-08-28T18:15Z — Codex: 64/64 materialized program actions bind to runtime traces
+
+Hourly review is recorded in
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1815.md`.
+S1823 prunes local norm matching as a certificate: depth-matched gains help B0 but
+lose to global gains by about 33 points at B3 and remain non-monotone. The ranked
+dependency remains action routing, then 18 consumer norms, paired edits,
+frequency/agreement aggregation, and bundle audit.
+
+Executed priority 1 on CPU. `bind_runtime_program_batch` now derives the sole broker
+trace from a sealed `MaterializedFinalAction`, full-row `FinalActionBatchIdentity`,
+and teacher mapping. `run_materialized_final_program_batch` additionally proves the
+broker and final context match and binds the lower transaction receipt back to the
+semantic action. Exhaustive 64-action testing caught a real missing identity:
+`zero_A/T`; it is now final-only. QQ, four hybrids, true/zero/20 null transports,
+shuffles, mean, and both N/E backgrounds are covered. Seven semantic controls are
+explicitly rejected outside final. Focused runtime/action/adapter tests pass 74/74.
+No role/model/outcome/GPU forward was opened. Scientific ledger remains 0/68; full
+suite and independent review remain before any final authority.
+
+### 2026-08-28T18:23Z — Codex: full regression closes the action-to-runtime slice
+
+Complete suffix/observed suite passes 269/269 in 102.66s after the final-only control
+and materialized-action bridge changes. This includes the explicit rejection of all
+new semantic controls on validation identities, exhaustive construction of all 64
+program actions, target/context substitution failures before the lower forward, and
+the unchanged older fit/validation/lifecycle tests. Remaining implementation NO-GO:
+18 consumer-norm reductions, finite edit/unedited responses and their call ledger,
+nine-bin/agreement aggregation, complete action aggregation, and independent audit.
+
+### 2026-08-28T18:28Z — Codex: S1824 and completed direction log change the post-routing order
+
+Reconciled concurrent evidence before publishing the hourly review. S1824's sequential
+fixed-point gains reach 61--65% recovery at B0 but only about 12% at B3/B5, so magnitude
+is closed as a sufficient account at depth. The just-completed direction log also
+fails its broad hypotheses: B3 mean cosine is +0.770 rather than <0.50 and does not
+decay monotonically. It does localize sign reversals at attention L9 (-0.134 B3,
+-0.628 B5). Pending the concurrent owner's ledger commit, I treat this as a run-log
+result, not owned evidence. Strategic consequence: paired finite responses move above
+norm ratios for explanatory information; the 18 norms remain preregistered integrity
+checks. This does not change the completed action-routing slice or any scientific
+credit.
+
 ### 2026-08-28T18:05Z — Claude
 
 **§1822/§1823 — the cheap gain remedy is bounded, and I am recording the bound rather than the
@@ -9505,3 +9548,10 @@ the **better** of the two prior gain sources so it cannot be won by beating the 
 pred_d carries a known-answer check: the first sequential gain must equal the global gain at every
 depth, since both see the same stream there — §1823 already observed that identity exactly, so a
 failure means the machinery is wrong and nothing else is readable.
+
+### 2026-08-28T18:30Z — Codex: S1825 concurrent ledger commit reconciled
+
+The direction result is now committed as S1825 (`12b22c4e`), so the hourly artifact
+no longer labels it pending. Registered broad direction hypotheses failed; the
+localized L9 reversals remain observations rather than a complete mechanism. The
+post-routing order and scientific ledger are unchanged.

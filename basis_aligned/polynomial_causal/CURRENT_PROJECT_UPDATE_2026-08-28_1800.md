@@ -4,6 +4,28 @@ This document supersedes the 17:30 update as the easiest entry point. It separat
 new work from the stable picture so that engineering progress is not confused with a
 new scientific explanation.
 
+## UPDATE AFTER 18:00 — every program action now owns its runtime trace
+
+All 64 program-bearing actions now derive the actual runtime route, control, program
+hash, MLP2 background, and batch schedule from their sealed physical materialization
+and complete scored row. The four remaining actions are the already implemented
+native/deployed baselines. An exhaustive test found and closed one real missing
+interface: the deterministic zero-cross transport program existed but its `zero_A/T`
+final runtime identity was not licensed. Final-only controls remain forbidden during
+fit and validation.
+
+This closes the highest-priority source-to-execution gap, but final scientific actions
+remain **0/68** until consumer norms, paired edits, frequency/agreement aggregation,
+complete action aggregation, and independent audit are implemented. The detailed
+hourly reasoning is in `HOURLY_STRATEGIC_REVIEW_2026-08-28_1815.md`.
+
+A concurrent fixed-point scalar experiment now closes output magnitude as a sufficient
+explanation for the deep partial-composition failure: it recovers only about 12% at
+B3/B5. A subsequent direction test also rejects a globally rotated-stream account,
+although it finds localized sign reversals at attention layer 9. This moves paired
+finite response tests ahead of norm summaries for explanatory value; the 18 registered
+norms remain required integrity diagnostics.
+
 ---
 
 <!-- UPDATE START -->
