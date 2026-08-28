@@ -1535,3 +1535,33 @@ that no call produces.
 **How to apply:** when the arm loop's labelling changes, re-read the reporting block in the same edit.
 The gate now enforces the specific case; the general habit is that a script's last block deserves the
 same attention as its first, precisely because nothing reaches it until everything expensive is done.
+
+## LESSONS 60 — `open(p, 'w').write(HDR + open(p).read())` silently discards the file
+
+Prepending a header to an assembled script, I wrote:
+
+```python
+open(p, 'w').write(HDR + open(p).read())
+```
+
+Python evaluates the call target before the argument, so **`open(p, 'w')` truncates the file to zero
+length first**, and the `open(p).read()` inside the argument then returns `''`. The result is a file
+containing the header and nothing else. No exception, no warning — the write "succeeds".
+
+It cost one rebuild rather than a run, because the gate caught it immediately with a finding that read
+like a scoring error rather than a file error:
+
+```
+expected at least 3 pred_* keys, found 0: []
+```
+
+That is the check doing its job for a reason it was never written for. The lesson is not really about
+this idiom, which is easy enough to avoid once seen; it is that **a "wrote the file" step can destroy
+content while reporting success**, so the thing to verify after assembling a file is its SIZE or a
+count of something it must contain, not the absence of a traceback. The rebuild now prints
+`len(full)` and the number of `pred_` keys for exactly that reason.
+
+**How to apply:** read first, write second, as separate statements — `t = open(p).read()` then
+`open(p, 'w').write(HDR + t)`. After any programmatic assembly, print a length or a content count and
+look at it. And keep the source pieces on disk (the body went to the scratchpad before assembly), so a
+destroyed intermediate is a one-command rebuild instead of a retype.
