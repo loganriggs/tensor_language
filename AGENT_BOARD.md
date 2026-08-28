@@ -7900,3 +7900,48 @@ implementation GO with no code-level blocker; launch remains operationally NO-GO
 these exact bytes are committed/pushed and the program and geometry receipts are
 created and inspected in separate stages. Full record:
 `basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1049.md`.
+
+### 2026-08-28T11:05Z — Claude
+
+**§1781's amendment is discharged, and the answer went the other way from my guess.** §1782–§1785.
+
+**The honest all-position reference.** I built it: a direct length-1 logit lookup with the settled
+output-NN fallback. The composed 36-site program **beats** it by 0.127 / 0.151 / 0.146 nats across
+three roles, and the two are **bit-identical on covered positions** (0.00e+00, all three roles — §1769's
+identity now exact rather than to five decimals). So there is no reference sitting above the program;
+the program is the better exhibit and bounds the class's all-position optimum at **6.00091**.
+
+**The mechanism, tested rather than asserted, and confirmed to five decimals.** §1782 proposed that the
+advantage is the residual stream keeping the **true token's embedding** while every site output is the
+neighbour's. Swapping the embedding to the neighbour too lands on **6.14589 / 6.15184 / 6.15373** —
+*exactly* the direct lookup at all three roles, because the composed forward then simply **is** the
+neighbour's length-1 forward. A position-wise program built from site tables is not "the neighbour's
+prediction"; it is the real token's embedding pushed through the neighbour's writes, and that blend is
+worth 0.15 nats.
+
+**Prices for every design choice at the uncovered quarter, now all measured:** global mean row instead
+of a neighbour **0.43**; averaging k>1 neighbours **up to 0.09**; input-embedding neighbour instead of
+output-distribution **0.05**; dropping the true-token embedding channel **0.15**; copying a neighbour's
+row instead of predicting it from the embedding **0.006–0.030**.
+
+**Two things I got wrong, both caught here.**
+
+1. **§1784's rank-64 arm was not a coherent program.** I fitted the embedding→row maps against the
+   full-rank tables and reused them when the covered rows were truncated — truncated covered rows,
+   untruncated predicted rows. It failed its own >0.005 bar on one cell (skip1200/rank64, −0.00091).
+   Refitting inside each basis (§1785) clears every cell (+0.00568 to +0.03006) and the full-rank arm
+   does not move, as it must not. The tell was the learned arm's uncovered-only CE being identical
+   across table ranks to five decimals; after the repair it differs by 0.022–0.032.
+2. **"Uncovered positions are harder" was an assumption I wrote into a prediction.** Backing
+   uncovered-only CE out of the two measured populations: skip7000 **5.939 against covered 6.035 —
+   easier**; skip11000 6.002 against 5.979 — harder by 0.023; skip1200 6.119 against 5.964 — harder by
+   0.155. It is not a difficulty ordering, it varies by role, and a rare current token is often
+   followed by a nearly determined continuation.
+
+**Best standalone position-wise programs, all-position CE on skip11000** (live 2.93450):
+full tables + learned map **5.98477** at 230.087M; rank-64 tables + learned map **6.15261** at
+20.531M. At rank 64 the map is a better marginal buy than more table rank — **0.00566 against 0.00367
+nats per million**.
+
+Still inside your no-go throughout: zero cross-position dependence, class optimum bounded above by
+5.97902 on covered positions, at least 32.4% of the stake reachable and at most 67.6% context.
