@@ -1,17 +1,17 @@
-# mid_band_feature_ksweep2: FINDING THE SHAPE, WITH A DERIVABLE KNOWN ANSWER AT THE TOP
+# mid_band_feature_ksweep2: FINDING THE SHAPE, WITH A SEPARATE EXACT KNOWN-ANSWER ARM
 #
 # §1710 took the middle-band feature augmentation to k=512 and the curve was still steep: +0.77 at
 # 64, +2.34 at 256, +3.67 at 512, giving a best whole-model program of 58.71%. Its pred_c --
 # "returns are diminishing by now" -- FAILED, and the docstring stated the consequence in advance:
 # the family is still in its steep region and the sweep has not found the shape.
 #
-# THE IDENTITY CHECK, and it is the reason this run is worth its GPU time. At k = 4608 every
-# feature is retained. Since y = Down(h) + Down_bias is EXACTLY LINEAR in h, least squares on
-# [x, h_all] recovers the module exactly at the augmented sites. The augmented program must then
-# equal the arm that leaves mlp4-15 REAL -- §1703's band-exempt ceiling of 67.55%. That is a value
-# derivable before the run, of the kind §1659 (frozen-attn0 table) and §1678 (k=all features)
-# showed this arc cannot do without. If it misses, the family construction is wrong somewhere and
-# every k below it is suspect, §1710's 58.71% included.
+# CORRECTION BEFORE THE VALID ATTEMPT. The first committed draft incorrectly called the ridge-fitted
+# k=4608 arm an identity: [x,h]W has no intercept and RIDGE shrinks even a representable solution,
+# so that arm is empirical. The actual known-answer arm below is separate: at every middle MLP it
+# constructs the exact native map Down(Left(x)*Right(x)), including Down.bias, inside the SAME
+# interleaved compiler. It must equal leaving mlp4-15 real (§1703's 67.55%) up to run-to-run bars.
+# A miss invalidates hook/feature/compiler construction; it does not retroactively make a ridge
+# approximation at lower k algebraically false.
 #
 # k in {512, 1024, 2048, 4608}. 512 is carried over as a direct replication of §1710's +3.67 in the
 # same run, so the sweep is anchored at the bottom as well as pinned at the top.
@@ -21,13 +21,12 @@
 # sites and four arms. This is expected to be slow.
 #
 # Registered predictions, TWO-SIDED per LESSONS 31:
-#   pred_a IDENTITY CHECK: k=4608 lands within 1.0 point of §1703's 67.55% band-exempt ceiling.
-#          This is derivable, not estimated, and a miss invalidates the family construction.
+#   pred_a IDENTITY CHECK: the separately CONSTRUCTED exact arm lands within 1.0 point of §1703's
+#          67.55% band-exempt ceiling. This is derivable; the ridge k=4608 arm is not.
 #   pred_b THE SHAPE FINALLY BENDS: the 512->4608 step is smaller than 9x the 512-point gain would
 #          imply under continued log-linearity -- concretely, the gain from 512 to 4608 is less
-#          than 2x the gain from 64 to 512 (+2.91). Failure means the curve is still steep at the
-#          top of the feature basis, which the identity check would make impossible, so this is a
-#          consistency bar as much as a prediction.
+#          than 2x the gain from 64 to 512 (+2.91). Failure means the ridge curve is still steep
+#          at the top of the feature basis; the separate exact arm does not force this shape.
 #   pred_c 512 REPLICATES: its gain lands within 0.2 points of §1710's +3.67.
 #   pred_d CONTROLS: the k=0 arm reproduces §1696's 55.04% within 0.5 points and the baseline CE
 #          reproduces 3.29205 (§1695).
@@ -56,7 +55,7 @@ S1703_MID_BAND_GAIN = 0.12515    # exempting mlp4-15 entirely
 S1703_BAND_EXEMPT_CEILING = 0.67553   # leaving mlp4-15 REAL; the k=4608 known answer
 S1710_K512_GAIN = 0.03672
 S1710_K64_TO_K512 = 0.02905
-FEAT = {'k': 0, 'sel': {}}
+FEAT = {'k': 0, 'sel': {}, 'mode': 'ridge'}
 EXEMPT = {'set': frozenset()}
 S1694_JOINT_STAKE = 5.5684
 S1687_ATTN_BEST = 0.6805
@@ -118,6 +117,16 @@ def mlp_prog_hook(W, L=None):
     return hook
 
 
+def exact_mlp_hook(L):
+    """Construct the module's exact bilinear map; independent of its prior hook output."""
+    def hook(mod, args, out):
+        xin = args[0].reshape(-1, D)
+        hidden = mod.Left(xin) * mod.Right(xin)
+        exact = mod.Down(hidden).reshape(out.shape).to(out.dtype)
+        return torch.where(SEENREF['m'][STATE['idx']].unsqueeze(-1), exact, out)
+    return hook
+
+
 def sub_v1(v):
     """Replace the v1 tensor block 0 exports, per CFG['v1']."""
     mode = CFG['v1']
@@ -156,8 +165,11 @@ def install(prog):
     hs = []
     for (kind, L), W in prog.items():
         if kind == 'mlp':
-            hs.append(H[L].mlp.register_forward_hook(
-                table_hook(W) if L in CFG['tables'] else mlp_prog_hook(W, L)))
+            if isinstance(W, tuple) and W == ('exact_mlp', L):
+                hook = exact_mlp_hook(L)
+            else:
+                hook = table_hook(W) if L in CFG['tables'] else mlp_prog_hook(W, L)
+            hs.append(H[L].mlp.register_forward_hook(hook))
         else:
             hs.append(H[L].attn.register_forward_hook(attn_prog_hook(W, L)))
     return hs
@@ -225,6 +237,8 @@ def select_feats(rows, L, prog):
 def fit_site(rows, kind, L, prog):
     if kind == 'mlp' and L in CFG['tables']:
         return fit_table(rows, L, prog)
+    if kind == 'mlp' and L in MID and FEAT['mode'] == 'exact':
+        return ('exact_mlp', L)
     aug = (kind == 'mlp' and FEAT['k'] > 0 and L in MID)
     if aug:
         FEAT['sel'][L] = select_feats(rows, L, prog)
@@ -403,7 +417,7 @@ def main():
 
     CFG['v1'] = None
     V1P.pop('W', None)
-    FEAT['k'] = 0; FEAT['sel'] = {}
+    FEAT['k'] = 0; FEAT['sel'] = {}; FEAT['mode'] = 'ridge'
     cl, SL, NL = ce_rows(ev, seen)
     assert abs(cl - S1683_CE_LIVE) <= 1e-3, (
         f'baseline CE {cl:.5f} disagrees with {S1683_CE_LIVE:.5f} (§1695)')
@@ -414,13 +428,13 @@ def main():
     cc, SC, NC = ce_rows(ev, seen, hooks=hs)
     st = cc - cl
     assert st > 0, f'non-positive stake {st}'
-    print(f'MID BAND FEATURE K-SWEEP 2 | linear + k own features, identity at k=4608 | '
+    print(f'MID BAND FEATURE K-SWEEP 2 | linear + k own features + separate exact identity | '
           f'mlp{MID[0]}-{MID[-1]} | k in {KS} | CE live {cl:.5f} | stake {st:.4f}', flush=True)
     print(f'  §1703: exempting this band entirely buys +{S1703_MID_BAND_GAIN:.2%}', flush=True)
 
     arms, arms_rows = {}, {}
     for k in KS:
-        FEAT['k'] = k; FEAT['sel'] = {}
+        FEAT['k'] = k; FEAT['sel'] = {}; FEAT['mode'] = 'ridge'
         prog = compile_stack(fit, ('mlp', 'attn'))
         ct, S, N = ce_rows(ev, seen, hooks=install(prog))
         name = f'k{k}'
@@ -431,20 +445,35 @@ def main():
         print(f'  k {k:4d}: CEILING {arms[name]["ceiling"]:8.2%}', flush=True)
         del prog
         torch.cuda.empty_cache()
-    FEAT['k'] = 0; FEAT['sel'] = {}
+
+    # Algebraic known answer, intentionally distinct from ridge-fitted k=4608.
+    FEAT['k'] = DH; FEAT['sel'] = {}; FEAT['mode'] = 'exact'
+    exact_prog = compile_stack(fit, ('mlp', 'attn'))
+    exact_ce, exact_S, exact_N = ce_rows(ev, seen, hooks=install(exact_prog))
+    arms_rows['exact4608'] = (exact_S, exact_N)
+    arms['exact4608'] = {
+        'k': DH, 'ce': round(exact_ce, 5),
+        'ceiling': round((cc - exact_ce) / st, 5),
+        'ceiling_exact': (cc - exact_ce) / st,
+        'construction': 'exact Down(Left(x)*Right(x)) including Down.bias',
+    }
+    print(f'  exact constructed: CEILING {arms["exact4608"]["ceiling"]:8.2%}', flush=True)
+    del exact_prog
+    torch.cuda.empty_cache()
+    FEAT['k'] = 0; FEAT['sel'] = {}; FEAT['mode'] = 'ridge'
 
     base = arms['k0']['ceiling_exact']
     g512 = arms['k512']['ceiling_exact'] - base
-    full = arms['k4608']['ceiling_exact']
+    full_ridge = arms['k4608']['ceiling_exact']
+    exact = arms['exact4608']['ceiling_exact']
     vals = [a['ceiling_exact'] for a in arms.values()]
     assert len(set(round(v, 9) for v in vals)) > 1, 'all arms identical -- augmentation is a no-op'
 
     print('  bootstrapping gains (2000 draws, ROW-level clusters)...', flush=True)
     ci_g = boot_gains(SL, NL, SC, NC, arms_rows, 'k0')
-    lo64, hi64 = ci_g['k64']
 
-    g4608 = full - base
-    pa = abs(full - S1703_BAND_EXEMPT_CEILING) <= 0.010
+    g4608 = full_ridge - base
+    pa = abs(exact - S1703_BAND_EXEMPT_CEILING) <= 0.010
     pb = (g4608 - g512) < 2.0 * S1710_K64_TO_K512
     pc = abs(g512 - S1710_K512_GAIN) <= 0.002
     pd = (abs(base - S1696_BOTH) <= 0.005 and abs(cl - S1683_CE_LIVE) <= 1e-3)
@@ -454,7 +483,8 @@ def main():
         print(f'  k={k:5d} gain {g:+.2%}  95% CI [{ci_g[f"k{k}"][0]:+.2%}, '
               f'{ci_g[f"k{k}"][1]:+.2%}]  ceiling {arms[f"k{k}"]["ceiling"]:.2%}  '
               f'{k * D * len(MID) / 1e6:.2f}M extra reals total', flush=True)
-    print(f'\n  IDENTITY CHECK k=4608: {full:.2%} vs the derivable {S1703_BAND_EXEMPT_CEILING:.2%} '
+    print(f'\n  IDENTITY CHECK exact constructed: {exact:.2%} vs the derivable '
+          f'{S1703_BAND_EXEMPT_CEILING:.2%} '
           f'(band left REAL) -> {pa}', flush=True)
     print(f'  512 replicates §1710 (+{S1710_K512_GAIN:.2%}) -> {pc}', flush=True)
     print(f'  512->4608 step {g4608 - g512:+.2%} vs 2x the 64->512 step '
@@ -484,7 +514,8 @@ def main():
                     for k, v in arms.items()},
            'gains': {f'k{k}': round(arms[f'k{k}']['ceiling_exact'] - base, 5) for k in KS[1:]},
            'gain_ci95_rowlevel': ci_g,
-           'identity_k4608': round(full, 5),
+           'ridge_k4608': round(full_ridge, 5),
+           'identity_exact_constructed': round(exact, 5),
            'identity_target_s1703': S1703_BAND_EXEMPT_CEILING,
            'fraction_of_band_recovered': {f'k{k}': round((arms[f'k{k}']['ceiling_exact'] - base)
                                                          / S1703_MID_BAND_GAIN, 4) for k in KS[1:]},

@@ -42881,6 +42881,16 @@ exactly at those sites. The augmented program should then equal the arm that lea
 construction, of the kind §1659 and §1678 showed this arc cannot do without. Queued as
 `mid_band_feature_ksweep2.py` with k ∈ {512, 1024, 2048, 4608}.
 
+**Pre-attempt correction to that last paragraph.** As first committed, the fitted k=4608 arm was
+not an algebraic identity: its design omitted an intercept although native `Down` has a bias, and
+ridge `1e-3` shrinks even a representable solution. The first live attempt also had a guaranteed
+postprocessing `KeyError` by indexing an unregistered k=64 arm. Codex stopped it after roughly
+three minutes, before any expensive arm completed. The corrected source keeps fitted k=4608 as an
+empirical curve point and adds a separate constructed known-answer arm that executes exact
+`Down(Left(x)*Right(x))`, including `Down.bias`, inside the same interleaved compiler. Only the
+constructed arm is compared to §1703 as an identity check. A miss there invalidates the hook and
+compiler construction; it does not make lower-k ridge fits algebraically impossible.
+
 ## §1711 — ops note: `mid_band_feature_ksweep2` killed by an external SIGTERM, requeued once
 
 The k=4608 identity run died 3 minutes into its k=0 arm with **exit 143 (SIGTERM)**. Diagnosed
