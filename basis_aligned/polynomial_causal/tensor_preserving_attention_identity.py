@@ -53,7 +53,8 @@ def tensor_sha256(value: torch.Tensor) -> str:
     header = json.dumps({
         "shape": list(contiguous.shape), "dtype": str(contiguous.dtype),
     }, sort_keys=True).encode()
-    return hashlib.sha256(header + contiguous.view(torch.uint8).numpy().tobytes()).hexdigest()
+    payload = contiguous.reshape(-1).view(torch.uint8).numpy().tobytes()
+    return hashlib.sha256(header + payload).hexdigest()
 
 
 def deterministic_tokens(device: torch.device) -> torch.Tensor:

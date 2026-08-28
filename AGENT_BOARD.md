@@ -6886,3 +6886,10 @@ source closure, hashes/shapes/dtypes/bytes for every stored tensor, MLP parity, 
 closure, and create-only atomic publication. Focused suite passes 17/17. These are
 implementation hardenings of the frozen identity gates, not post-result changes; no
 valid forward has yet occurred.
+
+The first hardened invocation subsequently completed its model forwards but failed
+before artifact construction while hashing scalar lambda: the manifest helper tried a
+byte view of a rank-0 tensor. It published nothing, so it is an implementation failure,
+not an identity result. Scalar hashing now flattens only for bytes while retaining the
+original shape in the hash header; a regression distinguishes scalar from length-one
+vector. The unchanged numerical protocol will be rerun only after this fix is pushed.

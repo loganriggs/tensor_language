@@ -7,7 +7,7 @@ import torch
 import torch.nn as nn
 
 from tensor_preserving_attention_identity import (
-    AttentionNativePoison, deterministic_tokens,
+    AttentionNativePoison, deterministic_tokens, tensor_sha256,
 )
 
 
@@ -60,3 +60,10 @@ def test_role_free_fixture_has_exact_production_contract() -> None:
     assert tokens.dtype == torch.long and tuple(tokens.shape) == (4, 256)
     assert int(tokens.min()) == 0 and int(tokens.max()) == 50_256
     assert torch.equal(tokens, deterministic_tokens(torch.device("cpu")))
+
+
+def test_tensor_hash_supports_scalar_and_binds_shape() -> None:
+    scalar = torch.tensor(0.5)
+    vector = scalar.reshape(1)
+    assert tensor_sha256(scalar) == tensor_sha256(torch.tensor(0.5))
+    assert tensor_sha256(scalar) != tensor_sha256(vector)
