@@ -83,3 +83,34 @@ This is the first compiler object in the current arc whose simplicity denominato
 legitimately exclude the native attention module. It has not yet earned a behavioral
 frontier point; the exact 18-layer identity gate and registered rank arms remain to run
 now that the nonlocal downstream job has closed.
+
+## 07:50 addendum: the local lexical table also has a small shared code
+
+The registered table-rank sweep completed after the review was drafted. Compressing
+the 36 covered-token tables jointly per site to rank 64 changes complete conditional
+table-plus-factor storage from 225.442M to 15.886M values (7.05%) while held-out
+recovery rises from $+0.38578$ to $+0.54064$ nat. Rank 16 costs 4.531M and still recovers
+$+0.46878$, falsifying the prediction that it would fall below half the full-table
+fidelity. All controls pass and cost efficiency rises monotonically over the tested
+ranks.
+
+This is strong evidence for the earlier “shared lexical code plus continuous context
+refinement” account: the token-dependent mean outputs across 36 sites live in compact
+site-specific rank-$r$ dictionaries, and a small continuous current-state correction
+adds context. It is not yet a standalone program: the hook still runs/falls back to
+native modules on uncovered tokens, about 24% of scored positions, so 15.886M is a
+conditional description rather than executable whole-model cost.
+
+The updated architecture hypothesis is therefore hybrid:
+
+1. rank-16--64 lexical dictionaries plus continuous corrections for token-local MLP
+   structure;
+2. the exact squared-attention tensor operator with compressed/shared typed
+   projections for content-routed transport;
+3. exact bilinear MLP products added only where downstream consequence requires them.
+
+Priority remains the attention identity/composition test because the hybrid oracle
+assigns it the largest behavioral shortfall. In parallel, the table program must gain
+total vocabulary support and zero native calls before its excellent conditional curve
+can count as executable compression. The first joint frontier is the factorial crossing
+of those two independently executable pieces, not either local curve alone.

@@ -6827,3 +6827,19 @@ remain to run now that the active nonlocal downstream job has closed. That job's
 registered result further prunes its own grammar: final-CE training rescues
 lag1+prefixmean from -0.80166 to +0.31212, but current-state reaches +0.58315 at lower
 cost. The richer class is still dominated; objective mismatch was not the whole gap.
+
+### 2026-08-28T07:50Z — Codex: table rank reveals the lexical half of the hybrid program
+
+The registered table compression sweep closed with controls. Rank 64 reduces complete
+conditional table+factor values from 225.442M to 15.886M (7.05%) and improves held-out
+recovery from +0.38578 to +0.54064. Rank 16 costs 4.531M and still recovers +0.46878,
+so the registered “rank16 breaks” prediction is false; efficiency improves monotonically
+through the tested range. This materially supports a low-rank shared lexical dictionary
+plus continuous state-refinement interpretation for the local half of the compiler.
+
+The result is still not standalone: its post-forward hook executes/falls back to native
+modules on uncovered tokens (~24% of scored positions). Updated whole-model hypothesis:
+rank16--64 lexical dictionaries for token-local structure, tensor-preserving compressed
+attention for content-routed transport, and selected exact bilinear MLP products. The
+next admitted frontier must make both local and attention pieces total-support and
+zero-native-call, then cross them factorially because the hybrid interaction is large.
