@@ -49834,3 +49834,62 @@ tables at a partial compile (§1832's TOP9 arm, 20 of 36 sites, which recovers 2
 context table is still a liability at half compilation or only at full. That is the one remaining
 practically useful question in this line: it tells a hybrid program which table to use, and unlike this
 run it has a real chance of a positive answer.
+
+## §1847 — there is no crossover: the table advantage swings +1.6, −19.9, +2.1, −1.4 with depth
+
+`ops/table_crossover.py`, 294.3s, **DISCOVERY ONLY**, rung 3 (§1846's open question).
+**pred_a False | pred_b False | pred_c False | pred_d True.**
+
+```
+  skip7000, sequential; context-table advantage over length-1 at each compile depth
+    B1    length-1 25.9%    fit-context  27.5%    advantage  +1.6pp
+    B3    length-1 11.9%    fit-context  -8.0%    advantage -19.9pp
+    B5    length-1 12.3%    fit-context  14.5%    advantage  +2.1pp
+    ALL   length-1 13.55%   fit-context  13.19%   advantage  -1.4pp   (top-1, §1846)
+    one site (mlp5)                               advantage +43.5pp   (§1845)
+```
+
+**pred_b FAILED decisively and it is the whole result.** The advantage is not a function of how much is
+compiled — it goes **+1.6, −19.9, +2.1, −1.4**, with the catastrophic value sandwiched between two mildly
+positive ones. **pred_a FAILED by 0.4pp** (B1 at +1.6 against a 2pp bar) and **pred_c FAILED** because
+the context table still *helps* at B5, where I predicted it would already hurt.
+
+> **There is no crossover to find, and that is a stronger negative than a late crossover would have
+> been.** §1845 found the context table worth +43.5pp at one site; §1846 found it worth −0.37pp at
+> thirty-six, with the greedy per-site choice worth −0.66pp; §1847 finds no depth between them at which
+> the sign is predictable. **Per-site table decisions cannot be made independently — not by site
+> (§1846), and not by depth (§1847).**
+
+**The mechanism is §1832's super-additivity acting on the swaps themselves.** At B3 the compiled set
+includes `mlp3`, whose context table is the second-worst single-site swap in the network (16.3% → −3.0%,
+§1846), with nothing to offset it. At B5 the set also includes `mlp5`, whose context table is the best
+swap by far (3.6% → 47.1%), and the net turns positive again. **Individually helpful and individually
+harmful swaps do not add**, exactly as §1832 found for the compiled sites themselves — so a depth is not
+a meaningful unit for this decision any more than a site is.
+
+**What survives from §1845-§1847, and it is not nothing.** Two statements hold, and both are endpoints
+rather than rules:
+
+1. **One compiled site into a live stream: use the context table.** +43.5pp at mlp5, replicated on three
+   held-out roles at 1.9pp spread (§1845).
+2. **All sites compiled: use the length-1 table, and this is a derivation, not a measurement.** §1765
+   proved the fully compiled forward at a position is a pure function of that token, and a length-1
+   forward computes exactly that — so the length-1 table is the program's self-consistent fixed point,
+   and re-fitting inside the compiled program returns it unchanged (§1846).
+
+Everything in between is an interaction that no per-part measurement predicts. **The practical line
+closes here**: there is no table rule for hybrid programs, and I am recording that rather than sweeping
+more depths in the hope of one.
+
+**Controls (pred_d), all clean.** B0 reproduces §1829's published 64.8%; the length-1 arms at B1, B3 and
+B5 reproduce §1829's published 25.9%, 11.9% and 12.3%; ALL_L1 reproduces §1789's published full-rank
+top-1 exactly; FIT_mlp5 reproduces §1845's published 47.1%. Coverage 5419 of 50257.
+
+**Open question this ends on, and it follows from the derivation rather than from another sweep.**
+§1846's fixed-point argument is about the *fully* compiled program. Its natural generalisation is that
+every partial arm has its **own** fixed point: for B{L}, the self-consistent table is each compiled
+site's output averaged **inside the B{L} stream**, not inside the live model and not on a length-1
+sequence. That table is constructible by iteration — fit, run, re-average, refit — it is deployable
+(the fit rows suffice), and §1846's derivation predicts it should beat *both* tables at intermediate
+depths, where §1847 has just shown neither is reliable. It is the one remaining construction in this
+line with a principled reason to work rather than a hope.

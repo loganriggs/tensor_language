@@ -1,2 +1,50 @@
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 TABLE CROSSOVER | length-1 vs fit-context at compile depths B1/B3/B5/all | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (57s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (126s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  fit-context banks built; rows differing from the length-1 bank: [5419] of 5419 covered
+
+  arms  (140s)
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+  FIT_mlp5_raw           skip7000 21.49%  skip11000 23.10%  skip1200 21.61%
+  FIT_mlp5_seq           skip7000 25.70%  skip11000 27.08%  skip1200 25.05%
+  B1_L1_raw              skip7000 14.05%  skip11000 15.42%  skip1200 14.27%
+  B1_L1_seq              skip7000 20.22%  skip11000 21.67%  skip1200 20.17%
+  B1_FIT_raw             skip7000 26.92%  skip11000 28.49%  skip1200 26.67%
+  B1_FIT_seq             skip7000 20.63%  skip11000 21.89%  skip1200 20.96%
+  B3_L1_raw              skip7000  2.00%  skip11000  2.12%  skip1200  1.81%
+  B3_L1_seq              skip7000 16.62%  skip11000 17.51%  skip1200 16.67%
+  B3_FIT_raw             skip7000  4.04%  skip11000  4.21%  skip1200  4.06%
+  B3_FIT_seq             skip7000 11.49%  skip11000 11.89%  skip1200 11.43%
+  B5_L1_raw              skip7000  2.24%  skip11000  2.11%  skip1200  1.93%
+  B5_L1_seq              skip7000 16.73%  skip11000 17.65%  skip1200 16.88%
+  B5_FIT_raw             skip7000 14.37%  skip11000 14.72%  skip1200 14.42%
+  B5_FIT_seq             skip7000 17.28%  skip11000 17.84%  skip1200 17.72%
+  ALL_L1                 skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  ALL_FIT                skip7000 13.19%  skip11000 13.63%  skip1200 13.15%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+
+  gap fraction by compile depth, skip7000 (B0 64.8%, one site FIT_mlp5 47.1%):
+    B1   length-1   25.9%   fit-context   27.5%   advantage   +1.6%
+    B3   length-1   11.9%   fit-context   -8.0%   advantage  -19.9%
+    B5   length-1   12.3%   fit-context   14.5%   advantage   +2.1%
+    ALL  length-1  13.55%   fit-context  13.19%   advantage   -1.4%  (top-1, §1846)
+
+  the CROSSOVER exists (context wins at B1 by >=2pp) -> False  B1 advantage +1.6%
+  and it is MONOTONE in depth -> False  B1 +1.6%  B3 -19.9%  B5 +2.1%  ALL -1.4%
+  and the crossover is EARLY (context already hurts at B5) -> False  B5 advantage +2.1%
+  B0/B1/B3/B5 §1829, ALL_L1 §1789, FIT_mlp5 §1845 -> control True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/table_crossover_results.json (294.3s)
