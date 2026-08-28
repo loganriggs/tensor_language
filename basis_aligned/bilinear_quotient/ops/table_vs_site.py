@@ -315,6 +315,7 @@ def empirical_rows(rows, probes, base_bank, covered):
     Only the covered rows change; uncovered rows keep the same fallback the length-1 bank uses, so the
     two banks differ on exactly the 5419 rows §1842 measured and nowhere else."""
     s = {st: torch.zeros(V, D, device=DEV, dtype=torch.float64) for st in probes}
+    g = {st: torch.zeros(D, device=DEV, dtype=torch.float64) for st in probes}
     c = torch.zeros(V, device=DEV, dtype=torch.float64)
     n = {'k': 0}
 
@@ -323,6 +324,7 @@ def empirical_rows(rows, probes, base_bank, covered):
             y = (out[0] if isinstance(out, tuple) else out).detach().double()[:, 64:]
             t = STATE['idx'][:, 64:].reshape(-1)
             s[st].index_add_(0, t, y.reshape(-1, D))
+            g[st] += y.sum((0, 1))
             if first:
                 c.index_add_(0, t, torch.ones_like(t, dtype=torch.float64))
                 n['k'] += int(t.numel())
@@ -344,13 +346,17 @@ def empirical_rows(rows, probes, base_bank, covered):
     # §1843: restrict to the FIT-COVERED set. Accumulating over every token seen in the eval
     # rows gave 2403 UNCOVERED tokens an eval-derived mean instead of the output-NN fallback,
     # so the two banks differed on 7822 rows rather than 5419 and the arms differed twice over.
-    hit = (c > 0) & covered
-    assert int(hit.sum()) == NCOV, \
-        f'empirical role observed {int(hit.sum())} of {NCOV} frozen covered tokens'
+    # Only 2699/5419 covered types occur in this role. Match §1840: observed covered types get
+    # their token mean and unseen covered types get the site's global scored-position mean.
+    observed = c > 0
+    hit = observed & covered
+    miss = (~observed) & covered
+    assert int(hit.sum() + miss.sum()) == NCOV, 'empirical targets do not equal frozen coverage'
     out, changed = {}, {}
     for st in probes:
         bank = base_bank[st].clone()
         bank[hit] = (s[st][hit] / c[hit].unsqueeze(1)).float()
+        bank[miss] = (g[st] / n['k']).float()
         assert torch.equal(bank[~covered], base_bank[st][~covered]), \
             f'{st} empirical bank changed an uncovered fallback row'
         changed[st] = int((bank != base_bank[st]).any(1).sum())

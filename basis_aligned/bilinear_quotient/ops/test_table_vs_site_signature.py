@@ -4,7 +4,6 @@ import ast
 import inspect
 from pathlib import Path
 
-import pytest
 import torch
 
 
@@ -87,7 +86,7 @@ def _empirical_fixture():
     covered = torch.tensor([False, True, True, True, False, False])
     rows = torch.zeros((2, 67), dtype=torch.long)
     rows[0, 64:66] = torch.tensor([1, 2])
-    rows[1, 64:66] = torch.tensor([3, 4])  # token 4 is observed but outside frozen coverage
+    rows[1, 64:66] = torch.tensor([4, 5])  # covered token 3 is unseen; 4 and 5 are uncovered
     return empirical_rows, rows, probes, base_bank, covered
 
 
@@ -137,20 +136,16 @@ def test_every_run_g_arm_binds_and_empirical_override_is_reachable():
     assert namespace["res"]["skip7000"]["EM_mlp5_raw"] == {"top1": 0.0}
 
 
-def test_empirical_rows_changes_exact_frozen_support_and_preserves_fallback_bytes():
+def test_empirical_rows_uses_token_and_global_means_only_on_exact_frozen_support():
     empirical_rows, rows, probes, base_bank, covered = _empirical_fixture()
     output, changed = empirical_rows(rows, probes, base_bank, covered)
 
-    for site in probes:
+    for offset, site in enumerate(probes, start=1):
         actual_changed = (output[site] != base_bank[site]).any(dim=1)
         assert torch.equal(actual_changed, covered)
         assert torch.equal(output[site][~covered], base_bank[site][~covered])
+        assert torch.equal(output[site][1], torch.full((2,), 1.0 + offset))
+        assert torch.equal(output[site][2], torch.full((2,), 2.0 + offset))
+        # Mean across every scored occurrence: token ids (1 + 2 + 4 + 5) / 4 == 3.
+        assert torch.equal(output[site][3], torch.full((2,), 3.0 + offset))
         assert changed[site] == 3
-
-
-def test_empirical_rows_fails_before_building_bank_when_covered_token_is_unobserved():
-    empirical_rows, rows, probes, base_bank, covered = _empirical_fixture()
-    rows[1, 64] = 2  # remove the only occurrence of frozen-covered token 3
-
-    with pytest.raises(AssertionError, match="observed 2 of 3 frozen covered tokens"):
-        empirical_rows(rows, probes, base_bank, covered)
