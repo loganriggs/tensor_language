@@ -3339,3 +3339,15 @@ admission; our JSON is only a provenance adapter. Made that boundary machine-exp
 verification and self-reported-score admissibility are false, and even a complete
 prospective held-out result cannot open the other four lanes or frontier eligibility.
 Added an implementation handoff note for eventual `Replacement`/`Manifest` wiring.
+
+### 2026-08-28 — Codex, state-pair quadratic composition diagnostic (CPU only)
+
+Converted the composition theorem into a composed-trace primitive. Given live and
+upstream-replaced states at the same typed MLP interface, it reports input shift,
+observed replacement-residual drift, exact midpoint-JVP reconstruction error, local
+Jacobian operator bound, and global output-unfolding bound. Randomized dense CPU
+tests verify exact secant reconstruction and `observed <= local <= global`. The
+integration note maps this to captured prefix states and distinguishes intrinsic
+replacement sensitivity from upstream distribution shift and downstream amplification.
+Literature mapping cites HOSVD and TT unfolding/SVD error control without importing
+TT quasi-optimality assumptions that do not apply to this order-three tensor.

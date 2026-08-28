@@ -130,6 +130,47 @@ def midpoint_residual_lipschitz_bound(A1, B1, C1, A2, B2, C2, z1, z2):
     return torch.linalg.matrix_norm(jacobian, ord=2)
 
 
+def residual_secant_diagnostics(A1, B1, C1, A2, B2, C2, z_live, z_composed):
+    """Diagnose how a replacement residual changes under an upstream state shift.
+
+    Returns row-level observed drift plus exact-midpoint, local-operator, and global
+    output-unfolding certificates. No model outputs or labels are required.
+    """
+    z_live = torch.as_tensor(z_live, dtype=torch.float64)
+    z_composed = torch.as_tensor(z_composed, dtype=torch.float64)
+    if z_live.shape != z_composed.shape or z_live.ndim < 1:
+        raise ValueError("live and composed states must have identical nonempty shapes")
+    shift = z_composed-z_live
+    midpoint = (z_live+z_composed)/2
+    residual_live = (execute_quadratic(A1, B1, C1, z_live)
+                     - execute_quadratic(A2, B2, C2, z_live))
+    residual_composed = (execute_quadratic(A1, B1, C1, z_composed)
+                         - execute_quadratic(A2, B2, C2, z_composed))
+    observed = residual_composed-residual_live
+    reconstructed = (quadratic_jvp(A1, B1, C1, midpoint, shift)
+                     - quadratic_jvp(A2, B2, C2, midpoint, shift))
+    shift_norm = torch.linalg.vector_norm(shift, dim=-1)
+    observed_norm = torch.linalg.vector_norm(observed, dim=-1)
+    reconstruction_error = torch.linalg.vector_norm(
+        observed-reconstructed, dim=-1)
+    local_coefficient = midpoint_residual_lipschitz_bound(
+        A1, B1, C1, A2, B2, C2, z_live, z_composed)
+    unfolding_norm = residual_output_unfolding_spectral_norm(
+        A1, B1, C1, A2, B2, C2)
+    global_coefficient = unfolding_norm*(
+        torch.linalg.vector_norm(z_live, dim=-1)
+        + torch.linalg.vector_norm(z_composed, dim=-1))
+    return {
+        "input_shift_norm": shift_norm,
+        "observed_residual_drift_norm": observed_norm,
+        "midpoint_reconstruction_error": reconstruction_error,
+        "local_operator_coefficient": local_coefficient,
+        "local_upper_bound": local_coefficient*shift_norm,
+        "global_unfolding_coefficient": global_coefficient,
+        "global_upper_bound": global_coefficient*shift_norm,
+    }
+
+
 def rms_sphere_residual_lipschitz_bound(A1, B1, C1, A2, B2, C2):
     """Global residual-map Lipschitz bound when both states have RMS norm one.
 

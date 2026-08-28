@@ -76,6 +76,23 @@ def test_residual_unfolding_spectral_norm_matches_dense_oracle():
     assert abs(actual-float(expected)) < 1e-10
 
 
+def test_residual_secant_diagnostics_are_exact_and_ordered():
+    A1, B1, C1 = factors(seed=40)
+    A2, B2, C2 = factors(seed=41)
+    generator = torch.Generator().manual_seed(42)
+    z_live = torch.randn(7, A1.shape[0], generator=generator, dtype=torch.double)
+    z_composed = z_live+.3*torch.randn(
+        z_live.shape, generator=generator, dtype=torch.double)
+    result = inv.residual_secant_diagnostics(
+        A1, B1, C1, A2, B2, C2, z_live, z_composed)
+    scale = result["observed_residual_drift_norm"].clamp_min(1)
+    assert bool((result["midpoint_reconstruction_error"] <= 1e-12*scale).all())
+    assert bool((result["observed_residual_drift_norm"]
+                 <= result["local_upper_bound"]+1e-10).all())
+    assert bool((result["local_upper_bound"]
+                 <= result["global_upper_bound"]+1e-10).all())
+
+
 def test_invariants_survive_factor_gauges_leg_swaps_and_permutation():
     A, B, C = factors(seed=1)
     reference = inv.output_unfolding_gram(A, B, C)
