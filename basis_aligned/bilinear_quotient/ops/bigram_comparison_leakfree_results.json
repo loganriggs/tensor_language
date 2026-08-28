@@ -1,0 +1,246 @@
+{
+ "config": {
+  "table_ranks": [
+   "full"
+  ],
+  "map_rank": 64,
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "skip7000": {
+   "overall": {
+    "acc_live": 0.3932,
+    "acc_prog": 0.13553,
+    "acc_fitbg": 0.08903,
+    "acc_loobg": 0.12443,
+    "agree_pb": 0.46948,
+    "agree_pl": 0.23565,
+    "agree_bl": 0.20426,
+    "decided_disagreements": 3217,
+    "prog_wins_share": 0.56357,
+    "n": 36864
+   },
+   "0-0": {
+    "acc_live": 0.25292,
+    "acc_prog": 0.00674,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.02426,
+    "agree_pb": 0.40004,
+    "agree_pl": 0.13219,
+    "agree_bl": 0.13589,
+    "decided_disagreements": 276,
+    "prog_wins_share": 0.21739,
+    "n": 8904
+   },
+   "1-4": {
+    "acc_live": 0.26651,
+    "acc_prog": 0.01109,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.01929,
+    "agree_pb": 0.41595,
+    "agree_pl": 0.13743,
+    "agree_bl": 0.13349,
+    "decided_disagreements": 190,
+    "prog_wins_share": 0.35789,
+    "n": 6585
+   },
+   "5-24": {
+    "acc_live": 0.30525,
+    "acc_prog": 0.02885,
+    "acc_fitbg": 0.00105,
+    "acc_loobg": 0.0437,
+    "agree_pb": 0.46393,
+    "agree_pl": 0.17353,
+    "agree_bl": 0.166,
+    "decided_disagreements": 281,
+    "prog_wins_share": 0.37367,
+    "n": 4783
+   },
+   "25-124": {
+    "acc_live": 0.41979,
+    "acc_prog": 0.09895,
+    "acc_fitbg": 0.03848,
+    "acc_loobg": 0.09312,
+    "agree_pb": 0.55889,
+    "agree_pl": 0.25171,
+    "agree_bl": 0.21672,
+    "decided_disagreements": 341,
+    "prog_wins_share": 0.55132,
+    "n": 6003
+   },
+   "125-1000000000": {
+    "acc_live": 0.6146,
+    "acc_prog": 0.39012,
+    "acc_fitbg": 0.28766,
+    "acc_loobg": 0.32827,
+    "agree_pb": 0.51299,
+    "agree_pl": 0.40268,
+    "agree_bl": 0.31599,
+    "decided_disagreements": 2129,
+    "prog_wins_share": 0.65383,
+    "n": 10589
+   }
+  },
+  "skip11000": {
+   "overall": {
+    "acc_live": 0.42348,
+    "acc_prog": 0.1425,
+    "acc_fitbg": 0.09068,
+    "acc_loobg": 0.12877,
+    "agree_pb": 0.46794,
+    "agree_pl": 0.22711,
+    "agree_bl": 0.19944,
+    "decided_disagreements": 3306,
+    "prog_wins_share": 0.57653,
+    "n": 36864
+   },
+   "0-0": {
+    "acc_live": 0.29899,
+    "acc_prog": 0.01865,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.02078,
+    "agree_pb": 0.40448,
+    "agree_pl": 0.12616,
+    "agree_bl": 0.11785,
+    "decided_disagreements": 336,
+    "prog_wins_share": 0.47024,
+    "n": 9385
+   },
+   "1-4": {
+    "acc_live": 0.30114,
+    "acc_prog": 0.01612,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.02019,
+    "agree_pb": 0.40705,
+    "agree_pl": 0.12474,
+    "agree_bl": 0.12278,
+    "decided_disagreements": 217,
+    "prog_wins_share": 0.43779,
+    "n": 6638
+   },
+   "5-24": {
+    "acc_live": 0.34999,
+    "acc_prog": 0.02813,
+    "acc_fitbg": 0.00147,
+    "acc_loobg": 0.03254,
+    "agree_pb": 0.45035,
+    "agree_pl": 0.15977,
+    "agree_bl": 0.14613,
+    "decided_disagreements": 213,
+    "prog_wins_share": 0.4507,
+    "n": 4763
+   },
+   "25-124": {
+    "acc_live": 0.42661,
+    "acc_prog": 0.10458,
+    "acc_fitbg": 0.04201,
+    "acc_loobg": 0.09845,
+    "agree_pb": 0.54147,
+    "agree_pl": 0.23819,
+    "agree_bl": 0.20646,
+    "decided_disagreements": 356,
+    "prog_wins_share": 0.54775,
+    "n": 5546
+   },
+   "125-1000000000": {
+    "acc_live": 0.64309,
+    "acc_prog": 0.4042,
+    "acc_fitbg": 0.29463,
+    "acc_loobg": 0.35292,
+    "agree_pb": 0.53209,
+    "agree_pl": 0.40619,
+    "agree_bl": 0.34087,
+    "decided_disagreements": 2184,
+    "prog_wins_share": 0.62363,
+    "n": 10532
+   }
+  },
+  "skip1200": {
+   "overall": {
+    "acc_live": 0.38883,
+    "acc_prog": 0.13645,
+    "acc_fitbg": 0.09597,
+    "acc_loobg": 0.1225,
+    "agree_pb": 0.51172,
+    "agree_pl": 0.24208,
+    "agree_bl": 0.2041,
+    "decided_disagreements": 1733,
+    "prog_wins_share": 0.57415,
+    "n": 18432
+   },
+   "0-0": {
+    "acc_live": 0.26152,
+    "acc_prog": 0.0094,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.02192,
+    "agree_pb": 0.50022,
+    "agree_pl": 0.14698,
+    "agree_bl": 0.13512,
+    "decided_disagreements": 140,
+    "prog_wins_share": 0.3,
+    "n": 4470
+   },
+   "1-4": {
+    "acc_live": 0.25397,
+    "acc_prog": 0.01184,
+    "acc_fitbg": 0.0,
+    "acc_loobg": 0.02337,
+    "agree_pb": 0.50608,
+    "agree_pl": 0.15457,
+    "agree_bl": 0.14179,
+    "decided_disagreements": 105,
+    "prog_wins_share": 0.32381,
+    "n": 3209
+   },
+   "5-24": {
+    "acc_live": 0.2832,
+    "acc_prog": 0.03525,
+    "acc_fitbg": 0.00287,
+    "acc_loobg": 0.02951,
+    "agree_pb": 0.51762,
+    "agree_pl": 0.19221,
+    "agree_bl": 0.16557,
+    "decided_disagreements": 130,
+    "prog_wins_share": 0.55385,
+    "n": 2440
+   },
+   "25-124": {
+    "acc_live": 0.41291,
+    "acc_prog": 0.09746,
+    "acc_fitbg": 0.04544,
+    "acc_loobg": 0.08561,
+    "agree_pb": 0.55878,
+    "agree_pl": 0.24432,
+    "agree_bl": 0.1946,
+    "decided_disagreements": 150,
+    "prog_wins_share": 0.62,
+    "n": 3037
+   },
+   "125-1000000000": {
+    "acc_live": 0.61372,
+    "acc_prog": 0.38912,
+    "acc_fitbg": 0.30781,
+    "acc_loobg": 0.33226,
+    "agree_pb": 0.49507,
+    "agree_pl": 0.39765,
+    "agree_bl": 0.32373,
+    "decided_disagreements": 1208,
+    "prog_wins_share": 0.62417,
+    "n": 5276
+   }
+  }
+ },
+ "fit_bigram_covered_ce": {
+  "skip7000": 7.88804,
+  "skip11000": 7.90729
+ },
+ "predictions": {
+  "pred_a_leakfree_program_beats_bigram_overall": true,
+  "pred_b_leakfree_program_beats_bigram_on_head": true,
+  "pred_c_program_wins_decided_disagreements": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 49.4
+}

@@ -46831,3 +46831,46 @@ no downstream comparison can still resolve in the held-out item's favour.** The 
 `>=` in a tie-break is a silent policy, and when one side of the comparison is the answer, that policy
 is a leak. Two independent leak-free reimplementations agreeing with each other and disagreeing with
 the original is what surfaced it; the original's own controls could not have.
+
+## §1795 — the leak-free replacement: the program beats the bigram on the head by 5-6pp and overall by 1.1-1.4pp
+
+`ops/bigram_comparison_leakfree.py`, 49.4s, **DISCOVERY ONLY**. **All four True**, including the
+cross-run control against §1794's audit figures.
+
+```
+                      overall                       head (fit-count 125+)
+              prog    bigram    margin        prog    bigram    margin
+  skip7000   13.55%   12.44%   +1.11pp      39.01%   32.83%   +6.19pp
+  skip11000  14.25%   12.88%   +1.37pp      40.42%   35.29%   +5.13pp
+  skip1200   13.64%   12.25%   +1.39pp      38.91%   33.23%   +5.69pp
+
+  decided disagreements on the head, program wins:  65.38%   62.36%   62.42%
+  agreement P<->B on the head:  51.30%   53.21%   49.51%   (P<->L 40.27 / 40.62 / 39.77)
+```
+
+**Three corrections follow, and one of them is in my favour — which I am stating as plainly as the
+one that was not.**
+
+1. **§1790's headline is wrong in both halves.** Not "matches on the head, beats overall": the program
+   leads on the head by **+6.19 / +5.13 / +5.69 pp** and overall by **+1.11 / +1.37 / +1.39 pp**.
+   §1790's own pred_b (beat the LOO bigram on the head by ≥1pp) would have **passed comfortably**
+   against a clean arm; it failed only because of the leak.
+2. **§1790's central caution reverses.** I wrote that the program's advantage over the fair fit-row
+   bigram (+4.65 / +5.18 / +4.04 pp) was smaller than the bigram's own fit-to-eval **estimation gap**,
+   and therefore "cannot be attributed to the architecture on this evidence". With the leak removed
+   that gap is **+3.54 / +3.81 / +2.65 pp**, not +7.07 / +7.56 / +8.40. **The program's advantage now
+   exceeds what counting gains from data alone, at every role.** The caution was an artifact of the
+   same bug.
+3. **§1791's "coin flip" is superseded.** Among head positions where the two disagree and exactly one
+   is right, the program wins **65.38 / 62.36 / 62.42%**, not 53.98 / 52.14 / 48.16%. Its conclusion —
+   that the program is not wrong where it commits on the head, and the deficit is the tail — is
+   strengthened, not overturned.
+
+**What survives untouched.** §1791's pred_a and pred_b: head agreement is **51.30 / 53.21 / 49.51%**
+against §1791's 51.30 / 52.91 / 48.96%, so "not the same predictor, but nearer to a bigram than to the
+live model" stands on numbers the leak never touched. §1790's pred_a (the fit-row bigram comparison)
+is unaffected — that arm is fitted on fit rows and scored on eval rows, so it needs no leave-one-out.
+§1793 involves no bigram. Everything before §1790 is untouched.
+
+**The ledger and registry still carry §1790's wrong claim.** Retraction is Logan's call and I have put
+the question to him with these numbers.
