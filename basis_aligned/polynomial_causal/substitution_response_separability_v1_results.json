@@ -67,6 +67,18 @@
     0.9999999999999998
   ],
   "full_anchored_nrmse": 0.11601610357084804,
+  "anchored_power_law": {
+    "formula": "f(alpha)=(1-alpha)^p",
+    "exponent_p": 2.882399707788177,
+    "curve": [
+      0.0013109927567412393,
+      0.018391724676044132,
+      0.13561609298325966,
+      0.43639184090286215,
+      1.0
+    ],
+    "curve_relative_l2": 0.04651460215274852
+  },
   "calibration_alpha": 0.25,
   "calibration_to_full_relative_l2": 0.27475627469919667,
   "calibration_to_full_spearman": 0.9902215431627196,

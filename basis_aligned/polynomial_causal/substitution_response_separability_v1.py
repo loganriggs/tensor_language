@@ -60,6 +60,11 @@ def analyze(payload: dict) -> dict:
     full = matrix[:, -1]
     shared_curve = np.sum(full[:, None] * matrix, axis=0) / np.sum(full ** 2)
     anchored = full[:, None] * shared_curve[None, :]
+    delta = 1.0 - np.asarray(ALPHAS, dtype=np.float64)
+    log_delta = np.log(delta[:-1])
+    log_curve = np.log(shared_curve[:-1])
+    power_exponent = float(np.dot(log_delta, log_curve) / np.dot(log_delta, log_delta))
+    power_curve = delta ** power_exponent
     calibration_index = ALPHAS.index(CALIBRATION_ALPHA)
     predicted_full = matrix[:, calibration_index] / shared_curve[calibration_index]
 
@@ -86,6 +91,14 @@ def analyze(payload: dict) -> dict:
         "rank1_nrmse": float(np.linalg.norm(matrix - rank_one) / np.linalg.norm(matrix)),
         "full_anchored_shared_curve": shared_curve.tolist(),
         "full_anchored_nrmse": float(np.linalg.norm(matrix - anchored) / np.linalg.norm(matrix)),
+        "anchored_power_law": {
+            "formula": "f(alpha)=(1-alpha)^p",
+            "exponent_p": power_exponent,
+            "curve": power_curve.tolist(),
+            "curve_relative_l2": float(
+                np.linalg.norm(power_curve - shared_curve) / np.linalg.norm(shared_curve)
+            ),
+        },
         "calibration_alpha": CALIBRATION_ALPHA,
         "calibration_to_full_relative_l2": float(
             np.linalg.norm(predicted_full - full) / np.linalg.norm(full)
