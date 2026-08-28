@@ -1451,3 +1451,29 @@ was right and I was wrong about my own script, which is the best evidence it ear
 
 **How to apply:** when a script is built by editing another, change the banner in the same edit as the
 docstring. The gate now enforces it before queueing.
+
+## LESSONS 57 — a share-of-the-total bar cannot separate DOMINANCE from REDUNDANCY
+
+§1830 asked which site of layer 1 buys the 38.9pp drop, and registered pred_a as: *the larger of the two
+single-site drops is at least 70% of the joint drop.* It passed at **99.5%**. It should not have been
+counted as evidence for anything.
+
+The result was that **both** sites individually cost ~100% of the joint drop — attn1 +37.4pp, mlp1
++38.7pp, joint +38.9pp. That is redundancy, and it is the opposite of the "one site dominates" the bar
+was written to detect. **A threshold on `max(a, b) / joint` is satisfied identically by "a is everything
+and b is nothing" and by "a and b are each everything".** The statistic has no power to distinguish them
+because it never looks at the smaller value.
+
+The prediction that carried the finding was pred_c, which asked about **additivity**: `(a + b) / joint`,
+which came out **1.96x** against 2.00x for exact redundancy. That single ratio separates all three
+outcomes — ~1.0x additive, ~2.0x redundant, >2.0x super-additive — where the share bar separates none.
+
+This is a sharper instance of LESSONS 44 (a binary predicate cannot separate three outcomes) and of
+LESSONS 48 (a marginal along one ordering is not an attribution to a component): the failure is not that
+the bar was too loose, it is that **the quantity was the wrong one**, and no threshold on it would have
+helped.
+
+**How to apply:** when a prediction is about attributing a total to parts, register the ratio
+`sum(parts) / total`, not `max(part) / total`. Ask the discriminating question first — *are these
+alternatives, or contributors?* — and only then pick a bar. And when a prediction passes on a bar that
+could not have failed for the reason you cared about, say so in the write-up instead of banking the pass.

@@ -48848,3 +48848,58 @@ live 39.32/42.35/38.88%); the placement control moves top-1 by under 0.05pp. Cov
 both, splits it in a single cheap run — and unlike every instrument since §1824 it is measured on the
 loss, in the region where the curve actually moves, rather than as a summary of a stream in the flat
 region below it.
+
+## §1830 — EITHER site of layer 1 alone destroys the gap: they are redundant, not additive, and my dominance bar could not tell the difference
+
+`ops/layer1_site_split.py`, 198.8s, **DISCOVERY ONLY**, rung 3 (§1829's open question).
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+```
+  THE SPLIT (skip7000, sequential arm)
+    B0 64.8%    B0+attn1 27.4%    B0+mlp1 26.1%    B1 25.9%
+    drop from B0:   attn1 +37.4pp    mlp1 +38.7pp    both +38.9pp
+```
+
+**Neither site is the culprit, because both are.** Compiling *either* site of layer 1, on top of an
+already-compiled layer 0, costs **96.1%** (attn1) or **99.5%** (mlp1) of the drop that compiling both
+costs. pred_c measures it directly: the two single-site drops sum to **1.96x** the joint drop, where
+2.00x is exact redundancy. They are not two losses that add; they are the same loss reached two ways.
+
+**pred_a scored TRUE and the bar was bad. I am recording that rather than banking the pass.** It asked
+whether the larger single-site drop is at least 70% of the joint drop — and it is, 99.5%. But that bar
+is satisfied *trivially* when BOTH sites are near 100%, which is the actual result and the opposite of
+what "one site dominates" was meant to detect. A share-of-the-joint threshold cannot separate dominance
+from redundancy. The prediction passed and told me nothing; **pred_c**, which asked about additivity, is
+the one that carried the finding. LESSONS 57.
+
+**pred_b FAILED, and its registered failure branch does not apply either.** It required attn1 to cost
+at least 5pp more than mlp1 on §1765's mechanism (substituting attention is what deletes cross-position
+structure). The margin came out **−1.3pp** — mlp1 is nominally the more expensive site. But I am not
+claiming mlp1 wins: 37.4 against 38.7 on arms that both land within 1.5pp of the joint is a tie, and the
+branch's reading ("the damage is not about attention deletion") is only half-supported. What the data
+supports is weaker and stranger: **at layer 1, attention deletion and MLP substitution are
+interchangeable routes to the same floor.**
+
+**The gain correction dissociates them even though the endpoint does not.** In the *raw* arm the two
+sites look nothing alike — attn1 alone leaves **3.8%** and mlp1 alone leaves **29.1%**, a 25pp gap. §1824's
+sequential gain correction then rescues the attention arm by **+23.6pp** (3.8 → 27.4) and makes the MLP
+arm **worse by 3.0pp** (29.1 → 26.1). So compiling attn1 does most of its damage through a *magnitude*
+disruption that a per-layer scalar repairs, and compiling mlp1 does its damage some other way that the
+same scalar cannot touch — and both arrive at the same ~26% floor.
+
+> **The object to explain is that floor.** B0+attn1 27.4%, B0+mlp1 26.1%, B1 25.9%, and from §1829 B2
+> 17.3% and B3-B7 10.8-12.4%. Adding any one site of layer 1 to a compiled layer 0 collapses recovery
+> from 64.8% to ~26%, by two mechanistically different routes.
+
+**Controls (pred_d).** B0 and B1 reproduce §1829's published sequential gap fractions (64.8% / 25.9% on
+skip7000) and B0 reproduces §1806's published raw 37.4%; endpoints reproduce §1789's full-rank top-1;
+the placement control moves top-1 by under 0.05pp. Coverage 5419 of 50257. All three roles agree in
+shape (skip11000 65.3/27.8/26.7/26.4, skip1200 61.3/27.9/25.8/25.8).
+
+**Open question this ends on.** Is the ~26% floor a property of **layer 1**, or of compiling **any single
+site** above a compiled layer 0? The two readings are opposite: if adding one compiled attention site at
+layer 5, 9 or 13 on top of B0 also collapses recovery to ~26%, then depth is not the variable at all and
+§1829's curve is measuring "is anything compiled above the bottom" rather than "how deep does the prefix
+go" — which would recast every bottom-up figure in the record. If instead only layer 1 does it, layer 1
+is genuinely special and the search has a concrete target. One run of single-site additions to B0 across
+depth settles it.
