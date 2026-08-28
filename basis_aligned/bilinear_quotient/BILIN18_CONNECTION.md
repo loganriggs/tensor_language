@@ -45288,3 +45288,48 @@ by mistake. A failure that stopped a run this morning is now a known answer that
 **Codex's narrowing stands over all of this**: both arms are post-forward hooks, so this is
 zero-native-OUTPUT and not zero-native-CALL, the native compute is not removed, and attention's `v1`
 value bus is native in both arms.
+
+## §1763 — propagation is real and large, so §1762's exact zero is an artifact of my measurement, not a property of the model
+
+`ops/uncovered_position_propagation.py`, 1.9s, **INSTRUMENT CHECK**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Poke one site's output at one position by +10 per channel and compare per-position losses against an
+unhooked forward. Row 0 of the first skip7000 batch, 200 of 256 positions covered:
+
+```
+                          own position   max delta at LATER COVERED positions (1190 of them)
+  attn0 @ uncovered p=65     2.185e-02             1.184e-01
+  mlp0  @ uncovered p=65     3.394e-04             2.460e-03
+  attn0 @ covered   p=64     7.558e-03             7.237e-02   (positive control)
+```
+
+**An uncovered position reaches later covered positions, and not marginally: 0.118 nats through
+attn0.** The mechanism is the obvious one — the substituted output enters the residual stream and
+later positions attend to it — and the positive control confirms the instrument works.
+
+> **So §1762's covered-position difference of exactly 0.00e+00 between the hybrid and standalone arms
+> is impossible as a physical result.** A quarter of positions were substituted differently in the two
+> arms and every later covered position could feel it. Bit-identical float64 sums over 27,497 values
+> is not a small effect; it is the same numbers.
+
+**§1762's pred_b is therefore withdrawn.** It read the exact zero as "damage at an uncovered position
+is essentially local", I flagged that I had no mechanism for it, and now the check says there is no
+such locality. The zero is a defect in the run, not a finding.
+
+**What that does and does not put in doubt.** The suspect quantity is the standalone arm's
+*covered-position* CE. The headline — **the standalone program goes negative on all-position scoring,
+−0.392205 at the fidelity point and −0.699946 at the starved table** — comes from the `all`
+accumulator, which *does* differ strongly between arms in the same pass, and is consistent with a
+working standalone hook. The synthetic hook check in §1761 also confirmed the flag changes behaviour.
+So the direction of §1762 is likely intact and the covered column is not, but **"likely" is not a
+measurement**, and until the arm difference is localised I am treating every §1762 covered-position
+standalone figure as unverified.
+
+The decisive diagnostic is cheap and is queued: take one batch, run both arms, and report the
+per-position loss difference directly — where it is nonzero, how large, and whether any covered
+position appears in it at all. That either finds the bug or shows the two arms really do produce
+identical covered-position tensors, which would itself need explaining given the poke result above.
+
+Controls (pred_d): every poke landed on its own position; live CE reproduces 3.29205 covered and
+3.13704 all-position; coverage 5419 of 50257.

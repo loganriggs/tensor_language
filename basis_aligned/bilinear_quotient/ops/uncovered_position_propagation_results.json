@@ -1,0 +1,46 @@
+{
+ "config": {
+  "eval": "skip7000, first batch of 8 rows",
+  "magnitude": 10.0,
+  "what": "add MAG to every channel of one site output at one position, then compare per-position losses against an unhooked forward",
+  "WHY": "\u00a71762 found the covered-position difference between the hybrid and standalone programs to be exactly 0.00e+00 while the all-position difference was 0.9 nats. No mechanism was available for exact zero.",
+  "ROLE_NOTE": "INSTRUMENT CHECK. Opens no role."
+ },
+ "live_ce": {
+  "cov": 3.29205,
+  "all": 3.13704
+ },
+ "pokes": {
+  "attn0_uncovered": {
+   "site": "attn0",
+   "position": 65,
+   "own_position_delta": 0.02185302972793579,
+   "max_delta_later_covered": 0.11838293075561523,
+   "max_delta_later_uncovered": 0.05115699768066406,
+   "n_later_covered": 1190
+  },
+  "mlp0_uncovered": {
+   "site": "mlp0",
+   "position": 65,
+   "own_position_delta": 0.0003393888473510742,
+   "max_delta_later_covered": 0.002460002899169922,
+   "max_delta_later_uncovered": 0.00173187255859375,
+   "n_later_covered": 1190
+  },
+  "attn0_covered_control": {
+   "site": "attn0",
+   "position": 64,
+   "own_position_delta": 0.007557868957519531,
+   "max_delta_later_covered": 0.0723733901977539,
+   "max_delta_later_uncovered": 0.021927833557128906,
+   "n_later_covered": 1196
+  }
+ },
+ "predictions": {
+  "pred_a_uncovered_reaches_covered_via_attn": true,
+  "pred_b_uncovered_reaches_covered_via_mlp": true,
+  "pred_c_positive_control": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 1.9
+}
