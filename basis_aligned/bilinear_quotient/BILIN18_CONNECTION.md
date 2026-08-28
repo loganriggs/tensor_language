@@ -42790,3 +42790,46 @@ single pair's quirk. The remaining shortfall in the 55.04% program is better att
 §1703 puts the largest total in the middle bands and §1668 puts 37.7% of the middle band beyond
 any linear map — so the next rung is a richer family at the middle MLPs inside the joint program,
 not more synergy geometry.
+
+## §1709 — the model's own features help, but only above a threshold: k=8 HURTS, k=64 buys +0.77
+
+`mid_band_feature_augment.py`, the §1708 pivot. Linear maps at mlp4–15 augmented with k of each
+module's own bilinear features, inside the 36-site program. 4-for-4, control exact.
+
+```
+k      ceiling    gain over k=0    95% CI (points)      extra reals/site
+ 0     55.04%          —                                       —
+ 8     54.87%       -0.16%        [-0.25, -0.07]            9.2K
+64     55.80%       +0.77%        [+0.65, +0.89]           73.7K
+```
+
+**New best whole-model program: 55.80%**, up from §1696's 55.04%, for 0.88M extra reals across
+twelve sites — about 3.7% on top of the linear program's 23.89M (§1680).
+
+**The k=8 arm is the finding, and it contradicts an argument I made when designing the run.** I
+wrote in the docstring that augmentation should avoid §1679's cancellation problem, because "the
+linear map carries the bulk and the features add a correction on top, so the cancellation structure
+is not being broken in the same way". At k=64 that holds. At **k=8 it does not** — eight features
+make the program significantly *worse*, with an interval excluding zero. §1679's mechanism carries
+over after all at low k: taking a handful of features out of a readout that sums large cancelling
+contributions injects an imbalance the linear map has to absorb, and eight are not enough to pay
+for themselves. My argument was right about the regime it was tested in and wrong about the one it
+was stated for.
+
+**The curve is therefore non-monotone in k at the low end**, which is the same signature §1679
+reported for replacement (there: 8 → −34.68%, 32 → −29.95%, 128 → −49.62%). Augmentation shifts
+the crossing point down to somewhere between 8 and 64 rather than removing it.
+
+**What it does NOT do is reach the band's quadratic remainder.** §1703 puts the middle band's
+total shortfall at +12.52 points and §1668 puts 37.7% of the band beyond any linear map. Sixty-four
+of the model's own features recover **0.77 of that 12.52 — about 6%**. So the middle band's
+irreducible content is not mostly "a few missing bilinear features from the module's own basis";
+whatever it is, this family barely touches it. pred_b was written to catch the opposite outcome and
+it held comfortably.
+
+**Open question, and it is decisive either way.** k=64 is the largest tried and the gain is still
+climbing from the k=8 crossing. If the trend continues to k=256 and k=512 there is a real path to
+several more points; if it plateaus, the conclusion is that the model's own feature basis does not
+recover the middle band's quadratic content at any tractable k, which would be the stronger
+statement. §1679's replacement arm was catastrophic at k=512 but that is a different operation.
+Queued as `mid_band_feature_ksweep.py`.

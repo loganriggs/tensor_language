@@ -1,0 +1,79 @@
+{
+ "config": {
+  "mid_sites": [
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15
+  ],
+  "ks": [
+   0,
+   8,
+   64
+  ],
+  "hidden_dim": 4608,
+  "ridge": 0.001,
+  "family": "y ~ [x, h_k] W, where h_k are the k features of the module OWN bilinear form with the largest std(h_j)*||Down[:,j]|| -- a linear map plus k quadratic corrections in the module basis",
+  "applied_at": "mlp4-15 only, inside the \u00a71696 best-families 36-site program",
+  "why": "\u00a71703 puts the largest total shortfall here and \u00a71668 puts 37.7% of the band beyond any linear map; \u00a71667/\u00a71677 show a token term does not reach it",
+  "caution_S1679": "keeping k features and PINNING the rest replaced the module and failed at -49.93%; here the linear map carries the bulk and the features add a correction, so the cancellation structure is not broken the same way -- an argument, not a result",
+  "compilation": "INTERLEAVED bottom-up (\u00a71669)",
+  "coverage": "hybrid, mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1703_mid_band_gain": 0.12515,
+  "s1696_both": 0.5504
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "arms": {
+  "k0": {
+   "k": 0,
+   "ce": 5.7957,
+   "ceiling": 0.55038,
+   "extra_reals_per_site": 0
+  },
+  "k8": {
+   "k": 8,
+   "ce": 5.80483,
+   "ceiling": 0.54874,
+   "extra_reals_per_site": 9216
+  },
+  "k64": {
+   "k": 64,
+   "ce": 5.75303,
+   "ceiling": 0.55804,
+   "extra_reals_per_site": 73728
+  }
+ },
+ "gains": {
+  "k64": 0.00766,
+  "k8": -0.00164
+ },
+ "gain_ci95_rowlevel": {
+  "k8": [
+   -0.00248,
+   -0.0007
+  ],
+  "k64": [
+   0.00654,
+   0.00888
+  ]
+ },
+ "predictions": {
+  "pred_a_augmentation_helps": true,
+  "pred_b_does_not_close_band": true,
+  "pred_c_controls_hold": true,
+  "pred_d_feature_count_matters": true
+ },
+ "runtime_s": 793.9
+}
