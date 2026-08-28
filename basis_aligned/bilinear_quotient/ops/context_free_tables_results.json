@@ -1,0 +1,37 @@
+{
+ "config": {
+  "tables": "each site's output on a LENGTH-1 sequence for each covered token; uncovered rows keep the mean over covered rows, as the fit-mean tables did",
+  "coverage_rule": "hybrid (\u00a71661), unchanged, so the comparison against \u00a71747-\u00a71758 is like-for-like",
+  "WHY": "\u00a71768 left 0.59387 nats between the best program and the ceiling unattributed. The tables in \u00a71747-\u00a71758 are per-token MEANS over fit contexts; the ceiling is the context-FREE value.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live_ce": 3.29205,
+   "context_free_table_ce": 6.03465,
+   "lookup_ceiling_recomputed": 6.03465,
+   "S1768_ceiling": 6.03465,
+   "best_fitmean_program_ce": 6.57512,
+   "all_tabled_ce": 7.35114,
+   "cf_minus_ceiling": -0.0,
+   "fitmean_minus_cf": 0.54047
+  },
+  "skip11000": {
+   "live_ce": 3.09711,
+   "context_free_table_ce": 5.979,
+   "lookup_ceiling_recomputed": 5.97902,
+   "S1768_ceiling": 5.97902,
+   "best_fitmean_program_ce": 6.57289,
+   "all_tabled_ce": 7.35825,
+   "cf_minus_ceiling": -2e-05,
+   "fitmean_minus_cf": 0.59389
+  }
+ },
+ "predictions": {
+  "pred_a_induction_holds": true,
+  "pred_b_beats_fitmean_by_0p4": true,
+  "pred_c_correction_unnecessary": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 6.2
+}

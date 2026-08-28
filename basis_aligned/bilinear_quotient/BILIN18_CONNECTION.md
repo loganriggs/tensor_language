@@ -45576,3 +45576,55 @@ failure and recording the defect rather than claiming the intended reading. LESS
 pred_c: the ceiling sits **+2.88191** above the live model, clearing its 2.0 bar — the quantity
 §1767's data-limited estimator could not measure. pred_d: coverage 5419, **zero lookup misses**, and
 live CE reproducing 3.29205 and 3.09711.
+
+## §1769 — the whole 0.594-nat gap is one modelling choice: the tables were a context AVERAGE where the class's optimum is the context-FREE value
+
+`ops/context_free_tables.py`, 6.2s, **DISCOVERY ONLY**.
+**pred_a True | pred_b True | pred_c True | pred_d True.**
+
+Each site's table rebuilt from its output on a **length-1 sequence** — the context-free value — rather
+than from the per-token mean over fit-row contexts. Same shape, same cost, same hybrid coverage rule.
+
+```
+  covered CE                        skip11000 (held out)   skip7000
+    live model                           3.09711            3.29205
+    context-free TABLE program           5.97900            6.03465
+    ceiling (§1768, recomputed here)     5.97902            6.03465
+    best FIT-MEAN program (§1758)        6.57289            6.57512
+    all-tabled fit-mean baseline         7.35825            7.35114
+```
+
+**pred_a: the 36 context-free tables compose to the ceiling to −0.00002 nats.** §1765's induction —
+that substituting every site with a function of the current token makes the whole forward a function
+of that token — is now verified numerically to five decimals, not only derived.
+
+**pred_b: they beat the best fit-mean program by +0.59389, which is §1768's unattributed gap of
+0.59387 to five decimals. The gap is fully accounted for.**
+
+> **The entire 0.594 nats — 43% of everything the position-wise class can deliver — was one modelling
+> choice.** Every table in §1747–§1758 is a per-token **mean over the contexts that token appeared in
+> on the fit rows**. The class's own optimum is the **context-free** value. Averaging over contexts
+> the program has by construction discarded is not a summary of anything the program can use, and it
+> costs exactly the gap.
+
+**pred_c is the sharpest consequence: the context-free table ALONE, with no linear correction at all,
+beats the fit-mean table WITH a rank-128 correction** — 5.97900 against 6.57289. So the entire
+correction apparatus of §1748–§1758, from 0.664M to 25.839M reals of factors, plus §1750's downstream
+training, plus §1751's rank sweeps, **was buying back an error the table itself introduced.** Fixing
+the table removes the need for any of it.
+
+**What this does to the frontier.** The context-free table recovers **1.37925 of the 4.2611 stake
+(32.4%)** at full rank — 224.737M reals — against the §1758 point's 0.78536 (18.4%) at 25.839M. So
+the new program is **much better and currently much more expensive**, and the two are not yet
+comparable on the frontier. The obvious question is whether the context-free tables compress: §1755
+found fit-mean tables *improved* under rank-64 truncation because they were overfitted to 96 fit
+rows, and a context-free table is **not estimated from data at all** — it is an exact model output —
+so truncation should be pure loss with no denoising to gain. That prediction is sharp, two-sided, and
+queued.
+
+**Nothing in §1747–§1758 is withdrawn**; every number there is a correct measurement of the program
+it describes. What changes is that those programs were built on a summary the class cannot use, and
+the corrected one is strictly better on fidelity at every comparison made here.
+
+Controls (pred_d): the ceiling lookup recomputed inside this script reproduces §1768's 5.97902 and
+6.03465 to five decimals; live CE reproduces 3.09711 and 3.29205; coverage 5419 of 50257.
