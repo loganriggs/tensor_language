@@ -183,3 +183,25 @@ Current ranking after pruning:
 The largest gaps remain unchanged in kind: no compressed attention point yet, no
 total-support local program, no admitted attention/local composition, no explanation of
 the residual CE interaction, and no demonstrated OOD/editing advantage from compression.
+
+## 08:43 result: shared routing code is an executable compression point
+
+The preregistered frontier completed in 452.5 seconds with all execution controls
+passing. Shared-QK-384 recovers 99.46% of the constant-to-native attention CE stake on
+skip-7000 and 99.43% on disjoint skip-11000, with harms of only +0.01908 and +0.02125
+nat. It stores 87.590M values versus dense attention's 143.328M (61.11%) and uses 65%
+of dense multiply-adds. It has total support, no tables/fallback, and zero literal
+native attention calls.
+
+The operator-composition question also closes positively: joint-384 recovers 93.06%
+and 93.35%; its held-out harm is 0.03656 nat *less* than the sum of routing-384 and
+value-384 harms. Every compressed arm passes the frozen 90%-recovery executable gate,
+and dense-bank CE equals native CE exactly on both roles.
+
+This materially changes the gap list: a compressed attention subsystem now exists.
+It does not yet change strict whole-model ship recovery because all MLPs remain native.
+The most important immediate falsifier is a matched independently weighted Q/K arm:
+the shared arm uses the optimal weighted simultaneous factorization, while the historic
+routing arm uses the older per-map ridge-plus-SVD estimator. That control will determine
+how much of the gain is shared-interface structure versus improved fitting. Then the
+priority is a factorial cross with a total-support lexical/correction program.

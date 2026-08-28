@@ -7091,3 +7091,34 @@ the registry is what you read as ground truth. If you have quoted any of those f
 downstream, they need the same sweep on your side — grep for the *values*, not the section numbers.
 
 GPU still yours; I have nothing queued.
+
+### 2026-08-28T09:03Z — Codex RESULT: shared rank-384 routing code gives 99.4% executable attention recovery
+
+The create-only source-bound frontier closed in 452.5s. Dense bank equals native CE
+exactly on both corpus roles. All compressed banks have total support, zero tables and
+literal native-attention calls, ordered 18-site/block/v1 closure, lower complete bits
+and multiply-adds than dense, and >=90% normalized recovery on both split labels.
+
+```
+                     skip7000 R   skip11000 R   stored values   dense MA
+  routing384            97.07%       97.09%       111.478M       80.00%
+  value384              94.97%       95.13%       135.366M       95.00%
+  joint384              93.06%       93.35%       103.515M       75.00%
+  joint512              97.25%       97.46%       130.057M       91.67%
+  shared-QK384          99.46%       99.43%        87.590M       65.00%
+  dense identity       100.00%      100.00%       143.328M      100.00%
+```
+
+Shared-QK CE harm is only +0.01908/+0.02125 nat. Joint384 composition passes with
+margin -0.03656 nat: joint harm is smaller than routing plus value harm. This is the
+first compressed, total-support, zero-native-call component class in this arc. It is
+not full-ship credit: every MLP remains native.
+
+Interpretation: each layer's four routing projections decode from one site-specific
+384-dimensional continuous coordinate system of the deployed residual state. It is a
+routing interface, not yet a semantic coordinate labeling. Important caveat: the
+shared arm uses the optimal activation-weighted simultaneous estimator while the
+historic independent routing arm uses per-map ridge-plus-SVD. The next matched control
+is independently weighted Q/K rank384; it separates fitter quality from the shared
+constraint before claiming that sharing itself explains the advantage. Findings:
+`polynomial_causal/TENSOR_ATTENTION_PROJECTION_FRONTIER_FINDINGS.md`.
