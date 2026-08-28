@@ -18,7 +18,8 @@ The whole-program stream also produced a useful simplicity result. Full-rank tok
 tables are off the measured cost/fidelity Pareto frontier: a rank-16 program for the
 top eleven layers used 34M fewer stored reals and gained 5.16 percentage points over
 the all-sites full-rank program. The current rank-64 all-sites design was **not**
-dominated in that sweep. A finer rank/depth frontier is running on the GPU now.
+dominated in that sweep. A finer rank/depth frontier completed after this review was
+drafted; its result is recorded below.
 
 ## What fraction of the model is actually explained?
 
@@ -64,7 +65,7 @@ through their joint interfaces.
   programs in the same currency.
 - **Conditional top-down MLP refitting:** retained. Directional compilation and the
   MLP0/1/2 interaction make it causally necessary for whole-model composition.
-- **Rank/depth whole-program frontier:** retained and running. It directly tests
+- **Rank/depth whole-program frontier:** retained. It directly tests
   whether a simpler program enables better fidelity at equal cost; it has already
   removed full-rank tables from the frontier.
 - **Direct CP in coefficient Frobenius:** deferred. CP is logically open, but two
@@ -97,9 +98,9 @@ through their joint interfaces.
 3. **Fit early MLP replacements conditionally and evaluate the complete 8-cell
    MLP0/1/2 cube.** This is the shortest route from local compression to causal
    composability and explicitly measures pair/triple interactions.
-4. **Finish and certify the rank/depth Pareto frontier.** The current GPU run tests
-   ranks 4/8/16/32/64 against multiple live-prefix depths, using both storage and
-   top-1 fidelity rather than local reconstruction alone.
+4. **Replicate and choose an operating point on the rank/depth Pareto frontier.**
+   The discovery sweep now covers ranks 4/8/16/32/64 and four live-prefix depths,
+   using both storage and top-1 fidelity rather than local reconstruction alone.
 5. **Only after the empirical metric is validated, compare learned CP with
    gauge-standardized native gates, Tucker, Down, and affine controls.** This is the
    expensive stage; it should inherit the 100k/200k/400k and untouched-replication
@@ -116,7 +117,7 @@ through their joint interfaces.
    Its ranks closely match MLP1 and prune dense coefficient-HOSVD/Tucker for MLP2.
 4. The whole-program partial frontier completed after two preserved implementation
    failures. It removed full-rank tables from the Pareto frontier while retaining the
-   current rank-64 all-sites point; the finer frontier is now running.
+   current rank-64 all-sites point; the finer frontier has now completed.
 
 There is no FineWeb, cache, `rspd`, or checkpoint blocker. The immediate blocker to a
 large empirical MLP1 run is procedural and now narrow: stage-1 CPU math/tests and an
@@ -125,3 +126,20 @@ activations are captured. Existing activation rows are exclusion evidence only, 
 reusable observations. Expected float32 input/write storage is about 7.37 GB for FIT
 plus VALIDATION and 11.06 GB once REPLICATION is licensed.
 
+## Late result: the finer rank/depth frontier
+
+The 20-arm discovery sweep finished in 486.7 seconds. At every fixed depth, rank 64
+had the highest accuracy on all three roles, but most of the gain saturated much
+earlier. At depth 10, rank 8 was only 0.41/0.65/0.22 percentage points below rank 64
+while using 265.61M rather than 270.76M stored reals. The preregistered claim that
+rank 8 would lose at least one point therefore failed.
+
+The registered scalar efficiency rule selected the **all-sites rank-8** arm rather
+than any partial compile, so the “partial compile is the efficiency optimum”
+prediction failed on all three roles. This does not dominate rank-64 all-sites:
+rank 8 is cheaper and less accurate, so both remain Pareto points. It also does not
+establish a deployable optimum because the sweep was explicitly discovery-only and
+the scalar efficiency ratio depends on its chosen baseline and units. The useful
+conclusion is narrower: rank and compiled depth are genuinely separate price knobs,
+full-rank tables are unnecessary, and rank 8--16 deserves a preregistered held-out
+comparison against rank 64.

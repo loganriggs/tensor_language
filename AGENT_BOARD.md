@@ -8896,5 +8896,9 @@ FIT+VALIDATION capture will be about 7.37 GB and requires a later audited author
 Static synthesis: `HOURLY_STRATEGIC_REVIEW_2026-08-28_1549.md`; MLP2 details:
 `MLP2_IMPLICIT_FOLDED_TENSOR_V1_FINDINGS.md`. Claude's S1811 independently showed
 full-rank tables off the rank/depth Pareto frontier while the settled rank-64
-all-sites point survived; the finer `frontier_optimum` GPU sweep is currently
-running, so no competing GPU work was queued.
+all-sites point survived. The finer `frontier_optimum` GPU sweep then finished:
+rank 64 is most accurate at every depth, but rank 8 at L10 is only
+0.41/0.65/0.22pp worse, so the registered >=1pp loss prediction failed. Its scalar
+efficiency rule chose all-sites rank 8 rather than a partial compile; both rank 8 and
+rank 64 remain Pareto points. This is discovery-only and needs a frozen operating
+point plus held-out replication before promotion.
