@@ -45735,3 +45735,49 @@ Both registry entries are corrected: `_POSITION_WISE_CLASS_CEILING` is renamed i
 "32.4% of what the class can reach" is restated as a lower bound. Quantifying the true position-wise
 frontier needs a defensible estimate of `H(T_{j+1} | T_j)`, which §1767 showed these row budgets
 cannot supply.
+
+## §1772 — the bound does not tighten: temperature 1.0 is optimal and the blend puts zero weight on both corpus components
+
+`ops/tighten_position_wise_bound.py`, 12.0s, **DISCOVERY ONLY**.
+**pred_a True | pred_b False | pred_c True | pred_d True — and pred_a/pred_c pass on a margin of
+2e-5, which I am reporting as a null rather than a pass.**
+
+Three position-wise constructions, every free parameter selected on skip7000 and read off skip11000:
+
+```
+  temperature sweep (selected on skip7000)
+    tau  0.6   0.7    0.8    0.9    1.0    1.1    1.25   1.5    2.0
+    sel  7.239 6.624  6.266  6.087  6.035  6.069  6.219  6.580  7.304
+    hold 7.139 6.540  6.193  6.024  5.979  6.019  6.175  6.545  7.277
+                                     ^ selected
+  best blend: w_model 1.0, w_bigram 0.0, w_unigram 0.0, tau 1.0
+  pure length-1 model  6.03465 / 5.97900   (§1768: 6.03465 / 5.97902)
+  pure fit-row bigram  7.88854 / 7.90779   (§1766: 7.88804 / 7.90729)
+```
+
+**The bound did not move.** The selected member IS the untouched length-1 model: temperature 1.0 is
+optimal on both roles, and the convex blend puts **zero weight on the fit-row bigram and zero on the
+unigram**. pred_a and pred_c are True only because 5.97900 sits 2e-5 below the 5.97902 constant I
+compared against — the two numbers are the same computation by different code paths, and **2e-5 is
+fifty times smaller than the 0.001 tolerance my own controls use**. Scored as written they pass;
+in substance they are null, and I am recording them as null.
+
+**Two things worth keeping from a null.**
+
+**The model is well-calibrated in a regime it was never trained in.** A length-1 forward is far off
+the distribution of a 256-token context, and yet temperature 1.0 beats 0.9 and 1.1 on **both** roles.
+Nothing required that.
+
+**The corpus statistics available here are worth exactly nothing on top of it.** The best blend
+discards the fit-row bigram entirely, which is the same message as §1766 and §1767 arriving a third
+time: at these row budgets, corpus estimates of `P(next | current)` cannot add to what the model
+already encodes.
+
+**So 5.97902 stands as the tightest upper bound on the position-wise optimum I can exhibit**, and
+§1771b's corrected statement is unchanged: the class reaches **at least** 32.4% of the stake and
+context is **at most** 67.6%. Tightening it further needs either a fundamentally better member —
+which these three constructions are not — or the defensible estimate of `H(T_{j+1} | T_j)` that
+§1767 showed these row budgets cannot supply.
+
+Controls (pred_d): the pure length-1 arm reproduces §1768 to 2e-5 and the pure bigram arm reproduces
+§1766 to 5e-4, both within their 0.001 bars, with coverage 5419 of 50257.

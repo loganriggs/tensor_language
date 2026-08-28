@@ -1,0 +1,72 @@
+{
+ "config": {
+  "components": "length-1 model logits; fit-row add-alpha bigram with unigram backoff; fit-row unigram. A convex mixture of position-wise predictors is position-wise.",
+  "selection": "every free parameter fitted on skip7000 alone; the bound is read on skip11000, which chose nothing",
+  "WHY": "\u00a71771b: the length-1 output is a feasible member, not the optimum, so its CE upper-bounds the class optimum. Exhibiting a BETTER MEMBER tightens that bound with no statistical claim, which \u00a71767 showed estimation cannot supply at these row budgets.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "temperature_sweep": {
+  "0.6": {
+   "skip7000": 7.23905,
+   "skip11000": 7.13929
+  },
+  "0.7": {
+   "skip7000": 6.62372,
+   "skip11000": 6.53958
+  },
+  "0.8": {
+   "skip7000": 6.2656,
+   "skip11000": 6.19339
+  },
+  "0.9": {
+   "skip7000": 6.08696,
+   "skip11000": 6.02403
+  },
+  "1.0": {
+   "skip7000": 6.03465,
+   "skip11000": 5.979
+  },
+  "1.1": {
+   "skip7000": 6.06876,
+   "skip11000": 6.01889
+  },
+  "1.25": {
+   "skip7000": 6.21853,
+   "skip11000": 6.17528
+  },
+  "1.5": {
+   "skip7000": 6.58035,
+   "skip11000": 6.54464
+  },
+  "2.0": {
+   "skip7000": 7.30412,
+   "skip11000": 7.27684
+  }
+ },
+ "best_tau": 1.0,
+ "best_blend": {
+  "w_model": 1.0,
+  "w_bigram": 0.0,
+  "w_unigram": 0.0,
+  "select_ce": 6.03465,
+  "hold_ce": 5.979
+ },
+ "pure_length1_model": {
+  "skip7000": 6.03465,
+  "skip11000": 5.979
+ },
+ "pure_fit_row_bigram": {
+  "skip7000": 7.88854,
+  "skip11000": 7.90779
+ },
+ "new_upper_bound_on_class_optimum": 5.979,
+ "previous_bound_S1768": 5.97902,
+ "tightened_by": 2e-05,
+ "predictions": {
+  "pred_a_bound_tightens": true,
+  "pred_b_by_at_least_0p05": false,
+  "pred_c_temperature_alone_moves_it": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 12.0
+}

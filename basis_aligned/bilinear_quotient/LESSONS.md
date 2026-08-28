@@ -986,3 +986,23 @@ the comparison points the way the sentence says.
 
 Sibling of LESSON 36 (rounded vs unrounded) and LESSON 35 (a floored denominator): all three are the
 comparison itself being wrong while the measurement is fine.
+
+## LESSON 40 — a strict inequality with no margin is not a bar
+
+§1772's `pred_a` said the tightened bound must score "below 5.97902". It scored **5.97900** — the same
+computation by a different code path, 2e-5 away — and the predicate returned True. My own controls in
+the same run use a **0.001** tolerance, fifty times larger. So the arm passed on a difference that the
+run itself treats as reproduction noise.
+
+- **When a bar is "beat X", state the margin.** "Below X by at least m", with m at least as large as
+  the tolerance the controls use for the same quantity. Otherwise the arm is decided by float
+  accumulation order.
+- **The margin belongs in the predicate, not in the write-up.** Noticing afterwards that a pass was
+  noise is better than not noticing, but it means the bar did no work — and the temptation to keep the
+  pass is exactly what a bar exists to remove.
+- **Reuse the control's tolerance as the floor.** If a run reproduces a published number to within
+  0.001 and calls that a match, then 0.001 is the resolution of that quantity in that run, and no arm
+  should be decided below it.
+
+Sibling of LESSON 36 (rounded vs unrounded) and LESSON 39 (the predicate pointing the wrong way): all
+three are the comparison being wrong while the measurement is fine.
