@@ -48903,3 +48903,55 @@ layer 5, 9 or 13 on top of B0 also collapses recovery to ~26%, then depth is not
 go" — which would recast every bottom-up figure in the record. If instead only layer 1 does it, layer 1
 is genuinely special and the search has a concrete target. One run of single-site additions to B0 across
 depth settles it.
+
+## §1831 — depth DOES matter, and it is a narrow early band: one compiled site is free from layer 9 up
+
+`ops/single_site_depth_sweep.py`, 335.4s, **DISCOVERY ONLY**, rung 3 (§1830's open question).
+**pred_a False | pred_b True | pred_c False | pred_d True.**
+
+```
+  THE DEPTH SWEEP (skip7000, sequential; B0 = 64.8%, B1 = 25.9%)
+    +attn at L:  L1 27.4%   L2 21.9%   L3 44.9%   L5 47.9%   L9 64.1%   L13 64.2%   L17 65.3%
+    +mlp  at L:  L1 26.1%              L9 60.7%                                     L17 60.8%
+```
+
+**pred_a FAILED, and its failure is the good news: §1829 survives its own strongest test.** The deep
+single-site arms average **60.4%** against layer 1's **27.4%** — a gap of **33.0pp** where the bar for
+"depth does not matter" was 5pp. I queued this run naming the risk that a compiled site at layer 13 would
+also collapse recovery, which would have recast §1806, §1824-§1829 and my 19:12 correction to Codex. It
+does not. **A single compiled attention site at layer 9, 13 or 17 costs 0.7pp, 0.6pp and −0.5pp against
+B0's 64.8%** — nothing, and at layer 17 nominally negative. Depth is the variable.
+
+**The profile is a narrow early band, and its worst point is not layer 1.** Cost rises from layer 1
+(27.4%), peaks at **layer 2 (21.9%)**, then falls away through layer 3 (44.9%) and layer 5 (47.9%) to
+free by layer 9. §1829 located the fall at the B0→B1 *step*; this locates the most expensive *single
+site* one layer deeper. Both are true and they are different questions — a step in a nested prefix
+versus a single insertion.
+
+**pred_b PASSED and extends §1830.** Attention and MLP are interchangeable at every depth tested, not
+just at layer 1: the gap is **1.3pp** at L1, **3.4pp** at L9 and **4.5pp** at L17, all under the 5pp bar.
+Whatever the early band carries, it is not specific to the cross-position path — which is worth stating
+plainly because §1765's mechanism (substituting attention deletes attention) would have predicted
+otherwise, and it is now twice contradicted.
+
+**pred_c FAILED as written and I am not taking its failure branch, because the prediction was ill-posed.**
+It asked whether any single-site arm falls below B1's 25.9%, and `B0+attn2` does, at 21.9%. I wrote that
+this would show "recovery is not monotone in the compiled set". **It shows no such thing: `B0+attn2` is
+not a subset of `B1`.** B1 is {attn0, mlp0, attn1, mlp1} and contains no layer-2 site, so the two arms are
+not nested and their ordering carries no monotonicity information at all. The nested comparisons this run
+does contain both hold — B0 (64.8%) ⊃ B0+attn1 (27.4%) ⊃ B1 (25.9%) and B0 ⊃ B0+mlp1 (26.1%) ⊃ B1 — so
+there is no evidence against monotonicity here, only a bar I should not have written. LESSONS 58.
+
+**Controls (pred_d).** B0 and B1 reproduce §1829's published sequential figures; B0+attn1 and B0+mlp1
+reproduce §1830's published 27.4% and 26.1%; B0 reproduces §1806's published raw 37.4%; endpoints
+reproduce §1789's full-rank top-1; the placement control moves top-1 under 0.05pp. Coverage 5419 of
+50257. All three roles agree in shape.
+
+**Open question this ends on, and it is the first one in this arc that could yield a POSITIVE result.**
+Single deep sites are free *one at a time*. Are they free *together*? Compiling every site from layer 9
+to 17 on top of layer 0 is **20 of the 36 sites** — over half the program. If that arm still recovers
+most of the gap, the entire compilation cost lives in layers 1-8 and more than half the network is
+compilable for nothing, which is a compression claim with teeth rather than another closed account. If it
+collapses, then deep sites are absorbable singly but not jointly, and this sweep was measuring the
+suffix's tolerance for one perturbation rather than a genuinely redundant region. Sweeping the boundary
+K in {13, 11, 9, 7, 5, 3} for "compile layers K..17" locates the frontier either way.

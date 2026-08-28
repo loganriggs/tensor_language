@@ -1,0 +1,76 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SINGLE-SITE DEPTH SWEEP | one compiled site added to B0, across depth | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (47s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (111s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+    B0         live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
+  B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+    B1         live-attn gains L1-L3: L2 0.1984  L3 0.2826  L4 0.6619
+  B1_raw                 skip7000 14.05%  skip11000 15.42%  skip1200 14.27%
+  B1_seq                 skip7000 20.22%  skip11000 21.67%  skip1200 20.17%
+    B0_attn1   live-attn gains L1-L3: L2 0.2069  L3 0.2879  L4 0.6746
+  B0_attn1_raw           skip7000 14.53%  skip11000 15.94%  skip1200 14.89%
+  B0_attn1_seq           skip7000 20.61%  skip11000 22.06%  skip1200 20.69%
+    B0_attn2   live-attn gains L1-L3: L1 0.3401  L3 0.4026  L4 0.4275
+  B0_attn2_raw           skip7000 16.80%  skip11000 17.87%  skip1200 16.82%
+  B0_attn2_seq           skip7000 19.20%  skip11000 20.57%  skip1200 18.80%
+    B0_attn3   live-attn gains L1-L3: L1 0.3401  L2 0.5641  L4 0.6372
+  B0_attn3_raw           skip7000 17.17%  skip11000 18.89%  skip1200 17.65%
+  B0_attn3_seq           skip7000 25.12%  skip11000 27.38%  skip1200 24.45%
+    B0_attn5   live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  B0_attn5_raw           skip7000 20.61%  skip11000 22.55%  skip1200 21.00%
+  B0_attn5_seq           skip7000 25.90%  skip11000 27.96%  skip1200 25.20%
+    B0_attn9   live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  B0_attn9_raw           skip7000 23.17%  skip11000 25.27%  skip1200 23.22%
+  B0_attn9_seq           skip7000 30.07%  skip11000 32.42%  skip1200 28.97%
+    B0_attn13  live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  B0_attn13_raw          skip7000 23.16%  skip11000 25.50%  skip1200 23.17%
+  B0_attn13_seq          skip7000 30.10%  skip11000 32.40%  skip1200 28.84%
+    B0_attn17  live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  B0_attn17_raw          skip7000 23.04%  skip11000 25.38%  skip1200 23.38%
+  B0_attn17_seq          skip7000 30.37%  skip11000 32.66%  skip1200 29.06%
+    B0_mlp1    live-attn gains L1-L3: L1 0.3401  L2 0.2368  L3 0.3269
+  B0_mlp1_raw            skip7000 21.05%  skip11000 22.85%  skip1200 20.28%
+  B0_mlp1_seq            skip7000 20.27%  skip11000 21.76%  skip1200 20.16%
+    B0_mlp9    live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  B0_mlp9_raw            skip7000 23.21%  skip11000 25.26%  skip1200 23.14%
+  B0_mlp9_seq            skip7000 29.20%  skip11000 31.59%  skip1200 28.30%
+    B0_mlp17   live-attn gains L1-L3: L1 0.3401  L2 0.5641  L3 0.7734
+  B0_mlp17_raw           skip7000 21.86%  skip11000 24.08%  skip1200 22.20%
+  B0_mlp17_seq           skip7000 29.21%  skip11000 31.54%  skip1200 28.15%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+
+  gap fraction recovered (B0 plus ONE compiled site), all roles:
+    B0           skip7000 raw   37.4% seq   64.8%  skip11000 raw   39.6% seq   65.3%  skip1200 raw   38.1% seq   61.3%
+    B1           skip7000 raw    1.9% seq   25.9%  skip11000 raw    4.2% seq   26.4%  skip1200 raw    2.5% seq   25.8%
+    B0_attn1     skip7000 raw    3.8% seq   27.4%  skip11000 raw    6.0% seq   27.8%  skip1200 raw    4.9% seq   27.9%
+    B0_attn2     skip7000 raw   12.6% seq   21.9%  skip11000 raw   12.9% seq   22.5%  skip1200 raw   12.6% seq   20.4%
+    B0_attn3     skip7000 raw   14.0% seq   44.9%  skip11000 raw   16.5% seq   46.7%  skip1200 raw   15.9% seq   42.8%
+    B0_attn5     skip7000 raw   27.4% seq   47.9%  skip11000 raw   29.5% seq   48.8%  skip1200 raw   29.1% seq   45.8%
+    B0_attn9     skip7000 raw   37.3% seq   64.1%  skip11000 raw   39.2% seq   64.7%  skip1200 raw   37.9% seq   60.7%
+    B0_attn13    skip7000 raw   37.3% seq   64.2%  skip11000 raw   40.0% seq   64.6%  skip1200 raw   37.7% seq   60.2%
+    B0_attn17    skip7000 raw   36.8% seq   65.3%  skip11000 raw   39.6% seq   65.5%  skip1200 raw   38.6% seq   61.1%
+    B0_mlp1      skip7000 raw   29.1% seq   26.1%  skip11000 raw   30.6% seq   26.7%  skip1200 raw   26.3% seq   25.8%
+    B0_mlp9      skip7000 raw   37.5% seq   60.7%  skip11000 raw   39.2% seq   61.7%  skip1200 raw   37.6% seq   58.1%
+    B0_mlp17     skip7000 raw   32.2% seq   60.8%  skip11000 raw   35.0% seq   61.5%  skip1200 raw   33.9% seq   57.5%
+
+  THE DEPTH SWEEP (skip7000, sequential, B0 = 64.8%, B1 = 25.9%):
+    +attn at L: L1 27.4%  L2 21.9%  L3 44.9%  L5 47.9%  L9 64.1%  L13 64.2%  L17 65.3%
+    +mlp  at L: L1 26.1%  L9 60.7%  L17 60.8%
+
+  DEPTH DOES NOT MATTER (deep mean within 5pp of L1) -> False  deep mean 60.4% vs L1 27.4%, gap +33.0%
+  and SITE TYPE does not matter at depth (<5pp at L1/L9/L17) -> True  L1 1.3%  L9 3.4%  L17 4.5%
+  and the compiled set is MONOTONE (no single site below B1) -> False  worst single B0_attn2 at 21.9% vs B1 25.9%
+  B0/B1 reproduce §1829, layer-1 sites reproduce §1830, endpoints §1789 -> control True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/single_site_depth_sweep_results.json (335.4s)

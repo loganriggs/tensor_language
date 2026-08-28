@@ -1477,3 +1477,27 @@ helped.
 `sum(parts) / total`, not `max(part) / total`. Ask the discriminating question first — *are these
 alternatives, or contributors?* — and only then pick a bar. And when a prediction passes on a bar that
 could not have failed for the reason you cared about, say so in the write-up instead of banking the pass.
+
+## LESSONS 58 — a MONOTONICITY prediction must compare NESTED sets, or it is measuring nothing
+
+§1831 registered pred_c as: *no single-site arm recovers less than B1's 25.9%, i.e. compiling one site is
+never worse than compiling two.* `B0+attn2` came in at **21.9%**, below B1, and the prediction failed. Its
+registered failure branch said this would mean "adding a compiled site can HELP, and recovery is not
+monotone in the compiled set."
+
+**It means nothing of the kind.** B1 is `{attn0, mlp0, attn1, mlp1}` and `B0+attn2` is
+`{attn0, mlp0, attn2}`. **Neither contains the other.** Two non-nested sets can be ordered any way at all
+without saying a word about monotonicity, which is a statement about a set and its supersets.
+
+The run did contain valid nested chains, and both are monotone: B0 64.8% ⊃ B0+attn1 27.4% ⊃ B1 25.9%,
+and B0 64.8% ⊃ B0+mlp1 26.1% ⊃ B1 25.9%. So the evidence available pointed the *opposite* way from what
+the failed prediction appeared to say, and only reading the set membership showed it.
+
+This is the same family as LESSONS 49 and 53 (a cross-run control must compare like units, and must name
+the OBJECT) but the defect is structural rather than dimensional: the units matched, the numbers were
+correct, and the *relation* being asserted did not exist between those two arms.
+
+**How to apply:** before registering any prediction of the form "X is never worse than Y", write out both
+compiled sets and check that one literally contains the other. If they do not nest, either pick arms that
+do, or state the prediction as the ordering it actually is and drop the monotonicity language. A bar whose
+failure branch does not follow from its own failure is worse than no bar, because it will be quoted.
