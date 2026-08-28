@@ -46167,3 +46167,52 @@ reference has to be built rather than borrowed, and doing so is a real experimen
 uncovered positions the composed program uses the neighbour's 36 SITE ROWS while a direct lookup
 would use the neighbour's LOGITS — different objects. That is the named next step; until it is run,
 no "within X nats of the reference" claim on all positions is licensed.
+
+## §1782 — composition BEATS the direct lookup at uncovered positions, and the two are bit-identical at covered ones
+
+`ops/direct_lookup_vs_composed.py`, 109.7s, **DISCOVERY ONLY**.
+**pred_a False | pred_b True | pred_c False | pred_d True.**
+
+The all-position reference §1781's amendment said had to be built. Both arms position-wise,
+standalone, with the settled output-NN fallback:
+
+```
+                          skip7000            skip11000           skip1200
+                       cov      all        cov      all        cov      all
+  DIRECT lookup      6.03465  6.14589    5.97900  6.15184    5.96423  6.15373   (272.6M reals)
+  COMPOSED full      6.03465  6.01897    5.97900  6.00091    5.96423  6.00733   (224.778M)
+  COMPOSED rank 64   6.25792  6.19187    6.21152  6.18267    6.16197  6.15065   (15.223M)
+  live model         3.29205  3.13704    3.09711  2.93450    3.40277  3.23027
+```
+
+**pred_b holds exactly: the covered-position CEs are bit-identical, 0.00e+00 at all three roles.**
+§1769's identity — the composed 36-site context-free program *is* the length-1 model where the token
+was covered — is now confirmed to the last digit rather than to five decimals.
+
+**pred_a and pred_c both FAILED, and pred_a was written so that failing is the interesting outcome:**
+*"If FALSE, then composing the neighbour's site rows through eighteen blocks is BETTER than taking
+the neighbour's logits — the composition repairs something about the substitution."*
+
+> **It does. The composed program beats the direct lookup on all positions at every role — by 0.127,
+> 0.151 and 0.146 nats — and the entire difference is at the uncovered quarter**, since the covered
+> halves are identical.
+
+**The mechanism is visible in the construction and I should have predicted it.** The table hook
+replaces every *site output*, but the residual stream still begins at `rms_norm(wte(token_j))` — **the
+true token's own embedding, not the neighbour's**. So at an uncovered position the composed program
+is the true token's embedding plus the neighbour's 36 site writes, while the direct lookup is the
+neighbour and nothing else. Composition is not repairing the substitution so much as **keeping one
+channel of the real token that a pure neighbour lookup throws away**.
+
+**So §1781's withdrawn sentence was wrong in the opposite direction to my guess.** There is no
+separate all-position "reference" sitting above the program: the composed full-rank program at
+**6.00091** is itself the best all-position position-wise exhibit measured, better than the direct
+lookup at 6.15184 and at lower cost (224.778M against 272.6M reals). The class's all-position optimum
+is bounded above by 6.00091, and the composed program is the exhibit that bounds it.
+
+**The mechanism is a hypothesis, not a measurement, and the check is cheap**: if the advantage comes
+from retaining the true token's embedding, then also swapping the *embedding* to the neighbour at
+uncovered positions should erase it and land the composed program near 6.152. That is queued.
+
+Controls (pred_d): the composed full-rank arm reproduces §1780's all-position 6.00048 (measured
+6.00091, within the 0.002 bar) and covered 5.97900 exactly; coverage 5419 of 50257.

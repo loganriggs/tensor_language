@@ -1,0 +1,86 @@
+{
+ "config": {
+  "ranks": [
+   "None",
+   "64"
+  ],
+  "fallback": "output-NN: the uncovered token takes the covered token whose length-1 next-token distribution is most similar, one neighbour (\u00a71780/\u00a71781)",
+  "direct": "the prediction IS the token's (or its neighbour's) length-1 logit row; no forward through the substituted model at all",
+  "composed": "the 36 context-free site tables installed as hooks, standalone",
+  "cost": "direct stores 5419 x 50304 = 272.6M reals; composed stores 224.778M at full rank and 15.223M at rank 64. This is a FIDELITY comparison; the direct arm is not a frontier point.",
+  "WHY": "\u00a71781 compared a covered-position reference against an all-position program and was amended. This builds the all-position reference.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live": {
+    "cov": 3.29205,
+    "all": 3.13704
+   },
+   "direct": {
+    "cov": 6.03465,
+    "all": 6.14589
+   },
+   "direct_cost_M": 272.597,
+   "composed_full": {
+    "cov": 6.03465,
+    "all": 6.01897,
+    "cost_M": 224.7782
+   },
+   "composed_64": {
+    "cov": 6.25792,
+    "all": 6.19187,
+    "cost_M": 15.2225
+   }
+  },
+  "skip11000": {
+   "live": {
+    "cov": 3.09711,
+    "all": 2.9345
+   },
+   "direct": {
+    "cov": 5.979,
+    "all": 6.15184
+   },
+   "direct_cost_M": 272.597,
+   "composed_full": {
+    "cov": 5.979,
+    "all": 6.00091,
+    "cost_M": 224.7782
+   },
+   "composed_64": {
+    "cov": 6.21152,
+    "all": 6.18267,
+    "cost_M": 15.2225
+   }
+  },
+  "skip1200": {
+   "live": {
+    "cov": 3.40277,
+    "all": 3.23027
+   },
+   "direct": {
+    "cov": 5.96423,
+    "all": 6.15373
+   },
+   "direct_cost_M": 272.597,
+   "composed_full": {
+    "cov": 5.96423,
+    "all": 6.00733,
+    "cost_M": 224.7782
+   },
+   "composed_64": {
+    "cov": 6.16197,
+    "all": 6.15065,
+    "cost_M": 15.2225
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_direct_wins_all_positions": false,
+  "pred_b_agree_on_covered": true,
+  "pred_c_reference_below_composed": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 109.7
+}
