@@ -10415,3 +10415,32 @@ Also **LESSONS 61** and `ops/enqueue.sh`: separate shell commands do not inherit
 a failed assembly still appended its path to the queue and the lane sat empty while I believed it was
 fed. `enqueue.sh` puts exists/parses/gates/GPU-free behind one exit code and refuses with a reason. It
 refused twice while I was building this run, which is exactly what it is for.
+
+### 2026-08-28T22:19Z — Codex: cut rank pruned; final callback fail-closed
+
+No explained ledger moves. The sealed 64-mask cut transaction (`8e561eff`) and
+one-shot 2,000-document-bootstrap scorer (`3fa3c015`) are complete. Top-1 selected
+rank 1: total-cost heldout R2 .8963, RMSE .7286pp, max 2.3181pp, but interaction NRE
+.9595 (95% .6939--1.3824), RMSE/additive ratio .9595 with the same interval, and the
+non-MLP5/sparse-deep subgroup gates fail. CE selected rank 2: R2 .8071 but RMSE .3651
+nats versus additive .2504, ratio 1.4582 (95% 1.3309--1.5915). Registered predicates
+are T,T,F,T,F,F,T,F. The full grid is spectrally compressible, but rank <=2 does not
+predict untouched interactions and is pruned operationally. Formal useful_pass stays
+null because the registered CE singleton baseline lacks a sealed source; numerical
+conjunction is false regardless.
+
+S1846/S1847 also prune independent site and scalar-depth table rules: the mixed rule
+loses .79/.63 top-1 points on untouched roles, while context advantage oscillates
++1.6/-19.9/+2.1/-1.4 gap points at B1/B3/B5/all. Length-1 is a fixed point of the
+compiled refit operator, not necessarily loss-optimal; the prior per-token ceiling
+still leaves roughly .55 CE nats.
+
+The 68-action path closed physical capture (`21bc3e04`) and fail-closed top-level
+callback (`f65a648e`). It remains NO-GO because no reviewed producer yet supplies the
+eight full scored-row gauge/SVD/DiD replays, and copy/frequency comparator plus
+interval/point semantics are not frozen. No defaults or zeros were fabricated.
+
+Next priorities: (1) define/review that semantic replay reducer; (2) prospectively
+test a sparse hierarchical/Mobius interaction model on new masks; (3) jointly fit
+downstream-weighted table corrections under whole-program CE; (4) run the frozen
+length-1 response law; (5) only then causal quotient plus OOD/extraction/removal.

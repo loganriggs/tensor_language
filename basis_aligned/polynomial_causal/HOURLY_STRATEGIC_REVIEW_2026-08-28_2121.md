@@ -53,7 +53,7 @@ with the native O/O baseline under the same N or E background. Emit one scalar r
 per row/layer; a near-zero denominator is an integrity failure and native/native must
 equal one. This is a non-selecting interface-health metric, not a new fit objective.
 
-### 2. The cut-rank measurement is complete; prospective scoring is pending
+### 2. Rank at most two is not a useful predictive interaction state
 
 The frozen fitter, measurement transaction, and GPU adapter all exist. V1 measures a
 single fixed program family with identity gains; mask-specific scalar refitting is
@@ -74,10 +74,24 @@ the namespace remained pristine. The repaired fourth launch then completed the f
 64-cell measurement transaction. Its sealed receipt is
 `51a13dc1267bd5e76d58775fff06227f6a44ccf8c66872463b0ce9d8388ac10c`, and the
 authority, payload, and receipt are committed at `8e561eff`. No cell was inspected
-partially. The frozen CPU rank selection, one-shot heldout finalization, document
-bootstrap, and useful-pass gates are now running. Launch cost remains high because
+partially. The frozen CPU rank selection, one-shot heldout finalization, and 2,000-draw
+shared-document bootstrap then closed at `3fa3c015`. Launch cost remains high because
 each wave rebuilds and hashes approximately 8.34 GB of dense rows plus the 2.07 GB
 checkpoint; a certified reusable artifact is an engineering priority for later waves.
+
+The operational low-rank claim fails. Top-1 selects rank 1 and appears strong on total
+cost (heldout \(R^2=0.8963\), RMSE 0.7286 percentage points, maximum error 2.3181),
+but it does not predict the non-additive interaction: NRE 0.9595 with 95% bootstrap
+interval 0.6939--1.3824. Its RMSE/additive-baseline ratio is also 0.9595 with the same
+interval, and it loses to the baseline on non-MLP5 and sparse-deep groups. CE selects
+rank 2 and has \(R^2=0.8071\), but RMSE is 0.3651 nats versus 0.2504 for additive
+anchors, a 1.4582 ratio (95% interval 1.3309--1.5915). Gates 3, 5, 6, and 8 fail.
+
+The full grids are descriptively compressible—the rank-2 spectral-tail NRE is 0.1808
+for top-1 and 0.3413 for CE—but that compression does not generalize to untouched
+interactions. Thus a small SVD of an observed grid is not yet a predictive compiled
+state. Formal `useful_pass` is null/non-promotive because the registered CE singleton
+baseline has no sealed source; the numerical conjunction is false anyway.
 
 The first real launch failed before any row/program outcome while hashing a
 zero-dimensional model tensor: direct `view(torch.uint8)` is invalid for a scalar.
@@ -260,11 +274,11 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
 ### Kept
 
 1. Production completion of the 68-action final role: direct causal and edit evidence.
-2. Fixed-program cut rank: predictive interaction-state certificate on untouched masks.
-3. Interaction-aware table composition conditional on the cut-rank result.
-4. Downstream-weighted scalar/bias or low-rank correction of token representatives.
-5. Heldout length-1 response-rank test: tensor-factorization claim with a falsifiable
+2. Sparse hierarchical/Möbius interaction structure with a new prospective mask test.
+3. Joint downstream-weighted table optimization under the closed compiled program.
+4. Heldout length-1 response-rank test: tensor-factorization claim with a falsifiable
    unmeasured-amplitude prediction.
+5. Causal-response quotient and genuine OOD/edit tests after the final tensor closes.
 
 ### Pruned or deferred
 
@@ -274,6 +288,8 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
 - A standalone infinitesimal sensitivity scalar; the response is strongly nonlinear.
 - Per-mask gain refitting inside cut-rank v1; keep it as a separately named operational
   v2 frontier so v1 retains a compositional interpretation.
+- Rank-at-most-two matrix completion across layer 5 as a useful interaction state; it
+  predicts total costs but fails interaction, baseline, subgroup, and CE gates.
 - Gauge canonicalization before a downstream action metric exists. Once the 18-consumer
   response tensor closes, norm-minimized/HOSVD gauges can be compared by consumer
   sparsity and heldout response prediction.
@@ -283,30 +299,28 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
 
 ## Priority ranking
 
-1. **Finish the final loader and 18-consumer completer.** Highest causal relevance and
-   closest route to final 68-action evidence; CPU-side and already source-closed below
-   this boundary.
-2. **Run the now-complete fixed-program cut-rank backend over 64 masks.** Highest
-   mathematical information gain: rank 1/2 must predict untouched early/late
-   compositions, not just fit observed cells. Launch immediately after the active GPU
-   attribution run releases the lane.
-3. **Replace independent table choice with an interaction-aware rule.** The registered
-   per-site policy failed on both untouched roles despite reliable single-site gains.
-   If cut rank 1/2 passes, condition table choices on that small prefix/suffix state;
-   if it fails, freeze a sparse pairwise mask design rather than fitting 12 independent
-   choices. Any successor must optimize/report CE and pass whole-program composition.
-4. **Test a downstream-weighted, nearly costless table correction.** Fit only a
-   per-site scalar/shared bias first, then a low-rank Fisher metric only if needed;
-   require fresh CE and composition improvement over both length-1 and Euclidean-mean
-   rows. This directly tests the quadratic optimum above at very low added complexity.
-5. **Preregister and run the heldout length-1 response-rank assay.** It tests whether
+1. **Define and implement the missing semantic/replay reducer.** This is the exact
+   blocker on the 68-action final role: prospectively name copy/frequency comparators,
+   interval versus point semantics, and produce all eight gauge/SVD/DiD replays. It has
+   the highest causal relevance and no GPU requirement until reviewed.
+2. **Test sparse hierarchical interactions on new masks.** Rank 1/2 completion is
+   pruned, while independent site/depth rules also fail. Fit a hierarchy-respecting
+   Möbius/pairwise model to the completed discovery grid, freeze the sparse terms, and
+   predict a new mask registry. This is more falsifiable than raising matrix rank on
+   the same 64 cells and more composable than per-site selection.
+3. **Jointly optimize a downstream-weighted table correction.** Start with per-site
+   scalars/shared biases or a low-rank Fisher metric, but fit/evaluate them together in
+   the closed program with CE primary. Independent local corrections are disallowed by
+   S1846/S1847; require whole-program composition and fresh rows.
+4. **Run the heldout length-1 response-rank assay.** It tests whether
    the new rank-one nonlinear law transfers to the actual compiler object and predicts
    unmeasured amplitudes.
+5. **Construct the causal-response quotient, then run genuine OOD/extraction/removal.**
+   Merge states only after the final response signatures exist; require lower bytes and
+   calls plus bounded collateral rather than reconstruction alone.
 
-After the final response tensor exists, construct the causal-response quotient and
-test admitted programs on genuine OOD, extraction, and selective removal. It is not
-ranked above the five executable precursors because its state-equivalence relation does
-not yet have measured response signatures.
+The fifth item cannot begin before the first closes, but it is retained because it is
+the operational test that a simplicity definition buys prediction and editability.
 
 ## Actions executed in this review
 
@@ -342,7 +356,9 @@ namespace. After the deployable-table run released the GPU, the third exact 64-m
 launch began under session 21508, then failed before outcomes on a typed-bank identity
 mismatch. The CLI identity repair closed at `43cd3fa5` with 35 tests. The fourth exact
 launch then completed all 64 cells with sealed receipt `51a13d...`; the frozen CPU
-scorer and bootstrap are active.
+scorer and 2,000-draw bootstrap closed at `3fa3c015`. Registered gates are
+T,T,F,T,F,F,T,F: rank 1/2 is descriptively compact but not a useful predictive
+interaction model.
 - The first table dispatch failure was repaired and safely rerun. Its target result was
   then rejected because the 5,419-row coverage control exposed 7,822 changed rows; a
   second support-mask run then failed before targets on an unset coverage binding.
@@ -357,7 +373,6 @@ scorer and bootstrap are active.
 - The depth-crossover follow-up failed 3/3 scientific predictions with controls true:
   context-table advantage +1.6, -19.9, +2.1, and -1.4 gap points at B1/B3/B5/all.
   Compilation depth is not a sufficient scalar interaction state.
-- No final data, OOD role, mask outcome, or failed table-versus-site target was inferred
-  from infrastructure or partial logs.
+- No final data or OOD role was opened, and no partial mask/table outcome was promoted.
 
 ## UPDATE END
