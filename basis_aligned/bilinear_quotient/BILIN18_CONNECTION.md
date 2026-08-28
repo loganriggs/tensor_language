@@ -48680,3 +48680,55 @@ fractions; the interface gain identity holds; the single-interface L5 cosine is 
 summary of a single site's write. What none of them can see is the *relationship between positions* —
 and §1765 established that the compiled program's cross-position Jacobians are exactly zero, which is
 precisely the structure a per-layer mean or norm cannot represent.
+
+## §1827 — the second moment is closed too, and it is ANTI-correlated with recovery: the low-order line is exhausted
+
+`ops/second_moment.py`, 241.4s, **DISCOVERY ONLY**, rung 3 (the instrument three closed accounts left).
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  across-position dispersion ratio (corrected arm / live), by layer
+    B0: L1 0.71  L2 0.66  L3 0.61  L4 0.66  L5 0.98  L6 1.19  L7 0.88  L8 0.54  L9 0.85 ... L17 0.80
+    B3: L4 0.22  L5 1.96  L6 0.51  L7 0.70  L8 0.31  L9 2.46  L10 0.86 ... L14 0.48  L17 0.82
+    B5: L6 0.80  L7 0.81  L8 0.32  L9 1.90  L10 0.71  L11 0.57  L12 0.50 ... L17 0.77
+
+  mean dispersion ratio:   B0 0.784x    B3 0.820x    B5 0.736x
+  gap recovered:           B0 64.8%     B3 11.9%     B5 12.3%
+```
+
+**pred_a FAILED: the mean dispersion ratio at B3 is 0.820x, not the ≤0.70 a collapse requires.** The
+corrected writes vary across positions nearly as much as the live ones do.
+
+**pred_b FAILED in the strongest available way — the quantity is ANTI-correlated with recovery.** B0,
+which recovers **64.8%** of the gap, has dispersion ratio **0.784x**; B3, which recovers **11.9%**, has
+**0.820x** — *closer to live*. The arm that works has the worse second moment. Whatever separates a 65%
+recovery from a 12% one, it is not this.
+
+> **Four accounts are now closed for the deep-prefix residual, and pred_a's registered branch states
+> the consequence: "the low-order accounts are exhausted — the damage lives in the JOINT structure
+> across positions, which no per-layer summary of any order can express."**
+>
+> - **Magnitude** (§1824): the best possible gain correction recovers ~12%.
+> - **Mean direction** (§1825): writes are ~77% aligned after correction.
+> - **Single-layer localisation** (§1826): the one anti-aligned layer costs 1-2 points of 88.
+> - **Second moment** (§1827): not collapsed, and anti-correlated with recovery.
+
+**pred_c PASSED and matches §1826 on a second instrument**: no layer holds more than **15.9%** of the
+dispersion shortfall at B3 (top layer L4). The residual is distributed on the moment instrument exactly
+as it was on the intervention one — so the two agree, and pred_c's more interesting FALSE branch (a
+dissociation between what is measurable and what is costly) did not occur.
+
+**L9 is anomalous on both instruments and unimportant on neither reading.** It inverts (cosine −0.134 /
+−0.628) *and* over-varies (dispersion **2.46x** at B3, **1.90x** at B5, against neighbours at 0.3-0.9)
+— and §1826 measured its removal at +0.8 to +1.7 points. A layer can be the most conspicuous thing in
+two independent summaries and still not be where the damage is.
+
+Controls (pred_d): L9's cosines reproduce §1825/§1826's published −0.134 and −0.628; the sequential
+arms reproduce §1824's published gap fractions; the interface gain identity holds; the single-interface
+L5 cosine is +0.9979 against §1819's +0.9990.
+
+**Open question this ends on.** The only structure left is the one §1765 named: the compiled program's
+cross-position Jacobians are **exactly zero**, and §1765 measured that directly with a poke test —
+0.000e+00 for the program against 0.118 nats live. Applying the same poke to the live layers *above* a
+compiled prefix asks whether they still propagate across positions at all, and whether what they
+propagate resembles the live model. That is a joint-structure instrument, not another per-layer summary.
