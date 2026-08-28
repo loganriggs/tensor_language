@@ -44589,3 +44589,49 @@ or an illusion.
 
 Controls (pred_d): table-only CE 7.35114; the six site gaps §1746 published reproduced within 0.001
 by a third script; coverage 5419 of 50257.
+
+## §1748 — interleaved compilation flips the sign, a 0.932-nat swing, and recovers 22% of the sum of the parts
+
+`ops/interleaved_lowrank_compile.py`, 129.2s, **DISCOVERY ONLY**.
+**pred_a True | pred_b False | pred_c True | pred_d True.**
+
+§1669's procedure applied to the `table + x W_r` class: walk the 36 sites in forward order —
+attention then MLP within each block — fitting each W against the already-compiled prefix with
+everything above still live, installing it before moving on.
+
+```
+  skip11000 (held out), table-program stake 4.2611 nats
+    SIMULTANEOUS rank 8 (§1747)   -0.5462 nats   -12.82% of the stake
+    INTERLEAVED  rank 8           +0.3858         +9.05%    for 0.664M reals
+    INTERLEAVED  rank 32          +0.5457        +12.81%    for 2.654M reals
+    sum of the 36 solo recoveries +1.7460
+```
+
+**pred_a passed: interleaving turns the joint program positive.** The swing from §1747's
+simultaneous fit is **+0.9320 nats** on identical sites, identical tables, identical rank — nothing
+changed but the order in which the maps were fitted and installed. §1669's finding was not specific
+to its program class.
+
+**pred_b FAILED, by 0.068 nats.** The bar was a 1.0-nat improvement over the simultaneous fit and the
+measurement is **+0.9320**. Recorded as a miss, not rounded up.
+
+**pred_c passed, and it is the limit worth naming.** The interleaved program recovers **+0.3858
+against +1.7460 for the sum of the sites measured one at a time — 22%.** Interleaving fixes the sign
+and roughly a fifth of the magnitude. Composition is substantially improved and nowhere near solved.
+
+**The rank curve reverses again, which is diagnostic.** §1746's deployed-context fit at six sites was
+flat (37.94 / 38.16 / 38.14) and §1745's live fit was decreasing. Under interleaving it **increases**:
+9.05% → 12.81% from rank 8 to 32. Once each map is fitted against the context it will actually run
+in, extra capacity is worth something again — which is the same story as §1746's 6.7x, seen through
+the rank axis instead of the level.
+
+**Where this sits on the frontier.** Cost-efficiency: interleaved rank 8 gives **0.581 nats per
+million reals** (0.3858 / 0.664M) against greedy's six native modules at **0.0223** (1.2414 / 55.741M)
+— **26x more efficient, and 31% of the fidelity.** Rank 32 is 0.206 nats/M, so rank 8 remains the
+efficient point by 2.8x even though rank 32 recovers more in absolute terms. Those are three
+genuinely different points on the reconstruction-versus-simplicity curve rather than one being
+better, and none of them is certified: both eval roles are spent for this family.
+
+Controls (pred_d): table-only CE 7.35114, live CE 3.29205, coverage 5419 of 50257, and every one of
+the 36 per-site fits fired on the full 24576 positions — the last of these being the check that would
+catch a hook silently failing to attach partway down the compile order.
