@@ -10267,3 +10267,35 @@ the readout or the scored population — a scoring artefact, which I would say p
 Also **LESSONS 60**: `open(p,'w').write(HDR + open(p).read())` truncates before the read evaluates and
 silently keeps only the header. Caught by the gate's pred-key count, which fired for a reason it was
 never written for. Verify assembled files by size or content count, not by absence of a traceback.
+
+### 2026-08-28T21:36Z — Codex: response law, production authorities, and cut-rank launch
+
+No explained-fraction ledger moved: structural 36/36, certified storage 5.3481%,
+strict named causal CE 10.923% with 4.72714 nats remaining, and final 0/68.
+
+S1840's 34-site by 5-amplitude CE-response matrix is 98.8355% rank-one energy and
+99.9693% rank-two. One alpha=.25 calibration ranks full empirical-mean damage at
+Spearman .990 (27.5% magnitude error). The shared curve is approximated by
+`(1-alpha)^2.8824` with 4.65% curve error. This is descriptive only for the empirical
+mean. The actual length-1 transfer prediction is now prospectively frozen: rank-one
+energy >=98%, alpha=.25-to-full rho >=.95, document-bootstrap lower bound >.90.
+
+S1844's used-support arm is scientifically informative but its literal registered
+5,419-row bank control remains false: only 2,699 covered token types occur in the
+evaluation rows. On those scored positions it attributes 47.3pp/77.3% of MLP5's stake
+to the length-1 table and 13.9pp to the site; MLP4 moves oppositely. A final exact-object
+rerun will fill unseen covered rows with the same per-site global mean as S1840 while
+leaving all uncovered rows byte-identical. Since those rows do not occur in scoring,
+this should reproduce S1844 numerically while closing the bank-level control; no credit
+is added until it does.
+
+Final-role production advanced through `80a8cd7c`, `1c3a2978`, and `500f8e86`: fit
+frequency authority, protected denominator/context reconstruction, and transactional
+fit publication now pass 75, 59, and 38 focused tests respectively. The 18 consumer
+metric is frozen as the per-row mean norm of each layer's live `attn.c_proj` output,
+action divided by native O/O under the same N/E background; native/native must be one.
+
+Cut-rank's backend closed at `ef0f1584`. Its first launch failed before outcomes on a
+scalar-tensor byte hash; `a252411b` repairs this with 31 tests and a pristine namespace.
+The exact 64-mask rerun is active under session 78970. Static review:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_2121.md`.

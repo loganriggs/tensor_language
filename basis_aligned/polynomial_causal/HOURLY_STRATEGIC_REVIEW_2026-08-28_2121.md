@@ -48,6 +48,13 @@ load plus exact context-bound tensor. Seventy-five focused tests pass; no rows e
 and no final data was opened. Remaining work is protected `DenominatorPass` and
 `FinalRunContext` reconstruction, then the 18-consumer response envelope and gates.
 
+The previously vague consumer diagnostic is now specified from its historical
+instrument: for each layer 0–17, capture the live `attn.c_proj` output over scored
+positions, including bias. For each row, compare its mean vector norm under the action
+with the native O/O baseline under the same N or E background. Emit one scalar ratio
+per row/layer; a near-zero denominator is an integrity failure and native/native must
+equal one. This is a non-selecting interface-health metric, not a new fit objective.
+
 ### 2. The cut-rank theorem has no real mask measurements
 
 The frozen fitter, measurement transaction, and GPU adapter all exist. V1 measures a
@@ -88,8 +95,15 @@ until the coverage mask is repaired and the unchanged predictions are rerun.
 A coverage-mask repair was committed and automatically rerun, but that execution
 failed before target arms because the script referenced an uninitialized
 `COV['seen']`. It provides no new result. The next repair must pass the frozen coverage
-explicitly, assert all 5,419 covered rows were observed, and prove uncovered bank rows
-remain byte-identical. Both failed launches and the provisional bytes remain preserved.
+explicitly and prove uncovered bank rows remain byte-identical. Both failed launches
+and the provisional bytes remain preserved.
+
+The subsequent support-restricted run changed only the 2,699 covered token types that
+appeared in the evaluation rows, so its exact-5,419 control also failed. Descriptively,
+it rescues 47.3 points or 77.3% of MLP5's stake and leaves a 13.9-point site cost; MLP4
+again moves oppositely. These numbers remain provisional. The correct S1840-compatible
+object uses per-token means for observed covered types, the per-site global empirical
+mean for unseen covered types, and byte-identical rows for all uncovered types.
 
 ### 4. OOD, extraction, and selective removal remain downstream of admission
 
@@ -210,8 +224,11 @@ length-1 response surface should retain at least 98% rank-one energy, and one fr
   definition remain.
 - The real cut-rank backend closed at `ef0f1584` with 29 tests; all inputs and the
   pristine output namespace are present. When the table rerun exited, the exact
-  64-mask command was launched under session 71743. It failed before outcomes on a
-  scalar-tensor byte-hash bug, which is now assigned for repair and full-suite retest.
+64-mask command was launched under session 71743. It failed before outcomes on a
+scalar-tensor byte-hash bug, which is now assigned for repair and full-suite retest.
+The scalar-safe repair then closed at `a252411b` with 31 tests, and the pristine
+namespace was verified. A second exact launch began under session 78970 after the GPU
+lane cleared.
 - The first table dispatch failure was repaired and safely rerun. Its target result was
   then rejected because the 5,419-row coverage control exposed 7,822 changed rows; a
   second support-mask run then failed before targets on an unset coverage binding.
