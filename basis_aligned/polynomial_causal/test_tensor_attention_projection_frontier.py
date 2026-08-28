@@ -26,12 +26,27 @@ def test_activation_weighted_linear_replays_registered_orientation() -> None:
     assert observed.stored_values == 2 * width * rank
 
 
-def test_shared_basis_orders_largest_activation_eigenvalues() -> None:
-    covariance = torch.diag(torch.tensor([1.0, 9.0, 4.0, 16.0]))
-    basis = frontier.shared_activation_basis(covariance, 2)
-    projector = basis @ basis.T
-    expected = torch.diag(torch.tensor([0.0, 1.0, 0.0, 1.0]))
-    torch.testing.assert_close(projector, expected)
+def test_shared_weighted_factorization_recovers_common_rank_two_maps() -> None:
+    torch.manual_seed(62)
+    width, rank = 6, 2
+    covariance = torch.diag(torch.tensor([1.0, 9.0, 4.0, 16.0, 2.0, 5.0])).double()
+    encoder = torch.randn(width, rank)
+    weights = {}
+    for name in frontier.QK_NAMES:
+        decoder = torch.randn(rank, width)
+        # Linear weight orientation is the transpose of the row coefficient.
+        weights[name] = (encoder @ decoder).T.float()
+    bank = frontier.shared_activation_weighted_bank(covariance, weights, rank)
+    x = torch.randn(30, width)
+    for name in frontier.QK_NAMES:
+        expected_coefficient = frontier._registered_coefficient(
+            covariance, weights[name], ridge_fraction=frontier.RIDGE,
+        )
+        expected = x.double() @ expected_coefficient
+        torch.testing.assert_close(
+            bank(name, x).double(), expected, atol=2e-5, rtol=2e-5,
+        )
+    assert bank.stored_values == 5 * width * rank
 
 
 def test_registered_arm_classes_and_complete_cost_logic_are_frozen() -> None:

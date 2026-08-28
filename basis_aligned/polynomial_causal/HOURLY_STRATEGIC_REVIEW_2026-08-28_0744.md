@@ -140,6 +140,12 @@ been launched because the shared GPU is occupied by the corrected table/correcti
 It evaluates five bottom-up programs: routing-384, value-384, joint-384, joint-512, and
 a rank-384 shared-input QK dictionary. The last program stores one encoder and four
 typed decoders, $5Dr$ values instead of $8Dr$ for four independent rank-$r$ maps.
+The shared encoder is not generic activation PCA: it is the weighted Eckart--Young
+solution for the concatenated four-map coefficient stack. Concretely, the runner
+whitens each registered fitted coefficient by the deployed activation covariance,
+takes the common leading left singular subspace, and unwhitens the encoder. This is
+the minimum summed Q/K/Q2/K2 output error among rank-$r$ shared encoders and typed
+decoders under the empirical activation metric (up to the registered ridge).
 
 Fitting concatenates the five distinct arm trajectories along the batch axis at each
 depth. Covariances, value buses, compiled prefixes, and fitted programs remain separate;

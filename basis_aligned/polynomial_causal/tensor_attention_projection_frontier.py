@@ -130,14 +130,63 @@ def activation_weighted_linear(
     )
 
 
-def shared_activation_basis(covariance: torch.Tensor, rank: int) -> torch.Tensor:
+def _registered_coefficient(
+    covariance: torch.Tensor, weight: torch.Tensor,
+    *, ridge_fraction: float = RIDGE,
+) -> torch.Tensor:
+    width = covariance.shape[0]
+    scale = torch.diag(covariance).mean()
+    regularized = covariance + ridge_fraction * scale * torch.eye(
+        width, dtype=covariance.dtype, device=covariance.device,
+    )
+    return torch.linalg.solve(regularized, covariance @ weight.double().T)
+
+
+def shared_activation_weighted_bank(
+    covariance: torch.Tensor, weights: Mapping[str, torch.Tensor], rank: int,
+) -> SharedInputLinearBank:
+    """Optimal shared rank-r coefficient stack in the activation metric.
+
+    If ``C_j`` are the four registered ridge coefficients, this minimizes
+
+        sum_j || A^(1/2) (C_j - E D_j) ||_F^2
+
+    over one encoder ``E`` and four typed decoders ``D_j``.  It is the weighted
+    Eckart--Young solution: concatenate the whitened maps, take their leading
+    common left singular subspace, then unwhiten the encoder.
+    """
+
     if covariance.ndim != 2 or covariance.shape[0] != covariance.shape[1] or not (
         0 < rank < covariance.shape[0]
-    ):
-        raise ValueError("shared-basis covariance is malformed")
-    symmetric = (covariance.double() + covariance.double().T) * 0.5
-    _, vectors = torch.linalg.eigh(symmetric)
-    return vectors[:, -rank:].flip(1).float()
+    ) or set(weights) != set(QK_NAMES):
+        raise ValueError("shared QK fit is malformed")
+    covariance = (covariance.double() + covariance.double().T) * 0.5
+    width = covariance.shape[0]
+    if any(weight.shape != (width, width) for weight in weights.values()):
+        raise ValueError("shared QK source topology changed")
+    eigenvalues, eigenvectors = torch.linalg.eigh(covariance)
+    floor = torch.finfo(covariance.dtype).eps * width * eigenvalues[-1].clamp_min(1.0)
+    supported = eigenvalues.clamp_min(floor)
+    square_root = (eigenvectors * supported.sqrt()) @ eigenvectors.T
+    inverse_square_root = (eigenvectors * supported.rsqrt()) @ eigenvectors.T
+    coefficients = {
+        name: _registered_coefficient(covariance, weights[name]) for name in QK_NAMES
+    }
+    whitened = square_root @ torch.cat(
+        [coefficients[name] for name in QK_NAMES], dim=1,
+    )
+    # Left singular vectors from the smaller symmetric Gram matrix avoid
+    # materializing a 1152 x 4608 Vh.
+    gram = whitened @ whitened.T
+    _, left = torch.linalg.eigh((gram + gram.T) * 0.5)
+    left = left[:, -rank:].flip(1)
+    encoder = inverse_square_root @ left
+    decoded = left.T @ whitened
+    output_factors = {
+        name: decoded[:, index * width : (index + 1) * width].T.float()
+        for index, name in enumerate(QK_NAMES)
+    }
+    return SharedInputLinearBank(encoder.T.float(), output_factors)
 
 
 def compile_site(
@@ -156,11 +205,8 @@ def compile_site(
     if spec.shared_qk:
         if spec.qk_rank is None:
             raise ValueError("shared QK arm has no rank")
-        basis = shared_activation_basis(covariance, spec.qk_rank).to(
-            device=sources["q"].device, dtype=sources["q"].dtype,
-        )
-        shared = SharedInputLinearBank.from_basis(
-            {name: sources[name] for name in QK_NAMES}, basis,
+        shared = shared_activation_weighted_bank(
+            covariance, {name: sources[name] for name in QK_NAMES}, spec.qk_rank,
         )
     else:
         for name in QK_NAMES:

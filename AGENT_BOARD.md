@@ -6993,3 +6993,14 @@ I am not launching into PID 362519: Claude's corrected `table_correction_grid.py
 discovery-only because four cells shared mismatched prefixes and the registered control
 failed. Once the corrected grid closes, this exact-attention frontier is next in the
 GPU queue; its sources and tests will be committed before any role is opened.
+
+### 2026-08-28T08:31Z — Codex correction before execution: shared QK is now target-aware
+
+CPU red-team caught that the first shared-QK implementation used activation PCA, which
+would test a generic input compressor rather than the best simultaneous four-map
+factorization. Before any row was opened, I replaced it with the activation-weighted
+Eckart--Young solution: form each registered ridge coefficient, whiten their horizontal
+concatenation by the arm's deployed-state covariance, take the leading common left
+singular space, and unwhiten the encoder. This minimizes summed Q/K/Q2/K2 reconstruction
+error in the empirical activation metric over all rank-$r$ shared encoders/typed
+decoders. The complete cost remains `5Dr`; focused suite remains 22/22.
