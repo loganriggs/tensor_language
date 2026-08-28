@@ -49599,3 +49599,58 @@ population — but substitute the **empirical per-token mean** instead of the le
 Running one arm with the good table in §1834's units says **how much of the most expensive site in the
 network is the site and how much is the table**, which is the question the last four sections have been
 circling and the only one left with a number attached.
+
+## §1843 — PROVISIONAL: mlp5's entire +61.2pp appears to be the TABLE, not the site — but my own control caught a confound
+
+`ops/table_vs_site.py`, 238.2s, **DISCOVERY ONLY**, rung 3 (§1842's open question).
+**pred_a True | pred_b False | pred_c False | pred_d FALSE — results PROVISIONAL.**
+
+§1834's own arm — same B0 stream, same sequential gain correction, same top-1 gap fraction — with the
+**empirical per-token mean** substituted instead of the length-1 row:
+
+```
+  skip7000, sequential; B0 = 64.8%
+    mlp5   length-1   3.6%   empirical  65.6%   rescue +62.1pp of a 61.2pp stake (101.4%)
+    mlp4   length-1  20.3%   empirical  -8.7%   rescue -28.9pp of a 44.5pp stake ( -64.9%)
+```
+
+**pred_a PASSED by the largest margin in this arc, and pred_c FAILED into its own registered branch.**
+With the empirical mean, compiling mlp5 costs **−0.8pp** against B0 — nothing at all, nominally
+beneficial — where the length-1 table costs **+61.2pp**. pred_c's branch: *"the entire +61.2pp was the
+table and mlp5 is an ordinary site under a good per-token substitute — the cleanest possible resolution,
+and it would retire the mlp5 thread outright."*
+
+**pred_b FAILED and inverted, which is the strangest number here.** At mlp4 the empirical mean is a
+**worse** substitute than the length-1 row — 20.3% falls to **−8.7%** — even though §1842 measured the
+length-1 row sitting **9.92x the site's output RMS** away from that mean, the largest such gap in the
+network. A table can be far from the conditional mean and still work better than it.
+
+> **But pred_d FAILED, and the reason is a confound in my own construction, not a loose bar.** The two
+> row banks were supposed to differ on exactly the **5419** fit-covered rows, which is the difference
+> §1842 measured. They differ on **7822**. My empirical pass accumulated over every token appearing in
+> the eval rows, so **2403 UNCOVERED tokens** also received an eval-derived mean in place of the
+> output-NN map fallback. The empirical arm is therefore better on two counts at once — a better table
+> where the tables were meant to differ, *and* a better fallback where they were meant to agree — and
+> nothing here separates them.
+>
+> **The direction is almost certainly right**: a 62.1pp rescue cannot plausibly come from 2403 rare
+> uncovered rows when §1793 measured the whole uncovered population at 0.45% accuracy. But **the
+> magnitude is not certified**, and "101.4% of the stake" is exactly the kind of too-clean number that
+> a confound produces. I am marking this PROVISIONAL rather than banking it.
+
+**Controls that did hold.** B0 reproduces §1829's published 64.8%; both length-1 arms reproduce §1834's
+published figures exactly (mlp5 3.6% against 3.57%, mlp4 20.3% against 20.26%); endpoints reproduce
+§1789's full-rank top-1; the placement control moves top-1 under 0.05pp; coverage 5419 of 50257. The
+failure is confined to the bank-difference clause, and that clause is the one that mattered.
+
+**Requeued with the fix.** One line: restrict the empirical overwrite to the fit-covered token set, so
+the banks differ on 5419 rows and the uncovered fallback is identical in both arms. Then the delta is
+the table's contribution and nothing else.
+
+**What this means for the arc if it survives the rerun.** §1834's headline — "the most expensive site in
+the network" — would become a statement about the **length-1 context-free table at layer 5**, not about
+mlp5. Combined with §1842 (the early MLPs sit 1.5-9.9x their own output RMS away from what a single-token
+forward predicts) and §1840 (the cost is not first-order), the account would be: *compilation is
+expensive where a one-token forward is least informative about what a site does in context, and it is
+expensive non-linearly.* That is a claim about the compiler's chosen table, which is a thing one can
+change, rather than about the network, which is not.

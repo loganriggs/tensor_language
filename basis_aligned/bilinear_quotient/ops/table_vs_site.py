@@ -337,7 +337,10 @@ def empirical_rows(rows, probes, base_bank):
         for hd in hs:
             hd.remove()
     assert n['k'] > 0, 'empirical pass never fired'
-    hit = c > 0
+    # §1843: restrict to the FIT-COVERED set. Accumulating over every token seen in the eval
+    # rows gave 2403 UNCOVERED tokens an eval-derived mean instead of the output-NN fallback,
+    # so the two banks differed on 7822 rows rather than 5419 and the arms differed twice over.
+    hit = (c > 0) & COV['seen']
     out, changed = {}, {}
     for st in probes:
         bank = base_bank[st].clone()
