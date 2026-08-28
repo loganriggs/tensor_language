@@ -1,7 +1,43 @@
 import pytest
+import torch
 
 import early_mlp_suffix_transport_v1_final_actions as actions
 import early_mlp_suffix_transport_v1_final_capability as capability
+import early_mlp_suffix_transport_v1_runtime as runtime
+
+
+def _program(route: str, marker: float) -> runtime.JointAffineProgram:
+    def site(value: float) -> runtime.AffineCodeProgram:
+        weight = torch.zeros(runtime.D_MODEL, runtime.CODE_DIM)
+        weight[0, 0] = value
+        return runtime.AffineCodeProgram(
+            mean=torch.zeros(runtime.D_MODEL), scale=torch.ones(runtime.D_MODEL),
+            weight=weight, bias=torch.full((runtime.CODE_DIM,), value / 100),
+        )
+
+    value = runtime.JointAffineProgram(site(marker), site(marker + 0.5), route=route)
+    if route == "T":
+        with torch.no_grad():
+            value.cross.fill_(marker / 1000)
+    return value
+
+
+def _sources() -> tuple[actions.FinalProgramSourceBank, dict[str, float]]:
+    expected_routes = {
+        "inherited_q": "L", "true/L": "L", "true/R": "R",
+        "true/S0": "S0", "true/S1": "S1", "true/T": "T",
+        "mapped/document_shuffle/L": "L", "mapped/document_shuffle/R": "R",
+        **{f"mapped/A_null_{index:02d}/T": "T" for index in range(20)},
+        "new_fit_mean": "L",
+    }
+    markers = {
+        key: float(index + 1) for index, key in enumerate(actions.SOURCE_PROGRAM_KEYS)
+    }
+    programs = {
+        key: _program(expected_routes[key], markers[key])
+        for key in actions.SOURCE_PROGRAM_KEYS
+    }
+    return actions.FinalProgramSourceBank(programs), markers
 
 
 def test_action_plan_is_complete_ordered_and_shared_with_capability() -> None:
@@ -70,4 +106,89 @@ def test_action_plan_rejects_aliases_and_malformed_baselines() -> None:
             arm="n_n", execution_kind="deployed_baseline", site0_source="true_l0",
             site1_source=None, cross_source=None, identity_route=None,
             identity_control=None,
+        )
+
+
+def test_source_bank_requires_every_source_in_canonical_order() -> None:
+    bank, _ = _sources()
+    assert len(bank.sha256) == 64
+    programs = {key: bank.clone(key) for key in reversed(actions.SOURCE_PROGRAM_KEYS)}
+    with pytest.raises(ValueError, match="incomplete or reordered"):
+        actions.FinalProgramSourceBank(programs)
+    programs = {key: bank.clone(key) for key in actions.SOURCE_PROGRAM_KEYS[:-1]}
+    with pytest.raises(ValueError, match="incomplete or reordered"):
+        actions.FinalProgramSourceBank(programs)
+
+
+def test_hybrid_materialization_uses_the_named_site_sources() -> None:
+    bank, marker = _sources()
+    cases = {
+        "s0_l1": ("true/S0", "true/L"),
+        "l0_s1": ("true/L", "true/S1"),
+        "r0_l1": ("true/R", "true/L"),
+        "l0_r1": ("true/L", "true/R"),
+    }
+    for arm, (site0_key, site1_key) in cases.items():
+        materialized = actions.materialize(actions.plan_for(arm, "N"), bank)
+        program = materialized.make_program()
+        assert float(program.site0.weight[0, 0].detach()) == marker[site0_key]
+        assert float(program.site1.weight[0, 0].detach()) == marker[site1_key] + 0.5
+        assert materialized.program_sha256 == runtime.program_snapshot_sha256(program)
+        assert materialized.plan.key == f"{arm}/N"
+
+
+def test_transport_materialization_distinguishes_true_zero_and_each_null() -> None:
+    bank, marker = _sources()
+    true = actions.materialize(actions.plan_for("lt", "N"), bank).make_program()
+    zero = actions.materialize(actions.plan_for("zero_a", "N"), bank).make_program()
+    assert true.cross is not None and zero.cross is not None
+    assert torch.count_nonzero(true.cross) and not torch.count_nonzero(zero.cross)
+    assert float(true.cross[0, 0].detach()) == pytest.approx(marker["true/T"] / 1000)
+    identities = set()
+    for index in range(20):
+        arm = f"a_null_{index:02d}"
+        value = actions.materialize(actions.plan_for(arm, "N"), bank)
+        program = value.make_program()
+        key = f"mapped/A_null_{index:02d}/T"
+        assert float(program.cross[0, 0].detach()) == pytest.approx(marker[key] / 1000)
+        identities.add(value.program_sha256)
+    assert len(identities) == 20
+
+
+def test_baseline_materialization_has_no_program_and_is_action_distinct() -> None:
+    bank, _ = _sources()
+    deployed = actions.materialize(actions.plan_for("n_n", "N"), bank)
+    native = actions.materialize(actions.plan_for("o_o", "N"), bank)
+    assert deployed.program_sha256 is None and native.program_sha256 is None
+    assert deployed.sha256 != native.sha256
+    with pytest.raises(RuntimeError, match="has no projected program"):
+        deployed.make_program()
+
+
+def test_final_action_batch_identity_binds_action_materialization_rows_and_support() -> None:
+    bank, _ = _sources()
+    rr = actions.materialize(actions.plan_for("rr", "E"), bank)
+    rows = torch.arange(4 * 256, dtype=torch.long).view(4, 256)
+    identity = actions.FinalActionBatchIdentity.from_inputs(
+        materialized=rr, inputs=rows, ordered_batch_indices=(8, 9, 10, 11),
+        batch_ordinal=2, source_commit="1" * 40,
+        inherited_snapshot_sha256="2" * 64, rows_receipt_sha256="3" * 64,
+        final_role_tensor_sha256="4" * 64, program_payload_sha256="5" * 64,
+        common_support_sha256="6" * 64,
+    )
+    identity.require(
+        materialized=rr, inputs=rows, ordered_batch_indices=(8, 9, 10, 11),
+    )
+    with pytest.raises(RuntimeError, match="differs from its sealed identity"):
+        identity.require(
+            materialized=actions.materialize(actions.plan_for("ll", "E"), bank),
+            inputs=rows, ordered_batch_indices=(8, 9, 10, 11),
+        )
+    with pytest.raises(ValueError, match="not canonical"):
+        actions.FinalActionBatchIdentity.from_inputs(
+            materialized=rr, inputs=rows, ordered_batch_indices=(9, 8, 10, 11),
+            batch_ordinal=2, source_commit="1" * 40,
+            inherited_snapshot_sha256="2" * 64, rows_receipt_sha256="3" * 64,
+            final_role_tensor_sha256="4" * 64, program_payload_sha256="5" * 64,
+            common_support_sha256="6" * 64,
         )

@@ -48210,3 +48210,64 @@ bounding the wrong quantity is LESSON 49's error.
 pattern in both streams and measure the mass on position 0. If the sink mass collapses when the stream
 goes context-free, the account holds; if it does not, a constant head is exploding for some other
 reason and the story is wrong.
+
+## §1819 — the mechanism is REFUTED: 5.7 stays constant and points the same way. It is a 159x GAIN, not a dispersal
+
+`ops/does_the_constant_break.py`, 170.8s, **DISCOVERY ONLY**, rung 3 (the question §1818 ended on).
+**pred_a True | pred_b FALSE | pred_c FALSE | pred_d True.** The two failures kill the account §1818
+offered and Logan and I had both reasoned to.
+
+```
+  across-position dispersion  std/||mean||   (a CONSTANT head is ~0)
+    L5:  h0 1.784->3.247  h1 1.985->0.192  h2 0.664->0.299  h3 3.927->0.386  h4 1.910->0.187
+         h5 3.109->0.167  h6 1.303->0.286  h7 0.100->0.340  h8 2.876->0.170
+
+  cosine(live mean output vector, compiled mean output vector)
+    L5:  h0 +0.194  h1 +0.306  h2 +0.954  h3 +0.354  h4 +0.328
+         h5 +0.190  h6 +0.902  h7 +0.999  h8 +0.505
+```
+
+**pred_a passed and independently reproduces §1089 on a new instrument.** Head 5.7's live
+across-position dispersion is **0.0997**, against a median of **1.910** for the other eight heads at
+L5 — a factor of **19**. §1089 certified the head as a constant by a fidelity argument; it is now
+confirmed geometrically, and it is by a wide margin the most constant head in its layer.
+
+**pred_b FAILED: the head does NOT stop being constant.** Its dispersion goes 0.0997 -> **0.3398**,
+nowhere near the 1.0 that a dispersing softmax would produce, and in the compiled stream it sits
+*mid-range* among its neighbours rather than becoming erratic.
+
+**pred_c FAILED decisively, and this is the result: cosine = +0.9990.** The compiled mean output vector
+points in **the same direction** as the live one. **Head 5.7 is still writing its one fixed vector. The
+vector is 159x larger.**
+
+pred_b's registered failure branch said exactly this: *"the head is still writing a near-fixed vector
+and has merely been AMPLIFIED, which refutes the softmax-dispersal story and points at input magnitude
+instead."* **So the account §1818 floated — constancy is a property of the attention pattern, a
+context-free stream disperses the softmax, one fixed write becomes an average over everything — is
+wrong.** Nothing disperses. The bias head remains a bias head and its bias is multiplied.
+
+**And the data runs the opposite way to the story, globally.** Compilation makes attention outputs
+*more* position-constant, not less:
+
+```
+    median dispersion, live -> compiled:  L4 3.059 -> 0.584 (9/9 heads more constant)
+                                          L5 1.910 -> 0.286 (7/9)
+                                          L6 1.966 -> 0.289 (8/9)
+```
+
+Which is what a context-free stream should do — every position looks alike, so attention outputs vary
+less across positions. The explosion is therefore **orthogonal to the pattern**: outputs become more
+constant *and* enormously larger at the same time.
+
+**This is LESSON 37 landing on me from the other side.** §1818 fitted a story to two facts (the 1.00
+live/row match and the 152x explosion) that the story explained neatly, and I flagged it as fitted. It
+was also wrong. The flag was worth more than the story.
+
+Controls (pred_d): reconstruction residuals are **2.8e-07 to 4.3e-07** in both streams, so the per-head
+split is exact; the per-head norms reproduce §1818's published L5h7 6657.833 -> 1057986.774, L5h2
+505.668 -> 121745.939 and L4h7 3247.251 -> 3711.856 within 1%; coverage 5419.
+
+**Open question this ends on.** If the failure at 5.7 is one scalar on one fixed vector, it should be
+correctable by one scalar. §1810 found no *site-level* rescale helps the fully compiled program, but a
+**per-head** correction has never been tried — and §1809 left ~20% of the L5 bottom-up swing
+unattributed after mlp4 took 78-82%.
