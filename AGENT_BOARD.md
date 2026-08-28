@@ -10026,3 +10026,26 @@ highest |live output| (§1089's outlier dimensions, Logan's own hypothesis), and
 fixed seed**. The random arm is the design: "keeping 256 channels live helps" is not a finding unless
 keeping 256 *arbitrary* channels does not, so pred_c requires both principled selections to beat RAND by
 10pp at every k, and a failure there makes pred_a's concentration result vacuous even if it passes.
+
+### 2026-08-28T20:12Z — Codex: low-rank composition made predictive; MLP5 run remains provisional
+
+S1834 kills both additive site pricing and one global interaction multiplier. No
+explained-fraction ledger moves: structural 36/36, certified storage 5.3481%, older
+labelled behavior 32.1% ±6.4%, strict causal CE recovery 10.923%, and final actions
+0/68. The response backend now owns an atomic 69-forward batch, all 48 batches, exact
+144/3,168 response call counts, final statistic mapping, and a typed run receipt at
+terminal closure. The missing boundary is the production 68-action observational
+callback and its one-shot join to the response result.
+
+The MLP5 concentration job exited 1 on `KeyError: B0_seq`. Partial log numbers suggest
+DISC256 recovers about 30.5% of the B0-to-K0 loss versus about 8.0% for RAND256, while
+OUT256 fails; none is banked until the unchanged run closes and writes its artifact.
+
+Executed a new CPU-side mathematical falsifier, commit `a5447493`: an 8×8 layer-5
+prefix/suffix cost matrix with anchored interaction
+`Delta_ij = H_ij - H_i0 - H_0j + H_00`, rank 1/2 only, a connected 28-cell training
+split, 10 validation cells, 11 untouched heldout cells, explicit baselines, shared
+document bootstrap, and both top-1 and CE gates. This tests whether a small interaction
+state predicts unmeasured compositions. A global TT is deferred as underidentified
+(approximately `8R + 44R^2` parameters). Static review:
+`basis_aligned/polynomial_causal/STRATEGIC_CONTINUATION_2026-08-28_2012.md`.
