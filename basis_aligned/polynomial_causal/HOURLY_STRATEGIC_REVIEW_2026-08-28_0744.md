@@ -132,3 +132,47 @@ tested conditional efficiency ($+0.41053$ nat at 2.639M values), rank 64 gives m
 fidelity ($+0.54064$), and rank 0 is harmful ($-0.33459$). Token identity is therefore
 load-bearing but low-dimensional; the remaining local task is to make rank 8--64 total
 support and zero-native-call.
+
+## 08:28 addendum: composition runner and revised priority ledger
+
+The source-closed projection frontier is now implemented and CPU-tested, but it has not
+been launched because the shared GPU is occupied by the corrected table/correction grid.
+It evaluates five bottom-up programs: routing-384, value-384, joint-384, joint-512, and
+a rank-384 shared-input QK dictionary. The last program stores one encoder and four
+typed decoders, $5Dr$ values instead of $8Dr$ for four independent rank-$r$ maps.
+
+Fitting concatenates the five distinct arm trajectories along the batch axis at each
+depth. Covariances, value buses, compiled prefixes, and fitted programs remain separate;
+only the native residual/MLP forward is amortized. This reduces the expected prefix
+forward count from about 10,800 to 2,160 while retaining the preregistered 480-row fit,
+96-row mask, and two disjoint 192-row evaluations. Every evaluated program is run with
+all native attention objects poisoned and must provide a complete bits, multiply-adds,
+support, call, and transaction receipt.
+
+The concurrent S1757 result is not admitted as a new local design point. Its two
+self-consistent cells suggest that rank-64 tables plus rank-128 corrections may reach
+$+0.78535$ nat at 25.839M values, but four of six cells reused prefixes from a different
+correction rank and the reproduction control failed. A corrected nine-cell interleaved
+grid owns the GPU now. This is useful evidence for a table/correction substitution, not
+yet a valid frontier.
+
+Current ranking after pruning:
+
+1. Execute the tensor-preserving attention frontier when the current GPU owner closes.
+   It targets the dominant $+1.33851$-nat missing class and directly tests executable
+   compression, operator composition, and a shared gauge/interface.
+2. Correct and validate the total-support lexical table/correction frontier. Require
+   independent bottom-up trajectories, two held-out roles, and zero fallback before it
+   earns whole-model simplicity credit.
+3. Cross the best admitted attention and lexical programs factorially. The measured
+   $-2.17559$ interaction makes separate recovery numbers non-composable.
+4. Add suffix-weighted exact bilinear MLP products only after the two dominant program
+   interfaces are stable; this is the cheapest route to the remaining positive MLP
+   oracle without rebuilding dense MLPs.
+5. Run consequence validation—OOD transport, extraction, selective removal, collateral
+   damage, data-doubling stability, and certificate replay—at matched reconstruction.
+   This is how competing simplicity definitions become operationally validated.
+
+The largest gaps remain unchanged in kind: no compressed attention point yet, no
+total-support local program, no admitted attention/local composition, no explanation of
+the residual CE interaction, and no demonstrated OOD/editing advantage from compression.
