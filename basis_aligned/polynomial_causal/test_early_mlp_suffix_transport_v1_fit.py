@@ -119,11 +119,11 @@ class _Adapter:
 def test_schedule_and_identity_bind_program_before_forward(monkeypatch) -> None:
     monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", 8)
     monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 2)
-    rows = torch.arange(8 * runtime.SEQUENCE_LENGTH, dtype=torch.long).view(8, -1)
+    rows = torch.arange(8 * 513, dtype=torch.long).view(8, 513)
     context = _context(rows)
     program = _program("R")
     indices = fit.scheduled_indices(phase="fit", trial=2, epoch=1, batch_ordinal=1)
-    inputs = rows[torch.tensor(indices)]
+    inputs = rows[torch.tensor(indices), :runtime.SEQUENCE_LENGTH]
     identity = fit.make_identity(
         context=context, program=program, inputs=inputs, indices=indices,
         phase="fit", route="R", trial=2, epoch=1, batch_ordinal=1,
@@ -143,8 +143,8 @@ def test_denominator_and_true_fit_share_exact_transaction_surface(monkeypatch) -
     monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 1)
     monkeypatch.setattr(runtime, "EPOCHS", 1)
     rows = torch.arange(
-        runtime.BATCH_SIZE * runtime.SEQUENCE_LENGTH, dtype=torch.long,
-    ).view(runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH)
+        runtime.BATCH_SIZE * 513, dtype=torch.long,
+    ).view(runtime.BATCH_SIZE, 513)
     context = _context(rows)
     adapter, hook = _Adapter(), _Hook()
 
@@ -189,7 +189,7 @@ def test_denominator_and_true_fit_share_exact_transaction_surface(monkeypatch) -
 def test_fit_rows_and_loss_families_fail_closed(monkeypatch) -> None:
     monkeypatch.setattr(capabilities, "FIT_ROW_COUNT", runtime.BATCH_SIZE)
     monkeypatch.setattr(capabilities, "FIT_BATCHES_PER_EPOCH", 1)
-    rows = torch.zeros((runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH), dtype=torch.long)
+    rows = torch.zeros((runtime.BATCH_SIZE, 513), dtype=torch.long)
     context = _context(rows)
     with pytest.raises(RuntimeError, match="sealed run context"):
         fit.validate_fit_rows(rows.clone().add_(1), context)

@@ -368,3 +368,47 @@ interval is $[0.0498,0.2193]$. This supports a stack-level induction/novel divis
 labor and the negative novel damage of attention sites 14 and 16; attention 15 changed
 sign and was correctly dropped. This is causal-specialization evidence, but it does
 not change any executable, whole-model, OOD, or suffix-transport recovery balance.
+
+## 04:45 UTC continuation: actual row shape, mapped controls, and raw validation receipts
+
+An audit against the row freezer found a critical pre-execution incompatibility. The
+canonical cache stores each role as `long[n,513]`, and the implementation amendment
+requires truncation to the first 257 tokens: columns `0:256` are model inputs and
+`1:257` are shifted targets. The initial fit owner instead required a hypothetical
+`long[384,256]` role, so it could never bind the real row receipt. It now validates
+and hashes the complete `long[384,513]` frozen tensor and derives inputs only after
+that binding. The mapped context follows the same rule. No role was loaded while this
+was wrong.
+
+The document-control relation is now executable data rather than metadata. A pure
+builder groups contiguous documents by equal row count, requires at least two
+documents per stratum, draws the registered nonzero cyclic offset per stratum, moves
+whole blocks while preserving their within-document row order, and proves the result
+is a row bijection with no fixed document. It covers seed `2026083050` and all twenty
+`2026083100+i` A-null plans. A sealed mapped context binds the global plan hash, exact
+source schedule, exact mapped target indices, full fit-role hash, and target token
+contents. The ordinary true-row broker still rejects mapped controls.
+
+Validation selection can no longer trust manually supplied scalar metrics. Raw
+float64 per-row sufficient statistics now reconstruct normalized local MSE or
+token-weighted OON KL, global CE, copy CE, and matched baseline copy CE. The copy mask
+is the frozen 64-token-history definition on shifted targets and exact positions
+64:256. Support counts, zero native calls, restoration, common support, and the raw
+statistic tree hash flow into the selector receipt. Both local and suffix pooled
+values replay the registered runtime losses. The expanded source-closed suite passes
+162/162 in 46.78 seconds.
+
+The mapped **execution** capability is still incomplete: shuffled L needs target-row
+student states before native-coordinate labels, shuffled R/S need target-token OON
+teachers, and A-null T needs a mapped parent-code block without weakening the normal
+same-forward T invariant. The final pair remains absent and the row gate remains
+closed.
+
+Claude's separate additivity confirmation materially strengthens the case for the
+later common-denominator composition cube. On `skip11000`, the sum of one-at-a-time
+MLP removal costs is $2.361\times$ the joint MLP-stack cost, while the analogous
+attention sum is only $0.399\times$ the joint attention cost; intervals exclude the
+registered nulls and the asymmetry survives all-position scoring. Thus independent
+MLP importance is strongly redundancy-inflated and independent attention importance
+is strongly cooperation-suppressed. This changes how local component evidence should
+be interpreted, but not any executable recovery balance.

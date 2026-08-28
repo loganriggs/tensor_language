@@ -40,6 +40,10 @@ OBSERVED_EXECUTION_CLOSURE = (
     HERE / "bilin18_observed_adapter.py",
     HERE / "test_bilin18_observed_adapter.py",
 )
+MAPPED_CONTROL_CLOSURE = (
+    HERE / "early_mlp_suffix_transport_v1_mapped.py",
+    HERE / "test_early_mlp_suffix_transport_v1_mapped.py",
+)
 # These stage owners must exist, be tested, be tracked, and be part of the frozen
 # source closure before a fresh row role may be materialized.  Naming them here is
 # intentionally a fail-closed implementation gate: fit data must not be exposed and
@@ -81,6 +85,7 @@ SOURCE_CLOSURE = (
     HERE / "early_mlp_suffix_transport_v1_capabilities.py",
     HERE / "test_early_mlp_suffix_transport_v1_capabilities.py",
     *OBSERVED_EXECUTION_CLOSURE,
+    *MAPPED_CONTROL_CLOSURE,
     *NUMERICAL_STAGE_CLOSURE,
 )
 
@@ -369,7 +374,8 @@ def require_numerical_source_closure() -> tuple[Path, ...]:
 
     required = tuple(
         dict.fromkeys(path.resolve() for path in (
-            *OBSERVED_EXECUTION_CLOSURE, *NUMERICAL_STAGE_CLOSURE,
+            *OBSERVED_EXECUTION_CLOSURE, *MAPPED_CONTROL_CLOSURE,
+            *NUMERICAL_STAGE_CLOSURE,
         ))
     )
     closure = set(source_closure_paths())

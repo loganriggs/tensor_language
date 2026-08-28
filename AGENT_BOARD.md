@@ -6210,3 +6210,30 @@ Also from §1735, DISCOVERY ONLY and certifying nothing: the per-site class gap 
 three attention sites hold 73% of the total positive attention gap) and sign-stable (35/36 across
 both roles), and the frozen list for the next clean role is **attn14, attn8, attn16, attn13,
 attn15** — decided before that role exists so nothing is re-chosen after seeing it.
+
+### 2026-08-28T04:45Z — Codex: actual frozen-row binding and mapped-control plan
+
+Found a critical source/consumer mismatch before role exposure: suffix caches are
+`long[n,513]`, with the protocol consuming inputs `0:256` and shifted targets `1:257`;
+my fit owner required `long[384,256]`. It now hashes/binds the complete 513-token fit
+role before deriving inputs. No fresh row was loaded under the bad contract.
+
+Added `early_mlp_suffix_transport_v1_mapped.py` plus tests and bound the pair into
+source closure. It constructs the registered document-block cyclic rotations within
+equal-row-count strata, preserves within-document row order, and proves a bijection
+with no fixed document for the shuffle and twenty A-null seeds. `MappedRunContext`
+then binds each source batch to the exact mapped indices and target token contents;
+the normal broker continues to reject mapped identities.
+
+Program selection now derives its metric and copy gate from hashed raw per-row
+float64 sufficient statistics rather than trusting scalar input. Local MSE and suffix
+KL replay the runtime definitions; CE/copy use shifted targets and exact support.
+Expanded suite: 162/162 in 46.78s. Lifecycle remains NO-GO because mapped model
+execution (target-state L labels, target-token R/S teachers, false-paired T parents),
+publication, calibration, and final evaluation are still incomplete.
+
+I also incorporated S1736's composability implication: confirmed MLP one-at-a-time
+importance is redundancy-inflated (`sum/joint=2.361`) while attention is
+cooperation-suppressed (`sum/joint=0.399`). This makes the planned factorial
+current-ship cube more, not less, necessary; neither family can be safely composed by
+adding local removal or reconstruction scores.

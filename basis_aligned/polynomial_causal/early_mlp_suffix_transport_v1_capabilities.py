@@ -72,6 +72,23 @@ class RunContext:
         self, identity: runtime.TraceIdentity, inputs: torch.Tensor,
         ordered_batch_indices: Sequence[int],
     ) -> None:
+        self.require_common_identity(identity, inputs, ordered_batch_indices)
+        if identity.control != "true":
+            raise RuntimeError("mapped controls require the separate mapped-row capability")
+        if identity.teacher_mapping_sha256 != self.identity_teacher_mapping_sha256:
+            raise RuntimeError("true-route teacher mapping differs from the sealed identity map")
+
+    def require_common_identity(
+        self, identity: runtime.TraceIdentity, inputs: torch.Tensor,
+        ordered_batch_indices: Sequence[int],
+    ) -> None:
+        """Validate immutable rows and schedule without granting a teacher mapping.
+
+        The ordinary broker calls :meth:`require_identity`, which additionally
+        insists on ``control=true``.  The separate mapped-row boundary may call this
+        common portion only after independently proving its target-row permutation.
+        """
+
         if not isinstance(identity, runtime.TraceIdentity):
             raise RuntimeError("student identity has the wrong runtime type")
         if (
@@ -81,10 +98,6 @@ class RunContext:
             or identity.fit_role_tensor_sha256 != self.fit_role_tensor_sha256
         ):
             raise RuntimeError("trace differs from the sealed run context")
-        if identity.control != "true":
-            raise RuntimeError("mapped controls require the separate mapped-row capability")
-        if identity.teacher_mapping_sha256 != self.identity_teacher_mapping_sha256:
-            raise RuntimeError("true-route teacher mapping differs from the sealed identity map")
         identity.require_inputs(inputs)
         identity.require_batch_indices(ordered_batch_indices)
         indices = tuple(ordered_batch_indices)

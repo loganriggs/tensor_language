@@ -170,3 +170,55 @@ def test_four_route_freezer_requires_complete_nonmixed_banks() -> None:
     assert set(frozen) == set(fit.TRUE_FIT_ROUTES)
     with pytest.raises(ValueError, match="exactly"):
         programs.select_and_freeze_routes({"L": banks["L"]})
+
+
+def test_validation_score_is_recomputed_from_raw_row_statistics(monkeypatch) -> None:
+    monkeypatch.setattr(programs, "VALIDATION_ROWS", 2)
+    monkeypatch.setattr(programs, "VALIDATION_SCORED_TOKENS", 384)
+    generator = torch.Generator().manual_seed(81)
+    predictions = tuple(
+        torch.randn(2, 192, runtime.CODE_DIM, generator=generator) for _ in range(2)
+    )
+    labels = tuple(value + 0.1 for value in predictions)
+    denominators = (2.0, 4.0)
+    primary_sum, primary_count = programs.local_primary_rows(
+        predictions, labels, denominators,
+    )
+    expected = runtime.normalized_local_loss(predictions, labels, denominators)
+    torch.testing.assert_close(
+        primary_sum.sum() / primary_count.sum(), expected.double(), rtol=2e-6, atol=1e-9,
+    )
+
+    rows = torch.arange(2 * 513, dtype=torch.long).view(2, 513) % 7
+    logits = torch.randn(2, 192, 7, generator=generator)
+    ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(logits, rows)
+    baseline_copy = copy_sum - 0.001 * copy_count
+    candidate = _fit("L", 0, 31)
+    statistics = programs.ValidationSufficientStatistics(
+        route="L", program_sha256=candidate.final_program_sha256,
+        common_support_sha256="a" * 64,
+        row_primary_sum=primary_sum, row_primary_count=primary_count,
+        row_ce_sum=ce_sum, row_ce_count=ce_count,
+        row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+        baseline_row_copy_ce_sum=baseline_copy,
+        baseline_row_copy_count=copy_count,
+        student_original_calls=programs.ZERO_NATIVE_CALLS,
+        hook_restored=True, hook_inert=True,
+    )
+    score = programs.validation_score_from_statistics(candidate, statistics)
+    assert score.primary_metric == float(primary_sum.sum() / primary_count.sum())
+    assert score.copy_worsening == pytest.approx(0.001)
+    assert score.sufficient_statistics_sha256 == statistics.sha256
+    scored = programs.ScoredCandidate(candidate, score)
+    assert scored.validation is score
+
+
+def test_suffix_kl_row_pool_matches_registered_token_weighted_loss() -> None:
+    generator = torch.Generator().manual_seed(91)
+    teacher = torch.randn(3, 256, 11, generator=generator)
+    student = teacher + torch.randn(3, 256, 11, generator=generator) / 10
+    row_sum, row_count = programs.suffix_kl_rows(teacher, student)
+    expected = runtime.teacher_student_kl(teacher, student)
+    torch.testing.assert_close(
+        row_sum.sum() / row_count.sum(), expected.double(), rtol=2e-6, atol=1e-9,
+    )

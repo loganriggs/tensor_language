@@ -22,6 +22,7 @@ import torch
 
 import early_mlp_suffix_transport_v1_capabilities as capabilities
 import early_mlp_suffix_transport_v1_runtime as runtime
+import early_mlp_suffix_transport_v1_rows as row_contract
 
 
 TRUE_FIT_ROUTES = ("L", "R", "S0", "S1")
@@ -38,9 +39,9 @@ def validate_fit_rows(rows: torch.Tensor, context: capabilities.RunContext) -> t
     if not isinstance(context, capabilities.RunContext):
         raise TypeError("fit rows require the sealed suffix run context")
     if not torch.is_tensor(rows) or rows.dtype != torch.long or tuple(rows.shape) != (
-        capabilities.FIT_ROW_COUNT, runtime.SEQUENCE_LENGTH,
+        capabilities.FIT_ROW_COUNT, row_contract.TOKEN_LENGTH,
     ) or rows.device.type != "cpu":
-        raise ValueError("fit role must be contiguous CPU int64 [384,256]")
+        raise ValueError("fit role must be contiguous CPU int64 [384,513]")
     if runtime.tensor_identity_sha256(rows) != context.fit_role_tensor_sha256:
         raise RuntimeError("fit role tensor differs from the sealed run context")
     return rows.contiguous()
@@ -106,7 +107,9 @@ def make_identity(
 def _batch_tokens(
     rows: torch.Tensor, indices: Sequence[int], device: torch.device | str | None,
 ) -> torch.Tensor:
-    selected = rows[torch.tensor(tuple(indices), dtype=torch.long)].contiguous()
+    selected = rows[
+        torch.tensor(tuple(indices), dtype=torch.long), :runtime.SEQUENCE_LENGTH
+    ].contiguous()
     if device is not None:
         selected = selected.to(device=device)
     return selected

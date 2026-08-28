@@ -16,6 +16,7 @@ from types import MappingProxyType
 from typing import Any, Mapping, Sequence
 
 import torch
+import torch.nn.functional as F
 
 import early_mlp_suffix_transport_v1_fit as fit
 import early_mlp_suffix_transport_v1_runtime as runtime
@@ -139,6 +140,231 @@ class ValidationScore:
     @property
     def admissible(self) -> bool:
         return self.copy_worsening <= 0.01
+
+
+def _row_vector(name: str, value: torch.Tensor, *, dtype: torch.dtype) -> torch.Tensor:
+    if not torch.is_tensor(value) or tuple(value.shape) != (VALIDATION_ROWS,) or (
+        value.dtype != dtype
+    ) or (value.is_floating_point() and not bool(torch.isfinite(value).all())):
+        raise ValueError(f"validation statistic {name} changed shape, dtype, or finiteness")
+    return value.detach().cpu().contiguous().clone()
+
+
+@dataclass(frozen=True)
+class ValidationSufficientStatistics:
+    """Raw per-row selector statistics; ratios are intentionally not stored."""
+
+    route: str
+    program_sha256: str
+    common_support_sha256: str
+    row_primary_sum: torch.Tensor
+    row_primary_count: torch.Tensor
+    row_ce_sum: torch.Tensor
+    row_ce_count: torch.Tensor
+    row_copy_ce_sum: torch.Tensor
+    row_copy_count: torch.Tensor
+    baseline_row_copy_ce_sum: torch.Tensor
+    baseline_row_copy_count: torch.Tensor
+    student_original_calls: tuple[tuple[int, int], ...]
+    hook_restored: bool
+    hook_inert: bool
+
+    def __post_init__(self) -> None:
+        if self.route not in SELECTABLE_ROUTES or not _sha256(
+            self.program_sha256
+        ) or not _sha256(self.common_support_sha256):
+            raise ValueError("validation sufficient-statistic identity is malformed")
+        float_names = (
+            "row_primary_sum", "row_ce_sum", "row_copy_ce_sum",
+            "baseline_row_copy_ce_sum",
+        )
+        count_names = (
+            "row_primary_count", "row_ce_count", "row_copy_count",
+            "baseline_row_copy_count",
+        )
+        for name in float_names:
+            value = _row_vector(name, getattr(self, name), dtype=torch.float64)
+            if bool((value < 0).any()):
+                raise ValueError(f"validation statistic {name} is negative")
+            object.__setattr__(self, name, value)
+        for name in count_names:
+            value = _row_vector(name, getattr(self, name), dtype=torch.long)
+            if bool((value < 0).any()):
+                raise ValueError(f"validation statistic {name} is negative")
+            object.__setattr__(self, name, value)
+        expected = torch.full(
+            (VALIDATION_ROWS,), runtime.SCORE_STOP - runtime.SCORE_START,
+            dtype=torch.long,
+        )
+        if not torch.equal(self.row_primary_count, expected) or not torch.equal(
+            self.row_ce_count, expected
+        ) or not torch.equal(self.row_copy_count, self.baseline_row_copy_count) or int(
+            self.row_copy_count.sum()
+        ) <= 0:
+            raise ValueError("validation primary/CE/copy supports changed")
+        if self.student_original_calls != ZERO_NATIVE_CALLS or self.hook_restored is not True \
+                or self.hook_inert is not True:
+            raise ValueError("validation sufficient statistics lack a clean student closure")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "route": self.route,
+            "program_sha256": self.program_sha256,
+            "common_support_sha256": self.common_support_sha256,
+            **{
+                name: runtime.tensor_identity_sha256(getattr(self, name))
+                for name in (
+                    "row_primary_sum", "row_primary_count", "row_ce_sum", "row_ce_count",
+                    "row_copy_ce_sum", "row_copy_count", "baseline_row_copy_ce_sum",
+                    "baseline_row_copy_count",
+                )
+            },
+            "student_original_calls": self.student_original_calls,
+            "hook_restored": self.hook_restored,
+            "hook_inert": self.hook_inert,
+        })
+
+
+def validation_score_from_statistics(
+    candidate: fit.FitCandidate, statistics: ValidationSufficientStatistics,
+) -> ValidationScore:
+    """Recompute the only two scalar selector inputs from immutable raw row sums."""
+
+    if not isinstance(candidate, fit.FitCandidate) or not isinstance(
+        statistics, ValidationSufficientStatistics
+    ) or candidate.route != statistics.route or candidate.final_program_sha256 != (
+        statistics.program_sha256
+    ):
+        raise ValueError("validation statistics differ from their fit candidate")
+    primary = float(
+        statistics.row_primary_sum.sum() / statistics.row_primary_count.sum()
+    )
+    candidate_copy = statistics.row_copy_ce_sum.sum() / statistics.row_copy_count.sum()
+    baseline_copy = statistics.baseline_row_copy_ce_sum.sum() / (
+        statistics.baseline_row_copy_count.sum()
+    )
+    return ValidationScore(
+        route=candidate.route, trial=candidate.trial,
+        learning_rate=candidate.learning_rate,
+        program_sha256=candidate.final_program_sha256,
+        metric_name=METRIC_BY_ROUTE[candidate.route], primary_metric=primary,
+        copy_worsening=float(candidate_copy - baseline_copy),
+        scored_token_count=int(statistics.row_primary_count.sum()),
+        common_support_sha256=statistics.common_support_sha256,
+        sufficient_statistics_sha256=statistics.sha256,
+        student_original_calls=statistics.student_original_calls,
+        hook_restored=statistics.hook_restored, hook_inert=statistics.hook_inert,
+    )
+
+
+def local_primary_rows(
+    predictions: Sequence[torch.Tensor], labels: Sequence[torch.Tensor],
+    denominators: Sequence[torch.Tensor | float],
+) -> tuple[torch.Tensor, torch.Tensor]:
+    """Return per-row sums whose pooled mean equals registered normalized local loss."""
+
+    if len(predictions) != 2 or len(labels) != 2 or len(denominators) != 2:
+        raise ValueError("local validation requires exactly two sites")
+    row_sum = None
+    for prediction, label, denominator in zip(
+        predictions, labels, denominators, strict=True,
+    ):
+        prediction = runtime._canonical_code_support(prediction).float()
+        target = runtime._canonical_code_support(label).detach().to(
+            device=prediction.device, dtype=torch.float32,
+        )
+        if prediction.shape != target.shape:
+            raise ValueError("local validation prediction/label shapes differ")
+        scale = torch.as_tensor(denominator, dtype=torch.float64)
+        if scale.numel() != 1 or not bool(torch.isfinite(scale)) or float(scale) <= 0:
+            raise ValueError("local validation denominator is invalid")
+        contribution = (
+            (prediction - target).double().square().sum(dim=-1)
+            / (runtime.CODE_DIM * scale)
+        ).sum(dim=1)
+        row_sum = contribution if row_sum is None else row_sum + contribution
+    assert row_sum is not None
+    count = torch.full(
+        (len(row_sum),), runtime.SCORE_STOP - runtime.SCORE_START, dtype=torch.long,
+    )
+    return row_sum.detach().cpu().double().contiguous(), count
+
+
+def suffix_kl_rows(
+    teacher_logits: torch.Tensor, student_logits: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor]:
+    """Return per-row token KL sums on exact positions 64:256."""
+
+    if teacher_logits.shape != student_logits.shape or teacher_logits.ndim != 3:
+        raise ValueError("validation KL logits must be same-shaped rank-three tensors")
+    if teacher_logits.shape[1] == runtime.SEQUENCE_LENGTH:
+        teacher_logits = runtime.scored_positions(teacher_logits)
+        student_logits = runtime.scored_positions(student_logits)
+    if teacher_logits.shape[1] != runtime.SCORE_STOP - runtime.SCORE_START or (
+        teacher_logits.shape[-1] <= 1
+    ) or not bool(torch.isfinite(teacher_logits).all()) or not bool(
+        torch.isfinite(student_logits).all()
+    ):
+        raise ValueError("validation KL support or logits are malformed")
+    teacher_logp = F.log_softmax(teacher_logits.detach().float(), dim=-1)
+    student_logp = F.log_softmax(student_logits.float(), dim=-1)
+    per_token = torch.sum(teacher_logp.exp() * (teacher_logp - student_logp), dim=-1)
+    count = torch.full(
+        (len(per_token),), runtime.SCORE_STOP - runtime.SCORE_START, dtype=torch.long,
+    )
+    return per_token.double().sum(dim=1).detach().cpu().contiguous(), count
+
+
+def copy_mask(role_rows: torch.Tensor) -> torch.Tensor:
+    """Frozen 64-token-history copy mask on shifted targets 64:256."""
+
+    if not torch.is_tensor(role_rows) or role_rows.dtype != torch.long or role_rows.ndim != 2 \
+            or role_rows.shape[1] < runtime.SEQUENCE_LENGTH + 1:
+        raise ValueError("copy mask requires frozen rows with at least 257 tokens")
+    inputs = role_rows[:, :runtime.SEQUENCE_LENGTH]
+    targets = role_rows[:, 1:runtime.SEQUENCE_LENGTH + 1]
+    mask = torch.zeros_like(targets, dtype=torch.bool)
+    for lag in range(64):
+        past = torch.roll(inputs, lag, dims=1)
+        if lag:
+            past[:, :lag] = -1
+        mask |= past == targets
+    return mask[:, runtime.SCORE_START:runtime.SCORE_STOP].contiguous()
+
+
+def ce_and_copy_rows(
+    logits: torch.Tensor, role_rows: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+    """Return per-row global/copy CE sums and counts from the frozen shifted targets."""
+
+    if not torch.is_tensor(logits) or logits.ndim != 3 or logits.shape[0] != len(
+        role_rows
+    ) or logits.shape[-1] <= 1 or not bool(torch.isfinite(logits).all()):
+        raise ValueError("validation CE logits are malformed")
+    if logits.shape[1] == runtime.SEQUENCE_LENGTH:
+        logits = runtime.scored_positions(logits)
+    if logits.shape[1] != runtime.SCORE_STOP - runtime.SCORE_START:
+        raise ValueError("validation CE logits use the wrong positional support")
+    targets = role_rows[
+        :, 1:runtime.SEQUENCE_LENGTH + 1
+    ][:, runtime.SCORE_START:runtime.SCORE_STOP].to(logits.device)
+    if bool((targets < 0).any()) or bool((targets >= logits.shape[-1]).any()):
+        raise ValueError("validation targets exceed the supplied logit vocabulary")
+    losses = F.cross_entropy(
+        logits.float().reshape(-1, logits.shape[-1]), targets.reshape(-1),
+        reduction="none",
+    ).view(len(role_rows), -1).double()
+    mask = copy_mask(role_rows).to(logits.device)
+    return (
+        losses.sum(dim=1).detach().cpu().contiguous(),
+        torch.full(
+            (len(role_rows),), runtime.SCORE_STOP - runtime.SCORE_START,
+            dtype=torch.long,
+        ),
+        (losses * mask).sum(dim=1).detach().cpu().contiguous(),
+        mask.sum(dim=1).detach().cpu().long().contiguous(),
+    )
 
 
 @dataclass(frozen=True)
