@@ -309,7 +309,7 @@ def influence(idx, tg, hooks, site):
 
 
 @torch.no_grad()
-def empirical_rows(rows, probes, base_bank):
+def empirical_rows(rows, probes, base_bank, covered):
     """Per-token mean output over REAL contexts, written into a COPY of the length-1 row bank.
 
     Only the covered rows change; uncovered rows keep the same fallback the length-1 bank uses, so the
@@ -337,15 +337,25 @@ def empirical_rows(rows, probes, base_bank):
         for hd in hs:
             hd.remove()
     assert n['k'] > 0, 'empirical pass never fired'
+    assert covered.dtype == torch.bool and tuple(covered.shape) == (V,), \
+        'frozen coverage mask has wrong dtype or shape'
+    assert int(covered.sum()) == NCOV, \
+        f'frozen coverage has {int(covered.sum())} rows, expected {NCOV}'
     # §1843: restrict to the FIT-COVERED set. Accumulating over every token seen in the eval
     # rows gave 2403 UNCOVERED tokens an eval-derived mean instead of the output-NN fallback,
     # so the two banks differed on 7822 rows rather than 5419 and the arms differed twice over.
-    hit = (c > 0) & COV['seen']
+    hit = (c > 0) & covered
+    assert int(hit.sum()) == NCOV, \
+        f'empirical role observed {int(hit.sum())} of {NCOV} frozen covered tokens'
     out, changed = {}, {}
     for st in probes:
         bank = base_bank[st].clone()
         bank[hit] = (s[st][hit] / c[hit].unsqueeze(1)).float()
-        changed[st] = int(hit.sum())
+        assert torch.equal(bank[~covered], base_bank[st][~covered]), \
+            f'{st} empirical bank changed an uncovered fallback row'
+        changed[st] = int((bank != base_bank[st]).any(1).sum())
+        assert changed[st] == NCOV, \
+            f'{st} empirical bank changed {changed[st]} rows, expected {NCOV}'
         out[st] = bank
         s[st] = None
     torch.cuda.empty_cache()
@@ -624,7 +634,7 @@ def main():
             g[j3] = ln_live[j3] / max(ln_now[j3], 1e-9)
         return g
 
-    embank, nchanged = empirical_rows(ev0, PROBES, frr)
+    embank, nchanged = empirical_rows(ev0, PROBES, frr, full_seen.to(DEV))
     emh = {st: row_hook(embank[st]) for st in PROBES}
     ndiff = {f'{st[0]}{st[1]}': int((embank[st] != frr[st]).any(1).sum()) for st in PROBES}
     print(f'\n  empirical row banks built; rows differing from the length-1 bank: {ndiff} '

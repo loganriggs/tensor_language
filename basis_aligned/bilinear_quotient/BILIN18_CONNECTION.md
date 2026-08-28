@@ -49600,7 +49600,9 @@ Running one arm with the good table in §1834's units says **how much of the mos
 network is the site and how much is the table**, which is the question the last four sections have been
 circling and the only one left with a number attached.
 
-## §1843 — PROVISIONAL: mlp5's entire +61.2pp appears to be the TABLE, not the site — but my own control caught a confound
+## §1843 — SUPERSEDED BY §1844 (confound corrected). Figures below are the CONFOUNDED run; the corrected result is 77.3%, not 101.4%.
+
+> **Do not quote this section's numbers.** Its empirical bank overwrote 2403 uncovered rows as well as the covered ones, which its own pred_d caught. §1844 reruns it clean and the rescue falls from 101.4% of the stake to **77.3%**, with mlp5 still costing **+13.9pp** under the good table rather than nothing. The reasoning below stands; the figures do not.
 
 `ops/table_vs_site.py`, 238.2s, **DISCOVERY ONLY**, rung 3 (§1842's open question).
 **pred_a True | pred_b False | pred_c False | pred_d FALSE — results PROVISIONAL.**
@@ -49654,3 +49656,56 @@ forward predicts) and §1840 (the cost is not first-order), the account would be
 expensive where a one-token forward is least informative about what a site does in context, and it is
 expensive non-linearly.* That is a claim about the compiler's chosen table, which is a thing one can
 change, rather than about the network, which is not.
+
+## §1844 — corrected: 77% of mlp5's cost is the length-1 TABLE, 23% is the site
+
+`ops/table_vs_site.py` rerun with the confound fixed, 219.2s, **DISCOVERY ONLY**.
+**pred_a True | pred_b False | pred_c True | pred_d False (bar mis-specified, see below).**
+
+```
+  skip7000, sequential; B0 = 64.8%
+    mlp5   length-1   3.6%   empirical  50.9%   rescue +47.3pp of a 61.2pp stake ( 77.3%)
+    mlp4   length-1  20.3%   empirical  -1.4%   rescue -21.7pp of a 44.5pp stake (-48.7%)
+```
+
+**The fix.** §1843's empirical pass accumulated over every token in the eval rows, so 2403 uncovered
+tokens received an eval-derived mean instead of the output-NN fallback and the banks differed on 7822
+rows rather than the intended covered set. Restricting the overwrite to the fit-covered tokens leaves
+**2699** changed rows — every one covered — and the rescue drops from **101.4%** to **77.3%** of the
+stake. §1843's too-clean number was the confound, exactly as I suspected when marking it provisional.
+
+**pred_d still FAILED, and this time the bar was simply wrong.** I required the banks to differ on
+exactly 5419 rows. Only **2699** of the 5419 fit-covered tokens actually occur in the skip7000 eval rows,
+and a token with no occurrences has no empirical mean to write — so it keeps the length-1 row in *both*
+banks, which is correct. The achievable number was never 5419; it is |covered ∩ eval-present|. Every
+other control held: B0 reproduces §1829's 64.8%, both length-1 arms reproduce §1834's published 3.6% and
+20.3%, endpoints reproduce §1789, the placement control moves top-1 under 0.05pp.
+
+> **The answer to the question §1834-§1843 were circling: 77% table, 23% site.** Of mlp5's **+61.2pp**,
+> **47.3pp is the length-1 context-free table** — replaceable, since the empirical per-token mean is a
+> different table over the same interface — and **13.9pp is mlp5 itself**, which pred_c now passes
+> rather than fails. §1834's "most expensive site in the network" is mostly a statement about **the
+> compiler's chosen table at layer 5**, and only partly about the layer.
+
+**pred_b FAILED again and the inversion is now a robust finding rather than a curiosity.** At mlp4 the
+empirical mean is a **worse** substitute than the length-1 row in both the confounded and the corrected
+run (20.3% → −8.7% confounded, 20.3% → −1.4% corrected), even though §1842 measured the length-1 row at
+**9.92x** the site's output RMS from that mean — the largest such gap in the network. **A table can be
+far from the conditional mean and still work better than it.** The conditional mean minimises squared
+error on the site's own output; it does not minimise downstream loss, and §1840 already showed those
+come apart. mlp4 is where they come apart most.
+
+**What the arc now says.** Compilation is expensive where a one-token forward is least informative about
+what a site does in context (§1842: the early MLPs sit 1.5-9.9x their own output RMS away from that),
+the expense is **non-linear** in how much context-dependence is removed with a shared curve shape across
+sites (§1840, §1841), and **most of the headline cost at the worst site is the table rather than the
+network** (§1844). The first two are facts about bilin18; the third is a fact about the compiler, and a
+compiler can be changed.
+
+**Open question this ends on.** The empirical per-token mean is not deployable — it is fitted on the
+eval distribution and needs real contexts to build. But it is not the only alternative to a length-1
+forward. A table built from **short real contexts** (the site's output averaged over its occurrences in
+the *fit* rows, which §1834's pipeline already streams) is deployable, costs the same to store, and sits
+somewhere between the two. Measuring where it lands on the 3.6% / 50.9% scale at mlp5 says whether the
+77% is recoverable in practice or only in principle — and that is the difference between a diagnosis and
+an improvement to the compiler.

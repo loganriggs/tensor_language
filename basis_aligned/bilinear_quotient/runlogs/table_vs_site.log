@@ -10,38 +10,38 @@ TABLE vs SITE | the S1834 arm with the EMPIRICAL per-token mean | settled progra
   all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
   live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
 
-  arms  (119s)
+  arms  (112s)
   all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
   live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
 
-  empirical row banks built; rows differing from the length-1 bank: {'mlp5': 7822, 'mlp4': 7822} (covered 5419)
+  empirical row banks built; rows differing from the length-1 bank: {'mlp5': 2699, 'mlp4': 2699} (covered 5419)
 
-  arms  (141s)
+  arms  (127s)
   B0_raw                 skip7000 23.20%  skip11000 25.38%  skip1200 23.26%
   B0_seq                 skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
   L1_mlp5_raw            skip7000 13.46%  skip11000 14.00%  skip1200 13.93%
   L1_mlp5_seq            skip7000 14.47%  skip11000 14.57%  skip1200 14.61%
-  EM_mlp5_raw            skip7000 25.84%  skip11000 23.92%  skip1200 22.09%
-  EM_mlp5_seq            skip7000 30.46%  skip11000 28.26%  skip1200 25.41%
+  EM_mlp5_raw            skip7000 22.24%  skip11000 22.73%  skip1200 21.12%
+  EM_mlp5_seq            skip7000 26.67%  skip11000 26.85%  skip1200 24.51%
   L1_mlp4_raw            skip7000  1.00%  skip11000  1.11%  skip1200  0.97%
   L1_mlp4_seq            skip7000 18.77%  skip11000 20.13%  skip1200 18.93%
-  EM_mlp4_raw            skip7000 13.84%  skip11000  5.12%  skip1200  4.92%
-  EM_mlp4_seq            skip7000 11.32%  skip11000 12.68%  skip1200 12.11%
+  EM_mlp4_raw            skip7000  3.45%  skip11000  3.17%  skip1200  2.92%
+  EM_mlp4_seq            skip7000 13.18%  skip11000 14.38%  skip1200 13.63%
   allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
 
   gap fraction recovered, all roles:
     B0         skip7000 raw   37.4% seq   64.8%  skip11000 raw   39.6% seq   65.3%  skip1200 raw   38.1% seq   61.3%
     L1_mlp5    skip7000 raw   -0.4% seq    3.6%  skip11000 raw   -0.9% seq    1.1%  skip1200 raw    1.1% seq    3.8%
-    EM_mlp5    skip7000 raw   47.7% seq   65.6%  skip11000 raw   34.4% seq   49.9%  skip1200 raw   33.4% seq   46.6%
+    EM_mlp5    skip7000 raw   33.7% seq   50.9%  skip11000 raw   30.2% seq   44.9%  skip1200 raw   29.6% seq   43.1%
     L1_mlp4    skip7000 raw  -48.7% seq   20.3%  skip11000 raw  -46.7% seq   20.9%  skip1200 raw  -50.2% seq   21.0%
-    EM_mlp4    skip7000 raw    1.1% seq   -8.7%  skip11000 raw  -32.5% seq   -5.6%  skip1200 raw  -34.6% seq   -6.1%
+    EM_mlp4    skip7000 raw  -39.2% seq   -1.4%  skip11000 raw  -39.4% seq    0.5%  skip1200 raw  -42.5% seq   -0.1%
 
   TABLE vs SITE (skip7000, sequential; B0 64.8%):
-    mlp5  length-1   3.6%  empirical  65.6%  rescue +62.1% of a 61.2% stake (101.4%)   §1842 table gap 2.78
-    mlp4  length-1  20.3%  empirical  -8.7%  rescue -28.9% of a 44.5% stake (-64.9%)   §1842 table gap 9.92
+    mlp5  length-1   3.6%  empirical  50.9%  rescue +47.3% of a 61.2% stake (77.3%)   §1842 table gap 2.78
+    mlp4  length-1  20.3%  empirical  -1.4%  rescue -21.7% of a 44.5% stake (-48.7%)   §1842 table gap 9.92
 
-  the TABLE is most of it (EM_mlp5 recovers >=half of the stake) -> True  EM_mlp5 65.6% vs the 34.2% needed
-  and the rescue TRACKS the §1842 table gap (mlp4 > mlp5) -> False  mlp4 -28.9% vs mlp5 +62.1%
-  and the SITE still costs >=10pp with the good table -> False  mlp5 -0.8%
+  the TABLE is most of it (EM_mlp5 recovers >=half of the stake) -> True  EM_mlp5 50.9% vs the 34.2% needed
+  and the rescue TRACKS the §1842 table gap (mlp4 > mlp5) -> False  mlp4 -21.7% vs mlp5 +47.3%
+  and the SITE still costs >=10pp with the good table -> True  mlp5 +13.9%
   B0 §1829, length-1 arms §1834, banks differ on exactly 5419 rows -> control False
-wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/table_vs_site_results.json (238.2s)
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/table_vs_site_results.json (219.2s)
