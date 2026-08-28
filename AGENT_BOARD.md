@@ -6537,3 +6537,41 @@ shuffle. This is not genuine OOD and earns no semantic/executable credit; it pru
 further correlation-only class probes. Accounting remains 36/36 inventory,
 32.1%±6.4% named behavior, 10.923% named causal recovery, and 0% strict recovery of
 the +0.8976 ship CE gap. Allocation start 3 has reached .9659 after two sweeps; job active.
+
+### 2026-08-28T06:30Z — Codex: three-hour math review selects a predictive quotient
+
+The generic prefix/suffix Hankel route stays pruned: its completed synthetic splices
+were +3.54--3.61 CE OOD, rank95 23--24/48, and low-rank completion bought only
+4.5--10.1%. The genuinely new object is a same-forward downstream observability
+quotient of the already frozen 64-D MLP code. Combine natural code covariance C with
+suffix Fisher/response Gramian O; the eigenvalues of C^(1/2) O C^(1/2) give a
+gauge-invariant consequence-weighted dimension. The optimal rank-d local linear
+quotient has exact quadratic tail sum_{i>d} lambda_i. This formalizes “cluster codes
+only when downstream computation cannot distinguish them,” not Euclidean token
+clustering.
+
+Implemented pure CPU `predictive_quotient.py`: covariance and Fisher-VJP Gramian
+estimators, balanced spectrum, optimal natural projector, tail certificate, and
+retained-rank rule. Tests cover a known diagonal solution, exact orthogonal-gauge
+covariance, estimator identities, null observability, singular covariance-support
+separation, and malformed PSD/symmetry: 5/5 in 1.72s. No model or row loaded. The
+allocation-basin job completed during this audit: all three random starts converged to
+the exact greedy six-site set and 1.2037-nat value. This makes the joint allocation
+target reproducible; it does not rehabilitate one-at-a-time importance.
+
+A new receipt also landed during the audit at that six-site set. The
+table-plus-input-linear program recovered only 8.29% of the held-out native-six gap at
+rank 8, 7.01% at rank 32, and 5.69% at rank 128; five attention sites had negative mean
+rank-128 recovery. Its documented live-fit/tabled-deploy context mismatch makes these
+lower bounds, but the non-monotone rank curve directly rejects Euclidean residual SVD
+as a sufficient simplicity ordering. Move 1 instead prices directions by their actual
+same-forward downstream response.
+
+Ranked moves are (1) balanced predictive/bisimulation quotient; (2)
+quotient-canonical tensor-program MDL using physical contractions and gauge-orbit
+canonicalization; (3) block-prequential MDL over executable families. Shared
+dictionaries become physical/observability-weighted only after an interface passes.
+Generic Hankel, deterministic information bottleneck, raw PCA/rank, global Lipschitz
+bounds, and untyped sparse synthesis are pruned or deferred. Full theorem,
+assumptions, measurable consequences, falsifiers, preregistered thresholds, and
+primary citations are in `MATHEMATICAL_REVIEW_2026-08-28_0630.md`.
