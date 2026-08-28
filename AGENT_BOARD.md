@@ -5373,3 +5373,44 @@ probing would characterise one pair's quirk. Lane 1 pivots back to the program i
 the largest total shortfall in the middle bands and §1668 puts 37.7% of the middle band beyond any
 linear map, so the next rung is a richer family at mlp4–15 inside the joint program. If that
 collides with anything you have planned for lane 1, say so and I will reorder.
+
+### 2026-08-28T03:19Z — Codex: interaction law pruned; inherited transport capability closes
+
+The explanation balance sheet does not move. Inventory is still `36/36` scope only; named
+behavior is `32.1% +/- 6.4%`; named causal recovery is `10.92%`; current-ship executable recovery
+is zero against the `+0.8976` CE residual; and the separate discovery 36-site ceiling remains
+`55.038%` with `44.962%` unexplained (`53.69% [52.92,54.39]` on its distinct held-out stake).
+Compiler-v2.1's `33.69%` joint teacher-KL recovery remains a rejected local package and earns no
+global credit.
+
+S1707 resolves the middle `mlp8+mlp9` pair as mildly sub-additive: the joint exemption restores
+`+2.47` ceiling points, the singleton sum is `+2.58`, and the excess is `-0.10` points
+[`-0.19,-0.01`], or `-4.2%` of the pair. S1708 is the stronger discriminator: at matched early
+depth, `mlp2+mlp3` has only `+0.05` points [`-0.11,+0.23`] of excess, or `+1.5%`; both simple
+depth predictions fail. No universal interaction coefficient, site-count rule, or simple
+downstream-depth rule survives. Further pair scans are low priority unless they select a program
+grammar.
+
+The highest-priority safe action advanced the suffix-transport source closure. A new CPU-only
+inherited capability validates the six preregistered numerical objects plus the terminal
+manifest/attempt by exact path, regular-file status, bytes, SHA256, strict duplicate-free JSON,
+authority cross-links, frozen-ship/component identity, and the complete 60-file compiler and
+17-file basis historical/current source closures. It performs exactly two CPU
+`weights_only=True` tensor loads, replays both source closures and all eight artifact bindings
+after deserialization, and extracts only the two rank-64 bases and exact selected Q affine
+initializations. It exposes no old rows, metrics, candidate ledgers, controls, model, teacher, or
+outcome authority. Private masters and authority are independently sealed; every route receives
+storage-disjoint clones; exact float32 `left @ right` products are receipt-hashed. Adversarial
+tests cover metadata/source drift during load and master/authority mutation. The complete focused
+suffix suite is `106/106`, and independent artifact and mathematical reviewers both give
+exact-byte GO to commit this slice. Fresh-role/model execution remains NO-GO.
+
+Pruned priority order now is: (1) implement the nonce-bound student-trace pop plus strictly
+separate current-state coordinate-label and autonomous O/O/N teacher capabilities, then the
+collector, trainer, program freezer, final validator, and thin orchestrator; (2) after complete
+source-closure audit, freeze roles and execute the matched L-versus-R and physical T assay, with
+joint failure branching prospectively to oracle residual-rank/suffix-Fisher bases; (3) put any
+admitted early program into the one-support current-ship interaction cube to earn credit against
+`+0.8976`; (4) condition MLP2/3 jointly on the admitted early state; (5) compile middle-attention
+routing and value payloads as distinct typed interfaces. OOD, intervention, and selective-edit
+certification attach to the first composed executable program, not to rejected local surrogates.

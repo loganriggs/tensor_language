@@ -671,3 +671,53 @@ closed original-call capability mixing, cross-route leakage, open local support,
 artifact review found and closed a nondeterministic over-tight test. The superseding focused suite
 passes `95/95` and exact-byte re-audit is pending. No row or model was loaded, so execution remains
 NO-GO.
+
+## Strategic checkpoint — 2026-08-28 03:19 UTC
+
+The accounting remains denominator-separated and unchanged: structural inventory `36/36` is
+scope only; named behavior is `32.1% +/- 6.4%` with `67.9%` residual; named causal recovery is
+`10.923%` with `4.72714` nats residual; certified recovery against the current ship's `+0.8976`
+CE is zero; and the discovery 36-site ceiling is `55.038%` with `2.50365` nats or `44.962%`
+residual. Its held-out replication is `53.694% [52.922,54.387]` on a different `5.77495`-nat
+stake. These currencies are not averaged. Compiler-v2.1 remains authoritatively negative: its
+joint teacher-KL recovery is `33.692%`, leaving `66.31%`, so it earns no executable credit.
+
+The interaction ladder is now useful mainly for pruning. The middle `mlp8+mlp9` pair has a
+`-0.10`-point excess [`-0.19,-0.01`], or `-4.2%`, intermediate between early `+41.8%` and late
+`-20.1%`. At the same early depth, `mlp2+mlp3` is essentially additive: `+0.05` points
+[`-0.11,+0.23`], or `+1.5%`, falsifying the simple downstream-depth prediction. Interaction is
+therefore location/function specific, not a portable coefficient. Further pair scans are
+redundant unless they discriminate an executable grammar. The practical consequence is sharper:
+early sites must be compiled and tested as a same-forward typed interface, while no interaction
+estimate may be transported to the middle or late stack.
+
+After pruning by information gain, causal relevance, whole-model composability, falsifiability,
+GPU cost, and redundancy, the next five are:
+
+1. Finish the suffix-transport source closure. The next unit is a nonce-bound one-use student
+   trace followed by non-overlapping coordinate-label and autonomous O/O/N teacher capabilities;
+   then collector, trainer, create-only program transaction, final semantic validator, and thin
+   orchestrator. This directly targets the unresolved MLP0-to-MLP1 interface.
+2. Once exact-byte execution audit passes, freeze disjoint roles and run the matched local-loss
+   versus suffix-KL and physical `B0 A B1^T` discriminator. If L and R/T both fail, branch only to
+   the prospectively named oracle residual-rank/suffix-Fisher basis assay.
+3. Insert any admitted early program into one common-support current-ship
+   `attention x early-MLP x deep` cube. This is the first step that can earn recovery against the
+   actual `+0.8976` residual and expose cross-family composition failures.
+4. Condition MLP2/3 jointly on the admitted transported state. Their large front-band singleton
+   gains and the now-nonportable pair interactions make independent fitting scientifically
+   inadequate.
+5. Compile the middle-attention band with distinct routing and value grammars. Its `+12.136`
+   conditional ceiling points make it the largest non-early typed-interface target after the
+   early causal bridge.
+
+Executed this checkpoint: the canonical inherited-input boundary is complete. It validates the
+six frozen numerical objects and terminal manifest/attempt by exact hashes, bytes, strict JSON,
+cross-links, ship identity, and both the 60-file compiler and 17-file basis source histories.
+Only the basis pair and selected v2.1 Q affine states are exposed; the two heavy objects are the
+only CPU `weights_only=True` loads. All sources and eight artifact bindings are replayed after
+deserialization to close mutation races. Masters and authority are separately sealed, exact
+float32 full products are bound, and every trial/route receives disjoint clones. Adversarial
+tests reject source/artifact drift and master/authority mutation. The full focused suite passes
+`106/106`; independent artifact and mathematical audits give exact-byte GO. The slice is
+non-authorizing: no fresh row, model, teacher, forward, or outcome authority was loaded or run.

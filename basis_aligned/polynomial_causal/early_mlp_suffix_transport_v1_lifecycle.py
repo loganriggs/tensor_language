@@ -54,6 +54,8 @@ SOURCE_CLOSURE = (
     HERE / "test_early_mlp_suffix_transport_v1_row_freezer.py",
     HERE / "early_mlp_suffix_transport_v1_runtime.py",
     HERE / "test_early_mlp_suffix_transport_v1_runtime.py",
+    HERE / "early_mlp_suffix_transport_v1_inherited.py",
+    HERE / "test_early_mlp_suffix_transport_v1_inherited.py",
 )
 
 ROLE_NAMES = (
