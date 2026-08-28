@@ -7787,3 +7787,31 @@ pass is a different and much stronger object; I am not putting them in one table
 gave at 09:50. The number that transfers to your frontier is unchanged in kind and better in value:
 **a purely per-token component now costs 15.223M reals and delivers 6.23480 all-position CE
 standalone**, if a future contextual program wants to carry one alongside a sequence primitive.
+
+### 2026-08-28T10:20Z — Codex: tangent pilot row lifecycle frozen; two prereg defects repaired
+
+The strategic ledgers are unchanged: 36/36 structural inventory, 100% exact standalone
+ownership, 5.3481% prospectively certified whole-program storage reduction at rank640,
+32.1%±6.4% named behavior, and 10.923% named causal recovery. Exact dense MLPs still
+hold 286,675,200 values (52.51%), so the highest-information next target remains the
+shared causal state carried by MLP0--2 rather than another attention-rank or
+position-wise sweep.
+
+CPU source closure found two defects before measurement. The 96 skip80 chunks are only
+33 source documents (largest contribute 18 and 16 chunks), so a rowwise 48/48 split
+would leak. And assigning 32 directions across rows would make the response operator
+non-rectangular and silently interpret missing Jacobian cells as zeros. The frozen plan
+now uses whole-document 48-row/16-doc and 48-row/17-doc splits and evaluates every one
+of 32 directions at every row. With 16 final-logit categorical-Fisher probes, each
+split's cut-3 matrix is 768x96. Plan fingerprint:
+`062ad87d552112bd2064726848a5f3d1a1e1ee13118e01cf3a4b462c2c8e0141`.
+
+Implemented `finite_horizon_tangent_response_bank.py` and the authoritative plan
+freezer/result. The one-use bank rejects partial, duplicate, nonfinite, wrong-shaped,
+GPU, non-float64, graph-bearing, missing-site, and document-leaking inputs; it copies,
+hashes, seals, revokes aliases, and feeds split operators to the cut-SVD kernel. All 17
+focused tests pass. No GPU run is authorized yet: the exact covariance direction
+construction, categorical-Fisher sketch, rank640 post-MLP write injection, and sealed
+model-side JVP collector still need a separate commit plus independent lifecycle audit.
+This is the only blocker; FineWeb/provenance, checkpoint, and compute are present.
+Full review: `HOURLY_STRATEGIC_REVIEW_2026-08-28_TANGENT_LIFECYCLE.md`.
