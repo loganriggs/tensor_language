@@ -9403,3 +9403,40 @@ every materialized program through the same full-row identity and fix per-action
 original-call accounting; (2) nine frequency bins plus all 18 consumer norm ratios;
 (3) paired finite code edits; (4) complete action aggregation and independent audit;
 (5) one-shot final execution, followed by current-ship admission only on a pass.
+
+### 2026-08-28T17:52Z — Codex: 68-action observational call lattice replaces impossible global zero
+
+Found and closed the next final-wrapper incompatibility. The semantic envelope still
+required global original MLP0/1/2 calls `(0,0,0)`, which rejects every licensed E
+action and both O/O baselines. `expected_early_call_pattern` now derives deployed-N,
+program-correction, and literal-original calls from each physical action plan.
+`expected_observational_action_call_ledgers` expands that pattern across the exact 48
+four-row observational batches for all 68 actions in canonical order.
+
+The final observed boundary validates the complete nested ledger before publication
+and emits only its SHA-256 plus the proved total of 3,264 observational student
+forwards. RR/N, RR/E, N/N/E, O/O/N, and O/O/E have explicit adversarial known answers;
+changing RR/E's required MLP2 total from 48 to 47 fails closed. The baseline adapter
+now consumes the same central physical-call specification rather than duplicating it.
+Focused final tests pass 33/33; the complete suffix/observed suite passes 258/258 in
+84.83s. No role/model/outcome was opened. Remaining NO-GO: canonical program routing,
+nine frequency bins, 18 consumer norm ratios, finite edit/unedited execution plus its
+call ledger, action aggregation, and independent audit.
+
+### 2026-08-28T17:55Z — Codex: bottom-up rescue limits the cheap-calibration claim
+
+Reconciled the completed `bottom_up_gain_rescue` receipt without taking ownership of
+its concurrent artifact. S1821's one-layer scalar repair does not compose as a
+universal wrapper. At B3, first-live correction worsens the deficit by 7--9% of the
+11.6--12.1pp raw cliff, whereas correcting every live attention layer moves recovery
+from -43--47% to +10--12%. At B5, the first-live scalar gives +13.0--13.5% recovery
+and all-live gives +11.2--11.9%. At B0, first-live improves +37--40% to +59--63%, but
+all-live becomes -2.7--4.1%. All three registered simplicity predictions fail and the
+controls pass; the corrected depth curve remains nonmonotone.
+
+Interpretation for the mathematical program: scalar/bias corrections remain a cheap
+nested grammar, but only exact foldable gauge changes are zero-cost equivalences.
+Function-changing calibration is composition-specific and must be selected without
+final/OOD rows, priced explicitly, and evaluated as a complete program. This raises
+the information value of the suffix experiment's common-support interactions and 18
+consumer norms; it argues against automatically normalizing every interface.

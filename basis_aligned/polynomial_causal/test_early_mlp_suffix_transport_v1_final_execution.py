@@ -47,7 +47,9 @@ def _closure() -> dict:
         "arm_support_sha256s": {
             arm: "d" * 64 for arm in execution.REQUIRED_FINAL_ARMS
         },
-        "student_original_mlp_calls": {"0": 0, "1": 0, "2": 0},
+        "observational_action_call_ledgers": (
+            execution.final_actions.expected_observational_action_call_ledgers()
+        ),
         "gauge_replay_differences": tuple(torch.zeros(3) for _ in range(8)),
         "svd_replay_difference": torch.zeros(3),
         "difference_in_differences_replay_difference": torch.zeros(3),
@@ -130,7 +132,10 @@ def test_observed_final_callback_builds_only_the_semantic_envelope() -> None:
         "student_poison_closed": True,
         "programs_reloaded_semantically": True,
         "common_support_complete": True,
-        "student_original_mlp_calls": {"0": 0, "1": 0, "2": 0},
+        "observational_action_call_ledger_sha256": execution.runtime.logical_identity_sha256(
+            execution.final_actions.expected_observational_action_call_ledgers()
+        ),
+        "observational_student_outer_forwards": 68 * 48,
         "gauge_replays": 8,
         "gauge_max_abs_drift": 0.0,
         "svd_max_abs_drift": 0.0,
@@ -189,7 +194,12 @@ def test_reductions_reject_raw_tensors_and_inconsistent_response_geometry() -> N
         (lambda value: value.__setitem__("student_poison_closed", False), "hook/poison"),
         (lambda value: value.__setitem__("component_tree_after_sha256", "9" * 64), "component tree"),
         (lambda value: value.__setitem__("program_payload_sha256", "9" * 64), "program bank"),
-        (lambda value: value["student_original_mlp_calls"].__setitem__("1", 1), "original early MLP"),
+        (
+            lambda value: value["observational_action_call_ledgers"]["rr/E"][
+                "literal_early_mlp_calls"
+            ].__setitem__("2", 47),
+            "call ledger",
+        ),
         (lambda value: value["gauge_replay_differences"][0].fill_(3e-6), "replay tolerance"),
         (lambda value: value["svd_replay_difference"].fill_(3e-6), "replay tolerance"),
         (lambda value: value["difference_in_differences_replay_difference"].fill_(3e-6), "replay tolerance"),
@@ -198,7 +208,11 @@ def test_reductions_reject_raw_tensors_and_inconsistent_response_geometry() -> N
 def test_adversarial_closure_failures(mutator, message) -> None:
     closure = _closure()
     mutator(closure)
-    reductions = _reductions(closure_evidence=closure)
+    try:
+        reductions = _reductions(closure_evidence=closure)
+    except RuntimeError as error:
+        assert message in str(error)
+        return
     with pytest.raises(RuntimeError, match=message):
         _evaluate(lambda **_kwargs: reductions)
 

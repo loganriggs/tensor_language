@@ -20,6 +20,7 @@ from typing import Any, Callable, Mapping, Sequence
 import torch
 
 import bilin18_observed_adapter as observed
+import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_final_capability as final_capability
 import early_mlp_suffix_transport_v1_final as final_owner
 import early_mlp_suffix_transport_v1_lifecycle as lifecycle
@@ -40,7 +41,7 @@ _CLOSURE_FIELDS = {
     "component_tree_before_sha256", "component_tree_after_sha256",
     "student_poison_closed", "program_payload_sha256",
     "common_support_sha256", "arm_support_sha256s",
-    "student_original_mlp_calls", "gauge_replay_differences",
+    "observational_action_call_ledgers", "gauge_replay_differences",
     "svd_replay_difference", "difference_in_differences_replay_difference",
     "row_count", "scored_tokens_per_row", "scored_token_count",
 }
@@ -96,6 +97,42 @@ def _difference_vector(value: Any, name: str) -> torch.Tensor:
     ) or not bool(torch.isfinite(value).all()):
         raise RuntimeError(f"{name} replay difference is malformed")
     return value.detach().cpu().double().contiguous().clone()
+
+
+def _observational_action_call_ledgers(value: Any) -> dict[str, dict[str, Any]]:
+    """Validate all 48 observational student forwards for every final action."""
+
+    expected = final_actions.expected_observational_action_call_ledgers()
+    supplied = _exact_mapping(
+        value, set(REQUIRED_FINAL_ARMS), "observational action call ledgers",
+    )
+    cleaned: dict[str, dict[str, Any]] = {}
+    fields = (
+        "deployed_n_calls", "correction_calls", "literal_early_mlp_calls",
+    )
+    for action in REQUIRED_FINAL_ARMS:
+        ledger = _exact_mapping(
+            supplied[action], {"outer_forward_count", *fields},
+            f"{action} observational call ledger",
+        )
+        clean: dict[str, Any] = {
+            "outer_forward_count": ledger["outer_forward_count"],
+        }
+        for name in fields:
+            counts = _exact_mapping(
+                ledger[name], {"0", "1", "2"}, f"{action} {name}",
+            )
+            clean[name] = dict(counts)
+        integers = (
+            clean["outer_forward_count"],
+            *(count for name in fields for count in clean[name].values()),
+        )
+        if any(type(item) is not int or item < 0 for item in integers) or clean != (
+            expected[action]
+        ):
+            raise RuntimeError(f"{action} observational student call ledger changed")
+        cleaned[action] = clean
+    return cleaned
 
 
 @dataclass(frozen=True, slots=True)
@@ -167,6 +204,11 @@ class FinalObservedReductions:
                 "difference-in-differences",
             )
         )
+        clean_closure["observational_action_call_ledgers"] = (
+            _observational_action_call_ledgers(
+                closure["observational_action_call_ledgers"],
+            )
+        )
         object.__setattr__(self, "objective_gates", dict(objective))
         object.__setattr__(self, "transport_observational_gates", dict(observational))
         for name, value in responses.items():
@@ -224,12 +266,13 @@ def _execution_closure(
     )
     if not _sha256(support) or any(value != support for value in arm_support.values()):
         raise RuntimeError("final arm support is incomplete or mixed")
-    calls = _exact_mapping(
-        evidence["student_original_mlp_calls"], {"0", "1", "2"},
-        "final student original-call ledger",
+    action_ledgers = _observational_action_call_ledgers(
+        evidence["observational_action_call_ledgers"],
     )
-    if any(type(calls[str(site)]) is not int or calls[str(site)] != 0 for site in range(3)):
-        raise RuntimeError("final student path called an original early MLP")
+    action_ledger_sha256 = runtime.logical_identity_sha256(action_ledgers)
+    observational_forwards = sum(
+        ledger["outer_forward_count"] for ledger in action_ledgers.values()
+    )
     if evidence["row_count"] != FINAL_ROW_COUNT or evidence[
         "scored_tokens_per_row"
     ] != SCORED_TOKENS_PER_ROW or evidence["scored_token_count"] != (
@@ -255,7 +298,8 @@ def _execution_closure(
         "student_poison_closed": True,
         "programs_reloaded_semantically": True,
         "common_support_complete": True,
-        "student_original_mlp_calls": dict(calls),
+        "observational_action_call_ledger_sha256": action_ledger_sha256,
+        "observational_student_outer_forwards": observational_forwards,
         "gauge_replays": 8,
         "gauge_max_abs_drift": gauge,
         "svd_max_abs_drift": svd,

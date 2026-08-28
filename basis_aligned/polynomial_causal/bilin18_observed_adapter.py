@@ -791,20 +791,18 @@ class ObservedBilin18Adapter:
             )
             outer_returned = True
         expected_all = tuple((site, 1) for site in range(len(self._model.transformer.h)))
-        expected_deployed = tuple(
-            (site, 0 if site in exact_sites else 1) for site in EARLY_SITES
-        )
-        expected_exact = tuple(
-            (site, 1 if site in exact_sites else 0) for site in EARLY_SITES
+        semantic_arm = "n_n" if execution_kind == "deployed_baseline" else "o_o"
+        expected_pattern = final_actions.expected_early_call_pattern(
+            final_actions.plan_for(semantic_arm, background),
         )
         literal_calls = {
             site: exact_calls[site] + poison.calls[site] for site in EARLY_SITES
         }
         if _counts(attention_calls) != expected_all or _counts(mlp_calls) != (
             expected_all
-        ) or _counts(deployed_calls) != expected_deployed or _counts(
+        ) or _counts(deployed_calls) != expected_pattern.deployed_n_calls or _counts(
             literal_calls
-        ) != expected_exact or not outer_returned or not poison.restored or not (
+        ) != expected_pattern.literal_early_mlp_calls or not outer_returned or not poison.restored or not (
             poison.inert
         ) or logits is None:
             raise RuntimeError("observed final baseline did not close exactly")

@@ -200,3 +200,28 @@ def test_final_action_batch_identity_binds_action_materialization_rows_and_suppo
             final_role_tensor_sha256="4" * 64, program_payload_sha256="5" * 64,
             common_support_sha256="6" * 64,
         )
+
+
+def test_all_68_observational_call_ledgers_match_their_physical_paths() -> None:
+    ledgers = actions.expected_observational_action_call_ledgers()
+    assert tuple(ledgers) == actions.CANONICAL_ACTION_KEYS
+    assert len(ledgers) == 68
+    batches = actions.OBSERVATIONAL_BATCH_COUNT
+    assert batches == 48
+
+    assert ledgers["rr/N"] == {
+        "outer_forward_count": batches,
+        "deployed_n_calls": {"0": batches, "1": batches, "2": batches},
+        "correction_calls": {"0": batches, "1": batches, "2": 0},
+        "literal_early_mlp_calls": {"0": 0, "1": 0, "2": 0},
+    }
+    assert ledgers["rr/E"]["literal_early_mlp_calls"] == {
+        "0": 0, "1": 0, "2": batches,
+    }
+    assert ledgers["n_n/E"]["correction_calls"] == {"0": 0, "1": 0, "2": 0}
+    assert ledgers["o_o/N"]["deployed_n_calls"] == {
+        "0": 0, "1": 0, "2": batches,
+    }
+    assert ledgers["o_o/E"]["literal_early_mlp_calls"] == {
+        "0": batches, "1": batches, "2": batches,
+    }

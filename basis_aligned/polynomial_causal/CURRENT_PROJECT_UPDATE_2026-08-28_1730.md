@@ -1,5 +1,49 @@
 # Plain-language project update — 2026-08-28 17:30 UTC
 
+## UPDATE AFTER 17:55 — a one-scalar repair is useful but not freely composable
+
+The successful isolated L5/L6 repair was tested in a harder bottom-up setting: compile
+layers from the bottom, retain a live suffix, and apply the measured scalar correction
+either to the first live attention layer or to every live attention layer.
+
+The result rejects a universal “just fix the first interface scalar” rule:
+
+- with layers 0--3 compiled, correcting only the first live layer makes the result
+  slightly worse, while correcting every live attention layer recovers about 10--12%
+  of the full compiled-to-live accuracy gap;
+- with layers 0--5 compiled, correcting the first live layer recovers about 13%, and
+  correcting all live layers recovers about 11--12%;
+- with only layer 0 compiled, correcting the first live layer improves recovery from
+  roughly 37--40% to 59--63%, but correcting every live layer makes recovery negative.
+
+The corrected depth curve is therefore not monotone. A scalar is computationally
+cheap, but its causal usefulness depends on where the compiled/live boundary lies and
+which other corrections are installed. This strengthens, rather than removes, the
+need for the 68-action composition test and all-consumer measurements. A calibrated
+simplicity frontier must fit corrections only on fit/validation data and evaluate the
+complete corrected composition on held-out CE, OOD, and edits; it cannot declare a
+transformation “free” merely because it has one parameter.
+
+## UPDATE AFTER 17:52 — every action now has the correct physical call ledger
+
+The older final wrapper claimed that original MLP0, MLP1, and MLP2 calls must all be
+zero over the complete experiment. That is impossible for legitimate actions: every
+`E` action must call exact MLP2, and `O/O` must call exact MLP0 and MLP1.
+
+The replacement is a 68-entry ledger derived from the physical action plan. For each
+action it fixes the total deployed, correction, and exact-original calls over all 48
+four-row observational batches. For example:
+
+- `RR/N` uses deployed MLP0/1/2, corrects MLP0/1, and calls no original early MLP;
+- `RR/E` has the same MLP0/1 path and exactly 48 original MLP2 calls;
+- `O/O/N` has exactly 48 original MLP0 and MLP1 calls and 48 deployed MLP2 calls;
+- `O/O/E` has exactly 48 calls to each original early MLP.
+
+A missing, extra, swapped, or globally-zero ledger now fails. This closes the 68
+ordinary observational paths; the additional edited-response forwards still need
+their own ledger when that backend is implemented. The complete suffix/observed suite
+now passes **258/258 tests**. No final rows or scientific outcomes were opened.
+
 ## UPDATE AFTER 17:30 — scored rows and all baseline paths are now closed
 
 The final-action identity previously bound the 256 input tokens but not the extra
@@ -22,7 +66,7 @@ The two deployed-MLP2 actions report exact OON teacher KL. For O/O/N, the action
 itself the OON teacher, so the implementation computes KL from the actual logits
 against themselves rather than inserting a made-up zero. Exact-MLP2 actions remain
 CE-only. Hidden native calls on a deployed path fail immediately. The expanded
-suffix/observed suite passes **257/257 tests**.
+suffix/observed suite passes **257/257 tests** at that stage.
 
 A concurrent diagnostic also simplified the attention-scale finding below. A single
 scalar for the whole attention layer removes 98.4--99.7% of the L5 cliff and

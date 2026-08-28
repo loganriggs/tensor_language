@@ -20,6 +20,7 @@ from typing import Any, Mapping, Sequence
 import torch
 
 import early_mlp_suffix_transport_v1 as contract
+import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_lifecycle as lifecycle
 import early_mlp_suffix_transport_v1_programs as programs
 import early_mlp_suffix_transport_v1_runtime as runtime
@@ -56,7 +57,8 @@ EXECUTION_KEYS = {
     "final_role_loads", "final_evaluation_callbacks", "outer_model_returned",
     "hooks_restored", "hooks_inert", "component_tree_unchanged",
     "student_poison_closed", "programs_reloaded_semantically",
-    "common_support_complete", "student_original_mlp_calls", "gauge_replays",
+    "common_support_complete", "observational_action_call_ledger_sha256",
+    "observational_student_outer_forwards", "gauge_replays",
     "gauge_max_abs_drift", "svd_max_abs_drift",
     "difference_in_differences_max_abs_drift", "row_count",
     "scored_tokens_per_row", "scored_token_count",
@@ -257,12 +259,12 @@ def _validate_execution(value: Any) -> Mapping[str, Any]:
         execution["final_role_loads"] != 1
     ) or execution["final_evaluation_callbacks"] != 1 or execution["gauge_replays"] != 8:
         raise RuntimeError("final execution closure is incomplete")
-    calls = _exact_mapping(
-        execution["student_original_mlp_calls"], {"0", "1", "2"},
-        "student original-call ledger",
-    )
-    if any(type(calls[str(site)]) is not int or calls[str(site)] != 0 for site in range(3)):
-        raise RuntimeError("student final path called an original MLP")
+    if not _sha256(execution["observational_action_call_ledger_sha256"]) or (
+        type(execution["observational_student_outer_forwards"]) is not int
+    ) or execution["observational_student_outer_forwards"] != (
+        len(final_actions.CANONICAL_ACTION_KEYS) * final_actions.OBSERVATIONAL_BATCH_COUNT
+    ):
+        raise RuntimeError("final observational action call ledger is incomplete")
     if execution["row_count"] != 192 or execution["scored_tokens_per_row"] != 192 or (
         execution["scored_token_count"] != 192 * 192
     ):

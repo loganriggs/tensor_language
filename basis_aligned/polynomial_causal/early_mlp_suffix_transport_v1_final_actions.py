@@ -220,6 +220,7 @@ CANONICAL_ACTION_PLANS = tuple(
     for arm in CANONICAL_ARM_PLANS for background in BACKGROUNDS
 )
 CANONICAL_ACTION_KEYS = tuple(plan.key for plan in CANONICAL_ACTION_PLANS)
+OBSERVATIONAL_BATCH_COUNT = 192 // runtime.BATCH_SIZE
 
 
 def plan_for(arm: str, background: str) -> FinalActionPlan:
@@ -228,6 +229,75 @@ def plan_for(arm: str, background: str) -> FinalActionPlan:
     if arm not in _PLAN_BY_ARM or background not in BACKGROUNDS:
         raise ValueError("final action key is outside the registered lattice")
     return FinalActionPlan(arm_plan=_PLAN_BY_ARM[arm], background=background)
+
+
+@dataclass(frozen=True, slots=True)
+class FinalEarlyCallPattern:
+    """Licensed early-call counts for one observational outer forward."""
+
+    deployed_n_calls: tuple[tuple[int, int], ...]
+    correction_calls: tuple[tuple[int, int], ...]
+    literal_early_mlp_calls: tuple[tuple[int, int], ...]
+
+    def __post_init__(self) -> None:
+        for name in self.__dataclass_fields__:
+            value = getattr(self, name)
+            if tuple(site for site, _count in value) != (0, 1, 2) or any(
+                type(count) is not int or count not in {0, 1}
+                for _site, count in value
+            ):
+                raise ValueError("final early-call pattern is malformed")
+
+    def totals(self, batches: int = OBSERVATIONAL_BATCH_COUNT) -> dict[str, Any]:
+        if type(batches) is not int or batches <= 0:
+            raise ValueError("final early-call batch count is malformed")
+        return {
+            "outer_forward_count": batches,
+            "deployed_n_calls": {
+                str(site): count * batches for site, count in self.deployed_n_calls
+            },
+            "correction_calls": {
+                str(site): count * batches for site, count in self.correction_calls
+            },
+            "literal_early_mlp_calls": {
+                str(site): count * batches
+                for site, count in self.literal_early_mlp_calls
+            },
+        }
+
+
+def expected_early_call_pattern(plan: FinalActionPlan) -> FinalEarlyCallPattern:
+    """Derive the physical student path from one canonical semantic action."""
+
+    if type(plan) is not FinalActionPlan:
+        raise TypeError("final early-call pattern requires a typed action plan")
+    kind = plan.arm_plan.execution_kind
+    if kind == "native_baseline":
+        deployed = {0: 0, 1: 0, 2: int(plan.background == "N")}
+        correction = {site: 0 for site in (0, 1, 2)}
+        literal = {0: 1, 1: 1, 2: int(plan.background == "E")}
+    else:
+        deployed = {0: 1, 1: 1, 2: int(plan.background == "N")}
+        correction = {
+            0: int(kind in {"projected_program", "mean_program"}),
+            1: int(kind in {"projected_program", "mean_program"}),
+            2: 0,
+        }
+        literal = {0: 0, 1: 0, 2: int(plan.background == "E")}
+    return FinalEarlyCallPattern(
+        deployed_n_calls=tuple(deployed.items()),
+        correction_calls=tuple(correction.items()),
+        literal_early_mlp_calls=tuple(literal.items()),
+    )
+
+
+def expected_observational_action_call_ledgers() -> dict[str, dict[str, Any]]:
+    """Return exact 48-batch student ledgers for all 68 actions in frozen order."""
+
+    return {
+        plan.key: expected_early_call_pattern(plan).totals()
+        for plan in CANONICAL_ACTION_PLANS
+    }
 
 
 def _program_sha256(program: runtime.JointAffineProgram) -> str:

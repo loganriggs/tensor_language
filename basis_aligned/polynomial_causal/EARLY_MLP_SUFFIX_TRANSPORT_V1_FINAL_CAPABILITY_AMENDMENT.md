@@ -75,8 +75,12 @@ The canonical bank now also freezes and
 replays the registered zero-weight/new-fit-mean program from fit-label moment sums.
 The complete 68-action executor remains NO-GO until backends exist for
 canonical QQ/LL/RR/singleton/removal/shuffle/null routing, finite physical code edits
-and their unedited pairs, nine-bin aggregation, consumer norm aggregation, per-action
-original-call ledger aggregation, and complete bundle assembly.
+and their unedited pairs, nine-bin aggregation, consumer norm aggregation, response-
+forward call-ledger aggregation, and complete bundle assembly. The observational
+student ledger is now closed separately for every action: 48 batches each, with exact
+deployed-N, correction, and literal-original counts derived from the physical plan.
+This replaces the incompatible old global-zero ledger, which could not represent
+licensed E-background MLP2 calls or O/O baselines.
 
 This partial backend cannot mint a full final action capability and cannot be used to
 open the role. Its purpose is to close and test the shared final identity, exact N/E
