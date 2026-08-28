@@ -61,6 +61,8 @@ def mod_of(kind, L):
 
 
 def table_hook(tbl, seen, standalone=False):
+    """`tbl` is COMPACT: [ncov+1, D], indexed through COV['idmap']; row ncov is the uncovered mean.
+    The full [50257, D] form cost 8.3 GB per family and OOMed with two families resident."""
     """HYBRID (§1661): table where the token was covered at fit, LIVE module elsewhere. STANDALONE:
     the table everywhere, so an uncovered token takes the site's mean row and the module's OUTPUT is
     never used. Per Codex's §1761 narrowing this is zero-native-OUTPUT, not zero-native-CALL: both
@@ -68,7 +70,7 @@ def table_hook(tbl, seen, standalone=False):
     through unchanged in both."""
     def hook(mod, args, out):
         y = out[0] if isinstance(out, tuple) else out
-        sub = tbl[STATE['idx'].reshape(-1)].reshape(y.shape).to(y.dtype)
+        sub = tbl[COV['idmap'][STATE['idx']].reshape(-1)].reshape(y.shape).to(y.dtype)
         if not standalone:
             sub = torch.where(seen[STATE['idx']].unsqueeze(-1), sub, y)
         return (sub,) + tuple(out[1:]) if isinstance(out, tuple) else sub
@@ -114,10 +116,13 @@ def ce(rows, hooks=()):
 
 @torch.no_grad()
 def build_tables(fit, sites, seen, toks, context_free):
+    # returns COMPACT [ncov+1, D] tables; see table_hook
     """context_free=True: each site's output on a LENGTH-1 sequence per covered token (§1769).
     context_free=False: the per-token MEAN over the fit rows -- the §1747-§1758 construction, needed
     here only to produce each role's own all-tabled baseline."""
-    tables = {st: torch.zeros(V, D, device=DEV) for st in sites}
+    nc = toks.numel()
+    tables = {st: torch.zeros(nc + 1, D, device=DEV) for st in sites}
+    tk = toks.to(DEV)
     if context_free:
         cap = {}
 
@@ -130,7 +135,7 @@ def build_tables(fit, sites, seen, toks, context_free):
             t = toks[i:i + 256].to(DEV).unsqueeze(1)
             forward_logits(t, [(st, mk(st)) for st in sites])
             for st in sites:
-                tables[st][t.squeeze(1)] = cap[st]
+                tables[st][i:i + t.shape[0]] = cap[st]
     else:
         c = torch.zeros(V, device=DEV)
         acc = {st: torch.zeros(V, D, device=DEV) for st in sites}
@@ -147,12 +152,12 @@ def build_tables(fit, sites, seen, toks, context_free):
         for i in range(0, fit.shape[0], 8):
             forward_logits(fit[i:i + 8, :-1].to(DEV).contiguous(),
                            [(st, mk2(st, j == 0)) for j, st in enumerate(sites)])
-        sn = c > 0
         for st in sites:
-            tables[st][sn] = acc[st][sn] / c[sn].unsqueeze(1)
+            tables[st][:nc] = acc[st][tk] / c[tk].clamp_min(1.0).unsqueeze(1)
+        del acc
+        torch.cuda.empty_cache()
     for st in sites:
-        mu = tables[st][toks.to(DEV)].mean(0)
-        tables[st][~seen] = mu
+        tables[st][nc] = tables[st][:nc].mean(0)
     return tables
 
 
@@ -161,13 +166,12 @@ def truncate(tables, toks, r):
     if r is None:
         return tables, 36 * (NCOV * D + D)
     out = {}
-    idx = toks.to(DEV)
     for st, tbl in tables.items():
-        blk = tbl[idx].double()
+        blk = tbl[:NCOV].double()
         mu = blk.mean(0, keepdim=True)
         U, S, Vh = torch.linalg.svd(blk - mu, full_matrices=False)
         t2 = tbl.clone()
-        t2[idx] = (mu + (U[:, :r] * S[:r]) @ Vh[:r]).float()
+        t2[:NCOV] = (mu + (U[:, :r] * S[:r]) @ Vh[:r]).float()
         out[st] = t2
     return out, 36 * (r * (NCOV + D) + 2 * D)
 
@@ -187,6 +191,8 @@ def main():
     print(f'CONTEXT-FREE FRONTIER, THIRD ROLE | ranks {TABLE_RANKS} | skip1200 confirms | '
           f'SECOND-CLASS CONFIRMATION', flush=True)
 
+    COV['idmap'] = torch.full((V,), toks.numel(), dtype=torch.long, device=DEV)
+    COV['idmap'][toks.to(DEV)] = torch.arange(toks.numel(), device=DEV)
     fm = build_tables(fit, sites, seen, toks, context_free=False)
     fm_hooks = [(st, table_hook(fm[st], seen)) for st in sites]
     ev, base = {}, {}
@@ -203,16 +209,14 @@ def main():
     del fm, fm_hooks
     torch.cuda.empty_cache()
 
-    fams = {'fitmean': build_tables(fit, sites, seen, toks, context_free=False),
-            'contextfree': build_tables(fit, sites, seen, toks, context_free=True)}
-    print(f'  built both table families ({time.time() - t0:.0f}s)', flush=True)
-
-    out = {}
-    for r in TABLE_RANKS:
-        key = 'full' if r is None else str(r)
-        row = {}
-        for fam in FAMILIES:
-            tr, cost = truncate(fams[fam], toks, r)
+    out = {k: {} for k in ('full' if r is None else str(r) for r in TABLE_RANKS)}
+    for fam in FAMILIES:
+        tab = build_tables(fit, sites, seen, toks, context_free=(fam == 'contextfree'))
+        print(f'  built the {fam} family ({time.time() - t0:.0f}s)', flush=True)
+        for r in TABLE_RANKS:
+            key = 'full' if r is None else str(r)
+            row = out[key]
+            tr, cost = truncate(tab, toks, r)
             row['cost_M'] = round(cost / 1e6, 4)
             for arm in ARMS:
                 sa = (arm == 'standalone')
@@ -223,10 +227,11 @@ def main():
             if r is not None:
                 del tr
                 torch.cuda.empty_cache()
-        out[key] = row
-        print(f'  rank {key:5s} {row["cost_M"]:8.3f}M | all-position CE  ' + '  '.join(
-            f'{f}/{a} {row[f"{f}_{a}"]["all_ce"]:.5f}' for f in FAMILIES for a in ARMS)
-            + f'   [{time.time() - t0:.0f}s]', flush=True)
+            print(f'  {fam:12s} rank {key:5s} {row["cost_M"]:8.3f}M | ' + '  '.join(
+                f'{a} all {row[f"{fam}_{a}"]["all_ce"]:.5f}' for a in ARMS)
+                + f'   [{time.time() - t0:.0f}s]', flush=True)
+        del tab
+        torch.cuda.empty_cache()
 
     keys = ['full' if r is None else str(r) for r in TABLE_RANKS]
     # ALL comparisons in ABSOLUTE nats. §1775's ratio had a negative denominator and meant nothing;
