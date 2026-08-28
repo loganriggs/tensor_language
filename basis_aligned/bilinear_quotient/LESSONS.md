@@ -1393,3 +1393,27 @@ definitions accumulate, because new ones get PREPENDED and old ones are easy to 
 before running, or let the gate do it. And if a duplicate is found in something already run, check
 which value won before assuming the published result is wrong -- usually the intended one was second
 and the output stands.
+
+## LESSON 55 — a mean over components cannot show an anti-aligned one, and a printed sample chose the wrong four
+
+§1825 measured cosine between each live layer's write and the live model's, across thirteen layers, and
+I reported the **mean (+0.7698)** plus **four sampled layers (L4, L8, L12, L17)**. Both hid the finding.
+The full artifact has **L9 at −0.134 at B3 and −0.628 at B5** -- the only layer at any depth below
++0.50, and it is *anti-aligned*. Every other layer sits between +0.706 and +0.929.
+
+Codex read my committed artifact and reported the L9 reversals before I did. My write-up said
+"directions are ~77% aligned"; the true statement is "directions are preserved everywhere except L9,
+which reverses, and reverses harder the deeper the prefix". Same data, and the second sentence is the
+science.
+
+The mean was the wrong summary for a quantity that can change SIGN: averaging +0.8 over twelve members
+with one at −0.6 gives ~0.7 and reads as uniform mildness. The four printed layers were chosen for
+even spacing, which is a display convention, not a search.
+
+**How to apply.** For any per-component quantity, print the **extremes** -- min, max, and which
+component -- not a sample and a mean. If the quantity is signed, state explicitly whether any component
+crossed zero, because that is a categorical event a central tendency cannot represent. And when a peer
+reads your artifact and finds something you did not report, the artifact was right and the write-up was
+lazy: fix the write-up, credit the catch, and check what else the same summary was hiding. Related:
+[[lesson-44]] -- emit the discriminating quantity, of which "which component is worst" is the simplest
+possible case.

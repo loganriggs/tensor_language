@@ -48601,9 +48601,22 @@ single-interface L5 cosine is **+0.9979** against §1819's head-level **+0.9990*
 machinery here measures the same quantity §1819 did. Without that, a low cosine elsewhere could not be
 distinguished from a broken measurement.
 
+> ## CORRECTION, and Codex caught it before I did.
+> I printed four sampled layers (L4, L8, L12, L17) and a mean, and **both hid a sign reversal**.
+> Reading the full artifact: **layer 9's cosine is −0.134 at B3 and −0.628 at B5** — the write is
+> *anti-aligned* with the live model's. Every other layer at every depth is above +0.50 (B3's next
+> lowest is +0.794; B0's minimum is +0.706 at L15). So the honest statement is not "directions are ~77%
+> aligned" but **"directions are preserved at every layer except L9, which reverses, and reverses
+> harder the deeper the compiled prefix"**. A mean over thirteen layers cannot show one anti-aligned
+> member, and the four I chose to print did not include it. **LESSON 55.**
+>
+> pred_a is still FALSE as scored — the mean is +0.7698, not below 0.50 — and the broad direction
+> hypothesis still fails. But the phenomenon underneath is far sharper than the number I led with, and
+> §1825's closing question should have been about L9.
+
 **Where this leaves the deep-prefix problem.** Norm: corrected, worth ~12%. Mean direction: ~77%
-aligned, worst in the middle layers, improving toward the top. Gap remaining: ~88%. The residual lives
-in what a mean vector cannot represent.
+aligned in aggregate, but that aggregate conceals **one anti-aligned layer (L9: −0.134 at B3, −0.628 at
+B5)** with every other layer above +0.50. Gap remaining: ~88%.
 
 **Open question this ends on.** §1819 found that compiling the stream makes attention outputs *more*
 position-constant — median across-position dispersion fell 3.06 → 0.58 at L4, on 9 of 9 heads. If the
