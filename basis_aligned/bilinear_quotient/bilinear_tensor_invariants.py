@@ -65,9 +65,35 @@ def output_mode_spectrum(A, B, C, tolerance=1e-10):
     probabilities = eigenvalues[eigenvalues > 0]/total if total else eigenvalues[:0]
     entropy_rank = float(torch.exp(-(probabilities*probabilities.log()).sum())) \
         if probabilities.numel() else 0.0
-    return {"singular_values": eigenvalues.sqrt(), "rank": rank,
+    singular_values = eigenvalues.sqrt()
+    return {"singular_values": singular_values, "rank": rank,
             "stable_rank": stable_rank, "entropy_rank": entropy_rank,
             "frobenius_sq": total, "tolerance": tolerance}
+
+
+def energy_rank(singular_values, fraction):
+    """Smallest matrix rank retaining ``fraction`` of squared Frobenius energy."""
+    singular = torch.as_tensor(singular_values, dtype=torch.float64)
+    if singular.ndim != 1 or not torch.isfinite(singular).all() \
+            or bool((singular < 0).any()) or not 0 < fraction <= 1:
+        raise ValueError("need finite nonnegative singular values and 0 < fraction <= 1")
+    energy = singular.square()
+    total = float(energy.sum())
+    if total == 0:
+        return 0
+    return int(torch.searchsorted(energy.cumsum(0), fraction*total).item()+1)
+
+
+def best_rank_relative_frobenius_error(singular_values, rank):
+    """Eckart--Young lower bound for any grouped rank-``rank`` approximation."""
+    singular = torch.as_tensor(singular_values, dtype=torch.float64)
+    if singular.ndim != 1 or rank < 0 or rank > singular.numel() \
+            or not torch.isfinite(singular).all() or bool((singular < 0).any()):
+        raise ValueError("invalid singular spectrum or rank")
+    total = singular.square().sum()
+    if total == 0:
+        return 0.0
+    return float((singular[rank:].square().sum()/total).sqrt())
 
 
 def explicit_symmetric_tensor(A, B, C):

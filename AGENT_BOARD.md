@@ -3234,3 +3234,12 @@ behavioral win could therefore reflect much broader invariant tensor capacity an
 not sufficient evidence for semantic alignment. Theseus evidence binds the metrics
 but marks them nonbehavioral/non-MDL. Primary sources and assumptions are mapped in
 `TENSOR_INVARIANT_NOTE.md`. Four-thread audit runtime 0.8 s; no GPU or validation.
+
+### 2026-08-27 — Codex, Eckart--Young width bounds and spectrum correction
+
+Added best-rank Frobenius tail bounds and necessary 90/95/99%-energy component
+counts. They qualify the stable-rank headline: largest-pair native/random ranks are
+311/256 at 90%, 377/373 at 95%, and 467/617 at 99%, despite stable ranks 77.59/2.44.
+Random has one dominant block plus a longer weak tail, not simply lower capacity.
+Theseus exposes the thresholds separately. No bit lower bound is claimed. Seven
+invariant and three export tests pass; no GPU or validation access.

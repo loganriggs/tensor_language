@@ -24,6 +24,10 @@ def test_frozen_audit_binds_roster_hashes_and_rank_invariants():
             row["top8_mode_energy_fraction"] <= \
             row["top32_mode_energy_fraction"] <= 1+1e-12
         assert row["serialized_bits"] > 0 and row["stable_rank_per_mbit"] > 0
+        assert 1 <= row["energy_rank_90"] <= row["energy_rank_95"] \
+            <= row["energy_rank_99"] <= row["rank"]
+        assert row["best_rank8_relative_frobenius_error"] >= \
+            row["best_rank32_relative_frobenius_error"] >= 0
 
 
 def test_smallest_production_spectrum_recomputes_from_frozen_bytes():

@@ -49,3 +49,12 @@ def test_antisymmetric_factor_change_is_observationally_removed():
     A, B, C = factors(seed=3)
     assert torch.equal(inv.explicit_symmetric_tensor(A, B, C),
                        inv.explicit_symmetric_tensor(B, A, C))
+
+
+def test_energy_rank_and_eckart_young_tail_are_exact():
+    singular = torch.tensor([4., 3., 0.], dtype=torch.double)
+    assert inv.energy_rank(singular, .60) == 1
+    assert inv.energy_rank(singular, .70) == 2
+    assert inv.energy_rank(singular, 1.0) == 2
+    assert abs(inv.best_rank_relative_frobenius_error(singular, 1)-3/5) < 1e-12
+    assert inv.best_rank_relative_frobenius_error(singular, 2) == 0

@@ -50,6 +50,13 @@ def summarize(candidate_id, encoded):
         "largest_mode_energy_fraction": float(energy[0]/total) if total else 0.0,
         "top8_mode_energy_fraction": float(energy[:8].sum()/total) if total else 0.0,
         "top32_mode_energy_fraction": float(energy[:32].sum()/total) if total else 0.0,
+        "energy_rank_90": invariants.energy_rank(singular, .90),
+        "energy_rank_95": invariants.energy_rank(singular, .95),
+        "energy_rank_99": invariants.energy_rank(singular, .99),
+        "best_rank8_relative_frobenius_error":
+            invariants.best_rank_relative_frobenius_error(singular, min(8, singular.numel())),
+        "best_rank32_relative_frobenius_error":
+            invariants.best_rank_relative_frobenius_error(singular, min(32, singular.numel())),
         "singular_values_top32": singular[:32].tolist(),
         "runtime_s": time.time()-started,
     }
@@ -101,6 +108,8 @@ def main():
             "not_behavioral_evidence": True,
             "not_a_description_length": True,
             "rank_object": "matrix rank after grouping the two symmetric input legs",
+            "energy_rank_lower_bound": "Eckart-Young: any K-term bilinear program has grouped rank <= K",
+            "no_bit_lower_bound_claim": True,
         },
         "cpu_threads": THREADS,
         "rows": rows,

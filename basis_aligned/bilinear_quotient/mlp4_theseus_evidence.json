@@ -14,7 +14,7 @@
   "inventory_sha256": "aed0af8ae35fa5142847a08e3ddd821f794cd2b09a73ef1abd7edd8562fd2543",
   "validation_protocol": "bilin18.mlp4.z4-heldout-validation.v1",
   "validation_results_sha256": null,
-  "tensor_invariants_sha256": "dd42063afec843459eb9e98c897db4f3f3e1de6880d277497ba0722eae3cd364",
+  "tensor_invariants_sha256": "5f35cb2599575b04906d975262e71fdc36a724daaff6b20ecd67afa21a7d6079",
   "controls": {
     "identity": "retained_live_mlp4",
     "zero_fidelity": "fit_mean_mlp4_output"
@@ -286,6 +286,9 @@
         "output_mode_rank": 32,
         "output_mode_stable_rank": 10.67680847028015,
         "output_mode_entropy_rank": 23.484515869109014,
+        "energy_rank_90": 21,
+        "energy_rank_95": 25,
+        "energy_rank_99": 31,
         "top32_mode_energy_fraction": 0.9999999999999994,
         "not_behavioral_evidence": true,
         "not_description_length": true
@@ -333,6 +336,9 @@
         "output_mode_rank": 64,
         "output_mode_stable_rank": 18.056522052439185,
         "output_mode_entropy_rank": 48.773067849338005,
+        "energy_rank_90": 43,
+        "energy_rank_95": 51,
+        "energy_rank_99": 61,
         "top32_mode_energy_fraction": 0.7882706199598318,
         "not_behavioral_evidence": true,
         "not_description_length": true
@@ -380,6 +386,9 @@
         "output_mode_rank": 128,
         "output_mode_stable_rank": 32.34722174456884,
         "output_mode_entropy_rank": 99.49574675067515,
+        "energy_rank_90": 89,
+        "energy_rank_95": 103,
+        "energy_rank_99": 121,
         "top32_mode_energy_fraction": 0.5133098603032115,
         "not_behavioral_evidence": true,
         "not_description_length": true
@@ -427,6 +436,9 @@
         "output_mode_rank": 256,
         "output_mode_stable_rank": 53.07265488725301,
         "output_mode_entropy_rank": 189.3988454373771,
+        "energy_rank_90": 173,
+        "energy_rank_95": 204,
+        "energy_rank_99": 241,
         "top32_mode_energy_fraction": 0.34806715928214627,
         "not_behavioral_evidence": true,
         "not_description_length": true
@@ -474,6 +486,9 @@
         "output_mode_rank": 512,
         "output_mode_stable_rank": 77.59290893347408,
         "output_mode_entropy_rank": 339.78282894555974,
+        "energy_rank_90": 311,
+        "energy_rank_95": 377,
+        "energy_rank_99": 467,
         "top32_mode_energy_fraction": 0.24234892825204318,
         "not_behavioral_evidence": true,
         "not_description_length": true
@@ -562,6 +577,9 @@
         "output_mode_rank": 64,
         "output_mode_stable_rank": 2.036298078487538,
         "output_mode_entropy_rank": 12.495057166541105,
+        "energy_rank_90": 29,
+        "energy_rank_95": 42,
+        "energy_rank_99": 58,
         "top32_mode_energy_fraction": 0.9163183433924762,
         "not_behavioral_evidence": true,
         "not_description_length": true
@@ -609,6 +627,9 @@
         "output_mode_rank": 128,
         "output_mode_stable_rank": 1.6061514765144123,
         "output_mode_entropy_rank": 9.392715516467884,
+        "energy_rank_90": 40,
+        "energy_rank_95": 67,
+        "energy_rank_99": 108,
         "top32_mode_energy_fraction": 0.8789778768395928,
         "not_behavioral_evidence": true,
         "not_description_length": true
@@ -656,6 +677,9 @@
         "output_mode_rank": 256,
         "output_mode_stable_rank": 1.7119205144070757,
         "output_mode_entropy_rank": 14.492218722025164,
+        "energy_rank_90": 78,
+        "energy_rank_95": 125,
+        "energy_rank_99": 206,
         "top32_mode_energy_fraction": 0.8030926632387317,
         "not_behavioral_evidence": true,
         "not_description_length": true
@@ -703,6 +727,9 @@
         "output_mode_rank": 512,
         "output_mode_stable_rank": 1.8596847329176616,
         "output_mode_entropy_rank": 23.88183744961156,
+        "energy_rank_90": 142,
+        "energy_rank_95": 220,
+        "energy_rank_99": 373,
         "top32_mode_energy_fraction": 0.7189800479905026,
         "not_behavioral_evidence": true,
         "not_description_length": true
@@ -750,6 +777,9 @@
         "output_mode_rank": 1024,
         "output_mode_stable_rank": 2.436318300008881,
         "output_mode_entropy_rank": 61.49007279645684,
+        "energy_rank_90": 256,
+        "energy_rank_95": 373,
+        "energy_rank_99": 617,
         "top32_mode_energy_fraction": 0.5811404904723341,
         "not_behavioral_evidence": true,
         "not_description_length": true

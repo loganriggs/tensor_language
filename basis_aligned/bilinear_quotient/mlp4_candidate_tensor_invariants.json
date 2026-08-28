@@ -13,7 +13,9 @@
     ],
     "not_behavioral_evidence": true,
     "not_a_description_length": true,
-    "rank_object": "matrix rank after grouping the two symmetric input legs"
+    "rank_object": "matrix rank after grouping the two symmetric input legs",
+    "energy_rank_lower_bound": "Eckart-Young: any K-term bilinear program has grouped rank <= K",
+    "no_bit_lower_bound_claim": true
   },
   "cpu_threads": 4,
   "rows": [
@@ -30,6 +32,11 @@
       "largest_mode_energy_fraction": 0.09366094772455547,
       "top8_mode_energy_fraction": 0.5478628539896283,
       "top32_mode_energy_fraction": 0.9999999999999994,
+      "energy_rank_90": 21,
+      "energy_rank_95": 25,
+      "energy_rank_99": 31,
+      "best_rank8_relative_frobenius_error": 0.6724114410168612,
+      "best_rank32_relative_frobenius_error": 2.9240998930843787e-08,
       "singular_values_top32": [
         436.5037739764008,
         409.0839872952918,
@@ -64,7 +71,7 @@
         104.42260946431415,
         101.09737699689923
       ],
-      "runtime_s": 0.044730424880981445,
+      "runtime_s": 0.046243906021118164,
       "serialized_bits": 2764432,
       "stable_rank_per_mbit": 3.862206945325532
     },
@@ -81,6 +88,11 @@
       "largest_mode_energy_fraction": 0.4910872384374839,
       "top8_mode_energy_fraction": 0.7234229198703287,
       "top32_mode_energy_fraction": 0.9163183433924762,
+      "energy_rank_90": 29,
+      "energy_rank_95": 42,
+      "energy_rank_99": 58,
+      "best_rank8_relative_frobenius_error": 0.5259059612988537,
+      "best_rank32_relative_frobenius_error": 0.28927781907281436,
       "singular_values_top32": [
         2321.467297876741,
         836.8063587811134,
@@ -115,7 +127,7 @@
         217.8480512357468,
         217.0079057464091
       ],
-      "runtime_s": 0.03891921043395996,
+      "runtime_s": 0.03902459144592285,
       "serialized_bits": 2199312,
       "stable_rank_per_mbit": 0.9258795834731671
     },
@@ -132,6 +144,11 @@
       "largest_mode_energy_fraction": 0.05538165085700509,
       "top8_mode_energy_fraction": 0.330072261589532,
       "top32_mode_energy_fraction": 0.7882706199598318,
+      "energy_rank_90": 43,
+      "energy_rank_95": 51,
+      "energy_rank_99": 61,
+      "best_rank8_relative_frobenius_error": 0.8184911352057932,
+      "best_rank32_relative_frobenius_error": 0.4601406089883488,
       "singular_values_top32": [
         446.0440560921454,
         412.922058534379,
@@ -166,7 +183,7 @@
         211.83728521993658,
         210.6693464163933
       ],
-      "runtime_s": 0.03399825096130371,
+      "runtime_s": 0.03404974937438965,
       "serialized_bits": 5482192,
       "stable_rank_per_mbit": 3.293668308669084
     },
@@ -183,6 +200,11 @@
       "largest_mode_energy_fraction": 0.6226062825469917,
       "top8_mode_energy_fraction": 0.7559705075572888,
       "top32_mode_energy_fraction": 0.8789778768395928,
+      "energy_rank_90": 40,
+      "energy_rank_95": 67,
+      "energy_rank_99": 108,
+      "best_rank8_relative_frobenius_error": 0.49399341335964325,
+      "best_rank32_relative_frobenius_error": 0.347882340972357,
       "singular_values_top32": [
         3786.6454661315547,
         950.0216056611297,
@@ -217,7 +239,7 @@
         269.0953257074774,
         264.8434545445132
       ],
-      "runtime_s": 0.03560829162597656,
+      "runtime_s": 0.0351717472076416,
       "serialized_bits": 4351136,
       "stable_rank_per_mbit": 0.3691338253997145
     },
@@ -234,6 +256,11 @@
       "largest_mode_energy_fraction": 0.030914556059761202,
       "top8_mode_energy_fraction": 0.19206820395776905,
       "top32_mode_energy_fraction": 0.5133098603032115,
+      "energy_rank_90": 89,
+      "energy_rank_95": 103,
+      "energy_rank_99": 121,
+      "best_rank8_relative_frobenius_error": 0.8988502634155652,
+      "best_rank32_relative_frobenius_error": 0.697631808117139,
       "singular_values_top32": [
         451.5223618786886,
         431.3944818046525,
@@ -268,7 +295,7 @@
         265.2278065967815,
         263.7405761121965
       ],
-      "runtime_s": 0.03993368148803711,
+      "runtime_s": 0.03951382637023926,
       "serialized_bits": 10913760,
       "stable_rank_per_mbit": 2.963893446856889
     },
@@ -285,6 +312,11 @@
       "largest_mode_energy_fraction": 0.5841392702431341,
       "top8_mode_energy_fraction": 0.6873933036702095,
       "top32_mode_energy_fraction": 0.8030926632387317,
+      "energy_rank_90": 78,
+      "energy_rank_95": 125,
+      "energy_rank_99": 206,
+      "best_rank8_relative_frobenius_error": 0.5591124183290784,
+      "best_rank32_relative_frobenius_error": 0.443742421638126,
       "singular_values_top32": [
         4158.569706741503,
         972.7302064296122,
@@ -319,7 +351,7 @@
         314.698784881075,
         307.6348882564873
       ],
-      "runtime_s": 0.04414486885070801,
+      "runtime_s": 0.04426693916320801,
       "serialized_bits": 8600752,
       "stable_rank_per_mbit": 0.1990431202303096
     },
@@ -336,6 +368,11 @@
       "largest_mode_energy_fraction": 0.0188420949003661,
       "top8_mode_energy_fraction": 0.12224850087136976,
       "top32_mode_energy_fraction": 0.34806715928214627,
+      "energy_rank_90": 173,
+      "energy_rank_95": 204,
+      "energy_rank_99": 241,
+      "best_rank8_relative_frobenius_error": 0.9368839304463655,
+      "best_rank32_relative_frobenius_error": 0.8074235819678877,
       "singular_values_top32": [
         458.24462346476713,
         442.68622111573745,
@@ -370,7 +407,7 @@
         294.7160245045322,
         294.11981264051695
       ],
-      "runtime_s": 0.05234932899475098,
+      "runtime_s": 0.051825761795043945,
       "serialized_bits": 21761312,
       "stable_rank_per_mbit": 2.438853635628817
     },
@@ -387,6 +424,11 @@
       "largest_mode_energy_fraction": 0.5377255522397598,
       "top8_mode_energy_fraction": 0.6153954939212956,
       "top32_mode_energy_fraction": 0.7189800479905026,
+      "energy_rank_90": 142,
+      "energy_rank_95": 220,
+      "energy_rank_99": 373,
+      "best_rank8_relative_frobenius_error": 0.6201649023273604,
+      "best_rank32_relative_frobenius_error": 0.5301131501948405,
       "singular_values_top32": [
         4374.714605625297,
         938.0161170347689,
@@ -421,7 +463,7 @@
         344.63613669689556,
         336.09083744878853
       ],
-      "runtime_s": 0.06241440773010254,
+      "runtime_s": 0.06213665008544922,
       "serialized_bits": 17015952,
       "stable_rank_per_mbit": 0.10929066636516498
     },
@@ -438,6 +480,11 @@
       "largest_mode_energy_fraction": 0.012887775619514036,
       "top8_mode_energy_fraction": 0.08172917229394465,
       "top32_mode_energy_fraction": 0.24234892825204318,
+      "energy_rank_90": 311,
+      "energy_rank_95": 377,
+      "energy_rank_99": 467,
+      "best_rank8_relative_frobenius_error": 0.9582644873447286,
+      "best_rank32_relative_frobenius_error": 0.8704315434012929,
       "singular_values_top32": [
         494.4322533573949,
         474.03198783618296,
@@ -472,7 +519,7 @@
         329.41254414879836,
         327.3069670271983
       ],
-      "runtime_s": 0.08171224594116211,
+      "runtime_s": 0.08076953887939453,
       "serialized_bits": 43443432,
       "stable_rank_per_mbit": 1.786067659973873
     },
@@ -489,6 +536,11 @@
       "largest_mode_energy_fraction": 0.41045539903236566,
       "top8_mode_energy_fraction": 0.4775260584226104,
       "top32_mode_energy_fraction": 0.5811404904723341,
+      "energy_rank_90": 256,
+      "energy_rank_95": 373,
+      "energy_rank_99": 617,
+      "best_rank8_relative_frobenius_error": 0.7228235895274789,
+      "best_rank32_relative_frobenius_error": 0.6471935641890035,
       "singular_values_top32": [
         3849.201811485688,
         887.9403223072062,
@@ -523,7 +575,7 @@
         357.16885886928065,
         352.17246061166384
       ],
-      "runtime_s": 0.11975550651550293,
+      "runtime_s": 0.12321686744689941,
       "serialized_bits": 33685584,
       "stable_rank_per_mbit": 0.07232525046942576
     }
@@ -575,5 +627,5 @@
       "random_stable_rank_per_mbit": 0.07232525046942576
     }
   ],
-  "runtime_s": 0.8000655174255371
+  "runtime_s": 0.8114080429077148
 }

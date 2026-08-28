@@ -79,6 +79,9 @@ def build(results_path=RESULTS):
                           "output_mode_rank": measured["rank"],
                           "output_mode_stable_rank": measured["stable_rank"],
                           "output_mode_entropy_rank": measured["entropy_rank"],
+                          "energy_rank_90": measured["energy_rank_90"],
+                          "energy_rank_95": measured["energy_rank_95"],
+                          "energy_rank_99": measured["energy_rank_99"],
                           "top32_mode_energy_fraction": measured[
                               "top32_mode_energy_fraction"],
                           "not_behavioral_evidence": True,
