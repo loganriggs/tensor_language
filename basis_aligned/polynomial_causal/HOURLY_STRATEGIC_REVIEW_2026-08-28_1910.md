@@ -116,3 +116,34 @@ emits only row-level sufficient statistics, and closes the 144/3,168 call ledger
 The GPU is now running the corrected MLP0 sparse weight-action discriminator behind
 the completed depth curve, so the response-plan work used the CPU interval without
 duplicating that job.
+
+## 19:12 addendum — sparse optimizer discriminator completed
+
+The queued Stage-0 sparse weight-action run completed in 170.8 seconds on 128 fit and
+64 untouched evaluation documents, three seeds, 2,400 steps, and held-out curves.
+Its interface audit passes: captured `Down(g)` matches float32 `Wg` to relative RMS
+`6.2e-7`; `Down` is bias-free; the external `Down_bias` remains explicit.
+
+| arm | held-out output R2 | seed std | standalone MLP0 CE recovery | oracle IHT gain |
+|---|---:|---:|---:|---:|
+| positive ReLU TopK | 0.7243 | 0.0010 | 0.9807 | 0.0139 |
+| signed normalized TopK | 0.7386 | 0.0002 | 0.9828 | 0.0094 |
+| signed + covariance noise | 0.7386 | 0.0001 | 0.9829 | 0.0094 |
+
+All arms converged: the winning curves moved under `8e-5` across their last three
+checkpoints and had zero final-to-best gap at reported precision. The preregistered
+optimizer-bottleneck criterion fails because oracle IHT gains only 0.009, not 0.05.
+The noise criterion also fails. Therefore:
+
+- do not spend the next GPU budget on MOD/K-SVD or longer SAE training;
+- prune noise as an unearned complication;
+- retain signed normalized TopK as the simpler matched sparse compressor;
+- do not interpret atoms as canonical: mean atom match is only about 0.52, although
+  the rank-64 decoder-subspace overlap is much stronger at about 0.83;
+- the coexistence of 98.3% standalone CE recovery with the newly localized block-1
+  composition collapse is direct evidence that standalone CE allows compensation and
+  is not a consumer-interface certificate.
+
+This completes the former priority 3 and further raises the paired block-1 response
+transaction. The result is optimization- and seed-stable on this held-out split, but
+it has not yet passed document-doubling, real OOD, joint composition, or editing.
