@@ -22,6 +22,7 @@ import early_mlp_suffix_transport_v1_fit as fit
 import early_mlp_suffix_transport_v1_inherited as inherited
 import early_mlp_suffix_transport_v1_lifecycle as lifecycle
 import early_mlp_suffix_transport_v1_observational_execution as execution
+import early_mlp_suffix_transport_v1_response_execution as response_execution
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -415,3 +416,51 @@ class FinalObservationalExecutorFactory:
             raise
         self._inherited = self._denominator = self._frequency = None
         return result
+
+    def build_with_response(
+        self, *, adapter: observed.ObservedBilin18Adapter,
+        final_rows: torch.Tensor, validated_program_bank: Mapping[str, Any],
+    ) -> tuple[
+        response_execution.ObservedResponseRunResult,
+        execution.FinalObservationalBatchExecutor,
+    ]:
+        """Run the typed response role and then mint its observational executor.
+
+        Keeping this operation on the initialized factory prevents a production
+        callback from separately receiving or substituting the inherited bases.
+        A response failure poisons the factory; a successful response is never
+        returned unless construction of the matching observational executor also
+        succeeds.
+        """
+
+        if self._spent or self._failed:
+            raise RuntimeError("observational executor factory is already closed")
+        if lifecycle._FINAL_ROLE_LOADS != 1:
+            self._failed = True
+            raise RuntimeError(
+                "final response requires the one licensed final-role load"
+            )
+        if not isinstance(adapter, observed.ObservedBilin18Adapter):
+            self._failed = True
+            raise TypeError("final response requires the real observed adapter")
+        try:
+            response = adapter.run_final_response_role(
+                validated_program_bank=validated_program_bank,
+                inherited_initialization=self._inherited,
+                final_context=self._context, final_rows=final_rows,
+            )
+            if type(response) is not response_execution.ObservedResponseRunResult or (
+                response.receipt.final_context_sha256 != self._context.sha256
+            ) or response.receipt.program_payload_sha256 != (
+                validated_program_bank.get("payload_sha256")
+            ):
+                raise RuntimeError("final response role differs from initialized authority")
+            executor = self.build(
+                adapter=adapter, final_rows=final_rows,
+                validated_program_bank=validated_program_bank,
+            )
+        except BaseException:
+            self._failed = True
+            self._inherited = self._denominator = self._frequency = None
+            raise
+        return response, executor
