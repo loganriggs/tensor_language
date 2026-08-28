@@ -43689,3 +43689,48 @@ row-level interval on the joint ratios and on their **difference**, with skip110
 claim, and a per-class **sign decomposition** of attn14/15/16 so the negative denominators are
 explained instead of tabulated. Its pred_a fails if the joint difference does not exclude zero, in
 which case nothing from this thread enters the registry.
+
+## §1729 — the joint contrast is resolved held out, and late attention actively HURTS on targets absent from context
+
+`ops/class_ratio_joint_ci.py`, 16.3s.
+**pred_a True | pred_b True | pred_c False | pred_d True.**
+
+**The surviving half of §1727 now has an interval and it holds.**
+
+| stack | skip7000 | 95% CI | skip11000 (held out) | 95% CI |
+|---|---:|---|---:|---|
+| 18 MLPs | 0.8382 | (0.7835, 0.8955) | **0.8430** | **(0.7936, 0.8924)** |
+| 18 attention | 1.0015 | (0.9258, 1.0828) | **0.9743** | **(0.8913, 1.0590)** |
+| attention − MLP | +0.163 | **(0.1048, 0.2235)** | **+0.131** | **(0.0608, 0.2057)** |
+
+2000 row-level draws. The held-out difference excludes zero. **Ablating the MLP stack costs less on
+`induction` targets than on `novel` ones (0.843x); ablating the attention stack costs the same on
+both (0.974x, interval spanning 1.0).** Where the answer is absent from the context there is nothing
+to route, so the weights are the only source and the MLPs are what you lose. This is the first
+result in the class-decomposition thread with a held-out interval, and it is the only part of it
+going into the registry.
+
+**pred_b confirmed the diagnosis of §1728's anomaly: the negative ratios are a negative
+DENOMINATOR.** Per-token damage at the three sites, both eval sets:
+
+```
+             induction    repeat     novel   | total removal
+  attn14      +0.0353    +0.0833   -0.0100   |   +0.0301
+  attn15      +0.0075    +0.0197   -0.0022   |   +0.0071
+  attn16      +0.0191    +0.0567   -0.0148   |   +0.0159      (skip11000, held out)
+```
+
+**Replacing attn14, attn15 or attn16 with a constant IMPROVES cross-entropy on targets absent from
+the context**, on both eval sets, while costing on induction and repeat targets. These three sites
+are specialised for context-retrievable answers and are a net negative on everything else.
+
+**pred_c FAILED, and its failure is the sharper result — which is why it was written two-sided.** I
+predicted at least one of the three would have negative TOTAL removal, i.e. be a net-harmful site.
+None does: totals are +0.0301, +0.0071, +0.0159 held out, all positive. **The sites are net useful;
+only their `novel` component is harmful.** A site being globally worth keeping while being actively
+wrong on half the tokens is a claim about specialisation, not about a broken component, and it would
+have been invisible to any pooled-CE measurement — including every removal number in §1722–§1726.
+
+**Magnitudes stated so this is not oversold.** These are small sites: 0.007 to 0.030 nats of total
+removal against mlp1's 7.02. The sign is robust across both eval sets and all three sites; the
+quantity is a few hundredths of a nat. It is a real effect at a small scale, not a major pathway.
