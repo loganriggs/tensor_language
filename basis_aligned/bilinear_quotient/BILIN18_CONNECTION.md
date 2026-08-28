@@ -46533,3 +46533,53 @@ reference's** accuracy:
 
 Controls (pred_d): the program's all-position CE reproduces §1787's six settled numbers within 0.002,
 live covered CE reproduces 3.29205 / 3.09711 / 3.40277, coverage 5419 of 50257.
+
+## §1789 — the program's lost accuracy is not spread: it keeps two thirds of the model on frequent targets and essentially nothing on rare ones
+
+`ops/accuracy_by_target_frequency.py`, 49.1s, **DISCOVERY ONLY**, rung 3 (the open question §1788
+ended on: is the accuracy deficit uniform or concentrated?). **pred_a True | pred_b True | pred_c True
+| pred_d True** — all four, with margins.
+
+Top-1 split by the **true target token's** fit-row count. Note the axis: the program is keyed on the
+CURRENT token, so bucketing by the TARGET asks what it can **produce**, not what it can condition on.
+The run asserts the five buckets partition every scored position.
+
+```
+  skip7000 (live 39.32% / prog 13.55% overall)    n    live     prog    kept
+    target fit-count 0            (unseen)      8904  25.29%   0.67%    2.7%
+    target fit-count 1-4                        6585  26.65%   1.11%    4.2%
+    target fit-count 5-24                       4783  30.52%   2.89%    9.5%
+    target fit-count 25-124                     6003  41.98%   9.90%   23.6%
+    target fit-count 125+                      10589  61.46%  39.01%   63.5%
+```
+
+skip11000 and skip1200 reproduce the shape almost exactly: kept = **63.5 / 62.9 / 63.4%** on the top
+bucket and **2.7 / 6.2 / 3.6%** on the unseen bucket.
+
+**§1788's "keeps a third of the model's accuracy" is a mixture, not a property.** The program keeps
+**about two thirds** of the live model on targets it has seen often, and **essentially none** on
+targets it has not. The single aggregate averaged those two regimes and described neither.
+
+**The concentration is the program's, not the task's** (pred_b, scored separately for exactly this
+reason). Top-bucket-over-unseen accuracy ratio:
+
+```
+    program   57.88x   21.67x   41.40x
+    live       2.43x    2.15x    2.35x
+```
+
+The live model is nearly **flat** across target frequency — it is only ~2.4x better on the commonest
+targets than on ones absent from the fit rows. The program is 20-60x. Two further figures:
+**82.7 / 81.0 / 81.6%** of the program's correct predictions come from the single top bucket, against
+**44.9 / 43.4 / 45.2%** of the live model's; and on the 42% of positions whose target was seen at most
+4 times, the live model is right **25.9 / 30.0 / 25.8%** of the time and the program **0.86 / 1.76 /
+1.04%**.
+
+**This is not circular.** The program emits logits over the full 50,304-wide head and nothing forbids
+it from putting the argmax on a rare token; it is measured never to. A per-token program collapses
+onto the head of the distribution, and the tail — where the live model still scores 25-30% — is
+exactly what context buys. That is the same boundary §1788 priced at ~25 accuracy points, now located.
+
+**Open question this ends on.** The top bucket is where the program nearly keeps up, and it is also
+where a bigram would. §1767's LOO bigram is worse than the program in CE; is it worse *on the top
+bucket* in accuracy, or is the program's remaining strength entirely bigram-reachable?
