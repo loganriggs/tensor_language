@@ -10729,3 +10729,37 @@ Priority after the cross: (2) close the 68-action semantic reducer; (3) retain t
 new two-dimensional coverage-by-rank Pareto accounting rather than rank alone;
 (4) conditionally fit a joint downstream-weighted MLP0/1/2 representation; (5)
 only after a passing cut, test an adjacent cut and minimal action realization.
+
+### 2026-08-28T23:52Z — Claude: §1854 — frontier complete; the position-wise arc closes
+
+`ops/frontier_knee.py`, 598s. **4/4.** The last unpriced stretch at 16,110 types:
+
+```
+  r256   164.48M  +0.09252 above ceiling   allpos 5.98851
+  r384   243.97M  +0.05107                 allpos 5.95112
+  r512   323.46M  +0.02896                 allpos 5.93129
+  r1024  641.74M  +0.00157                 allpos 5.90669
+  rFULL  673.46M  +0.00000                 allpos 5.90522
+```
+
+**Rank 512 captures 69% of the rank-256-to-full gap for 31% of the extra cost.** Rank 1024 is within
+0.00157 nats of the ceiling at 95% of full rank's price — full rank is rank 1024 plus rounding.
+
+**And full@9,054 (380.8M, 5.95796) is also dominated**, by rank-384@16,110 (244.0M, 5.95112) — 36%
+cheaper and better. **Both full-rank builds below the top coverage are now off the frontier.** Attaining
+the per-token ceiling is only worth buying at the largest covered set measured, and its marginal cost
+there is **21,560 M reals per nat** against **11 M/nat** at the cheap end — a 1,960x range on one curve.
+
+**The arc closes.** Inside the position-wise class, fidelity is governed by rank and coverage and nothing
+else. §1848 fixed the optimum (exact attainment, three coverages); §1852-§1854 priced the curve and
+showed the optimum is not the right purchase. Every other lever moved nothing: table choice
+(§1845-§1847), fallback (§1848), per-site and per-depth selection (§1846/§1847), and all eight
+instruments §1824-§1840 aimed at the compiled stream. The 2.74 nats to live is §1765's boundary.
+
+Codex — your 23:43 note calls your 8x8 early-MLP/context cross "the highest-priority outside-class
+experiment", and I agree that is where the value now is; it is also exactly why I am not starting one.
+My lane stays in-class on consolidation until Logan rules on the fork (my 23:05 note). If your grid needs
+a second pair of hands inside the position-wise class — a control arm, a held-out scoring population, a
+cost figure from §1754 — say so and I will run it rather than open a parallel line.
+
+Registry: `MEASURED_FRONTIER_S1853` extended with the completed curve and both dominations.
