@@ -7,6 +7,7 @@ import pytest
 import torch
 
 import early_mlp_suffix_transport_v1 as contract
+import early_mlp_suffix_transport_v1_capabilities as capabilities
 import early_mlp_suffix_transport_v1_fit as fit
 import early_mlp_suffix_transport_v1_programs as programs
 import early_mlp_suffix_transport_v1_runtime as runtime
@@ -58,6 +59,14 @@ def _score(candidate: fit.FitCandidate, metric: float, *, copy: float = 0.0):
             student_original_calls=programs.ZERO_NATIVE_CALLS,
             hook_restored=True, hook_inert=True,
         ),
+    )
+
+
+def _validation_context() -> capabilities.ValidationRunContext:
+    return capabilities.ValidationRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, validation_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="5" * 64,
     )
 
 
@@ -424,6 +433,11 @@ def test_suffix_kl_row_pool_matches_registered_token_weighted_loss() -> None:
     torch.testing.assert_close(
         row_sum.sum() / row_count.sum(), expected.double(), rtol=2e-6, atol=1e-9,
     )
+    mixed_sum, mixed_count = programs.suffix_kl_rows(
+        runtime.scored_positions(teacher), student,
+    )
+    torch.testing.assert_close(mixed_sum, row_sum)
+    torch.testing.assert_close(mixed_count, row_count)
 
 
 def test_common_validation_support_binds_rows_targets_mask_and_semantics(monkeypatch) -> None:
@@ -438,13 +452,60 @@ def test_common_validation_support_binds_rows_targets_mask_and_semantics(monkeyp
         programs.validation_common_support_sha256(rows[:4])
 
 
+@pytest.mark.parametrize("control,route", [
+    ("true", "L"), ("true", "R"), ("document_shuffle", "S1"),
+    ("A_null_07", "T"),
+])
+def test_validation_identity_binds_true_rows_without_erasing_fit_control(
+    control, route,
+) -> None:
+    context = _validation_context()
+    program = programs.restore_fit_candidate(_fit(route, 1, 240))
+    batch = 7
+    indices = tuple(range(batch * 4, batch * 4 + 4))
+    inputs = torch.arange(4 * 256, dtype=torch.long).view(4, 256) % 11
+    identity = programs.make_validation_identity(
+        context=context, program=program, inputs=inputs, indices=indices,
+        route=route, control=control, trial=1, batch_ordinal=batch,
+    )
+    assert identity.role == "early_mlp_suffix_transport_v1_validation"
+    assert identity.phase == "validation" and identity.control == control
+    assert identity.teacher_mapping_sha256 == context.identity_teacher_mapping_sha256
+    assert identity.fit_role_tensor_sha256 == context.validation_role_tensor_sha256
+    context.require_identity(identity, inputs, indices)
+
+
+def test_validation_identity_rejects_noncanonical_rows_and_illegal_control() -> None:
+    context = _validation_context()
+    program = programs.restore_fit_candidate(_fit("R", 0, 250))
+    inputs = torch.zeros(4, 256, dtype=torch.long)
+    with pytest.raises(RuntimeError, match="canonical"):
+        programs.make_validation_identity(
+            context=context, program=program, inputs=inputs, indices=(1, 2, 3, 4),
+            route="R", control="true", trial=0, batch_ordinal=0,
+        )
+    with pytest.raises(ValueError, match="malformed"):
+        programs.make_validation_identity(
+            context=context, program=program, inputs=inputs, indices=(0, 1, 2, 3),
+            route="R", control="A_null_00", trial=0, batch_ordinal=0,
+        )
+
+
 def _collector(monkeypatch):
     monkeypatch.setattr(programs, "VALIDATION_ROWS", 8)
     baseline_count = torch.tensor([1, 2, 3, 4, 4, 3, 2, 1], dtype=torch.long)
+    baseline = programs.ValidationBaselineSufficientStatistics(
+        common_support_sha256="b" * 64,
+        row_ce_sum=torch.ones(8, dtype=torch.float64),
+        row_ce_count=torch.full((8,), 192, dtype=torch.long),
+        row_copy_ce_sum=baseline_count.double() / 10,
+        row_copy_count=baseline_count,
+        literal_early_mlp_calls=programs.ZERO_NATIVE_CALLS,
+        native_guard_restored=True, native_guard_inert=True,
+    )
     collector = programs.ValidationStatisticsCollector(
         route="R", program_sha256="a" * 64, common_support_sha256="b" * 64,
-        baseline_row_copy_ce_sum=baseline_count.double() / 10,
-        baseline_row_copy_count=baseline_count,
+        baseline=baseline,
     )
     return collector, baseline_count
 
@@ -515,3 +576,75 @@ def test_validation_collector_rejects_replay_support_and_closure_drift(monkeypat
     _add_collector_batch(collector, baseline_count, 0)
     with pytest.raises(RuntimeError, match="out of order"):
         _add_collector_batch(collector, baseline_count, 0)
+
+
+def test_validation_baseline_identity_and_collector_bind_the_complete_role(monkeypatch) -> None:
+    monkeypatch.setattr(programs, "VALIDATION_ROWS", 8)
+    monkeypatch.setattr(capabilities, "VALIDATION_BATCH_COUNT", 2)
+    rows = torch.arange(8 * 513, dtype=torch.long).view(8, 513) % 13
+    context = capabilities.ValidationRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64,
+        validation_role_tensor_sha256=runtime.tensor_identity_sha256(rows),
+        identity_teacher_mapping_sha256="5" * 64,
+    )
+    support = programs.validation_common_support_sha256(rows)
+    collector = programs.ValidationBaselineCollector(common_support_sha256=support)
+    for batch in range(2):
+        identity = programs.make_validation_baseline_identity(
+            context=context, role_rows=rows, batch_ordinal=batch,
+        )
+        start = batch * 4
+        batch_rows = rows[start:start + 4].contiguous()
+        identity.require_batch(batch_rows, tuple(range(start, start + 4)))
+        ce_sum = torch.arange(start, start + 4, dtype=torch.float64) + 1
+        copy_count = torch.tensor([1, 2, 3, 4], dtype=torch.long)
+        collector.add_batch(
+            batch_ordinal=batch, ordered_row_indices=tuple(range(start, start + 4)),
+            row_ce_sum=ce_sum, row_ce_count=torch.full((4,), 192, dtype=torch.long),
+            row_copy_ce_sum=copy_count.double() / 10, row_copy_count=copy_count,
+            literal_early_mlp_calls=programs.ZERO_NATIVE_CALLS,
+            native_guard_restored=True, native_guard_inert=True,
+        )
+    baseline = collector.finalize()
+    assert baseline.common_support_sha256 == support and baseline.row_ce_sum.tolist() == list(
+        range(1, 9)
+    )
+    candidate = programs.ValidationStatisticsCollector(
+        route="R", program_sha256="a" * 64, common_support_sha256=support,
+        baseline=baseline,
+    )
+    assert candidate.completed_rows == 0
+    changed = rows[:4].clone(); changed[0, 0] += 1
+    with pytest.raises(RuntimeError, match="role/context binding"):
+        programs.make_validation_baseline_identity(
+            context=context, role_rows=torch.cat((changed, rows[4:])), batch_ordinal=0,
+        )
+
+
+def test_validation_baseline_collector_rejects_partial_and_support_mixing(monkeypatch) -> None:
+    monkeypatch.setattr(programs, "VALIDATION_ROWS", 8)
+    collector = programs.ValidationBaselineCollector(common_support_sha256="a" * 64)
+    with pytest.raises(RuntimeError, match="missing batches"):
+        collector.finalize()
+    with pytest.raises(RuntimeError, match="frozen support"):
+        collector.require_identity(common_support_sha256="b" * 64)
+    collector.add_batch(
+        batch_ordinal=0, ordered_row_indices=(0, 1, 2, 3),
+        row_ce_sum=torch.ones(4, dtype=torch.float64),
+        row_ce_count=torch.full((4,), 192, dtype=torch.long),
+        row_copy_ce_sum=torch.ones(4, dtype=torch.float64),
+        row_copy_count=torch.ones(4, dtype=torch.long),
+        literal_early_mlp_calls=programs.ZERO_NATIVE_CALLS,
+        native_guard_restored=True, native_guard_inert=True,
+    )
+    with pytest.raises(RuntimeError, match="out of order"):
+        collector.add_batch(
+            batch_ordinal=0, ordered_row_indices=(0, 1, 2, 3),
+            row_ce_sum=torch.ones(4, dtype=torch.float64),
+            row_ce_count=torch.full((4,), 192, dtype=torch.long),
+            row_copy_ce_sum=torch.ones(4, dtype=torch.float64),
+            row_copy_count=torch.ones(4, dtype=torch.long),
+            literal_early_mlp_calls=programs.ZERO_NATIVE_CALLS,
+            native_guard_restored=True, native_guard_inert=True,
+        )

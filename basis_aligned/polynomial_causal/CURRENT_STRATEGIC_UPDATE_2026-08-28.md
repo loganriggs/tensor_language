@@ -825,3 +825,45 @@ a causal, OOD, edit, composition, or ship-denominator decision. The active GPU b
 run is still useful as a bounded robustness audit; its first random start has climbed
 from $0.4261$ to $1.0873$ through three sweeps but has not yet converged, so no basin
 claim is recorded.
+
+## 06:13 UTC continuation: held-out reduction boundary and deployed baseline closed
+
+Validation can no longer masquerade as fitting or accept caller-reduced model outputs.
+The trace schema now admits a selection-only role with a canonical 48-batch schedule,
+separate validation tensor identity, true teacher map, frozen program hash, trial,
+control provenance, and exact batch tokens. Fit and validation run contexts reject one
+another in both directions. Document-shuffled and A-null candidates retain their
+training-control identity, but evaluate on true validation rows: A-null T uses the
+true same-forward executable L0 parent at evaluation, exactly as preregistered, rather
+than incorrectly replaying its false fit parent.
+
+For every candidate batch, the observed adapter owns the complete no-gradient P/P/N
+student and exact coordinate or O/O/N teacher transaction. Local MSE or suffix KL, CE,
+and copy CE are reduced inside the one-use teacher result. Only six float64/integer
+four-row vectors and tensor-free ledger hashes cross the boundary; logits, codes,
+labels, states, callbacks, and deployed-write handles do not. A mixed-support bug found
+by the new tests was fixed: the OON teacher is already sliced to 64:256 while the sealed
+student logits remain length 256, so the reduction now canonicalizes each tensor to
+the scored support before comparing shapes.
+
+The copy admissibility baseline is also no longer caller-provided. A separate exact
+identity is minted from the complete validation role, shifted-target/copy-mask support,
+and canonical batch. The adapter runs deployed N/N under literal-native poison,
+reduces CE/copy internally, and feeds an exactly-once 48-batch baseline collector.
+Candidate collectors now require that completed support-bound baseline object; the old
+raw-vector construction path was removed.
+
+Adversarial tests cover cross-role authority, noncanonical schedules, changed role
+tokens, illegal control/route pairs, mixed full/sliced KL tensors, incomplete/replayed
+baseline and candidate batches, support mixing, native-call attempts, closure drift,
+and tensor escape. The complete suffix closure passes 198/198 in 55.18 seconds;
+frozen algebra verification passes; the semantic final pair is still absent and the
+row gate remains NO-GO. No explanatory currency moves.
+
+The next highest-priority unit is now narrower: implement the semantic final owner and
+canonical program/preflight artifact publisher together, including validation receipt
+and broker-ledger completeness checks. That source must exist in full before the
+file-existence gate can open. After publication code is frozen and re-audited, matched
+L/R/S/T execution remains the first numerical action. On the independent allocation
+run, random start 1 converged after six sweeps to the same 1.2037 K=6 value as greedy;
+start 2 is still running, so a common-basin statement remains premature.

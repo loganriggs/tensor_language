@@ -19,6 +19,7 @@ import torch
 import torch.nn.functional as F
 
 import early_mlp_suffix_transport_v1 as contract
+import early_mlp_suffix_transport_v1_capabilities as capabilities
 import early_mlp_suffix_transport_v1_fit as fit
 import early_mlp_suffix_transport_v1_runtime as runtime
 
@@ -131,6 +132,129 @@ def valid_mapped_control(control: str, route: str) -> bool:
     suffix = control.removeprefix("A_null_")
     return len(suffix) == 2 and suffix.isdigit() and 0 <= int(suffix) < 20 and (
         control == f"A_null_{int(suffix):02d}"
+    )
+
+
+def make_validation_identity(
+    *, context: capabilities.ValidationRunContext,
+    program: runtime.JointAffineProgram, inputs: torch.Tensor,
+    indices: Sequence[int], route: str, control: str, trial: int,
+    batch_ordinal: int,
+) -> runtime.TraceIdentity:
+    """Bind one true-row selection batch while preserving fit-control provenance."""
+
+    legal_control = control == "true" or valid_mapped_control(control, route)
+    if not isinstance(context, capabilities.ValidationRunContext) or route not in (
+        SELECTABLE_ROUTES
+    ) or not legal_control or not isinstance(program, runtime.JointAffineProgram) or (
+        program.route != route
+    ) or type(trial) is not int or trial not in range(len(runtime.LEARNING_RATES)) or (
+        type(batch_ordinal) is not int
+    ) or not 0 <= batch_ordinal < capabilities.VALIDATION_BATCH_COUNT:
+        raise ValueError("validation execution identity is malformed")
+    expected = tuple(range(
+        batch_ordinal * runtime.BATCH_SIZE,
+        (batch_ordinal + 1) * runtime.BATCH_SIZE,
+    ))
+    if tuple(indices) != expected:
+        raise RuntimeError("validation batch is not in canonical role order")
+    return runtime.TraceIdentity.from_inputs(
+        inputs=inputs, ordered_batch_indices=indices,
+        source_commit=context.source_commit,
+        inherited_snapshot_sha256=context.inherited_snapshot_sha256,
+        rows_receipt_sha256=context.rows_receipt_sha256,
+        # Trace schema v1 keeps this historical name; the validation role gives it
+        # the unambiguous meaning of validation-role tensor hash.
+        fit_role_tensor_sha256=context.validation_role_tensor_sha256,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256=context.identity_teacher_mapping_sha256,
+        role="early_mlp_suffix_transport_v1_validation", phase="validation",
+        route=route, control=control,
+        teacher_kind="coordinate_labels" if route == "L" else "oon_logits",
+        trial=trial, epoch=0, optimizer_step=batch_ordinal,
+        batch_ordinal=batch_ordinal,
+        student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+
+
+@dataclass(frozen=True)
+class ValidationBaselineIdentity:
+    """Exact deployed-N/N validation batch identity, independent of any candidate."""
+
+    source_commit: str
+    inherited_snapshot_sha256: str
+    rows_receipt_sha256: str
+    validation_role_tensor_sha256: str
+    common_support_sha256: str
+    ordered_batch_indices_sha256: str
+    ordered_input_tokens_sha256: str
+    batch_ordinal: int
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.source_commit, str) or len(self.source_commit) != 40 or any(
+            character not in "0123456789abcdef" for character in self.source_commit
+        ) or any(not _sha256(value) for value in (
+            self.inherited_snapshot_sha256, self.rows_receipt_sha256,
+            self.validation_role_tensor_sha256, self.common_support_sha256,
+            self.ordered_batch_indices_sha256, self.ordered_input_tokens_sha256,
+        )) or type(self.batch_ordinal) is not int or not (
+            0 <= self.batch_ordinal < capabilities.VALIDATION_BATCH_COUNT
+        ):
+            raise ValueError("validation baseline identity is malformed")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            field: getattr(self, field) for field in self.__dataclass_fields__
+        })
+
+    def require_batch(
+        self, role_rows: torch.Tensor, ordered_row_indices: Sequence[int],
+    ) -> None:
+        if not torch.is_tensor(role_rows) or role_rows.dtype != torch.long or tuple(
+            role_rows.shape
+        ) != (runtime.BATCH_SIZE, 513) or role_rows.device.type != "cpu":
+            raise RuntimeError("validation baseline requires one CPU role-row batch")
+        start = self.batch_ordinal * runtime.BATCH_SIZE
+        expected = tuple(range(start, start + runtime.BATCH_SIZE))
+        if tuple(ordered_row_indices) != expected or runtime.logical_identity_sha256(
+            list(expected)
+        ) != self.ordered_batch_indices_sha256 or runtime.tensor_identity_sha256(
+            role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous()
+        ) != self.ordered_input_tokens_sha256:
+            raise RuntimeError("validation baseline batch differs from its frozen identity")
+
+
+def make_validation_baseline_identity(
+    *, context: capabilities.ValidationRunContext, role_rows: torch.Tensor,
+    batch_ordinal: int,
+) -> ValidationBaselineIdentity:
+    """Mint the N/N baseline identity from the complete frozen validation role."""
+
+    if not isinstance(context, capabilities.ValidationRunContext) or not torch.is_tensor(
+        role_rows
+    ) or role_rows.dtype != torch.long or tuple(role_rows.shape) != (
+        VALIDATION_ROWS, 513
+    ) or role_rows.device.type != "cpu" or runtime.tensor_identity_sha256(role_rows) != (
+        context.validation_role_tensor_sha256
+    ) or type(batch_ordinal) is not int or not (
+        0 <= batch_ordinal < capabilities.VALIDATION_BATCH_COUNT
+    ):
+        raise RuntimeError("validation baseline role/context binding changed")
+    start = batch_ordinal * runtime.BATCH_SIZE
+    indices = tuple(range(start, start + runtime.BATCH_SIZE))
+    inputs = role_rows[
+        start:start + runtime.BATCH_SIZE, :runtime.SEQUENCE_LENGTH
+    ].contiguous()
+    return ValidationBaselineIdentity(
+        source_commit=context.source_commit,
+        inherited_snapshot_sha256=context.inherited_snapshot_sha256,
+        rows_receipt_sha256=context.rows_receipt_sha256,
+        validation_role_tensor_sha256=context.validation_role_tensor_sha256,
+        common_support_sha256=validation_common_support_sha256(role_rows),
+        ordered_batch_indices_sha256=runtime.logical_identity_sha256(list(indices)),
+        ordered_input_tokens_sha256=runtime.tensor_identity_sha256(inputs),
+        batch_ordinal=batch_ordinal,
     )
 
 
@@ -389,6 +513,59 @@ class ValidationSufficientStatistics:
 
 
 @dataclass(frozen=True)
+class ValidationBaselineSufficientStatistics:
+    """Raw deployed-N/N validation CE and copy baseline on the common support."""
+
+    common_support_sha256: str
+    row_ce_sum: torch.Tensor
+    row_ce_count: torch.Tensor
+    row_copy_ce_sum: torch.Tensor
+    row_copy_count: torch.Tensor
+    literal_early_mlp_calls: tuple[tuple[int, int], ...]
+    native_guard_restored: bool
+    native_guard_inert: bool
+
+    def __post_init__(self) -> None:
+        if not _sha256(self.common_support_sha256):
+            raise ValueError("validation baseline common support is malformed")
+        for name in ("row_ce_sum", "row_copy_ce_sum"):
+            value = _row_vector(name, getattr(self, name), dtype=torch.float64)
+            if bool((value < 0).any()):
+                raise ValueError(f"validation baseline {name} is negative")
+            object.__setattr__(self, name, value)
+        for name in ("row_ce_count", "row_copy_count"):
+            value = _row_vector(name, getattr(self, name), dtype=torch.long)
+            if bool((value < 0).any()):
+                raise ValueError(f"validation baseline {name} is negative")
+            object.__setattr__(self, name, value)
+        expected = torch.full(
+            (VALIDATION_ROWS,), runtime.SCORE_STOP - runtime.SCORE_START,
+            dtype=torch.long,
+        )
+        if not torch.equal(self.row_ce_count, expected) or int(self.row_copy_count.sum()) <= 0:
+            raise ValueError("validation baseline CE/copy support changed")
+        if self.literal_early_mlp_calls != ZERO_NATIVE_CALLS or (
+            self.native_guard_restored is not True or self.native_guard_inert is not True
+        ):
+            raise ValueError("validation baseline did not use a clean deployed-N/N path")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            "common_support_sha256": self.common_support_sha256,
+            **{
+                name: runtime.tensor_identity_sha256(getattr(self, name))
+                for name in (
+                    "row_ce_sum", "row_ce_count", "row_copy_ce_sum", "row_copy_count",
+                )
+            },
+            "literal_early_mlp_calls": self.literal_early_mlp_calls,
+            "native_guard_restored": self.native_guard_restored,
+            "native_guard_inert": self.native_guard_inert,
+        })
+
+
+@dataclass(frozen=True)
 class MappedValidationSufficientStatistics:
     """Raw validation statistics additionally bound to one immutable row map."""
 
@@ -563,12 +740,15 @@ def suffix_kl_rows(
 ) -> tuple[torch.Tensor, torch.Tensor]:
     """Return per-row token KL sums on exact positions 64:256."""
 
-    if teacher_logits.shape != student_logits.shape or teacher_logits.ndim != 3:
-        raise ValueError("validation KL logits must be same-shaped rank-three tensors")
+    if teacher_logits.ndim != 3 or student_logits.ndim != 3:
+        raise ValueError("validation KL logits must be rank-three tensors")
     if teacher_logits.shape[1] == runtime.SEQUENCE_LENGTH:
         teacher_logits = runtime.scored_positions(teacher_logits)
+    if student_logits.shape[1] == runtime.SEQUENCE_LENGTH:
         student_logits = runtime.scored_positions(student_logits)
-    if teacher_logits.shape[1] != runtime.SCORE_STOP - runtime.SCORE_START or (
+    if teacher_logits.shape != student_logits.shape or teacher_logits.shape[1] != (
+        runtime.SCORE_STOP - runtime.SCORE_START
+    ) or (
         teacher_logits.shape[-1] <= 1
     ) or not bool(torch.isfinite(teacher_logits).all()) or not bool(
         torch.isfinite(student_logits).all()
@@ -672,6 +852,116 @@ def _validation_batch_vector(
     return result
 
 
+class ValidationBaselineCollector:
+    """Exactly-once deployed-N/N CE/copy assembly before candidate selection."""
+
+    __slots__ = (
+        "__common_support_sha256", "__next_batch", "__sealed", "__spent", "__vectors",
+    )
+
+    def __init__(self, *, common_support_sha256: str) -> None:
+        object.__setattr__(self, "_ValidationBaselineCollector__sealed", False)
+        if not _sha256(common_support_sha256) or VALIDATION_ROWS <= 0 or (
+            VALIDATION_ROWS % runtime.BATCH_SIZE
+        ):
+            raise ValueError("validation baseline collector identity changed")
+        self.__common_support_sha256 = common_support_sha256
+        self.__next_batch = 0
+        self.__spent = False
+        self.__vectors = {
+            name: [] for name in ("ce_sum", "ce_count", "copy_ce_sum", "copy_count")
+        }
+        object.__setattr__(self, "_ValidationBaselineCollector__sealed", True)
+
+    def __setattr__(self, name: str, value: Any) -> None:
+        if getattr(self, "_ValidationBaselineCollector__sealed", False):
+            raise AttributeError("validation baseline collector is sealed")
+        object.__setattr__(self, name, value)
+
+    def __copy__(self):
+        raise RuntimeError("validation baseline collectors cannot be copied")
+
+    def __deepcopy__(self, memo):
+        raise RuntimeError("validation baseline collectors cannot be copied")
+
+    def __reduce__(self):
+        raise RuntimeError("validation baseline collectors cannot be serialized")
+
+    @property
+    def completed_rows(self) -> int:
+        return self.__next_batch * runtime.BATCH_SIZE
+
+    def require_identity(self, *, common_support_sha256: str) -> None:
+        if self.__spent or common_support_sha256 != self.__common_support_sha256:
+            raise RuntimeError("validation baseline collector differs from the frozen support")
+
+    def add_batch(
+        self, *, batch_ordinal: int, ordered_row_indices: Sequence[int],
+        row_ce_sum: torch.Tensor, row_ce_count: torch.Tensor,
+        row_copy_ce_sum: torch.Tensor, row_copy_count: torch.Tensor,
+        literal_early_mlp_calls: tuple[tuple[int, int], ...],
+        native_guard_restored: bool, native_guard_inert: bool,
+    ) -> None:
+        if self.__spent:
+            raise RuntimeError("validation baseline collector was already finalized")
+        if type(batch_ordinal) is not int or batch_ordinal != self.__next_batch:
+            raise RuntimeError("validation baseline batch is duplicated, missing, or out of order")
+        start = batch_ordinal * runtime.BATCH_SIZE
+        expected_indices = tuple(range(start, start + runtime.BATCH_SIZE))
+        if tuple(ordered_row_indices) != expected_indices or expected_indices[-1] >= (
+            VALIDATION_ROWS
+        ):
+            raise RuntimeError("validation baseline row identity changed")
+        if literal_early_mlp_calls != ZERO_NATIVE_CALLS or native_guard_restored is not True or (
+            native_guard_inert is not True
+        ):
+            raise RuntimeError("validation baseline native guard did not close cleanly")
+        supplied = {
+            "ce_sum": row_ce_sum, "ce_count": row_ce_count,
+            "copy_ce_sum": row_copy_ce_sum, "copy_count": row_copy_count,
+        }
+        batch = {
+            name: _validation_batch_vector(
+                name, value,
+                dtype=torch.float64 if name in {"ce_sum", "copy_ce_sum"} else torch.long,
+            )
+            for name, value in supplied.items()
+        }
+        expected_count = torch.full(
+            (runtime.BATCH_SIZE,), runtime.SCORE_STOP - runtime.SCORE_START,
+            dtype=torch.long,
+        )
+        if not torch.equal(batch["ce_count"], expected_count):
+            raise RuntimeError("validation baseline CE support changed")
+        for name, value in batch.items():
+            self.__vectors[name].append(value)
+        object.__setattr__(
+            self, "_ValidationBaselineCollector__next_batch", self.__next_batch + 1,
+        )
+
+    def finalize(self) -> ValidationBaselineSufficientStatistics:
+        if self.__spent:
+            raise RuntimeError("validation baseline collector was already finalized")
+        expected_batches = VALIDATION_ROWS // runtime.BATCH_SIZE
+        if self.__next_batch != expected_batches or any(
+            len(values) != expected_batches for values in self.__vectors.values()
+        ):
+            raise RuntimeError("validation baseline cannot finalize with missing batches")
+        object.__setattr__(self, "_ValidationBaselineCollector__spent", True)
+        joined = {
+            name: torch.cat(values).contiguous() for name, values in self.__vectors.items()
+        }
+        for values in self.__vectors.values():
+            values.clear()
+        return ValidationBaselineSufficientStatistics(
+            common_support_sha256=self.__common_support_sha256,
+            row_ce_sum=joined["ce_sum"], row_ce_count=joined["ce_count"],
+            row_copy_ce_sum=joined["copy_ce_sum"], row_copy_count=joined["copy_count"],
+            literal_early_mlp_calls=ZERO_NATIVE_CALLS,
+            native_guard_restored=True, native_guard_inert=True,
+        )
+
+
 class ValidationStatisticsCollector:
     """Exactly-once ordered assembly of raw validation batches.
 
@@ -692,20 +982,19 @@ class ValidationStatisticsCollector:
 
     def __init__(
         self, *, route: str, program_sha256: str, common_support_sha256: str,
-        baseline_row_copy_ce_sum: torch.Tensor,
-        baseline_row_copy_count: torch.Tensor,
+        baseline: ValidationBaselineSufficientStatistics,
     ) -> None:
         object.__setattr__(self, "_ValidationStatisticsCollector__sealed", False)
         if route not in SELECTABLE_ROUTES or not _sha256(program_sha256) or not _sha256(
             common_support_sha256
         ) or VALIDATION_ROWS <= 0 or VALIDATION_ROWS % runtime.BATCH_SIZE:
             raise ValueError("validation collector identity or batch partition changed")
-        baseline_sum = _row_vector(
-            "baseline_row_copy_ce_sum", baseline_row_copy_ce_sum, dtype=torch.float64,
-        )
-        baseline_count = _row_vector(
-            "baseline_row_copy_count", baseline_row_copy_count, dtype=torch.long,
-        )
+        if not isinstance(baseline, ValidationBaselineSufficientStatistics) or (
+            baseline.common_support_sha256 != common_support_sha256
+        ):
+            raise ValueError("validation collector baseline binding changed")
+        baseline_sum = baseline.row_copy_ce_sum.clone()
+        baseline_count = baseline.row_copy_count.clone()
         if bool((baseline_sum < 0).any()) or bool((baseline_count < 0).any()) or int(
             baseline_count.sum()
         ) <= 0:
@@ -739,6 +1028,10 @@ class ValidationStatisticsCollector:
     @property
     def completed_rows(self) -> int:
         return self.__next_batch * runtime.BATCH_SIZE
+
+    def require_identity(self, *, route: str, program_sha256: str) -> None:
+        if self.__spent or route != self.__route or program_sha256 != self.__program_sha256:
+            raise RuntimeError("validation collector differs from the executing program")
 
     def add_batch(
         self, *, batch_ordinal: int, ordered_row_indices: Sequence[int],

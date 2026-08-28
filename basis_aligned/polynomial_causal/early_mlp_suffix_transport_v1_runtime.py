@@ -122,9 +122,12 @@ class TraceIdentity:
         ):
             if not _sha256_text(value):
                 raise ValueError(f"trace {name} hash is malformed")
-        if self.role != "early_mlp_suffix_transport_v1_fit":
-            raise ValueError("trace role is not licensed for fitting")
-        if self.phase not in {"initial_denominator", "fit"} or self.route not in {
+        if self.role not in {
+            "early_mlp_suffix_transport_v1_fit",
+            "early_mlp_suffix_transport_v1_validation",
+        }:
+            raise ValueError("trace role is not licensed for fit or validation")
+        if self.phase not in {"initial_denominator", "fit", "validation"} or self.route not in {
             "Q", "L", "R", "S0", "S1", "T",
         } or self.teacher_kind not in {"coordinate_labels", "oon_logits"}:
             raise ValueError("trace phase/route/teacher identity is unknown")
@@ -133,7 +136,7 @@ class TraceIdentity:
         }
         if self.control not in allowed_controls:
             raise ValueError("trace control identity is unknown")
-        legal = (
+        legal_fit = (
             self.phase == "initial_denominator" and self.route == "Q"
             and self.control == "true" and self.teacher_kind == "coordinate_labels"
         ) or (
@@ -149,8 +152,20 @@ class TraceIdentity:
             and (self.control == "true" or self.control.startswith("A_null_"))
             and self.teacher_kind == "oon_logits"
         )
-        if not legal:
+        legal_validation_control = self.control == "true" or (
+            self.control == "document_shuffle" and self.route in {"L", "R", "S0", "S1"}
+        ) or (self.control.startswith("A_null_") and self.route == "T")
+        legal_validation = self.phase == "validation" and self.route in {
+            "L", "R", "S0", "S1", "T",
+        } and legal_validation_control and self.teacher_kind == (
+            "coordinate_labels" if self.route == "L" else "oon_logits"
+        )
+        if not (legal_fit or legal_validation):
             raise ValueError("trace phase/route/control/teacher combination is illegal")
+        if (self.role == "early_mlp_suffix_transport_v1_fit") != (
+            self.phase in {"initial_denominator", "fit"}
+        ):
+            raise ValueError("trace role and execution phase differ")
         if self.trial not in range(3) or self.epoch not in range(3) or (
             self.optimizer_step < 0 or self.batch_ordinal < 0
         ):
@@ -185,6 +200,7 @@ class TraceIdentity:
         teacher_mapping_sha256: str, phase: str, route: str, control: str,
         teacher_kind: str, trial: int, epoch: int, optimizer_step: int,
         batch_ordinal: int, student_states: tuple[tuple[int, str], ...],
+        role: str = "early_mlp_suffix_transport_v1_fit",
     ) -> "TraceIdentity":
         if not torch.is_tensor(inputs) or inputs.dtype != torch.long or tuple(inputs.shape) != (
             BATCH_SIZE, SEQUENCE_LENGTH,
@@ -207,7 +223,7 @@ class TraceIdentity:
             ordered_input_tokens_sha256=tensor_identity_sha256(inputs),
             program_snapshot_sha256=program_snapshot_sha256,
             teacher_mapping_sha256=teacher_mapping_sha256,
-            role="early_mlp_suffix_transport_v1_fit", phase=phase, route=route,
+            role=role, phase=phase, route=route,
             control=control, teacher_kind=teacher_kind, trial=trial, epoch=epoch,
             optimizer_step=optimizer_step, batch_ordinal=batch_ordinal,
             student_states=student_states, batch_rows=BATCH_SIZE,

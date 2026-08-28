@@ -8,7 +8,7 @@ states, dispatcher callbacks, or deployed-N handles.
 from __future__ import annotations
 
 from contextlib import contextmanager
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from types import MethodType
 from typing import Any, Iterator
 
@@ -42,6 +42,31 @@ class ObservedClosure:
     native_guard_inert: bool
     logit_shape: tuple[int, ...]
     logit_dtype: str
+
+
+@dataclass(frozen=True)
+class ObservedValidationReceipt:
+    """Tensor-free receipt for one complete selection-only model transaction."""
+
+    identity_sha256: str
+    route: str
+    control: str
+    batch_ordinal: int
+    ordered_row_indices_sha256: str
+    reduction_sha256: str
+    student_ledger_sha256: str
+    teacher_ledger_sha256: str
+    observed_closure_sha256: str
+
+
+@dataclass(frozen=True)
+class ObservedValidationBaselineReceipt:
+    """Tensor-free receipt for one deployed-N/N validation baseline batch."""
+
+    identity_sha256: str
+    batch_ordinal: int
+    reduction_sha256: str
+    observed_closure_sha256: str
 
 
 class _EarlyNativePoison:
@@ -297,6 +322,196 @@ class ObservedBilin18Adapter:
 
         return broker.run_oon_teacher(
             identity, step, tokens, self._autonomous_oon_forward,
+        )
+
+    def run_validation_batch(
+        self, *, broker: Any, hook: runtime.StudentCorrectionHook,
+        program: runtime.JointAffineProgram, identity: runtime.TraceIdentity,
+        role_rows: torch.Tensor, ordered_row_indices: Any, collector: Any,
+        denominators: Any = None,
+    ) -> ObservedValidationReceipt:
+        """Reduce one true-row validation transaction without releasing held-out tensors."""
+
+        import early_mlp_suffix_transport_v1_capabilities as capabilities
+        import early_mlp_suffix_transport_v1_programs as programs
+
+        if not isinstance(identity, runtime.TraceIdentity) or identity.phase != (
+            "validation"
+        ) or identity.role != "early_mlp_suffix_transport_v1_validation" or not isinstance(
+            program, runtime.JointAffineProgram
+        ) or program.route != identity.route or runtime.program_snapshot_sha256(program) != (
+            identity.program_snapshot_sha256
+        ) or not isinstance(collector, programs.ValidationStatisticsCollector):
+            raise RuntimeError("observed validation identity/program/collector is malformed")
+        if not torch.is_tensor(role_rows) or role_rows.dtype != torch.long or tuple(
+            role_rows.shape
+        ) != (runtime.BATCH_SIZE, 513) or role_rows.device.type != "cpu":
+            raise RuntimeError("observed validation requires one CPU role-row batch")
+        indices = tuple(ordered_row_indices)
+        inputs = role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous()
+        identity.require_inputs(inputs)
+        identity.require_batch_indices(indices)
+        collector.require_identity(
+            route=identity.route, program_sha256=identity.program_snapshot_sha256,
+        )
+        if identity.route == "L":
+            if denominators is None or len(denominators) != 2:
+                raise RuntimeError("local validation requires two frozen denominators")
+        elif denominators is not None:
+            raise RuntimeError("suffix validation cannot receive local denominators")
+
+        try:
+            hook.configure(program=program, states={0: "P", 1: "P"})
+            try:
+                model_device = next(self._model.parameters()).device
+            except StopIteration as error:
+                raise RuntimeError("observed model has no device-bearing parameters") from error
+            model_inputs = inputs.to(device=model_device)
+            session = broker.begin_student(identity, hook, model_inputs, indices)
+        except BaseException:
+            try:
+                hook.clear_configuration()
+            except BaseException:
+                pass
+            raise
+
+        with torch.no_grad():
+            step, student_closure, observed = self.run_student(
+                session=session, hook=hook, identity=identity, tokens=model_inputs,
+            )
+            if identity.route == "L":
+                result = broker.run_coordinate_teacher(identity, step)
+                reductions, teacher_closure = result.consume_validation(
+                    role_rows, denominators,
+                )
+            else:
+                result = self.run_oon_teacher(
+                    broker=broker, identity=identity, step=step, tokens=model_inputs,
+                )
+                reductions, teacher_closure = result.consume_validation(role_rows)
+
+        if student_closure.scope != "student" or student_closure.original_calls != (
+            capabilities.EXACT_ZERO_CALLS
+        ) or student_closure.hook_restored is not True or student_closure.hook_inert is not (
+            True
+        ) or observed.literal_early_mlp_calls != ((0, 0), (1, 0), (2, 0)) or (
+            observed.native_guard_restored is not True
+        ) or observed.native_guard_inert is not True or teacher_closure.original_calls != (
+            capabilities.EXACT_EARLY_ORIGINAL_CALLS
+        ) or teacher_closure.consumed is not True:
+            raise RuntimeError("observed validation transaction did not close exactly")
+        collector.add_batch(
+            batch_ordinal=identity.batch_ordinal, ordered_row_indices=indices,
+            row_primary_sum=reductions.row_primary_sum,
+            row_primary_count=reductions.row_primary_count,
+            row_ce_sum=reductions.row_ce_sum, row_ce_count=reductions.row_ce_count,
+            row_copy_ce_sum=reductions.row_copy_ce_sum,
+            row_copy_count=reductions.row_copy_count,
+            student_original_calls=student_closure.original_calls,
+            hook_restored=student_closure.hook_restored,
+            hook_inert=student_closure.hook_inert,
+        )
+        reduction_sha256 = runtime.logical_identity_sha256({
+            name: runtime.tensor_identity_sha256(getattr(reductions, name))
+            for name in (
+                "row_primary_sum", "row_primary_count", "row_ce_sum", "row_ce_count",
+                "row_copy_ce_sum", "row_copy_count",
+            )
+        })
+        return ObservedValidationReceipt(
+            identity_sha256=identity.sha256, route=identity.route,
+            control=identity.control, batch_ordinal=identity.batch_ordinal,
+            ordered_row_indices_sha256=runtime.logical_identity_sha256(list(indices)),
+            reduction_sha256=reduction_sha256,
+            student_ledger_sha256=student_closure.ledger_sha256,
+            teacher_ledger_sha256=teacher_closure.ledger_sha256,
+            observed_closure_sha256=runtime.logical_identity_sha256(asdict(observed)),
+        )
+
+    def run_validation_baseline_batch(
+        self, *, identity: Any, role_rows: torch.Tensor,
+        ordered_row_indices: Any, collector: Any,
+    ) -> ObservedValidationBaselineReceipt:
+        """Run and reduce one deployed-N/N baseline batch without releasing logits."""
+
+        import early_mlp_suffix_transport_v1_programs as programs
+
+        if not isinstance(identity, programs.ValidationBaselineIdentity) or not isinstance(
+            collector, programs.ValidationBaselineCollector
+        ):
+            raise RuntimeError("observed validation baseline identity/collector is malformed")
+        indices = tuple(ordered_row_indices)
+        identity.require_batch(role_rows, indices)
+        collector.require_identity(common_support_sha256=identity.common_support_sha256)
+        tokens = role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous()
+        try:
+            model_device = next(self._model.parameters()).device
+        except StopIteration as error:
+            raise RuntimeError("observed model has no device-bearing parameters") from error
+        tokens = tokens.to(device=model_device)
+        poison = _EarlyNativePoison(self._model)
+        attention_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        mlp_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        logits: torch.Tensor | None = None
+        outer_returned = False
+
+        def attention(event: facade.AttentionEvent):
+            attention_calls[event.site] += 1
+            return self._ship.attention(event)
+
+        def mlp(event: facade.EarlyMLPEvent):
+            mlp_calls[event.site] += 1
+            return self._ship.mlp(event)
+
+        with torch.no_grad():
+            with poison.scope():
+                logits = facade.forward_with_dispatch(
+                    self._model, tokens, attention, mlp,
+                    require_production=self._production,
+                )
+                outer_returned = True
+            expected_all = tuple(
+                (site, 1) for site in range(len(self._model.transformer.h))
+            )
+            if _counts(attention_calls) != expected_all or _counts(mlp_calls) != expected_all or (
+                not outer_returned
+            ) or not poison.restored or not poison.inert or any(poison.calls.values()) or (
+                logits is None
+            ):
+                raise RuntimeError("observed deployed-N/N baseline did not close exactly")
+            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+                logits, role_rows,
+            )
+        observed = ObservedClosure(
+            scope="validation_baseline", outer_forward_count=1, outer_returned=True,
+            attention_dispatch_calls=_counts(attention_calls),
+            mlp_dispatch_calls=_counts(mlp_calls),
+            deployed_n_calls=((0, 1), (1, 1), (2, 1)),
+            correction_calls=((0, 0), (1, 0), (2, 0)),
+            literal_early_mlp_calls=_counts(poison.calls),
+            native_guard_restored=poison.restored, native_guard_inert=poison.inert,
+            logit_shape=tuple(logits.shape), logit_dtype=str(logits.dtype),
+        )
+        logits = None
+        collector.add_batch(
+            batch_ordinal=identity.batch_ordinal, ordered_row_indices=indices,
+            row_ce_sum=ce_sum, row_ce_count=ce_count,
+            row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+            literal_early_mlp_calls=observed.literal_early_mlp_calls,
+            native_guard_restored=observed.native_guard_restored,
+            native_guard_inert=observed.native_guard_inert,
+        )
+        reduction_sha256 = runtime.logical_identity_sha256({
+            name: runtime.tensor_identity_sha256(value)
+            for name, value in {
+                "row_ce_sum": ce_sum, "row_ce_count": ce_count,
+                "row_copy_ce_sum": copy_sum, "row_copy_count": copy_count,
+            }.items()
+        })
+        return ObservedValidationBaselineReceipt(
+            identity_sha256=identity.sha256, batch_ordinal=identity.batch_ordinal,
+            reduction_sha256=reduction_sha256,
+            observed_closure_sha256=runtime.logical_identity_sha256(asdict(observed)),
         )
 
     def run_mapped_oon_teacher(

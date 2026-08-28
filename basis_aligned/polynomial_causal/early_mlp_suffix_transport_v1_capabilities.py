@@ -31,6 +31,8 @@ EXACT_ZERO_CALLS = ((0, 0), (1, 0), (2, 0))
 EXACT_EARLY_ORIGINAL_CALLS = ((0, 1), (1, 1), (2, 0))
 FIT_ROW_COUNT = 384
 FIT_BATCHES_PER_EPOCH = FIT_ROW_COUNT // runtime.BATCH_SIZE
+VALIDATION_ROW_COUNT = 192
+VALIDATION_BATCH_COUNT = VALIDATION_ROW_COUNT // runtime.BATCH_SIZE
 
 
 def _call_tuple(value: Mapping[int, int]) -> tuple[tuple[int, int], ...]:
@@ -93,6 +95,10 @@ class RunContext:
 
         if not isinstance(identity, runtime.TraceIdentity):
             raise RuntimeError("student identity has the wrong runtime type")
+        if identity.role != "early_mlp_suffix_transport_v1_fit" or identity.phase not in {
+            "initial_denominator", "fit",
+        }:
+            raise RuntimeError("fit run context cannot authorize another role or phase")
         if (
             identity.source_commit != self.source_commit
             or identity.inherited_snapshot_sha256 != self.inherited_snapshot_sha256
@@ -125,6 +131,64 @@ class RunContext:
             expected = tuple(int(value) for value in permutation[start:start + runtime.BATCH_SIZE])
         if indices != expected:
             raise RuntimeError("ordered fit batch differs from the preregistered schedule")
+
+
+@dataclass(frozen=True)
+class ValidationRunContext:
+    """Immutable authority for selection-only rows and the true evaluation teacher."""
+
+    source_commit: str
+    inherited_snapshot_sha256: str
+    rows_receipt_sha256: str
+    validation_role_tensor_sha256: str
+    identity_teacher_mapping_sha256: str
+    validation_row_count: int = VALIDATION_ROW_COUNT
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.source_commit, str) or len(self.source_commit) != 40 or any(
+            char not in "0123456789abcdef" for char in self.source_commit
+        ):
+            raise ValueError("validation source commit is malformed")
+        if any(not runtime._sha256_text(value) for value in (
+            self.inherited_snapshot_sha256, self.rows_receipt_sha256,
+            self.validation_role_tensor_sha256, self.identity_teacher_mapping_sha256,
+        )) or type(self.validation_row_count) is not int or self.validation_row_count != (
+            VALIDATION_ROW_COUNT
+        ):
+            raise ValueError("validation run context changed the frozen role")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            field: getattr(self, field) for field in self.__dataclass_fields__
+        })
+
+    def require_identity(
+        self, identity: runtime.TraceIdentity, inputs: torch.Tensor,
+        ordered_batch_indices: Sequence[int],
+    ) -> None:
+        if not isinstance(identity, runtime.TraceIdentity) or identity.role != (
+            "early_mlp_suffix_transport_v1_validation"
+        ) or identity.phase != "validation":
+            raise RuntimeError("selection execution lacks a validation identity")
+        if identity.source_commit != self.source_commit or identity.inherited_snapshot_sha256 != (
+            self.inherited_snapshot_sha256
+        ) or identity.rows_receipt_sha256 != self.rows_receipt_sha256 or (
+            # Trace schema v1 retains this historical field name; role disambiguates
+            # whether it binds the fit tensor or the validation tensor.
+            identity.fit_role_tensor_sha256 != self.validation_role_tensor_sha256
+        ) or identity.teacher_mapping_sha256 != self.identity_teacher_mapping_sha256:
+            raise RuntimeError("validation trace differs from the sealed run context")
+        identity.require_inputs(inputs)
+        identity.require_batch_indices(ordered_batch_indices)
+        if identity.epoch != 0 or identity.optimizer_step != identity.batch_ordinal or not (
+            0 <= identity.batch_ordinal < VALIDATION_BATCH_COUNT
+        ):
+            raise RuntimeError("validation batch schedule identity changed")
+        start = identity.batch_ordinal * runtime.BATCH_SIZE
+        expected = tuple(range(start, start + runtime.BATCH_SIZE))
+        if tuple(ordered_batch_indices) != expected:
+            raise RuntimeError("validation rows are not in canonical order")
 
 
 class MappedRunAuthority:
@@ -178,6 +242,37 @@ class StepClosure:
     consumed: bool
     output_sha256: str
     ledger_sha256: str
+
+
+@dataclass(frozen=True)
+class ValidationBatchReductions:
+    """Small raw reductions emitted by one sealed teacher/student transaction."""
+
+    identity_sha256: str
+    route: str
+    program_sha256: str
+    row_primary_sum: torch.Tensor
+    row_primary_count: torch.Tensor
+    row_ce_sum: torch.Tensor
+    row_ce_count: torch.Tensor
+    row_copy_ce_sum: torch.Tensor
+    row_copy_count: torch.Tensor
+
+    def __post_init__(self) -> None:
+        if not runtime._sha256_text(self.identity_sha256) or self.route not in {
+            "L", "R", "S0", "S1", "T",
+        } or not runtime._sha256_text(self.program_sha256):
+            raise ValueError("validation reduction identity is malformed")
+        float_fields = ("row_primary_sum", "row_ce_sum", "row_copy_ce_sum")
+        count_fields = ("row_primary_count", "row_ce_count", "row_copy_count")
+        for name in (*float_fields, *count_fields):
+            value = getattr(self, name)
+            expected_dtype = torch.float64 if name in float_fields else torch.long
+            if not torch.is_tensor(value) or tuple(value.shape) != (runtime.BATCH_SIZE,) or (
+                value.dtype != expected_dtype
+            ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
+                raise ValueError(f"validation reduction {name} is malformed")
+            object.__setattr__(self, name, value.detach().cpu().contiguous().clone())
 
 
 @dataclass(frozen=True)
@@ -618,7 +713,9 @@ class _StudentOutputs:
     def consume(self, kind: str, identity: runtime.TraceIdentity):
         if self.__consumed:
             raise RuntimeError("student outputs were already consumed")
-        if identity.sha256 != self.__identity_sha256 or kind not in {"coordinate", "oon", "discard"}:
+        if identity.sha256 != self.__identity_sha256 or kind not in {
+            "coordinate", "oon", "discard", "validation",
+        }:
             raise RuntimeError("student output identity or consumer kind changed")
         self._require_integrity()
         object.__setattr__(self, "_StudentOutputs__consumed", True)
@@ -626,6 +723,8 @@ class _StudentOutputs:
             output = self.__values["codes"]
         elif kind == "oon":
             output = self.__values["logits"]
+        elif kind == "validation":
+            output = (self.__values["codes"], self.__values["logits"])
         else:
             output = None
         self.__values.clear()
@@ -773,6 +872,18 @@ class _TeacherResult:
         self.__broker._abort_identity(self.__identity)
 
 
+def _validation_role_batch(
+    identity: runtime.TraceIdentity, role_rows: torch.Tensor,
+) -> torch.Tensor:
+    if not torch.is_tensor(role_rows) or role_rows.dtype != torch.long or role_rows.ndim != 2 or (
+        tuple(role_rows.shape) != (runtime.BATCH_SIZE, 513)
+    ) or role_rows.device.type != "cpu":
+        raise RuntimeError("validation reduction requires one CPU role-row batch")
+    rows = role_rows.contiguous()
+    identity.require_inputs(rows[:, :runtime.SEQUENCE_LENGTH])
+    return rows
+
+
 class CoordinateTeacherResult(_TeacherResult):
     def consume_loss(
         self, denominators: Sequence[torch.Tensor | float],
@@ -812,6 +923,42 @@ class CoordinateTeacherResult(_TeacherResult):
             if not complete:
                 self._abort_consume()
 
+    def consume_validation(
+        self, role_rows: torch.Tensor, denominators: Sequence[torch.Tensor | float],
+    ) -> tuple[ValidationBatchReductions, StepClosure]:
+        if self._TeacherResult__identity.phase != "validation" or (
+            self._TeacherResult__identity.route != "L"
+        ):
+            raise RuntimeError("coordinate validation is licensed only for validation/L")
+        complete = False
+        try:
+            labels, student = self._begin_consume("validation")
+            role_rows = _validation_role_batch(self._TeacherResult__identity, role_rows)
+            predictions, logits = student
+            import early_mlp_suffix_transport_v1_programs as programs
+
+            primary_sum, primary_count = programs.local_primary_rows(
+                predictions, labels, denominators,
+            )
+            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+                logits, role_rows,
+            )
+            reductions = ValidationBatchReductions(
+                identity_sha256=self._TeacherResult__identity.sha256,
+                route="L",
+                program_sha256=self._TeacherResult__identity.program_snapshot_sha256,
+                row_primary_sum=primary_sum, row_primary_count=primary_count,
+                row_ce_sum=ce_sum, row_ce_count=ce_count,
+                row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+            )
+            closure = self._finish_consume()
+            complete = True
+            return reductions, closure
+        finally:
+            self._clear()
+            if not complete:
+                self._abort_consume()
+
 
 class OONTeacherResult(_TeacherResult):
     def consume_loss(self) -> tuple[torch.Tensor, StepClosure]:
@@ -828,6 +975,40 @@ class OONTeacherResult(_TeacherResult):
             closure = self._finish_consume()
             complete = True
             return loss, closure
+        finally:
+            self._clear()
+            if not complete:
+                self._abort_consume()
+
+    def consume_validation(
+        self, role_rows: torch.Tensor,
+    ) -> tuple[ValidationBatchReductions, StepClosure]:
+        identity = self._TeacherResult__identity
+        if identity.phase != "validation" or identity.route not in {"R", "S0", "S1", "T"}:
+            raise RuntimeError("OON validation is licensed only for validation R/S/T")
+        complete = False
+        try:
+            (teacher_logits,), student = self._begin_consume("validation")
+            role_rows = _validation_role_batch(identity, role_rows)
+            _, student_logits = student
+            import early_mlp_suffix_transport_v1_programs as programs
+
+            primary_sum, primary_count = programs.suffix_kl_rows(
+                teacher_logits, student_logits,
+            )
+            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+                student_logits, role_rows,
+            )
+            reductions = ValidationBatchReductions(
+                identity_sha256=identity.sha256, route=identity.route,
+                program_sha256=identity.program_snapshot_sha256,
+                row_primary_sum=primary_sum, row_primary_count=primary_count,
+                row_ce_sum=ce_sum, row_ce_count=ce_count,
+                row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+            )
+            closure = self._finish_consume()
+            complete = True
+            return reductions, closure
         finally:
             self._clear()
             if not complete:
@@ -961,18 +1142,22 @@ class CapabilityBroker:
 
     def __init__(
         self, *, issuer_id: str, coordinator: runtime.ScopeCoordinator,
-        run_context: RunContext, bases: Mapping[int, torch.Tensor],
+        run_context: RunContext | ValidationRunContext, bases: Mapping[int, torch.Tensor],
         native_calls: Mapping[int, Callable[[torch.Tensor], torch.Tensor]],
         mapped_authority: MappedRunAuthority | None = None,
     ) -> None:
         object.__setattr__(self, "_CapabilityBroker__sealed", False)
         if not runtime._sha256_text(issuer_id) or not isinstance(
             coordinator, runtime.ScopeCoordinator,
-        ) or not isinstance(run_context, RunContext) or set(bases) != {0, 1} or set(
+        ) or not isinstance(run_context, (RunContext, ValidationRunContext)) or set(
+            bases
+        ) != {0, 1} or set(
             native_calls
         ) != {0, 1}:
             raise ValueError("capability broker construction is malformed")
         if mapped_authority is not None and (
+            not isinstance(run_context, RunContext)
+            or
             not isinstance(mapped_authority, MappedRunAuthority)
             or mapped_authority.base_context != run_context
             or not runtime._sha256_text(mapped_authority.sha256)
@@ -1076,7 +1261,7 @@ class CapabilityBroker:
             raise RuntimeError("student hook belongs to a different capability broker")
         if dict(hook.basis_sha256) != self.__basis_sha256:
             raise RuntimeError("student hook and teacher broker use different bases")
-        if identity.control.startswith("A_null_"):
+        if identity.phase == "fit" and identity.control.startswith("A_null_"):
             if identity.sha256 not in self.__consumed_parent_identities or not (
                 hook.has_mapped_parent
             ) or hook.mapped_parent_identity_sha256 != identity.sha256:

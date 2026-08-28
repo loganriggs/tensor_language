@@ -6,6 +6,7 @@ import pytest
 import torch
 
 import early_mlp_suffix_transport_v1_capabilities as capabilities
+import early_mlp_suffix_transport_v1_programs as programs
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -97,8 +98,49 @@ def system(route: str, *, step: int = 0):
     return broker, hook, prog, native0, native1, inputs, ident
 
 
+def validation_system(route: str, *, control: str = "true", batch: int = 2):
+    issuer = "a" * 64
+    coordinator = runtime.ScopeCoordinator()
+    native0, native1 = Native(2.0, 0.25), Native(-0.5, 1.0)
+    context = capabilities.ValidationRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, validation_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="5" * 64,
+    )
+    broker = capabilities.CapabilityBroker(
+        issuer_id=issuer, coordinator=coordinator, run_context=context,
+        bases={0: basis(), 1: basis()}, native_calls={0: native0, 1: native1},
+    )
+    hook = runtime.StudentCorrectionHook(
+        {0: basis(), 1: basis()}, issuer_id=issuer, coordinator=coordinator,
+    )
+    prog = program(route)
+    hook.configure(program=prog, states={0: "P", 1: "P"})
+    rows = torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11
+    inputs = rows[:, :256].contiguous()
+    indices = tuple(range(batch * 4, batch * 4 + 4))
+    ident = runtime.TraceIdentity.from_inputs(
+        inputs=inputs, ordered_batch_indices=indices, source_commit="1" * 40,
+        inherited_snapshot_sha256="2" * 64, rows_receipt_sha256="3" * 64,
+        fit_role_tensor_sha256="4" * 64,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(prog),
+        teacher_mapping_sha256="5" * 64,
+        role="early_mlp_suffix_transport_v1_validation", phase="validation",
+        route=route, control=control,
+        teacher_kind="coordinate_labels" if route == "L" else "oon_logits",
+        trial=1, epoch=0, optimizer_step=batch, batch_ordinal=batch,
+        student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+    return broker, hook, prog, native0, native1, rows, inputs, indices, ident
+
+
 def scheduled_indices(ident):
     if ident.phase == "initial_denominator":
+        return tuple(range(
+            ident.batch_ordinal * runtime.BATCH_SIZE,
+            (ident.batch_ordinal + 1) * runtime.BATCH_SIZE,
+        ))
+    if ident.phase == "validation":
         return tuple(range(
             ident.batch_ordinal * runtime.BATCH_SIZE,
             (ident.batch_ordinal + 1) * runtime.BATCH_SIZE,
@@ -208,6 +250,94 @@ def test_oon_is_autonomous_and_matches_manual_sequential_teacher() -> None:
     loss.backward()
     assert student_logits.grad is not None
     assert native0.scale.grad is None and native1.scale.grad is None
+
+
+def test_coordinate_validation_emits_only_exact_per_row_reductions() -> None:
+    broker, hook, prog, native0, native1, rows, inputs, indices, ident = (
+        validation_system("L")
+    )
+    step, student_closure, z0, z1, student_logits = run_student(
+        broker, hook, inputs, ident,
+    )
+    result = broker.run_coordinate_teacher(ident, step)
+    reductions, teacher_closure = result.consume_validation(rows, (2.0, 4.0))
+    predictions = (prog.site0_code(z0), prog.site1_code(z1))
+    labels = (native0(z0).detach() @ basis(), native1(z1).detach() @ basis())
+    primary_sum, primary_count = programs.local_primary_rows(
+        predictions, labels, (2.0, 4.0),
+    )
+    ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+        student_logits, rows,
+    )
+    for observed, expected in (
+        (reductions.row_primary_sum, primary_sum),
+        (reductions.row_primary_count, primary_count),
+        (reductions.row_ce_sum, ce_sum), (reductions.row_ce_count, ce_count),
+        (reductions.row_copy_ce_sum, copy_sum),
+        (reductions.row_copy_count, copy_count),
+    ):
+        torch.testing.assert_close(observed, expected)
+    assert reductions.identity_sha256 == ident.sha256 and reductions.route == "L"
+    assert student_closure.original_calls == capabilities.EXACT_ZERO_CALLS
+    assert teacher_closure.original_calls == capabilities.EXACT_EARLY_ORIGINAL_CALLS
+
+
+@pytest.mark.parametrize("route,control", [
+    ("R", "true"), ("S0", "document_shuffle"), ("T", "A_null_03"),
+])
+def test_oon_validation_uses_true_rows_while_retaining_control_identity(route, control) -> None:
+    broker, hook, _, native0, native1, rows, inputs, indices, ident = validation_system(
+        route, control=control,
+    )
+    step, _, _, _, student_logits = run_student(broker, hook, inputs, ident)
+    result = broker.run_oon_teacher(ident, step, inputs, autonomous_forward)
+    reductions, closure = result.consume_validation(rows)
+    z0 = inputs.float().unsqueeze(-1).expand(-1, -1, runtime.D_MODEL) / 1000
+    teacher_logits = native1(z0 + native0(z0))[..., :11].detach()
+    primary_sum, primary_count = programs.suffix_kl_rows(
+        teacher_logits, student_logits,
+    )
+    torch.testing.assert_close(reductions.row_primary_sum, primary_sum)
+    torch.testing.assert_close(reductions.row_primary_count, primary_count)
+    assert ident.control == control and reductions.route == route
+    assert closure.original_calls == capabilities.EXACT_EARLY_ORIGINAL_CALLS
+
+
+def test_validation_context_and_role_rows_fail_closed_on_drift() -> None:
+    broker, hook, _, _, _, rows, inputs, indices, ident = validation_system("R")
+    with pytest.raises(RuntimeError, match="differ from the trace identity"):
+        broker.begin_student(ident, hook, inputs, tuple(reversed(indices)))
+
+    step, _, *_ = run_student(broker, hook, inputs, ident)
+    result = broker.run_oon_teacher(ident, step, inputs, autonomous_forward)
+    changed = rows.clone(); changed[0, 0] = (changed[0, 0] + 1) % 11
+    with pytest.raises(RuntimeError, match="differ from the trace identity"):
+        result.consume_validation(changed)
+    assert broker.ledger_snapshot.outstanding_identity_sha256 is None
+
+
+def test_fit_and_validation_contexts_cannot_cross_authorize() -> None:
+    validation_broker, validation_hook, _, _, _, rows, inputs, indices, validation_ident = (
+        validation_system("R")
+    )
+    fit_context = capabilities.RunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, fit_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="5" * 64,
+    )
+    with pytest.raises(RuntimeError, match="fit run context"):
+        fit_context.require_identity(validation_ident, inputs, indices)
+
+    fit_broker, fit_hook, _, _, _, fit_inputs, fit_ident = system("R", step=2)
+    validation_context = capabilities.ValidationRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, validation_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="5" * 64,
+    )
+    with pytest.raises(RuntimeError, match="validation identity"):
+        validation_context.require_identity(
+            fit_ident, fit_inputs, scheduled_indices(fit_ident),
+        )
 
 
 def test_gateway_is_revoked_and_exact_call_ledger_fails_closed() -> None:

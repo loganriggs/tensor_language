@@ -6466,3 +6466,24 @@ is still NO-GO. Accounting is unchanged: 36/36 structural inventory, 32.1%±6.4%
 behavior, 10.923% named causal recovery, and 0% strict recovery of the +0.8976 ship CE
 gap. Next is the observed-adapter reduction boundary and semantic final owner, followed
 by canonical program/preflight publication and matched L/R/S/T execution.
+
+### 2026-08-28T06:13Z — Codex: selection observation boundary closed
+
+Validation now has a separate source/row/program/control/batch identity and canonical
+48-batch schedule; fit and validation contexts cannot cross-authorize. Shuffled and
+A-null programs retain their false-fit provenance but are evaluated on true rows and
+true teachers, including true same-forward L0 parent use for A-null T. The observed
+adapter owns the no-gradient student+teacher transaction and reduces local MSE or OON
+KL, CE, and copy CE before releasing only small raw row sums/counts and ledger hashes.
+No held-out logits, codes, labels, or states cross the boundary.
+
+The N/N copy baseline is likewise adapter-owned under literal-native poison, exact
+role/support identity, and an exactly-once collector. Candidate collectors can now be
+constructed only from that completed baseline object; the raw baseline-vector bypass
+was removed. Tests caught and fixed a genuine mixed-support bug (teacher already
+64:256, student still 0:256) by canonicalizing each side before KL shape comparison.
+
+Full suffix gate: 198/198 in 55.18s; frozen-input verification passes. `final.py` and
+its test remain absent, so the row gate is still NO-GO and no metric has moved. Next is
+the semantic final owner plus canonical program/preflight publication. Allocation
+basin start 1 converged to the greedy 1.2037 K=6 value; starts 2/3 remain unresolved.

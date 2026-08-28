@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from contextlib import contextmanager
+from dataclasses import fields
 from types import SimpleNamespace
 
 import pytest
@@ -10,6 +11,7 @@ import bilin18_observed_adapter as observed
 import bilin18_observed_model_facade as facade
 import early_mlp_suffix_transport_v1_runtime as runtime
 import early_mlp_suffix_transport_v1_capabilities as capabilities
+import early_mlp_suffix_transport_v1_programs as programs
 from test_bilin18_observed_model_facade import tiny_model
 
 
@@ -397,3 +399,184 @@ def test_mapped_parent_adapter_runs_native_free_p_p_n_and_poison_closes() -> Non
             poisoned._autonomous_mapped_parent_forward(
                 Gateway(), torch.zeros((1, 2), dtype=torch.long),
             )
+
+
+def _validation_program(route="R"):
+    def site():
+        return runtime.AffineCodeProgram(
+            mean=torch.zeros(runtime.D_MODEL), scale=torch.ones(runtime.D_MODEL),
+            weight=torch.zeros(runtime.D_MODEL, runtime.CODE_DIM),
+            bias=torch.zeros(runtime.CODE_DIM),
+        )
+    return runtime.JointAffineProgram(site(), site(), route=route)
+
+
+def _step_closure(scope, original_calls, ledger):
+    return capabilities.StepClosure(
+        identity_sha256="1" * 64, forward_nonce="2" * 64, scope=scope,
+        producer_invocations=1, outer_forward_count=1,
+        hook_calls=((0, 1), (1, 1), (2, 0)), original_calls=original_calls,
+        outer_returned=True, hook_restored=True, hook_inert=True,
+        output_shapes=((4, 192, 11),), output_dtypes=("torch.float32",),
+        support="64:256", requires_grad=False, grad_fn_absent=True,
+        consumed=True, output_sha256="3" * 64, ledger_sha256=ledger,
+    )
+
+
+def test_validation_adapter_consumes_reductions_into_collector_without_tensor_escape(
+    monkeypatch,
+) -> None:
+    model = tiny_model()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+    program = _validation_program("R")
+    rows = torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11
+    identity = runtime.TraceIdentity.from_inputs(
+        inputs=rows[:, :256].contiguous(), ordered_batch_indices=(0, 1, 2, 3),
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, fit_role_tensor_sha256="4" * 64,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256="5" * 64,
+        role="early_mlp_suffix_transport_v1_validation", phase="validation",
+        route="R", control="document_shuffle", teacher_kind="oon_logits",
+        trial=0, epoch=0, optimizer_step=0, batch_ordinal=0,
+        student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+    baseline_count = torch.ones(programs.VALIDATION_ROWS, dtype=torch.long)
+    baseline = programs.ValidationBaselineSufficientStatistics(
+        common_support_sha256="6" * 64,
+        row_ce_sum=torch.ones(programs.VALIDATION_ROWS, dtype=torch.float64),
+        row_ce_count=torch.full((programs.VALIDATION_ROWS,), 192, dtype=torch.long),
+        row_copy_ce_sum=baseline_count.double(), row_copy_count=baseline_count,
+        literal_early_mlp_calls=programs.ZERO_NATIVE_CALLS,
+        native_guard_restored=True, native_guard_inert=True,
+    )
+    collector = programs.ValidationStatisticsCollector(
+        route="R", program_sha256=identity.program_snapshot_sha256,
+        common_support_sha256="6" * 64, baseline=baseline,
+    )
+
+    class Hook:
+        def configure(self, **kwargs):
+            self.configured = kwargs
+        def clear_configuration(self):
+            self.cleared = True
+
+    hook = Hook()
+    student_closure = _step_closure("student", capabilities.EXACT_ZERO_CALLS, "7" * 64)
+    teacher_closure = _step_closure(
+        "oon", capabilities.EXACT_EARLY_ORIGINAL_CALLS, "8" * 64,
+    )
+    adapter_closure = observed.ObservedClosure(
+        scope="student", outer_forward_count=1, outer_returned=True,
+        attention_dispatch_calls=tuple((site, 1) for site in range(18)),
+        mlp_dispatch_calls=tuple((site, 1) for site in range(18)),
+        deployed_n_calls=((0, 1), (1, 1), (2, 1)),
+        correction_calls=((0, 1), (1, 1), (2, 0)),
+        literal_early_mlp_calls=((0, 0), (1, 0), (2, 0)),
+        native_guard_restored=True, native_guard_inert=True,
+        logit_shape=(4, 256, 11), logit_dtype="torch.float32",
+    )
+    reductions = capabilities.ValidationBatchReductions(
+        identity_sha256=identity.sha256, route="R",
+        program_sha256=identity.program_snapshot_sha256,
+        row_primary_sum=torch.ones(4, dtype=torch.float64),
+        row_primary_count=torch.full((4,), 192, dtype=torch.long),
+        row_ce_sum=torch.full((4,), 2.0, dtype=torch.float64),
+        row_ce_count=torch.full((4,), 192, dtype=torch.long),
+        row_copy_ce_sum=torch.full((4,), 0.5, dtype=torch.float64),
+        row_copy_count=torch.ones(4, dtype=torch.long),
+    )
+
+    class Result:
+        def consume_validation(self, supplied_rows):
+            assert supplied_rows is rows
+            return reductions, teacher_closure
+
+    class Broker:
+        def begin_student(self, supplied_identity, supplied_hook, inputs, indices):
+            assert supplied_identity is identity and supplied_hook is hook
+            assert tuple(indices) == (0, 1, 2, 3)
+            return "session"
+        def run_oon_teacher(self, supplied_identity, step, inputs, callback):
+            assert supplied_identity is identity and step == "step"
+            return Result()
+
+    monkeypatch.setattr(
+        adapter, "run_student",
+        lambda **kwargs: ("step", student_closure, adapter_closure),
+    )
+    receipt = adapter.run_validation_batch(
+        broker=Broker(), hook=hook, program=program, identity=identity,
+        role_rows=rows, ordered_row_indices=(0, 1, 2, 3), collector=collector,
+    )
+    assert collector.completed_rows == 4 and receipt.control == "document_shuffle"
+    assert all(not torch.is_tensor(getattr(receipt, field.name)) for field in fields(receipt))
+    assert receipt.reduction_sha256 == runtime.logical_identity_sha256({
+        name: runtime.tensor_identity_sha256(getattr(reductions, name))
+        for name in (
+            "row_primary_sum", "row_primary_count", "row_ce_sum", "row_ce_count",
+            "row_copy_ce_sum", "row_copy_count",
+        )
+    })
+
+
+def test_validation_baseline_adapter_reduces_deployed_n_n_and_poison_closes(monkeypatch) -> None:
+    class BaselineShip:
+        production = False
+        def __init__(self, malicious=False):
+            self.malicious = malicious
+        def attention(self, event):
+            return torch.zeros_like(event.state), torch.zeros(1)
+        def mlp(self, event):
+            if self.malicious and event.site == 0:
+                return event.block.mlp(event.state)
+            return torch.zeros_like(event.state)
+
+    model = tiny_model()
+    rows = torch.arange(programs.VALIDATION_ROWS * 513, dtype=torch.long).view(
+        programs.VALIDATION_ROWS, 513,
+    ) % 17
+    context = capabilities.ValidationRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64,
+        validation_role_tensor_sha256=runtime.tensor_identity_sha256(rows),
+        identity_teacher_mapping_sha256="5" * 64,
+    )
+    identity = programs.make_validation_baseline_identity(
+        context=context, role_rows=rows, batch_ordinal=0,
+    )
+    collector = programs.ValidationBaselineCollector(
+        common_support_sha256=identity.common_support_sha256,
+    )
+    batch_rows = rows[:4].contiguous()
+
+    def fake_forward(model, tokens, attention, mlp, *, require_production):
+        state = torch.zeros(4, 256, 8)
+        for site, block in enumerate(model.transformer.h):
+            event = SimpleNamespace(site=site, block=block, state=state)
+            attention(event)
+            mlp(event)
+        generator = torch.Generator().manual_seed(901)
+        return torch.randn(4, 256, 17, generator=generator)
+
+    monkeypatch.setattr(observed.facade, "forward_with_dispatch", fake_forward)
+    adapter = observed.ObservedBilin18Adapter(model, BaselineShip(), production=False)
+    receipt = adapter.run_validation_baseline_batch(
+        identity=identity, role_rows=batch_rows,
+        ordered_row_indices=(0, 1, 2, 3), collector=collector,
+    )
+    assert collector.completed_rows == 4 and receipt.identity_sha256 == identity.sha256
+    assert all(not torch.is_tensor(getattr(receipt, field.name)) for field in fields(receipt))
+
+    bad_collector = programs.ValidationBaselineCollector(
+        common_support_sha256=identity.common_support_sha256,
+    )
+    malicious = observed.ObservedBilin18Adapter(
+        model, BaselineShip(malicious=True), production=False,
+    )
+    with pytest.raises(RuntimeError, match="literal native MLP0"):
+        malicious.run_validation_baseline_batch(
+            identity=identity, role_rows=batch_rows,
+            ordered_row_indices=(0, 1, 2, 3), collector=bad_collector,
+        )
+    assert bad_collector.completed_rows == 0
