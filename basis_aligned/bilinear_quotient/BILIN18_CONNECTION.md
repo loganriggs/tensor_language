@@ -46416,3 +46416,61 @@ full rank (§1755). Different object, different behaviour, worth having measured
 
 Controls (pred_d): the neighbour arm and the map-rank-64 arm reproduce §1785's 6.19187 / 6.17330,
 6.18267 / 6.15261 and 6.15065 / 6.14463 within 0.002; coverage 5419 of 50257.
+
+## §1787 — the frontier restated: on ALL positions the design point is table rank 64, not rank 4; the fallback's edge is not uniform; and my efficiency metric was mis-baselined
+
+`ops/settled_frontier_restated.py`, 1424.8s, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c False | pred_d True.** Three of four failed and each failure
+is worth its own line.
+
+```
+  all-position CE, settled fallback (output-NN + rank-64 learned map), gain over the neighbour arm
+  table    cost      skip7000            skip11000           skip1200
+  full   230.087M  6.01167 (+0.0073)   5.98477 (+0.0161)   6.00165 (+0.0057)
+  256     65.950M  6.06004 (+0.0007)   6.03311 (+0.0097)   6.04238 (-0.0085)
+  64      20.531M  6.17330 (+0.0186)   6.15261 (+0.0301)   6.14463 (+0.0060)
+  16       9.176M  6.35916 (+0.0043)   6.35149 (+0.0118)   6.32237 (-0.0041)
+  8        7.284M  6.47177 (+0.0114)   6.47693 (+0.0139)   6.43090 (+0.0012)
+  4        6.338M  6.62422 (+0.0109)   6.63689 (+0.0149)   6.59044 (+0.0017)
+```
+
+**pred_a FAILED, and the reported answer is an artifact of a metric I chose badly.** I computed
+efficiency as improvement over the **full-rank neighbour program** — the best arm in the table — so
+every cheaper arm has a **negative numerator** and the maximum lands on `full` by default. That is a
+ratio with a sign-flipping numerator, the LESSONS 32/35 family, in a run where I had already written
+both lessons. The registered answer is void.
+
+**Recomputed against the baseline §1770/§1771 actually used** — the fit-mean all-tabled all-position
+CE — the question is answerable and the answer **changes the design point**:
+
+```
+  nats per million real, settled fallback     skip7000   skip11000   skip1200
+  table full                                   0.00180    0.00158     0.00127
+  table 256                                    0.00555    0.00477     0.00381
+  table 64                                     0.01231    0.00950     0.00725   <- optimum, all roles
+  table 16                                     0.00729   -0.00041    -0.00314
+  table 8                                     -0.00628   -0.01774    -0.01885
+  table 4                                     -0.03128   -0.04563    -0.04684
+```
+
+> **On ALL positions the design point is table rank 64, interior and bracketed on every role — not
+> rank 4.** §1771's rank-4 optimum was a **covered-position** result, and at rank 4 the all-position
+> program is *worse than the fit-mean all-tabled baseline* (−0.198, −0.289, −0.297 nats). The registry
+> entry is corrected to say which population each design point belongs to.
+
+**pred_b FAILED: the settled fallback is not uniformly better.** It loses at two of eighteen cells,
+both on skip1200 — table rank 256 by **−0.0085** and rank 16 by **−0.0041**. §1785/§1786 measured it
+at table rank 64, which turns out to be **where its gain is largest on every role** (+0.0186, +0.0301,
++0.0060). Generalising from that cell was mine to avoid and I did not.
+
+**pred_c FAILED: the fallback's value is not systematically larger when the table is starved.** Rank 4
+beats full only on skip7000 (+0.0109 against +0.0073); on skip11000 (+0.0149 against +0.0161) and
+skip1200 (+0.0017 against +0.0057) it is smaller. The relationship I proposed does not exist.
+
+**What survives.** The settled fallback's edge is real but **small and cell-dependent — at most
++0.030, negative in two of eighteen** — against the +0.43 that switching from a global mean row to a
+neighbour bought (§1777). The large win in this thread was the neighbour; everything after it has been
+worth a few hundredths.
+
+Controls (pred_d): the table-rank-64 arms reproduce §1786's 6.19187 / 6.17330, 6.18267 / 6.15261 and
+6.15065 / 6.14463 within 0.002; coverage 5419 of 50257.

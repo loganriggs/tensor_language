@@ -1,0 +1,256 @@
+{
+ "config": {
+  "map_rank": 64,
+  "ridge": 0.01,
+  "table_ranks": [
+   "full",
+   "256",
+   "64",
+   "16",
+   "8",
+   "4"
+  ],
+  "learned": "ridge map from the token embedding to the site row, fitted on the 5419 COVERED tokens and applied only at uncovered ones; still a function of the current token alone",
+  "map_cost_formula": "36 * map_rank * 2 * 1152 reals",
+  "neighbour": "the settled output-NN fallback (\u00a71780/\u00a71781)",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "results": {
+  "skip7000": {
+   "live": {
+    "cov": 3.29205,
+    "all": 3.13704
+   },
+   "neighbour_full": {
+    "cov": 6.03465,
+    "all": 6.01897,
+    "cost_M": 224.7782
+   },
+   "settled_full": {
+    "cov": 6.03465,
+    "all": 6.01167,
+    "cost_M": 230.0867
+   },
+   "neighbour_256": {
+    "cov": 6.10045,
+    "all": 6.06074,
+    "cost_M": 60.6413
+   },
+   "settled_256": {
+    "cov": 6.10045,
+    "all": 6.06004,
+    "cost_M": 65.9497
+   },
+   "neighbour_64": {
+    "cov": 6.25792,
+    "all": 6.19187,
+    "cost_M": 15.2225
+   },
+   "settled_64": {
+    "cov": 6.25792,
+    "all": 6.1733,
+    "cost_M": 20.5309
+   },
+   "neighbour_16": {
+    "cov": 6.45531,
+    "all": 6.36342,
+    "cost_M": 3.8678
+   },
+   "settled_16": {
+    "cov": 6.45531,
+    "all": 6.35916,
+    "cost_M": 9.1763
+   },
+   "neighbour_8": {
+    "cov": 6.58011,
+    "all": 6.48314,
+    "cost_M": 1.9754
+   },
+   "settled_8": {
+    "cov": 6.58011,
+    "all": 6.47177,
+    "cost_M": 7.2838
+   },
+   "neighbour_4": {
+    "cov": 6.73858,
+    "all": 6.63509,
+    "cost_M": 1.0292
+   },
+   "settled_4": {
+    "cov": 6.73858,
+    "all": 6.62422,
+    "cost_M": 6.3376
+   }
+  },
+  "skip11000": {
+   "live": {
+    "cov": 3.09711,
+    "all": 2.9345
+   },
+   "neighbour_full": {
+    "cov": 5.979,
+    "all": 6.00091,
+    "cost_M": 224.7782
+   },
+   "settled_full": {
+    "cov": 5.979,
+    "all": 5.98477,
+    "cost_M": 230.0867
+   },
+   "neighbour_256": {
+    "cov": 6.04503,
+    "all": 6.04283,
+    "cost_M": 60.6413
+   },
+   "settled_256": {
+    "cov": 6.04503,
+    "all": 6.03311,
+    "cost_M": 65.9497
+   },
+   "neighbour_64": {
+    "cov": 6.21152,
+    "all": 6.18267,
+    "cost_M": 15.2225
+   },
+   "settled_64": {
+    "cov": 6.21152,
+    "all": 6.15261,
+    "cost_M": 20.5309
+   },
+   "neighbour_16": {
+    "cov": 6.42299,
+    "all": 6.36326,
+    "cost_M": 3.8678
+   },
+   "settled_16": {
+    "cov": 6.42299,
+    "all": 6.35149,
+    "cost_M": 9.1763
+   },
+   "neighbour_8": {
+    "cov": 6.55472,
+    "all": 6.4908,
+    "cost_M": 1.9754
+   },
+   "settled_8": {
+    "cov": 6.55472,
+    "all": 6.47693,
+    "cost_M": 7.2838
+   },
+   "neighbour_4": {
+    "cov": 6.72034,
+    "all": 6.65175,
+    "cost_M": 1.0292
+   },
+   "settled_4": {
+    "cov": 6.72034,
+    "all": 6.63689,
+    "cost_M": 6.3376
+   }
+  },
+  "skip1200": {
+   "live": {
+    "cov": 3.40277,
+    "all": 3.23027
+   },
+   "neighbour_full": {
+    "cov": 5.96423,
+    "all": 6.00733,
+    "cost_M": 224.7782
+   },
+   "settled_full": {
+    "cov": 5.96423,
+    "all": 6.00165,
+    "cost_M": 230.0867
+   },
+   "neighbour_256": {
+    "cov": 6.02022,
+    "all": 6.0339,
+    "cost_M": 60.6413
+   },
+   "settled_256": {
+    "cov": 6.02022,
+    "all": 6.04238,
+    "cost_M": 65.9497
+   },
+   "neighbour_64": {
+    "cov": 6.16197,
+    "all": 6.15065,
+    "cost_M": 15.2225
+   },
+   "settled_64": {
+    "cov": 6.16197,
+    "all": 6.14463,
+    "cost_M": 20.5309
+   },
+   "neighbour_16": {
+    "cov": 6.35086,
+    "all": 6.31829,
+    "cost_M": 3.8678
+   },
+   "settled_16": {
+    "cov": 6.35086,
+    "all": 6.32237,
+    "cost_M": 9.1763
+   },
+   "neighbour_8": {
+    "cov": 6.46758,
+    "all": 6.43212,
+    "cost_M": 1.9754
+   },
+   "settled_8": {
+    "cov": 6.46758,
+    "all": 6.4309,
+    "cost_M": 7.2838
+   },
+   "neighbour_4": {
+    "cov": 6.6412,
+    "all": 6.59213,
+    "cost_M": 1.0292
+   },
+   "settled_4": {
+    "cov": 6.6412,
+    "all": 6.59044,
+    "cost_M": 6.3376
+   }
+  }
+ },
+ "table_rank_efficiency_optimum": {
+  "skip7000": "full",
+  "skip11000": "full",
+  "skip1200": "full"
+ },
+ "gains_over_neighbour": {
+  "skip7000": {
+   "full": 0.00730000000000075,
+   "256": 0.000700000000000145,
+   "64": 0.01856999999999953,
+   "16": 0.004259999999999486,
+   "8": 0.011369999999999436,
+   "4": 0.010869999999999713
+  },
+  "skip11000": {
+   "full": 0.016140000000000043,
+   "256": 0.009720000000000617,
+   "64": 0.030059999999999754,
+   "16": 0.01177000000000028,
+   "8": 0.013869999999999827,
+   "4": 0.014859999999999651
+  },
+  "skip1200": {
+   "full": 0.005679999999999907,
+   "256": -0.008479999999999599,
+   "64": 0.00601999999999947,
+   "16": -0.0040800000000000836,
+   "8": 0.0012199999999999989,
+   "4": 0.0016899999999999693
+  }
+ },
+ "predictions": {
+  "pred_a_design_point_still_rank4": false,
+  "pred_b_settled_wins_at_every_table_rank": false,
+  "pred_c_gain_larger_at_starved_table": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 1424.8
+}
