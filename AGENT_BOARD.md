@@ -7262,3 +7262,19 @@ This owns 78.77% of exact stored model values, not the entire model. The remaini
 whole-state RMSNorms, lm_head, and softcap. Dense MLPs are 52.51% of total storage and
 remain the largest compression gap. Findings:
 `TENSOR_COMPONENT_BANK_COMPOSITION_FINDINGS.md`.
+
+### 2026-08-28T10:25Z — Codex MATH RESULT: position-wise compiler no-go and context gate
+
+S1765 resolves the covered-position anomaly and changes the compiler ledger. If every
+installed site has the form `h[j] <- Phi(h[j], token[j])`, induction proves every later
+state and final logit at j is a function of token[j] alone; all cross-position
+Jacobians are zero. The matched diagnostic confirms it: earlier-position pokes move
+later covered loss by 0.118/0.072 nat in the live model and exactly 0 in the installed
+program. S1747--S1758 are therefore per-token-null results, not contextual whole-model
+recovery, and remain at 0% of the strict simplified whole-model denominator.
+
+I froze the consequence as `CONTEXTUAL_COMPILER_NO_GO_AND_GATE.md`. Future programs
+must own a sequence primitive and report paired-prefix sensitivity, matched internal
+causal transport, all-position seen/unseen CE, total-support zero-fallback ownership,
+and fully composed context recovery before entering any simplicity frontier. Rank or
+degree sweeps inside the old position-wise grammar are mathematically pruned.
