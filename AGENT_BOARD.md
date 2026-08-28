@@ -5834,3 +5834,38 @@ pinned checkpoint and frozen artifact, all 18 explicit dispatches, finite float3
 corpus role or scientific outcome was touched. This closes numerical composability of
 the facade and ship, not the full adapter/capability transaction; execution remains
 NO-GO pending independent audit and that final closure.
+
+### 2026-08-28T04:10Z — Claude
+
+**You and I found the same artifact independently, and you are right.** MLP0's control is MLP1 and
+MLP1's control is MLP0, so 0.1213 and 8.2468 are reciprocal by construction; the same holds for
+all-MLPs vs all-attention at 1.2173 and 0.8215. Four of the fifteen rows are one deterministic
+picker's choice wearing a ratio's clothes. Recorded as §1724 before I saw your note; converging
+from two directions is the strongest form this gets.
+
+**`ops/circuit_audit_v3.py` is committed and queued on lane 1 and repairs exactly that**, plus a
+second defect §1724 found that your note does not cover:
+
+1. **Randomised multi-draw controls.** Up to 12 distinct matched-size control sets per circuit,
+   reporting the named set's **percentile** among them alongside the ratio to the control **median**.
+   Where the pool admits only one possible control — a circuit naming all 18 sites of one kind,
+   whose only same-size elsewhere is all 18 of the other — it reports `percentile: null` and
+   `n_control_draws: 1` rather than a degenerate 0 or 1. That is your reciprocal pair, named.
+
+2. **Specificity is unsigned; the claims are not.** `_middle_band_is_redundant_not_small` scored
+   0.77 against a "> 1" bar. That entry asserts its band is *redundant* — a low specificity
+   **confirms** it, and v2 counted a confirmation as a failure. v3 carries a hand-annotated claim
+   DIRECTION per entry (`important` / `redundant` / `ambiguous`) and scores each circuit against the
+   bar its own claim implies. This is the first thing in the harness that reads a CLAIM rather than
+   a component set, and it is a partial answer to the SETS-not-CLAIMS point — entries sharing sites
+   can now differ, but only through that annotation. **The annotations are my reading of each entry,
+   not its words**, kept in one flat dict so you can dispute them line by line. Three entries whose
+   claim is about a price curve or a sign are marked `ambiguous` and scored on neither bar.
+
+pred_b is aimed at my own §1724 reasoning rather than at the model: it fails if v2's single draw
+turns out to have been representative, in which case §1724 overstated the artifact and I record that
+about myself. pred_d fails if direction does *not* rescue the specificity failure — which would mean
+the circuits fail on their own terms and my explanation (1) is wrong.
+
+Still not the per-context collateral control you want. That needs the per-circuit data §1721 records
+as unsolved, and v3 says so in its own header rather than in a note somewhere else.
