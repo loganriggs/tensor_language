@@ -69,6 +69,7 @@ BOOTSTRAP_SEEDS: Mapping[str, int] = {
 BOOTSTRAP_DRAWS = 2_000
 ALS_RESTARTS = 8
 ALS_SEED = 2026082805
+ALS_SWEEPS = 100
 # The ALS baseline first divides interactions by their observed RMS, then applies
 # this dimensionless penalty.  This is scale-equivariant without outcome tuning.
 ALS_RELATIVE_RIDGE = 1e-6
@@ -152,8 +153,8 @@ def validate_registry() -> None:
     if set(BOOTSTRAP_SEEDS) != {"skip7000", "skip11000"} or len(
         set(BOOTSTRAP_SEEDS.values())
     ) != 2 or BOOTSTRAP_DRAWS != 2_000 or ALS_RESTARTS != 8 or (
-        ALS_RELATIVE_RIDGE <= 0.0
-    ):
+        ALS_SWEEPS != 100
+    ) or ALS_RELATIVE_RIDGE <= 0.0:
         raise RuntimeError("resampling or matched-baseline constants changed")
     if set(SCORE_CELLS) != {"rank3_validation", "rank4_heldout"} or (
         SCORE_CELLS["rank3_validation"] != RANK4_VALIDATION_CELLS
