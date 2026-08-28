@@ -1,0 +1,133 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "program": "the \u00a71696 best-families 36-site program (tables mlp0-2, lags 1,2,4,8)",
+  "method": "exempt-one at band grain, RECOMPILED per exemption (\u00a71671 pattern; un-substituting without refitting measures LESSONS 28 compounding)",
+  "sites_probed": {
+   "mlp0": [
+    "mlp",
+    [
+     0
+    ]
+   ],
+   "mlp1": [
+    "mlp",
+    [
+     1
+    ]
+   ],
+   "mlp2": [
+    "mlp",
+    [
+     2
+    ]
+   ],
+   "mlp3": [
+    "mlp",
+    [
+     3
+    ]
+   ]
+  },
+  "why_front_only": "four sites is the only band small enough for site-level exempt-one at tractable cost (4 recompiles vs 12 for a middle band)",
+  "s1703_front_band_gain": 0.0753,
+  "s1662_per_site_mlp_only": {
+   "mlp0": 0.9027,
+   "mlp1": 0.9601,
+   "mlp2": 0.7698,
+   "mlp3": 0.6755
+  },
+  "intervals": "95% ROW-level cluster bootstrap, 2000 paired draws (\u00a71700, \u00a71701); NOT document-clustered",
+  "compilation": "INTERLEAVED bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1696_both": 0.5504
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "arms": {
+  "none": {
+   "exempt_sites": 0,
+   "ce": 5.7957,
+   "ceiling": 0.55038
+  },
+  "mlp0": {
+   "exempt_sites": 1,
+   "ce": 5.77562,
+   "ceiling": 0.55399
+  },
+  "mlp1": {
+   "exempt_sites": 1,
+   "ce": 5.73982,
+   "ceiling": 0.56042
+  },
+  "mlp2": {
+   "exempt_sites": 1,
+   "ce": 5.68537,
+   "ceiling": 0.57019
+  },
+  "mlp3": {
+   "exempt_sites": 1,
+   "ce": 5.70533,
+   "ceiling": 0.56661
+  }
+ },
+ "band_gains": {
+  "mlp0": 0.00361,
+  "mlp1": 0.01004,
+  "mlp2": 0.01981,
+  "mlp3": 0.01623
+ },
+ "band_gain_ci95_rowlevel": {
+  "mlp0": [
+   0.0032,
+   0.00399
+  ],
+  "mlp1": [
+   0.0094,
+   0.01065
+  ],
+  "mlp2": [
+   0.0188,
+   0.02082
+  ],
+  "mlp3": [
+   0.01521,
+   0.01724
+  ]
+ },
+ "mlp1_vs_others": [
+  0.01004,
+  0.03965
+ ],
+ "sum_of_site_gains": 0.04969,
+ "predictions": {
+  "pred_a_mlp1_dominates_front_band": false,
+  "pred_b_sites_roughly_additive": false,
+  "pred_c_controls_hold": true,
+  "pred_d_ordering_resolved": true
+ },
+ "runtime_s": 1126.6
+}

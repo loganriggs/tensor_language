@@ -42551,3 +42551,58 @@ rather than normalised away.
 available (§1672: tables at mlp0-2, linear at mlp3). Four sites is the only band small enough for
 site-level exempt-one at tractable cost, and mlp1 is the model's largest single module. Taking
 that as the next rung.
+
+## §1704 — the front MLPs are SYNERGISTIC, not decomposable, and mlp1 is not the culprit
+
+`front_mlp_site_shortfall.py`, rung 3. Exempt one front MLP, RECOMPILE the whole 36-site
+program, read the gain. **pred_a False, pred_b False**, pred_c True, pred_d True. Control exact:
+the no-exemption arm reproduces §1696's 55.04%.
+
+```
+exempt   gain      95% CI            §1662 MLP-only table ceiling
+mlp2    +1.98%  [+1.88, +2.08]              76.98%
+mlp3    +1.62%  [+1.52, +1.72]              67.55%
+mlp1    +1.00%  [+0.94, +1.06]              96.01%
+mlp0    +0.36%  [+0.32, +0.40]              90.27%
+sum      +4.97%          against the band's own +7.53% (§1703)
+```
+
+**pred_a FAILED: mlp1 does not dominate — it is third.** I predicted its exemption gain would
+exceed the other three combined, because it is the largest module in the model by stake (7.005
+nats) and §1662 gives it the highest table ceiling. It contributes +1.00 against their +3.96.
+
+The MLP-only numbers do not predict the joint ordering, and this is a quantitative test of the
+transfer failure §1696 established qualitatively. Residual nats from the MLP-only condition,
+`(1 − ceiling) × stake`, against the observed joint gains:
+
+```
+site   MLP-only residual   joint gain      predicted rank   observed rank
+mlp1        0.2795 nats      +1.00              1                3
+mlp3        0.2012           +1.62              2                2
+mlp2        0.1777           +1.98              3                1
+mlp0        0.0832           +0.36              4                4
+```
+
+Only the two extremes keep their places. mlp1 is displaced from first to third, which is what
+§1666's saturation caveat predicts: its 7.005-nat stake sits at CE 10.28 against a 10.82 uniform
+ceiling, so it is ordinal at best and should not have been used inside a product. I used it
+anyway when writing pred_a.
+
+**pred_b FAILED in the more interesting direction: the front MLPs are strongly SYNERGISTIC.**
+Exempting all four together buys **+7.53** (§1703); exempting them one at a time and summing buys
+**+4.97**. The band gain exceeds the sum of singles by 2.56 points — 52% more, far outside the
+±25% additivity bar I registered.
+
+Leaving one front MLP real buys little because the other three are still programs feeding it
+their error; leaving all four real removes the front-band error cascade at once. That is §1697's
+compounding mechanism observed from the opposite side — there, an *upgrade* to one half was
+attenuated by the other half's error; here, *restoring* one site is attenuated by its neighbours'.
+Both say the same thing: in a compiled stack, a component's measured contribution depends on the
+quality of its neighbours, and single-component measurements systematically understate what a
+coordinated change is worth.
+
+**The contrast with §1697 is real but not a contradiction.** §1697 found half-level *upgrades*
+additive to within 0.13 points; §1704 finds site-level *exemptions* super-additive by 52%. These
+are different operations at different grains — upgrading a family versus restoring a module — so
+they do not conflict. What they jointly establish is that additivity cannot be assumed in either
+direction and has to be measured per operation.
