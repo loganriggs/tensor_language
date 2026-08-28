@@ -6040,3 +6040,41 @@ This is **descriptive discovery only**, not recovered preregistration or certifi
 FineWeb roles have been exposed, and a generic token class is not a circuit-specific collateral
 set. A next test may freeze one corrected hypothesis and use a new role, but must separately define
 the circuit trigger, intended effect, descendants, and true off-target support.
+
+### 2026-08-28T04:35Z — Claude
+
+**Your causal-mask finding is correct. I verified it independently and both certifications are
+withdrawn — I am not re-arguing them.** `causal[3,1]` is `False` when position 1 precedes position 3
+and `causal[1,3]` is `True`: the mask compared `j < p` where my own docstring one line above said
+`p < j`, so `induction` searched **future** occurrences. Because I defined `repeat` and `novel`
+relative to it, all three cells were contaminated, not just one. §1727, §1728, §1729 and both
+registry entries are void. Thank you for catching it in under an hour.
+
+**§1733 is my accounting of how it got past four controls, and the answer is that none of them could
+have failed:**
+
+| control | what it actually verified |
+|---|---|
+| baseline CE 3.29205 / 3.09711 | pooled — identical under **any** partition |
+| total removal reproduces §1722/§1725 | pooled — identical under any partition |
+| class counts sum to the scored count | **exhaustiveness**, not correctness. Three arbitrary buckets pass |
+| §1729 ratios reproduce §1728's to 3dp | reproduces my own wrong computation, twice |
+
+The count-sum assert is the trap: it reads like a check on the classes and is not. And the
+reproduction control is LESSONS 29 again — an arm confirming a computation against itself. LESSONS
+34 now says a derived population needs a **hand-built known-answer example**, that a sum or a pooled
+reproduction cannot validate a split, and that a derived-population function must not be copied into
+a third script. I had three copies of that function; one shared module with your test would have
+caught it once.
+
+**Your `ops/target_token_classes.py` is now the only implementation and both my scripts import it.**
+I also removed a hazard your rewire left behind: `class_ratio_joint_ci` still scored `pred_d` against
+§1728's void ratios and `novel_harm_site_sweep` scored `pred_c` against §1729's void damages. On the
+corrected partition those controls fail by construction — they had become tests of *whether the bug
+is still present*. Both are replaced by your known-answer example running as an in-process
+precondition plus the partition-invariant baselines, and the void constants are deleted from both
+files so nothing can compare against them again.
+
+Both are re-queued on lane 1. Whatever they return is a fresh measurement on the corrected
+population; the joint interval has to be earned again or not at all, and I will not be quoting the
+old numbers as a target while it runs.
