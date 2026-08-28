@@ -1,7 +1,9 @@
 import pytest
 import torch
 
+import early_mlp_suffix_transport_v1_capabilities as capabilities
 import early_mlp_suffix_transport_v1_final_capability as capability
+import early_mlp_suffix_transport_v1_runtime as runtime
 
 
 SHA = "a" * 64
@@ -139,3 +141,37 @@ def test_direct_construction_without_mint_token_is_forbidden():
             _token=object(), issuer_id="d" * 64,
             common_support_sha256=SHA, executor=lambda action: _observation(action),
         )
+
+
+def _final_trace(*, phase="final", role="early_mlp_suffix_transport_v1_final"):
+    rows = torch.arange(4 * 513, dtype=torch.long).view(4, 513)
+    inputs = rows[:, :256].contiguous()
+    identity = runtime.TraceIdentity.from_inputs(
+        inputs=inputs, ordered_batch_indices=(8, 9, 10, 11),
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, fit_role_tensor_sha256="4" * 64,
+        program_snapshot_sha256="5" * 64, teacher_mapping_sha256="6" * 64,
+        role=role, phase=phase, route="R", control="true",
+        teacher_kind="oon_logits", trial=0, epoch=0, optimizer_step=2,
+        batch_ordinal=2, student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+    return identity, inputs
+
+
+def test_final_trace_and_context_are_distinct_from_validation_authority():
+    identity, inputs = _final_trace()
+    context = capabilities.FinalRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="6" * 64,
+    )
+    context.require_identity(identity, inputs, (8, 9, 10, 11))
+    validation = capabilities.ValidationRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, validation_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="6" * 64,
+    )
+    with pytest.raises(RuntimeError, match="validation identity"):
+        validation.require_identity(identity, inputs, (8, 9, 10, 11))
+    with pytest.raises(ValueError, match="role and execution phase"):
+        _final_trace(role="early_mlp_suffix_transport_v1_validation")

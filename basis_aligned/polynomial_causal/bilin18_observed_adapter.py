@@ -69,12 +69,33 @@ class ObservedValidationBaselineReceipt:
     observed_closure_sha256: str
 
 
-class _EarlyNativePoison:
-    """Fail before any literal MLP0/1/2 forward can execute, then restore exactly."""
+@dataclass(frozen=True)
+class ObservedFinalProgramBatchReceipt:
+    """Tensor-free closure receipt for one final P/P/N or P/P/E program batch."""
 
-    def __init__(self, model: torch.nn.Module) -> None:
+    identity_sha256: str
+    route: str
+    control: str
+    batch_ordinal: int
+    ordered_row_indices_sha256: str
+    reduction_sha256: str
+    student_ledger_sha256: str
+    teacher_ledger_sha256: str
+    observed_closure_sha256: str
+
+
+class _EarlyNativePoison:
+    """Fail before any forbidden literal early-MLP call, then restore exactly."""
+
+    def __init__(
+        self, model: torch.nn.Module, *, poison_sites: tuple[int, ...] = EARLY_SITES,
+    ) -> None:
+        if not poison_sites or any(site not in EARLY_SITES for site in poison_sites) or len(
+            set(poison_sites)
+        ) != len(poison_sites):
+            raise ValueError("native poison sites are malformed")
         self._modules = {
-            site: model.transformer.h[site].mlp for site in EARLY_SITES
+            site: model.transformer.h[site].mlp for site in poison_sites
         }
         self._snapshots: dict[int, tuple[bool, Any]] = {}
         self._installed: dict[int, Any] = {}
@@ -211,12 +232,22 @@ class ObservedBilin18Adapter:
         self, *, session: Any, hook: runtime.StudentCorrectionHook,
         identity: runtime.TraceIdentity, tokens: torch.Tensor,
     ) -> tuple[Any, Any, ObservedClosure]:
-        """Run one P/P/N student transaction without releasing graph-bearing tensors."""
+        """Run one registered P/P/N or final P/P/E student transaction."""
 
-        poison = _EarlyNativePoison(self._model)
+        states = dict(getattr(identity, "student_states", ()))
+        mlp2_background = states.get(2, "N")
+        if mlp2_background not in {"N", "E"}:
+            raise RuntimeError("observed student has an unknown MLP2 background")
+        if mlp2_background == "E" and getattr(identity, "phase", None) != "final":
+            raise RuntimeError("exact MLP2 background is licensed only during final scoring")
+        poison = _EarlyNativePoison(
+            self._model,
+            poison_sites=EARLY_SITES if mlp2_background == "N" else (0, 1),
+        )
         attention_calls = {site: 0 for site in range(len(self._model.transformer.h))}
         mlp_calls = {site: 0 for site in range(len(self._model.transformer.h))}
         deployed_n_calls = {site: 0 for site in EARLY_SITES}
+        exact_background_calls = {site: 0 for site in EARLY_SITES}
         correction_calls = {site: 0 for site in EARLY_SITES}
         outer_forward_count = 0
         outer_returned = False
@@ -228,9 +259,12 @@ class ObservedBilin18Adapter:
 
         def mlp(event: facade.EarlyMLPEvent):
             mlp_calls[event.site] += 1
-            deployed = self._ship.mlp(event)
             if event.site not in EARLY_SITES:
-                return deployed
+                return self._ship.mlp(event)
+            if event.site == 2 and mlp2_background == "E":
+                exact_background_calls[2] += 1
+                return event.block.mlp(event.state)
+            deployed = self._ship.mlp(event)
             deployed_n_calls[event.site] += 1
             if event.site == 2:
                 return deployed
@@ -267,11 +301,23 @@ class ObservedBilin18Adapter:
         try:
             if _counts(attention_calls) != expected_all or _counts(mlp_calls) != expected_all:
                 raise RuntimeError("observed outer forward did not dispatch every site exactly once")
-            if _counts(deployed_n_calls) != ((0, 1), (1, 1), (2, 1)) or _counts(
+            expected_deployed = (
+                ((0, 1), (1, 1), (2, 1)) if mlp2_background == "N"
+                else ((0, 1), (1, 1), (2, 0))
+            )
+            expected_exact = (
+                ((0, 0), (1, 0), (2, 0)) if mlp2_background == "N"
+                else ((0, 0), (1, 0), (2, 1))
+            )
+            literal_calls = {
+                site: poison.calls[site] + exact_background_calls[site]
+                for site in EARLY_SITES
+            }
+            if _counts(deployed_n_calls) != expected_deployed or _counts(
                 correction_calls
             ) != ((0, 1), (1, 1), (2, 0)):
-                raise RuntimeError("observed P/P/N call ledger did not close exactly")
-            if not poison.restored or not poison.inert or any(poison.calls.values()):
+                raise RuntimeError("observed student call ledger did not close exactly")
+            if not poison.restored or not poison.inert or _counts(literal_calls) != expected_exact:
                 raise RuntimeError("literal early-MLP poison did not close cleanly")
             if logits is None:
                 raise RuntimeError("observed student outer forward returned no logits")
@@ -304,7 +350,7 @@ class ObservedBilin18Adapter:
             mlp_dispatch_calls=_counts(mlp_calls),
             deployed_n_calls=_counts(deployed_n_calls),
             correction_calls=_counts(correction_calls),
-            literal_early_mlp_calls=_counts(poison.calls),
+            literal_early_mlp_calls=_counts(literal_calls),
             native_guard_restored=poison.restored,
             native_guard_inert=poison.inert,
             logit_shape=tuple(logits.shape),
@@ -513,6 +559,124 @@ class ObservedBilin18Adapter:
             reduction_sha256=reduction_sha256,
             observed_closure_sha256=runtime.logical_identity_sha256(asdict(observed)),
         )
+
+    def run_final_program_batch(
+        self, *, broker: Any, hook: runtime.StudentCorrectionHook,
+        program: runtime.JointAffineProgram, identity: runtime.TraceIdentity,
+        role_rows: torch.Tensor, ordered_row_indices: Any,
+        denominators: Any = None,
+    ) -> tuple[Any, ObservedFinalProgramBatchReceipt]:
+        """Run one true final P/P/N or P/P/E program and return typed reductions.
+
+        This is the observed backend for the fitted L/R/S/T families under deployed
+        MLP2 N and exact-restored MLP2 E.  The E background is CE-only.  Action-level
+        aggregation, non-program baselines, interventions, and null mapping remain
+        separate typed capabilities; this method cannot silently stand in for them.
+        """
+
+        import early_mlp_suffix_transport_v1_capabilities as capabilities
+
+        if not isinstance(identity, runtime.TraceIdentity) or identity.phase != (
+            "final"
+        ) or identity.role != "early_mlp_suffix_transport_v1_final" or not isinstance(
+            program, runtime.JointAffineProgram
+        ) or program.route != identity.route or runtime.program_snapshot_sha256(program) != (
+            identity.program_snapshot_sha256
+        ):
+            raise RuntimeError("observed final identity/program is malformed")
+        if not torch.is_tensor(role_rows) or role_rows.dtype != torch.long or tuple(
+            role_rows.shape
+        ) != (runtime.BATCH_SIZE, 513) or role_rows.device.type != "cpu":
+            raise RuntimeError("observed final requires one CPU role-row batch")
+        indices = tuple(ordered_row_indices)
+        inputs = role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous()
+        identity.require_inputs(inputs)
+        identity.require_batch_indices(indices)
+        mlp2_background = dict(identity.student_states)[2]
+        if mlp2_background == "N" and identity.route == "L":
+            if denominators is None or len(denominators) != 2:
+                raise RuntimeError("local final reduction requires two frozen denominators")
+        elif denominators is not None:
+            raise RuntimeError("CE-only or suffix final reduction cannot receive denominators")
+
+        try:
+            hook.configure(program=program, states={0: "P", 1: "P"})
+            try:
+                model_device = next(self._model.parameters()).device
+            except StopIteration as error:
+                raise RuntimeError("observed model has no device-bearing parameters") from error
+            model_inputs = inputs.to(device=model_device)
+            session = broker.begin_student(identity, hook, model_inputs, indices)
+        except BaseException:
+            try:
+                hook.clear_configuration()
+            except BaseException:
+                pass
+            raise
+
+        with torch.no_grad():
+            step, student_closure, observed = self.run_student(
+                session=session, hook=hook, identity=identity, tokens=model_inputs,
+            )
+            if mlp2_background == "E":
+                reductions, teacher_closure = broker.consume_final_ce(
+                    identity, step, role_rows,
+                )
+            elif identity.route == "L":
+                result = broker.run_coordinate_teacher(identity, step)
+                reductions, teacher_closure = result.consume_final(
+                    role_rows, denominators,
+                )
+            else:
+                result = self.run_oon_teacher(
+                    broker=broker, identity=identity, step=step, tokens=model_inputs,
+                )
+                reductions, teacher_closure = result.consume_final(role_rows)
+
+        expected_reduction_type = (
+            capabilities.FinalCEBatchReductions
+            if mlp2_background == "E" else capabilities.FinalBatchReductions
+        )
+        expected_literal_calls = (
+            ((0, 0), (1, 0), (2, 1)) if mlp2_background == "E"
+            else ((0, 0), (1, 0), (2, 0))
+        )
+        expected_consumer_calls = (
+            capabilities.EXACT_ZERO_CALLS
+            if mlp2_background == "E" else capabilities.EXACT_EARLY_ORIGINAL_CALLS
+        )
+        if type(reductions) is not expected_reduction_type or (
+            reductions.identity_sha256 != identity.sha256
+        ) or student_closure.scope != "student" or student_closure.original_calls != (
+            capabilities.EXACT_ZERO_CALLS
+        ) or student_closure.hook_restored is not True or student_closure.hook_inert is not (
+            True
+        ) or observed.literal_early_mlp_calls != expected_literal_calls or (
+            observed.native_guard_restored is not True
+        ) or observed.native_guard_inert is not True or teacher_closure.original_calls != (
+            expected_consumer_calls
+        ) or teacher_closure.consumed is not True:
+            raise RuntimeError("observed final program transaction did not close exactly")
+        reduction_fields = (
+            "row_ce_sum", "row_ce_count", "row_copy_ce_sum", "row_copy_count",
+        ) if mlp2_background == "E" else (
+            "row_primary_sum", "row_primary_count", "row_ce_sum", "row_ce_count",
+            "row_copy_ce_sum", "row_copy_count",
+        )
+        reduction_sha256 = runtime.logical_identity_sha256({
+            name: runtime.tensor_identity_sha256(getattr(reductions, name))
+            for name in reduction_fields
+        })
+        receipt = ObservedFinalProgramBatchReceipt(
+            identity_sha256=identity.sha256, route=identity.route,
+            control=identity.control, batch_ordinal=identity.batch_ordinal,
+            ordered_row_indices_sha256=runtime.logical_identity_sha256(list(indices)),
+            reduction_sha256=reduction_sha256,
+            student_ledger_sha256=student_closure.ledger_sha256,
+            teacher_ledger_sha256=teacher_closure.ledger_sha256,
+            observed_closure_sha256=runtime.logical_identity_sha256(asdict(observed)),
+        )
+        return reductions, receipt
 
     def run_mapped_oon_teacher(
         self, *, broker: Any, identity: runtime.TraceIdentity, step: Any,

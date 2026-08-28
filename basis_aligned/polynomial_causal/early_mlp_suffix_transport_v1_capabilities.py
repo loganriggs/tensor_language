@@ -33,6 +33,8 @@ FIT_ROW_COUNT = 384
 FIT_BATCHES_PER_EPOCH = FIT_ROW_COUNT // runtime.BATCH_SIZE
 VALIDATION_ROW_COUNT = 192
 VALIDATION_BATCH_COUNT = VALIDATION_ROW_COUNT // runtime.BATCH_SIZE
+FINAL_ROW_COUNT = 192
+FINAL_BATCH_COUNT = FINAL_ROW_COUNT // runtime.BATCH_SIZE
 
 
 def _call_tuple(value: Mapping[int, int]) -> tuple[tuple[int, int], ...]:
@@ -191,6 +193,62 @@ class ValidationRunContext:
             raise RuntimeError("validation rows are not in canonical order")
 
 
+@dataclass(frozen=True)
+class FinalRunContext:
+    """Immutable authority for one-shot final rows and the true evaluation teacher."""
+
+    source_commit: str
+    inherited_snapshot_sha256: str
+    rows_receipt_sha256: str
+    final_role_tensor_sha256: str
+    identity_teacher_mapping_sha256: str
+    final_row_count: int = FINAL_ROW_COUNT
+
+    def __post_init__(self) -> None:
+        if not isinstance(self.source_commit, str) or len(self.source_commit) != 40 or any(
+            char not in "0123456789abcdef" for char in self.source_commit
+        ):
+            raise ValueError("final source commit is malformed")
+        if any(not runtime._sha256_text(value) for value in (
+            self.inherited_snapshot_sha256, self.rows_receipt_sha256,
+            self.final_role_tensor_sha256, self.identity_teacher_mapping_sha256,
+        )) or type(self.final_row_count) is not int or self.final_row_count != (
+            FINAL_ROW_COUNT
+        ):
+            raise ValueError("final run context changed the frozen role")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            field: getattr(self, field) for field in self.__dataclass_fields__
+        })
+
+    def require_identity(
+        self, identity: runtime.TraceIdentity, inputs: torch.Tensor,
+        ordered_batch_indices: Sequence[int],
+    ) -> None:
+        if not isinstance(identity, runtime.TraceIdentity) or identity.role != (
+            "early_mlp_suffix_transport_v1_final"
+        ) or identity.phase != "final":
+            raise RuntimeError("final execution lacks a final identity")
+        if identity.source_commit != self.source_commit or identity.inherited_snapshot_sha256 != (
+            self.inherited_snapshot_sha256
+        ) or identity.rows_receipt_sha256 != self.rows_receipt_sha256 or (
+            identity.fit_role_tensor_sha256 != self.final_role_tensor_sha256
+        ) or identity.teacher_mapping_sha256 != self.identity_teacher_mapping_sha256:
+            raise RuntimeError("final trace differs from the sealed run context")
+        identity.require_inputs(inputs)
+        identity.require_batch_indices(ordered_batch_indices)
+        if identity.epoch != 0 or identity.optimizer_step != identity.batch_ordinal or not (
+            0 <= identity.batch_ordinal < FINAL_BATCH_COUNT
+        ):
+            raise RuntimeError("final batch schedule identity changed")
+        start = identity.batch_ordinal * runtime.BATCH_SIZE
+        expected = tuple(range(start, start + runtime.BATCH_SIZE))
+        if tuple(ordered_batch_indices) != expected:
+            raise RuntimeError("final rows are not in canonical order")
+
+
 class MappedRunAuthority:
     """Narrow interface a separate mapped-row module must implement.
 
@@ -272,6 +330,68 @@ class ValidationBatchReductions:
                 value.dtype != expected_dtype
             ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
                 raise ValueError(f"validation reduction {name} is malformed")
+            object.__setattr__(self, name, value.detach().cpu().contiguous().clone())
+
+
+@dataclass(frozen=True)
+class FinalBatchReductions:
+    """Small final-role reductions emitted before action-level aggregation."""
+
+    identity_sha256: str
+    route: str
+    program_sha256: str
+    row_primary_sum: torch.Tensor
+    row_primary_count: torch.Tensor
+    row_ce_sum: torch.Tensor
+    row_ce_count: torch.Tensor
+    row_copy_ce_sum: torch.Tensor
+    row_copy_count: torch.Tensor
+
+    def __post_init__(self) -> None:
+        if not runtime._sha256_text(self.identity_sha256) or self.route not in {
+            "L", "R", "S0", "S1", "T",
+        } or not runtime._sha256_text(self.program_sha256):
+            raise ValueError("final reduction identity is malformed")
+        float_fields = ("row_primary_sum", "row_ce_sum", "row_copy_ce_sum")
+        count_fields = ("row_primary_count", "row_ce_count", "row_copy_count")
+        for name in (*float_fields, *count_fields):
+            value = getattr(self, name)
+            expected_dtype = torch.float64 if name in float_fields else torch.long
+            if not torch.is_tensor(value) or tuple(value.shape) != (
+                runtime.BATCH_SIZE,
+            ) or value.dtype != expected_dtype or value.device.type != "cpu" or (
+                value.requires_grad
+            ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
+                raise ValueError(f"final reduction {name} is malformed")
+            object.__setattr__(self, name, value.detach().cpu().contiguous().clone())
+
+
+@dataclass(frozen=True)
+class FinalCEBatchReductions:
+    """CE-only reductions for the registered exact-MLP2 E background."""
+
+    identity_sha256: str
+    route: str
+    program_sha256: str
+    row_ce_sum: torch.Tensor
+    row_ce_count: torch.Tensor
+    row_copy_ce_sum: torch.Tensor
+    row_copy_count: torch.Tensor
+
+    def __post_init__(self) -> None:
+        if not runtime._sha256_text(self.identity_sha256) or self.route not in {
+            "L", "R", "S0", "S1", "T",
+        } or not runtime._sha256_text(self.program_sha256):
+            raise ValueError("final CE reduction identity is malformed")
+        for name in ("row_ce_sum", "row_ce_count", "row_copy_ce_sum", "row_copy_count"):
+            value = getattr(self, name)
+            expected_dtype = torch.long if name.endswith("count") else torch.float64
+            if not torch.is_tensor(value) or tuple(value.shape) != (
+                runtime.BATCH_SIZE,
+            ) or value.dtype != expected_dtype or value.device.type != "cpu" or (
+                value.requires_grad
+            ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
+                raise ValueError(f"final CE reduction {name} is malformed")
             object.__setattr__(self, name, value.detach().cpu().contiguous().clone())
 
 
@@ -714,7 +834,7 @@ class _StudentOutputs:
         if self.__consumed:
             raise RuntimeError("student outputs were already consumed")
         if identity.sha256 != self.__identity_sha256 or kind not in {
-            "coordinate", "oon", "discard", "validation",
+            "coordinate", "oon", "discard", "validation", "final",
         }:
             raise RuntimeError("student output identity or consumer kind changed")
         self._require_integrity()
@@ -723,7 +843,7 @@ class _StudentOutputs:
             output = self.__values["codes"]
         elif kind == "oon":
             output = self.__values["logits"]
-        elif kind == "validation":
+        elif kind in {"validation", "final"}:
             output = (self.__values["codes"], self.__values["logits"])
         else:
             output = None
@@ -872,16 +992,30 @@ class _TeacherResult:
         self.__broker._abort_identity(self.__identity)
 
 
-def _validation_role_batch(
-    identity: runtime.TraceIdentity, role_rows: torch.Tensor,
+def _scored_role_batch(
+    identity: runtime.TraceIdentity, role_rows: torch.Tensor, *, phase: str,
 ) -> torch.Tensor:
     if not torch.is_tensor(role_rows) or role_rows.dtype != torch.long or role_rows.ndim != 2 or (
         tuple(role_rows.shape) != (runtime.BATCH_SIZE, 513)
     ) or role_rows.device.type != "cpu":
-        raise RuntimeError("validation reduction requires one CPU role-row batch")
+        raise RuntimeError(f"{phase} reduction requires one CPU role-row batch")
+    if identity.phase != phase:
+        raise RuntimeError(f"{phase} reduction received another execution phase")
     rows = role_rows.contiguous()
     identity.require_inputs(rows[:, :runtime.SEQUENCE_LENGTH])
     return rows
+
+
+def _validation_role_batch(
+    identity: runtime.TraceIdentity, role_rows: torch.Tensor,
+) -> torch.Tensor:
+    return _scored_role_batch(identity, role_rows, phase="validation")
+
+
+def _final_role_batch(
+    identity: runtime.TraceIdentity, role_rows: torch.Tensor,
+) -> torch.Tensor:
+    return _scored_role_batch(identity, role_rows, phase="final")
 
 
 class CoordinateTeacherResult(_TeacherResult):
@@ -959,6 +1093,40 @@ class CoordinateTeacherResult(_TeacherResult):
             if not complete:
                 self._abort_consume()
 
+    def consume_final(
+        self, role_rows: torch.Tensor, denominators: Sequence[torch.Tensor | float],
+    ) -> tuple[FinalBatchReductions, StepClosure]:
+        identity = self._TeacherResult__identity
+        if identity.phase != "final" or identity.route != "L":
+            raise RuntimeError("coordinate final reduction is licensed only for final/L")
+        complete = False
+        try:
+            labels, student = self._begin_consume("final")
+            role_rows = _final_role_batch(identity, role_rows)
+            predictions, logits = student
+            import early_mlp_suffix_transport_v1_programs as programs
+
+            primary_sum, primary_count = programs.local_primary_rows(
+                predictions, labels, denominators,
+            )
+            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+                logits, role_rows,
+            )
+            reductions = FinalBatchReductions(
+                identity_sha256=identity.sha256, route="L",
+                program_sha256=identity.program_snapshot_sha256,
+                row_primary_sum=primary_sum, row_primary_count=primary_count,
+                row_ce_sum=ce_sum, row_ce_count=ce_count,
+                row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+            )
+            closure = self._finish_consume()
+            complete = True
+            return reductions, closure
+        finally:
+            self._clear()
+            if not complete:
+                self._abort_consume()
+
 
 class OONTeacherResult(_TeacherResult):
     def consume_loss(self) -> tuple[torch.Tensor, StepClosure]:
@@ -1000,6 +1168,40 @@ class OONTeacherResult(_TeacherResult):
                 student_logits, role_rows,
             )
             reductions = ValidationBatchReductions(
+                identity_sha256=identity.sha256, route=identity.route,
+                program_sha256=identity.program_snapshot_sha256,
+                row_primary_sum=primary_sum, row_primary_count=primary_count,
+                row_ce_sum=ce_sum, row_ce_count=ce_count,
+                row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+            )
+            closure = self._finish_consume()
+            complete = True
+            return reductions, closure
+        finally:
+            self._clear()
+            if not complete:
+                self._abort_consume()
+
+    def consume_final(
+        self, role_rows: torch.Tensor,
+    ) -> tuple[FinalBatchReductions, StepClosure]:
+        identity = self._TeacherResult__identity
+        if identity.phase != "final" or identity.route not in {"R", "S0", "S1", "T"}:
+            raise RuntimeError("OON final reduction is licensed only for final R/S/T")
+        complete = False
+        try:
+            (teacher_logits,), student = self._begin_consume("final")
+            role_rows = _final_role_batch(identity, role_rows)
+            _, student_logits = student
+            import early_mlp_suffix_transport_v1_programs as programs
+
+            primary_sum, primary_count = programs.suffix_kl_rows(
+                teacher_logits, student_logits,
+            )
+            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+                student_logits, role_rows,
+            )
+            reductions = FinalBatchReductions(
                 identity_sha256=identity.sha256, route=identity.route,
                 program_sha256=identity.program_snapshot_sha256,
                 row_primary_sum=primary_sum, row_primary_count=primary_count,
@@ -1142,14 +1344,17 @@ class CapabilityBroker:
 
     def __init__(
         self, *, issuer_id: str, coordinator: runtime.ScopeCoordinator,
-        run_context: RunContext | ValidationRunContext, bases: Mapping[int, torch.Tensor],
+        run_context: RunContext | ValidationRunContext | FinalRunContext,
+        bases: Mapping[int, torch.Tensor],
         native_calls: Mapping[int, Callable[[torch.Tensor], torch.Tensor]],
         mapped_authority: MappedRunAuthority | None = None,
     ) -> None:
         object.__setattr__(self, "_CapabilityBroker__sealed", False)
         if not runtime._sha256_text(issuer_id) or not isinstance(
             coordinator, runtime.ScopeCoordinator,
-        ) or not isinstance(run_context, (RunContext, ValidationRunContext)) or set(
+        ) or not isinstance(
+            run_context, (RunContext, ValidationRunContext, FinalRunContext),
+        ) or set(
             bases
         ) != {0, 1} or set(
             native_calls
@@ -1274,10 +1479,11 @@ class CapabilityBroker:
         ):
             raise RuntimeError("trace route/program differs from configured execution")
         hook.program.require_exact_trainability()
-        if identity.student_states != ((0, "P"), (1, "P"), (2, "N")) or hook.states != {
-            0: "P", 1: "P",
-        }:
-            raise RuntimeError("fit execution must be exact P/P/N")
+        allowed_states = {((0, "P"), (1, "P"), (2, "N"))}
+        if identity.phase == "final":
+            allowed_states.add(((0, "P"), (1, "P"), (2, "E")))
+        if identity.student_states not in allowed_states or hook.states != {0: "P", 1: "P"}:
+            raise RuntimeError("student execution must be exact P/P/N or final P/P/E")
         self.__student_identities.add(identity.sha256)
         object.__setattr__(self, "_CapabilityBroker__outstanding_identity_sha256", identity.sha256)
         return StudentSession(self, identity, hook)
@@ -1384,6 +1590,70 @@ class CapabilityBroker:
         ) or self.__outstanding_identity_sha256 != identity.sha256:
             raise RuntimeError("teacher identity lacks one unused paired student step")
         self.__teacher_identities.add(identity.sha256)
+
+    def consume_final_ce(
+        self, identity: runtime.TraceIdentity, step: StudentStep,
+        role_rows: torch.Tensor,
+    ) -> tuple[FinalCEBatchReductions, StepClosure]:
+        """Consume one P/P/E student without constructing an inapplicable teacher.
+
+        Exact-restored MLP2 is a CE-only alternate background in the preregistration.
+        Treating its primary field as zero KL would silently invent a denominator, so
+        this capability has a distinct reduction type and no original-call gateway.
+        """
+
+        if identity.phase != "final" or dict(identity.student_states).get(2) != "E":
+            raise RuntimeError("final CE capability requires the exact-MLP2 E background")
+        step._require_available(issuer_id=self.issuer_id, identity=identity)
+        self._spend_teacher_identity(identity)
+        trace, outputs = step._take(issuer_id=self.issuer_id, identity=identity)
+        complete = False
+        try:
+            states = trace._consume(issuer_id=self.issuer_id, identity=identity)
+            states.clear()
+            codes, logits = outputs.consume("final", identity)
+            rows = _final_role_batch(identity, role_rows)
+            import early_mlp_suffix_transport_v1_programs as programs
+
+            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+                logits, rows,
+            )
+            reductions = FinalCEBatchReductions(
+                identity_sha256=identity.sha256, route=identity.route,
+                program_sha256=identity.program_snapshot_sha256,
+                row_ce_sum=ce_sum, row_ce_count=ce_count,
+                row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+            )
+            closure = self._mint_closure(
+                identity=identity, scope="final_ce", producer_invocations=0,
+                outer_forward_count=0, hook_calls=EXACT_ZERO_CALLS,
+                original_calls=EXACT_ZERO_CALLS, outer_returned=True,
+                hook_restored=True, hook_inert=True,
+                output_shapes=tuple(tuple(value.shape) for value in (*codes, logits)),
+                output_dtypes=tuple(str(value.dtype) for value in (*codes, logits)),
+                support="64:256-final-ce", requires_grad=any(
+                    value.requires_grad for value in (*codes, logits)
+                ), grad_fn_absent=all(value.grad_fn is None for value in (*codes, logits)),
+                consumed=True, output_sha256=runtime.logical_identity_sha256({
+                    "identity_sha256": identity.sha256,
+                    "reduction_sha256": runtime.logical_identity_sha256({
+                        name: runtime.tensor_identity_sha256(getattr(reductions, name))
+                        for name in (
+                            "row_ce_sum", "row_ce_count", "row_copy_ce_sum",
+                            "row_copy_count",
+                        )
+                    }),
+                }),
+            )
+            self._complete_identity(identity)
+            complete = True
+            return reductions, closure
+        finally:
+            if not complete:
+                try:
+                    outputs.force_discard(identity)
+                finally:
+                    self._abort_identity(identity)
 
     def run_coordinate_teacher(
         self, identity: runtime.TraceIdentity, step: StudentStep,

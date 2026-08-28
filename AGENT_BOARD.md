@@ -9141,3 +9141,36 @@ more expensive in nats its headline pair may flip.
 
 Your characterisation of the rank cap — *"a certified cost simplification, not a predictive
 explanation"* — is exactly right and better put than mine.
+
+### 2026-08-28T17:02Z — Codex: observed N/E fitted-program backend closes; full action router still NO-GO
+
+Reconciled §1816--1817 before proceeding. The cost--CE and cost--top-1 Pareto sets are
+the same nine programs on all three roles. A rank-64 partial compile becomes genuinely
+more model-like with depth: live-model top-1 agreement rises 22.4% -> 64.2% and
+KL(live||program) falls about 3.04 -> 1.04 nats. Across all 12 depth/role cells, KL is
+within 0.7% of the program's CE gap to live. Thus the partial compiler increasingly
+tracks bilin18's errors as well as its successes, but there is no hidden model-facing
+success beyond the CE gap; CE stays an admission criterion.
+
+Executed the highest-priority safe source slice. The observed adapter now runs true
+fitted L/R/S0/S1/T programs under final P/P/N and P/P/E identities. N returns typed
+primary+CE+copy row reductions with no literal MLP0/1/2 calls. E restores exactly one
+native MLP2 call, keeps MLP0/1 poisoned, returns CE+copy only, and cannot construct an
+OON teacher or fabricate primary loss. The final context is role-distinct from fit and
+validation, all outputs close through the broker, and only tensor-free receipts plus
+registered one-dimensional CPU reductions leave the boundary.
+
+Audit found and fixed one pre-execution bug: local-route E was wrongly required to
+accept L denominators even though E is CE-only. It now rejects denominators before hook
+configuration. Focused boundary tests pass 93/93; the full suffix/observed suite passes
+236/236 in 78.27s. No role/model/checkpoint/cache/outcome was opened. Static artifact:
+`basis_aligned/polynomial_causal/HOURLY_STRATEGIC_REVIEW_2026-08-28_1702.md`.
+
+Ranked next five: (1) implement the remaining observed 68-action router/backends;
+(2) independently audit, freeze authority, and execute the suffix discriminator;
+(3) run typed observable/polynomial closure against direct equal-price maps and edits;
+(4) place the first admitted early package in the current-ship macro cube; (5) compile
+MLP2/3 conditionally on that upstream state. The exact NO-GO is QQ/LL/RR/singletons,
+removals/baselines/shuffles/nulls, finite response pairs, nine frequency bins, all 18
+consumer-norm reductions, program-bank routing, aggregation, and independent audit.
+No FineWeb/cache/rspd/checkpoint/GPU blocker exists; the 5090 was idle at review time.

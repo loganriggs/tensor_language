@@ -134,13 +134,51 @@ def validation_system(route: str, *, control: str = "true", batch: int = 2):
     return broker, hook, prog, native0, native1, rows, inputs, indices, ident
 
 
+def final_system(
+    route: str, *, control: str = "true", batch: int = 2, background: str = "N",
+):
+    issuer = "a" * 64
+    coordinator = runtime.ScopeCoordinator()
+    native0, native1 = Native(2.0, 0.25), Native(-0.5, 1.0)
+    context = capabilities.FinalRunContext(
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, final_role_tensor_sha256="4" * 64,
+        identity_teacher_mapping_sha256="5" * 64,
+    )
+    broker = capabilities.CapabilityBroker(
+        issuer_id=issuer, coordinator=coordinator, run_context=context,
+        bases={0: basis(), 1: basis()}, native_calls={0: native0, 1: native1},
+    )
+    hook = runtime.StudentCorrectionHook(
+        {0: basis(), 1: basis()}, issuer_id=issuer, coordinator=coordinator,
+    )
+    prog = program(route)
+    hook.configure(program=prog, states={0: "P", 1: "P"})
+    rows = torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11
+    inputs = rows[:, :256].contiguous()
+    indices = tuple(range(batch * 4, batch * 4 + 4))
+    ident = runtime.TraceIdentity.from_inputs(
+        inputs=inputs, ordered_batch_indices=indices, source_commit="1" * 40,
+        inherited_snapshot_sha256="2" * 64, rows_receipt_sha256="3" * 64,
+        fit_role_tensor_sha256="4" * 64,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(prog),
+        teacher_mapping_sha256="5" * 64,
+        role="early_mlp_suffix_transport_v1_final", phase="final",
+        route=route, control=control,
+        teacher_kind="coordinate_labels" if route == "L" else "oon_logits",
+        trial=0, epoch=0, optimizer_step=batch, batch_ordinal=batch,
+        student_states=((0, "P"), (1, "P"), (2, background)),
+    )
+    return broker, hook, prog, native0, native1, rows, inputs, indices, ident
+
+
 def scheduled_indices(ident):
     if ident.phase == "initial_denominator":
         return tuple(range(
             ident.batch_ordinal * runtime.BATCH_SIZE,
             (ident.batch_ordinal + 1) * runtime.BATCH_SIZE,
         ))
-    if ident.phase == "validation":
+    if ident.phase in {"validation", "final"}:
         return tuple(range(
             ident.batch_ordinal * runtime.BATCH_SIZE,
             (ident.batch_ordinal + 1) * runtime.BATCH_SIZE,
@@ -314,6 +352,68 @@ def test_validation_context_and_role_rows_fail_closed_on_drift() -> None:
     with pytest.raises(RuntimeError, match="differ from the trace identity"):
         result.consume_validation(changed)
     assert broker.ledger_snapshot.outstanding_identity_sha256 is None
+
+
+def test_coordinate_final_emits_typed_final_reductions() -> None:
+    broker, hook, prog, native0, native1, rows, inputs, _, ident = final_system("L")
+    step, _, z0, z1, student_logits = run_student(broker, hook, inputs, ident)
+    result = broker.run_coordinate_teacher(ident, step)
+    reductions, closure = result.consume_final(rows, (2.0, 4.0))
+    predictions = (prog.site0_code(z0), prog.site1_code(z1))
+    labels = (native0(z0).detach() @ basis(), native1(z1).detach() @ basis())
+    primary_sum, primary_count = programs.local_primary_rows(
+        predictions, labels, (2.0, 4.0),
+    )
+    ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+        student_logits, rows,
+    )
+    assert type(reductions) is capabilities.FinalBatchReductions
+    for observed_value, expected in (
+        (reductions.row_primary_sum, primary_sum),
+        (reductions.row_primary_count, primary_count),
+        (reductions.row_ce_sum, ce_sum), (reductions.row_ce_count, ce_count),
+        (reductions.row_copy_ce_sum, copy_sum),
+        (reductions.row_copy_count, copy_count),
+    ):
+        torch.testing.assert_close(observed_value, expected)
+    assert closure.original_calls == capabilities.EXACT_EARLY_ORIGINAL_CALLS
+
+
+def test_oon_final_emits_typed_final_reductions() -> None:
+    broker, hook, _, native0, native1, rows, inputs, _, ident = final_system("R")
+    step, _, _, _, student_logits = run_student(broker, hook, inputs, ident)
+    result = broker.run_oon_teacher(ident, step, inputs, autonomous_forward)
+    reductions, closure = result.consume_final(rows)
+    z0 = inputs.float().unsqueeze(-1).expand(-1, -1, runtime.D_MODEL) / 1000
+    teacher_logits = native1(z0 + native0(z0))[..., :11].detach()
+    primary_sum, primary_count = programs.suffix_kl_rows(
+        teacher_logits, student_logits,
+    )
+    assert type(reductions) is capabilities.FinalBatchReductions
+    torch.testing.assert_close(reductions.row_primary_sum, primary_sum)
+    torch.testing.assert_close(reductions.row_primary_count, primary_count)
+    assert closure.original_calls == capabilities.EXACT_EARLY_ORIGINAL_CALLS
+
+
+def test_exact_mlp2_final_background_emits_ce_only_reductions() -> None:
+    broker, hook, _, _, _, rows, inputs, _, ident = final_system(
+        "R", background="E",
+    )
+    step, _, _, _, student_logits = run_student(broker, hook, inputs, ident)
+    reductions, closure = broker.consume_final_ce(ident, step, rows)
+    ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+        student_logits, rows,
+    )
+    assert type(reductions) is capabilities.FinalCEBatchReductions
+    for observed_value, expected in (
+        (reductions.row_ce_sum, ce_sum), (reductions.row_ce_count, ce_count),
+        (reductions.row_copy_ce_sum, copy_sum),
+        (reductions.row_copy_count, copy_count),
+    ):
+        torch.testing.assert_close(observed_value, expected)
+    assert not hasattr(reductions, "row_primary_sum")
+    assert closure.scope == "final_ce"
+    assert closure.original_calls == capabilities.EXACT_ZERO_CALLS
 
 
 def test_fit_and_validation_contexts_cannot_cross_authorize() -> None:

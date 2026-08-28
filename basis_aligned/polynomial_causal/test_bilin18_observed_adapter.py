@@ -142,6 +142,34 @@ def test_literal_native_call_fails_before_execution_and_restores_forward() -> No
     assert after == before
 
 
+def test_final_exact_mlp2_background_is_the_only_allowed_literal_early_call(
+    monkeypatch,
+) -> None:
+    class SyntheticNWrite:
+        def __init__(self, **kwargs):
+            self.kwargs = kwargs
+
+        def _consume(self, *, site, state, forward_nonce, issuer_id):
+            return self.kwargs["value"]
+
+    monkeypatch.setattr(
+        observed.runtime, "mint_deployed_n_write", lambda **kwargs: SyntheticNWrite(**kwargs),
+    )
+    model = tiny_model()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+    identity = SimpleNamespace(
+        nonce="d" * 64, phase="final",
+        student_states=((0, "P"), (1, "P"), (2, "E")),
+    )
+    _, _, receipt = adapter.run_student(
+        session=FakeSession(), hook=FakeHook(), identity=identity,
+        tokens=torch.zeros((1, 2), dtype=torch.long),
+    )
+    assert receipt.deployed_n_calls == ((0, 1), (1, 1), (2, 0))
+    assert receipt.literal_early_mlp_calls == ((0, 0), (1, 0), (2, 1))
+    assert receipt.native_guard_restored and receipt.native_guard_inert
+
+
 def test_oon_forward_uses_gateway_for_zero_and_one_only() -> None:
     model = tiny_model()
     adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
@@ -518,6 +546,192 @@ def test_validation_adapter_consumes_reductions_into_collector_without_tensor_es
             "row_copy_ce_sum", "row_copy_count",
         )
     })
+
+
+def test_final_program_adapter_returns_only_typed_batch_reductions(monkeypatch) -> None:
+    model = tiny_model()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+    program = _validation_program("R")
+    rows = torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11
+    identity = runtime.TraceIdentity.from_inputs(
+        inputs=rows[:, :256].contiguous(), ordered_batch_indices=(0, 1, 2, 3),
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, fit_role_tensor_sha256="4" * 64,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256="5" * 64,
+        role="early_mlp_suffix_transport_v1_final", phase="final",
+        route="R", control="true", teacher_kind="oon_logits",
+        trial=0, epoch=0, optimizer_step=0, batch_ordinal=0,
+        student_states=((0, "P"), (1, "P"), (2, "N")),
+    )
+
+    class Hook:
+        def configure(self, **kwargs):
+            self.configured = kwargs
+        def clear_configuration(self):
+            self.cleared = True
+
+    hook = Hook()
+    student_closure = _step_closure("student", capabilities.EXACT_ZERO_CALLS, "7" * 64)
+    teacher_closure = _step_closure(
+        "oon", capabilities.EXACT_EARLY_ORIGINAL_CALLS, "8" * 64,
+    )
+    adapter_closure = observed.ObservedClosure(
+        scope="student", outer_forward_count=1, outer_returned=True,
+        attention_dispatch_calls=tuple((site, 1) for site in range(18)),
+        mlp_dispatch_calls=tuple((site, 1) for site in range(18)),
+        deployed_n_calls=((0, 1), (1, 1), (2, 1)),
+        correction_calls=((0, 1), (1, 1), (2, 0)),
+        literal_early_mlp_calls=((0, 0), (1, 0), (2, 0)),
+        native_guard_restored=True, native_guard_inert=True,
+        logit_shape=(4, 256, 11), logit_dtype="torch.float32",
+    )
+    reductions = capabilities.FinalBatchReductions(
+        identity_sha256=identity.sha256, route="R",
+        program_sha256=identity.program_snapshot_sha256,
+        row_primary_sum=torch.ones(4, dtype=torch.float64),
+        row_primary_count=torch.full((4,), 192, dtype=torch.long),
+        row_ce_sum=torch.full((4,), 2.0, dtype=torch.float64),
+        row_ce_count=torch.full((4,), 192, dtype=torch.long),
+        row_copy_ce_sum=torch.full((4,), 0.5, dtype=torch.float64),
+        row_copy_count=torch.ones(4, dtype=torch.long),
+    )
+
+    class Result:
+        def consume_final(self, supplied_rows):
+            assert supplied_rows is rows
+            return reductions, teacher_closure
+
+    class Broker:
+        def begin_student(self, supplied_identity, supplied_hook, inputs, indices):
+            assert supplied_identity is identity and supplied_hook is hook
+            assert tuple(indices) == (0, 1, 2, 3)
+            return "session"
+        def run_oon_teacher(self, supplied_identity, step, inputs, callback):
+            assert supplied_identity is identity and step == "step"
+            return Result()
+
+    monkeypatch.setattr(
+        adapter, "run_student",
+        lambda **kwargs: ("step", student_closure, adapter_closure),
+    )
+    returned, receipt = adapter.run_final_program_batch(
+        broker=Broker(), hook=hook, program=program, identity=identity,
+        role_rows=rows, ordered_row_indices=(0, 1, 2, 3),
+    )
+    assert returned is reductions
+    assert receipt.control == "true" and receipt.route == "R"
+    assert all(not torch.is_tensor(getattr(receipt, field.name)) for field in fields(receipt))
+    assert all(
+        torch.is_tensor(getattr(returned, name)) and getattr(returned, name).ndim == 1
+        for name in (
+            "row_primary_sum", "row_primary_count", "row_ce_sum", "row_ce_count",
+            "row_copy_ce_sum", "row_copy_count",
+        )
+    )
+
+
+def test_final_exact_mlp2_program_batch_is_ce_only_and_has_no_oon_teacher(
+    monkeypatch,
+) -> None:
+    model = tiny_model()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+    program = _validation_program("R")
+    rows = torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11
+    identity = runtime.TraceIdentity.from_inputs(
+        inputs=rows[:, :256].contiguous(), ordered_batch_indices=(0, 1, 2, 3),
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, fit_role_tensor_sha256="4" * 64,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256="5" * 64,
+        role="early_mlp_suffix_transport_v1_final", phase="final",
+        route="R", control="true", teacher_kind="oon_logits",
+        trial=0, epoch=0, optimizer_step=0, batch_ordinal=0,
+        student_states=((0, "P"), (1, "P"), (2, "E")),
+    )
+
+    class Hook:
+        def configure(self, **kwargs):
+            self.configured = kwargs
+        def clear_configuration(self):
+            self.cleared = True
+
+    hook = Hook()
+    student_closure = _step_closure("student", capabilities.EXACT_ZERO_CALLS, "7" * 64)
+    ce_closure = _step_closure("final_ce", capabilities.EXACT_ZERO_CALLS, "8" * 64)
+    adapter_closure = observed.ObservedClosure(
+        scope="student", outer_forward_count=1, outer_returned=True,
+        attention_dispatch_calls=tuple((site, 1) for site in range(18)),
+        mlp_dispatch_calls=tuple((site, 1) for site in range(18)),
+        deployed_n_calls=((0, 1), (1, 1), (2, 0)),
+        correction_calls=((0, 1), (1, 1), (2, 0)),
+        literal_early_mlp_calls=((0, 0), (1, 0), (2, 1)),
+        native_guard_restored=True, native_guard_inert=True,
+        logit_shape=(4, 256, 11), logit_dtype="torch.float32",
+    )
+    reductions = capabilities.FinalCEBatchReductions(
+        identity_sha256=identity.sha256, route="R",
+        program_sha256=identity.program_snapshot_sha256,
+        row_ce_sum=torch.full((4,), 2.0, dtype=torch.float64),
+        row_ce_count=torch.full((4,), 192, dtype=torch.long),
+        row_copy_ce_sum=torch.full((4,), 0.5, dtype=torch.float64),
+        row_copy_count=torch.ones(4, dtype=torch.long),
+    )
+
+    class Broker:
+        def begin_student(self, supplied_identity, supplied_hook, inputs, indices):
+            return "session"
+        def consume_final_ce(self, supplied_identity, step, supplied_rows):
+            assert supplied_identity is identity and step == "step" and supplied_rows is rows
+            return reductions, ce_closure
+        def run_oon_teacher(self, *args, **kwargs):
+            raise AssertionError("exact-MLP2 E is CE-only and cannot construct OON")
+
+    monkeypatch.setattr(
+        adapter, "run_student",
+        lambda **kwargs: ("step", student_closure, adapter_closure),
+    )
+    returned, receipt = adapter.run_final_program_batch(
+        broker=Broker(), hook=hook, program=program, identity=identity,
+        role_rows=rows, ordered_row_indices=(0, 1, 2, 3),
+    )
+    assert returned is reductions and receipt.control == "true"
+    assert not hasattr(returned, "row_primary_sum")
+
+
+def test_final_exact_mlp2_local_program_is_ce_only_and_rejects_denominators(
+    monkeypatch,
+) -> None:
+    """E never smuggles L's coordinate statistic into a CE-only observation."""
+
+    model = tiny_model()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+    program = _validation_program("L")
+    rows = torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11
+    identity = runtime.TraceIdentity.from_inputs(
+        inputs=rows[:, :256].contiguous(), ordered_batch_indices=(0, 1, 2, 3),
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64, fit_role_tensor_sha256="4" * 64,
+        program_snapshot_sha256=runtime.program_snapshot_sha256(program),
+        teacher_mapping_sha256="5" * 64,
+        role="early_mlp_suffix_transport_v1_final", phase="final",
+        route="L", control="true", teacher_kind="coordinate_labels",
+        trial=0, epoch=0, optimizer_step=0, batch_ordinal=0,
+        student_states=((0, "P"), (1, "P"), (2, "E")),
+    )
+
+    class Hook:
+        def configure(self, **kwargs):
+            raise AssertionError("denominator validation must fail before execution")
+        def clear_configuration(self):
+            raise AssertionError("no hook was configured")
+
+    with pytest.raises(RuntimeError, match="cannot receive denominators"):
+        adapter.run_final_program_batch(
+            broker=object(), hook=Hook(), program=program, identity=identity,
+            role_rows=rows, ordered_row_indices=(0, 1, 2, 3),
+            denominators=(2.0, 4.0),
+        )
 
 
 def test_validation_baseline_adapter_reduces_deployed_n_n_and_poison_closes(monkeypatch) -> None:

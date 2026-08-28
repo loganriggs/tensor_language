@@ -125,9 +125,12 @@ class TraceIdentity:
         if self.role not in {
             "early_mlp_suffix_transport_v1_fit",
             "early_mlp_suffix_transport_v1_validation",
+            "early_mlp_suffix_transport_v1_final",
         }:
-            raise ValueError("trace role is not licensed for fit or validation")
-        if self.phase not in {"initial_denominator", "fit", "validation"} or self.route not in {
+            raise ValueError("trace role is not licensed for fit, validation, or final")
+        if self.phase not in {
+            "initial_denominator", "fit", "validation", "final",
+        } or self.route not in {
             "Q", "L", "R", "S0", "S1", "T",
         } or self.teacher_kind not in {"coordinate_labels", "oon_logits"}:
             raise ValueError("trace phase/route/teacher identity is unknown")
@@ -160,22 +163,33 @@ class TraceIdentity:
         } and legal_validation_control and self.teacher_kind == (
             "coordinate_labels" if self.route == "L" else "oon_logits"
         )
-        if not (legal_fit or legal_validation):
+        legal_final = self.phase == "final" and self.route in {
+            "L", "R", "S0", "S1", "T",
+        } and legal_validation_control and self.teacher_kind == (
+            "coordinate_labels" if self.route == "L" else "oon_logits"
+        )
+        if not (legal_fit or legal_validation or legal_final):
             raise ValueError("trace phase/route/control/teacher combination is illegal")
-        if (self.role == "early_mlp_suffix_transport_v1_fit") != (
-            self.phase in {"initial_denominator", "fit"}
-        ):
+        required_role = (
+            "early_mlp_suffix_transport_v1_fit"
+            if self.phase in {"initial_denominator", "fit"}
+            else f"early_mlp_suffix_transport_v1_{self.phase}"
+        )
+        if self.role != required_role:
             raise ValueError("trace role and execution phase differ")
         if self.trial not in range(3) or self.epoch not in range(3) or (
             self.optimizer_step < 0 or self.batch_ordinal < 0
         ):
             raise ValueError("trace trial/epoch/step identity changed")
-        # This identity licenses fit/denominator execution, not the later
-        # observational factorial lattice.  Every registered fitted Q/L/R/S/T
-        # package physically executes both rank-64 replacements; S0/S1 name the
-        # trainable subset, not an N/P execution state.
-        if self.student_states != ((0, "P"), (1, "P"), (2, "N")):
-            raise ValueError("fit trace must execute exact P/P/N student states")
+        # Every fitted or scored Q/L/R/S/T package physically executes both rank-64
+        # replacements; S0/S1 name the trainable subset, not an N/P execution state.
+        # Only one-shot final scoring may restore exact MLP2 as the registered E
+        # alternate background; fit and validation remain P/P/N.
+        allowed_states = {((0, "P"), (1, "P"), (2, "N"))}
+        if self.phase == "final":
+            allowed_states.add(((0, "P"), (1, "P"), (2, "E")))
+        if self.student_states not in allowed_states:
+            raise ValueError("trace must execute a registered P/P/N or final P/P/E state")
         if self.batch_rows != BATCH_SIZE or self.sequence_length != SEQUENCE_LENGTH or (
             self.score_start != SCORE_START or self.score_stop != SCORE_STOP
             or self.code_dim != CODE_DIM
@@ -1031,9 +1045,12 @@ class StudentCorrectionHook:
             self.mapped_parent_identity_sha256 != identity.sha256
         ):
             raise RuntimeError("mapped parent differs from the student identity")
+        # The correction hook owns only MLP0/1. MLP2 background is carried by the
+        # already-validated final identity and enforced by the observed adapter.
+        background2 = dict(identity.student_states).get(2)
         configured_states = tuple(
             (site, self.states.get(site, "N")) for site in (0, 1)
-        ) + ((2, "N"),)
+        ) + ((2, background2 if identity.phase == "final" else "N"),)
         if identity.student_states != configured_states:
             raise RuntimeError("student configured states differ from trace identity")
         current_program_sha256 = program_snapshot_sha256(self.program)
