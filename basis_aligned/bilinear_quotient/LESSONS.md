@@ -1284,3 +1284,25 @@ constant's name or a comment (`S1805_L10_PP` not `S1805_L10`), and compute the c
 those units at the point of use. When a control fires, decompose it conjunct by conjunct BEFORE reading
 anything into the result — a conjunction reports one boolean for many claims, which is [[lesson-44]] in
 another costume. Related: [[lesson-36]] (never compare a rounded number against an unrounded one).
+
+## LESSON 50 — a cost model must charge for capacity the object can actually use
+
+§1813 priced a rank-64 embedding->row map at 5.308M reals and concluded that at table rank 1 the map was
+94.3% of the program, so the thread had been "optimising the minority of the bill". Both statements were
+artifacts of the price. The map is a truncation of `Ws = A^-1 Ecov^T tables`, whose rank is bounded by
+the table's: at table rank 1, `rank(Ws) <= 2`, and every map rank from 8 to 256 is the SAME MATRIX.
+I was charging 32x for capacity the algebra forbids the object from holding. Priced at the rank it can
+carry, the map is 26-34% of the bill at every table rank and the rank-1 program costs 0.485M, not
+5.628M -- **11.6x less than I published one section earlier**.
+
+The error was invisible in the regime the accounting was built for. At table rank 64 the cap is 65, so
+charging rank 64 is exactly right, and every §1754-§1787 figure is unaffected. It only bites once the
+table rank falls below the map rank -- a regime the cost model was written before anyone entered.
+
+**How to apply.** When a cost formula has two independently-parameterised terms, check whether the
+parameters are actually independent before sweeping them. Here one line of algebra -- what is the rank
+of the thing being truncated? -- was available at any point and would have caught it. Symptom to watch
+for: **arms that come out bit-identical across a parameter sweep.** That is not noise and not luck; it
+means the parameter is not reaching the object, either because of a bug or, as here, because it cannot.
+Related: [[lesson-44]] (emit the discriminating quantity) -- the identity of the t1 arms across four map
+ranks WAS the discriminating quantity, and it was visible in the log before the run finished.

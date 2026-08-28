@@ -47853,7 +47853,15 @@ control passed.
 the origin of the efficiency metric so it could not be scored. How low does the rank go before the
 program breaks, and is the optimum below 8?
 
-## §1813 — a rank-1 table keeps 78% of the settled program at 3.6x less cost, and the MAP is now 94% of the bill
+## §1813 — a rank-1 table keeps 78% of the settled program ~~and the MAP is now 94% of the bill~~
+
+> **COST FIGURES CORRECTED BY §1814.** The "map is 94% of the bill" claim below, and the
+> conclusion that the table-rank line optimised the minority of the cost, are **withdrawn**. They
+> charged a rank-64 map at a table rank where `rank(Ws) <= r+1 = 2`, so ranks 8/16/64/256 are the
+> same matrix. Priced at the carryable rank the map is 26-34% of the bill at EVERY table rank, and
+> the rank-1 program costs **0.485M, not 5.628M**. The accuracy results below are unaffected:
+> a rank-1 table retains 77/79/78% of the settled program and accuracy is monotone in rank.
+> LESSON 50.
 
 `ops/low_rank_floor.py`, 436.9s, **DISCOVERY ONLY**, rung 3 (§1812's closing question).
 **All four predictions True.**
@@ -47902,3 +47910,68 @@ all-sites cost reproduces §1786's 20.531M; coverage 5419.
 worse than simply copying the neighbour's row — but that was measured with full-rank tables, where the
 map's cost was 26% of the bill and its errors were diluted by 15M reals of table. At table rank 1 the
 map is the program.
+
+## §1814 — the map rank is CAPPED by the table rank, which voids §1813's headline and makes the cheap end 11.6x cheaper
+
+`ops/map_rank_at_low_table.py`, 994.1s, **DISCOVERY ONLY**, rung 3 (§1813's closing question).
+**pred_a True | pred_b True | pred_c FALSE | pred_d True** — and the run's real content is a fact none
+of the four predicates was written to test.
+
+```
+    table rank  1 (cap  2)   m8 0.09901  m16 0.09901  m64 0.09901  m256 0.09901
+    table rank  8 (cap  9)   m8 0.11369  m16 0.11363  m64 0.11363  m256 0.11363
+    table rank 64 (cap 65)   m8 0.12478  m16 0.12595  m64 0.12880  m256 0.12888
+```
+
+**The map cannot have more rank than the table.** The map is a truncation of
+`Ws = A^-1 Ecov^T tables`, and a rank-r truncated table (plus its mean) has rank at most r+1, so
+`rank(Ws) <= r+1`. Truncating an already-low-rank matrix to a higher rank is a no-op. The data confirms
+the algebra **exactly where it predicts the cap sits**: at table rank 1 all four map ranks are
+bit-identical; at table rank 8 only m8 differs (8 < 9) while m16, m64 and m256 agree to five decimals;
+at table rank 64 the cap is 65 and m64 vs m256 differ only in the fifth decimal.
+
+> ## §1813's headline is WITHDRAWN.
+> I wrote that at table rank 1 "**94.3% of the program is the map**" and concluded that "the whole
+> table-rank line from §1751 onward has been optimising the minority of the bill". Both follow from
+> charging 5.308M reals for a rank-64 map **at a table rank where the map can only use rank 2**. Priced
+> at the rank it can actually carry:
+>
+> ```
+>   r= 1: tables  0.320M | map 5.308M -> 0.166M | total 5.628M -> 0.485M | map 94.3% -> 34.2%
+>   r= 8: tables  1.975M | map 5.308M -> 0.746M | total 7.284M -> 2.722M | map 72.9% -> 27.4%
+>   r=64: tables 15.223M | map 5.308M -> 5.308M | total 20.531M -> 20.531M | map 25.9% -> 25.9%
+> ```
+>
+> The map is **26-34% of the bill at every table rank**, not 94% at the cheap end. There is no
+> inversion. §1786's settled 20.531M is unaffected — at table rank 64 the cap is 65, so its rank-64 map
+> is genuine. **What §1813 got right stands**: a rank-1 table retains 77 / 79 / 78% of the settled
+> program's top-1, and accuracy is monotone in table rank at all sites.
+
+**And the correction runs in my favour, by more than the error cost me.** The rank-1 program is
+**0.485M reals, not 5.628M — 11.6x cheaper than I published one section ago**, and against the live
+model's 430.00M that is **886x compression retaining 9.90% top-1 against live 39.32%**. Its efficiency
+is **0.2040 accuracy per million reals** against the best *measured* arm's 0.1007.
+
+**pred_a passed at exactly 0.00pp, and the zero is the point.** Dropping the map from rank 64 to 16 at
+table rank 1 costs nothing because they are the same matrix. The bar was falsifiable when I wrote it —
+I did not know about the cap — but its pass is evidence for the cap, not for a cheap map.
+
+**pred_b passed**: the accuracy-per-real optimum is t1_m8 on all three roles. With the corrected
+accounting the true optimum is t1 with a **rank-2** map, which the sweep never priced.
+
+**pred_c FAILED: map rank 8 costs only 0.40 / 0.42 / 0.31 pp against rank 64 at table rank 64**, not the
+1pp I registered, while using an eighth of the map's reals. **Scope limit I am stating rather than
+eliding**: §1786's floor claim was that a rank-8 map is worse than *copying the neighbour's row*, and I
+did not run a copying arm here. This run says m8 is close to m64 on accuracy; it does **not** say
+whether either beats copying, so §1786's certified choice is **not** corrected by this — only its
+margin over m8 is now known to be small on the accuracy axis.
+
+Controls (pred_d): t1_m64 reproduces §1813's published 0.0990 / 0.1065 / 0.1007 and t64_m64 reproduces
+§1786's settled 0.1288 / 0.1349 / 0.1289, both within 0.01; endpoints reproduce §1789 within 0.001;
+coverage 5419.
+
+**LESSON 50.**
+
+**Open question this ends on.** Every figure since §1788 is top-1. The corrected cheap end — 0.485M
+reals, 886x compression — has never been placed on the CE frontier that §1754-§1787 built, and that
+recomputation needs no GPU for the costs but does need a CE pass for the arms.
