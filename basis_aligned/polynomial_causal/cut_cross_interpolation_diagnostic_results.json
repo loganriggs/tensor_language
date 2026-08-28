@@ -1,0 +1,242 @@
+{
+  "document_count": 79,
+  "payload_path": "/workspace/tensor_language/basis_aligned/polynomial_causal/compilation_mask_cut_rank_v1_measurement_wave_v1_payload.pt",
+  "payload_sha256": "04fc912cbce96d0a07564c1984565996b35a86dd1279bc00b45f5e842d8f9d75",
+  "role": "retrospective_discovery_only_no_heldout_claim",
+  "schema_version": 1,
+  "shared_maxvol_pivot": {
+    "1": false,
+    "2": true,
+    "3": false,
+    "4": false
+  },
+  "target_results": {
+    "ce_cost_nats": {
+      "ranks": {
+        "1": {
+          "best_svd": {
+            "effective_residual_support_cells": 8.347005621737734,
+            "max_abs_error": 0.8310884083264375,
+            "nre": 0.6018573073648307,
+            "rmse": 0.21960275926594594,
+            "top_4_residual_energy_fraction": 0.5314011691713824
+          },
+          "maximum_volume_cross": {
+            "column_indices_one_indexed": [
+              4
+            ],
+            "max_abs_error": 0.9617167035774706,
+            "nre": 0.6893763827402728,
+            "pivot_abs_determinant": 1.1137763662845197,
+            "pivot_condition_number": 1.0,
+            "rmse": 0.2515362926893443,
+            "row_indices_one_indexed": [
+              7
+            ]
+          }
+        },
+        "2": {
+          "best_svd": {
+            "effective_residual_support_cells": 21.40258101720348,
+            "max_abs_error": 0.2760848865644922,
+            "nre": 0.3412995348356679,
+            "rmse": 0.12453170987365535,
+            "top_4_residual_energy_fraction": 0.29277452668378745
+          },
+          "maximum_volume_cross": {
+            "column_indices_one_indexed": [
+              4,
+              7
+            ],
+            "max_abs_error": 0.4919364511104444,
+            "nre": 0.4736106986538992,
+            "pivot_abs_determinant": 1.0711373355056417,
+            "pivot_condition_number": 1.5454526557584358,
+            "rmse": 0.17280876209287718,
+            "row_indices_one_indexed": [
+              6,
+              7
+            ]
+          }
+        },
+        "3": {
+          "best_svd": {
+            "effective_residual_support_cells": 14.203951877563169,
+            "max_abs_error": 0.18863184994834728,
+            "nre": 0.18837128725852734,
+            "rmse": 0.06873199667471211,
+            "top_4_residual_energy_fraction": 0.4152896924406134
+          },
+          "maximum_volume_cross": {
+            "column_indices_one_indexed": [
+              2,
+              4,
+              7
+            ],
+            "max_abs_error": 0.4595645084427359,
+            "nre": 0.30792754687041884,
+            "pivot_abs_determinant": 0.5269314994805427,
+            "pivot_condition_number": 3.321659756394278,
+            "rmse": 0.1123551016482837,
+            "row_indices_one_indexed": [
+              3,
+              6,
+              7
+            ]
+          }
+        },
+        "4": {
+          "best_svd": {
+            "effective_residual_support_cells": 4.701983743390899,
+            "max_abs_error": 0.1877794012239771,
+            "nre": 0.11623030076606206,
+            "rmse": 0.042409545329430906,
+            "top_4_residual_energy_fraction": 0.7471028063282713
+          },
+          "maximum_volume_cross": {
+            "column_indices_one_indexed": [
+              2,
+              4,
+              6,
+              7
+            ],
+            "max_abs_error": 0.295805436866044,
+            "nre": 0.16063185862277576,
+            "pivot_abs_determinant": 0.24215901554176933,
+            "pivot_condition_number": 7.314061502609334,
+            "rmse": 0.05861056922948674,
+            "row_indices_one_indexed": [
+              3,
+              5,
+              6,
+              7
+            ]
+          }
+        }
+      },
+      "singular_values": [
+        2.0397342239825282,
+        1.2661532413356913,
+        0.726924281105686,
+        0.3786163939402724,
+        0.2741190365240453,
+        0.11381785721593828,
+        0.005844348663892634
+      ]
+    },
+    "top1_cost_pp": {
+      "ranks": {
+        "1": {
+          "best_svd": {
+            "effective_residual_support_cells": 17.090164631164118,
+            "max_abs_error": 0.9492729975174614,
+            "nre": 0.29869044110713683,
+            "rmse": 0.4144108618114114,
+            "top_4_residual_energy_fraction": 0.3679585874393498
+          },
+          "maximum_volume_cross": {
+            "column_indices_one_indexed": [
+              6
+            ],
+            "max_abs_error": 1.9695159105817956,
+            "nre": 0.4125374457070442,
+            "pivot_abs_determinant": 3.3311631944444464,
+            "pivot_condition_number": 1.0,
+            "rmse": 0.5723651475797082,
+            "row_indices_one_indexed": [
+              3
+            ]
+          }
+        },
+        "2": {
+          "best_svd": {
+            "effective_residual_support_cells": 16.230723703118105,
+            "max_abs_error": 0.6473899834254444,
+            "nre": 0.18081495724272068,
+            "rmse": 0.2508673594695729,
+            "top_4_residual_energy_fraction": 0.3886959341345875
+          },
+          "maximum_volume_cross": {
+            "column_indices_one_indexed": [
+              4,
+              7
+            ],
+            "max_abs_error": 1.2514570590939742,
+            "nre": 0.2849983010320173,
+            "pivot_abs_determinant": 6.564781989580323,
+            "pivot_condition_number": 2.5884393938498187,
+            "rmse": 0.39541403169009665,
+            "row_indices_one_indexed": [
+              6,
+              7
+            ]
+          }
+        },
+        "3": {
+          "best_svd": {
+            "effective_residual_support_cells": 9.64897748306179,
+            "max_abs_error": 0.47438066548049007,
+            "nre": 0.0948366947927734,
+            "rmse": 0.13157888908243326,
+            "top_4_residual_energy_fraction": 0.512090142778356
+          },
+          "maximum_volume_cross": {
+            "column_indices_one_indexed": [
+              4,
+              6,
+              7
+            ],
+            "max_abs_error": 0.76997017101323,
+            "nre": 0.13779602230507,
+            "pivot_abs_determinant": 8.883967482074791,
+            "pivot_condition_number": 7.658829114271827,
+            "rmse": 0.19118177383234677,
+            "row_indices_one_indexed": [
+              3,
+              4,
+              6
+            ]
+          }
+        },
+        "4": {
+          "best_svd": {
+            "effective_residual_support_cells": 13.498279069132181,
+            "max_abs_error": 0.1675275762780956,
+            "nre": 0.045997103537881244,
+            "rmse": 0.0638175739648959,
+            "top_4_residual_energy_fraction": 0.46364559296618474
+          },
+          "maximum_volume_cross": {
+            "column_indices_one_indexed": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "max_abs_error": 0.5801907231668233,
+            "nre": 0.08230310111914425,
+            "pivot_abs_determinant": 6.840389961449099,
+            "pivot_condition_number": 19.00013242058662,
+            "rmse": 0.11418945627490774,
+            "row_indices_one_indexed": [
+              3,
+              4,
+              6,
+              7
+            ]
+          }
+        }
+      },
+      "singular_values": [
+        9.268630024794945,
+        2.3089596329650286,
+        1.495142124267243,
+        0.8054661656238041,
+        0.3549549266218381,
+        0.2589243699374254,
+        0.08078753190236636
+      ]
+    }
+  },
+  "token_count": 36864
+}

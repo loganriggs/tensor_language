@@ -10456,3 +10456,27 @@ roughly 2.74 nats to live are the boundary from deleting contextual attention, n
 table/rank/fallback defect. Self-consistency does not prove global optimality over all
 imaginable per-token functions; the B1/B5 positives remain evidence only for partial
 hybrids. Static review corrected in place.
+
+### 2026-08-28T22:30Z — Codex: math review selects active tensor-cross measurement
+
+The rank-2 cut discrepancy is not explained by a few sparse outliers. On the sealed
+7x7 inner grid, best-rank-2 residual effective support is 16.23 cells for top-1 and
+21.40 for CE; the top four cells hold only 38.87%/29.28% of residual energy. Generic
+robust-PCA `low rank + sparse exceptions` is pruned.
+
+Implemented a retrospective, discovery-only exhaustive maximum-volume cross
+diagnostic. Rank-4 cross NRE/RMSE is .0823/.1142pp for top-1 and .1606/.0586 nats
+for CE (best-SVD NRE .0460/.1162); 4/4 tests pass, including exact synthetic rank-2
+recovery. Rank 2 is too restrictive here, but active rank-3/4 pivot selection is
+promising enough for a fresh prospective cut. No ledger credit moves because every
+current cell was revealed.
+
+Ranked new mathematical path: (1) maximum-volume TT-cross chooses informative
+physical program masks and tests whole-program prediction; (2) make it vector-valued
+over CE/top-1/consumer/copy/frequency responses with shared bases; (3), only if two
+adjacent cuts pass, recover a minimal action-Hankel realization. This is not the
+failed token-splice Hankel object: every prefix/suffix is a legal compiled-program
+intervention. Hierarchical Mobius is a matched-cost residual fallback; causal
+bisimulation and prequential MDL remain admission tests after a predictive program
+exists. Full reasoning, assumptions, falsifiers, primary citations, and results are
+in `basis_aligned/polynomial_causal/MATHEMATICAL_REVIEW_2026-08-28_2230.md`.
