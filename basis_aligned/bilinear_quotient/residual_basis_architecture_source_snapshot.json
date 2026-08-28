@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "snapshot_id": "bilin18.global-residual-gauge.source-excerpts.2026-08-28",
+  "sources": [
+    {"path": "jacclust/tt_model.py", "sha256": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"},
+    {"path": "basis_aligned/bilinear_quotient/bilin18_reference_forward.py", "sha256": "a54a6b9d1044cba3b8695b8c9ed068578b174466fb485eb64402148339565375"}
+  ],
+  "runtime_fragments": [
+    "return F.linear(x, self.weight.to(x.dtype))",
+    "x = self.lambdas[0] * x + self.lambdas[1] * x0",
+    "x1, v1 = self.attn(F.rms_norm(x, (x.size(-1),)), v1)",
+    "x = x + self.mlp(F.rms_norm(x, (x.size(-1),)))",
+    "x = F.rms_norm(x, (x.size(-1),))",
+    "logits = self.lm_head(x)",
+    "logits = 30 * torch.tanh(logits / 30)"
+  ],
+  "reference_fragments": [
+    "x = F.rms_norm(model.transformer.wte(token_ids), (width,))",
+    "x = block.lambdas[0]*x+block.lambdas[1]*x0",
+    "normalized = F.rms_norm(x, (width,))",
+    "value = linear(normalized).view(batch, sequence, heads, head_dim)",
+    "return rotate(F.rms_norm(value, (head_dim,)), cosine, sine)",
+    "value = attention.c_v(normalized).view(batch, sequence, heads, head_dim)",
+    "mixed_value = (1-attention.lamb)*value+attention.lamb*shared_value.view_as(value)",
+    "x = x+attention.c_proj(routed.reshape(batch, sequence, width))",
+    "z = F.rms_norm(x, (width,))",
+    "x = x+mlp.Down(mlp.Left(z)*mlp.Right(z))+mlp.Down_bias",
+    "logits = model.lm_head(F.rms_norm(x, (width,)))",
+    "return 30*torch.tanh(logits/30)"
+  ],
+  "provenance_statement": "Fragments were extracted only after full files matched the recorded SHA256 values; use full-source revalidation when those historical files are present."
+}
