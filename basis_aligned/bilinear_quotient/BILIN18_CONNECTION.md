@@ -46153,8 +46153,17 @@ against a live model at 2.93450:
 | context-free, rank 64, output-NN fallback | **15.223M** | **6.18248** | **no** |
 | context-free, full rank, output-NN fallback | 224.778M | 6.00048 | no |
 | best fallback-using program in the arc (§1776) | 15.223M | 6.28596 | yes, at 24% of positions |
-| position-wise reference (§1768, covered positions) | — | 5.97902 | — |
+| position-wise reference (§1768) — **COVERED positions, not comparable to the rows above** | — | 5.97902 | — |
 
-The full-rank program is **within 0.021 nats of the position-wise reference on all positions**, and
-the rank-64 program beats every program in this arc that needed the native model present, at the same
+The rank-64 program beats every program in this arc that needed the native model present, at the same
 cost.
+
+**Amendment, made on re-reading rather than after a run.** The sentence originally here said the
+full-rank program is "within 0.021 nats of the position-wise reference on all positions". That
+compares **different populations**: 5.97902 is a COVERED-position number and 6.00048 is an
+all-position one. The gap between them is not 0.021 nats of approximation, it is mostly the uncovered
+quarter, and the reference row in the table above is marked accordingly. The honest all-position
+reference has to be built rather than borrowed, and doing so is a real experiment because at
+uncovered positions the composed program uses the neighbour's 36 SITE ROWS while a direct lookup
+would use the neighbour's LOGITS — different objects. That is the named next step; until it is run,
+no "within X nats of the reference" claim on all positions is licensed.
