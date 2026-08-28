@@ -1,0 +1,77 @@
+{
+ "config": {
+  "rank": 8,
+  "passes": 3,
+  "ridge": 0.01,
+  "procedure": "pass 1 is \u00a71748 exactly -- bottom-up, compiled prefix installed, everything above live. Passes 2+ are coordinate descent: each site is refitted with every OTHER site held at its current map, so it sees the full program rather than a half-built one.",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "table_only": 7.35114,
+   "stake": 4.05909
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "table_only": 7.35825,
+   "stake": 4.26114
+  }
+ },
+ "passes": [
+  {
+   "pass": 1,
+   "recovered": {
+    "skip7000": 0.40631,
+    "skip11000": 0.38578
+   },
+   "frac_of_stake": {
+    "skip7000": 0.1001,
+    "skip11000": 0.09053
+   }
+  },
+  {
+   "pass": 2,
+   "recovered": {
+    "skip7000": 0.40631,
+    "skip11000": 0.38578
+   },
+   "frac_of_stake": {
+    "skip7000": 0.1001,
+    "skip11000": 0.09053
+   }
+  },
+  {
+   "pass": 3,
+   "recovered": {
+    "skip7000": 0.40631,
+    "skip11000": 0.38578
+   },
+   "frac_of_stake": {
+    "skip7000": 0.1001,
+    "skip11000": 0.09053
+   }
+  }
+ ],
+ "reference": {
+  "simultaneous_S1747": {
+   "skip7000": -0.5235,
+   "skip11000": -0.5462
+  },
+  "pass1_S1748": {
+   "skip7000": 0.4063,
+   "skip11000": 0.3858
+  },
+  "sum_of_parts_S1747": {
+   "skip7000": 1.8057,
+   "skip11000": 1.746
+  }
+ },
+ "predictions": {
+  "pred_a_pass2_improves": false,
+  "pred_b_diminishing_returns": false,
+  "pred_c_below_sum_of_parts": true,
+  "pred_d_controls": true
+ },
+ "runtime_s": 192.3
+}

@@ -44635,3 +44635,50 @@ better, and none of them is certified: both eval roles are spent for this family
 Controls (pred_d): table-only CE 7.35114, live CE 3.29205, coverage 5419 of 50257, and every one of
 the 36 per-site fits fired on the full 24576 positions — the last of these being the check that would
 catch a hook silently failing to attach partway down the compile order.
+
+## §1749 — the passes are IDENTICAL to five decimals, three times. That is a proof, and it corrects §1748's stated reason.
+
+`ops/iterative_recompile_passes.py`, 192.3s, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  pass 1: skip7000 +0.40631 (+10.01%)   skip11000 +0.38578 (+9.05%)
+  pass 2: skip7000 +0.40631 (+10.01%)   skip11000 +0.38578 (+9.05%)
+  pass 3: skip7000 +0.40631 (+10.01%)   skip11000 +0.38578 (+9.05%)
+```
+
+Three passes of coordinate descent over the 36 maps change the program by **exactly nothing** — not
+"very little", identical to every digit recorded, on both roles.
+
+**That is not a null result, it is a proof, and it kills a claim I made in §1748.** I wrote there
+that a bottom-up pass leaves each map fitted for a context that later changes, because "every one of
+those sites above is subsequently compiled". **That is wrong, and the architecture is why.** The fit
+at site `s` uses only that site's input and its module's output on that input. A transformer is
+causal in depth: nothing above `s` can influence what reaches `s`. So a site's fit depends **only on
+what is compiled below it**, and after one bottom-up pass every site has already been fitted against
+its final context. Refitting is a fixed point by construction. The zero to five decimals is that
+fact measured.
+
+> **One bottom-up pass is optimal for this per-site objective. Coordinate descent over the maps has
+> nothing to add, and any future proposal to "iterate the compile" on this objective can be rejected
+> without a run.**
+
+**So the remaining 78% shortfall is not a fit-context problem at all**, and §1748's framing pointed
+at the wrong culprit. What is left is the objective itself: each `W` minimises the error in **its
+own module's output**, while the program is judged by **final cross-entropy**. A site fitted to
+reproduce its own write does not account for how its residual is amplified — or cancelled — by the
+eighteen blocks above it. §1747's simultaneous fit failing, §1748's ordering fixing the sign, and
+§1749's passes changing nothing are all consistent with one statement: **ordering fixes the inputs,
+and only a downstream objective can fix the errors.** Fitting to suffix KL or final CE rather than
+to local output error is the next thing this program class needs, and it is what Codex's suffix
+transport work is aimed at from the other side.
+
+pred_a and pred_b are both scored as failures. pred_b — "the pass-3 gain is smaller than the pass-2
+gain" — was `0.0000 < 0.0000`, false. It is also a **nested arm**: with pred_a false there was no
+gain for it to compare, exactly the defect LESSONS 31's addendum was written about after §1743, and
+I wrote another one six sections later. The addendum's rule — check every arm against every outcome
+of the others before registering — would have caught it in under a minute and did not get applied.
+
+**pred_d is the strongest cross-script control in the thread.** Pass 1 here reproduces §1748's
++0.4063 and +0.3858 from a separately written script, with table-only CE 7.35114, live CE 3.29205,
+coverage 5419 of 50257, and all 108 per-site fits firing on the full 24576 positions.

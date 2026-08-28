@@ -906,3 +906,21 @@ and a strict inequality with a 1e-9 tolerance sailed through.
 
 Sibling of LESSON 35 (a guard on a denominator manufactures a number): both are cases where a routine
 numerical convenience — a floor, a rounding — silently changed what a registered predicate tested.
+
+### LESSON 31, addendum 2 (2026-08-28) — a second nested arm, six sections after the first
+
+§1749's `pred_b` compared the pass-3 gain against the pass-2 gain. `pred_a` found the pass-2 gain was
+exactly zero, so pred_b had nothing to compare and was decided by pred_a's outcome — the same defect
+as §1743's, recorded in this file's first addendum, committed again six sections later.
+
+The rule was already written: **check every arm against every outcome of the others before
+registering.** Writing it down did not make it happen. What was missing is a step in the routine, so
+it is now stated as one: when the prediction block is drafted, walk each arm and ask "if arm A comes
+out the other way, does this arm still measure anything?" — and mark any arm that does not as
+conditional, to be reported `n/a`.
+
+Also worth keeping from §1749: **an exactly-zero result can be a proof rather than a null.** Three
+coordinate-descent passes changed the program by zero to five decimals because a transformer is
+causal in depth, so a site's fit depends only on what is compiled below it and one bottom-up pass is
+already a fixed point. The identical digits were the evidence; a "no significant change" reading
+would have thrown that away.
