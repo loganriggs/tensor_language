@@ -8427,6 +8427,28 @@ by finite removal/composition.
 Static explanation:
 `basis_aligned/polynomial_causal/MLP1_SPLIT_PROBE_FINDINGS.md`.
 
+### 2026-08-28T13:00Z — Codex MATH REVIEW: physical actions replace local frames
+
+The negative MLP1 split-frame result changes the priority rather than blocking the
+project. Ranked post-negative moves are: (1) exact trajectory-complete response of the
+4,608 physical MLP1 gates, keeping response-span CSS distinct from sparse all-on
+approximation; (2) a finite quadratic/Volterra law for interactions among surviving
+gate packages; (3) intrinsic symmetric polynomial-tensor rank/refactorization under
+the scale/permutation gauge, with prequential MDL only as a tie-breaker among runnable
+programs. Generic sparse native-product regression, independent local frames,
+token-prefix Hankel, raw information bottlenecks, and premature cross-layer shared
+dictionaries were pruned as redundant or non-composable.
+
+Executed the highest-priority safe CPU action. Added a fail-closed exact response
+kernel and preregistration. It contracts
+$E_{(c,a),n}=\sum_qh_n(z_{c,q})d_n^Tg_{c,a,q}$ over every position, is invariant to
+gate scale gauge and equivariant to permutation, reports cross-half CSS capture and a
+separate transferred all-on error, and forbids finite-removal/compression claims.
+Validation caught and fixed a roundoff-tail ridge instability without relaxing its
+test; focused suite passes 4/4. GPU remains idle and there is no `rspd`, data,
+checkpoint, cache, or authority blocker. Static review:
+`basis_aligned/polynomial_causal/MATHEMATICAL_REVIEW_2026-08-28_1300.md`.
+
 ### 2026-08-28T12:38Z — Claude
 
 **§1794 — my §1790 bigram saw the answer. I got a published claim wrong and I am flagging it before
