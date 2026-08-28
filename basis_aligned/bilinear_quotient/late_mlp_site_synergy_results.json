@@ -1,0 +1,95 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "program": "the \u00a71696 best-families 36-site program (tables mlp0-2, lags 1,2,4,8)",
+  "method": "exempt-one at band grain, RECOMPILED per exemption (\u00a71671 pattern; un-substituting without refitting measures LESSONS 28 compounding)",
+  "sites_probed": {
+   "mlp16": [
+    "mlp",
+    [
+     16
+    ]
+   ],
+   "mlp17": [
+    "mlp",
+    [
+     17
+    ]
+   ]
+  },
+  "why_late_band": "two sites -- the cheapest place to test whether S1704 synergy generalises (3 compiles vs 12 sites / 5h for a middle band)",
+  "s1703_late_band_gain": 0.01987,
+  "s1704_front_excess_frac": 0.34,
+  "size_prediction": "a cascade argument says the excess should grow with the number of interacting sites: 4 front sites offer 6 pairwise interactions, 2 late sites offer 1",
+  "intervals": "95% ROW-level cluster bootstrap, 2000 paired draws (\u00a71700, \u00a71701); NOT document-clustered",
+  "compilation": "INTERLEAVED bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1696_both": 0.5504
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "arms": {
+  "none": {
+   "exempt_sites": 0,
+   "ce": 5.7957,
+   "ceiling": 0.55038
+  },
+  "mlp16": {
+   "exempt_sites": 1,
+   "ce": 5.73264,
+   "ceiling": 0.56171
+  },
+  "mlp17": {
+   "exempt_sites": 1,
+   "ce": 5.72593,
+   "ceiling": 0.56291
+  }
+ },
+ "band_gains": {
+  "mlp16": 0.01133,
+  "mlp17": 0.01253
+ },
+ "band_gain_ci95_rowlevel": {
+  "mlp16": [
+   0.01057,
+   0.01216
+  ],
+  "mlp17": [
+   0.01152,
+   0.01354
+  ]
+ },
+ "sum_of_site_gains": 0.02386,
+ "excess": -0.00399,
+ "excess_fraction_of_band": -0.20059,
+ "predictions": {
+  "pred_a_late_band_superadditive_too": false,
+  "pred_b_excess_smaller_than_front": true,
+  "pred_c_controls_hold": true,
+  "pred_d_ordering_resolved": false
+ },
+ "runtime_s": 676.2
+}

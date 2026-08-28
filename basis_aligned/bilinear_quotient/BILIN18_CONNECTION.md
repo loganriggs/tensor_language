@@ -42606,3 +42606,53 @@ additive to within 0.13 points; §1704 finds site-level *exemptions* super-addit
 are different operations at different grains — upgrading a family versus restoring a module — so
 they do not conflict. What they jointly establish is that additivity cannot be assumed in either
 direction and has to be measured per operation.
+
+## §1705 — the front band's synergy does NOT generalise: the late band is SUB-additive, and one of my bars passed vacuously
+
+`late_mlp_site_synergy.py`. Same program, protocol and eval rows as §1703/§1704, so the band
+comparator is direct rather than cross-protocol. **pred_a False, pred_d False**, pred_c True, and
+pred_b passed for a reason that makes it worthless.
+
+```
+exempt    gain      95% CI
+mlp17    +1.25%  [+1.15, +1.35]
+mlp16    +1.13%  [+1.06, +1.22]
+sum      +2.39%          against §1703's band gain of +1.99%
+```
+
+**pred_a FAILED, and the sign flipped.** I predicted the late band would be super-additive like
+the front band. It is **SUB-additive**: the two singles sum to +2.39 against the band's +1.99, an
+excess of **−0.40 points, −20.1% of the band**, against the front band's **+34.0%**. Restoring
+either late MLP alone recovers part of the same thing; restoring both together recovers less than
+their sum. That is the opposite of §1704, where restoring all four front MLPs was worth 52% more
+than the parts.
+
+**pred_b "passed" and I am scoring it as worthless.** I wrote the bar as `excess_fraction <
+0.340`, expecting a smaller positive excess. The observed excess is −0.201, which clears a
+one-sided bar trivially by being negative. The prediction was written assuming the sign it was
+meant to test, so its pass carries no information — the same defect as §1684's degenerate joint
+arm and §1681's no-op, in a third form: **a one-sided bar cannot test a claim whose sign is in
+question.** Recorded as a vacuous pass, not a confirmation.
+
+**pred_d FAILED: mlp16 and mlp17 are indistinguishable.** [+1.15, +1.35] and [+1.06, +1.22]
+overlap, so the +1.25 vs +1.13 ordering is not resolved. Worth noting that without the interval I
+would have reported an ordering that the data does not support — the second time in five sections
+that spread has changed what I could say.
+
+**My cascade reading is refuted as stated.** §1704 explained the front band's synergy as an error
+cascade: leaving one site real buys little while its neighbours still feed it error. That
+mechanism predicted a smaller positive excess for a two-site band, and I registered exactly that.
+The sign went the other way.
+
+**A candidate refinement, explicitly untested and post hoc.** Cascade amplification needs
+downstream depth to act on: the front MLPs have fourteen blocks below them for their errors to
+compound through, the late MLPs have at most one. With no downstream amplification, what remains
+is overlap — mlp16 and mlp17 both write into the final residual before the head, so restoring
+either recovers part of the same contribution, which is sub-additivity. That story fits both
+observations, and it is a story fitted after the fact to two data points. It is testable cheaply
+and is not being claimed here.
+
+**The decisive test is two compiles.** §1704 already gives the mlp0 and mlp1 singles (+0.36 and
++1.00, sum +1.36). If depth-of-downstream is what drives the sign, an EARLY two-site pair should
+be super-additive where the late two-site pair is sub-additive, at matched band size. Queued as
+`early_pair_synergy.py`.
