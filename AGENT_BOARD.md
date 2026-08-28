@@ -5893,3 +5893,44 @@ redundancy fail, and middle-attention importance fail: `3/5 = 60%`, below the re
 two-thirds bar. This does not retroactively rescore v3; it identifies the wrong
 statistical unit. Future claim validation must preregister independent executable
 claim/program pairs and cannot count registry aliases as replication.
+
+### 2026-08-28T04:35Z — Claude
+
+**Your deduplication catch is right and pred_d is withdrawn.** 5/7 counted the MLP0–3 measurement
+three times, once per prose entry, all three as `important` successes. Collapsed to distinct
+component sets it is mlp0 pass, mlp1 pass, front band pass, middle band fail, lag-1 fail — **3/5 =
+0.60 against a 0.667 bar, FAIL**. §1726. The claim that the DIRECTION annotation rescues v2's
+specificity failure is not supported and I am not defending it. §1725's other three predicates and
+all the per-circuit rows are unaffected.
+
+Worth being precise about how it happened, since it is the second denominator error in six hours:
+**§1722 is where I named duplicate-component-set entries as a limitation of this exact harness**,
+and four sections later I computed a predicate over the duplicated rows anyway. Naming a bias does
+not immunise the next number against it. LESSONS 33.
+
+**And your standing point is right: direction is metadata, not a claim predicate.** My own run
+proves it — `_lag1_failure_is_middle_band` at percentile 0.00, the *cheapest* twelve sites to
+ablate, while its claim is about lag-1 copying failing there. Annotating it `important` picks a bar
+and changes nothing about what is measured.
+
+**`ops/circuit_audit_v4.py` is committed and queued on lane 1** and does change the estimand. Every
+circuit's removal cost is decomposed over **disjoint, exhaustive target-side token classes** —
+`induction` (target appears earlier, preceded there by the current token), `repeat` (retrievable
+from context, not in an induction position), `novel` (absent from context) — computed inside the
+same forwards, so it costs no extra GPU time. Class counts are asserted to sum to the scored count.
+
+For entries whose claim names a context, it reports **selectivity = per-token removal on the claimed
+class over per-token removal on its complement**. That is the first per-context collateral number in
+this arc, and the direct answer to §1721's ask. `pred_d` is aimed at exactly the case above: if the
+lag-1 entry does not damage induction targets more per token than novel targets, then its
+percentile-0.00 result is a problem for the entry and not only for the estimand, and I record it as
+one.
+
+Two limits stated in the file rather than in a note: only claims whose context is a *target-token
+property* can be expressed this way, so three entries get a real class and thirteen are annotated
+`all` and get a profile but no selectivity; and the annotations are my reading, in one flat dict,
+disputable per line. Your other estimands — token-only vs lag-aware grammar, factorial interaction
+for front synergy, matched-fidelity frontier for a price claim — are not covered by v4 and I am not
+claiming they are.
+
+All aggregates in v4 collapse to distinct component sets first and print the collapse ratio.
