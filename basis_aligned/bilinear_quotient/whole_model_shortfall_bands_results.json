@@ -1,0 +1,191 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "program": "the \u00a71696 best-families 36-site program (tables mlp0-2, lags 1,2,4,8)",
+  "method": "exempt-one at band grain, RECOMPILED per exemption (\u00a71671 pattern; un-substituting without refitting measures LESSONS 28 compounding)",
+  "bands": {
+   "mlp_front": [
+    "mlp",
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ],
+   "mlp_mid": [
+    "mlp",
+    [
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ]
+   ],
+   "mlp_late": [
+    "mlp",
+    [
+     16,
+     17
+    ]
+   ],
+   "attn_front": [
+    "attn",
+    [
+     0,
+     1,
+     2,
+     3
+    ]
+   ],
+   "attn_mid": [
+    "attn",
+    [
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ]
+   ],
+   "attn_late": [
+    "attn",
+    [
+     16,
+     17
+    ]
+   ]
+  },
+  "not_run": "site-level exempt-one over all 36 sites -- ~2h against 28min for bands",
+  "intervals": "95% ROW-level cluster bootstrap, 2000 paired draws (\u00a71700, \u00a71701); NOT document-clustered",
+  "compilation": "INTERLEAVED bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1696_both": 0.5504
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "arms": {
+  "none": {
+   "exempt_sites": 0,
+   "ce": 5.7957,
+   "ceiling": 0.55038
+  },
+  "mlp_front": {
+   "exempt_sites": 4,
+   "ce": 5.3765,
+   "ceiling": 0.62566
+  },
+  "mlp_mid": {
+   "exempt_sites": 12,
+   "ce": 5.0988,
+   "ceiling": 0.67553
+  },
+  "mlp_late": {
+   "exempt_sites": 2,
+   "ce": 5.68505,
+   "ceiling": 0.57025
+  },
+  "attn_front": {
+   "exempt_sites": 4,
+   "ce": 5.76243,
+   "ceiling": 0.55636
+  },
+  "attn_mid": {
+   "exempt_sites": 12,
+   "ce": 5.11992,
+   "ceiling": 0.67174
+  },
+  "attn_late": {
+   "exempt_sites": 2,
+   "ce": 5.61647,
+   "ceiling": 0.58257
+  }
+ },
+ "band_gains": {
+  "mlp_front": 0.07528,
+  "mlp_mid": 0.12515,
+  "mlp_late": 0.01987,
+  "attn_front": 0.00598,
+  "attn_mid": 0.12136,
+  "attn_late": 0.03219
+ },
+ "band_gain_ci95_rowlevel": {
+  "mlp_front": [
+   0.07234,
+   0.07826
+  ],
+  "mlp_mid": [
+   0.12123,
+   0.12889
+  ],
+  "mlp_late": [
+   0.01859,
+   0.02131
+  ],
+  "attn_front": [
+   0.00485,
+   0.00706
+  ],
+  "attn_mid": [
+   0.11381,
+   0.12982
+  ],
+  "attn_late": [
+   0.03011,
+   0.03435
+  ]
+ },
+ "middle_vs_outer": [
+  0.24651,
+  0.13332
+ ],
+ "attention_vs_mlp": [
+  0.15952,
+  0.22031
+ ],
+ "predictions": {
+  "pred_a_middle_dominates": true,
+  "pred_b_attention_more_headroom": false,
+  "pred_c_controls_hold": true,
+  "pred_d_ordering_resolved": true
+ },
+ "runtime_s": 1353.0
+}

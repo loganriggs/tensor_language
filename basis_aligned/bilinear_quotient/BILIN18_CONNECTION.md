@@ -42504,3 +42504,50 @@ write path and found it nested inside the write rather than additive. §1702 mea
 a SUBSTITUTED write and gets 0.35 points of a 5.5684-nat stake ≈ 0.019 nats. The two are
 consistent precisely because of §1684's own finding: once the write is replaced, almost
 everything `v1` was contributing has already been accounted for by the program that replaced it.
+
+## §1703 — where the joint program's 45 points go: the middle bands by total, the FRONT MLPs per site
+
+`whole_model_shortfall_bands.py`, rung 3. Exempt one band, RECOMPILE the whole 36-site program,
+read what leaving that band real buys back. Seven arms, all intervals 95% row-level cluster
+bootstrap, 2000 paired draws. pred_a True, **pred_b FALSE**, pred_c True, pred_d True. Control
+exact: the no-exemption arm reproduces §1696's 55.04%.
+
+```
+band          sites   gain      95% CI              per site
+mlp_mid         12   +12.52%  [+12.12, +12.89]       1.043
+attn_mid        12   +12.14%  [+11.38, +12.98]       1.012
+mlp_front        4    +7.53%  [ +7.23,  +7.83]       1.883
+attn_late        2    +3.22%  [ +3.01,  +3.44]       1.610
+mlp_late         2    +1.99%  [ +1.86,  +2.13]       0.995
+attn_front       4    +0.60%  [ +0.48,  +0.71]       0.150
+```
+
+**pred_a passed and the story behind it is half wrong.** The middle bands do dominate the totals
+— 24.65 points against 13.33 for the four outer bands — and §1668's MLP-middle bilinearity and
+§1688's attention-middle lag-1 failure do both transfer into the joint condition, landing within
+0.4 points of each other (12.52 vs 12.14, CIs [12.12, 12.89] and [11.38, 12.98], overlapping, so
+they are not distinguishable). But **the middle bands dominate because they are twelve sites
+each.** Per site they are middling. The worst-modelled sites in the whole model are the FRONT
+MLPs at **1.883 points each** — nearly double either middle band — and the best-modelled are the
+front attention writes at **0.150**, an order of magnitude below. Reading "middle dominates" off
+the totals hides a 12x spread in per-site difficulty and puts the attention front band, which is
+almost perfectly modelled, in the same sentence as the MLP front band, which is the worst.
+
+**pred_b FAILED: the MLP side carries more shortfall than attention, 22.03 against 15.95.** I
+predicted the reverse from §1697, where upgrading attention was worth +2.66 against the MLP
+upgrade's +1.31. That was the wrong inference and the error is worth naming: **the value of
+UPGRADING a family tells you nothing about the TOTAL headroom at those sites.** §1697 measured
+what a better family buys; §1703 measures what having any program at all costs. A band can be
+cheap to improve and expensive in total, or the reverse. I had treated one as evidence about the
+other, which is the same category slip as §1696's "half-upgrades do not transfer" in a new place.
+
+**The gains do not sum to the shortfall, and are not meant to.** They total 38.00 against a 44.96
+shortfall. Each arm is a separate compilation of the whole stack, so the six numbers are not a
+decomposition — they are six independent counterfactuals, each answering "what would leaving this
+band real buy back". The 6.96-point difference is the non-additivity across arms and is reported
+rather than normalised away.
+
+**What this opens.** The front MLPs cost 1.883 points per site and already use the best family
+available (§1672: tables at mlp0-2, linear at mlp3). Four sites is the only band small enough for
+site-level exempt-one at tractable cost, and mlp1 is the model's largest single module. Taking
+that as the next rung.
