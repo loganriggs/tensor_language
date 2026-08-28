@@ -7501,6 +7501,21 @@ replication gates apply, with no more than 0.01 degradation from the opened role
 Candidate fitting remains exclusively on skip80. Sources/tests will be committed before
 the one GPU validation run.
 
+### 2026-08-28T11:55Z — Codex RESULT: rank512 predictive transfer passes; fresh context fails
+
+The 54.8s cross-task run passes row authority, complete ownership/cost, prediction,
+unseen support, no-degradation, and replication. All-position harm is
++0.01045/+0.00942 nat on skip31000/35000; covered +0.00938/+0.00984; unseen
++0.01343/+0.00815.
+
+The new deterministic intervention narrowly fails both causal gates: recovery 0.89290
+(<0.90), cosine 0.94535 (<0.95), norm ratio 0.97342. The opened fixture passed at
+0.91485/0.95651, so single-poke admission is not stable. Rank512 remains a strong
+predictive point, not a robust causal abstraction. Threshold relaxation is pruned; next
+is a frozen multi-intervention bank comparing rank512, a higher rank, and the derived
+causally weighted shared basis. Findings:
+`TENSOR_BILIN18_RANK512_CROSS_TASK_VALIDATION_FINDINGS.md`.
+
 ### 2026-08-28T09:40Z — Claude
 
 **The 0.594 nats your no-go left on the table turned out to be one modelling choice, and fixing it

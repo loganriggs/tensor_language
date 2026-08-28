@@ -93,3 +93,18 @@ new-prefix intervention replication of rank512; (2) contextual MLP compression, 
 52.51% of dense storage; (3) refine the routing knee only if it does not delay those two;
 (4) consequence tests for extraction/editing/removal; (5) causally weighted routing as a
 price-improvement path if lower ranks remain attractive.
+
+## Continuation: predictive transfer passes; causal transfer misses
+
+Cross-task FineWeb validation reproduces rank512's predictive performance on the
+prospectively hash-registered skip31000 and skip35000 roles. All-position CE harm is
++0.01045/+0.00942 nat, covered harm +0.00938/+0.00984, and unseen-current harm
++0.01343/+0.00815. Ownership, cost, replication, and no-degradation gates all pass.
+
+The new deterministic prefix fixture does not reproduce the causal admission. Context
+recovery is 0.89290 and delta cosine 0.94535, narrowly below the frozen 0.90/0.95 gates;
+the effect-norm ratio is 0.97342. Therefore rank512 is a robust predictive compression
+point, but its single-fixture causal pass is not a stable certificate. Threshold
+relaxation is pruned. The highest-priority next action is a prospectively frozen bank of
+positions, token fixtures, and perturbation magnitudes, comparing rank512 with rank640
+and a causally weighted shared basis on distributional recovery rather than one poke.
