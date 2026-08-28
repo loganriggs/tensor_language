@@ -1,0 +1,147 @@
+{
+ "config": {
+  "table_ranks": [
+   "full",
+   "64"
+  ],
+  "map_rank": 64,
+  "program": "context-free tables, output-NN fallback with a rank-64 embedding->row map -- the settled design of \u00a71780-\u00a71786",
+  "instruments": "top-1 agreement with the live model, top-1 accuracy against the true next token, and KL(live || program). All three are NEW to this thread, which has been CE-only since \u00a71747.",
+  "ROLE_NOTE": "DISCOVERY ONLY; a second-class confirmation with a DIFFERENT instrument, not a replication of the same one."
+ },
+ "results": {
+  "skip7000": {
+   "full": {
+    "cov": {
+     "ce_live": 3.29205,
+     "ce_prog": 6.03465,
+     "kl_live_prog": 2.7454,
+     "top1_agreement": 0.25352,
+     "top1_acc_live": 0.37378,
+     "top1_acc_prog": 0.14002,
+     "n": 27974
+    },
+    "all": {
+     "ce_live": 3.13704,
+     "ce_prog": 6.01167,
+     "kl_live_prog": 2.88031,
+     "top1_agreement": 0.23565,
+     "top1_acc_live": 0.3932,
+     "top1_acc_prog": 0.13553,
+     "n": 36864
+    }
+   },
+   "64": {
+    "cov": {
+     "ce_live": 3.29205,
+     "ce_prog": 6.25792,
+     "kl_live_prog": 2.96443,
+     "top1_agreement": 0.23629,
+     "top1_acc_live": 0.37378,
+     "top1_acc_prog": 0.13009,
+     "n": 27974
+    },
+    "all": {
+     "ce_live": 3.13704,
+     "ce_prog": 6.1733,
+     "kl_live_prog": 3.03866,
+     "top1_agreement": 0.22374,
+     "top1_acc_live": 0.3932,
+     "top1_acc_prog": 0.1288,
+     "n": 36864
+    }
+   }
+  },
+  "skip11000": {
+   "full": {
+    "cov": {
+     "ce_live": 3.09711,
+     "ce_prog": 5.979,
+     "kl_live_prog": 2.88412,
+     "top1_agreement": 0.24424,
+     "top1_acc_live": 0.39986,
+     "top1_acc_prog": 0.14802,
+     "n": 27497
+    },
+    "all": {
+     "ce_live": 2.9345,
+     "ce_prog": 5.98477,
+     "kl_live_prog": 3.04866,
+     "top1_agreement": 0.22711,
+     "top1_acc_live": 0.42348,
+     "top1_acc_prog": 0.1425,
+     "n": 36864
+    }
+   },
+   "64": {
+    "cov": {
+     "ce_live": 3.09711,
+     "ce_prog": 6.21152,
+     "kl_live_prog": 3.1225,
+     "top1_agreement": 0.23337,
+     "top1_acc_live": 0.39986,
+     "top1_acc_prog": 0.13783,
+     "n": 27497
+    },
+    "all": {
+     "ce_live": 2.9345,
+     "ce_prog": 6.15261,
+     "kl_live_prog": 3.22077,
+     "top1_agreement": 0.21875,
+     "top1_acc_live": 0.42348,
+     "top1_acc_prog": 0.13487,
+     "n": 36864
+    }
+   }
+  },
+  "skip1200": {
+   "full": {
+    "cov": {
+     "ce_live": 3.40277,
+     "ce_prog": 5.96423,
+     "kl_live_prog": 2.53891,
+     "top1_agreement": 0.26279,
+     "top1_acc_live": 0.36578,
+     "top1_acc_prog": 0.14349,
+     "n": 13973
+    },
+    "all": {
+     "ce_live": 3.23027,
+     "ce_prog": 6.00165,
+     "kl_live_prog": 2.75451,
+     "top1_agreement": 0.24208,
+     "top1_acc_live": 0.38883,
+     "top1_acc_prog": 0.13645,
+     "n": 18432
+    }
+   },
+   "64": {
+    "cov": {
+     "ce_live": 3.40277,
+     "ce_prog": 6.16197,
+     "kl_live_prog": 2.74262,
+     "top1_agreement": 0.25034,
+     "top1_acc_live": 0.36578,
+     "top1_acc_prog": 0.13426,
+     "n": 13973
+    },
+    "all": {
+     "ce_live": 3.23027,
+     "ce_prog": 6.14463,
+     "kl_live_prog": 2.90231,
+     "top1_agreement": 0.2322,
+     "top1_acc_live": 0.38883,
+     "top1_acc_prog": 0.12885,
+     "n": 18432
+    }
+   }
+  }
+ },
+ "predictions": {
+  "pred_a_agreement_below_half": true,
+  "pred_b_keeps_half_the_accuracy": false,
+  "pred_c_kl_exceeds_ce_gap_2x": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 368.0
+}

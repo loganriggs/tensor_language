@@ -46474,3 +46474,51 @@ worth a few hundredths.
 
 Controls (pred_d): the table-rank-64 arms reproduce §1786's 6.19187 / 6.17330, 6.18267 / 6.15261 and
 6.15065 / 6.14463 within 0.002; coverage 5419 of 50257.
+
+## §1788 — the CE figures overstate the program: it keeps a third of the model's top-1 accuracy, not a third of its loss
+
+`ops/program_agreement_beyond_ce.py`, 368.0s, **DISCOVERY ONLY** — a second-class confirmation with a
+**different instrument**, since everything certified in §1747–§1787 is a cross-entropy figure.
+**pred_a True | pred_b False | pred_c False | pred_d True.**
+
+The settled standalone program (context-free tables, output-NN fallback, rank-64 embedding→row map),
+against the live model on the same batches:
+
+```
+  full rank, all positions      skip7000   skip11000   skip1200
+    CE live                      3.13704    2.93450     3.23027
+    CE program                   6.01167    5.98477     6.00165
+    KL(live || program)          2.88031    3.04866     2.75451
+    top-1 AGREEMENT with live     23.57%     22.71%      24.21%
+    top-1 accuracy, live          39.32%     42.35%      38.88%
+    top-1 accuracy, program       13.55%     14.25%      13.64%
+```
+
+**pred_b FAILED, and it is the finding.** I asked for the program to keep at least half the live
+model's top-1 accuracy. It keeps **34.5% / 33.6% / 35.1%** — **about a third**. pred_b's own sentence
+said what that means: *"If FALSE the program is much worse at the actual task than its CE implies, and
+every recovery figure in §1747–§1787 overstates what it does."*
+
+> **Nothing in §1747–§1787 is withdrawn — every CE number is correct — but "recovers 32.4% of the
+> stake" and "keeps a third of the model's next-token accuracy" are different sentences, and only the
+> first has been in the ledger.** A per-token program buys a large slice of average loss and a much
+> smaller slice of actual correct predictions. Both belong next to each other from here on.
+
+**pred_a passed**: top-1 agreement with the live model is 22.7–24.2%, far below its 50% bar. The
+program agrees with the model on under a quarter of positions.
+
+**pred_c FAILED, and its failure is the favourable half of the run.** I predicted KL(live‖program)
+would exceed the covered CE gap by at least 2x, on the reasoning that KL sees mass the sampled targets
+never visit. It does not: **KL/gap is 1.0010, 1.0008 and 0.9912** — the two agree to within a
+percent. So the program is **no further from the model distributionally than it is on the tokens that
+actually occur**; there is no hidden divergence off the data's support. (The near-equality also implies
+the model is well calibrated to these rows, since KL under the model and the CE gap under the data
+coincide only when the two distributions are close. Worth noting; not something this run set out to
+measure.)
+
+**Registry scope added to both certified entries**: every figure in `_CONTEXT_FREE_TABLE_FRONTIER` and
+`_POSITION_WISE_CLASS_CEILING` is cross-entropy, and the top-1 accuracy of the best standalone program
+is ~1/3 of the live model's.
+
+Controls (pred_d): the program's all-position CE reproduces §1787's six settled numbers within 0.002,
+live covered CE reproduces 3.29205 / 3.09711 / 3.40277, coverage 5419 of 50257.
