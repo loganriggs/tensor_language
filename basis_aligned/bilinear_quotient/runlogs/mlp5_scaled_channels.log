@@ -1,0 +1,78 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+MLP5 SCALED CHANNELS | magnitude-matched live channels + explosion check | settled program (context-free tables + output-NN fallback + rank-64 map) | DISCOVERY ONLY
+
+  per-site norm calibration (live mean / row mean), measured on the LIVE model:
+    attn L0:  2.71 L1:  2.49 L2:  2.26 L3:  2.13 L4:  4.37 L5:  1.00 L6:  1.02 L7:  3.61 L8:  3.59 L9:  4.83 L10:  3.80 L11:  4.49 L12:  6.72 L13:  6.39 L14:  7.07 L15:  6.33 L16:  5.70 L17:  5.59
+    mlp  L0:  0.88 L1:  0.42 L2:  0.61 L3:  0.49 L4:  0.10 L5:  0.39 L6:  0.52 L7:  1.66 L8:  2.04 L9:  1.32 L10:  2.33 L11:  1.05 L12:  1.91 L13:  1.26 L14:  1.66 L15:  1.19 L16:  1.13 L17:  1.21
+
+  arms  (53s)
+  all_substituted      skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  all_sub_scaled       skip7000 12.16%  skip11000 12.81%  skip1200 12.10%
+  live_model           skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  arms  (116s)
+  all_substituted        skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+  live_model             skip7000 39.32%  skip11000 42.35%  skip1200 38.88%
+
+  mlp5 in the B0 stream: mean|live| max 292.388 median 36.949; |live-row| max 603.877; DISC/OUT top-16 overlap 0/16
+  EXPLOSION CHECK on the top-16 OUT channels: B0-stream |live| / fully-live |live| = 0.899x   (live-model mean on those channels 161.917, B0-stream 143.855)
+  magnitude-match scales on those channels: median 1.2911
+
+  arms  (142s)
+  B0                     skip7000 30.25%  skip11000 32.59%  skip1200 29.11%
+  K0                     skip7000 14.47%  skip11000 14.57%  skip1200 14.61%
+  DISC16                 skip7000 14.50%  skip11000 14.91%  skip1200 14.77%
+  DISC16S                skip7000 13.60%  skip11000 13.89%  skip1200 13.40%
+  DISC64                 skip7000 15.73%  skip11000 16.07%  skip1200 15.65%
+  DISC64S                skip7000 13.91%  skip11000 13.92%  skip1200 13.86%
+  DISC256                skip7000 19.29%  skip11000 20.93%  skip1200 19.37%
+  DISC256S               skip7000 16.42%  skip11000 17.19%  skip1200 15.74%
+  OUT16                  skip7000 14.05%  skip11000 14.25%  skip1200 14.35%
+  OUT16S                 skip7000 14.27%  skip11000 14.40%  skip1200 14.45%
+  OUT64                  skip7000 15.00%  skip11000 15.25%  skip1200 15.05%
+  OUT64S                 skip7000 14.59%  skip11000 14.62%  skip1200 14.58%
+  OUT256                 skip7000 14.10%  skip11000 14.34%  skip1200 14.05%
+  OUT256S                skip7000 14.18%  skip11000 14.30%  skip1200 13.96%
+  RAND16                 skip7000 15.09%  skip11000 15.28%  skip1200 15.08%
+  RAND16S                skip7000 15.14%  skip11000 15.39%  skip1200 15.32%
+  RAND64                 skip7000 15.68%  skip11000 16.03%  skip1200 15.39%
+  RAND64S                skip7000 15.31%  skip11000 15.68%  skip1200 15.16%
+  RAND256                skip7000 15.73%  skip11000 15.73%  skip1200 15.79%
+  RAND256S               skip7000 15.36%  skip11000 15.40%  skip1200 14.97%
+  allsub_gain5           skip7000 13.55%  skip11000 14.25%  skip1200 13.64%
+
+  gap fraction recovered, all roles:
+    B0         skip7000   64.8%  skip11000   65.3%  skip1200   61.3%
+    K0         skip7000    3.6%  skip11000    1.1%  skip1200    3.8%
+    DISC16     skip7000    3.7%  skip11000    2.3%  skip1200    4.4%
+    DISC16S    skip7000    0.2%  skip11000   -1.3%  skip1200   -1.0%
+    DISC64     skip7000    8.4%  skip11000    6.5%  skip1200    8.0%
+    DISC64S    skip7000    1.4%  skip11000   -1.2%  skip1200    0.9%
+    DISC256    skip7000   22.3%  skip11000   23.8%  skip1200   22.7%
+    DISC256S   skip7000   11.1%  skip11000   10.5%  skip1200    8.3%
+    OUT16      skip7000    1.9%  skip11000    0.0%  skip1200    2.8%
+    OUT16S     skip7000    2.8%  skip11000    0.5%  skip1200    3.2%
+    OUT64      skip7000    5.6%  skip11000    3.6%  skip1200    5.6%
+    OUT64S     skip7000    4.0%  skip11000    1.3%  skip1200    3.7%
+    OUT256     skip7000    2.1%  skip11000    0.3%  skip1200    1.6%
+    OUT256S    skip7000    2.4%  skip11000    0.2%  skip1200    1.2%
+    RAND16     skip7000    6.0%  skip11000    3.7%  skip1200    5.7%
+    RAND16S    skip7000    6.2%  skip11000    4.1%  skip1200    6.6%
+    RAND64     skip7000    8.2%  skip11000    6.3%  skip1200    6.9%
+    RAND64S    skip7000    6.8%  skip11000    5.1%  skip1200    6.0%
+    RAND256    skip7000    8.5%  skip11000    5.3%  skip1200    8.5%
+    RAND256S   skip7000    7.0%  skip11000    4.1%  skip1200    5.2%
+
+  FRACTION OF THE 61.2% STAKE BOUGHT (skip7000; B0 64.8%, K0 3.6%):
+    DISC  raw    k16   +0.2%  k64   +8.0%  k256  +30.5%
+    DISC  SCALED k16   -5.5%  k64   -3.6%  k256  +12.4%
+    OUT   raw    k16   -2.7%  k64   +3.4%  k256   -2.4%
+    OUT   SCALED k16   -1.3%  k64   +0.8%  k256   -1.9%
+    RAND  raw    k16   +3.9%  k64   +7.6%  k256   +8.0%
+    RAND  SCALED k16   +4.3%  k64   +5.3%  k256   +5.7%
+
+  SCALING rescues the outlier channels (OUT16 scaled >=10% of stake) -> False  -1.3% scaled vs -2.7% raw
+  and mlp5 IS exploded in the B0 stream (>=2.0x on top-16 OUT) -> False  0.899x
+  and CONCENTRATION still fails even scaled (DISC64 scaled <50%) -> True  -3.6%
+  K0 §1834, B0 §1829, four unscaled arms reproduce §1835, overlap 0 -> control True
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp5_scaled_channels_results.json (283.4s)

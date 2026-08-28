@@ -49191,3 +49191,60 @@ carry signal and the failure was magnitude — §1804's explosion reaching mlp5,
 rescued. If they remain worthless at the right scale, the outlier framing is closed for this object. The
 same run should measure directly whether mlp5's live output in the B0 stream is inflated against the
 fully live model on those channels, which is the thing the paragraph above only supposes.
+
+## §1836 — there is no explosion at mlp5, scaling does not rescue the outlier channels, and the hypothesis §1835 floated is struck
+
+`ops/mlp5_scaled_channels.py`, 283.4s, **DISCOVERY ONLY**, rung 3 (§1835's open question).
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  fraction of the 61.2pp stake bought, skip7000 (B0 64.8%, mlp5 fully compiled 3.6%)
+              k=16      k=64     k=256          (of 1152 channels)
+  DISC  raw   +0.2%    +8.0%   +30.5%
+  DISC  SCALED -5.5%    -3.6%   +12.4%
+  OUT   raw   -2.7%    +3.4%    -2.4%
+  OUT   SCALED -1.3%    +0.8%    -1.9%
+  RAND  raw   +3.9%    +7.6%    +8.0%
+  RAND  SCALED +4.3%    +5.3%    +5.7%
+```
+
+**pred_b FAILED with the sign reversed, and that is the important one.** mlp5's mean output on the
+top-16 outlier channels is **0.899x** in the B0 stream against the fully live model — 143.9 versus
+161.9, *slightly smaller*, not inflated. **There is no explosion at mlp5.** §1804's 152x figure is
+layer 5's **attention** on a **fully compiled** stream; it does not carry to mlp5 beneath a compiled
+layer 0. **§1835's explosion paragraph has been struck in place**, as that section said it would be if
+this measurement came back under 2.0x. I would rather delete a hypothesis I wrote than let a
+plausible-sounding one accumulate citations.
+
+**pred_a FAILED and closes the outlier framing for this object.** Magnitude-matching the sixteen largest
+channels to the substituted row moves them from **−2.7%** to **−1.3%** of the stake — still negative,
+against a +10% bar. pred_a's registered failure branch is the conclusion: *"the outlier channels are
+worthless even at the right scale, and the outlier framing is CLOSED for this object rather than merely
+unsupported."*
+
+**pred_c PASSED**: scaled DISC64 buys **−3.6%**, so §1835's concentration negative is not a scaling
+artefact. In fact **scaling makes the discrepancy selection worse at every k** (+0.2→−5.5, +8.0→−3.6,
++30.5→+12.4) while barely touching random (+3.9→+4.3, +7.6→+5.3, +8.0→+5.7). Those channels were worth
+keeping *because* their live values differ from the row; forcing them to the row's magnitude removes
+exactly what made them useful.
+
+> **Three mechanisms are now ruled out for mlp5's +61.2pp, and none is established.** Not concentration
+> (256 of 1152 channels buy 30.5%, sixteen buy 0.2%). Not outlier identity (worse than random at every
+> k, and still negative when magnitude-matched). Not magnitude or explosion (0.899x, measured). The only
+> arm that does anything is unscaled DISC at k=256 — 22% of the residual width for 30.5% of the stake,
+> which is not a mechanism, it is just keeping a lot of the site.
+
+**Controls (pred_d).** K0 reproduces §1834/§1835's published 3.6% gap fraction; B0 reproduces §1829's
+published 64.8%; the four unscaled arms reproduce §1835's published −2.7%, +3.4%, +8.0% and +30.5% of
+stake; the DISC/OUT top-16 overlap is again **0**. Endpoints reproduce §1789's full-rank top-1; the
+placement control moves top-1 under 0.05pp. Coverage 5419 of 50257.
+
+**Open question this ends on — and it is the explanatory variable this whole arc has been missing.**
+Every section from §1829 has measured what compiling a site *costs*. None has measured the obvious
+property that should predict it: **how well is a site's output already a function of the current token?**
+That is exactly what a context-free table can represent, and §1765 proved the compiled program is a pure
+function of the current token. A per-site *token-explained variance* — the fraction of a site's output
+variance captured by its per-token mean — is computable from a single pass, needs no arms at all, and if
+it correlates with §1834's 34-number cost table then the cost table is explained rather than merely
+tabulated. mlp5 should be the site whose output is least a function of its token. The control that
+matters is depth, which is a confound: the statistic has to beat depth alone, or it adds nothing.
