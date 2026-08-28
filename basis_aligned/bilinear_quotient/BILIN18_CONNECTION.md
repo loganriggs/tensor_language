@@ -43638,3 +43638,54 @@ individually rather than the sets registry entries happen to name, both eval set
 carrying the claim**, 2000 row-level bootstrap draws on the two stack medians, and **depth registered
 as a competing explanation** (pred_b there fails unless mlp_L is below attn_L at 12 of 18 matched
 layers).
+
+## §1728 — the class-ratio contrast is a stack effect, not a per-site law: two of four fail, and three attention sites have a negative denominator
+
+`ops/class_ratio_site_sweep.py`, 109.1s, all 36 sites individually, both eval sets.
+**pred_a True | pred_b False | pred_c False | pred_d True.**
+
+**First, the hard baseline assert did its job on the first attempt and killed the run.** The sweep
+scored every position while every number it compares against was scored on fit-covered tokens only:
+CE **3.13704 against the required 3.29205**. Same population or no comparison. Fixed, requeued, and
+the second run reproduces 3.29205 and 3.09711 exactly.
+
+**What survives (pred_d, an exact control):** the JOINT-stack ratio. Constant-ablating all 18 MLPs
+damages `induction` targets **0.838x** as much per token as `novel` targets on skip7000 and
+**0.843x** held out; all 18 attention sites give **1.002** and **0.974**. §1727's numbers reproduce
+to three decimals.
+
+**What fails: the same contrast per site.**
+
+```
+  layer   0     1     2     3     4     5     6     7     8     9    10    11    12    13    14    15    16    17
+  mlp   .416  .824  .394  .482  .653  .679  .814  .670  .575  .627  .637  .530  .451  .434  .359  .341  .572  .078
+  attn  .439  .588  .578  .576  .536  .611 1.252  .844 2.281  .713 1.244  .404 1.239 2.824 -3.54 -3.39 -1.29  .247
+                                                                                    (skip11000, held out)
+```
+
+- **pred_b FALSE.** mlp_L sits below attn_L at **11 of 18** matched layers held out, against a bar of
+  12. On skip7000 it was 15 of 18. The matched-depth version does not replicate.
+- **pred_c FALSE.** The two stack medians' 95% intervals overlap heavily held out:
+  MLP **(0.434, 0.659)** against attention **(0.504, 0.679)**. The medians are 0.551 and 0.583 — a
+  gap of 0.032, down from 0.189 on the reference set.
+- **pred_a passed on a weak bar and I am saying so.** It asked only that the held-out MLP median sit
+  below the attention median as a point estimate, with no resolution requirement. It does, by 0.032,
+  with fully overlapping intervals. pred_c is the prediction that mattered and it failed.
+
+**And the medians are not a legitimate statistic here anyway.** attn14, attn15 and attn16 have
+**negative** ratios on both eval sets (−3.617, −5.180, −1.988 reference; −3.540, −3.394, −1.285 held
+out). A ratio goes negative when a damage is negative — constant-ablating the site *improves*
+cross-entropy somewhere. **A median over eighteen sites is meaningless when three denominators cross
+zero**, so the per-site medians are retired here rather than defended, on top of having failed.
+
+**Standing conclusion: §1727's contrast is a property of the STACKS, not of the sites.** The 18-MLP
+joint ablation is novel-concentrated and the 18-attention joint ablation is class-flat, and that
+replicates held out; it does not decompose into a per-layer law. That is consistent with §1669 —
+joint behaviour here is not the sum of site behaviours — but it is not yet certified either, because
+the surviving half has two point estimates and no interval.
+
+`ops/class_ratio_joint_ci.py` is committed and queued and does exactly two things: a 2000-draw
+row-level interval on the joint ratios and on their **difference**, with skip11000 carrying the
+claim, and a per-class **sign decomposition** of attn14/15/16 so the negative denominators are
+explained instead of tabulated. Its pred_a fails if the joint difference does not exclude zero, in
+which case nothing from this thread enters the registry.
