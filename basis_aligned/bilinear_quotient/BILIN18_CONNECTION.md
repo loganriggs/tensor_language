@@ -49096,6 +49096,13 @@ not something this run tested.
 > **The table's headline is a single number: `mlp5` costs +61.2pp.** Compiling that one site on top of a
 > compiled layer 0 leaves **3.6%** of the gap recovered, out of 64.8%. It is 95% of everything B0 has, in
 > one site, and it is the most expensive site in the network by 12.7pp over the runner-up (`mlp3`, +48.5).
+>
+> **SCOPED BY §1840.** That statement holds for THIS object and I am naming its terms rather than letting
+> it generalise: a length-1 context-free table, scored in top-1 gap fraction over all positions, **on top
+> of an already-compiled layer 0**. §1840 measured single-site damage on the FULLY LIVE model using the
+> ideal empirical per-token mean, scored in CE on covered positions, and there `mlp1` leads at +0.1935
+> nats with `mlp5` ninth at +0.0512. The two orderings still agree overall (Spearman +0.851), but mlp5's
+> primacy is specific to compilation **beneath a compiled layer 0**, not a property of the site alone.
 
 **Layer 5 returns, but as the MLP.** §1804 measured attention at layer 5 exploding **152x** on a compiled
 stream and §1818 pinned 85% of that excess on head 5.7. Those are measurements on the fully compiled
@@ -49418,3 +49425,66 @@ moves the site, so `dCE/dalpha` at alpha = 1 is the first-order sensitivity to t
 occurs, and the alpha curve says whether the +61.2pp of mlp5 is a first-order effect at all or something
 that only appears near alpha = 0. It also settles pred_d properly, since alpha near 1 gives a known-answer
 check: the curve must pass through the live model exactly.
+
+## §1840 — the cost is NOT first-order in the substitution, which is why every local instrument has failed
+
+`ops/substitution_direction_curve.py`, 271.0s, **DISCOVERY ONLY**, rung 3 (§1839's open question).
+**pred_a False | pred_b False | pred_c False | pred_d FALSE — but the instrument is certified exactly.**
+
+CE above live along the substitution direction, `y -> mu_token + alpha*(y - mu_token)`, covered positions
+(live covered CE 3.29205):
+
+```
+  attn  a=.9  L1 +.0004  L2 +.0002  L3 -.0002 ... L6 -.0007  L7 -.0008  L8 -.0009 ... L17 +.0000
+  attn  a=.5  L1 +.0105  L2 +.0072  L3 +.0045  L4 +.0074  L5 +.0104 ...
+  attn  a=.0  L1 +.0684  L2 +.0488  L3 +.0353  L4 +.0604  L5 +.0768 ...
+  mlp   a=.0  L1 +.1935  L2 +.1101  L3 +.1302  L4 +.0781  L5 +.0512 ...  L16 +.0419  L17 +.1325
+```
+
+**pred_a FAILED and its failure branch is the explanation this arc has been looking for.** The local
+response at alpha = 0.9 rank-predicts the full response at alpha = 0 at only **+0.298**, and predicts
+§1834's cost table at **+0.168**. pred_a's registered branch: *"the damage appears only at large
+displacement — the cost is NON-LINEAR in how much context-dependence is removed, no local instrument can
+price it however well aimed, and that would explain why every instrument since §1824 has failed while
+depth kept winning."*
+
+> **That is now the standing account of §1824-§1840.** Remove 10% of a site's context-dependent
+> component and almost nothing happens — at many sites the loss *improves*. Remove all of it and the
+> model collapses. Eight instruments have failed to price compilation: norm, mean direction, second
+> moment, cross-position routing, cross-position mass, channel structure, token-explained variance,
+> random sensitivity — **and now the correctly-aimed local derivative.** They failed for one reason.
+> **Every one of them is a local or first-order measurement of an effect that is neither.**
+
+**pred_d FAILED on monotonicity, and the failure is a finding rather than a defect.** The instrument is
+**certified exactly**: alpha = 1 reproduces the live covered CE to **0.00e+00** — not approximately, bit
+for bit — which is the landing certificate §1838 and §1839 could not provide. What failed is my
+assumption that CE rises monotonically as alpha falls. It does not: at alpha = 0.9, **attn6, attn7 and
+attn8 all improve** (−0.0007, −0.0008, −0.0009 nats). Shrinking a site's context-dependent component by
+10% toward its token mean acts as a mild regulariser. Small, consistent, and not what I predicted.
+
+**pred_c FAILED, and §1834's headline has been SCOPED IN PLACE as a result.** Under the ideal per-token
+table on the live model, scored in CE, the most damaging site is **mlp1 at +0.1935** — mlp5 is **ninth**
+at +0.0512. The two orderings agree overall (full response versus §1834 cost, Spearman **+0.851**), so
+this is a qualification and not a contradiction, but mlp5's primacy belongs to §1834's specific object:
+a length-1 context-free table, in top-1 gap fraction, **on top of an already-compiled layer 0**. On a
+fully live model mlp5 is unremarkable. **That interaction — mlp5 with a compiled layer 0 — is itself the
+concrete thing this arc has found**, and it is smaller and stranger than "the most destructive site in
+the network".
+
+**pred_b FAILED at +0.168, but the full response essentially ties depth at +0.851** against depth's
++0.853. That is a consistency check rather than an explanation: the alpha = 0 response and §1834's cost
+are two measurements of single-site substitution damage, so their agreeing is reassuring about both and
+explains neither.
+
+**Controls.** alpha = 1 exact to 0.00e+00 at every one of the 34 sites; §1837's token-explained variance
+reproduces to a drift of **0.0005**; live top-1 reproduces §1789's published 39.32%; coverage 5419 of
+50257. Only the monotonicity clause failed.
+
+**Open question this ends on.** The non-linearity is now the object. The alpha curve is measured at six
+points on single sites; what it has not answered is **where** the knee sits and whether it is the same
+for every site — alpha = 0.5 costs 0.0088 nats at mlp5 and alpha = 0 costs 0.0512, so most of the damage
+lives in the last half of the interpolation, but six points cannot locate a knee (LESSON 47, the mistake
+§1829 was built to correct). A denser sweep near alpha = 0 on a handful of sites, and the same sweep on
+the B0 stream where §1834's figures were measured, would say whether "remove the last 20% of context
+dependence" is where compilation actually becomes expensive — and that is a threshold a compiled program
+could be designed against rather than merely a diagnosis.

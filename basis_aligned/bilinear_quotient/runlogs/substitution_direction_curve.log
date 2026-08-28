@@ -1,0 +1,21 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+SUBSTITUTION-DIRECTION CURVE | alpha (1.0, 0.9, 0.75, 0.5, 0.25, 0.0), 34 sites, covered positions | DISCOVERY ONLY
+  per-token means built; live covered CE 3.292052, live top-1 39.32% (4s)
+  curve swept (271s)
+
+  CE ABOVE LIVE along the substitution direction (covered CE 3.29205):
+    attn a=0.9  L1:+0.0004 L2:+0.0002 L3:-0.0002 L4:-0.0002 L5:-0.0005 L6:-0.0007 L7:-0.0008 L8:-0.0009 L9:-0.0004 L10:-0.0003 L11:-0.0003 L12:-0.0000 L13:-0.0001 L14:-0.0000 L15:-0.0001 L16:+0.0000 L17:+0.0000
+    attn a=0.5  L1:+0.0105 L2:+0.0072 L3:+0.0045 L4:+0.0074 L5:+0.0104 L6:+0.0030 L7:+0.0029 L8:+0.0002 L9:+0.0058 L10:+0.0021 L11:+0.0044 L12:+0.0015 L13:+0.0021 L14:+0.0043 L15:+0.0008 L16:+0.0023 L17:+0.0020
+    attn a=0.0  L1:+0.0684 L2:+0.0488 L3:+0.0353 L4:+0.0604 L5:+0.0768 L6:+0.0286 L7:+0.0285 L8:+0.0192 L9:+0.0368 L10:+0.0136 L11:+0.0255 L12:+0.0074 L13:+0.0118 L14:+0.0221 L15:+0.0046 L16:+0.0100 L17:+0.0085
+    mlp  a=0.9  L1:+0.0002 L2:-0.0000 L3:+0.0003 L4:+0.0001 L5:+0.0000 L6:-0.0002 L7:-0.0001 L8:-0.0004 L9:-0.0003 L10:-0.0003 L11:-0.0002 L12:+0.0001 L13:-0.0000 L14:-0.0001 L15:+0.0001 L16:+0.0005 L17:+0.0015
+    mlp  a=0.5  L1:+0.0137 L2:+0.0103 L3:+0.0143 L4:+0.0094 L5:+0.0088 L6:+0.0092 L7:+0.0081 L8:+0.0050 L9:+0.0064 L10:+0.0045 L11:+0.0058 L12:+0.0062 L13:+0.0049 L14:+0.0037 L15:+0.0049 L16:+0.0099 L17:+0.0351
+    mlp  a=0.0  L1:+0.1935 L2:+0.1101 L3:+0.1302 L4:+0.0781 L5:+0.0512 L6:+0.0569 L7:+0.0473 L8:+0.0335 L9:+0.0385 L10:+0.0291 L11:+0.0322 L12:+0.0301 L13:+0.0246 L14:+0.0186 L15:+0.0217 L16:+0.0419 L17:+0.1325
+
+  dearest 6 by §1834 cost: mlp5 cost +61.2% a0 +0.0512 a.9 +0.0000  mlp3 cost +48.5% a0 +0.1302 a.9 +0.0003  mlp4 cost +44.5% a0 +0.0781 a.9 +0.0001  attn2 cost +42.9% a0 +0.0488 a.9 +0.0002  mlp1 cost +38.7% a0 +0.1935 a.9 +0.0002  mlp2 cost +37.9% a0 +0.1101 a.9 -0.0000
+
+  the cost is FIRST-ORDER along the direction (rho local vs full >=+0.70) -> False  rho +0.2975
+  and the DERIVATIVE beats depth (§1837 +0.8527) -> False  local vs cost +0.1676, margin -0.6851 (full vs cost +0.8506)
+  and the IDEAL table still singles out mlp5 -> False  largest a=0 rise is mlp1 at +0.1935; mlp5 at +0.0512
+  alpha=1 EXACT (max dev 0.00e+00), curve monotone False, §1837 drift 0.0005 -> control False
+
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/substitution_direction_curve_results.json (271.0s)
