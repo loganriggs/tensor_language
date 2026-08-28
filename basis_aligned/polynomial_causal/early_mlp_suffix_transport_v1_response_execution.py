@@ -792,6 +792,7 @@ class ObservedResponseRunReceipt:
     common_support_sha256: str
     basis0_sha256: str
     basis1_sha256: str
+    ordered_unit_identity_sha256: str
     batch_receipt_sha256s: tuple[str, ...]
     batch_plan_sha256s: tuple[str, ...]
     arm_reduction_sha256s: tuple[tuple[str, str], ...]
@@ -804,6 +805,7 @@ class ObservedResponseRunReceipt:
         for name in (
             "final_context_sha256", "source_bank_sha256", "program_payload_sha256",
             "common_support_sha256", "basis0_sha256", "basis1_sha256",
+            "ordered_unit_identity_sha256",
         ):
             _sha256(name, getattr(self, name))
         if len(self.batch_receipt_sha256s) != FINAL_BATCH_COUNT or any(
@@ -867,9 +869,10 @@ class ObservedResponseRunResult:
             raise RuntimeError("final response payload mixes ordered units")
         unit_identity = runtime.logical_identity_sha256({
             "kind": "early_mlp_suffix_transport_v1_response_units",
-            "response_run_receipt_sha256": self.receipt.sha256,
             "ordered_batch_unit_sha256s": list(ordered_units),
         })
+        if unit_identity != self.receipt.ordered_unit_identity_sha256:
+            raise RuntimeError("final response unit identity differs from run receipt")
         nulls = [
             by_action[f"a_null_{index:02d}/N"] for index in range(20)
         ]
@@ -1017,12 +1020,17 @@ class ObservedResponseRunAccumulator:
         if len(ordered_units) != 1:
             raise RuntimeError("response run arms do not share ordered units")
         first = self._batches[0].receipt
+        ordered_unit_identity_sha256 = runtime.logical_identity_sha256({
+            "kind": "early_mlp_suffix_transport_v1_response_units",
+            "ordered_batch_unit_sha256s": list(next(iter(ordered_units))),
+        })
         receipt = ObservedResponseRunReceipt(
             final_context_sha256=first.final_context_sha256,
             source_bank_sha256=first.source_bank_sha256,
             program_payload_sha256=first.program_payload_sha256,
             common_support_sha256=first.common_support_sha256,
             basis0_sha256=first.basis0_sha256, basis1_sha256=first.basis1_sha256,
+            ordered_unit_identity_sha256=ordered_unit_identity_sha256,
             batch_receipt_sha256s=tuple(
                 value.receipt.sha256 for value in self._batches
             ),

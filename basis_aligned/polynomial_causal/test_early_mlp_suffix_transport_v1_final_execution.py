@@ -24,21 +24,25 @@ def _records() -> list[dict[str, str]]:
     return [{"document_id": f"document-{index}"} for index in range(192)]
 
 
-def _response(*, error: float, student: float, dot: float) -> dict:
+def _response(
+    *, error: float, student: float, dot: float, identity: str = "b" * 64,
+) -> dict:
     return {
         "error_sum": torch.full((192,), error, dtype=torch.float64),
         "teacher_sum": torch.full((192,), 4.0, dtype=torch.float64),
         "student_sum": torch.full((192,), student, dtype=torch.float64),
         "dot_sum": torch.full((192,), dot, dtype=torch.float64),
-        "unit_identity": "b" * 64,
+        "unit_identity": identity,
     }
 
 
-def _output_kl(*, numerator: float, denominator: float) -> dict:
+def _output_kl(
+    *, numerator: float, denominator: float, identity: str = "b" * 64,
+) -> dict:
     return {
         "numerator_sum": torch.full((192,), numerator, dtype=torch.float64),
         "denominator_sum": torch.full((192,), denominator, dtype=torch.float64),
-        "unit_identity": "b" * 64,
+        "unit_identity": identity,
     }
 
 
@@ -67,9 +71,46 @@ def _closure() -> dict:
     }
 
 
+def _response_run_receipt():
+    units = tuple(
+        execution.runtime.logical_identity_sha256({"unit": index})
+        for index in range(48)
+    )
+    unit_identity = execution.runtime.logical_identity_sha256({
+        "kind": "early_mlp_suffix_transport_v1_response_units",
+        "ordered_batch_unit_sha256s": list(units),
+    })
+    return execution.response_execution.ObservedResponseRunReceipt(
+        final_context_sha256="1" * 64, source_bank_sha256="2" * 64,
+        program_payload_sha256=SHA, common_support_sha256="3" * 64,
+        basis0_sha256="4" * 64, basis1_sha256="5" * 64,
+        ordered_unit_identity_sha256=unit_identity,
+        batch_receipt_sha256s=tuple(
+            execution.runtime.logical_identity_sha256({"batch": index})
+            for index in range(48)
+        ),
+        batch_plan_sha256s=tuple(
+            execution.runtime.logical_identity_sha256({"plan": index})
+            for index in range(48)
+        ),
+        arm_reduction_sha256s=tuple(
+            (action, execution.runtime.logical_identity_sha256({"arm": action}))
+            for action in execution.response_execution.response_plan.RESPONSE_ACTION_KEYS
+        ),
+        teacher_forward_count=144, student_forward_count=3168,
+        row_count=192, atomic_complete=True,
+    )
+
+
 def _reductions(**changes) -> execution.FinalObservedReductions:
-    baseline = _response(error=2.25, student=0.25, dot=1.0)
-    candidate = _response(error=1.0, student=1.0, dot=2.0)
+    response_receipt = _response_run_receipt()
+    identity = response_receipt.ordered_unit_identity_sha256
+    baseline = _response(
+        error=2.25, student=0.25, dot=1.0, identity=identity,
+    )
+    candidate = _response(
+        error=1.0, student=1.0, dot=2.0, identity=identity,
+    )
     values = {
         "objective_gates": {name: True for name in final_owner.OBJECTIVE_GATES},
         "transport_observational_gates": {
@@ -80,14 +121,22 @@ def _reductions(**changes) -> execution.FinalObservedReductions:
         "logit_baseline": baseline,
         "logit_candidate": candidate,
         "logit_nulls": tuple(deepcopy(baseline) for _ in range(20)),
-        "output_kl_baseline": _output_kl(numerator=0.8, denominator=1.0),
-        "output_kl_candidate": _output_kl(numerator=0.4, denominator=1.0),
+        "output_kl_baseline": _output_kl(
+            numerator=0.8, denominator=1.0, identity=identity,
+        ),
+        "output_kl_candidate": _output_kl(
+            numerator=0.4, denominator=1.0, identity=identity,
+        ),
         "output_kl_nulls": tuple(
-            _output_kl(numerator=0.9 + index / 100, denominator=1.0)
+            _output_kl(
+                numerator=0.9 + index / 100, denominator=1.0,
+                identity=identity,
+            )
             for index in range(20)
         ),
         "numerical_payload": {"safe_scalar": 1.25, "counts": [192, 36864]},
         "closure_evidence": _closure(),
+        "response_run_receipt": response_receipt,
     }
     values.update(changes)
     return execution.FinalObservedReductions(**values)
@@ -149,6 +198,7 @@ def test_observed_final_callback_builds_only_the_semantic_envelope() -> None:
         "observational_action_call_ledger_sha256": execution.runtime.logical_identity_sha256(
             execution.final_actions.expected_observational_action_call_ledgers()
         ),
+        "response_run_receipt_sha256": _response_run_receipt().sha256,
         "observational_student_outer_forwards": 68 * 48,
         "gauge_replays": 8,
         "gauge_max_abs_drift": 0.0,

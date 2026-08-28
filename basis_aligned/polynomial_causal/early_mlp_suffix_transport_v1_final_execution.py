@@ -25,6 +25,7 @@ import early_mlp_suffix_transport_v1_final_capability as final_capability
 import early_mlp_suffix_transport_v1_final as final_owner
 import early_mlp_suffix_transport_v1_lifecycle as lifecycle
 import early_mlp_suffix_transport_v1_runtime as runtime
+import early_mlp_suffix_transport_v1_response_execution as response_execution
 import early_mlp_suffix_transport_v1_statistics as statistics
 
 
@@ -170,6 +171,7 @@ class FinalObservedReductions:
     output_kl_nulls: Sequence[Mapping[str, Any]]
     numerical_payload: Mapping[str, Any]
     closure_evidence: Mapping[str, Any]
+    response_run_receipt: response_execution.ObservedResponseRunReceipt
 
     def __post_init__(self) -> None:
         objective = _exact_mapping(
@@ -219,6 +221,13 @@ class FinalObservedReductions:
         }
         if len(identities) != 1:
             raise RuntimeError("final transport responses do not share ordered units")
+        if not isinstance(
+            self.response_run_receipt,
+            response_execution.ObservedResponseRunReceipt,
+        ) or identities != {
+            self.response_run_receipt.ordered_unit_identity_sha256
+        }:
+            raise RuntimeError("final transport responses lack their typed run receipt")
         closure = _exact_mapping(
             self.closure_evidence, _CLOSURE_FIELDS, "final observed closure evidence",
         )
@@ -337,6 +346,7 @@ def _execution_closure(
         "programs_reloaded_semantically": True,
         "common_support_complete": True,
         "observational_action_call_ledger_sha256": action_ledger_sha256,
+        "response_run_receipt_sha256": reductions.response_run_receipt.sha256,
         "observational_student_outer_forwards": observational_forwards,
         "gauge_replays": 8,
         "gauge_max_abs_drift": gauge,

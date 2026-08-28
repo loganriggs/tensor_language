@@ -58,6 +58,7 @@ EXECUTION_KEYS = {
     "hooks_restored", "hooks_inert", "component_tree_unchanged",
     "student_poison_closed", "programs_reloaded_semantically",
     "common_support_complete", "observational_action_call_ledger_sha256",
+    "response_run_receipt_sha256",
     "observational_student_outer_forwards", "gauge_replays",
     "gauge_max_abs_drift", "svd_max_abs_drift",
     "difference_in_differences_max_abs_drift", "row_count",
@@ -260,7 +261,9 @@ def _validate_execution(value: Any) -> Mapping[str, Any]:
         execution["final_role_loads"] != 1
     ) or execution["final_evaluation_callbacks"] != 1 or execution["gauge_replays"] != 8:
         raise RuntimeError("final execution closure is incomplete")
-    if not _sha256(execution["observational_action_call_ledger_sha256"]) or (
+    if not _sha256(execution["observational_action_call_ledger_sha256"]) or not (
+        _sha256(execution["response_run_receipt_sha256"])
+    ) or (
         type(execution["observational_student_outer_forwards"]) is not int
     ) or execution["observational_student_outer_forwards"] != (
         len(final_actions.CANONICAL_ACTION_KEYS) * final_actions.OBSERVATIONAL_BATCH_COUNT
