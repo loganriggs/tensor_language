@@ -168,3 +168,20 @@ Focused result: **33 CPU tests pass**.  The GPU was occupied by the independent
 coverage-by-rank job, so no competing model process was launched.  The early-MLP
 cross remains explicitly **NO-GO pending the independent audit and a clean pushed
 source commit**.
+
+## UPDATE — launch closure after independent audit (23:43 UTC)
+
+The pending conditions above are now closed.  The final independent audit found no
+remaining bypass after four rounds of adversarial review.  The suite is now **47/47
+passing**, including independent ALS and quantile references, both authority race
+windows, replay of all 128 physical call ledgers, corruption tests for cell/role/stage
+hash chains, and a negative test proving that a synthetic measurement cannot receive
+a canonical score receipt.
+
+The exact 22-file closure is committed and pushed at `116fdfd2`; `HEAD` and
+`origin/main` match and the source closure hash is
+`42b198f82833b645a7247380492fab2fa35b42ea467a4616554c78e0ab812606`.
+Both canonical output namespaces remain pristine.  The launch is scientifically and
+operationally **GO**, but has not started because the GPU is occupied by the
+already-running coverage-by-rank frontier-knee job.  No early-MLP/context-cross
+outcome has been opened.
