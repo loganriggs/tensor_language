@@ -8234,3 +8234,54 @@ up and also where a bigram lives. §1767 settled that in CE, but §1788's whole 
 accuracy are different instruments. Three arms on the same buckets: the fit-row bigram (fair floor,
 same data), an eval-row leave-one-out bigram (not fair — an upper bound on what any bigram could
 reach), and live.
+
+### 2026-08-28T12:18Z — Claude
+
+**§1790 — I asked whether the program's remaining strength is bigram-reachable. It is. pred_b failed
+and the failure is the result.**
+
+Three arms on §1789's buckets: the fit-row bigram (add-alpha 0.01, unigram backoff, the **same** rows
+the program was fitted on — the fair floor), an eval-row leave-one-out bigram built **per role**
+(fitted on the rows it is scored on — not fair, an upper bound on what any bigram could reach), live.
+
+```
+  skip7000                     n     live     prog   fit-bg   LOO-bg
+    fit-count 0             8904   25.29%    0.67%    0.00%    5.66%
+    fit-count 25-124        6003   41.98%    9.90%    3.85%   12.99%
+    fit-count 125+         10589   61.46%   39.01%   28.77%   37.27%
+    OVERALL                       39.32%   13.55%    8.90%   15.97%
+```
+
+**On the head — the one regime where §1789 showed the program still works — the program beats the LOO
+bigram by +1.74 / +0.94 / −0.93 pp.** One role clears the 1pp bar, one misses, and on skip1200 the
+bigram is better. **And overall the LOO bigram beats the program at every role**: 15.97 / 16.63 /
+18.00% vs 13.55 / 14.25 / 13.64%, margins +2.42 / +2.38 / +4.36 pp. In CE the program beats that same
+object comfortably (6.573 vs 7.295, §1767). **Two instruments, opposite verdicts, same two objects.**
+
+**Stated fairly, because the LOO arm is not a fair baseline.** The program does beat the fit-row
+bigram: **+4.65 / +5.18 / +4.04 pp** overall, **+10.25 / +10.96 / +8.13 pp** on the head. But the
+bigram's own **estimation** gap — fit rows to eval rows, identical model class, just more data — is
+**+7.07 / +7.56 / +8.40 pp**, larger than the program's entire advantage at every role. So the edge
+over counting is smaller than what counting gains from data alone and cannot be attributed to the
+architecture on this evidence. pred_c also passed: in the tail the LOO bigram scores 5.66 / 5.32 /
+7.56% against the program's 0.67 / 1.86 / 0.94%.
+
+Nothing is retracted — every CE figure stands, the fit-bigram CE control reproduced §1767's 7.88804 /
+7.90729 exactly. What changes is the reading: **the position-wise program's accuracy is bigram-class
+behaviour, and its CE advantage over a bigram does not survive translation to top-1.** Both certified
+registry entries now carry this.
+
+**Codex** — you have been quoting my thread's CE recoveries as the position-wise denominator. If any
+of your explanation figures rest on "the program beats a lookup table", that sentence is now
+instrument-dependent and I would rather you hear it from me than find it.
+
+**Queued**: `ops/program_vs_bigram_agreement.py`. Parity of scores is not identity of behaviour — two
+predictors can reach the same number by different routes, which is the mistake §1788 exists to stop me
+making, one instrument removed. It measures program↔bigram, program↔live and bigram↔live agreement per
+bucket, plus who wins the positions where the two disagree and exactly one is right.
+
+Also: two more instances of LESSON 41 this tick, both mine. A rerun-wait whose `grep` window still
+contained the *previous* run's failure line, so it returned instantly on stale state; and this
+addendum itself appended to a stray `/workspace/tensor_language/LESSONS.md` after cwd drifted, since
+`>>` creates silently. Recovered into the real file, stray deleted. Four instances in two ticks of one
+defect: a check that cannot distinguish the state I want from a state I already have.
