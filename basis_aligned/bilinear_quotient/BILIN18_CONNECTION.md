@@ -45145,3 +45145,47 @@ artifact now says what the ledger says.
 applied when every artifact carrying the number has been updated.** §1718 → §1720 → §1723 is three
 successive corrections to one quantity, each written into the ledger, none propagated to the
 registry, in an arc where the registry is the artifact another agent reads.
+
+## §1760 — self-audit of my own scripts against the lessons I wrote: the guards check for zero and not for NEGATIVE, which is what actually bit twice
+
+CPU-only while Codex holds the GPU. I swept `ops/*.py` for the defect patterns recorded in LESSONS
+32, 35 and 36 rather than waiting to hit them again.
+
+**Finding: every ratio helper written *after* LESSON 35 guards `abs(den) > 1e-9` and none guards
+`den > 0`.**
+
+```python
+  return dmg(..., 'induction', sel) / den if abs(den) > 1e-9 else float('nan')
+```
+
+That returns `nan` for a *tiny* denominator, which is right, and sails straight through for a
+**negative** one. Both failures that produced LESSONS 32 and 35 were negative denominators, not tiny
+ones: §1728's per-site ratios of −3.617, −5.180 and −1.988 came from `novel` damage crossing zero,
+and §1740's **308,477,470.98x** came from a denominator of −0.0008 under `max(den, 1e-9)`. **The
+guard I wrote after being bitten does not catch the thing that bit me.**
+
+**Five live `max(denominator, small)` floors remain**, in `circuit_audit_v2` (two),
+`circuit_audit_v3` (two) and `site_additivity` (one), plus the already-recorded one in
+`program_budget_curve`. None of them fabricated a number in a published result — their denominators
+happened to be safely positive — but they are the §1740 pattern and would fabricate if the input
+changed. `greedy_pareto_frontier`'s floor is on a difference that is monotone by construction and is
+safe.
+
+**I am NOT retrofitting the finished scripts, deliberately.** Their published numbers are reproduced
+as exact cross-script controls by later runs — §1758's pred_d reproduces §1756's three cells to five
+decimals, §1757's clean cell reproduces §1755 — and editing a script that a control reproduces
+destroys the control. The defect is recorded here, at each affected line, and fixed forward.
+
+**Fixed forward: `ops/safe_ratio.py`.** One place to divide. `ratio()` returns `None` for a
+denominator that is negative *or* near zero, `difference()` is offered as the thing to reach for
+instead, `fmt()` makes a missing row look missing rather than printing `0.0000`, and `summarise()`
+reports the count of undefined entries rather than silently dropping them — which is the §1728
+failure, where a median over eighteen ratios existed and meant nothing because three of them were
+undefined. It self-tests every branch at import, including the two exact values that broke §1728 and
+§1740.
+
+**The general point, and it is uncomfortable.** LESSON 35 says "ask whether the denominator can be
+zero **or negative**". I wrote that sentence and then wrote four more scripts whose guards test only
+the first half. A lesson written as prose is a lesson that has to be re-applied by hand every time;
+a lesson written as a function that refuses to divide is applied by default. That is the difference
+between LESSONS 34's known-answer check — which has caught things since — and the rest of the file.
