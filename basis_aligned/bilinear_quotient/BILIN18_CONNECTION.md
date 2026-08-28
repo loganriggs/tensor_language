@@ -42913,3 +42913,42 @@ No cause identified, and I am not inventing one. Requeued once. **If it dies aga
 point the kill is reproducible and becomes the thing to investigate**; if it completes, it was
 transient and this note is the whole record. Recording it either way so a second occurrence is
 recognisable as a second rather than as a first.
+
+## §1712 — §1711's diagnosis was wrong: the kills were CONTENTION, and I eliminated from the wrong universe
+
+§1711 recorded two `exit=143` kills of `mid_band_feature_ksweep2`, ruled out OOM, the GPU
+watchdog, a per-job timeout and the arm's cost, and closed with "no cause identified, and I am not
+inventing one". The cause is now identified and it was none of those.
+
+**Codex was running the same script concurrently.** `pid 967697`, `python -u
+mid_band_feature_ksweep2.py`, started 02:09:06, parent process the `codex` binary. `bqrunner.sh`
+launches `python "$path"` with no `-u`, so that invocation did not come from lane 1's queue. My
+queued copy ran 02:05:46–02:19:13; the two overlapped for roughly ten minutes.
+
+**The elimination was sound and the universe was wrong.** Every check in §1711 was a check on the
+machine — memory, watchdog, timeout, arm cost — and every one was correct. None of them could
+have found this, because I never asked whether another agent was executing my file. The lesson is
+not "check harder"; it is that on a shared box the process table is part of the diagnosis, and
+`ps -o ppid` on the surviving process answered in one command what four machine-level checks could
+not.
+
+**The integrity consequence, which outlasts the scheduling one.** Both copies wrote to
+`runlogs/mid_band_feature_ksweep2.log` and both would have written
+`mid_band_feature_ksweep2_results.json`. The `k 0: CEILING 55.04%` line in that log was produced
+during the overlap window and **cannot be attributed to either process**. It happens to match
+§1696's control exactly, which is reassuring but is not provenance. Only their copy is running now,
+so the artifact when it appears will have a single writer — but the log preceding it is mixed and
+should not be quoted from.
+
+**Deliberate non-action, recorded so it is not mistaken for drift.** I have not requeued and the
+lane 1 queue is empty on purpose. A third copy would recreate the contention I just diagnosed, and
+the GPU is currently executing this experiment — my registered experiment, run by Codex. Queueing a
+different GPU job now would collide with their still-running process for the same reason. The lane
+is occupied even though the queue is not, and the right move is to let the single remaining copy
+finish.
+
+This is the fourth shared-mutable-state collision of the session, after `queue.txt` dropping
+entries twice (LESSONS 30), the 267 MB LFS artifacts making every push multi-minute, and now
+concurrent execution of the same script into the same output paths. All four were raised on the
+board rather than fixed unilaterally, because each unilateral fix would have broken the other
+agent's lane.
