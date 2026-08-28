@@ -7,8 +7,8 @@ GO, committed, and pushed. Its final CPU preflight passed on 37 committed source
 the exact frozen plan and disjoint 16/16 document cohorts, with protected snapshot
 fingerprint `c2aac1c3a7d841aa1c4a7b3aa57b5d215f78eacf12da14ca995256f01af046d7`.
 All authority/outcome namespaces remain absent. The no-outcome authority has not been
-frozen because the registered one-live-attention sweep currently occupies the RTX 5090
-at roughly 97% utilization.
+frozen because the managed GPU queue still occupies the RTX 5090 at roughly 97%
+utilization.
 
 The strategic change is the new parallel factorization branch. MLP1 and MLP2 now each
 have a separate agent implementing implicit, gauge-controlled folded-third-order tensor
@@ -22,8 +22,16 @@ the remaining vocabulary stays about 18 percentage points short. The spectacular
 at sample count equal to feature dimension (`n = D = 1152`) was a numerical conditioning
 artifact: a ridge scaled to the largest eigenvalue restores roughly 9.4--9.9 percentage
 points there. It does not make the coverage curve strictly monotone, and it does not close
-the context gap. The running one-live-attention sweep is therefore a well-targeted test of
-the smallest departure from the position-wise program family.
+the context gap.
+
+The one-live-attention sweep completed while this review was being written and closes the
+smallest-departure hypothesis. The best single live attention layer recovers only
+`+0.38/+0.47/+0.35` percentage points, or about `1.5%/1.7%/1.4%` of the gap to live.
+Context is therefore distributed rather than concentrated at one attention depth. More
+strikingly, restoring live attention 5 or 6 into the otherwise compiled stream destroys
+roughly 11--13 percentage points on all three roles, while layer 4 is almost neutral. This
+is direct evidence of a sharply typed interface mismatch around layers 5--6, not evidence
+that those native modules are intrinsically harmful.
 
 ## Honest explanation ledgers
 
@@ -48,9 +56,10 @@ damping, or fragile in-distribution cancellation.
    physical-gate assay asks which actual MLP1 actions discriminate the incoming code.
 2. **MLP1 to MLP2:** MLP2 suppresses much of an exposed MLP1 mismatch, but the previous
    shuffled-write result ruled out a single specially aligned repair vector.
-3. **Context injection:** token-only programs are now empirically ceilinged. The live
-   attention sweep asks where one contextual edge buys the most, but no typed reusable
-   attention interface is admitted yet.
+3. **Context injection:** token-only programs are empirically ceilinged, and no single
+   live attention restoration buys more than 1.7% of the missing gap. The catastrophic
+   layer-5/6 restorations show that contextual modules require compatible upstream and
+   downstream representations rather than isolated transplantation.
 4. **CE versus internal fidelity:** small average CE can coexist with changed top-token
    decisions, while internal mismatch can be harmless if a later module robustly
    compensates. Behavioral compilation and causal abstraction must remain separate ledgers.
@@ -87,13 +96,14 @@ damping, or fragile in-distribution cancellation.
    `NNN, PNN, NPN, NNP, PPN, PNP, NPP, PPP` and compute pair/triple interaction terms. This
    directly decides whether MLP2 compensation is robustly useful and localizes the interface
    requiring joint refit.
-4. **Fit an overlapping sparse MLP0 lexical dictionary jointly with centered continuous
+4. **Localize the attention-5/6 interface cliff with a preregistered adjacent-package
+   factorial.** Restore compatible pairs or a short contiguous package, separately split
+   routing and value, and measure whether the catastrophe is an incoming-state mismatch,
+   an outgoing-reader mismatch, or their interaction. This is more informative than another
+   one-site sweep and directly targets whole-program composability.
+5. **Fit an overlapping sparse MLP0 lexical dictionary jointly with centered continuous
    context residuals and sparse downstream readers.** This captures multi-label structure
    such as city + capitalization while making simplicity pay through MLP1/2 reader sparsity.
-5. **Use the one-live-attention result to define one typed contextual edge.** Decompose it
-   into routing and value computations, then test whether that edge composes with the early
-   MLP program. This targets the now-certified context gap without reopening broad attention
-   sweeps.
 
 ## Highest-priority safe action executed
 
