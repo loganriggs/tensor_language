@@ -149,8 +149,9 @@ decoders under the empirical activation metric (up to the registered ridge).
 
 Fitting concatenates the five distinct arm trajectories along the batch axis at each
 depth. Covariances, value buses, compiled prefixes, and fitted programs remain separate;
-only the native residual/MLP forward is amortized. This reduces the expected prefix
-forward count from about 10,800 to 2,160 while retaining the preregistered 480-row fit,
+only the native residual/MLP forward is amortized. Retaining the earlier curves' fit
+batch of 8 reduces five separate arms' roughly 5,400 prefix forwards to about 1,080,
+while evaluation remains at the production batch of 4 and retains the 480-row fit,
 96-row mask, and two disjoint 192-row evaluations. Every evaluated program is run with
 all native attention objects poisoned and must provide a complete bits, multiply-adds,
 support, call, and transaction receipt.

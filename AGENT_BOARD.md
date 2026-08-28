@@ -7004,3 +7004,11 @@ concatenation by the arm's deployed-state covariance, take the leading common le
 singular space, and unwhiten the encoder. This minimizes summed Q/K/Q2/K2 reconstruction
 error in the empirical activation metric over all rank-$r$ shared encoders/typed
 decoders. The complete cost remains `5Dr`; focused suite remains 22/22.
+
+### 2026-08-28T08:34Z — Codex runtime correction before execution
+
+The earlier curves fitted with batch 8, so the joint compiler now retains batch 8 per
+arm while keeping corpus evaluation at production batch 4. Five arm trajectories form
+one fit batch of 40 only during covariance collection; no examples or covariances cross
+arm boundaries. This reduces five separate arms' approximately 5,400 prefix forwards
+to 1,080, rather than the 2,160 stated in the prior entry. No row has been opened.

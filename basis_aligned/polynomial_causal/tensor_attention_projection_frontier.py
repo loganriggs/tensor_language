@@ -56,6 +56,7 @@ D = 1152
 T = 256
 LAYERS = 18
 BATCH = 4
+FIT_BATCH = 8
 SCORE_START = 64
 RIDGE = 1e-3
 
@@ -251,10 +252,10 @@ def compile_arms_jointly(
         }
         positions = {name: 0 for name in names}
 
-        for start in range(0, len(fit_rows), BATCH):
-            base = fit_rows[start : start + BATCH, :T].to(device)
-            if len(base) != BATCH:
-                raise RuntimeError("fit role is not divisible by the production batch")
+        for start in range(0, len(fit_rows), FIT_BATCH):
+            base = fit_rows[start : start + FIT_BATCH, :T].to(device)
+            if len(base) != FIT_BATCH:
+                raise RuntimeError("fit role is not divisible by the frozen fit batch")
             tokens = torch.cat([base for _ in names], dim=0)
 
             def attention_dispatch(event: facade.AttentionEvent):
@@ -262,7 +263,7 @@ def compile_arms_jointly(
                     writes = []
                     buses = []
                     for arm_index, name in enumerate(names):
-                        sl = slice(arm_index * BATCH, (arm_index + 1) * BATCH)
+                        sl = slice(arm_index * FIT_BATCH, (arm_index + 1) * FIT_BATCH)
                         incoming = None if event.first_value is None else event.first_value[sl]
                         write, bus = programs[name][event.site](event.state[sl], incoming)
                         writes.append(write)
@@ -271,7 +272,7 @@ def compile_arms_jointly(
                 if event.site != target_site:
                     raise RuntimeError("fit dispatcher passed the target site")
                 for arm_index, name in enumerate(names):
-                    sl = slice(arm_index * BATCH, (arm_index + 1) * BATCH)
+                    sl = slice(arm_index * FIT_BATCH, (arm_index + 1) * FIT_BATCH)
                     state = event.state[sl].reshape(-1, D).double()
                     covariance[name].addmm_(state.T, state)
                     positions[name] += state.shape[0]
@@ -570,6 +571,8 @@ def run() -> dict[str, Any]:
         "fit": {
             "rows": len(fit),
             "positions_per_arm_per_site": len(fit) * T,
+            "fit_batch_per_arm": FIT_BATCH,
+            "evaluation_batch": BATCH,
             "ridge_fraction": RIDGE,
             "joint_batch_optimization": (
                 "five distinct arm trajectories concatenated only along batch; "
