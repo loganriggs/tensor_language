@@ -246,8 +246,9 @@ def test_frequency_partition_allows_empty_cells_but_not_fabricated_mass() -> Non
 def test_existing_program_backend_result_joins_exact_reduction_receipt(background) -> None:
     action = capability.FinalAction("rr", background)
     synthetic = _batch(action, 0)
+    runtime_identity_sha256 = "4" * 64
     fields = {
-        "identity_sha256": synthetic.action_identity_sha256,
+        "identity_sha256": runtime_identity_sha256,
         "route": "R", "program_sha256": "1" * 64,
         "row_ce_sum": synthetic.row_ce_sum,
         "row_ce_count": synthetic.row_ce_count,
@@ -280,7 +281,8 @@ def test_existing_program_backend_result_joins_exact_reduction_receipt(backgroun
         action_key=action.key,
         final_action_identity_sha256=synthetic.action_identity_sha256,
         materialization_sha256="2" * 64, binding_sha256="3" * 64,
-        runtime_identity_sha256="4" * 64, runtime_receipt_sha256="5" * 64,
+        runtime_identity_sha256=runtime_identity_sha256,
+        runtime_receipt_sha256="5" * 64,
         reduction_sha256=reduction_sha256,
         frequency_assignment_sha256="6" * 64, batch_ordinal=0,
     )

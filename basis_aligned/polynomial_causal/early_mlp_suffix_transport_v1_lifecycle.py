@@ -67,6 +67,8 @@ NUMERICAL_STAGE_CLOSURE = (
     HERE / "test_early_mlp_suffix_transport_v1_final_capability.py",
     HERE / "early_mlp_suffix_transport_v1_observational_role.py",
     HERE / "test_early_mlp_suffix_transport_v1_observational_role.py",
+    HERE / "early_mlp_suffix_transport_v1_observational_execution.py",
+    HERE / "test_early_mlp_suffix_transport_v1_observational_execution.py",
     HERE / "early_mlp_suffix_transport_v1_final_actions.py",
     HERE / "test_early_mlp_suffix_transport_v1_final_actions.py",
 )

@@ -155,8 +155,11 @@ def observational_batch_from_backend(
     )
     if type(reductions) is not expected_reduction or type(receipt) is not expected_receipt:
         raise TypeError("observational backend returned the wrong typed result")
+    # Program reductions are minted by the lower broker trace; the outer receipt
+    # separately binds that trace to the stronger full-row semantic action identity.
+    # Conflating the two hashes rejects every real materialized program transaction.
     if receipt.action_key != action.key or reductions.identity_sha256 != (
-        receipt.final_action_identity_sha256 if program else receipt.identity_sha256
+        receipt.runtime_identity_sha256 if program else receipt.identity_sha256
     ) or (not program and reductions.action_key != action.key):
         raise RuntimeError("observational backend action identity changed")
     scalar_fields = (
