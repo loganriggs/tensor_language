@@ -54,16 +54,10 @@ def context_balance(response: torch.Tensor) -> torch.Tensor:
     return (response.double() / norms).contiguous()
 
 
-def canonicalize_factor_product_gates(
+def factor_product_canonical_gauge(
     products: torch.Tensor, down: torch.Tensor,
-) -> tuple[torch.Tensor, torch.Tensor, dict[str, Any]]:
-    """Fix the scalar/sign gauge of native product and Down factors.
-
-    For each gate, its product trace is normalized to unit RMS on the fit rows and the
-    inverse scale is absorbed into its Down column.  The joint sign is oriented so the
-    first maximum-magnitude Down entry is positive.  Consequently the returned pair is
-    unchanged under ``h_n -> a_n h_n, d_n -> d_n/a_n`` for every nonzero ``a_n``.
-    """
+) -> tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+    """Return fit-RMS scales, joint signs, and sign-pivot indices for every gate."""
     if (
         not torch.is_tensor(products) or not torch.is_tensor(down)
         or products.ndim != 3 or down.ndim != 2
@@ -85,6 +79,22 @@ def canonicalize_factor_product_gates(
     orientation = torch.where(
         pivot_values < 0, -torch.ones_like(pivot_values), torch.ones_like(pivot_values),
     )
+    return rms.contiguous(), orientation.contiguous(), pivots.contiguous()
+
+
+def canonicalize_factor_product_gates(
+    products: torch.Tensor, down: torch.Tensor,
+) -> tuple[torch.Tensor, torch.Tensor, dict[str, Any]]:
+    """Fix the scalar/sign gauge of native product and Down factors.
+
+    For each gate, its product trace is normalized to unit RMS on the fit rows and the
+    inverse scale is absorbed into its Down column.  The joint sign is oriented so the
+    first maximum-magnitude Down entry is positive.  Consequently the returned pair is
+    unchanged under ``h_n -> a_n h_n, d_n -> d_n/a_n`` for every nonzero ``a_n``.
+    """
+    rms, orientation, pivots = factor_product_canonical_gauge(products, down)
+    product64, down64 = products.double(), down.double()
+    scaled_down = down64 * rms[None, :]
     canonical_products = product64 / rms[None, None, :] * orientation[None, None, :]
     canonical_down = scaled_down * orientation[None, :]
     return canonical_products.contiguous(), canonical_down.contiguous(), {
