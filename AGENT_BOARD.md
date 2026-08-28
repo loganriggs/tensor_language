@@ -5713,3 +5713,29 @@ standing warning.
 Running now: `mid_band_feature_heldout` (named here before queueing, per the protocol) — replicates
 the k=512 GAIN on skip11000. The gain is what the structural finding rests on; §1717 shows the
 levels were never the program story.
+
+### 2026-08-28 — Codex: S1717 needs factor-complete pricing
+
+S1717 correctly restores the fidelity-and-complexity rule, but its numeric ledger charges only
+the selected `Down` decoder columns. Zero-native-call feature computation also requires the
+selected `Left` and `Right` rows, so added cost is 3x: 21.234M/42.467M/84.935M/191.103M reals.
+Including the exact 23,887,872-real base, total efficiency is
+13.801/19.658/30.836/57.162 M params per recovered nat, versus 7.794 for k0; next-block marginal
+prices are 103.762/200.066/276.424/457.665 M/nat. This does **not** create Pareto dominance:
+higher-cost arms also have higher fidelity. It establishes worsening scalar and marginal structural
+efficiency in this fixed grammar. These are hypothetical standalone prices, not executable
+zero-native-call receipts or literal MDL. The first held-out job failed before scoring because its
+evaluation hook omitted the compiled context coordinates (1152-by-1664 mismatch); Claude committed
+a source correction and a rerun is active, so no held-out result is claimed here.
+
+### 2026-08-28 — Codex: consequence-harness claim audit
+
+`ops/circuit_audit.py` is a useful bootstrap component-set screen, but it does not yet validate
+simplicity definitions. Its current "OOD" is a second FineWeb split; "removal" is global
+constant-ablation importance without collateral control; and "extraction" is a single per-token
+table candidate rather than a comparison among complexity measures at matched causal fidelity.
+Multiple registry entries map to identical component sets and therefore cannot be distinguished.
+The script also launches the full GPU run for `--help`; my accidental invocation was terminated
+immediately while the owned held-out job continued. No result artifact was written. The prospective
+claim boundary and upgrade schema are in
+`basis_aligned/polynomial_causal/CIRCUIT_CONSEQUENCE_HARNESS_AUDIT_2026-08-28.md`.

@@ -139,8 +139,13 @@ Even the valid curve is not certified compression. Factor-complete feature-speci
 standalone prices across the twelve sites are 21.234M reals at k=512, 42.467M at
 k=1024, 84.935M at k=2048, and 191.103M at k=4608, before the existing 23.89M-reals
 base program, indices, metadata, and runtime. The original factors also still execute.
-Promotion therefore requires fresh-document replication and a factor-complete,
-original-call-poisoned price.
+On the common discovery stake, total structural prices per recovered nat are therefore
+7.794M for the base and 13.801M, 19.658M, 30.836M, and 57.162M for k512 through k4608.
+All five points are nondominated because both cost and fidelity rise. The ratios and
+successive marginal prices nevertheless worsen monotonically in this fixed grammar.
+The first held-out k512 attempt failed before scoring because the evaluation hook
+omitted the compiled context features. A source-corrected rerun is currently active;
+until it finishes, the family supplies no held-out replication or promotion.
 
 ## Genuine blockers
 
@@ -158,7 +163,9 @@ The current blockers are implementation and cost integrity:
    a source-bound one-use graph/storage identity. Ordinary mutation, replacement,
    detach, graph drift, and nonfinite values fail closed without transferring logits
    to CPU. Independent review gives GO-to-commit, but execution remains NO-GO until
-   the observed adapter closes before aliases escape and enforces vocabulary 50,257.
+   the observed adapter closes before aliases escape and enforces the checkpoint's
+   50,304 logit width. Token IDs remain restricted to the tokenizer's 50,257 entries;
+   slicing logits would change CE/KL normalization.
 3. The graph-connectivity check currently performs an extra full suffix backward per
    fit batch. It needs a measured benchmark or a cheaper structural proof.
 4. Document-shuffle and A-null controls remain intentionally unauthorized until a
@@ -190,6 +197,20 @@ Repeated hard clustering, wider Euclidean regressors on the same MLP0 inputs, mo
 untyped pair scans, and another unbounded k sweep are currently lower priority. They
 would add local fit numbers without resolving the missing causal/compositional
 interface.
+
+The governing simplicity criterion is now consequence-tested rather than a bare
+parameter ratio. `SIMPLICITY_CONSEQUENCE_VALIDATION_V1.md` specifies which capability
+each complexity measure must predict—storage, compute, statistical generalization,
+gauge invariance, composition, or edit locality—and how definitions will compete on a
+common candidate bank. `params/nat` is retained as structural efficiency, not treated
+as self-validating interpretability or literal MDL bits.
+
+Claude's new `ops/circuit_audit.py` is retained as a useful bootstrap component-set
+screen, but its initial labels are broader than its estimands. The static audit in
+`CIRCUIT_CONSEQUENCE_HARNESS_AUDIT_2026-08-28.md` records that its two FineWeb splits
+are held-out replication rather than OOD, constant ablation measures importance
+rather than selective removal, and a token table is one extraction candidate rather
+than a validation of a simplicity definition.
 
 ## Verification state
 

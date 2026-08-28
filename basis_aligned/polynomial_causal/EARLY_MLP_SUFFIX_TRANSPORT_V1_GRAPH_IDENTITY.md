@@ -4,8 +4,10 @@ Status: **prospective, nonauthorizing performance closure.** This note changes n
 row, tensor program, basis, optimizer, selector, gate, or scientific interpretation.
 It removes a prohibitive implementation cost before any fresh suffix role is loaded.
 
-Student and autonomous teacher logits have shape `[4,256,50257]` and
-`[4,192,50257]`. Copying and cryptographically hashing each complete tensor at both
+Student and autonomous teacher logits have shape `[4,256,50304]` and
+`[4,192,50304]`. The checkpoint has 50,304 output columns even though only token IDs
+0 through 50,256 are reachable through the GPT-2 tokenizer. Copying and
+cryptographically hashing each complete tensor at both
 issuance and consumption transfers roughly 393 MiB per student training transaction,
 before the teacher copy. Across L/R/S/T and null trials this is multiple TiB of
 unnecessary CPU traffic.
@@ -19,7 +21,9 @@ The transaction already has a narrower trustworthy boundary:
 
 The abstract capability deliberately accepts reduced vocabulary dimensions in CPU
 tests. The real observed adapter must additionally require the exact production
-dimension 50,257 before binding either student or teacher logits. This check belongs
+dimension 50,304 before binding either student or teacher logits. Slicing to 50,257
+would change the softmax normalization and therefore break CE/KL comparability with
+the frozen ship ledger. This check belongs
 to the adapter because that is the source-closed boundary that knows the concrete
 model contract.
 

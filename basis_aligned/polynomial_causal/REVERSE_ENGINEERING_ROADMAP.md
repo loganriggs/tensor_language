@@ -804,4 +804,19 @@ version, layout, dtype/device, gradient-graph descriptor, and finiteness; rank-6
 labels remain content-hashed. A regression tripwire proves both large paths avoid the hash helper,
 ordinary student and teacher mutation fail closed, and the complete suffix suite passes `134/134`.
 Independent artifact review gives GO-to-commit but correctly keeps execution NO-GO until the real
-adapter synchronously closes aliases and checks the exact 50,257 vocabulary dimension.
+adapter synchronously closes aliases and checks the exact 50,304 checkpoint logit
+dimension. The 50,257 figure is tokenizer support, not output-head width; slicing the
+47 padded columns would change every softmax-based metric.
+
+## 2026-08-28: factor-complete simplicity correction
+
+The middle-feature `params/nat` correction initially counted only decoder columns. Standalone
+selected native products also need one `Left` and one `Right` row per feature, tripling every
+increment. Exact factor-complete total prices are 45.122M, 66.355M, 108.823M, and 214.991M reals at
+k512, k1024, k2048, and k4608; total efficiencies are 13.801, 19.658, 30.836, and 57.162 M params
+per recovered nat versus the base's 7.794. All arms remain Pareto-nondominated because higher cost
+buys higher fidelity, but marginal structural efficiency worsens monotonically. These are
+hypothetical fixed-grammar prices, not executable receipts: the assay still calls native factors,
+and literal MDL additionally requires precision, support, decoder, and gauge accounting. The
+first held-out attempt failed before scoring due to a context-feature shape mismatch; a corrected
+rerun was active at the time of this update.
