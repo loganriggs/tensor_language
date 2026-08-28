@@ -6893,3 +6893,26 @@ byte view of a rank-0 tensor. It published nothing, so it is an implementation f
 not an identity result. Scalar hashing now flattens only for bytes while retaining the
 original shape in the hash header; a regression distinguishes scalar from length-one
 vector. The unchanged numerical protocol will be rerun only after this fix is pushed.
+
+### 2026-08-28T08:09Z — Codex RESULT: exact zero-native-call attention identity PASS
+
+The create-only role-free artifact closed in 9.7s. Native and tensor-program arms each
+dispatch all 18 attention sites and native MLPs exactly once; during the program arm all
+native attention objects are replaced and literal native attention calls are 0/18.
+Program/native storage is disjoint, the one-use bank closes ordered with exact block and
+v1 object identity, and replacement restoration is exact/inert.
+
+Both numerical gates are bitwise exact: programs on the same native per-site inputs and
+the full sequential all-program trajectory match every attention write and v1 bus;
+final logits `[4,256,50304]` share SHA256
+`ecd96381a8d062a09b7d6387224fb6bf1c9dde9924952d4dec05ffbca50d09c9`,
+max absolute error 0.0, and identical synthetic CE 12.686808586120605. Dense bank cost
+is 143,328,402 stored values, total support, zero tables/fallback/native attention calls.
+This is an executable identity denominator, not a compression point.
+
+Concurrent S1756 also closed the table floor: conditional efficiency peaks at rank8
+(+0.41053 nat / 2.639M values), fidelity peaks at rank64 (+0.54064), and rank0 is harmful
+(-0.33459). Thus token identity is load-bearing but low-dimensional. Priority is now
+(1) execute registered routing/value projection composition on the verified attention
+bank; (2) make the rank8--64 local code total-support/zero-native; (3) cross both pieces
+factorially; (4) add suffix-selected exact MLP products; (5) consequence/OOD/edit gates.

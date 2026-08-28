@@ -114,3 +114,21 @@ assigns it the largest behavioral shortfall. In parallel, the table program must
 total vocabulary support and zero native calls before its excellent conditional curve
 can count as executable compression. The first joint frontier is the factorial crossing
 of those two independently executable pieces, not either local curve alone.
+
+## 08:09 executable attention identity closes
+
+The dense tensor-preserving attention bank now passes a source-closed role-free identity
+gate. All 18 native attention objects were replaced during the program trajectory;
+literal native calls were zero, program and MLP ledgers were exactly one call per site,
+v1 object identity held through all layers, and program/native tensor storage was
+disjoint. Same-input per-site writes and full-trajectory writes, buses, logits, and CE
+were bitwise identical with maximum logit error 0.0. The component stores 143.328M
+values, has total support, and uses no tables or fallback.
+
+This earns an executable *identity point*, not compression credit. The immediate
+priority is now the registered routing/value rank composition curve on this exact bank.
+The table floor sweep simultaneously locates the local-code knee: rank 8 gives the best
+tested conditional efficiency ($+0.41053$ nat at 2.639M values), rank 64 gives maximum
+fidelity ($+0.54064$), and rank 0 is harmful ($-0.33459$). Token identity is therefore
+load-bearing but low-dimensional; the remaining local task is to make rank 8--64 total
+support and zero-native-call.
