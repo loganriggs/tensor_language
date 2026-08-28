@@ -47852,3 +47852,53 @@ control passed.
 **Open question this ends on.** The efficiency optimum is at rank 8 of the ranks tested, and rank 4 was
 the origin of the efficiency metric so it could not be scored. How low does the rank go before the
 program breaks, and is the optimum below 8?
+
+## §1813 — a rank-1 table keeps 78% of the settled program at 3.6x less cost, and the MAP is now 94% of the bill
+
+`ops/low_rank_floor.py`, 436.9s, **DISCOVERY ONLY**, rung 3 (§1812's closing question).
+**All four predictions True.**
+
+```
+    r1_L-1    5.628M   9.90% / 10.65% / 10.07%      acc per M:  0.0176 / 0.0189 / 0.0179
+    r2_L-1    5.864M  10.15% / 10.92% / 10.16%                  0.0173 / 0.0186 / 0.0173
+    r4_L-1    6.338M  10.75% / 11.56% / 10.95%                  0.0170 / 0.0182 / 0.0173
+    r8_L-1    7.284M  11.36% / 12.08% / 11.74%                  0.0156 / 0.0166 / 0.0161
+    r16_L-1   9.176M  11.68% / 12.45% / 12.10%                  0.0127 / 0.0136 / 0.0132
+    r64_L-1  20.531M  12.88% / 13.49% / 12.89%   (§1786's settled design point)
+```
+
+**pred_a passed**: accuracy is monotone in rank 1 -> 16 at all sites, on every role. So §1812's
+non-monotonicity (rank 32 worse than rank 16 at L7) is a **depth** phenomenon and not a property of the
+rank knob — that caveat is now bounded.
+
+**pred_b passed, and it corrects §1812's answer.** The accuracy-per-real optimum is **rank 1**, and the
+metric decreases monotonically with rank on all three roles. §1812 reported the optimum as rank 8, but
+its metric measured accuracy *above the rank-4 arm* and so could not score rank 4 or anything below it.
+On an absolute metric with no arbitrary origin there is **no interior optimum at all** — cheaper is
+always more efficient.
+
+**pred_c passed with room: a rank-1 table retains 77 / 79 / 78%** of the settled rank-64 program's top-1
+(9.90 vs 12.88, 10.65 vs 13.49, 10.07 vs 12.89) at **5.628M against 20.531M reals — 3.6x cheaper**. One
+direction per site, scaled per token, keeps most of what sixty-four directions buy.
+
+**And the cost accounting has quietly inverted.** Splitting each arm:
+
+```
+    table rank  1:  tables  0.320M + map 5.308M    map is 94.3% of cost
+    table rank  8:  tables  1.975M + map 5.308M    map is 72.9%
+    table rank 64:  tables 15.223M + map 5.308M    map is 25.9%
+```
+
+**At the efficient end, 94% of the program is the embedding->row map, not the tables.** The whole
+table-rank line from §1751 onward has been optimising the minority of the bill. §1786 certified the map
+at rank 64 and nothing has swept it since, because at full-rank tables it was a rounding error — at
+rank 1 it is essentially the entire program.
+
+Controls (pred_d): r4, r8 and r16 reproduce §1812's published 0.1075 / 0.1156 / 0.1095, 0.1136 / 0.1208
+/ 0.1174 and 0.1168 / 0.1245 / 0.1210 within 0.01; endpoints reproduce §1789 within 0.001; the rank-64
+all-sites cost reproduces §1786's 20.531M; coverage 5419.
+
+**Open question this ends on.** Sweep the MAP rank. §1786 reported a floor there — ranks 8 and 16 were
+worse than simply copying the neighbour's row — but that was measured with full-rank tables, where the
+map's cost was 26% of the bill and its errors were diluted by 15M reals of table. At table rank 1 the
+map is the program.
