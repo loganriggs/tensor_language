@@ -44728,3 +44728,56 @@ six modules native, at 44% of their fidelity.**
 Controls (pred_d): step 0 reproduced §1748's +0.40631 and +0.38578 exactly — the same program
 rebuilt and re-evaluated by a third script — with table-only CE 7.35114, live CE 3.29205, coverage
 5419 of 50257, and all 36 initialisation fits firing on the full 24576 positions.
+
+## §1751 — capacity is not the constraint: rank 32 and rank 128 tie, rank 128 collapses under training, and a control caught me changing a quantity I was comparing against
+
+`ops/downstream_rank_sweep.py`, 226.8s, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c True | pred_d False.**
+
+```
+  held out (skip11000), stake 4.2611 nats, checkpoint selected on skip7000
+    rank   8   start +0.46905 -> best +0.60060  (+14.09%)  0.664M reals   0.905 nats/M
+    rank  32   start +0.56560 -> best +0.63897  (+14.99%)  2.654M reals   0.241 nats/M
+    rank 128   start +0.61367 -> best +0.63865  (+14.99%) 10.617M reals   0.060 nats/M
+    sum of the 36 solo recoveries                +1.7460
+
+  trajectories (skip11000, every 60 steps)
+    rank   8   .4691 .6006 .5914 .5965 .5869 .5616 .5296
+    rank  32   .5656 .6119 .6390 .5933 .5417 .5157 .4856
+    rank 128   .6137 .6387 .5804 .3488 .3837 .1556 -.0914
+```
+
+**pred_a FAILED and that is the answer to the question the run was built for.** Recovery rises from
+rank 8 to rank 32 (+0.0384) and then **stops: 0.63897 against 0.63865, a difference of 0.0003 across
+a 4x capacity increase.** Capacity is not the binding constraint beyond rank 32.
+
+> **The remaining composition gap is a property of the PROGRAM CLASS.** A per-token table plus a
+> linear read of the site's own input tops out near **+0.639 nats, 15% of the table-program stake and
+> 37% of the sum of the parts**, and no amount of rank moves it. Rank 8 stays the design point at
+> **0.905 nats per million reals against rank 128's 0.060 — fifteen times the efficiency for 94% of
+> the fidelity.**
+
+**Rank 128 collapses under training**, from +0.6387 at step 60 to **−0.0914 at step 360** — worse
+than plain tables. Rank 8 decays gently over the same schedule. With 10.6M parameters against 96 fit
+rows, that is a straightforward overfitting signature, and it names a second real limit: **the fit
+set, not just the class, bounds what a downstream objective can be trained to at high rank.**
+
+**pred_d FAILED and the control did exactly its job.** The rank-8 **start** came out at +0.46905
+against §1748's +0.38578 — 0.083 apart, far outside the 0.002 bar. The cause is in this run's own
+construction and was documented in advance: one interleaved compile serves all three ranks, and the
+context each site is fitted against uses the **top** rank. So this rank-8 program inherits a prefix
+built from rank-128 maps and is **not** the same object as §1748's, where the prefix was rank 8.
+
+Two things follow, and the second is a correction to me. First, the control caught a genuine
+non-comparison rather than a numerical drift, which is what a cross-script control is for. Second,
+**my in-code claim that the asymmetry "can only DISADVANTAGE the lower ranks" was wrong in sign**:
+the rank-8 program starts **higher** with a rank-128 prefix than with a rank-8 one. That is a useful
+finding on its own — **the quality of the compiled context matters more than matching its capacity to
+the site being fitted** — and it was asserted rather than measured, so it goes in the record as a
+correction, not as a result of this run's design.
+
+pred_c passed: gains per rank step +0.0384 then −0.0003, diminishing, so the sweep is not
+under-budgeted at the top end.
+
+Controls that did hold: table-only CE 7.35114, live CE 3.29205, coverage 5419 of 50257, all 36
+initialisation fits on the full 24576 positions.

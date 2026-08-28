@@ -1,0 +1,213 @@
+{
+ "config": {
+  "ranks": [
+   8,
+   32,
+   128
+  ],
+  "steps": 360,
+  "batch": 4,
+  "lr": 0.001,
+  "objective": "final cross-entropy on the FIT rows, covered positions from 64",
+  "checkpoint": "best of the evaluated steps by skip7000; skip11000 reported at that step. \u00a71750 reported its FINAL step and peaked earlier, so selection is made explicit here rather than left to the schedule.",
+  "init": "one interleaved compile, SVD truncated per rank; the fit CONTEXT uses the top rank, which can only disadvantage the lower ranks",
+  "ROLE_NOTE": "DISCOVERY ONLY. skip7000 selects the checkpoint; skip11000 is untouched by both training and selection."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "table_only": 7.35114,
+   "stake": 4.05909
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "table_only": 7.35825,
+   "stake": 4.26114
+  }
+ },
+ "by_rank": {
+  "8": {
+   "start": {
+    "skip7000": 0.48652,
+    "skip11000": 0.46905
+   },
+   "best_step": 60,
+   "best": {
+    "skip7000": 0.62032,
+    "skip11000": 0.6006
+   },
+   "best_frac": {
+    "skip7000": 0.15282,
+    "skip11000": 0.14095
+   },
+   "cost_M": 0.6636,
+   "nats_per_Mreal": 0.9051,
+   "trajectory": [
+    {
+     "step": 0,
+     "skip7000": 0.48652,
+     "skip11000": 0.46905
+    },
+    {
+     "step": 60,
+     "skip7000": 0.62032,
+     "skip11000": 0.6006
+    },
+    {
+     "step": 120,
+     "skip7000": 0.60774,
+     "skip11000": 0.5914
+    },
+    {
+     "step": 180,
+     "skip7000": 0.61351,
+     "skip11000": 0.59649
+    },
+    {
+     "step": 240,
+     "skip7000": 0.60379,
+     "skip11000": 0.58687
+    },
+    {
+     "step": 300,
+     "skip7000": 0.58576,
+     "skip11000": 0.56163
+    },
+    {
+     "step": 360,
+     "skip7000": 0.5491,
+     "skip11000": 0.52959
+    }
+   ]
+  },
+  "32": {
+   "start": {
+    "skip7000": 0.58516,
+    "skip11000": 0.5656
+   },
+   "best_step": 120,
+   "best": {
+    "skip7000": 0.66152,
+    "skip11000": 0.63897
+   },
+   "best_frac": {
+    "skip7000": 0.16297,
+    "skip11000": 0.14995
+   },
+   "cost_M": 2.6542,
+   "nats_per_Mreal": 0.2407,
+   "trajectory": [
+    {
+     "step": 0,
+     "skip7000": 0.58516,
+     "skip11000": 0.5656
+    },
+    {
+     "step": 60,
+     "skip7000": 0.63666,
+     "skip11000": 0.61186
+    },
+    {
+     "step": 120,
+     "skip7000": 0.66152,
+     "skip11000": 0.63897
+    },
+    {
+     "step": 180,
+     "skip7000": 0.61612,
+     "skip11000": 0.59334
+    },
+    {
+     "step": 240,
+     "skip7000": 0.56287,
+     "skip11000": 0.54172
+    },
+    {
+     "step": 300,
+     "skip7000": 0.53447,
+     "skip11000": 0.51566
+    },
+    {
+     "step": 360,
+     "skip7000": 0.5167,
+     "skip11000": 0.48559
+    }
+   ]
+  },
+  "128": {
+   "start": {
+    "skip7000": 0.63507,
+    "skip11000": 0.61367
+   },
+   "best_step": 60,
+   "best": {
+    "skip7000": 0.65946,
+    "skip11000": 0.63865
+   },
+   "best_frac": {
+    "skip7000": 0.16247,
+    "skip11000": 0.14988
+   },
+   "cost_M": 10.6168,
+   "nats_per_Mreal": 0.0602,
+   "trajectory": [
+    {
+     "step": 0,
+     "skip7000": 0.63507,
+     "skip11000": 0.61367
+    },
+    {
+     "step": 60,
+     "skip7000": 0.65946,
+     "skip11000": 0.63865
+    },
+    {
+     "step": 120,
+     "skip7000": 0.6035,
+     "skip11000": 0.5804
+    },
+    {
+     "step": 180,
+     "skip7000": 0.38866,
+     "skip11000": 0.34875
+    },
+    {
+     "step": 240,
+     "skip7000": 0.41291,
+     "skip11000": 0.38374
+    },
+    {
+     "step": 300,
+     "skip7000": 0.17192,
+     "skip11000": 0.15563
+    },
+    {
+     "step": 360,
+     "skip7000": -0.04271,
+     "skip11000": -0.09142
+    }
+   ]
+  }
+ },
+ "reference": {
+  "interleaved_S1748": {
+   "skip7000": 0.40631,
+   "skip11000": 0.38578
+  },
+  "rank8_S1750": {
+   "skip7000": 0.57457,
+   "skip11000": 0.55074
+  },
+  "sum_of_parts_S1747": {
+   "skip7000": 1.8057,
+   "skip11000": 1.746
+  }
+ },
+ "predictions": {
+  "pred_a_increases_with_rank": false,
+  "pred_b_reaches_sum_of_parts": false,
+  "pred_c_diminishing": true,
+  "pred_d_controls": false
+ },
+ "runtime_s": 226.8
+}
