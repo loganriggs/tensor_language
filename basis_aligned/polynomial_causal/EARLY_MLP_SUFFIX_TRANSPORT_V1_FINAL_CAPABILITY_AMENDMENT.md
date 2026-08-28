@@ -63,16 +63,20 @@ select a program, amplitude, grammar, or scientific route.
 ## Current implementation boundary
 
 The observed adapter presently implements true fitted-program L/R/S/T batches under
-N and E. A single source-closed action-plan registry now assigns every semantic arm
+N and E and all four native/deployed baseline paths N/N/N, N/N/E, O/O/N, and O/O/E.
+Baseline N actions compute the exact OON teacher KL; O/O/N uses its actual logits as
+both action and teacher rather than fabricating a zero statistic. Baseline E actions
+remain CE-only. A single source-closed action-plan registry now assigns every semantic arm
 its exact site-0 source, site-1 source, cross-map source, baseline kind, and N/E
 background. A sealed physical source bank can now materialize those composite programs,
 and a final-only batch identity binds action, materialization, program-bank, inherited
-snapshot, support, tokens, and row order. The canonical bank now also freezes and
+snapshot, support, all 513 role-row tokens including the scored target, and row order.
+The canonical bank now also freezes and
 replays the registered zero-weight/new-fit-mean program from fit-label moment sums.
 The complete 68-action executor remains NO-GO until backends exist for
-QQ/LL/RR/singleton/removal/baseline/shuffle/null arms, finite physical
-code edits and their unedited pairs, nine-bin aggregation, consumer norm aggregation,
-canonical program-bank routing, and complete bundle assembly.
+canonical QQ/LL/RR/singleton/removal/shuffle/null routing, finite physical code edits
+and their unedited pairs, nine-bin aggregation, consumer norm aggregation, per-action
+original-call ledger aggregation, and complete bundle assembly.
 
 This partial backend cannot mint a full final action capability and cannot be used to
 open the role. Its purpose is to close and test the shared final identity, exact N/E

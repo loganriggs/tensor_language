@@ -551,9 +551,11 @@ class FinalActionBatchIdentity:
     common_support_sha256: str
     ordered_batch_indices_sha256: str
     ordered_input_tokens_sha256: str
+    ordered_role_rows_sha256: str
     batch_ordinal: int
     batch_rows: int = runtime.BATCH_SIZE
     sequence_length: int = runtime.SEQUENCE_LENGTH
+    role_row_width: int = 513
 
     def __post_init__(self) -> None:
         if self.action_key not in CANONICAL_ACTION_KEYS or not runtime._sha256_text(
@@ -566,14 +568,14 @@ class FinalActionBatchIdentity:
             self.inherited_snapshot_sha256, self.rows_receipt_sha256,
             self.final_role_tensor_sha256, self.program_payload_sha256,
             self.common_support_sha256, self.ordered_batch_indices_sha256,
-            self.ordered_input_tokens_sha256,
+            self.ordered_input_tokens_sha256, self.ordered_role_rows_sha256,
         )):
             raise ValueError("final action batch identity is malformed")
         if type(self.batch_ordinal) is not int or not 0 <= self.batch_ordinal < (
             192 // runtime.BATCH_SIZE
         ) or self.batch_rows != runtime.BATCH_SIZE or self.sequence_length != (
             runtime.SEQUENCE_LENGTH
-        ):
+        ) or self.role_row_width != 513:
             raise ValueError("final action batch schedule changed")
         arm, background = self.action_key.split("/")
         if plan_for(arm, background).sha256 != self.action_plan_sha256:
@@ -586,19 +588,20 @@ class FinalActionBatchIdentity:
         })
 
     @classmethod
-    def from_inputs(
-        cls, *, materialized: MaterializedFinalAction, inputs: torch.Tensor,
+    def from_role_rows(
+        cls, *, materialized: MaterializedFinalAction, role_rows: torch.Tensor,
         ordered_batch_indices: Sequence[int], batch_ordinal: int,
         source_commit: str, inherited_snapshot_sha256: str,
         rows_receipt_sha256: str, final_role_tensor_sha256: str,
         program_payload_sha256: str, common_support_sha256: str,
     ) -> "FinalActionBatchIdentity":
         if not isinstance(materialized, MaterializedFinalAction) or not torch.is_tensor(
-            inputs
-        ) or inputs.dtype != torch.long or tuple(inputs.shape) != (
-            runtime.BATCH_SIZE, runtime.SEQUENCE_LENGTH
-        ):
-            raise ValueError("final action batch inputs/materialization are malformed")
+            role_rows
+        ) or role_rows.dtype != torch.long or tuple(role_rows.shape) != (
+            runtime.BATCH_SIZE, 513
+        ) or role_rows.device.type != "cpu" or not role_rows.is_contiguous():
+            raise ValueError("final action batch rows/materialization are malformed")
+        inputs = role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous()
         indices = tuple(ordered_batch_indices)
         expected = tuple(range(
             batch_ordinal * runtime.BATCH_SIZE,
@@ -618,18 +621,29 @@ class FinalActionBatchIdentity:
             common_support_sha256=common_support_sha256,
             ordered_batch_indices_sha256=runtime.logical_identity_sha256(list(indices)),
             ordered_input_tokens_sha256=runtime.tensor_identity_sha256(inputs),
+            ordered_role_rows_sha256=runtime.tensor_identity_sha256(role_rows),
             batch_ordinal=batch_ordinal,
         )
 
-    def require(
-        self, *, materialized: MaterializedFinalAction, inputs: torch.Tensor,
+    def require_role_rows(
+        self, *, materialized: MaterializedFinalAction, role_rows: torch.Tensor,
         ordered_batch_indices: Sequence[int],
     ) -> None:
-        if not isinstance(materialized, MaterializedFinalAction) or (
+        if not torch.is_tensor(role_rows) or role_rows.dtype != torch.long or tuple(
+            role_rows.shape
+        ) != (runtime.BATCH_SIZE, self.role_row_width) or role_rows.device.type != (
+            "cpu"
+        ) or not role_rows.is_contiguous() or not isinstance(
+            materialized, MaterializedFinalAction
+        ) or (
             materialized.sha256 != self.materialization_sha256
         ) or materialized.plan.sha256 != self.action_plan_sha256 or (
             materialized.plan.key != self.action_key
-        ) or runtime.tensor_identity_sha256(inputs) != self.ordered_input_tokens_sha256 or (
+        ) or runtime.tensor_identity_sha256(role_rows) != self.ordered_role_rows_sha256 or (
+            runtime.tensor_identity_sha256(
+                role_rows[:, :self.sequence_length].contiguous()
+            ) != self.ordered_input_tokens_sha256
+        ) or (
             runtime.logical_identity_sha256(list(ordered_batch_indices))
             != self.ordered_batch_indices_sha256
         ):

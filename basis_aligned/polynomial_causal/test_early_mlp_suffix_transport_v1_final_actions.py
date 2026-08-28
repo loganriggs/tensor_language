@@ -168,25 +168,33 @@ def test_baseline_materialization_has_no_program_and_is_action_distinct() -> Non
 def test_final_action_batch_identity_binds_action_materialization_rows_and_support() -> None:
     bank, _ = _sources()
     rr = actions.materialize(actions.plan_for("rr", "E"), bank)
-    rows = torch.arange(4 * 256, dtype=torch.long).view(4, 256)
-    identity = actions.FinalActionBatchIdentity.from_inputs(
-        materialized=rr, inputs=rows, ordered_batch_indices=(8, 9, 10, 11),
+    rows = torch.arange(4 * 513, dtype=torch.long).view(4, 513).contiguous()
+    identity = actions.FinalActionBatchIdentity.from_role_rows(
+        materialized=rr, role_rows=rows, ordered_batch_indices=(8, 9, 10, 11),
         batch_ordinal=2, source_commit="1" * 40,
         inherited_snapshot_sha256="2" * 64, rows_receipt_sha256="3" * 64,
         final_role_tensor_sha256="4" * 64, program_payload_sha256="5" * 64,
         common_support_sha256="6" * 64,
     )
-    identity.require(
-        materialized=rr, inputs=rows, ordered_batch_indices=(8, 9, 10, 11),
+    identity.require_role_rows(
+        materialized=rr, role_rows=rows, ordered_batch_indices=(8, 9, 10, 11),
     )
     with pytest.raises(RuntimeError, match="differs from its sealed identity"):
-        identity.require(
+        identity.require_role_rows(
             materialized=actions.materialize(actions.plan_for("ll", "E"), bank),
-            inputs=rows, ordered_batch_indices=(8, 9, 10, 11),
+            role_rows=rows, ordered_batch_indices=(8, 9, 10, 11),
+        )
+    changed_target = rows.clone()
+    changed_target[0, 256] += 1
+    assert torch.equal(changed_target[:, :256], rows[:, :256])
+    with pytest.raises(RuntimeError, match="differs from its sealed identity"):
+        identity.require_role_rows(
+            materialized=rr, role_rows=changed_target,
+            ordered_batch_indices=(8, 9, 10, 11),
         )
     with pytest.raises(ValueError, match="not canonical"):
-        actions.FinalActionBatchIdentity.from_inputs(
-            materialized=rr, inputs=rows, ordered_batch_indices=(9, 8, 10, 11),
+        actions.FinalActionBatchIdentity.from_role_rows(
+            materialized=rr, role_rows=rows, ordered_batch_indices=(9, 8, 10, 11),
             batch_ordinal=2, source_commit="1" * 40,
             inherited_snapshot_sha256="2" * 64, rows_receipt_sha256="3" * 64,
             final_role_tensor_sha256="4" * 64, program_payload_sha256="5" * 64,

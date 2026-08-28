@@ -11,6 +11,7 @@ import bilin18_observed_adapter as observed
 import bilin18_observed_model_facade as facade
 import early_mlp_suffix_transport_v1_runtime as runtime
 import early_mlp_suffix_transport_v1_capabilities as capabilities
+import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_programs as programs
 from test_bilin18_observed_model_facade import tiny_model
 
@@ -794,3 +795,145 @@ def test_validation_baseline_adapter_reduces_deployed_n_n_and_poison_closes(monk
             ordered_row_indices=(0, 1, 2, 3), collector=bad_collector,
         )
     assert bad_collector.completed_rows == 0
+
+
+@pytest.mark.parametrize(
+    ("execution_kind", "background", "deployed", "literal"),
+    (
+        ("deployed_baseline", "N", ((0, 1), (1, 1), (2, 1)), ((0, 0), (1, 0), (2, 0))),
+        ("deployed_baseline", "E", ((0, 1), (1, 1), (2, 0)), ((0, 0), (1, 0), (2, 1))),
+        ("native_baseline", "N", ((0, 0), (1, 0), (2, 1)), ((0, 1), (1, 1), (2, 0))),
+        ("native_baseline", "E", ((0, 0), (1, 0), (2, 0)), ((0, 1), (1, 1), (2, 1))),
+    ),
+)
+def test_final_baseline_physical_paths_close_exact_early_call_ledgers(
+    execution_kind, background, deployed, literal,
+) -> None:
+    adapter = observed.ObservedBilin18Adapter(tiny_model(), FakeShip(), production=False)
+    with torch.no_grad():
+        logits, closure = adapter._run_final_baseline_forward(
+            tokens=torch.zeros((1, 2), dtype=torch.long),
+            execution_kind=execution_kind, background=background,
+        )
+    assert logits.shape == (1, 2, facade.LOGIT_VOCAB)
+    assert closure.deployed_n_calls == deployed
+    assert closure.literal_early_mlp_calls == literal
+    assert closure.correction_calls == ((0, 0), (1, 0), (2, 0))
+    assert closure.native_guard_restored and closure.native_guard_inert
+
+
+def test_final_deployed_baseline_poison_rejects_hidden_native_call() -> None:
+    adapter = observed.ObservedBilin18Adapter(
+        tiny_model(), FakeShip(call_native_at_zero=True), production=False,
+    )
+    with pytest.raises(RuntimeError, match="literal native MLP0"):
+        with torch.no_grad():
+            adapter._run_final_baseline_forward(
+                tokens=torch.zeros((1, 2), dtype=torch.long),
+                execution_kind="deployed_baseline", background="N",
+            )
+
+
+def _materialized_baseline(arm: str, background: str):
+    plan = final_actions.plan_for(arm, background)
+    return final_actions.MaterializedFinalAction(
+        plan=plan, source_bank_sha256="a" * 64,
+        component_sha256s={"baseline": runtime.logical_identity_sha256({
+            "execution_kind": plan.arm_plan.execution_kind,
+        })},
+        program=None,
+    )
+
+
+def _final_baseline_identity(materialized, rows):
+    return final_actions.FinalActionBatchIdentity.from_role_rows(
+        materialized=materialized, role_rows=rows,
+        ordered_batch_indices=(0, 1, 2, 3), batch_ordinal=0,
+        source_commit="1" * 40, inherited_snapshot_sha256="2" * 64,
+        rows_receipt_sha256="3" * 64,
+        final_role_tensor_sha256="4" * 64, program_payload_sha256="5" * 64,
+        common_support_sha256="6" * 64,
+    )
+
+
+@pytest.mark.parametrize(
+    ("arm", "background", "expected_calls", "teacher_reused"),
+    (
+        ("n_n", "N", (("deployed_baseline", "N"), ("native_baseline", "N")), False),
+        ("n_n", "E", (("deployed_baseline", "E"),), False),
+        ("o_o", "N", (("native_baseline", "N"),), True),
+        ("o_o", "E", (("native_baseline", "E"),), False),
+    ),
+)
+def test_final_baseline_batch_reduces_all_four_paths_without_tensor_escape(
+    monkeypatch, arm, background, expected_calls, teacher_reused,
+) -> None:
+    model = tiny_model()
+    adapter = observed.ObservedBilin18Adapter(model, FakeShip(), production=False)
+    rows = (torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11).contiguous()
+    materialized = _materialized_baseline(arm, background)
+    identity = _final_baseline_identity(materialized, rows)
+    calls = []
+
+    def fake_forward(*, tokens, execution_kind, background):
+        calls.append((execution_kind, background))
+        seed = 110 if execution_kind == "deployed_baseline" else 220
+        logits = torch.randn(4, 256, 11, generator=torch.Generator().manual_seed(seed))
+        exact = set((0, 1) if execution_kind == "native_baseline" else ())
+        if background == "E":
+            exact.add(2)
+        closure = observed.ObservedClosure(
+            scope=f"final_{execution_kind}_{background}",
+            outer_forward_count=1, outer_returned=True,
+            attention_dispatch_calls=tuple((site, 1) for site in range(4)),
+            mlp_dispatch_calls=tuple((site, 1) for site in range(4)),
+            deployed_n_calls=tuple(
+                (site, 0 if site in exact else 1) for site in observed.EARLY_SITES
+            ),
+            correction_calls=((0, 0), (1, 0), (2, 0)),
+            literal_early_mlp_calls=tuple(
+                (site, 1 if site in exact else 0) for site in observed.EARLY_SITES
+            ),
+            native_guard_restored=True, native_guard_inert=True,
+            logit_shape=tuple(logits.shape), logit_dtype=str(logits.dtype),
+        )
+        return logits, closure
+
+    monkeypatch.setattr(adapter, "_run_final_baseline_forward", fake_forward)
+    reductions, receipt = adapter.run_final_baseline_batch(
+        materialized=materialized, identity=identity, role_rows=rows,
+        ordered_row_indices=(0, 1, 2, 3),
+    )
+    assert tuple(calls) == expected_calls
+    assert reductions.action_key == f"{arm}/{background}"
+    assert (reductions.row_primary_sum is not None) == (background == "N")
+    assert (receipt.observed_teacher_closure_sha256 is not None) == (background == "N")
+    assert receipt.teacher_reused_student is teacher_reused
+    assert all(not torch.is_tensor(getattr(receipt, field.name)) for field in fields(receipt))
+    assert all(
+        value is None or (torch.is_tensor(value) and value.device.type == "cpu" and value.ndim == 1)
+        for value in (
+            reductions.row_primary_sum, reductions.row_primary_count,
+            reductions.row_ce_sum, reductions.row_ce_count,
+            reductions.row_copy_ce_sum, reductions.row_copy_count,
+        )
+    )
+
+
+def test_final_baseline_batch_rejects_target_substitution_before_forward(monkeypatch) -> None:
+    adapter = observed.ObservedBilin18Adapter(tiny_model(), FakeShip(), production=False)
+    rows = (torch.arange(4 * 513, dtype=torch.long).view(4, 513) % 11).contiguous()
+    materialized = _materialized_baseline("n_n", "N")
+    identity = _final_baseline_identity(materialized, rows)
+    changed = rows.clone()
+    changed[0, 256] = (changed[0, 256] + 1) % 11
+    assert torch.equal(changed[:, :256], rows[:, :256])
+    monkeypatch.setattr(
+        adapter, "_run_final_baseline_forward",
+        lambda **kwargs: (_ for _ in ()).throw(AssertionError("forward must not run")),
+    )
+    with pytest.raises(RuntimeError, match="differs from its sealed identity"):
+        adapter.run_final_baseline_batch(
+            materialized=materialized, identity=identity, role_rows=changed,
+            ordered_row_indices=(0, 1, 2, 3),
+        )

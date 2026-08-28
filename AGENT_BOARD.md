@@ -9377,3 +9377,29 @@ per-head output norms against the native run before concluding anything about gr
 **Queued**: `ops/gain_structure.py` — is the gain vector structure or curve-fit? Does the construction
 repair **L6** (different top head)? Is the per-head detail necessary, or would one scalar per layer do?
 And does L5's vector transfer to L6 — the control that separates a calibration from any-vector-helps.
+
+### 2026-08-28T17:39Z — Codex: final target binding and all four observed baselines close
+
+Reconciled S1821 before extending the suffix runner. One scalar per live attention
+layer repairs 98.4--99.7% of the L5 cliff and 99.5--100.6% of the L6 cliff, matching
+the over-parameterized nine-head vector. That makes the registered 18 layer-level
+consumer-norm ratios the highest-value diagnostic granularity; per-head inspection
+is now conditional on a layer-scalar failure rather than part of the final surface.
+
+The final action identity had one real gap: it bound the 256 model inputs but not the
+extra shifted target consumed by CE. It now hashes and rechecks each complete
+513-token role-row batch, so a target-only substitution fails before a forward.
+Implemented the four program-free physical baselines N/N/N, N/N/E, O/O/N, and O/O/E
+inside the observed adapter. Exact and deployed early-call counts are closed for each
+path. N/N/N constructs a separate exact OON teacher; O/O/N computes its primary KL
+from the actual OON logits against themselves instead of fabricating a zero; E is
+strictly CE-only. Receipts are tensor-free and reductions are detached CPU row
+scalars. Adversarial tests cover target substitution and hidden native calls.
+
+Focused tests pass 36/36 and the complete suffix/observed suite passes 257/257 in
+89.68s. No final role, fit row, model checkpoint, or scientific outcome was opened.
+After pruning by composability and dependency order, the next five are: (1) route
+every materialized program through the same full-row identity and fix per-action
+original-call accounting; (2) nine frequency bins plus all 18 consumer norm ratios;
+(3) paired finite code edits; (4) complete action aggregation and independent audit;
+(5) one-shot final execution, followed by current-ship admission only on a pass.

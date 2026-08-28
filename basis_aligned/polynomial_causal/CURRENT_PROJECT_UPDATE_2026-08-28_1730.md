@@ -1,5 +1,38 @@
 # Plain-language project update — 2026-08-28 17:30 UTC
 
+## UPDATE AFTER 17:30 — scored rows and all baseline paths are now closed
+
+The final-action identity previously bound the 256 input tokens but not the extra
+target token used to score next-token CE. That was a real integrity gap: a changed
+target could in principle keep the same model input. The identity now hashes the
+complete 513-token role row as well as the inputs and rejects a target substitution
+before any model forward.
+
+All four early-layer baselines now have observed execution paths with exact call
+ledgers:
+
+| Early MLP0/1 | MLP2 | Meaning |
+|---|---|---|
+| deployed | deployed | `N/N/N` |
+| deployed | exact | `N/N/E` |
+| exact | deployed | `O/O/N` |
+| exact | exact | `O/O/E` |
+
+The two deployed-MLP2 actions report exact OON teacher KL. For O/O/N, the action is
+itself the OON teacher, so the implementation computes KL from the actual logits
+against themselves rather than inserting a made-up zero. Exact-MLP2 actions remain
+CE-only. Hidden native calls on a deployed path fail immediately. The expanded
+suffix/observed suite passes **257/257 tests**.
+
+A concurrent diagnostic also simplified the attention-scale finding below. A single
+scalar for the whole attention layer removes 98.4--99.7% of the L5 cliff and
+99.5--100.6% of the L6 cliff, essentially matching nine separate head gains. The L5
+scalar was fitted on one role and transfers to the other two. This says the immediate
+failure is mostly one layer-wide scale error. It supports the runner's inexpensive
+plan to measure one norm ratio for each of 18 consumers; per-head ratios are only
+needed if a layer scalar fails. As before, this returns performance to the compiled
+baseline near 13%, not to the live model near 39--42%.
+
 ## UPDATE — what changed since the 17:09 explanation
 
 Two concrete things changed.
@@ -118,6 +151,7 @@ checks at every later layer.
 | Current replacement's $+0.8976$ CE gap recovered by a newly admitted package | 0% |
 | Final early-MLP action definitions physically constructed and identity-bound | 68/68 |
 | Final early-MLP scientific actions evaluated | 0/68 |
+| Native/deployed baseline execution paths implemented | 4/4 |
 
 The last two rows are the key distinction. The experimental machinery is becoming
 trustworthy, but it has not yet promoted a better early program into the model.
@@ -140,7 +174,8 @@ giving one arm a different background model.
 
 ## Immediate plan
 
-1. Finish the observed baseline backend and its call-count/identity receipts.
+1. Route every materialized program action through the same full-row identity and
+   close the per-action original-call ledger.
 2. Add the frequency-bin, all-consumer-norm, and paired-edit reductions.
 3. Run a fresh audit, then execute all 68 actions once on common final rows.
 4. Decide from CE, model agreement, OOD bins, edit transport, and norm stability—not
@@ -151,3 +186,64 @@ giving one arm a different background model.
 The attention gain result will inform the consumer-norm diagnostic, but it does not
 replace this plan: it explains one failure mode of an older context-free compiler,
 whereas the final suffix experiment tests the coupled polynomial early program.
+
+## Clarification: what the rank-1 result is useful for
+
+The rank-1 result measured next-token accuracy, not agreement with bilin18's chosen
+token. Its absolute top-1 values are 9.90%, 10.65%, and 10.07% on the three roles,
+versus 12.88%, 13.49%, and 12.89% for rank 64 and 39.32%, 42.35%, and 38.88% for the
+live model. Thus “retains 77--79%” means it retains that fraction of rank 64's
+accuracy; it does not mean 77--79% agreement with bilin18.
+
+Nevertheless, rank 1 can be a useful extraction if the question is “give me a tiny
+rule that performs this behavior” rather than “give me a probabilistic twin of the
+model.” We should keep separate frontiers for:
+
+- task or decision-rule extraction: task accuracy and agreement on the relevant
+  behavior;
+- functional faithfulness: agreement with bilin18's top token and full-distribution
+  KL/CE;
+- causal editability: prediction of finite edits and selective removal with low
+  collateral damage; and
+- mechanistic faithfulness: preserving the same internal interfaces or circuits.
+
+Success on the first does not imply the others. In particular, the same in-distribution
+top-1 can hide different confidence, failure cases, OOD behavior, or edit response.
+The rank-1/rank-64 curve still lacks a matched live-model-agreement and OOD/edit sweep;
+that is the measurement needed before calling rank 1 an extracted model policy.
+
+## Cheap affine corrections should be part of the simplicity grammar
+
+A global scalar, scalar bias, or foldable affine change can be negligible compared
+with a matrix or token table. If it can be absorbed into an adjacent weight or bias
+without changing the function, it should have zero incremental executable cost and
+be treated as gauge/canonicalization rather than a new circuit. If it changes the
+function, it is not mathematically free, but one scalar or one short bias vector is
+still a tiny explicit correction whose description and runtime cost should be counted.
+
+The L5/L6 result is a concrete example: one layer scalar repairs the immediate
+interface cliff. This motivates a **calibrated simplicity frontier**: for every
+compressed program, report both its raw result and its result after a fixed small
+correction family fitted only on fit/validation data. Candidate correction families
+should be nested and priced explicitly—for example one scalar, scalar plus bias,
+diagonal gain, then low-rank affine correction. Final or OOD rows must never choose
+the correction. A cheap calibration that transfers on CE, OOD, and edits is useful
+functional compression even if its internal implementation differs from bilin18.
+
+## What the 68 actions actually are
+
+They are **68 controlled replacement configurations**, not 68 discovered circuits or
+68 independent neural pathways. There are 34 MLP0/MLP1 configurations, each run with
+two MLP2 backgrounds:
+
+- `N`: the deployed simplified MLP2;
+- `E`: the exact original MLP2.
+
+The 34 configurations include the inherited program, locally fitted and jointly
+suffix-fitted programs, MLP0/MLP1 hybrid removals, an explicit cross-layer transport
+term, zero and 20 false-parent transport controls, shuffled controls, native/deployed
+baselines, and a fit-mean control. Running all of them on identical rows lets us ask
+whether a gain came from MLP0, MLP1, their co-adaptation, the explicit transport term,
+or compensation by exact MLP2. It gives finer causal control over this early
+MLP0--MLP2 interface, but it is not yet a fine-grained decomposition of the entire
+model.

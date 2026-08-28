@@ -15,6 +15,7 @@ from typing import Any, Iterator
 import torch
 
 import bilin18_observed_model_facade as facade
+import early_mlp_suffix_transport_v1_final_actions as final_actions
 import early_mlp_suffix_transport_v1_runtime as runtime
 
 
@@ -24,6 +25,17 @@ CORRECTION_SITES = (0, 1)
 
 def _counts(values: dict[int, int]) -> tuple[tuple[int, int], ...]:
     return tuple(sorted((int(site), int(count)) for site, count in values.items()))
+
+
+def _final_batch_vector(name: str, value: Any, *, count: bool) -> torch.Tensor:
+    expected_dtype = torch.long if count else torch.float64
+    if not torch.is_tensor(value) or tuple(value.shape) != (
+        runtime.BATCH_SIZE,
+    ) or value.dtype != expected_dtype or value.device.type != "cpu" or (
+        value.requires_grad
+    ) or not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
+        raise ValueError(f"final baseline reduction {name} is malformed")
+    return value.detach().clone().contiguous()
 
 
 @dataclass(frozen=True)
@@ -84,13 +96,68 @@ class ObservedFinalProgramBatchReceipt:
     observed_closure_sha256: str
 
 
+@dataclass(frozen=True)
+class ObservedFinalBaselineBatchReductions:
+    """Only per-row scalars released by one native/deployed final baseline."""
+
+    identity_sha256: str
+    action_key: str
+    row_primary_sum: torch.Tensor | None
+    row_primary_count: torch.Tensor | None
+    row_ce_sum: torch.Tensor
+    row_ce_count: torch.Tensor
+    row_copy_ce_sum: torch.Tensor
+    row_copy_count: torch.Tensor
+
+    def __post_init__(self) -> None:
+        if not runtime._sha256_text(self.identity_sha256) or self.action_key not in {
+            f"{arm}/{background}"
+            for arm in ("n_n", "o_o")
+            for background in final_actions.BACKGROUNDS
+        }:
+            raise ValueError("final baseline reduction identity is malformed")
+        background = self.action_key.split("/")[1]
+        if background == "N":
+            if self.row_primary_sum is None or self.row_primary_count is None:
+                raise ValueError("deployed-MLP2 baseline requires exact OON teacher KL")
+            object.__setattr__(
+                self, "row_primary_sum",
+                _final_batch_vector("row_primary_sum", self.row_primary_sum, count=False),
+            )
+            object.__setattr__(
+                self, "row_primary_count",
+                _final_batch_vector("row_primary_count", self.row_primary_count, count=True),
+            )
+        elif self.row_primary_sum is not None or self.row_primary_count is not None:
+            raise ValueError("exact-MLP2 baseline must remain CE-only")
+        for name in ("row_ce_sum", "row_ce_count", "row_copy_ce_sum", "row_copy_count"):
+            object.__setattr__(
+                self, name,
+                _final_batch_vector(name, getattr(self, name), count=name.endswith("count")),
+            )
+
+
+@dataclass(frozen=True)
+class ObservedFinalBaselineBatchReceipt:
+    """Tensor-free closure receipt for one N/N or O/O final baseline batch."""
+
+    identity_sha256: str
+    action_key: str
+    batch_ordinal: int
+    ordered_row_indices_sha256: str
+    reduction_sha256: str
+    observed_student_closure_sha256: str
+    observed_teacher_closure_sha256: str | None
+    teacher_reused_student: bool
+
+
 class _EarlyNativePoison:
     """Fail before any forbidden literal early-MLP call, then restore exactly."""
 
     def __init__(
         self, model: torch.nn.Module, *, poison_sites: tuple[int, ...] = EARLY_SITES,
     ) -> None:
-        if not poison_sites or any(site not in EARLY_SITES for site in poison_sites) or len(
+        if any(site not in EARLY_SITES for site in poison_sites) or len(
             set(poison_sites)
         ) != len(poison_sites):
             raise ValueError("native poison sites are malformed")
@@ -676,6 +743,172 @@ class ObservedBilin18Adapter:
             teacher_ledger_sha256=teacher_closure.ledger_sha256,
             observed_closure_sha256=runtime.logical_identity_sha256(asdict(observed)),
         )
+        return reductions, receipt
+
+    def _run_final_baseline_forward(
+        self, *, tokens: torch.Tensor, execution_kind: str, background: str,
+    ) -> tuple[torch.Tensor, ObservedClosure]:
+        """Execute exactly one N/N or O/O baseline without exposing dispatch handles."""
+
+        if execution_kind not in {"deployed_baseline", "native_baseline"} or background not in (
+            final_actions.BACKGROUNDS
+        ):
+            raise ValueError("final baseline physical path is malformed")
+        exact_sites = set()
+        if execution_kind == "native_baseline":
+            exact_sites.update((0, 1))
+        if background == "E":
+            exact_sites.add(2)
+        poison = _EarlyNativePoison(
+            self._model,
+            poison_sites=tuple(site for site in EARLY_SITES if site not in exact_sites),
+        )
+        attention_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        mlp_calls = {site: 0 for site in range(len(self._model.transformer.h))}
+        deployed_calls = {site: 0 for site in EARLY_SITES}
+        exact_calls = {site: 0 for site in EARLY_SITES}
+        logits: torch.Tensor | None = None
+        outer_returned = False
+
+        def attention(event: facade.AttentionEvent):
+            attention_calls[event.site] += 1
+            return self._ship.attention(event)
+
+        def mlp(event: facade.EarlyMLPEvent):
+            mlp_calls[event.site] += 1
+            if event.site not in EARLY_SITES:
+                return self._ship.mlp(event)
+            if event.site in exact_sites:
+                exact_calls[event.site] += 1
+                return event.block.mlp(event.state)
+            deployed_calls[event.site] += 1
+            return self._ship.mlp(event)
+
+        with poison.scope():
+            logits = facade.forward_with_dispatch(
+                self._model, tokens, attention, mlp,
+                require_production=self._production,
+            )
+            outer_returned = True
+        expected_all = tuple((site, 1) for site in range(len(self._model.transformer.h)))
+        expected_deployed = tuple(
+            (site, 0 if site in exact_sites else 1) for site in EARLY_SITES
+        )
+        expected_exact = tuple(
+            (site, 1 if site in exact_sites else 0) for site in EARLY_SITES
+        )
+        literal_calls = {
+            site: exact_calls[site] + poison.calls[site] for site in EARLY_SITES
+        }
+        if _counts(attention_calls) != expected_all or _counts(mlp_calls) != (
+            expected_all
+        ) or _counts(deployed_calls) != expected_deployed or _counts(
+            literal_calls
+        ) != expected_exact or not outer_returned or not poison.restored or not (
+            poison.inert
+        ) or logits is None:
+            raise RuntimeError("observed final baseline did not close exactly")
+        observed = ObservedClosure(
+            scope=f"final_{execution_kind}_{background}",
+            outer_forward_count=1, outer_returned=True,
+            attention_dispatch_calls=_counts(attention_calls),
+            mlp_dispatch_calls=_counts(mlp_calls),
+            deployed_n_calls=_counts(deployed_calls),
+            correction_calls=((0, 0), (1, 0), (2, 0)),
+            literal_early_mlp_calls=_counts(literal_calls),
+            native_guard_restored=poison.restored,
+            native_guard_inert=poison.inert,
+            logit_shape=tuple(logits.shape), logit_dtype=str(logits.dtype),
+        )
+        return logits, observed
+
+    def run_final_baseline_batch(
+        self, *, materialized: final_actions.MaterializedFinalAction,
+        identity: final_actions.FinalActionBatchIdentity,
+        role_rows: torch.Tensor, ordered_row_indices: Any,
+    ) -> tuple[ObservedFinalBaselineBatchReductions, ObservedFinalBaselineBatchReceipt]:
+        """Run one N/N or O/O action and release only bound per-row reductions."""
+
+        import early_mlp_suffix_transport_v1_programs as programs
+
+        if not isinstance(materialized, final_actions.MaterializedFinalAction) or not isinstance(
+            identity, final_actions.FinalActionBatchIdentity
+        ) or materialized.plan.arm_plan.execution_kind not in {
+            "deployed_baseline", "native_baseline",
+        }:
+            raise RuntimeError("observed final baseline identity/action is malformed")
+        indices = tuple(ordered_row_indices)
+        identity.require_role_rows(
+            materialized=materialized, role_rows=role_rows,
+            ordered_batch_indices=indices,
+        )
+        if identity.action_key != materialized.plan.key:
+            raise RuntimeError("observed final baseline action identity changed")
+        try:
+            model_device = next(self._model.parameters()).device
+        except StopIteration as error:
+            raise RuntimeError("observed model has no device-bearing parameters") from error
+        tokens = role_rows[:, :runtime.SEQUENCE_LENGTH].contiguous().to(model_device)
+        execution_kind = materialized.plan.arm_plan.execution_kind
+        background = materialized.plan.background
+        teacher_logits: torch.Tensor | None = None
+        teacher_observed: ObservedClosure | None = None
+        teacher_reused_student = False
+        with torch.no_grad():
+            student_logits, student_observed = self._run_final_baseline_forward(
+                tokens=tokens, execution_kind=execution_kind, background=background,
+            )
+            if background == "N":
+                if execution_kind == "native_baseline":
+                    teacher_logits = student_logits
+                    teacher_observed = student_observed
+                    teacher_reused_student = True
+                else:
+                    teacher_logits, teacher_observed = self._run_final_baseline_forward(
+                        tokens=tokens, execution_kind="native_baseline", background="N",
+                    )
+                primary_sum, primary_count = programs.suffix_kl_rows(
+                    teacher_logits, student_logits,
+                )
+            else:
+                primary_sum = primary_count = None
+            ce_sum, ce_count, copy_sum, copy_count = programs.ce_and_copy_rows(
+                student_logits, role_rows,
+            )
+        reductions = ObservedFinalBaselineBatchReductions(
+            identity_sha256=identity.sha256, action_key=identity.action_key,
+            row_primary_sum=primary_sum, row_primary_count=primary_count,
+            row_ce_sum=ce_sum, row_ce_count=ce_count,
+            row_copy_ce_sum=copy_sum, row_copy_count=copy_count,
+        )
+        reduction_fields = (
+            "row_ce_sum", "row_ce_count", "row_copy_ce_sum", "row_copy_count",
+        ) if background == "E" else (
+            "row_primary_sum", "row_primary_count", "row_ce_sum", "row_ce_count",
+            "row_copy_ce_sum", "row_copy_count",
+        )
+        reduction_sha256 = runtime.logical_identity_sha256({
+            "action_key": identity.action_key,
+            **{
+                name: runtime.tensor_identity_sha256(getattr(reductions, name))
+                for name in reduction_fields
+            },
+        })
+        student_closure_sha256 = runtime.logical_identity_sha256(asdict(student_observed))
+        teacher_closure_sha256 = None if teacher_observed is None else (
+            runtime.logical_identity_sha256(asdict(teacher_observed))
+        )
+        receipt = ObservedFinalBaselineBatchReceipt(
+            identity_sha256=identity.sha256, action_key=identity.action_key,
+            batch_ordinal=identity.batch_ordinal,
+            ordered_row_indices_sha256=runtime.logical_identity_sha256(list(indices)),
+            reduction_sha256=reduction_sha256,
+            observed_student_closure_sha256=student_closure_sha256,
+            observed_teacher_closure_sha256=teacher_closure_sha256,
+            teacher_reused_student=teacher_reused_student,
+        )
+        student_logits = None
+        teacher_logits = None
         return reductions, receipt
 
     def run_mapped_oon_teacher(
