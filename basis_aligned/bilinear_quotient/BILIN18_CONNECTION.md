@@ -42699,3 +42699,42 @@ downstream. If depth drives the sign, its excess should fall between the early p
 the late pair's −20.1%; if functional character drives it, the middle MLPs are the least tabular
 and most bilinear of all (§1668: 37.7% quadratic remainder) and there is no reason for it to land
 in between. `mid_pair_synergy.py`.
+
+## §1707 — the middle pair lands intermediate: depth is favoured, function disfavoured, but the bar was wide
+
+`mid_pair_synergy.py`, the arm §1706 queued to separate its two explanations. 4-for-4, control
+exact, all four arms fresh (no prior run had exempted mlp8 or mlp9).
+
+```
+pair                gain      95% CI          singles sum   excess          excess CI (points)
+mlp0+mlp1  (§1706) +2.34%  [+2.22, +2.46]     +1.36%      +0.98% (+41.8%)  [+0.86, +1.09]
+mlp8+mlp9          +2.47%  [+2.38, +2.56]     +2.58%      -0.10%  (-4.2%)  [-0.19, -0.01]
+mlp16+mlp17(§1705)  +1.99%                    +2.39%      -0.40% (-20.1%)
+singles here: mlp8 +1.11% [+1.05, +1.16]   mlp9 +1.47% [+1.40, +1.54]
+```
+
+**Ordered by how much model lies downstream, the excess is monotone:** sixteen blocks below
+→ +41.8%, nine blocks → −4.2%, one block → −20.1%. The middle pair lands between the other two, as
+the depth reading predicts, and its excess interval excludes zero so the sign is resolved.
+
+**The functional reading is disfavoured, and this is what the run was for.** On function, the
+middle MLPs are the extreme case, not the intermediate one — §1666 puts their joint table ceiling
+at 21.73% against the front band's 76.45%, and §1668 gives them the largest quadratic remainder in
+the model at 37.7%. A functional account therefore predicted the middle pair outside the
+[−20.1%, +41.8%] span, and it landed inside, closer to the late end.
+
+**The pass is weaker than the failure would have been, and I should say so rather than bank it.**
+pred_a's window spans 62 percentage points, so "intermediate" was a large target and many outcomes
+would have cleared it. What made the test worth running is that the competing reading predicted a
+value OUTSIDE that span — so a failure would have been decisive while the pass is merely
+consistent. Three points also make a thin basis for a monotone claim, and the spacing is not
+proportional to depth: 16→9 blocks costs 46 points of excess, 9→1 blocks only 16. I am claiming
+the ordering, not a functional form.
+
+**The confound is narrowed, not eliminated.** Depth and function still covary across these three
+pairs. The clean test is a pair at EARLY depth whose FUNCTION is unlike mlp0/mlp1: §1672 found
+mlp2 indifferent to a token table and mlp3 actively hostile to one (§1662 ceilings 76.98% and
+67.55%, against 90.27% and 96.01% for mlp0/mlp1). So mlp2+mlp3 is early in depth and middling in
+function, and the two readings disagree about it — depth says it should resemble mlp0+mlp1's
++41.8%, function says it should sit far lower. §1704 already supplies both singles (+1.98 and
++1.62), so the test is two compiles. Queued as `early_atypical_pair_synergy.py`.

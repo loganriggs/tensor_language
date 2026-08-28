@@ -1,0 +1,117 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "program": "the \u00a71696 best-families 36-site program (tables mlp0-2, lags 1,2,4,8)",
+  "method": "exempt-one at band grain, RECOMPILED per exemption (\u00a71671 pattern; un-substituting without refitting measures LESSONS 28 compounding)",
+  "sites_probed": {
+   "mlp8": [
+    "mlp",
+    [
+     8
+    ]
+   ],
+   "mlp9": [
+    "mlp",
+    [
+     9
+    ]
+   ],
+   "mlp8_mlp9_pair": [
+    "mlp",
+    [
+     8,
+     9
+    ]
+   ]
+  },
+  "design": "MIDDLE two-site pair (mlp8, mlp9) at band size matched to the early and late pairs; singles measured here since no prior run exempted them",
+  "discriminates": "DEPTH predicts an excess between the late -20.1% and early +41.8%; FUNCTION does not, since the middle MLPs are the LEAST tabular (S1666: 21.73% joint table ceiling vs the front 76.45%) and MOST bilinear (S1668: 37.7% quadratic remainder) band -- the extreme case on a functional reading, not the intermediate one",
+  "s1705_late_excess_frac": -0.201,
+  "s1706_early_excess_frac": 0.418,
+  "intervals": "95% ROW-level cluster bootstrap, 2000 paired draws (\u00a71700, \u00a71701); NOT document-clustered",
+  "compilation": "INTERLEAVED bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1696_both": 0.5504
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "arms": {
+  "none": {
+   "exempt_sites": 0,
+   "ce": 5.7957,
+   "ceiling": 0.55038
+  },
+  "mlp8": {
+   "exempt_sites": 1,
+   "ce": 5.73408,
+   "ceiling": 0.56145
+  },
+  "mlp9": {
+   "exempt_sites": 1,
+   "ce": 5.71385,
+   "ceiling": 0.56508
+  },
+  "mlp8_mlp9_pair": {
+   "exempt_sites": 2,
+   "ce": 5.65805,
+   "ceiling": 0.5751
+  }
+ },
+ "band_gains": {
+  "mlp8": 0.01107,
+  "mlp9": 0.0147,
+  "mlp8_mlp9_pair": 0.02472
+ },
+ "band_gain_ci95_rowlevel": {
+  "mlp8": [
+   0.01052,
+   0.01159
+  ],
+  "mlp9": [
+   0.01404,
+   0.01541
+  ],
+  "mlp8_mlp9_pair": [
+   0.02382,
+   0.02563
+  ]
+ },
+ "pair_gain": 0.02472,
+ "singles_sum": 0.02576,
+ "excess": -0.00104,
+ "excess_fraction_of_pair": -0.04226,
+ "excess_ci95": [
+  -0.00194,
+  -0.00013
+ ],
+ "predictions": {
+  "pred_a_intermediate_as_depth_predicts": true,
+  "pred_b_sign_resolved": true,
+  "pred_c_controls_hold": true,
+  "pred_d_ordering_resolved": true
+ },
+ "runtime_s": 904.4
+}
