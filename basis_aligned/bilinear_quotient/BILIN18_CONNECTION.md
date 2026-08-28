@@ -44322,3 +44322,52 @@ Controls (pred_d): the K=6 prefix reproduced §1741's greedy set **exactly** —
 `mlp17, attn16, attn14, attn11, attn17, attn13` — with 1.2037 and 1.2414 to four decimals, which is
 available as a control only because greedy is deterministic; all-36-tabled CE 7.35114 across five
 scripts; coverage 5419 of 50257.
+
+## §1743 — greedy's set is locally optimal under all 180 swaps; two of my three failed predictions failed on my own design, not on the model
+
+`ops/allocation_local_search.py`, 763.6s, 540 swap evaluations, **DISCOVERY ONLY**.
+**pred_a False | pred_b False | pred_c False | pred_d True.**
+
+```
+  [greedy] start 1.2037
+    sweep 1: no improving swap -- locally optimal
+    final  mlp17, attn16, attn14, attn11, attn17, attn13   sel 1.2037  transfer 1.2414  cost 55.741M
+
+  [random] start 0.0860   (attn1, attn12, attn2, attn4, mlp2, mlp3)
+    sweep 1: out attn1  in mlp17   -> 0.6450  (+0.5590)
+    sweep 2: out mlp3   in attn16  -> 0.8597  (+0.2148)
+    final  attn12, attn16, attn2, attn4, mlp17, mlp2       sel 0.8598  transfer 0.8591  cost 63.704M
+```
+
+**pred_a FAILED, and it was written so that failing is the positive result. Greedy's K=6 set is
+LOCALLY OPTIMAL**: none of the 6 × 30 = 180 single swaps improves it. §1742 showed the objective is
+not submodular, so greedy carries no approximation guarantee — this bounds what that costs at this
+budget. Greedy is not merely better than the ranking; **at K=6 it cannot be improved by exchanging
+any one site.** That is not a proof of global optimality — a two-site exchange or a different
+budget could still beat it — but it is the strongest statement available for 180 evaluations.
+
+**pred_b FAILED and could not have passed.** It asked whether local search's improvement transfers
+to skip11000. There was no improvement, so the prediction was decided by pred_a's outcome rather
+than by anything about the model. **LESSONS 31 named nested arms as a defect and I wrote one four
+sections later.** Recorded there as an addendum. The correct form would have been conditional —
+scored only if pred_a passes, and marked `n/a` otherwise — or a different question entirely.
+
+**pred_c FAILED but is NOT evidence for multiple basins, because the random arm never converged.**
+It was still climbing steeply when the sweep budget ran out: +0.5590 then +0.2148, with no sweep
+reporting "no improving swap". `MAX_SWEEPS = 2` was too small for a start at 0.0860 nats. So the
+honest reading is **not established**: this run cannot say whether reasonable starts converge to one
+basin, and its final random set at 0.8598 is a waypoint, not a local optimum. I set that cap and it
+made the arm unable to answer its own question.
+
+**What the random arm does show, incidentally**, is how far a bad allocation is from a good one and
+how fast swaps close the gap: 0.0860 → 0.8598 in two exchanges, still 0.34 nats short of greedy at
+14% more cost. Site selection at this budget spans an order of magnitude in recovered nats, which is
+why §1739's "the one-at-a-time ranking performs at the random median" matters.
+
+Control (pred_d): the greedy start reproduced §1741's 1.2037 and 1.2414 to four decimals and its set
+exactly; all-36-tabled CE 7.35114; coverage 5419 of 50257.
+
+**Three of four predictions failed and only one of the three says something about bilin18.** pred_a's
+failure is a real result about the search landscape. pred_b's and pred_c's failures are a nested arm
+and an under-budgeted arm — both mine, both avoidable, and both recorded as such rather than
+presented as findings.

@@ -864,3 +864,24 @@ replaced them with a difference for exactly this reason. I wrote a fresh one fou
   visibly missing rather than invisibly wrong.
 - **A guard added for robustness is a silent change to what the number means.** It should be as
   suspect as any other transformation of the data, and it belongs in the same review as the metric.
+
+### LESSON 31, addendum (2026-08-28) — I wrote a nested arm four sections after naming the defect
+
+LESSON 31 lists three ways a prediction fails to be a prediction: a no-op, **nested arms**, and a
+one-sided bar. §1743's `pred_b` asked whether local search's improvement transfers to a second role.
+`pred_a` found no improvement existed. **pred_b was then decided by pred_a's outcome and could not
+have passed**, so it tested nothing and was scored as a failure anyway.
+
+Two rules from it:
+
+- **Before registering an arm, ask what happens to it under every outcome of the other arms.** If
+  some outcome of arm A makes arm B unanswerable, B must be declared conditional and reported `n/a`,
+  not scored.
+- **An under-budgeted arm is the same defect in a different place.** §1743's `pred_c` asked whether
+  two starts converge to the same set, with `MAX_SWEEPS = 2`. The random start was still improving by
+  +0.21 nats when the cap hit, so the arm could not answer its question either. Setting a compute cap
+  is setting the arm's power; do it deliberately or the arm is decoration.
+
+Naming a defect in LESSONS does not stop you committing it. What stops it is checking the arms
+against each other at registration time, which takes about a minute and is now part of writing the
+prediction block.

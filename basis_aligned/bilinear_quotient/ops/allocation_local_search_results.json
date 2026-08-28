@@ -1,0 +1,128 @@
+{
+ "config": {
+  "K": 6,
+  "max_sweeps": 2,
+  "seed": 1742,
+  "select_role": "skip7000",
+  "transfer_role": "skip11000",
+  "search": "steepest-improvement swap: at each sweep try every (native out, tabled in) pair and take the best strict improvement. Two starts, so \"greedy is locally optimal\" and \"the landscape has one basin\" are separate answerable questions.",
+  "WHY": "S1742 proved from the greedy trace that the objective is NOT submodular (the marginal gain rises four times), so greedy has no approximation guarantee. This measures how far from good it actually is.",
+  "ROLE_NOTE": "DISCOVERY ONLY. Both large roles spent for this family (S1736-S1742)."
+ },
+ "results": {
+  "greedy": {
+   "start": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13"
+   ],
+   "start_value": 1.20366,
+   "start_transfer": 1.2414,
+   "final": [
+    "mlp17",
+    "attn16",
+    "attn14",
+    "attn11",
+    "attn17",
+    "attn13"
+   ],
+   "final_value": 1.20366,
+   "final_transfer": 1.2414,
+   "final_cost_M": 55.741,
+   "start_cost_M": 55.741,
+   "trace": [
+    {
+     "sweep": 0,
+     "set": [
+      "mlp17",
+      "attn16",
+      "attn14",
+      "attn11",
+      "attn17",
+      "attn13"
+     ],
+     "value": 1.20366
+    }
+   ],
+   "locally_optimal": true
+  },
+  "random": {
+   "start": [
+    "attn1",
+    "attn12",
+    "attn2",
+    "attn4",
+    "mlp2",
+    "mlp3"
+   ],
+   "start_value": 0.08596,
+   "start_transfer": 0.08432,
+   "final": [
+    "attn12",
+    "attn16",
+    "attn2",
+    "attn4",
+    "mlp17",
+    "mlp2"
+   ],
+   "final_value": 0.85975,
+   "final_transfer": 0.85912,
+   "final_cost_M": 63.704,
+   "start_cost_M": 63.704,
+   "trace": [
+    {
+     "sweep": 0,
+     "set": [
+      "attn1",
+      "attn12",
+      "attn2",
+      "attn4",
+      "mlp2",
+      "mlp3"
+     ],
+     "value": 0.08596
+    },
+    {
+     "sweep": 1,
+     "swap_out": "attn1",
+     "swap_in": "mlp17",
+     "set": [
+      "attn12",
+      "attn2",
+      "attn4",
+      "mlp17",
+      "mlp2",
+      "mlp3"
+     ],
+     "value": 0.64496
+    },
+    {
+     "sweep": 2,
+     "swap_out": "mlp3",
+     "swap_in": "attn16",
+     "set": [
+      "attn12",
+      "attn16",
+      "attn2",
+      "attn4",
+      "mlp17",
+      "mlp2"
+     ],
+     "value": 0.85975
+    }
+   ],
+   "locally_optimal": false
+  }
+ },
+ "swap_evaluations": 540,
+ "predictions": {
+  "pred_a_local_search_improves": false,
+  "pred_b_improvement_transfers": false,
+  "pred_c_single_basin": false,
+  "pred_d_controls": true
+ },
+ "runtime_s": 763.6
+}
