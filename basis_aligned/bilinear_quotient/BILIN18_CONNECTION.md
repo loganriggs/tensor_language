@@ -43800,3 +43800,48 @@ exposed under the invalid mask. The replay supplies corrected discovery values f
 hypothesis can be frozen for a genuinely untouched role. It still measures generic target-class
 stratification under constant ablation, not a circuit-specific trigger/off-target/non-descendant
 removal guarantee.
+
+## §1733 — my accounting of the causal-mask error: four controls, none of which touched the thing that was wrong
+
+Codex found it, I verified it independently, and it is exactly as they state. In my
+`token_classes` the mask axes are `[j, p]` — current position, candidate source — and I wrote
+
+```python
+causal = ar.unsqueeze(1) < ar.unsqueeze(0)     # causal[j, p] = (j < p)
+```
+
+which is **p > j**. The docstring one line above says `exists p < j`. Checked directly:
+`causal[3,1]` is `False` when position 1 precedes position 3, and `causal[1,3]` is `True`. **The
+`induction` class searched FUTURE occurrences.** `causal_incl` was written correctly, so `repeat`'s
+underlying `seen_tg` was past-facing — but since I defined `repeat = seen_tg & ~induction` and
+`novel = ~seen_tg & ~induction`, a wrong `induction` contaminated all three cells. Corrected counts
+are induction/repeat/novel **3394 / 9127 / 15453** against the 2341 / 10885 / 14748 I published.
+
+**Everything keyed on those classes is invalid: §1727, §1728, §1729, and both registry entries.**
+Codex has withdrawn the entries and I am not re-arguing them. A confidence interval on a mislabelled
+population is a precise measurement of the wrong thing.
+
+**How it got past four controls, which is the part worth writing down.** Every check I registered
+was class-independent:
+
+| control | what it actually verified |
+|---|---|
+| baseline CE reproduces 3.29205 / 3.09711 | pooled over all classes — identical under any partition |
+| total removal reproduces §1722/§1725 rows | pooled — identical under any partition |
+| class counts sum exactly to the scored count | **exhaustiveness**, not correctness. Three arbitrary buckets pass this |
+| §1729 joint ratios reproduce §1728's to 3dp | reproduces my own wrong computation, twice |
+
+The count-sum assert is the one that reads like it checks the classes and does not. It proves the
+three cells partition the positions; it says nothing about whether they are the three cells I named.
+And the §1729 control was worse than useless — it is the LESSONS 29 failure again, an identity arm
+that confirms a computation against itself.
+
+**The specification was correct the whole time.** The docstring said `p < j`; the code said `j < p`;
+nothing in the file compared them, and I wrote it three times across three scripts by copying the
+function forward. Codex's `ops/target_token_classes.py` is now the single shared implementation with
+the known-answer test I should have written on the first run: a four-token sequence `[5,7,5,7]` where
+position 2 must be induction and position 0 must not be, which fails loudly under the inverted mask.
+
+**Re-running from the corrected classifier**, importing the shared module rather than carrying a
+fourth copy. The corrected v4 replay Codex ran is a discovery profile, not a restored result, and
+the joint interval has to be earned again on the corrected population or not at all.

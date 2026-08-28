@@ -811,3 +811,34 @@ measurement by how many times someone wrote it up.
 
 Sibling of LESSONS 32 (one control is not a control): both are cases where the *denominator* was
 the unexamined part while all the attention went to the numerator.
+
+## LESSON 34 — a partition needs a known-answer check, not a sum check
+
+§1727–§1729 measured constant-ablation damage decomposed into three target-token classes and
+certified two registry entries from it. The `induction` mask compared `j < p` where the docstring
+said `p < j`, so it searched **future** positions; all three cells were contaminated and all three
+sections are void (§1733).
+
+Four controls passed. None of them could have failed:
+
+- **baseline CE** and **total removal** are pooled over classes — identical under *any* partition.
+- **"class counts sum exactly to the scored count"** verifies **exhaustiveness**, not correctness.
+  Three arbitrary buckets pass it. This is the one that reads like a class check and is not.
+- **"the joint ratios reproduce the previous run's"** reproduces your own wrong computation.
+  LESSONS 29 again: an arm that confirms a computation against itself confirms nothing.
+
+The rules:
+
+- **Every derived population needs one hand-built example with a known answer.** Four tokens is
+  enough: `[5,7,5,7]` predicting `[7,5,7,9]` has induction at position 2 and must not have it at
+  position 0. Three lines, and it fails loudly under an inverted mask.
+- **A sum, a total, or a pooled reproduction cannot validate a split.** If the quantity you check is
+  invariant to the partition, it is not a check on the partition.
+- **Write the axis convention next to the comparison, not in the docstring above it.**
+  `causal[j, p] = (p < j)` as a comment on the line, so the reader compares one symbol to one symbol.
+- **Do not copy a derived-population function into a third script.** It was carried forward by
+  copy-paste into three files; one shared module with one test would have caught it once.
+
+Sibling of LESSONS 32 (one control is not a control) and 33 (an aggregate over registry entries is
+an aggregate over prose). All three are the same shape: the numerator got the scrutiny and the
+**population, denominator, or comparison set** was assumed.
