@@ -1,0 +1,439 @@
+{
+  "schema_version": 1,
+  "receipt_kind": "mlp1_global_gate_v1_rows",
+  "status": "frozen_before_any_global_gate_model_forward",
+  "authority": "pinned_local_ordered_manifest_source_document_balanced_registry_wide_exclusion",
+  "authorized_for_scored_experiments": true,
+  "authorized_for_training": false,
+  "source_commit": "ead557f685baaf26d53a4b8da5ecc9903ff1f321",
+  "selection": {
+    "start_dataset_document_index": 50000,
+    "n_source_documents": 32,
+    "wave_source_documents": 16,
+    "max_chunks_per_document": 1,
+    "token_length": 513,
+    "cohort_assignment": "first 16 ordered harvested documents fit; next 16 validation"
+  },
+  "sample_summary": {
+    "n_source_documents": 32,
+    "n_chunks": 32,
+    "raw_prediction_positions": 16384,
+    "min_chunks_per_document": 1,
+    "max_chunks_per_document": 1,
+    "chunks_per_document_histogram": {
+      "1": 32
+    },
+    "waves": {
+      "A": {
+        "n_source_documents": 16,
+        "n_chunks": 16,
+        "raw_prediction_positions": 8192
+      },
+      "B": {
+        "n_source_documents": 16,
+        "n_chunks": 16,
+        "raw_prediction_positions": 8192
+      }
+    }
+  },
+  "entries": {
+    "all": {
+      "shape": [
+        32,
+        513
+      ],
+      "dtype": "torch.int64",
+      "tensor_raw_sha256": "a9b79378e7660cac7965870563d4ef1c49e2a6dc148b037d9f063c6b0efec132",
+      "file_sha256": "bdb34db40fffcfcbb22c88cf958ad7d6894cdce770399f48d7669acec684bd04",
+      "cache_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp1_global_gate_v1/fineweb_32_source_documents.pt"
+    }
+  },
+  "document_provenance": {
+    "schema_version": 1,
+    "sets": {
+      "all": [
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50000",
+          "dataset_document_index": 50000,
+          "source_document_ordinal": 0,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50001",
+          "dataset_document_index": 50001,
+          "source_document_ordinal": 1,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50002",
+          "dataset_document_index": 50002,
+          "source_document_ordinal": 2,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50005",
+          "dataset_document_index": 50005,
+          "source_document_ordinal": 3,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50009",
+          "dataset_document_index": 50009,
+          "source_document_ordinal": 4,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50017",
+          "dataset_document_index": 50017,
+          "source_document_ordinal": 5,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50019",
+          "dataset_document_index": 50019,
+          "source_document_ordinal": 6,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50023",
+          "dataset_document_index": 50023,
+          "source_document_ordinal": 7,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50027",
+          "dataset_document_index": 50027,
+          "source_document_ordinal": 8,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50029",
+          "dataset_document_index": 50029,
+          "source_document_ordinal": 9,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50037",
+          "dataset_document_index": 50037,
+          "source_document_ordinal": 10,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50038",
+          "dataset_document_index": 50038,
+          "source_document_ordinal": 11,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50039",
+          "dataset_document_index": 50039,
+          "source_document_ordinal": 12,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50040",
+          "dataset_document_index": 50040,
+          "source_document_ordinal": 13,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50041",
+          "dataset_document_index": 50041,
+          "source_document_ordinal": 14,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50042",
+          "dataset_document_index": 50042,
+          "source_document_ordinal": 15,
+          "wave": "A",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50049",
+          "dataset_document_index": 50049,
+          "source_document_ordinal": 16,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50050",
+          "dataset_document_index": 50050,
+          "source_document_ordinal": 17,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50051",
+          "dataset_document_index": 50051,
+          "source_document_ordinal": 18,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50059",
+          "dataset_document_index": 50059,
+          "source_document_ordinal": 19,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50060",
+          "dataset_document_index": 50060,
+          "source_document_ordinal": 20,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50064",
+          "dataset_document_index": 50064,
+          "source_document_ordinal": 21,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50065",
+          "dataset_document_index": 50065,
+          "source_document_ordinal": 22,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50067",
+          "dataset_document_index": 50067,
+          "source_document_ordinal": 23,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50069",
+          "dataset_document_index": 50069,
+          "source_document_ordinal": 24,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50070",
+          "dataset_document_index": 50070,
+          "source_document_ordinal": 25,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50071",
+          "dataset_document_index": 50071,
+          "source_document_ordinal": 26,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50076",
+          "dataset_document_index": 50076,
+          "source_document_ordinal": 27,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50078",
+          "dataset_document_index": 50078,
+          "source_document_ordinal": 28,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50079",
+          "dataset_document_index": 50079,
+          "source_document_ordinal": 29,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50087",
+          "dataset_document_index": 50087,
+          "source_document_ordinal": 30,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        },
+        {
+          "document_id": "9bb295ddab0e05d785b879661af7260fed5140fc:data/CC-MAIN-2013-20/000_00000.parquet:50090",
+          "dataset_document_index": 50090,
+          "source_document_ordinal": 31,
+          "wave": "B",
+          "chunk_id": 0,
+          "token_start": 0
+        }
+      ]
+    }
+  },
+  "disjointness_gates": {
+    "source_documents_disjoint_from_prior": true,
+    "dataset_document_indices_disjoint_from_prior": true,
+    "full_rows_disjoint_from_prior": true,
+    "prefix32_disjoint_from_prior": true,
+    "replication_waves_document_disjoint": true
+  },
+  "ordered_manifest_gate": {
+    "passed": true,
+    "revision": "9bb295ddab0e05d785b879661af7260fed5140fc",
+    "config": "default",
+    "ordered_file_count": 27468,
+    "ordered_manifest_sha256": "ba5e92b0d157f47cc6f8656eb1c37e46b7aac6957be8be68c1596736b98e6f90",
+    "first_uri": "hf://datasets/HuggingFaceFW/fineweb@9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet",
+    "last_uri": "hf://datasets/HuggingFaceFW/fineweb@9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2025-26/004_00049.parquet",
+    "first_relative_path": "data/CC-MAIN-2013-20/000_00000.parquet",
+    "source_local_path": "/workspace/fineweb_pinned/data/CC-MAIN-2013-20/000_00000.parquet",
+    "source_size": 2147531358,
+    "source_sha256": "c84e6941d787b50959521df6d6894a91397c8b2db13f8a9c8fe0f8782872e930",
+    "source_parquet_rows": 1091396,
+    "maximum_consumed_document_index": 11311,
+    "datasets_version": "5.0.1",
+    "builder_class": "ParquetFineweb"
+  },
+  "source_receipt_path": "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_oracle_v2_receipt.json",
+  "source_receipt_sha256": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+  "prior_registry_files": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_oracle_v2_receipt.json": "815b21618c2e477e8cbda17ce94bf01862017a9936e4ee03acaa6cd7256cba16",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_local_shadow_v1_receipt.json": "b83bd23857f510347e10ce1140d7788f7247ce00f7c329d6aa4b24d72af43663",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_authority.json": "2c1ad6ca099d4910f83531fbc958f070da600f554799947c5118284e7b939e28",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_manifest.json": "8ed7ce4449f6ce2901b53daa20e5b164be0598bc3cddb8620b0c2953f0ccaa2b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_programs_receipt.json": "9ed63cd042890e6d1698684189ab08f09f2f27ad53207ff3dcaabcff4befba74",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_affine_compiler_v1_rows_receipt.json": "762528ea02cd98071ea55e6b4e904a8fc453f3eb4e545946b8e7149aaf8caa04",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_final_authority.json": "659051ed8e2d34a2d755d1942f4112161294831e724d6697f4c3e2ef466f6987",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_final_manifest.json": "21c1a3718fd040f702b31db0a574b886a979f2f18d4faac6941f704d696305dc",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_programs_receipt.json": "c9c67bdd14a34dd83192a02d49705d0ed7043e2f9751d042250f44395f88ec2c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_rows_manifest.json": "1cfe4b383c8298ca79164dc42098a9c9e5bce8c47b4411605e1aa1fb2dc44975",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_rows_receipt.json": "7fa45e9a9e77e6622167fbf024400177f581cdd40958c1fb722ca13d8fcc018b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site0_aborted_shared_head_drift_manifest.json": "60f08aee6890c885a0e19567d731b629bb5384ca26bc9ac43309cfe22b9a9ea3",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site0_ledger_receipt.json": "51c33f2022dce9ebb8ef11688c9425b09c50018c2748195d901f0841dd838d0b",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site0_manifest.json": "1dee20bb22194a1215f18da1378a1b2aa96a2c886542a941d929af4930fc6673",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site0_training_receipt.json": "674f1f9c304e695b343e8f086e5793008d9c4863513ece296307c9c672e5a936",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site1_ledger_receipt.json": "fbd98d1941bd1500026c345b9c2f66b66e1cbae2375e106a6e55b4ee9844739f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v21_site1_manifest.json": "3036431d9c1249a09a1250ab8aecdf28bc13fc13efcf2cca9e62b754238470a6",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_full_native_numeric_diagnostic_v1_manifest.json": "8ce7b8cb38399eb5ac502ef9d0b78825cf97977cfa86384c355bde2d9f041c00",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_full_native_numeric_diagnostic_v1_receipt.json": "fffecb9a3d99a4f6b7f615c96caf9bd7e2ac9c4d4788d610df7edf18d6a1d9fd",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_preflight_manifest.json": "219f5fb7a02d782f4d04b54fe8f1d6a961d601323971513ddc3945d649a31526",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_preflight_r2_manifest.json": "8f78472c0bbcaf4c8b4d89e22a900264073ee0c11eca81887fe777473169c102",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_rows_receipt.json": "23319ece1d8542d51e024bde0e2253d740b08ad18ad4f2d8565ba5120473fd82",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_site0_manifest.json": "0903b0822b935e7dd6225da46dd1e58064ec275b80fd9c599685cea8b8b05f36",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/early_mlp_state_complete_compiler_v2_site0_retry1_manifest.json": "2eb0ef098a93d5562bb1abd0b3e94187a461e86cc1c3aec055a1bb719632829a",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v3_manifest.json": "5b2d091ff3846bb41e210695eac056e5fffb74fae0053381bb002b99b49e986f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_authority.json": "62a62262bf89b1a2a59b9a1dab092f57910f02e4550f17bd75689a9b3e583e33",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_authoritative_v4_manifest.json": "de6524fd4c91b19a4cae7f9942c59792ee30b181568a9afcd3498ce73bdf8406",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_curated_dev_v1_manifest.json": "710a142b82879f1c1ac95fcdf32c48b39fdd1660f6dfe40f7661f05403adfc92",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_oracle_factorial_curated_dev_v2_manifest.json": "1f9e23ba9325c330b76411b07ea8dba5539d7ca8315e54f14f6ffa1a6f5a1f5a",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_authority.json": "38cf5a349e4426b4ed3227ad11f37499ffa9c3959de5d85d606580aa32c39f1e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_basis_receipt.json": "b81adb4c78255613997de4cbfc8ffd9e8eec233b40950915a14005ba3efcba0f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/joint_early_mlp_pca_composition_authoritative_v3_manifest.json": "cae4a3092213d3e1d0983448576f9a4c3966a092d731d56ab16169a8c82b7588",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp1_interchange_v1_eval_authority.json": "89abb2292754b9a4ba15cbae80efd02c4181710d3083327b31582601f0bf248f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp1_interchange_v1_rows_receipt.json": "9153f4e2c05725264c5ea9e8d17dd640885c48e738d4e97776ac628d05b5722f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp1_interchange_v2_eval_authority.json": "7b68e3f2dab9022a07a1cea17cb67d0df5aad96e44c434a5ba84e2251ec57540",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp1_interchange_v3_eval_authority.json": "535a4e4d69cfea8205c3d37526cbe664a3505bf5436367e22a85a3dbbe6404c8",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp2_compensation_v0_incomplete_registry_rows_receipt.json": "a3bbd6f96a4826be196c8089c335ae38c49c16d900f4554a850fd5a63b21fa29",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp2_compensation_v1_eval_authority.json": "fb322004f33db15f1ce53e7eec883dd779c49c73a2631790ee7fcc300c5301ba",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp2_compensation_v1_rows_receipt.json": "f9b6be90167e7fb1c8d17d7ffcfa41db918416a91a4f5726f7a01253a0eb43d1",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_c512_mlp2_compensation_v2_eval_authority.json": "167ce13f15c584d7e5af29e1c14e994d0d6af2f2741ec1f4d26527f589d943b5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_eval_authority.json": "1a68ca34b5fafa2c747e03a724c8a6e6b7cc04a4f6d9a9a29185cdc79d2f7dce",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_fit_authority.json": "a1b704d03dc44d00d89f389c8af113ef0532466270855c4fe981429a6a9b6fd6",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_fit_receipt.json": "79d0069864e9df521a99fc36531dd86c7ed31106f58f029d681fb1788a269f82",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_native_down_hierarchy_v1_rows_receipt.json": "9888c8f718897273cdfa8f2fa1a0a749fde45bce5295712ffd33585aa09fcc7e",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v1_collector_authority.json": "e61d861a925b010cbaf713d819a4298e09fa1ce9500c2e8639769ddaa9bccbeb",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v1_fit_receipt.json": "111a5a26bcb69683fffd5c10d991376c8c30a7c77482fe932f1d7cf77826b4f4",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v1_rows_receipt.json": "69b068d582e616c37e37937e6705a61a5cf7eb2737270067e4253f10ffe19cea",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v2_collector_authority.json": "586bcca33046fdc6e89a04fdf8799e777eabd1f71ff29e11ba2d839032fce02f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/mlp0_quotient_stage0_v2_fit_receipt.json": "3f46efa1518e7971f076f91d2ce48234fb9e0593ba80e09e3a678460973c609c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_manifest.json": "50bca1efe14a357d7014c376aed63d0a0607aaacc80562524f173f58234c1da8",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/oracle_local_pca_strength_control_v1_scale_receipt.json": "42f6149d5105dad45f8c4e041b2683b198f39d0f4cadf9fdd50de5957c3c43bf",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_content_oracle_curated_dev_manifest.json": "46b18d342952eda074d6f461f859b56952eb740717b9366e188daaddf179b8c7",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/ship_content_oracle_curated_dev_v2_manifest.json": "d58b8a9c4d69a071b64d20ed4f5fbcc6a7f349587f8edc784d17fdbd9ffd9781"
+  },
+  "prior_row_tensors": {
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip11000.pt": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n192_skip7000.pt": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n480_skip80.pt": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n96_skip1200.pt": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache/fineweb_n96_skip80.pt": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v1/fineweb_n192_skip19000.pt": "95221f3f4e7f8a4fbb2784c03e3f71cfca3016bbba1acb111d12c9f6d6dc7a1d",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v1/fineweb_n192_skip23000.pt": "c853a86ffe7606b914c462669120ea7854dccbec785f3efb7d154c4eb306bc69",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v1/fineweb_n480_skip15000.pt": "f034a2f3804a40371c115de9e84529182a1ac4877fb5023b1feb5f0c7a7617b9",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v2/fineweb_n192_skip31000.pt": "0d66fc0958da4fa8c0aedbe5b4203d474382acf6b5c0ebe77b53a54505a91ac9",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v2/fineweb_n192_skip35000.pt": "c9de7d6386668f24414018b330f4182a17c4c73fb2babb395c0654a52f9a3acd",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v2/fineweb_n480_skip27000.pt": "cf3abe833dec8ccfc09afef0ff1bdcc74b2ba8a37dc86e9c954c238bb6b7c276",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_compiler_v21/fineweb_n192_skip39000.pt": "6982853519be38f627fec91532f2e622573f57304bd8b04fe08220491122c8da",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_c512_mlp1_interchange_v1/eval_384_source_documents.pt": "624b7adc977ac28926c1cc8784038bcc921e509c1d191ee74cd557d5116e58df",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_c512_mlp2_compensation_v0_incomplete_registry/eval_384_source_documents.pt": "67f748209d46f1947e178437711f8927571b3d442d161e3d25df3b2933d968c5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_c512_mlp2_compensation_v1/eval_384_source_documents.pt": "d141b074906d04831a452c9a713030a58fd4a18a756a04d3273c0ea67eb3a150",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_native_down_hierarchy_v1/eval_384_source_documents.pt": "512f19fd93275ea06e02f32da38c1adafdcdeef1e4d11aaf1cebdc6e69ea7db5",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_quotient_stage0_v1/eval_n192_skip21000.pt": "6f128fb79e7f967e252756d170e2d0cadceae730cf8c1eac04ae55b36d207b87",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_mlp0_quotient_stage0_v1/fit_n960_skip80.pt": "4439d377fadf02be8961205ac7f9e89649ff9099347373f8b6e53b8048e9eb86",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n192_skip11000.pt": "b1564bfd071418f401a816cb01e3d26b082a3e73ba858838f1c83c250db4d868",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n192_skip7000.pt": "d66c1ee7807bc6b9bd7d0ddba5cdd7e3bc64926b00320a10675a2f817d67128c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n480_skip80.pt": "2acf75382486988a1e124a1a575ef3230af43aa1b1507d80dee02eefc7bba496",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n8_skip40.pt": "6577fc7c7b56d2702b4906035d14f743624ec3be308a42190994e497226cff2c",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n96_skip1200.pt": "21707551f35d13818c10ac59e12e9445ef076d0522371fe779691bfab719d34f",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/.rowcache_shadow/fineweb_n96_skip80.pt": "94bc1fb3e3a6a061541e555295e0af8c50ae6068fdff84e95a69c25844091eda",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/bilin18_eval_tokens_large.pt": "bb2b00699e511245bb68069be1fe5559777170fb78a6dc9218830454f38e3cd7",
+    "/workspace/tensor_language/basis_aligned/bilinear_quotient/curated_rows.pt": "faaf89f38ddf1471234a1d30d978213367a566a9927bb3c73b274ab32afaa9dd",
+    "/workspace/tensor_language/basis_aligned/polynomial_causal/code_oracle_corpus_v2.pt": "6750a72b4232d4d4687946bb379457210555a660c9ef2e0d4967a63ddfaf2d9d"
+  },
+  "exclusion_counts": {
+    "source_documents": 3052,
+    "dataset_document_indices": 3052,
+    "full_rows": 7349,
+    "prefix32": 7340,
+    "registry_files": 53,
+    "row_tensor_files": 27
+  },
+  "implementation_hashes": {
+    "basis_aligned/polynomial_causal/prepare_mlp1_global_gate_rows.py": "84cab37b9750145aa8a5243f83152fbc141a7e299924c22b616f861a1f6b9174",
+    "basis_aligned/polynomial_causal/MLP1_GLOBAL_GATE_RESPONSE_PREREGISTRATION.md": "aa7fa4067e2232f504eff6a4103b040613c3205f12b1824c2e1d163d667d7914",
+    "basis_aligned/polynomial_causal/prepare_mlp0_c512_mlp2_compensation_v1_rows.py": "0885ac954ae7f2dce2f035d760443f79d9ff3afc434f6b1335940024ef84988e",
+    "basis_aligned/polynomial_causal/prepare_mlp0_native_down_hierarchy_v1_rows.py": "f7eee860ef40a6301d78461c5d677394757014b6096ecbb853b8e8d48990ab83",
+    "basis_aligned/polynomial_causal/local_fineweb_harvest.py": "87d9abeaf1182811650c35bcae25b0373687d2e87aede895bc9f2bc440b90b04"
+  }
+}
