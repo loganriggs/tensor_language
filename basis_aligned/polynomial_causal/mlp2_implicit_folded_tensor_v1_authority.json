@@ -1,0 +1,190 @@
+{
+  "authorized_operation": "one CPU MLP2 implicit folded-tensor diagnostic",
+  "checkpoint_deserialized": false,
+  "mlp2_tensors_extracted": false,
+  "mode_grams_computed": false,
+  "namespace": {
+    "failure": "basis_aligned/polynomial_causal/mlp2_implicit_folded_tensor_v1_failure.json",
+    "outcome_authority": "basis_aligned/polynomial_causal/mlp2_implicit_folded_tensor_v1_outcome_authority.json",
+    "result": "basis_aligned/polynomial_causal/mlp2_implicit_folded_tensor_v1_results.json",
+    "run_lock": "basis_aligned/polynomial_causal/.mlp2_implicit_folded_tensor_v1.lock",
+    "source_weight_authority": "basis_aligned/polynomial_causal/mlp2_implicit_folded_tensor_v1_authority.json"
+  },
+  "protected_snapshot": {
+    "checkpoint": {
+      "config": {
+        "bytes": 227,
+        "path": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/blobs/f0da83505a9b92d79c7fa3369121f5c4a3675b2d",
+        "sha256": "428042bfd807ba36f8b4326395440fbbebe52cd3d040212e6fef14a4fdf2d83c"
+      },
+      "fingerprint": "961d80404fc88257dc5e530dc5d6a13afc17fead7e42c436f23952ab033a1bcc",
+      "logit_vocab": 50304,
+      "model_repo": "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd",
+      "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "snapshot": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/snapshots/ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+      "tokenizer_vocab": 50257,
+      "weights": {
+        "bytes": 2067738635,
+        "path": "/workspace/.hf_home/hub/models--Elriggs--gpt2-bilinear-sqrd-attn-18l-9h-1152embd/blobs/680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+        "sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3"
+      }
+    },
+    "common_contract_sha256": "db10c1f301b963f687863de2174f0077421005d2840b0ce3d92dac326922b656",
+    "fingerprint": "37330a0d01338d6164bcc3d96c62eac38e82b7a0e866102b7a1dfd3f6b631e63",
+    "frozen_mlp2_sources": {
+      "implementation_commit": "58b4040ddcab72d96965f792f0c2da787d100864",
+      "math_source_sha256": "e6093e9ae6f66078cb49f5a479e5131be1d7e0b880c290e8a44ebe17d7af063e",
+      "math_test_sha256": "3bbb750170b46ebb8f16e115a49eaffe09cb4b5850e6f8968099bb9443b3de3e",
+      "preregistration_commit": "899f81d6e120ecedb4d7fbd3b0f819740fb5a034",
+      "preregistration_sha256": "d97f8c29307c8199bd8846bca3a16356ccd1767e356f067f8f23b465ac081d12"
+    },
+    "math_source_sha256": "e6093e9ae6f66078cb49f5a479e5131be1d7e0b880c290e8a44ebe17d7af063e",
+    "math_test_sha256": "3bbb750170b46ebb8f16e115a49eaffe09cb4b5850e6f8968099bb9443b3de3e",
+    "mlp1_decision_addendum_sha256": "e8f6695e35e8de5746b3ce60b3f0164d8435aa610e117b32174e7c785e6f76c7",
+    "mlp1_lessons": {
+      "hashes": {
+        "basis_aligned/polynomial_causal/COMMON_EARLY_MLP_DECOMPOSITION_COMPARISON_CONTRACT.md": "db10c1f301b963f687863de2174f0077421005d2840b0ce3d92dac326922b656",
+        "basis_aligned/polynomial_causal/MLP1_IMPLICIT_FOLDED_TENSOR_DECISION_ADDENDUM.md": "e8f6695e35e8de5746b3ce60b3f0164d8435aa610e117b32174e7c785e6f76c7",
+        "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1_failure.json": "350d7dc7bb4ec3207853abaa5db83da57b58b1613898553320824245c3f48526",
+        "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v2_authority.json": "baa1eb9bb245c792f9a8ac473d5ca25f0012b55f9aef5b5a8e86f6c5f693ce92",
+        "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v2_outcome_authority.json": "b96573ee373e6d4f0032667acb5c838d5205fc9c166eb9e5112d90396c56a9de",
+        "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v2_results.json": "2cbd5a745a6669d49da22ded23bd6df385f3cc057b686f814ad0157ef5fa8281"
+      },
+      "v1_failure_preserved": {
+        "authority_path": "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1_authority.json",
+        "authority_sha256": "7b2cebe982559a3e232e073d238b984df6246461b92c622e0275bc9279b8b468",
+        "failure_path": "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1_failure.json",
+        "failure_sha256": "350d7dc7bb4ec3207853abaa5db83da57b58b1613898553320824245c3f48526",
+        "outcome_authority_absent": true,
+        "result_absent": true
+      },
+      "v2_dtype_census": {
+        "keys": 218,
+        "torch_bfloat16_keys": 55,
+        "torch_float32_keys": 163
+      },
+      "v2_original_bias_dtype": "torch.bfloat16",
+      "v2_outcome_authority_status": "authoritative_weight_diagnostic_only"
+    },
+    "preregistration_sha256": "d97f8c29307c8199bd8846bca3a16356ccd1767e356f067f8f23b465ac081d12",
+    "protocol_sha256": "45ce2d4f7474e6da2ba6d9602aebfdec56a095378edd144cf3fca4bef26f3e95",
+    "sources": {
+      "fingerprint": "5841c76467fbc8d9c2ac754c893129c0ef9bcc205614c7e665192ba00a4f4b21",
+      "git": {
+        "latest_source_commit": "eb9b95fc01fdfa46e0f5b09e2b95ac5a79e14418",
+        "reachable_from_origin_main": true
+      },
+      "source_hashes": {
+        "basis_aligned/polynomial_causal/COMMON_EARLY_MLP_DECOMPOSITION_COMPARISON_CONTRACT.md": "db10c1f301b963f687863de2174f0077421005d2840b0ce3d92dac326922b656",
+        "basis_aligned/polynomial_causal/MLP1_IMPLICIT_FOLDED_TENSOR_DECISION_ADDENDUM.md": "e8f6695e35e8de5746b3ce60b3f0164d8435aa610e117b32174e7c785e6f76c7",
+        "basis_aligned/polynomial_causal/MLP1_IMPLICIT_FOLDED_TENSOR_V1_EXECUTION_PROTOCOL.json": "04b8580c949b9f88a0bb0770ccbe8898f0001b205eb6c0cba001c2c3a6d8eb10",
+        "basis_aligned/polynomial_causal/MLP1_IMPLICIT_FOLDED_TENSOR_V1_PREREGISTRATION.md": "1fe714c14ee56a16f87ee2c3a7ab921c7133dd45d624eea55da61f8581b66dc5",
+        "basis_aligned/polynomial_causal/MLP1_IMPLICIT_FOLDED_TENSOR_V2_ERRATUM.md": "94b20bfd12d7c3ddfc94412fa0fe1af987463f36f72729a4428f30c2518c83c1",
+        "basis_aligned/polynomial_causal/MLP1_IMPLICIT_FOLDED_TENSOR_V2_RETRY_PROTOCOL.json": "ab3b6cf46db7b9fc0a74ab00d12887908c33fbd01ade0c5ed47b854b1e45b8fe",
+        "basis_aligned/polynomial_causal/MLP2_IMPLICIT_FOLDED_TENSOR_PREREGISTRATION.md": "d97f8c29307c8199bd8846bca3a16356ccd1767e356f067f8f23b465ac081d12",
+        "basis_aligned/polynomial_causal/MLP2_IMPLICIT_FOLDED_TENSOR_V1_EXECUTION_PROTOCOL.json": "45ce2d4f7474e6da2ba6d9602aebfdec56a095378edd144cf3fca4bef26f3e95",
+        "basis_aligned/polynomial_causal/bilin18_observed_model_facade.py": "b62947f772c807259890a9d09dfcbe5e91ad339a0bffa867ab99177fde4c728c",
+        "basis_aligned/polynomial_causal/collect_mlp1_implicit_folded_tensor_v1.py": "683a6e397515eff6cd848464552dfe22c8b51ee25ee3ee86b0ab8d973bc80fc1",
+        "basis_aligned/polynomial_causal/collect_mlp1_implicit_folded_tensor_v2.py": "d7e7b2939e5cc3daa7f83cdc7a53278d45abcf7b139bf8603ce25bd096f90bc9",
+        "basis_aligned/polynomial_causal/collect_mlp2_implicit_folded_tensor_v1.py": "2532f7104175e694763d44e95de19585a008c1fbba1202f6795205e90e9e5020",
+        "basis_aligned/polynomial_causal/freeze_mlp1_implicit_folded_tensor_v1_authority.py": "0772635ba725a3081fd89cc9df8ea08e10a2dc6fd41abb15c9f127c7acd499cd",
+        "basis_aligned/polynomial_causal/freeze_mlp1_implicit_folded_tensor_v2_authority.py": "0b1d5c7a8914eb27da6996564edb819863e5498d5fc44af3ba317152b2918524",
+        "basis_aligned/polynomial_causal/freeze_mlp2_implicit_folded_tensor_v1_authority.py": "d2a01580884125e49cf8699f1fcf802f38ad1006beb9b1551efe7f01d27980b8",
+        "basis_aligned/polynomial_causal/mlp1_implicit_folded_tensor_v1.py": "adae8d756e2c5ddf1b6a488b83f766c58e9f12be89efb7c2bad6fd14e10f1a91",
+        "basis_aligned/polynomial_causal/mlp2_implicit_folded_tensor.py": "e6093e9ae6f66078cb49f5a479e5131be1d7e0b880c290e8a44ebe17d7af063e",
+        "basis_aligned/polynomial_causal/tensor_bilin18_tangent_authority.py": "3a66124707bbf87d847e7b1fb5a04defd45bcb8642470a3f0fd7dead842853eb",
+        "basis_aligned/polynomial_causal/test_bilin18_observed_model_facade.py": "7ce76de82cba3355abd07dab6a0d3b4d380d39eae43ad064ae4d954878606a71",
+        "basis_aligned/polynomial_causal/test_mlp1_implicit_folded_tensor_v1.py": "ad8e86f7a3730c98eb88510d8dbd393c9381feafd236fa6950ccec1fa4352efa",
+        "basis_aligned/polynomial_causal/test_mlp1_implicit_folded_tensor_v1_lifecycle.py": "61085081904f6e537005b7256fe11f3422e957dc364fa3fec7671104bd541d63",
+        "basis_aligned/polynomial_causal/test_mlp1_implicit_folded_tensor_v2_lifecycle.py": "9f2a73bb3c2545abb9516c248db9ee902ec701589a0717e2400be007385c374d",
+        "basis_aligned/polynomial_causal/test_mlp2_implicit_folded_tensor.py": "3bbb750170b46ebb8f16e115a49eaffe09cb4b5850e6f8968099bb9443b3de3e",
+        "basis_aligned/polynomial_causal/test_mlp2_implicit_folded_tensor_v1_lifecycle.py": "0b22b301c8812d63baa138de67450b919534e083ad5b0f37aaf814a561f7abb0",
+        "basis_aligned/polynomial_causal/test_tensor_bilin18_tangent_pilot.py": "d4f7537ee6b29ba73a44e774564f1808a03c129a3b182e9fcc764466cc0cf41a",
+        "jacclust/tt_model.py": "49ecdbd6c060ff5b3e57f3134d87ba32841390c891c42e6ae23b71d8627612b2"
+      }
+    }
+  },
+  "protocol": {
+    "analysis_arithmetic": "numpy.float64",
+    "bias_rule": "Clone and hash the original MLP2 bf16 Down_bias before conversion; make and separately hash one disjoint float64 analysis copy; retain all 1152 values exactly; bias is not an input to balancing, mode Grams, spectra, HOSVD tails, or price-rank selection.",
+    "blas_thread_count": 1,
+    "checkpoint_load_rule": "Only after exact MLP2 source/weight authority: one local torch.load(weights_only=True,mmap=True,map_location=cpu), exact 218-key shape/native-dtype validation, clone only MLP2 Left/Right/Down/Down_bias, then delete the state tree.",
+    "claim_boundary": "spectral_and_fixed_grammar_price_diagnostic_only; no CP-rank, CE, causal, semantic, removal, OOD, or cube credit",
+    "device": "cpu",
+    "energy_levels": [
+      0.9,
+      0.95,
+      0.99,
+      0.999
+    ],
+    "experiment_id": "bilin18_mlp2_implicit_folded_tensor_v1",
+    "failure_rule": "Failure is create-only, may bind a partial MLP2 result, and can never overwrite or authorize an artifact.",
+    "frozen_mlp2_sources": {
+      "implementation_commit": "58b4040ddcab72d96965f792f0c2da787d100864",
+      "math_source_sha256": "e6093e9ae6f66078cb49f5a479e5131be1d7e0b880c290e8a44ebe17d7af063e",
+      "math_test_sha256": "3bbb750170b46ebb8f16e115a49eaffe09cb4b5850e6f8968099bb9443b3de3e",
+      "preregistration_commit": "899f81d6e120ecedb4d7fbd3b0f819740fb5a034",
+      "preregistration_sha256": "d97f8c29307c8199bd8846bca3a16356ccd1767e356f067f8f23b465ac081d12"
+    },
+    "mlp2_factor_dtypes": {
+      "Down.weight": "torch.float32",
+      "Down_bias": "torch.bfloat16",
+      "Left.weight": "torch.float32",
+      "Right.weight": "torch.float32"
+    },
+    "native_dtype_schema": {
+      "torch.bfloat16": [
+        "transformer.wte.weight",
+        "transformer.h.*.lambdas",
+        "transformer.h.*.attn.lamb",
+        "transformer.h.*.mlp.Down_bias"
+      ],
+      "torch.float32": "every other key in the exact 218-key TT.GPT state tree"
+    },
+    "publication_order": [
+      "mlp2_source_weight_authority",
+      "mlp2_nonauthoritative_result",
+      "mlp2_last_written_outcome_authority"
+    ],
+    "schema_version": 1,
+    "site": 2,
+    "state_key_counts": {
+      "torch.bfloat16": 55,
+      "torch.float32": 163,
+      "total": 218
+    },
+    "status": "prospective_no_mlp2_checkpoint_tensor_loaded"
+  },
+  "receipt_kind": "mlp2_implicit_folded_tensor_v1_source_weight_authority",
+  "result_computed": false,
+  "rows_loaded": false,
+  "runtime": {
+    "analysis_dtype": "numpy.float64",
+    "blas_environment": {
+      "MKL_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1"
+    },
+    "blas_libraries": [
+      {
+        "architecture": "Haswell",
+        "internal_api": "openblas",
+        "num_threads": 1,
+        "prefix": "libscipy_openblas",
+        "threading_layer": "pthreads",
+        "user_api": "blas",
+        "version": "0.3.34.0.0"
+      }
+    ],
+    "deterministic_algorithms": true,
+    "device": "cpu",
+    "numpy": "2.5.2",
+    "python": "3.12.14",
+    "threadpoolctl": "3.6.0",
+    "torch": "2.11.0+cu128",
+    "torch_num_threads": 1
+  },
+  "schema_version": 1,
+  "spectra_computed": false,
+  "status": "frozen_before_any_mlp2_checkpoint_tensor_deserialization"
+}
