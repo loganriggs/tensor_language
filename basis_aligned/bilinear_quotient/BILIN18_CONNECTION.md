@@ -43221,3 +43221,88 @@ is the valid one and is damning on its own.
 **Correction to practice, not just to this result.** Every program figure in this arc should carry
 its params/nat, and "best" should mean best on the frontier rather than best on fidelity. The
 registry headline is updated accordingly.
+
+## §1718 — factor-complete correction: §1717 underpriced every quadratic feature by 3x
+
+§1717's conclusion is directionally correct but its parameter ledger is not standalone. It charges
+only the added decoder columns, $12\,k\,1152$. Computing a selected native bilinear feature
+
+$$
+h_j(z)=(L_j z)(R_j z)
+$$
+
+without calling the original MLP also requires the corresponding row of `Left` and the
+corresponding row of `Right`. Each added feature therefore costs $3\times1152$ real parameters:
+two input factors plus one output decoder. Across twelve middle sites the factor-complete increment
+is $12\,k\,(3\times1152)$, before indices or runtime metadata.
+
+Using the same 23.89M base, 5.56837-nat stake, and measured ceilings gives:
+
+```
+program             added factors   total params   recovered nats   total M/nat   next-block M/nat
+base                       0.000M        23.890M          3.06472          7.80           —
++ k=512                   21.234M        45.124M          3.26936         13.80         103.8
++ k=1024                  42.467M        66.357M          3.37549         19.66         200.1
++ k=2048                  84.935M       108.825M          3.52912         30.84         276.4
++ k=4608                 191.103M       214.993M          3.76110         57.16         457.7
+```
+
+Thus §1717's `30.97M` through `87.59M` totals and `34.6` through `152.6 M/nat`
+marginals are decoder-only lower bounds, not executable program prices. The valid conclusion is
+stronger: every augmented point is dominated by the base under the repository's structural
+parameter-count proxy, and marginal efficiency worsens more sharply than §1717 reported.
+
+This proxy is not literal MDL in bits. `BENCHMARK.md` explicitly uses balanced-gauge structural
+parameter count rather than quantization. It is valid for comparing these fixed-grammar arms on a
+common stake; cross-grammar claims still require canonical gauge accounting, indices, shared
+parameter amortization, compute, and independently executable zero-native-call programs.
+
+## §1718 — both §1714 and §1717 used the wrong denominator, in opposite directions. Neither ranking survives.
+
+Logan asked how I can say one program is better than another, on what metric, and why we care about
+it. The honest answer is that I could not, and two claims come out.
+
+**§1717's "worse program" was an overclaim: there is no Pareto dominance here.**
+
+```
+program        params (M)   nats recovered
+base linear        23.89        3.065
+k=512              30.97        3.269
+k=1024             38.05        3.376
+k=2048             52.20        3.529
+k=4608             87.59        3.761
+```
+
+Every point is monotone increasing in *both* axes, so **none dominates any other**. They are all on
+the frontier. Ranking them by params/nat picks a scalarization — it silently assumes an exchange
+rate at which you would never pay 152M parameters for a marginal nat. That is a preference, not a
+measurement, and asserting it as "worse" was wrong.
+
+**§1714's "the module re-implemented" was an overclaim too, and by a larger factor.** I said k=4608
+was "not a compression" because it costs 2.7x the *base program*. Measured against what it actually
+replaces — the 36 modules total **430.00M** parameters (18 MLPs at 15.926M, 18 attention at
+7.963M) — the picture is different:
+
+```
+base linear   23.89M =  5.6% of the modules it replaces, recovering 55.0% of their effect
+k=512         30.97M =  7.2%                                        58.7%
+k=1024        38.05M =  8.8%                                        60.6%
+k=2048        52.20M = 12.1%                                        63.4%
+k=4608        87.59M = 20.4%                                        67.5%
+```
+
+k=4608 is a **~5x compression of the modules**, not a re-implementation. I compared to the wrong
+baseline: the base *program*, rather than the *thing being explained*. Both sections therefore
+misranked, one by scalarizing a frontier and one by dividing by the wrong denominator.
+
+**What survives, and it is the part that was ever scientific.** The frontier's SHAPE. Marginal cost
+per nat rises monotonically — 34.6, 66.7, 92.1, 152.6 M/nat — with no knee anywhere. A knee would
+mean a compressible chunk exists: some modest number of parameters buying a disproportionate share
+of the behaviour. There is none. That is a statement about bilin18's middle band and it needs no
+exchange rate to make, because it is about curvature rather than about which point is best.
+
+**Why the metric matters at all, stated so the next section cannot drift again.** Score fidelity
+alone and the winner is always the model itself. Score simplicity alone and the winner is a
+constant. Both are trivial, so neither axis is a metric on its own — the object is the frontier, and
+the findings live in its shape, not in a ranking of its points. Choosing a point on it requires
+saying what the description is *for*, and that is a judgement outside the measurements.
