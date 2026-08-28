@@ -1,0 +1,87 @@
+{
+ "config": {
+  "sites": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   9,
+   10,
+   11,
+   12,
+   13,
+   14,
+   15,
+   16,
+   17
+  ],
+  "ridge": 0.001,
+  "program": "the \u00a71696 best-families 36-site program (tables mlp0-2, lags 1,2,4,8)",
+  "method": "exempt-one at band grain, RECOMPILED per exemption (\u00a71671 pattern; un-substituting without refitting measures LESSONS 28 compounding)",
+  "sites_probed": {
+   "mlp2_mlp3_pair": [
+    "mlp",
+    [
+     2,
+     3
+    ]
+   ]
+  },
+  "design": "EARLY-depth pair (mlp2, mlp3) that is FUNCTIONALLY unlike mlp0/mlp1 -- breaks the depth/function covariance S1707 could not",
+  "discriminates": "DEPTH predicts ~+41.8% (almost the whole stack lies below mlp2/mlp3); FUNCTION predicts far lower, nearer the middle pair -4.2%, since S1662 gives mlp2/mlp3 ceilings of 76.98%/67.55% against 90.27%/96.01% and S1672 found mlp3 actively hostile to a token table",
+  "singles_reused": "S1704s mlp2 (+1.981) and mlp3 (+1.623) came from the identical program, protocol, mask and eval rows",
+  "s1704_singles_sum": 0.03604,
+  "s1706_early_excess_frac": 0.418,
+  "s1707_mid_excess_frac": -0.042,
+  "intervals": "95% ROW-level cluster bootstrap, 2000 paired draws (\u00a71700, \u00a71701); NOT document-clustered",
+  "compilation": "INTERLEAVED bottom-up (\u00a71669)",
+  "coverage": "mask pinned to n96_skip80",
+  "scoring": "covered positions only",
+  "fit_rows": "fineweb_n480_skip80.pt",
+  "eval_rows": "fineweb_n192_skip7000.pt",
+  "s1696_both": 0.5504
+ },
+ "ce_live": 3.29205,
+ "joint_stake": 5.56837,
+ "arms": {
+  "none": {
+   "exempt_sites": 0,
+   "ce": 5.7957,
+   "ceiling": 0.55038
+  },
+  "mlp2_mlp3_pair": {
+   "exempt_sites": 2,
+   "ce": 5.59202,
+   "ceiling": 0.58696
+  }
+ },
+ "band_gains": {
+  "mlp2_mlp3_pair": 0.03658
+ },
+ "band_gain_ci95_rowlevel": {
+  "mlp2_mlp3_pair": [
+   0.03492,
+   0.03831
+  ]
+ },
+ "pair_gain": 0.03658,
+ "singles_sum": 0.03604,
+ "excess": 0.00054,
+ "excess_fraction_of_pair": 0.01471,
+ "excess_ci95": [
+  -0.00112,
+  0.00227
+ ],
+ "predictions": {
+  "pred_a_sign_resolved": false,
+  "pred_b_depth_wins_at_matched_depth": false,
+  "pred_c_controls_hold": true,
+  "pred_d_ordering_resolved": true
+ },
+ "runtime_s": 453.6
+}

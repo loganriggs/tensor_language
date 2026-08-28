@@ -42738,3 +42738,55 @@ mlp2 indifferent to a token table and mlp3 actively hostile to one (§1662 ceili
 function, and the two readings disagree about it — depth says it should resemble mlp0+mlp1's
 +41.8%, function says it should sit far lower. §1704 already supplies both singles (+1.98 and
 +1.62), so the test is two compiles. Queued as `early_atypical_pair_synergy.py`.
+
+## §1708 — depth is REFUTED: two early pairs differ by 40 points. The synergy belongs to mlp0+mlp1 specifically.
+
+`early_atypical_pair_synergy.py`, the arm §1707 queued to break the depth/function covariance.
+**pred_a False, pred_b False**, controls exact. This is the discriminating test and it goes
+against the reading I confirmed in §1706 and extended in §1707.
+
+```
+pair                    depth (blocks below)   function            excess          excess CI (pts)
+mlp0+mlp1                      16              tabular            +41.8%          [+0.86, +1.09]
+mlp2+mlp3                      15/14           NOT tabular         +1.5%          [-0.11, +0.23]
+mlp8+mlp9                       9              least tabular       -4.2%          [-0.19, -0.01]
+mlp16+mlp17                     1              linear readout     -20.1%
+```
+
+**At matched depth the excess differs by 40.3 points, and the atypical early pair shows no
+detectable interaction at all** — its interval includes zero. mlp2+mlp3 sits fourteen to fifteen
+blocks from the output, essentially as early as mlp0+mlp1, and behaves like the MIDDLE pair rather
+than like its depth-mates.
+
+**So the depth explanation is refuted.** §1706 tested it prospectively and it passed; §1707
+extended it to a monotone ordering over three pairs and it passed again. Both passes were real,
+and both were on a story that a fourth point destroys. The three pairs of §1707 varied in function
+as well as depth — I said so at the time and built this run precisely because of it — and it turns
+out function was carrying the signal the whole way.
+
+**What the data now say.** The super-additivity is a property of **mlp0 and mlp1 specifically**,
+the two modules §1672 found genuinely want token tables (§1662 ceilings 90.27% and 96.01%, against
+76.98% and 67.55% for mlp2/mlp3, with mlp3 actively hostile to a table). Every other pair measured
+— including one at matched depth — is at or slightly below additive. The composition excess is not
+a depth law, not a band-size law, and not a general property of early sites. It is one pair.
+
+**Status of the earlier sections, stated precisely.** The MEASUREMENTS in §1706 and §1707 stand:
+mlp0+mlp1 is +41.8% [+0.86, +1.09], mlp8+mlp9 is −4.2% [−0.19, −0.01], the late pair is −20.1%,
+and the ordering across those three is as reported. What is withdrawn is the CAUSAL reading —
+"synergy sign tracks downstream depth" — and the monotone-in-depth framing that named §1707. The
+registry entry is superseded in place with its original claim retained.
+
+**The caution I attached to §1706 was the correct one and it paid.** I wrote there: "one
+confirming test of a story invented to fit the data it now explains is weaker than an
+independently motivated prediction, and should be read that way." Two confirmations later, the
+first genuinely discriminating test killed it. The lesson is not that post-hoc stories are
+worthless — it is that confirmations of them should not accumulate into confidence, because the
+tests that confirm are usually the ones the story was built to survive.
+
+**Where this leaves the line, and a deliberate stop.** Five runs (§1704–§1708) have established
+that composition excess is site-specific and not governed by depth, band size, or interaction
+count. That is a real negative result and it is enough: further probing would be characterising a
+single pair's quirk. The remaining shortfall in the 55.04% program is better attacked directly —
+§1703 puts the largest total in the middle bands and §1668 puts 37.7% of the middle band beyond
+any linear map — so the next rung is a richer family at the middle MLPs inside the joint program,
+not more synergy geometry.
