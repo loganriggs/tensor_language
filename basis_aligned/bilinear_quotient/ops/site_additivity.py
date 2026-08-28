@@ -79,7 +79,13 @@ def per_row(rows, hooks=()):
     positions whose input token appeared in the fit rows (the arc's standard), `all` scores every
     position from 64 on. pred_d needs both and they cost one forward, not two."""
     n = rows.shape[0]
-    acc = {k: {'s': torch.zeros(n), 'k': torch.zeros(n)} for k in ('cov', 'all')}
+    # float64 on the CPU side. Removal is a DIFFERENCE OF LARGE CE SUMS -- the attention stack's
+    # 1.42 nats sits on top of ~95,000 nats of total loss -- so float32 accumulation across 18 sites
+    # leaves ~3e-5 of noise, which is 20x the difference being asserted. Same failure shape as the
+    # 1e-9 tolerance that fired at 1.41e-08 earlier in this arc; the fix is the accumulator, not the
+    # tolerance.
+    acc = {k: {'s': torch.zeros(n, dtype=torch.float64),
+               'k': torch.zeros(n, dtype=torch.float64)} for k in ('cov', 'all')}
     hs = list(hooks)
     try:
         for i in range(0, n, 8):
@@ -94,8 +100,8 @@ def per_row(rows, hooks=()):
                                 reduction='none').reshape(tg.shape)[:, 64:]
             msk = {'cov': COV['seen'][idx[:, 64:]], 'all': torch.ones_like(e, dtype=torch.bool)}
             for k in acc:
-                acc[k]['s'][i:i + bb.shape[0]] = (e * msk[k]).sum(1).cpu()
-                acc[k]['k'][i:i + bb.shape[0]] = msk[k].sum(1).float().cpu()
+                acc[k]['s'][i:i + bb.shape[0]] = (e.double() * msk[k]).sum(1).cpu()
+                acc[k]['k'][i:i + bb.shape[0]] = msk[k].sum(1).double().cpu()
     finally:
         for h in hs:
             h.remove()
@@ -169,8 +175,13 @@ def main():
                 s_jnt = rm(jnt[kind], live, pop)
                 ag = agg([ind[f'{s[0]}{s[1]}'] for s in sl], live, pop)
                 kk = live[pop]['k']
-                assert abs(float(ag.sum()) / float(kk.sum()) - s_ind) <= 1e-6 * max(abs(s_ind), 1.0), (
-                    'the aggregate identity disagrees with the direct sum')
+                # scale the tolerance to the CE magnitude being differenced, not to the small
+                # difference itself: the identity is exact in real arithmetic, so what is allowed is
+                # float64 rounding on ~3.3 nats/token across 18 sites.
+                itol = max(1e-9 * 18 * (float(live[pop]['s'].sum()) / float(kk.sum())), 1e-9)
+                idev = abs(float(ag.sum()) / float(kk.sum()) - s_ind)
+                assert idev <= itol, (
+                    f'aggregate identity off by {idev:.3e} against tolerance {itol:.3e}')
                 dr = sorted((float(ag[sl2].sum()) / float(kk[sl2].sum())
                              / max(rm(jnt[kind], live, pop, sl2), 1e-9)) for sl2 in sels)
                 r[kind] = {'sum_individual': round(s_ind, 5), 'joint': round(s_jnt, 5),
