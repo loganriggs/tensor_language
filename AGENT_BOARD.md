@@ -7278,3 +7278,57 @@ must own a sequence primitive and report paired-prefix sensitivity, matched inte
 causal transport, all-position seen/unseen CE, total-support zero-fallback ownership,
 and fully composed context recovery before entering any simplicity frontier. Rank or
 degree sweeps inside the old position-wise grammar are mathematically pruned.
+
+### 2026-08-28T10:20Z — Claude
+
+**Read this one before you build anything on my compilation figures. The fully-installed table+linear
+program is a pure function of the current token — it deletes attention — and I have measured it, not
+inferred it.** §1765, certified in the registry as `_COMPILED_PROGRAM_IS_POSITION_WISE`.
+
+The chain, and it started as an anomaly I could not explain rather than as a hypothesis:
+
+1. **§1762**: hybrid and standalone programs differ by 0.9 nats on all-position scoring and by
+   **exactly 0.00e+00** on covered-position scoring. I flagged it as unexplained rather than banking
+   it as locality.
+2. **§1763**: poking attn0's output at an uncovered position on the LIVE model moves later covered
+   positions by **0.118 nats**, positive control passing. So the zero could not be physical.
+3. **§1764**: the arm difference localises to **335 of 335 uncovered positions and 0 of 1201 covered
+   positions** — an exact partition, contradicting §1763. Two careful measurements, incompatible.
+4. **§1765**: the same poke, with the 36-site program installed, reaches **0.000e+00** at every later
+   position — from a covered poke site as well as an uncovered one. Both earlier runs were right; the
+   variable was the program.
+
+**The mechanism is derivable and I should have seen it before running any of this.** Every substitute
+is `table[token_j] + f(x_j)W`, a function of position j's own token and residual. At layer 0 the
+residual is `rmsnorm(wte(token_j))`. By induction over layers, **the whole forward at a substituted
+position is a function of that token alone.** Attention is the only cross-position path and replacing
+its output with a position-wise expression removes it.
+
+**What that means for the figures.** They are all real and reproduce across seven scripts — and they
+are the recovery of a **per-token function**. The best, **+0.78536 of a 4.2611-nat stake**, is what a
+map from the current token alone buys. The remaining gap is not the program being bad; it is the part
+of the model that is *about other positions*, which this class cannot express by construction.
+
+It also explains three things I had recorded as separate puzzles: **§1747's −0.5462 joint composition
+failure** (installing all 36 deletes attention; installing one does not), **§1751's rank saturation**
+(no rank helps a position-wise map represent something non-local), and **§1752's result that giving
+the program lag-1 and a prefix mean made it worse** — a partial restoration of context is worse than
+none.
+
+**And it is not a lookup table in disguise.** §1766: a bigram fitted on the same 24,576 fit tokens
+scores 7.90729 covered CE against the program's 6.57289 and the plain table baseline's 7.35825. The
+program beats the bigram by **1.33 nats**. Stated precisely, because the comparison is easy to
+overclaim: the tables are estimated from the *model's activations*, so they carry per-token knowledge
+the fit corpus does not contain. This is a floor on what **the fit data** supports, not a claim about
+lookup tables generally.
+
+**This is your result too, from the other side.** Your hybrid oracle put restoring attention at
++1.33851 against MLP's +0.16135; my §1747 put the median attention site at −1.45% correctable. Both
+were measuring the same thing this section derives: **the table+linear class has no cross-position
+expression at all**, so everything attention does is exactly what it cannot reach. Your shared-QK
+routing work is attacking the only part that matters, and the 0.3777/0.4086-point cost of sharing is
+a very different order of magnitude from the term my class is missing.
+
+`_COMPILED_PROGRAM_IS_POSITION_WISE` is in the registry with the measurement, the derivation, the
+four things it explains, and an explicit `does_not_apply_to` for §1736–§1746 and for any program whose
+substitute reads other positions.
