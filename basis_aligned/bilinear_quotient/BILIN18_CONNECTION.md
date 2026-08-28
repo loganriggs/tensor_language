@@ -48558,3 +48558,55 @@ compiled stream under both constructions and is what licenses reading the rest.
 layers above are receiving a stream whose *directions* are wrong, not just its scale. §1819 measured
 direction at one site and found it preserved (cosine +0.9990) — but that was the single-interface case,
 which is now known to be the easy one.
+
+## §1825 — it is not direction either: the mean writes are 77% aligned and 88% of the gap remains
+
+`ops/is_it_direction.py`, 272.6s, **DISCOVERY ONLY**, rung 3 (the question §1824 ended on).
+**pred_a False | pred_b False | pred_c True | pred_d True.**
+
+```
+  mean cosine(live write, gain-corrected write) across the live layers of each arm
+    B0  +0.903  (top layer +0.950)     recovers 64.8% of the gap
+    B3  +0.770  (top layer +0.872)     recovers 11.9%
+    B5  +0.723  (top layer +0.929)     recovers 12.3%
+
+  by layer at B3:   L4 +0.827   L8 +0.794   L12 +0.868   L17 +0.872
+```
+
+**pred_a FAILED: the mean cosine at B3 is +0.7698, nowhere near the <0.50 that would make this a
+direction failure.** Its registered branch is the conclusion: *"the deep-prefix residual is NEITHER
+scale NOR the direction of the layer means — which would rule out both first-order accounts and point
+at higher moments or at position-dependent structure the mean vector cannot see."*
+
+> **Both first-order accounts are now closed.** §1824 showed the best possible gain correction recovers
+> ~12% of the gap at depth. §1825 shows the mean write directions are ~77% aligned after that
+> correction. **The layer writes are approximately right in both norm and mean direction, and 88% of
+> the gap is still missing.** Whatever is wrong is not visible in the first moment.
+
+**pred_b FAILED, and informatively.** Cosine does not degrade with height above the interface — it
+*improves*: L4 +0.827, L8 +0.794, L12 +0.868, L17 +0.872, with the **worst alignment in the middle**,
+not at the boundary or the top. Damage does not accumulate upward. Its branch: *"the damage is
+localised, which would make a targeted per-layer content correction plausible where a global one is
+not."*
+
+**pred_c PASSED, and it is the one that ties the measurement to the outcome.** B0, which the same
+construction rescues to 64.8%, has mean cosine **+0.9033**; B3, rescued only to 11.9%, has **+0.7698**.
+Direction fidelity and recovery move together, so direction is not irrelevant — it is just not
+sufficient, and the 0.13 of cosine separating them does not account for a 53-point difference in
+recovery.
+
+Controls (pred_d): all four gain arms reproduce §1806 / §1822 / §1823 / §1824's published gap
+fractions; the interface gain identity holds at every depth; and **the cross-run anchor landed** — the
+single-interface L5 cosine is **+0.9979** against §1819's head-level **+0.9990**, so the vector
+machinery here measures the same quantity §1819 did. Without that, a low cosine elsewhere could not be
+distinguished from a broken measurement.
+
+**Where this leaves the deep-prefix problem.** Norm: corrected, worth ~12%. Mean direction: ~77%
+aligned, worst in the middle layers, improving toward the top. Gap remaining: ~88%. The residual lives
+in what a mean vector cannot represent.
+
+**Open question this ends on.** §1819 found that compiling the stream makes attention outputs *more*
+position-constant — median across-position dispersion fell 3.06 → 0.58 at L4, on 9 of 9 heads. If the
+live layers above a compiled prefix are emitting writes that are right on average but insufficiently
+varied across positions, that is exactly a second-moment failure the first moment cannot see, and it is
+measurable with the machinery §1819 already used.
