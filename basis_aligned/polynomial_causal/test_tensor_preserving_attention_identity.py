@@ -32,9 +32,10 @@ def test_attention_poison_forbids_every_native_call_and_restores_dispatch() -> N
     guard = AttentionNativePoison(model)
     with pytest.raises(RuntimeError, match="attention1"):
         with guard.scope():
-            modules[1](torch.randn(1, 2))
+            model.transformer.h[1].attn(torch.randn(1, 2))
     assert guard.calls == {0: 0, 1: 1, 2: 0}
     assert guard.restored and guard.inert
+    assert tuple(block.attn for block in model.transformer.h) == modules
     assert tuple(module.__dict__.get("forward") for module in modules) == before
     assert all("forward" not in module.__dict__ for module in modules)
 
@@ -47,6 +48,7 @@ def test_attention_poison_is_one_use_and_restores_existing_instance_forward() ->
     guard = AttentionNativePoison(model)
     with guard.scope():
         pass
+    assert model.transformer.h[0].attn is module
     assert module.__dict__["forward"] is prior
     with pytest.raises(RuntimeError, match="one-use"):
         with guard.scope():

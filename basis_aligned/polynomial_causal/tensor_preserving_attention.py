@@ -8,8 +8,9 @@ for typed projection compression without token tables or native fallback.
 
 from __future__ import annotations
 
-from collections.abc import Mapping
-from dataclasses import dataclass
+from collections.abc import Mapping, Sequence
+from contextlib import AbstractContextManager
+from dataclasses import asdict, dataclass
 import math
 
 import torch
@@ -87,6 +88,20 @@ class StoredLinear(nn.Module):
         assert self.input_factor is not None
         return self.input_factor.shape[0]
 
+    @property
+    def input_dim(self) -> int:
+        if self.weight is not None:
+            return self.weight.shape[1]
+        assert self.input_factor is not None
+        return self.input_factor.shape[1]
+
+    @property
+    def output_dim(self) -> int:
+        if self.weight is not None:
+            return self.weight.shape[0]
+        assert self.output_factor is not None
+        return self.output_factor.shape[0]
+
     def forward(self, value: torch.Tensor) -> torch.Tensor:
         if self.weight is not None:
             return F.linear(value, self.weight.to(value.dtype))
@@ -104,6 +119,15 @@ class AttentionCostReceipt:
     token_table_values: int
     native_calls_per_forward: int
     total_input_support: bool
+
+
+@dataclass(frozen=True)
+class AttentionBankClosure:
+    sites: tuple[tuple[int, int], ...]
+    ordered: bool
+    block_identity: bool
+    first_value_identity: bool
+    closed: bool
 
 
 class TensorPreservingSquaredAttention(nn.Module):
@@ -125,15 +149,34 @@ class TensorPreservingSquaredAttention(nn.Module):
             raise ValueError("n_head must be positive")
         self.projections = nn.ModuleDict(dict(projections))
         q = self.projections["q"]
-        width = q.weight.shape[0] if q.weight is not None else q.output_factor.shape[0]
+        width = q.output_dim
         if width % n_head:
             raise ValueError("projection width is not divisible by head count")
+        if any(
+            layer.input_dim != width or layer.output_dim != width
+            for layer in self.projections.values()
+        ):
+            raise ValueError("attention projections are not square with a common width")
+        if any(
+            not bool(torch.isfinite(buffer.detach()).all())
+            for layer in self.projections.values()
+            for buffer in layer.buffers()
+            if buffer is not None
+        ):
+            raise ValueError("attention projection contains nonfinite values")
         if inv_freq.ndim != 1 or inv_freq.numel() * 2 != width // n_head:
             raise ValueError("rotary frequencies do not match head width")
+        if not inv_freq.is_floating_point() or not bool(torch.isfinite(inv_freq).all()):
+            raise ValueError("rotary frequencies are malformed")
+        scalar_lamb = torch.as_tensor(lamb)
+        if scalar_lamb.numel() != 1 or not scalar_lamb.is_floating_point() or not bool(
+            torch.isfinite(scalar_lamb).all()
+        ):
+            raise ValueError("attention lambda is malformed")
         self.width = int(width)
         self.n_head = n_head
         self.head_dim = self.width // n_head
-        self.register_buffer("lamb", torch.as_tensor(lamb).detach().clone().reshape(()))
+        self.register_buffer("lamb", scalar_lamb.detach().clone().reshape(()))
         self.register_buffer("inv_freq", inv_freq.detach().clone())
 
     @classmethod
@@ -144,6 +187,10 @@ class TensorPreservingSquaredAttention(nn.Module):
                     "v": "c_v", "proj": "c_proj"}
         if set(ranks) != set(expected):
             raise ValueError("rank specification is incomplete")
+        if int(getattr(attention, "n_embd", -1)) <= 0 or int(
+            getattr(attention, "n_head", -1)
+        ) <= 0 or int(attention.n_embd) % int(attention.n_head):
+            raise ValueError("native attention topology is malformed")
         projections = {
             name: StoredLinear.from_weight(
                 getattr(attention, source).weight.detach(), ranks[name],
@@ -197,8 +244,17 @@ class TensorPreservingSquaredAttention(nn.Module):
         ))
         pattern = pattern.masked_fill(~causal, 0.0)
         value = head("v")
-        bus = value if first_value is None else first_value.view_as(value)
-        mixed = (1 - self.lamb) * value + self.lamb * bus
+        if first_value is None:
+            bus = value
+            bus_for_mixing = value
+        else:
+            if first_value.shape != value.shape or first_value.dtype != value.dtype or (
+                first_value.device != value.device
+            ) or not bool(torch.isfinite(first_value.detach()).all()):
+                raise ValueError("first-value bus is malformed")
+            bus = first_value
+            bus_for_mixing = first_value.view_as(value)
+        mixed = (1 - self.lamb) * value + self.lamb * bus_for_mixing
         output = torch.einsum(
             "bhqk,bkhd->bqhd", pattern.to(mixed.dtype), mixed,
         ).reshape(batch, sequence, self.width)
@@ -230,3 +286,133 @@ class TensorPreservingSquaredAttention(nn.Module):
         # Two QK contractions and one pattern-value contraction.
         contractions = 3 * self.n_head * sequence * sequence * self.head_dim
         return batch * (sequence * projection + contractions)
+
+
+class TensorAttentionBank(nn.Module):
+    """An owned 18-site program bank with no reference to native attention modules."""
+
+    def __init__(self, programs: Sequence[TensorPreservingSquaredAttention]) -> None:
+        super().__init__()
+        if not programs or not all(
+            isinstance(program, TensorPreservingSquaredAttention) for program in programs
+        ):
+            raise ValueError("tensor attention bank is malformed")
+        widths = {program.width for program in programs}
+        heads = {program.n_head for program in programs}
+        if len(widths) != 1 or len(heads) != 1:
+            raise ValueError("tensor attention bank topology is inconsistent")
+        self.programs = nn.ModuleList(programs)
+
+    @classmethod
+    def from_model(
+        cls, model: nn.Module, *, ranks: Mapping[str, int | None],
+    ) -> "TensorAttentionBank":
+        blocks = tuple(model.transformer.h)
+        if len(blocks) != 18:
+            raise ValueError("production tensor attention bank requires 18 blocks")
+        bank = cls([
+            TensorPreservingSquaredAttention.from_native(block.attn, ranks=ranks)
+            for block in blocks
+        ])
+        try:
+            parameter = next(model.parameters())
+        except StopIteration as error:
+            raise ValueError("model has no device-bearing parameter") from error
+        return bank.to(device=parameter.device, dtype=parameter.dtype)
+
+    def begin(self, blocks: Sequence[nn.Module]) -> "TensorAttentionTransaction":
+        return TensorAttentionTransaction(self, blocks)
+
+    def cost_receipt(self) -> dict[str, object]:
+        layers = [asdict(program.cost_receipt()) for program in self.programs]
+        return {
+            "layers": layers,
+            "total_stored_values": sum(int(row["total_stored_values"]) for row in layers),
+            "token_table_values": sum(int(row["token_table_values"]) for row in layers),
+            "native_calls_per_forward": 0,
+            "total_input_support": all(bool(row["total_input_support"]) for row in layers),
+        }
+
+
+class TensorAttentionTransaction(AbstractContextManager):
+    """One ordered synchronous dispatch; tensor aliases are revoked on close."""
+
+    def __init__(self, bank: TensorAttentionBank, blocks: Sequence[nn.Module]) -> None:
+        self._bank: TensorAttentionBank | None = bank
+        self._blocks: tuple[nn.Module, ...] = tuple(blocks)
+        if len(self._blocks) != len(bank.programs):
+            raise ValueError("attention transaction block count changed")
+        self._next_site = 0
+        self._root_bus: torch.Tensor | None = None
+        self._block_identity = True
+        self._bus_identity = True
+        self._closed = False
+        self._closure: AttentionBankClosure | None = None
+
+    def __enter__(self) -> "TensorAttentionTransaction":
+        if self._closed:
+            raise RuntimeError("attention transaction is closed")
+        return self
+
+    @property
+    def closure(self) -> AttentionBankClosure:
+        if not self._closed or self._closure is None:
+            raise RuntimeError("attention transaction has no completed closure")
+        return self._closure
+
+    def __call__(self, event) -> tuple[torch.Tensor, torch.Tensor]:
+        if self._closed or self._bank is None:
+            raise RuntimeError("attention transaction is closed")
+        site = self._next_site
+        if int(getattr(event, "site", -1)) != site:
+            raise RuntimeError("attention program dispatch is missing, repeated, or reordered")
+        if getattr(event, "block", None) is not self._blocks[site]:
+            self._block_identity = False
+            raise RuntimeError("attention program received the wrong block identity")
+        incoming = getattr(event, "first_value", None)
+        if site == 0:
+            if incoming is not None:
+                self._bus_identity = False
+                raise RuntimeError("attention0 must mint the first-value bus")
+        elif incoming is not self._root_bus:
+            self._bus_identity = False
+            raise RuntimeError("attention first-value bus identity changed")
+        write, bus = self._bank.programs[site](event.state, incoming)
+        if site == 0:
+            self._root_bus = bus
+        elif bus is not self._root_bus:
+            self._bus_identity = False
+            raise RuntimeError("attention program replaced the first-value bus")
+        self._next_site += 1
+        return write, bus
+
+    def close(self) -> AttentionBankClosure:
+        if self._closed:
+            raise RuntimeError("attention transaction is already closed")
+        complete = self._bank is not None and self._next_site == len(self._blocks)
+        sites = tuple((site, 1 if site < self._next_site else 0)
+                      for site in range(len(self._blocks)))
+        closure = AttentionBankClosure(
+            sites=sites, ordered=complete, block_identity=self._block_identity,
+            first_value_identity=self._bus_identity, closed=True,
+        )
+        self._root_bus = None
+        self._blocks = ()
+        self._bank = None
+        self._closed = True
+        self._closure = closure
+        if not complete:
+            raise RuntimeError("attention transaction did not dispatch every site exactly once")
+        return closure
+
+    def __exit__(self, exc_type, exc_value, traceback) -> bool | None:
+        if self._closed:
+            return None
+        if exc_type is None:
+            self.close()
+        else:
+            self._root_bus = None
+            self._blocks = ()
+            self._bank = None
+            self._closed = True
+        return None

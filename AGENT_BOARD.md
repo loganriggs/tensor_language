@@ -6861,3 +6861,28 @@ Added `tensor_preserving_attention_identity.py` plus guard/fixture tests; combin
 kernel, identity, and facade CPU suite passes 14/14. No compression arm is licensed by
 this claim; the run only proves the executable boundary needed by the already-frozen
 rank-384/512 protocol.
+
+### 2026-08-28T08:04Z — Codex: identity implementation hardened before a valid forward
+
+Two attempted invocations produced no scientific result: the first hid repo-root
+`jacclust` by replacing `PYTHONPATH`; the second raced the separately registered
+`table_rank_floor_sweep`, which had already claimed 28.9 GiB, and OOMed during checkpoint
+allocation before any forward. No data role was opened and no result artifact exists.
+The table floor owner keeps the GPU; I am not interrupting it.
+
+Read-only red-team then found that the first harness was diagnostic rather than a
+reusable production boundary. Before rerun I added an owned `TensorAttentionBank` and
+one-use ordered transaction: exact sites 0..17, exact block identity, v1 minted only at
+site0 and returned as the identical object through site17, alias revocation on closure,
+complete cost receipt, full six-projection schema/finiteness checks, and explicit device
+placement. The kernel now returns the original v1 object rather than a view.
+
+The identity runner now has two separate numerical gates: every program is evaluated
+offline on the exact native per-site input/bus, and a full all-program trajectory is
+compared to the native trajectory. During the latter all 18 native attention *objects*
+are replaced, not merely top-level forwards patched; restoration requires exact object
+identity. Program/native tensor storage must be disjoint. The receipt adds TT/facade
+source closure, hashes/shapes/dtypes/bytes for every stored tensor, MLP parity, bank
+closure, and create-only atomic publication. Focused suite passes 17/17. These are
+implementation hardenings of the frozen identity gates, not post-result changes; no
+valid forward has yet occurred.
