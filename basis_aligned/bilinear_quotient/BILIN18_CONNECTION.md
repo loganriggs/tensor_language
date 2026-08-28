@@ -48446,3 +48446,61 @@ the fully compiled one.
 **Open question this ends on.** Measure the gains per bottom-up depth — each layer's live/compiled norm
 ratio *in the arm where it will be applied* — instead of importing them from the fully compiled stream.
 That is the same experiment with the one defect this run identified removed.
+
+## §1823 — measuring the gains in place fixes B0 and breaks B3/B5: no single stream gives the right gains everywhere
+
+`ops/depth_matched_gains.py`, 195.3s, **DISCOVERY ONLY**, rung 3 (the fix §1822 named).
+**pred_a False | pred_b True | pred_c False | pred_d True.**
+
+```
+  gap fraction recovered (0..L compiled, L+1..17 live), full-rank build
+             raw      global gains     depth-matched gains
+    B0     +37.4%        -4.1%              +55.7%
+    B3     -44.8%       +10.3%              -22.8%
+    B5     -43.9%       +11.5%              -14.7%
+```
+
+**pred_a FAILED and reversed: at B3 the depth-matched gains score −22.8 / −23.0 / −24.1%, LOSING to
+the global gains' +10.3 / +10.0 / +12.0% by 33 points.** Measuring the gain in the arm where it is
+applied made things worse, not better.
+
+**pred_b PASSED, and it is the half that works. At B0 the depth-matched gains give 55.7 / 56.8 /
+53.2%** — the best B0 figure anywhere, beating the raw arm's 37.4% by 18 points, where the global gains
+were actively harmful at −4.1%. So in-place measurement is not wrong in general; it is wrong somewhere
+specific.
+
+**pred_c FAILED: the curve is 55.7 / −22.8 / −14.7%, badly non-monotone**, and B3/B5 remain below the
+all-compiled baseline.
+
+**The internal consistency check that makes the rest readable.** At B3 the *first* live layer's
+depth-matched gain is **0.1696 against the global 0.1696 — identical**, exactly as the design
+predicted, because the interface layer sees precisely the fully compiled stream the global gains were
+measured in. The two diverge only above it, and violently: at L6 the matched gain is **1.7061 against a
+global 0.0138**, a factor of **124**, and its sign of correction is *opposite* — matched amplifies where
+global shrinks.
+
+**So the first-order approximation fails where the arm it measures is itself pathological, and I
+registered that possibility rather than discovering it afterwards.** The docstring said: *"applying the
+gains changes the stream they were measured in, and this run does not iterate... if it fails, sequential
+bottom-up calibration is the next step."* At B0 the uncorrected arm is nearly healthy (+37.4%), so
+measuring in it is nearly valid and the correction lands. At B3 and B5 the uncorrected arm is
+catastrophic (−45%), so the norms measured there are norms of a broken stream, and gains calibrated to
+brokenness do not converge on the fixed point.
+
+**What is established across §1821-§1823, stated as a bound rather than a remedy.** Every gain
+correction tried beats the raw arm at B3 and B5 (−44.8% → +10.3% global, → −22.8% matched), so the
+damage is largely magnitude. But **no single measurement stream yields gains that work at every depth**:
+global gains help at B3/B5 and destroy B0; matched gains help at B0 and underperform at B3/B5. Picking
+per depth after the fact would be selection, not a rule, and I am not reporting one.
+
+**§1806's bottom-up direction therefore remains blocked in practice** — the best correction available
+still leaves B3 and B5 below the all-compiled baseline — while being demonstrably *not* structurally
+blocked, since a correction measured in the right stream reaches +10-12%.
+
+Controls (pred_d): raw arms reproduce §1806's published full-rank fractions, global arms reproduce
+§1822's published −0.041 / +0.103 / +0.115 within 3 points, endpoints reproduce §1789's full-rank
+figures, placement control exact.
+
+**Open question this ends on.** Sequential calibration: correct the interface layer, re-measure the
+stream, correct the next, and so on upward. That is the only construction left that measures each gain
+in a stream already corrected below it — the fixed point the first-order attempt jumped over.
