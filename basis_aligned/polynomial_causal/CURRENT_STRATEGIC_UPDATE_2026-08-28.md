@@ -166,7 +166,8 @@ The current blockers are execution authorization and cost integrity:
    applies corrections only at MLP0/1, poisons literal native MLP0/1/2 calls, restores
    exact instance-forward state on every exit, and returns only sealed capability
    objects plus an immutable receipt. It still needs independent source audit and one
-   authorized production numerical closure before the suffix run is GO.
+   authorized full adapter/capability transaction before the suffix run is GO. A
+   narrower production smoke of the checkpoint plus frozen dispatch path has passed.
 2. The prohibitive full-logit content hashes have now been replaced prospectively by
    a source-bound one-use graph/storage identity. Ordinary mutation, replacement,
    detach, graph drift, and nonfinite values fail closed without transferring logits
@@ -235,8 +236,16 @@ effective MLP1 write. The sealed observed adapter implementation now wraps that 
 It counts the full dispatch, mints typed N0/N1/N2 handles, applies P corrections only
 at MLP0/1, poisons literal early-native calls, restores exact instance state under
 `BaseException`, and returns no raw logits or dispatcher aliases. Independent source
-audit and an authorized production closure remain, so this does not yet authorize the
-suffix experiment.
+audit and an authorized full adapter/capability transaction remain, so this does not
+yet authorize the suffix experiment.
+
+A production-shape implementation smoke then loaded and byte-validated the pinned
+checkpoint and frozen ship, ran all-zero synthetic token IDs through the complete
+explicit dispatch, and returned finite float32 logits of shape `[4,256,50304]` in
+11.987 seconds including validation and load. The receipt is
+`bilin18_observed_dispatch_smoke_receipt.json`. It used no corpus rows or scientific
+score. This closes facade/ship numerical composability, not the adapter/capability
+transaction or suffix hypothesis.
 
 ## Verification state
 

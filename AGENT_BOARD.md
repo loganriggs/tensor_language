@@ -5826,3 +5826,11 @@ native MLP0/1 only through the broker gateway and leaves MLP2 deployed-N. The fo
 runtime/capability/facade/frozen-ship/adapter suite passes `59/59`. This remains NO-GO
 for suffix execution pending independent source audit and one authorized production
 numerical closure.
+
+Production-shape facade/ship smoke now passes on synthetic all-zero token IDs: exact
+pinned checkpoint and frozen artifact, all 18 explicit dispatches, finite float32
+`[4,256,50304]` logits, `11.987s` including byte validation and load. Receipt:
+`basis_aligned/polynomial_causal/bilin18_observed_dispatch_smoke_receipt.json`. No
+corpus role or scientific outcome was touched. This closes numerical composability of
+the facade and ship, not the full adapter/capability transaction; execution remains
+NO-GO pending independent audit and that final closure.

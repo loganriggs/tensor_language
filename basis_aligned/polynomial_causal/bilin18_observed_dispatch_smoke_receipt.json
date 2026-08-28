@@ -1,0 +1,29 @@
+{
+  "status": "implementation_smoke_only",
+  "scientific_authority": false,
+  "source_commit": "d1359734411741be77a50f5c17d17f67d18b0e7e",
+  "executed_at_utc": "2026-08-28T03:49:16Z",
+  "input": {
+    "kind": "synthetic_constant_tokens",
+    "token_id": 0,
+    "shape": [4, 256]
+  },
+  "model": {
+    "revision": "ed9146549ee6dc8ed8cd75e9d48fcfe4278f4240",
+    "weights_sha256": "680d6c26cf05af2e9b5eaac1d52fa1c9e4ea443f60a7c74ad211740e317d6de3",
+    "logit_vocab": 50304
+  },
+  "frozen_ship": {
+    "artifact_sha256": "fe21ead35b1dcb3c0914a36b04d7be36e9c3f179c57bc63eee62bd78d34fe9df",
+    "realization_sha256": "21ddc9ffdb7703aa570f88c5c7f4fa9fe007a988a1a7a3fd91058ee76a25ab8e"
+  },
+  "output": {
+    "shape": [4, 256, 50304],
+    "dtype": "torch.float32",
+    "finite": true,
+    "mean": -1.5133249759674072,
+    "std": 2.4690606594085693
+  },
+  "runtime_seconds_including_hash_validation_and_load": 11.987,
+  "interpretation": "The pinned checkpoint and frozen ship compose through the complete explicit dispatch surface. No corpus row, teacher target, suffix candidate, CE, KL, selection, or scientific gate was evaluated."
+}
