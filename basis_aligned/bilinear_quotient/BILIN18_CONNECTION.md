@@ -47324,3 +47324,60 @@ correction: no conclusion in those sections turns on a quarter of a point, and �
 (~18pp short at full vocabulary) and §1802's no-minimal-departure finding (best single site 1.4-1.7% of
 the gap) are untouched. **§1786's design point stands**, with the note that its ridge is not optimal —
 merely close — and that it becomes catastrophically wrong below `n ~ 2D` (§1799/§1801).
+
+## §1804 — the cliff is INPUT mismatch: attention 5 explodes on a context-free stream, emitting 152x the row it replaces
+
+`ops/l5_cliff_probe.py`, 108.4s, **DISCOVERY ONLY**, rung 3 (the question §1802 ended on).
+**pred_a FALSE | pred_b FALSE | pred_c True | pred_d True** — both mechanism predicates failed, and
+because I registered *both* arms the answer is still unambiguous.
+
+```
+  delta vs the all-substituted baseline (pp), skip7000 / skip11000 / skip1200
+    L4    only  -0.03 / -0.06 / -0.03   suffix -11.55 / -12.13 / -11.83   prefix  +0.34 / +0.47 / +0.40
+    L5    only -12.54 / -13.11 / -12.67  suffix -12.55 / -13.13 / -12.68  prefix  +2.39 / +2.29 / +2.11
+    L6    only -11.15 / -11.98 / -11.60  suffix -11.31 / -12.14 / -11.72  prefix  +3.81 / +3.62 / +3.29
+    L13   only  -1.75 / -1.73 / -2.03   suffix  +1.74 / +1.65 / +1.24    prefix +19.29 / +20.73 / +18.72
+```
+
+**The suffix arm changes nothing and the prefix arm rescues it.** Giving L5 and *everything above it*
+live modules leaves the damage untouched (−12.55 against −12.54 for L5 alone). Giving L5 and
+*everything below it* live modules turns −12.54 into **+2.39 / +2.29 / +2.11 pp**. My registered
+reading was "if the prefix rescues it, the damage was the input" — **it is the input**. A live attention
+module fed a context-free residual stream is the problem; what happens downstream of it is not.
+
+**pred_c passed and quantifies it.** Mean norm of what each live attention module *would* emit inside
+the compiled stream, against the row that replaces it:
+
+```
+    L0   2.71   L1   7.35   L2  11.16   L3  14.31   L4  25.77
+    L5 152.62   L6  73.97   L7  12.28   L8   9.50   L9   5.44   ... L17 7.99
+```
+
+**Live L5 emits a mean norm of 1,202,366 against its row's 7,878.** It is not merely mismatched, it
+**explodes** — 152x the substituted row and 5.9x the ratio of the adjacent L4. L6 is 74x. That is why
+the suffix arm cannot help: the layers above are not receiving a slightly wrong signal, they are being
+drowned by one four orders of magnitude too large.
+
+**Both mechanism predicates failed and the run is still decisive.** pred_a predicted downstream repair,
+pred_b predicted no upstream repair; the truth was the mirror of both. Registering the two arms
+separately — because "both could rescue" was a third outcome my binary predicates would otherwise have
+blurred (LESSON 44) — is what makes the mirror readable rather than merely a double negative.
+
+**A general fact this exposes, larger than the cliff.** The ratio exceeds 1 at **every one of the 18
+layers**, from 2.71 to 152.62. The substituted rows are systematically far smaller than what the live
+modules emit. **The compiled program runs at a much smaller residual scale than the model it was
+compiled from**, everywhere, not only at L5. Nothing in §1769-§1786 measured that, and it is a property
+of the whole construction rather than of one layer.
+
+**A compile-depth curve, obtained for free from the prefix arms.** Holding depths 0..L live and
+compiling the rest: L4 gives +0.34pp, L5 +2.39, L6 +3.81, **L13 +19.29** — that last is 32.84% against
+the live model's 39.32%, so **compiling only the top four layers costs 6.5pp** where compiling all
+eighteen costs 25.8.
+
+Controls (pred_d): the all-substituted and live arms reproduce §1789's published 0.1355 / 0.1425 /
+0.1364 and 0.3932 / 0.4235 / 0.3888 within 0.001, and the four 'only' arms reproduce §1802's published
+deltas within 0.5pp — the cliff was rebuilt before it was explained; coverage 5419.
+
+**Open question this ends on.** The prefix curve was a by-product of four sampled depths and it is the
+most informative thing in this section. Run it for all eighteen: where does compiling from the top down
+stop being cheap?
