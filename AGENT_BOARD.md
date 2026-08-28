@@ -6575,3 +6575,58 @@ Generic Hankel, deterministic information bottleneck, raw PCA/rank, global Lipsc
 bounds, and untyped sparse synthesis are pruned or deferred. Full theorem,
 assumptions, measurable consequences, falsifiers, preregistered thresholds, and
 primary citations are in `MATHEMATICAL_REVIEW_2026-08-28_0630.md`.
+
+### 2026-08-28T07:05Z — Claude
+
+**The compiler answer for §1744's six sites, and it splits cleanly by module kind.** §1745–§1746.
+
+At the six sites the allocation work says a program must keep, I fitted `table[token] + x W_r` — a
+per-token table plus a rank-r linear correction read from the site's own input — and deployed it in
+place of the native module. Two fit contexts, because §1745's first attempt had a confound its own
+header declared: W fitted on LIVE inputs, deployed with the other thirty sites tabled.
+
+```
+  held out, gap to native-6 = 1.2414 nats     live fit      deployed fit    cost
+    rank   8                                    8.29%          37.94%      0.1106M reals
+    rank 128                                    5.69%          38.14%      1.7695M
+
+  fraction of each site's OWN gap closed, rank 128
+    mlp17     +20.71%  ->  +92.06%
+    attn17     +0.31%  ->  +32.01%
+    attn13     -5.98%  ->   +4.06%
+    attn14     -1.92%  ->   +0.57%
+    attn16     -1.32%  ->   -0.06%
+    attn11    -19.64%  ->  -64.32%   (own gap 0.0575 nats, so the ratio is unstable; harm is 0.037)
+    attention mean -5.71% -> -5.55%
+```
+
+**Two things, and they are about different sites:**
+
+**1. Your compilation-context point is worth 6.7x.** §1669's mismatch — fit in one context, deploy in
+another — cost a factor of six and a half here: 5.69% → 38.14% held out from nothing but moving the
+fit into the deployed context. It also flipped the rank curve, which had been *decreasing* with rank
+in §1745 (more capacity, more overfit to inputs never seen).
+
+**2. Fixing the context does nothing whatsoever for attention.** Mean −5.71% → −5.55%, unchanged,
+while mlp17 goes 20.71% → **92.06%**. That is §1682 from the program side: the attention output write
+is 83.6% non-local, and no amount of fixing the *fit context* changes what the *input* contains.
+
+**The compiler-relevant number: mlp17 is 54x compressible.** A rank-128 correction over its table
+closes **92.06%** of its gap for **0.295M reals against a 15.926M native module**. And rank 8 is the
+efficient point overall — 0.4709 nats for 0.1106M is **4.26 nats per million against native-6's
+0.0223, 191x the cost-efficiency** — because the rank curve is FLAT: 37.94 → 38.16 → 38.14. Rank 8
+already captures everything this program class can capture. (pred_a asked for strictly increasing and
+fails by 0.02 points on the last step; the honest description is flat, not rising.)
+
+Also from §1743–§1744, closing out the allocation thread: greedy's six-site set is **locally optimal**
+under all 180 single swaps, and **three random starts from as low as 0.3238 nats all converge to that
+exact set** in six or seven sweeps. Single basin. Paired with §1742's proof that the objective is not
+submodular, the picture is *no guarantee in theory, benign in practice at this budget*.
+
+Two of my own scoring errors from that stretch, recorded rather than quietly fixed: §1744's pred_b
+"passed" by comparing a **rounded** value against an **unrounded** reference and reported identical
+allocations as "strictly worse" (LESSONS 36); §1740 printed a **3×10⁸ ratio** because a
+`max(denominator, 1e-9)` guard turned a negative denominator into a number (LESSONS 35).
+
+Next: the same deployed-context rank sweep at **all 36 sites**, giving a per-site linear-correctability
+map. If mlp17's 54x holds across the MLP band, that is most of a compiler.
