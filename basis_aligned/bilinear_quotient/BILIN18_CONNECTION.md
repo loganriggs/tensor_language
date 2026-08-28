@@ -43894,3 +43894,54 @@ removal stays positive (+0.0213, +0.0165 on skip1200) — net-useful sites that 
 the majority class. **attn15 does not**: it flips positive on the only role that could test it, and
 its magnitudes were the smallest of the three all along (0.0014–0.0022). The withdrawn §1729 entry
 named three sites; the evidence supports two.
+
+## §1735 — the per-site gap: concentrated and sign-stable, one control mis-specified by me, and a frozen list for the next clean role
+
+`ops/class_gap_site_discovery.py`, 106.1s, **DISCOVERY ONLY** — every eval role is spent for this
+hypothesis family, so this run confirms nothing and certifies nothing. Its product is a frozen list.
+**pred_a False | pred_b True | pred_c False | pred_d True.**
+
+Statistic changed from §1728's ratio to a **difference**: induction per-token damage minus novel
+per-token damage, in nats. A ratio had a denominator that crossed zero at three attention sites; a
+difference does not, and it is comparable across sites in a unit that means something.
+
+```
+  top by gap (matters MORE for copyable targets)      skip7000            skip11000
+    attn14      +0.1101 (0.0969, 0.1242)      attn8   +0.0896 (0.0685, 0.1131)
+    attn8       +0.1046 (0.0797, 0.1344)      attn14  +0.0875 (0.0726, 0.1032)
+    attn16      +0.0599 (0.0503, 0.0707)      attn16  +0.0520 (0.0425, 0.0621)
+  bottom (matters MORE for weight-resident targets)
+    mlp0        -0.9057 (-0.9609, -0.8485)    mlp2    -0.9465 (-0.9915, -0.8986)
+    mlp2        -0.8907 (-0.9446, -0.8371)    mlp0    -0.9376 (-1.0086, -0.8609)
+    mlp17       -0.6838 (-0.7178, -0.6476)    mlp17   -0.6057 (-0.6448, -0.5696)
+```
+
+**pred_b passed: the attention effect is concentrated.** The top three attention sites hold 0.2746
+of 0.3738 total positive attention gap — **73%**. **pred_d passed: 35 of 36 sites keep the same gap
+sign across both roles.** Together those say the per-site question is worth one clean role, which is
+what §1728's ratio formulation could not establish.
+
+**Frozen hypothesis for the next clean role, decided before that role is seen:
+`attn14, attn8, attn16, attn13, attn15`** — the five sites whose gap interval is entirely positive
+on **both** discovery roles. Written to the results JSON so the confirmation run reads it rather
+than re-deciding after seeing fresh rows.
+
+**pred_a FAILED, on one site.** The bar was every gap interval narrower than 0.5 nats with no NaN.
+No NaN anywhere, 35 of 36 intervals well under the bar, and **mlp1 alone at width 0.649 and 0.643**
+— unsurprising for the site with a 7.02-nat stake. So the difference IS well-conditioned where the
+ratio was not, and the prediction as written still fails. Recorded as a fail, not reinterpreted.
+
+**pred_c FAILED because I mis-specified the control, and the failure is worth more than the control
+was.** I summed the 36 *individual* site removals and compared the total to §1662's joint-stack
+stakes. Those are not the same quantity and were never going to match: the sum of eighteen separate
+MLP ablations is **10.298 nats against the joint stack's 4.330**, and eighteen separate attention
+ablations sum to **1.421 against the joint 3.557**. The class-count half of the control passed
+exactly (3394/9127/15453 and 3534/8804/15159 reproducing §1734), which is the half a class error
+would have moved.
+
+The two numbers are a result in their own right and point opposite ways. **MLP sites are heavily
+redundant**: ablated one at a time they cost 2.4x what they cost together, so each site's damage is
+largely recoverable by the others. **Attention sites are the reverse** — jointly they cost 2.5x the
+sum of their individual costs, so the stack's contribution is mostly *cooperative* and invisible when
+you remove one site at a time. That is measured here as a by-product of a broken control and has not
+been tested on its own terms.
