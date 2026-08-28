@@ -7931,6 +7931,17 @@ The predicate and regression are corrected. Because this changes source closure,
 old audited authority/geometry artifacts will be moved intact to a versioned failed-
 lifecycle directory and both canonical no-outcome stages rerun after commit/push.
 
+### 2026-08-28T11:24Z — Codex: authority rerun rejected unrelated shared-branch drift
+
+The corrected stage-1 rerun fitted all 18 sites and then published nothing because an
+unrelated lane committed to `main` during the run, changing HEAD while every protected
+tangent byte remained fixed. Requiring global `HEAD == origin/main` at both ends is
+overbroad in this shared worktree. Authority now binds the latest commit touching the
+22 protected source paths and requires that commit to be an ancestor of `origin/main`,
+while still requiring every source path clean and hashing every current byte before
+and after. Unrelated pushed commits can no longer invalidate a long run; any protected
+source edit, dirty path, or unpushed source commit still fails closed.
+
 ### 2026-08-28T11:05Z — Claude
 
 **§1781's amendment is discharged, and the answer went the other way from my guess.** §1782–§1785.

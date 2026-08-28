@@ -55,20 +55,27 @@ def canonical_sha256(value: Any) -> str:
     ).encode()).hexdigest()
 
 
-def git_identity() -> dict[str, str]:
+def git_identity(source_paths: Sequence[Path]) -> dict[str, Any]:
     def read(*arguments: str) -> str:
         return subprocess.run(
             ("git", *arguments), cwd=ROOT, check=True, text=True,
             stdout=subprocess.PIPE, stderr=subprocess.PIPE,
         ).stdout.strip()
 
-    identity = {
-        "head": read("rev-parse", "HEAD"),
-        "origin_main": read("rev-parse", "origin/main"),
+    relative = [str(path.resolve().relative_to(ROOT)) for path in source_paths]
+    source_commit = read("log", "-1", "--format=%H", "--", *relative)
+    if not source_commit:
+        raise RuntimeError("tangent source closure has no committed identity")
+    reachable = subprocess.run(
+        ("git", "merge-base", "--is-ancestor", source_commit, "origin/main"),
+        cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+    ).returncode == 0
+    if not reachable:
+        raise RuntimeError("latest tangent source commit is not pushed to origin/main")
+    return {
+        "latest_source_commit": source_commit,
+        "reachable_from_origin_main": True,
     }
-    if identity["head"] != identity["origin_main"]:
-        raise RuntimeError("tangent launch commit is not the pushed origin/main commit")
-    return identity
 
 
 def configure_production_runtime() -> dict[str, Any]:
@@ -135,7 +142,7 @@ def protected_snapshot(source_paths: Sequence[Path]) -> dict[str, Any]:
         "source_closure": sources,
         "plan_sha256": sha256_file(PLAN),
         "preregistration_sha256": sha256_file(PREREG),
-        "git": git_identity(),
+        "git": git_identity(source_paths),
     }
     snapshot["fingerprint"] = canonical_sha256(snapshot)
     return snapshot
