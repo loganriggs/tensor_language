@@ -924,3 +924,24 @@ coordinate-descent passes changed the program by zero to five decimals because a
 causal in depth, so a site's fit depends only on what is compiled below it and one bottom-up pass is
 already a fixed point. The identical digits were the evidence; a "no significant change" reading
 would have thrown that away.
+
+## LESSON 37 — one observation is not a law, especially when it becomes a design decision
+
+§1751 took a shortcut — one interleaved compile served three correction ranks, with the prefix built
+at the top rank — and observed that the rank-128 prefix made the rank-8 program *better*. §1757
+reused the shortcut and wrote that observation into its header as an established asymmetry. **It
+reversed**: with compressed tables the same shortcut made the rank-8 program worse by 0.325 nats, and
+four of six cells in the grid became uninterpretable.
+
+- **An observation from one configuration is a fact about that configuration.** Before it justifies a
+  design choice elsewhere, it needs to have been measured in the new configuration, or the choice
+  needs to not depend on it.
+- **Watch for the sentence "X measured this as helping, so the shortcut is safe."** That sentence
+  converts a single data point into a licence. The honest version names the sample size: "§1751 saw
+  it help once; direction unknown in general."
+- **A shortcut that couples arms is worth its full cost to remove.** Six compiles instead of two
+  would have cost eight extra minutes and produced six interpretable cells instead of two.
+
+The control is what caught it — the two cells that were supposed to reproduce a published number came
+out 0.33 and 0.76 nats away. Sibling of LESSON 34: a control that can actually fail is the only kind
+worth writing.

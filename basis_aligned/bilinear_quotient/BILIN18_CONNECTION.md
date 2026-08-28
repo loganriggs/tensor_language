@@ -45008,3 +45008,55 @@ whether a bigger correction on a smaller table beats both.
 Controls (pred_d): ranks 64 and 16 reproduced §1755's +0.53433/+0.54064 and +0.46968/+0.46878 to
 within 5e-5 — two arms re-run in a sixth independent script — with table-only CE 7.35114, live CE
 3.29205, and coverage asserted at exactly 5419 of 50257.
+
+## §1757 — best fidelity yet, +0.78535 at 25.8M reals; and the control failed because I carried a one-run observation forward as a fact, which then reversed
+
+`ops/correction_rank_at_low_table.py`, 205.8s, **DISCOVERY ONLY**.
+**pred_a True (contaminated) | pred_b False | pred_c True | pred_d False.**
+
+```
+  held out (skip11000), full program cost
+    table 64  corr   8:  15.886M   +0.21545   0.013562 nats/M     <- MISMATCHED
+    table 64  corr  32:  17.877M   +0.61110   0.034184            <- MISMATCHED
+    table 64  corr 128:  25.839M   +0.78535   0.030393            <- self-consistent
+    table  8  corr   8:   2.639M   -0.35349  -0.133950            <- MISMATCHED
+    table  8  corr  32:   4.630M   -0.54457  -0.117628            <- MISMATCHED
+    table  8  corr 128:  12.592M   -0.08503  -0.006753            <- self-consistent
+```
+
+**pred_d FAILED and it caught a genuine design error.** The two correction-rank-8 cells were meant to
+reproduce §1756's +0.54064 and +0.41053. They came out at **+0.21545 and −0.35349**. The cause is in
+this run's construction: **one interleaved compile per table rank served all three correction ranks,
+with the compiled prefix built at rank 128**, so the rank-8 and rank-32 cells measure a small map
+deployed into a prefix compiled for a large one. That is not a program anyone would build, and those
+four cells are marked mismatched above.
+
+**And the reason I built it that way is a correction to myself.** §1751 used the same shortcut and
+observed that a rank-128 prefix made the rank-8 program **better** (+0.46905 against §1748's
++0.38578). I wrote that observation into this run's header as "an asymmetry §1751 measured as helping
+rather than hurting the lower ranks". **Here it reverses hard**: with compressed tables, a rank-128
+prefix makes the rank-8 program **worse by 0.325 nats**. A single observation from one configuration
+became a stated fact in the design of the next, and it did not survive contact with a different table
+rank. The right form was "§1751 saw it help once, direction unknown in general", and the right build
+was one compile per cell.
+
+**pred_a passed on a contaminated comparison and its number should not be quoted.** It compared
+`t8_c128` against `t8_c8`, and the second is mismatched, so +0.26846 is not a clean measure of what
+correction rank buys.
+
+**The clean result, from the two self-consistent cells, is the best fidelity in this thread:**
+
+> **table rank 64 with a rank-128 correction recovers +0.78535 nats held out — 18.4% of the
+> table-program stake — for 25.839M reals, 16.6x smaller than the 430.00M of native modules.**
+> That is +0.245 over §1756's best (+0.54064) at 1.6x the cost.
+
+pred_c passed on that cell and is valid. pred_b failed and is valid: 0.0342 nats/M against §1756's
+0.1556, so **the fidelity optimum and the efficiency optimum remain different programs** — rank-8
+tables with a rank-8 correction stay the efficient point, and this is the accurate point.
+
+The corrected grid — one interleaved compile per cell, six compiles — is the obvious next run and is
+queued. Only then can "what does correction rank buy at a starved table" be answered, which is the
+question this run was built for and did not answer.
+
+Controls that did hold: table-only CE 7.35114, live CE 3.29205, coverage asserted at 5419 of 50257,
+all per-site fits on the full 24576 positions.

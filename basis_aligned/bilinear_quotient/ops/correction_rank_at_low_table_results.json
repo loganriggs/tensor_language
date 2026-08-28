@@ -1,0 +1,135 @@
+{
+ "config": {
+  "table_ranks": [
+   64,
+   8
+  ],
+  "corr_ranks": [
+   8,
+   32,
+   128
+  ],
+  "costing": "FULL after \u00a71754: table r*(5419+1152)+2*1152 per site, correction 2*r*1152 per site",
+  "STILL_A_LOWER_BOUND": "the hybrid hook runs the LIVE module on the 24% of scored positions whose token was uncovered at fit time; none of these programs stands alone",
+  "ROLE_NOTE": "DISCOVERY ONLY."
+ },
+ "baseline": {
+  "skip7000": {
+   "live": 3.29205,
+   "table_only": 7.35114,
+   "stake": 4.05909
+  },
+  "skip11000": {
+   "live": 3.09711,
+   "table_only": 7.35825,
+   "stake": 4.26114
+  }
+ },
+ "cells": {
+  "t64_c8": {
+   "table_rank": 64,
+   "corr_rank": 8,
+   "table_cost_M": 15.2225,
+   "factor_cost_M": 0.6636,
+   "total_cost_M": 15.8861,
+   "recovered": {
+    "skip7000": 0.19529,
+    "skip11000": 0.21545
+   },
+   "frac_of_stake": {
+    "skip7000": 0.04811,
+    "skip11000": 0.05056
+   },
+   "nats_per_Mreal": 0.013562
+  },
+  "t64_c32": {
+   "table_rank": 64,
+   "corr_rank": 32,
+   "table_cost_M": 15.2225,
+   "factor_cost_M": 2.6542,
+   "total_cost_M": 17.8767,
+   "recovered": {
+    "skip7000": 0.60115,
+    "skip11000": 0.6111
+   },
+   "frac_of_stake": {
+    "skip7000": 0.1481,
+    "skip11000": 0.14341
+   },
+   "nats_per_Mreal": 0.034184
+  },
+  "t64_c128": {
+   "table_rank": 64,
+   "corr_rank": 128,
+   "table_cost_M": 15.2225,
+   "factor_cost_M": 10.6168,
+   "total_cost_M": 25.8394,
+   "recovered": {
+    "skip7000": 0.77602,
+    "skip11000": 0.78535
+   },
+   "frac_of_stake": {
+    "skip7000": 0.19118,
+    "skip11000": 0.1843
+   },
+   "nats_per_Mreal": 0.030393
+  },
+  "t8_c8": {
+   "table_rank": 8,
+   "corr_rank": 8,
+   "table_cost_M": 1.9754,
+   "factor_cost_M": 0.6636,
+   "total_cost_M": 2.6389,
+   "recovered": {
+    "skip7000": -0.32354,
+    "skip11000": -0.35349
+   },
+   "frac_of_stake": {
+    "skip7000": -0.07971,
+    "skip11000": -0.08296
+   },
+   "nats_per_Mreal": -0.13395
+  },
+  "t8_c32": {
+   "table_rank": 8,
+   "corr_rank": 32,
+   "table_cost_M": 1.9754,
+   "factor_cost_M": 2.6542,
+   "total_cost_M": 4.6296,
+   "recovered": {
+    "skip7000": -0.56325,
+    "skip11000": -0.54457
+   },
+   "frac_of_stake": {
+    "skip7000": -0.13876,
+    "skip11000": -0.1278
+   },
+   "nats_per_Mreal": -0.117628
+  },
+  "t8_c128": {
+   "table_rank": 8,
+   "corr_rank": 128,
+   "table_cost_M": 1.9754,
+   "factor_cost_M": 10.6168,
+   "total_cost_M": 12.5922,
+   "recovered": {
+    "skip7000": -0.11887,
+    "skip11000": -0.08503
+   },
+   "frac_of_stake": {
+    "skip7000": -0.02928,
+    "skip11000": -0.01996
+   },
+   "nats_per_Mreal": -0.006753
+  }
+ },
+ "best_efficiency": "t64_c32",
+ "best_fidelity": "t64_c128",
+ "predictions": {
+  "pred_a_correction_rank_pays_at_low_table": true,
+  "pred_b_beats_S1756_efficiency": false,
+  "pred_c_beats_S1756_fidelity": true,
+  "pred_d_controls": false
+ },
+ "runtime_s": 205.8
+}
