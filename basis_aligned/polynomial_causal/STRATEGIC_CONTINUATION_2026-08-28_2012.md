@@ -73,30 +73,32 @@ distortions. A useful small program must also have a small **interaction state**
 compact variable that predicts how an early replacement changes the cost of later
 replacements.
 
-### 2. The MLP5 channel-localization run is provisional
+### 2. MLP5 is not a small outlier-coordinate circuit
 
-The latest GPU job kept only selected residual-output coordinates of native MLP5 while
-using the compiled version for all other coordinates. Its partial absolute top-1
-numbers were:
+The GPU job kept only selected residual-output coordinates of native MLP5 while using
+the compiled version for all other coordinates. The repaired run completed on all
+three roles and wrote its result artifact. On the primary role:
 
-| Arm | Absolute top-1 |
-|---|---:|
-| B0, native MLP5 | 30.25% |
-| K0, compiled MLP5 | 14.47% |
-| keep 256 largest native/compiled discrepancy coordinates | 19.29% |
-| keep 256 random coordinates | 15.73% |
-| keep 256 largest native-output coordinates | 14.10% |
+| Arm | Absolute top-1 | Normalized gap recovery |
+|---|---:|---:|
+| B0, native MLP5 | 30.25% | 64.8% |
+| K0, compiled MLP5 | 14.47% | 3.6% |
+| keep 16 largest native/compiled discrepancy coordinates | 14.50% | 3.7% |
+| keep 256 largest native/compiled discrepancy coordinates | 19.29% | 22.3% |
+| keep 256 random coordinates | 15.73% | 8.5% |
+| keep 256 largest native-output coordinates | 14.10% | 2.1% |
 
-Relative to the B0-to-K0 loss, the discrepancy choice provisionally recovers about
-30.5%, versus about 8.0% for random coordinates. Merely keeping the largest-output
-coordinates fails. The top 16 discrepancy and top 16 output-magnitude sets had zero
-overlap, which is evidence that “large activation” and “important compiler error” are
-different notions.
+Relative to the B0-to-K0 loss, the 256-coordinate discrepancy choice recovers 30.5%,
+versus 8.0% for random coordinates. But 16 discrepancy coordinates recover only 0.2%
+of the loss, and at widths 4, 16, and 64 the discrepancy choice does not materially
+beat random. Merely keeping the largest-output coordinates fails at every useful
+width. The top 16 discrepancy and top 16 output-magnitude sets have zero overlap.
 
-These are **not banked results**. The script crashed during its closing analysis on a
-label mismatch (`B0_seq` was requested after the arm had been stored as `B0`), so no
-complete registered artifact exists. The safe next step is an identical repair and
-rerun, not post-hoc analysis of these partial lines.
+All three registered positive claims fail: the loss is not concentrated in 16
+coordinates, the high-output coordinates are not the mechanism, and the two
+principled selectors do not consistently beat random. The correct conclusion is not
+that MLP5 lacks structure. It is that its present error is distributed or lies in an
+input-dependent/non-coordinate subspace. A fixed tiny set of residual axes is pruned.
 
 ### 3. The causal response backend is close to a real final measurement
 
@@ -180,13 +182,13 @@ This is experimental progress, not a positive cut-rank result.
    preserved edits, logits, CE, MLP2 compensation, and null controls. The blocker is
    remaining implementation and audit, not data, FineWeb, `rspd`, cache, or GPU
    access.
-2. **Repair and rerun the identical MLP5 concentration job.** It is cheap (the failed
-   run reached the error in about four minutes) and could distinguish a moderately
-   concentrated interface error from a distributed 1,152-coordinate failure. No
-   thresholds or selections should change after seeing the partial output.
-3. **Execute the preregistered layer-5 8-by-8 cut-rank assay.** This asks whether a
+2. **Execute the preregistered layer-5 8-by-8 cut-rank assay.** This asks whether a
    low-dimensional interaction state predicts unmeasured compositions. It is more
    informative than another local PCA/SAE reconstruction and is cleanly falsifiable.
+3. **Test MLP5 in learned, input-dependent subspaces rather than coordinate masks.**
+   The fixed 16-coordinate hypothesis is dead, but a low-rank map, tensor factor, or
+   downstream-weighted subspace could still carry the relevant interaction. Selection
+   must be learned without heldout behavior and compared to matched random subspaces.
 4. **Conditionally fit MLP0/MLP1/MLP2 jointly against response and CE.** Independent
    decompositions should first be tested for composition; if they fail, a shared
    dictionary or low-rank transport state should be optimized jointly. Local MSE is a
@@ -201,6 +203,8 @@ This is experimental progress, not a positive cut-rank result.
 - Additive site prices, one global interaction multiplier, and contiguity have been
   empirically falsified.
 - A global tensor train is underidentified at present.
+- A fixed small set of MLP5 output coordinates is falsified by the completed
+  concentration assay.
 - Another local SAE, HOSVD, or PCA is deferred unless it predicts downstream response
   or enters the joint composition assay; local reconstruction alone has repeatedly
   failed to compose.
@@ -216,5 +220,10 @@ prospective executable protocol and committed as `a5447493`. The registry fixes 
 held-out cells, additive and nonlinear baselines, document bootstrap requirements,
 top-1 and CE targets, and strict predictive gates. Its focused test suite passes
 3/3. No held-out outcome has been inspected.
+
+While this review remained active, the unchanged repaired MLP5 channel assay also
+closed successfully and was committed as `923d0933`. Its three positive predictions
+failed and its control passed, so the fixed-coordinate concentration branch is now
+pruned rather than left as provisional evidence.
 
 ## UPDATE END
