@@ -1,0 +1,716 @@
+{
+  "schema_version": 1,
+  "evidence_id": "bilin18.blocks.4.mlp.z4-programs.v1",
+  "model": "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd",
+  "module": "blocks.4.mlp",
+  "granularity": "module",
+  "interface": {
+    "inputs": [
+      "blocks.4.mlp.rmsnorm_input"
+    ],
+    "output": "blocks.4.mlp.output",
+    "positionwise": true
+  },
+  "inventory_sha256": "aed0af8ae35fa5142847a08e3ddd821f794cd2b09a73ef1abd7edd8562fd2543",
+  "validation_protocol": "bilin18.mlp4.z4-heldout-validation.v1",
+  "validation_results_sha256": null,
+  "controls": {
+    "identity": "retained_live_mlp4",
+    "zero_fidelity": "fit_mean_mlp4_output"
+  },
+  "score_definition": "1-(candidate_ce-live_ce)/(fit_mean_ce-live_ce)",
+  "candidates": [
+    {
+      "candidate_id": "linear_r32",
+      "family": "linear",
+      "capacity": 32,
+      "program_hash": "sha256:d40129d0a2781f635e0bed55904605636f56740a6e3f5b5497ca13f864007d1b",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 1564880,
+        "status": "quotient_generic_stratum",
+        "eligible_for_unconditional_mdl": true,
+        "caveat": "near-degenerate singular strata require another canonicalizer"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "linear_r64",
+      "family": "linear",
+      "capacity": 64,
+      "program_hash": "sha256:99380d42bd0bda49d5feed56d7c71957aacfda0b88306044d409851f63928cbe",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 3084312,
+        "status": "quotient_generic_stratum",
+        "eligible_for_unconditional_mdl": true,
+        "caveat": "near-degenerate singular strata require another canonicalizer"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "linear_r128",
+      "family": "linear",
+      "capacity": 128,
+      "program_hash": "sha256:3057dc642b92a800a6e34e33c7d74e41c997aa75c91d923009cb27d0d8ad3d13",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 6121592,
+        "status": "quotient_generic_stratum",
+        "eligible_for_unconditional_mdl": true,
+        "caveat": "near-degenerate singular strata require another canonicalizer"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "linear_r256",
+      "family": "linear",
+      "capacity": 256,
+      "program_hash": "sha256:c88d60aa8ed9caaac0a12de05205389c25b1879b19e594f9bee6d7b283a28df7",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 12199888,
+        "status": "quotient_generic_stratum",
+        "eligible_for_unconditional_mdl": true,
+        "caveat": "near-degenerate singular strata require another canonicalizer"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "linear_r512",
+      "family": "linear",
+      "capacity": 512,
+      "program_hash": "sha256:317baade7958a4601e6660643c97ac1a0fa5efc912166832f1d0fbc6ceb1f6a3",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 24357576,
+        "status": "quotient_generic_stratum",
+        "eligible_for_unconditional_mdl": true,
+        "caveat": "near-degenerate singular strata require another canonicalizer"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "linear_r1152",
+      "family": "linear",
+      "capacity": 1152,
+      "program_hash": "sha256:c28583ec1cc6a043db436595b6a7c6c51faaf8bfb96a61a0d48d89eb83d7a3d5",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 54753240,
+        "status": "quotient_generic_stratum",
+        "eligible_for_unconditional_mdl": true,
+        "caveat": "near-degenerate singular strata require another canonicalizer"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "native_k32",
+      "family": "native_product",
+      "capacity": 32,
+      "program_hash": "sha256:64a4e61f42a40b00582240cb3d1234e7517e58f328716237e3e5c523f65f2d67",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 2764432,
+        "status": "conditional_known_gauge",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "global partially symmetric CP equivalence is not quotiented"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "native_k64",
+      "family": "native_product",
+      "capacity": 64,
+      "program_hash": "sha256:f9f3983f0f25ffa41bfb767b858961a3e24dd3545f5f8a1dd469cd214af6af92",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 5482192,
+        "status": "conditional_known_gauge",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "global partially symmetric CP equivalence is not quotiented"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "native_k128",
+      "family": "native_product",
+      "capacity": 128,
+      "program_hash": "sha256:ae605c557b2a7165c731f4f51ed8b25cb83a78e15b0e6bb5954f81c073ead044",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 10913760,
+        "status": "conditional_known_gauge",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "global partially symmetric CP equivalence is not quotiented"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "native_k256",
+      "family": "native_product",
+      "capacity": 256,
+      "program_hash": "sha256:4a04e424da25ec887622d6a624e275f529953e55bdfe3a37f758075304debac1",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 21761312,
+        "status": "conditional_known_gauge",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "global partially symmetric CP equivalence is not quotiented"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "native_k512",
+      "family": "native_product",
+      "capacity": 512,
+      "program_hash": "sha256:30a17b62d19a92fa051549d4f828d6517af160d8376544158e0d2d77d32045cc",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 43443432,
+        "status": "conditional_known_gauge",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "global partially symmetric CP equivalence is not quotiented"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "random_k32",
+      "family": "seeded_random_product",
+      "capacity": 32,
+      "program_hash": "sha256:22a0ccd053a7d8c8155fdea0ef1b57ba14d033fafaa868d2c3fe0629c2ee3734",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 1123592,
+        "status": "canonical_seeded_program_nonminimal",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "portable executable length; no minimal-program claim"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "random_k64",
+      "family": "seeded_random_product",
+      "capacity": 64,
+      "program_hash": "sha256:f28933eb5b3e3be271776a6365e2a680700164ed7f5759ab5eb943811ced521d",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 2199312,
+        "status": "canonical_seeded_program_nonminimal",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "portable executable length; no minimal-program claim"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "random_k128",
+      "family": "seeded_random_product",
+      "capacity": 128,
+      "program_hash": "sha256:979504f2218b4ec18bb892593b1c539b4154c08607e420562e57c1482bf44cc1",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 4351136,
+        "status": "canonical_seeded_program_nonminimal",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "portable executable length; no minimal-program claim"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "random_k256",
+      "family": "seeded_random_product",
+      "capacity": 256,
+      "program_hash": "sha256:7f8955aa4349ac40e63ebfff589129af0cb81baa67794d0cbf50ec7e3c1d9b01",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 8600752,
+        "status": "canonical_seeded_program_nonminimal",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "portable executable length; no minimal-program claim"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "random_k512",
+      "family": "seeded_random_product",
+      "capacity": 512,
+      "program_hash": "sha256:83d4a709063a08914670db84251aab267f9d3b7590887f897f7ba1abd68da541",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 17015952,
+        "status": "canonical_seeded_program_nonminimal",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "portable executable length; no minimal-program claim"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "random_k1024",
+      "family": "seeded_random_product",
+      "capacity": 1024,
+      "program_hash": "sha256:cc1df4fe217709c60f05a0ee5d3c54d8304a01a621eb4ea727ff735398b4cd97",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 33685584,
+        "status": "canonical_seeded_program_nonminimal",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "portable executable length; no minimal-program claim"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    },
+    {
+      "candidate_id": "random_k2048",
+      "family": "seeded_random_product",
+      "capacity": 2048,
+      "program_hash": "sha256:28653e98fa5b1e7c434092e4484acdec0a67c4d39861ee441268274980217254",
+      "declared_inputs": [
+        "blocks.4.mlp.rmsnorm_input"
+      ],
+      "price": {
+        "bits": 66934848,
+        "status": "canonical_seeded_program_nonminimal",
+        "eligible_for_unconditional_mdl": false,
+        "caveat": "portable executable length; no minimal-program claim"
+      },
+      "operational_lanes": {
+        "held_out": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "composite": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "extraction": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "removal": {
+          "status": "unmeasured",
+          "score": null
+        },
+        "ood": {
+          "status": "unmeasured",
+          "score": null
+        }
+      },
+      "frontier_eligible": false
+    }
+  ],
+  "coverage": {
+    "held_out": 0,
+    "composite": 0,
+    "extraction": 0,
+    "removal": 0,
+    "ood": 0
+  },
+  "promotion_policy": "all five lanes required; price eligibility remains separate"
+}

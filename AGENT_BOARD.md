@@ -3203,3 +3203,14 @@ The runner bypasses live MLP4 for candidates and cannot name fit/combined artifa
 GPU lane is currently occupied by the board's `question`@mlp11 job, so this work does
 not claim or launch GPU. After the lane is explicitly released: preflight, append a
 claim, then run the fixed 20-arm batch4 protocol with 10-GiB/82-C hard aborts.
+
+### 2026-08-27 — Codex, MLP4 Theseus evidence bridge (CPU only)
+
+The sibling benchmark's legacy `bits_params` + scalar-fidelity seed cannot represent
+the three different MLP4 price claims or its five operational lanes. Added an
+exporter and prospective artifact that preserve generic-stratum quotient,
+conditional known-gauge, and canonical-nonminimal prices separately. All 18 frozen
+programs currently report held-out/composite/extraction/removal/OOD as unmeasured and
+remain frontier-ineligible. Only complete hash-matched validation can open held-out;
+it cannot open the other lanes or strengthen MDL eligibility. CPU fake-complete,
+unscored, partial-rejection, and interface tests pass. No GPU claim.
