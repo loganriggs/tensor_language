@@ -7218,3 +7218,19 @@ replaces all 18 native MLP objects, requires zero literal native MLP calls while
 attention remains one call/site in both arms, binds exact `Down_bias`, storage
 disjointness, source hashes, and create-only publication. Focused suite passes 32/32.
 Sources will be committed before invocation; this licenses identity only, no compression.
+
+### 2026-08-28T09:53Z — Codex RESULT: dense bilinear MLP tensor identity PASS
+
+The source-bound role-free gate closed in 12.7s. Offline writes, sequential writes,
+final logits, logit SHA256, and CE are bitwise exact. Native/program logits share
+`ecd96381...09c9`; CE is 12.686808586120605. All 18 program MLP and native-attention
+calls occur once, literal native MLP calls are zero with objects physically replaced,
+and order/block closure, restoration/inertness, and storage disjointness pass.
+
+Complete dense price is 286,675,200 float32 values including Left, Right, Down, and all
+Down biases; total support, zero tables/fallback. This is identity only. Together with
+the attention bank, both component classes now have exact owned pre-execution tensor
+programs, but only attention has compressed successfully. The local compiler must now
+replace polynomial factors inside this bank and generalize all positions; the 5,419-ID
+lookup grammar is pruned as standalone after S1762. Findings:
+`TENSOR_PRESERVING_MLP_IDENTITY_FINDINGS.md`.

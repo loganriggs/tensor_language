@@ -104,3 +104,25 @@ bilinear residual products—not another rank allocation over a lookup table fit
 5,419 token IDs. The exact pre-execution MLP bank is therefore the right identity target
 for the next compiler; table programs cannot be admitted until they generalize on the
 all-position denominator and pass native-object poisoning.
+
+## 09:52 result: both tensor classes now have exact executable identities
+
+The dense MLP bank passed its role-free gate in 12.7 seconds. Every offline and
+sequential write, final logit, logit hash, and synthetic CE is bitwise identical to
+native. All 18 native MLP objects were physically replaced; literal native MLP calls
+were zero, native attention remained one call per site in both arms, storage is
+disjoint, and transaction closure passes. The complete dense MLP identity price is
+286.675M values including every Down bias.
+
+This closes the architectural interface but not the compression gap. The model can now
+be expressed entirely through owned attention and MLP tensor programs at the dense
+identity point. Only attention has earned a compressed point. The next MLP compiler
+should operate on the polynomial representation itself—shared Left/Right input codes,
+Down-output quotients, and suffix-selected exact products—and use an embedding-conditioned
+lexical map only if it predicts held-out token identities. A lookup table over 5,419
+seen IDs is pruned as a standalone grammar.
+
+A separate one-position instrument check confirms that uncovered positions can affect
+later covered positions through both attention and MLP paths, so the earlier exact
+covered-score null is not an architectural isolation theorem. It remains an unexplained
+property of those refitted arms and should not be promoted.
