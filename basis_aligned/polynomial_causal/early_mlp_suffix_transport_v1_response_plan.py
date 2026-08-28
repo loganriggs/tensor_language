@@ -234,6 +234,52 @@ class ResponseForwardReceipt:
             raise ValueError("response forward receipt header is malformed")
 
 
+def expected_physical_edit_sha256(plan: ResponseForwardPlan) -> str:
+    """Bind the physical edit to rows, unit, batch, and registered sign."""
+
+    if not isinstance(plan, ResponseForwardPlan):
+        raise TypeError("physical edit identity requires a response forward plan")
+    return runtime.logical_identity_sha256({
+        "ordered_role_rows_sha256": plan.ordered_role_rows_sha256,
+        "intervention_unit_sha256": plan.intervention_unit_sha256,
+        "batch_ordinal": plan.batch_ordinal,
+        "perturbation": plan.perturbation,
+        "edit_sign": plan.edit_sign,
+    })
+
+
+@dataclass(frozen=True, slots=True)
+class ResponseArmReductionReceipt:
+    """Bind one arm's reduction to its exact shared teacher and student triplets."""
+
+    action_key: str
+    batch_plan_sha256: str
+    teacher_forward_plan_sha256s: tuple[str, str, str]
+    student_forward_plan_sha256s: tuple[str, str, str]
+    reduction_payload_sha256: str
+
+    def __post_init__(self) -> None:
+        if self.action_key not in RESPONSE_ACTION_KEYS:
+            raise ValueError("response reduction action is outside the plan")
+        _sha256("response reduction batch plan", self.batch_plan_sha256)
+        _sha256("response reduction payload", self.reduction_payload_sha256)
+        if not isinstance(self.teacher_forward_plan_sha256s, tuple) or len(
+            self.teacher_forward_plan_sha256s
+        ) != 3 or not isinstance(self.student_forward_plan_sha256s, tuple) or len(
+            self.student_forward_plan_sha256s
+        ) != 3 or any(not runtime._sha256_text(value) for value in (
+            *self.teacher_forward_plan_sha256s,
+            *self.student_forward_plan_sha256s,
+        )):
+            raise ValueError("response reduction triplet identity is malformed")
+
+    @property
+    def sha256(self) -> str:
+        return runtime.logical_identity_sha256({
+            name: getattr(self, name) for name in self.__dataclass_fields__
+        })
+
+
 @dataclass(frozen=True, slots=True)
 class ResponseBatchReceipt:
     """Exact, ordered closure of one atomic paired-response batch."""
@@ -273,7 +319,7 @@ class ResponseBatchReceipt:
 def seal_response_batch(
     *, plan: ResponseBatchPlan,
     forward_receipts: Sequence[ResponseForwardReceipt],
-    reduction_sha256s: Mapping[str, str],
+    reductions: Mapping[str, ResponseArmReductionReceipt],
 ) -> ResponseBatchReceipt:
     """Bind observed receipts to the plan; reject arm/sign/row fabrication."""
 
@@ -290,16 +336,33 @@ def seal_response_batch(
         ) or observed.batch_ordinal != expected.batch_ordinal or (
             observed.observed_call_pattern_sha256
             != expected.expected_call_pattern_sha256
+        ) or observed.physical_edit_sha256 != expected_physical_edit_sha256(
+            expected
         ):
             raise RuntimeError("response receipt differs from its planned forward")
-    if not isinstance(reduction_sha256s, Mapping) or tuple(
-        reduction_sha256s
+    if not isinstance(reductions, Mapping) or tuple(
+        reductions
     ) != RESPONSE_ACTION_KEYS:
         raise RuntimeError("response reduction labels are incomplete or reordered")
+    teacher_sha256s = tuple(value.sha256 for value in plan.forwards[:3])
+    reduction_identities: list[tuple[str, str]] = []
+    for index, action_key in enumerate(RESPONSE_ACTION_KEYS):
+        value = reductions[action_key]
+        start = 3 + 3 * index
+        expected_students = tuple(
+            item.sha256 for item in plan.forwards[start:start + 3]
+        )
+        if not isinstance(value, ResponseArmReductionReceipt) or (
+            value.action_key != action_key
+        ) or value.batch_plan_sha256 != plan.sha256 or (
+            value.teacher_forward_plan_sha256s != teacher_sha256s
+        ) or value.student_forward_plan_sha256s != expected_students:
+            raise RuntimeError("response reduction differs from its planned arm")
+        reduction_identities.append((action_key, value.sha256))
     return ResponseBatchReceipt(
         batch_plan_sha256=plan.sha256,
         forward_receipts=supplied,
-        reduction_sha256s=tuple(reduction_sha256s.items()),
+        reduction_sha256s=tuple(reduction_identities),
     )
 
 

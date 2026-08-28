@@ -9,3 +9,72 @@ Retrying in 4s [Retry 3/5].
 Retrying in 8s [Retry 4/5].
 'Server disconnected without sending a response.' thrown while requesting GET https://huggingface.co/datasets/HuggingFaceFW/fineweb/resolve/9bb295ddab0e05d785b879661af7260fed5140fc/data/CC-MAIN-2013-20/000_00000.parquet
 Retrying in 8s [Retry 5/5].
+training old_relu seed=0
+  clean R2=0.7256 CE-rec=0.9808
+training old_relu seed=1
+  clean R2=0.7234 CE-rec=0.9804
+training old_relu seed=2
+  clean R2=0.7240 CE-rec=0.9810
+training signed_unit seed=0
+  clean R2=0.7388 CE-rec=0.9826
+training signed_unit seed=1
+  clean R2=0.7384 CE-rec=0.9830
+training signed_unit seed=2
+  clean R2=0.7385 CE-rec=0.9828
+training signed_unit_noise seed=0
+  clean R2=0.7388 CE-rec=0.9831
+training signed_unit_noise seed=1
+  clean R2=0.7387 CE-rec=0.9828
+training signed_unit_noise seed=2
+  clean R2=0.7384 CE-rec=0.9828
+{
+  "winner": "signed_unit_noise",
+  "summary": {
+    "old_relu": {
+      "mean_clean_r2": 0.724331,
+      "std_clean_r2": 0.000957,
+      "mean_ce_recovery": 0.980749,
+      "best_seed": 0,
+      "best_clean_r2": 0.72564,
+      "oracle_iht_r2": 0.739519,
+      "oracle_gap": 0.013879,
+      "last_three_r2_range": 7.8e-05,
+      "final_to_best_r2_gap": 0.0,
+      "mean_atom_best_cosine": 0.471039,
+      "mean_rank64_subspace_overlap": 0.709162
+    },
+    "signed_unit": {
+      "mean_clean_r2": 0.738563,
+      "std_clean_r2": 0.000183,
+      "mean_ce_recovery": 0.982828,
+      "best_seed": 0,
+      "best_clean_r2": 0.738816,
+      "oracle_iht_r2": 0.748208,
+      "oracle_gap": 0.009392,
+      "last_three_r2_range": 5e-05,
+      "final_to_best_r2_gap": 0.0,
+      "mean_atom_best_cosine": 0.51647,
+      "mean_rank64_subspace_overlap": 0.833989
+    },
+    "signed_unit_noise": {
+      "mean_clean_r2": 0.738646,
+      "std_clean_r2": 0.000142,
+      "mean_ce_recovery": 0.98292,
+      "best_seed": 0,
+      "best_clean_r2": 0.73876,
+      "oracle_iht_r2": 0.748146,
+      "oracle_gap": 0.009386,
+      "last_three_r2_range": 3.5e-05,
+      "final_to_best_r2_gap": 0.0,
+      "mean_atom_best_cosine": 0.516666,
+      "mean_rank64_subspace_overlap": 0.829809
+    }
+  },
+  "pred_a": true,
+  "pred_b": true,
+  "pred_c": false,
+  "pred_d": false,
+  "pred_e": true,
+  "decision": "amortized_encoder_not_the_main_flat_dictionary_bottleneck"
+}
+wrote /workspace/tensor_language/basis_aligned/bilinear_quotient/ops/mlp0_weight_sae_optimizer_discriminator_results.json (170.8s)
