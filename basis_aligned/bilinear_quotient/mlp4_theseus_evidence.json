@@ -1,5 +1,8 @@
 {
   "schema_version": 1,
+  "artifact_role": "preregistered_evidence_adapter_not_theseus_submission",
+  "theseus_harness_verified": false,
+  "self_reported_scores_frontier_admissible": false,
   "evidence_id": "bilin18.blocks.4.mlp.z4-programs.v1",
   "model": "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd",
   "module": "blocks.4.mlp",
@@ -1023,5 +1026,5 @@
     "removal": 0,
     "ood": 0
   },
-  "promotion_policy": "all five lanes required; price eligibility remains separate"
+  "promotion_policy": "all five lanes plus an independent Theseus harness transcript are required; price eligibility remains separate"
 }

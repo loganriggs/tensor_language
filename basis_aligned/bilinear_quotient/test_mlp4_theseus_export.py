@@ -5,6 +5,10 @@ from . import mlp4_theseus_export as export
 
 def test_unscored_export_preserves_price_claims_and_closed_lanes(tmp_path):
     result = export.build(tmp_path/"absent.json")
+    assert result["artifact_role"] == \
+        "preregistered_evidence_adapter_not_theseus_submission"
+    assert not result["theseus_harness_verified"]
+    assert not result["self_reported_scores_frontier_admissible"]
     assert len(result["candidates"]) == 18
     assert result["coverage"] == {lane: 0 for lane in export.LANES}
     by_family = {}
@@ -60,6 +64,7 @@ def test_complete_fake_results_open_only_heldout(tmp_path):
     assert result["coverage"]["held_out"] == 18
     assert all(result["coverage"][lane] == 0 for lane in export.LANES[1:])
     assert all(not row["frontier_eligible"] for row in result["candidates"])
+    assert not result["theseus_harness_verified"]
 
 
 def test_partial_or_hash_mismatched_results_are_rejected(tmp_path):

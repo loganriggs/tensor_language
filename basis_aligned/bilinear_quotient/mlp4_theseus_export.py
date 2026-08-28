@@ -127,6 +127,9 @@ def build(results_path=RESULTS):
         })
     return {
         "schema_version": 1,
+        "artifact_role": "preregistered_evidence_adapter_not_theseus_submission",
+        "theseus_harness_verified": False,
+        "self_reported_scores_frontier_admissible": False,
         "evidence_id": "bilin18.blocks.4.mlp.z4-programs.v1",
         "model": "Elriggs/gpt2-bilinear-sqrd-attn-18l-9h-1152embd",
         "module": "blocks.4.mlp",
@@ -147,7 +150,7 @@ def build(results_path=RESULTS):
         "candidates": candidates,
         "coverage": {lane: sum(c["operational_lanes"][lane]["status"] != "unmeasured"
                                for c in candidates) for lane in LANES},
-        "promotion_policy": "all five lanes required; price eligibility remains separate",
+        "promotion_policy": "all five lanes plus an independent Theseus harness transcript are required; price eligibility remains separate",
     }
 
 

@@ -3329,3 +3329,13 @@ most apparent capacity growth. Second, homogeneous quadratics obey the exact ide
 state-pair induced norm for future composed traces. Dense CPU tensor/SVD/JVP/secant
 oracles pass. Both remain structural upper bounds, not operational evidence; no GPU
 or validation access.
+
+### 2026-08-28 — Codex, Theseus evidence boundary audit (CPU/read-only sibling audit)
+
+Compared the MLP4 exporter against the sibling TheseusBench v0.2 contract. The
+benchmark requires harness-computed fidelity/complexity and verifier-backed frontier
+admission; our JSON is only a provenance adapter. Made that boundary machine-explicit:
+`artifact_role=preregistered_evidence_adapter_not_theseus_submission`, harness
+verification and self-reported-score admissibility are false, and even a complete
+prospective held-out result cannot open the other four lanes or frontier eligibility.
+Added an implementation handoff note for eventual `Replacement`/`Manifest` wiring.
